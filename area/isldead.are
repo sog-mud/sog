@@ -24,12 +24,12 @@ keeps some mighty weapon, which was used centures ago by divine beings.
 But beware: the Gods don't like persons who dare to enter..."
 ~
 unique~
-BRehx 0 HTnz 0 ABgh 0 0
+BJRe 0 HT 0 ABF 0 0
 40 30 10d20+2000 100d2+700 7d7+40 'crush'
 -30 -30 -30 -25
-FKMOlqsu
+FKMO
 stand stand female 0
-AVg ABCDEFPQghijklvw giant unknown
+AV ABCDEFPQ giant unknown
 r fire 33
 r cold 33
 r negative 33
@@ -48,10 +48,10 @@ you, seeking to suck the energy from your soul to feed its
 power.
 ~
 ghost~
-FTlz 0 U 0 ABgh -1000 0
+FT 0 U 0 ABC -1000 0
 38 25 10d50+1500 1d1+100 8d6+25 'drain'
 -20 -20 -20 -20
-FKPlqv
+FKP
 stand stand none 0
 0 0 medium unknown
 #22302
@@ -63,12 +63,12 @@ A legion of evil undead druj animating the skeleton of a once mighty
 sorcerer. His power is devastating in the underworld. Flee his wrath.
 ~
 unique~
-FOTluz 0 Uc 0 ABgh -1000 0
+FJOT 0 Uc 0 ABC -1000 0
 45 40 100d10+5000 100d2+300 10d7+50 'blast'
 -40 -40 -40 -40
-AFJKPglpqv
+AFJKP
 stand stand male 100
-BIVho ABCHUghin huge unknown
+BIV ABCHU huge unknown
 r bash 33
 r pierce 33
 r slash 33
@@ -93,12 +93,12 @@ A shadowy form clutches at you from the darkness, a powerful
 undead with a deadly touch.
 ~
 unique~
-BFOThluz 0 TUz 0 ABgh -1000 0
+BFOT 0 TU 0 ABC -1000 0
 42 30 10d50+2000 1d1+100 8d7+30 'drain'
 -30 -30 -30 -30
-FGKlmq
+FGK
 stand stand none 10
-IVo 0 medium unknown
+IV 0 medium unknown
 r bash 33
 r pierce 33
 r slash 33
@@ -117,12 +117,12 @@ A stench of corruption and decay surrounds this sorceror, who has
 clearly risen from the grave to continue his foul plots and schemes .
 ~
 unique~
-BFGORhlmux 0 TUcz 0 ABgh 0 0
+BFGOR G JTUc 0 AB 0 0
 47 35 100d40+3000 100d5+1000 10d7+30 'blast'
 -30 -30 -30 -30
-AFGKglmq
+AFGK
 stand stand none 20000
-BIZcho ABCDEFGHUghijklmn large unknown
+BIZc ABCDEFGHU large unknown
 r fire -50
 r cold 33
 r holy -50
@@ -140,10 +140,10 @@ A lot of years ago he was a mightly fighter. After his death necromacers had put
 this golem and had ordered him to guard his master mummy.
 ~
 golem~
-BFThlz 0 Vc 0 ABgh 0 0
+BFT 0 Vc 0 ABC 0 0
 45 40 100d50+5000 0d0+0 10d6+60 'thwack'
 -50 -50 -50 -50
-EFKklq
+EFK
 stand stand none 10000
 0 0 huge unknown
 r fire 0
@@ -169,10 +169,10 @@ of the dungeon.  Cold radiating from her freezes your breath in the
 air.
 ~
 lich~
-BFORTVehluxz 0 Tz 0 ABgh -1000 0
+BFORTVe 0 T 0 ABC -1000 0
 47 50 100d5+4000 100d2+1000 20d5+50 'blast'
 -50 -50 -50 -50
-Kq
+K
 stand stand female 20000
 0 0 large unknown
 r light -50
@@ -187,10 +187,10 @@ mysteries of the dungeon.  Cold radiating from him freezes your
 breath in the air.
 ~
 lich~
-BFORTVehluxz 0 Tz 0 ABgh -1000 0
+BFORTVe 0 T 0 ABC -1000 0
 47 50 100d5+4000 100d2+1000 20d5+50 'blast'
 -50 -50 -50 -50
-Kq
+K
 stand stand male 20000
 0 0 large unknown
 r light -50
@@ -206,10 +206,10 @@ mysteries of the dungeon.  Cold radiating from him freezes your
 breath in the air.
 ~
 lich~
-BFORTVehluxz 0 Tz 0 ABgh -1000 0
+BFORTVe 0 T 0 ABC -1000 0
 47 0 100d5+4000 100d2+1000 20d5+50 'blast'
 -50 -50 -50 -50
-Kq
+K
 stand stand male 20000
 0 0 large unknown
 r light -50
@@ -225,10 +225,10 @@ is set here, guarding the mysteries of the dungeon. You can feel
 a furnace cold radiating from his form.
 ~
 lich~
-BFORTVehluxz 0 Tz 0 ABgh -1000 0
+BFORTVe 0 T 0 ABC -1000 0
 49 55 100d5+4500 100d2+1000 20d6+40 'drain'
 -55 -55 -55 -55
-Kq
+K
 stand stand male 22000
 0 0 large unknown
 r light -50
@@ -243,10 +243,10 @@ mysteries of the dungeon. You can feel a furnace cold radiating
 from his form.
 ~
 lich~
-BFORTVehluxz 0 Tz 0 ABgh -1000 0
+BFORTVe 0 T 0 ABC -1000 0
 49 55 100d5+4500 100d2+1000 20d6+40 'blast'
 -55 -55 -55 -55
-Kq
+K
 stand stand male 21000
 0 0 large unknown
 r light -50
@@ -262,10 +262,10 @@ of the dungeon. You can feel a furnace cold radiating from
 his form.
 ~
 lich~
-BFORTVehluxz 0 Tz 0 ABgh -1000 0
+BFORTVe 0 T 0 ABC -1000 0
 49 55 100d5+4500 100d2+1000 20d6+40 'blast'
 -55 -55 -55 -55
-Kq
+K
 stand stand male 21000
 0 0 large unknown
 r light -50
@@ -280,10 +280,10 @@ guarding the mysteries of the dungeon.  The air around you
 warps with energy as you come closer.
 ~
 lich~
-BFORTVehluxz 0 Tz 0 ABgh -1000 0
+BFORTVe 0 T 0 ABC -1000 0
 51 60 100d5+4800 100d2+1000 20d7+40 'blast'
 -60 -60 -60 -60
-Kq
+K
 stand stand male 22000
 0 0 large unknown
 r light -50
@@ -299,10 +299,10 @@ dungeon.  The air around you warps with energy as you come
 closer.
 ~
 lich~
-BFORTVehluxz 0 Tz 0 ABgh -1000 0
+BFORTVe 0 T 0 ABC -1000 0
 51 60 100d6+4800 100d2+1000 20d7+40 'blast'
 -60 -60 -60 -60
-Kq
+K
 stand stand male 22000
 0 0 large unknown
 r light -50
@@ -320,10 +320,10 @@ dungeon. The air around you warps with energy as you come
 closer.
 ~
 lich~
-BFORTVehluxz 0 Tz 0 ABgh -1000 0
+BFORTVe 0 T 0 ABC -1000 0
 52 60 100d7+5000 100d3+1200 20d8+50 'blast'
 -65 -65 -65 -65
-ACGIKgimoq
+ACGIK
 stand stand male 25000
 0 0 huge unknown
 #22315
@@ -336,12 +336,12 @@ of small eyes on stalks which surround the air around you with piercing
 shrieking so you can't get closer.
 ~
 unique~
-BCGRhimx 0 Tz 0 ABgh -1000 0
+BCGJR 0 JT 0 ABC -1000 0
 63 60 100d7+6400 100d5+3000 20d3+50 'sting'
 -60 -60 -60 -60
-AFGKglmq
+AFGK
 stand stand none 10000
-BIVcho AEKUgkq large unknown
+BIVc AEKU large unknown
 r bash 33
 r pierce 33
 r slash 33
@@ -369,10 +369,10 @@ power from beneath it's helmet.  Though you can see straight through
 its ghostly shape, it looks MORE tougher than ghosts you see before...
 ~
 ghost~
-BCFGThilmz 0 0 0 ABgh -1000 0
+BCFGT 0 J 0 ABC -1000 0
 63 60 200d10+7000 100d3+1000 20d4+60 'peck'
 -50 -50 -50 -50
-AFKglq
+AFK
 stand stand none 15000
 0 0 huge unknown
 r fire 33
@@ -396,12 +396,12 @@ is capable to send you there with one blow.  Its muscular form looks
 extremely powerful next to your own frail body.
 ~
 unique~
-BCFGThilmz 0 Tz 0 ABgh -1000 0
+BCFGJT 0 JT 0 ABC -1000 0
 64 60 200d10+6500 200d2+1000 30d3+40 'blast'
 -55 -55 -55 -55
-AFGKglmq
+AFGK
 stand stand male 20000
-ABVgh ABCDEFGHQWghijklmnw huge unknown
+ABV ABCDEFGHQW huge unknown
 r bash -50
 r pierce 33
 r slash 33
@@ -423,12 +423,12 @@ that smoulder red. The dungeon floor where he stands is scorched by the heat of
 his body.
 ~
 unique~
-CTiz 0 TUVbcz Gm ABgh -1000 0
+CEJT 0 TUVc G ABC -1000 0
 65 60 100d10+15000 100d5+3000 20d7+50 'blast'
 -65 -65 -65 -65
-ACEFGIKMOPgiklmoqsuv
+ACEFGIKMOP
 stand stand male 30000
-ABVgh ABCDEFPUghijklv gargantuan unknown
+ABV ABCDEFPU gargantuan unknown
 r bash 100
 r pierce 100
 r fire 100
@@ -451,10 +451,10 @@ She is a highly cunning, extremely magical being, spoken of in legends, this
 ancient shadow of death wilts any living thing it passes.
 ~
 lich~
-BCFORhilux 0 Tz 0 ABgh -1000 0
+BCFOR 0 JT 0 ABC -1000 0
 63 60 100d10+4500 100d2+3000 30d3+40 'crush'
 -50 -50 -50 -50
-AKgq
+AK
 stand stand female 20000
 0 0 medium unknown
 r light -50
@@ -468,12 +468,12 @@ Those who stood against him before are but a memory, cremated by his mastery of
 the elemental fire.
 ~
 unique~
-BCFRhilx 0 Tz 0 ABgh -1000 0
+BCFJR 0 JT 0 ABC -1000 0
 63 60 200d10+6500 100d2+4000 30d3+60 'thwack'
 -60 -60 -60 -60
-AFGKglmq
+AFGK
 stand stand male 10000
-BVh ABCDEFghijkl small unknown
+BV ABCDEF small unknown
 r bash 33
 r slash 100
 r fire 100
@@ -496,10 +496,10 @@ here in this pitiful form, but the power he possess still capable to
 destroy you.
 ~
 minotaur~
-BCFhil 0 Tz 0 ABgh -1000 0
+BCF 0 T 0 ABC -1000 0
 60 50 200d10+15000 1d1+700 60d1+70 'grep'
 -70 -70 -70 -30
-AKZgq
+AKZ
 stand stand male 20000
 0 0 huge unknown
 r bash 33
@@ -517,10 +517,10 @@ hideous black body seems to struggle against reality as the universe itself
 struggles to banish it.
 ~
 ghost~
-CFRTilxz 0 0 0 ABgh -1000 0
+CFRT 0 0 0 ABC -1000 0
 55 50 100d5+3000 1d1+500 10d5+30 'bite'
 -45 -45 -45 -45
-FKPlqv
+FKP
 stand stand none 0
 0 0 medium unknown
 r bash 0
@@ -538,10 +538,10 @@ Nightwing reaches out to draw you into oblivion. Your muscles sag and your mind
 loses all will to fight as you stand in awe of this mighty being.
 ~
 death knight~
-CFTilz 0 Tz 0 ABgh -1000 0
+CFT 0 T 0 ABC -1000 0
 57 50 100d6+3500 1d1+300 10d6+30 'digestion'
 -50 -50 -50 -50
-AFGPglmv
+AFGP
 stand stand none 0
 0 0 large unknown
 r pierce 33
@@ -557,10 +557,10 @@ A phantasmal demon with glowing red eyes shining out in the dark.
 Its gaze drives the intense cold of pure evil deep within your body.
 ~
 lich~
-CFORTiluxz 0 Tz 0 ABgh -1000 0
+CFORT 0 T 0 ABC -1000 0
 59 55 100d7+4000 100d1+1000 10d7+30 'wrath'
 -50 -50 -50 -50
-GKmq
+GK
 stand stand none 0
 0 0 large unknown
 r slash 100
@@ -576,12 +576,12 @@ A man-shaped form of living lightning, sparks and shocks crackle all over the
 madly capering figure. It leaps and whirls around and about you..... .
 ~
 unique~
-CFRilx 0 Tz 0 ABgh -1000 0
+CFR 0 T 0 ABC -1000 0
 53 50 100d4+2500 100d2+1000 6d10+25 'beating'
 -45 -45 -45 -45
-FGKlmq
+FGK
 stand stand none 0
-ABVgh ABCEghik medium unknown
+ABV ABCE medium unknown
 r bash 33
 r pierce 33
 r slash 33
@@ -603,12 +603,12 @@ it lines all for walls of the corridors it patrols, through it's transparent
 jelly structure you can see treasures that has been engulfed, and a few corpses
 ~
 unique~
-CFRilx 0 Tz 0 ABgh -1000 0
+CFR 0 T 0 ABC -1000 0
 57 45 100d5+3300 100d3+1000 10d5+40 'grep'
 -50 -50 -50 -50
-AFGKglmq
+AFGK
 stand stand none 0
-ABVgh ABCDEghijk large unknown
+ABV ABCDE large unknown
 r bash 100
 r pierce 33
 r slash 33
@@ -630,10 +630,10 @@ When he was put here he was a small young dragon. But now he became a bit bigger
 he couldn't leave this room. So he is very hungry. 
 ~
 dragon~
-BCTUhiz 0 Hn 0 ABgh 0 0
+BCTU 0 H 0 ABC 0 0
 60 50 100d9+6000 100d1+1000 20d5+30 'sting'
 -60 -60 -60 -60
-AGKgmq
+AGK
 stand stand male 0
 0 0 gargantuan unknown
 M give 22300 22352~
@@ -659,7 +659,7 @@ history that your grandfather told you many years ago. You see a Lord of the
 Darkness. He was  imprisoned in his fortress by the Gods. And now you find him.
 ~
 dragon~
-FTlz 0 0 0 ABgh -1000 0
+FT 0 0 0 ABC -1000 0
 65 50 100d5+20000 200d2+5000 20d4+50 'wrath'
 -60 -60 -60 -60
 0
@@ -681,7 +681,7 @@ human~
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #0
 
 #OBJECTS
@@ -690,7 +690,7 @@ key of the crypts~
 key of the crypts~
 A small key with engraved outline of the crypt lies in the dirt.~~~
 iron~
-key U IJKopq Ou
+key U I O
 0 0 0 0 0
 0 10 10000 P
 g none~
@@ -699,7 +699,7 @@ bushido blade sword~
 the Bushido blade~
 A thin and straight steel sword sticks from ground.~
 steel~
-weapon Bh 0 ANgt
+weapon B 0 AN
 sword 5 9 'cleave' 0
 45 5 40000 P
 A
@@ -714,7 +714,7 @@ kabuto battle helm~
 the Kabuto~
 A horned battle helm sits on the floor.~
 steel~
-armor 0 Ci AEgk
+armor 0 C AE
 15 15 13 10 0
 45 8 30000 P
 A
@@ -733,7 +733,7 @@ hi-kane-do battle gown~
 the Hi-Kane-Do battle gown~
 A scaled battle gown lies here.~
 steel~
-armor 0 Ci ADgj
+armor 0 C AD
 20 20 20 15 0
 45 20 30000 P
 A
@@ -748,7 +748,7 @@ hi-kane-do battle leggings~
 the Hi-Kane-Do battle leggings~
 Some scaled battle leggins lie here.~
 steel~
-armor 0 Ci AFgl
+armor 0 C AF
 17 17 15 13 0
 45 11 30000 P
 A
@@ -765,7 +765,7 @@ hi-kane-do battle sleeves~
 the Hi-Kane-Do battle sleeves~
 Some scaled battle sleeves lie here.~
 steel~
-armor 0 Ci AIgo
+armor 0 C AI
 10 10 10 9 0
 45 9 30000 P
 A
@@ -780,7 +780,7 @@ hi-kane-do battle gloves~
 the Hi-Kane-Do battle gloves~
 Some scaled battle gloves lie here.~
 steel~
-armor 0 Ci AHgn
+armor 0 C AH
 10 10 10 9 0
 45 8 0 P
 A
@@ -797,7 +797,7 @@ hi-kane-do battle boots~
 the Hi-Kane-Do battle boots~
 Some scaled battle boots lie here.~
 steel~
-armor 0 Ci AGgm
+armor 0 C AG
 10 10 10 7 0
 45 13 30000 P
 A
@@ -814,7 +814,7 @@ bracer defence~
 a bracer of defence~
 A firm steel bracer lies here.~
 steel~
-armor Ci 0 AMgs
+armor C 0 AM
 8 8 8 6 0
 40 3 30000 P
 A
@@ -829,7 +829,7 @@ black belt five flowers~
 a black belt of the 5 flowers~
 A black belt carved with ornament of five flowers lies coiled here.~
 leather~
-armor Ci 0 ALgr
+armor C 0 AL
 8 8 8 7 0
 40 1 10000 P
 A
@@ -844,7 +844,7 @@ midnight cloak~
 a midnight cloak~
 A cloak as black as the night lies here.~
 energy~
-armor Ci 0 ACgi
+armor C 0 AC
 4 5 5 4 0
 40 2 30000 P
 A
@@ -859,7 +859,7 @@ key ringwraith~
 the key of ringwraiths~
 A small key engraved with geometrical patterns lies here.~
 iron~
-key U IJKopq AOgu
+key U I AO
 0 0 0 0 0
 0 10 10000 P
 g none~
@@ -868,8 +868,8 @@ bonsai tree pot~
 a Bonsai tree~
 A tiny tree in a tiny pot sits here.~
 clay~
-furniture GYm 0 AOgu
-Ag CFGilm EHkn CFGilm CFGilm
+furniture GY 0 AO
+A CFG EH CFG CFG
 45 4 30000 P
 S 'perception' 50 0
 A
@@ -884,7 +884,7 @@ black gown death essence~
 a black gown of Death~
 An essence of darkness floats above ground.~
 energy~
-armor BCHMhins Ek ADgj
+armor BCHM E AD
 -10 -10 -10 -10 0
 0 0 666 P
 A
@@ -903,7 +903,7 @@ ring demons~
 a ring of demons~
 A black engraved ring has been dropped here.~
 iron~
-armor CEHJMiknps Ci ABgh
+armor CEHJM C AB
 7 6 6 15 0
 0 1 6666 P
 A
@@ -924,7 +924,7 @@ mummy tomb~
 the tomb~
 A withered mummy lies inside a large carved tomb.~
 flesh~
-container Y BChi 0
+container Y BC 0
 1000 0 0 100 0
 0 1000 0 P
 g none~
@@ -933,7 +933,7 @@ ankh wheel~
 the Wheel of Pa-Ra-Voz~
 The huge rusted wheel lies here.~
 iron~
-armor BYh BChi ACgi
+armor BY BC AC
 15 15 15 15 0
 45 30 50000 P
 A
@@ -950,7 +950,7 @@ ankh death~
 the Ankh of Death~
 A small rusted ankh lies here discarded~
 iron~
-treasure CEHMikns Ci ACgi
+treasure CEHM C AC
 0 0 0 0 0
 45 1 6666 P
 A
@@ -969,8 +969,8 @@ pa-ra-voz axel~
 the Axel of Pa-Ra-Voz~
 A huge glowing iron staff lies here.~
 iron~
-weapon ABgh BChi ANgt
-staff 10 5 'flbite' Fl
+weapon AB BC AN
+staff 10 5 'flbite' F
 0 400 50000 P
 A
 18 3
@@ -984,8 +984,8 @@ staff death~
 the staff of Death~
 A blackened staff lies in the pool of acid melting the floor around it.~
 energy~
-weapon CEHJMiknps CEik ANgt
-exotic 5 7 'drain' CHin
+weapon CEHJM CE AN
+exotic 5 7 'drain' CH
 45 0 6666 P
 A
 18 3
@@ -1001,7 +1001,7 @@ key gorrors~
 a key of the Gorrors~
 A small key with engraved head of a dreadful monster lies here.~
 iron~
-key U IJKopq AOgu
+key U I AO
 0 0 0 0 0
 0 1 1000 P
 g none~
@@ -1010,7 +1010,7 @@ shield~
 the Shield of Deflection~
 A huge iron shield with dark symbols lies here.~
 iron~
-armor BCIhio Ci AJgp
+armor BCI C AJ
 25 25 25 20 0
 45 100 50000 P
 A
@@ -1027,8 +1027,8 @@ chest~
 the chest of the beast~
 A securely locked ancient chest sits here.~
 iron~
-container Y Bh 0
-0 ABCDghij 22323 500 0
+container Y B 0
+0 ABCD 22323 500 0
 45 1000 0 P
 g none~
 #22323
@@ -1036,7 +1036,7 @@ key~
 the key of the beast~
 A strange key lies here, looking very depressive.~
 iron~
-key PUv CIJKiopq AOgu
+key PU CI AO
 0 0 0 0 0
 5 1 0 P
 g none~
@@ -1045,7 +1045,7 @@ key~
 the key of the beast~
 A strange key lies here, looking very depressive.~
 energy~
-key PUv CIJKiopq AOgu
+key PU CI AO
 0 0 0 0 0
 5 1 0 P
 g none~
@@ -1054,8 +1054,8 @@ chest~
 the chest of the beast~
 A securely locked ancient chest sits here.~
 iron~
-container Y BChi 0
-0 ABCDghij 22324 1000 0
+container Y BC 0
+0 ABCD 22324 1000 0
 45 1000 0 P
 g none~
 #22326
@@ -1063,8 +1063,8 @@ axe great~
 the Greate Axe named "Barukkheled"~
 A some huge humming axe lies here.~
 iron~
-weapon Y BChi ANgt
-axe 15 4 'frbite' EFkl
+weapon Y BC AN
+axe 15 4 'frbite' EF
 45 100 100000 P
 A
 30 -33
@@ -1082,8 +1082,8 @@ whip flame~
 a Flame Whip~
 A fire weapon lies here.~
 flame~
-weapon ACUgi Ci ANgt
-whip 10 7 'flbite' Ag
+weapon ACU C AN
+whip 10 7 'flbite' A
 46 100 100000 P
 A
 31 -80
@@ -1158,7 +1158,7 @@ key~
 the key of the beast~
 A strange key lies here, looking very depressive.~
 iron~
-key PUv CIJKiopq AOgu
+key PU CI AO
 0 0 0 0 0
 5 5 0 P
 g none~
@@ -1167,8 +1167,8 @@ chest~
 a chest~
 A securely locked ancient chest sits here.~
 iron~
-container Y BChi 0
-1000 ABCDghij 22332 0 0
+container Y BC 0
+1000 ABCD 22332 0 0
 45 1000 0 P
 g none~
 #22334
@@ -1176,7 +1176,7 @@ key~
 the key of the beast~
 A strange key lies here, looking very depressive.~
 iron~
-key PUv CIJKiopq AOgu
+key PU CI AO
 0 0 0 0 0
 5 5 0 P
 g none~
@@ -1185,8 +1185,8 @@ chest~
 a chest~
 A securely locked ancient chest sits here.~
 iron~
-container Y Bh 0
-1000 ABCDghij 22334 1000 0
+container Y B 0
+1000 ABCD 22334 1000 0
 45 1000 0 P
 g none~
 #22336
@@ -1194,7 +1194,7 @@ key~
 the key of the beast~
 A strange key lies here, looking very depressive.~
 iron~
-key PUv CIJKiopq AOgu
+key PU CI AO
 0 0 0 0 0
 5 0 0 P
 g none~
@@ -1203,8 +1203,8 @@ chest~
 a chest~
 A securely locked ancient chest sits here.~
 iron~
-container Y BChi 0
-1000 ABCDghij 22336 1000 0
+container Y BC 0
+1000 ABCD 22336 1000 0
 45 1000 0 P
 g none~
 #22338
@@ -1212,7 +1212,7 @@ key~
 the key of the beast~
 A strange key lies here, looking very depressive.~
 unknown~
-key PUv CIJKiopq AOgu
+key PU CI AO
 0 0 0 0 0
 5 5 0 P
 g none~
@@ -1221,8 +1221,8 @@ chest~
 a chest~
 A securely locked ancient chest sits here.~
 unknown~
-container Y BChi 0
-1000 ABCDghij 22338 1000 0
+container Y BC 0
+1000 ABCD 22338 1000 0
 45 1000 0 P
 g none~
 #22340
@@ -1230,8 +1230,8 @@ mace taratol~
 the mace named "Taratol"~
 A silver mace lies here, surrounded by an aura of purity.~
 silver~
-weapon BIYho Ci ANgt
-mace 10 6 'shbite' Fl
+weapon BIY C AN
+mace 10 6 'shbite' F
 46 100 100000 P
 A
 36 -33
@@ -1251,7 +1251,7 @@ ebony breastplate plate~
 an ebony breastplate~
 A breastplate of black wood lies here.~
 ebony~
-armor BCGUhim Ci ADgj
+armor BCGU C AD
 30 30 30 25 0
 46 15 100000 P
 A
@@ -1282,8 +1282,8 @@ lance osondir~
 the lance named "Osondir"~
 An ornated lance lies here.~
 mithril~
-weapon BIKLYhoqr CFil ANgt
-spear 18 3 'divine' FIlo
+weapon BIKLY CF AN
+spear 18 3 'divine' FI
 0 200 100000 P
 A
 35 25
@@ -1309,7 +1309,7 @@ ebony helmet helm~
 an ebony helmet~
 A helmet of black wood lies here.~
 ebony~
-armor BGYhm Ci AEgk
+armor BGY C AE
 25 25 23 20 0
 46 12 100000 P
 A
@@ -1334,7 +1334,7 @@ ebony leggings~
 a set of ebony leggings~
 A pair of black wooden leggings lies here.~
 ebony~
-armor CYi Ci AFgl
+armor CY C AF
 27 27 23 20 0
 46 5 100000 P
 A
@@ -1359,8 +1359,8 @@ staff nar-i-vagil~
 the staff named "Nar-i-vagil"~
 A modest long staff lies here discarded.~
 wood~
-weapon AYg Ci ANgt
-staff 12 5 'flame' Fl
+weapon AY C AN
+staff 12 5 'flame' F
 46 250 100000 P
 A
 31 -33
@@ -1376,7 +1376,7 @@ ebony sleeves~
 a set of ebony sleeves~
 A pair of black wooden sleeves lies here.~
 ebony~
-armor CYi Ci AIgo
+armor CY C AI
 20 20 20 10 0
 46 5 100000 P
 A
@@ -1395,8 +1395,8 @@ flail thunderfist~
 the flail named "Thunderfist"~
 A heavy flail covered with sparks of an elemental energy is here.~
 energy~
-weapon BYh Ci ANgt
-flail 15 4 'shock' Fl
+weapon BY C AN
+flail 15 4 'shock' F
 46 200 100000 P
 A
 36 -30
@@ -1416,7 +1416,7 @@ ebony boots~
 a pair of ebony boots~
 A pair of black wooden boots lies here.~
 ebony~
-armor CYi Ci AGgm
+armor CY C AG
 20 20 20 15 0
 46 5 100000 P
 A
@@ -1433,8 +1433,8 @@ whip careth asdriag~
 the whip named "Careth Asdriag"~
 A whip of nine barbed tails lies here.~
 leather~
-weapon CJYip Ci ANgt
-whip 11 5 'kiss' Dj
+weapon CJY C AN
+whip 11 5 'kiss' D
 46 50 100000 P
 A
 13 20
@@ -1453,7 +1453,7 @@ ebony gloves~
 a pair of ebony gloves~
 A pair of black wooden gloves lies here.~
 unknown~
-armor CYi Ci AIgo
+armor CY C AI
 15 15 15 15 0
 46 5 100000 P
 A
@@ -1470,7 +1470,7 @@ key treasure~
 the key of treasure keep~
 a small key lies here.~
 iron~
-key PUYv CIJKiopq AOgu
+key PUY CI AO
 0 0 0 0 0
 5 5 0 P
 g none~
@@ -1479,8 +1479,8 @@ huge piece beef~
 a huge piece of beef~
 a huge piece of meet lies here.~
 unknown~
-food 0 0 Ag
-CFGilm CFGilm 0 0 0
+food 0 0 A
+CFG CFG 0 0 0
 45 100 2000 P
 g none~
 #22353
@@ -1488,7 +1488,7 @@ key~
 the bone key~
 A small bone key lies here.~
 bone~
-key APUgv CIJKiopq AOgu
+key APU CI AO
 0 0 0 0 0
 3 5 0 P
 g none~
@@ -1497,7 +1497,7 @@ key~
 the bone key~
 A small bone key lies here.~
 bone~
-key APUgv CIJKiopq AOgu
+key APU CI AO
 0 0 0 0 0
 3 5 0 P
 g none~
@@ -1506,7 +1506,7 @@ key~
 the bone key~
 A small bone key lies here.~
 bone~
-trash APUgv CIJKiopq AOgu
+trash APU CI AO
 0 0 0 0 0
 3 5 0 P
 g none~
@@ -1515,7 +1515,7 @@ key~
 the bone key~
 A small bone key lies here.~
 bone~
-key APUgv CIJKiopq AOgu
+key APU CI AO
 0 0 0 0 0
 3 5 0 P
 g none~
@@ -1524,7 +1524,7 @@ key~
 the bone key~
 A small bone key lies here.~
 bone~
-key APUgv CIJKiopq AOgu
+key APU CI AO
 0 0 0 0 0
 3 5 0 P
 g none~
@@ -1533,7 +1533,7 @@ key~
 the bony key~
 A small bone key lies here.~
 bone~
-key APUgv CIJKiopq AOgu
+key APU CI AO
 0 0 0 0 0
 3 5 0 P
 g none~
@@ -1542,7 +1542,7 @@ key~
 the bone key~
 A small bone key lies here.~
 bone~
-key APUgv CIJKiopq AOgu
+key APU CI AO
 0 0 0 0 0
 3 5 0 P
 g none~
@@ -1551,7 +1551,7 @@ key~
 the bone key~
 A small bone key lies here.~
 bone~
-key APUgv CIJKiopq AOgu
+key APU CI AO
 0 0 0 0 0
 5 5 0 P
 g none~
@@ -1560,8 +1560,8 @@ chest~
 ~
 A huge wooden chest lies here.~
 wood~
-container Y Bh 0
-1000 ABCDghij 22353 100 0
+container Y B 0
+1000 ABCD 22353 100 0
 50 10000 0 P
 g none~
 #22362
@@ -1569,8 +1569,8 @@ chest~
 chest~
 A huge wooden chest lies here.~
 unknown~
-container Y Bh 0
-1000 ABCDghij 22354 1000 0
+container Y B 0
+1000 ABCD 22354 1000 0
 50 10000 0 P
 g none~
 #22399
@@ -1578,8 +1578,8 @@ battleaxe dagger sword~
 battlaxe ~
 Axe~
 iron~
-weapon 0 0 ANgt
-sword 1000 100 'magic' BDIhjo
+weapon 0 0 AN
+sword 1000 100 'magic' BDI
 46 10 100000 P
 g none~
 #22400
@@ -1587,7 +1587,7 @@ bracer~
 bracer~
 bracer~
 unknown~
-armor 0 0 AMgs
+armor 0 0 AM
 10000 10000 10000 10000 0
 46 0 0 P
 A
@@ -1603,7 +1603,7 @@ g none~
 #22300
 The River of the Lost Souls~
 ~
-0 Ag swim
+0 A swim
 D2
 ~
 ~
@@ -1616,7 +1616,7 @@ This island seems to be deserted for a centuries, an eerie silence
 covers the place.  All you can see is the half-buried black gate to
 the south.
 ~
-0 Ag field
+0 A field
 D0
 ~
 ~
@@ -1633,7 +1633,7 @@ A tattered piece of parchment is attached to the gate by one of your
 predecessors.  A forbidding sense of evil emanates from the depths of
 dungeon, you begin to think that better leave this place.
 ~
-0 Ag field
+0 A field
 D0
 ~
 ~
@@ -1641,7 +1641,7 @@ Z 0 22301
 D5
 ~
 ~
-ABCFGJZghilmp 0 22322
+ABCFGJZ 0 22322
 S
 #22303
 A Crypt~
@@ -1649,11 +1649,11 @@ You stand in the big decorated crypt.  Ancient murals and paintings
 showing scenes of battle cover the walls.  You notice an open coffin here.
 Strange, but this coffin appears to be empty.  A door leads to the east.
 ~
-0 ADNXgjt inside
+0 ADNX inside
 D2
 ~
 ~
-ABLZghr 0 22311
+ABLZ 0 22311
 S
 #22304
 A Crypt~
@@ -1661,11 +1661,11 @@ You stand in the big decorated crypt.  Ancient murals and paintings
 showing scenes of battle cover the walls.  You notice an open coffin here.
 Strange, but this coffin appears to be empty.  A door leads to the east.
 ~
-0 ADNXgjt inside
+0 ADNX inside
 D2
 ~
 ~
-ABLZghr 0 22312
+ABLZ 0 22312
 S
 #22305
 A Crypt~
@@ -1673,11 +1673,11 @@ You stand in the big decorated crypt.  Ancient murals and paintings
 showing scenes of battle cover the walls.  You notice an open coffin here.
 Strange, but this coffin appears to be empty.  A door leads to the east.
 ~
-0 ADXgj inside
+0 ADX inside
 D2
 ~
 ~
-ABLZghr 0 22313
+ABLZ 0 22313
 S
 #22306
 The Hall of Crypts~
@@ -1698,7 +1698,7 @@ Z 0 22314
 D5
 ~
 ~
-ABCFGZghilm 22311 22356
+ABCFGZ 22311 22356
 S
 #22307
 A Crypt~
@@ -1706,11 +1706,11 @@ You stand in the big decorated crypt.  Ancient murals and paintings
 showing scenes of battle cover the walls.  You notice an open coffin here.
 Strange, but this coffin appears to be empty.  A door leads to the east.
 ~
-0 ADNXgjt inside
+0 ADNX inside
 D2
 ~
 ~
-ABLZghr 0 22315
+ABLZ 0 22315
 S
 #22308
 A Crypt~
@@ -1718,11 +1718,11 @@ You stand in the big decorated crypt.  Ancient murals and paintings
 showing scenes of battle cover the walls.  You notice an open coffin here.
 Strange, but this coffin appears to be empty.  A door leads to the east.
 ~
-0 ADNXgjt inside
+0 ADNX inside
 D2
 ~
 ~
-ABLZghr 0 22316
+ABLZ 0 22316
 S
 #22309
 A Crypt~
@@ -1730,11 +1730,11 @@ You stand in the big decorated crypt.  Ancient murals and paintings
 showing scenes of battle cover the walls.  You notice an open coffin here.
 Strange, but this coffin appears to be empty.  A door leads to the east.
 ~
-0 ADNXgjt inside
+0 ADNX inside
 D2
 ~
 ~
-ABLZghr 0 22317
+ABLZ 0 22317
 S
 #22310
 A Crypt~
@@ -1742,11 +1742,11 @@ You stand in the big decorated crypt.  Ancient murals and paintings
 showing scenes of battle cover the walls.  You notice an open coffin here.
 Strange, but this coffin appears to be empty.  A door leads to the east.
 ~
-0 ADNXgjt inside
+0 ADNX inside
 D1
 ~
 ~
-ABLZghr 0 22311
+ABLZ 0 22311
 S
 #22311
 The End of Passage~
@@ -1756,11 +1756,11 @@ that swirls about as you walk through it.  To the north and south you
 notice small doors of the crypts.  To the west a large decorated door
 blocks your way.
 ~
-0 ADNXgjt inside
+0 ADNX inside
 D0
 ~
 ~
-ABLZghr 0 22303
+ABLZ 0 22303
 D1
 ~
 ~
@@ -1768,11 +1768,11 @@ Z 0 22312
 D2
 ~
 ~
-ABLZghr 0 22319
+ABLZ 0 22319
 D3
 ~
 ~
-ABLZghr 0 22310
+ABLZ 0 22310
 S
 #22312
 A Narrow Passage~
@@ -1781,11 +1781,11 @@ a strong smell of decay in the air, carried on a thick cloud of dust
 that swirls about as you walk through it.  To the north, south and west
 you notice small doors of the crypts.
 ~
-0 ADNXgjt inside
+0 ADNX inside
 D0
 ~
 ~
-ABLZghr 0 22304
+ABLZ 0 22304
 D1
 ~
 ~
@@ -1793,7 +1793,7 @@ Z 0 22313
 D2
 ~
 ~
-ABLZghr 0 22320
+ABLZ 0 22320
 D3
 ~
 ~
@@ -1806,11 +1806,11 @@ a strong smell of decay in the air, carried on a thick cloud of dust
 that swirls about as you walk through it.  To the north, south and west
 you notice small doors of the crypts.
 ~
-0 ADNXgjt inside
+0 ADNX inside
 D0
 ~
 ~
-ABLZghr 0 22305
+ABLZ 0 22305
 D1
 ~
 ~
@@ -1818,7 +1818,7 @@ Z 0 22314
 D2
 ~
 ~
-ABLZghr 0 22321
+ABLZ 0 22321
 D3
 ~
 ~
@@ -1833,7 +1833,7 @@ must be one of the oldest parts of Thera.  The eerie silence fills the
 place.  But...  you hear strange faint noises from the passages leading
 east and west...
 ~
-0 ADNXgjt inside
+0 ADNX inside
 D0
 ~
 ~
@@ -1858,11 +1858,11 @@ a strong smell of decay in the air, carried on a thick cloud of dust
 that swirls about as you walk through it.  To the north, south and west
 you notice small doors of the crypts.
 ~
-0 ADNXgjt inside
+0 ADNX inside
 D0
 ~
 ~
-ABLZghr 0 22307
+ABLZ 0 22307
 D1
 ~
 ~
@@ -1870,7 +1870,7 @@ Z 0 22316
 D2
 ~
 ~
-ABLZghr 0 22323
+ABLZ 0 22323
 D3
 ~
 ~
@@ -1883,11 +1883,11 @@ a strong smell of decay in the air, carried on a thick cloud of dust
 that swirls about as you walk through it.  To the north, south and west
 you notice small doors of the crypts.
 ~
-0 ADNXgjt inside
+0 ADNX inside
 D0
 ~
 ~
-ABLZghr 0 22308
+ABLZ 0 22308
 D1
 ~
 ~
@@ -1895,7 +1895,7 @@ Z 0 22317
 D2
 ~
 ~
-ABLZghr 0 22324
+ABLZ 0 22324
 D3
 ~
 ~
@@ -1909,19 +1909,19 @@ that swirls about as you walk through it.  To the north and south you
 notice small doors of the crypts.  To the east a large decorated door
 blocks your way.
 ~
-0 ADNXgjt inside
+0 ADNX inside
 D0
 ~
 ~
-ABLZghr 0 22309
+ABLZ 0 22309
 D1
 ~
 ~
-ABLZghr 0 22318
+ABLZ 0 22318
 D2
 ~
 ~
-ABLZghr 0 22325
+ABLZ 0 22325
 D3
 ~
 ~
@@ -1933,11 +1933,11 @@ You stand in the big decorated crypt.  Ancient murals and paintings
 showing scenes of battle cover the walls.  You notice an open coffin here.
 Strange, but this coffin appears to be empty.  A door leads to the west.
 ~
-0 ADNXgjt inside
+0 ADNX inside
 D3
 ~
 ~
-ABLZghr 0 22317
+ABLZ 0 22317
 S
 #22319
 A Crypt~
@@ -1945,11 +1945,11 @@ You stand in the big decorated crypt.  Ancient murals and paintings
 showing scenes of battle cover the walls.  You notice an open coffin here.
 Strange, but this coffin appears to be empty.  A door leads to the north.
 ~
-0 ADNXgjt inside
+0 ADNX inside
 D0
 ~
 ~
-ABLZghr 0 22311
+ABLZ 0 22311
 S
 #22320
 A Crypt~
@@ -1957,11 +1957,11 @@ You stand in the big decorated crypt.  Ancient murals and paintings
 showing scenes of battle cover the walls.  You notice an open coffin here.
 Strange, but this coffin appears to be empty.  A door leads to the north.
 ~
-0 ADNXgjt inside
+0 ADNX inside
 D0
 ~
 ~
-ABLZghr 0 22312
+ABLZ 0 22312
 S
 #22321
 A Crypt~
@@ -1969,11 +1969,11 @@ You stand in the big decorated crypt.  Ancient murals and paintings
 showing scenes of battle cover the walls.  You notice an open coffin here.
 Strange, but this coffin appears to be empty.  A door leads to the north.
 ~
-0 ADNXgjt inside
+0 ADNX inside
 D0
 ~
 ~
-ABLZghr 0 22313
+ABLZ 0 22313
 S
 #22322
 The Hall of the Crypts~
@@ -1983,7 +1983,7 @@ air is stale and dry, and there is a patina of dust and web everywhere.
 The hall continues downward into the darkness, and a stair leads up to
 the light of day, but a huge black gate blocks your way out.
 ~
-0 ADNXgjt inside
+0 ADNX inside
 D0
 ~
 ~
@@ -1991,7 +1991,7 @@ Z 0 22314
 D4
 ~
 ~
-ABCFGJZghilmp 22300 22302
+ABCFGJZ 22300 22302
 S
 #22323
 A Crypt~
@@ -1999,11 +1999,11 @@ You stand in the big decorated crypt.  Ancient murals and paintings
 showing scenes of battle cover the walls.  You notice an open coffin here.
 Strange, but this coffin appears to be empty.  A door leads to the north.
 ~
-0 ADNXgjt inside
+0 ADNX inside
 D0
 ~
 ~
-ABLZghr 0 22315
+ABLZ 0 22315
 S
 #22324
 A Crypt~
@@ -2011,11 +2011,11 @@ You stand in the big decorated crypt.  Ancient murals and paintings
 showing scenes of battle cover the walls.  You notice an open coffin here.
 Strange, but this coffin appears to be empty.  A door leads to the north.
 ~
-0 ADNXgjt inside
+0 ADNX inside
 D0
 ~
 ~
-ABLZghr 0 22316
+ABLZ 0 22316
 S
 #22325
 A Crypt~
@@ -2023,11 +2023,11 @@ You stand in the big decorated crypt.  Ancient murals and paintings
 showing scenes of battle cover the walls.  You notice an open coffin here.
 Strange, but this coffin appears to be empty.  A door leads to the north.
 ~
-0 ADNXgjt inside
+0 ADNX inside
 D0
 ~
 ~
-ABLZghr 0 22317
+ABLZ 0 22317
 S
 #22326
 The northwest corner of the Hall of Ringwraiths~
@@ -2036,7 +2036,7 @@ are scorched with some great fire and burned bones crackle under your
 feet.  Main hallway leads east and a narrow corridor leads south to
 the central hallway.
 ~
-0 ANXgt inside
+0 ANX inside
 D1
 ~
 ~
@@ -2052,7 +2052,7 @@ You walk along the northern wall of the Hall of Ringwraiths, leading
 east and west.  Walls are scorched with some great fire and burned
 bones crackle under your feet.
 ~
-0 ANXgt inside
+0 ANX inside
 D1
 ~
 ~
@@ -2069,7 +2069,7 @@ east and west.  Walls are scorched with some great fire and burned bones
 crackle under your feet.  To the south you see a narrow corridor leading
 to the central hallway.
 ~
-0 ANXgt inside
+0 ANX inside
 D1
 ~
 ~
@@ -2089,7 +2089,7 @@ You walk along the northern wall of the Hall of Ringwraiths, leading
 east and west.  Walls are scorched with some great fire and burned
 bones crackle under your feet.
 ~
-0 ANXgt inside
+0 ANX inside
 D1
 ~
 ~
@@ -2106,7 +2106,7 @@ east and west.  Walls are scorched with some great fire and burned bones
 crackle under your feet.  To the south you see a narrow corridor leading
 to the central hallway.
 ~
-0 ANXgt inside
+0 ANX inside
 D1
 ~
 ~
@@ -2126,7 +2126,7 @@ You walk along the northern wall of the Hall of Ringwraiths, leading
 east and west.  Walls are scorched with some great fire and burned
 bones crackle under your feet.
 ~
-0 ANXgt inside
+0 ANX inside
 D1
 ~
 ~
@@ -2144,7 +2144,7 @@ your feet.  Main hallway leads west and a narrow corridor leads south
 to the central hallway.  To the east you can see a huge black gate
 leading down to the depths of dungeon.
 ~
-0 ANXgt inside
+0 ANX inside
 D1
 ~
 ~
@@ -2167,7 +2167,7 @@ writings in the dust which have been added quite recently.  A huge
 black gate closes your way down to the Hall of Gorrors.  A sense of
 evil emanates from its frame.  Maybe better leave this place?
 ~
-0 ANXgt inside
+0 ANX inside
 D3
 ~
 ~
@@ -2180,7 +2180,7 @@ corner of the Hall of Ringwraiths, and to the south there is central hallway.
 You can feel a hot breeze from the north, while from the south a cold
 wind blowing around.
 ~
-0 ANXgt inside
+0 ANX inside
 D0
 ~
 ~
@@ -2197,7 +2197,7 @@ corner of the Hall of Ringwraiths, and to the south there is central hallway.
 You can feel a hot breeze from the north, while from the south a cold
 wind blowing around.
 ~
-0 ACNXgit inside
+0 ACNX inside
 D0
 ~
 ~
@@ -2214,7 +2214,7 @@ corner of the Hall of Ringwraiths, and to the south there is central hallway.
 You can feel a hot breeze from the north, while from the south a cold
 wind blowing around.
 ~
-0 ACNXgit inside
+0 ACNX inside
 D0
 ~
 ~
@@ -2231,7 +2231,7 @@ corner of the Hall of Ringwraiths, and to the south there is central hallway.
 You can feel a hot breeze from the north, while from the south a cold
 wind blowing around.
 ~
-0 ACNXgit inside
+0 ACNX inside
 D0
 ~
 ~
@@ -2249,7 +2249,7 @@ here, walls are covered with frost, and small snowflakes are flying
 in the air.  Two narrow corridors lead north and south to the another
 hallways.
 ~
-0 ANXgt inside
+0 ANX inside
 D0
 ~
 ~
@@ -2270,7 +2270,7 @@ continuing to the west and east.  There is almost unbearably cold
 here, walls are covered with frost, and small snowflakes are flying
 in the air.
 ~
-0 ANXgt inside
+0 ANX inside
 D1
 ~
 ~
@@ -2288,7 +2288,7 @@ here, walls are covered with frost, and small snowflakes are flying
 in the air.  Two narrow corridors lead north and south to the another
 hallways.
 ~
-0 ANXgt inside
+0 ANX inside
 D0
 ~
 ~
@@ -2313,7 +2313,7 @@ continuing to the west and east.  There is almost unbearably cold
 here, walls are covered with frost, and small snowflakes are flying
 in the air.
 ~
-0 ANXgt inside
+0 ANX inside
 D1
 ~
 ~
@@ -2331,7 +2331,7 @@ here, walls are covered with frost, and small snowflakes are flying
 in the air.  Two narrow corridors lead north and south to the another
 hallways.
 ~
-0 ANXgt inside
+0 ANX inside
 D0
 ~
 ~
@@ -2356,7 +2356,7 @@ continuing to the west and east.  There is almost unbearably cold
 here, walls are covered with frost, and small snowflakes are flying
 in the air.
 ~
-0 ANXgt inside
+0 ANX inside
 D1
 ~
 ~
@@ -2374,7 +2374,7 @@ small snowflakes are flying in the air.  The central hallway continues
 to the west.  Two narrow corridors lead north and south to the other
 hallways.
 ~
-0 ANXgt inside
+0 ANX inside
 D0
 ~
 ~
@@ -2395,7 +2395,7 @@ hallway, and to the south there is southwest corner of the Hall of Ringwraiths.
 You can feel a cold wind from the north, to the south you see a small
 blue lightings sparkling in the air.
 ~
-0 ACNXgit inside
+0 ACNX inside
 D0
 ~
 ~
@@ -2412,7 +2412,7 @@ hallway, and to the south there is southwest corner of the Hall of Ringwraiths.
 You can feel a cold wind from the north, to the south you see a small
 blue lightings sparkling in the air.
 ~
-0 ACNXgit inside
+0 ACNX inside
 D0
 ~
 ~
@@ -2429,7 +2429,7 @@ hallway, and to the south there is southwest corner of the Hall of Ringwraiths.
 You can feel a cold wind from the north, to the south you see a small
 blue lightings sparkling in the air.
 ~
-0 ACNXgit inside
+0 ACNX inside
 D0
 ~
 ~
@@ -2446,7 +2446,7 @@ hallway, and to the south there is southwest corner of the Hall of Ringwraiths.
 You can feel a cold wind from the north, to the south you see a small
 blue lightings sparkling in the air.
 ~
-0 ANXgt inside
+0 ANX inside
 D0
 ~
 ~
@@ -2463,7 +2463,7 @@ hair stands and small sparks sting your fingers as you feel energy
 in the air around you.  Main hallway leads east and a narrow crridor
 leads north.  To the south you see the entrance to this Hall.
 ~
-0 ANXgt inside
+0 ANX inside
 D0
 ~
 ~
@@ -2483,7 +2483,7 @@ You walk along the southern wall of the Hall of Ringwraiths, leading
 east and west.  Your hair stands and small sparks sting your fingers
 as you feel energy in the air around you.
 ~
-0 ANXgt inside
+0 ANX inside
 D1
 ~
 ~
@@ -2500,7 +2500,7 @@ east and west.  Your hair stands and small sparks sting your fingers
 as you feel energy in the air around you.  To the north you see a narrow
 corridor to the central hallway.
 ~
-0 ANXgt inside
+0 ANX inside
 D0
 ~
 ~
@@ -2520,7 +2520,7 @@ You walk along the southern wall of the Hall of Ringwraiths, leading
 east and west.  Your hair stands and small sparks sting your fingers
 as you feel energy in the air around you.
 ~
-0 ANXgt inside
+0 ANX inside
 D1
 ~
 ~
@@ -2536,7 +2536,7 @@ You walk along the southern wall of the Hall of Ringwraiths, leading
 east and west.  Your hair stands and small sparks sting your fingers
 as you feel energy in the air around you.
 ~
-0 ANXgt inside
+0 ANX inside
 D0
 ~
 ~
@@ -2556,7 +2556,7 @@ You walk along the southern wall of the Hall of Ringwraiths, leading
 east and west.  Your hair stands and small sparks sting your fingers
 as you feel energy in the air around you.
 ~
-0 ANXgt inside
+0 ANX inside
 D1
 ~
 ~
@@ -2573,7 +2573,7 @@ stands and small sparks sting your fingers as you feel energy in the
 air around you.  Southern hallway continues to the west, and a narrow
 corridor leads north to the central hallway.
 ~
-0 ANXgt inside
+0 ANX inside
 D0
 ~
 ~
@@ -2590,7 +2590,7 @@ filled with all kinds of instruments and devices used for destruction.
 To the north you see a hallway leading east, and huge black gate leads
 up to the Hall of Crypts.
 ~
-0 ANXgt inside
+0 ANX inside
 D0
 ~
 ~
@@ -2598,7 +2598,7 @@ Z 0 22349
 D4
 ~
 ~
-ABCFGZghilm 0 22306
+ABCFGZ 0 22306
 S
 #22357
 A Cage~
@@ -2607,11 +2607,11 @@ The sense of an extreme dread and fear comes over you as you examine
 the locks and bars of this cage.  You wonder what kind of a beast
 this cage must have imprisoned...
 ~
-0 ANXgt inside
+0 ANX inside
 D2
 ~
 ~
-ABLZghr 0 22359
+ABLZ 0 22359
 S
 #22358
 A Cage~
@@ -2620,11 +2620,11 @@ The sense of an extreme dread and fear comes over you as you examine
 the locks and bars of this cage.  You wonder what kind of a beast
 this cage must have imprisoned...
 ~
-0 ANXgt inside
+0 ANX inside
 D2
 ~
 ~
-ABLZghr 0 22360
+ABLZ 0 22360
 S
 #22359
 An island in the underworld sea~
@@ -2633,7 +2633,7 @@ thing you notice on the island is a great solid cage to the north.
 A metal plaque with some inscripitions written by ancient runes is
 hanging on the bar.
 ~
-0 ANXgt inside
+0 ANX inside
 E
 plaque~
 --------------------
@@ -2646,7 +2646,7 @@ plaque~
 D0
 ~
 ~
-ABLZghr 0 22357
+ABLZ 0 22357
 D2
 ~
 ~
@@ -2659,7 +2659,7 @@ thing you notice on the island is a great solid cage to the north.
 A metal plaque with some inscripitions written by ancient runes is
 hanging on the bar.
 ~
-0 ANXgt inside
+0 ANX inside
 E
 plaque~
 -------------------
@@ -2672,7 +2672,7 @@ plaque~
 D0
 ~
 ~
-ABLZghr 0 22358
+ABLZ 0 22358
 D2
 ~
 ~
@@ -2686,7 +2686,7 @@ sea.  An eerie silence surrounds you, and you feel as somebody
 glares at you from the waters below.  To the north you notice
 a small island with a huge metal construction.
 ~
-0 ANXgt swim
+0 ANX swim
 D0
 ~
 ~
@@ -2707,7 +2707,7 @@ deep, some putrid smells rises from the depths of this hidden
 sea.  An eerie silence surrounds you, and you feel as somebody
 glares at you from the waters below.
 ~
-0 ANXgt swim
+0 ANX swim
 D1
 ~
 ~
@@ -2724,7 +2724,7 @@ deep, some putrid smells rises from the depths of this hidden
 sea.  An eerie silence surrounds you, and you feel as somebody
 glares at you from the waters below.
 ~
-0 ANXgt swim
+0 ANX swim
 D1
 ~
 ~
@@ -2745,7 +2745,7 @@ deep, some putrid smells rises from the depths of this hidden
 sea.  An eerie silence surrounds you, and you feel as somebody
 glares at you from the waters below.
 ~
-0 ANXgt swim
+0 ANX swim
 D1
 ~
 ~
@@ -2762,7 +2762,7 @@ deep, some putrid smells rises from the depths of this hidden
 sea.  An eerie silence surrounds you, and you feel as somebody
 glares at you from the waters below.
 ~
-0 ANXgt swim
+0 ANX swim
 D0
 ~
 ~
@@ -2783,7 +2783,7 @@ deep, some putrid smells rises from the depths of this hidden
 sea.  An eerie silence surrounds you, and you feel as somebody
 glares at you from the waters below.
 ~
-0 ANXgt swim
+0 ANX swim
 D0
 ~
 ~
@@ -2800,7 +2800,7 @@ deep, some putrid smells rises from the depths of this hidden
 sea.  An eerie silence surrounds you, and you feel as somebody
 glares at you from the waters below.
 ~
-0 ANXgt swim
+0 ANX swim
 D0
 ~
 ~
@@ -2817,7 +2817,7 @@ deep, some putrid smells rises from the depths of this hidden
 sea.  An eerie silence surrounds you, and you feel as somebody
 glares at you from the waters below.
 ~
-0 ANXgt swim
+0 ANX swim
 D0
 ~
 ~
@@ -2834,11 +2834,11 @@ The sense of an extreme dread and fear comes over you as you examine
 the locks and bars of this cage.  You wonder what kind of a beast
 this cage must have imprisoned...
 ~
-0 ANXgt inside
+0 ANX inside
 D1
 ~
 ~
-ABLZghr 0 22370
+ABLZ 0 22370
 S
 #22370
 An island in the underworld sea~
@@ -2847,7 +2847,7 @@ thing you notice on the island is a great solid cage to the west.
 A metal plaque with some inscripitions written by ancient runes is
 hanging on the bar.
 ~
-0 ANXgt inside
+0 ANX inside
 D1
 ~
 ~
@@ -2855,7 +2855,7 @@ Z 0 22371
 D3
 ~
 ~
-ABLZghr 0 22369
+ABLZ 0 22369
 S
 #22371
 The underworld sea~
@@ -2865,7 +2865,7 @@ sea.  An eerie silence surrounds you, and you feel as somebody
 glares at you from the waters below.  To the west you notice
 a small island with a huge metal construction.
 ~
-0 ANXgt swim
+0 ANX swim
 D0
 ~
 ~
@@ -2890,7 +2890,7 @@ deep, some putrid smells rises from the depths of this hidden
 sea.  An eerie silence surrounds you, and you feel as somebody
 glares at you from the waters below.
 ~
-0 ANXgt swim
+0 ANX swim
 D1
 ~
 ~
@@ -2908,7 +2908,7 @@ and reefs are scattered on the water, leaving just narrow fjords.
 Stairs lead up to the Hall of Guards, but a large black gate blocks
 your way out.
 ~
-0 AXg inside
+0 AX inside
 D0
 ~
 ~
@@ -2928,7 +2928,7 @@ Z 0 22372
 D5
 ~
 ~
-ABLZghr 0 22390
+ABLZ 0 22390
 S
 #22374
 The underworld sea~
@@ -2937,7 +2937,7 @@ deep, some putrid smells rises from the depths of this hidden
 sea.  An eerie silence surrounds you, and you feel as somebody
 glares at you from the waters below.
 ~
-0 ANXgt swim
+0 ANX swim
 D1
 ~
 ~
@@ -2955,7 +2955,7 @@ sea.  An eerie silence surrounds you, and you feel as somebody
 glares at you from the waters below.  To the east you notice
 a small island with a huge metal construction.
 ~
-0 ANXgt swim
+0 ANX swim
 D0
 ~
 ~
@@ -2980,7 +2980,7 @@ thing you notice on the island is a great solid cage to the east.
 A metal plaque with some inscripitions written by ancient runes is
 hanging on the bar.
 ~
-0 ANXgt inside
+0 ANX inside
 E
 plaque~
 --------------------
@@ -2993,7 +2993,7 @@ plaque~
 D1
 ~
 ~
-ABLZghr 0 22377
+ABLZ 0 22377
 D3
 ~
 ~
@@ -3006,11 +3006,11 @@ The sense of an extreme dread and fear comes over you as you examine
 the locks and bars of this cage.  You wonder what kind of a beast
 this cage must have imprisoned...
 ~
-0 ANXgt inside
+0 ANX inside
 D3
 ~
 ~
-ABLZghr 0 22376
+ABLZ 0 22376
 S
 #22378
 The underworld sea~
@@ -3019,7 +3019,7 @@ deep, some putrid smells rises from the depths of this hidden
 sea.  An eerie silence surrounds you, and you feel as somebody
 glares at you from the waters below.
 ~
-0 ANXgt swim
+0 ANX swim
 D0
 ~
 ~
@@ -3036,7 +3036,7 @@ deep, some putrid smells rises from the depths of this hidden
 sea.  An eerie silence surrounds you, and you feel as somebody
 glares at you from the waters below.
 ~
-0 ANXgt swim
+0 ANX swim
 D0
 ~
 ~
@@ -3053,7 +3053,7 @@ deep, some putrid smells rises from the depths of this hidden
 sea.  An eerie silence surrounds you, and you feel as somebody
 glares at you from the waters below.
 ~
-0 ANXgt swim
+0 ANX swim
 D0
 ~
 ~
@@ -3071,7 +3071,7 @@ sea.  An eerie silence surrounds you, and you feel as somebody
 glares at you from the waters below.  To the south you notice
 a small island with a huge metal construction.
 ~
-0 ANXgt swim
+0 ANX swim
 D0
 ~
 ~
@@ -3092,7 +3092,7 @@ deep, some putrid smells rises from the depths of this hidden
 sea.  An eerie silence surrounds you, and you feel as somebody
 glares at you from the waters below.
 ~
-0 ANXgt swim
+0 ANX swim
 D1
 ~
 ~
@@ -3109,7 +3109,7 @@ deep, some putrid smells rises from the depths of this hidden
 sea.  An eerie silence surrounds you, and you feel as somebody
 glares at you from the waters below.
 ~
-0 ANXgt swim
+0 ANX swim
 D0
 ~
 ~
@@ -3130,7 +3130,7 @@ deep, some putrid smells rises from the depths of this hidden
 sea.  An eerie silence surrounds you, and you feel as somebody
 glares at you from the waters below.
 ~
-0 ANXgt swim
+0 ANX swim
 D1
 ~
 ~
@@ -3148,7 +3148,7 @@ sea.  An eerie silence surrounds you, and you feel as somebody
 glares at you from the waters below.  To the south you notice
 a small island with a huge metal construction.
 ~
-0 ANXgt swim
+0 ANX swim
 D0
 ~
 ~
@@ -3169,7 +3169,7 @@ thing you notice on the island is a great solid cage to the south.
 A metal plaque with some inscripitions written by ancient runes is
 hanging on the bar.
 ~
-0 ANXgt inside
+0 ANX inside
 D0
 ~
 ~
@@ -3177,7 +3177,7 @@ Z 0 22381
 D2
 ~
 ~
-ABLZghr 0 22388
+ABLZ 0 22388
 S
 #22387
 An island in the underworld sea~
@@ -3186,7 +3186,7 @@ thing you notice on the island is a great solid cage to the south.
 A metal plaque with some inscripitions written by ancient runes is
 hanging on the bar.
 ~
-0 ANXgt inside
+0 ANX inside
 D0
 ~
 ~
@@ -3194,7 +3194,7 @@ Z 0 22385
 D2
 ~
 ~
-ABLZghr 0 22389
+ABLZ 0 22389
 S
 #22388
 A Cage~
@@ -3203,11 +3203,11 @@ The sense of an extreme dread and fear comes over you as you examine
 the locks and bars of this cage.  You wonder what kind of a beast
 this cage must have imprisoned...
 ~
-0 ANXgt inside
+0 ANX inside
 D0
 ~
 ~
-ABLZghr 0 22386
+ABLZ 0 22386
 S
 #22389
 A Cage~
@@ -3216,20 +3216,20 @@ The sense of an extreme dread and fear comes over you as you examine
 the locks and bars of this cage.  You wonder what kind of a beast
 this cage must have imprisoned...
 ~
-0 ANXgt inside
+0 ANX inside
 D0
 ~
 ~
-ABLZghr 0 22387
+ABLZ 0 22387
 S
 #22390
 The Way to Treasure Keep~
 ~
-0 ANXgt forest
+0 ANX forest
 D4
 ~
 ~
-ABLZghr 0 22373
+ABLZ 0 22373
 D5
 ~
 ~
@@ -3242,11 +3242,11 @@ weapon, bones and different kind od armors leing here. You could think
 that many peoples were killed here. Also you noticed that wall are covered
 by thick layer of soot.
 ~
-0 AXg inside
+0 AX inside
 D5
 ~
 ~
-ABCFGZghilm 22351 22404
+ABCFGZ 22351 22404
 S
 #22392
 The North-West Coner of Treasure Keep~
@@ -3254,7 +3254,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D1
 ~
 ~
@@ -3270,7 +3270,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D1
 ~
 ~
@@ -3290,7 +3290,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D1
 ~
 ~
@@ -3310,7 +3310,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D1
 ~
 ~
@@ -3330,7 +3330,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D2
 ~
 ~
@@ -3346,7 +3346,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D0
 ~
 ~
@@ -3366,7 +3366,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D0
 ~
 ~
@@ -3390,7 +3390,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D0
 ~
 ~
@@ -3414,7 +3414,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D0
 ~
 ~
@@ -3438,7 +3438,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D0
 ~
 ~
@@ -3458,7 +3458,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D0
 ~
 ~
@@ -3478,7 +3478,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D0
 ~
 ~
@@ -3526,7 +3526,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D0
 ~
 ~
@@ -3550,7 +3550,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D0
 ~
 ~
@@ -3570,7 +3570,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D0
 ~
 ~
@@ -3590,7 +3590,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D0
 ~
 ~
@@ -3614,7 +3614,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D0
 ~
 ~
@@ -3638,7 +3638,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D0
 ~
 ~
@@ -3662,7 +3662,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D0
 ~
 ~
@@ -3682,7 +3682,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D0
 ~
 ~
@@ -3698,7 +3698,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D0
 ~
 ~
@@ -3718,7 +3718,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D0
 ~
 ~
@@ -3738,7 +3738,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D0
 ~
 ~
@@ -3758,7 +3758,7 @@ You stand at the treasure keep. You can see a guards that patrol this place.
 Also you see a piles of gold on the ground and a small locked coffers.
 Probably the main part of treasures lies in this coffers.
 ~
-0 NXt inside
+0 NX inside
 D0
 ~
 ~

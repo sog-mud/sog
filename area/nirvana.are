@@ -16,12 +16,12 @@ A tridrone is here doing a menial task.
 You see what appears to be a 3 sided pyramid with spidery arms and legs.
 ~
 modron~
-CGim 0 0 0 0 300 0
+CG 0 0 0 0 300 0
 8 0 3d20+80 1d1+99 2d5+3 'pound'
 4 3 4 5
-Nt
+N
 stand stand none 0
-0 Io medium unknown
+0 I medium unknown
 #9001
 quadrone~
 the quadrone~
@@ -30,12 +30,12 @@ A quadrone is here watching for trespassers.
 A cubic creature, with spiny arms and legs.
 ~
 modron~
-FGTlmz 0 0 0 Ag 300 0
+FGT 0 0 0 A 300 0
 11 3 14d10+70 1d1+99 3d4+2 'beating'
 1 0 1 2
-CEKikq
+CEK
 stand stand none 0
-0 Io medium unknown
+0 I medium unknown
 #9002
 pentadrone~
 the pentadrone~
@@ -44,12 +44,12 @@ The pentadrone is here policing the area.
 A five-armed creature which resembles a starfish on thin stilt-like legs.
 ~
 modron~
-BFGThlmz 0 0 0 Ag 300 0
+BFGT 0 0 0 A 300 0
 14 3 15d12+110 1d1+99 4d4+3 'slap'
 -2 -2 0 -1
-CEFLNiklrt
+CEFLN
 stand stand none 0
-0 Nt medium unknown
+0 N medium unknown
 #9003
 decaton~
 the decaton~
@@ -58,12 +58,12 @@ A decaton is here overseeing the other modrons.
 The decaton is a large, ten-tentacled sphere on stumpy legs.
 ~
 modron~
-BFGQThlmwz 0 0 0 Ag 300 0
+BFGQT 0 0 0 A 300 0
 17 4 25d10+70 17d8+50 4d5+3 'pound'
 -4 -4 0 -2
-ACEKNgikqt
+ACEKN
 stand stand none 0
-Ms Nt medium unknown
+M N medium unknown
 #9004
 nonaton~
 the nonaton~
@@ -72,12 +72,12 @@ A nonaton is here preserving law and order.
 A cylidrical modron with 9 tentacles and stubby legs.
 ~
 modron~
-BFGQThlmwz 0 Hn 0 Ag 300 0
+BFGQT 0 H 0 A 300 0
 20 5 11d8+250 20d8+75 4d6+4 'pound'
 -4 -4 -2 -3
-AEFNgklt
+AEFN
 stand stand none 0
-Ms Nt large unknown
+M N large unknown
 r slash -50
 #9005
 octon~
@@ -88,12 +88,12 @@ The octon has a collar at shoulder level with 8 tentacled arms growing out of
 it.
 ~
 modron~
-BFGQhlmw 0 0 0 Ag 300 0
+BFGQ 0 0 0 A 300 0
 22 5 25d10+300 18d10+75 4d6+5 'crush'
 -5 -5 -3 -4
-ACEHKgiknq
+ACEHK
 stand stand none 0
-Ms Nt large unknown
+M N large unknown
 r slash -50
 #9006
 septon~
@@ -104,12 +104,12 @@ The septon appears as a human with a large bald head. It has a shoulder collar
 with 7 tentacles coming from it.
 ~
 modron~
-BFGQRhlmwx 0 0 0 Ag 300 0
+BFGQR 0 0 0 A 300 0
 24 5 30d10+350 20d10+100 6d4+5 'beating'
 -6 -6 -6 -4
-AFKOglqu
+AFKO
 stand stand none 0
-Ms INot medium unknown
+M IN medium unknown
 #9007
 hexton~
 the hexton~
@@ -119,12 +119,12 @@ A hexton appears as a humanoid with 6 arms: 2 large human arms with 6 fingers,
 and 4 tentacles below tipped with sharp claws.
 ~
 modron~
-BFGQThlmwz 0 Hn 0 ABgh 300 0
+BFGJQT 0 H 0 AB 300 0
 26 7 35d20+300 20d10+75 4d8+6 'slash'
 -8 -8 -8 -4
-ACEFHIKLNgiklnoqrt
+ACEFHIKLN
 stand stand none 0
-Ms INPotv large unknown
+M INP large unknown
 r lightning 33
 r energy 33
 r sound 33
@@ -141,12 +141,12 @@ shoulders.  A prehensile tail serves as the creature's 5th arm, and they have
 fan-like wings attached to their shoulders.
 ~
 modron~
-BFGQhlmw 0 0 0 Ag 300 0
+BFGJQ 0 0 0 A 300 0
 28 6 10d100+150 20d12+100 4d8+7 'beating'
 -7 -8 -6 -8
-AKMOgqsu
+AKMO
 stand stand none 0
-Ms INPQotvw large unknown
+M INPQ large unknown
 #9009
 tertian~
 the tertian~
@@ -157,12 +157,12 @@ the sides of their bald heads, and the long prehensile tail ending in a mace-
 like ball.
 ~
 modron~
-BFGQRThlmwxz 0 0 0 Ag 300 0
+BFGJQRT 0 0 0 A 300 0
 33 12 1d1+999 20d20+50 8d6+12 'pound'
 -11 -13 -10 -9
-CEFikl
+CEF
 stand stand none 0
-Ms IWo huge unknown
+M IW huge unknown
 r lightning 33
 r energy 33
 r sound 33
@@ -178,12 +178,12 @@ The secundi is an incredibly thin, tall humanoids with long, narrow faces
 and deepset eyes. It radiates intense power.
 ~
 modron~
-BFGQRThlmwxz 0 Hn 0 ABgh 0 0
+BFGJQRT 0 H 0 AB 0 0
 36 15 1d1+1599 40d20+50 7d8+15 'punch'
 -11 -14 -11 -12
-EFHIKNklnoqt
+EFHIKN
 stand stand none 0
-Ms Io huge unknown
+M I huge unknown
 r fire 100
 r cold 100
 r lightning 33
@@ -203,12 +203,12 @@ violet eyes. His right hand is wreathed in darkness, his left in light, and
 he looks very displeased to see you.
 ~
 modron~
-BFGQRThlmwxz 0 Hn 0 ABgh 0 0
+BFGJQRT 0 H 0 AB 0 0
 40 20 1d1+3999 1d1+3999 6d10+25 'wrath'
 -15 -15 -15 -15
-AHgn
+AH
 stand stand none 0
-Ms Io giant unknown
+M I giant unknown
 r fire 100
 r cold 100
 r lightning 33
@@ -226,8 +226,8 @@ sword long the~
 THE long sword~
 THE long sword of Primus is here.~
 adamantite~
-weapon AGJKgmpq 0 ANgt
-sword 4 10 'slash' EFkl
+weapon AGJK 0 AN
+sword 4 10 'slash' EF
 39 400 8800 P
 A
 19 5
@@ -244,8 +244,8 @@ moonstone moon stone white~
 a luminescent moonstone~
 A softly glowing white stone rests on the floor.~
 stone~
-warp_stone Ag Ci AOgu
-DEjk 0 0 0 0
+warp_stone A C AO
+DE 0 0 0 0
 0 0 500 P
 E
 moonstone moon stone white~
@@ -385,7 +385,7 @@ In the Tower of Nirvana~
 Entering the tower, there seems to be enough light to see by, but no source is 
 visible.  The hall continues to the east, while a door lies to the west.
 ~
-0 Dj inside
+0 D inside
 D1
 The hall continues east into oblivion.
 ~
@@ -395,19 +395,19 @@ D3
 A great door lies to the west
 ~
 door~
-AFZgl -1 9013
+AFZ -1 9013
 S
 #9008
 A hallway in the Tower of Nirvana~
 You are in a east-west hallway in the tower.  to the west, the hall continues 
 and a door lies to the east.
 ~
-0 Dj inside
+0 D inside
 D1
 A great door lies to the east
 ~
 door~
-AFZgl -1 9012
+AFZ -1 9012
 D3
 the hallway continues west into oblivion.
 ~
@@ -418,7 +418,7 @@ S
 An east-west hallway in the Tower of Nirvana~
 The hallway continues to the east, and stretches to the west.
 ~
-0 Dj inside
+0 D inside
 D1
 The hallway continues east into oblivion.
 ~
@@ -433,7 +433,7 @@ S
 #9010
 An east-west passage in the Tower of Nirvana~
 ~
-0 Dj inside
+0 D inside
 D1
 The Hallway contiues east into oblivion
 ~
@@ -450,7 +450,7 @@ An intersection in the Tower of Nirvana~
 You are at an intersection where the east-west passage continues, but a large 
 passage leads to the north.
 ~
-0 Dj inside
+0 D inside
 D0
 The passage continues to the north where it seems to get wider.
 ~
@@ -495,7 +495,7 @@ D3
 A mighty door lies to the west
 ~
 door~
-AFZgl -1 9008
+AFZ -1 9008
 S
 #9013
 At the door to the Tower of Nirvana~
@@ -519,7 +519,7 @@ D1
 A mighty door sits to the east
 ~
 door~
-AFZgl 0 9007
+AFZ 0 9007
 D2
 The plane continues to the south as far as the eye can see
 ~
@@ -562,7 +562,7 @@ S
 Dead End~
 You stand at a dead end where the only exit appears to be west.
 ~
-0 Dj inside
+0 D inside
 D3
 The passage continue to the west.
 ~
@@ -573,7 +573,7 @@ S
 Dead End~
 You are at what appears to be a dead end.  The only exit is back east.
 ~
-0 Dj inside
+0 D inside
 D1
 The passage continues to the east.
 ~
@@ -585,7 +585,7 @@ A Tertain's lair~
 You quite possibly have made a terrible mistake coming in here.
 Exits lead east and west.
 ~
-0 Dj inside
+0 D inside
 D1
 The passage continues to the east
 ~
@@ -602,7 +602,7 @@ A Tertian's lair~
 You might have made a terrible mistake coming into here.
 Exits lead east and west.
 ~
-0 Dj inside
+0 D inside
 D1
 The passage continues eastward where you can see a bright light.
 ~
@@ -620,7 +620,7 @@ You are in a large hall, with a massive pool of what appears to be pure energy
 in the center of the room.  Exits lead in all the cardinal directions.  From 
 the pool rises the master of the Plane of Nirvana....
 ~
-0 Dj inside
+0 D inside
 D0
 A passage leads north into the unknown.
 ~
@@ -647,7 +647,7 @@ A Tertian's lair~
 Maybe coming here wasn't such a hot idea.  You feel very unwelcome here.  
 Exits lead north and south
 ~
-0 Dj inside
+0 D inside
 D0
 The passage leads north where you can see a bright light.
 ~
@@ -666,7 +666,7 @@ Scrolls lie about the room along with many strange objects...you can't imagine
 what kind of creature would use them.  Exits lead in all the cardinal 
 directions.
 ~
-0 Dj inside
+0 D inside
 D0
 The passage heads northward where you can see nothing.
 ~
@@ -692,7 +692,7 @@ S
 A wide north-south passageway~
 you find yourself in a passage where the exits are north and south
 ~
-0 Dj inside
+0 D inside
 D0
 To the north, you spy an intersection of tunnels.
 ~
@@ -708,7 +708,7 @@ S
 A Tertian's lair~
 You find yourself in a lair of a Tertian.  Exits lead north and south.
 ~
-0 Dj inside
+0 D inside
 D0
 To the north, you can make out a intersection of tunnels.
 ~
@@ -724,7 +724,7 @@ S
 A north south tunnel~
 You are in a passage where the only exits are north and south.
 ~
-0 Dj inside
+0 D inside
 D0
 Far to the north you can see a door.
 ~
@@ -745,12 +745,12 @@ An intersection of passages~
 You stand at an intersection.  Exits lead off to the east and south. 
 A door lies to the north
 ~
-0 Dj inside
+0 D inside
 D0
 you see a massive door
 ~
 door~
-AFZgl 0 9031
+AFZ 0 9031
 D1
 To the east, you spy a dark passage
 ~
@@ -840,7 +840,7 @@ D2
 A large door blocks the way to the south.
 ~
 door~
-AFZgl 0 9026
+AFZ 0 9026
 D3
 looking west, you see more of the passage.
 ~
@@ -851,7 +851,7 @@ S
 A Junction in the passage~
 Here, passages lead off in all cardinal directions.
 ~
-0 Dj inside
+0 D inside
 D0
 Looking north, you spy a small room in the distance
 ~
@@ -877,7 +877,7 @@ S
 The office of the Octon~
 you are in a small room, the only exit is south.
 ~
-0 Dj inside
+0 D inside
 D2
 looking south, you see an intersection.
 ~
@@ -888,7 +888,7 @@ S
 A small room~
 The only exit is north
 ~
-0 Dj inside
+0 D inside
 D0
 Looking north, you spy an intersection.
 ~
@@ -899,7 +899,7 @@ S
 A passageway~
 Exits lead in all cardinal directions.
 ~
-0 Dj inside
+0 D inside
 D0
 Looking north you spy a average sized room.
 ~
@@ -927,7 +927,7 @@ You are in a room that is in complete disrepair.  Items are thrown throughout
 the room making them worthless piles of junk.
 The only exit is back south
 ~
-0 Dj inside
+0 D inside
 D2
 Looking south, you can make out a passage.
 ~
@@ -938,7 +938,7 @@ S
 Office of a Hexton~
 A makeshift desk forms the center of this room.  The only exit is north.
 ~
-0 Dj inside
+0 D inside
 D0
 Looking north, you can make out a hallway.
 ~
@@ -951,7 +951,7 @@ You are standing in a office of one of the Viceroys of the Plane of Nirvana.
 The occupant doesn't look real thrilled with your presence.  The only exits is 
 west.
 ~
-0 Dj inside
+0 D inside
 D3
 Looking west you can see a long hallway
 ~
@@ -962,7 +962,7 @@ S
 A Junction in the hallway~
 Your are standing in a junction, exits lead in all the cardinal directions.
 ~
-0 Dj inside
+0 D inside
 D0
 To the north, you spy a small room
 ~
@@ -988,7 +988,7 @@ Office of an Octon~
 You see a messy room with papers scattered everywhere.
 The only exit leads back to the south
 ~
-0 Dj inside
+0 D inside
 D2
 To the south you can make out a junction.
 ~
@@ -1000,7 +1000,7 @@ Office of a Septon~
 A neat and tidy room, it appear to be inhabited my a neatenss freak.  The only 
 exit lies to the north.
 ~
-0 Dj inside
+0 D inside
 D0
 To the north you see a junction.
 ~
@@ -1011,7 +1011,7 @@ S
 An east-west passage~
 In east west passage is here with exits in all of the cardinal directions.
 ~
-0 Dj inside
+0 D inside
 D0
 You can see a room to the north.
 ~
@@ -1039,7 +1039,7 @@ A dusty room, with a almost untolerable odor, the barracks are being inspected
 by a Hexton and his personal enterage.
 The only exit lies to the south.
 ~
-0 Dj inside
+0 D inside
 D2
 To the south you can see junction
 ~
@@ -1052,7 +1052,7 @@ You have stumbled on to the office of the Commander of the forces in the Plane
 Of Nirvana.  The room is well furnished and a sense of courage and bravery 
 overtakes you as you enter the room.  The only exit lies to the north.
 ~
-0 Dj inside
+0 D inside
 D0
 To the north you can visualize a junction of passages.
 ~
@@ -1064,7 +1064,7 @@ The chamber of the second Secundus~
 This huge room is furnished with the finest, and a personal legion guards the 
 Secundus. the only exit is to the east.
 ~
-0 Dj inside
+0 D inside
 D1
 To the east you can see a junction
 ~
@@ -1076,7 +1076,7 @@ A Passageway~
 You are in a well lit passage.  A sense of forboding danger envelopes you.  
 Exits lead in all cardinal directions.
 ~
-0 Dj inside
+0 D inside
 D0
 To the north you can see a small chamber
 ~
@@ -1103,7 +1103,7 @@ Chamber of the Octon~
 A small room, sparsely furnished, it leaves you with a sense of fear.  The 
 only exit is to the south
 ~
-0 Dj inside
+0 D inside
 D2
 To the south you can see a passage.
 ~
@@ -1115,7 +1115,7 @@ Chamber of the Nonaton~
 You have entered the chamber of the principal law and order overseers.  The 
 only exit lies to the north
 ~
-0 Dj inside
+0 D inside
 D0
 To the north you can see a passageway.
 ~
@@ -1127,7 +1127,7 @@ End of the passageway~
 You have reached the end of a long east-west passage.  The passage contiues to 
 the west, and rooms lie to the north, south, and east.
 ~
-0 Dj inside
+0 D inside
 D0
 To the north you can see a room
 ~
@@ -1154,7 +1154,7 @@ Chamber of a Hexton~
 You have entered the chamber of a Hexton.  Trophies adorn the walls, some of 
 which are human. the only exit is to the south.
 ~
-0 Dj inside
+0 D inside
 D2
 To the south you can see a passageway.
 ~
@@ -1166,7 +1166,7 @@ Chamber of a Hexton~
 You have entered a room where you are not very popular. The only exit lies 
 northbound.
 ~
-0 Dj inside
+0 D inside
 D0
 To the north you can see a passage.
 ~
@@ -1178,7 +1178,7 @@ Chamber of the Secudus~
 A large canvernous room, this chamber serves as the sleeping quarters for the 
 third Secudus, Viceroy to Primus. The only exit lies to the west.
 ~
-0 Dj inside
+0 D inside
 D3
 To the west you can see a passageway.
 ~
@@ -1189,7 +1189,7 @@ S
 A passageway~
 You are in a passagway where you may go in any cardinal direction.
 ~
-0 Dj inside
+0 D inside
 D0
 To the north lies a small chamber
 ~
@@ -1215,7 +1215,7 @@ S
 A small chamber~
 You are in a small cramped chamber.  The only exit lies to the south.
 ~
-0 Dj inside
+0 D inside
 D2
 To the south you can see a passage
 ~
@@ -1226,7 +1226,7 @@ S
 A cramped room~
 You are in a small, crowded room.  The only exit appears to lie to the north.
 ~
-0 Dj inside
+0 D inside
 D0
 To the north, you can see a passageway.
 ~
@@ -1238,7 +1238,7 @@ A large room~
 You have entered a room where you are not wanted.  The only exit lies to the 
 south.
 ~
-0 Dj inside
+0 D inside
 D2
 To the south you can visualize a east-west passage.
 ~
@@ -1250,7 +1250,7 @@ A room~
 You have entered a room where there was obviously a hurried move going on.  
 The only exit lies to the north.
 ~
-0 Dj inside
+0 D inside
 D0
 To the north you can make out a passageway.
 ~
@@ -1263,7 +1263,7 @@ You have disturbed the rest of the First Viceroy to Primus the Prime, The
 Secundus.  He does not look like a happy camper. The only exit lies to the 
 east.
 ~
-0 Dj inside
+0 D inside
 D1
 To the east you can spot a hallway
 ~
@@ -1274,7 +1274,7 @@ S
 Junction in the hallway~
 Exits lead off in all of the cardinal directions
 ~
-0 Dj inside
+0 D inside
 D0
 To the north lies a large chamber
 ~

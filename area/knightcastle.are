@@ -23,10 +23,10 @@ with his long experienced wise years.
 приспешниками зла, и благославить тебя на борьбу со Злом.
 ~
 human~
-BQehw Hn Hn 0 ABgh 1000 0
+BJQe H H 0 AB 1000 0
 90 0 1d1+18999 1d1+999 20d24+40 'divine'
 -95 -95 -95 -75
-FHIKlnoq
+FHIK
 stand stand male 1000
 0 0 medium unknown
 C Knights
@@ -59,10 +59,10 @@ bright body armor is shining upon you.
 крепко держит в руке меч, чтобы не пустить в замок непрошенных гостей.
 ~
 human~
-ABDEJWeghjkp CDFGIijlmo HVn 0 ABHghn 0 0
+BJWe CDI HV 0 ABCDFH 0 0
 92 40 2d500+25000 1d200+1600 10d40+50 'slash'
 -90 -90 -90 -50
-ACDEFKNUgijklqt
+ACDEFKNU
 stand stand male 5000
 0 0 medium unknown
 M grall 95200 100~
@@ -83,10 +83,10 @@ bright body armor is shining upon you.
 на стене.
 ~
 human~
-BWeh 0 HVn 0 ABHghn 0 0
+BJWe 0 HV 0 ABH 0 0
 92 40 2d500+25000 1d200+1600 10d40+50 'punch'
 -90 -90 -90 -50
-ACDEFKNUgijklqt
+ACDEFKNU
 stand stand male 5000
 0 0 medium unknown
 r charm 100
@@ -102,10 +102,10 @@ donkey ослик grey mount~
 солнца.
 ~
 horse~
-BWZh 0 HVn 0 BHhn 1000 0
+BJWZ 0 HV 0 BH 1000 0
 25 10 2d100+1000 1d200+1600 6d4+9 'wrath'
 -10 -10 -10 -5
-Nt
+N
 stand stand male 5000
 0 0 medium unknown
 r charm 100
@@ -120,10 +120,10 @@ horse mount конь white~
 белой гривы ослепляет тебя.
 ~
 horse~
-BWZh 0 HVn 0 BHhn 1000 0
+BJWZ 0 HV 0 BH 1000 0
 45 20 25d10+3000 1d200+1600 7d6+25 'wrath'
 -20 -20 -20 -10
-Nt
+N
 stand stand male 5000
 0 0 medium unknown
 r charm 100
@@ -138,10 +138,10 @@ unicorn единорог mount~
 угодно в этом мире! Его перевитый рог сверкает на свету.
 ~
 horse~
-BWZh 0 HVn Gm BHhn 1000 0
+BJWZ 0 HV G BH 1000 0
 55 30 50d10+6000 1d200+1600 6d7+25 'wrath'
 -30 -30 -30 -20
-JNpt
+JN
 stand stand male 5000
 0 0 medium unknown
 r fire 33
@@ -173,10 +173,10 @@ at you suspiciuosely and sighs saddly.
 вздыхает.
 ~
 horse~
-BWZh 0 HTUVnz AGgm ABHghn 1000 0
+BJWZ 0 HTUV AG ABH 1000 0
 70 30 100d10+9500 1d20+1600 6d10+30 'wrath'
 -40 -40 -40 -30
-Nt
+N
 stand stand male 5000
 0 0 medium unknown
 r fire 33
@@ -210,10 +210,10 @@ to see in that deepness anymore...
 мерцающих в этой бездне...
 ~
 horse~
-BWZh 0 HTUVanz 0 ABHghn 1000 0
+BJWZ 0 HTUVa 0 ABDFH 1000 0
 85 50 100d12+16250 1d20+1600 6d15+50 'wrath'
 -50 -50 -50 -40
-DNOjtu
+DNO
 stand stand male 5000
 0 0 medium unknown
 r fire 33
@@ -238,7 +238,7 @@ key golden ключ~
 @eng a golden key@rus ~~золотой~~ ~~ключ~~~
 @eng A golden key is left on the floor.@rus Золотой ключ (key) оставлен на полу.~
 gold~
-key Y BIJKhopq AOgu
+key Y BI AO
 0 0 0 0 0
 0 4 0 P
 g male~
@@ -247,8 +247,8 @@ altar алтарь~
 @eng the altar@rus ~~алтарь~~~
 @eng There is a huge golden altar in the middle of the room.@rus Большой алтарь (altar), сделанный из золота, стоит в середине святилища.~
 gold~
-container Y Bh 0
-10 ABCDghij 95200 15 100
+container Y B 0
+10 ABCD 95200 15 100
 60 1 20 P
 g male~
 #95202
@@ -256,7 +256,7 @@ medal honor медаль large~
 @eng Large medal of honor@rus ~~Большая~~ ~~медаль~~ Чести~
 @eng The large medal of honor is left here.@rus Большая медаль (medal) Чести лежит здесь.~
 gold~
-treasure 0 ABHghn AOgu
+treasure 0 ABH AO
 0 0 0 0 0
 0 1 100000 P
 g female~
@@ -266,7 +266,7 @@ table стол round~
 @eng Heavy round table stands here, waiting for Knights to feast at.@rus Круглый Стол (table) приглашает присоединиться к угощению.~
 wood~
 furniture 0 0 0
-ABCDghij FHJKPQlnpqvw DGNjmt CDFIijlo CDFIijlo
+ABCD FHJKPQ DGN CDFI CDFI
 0 15000 0 P
 g male~
 #95204
@@ -274,8 +274,8 @@ statue статуя~
 @eng statue of King Arthur@rus ~~Статуя~~ Короля Артура~
 @eng Huge statue of man riding a horse is in the shade of trees.@rus Большая статуя всадника (statue) скрывается в тени деревьев.~
 unknown~
-furniture ABgh 0 0
-BDhj EIJKNkopqt Ag 0 0
+furniture AB 0 0
+BD EIJKN A 0 0
 50 50000 0 P
 g female~
 #95205
@@ -283,7 +283,7 @@ fountain knight~
 @eng fountain@rus фонтан~
 @eng Marble fountain depicting a noble Knight who tears Invaders mouth.@rus Мраморная скульптура Рыцаря (knight), разрывающего пасть Захватчика.~
 marble~
-fountain 0 Bh 0
+fountain 0 B 0
 100000 100000 'mead' 0 0
 0 100000 0 P
 E
@@ -300,8 +300,8 @@ holy lance~
 {WHoly blessed Lance{x~
 {WVery beautiful Lance{x glowing here.~
 energy~
-weapon ABIKghoq CFil ANgt
-lance 12 12 'charge' DEIjko
+weapon ABIK CF AN
+lance 12 12 'charge' DEI
 75 200 1000000 P
 A
 24 -50
@@ -315,7 +315,7 @@ aura majesty ореол~
 @eng Aura of {BMajesty{x@rus ~~Ореол~~ {w{GВеличия{g~
 @eng Something strange is here.@rus Что-то странное здесь.~
 unknown~
-jewelry AIMYgos CEik ASgy
+jewelry AIMY CE AS
 0 0 0 0 0
 0 0 0 P
 g male~
@@ -332,7 +332,7 @@ the other one is on the west wall.
 уходящюю на север. На юге ты можешь выйти из замка. На стенах
 висят перекрещенные двуручные мечи и щиты с гербом Замка.
 ~
-0 DKXjq inside
+0 DKX inside
 D0
 ~
 ~
@@ -353,7 +353,7 @@ bright knight armors hung, indicating that this a protected area.
 можешь спуститься (down) в Зимний Сад. На западе (west) находится
 Оружейная. На стенах, как и везде в замке, развешено оружие и доспехи.
 ~
-0 DKXjq inside
+0 DKX inside
 D0
 ~
 ~
@@ -379,7 +379,7 @@ room is the squire traniee room.
 них как раз отдыхают здесь, ты слышишь легкое похрапывание из
 дальнего угла бараков.
 ~
-0 DKXjq inside
+0 DKX inside
 D1
 ~
 ~
@@ -399,7 +399,7 @@ wars or for helping young knights.
 доспехи по размеру и мечи по руке, чтобы во всеоружии встретить
 врага.
 ~
-0 DKXjq inside
+0 DKX inside
 D1
 ~
 ~
@@ -416,7 +416,7 @@ material.
 к сводам, ты видишь те же знаки, вырезанные из золота и покрывающие
 всю поверхность купола.
 ~
-0 DKXjq inside
+0 DKX inside
 D2
 ~
 ~
@@ -431,7 +431,7 @@ room is the used for maintainance of horses for Knights.
 вкусное, судя по их довольным мордам. Ты можешь выбрать себе кого-
 нибудь соответственно своим умениям.
 ~
-0 DKMXjqs inside
+0 DKMX inside
 D3
 ~
 ~
@@ -442,7 +442,7 @@ Horse room~
 You see some horses either resting or eating. You notice that this
 room is the used for maintainance of horses for Knights.
 ~
-0 CDKijq inside
+0 CDK inside
 S
 #95207
 @eng Winter garden@rus Зимний сад~
@@ -454,7 +454,7 @@ your duties call you for struggle with the evil ones!
 остаться в этом райском уголке навечно. Но твой долг призывает тебя
 продолжить борьбу со Злом!
 ~
-0 KXq forest
+0 KX forest
 D2
 ~
 ~
@@ -467,7 +467,7 @@ S
 #95210
 Before the castle~
 ~
-0 Kq inside
+0 K inside
 D0
 ~
 ~
@@ -476,7 +476,7 @@ S
 #95211
 Entrance to the castle~
 ~
-0 Kq inside
+0 K inside
 D1
 ~
 ~
@@ -488,12 +488,12 @@ Z 0 95210
 D3
 ~
 ~
-DZj 0 95214
+DZ 0 95214
 S
 #95212
 Between the wall and moat~
 ~
-0 Kq inside
+0 K inside
 D1
 ~
 ~
@@ -506,7 +506,7 @@ S
 #95213
 Stables~
 ~
-0 Kq inside
+0 K inside
 D3
 ~
 ~
@@ -515,7 +515,7 @@ S
 #95214
 Between the wall and moat~
 ~
-0 Kq inside
+0 K inside
 D0
 ~
 ~
@@ -523,12 +523,12 @@ Z 0 95215
 D1
 ~
 ~
-DZj 0 95211
+DZ 0 95211
 S
 #95215
 Inner yard~
 ~
-0 Kq inside
+0 K inside
 D0
 ~
 ~
@@ -540,12 +540,12 @@ Z 0 95214
 D3
 ~
 ~
-ABZgh 0 95218
+ABZ 0 95218
 S
 #95216
 Dinner hall~
 ~
-0 Kq inside
+0 K inside
 D0
 ~
 ~
@@ -558,7 +558,7 @@ S
 #95217
 Altar~
 ~
-0 Kq inside
+0 K inside
 D2
 ~
 ~
@@ -567,7 +567,7 @@ S
 #95218
 In the guardtower~
 ~
-0 Kq inside
+0 K inside
 D0
 ~
 ~
@@ -588,7 +588,7 @@ swords, maces and lances hanging along the east and west walls.
 выход из замка. Оглядываясь вокруг, ты видишь
 множество мечей, булав и алебард, висящих на стенах.
 ~
-0 DKXjq inside
+0 DKX inside
 D0
 ~
 ~
@@ -609,7 +609,7 @@ swords, maces and lances hanging along the east and west walls.
 выход из замка. Оглядываясь вокруг, ты видишь
 множество мечей, булав и алебард, висящих на стенах.
 ~
-0 DKXjq inside
+0 DKX inside
 D0
 ~
 ~
@@ -630,7 +630,7 @@ swords, maces and lances hanging along the east and west walls.
 выход из замка. Оглядываясь вокруг, ты видишь
 множество мечей, булав и алебард, висящих на стенах.
 ~
-0 DKXjq inside
+0 DKX inside
 D0
 ~
 ~
@@ -651,7 +651,7 @@ swords, maces and lances hanging along the east and west walls.
 выход из замка. Оглядываясь вокруг, ты видишь
 множество мечей, булав и алебард, висящих на стенах.
 ~
-0 DKXjq inside
+0 DKX inside
 D0
 ~
 ~

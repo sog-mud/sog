@@ -19,13 +19,13 @@ Shambler~
 @rus Гигантская белая фигура с широко расставленными огромными "ручищами" увенчанными окровавленными когтями. Душа уходит в пятки при виде огромных зубов в безгубой пасти. На лице этой твари не видно глаз -- от этого она кажется еще мертвее, чем этот мертвый мир. Все ее существо дышит безмолвием и "спокойствием". Однако она легко убедит тебя в том, что спокойствие это лишь твоя мечта. НЕСБЫТОЧНАЯ!!!
 ~
 giant~
-BCFTYhilz 0 ad Gm ABgh -1000 0
+BCFTY 0 ad G AB -1000 0
 98 100 90d12+25000 9d10+10000 20d10+100 'claw'
 -90 -90 -90 -50
-COiu
+CO
 stand stand none 3000
-Bch U giant unknown
-F for AHgn
+Bc U giant unknown
+F for AH
 r slash 33
 r cold 0
 r charm 100
@@ -38,12 +38,12 @@ Fiend~
 @rus Рыжая тварь с огромными руками - бичами. 
 ~
 ghoul~
-FTlz 0 OVu 0 Hn -1000 0
+FJT 0 BOV 0 HJ -1000 0
 70 70 15d200+15000 70d10+100 5d6+90 'slash'
 -60 -60 -60 -35
-ENkt
+EN
 stand stand either 250
-a NWt large unknown
+a NW large unknown
 r holy 0
 #35262
 chton~
@@ -51,7 +51,7 @@ chton~
 ~
 ~
 fire giant~
-Tz 0 0 0 0 -1000 0
+T 0 0 0 0 -1000 0
 100 90 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0
@@ -65,7 +65,7 @@ bandana~
 @eng Black bandana@rus Черная бандана~
 @eng Black bandana with skull and crossbones lies her. You see the word "Phobos" on the inner side.@rus Черная бандана с черепом и скрещенными костями лежит здесь. С изнанки написано "Фобос".~
 kevlar~
-armor ACgi Bh AEIgko
+armor AC B AEI
 100 100 100 100 0
 98 5 100 P
 A
@@ -76,7 +76,7 @@ Stereosystem~
 @eng Huge stereosystem@rus Огромная стереосистема~
 @eng Huge stereosystem stands here. It looks really heavy and powerful@rus Огромная стереосистема стоит тут. Выглядит очень тяжелой и мощной~
 unknown~
-armor Ci 0 AJgp
+armor C 0 AJ
 100 100 100 100 0
 98 20 1000 P
 A
@@ -87,7 +87,7 @@ Smell~
 @eng Smell of death@rus Запах смерти~
 @eng The smell of your death soars here..@rus Запах твоей смерти витает тут..~
 unknown~
-container CEik 0 AQgw
+container CE 0 AQ
 1 0 0 0 0
 98 0 0 P
 g none~
@@ -96,7 +96,7 @@ chain~
 @eng Bike chain@rus Цепь от мотоцикла~
 @eng Bike chain lies on the ground. Have you ever seen bike here?@rus Мотоциклетная цепь валяется на земле. ТЫ когда-нибудь видел здесь МОТОЦИКЛ?~
 steel~
-weapon ACEgik 0 ANgt
+weapon ACE 0 AN
 exotic 10 9 'none' 0
 98 50 0 P
 A
@@ -109,7 +109,7 @@ pants~
 @eng Black leather pants@rus Черные кожаные штаны~
 @eng Black leather pants. And nothing more. @rus Черные штаны из кожи. Просто. Очень потертые.~
 leather~
-armor CYi 0 AFgl
+armor CY 0 AF
 50 50 50 50 0
 98 20 0 P
 A
@@ -120,7 +120,7 @@ Vest~
 @eng Black riveted vest@rus Черный клепанный жилет~
 @eng Rieted vest@rus Черный жилет кто-то оставил...~
 kevlar~
-armor CIYio 0 ADgj
+armor CIY 0 AD
 50 50 50 50 0
 98 50 0 P
 A
@@ -133,7 +133,7 @@ tattoo~
 @eng {WTattoo "{DI'm your {cGOD{D!{W"{x@rus {WТатуировка "{DЯ твой {cБОГ{D!{W"{x~
 @eng Tatto.@rus Татушка.~
 zircon~
-protect Ci 0 ARgx
+protect C 0 AR
 0 0 0 0 0
 98 0 0 P
 A
@@ -144,7 +144,7 @@ key~
 @eng Kalarit key@rus Каларитовый ключ~
 @eng The key which shimmers strange tints of blue, red and green.@rus Ключ, отливающий странными оттенками синего, красного и зеленого.~
 unknown~
-key ACgi 0 ACgi
+key AC 0 AC
 0 0 0 0 0
 70 10 70 P
 g none~
@@ -153,7 +153,7 @@ torch~
 @eng Massive torch@rus Массивный факел~
 @eng Massive torch is suspended on the wall. It lights up all around.@rus Массивный факел висит на стене, освещая все вокруг мертвенным мерцающим светом.~
 wood~
-light CGim 0 Ag
+light CG 0 A
 0 0 50 0 0
 70 50 20 P
 A
@@ -168,7 +168,7 @@ anchar~
 @eng Anchar@rus Анчар~
 @eng Anchar spreads its gloomy gray branches above you@rus Анчар распростер над тобой свои мрачные серые ветви~
 unknown~
-fountain CYi Bh 0
+fountain CY B 0
 -1 -1 'vodka' 0 0
 0 0 0 P
 g none~
@@ -177,7 +177,7 @@ chainsaw~
 @eng chainsaw@rus бензопила~
 @eng A little stained but very good chainsaw@rus Слегка тронутая ржавчиной, но отлично пилящая бензопила~
 unknown~
-weapon CEik 0 ANgt
+weapon CE 0 AN
 exotic 5 14 'slash' 0
 70 35 250 P
 g none~
@@ -186,7 +186,7 @@ Rocket Launcher~
 ~
 ~
 steel~
-weapon 0 0 ANgt
+weapon 0 0 AN
 exotic 0 0 'none' 0
 50 100 300 P
 g none~
@@ -195,7 +195,7 @@ redarmor~
 @eng Red armor of soldier@rus Красная броня солдата~
 @eng Red plate is suspended on the air@rus Красные латы висят в воздухе, медленно поворачиваясь ~
 Star dust~
-armor ACgi 0 ADgj
+armor AC 0 AD
 60 60 60 40 0
 0 100 350 P
 A
@@ -208,7 +208,7 @@ RL~
 @eng Rocket launcher with mark "{DTF{x"@rus Ракетница с эмблемой "{DTF{x"~
 @eng Rocket launcher rotates here @rus Ракетница кружитя в воздухе, распространяя запах пороховой гари~
 titanium~
-weapon Ci Ci ANgt
+weapon C C AN
 exotic 4 5 'blast' 0
 25 70 400 P
 A
@@ -223,7 +223,7 @@ QRing~
 @eng Ring of the Shadows magic@rus Магическое Кольцо Теней~
 @eng A little ring twinkling here spreads fluids of the Shadows magic@rus [Маленькое кольцо блестит тут, распространяя флюиды магии Теней~
 gold~
-treasure ACGIgimo 0 ABgh
+treasure ACGI 0 AB
 0 0 0 0 0
 25 20 250 P
 g none~
@@ -232,7 +232,7 @@ Helm~
 @eng The Mighty Helm of Shadow Master@rus The Mighty Helm of Shadow Master~
 @eng The Mighty Helm of Shadow Master hang in the air@rus The Mighty Helm of Shadow Master hang in the air~
 water~
-armor ABGIghmo 0 AEgk
+armor ABGI 0 AE
 -90 -90 -90 -90 0
 0 0 0 P
 A
@@ -247,7 +247,7 @@ Armor~
 @eng The Mighty Armor of Shadow Master@rus The Mighty Armor of Shadow Master~
 @eng The Mighty Armor of Shadow Master hang in the air@rus The Mighty Armor of Shadow Master hang in the air~
 water~
-armor ABGIghmo 0 ADgj
+armor ABGI 0 AD
 -200 -200 -200 -200 0
 0 0 0 P
 A
@@ -262,7 +262,7 @@ Orbit~
 @eng The Mighty Orbit of Shadow Master@rus The Mighty Orbit of Shadow Master~
 @eng The Mighty Orbit of Shadow Master hang in the air@rus The Mighty Orbit of Shadow Master hang in the air~
 water~
-armor ABGIghmo 0 AQgw
+armor ABGI 0 AQ
 -180 -180 -180 -180 0
 0 0 0 P
 A
@@ -275,8 +275,8 @@ BackPack~
 @eng The Mighty BackPack of Shadow Master@rus The Mighty BackPack of Shadow Master~
 @eng The Mighty BackPack of Shadow Master hang in the air@rus The Mighty BackPack of Shadow Master hang in the air~
 water~
-container ABGIghmo Bh Ag
-10000 Ag 0 1000000 10
+container ABGI B A
+10000 A 0 1000000 10
 0 0 0 P
 g none~
 #35269
@@ -284,8 +284,8 @@ Ring~
 @eng The Mighty Ring of Shadow Master@rus The Mighty Ring of Shadow Master~
 @eng The Mighty Ring of Shadow Master hang in the air@rus The Mighty Ring of Shadow Master hang in the air~
 water~
-weapon ABGIghmo 0 ABgh
-exotic 50 60 'magic' Io
+weapon ABGI 0 AB
+exotic 50 60 'magic' I
 0 0 0 P
 A
 13 100
@@ -305,8 +305,8 @@ Dagger~
 @eng The Mighty Dagger of Shadows@rus Мощнейший Dagger Теней~
 @eng The Mighty Dagger of Shadows@rus Мощнейший Dagger Теней~
 crystal~
-weapon BGHIhmno ABFghl ANgt
-dagger 20 30 'magic' Hn
+weapon BGHI ABF AN
+dagger 20 30 'magic' H
 37 0 1000 P
 A
 12 200
@@ -330,8 +330,8 @@ sword~
 @eng The Mighty Sword of Shadow Master@rus The Mighty Sword of Shadow Master~
 @eng The Mighty Sword of Shadow Master hang in the air@rus The Mighty Sword of Shadow Master hang in the air~
 Steel~
-weapon ABGIghmo 0 ANgt
-sword 1000 2000 'magic' Hn
+weapon ABGI 0 AN
+sword 1000 2000 'magic' H
 0 0 0 P
 A
 18 10000
@@ -343,7 +343,7 @@ Armor~
 @eng The Mighty Armor of Shadow Master@rus The Mighty Armor of Shadow Master~
 @eng The Mighty Armor of Shadow Master hang in the air@rus The Mighty Armor of Shadow Master hang in the air~
 Steel~
-armor ABGIghmo 0 ADgj
+armor ABGI 0 AD
 -100 -100 -100 -100 0
 0 0 0 P
 g none~
@@ -352,7 +352,7 @@ ball~
 @eng The Mighty Ball of Shadow Master@rus The Mighty Ball of Shadow Master~
 @eng The Mighty Ball of Shadow Master hang in the air@rus The Mighty Ball of Shadow Master hang in the air~
 Steel~
-light ABGIghmo 0 ABgh
+light ABGI 0 AB
 0 0 0 0 0
 0 0 0 P
 A
@@ -363,8 +363,8 @@ BackPack~
 @eng The Mighty BackPack of Shadow Master@rus The Mighty BackPack of Shadow Master~
 @eng The Mighty BackPack of Shadow Master hang in the air@rus The Mighty BackPack of Shadow Master hang in the air~
 Steel~
-container ABGIghmo 0 Ag
-2147483647 Ag 0 0 0
+container ABGI 0 A
+2147483647 A 0 0 0
 0 0 0 P
 g none~
 #35275
@@ -372,7 +372,7 @@ ring~
 @eng The Mighty Ring of Shadow Master@rus The Mighty Ring of Shadow Master~
 @eng The Mighty Ring of Shadow Master hang in the air@rus The Mighty Ring of Shadow Master hang in the air~
 Steel~
-trash ABGIghmo 0 ABgh
+trash ABGI 0 AB
 0 0 0 0 0
 0 0 0 P
 A
@@ -405,7 +405,7 @@ g none~
 @rus Громадная пустошь под фиолетовым небом. Никого.. только ты и свист ветра.
 На горизонте виднеется что-то большое...
 ~
-0 Nt desert
+0 N desert
 D0
 ~
 ~
@@ -418,11 +418,11 @@ S
 #35201
 @eng The door to {DChton{x@rus Дверь к {DХтону{x~
 ~
-0 Nt desert
+0 N desert
 D0
 ~
 ~
-ABCGZghim 35257 35203
+ABCGZ 35257 35203
 D2
 ~
 ~
@@ -434,7 +434,7 @@ S
 @rus Громадная пустошь под фиолетовым небом. Никого.. только ты и свист ветра.
 Под ногами не трава -- ты понимаешь, что на этой земле ни хрена расти не может.
 ~
-0 ANgt desert
+0 AN desert
 D0
 ~
 ~
@@ -446,7 +446,7 @@ S
 The air slowly wawes as if it will be somethings' heavy breathing. 
 @rus Тихий звук падающих капель умиротворяет тебя. Ты смотришь на стены -- обычная пещера, если бы не эти недвусмысленные пятна на стенах и скелеты, полузарытые в пыль. Воздух медленно колышется, словно в такт чьему-то дыханию. Но каким же должен быть этот кто-то, если его дыхание даже здесь колыхает тебя как пушинку?  
 ~
-0 ADNgjt inside
+0 ADN inside
 D5
 ~
 ~
@@ -455,7 +455,7 @@ S
 #35204
 @eng The dark hallway@rus Темный коридор~
 ~
-0 ADNgjt inside
+0 ADN inside
 D4
 ~
 ~
@@ -468,7 +468,7 @@ S
 #35205
 @eng The dark hallway@rus Темный коридор~
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 ~
@@ -476,7 +476,7 @@ Z 0 35206
 D3
 ~
 ~
-ABZgh 0 35207
+ABZ 0 35207
 D4
 ~
 ~
@@ -485,7 +485,7 @@ S
 #35206
 @eng The dark hallway@rus Темный коридор~
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 ~
@@ -498,11 +498,11 @@ S
 #35207
 ~
 ~
-0 ADNgjt inside
+0 ADN inside
 D1
 ~
 ~
-ABZgh 0 35205
+ABZ 0 35205
 D2
 ~
 ~
@@ -511,7 +511,7 @@ S
 #35208
 ~
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 ~
@@ -524,7 +524,7 @@ S
 #35209
 ~
 ~
-0 Dj inside
+0 D inside
 D4
 ~
 ~
@@ -537,7 +537,7 @@ S
 #35210
 ~
 ~
-0 Dj inside
+0 D inside
 D5
 ~
 ~
@@ -546,7 +546,7 @@ S
 #35211
 @eng The house of {DChton{x@rus Обитель {DХтона{x~
 ~
-0 ADNgjt inside
+0 ADN inside
 D2
 ~
 ~

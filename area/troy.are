@@ -18,10 +18,10 @@ Achilles. He is a proud man, and his pride may one day lead to his
 downfall.
 ~
 human~
-BGThmz 0 Hn 0 0 400 0
+BGT 0 H 0 0 400 0
 42 0 25d10+2250 5d5+1000 3d12+14 'pound'
 -14 -14 -14 3
-CDEFIKijkloq
+CDEFIK
 stand stand male 1000
 0 0 medium unknown
 #29501
@@ -37,10 +37,10 @@ long but uneventful life, or a short but action-filled life, and he chose
 the latter.
 ~
 human~
-BGThmz 0 Hn 0 0 500 0
+BGT 0 H 0 0 500 0
 45 0 25d10+3000 5d5+1000 8d4+16 'pound'
 -15 -15 -15 2
-CDEFIKijkloq
+CDEFIK
 stand stand male 1000
 0 0 medium unknown
 #29502
@@ -54,10 +54,10 @@ with his quick wits, which keep him alive long after all his allies have
 died.
 ~
 human~
-BGThmz 0 Hn 0 ABgh 600 0
+BGT 0 H 0 AB 600 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
-CDEFIKijkloq
+CDEFIK
 stand stand male 1000
 0 0 medium unknown
 #29503
@@ -70,10 +70,10 @@ forces who are amassed here to "rescue" Helen from the Trojans. He is stern
 and haughty, and also quite hard and unrelenting in his quest for vengeance.
 ~
 human~
-BGThmz 0 Hn 0 0 400 0
+BGT 0 H 0 0 400 0
 38 0 10d10+1600 5d5+1000 5d6+12 'pound'
 -13 -13 -13 3
-CDEFIKijkloq
+CDEFIK
 stand stand male 1000
 0 0 medium unknown
 #29504
@@ -86,10 +86,10 @@ his allies Menelaus and Agamemnon. An elderly man, he is one of the few
 to survive the Trojan War and the subsequent journey home.
 ~
 human~
-BGThmz 0 Hn 0 0 700 0
+BGT 0 H 0 0 700 0
 34 0 10d10+1200 5d5+1000 4d7+10 'pound'
 -11 -11 -11 3
-CDEFIKijkloq
+CDEFIK
 stand stand male 1000
 0 0 medium unknown
 #29505
@@ -102,10 +102,10 @@ it is because of the kidnapping of his wife Helen by Paris that the Achaens
 have come here. Menelaus is worried for his wife, whom he loves greatly.
 ~
 human~
-BGThmz 0 Hn 0 0 600 0
+BGT 0 H 0 0 600 0
 36 0 10d10+1400 5d5+1000 3d10+11 'pound'
 -12 -12 -12 3
-CDEFIKijkloq
+CDEFIK
 stand stand male 1000
 0 0 medium unknown
 #29506
@@ -119,10 +119,10 @@ wearing his armor, and is slain by Hector, who thinks him to be Achilles.
 But that is another story.
 ~
 human~
-BGThmz 0 Nt 0 0 780 0
+BGT 0 N 0 0 780 0
 33 0 10d10+1100 5d5+1000 6d4+10 'slash'
 -11 -11 -11 3
-CDEFIKijkloq
+CDEFIK
 stand stand male 1000
 0 0 medium unknown
 #29507
@@ -135,10 +135,10 @@ or spiteful man, just a lustful one. Unfortunately his breach of the host-
 guest code of behaviour will cost his whole city its existence.
 ~
 human~
-BGHThmnz 0 Nt 0 0 200 0
+BGHT 0 N 0 0 200 0
 35 0 10d10+1300 5d5+1000 4d7+11 'pound'
 -11 -11 -11 3
-CDEFIKijkloq
+CDEFIK
 stand stand male 1000
 0 0 medium unknown
 #29508
@@ -151,10 +151,10 @@ believe Virgil. He is the favorite son of his parents, and of Troy. He is
 in charge of the Trojan forces.
 ~
 human~
-GTmz 0 Hn 0 0 400 0
+GT 0 H 0 0 400 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
-CDEFIKijkloq
+CDEFIK
 stand stand male 1000
 0 0 medium unknown
 #29509
@@ -167,10 +167,10 @@ too infirm to command his army in battle so that task falls to his favorite
 son, Hector.
 ~
 human~
-BGThmz 0 Hn 0 0 500 0
+BGT 0 H 0 0 500 0
 31 0 6d12+928 5d5+1000 4d6+9 'pound'
 -10 -10 -10 3
-CDEFIKijkloq
+CDEFIK
 stand stand male 1000
 0 0 medium unknown
 #29510
@@ -183,10 +183,10 @@ who escapes to found Rome. He is a powerful warrior, and a just and
 honorable, if proud, man.
 ~
 human~
-GTmz 0 Hn 0 0 500 0
+GT 0 H 0 0 500 0
 43 0 25d10+2500 5d5+1000 3d12+15 'pound'
 -15 -15 -15 2
-CDEFIKijkloq
+CDEFIK
 stand stand male 1000
 0 0 medium unknown
 #29511
@@ -199,10 +199,10 @@ by Paris, whom she developed a deep affection for due to the machinations
 of Aphrodite.
 ~
 human~
-BGHhmn 0 Nt 0 0 400 0
+BGH 0 N 0 0 400 0
 32 0 10d10+1000 5d5+1000 6d4+9 'punch'
 -10 -10 -10 0
-EIKkoq
+EIK
 stand stand female 1000
 0 0 medium unknown
 #29512
@@ -215,10 +215,10 @@ giving her the power of prophecy, which he couldn't reverse, so he cursed
 her by having it that no-one would ever believe her prophecies.
 ~
 human~
-BGHhmn 0 Hn 0 0 700 0
+BGH 0 H 0 0 700 0
 35 0 10d10+1300 5d5+1000 4d7+11 'pound'
 -11 -11 -11 3
-EIKkoq
+EIK
 stand stand female 1000
 0 0 medium unknown
 #29513
@@ -230,10 +230,10 @@ Andromache is married to Hector, Ilium's favorite son. She stands here on
 the walls watching her husband lead the soldiers into battle.
 ~
 human~
-BGHhmn 0 Nt 0 0 400 0
+BGH 0 N 0 0 400 0
 32 0 10d10+1000 5d5+1000 6d4+9 'punch'
 -10 -10 -10 3
-EIKkoq
+EIK
 stand stand female 1000
 0 0 medium unknown
 #29514
@@ -245,10 +245,10 @@ Hecabe is the wife of Priam, and mother of Hector, Paris and Cassandra. And
 that's all there is to say, really.
 ~
 human~
-BGHhmn 0 Nt 0 0 500 0
+BGH 0 N 0 0 500 0
 30 0 6d12+853 5d5+1000 4d6+8 'punch'
 -9 -9 -9 3
-EIKkoq
+EIK
 stand stand female 1000
 0 0 medium unknown
 #29515
@@ -260,10 +260,10 @@ Automedon is one of Achilles' Myrmidons, and serves as his squire. He also
 serves as squire for Patroclus when he goes into battle.
 ~
 human~
-BGhm 0 Nt 0 0 400 0
+BG 0 N 0 0 400 0
 32 0 10d10+1000 5d5+1000 6d4+9 'pound'
 -10 -10 -10 3
-EIKkoq
+EIK
 stand stand male 1000
 0 0 medium unknown
 #29516
@@ -276,10 +276,10 @@ tripped when he was ahead by Athena so Odysseus would win. He got a face
 full of dung, and isn't happy about it.
 ~
 human~
-BGhm 0 Nt 0 0 0 0
+BG 0 N 0 0 0 0
 35 0 10d10+1300 5d5+1000 4d7+11 'pound'
 -11 -11 -11 3
-EIKkoq
+EIK
 stand stand male 1000
 0 0 medium unknown
 #29517
@@ -291,10 +291,10 @@ Chalcas is the chief prophet and augur of the Achaen expedition, and offers
 wise advice with his gods-granted powers.
 ~
 human~
-BGhm 0 Hn 0 0 500 0
+BG 0 H 0 0 500 0
 34 0 10d10+1200 5d5+1000 4d7+10 'pound'
 -11 -11 -11 3
-EIKkoq
+EIK
 stand stand male 1000
 0 0 medium unknown
 #29518
@@ -306,10 +306,10 @@ Chryseis was captured at Thebe by Achilles and alloted to Agamemnon. Apollo,
 deity of her father, forced Agamemnon to return her.
 ~
 human~
-BGHhmn 0 Nt 0 0 700 0
+BGH 0 N 0 0 700 0
 28 0 6d12+703 5d5+1000 2d12+8 'punch'
 -8 -8 -8 4
-EIKkoq
+EIK
 stand stand female 1000
 0 0 medium unknown
 #29519
@@ -323,10 +323,10 @@ who had rightfully captured her. Achilles lost face, and decided to retreat
 to his tent to nurse his injured pride.
 ~
 human~
-BGHhmn 0 Nt 0 0 200 0
+BGH 0 N 0 0 200 0
 28 0 6d12+703 5d5+1000 2d12+8 'punch'
 -8 -8 -8 4
-EIKkoq
+EIK
 stand stand female 1000
 0 0 medium unknown
 #29520
@@ -338,10 +338,10 @@ Antilochus is the brother of Thrasymedes, and the son of King Nestor of
 Pylos. He is a brave and capable warrior, and loyal to his father.
 ~
 human~
-Gm 0 Hn 0 0 500 0
+G 0 H 0 0 500 0
 33 0 10d10+1100 5d5+1000 6d4+10 'slash'
 -11 -11 -11 3
-EIKkoq
+EIK
 stand stand male 1000
 0 0 medium unknown
 #29521
@@ -353,10 +353,10 @@ Thrasymedes is the brother of Antilochus, and the son of King Nestor of
 Pylos. He is a brave and capable warrior, and loyal to his father.
 ~
 human~
-Gm 0 Hn 0 0 500 0
+G 0 H 0 0 500 0
 32 0 10d10+1000 5d5+1000 6d4+9 'pound'
 -10 -10 -10 3
-EIKkoq
+EIK
 stand stand male 1000
 0 0 medium unknown
 #29522
@@ -368,10 +368,10 @@ Diomedes is an affable-enough fellow, very found of Tydeus his father. He
 is of even temper, and much more likeable than most of the surly Achaeans.
 ~
 human~
-Gm 0 Hn 0 0 800 0
+G 0 H 0 0 800 0
 35 0 10d10+1300 5d5+1000 4d7+11 'pound'
 -11 -11 -11 3
-EIKkoq
+EIK
 stand stand male 1000
 0 0 medium unknown
 #29523
@@ -382,10 +382,10 @@ Eurypylus stands ready for combat.
 An Achaean soldier who has seen action fighting Paris. He is unremarkable.
 ~
 human~
-Gm 0 Nt 0 0 0 0
+G 0 N 0 0 0 0
 31 0 6d12+928 5d5+1000 4d6+9 'pound'
 -10 -10 -10 3
-EIKkoq
+EIK
 stand stand male 1000
 0 0 medium unknown
 #29524
@@ -397,10 +397,10 @@ Idomeneus is easily one of the most ablest officers in Agamemnon's staff,
 and quite amiable to boot. He is able in command and in combat.
 ~
 human~
-Gm 0 Hn 0 0 600 0
+G 0 H 0 0 600 0
 38 0 10d10+1600 5d5+1000 5d6+12 'crush'
 -13 -13 -13 3
-EIKkoq
+EIK
 stand stand male 1000
 0 0 medium unknown
 #29525
@@ -412,10 +412,10 @@ Machaon, along with his brother Podaleirius, serves as chief physician to
 the Achaen troops.
 ~
 human~
-BGhm 0 Nt 0 0 500 0
+BG 0 N 0 0 500 0
 30 0 6d12+853 5d5+1000 4d6+8 'pound'
 -9 -9 -9 3
-EIKkoq
+EIK
 stand stand male 1000
 0 0 medium unknown
 #29526
@@ -427,10 +427,10 @@ Menestheus is the son of Prince Peteos, ruler of Athens, and has been
 sent in charge of the troops Athens sent to aid her allies.
 ~
 human~
-BGhm 0 Hn 0 0 400 0
+BG 0 H 0 0 400 0
 35 0 10d10+1300 5d5+1000 4d7+11 'pound'
 -11 -11 -11 3
-EIKkoq
+EIK
 stand stand male 1000
 0 0 medium unknown
 #29527
@@ -442,10 +442,10 @@ Meriones is squire to Idomeneus, and also second in command of the Cretan
 contingent.
 ~
 human~
-Gm 0 Hn 0 0 500 0
+G 0 H 0 0 500 0
 35 0 10d10+1300 5d5+1000 4d7+11 'pound'
 -11 -11 -11 3
-EIKkoq
+EIK
 stand stand male 1000
 0 0 medium unknown
 #29528
@@ -456,10 +456,10 @@ Sthenelus, squire of Diomedes, stands ready to assist his master.
 Sthenelus is an unremarkable squire.
 ~
 human~
-BGHhmn 0 Nt 0 0 0 0
+BGH 0 N 0 0 0 0
 28 0 6d12+703 5d5+1000 2d12+8 'pound'
 -8 -8 -8 4
-EIKkoq
+EIK
 stand stand male 1000
 0 0 medium unknown
 #29529
@@ -470,10 +470,10 @@ Talthybius, herald of Agamemnon, stands outside the tent.
 He is Agamemnon's chief herald.
 ~
 human~
-BGHhmn 0 Nt 0 0 0 0
+BGH 0 N 0 0 0 0
 30 0 6d12+853 5d5+1000 4d6+8 'pound'
 -9 -9 -9 3
-EIKkoq
+EIK
 stand stand male 1000
 0 0 medium unknown
 #29530
@@ -486,10 +486,10 @@ of King Telamon, the ruler of Salamis, and is thus sometimes called
 Telamonian Aias.
 ~
 human~
-Gm 0 Hn 0 0 500 0
+G 0 H 0 0 500 0
 34 0 10d10+1200 5d5+1000 4d7+10 'pound'
 -11 -11 -11 3
-EFIKkloq
+EFIK
 stand stand male 1000
 0 0 medium unknown
 #29531
@@ -501,10 +501,10 @@ A common foot soldier, Thersites is remarkable only for his unruliness, and
 his big mouth, which gets him killed by Achilles eventually.
 ~
 human~
-GHmn 0 0 0 0 -400 0
+GH 0 0 0 0 -400 0
 25 0 5d10+550 5d5+1000 2d10+7 'pound'
 -7 -7 -7 4
-EIKkoq
+EIK
 stand stand male 1000
 0 0 medium unknown
 #29532
@@ -515,10 +515,10 @@ Tleopolemus smiles grimly and readies his weapons.
 Tleopolemus is the son of Heracles and Astyocheia, and hails from Rhodes.
 ~
 human~
-Gm 0 Hn 0 0 400 0
+G 0 H 0 0 400 0
 34 0 10d10+1200 5d5+1000 4d7+10 'pound'
 -11 -11 -11 3
-EIKkoq
+EIK
 stand stand male 1000
 0 0 medium unknown
 #29533
@@ -531,10 +531,10 @@ the Achaeans, and when they took Ilium they spared him. He was a Trojan
 noble.
 ~
 human~
-GHmn 0 Nt 0 0 0 0
+GH 0 N 0 0 0 0
 30 0 6d12+853 5d5+1000 4d6+8 'punch'
 -9 -9 -9 3
-EIKkoq
+EIK
 stand stand male 1000
 0 0 medium unknown
 #29534
@@ -546,10 +546,10 @@ Deiphobus is another son of Priam and Hecabe. When Paris is slain he weds
 Helen and is subsequently slain by Menelaus for his troubles.
 ~
 human~
-Gm 0 Hn 0 0 0 0
+G 0 H 0 0 0 0
 32 0 10d10+1000 5d5+1000 6d4+9 'pound'
 -10 -10 -10 3
-EIKkoq
+EIK
 stand stand male 1000
 0 0 medium unknown
 #29535
@@ -560,10 +560,10 @@ Glaucus son of Hippolochus stands here.
 Glaucus is second in command of the Lycian allies under Sarpedon his cousin.
 ~
 human~
-Gm 0 Nt 0 0 200 0
+G 0 N 0 0 200 0
 30 0 6d12+853 5d5+1000 4d6+8 'pound'
 -9 -9 -9 3
-EIKkoq
+EIK
 stand stand male 1000
 0 0 medium unknown
 #29536
@@ -575,10 +575,10 @@ Helenus is another son of Priam and Hecabe. Like Cassandra, his sister, he
 has the gift of prophecy. He eventually weds Andromache.
 ~
 human~
-BGhm 0 Hn 0 0 400 0
+BG 0 H 0 0 400 0
 33 0 10d10+1100 5d5+1000 6d4+10 'slash'
 -11 -11 -11 3
-EIKkoq
+EIK
 stand stand male 1000
 0 0 medium unknown
 #29537
@@ -590,12 +590,12 @@ Neoptolemus may be the son of Achilles, but he isn't a patch on his father
 in terms of ability or strength.
 ~
 human~
-GHmn 0 Nt 0 0 0 0
+GH 0 N 0 0 0 0
 30 0 6d12+853 5d5+1000 4d6+8 'pound'
 -9 -9 -9 3
 0
 stand stand male 1000
-EIKkoq 0 medium unknown
+EIK 0 medium unknown
 #29538
 idaeus~
 Idaeus~
@@ -605,10 +605,10 @@ Idaeus is the herald of king Priam, his chief herald in fact. Not the most
 exciting of jobs, really.
 ~
 human~
-BGHhmn 0 Nt 0 0 0 0
+BGH 0 N 0 0 0 0
 28 0 6d12+703 5d5+1000 2d12+8 'pound'
 -8 -8 -8 4
-EIKkoq
+EIK
 stand stand male 1000
 0 0 medium unknown
 #29539
@@ -619,10 +619,10 @@ Pandarous, son of Lycaon, is here.
 Pandarus is a fool, a treacherous one at that too. He isn't very important.
 ~
 human~
-GHmn 0 Nt 0 0 0 0
+GH 0 N 0 0 0 0
 25 0 5d10+550 5d5+1000 2d10+7 'pound'
 -7 -7 -7 4
-EIKkoq
+EIK
 stand stand male 1000
 0 0 medium unknown
 #29540
@@ -635,10 +635,10 @@ leaders. He is a cautious, clear-headed strategist, one of the ablest of
 the leaders on either side.
 ~
 human~
-GTmz 0 Hn 0 0 500 0
+GT 0 H 0 0 500 0
 38 0 10d10+1600 5d5+1000 5d6+12 'slash'
 -13 -13 -13 3
-CDEFIKijkloq
+CDEFIK
 stand stand male 1000
 0 0 medium unknown
 #29541
@@ -651,10 +651,10 @@ ruler. His mother, Laodameia, was the daughter of Bellerophon, slayer of
 the Chimera, and tamer of the Pegasus.
 ~
 human~
-BGhm 0 Hn 0 0 400 0
+BG 0 H 0 0 400 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
-EIKkoq
+EIK
 stand stand male 1000
 0 0 medium unknown
 #29542
@@ -665,10 +665,10 @@ An Achaean soldier marches back and forth.
 This fellow has been fighting for nine years.
 ~
 human~
-GTmz 0 0 0 0 0 0
+GT 0 0 0 0 0 0
 30 0 6d12+853 5d5+1000 4d6+8 'pound'
 -9 -9 -9 3
-CDEIKijkoq
+CDEIK
 stand stand male 1000
 0 0 medium unknown
 #29543
@@ -679,10 +679,10 @@ A Trojan soldier marches back and forth.
 This fellow has been fighting for nine years.
 ~
 human~
-GTmz 0 0 0 0 0 0
+GT 0 0 0 0 0 0
 30 0 6d12+853 5d5+1000 4d6+8 'pound'
 -9 -9 -9 3
-CDEIKijkoq
+CDEIK
 stand stand male 1000
 0 0 medium unknown
 #29544
@@ -693,10 +693,10 @@ A Trojan citizen hurries by.
 These citizens are sick of the war.
 ~
 human~
-GHmn 0 0 0 0 0 0
+GH 0 0 0 0 0 0
 20 0 3d9+333 5d5+1000 2d8+5 'punch'
 -4 -4 -4 5
-EIKkoq
+EIK
 stand stand male 1000
 0 0 medium unknown
 #29545
@@ -707,10 +707,10 @@ A Trojan citizen hurries by.
 These citizens are sick of the war.
 ~
 human~
-GHmn 0 0 0 0 0 0
+GH 0 0 0 0 0 0
 20 0 3d9+333 5d5+1000 2d8+5 'punch'
 -4 -4 -4 5
-EIKkoq
+EIK
 stand stand female 1000
 0 0 medium unknown
 #0
@@ -721,8 +721,8 @@ spear~
 a short thrusting spear~
 A short thrusting spear is jabbed in the dirt here.~
 unknown~
-weapon 0 0 ANgt
-spear 5 6 'stab' Kq
+weapon 0 0 AN
+spear 5 6 'stab' K
 25 5 250 P
 A
 18 2
@@ -734,7 +734,7 @@ spear~
 a long throwing spear~
 A long throwing spear has been thrust into the dirt here.~
 unknown~
-warp_stone 0 0 ANOgtu
+warp_stone 0 0 ANO
 0 0 0 0 0
 25 10 250 P
 A
@@ -745,7 +745,7 @@ ox hide shield~
 an ox hide shield~
 An ox hide shield rests on the ground here.~
 unknown~
-armor 0 0 AJgp
+armor 0 0 AJ
 8 8 8 0 0
 25 5 250 P
 A
@@ -756,7 +756,7 @@ boar tusk helm~
 a boar tusk helm~
 A boar tusk helm lies here.~
 unknown~
-armor 0 0 AEgk
+armor 0 0 AE
 8 8 8 0 0
 25 5 250 P
 A
@@ -769,7 +769,7 @@ leather jerkin~
 a leather jerkin~
 A leather jerkin lies in the dirt here.~
 unknown~
-armor 0 0 ADgj
+armor 0 0 AD
 8 8 8 0 0
 25 7 250 P
 g none~
@@ -778,7 +778,7 @@ bronze breastplate~
 a bronze breastplate~
 A bronze breastplate has been left here.~
 unknown~
-armor 0 0 ADgj
+armor 0 0 AD
 8 8 8 0 0
 28 15 280 P
 A
@@ -793,7 +793,7 @@ goblet wine~
 a goblet of watered wine~
 A goblet of watered wine rests here.~
 unknown~
-drink 0 0 AOgu
+drink 0 0 AO
 5 4 'red wine' 0 0
 30 5 300 P
 g none~
@@ -802,7 +802,7 @@ board game~
 a board game~
 A board game rests on a table here.~
 unknown~
-trash 0 0 AOgu
+trash 0 0 AO
 0 0 0 0 0
 30 5 300 P
 A
@@ -813,7 +813,7 @@ achilles breastplate~
 achilles' breastplate~
 Achilles' breastplate lies here.~
 unknown~
-armor AGgm 0 ADgj
+armor AG 0 AD
 12 12 12 0 0
 45 5 450 P
 A
@@ -826,7 +826,7 @@ achilles greaves~
 achilles' greaves~
 Achilles' greaves lie here.~
 unknown~
-armor AGgm 0 AFgl
+armor AG 0 AF
 12 12 12 0 0
 45 5 450 P
 A
@@ -839,7 +839,7 @@ achilles helm~
 achilles' helm~
 Achilles' helm lies here.~
 unknown~
-armor AGgm 0 AEgk
+armor AG 0 AE
 12 12 12 0 0
 45 5 450 P
 A
@@ -852,7 +852,7 @@ achilles' sword~
 achilles' sword~
 Achilles' sword lies here.~
 unknown~
-weapon Ag 0 ANgt
+weapon A 0 AN
 sword 5 10 'pierce' 0
 45 10 450 P
 A
@@ -865,7 +865,7 @@ bronze sword~
 a bronze sword~
 A bronze sword lies here.~
 unknown~
-weapon 0 0 ANgt
+weapon 0 0 AN
 sword 5 5 'pierce' 0
 20 5 200 P
 A
@@ -878,7 +878,7 @@ bronze dagger~
 a bronze dagger~
 A bronze dagger with lions carved upon it lies here.~
 unknown~
-weapon 0 0 ANgt
+weapon 0 0 AN
 dagger 5 5 'pierce' 0
 20 3 200 P
 g none~
@@ -887,7 +887,7 @@ bronze shield~
 a bronze shield~
 A bronze shield has been left here.~
 unknown~
-armor 0 0 AJgp
+armor 0 0 AJ
 8 8 8 0 0
 28 8 280 P
 A
@@ -898,7 +898,7 @@ achilles' shield~
 achilles' shield~
 Achilles' shield lies here.~
 unknown~
-armor AGgm 0 AJgp
+armor AG 0 AJ
 12 12 12 0 0
 45 5 450 P
 A
@@ -909,7 +909,7 @@ sandals~
 a pair of sandals~
 A pair of sandals lie here.~
 unknown~
-armor 0 0 AGgm
+armor 0 0 AG
 8 8 8 0 0
 28 3 280 P
 g none~
@@ -918,7 +918,7 @@ stone axe~
 a stone axe~
 A stone axe lies here.~
 unknown~
-weapon 0 0 ANgt
+weapon 0 0 AN
 axe 5 6 'crush' 0
 25 15 250 P
 g none~
@@ -927,7 +927,7 @@ banner~
 a banner~
 A banner is stuck in the ground here.~
 unknown~
-trash 0 0 AOgu
+trash 0 0 AO
 0 0 0 0 0
 28 10 280 P
 g none~
@@ -936,7 +936,7 @@ bronze helm~
 a bronze helm~
 A bronze helm with horsehair plume lies here.~
 unknown~
-armor 0 0 AEgk
+armor 0 0 AE
 8 8 8 0 0
 28 10 280 P
 A
@@ -949,7 +949,7 @@ cot~
 a cot~
 A cot with heavy furs piled on it sits here.~
 unknown~
-furniture 0 0 Ag
+furniture 0 0 A
 0 0 0 0 0
 30 25 300 P
 g none~
@@ -1678,7 +1678,7 @@ him, and he is punishing the Mycenaean ruler by refusing to take to the
 field, a move which is costing the Achaeans dearly, as he is their best
 warrior.
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
@@ -1689,7 +1689,7 @@ Ajax's Tent~
 This tent is the abode of the hero Ajax. He is usually not here, as he
 prefers to be out fighting or in the wine tent drinking.
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
@@ -1747,7 +1747,7 @@ This is the tent of King Nestor, leader of the contingent from Pylos. He
 is one of the older generals here, and one of the more wiser. However,
 he is not one of the more influential.
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
@@ -1759,7 +1759,7 @@ This is the tent of noble Odysseus, the most notable of all the heroes
 assembled for this battle. Chances are he won't be here, but rather off
 fixing up his little equine surprise for the Trojans...
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -1797,7 +1797,7 @@ the trouble, for it is his wife (Helen) everyone from all over Greece is
 here to rescue. He must feel terribly embarrassed for having dragged half of
 Greece to some remote Turkish city for 9 years.
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
@@ -1810,7 +1810,7 @@ meetings. Battle plans hang on the walls and are also strewn over tables,
 chairs, cots and the floor. Agamemnon is rather irritated at having spent
 nine years in this tent, and the stress is starting to show.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -1821,7 +1821,7 @@ The Physicians' Tent~
 Here Machaon, son of Asclepius, and his brother tend to the sick and the
 wounded. They will even tend your injuries, for a fee.
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~
@@ -1951,7 +1951,7 @@ This is the tent of Idomeneus, King of the Cretans (NOT Cretins ;P). He is
 Agamemnon's best and most trusted captain, and as such is highly respected
 by the Achaeans.
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
@@ -1963,7 +1963,7 @@ Menestheus is a prince from Athens, and leader of the Athenian contingent
 sent to the war. He is not a major player so I won't give him a major
 room description.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -2000,7 +2000,7 @@ This is the tent of the Argive prince Tlepolemus, son of the legendary
 Heracles. He is a mighty warrior and a great ally of the Achaean forces.
 Notice how all these Achaeans have names ending with 's'?
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
@@ -2012,7 +2012,7 @@ This is the tent of Aias the Greater, the best archer of all the Achaeans,
 and a superb athlete. He is most probably currently competing in some
 competition even as we speak.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -2055,7 +2055,7 @@ liked of the Achaean leaders on the field. He is also a competent warrior
 and military leader, and engenders great likeness and respect from the
 troops.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -2351,7 +2351,7 @@ The Gates of Ilium loom before you, tall and magnificent. They are crafted
 of solid oak bound with bronze. Surprisingly, they are closed but unlocked-
 the Achaean never thought to turn the handle...;)
 ~
-0 Ci field
+0 C field
 D0
 ~
 ~
@@ -2497,7 +2497,7 @@ the walls, while a thick rug woven from materials unfamiliar to you
 covers the stone floor. There is an ornate sofa near one wall, and a table
 holding a bronze urn near the doorway.
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
@@ -2529,7 +2529,7 @@ the walls, while a thick rug woven from materials unfamiliar to you
 covers the stone floor. There is an ornate sofa near one wall, and a table
 holding a bronze urn near the doorway.
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
@@ -2642,7 +2642,7 @@ the walls, while a thick rug woven from materials unfamiliar to you
 covers the stone floor. There is an ornate sofa near one wall, and a table
 holding a bronze urn near the doorway.
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~
@@ -2675,7 +2675,7 @@ the walls, while a thick rug woven from materials unfamiliar to you
 covers the stone floor. There is an ornate sofa near one wall, and a table
 holding a bronze urn near the doorway.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -2712,7 +2712,7 @@ of Ilium.
 
 However, you may climb the wall here at a weak point should you wish to.
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
@@ -2728,7 +2728,7 @@ This opulent abode is heavily furnished with items of bronze, gold and silver.
 There is a central throne room to the north of here. This place appears to
 be fairly deserted compared to the rest of the city.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -2756,7 +2756,7 @@ You are strolling along the battlements of the mammoth walls of Troy. To
 the south lies the massive battlefield where Trojans have fought Achaeans
 for the last nine years. To the west lies the wine-dark sea.
 ~
-0 Ci city
+0 C city
 D2
 ~
 ~
@@ -2807,7 +2807,7 @@ Here stands the throne of King Priam, and is the room in which he conducts
 business and receives visitors. To the north, east and west lie the chambers
 of his family.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -2832,7 +2832,7 @@ cushions and fabrics are draped over ornate furniture while naked slaves
 walk about pouring wine for the residents who are currently relaxing here.
 Even in times of war, the rich citizens of Ilium live well.
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~
@@ -2845,7 +2845,7 @@ cushions and fabrics are draped over ornate furniture while naked slaves
 walk about pouring wine for the residents who are currently relaxing here.
 Even in times of war, the rich citizens of Ilium live well.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -2858,7 +2858,7 @@ cushions and fabrics are draped over ornate furniture while naked slaves
 walk about pouring wine for the residents who are currently relaxing here.
 Even in times of war, the rich citizens of Ilium live well.
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~

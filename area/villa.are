@@ -18,10 +18,10 @@ time curing the ailments of the inhabitants of this village, or those of any
 strangers that may pass by.
 ~
 human~
-BGhm 0 HNnt 0 0 1000 0
+BG 0 HN 0 0 1000 0
 45 15 5d100+4500 10d10+1000 11d4+25 'divine'
 -20 -20 -20 -15
-FHKNlnqt
+FHKN
 stand stand male 1000
 0 0 medium unknown
 #24101
@@ -36,10 +36,10 @@ remarkably conversant with the properties of metals such as copper and silver
 and alloys such as bronze.
 ~
 human~
-BGhm 0 HNnt 0 0 1000 0
+BG 0 HN 0 0 1000 0
 50 30 2d1+3000 1d1+99 5d6+50 'pound'
 -7 -7 -7 -3
-FHIKNlnoqt
+FHIKN
 stand stand male 1000
 0 0 medium unknown
 #24102
@@ -53,10 +53,10 @@ has brought with him a variety of bronze arms and armor, as well as the
 occasional crude iron oddity.
 ~
 human~
-BGehm 0 HNnt 0 0 1000 0
+BGe 0 HN 0 0 1000 0
 50 30 2d1+3000 1d1+99 5d6+50 'pound'
 -7 -7 -7 -3
-FHIKNlnoqt
+FHIKN
 stand stand male 1000
 0 0 medium unknown
 #24103
@@ -67,10 +67,10 @@ A tough mercenary offers to hire out his men to you.
 Type list to see what he has to offer.
 ~
 human~
-BGehm 0 HNnt 0 0 1000 0
+BGe 0 HN 0 0 1000 0
 60 40 2d1+10000 1d1+99 8d8+50 'slash'
 -19 -19 -19 -9
-FHIKNlnoqt
+FHIKN
 stand stand male 1000
 0 0 medium unknown
 #24104
@@ -83,10 +83,10 @@ wide, and gathered a variety of exotic herbs and roots that she blends into
 marvellous potions. They taste even worse than they smell...
 ~
 human~
-BGehm 0 HNnt 0 0 1000 0
+BGe 0 HN 0 0 1000 0
 55 30 2d1+5000 1d1+99 5d6+50 'pound'
 -10 -10 -10 -5
-FHIKNlnoqt
+FHIKN
 stand stand female 1000
 0 0 medium unknown
 #24105
@@ -101,10 +101,10 @@ much. In fact, to these villagers it is about as far as you can see on a
 clear day).
 ~
 human~
-BGhm 0 HNnt 0 0 1000 0
+BG 0 HN 0 0 1000 0
 45 30 2d1+5000 1d1+99 5d6+35 'pound'
 -10 -10 -10 -5
-FHIKNlnoqt
+FHIKN
 stand stand female 1000
 0 0 medium unknown
 #24106
@@ -117,10 +117,10 @@ that he has domesticated, though from the look of it you may have doubts
 in his ability to exact obedience. That bear sure doesn't look tame...
 ~
 human~
-BGehm 0 HNnt 0 0 1000 0
+BGe 0 HN 0 0 1000 0
 50 30 5d100+5000 10d10+1000 11d4+30 'pound'
 -20 -20 -20 -15
-FHIKNlnoqt
+FHIKN
 stand stand male 1000
 0 0 medium unknown
 #24107
@@ -132,10 +132,10 @@ This stout hunter spends six months of the year trapping for fur, and the rest
 of the year fashioning and selling basic equipment.
 ~
 human~
-BGehm 0 HNnt 0 0 1000 0
+BGe 0 HN 0 0 1000 0
 50 30 2d1+3000 1d1+99 5d6+35 'pound'
 -7 -7 -7 -3
-FIKNloqt
+FIKN
 stand stand male 1000
 0 0 medium unknown
 #24108
@@ -147,10 +147,10 @@ The crop was good this year, and the villagers have sufficient to sell to
 travellers and other villagers.
 ~
 human~
-BGehm 0 HNnt 0 0 1000 0
+BGe 0 HN 0 0 1000 0
 50 30 2d1+3000 1d1+99 5d6+50 'pound'
 -7 -7 -7 -3
-FIKNloqt
+FIKN
 stand stand female 1000
 0 0 medium unknown
 #24109
@@ -165,10 +165,10 @@ no real cost, a small "donation" to the sacred coffer is expected. And when
 the brewer is the size of a grizzly bear, few refuse.
 ~
 human~
-BGehm 0 HNnt 0 0 1000 0
+BGe 0 HN 0 0 1000 0
 50 30 2d1+5000 1d1+99 5d6+35 'pound'
 -10 -10 -10 -5
-FIKNloqt
+FIKN
 stand stand male 1000
 0 0 medium unknown
 #24110
@@ -182,7 +182,7 @@ unique~
 0 0 0 0 0 400 0
 4 0 2d7+46 5d5+100 1d5+1 'charge'
 6 6 6 9
-Fl
+F
 stand stand none 1000
 0 0 medium unknown
 #24111
@@ -196,7 +196,7 @@ unique~
 0 0 0 0 0 400 0
 10 0 2d7+121 5d5+100 2d4+2 'claw'
 1 1 1 7
-Fl
+F
 stand stand either 1000
 0 0 medium unknown
 #24112
@@ -224,7 +224,7 @@ bear~
 0 0 0 0 0 0 0
 20 0 3d9+333 5d5+1000 2d8+5 'claw'
 -4 -4 -4 5
-CFil
+CF
 stand stand either 1000
 0 0 medium unknown
 #24114
@@ -238,7 +238,7 @@ unique~
 0 0 0 0 0 0 0
 30 0 6d12+853 5d5+1000 4d6+8 'charge'
 -9 -9 -9 3
-Fl
+F
 stand stand none 1000
 0 0 medium unknown
 #24115
@@ -250,12 +250,12 @@ The village champion once tore the head off a rabid Mastodon with his thumbs.
 Imagine what he could do to you...
 ~
 human~
-BGhm 0 HNcnt 0 Hn 0 0
+BG 0 HNc 0 H 0 0
 50 30 5d200+4000 10d10+1000 11d5+35 'crush'
 -20 -20 -20 -10
-ADEFHOZgjklnu
+ADEFHOZ
 stand stand male 1000
-Fl 0 medium unknown
+F 0 medium unknown
 #24116
 merchant~
 a hook-nosed merchant~
@@ -265,10 +265,10 @@ This fellow may not speak your language well, but the language he does know
 very well makes conversation suddenly become much simpler- MONEY.
 ~
 human~
-CGHeimn 0 Nt 0 ABgh 0 0
+CGHe 0 N 0 AB 0 0
 50 30 2d1+3000 1d1+99 5d6+50 'pound'
 -7 -7 -7 -3
-FHIKNlnoqt
+FHIKN
 stand stand male 1000
 0 0 medium unknown
 #24117
@@ -284,10 +284,10 @@ well-muscled frame - she is still a very attractive woman, and the men of the
 village (and some women too) vie for her favours.
 ~
 human~
-Gm 0 HNnt 0 AHKgnq 1000 0
+G 0 HN 0 AHK 1000 0
 50 25 5d100+5000 5d5+5000 8d6+20 'pound'
 -20 -20 -20 -15
-FIKNloqt
+FIKN
 stand stand female 1000
 0 0 medium unknown
 #24118
@@ -299,10 +299,10 @@ The villagers are a hardy lot, toughened by their environment and their
 rugged lifestyle, and you marvel at their good condition as they pass.
 ~
 human~
-Gm 0 0 0 0 0 0
+G 0 0 0 0 0 0
 4 0 2d7+46 5d5+100 1d5+1 'punch'
 6 6 6 9
-Fl
+F
 stand stand male 1000
 0 0 medium unknown
 #24119
@@ -314,10 +314,10 @@ The villagers are a hardy lot, toughened by their environment and their
 rugged lifestyle, and you marvel at their good condition as they pass.
 ~
 human~
-Gm 0 0 0 0 0 0
+G 0 0 0 0 0 0
 4 0 2d7+46 5d5+100 1d5+1 'punch'
 6 6 6 9
-Fl
+F
 stand stand female 1000
 0 0 medium unknown
 #24120
@@ -329,10 +329,10 @@ The children of the village are a rough and tumble lot, used to working hard
 and playing harder.
 ~
 human~
-Gm 0 0 0 0 0 0
+G 0 0 0 0 0 0
 3 0 2d7+46 5d5+100 1d5+1 'punch'
 6 6 6 9
-Fl
+F
 stand stand male 1000
 0 0 medium unknown
 #24121
@@ -343,7 +343,7 @@ The village idiot gawks at you.
 When he was young, this poor fellow had his skull staved in by a horse kick.
 ~
 human~
-CGHimn 0 0 0 0 0 0
+CGH 0 0 0 0 0 0
 4 0 2d7+46 5d5+100 1d5+1 'punch'
 6 6 6 9
 0
@@ -357,7 +357,7 @@ A village drunk.
 This fellow has evidently made many generous donations to the village brewer.
 ~
 human~
-Gm 0 0 0 0 400 0
+G 0 0 0 0 400 0
 4 0 2d7+46 5d5+100 1d5+1 'punch'
 6 6 6 9
 0
@@ -373,10 +373,10 @@ is likely that this fellow will have a roof over his head soon, provided by
 one of the more prosperous villagers.
 ~
 human~
-BGhm 0 0 0 0 400 0
+BG 0 0 0 0 400 0
 3 0 2d7+46 5d5+100 1d5+1 'punch'
 6 6 6 9
-Fl
+F
 stand stand male 1000
 0 0 medium unknown
 #24124
@@ -387,10 +387,10 @@ A thief adroitly cuts the strings of another fat merchant's purse.
 This unsavory fellow preys on the rich foreign merchants from the south.
 ~
 human~
-GHmn 0 U ABGghm 0 0 0
+GH 0 U ABG 0 0 0
 10 0 2d7+121 5d5+100 2d4+2 'punch'
 1 1 1 7
-FINlot
+FIN
 stand stand male 1000
 0 0 medium unknown
 #24125
@@ -403,7 +403,7 @@ quick to repel such unwelcome wildlife, and it is only a matter of time
 before the militia run it off.
 ~
 wolf~
-GHmn 0 0 0 0 0 0
+GH 0 0 0 0 0 0
 5 0 2d7+46 5d5+100 1d5+1 'bite'
 6 6 6 9
 0
@@ -419,10 +419,10 @@ amongst their goods, and have quickly become a nuisance, being scavengers
 and carriers of disease.
 ~
 unique~
-GHmn 0 0 0 0 0 0
+GH 0 0 0 0 0 0
 2 0 2d7+26 5d5+100 1d5+1 'charge'
 6 6 6 9
-Fl
+F
 stand stand none 1000
 0 0 medium unknown
 #24127
@@ -434,7 +434,7 @@ This mongrel is the unwanted offspring of some hunter's sled dogs, left to
 fend for itself here in the village.
 ~
 fido~
-GHmn 0 0 0 0 0 0
+GH 0 0 0 0 0 0
 3 0 2d7+46 5d5+100 1d5+1 'bite'
 6 6 6 9
 0
@@ -450,10 +450,10 @@ standing military or police force. However, the recent influx of foreigners
 and bandits has necessitated the introduction of a militia to keep the peace.
 ~
 human~
-Gm 0 HNnt 0 Kq 1000 0
+G 0 HN 0 K 1000 0
 30 15 10d40+1200 5d5+1000 5d7+10 'pound'
 -12 -12 -12 -5
-EFIKNkloqt
+EFIKN
 stand stand male 1000
 0 0 medium unknown
 #24129
@@ -466,10 +466,10 @@ standing military or police force. However, the recent influx of foreigners
 and bandits has necessitated the introduction of a militia to keep the peace.
 ~
 human~
-Gm 0 HNnt 0 Kq 1000 0
+G 0 HN 0 K 1000 0
 30 15 10d40+1200 5d5+1000 5d7+10 'pound'
 -12 -12 -12 -5
-CEFIKNikloqt
+CEFIKN
 stand stand male 1000
 0 0 medium unknown
 #24130
@@ -482,10 +482,10 @@ standing military or police force. However, the recent influx of foreigners
 and bandits has necessitated the introduction of a militia to keep the peace.
 ~
 human~
-BGhm 0 HNnt 0 Kq 1000 0
+BG 0 HN 0 K 1000 0
 30 15 10d40+1200 5d5+5000 5d7+10 'pound'
 -15 -15 -15 -5
-CEFIKNikloqt
+CEFIKN
 stand stand male 1000
 0 0 medium unknown
 #24131
@@ -496,10 +496,10 @@ A Minoan mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 human~
-0 0 0 0 BHhn 0 0
+0 0 0 0 BH 0 0
 15 0 3d9+208 5d5+100 2d6+3 'pound'
 -2 -2 -2 6
-CDFIJKijlopq
+CDFIJK
 stand stand female 1000
 0 0 medium unknown
 #24132
@@ -510,10 +510,10 @@ An Assyrian Mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 human~
-0 0 0 0 AHgn 0 0
+0 0 0 0 AH 0 0
 20 0 3d9+333 5d5+1000 2d8+5 'pound'
 -4 -4 -4 5
-FIJKNlopqt
+FIJKN
 stand stand male 1000
 0 0 medium unknown
 #24133
@@ -524,10 +524,10 @@ An Egyptian mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 human~
-0 0 Nt 0 Hn 0 0
+0 0 N 0 H 0 0
 25 0 5d10+550 5d5+1000 2d10+7 'pound'
 -7 -7 -7 4
-FIKNloqt
+FIKN
 stand stand male 1000
 0 0 medium unknown
 #24134
@@ -538,10 +538,10 @@ A Trojan mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 human~
-0 0 Nt 0 Hn 0 0
+0 0 N 0 H 0 0
 30 0 6d12+853 5d5+1000 4d6+8 'slash'
 -9 -9 -9 3
-FIJKlopq
+FIJK
 stand stand male 1000
 0 0 medium unknown
 #24135
@@ -552,10 +552,10 @@ A Nubian mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 human~
-0 0 Nt 0 0 0 0
+0 0 N 0 0 0 0
 35 0 10d10+1300 5d5+1000 4d7+11 'slash'
 -11 -11 -11 3
-FIKNloqt
+FIKN
 stand stand male 1000
 0 0 medium unknown
 #24136
@@ -566,10 +566,10 @@ A Mycenaean mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 human~
-0 0 Tz 0 ABHghn 0 0
+0 0 T 0 ABH 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'slash'
 -13 -13 -13 3
-FIKNloqt
+FIKN
 stand stand male 1000
 0 0 medium unknown
 #0
@@ -580,7 +580,7 @@ key~
 a bone key~
 The key to the village gates.~
 copper~
-key 0 0 AOgu
+key 0 0 AO
 0 0 0 0 0
 0 1 0 P
 g none~
@@ -589,7 +589,7 @@ barrel beer бочонок пива~
 @eng a barrel of beer@rus ~~бочонок~~ пива~
 @eng A beer barrel has been left here.@rus Бочонок пива (barrel) лежит здесь.~
 copper~
-drink 0 0 Ag
+drink 0 0 A
 30 30 'beer' 0 0
 0 60 100 P
 g male~
@@ -598,7 +598,7 @@ bottle beer~
 a bottle of rough beer~
 A beer bottle has been left here.~
 copper~
-drink 0 0 Ag
+drink 0 0 A
 4 4 'beer' 0 0
 0 10 110 P
 g none~
@@ -607,7 +607,7 @@ bottle ale~
 a bottle of home brew ale~
 A dark bottle of ale has been left here.~
 copper~
-drink 0 0 Ag
+drink 0 0 A
 5 5 'ale' 0 0
 0 10 120 P
 g none~
@@ -616,7 +616,7 @@ bottle firebreather~
 a bottle of rough spirits~
 A firebreather has been left here.~
 copper~
-drink 0 0 Ag
+drink 0 0 A
 8 8 'firebreather' 0 0
 0 10 130 P
 g none~
@@ -625,7 +625,7 @@ bottle local~
 a bottle of brewer's specialty ("Holy Water")~
 A dark bottle has been left here.~
 copper~
-drink 0 0 Ag
+drink 0 0 A
 8 8 'local specialty' 0 0
 0 10 140 P
 g none~
@@ -634,7 +634,7 @@ torch~
 a torch~
 A large torch.~
 copper~
-light 0 0 AQgw
+light 0 0 AQ
 0 0 24 0 0
 0 1 10 P
 g none~
@@ -643,7 +643,7 @@ lamp~
 a stone lamp~
 A stone lamp that uses animal fat as fuel has been left here.~
 copper~
-light 0 0 AOgu
+light 0 0 AO
 0 0 100 0 0
 0 4 20 P
 g none~
@@ -652,7 +652,7 @@ brew yellow~
 a yellow brew~
 A yellow brew.~
 copper~
-potion Gm 0 Ag
+potion G 0 A
 12 'bless' '' '' ''
 5 1 50 P
 g none~
@@ -661,7 +661,7 @@ skin water buffalo~
 a buffalo water skin~
 A buffalo water skin is on the floor.~
 copper~
-drink 0 0 Ag
+drink 0 0 A
 25 25 'water' 0 0
 0 5 50 P
 g none~
@@ -670,7 +670,7 @@ jug water~
 a jug of water~
 A large jug of water sloshes on the floor.~
 copper~
-drink Ag 0 Ag
+drink A 0 A
 60 60 'water' 0 0
 0 85 60 P
 g none~
@@ -679,7 +679,7 @@ club~
 a heavy lead-sheathed club~
 A heavy club sheathed in lead lies here.~
 copper~
-weapon 0 0 ANgt
+weapon 0 0 AN
 exotic 3 5 'crush' 0
 10 30 100 P
 A
@@ -692,7 +692,7 @@ mace~
 a bone mace~
 A bone mace lies here.~
 copper~
-weapon 0 0 ANgt
+weapon 0 0 AN
 exotic 3 5 'pound' 0
 10 20 100 P
 A
@@ -705,7 +705,7 @@ dagger~
 a bronze dagger~
 A bronze dagger lies here.~
 copper~
-weapon 0 0 ANgt
+weapon 0 0 AN
 exotic 3 5 'pierce' 0
 10 15 100 P
 A
@@ -718,7 +718,7 @@ blade sword~
 a bronze sword~
 A broad, heavy bronze blade lies here.~
 copper~
-weapon 0 0 ANgt
+weapon 0 0 AN
 exotic 3 5 'slash' 0
 10 25 100 P
 A
@@ -731,7 +731,7 @@ sandals~
 a pair of sandals~
 A pair of sandals lies here.~
 copper~
-armor 0 0 AGgm
+armor 0 0 AG
 5 5 5 0 0
 10 15 100 P
 g none~
@@ -740,7 +740,7 @@ belt~
 a hide belt~
 A belt crafted of hide is curled up here.~
 copper~
-armor 0 0 ALgr
+armor 0 0 AL
 5 5 5 0 0
 10 20 100 P
 g none~
@@ -749,7 +749,7 @@ bronze helm~
 a bronze helm~
 A bronze helm.~
 copper~
-armor 0 0 AEgk
+armor 0 0 AE
 5 5 5 0 0
 10 5 100 P
 A
@@ -762,7 +762,7 @@ cloak~
 a rough fur cloak~
 A rough fur cloak is here.~
 copper~
-armor 0 0 ACgi
+armor 0 0 AC
 5 5 5 0 0
 10 5 100 P
 A
@@ -775,7 +775,7 @@ ring~
 a bronze ring~
 A bronze ring.~
 copper~
-key Ag 0 ABgh
+key A 0 AB
 0 0 0 0 0
 0 1 10 P
 g none~
@@ -784,8 +784,8 @@ black bread~
 black bread~
 Black bread.~
 copper~
-food 0 0 Ag
-ACgi 0 0 0 0
+food 0 0 A
+AC 0 0 0 0
 0 3 10 P
 g none~
 #24121
@@ -793,8 +793,8 @@ cheese~
 cheese~
 A sour cheese.~
 copper~
-food 0 0 Ag
-Dj 0 0 0 0
+food 0 0 A
+D 0 0 0 0
 0 5 20 P
 g none~
 #24122
@@ -802,8 +802,8 @@ dried meat~
 a strip of dried meat~
 A strip of unidentifiable dried meat.~
 copper~
-food 0 0 Ag
-BDhj 0 0 0 0
+food 0 0 A
+BD 0 0 0 0
 0 5 50 P
 g none~
 #24123
@@ -811,8 +811,8 @@ egg~
 an egg~
 An egg (raw), warm from the nest.~
 copper~
-food 0 0 Ag
-Ci 0 0 0 0
+food 0 0 A
+C 0 0 0 0
 0 5 30 P
 g none~
 #24124
@@ -820,7 +820,7 @@ potion foul~
 a foul potion~
 A foul potion rolls around here.~
 copper~
-potion ABGghm 0 Ag
+potion ABG 0 A
 10 'invisibility' 'heal' 'fly' ''
 5 2 50 P
 g none~
@@ -838,7 +838,7 @@ wolf head~
 a wolf's head~
 The champion's wolf's head is here.~
 skin~
-armor 0 0 AEgk
+armor 0 0 AE
 21 21 21 0 0
 45 75 930 P
 A
@@ -849,7 +849,7 @@ club~
 the chief's club~
 The chief's oak club is lying here in the dirt.~
 copper~
-weapon Gm 0 ANgt
+weapon G 0 AN
 mace 5 13 'crush' 0
 60 25 600 P
 A
@@ -864,7 +864,7 @@ stick~
 a stick~
 A wooden stick.~
 copper~
-weapon 0 0 ANgt
+weapon 0 0 AN
 exotic 2 5 'pound' 0
 4 15 40 P
 g none~
@@ -873,7 +873,7 @@ wooden club~
 a wooden club~
 A wooden club is lying here.~
 copper~
-weapon Gm 0 ANgt
+weapon G 0 AN
 exotic 4 11 'crush' 0
 50 15 500 P
 A
@@ -884,7 +884,7 @@ boiled leather jerkin~
 a boiled leather jerkin~
 A boiled leather jerkin is lying here.~
 copper~
-armor 0 0 ADgj
+armor 0 0 AD
 13 13 13 0 0
 50 10 500 P
 A
@@ -897,7 +897,7 @@ bone bracelet~
 a rune-covered bone bracelet~
 A rune-covered bone bracelet is lying here.~
 copper~
-armor 0 0 AMgs
+armor 0 0 AM
 13 13 13 0 0
 50 5 500 P
 A
@@ -910,7 +910,7 @@ fur cloak~
 a fur cloak~
 A fur cloak is lying here.~
 copper~
-armor 0 0 ACgi
+armor 0 0 AC
 13 13 13 0 0
 50 10 500 P
 A
@@ -923,7 +923,7 @@ helm~
 a boar tusk helm~
 A boar tusk helm lies here.~
 copper~
-armor 0 0 AEgk
+armor 0 0 AE
 13 13 13 0 0
 50 10 500 P
 A
@@ -934,7 +934,7 @@ shield~
 an ox-hide shield~
 An ox-hide shield lies here.~
 copper~
-armor 0 0 AJgp
+armor 0 0 AJ
 13 13 13 0 0
 50 20 500 P
 A
@@ -949,7 +949,7 @@ spear~
 a throwing spear~
 A sturdy throwing spear has been thrust into the ground here.~
 copper~
-warp_stone Gm 0 ANOgtu
+warp_stone G 0 ANO
 0 0 0 0 0
 50 20 500 P
 A
@@ -962,7 +962,7 @@ papyrus~
 a blank papyrus~
 A blank papyrus is here.~
 copper~
-scroll 0 0 AOgu
+scroll 0 0 AO
 0 '' '' '' ''
 10 1 100 P
 g none~
@@ -971,7 +971,7 @@ potion~
 a shimmering potion~
 A shimmering potion is here.~
 copper~
-potion Gm 0 AOgu
+potion G 0 AO
 5 'mind light' 'cure poison' 'curse' ''
 5 1 50 P
 g none~
@@ -981,7 +981,7 @@ a stone gate~
 A magical stone gate allows one to pass through to other worlds.~
 copper~
 jewelry 0 0 0
-DFHILMNOjlnorstu 0 0 0 0
+DFHILMNO 0 0 0 0
 48 1 480 P
 g none~
 #0
@@ -1018,7 +1018,7 @@ toward you. In the center of this hut the shaman awaits, quietly meditating.
 A variety of furs, bones, charms and trinkets line the walls, doubtless
 serving as focii for the shaman's mystic powers.
 ~
-0 DKjq inside
+0 DK inside
 D2
 ~
 ~
@@ -1031,7 +1031,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -1046,7 +1046,7 @@ A Path in the Village~
 You are walking along a path of packed earth that heads north toward the
 Shaman's hut.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -1063,7 +1063,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -1080,7 +1080,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -1105,7 +1105,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -1130,7 +1130,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -1155,7 +1155,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -1173,7 +1173,7 @@ icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening. The village square outside
 the Shaman's hut lies a short way to the north of here.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -1190,7 +1190,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -1207,7 +1207,7 @@ about on the hard ground by a chill northern breeze that blows in from the
 icy mountains far to the north. You hope that you will be able to find
 a hot meal and a comfortable bed this evening.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -1226,7 +1226,7 @@ a hot meal and a comfortable bed this evening. Several children suddenly
 rush by, immersed in some strange activity, the rules of which are quite
 unfathomable to you.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -1242,7 +1242,7 @@ You are approaching the western gates of the village, which are constantly
 patrolled by the militia. There is no-one else about here, as the 
 concentration of residences and shops is nearer to the center of the village.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -1258,7 +1258,7 @@ You are approaching the eastern gates of the village, which are constantly
 patrolled by the militia. There is no-one else about here, as the 
 concentration of residences and shops is nearer to the center of the village.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -1275,7 +1275,7 @@ stout wooden gates, set in the wooden barrier that surrounds the village.
 Members of the militia, on the lookout for bandits and wolves, grant you
 a cursory nod as they go about their duties.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -1292,7 +1292,7 @@ stout wooden gates, set in the wooden barrier that surrounds the village.
 Members of the militia, on the lookout for bandits and wolves, grant you
 a cursory nod as they go about their duties.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -1309,7 +1309,7 @@ stand open, but the militia are ready at a moment's notice to slam them shut
 and bar them with heavy wooden crossbeams bound with rare iron imported from
 the south.
 ~
-0 Ci field
+0 C field
 D0
 ~
 ~
@@ -1330,7 +1330,7 @@ stand open, but the militia are ready at a moment's notice to slam them shut
 and bar them with heavy wooden crossbeams bound with rare iron imported from
 the south.
 ~
-0 Ci field
+0 C field
 D0
 ~
 ~
@@ -1408,7 +1408,7 @@ the larger structures within.
 
 There is a path running up a hill here which you may ascend.
 ~
-0 Ci field
+0 C field
 D1
 ~
 ~
@@ -1612,7 +1612,7 @@ from the east, while quiet conversation can be heard to the west. You feel
 slightly nervous about intruding upon this clan, but then again that's
 what your profession is all about, really. Intruding.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -1633,7 +1633,7 @@ sipping at their ales and chatting quietly with each other. As you enter
 they smile and bid you welcome, and ask you to stay and enjoy some good
 conversation for a while.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -1645,7 +1645,7 @@ In here several teenagers of both sexes rush about preparing the evening
 meal under the watchful eye of a hefty cook, who helps them along with the
 occasional shout or cuff on the ear.
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~
@@ -1681,7 +1681,7 @@ for a figure of such importance, but it should be remembered that she has
 it to herself, while most other villagers live with their clans in groups of
 up to thirty, residing in three room lodges.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -1720,7 +1720,7 @@ suit of rather battered-looking bronze plate. The flint-knepper has learnt
 skills far more advanced than his contemporaries, thanks to the many
 visitors this village attracts, and his forge shows evidence of this.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -1753,7 +1753,7 @@ This hut is used to store the goods of the many merchants that come to this
 village. It currently holds little of interest, being filled largely with
 bales of hay and coils of hemp rope.
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~
@@ -1786,7 +1786,7 @@ This hut has been loaned by the chieftain to a travelling arms specialist,
 who is currently doing a roaring trade with the locals, who are eager to
 acquire the rare metal weapons he has bought with him from the south.
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~
@@ -1823,7 +1823,7 @@ Here the foreign mercenaries who have come to the north looking for
 employment gather. You may take advantage of their services for a sizeable
 sum of gold should you wish to.
 ~
-0 DMjs inside
+0 DM inside
 D2
 ~
 ~
@@ -1836,7 +1836,7 @@ You shouldn't be here. Go Away. Or I'll Tell.
 Oh look- a garbled transmission from Outer Space-
 and a large fries.
 ~
-0 CDij inside
+0 CD inside
 S
 #24148
 A Path in the Village~
@@ -1868,7 +1868,7 @@ of every type imaginable (and several unimaginable). Forcing your way through
 the clutter, you eventually find an assistant, a raven-haired witch doctor who 
 smiles sweetly and welcomes you to her hut.
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
@@ -1924,7 +1924,7 @@ The Wise Woman of the village lives in this run-down old hut. People come
 to her to avail themselves of her remarkable ability to determine the nature
 of items of all types (there's no other reason to come here, really).
 ~
-0 CDij inside
+0 CD inside
 D2
 ~
 ~
@@ -1964,7 +1964,7 @@ sells them to the merchants from the south. It is a very profitable but
 extremely dangerous profession, as the many scars on his brawny body
 suggest.
 ~
-0 DMjs inside
+0 DM inside
 D2
 ~
 ~
@@ -1982,7 +1982,7 @@ You shouldn't be here. Go Away. Or I'll Tell.
 
 NOW!
 ~
-0 CDij inside
+0 CD inside
 S
 #24156
 Outside a Village Clan Hut~
@@ -2008,7 +2008,7 @@ from the east, while quiet conversation can be heard to the west. You feel
 slightly nervous about intruding upon this clan, but then again that's
 what your profession is all about, really. Intruding.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -2029,7 +2029,7 @@ sipping at their ales and chatting quietly with each other. As you enter
 they smile and bid you welcome, and ask you to stay and enjoy some good
 conversation for a while.
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~
@@ -2041,7 +2041,7 @@ In here several teenagers of both sexes rush about preparing the evening
 meal under the watchful eye of a hefty cook, who helps them along with the
 occasional shout or cuff on the ear.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -2097,7 +2097,7 @@ A trapper has set up a business here, where he sells goods that he has
 fashioned or acquired during his expeditions into the wilds. His stock is
 usually rather low, as the villagers quickly buy up for the winter.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -2132,7 +2132,7 @@ Some enterprising young women have set up a small shop here, where they
 sell off the surplus food that is not required to provision their Clans.
 You may purchase supplies for your travels here.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -2171,7 +2171,7 @@ It is here that the village Brewer practices his holy trade. Should you
 wish to indulge, you may obtain alcohol from the Brewer, though a small
 donation is in order.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -2273,7 +2273,7 @@ sipping at their ales and chatting quietly with each other. As you enter
 they smile and bid you welcome, and ask you to stay and enjoy some good
 conversation for a while.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -2285,7 +2285,7 @@ In here several teenagers of both sexes rush about preparing the evening
 meal under the watchful eye of a hefty cook, who helps them along with the
 occasional shout or cuff on the ear.
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~
@@ -2366,7 +2366,7 @@ from the east, while quiet conversation can be heard to the west. You feel
 slightly nervous about intruding upon this clan, but then again that's
 what your profession is all about, really. Intruding.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -2386,7 +2386,7 @@ In here several teenagers of both sexes rush about preparing the evening
 meal under the watchful eye of a hefty cook, who helps them along with the
 occasional shout or cuff on the ear.
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~
@@ -2399,7 +2399,7 @@ sipping at their ales and chatting quietly with each other. As you enter
 they smile and bid you welcome, and ask you to stay and enjoy some good
 conversation for a while.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -2427,7 +2427,7 @@ The Common Hall~
 These rooms are used by locals and foreigners alike to relax, sing songs and
 enjoy each other's company. Feel free to stay as long as you wish.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -2446,7 +2446,7 @@ The Common Hall~
 These rooms are used by locals and foreigners alike to relax, sing songs and
 enjoy each other's company. Feel free to stay as long as you wish.
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
@@ -2457,7 +2457,7 @@ The Common Hall~
 These rooms are used by locals and foreigners alike to relax, sing songs and
 enjoy each other's company. Feel free to stay as long as you wish.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -2470,7 +2470,7 @@ from the east, while quiet conversation can be heard to the west. You feel
 slightly nervous about intruding upon this clan, but then again that's
 what your profession is all about, really. Intruding.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -2491,7 +2491,7 @@ sipping at their ales and chatting quietly with each other. As you enter
 they smile and bid you welcome, and ask you to stay and enjoy some good
 conversation for a while.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -2503,7 +2503,7 @@ In here several teenagers of both sexes rush about preparing the evening
 meal under the watchful eye of a hefty cook, who helps them along with the
 occasional shout or cuff on the ear.
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~
@@ -2590,7 +2590,7 @@ from the east, while quiet conversation can be heard to the west. You feel
 slightly nervous about intruding upon this clan, but then again that's
 what your profession is all about, really. Intruding.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -2611,7 +2611,7 @@ sipping at their ales and chatting quietly with each other. As you enter
 they smile and bid you welcome, and ask you to stay and enjoy some good
 conversation for a while.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -2623,7 +2623,7 @@ In here several teenagers of both sexes rush about preparing the evening
 meal under the watchful eye of a hefty cook, who helps them along with the
 occasional shout or cuff on the ear.
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~

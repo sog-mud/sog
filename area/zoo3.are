@@ -22,10 +22,10 @@ good here.
 не позволяет ему заниматься чем-нибудь еще кроме торговли.
 ~
 human~
-BGehm 0 0 0 Ag 0 0
+BGe 0 0 0 A 0 0
 20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
-EFNUklt
+EFNU
 stand stand male 100
 0 0 medium unknown
 #8201
@@ -44,10 +44,10 @@ his clothes, you guess that he rarely goes near the animals here himself.
 его одежды, вы понимаете, что он редко посещяет своих зверей сам.
 ~
 human~
-Bh 0 0 0 Bh 0 0
+B 0 0 0 B 0 0
 10 0 2d7+121 99d1+1 2d4+2 'punch'
 1 1 1 8
-Ek
+E
 stand stand male 100
 0 0 medium unknown
 #8202
@@ -60,7 +60,7 @@ giant leech пиявка~
 @rus Небольшая черно-коричневая пиявка.
 ~
 bear~
-BFhl 0 0 0 Hn 0 0
+BFJ 0 0 0 H 0 0
 7 0 2d6+35 29d1+1 1d6+0 'claw'
 7 7 7 10
 0
@@ -77,10 +77,10 @@ tiger тигр~
 все, что ты успеваешь рассмотреть.
 ~
 unique~
-BFhl 0 0 0 Hn 0 0
+BFJ 0 0 0 H 0 0
 17 0 3d9+258 169d1+1 3d4+4 'claw'
 -3 -3 -3 7
-Hn
+H
 stand stand male 0
 0 0 medium unknown
 r charm 100
@@ -94,7 +94,7 @@ dolphin дельфин~
 характером и никогда не нападет первым.
 ~
 unique~
-BChi 0 0 0 0 50 0
+BC 0 0 0 0 50 0
 10 0 2d7+121 99d1+1 2d4+2 'slap'
 1 1 1 8
 0
@@ -113,10 +113,10 @@ unicorn единорог~
 единорогов.
 ~
 unique~
-Bh 0 0 0 0 1000 0
+B 0 0 0 0 1000 0
 15 0 3d9+208 149d1+1 2d6+3 'pierce'
 -2 -2 -2 7
-IJop
+IJ
 stand stand male 0
 0 0 medium unknown
 #8206
@@ -131,7 +131,7 @@ been fed laterly.
 только и остается надеятся на то, что ее уже кормили сегодня.
 ~
 lizard~
-BFhl 0 0 0 0 -100 8206
+BFJ 0 0 0 0 -100 8206
 13 0 2d10+170 129d1+1 2d5+3 'cleave'
 -1 -1 -1 8
 0
@@ -151,10 +151,10 @@ huge claws can do to your face makes you shudder
 задрожать.
 ~
 bear~
-BFhl 0 0 0 0 0 0
+BFJ 0 0 0 0 0 0
 13 0 2d10+170 129d1+1 2d5+3 'claw'
 -1 -1 -1 8
-Ci
+C
 stand stand male 0
 0 0 medium unknown
 r charm 100
@@ -173,7 +173,7 @@ he burps and a cloud of smoke comes outa of his mouth.
 постоять за себя.
 ~
 dragon~
-Bh 0 0 0 0 2 0
+B 0 0 0 0 2 0
 19 0 3d9+308 189d1+1 2d7+5 'blast'
 -4 -4 -4 7
 0
@@ -190,10 +190,10 @@ elephant слон~
 особенного.
 ~
 dragon~
-Bh 0 0 0 0 100 0
+B 0 0 0 0 100 0
 14 0 2d10+190 139d1+1 1d12+3 'pierce'
 -1 -1 -1 8
-Ci
+C
 stand stand male 0
 0 0 large unknown
 #8210
@@ -206,10 +206,10 @@ gorilla горилла~
 @rus Большая, сильная, волосатая горилла.
 ~
 human~
-BFhl 0 0 0 0 0 0
+BFJ 0 0 0 0 0 0
 15 0 3d9+208 149d1+1 2d6+3 'bite'
 -2 -2 -2 7
-Fl
+F
 stand stand male 0
 0 0 medium unknown
 r charm 100
@@ -225,10 +225,10 @@ assistant woman девушка zoo young~
 на кухне, но ты ничего не можешь поделать.
 ~
 unique~
-Bh 0 0 0 0 200 0
+B 0 0 0 0 200 0
 10 0 2d7+121 99d1+1 2d4+2 'punch'
 1 1 1 8
-Ek
+E
 stand stand female 0
 0 0 medium unknown
 W 1
@@ -244,7 +244,7 @@ pig свинья~
 от блох. Свинья, которая перед тобой - не исключение.
 ~
 pig~
-Bh 0 0 0 0 0 0
+B 0 0 0 0 0 0
 3 0 2d6+35 29d1+1 1d6+0 'scratch'
 7 7 7 10
 0
@@ -278,7 +278,7 @@ baby goat козленок~
 того тупого выражения, которое отличает его племя.
 ~
 unique~
-BGhm 0 0 0 0 0 8232
+BG 0 0 0 0 0 8232
 2 0 2d7+21 19d1+1 1d5+0 'slash'
 8 8 8 10
 0
@@ -296,7 +296,7 @@ wanders over and stats chewing at your clothes.
 отрешенно смотрит сквозь вас и пожевывает траву.
 ~
 fox~
-BGhm 0 0 0 0 0 8232
+BG 0 0 0 0 0 8232
 3 0 2d6+35 29d1+1 1d6+0 'slash'
 7 7 7 10
 0
@@ -314,7 +314,7 @@ large horns look as if they could do a nasty bit of damage.
 Похоже, что его рога могут наделать в тебе много дырок.
 ~
 fox~
-BGhm 0 0 0 0 0 8232
+BG 0 0 0 0 0 8232
 4 0 2d7+46 39d1+1 1d5+1 'slash'
 6 6 6 9
 0
@@ -332,7 +332,7 @@ its right ears has a chunk missing from it.
 правого уха выдран кусок.
 ~
 dog~
-Bh 0 0 0 0 0 0
+B 0 0 0 0 0 0
 5 0 2d6+60 49d1+1 1d6+1 'stab'
 5 5 5 9
 0
@@ -350,10 +350,10 @@ can proberly still do a lot of damage despite being retired.
 но её мускулатура говорит, что когда-то она была способна на многое.
 ~
 fox~
-Bh 0 0 0 0 0 0
+B 0 0 0 0 0 0
 6 0 2d7+71 59d1+1 1d7+1 'none'
 4 4 4 9
-Io
+I
 stand stand female 0
 0 0 medium unknown
 r fire 33
@@ -384,7 +384,7 @@ talking parrot, please mind your fingers'.
 написанно "Харви -- говорящий попугай, клешнями не трогать!"
 ~
 song bird~
-Bh 0 0 0 0 0 0
+B 0 0 0 0 0 0
 8 0 2d7+96 79d1+1 1d7+2 'peck'
 3 3 3 9
 0
@@ -398,7 +398,7 @@ key small brass ключ~
 @eng a small brass key@rus ~~маленький~~ ~~латунный~~ ~~ключ~~~
 @eng A small brass key lies here.@rus Маленький латунный ключик (key) лежит здесь.~
 brass~
-key 0 0 Ag
+key 0 0 A
 0 0 0 0 0
 1 10 4 P
 E
@@ -415,7 +415,7 @@ tee-shirt футболка~
 @eng A plain white tee-shite with large multi-coloured writting on the front 
 is here.@rus Белая футболка (tee-shirt) с большой цветастой надписью спереди.~
 satin~
-clothing 0 0 AKgq
+clothing 0 0 AK
 0 0 0 0 0
 1 20 50 P
 A
@@ -432,7 +432,7 @@ mug кружка~
 @eng a mug@rus кружка~
 @eng A china mug with multi-coloured writting on it.@rus Китайская пестрая кружка (mug).~
 porcelain~
-drink 0 0 AOgu
+drink 0 0 AO
 3 3 'lemonade' 0 0
 1 10 10 P
 E
@@ -461,7 +461,7 @@ map zoo foldable карта~
 @eng a map of Midgaard Zoo@rus ~~карта~~ зоопарка Мидгаарда~
 A small foldable map lies here.~
 paper~
-map 0 0 AOgu
+map 0 0 AO
 0 0 0 0 0
 1 12 200 P
 E
@@ -508,7 +508,7 @@ dagger кинжал zoo~
 @eng a zoo dagger@rus зоо-~~кинжал~~~
 @eng A small, iron dagger with multi-coloured writting lies here.@rus Маленький, стальной кинжал (dagger) с многоцветной рукоятью лежит здесь.~
 iron~
-weapon 0 0 ANgt
+weapon 0 0 AN
 dagger 3 5 'pierce' 0
 10 80 750 P
 E
@@ -531,7 +531,7 @@ the zoo and one leading back out.
 на восток ведет узенькая тропинка. На юге расположены два турникета: 
 один ведет в зоопарк, а другой назад в парк.
 ~
-0 Ci city
+0 C city
 E
 turnstiles turnstile~
 The turnstiles are study and can only be made to turn in one direction.
@@ -582,13 +582,13 @@ D3
 @rus Вы видите магазин сувениров.
 ~
 door~
-AFZgl -1 8205
+AFZ -1 8205
 D5
 @eng You can see coins glistening in the murky water at the bottom of the well.
 @rus Вы видите несколько монет на дне колодца.
 ~
 grate~
-ABCZghi 8200 8203
+ABCZ 8200 8203
 S
 #8203
 @eng Bottom of the Wishing Well@rus На дне колодца~
@@ -598,7 +598,7 @@ enough hand and foot holds to allow you to climb up back to the surface.
 Ты можешь вытащить из неё руки ровно на столько, чтобы вылезти
 на поверхность колодца.
 ~
-0 Ag swim
+0 A swim
 D4
 @eng You can see the sky.
 @rus Ты можешь видеть небо.
@@ -632,7 +632,7 @@ D3
 @rus Дверь с табличкой 'Хранитель зоопарка.'
 ~
 door~
-ABZgh -1 8206
+ABZ -1 8206
 S
 #8205
 @eng The Gift Shop@rus Магазин сувениров~
@@ -646,7 +646,7 @@ into the zoo. A sign sits on the shop counter.
 севере вы можете покинуть зоопарк, а на востоке расположен 
 непосредственно сам зоопарк. На прилавке прибита табличка(sign).
 ~
-0 Dj inside
+0 D inside
 E
 sign~
 +----------------------+
@@ -669,7 +669,7 @@ D1
 Вы видите колодец через дверь.
 ~
 door~
-AFZgl -1 8201
+AFZ -1 8201
 S
 #8206
 @eng Zoo Keepers Office@rus Офис директора~
@@ -679,7 +679,7 @@ the room litered with numerous small pieces of paper.
 усеянный многочисленными бумагами, занимает большую часть 
 пространства этой комнаты.
 ~
-0 Dj inside
+0 D inside
 E
 paper~
 You pick a piece of paper randomly and read it. It details the profits of the
@@ -688,7 +688,7 @@ zoo for the last week. Wow! You realise this guy is making a packet.
 D1
 ~
 door~
-ABZgh -1 8204
+ABZ -1 8204
 S
 #8207
 @eng Crossroads in the Zoo@rus Перекресток~
@@ -738,7 +738,7 @@ you. Surely they can't be that clever?
 @rus На севере стоит горилла и пытается испугать тебя.
 ~
 door cage~
-ABCFZghil 8200 8211
+ABCFZ 8200 8211
 D1
 @eng You can see a small hut in the distance.
 @rus Вы видите хижину на некотором расстоянии.
@@ -751,7 +751,7 @@ get a better look.
 @rus Большой коричневый медведь виден через клетку.
 ~
 door cage~
-ABCFZghil 8200 8212
+ABCFZ 8200 8212
 D3
 @eng You can see the crossroads.
 @rus Вы видите перекресток.
@@ -779,13 +779,13 @@ wandering up and down in the cage and looks slightly bored.
 @rus Вы видите большого тигра.
 ~
 cage door~
-ABCFZghil 8200 8214
+ABCFZ 8200 8214
 D3
 @eng A large Elephant stands idly in the cage to the west.
 @rus Вы видите большого слона.
 ~
 cage door~
-ABCFZghil 8200 8215
+ABCFZ 8200 8215
 S
 #8210
 @eng A path between cages@rus Тропинка между клетками~
@@ -802,7 +802,7 @@ The crocodiles thrash about in the pools water.
 @rus Несколько крокодилов видны через прутья.
 ~
 cage door~
-ABCFZghil 8200 8216
+ABCFZ 8200 8216
 D1
 You can see the crossroads.
 ~
@@ -814,7 +814,7 @@ playfully frolicing in the water.
 @rus Несколько дельфинов видны через прутья.
 ~
 door cage~
-ABCFZghil 8200 8217
+ABCFZ 8200 8217
 S
 #8211
 @eng The gorilla cage@rus Клетка гориллы~
@@ -830,7 +830,7 @@ D2
 @rus Через дверь видна маленькая тропинка.
 ~
 door cage~
-ABCFZghil 8200 8208
+ABCFZ 8200 8208
 S
 #8212
 @eng The bear cage@rus Клетка медведя~
@@ -848,7 +848,7 @@ D0
 @rus Вы видите маленькую тропинку.
 ~
 door cage~
-ABCFZghil 8200 8208
+ABCFZ 8200 8208
 S
 #8213
 @eng A bend in the path@rus Поворот тропинки~
@@ -893,7 +893,7 @@ D0
 @rus Через дверь видна маленькая тропинка.
 ~
 cage door~
-ABCFZghil 8200 8209
+ABCFZ 8200 8209
 S
 #8215
 @eng The elephant cage@rus Клетка со слоном~
@@ -908,7 +908,7 @@ D1
 @rus Вы видите маленькую тропинку.
 ~
 cage door~
-ABCFZghil 8200 8209
+ABCFZ 8200 8209
 S
 #8216
 @eng The crocodile cage@rus Клетка с крокодилами~
@@ -923,7 +923,7 @@ D2
 @rus Вы видите маленькую тропинку через клетку.
 ~
 cage door~
-ABCFZghil 8200 8210
+ABCFZ 8200 8210
 S
 #8217
 @eng The dolphins cage@rus Бассейн с дельфинами~
@@ -938,7 +938,7 @@ D0
 @rus Через дверь видна маленькая тропинка.
 ~
 cage door~
-ABCFZghil 8200 8210
+ABCFZ 8200 8210
 S
 #8218
 @eng A path between cages@rus Тропинка между клетками~
@@ -959,13 +959,13 @@ D1
 @rus Через прутья вы видите огромного ящера.
 ~
 cage door~
-ABCFZghil 8200 8220
+ABCFZ 8200 8220
 D2
 @eng You can see a white horned horse through the cage door.
 @rus Через прутья вы видите рогатую лошадь.
 ~
 cage door~
-ABCFZghil 8200 8221
+ABCFZ 8200 8221
 S
 #8219
 @eng The animal food store hut@rus Склад корма для животных~
@@ -976,7 +976,7 @@ west.
 ясно, что это здание используется для хранения еды для всех 
 обитателей зоопарка. Дверь наружу -- на западе.
 ~
-0 Dj inside
+0 D inside
 D3
 @eng The door is quite weak.
 @rus Вы видите хлипкую дверь.
@@ -997,7 +997,7 @@ D3
 @rus Через дверь видна маленькая тропинка.
 ~
 cage door~
-ABCFZghil 8200 8218
+ABCFZ 8200 8218
 S
 #8221
 @eng the unicorn cage@rus Клетка единорога~
@@ -1012,7 +1012,7 @@ D0
 @rus Вы видите маленькую тропинку.
 ~
 cage door~
-ABCFZghil 8200 8218
+ABCFZ 8200 8218
 S
 #8230
 @eng Entrance to the Kiddies Zoo@rus Вход в Детский зоопарк~
@@ -1115,13 +1115,13 @@ D0
 @rus Вы видите птиц, летающих по огромной клетке.
 ~
 door~
-ABZgh -1 8236
+ABZ -1 8236
 D2
 @eng You can see a horses head poking out of a stable door.
 @rus Вы видите лошадиную голову, торчащую из стояла.
 ~
 door~
-ABZgh -1 8235
+ABZ -1 8235
 D3
 @eng You can see a small path.
 @rus Вы видите маленькую тропинку.
@@ -1138,13 +1138,13 @@ walls. There is a door out to the north.
 а различные подковы, седла и уздечки развешены по стенам. Вы 
 можете покинуть это место через дверь на севере.
 ~
-0 Dj inside
+0 D inside
 D0
 @eng Through the stable door you can see a small path with a aviry in the distance.
 @rus Через двери стояла вы видите тропинку и клетки с птицами.
 ~
 door~
-ABZgh -1 8234
+ABZ -1 8234
 S
 #8236
 @eng In the Aviary@rus Большая клетка~
@@ -1153,7 +1153,7 @@ a door out is to the south.
 @rus Вы стоите в большой клетке, которая продолжается на севере.
 Выход расположен на юге, где вы видите дверь. 
 ~
-0 Dj inside
+0 D inside
 D0
 @eng You can see the aviary continue.
 @rus Вы видите продолжение клетки.
@@ -1165,7 +1165,7 @@ D2
 @rus Вы видите маленькую тропинку через окошко в двери.
 ~
 door~
-ABZgh -1 8234
+ABZ -1 8234
 S
 #8237
 @eng In the Aviary@rus Большая клетка~
@@ -1173,7 +1173,7 @@ S
 the South.
 @rus Вы стоите в большой клетке, она продолжается на юг и на запад.
 ~
-0 Dj field
+0 D field
 D2
 @eng You can see the aviary continue.
 @rus Вы видите продолжение клетки.
@@ -1192,7 +1192,7 @@ S
 @eng You are standing at the end of the aviary. More aviary is to the east.
 @rus Вы стоите в конце клетки, большая часть которой -- на востоке.
 ~
-0 Dj inside
+0 D inside
 D1
 @eng You can see the aviary continue.
 @rus Вы видите продолжение клетки.

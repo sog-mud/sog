@@ -21,10 +21,10 @@ vandalism repairs.
 немало денег городским организациям на починку вандализма.
 ~
 human~
-Ci 0 0 0 0 -400 0
+C 0 0 0 0 -400 0
 5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
-EFNUklt
+EFNU
 stand stand male 0
 0 0 medium unknown
 #8001
@@ -39,10 +39,10 @@ fashionable of all gangs -- the Grunge Mongers.
 группировке из всех -- the Grunge Mongers.
 ~
 human~
-CGim 0 0 0 Hn -500 0
+CG 0 0 0 H -500 0
 10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
-EFNUklt
+EFNU
 stand stand male 0
 0 0 medium unknown
 #8002
@@ -59,10 +59,10 @@ Justice Department.
  
 ~
 human~
-BFhl 0 0 0 Ag 0 0
+BF 0 0 0 A 0 0
 17 0 3d9+258 8d9+100 3d4+4 'none'
 -3 -3 -3 7
-EFNUklt
+EFNU
 stand stand male 0
 0 0 medium unknown
 #8003
@@ -76,10 +76,10 @@ and undersupervised.
 @rus Член городской милиции. Этот мужичок вооружён до зубов и не находится под присмотром.
 ~
 human~
-CGim 0 0 0 Hn 0 0
+CG 0 0 0 H 0 0
 16 0 3d9+233 8d9+100 2d6+4 'none'
 -2 -2 -2 7
-EFNUklt
+EFNU
 stand stand male 0
 0 0 medium unknown
 #8004
@@ -92,10 +92,10 @@ dunk~
 @rus В то время как он сливается с толпой, его шаловливые руки бродят по карманам горожан.
 ~
 human~
-CGHSimny 0 0 0 ABgh -150 0
+CGHS 0 0 0 AB -150 0
 10 0 2d6+110 5d9+100 1d8+2 'none'
 2 2 2 8
-BEFJNUhklpt
+BEFJNU
 stand stand male 0
 0 0 medium unknown
 #8005
@@ -109,10 +109,10 @@ looking you over for a possible business transaction.
 @rus Попрошайка рассматривает тебя в надежде на какую-нибудь сделку.
 ~
 human~
-CGim 0 0 0 0 -400 0
+CG 0 0 0 0 -400 0
 14 0 2d10+190 7d9+100 1d12+3 'none'
 -1 -1 -1 8
-EFNUklt
+EFNU
 stand stand female 0
 0 0 medium unknown
 #8006
@@ -128,10 +128,10 @@ you though.
 Будучи новичком, он скорее всего не будет таким строгим по отношению к тебе.
 ~
 human~
-Gm 0 0 0 ABgh 300 0
+G 0 0 0 AB 300 0
 20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
-EFNUklt
+EFNU
 stand stand male 0
 0 0 medium unknown
 #8007
@@ -146,10 +146,10 @@ unintelligent and unimaginative, but looks can be deceiving.
 что он довольно глуп и невоображателен. Но вид может быть обманчивым.
 ~
 human~
-BChi 0 0 0 ABHghn -600 0
+BC 0 0 0 ABH -600 0
 22 0 5d10+400 11d9+100 4d4+6 'none'
 -5 -5 -5 7
-EFNUklt
+EFNU
 stand stand male 0
 0 0 medium unknown
 #8008
@@ -166,10 +166,10 @@ eyes is the mention of money.
 глаза, это деньги.
 ~
 human~
-BCFhil 0 0 0 ABgh -900 0
+BCF 0 0 0 AB -900 0
 25 0 5d10+550 12d9+100 2d10+7 'none'
 -7 -7 -7 6
-EFNUklt
+EFNU
 stand stand male 0
 0 0 medium unknown
 #8009
@@ -185,10 +185,10 @@ Gleep.
 ему не найти.
 ~
 human~
-BChi 0 0 0 0 -400 0
+BC 0 0 0 0 -400 0
 19 0 3d9+308 9d9+100 2d7+5 'none'
 -4 -4 -4 7
-EFNUklt
+EFNU
 stand stand male 0
 0 0 medium unknown
 #8010
@@ -202,10 +202,10 @@ of the Downtown Quadrant.
 @rus Он довольно умён, но большой пессимист. Он Главный Судья центра города.
 ~
 human~
-Gm 0 Hn 0 ABgh 300 0
+G 0 H 0 AB 300 0
 30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
-EFNUklt
+EFNU
 stand stand male 0
 0 0 medium unknown
 #8011
@@ -221,10 +221,10 @@ to enforce the LAW.
 и не имеет никаких других задач кроме как защищать ЗАКОН.
 ~
 human~
-Gm 0 0 0 ABgh 500 0
+G 0 0 0 AB 500 0
 25 0 5d10+550 12d9+100 2d10+7 'none'
 -7 -7 -7 6
-EFNUklt
+EFNU
 stand stand female 0
 0 0 medium unknown
 #8012
@@ -237,10 +237,10 @@ bite fighter~
 @rus Кусающий боец стоит здесь с очень остро наточенными зубами и плохой репутацией.
 ~
 human~
-BFhl 0 0 0 Hn -400 0
+BF 0 0 0 H -400 0
 20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
-EFNUklt
+EFNU
 stand stand male 0
 0 0 medium unknown
 #0
@@ -251,7 +251,7 @@ spitgun spit gun~
 @eng a spit gun@rus плевалка~
 @eng There is a spit gun laying here.@rus Плевалка (gun) лежит тут.~
 steel~
-wand 0 0 AOgu
+wand 0 0 AO
 20 10 10 'general purpose' 0
 17 20 48900 P
 E
@@ -265,7 +265,7 @@ knee pads~
 @eng a set of knee pads@rus наколенники~
 @eng There are some knee pads laying here.@rus Наколенники (knee) лежат здесь.~
 steel~
-armor 0 0 AFgl
+armor 0 0 AF
 4 4 4 0 0
 5 30 480 P
 E
@@ -279,7 +279,7 @@ stooky gland~
 @eng a stooky gland@rus железа~
 @eng There is a stooky gland laying here.@rus Железа (gland) лежит здесь.~
 unknown~
-pill 0 0 Ag
+pill 0 0 A
 20 '' 'cure poison' 'heal' ''
 13 10 1000 P
 E
@@ -292,7 +292,7 @@ lawgiver~
 @eng a lawgiver@rus законотворец~
 @eng There is a lawgiver laying here.@rus Законотворец (lawgiver) лежит здесь.~
 steel~
-wand 0 0 AOgu
+wand 0 0 AO
 30 10 10 'high explosive' 0
 27 20 58000 P
 E
@@ -306,8 +306,8 @@ safe~
 @eng the magnetically shielded safe@rus магнетически-защищённый сейф~
 @eng A indestructible, immobile safe is here.@rus Неразрушимый, неподвижный сейф (safe) находится тут.~
 iron~
-container Bh 0 0
-1005 ACDgij 8005 200 100
+container B 0 0
+1005 ACD 8005 200 100
 0 0 0 P
 E
 safe~
@@ -320,7 +320,7 @@ code box~
 @eng a code box@rus кодовая коробка~
 @eng A code box of indeterminate use is here.@rus Кодовая коробка (box) неизвестного предназначения лежит здесь.~
 iron~
-key Bh 0 AOgu
+key B 0 AO
 0 0 0 0 0
 0 10 0 P
 E
@@ -333,8 +333,8 @@ bashball bat two-handed~
 @eng a bashball bat@rus бита~
 @eng A bashball bat is laying here.@rus Бита (bashball) лежит тут.~
 wood~
-weapon 0 0 ANgt
-mace 4 5 'pound' Fl
+weapon 0 0 AN
+mace 4 5 'pound' F
 14 30 870 P
 A
 19 1
@@ -349,7 +349,7 @@ vibroblade~
 @eng the vibroblade@rus вибронож~
 @eng The vibroblade is here.@rus Вибронож (blade) лежит здесь.~
 adamantite~
-weapon ABFghl 0 ANgt
+weapon ABF 0 AN
 dagger 6 5 'slash' 0
 18 20 2800 P
 A
@@ -371,8 +371,8 @@ vacuum cleaner two-handed~
 @eng a Hoover vacuum cleaner@rus пылесос "Хувер"~
 @eng A Hoover vacuum cleaner is here idling.@rus Пылесос "Хувер" (vacuum) валяется здесь.~
 unknown~
-weapon Bh 0 ANgt
-exotic 4 5 'suction' Fl
+weapon B 0 AN
+exotic 4 5 'suction' F
 15 100 2100 P
 E
 vacuum cleaner~
@@ -385,7 +385,7 @@ knife~
 @eng a knife@rus нож~
 @eng A knife is sitting here...contemplating life.@rus Нож (knife) лежит тут...созерцающий жизнь.~
 steel~
-weapon 0 0 ANgt
+weapon 0 0 AN
 dagger 2 4 'slice' 0
 5 10 360 P
 E
@@ -398,7 +398,7 @@ wet noodle~
 @eng a wet noodle@rus лапшина~
 @eng A wet noodle is laying here with clam sauce on it.@rus Сырая лапшина (noodle) лежит здесь, вместе с холодным соусом на ней.~
 iron~
-weapon 0 0 ANgt
+weapon 0 0 AN
 whip 1 4 'whip' 0
 5 10 670 P
 A
@@ -413,7 +413,7 @@ judge club~
 @eng a Judge's club@rus дубина судьи~
 @eng A Judge's club is resting here.@rus Дубина судьи (club) лежит здесь.~
 wood~
-weapon 0 0 ANgt
+weapon 0 0 AN
 mace 3 7 'pound' 0
 17 30 1050 P
 A
@@ -429,7 +429,7 @@ vault key~
 @eng a vault key@rus ключ от погреба~
 @eng A vault key is here.@rus Ключ от погреба (vault) лежит тут.~
 iron~
-key Bh 0 AOgu
+key B 0 AO
 0 0 0 0 0
 0 10 0 P
 E
@@ -442,7 +442,7 @@ key card~
 @eng a key card@rus ключ-карточка~
 @eng A key card is laying here.@rus Ключ-карточка (card) лежит здесь.~
 copper~
-key 0 0 AOgu
+key 0 0 AO
 0 0 0 0 0
 0 10 0 P
 E
@@ -455,7 +455,7 @@ judge club~
 @eng a Judge's club@rus дубина судьи~
 @eng A Judge's club is resting here.@rus Дубина судьи (club) лежит здесь.~
 wood~
-weapon 0 0 ANgt
+weapon 0 0 AN
 mace 3 11 'pound' 0
 26 30 1700 P
 A
@@ -471,7 +471,7 @@ club electric shock~
 @eng a shock club@rus шоковая дубинка~
 @eng A sparking electric club is here.@rus Искрящаяся электрическая дубинка (club) лежит здесь.~
 steel~
-weapon Ag 0 ANgt
+weapon A 0 AN
 mace 4 5 'shock' 0
 15 30 750 P
 g none~
@@ -480,8 +480,8 @@ stunner police stick~
 @eng a police stun stick@rus Полицейская дубинка~
 @eng A police issue stunner is here, must be stolen.@rus Казённая полицейская дубинка (stunner) лежит тут, должно быть ворованная.~
 wood~
-weapon 0 0 ANgt
-mace 3 9 'pound' Gm
+weapon 0 0 AN
+mace 3 9 'pound' G
 23 20 1160 P
 g none~
 #0
@@ -761,7 +761,7 @@ can only use their sharpened teeth as weapons.
 куда надо. А вообще кусачные бои это незаконный вид боя когда оба пролтивника
 используют только лишь свои остронаточенные зубы чтобы драться.
 ~
-0 Ag city
+0 A city
 D1
 An intersection is ahead.
 ~
@@ -867,7 +867,7 @@ D1
 A door to the east bodes ill.
 ~
 door~
-ABZgh 0 8026
+ABZ 0 8026
 D2
 Threep Lane continues south.
 ~
@@ -962,7 +962,7 @@ for the low-life in the area.
 @rus Наискучнейшая дыра.. Заведумая Ерни Рамирезом, эта кафешка является местом
 встречи бедных людей в этом районе.
 ~
-0 Dj inside
+0 D inside
 D1
 An intersection lies east.
 ~
@@ -978,7 +978,7 @@ with large side bets.
 и ты даже сейчас видишь несколько парочек. Сейчас здесь показывают 
 самый крутой боевик двадцатого века - Титаник.
 ~
-0 Dj inside
+0 D inside
 D1
 An intersection lies east.
 ~
@@ -998,7 +998,7 @@ socially unacceptable attitudes of the inmates.
 непонятно зачем.
  
 ~
-0 Dj inside
+0 D inside
 D1
 A large plaza lies east.
 ~
@@ -1018,7 +1018,7 @@ died down.
 побежишь по улице, издавая такие же безумные вопли как эти несчастные.
  
 ~
-0 Dj inside
+0 D inside
 D1
 An intersection lies east.
 ~
@@ -1033,7 +1033,7 @@ organ legging activities.
 @rus Единственное ателье которое было закрыто из-за слишком коррупционных деяний
 которые были совершены в нём.
 ~
-0 Dj inside
+0 D inside
 D1
 An intersection lies east.
 ~
@@ -1051,7 +1051,7 @@ There is also a sign next to the slot.
 видна дверь. Также ты замечаешь небольшую табличку около двери.
  
 ~
-0 Dj inside
+0 D inside
 E
 sign~
 To open insert card.
@@ -1059,11 +1059,11 @@ To open insert card.
 D0
 ~
 door~
-ABCFZghil 8013 8027
+ABCFZ 8013 8027
 D3
 ~
 door~
-ABZgh 0 8016
+ABZ 0 8016
 S
 #8027
 @eng Stockroom of Throt & Gleep's Megger Store@rus Склад в Магазине Трота и Глипа~
@@ -1072,7 +1072,7 @@ south and large vault door is to the north.
 @rus Много бесполезных вещей разложено здесь на полках. Вы видите дверь на юг
 (south) и огромную подвальную дверину на север (north).
 ~
-0 Dj inside
+0 D inside
 E
 vault door~
 This vault seems impervious to breaking.  There is a keyhole in the lock
@@ -1081,22 +1081,22 @@ however.
 D0
 ~
 vault door~
-ABCFZghil 8012 8028
+ABCFZ 8012 8028
 D2
 ~
 door~
-ABCFZghil 8013 8026
+ABCFZ 8013 8026
 S
 #8028
 @eng Throt & Gleep's Vault@rus Погреб Трота и Глипа~
 @eng The vault is musty with a slight smell of ozone in the air.
 @rus Ты находишься в затхлом погребе с запахом озона в воздухе.
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 vault door~
-ABCFZghil 8012 8027
+ABCFZ 8012 8027
 S
 #0
 

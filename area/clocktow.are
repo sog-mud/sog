@@ -22,12 +22,12 @@ and you mearly able to stay close to it.
 что ты едва можешь находиться рядом с ним.
 ~
 unique~
-GTYmz 0 HVn 0 0 0 0
+GTY 0 HV 0 0 0 0
 30 0 10d61+400 30d10+100 5d6+18 'pound'
 -30 -30 -30 -10
-CEFJKiklpq
+CEFJK
 stand stand male 3000
-AZcg Dj large unknown
+AZc D large unknown
 r fire 100
 r acid 100
 r holy -50
@@ -48,10 +48,10 @@ seemingly does not pay any attention at you.
 замечает.
 ~
 human~
-GQmw 0 Hn 0 Bh 0 0
+GQ 0 H 0 B 0 0
 30 0 10d60+450 30d10+100 5d6+15 'punch'
 -30 -30 -30 -20
-EFIKNVkloqt
+EFIKNV
 stand stand male 1000
 0 0 medium unknown
 r holy 33
@@ -70,10 +70,10 @@ to enter the Clock Tower.
 пятственно пропускает тебя в Башню.
 ~
 human~
-GQmw 0 HNVnt 0 ABgh 0 0
+GQ 0 HNV 0 AB 0 0
 28 0 10d70+430 28d10+100 6d5+20 'crush'
 -40 -30 -30 -20
-CDEFHIJKNcijklnopqt
+CDEFHIJKNc
 stand stand male 5000
 0 0 medium unknown
 r fire 33
@@ -100,12 +100,12 @@ City without explicit time.
 чтобы город не остался без точного времени.
 ~
 unique~
-GTYmz 0 HTVnz 0 ABgh 0 0
+GTY 0 HTV 0 AB 0 0
 25 0 10d40+300 25d10+100 4d6+12 'pound'
 -25 -25 -25 -20
-CEFHKiklnq
+CEFHK
 stand stand male 3456
-AZcg Bh large unknown
+AZc B large unknown
 r bash 33
 r pierce 33
 r slash 33
@@ -132,12 +132,12 @@ hand long big стрелка~
 @rus Длинная стрелка указывает на край циферблата.
 ~
 unique~
-GTWmz 0 TVz 0 0 0 0
+GTW 0 TV 0 0 0 0
 30 0 10d60+420 30d100+100 5d6+15 'charge'
 -40 -30 -10 -10
-CDEFHIKNTijklnoqtz
+CDEFHIKNT
 stand stand male 2430
-AZcg Bh medium unknown
+AZc B medium unknown
 #4905
 hand short small стрелка~
 @eng Short Hand@rus ~~Маленькая~~ ~~Стрелка~~~
@@ -148,12 +148,12 @@ hand short small стрелка~
 @rus Маленькая стрелка указывает на край циферблата.
 ~
 unique~
-GTWmz 0 TVz 0 0 0 0
+GTW 0 TV 0 0 0 0
 25 0 10d40+250 25d10+100 5d5+14 'charge'
 -30 -20 -10 -10
-CEFHIKNTiklnoqtz
+CEFHIKNT
 stand stand male 2340
-AZcg Bh medium unknown
+AZc B medium unknown
 #4906
 weather cock флюгер wearthercock~
 @eng Wearthercock@rus Флюгер~
@@ -166,12 +166,12 @@ top of the spire each time the wind blows.
 на верхушке шпиля каждый раз, когда дует ветер.
 ~
 unique~
-BGRhmx 0 Tz 0 Ag 0 0
+BGR 0 T 0 A 0 0
 20 0 5d40+200 20d10+100 4d5+10 'peck'
 -10 -10 -10 -10
 0
 stand stand male 0
-AWg ABCDEFghijkl medium unknown
+AW ABCDEF medium unknown
 r acid 33
 r negative 100
 r energy 33
@@ -190,10 +190,10 @@ scatters some bread bits around him for pigeons.
 и кормит голубей крошками хлеба.
 ~
 human~
-GHTmnz 0 HNTntz Gm 0 1000 0
+GHT 0 HNT G 0 1000 0
 15 0 5d30+160 15d10+100 3d5+8 'punch'
 -15 -15 -15 -10
-EFHIJKVklnopq
+EFHIJKV
 sit sit male 230
 0 0 medium unknown
 r holy 100
@@ -210,12 +210,12 @@ on his armour.
 на его доспехах.
 ~
 unique~
-BGHhmn 0 TVz 0 0 0 0
+BGH 0 TV 0 0 0 0
 2 0 1d3+15 2d10+100 1d2+1 'punch'
 -2 -3 -2 -1
-CEFKdiklq
+CEFKd
 stand stand male 120
-AMgs ABCDEFghijkl medium unknown
+AM ABCDEF medium unknown
 #4909
 two clock два~
 @eng Two o'clock@rus ~~Два~~ ~~Часа~~~
@@ -228,12 +228,12 @@ on his armour.
 на его доспехах.
 ~
 unique~
-BGHhmn 0 TVz 0 0 0 0
+BGH 0 TV 0 0 0 0
 4 0 1d12+33 4d10+100 1d3+3 'punch'
 -4 -5 -4 -2
-CEFKdiklq
+CEFKd
 stand stand male 120
-AMgs ABCDEFghijkl medium unknown
+AM ABCDEF medium unknown
 #4910
 three clock три~
 @eng Three o'clock@rus ~~Три~~ ~~Часа~~~
@@ -246,12 +246,12 @@ on his armour.
 на его доспехах.
 ~
 unique~
-BGHhmn 0 TVz 0 0 0 0
+BGH 0 TV 0 0 0 0
 6 0 2d10+50 6d10+100 2d3+4 'punch'
 -6 -7 -6 -4
-CEFKdiklq
+CEFKd
 stand stand male 130
-AMgs ABCDEFghijkl medium unknown
+AM ABCDEF medium unknown
 #4911
 four clock четыре~
 @eng Four o'clock@rus ~~Четыре~~ ~~Часа~~~
@@ -264,12 +264,12 @@ on his armour.
 на его доспехах.
 ~
 unique~
-BGHhmn 0 TVz 0 0 0 0
+BGH 0 TV 0 0 0 0
 8 0 3d18+75 8d10+100 2d5+4 'punch'
 -8 -9 -8 -5
-CEFKdiklq
+CEFKd
 stand stand male 150
-AMgs ABCDEFghijkl medium unknown
+AM ABCDEF medium unknown
 #4912
 five clock пять~
 @eng Five o'clock@rus ~~Пять~~ ~~Часов~~~
@@ -282,12 +282,12 @@ on his armour.
 на его доспехах.
 ~
 unique~
-BGHhmn 0 TVz 0 0 0 0
+BGH 0 TV 0 0 0 0
 10 0 3d23+95 10d10+100 2d5+5 'punch'
 -10 -13 -12 -7
-CEFKdiklq
+CEFKd
 stand stand male 220
-AMgs ABCDEFghijkl medium unknown
+AM ABCDEF medium unknown
 #4913
 six clock шесть~
 @eng Six o'clock@rus ~~Шесть~~ ~~Часов~~~
@@ -300,12 +300,12 @@ on his armour.
 на его доспехах.
 ~
 unique~
-BGHhmn 0 TVz 0 0 0 0
+BGH 0 TV 0 0 0 0
 12 0 4d20+115 12d10+100 3d5+6 'punch'
 -12 -13 -12 -8
-CEFKdiklq
+CEFKd
 stand stand male 620
-AMgs ABCDEFghijkl medium unknown
+AM ABCDEF medium unknown
 #4914
 seven clock семь~
 @eng Seven o'clock@rus ~~Семь~~ ~~Часов~~~
@@ -318,12 +318,12 @@ on his armour.
 на его доспехах.
 ~
 unique~
-BGHhmn 0 TVz 0 0 0 0
+BGH 0 TV 0 0 0 0
 14 0 5d25+140 14d10+100 3d5+7 'punch'
 -14 -16 -12 -10
-CEFKdiklq
+CEFKd
 stand stand male 520
-AMgs ABCDEFghijkl medium unknown
+AM ABCDEF medium unknown
 #4915
 eight clock восемь~
 @eng Eight o'clock@rus ~~Восемь~~ ~~Часов~~~
@@ -336,12 +336,12 @@ on his armour.
 на его доспехах.
 ~
 unique~
-BGHhmn 0 TVz 0 0 0 0
+BGH 0 TV 0 0 0 0
 16 0 5d33+180 16d10+100 4d5+8 'punch'
 -16 -18 -16 -12
-CEFKdiklq
+CEFKd
 stand stand male 1120
-AMgs ABCDEFghijkl medium unknown
+AM ABCDEF medium unknown
 #4916
 nine clock девять~
 @eng Nine o'clock@rus ~~Девять~~ ~~Часов~~~
@@ -354,12 +354,12 @@ on his armour.
 на его доспехах.
 ~
 unique~
-BGHhmn 0 TVz 0 0 0 0
+BGH 0 TV 0 0 0 0
 18 0 5d40+200 18d10+100 4d5+9 'punch'
 -18 -23 -20 -15
-CEFKdiklq
+CEFKd
 stand stand male 920
-AMgs ABCDEFghijkl medium unknown
+AM ABCDEF medium unknown
 #4917
 ten clock десять~
 @eng Ten o'clock@rus ~~Десять~~ ~~Часов~~~
@@ -372,12 +372,12 @@ on his armour.
 на его доспехах.
 ~
 unique~
-BGHhmn 0 TVz 0 0 0 0
+BGH 0 TV 0 0 0 0
 20 0 5d50+230 20d10+100 5d4+10 'punch'
 -20 -23 -20 -18
-CEFKdiklq
+CEFKd
 stand stand male 1020
-AMgs ABCDEFghijkl medium unknown
+AM ABCDEF medium unknown
 #4918
 eleven clock одиннадцать~
 @eng Eleven o'clock@rus ~~Одиннадцать~~ ~~Часов~~~
@@ -390,12 +390,12 @@ on his armour.
 на его доспехах.
 ~
 unique~
-BGHhmn 0 TVz 0 0 0 0
+BGH 0 TV 0 0 0 0
 22 0 6d50+270 22d10+100 4d6+12 'punch'
 -22 -23 -22 -19
-CEFKdiklq
+CEFKd
 stand stand male 1020
-AMgs ABCDEFghijkl medium unknown
+AM ABCDEF medium unknown
 #4919
 twelve clock двенадцать~
 @eng Twelve o'clock@rus ~~Двенадцать~~ ~~Часов~~~
@@ -408,12 +408,12 @@ on his armour.
 на его доспехах.
 ~
 unique~
-BGHhmn 0 TVz 0 0 0 0
+BGH 0 TV 0 0 0 0
 24 0 10d40+300 24d10+100 5d5+14 'punch'
 -25 -30 -24 -21
-CEFKdiklq
+CEFKd
 stand stand male 1200
-AMgs ABCDEFghijkl medium unknown
+AM ABCDEF medium unknown
 #4920
 gear шестеренка large~
 @eng Large gear@rus ~~Большая~~ ~~шестеренка~~~
@@ -426,12 +426,12 @@ with the others.
 большими и маленькими.
 ~
 unique~
-GTYmz 0 d 0 0 0 0
+GTY 0 d 0 0 0 0
 20 0 5d50+250 20d10+100 5d5+15 'scratch'
 -20 -40 -20 -10
-CEIdiko
+CEId
 stand stand female 0
-AMgs ADEFgjkl large unknown
+AM ADEF large unknown
 #4921
 gear шестеренка medium~
 @eng Medium gear@rus ~~Средняя~~ ~~шестеренка~~~
@@ -445,12 +445,12 @@ with the others.
 большими и маленькими.
 ~
 unique~
-GTYmz 0 0 0 0 0 0
+GTY 0 0 0 0 0 0
 15 0 5d30+160 15d10+100 3d5+8 'scratch'
 -15 -30 -15 -10
-EFIKdkloq
+EFIKd
 stand stand female 0
-AMgs ABCDEFghijkl medium unknown
+AM ABCDEF medium unknown
 #4922
 small gear шестеренка~
 @eng Small gear@rus ~~Маленькая~~ ~~шестеренка~~~
@@ -463,12 +463,12 @@ with the others.
 большими и маленькими.
 ~
 unique~
-GTYmz 0 0 0 0 0 0
+GTY 0 0 0 0 0 0
 10 0 3d22+96 10d10+100 2d5+5 'scratch'
 -10 -20 -10 -6
-FHIKdlnoq
+FHIKd
 stand stand female 0
-AMgs ABCDEFghijkl small unknown
+AM ABCDEF small unknown
 #4923
 tiny gear шестеренка~
 @eng Tiny gear@rus ~~Крошечная~~ ~~шестеренка~~~
@@ -482,12 +482,12 @@ with the others.
 большими и маленькими.
 ~
 unique~
-GHTYmnz 0 V 0 0 0 0
+GHTY 0 V 0 0 0 0
 5 0 1d17+42 5d10+100 2d3+2 'scratch'
 -5 -10 -5 -2
-FHIJKNdlnopqt
+FHIJKNd
 stand stand female 0
-AMgs ABCDEFghijkl tiny unknown
+AM ABCDEF tiny unknown
 #4924
 pigeon tower голубь~
 @eng tower pigeon@rus голубь~
@@ -501,12 +501,12 @@ sweep.
 крошки хлеба, рассыпанные трубочистом.
 ~
 unique~
-CGHQWimnw 0 NTVtz Gm ABgh 1000 0
+CGHQW 0 NTV G AB 1000 0
 12 0 3d25+100 12d10+100 2d5+6 'peck'
 -10 -10 -10 -10
-DFHIJdjlnop
+DFHIJd
 stand stand male 230
-AWg ABCDEFghijkl small unknown
+AW ABCDEF small unknown
 r holy 100
 #4925
 ghost terrifying привидение~
@@ -518,10 +518,10 @@ ghost terrifying привидение~
 @rus А что ты хотел увидеть? Это же ПРИВИДЕНИЕ!!!
 ~
 ghost~
-GRmx 0 0 Ag 0 0 0
+GR 0 0 A 0 0 0
 10 0 10d10+100 10d10+100 3d6+5 'wrath'
 0 0 0 0
-HQnw
+HQ
 stand stand none 0
 0 0 medium unknown
 #4926
@@ -532,7 +532,7 @@ bat angry мышь~
 ~
 ~
 bat~
-FGTlmz 0 0 0 Ag -1000 0
+FGT 0 0 0 A -1000 0
 5 0 5d10+70 10d10+100 3d3+6 'cleave'
 0 0 0 0
 0
@@ -546,13 +546,13 @@ rat wimpy крыса~
 ~
 ~
 bat~
-FGHTlmnz 0 0 0 Bh -1000 0
+FGHT 0 0 0 B -1000 0
 8 0 10d10+100 0d0+0 5d2+5 'bite'
 0 0 0 0
-Qw
+Q
 stand stand female 0
 0 0 small unknown
-F aff Tz
+F aff T
 #4928
 spider small паук~
 @eng small spider@rus ~~маленький~~ ~~паук~~~
@@ -561,7 +561,7 @@ spider small паук~
 ~
 ~
 centipede~
-GHRmnx 0 0 0 0 0 0
+GHR 0 0 0 0 0 0
 4 0 10d5+30 10d10+100 1d3+3 'bite'
 0 0 0 0
 0
@@ -575,7 +575,7 @@ spider huge паук~
 ~
 ~
 centipede~
-FGHRlmnx 0 0 0 0 -1000 0
+FGHR 0 0 0 0 -1000 0
 6 0 5d15+40 10d10+100 3d3+3 'bite'
 0 0 0 0
 0
@@ -589,12 +589,12 @@ A Long Hand shows you right time.
 A big long arrow points at the edge of the clock face.
 ~
 unique~
-GTWmz 0 TVz 0 0 0 0
+GTW 0 TV 0 0 0 0
 30 0 10d60+420 30d100+100 5d6+15 'charge'
 -40 -30 -10 -10
-CDEFHIKNTijklnoqtz
+CDEFHIKNT
 stand stand male 2430
-AZcg Bh medium unknown
+AZc B medium unknown
 #4931
 hand short small~
 Short Hand~
@@ -603,12 +603,12 @@ A Short Hand shows you right time.
 A small short arrow points at the edge of the clock face.
 ~
 unique~
-GTWmz 0 TVz 0 0 0 0
+GTW 0 TV 0 0 0 0
 25 0 10d40+250 25d10+100 5d5+14 'charge'
 -30 -20 -10 -10
-CEFHIKNTiklnoqtz
+CEFHIKNT
 stand stand male 2340
-AZcg Bh medium unknown
+AZc B medium unknown
 #4932
 hand long big~
 Long Hand~
@@ -617,12 +617,12 @@ A Long Hand shows you right time.
 A big long arrow points at the edge of the clock face.
 ~
 unique~
-GTWmz 0 TVz 0 0 0 0
+GTW 0 TV 0 0 0 0
 30 0 10d60+420 30d100+100 5d6+15 'charge'
 -40 -30 -10 -10
-CDEFHIKNTijklnoqtz
+CDEFHIKNT
 stand stand male 2430
-AZcg Bh medium unknown
+AZc B medium unknown
 #4933
 hand short small~
 Short Hand~
@@ -631,12 +631,12 @@ A Short Hand shows you right time.
 A small short arrow points at the edge of the clock face.
 ~
 unique~
-GTWmz 0 TVz 0 0 0 0
+GTW 0 TV 0 0 0 0
 25 0 10d40+250 25d10+100 5d5+14 'charge'
 -30 -20 -10 -10
-CEFHIKNTiklnoqtz
+CEFHIKNT
 stand stand male 2340
-AZcg Bh medium unknown
+AZc B medium unknown
 #4934
 hand long big~
 Long Hand~
@@ -645,12 +645,12 @@ A Long Hand shows you right time.
 A big long arrow points at the edge of the clock face.
 ~
 unique~
-GTWmz 0 TVz 0 0 0 0
+GTW 0 TV 0 0 0 0
 30 0 10d60+420 30d100+100 5d6+15 'charge'
 -40 -30 -10 -10
-CDEFHIKNTijklnoqtz
+CDEFHIKNT
 stand stand male 2430
-AZcg Bh medium unknown
+AZc B medium unknown
 #4935
 hand short small~
 Short Hand~
@@ -659,12 +659,12 @@ A Short Hand shows you right time.
 A small short arrow points at the edge of the clock face.
 ~
 unique~
-GTWmz 0 TVz 0 0 0 0
+GTW 0 TV 0 0 0 0
 25 0 10d40+250 25d10+100 5d5+14 'charge'
 -30 -20 -10 -10
-CEFHIKNTiklnoqtz
+CEFHIKNT
 stand stand male 2340
-AZcg Bh medium unknown
+AZc B medium unknown
 #0
 
 #OBJECTS
@@ -673,7 +673,7 @@ bell breast plate колокол~
 @eng bell breast plate@rus колокол~
 @eng A Bell lies here forgotten.@rus Большой колокол (bell) лежит на земле.~
 bronze~
-armor BYh Bh ADgj
+armor BY B AD
 10 10 10 5 0
 30 100 100000 P
 A
@@ -694,7 +694,7 @@ robe mechanic фартук~
 @eng robe of mechanic@rus ~~фартук~~ часовщика~
 @eng An old oiled robe lies here.@rus Старый засаленный фартук (robe) лежит здесь.~
 silk~
-armor 0 0 ADgj
+armor 0 0 AD
 15 15 15 10 0
 30 20 0 A
 A
@@ -707,8 +707,8 @@ standart set instrument набор~
 @eng standart set of instruments@rus ~~набор~~ инструментов~
 @eng A set of instruments lies here forgotten.@rus Набор инструментов (set), забытый часовщиком, лежит тут.~
 iron~
-weapon Bh Bh ANgt
-exotic 6 6 'cleave' Gm
+weapon B B AN
+exotic 6 6 'cleave' G
 30 100 5000 P
 A
 14 -100
@@ -722,8 +722,8 @@ box carved шкатулка~
 @eng carved box@rus шкатулка~
 @eng A beautiful carved box stands on the cabinet.@rus Красивая резная шкатулка (box) стоит на конторке.~
 ebony~
-container CYi Bh 0
-100 ABCDghij 4904 100 100
+container CY B 0
+100 ABCD 4904 100 100
 0 0 0 P
 g female~
 #4904
@@ -731,7 +731,7 @@ key ключ ivory~
 @eng ivory key@rus ~~ключ~~ из слоновой кости~
 @eng An ivory key is tied to the gold chain.@rus Ключ из слоновой кости (ivory) подвешен на золотой цепочке.~
 ivory~
-key CFUil 0 AOgu
+key CFU 0 AO
 0 0 0 0 0
 30 0 0 P
 g male~
@@ -740,7 +740,7 @@ bronze key ключ бронзовый~
 @eng bronze clock key@rus ~~бронзовый~~ ~~ключ~~ от часов~
 @eng A key made with bronze waits to be used.@rus Бронзовый ключ (bronze) ждет, когда ты соберешься завести часы.~
 bronze~
-armor AYg 0 AOgu
+armor AY 0 AO
 0 0 0 0 0
 20 50 100000 G
 A
@@ -763,7 +763,7 @@ hat top black цилиндр черный~
 @eng black top hat of a chimney-sweep@rus ~~черный~~ ~~цилиндр~~ трубочиста~
 @eng A strange-looking black hat sits here.@rus Странная шляпа (hat) лежит тут.~
 silk~
-armor GKmq 0 AEgk
+armor GK 0 AE
 10 10 10 8 0
 15 40 1000 P
 A
@@ -780,7 +780,7 @@ vest chimney black куртка черная~
 @eng black vest of a chimney-sweep@rus ~~черная~~ ~~куртка~~ трубочиста~
 @eng A black vest lies here.@rus Черная куртка (vest) брошена тут.~
 silk~
-armor GKmq 0 ADgj
+armor GK 0 AD
 10 10 10 8 0
 15 30 1000 P
 A
@@ -797,7 +797,7 @@ leggins chimney black штаны черные~
 @eng black leggings of a chimney-sweep@rus ~~черные~~ ~~штаны~~ трубочиста~
 @eng Leather leggings lie here.@rus Черные штаны (leggings) брошены тут.~
 soft leather~
-armor GKMmqs Ek AFgl
+armor GKM E AF
 10 10 10 8 0
 15 20 1000 P
 A
@@ -814,7 +814,7 @@ broom chimney black щетка черная~
 @eng black chimney broom@rus ~~черная~~ ~~щетка~~ трубочиста~
 @eng A chimney broom lies here.@rus Щетка (broom) трубочиста лежит тут.~
 steel~
-staff 0 0 AOgu
+staff 0 0 AO
 25 10 10 'faerie fog' 0
 15 10 1500 P
 g female~
@@ -823,8 +823,8 @@ hand short стрелка маленькая~
 @eng short hand@rus ~~маленькая~~ ~~стрелка~~~
 @eng A short arrow lies here neglected.@rus Маленькая стрелка (hand) от часов лежит тут.~
 copper~
-weapon AHgn 0 ANgt
-spear 6 5 'pierce' DKjq
+weapon AH 0 AN
+spear 6 5 'pierce' DK
 25 50 4500 P
 g female~
 #4911
@@ -832,8 +832,8 @@ hand long стрелка большая~
 @eng long hand@rus ~~большая~~ ~~стрелка~~~
 @eng A long arrow lies here neglected.@rus Большая стрелка (hand) от часов лежит здесь.~
 copper~
-weapon 0 0 ANgt
-spear 6 6 'pierce' DKjq
+weapon 0 0 AN
+spear 6 6 'pierce' DK
 30 50 5600 P
 g female~
 #4912
@@ -841,7 +841,7 @@ wing bat крыло~
 @eng bat's wing@rus ~~крыло~~ летучей мыши~
 @eng A piece of leather lies here shaped like a wing.@rus Оторванное крыло (wing) летучей мыши лежит здесь.~
 soft leather~
-armor BHLMhnrs 0 AMgs
+armor BHLM 0 AM
 3 3 3 2 0
 5 10 0 P
 A
@@ -852,7 +852,7 @@ web spider паутина~
 @eng spider's web@rus паутина~
 @eng A web hangs here between the walls.@rus Паутина (web) опутывает стены.~
 elastic~
-armor HMns 0 AKgq
+armor HM 0 AK
 3 3 3 2 0
 5 0 0 P
 A
@@ -867,7 +867,7 @@ skull pigeon череп~
 @eng pigeon skull@rus ~~голубиный~~ ~~череп~~~
 @eng A skull of a small bird lies here.@rus Череп (skull) какой-то пичуги лежит здесь.~
 horn~
-armor 0 0 AEgk
+armor 0 0 AE
 5 5 5 5 0
 10 10 0 P
 A
@@ -896,7 +896,7 @@ talon rat коготь~
 @eng rat's talon@rus ~~коготь~~ крысы~
 @eng A pile of talons is scattered on the dirt.@rus Кучка когтей (talon) рассыпана в грязи.~
 horn~
-armor U 0 ABgh
+armor U 0 AB
 3 3 3 2 0
 5 5 0 P
 A
@@ -909,7 +909,7 @@ breast plate glowing кираса~
 @eng "3" glowing breast plate@rus "3" ~~сверкающая~~ ~~кираса~~~
 @eng A pile of armor with the number "3" engraved on it lies here.@rus Груда доспехов с выгравированной цифрой "3" (plate) лежит здесь.~
 brass~
-armor Ag 0 ADgj
+armor A 0 AD
 4 4 4 2 0
 6 40 1500 P
 g female~
@@ -918,7 +918,7 @@ legplates plate glowing поножи~
 @eng "3" glowing leg plates@rus "3" ~~сверкающие~~ ~~поножи~~~
 @eng Leg plates with the number "3" engraved on them lie here.@rus Поножи (leg plate) с цифрой "3" на них лежат тут.~
 brass~
-armor Ag 0 AFgl
+armor A 0 AF
 4 4 4 2 0
 6 40 1500 P
 g plural~
@@ -927,7 +927,7 @@ plate glowing arm наручи~
 @eng "3" glowing arm plates@rus "3" ~~сверкающие~~ ~~наручи~~~
 @eng Arm plates with the number "3" engraved on them lie here.@rus Наручи (arm plates) с выгравированной на них цифрой "3" лежат здесь.~
 brass~
-armor Ag 0 AIgo
+armor A 0 AI
 4 4 4 2 0
 6 40 1500 P
 g plural~
@@ -936,7 +936,7 @@ helmet шлем glowing~
 @eng "3" glowing helmet@rus "3" ~~сверкающий~~ ~~шлем~~~
 @eng A helmet with the number "3" engraved on it lies here.@rus Шлем (helmet) с цифрой "3" на нем лежит здесь.~
 brass~
-armor Ag 0 AEgk
+armor A 0 AE
 4 4 4 2 0
 6 40 1500 P
 g male~
@@ -945,7 +945,7 @@ gauntlets латные рукавицы glowing~
 @eng "3" glowing gauntlets@rus "3" ~~сверкающие~~ ~~латные~~ ~~рукавицы~~~
 @eng Gauntlets with the number "3" engraved on them lie here.@rus Латные рукавицы (gauntlets) с цифрой "3" на них лежат здесь.~
 brass~
-armor Ag 0 AHgn
+armor A 0 AH
 4 4 4 2 0
 6 40 1500 P
 g plural~
@@ -954,7 +954,7 @@ boots сапоги glowing~
 @eng "3" glowing boots@rus "3" ~~сверкающие~~ ~~сапоги~~~
 @eng Boots with the number "3" engraved on them lie here.@rus Сапоги (boots) с цифрой "3" на них стоят тут.~
 brass~
-armor Ag 0 AGgm
+armor A 0 AG
 4 4 4 2 0
 6 40 1500 P
 g plural~
@@ -963,7 +963,7 @@ breast plate glowing кираса~
 @eng "6" glowing breast plate@rus "6" ~~сверкающая~~ ~~кираса~~~
 @eng A pile of armor with the number "6" engraved on it lies here.@rus Груда доспехов с выгравированной цифрой "6" (plate) лежит здесь.~
 brass~
-armor Ag 0 ADgj
+armor A 0 AD
 8 8 8 4 0
 12 40 1500 P
 g female~
@@ -972,7 +972,7 @@ leg поножи plate glowing~
 @eng "6" glowing leg plates@rus "6" ~~сверкающие~~ ~~поножи~~~
 @eng Leg plates with the number "6" engraved on them lie here.@rus Поножи (leg plate) с цифрой "6" на них лежат тут.~
 brass~
-armor Ag 0 AFgl
+armor A 0 AF
 8 8 8 4 0
 12 40 1500 P
 g plural~
@@ -981,7 +981,7 @@ plate glowing arm наручи~
 @eng "6" glowing arm plates@rus "6" ~~сверкающие~~ ~~наручи~~~
 @eng Arm plates with the number "6" engraved on them lie here.@rus Наручи (arm plates) с выгравированной на них цифрой "6" лежат здесь.~
 brass~
-armor Ag 0 AIgo
+armor A 0 AI
 8 8 8 4 0
 12 40 1500 P
 g plural~
@@ -990,7 +990,7 @@ helmet шлем glowing~
 @eng "6" glowing helmet@rus "6" ~~сверкающий~~ ~~шлем~~~
 @eng A helmet with the number "6" engraved on it lies here.@rus Шлем (helmet) с цифрой "6" на нем лежит здесь.~
 brass~
-armor Ag 0 AEgk
+armor A 0 AE
 8 8 8 4 0
 12 40 1500 P
 g male~
@@ -999,7 +999,7 @@ gauntlets латные рукавицы glowing~
 @eng "6" glowing gauntlets@rus "6" ~~сверкающие~~ ~~латные~~ ~~рукавицы~~~
 @eng Gauntlets with the number "6" engraved on them lie here.@rus Латные рукавицы (gauntlets) с цифрой "6" на них лежат здесь.~
 brass~
-armor Ag 0 AHgn
+armor A 0 AH
 8 8 8 4 0
 12 40 1500 P
 g plural~
@@ -1008,7 +1008,7 @@ boots сапоги glowing~
 @eng "6" glowing boots@rus "6" ~~сверкающие~~ ~~сапоги~~~
 @eng Boots with the number "6" engraved on them lie here.@rus Сапоги (boots) с цифрой "6" на них стоят тут.~
 brass~
-armor Ag 0 AGgm
+armor A 0 AG
 8 8 8 4 0
 12 40 1500 P
 g plural~
@@ -1017,7 +1017,7 @@ breast plate glowing кираса~
 @eng "9" glowing breast plate@rus "9" ~~сверкающая~~ ~~кираса~~~
 @eng A pile of armor with the number "9" engraved on it lies here.@rus Груда доспехов с выгравированной цифрой "9" (plate) лежит здесь.~
 brass~
-armor Ag 0 ADgj
+armor A 0 AD
 12 12 12 6 0
 18 40 1500 P
 g female~
@@ -1026,7 +1026,7 @@ leg поножи plate glowing~
 @eng "9" glowing leg plates@rus "9" ~~сверкающие~~ ~~поножи~~~
 @eng Leg plates with the number "9" engraved on them lie here.@rus Поножи (leg plate) с цифрой "9" на них лежат тут.~
 brass~
-armor Ag 0 AFgl
+armor A 0 AF
 12 12 12 6 0
 18 40 1500 P
 g plural~
@@ -1035,7 +1035,7 @@ plate glowing arm наручи~
 @eng "9" glowing arm plates@rus "9" ~~сверкающие~~ ~~наручи~~~
 @eng Arm plates with the number "9" engraved on them lie here.@rus Наручи (arm plates) с выгравированной на них цифрой "9" лежат здесь.~
 brass~
-armor Ag 0 AIgo
+armor A 0 AI
 12 12 12 6 0
 18 40 1500 P
 g none~
@@ -1044,7 +1044,7 @@ helmet шлем glowing~
 @eng "9" glowing helmet@rus "9" ~~сверкающий~~ ~~шлем~~~
 @eng A helmet with the number "9" engraved on it lies here.@rus Шлем (helmet) с цифрой "9" на нем лежит здесь.~
 brass~
-armor Ag 0 AEgk
+armor A 0 AE
 12 12 12 6 0
 18 40 1500 P
 g male~
@@ -1053,7 +1053,7 @@ gauntlets латные рукавицы glowing~
 @eng "9" glowing gauntlets@rus "9" ~~сверкающие~~ ~~латные~~ ~~рукавицы~~~
 @eng Gauntlets with the number "9" engraved on them lie here.@rus Латные рукавицы (gauntlets) с цифрой "9" на них лежат здесь.~
 brass~
-armor Ag 0 AHgn
+armor A 0 AH
 12 12 12 6 0
 18 40 1500 P
 g plural~
@@ -1062,7 +1062,7 @@ boots сапоги glowing~
 @eng "9" glowing boots@rus "9" ~~сверкающие~~ ~~сапоги~~~
 @eng Boots with the number "9" engraved on them lie here.@rus Сапоги (boots) с цифрой "9" на них стоят тут.~
 brass~
-armor Ag 0 AGgm
+armor A 0 AG
 12 12 12 6 0
 18 40 1500 P
 g plural~
@@ -1071,7 +1071,7 @@ breast plate glowing кираса~
 @eng "12" glowing breast plate@rus "12" ~~сверкающая~~ ~~кираса~~~
 @eng A pile of armor with the number "12" engraved on it lies here.@rus Груда доспехов с цифрой "12" (plate) лежит здесь.~
 brass~
-armor Ag 0 ADgj
+armor A 0 AD
 16 16 16 8 0
 24 40 1500 P
 g female~
@@ -1080,7 +1080,7 @@ leg поножи plate glowing~
 @eng "12" glowing leg plates@rus "12" ~~сверкающие~~ ~~поножи~~~
 @eng Leg plates with the number "12" engraved on them lie here.@rus Поножи (leg plate) с цифрой "12" на них лежат тут.~
 brass~
-armor Ag 0 AFgl
+armor A 0 AF
 16 16 16 8 0
 24 40 1500 P
 g plural~
@@ -1089,7 +1089,7 @@ plate glowing arm наручи~
 @eng "12" glowing arm plates@rus "12" ~~сверкающие~~ ~~наручи~~~
 @eng Arm plates with the number "12" engraved on them lie here.@rus Наручи (arm plates) с выгравированной на них цифрой "12" лежат здесь.~
 brass~
-armor Ag 0 AIgo
+armor A 0 AI
 16 16 16 8 0
 24 40 1500 P
 g plural~
@@ -1098,7 +1098,7 @@ helm helmet шлем glowing~
 @eng "12" glowing helmet@rus "12" ~~сверкающий~~ ~~шлем~~~
 @eng A helmet with the number "12" engraved on it lies here.@rus Шлем (helmet) с цифрой "12" на нем лежит здесь.~
 brass~
-armor Ag 0 AEgk
+armor A 0 AE
 16 16 16 8 0
 24 40 1500 P
 g male~
@@ -1107,7 +1107,7 @@ gauntlets латные рукавицы glowing~
 @eng "12" glowing gauntlets@rus "12" ~~сверкающие~~ ~~латные~~ ~~рукавицы~~~
 @eng Gauntlets with the number "12" engraved on them lie here.@rus Латные рукавицы (gauntlets) с цифрой "12" на них лежат здесь.~
 brass~
-armor Ag 0 AHgn
+armor A 0 AH
 16 16 16 8 0
 24 40 1500 P
 g plural~
@@ -1116,7 +1116,7 @@ boots сапоги glowing~
 @eng "12" glowing boots@rus "12" ~~сверкающие~~ ~~сапоги~~~
 @eng Boots with the number "12" engraved on them lie here.@rus Сапоги (boots) с цифрой "12" на них стоят тут.~
 brass~
-armor Ag 0 AGgm
+armor A 0 AG
 16 16 16 8 0
 24 40 1500 P
 g plural~
@@ -1125,7 +1125,7 @@ dagger clock кинжал~
 @eng clock dagger@rus ~~кинжал~~ из башенных часов~
 @eng A small dagger floats here in the air.@rus Небольшой кинжал (dagger) парит в воздухе.~
 air~
-weapon 0 0 ANgt
+weapon 0 0 AN
 dagger 1 18 'pierce' 0
 6 20 0 P
 g male~
@@ -1134,7 +1134,7 @@ sword clock меч~
 @eng clock sword@rus ~~меч~~ из башенных часов~
 @eng A long sword lies here.@rus Длинный меч (sword) лежит здесь.~
 brass~
-weapon 0 0 ANgt
+weapon 0 0 AN
 sword 3 8 'slash' 0
 12 50 1500 P
 g male~
@@ -1143,7 +1143,7 @@ mace clock булава~
 @eng clock mace@rus ~~булава~~ из башенных часов~
 @eng A havy mace lies here.@rus Тяжелая булава (mace) лежит здесь.~
 brass~
-weapon 0 0 ANgt
+weapon 0 0 AN
 mace 4 8 'crush' 0
 18 60 3500 P
 g female~
@@ -1152,7 +1152,7 @@ lance clock пика~
 @eng clock lance@rus ~~пика~~ из башенных часов~
 @eng A huge lance lies here.@rus Здоровенная пика (lance) лежит здесь.~
 brass~
-weapon 0 0 ANgt
+weapon 0 0 AN
 lance 12 3 'none' 0
 30 100 5000 P
 g female~
@@ -1170,8 +1170,8 @@ cabinet конторка~
 @eng cabinet@rus конторка~
 @eng An ebony cabinet stands here.@rus Конторка (cabinet) из черного дерева стоит в углу.~
 ebony~
-furniture CYi Bh 0
-Bh DFGHIJjlmnop DNjt BCDEhijk BCDEhijk
+furniture CY B 0
+B DFGHIJ DN BCDE BCDE
 0 0 0 P
 g none~
 #0
@@ -1188,7 +1188,7 @@ you hear sounds of the square.
 наверх ведет спиральная лестница. Снаружи доносятся
 звуки города.
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~
@@ -1995,7 +1995,7 @@ and long, points at these figures.
 Сверкающие фигуры стоят по краю циферблата. Две стрелки:
 большая и маленькая указывают на эти фигуры.
 ~
-0 Ci air
+0 C air
 D0
 ~
 ~
@@ -2018,7 +2018,7 @@ and long, points at these figures.
 Сверкающие фигуры стоят по краю циферблата. Две стрелки:
 большая и маленькая указывают на эти фигуры.
 ~
-0 Ci air
+0 C air
 D1
 ~
 ~
@@ -2041,7 +2041,7 @@ and long, points at these figures.
 Сверкающие фигуры стоят по краю циферблата. Две стрелки:
 большая и маленькая указывают на эти фигуры.
 ~
-0 Ci air
+0 C air
 D2
 ~
 ~
@@ -2064,7 +2064,7 @@ and long, points at these figures.
 Сверкающие фигуры стоят по краю циферблата. Две стрелки:
 большая и маленькая указывают на эти фигуры.
 ~
-0 Ci air
+0 C air
 D3
 ~
 ~
@@ -2086,7 +2086,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -2120,7 +2120,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -2142,7 +2142,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
@@ -2172,7 +2172,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -2194,7 +2194,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -2220,7 +2220,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
@@ -2246,7 +2246,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
@@ -2268,7 +2268,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -2302,7 +2302,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -2336,7 +2336,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -2362,7 +2362,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D3
 ~
 ~
@@ -2384,7 +2384,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -2414,7 +2414,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -2448,7 +2448,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
@@ -2478,7 +2478,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -2504,7 +2504,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -2538,7 +2538,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -2560,7 +2560,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -2590,7 +2590,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -2616,7 +2616,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -2638,7 +2638,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -2668,7 +2668,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -2694,7 +2694,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -2720,7 +2720,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -2750,7 +2750,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ACDgij inside
+0 ACD inside
 D0
 ~
 ~
@@ -2780,7 +2780,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -2818,7 +2818,7 @@ as a pendulum knocks with a strong regularity.
 то звуки. Ты слышишь, как маятник стучит с завораживающей
 периодичностью.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -2845,7 +2845,7 @@ and nose. You want acquisitively to run away from here!
 кишат летучие мыши и ядовитые пауки. Паутина лезет тебе
 в нос и глаза, и ты хочешь побыстрее убраться отсюда.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -2872,7 +2872,7 @@ and nose. You want acquisitively to run away from here!
 кишат летучие мыши и ядовитые пауки. Паутина лезет тебе
 в нос и глаза, и ты хочешь побыстрее убраться отсюда.
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -2895,7 +2895,7 @@ and nose. You want acquisitively to run away from here!
 кишат летучие мыши и ядовитые пауки. Паутина лезет тебе
 в нос и глаза, и ты хочешь побыстрее убраться отсюда.
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
@@ -2918,7 +2918,7 @@ and nose. You want acquisitively to run away from here!
 кишат летучие мыши и ядовитые пауки. Паутина лезет тебе
 в нос и глаза, и ты хочешь побыстрее убраться отсюда.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -2939,11 +2939,11 @@ and spiders. But who is hidden in the corner?
 @rus Кажется, тебе удалось сбежать от злых пауков и
 летучих мышей... Но кто это прячется там, в углу?
 ~
-0 ACDgij inside
+0 ACD inside
 D4
 ~
 ~
-ABZgh -1 4985
+ABZ -1 4985
 S
 #4985
 @eng Center of the Roof@rus На крыше~
@@ -2980,7 +2980,7 @@ Z -1 4990
 D5
 ~
 ~
-ABZgh -1 4984
+ABZ -1 4984
 S
 #4986
 @eng Tiled Roof@rus На краю крыши~
@@ -3079,7 +3079,7 @@ spire.
 жалеть, что не умеешь летать... Наверху ты видишь
 странный предмет, крутящийся над шпилем.
 ~
-0 Ci city
+0 C city
 D4
 ~
 ~
@@ -3115,7 +3115,7 @@ wambles about.
 ты слышишь странные звуки - скрипы и лязги, как будто
 кто-то большой ворочается с боку на бок.
 ~
-0 ACDgij inside
+0 ACD inside
 D4
 ~
 ~
@@ -3136,7 +3136,7 @@ grown and you can barely see small creaturs.
 вокруг навевают мысли о Вечном. Некоторые из них поросли
 мхом, и ты едва различаешь небольших тварей вокруг себя.
 ~
-0 ADgj inside
+0 AD inside
 D4
 ~
 ~
@@ -3157,7 +3157,7 @@ grown and you can barely see small creaturs.
 вокруг навевают мысли о Вечном. Некоторые из них поросли
 мхом, и ты едва различаешь небольших тварей вокруг себя.
 ~
-0 ADgj inside
+0 AD inside
 D4
 ~
 ~
@@ -3178,7 +3178,7 @@ grown and you can barely see small creaturs.
 вокруг навевают мысли о Вечном. Некоторые из них поросли
 мхом, и ты едва различаешь небольших тварей вокруг себя.
 ~
-0 ADgj inside
+0 AD inside
 D4
 ~
 ~
@@ -3199,7 +3199,7 @@ grown and you can barely see small creaturs.
 вокруг навевают мысли о Вечном. Некоторые из них поросли
 мхом, и ты едва различаешь небольших тварей вокруг себя.
 ~
-0 ADgj inside
+0 AD inside
 D4
 ~
 ~
@@ -3220,7 +3220,7 @@ grown and you can barely see small creaturs.
 вокруг навевают мысли о Вечном. Некоторые из них поросли
 мхом, и ты едва различаешь небольших тварей вокруг себя.
 ~
-0 ADgj inside
+0 AD inside
 D4
 ~
 ~
@@ -3241,7 +3241,7 @@ to the wall.
 подле него. В углу стоит небольшая конторка.
 Маленькая табличка (tablet) прибита к стене.
 ~
-0 ADJgjp inside
+0 ADJ inside
 E
 tablet~
 Agrael built this Tower in June, 1999.

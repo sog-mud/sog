@@ -22,12 +22,12 @@ His armor is shiny and black. He stands ready to give his life for the Crown.
 повелителей.
 ~
 human~
-CFil 0 0 0 Ag -400 4200
+CFJ 0 0 0 A -400 4200
 10 0 2d7+121 1d1+99 2d4+1 'beating'
 1 1 1 8
-EGkm
+EG
 stand stand female 60
-Bh 0 medium unknown
+B 0 medium unknown
 M bribe 4200 1~
 M random 4200 20~
 #4201
@@ -44,10 +44,10 @@ Crown.
 Она в любой момент готова отдать жизнь за своих повелителей.
 ~
 human~
-Ci 0 0 0 Ag 400 4201
+C 0 0 0 A 400 4201
 10 0 2d7+121 1d1+99 2d4+1 'beating'
 1 1 1 8
-EGkm
+EG
 stand stand female 55
 0 0 medium unknown
 #4202
@@ -62,10 +62,10 @@ from the looks of it, it will probably be YOUR tomb.
 статься, что она окажется твоим надгробным памятником.
 ~
 human~
-FHln 0 0 0 0 -600 0
+FHJ 0 0 0 0 -600 0
 27 0 5d10+650 1d1+99 5d4+7 'punch'
 -8 -8 -8 6
-CEIiko
+CEI
 stand stand female 480
 0 0 medium unknown
 M random 4200 20~
@@ -81,10 +81,10 @@ from the looks of it, it will probably be YOUR tomb.
 статься, что она окажется твоим надгробным памятником.
 ~
 human~
-Hn 0 0 0 Ag 600 0
+H 0 0 0 A 600 0
 27 0 5d10+650 1d1+99 5d4+7 'punch'
 -8 -8 -8 6
-CEIiko
+CEI
 stand stand female 470
 0 0 medium unknown
 #4204
@@ -99,10 +99,10 @@ flash behind his visor in vengence.
 горящим взором.
 ~
 human~
-Hn 0 0 0 0 -400 0
+HJ 0 0 0 0 -400 0
 18 0 3d9+283 1d1+99 2d7+4 'pierce'
 -3 -3 -3 7
-EFkl
+EF
 stand stand male 266
 0 0 medium unknown
 M random 4200 20~
@@ -118,10 +118,10 @@ gleam behind his visor in joy.
 кости. В его глазах блестят веселые смешинки, а на лице играет улыбка.
 ~
 human~
-Hn 0 0 0 0 400 0
+HJ 0 0 0 0 400 0
 18 0 3d9+283 1d1+99 2d7+4 'pierce'
 -3 -3 -3 7
-EFkl
+EF
 stand stand male 256
 0 0 medium unknown
 #4206
@@ -136,10 +136,10 @@ he can bless you properly.
 прочтет заупокойную на твоей могилке.
 ~
 human~
-Hn 0 0 0 0 -500 0
+HJ 0 0 0 0 -500 0
 24 0 5d15+500 1d1+239 2d10+6 'punch'
 -6 -6 -6 6
-CDEFijkl
+CDEF
 stand stand male 540
 0 0 medium unknown
 M random 4200 20~
@@ -154,10 +154,10 @@ attain a higher spirituality.
 @rus Священник хочет помочь тебе в твоих мирских делах своим советом и молитвой.
 ~
 human~
-0 0 Nt 0 Ag 500 0
+J 0 N 0 A 500 0
 24 0 5d15+500 1d1+239 2d10+6 'punch'
 -6 -6 -6 6
-CDEFijkl
+CDEF
 stand stand male 590
 0 0 medium unknown
 #4208
@@ -173,10 +173,10 @@ would already be dead.
 окружающих ее голову подобно облаку.
 ~
 human~
-BFHhln 0 0 0 ABgh -750 4210
+BFHJ 0 J 0 AB -750 4210
 32 0 10d10+1000 1d1+319 6d4+9 'magic'
 -10 -10 -10 5
-AFJKglpq
+AFJK
 stand stand female 856
 0 0 medium unknown
 M random 4200 20~
@@ -194,10 +194,10 @@ first sight for you.
 взгляда.
 ~
 human~
-BHhn 0 HNnt 0 ABgh 750 2411
+BH 0 HN 0 AB 750 2411
 32 0 10d10+1000 1d1+319 6d4+9 'magic'
 -10 -10 -10 5
-AFJKglpq
+AFJK
 stand stand female 854
 0 0 medium unknown
 #4210
@@ -212,10 +212,10 @@ is the king and you are not.
 король, а ты -- нет.
 ~
 human~
-BHhn 0 U 0 ABgh -999 0
+BHJ 0 JU 0 AB -999 0
 36 0 10d10+1400 1d35+99 3d10+12 'beating'
 -12 -12 -12 4
-BCDEFhijkl
+BCDEF
 stand stand male 984
 0 0 medium unknown
 M random 4200 21~
@@ -231,10 +231,10 @@ is the king and you are not.
 сразу ясно почему он король, а ты -- нет.
 ~
 human~
-BHhn 0 HNUnt 0 ABgh 999 0
+BH 0 HNU 0 AB 999 0
 36 0 10d10+1400 1d1+359 3d10+12 'beating'
 -12 -12 -12 4
-BCDEFhijkl
+BCDEF
 stand stand male 988
 0 0 medium unknown
 #4212
@@ -250,10 +250,10 @@ His ghost is here small, and looks like made from smoke.
 из многочисленных искорок.
 ~
 human~
-HTnz 0 HTUVnz ABGghm ABgh 0 0
+HT 0 HTUV ABG AB 0 0
 60 0 50d10+9500 599d1+1 8d6+28 'wrath'
 -30 -30 -30 0
-FGKlmq
+FGK
 stand stand male 14999
 0 0 small unknown
 r fire -50
@@ -268,7 +268,7 @@ armour black pawn кольчуга~
 @eng some black pawn armour@rus ~~кольчуга~~ черной пешки~
 @eng A pile of black armour is here.@rus Кольчуга (armour) из черного металла валяется на земле.~
 steel~
-armor Jp 0 ADgj
+armor J 0 AD
 5 5 5 0 2
 10 75 600 G
 g female~
@@ -277,7 +277,7 @@ armour white pawn кольчуга~
 @eng some white pawn armour@rus ~~кольчуга~~ белой пешки~
 @eng A pile of white armour is here.@rus Кольчуга (armour) из светлого металла валяется у твоих ног.~
 steel~
-armor Kq 0 ADgj
+armor K 0 AD
 5 5 5 0 2
 10 75 600 G
 g female~
@@ -286,7 +286,7 @@ axe black pawn боевой топор~
 @eng a Black Pawn's Axe@rus ~~боевой~~ ~~топор~~ черной пешки~
 @eng The axe of a Black Pawn lies here.@rus Боевой топор (axe) черной пешки валяется на земле.~
 steel~
-weapon Jp 0 ANgt
+weapon J 0 AN
 axe 2 7 'chomp' 0
 10 100 750 G
 g male~
@@ -295,7 +295,7 @@ axe white pawn топор~
 @eng a White Pawn's Axe@rus ~~боевой~~ ~~топор~~ белой пешки~
 @eng The axe of a White Pawn lies here.@rus Боевой топор (axe) белой пешки валяется у твоих ног.~
 steel~
-weapon Kq 0 ANgt
+weapon K 0 AN
 axe 2 7 'chomp' 0
 10 100 750 G
 g male~
@@ -304,7 +304,7 @@ armour black rook кольчуга~
 @eng some Black Rook Armour@rus ~~кольчуга~~ Черной Ладьи~
 @eng Some armour made from the remains of a black rook lies heaped on the floor.@rus Кольчуга (armour), оставшаяся от Черной Ладьи, грудой железа лежит на полу.~
 stone~
-armor Jp 0 ADgj
+armor J 0 AD
 8 8 8 0 5
 25 70 1250 G
 A
@@ -317,7 +317,7 @@ armour white rook кольчуга~
 @eng some White Rook Armour@rus ~~кольчуга~~ Белой Ладьи~
 @eng Some armour made from the remains of a white rook lies heaped on the floor.@rus Кольчуга (armour), оставшаяся от Белой Ладьи, сверкающей грудой лежит у твоих ног.~
 stone~
-armor Kq 0 ADgj
+armor K 0 AD
 8 8 8 0 5
 25 70 1250 G
 A
@@ -330,8 +330,8 @@ lance black knight копье~
 @eng the Lance of the Black Knight@rus ~~копье~~ Черного Рыцаря~
 @eng The Lance of the Black Knight lies here, waiting to rust.@rus Копье (lance) Черного Рыцаря валяется на земле, ржавея от бездействия.~
 bronze~
-weapon BJhp 0 ANgt
-lance 5 5 'pierce' Dj
+weapon BJ 0 AN
+lance 5 5 'pierce' D
 17 50 2250 P
 A
 19 3
@@ -343,8 +343,8 @@ lance white knight копье~
 @eng the Lance of the White Knight@rus ~~копье~~ Белого Рыцаря~
 @eng The Lance of the White Knight lies here, waiting to rust.@rus Копье (lance) Белого Рыцаря валяется на земле, ржавея от бездействия.~
 bronze~
-weapon BKhq 0 ANgt
-lance 5 5 'pierce' Dj
+weapon BK 0 AN
+lance 5 5 'pierce' D
 17 50 2300 P
 A
 19 3
@@ -356,7 +356,7 @@ staff black bishop посох~
 @eng the Staff of the Black Bishop@rus ~~посох~~ Черного Епископа~
 @eng The Black Bishop's Staff is lying here.@rus Посох (staff) черного цвета валяется у твоих ног.~
 wood~
-staff GJLmpr 0 AOgu
+staff GJL 0 AO
 20 5 5 'energy drain' 0
 23 20 3523 P
 g male~
@@ -365,7 +365,7 @@ staff white bishop посох~
 @eng the Staff of the White Bishop@rus ~~посох~~ Белого Епископа~
 @eng The White Bishop's Staff is lying here.@rus Посох (staff) из светлого дерева валяется здесь.~
 wood~
-staff GKLmqr 0 AOgu
+staff GKL 0 AO
 20 5 5 'sanctuary' 0
 23 20 3879 P
 g male~
@@ -374,7 +374,7 @@ crown black queen корона~
 @eng the Crown of the Black Queen@rus ~~корона~~ черной владычицы~
 @eng The Crown of the Black Queen lies here, looking neglected.@rus Никому ненужная черная корона (crown) лежит на земле.~
 gold~
-armor AGJLgmpr 0 AEgk
+armor AGJL 0 AE
 9 9 9 1 1
 32 50 5000 G
 A
@@ -387,7 +387,7 @@ crown white queen корона~
 @eng the Crown of the White Queen@rus ~~корона~~ белой владычицы~
 @eng The Crown of the White Queen lies here, looking neglected.@rus Корона (crown) из светлого металла брошена тут.~
 gold~
-armor AGKLgmqr 0 AEgk
+armor AGKL 0 AE
 9 9 9 1 1
 32 50 5000 G
 A
@@ -400,7 +400,7 @@ sceptre black king скипетр~
 @eng the Black King's Sceptre@rus ~~скипетр~~ Черного Короля~
 @eng The Sceptre of the Black King lies here, collecting dust.@rus Скипетр (sceptre) Черного Короля валяется в пыли.~
 gold~
-treasure JLpr 0 AOgu
+treasure JL 0 AO
 0 0 0 0 0
 32 10 7900 P
 A
@@ -413,7 +413,7 @@ sceptre white king скипетр~
 @eng the White King's Sceptre@rus ~~скипетр~~ Белого Короля~
 @eng The Sceptre of the White King lies here, collecting dust.@rus Скипетр (sceptre) Белого Короля валяется здесь.~
 gold~
-treasure KLqr 0 AOgu
+treasure KL 0 AO
 0 0 0 0 0
 32 10 7900 P
 A
@@ -426,7 +426,7 @@ key black treasury ключ~
 @eng the Key to the Black Treasury@rus ~~ключ~~ к сокровищнице черной короны~
 @eng There is a sinister black key lying here.@rus Зловещий черный ключ (key) лежит перед тобой.~
 metal~
-key FHln 0 AOgu
+key FH 0 AO
 0 0 0 0 0
 6 20 1 G
 g male~
@@ -435,7 +435,7 @@ key white treasury ключ~
 @eng the Key to the White Treasury@rus ~~ключ~~ к сокровищнице белой короны~
 @eng There is a bright white key lying here.@rus Светящийся белый ключ (key) виднеется у самых твоих ног.~
 metal~
-key FHln 0 AOgu
+key FH 0 AO
 0 0 0 0 0
 6 20 1 G
 g male~
@@ -444,7 +444,7 @@ coins gold black royal treasure монеты золото сокровище~
 @eng the Black Royal Treasure@rus ~~сокровище~~ черного королевского дома~
 @eng There are a LOT of coins here.@rus Большое количество старинных монет (coins) лежит у стены.~
 silver~
-money 0 0 Ag
+money 0 0 A
 10000 0 0 0 0
 0 0 0 P
 g none~
@@ -453,7 +453,7 @@ coins gold white royal treasure сокровище монеты деньги~
 @eng the White Royal Treasure@rus ~~сокровище~~ белого королевского дома~
 @eng There are a LOT of coins here.@rus Большое количество старинных монет (coins) лежит у стены.~
 silver~
-money 0 0 Ag
+money 0 0 A
 10000 0 0 0 0
 0 0 0 P
 g none~
@@ -462,7 +462,7 @@ flail black pawn цеп~
 @eng a Black Pawn's Flail@rus ~~цеп~~ черной пешки~
 @eng The flail of a Black Pawn lies here.@rus Цеп (flail), оставленный черной пешкой, лежит на земле.~
 steel~
-weapon Jp 0 ANgt
+weapon J 0 AN
 flail 2 7 'blast' 0
 10 100 750 G
 g male~
@@ -471,7 +471,7 @@ flail white pawn цеп~
 @eng a White Pawn's Flail@rus ~~цеп~~ белой пешки~
 @eng The flail of a White Pawn lies here.@rus Цеп (flail), оставленный белой пешкой, лежит на земле.~
 steel~
-weapon Kq 0 ANgt
+weapon K 0 AN
 flail 2 6 'blast' 0
 10 100 750 G
 g male~
@@ -480,7 +480,7 @@ whip black pawn кнут~
 @eng a Black Pawn's Whip@rus ~~кнут~~ черной пешки~
 @eng The whip of a Black Pawn lies here.@rus Кнут (whip) черной пешки, оставлен зачем-то здесь.~
 steel~
-weapon Jp 0 ANgt
+weapon J 0 AN
 whip 2 7 'whip' 0
 10 100 750 G
 g male~
@@ -489,7 +489,7 @@ whip white pawn кнут~
 @eng a White Pawn's Whip@rus ~~кнут~~ белой пешки~
 @eng The whip of a White Pawn lies here.@rus Кнут (whip) белой пешки оставлен здесь непонятно зачем.~
 steel~
-weapon Kq 0 ANgt
+weapon K 0 AN
 whip 2 6 'whip' 0
 10 100 750 G
 g male~
@@ -498,8 +498,8 @@ spear black pawn копье~
 @eng a Black Pawn's Spear@rus ~~копье~~ черной пешки~
 @eng The spear of a Black Pawn lies here.@rus Копье (spear) черной пешки оставлено здесь.~
 steel~
-weapon Jp 0 ANgt
-spear 2 7 'thrust' Kq
+weapon J 0 AN
+spear 2 7 'thrust' K
 10 100 750 G
 g none~
 #4223
@@ -507,8 +507,8 @@ spear white pawn копье~
 @eng a White Pawn's Spear@rus ~~копье~~ белой пешки~
 @eng The spear of a White Pawn lies here.@rus Копье (spear) белой пешки оставлено здесь.~
 steel~
-weapon Kq 0 ANgt
-spear 2 7 'thrust' Kq
+weapon K 0 AN
+spear 2 7 'thrust' K
 10 100 750 G
 g none~
 #4224
@@ -516,7 +516,7 @@ halberd black pawn алебарда~
 @eng a Black Pawn's Halberd@rus ~~алебарда~~ черной пешки~
 @eng The halberd of a Black Pawn lies here.@rus Мрачная черная алебарда (halberd) лежит, брошенная, здесь.~
 steel~
-weapon Jp 0 ANgt
+weapon J 0 AN
 polearm 2 7 'pierce' 0
 10 100 750 G
 g female~
@@ -525,7 +525,7 @@ halberd white pawn алебарда~
 @eng a White Pawn's Halberd@rus ~~алебарда~~ белой пешки~
 @eng The halberd of a White Pawn lies here.@rus Алебарда (halberd) белой пешки валяется здесь, брошенная.~
 steel~
-weapon Kq 0 ANgt
+weapon K 0 AN
 polearm 2 7 'pierce' 0
 10 100 750 G
 g female~
@@ -534,7 +534,7 @@ rapier black pawn рапира~
 @eng a Black Pawn's Rapier@rus ~~рапира~~ черной пешки~
 @eng The rapier of a Black Pawn lies here.@rus Рапира (rapier) черной пешки валяется на земле.~
 steel~
-weapon Jp 0 ANgt
+weapon J 0 AN
 sword 2 7 'pierce' 0
 10 100 750 G
 g female~
@@ -543,7 +543,7 @@ rapier white pawn рапира~
 @eng a White Pawn's Rapier@rus ~~рапира~~ белой пешки~
 @eng The rapier of a White Pawn lies here.@rus Рапира (rapier) белой пешки валяется на земле.~
 steel~
-weapon Kq 0 ANgt
+weapon K 0 AN
 sword 2 7 'pierce' 0
 10 100 750 G
 g female~
@@ -552,7 +552,7 @@ kris black pawn кинжал~
 @eng a Black Pawn's Kris@rus ~~кривой~~ ~~кинжал~~ черной пешки~
 @eng The kris of a Black Pawn lies here.@rus Кривой кинжал (kris) из черного металла валяется на земле.~
 steel~
-weapon Jp 0 ANgt
+weapon J 0 AN
 dagger 2 7 'pierce' 0
 10 100 750 G
 g male~
@@ -561,7 +561,7 @@ kris white pawn кинжал~
 @eng a White Pawn's Kris@rus ~~кривой~~ ~~кинжал~~ белой пешки~
 @eng The kris of a White Pawn lies here.@rus Кривой кинжал (kris) из светлого металла валяется на земле.~
 steel~
-weapon Kq 0 ANgt
+weapon K 0 AN
 dagger 2 7 'pierce' 0
 10 100 750 G
 g male~
@@ -570,7 +570,7 @@ crossbow black pawn арбалет~
 @eng a Black Pawn's Crossbow@rus ~~арбалет~~ черной пешки~
 @eng The crossbow of a Black Pawn lies here.@rus Арбалет (crossbow) валяется здесь, оставленный черной пешкой.~
 steel~
-weapon Jp 0 ANgt
+weapon J 0 AN
 bow 2 7 'blast' 0
 10 100 750 G
 g male~
@@ -579,7 +579,7 @@ crossbow white pawn арбалет~
 @eng a White Pawn's Crossbow@rus ~~арбалет~~ белой пешки~
 @eng The crossbow of a White Pawn lies here.@rus Арбалет (crossbow) валяется на земле, забытый белой пешкой.~
 steel~
-weapon Kq 0 ANgt
+weapon K 0 AN
 bow 2 7 'blast' 0
 10 100 750 G
 g male~
@@ -588,7 +588,7 @@ shield black pawn щит~
 @eng a Black Pawn's Shield @rus ~~щит~~ черной пешки~
 @eng You see a Black Pawn's shield here.@rus На земле валяется щит (shield) черной пешки.~
 steel~
-armor Jp 0 AJgp
+armor J 0 AJ
 8 7 7 2 2
 10 30 1210 P
 g male~
@@ -597,7 +597,7 @@ shield white pawn щит~
 @eng a White Pawn's Shield @rus ~~щит~~ белой пешки~
 @eng You see a White Pawn's shield here.@rus На земле валяется щит (shield) белой пешки.~
 steel~
-armor Kq 0 AJgp
+armor K 0 AJ
 8 7 7 2 2
 10 30 1210 P
 g male~
@@ -606,7 +606,7 @@ cloak black pawn платок~
 @eng a Black Pawn's Cloak@rus ~~шейный~~ ~~платок~~ черной пешки~
 @eng You see a Black Pawn's cloak here.@rus У твоих ног валяется черный шейный платок (cloak) пешки.~
 cloth~
-armor Jp 0 ACgi
+armor J 0 AC
 5 7 7 1 1
 10 40 1510 P
 g male~
@@ -615,7 +615,7 @@ cloak white pawn платок~
 @eng a White Pawn's Cloak@rus ~~шейный~~ ~~платок~~ белой пешки~
 @eng You see a White Pawn's cloak here.@rus У твоих ног валяется белый шейный платок (cloak) пешки.~
 cloth~
-armor Kq 0 ACgi
+armor K 0 AC
 5 7 7 1 1
 10 40 1510 P
 g male~
@@ -624,7 +624,7 @@ helmet black pawn шлем~
 @eng a Black Pawn's Helmet@rus ~~шлем~~ черной пешки~
 @eng You see a Black Pawn's helmet here.@rus Шлем (helmet) черной пешки валяется у твоих ног.~
 leather~
-armor Jp 0 AEgk
+armor J 0 AE
 6 6 7 1 1
 10 50 1150 P
 g male~
@@ -633,7 +633,7 @@ helmet white pawn шлем~
 @eng a White Pawn's Helmet@rus ~~шлем~~ белой пешки~
 @eng You see a White Pawn's helmet here.@rus На земле валяется шлем (helmet) белой пешки.~
 leather~
-armor Kq 0 AEgk
+armor K 0 AE
 6 6 7 1 1
 10 50 1150 P
 g male~
@@ -642,7 +642,7 @@ leggings black pawn гетры~
 @eng a pair of Black Pawn's Leggings@rus ~~гетры~~ черной пешки~
 @eng You see a pair of Black Pawn's leggings here.@rus Черные гетры (leggings) валяются перед тобой.~
 leather~
-armor Jp 0 AFgl
+armor J 0 AF
 6 6 6 1 1
 10 30 1350 P
 g plural~
@@ -651,7 +651,7 @@ leggings white pawn гетры~
 @eng a pair of White Pawn's Leggings@rus ~~гетры~~ белой пешки~
 @eng You see a pair of White Pawn's leggings here.@rus Белые гетры (leggings) валяются у твоих ног.~
 leather~
-armor Kq 0 AFgl
+armor K 0 AF
 6 6 6 1 1
 10 30 1350 P
 g plural~
@@ -660,7 +660,7 @@ boots black pawn ботинки~
 @eng a pair of Black Pawn's Boots@rus ~~ботинки~~ черной пешки~
 @eng You see a pair of Black Pawn's boots here.@rus Пара ботинок (boots) черной пешки валяется здесь.~
 leather~
-armor Jp 0 AGgm
+armor J 0 AG
 7 6 7 1 1
 10 130 1450 P
 g plural~
@@ -669,7 +669,7 @@ boots white pawn ботинки~
 @eng a pair of White Pawn's Boots@rus ~~ботинки~~ белой пешки~
 @eng You see a pair of Black Pawn's boots here.@rus Пара ботинок (boots) белой пешки валяется на земле.~
 leather~
-armor Kq 0 AGgm
+armor K 0 AG
 7 6 7 1 1
 10 130 1450 P
 g plural~
@@ -678,7 +678,7 @@ gloves black pawn перчатки~
 @eng a pair of Black Pawn's Gloves@rus ~~перчатки~~ черной пешки~
 @eng You see a pair of Black Pawn's Gloves here.@rus Черные перчатки (gloves) лежат у твоих ног.~
 leather~
-armor Jp 0 AHgn
+armor J 0 AH
 6 6 5 1 1
 10 80 950 P
 g plural~
@@ -687,7 +687,7 @@ gloves white pawn перчатки~
 @eng a pair of White Pawn's Gloves@rus ~~перчатки~~ белой пешки~
 @eng You see a pair of White Pawn's Gloves here.@rus Пара белых перчаток (gloves) лежит на земле.~
 leather~
-armor Kq 0 AHgn
+armor K 0 AH
 6 6 5 1 1
 10 80 950 P
 g plural~
@@ -696,7 +696,7 @@ sleeves black pawn нарукавники~
 @eng a pair of Black Pawn's Sleeves@rus ~~нарукавники~~ черной пешки~
 @eng You see a pair of Black Pawn's Sleeves here.@rus Черные нарукавники (sleeves) лежат здесь.~
 leather~
-armor Jp 0 AIgo
+armor J 0 AI
 6 5 6 1 1
 10 90 1150 P
 g plural~
@@ -705,7 +705,7 @@ sleeves white pawn нарукавники~
 @eng a pair of White Pawn's Sleeves@rus ~~нарукавники~~ белой пешки~
 @eng You see a pair of White Pawn's Sleeves here.@rus Белые нарукавники (sleeves) лежат здесь.~
 leather~
-armor Kq 0 AIgo
+armor K 0 AI
 6 5 6 1 1
 10 90 1150 P
 g plural~
@@ -714,7 +714,7 @@ cape black pawn накидка~
 @eng a Black Pawn's Cape@rus ~~накидка~~ черной пешки~
 @eng You see a Black Pawn's Cape here.@rus Черная накидка (cape) лежит у твоих ног.~
 cloth~
-armor Jp 0 AKgq
+armor J 0 AK
 7 5 7 1 1
 10 80 1380 P
 g female~
@@ -723,7 +723,7 @@ cape white pawn накидка~
 @eng a White Pawn's Cape@rus ~~накидка~~ белой пешки~
 @eng You see a White Pawn's Cape here.@rus Белая накидка (cape) лежит здесь.~
 cloth~
-armor Kq 0 AKgq
+armor K 0 AK
 7 5 7 1 1
 10 80 1380 P
 g female~
@@ -732,7 +732,7 @@ belt black pawn пояс~
 @eng a Black Pawn's Belt@rus ~~пояс~~ черной пешки~
 @eng You see a Black Pawn's Belt here.@rus Пояс (belt) черной пешки валяется на земле.~
 bronze~
-armor Jp 0 ALgr
+armor J 0 AL
 4 6 6 1 1
 10 70 990 P
 g male~
@@ -741,7 +741,7 @@ belt white pawn пояс~
 @eng a White Pawn's Belt@rus ~~пояс~~ белой пешки~
 @eng You see a White Pawn's Belt here.@rus Белый пояс (belt) валяется у твоих ног.~
 bronze~
-armor Kq 0 ALgr
+armor K 0 AL
 4 6 6 1 1
 10 20 990 P
 g male~
@@ -750,7 +750,7 @@ bracer black pawn браслет~
 @eng a Black Pawn's Bracer@rus ~~браслет~~ черной пешки~
 @eng You see a Black Pawn's Bracer here.@rus Браслет (bracer) из черного металла лежит здесь.~
 bronze~
-armor Jp 0 AMgs
+armor J 0 AM
 7 5 5 1 0
 10 60 1390 P
 g male~
@@ -759,7 +759,7 @@ bracer white pawn браслет~
 @eng a White Pawn's Bracer@rus ~~браслет~~ белой пешки~
 @eng You see a White Pawn's Bracer here.@rus Браслет (bracer) из светящегося металла валяется тут.~
 bronze~
-armor Kq 0 AMgs
+armor K 0 AM
 7 5 5 1 0
 10 60 1390 P
 g male~
@@ -768,17 +768,17 @@ small chessboard доска~
 @eng the Magic Chessboard@rus ~~магическая~~ ~~шахматная~~ ~~доска~~~
 @eng You see small chessboard floating here.@rus Маленькая шахматная доска (chessboard) весит в воздухе.~
 wood~
-armor ABFJKghlpq 0 AQgw
+armor ABFJK 0 AQ
 17 17 17 33 0
 51 60 55390 P
-F A 13 95 ATgz
+F A 13 95 AT
 g female~
 #4261
 shield black pawn щит~
 @eng a Black Knight's Shield @rus ~~щит~~ Черного Рыцаря~
 @eng You see a Black Knight's shield here.@rus Щит (shield), оставленный Черным Рыцарем, лежит на земле.~
 steel~
-armor Jp 0 AJgp
+armor J 0 AJ
 8 9 9 2 2
 18 90 2210 P
 g male~
@@ -787,7 +787,7 @@ shield white pawn щит~
 @eng a White Knight's Shield @rus ~~щит~~ Белого Рыцаря~
 @eng You see a White Knight's shield here.@rus Щит (shiled), оставленный Белым Рыцарем, лежит здесь.~
 steel~
-armor Kq 0 AJgp
+armor K 0 AJ
 8 9 9 2 2
 18 90 2210 P
 g male~
@@ -796,7 +796,7 @@ cloak black платок knight~
 @eng a Black Knight's Cloak@rus ~~шейный~~ ~~платок~~ Черного Рыцаря~
 @eng You see a Black Knight's cloak here.@rus Черный платок (cloak) Рыцаря валяется тут.~
 cloth~
-armor Jp 0 ACgi
+armor J 0 AC
 6 8 7 1 1
 18 70 2610 P
 g male~
@@ -805,7 +805,7 @@ cloak white knight платок~
 @eng a White Knight's Cloak@rus ~~шейный~~ ~~платок~~ Белого Рыцаря~
 @eng You see a White Knight's cloak here.@rus Белый шейный платок (cloak) Рыцаря валяется на земле.~
 cloth~
-armor Kq 0 ACgi
+armor K 0 AC
 6 8 7 1 1
 18 70 2610 P
 g male~
@@ -814,7 +814,7 @@ helmet black knight шлем~
 @eng a Black Knight's Helmet@rus ~~шлем~~ Черного Рыцаря~
 @eng You see a Black Knight's helmet here.@rus Черный шлем (helmet) Рыцаря брошен тут.~
 leather~
-armor Jp 0 AEgk
+armor J 0 AE
 7 7 8 1 1
 18 70 1950 P
 g male~
@@ -823,7 +823,7 @@ helmet white knight шлем~
 @eng a White Knight's Helmet@rus ~~шлем~~ Белого Рыцаря~
 @eng You see a White Knight's helmet here.@rus Белый шлем (helmet) Рыцаря брошен тут.~
 leather~
-armor Kq 0 AEgk
+armor K 0 AE
 7 7 8 1 1
 18 70 1950 P
 g male~
@@ -832,7 +832,7 @@ leggings black knight гетры~
 @eng a pair of Black Knight's Leggings@rus ~~гетры~~ Черного Рыцаря~
 @eng You see a pair of Black Knight's leggings here.@rus Черные гетры (leggings) Рыцаря валяются у самых твоих ног.~
 leather~
-armor Jp 0 AFgl
+armor J 0 AF
 7 7 7 1 1
 18 80 1350 P
 g plural~
@@ -841,7 +841,7 @@ leggings white knight гетры~
 @eng a pair of White Knight's Leggings@rus ~~гетры~~ Белого Рыцаря~
 @eng You see a pair of White Knight's leggings here.@rus Белые гетры (leggings) Рыцаря брошены здесь.~
 leather~
-armor Kq 0 AFgl
+armor K 0 AF
 7 7 7 1 1
 18 80 1350 P
 g plural~
@@ -850,7 +850,7 @@ boots black knight ботинки~
 @eng a pair of Black Knight's Boots@rus ~~ботинки~~ Черного Рыцаря~
 @eng You see a pair of Black Knight's boots here.@rus Ботинки (boots) Черного Рыцаря брошены здесь.~
 leather~
-armor Jp 0 AGgm
+armor J 0 AG
 8 7 7 1 1
 18 110 2850 P
 g plural~
@@ -859,7 +859,7 @@ boots white knight ботинки~
 @eng a pair of White Knight's Boots@rus ~~ботинки~~ Белого Рыцаря~
 @eng You see a pair of Black Knight's boots here.@rus Ботинки (boots) Белого Рыцаря брошены тут.~
 leather~
-armor Kq 0 AGgm
+armor K 0 AG
 8 7 7 1 1
 18 110 2850 P
 g plural~
@@ -868,7 +868,7 @@ gloves black knight перчатки~
 @eng a pair of Black Knight's Gloves@rus ~~перчатки~~ Черного Рыцаря~
 @eng You see a pair of Black Knight's Gloves here.@rus Пара черных перчаток (gloves) валяется у твоих ног.~
 leather~
-armor Jp 0 AHgn
+armor J 0 AH
 6 7 6 1 1
 18 80 2250 P
 g plural~
@@ -877,7 +877,7 @@ gloves white knight перчатки~
 @eng a pair of White Knight's Gloves@rus ~~перчатки~~ Белого Рыцаря~
 @eng You see a pair of White Knight's Gloves here.@rus Пара белых перчаток (gloves) валяется у твоих ног.~
 leather~
-armor Kq 0 AHgn
+armor K 0 AH
 6 7 6 1 1
 18 80 2250 P
 g plural~
@@ -886,7 +886,7 @@ sleeves black knight нарукавники~
 @eng a pair of Black Knight's Sleeves@rus ~~нарукавники~~ Черного Рыцаря~
 @eng You see a pair of Black Knight's Sleeves here.@rus Нарукавники (sleeves) Черного Рыцаря валяются в пыли.~
 leather~
-armor Jp 0 AIgo
+armor J 0 AI
 7 6 7 1 1
 18 100 2150 P
 g plural~
@@ -895,7 +895,7 @@ sleeves white knight нарукавники~
 @eng a pair of White Knight's Sleeves@rus ~~нарукавники~~ Белого Рыцаря~
 @eng You see a pair of White Knight's Sleeves here.@rus Белые кожаные нарукавники (sleeves) валябтся в пыли.~
 leather~
-armor Kq 0 AIgo
+armor K 0 AI
 7 6 7 1 1
 18 100 2150 P
 g plural~
@@ -904,7 +904,7 @@ cape black knight накидка~
 @eng a Black Knight's Cape@rus ~~накидка~~ Черного Рыцаря~
 @eng You see a Black Knight's Cape here.@rus Черная накидка (cape) брошена здесь.~
 cloth~
-armor Jp 0 AKgq
+armor J 0 AK
 7 7 7 1 1
 18 70 1380 P
 g female~
@@ -913,7 +913,7 @@ cape white knight накидка~
 @eng a White Knight's Cape@rus ~~накидка~~ Белого Рыцаря~
 @eng You see a White Knight's Cape here.@rus Белая накидка (cape) брошена здесь.~
 cloth~
-armor Kq 0 AKgq
+armor K 0 AK
 7 7 7 1 1
 18 70 1380 P
 g female~
@@ -922,7 +922,7 @@ belt black knigh пояс~
 @eng a Black Knight's Belt@rus ~~пояс~~ Черного Рыцаря~
 @eng You see a Black Knight's Belt here.@rus Пояс (belt) Черного Рыцаря валяется никому не нужный.~
 bronze~
-armor Jp 0 ALgr
+armor J 0 AL
 6 6 6 1 1
 18 60 1990 P
 g male~
@@ -931,7 +931,7 @@ belt white knight пояс~
 @eng a White Knight's Belt@rus ~~пояс~~ Белого Рыцаря~
 @eng You see a White Knight's Belt here.@rus Пояс (belt) Белого Рыцаря валяется здесь никому не нужный.~
 bronze~
-armor Kq 0 ALgr
+armor K 0 AL
 6 6 6 1 1
 18 60 1990 P
 g male~
@@ -940,7 +940,7 @@ bracer black knight браслет~
 @eng a Black Knight's Bracer@rus ~~браслет~~ Черного Рыцаря~
 @eng You see a Black Knight's Bracer here.@rus Черный браслет (bracer) валяется у твоих ног.~
 bronze~
-armor Jp 0 AMgs
+armor J 0 AM
 7 7 6 1 0
 18 40 2390 P
 g male~
@@ -949,7 +949,7 @@ bracer white knight браслет~
 @eng a White Knight's Bracer@rus ~~браслет~~ Белого Рыцаря~
 @eng You see a White Knight's Bracer here.@rus Белый браслет (bracer) брошен здесь.~
 bronze~
-armor Kq 0 AMgs
+armor K 0 AM
 7 7 6 1 0
 18 40 2390 P
 g male~
@@ -969,7 +969,7 @@ chessboard opens up to the west.
 на Арену.
   Около ворот прибита небольшая табличка.
 ~
-0 Ci city
+0 C city
 E
 small tablet~
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1101,7 +1101,7 @@ Z -1 4203
 D5
 ~
 marble square~
-ABCFZghil 4214 4265
+ABCFZ 4214 4265
 S
 #4205
 @eng A White Square@rus Белая Клетка~
@@ -2771,7 +2771,7 @@ Z -1 4259
 D5
 ~
 marble~
-ABCFZghil 4215 4266
+ABCFZ 4215 4266
 S
 #4261
 @eng A Black Square@rus Черная Клетка~
@@ -2882,13 +2882,13 @@ has looted the Crown's treasure.
 @rus Ты находишься в сокровищнице черной короны. Хочется верить, что никому
 не взбредет в голову украсть великие богатства, собранные здесь.
 ~
-0 ADJgjp inside
+0 ADJ inside
 D4
 @eng A small staircase rises above you.
 @rus Маленькая лестница, ведущая наверх.
 ~
 marble square~
-ABCFZghil 4214 4204
+ABCFZ 4214 4204
 S
 #4266
 @eng The White Treasury@rus Сокровищница белой короны~
@@ -2897,13 +2897,13 @@ has looted the Crown's treasure.
 @rus Ты находишься в сокровищнице белой короны. Хочется верить, что никому
 не взбредет в голову украсть собранные здесь великие богатства.
 ~
-0 ADJgjp inside
+0 ADJ inside
 D4
 @eng A small staircase rises above you.
 @rus Небольшая лестница, ведущая наверх.
 ~
 marble square~
-ABCFZghil 4215 4260
+ABCFZ 4215 4260
 S
 #0
 

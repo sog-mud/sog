@@ -23,7 +23,7 @@ human~
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 I 100
 #10
 shadow %s~
@@ -34,10 +34,10 @@ This dark form seems like it wants to get back at %s for keeping it
 below them for so long....better not get in its way!
 ~
 human~
-W 0 BCDEFGJPQVehijklmpvw CDEGijkm CDEFHIJijklnop 0 0
+W 0 V DG H 0 0
 0 0 0d0+0 0d0+0 5d3+15 'slash'
 0 0 0 0
-EFNklt
+EFN
 stand stand male 0
 0 0 medium unknown
 r bash 100
@@ -54,10 +54,10 @@ A special guard stands here, red with anger!
 Angry, very angry.
 ~
 human~
-Tcz 0 NVt 0 Hn 1000 0
+Tc 0 NV 0 H 1000 0
 20 3 16d15+320 1d1+141 5d5+10 'punch'
 0 0 0 0
-QTwz
+QT
 stand stand male 0
 0 0 medium unknown
 r negative -50
@@ -73,7 +73,7 @@ bear~
 0 0 0 0 0 0 0
 0 1 1d1+1 1d1+1 3d10+12 'claw'
 0 0 0 0
-Nt
+N
 stand stand male 0
 0 0 medium unknown
 #13
@@ -84,10 +84,10 @@ A red, fiery demon is looking around very angry.
 A big red demon, you feel like it is flaming.
 ~
 unique~
-Bh 0 0 0 Hn -1000 0
+B 0 0 0 H -1000 0
 40 0 1d1+1 1d1+1 2d4+20 'slash'
 -15 -15 -15 -15
-FHIlno
+FHI
 stand stand male 0
 0 0 medium unknown
 #14
@@ -99,10 +99,10 @@ This is a Nightwalker summoned from the shadows. Bloody eyes seem glowing.
 This creature has a horible look.
 ~
 human~
-OTcuz 0 Sy 0 ABHghn -750 0
+OTc 0 S 0 ABH -750 0
 20 3 16d15+240 1d1+152 5d3+20 'punch'
 0 0 0 0
-EJkp
+EJ
 stand stand male 0
 0 0 medium unknown
 r slash 100
@@ -117,7 +117,7 @@ A Stalker stands here, red with anger!
 Angry, very angry.
 ~
 storm giant~
-Tcz 0 BCDEFGHJNPQVehijklmnptvw CDEijk BCDEFHIJhijklnop 1000 0
+Tc 0 HNV D BH 1000 0
 20 3 16d15+160 1d1+149 4d9+15 'slash'
 0 0 0 0
 0
@@ -138,10 +138,10 @@ and chivalry under his master.
 мудрого наставника.
 ~
 human~
-Tcz 0 BCDEFGHJNPQSVehijklmnptvwy CDEijk BCDEFHIJhijklnop 1000 0
+Tc 0 HNSV D BH 1000 0
 20 3 16d15+160 1d1+149 3d10+12 'slash'
 0 0 0 0
-ENkt
+EN
 stand stand male 0
 0 0 medium unknown
 r negative -50
@@ -155,10 +155,10 @@ the mirror~
 You see nothing special about it.
 ~
 human~
-Bh 0 0 0 0 0 0
+B 0 0 0 0 0 0
 0 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
-EFNklt
+EFN
 stand stand male 0
 0 0 medium unknown
 r bash 100
@@ -175,10 +175,10 @@ The undead body of %s slowly staggers around.
 You see nothing special about it.
 ~
 undead~
-Ou 0 Sy 0 0 0 0
+O 0 S 0 0 0 0
 0 1 1d1+1 1d1+1 3d10+12 'punch'
 0 0 0 0
-Nt
+N
 stand stand male 0
 0 0 medium unknown
 #19
@@ -192,7 +192,7 @@ lion~
 0 0 0 0 0 0 0
 0 1 1d1+1 1d1+1 3d10+12 'claw'
 0 0 0 0
-Nt
+N
 stand stand male 0
 0 0 medium unknown
 #20
@@ -203,10 +203,10 @@ A wolf is here, looking very angrily.
 You see nothing special about it.
 ~
 wolf~
-0 0 Sy 0 0 0 0
+0 0 S 0 0 0 0
 0 1 1d1+1 1d1+1 3d10+12 'claw'
 0 0 0 0
-Nt
+N
 stand stand male 0
 0 0 medium unknown
 #21
@@ -217,10 +217,10 @@ A lesser golem is here.
 The golem appears to be made of some kind of clay, enchanted to come to life!.
 ~
 golem~
-Tz 0 SVy 0 0 0 0
+DT 0 SV 0 0 0 0
 0 1 1d1+1 1d1+1 3d10+12 'crush'
 0 0 0 0
-EFOklu
+EFO
 stand stand male 0
 0 0 small unknown
 #22
@@ -232,10 +232,10 @@ This is a large stone statue of a man. The statue stands eight feet tall
 and looks powerful enough to rip off your head without straining.
 ~
 golem~
-Tz 0 SVy 0 0 0 0
+DT 0 SV 0 0 0 0
 0 1 1d1+1 1d1+1 3d10+12 'crush'
 0 0 0 0
-EFOklu
+EFO
 stand stand male 0
 0 0 medium unknown
 #23
@@ -248,10 +248,10 @@ fifteen feet tall.  In fact it almost looks as if it can move.  You then glance
 at it's eyes and notice with a shock that they are watching you. 
 ~
 golem~
-Tz 0 SVy 0 0 0 0
+DT 0 SV 0 0 0 0
 0 1 1d1+1 1d1+1 3d10+12 'crush'
 0 0 0 0
-EFOklu
+EFO
 stand stand male 0
 0 0 medium unknown
 #24
@@ -263,10 +263,10 @@ It seems to be forged of dark metal.  It looks strong and durable,
 but somewhat un-intelligent.
 ~
 golem~
-Tz 0 SVy 0 0 0 0
+DT 0 SV 0 0 0 0
 0 1 1d1+1 1d1+1 3d10+12 'crush'
 0 0 0 0
-EFOklu
+EFO
 stand stand male 0
 0 0 large unknown
 #25
@@ -277,10 +277,10 @@ A honoured looking lion is here.
 You see nothing special about it.
 ~
 lion~
-Lr 0 0 0 0 0 0
+L 0 0 0 0 0 0
 0 1 1d1+1 1d1+1 3d10+12 'claw'
 0 0 0 0
-Nt
+N
 stand stand male 0
 0 0 medium unknown
 #26
@@ -291,10 +291,10 @@ A dark summoned shadow is here.
 You see nothingness.
 ~
 lion~
-Ou 0 Sy 0 0 0 0
+O 0 S 0 0 0 0
 0 1 1d1+1 1d1+1 3d10+12 'claw'
 0 0 0 0
-Nt
+N
 stand stand male 0
 0 0 medium unknown
 r negative 100
@@ -309,12 +309,12 @@ this?
 @rus Еще одно порождение черной магии. Какая гадость вылупится из этого?
 ~
 unique~
-BVh 0 Acdg Bh 0 0 0
+BJV 0 Acd B 0 0 0
 0 -5 0d0+0 0d0+0 0d0+0 'digestion'
 0 0 0 0
-CJip
+CJ
 rest rest none 0
-BZch KMNqst large unknown
+BZc KMN large unknown
 r bash 100
 r pierce 33
 r slash 33
@@ -338,13 +338,13 @@ really BAD!
 Он пахнет ДЕЙСТВИТЕЛЬНО ужасно!
 ~
 dracolich~
-OTuz 0 Sy 0 Ag 0 0
+OT 0 S 0 A 0 0
 0 10 0d0+0 0d0+0 0d0+0 'scratch'
 0 0 0 0
-CFHLOilnru
+CFHLO
 stand stand none 0
 0 0 huge unknown
-F aff Tz
+F aff T
 #30
 cat black кошка кот~
 @eng a large black cat@rus большая черная кошка~
@@ -353,7 +353,7 @@ cat black кошка кот~
 ~
 ~
 cat~
-0 0 Sy Gm 0 0 0
+ADJ 0 S G 0 0 0
 0 0 1d1+1 1d1+1 3d10+12 'claw'
 0 0 0 0
 0
@@ -370,7 +370,7 @@ black familiar crow ворон~
 ~
 ~
 song bird~
-0 0 Sy 0 0 0 0
+ADJ 0 S 0 0 0 0
 0 0 1d1+1 1d1+1 3d10+12 'claw'
 0 0 0 0
 0
@@ -387,10 +387,10 @@ A HUGE dragon is here, selling junk.
 This mighty dragon wants to sell some junk to you.
 ~
 dragon~
-e 0 HNOUVYcntu 0 ABLghr 0 0
+EJe 0 HNOUVYc 0 ABL 0 0
 150 250 1d1+28000 1d1+25000 50d60+100 'divine'
 -66 -66 -66 -66
-CDEFHIKNOijklnoqtu
+CDEFHIKNO
 stand stand male 100000
 0 0 huge unknown
 r bash 100
@@ -418,7 +418,7 @@ coin silver gcash монета серебряная монетка серебряный~
 @eng a silver coin@rus ~~серебряная~~ ~~монетка~~~
 @eng One miserable silver coin.@rus Маленькая серебряная монетка (coin).~
 silver~
-money 0 0 Ag
+money 0 0 A
 1 0 0 0 0
 0 10 0 P
 g female~
@@ -427,7 +427,7 @@ gold gcash золотая золотой монета coin~
 @eng a gold coin@rus ~~золотая~~ ~~монета~~~
 @eng One valuable gold coin.@rus Ценная золотая монета (gold).~
 gold~
-money 0 0 Ag
+money 0 0 A
 0 1 0 0 0
 0 10 0 P
 g female~
@@ -436,7 +436,7 @@ gold gcash coins золотые монеты золотой~
 @eng %d %s@rus %d ~~%s~~~
 @eng A pile of gold coins.@rus Несколько золотых монет (gold).~
 gold~
-money 0 0 Ag
+money 0 0 A
 0 0 0 0 0
 0 10 0 P
 g plural~
@@ -445,7 +445,7 @@ coins silver gcash серебряные монеты серебряный~
 @eng %d %s@rus %d ~~%s~~~
 @eng A pile of silver coins.@rus Несколько серебряных монет (coins).~
 silver~
-money 0 0 Ag
+money 0 0 A
 0 0 0 0 0
 0 10 0 P
 g plural~
@@ -454,7 +454,7 @@ coins silver gold gcash золото серебро монеты~
 @eng %d %s and %d %s@rus %d ~~%s~~ и %d ~~%s~~~
 @eng A pile of coins.@rus Кучка монет (coins).~
 gold~
-money 0 0 Ag
+money 0 0 A
 0 0 0 0 0
 0 10 0 P
 g plural~
@@ -463,8 +463,8 @@ arrow деревянная wooden стрела~
 @eng a wooden arrow@rus ~~деревянная~~ ~~стрела~~~
 @eng A wooden arrow lies on the ground.@rus Деревянная стрела (arrow) лежит на земле.~
 wood~
-weapon 0 0 AOgu
-arrow 1 1 'pierce' Kq
+weapon 0 0 AO
+arrow 1 1 'pierce' K
 1 5 10 P
 g female~
 #7
@@ -472,7 +472,7 @@ bow wooden лук деревянный~
 @eng a wooden bow@rus ~~деревянный~~ ~~лук~~~
 @eng A wooden bow lies on the ground.@rus Деревянный лук (bow) лежит на земле.~
 wood~
-weapon 0 0 ANgt
+weapon 0 0 AN
 bow 1 1 'blast' 0
 1 5 10 P
 g male~
@@ -481,7 +481,7 @@ cross крест распятье~
 A cross of %s~
 Torn remains of %s are here on the cross.~
 flesh~
-trash CEik Ci 0
+trash CE C 0
 0 0 0 0 0
 0 100 0 P
 g male~
@@ -490,7 +490,7 @@ elka christmas tree елка дерево~
 @eng Christmas tree@rus Елка~
 @eng {gA christmas tree stands here.{x@rus {gНовогодняя елка (elka) стоит здесь, вся в украшениях.{x~
 wood~
-container ABYgh Bh 0
+container ABY B 0
 1000000 0 0 100000 5
 0 10000 0 P
 E
@@ -521,8 +521,8 @@ corpse труп~
 @eng the corpse of %s@rus ~~труп~~ %s~
 @eng The corpse of %s is lying here.@rus Ты видишь труп (corpse) %s.~
 flesh~
-npc_corpse 0 0 Ag
-0 0 0 Ag 0
+npc_corpse 0 0 A
+0 0 0 A 0
 0 1000 0 D
 g male~
 #11
@@ -530,8 +530,8 @@ corpse труп~
 @eng the corpse of %s@rus ~~труп~~ %s~
 @eng The corpse of %s is lying here.@rus Ты видишь труп (corpse) %s.~
 flesh~
-pc_corpse 0 ABgh Ag
-0 0 0 Ag 0
+pc_corpse 0 AB A
+0 0 0 A 0
 0 1000 0 D
 g male~
 #12
@@ -539,7 +539,7 @@ head голова~
 @eng the head of %s@rus ~~голова~~ %s~
 @eng The severed head of %s is lying here.@rus Отрубленная голова (head) %s лежит в луже крови.~
 meat~
-trash 0 0 Ag
+trash 0 0 A
 0 0 0 0 0
 0 50 0 D
 g female~
@@ -548,8 +548,8 @@ heart сердце~
 @eng the heart of %s@rus ~~сердце~~ %s~
 @eng The torn-out heart of %s is lying here.@rus Вырванное сердце (heart) %s еще бьется на земле.~
 meat~
-food 0 0 Ag
-Ek Ek 0 0 0
+food 0 0 A
+E E 0 0 0
 0 20 0 D
 g none~
 #14
@@ -557,8 +557,8 @@ arm рука~
 @eng the arm of %s@rus ~~рука~~ %s~
 @eng The sliced-off arm of %s is lying here.@rus Отрезанная рука (arm) %s сжимает что-то предсмертной хваткой.~
 meat~
-food 0 0 Ag
-CEik CEik 0 0 0
+food 0 0 A
+CE CE 0 0 0
 0 50 0 D
 g female~
 #15
@@ -566,8 +566,8 @@ leg нога~
 @eng the leg of %s@rus ~~нога~~ %s~
 @eng The sliced-off leg of %s is lying here.@rus Отсеченная нога (leg) %s дергается в конвульсиях.~
 meat~
-food 0 0 Ag
-CEik CEik 0 0 0
+food 0 0 A
+CE CE 0 0 0
 0 50 0 D
 g female~
 #16
@@ -575,8 +575,8 @@ guts entrails внутренности кишки~
 @eng the guts of %s@rus ~~внутренности~~ %s~
 @eng A steaming pile of %s's entrails is lying here.@rus Еще теплые внутренности (guts) %s лежат в грязи.~
 meat~
-food 0 0 Ag
-ACgi ACgi 0 Ag 0
+food 0 0 A
+AC AC 0 A 0
 0 20 0 D
 g plural~
 #17
@@ -584,8 +584,8 @@ brains brain мозги~
 @eng the brains of %s@rus ~~мозги~~ %s~
 @eng The splattered brains of %s are lying here.@rus Выбитые мозги (brains) %s лежат на земле.~
 meat~
-food 0 0 Ag
-BDhj BDhj 0 0 0
+food 0 0 A
+BD BD 0 0 0
 0 20 0 D
 g plural~
 #18
@@ -593,8 +593,8 @@ holy hammer молот~
 @eng Holy Hammer@rus ~~Священный~~ ~~Молот~~~
 @eng You see a large Holy Hammer.@rus Перед тобой огромный молот (hammer), излучающий божественную силу.~
 spirit~
-weapon AGIKLgmoqr 0 ANgt
-mace 9 0 'divine' Io
+weapon AGIKL 0 AN
+mace 9 0 'divine' I
 0 0 0 P
 g male~
 #19
@@ -602,20 +602,20 @@ lock-pick picklock отмычка~
 @eng lock-pick@rus отмычка~
 @eng A small steel needle lies here.@rus Маленькая стальная игла блестит в пыли.~
 steel~
-trash 0 0 AOgu
+trash 0 K AO
 0 0 0 0 0
 10 10 10000 P
-S 'perception' 100 Ag
-S 'knock' 100 Ag
-S 'pick lock' 100 Ag
+S 'perception' 100 A
+S 'knock' 100 A
+S 'pick lock' 100 A
 g female~
 #20
 mushroom грибок~
 @eng a Magic Mushroom@rus ~~Волшебный~~ ~~Мухомор~~~
 @eng A delicious magic mushroom is here.@rus Вкусный Волшебный Мухомор (mushroom) растет тут.~
 food~
-food Gm 0 Ag
-Dj Dj 0 0 0
+food G 0 A
+D D 0 0 0
 0 10 0 P
 g male~
 #21
@@ -623,7 +623,7 @@ ball light шар~
 @eng a bright ball of light@rus ~~светящийся~~ ~~шар~~~
 @eng A bright ball of light shimmers in the air.@rus Ярко светящийся шар (ball) мерцает в воздухе.~
 energy~
-light Ag 0 Ag
+light A 0 A
 0 0 -1 0 0
 0 0 0 P
 g male~
@@ -632,7 +632,7 @@ spring источник~
 @eng a magical spring@rus ~~магический~~ ~~источник~~~
 @eng A magical spring flows from the ground here.@rus Магический источник (spring) бьет из-под земли.~
 water~
-fountain Gm 0 0
+fountain G 0 0
 100000 100000 'water' 0 0
 0 0 0 P
 g male~
@@ -641,8 +641,8 @@ disc disk floating black диск~
 @eng a floating disc@rus ~~летающий~~ ~~диск~~~
 @eng A floating black disc hangs in the air.@rus Черный диск (disc) парит в воздухе.~
 energy~
-container GMPUYmsv Ek AQgw
-0 Ek 0 0 0
+container GMPUY E AQ
+0 E 0 0 0
 0 0 0 P
 g male~
 #24
@@ -650,7 +650,7 @@ tail dragon хвост~
 @eng Dragon's tail@rus ~~хвост~~ дракона~
 @eng Dragon's tail lies here.@rus Очень странно. Это самый натуральный драконий хвост (tail).~
 flesh~
-clothing Y 0 AFgl
+clothing Y K AF
 0 0 0 0 0
 10 1 10000 P
 A
@@ -661,16 +661,16 @@ A
 12 200
 A
 13 200
-S 'dragon skin' 100 Ag
-S 'dragon breath' 100 Ag
-S 'dragon strength' 100 Ag
+S 'dragon skin' 100 A
+S 'dragon breath' 100 A
+S 'dragon strength' 100 A
 g male~
 #25
 gate portal ворота врата~
 @eng a shimmering gate@rus ~~мерцающие~~ ~~врата~~~
 @eng A shimmering black gate rises from the ground, leading to parts unknown.@rus Мерцающие черные врата (gate) ведут в неизвестность.~
 shadow~
-portal Gm ACgi 0
+portal G AC 0
 0 0 0 0 0
 0 0 0 P
 g plural~
@@ -679,7 +679,7 @@ poncho пончо~
 @eng a poncho from the carcass of %s@rus ~~пончо~~ из трупа %s~
 @eng A poncho from the carcass of %s lies here.@rus Пончо (poncho), сделанное из трупа %s, лежит тут.~
 flesh~
-armor 0 0 AKgq
+armor 0 0 AK
 0 0 0 0 0
 0 60 0 P
 A
@@ -692,8 +692,8 @@ steak бифштекс~
 @eng a steak from %s@rus ~~бифштекс~~ из %s~
 @eng A steak from %s.@rus Бифштекс (steak) из %s.~
 meat~
-food 0 0 Ag
-ADEgjk ADEgjk 0 0 0
+food 0 0 A
+ADE ADE 0 0 0
 0 20 0 P
 g male~
 #28
@@ -701,7 +701,7 @@ ranger staff посох~
 @eng a ranger staff@rus ~~охотничий~~ ~~посох~~~
 @eng There is a Ranger's Staff here on the ground.@rus Охотник забыл свой посох (staff) тут.~
 ebony~
-weapon Ag 0 ANgt
+weapon A 0 AN
 staff 0 0 'pierce' 0
 0 160 0 P
 g male~
@@ -710,11 +710,11 @@ gloves перчатки~
 @eng black gloves@rus ~~черные~~ ~~перчатки~~~
 @eng Black gloves lie here.@rus Черные перчатки (gloves) валяются на земле.~
 unknown~
-armor Y 0 AHgn
+armor Y K AH
 20 20 20 20 0
 10 1 10000 P
-S 'peek' 100 Ag
-S 'steal' 100 Ag
+S 'peek' 100 A
+S 'steal' 100 A
 g plural~
 #30
 dummy object~
@@ -730,8 +730,8 @@ sword hero~
 the %s Sword of %s~
 An enormous, huge SWORD lies here, filling the room with its power.~
 energy~
-weapon AGIYgmo ABGghm ANgt
-sword 10 4 'slash' Dj
+weapon AGIY ABG AN
+sword 10 4 'slash' D
 21 100 100000 G
 g male~
 #32
@@ -739,8 +739,8 @@ dagger hero~
 the %s Dagger of %s~
 An enormous, huge DAGGER lies here, filling the room with its power.~
 energy~
-weapon AGIYgmo ABGghm ANgt
-dagger 10 4 'pierce' Dj
+weapon AGIY ABG AN
+dagger 10 4 'pierce' D
 21 100 100000 G
 A
 1 2
@@ -766,8 +766,8 @@ mace hero~
 the %s Mace of %s~
 An enormous, huge MACE lies here, filling the room with its power.~
 energy~
-weapon AGIYgmo ABGghm ANgt
-mace 10 4 'pound' Dj
+weapon AGIY ABG AN
+mace 10 4 'pound' D
 21 100 100000 G
 A
 1 2
@@ -793,8 +793,8 @@ arrow green стрела зеленая~
 @eng a green arrow@rus ~~зеленая~~ ~~стрела~~~
 @eng A green arrow lies on the ground.@rus Зеленая стрела (arrow) лежит на земле.~
 wood~
-weapon 0 0 AOgu
-arrow 1 1 'pierce' HKnq
+weapon 0 0 AO
+arrow 1 1 'pierce' HK
 1 5 10 P
 g female~
 #35
@@ -802,8 +802,8 @@ arrow red стрела багровая~
 @eng red arrow@rus ~~багровая~~ ~~стрела~~~
 @eng A red arrow lies on the ground.@rus Багровая стрела (arrow) лежит на земле.~
 wood~
-weapon 0 0 AOgu
-arrow 1 1 'pierce' AKgq
+weapon 0 0 AO
+arrow 1 1 'pierce' AK
 1 5 10 P
 g female~
 #36
@@ -811,8 +811,8 @@ arrow white стрела белая~
 @eng white arrow@rus ~~белая~~ ~~стрела~~~
 @eng A white arrow lies on the ground.@rus Белая стрела (arrow) лежит на земле.~
 wood~
-weapon 0 0 AOgu
-arrow 1 1 'pierce' BKhq
+weapon 0 0 AO
+arrow 1 1 'pierce' BK
 1 5 10 P
 g female~
 #37
@@ -820,8 +820,8 @@ arrow стрела blue голубая~
 @eng blue arrow@rus ~~голубая~~ ~~стрела~~~
 @eng A blue arrow lies on the ground.@rus Голубая стрела (arrow) лежит на земле.~
 wood~
-weapon 0 0 AOgu
-arrow 1 1 'pierce' GKmq
+weapon 0 0 AO
+arrow 1 1 'pierce' GK
 1 5 10 P
 g female~
 #38
@@ -829,8 +829,8 @@ pillow big подушка~
 @eng Big Soft Pillow@rus ~~большая~~ ~~мягкая~~ ~~подушка~~~
 @eng The big soft pillow lies here.@rus Большая подушка (pillow) так и манит к себе.~
 unknown~
-furniture Ag 0 Ag
-Ag CFGilm EKkq DFGHIJjlmnop DFGHIJjlmnop
+furniture A K A
+A CFG EK DFGHIJ DFGHIJ
 10 1 10000 P
 g female~
 #39
@@ -838,17 +838,17 @@ bell small колокольчик~
 @eng Small silver bell@rus ~~маленький~~ ~~серебряный~~ ~~колокольчик~~~
 @eng Small silver bell lies here.@rus В пыли мягким серебрянным светом поблескивает колокольчик (bell).~
 silver~
-jewelry AGgm 0 AOgu
+jewelry AG K AO
 0 0 0 0 0
 10 0 0 P
-S 'summon' 100 Ag
+S 'summon' 100 A
 g male~
 #40
 song hero~
 the %s Song of %s~
 You hear the Song of Real Hero filling the room with its power.~
 energy~
-container IYo ABFGghlm AQgw
+container IY ABFG AQ
 150 0 0 600 5
 120 5 10000 P
 A
@@ -877,17 +877,17 @@ sack sands мешок~
 @eng sack filled with sands@rus ~~мешок~~ с песком~
 @eng Sack filled with sands lies here.@rus Небольшой мешок (sack) из холстины валяется на земле.~
 canvas~
-container 0 0 AOgu
-0 Ci 0 500 5
+container 0 K AO
+0 C 0 500 5
 0 100 10000 P
-S 'blackjack' 100 Ag
+S 'blackjack' 100 A
 g male~
 #42
 vial potion пузырек~
 @eng a potion vial@rus ~~пустой~~ ~~пузырек~~~
 @eng A vial of a potion is left here.@rus Пустой бутылек (vial) выброшен кем-то.~
 glass~
-drink 0 0 AOgu
+drink 0 0 AO
 5 0 'water' 0 0
 0 10 10 P
 E
@@ -900,7 +900,7 @@ potion silver зелье~
 @eng a silver potion@rus ~~серебристое~~ ~~зелье~~~
 @eng A small silvery potion has carelessly been left here.@rus Маленькая бутылочка серебристой жидкости (potion) забыта тут.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 1 'detect invis' '' '' ''
 0 10 0 P
 g female~
@@ -909,7 +909,7 @@ potion golden зелье золотое~
 @eng a golden potion@rus ~~золотое~~ ~~зелье~~~
 @eng A golden vial shines on the ground.@rus Золотистая (golden) бутылочка сверкает в грязи.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 1 'frenzy' '' '' ''
 0 10 0 P
 g female~
@@ -918,7 +918,7 @@ potion swirling зелье~
 @eng a swirling potion@rus ~~бурлящее~~ ~~зелье~~~
 @eng Some swirling liquid in a vial catches your attention.@rus Бурлящая (swirling) жидкость в бутылочке привлекает твое внимание.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 1 'bless' '' '' ''
 0 10 0 P
 g female~
@@ -927,14 +927,14 @@ cloud облако~
 @eng the small cloud@rus ~~маленькое~~ ~~облако~~~
 @eng The small cloud is floating around your head.@rus Маленькое облако (cloud) висит в воздухе прямо перед тобой.~
 energy~
-container GIYmo 0 AQgw
-150 Ag 0 600 5
+container GIY K AQ
+150 A 0 600 5
 10 5 10000 P
-S 'control weather' 100 Ag
-S 'call lightning' 100 Ag
-S 'chain lightning' 100 Ag
-S 'lightning bolt' 100 Ag
-S 'lightning breath' 100 Ag
+S 'control weather' 100 A
+S 'call lightning' 100 A
+S 'chain lightning' 100 A
+S 'lightning bolt' 100 A
+S 'lightning breath' 100 A
 A
 13 100
 A
@@ -957,12 +957,12 @@ cloak плащ~
 @eng Cloak of The Lord Protector@rus ~~плащ~~ Лорда-Защитника~
 @eng The beautiful black cloak lies here.@rus Красивый плащ (cloak) из черной кожи лежит здесь.~
 skin~
-armor GIYmo 0 ADgj
+armor GIY K AD
 -20 -20 -20 -20 0
 10 1 10000 P
-S 'stone skin' 100 Ag
-S 'dragon skin' 100 Ag
-S 'bark skin' 100 Ag
+S 'stone skin' 100 A
+S 'dragon skin' 100 A
+S 'bark skin' 100 A
 A
 2 5
 A
@@ -975,64 +975,59 @@ A
 19 10
 A
 18 10
-S 'enhanced armor' 100 Ag
-S 'armor' 100 Ag
-S 'sanctuary' 100 Ag
-S 'shield' 100 Ag
-S 'protection good' 100 Ag
-S 'protection negative' 100 Ag
-S 'protection heat' 100 Ag
-S 'protection cold' 100 Ag
-S 'protection evil' 100 Ag
+S 'enhanced armor' 100 A
+S 'armor' 100 A
+S 'sanctuary' 100 A
+S 'shield' 100 A
+S 'protection good' 100 A
+S 'protection negative' 100 A
+S 'protection heat' 100 A
+S 'protection cold' 100 A
+S 'protection evil' 100 A
 g male~
 #48
 ring кольцо golden золотое колечко~
 @eng Golden Ring@rus ~~золотое~~ ~~колечко~~~
 @eng The golden ring lies here.@rus Кольцо (ring), сделанное из драгоценного металла, лежит здесь.~
 gold~
-jewelry Y 0 ABgh
+jewelry Y K AB
 0 0 0 0 0
 10 0 10000 P
-S 'camouflage move' 100 Ag
-F i 13 100 Gm
+S 'camouflage move' 100 A
+F i 13 100 G
 A
 12 100
-S 'hide' 100 Ag
-S 'camouflage' 100 Ag
-S 'improved invis' 100 Ag
-S 'invisibility' 100 Ag
+S 'hide' 100 A
+S 'camouflage' 100 A
+S 'improved invis' 100 A
+S 'invisibility' 100 A
 g none~
 #49
 ring кольцо silver серебряное колечко~
 @eng Silver Ring@rus ~~серебряное~~ ~~колечко~~~
 @eng Silver ring lies here.@rus Кольцо (ring), выкованное из серебра, лежит здесь.~
 silver~
-jewelry Y 0 ABgh
+jewelry Y K AB
 0 0 0 0 0
 10 0 0 P
-A
-13 10
-A
-13 10
-A
-13 10
-A
-13 10
-A
-13 10
-F d 13 10 Ms
-F d 13 10 Bh
-F d 13 10 Ag
-F d 13 10 Kq
-F d 13 10 Lr
+F d 13 10 J
+F d 13 10 F
+F d 13 10 F
+F d 13 10 I
+F d 13 10 D
+F d 13 10 M
+F d 13 10 B
+F d 13 10 A
+F d 13 10 K
+F d 13 10 L
 g none~
 #50
 rug коврик~
 @eng a small magic rug@rus ~~магический~~ ~~коврик~~~
 @eng A small magic rug lies here.@rus Небольшой магический коврик (rug).~
 unknown~
-furniture Y BFhl Ag
-Ag EIJKNkopqt HKnq DGHjmn DGHjmn
+furniture Y BF A
+A EIJKN HK DGH DGH
 10 10 0 P
 g male~
 #51
@@ -1040,7 +1035,7 @@ tattoo atum ra~
 lawful good tattoo of atum-ra~
 A tattoo flying in the air.~
 energy~
-tattoo AUYg Ci ARgx
+tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
 g none~
@@ -1049,7 +1044,7 @@ tattoo zeus~
 neutral good tattoo of zeus~
 A tattoo flying in the air.~
 energy~
-tattoo AUYg Ci ARgx
+tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
 g none~
@@ -1058,7 +1053,7 @@ tattoo siebele~
 true neutral tattoo of siebele~
 A tattoo flying in the air.~
 energy~
-tattoo AUYg Ci ARgx
+tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
 g none~
@@ -1067,7 +1062,7 @@ tattoo shamash~
 tattoo of shamash, god of justice~
 A tattoo flying in the air.~
 energy~
-tattoo AUYg Ci ARgx
+tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
 g none~
@@ -1076,7 +1071,7 @@ tattoo ahura mazda~
 chaotic good tattoo of ahuramazda~
 A tattoo flying in the air.~
 energy~
-tattoo AUYg Ci ARgx
+tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
 g none~
@@ -1085,7 +1080,7 @@ tattoo ehrumen~
 chaotic evil tattoo of ehrumen~
 A tattoo flying in the air.~
 energy~
-tattoo AUYg Ci ARgx
+tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
 g none~
@@ -1094,7 +1089,7 @@ tattoo deimos~
 lawful evil tattoo of deimos~
 A tattoo flying in the air.~
 energy~
-tattoo AUYg Ci ARgx
+tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
 g none~
@@ -1103,7 +1098,7 @@ tattoo phobos~
 neutral evil tattoo of phobos~
 A tattoo flying in the air.~
 energy~
-tattoo AUYg Ci ARgx
+tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
 g none~
@@ -1112,7 +1107,7 @@ tattoo odin~
 lawful neutral tattoo of odin~
 A tattoo flying in the air.~
 energy~
-tattoo AUYg Ci ARgx
+tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
 g none~
@@ -1121,7 +1116,7 @@ tattoo teshub~
 chaotic neutral tattoo of teshub~
 A tattoo flying in the air.~
 energy~
-tattoo AUYg Ci ARgx
+tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
 g none~
@@ -1130,7 +1125,7 @@ tattoo ares~
 tattoo of ares, God of War~
 A tattoo flying in the air.~
 energy~
-tattoo AUYg Ci ARgx
+tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
 g none~
@@ -1139,7 +1134,7 @@ tattoo goktengri татуировка гоктенгри~
 @eng tattoo of goktengri, God of Honor@rus татуировка Гоктенгри, бога чести~
 @eng A tattoo flying in the air.@rus Татуировка (tattoo) летает по воздуху.~
 energy~
-tattoo AUYg Ci ARgx
+tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
 g female~
@@ -1148,7 +1143,7 @@ tattoo hera~
 tattoo of hera, god of hate~
 A tattoo flying in the air.~
 energy~
-tattoo AUYg Ci ARgx
+tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
 g none~
@@ -1157,7 +1152,7 @@ tattoo venus~
 tattoo of venus, god of beauty~
 A tattoo flying in the air.~
 energy~
-tattoo AUYg Ci ARgx
+tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
 g none~
@@ -1166,7 +1161,7 @@ tattoo seth~
 tattoo of seth, god of anger~
 A tattoo flying in the air.~
 energy~
-tattoo AUYg Ci ARgx
+tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
 g none~
@@ -1175,7 +1170,7 @@ tattoo enki~
 tattoo of enki, god of knowledge~
 A tattoo flying in the air.~
 energy~
-tattoo AUYg Ci ARgx
+tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
 g none~
@@ -1184,7 +1179,7 @@ tattoo eros татуировка эрос~
 @eng tattoo of eros, god of love@rus татуировка Эроса, бога любви~
 @eng A tattoo flying in the air.@rus Татуировка Эроса (tattoo) летает по воздуху.~
 energy~
-tattoo AUYg Ci ARgx
+tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
 g none~
@@ -1193,23 +1188,23 @@ skin rabbit шкура шкурка~
 @eng Rabbit's skin@rus ~~кроличья~~ ~~шкурка~~~
 @eng Rabbit's skin lies here.@rus Кроличья шкурка (skin) валяется здесь.~
 skin~
-trash Ag 0 AGgm
+trash A K AG
 0 0 0 0 0
 10 0 0 P
-F A 20 -20 Tz
+F A 20 -20 T
 A
 19 20
 A
 18 20
 F A 12 100 U
-F i 13 100 Gm
+F i 13 100 G
 g female~
 #69
 amulet амулет holy~
 @eng holy amulet@rus ~~священный~~ ~~амулет~~~
 @eng Holy amulet lies here.@rus Светящийся белый амулет (amulet) лежит здесь.~
 magic~
-jewelry GImo 0 ACgi
+jewelry GI K AC
 0 0 0 0 0
 10 1 10000 P
 A
@@ -1222,26 +1217,26 @@ A
 8 5
 A
 20 -25
-S 'holy word' 100 Ag
-S 'bless' 100 Ag
-S 'benediction' 100 Ag
+S 'holy word' 100 A
+S 'bless' 100 A
+S 'benediction' 100 A
 g male~
 #70
 badge значок~
 @eng silver ruler badge@rus ~~серебрянный~~ ~~значок~~ Охранника Порядка~
 @eng A silver bagde shines on the ground.@rus Серебрянный значок (badge) с надписью "Закон и Порядок" блестит на земле.~
 silver~
-treasure Ms ACDEgijk Ag
+treasure M ACDE A
 0 0 0 0 0
 50 4 0 P
-F d 0 0 Bh
+F d 0 0 B
 g male~
 #71
 buckler ruler shield~
 @eng Rulers' Buckler@rus ~~круглый~~ ~~щит~~ Рулера~
 @eng A buckler of a Ruler is on the ground.@rus Круглый щит (shield) с гербом клана Ruler лежит на земле.~
 steel~
-armor GIYmo BEhk AJgp
+armor GIY BE AJ
 8 8 8 3 0
 0 200 10000 P
 g male~
@@ -1250,7 +1245,7 @@ great ruler shield щит~
 @eng Rulers' Great Shield@rus ~~большой~~ ~~щит~~ Рулера~
 @eng There is a Great Ruler Shield on the ground.@rus Большой щит (shield) с гербом клана Ruler лежит на земле.~
 steel~
-armor GIYmo BEhk AJgp
+armor GIY BE AJ
 20 20 20 10 0
 0 300 15000 P
 g male~
@@ -1259,7 +1254,7 @@ kite ruler shield щит~
 Rulers' Kite Shield~
 You see a large Kite Shield of Ruler on the ground.~
 steel~
-armor GIYmo BEhk AJgp
+armor GIY BE AJ
 20 20 20 10 0
 0 310 20000 P
 A
@@ -1274,7 +1269,7 @@ tower ruler shield щит~
 @eng Rulers' Tower Shield@rus ~~огромный~~ ~~щит~~ Рулера~
 @eng A very big shield with a symbol of Ruler covers the ground.@rus ОГРОМНЫЙ щит (shield) с гербом клана Ruler лежит на земле.~
 steel~
-armor GIYmo BEhk AJgp
+armor GIY BE AJ
 30 30 30 20 0
 0 240 20000 P
 g male~
@@ -1283,7 +1278,7 @@ herb healing травка bunch~
 @eng a bunch of herbs.~
 ~
 unknown~
-pill Gm 0 AOgu
+pill G 0 AO
 0 'reserved' 'reserved' 'reserved' 'reserved'
 0 1 1 P
 g none~
@@ -1292,8 +1287,8 @@ golden dagger кинжал~
 @eng a golden dagger@rus ~~золотистый~~ ~~кинжал~~~
 @eng There is a shiny golden dagger on the ground.@rus Блестящий золотистый кинжал (dagger) лежит на земле.~
 gold~
-weapon AIPgov CDij ANgt
-dagger 10 1 'pierce' DKjq
+weapon AIP CD AN
+dagger 10 1 'pierce' DK
 20 80 0 P
 g male~
 #81
@@ -1301,7 +1296,7 @@ golden mace булава~
 @eng a golden mace@rus ~~золотистая~~ ~~булава~~~
 @eng A shiny gold mace is on the ground.@rus Блестящая золотистая булава (mace) лежит на земле.~
 gold~
-weapon AIPgov CDij ANgt
+weapon AIP CD AN
 mace 8 1 'crush' 0
 20 200 0 P
 g female~
@@ -1310,7 +1305,7 @@ golden dragonplate plate~
 Dragonplate~
 @eng A Dragonplate is left here.@rus Золотая броня (plate) с нарисованным Драконом оставлена тут.~
 gold~
-armor GIYmo 0 ADgj
+armor GIY 0 AD
 30 30 30 30 0
 0 250 10000 P
 A
@@ -1325,8 +1320,8 @@ sword golden меч~
 @eng a golden sword@rus ~~золотистый~~ ~~меч~~~
 @eng There is a shiny golden sword on the ground.@rus Блестящий золотистый меч (sword) лежит на земле.~
 gold~
-weapon AIPgov CDij ANgt
-sword 10 1 'pierce' Dj
+weapon AIP CD AN
+sword 10 1 'pierce' D
 20 80 0 P
 g male~
 #84
@@ -1334,7 +1329,7 @@ quest kio~
 quest staff of kio~
 A quest obj flying in the air.~
 energy~
-treasure AYg BCIJKhiopq Ag
+treasure AY BCI A
 0 0 -1 0 0
 0 0 0 P
 E
@@ -1347,7 +1342,7 @@ quest conrad~
 quest staff of conrad~
 A quest obj flying in the air.~
 energy~
-treasure AYg BCIJKhiopq Ag
+treasure AY BCI A
 0 0 -1 0 0
 0 0 0 P
 E
@@ -1360,7 +1355,7 @@ quest powerman~
 quest staff of powerman~
 A quest obj flying in the air.~
 energy~
-treasure AYg BCIJKhiopq Ag
+treasure AY BCI A
 0 0 -1 0 0
 0 0 0 P
 E
@@ -1373,7 +1368,7 @@ quest mandrake~
 quest staff of mandrake~
 A quest obj flying in the air.~
 energy~
-treasure AYg BCIJKhiopq Ag
+treasure AY BCI A
 0 0 -1 0 0
 0 0 0 P
 E
@@ -1386,8 +1381,8 @@ eyed sword~
 %s's eyed sword~
 A sword with an eye on it is here.~
 platinum~
-weapon Bh Gm ANgt
-exotic 10 1 'pierce' Dj
+weapon B G AN
+exotic 10 1 'pierce' D
 15 60 0 P
 A
 18 20
@@ -1403,7 +1398,7 @@ kassandra камушек камень~
 @eng kassandra@rus ~~кассандра~~~
 @eng A mystical green stone is here, flying in the air.@rus Мистический зеленый камушек (stone) привлек твое внимание.~
 stone~
-treasure AUYg Ci AOgu
+treasure AUY C AO
 0 0 -1 0 0
 0 0 0 P
 g female~
@@ -1412,7 +1407,7 @@ dress~
 dress~
 A dress of a white gown out of the bolt of silk lying here..~
 silk~
-armor Gm 0 ADgj
+armor G 0 AD
 1 1 1 1 1
 1 90 100 P
 E
@@ -1426,7 +1421,7 @@ turkish rug~
 a rug with Turkish patterns~
 A small rug with Turkish patterns is lying here.~
 wool~
-treasure 0 0 AOgu
+treasure 0 0 AO
 0 0 0 0 0
 18 10 1000 G
 g none~
@@ -1435,7 +1430,7 @@ shield fire~
 fire shield~
 An energy shield is left here.~
 energy~
-armor GPUYmv 0 AJgp
+armor GPUY 0 AJ
 20 20 20 20 2
 0 250 10000 P
 E
@@ -1448,8 +1443,8 @@ magic jar~
 the spirit of %s~
 The vial containing spirit of %s is lying here.~
 glass~
-treasure Y Ci AOgu
-0 0 0 Ag 0
+treasure Y C AO
+0 0 0 A 0
 0 0 0 D
 E
 spirit~
@@ -1461,7 +1456,7 @@ girth hero~
 the %s Girth of %s~
 An enormous, huge GIRTH lies here, filling the room with its power.~
 energy~
-armor AGIYgmo ABGghm ALgr
+armor AGIY ABG AL
 12 12 12 9 2
 120 30 100000 G
 A
@@ -1512,15 +1507,15 @@ A
 43 33
 A
 19 10
-F d 17 -30 Hn
-F d 0 0 AKLMgqrs
+F d 17 -30 H
+F d 0 0 AKLM
 g none~
 #95
 ring hero~
 the %s Ring of %s~
 An enormous, RING lies here, filling the room with its power.~
 energy~
-weapon AGIYgmo ABGghm ABgh
+weapon AGIY ABG AB
 exotic 0 0 'none' 0
 120 30 100000 G
 A
@@ -1543,8 +1538,8 @@ weapon hero~
 the %s Weapon of %s~
 An enormous, huge WEAPON lies here, filling the room with its power.~
 energy~
-weapon AGIYgmo ABGghm ANgt
-exotic 10 4 'slash' Dj
+weapon AGIY ABG AN
+exotic 10 4 'slash' D
 21 100 100000 G
 A
 1 2
@@ -1570,8 +1565,8 @@ chaos blade~
 a chaos blade~
 A shiny gold dagger is on the ground.~
 gold~
-weapon AIPgov CDij ANgt
-dagger 8 1 'pierce' Dj
+weapon AIP CD AN
+dagger 8 1 'pierce' D
 20 200 0 P
 A
 6 2
@@ -1581,8 +1576,8 @@ sword katana~
 a katana sword~
 A katana sword is forgotten here.~
 iron~
-weapon 0 Fl ANgt
-sword 10 1 'slash' Dj
+weapon 0 F AN
+sword 10 1 'slash' D
 15 60 0 P
 E
 katana~
@@ -1594,8 +1589,8 @@ golden lance~
 a golden lance~
 There is a shiny golden lance on the ground.~
 gold~
-weapon AIPgov CDij ANgt
-lance 10 1 'none' Dj
+weapon AIP CD AN
+lance 10 1 'none' D
 20 80 0 P
 g none~
 #0
@@ -1605,7 +1600,7 @@ g none~
 The Void~
 You are floating in nothing.
 ~
-0 CDij city
+0 CD city
 D4
 ~
 ~
@@ -1618,7 +1613,7 @@ matter, surrounded by swirling glowing light, which fades into the relative
 darkness around you without any trace of edges or shadow.
    There is a "No Tipping" notice pinned to the darkness.
 ~
-0 ADKNTgjqtz city
+0 ADKNT city
 D4
 ~
 ~
@@ -1628,7 +1623,7 @@ S
 Supermob office~
 Supermob lives here. Don't bother him.
 ~
-0 ACHLNOXginrtu inside
+0 ACHLNOX inside
 S
 #0
 

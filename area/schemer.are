@@ -17,13 +17,13 @@ the Major Dragon~
 ~
 ~
 human~
-BGhm Hn Hn Ag ABgh 1000 0
+BGJ H H A ABCF 1000 0
 120 0 0d0+0 0d0+0 0d0+0 'none'
 0 0 0 0
 0
 stand stand none 0
-Z PUv huge unknown
-F for AHMVgns
+Z PU huge unknown
+F for AHMV
 r disease 100
 r charm 100
 #0
@@ -46,7 +46,7 @@ g none~
 @eng You are on the wide road.You see a big tower.
 @rus You are on the wide road.You see a big tower.
 ~
-0 CKiq mountain
+0 CK mountain
 D0
 ~
 ~

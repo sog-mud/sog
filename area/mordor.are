@@ -18,10 +18,10 @@ orc guard охранник орк~
 ~
 ~
 orc~
-BThz 0 0 0 ABgh -1000 0
+BT 0 0 0 AB -1000 0
 20 10 10d25+1000 1d1+99 5d4+8 'pound'
 -10 -10 -10 -12
-DEFIKNORUjkloqtux
+DEFIKNORU
 stand stand male 1000
 0 0 medium unknown
 M grall 30001 100~
@@ -36,10 +36,10 @@ orc capitan капитан орк~
 ~
 ~
 orc~
-BThz 0 c BGhm ABgh -1000 0
+BT 0 c BG AB -1000 0
 30 15 10d60+1400 1d1+99 5d6+12 'punch'
 0 14 -12 -14
-EFHJKMRklnpqsx
+EFHJKMR
 stand stand none 2500
 0 0 medium unknown
 r poison 100
@@ -53,12 +53,12 @@ rat крыса~
 ~
 ~
 unique~
-BFhl 0 0 0 Bh 0 0
+BF 0 0 0 B 0 0
 20 0 100d1+500 0d0+0 5d7+5 'bite'
 -10 -10 -10 -10
-FHRlnx
+FHR
 stand stand none 0
-AGVgm ADFKUgjlq medium unknown
+AGV ADFKU medium unknown
 #30004
 orc shaman шаман орк~
 @eng shaman@rus шаман~
@@ -70,10 +70,10 @@ orc shaman шаман орк~
 книгу и думает о том как создать какое-нибудь новое заклинание.
 ~
 orc~
-BRhx 0 0 0 0 -1000 0
+BR 0 J 0 0 -1000 0
 30 0 10d100+3000 1d1+999 5d10+7 'magic'
 -30 -30 -25 -35
-FHKlnq
+FHK
 stand stand none 1000
 0 0 medium unknown
 r fire 33
@@ -99,10 +99,10 @@ orc leader предводитель орков~
 He say:"If you will try to run away, you can stay alive. if not...ready to die?" 
 ~
 orc~
-BFThlz 0 Ou 0 ABgh -1000 0
+BFT 0 O 0 AB -1000 0
 36 0 10d100+4000 1d1+99 10d4+15 'smash'
 -25 -30 -20 -20
-ADEFHJKRgjklnpqx
+ADEFHJKR
 stand stand none 1000
 0 U medium unknown
 r slash 33
@@ -120,20 +120,20 @@ human~
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #30099
 mobby~
 ~
 ~
 ~
 human~
-0 BDHhjn 0 0 0 0 0
+J BDFGH 0 0 0 0 0
 1000 0 1d1+100000 0d0+0 0d0+0 'none'
 0 0 0 0
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #0
 
 #OBJECTS
@@ -142,7 +142,7 @@ orc sword меч орк~
 @eng Orc'ish sword@rus ~~меч~~ орка~
 @eng Dirty orc'ish sword lies here.@rus Грязный меч орков валяется тут.~
 iron~
-weapon Ek 0 ANgt
+weapon E 0 AN
 exotic 6 5 'slash' 0
 20 30 1500 P
 A
@@ -153,7 +153,7 @@ shield orc'ish щит орк~
 @eng orc'ish shield@rus ~~щит~~ орка~
 @eng Studded orc'ish shield lies on the ground.@rus Крепкий орчий щит лежит на земле.~
 studded leather~
-armor EJkp 0 AJgp
+armor EJ 0 AJ
 10 12 8 10 0
 20 10 1000 P
 A
@@ -169,7 +169,7 @@ case шкаф~
 @eng Big wooden case.@rus Большой деревянный шкаф.~
 wood~
 container 0 0 0
-100 ABgh 0 10 100
+100 AB 0 10 100
 0 0 0 P
 g none~
 #30004
@@ -177,7 +177,7 @@ capitan helm шлем капитана~
 @eng Dark Capitan Helm@rus ~~Шлем~~ Капитана Орков~
 @eng Dark steel helmet lies here.@rus Стальной шлем темного цвета валяется тут.~
 steel~
-armor Ci 0 AEgk
+armor C 0 AE
 8 8 10 9 0
 30 2 1000 P
 A
@@ -192,7 +192,7 @@ orc chainmail capitan кольчуга капитана орков~
 @eng Orc'ish chainmail@rus ~~кольчуга~~ орков~
 @eng Nice mithril orc'ish chainmail lies here.@rus Высококачественная мифриловая кольчуга брошена тут.~
 mithril~
-armor EJLYkpr 0 ADgj
+armor EJLY 0 AD
 10 20 10 20 0
 30 1 5000 P
 A
@@ -207,7 +207,7 @@ robe orcish роба орков~
 @eng Silk orc'ish robe@rus ~~Шелковая~~ ~~орчья~~ ~~роба~~~
 @eng Some clothing lies on the ground.@rus Какая-то одежда (robe) лежит на земле.~
 silk~
-clothing Gm 0 AKgq
+clothing G 0 AK
 0 0 0 0 0
 30 2 1000 P
 A
@@ -224,7 +224,7 @@ capitan key капитан ключ~
 @eng steel key@rus ~~стальной~~ ~~ключ~~~
 Small steel key lies here.~
 steel~
-key U 0 AOgu
+key U 0 AO
 0 0 0 0 0
 30 2 10 P
 g male~
@@ -233,7 +233,7 @@ mithril chainmail~
 mithril chainmail~
 Nice mithril armor lies here.~
 mithril~
-armor ALgr Ci ADgj
+armor AL C AD
 15 15 15 15 0
 15 3 1000 P
 A
@@ -246,23 +246,23 @@ spellbook orc книга орков~
 @eng shaman spellbook@rus книга шамана~
 @eng Small book with orcish symbols lies here.@rus Небольшая книга с надписями на оркском языке лежит тут.~
 paper~
-treasure EJLkpr 0 AOgu
+treasure EJL 0 AO
 0 0 0 0 0
 30 2 100 P
 A
 13 25
-S 'sleep' 75 Ag
-S 'curse' 75 Ag
+S 'sleep' 75 A
+S 'curse' 75 A
 g none~
 #30010
 black candle черная свеча~
 @eng black candle@rus черная свеча~
 @eng Black candle maked from human blood and dark wax lies here.@rus Черная свеча, сделанная из крови человека и темного воска, лежит тут.~
 unknown~
-light AJLgpr 0 AOgu
+light AJL 0 AO
 0 0 -1 0 0
 30 1 0 P
-S 'meditation' 75 Ag
+S 'meditation' 75 A
 A
 19 2
 g none~
@@ -271,8 +271,8 @@ shaman girdle пояс шамана~
 @eng shaman girdle@rus пояс шамана~
 @eng Small girdle with black symbols lies here.@rus Небольшой пояс с черными символами лежит тут.~
 unknown~
-container Jp 0 ALgr
-100 Ag 0 20 25
+container J 0 AL
+100 A 0 20 25
 30 0 0 P
 A
 4 3
@@ -286,7 +286,7 @@ small necklace маленькое ожерелье bone костяное~
 @eng bone necklace@rus костяное ожерелье~
 @eng Small necklace, maked from animal bone, lies here.@rus Маленькое ожерелье из кости какого-то животного забыто здесь.~
 bone~
-treasure Gm 0 ACgi
+treasure G 0 AC
 0 0 0 0 0
 0 4 10 P
 A
@@ -299,10 +299,10 @@ heavy stone club тяжелая каменная дубина~
 @eng heavy stone club@rus тяжелая каменная дубина~
 @eng Huge stone club lies here.@rus Огромная каменная дубина лежит тут.~
 stone~
-weapon 0 0 ANgt
-mace 9 5 'smash' Gm
+weapon 0 0 AN
+mace 9 5 'smash' G
 35 1 15000 P
-S 'critical strike' 25 Ag
+S 'critical strike' 25 A
 A
 19 5
 A
@@ -313,21 +313,25 @@ svetilka~
 svetilka~
 Some Light lies here~
 unknown~
-light 0 0 AOgu
+light 0 0 AO
 0 0 -1 0 0
 50 0 0 P
-S 'lay hands' 100 Ag
-S 'cure disease' 100 Ag
-S 'calm' 100 Ag
-F i 0 0 Gm
-F A 0 0 Tz
+S 'lay hands' 100 A
+S 'cure disease' 100 A
+S 'calm' 100 A
+F d 0 0 E
+F i 0 0 G
+F A 0 0 T
 F A 0 0 U
-F d 0 0 Lr
-F d 0 0 Hn
-F d 0 0 Bh
-F d 0 0 Ag
-F d 0 0 Ms
-F d 0 0 Kq
+F d 0 0 L
+F d 0 0 H
+F d 0 0 C
+F d 0 0 F
+F d 0 0 D
+F d 0 0 B
+F d 0 0 A
+F d 0 0 M
+F d 0 0 K
 g none~
 #30099
 fountain~
@@ -367,7 +371,7 @@ dangerous to inter inside.
 D0
 ~
 ~
-ABZgh 0 30002
+ABZ 0 30002
 D2
 ~
 ~
@@ -390,7 +394,7 @@ Z 0 30004
 D2
 ~
 gate~
-ABZgh 0 30001
+ABZ 0 30001
 D3
 ~
 ~
@@ -414,7 +418,7 @@ S
 @eng Dark tunnel walking from Guard room to Mordor.
 @rus Этот темный туннель ведет от комнаты стражи к самому Мордору.
 ~
-0 AXg inside
+0 AX inside
 D2
 ~
 ~
@@ -443,7 +447,7 @@ Z 0 30004
 D3
 ~
 ~
-ABCFGZghilm 0 30006
+ABCFGZ 0 30006
 S
 #30006
 @eng Prison behind the Guard Room@rus Темница за Комнатой Стражи~
@@ -456,7 +460,7 @@ There are a lot of rats and bats in this room. Very cold...
 D1
 ~
 ~
-ABCFGZghilm 30007 30005
+ABCFGZ 30007 30005
 S
 #30007
 @eng End Of the Dark Tunnel@rus Конец Темного Туннеля~

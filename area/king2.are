@@ -19,10 +19,10 @@ Despite that, you know he is well-loved throughout the land, and has
 a reputation as a wise and just ruler.
 ~
 human~
-Bh 0 Hn 0 Ag 1000 0
+B 0 H 0 A 1000 0
 48 0 25d10+3750 479d1+11 6d6+18 'punch'
 -18 -18 -18 3
-ADEKgjkq
+ADEK
 stand stand male 10000
 0 0 medium unknown
 r bash -50
@@ -36,10 +36,10 @@ You hear a frightening wail, and see a horrible Ghost approaching.
 The Ghost is almost translucent, and looks really SCARY!
 ~
 modron~
-CFHRilnx 0 ITUoz Ag ABgh -900 0
+CFHJR 0 ITU A AB -900 0
 30 0 6d12+778 299d1+1 5d4+7 'wrath'
 -9 -9 -9 1
-FGKlmq
+FGK
 stand stand either 0
 0 0 small unknown
 r bash -50
@@ -55,10 +55,10 @@ them as uniform. He seems very well trained, and moves like an
 experienced fighter.
 ~
 human~
-Gm 0 0 0 0 800 0
+G 0 0 0 0 800 0
 35 0 10d10+1300 349d1+1 4d7+11 'punch'
 -11 -11 -11 5
-CEFIKRikloqx
+CEFIKR
 stand stand male 5500
 0 0 medium unknown
 #15204
@@ -68,10 +68,10 @@ Brian the Royal guard is here, training with the Master.
 ~
 human~
 unique~
-BGhm 0 0 0 0 800 0
+BG 0 0 0 0 800 0
 36 0 10d10+1400 359d1+1 3d10+11 'punch'
 -12 -12 -12 4
-DEFIKRjkloqx
+DEFIKR
 stand stand male 5600
 0 0 medium unknown
 #15205
@@ -84,10 +84,10 @@ them as uniform. He seems very well trained, and moves like an
 experienced fighter.
 ~
 human~
-BGhm 0 0 0 0 800 0
+BG 0 0 0 0 800 0
 37 0 10d10+1500 367d1+1 3d10+12 'punch'
 -12 -12 -12 4
-CDFIKRijloqx
+CDFIKR
 stand stand male 5700
 0 0 medium unknown
 #15206
@@ -100,10 +100,10 @@ them as uniform. He seems very well trained, and moves like an
 experienced fighter.
 ~
 human~
-Gm 0 0 0 0 800 0
+G 0 0 0 0 800 0
 38 0 10d10+1600 379d1+1 5d6+12 'punch'
 -13 -13 -13 4
-CDEIKRijkoqx
+CDEIKR
 stand stand male 5800
 0 0 medium unknown
 #15207
@@ -116,10 +116,10 @@ them as uniform. He seems very well trained, and moves like a fighter
 who has seen more than one battle, and longs to see the next!
 ~
 human~
-Gm 0 0 0 0 900 0
+G 0 0 0 0 900 0
 39 0 15d10+1700 389d1+1 5d6+13 'punch'
 -13 -13 -13 4
-CDEFKRijklqx
+CDEFKR
 stand stand male 5900
 0 0 medium unknown
 #15208
@@ -132,10 +132,10 @@ them as uniform. She seems very well trained, and moves like a fighter
 who has seen more than one battle, and longs to see the next!
 ~
 human~
-Gm 0 0 0 0 900 0
+G 0 0 0 0 900 0
 40 0 15d10+1850 399d1+1 4d8+13 'punch'
 -13 -13 -13 4
-CDEFIRijklox
+CDEFIR
 stand stand female 6000
 0 0 medium unknown
 #15209
@@ -148,10 +148,10 @@ them as uniform. He seems very well trained, and moves like a fighter
 who has seen more than one battle, and longs to see the next!
 ~
 human~
-Gm 0 0 0 0 900 0
+G 0 0 0 0 900 0
 40 0 15d10+1850 399d1+1 4d8+13 'punch'
 -13 -13 -13 4
-CDEFIKRijkloqx
+CDEFIKR
 stand stand male 6000
 0 0 medium unknown
 #15210
@@ -164,10 +164,10 @@ them as uniform. He seems very well trained, and carries his scars
 with pride. This guy seems tough...
 ~
 human~
-Gm 0 0 0 0 900 0
+G 0 0 0 0 900 0
 35 0 10d10+1300 349d1+1 4d7+11 'punch'
 -11 -11 -11 6
-EFIKRkloqx
+EFIKR
 stand stand male 5500
 0 0 medium unknown
 #15211
@@ -180,10 +180,10 @@ them as uniform. She seems very well trained, and carries her scars
 with pride. This girl could be nasty if she wanted to...
 ~
 human~
-Gm 0 0 0 0 900 0
+G 0 0 0 0 900 0
 42 0 25d10+1250 339d1+1 3d12+14 'punch'
 -14 -14 -14 4
-CDIKRijoqx
+CDIKR
 stand stand female 5400
 0 0 medium unknown
 #15212
@@ -200,10 +200,10 @@ and you have to fight a sudden urge to come to attention as you see
 him.
 ~
 human~
-Gm 0 0 0 0 900 0
+G 0 0 0 0 900 0
 51 0 50d10+5000 469d1+1 5d8+20 'punch'
 -21 -21 -21 2
-CDEFIKRijkloqx
+CDEFIKR
 stand stand male 9700
 0 0 medium unknown
 #15213
@@ -215,10 +215,10 @@ Aged, but experienced, the Training Master is skilled in the use
 of virtually every weapon type invented by Man.
 ~
 human~
-BGThmz 0 0 0 0 950 0
+BGT 0 0 0 0 950 0
 48 0 25d10+3500 459d1+1 6d6+17 'punch'
 -17 -17 -17 3
-CDEFHIKNRijklnoqtx
+CDEFHIKNR
 stand stand male 10000
 0 0 medium unknown
 #15214
@@ -233,7 +233,7 @@ human~
 0 0 0 0 0 800 0
 31 0 6d12+928 309d1+1 4d6+9 'punch'
 -10 -10 -10 5
-CDEFIKRijkloqx
+CDEFIKR
 stand stand male 3000
 0 0 medium unknown
 #15215
@@ -248,10 +248,10 @@ of the undoubtedly great warrior he once was, but still to be reckoned
 with.
 ~
 giant~
-BCFHhiln 0 0 0 0 -1000 0
+BCFHJ 0 0 0 0 -1000 0
 42 0 25d10+2250 419d1+1 3d12+14 'punch'
 -14 -14 -14 4
-BDJhjp
+BDJ
 stand stand male 1000
 0 0 medium unknown
 #15216
@@ -280,7 +280,7 @@ elf~
 0 0 0 0 0 800 0
 20 -1 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
-Io
+I
 stand stand female 100
 0 0 medium unknown
 r bash -50
@@ -297,7 +297,7 @@ centipede~
 0 0 0 0 0 -550 0
 28 0 6d12+703 279d1+1 2d12+7 'thrust'
 -8 -8 -8 6
-Ek
+E
 stand stand either 10000
 0 0 medium unknown
 r pierce 0
@@ -309,10 +309,10 @@ The Astrologer is sitting here, studying a book.
 ~
 lizard~
 unique~
-BRhx 0 0 0 0 900 0
+BR 0 0 0 0 900 0
 45 0 25d10+2750 449d1+1 3d12+14 'wrath'
 -15 -15 -15 -2
-FGlm
+FG
 stand stand male 10000
 0 0 tiny unknown
 r bash -50
@@ -342,10 +342,10 @@ doubt that he is completely prepared to give his life
 for the King, if necessary.
 ~
 human~
-Bh 0 0 0 Ag 900 15201
+B 0 0 0 A 900 15201
 51 0 50d10+5000 509d1+1 5d8+20 'punch'
 -21 -21 -21 2
-CDEFHIKRijklnoqx
+CDEFHIKR
 stand stand male 10000
 0 0 medium unknown
 #15221
@@ -358,10 +358,10 @@ doubt that he is completely prepared to give his life
 for the King, if necessary.
 ~
 human~
-Bh 0 0 0 Ag 900 15201
+B 0 0 0 A 900 15201
 51 0 50d10+5000 509d1+1 5d8+20 'punch'
 -21 -21 -21 2
-CDEFHIKRijklnoqx
+CDEFHIKR
 stand stand male 10000
 0 0 medium unknown
 #15222
@@ -373,10 +373,10 @@ It seems he has been tasting his own food a bit too enthusiastically.
 He is, in other words, a bit fat.
 ~
 human~
-Hn 0 0 0 0 500 0
+H 0 0 0 0 500 0
 45 0 25d10+3000 449d1+1 8d4+16 'punch'
 -15 -15 -15 4
-EHkn
+EH
 stand stand male 4000
 0 0 medium unknown
 r fire -50
@@ -401,10 +401,10 @@ There is a Cook here, making himself busy with a pot.
 A junior cook, eager to do the Chef's bidding.
 ~
 human~
-BHhn 0 0 0 0 300 0
+BH 0 0 0 0 300 0
 41 0 25d10+2000 409d1+1 4d8+14 'none'
 -14 -14 -14 4
-EHkn
+EH
 stand stand male 3000
 0 0 medium unknown
 r fire -50
@@ -430,10 +430,10 @@ He really is big, and you get the feeling he wouldn't take kindly
 to an attempt to get past him.
 ~
 human~
-Bh 0 0 0 Ag 250 0
+B 0 0 0 A 250 0
 36 0 10d10+1400 359d1+1 3d10+11 'punch'
 -12 -12 -12 5
-CDEFIKRijkloqx
+CDEFIKR
 stand stand male 3600
 0 0 medium unknown
 #15225
@@ -445,10 +445,10 @@ He really is big, and you get the feeling he wouldn't take kindly
 to an attempt to get past him.
 ~
 human~
-Bh 0 0 0 Ag 250 0
+B 0 0 0 A 250 0
 36 0 10d10+1400 359d1+1 3d10+11 'punch'
 -12 -12 -12 5
-CEFIKRikloqx
+CEFIKR
 stand stand male 3600
 0 0 medium unknown
 #15226
@@ -461,10 +461,10 @@ them as uniform. He seems very well trained, and moves like an
 experienced fighter.
 ~
 human~
-Gm 0 0 0 0 800 0
+G 0 0 0 0 800 0
 43 0 25d10+2500 429d1+1 3d12+15 'punch'
 -15 -15 -15 4
-CDFIKRijloqx
+CDFIKR
 stand stand male 6700
 0 0 medium unknown
 #15227
@@ -477,10 +477,10 @@ them as uniform. He seems very well trained, and moves like an
 experienced fighter.
 ~
 human~
-Gm 0 0 0 0 800 0
+G 0 0 0 0 800 0
 42 0 25d10+2250 419d1+1 3d12+14 'punch'
 -14 -14 -14 4
-CDFIKRijloqx
+CDFIKR
 stand stand male 6200
 0 0 medium unknown
 #15228
@@ -493,10 +493,10 @@ them as uniform. He seems very well trained, and moves like a fighter
 who has seen more than one battle, and longs to see the next!
 ~
 human~
-Gm 0 0 0 0 900 0
+G 0 0 0 0 900 0
 44 0 25d10+2750 439d1+1 8d4+15 'punch'
 -15 -15 -15 4
-DEFIKRjkloqx
+DEFIKR
 stand stand male 6400
 0 0 medium unknown
 #15229
@@ -509,10 +509,10 @@ them as uniform. He seems very well trained, and carries his scars
 with pride. This guy seems tough...
 ~
 human~
-Gm 0 0 0 0 900 0
+G 0 0 0 0 900 0
 41 0 25d10+2000 409d1+1 4d8+14 'punch'
 -14 -14 -14 4
-DEIKRjkoqx
+DEIKR
 stand stand male 6100
 0 0 medium unknown
 #15230
@@ -523,10 +523,10 @@ Executioner is here on duty.
 Big. Very big. Not stupid like Hassan but dagerous like one.
 ~
 giant~
-BFTchlz 0 NOVctu 0 ABKLMghqrs 1000 0
+BFTc 0 NOVc 0 ABKLM 1000 0
 60 0 50d10+9500 599d1+1 8d6+28 'punch'
 -30 -30 -30 0
-CDEFGHIJKNijklmnopqt
+CDEFGHIJKN
 stand stand male 8457
 0 0 large unknown
 r fire 0
@@ -549,7 +549,7 @@ universal~
 sapowox's Universal Nothingness~
 You are quite unable to perceive Sapowox's Universal Nothingness here.~
 nothingness~
-weapon BGMhms 0 ANgt
+weapon BGM 0 AN
 exotic 6 7 'peck' 0
 45 70 16750 G
 A
@@ -573,7 +573,7 @@ sceptre royal golden~
 a golden sceptre~
 A golden Royal sceptre lies on the ground.~
 gold~
-furniture GKmq 0 AOgu
+furniture GK 0 AO
 0 0 0 0 0
 50 200 27225 G
 A
@@ -584,7 +584,7 @@ crown golden~
 a golden crown~
 A magnificently jewelled golden crown has been left here.~
 gold~
-armor GKmq 0 AEgk
+armor GK 0 AE
 16 17 16 6 0
 50 400 28244 G
 A
@@ -597,7 +597,7 @@ apple golden~
 a golden apple~
 There is a golden apple here.~
 gold~
-light GKmq 0 Ag
+light GK 0 A
 0 0 -1 0 0
 50 50 27720 G
 g none~
@@ -619,7 +619,7 @@ sword training~
 a training sword~
 A training sword with blunt edges is leaned against a wall.~
 iron~
-weapon Gm 0 ANgt
+weapon G 0 AN
 sword 5 8 'scratch' 0
 35 70 9000 G
 A
@@ -630,7 +630,7 @@ key huge~
 a huge key~
 There is a huge, heavy-looking key on the floor here.~
 metal~
-key Ms 0 AOgu
+key M 0 AO
 0 0 0 0 0
 36 10 1000 G
 g none~
@@ -639,7 +639,7 @@ key butlers butler~
 the Butler's key~
 The Butler's key is here.~
 metal~
-key Ms 0 AOgu
+key M 0 AO
 0 0 0 0 0
 35 20 100 G
 g none~
@@ -648,7 +648,7 @@ key small~
 a small key~
 A small key lies here.~
 metal~
-key Ms 0 AOgu
+key M 0 AO
 0 0 0 0 0
 40 200 0 G
 g none~
@@ -657,8 +657,8 @@ chest wooden~
 a large wooden chest~
 A large wooden chest stands here in a corner.~
 wood~
-container 0 0 Ag
-400 ABCDghij 15209 100 60
+container 0 0 A
+400 ABCD 15209 100 60
 40 400 17389 G
 E
 chest~
@@ -671,7 +671,7 @@ vial large potion brown~
 a large vial~
 A large vial has been left here.~
 glass~
-potion Gm 0 Ag
+potion G 0 A
 15 'cure critical' 'cure light' '' ''
 40 200 15500 G
 E
@@ -683,7 +683,7 @@ banner royal~
 a royal banner~
 The royal banner has been firmly planted in the ground here.~
 velvet~
-furniture AGgm 0 AOgu
+furniture AG 0 AO
 0 0 0 0 0
 40 300 25000 G
 A
@@ -705,7 +705,7 @@ key~
 a key~
 A key lies on the floor.~
 metal~
-key Ms 0 Ag
+key M 0 A
 0 0 0 0 0
 50 300 2000 G
 E
@@ -718,7 +718,7 @@ mail chain hauberk~
 a guard's chain mail hauberk~
 A chain mail hauberk lies on the floor~
 steel~
-armor 0 0 ADgj
+armor 0 0 AD
 12 12 12 5 0
 37 600 6240 G
 g none~
@@ -727,7 +727,7 @@ sword large broadsword~
 a large broadsword~
 There is a large broadsword lying here.~
 steel~
-weapon 0 0 ANgt
+weapon 0 0 AN
 sword 5 10 'pierce' 0
 50 140 27216 G
 g none~
@@ -736,8 +736,8 @@ lobster~
 a delicious-looking lobster~
 A delicious-looking lobster is lying here, tempting your appetite.~
 food~
-food 0 0 Ag
-ABCghi ABCghi 0 0 0
+food 0 0 A
+ABC ABC 0 0 0
 30 50 5088 G
 g none~
 #15217
@@ -745,8 +745,8 @@ caviar~
 some Russian caviar~
 There is some delicious-looking Russian caviar here, making your mouth water.~
 food~
-food 0 0 Ag
-Bh Bh 0 0 0
+food 0 0 A
+B B 0 0 0
 31 250 5189 G
 g none~
 #15218
@@ -754,7 +754,7 @@ flail large~
 a large flail~
 There is a large flail lying here.~
 steel~
-weapon 0 0 ANgt
+weapon 0 0 AN
 flail 5 7 'pound' 0
 35 140 16216 G
 g none~
@@ -763,7 +763,7 @@ large halberd protector~
 a large halberd named "Protector"~
 There is a large halberd named "Protector" lying here.~
 steel~
-weapon Gm 0 ANgt
+weapon G 0 AN
 polearm 5 10 'stab' 0
 48 140 19716 G
 A
@@ -776,7 +776,7 @@ mail chain hauberk~
 a lifeguard's chain mail hauberk~
 A chain mail hauberk lies on the floor~
 steel~
-armor Gm 0 ADgj
+armor G 0 AD
 16 16 16 7 0
 48 300 26240 G
 A
@@ -787,7 +787,7 @@ mail chain hauberk~
 a chain mail hauberk~
 A chain mail hauberk lies on the floor~
 steel~
-armor Gm 0 ADgj
+armor G 0 AD
 13 13 12 3 0
 40 400 16278 G
 A
@@ -798,7 +798,7 @@ sword short broadsword~
 a short broadsword~
 There is a short broadsword lying here.~
 steel~
-weapon 0 0 ANgt
+weapon 0 0 AN
 sword 5 8 'pierce' 0
 40 140 17276 G
 g none~
@@ -807,7 +807,7 @@ gold silver coins~
 the silver and gold coins~
 A lot of silver and gold is here.~
 gold~
-money 0 0 Ag
+money 0 0 A
 50000 0 0 0 0
 0 0 0 P
 E
@@ -820,8 +820,8 @@ weapon~
 the Executioner's evil weapon~
 There is a big evil weapon lying here.~
 steel~
-weapon 0 0 ANgt
-exotic 6 11 'blast' CGim
+weapon 0 0 AN
+exotic 6 11 'blast' CG
 60 400 3284 G
 g none~
 #15225
@@ -830,7 +830,7 @@ a large iron chest~
 A large iron chest stands here in a corner.~
 iron~
 container 0 0 0
-400 ABCDghij 15226 400 100
+400 ABCD 15226 400 100
 40 400 0 G
 g none~
 #15226
@@ -838,7 +838,7 @@ key great~
 a great key~
 A great key lies here.~
 metal~
-key Ms 0 AOgu
+key M 0 AO
 0 0 0 0 0
 60 200 0 G
 g none~
@@ -848,7 +848,7 @@ g none~
 #15200
 ~
 ~
-0 Ci inside
+0 C inside
 S
 #15201
 The King's Road~
@@ -856,7 +856,7 @@ You come out onto the great King's Road. The road is very well
 built, and goes in a straight line due east-west.
    There is a small (Glowing) (Humming) tablet.
 ~
-0 Ci city
+0 C city
 E
 small tablet~
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -924,7 +924,7 @@ You have arrived at the drawbridge leading into the Castle. Before
 you is a huge, double-doored gate. It seems very strong. You see some
 whirls in the moat.
 ~
-0 Ci city
+0 C city
 E
 whirls whirl moat~
 You can't see much, but it seems that something beneath the surface
@@ -950,7 +950,7 @@ All around the room, there are shelves with different kinds of cooking
 gear stacked on them. There is an exit to the north, and one to the east;
 both leading to small passages.
 ~
-0 Dj inside
+0 D inside
 D0
 You see a small, dimly lit passage.
 ~
@@ -968,12 +968,12 @@ You are standing in a small passage, that is clearly intended mostly
 for the servants of the Castle. It is only dimly lit and quite narrow.
 The passage leads west, and to the east there is a small door.
 ~
-0 Dj inside
+0 D inside
 D1
 The door is small and uninteresting.
 ~
 door small~
-ABZgh -1 15207
+ABZ -1 15207
 D3
 You hear clanging of pots, and smell cooking meat.
 ~
@@ -986,7 +986,7 @@ You are standing in the impressive Entrance Hall of the Castle.
 To the north is an exit into the Great Hall. There is also an exit
 east, and a small door to the west.
 ~
-0 Dj inside
+0 D inside
 D0
 You see the King's Great Hall.
 ~
@@ -1006,14 +1006,14 @@ D3
 The door is small and uninteresting.
 ~
 door small~
-ABZgh -1 15206
+ABZ -1 15206
 S
 #15208
 The Guard Room~
 You are in a small room, evidently meant for guards currently
 not on duty. There is only one exit, back to the entrance hall.
 ~
-0 Dj inside
+0 D inside
 D3
 You see the Castle Entrance.
 ~
@@ -1027,7 +1027,7 @@ no guards here, and you sense that this part of the Castle is largely
 unused. There are stairs going up to the tower, and there is also an
 exit to the north.
 ~
-0 CDij inside
+0 CD inside
 E
 stairs~
 The stairs are old, but in good repair. They lead up into the tower.
@@ -1049,7 +1049,7 @@ You are standing in a small passage, that is clearly intended
 mainly for the servants of the Castle. The passage leads north
 and south.
 ~
-0 Dj inside
+0 D inside
 D0
 You see a small, dimly lit passage.
 ~
@@ -1069,7 +1069,7 @@ closer than the clouds outside. The roof is beautifully painted, by
 someone who must have been a true master. The hall is very large,
 and could easily seat several hundred people at a banquet.
 ~
-0 Dj inside
+0 D inside
 E
 roof paintings paint~
 The paintings on the roof depict the great heroes and gods. One of
@@ -1098,7 +1098,7 @@ and could easily seat several hundred people at a banquet. To your
 north, you see King Welmar's great throne, and to the south is the
 Castle Entrance.
 ~
-0 Dj inside
+0 D inside
 E
 roof paintings paint~
 The paintings on the roof depict the great heroes and gods. One of
@@ -1135,7 +1135,7 @@ closer than the clouds outside. The roof is beautifully painted, by
 someone who must have been a true master. The hall is very large,
 and could easily seat several hundred people at a banquet.
 ~
-0 Dj inside
+0 D inside
 E
 roof paintings paint~
 The paintings on the roof depict the great heroes and gods. One of
@@ -1159,7 +1159,7 @@ A passage~
 You are standing in a passage, that leads north and south. To the south
 it leads towards one of towers.
 ~
-0 Dj inside
+0 D inside
 D0
 You see the small passage continue.
 ~
@@ -1175,7 +1175,7 @@ The passage~
 You are in a passage, that leads north and south. To the east there
 is an exit to the Great Hall.
 ~
-0 Dj inside
+0 D inside
 D0
 You see the passage continue.
 ~
@@ -1202,7 +1202,7 @@ and could easily seat several hundred people at a banquet. To your
 east, you see King Welmar's great throne, and to the west there is
 an exit to a passage.
 ~
-0 Dj inside
+0 D inside
 E
 roof paintings paint~
 The paintings on the roof depict the great heroes and gods. One of
@@ -1235,7 +1235,7 @@ single block of ivory, though you shiver at the thought of meeting
 the animal that died to yield a piece of that size. The Hall continues
 to the east, west and south.
 ~
-0 Dj inside
+0 D inside
 E
 roof paintings paint~
 The paintings on the roof depict the great heroes and gods. One of
@@ -1274,7 +1274,7 @@ and could easily seat several hundred people at a banquet. To your
 west, you see King Welmar's great throne, and to the east there is
 an exit to a small passage.
 ~
-0 Dj inside
+0 D inside
 E
 roof paintings paint~
 The paintings on the roof depict the great heroes and gods. One of
@@ -1303,7 +1303,7 @@ The small passage~
 You are standing in a small passage, that leads north and south.
 To the west, there is an exit into the Great Hall.
 ~
-0 Dj inside
+0 D inside
 D0
 The passage continues to the north.
 ~
@@ -1325,7 +1325,7 @@ The passage~
 You are standing in a north-south leading passage. There is a door
 to the east.
 ~
-0 Dj inside
+0 D inside
 D0
 The passage leads to a staircase.
 ~
@@ -1335,7 +1335,7 @@ D1
 The door is quite small and unobtrusive.
 ~
 door~
-ABZgh -1 15221
+ABZ -1 15221
 D2
 The passage continues to the south.
 ~
@@ -1349,12 +1349,12 @@ There are doors to the north and west. The corridor itself is mainly
 used by servants, and lacks some of the beauty of the rest of the
 castle.
 ~
-0 Dj inside
+0 D inside
 D0
 There is door there!!!
 ~
 door~
-ABZgh -1 15226
+ABZ -1 15226
 D1
 The corridor seems to come to its end a bit further east.
 ~
@@ -1364,19 +1364,19 @@ D3
 The door is made out of wood.
 ~
 door wood~
-ABZgh -1 15220
+ABZ -1 15220
 S
 #15222
 The end of the servants' corridor~
 The corridor leads only west from here, but there is a door to
 the north.
 ~
-0 Dj inside
+0 D inside
 D0
 The door leads to a room intended for the butler.
 ~
 door~
-ABCZghi 15208 15227
+ABCZ 15208 15227
 D3
 You see the corridor continue.
 ~
@@ -1391,12 +1391,12 @@ of the weapons seem to be intended for training only, with blunt
 edges and the like, but there are some that might be useful for
 real fighting. There is a door to the north.
 ~
-0 Dj inside
+0 D inside
 D0
 The door is large and heavy.
 ~
 door large heavy~
-ABZgh -1 15228
+ABZ -1 15228
 D1
 You see a small passage.
 ~
@@ -1409,7 +1409,7 @@ You are standing in a small passage leading north and south. There
 is also an exit to the west, from which grunts, cheers and heavy
 blows can be heard.
 ~
-0 Dj inside
+0 D inside
 D0
 The passage leads north to some stairs.
 ~
@@ -1433,7 +1433,7 @@ second floor of the Castle. The stairs are made of marble, and there
 are pillars carved in the likenesses of trees with little animals running
 up and down the trunks.
 ~
-0 Dj inside
+0 D inside
 E
 stairs stair~
 Made out of marble, and as all the rest of the Castle made primarily
@@ -1460,7 +1460,7 @@ You are standing in a large room, that seems to house many of the
 servants. The room is full of comfortable-looking beds. There is also
 a large chest, probably containing some of the servants' belongings.
 ~
-0 Dj inside
+0 D inside
 E
 bed~
 The beds all look comfortable, despite the fact that this is just
@@ -1470,7 +1470,7 @@ D2
 The door is made out of wood.
 ~
 door wood~
-ABZgh -1 15221
+ABZ -1 15221
 S
 #15227
 The butler's quarters~
@@ -1479,7 +1479,7 @@ in the servants' wing, and still it is large and comfortable; almost
 luxurious, in fact. There is a large bed and a drawer in the room.
 The only exit is via the door to the south.
 ~
-0 Dj inside
+0 D inside
 E
 bed~
 Looks very comfortable indeed.
@@ -1488,7 +1488,7 @@ D2
 You see the corridor.
 ~
 door~
-ABCZghi 15208 15222
+ABCZ 15208 15222
 S
 #15228
 The Guards' Barracks~
@@ -1496,7 +1496,7 @@ You are standing in a very large room with bunks all over. It is
 obvious, that this is where the guards off duty spend most of their
 time, drinking and gambling or, probably, mostly sleeping.
 ~
-0 Dj inside
+0 D inside
 E
 bunk bunks~
 They look a bit hard, but you could sleep in them.
@@ -1505,7 +1505,7 @@ D2
 The door is large and heavy.
 ~
 door large heavy~
-ABZgh -1 15223
+ABZ -1 15223
 S
 #15229
 The stairs~
@@ -1514,7 +1514,7 @@ you notice that for the first time since you entered the castle,
 things are not aesthetically made. Instead it looks more functional
 and prison-like.
 ~
-0 Dj inside
+0 D inside
 E
 stairs stair staircase~
 They seem to be made of granite, and stretch down into a more dimly
@@ -1530,7 +1530,7 @@ S
 At a bend in the corridor~
 You are standing where the corridor bends from east to north.
 ~
-0 Dj inside
+0 D inside
 D0
 You see the corridor continue.
 ~
@@ -1547,7 +1547,7 @@ The corridor~
 You are standing in a long corridor, decorated with tapestries
 depicting old times and old heroes. It leads east and west.
 ~
-0 Dj inside
+0 D inside
 D1
 You see the corridor continue.
 ~
@@ -1564,7 +1564,7 @@ The corridor~
 You are standing in a long corridor, decorated with tapestries
 depicting old times and old heroes. It leads east and west.
 ~
-0 Dj inside
+0 D inside
 D1
 You see the corridor continue.
 ~
@@ -1582,7 +1582,7 @@ You are standing in a long corridor, decorated with tapestries
 depicting old times and old heroes. The corridor continues west,
 and to the north you see the luxurious guest wing.
 ~
-0 Dj inside
+0 D inside
 D0
 You see the guest wing.
 ~
@@ -1599,7 +1599,7 @@ In the south-east tower.~
 This part of the tower is fairly uninteresting, but it leads further
 upwards...
 ~
-0 Dj inside
+0 D inside
 D4
 The room at the top of the tower seems darkish for some reason.
 ~
@@ -1617,7 +1617,7 @@ You are standing in a long corridor, decorated with tapestries
 depicting old times and old heroes. It leads north and south. There
 is also an exit to the east here.
 ~
-0 Dj inside
+0 D inside
 D0
 You see the corridor continue.
 ~
@@ -1639,7 +1639,7 @@ By the treasure room~
 You are standing by a great iron door. The door is very large, and
 seems very solid indeed. There is a sign posted by it.
 ~
-0 Dj inside
+0 D inside
 E
 sign~
 TREASURE ROOM
@@ -1651,7 +1651,7 @@ D1
 You see a large steel door.
 ~
 door steel large~
-ABCFZghil 15207 15237
+ABCFZ 15207 15237
 D3
 You see the corridor.
 ~
@@ -1667,7 +1667,7 @@ however, that most of these things are too well known to be sold
 anywhere, without branding yourself as a thief, and condemning yourself
 to instant death at the hands of the Royal Guard.
 ~
-0 DNjt inside
+0 DN inside
 E
 painting paintings carving carvings sculptures tapestries~
 It seems they are stored here temporarily to enable changing
@@ -1677,7 +1677,7 @@ D3
 You see a large steel door.
 ~
 door large steel~
-ABCFZghil 15207 15236
+ABCFZ 15207 15236
 S
 #15238
 The Guest Wing~
@@ -1685,17 +1685,17 @@ You have arrived at the part of the Castle where prominent
 guests are housed. To the east there is a large, ornamented
 door, and a somewhat smaller one leads north.
 ~
-0 Dj inside
+0 D inside
 D0
 The door seems to lead to a guest room.
 ~
 door small~
-ABZgh -1 15243
+ABZ -1 15243
 D1
 You see the guest suite behind the door.
 ~
 door ornament ornamented~
-ABZgh -1 15239
+ABZ -1 15239
 D2
 You see the corridor.
 ~
@@ -1710,7 +1710,7 @@ room of the suite, but it is huge and tastefully decorated. All the
 furniture is not only beautiful, but also made for comfort. To the
 north, there is an exit to the bedroom, and there is a door to the west.
 ~
-0 Dj inside
+0 D inside
 D0
 You see the bedroom.
 ~
@@ -1720,14 +1720,14 @@ D3
 Behind the door you see the entrance to the Guest Wing.
 ~
 door~
-ABZgh -1 15238
+ABZ -1 15238
 S
 #15240
 The corridor~
 You are standing in a long corridor, decorated with tapestries
 depicting old times and old heroes. It leads north and south.
 ~
-0 Dj inside
+0 D inside
 D0
 You see the corridor continue.
 ~
@@ -1744,7 +1744,7 @@ The Ball Room~
 You are standing in the great Ball Room. It is a truly large room,
 with a stage for an orchestra in the south-east end.
 ~
-0 Dj inside
+0 D inside
 D0
 You see the Ball Room.
 ~
@@ -1762,7 +1762,7 @@ Before you you see the stage. It is large enough for some 40
 musicians to play on at the same time. The Ball Room continues
 to the west and north.
 ~
-0 Dj inside
+0 D inside
 E
 stage~
 ~
@@ -1783,12 +1783,12 @@ You are standing in a large room. Although it is comfortable enough,
 you can tell it is not meant for any of the most illustrious guests,
 since it lacks that extreme luxury found elsewhere in the Castle.
 ~
-0 Dj inside
+0 D inside
 D2
 Behind the door, you see the entrance to the Guest Wing.
 ~
 door~
-ABZgh -1 15238
+ABZ -1 15238
 S
 #15244
 The Bedroom~
@@ -1796,7 +1796,7 @@ This room is dominated by the huge four-poster bed, that stands
 against the northern wall. The room is large and cosy, and the bed
 virtually begs you to lie down in it and sleep.
 ~
-0 Dj inside
+0 D inside
 E
 bed~
 Large, comfortable, bolstered... Invites you to sleep in it.
@@ -1813,7 +1813,7 @@ You are standing in a long corridor, decorated with tapestries
 depicting old times and old heroes. It leads north and south. There
 is an exit to the east, that leads to a large room.
 ~
-0 Dj inside
+0 D inside
 D0
 You see the corridor continue.
 ~
@@ -1835,7 +1835,7 @@ The Ball Room~
 You are standing in the great Ball Room. It is a truly large room,
 with a stage for an orchestra in the south-east end.
 ~
-0 Dj inside
+0 D inside
 D1
 You see the Ball Room.
 ~
@@ -1857,7 +1857,7 @@ The Ball Room~
 You are standing in the great Ball Room. It is a truly large room,
 with a stage for an orchestra in the south-east end.
 ~
-0 Dj inside
+0 D inside
 D1
 To the east, you can enter a tower.
 ~
@@ -1880,7 +1880,7 @@ You are standing in the north-eastern of the three great watch-
 towers of the Castle. To the west, you can enter the Ball Room and
 there are stairs leading up into the Tower.
 ~
-0 Dj inside
+0 D inside
 E
 stairs~
 The stairs are made out of granite, and seem solid enough.
@@ -1901,7 +1901,7 @@ The Grand Staircase~
 You are standing on a great staircase, that leads up and down. To
 the east, there is a large oak door, and a corridor leads south.
 ~
-0 Dj inside
+0 D inside
 E
 stairs~
 The stairs are made of marble, and there are pillars carved in the
@@ -1911,7 +1911,7 @@ D1
 The door is large and made out of oak.
 ~
 door oak large~
-ABCZghi 15213 15250
+ABCZ 15213 15250
 D2
 You see the corridor.
 ~
@@ -1934,7 +1934,7 @@ You have entered a large, cosy living room. There is a fireplace
 with a fire burning, and a few comfortable chairs around a little
 table. There is a door to the west, and also an exit to the east.
 ~
-0 Dj inside
+0 D inside
 E
 fire fireplace~
 The fire is built out of logs, and seems to be able to burn for
@@ -1957,7 +1957,7 @@ D3
 The door is large, and made out of oak.
 ~
 door large oak~
-ABCZghi 15213 15249
+ABCZ 15213 15249
 S
 #15251
 The King's Bedroom~
@@ -1968,7 +1968,7 @@ works such as: 'A Treatise on the History of Midgaard and surrounding
 areas', 'Magic - A Beginner's Introduction' and many others. There is
 an exit to the west.
 ~
-0 Dj inside
+0 D inside
 E
 books book shelf shelves bookshelf bookshelves~
 Most of the books seem worn, as if thoroughly studied. The King
@@ -2001,7 +2001,7 @@ room is small, and the only light source is a flickering candle, on
 a cluttered table, in the middle of the room. The only obvious exit
 is back down the stairs.
 ~
-0 Dj inside
+0 D inside
 E
 table~
 On the table are various objects, all very strange-looking.
@@ -2024,7 +2024,7 @@ guarding. The windows are slits for bowmen, very narrow on the
 outward side and broad inwards to allow a wide shooting angle.
 The only evident exit is down the stairs again.
 ~
-0 Dj inside
+0 D inside
 E
 window slit~
 As you look out the windows, you are granted a view of the country..
@@ -2045,7 +2045,7 @@ north and east you see a vast mountain range, and far to the west
 a beautiful lake. A bit closer, the town of Midgaard lies at the
 end of the King's Road. The only exit you can see is down again.
 ~
-0 Dj inside
+0 D inside
 D5
 You see the stairs going back down to the second floor.
 ~

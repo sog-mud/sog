@@ -19,10 +19,10 @@ wilst have to pay... To see how I may help thee, type HEAL, which will also
 show you the cost of each service".
 ~
 human~
-BGehm Dj HNnt 0 0 1000 0
+BGJe D HN 0 0 1000 0
 80 5 50d10+23500 5d5+5000 13d9+50 'divine'
 -60 -60 -60 -13
-FHKNlnqt
+FHKN
 stand stand male 1000
 0 0 medium unknown
 r charm 100
@@ -37,10 +37,10 @@ type PRAC <skillname>. Typing PRAC without an argument will display what
 skills or spells you may learn here".
 ~
 human~
-BGhm 0 HNnt 0 0 1000 0
+BG 0 HN 0 0 1000 0
 10 0 2d7+121 5d5+100 2d4+2 'pound'
 1 1 1 7
-Fl
+F
 stand stand male 1000
 0 0 medium unknown
 #31002
@@ -53,10 +53,10 @@ item that be damaged. If not, then I'm afeared there ain't
 nuthin' I can help ye with".
 ~
 human~
-BGhm 0 HNnt 0 ABKLghqr 1000 0
+BGJ 0 HN 0 ABKL 1000 0
 60 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
-FHKNlnqt
+FHKN
 stand stand male 1000
 0 0 medium unknown
 r charm 100
@@ -74,10 +74,10 @@ just want to know what it's worth, type VALUE <item> and I'll give you a
 free valuation". 
 ~
 human~
-BGehm 0 HNnt 0 0 1000 0
+BGJe 0 HN 0 0 1000 0
 70 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
-FHKNlnqt
+FHKN
 stand stand male 1000
 0 0 medium unknown
 r charm 100
@@ -93,10 +93,10 @@ you, type SELL <item>. If you just want a valuation, type VALUE <item> and
 I'll let you know what its worth for free".
 ~
 human~
-BGehm 0 HNnt 0 0 1000 0
+BGJe 0 HN 0 0 1000 0
 70 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
-FHKNlnqt
+FHKN
 stand stand male 1000
 0 0 medium unknown
 r charm 100
@@ -109,10 +109,10 @@ The Mercenary Master grunts as you enter.
 to hire 'im. That's it. Now pay up or get out".
 ~
 human~
-BGehm 0 HNnt 0 0 1000 0
+BGe 0 HN 0 0 1000 0
 70 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
-FKNlqt
+FKN
 stand stand male 1000
 0 0 medium unknown
 #31006
@@ -126,10 +126,10 @@ think I may like to buy, type SELL <item>. Alternatively I can give you
 a free evaluation of the item- simply type VALUE <item>".
 ~
 human~
-BGehm 0 HNnt 0 0 1000 0
+BGJe 0 HN 0 0 1000 0
 80 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
-FHKNlnqt
+FHKN
 stand stand female 1000
 0 0 medium unknown
 r charm 100
@@ -145,10 +145,10 @@ and then I will identify it, tell you what it does, and hand it back. Easy,
 eh? Hmmph... Anyway..."
 ~
 human~
-BGhm 0 HNnt 0 ABKLghqr 1000 0
+BGJ 0 HN 0 ABKL 1000 0
 60 0 50d10+13500 5d5+5000 13d9+50 'slash'
 -50 -50 -50 -13
-FHKNlnqt
+FHKN
 stand stand male 1000
 0 0 medium unknown
 r charm 100
@@ -164,10 +164,10 @@ to buy, simply type BUY <pet>, and if you wish to name it, add the name that
 you want it to have to the same line, i.e, BUY mouse harold".
 ~
 human~
-BGehm 0 HNnt 0 0 1000 0
+BGJe 0 HN 0 0 1000 0
 80 0 50d10+13500 5d5+5000 13d9+50 'slap'
 -50 -50 -50 -13
-FHKNlnqt
+FHKN
 stand stand male 1000
 0 0 medium unknown
 r charm 100
@@ -182,10 +182,10 @@ a skill or spell that is within my area of expertise, simply type PRAC
 spells you may learn here".
 ~
 elf~
-BGhm Dj HNnt 0 0 1000 0
+BG D HN 0 0 1000 0
 10 0 2d7+121 5d5+100 2d4+2 'pound'
 1 1 1 7
-Fl
+F
 stand stand male 1000
 0 0 medium unknown
 #31010
@@ -199,10 +199,10 @@ think I may like to buy, type SELL <item>. Alternatively I can give you
 a free evaluation of the item- simply type VALUE <item>".
 ~
 human~
-BGehm 0 HNnt 0 0 1000 0
+BGJe 0 HN 0 0 1000 0
 60 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
-FHKNlnqt
+FHKN
 stand stand female 1000
 0 0 medium unknown
 r charm 100
@@ -217,10 +217,10 @@ If ya wanna buy something, then type BUY <item>. If ya think ya got sumptin'
 I might wanna buy, type SELL <item>. Now buy up!"
 ~
 human~
-BGehm 0 HNnt 0 0 1000 0
+BGe 0 HN 0 0 1000 0
 60 0 50d10+13500 5d5+5000 13d9+50 'blast'
 -50 -50 -50 -13
-FHKNlnqt
+FHKN
 stand stand male 1000
 0 0 medium unknown
 #31012
@@ -233,10 +233,10 @@ spellflinging types. To see whats on tap, type LIST. If you see something
 you fancy, well, then type BUY <item>. OK?"
 ~
 human~
-BGehm 0 HNnt 0 0 1000 0
+BGe 0 HN 0 0 1000 0
 60 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
-FHKNlnqt
+FHKN
 stand stand male 1000
 0 0 medium unknown
 #31013
@@ -250,10 +250,10 @@ currently. If you see something you want to learn, type PRAC <skill>. Then
 you can kill KIll KILL!"
 ~
 dwarf~
-BGQhmw 0 HNnt 0 0 1000 0
+BGQ 0 HN 0 0 1000 0
 10 0 2d7+121 5d5+100 2d4+2 'pound'
 1 1 1 7
-Fl
+F
 stand stand male 1000
 0 0 medium unknown
 #31014
@@ -267,10 +267,10 @@ do NOT STEAL! We BORROW... Now with that out of the way, type PRAC to see
 what I can teach you, and PRAC skill to learn one of the skills shown."
 ~
 human~
-BCGOhimu 0 HNnt 0 Hn 1000 0
+BCGO 0 HN 0 H 1000 0
 10 0 2d7+121 5d5+100 2d4+2 'pound'
 1 1 1 7
-Fl
+F
 stand stand male 1000
 0 0 medium unknown
 #31015
@@ -282,10 +282,10 @@ A prominent employee of the Guild.
 Honest, Reliable and Courteous (yeah right).
 ~
 human~
-BGehm 0 HNnt 0 0 0 0
+BGe 0 HN 0 0 0 0
 55 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
-Fl
+F
 stand stand male 1000
 0 0 medium unknown
 #31016
@@ -297,10 +297,10 @@ A prominent employee of the Guild.
 Honest, Reliable and Courteous (yeah right).
 ~
 elf~
-BGehm 0 HNnt 0 0 0 0
+BGe 0 HN 0 0 0 0
 60 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
-FKNlqt
+FKN
 stand stand male 1000
 0 0 medium unknown
 #31017
@@ -312,10 +312,10 @@ A prominent employee of the Guild.
 Honest, Reliable and Courteous (yeah right).
 ~
 dwarf~
-BGehm 0 HNnt 0 0 0 0
+BGe 0 HN 0 0 0 0
 60 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
-FHKNlnqt
+FHKN
 stand stand male 1000
 0 0 medium unknown
 #31018
@@ -327,10 +327,10 @@ A prominent employee of the Guild.
 Honest, Reliable and Courteous (yeah right).
 ~
 human~
-BGehm 0 HNnt 0 Hn 0 0
+BGe 0 HN 0 H 0 0
 60 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
-FHKNlnqt
+FHKN
 stand stand male 1000
 0 0 medium unknown
 #31019
@@ -386,7 +386,7 @@ bear~
 0 0 0 0 0 0 0
 20 0 3d9+333 5d5+1000 2d8+5 'claw'
 -4 -4 -4 5
-CFil
+CF
 stand stand either 1000
 0 0 medium unknown
 #31023
@@ -400,7 +400,7 @@ human~
 0 0 0 0 0 0 0
 30 0 6d12+853 5d5+1000 4d6+8 'charge'
 -9 -9 -9 3
-CFil
+CF
 stand stand either 1000
 0 0 medium unknown
 #31024
@@ -412,10 +412,10 @@ Cuervo has lopped more heads off with his trusty guillotine then you EVER
 will with your weapons.
 ~
 human~
-BGhm 0 HNnt 0 Hn 0 0
+BG 0 HN 0 H 0 0
 60 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
-FKNlqt
+FKN
 stand stand male 1000
 0 0 medium unknown
 #31025
@@ -428,10 +428,10 @@ Aod the dealer stands in the shadows here.
 AOD apparently practices safe sex...
 ~
 human~
-CGeim 0 0 0 ABHghn 0 0
+CGe 0 0 0 ABH 0 0
 60 5 50d10+15500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
-FKlq
+FK
 stand stand male 1000
 0 0 medium unknown
 #31026
@@ -445,10 +445,10 @@ from me, then PRAC <skill> to learn any skill that you desire. Say... you
 have a NICE cranium..."
 ~
 human~
-BGhm 0 HNnt 0 0 0 0
+BG 0 HN 0 0 0 0
 10 0 2d7+121 5d5+100 2d4+2 'pound'
 1 1 1 7
-Fl
+F
 stand stand male 1000
 0 0 medium unknown
 #31027
@@ -463,10 +463,10 @@ train hard, and dedicate yourself to the higher disciplines of the martial
 arts".
 ~
 human~
-BGhm Dj HNnt 0 0 1000 0
+BG D HN 0 0 1000 0
 10 0 2d7+121 5d5+100 2d4+2 'pound'
 1 1 1 7
-Fl
+F
 stand stand male 1000
 0 0 medium unknown
 #31028
@@ -479,10 +479,10 @@ teach you, and if there is something I can teach you that you wish to learn,
 type PRAC <skill>. *>SQWAAK<*"
 ~
 human~
-BGYhm 0 HNnt 0 0 1000 0
+BGY 0 HN 0 0 1000 0
 10 0 2d7+121 5d5+100 2d4+2 'pound'
 1 1 1 7
-Fl
+F
 stand stand female 1000
 0 0 medium unknown
 #31029
@@ -494,10 +494,10 @@ A prominent employee of the Guild.
 Honest, Reliable and Courteous (yeah right).
 ~
 human~
-BGehm 0 HNnt 0 0 0 0
+BGJe 0 HN 0 0 0 0
 60 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
-FHKNlnqt
+FHKN
 stand stand none 1000
 0 0 medium unknown
 r charm 100
@@ -510,10 +510,10 @@ A prominent employee of the Guild.
 Honest, Reliable and Courteous (yeah right).
 ~
 human~
-BGehm 0 HNnt 0 0 0 0
+BGe 0 HN 0 0 0 0
 55 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
-FKNlqt
+FKN
 stand stand male 1000
 0 0 medium unknown
 #31031
@@ -525,10 +525,10 @@ A prominent employee of the Guild.
 Honest, Reliable and Courteous (yeah right).
 ~
 human~
-BGehm 0 HNnt 0 0 0 0
+BGe 0 HN 0 0 0 0
 55 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
-FKNlqt
+FKN
 stand stand female 1000
 0 0 medium unknown
 #31032
@@ -542,10 +542,10 @@ to do what it takes to defend his city. A veteran of more than twenty years
 of combat, he is not a man to be toyed with.
 ~
 human~
-Gm 0 HNnt 0 AHKgnq 1000 0
+G 0 HN 0 AHK 1000 0
 55 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
-FKNlqt
+FKN
 stand stand male 1000
 0 0 medium unknown
 #31033
@@ -557,7 +557,7 @@ Anon is not a huge city in terms of population, but there are a fair number
 of residents, such as this fellow.
 ~
 human~
-Gm 0 0 0 0 0 0
+G 0 0 0 0 0 0
 5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 0
@@ -572,7 +572,7 @@ Anon is not a huge city in terms of population, but there are a fair number
 of residents, such as this lady.
 ~
 human~
-Gm 0 0 0 0 0 0
+G 0 0 0 0 0 0
 5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 0
@@ -588,7 +588,7 @@ treasured by the locals. However, this endearment certainly isn't shared by
 visitors, who find the spoiled brats insufferable.
 ~
 human~
-Gm 0 0 0 0 0 0
+G 0 0 0 0 0 0
 5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 0
@@ -603,7 +603,7 @@ A janitor is walking around, cleaning up.
 YOUR crap? Grumble grumble... and these BLOODSTAINS! *SIGH*"
 ~
 human~
-Gm 0 0 0 Ag 900 0
+G 0 0 0 A 900 0
 5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 0
@@ -617,7 +617,7 @@ A footpad stalks around looking for an easy victim.
 The footpad skulks about, looking for someone to conk over the head.
 ~
 human~
-CGim 0 0 0 Hn -200 0
+CG 0 0 0 H -200 0
 5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 0
@@ -631,7 +631,7 @@ A singing, happy drunk.
 A drunk who seems to be too happy, and to carry too much money. He mumbles something unintelligible and stumbles away.
 ~
 human~
-Gm 0 0 0 Hn 400 0
+G 0 0 0 H 400 0
 5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 0
@@ -645,7 +645,7 @@ A beggar is here, well... begging.
 "Hey mista! Spare a veteran a dime?"
 ~
 human~
-BGhm 0 0 0 0 400 0
+BG 0 0 0 0 400 0
 5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
 0
@@ -659,10 +659,10 @@ A thief adroitly cuts the strings of another fat merchant's purse.
 This clever fellow has robbed dozens of unsuspecting visitors to Anon.
 ~
 human~
-GHmn 0 U BGhm HKnq 0 0
+GH 0 U BG HK 0 0
 10 0 2d7+121 5d5+100 2d4+2 'punch'
 1 1 1 7
-Fl
+F
 stand stand male 1000
 0 0 medium unknown
 #31041
@@ -673,7 +673,7 @@ The beastly fido is here looking for food.
 The beastly fido is foaming at the mouth. You smell the aroma of his latest kill.
 ~
 fido~
-GHmn 0 0 0 0 0 0
+GH 0 0 0 0 0 0
 5 0 2d6+60 5d5+100 1d6+1 'bite'
 5 5 5 9
 0
@@ -688,7 +688,7 @@ Rats! Eeyew! They come up out of the sewer and steal the children of Anon.
 Good.
 ~
 unique~
-GHmn 0 0 0 Hn 0 0
+GH 0 0 0 H 0 0
 5 0 2d6+60 5d5+100 1d6+1 'bite'
 5 5 5 9
 0
@@ -702,7 +702,7 @@ A stray cat rummages through some trash here.
 The cat suddenly emerges, triumphant, with a half-eaten steak, and runs off.
 ~
 cat~
-GHmn 0 0 0 0 0 0
+GH 0 0 0 0 0 0
 5 0 2d6+60 5d5+100 1d6+1 'claw'
 5 5 5 9
 0
@@ -718,10 +718,10 @@ continent. Dedicated, loyal, efficient, he is the epitome of Truth, Justice
 and the Anon Way :).
 ~
 human~
-GTmz 0 Nt 0 Kq 1000 0
+GT 0 N 0 K 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-CDFIJKijlopq
+CDFIJK
 stand stand male 1000
 0 0 medium unknown
 #31045
@@ -734,10 +734,10 @@ continent. Dedicated, loyal, efficient, she is the epitome of Truth, Justice
 and the Anon Way :).
 ~
 human~
-Gm 0 Nt 0 Kq 1000 0
+G 0 N 0 K 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-CDFIJKijlopq
+CDFIJK
 stand stand female 1000
 0 0 medium unknown
 #31046
@@ -750,10 +750,10 @@ continent. Dedicated, loyal, efficient, he is the epitome of Truth, Justice
 and the Anon Way :).
 ~
 human~
-BGhm 0 Nt 0 Kq 1000 0
+BG 0 N 0 K 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-CDFIJKijlopq
+CDFIJK
 stand stand male 1000
 0 0 medium unknown
 #31047
@@ -764,10 +764,10 @@ A Hobbit Mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 human~
-0 0 0 0 BHhn 0 0
+0 0 0 0 BH 0 0
 15 0 3d9+208 5d5+100 2d6+3 'pound'
 -2 -2 -2 6
-CDFijl
+CDF
 stand stand male 1000
 0 0 medium unknown
 #31048
@@ -778,10 +778,10 @@ An Elven Mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 elf~
-0 0 0 0 Ag 0 0
+0 0 0 0 A 0 0
 20 0 3d9+333 5d5+1000 2d8+5 'pound'
 -4 -4 -4 5
-Fl
+F
 stand stand male 1000
 0 0 medium unknown
 #31049
@@ -792,10 +792,10 @@ A Dwarven Mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 dwarf~
-0 0 Nt 0 0 0 0
+0 0 N 0 0 0 0
 25 0 5d10+550 5d5+1000 2d10+7 'pound'
 -7 -7 -7 4
-DFjl
+DF
 stand stand male 1000
 0 0 medium unknown
 #31050
@@ -806,10 +806,10 @@ A Trollish Mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 human~
-0 0 Nt 0 Hn 0 0
+0 0 N 0 H 0 0
 30 0 6d12+853 5d5+1000 4d6+8 'pound'
 -9 -9 -9 3
-CDEFijkl
+CDEF
 stand stand male 1000
 0 0 medium unknown
 #31051
@@ -820,10 +820,10 @@ A Hill Giant Mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 giant~
-0 0 Nt 0 0 0 0
+0 0 N 0 0 0 0
 35 0 10d10+1300 5d5+1000 4d7+11 'charge'
 -11 -11 -11 3
-CDEFijkl
+CDEF
 stand stand male 1000
 0 0 medium unknown
 #31052
@@ -834,10 +834,10 @@ A Half-Dragon Mercenary scowls menacingly at you.
 This Merc looks big and tough. Better be careful.
 ~
 dragon~
-0 0 0 0 ABgh 0 0
+0 0 0 0 AB 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'claw'
 -13 -13 -13 3
-CDEFijkl
+CDEF
 stand stand male 1000
 0 0 medium unknown
 #31053
@@ -850,10 +850,10 @@ goes on to tell you that you can have anything you want, as long as it's
 deep-fried. That includes the pizza...
 ~
 human~
-Gem 0 HNnt 0 Hn 1000 0
+GJe 0 HN 0 H 1000 0
 60 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
-FHKNlnqt
+FHKN
 stand stand male 1000
 0 0 medium unknown
 r charm 100
@@ -867,10 +867,10 @@ continent. Dedicated, loyal, efficient, he is the epitome of Truth, Justice
 and the Anon Way :).
 ~
 human~
-BGehm 0 Nt 0 Kq 1000 0
+BGe 0 N 0 K 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-CDEFijkl
+CDEF
 stand stand male 1000
 0 0 medium unknown
 #31055
@@ -884,10 +884,10 @@ isn't saying much as it is the ONLY place that serves Cafe-style food in
 all of Anon...
 ~
 human~
-BGehm 0 HNnt 0 Hn 1000 0
+BGe 0 HN 0 H 1000 0
 60 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
-FHKNlnqt
+FHKN
 stand stand female 1000
 0 0 medium unknown
 #31056
@@ -900,7 +900,7 @@ currently living outside the city of Tentchenanwhan, far beneath the surface
 of Anon.
 ~
 human~
-BGhm 0 Nt 0 ABHKLghnqr -400 0
+BG 0 JN 0 ABHKL -400 0
 10 0 2d7+121 5d5+100 2d4+2 'pound'
 1 1 1 7
 0
@@ -915,10 +915,10 @@ Alix smiles and asks you to tell him the name of the item you wish to be
 rid of.
 ~
 human~
-BGhm 0 HNnt 0 ABHKLghnqr 1000 0
+BG 0 HN 0 ABHKL 1000 0
 60 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
-FHKNlnqt
+FHKN
 stand stand male 1000
 0 0 medium unknown
 #31058
@@ -930,10 +930,10 @@ Clea smiles languidly and asks you to hand over the stave that needs
 recharging, chuckling at her deliberate innuendo as she does.
 ~
 human~
-BGhm 0 HNnt 0 ABHKLghnqr 1000 0
+BG 0 HN 0 ABHKL 1000 0
 65 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
-FHKNlnqt
+FHKN
 stand stand female 1000
 0 0 medium unknown
 #31059
@@ -946,10 +946,10 @@ history, social structure and legends of the many races of Anon. He is more
 than willing to sell you a book.
 ~
 human~
-BGehm 0 Hn 0 Ag 1000 0
+BGe 0 H 0 A 1000 0
 55 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
-Fl
+F
 stand stand male 1000
 0 0 medium unknown
 #31060
@@ -962,10 +962,10 @@ surprisingly dextrous. He also purchases keys off of players. Try selling
 him one!
 ~
 human~
-Gem 0 Hn 0 Ag 1000 0
+Ge 0 H 0 A 1000 0
 63 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
-Fl
+F
 stand stand male 1000
 0 0 medium unknown
 #31061
@@ -977,10 +977,10 @@ Thom will assist you in enhancing your stats. Simply type enhance <stat>
 to do so. Type HELP ENHANCE for assistance.
 ~
 human~
-BGhm Ci Hn 0 0 0 0
+BG C H 0 0 0 0
 60 0 50d10+13500 5d5+5000 13d9+50 'pound'
 -50 -50 -50 -13
-Fl
+F
 stand stand male 1000
 0 0 medium unknown
 #31062
@@ -993,7 +993,7 @@ extremely agitated because a swamp spirit has stolen his gem. Perhaps you
 can retrieve it for him?
 ~
 human~
-BGhm 0 Hn 0 Hn 0 0
+BG 0 H 0 H 0 0
 6 0 2d7+71 5d5+100 1d7+1 'punch'
 4 4 4 8
 0
@@ -1007,7 +1007,7 @@ key~
 a tasselled key~
 The Key to the City Gates.~
 gold~
-key 0 0 AOgu
+key 0 0 AO
 0 0 0 0 0
 0 1 0 P
 g none~
@@ -1016,7 +1016,7 @@ key~
 a bronze key~
 The Key to the City Dungeon.~
 bronze~
-key 0 0 AOgu
+key 0 0 AO
 0 0 0 0 0
 0 1 0 P
 g none~
@@ -1025,7 +1025,7 @@ barrel beer~
 a Barrel of Argh's beer~
 A beer barrel has been left here.~
 metal~
-drink 0 0 Ag
+drink 0 0 A
 30 30 'beer' 0 0
 0 60 300 P
 g none~
@@ -1034,7 +1034,7 @@ bottle beer~
 a bottle of Yaegar (TM) beer~
 A beer bottle has been left here.~
 glass~
-drink 0 0 Ag
+drink 0 0 A
 4 4 'beer' 0 0
 0 10 20 P
 g none~
@@ -1043,7 +1043,7 @@ bottle ale~
 a Bottle of Marius (TM) ale~
 A dark bottle of Marius (TM) ale has been left here.~
 glass~
-drink 0 0 Ag
+drink 0 0 A
 5 5 'ale' 0 0
 0 10 10 P
 g none~
@@ -1052,7 +1052,7 @@ bottle firebreather~
 a Bottle of Rainman firebreather~
 A firebreather has been left here.~
 glass~
-drink 0 0 Ag
+drink 0 0 A
 8 8 'firebreather' 0 0
 0 10 50 P
 g none~
@@ -1061,7 +1061,7 @@ bottle local~
 a bottle of local specialty~
 A dark bottle has been left here.~
 glass~
-drink 0 0 Ag
+drink 0 0 A
 8 8 'local specialty' 0 0
 0 10 20 P
 g none~
@@ -1070,7 +1070,7 @@ torch~
 a torch~
 A large torch.~
 wood~
-light 0 0 AOgu
+light 0 0 AO
 0 0 24 0 0
 0 1 10 P
 g none~
@@ -1079,7 +1079,7 @@ lantern~
 a hooded brass lantern~
 A hooded brass lantern has been left here.~
 brass~
-light 0 0 AOgu
+light 0 0 AO
 0 0 100 0 0
 0 4 60 P
 E
@@ -1098,7 +1098,7 @@ scroll identify~
 a scroll of identify~
 A scroll has carelessly been left here.~
 vellum~
-scroll Gm 0 Ag
+scroll G 0 A
 12 'identify' '' '' ''
 0 1 2000 P
 g none~
@@ -1107,7 +1107,7 @@ potion yellow~
 a yellow potion of see invisible~
 A small yellow potion has carelessly been left here.~
 glass~
-potion Gm 0 Ag
+potion G 0 A
 12 'detect invis' '' '' ''
 0 10 220 P
 E
@@ -1120,7 +1120,7 @@ skin water buffalo~
 a buffalo water skin~
 A buffalo water skin is on the floor.~
 leather~
-drink 0 0 Ag
+drink 0 0 A
 25 25 'water' 0 0
 0 5 30 P
 g none~
@@ -1129,7 +1129,7 @@ jug water~
 a jug of water~
 A large jug of water sloshes on the floor.~
 glass~
-drink Ag 0 Ag
+drink A 0 A
 60 60 'water' 0 0
 0 85 20 P
 g none~
@@ -1138,7 +1138,7 @@ club~
 a heavy lead-sheathed club~
 A heavy club sheathed in lead lies here.~
 wood~
-weapon 0 0 ANgt
+weapon 0 0 AN
 mace 3 3 'crush' 0
 5 30 20 P
 A
@@ -1151,7 +1151,7 @@ mace~
 a Sturdy Mace~
 A Sturdy Mace lies here.~
 wood~
-weapon 0 0 ANgt
+weapon 0 0 AN
 mace 2 4 'pound' 0
 6 20 0 P
 A
@@ -1164,7 +1164,7 @@ dagger~
 a Dagger~
 A good backstabbing weapon, this.~
 steel~
-weapon 0 0 ANgt
+weapon 0 0 AN
 dagger 3 4 'pierce' 0
 13 15 0 P
 A
@@ -1177,7 +1177,7 @@ scimitar~
 a Wickedly-Curved Scimitar~
 A Wickedly-Curved Scimitar hums ominously here.~
 steel~
-weapon BEGJhkmp 0 ANgt
+weapon BEGJ 0 AN
 sword 2 4 'slash' 0
 6 25 20 P
 A
@@ -1190,7 +1190,7 @@ boots~
 a pair of tough leather boots~
 A pair of tough leather boots lie here.~
 leather~
-armor 0 0 AGgm
+armor 0 0 AG
 4 4 4 0 0
 13 15 2100 P
 A
@@ -1203,7 +1203,7 @@ belt~
 a narrow leather belt~
 A narrow leather belt is curled up here.~
 leather~
-armor 0 0 ALgr
+armor 0 0 AL
 3 3 3 0 0
 6 2 320 P
 A
@@ -1216,7 +1216,7 @@ kamikaze headband~
 a kamikaze headband~
 A kamikaze headband.~
 cloth~
-armor 0 0 AEgk
+armor 0 0 AE
 4 4 4 0 0
 15 5 3000 P
 A
@@ -1227,7 +1227,7 @@ scarf~
 a WWI Aviator's Scarf~
 A WWI aviator's scarf is here.~
 cloth~
-armor 0 0 ACgi
+armor 0 0 AC
 3 3 3 0 0
 6 5 1900 P
 A
@@ -1249,7 +1249,7 @@ ring~
 a gold ring~
 A GOLD RING!~
 gold~
-armor Ag 0 ABgh
+armor A 0 AB
 0 0 0 0 0
 0 1 10 P
 A
@@ -1260,8 +1260,8 @@ cake ~
 a sweet cake~
 A sweet cake.~
 food~
-food 0 0 Ag
-Ci Ci 0 0 0
+food 0 0 A
+C C 0 0 0
 0 1 3 P
 g none~
 #31024
@@ -1269,8 +1269,8 @@ roll~
 a roll~
 A bread roll.~
 food~
-food 0 0 Ag
-ACgi ACgi 0 0 0
+food 0 0 A
+AC AC 0 0 0
 0 1 1 P
 g none~
 #31025
@@ -1278,8 +1278,8 @@ sandwich~
 a sandwich~
 A sandwich would make the perfect snack.~
 food~
-food 0 0 Ag
-ACgi ACgi 0 0 0
+food 0 0 A
+AC AC 0 0 0
 0 1 3 P
 g none~
 #31026
@@ -1287,8 +1287,8 @@ loaf bread~
 a HUGE loaf of bread~
 This loaf of bread would fill you up for a day!~
 food~
-food 0 0 Ag
-DEjk DEjk 0 0 0
+food 0 0 A
+DE DE 0 0 0
 0 3 3 P
 g none~
 #31027
@@ -1296,7 +1296,7 @@ coffee cup mug java~
 a cup of coffee~
 A mug o' hot java steams away here.~
 porcelain~
-drink 0 0 AOgu
+drink 0 0 AO
 1 1 'coffee' 0 0
 0 1 2 P
 g none~
@@ -1305,7 +1305,7 @@ potion~
 a psychedelic potion~
 A psychedelic potion rolls around here.~
 glass~
-potion ABGghm 0 Ag
+potion ABG 0 A
 10 'detect magic' 'bless' '' ''
 4 2 400 P
 g none~
@@ -1315,7 +1315,7 @@ a nasty guillotine~
 A Guillotine with a razor-sharp blade stands ready here.~
 unknown~
 container 0 0 0
-100 Ag 0 0 100
+100 A 0 0 100
 0 0 0 P
 g none~
 #31030
@@ -1323,7 +1323,7 @@ mask~
 a Headsman's Black Face Mask~
 The Headsman's mask is here.~
 cloth~
-armor 0 0 AEgk
+armor 0 0 AE
 19 18 18 12 0
 58 75 0 P
 A
@@ -1334,7 +1334,7 @@ sword longsword~
 the Castellan's Longsword~
 The Castellan's Longsword is lying here in the dirt.~
 steel~
-weapon Gm 0 ANgt
+weapon G 0 AN
 sword 6 7 'slash' 0
 53 25 1200 P
 A
@@ -1351,7 +1351,7 @@ sap~
 a sap~
 A footpad's sap, used to stun victims.~
 unknown~
-weapon 0 0 ANgt
+weapon 0 0 AN
 mace 3 3 'pound' 0
 3 15 200 P
 g none~
@@ -1360,7 +1360,7 @@ sword longsword~
 an Ornate Longsword~
 An Ornate Longsword is lying here.~
 steel~
-weapon Gm 0 ANgt
+weapon G 0 AN
 sword 8 6 'slash' 0
 54 25 2000 P
 A
@@ -1373,7 +1373,7 @@ breastplate plate~
 an Ornate Breastplate~
 An Ornate Breastplate with a black and gold coat of arms is lying here.~
 steel~
-armor 0 0 ADgj
+armor 0 0 AD
 17 17 16 8 0
 52 20 1700 P
 A
@@ -1386,7 +1386,7 @@ bracer~
 an Ornate Bracer~
 An Ornate Bracer with a black and gold coat of arms is lying here.~
 leather~
-armor 0 0 AMgs
+armor 0 0 AM
 16 17 17 8 0
 52 15 8000 P
 A
@@ -1399,7 +1399,7 @@ cloak~
 a black cloak with gold trim~
 A Black Cloak with Gold Trim is lying here.~
 cloth~
-armor 0 0 ACgi
+armor 0 0 AC
 15 17 17 8 0
 52 10 20000 P
 A
@@ -1412,7 +1412,7 @@ helm~
 an Ornate Helm~
 An Ornate Helm bearing a black and gold coat of arms lies here.~
 steel~
-armor 0 0 AEgk
+armor 0 0 AE
 17 17 17 8 0
 52 10 3000 P
 A
@@ -1427,7 +1427,7 @@ shield~
 an Ornate Shield~
 A Shield bearing the crest of the House of Lenny lies here.~
 steel~
-armor 0 0 AJgp
+armor 0 0 AJ
 17 17 17 8 0
 52 20 9000 P
 A
@@ -1442,8 +1442,8 @@ spear~
 a Throwing Spear~
 A sturdy Throwing Spear has been thrust into the ground here.~
 steel~
-weapon Gm 0 ANgt
-spear 6 8 'pierce' Kq
+weapon G 0 AN
+spear 6 8 'pierce' K
 52 20 3000 P
 A
 19 3
@@ -1455,7 +1455,7 @@ scroll~
 a blank scroll~
 A blank scroll is here.~
 vellum~
-scroll 0 0 AOgu
+scroll 0 0 AO
 20 'armor' 'shield' '' ''
 10 1 3000 P
 g none~
@@ -1464,7 +1464,7 @@ potion~
 a shimmering potion~
 A shimmering potion is here.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 5 'fly' 'invisibility' 'infravision' ''
 1 1 800 P
 g none~
@@ -1473,7 +1473,7 @@ sticker~
 a bright red sticker that reads "DORK"~
 A bright red sticker has been left here. Pick it up!~
 unknown~
-armor AHMgns 0 AEgk
+armor AHM 0 AE
 0 0 0 0 0
 3 1 0 P
 A
@@ -1491,7 +1491,7 @@ tent~
 a sturdy canvas tent~
 A sturdy canvas tent is here.~
 unknown~
-container 0 0 Ag
+container 0 0 A
 10 0 0 0 100
 0 25 1000 P
 g none~
@@ -1500,7 +1500,7 @@ rowboat~
 a sturdy wooden rowboat~
 A sturdy wooden rowboat is moored here.~
 wood~
-container 0 Ci Ag
+container 0 C A
 1000 0 0 0 100
 0 50 50 P
 g none~
@@ -1509,8 +1509,8 @@ battered fried fish~
 a piece of battered fried fish~
 A piece of battered fish that has been fried to death.~
 unknown~
-food 0 0 Ag
-Ci Ci 0 0 0
+food 0 0 A
+C C 0 0 0
 0 1 1 P
 g none~
 #31046
@@ -1518,8 +1518,8 @@ pile steaming chips~
 a pile of steaming chips~
 (Steaming) These chips are wrapped in butcher's paper and look very tasty.~
 unknown~
-food 0 0 Ag
-BChi BChi 0 0 0
+food 0 0 A
+BC BC 0 0 0
 0 1 3 P
 g none~
 #31047
@@ -1527,8 +1527,8 @@ chips salt sauce~
 chips with salt and sauce~
 (Steaming) These chips are covered with salt and sauce.~
 unknown~
-food 0 0 Ag
-ABCghi ABCghi 0 0 0
+food 0 0 A
+ABC ABC 0 0 0
 0 1 3 P
 g none~
 #31048
@@ -1536,8 +1536,8 @@ black pudding~
 a black pudding~
 A black pudding congeals here.~
 unknown~
-food 0 0 Ag
-Ci Ci 0 0 0
+food 0 0 A
+C C 0 0 0
 0 1 3 P
 g none~
 #31049
@@ -1545,8 +1545,8 @@ white pudding~
 a white pudding~
 A white pudding, only slightly less disgusting than black pud, sits here.~
 unknown~
-food 0 0 Ag
-Ci Ci 0 0 0
+food 0 0 A
+C C 0 0 0
 0 1 3 P
 g none~
 #31050
@@ -1554,8 +1554,8 @@ pizza~
 a piece of pizza~
 This pizza looks like no pizza you have ever seen before.~
 unknown~
-food 0 0 Ag
-ACgi ACgi 0 0 0
+food 0 0 A
+AC AC 0 0 0
 0 1 3 P
 g none~
 #31051
@@ -1563,8 +1563,8 @@ lard~
 a lump of lard~
 This lard has been deep-fried.~
 unknown~
-food 0 0 Ag
-Ag Ag 0 0 0
+food 0 0 A
+A A 0 0 0
 0 1 3 P
 g none~
 #31052
@@ -1572,8 +1572,8 @@ potato scallop~
 a potato scallop~
 You wonder how long this potato scallop has been sitting here.~
 unknown~
-food 0 0 Ag
-Bh Bh 0 0 0
+food 0 0 A
+B B 0 0 0
 0 1 3 P
 g none~
 #31053
@@ -1581,8 +1581,8 @@ curry sauce~
 some curry sauce~
 This sauce is great with chips. Apparently.~
 unknown~
-food 0 0 Ag
-Ag Ag 0 0 0
+food 0 0 A
+A A 0 0 0
 0 1 3 P
 g none~
 #31054
@@ -1590,8 +1590,8 @@ chicken kiev~
 chicken kiev~
 This chicken Kiev didn't come from any Kiev you have ever heard of.~
 unknown~
-food 0 0 Ag
-Ci Ci 0 0 0
+food 0 0 A
+C C 0 0 0
 0 1 3 P
 g none~
 #31055
@@ -1599,8 +1599,8 @@ crumbed drumstick~
 a crumbed drumstick~
 A crumbed drumstick has been sitting here for a few hours.~
 unknown~
-food 0 0 Ag
-Ci Ci 0 0 0
+food 0 0 A
+C C 0 0 0
 0 1 3 P
 g none~
 #31056
@@ -1608,8 +1608,8 @@ battered sav~
 a battered sav~
 A battered sav lies here.~
 unknown~
-food 0 0 Ag
-Bh Bh 0 0 0
+food 0 0 A
+B B 0 0 0
 0 1 3 P
 g none~
 #31057
@@ -1617,8 +1617,8 @@ kabana~
 a kabana~
 A fried kabana looks truly disgusting.~
 unknown~
-food 0 0 Ag
-ABgh ABgh 0 0 0
+food 0 0 A
+AB AB 0 0 0
 0 1 3 P
 g none~
 #31058
@@ -1626,8 +1626,8 @@ fish cake~
 a fish cake~
 Yeah, SURE it's fish.~
 unknown~
-food 0 0 Ag
-Bh Bh 0 0 0
+food 0 0 A
+B B 0 0 0
 0 1 3 P
 g none~
 #31059
@@ -1635,8 +1635,8 @@ haggis~
 it's... HAGGIS~
 This conglomeration looks like a boiled foetus.~
 unknown~
-food 0 0 Ag
-Dj Dj 0 0 0
+food 0 0 A
+D D 0 0 0
 0 1 3 P
 E
 haggis~
@@ -1648,7 +1648,7 @@ tea~
 Tetley's tea~
 A nice cup of Tetley's sits here.~
 unknown~
-drink 0 0 AOgu
+drink 0 0 AO
 1 1 'tea' 0 0
 0 1 3 P
 g none~
@@ -1657,7 +1657,7 @@ coffee~
 Kenco coffee~
 A cup of Kenco coffee is surprisingly good for instant.~
 unknown~
-drink 0 0 AOgu
+drink 0 0 AO
 1 1 'coffee' 0 0
 0 1 3 P
 g none~
@@ -1666,7 +1666,7 @@ shandy~
 a shandy~
 A shandy fizzes away here.~
 unknown~
-drink 0 0 AOgu
+drink 0 0 AO
 1 1 'water' 0 0
 0 1 3 P
 g none~
@@ -1675,7 +1675,7 @@ irn bru~
 Barr's Irn Bru~
 This bright orange beverage is made in Scotland from girders.~
 unknown~
-drink Bh 0 AOgu
+drink B 0 AO
 2 2 'whisky' 0 0
 0 1 3 P
 g none~
@@ -1684,7 +1684,7 @@ chocolate milk~
 a chocolate milk~
 A delicious chocolate milk is here.~
 unknown~
-drink 0 0 AOgu
+drink 0 0 AO
 2 2 'milk' 0 0
 0 1 3 P
 g none~
@@ -1693,7 +1693,7 @@ strawberry milk~
 a strawberry milk~
 A frothy strawberry milk is here.~
 unknown~
-drink 0 0 AOgu
+drink 0 0 AO
 2 2 'milk' 0 0
 0 1 3 P
 g none~
@@ -1702,7 +1702,7 @@ caramel milk~
 a caramel milk~
 A tasty caramel milk is here.~
 unknown~
-drink 0 0 AOgu
+drink 0 0 AO
 2 2 'milk' 0 0
 0 1 1 P
 g none~
@@ -1711,8 +1711,8 @@ sticky bun~
 a sticky bun~
 A sweet sticky bun sits here.~
 unknown~
-food 0 0 Ag
-Ag Ag 0 0 0
+food 0 0 A
+A A 0 0 0
 0 1 3 P
 g none~
 #31068
@@ -1720,8 +1720,8 @@ fruit scone~
 a fruit scone~
 A buttered fruit scone sits here.~
 unknown~
-food 0 0 Ag
-Ag Ag 0 0 0
+food 0 0 A
+A A 0 0 0
 0 1 3 P
 g none~
 #31069
@@ -1729,8 +1729,8 @@ spamburger~
 a spamburger~
 A nasty spamburger sits here.~
 unknown~
-food 0 0 Ag
-Ci Ci 0 0 Ag
+food 0 0 A
+C C 0 0 A
 0 1 3 P
 g none~
 #31070
@@ -1738,8 +1738,8 @@ steak burger~
 a steak burger~
 A steak burger smells delicious!~
 unknown~
-food 0 0 Ag
-BChi BChi 0 0 0
+food 0 0 A
+BC BC 0 0 0
 0 1 6 P
 g none~
 #31071
@@ -1747,8 +1747,8 @@ hamburger~
 a hamburger~
 A hamburger is here.  What part of the animal is the burger?~
 unknown~
-food 0 0 Ag
-ACgi ACgi 0 0 0
+food 0 0 A
+AC AC 0 0 0
 0 1 5 P
 g none~
 #31072
@@ -1756,8 +1756,8 @@ ploughman's sandwich~
 a ploughman's sandwich~
 A ploughman's sandwich is here.  Okay, it's only cheese and Branston pickle.~
 unknown~
-food 0 0 Ag
-Ci Ci 0 0 0
+food 0 0 A
+C C 0 0 0
 0 1 4 P
 g none~
 #31073
@@ -1765,8 +1765,8 @@ cheese onion sandwich~
 a cheese and onion sandwich~
 A cheese and onion sandwich has lots of raw onion on it.~
 unknown~
-food Bh 0 Ag
-Ci Ci 0 0 0
+food B 0 A
+C C 0 0 0
 0 1 4 P
 g none~
 #31074
@@ -1774,8 +1774,8 @@ chicken tikka sandwich~
 a chicken tikka sandwich~
 Some pretentious git has added raisins to a chicken and mayonnaise sandwich.~
 unknown~
-food 0 0 Ag
-ACgi ACgi 0 0 0
+food 0 0 A
+AC AC 0 0 0
 0 1 5 P
 g none~
 #31075
@@ -1783,8 +1783,8 @@ baked potato cheese coleslaw~
 a baked potato with cheese and coleslaw~
 A baked potato with cheese and *coleslaw*?~
 unknown~
-food 0 0 Ag
-BChi BChi 0 0 0
+food 0 0 A
+BC BC 0 0 0
 0 1 3 P
 g none~
 #31076
@@ -1792,8 +1792,8 @@ baked potato chicken curry~
 a baked potato with chicken curry~
 A baked potato with chicken curry sounds tasty.~
 unknown~
-food 0 0 Ag
-BChi BChi 0 0 0
+food 0 0 A
+BC BC 0 0 0
 0 1 6 P
 g none~
 #31077
@@ -1801,8 +1801,8 @@ bacon eggs~
 bacon and eggs~
 A plate of overcooked bacon and undercooked eggs is here.~
 unknown~
-food 0 0 Ag
-ABCghi ABCghi 0 0 0
+food 0 0 A
+ABC ABC 0 0 0
 0 2 9 P
 g none~
 #31078
@@ -1810,8 +1810,8 @@ steak eggs chips~
 steak eggs and chips~
 A plate of tough steak, hard fried eggs and greasy chips is here.~
 unknown~
-food 0 0 Ag
-Dj Dj 0 0 0
+food 0 0 A
+D D 0 0 0
 0 2 9 P
 g none~
 #31079
@@ -1819,8 +1819,8 @@ spam eggs~
 spam and eggs~
 A plate of fried spam, swimming in lard, looks like it would make you chuck.~
 unknown~
-food 0 0 Ag
-ABCghi ABCghi 0 0 0
+food 0 0 A
+ABC ABC 0 0 0
 0 3 9 P
 g none~
 #31080
@@ -1828,8 +1828,8 @@ bacon spam eggs~
 bacon, spam and eggs~
 A plate of bacon spam and eggs coagulates here.  Don't touch the spam.~
 unknown~
-food 0 0 Ag
-Dj Dj 0 0 0
+food 0 0 A
+D D 0 0 0
 0 3 7 P
 g none~
 #31081
@@ -1837,7 +1837,7 @@ poison powder~
 some black poison powder~
 Some black poison powder has been scattered here.~
 unknown~
-trash Ek 0 Ag
+trash E 0 A
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -1847,7 +1847,7 @@ a portal to the past~
 A portal to the distant past of Anon lies on the floor here.~
 unknown~
 jewelry 0 0 0
-CEIJKMNikopqst 0 0 0 0
+CEIJKMN 0 0 0 0
 0 0 0 P
 g none~
 #31083
@@ -1856,7 +1856,7 @@ a portal to the future~
 A portal to the far future of Anon floats here.~
 unknown~
 jewelry 0 0 0
-DEFGIJKMNjklmopqst 0 0 0 0
+DEFGIJKMN 0 0 0 0
 0 0 0 P
 g none~
 #31084
@@ -1865,7 +1865,7 @@ a portal to the surreal~
 A portal leading to the warped world of surreal Anon shimmers here.~
 unknown~
 jewelry 0 0 0
-CDEGHIJKMNijkmnopqst 0 0 0 0
+CDEGHIJKMN 0 0 0 0
 0 0 0 P
 g none~
 #31085
@@ -1873,7 +1873,7 @@ key portal~
 a key to the portal chambers~
 A key to the portal chambers has been dropped here.~
 unknown~
-key ABgh 0 AOgu
+key AB 0 AO
 0 0 0 0 0
 0 1 200 P
 g none~
@@ -1882,7 +1882,7 @@ tome political history~
 a Tome of Political History~
 This tome is titled- "THE POLITICAL STRUCTURE OF ANON", by Errit Meyer.~
 unknown~
-trash 0 0 AOgu
+trash 0 0 AO
 0 0 0 0 0
 0 5 0 P
 E
@@ -2097,7 +2097,7 @@ tome social history~
 a Tome of Social History~
 This tome is titled- "THE SOCIAL HISTORY OF ANON", by Gaspar duPont.~
 unknown~
-trash 0 0 AOgu
+trash 0 0 AO
 0 0 0 0 0
 0 5 0 P
 E
@@ -2291,7 +2291,7 @@ book history~
 a History book~
 This book is titled- "THE HISTORY OF THE KNOWN RACES OF ANON", by Xanafax.~
 unknown~
-trash 0 0 AOgu
+trash 0 0 AO
 0 0 0 0 0
 0 5 0 P
 E
@@ -2565,7 +2565,7 @@ geography text~
 a Geography text~
 This text is titled- "THE GEOGRAPHY OF ANON", by K. Solo'deru.~
 unknown~
-trash 0 0 AOgu
+trash 0 0 AO
 0 0 0 0 0
 0 5 0 P
 E
@@ -2675,7 +2675,7 @@ book compendium~
 Xanafax's Compendium of Heroes~
 A dusty old book lies here.~
 unknown~
-trash 0 0 AOgu
+trash 0 0 AO
 0 0 0 0 0
 0 1 0 P
 E
@@ -2912,7 +2912,7 @@ a gold piece~
 a gold piece~
 A single gold piece.~
 unknown~
-money 0 0 Ag
+money 0 0 A
 1 0 0 0 0
 0 1 1 P
 g none~
@@ -2921,7 +2921,7 @@ gem~
 a small gem~
 A small gem, apparently of little value, is lying here.~
 unknown~
-treasure Bh 0 AOgu
+treasure B 0 AO
 0 0 0 0 0
 0 1 10 P
 A
@@ -2988,7 +2988,7 @@ cloth. Behind this stands the healer, who will tell you how he can help you
 if you look at him.
 
 ~
-0 DKjq inside
+0 DK inside
 D1
 ~
 ~
@@ -3008,7 +3008,7 @@ they will, but the Immortals frown on greedy characters who take it all,
 or profiteers who take it and sell it. Both offenses result in SEVERE
 punishment. There is a small sign here.
 ~
-0 CDij inside
+0 CD inside
 D1
 Weapon Donations
 ~
@@ -3037,7 +3037,7 @@ adventurers pass you in both directions. Tall buildings rise in all
 directions, the most notable being the magnificent temple, towering high
 directly to the east of here.
 ~
-0 Dj inside
+0 D inside
 D1
 The Temple of Anon
 ~
@@ -3057,7 +3057,7 @@ enters the grounds of the Temple.
 
 To the west lies a locksmith while to the east you can see a bookshop.
 ~
-0 Dj inside
+0 D inside
 D0
 The Temple of Anon
 ~
@@ -3067,7 +3067,7 @@ D1
 The Book Shoppe.
 ~
 ~
-ABZgh 0 31321
+ABZ 0 31321
 D2
 Glory Avenue
 ~
@@ -3077,7 +3077,7 @@ D3
 The Locksmith.
 ~
 ~
-ABZgh 0 31322
+ABZ 0 31322
 S
 #31005
 Victory Parade East~
@@ -3086,7 +3086,7 @@ residents of the city line the road here. High fences and savage guard dogs
 deter you from trespassing however, as does the constant eye of the city
 guards. Stalwart Lane cuts across Victory Parade directly east of here.
 ~
-0 Dj inside
+0 D inside
 D1
 Victory Parade East
 ~
@@ -3105,7 +3105,7 @@ Liberty Lane. To the south you can hear the sounds of a hammer striking
 an anvil, while to the north you hear nothing. But clearly visible in
 both directions are the distinctive walls of Guildhalls.
 ~
-0 Dj inside
+0 D inside
 D0
 Liberty Lane
 ~
@@ -3133,7 +3133,7 @@ You have come to a crossroads, where the north-south running Glory Avenue
 meets the east-west running Valiant Street. Shops line Valiant to the east
 and west, while Glory Avenue runs south toward the Dryads' Guild.
 ~
-0 Dj inside
+0 D inside
 D0
 Glory Avenue
 ~
@@ -3162,7 +3162,7 @@ east. Shops and residences line Stalwart Lane to the north and south, while
 the gates of the city loom far to the east. The Temple is just to the west
 of here.
 ~
-0 Dj inside
+0 D inside
 D0
 Liberty Lane
 ~
@@ -3194,7 +3194,7 @@ of the city.
 To the north of here lies the Thaumaturgist's shop, while to the south you 
 can see the Artificer's workshop.
 ~
-0 Dj inside
+0 D inside
 D0
 Alix the Thaumaturgist can be seen disposing of cursed items.
 ~
@@ -3223,7 +3223,7 @@ Avenue to the east and west, while to the south lies the Dryads'
 Guild. The great Temple of the city lies to the north, and you are as 
 ever awed by its size and beauty.
 ~
-0 Dj inside
+0 D inside
 D0
 Glory Avenue
 ~
@@ -3248,7 +3248,7 @@ enter the city's dungeons in search of glory and loot?
 
 To the south you can see Thom the Enhancer's place of business.
 ~
-0 Dj inside
+0 D inside
 D1
 Victory Parade East
 ~
@@ -3273,7 +3273,7 @@ and it depicts him officially opening this city.
 
 A small cafe lies to the north.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -3299,7 +3299,7 @@ disturbance.
 The portal chambers are situated south of here. You'll need to buy a key 
 from the Locksmith to get in, though.
 ~
-0 Dj inside
+0 D inside
 D1
 Victory Parade East
 ~
@@ -3321,7 +3321,7 @@ You are approaching the western gates of the city, which are constantly
 patrolled by guards. There is no-one else about here, as the concentration
 of residences and shops is nearer to the Temple.
 ~
-0 Dj inside
+0 D inside
 D1
 Victory Parade West
 ~
@@ -3365,11 +3365,11 @@ to storm the gates.
 Doors to the north and south allow you to enter the towers flanking the
 gatehouse.
 ~
-0 Dj city
+0 D city
 D0
 ~
 ~
-ABZgh 0 31200
+ABZ 0 31200
 D1
 Victory Parade West
 ~
@@ -3378,7 +3378,7 @@ Z -1 31014
 D2
 ~
 ~
-ABZgh 0 31201
+ABZ 0 31201
 D3
 Outside the Gates
 ~
@@ -3397,11 +3397,11 @@ to storm the gates.
 Doors to the north and south allow you to enter the towers flanking the
 gatehouse.
 ~
-0 Dj city
+0 D city
 D0
 ~
 ~
-ABZgh 0 31212
+ABZ 0 31212
 D1
 Outside the Gates
 ~
@@ -3410,7 +3410,7 @@ Z 31000 31019
 D2
 ~
 ~
-ABZgh 0 31213
+ABZ 0 31213
 D3
 Victory Parade East
 ~
@@ -3427,7 +3427,7 @@ the crenelations.
 
 Paths lead to the north, south and west.
 ~
-0 Ci field
+0 C field
 D0
 The Circuit Road
 ~
@@ -3458,7 +3458,7 @@ the crenelations.
 
 Paths lead to the north, south and east.
 ~
-0 Ci field
+0 C field
 D0
 The Circuit Road
 ~
@@ -3768,7 +3768,7 @@ bar, or west to the Guildmaster himself.
 
 A pleasant-looking garden lies to the south.
 ~
-0 Dj inside
+0 D inside
 D0
 Outside the Dryad Guild
 ~
@@ -3793,7 +3793,7 @@ faith that may visit, or students of other faiths that have an interest
 in Dryad magic. If you are not sure what to do, try looking at the
 Guildmaster.
 ~
-0 Dj inside
+0 D inside
 D1
 Inside the Dryad Guild
 ~
@@ -3807,7 +3807,7 @@ converse, drink and basically relax, free from the worries of the outside
 world for a short time. Polished oak tables are ringed by wooden stools,
 a few of which are currently filled.
 ~
-0 Dj inside
+0 D inside
 D3
 Inside the Dryad Guild
 ~
@@ -3843,7 +3843,7 @@ This is the office of the Castellan of the City of Anon, appointed by the
 rulers of the nation to be the steward of this city. He does an excellent
 job, too.
 ~
-0 Dj inside
+0 D inside
 D1
 Liberty Lane
 ~
@@ -3885,7 +3885,7 @@ try looking at the smith.
 
 There is a chippy upstairs from here.
 ~
-0 Dj inside
+0 D inside
 D1
 Liberty Lane
 ~
@@ -3927,7 +3927,7 @@ of equipment unmatched on the whole continent. Piles of armor gather dust
 in the rear of the shop, while better items are displayed in glass cases
 or on racks. If you don't know what to do, try looking at the armorer.
 ~
-0 Dj inside
+0 D inside
 D3
 Stalwart Lane
 ~
@@ -3965,7 +3965,7 @@ military regalia of all types. The Weaponsmith is an avid collector of
 memorabilia, but his chief business is the buying and selling of weapons.
 If you are rather lost, try looking at him for help.
 ~
-0 Dj inside
+0 D inside
 D3
 Liberty Lane
 ~
@@ -4005,7 +4005,7 @@ Mercenaries Unlimited~
 You have entered a hiring hall for mercenaries. A stout Mercenary Master
 grunts as you enter. If you don't know what to do, try looking at him.
 ~
-0 DMjs inside
+0 DM inside
 D2
 Justice Street
 ~
@@ -4024,7 +4024,7 @@ You shouldn't be here. Go Away. Or I'll Tell.
 
 NOW!
 ~
-0 CDij inside
+0 CD inside
 S
 #31049
 Justice Street~
@@ -4057,7 +4057,7 @@ the clutter, you eventually find an assistant, a raven-haired mage who smiles
 sweetly and welcomes you to her shop. If you don't know what to do here, try
 looking at her.
 ~
-0 Dj inside
+0 D inside
 D2
 Justice Street
 ~
@@ -4121,7 +4121,7 @@ knowledge of Legend Lore, he will be able to give you exact details of the
 function of any item in your possession. if you are not sure how the process
 works, try looking at him.
 ~
-0 CDij inside
+0 CD inside
 D2
 Justice Street
 ~
@@ -4164,7 +4164,7 @@ animals of every type, size, shape and description imaginable. However,
 only a few are for sale- the rest are the owner's personal collection, and
 are his pride and joy. To see what to do next, try looking at the owner.
 ~
-0 DMjs inside
+0 DM inside
 D2
 Justice Street
 ~
@@ -4183,7 +4183,7 @@ You shouldn't be here. Go Away. Or I'll Tell.
 
 NOW!
 ~
-0 CKiq inside
+0 CK inside
 S
 #31057
 Honor Avenue~
@@ -4211,7 +4211,7 @@ the Elven Guild. Here, practitioners of the magic of the Elves come to
 advance their knowledge of their art. Upstairs lie the offices of the Guild,
 while downstairs is the Elven Bar.
 ~
-0 Dj inside
+0 D inside
 D2
 Honor Avenue
 ~
@@ -4236,7 +4236,7 @@ city, as the Elves also act as the official Scribes' Guild, due to their
 fluency in tongue and their adroitness with the quill. Upstairs lies the
 office of the Guildmaster himself, while downstairs is the entrance.
 ~
-0 Dj inside
+0 D inside
 D4
 The Office of the Guildmaster
 ~
@@ -4257,7 +4257,7 @@ a large oak desk covered in scrolls, quills, papers and jars of ink. He
 looks up as you enter and asks how he may be of service. If you don't know,
 try looking at him.
 ~
-0 Dj inside
+0 D inside
 D5
 The offices of the guild
 ~
@@ -4271,7 +4271,7 @@ solely on mana, and the best way to rapidly regain mana is to be rip-roaring
 drunk. Thus it is extremely rare to see an active adventuring Elf remotely
 sober.
 ~
-0 Dj inside
+0 D inside
 D4
 The Elven Guild
 ~
@@ -4314,7 +4314,7 @@ and platinum wall fittings, everything is expensive and luxurious. There is
 a set of stairs leading up to the business area of the bank, where the ATMs
 are located.
 ~
-0 Dj inside
+0 D inside
 D0
 Corner of Valiant Street and Liberty Lane
 ~
@@ -4335,7 +4335,7 @@ Eventually its your turn. If you don't know what to do, read the instructions
 by looking at the ATM, and thus incur the wrath of the impatient patrons
 behind you :)
 ~
-0 DOju inside
+0 DO inside
 E
 atm~
 A sign says-
@@ -4389,7 +4389,7 @@ and pouches are what the Grocer specialises in, though, and if you need any
 of those goods, you've come to the right place. If you don't know how to
 negotiate a transaction, simply look at the grocer.
 ~
-0 Dj inside
+0 D inside
 D0
 Valiant Street
 ~
@@ -4428,7 +4428,7 @@ missing teeth and fingers, but with a talent for baking unsurpassed in the
 entire nation. If you don't know what to do next, try looking at the Dwarf
 (if you dare...).
 ~
-0 Dj inside
+0 D inside
 D0
 Valiant Street
 ~
@@ -4470,7 +4470,7 @@ greasy black hair attempts to come on to the female patrons here. Seeing
 you he smiles and offers to make you a drink. To see what sort, try looking
 at him. Private booths are available to the south.
 ~
-0 Dj inside
+0 D inside
 D0
 Corner of Valiant Street and Stalwart Lane
 ~
@@ -4489,7 +4489,7 @@ slave trading or prostitution. You get a few stares as you enter. Despite
 the rough characters here, no-one ever fights or even lays a blow on another
 as powerful magics prevent it.
 ~
-0 ADKgjq inside
+0 ADK inside
 D0
 The Bar
 ~
@@ -4599,7 +4599,7 @@ A burly Dwarf is here curtly issuing instructions to two trainees. You may
 wish to train as well. If so, and you don't know what to do, try looking at
 the Guildmaster.
 ~
-0 Dj inside
+0 D inside
 D0
 The Guild training yard
 ~
@@ -4614,7 +4614,7 @@ pipeweed. A smaller Dwarf busies himself collecting empty steins and
 replacing them with fresh ones, being rewarded with the occasional silver
 piece or kick in the rump for his efforts.
 ~
-0 Dj inside
+0 D inside
 D3
 The Guild training yard
 ~
@@ -4629,7 +4629,7 @@ assassins, backstabbers, footpads and murderers of every description, it is
 a place where a quick mind and a quicker blade will mean the difference
 between life and death.
 ~
-0 Ag city
+0 A city
 D1
 Valiant Street
 ~
@@ -4651,7 +4651,7 @@ between life and death. You quickly duck the contents of a chamber pot being
 emptied into the street by someone in a higher building, and, cursing, move
 on.
 ~
-0 Ag city
+0 A city
 D1
 A Bend in Valiant Street
 ~
@@ -4669,7 +4669,7 @@ At this bend, there is a small grate set in the ground. Looking down through
 it, you notice a complex network of interconnecting tunnels more than big
 enough for you to wander through, should you so wish.
 ~
-0 Ag city
+0 A city
 D2
 Outside the Kender Guild
 ~
@@ -4684,7 +4684,7 @@ D5
 A Grate leading to the Sewer
 ~
 grate~
-ABZgh 0 7001
+ABZ 0 7001
 S
 #31082
 Outside the Kender Guild~
@@ -4693,7 +4693,7 @@ city previously mentioned. For of all rogues the Kender are the masters.
 The entrance to this shady establishment is through a curtained archway
 to the south.
 ~
-0 Ag city
+0 A city
 D0
 Valiant Street above the Sewer
 ~
@@ -4703,7 +4703,7 @@ D2
 A Curtained Archway
 ~
 curtain~
-ABZgh 0 31083
+ABZ 0 31083
 S
 #31083
 Inside the Guild~
@@ -4711,7 +4711,7 @@ You are standing inside the Kender Guild, surrounded by whores, pimps,
 thieves, muggers and vagabonds. What a nice place. The Guildmaster lurks
 to the south, while there is a Bar to the west...
 ~
-0 ADgj inside
+0 AD inside
 D0
 Valiant Street
 ~
@@ -4735,7 +4735,7 @@ trove of items of every possible description is piled to the roof in here.
 The Guildmaster lounges on a settee and stares inquisitively at you. If you
 don't know what to do, try looking at him.
 ~
-0 ADgj inside
+0 AD inside
 D0
 Inside the Guild
 ~
@@ -4749,7 +4749,7 @@ denominator. A greasy bartender serves drinks to the sullen patrons, while
 in the corner a couple of sailors are roughing up an Elf who refused to pay
 up upon losing the last hand in poker.
 ~
-0 ADgj inside
+0 AD inside
 D1
 Inside the Guild
 ~
@@ -4790,7 +4790,7 @@ punches and Judo holds with each other, under the watchful eye of their
 instructor. The Guildmaster resides to the north, and the Guild relaxation
 chambers are to the south.
 ~
-0 Dj inside
+0 D inside
 D0
 The Guildmaster
 ~
@@ -4813,7 +4813,7 @@ The Human Guildmaster is here, meditating. As you enter, his eyes flick open
 and he quickly leaps to his feet, bowing before you. If you don't know what
 to do next, try looking at him.
 ~
-0 Dj inside
+0 D inside
 D2
 The Human Guild
 ~
@@ -4828,7 +4828,7 @@ whatever the beverage, and as the mood can take them quite frequently when
 their usage of their mental disciplines drains their mana, this place was
 constructed.
 ~
-0 Dj inside
+0 D inside
 D0
 The Human Guild
 ~
@@ -4841,7 +4841,7 @@ You have entered the sparsely-furnished chambers of the Illithid Guildmaster
 of Anon. The Guildmaster himself resides to the north, while the Illithids'
 Bar is to the west.
 ~
-0 Dj inside
+0 D inside
 D0
 The Guildmaster
 ~
@@ -4867,7 +4867,7 @@ why there are very few non-Illithids in this place at any particular time...
 Like all mana-users, Illithids have a need to be constantly intoxicated, and
 what better place to do this than in their Guild Bar?
 ~
-0 Dj inside
+0 D inside
 D1
 The Guild
 ~
@@ -4881,7 +4881,7 @@ devoid of funiture- the powerful psionicist hovering in the center of the
 room has no need for any. If you don't know what to do, try looking at the
 purple-skinned, tentacle-mawed instructor and see what he has to think...
 ~
-0 Dj inside
+0 D inside
 D2
 The Guild
 ~
@@ -4972,7 +4972,7 @@ Inside the Tower~
 You have entered the grounds of the Guild. From here you may go up to the
 aerie, or downstairs to the Bar.
 ~
-0 Dj inside
+0 D inside
 D2
 Outside the Tower
 ~
@@ -4996,7 +4996,7 @@ a good drink like anyone else. However, they like it best when few other
 people are present, and what few Avians that are here now will probably get
 up and leave if you enter.
 ~
-0 Dj inside
+0 D inside
 D4
 Inside the Tower
 ~
@@ -5008,7 +5008,7 @@ The Aerie~
 Here the Avian Guildmistress rests, in her comfortable nest, waiting for
 new students. If you don't know what to do here, try looking at her.
 ~
-0 Dj inside
+0 D inside
 D5
 Inside the Tower
 ~
@@ -5019,7 +5019,7 @@ S
 Armor Donations~
 Here all the Armor donated by the people of Anon appear.
 ~
-0 Dj inside
+0 D inside
 D0
 The Chamber of Donations
 ~
@@ -5030,7 +5030,7 @@ S
 Weapons Donations~
 Here all the Weapons donated by the people of Anon appear.
 ~
-0 Dj inside
+0 D inside
 D3
 The Chamber of Donations
 ~
@@ -5041,7 +5041,7 @@ S
 Magical Donations~
 Here all the Magical Items donated by the people of Anon appear.
 ~
-0 Dj inside
+0 D inside
 D1
 The Chamber of Donations
 ~
@@ -5059,7 +5059,7 @@ of the food has probably been sitting under those hot lights for a couple
 of hours. The only thing you can be reasonably sure of is the chips.
 By the way, EVERYTHING is fried. 
 ~
-0 Dj inside
+0 D inside
 D5
 ~
 ~
@@ -5073,7 +5073,7 @@ and white checked plastic tablecloths.  You can proceed to the counter
 to place your order with Tracey, co-owner, and she will bring it to your
 table.
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
@@ -5086,7 +5086,7 @@ cobwebs. Footprints show that many others have passed this way, but
 despite this the webs and dust remain as thick as if the steps hadn't 
 been traversed for decades. 
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -5102,7 +5102,7 @@ You are standing in a dark, gloomy room, littered with bits of old furniture
 and decaying tapestries. The Darklings are a morbid lot, and their guildhall
 serves as a perfect example of this.
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
@@ -5118,7 +5118,7 @@ In this room, the ancient Darkling scholar, Mengrabbazoah, awaits, ready
 to educate you in the ways of his people. You feel overawed standing in
 his presence.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -5129,11 +5129,11 @@ The Portal Chambers~
 In these rooms lie portals that lead to the other 3 dimensions of the 
 world of Anon. Proceed carefully, for you travel at your own risk!
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
-ABCZghi 31085 31013
+ABCZ 31085 31013
 D1
 ~
 ~
@@ -5153,7 +5153,7 @@ You have entered a plain, nondescript room with whitewashed stone walls
 and a straw-covered floor. Various cracked and broken pots of clay are 
 scattered about on the floor.
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~
@@ -5165,7 +5165,7 @@ The walls of this room are covered in sheets of steel in which are imbedded
 bits of wire and chrome. There are hunreds of tiny black squares of an unknown 
 substance imbedded in it, as well as numerous flashing lights.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -5178,7 +5178,7 @@ watch, changing their shape and colors into a wide variety of forms. You
 begin to develop a severe headache, and standing straight is becoming 
 very difficult.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -5191,7 +5191,7 @@ adventurers rid themselves of unwanted items that they cannot normally
 remove by themselves. So if you have any such items, you are in the right 
 place!
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~

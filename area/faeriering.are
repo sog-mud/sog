@@ -19,12 +19,12 @@ pixie faerie пикси~
 крыльями.
 ~
 unique~
-CHin 0 Tz 0 0 0 0
+CH 0 T 0 0 0 0
 10 0 2d7+121 5d5+100 2d4+2 'pierce'
 1 1 1 7
-EFRklx
+EFR
 stand stand male 5
-ACHMVWgins ABCDEFGHIJKOghijklmnopqu tiny unknown
+ACHMVW ABCDEFGHIJKO tiny unknown
 r bash 33
 r pierce 33
 r slash 33
@@ -52,12 +52,12 @@ nixie faerie никси~
 девять дюймов.
 ~
 unique~
-CHin 0 Tz 0 0 0 0
+CH 0 T 0 0 0 0
 12 0 2d10+150 5d5+100 1d10+3 'slash'
 0 0 0 7
-EFUkl
+EFU
 stand stand male 10
-AHMVWgns ABCDEFGHIJKOghijklmnopqu tiny unknown
+AHMVW ABCDEFGHIJKO tiny unknown
 r cold 33
 r lightning 33
 r acid 33
@@ -83,12 +83,12 @@ them at an amazing 12" height!
 Но это существо значительно крупнее -- аж 12 дюймов ростом.
 ~
 unique~
-CHin 0 Tz Ag 0 0 0
+CH 0 T A 0 0 0
 11 0 2d8+134 5d5+100 1d10+2 'pierce'
 1 1 1 7
-EFNUklt
+EFNU
 stand stand female 20
-AHMVWgns ABCDEFGHIJKOghijklmnopqu tiny unknown
+AHMVW ABCDEFGHIJKO tiny unknown
 r cold 33
 r lightning 33
 r acid 33
@@ -114,12 +114,12 @@ its task of guarding.
 Здесь он выполняет свою работу -- охраняет закон и порядок.
 ~
 unique~
-BChi 0 V 0 0 0 0
+BC 0 V 0 0 0 0
 13 0 2d10+170 5d5+100 2d5+3 'pierce'
 -1 -1 -1 6
-EFHNUklnt
+EFHNU
 stand stand male 30
-AHMVgns ABCDEFGHIJKghijklmnopq small unknown
+AHMV ABCDEFGHIJK small unknown
 r fire 33
 r cold 33
 r lightning 33
@@ -146,12 +146,12 @@ motions checking if his pile is still there.
 он прячет не что-нибудь, а острые метательные ножи.
 ~
 unique~
-BCShiy 0 V Bh 0 0 0
+BCS 0 V B 0 0 0
 14 0 2d10+190 5d5+100 1d12+3 'stab'
 -1 -1 -1 6
-EFHNUklnt
+EFHNU
 stand stand male 300
-AHMVgns ABCDEFGHIJKghijklmnopq small unknown
+AHMV ABCDEFGHIJK small unknown
 r bash 33
 r pierce 33
 r slash 33
@@ -184,12 +184,12 @@ going back?
 ростом. 
 ~
 elf~
-BCRhix 0 HTnz 0 Ag 0 0
+BCR 0 HT 0 A 0 0
 15 5 3d9+208 5d5+100 2d6+3 'pierce'
 -2 -2 -2 6
-EFNUklt
+EFNU
 stand stand female 500
-0 Ou medium unknown
+0 O medium unknown
 r fire 33
 r cold 33
 r lightning 33
@@ -214,12 +214,12 @@ leprechaun faerie леприкон lucky~
 камнях.
 ~
 unique~
-CHin 0 UV Bh 0 0 0
+CH 0 UV B 0 0 0
 13 0 2d10+170 5d5+100 2d5+3 'slash'
 -1 -1 -1 6
-EFHNUklnt
+EFHNU
 stand stand male 400
-AHMVgns ABCDEFGHIJKghijklmnopq small unknown
+AHMV ABCDEFGHIJK small unknown
 r fire 33
 r cold 33
 r lightning 33
@@ -246,12 +246,12 @@ somebody is playing a practical joke on him.
 кто-то сыграл с ним шутку.
 ~
 unique~
-BChi 0 RTxz 0 0 0 0
+BC 0 RT 0 0 0 0
 10 -1 2d7+121 5d5+100 2d4+2 'pierce'
 1 1 1 7
-EFNUklt
+EFNU
 sleep rest male 5
-AHMVgns ABCDEFGHIJKOghijklmnopqu tiny unknown
+AHMV ABCDEFGHIJKO tiny unknown
 r bash 33
 r pierce 33
 r slash 33
@@ -280,12 +280,12 @@ alone.
 Может быть, тебе стоит оставить его в покое?
 ~
 unique~
-BCehi Bh V 0 0 0 0
+BCe B V 0 0 0 0
 45 0 50d10+5500 5d5+5000 10d4+23 'pierce'
 -25 -25 -25 -1
-EFNUklt
+EFNU
 stand stand female 5000
-AHMVgns ABCDEFGHIJKghijklmnopq medium unknown
+AHMV ABCDEFGHIJK medium unknown
 r bash 33
 r pierce 33
 r slash 33
@@ -311,7 +311,7 @@ rhyme catchy little~
 @eng a catchy little rhyme@rus ~~листок~~ с рифмами~
 @eng There is a tiny rolled up paper lying on the ground.@rus Небольшой, скрученный в трубку листок (rhyme) лежит на земле.~
 paper~
-scroll AGgm 0 AOgu
+scroll AG 0 AO
 15 'faerie fog' '' '' ''
 10 1 200 P
 E
@@ -332,7 +332,7 @@ ball light twinkle twinkling мерцающий шар~
 @eng a *twinkling* ball of light@rus ~~мерцающий~~ ~~шар~~~
 @eng A twinkling ball of light sparkles here!@rus Мерцающий шар (ball) искрится и переливается всеми цветами радуги, освещая все вокруг.~
 unknown~
-light AGIgmo 0 AOgu
+light AGI 0 AO
 0 0 999 0 0
 15 0 1000 P
 A
@@ -349,7 +349,7 @@ belt sprite поясок rainbow радуга~
 @eng a sprite belt@rus ~~поясок~~ спрайта~
 @eng A loop of rainbow thread lies here.@rus Маленькая радуга (sprite bell), свернутая в кольцо, лежит у твоих ног.~
 mithril~
-armor FMls 0 ALgr
+armor FM 0 AL
 5 5 5 5 0
 11 1 500 P
 A
@@ -360,7 +360,7 @@ bracer brownie браслет~
 @eng a brownie bracer@rus ~~браслет~~ брауни~
 @eng An earthen colored band lies here.@rus Цветной глиняный браслет (bracer) лежит здесь.~
 mithril~
-armor Gm 0 AMgs
+armor G 0 AM
 5 5 5 5 0
 13 1 700 P
 A
@@ -373,7 +373,7 @@ vial moonlight bottled пузырек~
 @eng a vial of bottled moonlight@rus ~~пузырек~~, полный лунного света~
 @eng A vial of sparkling liquid emits a soft white glow.@rus Пузырек (vial), наполненный искрящийся жидкостью, излучает вокруг мягкое белое сияние.~
 glass~
-potion AGgm 0 AOgu
+potion AG 0 AO
 15 'fly' 'cure poison' 'cure critical' ''
 12 1 700 P
 g male~
@@ -382,7 +382,7 @@ robe gossamer плащ~
 @eng a gossamer robe@rus ~~плащ~~ из тончайшего газа~
 @eng A gossamer robe sparkles with a pale white glow!@rus Плащ (robe) из газа светится неярким белым светом.~
 cloth~
-armor IMos 0 AKgq
+armor IM 0 AK
 6 6 6 6 0
 15 1 1500 P
 A
@@ -395,8 +395,8 @@ moonbeam луч~
 @eng a moonbeam@rus ~~лунный~~ ~~луч~~~
 @eng A sparkling pale light ray glows here! @rus Луч (moonbeam) лунного света нежно освещает все вокруг.~
 unknown~
-weapon AFgl 0 ANgt
-exotic 4 4 'pierce' Gm
+weapon AF 0 AN
+exotic 4 4 'pierce' G
 15 0 1500 P
 A
 18 2
@@ -408,7 +408,7 @@ wine goblet faerie бокал вино~
 @eng a goblet of faerie wine@rus ~~бокал~~ вина фейри~
 @eng A crystal goblet filled with a sparkling wine is here.@rus Бокал (goblet) из цельного кристалла, наполненный искрящимся вином, оставлен здесь.~
 glass~
-potion Gm 0 Ag
+potion G 0 A
 10 'cure blindness' 'invisibility' '' ''
 10 1 100 P
 g male~
@@ -417,7 +417,7 @@ britches dirty штаны~
 @eng a pair of dirty britches@rus ~~грязные~~ ~~штаны~~~
 @eng A pair of dirty britches lies here. Get the laundry soap.@rus Пара грязных штанов (britches) валяется здесь.~
 leather~
-armor Ci 0 AFgl
+armor C 0 AF
 5 5 5 0 0
 14 0 900 P
 A
@@ -434,7 +434,7 @@ key sparkling ключ сверкающий~
 @eng a sparkling key@rus ~~сверкающий~~ ~~ключ~~~
 @eng A sparkling key glistens on the ground.@rus Сверкающий ключ (key) блестит на земле.~
 silver~
-key BGhm 0 AOgu
+key BG 0 AO
 0 0 0 0 0
 13 1 130 P
 g male~
@@ -443,7 +443,7 @@ cloak dirty плащ~
 @eng a dirty cloak@rus ~~грязный~~ ~~плащ~~~
 @eng A dirty cloak lies here. Ugh! Get the laundry soap.@rus Грязный плащ (cloak) валяется на земле.~
 leather~
-armor Ci 0 ACgi
+armor C 0 AC
 5 5 5 0 0
 14 2 900 P
 A
@@ -456,7 +456,7 @@ wand blue diamond жезл~
 @eng a blue diamond wand@rus ~~жезл~~ из голубого алмаза~
 @eng A wand with a huge blue diamond on it is just lying here! Pick it up!@rus Жезл (wand), выточенный из огромного голубого алмаза лежит прямо перед тобой.~
 wood~
-wand Gm 0 AOgu
+wand G 0 AO
 14 12 12 'create food' 0
 13 2 1200 P
 E
@@ -470,7 +470,7 @@ gold золото деньги~
 @eng whoooooopie! Gold!@rus Деньги!!!~
 @eng A rainbow ends at this pot of gold!@rus Оо! Ты с волнением замечаешь небольшую кучку золотых монет (gold).~
 gold~
-money Ag 0 AOgu
+money A 0 AO
 500 0 0 0 0
 0 13 130 P
 g plural~
@@ -479,8 +479,8 @@ food finger пирожок~
 @eng delicious finger food@rus ~~вкусный~~ ~~пирожок~~~
 @eng A delicious little plate of scrumptious finger foods lies beckons to you.@rus Великолепно приготовленный пирожок (food) сам просится к тебе в рот.~
 flesh~
-food 0 0 ANgt
-DEjk DEjk 0 0 0
+food 0 0 AN
+DE DE 0 0 0
 0 1 5 P
 g male~
 #0
@@ -497,7 +497,7 @@ diameter in the center of the clearing.
 центре поляны, на который ты стоишь, растет огромный гриб -- не меньше
 30 дюймов в диаметре.
 ~
-0 Ci forest
+0 C forest
 E
 mushrooms circle грибы~
 You look at the mushroom circle. You see tiny footprints and the faint outline 
@@ -512,7 +512,7 @@ D5
 @rus Маленькая дверца.
 ~
 door trap~
-ABZgh -1 29102
+ABZ -1 29102
 S
 #29102
 @eng Entrance Hall@rus На входе~
@@ -526,13 +526,13 @@ hear sounds of a raucous celebration to the east.
 некотором старании ты $gn{смог} бы пролезть. А на востоке, судя по звукам,
 отмечается какое-то торжество.
 ~
-0 Dj inside
+0 D inside
 D0
 @eng A tiny door
 @rus Маленькая дверца.
 ~
 door tiny~
-ABZgh -1 29103
+ABZ -1 29103
 D1
 @eng A smoky hallway
 @rus Прокуренный коридор.
@@ -544,19 +544,19 @@ D2
 @rus Маленькая дверца.
 ~
 door tiny~
-ABZgh -1 29105
+ABZ -1 29105
 D3
 @eng A tiny door
 @rus Маленькая дверца.
 ~
 door tiny~
-ABZgh -1 29106
+ABZ -1 29106
 D4
 @eng A small trap door
 @rus Небольшая дверь.
 ~
 door trap~
-ABZgh -1 29101
+ABZ -1 29101
 S
 #29103
 @eng Puck's Room@rus Комната мистера Пака~
@@ -571,7 +571,7 @@ and a great pile of junk beneath the sign.
 книжных полок. В середине комнаты стоит стол, а на нем полный кувшин
 вина и кучка непонятного порошка.
 ~
-0 Dj inside
+0 D inside
 E
 sign~
 The sign says: "Puck's stuff- keep your grubby hands off" 
@@ -581,7 +581,7 @@ D2
 @rus Маленькая дверца.
 ~
 door tiny~
-ABZgh -1 29102
+ABZ -1 29102
 S
 #29104
 @eng Little People's Bar and Grill@rus Забегаловка~
@@ -599,7 +599,7 @@ heads west, and you hear a thunderous racket coming from the east.
   Отсюда на запад ведет узкий проход а с востока доносятся раскаты 
 грома.
 ~
-0 Dj inside
+0 D inside
 D1
 @eng Towards the racket
 @rus В направлении шума.
@@ -622,7 +622,7 @@ is a tiny door.
 пришпилена записка. Большое число маленьких человечков посапывают в
 самых различных позах. Единственная маленькая дверь ведет на север.
 ~
-0 Dj inside
+0 D inside
 E
 sign записка~
 @eng The sign says 'Close the door, stupid'@rus Закрой дверь, тупица.
@@ -632,7 +632,7 @@ D0
 @rus Маленькая дверца.
 ~
 door tiny~
-ABZgh -1 29102
+ABZ -1 29102
 S
 #29106
 @eng Guarded Burrow@rus Охраняемый проход~
@@ -646,19 +646,19 @@ lies a door, and to the south is a normal sized door.
 размера, в нее можно пройпи совершенно спокойно, а не сгибаясь в три
 погибели, как надо было делать раньше.
 ~
-0 Dj inside
+0 D inside
 D1
 @eng A tiny door
 @rus Маленькая дверца.
 ~
 door tiny~
-ABZgh -1 29102
+ABZ -1 29102
 D2
 @eng A normal sized door
 @rus Самая обыкновенная дверь.
 ~
 door normal~
-ABCZghi 29110 29108
+ABCZ 29110 29108
 S
 #29107
 @eng Bowling Alley@rus Кегельбан~
@@ -673,7 +673,7 @@ of faerie wine. To the west is the Little People's Bar and grill.
  На западе проход ведет в зал таверны, где можно спокойно выпить 
 бокальчик знаменитого выдержанного вина фейри.
 ~
-0 Dj inside
+0 D inside
 E
 round objects~
 You look at the round objects. Each object is a human head! Yikes! 
@@ -699,7 +699,7 @@ Say that 3 times fast. Maybe you should have had that faerie wine.
 красок. Тебе хочется подольше задержаться здесь, чтобы познакомиться
 и с самим народом фейри и необычайно вкусным вином, которое они делают.
 ~
-0 Dj inside
+0 D inside
 E
 forge fires~
 They are being fanned furiously by fluttering faerie folk.~
@@ -708,7 +708,7 @@ D0
 @rus Самая обыкновенная дверь.
 ~
 door normal~
-ABCZghi 29110 29106
+ABCZ 29110 29106
 S
 #0
 

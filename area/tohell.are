@@ -19,10 +19,10 @@ shiver.  The guardian stands motionless before you.  Its rough grey skin
 looks impervious to normal weapons.
 ~
 human~
-BFehl 0 V 0 ABHghn -900 0
+BFe 0 V 0 ABH -900 0
 45 0 25d10+3000 22d9+100 8d4+16 'none'
 -15 -15 -15 4
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10402
@@ -33,10 +33,10 @@ A pile of gold coins lies on the ground.
 A large sparkly pile of gold coins.
 ~
 human~
-BShy 0 0 0 ABHghn -800 0
+BS 0 0 0 ABH -800 0
 30 0 6d12+778 15d9+100 2d12+8 'none'
 -9 -9 -9 4
-BEFJNUhklpt
+BEFJNU
 stand stand none 5000
 0 0 medium unknown
 #10403
@@ -48,10 +48,10 @@ This is the most handsome male you have ever seen.  The well-defined
 muscles on his naked body make your mouth water.
 ~
 human~
-BFhl 0 V 0 Hn -1000 0
+BF 0 V 0 H -1000 0
 40 0 15d10+1850 20d9+100 4d8+13 'none'
 -13 -13 -13 5
-EFNUklt
+EFNU
 stand stand male 5000
 0 0 medium unknown
 #10404
@@ -63,10 +63,10 @@ This is the most beautiful female you have ever seen. The curves of her
 naked body make you sweat and babble uncontrollably.
 ~
 human~
-BFhl 0 V 0 Hn -1000 0
+BF 0 V 0 H -1000 0
 40 0 15d10+1850 20d9+100 4d8+13 'none'
 -13 -13 -13 5
-EFNUklt
+EFNU
 stand stand female 5000
 0 0 medium unknown
 #10405
@@ -77,10 +77,10 @@ A shiny gold bar lies on the ground.
 This gold bar must be worth bucks!
 ~
 human~
-BShy 0 0 0 ABHghn -800 0
+BS 0 0 0 ABH -800 0
 37 0 10d10+1400 18d9+100 3d10+11 'none'
 -12 -12 -12 3
-BEFJNUhklpt
+BEFJNU
 stand stand none 5000
 0 0 medium unknown
 #10406
@@ -91,10 +91,10 @@ A yummy looking chicken pot pie is here.
 You see a golden-crusted pot pie filled with chicken and vegetables.
 ~
 human~
-Bh 0 0 0 Hn -800 0
+B 0 0 0 H -800 0
 42 0 25d10+2250 21d9+100 3d12+14 'none'
 -14 -14 -14 4
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10407
@@ -105,10 +105,10 @@ A yummy looking beef pot pie is here.
 You see a golden-crusted pot pie filled with beef and vegetables.
 ~
 human~
-Bh 0 0 0 Hn -800 0
+B 0 0 0 H -800 0
 42 0 25d10+2250 21d9+100 3d12+18 'none'
 -14 -14 -14 4
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10408
@@ -119,10 +119,10 @@ A yummy looking vegetable pot pie is here.
 You see a golden-crusted pot pie filled with vegetables.
 ~
 human~
-Bh 0 0 0 Hn -800 0
+B 0 0 0 H -800 0
 42 0 25d10+2250 21d9+100 3d12+14 'none'
 -14 -14 -14 4
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10409
@@ -134,10 +134,10 @@ You see the faint silhouette of a person. Looking closely at it, you can barely
 make out features that would identify it as the person it was in life.
 ~
 human~
-GQmw 0 0 0 Hn -700 0
+GQ 0 0 0 H -700 0
 32 0 10d10+1000 32d9+100 4d6+9 'none'
 -10 -10 -10 4
-EIKUkoq
+EIKU
 stand stand none 5000
 0 0 medium unknown
 #10410
@@ -149,10 +149,10 @@ You see a unrecognizable person going through unheard-of and
 indescribable torture. It screams out at you in pain and terror.
 ~
 human~
-BRhx 0 0 0 Hn -800 0
+BR 0 0 0 H -800 0
 34 0 10d10+1100 34d9+100 4d6+9 'none'
 -11 -11 -11 0
-FUl
+FU
 stand stand none 5000
 0 0 medium unknown
 #10411
@@ -165,10 +165,10 @@ He is in agony and terror as he gasps frantically for Death to answer his
 desperate plea...
 ~
 human~
-Bh 0 V 0 Hn -757 0
+B 0 V 0 H -757 0
 46 0 25d10+3250 23d9+100 6d6+16 'none'
 -16 -16 -16 4
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10412
@@ -181,10 +181,10 @@ broken bones, feet, and toes jutting from the surface. You hear low moans
 of horror, pain, and sorrow issuing from within.
 ~
 human~
-Bh 0 V 0 Hn -1000 0
+B 0 V 0 H -1000 0
 53 0 50d10+6500 50d10+100 6d7+21 'none'
 -30 -30 -30 -10
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10413
@@ -197,10 +197,10 @@ Its decaying eyes stare at you intently as it sees only your
 delicious and juicy brain.
 ~
 human~
-0 0 V 0 Hn -743 0
+0 0 V 0 H -743 0
 35 0 10d10+1300 17d9+100 4d7+11 'none'
 -11 -11 -11 5
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 r bash -50
@@ -213,10 +213,10 @@ The bloody arm of some poor, luckless individual.  The stench of the
 gore-covered limb makes you want to retch.
 ~
 human~
-Bh 0 0 0 Hn -884 0
+B 0 0 0 H -884 0
 33 0 10d10+1100 16d9+100 6d4+10 'none'
 -11 -11 -11 5
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10415
@@ -227,10 +227,10 @@ A bloody severed foot lies here.
 This bloody foot definitely wasn't a lucky one.
 ~
 human~
-Bh 0 0 0 Hn -800 0
+B 0 0 0 H -800 0
 33 0 10d10+1100 16d9+100 6d4+10 'none'
 -11 -11 -11 5
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10416
@@ -242,10 +242,10 @@ I wonder how the person that lost this smells...Hopefully not as bad as
 this nose does...
 ~
 human~
-Bh 0 0 0 Hn -800 0
+B 0 0 0 H -800 0
 33 0 10d10+1100 16d9+100 6d4+10 'none'
 -11 -11 -11 5
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10417
@@ -256,10 +256,10 @@ The blood in the fountain gurgles merrily.
 You see gallons and gallons of thick red blood gurgling in the fountain.
 ~
 human~
-Bh 0 0 0 Hn -950 0
+B 0 0 0 H -950 0
 45 0 25d10+3000 22d9+100 8d4+16 'none'
 -15 -15 -15 4
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10418
@@ -271,10 +271,10 @@ This soul is definitely clueless to as where he is. He holds a ticket
 that reads #14349023402342039840293481234900049.
 ~
 human~
-BRhx 0 0 0 Hn -500 0
+BR 0 0 0 H -500 0
 44 0 25d10+2500 44d9+100 4d8+14 'none'
 -15 -15 -15 -2
-FUl
+FU
 stand stand none 5000
 0 0 medium unknown
 #10419
@@ -287,10 +287,10 @@ is being burned for eternity.  It screams out as the flames lick at its
 body and devour its flesh...
 ~
 human~
-Bh 0 0 0 Hn -800 0
+B 0 0 0 H -800 0
 44 0 25d10+2750 22d9+100 8d4+15 'none'
 -15 -15 -15 4
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10420
@@ -302,10 +302,10 @@ Stringy bits of flesh blow gently in the breeze. The bones rattle as you walk
 by them.
 ~
 human~
-Bh 0 0 0 Hn -700 0
+B 0 0 0 H -700 0
 37 0 10d10+1500 18d9+100 3d10+12 'none'
 -12 -12 -12 5
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 r bash -50
@@ -321,10 +321,10 @@ skin gives it a diseased and decaying look.  It somewhat resembles a
 shadow or a ghost.
 ~
 human~
-Hn 0 V 0 Hn -900 0
+H 0 V 0 H -900 0
 35 0 10d10+1300 17d9+100 4d7+11 'none'
 -11 -11 -11 5
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10422
@@ -337,10 +337,10 @@ thrown at him. He sits here chained to the wall, banished to Hell forever by
 the gods.
 ~
 human~
-Bh 0 0 0 Hn -1000 0
+B 0 0 0 H -1000 0
 35 0 10d10+1300 17d9+100 4d7+11 'none'
 -11 -11 -11 5
-EFNUklt
+EFNU
 stand stand male 5000
 0 0 medium unknown
 #10423
@@ -353,10 +353,10 @@ and burns cover her face and arms.  The appalling condition of her once-lovely
 breasts makes you avert your eyes.
 ~
 human~
-Bh 0 V 0 Hn -800 0
+B 0 V 0 H -800 0
 38 0 10d10+1600 19d9+100 5d6+12 'none'
 -13 -13 -13 5
-EFNUklt
+EFNU
 stand stand female 5000
 0 0 medium unknown
 #10424
@@ -369,10 +369,10 @@ and burns cover his face and arms.  One of his arms is broken at the
 elbow and hangs limply by his side.
 ~
 human~
-Bh 0 V 0 Hn -800 0
+B 0 V 0 H -800 0
 38 0 10d10+1600 19d9+100 5d6+12 'none'
 -13 -13 -13 5
-EFNUklt
+EFNU
 stand stand male 5000
 0 0 medium unknown
 #10425
@@ -384,10 +384,10 @@ This very large demon stands before you, licking his daggerlike teeth.
 Yellow spittle runs down the scales of his blackened skin.
 ~
 human~
-FGlm 0 0 0 Hn -800 0
+FG 0 0 0 H -800 0
 40 0 15d10+1850 20d9+100 4d8+13 'none'
 -13 -13 -13 5
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10426
@@ -399,10 +399,10 @@ You can barely make out anything on it. All you can make out are the flames
 of Hell consuming it, and the smell of burning flesh.
 ~
 human~
-Bh 0 0 0 Hn -900 0
+B 0 0 0 H -900 0
 42 0 25d10+2250 21d9+100 3d12+14 'none'
 -14 -14 -14 4
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10427
@@ -415,10 +415,10 @@ As you look closer at the hard hat, you notice that it says:
              '4th DEMONsion Construction Co.'
 ~
 human~
-Bh 0 V 0 Hn -666 0
+B 0 V 0 H -666 0
 45 0 25d10+3000 22d9+100 8d4+16 'none'
 -15 -15 -15 4
-EFNUklt
+EFNU
 stand stand male 5000
 0 0 medium unknown
 #10428
@@ -431,10 +431,10 @@ As you look closer at the hard hat, you notice that it says:
              '4th DEMONsion Construction Co.'
 ~
 human~
-Bh 0 V 0 Hn -666 0
+B 0 V 0 H -666 0
 46 0 25d10+3250 23d9+100 6d6+16 'none'
 -16 -16 -16 4
-EFNUklt
+EFNU
 stand stand female 5000
 0 0 medium unknown
 #10430
@@ -448,10 +448,10 @@ sharp, blood-covered teeth.  This is definitely a face only a mother could
 love.
 ~
 human~
-Bh 0 0 0 Hn -1000 0
+B 0 0 0 H -1000 0
 50 0 40d10+4000 25d9+100 5d8+19 'none'
 -18 -18 -18 3
-EFNUklt
+EFNU
 stand stand male 5000
 0 0 medium unknown
 #10431
@@ -464,10 +464,10 @@ room, burning everything in its path, including the poor souls that are chained
 to the various posts around the room.
 ~
 human~
-Bh 0 TVz 0 Hn -600 0
+B 0 TV 0 H -600 0
 46 0 25d10+3250 23d9+100 6d6+16 'none'
 -16 -16 -16 4
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10432
@@ -480,10 +480,10 @@ ghastly red. Its sooty black teeth and tongue are covered with green spittle
 that runs down its dung covered coat.
 ~
 human~
-Bh 0 0 0 ABHghn -900 0
+B 0 0 0 ABH -900 0
 45 0 25d10+3000 22d9+100 8d4+16 'none'
 -15 -15 -15 4
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10433
@@ -496,10 +496,10 @@ move.  They stare intently from its bluish face, as if pleading for your
 help.
 ~
 human~
-Bh 0 0 0 Hn -900 0
+B 0 0 0 H -900 0
 47 0 25d10+3500 23d9+100 6d6+17 'none'
 -17 -17 -17 4
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10434
@@ -514,10 +514,10 @@ and then starting over. Every couple of minutes, it takes time out to
 break an appendage off a nearby soul and beat the soul with it.
 ~
 human~
-Bh 0 TVz 0 Hn -1000 0
+B 0 TV 0 H -1000 0
 54 0 50d10+5500 26d10+100 6d8+20 'none'
 -22 -22 -22 2
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10435
@@ -531,10 +531,10 @@ then will seem to die briefly.  Always, it is restored and begins thrashing
 about again.
 ~
 human~
-Bh 0 0 0 Hn -789 0
+B 0 0 0 H -789 0
 50 0 50d10+4000 24d9+100 5d8+18 'none'
 -19 -19 -19 3
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10436
@@ -547,10 +547,10 @@ see small white maggots eating away at the body. The flesh seems to
 move and wriggle with a life of its own...
 ~
 human~
-Bh 0 0 0 Hn -876 0
+B 0 0 0 H -876 0
 51 0 50d10+5000 25d9+100 5d8+20 'none'
 -21 -21 -21 3
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10437
@@ -562,10 +562,10 @@ What a cute little penguin! Wait, why is it looking at you that way?
 HEY! Penguins don't have teeth!
 ~
 human~
-BFRhlx 0 0 0 Hn -876 0
+BFR 0 0 0 H -876 0
 52 0 50d10+4700 52d9+100 4d10+18 'none'
 -21 -21 -21 -5
-FUl
+FU
 stand stand none 5000
 0 0 medium unknown
 #10438
@@ -580,10 +580,10 @@ WE ALL SCREAM FOR I SCREAM!!!'
 
 ~
 human~
-Bh 0 0 0 Hn -706 0
+B 0 0 0 H -706 0
 52 0 50d10+4700 26d9+100 6d7+20 'none'
 -22 -22 -22 2
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10439
@@ -598,10 +598,10 @@ He is dressed in a white jumpsuit with the words,
 written on it in large, yellow letters.
 ~
 human~
-Bh 0 V 0 Hn -706 0
+B 0 V 0 H -706 0
 52 0 50d10+4700 26d9+100 6d7+20 'none'
 -22 -22 -22 2
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10440
@@ -617,10 +617,10 @@ back in large, black letters.
 He seems none too happy to see you.
 ~
 human~
-BFGThlmz 0 V 0 ABHghn -1000 0
+BFGT 0 V 0 ABH -1000 0
 53 0 50d10+5100 26d9+100 6d7+21 'none'
 -23 -23 -23 2
-EFNUklt
+EFNU
 stand stand male 5000
 0 0 medium unknown
 #10441
@@ -633,10 +633,10 @@ by watching the little lights on the telephone blink. She is oblivious
 to your presence and seems fascinated by the phones.
 ~
 human~
-Bh 0 0 0 ABHghn -700 0
+B 0 0 0 ABH -700 0
 46 0 25d10+3250 23d9+100 6d6+16 'none'
 -15 -15 -15 4
-EFNUklt
+EFNU
 stand stand female 5000
 0 0 medium unknown
 #10442
@@ -648,10 +648,10 @@ Just looking at him makes your blood boil.
 AAAAAAAAAAaaaaaaaaaaaarrrrrrrrgggggghhhhh!!!!!!!!!!!
 ~
 human~
-BShy 0 0 0 ABHghn -1000 0
+BS 0 0 0 ABH -1000 0
 48 0 25d10+3750 24d9+100 6d6+18 'none'
 -17 -17 -17 2
-BEFJNUhklpt
+BEFJNU
 stand stand none 5000
 0 0 medium unknown
 #10443
@@ -663,10 +663,10 @@ You see a rather plain-looking office personel here, filing paperwork on
 someone.
 ~
 human~
-Bh 0 0 0 ABHghn -1000 0
+B 0 0 0 ABH -1000 0
 48 0 25d10+3750 24d9+100 8d4+18 'none'
 -17 -17 -17 2
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10444
@@ -678,10 +678,10 @@ It's a jolly old man, with red cheeks and a roly-poly belly and a laugh
 as jolly as you can get. Must be Santa Claus!
 ~
 human~
-Bh 0 0 0 ABHghn -1000 0
+B 0 0 0 ABH -1000 0
 48 0 25d10+3750 24d9+100 6d6+18 'none'
 -17 -17 -17 4
-EFNUklt
+EFNU
 stand stand male 5000
 0 0 medium unknown
 #10445
@@ -693,10 +693,10 @@ The dark, black robes hide most of his features, but you can nearly make
 out his emaciated face beneath the hood.
 ~
 human~
-BFQhlw 0 V 0 ABHghn -1000 0
+BFQ 0 V 0 ABH -1000 0
 56 0 50d10+6000 53d9+100 6d8+21 'none'
 -23 -23 -23 -1
-EIKUkoq
+EIKU
 stand stand male 5000
 0 0 medium unknown
 #10446
@@ -707,10 +707,10 @@ A bowl of blood sits on the altar.
 It is a wooden bowl filled with blood and bits of flesh.
 ~
 human~
-BFhl 0 0 0 ABHghn -900 0
+BF 0 0 0 ABH -900 0
 52 0 50d10+4700 26d9+100 6d7+20 'none'
 -22 -22 -22 1
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10447
@@ -721,10 +721,10 @@ A jury member sits here with a "Guilty" sign, waiting for the trial to begin.
 It seems to be a lesser demon disguised as mortal. Fair trial?  Not likely.
 ~
 human~
-Bh 0 0 0 ABHghn -1000 0
+B 0 0 0 ABH -1000 0
 46 0 25d10+3250 20d9+100 6d6+16 'none'
 -13 -13 -13 5
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10448
@@ -736,10 +736,10 @@ This is the High Judge of Hell. He has never found anyone innocent
 and is notorious for his painful and harsh punishments.
 ~
 human~
-Bh 0 V 0 ABHghn -1000 0
+B 0 V 0 ABH -1000 0
 56 0 50d10+6000 50d9+100 5d8+20 'none'
 -22 -22 -22 2
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10449
@@ -750,10 +750,10 @@ The Lawyer from Hell sits here, playing games on his laptop computer.
 Slimy, sleezy, and with very sharp teeth... A lawyer all right...
 ~
 human~
-Bh 0 V 0 ABHghn -1000 0
+B 0 V 0 ABH -1000 0
 52 0 50d10+4700 26d9+100 8d7+20 'none'
 -22 -22 -22 2
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10450
@@ -766,10 +766,10 @@ She seems not to notice you, but is absorbed in her favorite soap,
 
 ~
 human~
-Bh 0 V 0 ABHghn -1000 0
+B 0 V 0 ABH -1000 0
 54 0 50d10+5500 25d9+100 5d8+22 'none'
 -23 -23 -23 3
-EFNUklt
+EFNU
 stand stand female 5000
 0 0 medium unknown
 #10451
@@ -783,10 +783,10 @@ and then goes back to practicing.
 He is known to buy anything, and to sell anything sold to him.
 ~
 human~
-Beh 0 V 0 ABHghn -1000 0
+Be 0 V 0 ABH -1000 0
 54 0 50d10+5500 50d10+100 6d8+20 'none'
 -21 -21 -21 3
-EFNUklt
+EFNU
 stand stand male 5000
 0 0 medium unknown
 #10452
@@ -797,10 +797,10 @@ A maintenance worker is here, fixing stuff.
 He is in a yellow jumpsuit with a large nuclear-warning symbol on the back.
 ~
 human~
-Bh 0 0 0 ABHghn -1000 0
+B 0 0 0 ABH -1000 0
 52 0 50d10+5000 25d9+100 5d8+20 'none'
 -21 -21 -21 3
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10453
@@ -811,10 +811,10 @@ A weed is growing out of the cement.
 You see a nasty yellow-and-purple weed.
 ~
 human~
-Bh 0 0 0 ABHghn -1000 0
+B 0 0 0 ABH -1000 0
 46 0 25d10+3250 20d12+100 5d7+17 'none'
 -13 -13 -13 5
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10454
@@ -827,10 +827,10 @@ are pretty well-known.  He was rumored to have disappeared around Solace 100
 years ago.
 ~
 human~
-Beh 0 0 0 ABHghn -1000 0
+Be 0 0 0 ABH -1000 0
 54 0 50d10+10000 27d9+100 7d6+22 'none'
 -24 -24 -24 2
-EFNUklt
+EFNU
 stand stand male 5000
 0 0 medium unknown
 #10455
@@ -842,10 +842,10 @@ This is what used to be a horse.  Hmm, maybe - it's hard to tell.  Half
 of it has been digested already.
 ~
 human~
-Bh 0 0 0 ABHghn -800 0
+B 0 0 0 ABH -800 0
 53 0 50d10+5100 25d9+100 5d8+22 'none'
 -21 -21 -21 3
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10456
@@ -857,10 +857,10 @@ A large, brown-and-green, slime-covered reptile, its function seems to be
 to move to each food item and barf acid all over it.
 ~
 human~
-Bh 0 0 0 ABHghn -800 0
+B 0 0 0 ABH -800 0
 53 0 50d10+5100 25d10+100 5d8+22 'none'
 -21 -21 -21 3
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10457
@@ -872,10 +872,10 @@ It's one of those really nasty pieces of food in the refrigerator that
 disappears, and you wonder if it just walked away....
 ~
 human~
-Bh 0 0 0 ABHghn -800 0
+B 0 0 0 ABH -800 0
 53 0 50d10+5100 25d10+100 5d8+22 'none'
 -21 -21 -21 3
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10458
@@ -887,10 +887,10 @@ He is dressed in a black jumpsuit with a large nuclear-warning symbol on
 the back.
 ~
 human~
-Bh 0 0 0 ABHghn -800 0
+B 0 0 0 ABH -800 0
 53 0 50d10+5100 25d10+100 5d8+22 'none'
 -21 -21 -21 3
-EFNUklt
+EFNU
 stand stand male 5000
 0 0 medium unknown
 #10459
@@ -902,10 +902,10 @@ He is dressed in a black jumpsuit with a large lighting bolt symbol on
 the back.
 ~
 human~
-Bh 0 0 0 ABHghn -800 0
+B 0 0 0 ABH -800 0
 53 0 50d10+5100 25d10+100 5d8+22 'none'
 -21 -21 -21 3
-EFNUklt
+EFNU
 stand stand male 5000
 0 0 medium unknown
 #10460
@@ -921,10 +921,10 @@ Homer calmly stands up, unplugs the control panel, and sits down
 for a nap.
 ~
 human~
-Bh 0 0 0 ABHghn -800 0
+B 0 0 0 ABH -800 0
 53 0 50d10+5100 25d10+100 6d8+20 'none'
 -21 -21 -21 3
-EFNUklt
+EFNU
 stand stand male 5000
 0 0 medium unknown
 #10461
@@ -935,10 +935,10 @@ A nice slice of devil's food cake is here, waiting to be eaten.
 Mmmmmm...Don't you just want to take a bite?
 ~
 human~
-Bh 0 0 0 ABHghn -800 0
+B 0 0 0 ABH -800 0
 53 0 50d10+5100 25d10+100 5d8+22 'none'
 -21 -21 -21 3
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10462
@@ -949,10 +949,10 @@ A mad cook is here, cooking up a storm.
 He spots you and screams, 'Git awa froom mi food!  I'll kill you!'
 ~
 human~
-Bh 0 0 0 ABHghn -800 0
+B 0 0 0 ABH -800 0
 53 0 50d10+5100 25d10+100 5d8+22 'none'
 -21 -21 -21 3
-EFNUklt
+EFNU
 stand stand male 5000
 0 0 medium unknown
 #10463
@@ -962,10 +962,10 @@ A frantic lady is here, looking in vain for a sale and tearing her hair out.
 ~
 ~
 human~
-Gm 0 V 0 Hn -600 0
+G 0 V 0 H -600 0
 46 0 25d10+3250 21d9+100 6d6+16 'none'
 -14 -14 -14 4
-EFNUklt
+EFNU
 stand stand female 5000
 0 0 medium unknown
 #10464
@@ -975,10 +975,10 @@ A nuclear technician is here, fiddling with his rad suit.
 ~
 ~
 human~
-Bh 0 0 0 ABHghn -800 0
+B 0 0 0 ABH -800 0
 54 0 50d10+5250 25d10+100 7d6+22 'none'
 -23 -23 -23 3
-EFNUklt
+EFNU
 stand stand male 5000
 0 0 medium unknown
 #10465
@@ -988,10 +988,10 @@ A stray proton is here, whizzing about.
 ~
 ~
 human~
-Bh 0 0 0 ABHghn -800 0
+B 0 0 0 ABH -800 0
 54 0 50d10+5500 25d10+100 5d8+23 'none'
 -23 -23 -23 3
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10466
@@ -1001,10 +1001,10 @@ The radiation in the room does unknown things to you.
 ~
 ~
 human~
-Bh 0 0 0 ABHghn -800 0
+B 0 0 0 ABH -800 0
 54 0 50d10+5500 25d10+100 5d8+23 'none'
 -23 -23 -23 3
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10467
@@ -1018,10 +1018,10 @@ reactor floor below frantically check dials and gauges, while lights
 are flashing and sirens are screaming in the background.
 ~
 human~
-Bh 0 V 0 ABHghn -800 0
+B 0 V 0 ABH -800 0
 56 0 50d10+6000 50d10+100 6d7+24 'none'
 -24 -24 -24 2
-EFNUklt
+EFNU
 stand stand male 5000
 0 0 medium unknown
 #10468
@@ -1036,10 +1036,10 @@ nails rip slowly through their flesh as he cackles with glee at the
 sounds of their unending pain...
 ~
 human~
-Bh 0 0 0 ABHghn -800 0
+B 0 0 0 ABH -800 0
 54 0 50d10+5500 25d10+100 5d8+22 'none'
 -21 -21 -21 3
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10469
@@ -1051,10 +1051,10 @@ This enormous carcass looks as if it came from a small dragon or a very
 large cow.
 ~
 human~
-Bh 0 0 0 Hn -675 0
+B 0 0 0 H -675 0
 48 0 25d10+3750 25d10+100 6d6+18 'none'
 -15 -15 -15 4
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10470
@@ -1065,10 +1065,10 @@ A guard dog sits here, guarding the break room.
 A vicious-looking pit bull / demon-dog mix is here, slobbering on the donuts.
 ~
 human~
-Bh 0 V 0 Hn -900 0
+B 0 V 0 H -900 0
 50 0 50d10+4000 25d10+100 5d8+19 'none'
 -18 -18 -18 4
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #10471
@@ -1079,10 +1079,10 @@ A mouth-watering, juicy steak is here, steaming.
 Mmmmmmm.....Steak....Mmmmmm...You feel your mouth start to water.
 ~
 human~
-Bh 0 0 0 ABHghn -800 0
+B 0 0 0 ABH -800 0
 54 0 50d10+5500 25d10+100 7d6+22 'none'
 -23 -23 -23 0
-EFNUklt
+EFNU
 stand stand none 5000
 0 0 medium unknown
 #0
@@ -1093,8 +1093,8 @@ wicked trident two-handed~
 a wicked-looking trident~
 A wicked-looking trident is stuck into the ground.~
 unknown~
-weapon AEGJgkmp 0 ANgt
-spear 4 12 'stab' FKlq
+weapon AEGJ 0 AN
+spear 4 12 'stab' FK
 45 70 3100 P
 A
 19 3
@@ -1108,7 +1108,7 @@ black leather whip~
 a black leather whip~
 A black leather whip lies on the ground.~
 unknown~
-weapon BEJhkp 0 ANgt
+weapon BEJ 0 AN
 whip 6 6 'whip' 0
 35 70 2100 P
 A
@@ -1119,7 +1119,7 @@ hickey maker~
 a hickey maker~
 A hickey maker lies on the ground, making a soft sucking sound.~
 unknown~
-weapon 0 0 ANgt
+weapon 0 0 AN
 mace 4 10 'suction' 0
 37 70 6300 P
 A
@@ -1134,8 +1134,8 @@ sword farslayer two-handed~
 a black-hilted sword called "Farslayer"~
 A black-hilted sword with engravings on the blade lies here.~
 unknown~
-weapon BFGHMhlmns 0 ANgt
-sword 6 10 'pierce' Fl
+weapon BFGHM 0 AN
+sword 6 10 'pierce' F
 53 70 15300 P
 A
 19 10
@@ -1163,7 +1163,7 @@ angel's skull~
 the angel's skull~
 An angel's skull lies here on the ground.~
 unknown~
-armor 0 0 AEgk
+armor 0 0 AE
 15 15 15 8 0
 45 40 6900 P
 A
@@ -1176,7 +1176,7 @@ rotting flesh~
 some rotting flesh~
 Some rotting flesh lies here in a pile.~
 unknown~
-armor 0 0 ADgj
+armor 0 0 AD
 8 8 8 0 0
 25 30 3900 P
 g none~
@@ -1185,8 +1185,8 @@ sword vorpal blade two-handed~
 the Vorpal Blade~
 A magnificently crafted blade lies here, humming softly.~
 unknown~
-weapon 0 0 ANgt
-sword 4 9 'slice' EFkl
+weapon 0 0 AN
+sword 4 9 'slice' EF
 33 60 4800 P
 A
 19 5
@@ -1196,8 +1196,8 @@ flaming claw~
 a flaming claw~
 A flaming claw lies here, burning brightly.~
 unknown~
-weapon 0 0 ANgt
-exotic 7 6 'flbite' Ag
+weapon 0 0 AN
+exotic 7 6 'flbite' A
 46 40 9400 P
 A
 19 4
@@ -1211,7 +1211,7 @@ demonskin~
 a demonskin~
 A black, scaley pile of demonskin lies here.~
 unknown~
-armor 0 0 ADgj
+armor 0 0 AD
 11 12 12 5 0
 35 40 10000 P
 A
@@ -1226,7 +1226,7 @@ demon teeth~
 demon teeth~
 A bunch of very sharp, slimey teeth lie here.~
 unknown~
-weapon 0 0 ANgt
+weapon 0 0 AN
 exotic 7 5 'bite' 0
 36 10 7600 P
 A
@@ -1237,7 +1237,7 @@ burning flesh~
 some burning flesh~
 A pile of burning flesh lies here.~
 unknown~
-armor 0 0 AIgo
+armor 0 0 AI
 12 11 11 10 0
 35 50 10000 P
 g none~
@@ -1246,7 +1246,7 @@ rivet gun~
 a rivet gun~
 A rivet gun loaded with hot rivets lies here.~
 unknown~
-staff 0 0 AOgu
+staff 0 0 AO
 46 10 10 'general purpose' 0
 17 70 100000 P
 g none~
@@ -1255,7 +1255,7 @@ circular saw~
 a circular saw~
 A circular saw lies here.~
 unknown~
-weapon Bh 0 ANgt
+weapon B 0 AN
 axe 6 6 'slice' 0
 43 70 7300 P
 A
@@ -1268,7 +1268,7 @@ box matches~
 a box of matches~
 A box of matches lies here, ready to light something.~
 unknown~
-staff Ag 0 AOgu
+staff A 0 AO
 48 10 10 'sleep' 0
 9 20 15000 P
 g none~
@@ -1277,8 +1277,8 @@ bloody black talon~
 a bloody black talon~
 A severed bloody, black talon lies here.~
 unknown~
-weapon EGkm 0 ANgt
-dagger 5 9 'claw' Ci
+weapon EG 0 AN
+dagger 5 9 'claw' C
 46 60 7500 P
 A
 12 25
@@ -1292,7 +1292,7 @@ jar of blood~
 jar of blood~
 A dark jar of blood lies here.~
 unknown~
-potion 0 0 Ag
+potion 0 0 A
 50 'teleport' 'remove curse' 'refresh' ''
 11 10 5170 P
 g none~
@@ -1301,8 +1301,8 @@ hell hound teeth~
 hell hound teeth~
 The bloody teeth of a hell hound sit here.~
 unknown~
-weapon 0 0 ANgt
-dagger 8 5 'bite' Ag
+weapon 0 0 AN
+dagger 8 5 'bite' A
 43 20 7500 P
 A
 2 2
@@ -1314,7 +1314,7 @@ icy bottle~
 an icy bottle~
 An icy bottle sits on the floor.~
 unknown~
-potion 0 0 Ag
+potion 0 0 A
 47 '' 'create spring' 'faerie fog' ''
 8 10 2970 P
 g none~
@@ -1323,8 +1323,8 @@ ice spear two-handed~
 an ice spear~
 A spear made out of ice lies here.~
 unknown~
-weapon 0 0 ANgt
-spear 6 8 'frbite' BFKhlq
+weapon 0 0 AN
+spear 6 8 'frbite' BFK
 48 50 1330 P
 g none~
 #10420
@@ -1332,8 +1332,8 @@ large meat hook two-handed~
 a large meat hook~
 A large meat hook is stuck into the ground.~
 unknown~
-weapon 0 0 ANgt
-polearm 9 5 'frbite' BFhl
+weapon 0 0 AN
+polearm 9 5 'frbite' BF
 47 30 2400 P
 A
 19 2
@@ -1343,8 +1343,8 @@ meat~
 some meat~
 A chunk of meat lies here.~
 unknown~
-food 0 0 Ag
-BCDEhijk BCDEhijk 0 0 0
+food 0 0 A
+BCDE BCDE 0 0 0
 0 20 20 P
 g none~
 #10422
@@ -1352,8 +1352,8 @@ blueprint~
 the blueprint~
 A construction blueprint lies on the ground.~
 unknown~
-food 0 0 AOgu
-ABCDEghijk ABCDEghijk 0 0 0
+food 0 0 AO
+ABCDE ABCDE 0 0 0
 0 10 100 P
 g none~
 #10423
@@ -1361,7 +1361,7 @@ electric eraser~
 an electric eraser~
 A electric eraser lies on the ground, waiting for an erasermate.~
 unknown~
-weapon 0 0 ANgt
+weapon 0 0 AN
 mace 4 11 'grep' 0
 44 10 7400 P
 A
@@ -1374,7 +1374,7 @@ spectacles~
 spectacles~
 A set of spectacles lies here on the ground. Don't step on them.~
 unknown~
-clothing 0 0 AEgk
+clothing 0 0 AE
 0 0 0 0 0
 17 10 5500 P
 A
@@ -1387,7 +1387,7 @@ unholy symbol~
 an unholy symbol~
 A sinister-looking symbol of evil lies here smoldering.~
 unknown~
-wand 0 0 AOgu
+wand 0 0 AO
 53 10 10 'cure poison' 0
 12 20 5300 P
 g none~
@@ -1396,7 +1396,7 @@ unholy robes pile cloth~
 unholy robes~
 A stinking pile of cloth lies here.~
 unknown~
-armor EJkp 0 AKgq
+armor EJ 0 AK
 16 16 16 8 0
 47 40 18300 P
 A
@@ -1407,8 +1407,8 @@ sharp teeth lawyer~
 the sharp teeth of a lawyer~
 A set of sharp, evil-looking teeth lie here. Probably a lawyer's.~
 unknown~
-weapon Gm 0 ANgt
-exotic 5 11 'none' Ci
+weapon G 0 AN
+exotic 5 11 'none' C
 52 20 11800 P
 A
 3 1
@@ -1420,7 +1420,7 @@ golden ring~
 a golden ring~
 A golden ring lies on the ground.~
 unknown~
-jewelry 0 0 ABgh
+jewelry 0 0 AB
 0 0 0 0 0
 31 10 2900 P
 A
@@ -1433,7 +1433,7 @@ engagement ring~
 an engagement ring~
 An engagement ring lies here.~
 unknown~
-jewelry 0 0 ABgh
+jewelry 0 0 AB
 0 0 0 0 0
 33 10 7700 P
 A
@@ -1448,7 +1448,7 @@ prenuptual agreement~
 a prenuptual agreement~
 A prenuptual agreement lies here.~
 unknown~
-scroll 0 0 Ag
+scroll 0 0 A
 51 'cure blindness' 'detect evil' 'shield' ''
 11 10 2400 P
 g none~
@@ -1457,7 +1457,7 @@ ionic torque wrench~
 an ionic torque wrench~
 You see an ionic torque wrench on the ground.~
 unknown~
-weapon 0 0 ANgt
+weapon 0 0 AN
 mace 6 8 'pound' 0
 49 30 6500 P
 A
@@ -1470,7 +1470,7 @@ figurine horse~
 a figurine of a horse~
 You see a small figurine of a horse on the ground.~
 unknown~
-treasure AGgm 0 AOgu
+treasure AG 0 AO
 0 0 0 0 0
 45 30 11800 P
 A
@@ -1481,7 +1481,7 @@ figurine winged horse pegasus~
 a figurine of a winged horse~
 You see a small figurine of a winged horse on the ground.~
 unknown~
-wand AGgm 0 AOgu
+wand AG 0 AO
 54 50 50 'summon' 0
 19 30 16600 P
 g none~
@@ -1490,7 +1490,7 @@ figurine dark horse nightmare~
 a figurine of a nightmare~
 You see a small figurine of a dark horse on the ground.~
 unknown~
-wand AGgm 0 AOgu
+wand AG 0 AO
 54 50 50 'teleport' 0
 19 30 18900 P
 g none~
@@ -1499,7 +1499,7 @@ figurine black dragon~
 a figurine of a black dragon~
 You see a small figurine of a black dragon on the ground.~
 unknown~
-wand AGgm 0 AOgu
+wand AG 0 AO
 54 10 10 'weaken' 0
 10 30 3900 P
 g none~
@@ -1508,7 +1508,7 @@ figurine red dragon~
 a figurine of a red dragon~
 You see a small figurine of a red dragon on the ground.~
 unknown~
-wand AGgm 0 AOgu
+wand AG 0 AO
 54 10 10 'mass invis' 0
 18 30 11000 P
 g none~
@@ -1517,7 +1517,7 @@ figurine white dragon~
 a figurine of a white dragon~
 You see a small figurine of a white dragon on the ground.~
 unknown~
-wand AGgm 0 AOgu
+wand AG 0 AO
 35 10 10 'acid blast' 0
 33 30 57600 P
 g none~
@@ -1526,7 +1526,7 @@ figurine green dragon~
 a figurine of a green dragon~
 You see a small figurine of a green dragon on the ground.~
 unknown~
-wand AGgm 0 AOgu
+wand AG 0 AO
 44 5 5 'gas breath' 0
 41 30 87800 P
 g none~
@@ -1535,7 +1535,7 @@ figurine blue dragon~
 a figurine of a blue dragon~
 You see a small figurine of a blue dragon on the ground.~
 unknown~
-wand AGgm 0 AOgu
+wand AG 0 AO
 54 10 10 'faerie fire' 0
 4 30 1840 P
 g none~
@@ -1544,7 +1544,7 @@ geiger counter~
 a geiger counter~
 You see a Geiger counter here.~
 unknown~
-wand Ag 0 AOgu
+wand A 0 AO
 52 10 10 'remove curse' 0
 16 20 8500 P
 A
@@ -1555,7 +1555,7 @@ photon displacement matrix~
 a photon-displacement matrix~
 You see a photon-displacement matrix on the ground.~
 unknown~
-weapon ABgh 0 ANgt
+weapon AB 0 AN
 exotic 5 9 'blast' 0
 45 70 6700 P
 A
@@ -1570,7 +1570,7 @@ black jumpsuit~
 a black jumpsuit~
 You see a black jumpsuit on the ground.~
 unknown~
-armor Ag 0 ADgj
+armor A 0 AD
 16 16 16 10 0
 50 40 13700 P
 A
@@ -1581,7 +1581,7 @@ antacid pill~
 an antacid pill~
 You see an antacid pill here.~
 unknown~
-pill 0 0 Ag
+pill 0 0 A
 54 'pass door' 'refresh' '' ''
 14 10 1520 P
 g none~
@@ -1590,7 +1590,7 @@ manes claws~
 a manes' claws~
 The severed claws of a sub-demon lie here, twitching.~
 unknown~
-weapon 0 0 ANgt
+weapon 0 0 AN
 dagger 2 16 'claw' 0
 32 40 2900 P
 A
@@ -1601,8 +1601,8 @@ welding torch~
 a welding torch~
 A welding torch sits on the ground.~
 unknown~
-weapon 0 0 ANgt
-mace 5 9 'flame' Ag
+weapon 0 0 AN
+mace 5 9 'flame' A
 47 70 6400 P
 A
 19 4
@@ -1614,7 +1614,7 @@ blond wig~
 a blond wig~
 A blond wig lies on the ground.~
 unknown~
-armor 0 0 AEgk
+armor 0 0 AE
 16 16 16 8 0
 46 20 6100 P
 A
@@ -1627,7 +1627,7 @@ yellow jumpsuit nuclear symbol~
 a yellow jumpsuit~
 You see a yellow jumpsuit with a nuclear-warning symbol.~
 unknown~
-armor 0 0 ADgj
+armor 0 0 AD
 16 16 16 16 0
 48 30 13700 P
 A
@@ -1640,7 +1640,7 @@ cleaver~
 a cleaver~
 You see a nasty-looking cleaver stuck in the ground.~
 unknown~
-weapon 0 0 ANgt
+weapon 0 0 AN
 axe 5 9 'cleave' 0
 45 60 6400 P
 A
@@ -1653,7 +1653,7 @@ fire opal gem~
 a precious fire opal~
 A flaming red gem lies on the ground.~
 unknown~
-warp_stone 0 Ci AOgu
+warp_stone 0 C AO
 0 0 0 0 0
 0 10 5000 P
 E
@@ -1668,7 +1668,7 @@ hellstone hell stone~
 a hellstone~
 An evil black gem rests here, hoping to seduce you with its evil.~
 unknown~
-warp_stone Ek Ci AOgu
+warp_stone E C AO
 0 0 0 0 0
 0 10 10000 P
 E
@@ -1688,7 +1688,7 @@ pictures are painted onto it. Stone gargoyles and demons glare down at
 you from atop the arch.
 There is a bronze plaque above the archway.
 ~
-0 ADgj inside
+0 AD inside
 E
 plaque~
 ***************
@@ -1720,7 +1720,7 @@ that lead down into the darkness.  From the stairway you can smell brimstone
 and sulfur.
 To the west, there appears to be a shrine.
 ~
-0 ADgj inside
+0 AD inside
 D1
 It is too dark to see.
 ~
@@ -1744,7 +1744,7 @@ and sulfur choke you.  Screams of pain and terror fill the air.
 Stone faces carved into the walls seem to laugh at you.
 Maybe this is not such a good idea after all....
 ~
-0 ADgj inside
+0 AD inside
 D3
 It's too dark to see.
 ~
@@ -1765,7 +1765,7 @@ symbols and runes.
 Large, black iron gates tower over you to the west.
 You see a large gateway to the west.
 ~
-0 ADgj inside
+0 AD inside
 E
 gates~
 These black iron gates are covered with grotesque faces and other
@@ -1781,7 +1781,7 @@ D3
 You see the Gates of Hell
 ~
 gates~
-ABZgh -1 10405
+ABZ -1 10405
 S
 #10405
 Gateway to Hell~
@@ -1790,7 +1790,7 @@ the sounds of torture and pain. Screams pierce the air and rattle your
 nerves. Displays of the treats of Hell are in all directions.
 A large black iron gates tower over you to the east.
 ~
-0 ADgj inside
+0 AD inside
 E
 gates~
 These black iron gates are covered with grotesque faces and other
@@ -1806,7 +1806,7 @@ D1
 The Gates of Hell
 ~
 gates~
-ABZgh -1 10404
+ABZ -1 10404
 D2
 It's too smoky to see.
 ~
@@ -1825,7 +1825,7 @@ The walls are made up of various body parts and other, unidentifiable
 things. Many of the faces that make up the wall scream out to you for
 help. Their arms desperately grasp at your clothing as you pass.
 ~
-0 ADgj inside
+0 AD inside
 D0
 It's too smoky to see.
 ~
@@ -1854,7 +1854,7 @@ The walls are made up of various body parts and other, unidentifiable
 things. Many of the faces that make up the wall scream out to you for
 help. Their arms desperately grasp at your clothing as you pass.
 ~
-0 ADgj inside
+0 AD inside
 D0
 It's too smoky to see.
 ~
@@ -1883,7 +1883,7 @@ The walls are made up of various body parts and other, unidentifiable
 things. Many of the faces that make up the wall scream out to you for
 help. Their arms desperately grasp at your clothing as you pass.
 ~
-0 ADgj inside
+0 AD inside
 D0
 It's too smoky to see.
 ~
@@ -1912,7 +1912,7 @@ The walls are made up of various body parts and other, unidentifiable
 things. Many of the faces that make up the wall scream out to you for
 help. Their arms desperately grasp at your clothing as you pass.
 ~
-0 ADgj inside
+0 AD inside
 D0
 It's too smoky to see.
 ~
@@ -1946,7 +1946,7 @@ The walls are made up of various body parts and other, unidentifiable
 things. Many of the faces that make up the wall scream out to you for
 help. Their arms desperately grasp at your clothing as you pass.
 ~
-0 ADgj inside
+0 AD inside
 D0
 It's too smoky to see.
 ~
@@ -1964,7 +1964,7 @@ You stand before a large mural. The mural depicts mountains of dead
 bodies piled up to the sky. The mural covers the whole north wall from
 floor to ceiling. You can smell the stench of decaying flesh.
 ~
-0 ADgj inside
+0 AD inside
 D1
 It's too smoky to see.
 ~
@@ -1982,7 +1982,7 @@ The walls here actually consist of greying and sinewy flesh - faces, hands,
 broken bones, feet, and toes jutting from the surface. You hear low moans
 of horror, pain, and sorrow issuing from within.
 ~
-0 ADgj inside
+0 AD inside
 D1
 It's too smoky to see.
 ~
@@ -2005,7 +2005,7 @@ There are many souls trapped behind the walls of this room, almost as though
 they were trapped beneath the surface of a frozen lake. Even the floor and 
 ceiling show the screaming faces behind them.
 ~
-0 ADgj inside
+0 AD inside
 D1
 It's too smoky to see.
 ~
@@ -2029,7 +2029,7 @@ sizes are being brought to the thresholds of pain and beyond. Some are
 being sliced into thousands of pieces.  Others are being stretched as though
 they were made of rubber.  All are caught in an unending play of agony.
 ~
-0 ADgj inside
+0 AD inside
 D1
 It's too smoky to see.
 ~
@@ -2053,7 +2053,7 @@ hamburger assault your senses. All sorts of food lay everywhere you look.
 Cookies, twinkies, steak, prime rib, almost anything you can think of, call
 out to you. You suddenly feel VERY hungry.
 ~
-0 ADgj inside
+0 AD inside
 D1
 It's too smoky to see.
 ~
@@ -2078,12 +2078,12 @@ Someone is taking your treasure. They have no right! It is yours! You
 found it first. Let them go get their own treasures!
 You see a door to the east.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see a bedroom door.
 ~
 door~
-ABZgh -1 10417
+ABZ -1 10417
 D2
 It's too smoky to see.
 ~
@@ -2103,12 +2103,12 @@ Upon the headboard of the bed are carved two cherub-like figures, with the
 the words 'DEE & DEE' written below them.
 The door to the bedroom is to the west.
 ~
-0 ADgj inside
+0 AD inside
 D3
 You see a bedroom door.
 ~
 door~
-ABZgh -1 10416
+ABZ -1 10416
 S
 #10418
 Ancient Shrine~
@@ -2119,7 +2119,7 @@ have been spray-painted on the walls and floor.  Nailed to the ceiling are
 an assortment of skeletons.  All seem to have been dead for a very long
 time. All surfaces of the room are covered with dried blood and dust. 
 ~
-0 ADgj inside
+0 AD inside
 D1
 It is too dark to see.
 ~
@@ -2132,7 +2132,7 @@ The room is filled with piles of arms, legs, heads, and other, unidentifiable
 parts of many different creatures. The stench is overwhelming. The body
 parts seem to wiggle and scream as you get closer. They are still alive!!
 ~
-0 ADgj inside
+0 AD inside
 D1
 It is too dark to see.
 ~
@@ -2150,7 +2150,7 @@ This room is made of a rough black stone. The walls seem to ooze black
 sludge. In the middle of the room stands a stone fountain of a demon spitting
 blood.
 ~
-0 ADgj inside
+0 AD inside
 D2
 It is too dark to see.
 ~
@@ -2169,7 +2169,7 @@ covered with blood and gore. Pieces of goo and ooze drip from the
 ceiling overhead. You almost slip a couple times on the stairway.
 The stench here is overwhelming.
 ~
-0 ADgj inside
+0 AD inside
 D4
 It is too dark to see.
 ~
@@ -2186,7 +2186,7 @@ Ancient Room~
 This is a very old and dusty room. It looks empty except for a few shards
 or bone and flesh.
 ~
-0 ADgj inside
+0 AD inside
 D0
 It is too dark to see.
 ~
@@ -2205,7 +2205,7 @@ Wooden benches line the walls. A digital number sign is posted on the wall.
 It currently reads, 'Now Serving Number 1'.
 A ticket dispenser is bolted to the wall.
 ~
-0 ADgj inside
+0 AD inside
 E
 dispenser~
 This is one of those red ticket dispensers that never seem to work right.
@@ -2233,7 +2233,7 @@ Wooden benches line the walls. A digital number sign is posted on the wall.
 It currently reads, 'Now Serving Number 1'.
 A ticket dispenser is bolted to the wall.
 ~
-0 ADgj inside
+0 AD inside
 E
 dispenser~
 This is one of those red ticket dispensers that never seem to work right.
@@ -2261,7 +2261,7 @@ As you look closer at the pit you realize that hundreds of people are being
 burned inside it. They Scream out to you. The noise is deafening. Several
 minor imps and workers push more people into the pit, whistling while
 ~
-0 Dj inside
+0 D inside
 D0
 It is too dark to see.
 ~
@@ -2283,7 +2283,7 @@ Blackened Hallway~
 This dark hallway looks as if it was made by a lavaworm...All the surfaces
 in it are melted and burnt. The smell of brimstone and sulfur fill the air.
 ~
-0 ADgj inside
+0 AD inside
 D0
 It is too dark to see.
 ~
@@ -2305,7 +2305,7 @@ Blackened Hallway~
 This dark hallway looks as if it was made by a lavaworm...All the surfaces
 in it are melted and burnt. The smell of brimstone and sulfur fill the air.
 ~
-0 ADgj inside
+0 AD inside
 D1
 It is too dark to see.
 ~
@@ -2323,7 +2323,7 @@ You enter the room and are immediately assaulted by the smell of rotting
 flesh and blood. The walls are covered with the crimson fluid as it runs
 down from the ceiling.
 ~
-0 ADgj inside
+0 AD inside
 D1
 It is too dark to see.
 ~
@@ -2341,7 +2341,7 @@ The walls here actually consist of greying and sinewy flesh - faces, hands,
 broken bones, feet, and toes jutting from the surface. You hear low moans
 of horror, pain, and sorrow issuing from the walls.
 ~
-0 ADgj inside
+0 AD inside
 D0
 It is too dark to see.
 ~
@@ -2365,7 +2365,7 @@ graveyards. The room is simply littered with bones. A poster on the
 wall reads, "Remember ....the head bone is connected to the neck bone.."
 The poster continues on...but it seems to get very technical and boring..
 ~
-0 ADgj inside
+0 AD inside
 D0
 It is too dark to see.
 ~
@@ -2384,7 +2384,7 @@ thought it was a stairway. It seems to be just a painting the the wall.
 This roughly carved room with evil runes carved  in to the stone floor.
 There is a hallway to the east.
 ~
-0 ADgj inside
+0 AD inside
 D1
 It is too dark to see.
 ~
@@ -2399,7 +2399,7 @@ echo down the hall as you walk. There is a strange and deathly silence
 that fills these halls...
 The hall continues to the south and the west.
 ~
-0 ADgj inside
+0 AD inside
 D2
 It is too dark to see.
 ~
@@ -2417,12 +2417,12 @@ The cell is very damp and very musty. The walls are covered with moisture
 and dirt. The smell of urine is very potent here.
 The steel bars to the cell are to the south.
 ~
-0 ADgj inside
+0 AD inside
 D2
 You see bars
 ~
 bars~
-ABZgh -1 10443
+ABZ -1 10443
 S
 #10434
 Stone Hall~
@@ -2432,7 +2432,7 @@ echo down the hall as you walk. There is a strange and deathly silence
 that fills these halls...
 The hallway continues to the east and the south.
 ~
-0 ADgj inside
+0 AD inside
 D1
 It is too dark to see.
 ~
@@ -2452,7 +2452,7 @@ echo down the hall as you walk. There is a strange and deathly silence
 that fills these halls...
 To the south you see the steel bars of a cell.
 ~
-0 ADgj inside
+0 AD inside
 D1
 It is too dark to see.
 ~
@@ -2462,7 +2462,7 @@ D2
 You see the steel bars of a cell.
 ~
 bars~
-ABZgh -1 10445
+ABZ -1 10445
 D3
 It is too dark to see.
 ~
@@ -2477,7 +2477,7 @@ echo down the hall as you walk. There is a strange and deathly silence
 that fills these halls...
 The hallway contines to the south and the west.
 ~
-0 ADgj inside
+0 AD inside
 D2
 It is too dark to see.
 ~
@@ -2495,12 +2495,12 @@ The cell is very damp and very musty. The walls are covered with moisture
 and dirt. The smell of urine is very potent here.
 The steel bars to the cell are to the south.
 ~
-0 ADgj inside
+0 AD inside
 D2
 You see bars
 ~
 bars~
-ABZgh -1 10447
+ABZ -1 10447
 S
 #10438
 Stone Hall~
@@ -2510,7 +2510,7 @@ echo down the hall as you walk. There is a strange and deathly silence
 that fills these halls...
 The hallway contines to the west and the east.
 ~
-0 ADgj inside
+0 AD inside
 D1
 It is too dark to see.
 ~
@@ -2530,17 +2530,17 @@ echo down the hall as you walk. There is a strange and deathly silence
 that fills these halls...
 The hallway contines to the west.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see the steel bars to a cell.
 ~
 bars~
-ABZgh -1 10440
+ABZ -1 10440
 D2
 You see the steel bars to a cell.
 ~
 bars~
-ABZgh -1 10449
+ABZ -1 10449
 D3
 It is too dark to see.
 ~
@@ -2558,12 +2558,12 @@ The cell is very damp and very musty. The walls are covered with moisture
 and dirt. The smell of urine is very potent here.
 The steel bars to the cell are to the west.
 ~
-0 ADgj inside
+0 AD inside
 D3
 You see bars
 ~
 bars~
-ABZgh -1 10439
+ABZ -1 10439
 S
 #10441
 Hidden Room~
@@ -2571,7 +2571,7 @@ This is a long forgotten room. Ancient torture equipment stands around
 collecting dust. Most of this stuff was probably replace with modern
 hi tech torture devices and for sentimental reasons wasn't thrown away.
 ~
-0 ADgj inside
+0 AD inside
 D2
 It's too dark to see.
 ~
@@ -2586,7 +2586,7 @@ echo down the hall as you walk. There is a strange and deathly silence
 that fills these halls...
 The hallway contines to the north and east.
 ~
-0 ADgj inside
+0 AD inside
 D0
 It's too dark to see.
 ~
@@ -2607,12 +2607,12 @@ that fills these halls...
 The hallway contines to the east and west.
 The bars to a cell are to the north.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see bars to a cell.
 ~
 bars~
-ABZgh -1 10433
+ABZ -1 10433
 D1
 It's too dark to see.
 ~
@@ -2632,7 +2632,7 @@ echo down the hall as you walk. There is a strange and deathly silence
 that fills these halls...
 The hallway contines to the north and west.
 ~
-0 ADgj inside
+0 AD inside
 D0
 It's too dark to see.
 ~
@@ -2650,12 +2650,12 @@ The cell is very damp and very musty. The walls are covered with moisture
 and dirt. The smell of urine is very potent here.
 The steel bars to the cell are to the north.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see bars
 ~
 bars~
-ABZgh -1 10435
+ABZ -1 10435
 S
 #10446
 Stone Hall~
@@ -2665,7 +2665,7 @@ echo down the hall as you walk. There is a strange and deathly silence
 that fills these halls...
 The hallway contines to the north and east.
 ~
-0 ADgj inside
+0 AD inside
 D0
 It's too dark to see.
 ~
@@ -2686,12 +2686,12 @@ that fills these halls...
 The hallway contines to the east and west.
 You see bars to a cell to the north.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see bars to a cell.
 ~
 bars~
-ABZgh -1 10437
+ABZ -1 10437
 D1
 It's too dark to see.
 ~
@@ -2711,7 +2711,7 @@ echo down the hall as you walk. There is a strange and deathly silence
 that fills these halls...
 The hallway contines to the north and west.
 ~
-0 ADgj inside
+0 AD inside
 D0
 It's too dark to see.
 ~
@@ -2729,12 +2729,12 @@ The cell is very damp and very musty. The walls are covered with moisture
 and dirt. The smell of urine is very potent here.
 The steel bars to the cell are to the north.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see bars
 ~
 bars~
-ABZgh -1 10439
+ABZ -1 10439
 S
 #10450
 Hot Stairs~
@@ -2744,7 +2744,7 @@ ground. Cool air flows out from a crack in the wall to the east.
 The smell of brimstone and smoke is all around you.
 The stairs continue down.
 ~
-0 ADgj inside
+0 AD inside
 D4
 It is too dark to see.
 ~
@@ -2764,7 +2764,7 @@ an earthquake or something.
 An ancient passageway continues to the north.
 Hot gusts of air come from the west.
 ~
-0 ADgj inside
+0 AD inside
 D0
 It is too dark to see.
 ~
@@ -2785,7 +2785,7 @@ To the south you see a large metal door with the words, 'FOREMAN'
 written on the door.
 There is a dark stairway down in the corner of the room.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see a hall of fire.
 ~
@@ -2795,7 +2795,7 @@ D2
 You see the Foreman's office.
 ~
 ~
-ABZgh -1 10462
+ABZ -1 10462
 D5
 You see a dark stairway down.
 ~
@@ -2812,7 +2812,7 @@ fall from your body.
 The hall of fire continues to the east.
 You see a stone archway to the west.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see a hall of fire.
 ~
@@ -2833,7 +2833,7 @@ burns at your feet and hungrily drinks up every drop of sweat as they
 fall from your body.
 The hall of fire continues to the south and west.
 ~
-0 ADgj inside
+0 AD inside
 D2
 You see a hall of fire.
 ~
@@ -2853,7 +2853,7 @@ gas lines and electrical conduits within the dismantled walls. Partially
 hidden fire sprinklers are being installed in the ceilings.
 You see more contruction to the east and south.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see a construction area.
 ~
@@ -2873,7 +2873,7 @@ gas lines and electrical conduits within the dismantled walls. Partially
 hidden fire sprinklers are being installed in the ceilings.
 You see more contruction to the east and west.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see a construction area.
 ~
@@ -2893,7 +2893,7 @@ gas lines and electrical conduits within the dismantled walls. Partially
 hidden fire sprinklers are being installed in the ceilings.
 You see more contruction to the south and west.
 ~
-0 ADgj inside
+0 AD inside
 D2
 You see a construction area.
 ~
@@ -2914,7 +2914,7 @@ burns at your feet and hungrily drinks up every drop of sweat as they
 fall from your body.
 The hall of fire continues to the east and south.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see a hall of fire.
 ~
@@ -2937,7 +2937,7 @@ The hall of fire continues to the west.
 A room full of fire pits lies to the east.
 A wall of fire crackles merrily to the south.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see a room full of fire pits.
 ~
@@ -2962,7 +2962,7 @@ many pits. Wailing and screams of pain chill your bones in this hot room.
 To the south you see a lake of fire.
 A fire hall lies to the west.
 ~
-0 ADgj inside
+0 AD inside
 D2
 You see a lake of fire.
 ~
@@ -2984,7 +2984,7 @@ you smells of sulfur and methane. To the south you see a stone hallway.
 Hot air blows in at you from the doorway. The air stirs up the methane and
 steals your breath. You choke and gag...
 ~
-0 ADgj inside
+0 AD inside
 D2
 You see a stone hallway.
 ~
@@ -2998,12 +2998,12 @@ scattered everywhere. A metal filing cabinet stands in the corner. Before
 you stands a stone table covered with blueprints. On the wall is a 
 construction plaque that reads, "4th DEMONsion Contruction"
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see the door to the office.
 ~
 ~
-ABZgh -1 10452
+ABZ -1 10452
 S
 #10463
 Cold Stairway~
@@ -3012,7 +3012,7 @@ higher up the stairwell. From below you a freezing gusts bite at your skin
 and make you shiver. Icicles drip slowly from the ceiling onto the frosted
 stone floor.
 ~
-0 ADgj inside
+0 AD inside
 D4
 It is too dark to see.
 ~
@@ -3033,7 +3033,7 @@ burns at your feet and hungrily drinks up every drop of sweat as they
 fall from your body.
 The hall of fire continues to the north and east.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see a hall of fire.
 ~
@@ -3054,7 +3054,7 @@ hidden fire sprinklers are being installed in the ceilings.
 You see more contruction to the north and east.
 A hall of fire is to the west.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see a construction area.
 ~
@@ -3079,7 +3079,7 @@ gas lines and electrical conduits within the dismantled walls. Partially
 hidden fire sprinklers are being installed in the ceilings.
 You see more contruction to the east and west.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see a construction area.
 ~
@@ -3100,7 +3100,7 @@ hidden fire sprinklers are being installed in the ceilings.
 You see more contruction to the north and west.
 A hall of fire lies to the east.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see a construction area.
 ~
@@ -3127,7 +3127,7 @@ fall from your body.
 The hall of fire continues to the north.
 There are loud noises of contruction to the west.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see a hall of fire.
 ~
@@ -3153,7 +3153,7 @@ death...
 To the north you see a hall of fire.
 To the east you see a lake of fire.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see a hall of fire.
 ~
@@ -3171,7 +3171,7 @@ You stand one the shore of a large lake of fire. The smoke and heat fill this
 enormous room. You can barely make out shapes of something moving
 withing the dancing flames of blue and gold..
 ~
-0 ADgj inside
+0 AD inside
 D0
 It is too smoky to see.
 ~
@@ -3193,7 +3193,7 @@ Hot Hall~
 The stone floor below you heats your feet uncomfortably. The ceiling and
 walls glow a dull red and you sweat uncomfortably under the heat.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see a Mural Room.
 ~
@@ -3212,7 +3212,7 @@ hunting scenes in bas-relief. These carved scenes show ice devils slaying
 angels, hunting mortals and other gruesome pictures.
 To the east you see a room of ice.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see a room of ice.
 ~
@@ -3227,7 +3227,7 @@ seems to dance and wiggle as you move about.
 To the south you see more of the frozen room.
 To the west you see an Icy landing.
 ~
-0 ADgj inside
+0 AD inside
 D2
 You see a room of ice.
 ~
@@ -3247,7 +3247,7 @@ things hanging from the hooks are corpses of people. They reach out to
 you as you pass them as if to plead for help from their frozen mouths. 
 The meat locker continues to the east and south.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see more of the Meat locker
 ~
@@ -3268,12 +3268,12 @@ mouths.
 The meat locker continues to the south and west.
 There is a freezer door to the east.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see a freezer door.
 ~
 freezer~
-ABZgh -1 10476
+ABZ -1 10476
 D2
 You see more of the Meat locker
 ~
@@ -3289,7 +3289,7 @@ on a vast icy slab with nothing but ocean around you.
 The iceberg continues to the south and east.
 There is a freezer door to the west.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see lots and lots of ice.
 ~
@@ -3304,7 +3304,7 @@ D3
 You see a freezer door.
 ~
 door freezer~
-ABZgh -1 10475
+ABZ -1 10475
 S
 #10477
 Penguin Room~
@@ -3314,7 +3314,7 @@ seem to be outside, as the walls are painted to seem as if you are standing
 on a vast icy slab with nothing but ocean around you. 
 The iceberg continues to the south and west.
 ~
-0 ADgj inside
+0 AD inside
 D2
 You see lots and lots of ice.
 ~
@@ -3332,7 +3332,7 @@ You appear to be standing in a ice-creamery. Many ice-cream workers run
 frantically around tending to the various machines.
 The factory continues to the east and south.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see lots of ice-cream machines.
 ~
@@ -3352,12 +3352,12 @@ them. How odd...
 The factory continues to the south and west.
 There is a steel door to the east.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see a steel door.
 ~
 door steel~
-ABZgh -1 10480
+ABZ -1 10480
 D2
 You see lots of ice-cream machines.
 ~
@@ -3377,7 +3377,7 @@ side of you.
 The hall continues to the south.
 To the west is a steel door.
 ~
-0 ADgj inside
+0 AD inside
 D2
 You see a marble hallway.
 ~
@@ -3387,7 +3387,7 @@ D3
 You see a steel door.
 ~
 door steel~
-ABZgh -1 10479
+ABZ -1 10479
 S
 #10481
 Refrigerator Room~
@@ -3395,7 +3395,7 @@ This room is filled with giant refrigerators. All of them have no doors and
 their contents have spilled onto the floor.
 The only exit is east.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see a room of ice.
 ~
@@ -3410,7 +3410,7 @@ seems to dance and wiggle as you move about.
 To the north and east you see more of the frozen room.
 To the west you see a room full of refrigerators.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see a room of ice.
 ~
@@ -3435,7 +3435,7 @@ seems to dance and wiggle as you move about.
 To the north and west you see more of the frozen room.
 To the east you see a freezer door.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see a room of ice.
 ~
@@ -3445,7 +3445,7 @@ D1
 You see a freezer door.
 ~
 door freezer~
-ABZgh -1 10484
+ABZ -1 10484
 D3
 You see a room of ice.
 ~
@@ -3460,7 +3460,7 @@ unrecognizable pieces are littered on the floor.
 The meat locker continues to the north and east.
 There is a freezer door to the west.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see more of the Meat locker
 ~
@@ -3475,14 +3475,14 @@ D3
 You see a freezer door.
 ~
 door freezer~
-ABZgh -1 10483
+ABZ -1 10483
 S
 #10485
 Meat Locker~
 Rows of beef and other meats hang from large steel hooks. 
 The meat locker continues to the north and west.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see more of the Meat locker
 ~
@@ -3502,7 +3502,7 @@ seem to be outside, as the walls are painted to seem as if you are standing
 on a vast icy slab with nothing but ocean around you. 
 The iceberg continues to the north and east.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see lots and lots of ice.
 ~
@@ -3523,7 +3523,7 @@ on a vast icy slab with nothing but ocean around you.
 The iceberg continues to the north and west.
 You can hear sounds of machinery to the east.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see lots and lots of ice.
 ~
@@ -3543,7 +3543,7 @@ of the machines a sign reads, 'Eye Spleen I Screamery'.
 The factory continues to the north and east.
 You can hear sounds of penguins to the west.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see lots of ice-cream machines.
 ~
@@ -3566,7 +3566,7 @@ You stand amidst dozens of ice-cream machines. Workers rush about
 for machine to machine, adjusting dials and checking gauges.
 The factory continues to the north and west.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see lots of ice-cream machines.
 ~
@@ -3587,7 +3587,7 @@ depends on your point of view...
 The hallway continues to the north.
 There is an office to the south.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see a white marble hallway.
 ~
@@ -3606,7 +3606,7 @@ are kept here detailing the status of peoples lives. These are confidential
 files and only authorized personnel are allowed to view them.
 The records room continues to the east.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see rows and rows of records.
 ~
@@ -3621,7 +3621,7 @@ files and only authorized personnel are allowed to view them.
 The records room continues to the east and west.
 There is another hallway to the south.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see rows and rows of records.
 ~
@@ -3645,7 +3645,7 @@ are kept here detailing the status of peoples lives. These are confidential
 files and only authorized personnel are allowed to view them.
 The records room continues to the east and west.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see rows and rows of records.
 ~
@@ -3664,7 +3664,7 @@ are kept here detailing the status of peoples lives. These are confidential
 files and only authorized personnel are allowed to view them.
 The records room continues to the west.
 ~
-0 ADgj inside
+0 AD inside
 D3
 You see rows and rows of records.
 ~
@@ -3678,7 +3678,7 @@ against the west wall. Evil symbols and pictures are plastered everywhere.
 The new propaganda posters for Hell are posted behind the altar.
 You see a blackened hall to the east.
 ~
-0 ADgj inside
+0 AD inside
 E
 poster~
 Don't go to heaven....They're boring....
@@ -3701,12 +3701,12 @@ walk down the hall. A sign on the wall reads, 'No Non-smoking Please'.
 The hall continues to the south.
 There is a stone door to the east and a prayer room to the west.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see a stone door.
 ~
 door stone~
-ABZgh -1 10497
+ABZ -1 10497
 D2
 You see a blackened hall.
 ~
@@ -3725,12 +3725,12 @@ before you. The office is lavishly furnished with gold, gems and many
 antiques. A large portrait of a demons face is on the wall behind his desk.
 You see a stone door to the west.
 ~
-0 ADgj inside
+0 AD inside
 D3
 You see a stone door.
 ~
 door stone~
-ABZgh -1 10496
+ABZ -1 10496
 S
 #10498
 Blackened Hall~
@@ -3739,7 +3739,7 @@ smoking. Ashes and bits of burnt timber crunch under your feet as you
 walk down the hall. A sign on the wall reads, 'No Non-smoking Please'. 
 The hall continues to the east and south.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see a blackened hall.
 ~
@@ -3759,12 +3759,12 @@ walk down the hall. A sign on the wall reads, 'No Non-smoking Please'.
 The hall continues to the west.
 A glass door is to the east. 
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see a glass door.
 ~
 door glass~
-ABZgh -1 10500
+ABZ -1 10500
 D3
 You see a blackened hall.
 ~
@@ -3780,7 +3780,7 @@ To the west is a large glass door.
 There is a stairway down on the opposite side of the room.
 There is a sign posted next to the stairs.
 ~
-0 ADgj inside
+0 AD inside
 E
 sign~
 ****ATTENTION***
@@ -3801,12 +3801,12 @@ D2
 You see a metal door.
 ~
 door metal~
-ABZgh -1 10510
+ABZ -1 10510
 D3
 You see a glass door.
 ~
 door glass~
-ABZgh -1 10499
+ABZ -1 10499
 D5
 You see a stairway down.
 ~
@@ -3822,7 +3822,7 @@ Guilty...You have been judged...sound fair? Too bad..'
 The hall continues to the east.
 The Courtroom is to the south.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see the Halls of Judgement.
 ~
@@ -3842,7 +3842,7 @@ the one before it.
 The hall continues to the east and west.
 The hall of records is to the north.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see the Hall of Records.
 ~
@@ -3867,7 +3867,7 @@ the one before it.
 The hall continues to the east and west.
 The Office of Complaints is to the south.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see the Halls of Judgement.
 ~
@@ -3891,7 +3891,7 @@ which contain different methods of torture. Each more grotesque than
 the one before it. 
 The hall continues to the east and west.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see the Halls of Judgement.
 ~
@@ -3910,7 +3910,7 @@ which contain different methods of torture. Each more grotesque than
 the one before it. 
 The hall continues to the east and west.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see the Halls of Judgement.
 ~
@@ -3929,7 +3929,7 @@ smoking. Ashes and bits of burnt timber crunch under your feet as you
 walk down the hall. A sign on the wall reads, 'No Non-smoking Please'.
 There are exits in all directions.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see a blackened hall.
 ~
@@ -3958,7 +3958,7 @@ smoking. Ashes and bits of burnt timber crunch under your feet as you
 walk down the hall. A sign on the wall reads, 'No Non-smoking Please'.
 The hallway continues to the east and west.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see a blackened hall.
 ~
@@ -3977,7 +3977,7 @@ smoking. Ashes and bits of burnt timber crunch under your feet as you
 walk down the hall. A sign on the wall reads, 'No Non-smoking Please'.
 The hallway continues to the north and west.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see a blackened hall.
 ~
@@ -3996,7 +3996,7 @@ softly as you tread apon them as if to cry out in protest. The air is filled
 with the wailing of lost souls and the blood curdling screams of the
 punished.
 ~
-0 ADgj inside
+0 AD inside
 D5
 You see the eternal darkness of the Abyss.
 ~
@@ -4010,12 +4010,12 @@ feet above the floor. The catwalk sways unsteadily as you walk on it.
 The catwalk continues to the south.
 To the north is a steel door.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see a steel door.
 ~
 door steel~
-ABZgh -1 10500
+ABZ -1 10500
 D2
 You see a maintenance walkway.
 ~
@@ -4032,7 +4032,7 @@ stand in the middle of the courtroom.
 To the north is the Halls of Judgement.
 Behind the judges bench is a wooden door.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see the Halls of Judgement.
 ~
@@ -4054,7 +4054,7 @@ out of luck a while ago.
 To the east is the Office of Complaints.
 To the south you see a courtyard.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see the Office of Complaints.
 ~
@@ -4075,7 +4075,7 @@ a sign over the clerks desk reads, 'Hours: 12:00am - 12:01am'
 To the west is a lawyers office.
 To the north you see the Halls of Judgement.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see the Halls of Judgement.
 ~
@@ -4097,7 +4097,7 @@ and bottle cap collections fill the corners of the room. Junk of
 all kinds is scattered about the store.
 To the east you see the Mall from Hell.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see the Mall from Hell.
 ~
@@ -4112,7 +4112,7 @@ To the east you see the Mall from Hell.
 To the west you see Hiramoto's Buy & Sell.
 The hall continues to the east and south.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see the Mall from Hell.
 ~
@@ -4137,7 +4137,7 @@ To the north you see a blackened hallway.
 To the east you see the office of Big Mouth.
 The hallway continues to the west.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see a blackened hall.
 ~
@@ -4162,7 +4162,7 @@ of famous tortured souls. Behind a large oaken desk sleeps Big Mouth.
 This mouth looks large enough to step into if it were open. You wonder
 what this guy eats...
 ~
-0 ADgj inside
+0 AD inside
 D3
 You see the hallways of the Mall from Hell.
 ~
@@ -4181,7 +4181,7 @@ softly as you tread apon them as if to cry out in protest. The air is filled
 with the wailing of lost souls and the blood curdling screams of the
 punished.
 ~
-0 ADgj inside
+0 AD inside
 D5
 You see the eternal darkness of the Abyss.
 ~
@@ -4194,7 +4194,7 @@ This is a maintence accessway. You walk on a metal catwalk hundreds of
 feet above the floor. The catwalk sways unsteadily as you walk on it.
 The catwalk continues to the east and south.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see a maintenance walkway.
 ~
@@ -4212,7 +4212,7 @@ This is a maintence accessway. You walk on a metal catwalk hundreds of
 feet above the floor. The catwalk sways unsteadily as you walk on it.
 The catwalk continues to the north and west.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see a maintenance walkway.
 ~
@@ -4231,7 +4231,7 @@ and his office reflects that. Golden torches light the walls with dancing
 blue and yellow flames. The judge's black crystal desk sparkles in the 
 torchlight.
 ~
-0 Dj inside
+0 D inside
 D0
 You see the Courtroom of Hell.
 ~
@@ -4246,7 +4246,7 @@ ooze.
 A lawyers office is to the north.
 The courtyard continues to the east and south.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see a lawyers office.
 ~
@@ -4271,7 +4271,7 @@ ooze.
 The courtyard continues to the west and south.
 Stanley's Magical Steeds is to the east.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see Stanley's Magical Steeds store.
 ~
@@ -4298,7 +4298,7 @@ a deal with a devil....so I guess his lease is up in seven years.....
 A courtyard is to the west.
 To the south you see the Mall from Hell.
 ~
-0 ADgj inside
+0 AD inside
 D2
 You see a hallway of the Mall from Hell.
 ~
@@ -4316,7 +4316,7 @@ This is definitely the Mall from Hell...there are no stores!
 Only in Hell would they have a mall with no stores.
 The hallway continues to the north and south.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see a hall of the Mall from Hell.
 ~
@@ -4334,7 +4334,7 @@ You are standing inside Big Mouth's stomach. It is roomy in here. Small
 animals and other odds and ends lie about the stomach. Is that a dragon  
 you see? Nah...couldn't be...
 ~
-0 ADgj inside
+0 AD inside
 D4
 You see Big Mouth's throat.
 ~
@@ -4348,7 +4348,7 @@ softly as you tread apon them as if to cry out in protest. The air is filled
 with the wailing of lost souls and the blood curdling screams of the
 punished.
 ~
-0 ADgj inside
+0 AD inside
 D5
 You see the eternal darkness of the Abyss.
 ~
@@ -4364,7 +4364,7 @@ A large glass window looks out onto the reactor floor below.
 There are some stairs down to the reactor floor to the south.
 There is a maintenance room to the east.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see a maintenance room.
 ~
@@ -4386,7 +4386,7 @@ To the east is the break room.
 To the north is a maintenance walkway.
 To the south is the secondary control room.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see a maintenance walkway.
 ~
@@ -4416,7 +4416,7 @@ dogs to guard the room so that no one can take a break.
 To the west is the primary maintenance room.
 To the south is the chief engineers office.
 ~
-0 ADgj inside
+0 AD inside
 D2
 You see the chief engineers office.
 ~
@@ -4436,7 +4436,7 @@ The chefs are usually very busy, but they always have extra time to torture
 a guest....
 To the east is a courtyard.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see an abandon courtyard.
 ~
@@ -4451,7 +4451,7 @@ ooze.
 The courtyard continues to the north and east.
 You see a kitchen to the west.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see more of the courtyard.
 ~
@@ -4475,7 +4475,7 @@ the concrete slabs. An old defunct fountain sputters with a grey-brown
 ooze.
 The courtyard continues to the north and west.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see more of the courtyard.
 ~
@@ -4494,7 +4494,7 @@ Only in Hell would they have a mall with no stores.
 The hallway continues to the east.
 Stanley's magic steeds are to the north.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see Stanley's Magic Steeds.
 ~
@@ -4512,7 +4512,7 @@ This is definitely the Mall from Hell...there are no stores!
 Only in Hell would they have a mall with no stores.
 The hallway continues to the north and west.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see a hall of the Mall from Hell.
 ~
@@ -4532,7 +4532,7 @@ with the wailing of lost souls and the blood curdling screams of the
 punished. You can't seem to find the Abyss...you seem to recall a seeing a
 sign....now what did it say again?......
 ~
-0 Dj inside
+0 D inside
 D5
 ~
 ~
@@ -4546,12 +4546,12 @@ chamber fall off into the distance as it seems to be bottomless. Nuclear
 particles and other strange things whiz by you at blinding speeds.
 You see a maintenance hatch to the east.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see a maintenance hatch.
 ~
 hatch maintenance reactor core~
-ABZgh -1 10538
+ABZ -1 10538
 S
 #10538
 Reactor Room Floor~
@@ -4562,7 +4562,7 @@ with geiger counters and plasma torches fixing breaches in the core.
 You see a reactor core maintenance hatch to the west.
 A stairway to the control room is to the north.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see the stairs to the control room.
 ~
@@ -4572,7 +4572,7 @@ D3
 You see a reactor core maintence hatch.
 ~
 hatch maintenance reactor core~
-ABZgh -1 10537
+ABZ -1 10537
 S
 #10539
 Secondary Control Room~
@@ -4581,7 +4581,7 @@ emergencies when the primary control room is contaminated or damaged.
 It isn't used very often since the primary control room is in perfect 
 working order.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see the primary maintenance room.
 ~
@@ -4596,7 +4596,7 @@ and sweat. A display of the reactor core is mounted into the wall.
 One wall is completely filled with monitors, each showing various
 status reports for the reactor core.
 ~
-0 ADgj inside
+0 AD inside
 D0
 You see the break room.
 ~
@@ -4609,7 +4609,7 @@ You are standing in a room of ice. Icicles of every size hang from the
 ceiling. Some shake with every sound. Your reflection off the ice walls
 seems to dance and wiggle as you move about.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see a room of ice.
 ~

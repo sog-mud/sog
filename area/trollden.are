@@ -41,7 +41,7 @@ of yours!!
 кость в надежде погрызть твои.
 ~
 troll~
-BFGhlm 0 0 Gm 0 -500 0
+BFG 0 0 G 0 -500 0
 6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
 0
@@ -60,10 +60,10 @@ His eyes dart toward you, as he realizes you are one third his size.
 поняв что ты в три раза меньше, мгновенно переключает свое внимание на тебя.
 ~
 human~
-BCFGhilm 0 0 Gm Hn -500 0
+BCFG 0 0 G H -500 0
 8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
-EFNUklt
+EFNU
 stand stand male 75
 0 0 medium unknown
 #2803
@@ -78,10 +78,10 @@ He notices you and gargles "WANNA JOIN?".
 @rus Довольно большой и упитанный, весь покрыт шерстью.
 ~
 human~
-BCFhil 0 0 Gm Hn -100 0
+BCF 0 0 G H -100 0
 5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
-EFNUklt
+EFNU
 sit stand male 12
 0 0 medium unknown
 #2804
@@ -94,10 +94,10 @@ He gasps as he notices your intrusion.
 You gasp as you realize you have intruded upon his acts of passion!
 ~
 giant~
-BCFGhilm 0 0 Gm Hn -1000 0
+BCFG 0 0 G H -1000 0
 13 0 2d10+170 6d9+100 2d5+3 'none'
 -1 -1 -1 8
-EFNRkltx
+EFNR
 rest stand male 150
 0 0 medium unknown
 #2805
@@ -110,10 +110,10 @@ She moans in passion but gasps as she notices you.
 Her smiles turn into snarls as she screams at you!
 ~
 human~
-BCFGhilm 0 0 Gm Hn -800 0
+BCFG 0 0 G H -800 0
 11 0 2d8+134 5d9+100 1d10+2 'none'
 1 1 1 8
-EFNUklt
+EFNU
 rest stand female 125
 0 0 medium unknown
 #2806
@@ -127,10 +127,10 @@ It moves quickly, from corpse to corpse.
 @rus Нечто длинное, толстое и безголовое быстро передвигается между трупами.
 ~
 human~
-CFHiln 0 0 BGhm Hn 0 0
+CFH 0 0 BG H 0 0
 3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
-EFNUklt
+EFNU
 stand stand male 0
 0 0 medium unknown
 #2807
@@ -144,10 +144,10 @@ beast.  You can't tell whether it is blood or saliva dripping from the beast's
 jaw.  The roving beast snarls at you.
 ~
 human~
-BCFGhilm 0 0 Gm AHgn -200 0
+BCFG 0 0 G AH -200 0
 7 0 2d6+85 3d9+100 1d8+1 'none'
 4 4 4 9
-EFNUklt
+EFNU
 stand stand male 0
 0 0 medium unknown
 #2808
@@ -163,7 +163,7 @@ He advances toward you.
 бросается в атаку.
 ~
 troll~
-0 0 0 Gm 0 -500 0
+0 0 0 G 0 -500 0
 8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
 0
@@ -177,7 +177,7 @@ corpse cadaver труп~
 @eng the cadaver-toy@rus труп~
 @eng A half eaten corpse is laying here@rus Полусъеденный труп (corpse) лежит тут~
 flesh~
-container 0 0 Ag
+container 0 0 A
 30 0 0 30 100
 0 500 1 P
 g none~
@@ -195,7 +195,7 @@ trollskin troll skin~
 the troll skin~
 The filthy hide of a beast is laying here.~
 skin~
-armor 0 0 AKgq
+armor 0 0 AK
 5 5 5 0 0
 12 200 1380 P
 A
@@ -211,7 +211,7 @@ ring opal~
 an opal ring~
 A ring of black opal lies here gathering dust.~
 opal~
-jewelry Gm 0 ABgh
+jewelry G 0 AB
 0 0 0 0 0
 20 10 1150 P
 A
@@ -226,7 +226,7 @@ leather belt ремень пояс~
 @eng a leather belt@rus кожанный ремень~
 @eng An old leather belt is left on the floor.@rus Кто-то выкинул старый кожанный ремень.~
 leather~
-armor Gm 0 ALgr
+armor G 0 AL
 6 6 6 0 0
 15 50 1050 P
 E
@@ -239,7 +239,7 @@ bone cracked~
 a cracked bone~
 A cracked piece of bone lies here.~
 bone~
-weapon 0 0 ANgt
+weapon 0 0 AN
 mace 3 3 'pound' 0
 6 30 350 P
 A
@@ -262,7 +262,7 @@ very big lives here.  A small plaque is on the wall.
 @rus Все вокруг забросано обломками костей и прочим мусором весьма пугающего 
 вида. Похоже, тут живет кто-то большой (и хорошо еще, если он один).
 ~
-0 ADgj inside
+0 AD inside
 E
 plaque~
 This zone (trollden) is created by MERC for any MERC Mud.
@@ -289,7 +289,7 @@ worms, and maggots.
 насекомые. По полу разбросаны гниющие недоеденные трупы, обжитые мухами, 
 червями и личинками. Судя по всему, здесь живут настоящие варвары.
 ~
-0 ADgj inside
+0 AD inside
 E
 Half-eaten body rotting corpse~
 YUCK!  You find worms crawling in and out this poor unfortunate former human.
@@ -308,7 +308,7 @@ overcome by the stench and consider turning around.
 @rus Эта маленькая пещерка продолжается во все стороны света. Ты начинаешь
 задумываться - а не повернуть ли назад, такой тут стоит запах.
 ~
-0 ADgj inside
+0 AD inside
 D0
 @eng There is a trail of bone shards and fragments leading north.
 @rus На север ведет путь, покрытый костяными обломками.
@@ -343,7 +343,7 @@ its chest ripped out.  The predator seems disinterested in it.
 напоминающее человеческую руку. На полу лежит разодранное полусъеденное 
 тело, которое навряд ли заинтересует даже самого голодного стервятника.
 ~
-0 ADgj inside
+0 AD inside
 E
 arm rotting~
 This reminds you of what a baby would do to its formula during dinnertime,
@@ -367,7 +367,7 @@ flattened by something.
 трупов валяются повсюду, запах абсолютно невыносим. В углу можно заметить
 выделяющуюся кучу останков, чем-то расплющенную.
 ~
-0 ACDgij mountain
+0 ACD mountain
 D0
 You welcome the fresh breeze coming from the north, but wrinkle your nose when
 the stench bears down on you once more.

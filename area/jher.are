@@ -16,10 +16,10 @@ Jher looks into your eyes, and freezes you with his stare.
 You feel incredibly overwhelmed by the power in this evil man's eyes.
 ~
 human~
-BCGhim 0 HNnt 0 ABHghn 0 0
+BCG 0 HN 0 ABH 0 0
 53 0 50d10+5000 5d5+5000 6d7+21 'punch'
 -23 -23 -23 -1
-EFIJKklopq
+EFIJK
 stand stand male 0
 0 0 medium unknown
 #32701
@@ -30,10 +30,10 @@ A young warg notices you and grins evilly.
 He has been waiting for you to practice his newly learned skill of thievery.
 ~
 unique~
-CGHSimny 0 0 Gm ABHghn 0 0
+CGHS 0 0 G ABH 0 0
 32 0 10d10+1000 5d5+1000 6d4+9 'none'
 -10 -10 -10 3
-EFIKNkloqt
+EFIKN
 stand stand male 0
 0 0 medium unknown
 #32702
@@ -44,10 +44,10 @@ Knanath, Jher's pet, bares his fangs as he lunges at your throat.
 If Knanath hasn't ripped your throat out by now, he must not be hungry.
 ~
 fido~
-BCFGhilm 0 0 Ag ABHghn 0 0
+BCFG 0 0 A ABH 0 0
 43 0 25d10+2500 5d5+1000 3d12+15 'beating'
 -15 -15 -15 2
-EIko
+EI
 stand stand male 0
 0 0 medium unknown
 #32703
@@ -59,10 +59,10 @@ Stay away from her children or she will protect them more viciously than you
 could imagine.
 ~
 unique~
-CGim 0 0 0 ABHghn 0 0
+CG 0 0 0 ABH 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'bite'
 -13 -13 -13 3
-EFIklo
+EFI
 stand stand female 0
 0 0 medium unknown
 #32704
@@ -73,10 +73,10 @@ A large warg stands here looking for anything to attack for fun.
 Don't mess with this beast, he will kill you before you can scream.
 ~
 unique~
-CGim 0 0 Gm ABHghn 0 0
+CG 0 0 G ABH 0 0
 42 0 25d10+2250 5d5+1000 3d12+14 'bite'
 -14 -14 -14 3
-EFIklo
+EFI
 stand stand male 0
 0 0 medium unknown
 #32705
@@ -87,10 +87,10 @@ A young warg huddles under the light of the torch and sucks on a bone.
 He looks at you and licks his chops.  Obviously he would rather suck on you.
 ~
 unique~
-BCGHhimn 0 0 0 0 0 0
+BCGH 0 0 0 0 0 0
 35 0 10d10+1300 5d5+1000 4d7+11 'charge'
 -11 -11 -11 3
-EFIklo
+EFI
 stand stand male 0
 0 0 medium unknown
 #32706
@@ -101,10 +101,10 @@ A snake senses your fear with his tongue as he wraps himself around your legs.
 You see venom dripping off its fangs.
 ~
 snake~
-BFGhlm 0 0 0 ABHghn 0 0
+BFG 0 0 0 ABH 0 0
 20 0 3d9+333 5d5+1000 2d8+5 'shbite'
 -4 -4 -4 5
-FHln
+FH
 stand stand none 0
 0 0 small unknown
 r poison 100
@@ -116,10 +116,10 @@ A huge black bear is hidden in the shadows.
 Beorn looks at you and says 'will you help me kill Jher?'
 ~
 bear~
-Gm 0 HNUnt BGhm ABHghn 0 0
+G 0 HNU BG ABH 0 0
 47 0 25d10+3500 5d5+1000 6d6+17 'claw'
 -17 -17 -17 2
-CFIKiloq
+CFIK
 stand stand male 0
 0 0 large unknown
 #32708
@@ -131,10 +131,10 @@ You can see his black eyes, and hear his sonic screech as he judges the
 distance between it and you.
 ~
 unique~
-FGlm 0 Tz 0 ABHghn 0 0
+FG 0 T 0 ABH 0 0
 34 0 10d10+1200 5d5+1000 4d7+10 'charge'
 -11 -11 -11 3
-Fl
+F
 stand stand none 0
 0 0 small unknown
 #32709
@@ -146,10 +146,10 @@ Htrag looks back at you and flashes his fangs because he knows what he and
 these new pups will feast on.
 ~
 unique~
-BGehm 0 Hn 0 ABHghn 0 0
+BGe 0 H 0 ABH 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'bite'
 -13 -13 -13 3
-EFIklo
+EFI
 stand stand male 0
 0 0 medium unknown
 #32710
@@ -160,10 +160,10 @@ A female warg shies against the far wall of the cage.
 She growls at you and screams for help.
 ~
 unique~
-BCGhim 0 0 0 ABHghn 0 0
+BCG 0 0 0 ABH 0 0
 35 0 10d10+1300 5d5+1000 4d7+11 'bite'
 -11 -11 -11 3
-EFIklo
+EFI
 stand stand female 0
 0 0 medium unknown
 #32711
@@ -175,10 +175,10 @@ You see a creature with huge fangs dripping drool.  He is covered in matted
 brown hair and his eyes glow.
 ~
 unique~
-BCFGhilm 0 0 0 ABHghn 0 0
+BCFG 0 0 0 ABH 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'bite'
 -13 -13 -13 3
-EFIklo
+EFI
 stand stand male 0
 0 0 medium unknown
 #32712
@@ -189,10 +189,10 @@ Sapth, Jher's slave, looks to you for help.
 His eyes are pleading for someone to free him from Jher's bondage.
 ~
 human~
-CGHimn 0 Io 0 ABHghn 0 0
+CGH 0 I 0 ABH 0 0
 35 0 10d10+1300 5d5+1000 4d7+11 'punch'
 -11 -11 -11 3
-EFIklo
+EFI
 stand stand male 0
 0 0 medium unknown
 #32713
@@ -203,10 +203,10 @@ A huge warg stands to the left of the door guarding whatever is inside.
 Obviously a warrior, this beast was bred to fight and kill.
 ~
 unique~
-BCGThimz 0 0 0 ABHghn 0 0
+BCGT 0 0 0 ABH 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
-CDEFIKTUijkloqz
+CDEFIKTU
 stand stand male 0
 0 0 large unknown
 #32714
@@ -217,10 +217,10 @@ A huge warg stands to the right of the door guarding whatever is inside.
 Obviously a warrior, this beast was bred to fight and kill.
 ~
 unique~
-BCGThimz 0 0 0 ABHghn 0 0
+BCGT 0 0 0 ABH 0 0
 42 0 25d10+2250 5d5+1000 3d12+14 'pound'
 -14 -14 -14 3
-CDEFIKTUijkloqz
+CDEFIKTU
 stand stand male 0
 0 0 large unknown
 #32715
@@ -232,10 +232,10 @@ She is wearing close to nothing and she has marks and slashes all over her
 body from some unthinkable torture.
 ~
 human~
-GHmn 0 Io Bh ABHghn 0 0
+GH 0 I B ABH 0 0
 37 0 10d10+1500 5d5+1000 3d10+12 'slap'
 -12 -12 -12 3
-EIKkoq
+EIK
 stand stand female 0
 0 0 medium unknown
 #32716
@@ -247,10 +247,10 @@ The fish is disgusting.  It has one clouded eye, but it can sense you're there
 because of your distinct smell.
 ~
 human~
-GHmn 0 0 0 ABHghn 0 0
+GH 0 0 0 ABH 0 0
 38 0 10d10+1600 5d5+1000 5d6+12 'charge'
 -13 -13 -13 3
-EFkl
+EF
 stand stand none 0
 0 0 medium unknown
 #32717
@@ -262,13 +262,13 @@ You see a little strange statue.. Hmmm... and how can it help you get out of her
 But.... if you have some spare gold.... 
 ~
 human~
-0 0 HIMNOTXnostuz AGgm ABHghn 1000 0
+J 0 HIMNOTX AG ABDH 1000 0
 1 10 1d1+10 1d1+10 1d1+1 'divine'
 0 0 0 0
 0
 stand stand none 0
-Kq 0 small unknown
-F for AHMVgns
+K 0 small unknown
+F for AHMV
 M bribe 32700 100000~
 r bash 100
 r pierce 100
@@ -295,7 +295,7 @@ pile of gold~
 a pile of gold~
 A small glistening pile of gold catches your eye.~
 unknown~
-money Ag 0 Ag
+money A 0 A
 180 0 0 0 0
 18 0 180 P
 g none~
@@ -304,7 +304,7 @@ bone key~
 a key made of bone~
 A hard white key was left on the floor.~
 unknown~
-key 0 0 AOgu
+key 0 0 AO
 0 0 0 0 0
 0 1 0 P
 g none~
@@ -313,7 +313,7 @@ breeding formula~
 breeding formula~
 Special warg breeding formula was left here.~
 unknown~
-potion Gm 0 Ag
+potion G 0 A
 35 'giant strength' 'heal' 'heal' ''
 0 0 0 P
 g none~
@@ -322,7 +322,7 @@ curved dagger jher's~
 jher's curved dagger~
 Jher's evil curved dagger is here glowing.~
 unknown~
-weapon ABGJghmp 0 ANgt
+weapon ABGJ 0 AN
 dagger 5 12 'pierce' 0
 53 3 530 P
 A
@@ -341,7 +341,7 @@ breeding formula~
 breeding formula~
 Special warg breeding formula was left here.~
 unknown~
-potion Gm 0 Ag
+potion G 0 A
 35 'armor' 'heal' 'create food' ''
 0 0 0 P
 g none~
@@ -350,7 +350,7 @@ breeding formula~
 breeding formula~
 Special warg breeding formula was left here.~
 unknown~
-potion Gm 0 AOgu
+potion G 0 AO
 35 'word of recall' 'blindness' 'sleep' ''
 0 0 0 P
 A
@@ -363,7 +363,7 @@ beorn's fury~
 beorn's fury~
 A huge set of teeth are rotting like a skull in the desert.~
 unknown~
-weapon GKMmqs 0 ANgt
+weapon GKM 0 AN
 exotic 1 7 'bite' 0
 0 2 0 P
 A
@@ -376,7 +376,7 @@ key~
 large brass key~
 A large brass key shimmers here.~
 unknown~
-key 0 0 AOgu
+key 0 0 AO
 0 0 0 0 0
 0 1 0 P
 g none~
@@ -385,7 +385,7 @@ throne~
 the throne~
 A huge golden throne covered in jewels.~
 unknown~
-furniture Ag 0 0
+furniture A 0 0
 0 0 0 0 0
 51 5 510 P
 g none~
@@ -394,7 +394,7 @@ key jewel topaz~
 a key made of topaz~
 A key made of some fine cut amber colored jewell is on the floor.~
 unknown~
-key AHgn 0 Ag
+key AH 0 A
 0 0 0 0 0
 53 5 530 P
 g none~
@@ -403,7 +403,7 @@ carved ebony figurine~
 a carved ebony figurine~
 You can barely make out a small black rock under all the dust.~
 unknown~
-key Fl 0 Ag
+key F 0 A
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -412,8 +412,8 @@ dusty golden trunk chest~
 the golden chest~
 A large dusty trunk was left in the corner, looks like a good place to sit.~
 unknown~
-container Gm 0 0
-100 ABCDghij 9910 0 0
+container G 0 0
+100 ABCD 9910 0 0
 35 5 350 P
 g none~
 #32712
@@ -421,7 +421,7 @@ diamond bracelet~
 a diamond bracelet~
 A diamond bracelet sparkles here.~
 unknown~
-armor AFGglm 0 AMgs
+armor AFG 0 AM
 10 10 10 0 0
 37 5 370 P
 A
@@ -432,7 +432,7 @@ broken scroll~
 a broken scroll~
 A bound roll of paper is hidden here.~
 unknown~
-scroll Bh 0 Ag
+scroll B 0 A
 50 'heal' 'word of recall' 'refresh' ''
 0 5 0 P
 g none~
@@ -441,7 +441,7 @@ glowing zapath necklace~
 a glowing zapath necklace~
 A necklace carved from a blood red stone was left here.~
 unknown~
-armor AGJMgmps 0 ACgi
+armor AGJM 0 AC
 10 10 10 0 0
 35 1 350 P
 A
@@ -454,7 +454,7 @@ gold pill coin~
 a gold coin~
 A small gold coin catches your eye here.~
 unknown~
-pill Ag 0 Ag
+pill A 0 A
 0 'detect invis' '' '' ''
 35 5 350 P
 g none~
@@ -467,7 +467,7 @@ As you descend deeper into the lair, you hear the sound of howling
 wargs.  You feel a tingling in your back, and the hair on the back of your 
 neck stands on end.
 ~
-0 Ag forest
+0 A forest
 D1
 ~
 ~
@@ -486,7 +486,7 @@ Mouth of a Cave~
 You see an eerie crack in the mountain face.  Some strange power 
 creates an urge to explore further.
 ~
-0 Ag forest
+0 A forest
 D0
 ~
 ~
@@ -498,7 +498,7 @@ As you descend deeper into this realm of unknown, you sense an
 impending danger and reconsider your travel into the darkness.  Only if you 
 are among the strong will you continue.
 ~
-0 Ag field
+0 A field
 D3
 ~
 ~
@@ -515,7 +515,7 @@ wargs that come to this room to feast.  These creatures are unique because
 they are continuously hungry.  This is not a good place to be.  Your gaze 
 passes from a young warg's glowing eyes to his drooling mouth.
 ~
-0 Dj field
+0 D field
 D2
 ~
 ~
@@ -536,7 +536,7 @@ with bones from old kills.  One dim torch in the corner provides the only
 light.  You feel very frightened.  As you look in disgust at the bones, you can
 see the traces of a trapdoor underneath.
 ~
-0 Dj field
+0 D field
 D0
 ~
 ~
@@ -545,7 +545,7 @@ D5
 A trapdoor is buried under a pile of bones.
 ~
 trapdoor~
-ABZgh -1 32705
+ABZ -1 32705
 S
 #32705
 Small Treasure Room~
@@ -554,11 +554,11 @@ a young man studying the ways of taming the wild.  Your eyes are stunned by a
 glistening pile of gold at your feet.  Once you can pry your eyes away from 
 the pile of gold, you notice the snakes slithering up and around your legs.
 ~
-0 ADgj field
+0 AD field
 D4
 ~
 ~
-ABZgh -1 32704
+ABZ -1 32704
 S
 #32706
 An Unlit Hallway~
@@ -567,7 +567,7 @@ However, the only thing you can hear is the sound of your pounding heart.  The
 hallway continues west, but you also see a crack you may be able to pass 
 through to the south.  You hear the sound of bats flapping overhead.
 ~
-0 ADgj field
+0 AD field
 D1
 ~
 ~
@@ -588,7 +588,7 @@ thing you never know about caves is when you might fall into a bottomless pit.
 You hear the dripping of an underground stream, and think about the horrible 
 things that may be swimming or growing in it.
 ~
-0 ACDgij field
+0 ACD field
 D0
 ~
 ~
@@ -604,7 +604,7 @@ You find youself up to your waist in muck.  The stench is overwhelming
 and you have the urge to vomit, but are afraid what creatures that might 
 attract.
 ~
-0 ADgj swim
+0 AD swim
 D1
 ~
 ~
@@ -622,7 +622,7 @@ S
 The Disgusting Underground Pool~
 You are waist deep in muck.  The stench is overwhelming.
 ~
-0 ADgj swim
+0 AD swim
 D0
 ~
 ~
@@ -636,7 +636,7 @@ S
 The Disgusting Underground Pool~
 You are waist deep in muck.  The stench is overwhelming.
 ~
-0 ADgj swim
+0 AD swim
 D0
 ~
 ~
@@ -650,7 +650,7 @@ S
 The Disgusting Underground Pool~
 You are waist deep in muck.  The stench is overwhelming.
 ~
-0 ADgj swim
+0 AD swim
 D1
 ~
 ~
@@ -666,7 +666,7 @@ The celing of this hall is getting higher.  You do not have to be in a
 crouch as you walk.  As you straighten your back and look ahead you see the 
 most hideous thing you have ever seen.
 ~
-0 CDij field
+0 CD field
 D1
 ~
 ~
@@ -682,11 +682,11 @@ You see two cages, one to the north, and one to the south.  The
 screaming and howling from the two cages blend together into a terrifying 
 sound which brings you to the border of insanity.
 ~
-0 Dj field
+0 D field
 D0
 ~
 ~
-ABCZghi 32701 32715
+ABCZ 32701 32715
 D1
 ~
 ~
@@ -694,7 +694,7 @@ Z -1 32712
 D2
 ~
 ~
-ABCZghi 32701 32714
+ABCZ 32701 32714
 D3
 ~
 ~
@@ -707,11 +707,11 @@ door you just opened provides the fastest route to the female cage across the
 room.  These disgusting wargs never get enough of two things, food and female 
 wargs.  You may have just provided them with both.
 ~
-0 ADgj field
+0 AD field
 D0
 ~
 ~
-ABZgh 32701 32713
+ABZ 32701 32713
 S
 #32715
 The Female Warg Holding Cage~
@@ -720,11 +720,11 @@ across the room.  As you entered this cage, they mistake you for a male sent
 in to proliferate the dirty warg race.  However once they realize it is only 
 you, they try to remember when the last time they ate was.
 ~
-0 ADgj field
+0 AD field
 D2
 ~
 ~
-ABZgh -1 32713
+ABZ -1 32713
 S
 #32716
 A Further Descent~
@@ -732,7 +732,7 @@ This path is totally devoid of light.  As you keep walking west you
 bump into a slimy wall and by feeling determine that the tunnel now turns 
 southward.
 ~
-0 ADgj field
+0 AD field
 D1
 ~
 ~
@@ -748,7 +748,7 @@ After making the turn southwards, you are dismayed to discover that
 once again the tunnel goes down.  But you are comforted because you know that 
 you have at least made it this far alive.
 ~
-0 ADgj field
+0 AD field
 D0
 ~
 ~
@@ -765,11 +765,11 @@ northwards.  There is a huge wood and iron door, with a round brass handle.
 There are two large warg warriors standing guard at either side of this door.
 To get by, you will either have to kill them or sneak by and pick the lock.
 ~
-0 ADgj field
+0 AD field
 D0
 ~
 ~
-ABCZghi 32707 32719
+ABCZ 32707 32719
 D4
 ~
 ~
@@ -781,7 +781,7 @@ This must be a throne room.  The ruler of these wargs must be very
 wealthy, but he also must be cruel to live in such luxury while all his slaves 
 suffer.
 ~
-0 Dj field
+0 D field
 D0
 ~
 ~
@@ -789,7 +789,7 @@ Z -1 32720
 D2
 ~
 ~
-ABZgh -1 32718
+ABZ -1 32718
 S
 #32720
 Northern End of the Throne Room~
@@ -797,11 +797,11 @@ There is a huge throne made of the finest gold and glistening with the
 finest jewels.  Even with all this brightness, you are overwhelmed by darkness,
 for Jher sits on the throne.
 ~
-0 Dj field
+0 D field
 D0
 ~
 ~
-ABCFZghil 32709 32721
+ABCFZ 32709 32721
 D2
 ~
 ~
@@ -815,11 +815,11 @@ bedroom is dark, for Jher loves the darkness.  Above the bed you see a hole to
 another tunnel.  This was to be his escape route if was ever trapped in his 
 room.
 ~
-0 ADgj city
+0 AD city
 D2
 ~
 ~
-ABFZghl -1 32720
+ABFZ -1 32720
 D4
 ~
 ~
@@ -830,7 +830,7 @@ Tunnel Above Jher's Bedroom~
 This tunnel has never been used because Jher never had the need.  
 After the climb up here, it levels off and turns south.
 ~
-0 ADgj forest
+0 AD forest
 D2
 ~
 ~
@@ -845,7 +845,7 @@ A Small Tunnel~
 Since Jher had never used this tunnel, he never paid any attention to 
 its upkeep.  You have to crawl now, and as you crawl, you seem to be ascending.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -864,7 +864,7 @@ you try to open it, you realize in disappointment that it is locked.
 However 
 if you look around, you may find something hidden that will open it.
 ~
-0 ACDNgijt forest
+0 ACDN forest
 S
 #0
 

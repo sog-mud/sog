@@ -17,13 +17,13 @@ samurai~
 ~
 ~
 human~
-Z 0 Hn 0 ABgh 1000 0
+Z 0 H 0 ABDF 1000 0
 150 500 50000d1+10000 0d0+0 200d1+100 'slash'
 100 100 100 100
 0
 stand stand male 0
-Z LPQUXrvw medium unknown
-F for AHMVgns
+Z LPQUX medium unknown
+F for AHMV
 M exall 44001 4~
 M speech 44003 поговорить~
 M speech 44003 talk~
@@ -47,7 +47,7 @@ Z 0 0 0 0 1000 0
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #44002
 rivulet~
 {rrivulet{x~
@@ -60,7 +60,7 @@ human~
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #0
 
 #OBJECTS
@@ -69,8 +69,8 @@ grand katana of war~
 @eng {RGrand Katana of War{x@rus {RGrand Katana of War{x~
 @eng A long curved sword lying here.@rus длинный изогнутый меч лежит здесь~
 steel~
-weapon IMos Ci ANgt
-sword 100 30 'pierce' Dj
+weapon IM C AN
+sword 100 30 'pierce' D
 5 10 0 P
 F A 0 0 V
 A
@@ -83,8 +83,8 @@ mat~
 @eng mat@rus Циновка~
 @eng A soft and comfortable mat lying here.@rus Мягкая циновка лежит здесь.~
 straw~
-furniture 0 Bh 0
-Ag EIJKNkopqt EHkn 0 0
+furniture 0 B 0
+A EIJKN EH 0 0
 0 0 0 P
 g none~
 #44002
@@ -93,7 +93,7 @@ low table~
 @eng Low table stands in the middle.@rus Низенький столик стоит посредине.~
 unknown~
 furniture 0 0 0
-0 0 Ms 0 0
+0 0 M 0 0
 0 0 0 P
 E
 table~
@@ -105,14 +105,14 @@ life of Eidu~
 @eng Life@rus Жизнь Eidu~
 @eng Life@rus Жизнь Eidu~
 unknown~
-armor 0 0 ABgh
+armor 0 0 AB
 0 0 0 0 0
 96 0 0 P
 A
 19 150
 A
 18 300
-F A 0 0 Hn
+F A 0 0 H
 A
 12 20000
 A
@@ -123,7 +123,7 @@ Statue of Eidu~
 @eng Статуя главного самурая~
 ~
 marble~
-fountain 0 Bh 0
+fountain 0 B 0
 0 0 'water' 0 0
 0 0 0 P
 g none~
@@ -132,8 +132,8 @@ axe bloody amputation~
 {RBloody Axe of Amputation{x~
 A large axe is here, its blade stuck in the ground.~
 steel~
-weapon 0 0 ANgt
-axe 9 9 'chop' DEIjko
+weapon 0 0 AN
+axe 9 9 'chop' DEI
 40 0 0 P
 g none~
 #44006
@@ -141,7 +141,7 @@ hammer great sleep~
 {yGreat Hammer of Sleep{x~
 large wooden hammer hangs here.~
 wood~
-wand 0 0 AOgu
+wand 0 0 AO
 300 1000000 1000000 'terangreal' 0
 40 0 0 P
 g none~
@@ -150,8 +150,8 @@ kit fighter's first aid~
 {Wfighter's {Rfirst aid {Wkit{x~
 A plastic bag marked with red cross lies here.~
 plastic~
-container 0 0 ALgr
-1000000 Ag 0 1000 1
+container 0 0 AL
+1000000 A 0 1000 1
 0 0 0 P
 A
 8 150
@@ -167,7 +167,7 @@ bottle vodka absolut~
 bottle of Absolut~
 bottle lies here~
 glass~
-drink 0 0 ASgy
+drink 0 0 AS
 100 100 'vodka' 0 0
 0 0 0 P
 g none~
@@ -176,7 +176,7 @@ ring black skull~
 @eng ring with little black skull@rus кольцо с маленьким черным черепом~
 small ring lies here~
 steel~
-armor PYv 0 ABgh
+armor PY 0 AB
 0 0 0 0 0
 32 0 0 P
 A
@@ -191,7 +191,7 @@ rivulet~
 {rrivulet{x~
 @eng {rA stream with crimson liquid flows here{x@rus {rБурный ручеек с красной жидкостью весело течет тута{x~
 water~
-fountain BIYbho Bh 0
+fountain BIYb B 0
 2147483647 2147483647 'amontillado' 0 0
 0 0 0 P
 E
@@ -218,7 +218,7 @@ great ring jafar power~
 ring of jafar power~
 a small obidian ring lies here.~
 obsidian~
-armor 0 0 ABgh
+armor 0 0 AB
 0 0 0 0 0
 50 0 0 P
 A
@@ -231,17 +231,17 @@ ring constricting~
 {rconstricting ring{x~
 A small ring made of black metal lies here.~
 steel~
-jewelry CMYis 0 ABgh
+jewelry CMY 0 AB
 0 0 0 0 0
 96 0 0 P
-F A 0 0 Lr
+F A 0 0 L
 g none~
 #44015
 пиво мартовское beer~
 "Мартовское"~
 "Мартовское" здесь.~
 glass~
-drink 0 0 AOgu
+drink 0 0 AO
 1000000 1000000 'beer' 0 0
 0 0 0 P
 g none~
@@ -251,7 +251,7 @@ g none~
 #44000
 @eng The grand samurai's house@rus Хата главного самурая~
 ~
-0 CNit forest
+0 CN forest
 D1
 ~
 ~
@@ -286,7 +286,7 @@ S
 #44003
 @eng Path to the grand samurai's house@rus Дорога к хате главного самурая~
 ~
-0 Nt inside
+0 N inside
 D4
 ~
 ~
@@ -295,12 +295,12 @@ S
 #44100
 The 1st Tower.~
 ~
-0 Ci inside
+0 C inside
 S
 #44200
 ~
 ~
-0 Ci inside
+0 C inside
 S
 #0
 

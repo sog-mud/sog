@@ -18,12 +18,12 @@ the shape of a human body but an astral look to it.  It is a soul which can
 not rest until destroyed and sent into the heavens.  
 ~
 human~
-Gm 0 TUz Ag Hn -200 0
+G 0 TU A H -200 0
 25 0 5d10+550 1d50+100 2d10+7 'wrath'
 -7 -7 -7 0
-EFUkl
+EFU
 stand stand none 0
-Io 0 medium unknown
+I 0 medium unknown
 r bash 33
 r pierce 33
 r slash 33
@@ -36,12 +36,12 @@ A wicked looking wraith stares at you, chilling your soul
 The wraith floats slowly towards you, searching for a new soul to consume.  
 ~
 human~
-GOmu 0 U 0 Hn -1000 0
+GO 0 U 0 H -1000 0
 34 0 9d80+1200 34d10+100 4d7+10 'claw'
 -11 -10 -11 5
-CEFHikln
+CEFH
 stand stand none 0
-Io 0 medium unknown
+I 0 medium unknown
 r holy -50
 #22004
 ghastly spectre~
@@ -51,12 +51,12 @@ A ghastly spectre lurks nearby in the shadows.
 This long dead spirit is now an evil creation that longs for your blood.  
 ~
 human~
-GOmu 0 U 0 Hn -800 0
+GO 0 U 0 H -800 0
 32 0 5d10+1000 2d20+1000 6d4+9 'slash'
 -10 -10 -10 4
-CDFHijln
+CDFH
 stand stand none 0
-Io 0 medium unknown
+I 0 medium unknown
 r holy -50
 #22005
 ghoul~
@@ -68,12 +68,12 @@ ferocious.  It carries around an old arm bone that it chews on constantly,
 tearing the last remnants of flesh from it for food.  
 ~
 human~
-GOmu 0 0 0 Hn -950 0
+GO 0 0 0 H -950 0
 36 0 5d25+1400 36d10+100 3d10+11 'claw'
 -12 -12 -12 3
-CDHKijnq
+CDHK
 stand stand none 500
-Io 0 medium unknown
+I 0 medium unknown
 r holy -50
 #22006
 demon lemure lowest~
@@ -84,12 +84,12 @@ A Lemure trudges slowly forward.  Its morphous form not allowing it to
 move any faster than at a slow walk.  
 ~
 human~
-GOmu 0 0 0 Hn -600 0
+GO 0 0 0 H -600 0
 25 0 5d10+550 1d50+100 2d10+7 'charge'
 0 0 0 0
-CDFijl
+CDF
 stand stand none 0
-Io 0 medium unknown
+I 0 medium unknown
 r holy -50
 #22007
 nupperibo demon obese~
@@ -101,12 +101,12 @@ disgusting.  It's huge, obese form is disgusting, rolls of fat cover its
 entire body.
 ~
 human~
-GOmu 0 0 0 Hn -700 0
+GO 0 0 0 H -700 0
 27 0 5d10+650 27d10+100 5d4+7 'charge'
 -8 -8 -8 6
-CDFijl
+CDF
 stand stand none 0
-Io 0 large unknown
+I 0 large unknown
 r holy -50
 #22008
 spinagon demon~
@@ -118,12 +118,12 @@ it aflight as it wields its monstrous spear, a blade that is sure to keep
 even the hardiest of warriors at bay.  
 ~
 human~
-GOmu 0 Tz 0 Hn -1000 0
+GO 0 T 0 H -1000 0
 33 0 5d20+1200 39d10+1100 6d4+10 'none'
 -11 -11 -11 5
-DEFIKNjkloqt
+DEFIKN
 stand stand none 500
-Io 0 medium unknown
+I 0 medium unknown
 r holy -50
 #22009
 ghoul lord~
@@ -135,12 +135,12 @@ monstrous sight.  His long snake-like tongue licks scaly lips as it looks at
 you.  
 ~
 human~
-BOhu 0 0 0 Hn -1000 0
+BO 0 0 0 H -1000 0
 42 0 5d50+2250 42d10+4400 3d12+14 'blast'
 -14 -14 -14 0
-CDEFHKijklnq
+CDEFHK
 stand stand male 800
-Io 0 large unknown
+I 0 large unknown
 r holy -50
 #22010
 dragon deep black~
@@ -152,12 +152,12 @@ opponent.  He must have been out hunting because he looks awfully tired now,
 well at least you get the first attack before he kills you.  
 ~
 dragon~
-BGhm 0 0 0 0 -800 0
+BG 0 0 0 0 -800 0
 45 0 10d100+3000 45d10+4100 8d4+16 'claw'
 -15 -15 -15 -1
-CDEKMijkqs
+CDEKM
 sleep stand male 20000
-c Lr medium unknown
+c L medium unknown
 r cold 0
 r lightning 33
 r acid 33
@@ -171,12 +171,12 @@ hide, creating spear like points.  Its skin has decayed away, leaving the
 ribs and organs exposed.  ICK!  
 ~
 unique~
-BFGOhlmu 0 0 0 Hn -900 0
+BFGO 0 0 0 H -900 0
 38 0 9d50+1600 38d10+4100 5d6+12 'bite'
 -13 -13 -13 3
-CDEFijkl
+CDEF
 stand stand none 500
-AGIVgmo ACDEFJKQVgijklpqw large unknown
+AGIV ACDEFJKQV large unknown
 r holy -50
 #22012
 cleric holy~
@@ -188,10 +188,10 @@ caverns.  From what he tells you he and his companions became seperated
 during a battle with undead.  
 ~
 human~
-BGQhmw 0 0 0 Hn 800 0
+BGQ 0 0 0 H 800 0
 35 0 10d50+1300 40d10+4150 4d7+11 'none'
 -11 -11 -11 3
-CEKLSikqry
+CEKLS
 stand stand male 500
 0 0 medium unknown
 #22013
@@ -204,10 +204,10 @@ dragon is emblazoned on his plate and he wields his silver long sword with
 ease.  
 ~
 human~
-GTmz 0 0 0 HKnq 1000 0
+GT 0 0 0 HK 1000 0
 26 0 5d10+600 26d10+1100 3d7+17 'none'
 -7 -7 -7 4
-CEFIKSikloqy
+CEFIKS
 stand stand male 500
 0 0 medium unknown
 #22014
@@ -219,12 +219,12 @@ Lost from his adventuring companions this little trouble maker is now
 just running around looking for things to slip into his purses.  
 ~
 unique~
-GSmy 0 0 0 Hn -400 0
+GS 0 0 0 H -400 0
 29 0 6d12+778 29d10+1100 4d6+8 'pierce'
 -9 -9 -9 4
-FJNSlpty
+FJNS
 stand stand male 1200
-AHMVgns ABCDEFGHIJKghijklmnopq small unknown
+AHMV ABCDEFGHIJK small unknown
 #22015
 powerful enchantress~
 A Powerful Enchantress~
@@ -235,10 +235,10 @@ lost after a fight.  She seems to be quite confident in here magic and she
 wears a gorgeous ring on her finger.  
 ~
 human~
-GRmx 0 0 0 Hn -600 0
+GR 0 J 0 H -600 0
 31 0 10d10+928 50d10+2200 4d6+9 'pierce'
 0 0 0 0
-FNSlty
+FNS
 stand stand female 1000
 0 0 medium unknown
 r fire 33
@@ -263,7 +263,7 @@ girdle giant strength~
 girdle of giant strength~
 A brilliant admantite girdle floats here.~
 adamantite~
-armor BGhm 0 ALgr
+armor BG 0 AL
 20 20 20 10 0
 42 3 2000 P
 A
@@ -276,7 +276,7 @@ bone key carved~
 a carved bone key~
 A small bone key, carved from a giants finger bone, lies here.~
 stone~
-key 0 0 Ag
+key 0 0 A
 0 0 0 0 0
 40 1 25 P
 g none~
@@ -285,7 +285,7 @@ leggings speed~
 leggings of speed~
 A set of glowing leather leggings lie here~
 silver~
-armor Ag 0 AFgl
+armor A 0 AF
 9 9 9 0 0
 30 5 1000 P
 A
@@ -298,7 +298,7 @@ armor ornate plate~
 an ornate breast plate~
 A silver breast plate engraved in gold~
 silver~
-armor 0 0 ADgj
+armor 0 0 AD
 8 7 7 0 0
 25 13 1200 P
 A
@@ -311,7 +311,7 @@ ring magic~
 ring of magic~
 A glowing ring covered in magical runes lies here.~
 mithril~
-armor AGgm 0 ABgh
+armor AG 0 AB
 9 9 9 4 0
 28 1 1000 P
 A
@@ -324,7 +324,7 @@ sheath wrist~
 a concealable wrist sheath~
 A large leather wrist sheath for a dagger lies here.~
 leather~
-container GYm 0 AMgs
+container GY 0 AM
 10 0 0 5 50
 26 2 500 P
 A
@@ -341,8 +341,8 @@ spinagon spear~
 a Spinagon's spear~
 A long spear with a wickedly sharp blade.~
 mithril~
-weapon EGkm 0 ANgt
-spear 5 8 'thrust' DEFHKjklnq
+weapon EG 0 AN
+spear 5 8 'thrust' DEFHK
 35 9 1300 P
 A
 19 6
@@ -354,7 +354,7 @@ rulership rod~
 the Rod of Rulership~
 A rod inscribed with words of command floats here.~
 flame~
-armor ABGghm 0 AOgu
+armor ABG 0 AO
 13 12 12 5 0
 38 5 5000 P
 A
@@ -369,7 +369,7 @@ collar bloody~
 a bloody collar~
 The bloody collar of a dead beast lies here~
 gold~
-armor Gm 0 ACgi
+armor G 0 AC
 12 12 12 6 0
 36 7 800 P
 A
@@ -384,7 +384,7 @@ vial holy water~
 a vial of holy water~
 A glowing vial of holy water has been left here~
 glass~
-potion Io 0 AOgu
+potion I 0 AO
 35 'bless' 'heal' '' ''
 30 1 600 P
 g none~
@@ -393,8 +393,8 @@ sword silver longsword long~
 a silver longsword~
 A silver longsword covered in mystical battle runes lies here~
 silver~
-weapon GImo 0 ANgt
-sword 5 5 'slash' Dj
+weapon GI 0 AN
+sword 5 5 'slash' D
 23 4 1350 P
 A
 18 1
@@ -412,7 +412,7 @@ You stand at the entrance to The Caverns of the Damned.  What creatures
 await you in its shadowy corridors can only be guessed.  Two dark tunnels
 lead east and west , into the caverns, from here.  
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -432,7 +432,7 @@ The walls seem to project darkness into this shadowy tunnel making it
 hard to make out any details.  All of the exits lead away into further
 darkness.  
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -451,7 +451,7 @@ A Darkened Tunnel~
 The great expanse of caverns spreads out before you.  Three posible exits
 lead from this room, each one shrouded in darkness.  
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
@@ -469,7 +469,7 @@ S
 A Bend in the Tunnel~
 The tunnel turns here slightly, both directions lead into shadows.  
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -483,7 +483,7 @@ S
 A Bend in the Tunnel~
 The tunnel turns sharply here.  Directions lead south and north.  
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -498,7 +498,7 @@ A Darkened Tunnel~
 Blackened tunnels spread out before you.  Exits lead down, east, or
 north.  
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -519,7 +519,7 @@ lose your footing and almost slip on something wet.  Holding your light
 close to the ground you discover a pool of fresh blood.  Exits lead down,
 north, and south.  
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -537,7 +537,7 @@ S
 A Bend in the Tunnel~
 The shadowy tunnel continues to the east and west.  
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -553,7 +553,7 @@ You stand at the bottom of a flight of stairs.  You are unable to make
 out any details in this poorly lit corridor, however an exit to the
 south is noticeable.  
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
@@ -568,7 +568,7 @@ A Darkened Tunnel~
 You stand in a dark tunnel with exits leading two directions into
 blackness.  
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -583,7 +583,7 @@ The End of the Tunnel~
 This shadowy corridor makes an abrupt stop here, the only exit leading
 back to the east.  
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -594,7 +594,7 @@ A Darkened Tunnel~
 A flight of stairs lead into darkness above you while a small tunnel
 heads east into further gloom.  
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -609,7 +609,7 @@ A Darkened Tunnel~
 The total blackness of the caverns spreads out before you, shadowing
 everything in mystery.  Exits lead west and south.  
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
@@ -624,7 +624,7 @@ The End of the Tunnel~
 You have reached the end of the tunnel with nothing but a blank, stone
 wall standing in your way.  The only exit is back to the north.  
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -634,7 +634,7 @@ S
 A Dimly Lit Cave~
 You stand in an enormous cave that spreads out to the south and east.  
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -654,7 +654,7 @@ The cave begins to decrease in size at this end.  The ceiling drops at a
 sharp angle forcing you to duck your head.  A small tunnel leads to the
 south while the cave continues to the west.  
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
@@ -671,7 +671,7 @@ you that it is nearly impossible to see it.  You stare up into the darkness,
 pondering what kind of creatures could be hiding in those shadows.  The only
 exit is north.  
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -683,7 +683,7 @@ The small tunnel twists away through dark corridors, leaving you in
 question of your exact location.  The tunnel leads north or south
 from here.  
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -698,7 +698,7 @@ A Branch in the Tunnel~
 The tunnel branches off here in three directions.  You may go north,
 east, or west.  
 ~
-0 Ag inside
+0 A inside
 D0
 ~
 ~
@@ -717,7 +717,7 @@ A Branch in the Tunnel~
 The tunnel branches off in three directions here again.  Directions lead
 south, down, and east.  
 ~
-0 Ag inside
+0 A inside
 D1
 ~
 ~
@@ -737,7 +737,7 @@ The shadowy tunnel continues to the south and west.  You find
 yourself praying for the lost light of day as the darkness closes in on your
 soul.  
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
@@ -750,7 +750,7 @@ S
 #22021
 A Darkened Tunnel~
 ~
-0 Ag inside
+0 A inside
 D0
 ~
 ~
@@ -770,7 +770,7 @@ The caverns continue to spread out before you.  Many times you have found
 yourself wandering in circles only to end up in another room that looks the
 same as all of the others.  Exits lead north, down, and west from here.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -789,7 +789,7 @@ A Bend in the Tunnel~
 This small, dark tunnel turns sharply.  The only exits appear to be
 east and west.  
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -806,7 +806,7 @@ light gives away what little details can be found in the room, such as small
 rocks, but nothing out of the ordinary.  You may continue along in this
 tunnel to the west or return to the main tunnel up the stairs.  
 ~
-0 ADgj inside
+0 AD inside
 D3
 ~
 ~
@@ -822,7 +822,7 @@ Just like all the other tunnels, the monotony is beginning to get to you.
 Darkness, eternal darkness, for just a second you would love to see the
 light of day again and get out of thse cramped tunnels.  
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -837,7 +837,7 @@ A Bend in the Tunnel~
 You've come to a sharp turn in the tunnel.  Exits lead both east and
 north into darkness.  
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -852,7 +852,7 @@ A Bend in the Tunnel~
 The shadowy tunnel bends here, leaving you exits to the north and
 south.  
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -868,7 +868,7 @@ You reach the top of a set of stairs.  You hear what sounds like someone
 moving at the bottom of the steps, but looking into the gloom it is
 impossible to tell.  
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
@@ -883,7 +883,7 @@ The Bottom of the Stairs~
 Stairs rise up above you into a higher tunnel.  The only exits available
 appear to be up or north.  
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -899,7 +899,7 @@ Yet another dark tunnel in what seems like an endless amount of dark
 tunnels.  A low growl is emitted from a room to the east, its inhabitant
 must not be happy.  
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -915,7 +915,7 @@ This room looks just like all the others except it seems to be serving as
 a lair for some animal.  Various bones lie about the room causing you to
 stumble several times.  
 ~
-0 ADgj inside
+0 AD inside
 D3
 ~
 ~
@@ -927,7 +927,7 @@ The stench of rotting corpses assaults you, as you step into this tunnel.
 A dim light shines from farther down the tunnel, though you don't think
 whatever is living here is going to be too friendly.  
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
@@ -943,7 +943,7 @@ The smell grows stronger the farther you walk down this corridor.  An
 unholy laughter echos from farther down the tunnel forcing you to question
 your bravery.  
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -960,7 +960,7 @@ flesh that appear freshly torn from a body.  From the horrible death cries
 coming from the next room, you are quite certain that the flesh was torn
 from a still living person.  
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -976,7 +976,7 @@ A horrid creature stands against the far wall eating a human corpse.  The
 amount of blood spilled in the room makes you swoon, and you feel the sudden
 desire to run as fast as posible away from this monster and its dinner.  
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -987,7 +987,7 @@ A Pitch Black Tunnel~
 Yet another dark tunnel guides you through the caverns.  From around the
 corner comes a slight shimmering light.  
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
@@ -1004,7 +1004,7 @@ faint light from the west illuminates the cavern in brilliant, flashing
 colors that nearly blind you.  You may continue towards the light to the
 west or return to the tunnel to the north.  
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -1021,7 +1021,7 @@ beautiful colors throughout the chamber.  Unfortunately your light also
 illuminates a sleeping dragon.  Perhaps you can sneak away before it notices
 you.  
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -1032,7 +1032,7 @@ A Darkened Tunnel~
 The tunnel you are in splits away from the main corridor and continues to
 head in a south direction.  
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -1047,7 +1047,7 @@ A Darkened Tunnel~
 The tunnel turns slightly here, granting you exits to the west or
 north.  
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -1063,7 +1063,7 @@ The tunnel drops sharply here, staring down the tunnel all you can see
 are shadows, though the presence of evil seems to be growing stronger as you
 descend through the caverns.  
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -1079,7 +1079,7 @@ A long cavern spreads out to the east.  Stalagmites and other various
 rock formations clutter the room to such a degree that it is sometimes hard
 to walk.  
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -1096,7 +1096,7 @@ line the rocks sometimes catch your attention, holding your eyes for minutes
 at a time.  Fortunately for you it doesn't appear that anything has planned
 to ambush you here as your attention is focussed on nature's magnificence.  
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -1113,7 +1113,7 @@ room.  The darkness present in the maze seems to be here to such a degree
 that you feel blinded by the infinite amount of shadow.  The presence of
 evil continues to grow stronger, you must be getting close.  
 ~
-0 ADgj inside
+0 AD inside
 D3
 ~
 ~
@@ -1129,7 +1129,7 @@ You are nearly overcome with the presence of tremendous evil.  Howls of
 torment can be heard far off in the distance.  The caverns continue to the
 south, but ponder your mortality first, should you continue?  
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
@@ -1146,7 +1146,7 @@ corridor.  The evil assaulting your soul continues to get stronger with
 every step you take.  You feel yourself tense, expecting maybe the ruler of
 hell himself around the corner.  
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -1163,7 +1163,7 @@ river up ahead.  This part of the caverns seems to glow with an unholy
 light, and although it is nice to have light again you start to think you
 prefered the darkness over this.  
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
@@ -1180,7 +1180,7 @@ and queer light.  The sound of a river is stronger now and you assume that
 it can not be much farther up ahead.  You may continue through the caverns
 to the south or return towards the exit, north.  
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -1195,7 +1195,7 @@ The End of The Caverns~
 CONGRATULATIONS!!!!  You've found the entrance to the River Styx, and
 Hell. I am sure the demons look forward to having you over for dinner.   
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~

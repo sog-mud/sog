@@ -16,13 +16,13 @@ linran~
 ~
 ~
 human~
-0 0 Tcz ABGghm ABKghq -1000 0
+J 0 JTc ABG ABCDFK -1000 0
 70 200 1d1+20000 1d1+10000 8d9+1 'stab'
 0 0 0 0
-ABDFHJKOghjlnpqu
+ABDFHJKO
 stand stand male 1000000
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 r acid 33
 r mental 100
 r charm 100
@@ -35,7 +35,7 @@ r charm 100
 {WОгромный {Yплатиновый Трон, {RСделанный из {WКостей Арборна,{R украшенный {Wего черепом{x, стоит тут.~
 platinum~
 furniture 0 0 0
-Ag EIJKNkopqt Ek EIJKNkopqt EIJKNkopqt
+A EIJKN E EIJKN EIJKN
 666 10000000 666666666 P
 g male~
 #12201
@@ -43,8 +43,8 @@ sword truth~
 @eng {WSword of Truth.@rus {WМеч Истины~
 @eng long sword egraved with word "Veritas" at hilt@rus длинны меч с выгравированном на рукоятке словом "Veritas"~
 platinum~
-weapon ABGHIghmno ABCEFghikl ANgt
-sword 12 11 'wrath' EGIkmo
+weapon ABGHI ABCEF AN
+sword 12 11 'wrath' EGI
 87 10 1000000 P
 A
 17 200
@@ -52,36 +52,36 @@ A
 35 -50
 A
 26 1
-S 'sword' 20 Bh
-S 'mastering sword' 20 Ag
-F A 8 1 Kq
+S 'sword' 20 B
+S 'mastering sword' 20 A
+F A 8 1 K
 g none~
 #12202
 staff magi~
 {CStaff {Yof {Bthe {RMagi{x~
 wooden staff about 5 feet long~
 wood~
-staff FGHIYlmno BCEFhikl AOgu
+staff FGHIY BCEF AO
 70 25 19 'adamantite golem' 0
 55 10 1000000 P
 F A 12 20 U
-S 'dispel magic' 40 Ag
-S 'web' 40 Ag
-S 'iceball' 80 Ag
-S 'knock' 50 Ag
-S 'fireball' 40 Ag
-F i 12 20 Ag
+S 'dispel magic' 40 A
+S 'web' 40 A
+S 'iceball' 80 A
+S 'knock' 50 A
+S 'fireball' 40 A
+F i 12 20 A
 A
 26 1
-F A 12 20 Nt
-F d 8 2 Lr
+F A 12 20 N
+F d 8 2 L
 g none~
 #12203
 magic amulet death laerkai~
 laerkai death~
 medalion of thought projection~
 platinum~
-gem CGHMimns BFhl ACgi
+gem CGHM BF AC
 0 0 0 0 0
 1 10 10 P
 A
@@ -102,19 +102,19 @@ A
 8 3
 F A 0 0 d
 F A 0 0 Y
-F A 0 0 Lr
+F A 0 0 L
 F A 0 0 X
-F A 0 0 Ms
-F A 0 0 Ag
-F A 0 0 Kq
+F A 0 0 M
+F A 0 0 A
+F A 0 0 K
 g none~
 #12204
 warhammer~
 {RGreat {WWarHammer {cof {CC{Yh{Wa{Mo{Gs{x~
 very big and heavy hammer~
 unknown~
-weapon ABEGIMYghkmos 0 ANgt
-mace 1000 2000 'stab' ABCDEGHIghijkmno
+weapon ABEGIMY 0 AN
+mace 1000 2000 'stab' ABCDEGHI
 92 10 1000000000 P
 A
 14 20000
@@ -139,12 +139,12 @@ A
 A
 18 20000
 F A 8 1000 U
-F A 14 30000 Tz
-F d 12 30000 Lr
-F d 13 30000 Kq
-F d 8 666 Ms
+F A 14 30000 T
+F d 12 30000 L
+F d 13 30000 K
+F d 8 666 M
 F A 26 10 V
-F A 26 10 Hn
+F A 26 10 H
 A
 8 666
 g none~

@@ -11,7 +11,7 @@ End
 #MOBILES
 #12400
 skeletal guardian~
-@eng skeletal guardian@rus охранник-скелет~
+skeletal guardian~
 @eng A skeleton is here, guarding the entrance.
 @rus Скелет охраняет вход в подземелье
 ~
@@ -19,10 +19,10 @@ skeletal guardian~
 @rus Скелет собран из специально отобраннных костей высочайшего качества.
 ~
 undead~
-BFOThluz 0 0 0 0 -1000 0
+BFOT 0 0 0 0 -1000 0
 35 50 11d62+500 11d62+50 6d6+20 'punch'
 0 0 0 0
-FIlo
+FI
 stand stand male 1239
 0 0 medium unknown
 #0
@@ -30,19 +30,19 @@ stand stand male 1239
 #OBJECTS
 #12400
 iron key~
-@eng an iron key@rus ~~железный~~ ~~ключ~~~
+@eng an iron key@rus ~~железный~~ ~~ключ~~ ~
 @eng You see an iron key here@rus Железный ключ здесь~
 iron~
-key Ci 0 AOgu
+key C 0 AO
 0 0 0 0 0
 10 3 10 P
 g male~
 #12401
 bone club~
-@eng a bone club@rus ~~дубина~~ из кости~
+@eng a bone club@rus дубина из кости~
 @eng You see a large club made of bone here.@rus Большая дубина из кости лежит здесь.~
 bone~
-weapon Ci 0 ANgt
+weapon C 0 AN
 mace 7 6 'crush' 0
 20 0 0 P
 A
@@ -61,11 +61,11 @@ cold and filled with a strange white fog. You notice a hole in the ground.
 холодный и скорее, представляет из себя странный белесый туман. Внизу - 
 отверстие, прикрытое камнем.
 ~
-0 Ag inside
+0 A inside
 D5
 ~
 stone~
-ABCIZghio 12400 12401
+ABCIZ 12400 12401
 S
 #12401
 @eng At the first layer@rus На первом ярусе~
@@ -96,11 +96,11 @@ Z 0 12403
 D4
 ~
 ~
-ABCIZghio 0 12400
+ABCIZ 0 12400
 D5
 ~
 ~
-ABCFGZghilm 0 12426
+ABCFGZ 0 12426
 S
 #12402
 @eng At the first layer@rus На первом ярусе~
@@ -549,11 +549,11 @@ Z 0 12443
 D4
 ~
 ~
-ABCFGZghilm 0 12401
+ABCFGZ 0 12401
 D5
 ~
 ~
-ABCFGZghilm 0 12452
+ABCFGZ 0 12452
 S
 #12427
 @eng At the second layer@rus На втором ярусе~
@@ -1002,11 +1002,11 @@ Z 0 12462
 D4
 ~
 ~
-ABCFGZghilm 0 12426
+ABCFGZ 0 12426
 D5
 ~
 ~
-ABCFGZghilm 0 12477
+ABCFGZ 0 12477
 S
 #12453
 @eng At the third floor~
@@ -1433,26 +1433,13 @@ D3
 Z 0 12459
 S
 #12477
-In the corridor~
+~
 ~
 0 0 inside
-D0
-~
-~
-Z 0 12478
 D4
 ~
 ~
-ABCFGZghilm 0 12452
-S
-#12478
-In the corridor~
-~
-0 0 inside
-D2
-~
-~
-Z 0 12477
+ABCFGZ 0 12452
 S
 #0
 
@@ -1464,7 +1451,7 @@ D 0 12426 4 2	* At the second layer: door to the up: closed and locked
 D 0 12426 5 2	* At the second layer: door to the down: closed and locked
 D 0 12452 4 2	* A Center of the floor: door to the up: closed and locked
 D 0 12452 5 2	* A Center of the floor: door to the down: closed and locked
-D 0 12477 4 2	* In the corridor: door to the up: closed and locked
+D 0 12477 4 2	* : door to the up: closed and locked
 M 0 12400 1 12400 1	* skeletal guardian (The Entrance to the Dungeon)
 E 0 12400 0 17		*	an iron key: held in the hands
 E 0 12401 0 16		*	a bone club: wielded

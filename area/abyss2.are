@@ -44,10 +44,10 @@ mossy protrusions, like some strange malignant blemishes. It emits low,
 gutteral mewlings from its fange, quivering oriface.
 ~
 human~
-BChi 0 0 Gm AHgn -1000 0
+BCJ 0 0 G AH -1000 0
 45 0 25d10+2300 449d1+1 8d4+10 'beating'
 -15 -15 -15 4
-CDEFHijkln
+CDEFH
 stand stand male 6500
 0 0 medium unknown
 r fire -50
@@ -73,10 +73,10 @@ victims stain the robe. Its skeletal figure resembles that of the angel of
 death. Its eyes glow with a furious fire to kill.
 ~
 human~
-BCFhil 0 TUz 0 AHgn -1000 0
+BCFJ 0 JTU 0 AH -1000 0
 36 0 10d10+1400 359d1+1 3d10+11 'punch'
 -12 -12 -12 5
-DEHIJKjknopq
+DEHIJK
 stand stand either 5600
 0 0 medium unknown
 r bash 33
@@ -92,10 +92,10 @@ A large demon like creature hovers abover you, in a cloud of grey mist.
 Its winged form stares down at you in utter hatred.
 ~
 human~
-BCFhil 0 U 0 Hn -1000 0
+BCFJ 0 U 0 H -1000 0
 34 0 10d10+1200 339d1+1 4d7+10 'punch'
 -11 -11 -11 5
-HIKnoq
+HIK
 stand stand either 10000
 0 0 medium unknown
 r charm 100
@@ -108,10 +108,10 @@ The black slayer is a shadowy figure, about 7 feet in height. Garbed in
 a heavey, black cloak, in his right hand, he wields a wicked dagger.
 ~
 human~
-BCFhil 0 0 Gm AHgn -1000 0
+BCFJ 0 0 G AH -1000 0
 25 0 5d10+550 249d1+1 2d10+7 'punch'
 -7 -7 -7 6
-ACFHIKgilnoq
+ACFHIK
 stand stand male 999
 0 0 medium unknown
 r fire 33
@@ -135,10 +135,10 @@ A ghostly apparition floats here, staring at you in utter hatred.
 The lost soul is a ghostly apparition, seeking revenge on the living.
 ~
 human~
-CFil 0 0 Gm AHgn -1000 0
+CFJ 0 0 G AH -1000 0
 20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
-FGJKlmpq
+FGJK
 stand stand female 666
 0 0 medium unknown
 r bash -50
@@ -166,10 +166,10 @@ This huge creature is approximatly 18 feet tall, He grasps a huge bolt
 of lightning it his right hand.... He doesnt look happy to see you.
 ~
 giant~
-BCFhil 0 0 Gm AHgn -1000 0
+BCFJ 0 0 G AH -1000 0
 40 0 15d10+1850 399d1+1 4d8+13 'punch'
 -13 -13 -13 4
-CEIKLikoqr
+CEIKL
 stand stand male 10000
 0 0 large unknown
 r bash 33
@@ -197,10 +197,10 @@ entirely of white gold. Its eyes seem to watch your every move..
 they almost appear is if they were alive.
 ~
 bear~
-BChi 0 Hn 0 AHgn 0 25007
+BC 0 H 0 AH 0 25007
 22 0 5d10+400 219d1+1 4d4+6 'punch'
 -5 -5 -5 6
-ACHIKLginoqr
+ACHIKL
 stand stand male 877
 0 0 medium unknown
 r bash 0
@@ -214,10 +214,10 @@ The creature is formed entirely of flames. The creature gives off an
 intense heat.
 ~
 human~
-BFhl 0 b 0 Hn -1000 25008
+BFJ 0 0 0 H -1000 25008
 35 0 10d10+1200 349d1+1 4d7+10 'punch'
 -11 -11 -11 7
-CDEFGHIKijklmnoq
+CDEFGHIK
 stand stand male 5612
 0 0 medium unknown
 r fire 33
@@ -235,10 +235,10 @@ The huge, scaled creature  has eight heads... each capable of breathing
 a dangerous stream of fire.
 ~
 fox~
-BCFhil 0 0 0 Hn -1000 0
+BCFJ 0 0 0 H -1000 0
 36 0 10d10+1400 359d1+1 3d10+11 'punch'
 -12 -12 -12 6
-Kq
+K
 stand stand female 6090
 0 0 medium unknown
 r energy -50
@@ -254,10 +254,10 @@ size. its huge tentacles grasp something... though you can not make out
 what the object is.
 ~
 water fowl~
-BFhl 0 0 0 AHgn -1000 0
+BF 0 0 0 AH -1000 0
 40 0 15d10+1700 399d1+1 4d8+11 'punch'
 -13 -13 -13 7
-ABgh
+AB
 stand stand male 4504
 0 0 medium unknown
 r lightning 33
@@ -281,10 +281,10 @@ It is a rather large creature resembling a tree. At the base of the trunk
 is a large opening that looks very much like a mouth.
 ~
 lizard~
-BCFhil 0 0 0 Hn -1000 0
+BCFJ 0 J 0 H -1000 0
 44 0 25d10+2550 439d1+1 8d4+12 'punch'
 -15 -15 -15 4
-CEFikl
+CEF
 stand stand male 5709
 0 0 medium unknown
 r bash 33
@@ -314,10 +314,10 @@ glow with a brilliant red fire, in its right hand he grasps a an extremely
 sharp blade of magical nature.
 ~
 human~
-BCGHhimn 0 0 Gm AHgn -1000 25012
+BCGH 0 0 G AH -1000 25012
 26 0 5d10+600 259d1+1 2d10+7 'punch'
 -7 -7 -7 6
-ADEFgjkl
+ADEF
 stand stand male 1500
 0 0 medium unknown
 r bash -50
@@ -335,10 +335,10 @@ He is a large, muscular man of undead nature. He is clad in rather magical
 looking suit of armor, his sword burning fiercly.
 ~
 human~
-BFhl 0 0 0 Hn -1000 0
+BFJ 0 J 0 H -1000 0
 50 0 50d10+4500 499d1+1 5d8+19 'punch'
 -20 -20 -20 3
-ABCDEFGHJKNghijklmnpqt
+ABCDEFGHJKN
 stand stand male 12045
 0 0 medium unknown
 r fire 33
@@ -356,10 +356,10 @@ of a once mighty warrior. Its eyes are fixed coldly upon you, unsheathing
 its sword, he charges for battle.
 ~
 human~
-BCFhil 0 0 0 Hn -1000 0
+BCFJ 0 J 0 H -1000 0
 38 0 10d10+1600 379d1+1 4d8+13 'punch'
 -13 -13 -13 5
-BCEGKhikmq
+BCEGK
 stand stand male 6860
 0 0 medium unknown
 r bash 33
@@ -376,10 +376,10 @@ This creature is covered with slime like substance, many tentacles protrude
 from its disgusting body.
 ~
 dog~
-BCFhil 0 0 0 Hn -1000 25015
+BCFJ 0 J 0 H -1000 25015
 46 0 25d10+3250 459d1+1 6d6+16 'punch'
 -16 -16 -16 4
-Jp
+J
 stand stand male 10000
 0 0 medium unknown
 r cold -50
@@ -394,10 +394,10 @@ A shadowy figure stands here, looking you over with greed.
 This creature has almost no form, it looks like some sort of shadow with wings.
 ~
 human~
-CFil 0 0 0 AHgn -1000 0
+CFJ 0 0 0 AH -1000 0
 28 0 6d12+703 279d1+1 2d12+8 'punch'
 -8 -8 -8 5
-CDHIijno
+CDHI
 stand stand male 1230
 0 0 medium unknown
 r holy 33
@@ -415,10 +415,10 @@ He is a huge man, his strong, muscular body stands about 8 feet tall.
 He guards the portal beyond him angrily.
 ~
 human~
-BFGhlm 0 0 0 ABHghn -1000 25036
+BFGJ 0 J 0 ABH -1000 25036
 35 0 10d10+1300 349d1+1 4d7+11 'punch'
 -11 -11 -11 5
-CIio
+CI
 stand stand male 5400
 0 0 medium unknown
 r bash -50
@@ -446,10 +446,10 @@ The prince of water elementals flows here
 He looks like a giant wave about to swoop down upon you.
 ~
 water fowl~
-Bh 0 Hn 0 BHhn 0 0
+B 0 H 0 BH 0 0
 32 0 10d10+900 319d1+1 6d4+8 'punch'
 -10 -10 -10 5
-AHIgno
+AHI
 stand stand male 4500
 0 0 medium unknown
 r fire 33
@@ -464,10 +464,10 @@ The King of earth elementals stands here.. cower fool!
 It looks vaguely man-shaped.
 ~
 water fowl~
-Bh 0 Hn 0 BHhn 0 0
+B 0 H 0 BH 0 0
 32 0 10d10+900 319d1+1 6d4+8 'punch'
 -10 -10 -10 5
-AHIgno
+AHI
 stand stand male 10000
 0 0 medium unknown
 r fire 33
@@ -482,10 +482,10 @@ A huge tornado is squeezed into this impossibly small space.
 It looks sentinent.
 ~
 song bird~
-Bh 0 0 0 AHgn 0 0
+B 0 0 0 AH 0 0
 32 0 10d10+900 319d1+1 6d4+8 'punch'
 -10 -10 -10 5
-AIgo
+AI
 stand stand male 4906
 0 0 medium unknown
 r fire 33
@@ -500,10 +500,10 @@ The Sultan of fire Elementals stands before you, you feel crisp.
 It looks vaguely man-shaped.
 ~
 dragon~
-Bh 0 0 0 Ag 0 0
+B 0 0 0 A 0 0
 32 0 10d10+900 319d1+1 6d4+8 'punch'
 -10 -10 -10 5
-AHIgno
+AHI
 stand stand male 4111
 0 0 medium unknown
 r cold 0
@@ -517,7 +517,7 @@ The goblin king is here.
 He looks like david bowie.
 ~
 goblin~
-0 0 0 0 Ag -351 0
+0 0 0 0 A -351 0
 18 0 3d9+283 179d1+1 2d7+4 'punch'
 -3 -3 -3 7
 0
@@ -531,7 +531,7 @@ A goblin cannon is here, warming up.
 He looks like a tank.
 ~
 goblin~
-Bh 0 0 0 0 -351 0
+B 0 0 0 0 -351 0
 30 0 6d12+853 299d1+1 4d6+8 'punch'
 -9 -9 -9 5
 0
@@ -545,7 +545,7 @@ A gatling goblin is here!  Duck!
 He looks like a walking gatling gun.
 ~
 goblin~
-Bh 0 0 0 0 -351 0
+B 0 0 0 0 -351 0
 30 0 6d12+853 299d1+1 4d6+8 'punch'
 -9 -9 -9 5
 0
@@ -559,7 +559,7 @@ An acid blob is here
 He looks like a big blob of acid
 ~
 human~
-Bh 0 0 0 0 0 0
+B 0 0 0 0 0 0
 20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
 0
@@ -573,7 +573,7 @@ A gaint acid blob is here
 He looks like a huge blob of acid
 ~
 human~
-Bh 0 0 0 0 0 0
+B 0 0 0 0 0 0
 50 0 50d10+4500 499d1+1 5d8+19 'punch'
 -20 -20 -20 3
 0
@@ -587,10 +587,10 @@ A Vrock stands here
 It is a vulture/human creature. Extremely ugly, and nasty.
 ~
 human~
-CFil 0 0 0 ABHghn -666 25030
+CFJ 0 0 0 ABH -666 25030
 21 0 4d10+360 209d1+1 4d4+5 'punch'
 -5 -5 -5 6
-FIlo
+FI
 stand stand male 999
 0 0 medium unknown
 r bash -50
@@ -618,10 +618,10 @@ A demon Hezrou stands here.
 Not unlike A large toad/man
 ~
 human~
-CFil 0 0 0 ABHghn -666 0
+CFJ 0 0 0 ABH -666 0
 17 0 3d9+258 169d1+1 3d4+4 'punch'
 -3 -3 -3 7
-AKNgqt
+AKN
 stand stand male 378
 0 0 medium unknown
 r slash 33
@@ -637,10 +637,10 @@ A demon Glabrezu stands here.
 I forget what this one looks like.
 ~
 human~
-CFil 0 0 0 ABHghn -666 25032
+CFJ 0 0 0 ABH -666 25032
 18 0 3d9+283 179d1+1 2d7+4 'punch'
 -3 -3 -3 7
-Jp
+J
 stand stand either 490
 0 0 medium unknown
 r charm 100
@@ -652,10 +652,10 @@ Nalfeshnee stands here
 This one is big and mean looking.
 ~
 giant~
-BCFhil 0 0 0 ABHghn -666 25033
+BCFJ 0 0 0 ABH -666 25033
 19 0 3d9+308 190d1+1 2d7+5 'punch'
 -4 -4 -4 7
-Ag
+A
 stand stand either 890
 0 0 medium unknown
 r charm 100
@@ -667,10 +667,10 @@ Marilith slithers here
 A woman with 6 arms and a snake's tail
 ~
 elf~
-CFil 0 0 0 ABgh -666 25034
+CFJ 0 0 0 AB -666 25034
 15 0 3d9+208 149d1+1 2d6+3 'punch'
 -2 -2 -2 7
-Ag
+A
 stand stand female 450
 0 0 tiny unknown
 r charm 100
@@ -682,10 +682,10 @@ Balor stands here, surrounded by electrical fire
 He is very large, and looks rather deadly
 ~
 dwarf~
-CFil 0 0 0 ABgh -666 0
+CFJ 0 0 0 AB -666 0
 20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
-Io
+I
 stand stand male 899
 0 0 medium unknown
 r bash 33
@@ -714,10 +714,10 @@ He is a huge man, his strong, muscular body stands about 8 feet tall.
 He guards the portal beyond him angrily.
 ~
 human~
-BFGhlm 0 0 0 ABHghn -1000 25017
+BFGJ 0 J 0 ABH -1000 25017
 35 0 10d10+1300 349d1+1 4d7+11 'punch'
 -11 -11 -11 5
-CDIKijoq
+CDIK
 stand stand male 5400
 0 0 medium unknown
 r charm 100
@@ -730,10 +730,10 @@ The black slayer is a shadowy figure, about 7 feet in height. Garbed in
 a heavey, black cloak, in his right hand, he wields a wicked dagger.
 ~
 human~
-BCFhil 0 0 Gm AHgn -1000 0
+BCFJ 0 0 G AH -1000 0
 25 0 5d10+550 249d1+1 2d10+7 'punch'
 -7 -7 -7 6
-ACFHIKgilnoq
+ACFHIK
 stand stand male 999
 0 0 medium unknown
 r fire 33
@@ -758,10 +758,10 @@ The black slayer is a shadowy figure, about 7 feet in height. Garbed in
 a heavey, black cloak, in his right hand, he wields a wicked dagger.
 ~
 human~
-BCFhil 0 0 Gm AHgn -1000 0
+BCFJ 0 0 G AH -1000 0
 25 0 5d10+550 249d1+1 2d10+7 'punch'
 0 0 0 0
-ACFHIKgilnoq
+ACFHIK
 stand stand male 0
 0 0 medium unknown
 r fire 33
@@ -785,8 +785,8 @@ sword~
 the Sword of the Ancients~
 The Sword of the Ancients rests here~
 steel~
-weapon GJLmpr Ag ANgt
-sword 5 8 'pierce' Dj
+weapon GJL A AN
+sword 5 8 'pierce' D
 40 320 18400 G
 A
 18 4
@@ -802,7 +802,7 @@ pile silk~
 a pile of blue silk~
 A pile of dark blue silk lies here, rustling slightly.~
 wool~
-armor GLmr 0 AKgq
+armor GL 0 AK
 12 12 12 6 0
 37 120 19453 G
 A
@@ -817,7 +817,7 @@ silver sleeves~
 a pair of silver sleeves~
 A pair of silver sleeves lies at your feet.~
 silver~
-armor GLmr Ag AIgo
+armor GL A AI
 11 11 11 5 0
 32 200 11800 G
 A
@@ -832,7 +832,7 @@ belt~
 a Rune Covered Belt~
 An ornate looking belt lies here.~
 leather~
-armor GLmr 0 ALgr
+armor GL 0 AL
 9 9 9 2 0
 32 100 14799 G
 E
@@ -845,7 +845,7 @@ helm dragons~
 a Helm of the Dragons~
 A strange helm lies here.~
 steel~
-armor GJLmpr 0 AEgk
+armor GJL 0 AE
 12 12 12 2 0
 38 240 19450 G
 A
@@ -863,7 +863,7 @@ rune breast plate~
 a Rune Covered Breast Plate~
 A rune covered breast plate lies here in the dirt~
 steel~
-armor GJLmpr Ag ADgj
+armor GJL A AD
 11 11 11 2 0
 38 150 18394 G
 A
@@ -879,7 +879,7 @@ pair silver boot boots~
 a Pair of Silver Boots~
 A pair of silver boots stands neatly in the corner~
 silver~
-armor GLmr Ag AGgm
+armor GL A AG
 10 10 10 2 0
 35 90 17560 G
 E
@@ -893,7 +893,7 @@ silver Shield~
 A Sturdy looking shield of silver rests against a nearby wall, gleaming
 brightly.~
 silver~
-armor GLmr Ag AJgp
+armor GL A AJ
 12 12 12 2 0
 46 250 20666 G
 E
@@ -907,7 +907,7 @@ black silver cloak~
 a Black and Silver Cloak~
 A Black and silver Cloak lies crumpled in a corner.~
 silver~
-armor GLMmrs 0 AKgq
+armor GLM 0 AK
 9 9 9 2 0
 25 50 12340 G
 E
@@ -921,7 +921,7 @@ metallic leg plates~
 a Pair of Metallic Leg Plates~
 A pair of leg plates formed of some metallic substance lie in pile.~
 steel~
-armor EGLkmr 0 AFgl
+armor EGL 0 AF
 9 9 9 1 0
 25 3500 0 G
 g none~
@@ -930,7 +930,7 @@ pair jeweled gauntlets~
 a Pair of Jeweled Gauntlets~
 A pair of jewel encrusted gauntlets lie here.~
 steel~
-armor GJLmpr 0 AHgn
+armor GJL 0 AH
 15 15 15 7 0
 45 17 13670 G
 A
@@ -947,7 +947,7 @@ pitch black cloak~
 a Pitch-Black Cloak~
 A dark black cloak lies here in the dirt.~
 energy~
-armor GHLMmnrs 0 AKgq
+armor GHLM 0 AK
 12 11 10 2 0
 35 60 26620 G
 g none~
@@ -956,7 +956,7 @@ flaming bracelet~
 a Flaming Bracelet~
 A diamond studded bracelet lies here, burning fiercely.~
 diamond~
-armor GHLMmnrs Ag AMgs
+armor GHLM A AM
 11 11 11 2 0
 35 20 24678 G
 A
@@ -973,7 +973,7 @@ black onyx ring~
 a Black Onyx Ring~
 A black onyx ring lies here, just barely visible.~
 stone~
-armor GLmr 0 ABgh
+armor GL 0 AB
 0 0 0 0 0
 36 10 12250 G
 A
@@ -986,8 +986,8 @@ shadowshiv~
 the Shadowshiv~
 A small, wicked looking dagger lies here, its blade as black as night.~
 steel~
-weapon BGHLMhmnrs 0 ANgt
-dagger 5 7 'stab' Ci
+weapon BGHLM 0 AN
+dagger 5 7 'stab' C
 25 40 13060 G
 A
 18 -1
@@ -999,10 +999,10 @@ two handed sword flaming~
 a Flaming Two-Handed Sword~
 An finely crafted two handed sword lies here engulfed in flamed.~
 flame~
-weapon GLmr Ag ANgt
-sword 5 11 'blast' AFgl
+weapon GL A AN
+sword 5 11 'blast' AF
 50 40 36740 G
-F A 0 0 Io
+F A 0 0 I
 A
 18 3
 A
@@ -1013,8 +1013,8 @@ silver trident~
 a Silver Trident~
 A trident crafted from fine silver has been placed here.~
 silver~
-weapon BCGHJLMhimnprs 0 ANgt
-spear 5 8 'pierce' Kq
+weapon BCGHJLM 0 AN
+spear 5 8 'pierce' K
 36 180 16740 G
 A
 18 2
@@ -1026,8 +1026,8 @@ sword sharpness~
 sword of Sharpness~
 A sword with a razor sharp blade lies here.~
 steel~
-weapon GLmr Ag ANgt
-sword 5 7 'pierce' Dj
+weapon GL A AN
+sword 5 7 'pierce' D
 33 70 8700 G
 A
 18 2
@@ -1039,7 +1039,7 @@ crystal ring~
 a Crystal Ring~
 A small crystal ring lies here.~
 crystal~
-treasure AGLgmr 0 ABgh
+treasure AGL 0 AB
 0 0 0 0 0
 22 100 5000 G
 A
@@ -1050,7 +1050,7 @@ jeweled dagger~
 a Jeweled Dagger~
 A small dagger, encrusted with jewels lies here.~
 steel~
-weapon GLMmrs 0 ANgt
+weapon GLM 0 AN
 dagger 6 7 'stab' 0
 37 70 22342 G
 g none~
@@ -1059,7 +1059,7 @@ jewel encrusted helmet~
 a Jewel Encrusted Helmet~
 A small, jewel encrusted helmet lies here.~
 silver~
-armor GJLmpr Ag AEgk
+armor GJL A AE
 12 12 12 2 0
 37 170 23679 G
 g none~
@@ -1068,7 +1068,7 @@ small medallion~
 a Small Medallion~
 A small medallion lies here among the dirt.~
 quartz~
-armor AGLPgmrv 0 ACgi
+armor AGLP 0 AC
 13 14 13 2 0
 41 20 18999 G
 A
@@ -1079,7 +1079,7 @@ ivory bracelet~
 an Ivory Bracelet~
 A bracelet made of the finest ivory rests here.~
 ivory~
-armor GLmr 0 AMgs
+armor GL 0 AM
 9 9 9 2 0
 31 16 13420 G
 A
@@ -1088,14 +1088,14 @@ A
 28 33
 A
 29 33
-F A 0 0 KTqz
+F A 0 0 KT
 g none~
 #25023
 green cape~
 a Bright Green Cape~
 An ugly, bright green cape lies ruffled in a nearby corner.~
 snakeskin~
-armor GLmr 0 ACgi
+armor GL 0 AC
 9 9 9 1 3
 33 120 10404 G
 A
@@ -1106,8 +1106,8 @@ fire blade~
 the fire blade~
 A large sword lies here, smoldering in flames.~
 flame~
-weapon AGLgmr 0 ANgt
-sword 5 5 'blast' Ag
+weapon AGL 0 AN
+sword 5 5 'blast' A
 25 400 13780 G
 g none~
 #25025
@@ -1115,7 +1115,7 @@ glaive~
 glaive~
 A glaive rests here in the dirt.~
 steel~
-weapon GLmr 0 ANgt
+weapon GL 0 AN
 polearm 9 5 'slash' 0
 44 120 18734 G
 E
@@ -1128,7 +1128,7 @@ soul amulet~
 the Soul Amulet~
 A magical looking amulet lies here, gleaming.~
 quartz~
-armor GLmr 0 ACgi
+armor GL 0 AC
 11 11 11 3 0
 36 30 16400 G
 g none~
@@ -1137,7 +1137,7 @@ circlet concentration~
 the Silver Circlet of Concentration~
 A small tiara of silver lies on the ground.~
 silver~
-armor GLmr 0 AEgk
+armor GL 0 AE
 12 12 12 2 0
 42 100 18450 G
 A
@@ -1152,8 +1152,8 @@ portal~
 portal~
 Small portal is here.~
 energy~
-portal ABGghm 0 0
-ABCDIJKNghijopqt 0 Ag 3054 0
+portal ABG 0 0
+ABCDIJKN 0 A 3054 0
 0 0 0 G
 g none~
 #25050
@@ -1161,7 +1161,7 @@ runed key~
 a Huge Runed Key~
 A huge rune covered key lies here in the dirt.~
 stone~
-key 0 0 AOgu
+key 0 0 AO
 0 0 0 0 0
 1 0 0 G
 g none~
@@ -1170,7 +1170,7 @@ runed key~
 a Runed Key~
 A small rune covered key lies here in the dirt.~
 stone~
-key 0 0 AOgu
+key 0 0 AO
 0 0 0 0 0
 1 0 0 G
 E
@@ -1183,7 +1183,7 @@ runed key~
 a Runed Key~
 A small rune covered key lies here in the dirt.~
 stone~
-key 0 0 AOgu
+key 0 0 AO
 0 0 0 0 0
 1 0 0 G
 E
@@ -1196,7 +1196,7 @@ runed key~
 a Runed Key~
 A small runed key lies here in the dirt.~
 stone~
-key 0 0 AOgu
+key 0 0 AO
 0 0 0 0 0
 1 0 0 G
 E
@@ -1209,7 +1209,7 @@ runed key~
 a Runed Key~
 A rune covered key lies here in the dirt.~
 stone~
-key 0 0 AOgu
+key 0 0 AO
 0 0 0 0 0
 1 0 0 G
 E
@@ -1222,7 +1222,7 @@ crystal key~
 a Crystal Key~
 A crystal key lies here in the dirt.~
 crystal~
-key Io 0 AOgu
+key I 0 AO
 0 0 0 0 0
 1 1 0 G
 E
@@ -1235,7 +1235,7 @@ silvery key~
 a silvery key~
 A silvery key lies here in the dirt.~
 silver~
-key Io 0 AOgu
+key I 0 AO
 0 0 0 0 0
 1 0 0 G
 E
@@ -1248,7 +1248,7 @@ emerald key~
 an emerald key~
 An emerald key lies here in the dirt.~
 granite~
-key 0 0 AOgu
+key 0 0 AO
 0 0 0 0 0
 1 0 0 G
 E
@@ -1261,7 +1261,7 @@ diamond key~
 a diamond key~
 A diamond key lies here in the dirt.~
 diamond~
-key 0 0 AOgu
+key 0 0 AO
 0 0 0 0 0
 1 0 0 G
 g none~
@@ -1270,7 +1270,7 @@ breast plate~
 The Silver Breast Plate~
 A silver breast plate lies here in the dirt~
 silver~
-armor GJLmpr 0 ADgj
+armor GJL 0 AD
 16 17 16 3 0
 48 150 19394 G
 A
@@ -1281,7 +1281,7 @@ helm~
 the Silver Helm~
 A strange, silver helm lies here.~
 silver~
-armor GJLmpr 0 AEgk
+armor GJL 0 AE
 17 17 16 12 0
 48 280 21450 G
 A
@@ -1292,7 +1292,7 @@ pair boot boots~
 a Pair of Runed Covered Boots~
 A pair of runed covered boots stands neatly in the corner~
 leather~
-armor GLmr Ag AGgm
+armor GL A AG
 12 12 12 2 0
 27 120 19560 G
 g none~
@@ -1301,8 +1301,8 @@ portal shimmering портал сияющий~
 a shimmering portal~
 A portal shimmers here, emitting a faint glow.~
 unknown~
-portal AGYgm Bh 0
-0 0 Ag 25002 0
+portal AGY B 0
+0 0 A 25002 0
 45 100000000 0 P
 g @eng neutral@rus male~
 #0
@@ -1318,7 +1318,7 @@ disappearing far into the mountains.
 деревьями. Заброшенная дорога ведет на север, петляя и в конце кон-
 цов теряясь в горах.
 ~
-0 Ci mountain
+0 C mountain
 E
 small tablet~
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1416,7 +1416,7 @@ an overwhelming sense of evil. You dread the thought of what lies ahead.
 накатывается на тебя, заставляя дрожать от ужаса перед тем, что
 лежит дальше.
 ~
-0 ANgt forest
+0 AN forest
 E
 small tablet~
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1456,7 +1456,7 @@ pits of hell!
 Ты начинаешь думать, не повернуть ли назад, но какая-то странная сила
 тянет тебя дальше и дальше вперед, в самые пучины ада!
 ~
-0 ADNgjt forest
+0 ADN forest
 D0
 ~
 ~
@@ -1481,7 +1481,7 @@ being ravaged by the souls of adventurers long past.
 лишенные тел, обречены на вечное заточение здесь. Ты чувствуешь, что
 они в состоянии растерзать и тебя, заставив разделить с ними вечность.
 ~
-0 ADNgjt forest
+0 ADN forest
 D0
 ~
 ~
@@ -1500,7 +1500,7 @@ the cavern has beed enveloped in a glowing mist.
 в разные стороны. Ты слышишь звук волн, бьющихся о берег на вос-
 токе, пещера же к западу от тебя заполнена светящимся туманом.
 ~
-0 ADNgjt forest
+0 ADN forest
 D1
 ~
 ~
@@ -1524,7 +1524,7 @@ beyond the east passageway.
 пол здесь порядочно сырые, а воздух весьмя затхлый. С востока
 доносится все тот же знакомый звук волн, разбивающихся о берег.
 ~
-0 ADNgjt forest
+0 ADN forest
 D1
 ~
 ~
@@ -1541,7 +1541,7 @@ out what looks like a door to the west.
 Если хорошенько приглядеться, можно увидеть дверь в стене, веду-
 щую дальше на запад.
 ~
-0 ADNgjt forest
+0 ADN forest
 D1
 ~
 ~
@@ -1566,7 +1566,7 @@ shudder at the thought of what lies behind them.
 и ты начинаешь мелко дрожать, пытаясь представить себе
 того, кто его издает.
 ~
-0 ADNgjt forest
+0 ADN forest
 D1
 ~
 ~
@@ -1590,7 +1590,7 @@ suddenly you realize you have stumbled upon there source.
 ты нашел источник тех звуков, которые слышал по пути - и море,
 и берег похоже, находятся по ту сторону этого "окна".
 ~
-0 ADNgjt forest
+0 ADN forest
 D0
 ~
 ~
@@ -1609,7 +1609,7 @@ easiness.
 темного угла.. и этот взгляд вселяет в тебя какую-то
 смутную тревогу.
 ~
-0 ADNgjt forest
+0 ADN forest
 D0
 ~
 ~
@@ -1628,7 +1628,7 @@ the shore of a lareg ocean.
 месте. В нескольких десятках шагов перед тобой находится
 тот самый океанский берег.
 ~
-0 ADNgjt forest
+0 ADN forest
 D0
 ~
 ~
@@ -1646,7 +1646,7 @@ flows before you.
 непрерывно клубящихся облаков, черных как волны океана
 у твоих ног.
 ~
-0 ACNgit forest
+0 ACN forest
 D0
 ~
 ~
@@ -1664,7 +1664,7 @@ out exactly what the creature is.
 чья-то голова. Ты пытаешься разглядеть ее, но тут слишком
 темно.
 ~
-0 ANgt noswim
+0 AN noswim
 D0
 ~
 ~
@@ -1694,7 +1694,7 @@ following you. You begin to wonder what lies ahead.
 расстоянии. Такое соседство, да еще на таком расстоянии
 от берега, потихоньку начинает тебя нервировать.
 ~
-0 ANgt noswim
+0 AN noswim
 D1
 ~
 ~
@@ -1713,7 +1713,7 @@ You notice what may be land to the north, at last land!
 даваясь во власть отчаяния... И тут - о чудо! - замечаешь
 узкую полоску суши впереди.
 ~
-0 ANgt swim
+0 AN swim
 D0
 ~
 ~
@@ -1741,7 +1741,7 @@ seems to bring more of the eerie, decayed debris.
 Сотни и тысячи костей устилают песок и каждая новая вол-
 на, набегающая на берег, приносит новые сгнившие останки.
 ~
-0 ANgt hills
+0 AN hills
 D2
 ~
 ~
@@ -1762,7 +1762,7 @@ east.
 искривлены и едва ли на завязаны в узлы, и многие из них давно
 мертвы и истлели.
 ~
-0 ANgt hills
+0 AN hills
 D1
 ~
 ~
@@ -1787,7 +1787,7 @@ able to make out what appears to be a flat clear land to the south.
 чинаешь вглядываться в переплетения ветвей в поисках обходной
 дороги и замечаешь открытое пространство неподалеку на юге.
 ~
-0 ANgt hills
+0 AN hills
 D1
 ~
 ~
@@ -1809,7 +1809,7 @@ there is nothing but flat land as far as the eye can see.
 пришел. Этот монотонный и совершенно бесцветный пей-
 заж угнетает тебя.
 ~
-0 ANgt hills
+0 AN hills
 D0
 ~
 ~
@@ -1829,7 +1829,7 @@ out a small hill to the east.
 так - на востоке, в стороне от пути виден небольшой
 холм.
 ~
-0 ANgt hills
+0 AN hills
 D0
 ~
 ~
@@ -1854,7 +1854,7 @@ not be far ahead, for the trail is still smoldering.
 выжжена в земле. Чем бы ни было то, что оставило такие следы,
 оно может быть поблизости, потому что путь еще горяч.
 ~
-0 ANgt city
+0 AN city
 D2
 ~
 ~
@@ -1873,7 +1873,7 @@ whatever made this trail.
 под ногами еще горит. Похоже, скоро ты догонишь того,
 кто прошел здесь последним.
 ~
-0 ANgt city
+0 AN city
 D1
 ~
 ~
@@ -1892,7 +1892,7 @@ to smolder at your feet.
 некоторое время назад. Полоса выжженной и еще тлеющей земли
 ведет дальше.
 ~
-0 ANgt city
+0 AN city
 D1
 ~
 ~
@@ -1911,7 +1911,7 @@ lies at the end of this flaming trail.
 Неожиданно, ты начинаешь задумываться, зачем начал
 эту погоню.
 ~
-0 ANgt city
+0 AN city
 D1
 ~
 ~
@@ -1929,7 +1929,7 @@ walk.
 @rus Тьма вокруг сгущается все сильней, лишь горящая
 земля позволяет что-то разглядеть.
 ~
-0 ANgt city
+0 AN city
 D1
 ~
 ~
@@ -1949,7 +1949,7 @@ must be nearing your quarry also.
 следующего шага, земля буквально горит под ногами, лишь
 местами потухнув - похоже, твоя жертва уже близко.
 ~
-0 ANgt city
+0 AN city
 D1
 ~
 ~
@@ -1967,7 +1967,7 @@ ahead for the flames are too bright.
 @rus Ты уже можешь разглядеть конец пути, весь объятый
 пламенем и за этой стеной огня не видно больше ничего.
 ~
-0 ANgt city
+0 AN city
 D1
 ~
 ~
@@ -1989,11 +1989,11 @@ that seem to glowing with a faint aura of red.
 менем ифритом. За его спиной возвышаются величествен-
 ные врата, тускло светящиеся краснымю
 ~
-0 ANgt city
+0 AN city
 D0
 ~
 gate flaming~
-ABCFZghil 25050 25031
+ABCFZ 25050 25031
 D1
 ~
 ~
@@ -2008,7 +2008,7 @@ to be a large castle of some sort.
 @rus Открыв врата и войдя в них, ты видишь просторный
 двор, предшествующий высокому замку.
 ~
-0 ANgt city
+0 AN city
 D0
 ~
 ~
@@ -2016,7 +2016,7 @@ Z -1 25032
 D2
 ~
 gate flaming~
-ABCZghi 25050 25030
+ABCZ 25050 25030
 S
 #25032
 @eng The Castle Courtyard@rus Двор замка~
@@ -2029,7 +2029,7 @@ side of the entrance.
 здание, а вход в сам замок, к северу, охраняют чьи-то
 изваяния.
 ~
-0 ANgt city
+0 AN city
 D0
 ~
 ~
@@ -2054,7 +2054,7 @@ of creature, bones are strewn all about the ground.
 Чьи-то останки рзбросаны по земле, кости вперемежку с
 потрохами.
 ~
-0 ANgt city
+0 AN city
 D1
 ~
 ~
@@ -2085,11 +2085,11 @@ untarnished.
 сжимает рукоять меча, и, приглядевшись, ты видишь, что все так
 же остр, как и при жизни хозяина и по-прежнему блестит.
 ~
-0 ADNgjt hills
+0 ADN hills
 D1
 ~
 door ruined~
-ABZgh 25050 25033
+ABZ 25050 25033
 S
 #25035
 @eng A Small Hill@rus Невысокий холм~
@@ -2098,7 +2098,7 @@ however it is too dark to make out exactly what the shape is.
 @rus Взбираясь по склону, ты замечаешь что-то на вершине
 холма, но темнота не позволяет разглядеть, что именно.
 ~
-0 ANgt hills
+0 AN hills
 D3
 ~
 ~
@@ -2118,7 +2118,7 @@ revealing a stair well within.
 Оно выглядит заброшенным, и через открытую дверь
 видны ступени лестницы.
 ~
-0 ADNgjt field
+0 ADN field
 D3
 ~
 ~
@@ -2137,7 +2137,7 @@ a stair well descending downward into the darkness below.
 в правильности своих догадок - здесь совершенно
 пусто. Лестница ведет вниз, теряясь в темноте.
 ~
-0 ADNgjt hills
+0 ADN hills
 D1
 ~
 ~
@@ -2157,7 +2157,7 @@ continue to descend the stairs.
 Тошнотворный запах поднимается навстречу тебе, сгущаясь
 и становясь невыносимее с каждым твоим шагом.
 ~
-0 ADNgjt city
+0 ADN city
 D4
 ~
 ~
@@ -2182,7 +2182,7 @@ feeling comes over you, you sench you are not alone.
 всех этих людей, ты внезапно отчетливо чувствуешь чье-то
 присутствие совсем-совсем рядом с собой.
 ~
-0 ADNgjt city
+0 ADN city
 D4
 ~
 ~
@@ -2202,7 +2202,7 @@ drawbridge lies just to the north of you.
   Подъемный мост, ведущий в сам замок, находится прямо
 перед тобой.
 ~
-0 ANgt field
+0 AN field
 D0
 ~
 ~
@@ -2226,7 +2226,7 @@ totally without light.
 видно как в бойницах, так и впереди, и ты не можешь разгля-
 деть ничего дальше ворот.
 ~
-0 ANgt city
+0 AN city
 D0
 ~
 ~
@@ -2260,7 +2260,7 @@ your flesh!
 дно, усеянное длинными и острыми стальными остриями и понимаешь,
 что падение твое очень скоро закончится, а вмести с ним и жизнь.
 ~
-0 Bh city
+0 B city
 D4
 ~
 ~
@@ -2281,7 +2281,7 @@ upwords into the darkness.
 и выходы, ведущие во всех направлениях. На севере модно раз-
 глядеть ведущую вверх лестницу.
 ~
-0 ADNgjt city
+0 ADN city
 D0
 ~
 ~
@@ -2306,7 +2306,7 @@ railings of the staircase.
 пени все еще прочны, а покрытые странными символами перила лишь
 потемнели от времени.
 ~
-0 ADNgjt swim
+0 ADN swim
 D2
 ~
 ~
@@ -2328,7 +2328,7 @@ direction.
 впереди, но ты не можешь разглядеть чего именно - твой
 факел неспособен рассеять тьму дальше, чем на метр.
 ~
-0 ADNgjt swim
+0 ADN swim
 D4
 ~
 ~
@@ -2352,7 +2352,7 @@ an amulet of some kind.
 другую головами. Ты замечаешь какой-то странный амулет, наде-
 тый на толстую шею твари.
 ~
-0 ADNgjt swim
+0 ADN swim
 D4
 ~
 ~
@@ -2373,7 +2373,7 @@ in a richly tailored robe.
 картинах изображена одна и та же персона, похожая на скелет в
 богато расшитой робе.
 ~
-0 ADNgjt swim
+0 ADN swim
 D1
 ~
 ~
@@ -2392,7 +2392,7 @@ strange glow at the southern end of the hall.
 обеим сторонам. Ты не видишь противоположного конца из-за
 исходящего оттуда странного сияния.
 ~
-0 ADNgjt swim
+0 ADN swim
 D2
 ~
 ~
@@ -2419,7 +2419,7 @@ evil laugh from beyond the door.
 твое тело, и зловещие видения проносятся перед глазами, а вслед за
 этим из-за двери раздается довольный и ничуть не дружелюбный хохот.
 ~
-0 ADNgjt swim
+0 ADN swim
 D0
 ~
 ~
@@ -2427,7 +2427,7 @@ Z -1 25048
 D2
 ~
 door~
-ABFZghl 25051 25050
+ABFZ 25051 25050
 S
 #25050
 @eng Castle Throne Room@rus Тронный зал~
@@ -2454,11 +2454,11 @@ through the air.
 Единственным выходом из залы остается дверь позади трона и, зная
 это, лич безжалостно смеется над тобой.
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 door~
-ABCFZghil 25056 25051
+ABCFZ 25056 25051
 S
 #25051
 @eng The Vault@rus Склеп~
@@ -2472,12 +2472,12 @@ through which you can see a path along a vast mountain range.
 ротив тебя находится сияющий портал, сквозь который видна пет-
 ляющая среди гор тропинка.
 ~
-0 ADgj field
+0 AD field
 D0
 ~
 door
 ~
-ABCFZghil 25056 25050
+ABCFZ 25056 25050
 S
 #25052
 @eng The Grand Hallway@rus Просторный холл~
@@ -2490,7 +2490,7 @@ doors, you hear a strange sound to the east.
 щими у стен. Чуть дальше на восток видны огромные двустворчатые
 двери, из-за которых доносится странный звук.
 ~
-0 ADNgjt inside
+0 ADN inside
 D1
 ~
 ~
@@ -2516,7 +2516,7 @@ statue, it almost appears as if it were staring directly at you!
 ты на секунду замираешь, встретившись со столь правдоподобно
 живым взглядом этой каменной фигуры.
 ~
-0 ADNgjt inside
+0 ADN inside
 D1
 ~
 ~
@@ -2540,11 +2540,11 @@ doors the statues suddenly spring to life and attack!
 медления соскакивают со своих постаментов, чтобы принять участие
 в сражении.
 ~
-0 ADNgjt inside
+0 ADN inside
 D1
 ~
 double doors~
-ABZgh 25053 25055
+ABZ 25053 25055
 D3
 ~
 ~
@@ -2562,7 +2562,7 @@ speaker, but fail to find one.
 слышишь слова: 'Я ждал тебя', и оглядываешься по сторонам в поис-
 ках того, кто их произнес, но никого не видишь.
 ~
-0 ADNgjt inside
+0 ADN inside
 D1
 ~
 ~
@@ -2572,7 +2572,7 @@ D3
 double door
 doors
 ~
-ABZgh 25053 25054
+ABZ 25053 25054
 S
 #25056
 @eng The Castle Pantry@rus Кладовая комната~
@@ -2584,7 +2584,7 @@ There are exits to the west and south.
 стен. Пол усеян обломками упавших полок и того, что лежало
 на них. Ты видишь выходы на юг и запад.
 ~
-0 ADNgjt mountain
+0 ADN mountain
 D2
 ~
 ~
@@ -2606,7 +2606,7 @@ inside.
 стоит большого труда отыскать что-то полезное во всем
 этом хламе.
 ~
-0 ADNgjt swim
+0 ADN swim
 D0
 ~
 ~
@@ -2614,7 +2614,7 @@ Z -1 25056
 D2
 ~
 door~
-ABCZghi 25051 25058
+ABCZ 25051 25058
 S
 #25058
 @eng Castle Barracks@rus Казармы~
@@ -2629,15 +2629,15 @@ you have awakened them, they charge you!
 что ты их разбудил, с явным намерением расправиться с
 тобой.
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 door~
-ABCZghi 25051 25057
+ABCZ 25051 25057
 D2
 ~
 door~
-ABZgh -1 25059
+ABZ -1 25059
 S
 #25059
 @eng Guest Room@rus Комната для гостей~
@@ -2651,27 +2651,34 @@ find nothing of value. There is a large metal door to the east.
 стоят тут и там. Порывшись в них, ты те находишь ничего ин-
 тересного и направляешься к большой двери в восточной стене.
 ~
-0 ACDNgijt forest
+0 ACDN forest
 D0
 ~
 ~
 Z -1 25058
 D1
 ~
-metal large door~
-ABZgh 25054 25060
+door~
+ABZ 25054 25060
 S
 #25060
-Base of the Tower~
-This room appears to be the base of a large watch tower, stairs
+@eng Base of the Tower@rus Основание башни~
+@eng This room appears to be the base of a large watch tower, stairs
 ascend upword twords the top of the tower.. Several strange runes are
 etched into each stair, the feeling of evil is strong in the air. You
 hear footsteps behind you as the door suddenly slams shut! The only
 exit, now that the door has been sealed are a set of stairs going up
 to the top of the tower and a set of stairs going downward into the
 darkness.
+@rus Ты стоишь в самом низу высокой смотровой башни. Прямо перед
+тобой находится леснница, ведущая наверх, и ты видишь странные
+зловещие руны, вытравленные в каждой ступени. Чьи-то шаги раз-
+даются за твоей спиной и в ту же секунду дверь закрывается с
+громким хлопком. Ты оборачиваешься и видишь, что дверь теперь
+еще и запечатана и у тебя остается лишь два выхода - вверх и
+вниз по лестнице.
 ~
-0 ADNgjt hills
+0 ADN hills
 D4
 ~
 ~
@@ -2682,12 +2689,16 @@ D5
 Z -1 25075
 S
 #25061
-The Tower Staircase~
-As you climb the staircase, you feel the presence of something
+@eng The Tower Staircase@rus Лестница наверх~
+@eng As you climb the staircase, you feel the presence of something
 watching you. You feel a slight draft, there must be an opening
 somewhere up the tower. You hear the movement of something above you.
+@rus По мере того, как ты поднимаешься выше, тебя не оставляет
+ощущение, словно кто-то, кого ты не видишь, наблюдает за
+тобой. Сверху доносятся звуки чьих-то шагов и дует легкий
+ветерок - наверное, там открыто окно.
 ~
-0 ADNgjt hills
+0 ADN hills
 D4
 ~
 ~
@@ -2698,13 +2709,18 @@ D5
 Z -1 25060
 S
 #25062
-The Tower Staircase~
-You have entered a small room near the top of the tower.
+@eng The Tower Staircase@rus Лестница внутри башни~
+@eng You have entered a small room near the top of the tower.
 Stairs continue upword to the top of the tower, the room is deathly
 quiet, you wander what could have made the strange sounds which
 you heard from below.
+@rus Ступени привели тебя в небольшую комнату почти на самом
+верху сторожевой башни. Неестественная, мертвенная тишина
+царит здесь, и ты раздумываешь, что же издавало те звуки,
+что ты слышал снизу.
+  Лестница ведет еще выше, на самый верх.
 ~
-0 ADNgjt mountain
+0 ADN mountain
 D4
 ~
 ~
@@ -2715,37 +2731,51 @@ D5
 Z -1 25061
 S
 #25063
-Top of the Tower~
-The top of the tower is lit by a large window, probably meant as
+@eng Top of the Tower@rus Под самой крышей башни~
+@eng The top of the tower is lit by a large window, probably meant as
 a lookout incase of an attack. From the looks of the castle it appears
 that this tower obviously didnt help much.
+@rus Свет проникает сюда через большое окно, открывающее вид
+на пространство перед замком. Вспоминая, как теперь этот
+замок выглядит, ты решаешь, что часовые, очевидно, все же
+не справились со своей задачей, не сумев предупредить о
+нападении.
 ~
-0 ADNgjt mountain
+0 ADN mountain
 D5
 ~
 ~
 Z -1 25062
 S
 #25074
-Lost in the Mountains~
-Numerous craggy mountains surround you. Twisted, deadened trees stare at
+@eng Lost in the Mountains@rus Заблудившись в горах~
+@eng Numerous craggy mountains surround you. Twisted, deadened trees stare at
 you from all around. A neglected path, at your feet. You get an uneasy
 feeling of deja-vu.
+@rus Каменистые склоны обступают тебя со всех сторон. Чудовищно
+искривленные, задавленные камнем деревья, кажется, смотрят на
+тебя, пытаясь рассказать о чем-то. Глядя на эту безрадостную
+картину, ты пытаешься вспомнить, где мог ее видеть раньше.
 ~
-0 ANgt hills
+0 AN hills
 D1
 ~
 ~
 Z -1 25001
 S
 #25075
-The Central Chamber~
-You are in a large chamber, from the looks of the room, it
+@eng The Central Chamber@rus Центральная комната~
+@eng You are in a large chamber, from the looks of the room, it
 appears that this is the place where the prisoners are executed.
 A large pit lies in the center of the room, huge flames erupt
 upwords from its firey depths.
+@rus Ты попал в большое помещение, используемое, по всей
+видимости, для казни заключенных. Круглое отверстие,
+похожее на жерло вулкана, находится посреди комнаты,
+и языки пламени, вырывающиеся оттуда, озаряют комнату
+красным.
 ~
-0 ADNgjt inside
+0 ADN inside
 D4
 ~
 ~
@@ -2756,13 +2786,16 @@ D5
 Z -1 25076
 S
 #25076
-The Pit of Sacrifice~
-As you begin to descend into the depths of the pit, you ready
+@eng The Pit of Sacrifice@rus Жертвенный колодец~
+@eng As you begin to descend into the depths of the pit, you ready
 yourself for the agony of the blaze. As the flames come in contact
 with your skin you feel a slight disorientation, but you remain
 unharmed.
+@rus Решив спуститься вниз, ты заранее подготовился к участи
+сгореть заживо, но, глядя на языки пламени, лижущие твою
+кожу, ты не чувствуешь никакой боли и это изумляет тебя.
 ~
-0 ADNgjt field
+0 ADN field
 D4
 ~
 ~
@@ -2773,46 +2806,57 @@ D5
 Z -1 25077
 S
 #25077
-Beneath the Sacraficial Pit~
-As you near the base of the illusionary blaze, you notice
+@eng Beneath the Sacraficial Pit@rus Под жертвенным колодцем~
+@eng As you near the base of the illusionary blaze, you notice
 several figures emerge from the flames. A large door lies to
 the west, while the exit from the pit lies directly overhead.
+@rus Приближаясь к источнику всего этого, как оказалось,
+иллюзорного, сияния и пламени, ты замечаешь какие-то
+фигуры, появившиеся оттуда. Большая дверь ведет на
+запад, а сам колодец смотрит вертикально вверх.
 ~
-0 ADNgjt hills
+0 ADN hills
 D3
 ~
 door large~
-ABZgh -1 25078
+ABZ -1 25078
 D4
 ~
 ~
 Z -1 25076
 S
 #25078
-Entrance to the Sanctuary~
-You stand in the doorway of some sort of sanctuary.
+@eng Entrance to the Sanctuary@rus Вход в святилище~
+@eng You stand in the doorway of some sort of sanctuary.
 A small altar lies in the center of the room, bloodstained
 from recent sacrafices that have been made upon it. The
 only exits from the room are east and west.
+@rus Ты стоишь на входе в какое-то святилище. Посреди комнаты
+стоит небольшой алтарь, весь залитый кровью от частых жер-
+твоприношений. Ты можешь вернуться назад или идти дальше,
+на запад.
 ~
-0 ADNgjt hills
+0 ADN hills
 D1
 ~
 door large~
-ABZgh -1 25077
+ABZ -1 25077
 D3
 ~
 ~
 Z -1 25079
 S
 #25079
-The Sanctuary~
-As you approach the altar, you notice the blood upon it
+@eng The Sanctuary@rus Святилище~
+@eng As you approach the altar, you notice the blood upon it
 is fresh. There are several exits to this room, the door to the
 north is slightly ajar, while the door to the west remains closed.
 The altar seems to glow with a sort of inner light....
+@rus Приблизившись к алтарю, ты замечаешь, что кровь на нем
+совсем свежая, а сам он словно светится изнутри. Отсюда
+становится видна слегка приоткытая дверь в северной стене.
 ~
-0 ADNgjt field
+0 ADN field
 D0
 ~
 door ajar
@@ -2837,13 +2881,17 @@ D5
 Z -1 25094
 S
 #25080
-The Sanctuary~
-As you enter this room, you get a feeling of safety. A large,
+@eng The Sanctuary@rus Святилище~
+@eng As you enter this room, you get a feeling of safety. A large,
 ornate door lies directly to the west of you, a feeling of great
 evil radiates from it. As you begin to look around the room, a
 strange red mist begins to seep from a crak beneath the door....
+@rus Странно, но находясь тут, ты ощущаешь себя в безопасности.
+Большая изукрашенная дверь ведет на запад, и ты видишь, как
+какой-то красный туман струится из-под нее, заставляя твое
+сердце замереть на секунду в предчуствии чего-то зловещего.
 ~
-0 ADNgjt field
+0 ADN field
 D1
 ~
 door~
@@ -2854,28 +2902,37 @@ ornate door large~
 Z -1 25081
 S
 #25081
-Crimson's Death Room~
-This oddly shaped room gives off a feeling of great power.
+@eng The Crimson Death's room@rus Комната Красной Смерти~
+@eng This oddly shaped room gives off a feeling of great power.
 Dimly lit, and vast in size, you eyes focus on an eerie, demonic
 throne at the far end of the chamber. The throne is etched with
 many twisted, grotesque carvings that give off a faint aura of
 crimson.
+@rus Ты чувствуешь присутствие необычайной силы в этой комнате с
+необычными очертаниями. Слабый свет едва-едва позволяет раз-
+глядеть демонического вида трон, возвышающийся у дальней стены,
+с вырезанными по всей поверхности странными, гротескными узорами,
+слабо светящимися кроваво-красным.
 ~
-0 ADNgjt hills
+0 ADN hills
 D1
 ~
 large ornate door~
 Z -1 25080
 S
 #25082
-The Sanctuary~
-You are in a small chamber, upon entering the room you
+@eng The Sanctuary@rus Святилище~
+@eng You are in a small chamber, upon entering the room you
 notice a lone knight clad in armor run through the door to
 the west, perhaps the same one you seen earlier. Suddenly,
 without warning, you see two shadowy figures materialize
 before you!
+@rus Закованный в доспехи рыцарь выбегает через западную дверь,
+как только ты входишь. Внезапно, безо всякого предупреждения,
+странные фигуры, словно сотканные из теней, появляются прямо
+перед тобой.
 ~
-0 ADNgjt hills
+0 ADN hills
 D2
 ~
 door ajar~
@@ -2886,12 +2943,16 @@ door~
 Z -1 25083
 S
 #25083
-The Sanctuary~
-You chase the knight into a small alcove. Upon seeing you,
+@eng The Sanctuary@rus Святилище~
+@eng You chase the knight into a small alcove. Upon seeing you,
 the knight quickly shifts the south wall, revealing a passage,
 and quickly runs through it. You hear an evil laugh.
+@rus Стоит тебе догнать рыцаря, а ему - увидеть тебя, как
+неуловимым движением, он заставляет стену расступиться,
+открывая проход на юг, и тут же скрывается в нем. Злоб-
+ный смех доносится оттуда, эхом отражаясь от стен.
 ~
-0 ADNgjt field
+0 ADN field
 D1
 ~
 door~
@@ -2902,12 +2963,15 @@ D2
 Z -1 25084
 S
 #25084
-Sanctuary Guard Post~
-You have entered the guard post of the sanctuary, several
+@eng Sanctuary Guard Post@rus Охраняемый вход в святилище~
+@eng You have entered the guard post of the sanctuary, several
 guards snarl at you entry. The knight quickly orders them to
 dispose of the and takes off through the south door.
+@rus Несколько стражей недобро рычат при виде тебя. Бросив в их
+сторону короткий приказ (очевидно, отделаться от тебя), рыцарь
+скрывается за южной дверью.
 ~
-0 ADNgjt hills
+0 ADN hills
 D0
 ~
 ~
@@ -2915,32 +2979,38 @@ Z -1 25083
 D2
 ~
 door~
-ABZgh -1 25085
+ABZ -1 25085
 S
 #25085
-Chamber of Kalas~
-You have entered the chambers of Kalas, the knight, and
+@eng Chamber of Kalas@rus Комната Каласа~
+@eng You have entered the chambers of Kalas, the knight, and
 defender of this castle. Upon entering, Kalas begins to speak,
 'You must leave, do not force me to destroy you.' The is a glint
 of evil in his eyes as he prepares for battle.
+@rus Ты вторгся во владения Каласа, рыцаря и защитника этого замка.
+При виде тебя, он произносит: 'Покинь это место и не заставляй
+меня убивать тебя'. Недобрый блеск в его глазах сопровождает
+короткие приготовления к бою.
 ~
-0 ADNgjt field
+0 ADN field
 D0
 ~
 door~
-ABZgh -1 25084
+ABZ -1 25084
 D4
 ~
 ~
 Z -1 25040
 S
 #25086
-A Narrow Passage~
-You stand within a narrow passage deep below the castle.
+@eng A Narrow Passage@rus Узкий проход~
+@eng You stand within a narrow passage deep below the castle.
 You see no other exits other than the one you have just
 come from except for the passage to the west.
+@rus Ты попал в узкий туннель, находящийся глубоко под землей.
+Ты можешь идти на запад, либо же вернуться на север.
 ~
-0 ADNgjt field
+0 ADN field
 D0
 ~
 ~
@@ -2951,13 +3021,16 @@ D3
 Z -1 25087
 S
 #25087
-A Narrow Passage~
-As you walk a little further down the passage, you see
+@eng A Narrow Passage@rus Узкий туннель~
+@eng As you walk a little further down the passage, you see
 a door a little further to the west. A thick mist fills this
 portion of the passage, it appears to get even thicker to the
 west.
+@rus Пройдя чуть дальше, ты замечаешь дверь, ведущую
+на запад. Воздух заполнен густым туманом, сгущаю-
+щимся по мере приближения к двери.
 ~
-0 ADNgjt city
+0 ADN city
 D1
 ~
 ~
@@ -2968,13 +3041,16 @@ D3
 Z -1 25088
 S
 #25088
-End of a Narrow Passage~
-At this end of the passage, the mist gets very thick, and
+@eng End of a Narrow Passage@rus Конец узкого туннеля~
+@eng At this end of the passage, the mist gets very thick, and
 you can just barely make out the door to the west. You hear
 a faint, ghost like voice float through the air, but you
 cant make out the words that are spoken.
+@rus Туман едва позволяет разглядеть очертания двери в западной
+стене. ты слышишь чей-то голос за ней, но не можешь разобрать
+слов.
 ~
-0 ADNgjt field
+0 ADN field
 D1
 ~
 ~
@@ -2982,33 +3058,41 @@ Z -1 25087
 D3
 ~
 door~
-ABZgh -1 25089
+ABZ -1 25089
 S
 #25089
-The Mist~
-Upon entering this room, you are assaulted by a dense patch
+@eng The Mist@rus В тумане~
+@eng Upon entering this room, you are assaulted by a dense patch
 of mist. The mist seems to glow with an inner light, its almost
 as if it were alive. The ghostly voice grows louder, speaking in
 a language unknown to you.
+@rus Туман, светящийся изнутри и словно живущий какой-то
+необъяснимой жизнью, быстро сгущается и бросается в
+атаку, стоит тебе войти. Призрачный голос, говорящий
+на все том же неизвестном тебе языке, становится за-
+метно громче.
 ~
-0 ADNgjt hills
+0 ADN hills
 D1
 ~
 door~
-ABZgh -1 25088
+ABZ -1 25088
 D3
 ~
 ~
 Z -1 25090
 S
 #25090
-The Castle Dungeon~
-You find yourself in a small room near the Dungeon entrance.
+@eng The Castle Dungeon@rus Подземелья замка~
+@eng You find yourself in a small room near the Dungeon entrance.
 The room is deathly quiet, a large doorway lies to the south.
 The words 'Beware of the Ancient One' are inscribed into the wall
 next to the doorway.
+@rus Неестественная тишина царит в этой малеькой комнате у
+самого входа в подземелья. Слова 'Остерегайся Древнего'
+вырезаны на южной стене рядом с дверным проемом.
 ~
-0 ADNgjt hills
+0 ADN hills
 D1
 ~
 ~
@@ -3019,13 +3103,16 @@ D2
 Z -1 25091
 S
 #25091
-The Castle Dungeon~
-You stand in a small torture chamber, like the rest of the
+@eng The Castle Dungeon@rus Подземелья замка~
+@eng You stand in a small torture chamber, like the rest of the
 dungeon, bones lie strewn about the room. The only exit from
 this room is to the south. The wall to the west has a small
 split down the middle... it appears as if it could be opened.
+@rus Похоже, это комната для пыток - пол усеян множеством
+костей. Ты замечаешь ровную и узкую вертикальную щель
+в западной стене - может, это скрытый проход?
 ~
-0 ADNgjt forest
+0 ADN forest
 D0
 ~
 ~
@@ -3036,12 +3123,16 @@ wall split~
 Z -1 25092
 S
 #25092
-Secret Passage~
-This room is clean, the walls here are of marble, and are a
+@eng Secret Passage@rus Скрытый проход~
+@eng This room is clean, the walls here are of marble, and are a
 spectacular sight. Many fine tapestries line the walls. The room
 is quiet, almost too quiet... You see a solid iron door to the south.
+@rus Здесь неожиданно чисто, и увешанные прекрасными гобеленами
+мраморные стены являют собой впечатляющее зрелище. Неестест-
+венная тишина поглощает все звуки, делая твои шаги едва слы-
+шными. Массивная железная дверь ведет дальше на юг.
 ~
-0 ADNgjt field
+0 ADN field
 D1
 ~
 wall split~
@@ -3052,15 +3143,22 @@ iron solid door~
 Z -1 25093
 S
 #25093
-Hall of Ancients~
-This room is amazingly beautiful, there is the throne made
+@eng Hall of Ancients@rus Зал Древних~
+@eng This room is amazingly beautiful, there is the throne made
 entirely of silver set against the south wall. A gruesome thing
 lies in the center of the room, some disgusting green liquid
 oozes from many small bubbles on the creatures flesh. The sight
 of the horrible creature nearly makes you sick. The creature
 slowly begins to make its way toword you.......
+@rus Необычайная красота этой комнаты ошеломляет тебя, стоит тебе
+войти. Великолепный трон, сделанный целиком из серебра ярко сияет,
+и ты не можешь отвести от него глаз. Ты приходишь в себя, лишь
+заметив какое-то движение в свою сторону. Отвратительная бесфор-
+менная тварь разлеглась на полу между тобой и троном, зловонная
+зеленая жидкость сочится из многочисленных волдырей на ее теле и
+тебя выворачивает наизнанку от запаха.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 solid iron door~
@@ -3074,7 +3172,7 @@ hang upon the wall. The wall to the east appears to be moveable,
 for there are marks on the floor where the wall may have
 scraped it.
 ~
-0 ADNgjt hills
+0 ADN hills
 D1
 ~
 wall~
@@ -3091,7 +3189,7 @@ in which you now find yourself. The tunnel is freshly dug
 and appears to extend quite a long way. No doors are visible
 save for the wall you just shifted.
 ~
-0 ADNgjt field
+0 ADN field
 D1
 ~
 wall~
@@ -3108,7 +3206,7 @@ a faint light to the south. The southern part of the tunnel
 is lit by a dim light of some kind at the far end of the
 tunnel.
 ~
-0 ADNgjt city
+0 ADN city
 D2
 ~
 ~
@@ -3125,7 +3223,7 @@ and the passage gets very narrow. As you near the southern end
 of the tunnel, the light grows brighter. The only apparent exits
 from the room are north and south.
 ~
-0 ADNgjt field
+0 ADN field
 D0
 ~
 ~
@@ -3141,7 +3239,7 @@ As you come to the end of the tunnel, you notice the
 light is coming from a somewhat small portal. The light coming
 from the portal is so intense that it nearly blinds you.
 ~
-0 ADNgjt field
+0 ADN field
 D0
 ~
 ~
@@ -3244,7 +3342,7 @@ M 0 25008 5 25063 1	* an Efreet (Top of the Tower)
 E 0 25008 0 12		*	a Black and Silver Cloak: about the shoulders
 M 0 25008 5 25076 1	* an Efreet (The Pit of Sacrifice)
 E 0 25022 0 15		*	an Ivory Bracelet: on the right wrist
-M 0 25002 1 25081 1	* A Crimson Death (Crimson's Death Room)
+M 0 25002 1 25081 1	* A Crimson Death (The Crimson Death's room)
 E 0 25002 0 10		*	a pair of silver sleeves: on the arms
 E 0 25008 0 12		*	a Black and Silver Cloak: about the shoulders
 M 0 25004 5 25082 1	* a Black Slayer (The Sanctuary)

@@ -21,12 +21,12 @@ of it.
 to make its kill.
 ~
 unique~
-FGOlmu 0 0 0 ABHghn -1000 0
+FGJO 0 0 0 ABH -1000 0
 31 7 20d5+1100 1d1+300 5d5+10 'bite'
 0 0 0 0
-CDEFKijklq
+CDEFK
 stand stand none 50
-ABDIcghjo ABCDEFghijkl medium unknown
+ABDIc ABCDEF medium unknown
 r fire -50
 r holy -50
 r negative 33
@@ -44,12 +44,12 @@ actually has no eyes, but instead a faint red glow eminates from it's eye
 sockets.
 ~
 unique~
-BFGHOhlmnu 0 0 0 ABHghn -1000 0
+BFGHO 0 0 0 ABH -1000 0
 36 10 20d10+1700 1d1+400 9d3+15 'claw'
 -5 -5 -5 -5
-DEFKNjklqt
+DEFKN
 stand stand none 1500
-ABIcgho ABCDEFghijkl medium unknown
+ABIc ABCDEF medium unknown
 r fire -50
 r negative 33
 r charm 33
@@ -62,12 +62,12 @@ A young vampire stands here, looking for something to kill.
 This young lady looks quite famished and pale.
 ~
 unique~
-FOlu 0 U 0 ABHghn -1000 0
+FJO 0 U 0 ABH -1000 0
 37 15 100d5+2000 0d0+100 7d4+20 'magic'
 -5 -5 -5 -5
-DEFIKNVjkloqt
+DEFIKNV
 stand stand none 10000
-ABCDHIKMcghijnoqs ABCDEFGHIJKVghijklmnopq medium unknown
+ABCDHIKMc ABCDEFGHIJKV medium unknown
 r pierce -50
 r fire -50
 r cold 33
@@ -88,12 +88,12 @@ She looks a bit hungry after having a full day of reanimating corpses,
 perhaps you will be her dinner?
 ~
 elf~
-BFOhlu 0 U 0 ABgh -1000 0
+BFJO 0 JU 0 AB -1000 0
 56 30 100d5+6500 100d4+600 7d5+40 'magic'
 -10 -10 -10 -10
-EFIKkloq
+EFIK
 stand stand none 17000
-BCDIchijo 0 medium unknown
+BCDIc 0 medium unknown
 r pierce -50
 r fire -50
 r cold 100
@@ -110,12 +110,12 @@ a lieutenant in the Arkham guard... or else, he just knows good armor
 when he sees it.
 ~
 unique~
-BFOhlu 0 U 0 ABHghn -1000 0
+BFJO 0 JU 0 ABH -1000 0
 59 50 200d5+8300 100d3+2000 10d5+30 'slash'
 -40 -40 -40 -30
-AEFIKVgkloq
+AEFIKV
 stand stand none 20000
-ABCDHIKMcghijnoqs ABCDEFGHIJKVghijklmnopq medium unknown
+ABCDHIKMc ABCDEFGHIJKV medium unknown
 r pierce -50
 r fire -50
 r cold 33
@@ -133,12 +133,12 @@ corpse in earnest, but drops it upon noticing the fresh meat that just
 walked into the room.
 ~
 unique~
-FGOlmu 0 Tz 0 ABHghn -1000 0
+FGJO 0 T 0 ABH -1000 0
 33 10 100d3+1200 0d0+300 5d6+10 'chill'
 -2 -2 -2 -2
-CEFKNiklqt
+CEFKN
 stand stand none 200
-ABCDIcghijo ABCDEFPUghijklv medium unknown
+ABCDIc ABCDEFPU medium unknown
 r fire -50
 r holy -50
 r negative 33
@@ -151,12 +151,12 @@ A large mastiff stands here guarding something.
 ~
 ~
 dog~
-FTlz 0 0 ABGghm ABHghn -1000 0
+FJT 0 J ABG ABH -1000 0
 45 30 10d50+2000 1d1+200 8d3+23 'acbite'
 -1 -1 -1 -1
-ADEFgjkl
+ADEF
 stand stand none 1
-Ci Bh medium unknown
+C B medium unknown
 r fire 33
 r cold -50
 r holy -50
@@ -171,12 +171,12 @@ A horrible little face looks at you and bares its teeth. Ugh!
 You don't like it.
 ~
 unique~
-FGHlmn 0 Tcz Gm BHhn -700 0
+FGH 0 Tc G BH -700 0
 20 10 20d10+600 1d1+199 7d5+10 'bite'
 1 1 1 1
-FHQlnw
+FHQ
 stand stand none 200
-BIVho ADFPVgjlv medium unknown
+BIV ADFPV medium unknown
 r poison 100
 r light -50
 #4609
@@ -188,12 +188,12 @@ This little guy looks very familar... you know it would be a bad thing to
 mess with it.
 ~
 unique~
-BFGThlmz 0 U 0 ABHghn -1000 0
+BFGJT 0 U 0 ABH -1000 0
 42 15 20d10+3100 1d1+400 7d6+25 'drain'
 -15 -15 -15 -15
-DEFIJKjklopq
+DEFIJK
 stand stand none 5000
-ACDGgijm 0 medium unknown
+ACDG 0 medium unknown
 r fire 100
 r cold -50
 r holy -50
@@ -206,12 +206,12 @@ A huge skeletal form raises from shadows.
 Horrible skeletal form look at you and green evilly.
 ~
 unique~
-BFGThlmz 0 0 0 ABHghn -1000 0
+BFGJT 0 J 0 ABH -1000 0
 60 20 10d100+3500 1d1+400 7d8+40 'claw'
 -30 -30 -30 -30
-EFKNklqt
+EFKN
 stand stand none 50000
-BCDIhijo 0 medium unknown
+BCDI 0 medium unknown
 r charm 100
 #4611
 priest vampire~
@@ -222,12 +222,12 @@ This dark-priest wears the sign of Loki about his neck, and is seeming
 disturbed by your intrusion during his meditation.
 ~
 unique~
-GLQmrw 0 U 0 ABHghn -1000 0
+GJLQ 0 U 0 ABH -1000 0
 46 20 100d3+3500 1d1+500 6d8+25 'divine'
 -20 -20 -20 -20
-AFIKgloq
+AFIK
 stand stand none 5000
-CGIimo 0 medium unknown
+CGI 0 medium unknown
 r charm 100
 #4612
 dark spectre~
@@ -238,12 +238,12 @@ You can see right through this creature, except for the dark patch surrounding
 it's red, glowing eyes... it looks pissed off that you're still alive.
 ~
 unique~
-BFThlz 0 TUz ABgh ABHghn -1000 0
+BFJT 0 JTU AB ABH -1000 0
 55 10 100d3+2500 1d1+500 5d8+25 'bite'
 -15 -15 -15 -10
-FKlq
+FK
 stand stand none 0
-ACKgiq 0 medium unknown
+ACK 0 medium unknown
 r bash 100
 r pierce 100
 r slash 100
@@ -269,7 +269,7 @@ key black~
 a small black skeleton key~
 An ordinary skeleton key lies here.~
 wood~
-key EHkn 0 Ag
+key EH 0 A
 0 0 0 0 0
 15 0 100 P
 g none~
@@ -278,8 +278,8 @@ frostbrand sword~
 a Frostbrand sword~
 An ice-cold broad sword lies here.~
 iron~
-weapon GHImno Ci ANgt
-sword 6 6 'frbite' Bh
+weapon GHI C AN
+sword 6 6 'frbite' B
 35 9 12000 P
 A
 19 1
@@ -291,7 +291,7 @@ symbol unholy~
 an unholy symbol of Lloth~
 A forboding symbol of evil lies here.~
 iron~
-armor CEGIJLikmopr Ci ACgi
+armor CEGIJL C AC
 12 12 12 12 0
 45 1 25000 A
 A
@@ -319,7 +319,7 @@ darkened boots~
 a pair of darkened boots~
 A pair of darkened boots lies here.~
 iron~
-armor ABCEGJghikmp Ci AGgm
+armor ABCEGJ C AG
 14 14 14 14 0
 49 7 51000 A
 A
@@ -340,7 +340,7 @@ darkened helm helmet~
 a darkened helmet~
 A darkened helmet lies here.~
 iron~
-armor ABCEIJghikop Ci AEgk
+armor ABCEIJ C AE
 14 14 14 14 0
 49 4 48000 A
 A
@@ -361,7 +361,7 @@ darkened leggings~
 a pair of darkened leggings~
 A pair of darkened leggings is lying here.~
 iron~
-armor ABCEIJghikop Ci AFgl
+armor ABCEIJ C AF
 15 12 16 12 0
 49 5 55000 A
 A
@@ -386,7 +386,7 @@ signet ring~
 the Arkham signet ring~
 A small, iron ring lies here.~
 iron~
-armor ABCEGIJghikmop Ci ABgh
+armor ABCEGIJ C AB
 0 0 0 0 0
 49 1 42000 A
 A
@@ -405,7 +405,7 @@ darkened shield~
 a darkened shield~
 A darkened shield is propped up against the wall here.~
 iron~
-armor ABHJMghnps 0 AJgp
+armor ABHJM 0 AJ
 12 6 0 0 0
 25 15 1 A
 A
@@ -424,7 +424,7 @@ guardian sword~
 a guardian sword~
 A guardian sword lies here.~
 iron~
-weapon ABCEGIJMghikmops Ci ANgt
+weapon ABCEGIJM C AN
 sword 6 8 'slash' 0
 55 4 55000 A
 A
@@ -439,7 +439,7 @@ potion healing~
 a potion of healing~
 A crystal-clear potion lies here... it looks refreshing.~
 glass~
-potion Ag 0 Ag
+potion A 0 A
 30 'acid blast' 'blindness' 'plague' ''
 5 0 15000 P
 g none~
@@ -448,7 +448,7 @@ staff wrath~
 a staff of wrath~
 A long, golden staff is here~
 wood~
-staff Ag 0 AOgu
+staff A 0 AO
 20 5 5 'colour spray' 0
 5 0 2000 P
 g none~
@@ -457,7 +457,7 @@ cloak death~
 the Cloak of Death~
 A pile of blackened cloth is here.~
 cloth~
-armor CEGMikms Ci AKgq
+armor CEGM C AK
 13 13 13 13 0
 45 4 50000 P
 A
@@ -476,7 +476,7 @@ scroll yellow parchment~
 an ancient yellow parchment~
 A yellow from age, almost decayed parchment lies here.~
 paper~
-scroll EHMPknsv Ci AOgu
+scroll EHMP C AO
 50 'acid blast' '' '' ''
 50 0 100000 P
 g none~
@@ -485,7 +485,7 @@ copper ring fortitide~
 a ring of fortitude~
 A small copper ring lays here, shining with a dull gleam.~
 copper~
-armor ABCEFGHIMghiklmnos Ci ABgh
+armor ABCEFGHIM C AB
 0 0 0 0 0
 60 0 120000 P
 A
@@ -518,7 +518,7 @@ flail pestilance~
 the flail of Pestilance~
 A worm-infested ball and chain lie here.~
 gold~
-weapon ABCJghip Ci ANgt
+weapon ABCJ C AN
 flail 5 7 'none' 0
 40 16 16000 P
 A
@@ -531,7 +531,7 @@ poncho~
 a rat-eaten poncho~
 A pile of filthy rags lies here.~
 iron~
-armor HMns 0 AKgq
+armor HM 0 AK
 0 0 0 0 0
 1 1 0 P
 A
@@ -559,7 +559,7 @@ emerald potion~
 an emerald potion~
 An emerald colored potion is here.~
 glass~
-potion AHMgns 0 AOgu
+potion AHM 0 AO
 30 'armor' 'curse' 'dispel evil' ''
 5 0 0 P
 g none~
@@ -577,7 +577,7 @@ ulrician belt~
 an ulrician belt~
 A amber-tainted belt lies coiled up here.~
 iron~
-armor Ag Ci ALgr
+armor A C AL
 9 9 9 9 0
 40 1 19230 P
 A
@@ -592,7 +592,7 @@ shadow dagger litrahth~
 the Shadow Dagger~
 A black, glinting blade lies here waiting to be picked up.~
 iron~
-weapon ABHMghns Ci ANgt
+weapon ABHM C AN
 dagger 8 6 'none' 0
 52 3 100000 P
 A
@@ -610,7 +610,7 @@ shadow dagger~
 the Shadow Dagger~
 A black, glinting blade lies here waiting to be picked up.~
 iron~
-weapon ABHMghns 0 ANgt
+weapon ABHM 0 AN
 dagger 1 1 'none' 0
 52 1 0 P
 A
@@ -632,8 +632,8 @@ claw dracolich~
 the Claw of great Dracolich~
 A claw of great ancient Dracolich is here.~
 bone~
-weapon ABCEGHIMghikmnos Ci ANgt
-exotic 7 8 'none' Ci
+weapon ABCEGHIM C AN
+exotic 7 8 'none' C
 60 30 150000 P
 A
 19 6
@@ -658,7 +658,7 @@ sceptre chaos~
 the flaming sceptre of Chaos~
 A flaming rod of steel lies here.~
 steel~
-armor CEHikn Ci ANgt
+armor CEH C AN
 4 6 7 18 0
 40 8 28550 P
 A
@@ -677,7 +677,7 @@ libram gainful conjuration~
 the Libram of Gainful Conjuration~
 A large spellbook lies here waiting to be read.~
 parchment~
-container ABCEPghikv Ci AOgu
+container ABCEP C AO
 100 0 0 500 0
 50 15 40000 P
 g none~
@@ -686,7 +686,7 @@ potion protection divine~
 a potion of divine protection~
 A gleamy, white potion is here.~
 glass~
-potion Ag 0 AOgu
+potion A 0 AO
 30 'harm' 'plague' 'poison' 'chill touch'
 50 15 40000 P
 g none~
@@ -695,7 +695,7 @@ cloak wizardry~
 the cloak of wizardry~
 A mystical, maroon cloak lies here in a pile.~
 flesh~
-armor ABCEFghikl Ci AKgq
+armor ABCEF C AK
 30 0 0 0 0
 50 3 25000 P
 A
@@ -712,7 +712,7 @@ scroll overkill~
 a scroll of ultimate overkill~
 A scroll with the title 'Ultimate Overkill' lies here.~
 parchment~
-scroll 0 Ci Ag
+scroll 0 C A
 50 'lightning breath' 'acid blast' 'harm' ''
 38 1 1500 P
 g none~
@@ -721,7 +721,7 @@ scroll truimph~
 a scroll of truimph~
 A scroll with the title 'Truimph' lies here.~
 parchment~
-scroll Ag Ci Ag
+scroll A C A
 43 'giant strength' 'cure serious' 'bless' ''
 34 1 1500 P
 g none~
@@ -730,7 +730,7 @@ scroll feasting~
 a scroll of feasting~
 A scroll with the title 'Feasting' lies here.~
 parchment~
-scroll Ag Ci Ag
+scroll A C A
 35 'infravision' 'armor' 'colour spray' ''
 20 1 1500 P
 g none~
@@ -739,7 +739,7 @@ scroll redecoration~
 a scroll of room-redecoration~
 A scroll with the title 'Room-redecoration' lies here.~
 parchment~
-scroll Ag Ci Ag
+scroll A C A
 38 'cause serious' 'energy drain' 'demonfire' ''
 45 1 1500 P
 g none~
@@ -748,7 +748,7 @@ scroll protection~
 a scroll of protection~
 A scroll with the title 'Protection' lies here.~
 parchment~
-scroll Ag Ci Ag
+scroll A C A
 50 'armor' 'stone skin' 'pass door' ''
 40 1 1500 P
 g none~
@@ -757,7 +757,7 @@ scroll invulnerability~
 a scroll of invulnerability~
 A scroll with the title 'Invulnerability' lies here.~
 parchment~
-scroll Ag Ci Ag
+scroll A C A
 34 'armor' 'teleport' '' ''
 12 1 1500 P
 g none~
@@ -766,7 +766,7 @@ scroll wolverine~
 a scroll of the Wolverine~
 A scroll with the title 'Wolverine' lies here.~
 parchment~
-scroll Ag Ci Ag
+scroll A C A
 38 'frenzy' 'shield' '' ''
 20 1 1500 P
 g none~
@@ -775,7 +775,7 @@ scroll lifebane~
 a scroll of lifebane~
 A scroll with the title 'Lifebane' lies here.~
 parchment~
-scroll Ag Ci Ag
+scroll A C A
 40 'energy drain' 'energy drain' '' ''
 33 1 1500 P
 g none~
@@ -784,7 +784,7 @@ scroll destruction~
 a scroll of destruction~
 A scroll with the title 'Destruction' lies here.~
 parchment~
-scroll Ag Ci Ag
+scroll A C A
 42 'fireball' 'demonfire' '' ''
 29 1 1500 P
 g none~
@@ -793,7 +793,7 @@ scroll chaos~
 a scroll of chaos~
 A scroll with the title 'Chaos' lies here.~
 parchment~
-scroll Ag Ci Ag
+scroll A C A
 50 'teleport' 'teleport' 'sleep' 'curse'
 10 1 1500 P
 g none~
@@ -802,7 +802,7 @@ potion healing bvumpertan~
 a potion of healing~
 A crystal-clear potion lies here... it looks refreshing.~
 glass~
-potion Ag 0 AOgu
+potion A 0 AO
 35 '' 'acid blast' 'plague' ''
 5 0 15000 P
 g none~
@@ -811,7 +811,7 @@ potion life~
 a potion of life~
 A reddish-brown potion lies here.~
 glass~
-potion Ag 0 AOgu
+potion A 0 AO
 27 'cause critical' 'cause light' 'cure serious' ''
 5 0 1000 P
 g none~
@@ -830,7 +830,7 @@ in the graveyard surrounding you. Suddenly, it dawns on you that
 entering here may be a very bad idea...
 A sign is posted, urging caution.
 ~
-0 Tz inside
+0 T inside
 E
 sign~
 This area is for high level characters only... 25 to 50+, and most
@@ -856,11 +856,11 @@ with a ravenous appetite. Maybe it would be a good idea to find the way
 back outside now...
 A door leads back out to the south.
 ~
-0 ADNgjt inside
+0 ADN inside
 D2
 ~
 door~
-ABZgh 0 4605
+ABZ 0 4605
 S
 #4602
 Foyer of the mausoleum.~
@@ -872,15 +872,15 @@ the main area of the mausoleum.
  Corpses litter the ground, obviously being dragged here for some vile
 purpose. You have an urge to leave this place now.
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 door~
-ABCZghi 4600 4600
+ABCZ 4600 4600
 D2
 ~
 door~
-ABZgh 0 4606
+ABZ 0 4606
 S
 #4603
 A grisly scene, NE corner of Mausoleum.~
@@ -889,11 +889,11 @@ with a ravenous appetite. Maybe it would be a good idea to find the way
 back outside now...
 A door to the south leaves this carnage.
 ~
-0 ADNgjt inside
+0 ADN inside
 D2
 ~
 door~
-ABZgh 0 4607
+ABZ 0 4607
 S
 #4604
 A small room.~
@@ -903,15 +903,15 @@ horrible process to create the zombies you see roaming around here.
 To the south is a black wooden doorway, and to the east you may go back
 out to the main mausoleum area.
 ~
-0 ADNgjt inside
+0 ADN inside
 D1
 ~
 door~
-ABZgh 0 4605
+ABZ 0 4605
 D2
 ~
 door~
-ABCZghi 4600 4610
+ABCZ 4600 4610
 S
 #4605
 Northwest main area of the Mausoleum.~
@@ -921,11 +921,11 @@ a few of the unoccupied ones seem to have taken an interest in your life.
 There are doors to the north and west, and the mausoleum extends to the
 east and south.
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 door~
-ABZgh 0 4601
+ABZ 0 4601
 D1
 ~
 ~
@@ -937,7 +937,7 @@ Z 0 4611
 D3
 ~
 door~
-ABZgh 0 4604
+ABZ 0 4604
 S
 #4606
 Northern main area of the Mausoleum.~
@@ -947,11 +947,11 @@ a few of the unoccupied ones seem to have taken an interest in your life.
 There is a door to the north, and the mausoleum extends to the west, east,
 and south.
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 door~
-ABZgh 0 4602
+ABZ 0 4602
 D1
 ~
 ~
@@ -973,15 +973,15 @@ a few of the unoccupied ones seem to have taken an interest in your life.
 There is a door to the north and east, and the mausoleum extends to the
 west and south.
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 door~
-ABZgh 0 4603
+ABZ 0 4603
 D1
 ~
 door~
-ABZgh 0 4608
+ABZ 0 4608
 D2
 ~
 ~
@@ -999,33 +999,33 @@ horrible process to create the zombies you see roaming around here.
 To the south is a black wooden doorway, and to the west you may go back
 out to the main mausoleum area.
 ~
-0 ADNgjt inside
+0 ADN inside
 D2
 ~
 door~
-ABCZghi 4600 4614
+ABCZ 4600 4614
 D3
 ~
 door~
-ABZgh 0 4607
+ABZ 0 4607
 S
 #4609
 The Kharzandra's coffin room~
 ~
-0 ADNgjt inside
+0 ADN inside
 D1
 ~
 ~
-ABZgh 0 4610
+ABZ 0 4610
 S
 #4610
 The workroom of Kharzandra.~
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 door~
-ABCZghi 4600 4604
+ABCZ 4600 4604
 D3
 ~
 ~
@@ -1039,7 +1039,7 @@ a few of the unoccupied ones seem to have taken an interest in your life.
 There is a wall to the west, and the mausoleum extends to the north, east,
 and south.
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 ~
@@ -1060,7 +1060,7 @@ about their business of hauling corpses from one area to another, but
 a few of the unoccupied ones seem to have taken an interest in your life.
 The mausoleum extends to the west, east, north and south.
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 ~
@@ -1086,7 +1086,7 @@ a few of the unoccupied ones seem to have taken an interest in your life.
 There is a wall to the east, and the mausoleum extends to the north, west,
 and south.
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 ~
@@ -1107,11 +1107,11 @@ parts against the far wall.  Weapons are displayed neatly in cases, and a
 suit of armor lies ready to be donned at a moment's notice.  The occupant is
 obviously a very organized, however twisted, individual.
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 door~
-ABCZghi 4600 4608
+ABCZ 4600 4608
 D1
 ~
 ~
@@ -1123,7 +1123,7 @@ This room has several black candles burning, and a small shrine to the
 god of Chaotic Evil, Loki. There is not much more worth noticing, besides
 the rancid odor coming from the opened crypts nearby.
 ~
-0 ADNgjt inside
+0 ADN inside
 D1
 ~
 hidden~
@@ -1134,11 +1134,11 @@ The dark priest's workroom.~
 There is obviously an unholy resident that works in this room, judging by
 the evil and accursed relics strewn about.
 ~
-0 ADNgjt inside
+0 ADN inside
 D1
 ~
 door~
-ABCZghi 4600 4617
+ABCZ 4600 4617
 D3
 ~
 hidden~
@@ -1150,7 +1150,7 @@ A pile of bodies lies by the doorway here, while burdened zombies dump
 more corpses slowly in with the rest. To the west appears to be some
 sort of important room in the building.
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 ~
@@ -1166,7 +1166,7 @@ Z 0 4622
 D3
 ~
 door~
-ABCZghi 4600 4616
+ABCZ 4600 4616
 S
 #4618
 Central main area of the Mausoleum.~
@@ -1175,7 +1175,7 @@ about their business of hauling corpses from one area to another, but
 a few of the unoccupied ones seem to have taken an interest in your life.
 The mausoleum extends to the west, east, north and south.
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 ~
@@ -1199,7 +1199,7 @@ A pile of bodies lies by the doorway here, while burdened zombies dump
 more corpses slowly in with the rest. To the east appears to be some
 sort of important room in the building.
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 ~
@@ -1207,7 +1207,7 @@ Z 0 4613
 D1
 ~
 door~
-ABCZghi 4600 4620
+ABCZ 4600 4620
 D2
 ~
 ~
@@ -1222,11 +1222,11 @@ A vacant workroom.~
 This crypt area is seemingly undisturbed by the undead pillagers roaming
 around outside. Maybe this would be a good place to rest.
 ~
-0 ADNgjt inside
+0 ADN inside
 D3
 ~
 door~
-ABCZghi 4600 4619
+ABCZ 4600 4619
 S
 #4621
 The Rakshaka's workspace.~
@@ -1234,11 +1234,11 @@ This room has several jungle-type plants in pots against the far wall,
 giving it a bit of scenery, despite the unspeakable things that have taken
 place to the dead bodies which lie piled up in the corner.
 ~
-0 ADNgjt inside
+0 ADN inside
 D2
 ~
 door~
-ABCZghi 4600 4626
+ABCZ 4600 4626
 D3
 ~
 hidden~
@@ -1252,7 +1252,7 @@ a few of the unoccupied ones seem to have taken an interest in your life.
 There is a wall to the west, and the mausoleum extends to the north, east,
 and south.
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 ~
@@ -1273,7 +1273,7 @@ about their business of hauling corpses from one area to another, but
 a few of the unoccupied ones seem to have taken an interest in your life.
 The mausoleum extends to the west, east, north and south.
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 ~
@@ -1299,7 +1299,7 @@ a few of the unoccupied ones seem to have taken an interest in your life.
 There is a wall to the east, and the mausoleum extends to the north, west,
 and south.
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 ~
@@ -1318,15 +1318,15 @@ Roaming ground for the Demon.~
 A small demon has taken up residence in this room, and is hard at work in
 raising a small force of undead troops to please it's master.
 ~
-0 ADNgjt inside
+0 ADN inside
 D1
 ~
 hidden~
-ABZgh 0 4637
+ABZ 0 4637
 D2
 ~
 door~
-ABCZghi 4600 4630
+ABCZ 4600 4630
 S
 #4626
 A small room.~
@@ -1336,15 +1336,15 @@ horrible process to create the zombies you see roaming around here.
 To the north is a black wooden doorway, and to the east you may go back
 out to the main mausoleum area.
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 door~
-ABCZghi 4600 4621
+ABCZ 4600 4621
 D1
 ~
 door~
-ABZgh 0 4627
+ABZ 0 4627
 S
 #4627
 Southwest main area of the Mausoleum.~
@@ -1354,7 +1354,7 @@ a few of the unoccupied ones seem to have taken an interest in your life.
 There are doors to the south and west, and the mausoleum extends to the
 east and north.
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 ~
@@ -1366,11 +1366,11 @@ Z 0 4628
 D2
 ~
 door~
-ABZgh 0 4631
+ABZ 0 4631
 D3
 ~
 door~
-ABZgh 0 4626
+ABZ 0 4626
 S
 #4628
 Central main area of the Mausoleum.~
@@ -1379,7 +1379,7 @@ about their business of hauling corpses from one area to another, but
 a few of the unoccupied ones seem to have taken an interest in your life.
 The mausoleum extends to the west, east, north and south.
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 ~
@@ -1405,7 +1405,7 @@ a few of the unoccupied ones seem to have taken an interest in your life.
 There are doors to the south and east, and the mausoleum extends to the
 west and north.
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 ~
@@ -1413,11 +1413,11 @@ Z 0 4624
 D1
 ~
 door~
-ABZgh 0 4630
+ABZ 0 4630
 D2
 ~
 door~
-ABZgh 0 4633
+ABZ 0 4633
 D3
 ~
 ~
@@ -1431,15 +1431,15 @@ horrible process to create the zombies you see roaming around here.
 To the north is a black wooden doorway, and to the west you may go back
 out to the main mausoleum area.
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 door~
-ABCZghi 4600 4625
+ABCZ 4600 4625
 D3
 ~
 door~
-ABZgh 0 4629
+ABZ 0 4629
 S
 #4631
 A grisly scene, SW corner of Mausoleum.~
@@ -1448,11 +1448,11 @@ with a ravenous appetite. Maybe it would be a good idea to find the way
 back outside now...
 A door leads back out to the nouth.
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 door~
-ABZgh 0 4627
+ABZ 0 4627
 S
 #4632
 A hole in the southern wall.~
@@ -1460,7 +1460,7 @@ A large hole has been smashed into the south end of the Mausoleum's wall,
 to allow something easier access in and out of the complex. To the south,
 a large crater is vaguely visible through the patches of fog and smoke.
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 ~
@@ -1473,25 +1473,25 @@ with a ravenous appetite. Maybe it would be a good idea to find the way
 back outside now...
 A door leads back out to the nouth.
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 door~
-ABZgh 0 4629
+ABZ 0 4629
 S
 #4634
 Shadar Lunn's coffin room~
 ~
-0 ADNgjt inside
+0 ADN inside
 D3
 ~
 ~
-ABZgh 0 4614
+ABZ 0 4614
 S
 #4635
 Lost in the graveyard fog.~
 ~
-0 ADNgjt inside
+0 ADN inside
 D0
 ~
 ~
@@ -1504,11 +1504,11 @@ by way of personal belongings around. A few polished skulls, a couple of
 silver chains, and perhaps a coin or two from a country you have never
 heard of.
 ~
-0 ADNgjt inside
+0 ADN inside
 D1
 ~
 hidden~
-ABZgh 0 4621
+ABZ 0 4621
 S
 #4637
 A burnt room.~
@@ -1516,7 +1516,7 @@ The walls of this crypt chamber have been covered in ash and cinder,
 leading you to believe there has been a large fire recently. In the
 far corner of the room, 3 huddled, burnt corpses lie resting.
 ~
-0 ADNgjt inside
+0 ADN inside
 D3
 ~
 hidden~

@@ -19,12 +19,12 @@ his breastplate of iron with its wings. Its long body
 ends in a scorpion stinger.
 ~
 unique~
-FTlz 0 0 0 ABHghn -1000 0
+FT 0 0 0 ABH -1000 0
 91 0 90d20+19000 91d10+9500 10d15+61 'bite'
 -63 -63 -63 -26
-FIKWloq
+FIKW
 stand stand none 900
-AGHNOgmntu ACDEFHKQVgijklnqw large unknown
+AGHNO ACDEFHKQV large unknown
 r holy -50
 r negative 33
 r charm 100
@@ -41,12 +41,12 @@ come. His appearance is to your liking, whatever that may be,
 and you find his voice pleasant and reasonable.
 ~
 unique~
-BThz 0 AITXgoz Ag Hn -1000 0
+BT 0 AITX A H -1000 0
 95 0 90d20+23000 91d10+9500 16d10+65 'crush'
 -66 -66 -66 -28
-FVl
+FV
 stand stand male 900
-AHMVXdgns ABCDEFGHIJKPghijklmnopqv medium unknown
+AHMVXd ABCDEFGHIJKP medium unknown
 r fire 33
 r cold 33
 r holy 33
@@ -62,10 +62,10 @@ MYSTERY BABYLON THE GREAT. THE MOTHER
 OF HARLOTS AND ABOMINATIONS OF THE EARTH.
 ~
 human~
-HQnw 0 c 0 0 -1000 0
+HQ 0 c 0 0 -1000 0
 88 0 90d20+17500 91d10+9500 12d11+57 'blast'
 -60 -60 -60 -25
-FNlt
+FN
 stand stand female 900
 0 0 medium unknown
 #14004
@@ -77,12 +77,12 @@ The angel looks you over and tells you that you are too late.
 He has already cast the second vial of wrath into the sea.
 ~
 unique~
-BThz 0 NTtz Ag 0 1000 0
+BT 0 NT A 0 1000 0
 85 0 90d20+16000 91d10+9500 10d13+55 'smash'
 -58 -58 -58 -24
-CEFKPXiklqv
+CEFKPX
 stand stand male 10
-ADHLMVgjnrs ABCDEFGHIJKPghijklmnopqv large unknown
+ADHLMV ABCDEFGHIJKP large unknown
 r fire 33
 r cold 33
 r holy 100
@@ -98,12 +98,12 @@ The angel looks you over and tells you that you are too late.
 The 6th seal already has been broken.
 ~
 unique~
-BThz 0 NTtz Ag 0 1000 0
+BT 0 NT A 0 1000 0
 85 0 90d20+16000 91d10+9500 10d13+55 'smash'
 -58 -58 -58 -24
-CEFKPXiklqv
+CEFKPX
 stand stand male 900
-ADHLMVgjnrs ABCDEFGHIJKPghijklmnopqv large unknown
+ADHLMV ABCDEFGHIJKP large unknown
 r fire 33
 r cold 33
 r holy 100
@@ -119,12 +119,12 @@ The angel looks you over and tells you that you are too late.
 He has already scattered the seventh vial of wrath on the wind.
 ~
 unique~
-BThz 0 NTtz Ag Hn 1000 0
+BT 0 NT A H 1000 0
 85 0 90d20+16000 91d10+9500 10d13+55 'divine'
 -58 -58 -58 -24
-CEFKPXiklqv
+CEFKPX
 stand stand male 900
-ADHLMVgjnrs ABCDEFGHIJKPghijklmnopqv large unknown
+ADHLMV ABCDEFGHIJKP large unknown
 r fire 33
 r cold 33
 r holy 100
@@ -140,12 +140,12 @@ The angel looks you over and tells you that you are too late.
 He has already poured the fourth vial of wrath upon the sun.
 ~
 unique~
-BThz 0 NTtz Ag 0 1000 0
+BT 0 NT A 0 1000 0
 85 0 90d20+16000 91d10+9500 10d13+55 'divine'
 -58 -58 -58 -24
-CEFKPXiklqv
+CEFKPX
 stand stand male 900
-ADHLMVgjnrs ABCDEFGHIJKPghijklmnopqv large unknown
+ADHLMV ABCDEFGHIJKP large unknown
 r fire 33
 r cold 33
 r holy 100
@@ -160,12 +160,12 @@ An angel is here, harvesting sinners with his sickle.
 The angel has no mercy for those without seals.
 ~
 unique~
-Tz 0 NTtz Ag ABKghq 1000 0
+T 0 NT A ABK 1000 0
 80 0 50d20+13500 91d10+9500 13d9+50 'pound'
 -54 -54 -54 -22
-CEFKPXiklqv
+CEFKPX
 stand stand male 900
-ADHLMVgjnrs ABCDEFGHIJKPghijklmnopqv large unknown
+ADHLMV ABCDEFGHIJKP large unknown
 r fire 33
 r cold 33
 r holy 100
@@ -181,12 +181,12 @@ The army of heaven is approximately 50 troops, lightly
 armed with simple spears and shields.
 ~
 human~
-Tz 0 Nt 0 Hn 1000 0
+T 0 N 0 H 1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 'slice'
 -50 -50 -50 -20
-CEPikv
+CEP
 stand stand none 900
-Sy 0 huge unknown
+S 0 huge unknown
 r bash 100
 r holy 33
 r negative -50
@@ -199,12 +199,12 @@ The rider is mounted on a lion headed horse, which breathes
 fire, smoke and brimstone as it rears.
 ~
 human~
-FTlz 0 0 0 ABHghn -1000 0
+FT 0 0 0 ABH -1000 0
 85 0 90d20+16000 91d10+9500 10d13+55 'pound'
 -58 -58 -58 -24
-CDEFKijklq
+CDEFK
 stand stand male 900
-BCNhit 0 large unknown
+BCN 0 large unknown
 r holy -50
 r negative 33
 r charm 100
@@ -217,12 +217,12 @@ The rider is mounted on a lion headed horse, which breathes
 fire, smoke and brimstone as it rears.
 ~
 human~
-FTlz 0 0 0 ABHghn -1000 0
+FT 0 0 0 ABH -1000 0
 85 0 90d20+16000 91d10+9500 10d13+55 'pound'
 -58 -58 -58 -24
-CDEFKijklq
+CDEFK
 stand stand male 900
-BCNhit 0 large unknown
+BCN 0 large unknown
 r holy -50
 r negative 33
 r charm 100
@@ -235,12 +235,12 @@ The rider is mounted on a lion headed horse, which breathes
 fire, smoke and brimstone as it rears.
 ~
 human~
-FTlz 0 0 0 ABHghn -1000 0
+FT 0 0 0 ABH -1000 0
 85 0 90d20+16000 91d10+9500 10d13+55 'magic'
 -58 -58 -58 -24
-CDEFKijklq
+CDEFK
 stand stand male 900
-BCNhit 0 large unknown
+BCN 0 large unknown
 r holy -50
 r negative 33
 r charm 100
@@ -253,12 +253,12 @@ The rider is mounted on a lion headed horse, which breathes
 fire, smoke and brimstone as it rears.
 ~
 human~
-FTlz 0 0 0 ABHghn -1000 0
+FT 0 0 0 ABH -1000 0
 85 0 90d20+16000 91d10+9500 10d13+55 'magic'
 -58 -58 -58 -24
-CDEFKijklq
+CDEFK
 stand stand male 900
-BCNhit 0 large unknown
+BCN 0 large unknown
 r holy -50
 r negative 33
 r charm 100
@@ -271,12 +271,12 @@ Michael towers some 18', and is dressed in the blinding
 white of heaven. His voice booms in a deep base laugh.
 ~
 unique~
-BThz 0 NTVdtz Ag ABHghn 1000 0
+BT 0 NTVd A ABH 1000 0
 91 0 90d20+19000 91d10+9500 10d15+61 'divine'
 -63 -63 -63 -30
-CEFKQXiklqw
+CEFKQX
 stand stand male 900
-ACDHLMVgijnrs ABCDEFGHIJKPghijklmnopqv huge unknown
+ACDHLMV ABCDEFGHIJKP huge unknown
 r bash 33
 r fire 33
 r cold 33
@@ -295,12 +295,12 @@ ten horns are ten crowns, and upon the 7 heads are
 blasphemy.
 ~
 dragon~
-BRhx 0 0 0 ABgh -1000 0
+BR 0 0 0 AB -1000 0
 91 0 90d20+19000 91d10+9500 10d15+61 'flame'
 -63 -63 -63 -32
-IMQWXosw
+IMQWX
 stand stand male 900
-BCcdhi Lr huge unknown
+BCcd L huge unknown
 r cold 0
 r lightning 33
 r acid 33
@@ -316,10 +316,10 @@ and the eating of food sacrificed to idols. She will
 gladly try to sway you to her point of view.
 ~
 human~
-Qw 0 0 0 0 -1000 0
+Q 0 0 0 0 -1000 0
 80 0 50d20+13500 91d10+9000 9d12+48 'charge'
 -54 -54 -54 -22
-FNlt
+FN
 sit sit female 900
 0 0 medium unknown
 #14017
@@ -332,10 +332,10 @@ on the merits of eating food sacrificed to idols. His
 rapt audience pays you no heed.
 ~
 human~
-Rx 0 0 0 0 -1000 0
+R 0 0 0 0 -1000 0
 80 0 50d20+13500 91d10+9500 13d9+50 'blast'
 -54 -54 -54 -22
-FNlt
+FN
 sit sit male 900
 0 0 medium unknown
 #14018
@@ -348,10 +348,10 @@ fanatical speech on how life has no meaning unless you
 fornicate freely and eat sacrificed food.
 ~
 human~
-Qw 0 0 0 0 -1000 0
+Q 0 0 0 0 -1000 0
 80 0 50d20+13500 91d10+9500 13d9+50 'blast'
 -54 -54 -54 -22
-FNlt
+FN
 sit sit male 900
 0 0 medium unknown
 #14019
@@ -366,12 +366,12 @@ with its power and sway you to fight on the
 side of the dragon.
 ~
 unique~
-Rx 0 KTqz AGgm AHKgnq -1000 0
+R 0 KT AG AHK -1000 0
 83 0 50d20+15000 91d10+9000 10d12+52 'acbite'
 -56 -56 -56 -23
-Fl
+F
 stand stand none 0
-ACDHILMVgijnors ABCDEFGHIJKQghijklmnopqw medium unknown
+ACDHILMV ABCDEFGHIJKQ medium unknown
 r pierce 33
 r fire 33
 r cold 33
@@ -394,10 +394,10 @@ If you will worship as he says, step forward and
 receive the mark.
 ~
 human~
-Rx 0 0 0 Hn -1000 0
+R 0 0 0 H -1000 0
 85 0 90d20+16000 91d10+9500 10d13+55 'flame'
 -58 -58 -58 -24
-FNlt
+FN
 stand stand male 900
 0 W medium unknown
 r holy -50
@@ -412,10 +412,10 @@ to behold. She tells you to run, for a
 great dragon is hunting her.
 ~
 human~
-BThz 0 Nt 0 0 1000 0
+BT 0 N 0 0 1000 0
 89 0 90d20+18000 91d10+9500 12d12+58 'wrath'
 -61 -61 -61 -25
-EFKLSklqry
+EFKLS
 stand stand female 900
 0 0 medium unknown
 r holy 33
@@ -437,12 +437,12 @@ fierceness and wrath of Almighty God. On his
 thigh is written King of Kings and Lord of Lords.
 ~
 unique~
-BThz 0 HNTVdntz Ag ABHKLghnqr 1000 0
+BJT 0 HNTVd A ABHKL 1000 0
 95 0 90d20+23000 91d10+9500 16d10+65 'wrath'
 -66 -66 -66 -28
-CEFHKLPiklnqrv
+CEFHKLP
 stand stand male 39000
-ACDHMVgijns ABCDEFGHIJKPghijklmnopqv giant unknown
+ACDHMV ABCDEFGHIJKP giant unknown
 r fire 33
 r cold 33
 r lightning -50
@@ -464,10 +464,10 @@ All of the tribes were marked with a seal so as
 to spare them from the wrath of God.
 ~
 human~
-Tz 0 0 0 Hn 1000 0
+T 0 0 0 H 1000 0
 70 0 50d20+9750 91d10+9500 10d15+61 'pound'
 -46 -46 -46 -18
-FIlo
+FI
 stand stand male 900
 0 0 medium unknown
 #14024
@@ -479,10 +479,10 @@ The marked one has chosen the side of evil for
 the final conflict. He seems to be suffering from a pox.
 ~
 human~
-Tz 0 X 0 Hn -1000 0
+T 0 X 0 H -1000 0
 70 0 50d20+9750 91d10+9500 10d15+61 'pound'
 -46 -46 -46 -18
-FJlp
+FJ
 stand stand male 900
 0 0 medium unknown
 #14025
@@ -497,12 +497,12 @@ scar runs across one head, where it was mortally
 wounded and healed.
 ~
 unique~
-BThz 0 Tbdz 0 HKnq -1000 0
+BT 0 Td 0 HK -1000 0
 88 0 90d20+17500 91d10+9500 13d10+56 'claw'
 -60 -60 -60 -25
-AMgs
+AM
 stand stand male 100
-ABGHMVghmns ABCDEFGHIJKQUghijklmnopqw huge unknown
+ABGHMV ABCDEFGHIJKQU huge unknown
 r fire 33
 r cold 33
 r holy -50
@@ -516,10 +516,10 @@ The idolator is engrossed in his worship, and
 does not see you.
 ~
 human~
-HTnz 0 0 0 Hn -1000 0
+HT 0 0 0 H -1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 'pound'
 -50 -50 -50 -20
-FJlp
+FJ
 stand stand male 900
 0 0 medium unknown
 #14027
@@ -531,10 +531,10 @@ The whoremonger has chosen a paticularly sleezy
 woman, who probably is infected.
 ~
 human~
-HTnz 0 0 0 0 -1000 0
+HT 0 0 0 0 -1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 'pound'
 -50 -50 -50 -20
-FJlp
+FJ
 stand stand male 900
 0 0 medium unknown
 #14028
@@ -547,10 +547,10 @@ is dressed in rags and carries a bloody
 knife.
 ~
 human~
-HTnz 0 0 0 0 -1000 0
+HT 0 0 0 0 -1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 'pound'
 -50 -50 -50 -20
-FJlp
+FJ
 stand stand male 900
 0 0 medium unknown
 #14029
@@ -564,10 +564,10 @@ her hips suggestively. She smells nice,
 having bathed in the last week.
 ~
 human~
-HTnz 0 0 0 0 -1000 0
+HT 0 0 0 0 -1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 'pound'
 -50 -50 -50 -20
-FJlp
+FJ
 stand stand female 900
 0 0 medium unknown
 #14030
@@ -580,10 +580,10 @@ your purse. He picks it up and returns
 it to you.
 ~
 human~
-HSny 0 0 0 Hn -1000 0
+HS 0 0 0 H -1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 'pound'
 -50 -50 -50 -20
-FJlp
+FJ
 stand stand male 900
 0 0 medium unknown
 #14031
@@ -596,10 +596,10 @@ carrying alot of gawdy babbles. He blames
 his sins on the greedy poor.
 ~
 human~
-HTnz 0 0 0 0 -1000 0
+HT 0 0 0 0 -1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 'pound'
 -50 -50 -50 -20
-FJlp
+FJ
 stand stand male 900
 0 0 medium unknown
 #14032
@@ -613,10 +613,10 @@ has a harried look. He blames his sins on
 his rivals.
 ~
 human~
-HTnz 0 0 0 Hn -1000 0
+HT 0 0 0 H -1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 'pound'
 -50 -50 -50 -20
-FJlp
+FJ
 stand stand male 900
 0 0 medium unknown
 #14033
@@ -631,10 +631,10 @@ crown are missing. He blames his sins on his
 corrupt ministers who ruined the kingdom.
 ~
 human~
-HTnz 0 0 0 0 -1000 0
+HT 0 0 0 0 -1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 'pound'
 -50 -50 -50 -20
-FJlp
+FJ
 stand stand male 900
 0 0 medium unknown
 #14034
@@ -646,10 +646,10 @@ The bondsman has somehow escaped his master.
 He blames all his sins on his master.
 ~
 human~
-HTnz 0 0 0 0 -1000 0
+HT 0 0 0 0 -1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 'pound'
 -50 -50 -50 -20
-FJlp
+FJ
 stand stand male 900
 0 0 medium unknown
 #14035
@@ -661,10 +661,10 @@ The freeman is empoverished. He blames
 all of his sins on the guild.
 ~
 human~
-HTnz 0 0 0 0 -1000 0
+HT 0 0 0 0 -1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 'pound'
 -50 -50 -50 -20
-FJlp
+FJ
 stand stand male 900
 0 0 medium unknown
 #14036
@@ -676,10 +676,10 @@ The chief captain is in rags. He blames his sins
 on the king, who ordered him to commit atrocities.
 ~
 human~
-HTnz 0 0 0 0 -1000 0
+HT 0 0 0 0 -1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 'pound'
 -50 -50 -50 -20
-FJlp
+FJ
 stand stand male 900
 0 0 medium unknown
 #14037
@@ -691,12 +691,12 @@ He is like jasper and carnelian. You better do as
 he says.
 ~
 unique~
-BThz 0 HNTVdntz Ag ABHKLghnqr 1000 0
+BJT 0 HNTVd A ABHKL 1000 0
 100 0 90d20+30000 91d10+9500 18d16+90 'divine'
 -150 -150 -150 -150
-FGHKLOlmnqru
+FGHKLO
 sit sit male 900
-ACDHLMVgijnrs ABCDEFGHIJKPghijklmnopqv giant unknown
+ACDHLMV ABCDEFGHIJKP giant unknown
 r bash 100
 r pierce 100
 r slash 100
@@ -722,12 +722,12 @@ A Lamb as it had been slain stands here.
 The lamb has seven horns and seven eyes.
 ~
 unique~
-BTchz CDij HNTWdntz Ag ABHKLghnqr 1000 0
+BJTc CD HNTWd A ABHKL 1000 0
 100 0 90d20+30000 91d10+9500 18d16+90 'divine'
 -150 -150 -150 -150
-FGHKLOlmnqru
+FGHKLO
 sit sit male 900
-ACDHLMVgijnrs ABCDEFGHIJKPghijklmnopqv giant unknown
+ACDHLMV ABCDEFGHIJKP giant unknown
 r bash 100
 r pierce 100
 r slash 100
@@ -754,12 +754,12 @@ The elders are in white robes with golden crowns. They
 play harps, and swing golden bowls filled with incense.
 ~
 unique~
-BQhw 0 NTtz Ag 0 1000 0
+BQ 0 NT A 0 1000 0
 75 0 50d20+11000 91d10+9000 9d11+45 'divine'
 -50 -50 -50 -20
-Fl
+F
 sit stand none 900
-ACDHLMVgijnrs ABCDEFGHIJKPghijklmnopqv medium unknown
+ACDHLMV ABCDEFGHIJKP medium unknown
 r fire 33
 r cold 33
 r holy 100
@@ -774,12 +774,12 @@ The lion creature is full of eyes in front and behind.
 It has 6 wings, and even eyes inside.
 ~
 unique~
-BThz 0 Nt 0 ABHKLghnqr 1000 0
+BT 0 N 0 ABHKL 1000 0
 91 0 90d20+19000 91d10+9500 10d15+61 'claw'
 -63 -63 -63 -26
-FIMPVlosv
+FIMPV
 stand stand none 0
-BCDGHLMVhijmnrs ABCDEFGHIJKPQUVghijklmnopqvw large unknown
+BCDGHLMV ABCDEFGHIJKPQUV large unknown
 r holy 100
 r disease 100
 #14041
@@ -791,12 +791,12 @@ The ox creature is full of eyes in front and behind.
 It has 6 wings, and eleven eyes inside.
 ~
 unique~
-BThz 0 Nt 0 ABHKLghnqr 1000 0
+BT 0 N 0 ABHKL 1000 0
 91 0 90d20+19000 91d10+9500 10d15+61 'claw'
 -63 -63 -63 -26
-CDPVijv
+CDPV
 stand stand none 900
-CDGHLVijmnr ACDEFJKPQWgijklpqvw large unknown
+CDGHLV ACDEFJKPQW large unknown
 r holy 100
 r disease 100
 #14042
@@ -808,12 +808,12 @@ The human faced creature is full of eyes in front and behind.
 It has 6 wings, and even eyes inside.
 ~
 human~
-BThz 0 Nt 0 ABHKLghnqr 1000 0
+BT 0 N 0 ABHKL 1000 0
 91 0 90d20+19000 91d10+9500 10d15+61 'pound'
 -63 -63 -63 -26
-EFIKkloq
+EFIK
 stand stand none 900
-CDGLijmr LPrv large unknown
+CDGL LP large unknown
 r holy 100
 r disease 100
 #14043
@@ -825,12 +825,12 @@ The eagle creature is full of eyes in front and behind.
 It has 6 wings, and even eyes inside.
 ~
 unique~
-BThz 0 NTtz 0 ABHKLghnqr 1000 0
+BT 0 NT 0 ABHKL 1000 0
 91 0 90d20+19000 91d10+9500 10d15+61 'claw'
 -63 -63 -63 -26
-EFIKkloq
+EFIK
 stand stand none 900
-CDGHLWijmnr ADEFKPUgjklqv large unknown
+CDGHLW ADEFKPU large unknown
 r holy 100
 r disease 100
 #0
@@ -841,7 +841,7 @@ key david~
 The key of David~
 A key with a heavenly aura hums here. ~
 adamantite~
-key BGhm 0 AOgu
+key BG 0 AO
 0 0 0 0 0
 0 10 0 P
 g none~
@@ -850,7 +850,7 @@ breastplate iron~
 An iron breastplate~
 A huge, iron breastplate is here.~
 iron~
-armor 0 0 ADgj
+armor 0 0 AD
 42 42 42 15 0
 91 350 3000 P
 A
@@ -863,8 +863,8 @@ sting locust~
 A locust stinger~
 A large barbed sting is here.~
 stone~
-weapon EQkw 0 ANgt
-dagger 6 20 'pierce' GHmn
+weapon EQ 0 AN
+dagger 6 20 'pierce' GH
 91 6 4500 G
 A
 18 10
@@ -874,7 +874,7 @@ chain binding~
 The chain of binding~
 A pretty silver chain lies here.~
 silver~
-treasure GMms 0 ADgj
+treasure GM 0 AD
 0 0 0 0 0
 50 20 8000 P
 A
@@ -893,7 +893,7 @@ cup babylon~
 The golden cup of Babylon~
 A golden cup filled with blood lies here.~
 gold~
-drink Gm Dj AOgu
+drink G D AO
 19 19 'blood' 0 0
 25 5 2500 P
 E
@@ -907,7 +907,7 @@ girdle golden~
 A golden girdle~
 A golden girdle is here.~
 gold~
-armor GIKLmoqr 0 ALgr
+armor GIKL 0 AL
 28 28 28 0 0
 80 1 8000 P
 A
@@ -922,8 +922,8 @@ sickle golden~
 A golden sickle~
 A golden sickle is here.~
 gold~
-weapon GIKLmoqr 0 ANgt
-exotic 10 10 'slice' Ek
+weapon GIKL 0 AN
+exotic 10 10 'slice' E
 80 45 3500 P
 A
 19 5
@@ -935,7 +935,7 @@ saints prayers~
 The prayers of saints~
 A vial humming with holiness lies here.~
 glass~
-potion BIho 0 AOgu
+potion BI 0 AO
 80 'bless' 'faerie fog' 'flamestrike' ''
 80 2 9000 P
 g none~
@@ -944,7 +944,7 @@ censer~
 A censer~
 A censer, smoking with incense burns here.~
 bronze~
-wand AGgm 0 AOgu
+wand AG 0 AO
 100 3 3 'fireball' 0
 85 25 6700 P
 g none~
@@ -953,7 +953,7 @@ crown white conquerer~
 The white crown of the conquerer~
 A white crown lies here.~
 adamantite~
-armor EJkp 0 AEgk
+armor EJ 0 AE
 28 28 28 14 0
 85 35 10000 P
 A
@@ -970,8 +970,8 @@ bow white conquerer~
 The white bow of the conquerer~
 A great white bow lies here.~
 adamantite~
-weapon EJMkps 0 ANgt
-bow 10 10 'blast' AFHgln
+weapon EJM 0 AN
+bow 10 10 'blast' AFH
 85 10 12000 P
 A
 19 5
@@ -983,7 +983,7 @@ breastplate fire~
 A breastplate of fire~
 A breastplate of fire smoulders here.~
 unknown~
-armor EJkp Dj ADgj
+armor EJ D AD
 28 28 28 15 0
 85 20 14000 P
 A
@@ -996,8 +996,8 @@ sword war~
 The sword of war~
 A great two-handed sword lies here.~
 adamantite~
-weapon EJMkps 0 ANgt
-sword 11 12 'slash' DEFHjkln
+weapon EJM 0 AN
+sword 11 12 'slash' DEFH
 85 20 14000 P
 A
 19 10
@@ -1009,7 +1009,7 @@ breastplate jacinth~
 A breastplate of jacinth~
 A breastplate of jacinth glitters here.~
 unknown~
-armor EJkp Dj ADgj
+armor EJ D AD
 28 28 28 10 0
 85 10 14000 P
 A
@@ -1022,7 +1022,7 @@ breastplate brimstone~
 A breastplate of brimstone~
 A breastplate of brimstone smokes here.~
 unknown~
-armor EJkp Dj ADgj
+armor EJ D AD
 28 28 28 10 0
 85 20 14000 P
 A
@@ -1035,7 +1035,7 @@ balances pair~
 A pair of engraved balances~
 A fine set of engraved balances lies here.~
 iron~
-gem Gm 0 AOgu
+gem G 0 AO
 0 0 0 0 0
 85 10 8000 P
 E
@@ -1051,7 +1051,7 @@ cloak death deaths death's~
 Death's cloak~
 A cloak, black as oblivion devours the light.~
 mithril~
-armor CEFGQiklmw 0 AKgq
+armor CEFGQ 0 AK
 30 30 30 10 0
 85 10 14000 P
 g none~
@@ -1060,8 +1060,8 @@ scythe reaper grim~
 The scythe of the Grim reaper~
 An unholy scythe, devours the light here.~
 unknown~
-weapon CEFJMQiklpsw 0 ANgt
-polearm 11 10 'cleave' CDFHijln
+weapon CEFJMQ 0 AN
+polearm 11 10 'cleave' CDFH
 85 20 14000 P
 A
 19 10
@@ -1073,8 +1073,8 @@ lance holy archangel Michael~
 The holy lance of archangel Michael~
 A lance hums with a heavenly aura.~
 adamantite~
-weapon ABGIKMghmoqs 0 ANgt
-lance 12 10 'pierce' Ag
+weapon ABGIKM 0 AN
+lance 12 10 'pierce' A
 91 15 20000 P
 A
 19 10
@@ -1086,7 +1086,7 @@ mark beast~
 The mark of the beast~
 A branded patch of skin lies on the ground.~
 flesh~
-armor EJLMkprs 0 ACgi
+armor EJLM 0 AC
 23 23 23 23 0
 70 10 0 P
 A
@@ -1105,7 +1105,7 @@ wings eagles~
 The wings of eagles~
 A giant pair of eagle wings lie here.~
 unknown~
-armor GIKmoq 0 AIgo
+armor GIK 0 AI
 30 30 30 17 0
 89 50 19000 P
 A
@@ -1120,7 +1120,7 @@ crown stars twelve~
 A crown with twelve stars~
 A crown with twelve stars lies here.~
 stone~
-armor AIKgoq 0 AEgk
+armor AIK 0 AE
 30 30 30 20 0
 89 5 19000 P
 A
@@ -1133,7 +1133,7 @@ clothing sun~
 Clothing of the sun~
 A shirt glowing like the sun lies here.~
 unknown~
-armor AIKgoq 0 ADgj
+armor AIK 0 AD
 30 30 30 10 0
 89 10 19000 P
 A
@@ -1150,7 +1150,7 @@ clothing sun~
 Clothing of the sun~
 A skirt glowing like the sun lies here.~
 unknown~
-armor AIKgoq 0 AFgl
+armor AIK 0 AF
 30 30 30 10 0
 89 10 19000 P
 A
@@ -1165,7 +1165,7 @@ moon~
 The moon under your feet~
 A glowing piece of the moon is here.~
 unknown~
-armor AIKgoq 0 AGgm
+armor AIK 0 AG
 30 30 30 10 0
 89 10 19000 P
 g none~
@@ -1174,7 +1174,7 @@ manna hidden~
 Hidden manna~
 A glowing circlet of hidden manna is here.~
 unknown~
-armor AFKLQglqrw 0 ABgh
+armor AFKLQ 0 AB
 0 0 0 0 0
 91 15 25000 P
 A
@@ -1185,7 +1185,7 @@ rod iron~
 A rod of iron~
 A heavy rod of iron lies here.~
 iron~
-wand GIKLmoqr 0 AOgu
+wand GIKL 0 AO
 120 10 10 'cure blindness' 0
 80 100 25000 P
 g none~
@@ -1194,7 +1194,7 @@ raiment white~
 White raiment~
 White raiment gleams brightly.~
 unknown~
-armor AGIKLgmoqr 0 ACgi
+armor AGIKL 0 AC
 30 30 30 10 0
 91 10 25000 P
 g none~
@@ -1203,7 +1203,7 @@ stone white~
 A white stone~
 A white stone the size of a shield lies here.~
 stone~
-armor IKLoqr 0 AJgp
+armor IKL 0 AJ
 30 30 30 10 0
 91 10 15000 P
 A
@@ -1219,8 +1219,8 @@ sword mouth sharp two edged~
 The sharp, two-edged sword of the mouth~
 A huge two handed sword lies here.~
 adamantite~
-weapon IKLMoqrs 0 ANgt
-sword 3 43 'slash' DFjl
+weapon IKLM 0 AN
+sword 3 43 'slash' DF
 91 30 25000 P
 g none~
 #14031
@@ -1228,7 +1228,7 @@ robe white~
 A white robe~
 A white robe lies here~
 unknown~
-armor IKLoqr 0 AKgq
+armor IKL 0 AK
 23 23 23 23 0
 70 10 5000 P
 A
@@ -1239,7 +1239,7 @@ seal~
 A seal~
 A seal lies here.~
 unknown~
-armor IKLoqr 0 AEgk
+armor IKL 0 AE
 23 23 23 23 0
 70 0 5000 P
 A
@@ -1250,7 +1250,7 @@ star morning~
 The morning star~
 A fallen star glows as the morning.~
 unknown~
-container Ag 0 0
+container A 0 0
 150 0 0 150 100
 10 10 10000 P
 g none~
@@ -1277,8 +1277,8 @@ throne emerald rainbow~
 An emerald throne~
 An emerald throne surrounded by a rainbow is here.~
 unknown~
-furniture AGKLgmqr Dj 0
-Ag EIJKNkopqt AEHKgknq DGHjmn DGHjmn
+furniture AGKL D 0
+A EIJKN AEHK DGH DGH
 92 500 18000 P
 E
 throne emerald rainbow~
@@ -1291,8 +1291,8 @@ thrones four twenty~
 Four and twenty thrones~
 Four and twenty thrones are here.~
 unknown~
-furniture AGKLgmqr Dj 0
-DEjk GHIKLMOmnoqrsu AEHKgknq BCEHhikn BCEHhikn
+furniture AGKL D 0
+DE GHIKLMO AEHK BCEH BCEH
 75 50 45000 P
 E
 thrones four twenty~
@@ -1304,7 +1304,7 @@ scroll seven seals broken~
 A scroll of seven broken seals~
 A scroll of seven broken seals lies here, writing unseen.~
 unknown~
-scroll 0 Dj 0
+scroll 0 D 0
 10 '' '' '' ''
 125 100 10 P
 E
@@ -1319,7 +1319,7 @@ book~
 The book of life~
 A strange book with billions of names is here.~
 unknown~
-scroll 0 Dj AOgu
+scroll 0 D AO
 10 '' '' '' ''
 125 1000 1000 P
 E
@@ -1332,7 +1332,7 @@ bowl golden incense~
 A golden bowl of incense~
 A golden bowl filled with incense smokes here.~
 unknown~
-staff IQow Dj AOgu
+staff IQ D AO
 100 3 3 'enchant weapon' 0
 75 10 10000 P
 g none~
@@ -1494,7 +1494,7 @@ Deterioration and decay claim every building you view. Here the evil is so
 strong you can almost feel it caress you. To the south lead a series of stairs
 to a solid adamantite gate emblazoned with the seals of heaven.
 ~
-0 Ci city
+0 C city
 D0
 MaGog
 ~
@@ -1510,7 +1510,7 @@ Into the bottomless pit
 ~
 gate adamantite south
 ~
-ABCFZghil 14001 14183
+ABCFZ 14001 14183
 D3
 MaGog
 ~
@@ -1695,7 +1695,7 @@ You walk through the wreteched, fetid wreak of the plagued lands.
 Once fine tall grass has withered into a lifeless desert. About you
 flies lay eggs in the rotting flesh of the plagued.
 ~
-0 Ci desert
+0 C desert
 D0
 The  plagued lands
 ~
@@ -2132,7 +2132,7 @@ a final frolic before destruction.Refuse and ofcol are the perfume of the city.
 Deterioration and decay claim every building you view. Nobody seems
 to mind the open gate.
 ~
-0 Ci city
+0 C city
 D0
 Armageddon
 ~
@@ -2887,7 +2887,7 @@ The many waters~
 You are on a vast sea of blood. Vultures soar in the red sky in search of 
 carrion. Wreckage of many ships litters the waters, an ill omen indeed.
 ~
-0 Ci noswim
+0 C noswim
 D0
 Armageddon
 ~
@@ -3030,7 +3030,7 @@ stars fall earthward to land with  resounding explosions. The
 smoke is thick. You hear the wail, and smell the seared flesh
 of the dying from all around you.
 ~
-0 Ci forest
+0 C forest
 D1
 Armageddon
 ~
@@ -3639,7 +3639,7 @@ wind blows across what is left of the once mighty river. Now all
 you see are occasional puddles of bloody water. There is a vial 
 floating in the largest puddle of blood.
 ~
-0 Ci hills
+0 C hills
 E
 lettering~
 The 3rd vial of wrath: rivers and fountains to blood.
@@ -3761,7 +3761,7 @@ to the canyon. From the bridge you may go north
 and south into the plain of Armageddon, or you
 may follow The Euphrates east and west.
 ~
-0 Ci hills
+0 C hills
 D0
 Armageddon
 ~
@@ -4620,7 +4620,7 @@ to your presence. An unholy shrine towers above all in the
 center of the city. On the ground you see a girl worshipping
 a devil idol.
 ~
-0 ADgj city
+0 AD city
 D0
 Gog
 ~
@@ -4639,7 +4639,7 @@ teem and chant the idealogy of the beast. They seem oblivious
 to your presence. An unholy shrine towers above all in the
 center of the city.
 ~
-0 ADgj city
+0 AD city
 D0
 Gog
 ~
@@ -4663,7 +4663,7 @@ teem and chant the idealogy of the beast. They seem oblivious
 to your presence. An unholy shrine towers above all in the
 center of the city.
 ~
-0 ACDgij city
+0 ACD city
 D0
 Gog
 ~
@@ -4693,7 +4693,7 @@ to your presence. An unholy shrine towers above all in the
 center of the city. Here you witness a sorcerer draining the
 blood of a boy for a spell component.
 ~
-0 ADgj city
+0 AD city
 D0
 Gog
 ~
@@ -4717,7 +4717,7 @@ teem and chant the idealogy of the beast. They seem oblivious
 to your presence. An unholy shrine towers above all in the
 center of the city. A discarded vial lies here.
 ~
-0 ADgj city
+0 AD city
 E
 vial~
 5th vial of wrath: the darkening.
@@ -4788,7 +4788,7 @@ as you fly upwards into the sky. About you lightning arcs in
 great sizzling bolts, followed by the deafening boom of thunder.
 Rain beats hard against your face, making it difficult to see.
 ~
-0 ACgi air
+0 AC air
 D0
 The heavens
 ~
@@ -4812,7 +4812,7 @@ as you fly upwards into the sky. About you lightning arcs in
 great sizzling bolts, followed by the deafening boom of thunder.
 Rain beats hard against your face, making it difficult to see.
 ~
-0 Ag air
+0 A air
 D0
 The heavens
 ~
@@ -4836,7 +4836,7 @@ as you fly upwards into the sky. About you lightning arcs in
 great sizzling bolts, followed by the deafening boom of thunder.
 Rain beats hard against your face, making it difficult to see.
 ~
-0 Ag air
+0 A air
 D0
 The heavens
 ~
@@ -4905,7 +4905,7 @@ Around you the earth moves violently. Mile deep fissures open and
 close like giant mouthes trying to bite you. It is all you can
 do to make headway on all fours.
 ~
-0 Ci mountain
+0 C mountain
 D0
 The shaking lands
 ~
@@ -4958,7 +4958,7 @@ teem and chant the idealogy of the beast. They seem oblivious
 to your presence. An unholy shrine towers above all in the
 center of the city.
 ~
-0 ADgj city
+0 AD city
 D0
 Gog
 ~
@@ -4982,7 +4982,7 @@ teem and chant the idealogy of the beast. They seem oblivious
 to your presence. An unholy shrine towers above all in the
 center of the city.
 ~
-0 ADgj city
+0 AD city
 D0
 Gog
 ~
@@ -5011,7 +5011,7 @@ teem and chant the idealogy of the beast. They seem oblivious
 to your presence. An unholy shrine towers above all in the
 center of the city. You see a vial floating in the fountain.
 ~
-0 ADgj city
+0 AD city
 E
 Vial~
 First vial of Divine wrath: the pox.
@@ -5045,7 +5045,7 @@ to your presence. An unholy shrine towers above all in the
 center of the city. Here you see a rich merchant besotted with
 wine.
 ~
-0 ADgj city
+0 AD city
 D0
 Gog
 ~
@@ -5074,7 +5074,7 @@ teem and chant the idealogy of the beast. They seem oblivious
 to your presence. An unholy shrine towers above all in the
 center of the city.
 ~
-0 ADgj city
+0 AD city
 D0
 Gog
 ~
@@ -5098,7 +5098,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 ADgj field
+0 AD field
 D0
 Armageddon
 ~
@@ -5122,7 +5122,7 @@ sound trumpets and cut through sinners with sickles. The sun
 has been swallowed by blackness, and the blood red light of
 the moon flickers across the battlefield.
 ~
-0 ADgj field
+0 AD field
 D0
 Armageddon
 ~
@@ -5146,7 +5146,7 @@ as you fly upwards into the sky. About you lightning arcs in
 great sizzling bolts, followed by the deafening boom of thunder.
 Rain beats hard against your face, making it difficult to see.
 ~
-0 Ag air
+0 A air
 D0
 The heavens
 ~
@@ -5171,7 +5171,7 @@ great sizzling bolts, followed by the deafening boom of thunder.
 Rain beats hard against your face, making it difficult to see.
 Great hail the size of talents pelts you.
 ~
-0 Ag air
+0 A air
 D0
 The heavens
 ~
@@ -5200,7 +5200,7 @@ as you fly upwards into the sky. About you lightning arcs in
 great sizzling bolts, followed by the deafening boom of thunder.
 Rain beats hard against your face, making it difficult to see.
 ~
-0 Ag air
+0 A air
 D0
 The corner of the world
 ~
@@ -5298,7 +5298,7 @@ teem and chant the idealogy of the beast. They seem oblivious
 to your presence. An unholy shrine towers above all in the
 center of the city.
 ~
-0 ADgj city
+0 AD city
 D1
 Gog
 ~
@@ -5317,7 +5317,7 @@ teem and chant the idealogy of the beast. They seem oblivious
 to your presence. An unholy shrine towers above all in the
 center of the city.
 ~
-0 ADgj city
+0 AD city
 D1
 The unholy shrine
 ~
@@ -5342,7 +5342,7 @@ the miracle where the beast's head healed after a severe
 sword wound. There is a giant mound of offerings near
 the throne where the beast rests.
 ~
-0 ADgj city
+0 AD city
 D1
 Gog
 ~
@@ -5366,7 +5366,7 @@ teem and chant the idealogy of the beast. They seem oblivious
 to your presence. An unholy shrine towers above all in the
 center of the city.
 ~
-0 ADgj city
+0 AD city
 D1
 Gog
 ~
@@ -5390,7 +5390,7 @@ teem and chant the idealogy of the beast. They seem oblivious
 to your presence. An unholy shrine towers above all in the
 center of the city.
 ~
-0 ADgj city
+0 AD city
 D2
 Gog
 ~
@@ -5447,7 +5447,7 @@ as you fly upwards into the sky. About you lightning arcs in
 great sizzling bolts, followed by the deafening boom of thunder.
 Rain beats hard against your face, making it difficult to see.
 ~
-0 Ag air
+0 A air
 D1
 The heavens
 ~
@@ -5466,7 +5466,7 @@ as you fly upwards into the sky. About you lightning arcs in
 great sizzling bolts, followed by the deafening boom of thunder.
 Rain beats hard against your face, making it difficult to see.
 ~
-0 Ag air
+0 A air
 D1
 The corner of the world
 ~
@@ -5491,7 +5491,7 @@ corner is the infinite nothing. You feel at peace here. As you
 relax you hear the 7th horn and a SIGHT unfolds before your eyes.
 Floating in the wind is a vial.
 ~
-0 ATUgz air
+0 ATU air
 E
 sight~
 You look skyward, and see the temple of God opening.
@@ -5515,13 +5515,13 @@ D5
 Into the throne room
 ~
 yourheart~
-AFZgl 0 14191
+AFZ 0 14191
 S
 #14183
 The bottomless pit~
 You fall, forever downwards into the bottomless pit. 
 ~
-0 ADNgjt inside
+0 ADN inside
 D5
 Falling further into the black pit
 ~
@@ -5532,7 +5532,7 @@ S
 The bottomless pit~
 You fall, forever downwards into the bottomless pit. 
 ~
-0 ADNgjt inside
+0 ADN inside
 D5
 Falling further into the black pit
 ~
@@ -5543,7 +5543,7 @@ S
 The bottomless pit~
 You fall, forever downwards into the bottomless pit. 
 ~
-0 ADNgjt inside
+0 ADN inside
 D5
 Falling further into the black pit
 ~
@@ -5554,7 +5554,7 @@ S
 The bottomless pit~
 You fall, forever downwards into the bottomless pit. 
 ~
-0 ADNgjt inside
+0 ADN inside
 D5
 Falling further into the black pit
 ~
@@ -5565,7 +5565,7 @@ S
 The bottomless pit~
 You fall, forever downwards into the bottomless pit. 
 ~
-0 ADNgjt inside
+0 ADN inside
 D5
 Falling further into the black pit
 ~
@@ -5576,7 +5576,7 @@ S
 The bottomless pit~
 You fall, forever downwards into the bottomless pit.
 ~
-0 ADNgjt inside
+0 ADN inside
 D5
 Falling further into the black pit
 ~
@@ -5587,7 +5587,7 @@ S
 The bottomless pit~
 You fall, forever downwards into the bottomless pit. 
 ~
-0 ADgj inside
+0 AD inside
 D5
 Falling further into the black pit
 ~
@@ -5598,7 +5598,7 @@ S
 The bottomless pit~
 You fall, forever downwards into the bottomless pit. 
 ~
-0 ADNgjt inside
+0 ADN inside
 D5
 Falling further into the black pit
 ~
@@ -5611,7 +5611,7 @@ You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
 About you are the souls of the dead shuffling foward to be judged.
 ~
-0 NVWt inside
+0 NVW inside
 D0
 The throne room
 ~
@@ -5629,7 +5629,7 @@ You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
 About you are the souls of the dead shuffling foward to be judged.
 ~
-0 NVWt inside
+0 NVW inside
 D0
 The throne room
 ~
@@ -5652,7 +5652,7 @@ You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
 About you are the souls of the dead shuffling foward to be judged.
 ~
-0 NVWt inside
+0 NVW inside
 D0
 The throne room
 ~
@@ -5670,7 +5670,7 @@ You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
 About you are the souls of the dead shuffling foward to be judged.
 ~
-0 NVWt inside
+0 NVW inside
 D0
 The throne room
 ~
@@ -5693,7 +5693,7 @@ You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
 About you are the souls of the dead shuffling foward to be judged.
 ~
-0 NVWt inside
+0 NVW inside
 D0
 At the throne
 ~
@@ -5721,7 +5721,7 @@ You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
 About you are the souls of the dead shuffling foward to be judged.
 ~
-0 NVWt inside
+0 NVW inside
 D0
 The throne room
 ~
@@ -5744,7 +5744,7 @@ You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
 About you are the souls of the dead shuffling foward to be judged.
 ~
-0 NVWt inside
+0 NVW inside
 D1
 At the throne
 ~
@@ -5763,7 +5763,7 @@ tells you 'Now is your time'. With a gesture a black
 hole appears at your feet. He motions for you to go into
 the hole, and resumes his Judgement. 
 ~
-0 NVWt inside
+0 NVW inside
 D1
 The throne room
 ~
@@ -5791,7 +5791,7 @@ You stand in a magnificant throne room. Multitudes and multitudes
 of angles are here singing praise to the one who sits on the throne.
 About you are the souls of the dead shuffling foward to be judged.
 ~
-0 NVWt inside
+0 NVW inside
 D2
 The throne room
 ~

@@ -17,10 +17,10 @@ janitor дворничиха~
 ~
 ~
 human~
-GHmn 0 0 0 0 900 0
+GH 0 0 0 0 900 0
 1 0 2d6+10 1d1+99 1d5+0 'pound'
 10 10 10 10
-NUt
+NU
 stand stand either 10
 0 0 medium unknown
 V 3061
@@ -48,10 +48,10 @@ cityguard guard стражница~
 @rus Большая, сильная, заслуживающая доверия, всегда готовая помочь стражница.
 ~
 human~
-CGTimz 0 0 0 0 1000 3000
+CGT 0 0 0 0 1000 3000
 15 3 15d15+160 1d1+149 2d4+4 'punch'
 0 0 0 8
-CDEKLTUijkqrz
+CDEKLTU
 stand stand either 150
 0 0 medium unknown
 V 3060
@@ -80,7 +80,7 @@ rabbit крольчиха~
 Она жует морковку.
 ~
 rabbit~
-GHUmn 0 0 0 0 100 0
+GHU 0 0 0 0 100 0
 1 0 1d1+10 1d1+99 1d3+0 'bite'
 10 10 10 10
 0
@@ -98,10 +98,10 @@ lizard ящерка~
 (вот редиска)
 ~
 lizard~
-GUm 0 0 0 0 -100 0
+GU 0 0 0 0 -100 0
 2 0 2d2+20 1d1+99 1d4+1 'bite'
 8 8 8 10
-Rx
+R
 stand stand either 0
 0 0 small unknown
 V 3710
@@ -115,10 +115,10 @@ pig свинья~
 @rus Она тебя обхрюкала.
 ~
 pig~
-GUm 0 0 0 0 0 0
+GU 0 0 0 0 0 0
 3 1 3d3+30 1d1+99 1d6+1 'charge'
 7 7 7 9
-CDFRijlx
+CDFR
 stand stand either 0
 0 0 medium unknown
 V 3711
@@ -132,10 +132,10 @@ fox лиса~
 @rus Ага... ее мех, наверное, стоит хороших денег!
 ~
 fox~
-GHUmn 0 0 0 0 100 0
+GHU 0 0 0 0 100 0
 1 1 1d1+12 1d1+99 1d3+1 'bite'
 8 8 8 10
-NRtx
+NR
 stand stand either 0
 0 0 small unknown
 V 3712
@@ -149,10 +149,10 @@ bear медведица~
 @rus Медведица намного больше тебя. Не ты ли убил ее медвежонка?
 ~
 bear~
-GUm 0 0 0 Hn 0 0
+GU 0 0 0 H 0 0
 4 1 4d4+44 1d1+99 1d6+2 'claw'
 6 5 6 7
-CRix
+CR
 stand stand either 0
 0 0 large unknown
 V 3715
@@ -166,10 +166,10 @@ wolf волчица~
 @rus Волчица не желает чтобы ее беспокоили.
 ~
 wolf~
-GUm 0 0 0 Hn 0 0
+GU 0 0 0 H 0 0
 4 0 4d4+44 1d1+99 1d6+2 'bite'
 7 7 7 10
-NRtx
+NR
 stand stand either 0
 0 0 medium unknown
 V 3716
@@ -185,13 +185,13 @@ horn-seeker охотница~
 {x    Не вставай на дороге ее поисков.
 ~
 human~
-HTnz 0 HNVnt 0 BLhr 500 0
+HT 0 HNV 0 BL 500 0
 40 100 3d12+2000 1d1+700 2d7+80 'none'
 -18 -18 -18 -4
-CDEFHIJKLNQijklnopqrtw
+CDEFHIJKLNQ
 stand stand either 20000
 0 0 medium unknown
-F for Hn
+F for H
 r bash 33
 r cold 33
 #0

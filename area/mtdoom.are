@@ -19,10 +19,10 @@ rend the very earth asunder if he is angered. It is small wonder the dark
 powers have chosen him as their fell agent on Anon.
 ~
 human~
-BGhm 0 Nt 0 AHKLgnqr -1000 0
+BG 0 JN 0 AHKL -1000 0
 65 0 50d10+8250 5d5+5000 11d5+35 'pound'
 -35 -35 -35 -5
-EFHIJKNUklnopqt
+EFHIJKNU
 stand stand male 1000
 0 0 medium unknown
 r fire 33
@@ -51,10 +51,10 @@ presence in honor of the alliance he has forged with the dark powers to
 facilitate the conquest of Anon.
 ~
 human~
-BGhm 0 0 0 AHgn -1000 0
+BGJ 0 J 0 AH -1000 0
 56 0 50d10+5750 5d5+5000 10d4+24 'punch'
 -26 -26 -26 -2
-BCEGKhikmq
+BCEGK
 stand stand none 1000
 0 0 medium unknown
 r bash 33
@@ -72,10 +72,10 @@ serve him as a bodyguard (for appearance's sake only- he scarcely has need
 of one) and an executioner. It will kill on a command.
 ~
 golem~
-BGhm 0 0 0 0 0 0
+BG 0 0 0 0 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-EFNUklt
+EFNU
 stand stand none 1000
 0 0 medium unknown
 #14703
@@ -90,10 +90,10 @@ Krothgar performs. This does not mean that he will fail to defend himself
 to the best of his considerable abilities if the need arises.
 ~
 unique~
-BGhm 0 0 0 ABHKLghnqr -1000 0
+BG 0 J 0 ABHKL -1000 0
 60 0 50d10+6750 5d5+5000 8d6+28 'pierce'
 -30 -30 -30 -3
-EFIKUkloq
+EFIKU
 stand stand male 1000
 0 0 large unknown
 r fire 33
@@ -108,10 +108,10 @@ and in charge of the dark lord's impressive force of mages. He is infuriated
 at your untimely interruption and reacts aggressively.
 ~
 human~
-BFGHhlmn 0 0 0 AHLgnr -1000 0
+BFGH 0 J 0 AHL -1000 0
 54 0 50d10+5250 5d5+5000 7d6+22 'punch'
 -24 -24 -24 -1
-EFIKNUkloqt
+EFIKNU
 stand stand male 1000
 0 0 medium unknown
 r bash -50
@@ -141,10 +141,10 @@ critical ceremony! He is extremely angry, and so will his worshippers be...
 He is a total fanatic and will battle to the death.
 ~
 human~
-BFGhlm 0 0 0 AHgn -1000 0
+BFG 0 J 0 AH -1000 0
 54 0 50d10+5250 5d5+5000 7d6+22 'pound'
 -24 -24 -24 -1
-CDEFIJKNQijklopqtw
+CDEFIJKNQ
 stand stand male 1000
 0 0 medium unknown
 #14706
@@ -157,10 +157,10 @@ and carries a HUGE spiked morning star, which he swings casually like it was
 but a wooden stick. He cries out upon spotting you, and prepares for combat.
 ~
 human~
-BFGhlm 0 0 0 Hn -1000 0
+BFG 0 0 0 H -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-CDEFIJKQijklopqw
+CDEFIJKQ
 stand stand male 1000
 0 0 medium unknown
 #14707
@@ -173,10 +173,10 @@ seen. Its jet black coat seems to glow with an inner evil, and you gasp in
 astonishment at the satanic gleam in its dark red eyes.
 ~
 unique~
-BGhm 0 0 0 Hn -1000 0
+BG 0 0 0 H -1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 'charge'
 -13 -13 -13 3
-FKUlq
+FKU
 stand stand none 1000
 0 0 medium unknown
 #14708
@@ -188,10 +188,10 @@ This foul creature is one of the evil priests of the dark lord, and he is
 keen to send your soul to him!
 ~
 human~
-BGhm 0 0 0 Hn -1000 0
+BG 0 0 0 H -1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 'punch'
 -13 -13 -13 3
-EFIKNUkloqt
+EFIKNU
 stand stand male 1000
 0 0 medium unknown
 #14709
@@ -205,10 +205,10 @@ Good ;)
 However, the vile mage who is now drooling insanely seems a little upset...
 ~
 human~
-BFGHhlmn 0 0 0 HLnr -1000 0
+BFGH 0 0 0 HL -1000 0
 45 0 25d10+3000 5d5+1000 3d12+14 'punch'
 -15 -15 -15 2
-FIKUloq
+FIKU
 stand stand male 1000
 0 0 medium unknown
 r fire 33
@@ -234,10 +234,10 @@ This guard is a meber of the blackguard, the fanatical warriors who make up
 the bulk of Lord Krothgar's evil army.
 ~
 human~
-BFGhlm 0 0 0 Hn -1000 0
+BFG 0 0 0 H -1000 0
 48 0 25d10+3750 5d5+1000 6d6+18 'pound'
 -18 -18 -18 1
-CDEFIJKQijklopqw
+CDEFIJKQ
 stand stand male 1000
 0 0 medium unknown
 #14711
@@ -251,10 +251,10 @@ and baleful eyes gleam dangerously from above this maw directly at you. You
 regret your intrusion.
 ~
 red dragon~
-BFGhlm 0 0 0 ABgh -1000 0
+BFG 0 J 0 AB -1000 0
 57 0 50d10+6000 5d5+5000 6d8+24 'claw'
 -27 -27 -27 -2
-CEFMikls
+CEFM
 stand stand none 1000
 0 0 medium unknown
 #14712
@@ -268,10 +268,10 @@ and baleful eyes gleam dangerously from above this maw directly at you. You
 regret your intrusion.
 ~
 black dragon~
-BFGhlm 0 0 0 BKhq -1000 0
+BFG 0 J 0 BK -1000 0
 48 0 25d10+3750 5d5+1000 6d6+18 'claw'
 -18 -18 -18 1
-CEFMikls
+CEFM
 stand stand none 1000
 0 0 medium unknown
 #14713
@@ -285,10 +285,10 @@ and baleful eyes gleam dangerously from above this maw directly at you. You
 regret your intrusion.
 ~
 white dragon~
-BFGhlm 0 0 0 ABgh -1000 0
+BFG 0 J 0 AB -1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 'claw'
 -15 -15 -15 2
-CEFMikls
+CEFM
 stand stand none 1000
 0 0 medium unknown
 #14714
@@ -302,10 +302,10 @@ and baleful eyes gleam dangerously from above this maw directly at you. You
 regret your intrusion.
 ~
 blue dragon~
-BFGhlm 0 0 0 ABgh -1000 0
+BFG 0 J 0 AB -1000 0
 54 0 50d10+5250 5d5+5000 7d6+22 'claw'
 -24 -24 -24 -1
-CEFMikls
+CEFM
 stand stand none 1000
 0 0 medium unknown
 #14715
@@ -319,10 +319,10 @@ and baleful eyes gleam dangerously from above this maw directly at you. You
 regret your intrusion.
 ~
 green dragon~
-BFGhlm 0 0 0 ABgh -1000 0
+BFG 0 J 0 AB -1000 0
 51 0 50d10+4500 5d5+5000 5d8+20 'claw'
 -21 -21 -21 0
-CEFMikls
+CEFM
 stand stand none 1000
 0 0 medium unknown
 #14716
@@ -333,10 +333,10 @@ A fire elemental burns everything in sight.
 This magically-summoned being serves the mages of the tower- sometimes.
 ~
 unique~
-BFGhlm 0 0 0 0 0 0
+BFG 0 0 0 0 0 0
 53 0 50d10+5000 5d5+5000 6d7+21 'magic'
 -23 -23 -23 -1
-EFkl
+EF
 stand stand none 1000
 0 0 medium unknown
 r fire 100
@@ -351,10 +351,10 @@ has no way of returning home. He reacted by slaying first the summoner, and
 now he will try to slay you!
 ~
 human~
-BFGhlm 0 NTtz 0 HKnq -1000 0
+BFG 0 NT 0 HK -1000 0
 49 0 50d10+4000 5d5+1000 4d10+18 'pound'
 -19 -19 -19 1
-FIKloq
+FIK
 stand stand male 1000
 0 0 medium unknown
 r fire 100
@@ -368,10 +368,10 @@ here to amuse him. He occasionally spends time torturing it, but has grown
 bored and will slay it soon.
 ~
 human~
-BGhm 0 HNnt 0 Hn 1000 0
+BG 0 HN 0 H 1000 0
 52 0 50d10+4750 5d5+5000 6d7+20 'pound'
 -22 -22 -22 0
-FIKUloq
+FIKU
 stand stand male 1000
 0 0 medium unknown
 #14719
@@ -383,10 +383,10 @@ This foul mind flayer wants brains, and since Krothgar's followers aren't the
 brightest of creatures it is near starvation. You are a nice surprise...
 ~
 unique~
-BFGHhlmn 0 Nt 0 ABgh -1000 0
+BFGH 0 N 0 AB -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 'charge'
 -20 -20 -20 0
-EFKUklq
+EFKU
 stand stand none 1000
 0 0 medium unknown
 #14720
@@ -398,10 +398,10 @@ This pathetic wretch has lost all hope. Squatting naked and shivering in the
 corner of the cell he gibbers insanely and begs for mercy.
 ~
 human~
-BHhn 0 0 0 Hn 0 0
+BH 0 0 0 H 0 0
 10 0 2d7+121 5d5+100 2d4+2 'punch'
 1 1 1 7
-Fl
+F
 stand stand male 1000
 0 0 medium unknown
 #14721
@@ -413,10 +413,10 @@ This pathetic wretch has lost all hope. Squatting naked and shivering in the
 corner of the cell she gibbers insanely and begs for mercy.
 ~
 human~
-BHhn 0 0 0 Hn 0 0
+BH 0 0 0 H 0 0
 10 0 2d7+121 5d5+100 2d4+2 'slap'
 1 1 1 7
-Fl
+F
 stand stand female 1000
 0 0 medium unknown
 #14722
@@ -430,10 +430,10 @@ fighting race, an experiment finally realised in Korgthar's elite guard.
 These failures have been condemned to a dismal life in the pits.
 ~
 human~
-BFGhlm 0 0 0 BHhn 0 0
+BFG 0 0 0 BH 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 'pound'
 -15 -15 -15 2
-FIJKNUlopqt
+FIJKNU
 stand stand none 1000
 0 0 medium unknown
 #14723
@@ -446,10 +446,10 @@ of humans and elves. It will fight ferociously to defend the home of its
 meal ticket.
 ~
 elf~
-BFGhlm 0 0 0 0 0 0
+BFG 0 0 0 0 0 0
 52 0 50d10+4750 5d5+5000 6d7+20 'charge'
 -22 -22 -22 0
-EFUkl
+EFU
 stand stand none 1000
 0 0 medium unknown
 #14724
@@ -461,10 +461,10 @@ This angry creature is the familiar of some mage or another. It is angered
 at being seen.
 ~
 unique~
-BFGHhlmn 0 Tz ABGghm ABgh -1000 0
+BFGH 0 T ABG AB -1000 0
 25 0 5d10+550 5d5+1000 2d10+7 'magic'
 -7 -7 -7 4
-EFUkl
+EFU
 stand stand none 1000
 0 0 medium unknown
 #14725
@@ -477,10 +477,10 @@ appetite is insatiable and she is always on the lookout for new prey... err
 ... lovers.
 ~
 unique~
-BGHhmn 0 Tz 0 AHgn -1000 0
+BGH 0 JT 0 AH -1000 0
 49 0 50d10+4000 5d5+1000 4d10+18 'pound'
 -19 -19 -19 1
-EFIUklo
+EFIU
 stand stand female 1000
 0 0 medium unknown
 #14726
@@ -491,10 +491,10 @@ An earth elemental smashes everything in sight.
 This magically-summoned being serves the mages of the tower- sometimes.
 ~
 unique~
-BFGhlm 0 0 0 0 0 0
+BFG 0 0 0 0 0 0
 53 0 50d10+5000 5d5+5000 6d7+21 'magic'
 -23 -23 -23 -1
-EFUkl
+EFU
 stand stand none 1000
 0 0 medium unknown
 #14727
@@ -505,10 +505,10 @@ A water elemental inundates everything in sight.
 This magically-summoned being serves the mages of the tower- sometimes.
 ~
 unique~
-BFGhlm 0 0 0 0 0 0
+BFG 0 0 0 0 0 0
 53 0 50d10+5000 5d5+5000 6d7+21 'magic'
 -23 -23 -23 -1
-EFUkl
+EFU
 stand stand none 1000
 0 0 medium unknown
 r cold 100
@@ -520,10 +520,10 @@ An air elemental blows over everything in sight.
 This magically-summoned being serves the mages of the tower- sometimes.
 ~
 unique~
-BFGhlm 0 0 0 0 0 0
+BFG 0 0 0 0 0 0
 53 0 50d10+5000 5d5+5000 6d7+21 'magic'
 -23 -23 -23 -1
-EFUkl
+EFU
 stand stand none 1000
 0 0 medium unknown
 #14729
@@ -535,10 +535,10 @@ Breathing fire and reeking of brimstone, this unholy red-hued hound is indeed
 a terrible sight to behold.
 ~
 unique~
-FGlm 0 0 0 AHgn -1000 0
+FG 0 0 0 AH -1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 'magic'
 -15 -15 -15 2
-EFUkl
+EFU
 stand stand none 1000
 0 0 medium unknown
 #14730
@@ -551,10 +551,10 @@ which rests the inpregnable fortress of their master, Lord Krothgar. They
 fight fearlessly to defend it.
 ~
 fire giant~
-BGhm 0 0 0 Hn -1000 0
+BG 0 0 0 H -1000 0
 51 0 50d10+4500 5d5+5000 5d8+20 'punch'
 -21 -21 -21 0
-CEFIKQikloqw
+CEFIKQ
 stand stand male 1000
 0 0 medium unknown
 r bash 33
@@ -583,10 +583,10 @@ These emissaries are here to form an alliance with the forces of Mount Doom.
 They do not take kindly to intrusions.
 ~
 frost giant~
-BFGhlm 0 0 0 Hn -1000 0
+BFG 0 0 0 H -1000 0
 48 0 25d10+3750 5d5+1000 6d6+18 'punch'
 -18 -18 -18 1
-CEFIKQikloqw
+CEFIKQ
 stand stand male 1000
 0 0 medium unknown
 #14732
@@ -599,10 +599,10 @@ known as Mount Doom, upon which rests the inpregnable fortress of their
 master, Lord Krothgar. They fight fearlessly to defend it.
 ~
 giant~
-BFGhlm 0 0 0 Hn -1000 0
+BFG 0 0 0 H -1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 'punch'
 -15 -15 -15 2
-CEFIKQikloqw
+CEFIKQ
 stand stand male 1000
 0 0 medium unknown
 #14733
@@ -614,10 +614,10 @@ These emissaries are here to form an alliance with the forces of Mount Doom.
 They do not take kindly to intrusions.
 ~
 giant~
-BFGhlm 0 0 0 Hn -1000 0
+BFG 0 0 0 H -1000 0
 54 0 50d10+5250 5d5+5000 7d6+22 'punch'
 -24 -24 -24 -1
-CEFIKQikloqw
+CEFIKQ
 stand stand male 1000
 0 0 medium unknown
 #14734
@@ -630,10 +630,10 @@ runt, as they never cease to point out to him as he makes his way about,
 serving food and drinks in between kicks to the head.
 ~
 human~
-BGHhmn 0 0 0 Hn -400 0
+BGH 0 0 0 H -400 0
 30 0 6d12+853 5d5+1000 4d6+8 'punch'
 -9 -9 -9 3
-CEFIKikloq
+CEFIK
 stand stand male 1000
 0 0 medium unknown
 #14735
@@ -647,10 +647,10 @@ suspicious of the arrangement, however, and view all comers with the same
 degree of caution, but not aggression.
 ~
 human~
-BGhm 0 0 0 AHLgnr -1000 0
+BG 0 J 0 AHL -1000 0
 49 0 50d10+4000 5d5+1000 4d10+18 'punch'
 -19 -19 -19 1
-EFIKQkloqw
+EFIKQ
 stand stand male 1000
 0 0 medium unknown
 #14736
@@ -662,10 +662,10 @@ These grotesques were bred for combat, not sentry duty, and the boredom is
 almost killing them. They don't even notice your presence.
 ~
 human~
-BGhm 0 0 0 Hn -1000 0
+BG 0 0 0 H -1000 0
 48 0 25d10+3750 5d5+1000 6d6+18 'pound'
 -18 -18 -18 1
-CEFIKQikloqw
+CEFIKQ
 stand stand male 1000
 0 0 medium unknown
 #14737
@@ -677,10 +677,10 @@ This two-headed giant is a guard of the more important inhabitants of the
 fortress. He takes his duties very seriously.
 ~
 giant~
-BGhm 0 0 0 Hn -1000 0
+BG 0 0 0 H -1000 0
 52 0 50d10+4750 5d5+5000 6d7+20 'pound'
 -22 -22 -22 0
-CEFIKQikloqw
+CEFIKQ
 stand stand male 1000
 0 0 medium unknown
 #14738
@@ -693,10 +693,10 @@ have achieved more for his cause than a dozen armies. She asks for no quarter,
 and nor does she give any herself.
 ~
 human~
-BGhm 0 Nt 0 AHgn -1000 0
+BG 0 N 0 AH -1000 0
 53 0 50d10+5000 5d5+5000 6d7+21 'pound'
 -23 -23 -23 -1
-CEFIKikloq
+CEFIK
 stand stand female 1000
 0 0 medium unknown
 #14739
@@ -708,10 +708,10 @@ This woman is a member of Krothgar's assassin company, and has slain more
 men and women than any one hundred of his regular soldiers.
 ~
 human~
-BFGhlm 0 0 0 Hn -1000 0
+BFG 0 0 0 H -1000 0
 47 0 25d10+3500 5d5+1000 6d6+17 'pound'
 -17 -17 -17 2
-CEFIKikloq
+CEFIK
 stand stand female 1000
 0 0 medium unknown
 #14740
@@ -723,10 +723,10 @@ This priestess is here to secure an alliance between her people and Krothgar's
 forces. She is not happy about your intrusion into this matter.
 ~
 human~
-BFGHhlmn 0 0 0 AHLgnr -1000 0
+BFGH 0 J 0 AHL -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-CEFIKQikloqw
+CEFIKQ
 stand stand female 1000
 0 0 medium unknown
 #14741
@@ -737,10 +737,10 @@ A hairy warg patrols for trespassers here.
 This beast is a servant of the hill giants who patrol the plains of Doom.
 ~
 human~
-FGlm 0 0 0 BHhn -1000 0
+FG 0 0 0 BH -1000 0
 42 0 25d10+2250 5d5+1000 3d12+14 'punch'
 -14 -14 -14 3
-CEFIKikloq
+CEFIK
 stand stand male 1000
 0 0 medium unknown
 #14742
@@ -751,10 +751,10 @@ A bloodthirsty ghoul slavers uncontrollably.
 This hideous undead wants to feast on your flesh!
 ~
 unique~
-FGlm 0 0 0 Hn -1000 0
+FG 0 0 0 H -1000 0
 46 0 25d10+3250 5d5+1000 6d6+16 'drain'
 -16 -16 -16 2
-EFKklq
+EFK
 stand stand none 1000
 0 0 medium unknown
 #14743
@@ -766,10 +766,10 @@ This vamp is treacherous and deadly. You can see why Krothgar likes having
 her around...
 ~
 human~
-BGHhmn 0 TUz 0 AHgn -1000 0
+BGH 0 JTU 0 AH -1000 0
 52 0 50d10+4750 5d5+5000 6d7+20 'drain'
 -22 -22 -22 0
-EFIKNQkloqtw
+EFIKNQ
 stand stand female 1000
 0 0 medium unknown
 #14744
@@ -783,10 +783,10 @@ by the forces of Good ages ago. And now you have woken him up. Way to go
 slick.
 ~
 human~
-BGhm 0 NTtz 0 ABHKLghnqr -1000 0
+BG 0 JNT 0 ABHKL -1000 0
 60 0 50d10+6750 5d5+5000 8d6+28 'punch'
 -30 -30 -30 -3
-CEFIKQikloqw
+CEFIKQ
 stand stand none 1000
 0 0 medium unknown
 #14745
@@ -799,10 +799,10 @@ serve him as a bodyguard (for appearance's sake only- he scarcely has need
 of one) and an executioner. It will kill on a command.
 ~
 golem~
-BGhm 0 0 0 0 0 0
+BG 0 0 0 0 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-EFNUklt
+EFNU
 stand stand none 1000
 0 0 medium unknown
 #14746
@@ -812,10 +812,10 @@ The Keeper of the Mutant Pit snarls angrily at you.
 ~
 ~
 unique~
-BFGhlm 0 Nt 0 Hn -1000 0
+BFG 0 N 0 H -1000 0
 46 0 25d10+3250 5d5+1000 6d6+16 'bite'
 -16 -16 -16 2
-CEFIKQikloqw
+CEFIKQ
 stand stand none 1000
 0 0 medium unknown
 #14747
@@ -828,10 +828,10 @@ she refrains from attacking, hoping that the guards of the castle will see
 to you so she doesn't have to expend energy fighting.
 ~
 snake~
-BGhm 0 0 0 AHgn -1000 0
+BG 0 J 0 AH -1000 0
 51 0 50d10+4500 5d5+5000 5d8+20 'punch'
 -21 -21 -21 0
-EFIKkloq
+EFIK
 stand stand male 1000
 0 0 medium unknown
 r disease 33
@@ -844,7 +844,7 @@ krothgar armor~
 the armor of Lord Krothgar~
 The armor of Lord Krothgar lies here.~
 steel~
-armor BEGHJLhkmnpr 0 ADgj
+armor BEGHJL 0 AD
 21 21 21 10 0
 65 25 8000 P
 A
@@ -867,7 +867,7 @@ krothgar sword~
 the sword of Lord Krothgar~
 The sword of Lord Krothgar is here.~
 steel~
-weapon BEGHJLhkmnpr 0 ANgt
+weapon BEGHJL 0 AN
 sword 6 11 'pierce' 0
 65 100 10000 P
 A
@@ -882,7 +882,7 @@ krothgar shield~
 the shield of Lord Krothgar~
 The shield of Lord Krothgar is here.~
 steel~
-armor BEGHJLhkmnpr 0 AJgp
+armor BEGHJL 0 AJ
 21 21 21 10 0
 65 15 6000 P
 A
@@ -897,7 +897,7 @@ krothgar helm~
 the cursed helm of Lord Krothgar~
 The cursed helm of Lord Krothgar is here.~
 steel~
-armor BEGHJLMhkmnprs 0 AEgk
+armor BEGHJLM 0 AE
 21 21 21 10 0
 65 5 1000 P
 A
@@ -910,8 +910,8 @@ two handed sword~
 a two-handed sword~
 A two-handed sword lies here.~
 steel~
-weapon BEGJhkmp Bh ANgt
-sword 6 10 'crush' Fl
+weapon BEGJ B AN
+sword 6 10 'crush' F
 56 10 4000 P
 A
 1 3
@@ -927,7 +927,7 @@ burnt helm~
 a burnt helm~
 A burnt helm painted with a hideous visage lies here.~
 steel~
-armor BEGJMhkmps 0 AEgk
+armor BEGJM 0 AE
 18 18 18 9 0
 56 5 3000 P
 A
@@ -944,7 +944,7 @@ iron fist~
 the iron fist~
 The legendary iron fist lies here.~
 iron~
-armor BEGJMhkmps 0 AHgn
+armor BEGJM 0 AH
 16 16 16 8 0
 50 10 40000 P
 A
@@ -959,7 +959,7 @@ barbed flail~
 a demon's barbed flail~
 A demon's barbed flail lies here.~
 steel~
-weapon BEGJhkmp 0 ANgt
+weapon BEGJ 0 AN
 flail 7 9 'whip' 0
 60 10 10000 P
 A
@@ -972,7 +972,7 @@ flaming spear~
 a flaming spear~
 A flaming spear burns into the ground here.~
 steel~
-furniture ABEGJQghkmpw 0 AOgu
+furniture ABEGJQ 0 AO
 0 0 0 0 0
 20 5 0 P
 A
@@ -983,7 +983,7 @@ staff power~
 a staff of power~
 A staff of power has been left here.~
 wood~
-staff AGgm 0 AOgu
+staff AG 0 AO
 54 11 11 'energy drain' 0
 40 10 2000 P
 A
@@ -998,7 +998,7 @@ robes archmage~
 robes of the archmage~
 The robes of the archmage are crumpled up in a corner here.~
 cloth~
-armor AGgm 0 AKgq
+armor AG 0 AK
 17 17 18 9 0
 54 5 1000 P
 A
@@ -1009,7 +1009,7 @@ vial dust~
 a vial of magic dust~
 A vial of magic dust is here.~
 glass~
-potion AGgm 0 AOgu
+potion AG 0 AO
 54 'heal' 'heal' 'heal' 'heal'
 20 3 20000 P
 g none~
@@ -1018,7 +1018,7 @@ dagger~
 a sacrifical dagger~
 A sacrificial dagger is stuck in the ground here.~
 steel~
-weapon EJkp 0 ANgt
+weapon EJ 0 AN
 dagger 5 11 'pierce' 0
 54 5 1000 P
 g none~
@@ -1027,7 +1027,7 @@ robes~
 the high priest's robes~
 The high priest's robes lie here.~
 cloth~
-armor EJkp 0 AKgq
+armor EJ 0 AK
 18 18 17 8 0
 54 5 5000 P
 A
@@ -1038,7 +1038,7 @@ mask~
 the high priest's death mask~
 The high priest's ceremonial mask is here.~
 cloth~
-armor EJkp 0 AEgk
+armor EJ 0 AE
 18 18 17 8 0
 54 3 3000 P
 A
@@ -1051,7 +1051,7 @@ spiked plate mail~
 a suit of spiked plate mail~
 A suit of spiked plate mail has been foolishly discarded here.~
 steel~
-armor BEJhkp 0 ADgj
+armor BEJ 0 AD
 16 17 17 8 0
 50 20 2000 P
 A
@@ -1062,7 +1062,7 @@ morning star~
 a huge morning star~
 A huge morning star is buried in the ground here.~
 wood~
-weapon BEGJhkmp Bh ANgt
+weapon BEGJ B AN
 mace 5 10 'crush' 0
 50 15 3000 P
 A
@@ -1075,7 +1075,7 @@ helm~
 a dark helm~
 A dark helm lies here.~
 steel~
-armor BEJhkp 0 AEgk
+armor BEJ 0 AE
 16 17 17 8 0
 50 5 2000 P
 g none~
@@ -1084,7 +1084,7 @@ dagger~
 a sacrifical dagger~
 A sacrificial dagger is stuck in the ground here.~
 steel~
-weapon EJkp 0 ANgt
+weapon EJ 0 AN
 dagger 4 10 'pierce' 0
 40 5 2000 P
 g none~
@@ -1093,7 +1093,7 @@ robes~
 the priest's robes~
 The priest's robes lie here.~
 cloth~
-armor EJkp 0 AKgq
+armor EJ 0 AK
 13 13 13 6 0
 40 5 1000 P
 g none~
@@ -1102,7 +1102,7 @@ mask~
 the priest's death mask~
 The priest's ceremonial mask is here.~
 cloth~
-armor EJkp 0 AEgk
+armor EJ 0 AE
 13 13 13 6 0
 40 3 1000 P
 g none~
@@ -1111,7 +1111,7 @@ mage robes~
 the mage's robes~
 Some dirty robes covered in chemical stains lie here.~
 cloth~
-armor 0 0 AKgq
+armor 0 0 AK
 15 15 14 7 0
 45 1 1000 P
 g none~
@@ -1120,7 +1120,7 @@ wand~
 a magic wand~
 A magic wand is here.~
 unknown~
-wand AGgm 0 AOgu
+wand AG 0 AO
 45 9 9 'cure critical' 0
 25 4 4000 P
 g none~
@@ -1129,7 +1129,7 @@ elixir chemicals~
 an elixir of noxious chemicals~
 An elixir of noxious chemicals bubbles away here.~
 glass~
-potion Bh 0 AOgu
+potion B 0 AO
 45 'poison' 'weaken' 'acid blast' ''
 40 4 0 P
 g none~
@@ -1138,7 +1138,7 @@ dragon scale~
 a dragon scale~
 A huge dragon scale has been dropped here.~
 dragonskin~
-armor BEJhkp 0 AJgp
+armor BEJ 0 AJ
 15 15 15 7 0
 45 10 2000 P
 A
@@ -1151,7 +1151,7 @@ tooth~
 a dragon tooth~
 A dragon's tooth lies here.~
 bone~
-weapon BEJhkp 0 ANgt
+weapon BEJ 0 AN
 exotic 5 8 'pierce' 0
 45 10 2000 P
 A
@@ -1164,7 +1164,7 @@ claw~
 dragon claws~
 A pair of dragon claws is here.~
 bone~
-armor BEJhkp 0 AHgn
+armor BEJ 0 AH
 16 14 14 8 0
 45 10 1000 P
 A
@@ -1179,7 +1179,7 @@ hide~
 a dragon hide~
 A dragon hide is piled up here.~
 bone~
-armor BEJhkp 0 AKgq
+armor BEJ 0 AK
 15 15 15 8 0
 45 10 1000 P
 A
@@ -1196,7 +1196,7 @@ brazier~
 a bronze brazier~
 A bronze brazier is here.~
 bronze~
-staff Gm 0 AOgu
+staff G 0 AO
 53 1 1 'summon' 0
 40 4 3000 P
 g none~
@@ -1205,7 +1205,7 @@ flask~
 an empty flask~
 This flask has been drained of all magical properties.~
 unknown~
-container 0 0 AOgu
+container 0 0 AO
 1 0 0 0 100
 1 500 0 P
 g none~
@@ -1214,7 +1214,7 @@ manacles~
 a pair of manacles~
 A pair of manacles lies here.~
 iron~
-armor GMms 0 AIgo
+armor GM 0 AI
 0 0 0 0 0
 10 5 0 P
 A
@@ -1227,7 +1227,7 @@ robes~
 an illithid's robes~
 An illithid's robes lie here, discarded.~
 wool~
-armor Gm 0 AKgq
+armor G 0 AK
 16 16 18 8 0
 50 1 3000 P
 A
@@ -1238,7 +1238,7 @@ gem~
 a gem~
 This gem pulses evilly.~
 unknown~
-light AEJgkp 0 AOgu
+light AEJ 0 AO
 0 0 -1 0 0
 40 3 2000 P
 A
@@ -1256,7 +1256,7 @@ a chest~
 A heavy chest rests here.~
 steel~
 container 0 0 0
-10000 Ag 0 0 0
+10000 A 0 0 0
 1 0 0 P
 g none~
 #14734
@@ -1264,7 +1264,7 @@ treasure~
 a great treasure~
 A great treasure lies here.~
 gold~
-money Ag 0 Ag
+money A 0 A
 0 0 0 0 0
 0 100 50000 P
 g none~
@@ -1282,7 +1282,7 @@ silk~
 some expensive silk~
 Some expensive silk has been left here.~
 silver~
-treasure 0 0 AKgq
+treasure 0 0 AK
 0 0 0 0 0
 10 1 15000 P
 g none~
@@ -1291,7 +1291,7 @@ stone~
 a stone~
 A stone is here.~
 stone~
-staff Gm 0 AOgu
+staff G 0 AO
 53 1 1 'summon' 0
 45 5 0 P
 g none~
@@ -1300,7 +1300,7 @@ bowl~
 a bowl~
 A bowl is here.~
 unknown~
-staff Gm 0 AOgu
+staff G 0 AO
 53 1 1 'summon' 0
 45 5 0 P
 g none~
@@ -1309,7 +1309,7 @@ censer~
 a censer~
 A censer is here.~
 unknown~
-staff Gm 0 AOgu
+staff G 0 AO
 53 1 1 'summon' 0
 45 5 0 P
 g none~
@@ -1318,7 +1318,7 @@ spiked collar~
 a spiked collar~
 A spiked collar rests here.~
 leather~
-armor EMks 0 ACgi
+armor EM 0 AC
 14 14 14 6 0
 42 5 1000 P
 A
@@ -1329,7 +1329,7 @@ sword~
 a giant sword~
 A giant sword rests here.~
 steel~
-weapon 0 0 ANgt
+weapon 0 0 AN
 sword 4 11 'crush' 0
 45 25 2000 P
 A
@@ -1340,7 +1340,7 @@ rock~
 a throwing rock~
 A throwing rock lies on the ground here.~
 stone~
-furniture 0 0 AOgu
+furniture 0 0 AO
 0 0 0 0 0
 45 15 0 P
 A
@@ -1353,7 +1353,7 @@ club~
 a wooden club~
 A normal wooden club lies here.~
 wood~
-weapon 0 0 ANgt
+weapon 0 0 AN
 mace 4 11 'pound' 0
 45 5 2000 P
 g none~
@@ -1362,7 +1362,7 @@ collar~
 a slave collar~
 A slave collar lies here.~
 leather~
-armor Ms 0 ACgi
+armor M 0 AC
 0 0 0 0 0
 10 1 0 P
 A
@@ -1379,7 +1379,7 @@ glaive~
 a glaive~
 A glaive has been left propped up here.~
 unknown~
-weapon Gm 0 ANgt
+weapon G 0 AN
 polearm 5 8 'slash' 0
 49 10 0 P
 A
@@ -1392,7 +1392,7 @@ potion~
 a magical potion~
 A magical potion rolls around on the floor here.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 49 'armor' 'bless' 'shield' ''
 30 3 3000 P
 g none~
@@ -1401,7 +1401,7 @@ pole arm~
 a pole arm~
 A pole arm lies here.~
 iron~
-weapon 0 0 ANgt
+weapon 0 0 AN
 polearm 6 8 'crush' 0
 48 10 2000 P
 A
@@ -1414,7 +1414,7 @@ chainmail~
 a suit of black chainmail~
 A tight-fitting suit of black chainmail lies here.~
 leather~
-armor EMks 0 ADgj
+armor EM 0 AD
 16 16 17 8 0
 48 10 1000 P
 A
@@ -1427,7 +1427,7 @@ black sword~
 the black sword~
 The black sword glows here.~
 steel~
-weapon AEGJgkmp 0 ANgt
+weapon AEGJ 0 AN
 sword 5 11 'slash' 0
 53 5 3000 P
 A
@@ -1438,7 +1438,7 @@ blue sword~
 the blue sword~
 The blue sword hums here.~
 unknown~
-weapon BEGJhkmp 0 ANgt
+weapon BEGJ 0 AN
 sword 5 11 'slash' 0
 53 5 0 P
 A
@@ -1449,7 +1449,7 @@ black robes~
 black robes~
 Some black robes with no special properties lie here.~
 steel~
-armor 0 0 AKgq
+armor 0 0 AK
 15 15 14 7 0
 47 1 1000 P
 E
@@ -1462,7 +1462,7 @@ vial poison~
 a vial of poison~
 A vial of poison is here.~
 glass~
-potion 0 0 AOgu
+potion 0 0 AO
 47 'blindness' 'poison' 'poison' ''
 30 3 2000 P
 E
@@ -1475,7 +1475,7 @@ drow cloak~
 a drow cloak~
 A black Drow cloak is crumpled on the floor here.~
 leather~
-armor Ci 0 AKgq
+armor C 0 AK
 16 16 17 8 0
 50 1 2000 P
 A
@@ -1492,7 +1492,7 @@ drow boots~
 a pair of drow boots~
 A pair of black drow boots is here.~
 leather~
-armor Ci 0 AGgm
+armor C 0 AG
 17 16 16 8 0
 50 1 2000 P
 A
@@ -1507,7 +1507,7 @@ drow chain chainmail~
 a suit of drow chainmail~
 A suit of finely crafted adamantite chainmail is here.~
 cloth~
-armor Gm 0 ADgj
+armor G 0 AD
 17 17 16 8 0
 50 5 2000 P
 A
@@ -1522,7 +1522,7 @@ tentacle whip~
 a greater tentacle whip~
 A rod with several writhing tentacles attached is here.~
 leather~
-weapon Gm 0 ANgt
+weapon G 0 AN
 whip 6 8 'whip' 0
 50 10 4000 P
 A
@@ -1535,7 +1535,7 @@ tiara~
 a tiara~
 A tiara lies here.~
 unknown~
-armor GJmp 0 AEgk
+armor GJ 0 AE
 17 17 16 7 0
 50 1 2000 P
 A
@@ -1550,7 +1550,7 @@ key~
 a door key~
 This key allows access to the upper levels.~
 iron~
-key 0 0 AOgu
+key 0 0 AO
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -1566,7 +1566,7 @@ peak of the extinct volcano called by humans Mount Doom. Armies of giants
 patrol the lower slopes, while evil mutants, mages and demons guard the
 fortress itself. Steeling yourself, you push on.
 ~
-0 ACgi field
+0 AC field
 D0
 ~
 ~
@@ -2812,7 +2812,7 @@ stones on floor and walls, the monotony broken only by the occasional torch
 sconce or tattered tapestry. It is evident that this castle has known many
 inhabitants prior to its current ones.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -2832,7 +2832,7 @@ Z -1 14763
 D5
 ~
 ~
-ABZgh -1 14725
+ABZ -1 14725
 S
 #14751
 The Cell Block~
@@ -2841,11 +2841,11 @@ Lord Korgthar is not fond of taking prisoners (hassles, hassles...). If
 you think security is a little lax, think of what lurks outside to deter
 potentianl escapees...
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
-ABZgh 0 14752
+ABZ 0 14752
 D1
 ~
 ~
@@ -2853,7 +2853,7 @@ Z 0 14754
 D2
 ~
 ~
-ABZgh 0 14753
+ABZ 0 14753
 D3
 ~
 ~
@@ -2864,22 +2864,22 @@ A Cell~
 A dank, dismal affair with little in the way of bedding or toilet facilities.
 The stench is actually quite horrendous and you find yourself eager to leave.
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
-ABZgh 0 14751
+ABZ 0 14751
 S
 #14753
 A Cell~
 A dank, dismal affair with little in the way of bedding or toilet facilities.
 The stench is actually quite horrendous and you find yourself eager to leave.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
-ABZgh 0 14751
+ABZ 0 14751
 S
 #14754
 The Cell Block~
@@ -2888,19 +2888,19 @@ Lord Korgthar is not fond of taking prisoners (hassles, hassles...). If
 you think security is a little lax, think of what lurks outside to deter
 potentianl escapees...
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
-ABZgh 0 14755
+ABZ 0 14755
 D1
 ~
 ~
-ABZgh 0 14757
+ABZ 0 14757
 D2
 ~
 ~
-ABZgh 0 14756
+ABZ 0 14756
 D3
 ~
 ~
@@ -2911,44 +2911,44 @@ A Cell~
 A dank, dismal affair with little in the way of bedding or toilet facilities.
 The stench is actually quite horrendous and you find yourself eager to leave.
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
-ABZgh 0 14754
+ABZ 0 14754
 S
 #14756
 A Cell~
 A dank, dismal affair with little in the way of bedding or toilet facilities.
 The stench is actually quite horrendous and you find yourself eager to leave.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
-ABZgh 0 14754
+ABZ 0 14754
 S
 #14757
 A Cell~
 A dank, dismal affair with little in the way of bedding or toilet facilities.
 The stench is actually quite horrendous and you find yourself eager to leave.
 ~
-0 ADgj inside
+0 AD inside
 D3
 ~
 ~
-ABZgh 0 14754
+ABZ 0 14754
 S
 #14758
 Some Quarters~
 You are standing before a solid wooden door that leads to the quarters of
 some of the many types of troops that serve Krothgar.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
-ABZgh 0 14759
+ABZ 0 14759
 D2
 ~
 ~
@@ -2960,23 +2960,23 @@ You are standing in a well-furnished anteroom with doors leading in all four
 directions. No noise comes from behind any- they are quite solid and are
 effectively soundproof.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
-ABZgh 0 14761
+ABZ 0 14761
 D1
 ~
 ~
-ABZgh 0 14762
+ABZ 0 14762
 D2
 ~
 ~
-ABZgh 0 14758
+ABZ 0 14758
 D3
 ~
 ~
-ABZgh 0 14760
+ABZ 0 14760
 S
 #14760
 Assassins' Quarters~
@@ -2986,11 +2986,11 @@ easier to send a single assassin to slay a king and collapse an empire than
 it was to conquer it by brute force. His assassins live in comfort, as he
 values them highly.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
-ABZgh 0 14759
+ABZ 0 14759
 S
 #14761
 The Chief Assassin's Quarters~
@@ -2999,11 +2999,11 @@ efficient assassins, and caught her in flagrante delicto with two naked men
 strapped to racks. She swears and draws her swords, making no attempt to
 cover herself, slaying her slaves before moving to confront you.
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
-ABZgh 0 14759
+ABZ 0 14759
 S
 #14762
 Assassins' Quarters~
@@ -3013,18 +3013,18 @@ easier to send a single assassin to slay a king and collapse an empire than
 it was to conquer it by brute force. His assassins live in comfort, as he
 values them highly.
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~
-ABZgh 0 14759
+ABZ 0 14759
 S
 #14763
 Some Quarters~
 You are standing before a solid wooden door that leads to the quarters of
 some of the many types of troops that serve Krothgar.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -3032,14 +3032,14 @@ Z 0 14750
 D3
 ~
 ~
-ABZgh 0 14764
+ABZ 0 14764
 S
 #14764
 A Corridor~
 You are advancing along a dark corridor that leads to the quarters of Lord
 Krothgar's blackguard.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -3047,11 +3047,11 @@ Z -1 14767
 D1
 ~
 ~
-ABZgh 0 14763
+ABZ 0 14763
 D2
 ~
 ~
-ABZgh 0 14765
+ABZ 0 14765
 S
 #14765
 The Keeper's Chamber~
@@ -3059,15 +3059,15 @@ Here resides the keeper of the Mutant Pit, where the failed experiments of
 the scientist mages are kept to do away with prisoners or insolent guards.
 He likes his job, and isn't about to let you hurt his mutants.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
-ABZgh 0 14764
+ABZ 0 14764
 D5
 ~
 ~
-ABZgh 0 14766
+ABZ 0 14766
 S
 #14766
 The Mutant Pit~
@@ -3075,18 +3075,18 @@ Ack! You're in the mutant pit! Surrounded by gore, excrement, mucous, vomit
 and the remains of dying mutants, you gag and choke and struggle to get out,
 only to find your way blocked by several mutants...
 ~
-0 ADNgjt inside
+0 ADN inside
 D4
 ~
 ~
-ABZgh 0 14765
+ABZ 0 14765
 S
 #14767
 A Corridor~
 You are advancing along a dark corridor that leads to the quarters of Lord
 Krothgar's blackguard.
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
@@ -3094,7 +3094,7 @@ Z 0 14764
 D3
 ~
 ~
-ABZgh 0 14768
+ABZ 0 14768
 S
 #14768
 The Guard Common Room~
@@ -3102,24 +3102,24 @@ Doors lead in all directions from this messy rec room. Blood, beer and food
 stain the straw-covered floor while decomposing human, orc and ogre corpse
 hang from hooks in the ceiling, evidently used as practice dummies.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
-ABZgh 0 14770
+ABZ 0 14770
 D1
 ~
 ~
-ABZgh 0 14767
+ABZ 0 14767
 D2
 ~
 ~
-ABZgh 0 14769
+ABZ 0 14769
 D3
 This door reads- "Upper level access. Authorised personnel only!
 ~
 door~
-ABCZghi 14758 14779
+ABCZ 14758 14779
 D5
 ~
 ~
@@ -3131,11 +3131,11 @@ This rooms is full of messy bunks and snoring guards. Dice and cards are
 scattered across the filthy stone floor, and rats gnaw at the boots of the
 guards.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
-ABZgh 0 14768
+ABZ 0 14768
 S
 #14770
 Guard Quarters~
@@ -3143,11 +3143,11 @@ This rooms is full of messy bunks and snoring guards. Dice and cards are
 scattered across the filthy stone floor, and rats gnaw at the boots of the
 guards.
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
-ABZgh 0 14768
+ABZ 0 14768
 S
 #14771
 Guest Quarters~
@@ -3155,7 +3155,7 @@ Down this southern corridor lie the guest rooms, where the many emissaries
 from the powerful races Krothgar is attempting to gain as allies currently
 reside. They frown upon intruders...
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -3171,7 +3171,7 @@ Down this southern corridor lie the guest rooms, where the many emissaries
 from the powerful races Krothgar is attempting to gain as allies currently
 reside. They frown upon intruders...
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -3179,7 +3179,7 @@ Z -1 14771
 D1
 ~
 ~
-ABZgh 0 14774
+ABZ 0 14774
 D2
 ~
 ~
@@ -3187,7 +3187,7 @@ Z -1 14775
 D3
 ~
 ~
-ABZgh 0 14773
+ABZ 0 14773
 S
 #14773
 Guest Quarters~
@@ -3195,11 +3195,11 @@ These quarters are well-decorated, with well-preserved tapestries and rugs,
 and carved wooden furniture. Alliances with other powers are crucial to
 Krothgar's plans, and he is doing his best to impress his diabolical guests.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
-ABZgh 0 14772
+ABZ 0 14772
 S
 #14774
 Guest Quarters~
@@ -3207,11 +3207,11 @@ These quarters are well-decorated, with well-preserved tapestries and rugs,
 and carved wooden furniture. Alliances with other powers are crucial to
 Krothgar's plans, and he is doing his best to impress his diabolical guests.
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~
-ABZgh 0 14772
+ABZ 0 14772
 S
 #14775
 Guest Quarters~
@@ -3219,7 +3219,7 @@ Down this southern corridor lie the guest rooms, where the many emissaries
 from the powerful races Krothgar is attempting to gain as allies currently
 reside. They frown upon intruders...
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -3227,15 +3227,15 @@ Z -1 14772
 D1
 ~
 ~
-ABZgh 0 14777
+ABZ 0 14777
 D2
 ~
 ~
-ABZgh 0 14778
+ABZ 0 14778
 D3
 ~
 ~
-ABZgh 0 14776
+ABZ 0 14776
 S
 #14776
 Guest Quarters~
@@ -3243,11 +3243,11 @@ These quarters are well-decorated, with well-preserved tapestries and rugs,
 and carved wooden furniture. Alliances with other powers are crucial to
 Krothgar's plans, and he is doing his best to impress his diabolical guests.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
-ABZgh 0 14775
+ABZ 0 14775
 S
 #14777
 Guest Quarters~
@@ -3255,11 +3255,11 @@ These quarters are well-decorated, with well-preserved tapestries and rugs,
 and carved wooden furniture. Alliances with other powers are crucial to
 Krothgar's plans, and he is doing his best to impress his diabolical guests.
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~
-ABZgh 0 14775
+ABZ 0 14775
 S
 #14778
 Guest Quarters~
@@ -3267,22 +3267,22 @@ These quarters are well-decorated, with well-preserved tapestries and rugs,
 and carved wooden furniture. Alliances with other powers are crucial to
 Krothgar's plans, and he is doing his best to impress his diabolical guests.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
-ABZgh 0 14775
+ABZ 0 14775
 S
 #14779
 The Fortress~
 You have entered the restricted area. Staircases run up and down from here,
 and a narrow passage stretches away to the west.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
-ABCZghi 14758 14768
+ABCZ 14758 14768
 D3
 ~
 ~
@@ -3301,7 +3301,7 @@ A Narrow Corridor~
 This corridor runs through the center of the Fortress to the mage towers,
 on the western wall of the fortress. A junction lies to the west.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -3317,7 +3317,7 @@ You may head through doors to the north or south from here, or back east
 to the outer fortress. There is a sign on the south door, and a plaque on
 the northern.
 ~
-0 Dj inside
+0 D inside
 E
 sign~
 The sign reads-
@@ -3340,7 +3340,7 @@ The plaque reads-
 D0
 ~
 ~
-ABZgh 0 14783
+ABZ 0 14783
 D1
 ~
 ~
@@ -3348,18 +3348,18 @@ Z -1 14780
 D2
 ~
 ~
-ABZgh 0 14782
+ABZ 0 14782
 S
 #14782
 The Quarters of the Archmage~
 You have barged into the quarters of Axtraxes, arch mage of Krothgar, and
 ruined his experiment. He's BOUND to be upset.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
-ABZgh 0 14781
+ABZ 0 14781
 S
 #14783
 The Elemental Laboratories~
@@ -3368,7 +3368,7 @@ alembics and a hundred other items scattered about on desks, benches, chairs
 and floors. Everything appears rather damaged, as if someone (or something)
 has recently gone berserk in here...
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -3380,7 +3380,7 @@ Z -1 14786
 D2
 ~
 ~
-ABZgh 0 14781
+ABZ 0 14781
 D3
 ~
 ~
@@ -3393,7 +3393,7 @@ alembics and a hundred other items scattered about on desks, benches, chairs
 and floors. Everything appears rather damaged, as if someone (or something)
 has recently gone berserk in here...
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -3406,7 +3406,7 @@ alembics and a hundred other items scattered about on desks, benches, chairs
 and floors. Everything appears rather damaged, as if someone (or something)
 has recently gone berserk in here...
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
@@ -3419,7 +3419,7 @@ alembics and a hundred other items scattered about on desks, benches, chairs
 and floors. Everything appears rather damaged, as if someone (or something)
 has recently gone berserk in here...
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~
@@ -3430,12 +3430,12 @@ The Lower Chambers~
 You have entered the lower levels of the Fortress, where hideous creatures
 lurk and evil priests engage in foul ceremonies to their demonic deities.
 ~
-0 ADgj inside
+0 AD inside
 D1
 You see an ancient crypt
 ~
 crypt door~
-ABCZghi 0 14788
+ABCZ 0 14788
 D2
 ~
 ~
@@ -3452,7 +3452,7 @@ the foul lich king who once ruled this Fortress and much of the surrounding
 land under an iron fist (literally, Krothgar's golem now wears it). You
 better hope he stayed dead...
 ~
-0 ADNgjt inside
+0 ADN inside
 D3
 ~
 crypt door~
@@ -3465,7 +3465,7 @@ virgins are torn asunder in foul rituals upon altars soaked with the blood
 of thousands of innocents while evil priests look on and pray for a visitation
 from their gods.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -3493,7 +3493,7 @@ from their gods.
 The altar is directly before you, and you see the high priest standing
 behind it, about to sacrifice another virgin.
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -3506,7 +3506,7 @@ virgins are torn asunder in foul rituals upon altars soaked with the blood
 of thousands of innocents while evil priests look on and pray for a visitation
 from their gods. Down from here lairs Jher, ally of Krogthar.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -3522,7 +3522,7 @@ Here Krothgar keeps his hydra, which guards the treasure of the evil temple.
 It is a wild and ferocious beast, which will tear apart anything that enters
 its lair save Krothgar or the high priest.
 ~
-0 ADgj inside
+0 AD inside
 D3
 ~
 ~
@@ -3533,7 +3533,7 @@ A Spiral Staircase~
 You are ascending a spiral staircase that winds up into the heights of the
 multitude of towers that adorn the heights of the Fortress.
 ~
-0 Dj inside
+0 D inside
 D4
 ~
 ~
@@ -3548,23 +3548,23 @@ A Landing~
 You have come to a landing, upon which are 4 doors leading in the cardinal
 directions. The staircase continues its climb in the center.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
-ABZgh 0 14797
+ABZ 0 14797
 D1
 ~
 ~
-ABZgh 0 14798
+ABZ 0 14798
 D2
 ~
 ~
-ABZgh 0 14795
+ABZ 0 14795
 D3
 ~
 ~
-ABZgh 0 14796
+ABZ 0 14796
 D4
 ~
 ~
@@ -3581,11 +3581,11 @@ variety of perfumes, unguents and other cosmetics. Piles of clothing are
 piled on the floor, as if someone had but recently gone through them in
 search of an outfit.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
-ABZgh 0 14794
+ABZ 0 14794
 S
 #14796
 A Bedchamber~
@@ -3594,11 +3594,11 @@ variety of perfumes, unguents and other cosmetics. Piles of clothing are
 piled on the floor, as if someone had but recently gone through them in
 search of an outfit.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
-ABZgh 0 14794
+ABZ 0 14794
 S
 #14797
 A Hall~
@@ -3607,11 +3607,11 @@ high-backed chairs. Seated in these chairs are skeletons (the normal sort)
 clad in royal regalia- these are the many opponents that Krothgar has
 vanquished. He keeps their mortal remains here as trophies.
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
-ABZgh 0 14794
+ABZ 0 14794
 S
 #14798
 A Bedchamber~
@@ -3620,18 +3620,18 @@ variety of perfumes, unguents and other cosmetics. Piles of clothing are
 piled on the floor, as if someone had but recently gone through them in
 search of an outfit.
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~
-ABZgh 0 14794
+ABZ 0 14794
 S
 #14799
 A Spiral Staircase~
 You are ascending a spiral staircase that winds up into the heights of the
 multitude of towers that adorn the heights of the Fortress.
 ~
-0 Dj inside
+0 D inside
 D4
 ~
 ~
@@ -3649,7 +3649,7 @@ from this room. In each tower resides a powerful dragon, loyal allies of the
 Lord. Long wall hangings depict the many victories won by Krothgar, and
 in between them stand members of his elite guard, ready to defend their lord.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -3680,7 +3680,7 @@ Dragon Tower~
 In this tower rests a huge dragon, the largest of its kind. It will not
 appreciate being disturbed by a mortal such as yourself...
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
@@ -3691,7 +3691,7 @@ Dragon Tower~
 In this tower rests a huge dragon, the largest of its kind. It will not
 appreciate being disturbed by a mortal such as yourself...
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -3702,7 +3702,7 @@ Dragon Tower~
 In this tower rests a huge dragon, the largest of its kind. It will not
 appreciate being disturbed by a mortal such as yourself...
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -3713,7 +3713,7 @@ Dragon Tower~
 In this tower rests a huge dragon, the largest of its kind. It will not
 appreciate being disturbed by a mortal such as yourself...
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~
@@ -3724,7 +3724,7 @@ Dragon Tower~
 In this tower rests a huge dragon, the largest of its kind. It will not
 appreciate being disturbed by a mortal such as yourself...
 ~
-0 Dj inside
+0 D inside
 D5
 ~
 ~
@@ -3735,7 +3735,7 @@ Stables~
 Here, the blackguard keep their steeds, evil destriers bred on the plains
 of Hel itself.
 ~
-0 ADgj inside
+0 AD inside
 D4
 ~
 ~

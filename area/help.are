@@ -3723,14 +3723,30 @@ and only obeying them when you just happen to obey the laws, then you are
 chaotic.  Ethos can only be set once.
 ~
 -2 'NEWBIE INFO' NEWBIE~
-Ah! Another mortal, seeking adventure.  You should go through mudschool 
-first, to gain experience to face the trials outside.  Be sure to practice 
-a weapon in the guild room, or your stay with us shall be very short  indeed.
-Type 'equipment' to see what your are wielding, 'spells' to see your spells,
-'skills' to see your skills, and 'commands' for a list of commands. Help is
-available on most commands and abilities.  It is strongly recommended 
-that you  go through all the helps at a low level, especially for first 
-time mudders.
+@eng Ah! Another mortal, seeking adventure. Heed these words:
+ 
+{G*{x go through the school, you'll learn much and prepare to face
+  the trials outside it
+{G*{x some useful commands:
+    {cnorth south west east up down{x - movements
+    {cequipment{x - shows armor, weapon and items you're using
+    {cinventory{x - shows items you're carrying
+    {cskills spells prayers{x - lists powers you possess
+    {ccommands{x - lists all commands
+{G*{x look through helps available to you, especially if you're
+  new to MUDs. Helps can be read with {chelp{x command.
+@rus Итак, еще один смертный искатель приключений. Несколько советов:
+
+{G*{x посети школу, там ты узнаешь многое об этом мире и подготовишься
+  к опасностям, ожидающим тебя
+{G*{x полезные команды:
+    {cnorth  south  west  east  up  down{x - перемещение
+    {cequipment{x - используемое снаряжение
+    {cinventory{x - содержимое вещмешка
+    {cskills  spells  prayers{x - доступные умения, заклинания и молитвы
+    {ccommands{x - список команд
+{G*{x просмотри основную справочную информацию, особенно если ты новичок
+    просмотр справочной инофрмации осуществляется командой {chelp{x
 ~
 0 ASSASSINATE~
 @eng Syntax: {cassassinate{x <victim>
@@ -4536,44 +4552,25 @@ tt++ 1.5pl6 -- notelnet on, noiac on
 tf 4.0g3    -- notelnet off, noiac off
  
 ~
-0 'OLC AEDIT'~
-Syntax: edit area	 -Enters the editor for the current area.
-Syntax: edit area <vnum> -Enters the editor for the selected area.
-
-The follow commands are available from within the AEDITOR:
-
-age <number>        - set the age of the area
-builder <player>    - toggle that builder's access
-commands            - prints a list of possible commands
-create              - create a brand new area and switch to it
-done                - exits the area editor and returns to normal play
-filename <filename> - change the file name for the area (be careful)
-name <name>         - change the 'AREAS' name of this area
-reset               - resets the current area
-security <rating>   - set the security rating for this area
-show                - hitting return, or 'show' shows the area stats
-vnum <lower> <upper>- set the lower and upper vnum's
-lvnum <lower>       - set the lower vnum
-uvnum <upper>       - set the upper vnum
-<flags>             - area flags, type ? AREA for a list
-~
 0 'OLC EXITS'~
-For exits, type the direction (north/s/e/w) followed by:
-
-dig <vnum>         - creates the room and makes a two way link
-link <room vnum>   - make a two way link
-room <room vnum>   - make a one way link (use with caution)
-key <object vnum>  - makes specified object the vnum of the key required
-name <door name>   - makes the door's name/keywords = to the given name
-desc               - edit the description of the exit
-delete             - delete this exit
-flags <flags list> - toggle exit flags
-
-The exit flags are presented in the following manner.  The capitalized
-flags are ones not included in the reset info.  i.e. closed is due to
-a player closing the door and not due to the door being set to be closed.
-
--South to [ 3744] Key: [   -1] Exit flags: [door CLOSED bashed pickproof]
+Syntax: <direction> <command>
+ 
+<direction> is one of: {cnorth south west east up down{x
+You may not shorten these commands to one-letter commands, they retain
+their original meaning.
+ 
+<command> is one of the following:
+{cflags{x <flags list>{x - toggles exit flags, use {c?{x as an argument to see
+                     list of flags
+{cname{x <name>        - toggle names of the exit, enter {cnone{x as
+                     a name to clear list
+{cdelete{x             - deletes an exit
+{clink{x <vnum>        - make two-way link
+{croom{x <vnum>        - make one-way link
+{cdig{x <vnum>         - make a new room and establish two-way link
+{ckey{x <vnum>         - set key vnum for this door
+{cdesc{x <lang>        - make exit description in specified language
+{csize{x <size>        - restrict exit size
 ~
 0 'OLC OEDIT'~
 Syntax: edit object <vnum>	-Enters the editor for the selected object.
@@ -4706,52 +4703,68 @@ dice-bonus on weapon dice.
        50:     5d11
 ~
 0 'OLC EXD'~
-Syntax: exd add keyword lang
-        exd edit keyword lang
-        exd delete keyword
-        exd show keyword
-        exd format keyword
-        exd name keyword name
- 
+Syntax: {cexd add{x <keyword> <lang>
+Syntax: {cexd edit{x <keyword> <lang>
+Syntax: {cexd delete{x <keyword>
+Syntax: {cexd show{x <keyword>
+Syntax: {cexd format{x <keyword>
+Syntax: {cexd name{x <keyword> <new keywords>
 ~
 0 'PROTECTION NEGATIVE'~
 Characters affected by 'protection negative' are immune to negative attack, for example 'energy drain', 'hand of undead', 'corruption'
 ~
 0 'OLC ALIST'~
-Syntax: alist area [substr]
-Syntax: alist clan
-Syntax: alist class
-Syntax: alist race
-Syntax: alist help [keyword]
-Syntax: alist mpcode [all]
-Syntax: alist msgdb substr
-Syntax: alist object <all | name | item_type>
-Syntax: alist mobile <all | name>
-Syntax: alist room
-Syntax: alist {{ implicit | explicit } {{ cases | genders | qtys }
+Syntax: {calist area{x [<substring>]
+Syntax: {calist clan{x
+Syntax: {calist class{x
+Syntax: {calist implicit{x {{ {ccases{x | {cgenders{x | {cqtys{x }
+Syntax: {calist help{x [<keyword>]
+Syntax: {calist lang{x
+Syntax: {calist liquid{x
+Syntax: {calist material{x
+Syntax: {calist mobile{x {{ {call{x | <name> }
+Syntax: {calist mpcode{x [ {call{x ]
+Syntax: {calist msg{x <substring>
+Syntax: {calist object{x {{ {call{x | <name> | <item type> }
+Syntax: {calist race{x
+Syntax: {calist room{x
+Syntax: {calist social{x
+Syntax: {calist skill{x
+Syntax: {calist spec{x
  
-From OLC editor you can use shortened version of this command ({Clist{x) with
-the same args.
-Default area for 'alist mobile/object' is the currently edited area or the
-area currently edited object is in.
-'alist help' will show all available help topics in the currently edited
-area or the area currently edited object is in. 'alist help keyword'
-will show all available help topics in all areas matching specified
-keyword.
+From OLC editor you can use shortened version of this command ({clist{x)
+with the same arguments, omitting type argument, for example
+   {clist orc{x
+instead of
+   {calist mob orc{x
+when you edit mobiles.
  
+Default area for room/mobile/object listings is currently edited area or
+the area that contains currently edited object. If you are not editing
+anything or edit non-area objects (like clans, classes etc.) then default
+area will be the area you stand in.
+ 
+Listings of mpcode/help will show all these objects in default area. Though,
+if you specify an argument for these commands, you'll get a listing of all
+objects in the world that match your criteria.
 ~
 0 'OLC ASAVE'~
-Syntax: asave world                 - save all areas
-Syntax: asave changed               - save changed areas
-Syntax: asave clans                 - save changed clans
-Syntax: asave class
-Syntax: asave msgdb                 - save msgdb
-Syntax: asave socials               - save socials
-Syntax: asave langs                 - save langs 
-Syntax: asave implicit              - save implicit rules
-Syntax: asave explicit              - save explicit rules
+Syntax: {casave world{x     (to save all areas)
+Syntax: {casave areas{x     (to save changed areas)
+Syntax: {casave clans{x
+Syntax: {casave classes{x
+Syntax: {casave explicit{x
+Syntax: {casave implicit{x
+Syntax: {casave lang{x
+Syntax: {casave liquids{x
+Syntax: {casave materials{x
+Syntax: {casave msgdb{x
+Syntax: {casave races{x
+Syntax: {casave skills{x
+Syntax: {casave socials{x
+Syntax: {casave specs{x
  
-Please note that 'asave world/changed' will save only authorized areas.
+Attempt to save areas will save only areas you authorized to edit.
 ~
 0 'OLC INTRO'~
 OLC (On-Line Creation) allows to create/edit misc objects on-line.
@@ -4772,66 +4785,86 @@ SEE ALSO: 'OLC CREATE', 'OLC EDIT', 'OLC ALIST', 'OLC ASAVE', 'OLC RESETS'
  
 ~
 0 'OLC CREATE'~
-Syntax: create area
-Syntax: create object vnum
-Syntax: create mobile vnum
-Syntax: create room vnum
-Syntax: create mpcode vnum
-Syntax: create help keyword
-Syntax: create race name
-Syntax: create clan name
-Syntax: create class name
-Syntax: create msg message
-Syntax: create social name
-Syntax: create lang name
-Syntax: create explicit {{ case | gender | qty } name
-Syntax: create implicit {{ case | gender | qty } number name
+Syntax: {ccreate area{x
+Syntax: {ccreate clan{x <name>
+Syntax: {ccreate class{x <name>
+Syntax: {ccreate explicit{x <rule class> <word>
+Syntax: {ccreate help{x <topic>
+Syntax: {ccreate implicit{x <rule class> <num> <word>
+Syntax: {ccreate lang{x <name>
+Syntax: {ccreate liquid{x <name>
+Syntax: {ccreate material{x <name>
+Syntax: {ccreate mobile{x <vnum>
+Syntax: {ccreate mpcode{x <vnum>
+Syntax: {ccreate msg{x <message>
+Syntax: {ccreate object{x <vnum>
+Syntax: {ccreate race{x <name>
+Syntax: {ccreate room{x <vnum>
+Syntax: {ccreate skill{x <name>
+Syntax: {ccreate social{x <name>
+Syntax: {ccreate spec{x <name>
  
+<rule class> is one of: {ccases genders qtys{x
+<num> is a rule number, created rule will be inserted into list
+appropriately.
+<message> should be exact copy of message used in source code
 ~
 0 'OLC EDIT'~
-Syntax: edit area [vnum]
-Syntax: edit room [vnum]
-Syntax: edit mobile vnum
-Syntax: edit object vnum
-Syntax: edit mpcode vnum
-Syntax: edit help [num.]keyword
-Syntax: edit race name
-Syntax: edit clan name
-Syntax: edit class name
-Syntax: edit msg substr
-Syntax: edit social name
-Syntax: edit lang name
-Syntax: edit implicit {{ case | gender | qty } num
-Syntax: edit explicit {{ case | gender | qty } name
+Syntax: {cedit area{x [<vnum>]
+Syntax: {cedit clan{x <name>
+Syntax: {cedit class{x <name>
+Syntax: {cedit explicit{x <rule class> <word>
+Syntax: {cedit help{x [<num>.]<topic>
+Syntax: {cedit implicit{x <rule class> <num>
+Syntax: {cedit lang{x <name>
+Syntax: {cedit liquid{x <name>
+Syntax: {cedit material{x <name>
+Syntax: {cedit mobile{x <vnum>
+Syntax: {cedit mpcode{x <vnum>
+Syntax: {cedit msg{x [<num>.]<substr>
+Syntax: {cedit object{x <vnum>
+Syntax: {cedit race{x <name>
+Syntax: {cedit room{x <vnum>
+Syntax: {cedit skill{x <name>
+Syntax: {cedit social{x <name>
+Syntax: {cedit spec{x <name>
  
+<rule class> is one of: {ccases genders qtys{x
+If no <vnum> is specified for {cedit area{x or {cedit room{x,
+the one you're in will be edited.
+{cedit help{x and {cedit msg{x can take numeric prefix, to choose
+among some topics/messages.
+<name> for most editor can be shortened, the only rule is to avoid
+ambiguity.
 ~
 0 'OLC ASHOW'~
-Syntax: ashow area [vnum]
-Syntax: ashow room [vnum]
-Syntax: ashow mobile [vnum]
-Syntax: ashow object [vnum]
-Syntax: ashow help [[num.]keyword]
-Syntax: ashow race [name]
-Syntax: ashow clan [name]
-Syntax: ashow class name
-Syntax: ashow msg [msg]
-Syntax: ashow implicit {{ case | gender | qty } num
-Syntax: ashow explicit {{ case | gender | qty } name
+Syntax: {cashow area{x [<vnum>]
+Syntax: {cashow clan{x [<name>]
+Syntax: {cashow class{x [<name>]
+Syntax: {cashow explicit{x [<class> <word>]
+Syntax: {cashow help{x [[<num>.]<topic>]
+Syntax: {cashow implicit{x [<class> <number>]
+Syntax: {cashow lang{x [<name>]
+Syntax: {cashow liquid{x [<name>]
+Syntax: {cashow material{x [<name>]
+Syntax: {cashow mobile{x [<vnum>]
+Syntax: {cashow mpcode{x [<vnum>]
+Syntax: {cashow object{x [<vnum>]
+Syntax: {cashow race{x [<name>]
+Syntax: {cashow room{x [<vnum>]
+Syntax: {cashow skill{x [<name>]
+Syntax: {cashow social{x [<name>]
+Syntax: {cashow spec{x [<name>]
  
-The defaults are:
-- currently edited area, the area the char is in (in that order)
-  (for 'ashow area')
-- currently edited room, the room the char is in (in that order)
-  (for 'ashow room')
-- currently edited object for other objects
+Default is currently edited object. For {cashow room{x and {cashow area{x
+default is room/area you're in if no room/area is being edited.
  
-This function is available in shortened form from OLC editors
-(command {Cshow{x, or by pressing enter on empty line)
- 
+From OLC editor you can use shortened form ({cshow{x) or just press RETURN
+on empty line.
 ~
 0 'OLC ADDAFFECT'~
-Syntax: {caddaffect{x {{ <where> | none } {{ <loc> <mod> | none } [<bitvector>]
-Syntax: {caddaffect{x skill <skill> <mod> [<bitvector>]
+Syntax: {caddaffect{x { <where> | {cnone{x } { <loc> <mod> | {cnone{x } [<bitvector>]
+Syntax: {caddaffect skill{x {{ <skill> | {creserved{x } <mod> [<bitvector>]
 ~
 0 TWIT~
 @eng Syntax: {ctwit{x <name>
@@ -5123,14 +5156,7 @@ belong to.
 Бессмертный может дополнительно указать клан. Смертные могут увидеть только
 список клана, к которому принадлежат.
 ~
-0 'OLC FORM'~
-Syntax: form add num text
-Syntax: form del num
- 
-'form' command will add/delete form number num.
- 
-~
-0 'OLC MSGDB'~
+0 MSGDB~
 Every message going through char_xxx or act_xxx to player is
 translated on-the-fly using msgdb facilities.
 Additional functionality is available in act_xxx functions:
@@ -5176,7 +5202,7 @@ $gx{{..} and $cn{{...} calls can be nested. For example in the phrase
 depending on the sex of ch and then in the case form 4.
  
 Forms can be created/edited with OLC via "create/edit form" commands.
-See "help 'OLC FORMS INTRO"' for more info.
+See also: {CHELP 'OLC FORMS INTRO'{x
  
 ~
 0 'CLAN KNIGHT' KNIGHT~
@@ -5210,20 +5236,23 @@ way of Death, Chaos and Terror...
 и что бы ты не делал,  всегда помни:  отныне и навсегда звание твое - Рыцарь, 
 имя тебе - Честь!
 ~
-0 'OLC ROOM CLONE'~
-Syntax: clone [all] vnum
+0 'OLC CLONE'~
+Syntax: {cclone{x <vnum>
+Syntax: {cclone all{x <vnum>
  
-'clone' command will clone name and description from the specified room.
-if argument "all" is given the also room exd, owner, clan, flags, sector
-type and heal/mana rates are cloned.
- 
+These commands copy object/mobile/room with specied vnum into object/
+mobile/room being edited. When using this for room cloning, this will
+copy only room name and description. To copy everything (exds, clan,
+flags, sector type, heal and mana rates), use {cclone all{x command.
 ~
 0 'OLC CLAN PLIST'~
-Syntax: plist [member | second | leader] [name]
+Syntax: {cplist{x <list> <name>
  
-'plist xxx' will toggle name in clan xxx list. If no name parameter is given
-'plist xxx' will show current clan xxx list.
+<list> is one of: {cmember{x, {csecond{x, {cleader{x
+<name> is character's name
  
+Without <name> argument, this command will show you current state of
+specified list.
 ~
 immortal 'WIZ CHQUEST' CHQUEST~
 @eng Syntax: {cchquest status{x
@@ -5496,7 +5525,7 @@ Thanks to ...
 * Players who use russian codepages, see '{CHELP RUSSIAN{x'.
 * Check out our homepage at {Chttp://iclub.nsu.ru/mud/{x.
 ~
-immortal __IMOTD~
+immortal IMOTD~
 @eng Welcome Immortal!
  
 You are responsible for following the laws of immortal behavior. These can
@@ -7190,96 +7219,140 @@ Syntax: {cpose list{x
  
 To add new pose: {cpose add, pose self{x <number> <msg>, {cpose others{x <number> <msg>
 ~
-immortal IMOTD~
-1. Есть предложение писать в help imotd краткие сообщения - чтоб не писать
-   ноты изза одной фразы.
-2. Старый help imotd переименован в help __imotd
-3. Команда addaffect пока глючит! лучше пока ее не трогать - МУД падает.
-   #Arborn
-~
 immortal 'OLC CC_RULESET'~
-{RHELP OBSOLETE{x. New one will be available ASAP.
-Syntax: <cmd> show
-Syntax: <cmd> order <type> <order>
-Syntax: <cmd> order <type> ?
-Syntax: <cmd> add <type> [ allow | deny ] <check expression>
-Syntax: <cmd> delete <type> [ allow | deny ] <num>
+Syntax: <cmd> {cshow{x
+Syntax: <cmd> {corder{x <order>
+Syntax: <cmd> {cadd{x { {callow{x | {cdeny{x } <expression>
+Syntax: <cmd> {cdelete{x {{ {callow{x | {cdeny{x } <number>
  
-{c<cmd>{x depends on your current OLC editor (e.g.: 'restrictions' if
-you are editing an object)
+<cmd> is OLC command for checking CC rules, i.e. {crestrictions{x
+for object wear restrictions.
  
-{c<order>{x can be one of the following:
-deny_allow     - `deny' rules are checked before `allow' rules.
-                 Initial state is OK.
-allow_deny     - `allow' rules are checked before `deny' rules.
-                 Initial state is FORBIDDEN.
-mutual_failure - the result will be OK only if `allow' rules are fulfilled
-                 and `deny' rules are not. Otherwise the result will be
-                 FORBIDDEN. Initial state is irrelevant.
+<order> is one of the following:
+{cdeny_allow{x     - check 'deny' rules first, initial state is OK
+{cdeny_allow{x     - check 'allow' rules first, initial state is FORBIDDEN
+{cmutual_failure{x - OK only if 'allow' rules are fulfilled and 'deny'
+                 are not. Otherwise FORBIDDEN.
  
-See additional help (listed below) for lists of valid <type>'s
-and <check expression>'s.
- 
-Additional helps:
-        'CC_RULES OBJ_WEAR'
-        'CC_RULES SPEC'
+See also for details on expressions:
+{CHELP 'OLC CC_RULES EXPRESSIONS'{x
 ~
-immortal 'CC_RULES OBJ_WEAR'~
-Valid types and check expressions for "obj_wear" cc_rule class are:
-
-'{crace{x'
-        the only valid check expression for this type is
-        list of races. Rule is matched when character's
-        race is in the list of races specified in check expression.
- 
-'{cclass{x'
-        like 'race' type but match character's class.
- 
-'{cminsize{x'
-        valid check expression is size name. valid size names are
-        'tiny', 'small', 'medium', 'large', 'huge', 'giant' and
-        'gargantuan' (in ascending order). Rule is matched when
-        character's size is not greater than specified in
-        check expression.
- 
-E.g.: suppose you have the following restrictions for some object:
-        [race]
-        order allow_deny
-        allow human
- 
-        [class]
-        order deny_allow
-        deny thief assassin
- 
-This will allow to wear such object only for human's except
-thieves and assassins.
- 
-SEE ALSO: 'OLC CC_RULES'
-~
-immortal 'CC_RULES SPEC'~
-Valid types and check expressions for "spec" cc_rule class are:
- 
-'{chas_spec{x'
-        check expression for this type is list of skill specs.
-        Rule is matched when character has on of given specs.
- 
-'{cspclass_limit{x'
-        check expression is: <spclass> <num>.
-        <speclass> is spec class. Rule is matched when character
-        has not more than <num> specs from spec class <spclass>.
- 
-SEE ALSO: 'OLC CC_RULES'
-~
-0 specialize~
-Syntax: {c specialize weapon_type{x
+0 SPECIALIZE~
+@eng Syntax: {cspecialize{x <weapon type>
  
 Using this command, warriors can choose their weapon specialization.
-Warriors, specialized in certain weapon type, gains additional skills, 
+Warriors, specialized in certain weapon type, gain additional skills, 
 related to that weapon.
+@rus Синтаксис: {cspecialize{x <тип оружия>
+ 
+При помощи этой команды, воин может выбрать тип оружия, который он
+изучит досконально. получив дополнительные умения.
 ~
 0 pray~
 Syntax:{cpray{x <prayer> <target>
  
+~
+immortal 'OLC CC_RULES EXPRESSIONS'~
+Condition checking expression is one of the following:
+ 
+cc_fun{c("{xargument{c"){x
+{c({xexpression{c){x
+{c!{xexpression
+expression_1 {cAND{x expression_2
+expression_1 {cOR{x expression_2
+ 
+List of cc_functions with explanation of arguments is below.
+ 
+Object wear restrictions:
+{crace{x    - TRUE if character is of the races listed. Argument is
+          space-separated list of races.
+{cclass{x   - TRUE if character is of the classes listed. Argument
+          is space-spearated list of classes.
+{cminsize{x - TRUE if character's size is not greater then specified
+ 
+Spec dependancies:
+{chas_spec{x      - TRUE if character has at least one of specs
+                listed in argument.
+{cspclass_limit{x - TRUE if character has no more then specified
+                number of specs of given class. Argument is
+                "number class" format, class is one of the following:
+                {crace{x, {cweapon{x, {cclass[x, {cclan{x.
+~
+immortal 'OLC CLASS GUILDS'~
+Syntax: {cguilds list{x
+Syntax: {cguilds add{x <vnum>
+Syntax: {cguilds delete{x <vnum>
+ 
+These commands manage guildroom list for given class.
+~
+0 'OLC VFORM'~
+Syntax: {cadd{x <num> <text>
+Syntax: {cdel{x <num>
+ 
+These commands add/delete word forms.
+~
+0 'OLC SPEC SKILL'~
+Syntax: {cskill add{x <skill name>
+Syntax: {cskill edit{x <number> <field> <value>
+Syntax: {cskill delete{x <number>
+ 
+These commands manage skills in a spec. <field> can be one of:
+{clevel rating min adept max{x
+ 
+<number> is number shown next to skill with {cshow{x command.
+~
+0 'OLC RACE CLASS'~
+Syntax: {cclass add{x <class name> <exp multiplier>
+Syntax: {cclass delete{x <class name>
+ 
+These commands add/delete classes available to given race.
+~
+0 'OLC FORMS'~
+Forms are numbered. Numeration is explained below.
+ 
+Case forms:
+Basic form is given in nominative.
+[1] Genitive
+[2] Dative
+[3] Accusative (non-alive form)
+[4] Instrumentalis
+[5] Prepositive
+[6] Accusative (alive form)
+(Note: since in russian many words' declension differs depending on
+whether it is alive or not, there are two forms of accusative. This
+is especially relevant when making forms of adjectives)
+ 
+Gender forms:
+Basic form is given in masculine gender.
+[1] Feminine gender
+[2] Neutral gender
+[3] Plural form
+ 
+Qtys forms:
+Basic form is given in form referring to many items.
+[nn] Form referring to nn items.
+~
+0 'OLC MSG'~
+Syntax: {cmsg{x <lang> <message>
+ 
+Adds a message for on-the-fly translation database.
+~
+0 'OLC LANG SLANG'~
+Syntax: {cslang{x <lang>
+ 
+Makes language being edited to be slang of <lang>. Wherever a translation
+to slang language is required and requested form could not be found, basic
+language form is used instead.
+~
+0 'OLC RULECLASS'~
+Syntax: {cruleclass{x <class> <type> <filename>
+Syntax: {cruleclass{x flags <flags list>
+ 
+<class> is one of the following: {ccases{x, {cgenders{x or {cqtys{x.
+<type> is either {cexplicit{x or {cimplicit{x, the latter is used for
+automatical creation of the former.
+<filename> is name of file for this rules to be saved.
+<flags list> ... there's no flags you can set for rules manually.
 ~
 -1 $~
 

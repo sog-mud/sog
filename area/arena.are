@@ -17,10 +17,10 @@ The shopkeeper is here, selling tickets.
 You see a huge man wearing white clothes. He looks quiet strong. 
 ~
 human~
-BGQRTehmwxz 0 HVn 0 0 0 0
+BGQRTe 0 HV 0 0 0 0
 100 100 1d1+30000 0d0+0 20d20+100 'none'
 0 0 0 0
-EFJKklpq
+EFJK
 stand stand male 0
 0 0 medium unknown
 r bash 100
@@ -47,10 +47,10 @@ Huge man stands here, guarding the entrance.
 ~
 ~
 giant~
-BGRThmxz 0 HVn 0 0 0 0
+BGRT 0 HV 0 0 0 0
 30 0 10d61+500 0d0+0 5d7+20 'none'
 -10 -10 -10 -10
-CEFJKNOiklpqtu
+CEFJKNO
 stand stand male 3000
 0 0 huge unknown
 M exall 35301 3~
@@ -62,7 +62,7 @@ ticket arena~
 the ticket to arena~
 A little piece of paper lies here.~
 paper~
-trash 0 0 AOgu
+trash 0 0 AO
 0 0 0 0 0
 10 1 100 P
 g none~
@@ -71,8 +71,8 @@ battleaxe axe~
 A huge battleaxe~
 A sharp battleaxe is here.~
 mithril~
-weapon BHYhn 0 ANgt
-axe 8 4 'frbite' BDhj
+weapon BHY 0 AN
+axe 8 4 'frbite' BD
 31 7 100000 P
 g none~
 #0

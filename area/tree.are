@@ -16,10 +16,10 @@ A Hollyphant is delivering a message here.
 It looks like a large, winged, furry elephant.  It emits an aura of goodness.
 ~
 dragon~
-Gm 0 0 0 Ag 1000 2900
+G 0 0 0 A 1000 2900
 16 0 3d9+233 159d1+1 1d12+3 'crush'
 -2 -2 -2 5
-CDFijl
+CDF
 stand stand either 2000
 0 0 medium unknown
 #2901
@@ -31,10 +31,10 @@ Humanoid in appearance, the planetar has wings and is
 hairless.  He is on a mission from his deity.
 ~
 human~
-BGhm 0 Hn Ag AKgq 900 2901
+BG 0 H A AK 900 2901
 30 0 6d12+778 299d1+1 5d4+7 'punch'
 -9 -9 -9 6
-CDFKijlq
+CDFK
 stand stand either 4500
 0 0 medium unknown
 #2902
@@ -46,10 +46,10 @@ Half man, half beast.  The Shedu is out looking for evil anywhere it may be
 and it will hunt down until death is the result.
 ~
 human~
-Gm 0 0 0 Bh 850 2902
+G 0 0 0 B 850 2902
 25 0 5d10+550 249d1+1 2d10+7 'pierce'
 -7 -7 -7 6
-CDFJijlp
+CDFJ
 stand stand either 500
 0 0 medium unknown
 #2903
@@ -61,10 +61,10 @@ A pathetic, slobbering thing.  The dretch is constantly picked on by its more
 powerful, demon brothers.
 ~
 bear~
-BGHhmn 0 0 0 ABgh -800 2903
+BGH 0 0 0 AB -800 2903
 10 0 2d7+121 99d1+1 2d4+2 'punch'
 1 1 1 8
-CFil
+CF
 stand stand either 800
 0 0 medium unknown
 #2904
@@ -76,10 +76,10 @@ The chasme or fly demon is half-human and half-fly.  They dont like anyone,
 not even other demons.
 ~
 human~
-CGim 0 0 0 ABgh -900 2904
+CG 0 0 0 AB -900 2904
 20 0 3d9+308 199d1+1 3d4+4 'pound'
 -4 -4 -4 2
-CDEFIKNijkloqt
+CDEFIKN
 stand stand either 2000
 0 0 medium unknown
 r fire -50
@@ -106,10 +106,10 @@ a skeleton with a black leather jumpsuit on.  He is constantly searching
 for flesh to eat.
 ~
 human~
-Gm 0 0 0 0 -1000 2905
+G 0 J 0 0 -1000 2905
 15 0 3d9+208 149d1+1 2d6+3 'punch'
 -2 -2 -2 7
-EFkl
+EF
 stand stand either 1400
 0 0 medium unknown
 #2906
@@ -121,10 +121,10 @@ The yagnodemon has one man-sized and one giant-sized arm. With the giant-sized
 arm it can wield huge weapons.  He is not in a good mood right now.
 ~
 human~
-CGim 0 0 0 ABLghr -950 2906
+CG 0 0 0 ABL -950 2906
 25 0 5d10+500 249d1+1 4d4+6 'smash'
 -7 -7 -7 8
-DFJjlp
+DFJ
 stand stand either 2900
 0 0 medium unknown
 #2907
@@ -136,10 +136,10 @@ Kostchtchie a powerful demon lord is here.  Obviously derived from giant stock,
 he is very powerful.  And he does not like to be interrupted.
 ~
 human~
-BFGhlm 0 0 0 ABgh -1000 2907
+BFGJ 0 J 0 AB -1000 2907
 40 0 15d10+1800 399d1+1 4d8+11 'chill'
 -13 -13 -13 4
-FIlo
+FI
 stand stand either 6900
 0 0 medium unknown
 r charm 100
@@ -152,10 +152,10 @@ A tall, thin demon, the nabassu are very bat-like in appearance.
 He seems to have an intense interest in you.
 ~
 human~
-CGim 0 0 0 Ag -950 2908
+CG 0 0 0 A -950 2908
 15 0 2d10+190 149d1+1 1d10+3 'slap'
 -1 -1 -1 2
-FIlo
+FI
 stand stand either 1120
 0 0 medium unknown
 r bash -50
@@ -170,10 +170,10 @@ This dragon is as large as a red dragon, but does not like to get involved
 in the struggle between good and evil.  It wants to be left alone.
 ~
 dragon~
-BGhm 0 Hn 0 ABgh 0 2909
+BG 0 H 0 AB 0 2909
 35 0 10d10+1100 349d1+1 4d7+9 'bite'
 -11 -11 -11 5
-FIKLNloqrt
+FIKLN
 stand stand either 8000
 0 0 large unknown
 #2910
@@ -185,10 +185,10 @@ A beautiful being, the solar is totally dedicated to the continuation
 of the good beings.
 ~
 human~
-BGhm 0 Hn 0 ABKghq 1000 2910
+BG 0 H 0 ABK 1000 2910
 47 0 25d10+3500 469d1+1 8d4+16 'slash'
 -17 -17 -17 0
-FIlo
+FI
 stand stand either 8000
 0 0 medium unknown
 #2911
@@ -200,10 +200,10 @@ Part man, part lion, and part horse; the wemic is a creature
 not to be taken lightly.
 ~
 bear~
-Ci 0 0 0 Bh 100 2911
+C 0 0 0 B 100 2911
 10 0 2d7+121 99d1+1 2d4+2 'punch'
 1 1 1 8
-ABCghi
+ABC
 stand stand either 800
 0 0 medium unknown
 #2912
@@ -215,10 +215,10 @@ Large members of the giant family, the frost giants are ravenous collectors
 of treasure.  They dont like to share this treasure with anyone.
 ~
 giant~
-BFGhlm 0 0 0 ABgh -300 2912
+BFGJ 0 0 0 AB -300 2912
 25 0 5d10+550 249d1+1 2d10+7 'grep'
 -7 -7 -7 6
-FJKNlpqt
+FJKN
 stand stand male 3400
 0 0 large unknown
 r charm 100
@@ -231,10 +231,10 @@ This three-headed monster is waiting to rip the head off of its latest victim
 to add to its collection.  Watch out for that breath attack.
 ~
 dragon~
-BFGhlm 0 0 0 Ag -750 2913
+BFGJ 0 0 0 A -750 2913
 20 0 3d9+300 199d1+1 2d8+2 'claw'
 -4 -4 -4 7
-FIKNloqt
+FIKN
 stand stand either 2500
 0 0 large unknown
 r charm 100
@@ -247,10 +247,10 @@ You see a giant squirrel carrying greetings and tidings from the various
 deities residing in these realms.  He does not want to be delayed in his task.
 ~
 human~
-CGim 0 Hn 0 ABKghq 200 2914
+CG 0 H 0 ABK 200 2914
 35 0 10d10+1300 349d1+1 4d7+11 'punch'
 -11 -11 -11 5
-CDEFJKNijklpqt
+CDEFJKN
 stand stand male 6700
 0 0 large unknown
 #0
@@ -261,7 +261,7 @@ polearm body wrecker~
 a body-wrecker~
 A body-wrecker polearm lies here.~
 steel~
-weapon 0 0 ANgt
+weapon 0 0 AN
 polearm 5 6 'cleave' 0
 23 270 6334 G
 g none~
@@ -270,7 +270,7 @@ hammer iron~
 a huge hammer of cold iron~
 A hammer of iron with silver and nickel detail lies here.~
 iron~
-weapon EJkp 0 ANgt
+weapon EJ 0 AN
 mace 5 9 'pound' 0
 38 250 16400 G
 g none~
@@ -279,7 +279,7 @@ bastard sword~
 a holy bastard sword~
 A beautiful sword lies on the ground here.~
 steel~
-weapon AGIKgmoq 0 ANgt
+weapon AGIK 0 AN
 sword 5 7 'pierce' 0
 28 190 9000 G
 A
@@ -296,7 +296,7 @@ looking glass~
 a looking glass~
 A looking glass lies here.~
 glass~
-wand Gm 0 AOgu
+wand G 0 AO
 20 7 7 'identify' 0
 8 20 1219 G
 g none~
@@ -305,7 +305,7 @@ cloudy staff~
 a cloudy glass staff~
 A staff made of cloudy glass lies here.~
 glass~
-staff Fl 0 AOgu
+staff F 0 AO
 40 8 8 'sleep' 0
 23 60 7580 G
 g none~
@@ -314,7 +314,7 @@ crystal sleeves~
 a set of sleeves of crystal~
 Some sleeves made of crystal lie here.~
 quartz~
-armor AFKglq 0 AIgo
+armor AFK 0 AI
 13 13 13 2 2
 46 100 22500 G
 A
@@ -327,7 +327,7 @@ sparkling green~
 a sparkling green potion~
 A green potion is lying here sparkling.~
 energy~
-potion AGgm 0 AOgu
+potion AG 0 AO
 10 'detect invis' 'detect magic' 'detect evil' ''
 23 10 4580 G
 g none~
@@ -336,7 +336,7 @@ paper triangle~
 a paper triangle~
 A piece of paper in the shape of a triangle is here.~
 paper~
-scroll Fl 0 Ag
+scroll F 0 A
 50 'armor' 'bless' 'fly' 'stone skin'
 22 12 6700 G
 g none~
@@ -345,7 +345,7 @@ hollyphant tusk~
 a hollyphant tusk~
 A tusk of a hollyphant lies here.~
 bone~
-wand AGKgmq 0 AOgu
+wand AGK 0 AO
 25 3 3 'haste' 0
 14 10 2160 G
 g none~
@@ -354,7 +354,7 @@ girth cast iron~
 a cast iron girth~
 A cast iron girth lies here.~
 iron~
-armor BGhm 0 ALgr
+armor BG 0 AL
 9 9 9 1 3
 23 180 11230 G
 A
@@ -365,7 +365,7 @@ sparkling pink~
 a sparkling pink potion~
 A pink potion is lying here sparkling.~
 energy~
-potion AGgm 0 Ag
+potion AG 0 A
 10 'detect invis' 'detect magic' 'detect good' ''
 13 10 4580 G
 g none~

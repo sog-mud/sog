@@ -18,7 +18,7 @@ Tall figure shrouded in midnight black robe stands here.
 He is praying Iluvator to grant freedom for his mistress Hera.
 ~
 troll~
-BGQhmw Hn 0 0 0 -1000 0
+BGQ H J 0 0 -1000 0
 50 300 1d1+10000 1d1+10000 0d0+0 'divine'
 -99 -99 -99 -99
 0
@@ -50,7 +50,7 @@ human~
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #0
 
 #OBJECTS
@@ -59,7 +59,7 @@ herastatue~
 @eng {rStatue of HERA (statue){x@rus {rСтатуя HERA (statue){x~
 @eng Statue of Hera (statue) stands here.@rus Статуя HERA (statue) смотрит на тебя.~
 unknown~
-furniture Ci 0 0
+furniture C 0 0
 0 0 0 0 0
 0 1 1 P
 g none~
@@ -68,8 +68,8 @@ armchair~
 armchair~
 Dark and soft armchair is here.~
 unknown~
-furniture Ci 0 Ag
-Ag 0 FIlo DGHjmn DGHjmn
+furniture C 0 A
+A 0 FI DGH DGH
 92 1 1 P
 g none~
 #0
@@ -86,7 +86,7 @@ her Angel (Setepios). They are discusing something imortant ... But what ?
 Они обсуждают что-то важное. Икона (Icon) с заповедями Богини висит в
 воздухе ... Хм ! На нее можно глазеть с любой стороны.
 ~
-0 KWq inside
+0 KW inside
 E
 statue~
 @rus Тебя бросает в дрожь ! Статуя сделанна из запекшейся крови. Ее зеленые глаза
@@ -122,7 +122,7 @@ seems to be somewhere else...
 ломятся от обилия выпивки и закуски, но продавца не
 видно....
 ~
-0 CDNSXijty city
+0 CDNSX city
 D3
 ~
 ~

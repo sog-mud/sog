@@ -15,10 +15,10 @@ The Lizard King stands here.
 ~
 ~
 lizard~
-BTehz 0 Hn 0 ABLghr 0 0
+BTe 0 H 0 ABL 0 0
 65 0 50d10+8250 10d10+1000 11d5+35 'divine'
 -35 -35 -35 -35
-ACEFHKMRgiklnqsx
+ACEFHKMR
 stand stand male 0
 0 0 huge unknown
 #22102
@@ -28,10 +28,10 @@ Gray lizard stands here.
 ~
 ~
 lizard~
-0 0 0 0 Ag 0 0
+0 0 0 0 A 0 0
 50 0 50d10+4250 10d1+1000 5d8+25 'scratch'
 -20 -20 -20 -10
-FKMlqs
+FKM
 stand stand none 0
 0 0 medium unknown
 #22103
@@ -44,7 +44,7 @@ lizard~
 0 0 0 0 0 0 0
 45 0 25d10+3000 10d1+1000 8d4+18 'scratch'
 -16 -16 -16 -8
-FKMlqs
+FKM
 stand stand none 0
 0 0 medium unknown
 #22104
@@ -54,10 +54,10 @@ The grand lizard stands here.
 ~
 ~
 lizard~
-Tz 0 0 0 Ag 0 0
+T 0 0 0 A 0 0
 55 0 50d10+6000 10d1+1000 10d5+28 'scratch'
 -25 -25 -25 -10
-FKMlqs
+FKM
 stand stand none 0
 0 0 medium unknown
 #22105
@@ -67,10 +67,10 @@ Huge serpent is here.
 ~
 ~
 snake~
-0 0 0 0 Ag 0 0
+0 0 0 0 A 0 0
 50 0 50d10+4500 1d1+100 5d8+22 'bite'
 -20 -20 -20 -10
-FKMlqs
+FKM
 stand stand none 0
 0 0 large unknown
 #22106
@@ -80,10 +80,10 @@ Huge snake is here.
 ~
 ~
 snake~
-0 0 0 0 Ag 0 0
+0 0 0 0 A 0 0
 50 0 50d10+4500 1d1+100 5d8+22 'bite'
 -20 -20 -20 -10
-FKMlqs
+FKM
 stand stand none 0
 0 0 large unknown
 #22107
@@ -96,7 +96,7 @@ dog~
 0 0 0 0 0 0 0
 50 0 50d10+4500 1d1+100 5d8+22 'bite'
 -20 -20 -20 -10
-Fl
+F
 stand stand none 0
 0 0 medium unknown
 #22108
@@ -119,7 +119,7 @@ The lizard priest is praying here
 ~
 ~
 lizard~
-BQhw 0 Hn 0 Ag 0 0
+BQ 0 H 0 A 0 0
 60 0 50d10+7000 10d10+1000 8d6+28 'divine'
 -30 -30 -30 -20
 0
@@ -132,10 +132,10 @@ The lizard monk is here or maybe not.
 ~
 ~
 lizard~
-Tz 0 0 0 0 0 0
+T 0 0 0 0 0 0
 50 0 50d10+4500 10d10+1000 5d8+25 'punch'
 -20 -20 -20 -10
-FHIKMlnoqs
+FHIKM
 stand stand none 0
 0 0 medium unknown
 r bash 33
@@ -148,13 +148,13 @@ The figure in mist of gods flying here
 ~
 ~
 human~
-Qw 0 HNTntz Ag ABgh 0 0
+Q 0 HNT A AB 0 0
 65 0 5d10+9000 10d10+1000 10d5+35 'divine'
 -35 -35 -35 -35
 0
 stand stand none 0
 0 0 huge unknown
-F for AHMVgns
+F for AHMV
 #22112
 knocker~
 knocker~
@@ -162,10 +162,10 @@ The lizard try to break the earth here.
 ~
 ~
 lizard~
-Bh 0 0 0 0 0 0
+B 0 0 0 0 0 0
 45 0 25d10+3000 1d1+100 8d4+18 'scratch'
 -16 -16 -16 -8
-HMns
+HM
 stand stand none 0
 0 0 medium unknown
 #22113
@@ -175,10 +175,10 @@ The huge man help everyone to die stands here.
 ~
 ~
 human~
-Tz 0 0 0 0 0 0
+T 0 0 0 0 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'shbite'
 -30 -30 -30 -15
-CHIJNinopt
+CHIJN
 stand stand none 10000
 0 0 large unknown
 r bash 33
@@ -194,7 +194,7 @@ snake~
 0 0 0 0 0 0 0
 50 0 50d10+4300 0d0+0 5d8+25 'beating'
 -25 -25 -25 -15
-HMns
+HM
 stand stand none 0
 0 0 huge unknown
 #22115
@@ -207,7 +207,7 @@ snake~
 0 0 0 0 0 0 0
 50 0 50d10+4300 0d0+0 5d8+25 'beating'
 -25 -25 -25 -15
-HMns
+HM
 stand stand none 0
 0 0 huge unknown
 #22116
@@ -217,7 +217,7 @@ Man ready to fight with you.
 ~
 ~
 human~
-Tz 0 0 0 0 0 0
+T 0 0 0 0 0 0
 55 0 50d10+6000 10d1+1000 10d5+28 'scratch'
 -25 -25 -25 -10
 0
@@ -230,10 +230,10 @@ Strong lizard look at someone else , not you.
 ~
 ~
 lizard~
-Tz 0 0 0 Ag 0 0
+T 0 0 0 A 0 0
 55 0 50d10+6000 10d1+1000 10d5+28 'scratch'
 -25 -25 -25 -10
-FKMlqs
+FKM
 stand stand none 0
 0 0 large unknown
 #22118
@@ -243,10 +243,10 @@ Large lizard is protecting the palace.
 ~
 ~
 lizard~
-GTWmz 0 0 0 Ag 0 0
+GTW 0 0 0 A 0 0
 55 0 50d10+6000 10d1+1000 10d5+28 'scratch'
 -25 -25 -25 -10
-FKMRTlqsxz
+FKMRT
 stand stand none 0
 0 0 large unknown
 #22119
@@ -256,10 +256,10 @@ Strong man ready to die for the king.
 ~
 ~
 lizard~
-Tz 0 0 0 ABgh 0 0
+T 0 0 0 AB 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
-Rx
+R
 stand stand none 10000
 0 0 large unknown
 #22120
@@ -269,10 +269,10 @@ Strange figure slowly dancing around you.
 ~
 ~
 human~
-Qw 0 HNOVntu 0 ABgh 0 0
+Q 0 HNOV 0 AB 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
-CHIJNinopt
+CHIJN
 stand stand none 10000
 0 0 medium unknown
 r bash 33
@@ -287,10 +287,10 @@ Strong man stands here.
 ~
 ~
 human~
-Tz 0 0 0 0 0 0
+T 0 J 0 0 0 0
 45 0 25d10+3000 1d1+100 8d4+18 'punch'
 -16 -16 -16 -8
-CHIJinop
+CHIJ
 stand stand none 10000
 0 0 medium unknown
 #22122
@@ -300,7 +300,7 @@ Very fat lizard sells his cookies.
 ~
 ~
 lizard~
-BVeh 0 Hn 0 ABgh 0 0
+BEVe 0 H 0 AB 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
 0
@@ -313,7 +313,7 @@ Lizard with very long tingue says,'Maybe buy something?'
 ~
 ~
 lizard~
-0 0 Hn 0 ABgh 0 0
+0 0 H 0 AB 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
 0
@@ -326,7 +326,7 @@ Large lizard with heavy looking hand is here.
 ~
 ~
 lizard~
-0 0 Hn 0 ABgh 0 0
+0 0 H 0 AB 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
 0
@@ -339,7 +339,7 @@ Busy looking lizard is here.
 ~
 ~
 lizard~
-0 0 Hn 0 ABgh 0 0
+0 0 H 0 AB 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
 0
@@ -352,7 +352,7 @@ Lizard looks like addict is here.
 ~
 ~
 lizard~
-0 0 Hn 0 ABgh 0 0
+0 0 H 0 AB 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
 0
@@ -365,7 +365,7 @@ Lizard alchemist stands here.
 ~
 ~
 lizard~
-0 0 Hn 0 ABgh 0 0
+0 0 H 0 AB 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
 0
@@ -378,7 +378,7 @@ Wand making lizard stands here.
 ~
 ~
 lizard~
-0 0 Hn 0 ABgh 0 0
+0 0 H 0 AB 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
 0
@@ -391,7 +391,7 @@ Very slim bartender stands here.
 ~
 ~
 lizard~
-0 0 Hn 0 ABgh 0 0
+0 0 H 0 AB 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'punch'
 -30 -30 -30 -15
 0
@@ -417,10 +417,10 @@ Woman searching for fine picture.
 ~
 ~
 human~
-0 0 0 0 0 0 0
+0 0 J 0 0 0 0
 45 0 25d10+3000 1d1+100 8d4+18 'slap'
 -16 -16 -16 -8
-CHIJinop
+CHIJ
 stand stand none 10000
 0 0 medium unknown
 #22132
@@ -436,7 +436,7 @@ human~
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #22133
 halfdead lizard~
 halfdead lizard~
@@ -470,10 +470,10 @@ Green lizard stands here.
 ~
 ~
 lizard~
-0 0 0 0 Ag 0 0
+0 0 0 0 A 0 0
 50 0 50d10+4250 10d1+1000 5d8+25 'scratch'
 -20 -20 -20 -10
-FKMlqs
+FKM
 stand stand none 0
 0 0 medium unknown
 #22136
@@ -486,7 +486,7 @@ lizard~
 0 0 0 0 0 0 0
 45 0 25d10+3000 10d1+1000 8d4+18 'scratch'
 -16 -16 -16 -8
-FKMlqs
+FKM
 stand stand none 0
 0 0 medium unknown
 #22137
@@ -522,10 +522,10 @@ Horrible man jump form the shadows.
 ~
 ~
 human~
-BFShly 0 0 0 Bh 0 0
+BFS 0 0 0 B 0 0
 50 0 50d10+4500 1d1+100 5d8+22 'bite'
 -20 -20 -20 -10
-BFHIJKNhlnopqt
+BFHIJKN
 stand stand none 100000
 0 0 medium unknown
 #22140
@@ -535,10 +535,10 @@ figure from shadow try to cleave you.
 ~
 ~
 human~
-BFShly 0 0 0 0 0 0
+BFS 0 0 0 0 0 0
 55 0 50d10+6000 10d1+1000 10d5+28 'punch'
 -25 -25 -25 -10
-CHIJNinopt
+CHIJN
 stand stand none 0
 0 0 medium unknown
 #22141
@@ -554,7 +554,7 @@ human~
 0
 stand stand female 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #22142
 assassin~
 assassin~
@@ -562,10 +562,10 @@ figure in black silently attack you.
 ~
 ~
 human~
-BFShly 0 0 0 0 0 0
+BFS 0 0 0 0 0 0
 60 0 50d10+8000 1d1+100 11d5+33 'shbite'
 -30 -30 -30 -15
-CHIJNinopt
+CHIJN
 stand stand male 10000
 0 0 large unknown
 r bash 33
@@ -583,7 +583,7 @@ human~
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #0
 
 #OBJECTS
@@ -592,8 +592,8 @@ sceptre~
 Lizard King Sceptre~
 Very powerful sceptre lays here.~
 unknown~
-weapon ABgh BChi ANgt
-staff 8 9 'wrath' Dj
+weapon AB BC AN
+staff 8 9 'wrath' D
 60 5 100000 P
 g none~
 #22102
@@ -601,7 +601,7 @@ gray bracelet~
 gray bracelet~
 Gray bracelet lays here.~
 snakeskin~
-armor 0 0 AMgs
+armor 0 0 AM
 15 15 15 15 0
 50 1 0 P
 A
@@ -618,7 +618,7 @@ small bracelet~
 small bracelet~
 Small bracelet lays here.~
 snakeskin~
-armor 0 0 AMgs
+armor 0 0 AM
 10 10 10 10 0
 40 0 0 P
 A
@@ -633,7 +633,7 @@ huge bracelet~
 wide bracelet~
 Wide bracelet waits you to pick up.~
 snakeskin~
-armor Io BChi AMgs
+armor I BC AM
 17 17 17 10 0
 55 1 10000 P
 A
@@ -654,7 +654,7 @@ invisible robe~
 invisible robe~
 An invisible object lays here.~
 unknown~
-armor FHIMYlnos BCEhik AKgq
+armor FHIMY BCE AK
 18 18 18 18 0
 55 1 0 P
 A
@@ -669,7 +669,7 @@ white robe~
 white robe~
 A white robe glows here.~
 unknown~
-armor AHIMYgnos BCEhik AKgq
+armor AHIMY BCE AK
 18 18 18 18 0
 55 1 0 P
 A
@@ -684,7 +684,7 @@ red robe~
 red robe~
 A piece of strange red material lays here.~
 unknown~
-armor AHIMYgnos BCEhik AKgq
+armor AHIMY BCE AK
 17 17 17 17 0
 55 1 0 P
 A
@@ -701,7 +701,7 @@ yellow robe~
 yellow robe~
 Yellow object made of nothing is here.~
 unknown~
-armor AHIMYgnos BCEhik AKgq
+armor AHIMY BCE AK
 17 17 17 17 0
 55 1 0 P
 A
@@ -726,7 +726,7 @@ black robe~
 black robe~
 Pile of black like a soot material is here. ~
 unknown~
-armor AHIMYgnos BCEhik AKgq
+armor AHIMY BCE AK
 17 17 17 17 0
 55 1 0 P
 A
@@ -751,8 +751,8 @@ invisible whip~
 invisible whip~
 An invisible whip lays here.~
 unknown~
-weapon AHIMYgnos BCEhik ANgt
-whip 12 4 'shock' Dj
+weapon AHIMY BCE AN
+whip 12 4 'shock' D
 55 5 0 P
 g none~
 #22111
@@ -760,8 +760,8 @@ white whip~
 white whip~
 Very long whip lays here.~
 unknown~
-weapon AHIMYgnos BCEhik ANgt
-whip 12 4 'wrath' CDij
+weapon AHIMY BCE AN
+whip 12 4 'wrath' CD
 55 5 0 P
 g none~
 #22112
@@ -769,8 +769,8 @@ red whip~
 red whip~
 A whip made of blood is here.~
 unknown~
-weapon AHIMYgnos BCEhik ANgt
-whip 12 4 'chill' Dj
+weapon AHIMY BCE AN
+whip 12 4 'chill' D
 55 5 0 P
 g none~
 #22113
@@ -778,8 +778,8 @@ yellow whip~
 yellow whip~
 The hand of kindness lays here.~
 unknown~
-weapon AHIMYgnos BCEhik ANgt
-whip 12 4 'flame' Dj
+weapon AHIMY BCE AN
+whip 12 4 'flame' D
 55 5 0 P
 g none~
 #22114
@@ -787,8 +787,8 @@ black whip~
 black whip~
 The belt of death lays here.~
 unknown~
-weapon AHIMYgnos BCEhik ANgt
-whip 12 4 'drain' Dj
+weapon AHIMY BCE AN
+whip 12 4 'drain' D
 55 5 0 P
 A
 19 10
@@ -798,7 +798,7 @@ invisible sleeves~
 invisible sleeves~
 The invisible objects lays here.~
 unknown~
-armor FHIMYlnos BCEhik AKgq
+armor FHIMY BCE AK
 18 18 18 18 0
 55 1 0 P
 A
@@ -813,7 +813,7 @@ white sleeves~
 white sleeves~
 The white sleeves glow here.~
 unknown~
-armor AHIMYgnos BCEhik AIgo
+armor AHIMY BCE AI
 18 18 18 18 0
 55 1 0 P
 A
@@ -828,7 +828,7 @@ red sleeves~
 red sleeves~
 The pieces of strange red material lays here.~
 unknown~
-armor AHIMYgnos BCEhik AIgo
+armor AHIMY BCE AI
 17 17 17 17 0
 55 1 0 P
 A
@@ -845,7 +845,7 @@ yellow sleeves~
 yellow sleeves~
 Yellow things made of nothing are here.~
 unknown~
-armor AHIMYgnos BCEhik AIgo
+armor AHIMY BCE AI
 17 17 17 17 0
 55 1 0 P
 A
@@ -870,7 +870,7 @@ black sleeves~
 black sleeves~
 Two hollows of noghting lay here.~
 unknown~
-armor AHIMYgnos BCEhik AIgo
+armor AHIMY BCE AI
 17 17 17 17 0
 55 1 0 P
 A
@@ -895,8 +895,8 @@ gray staff~
 gray staff~
 Staff made of gray tree lays here.~
 hardwood~
-weapon Ag 0 ANgt
-staff 11 4 'smash' Gm
+weapon A 0 AN
+staff 11 4 'smash' G
 50 0 0 P
 A
 19 10
@@ -912,8 +912,8 @@ staff green~
 green staff~
 Staff made of green tree lays here.~
 softwood~
-weapon Ag 0 ANgt
-staff 11 4 'smash' Gm
+weapon A 0 AN
+staff 11 4 'smash' G
 50 0 0 P
 A
 19 10
@@ -931,7 +931,7 @@ gray vest~
 gray vest~
 A skin of gray lizard lays here.~
 snakeskin~
-armor 0 0 ADgj
+armor 0 0 AD
 15 15 15 10 0
 50 10 1000 P
 A
@@ -948,7 +948,7 @@ vest green~
 green vest~
 A skin of green lizard lays here.~
 snakeskin~
-armor 0 0 ADgj
+armor 0 0 AD
 15 15 15 10 0
 50 10 1000 P
 A
@@ -965,7 +965,7 @@ gray boots~
 gray boots~
 Feets of gray lizard lay here.~
 snakeskin~
-armor 0 0 AGgm
+armor 0 0 AG
 15 15 15 10 0
 50 10 1000 P
 A
@@ -980,7 +980,7 @@ green boots~
 green boots~
 Feets of green lizard lay here.~
 snakeskin~
-armor 0 0 AGgm
+armor 0 0 AG
 15 15 15 10 0
 50 10 1000 P
 A
@@ -993,7 +993,7 @@ mantle gods~
 mantle of gods~
 The mantle of gods flying here.~
 unknown~
-armor ABGHIghmno AEgk AKgq
+armor ABGHI AE AK
 20 20 20 20 0
 60 0 0 P
 A
@@ -1028,7 +1028,7 @@ huge bone~
 huge bone~
 The bone of an ancient dragon is here.~
 bone~
-weapon ABIgho 0 ANgt
+weapon ABI 0 AN
 mace 10 4 'smash' 0
 40 10 10000 P
 A
@@ -1041,7 +1041,7 @@ ring death~
 ring of death~
 The small black ring lays in the dust.~
 steel~
-armor ABCEMghiks EFkl ABgh
+armor ABCEM EF AB
 20 20 20 20 0
 60 1 0 P
 A
@@ -1066,8 +1066,8 @@ shortsword sword~
 roman shortsword~
 Bronze sword lays here.~
 bronze~
-weapon Ag 0 ANgt
-sword 11 4 'slash' Dj
+weapon A 0 AN
+sword 11 4 'slash' D
 50 100 100 P
 A
 19 8
@@ -1079,7 +1079,7 @@ round shield~
 bronze round shield~
 Round thing looks like shield lays here.~
 bronze~
-armor Ag 0 AJgp
+armor A 0 AJ
 30 30 30 10 0
 50 300 22222 P
 A
@@ -1092,7 +1092,7 @@ bronze skirt~
 broznze skirt~
 Small bronze skirt lays here.~
 bronze~
-armor Ag 0 AFgl
+armor A 0 AF
 15 15 15 6 0
 40 100 3333 P
 A
@@ -1105,7 +1105,7 @@ opal bracelet~
 opal bracelet~
 The bracelet made of opal lays here.~
 opal~
-armor ABIgho 0 AMgs
+armor ABI 0 AM
 18 18 18 12 0
 55 10 444444 P
 A
@@ -1120,7 +1120,7 @@ steel bracelet~
 steel bracelet~
 Wide bracelet made of steel lays here.~
 steel~
-armor 0 0 AMgs
+armor 0 0 AM
 10 10 10 6 0
 30 0 0 P
 A
@@ -1131,8 +1131,8 @@ halberd~
 halberd~
 Strange halberd stands in the corner waiting his master.~
 steel~
-weapon 0 0 ANgt
-polearm 10 4 'slash' Fl
+weapon 0 0 AN
+polearm 10 4 'slash' F
 30 300 11110 P
 A
 19 2
@@ -1144,7 +1144,7 @@ strange plate~
 strange plate~
 Strange plate made for lizard lays here.~
 steel~
-armor 0 0 ADgj
+armor 0 0 AD
 15 15 15 10 0
 30 300 1231 P
 A
@@ -1155,7 +1155,7 @@ mithril bracer~
 mithril bracer~
 Mithril bracer with strange symbol lays here.~
 mithril~
-armor BIKhoq Fl AMgs
+armor BIK F AM
 20 20 20 15 0
 60 20 0 P
 A
@@ -1170,8 +1170,8 @@ mithril shortsword~
 mithril shortsword~
 Very quick mithril blade lays here.~
 mithril~
-weapon BIKhoq Fl ANgt
-sword 13 4 'slash' DEjk
+weapon BIK F AN
+sword 13 4 'slash' DE
 60 100 10000 P
 A
 19 10
@@ -1183,7 +1183,7 @@ mithril shield~
 huge mithril shield~
 Huge mithril shield with srange symbol is here.~
 mithril~
-armor BIKhoq Fl AJgp
+armor BIK F AJ
 20 20 20 12 0
 60 1000 10000 P
 A
@@ -1200,7 +1200,7 @@ mithril plate~
 mithril plate~
 Mithril plate with strange symbol lays here.~
 mithril~
-armor BIKhoq Fl ADgj
+armor BIK F AD
 20 20 20 12 0
 60 1000 10000 P
 A
@@ -1217,7 +1217,7 @@ mithril bootd~
 mithril boots~
 Mithril boots with strange symbol stands here.~
 mithril~
-armor BIKhoq Fl AGgm
+armor BIK F AG
 20 20 20 12 0
 60 1000 10000 P
 A
@@ -1232,7 +1232,7 @@ violet cloak~
 violet cloak~
 The violet cloak lays here.~
 silk~
-armor ABgh 0 ACgi
+armor AB 0 AC
 20 20 20 20 0
 55 300 6666 P
 A
@@ -1243,8 +1243,8 @@ doom mace~
 mace of doom~
 The Arm of Fate is here waits you.~
 unknown~
-weapon ABEghk 0 ANgt
-mace 12 4 'acbite' DEjk
+weapon ABE 0 AN
+mace 12 4 'acbite' DE
 60 100 6666 P
 A
 19 9
@@ -1256,8 +1256,8 @@ obsidian longsword~
 obsidian longsword~
 The longsword made of obsidian is here.~
 obsidian~
-weapon BEhk 0 ANgt
-sword 12 3 'slice' DEjk
+weapon BE 0 AN
+sword 12 3 'slice' DE
 40 300 3000 P
 A
 19 6
@@ -1269,7 +1269,7 @@ obsidian shield~
 large obsidian shield~
 Very large obsidian shield lays here.~
 obsidian~
-armor BEhk 0 AJgp
+armor BE 0 AJ
 10 10 10 6 0
 40 100 2000 P
 A
@@ -1288,7 +1288,7 @@ obsidian vest~
 obsidian vest~
 Strong vest made of obsidian is here.~
 obsidian~
-armor BEhk 0 ADgj
+armor BE 0 AD
 10 10 10 6 0
 40 100 2000 P
 A
@@ -1307,7 +1307,7 @@ obsidian gauntlets~
 obsidian gauntlets~
 Heavy looking obsidian gauntlets is here.~
 obsidian~
-armor BEhk 0 AHgn
+armor BE 0 AH
 10 10 10 6 0
 40 100 2000 P
 A
@@ -1324,7 +1324,7 @@ obsidian armguards~
 obsidian armguards~
 Strong armguards are here.~
 obsidian~
-armor BEhk 0 AIgo
+armor BE 0 AI
 10 10 10 6 0
 40 100 2000 P
 A
@@ -1341,7 +1341,7 @@ obsidian helm~
 obsidian helm~
 Helm with short horns lays here.~
 obsidian~
-armor BEhk 0 AEgk
+armor BE 0 AE
 10 10 10 6 0
 40 100 2000 P
 A
@@ -1360,7 +1360,7 @@ obsidian boots~
 obsidian boots~
 Boots with sixty spikes are here.~
 obsidian~
-armor BEhk 0 AGgm
+armor BE 0 AG
 10 10 10 6 0
 40 100 2000 P
 A
@@ -1377,7 +1377,7 @@ obsidian leggins~
 obsidian leggins~
 Leggins made of obsidian lays here.~
 obsidian~
-armor BEhk 0 AFgl
+armor BE 0 AF
 10 10 10 6 0
 40 100 2000 P
 A
@@ -1396,7 +1396,7 @@ apron~
 apron~
 Gray apron of Fat Ko lays here.~
 snakeskin~
-armor Bh 0 AFgl
+armor B 0 AF
 18 18 18 10 0
 60 100 10000 P
 A
@@ -1413,7 +1413,7 @@ bracelet~
 bracelet of ko~
 Very strange bracelet with letters Ko lays here.~
 snakeskin~
-armor Bh 0 AMgs
+armor B 0 AM
 18 18 18 10 0
 60 100 10000 P
 A
@@ -1430,7 +1430,7 @@ tie~
 tie of sa~
 Small black tie which belongs Sa hangs here.~
 snakeskin~
-armor Bh 0 ACgi
+armor B 0 AC
 18 18 18 10 0
 60 10 1000 P
 A
@@ -1447,7 +1447,7 @@ bracelet~
 bracelet of sa~
 Very strange bracelet with letters Sa lays here.~
 snakeskin~
-armor Bh 0 AMgs
+armor B 0 AM
 18 18 18 10 0
 60 10 1000 P
 A
@@ -1464,8 +1464,8 @@ hammer~
 hammer of vi~
 Huge hammer belongs Vi lays here.~
 steel~
-weapon ABIgho 0 ANgt
-mace 12 4 'chomp' Ag
+weapon ABI 0 AN
+mace 12 4 'chomp' A
 60 400 100000 P
 A
 6 -2
@@ -1479,7 +1479,7 @@ bracelet~
 bracelet of vi~
 Very strange bracelet with letters Vi lays here.~
 snakeskin~
-armor Bh 0 AMgs
+armor B 0 AM
 18 18 18 10 0
 60 100 10000 P
 A
@@ -1496,8 +1496,8 @@ hammer~
 hammer of zo~
 Huge hammer belongs Zo lays here.~
 steel~
-weapon ABIgho 0 ANgt
-mace 12 4 'flame' Ag
+weapon ABI 0 AN
+mace 12 4 'flame' A
 60 400 100000 P
 A
 19 10
@@ -1511,7 +1511,7 @@ bracelet~
 bracelet of zo~
 Very strange bracelet with letters Zo lays here.~
 snakeskin~
-armor Bh 0 AMgs
+armor B 0 AM
 18 18 18 10 0
 60 100 10000 P
 A
@@ -1528,7 +1528,7 @@ hookah~
 hookah~
 An old hookah lays here.~
 bone~
-staff ABMghs 0 AOgu
+staff ABM 0 AO
 100 20 20 'frenzy' 0
 60 10 1000 P
 A
@@ -1541,7 +1541,7 @@ bracelet~
 bracelet of la~
 Very strange bracelet with letters La lays here.~
 snakeskin~
-armor Bh 0 AMgs
+armor B 0 AM
 18 18 18 10 0
 60 100 10000 P
 A
@@ -1560,7 +1560,7 @@ cap~
 cap~
 Cap with two letters De lays here~
 cotton~
-armor ABGghm 0 AEgk
+armor ABG 0 AE
 18 18 18 10 0
 60 10 30000 P
 g none~
@@ -1569,7 +1569,7 @@ bracelet~
 bracelet of de~
 Very strange bracelet with letters De lays here.~
 snakeskin~
-armor Bh 0 AMgs
+armor B 0 AM
 18 18 18 10 0
 60 100 10000 P
 A
@@ -1590,7 +1590,7 @@ sleeves~
 sleeves of mu~
 Small black sleeves lays here.~
 unknown~
-armor AMgs 0 AIgo
+armor AM 0 AI
 15 15 15 12 0
 60 10 10000 P
 A
@@ -1607,7 +1607,7 @@ bracelet~
 bracelet of mu~
 Very strange bracelet with letters Mu lays here.~
 snakeskin~
-armor Bh 0 AMgs
+armor B 0 AM
 18 18 18 10 0
 60 100 10000 P
 A
@@ -1626,7 +1626,7 @@ glasses~
 glasses~
 Small glasses shine here.~
 unknown~
-armor AHgn 0 AEgk
+armor AH 0 AE
 15 15 15 15 0
 60 0 0 P
 A
@@ -1643,7 +1643,7 @@ bracelet~
 bracelet of Ce~
 Very strange bracelet with letters Ce lays here.~
 snakeskin~
-armor Bh 0 AMgs
+armor B 0 AM
 18 18 18 10 0
 60 100 10000 P
 A
@@ -1658,7 +1658,7 @@ hooded cloak~
 hooded cloak~
 Black hooded cloak lays here.~
 cotton~
-armor Jp 0 AEgk
+armor J 0 AE
 20 20 20 9 0
 40 10 100 P
 A
@@ -1671,7 +1671,7 @@ gray cape~
 gray cape~
 Gray cape looks like sack is here.~
 cotton~
-armor Jp 0 ACgi
+armor J 0 AC
 20 20 20 8 0
 40 10 1000 P
 A
@@ -1684,7 +1684,7 @@ long knife~
 long knife~
 Very long and sharp knife lays here.~
 steel~
-weapon EJkp 0 ANgt
+weapon EJ 0 AN
 dagger 10 4 'stab' 0
 40 50 3000 P
 g none~
@@ -1693,7 +1693,7 @@ sword~
 sword~
 Evil looking sword lays here.~
 steel~
-weapon EJkp 0 ANgt
+weapon EJ 0 AN
 sword 10 4 'slash' 0
 45 100 2000 P
 g none~
@@ -1702,7 +1702,7 @@ necklace~
 necklace~
 Small golden necklace glows here.~
 gold~
-treasure ABgh 0 ACgi
+treasure AB 0 AC
 0 0 0 0 0
 0 10 10000 P
 A
@@ -1715,10 +1715,10 @@ assassin mask~
 ~
 ~
 cotton~
-armor Hn Fl AEgk
+armor H F AE
 20 20 20 10 0
 60 20 0 P
-F i 0 0 Ag
+F i 0 0 A
 A
 19 3
 A
@@ -1731,7 +1731,7 @@ black vest~
 black vest~
 Very useful black vest lays here. ~
 unknown~
-armor Hn Fl ADgj
+armor H F AD
 20 20 20 10 0
 60 100 60000 P
 F A 0 0 U
@@ -1747,10 +1747,10 @@ black trousers~
 black trousers~
 Strange black trousers lays here.~
 unknown~
-armor Hn Fl AFgl
+armor H F AF
 20 20 20 10 0
 2 100 10000 P
-F A 0 0 TVz
+F A 0 0 TV
 A
 19 3
 A
@@ -1763,10 +1763,10 @@ black sandals~
 ~
 ~
 unknown~
-armor 0 0 AGgm
+armor 0 0 AG
 15 15 15 7 0
 60 100 10000 P
-F i 0 0 Gm
+F i 0 0 G
 A
 19 3
 A
@@ -1779,7 +1779,7 @@ sun glasses~
 sun-glasses~
 Small sun-glasses lays here.~
 glass~
-armor 0 0 AEgk
+armor 0 0 AE
 12 12 15 5 0
 35 10 1000 P
 A
@@ -1798,7 +1798,7 @@ shorts~
 shorts~
 White shorts lays in dust.~
 cotton~
-armor 0 0 AFgl
+armor 0 0 AF
 12 12 15 5 0
 35 10 1000 P
 A
@@ -1815,7 +1815,7 @@ short~
 t-short~
 White long t-short lays in dust.~
 cotton~
-armor 0 0 ADgj
+armor 0 0 AD
 12 12 15 5 0
 35 10 1000 P
 A
@@ -1832,7 +1832,7 @@ sneakers~
 sneakers~
 White sport slippers are laying here.~
 rubber~
-armor 0 0 AGgm
+armor 0 0 AG
 12 12 15 5 0
 35 10 1000 P
 A
@@ -1851,7 +1851,7 @@ canon camera~
 canon~
 Big camera named 'Canon' lays here.~
 unknown~
-wand 0 0 AOgu
+wand 0 0 AO
 30 12 12 'colour spray' 0
 35 100 10000 P
 g none~
@@ -1860,7 +1860,7 @@ miniskirt~
 miniskirt~
 White miniskirt lays in dust.~
 cotton~
-armor 0 0 AFgl
+armor 0 0 AF
 12 12 15 5 0
 35 10 1000 P
 A
@@ -1877,7 +1877,7 @@ camera polaroid~
 polaroid~
 Camera named 'Polaroid' lays here.~
 unknown~
-wand 0 0 AOgu
+wand 0 0 AO
 25 12 12 'colour spray' 0
 30 100 10000 P
 g none~
@@ -1886,8 +1886,8 @@ chocolate~
 ~
 ~
 chocolate~
-food 0 0 Ag
-CFGilm CEFGHIiklmno 0 0 0
+food 0 0 A
+CFG CEFGHI 0 0 0
 5 5 5 P
 g none~
 #22184
@@ -1895,7 +1895,7 @@ cookery book~
 cookery book~
 Huge book with very appetizing picture on it lays here.~
 unknown~
-staff 0 0 AOgu
+staff 0 0 AO
 50 30 30 'create food' 0
 10 100 50 P
 g none~
@@ -1904,7 +1904,7 @@ jungle call~
 jungle call~
 Wand named 'Jungle Call' lays here.~
 unknown~
-staff 0 0 AOgu
+staff 0 0 AO
 50 30 30 'create spring' 0
 10 100 50 P
 g none~
@@ -1913,8 +1913,8 @@ clear dagger~
 clear dagger~
 Dagger with clear handle lays here.~
 steel~
-weapon Ag 0 ANgt
-dagger 5 7 'pierce' Dj
+weapon A 0 AN
+dagger 5 7 'pierce' D
 20 50 2000 P
 g none~
 #22187
@@ -1922,7 +1922,7 @@ white dagger~
 white dagger~
 Dagger with white handle lays here.~
 steel~
-weapon 0 0 ANgt
+weapon 0 0 AN
 dagger 5 7 'pierce' 0
 20 50 2000 P
 A
@@ -1935,7 +1935,7 @@ red dagger~
 red dagger~
 Dagger with red handle lays here.~
 steel~
-weapon 0 0 ANgt
+weapon 0 0 AN
 dagger 5 7 'pierce' 0
 20 50 2000 P
 A
@@ -1948,7 +1948,7 @@ yellow dagger~
 yellow dagger~
 Dagger with yellow handle lays here.~
 steel~
-weapon 0 0 ANgt
+weapon 0 0 AN
 dagger 5 7 'pierce' 0
 20 50 2000 P
 A
@@ -1959,8 +1959,8 @@ black dagger~
 black dagger~
 Dagger with black handle lays here.~
 steel~
-weapon 0 0 ANgt
-dagger 5 7 'pierce' EHkn
+weapon 0 0 AN
+dagger 5 7 'pierce' EH
 20 50 2000 P
 A
 19 4
@@ -1972,7 +1972,7 @@ tail clear~
 clear tail~
 Clear lizard tail lays here.~
 snakeskin~
-armor 0 0 AFgl
+armor 0 0 AF
 10 10 10 5 0
 20 300 9000 P
 A
@@ -1987,7 +1987,7 @@ tail white~
 white tail~
 White lizard tail lays here.~
 snakeskin~
-armor 0 0 AFgl
+armor 0 0 AF
 10 10 10 5 0
 20 300 9000 P
 A
@@ -2002,7 +2002,7 @@ tail red~
 red tail~
 Red lizard tail lays here.~
 snakeskin~
-armor 0 0 AFgl
+armor 0 0 AF
 10 10 10 5 0
 20 300 9000 P
 A
@@ -2017,7 +2017,7 @@ tail yellow~
 yellow tail~
 Yellow lizard tail lays here.~
 snakeskin~
-armor 0 0 AFgl
+armor 0 0 AF
 10 10 10 5 0
 20 300 9000 P
 A
@@ -2042,7 +2042,7 @@ tail black~
 black tail~
 Black lizard tail lays here.~
 snakeskin~
-armor 0 0 AFgl
+armor 0 0 AF
 10 10 10 5 0
 20 300 9000 P
 A
@@ -2065,7 +2065,7 @@ herb clear~
 clear herb~
 Some clear herbs lays here.~
 moss~
-pill 0 0 Ag
+pill 0 0 A
 40 'cancellation' 'cancellation' 'cancellation' 'cancellation'
 20 10 3000 P
 g none~
@@ -2074,7 +2074,7 @@ herb white~
 white herb~
 Some white herbs lays here.~
 moss~
-pill 0 0 Ag
+pill 0 0 A
 40 'cure poison' 'cure poison' 'cure disease' 'cure disease'
 20 10 3000 P
 g none~
@@ -2083,7 +2083,7 @@ herb red~
 red herb~
 Some red herbs lays here.~
 moss~
-pill 0 0 Ag
+pill 0 0 A
 20 'giant strength' 'haste' 'haste' ''
 20 10 3000 P
 g none~
@@ -2092,7 +2092,7 @@ herb yellow~
 yellow herb~
 Some yellow herbs lays here.~
 moss~
-pill 0 0 Ag
+pill 0 0 A
 20 'shield' 'armor' '' ''
 20 10 3000 P
 g none~
@@ -2101,7 +2101,7 @@ herb black~
 black herb~
 Some black herbs lays here.~
 moss~
-pill 0 0 Ag
+pill 0 0 A
 50 'slow' 'slow' 'slow' 'slow'
 20 10 3000 P
 g none~
@@ -2110,7 +2110,7 @@ potion clear~
 clear potion~
 Clear potion lays here.~
 glass~
-potion ABgh 0 AOgu
+potion AB 0 AO
 40 'dispel magic' 'dispel magic' 'dispel magic' 'dispel magic'
 20 50 9000 P
 g none~
@@ -2119,7 +2119,7 @@ potion white~
 white potion~
 White potion lays here.~
 glass~
-potion ABgh 0 AOgu
+potion AB 0 AO
 40 'cure blindness' 'cure blindness' 'cure blindness' 'cure blindness'
 20 50 9000 P
 g none~
@@ -2128,7 +2128,7 @@ potion red~
 red potion~
 Red potion lays here.~
 glass~
-potion ABgh 0 AOgu
+potion AB 0 AO
 20 'bless' 'frenzy' '' ''
 20 50 9000 P
 g none~
@@ -2137,7 +2137,7 @@ potion yellow~
 yellow potion~
 Yellow potion lays here.~
 glass~
-potion ABgh 0 AOgu
+potion AB 0 AO
 50 'word of recall' 'refresh' 'refresh' 'refresh'
 20 50 9000 P
 g none~
@@ -2146,7 +2146,7 @@ potion black~
 black potion~
 Black potion lays here.~
 glass~
-potion ABgh 0 AOgu
+potion AB 0 AO
 20 'teleport' 'teleport' 'teleport' 'teleport'
 20 50 9000 P
 g none~
@@ -2155,7 +2155,7 @@ wand clear~
 clear wand~
 The clear wand lays here.~
 bone~
-wand ABgh 0 AOgu
+wand AB 0 AO
 20 10 10 'mass invis' 0
 20 100 10000 P
 g none~
@@ -2164,7 +2164,7 @@ wand white~
 white wand~
 The white wand lays here.~
 bone~
-wand ABgh 0 AOgu
+wand AB 0 AO
 20 10 10 'curse' 0
 20 100 10000 P
 g none~
@@ -2173,7 +2173,7 @@ wand red~
 red wand~
 The red wand lays here.~
 bone~
-wand ABgh 0 AOgu
+wand AB 0 AO
 20 10 10 'blindness' 0
 20 100 10000 P
 g none~
@@ -2182,7 +2182,7 @@ wand yellow~
 yellow wand~
 The yellow wand lays here.~
 bone~
-wand ABgh 0 AOgu
+wand AB 0 AO
 20 10 10 'slow' 0
 20 100 10000 P
 g none~
@@ -2191,7 +2191,7 @@ wand black~
 black wand~
 The black wand lays here.~
 bone~
-wand ABgh 0 AOgu
+wand AB 0 AO
 20 10 10 'chill touch' 0
 20 100 10000 P
 g none~
@@ -2200,7 +2200,7 @@ fountain~
 fountain~
 The fountain with clear liquid.~
 marble~
-fountain 0 ABgh 0
+fountain 0 AB 0
 0 0 'water' 135139728 0
 0 0 0 P
 g none~
@@ -2209,7 +2209,7 @@ fountain~
 fountain~
 The fountain with milky liquid.~
 marble~
-fountain 0 ABgh 0
+fountain 0 AB 0
 0 0 'milk' 135139728 0
 0 0 0 P
 g none~
@@ -2218,7 +2218,7 @@ fountain~
 fountain~
 The fountain with clear red liquid.~
 marble~
-fountain 0 ABgh 0
+fountain 0 AB 0
 0 0 'red wine' 135139728 0
 0 0 0 P
 g none~
@@ -2227,7 +2227,7 @@ fountain~
 fountain~
 The fountain with clear yellow liquid.~
 marble~
-fountain 0 ABgh 0
+fountain 0 AB 0
 0 0 'mead' 135139728 0
 0 0 0 P
 g none~
@@ -2236,7 +2236,7 @@ fountain~
 fountain~
 The fountain with green liquid.~
 marble~
-fountain 0 ABgh 0
+fountain 0 AB 0
 0 0 'blood' 135139728 0
 0 0 0 P
 g none~
@@ -5083,7 +5083,7 @@ Cemetary~
 Strange place was chosen by lizards and snakes from town
 for spending his last hours.You don't feel well here.
 ~
-0 NXt field
+0 NX field
 D1
 ~
 ~

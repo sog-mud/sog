@@ -19,12 +19,12 @@ has a dog like snout, perky ears, and 6 legs, and has many more long
 sharp nasty teeth.
 ~
 unique~
-FGlm 0 0 0 BHhn -400 0
+FG 0 0 0 BH -400 0
 30 0 6d12+853 1d1+99 4d6+8 'bite'
 -9 -9 -9 3
-CFNQiltw
+CFNQ
 stand stand male 2000
-AGHMVXcgmns ABCDEFGHIJKPQUVXghijklmnopqvw large unknown
+AGHMVXc ABCDEFGHIJKPQUVX large unknown
 r cold -50
 r poison 33
 #29121
@@ -38,10 +38,10 @@ battle with a minion of hell, and you die horribly!' . With that the
 hag breaks into an ugly fit of laughter.
 ~
 human~
-BCGVhim 0 Kq 0 Ag 0 0
+BCGV 0 K 0 A 0 0
 28 0 6d12+703 1d1+399 2d12+8 'slap'
 -8 -8 -8 6
-FRlx
+FR
 stand stand female 1850
 0 0 medium unknown
 r fire 33
@@ -70,10 +70,10 @@ running loose in the forest. Avoid the hag. Is there any chance of you
 hiring on to help defend Dunkeldorf?'.
 ~
 human~
-BGhm 0 Ms Bh 0 500 0
+BG 0 M B 0 500 0
 30 0 6d12+853 1d1+99 4d6+8 'punch'
 -9 -9 -9 6
-CDEFINPijklotv
+CDEFINP
 stand stand male 2000
 0 0 medium unknown
 #29123
@@ -86,10 +86,10 @@ carrying a lumber axe. He sees you and asks 'Have you come from the
 forest? You have? Is it safe again in the forest?
 ~
 human~
-Gm 0 0 0 0 400 0
+G 0 0 0 0 400 0
 25 0 5d10+550 1d1+99 2d10+7 'punch'
 -7 -7 -7 6
-EFNklt
+EFN
 stand stand male 1500
 0 0 medium unknown
 #29124
@@ -104,10 +104,10 @@ woods will strike town next. He gets to talking of the glory days of
 Dunkeldorf, before everyone started disappearing.
 ~
 human~
-BGehm 0 0 0 0 450 0
+BGe 0 0 0 0 450 0
 26 0 5d10+600 1d1+99 3d7+7 'slap'
 -7 -7 -7 5
-CEFNiklt
+CEFN
 stand stand male 1600
 0 0 medium unknown
 #29125
@@ -122,10 +122,10 @@ temple and fighting the guardian there. He wishes you luck and
 godspeed.
 ~
 human~
-BGehm 0 0 0 0 550 0
+BGe 0 0 0 0 550 0
 27 0 5d10+650 1d1+99 5d4+7 'punch'
 -8 -8 -8 5
-CEFNiklt
+CEFN
 stand stand male 1700
 0 0 medium unknown
 #29126
@@ -140,10 +140,10 @@ to get iron from the old mine in the Murkmire, but the cave has long
 since collapsed and become unstable, so now he trades for it.
 ~
 human~
-BGSehmy 0 0 0 0 600 0
+BGSe 0 0 0 0 600 0
 29 0 6d12+778 1d1+100 2d12+8 'punch'
 -9 -9 -9 5
-CEFNiklt
+CEFN
 stand stand male 1900
 0 0 medium unknown
 #29127
@@ -157,10 +157,10 @@ tells you a sad tale about his mad sister Gelda running off into the
 forest one night, naked screaming, and never to return.
 ~
 human~
-BGehm 0 0 0 0 700 0
+BGe 0 0 0 0 700 0
 28 0 6d12+703 1d1+100 2d12+8 'punch'
 -8 -8 -8 5
-CEFNiklt
+CEFN
 stand stand male 1800
 0 0 medium unknown
 #29128
@@ -173,10 +173,10 @@ satchel full of curiosities. He sings for you a song of life in the
 shire, and of longbottom leaf.
 ~
 human~
-Gem 0 0 0 0 300 0
+Ge 0 0 0 0 300 0
 26 0 5d10+600 1d1+100 3d7+7 'punch'
 -7 -7 -7 6
-CEFNiklt
+CEFN
 stand stand male 1600
 0 0 small unknown
 #29129
@@ -189,12 +189,12 @@ crush an ox. Its rounded head gives it away as a non poisonous
 constrictor.
 ~
 snake~
-FGlm 0 0 0 Hn 0 0
+FG 0 0 0 H 0 0
 32 0 10d10+1000 1d1+100 6d4+9 'bite'
 -10 -10 -10 4
-Hn
+H
 stand stand none 0
-Rx 0 large unknown
+R 0 large unknown
 r poison 100
 #29130
 guardian temple white being~
@@ -220,10 +220,10 @@ in the runes of the sickle and save the cross for dire need. May god be
 with you.'
 ~
 human~
-BGhm 0 Hn 0 0 1 0
+BG 0 H 0 0 1 0
 33 0 10d10+1100 1d1+100 6d4+10 'punch'
 -11 -11 -11 4
-CDEFNijklt
+CDEFN
 stand stand male 2300
 0 0 medium unknown
 #29131
@@ -235,10 +235,10 @@ The witch looks harried and driven. Her eyes dance wildly, and she
 cackles at you with an insane glee.
 ~
 human~
-FGlm 0 0 0 AHgn -700 0
+FG 0 0 0 AH -700 0
 32 0 6d12+885 1d1+300 4d6+8 'punch'
 -9 -9 -9 4
-Fl
+F
 stand stand female 2200
 0 0 medium unknown
 r bash -50
@@ -264,10 +264,10 @@ The warlock looks harried and driven. His eyes dart wildly, and he
 cackles with an insane glee.
 ~
 human~
-FGlm 0 0 0 AHgn -800 0
+FG 0 0 0 AH -800 0
 33 0 10d10+1000 1d1+300 4d6+8 'punch'
 -11 -11 -11 0
-Fl
+F
 stand stand male 2300
 0 0 medium unknown
 r bash -50
@@ -294,10 +294,10 @@ The coven leader looks harried and driven. His eyes dart wildly, and he
 cackles with an insane glee.
 ~
 human~
-FGlm 0 0 0 ABHghn -900 0
+FG 0 0 0 ABH -900 0
 34 0 10d10+1100 1d1+300 4d6+9 'punch'
 -11 -11 -11 1
-Fl
+F
 stand stand male 2400
 0 0 medium unknown
 r bash -50
@@ -326,12 +326,12 @@ terrible talons. It looks at you, and with a fiery laughter, it says:
 battle, but you will not stop our plan!'
 ~
 unique~
-BFGhlm 0 0 0 ABHghn -1000 0
+BFGJ 0 J 0 ABH -1000 0
 28 0 6d12+703 1d1+200 2d12+8 'bite'
 -8 -8 -8 6
-Fl
+F
 stand stand none 1800
-ABGghm ABCDEFJKLMPUVghijklpqrsv large unknown
+ABG ABCDEFJKLMPUV large unknown
 r fire 100
 r cold -50
 r poison 100
@@ -344,7 +344,7 @@ sickle golden~
 the golden sickle~
 A golden sickle with wedge shaped runes lies here.~
 gold~
-key Io 0 AOgu
+key I 0 AO
 0 0 0 0 0
 20 20 2500 P
 E
@@ -359,7 +359,7 @@ shovel stout sturdy~
 a stout sturdy shovel~
 A stout sturdy shovel lies here.~
 wood~
-key 0 0 AOgu
+key 0 0 AO
 0 0 0 0 0
 5 30 500 P
 g none~
@@ -377,7 +377,7 @@ pilsner beer~
 a nice cold, wimpy pilsner~
 A nice cold glass of yellow beer is here.~
 glass~
-drink 0 0 AOgu
+drink 0 0 AO
 1 1 'beer' 0 0
 1 5 25 P
 g none~
@@ -386,7 +386,7 @@ dunkel beer~
 a nice cold manly dunkel~
 A nice cold glass of brown beer is here.~
 glass~
-drink 0 0 AOgu
+drink 0 0 AO
 1 1 'beer' 0 0
 1 10 30 P
 g none~
@@ -395,8 +395,8 @@ grub plate local~
 a plate of the local grub~
 A hot steaming plate of the local grub is here! Yummy!~
 food~
-food 0 0 AOgu
-CDij CDij 0 0 0
+food 0 0 AO
+CD CD 0 0 0
 3 20 30 P
 g none~
 #29126
@@ -404,7 +404,7 @@ key room~
 a room key~
 A room key is here, and it has a picture of a full mug on it.~
 tin~
-key 0 0 AOgu
+key 0 0 AO
 0 0 0 0 0
 5 25 500 P
 g none~
@@ -413,7 +413,7 @@ amulet flaming~
 the flaming amulet~
 A flaming amulet is here, searing the ground.~
 flame~
-key 0 0 ACgi
+key 0 0 AC
 0 0 0 0 0
 20 20 1000 P
 g none~
@@ -422,8 +422,8 @@ root warlock~
 a warlock root~
 A warlock root is here.~
 bamboo~
-furniture 0 0 AOgu
-Bh CDFIijlo AEILgkor DEFGjklm DEFGjklm
+furniture 0 0 AO
+B CDFI AEIL DEFG DEFG
 0 0 0 P
 g none~
 #29129
@@ -431,7 +431,7 @@ axe woodsmans~
 a woodsman's axe~
 A large axe stained with tree sap is here.~
 steel~
-weapon 0 0 ANgt
+weapon 0 0 AN
 axe 5 6 'slice' 0
 28 100 2500 P
 g none~
@@ -440,7 +440,7 @@ cloak woodsmans~
 a woodsman's cloak~
 A forest colored cloak is here~
 wood~
-armor 0 0 ADgj
+armor 0 0 AD
 7 7 7 3 1
 28 80 1500 P
 A
@@ -451,7 +451,7 @@ cross white marble~
 a white marble cross~
 A white marble cross is here.~
 marble~
-staff AIKLgoqr 0 AOgu
+staff AIKL 0 AO
 35 3 3 'sanctuary' 0
 30 100 15000 P
 g none~
@@ -460,7 +460,7 @@ robe ink black~
 an ink black robe~
 An ink black robe is here, beckoning to you. Put it on! Ha Ha Ha ....~
 silk~
-armor CEHJMiknps 0 ADgj
+armor CEHJM 0 AD
 6 6 6 3 0
 25 25 300 P
 A
@@ -473,7 +473,7 @@ band black~
 a black rune band~
 A band of black metal engraved with runes is here.~
 metal~
-armor CEHJMiknps 0 AMgs
+armor CEHJM 0 AM
 0 0 0 0 0
 1 300 0 P
 A
@@ -493,7 +493,7 @@ rod black~
 a black rune covered rod~
 A black rune covered rod~
 sandstone~
-staff CEHJMiknps 0 AOgu
+staff CEHJM 0 AO
 40 8 8 'fire breath' 0
 30 30 7000 P
 E
@@ -509,7 +509,7 @@ ring fire~
 a ring of fire~
 A ring of fire is here, smoldering on the ground.~
 flame~
-armor AQgw 0 ABgh
+armor AQ 0 AB
 1 1 1 1 0
 30 50 3000 P
 A
@@ -524,7 +524,7 @@ pick~
 a pick~
 A pick is here.~
 metal~
-weapon 0 0 ANgt
+weapon 0 0 AN
 dagger 3 6 'stab' 0
 15 80 2476 P
 g none~
@@ -534,7 +534,7 @@ a horseshoe~
 A horseshoe is here, lying on the ground. Maybe today is your lucky 
 day?~
 iron~
-trash 0 0 AOgu
+trash 0 0 AO
 0 0 0 0 0
 5 30 2500 P
 g none~
@@ -543,7 +543,7 @@ rope~
 fifty feet of rope~
 A huge coil of rope is here.~
 wool~
-trash 0 0 AOgu
+trash 0 0 AO
 0 0 0 0 0
 6 100 1500 P
 g none~
@@ -552,7 +552,7 @@ potion invisibility~
 a potion of invisibility~
 A glass jar of a clear fluid is here.~
 glass~
-potion 0 0 ANgt
+potion 0 0 AN
 30 'invisibility' 'detect invis' '' ''
 28 10 3000 P
 g none~
@@ -570,7 +570,7 @@ hardened and honed your skills to admirable levels. Are you ready to
 face your own inner demons and enter? As you gaze at the road leading 
 into the dark woods, you notice a small plaque nailed to a tree.
 ~
-0 Ci forest
+0 C forest
 E
 plaque small~
 Coven, 1996 by MacAsp, levels 25-35
@@ -595,7 +595,7 @@ blocking out all light. It is humid here, so much so that the mist
 envelops you in a suffocating grip. Far above you birds cackle and 
 chatter to one and another, marking your presence for all predators.
 ~
-0 Ag forest
+0 A forest
 E
 road broad~
 The road has been heavily traveled, mainly by wagons.
@@ -618,7 +618,7 @@ walnuts, oaks, and hickory trees spread their leaves in a high arbor,
 blocking out all light. Sweat streams down your face. The road is muddy 
 here, and your boots stick with a sucking pop with each stride.
 ~
-0 Ag forest
+0 A forest
 E
 road broad~
 The road has been heavily traveled, mainly by wagons.
@@ -677,7 +677,7 @@ an eastern and western going logging trail. There is a huge rack of
 de-limbed trees here. There is a large brush pile into created by years 
 of dumping. A broad road heads off to the south.
 ~
-0 Ag forest
+0 A forest
 E
 road broad~
 The road has been heavily traveled, mainly by wagons. Most traffic 
@@ -718,7 +718,7 @@ evidenced by the deep tracks in the mud. Far above you in the trees a
 black raven squawks at you, almost as if it were laughing at you. You 
 wing a rock at the bird, and it flies off.
 ~
-0 Ag forest
+0 A forest
 E
 bird raven fly flies~
 The bird has flown off to the northeast, at least you think its 
@@ -744,7 +744,7 @@ hardwoods. The smell of rotting flesh leads you towards the carcass of
 a dead animal wedged in the crook of a tree. Again, tales of the 
 ravening beast well up in your mind.
 ~
-0 Ag forest
+0 A forest
 E
 corpse animal dead carcass~
 As you get closer to the carcass you recoil in horror as you recognize 
@@ -776,7 +776,7 @@ blocking out the sky above. The underbrush surrounds you, closing off
 all avenues of escape. There is a smell of death in the air, and you 
 feel eyes on the back of your neck.
 ~
-0 Ag forest
+0 A forest
 E
 eyes eye~
 You quickly turn around, staring hard into the gloom, but there is 
@@ -807,7 +807,7 @@ blocking out the sky above. The underbrush surrounds you, closing off
 all avenues of escape. There is a smell of death in the air, and you 
 feel eyes on the back of your neck.
 ~
-0 Ag forest
+0 A forest
 E
 eyes eye~
 You quickly turn around, staring hard into the gloom, but there is 
@@ -833,7 +833,7 @@ blocking out the sky above. The underbrush surrounds you, closing off
 all avenues of escape. There is a smell of death in the air, and you 
 feel eyes on the back of your neck.
 ~
-0 Ag forest
+0 A forest
 E
 eyes eye~
 You quickly turn around, staring hard into the gloom, and see a dark 
@@ -859,7 +859,7 @@ blocking out the sky above. The underbrush surrounds you, closing off
 all avenues of escape. There is a smell of death in the air, and you 
 feel eyes on the back of your neck.
 ~
-0 Ag forest
+0 A forest
 E
 eyes eye~
 You quickly turn around, staring hard into the gloom, but there is 
@@ -891,7 +891,7 @@ to the trail. Above you, high in a tree, a black raven cackles at you
 in the language of its kind. You wing a rock at it and miss. The raven 
 continues to laugh at you.
 ~
-0 Ag forest
+0 A forest
 E
 bird raven black~
 You scowl at the raven, but it still sits there laughing at you.
@@ -900,7 +900,7 @@ D1
 The Murkmire
 ~
 underbrush brush~
-ABCFZghil 29120 29162
+ABCFZ 29120 29162
 D2
 The Murkmire
 ~
@@ -1065,7 +1065,7 @@ D3
 The Cave
 ~
 rubble stones pile~
-ABCFZghil 29121 29156
+ABCFZ 29121 29156
 S
 #29137
 On a Logging Trail in the Forest Murkmire~
@@ -1075,7 +1075,7 @@ through it, presses from all sides. There are piles of logs on either
 side of the trail, shorn of all limbs. From deep within the darkness, 
 you hear a strange inhuman cry.
 ~
-0 Ag forest
+0 A forest
 E
 logs piles~
 The logs are still green, oozing sap from the saw cuts.
@@ -1115,7 +1115,7 @@ D0
 A log house
 ~
 door~
-ABZgh -1 29139
+ABZ -1 29139
 D1
 The Murkmire
 ~
@@ -1125,7 +1125,7 @@ D2
 A log house
 ~
 door~
-ABZgh -1 29140
+ABZ -1 29140
 D3
 Main Street
 ~
@@ -1150,7 +1150,7 @@ D2
 Main Street
 ~
 door~
-ABZgh -1 29138
+ABZ -1 29138
 S
 #29140
 Inside a Log House~
@@ -1177,7 +1177,7 @@ D0
 Main Street
 ~
 door~
-ABZgh -1 29138
+ABZ -1 29138
 S
 #29141
 Main Street, Dunkeldorf~
@@ -1198,7 +1198,7 @@ D0
 A log house
 ~
 door~
-ABZgh -1 29142
+ABZ -1 29142
 D1
 Main Street
 ~
@@ -1208,7 +1208,7 @@ D2
 A log house
 ~
 door~
-ABZgh -1 29143
+ABZ -1 29143
 D3
 Main Street
 ~
@@ -1240,7 +1240,7 @@ D2
 Main Street
 ~
 door~
-ABZgh -1 29141
+ABZ -1 29141
 S
 #29143
 Inside a Log House~
@@ -1267,7 +1267,7 @@ D0
 Main Street
 ~
 door~
-ABZgh -1 29141
+ABZ -1 29141
 S
 #29144
 Main Street, Dunkeldorf~
@@ -1380,22 +1380,22 @@ D0
 A room
 ~
 door~
-ABCZghi 29126 29150
+ABCZ 29126 29150
 D1
 A room
 ~
 door~
-ABCZghi 29126 29151
+ABCZ 29126 29151
 D2
 A room
 ~
 door~
-ABCZghi 29126 29148
+ABCZ 29126 29148
 D3
 A room
 ~
 door~
-ABCZghi 29126 29149
+ABCZ 29126 29149
 D5
 Down the stairs
 ~
@@ -1426,7 +1426,7 @@ D0
 The landing
 ~
 door~
-ABCZghi 29126 29147
+ABCZ 29126 29147
 S
 #29149
 A Small Room~
@@ -1452,7 +1452,7 @@ D1
 The landing
 ~
 door~
-ABCZghi 29126 29147
+ABCZ 29126 29147
 S
 #29150
 A Small Room~
@@ -1478,7 +1478,7 @@ D2
 The landing
 ~
 door~
-ABCZghi 29126 29147
+ABCZ 29126 29147
 S
 #29151
 A Small Room~
@@ -1504,7 +1504,7 @@ D3
 The landing
 ~
 door~
-ABCZghi 29126 29147
+ABCZ 29126 29147
 S
 #29152
 Main Street, Dunkeldorf~
@@ -1591,7 +1591,7 @@ comes from a shaft that goes up and out. White cylindrical rocks lie on
 the floor in heaps. The walls of the cave appear regular. Rubble is 
 strewn about the cave mouth, which appears to be unstable.
 ~
-0 Ag inside
+0 A inside
 E
 shaft~
 The air shaft is too small to climb through for you.
@@ -1618,14 +1618,14 @@ D1
 The cave mouth
 ~
 rubble~
-ABCFZghil 29121 29136
+ABCFZ 29121 29136
 S
 #29157
 Inside the Dark Cave~
 You are inside a dark cave which smells of rot. White cylindrical rocks 
 lie on the floor in heaps. The walls of the cave appear regular.
 ~
-0 Ag inside
+0 A inside
 E
 rocks cylindrical~
 The rocks upon closer examination are human bones.
@@ -1651,7 +1651,7 @@ Inside the Dark Cave~
 You are inside a dark cave which smells of rot. White cylindrical rocks 
 lie on the floor in heaps. The walls of the cave appear regular.
 ~
-0 Ag inside
+0 A inside
 E
 rocks cylindrical~
 The rocks upon closer examination are human bones.
@@ -1678,7 +1678,7 @@ You are inside a dark cave which smells of rot. White cylindrical rocks
 lie on the floor in heaps. The walls of the cave appear regular. There 
 are markings on the wall here.
 ~
-0 Ag inside
+0 A inside
 E
 rocks cylindrical~
 The rocks upon closer examination are human bones.
@@ -1731,7 +1731,7 @@ sky. As you enter the chapel, a feeling of peace comes over you. You
 feel the worlds wind whistle through the columns, making a strange 
 keening sound.
 ~
-0 Nt field
+0 N field
 D2
 The dark cave
 ~
@@ -1747,7 +1747,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 Ag field
+0 A field
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -1787,7 +1787,7 @@ D3
 The underbrush
 ~
 brush underbrush~
-ABCFZghil 29120 29131
+ABCFZ 29120 29131
 S
 #29163
 The Outer Circle of Coven~
@@ -1798,7 +1798,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 Ag field
+0 A field
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -1843,7 +1843,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 Ag field
+0 A field
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -1889,7 +1889,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 Ag field
+0 A field
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -1934,7 +1934,7 @@ fist-sized something into the pit, and the fire leaps higher, greedily
 consuming the item. There is a heavy aura of evil here which threatens 
 and beckons to you.
 ~
-0 Ag forest
+0 A forest
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -1985,7 +1985,7 @@ fist-sized something into the pit, and the fire leaps higher, greedily
 consuming the item. There is a heavy aura of evil here which threatens 
 and beckons to you.
 ~
-0 Ag forest
+0 A forest
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -2036,7 +2036,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 Ag field
+0 A field
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -2081,7 +2081,7 @@ fist-sized something into the pit, and the fire leaps higher, greedily
 consuming the item. There is a heavy aura of evil here which threatens 
 and beckons to you.
 ~
-0 ACgi forest
+0 AC forest
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -2137,7 +2137,7 @@ fist-sized something into the pit, and the fire leaps higher, greedily
 consuming the item. There is a heavy aura of evil here which threatens 
 and beckons to you.
 ~
-0 Ag forest
+0 A forest
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -2188,7 +2188,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 Ag field
+0 A field
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -2233,7 +2233,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 Ag field
+0 A field
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -2278,7 +2278,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 Ag field
+0 A field
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -2325,12 +2325,12 @@ the flame barrier and allow you to return to the real world. Remember
 always to stay on the path of righteousness.' And with that, the voice 
 and warmth vanish.
 ~
-0 ADNgjt inside
+0 ADN inside
 D4
 The inner circle
 ~
 barrier flame~
-ABCFZghil 29127 29169
+ABCFZ 29127 29169
 S
 #29175
 The Outer Circle of Coven~
@@ -2341,7 +2341,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 Ag forest
+0 A forest
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -2377,7 +2377,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 Ag forest
+0 A forest
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -2413,7 +2413,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 Ag forest
+0 A forest
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 
@@ -2449,7 +2449,7 @@ ground you stand on has a silvery sheen to the dirt, as if some
 precious metal has been sprinkled here. To the center of the clearing a 
 bright fire roars, and reaches for the treetops in a hellish blaze.
 ~
-0 Ag forest
+0 A forest
 E
 trees center~
 You stare at the trees in the center, and in your mind's eye, you 

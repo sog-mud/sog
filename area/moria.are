@@ -19,10 +19,10 @@ python snake питон толстый~
 сейчас или оставить на потом?
 ~
 snake~
-BFhl 0 0 0 Ag -200 0
+BF 0 0 0 A -200 0
 11 2 11d9+110 1d1+99 3d4+2 'bite'
 -1 0 3 6
-FHNORlntux
+FHNOR
 stand stand male 0
 0 0 large unknown
 r pierce 33
@@ -36,10 +36,10 @@ garter snake змейка садовая~
 @rus Она выглядит достаточно безопасной. Или нет...?
 ~
 snake~
-BUh 0 0 0 Hn -100 0
+BU 0 0 0 H -100 0
 7 0 7d7+60 1d1+99 1d10+1 'bite'
 2 3 5 8
-FHRlnx
+FHR
 stand stand either 0
 0 0 small unknown
 r bash 33
@@ -53,10 +53,10 @@ centipede сороконожка~
 @rus Она выглядит абсолютно безопасной, но кто знает наверняка?
 ~
 centipede~
-BUh 0 0 0 Hn 100 0
+BU 0 0 0 H 100 0
 3 0 3d3+30 1d1+99 1d6+0 'sting'
 6 7 9 10
-FRlx
+FR
 stand stand none 0
 0 0 tiny unknown
 g @eng none@rus female~
@@ -70,10 +70,10 @@ kobold кобольд~
 @rus Он выглядит достаточно уродливым, чтобы испугать его собственную мать.
 ~
 kobold~
-CGTimz 0 0 0 0 -100 0
+CGT 0 0 0 0 -100 0
 4 0 4d4+40 1d1+99 1d4+1 'claw'
 7 7 7 10
-Rx
+R
 stand stand either 18
 0 0 small unknown
 #4004
@@ -86,12 +86,12 @@ orc орк~
 @rus В его глазах заметен оттенок безумия. Осторожно! Вдруг это заразно?
 ~
 orc~
-CFGTilmz 0 0 0 0 -400 0
+CFGT 0 0 0 0 -400 0
 5 2 6d5+50 1d1+199 1d6+3 'beating'
 7 7 7 10
-CDNRijtx
+CDNR
 stand stand male 60
-Bh 0 medium unknown
+B 0 medium unknown
 r fire 33
 r cold 33
 r lightning 33
@@ -115,10 +115,10 @@ large orc большой орк~
 @rus Орк говорит: "Чего уставился?"
 ~
 orc~
-CGTimz 0 0 0 0 -500 0
+CGT 0 0 0 0 -500 0
 7 1 6d7+70 1d1+99 1d8+2 'punch'
 4 5 5 8
-CJRipx
+CJR
 stand stand male 120
 0 0 medium unknown
 #4050
@@ -131,10 +131,10 @@ warrior воин высокий~
 @rus Он сильный, но глупый боец. Похож на тебя.
 ~
 human~
-BCFThilz 0 0 0 Hn -300 0
+BCFT 0 0 0 H -300 0
 12 3 10d12+120 1d1+149 1d8+4 'punch'
 1 -1 2 5
-CIQRiowx
+CIQR
 stand stand male 300
 0 0 medium unknown
 #4051
@@ -148,10 +148,10 @@ to show you what he can do!
 @rus Он, кажется, знает толк в оружии. И он хочет показать тебе, что он умеет!
 ~
 human~
-CFTilz 0 0 0 Hn -400 0
+CFT 0 0 0 H -400 0
 7 2 8d7+70 1d1+99 1d7+2 'punch'
 4 5 4 8
-CIQRiowx
+CIQR
 stand stand male 140
 0 0 medium unknown
 r fire -50
@@ -181,10 +181,10 @@ don't you put it out of its misery?
 ужас и опаску в его глазах. Почему бы тебе не вытащить его из этой нищеты?
 ~
 hobgoblin~
-CGHTimnz 0 0 0 0 -300 0
+CGHT 0 0 0 0 -300 0
 6 0 6d6+40 1d1+99 1d6+1 'beating'
 6 5 5 8
-Nt
+N
 stand stand male 12
 0 0 medium unknown
 r fire -50
@@ -212,10 +212,10 @@ snake змея~
 слишком близко!
 ~
 snake~
-BFUhl 0 0 0 Hn -600 0
+BFU 0 0 0 H -600 0
 10 1 4d10+100 1d1+99 2d6+1 'bite'
 0 2 2 5
-FGNRlmtx
+FGNR
 stand stand none 0
 0 0 medium unknown
 g @eng none@rus female~
@@ -231,10 +231,10 @@ centipede многоножка~
 @rus Многоножка, кажется, действительно не замечает тебя.
 ~
 centipede~
-BUh 0 0 0 Hn -100 0
+BU 0 0 0 H -100 0
 5 0 5d5+50 1d1+99 1d8+0 'sting'
 4 7 5 10
-FRlx
+FR
 stand stand none 0
 0 0 small unknown
 g @eng none@rus female~
@@ -251,10 +251,10 @@ wonder just how far away you should be.
 задаться вопросом - как далеко от него нужно держаться?
 ~
 hobgoblin~
-CGTimz 0 0 0 0 -500 0
+CGT 0 0 0 0 -500 0
 10 2 2d10+120 1d1+149 2d4+3 'punch'
 2 2 1 5
-CDJRijpx
+CDJR
 stand stand male 210
 0 0 medium unknown
 r fire 33
@@ -281,10 +281,10 @@ Care to be dinner?
 качестве обеда.
 ~
 orc~
-CFGTilmz 0 0 0 0 -800 0
+CFGT 0 0 0 0 -800 0
 8 1 3d10+90 1d1+99 1d8+2 'beating'
 3 3 2 5
-CNRitx
+CNR
 stand stand male 60
 0 0 medium unknown
 #4057
@@ -299,10 +299,10 @@ the weary.  Are you next?
 соперник. Ты уверен, что пришел сюда для этого?
 ~
 cat~
-FGlm 0 0 0 0 -100 0
+FG 0 0 0 0 -100 0
 9 2 4d10+100 1d1+99 2d6+1 'claw'
 0 0 0 4
-ERkx
+ER
 stand stand none 0
 0 0 large unknown
 g @eng none@rus male~
@@ -321,10 +321,10 @@ playmate for you.
 приятель для тебя!
 ~
 giant~
-GTmz 0 0 0 0 0 0
+GT 0 0 0 0 0 0
 13 2 10d10+150 10d10+100 2d6+6 'smash'
 0 -2 0 4
-DORjux
+DOR
 stand stand male 500
 0 0 huge unknown
 r bash 33
@@ -342,10 +342,10 @@ knows his way with magic.
 @rus У него просто обалденная пластика! Он может коснуться лбом своих пяток!
 ~
 human~
-BCFRhilx 0 0 0 Ag -100 0
+BCFR 0 0 0 A -100 0
 13 1 7d5+130 13d10+100 1d6+2 'punch'
 -2 -2 -2 2
-FQlw
+FQ
 stand stand male 400
 0 0 medium unknown
 r fire 33
@@ -373,10 +373,10 @@ figure just how tender you are.
 @rus Пока ты рассматриваешь тролля, он пытается скопировать твою фигуру.
 ~
 troll~
-BCFThilz 0 0 0 0 -800 0
+BCFT 0 0 0 0 -800 0
 12 2 7d10+150 5d10+100 2d7+3 'claw'
 0 -3 2 6
-CEORikux
+CEOR
 stand stand male 200
 0 0 large unknown
 #4102
@@ -391,10 +391,10 @@ bite your head off!
 намеревается укусить тебя за твой любопытный нос!
 ~
 snake~
-BCFhil 0 0 0 Hn -700 0
+BCF 0 0 0 H -700 0
 10 2 4d10+100 1d1+99 2d6+1 'bite'
 0 0 2 6
-HMNORnstux
+HMNOR
 stand stand female 0
 0 0 medium unknown
 r pierce 33
@@ -409,10 +409,10 @@ thief вор~
 @rus ВНИМАТЕЛЬНО пересчитай свои деньги!
 ~
 human~
-CHSiny 0 0 BGhm Hn -100 0
+CHS 0 0 BG H -100 0
 8 1 6d8+80 1d1+99 1d5+1 'punch'
 2 4 3 7
-EFJNklpt
+EFJN
 stand stand male 100
 0 0 medium unknown
 #4104
@@ -425,10 +425,10 @@ orc орк~
 @rus Блееее..  Он отрыгивает тебе в лицо! Он явно ищет повод для драки!
 ~
 orc~
-CFGHTilmnz 0 0 0 0 -200 0
+CFGHT 0 0 0 0 -200 0
 7 1 7d7+70 1d1+99 1d8+3 'punch'
 4 5 5 8
-CJRipx
+CJR
 stand stand male 150
 0 0 medium unknown
 #4105
@@ -443,10 +443,10 @@ not important.
 @rus Она, похоже, не уделяет тебе внимания. Видимо ты для нее не существуешь.
 ~
 centipede~
-BUh 0 0 0 0 300 0
+BU 0 0 0 0 300 0
 6 1 8d5+50 1d1+99 2d4+1 'sting'
 3 6 4 10
-FRlx
+FR
 stand stand none 0
 0 0 small unknown
 #4106
@@ -459,10 +459,10 @@ warrior воин~
 @rus Он явно недружественен... И совсем не похож на кролика.
 ~
 human~
-CFGTilmz 0 0 0 Hn -300 0
+CFGT 0 0 0 H -300 0
 9 2 4d10+130 1d1+99 1d8+3 'punch'
 3 2 4 6
-CJQUipw
+CJQU
 stand stand male 300
 0 0 medium unknown
 #4107
@@ -475,10 +475,10 @@ kobold green кобольд зеленый~
 @rus Он выглядит приболевшим. Наверное, съел чего-то...
 ~
 kobold~
-CFGTilmz 0 0 0 0 -100 0
+CFGT 0 0 0 0 -100 0
 7 1 8d4+50 1d1+99 2d4+1 'claw'
 5 5 5 10
-NRtx
+NR
 stand stand male 25
 0 0 small unknown
 #4150
@@ -491,10 +491,10 @@ bat blue синяя летучая мышь~
 @rus Бзззз. Взмах. Потрескивание. Что там говорили о статическом электричестве?
 ~
 bat~
-BFhl 0 0 0 Hn -100 0
+BF 0 0 0 H -100 0
 7 1 3d10+70 1d1+99 1d9+1 'shbite'
 4 4 4 6
-Rx
+R
 stand stand none 0
 0 0 tiny unknown
 g @eng none@rus female~
@@ -510,10 +510,10 @@ bat red красная летучая мышь~
 лихорадка?
 ~
 bat~
-BFhl 0 0 0 Hn -100 0
+BF 0 0 0 H -100 0
 7 1 3d10+70 1d1+99 1d9+1 'flbite'
 4 4 4 6
-Rx
+R
 stand stand none 0
 0 0 tiny unknown
 g @eng none@rus female~
@@ -530,12 +530,12 @@ bat green зеленая летучая мышь~
 @rus Фу! Ну и воняет...!
 ~
 bat~
-BFhl 0 0 0 Hn -100 0
+BF 0 0 0 H -100 0
 7 1 3d10+70 1d1+99 1d9+1 'bite'
 4 4 4 6
-Rx
+R
 stand stand none 0
-Bh 0 tiny unknown
+B 0 tiny unknown
 g @eng none@rus female~
 r poison 100
 #4153
@@ -549,10 +549,10 @@ bat white белая летучая мышь~
 @rus Брр! Эта мышь похожа на кусок льда. Очень похожа.
 ~
 bat~
-BFhl 0 0 0 Hn -100 0
+BF 0 0 0 H -100 0
 7 1 3d10+70 1d1+99 1d9+1 'frbite'
 4 4 4 6
-Rx
+R
 stand stand none 0
 0 0 tiny unknown
 g @eng none@rus female~
@@ -568,10 +568,10 @@ bat black черная летучая мышь~
 @rus Потрясающе! Эта мышь поливает сама себя кислотой...
 ~
 bat~
-BFhl 0 0 0 Hn -100 0
+BF 0 0 0 H -100 0
 7 1 3d10+70 1d1+99 1d9+1 'acbite'
 4 4 4 6
-Rx
+R
 stand stand none 0
 0 0 tiny unknown
 g @eng none@rus female~
@@ -586,10 +586,10 @@ thief вор~
 @rus Он определенно знает то, что он делает. Доверься ему.
 ~
 human~
-CGSimy 0 0 ABgh Hn 400 0
+CGS 0 0 AB H 400 0
 12 2 3d20+130 1d1+99 2d4+3 'punch'
 2 0 0 6
-BFJNQUhlptw
+BFJNQU
 stand stand male 500
 0 0 medium unknown
 #4156
@@ -602,10 +602,10 @@ troll троль~
 @rus Он выглядит непримечательно. Но с ним лучше не связываться.
 ~
 troll~
-BCFThilz 0 0 0 0 -700 0
+BCFT 0 0 0 0 -700 0
 14 3 8d20+140 14d4+100 3d4+5 'claw'
 -1 -3 -1 4
-CEORikux
+CEOR
 stand stand male 1000
 0 0 huge unknown
 r fire -50
@@ -634,10 +634,10 @@ angry should you bother his studies.
 будет очень сердит, это точно.
 ~
 human~
-CFGRilmx 0 0 0 Hn -200 0
+CFGR 0 0 0 H -200 0
 11 0 4d10+100 11d12+100 1d6+1 'beating'
 0 0 0 2
-QUw
+QU
 stand stand male 200
 0 0 medium unknown
 r fire 33
@@ -666,10 +666,10 @@ for dinner.
 тебя на обед.
 ~
 snake~
-BFUhl 0 0 0 Hn 200 0
+BFU 0 0 0 H 200 0
 9 1 2d10+100 1d1+99 1d12+1 'bite'
 1 3 3 6
-FGNRlmtx
+FGNR
 fight fight female 0
 0 0 medium unknown
 r bash 33
@@ -684,10 +684,10 @@ troll small троль маленький~
 @rus Он настолько счастлив, что ты чувствуешь отвращение! Убей его!
 ~
 troll~
-CFGTilmz 0 0 0 0 -300 0
+CFGT 0 0 0 0 -300 0
 8 2 3d10+80 8d4+100 2d5+2 'bite'
 3 1 3 6
-EJRkpx
+EJR
 stand stand male 100
 0 0 large unknown
 #4160
@@ -700,10 +700,10 @@ orc орк~
 @rus Он явно ищет с кем бы подраться.
 ~
 orc~
-CFGTilmz 0 0 0 0 -200 0
+CFGT 0 0 0 0 -200 0
 9 1 3d10+100 1d1+99 1d8+2 'beating'
 2 2 1 5
-CJNRiptx
+CJNR
 stand stand male 150
 0 0 medium unknown
 #0
@@ -714,7 +714,7 @@ ring yellow green желто-зеленое кольцо~
 @eng a yellow and green ring@rus ~~желто-зеленое~~ ~~кольцо~~~
 @eng A ring, with yellow and green ornamentation. It looks very old.@rus Ты видишь кольцо с желто-зеленым орнаментом (yellow and green ring).~
 copper~
-treasure 0 0 ABgh
+treasure 0 0 AB
 0 0 0 0 0
 0 10 0 A
 A
@@ -730,7 +730,7 @@ corpse труп~
 @eng a corpse@rus труп~
 @eng A halfway decayed corpse of a cartographer.@rus Наполовину разложившийся труп (corpse) картографа.~
 flesh~
-npc_corpse Pv 0 Ag
+npc_corpse P 0 A
 0 0 0 0 0
 0 1000 0 P
 E
@@ -746,7 +746,7 @@ coins монеты~
 @eng some coins@rus ~~кучка~~ монет~
 @eng A small pile of coins.@rus Несколько монет (coins) лежат тут.~
 silver~
-money 0 0 Ag
+money 0 0 A
 200 3 0 0 0
 0 5000 0 P
 g @eng none@rus female~
@@ -755,7 +755,7 @@ dagger rusty ржавый кинжал~
 @eng a rusty dagger@rus ~~ржавый~~ ~~кинжал~~~
 @eng A worn and rusty dagger is here.@rus Источенный старый кинжал (rusty dagger) брошен тут.~
 iron~
-weapon 0 0 ANgt
+weapon 0 0 AN
 dagger 1 5 'stab' 0
 0 10 165 W
 A
@@ -771,7 +771,7 @@ bullwhip whip кнут~
 @eng a bullwhip@rus кнут~
 @eng A coiled length of leather is here...looks like a nasty whip!@rus Свернутая полоска кожи (bullwhip) лежит тут... Похожа на кнут.~
 leather~
-weapon 0 0 ANgt
+weapon 0 0 AN
 whip 1 7 'whip' 0
 3 30 240 G
 A
@@ -782,8 +782,8 @@ club tree huge палица~
 @eng a huge club@rus ~~громадная~~ ~~палица~~~
 @eng An uprooted tree leans against the wall.@rus Вырванное с корнем дерево (huge club) прислонено к стене.~
 wood~
-weapon 0 0 ANgt
-mace 2 9 'crush' Fl
+weapon 0 0 AN
+mace 2 9 'crush' F
 14 250 780 G
 A
 18 -2
@@ -799,7 +799,7 @@ furs smelly вонючий мех~
 @eng some smelly furs@rus ~~вонючий~~ ~~мех~~~
 @eng A heap of smelly furs sit here.@rus Куча вонючих мехов (smelly furs) брошена тут.~
 fur~
-armor 0 0 AKgq
+armor 0 0 AK
 5 6 5 1 3
 8 100 510 A
 A
@@ -817,7 +817,7 @@ potion purple фиолетовая микстура~
 @eng a purple potion@rus ~~фиолетовая~~ ~~микстура~~~
 @eng A purple potion is here.@rus Фиолетовая микстура (purple potion) лежит тут.~
 glass~
-potion 0 0 AOgu
+potion 0 0 AO
 13 'cure blindness' 'sanctuary' '' ''
 11 10 720 G
 E
@@ -831,7 +831,7 @@ helmet metal шлем металл~
 @eng a metal helmet@rus ~~металлический~~ ~~шлем~~~
 @eng A metal helmet is here.@rus Металлический шлем (metal helmet) лежит тут.~
 iron~
-armor Gm 0 AEgk
+armor G 0 AE
 4 4 3 2 1
 5 40 650 G
 A
@@ -842,8 +842,8 @@ mushroom мухомор~
 @eng a mushroom@rus мухомор~
 @eng A small mushroom is here.@rus Маленький мухомор (mushroom) пророс из камня.~
 food~
-food 0 0 Ag
-Bh Bh 0 Ag 0
+food 0 0 A
+B B 0 A 0
 0 10 0 G
 E
 mushroom мухомор~
@@ -856,7 +856,7 @@ dirk нож~
 @eng a thieves dirk@rus ~~воровской~~ ~~нож~~~
 @eng A beautifully crafted dirk is lying here.@rus Красиво украшенный нож (thieves dirk) воткнут  тут.~
 steel~
-weapon Gm 0 ANgt
+weapon G 0 AN
 dagger 2 5 'stab' 0
 8 20 590 G
 A
@@ -877,7 +877,7 @@ axe war топор боевой~
 @eng a war axe@rus ~~боевой~~ ~~топор~~~
 @eng A razor-sharp war axe rests on the ground.@rus Острый как бритва топор (war axe) лежит на земле.~
 steel~
-weapon Gm 0 ANgt
+weapon G 0 AN
 axe 3 4 'chop' 0
 12 70 930 P
 A
@@ -894,7 +894,7 @@ sword broad широкий меч~
 @eng a broad sword@rus ~~широкий~~ ~~меч~~~
 @eng A well-polished broadsword sits here.@rus Хорошо отполированный меч (broad sword) лежит здесь.~
 steel~
-weapon 0 0 ANgt
+weapon 0 0 AN
 sword 1 10 'chop' 0
 6 80 550 G
 E
@@ -908,7 +908,7 @@ flail two two-headed цеп двухголовый~
 @eng a two-headed flail@rus ~~двухголовый~~ ~~цеп~~~
 @eng A flail with two heavy, spiked heads is here.@rus Цеп с двумя тяжелыми, зубчатыми главами (two-headed flail) лежит тут.~
 iron~
-weapon 0 0 ANgt
+weapon 0 0 AN
 flail 1 7 'smash' 0
 3 70 290 A
 A
@@ -921,7 +921,7 @@ mace heavy тяжелая булава~
 @eng a heavy iron mace@rus ~~тяжелая~~ ~~булава~~~
 @eng A large iron mace with a wicked head rests on the ground.@rus Большая железная булава (heavy iron mace) со злой головой лежит на земле.~
 iron~
-weapon 0 0 ANgt
+weapon 0 0 AN
 mace 2 4 'pound' 0
 6 100 390 G
 A
@@ -932,7 +932,7 @@ falchion sword ятаган~
 @eng a falchion@rus ятаган~
 @eng A curved sword with a heavy tip sits here.@rus Изогнутый меч (falchion) с тяжелым наконечником находится здесь.~
 iron~
-weapon 0 0 ANgt
+weapon 0 0 AN
 sword 2 4 'chop' 0
 5 80 490 G
 E
@@ -947,8 +947,8 @@ voulge polearm алебарда~
 @eng a voulge@rus алебарда~
 @eng A long polearm with a curved blade is here.@rus Длинная алебарда (voulge) с изогнутым режущим диском стоит тут.~
 iron~
-weapon 0 0 ANgt
-polearm 2 6 'slash' Fl
+weapon 0 0 AN
+polearm 2 6 'slash' F
 10 120 520 A
 A
 17 -1
@@ -958,8 +958,8 @@ blade black demon черный клинок демон~
 @eng the black demon blade@rus ~~черный~~ ~~клинок~~~
 @eng An evil black demon blade is here.@rus Здесь лежит излучающий зло черный демонический клинок (black demon blade).~
 adamantite~
-weapon GJLmpr 0 ANgt
-sword 3 4 'cleave' CFil
+weapon GJL 0 AN
+sword 3 4 'cleave' CF
 11 80 940 P
 E
 blade~
@@ -972,7 +972,7 @@ gloves перчатки~
 @eng swordsman's gloves@rus ~~боевые~~ ~~перчатки~~~
 @eng Some gloves are here. They look like the right equipment for fighting.@rus Перчатки (swordsman's gloves), лежащие тут, производят впечатление боевых.~
 leather~
-armor Gm 0 AHgn
+armor G 0 AH
 1 3 3 1 1
 7 10 730 G
 A
@@ -985,7 +985,7 @@ scroll ysafg свиток~
 @eng a scroll which reads "ysafg"@rus ~~свиток~~ с надписью "ysafg"~
 @eng A scroll which reads "ysafg", it looks very fragile and quite old.@rus Старый свиток (scroll), на котором виднеется надпись "ysafg".~
 parchment~
-scroll Gm 0 AOgu
+scroll G 0 AO
 10 'identify' '' '' ''
 7 10 840 W
 E
@@ -999,8 +999,8 @@ slime mold комок слизь~
 @eng a green slime mold@rus ~~зеленый~~ ~~комок~~ слизи~
 @eng A green slime mold is here. It smells REAL bad.@rus Зеленый комок слизи (green slime mold) лежит тут. Он действительно ВОНЯЕТ.~
 food~
-food Pv 0 Ag
-DEjk DEjk 0 0 0
+food P 0 A
+DE DE 0 0 0
 0 10 0 G
 E
 slime mold комок слизь~
@@ -1013,8 +1013,8 @@ slime mold комок слизи~
 @eng a green slime mold@rus ~~зеленый~~ ~~комок~~ слизи~
 @eng A green slime mold is here. It smells REAL bad.@rus Зеленый комок слизи (green slime mold) лежит тут. Он действительно ВОНЯЕТ.~
 food~
-food Pv 0 Ag
-DEjk DEjk 0 Ag 0
+food P 0 A
+DE DE 0 A 0
 0 10 0 G
 E
 slime mold комок слизи~
@@ -1027,8 +1027,8 @@ staff iron iron-shod посох~
 @eng an iron-shod staff@rus ~~посох~~ с железным наконечником~
 @eng A long staff capped with iron leans against a wall.@rus Длинный посох с железным наконечником (iron-shod staff) лежит вдоль стены.~
 iron~
-weapon 0 0 ANgt
-spear 2 5 'pound' Fl
+weapon 0 0 AN
+spear 2 5 'pound' F
 10 60 630 G
 A
 17 -2
@@ -1038,7 +1038,7 @@ black potion черное зелье~
 @eng a black potion@rus ~~черное~~ ~~зелье~~~
 @eng A thick black potion is here.@rus Толстая банка с зельем (black potion) стоит тут.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 9 'cure critical' '' '' ''
 5 10 320 G
 E
@@ -1052,7 +1052,7 @@ staff oak тяжелый дубовый посох~
 @eng a heavy oak staff@rus ~~тяжелый~~ ~~дубовый~~ ~~посох~~~
 @eng A ancient heavy oak staff is here.@rus Древний дубовый посох (heavy oak staff) стоит тут.~
 wood~
-staff Gm 0 AOgu
+staff G 0 AO
 15 4 2 'harm' 0
 13 50 5400 G
 A
@@ -1071,7 +1071,7 @@ dagger light silver кинжал светлого серебра~
 @eng a light silver dagger@rus ~~кинжал~~ из светлого серебра~
 @eng A light silver dagger is here.@rus Кинжал из светлого серебра (light silver dagger) лежит тут.~
 silver~
-weapon 0 0 ANgt
+weapon 0 0 AN
 dagger 2 4 'stab' 0
 7 20 660 P
 A
@@ -1089,7 +1089,7 @@ star morning morningstar утренняя звезда~
 @eng a morning star@rus ~~утренняя~~ ~~звезда~~~
 @eng A heavy, spiked morning star is here.@rus Тяжелая, зубчатая утренняя звезда (morning star) лежит тут.~
 iron~
-weapon 0 0 ANgt
+weapon 0 0 AN
 mace 2 6 'smash' 0
 9 120 270 G
 A
@@ -1107,8 +1107,8 @@ map moria second карта второй уровень мория~
 @eng a map of the second level of Moria@rus ~~карта~~ второго уровня Мории~
 @eng A rolled up map is here.@rus Свернутая карта (map of the second level of Moria) лежит тут.~
 paper~
-map 0 0 Ag
-Ag 0 0 0 0
+map 0 0 A
+A 0 0 0 0
 0 10 100 W
 E
 map moria second карта мория второй~
@@ -1136,8 +1136,8 @@ map moria third карта третий уровень мория~
 @eng a map of the third level of Moria@rus ~~карта~~ третьего уровня Мории~
 @eng A rolled up map is here.@rus Свернутая карта (map of the third level of Moria) лежит тут.~
 paper~
-map 0 0 Ag
-Ag 0 0 0 0
+map 0 0 A
+A 0 0 0 0
 0 10 200 G
 E
 map moria third~
@@ -1409,7 +1409,7 @@ make out the queen's mines from here.
 ты  замечаешь  лишь  одинокую  птицу  где-то далеко в вышине. Горы гномьего
 королевства возвышаются на востоке. Отсюда видны только королевские шахты.
 ~
-0 Ci hills
+0 C hills
 D0
 ~
 ~
@@ -1440,7 +1440,7 @@ distant mountains.
 юге  холмы  немного  светлее.  На  севере  в холмах виднеются темные дыры..
 Наверное, пещеры?
 ~
-0 Ci hills
+0 C hills
 D0
 ~
 ~
@@ -1465,7 +1465,7 @@ the north marking the entrance to a cave (or a grave :-).
 рвется  из темного провала в холме на севере. Это, видимо, вход в пещеру...
 Или могилу.
 ~
-0 Ci hills
+0 C hills
 E
 sign~
 @eng The sign says:
@@ -1532,7 +1532,7 @@ To the north a small tunnel continues into the mountain.
 он  может  быть последним глотком чистого воздуха в течении долгого-долгого
 времени. На севере маленький тоннель продолжается вглубь горы.
 ~
-0 ADgj field
+0 AD field
 E
 tombstone надгробная плита~
 @eng The stone is inscribed with the unfortunate player's famous last words:
@@ -1562,7 +1562,7 @@ damp, stuffy tunnels. To the north the tunnel continues.
 Туннель  продолжается  на  север,  а  с  юга  ты чуствуешь легкое дуновение
 свежего ветерка.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -1580,7 +1580,7 @@ a cave.
 @rus Ты в части туннеля, который выглядит странно... Он продолжается с севера на
 восток. Северная часть туннеля расширяется в пещеру.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -1597,7 +1597,7 @@ covers the floor, making the air stuffy and dry.
 @rus Этот  туннель,  идущий  с  севера  на  восток, выглядит редко используемым.
 Толстый слой пыли на полу делает воздух сухим и душным.
 ~
-0 ADgj forest
+0 AD forest
 D1
 ~
 ~
@@ -1619,7 +1619,7 @@ is a branch of the tunnel going west.
 что пройти почти невозможно, на севере же он медленно расширяется в пещеру.
 Ответвление тоннеля ведет на запад.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -1642,7 +1642,7 @@ S
 @eng You are in a corner tunnel leading west and north.
 @rus Ты на углу туннеля, ведущего с запада на север.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -1659,7 +1659,7 @@ you notice a small tunnel.
 @rus Ты в большой пещере, которая протянулась с запада на восток. На юге заметен
 вход в маленький туннель.
 ~
-0 ADgj field
+0 AD field
 D1
 ~
 ~
@@ -1678,7 +1678,7 @@ S
 @eng You are in the east end of the large cave.
 @rus Ты в восточной части большой пещеры.
 ~
-0 ADgj field
+0 AD field
 D3
 ~
 ~
@@ -1691,7 +1691,7 @@ notice a large pile of bones in the corner.
 @rus Ты  сейчас  в  южной части пещеры, на юге ты видишь туннель. В углу заметна
 бо-ольшая куча костей.
 ~
-0 ADgj field
+0 AD field
 E
 pile bones куча костей~
 @eng Some of the bones are human!
@@ -1711,7 +1711,7 @@ S
 @eng You are in a north-south leading tunnel.
 @rus Ты в туннеле, который идет с севера на юг.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -1727,7 +1727,7 @@ S
 @rus Ты  стоишь  над  отверстием  в  полу, которое ведет куда-то вниз. Ты можешь
 попытаться пролезть в него, или пойти на север.
 ~
-0 ACDgij forest
+0 ACD forest
 D0
 ~
 ~
@@ -1742,7 +1742,7 @@ S
 @eng A hole in the floor leads down here.
 @rus Дыра в полу привела тебя сюда.
 ~
-0 ACDgij forest
+0 ACD forest
 D1
 ~
 ~
@@ -1761,7 +1761,7 @@ there is a large cave.
 Туннель  тянется  на  север,  на западе ты видишь дыру в поле, а на востоке
 виден вход в большую пещеру.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -1781,7 +1781,7 @@ S
 a damp tunnel.
 @rus Ты в западной части большой пещеры, на юге виднеется сырой туннель.
 ~
-0 ADgj field
+0 AD field
 D1
 ~
 ~
@@ -1797,7 +1797,7 @@ S
 @rus Ты  находишься  на  изгибе  сырого  туннеля.  Он  ведет с запада на юг (или
 наоборот, смотря куда идти).
 ~
-0 ADgj forest
+0 AD forest
 D2
 ~
 ~
@@ -1813,7 +1813,7 @@ S
 @rus Ты  в  северном  конце  пещеры. На западе ты видишь много туннелей, ведущих
 непонятно куда.
 ~
-0 ADgj field
+0 AD field
 D1
 ~
 ~
@@ -1825,14 +1825,14 @@ Z 0 4018
 D5
 ~
 floor~
-ABZgh -1 16000
+ABZ -1 16000
 S
 #4026
 @eng The many tunnels@rus Пересечение туннелей~
 @eng You are at the intersection of many tunnels.
 @rus Ты сейчас находишься на пересечении множества туннелей.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -1857,7 +1857,7 @@ the west. From the north you sense the fresh air!
 @rus Ты  в  туннеле,  который ведет с севера на юг, ты также видишь ответвление,
 ведущее на запад. С севера ты чуствуешь дуновение свежего ветерка!
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -1878,7 +1878,7 @@ to the north. You notice a strange smell from the north..
 @rus Ты  в  туннеле,  который  тянется  с севера на юг. Ты видишь слабый свет на
 севере, но оттуда же доносится и странный запах...
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -1896,7 +1896,7 @@ continue into the mountain.
 @rus Ты  в  пещере,  которая  заполнена  свежим  воздухом. Ты чуствуешь ветерок,
 дующий с севера. На юге ты видишь маленький туннель, уходящий вглубь горы.
 ~
-0 ACDgij field
+0 ACD field
 D0
 ~
 ~
@@ -2167,7 +2167,7 @@ S
 @eng The tunnel turns here, continuing to the east and south.
 @rus Туннель делает поворот тут, продолжаясь с востока на юг.
 ~
-0 ADgj forest
+0 AD forest
 D1
 ~
 ~
@@ -2182,7 +2182,7 @@ S
 @eng You are in a narrow east-west tunnel.
 @rus Ты в узком туннеле, ведущем с запада на восток.
 ~
-0 ADgj forest
+0 AD forest
 D1
 ~
 ~
@@ -2197,7 +2197,7 @@ S
 @eng You are at a turn, the tunnel continues south and west.
 @rus Ты на повороте, туннель продолжается с юга на запад.
 ~
-0 ADgj forest
+0 AD forest
 D2
 ~
 ~
@@ -2212,7 +2212,7 @@ S
 @eng You are at a turn, the tunnel continues north and east.
 @rus Ты на повороте, туннель продолжается с севера на восток.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -2229,7 +2229,7 @@ the entire cave, to the east and west tunnels leads off.
 @rus Ты  находишься  в  пещере,  на  юге  от  тебя  горит большой огонь, который
 освещает всю пещеру. На запад и восток ведут туннели.
 ~
-0 Dj field
+0 D field
 D1
 ~
 ~
@@ -2249,7 +2249,7 @@ S
 @rus Ты  находишься  в  лабиринте  маленьких сырых туннелей. Единственый выход -
 западный.
 ~
-0 ADgj forest
+0 AD forest
 D3
 ~
 ~
@@ -2262,7 +2262,7 @@ The cave continues to the north and south.
 @rus Ты  находишься  в  светлой  пещере,  большой огонь перед тобой освещает всю
 комнату. Пещера продолжается на север и на юг.
 ~
-0 Dj field
+0 D field
 D0
 ~
 ~
@@ -2277,7 +2277,7 @@ S
 @eng You are in a maze of small damp tunnels.
 @rus Ты находишься в лабиринте маленьких сырых туннелей.
 ~
-0 ADgj forest
+0 AD forest
 D1
 ~
 ~
@@ -2292,7 +2292,7 @@ S
 @eng You are in a maze of small damp tunnels.
 @rus Ты находишься в лабиринте маленьких сырых туннелей.
 ~
-0 ADgj forest
+0 AD forest
 D2
 ~
 ~
@@ -2309,7 +2309,7 @@ tunnel leads slightly down.
 @rus Ты  в  туннеле,  единственный  выход  из  которого ведет на восток. Туннель
 слегка опускается...
 ~
-0 ACDgij forest
+0 ACD forest
 D0
 ~
 ~
@@ -2326,7 +2326,7 @@ to the east you see some light.
 @rus Ты  в  маленьком  туннеле. Он тянется с востока на запад, на востоке что-то
 светится...
 ~
-0 ADgj forest
+0 AD forest
 D1
 ~
 ~
@@ -2341,7 +2341,7 @@ S
 @eng You are in the south end of a light cave.
 @rus Ты в южной части светлой пещеры.
 ~
-0 Dj field
+0 D field
 D0
 ~
 ~
@@ -2356,7 +2356,7 @@ S
 @eng You are in a maze of small damp tunnels.
 @rus Ты находишься в лабиринте маленьких сырых туннелей.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -2371,7 +2371,7 @@ S
 @eng You are in a maze of small damp tunnels.
 @rus Ты находишься в лабиринте маленьких сырых туннелей.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -2386,7 +2386,7 @@ S
 @eng You are at the eastern end of a tunnel.
 @rus Ты в восточной части туннеля.
 ~
-0 ADgj forest
+0 AD forest
 D3
 ~
 ~
@@ -2401,7 +2401,7 @@ S
 @eng You are in a maze of small damp tunnels.
 @rus Ты находишься в лабиринте маленьких сырых туннелей.
 ~
-0 ADgj forest
+0 AD forest
 D1
 ~
 ~
@@ -2416,7 +2416,7 @@ S
 @eng You are in a maze of small damp tunnels.
 @rus Ты находишься в лабиринте маленьких сырых туннелей.
 ~
-0 ADgj forest
+0 AD forest
 D1
 ~
 ~
@@ -2435,7 +2435,7 @@ S
 @eng You are in a maze of small damp tunnels.
 @rus Ты находишься в лабиринте маленьких сырых туннелей.
 ~
-0 ADgj forest
+0 AD forest
 D3
 ~
 ~
@@ -2446,7 +2446,7 @@ S
 @eng You are in the northwest end of a large cave.
 @rus Ты в северо-западном углу большой пещеры.
 ~
-0 ADgj field
+0 AD field
 D1
 ~
 ~
@@ -2463,7 +2463,7 @@ is a small damp tunnel.
 @rus Ты  в северо-восточной части большой пещеры. На север ведет маленький сырой
 туннель.
 ~
-0 ADgj field
+0 AD field
 D0
 ~
 ~
@@ -2482,7 +2482,7 @@ S
 @eng You are in the southwest end of a large cave.
 @rus Ты в юго-западной части большой пещеры.
 ~
-0 ADgj field
+0 AD field
 D0
 ~
 ~
@@ -2499,7 +2499,7 @@ notice a small tunnel.
 @rus Ты  в  юго-восточной  части  большой пещеры. На востоке ты видишь маленький
 туннель.
 ~
-0 ADgj field
+0 AD field
 D0
 ~
 ~
@@ -2521,7 +2521,7 @@ cave.
 @rus Ты  в  узком  туннеле,  который ведет и на восток, и на юг. На западе виден
 вход в большую пещеру.
 ~
-0 ADgj forest
+0 AD forest
 D1
 ~
 ~
@@ -2540,7 +2540,7 @@ S
 @eng The tunnel stops here.
 @rus Опс! Здесь туннель заканчивается...
 ~
-0 ADgj forest
+0 AD forest
 D3
 ~
 ~
@@ -2553,7 +2553,7 @@ or try your luck and leave down into the unknown!
 @rus Ты  стоишь  у  маленькой дыры в полу. Ты можешь пойти на север или попытать
 удачи, спустившись в дыру.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -2568,7 +2568,7 @@ S
 @eng Suddenly you feel that the tunnel leads slightly down.
 @rus Внезапно ты чуствуешь, что туннель уводит тебя куда-то вниз...
 ~
-0 ACDgij forest
+0 ACD forest
 D0
 ~
 ~
@@ -2585,7 +2585,7 @@ wide at this point.
 @rus Ты  в  длинном  туннеле,  ведущем с запада на восток. Туннель очень широк в
 этом месте.
 ~
-0 ADgj forest
+0 AD forest
 D1
 ~
 ~
@@ -2602,7 +2602,7 @@ narrow to the west.
 @rus Ты  в  длинном  туннеле,  ведущем  с  запада на восток. Туннель сужается на
 западе...
 ~
-0 ADgj forest
+0 AD forest
 D1
 ~
 ~
@@ -2619,7 +2619,7 @@ narrow at this point. You notice a small hole leading south.
 @rus Ты  в  длинном  туннеле,  ведущем с запада на восток. Туннель очень широк в
 этом месте. На юге ты замечаешь маленькую дыру.
 ~
-0 ADgj forest
+0 AD forest
 D1
 ~
 ~
@@ -2640,7 +2640,7 @@ down towards the west.
 @rus Ты  в  длинном  туннеле,  ведущем  с  запада  на  восток.  Туннель начинает
 потихоньку опускаться к западу.
 ~
-0 ADgj forest
+0 AD forest
 D1
 ~
 ~
@@ -2657,7 +2657,7 @@ light. The cave continues to the south and west.
 @rus Ты  в  гигантской пещере, все стены которой светятся мягким золотым светом.
 Пещера продолжается с юга на запад.
 ~
-0 Dj city
+0 D city
 D2
 ~
 ~
@@ -2675,7 +2675,7 @@ tunnel.
 @rus Ты  в  гигантской пещере, все стены которой светятся мягким золотым светом.
 Пещера продолжается с юга на восток, на севере виден узкий туннель.
 ~
-0 Dj city
+0 D city
 D0
 ~
 ~
@@ -2695,7 +2695,7 @@ S
 cave.
 @rus Ты в маленьком проходе, он ведет с юга в золотую пещеру на западе.
 ~
-0 ADgj forest
+0 AD forest
 D2
 ~
 ~
@@ -2713,7 +2713,7 @@ a small passage.
 @rus Ты  в  гигантской пещере, все стены которой светятся мягким золотым светом.
 Пещера продолжается с севера на запад, на востоке заметен маленький проход.
 ~
-0 Dj city
+0 D city
 D0
 ~
 ~
@@ -2734,7 +2734,7 @@ light. The cave continues to the south, east and north.
 @rus Ты  в  гигантской пещере, все стены которой светятся мягким золотым светом.
 Пещера продолжается на юг, восток и север.
 ~
-0 Dj city
+0 D city
 D0
 ~
 ~
@@ -2753,7 +2753,7 @@ S
 @eng You are at the end of the tunnel.
 @rus Ты в конце туннеля.
 ~
-0 ACDgij forest
+0 ACD forest
 D3
 ~
 ~
@@ -2764,7 +2764,7 @@ S
 @eng You are in a small tunnel, it leads from east to the west.
 @rus Ты в маленьком туннеле, протянувшемся с запада на восток.
 ~
-0 ADgj forest
+0 AD forest
 D1
 ~
 ~
@@ -2780,7 +2780,7 @@ S
 @rus Ты  в  большом туннеле, он ведет с запада на восток. Согласен, с востока на
 запад им тоже можно пройти :-)
 ~
-0 ADgj forest
+0 AD forest
 D1
 ~
 ~
@@ -2796,7 +2796,7 @@ S
 you see a tunnel.
 @rus Ты в проходе, который ведет на юг. На востоке виден туннель.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -2818,7 +2818,7 @@ passage.
 @rus Ты  в  гигантской пещере, все стены которой светятся мягким золотым светом.
 Пещера продолжается на север, на западе виден узкий темный проход.
 ~
-0 Dj city
+0 D city
 D0
 ~
 ~
@@ -2835,7 +2835,7 @@ a small hole, just big enough to pass through.
 @rus Ты  в  темном  проходе,  который  ведет  на восток. На потолке ты замечаешь
 маленкую дыру, как раз такого размера, чтобы протиснуться в нее.
 ~
-0 ADgj forest
+0 AD forest
 D1
 ~
 ~
@@ -2851,7 +2851,7 @@ S
 light to the south.
 @rus Ты в проходе, ведущем с севера на юг. На юге ты видишь слабый свет.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -2866,7 +2866,7 @@ S
 @eng You are in a secret chamber.
 @rus Ты в секретной комнате.
 ~
-0 ADgj forest
+0 AD forest
 D2
 ~
 ~
@@ -2881,7 +2881,7 @@ To the north a small hole leads to a tunnel.
 комнату. Пещера продолжается с запада на юг. На севере маленькая дыра ведет
 в туннель.
 ~
-0 Dj city
+0 D city
 D2
 ~
 ~
@@ -2898,7 +2898,7 @@ head fire lights the room. The cave continues to the east and south.
 @rus Ты  в  светлой  пещере,  в нескольких шагах от тебя горит огонь, освещающий
 комнату. Пещера продолжается с юга на восток.
 ~
-0 Dj city
+0 D city
 D1
 ~
 ~
@@ -2917,7 +2917,7 @@ S
 @eng You are in a north-south leading passage. To the south you see light.
 @rus Ты в проходе, который ведет с севера на юг. На юге ты видишь свет.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -2934,7 +2934,7 @@ approaching you as you continue west.
 @rus Ты  в  секретном  туннеле,  который  ведет на запад. На западе ты чуствуешь
 чье-то враждебное присутствие.
 ~
-0 ADgj forest
+0 AD forest
 D1
 ~
 ~
@@ -2950,7 +2950,7 @@ S
 feeling.
 @rus Ты в секретной комнате, которая пронизана чьим-то враждебным присутствием.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -2967,7 +2967,7 @@ head fire lights the room. The cave continues to the north and west.
 @rus Ты  в  светлой  пещере,  в нескольких шагах от тебя горит огонь, освещающий
 комнату. Пещера продолжается с севера на запад.
 ~
-0 Dj city
+0 D city
 D0
 ~
 ~
@@ -2986,7 +2986,7 @@ To the west a passage leads north.
 комнату.  Пещера  продолжается  с востока на север. На западе виден проход,
 ведущий на север.
 ~
-0 Dj city
+0 D city
 D0
 ~
 ~
@@ -3008,7 +3008,7 @@ the darkness.
 @rus Ты  в проходе, на востоке котороы ты видишь пещеру. Свет из пещеры освещает
 проход. Северная часть прохода уходит в темноту.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -3031,7 +3031,7 @@ The Balrog is ALIVE ...
 духе.  Но  одна  надпись  привлекает  твое  внимание.  Она гласит : 'Balrog
 жив...'
 ~
-0 ACDgij forest
+0 ACD forest
 D2
 ~
 ~
@@ -3044,7 +3044,7 @@ the south you see a large tunnel. The air is damp in this area.
 @rus Ты  в  маленьком  проходе,  на  севере  виднеется  дыра, а на юге ты видишь
 большой туннель. Воздух наполнен сыростью и тебе тяжело дышать...
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -3063,7 +3063,7 @@ S
 @eng You suddenly feel that the tunnel leads down.
 @rus Внезапно ты чуствуешь, что туннель уходит вниз...
 ~
-0 ACDgij forest
+0 ACD forest
 D1
 ~
 ~
@@ -3080,7 +3080,7 @@ air is damp in the area.
 @rus Ты  в  большом  туннеле,  поворачивающем  с  юга на восток. Воздух наполнен
 сыростью и тебе тяжело дышать...
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -3101,7 +3101,7 @@ the floor is wet.
 @rus Ты  в  большом  туннеле,  который  идет с запада на восток. Воздух наполнен
 влагой, и стены туннеля сочатся сыростью.
 ~
-0 ADgj forest
+0 AD forest
 D1
 ~
 ~
@@ -3118,7 +3118,7 @@ you notice a long tunnel. The air is damp in this area.
 @rus Ты в большом туннеле, который идет с запада на восток. На востоке ты видишь
 длинный туннель. Воздух наполнен влагой, и стены туннеля сочатся сыростью.
 ~
-0 ADgj forest
+0 AD forest
 D1
 ~
 ~
@@ -3133,7 +3133,7 @@ S
 @eng You are standing in a long north-south tunnel.
 @rus Ты в длинном туннеле, который ведет с севера на юг.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -3150,7 +3150,7 @@ partly covered by water.
 @rus Ты  в сыром туннеле, тенущемся с севера на юг. Туннель настолько сырой, что
 пол кое-где покрывают лужи воды. Пить из них я бы поостерегся.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -3171,7 +3171,7 @@ and west. The floor is partly covered by water.
 @rus Ты  в  маленьком  лабиринте,  выходы  ведут  на юг, запад и восток. На полу
 блестят лужи воды...
 ~
-0 ADgj forest
+0 AD forest
 D1
 ~
 ~
@@ -3192,7 +3192,7 @@ and west. The air is damp in this maze.
 @rus Ты  в  маленьком  лабиринте,  выходы  ведут только на юг и на запад. Воздух
 наполнен сыростью...
 ~
-0 ADgj forest
+0 AD forest
 D2
 ~
 ~
@@ -3209,7 +3209,7 @@ the wall there is an inscription.
 @rus Ты  в  туннеле,  который ведет с севера на юг. Воздух наполнен сыростью. На
 стене виднеется надпись (inscription).
 ~
-0 ADgj forest
+0 AD forest
 E
 inscription надпись~
 @eng It says:
@@ -3247,7 +3247,7 @@ S
 covered by water.
 @rus Ты в туннеле, ведущем с севера на юг. Пол полностью покрыт водой.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -3264,7 +3264,7 @@ water, exits leads north, east and south.
 @rus Ты  в  маленьком лабиринте. Выходы ведут на север, юг и восток. Пол большей
 частью покрыт водой.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -3285,7 +3285,7 @@ leads to the north and east.
 @rus Ты  в  маленьком  лабиринте. Выходы ведут на север и восток. Воздух сочится
 влагой.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -3306,7 +3306,7 @@ To the west you see a small maze.
 @rus Ты  в  туннеле,  который  ведет  с  севера  на  восток. На западе ты видишь
 маленький лабиринт. Воздух очень влажный.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -3326,7 +3326,7 @@ S
 north and south.
 @rus 
 ~
-0 ADgj swim
+0 AD swim
 D0
 ~
 ~
@@ -3343,7 +3343,7 @@ by water. The maze continues to the north, east and south.
 @rus Ты  в  части  лабиринта,  пол  которой  полностью  покрыт  водой.  Лабиринт
 продолжается на север, юг и восток.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -3364,7 +3364,7 @@ maze continues east, west and south.
 @rus Ты  в  части  лабиринта,  пол  которой  полностью  покрыт  водой.  Лабиринт
 продолжается на запад, юг и восток.
 ~
-0 ADgj forest
+0 AD forest
 D1
 ~
 ~
@@ -3385,7 +3385,7 @@ The air is damp here.
 @rus Туннель  неожиданно  заканчивается  здесь,  единственный  выход - на запад.
 Воздух тут очень сырой.
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -3400,7 +3400,7 @@ S
 @eng You are standing in the water, exits leads both north and east.
 @rus Ты стоишь в воде, выходы ведут на север и восток.
 ~
-0 ADgj swim
+0 AD swim
 D0
 ~
 ~
@@ -3415,7 +3415,7 @@ S
 @eng You are standing in the water, it continues east and west.
 @rus Ты стоишь в воде, выходы ведут на запад и восток.
 ~
-0 ADgj swim
+0 AD swim
 D0
 ~
 ~
@@ -3436,7 +3436,7 @@ Above you a hole leads up.
 @rus Ты  в  конце  маленького  лабиринта, который въется на север от тебя. Через
 дыру в потолке ты можешь подняться вверх.
 ~
-0 ACDgij forest
+0 ACD forest
 D0
 ~
 ~
@@ -3451,7 +3451,7 @@ S
 @eng You are on a little sand bar in the water.
 @rus Ты на маленькой насыпи из песка, которая поднимается из воды.
 ~
-0 ADgj forest
+0 AD forest
 D3
 ~
 ~

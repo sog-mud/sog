@@ -17,16 +17,14 @@ Arborn's personal healer stands here.
 ~
 ~
 human~
-Bh Hn Hn 0 0 1000 0
+B H H 0 0 1000 0
 200 0 1d1+1 1d1+1 1d1+1 'magic'
 0 0 0 0
 0
 stand stand female 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 M speech 36101 gecho~
-r bash 50
-r fire 50
 #36101
 target~
 TARGET~
@@ -34,7 +32,7 @@ Target stands here, practice range skills on it.
 ~
 ~
 human~
-Bh 0 0 Gm Hn 0 0
+B 0 0 G H 0 0
 100 0 1d1+29999 1d1+1 1d1+1 'none'
 0 0 0 0
 0
@@ -49,13 +47,13 @@ training mob is here, backstab him!
 ~
 ~
 human~
-BThz 0 AHVgn 0 0 0 0
+BT 0 AHV 0 0 0 0
 1 50 1d1+29999 1d1+1 1d1+1 'none'
 0 0 0 0
-Hn
+H
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 r bash 33
 r pierce 33
 r slash 33
@@ -66,13 +64,13 @@ Rancor, brother of Muncar stands here.
 ~
 ~
 human~
-0 0 Hn 0 0 0 0
+0 0 H 0 0 0 0
 40 0 1d1+12999 0d0+0 0d0+0 'none'
 0 0 0 0
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #36104
 ruhabor son child~
 ~
@@ -85,7 +83,7 @@ human~
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #36105
 no name ruhanor ruhabor rumak~
 Rumak~
@@ -93,7 +91,7 @@ Rumak is here, aiding criminals.
 ~
 ~
 minotaur~
-Qw Hn V 0 0 -1000 0
+Q H JV 0 0 -1000 0
 30 10 1d1+20000 20d100+25000 5d5+18 'punch'
 0 0 0 0
 0
@@ -106,7 +104,7 @@ The very huge barbarian, Weapon CLeaver, stands here.
 ~
 ~
 fire giant~
-0 0 TVz 0 ABKLMghqrs 0 0
+J 0 TV 0 ABCDFIJKLM 0 0
 10000 0 1d1+0 1d1+9999 1d1+0 ''
 -100 -100 -100 -100
 0
@@ -121,12 +119,12 @@ Solmyr~
 ~
 ~
 modron~
-FHRlnx 0 BCDEFGHJNPQUehijklmnptvw ACDEgijk ABCDEFIJghijklop 0 0
+FHR 0 HNPU AD ABDF 0 0
 95 100 50000d50000+50000 500d2+3000 10d10+100 'magic'
 -100 -100 -100 -100
 0
 stand stand male 0
-ABDMPYZghjsv Ek huge unknown
+ABDMPYZ E huge unknown
 V 36110
 r bash 33
 r pierce 33
@@ -139,7 +137,7 @@ shadow watcher~
 ~
 ~
 undead~
-BOchu 0 0 0 0 -1000 0
+BOc F 0 C D -1000 0
 92 0 1d1+100000 1d1+100000 0d0+0 'wrath'
 -100 -100 -100 -100
 0
@@ -160,12 +158,12 @@ irlaniel~
 ~
 ~
 unique~
-QRTwxz 0 HMNOTUVcnstuz Gm ABHghn 0 0
+JQRT 0 HMNOTUVc G ABCDH 0 0
 65 70 1d1+9999 1d1+14999 1d99+20 'shock'
 -40 -40 -40 -40
-ACDEFHKNOgijklnqtu
+ACDEFHKNO
 stand stand male 0
-DHjn 0 huge unknown
+DH 0 huge unknown
 r bash 33
 r pierce 33
 r slash 33
@@ -191,12 +189,12 @@ Remitoel~
 ~
 ~
 unique~
-QRTwxz 0 HMNOTUVcnstuz Gm ABHghn 0 0
+JQRT 0 HMNOTUVc G ABCDH 0 0
 65 70 1d1+9999 1d1+14999 1d99+20 'shock'
 -40 -40 -40 -40
-ACDEFHKNOgijklnqtu
+ACDEFHKNO
 stand stand male 0
-DHjn 0 huge unknown
+DH 0 huge unknown
 r bash 33
 r pierce 33
 r slash 33
@@ -221,13 +219,13 @@ Stalker with an insane look in his eyes.
 ~
 ~
 human~
-0 0 0 0 0 0 0
+J 0 0 0 0 0 0
 150 0 1d1+599 1d1+4999 5d5+80 'none'
 0 0 0 0
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 r bash 100
 r pierce 100
 r slash 100
@@ -255,7 +253,7 @@ horse~
 Z 0 0 0 0 0 0
 93 50 1d1+29999 5d5+70 1d500+100 'none'
 0 0 0 0
-CDIijo
+CDI
 stand stand none 0
 0 0 medium unknown
 #36125
@@ -272,7 +270,7 @@ human~
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #36130
 balthazar~
 Balthazar~
@@ -282,13 +280,13 @@ Man dressed in a gold-embroidered black robe stands before you. Though
 he looks tough, you do not feel enmity from him.
 ~
 human~
-ABDEGJRTghjkmpxz FGIlmo HVcn 0 ABgh 0 0
+BGRT I HVc 0 ABCD 0 0
 150 20 1d1+29999 1d1+12999 50d5+150 'magic'
 -150 -150 -150 -150
-ACDEFHIJKNOgijklnopqtu
+ACDEFHIJKNO
 stand stand male 0
 0 0 large unknown
-F for AHMVgns
+F for AHMV
 M speech 36130 quest~
 M speech 36131 oahzxalq~
 #36139
@@ -297,10 +295,10 @@ Skorn~
 ~
 ~
 drow~
-LTUrz 0 V 0 ABgh 0 0
+LTU 0 V 0 ABD 0 0
 0 15 1d1+1299 20d20+800 2d40+10 'none'
 0 0 0 0
-ACFIJKgilopq
+ACFIJK
 stand stand none 0
 0 0 medium unknown
 #0
@@ -311,8 +309,8 @@ sofa~
 @eng sofa@rus софа~
 @eng Soft sofa invite you to rest...@rus Мягкий диван (sofa) приглашает отдохнуть...~
 unknown~
-furniture Ag 0 0
-Bh EGIJOPkmopuv EHKknq CEFGHIiklmno CEFGHIiklmno
+furniture A 0 0
+B EGIJOP EHK CEFGHI CEFGHI
 0 5000 0 P
 g female~
 #36101
@@ -320,7 +318,7 @@ ring life~
 @eng ring of Life@rus кольцо Жизни~
 @eng Ring, overflowing with life@rus Кольцо Жизни.~
 unknown~
-armor ABgh 0 ABgh
+armor AB 0 AB
 10 10 10 10 0
 100 0 0 P
 A
@@ -338,23 +336,27 @@ helm seeing~
 @eng Helm of Seeing@rus Шлем Видения~
 @eng Helm of seeing@rus Helm of seeing~
 unknown~
-armor 0 0 AEgk
+armor 0 0 AE
 100 100 100 100 0
 48 0 0 P
 A
 8 2000
-F d 0 0 Lr
-F d 0 0 Kq
-F d 0 0 Ms
-F d 0 0 Bh
-F d 0 0 Ag
+F d 0 0 F
+F d 0 0 L
+F d 0 0 I
+F d 0 0 K
+F d 0 0 M
+F d 0 0 C
+F d 0 0 D
+F d 0 0 B
+F d 0 0 A
 g none~
 #36103
 ring death~
 @eng ring of Death@rus кольцо Смерти~
 @eng ring of death@rus ring of death~
 unknown~
-armor CFil 0 ABgh
+armor CF 0 AB
 10 10 10 100 0
 100 0 0 P
 A
@@ -373,8 +375,8 @@ dagger might~
 @eng dagger of Might@rus кинжал Силы~
 @eng dagger of might@rus dagger of might~
 unknown~
-weapon BMhs 0 ANgt
-dagger 1 10000 'scratch' ABDEGHghjkmn
+weapon BM 0 AN
+dagger 1 10000 'scratch' ABDEGH
 75 0 0 P
 A
 18 30
@@ -388,11 +390,11 @@ Black Hole~
 @eng Black Hole@rus Черная дыра~
 @eng black hole@rus black hole~
 unknown~
-light Ag 0 Ag
+light A 0 A
 0 0 -1 0 0
 0 0 0 P
-F A 0 0 Tz
-F A 0 0 Hn
+F A 0 0 T
+F A 0 0 H
 A
 30 33
 A
@@ -435,7 +437,7 @@ gloves universal~
 Universal Gloves.~
 Really universal gloves.~
 unknown~
-armor Ag 0 AHgn
+armor A 0 AH
 100 100 100 100 0
 99 0 0 P
 A
@@ -460,7 +462,7 @@ bottle of milk~
 @eng the bottle of milk@rus ~~Бутылк~~ молока~
 @eng The bottle of milk is here@rus Бутылка молока кем-то оставлена здесь~
 glass~
-drink 0 0 Ag
+drink 0 0 A
 100 100 'local specialty' 0 0
 0 100 1000 P
 g none~
@@ -487,7 +489,7 @@ grail holy~
 @eng Holy Grail@rus Святой Грааль~
 @eng Holy Grail is here. Take it to Galahad!@rus Святой Грааль лежит на земле. Принесите его Сэру Галахаду!~
 gold~
-drink AIgo Ci AOgu
+drink AI C AO
 100 100 'blood' 0 0
 70 100 1000000 P
 A
@@ -502,7 +504,7 @@ wand sparkling rod~
 sparkling rod~
 Sparks are falling from tip of a rod that lies here.~
 unknown~
-wand BYh BChi AOgu
+wand BY BC AO
 33 40 40 'lightning breath' 0
 10 15 0 P
 g none~
@@ -511,7 +513,7 @@ pouch~
 @eng Nothing.@rus Ничего.~
 @eng Small invisible pouch merges with its surroundings.@rus Маленький невидимый мешочек (pouch) лежит тут.~
 unknown~
-container HJKLPYnpqrv Ci Ag
+container HJKLPY C A
 10000 0 0 10000 50
 1 0 0 P
 g none~
@@ -520,7 +522,7 @@ warm glowing staff~
 warmly glowing staff~
 Mighty staff radiates a warm glow.~
 unknown~
-staff AYg BChi AOgu
+staff AY BC AO
 50 40 40 'assist' 0
 10 15 0 P
 g none~
@@ -529,7 +531,7 @@ ring jade iridium~
 @eng ring with a great jade stone@rus кольцо с большим нефритом~
 @eng White metal ring with a big jade glows with its magic.@rus Кольцо белого металла с большим нефритом светится от вложенной в него магии~
 iridium~
-jewelry AGgm BChi ABgh
+jewelry AG BC AB
 0 0 0 0 0
 35 2 250000 P
 F A 0 0 c
@@ -548,7 +550,7 @@ ring metal onyx~
 @eng ring with a great onyx@rus кольцо с большим ониксом~
 @eng Red metal ring with a large onyx absorbs the light.@rus Кольцо красного металла с большим ониксом поглощает весь свет.~
 copper~
-jewelry Ag BChi ABgh
+jewelry A BC AB
 0 0 0 0 0
 35 2 250000 P
 A
@@ -563,7 +565,7 @@ plain rod~
 @eng plain-looking staff@rus ~~обыкновенный~~ ~~посох~~~
 @eng Plain-looking staff lies in the dust.@rus Обыкновенный посох лежит в пыли.~
 unknown~
-staff HKnq BEhk AOgu
+staff HK BE AO
 50 20 20 'detect hide' 0
 45 0 0 P
 A
@@ -574,10 +576,10 @@ rancor sword~
 {Wlong sword named "{GRancor{W"{x~
 Strange sword is glowing bright green.~
 steel~
-weapon AJgp BCFhil ANgt
-sword 4 13 'cleave' Hn
+weapon AJ BCF AN
+sword 4 13 'cleave' H
 20 20 100000 P
-F A 13 -30 Ms
+F A 13 -30 M
 A
 19 3
 A
@@ -588,8 +590,8 @@ mithras axe~
 huge axe called "{RMithras{x"~
 Blood-red axe lies on the ground.~
 mithril~
-weapon Bh BCFhil ANgt
-axe 5 19 'chop' Ek
+weapon B BCF AN
+axe 5 19 'chop' E
 50 50 200000 P
 A
 18 10
@@ -600,8 +602,8 @@ warmonger sword~
 legendary sword "{wWarmonger{x"~
 Dark blade with glowing runes on its blade lies near.~
 adamantite~
-weapon ACEMgiks ABEFghkl ANgt
-sword 24 6 'slice' DEFjkl
+weapon ACEM ABEF AN
+sword 24 6 'slice' DEF
 85 80 1200000 P
 A
 8 1
@@ -625,8 +627,8 @@ ember bow~
 everburning bow "{rEmber{x"~
 Bow with fires on it lies near you.~
 energy~
-weapon Ag ABFghl ANgt
-bow 7 17 'flame' AEgk
+weapon A ABF AN
+bow 7 17 'flame' AE
 65 50 700000 P
 A
 30 100
@@ -642,8 +644,8 @@ carnage dagger~
 long slim dagger "{MCarnage{x"~
 Long and slim dagger glints in the grass.~
 steel~
-weapon Ag ABFghl ANgt
-dagger 14 10 'stab' BDEhjk
+weapon A ABF AN
+dagger 14 10 'stab' BDE
 75 50 900000 P
 A
 34 100
@@ -661,8 +663,8 @@ battlecraft flail~
 deadly mace "{YBattleCraft{x"~
 Brightly glowing flail lies forgotten.~
 unknown~
-weapon Ag ABFghl ANgt
-flail 10 9 'smash' ADEgjk
+weapon A ABF AN
+flail 10 9 'smash' ADE
 55 50 500000 P
 A
 28 33
@@ -678,8 +680,8 @@ tempest sword~
 sparkling sword "{CTempest{x"~
 Strangely bent sword glows in the grass.~
 titanium~
-weapon AKgq ABCFghil ANgt
-sword 4 17 'slash' DGIjmo
+weapon AK ABCF AN
+sword 4 17 'slash' DGI
 40 30 0 P
 A
 13 80
@@ -697,10 +699,10 @@ wings крылья~
 @eng huge {Wglary white{x wings@rus ~~огромные~~ {W~~ослепително-белые~~{x ~~крылья~~~
 @eng You couldn't beleave your own eyes - Azrael's wings lie here...@rus Ты не $gn{{поверил} своим глазам - здесь лежат крылья (wings) Азраила...~
 feathers~
-armor AGIJKMYgmopqs BCEhik AIgo
+armor AGIJKMY BCE AI
 -40 -40 -40 -40 0
 46 0 0 P
-F A 0 0 Tz
+F A 0 0 T
 E
 wings~
 @eng It is not only big, it is huge!......  
@@ -721,7 +723,7 @@ tattoo татуировка~
 @eng Tamplier's {Ygolden sign{x@rus {Y~~золотой знак~~{x ~~Тамплиеров~~~
 @eng Tamplier's {Ygolden sign{x peers through clothis@rus ~~{Yзолотой знак{x~~ ~~Тамплиеров~~ виднеется сквозь одежду~
 energy~
-jewelry ABGIUghmo 0 ARgx
+jewelry ABGIU 0 AR
 0 0 0 0 0
 46 0 0 P
 F A 0 0 c
@@ -731,7 +733,7 @@ erastus~
 skull of Erastus~
 Skull of a powerful mage is here, impaled on a rod.~
 steel~
-trash Ag ACgi 0
+trash A AC 0
 0 0 0 0 0
 0 0 0 P
 E
@@ -744,7 +746,7 @@ zona~
 skull of Zona~
 Skull of a powerful mage is here, impaled on a dagger.~
 steel~
-trash Ag ACgi 0
+trash A AC 0
 0 0 0 0 0
 0 0 0 P
 E
@@ -757,7 +759,7 @@ searaven~
 skull of SeaRaven~
 Skull of a powerful mage is here, impaled on a spear.~
 steel~
-trash Ag ACgi 0
+trash A AC 0
 0 0 0 0 0
 0 0 0 P
 E
@@ -770,7 +772,7 @@ zekiel~
 skull of Zekiel~
 Skull of a powerful mage is here, impaled on a sword.~
 steel~
-trash Ag ACgi 0
+trash A AC 0
 0 0 0 0 0
 0 0 0 P
 E
@@ -783,7 +785,7 @@ cloudburst~
 skull of CloudBurst~
 Skull of a powerful mage is here, impaled on a lance.~
 steel~
-trash Ag ACgi 0
+trash A AC 0
 0 0 0 0 0
 0 0 0 P
 E
@@ -796,7 +798,7 @@ firefang~
 skull of FireFang~
 Skull of a powerful mage is here, impaled on a staff.~
 steel~
-trash Ag ACgi 0
+trash A AC 0
 0 0 0 0 0
 0 0 0 P
 E
@@ -809,7 +811,7 @@ pale~
 skull of Pale~
 Skull of a powerful mage is here, impaled on a halberd.~
 steel~
-trash Ag ACgi 0
+trash A AC 0
 0 0 0 0 0
 0 0 0 P
 E
@@ -822,7 +824,7 @@ silvanus~
 skull of Silvanus~
 Skull of a powerful mage is here, impaled on a mace.~
 steel~
-trash Ag ACgi 0
+trash A AC 0
 0 0 0 0 0
 0 0 0 P
 E
@@ -835,7 +837,7 @@ book weaponry~
 a book on ancient weaponry~
 An old book lies here.~
 paper~
-treasure 0 0 Ag
+treasure 0 0 A
 0 0 0 0 0
 0 20 50000 P
 E
@@ -950,12 +952,12 @@ cloak rainbow~
 rainbow cloak~
 Some clothing lies on the ground, changing its color.~
 energy~
-armor FGHlmn ACEgik AKgq
+armor FGH ACE AK
 15 15 15 15 0
 15 0 180000 P
 A
 18 5
-F i 12 30 Gm
+F i 12 30 G
 A
 27 33
 A
@@ -998,10 +1000,10 @@ gloves glowing spiked~
 spiked glowing gloves~
 Gloves with a sharp spikes glow on the ground.~
 unknown~
-armor AYg ABFghl AHgn
+armor AY ABF AH
 14 14 14 9 0
 40 100 50000 P
-S 'deathblow' 40 Ag
+S 'deathblow' 40 A
 A
 1 3
 A
@@ -1012,7 +1014,7 @@ something~
 {Cч{Mт{Gо{R-{Bт{Wо {Dэ{Yд{Rа{Bк{Mо{Cе{x~
 {RЧ{Bт{Cо{D-{Wт{Mо {Yэ{Gд{Bа{Cк{Bо{Dе{R, {Gн{Wу {Rд{Gа{Cж{Mе {Dп{Yр{Gя{Rм{Bо {rТАКОЕ {gп{Cа{Mр{Wи{Bт {Cв {Yв{Gо{Cз{Rд{Yу{Dх{Mе{g.{x~
 unknown~
-treasure 0 0 AQgw
+treasure 0 0 AQ
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -1039,7 +1041,7 @@ nothing~
 @eng nothing@rus ничего~
 @eng Black indentation.@rus Черное пятно.~
 unknown~
-trash 0 Hn AOgu
+trash 0 H AO
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -1057,7 +1059,7 @@ aura аура~
 @eng {Ddark aura{x@rus {D~~темная~~ ~~аура~~{x~
 @eng {DDark Aura{x floats in the air.@rus В воздухе витает {Dтемная аура{x (aura).~
 shadow~
-armor ABCEJYbghikp Ci AQgw
+armor ABCEJYb C AQ
 -10000 -10000 -10000 -10000 0
 0 0 1000 P
 A
@@ -1120,6 +1122,7 @@ A
 42 100
 A
 43 100
+F A 0 0 J
 A
 36 100
 A
@@ -1130,7 +1133,7 @@ wand~
 Wand of {RDisintegration{x~
 Dangerous wand has been left here~
 oak~
-wand ABGHIJKMbghmnopqs Ci AOgu
+wand ABGHIJKMb C AO
 100 1 1 'disintegrate' 0
 95 100 1000000 P
 g none~
@@ -1139,7 +1142,7 @@ wand дрын~
 @eng wand@rus ~~дрын~~~
 @eng Wand is here.@rus Какой-то дрын (wand) валяется тута.~
 wood~
-wand Ag 0 AOgu
+wand A 0 AO
 100 100 100 'remove curse' 0
 0 0 0 P
 g male~
@@ -1148,7 +1151,7 @@ g male~
 @eng {Ddirty{x pool@rus {D~~грязная~~ ~~лужа~~{x~
 @eng The very dirty pool surrounds the column.@rus {DГрязнющая лужа{x (pool) окружает столб.~
 water~
-fountain Ci 0 0
+fountain C 0 0
 9999999 9999999 'water' 135135360 0
 0 0 0 P
 g female~
@@ -1158,7 +1161,7 @@ g female~
 @eng A Huge Sofa stands here waiting for someone.@rus Огромный диван (sofa) ждет усталого путника.~
 unknown~
 furniture 0 0 0
-Ag ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz EHKknq DFGHIJjlmnop DFGHIJjlmnop
+A ABCDEFGHIJKLMNOPQRSTUVWXYZabcde EHK DFGHIJ DFGHIJ
 0 0 0 P
 g male~
 #36168
@@ -1166,7 +1169,7 @@ tattoo татуировка hlodvig~
 @eng {Gthe Dragon, consuming his tail{x@rus {G~~дракон~~, ~~пожирающий~~ свой хвост{x~
 @eng A tattoo flying in the air.@rus Татуировка Хлодвига (tattoo) летает по воздуху.~
 energy~
-tattoo AUYg Ci ARgx
+tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
 g female~
@@ -1175,8 +1178,8 @@ dagger кинжал~
 @eng dagger of demon's@rus ~~кинжал~~ демонов~
 @eng {DDagger of demon's{x has been left here@rus Почему-то здесь валяется {DКинжал демонов{x~
 adamantite~
-weapon ABCGIJYghimop CEFikl ANgt
-dagger 1000000 1 'pierce' ADEgjk
+weapon ABCGIJY CEF AN
+dagger 1000000 1 'pierce' ADE
 46 100 1000000 P
 g male~
 #36170
@@ -1184,7 +1187,7 @@ tattoo eros татуировка эрос~
 @eng tattoo of eros, god of love@rus татуировка Эроса, бога любви~
 @eng A tattoo flying in the air.@rus Татуировка Эроса (tattoo) летает по воздуху.~
 energy~
-tattoo AUYg Ci ARgx
+tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
 g none~
@@ -1211,7 +1214,7 @@ ring small~
 small ring~
 Small ring with spikes has been left here.~
 silver~
-trash AYg 0 ABgh
+trash AY 0 AB
 0 0 0 0 0
 0 10 1000 P
 A
@@ -1230,7 +1233,7 @@ bag сумка~
 {Cstrangely light bag{x~
 Bag glows with a sky-blue light.~
 energy~
-container AHIYgno BCFhil Ag
+container AHIY BCF A
 2000 0 0 2000 3
 1 50 0 P
 g none~
@@ -1239,8 +1242,8 @@ lembas wafers~
 delicious lembas wafers~
 A wide-known elven bread lies here.~
 unknown~
-food 0 0 AOgu
-BCGhim ACgi 0 0 0
+food 0 0 AO
+BCG AC 0 0 0
 0 0 0 P
 g none~
 #36197
@@ -1248,7 +1251,7 @@ pill green healing~
 {Ggreen pill{x~
 Bright yellow pill has been forgotten here.~
 unknown~
-pill 0 0 Ag
+pill 0 0 A
 300 'master healing' 'mana restore' 'mana restore' 'assist'
 10 0 0 P
 g none~
@@ -1257,7 +1260,7 @@ pill yellow detection~
 {Yyellow pill{x~
 Bright yellow pill has been forgotten here.~
 unknown~
-pill 0 0 AOgu
+pill 0 0 AO
 150 'detect fade' 'improved detect' 'detect hidden' 'acute vision'
 10 3 0 P
 g none~
@@ -1266,8 +1269,8 @@ test dagger~
 test dagger~
 test dagger~
 unknown~
-weapon 0 0 ANgt
-exotic 5 5 'pierce' Kq
+weapon 0 0 AN
+exotic 5 5 'pierce' K
 20 0 0 P
 g none~
 #0
@@ -1282,7 +1285,7 @@ You feel completely relaxed...
 Небольшой водопад тихо журчит у стены...
 Вы расслабляетесь ...
 ~
-0 CKNXiqt forest
+0 CKNX forest
 S
 #36101
 Shooting place~
@@ -1425,12 +1428,12 @@ You're in a round room. Light comes from from everywhere, and you feel
 someone is watching you. A voice booms inside you, "You want to change
 your hometown? Well, let this be."
 ~
-0 Kbq inside
+0 Kb inside
 S
 #36113
 ~
 ~
-0 Kq inside
+0 K inside
 S
 #36114
 @eng The proving field of the Mad Demiurg@rus Полигон сумасшедшего Демиурга~
@@ -1439,7 +1442,7 @@ S
 Демиург. В центре поляны стоит {yзолотой столб{x с укрепленной на нем {yзолотой{x
 {yтабличкой (sign){x.
 ~
-0 NPXtv field
+0 NPX field
 E
 sign~
 @eng sign
@@ -1463,12 +1466,12 @@ It's pretty dark here. Little light came through a small window.
 Furniture is not cheap, but there is only a bed and a table in this
 room. You feel you are being watched.
 ~
-0 JKNXpqt inside
+0 JKNX inside
 S
 #36131
 Quest storage~
 ~
-0 Kq inside
+0 K inside
 S
 #36160
 @eng Яма@rus Pit~
@@ -1478,7 +1481,7 @@ S
 #36199
 ~
 ~
-0 Kq inside
+0 K inside
 S
 #0
 

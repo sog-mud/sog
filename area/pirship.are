@@ -17,10 +17,10 @@ rottweiler ротвейлер~
 ~
 ~
 dog~
-LScry 0 TUVcz Gm ABHghn -1000 0
+LSc 0 JTUVc G ABCDFH -1000 0
 101 100 50d10+35000 10d10+10000 35d30+98 'bite'
 -82 -82 -82 -80
-CDFLijlr
+CDFL
 stand stand male 0
 0 0 large unknown
 M entry 700 100~
@@ -41,8 +41,8 @@ armchair кресло~
 @eng armchair@rus кресло~
 @eng A wooden armchair with gilding is standing before the table.@rus Возле стола стоит деревянное кресло (armchair) с позолотой.~
 oak~
-furniture Gm BChi 0
-Ag 0 FILlor DGHjmn DGHjmn
+furniture G BC 0
+A 0 FIL DGH DGH
 0 0 0 P
 g male~
 #701
@@ -50,7 +50,7 @@ table стол~
 @eng table@rus стол~
 @eng A large oak table is standing at the center of cabin.@rus Большой дубовый стол (table) стоит в центре каюты.~
 oak~
-furniture 0 BChi 0
+furniture 0 BC 0
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -59,7 +59,7 @@ bottle rum бутылка рома~
 @eng Rum bottle@rus ~~бутылка~~ рома~
 @eng A bottle of pretty Rum is sits on the table.@rus На столе стоит бутылка (bottle) превосходного рома.~
 glass~
-drink Gm BChi 0
+drink G BC 0
 -1 -1 'rum' 0 0
 0 0 0 P
 g female~
@@ -68,7 +68,7 @@ rod rage жезл гнева~
 @eng Rod Of Rage@rus Жезл Гнева~
 @eng Rod Of Rage is here.@rus Жезл Гнева (rod) лежит здесь.~
 silver~
-wand ABCGIghimo Ci AOgu
+wand ABCGI C AO
 100 500 500 'web' 0
 93 0 0 P
 A
@@ -88,7 +88,7 @@ g male~
 #700
 @eng Captain's cabin@rus Капитанская каюта~
 ~
-0 NXt inside
+0 NX inside
 S
 #721
 ~

@@ -19,7 +19,7 @@ animals and forest from hunters,woodcutters and destroers.
 He nods you and say:"Welcome to the Forest of Nowhere brave adventurer."
 ~
 human~
-W 0 0 0 Ag 500 0
+W 0 0 0 A 500 0
 11 0 2d8+120 1d1+99 1d5+1 'slash'
 1 1 1 2
 0
@@ -35,10 +35,10 @@ animals and forest from hunters,woodcutters and destroers.
 He nods you and say:"Welcome to the Forest of Nowhere brave adventurer."
 ~
 human~
-W 0 0 0 Ag 500 0
+W 0 0 0 A 500 0
 13 0 2d7+90 1d1+99 1d5+1 'slash'
 1 1 1 2
-Kq
+K
 stand stand male 50
 0 0 tiny unknown
 #22453
@@ -51,12 +51,12 @@ renowned for his unusial strenght and vigor.Now he is selling some goods,
 wich he find in his travels.
 ~
 unique~
-BVeh 0 HNnt 0 Ag 0 0
+BEJVe F HN 0 A 0 0
 30 0 7d12+1200 30d9+100 5d4+60 'scratch'
 -20 -20 -20 -20
-EFHJklnp
+EFHJ
 stand stand male 10000
-AVg ABCDFghijl small unknown
+AV ABCDF small unknown
 r bash -50
 r charm 100
 #22454
@@ -74,7 +74,7 @@ W 0 0 0 0 500 0
 1 10 1 0
 0
 stand stand none 50
-HMns 0 tiny unknown
+HM 0 tiny unknown
 r fire 33
 r cold -50
 r holy -50
@@ -92,9 +92,9 @@ pig~
 W 0 0 0 0 500 0
 13 0 2d7+103 1d1+99 1d5+3 'bite'
 1 10 1 0
-Fl
+F
 stand stand none 50
-HMns 0 tiny unknown
+HM 0 tiny unknown
 r fire 33
 r cold -50
 r holy -50
@@ -109,7 +109,7 @@ animals from forest destroers.He nods you and say:"Welcome to the Forest
 of Nowhere brave adventurer.You find here peace and safety."
 ~
 human~
-GWm 0 0 0 AHgn 500 0
+GW 0 0 0 AH 500 0
 18 0 2d10+400 1d1+99 5d5+5 'slash'
 -2 -2 -2 2
 0
@@ -125,10 +125,10 @@ animals from forest destroers.He nods you and say:"Welcome to the Forest
 of Nowhere brave adventurer.You find here peace and safety."
 ~
 human~
-GWm 0 0 0 AHgn 500 0
+GW 0 0 0 AH 500 0
 19 6 2d10+400 1d1+99 5d5+5 'pierce'
 -2 -2 -2 2
-Kq
+K
 stand stand male 100
 0 0 small unknown
 #22458
@@ -141,12 +141,12 @@ That strange creature hugers for you food.It moving chaotically and moons
 on intruders.Its smell is very strong and voice of its moons are very unlike.
 ~
 unique~
-GWm 0 0 0 AHgn -500 0
+GW 0 0 0 AH -500 0
 18 6 2d10+400 1d1+99 5d5+5 'scratch'
 -2 -2 -2 2
 0
 stand stand none 0
-AHMVgns Ag small unknown
+AHMV A small unknown
 r cold 33
 r holy -50
 r light -50
@@ -160,12 +160,12 @@ That strange creature hugers for you food.It moving chaotically and moons
 on intruders.Its smell is very strong and voice of its moons are very unlike.
 ~
 unique~
-GWm 0 0 0 AHgn -500 0
+GW 0 0 0 AH -500 0
 19 6 2d11+410 1d1+99 5d5+5 'slime'
 -2 -2 -2 2
-Fl
+F
 stand stand none 0
-AHMVgns Ag small unknown
+AHMV A small unknown
 r cold 33
 r holy -50
 r light -50
@@ -179,10 +179,10 @@ hus native creatures and punish enemies of this forest.
 He nods you and say :"Welcome to the Forest of Nowhere brave adventurer".
 ~
 human~
-GWm 0 0 0 AHgn 500 0
+GW 0 0 0 AH 500 0
 27 8 2d15+750 1d1+99 5d5+10 'crush'
 -6 -5 -6 -5
-FKlq
+FK
 stand stand male 150
 0 0 medium unknown
 r cold 33
@@ -198,10 +198,10 @@ hus native creatures and punish enemies of this forest.
 He nods you and say :"Welcome to the Forest of Nowhere brave adventurer".
 ~
 human~
-CGWim 0 0 0 AHgn 500 0
+CGW 0 0 0 AH 500 0
 29 10 2d15+900 1d1+99 5d5+10 'cleave'
 -6 -5 -6 -5
-FJKlpq
+FJK
 stand stand male 150
 0 0 medium unknown
 r cold 33
@@ -217,12 +217,12 @@ powerful of it's kind.On its back you can seel a wings and his eyes have hyp
 nothical power.It dance in the air and sing strange songs try to hypnotize you.
 ~
 unique~
-GWm 0 TUz 0 AHgn -500 0
+GW 0 TU 0 AH -500 0
 26 6 2d18+700 1d1+99 5d5+7 'drain'
 -6 -2 -6 -7
-FKlq
+FK
 stand stand female 0
-AHMVgns ACgi small unknown
+AHMV AC small unknown
 r cold 33
 r negative 33
 r light -50
@@ -238,12 +238,12 @@ nothical power.It dance in the air and sing strange songs try hypnotize you.
 Around this dance shadows and spirits of his slayed enemy.
 ~
 unique~
-GWm 0 TUz 0 AHgn -500 0
+GW 0 TU 0 AH -500 0
 29 6 2d10+900 1d1+99 5d6+11 'wrath'
 -10 -10 -10 -10
-FJKOlpqu
+FJKO
 stand stand female 0
-AHMVgns ACgi medium unknown
+AHMV AC medium unknown
 r cold 33
 r negative 33
 r light -50
@@ -260,12 +260,12 @@ On its head you can see a crown maded form strange metal.And it hisses
 strange and ancient chants,prepare for battle with intruders.
 ~
 unique~
-GRTWmxz 0 NTUVctz AGgm ABHghn -500 0
+GJRTW 0 JNTUVc AG ABH -500 0
 32 6 2d10+1500 1d1+99 5d5+20 'wrath'
 -10 -10 -10 -10
-ACDEFJKgijklpq
+ACDEFJK
 stand stand female 1000
-AMXgs ACgi large unknown
+AMX AC large unknown
 r fire 33
 r cold 33
 r lightning 33
@@ -291,12 +291,12 @@ his fighting prowess and physical fitness.In his hands you see ancient
 staff maded form blue ice crystall.
 ~
 unique~
-Gm Ci HVn 0 ABHghn 500 0
+GJ C HV 0 ABFH 500 0
 45 30 2d40+2000 1d1+99 5d5+30 'wrath'
 -15 -15 -15 -15
-FJKXlpq
+FJKX
 stand stand male 500
-AMVgs ACDEFgijkl large unknown
+AMV ACDEF large unknown
 r fire 33
 r cold 33
 r charm 100
@@ -311,12 +311,12 @@ and in his red eyes you see a flame of evilness and hate of all forest
 creatures.
 ~
 unique~
-Gm 0 V 0 ABHghn -500 0
+GJ 0 JV 0 ABH -500 0
 45 30 2d40+2000 1d1+99 5d5+30 'acbite'
 -15 -15 -15 -15
-DEFJKjklpq
+DEFJK
 stand stand male 500
-AMVgs ACDEFgijkl large unknown
+AMV ACDEF large unknown
 r fire 33
 r cold 33
 r negative 33
@@ -334,12 +334,12 @@ while continues tending to a small deer which seems to have injured
 it's leg.
 ~
 unique~
-BGhm 0 0 0 AHgn 1000 0
+BG 0 0 0 AH 1000 0
 35 20 2d2+1500 1d1+99 6d6+35 'slash'
 -10 -10 -10 -10
-CFKNilqt
+CFKN
 stand stand male 100
-ACgi 0 large unknown
+AC 0 large unknown
 r lightning 100
 r charm 100
 r light 100
@@ -352,12 +352,12 @@ This massive guard wearing green clothes flexing his muscules in preparation
 for upcoming battle to punish burners destroeres and his darkfriends.
 ~
 unique~
-GTmz 0 0 0 AHgn 1000 0
+GT 0 0 0 AH 1000 0
 46 15 25d10+2600 1d1+999 32d4+8 'claw'
 -12 -12 -12 -12
-CDEFIJKOijklopqu
+CDEFIJKO
 stand stand male 150
-AHMVgns 0 giant unknown
+AHMV 0 giant unknown
 r fire 33
 r cold 33
 r lightning 33
@@ -372,12 +372,12 @@ and you see that hi wants to burn this beautiful forest.You can attack
 or help him but you think kill him is hard doing.
 ~
 unique~
-BGhm 0 0 0 AHgn -1000 0
+BG 0 0 0 AH -1000 0
 35 20 2d2+1500 1d1+99 6d6+35 'slash'
 -10 -10 -10 -10
-CFKNilqt
+CFKN
 stand stand male 100
-ACgi 0 large unknown
+AC 0 large unknown
 r fire 33
 r cold -50
 r lightning 100
@@ -391,12 +391,12 @@ This massive man wearing black armor flexing his muscules in preparation
 for destroy forest by twin-bladed black axe which you see in his hands.
 ~
 unique~
-GTmz 0 0 0 AHgn 1000 0
+GT 0 0 0 AH 1000 0
 46 15 25d10+2600 1d1+999 32d4+8 'chop'
 -12 -12 -12 -12
-CDEFIJKOijklopqu
+CDEFIJKO
 stand stand male 150
-AHMVgns 0 giant unknown
+AHMV 0 giant unknown
 r fire 33
 r cold -50
 r lightning 33
@@ -413,7 +413,7 @@ human~
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #0
 
 #OBJECTS
@@ -422,7 +422,7 @@ seaweed~
 a seaweed~
 A heap of seaweed lies here.~
 plant~
-pill 0 0 Ag
+pill 0 0 A
 20 'water breathing' '' '' ''
 10 1 500 P
 g none~
@@ -431,7 +431,7 @@ staff green~
 green staff~
 The green staff incrusted by leaves lies here.~
 wood~
-staff Bh 0 AOgu
+staff B 0 AO
 25 30 30 'create food' 0
 2 2 120 P
 E
@@ -445,7 +445,7 @@ water pool~
 pool of water~
 You see a pool on floor,collecting water.~
 moss~
-fountain GYm Bh 0
+fountain GY B 0
 100000 100000 'water' 135141152 0
 20 0 0 P
 g none~
@@ -454,7 +454,7 @@ sing plaque~
 a small sign~
 A small sign is here mounted on tree.~
 wood~
-trash 0 ABgh 0
+trash 0 AB 0
 0 0 0 0 0
 0 0 0 P
 E
@@ -481,8 +481,8 @@ staff wooden training~
 wooden training staff~
 The small wooden staff catch your eye.~
 wood~
-weapon 0 0 ANgt
-staff 10 2 'smash' DFjl
+weapon 0 0 AN
+staff 10 2 'smash' DF
 5 8 0 P
 A
 17 -6
@@ -500,7 +500,7 @@ mace wood training~
 wooden training mace~
 The small wooden mace catch your eye.~
 wood~
-weapon 0 0 ANgt
+weapon 0 0 AN
 mace 9 2 'smash' 0
 5 3 0 P
 A
@@ -515,7 +515,7 @@ flail wooden training~
 wooden training flail~
 The small wooden flail catch your eye.~
 wood~
-weapon 0 0 ANgt
+weapon 0 0 AN
 flail 9 2 'thwack' 0
 5 2 0 P
 A
@@ -526,7 +526,7 @@ leather training whip~
 leather training whip~
 The small leather whip catch your eye.~
 leather~
-weapon 0 0 ANgt
+weapon 0 0 AN
 whip 9 2 'sting' 0
 5 3 0 P
 A
@@ -539,8 +539,8 @@ wooden training polearm~
 wooden training polearm~
 The small wooden polearm catch your eye.~
 wood~
-weapon 0 0 ANgt
-polearm 10 2 'cleave' DFjl
+weapon 0 0 AN
+polearm 10 2 'cleave' DF
 5 8 0 P
 A
 17 -5
@@ -554,7 +554,7 @@ wooden training sword~
 wooden training sword~
 The small wooden sword catch your eye.~
 wood~
-weapon 0 0 ANgt
+weapon 0 0 AN
 sword 9 2 'slash' 0
 5 3 0 P
 A
@@ -567,8 +567,8 @@ wooden trainig dagger~
 wooden training dagger~
 The small wooden dagger catch your eye.~
 wood~
-weapon 0 0 ANgt
-dagger 9 2 'pierce' Dj
+weapon 0 0 AN
+dagger 9 2 'pierce' D
 5 2 0 P
 A
 18 1
@@ -580,8 +580,8 @@ mushroom food cooked~
 cooked mushroom~
 A large fried mushroom lies here , waiting to be eaten.~
 flesh~
-food 0 0 AOgu
-BCDEhijk ADEgjk 0 0 0
+food 0 0 AO
+BCDE ADE 0 0 0
 1 1 2 P
 g none~
 #22463
@@ -589,7 +589,7 @@ necklace strenght power~
 Necklace of Power~
 A small copper necklace lies in dust.~
 copper~
-armor Ag 0 ACgi
+armor A 0 AC
 3 2 4 5 0
 5 1 0 P
 A
@@ -600,7 +600,7 @@ necklace intelligence magi~
 Necklace of Magi~
 A small copper necklace lies in dust.~
 copper~
-armor Ag 0 ACgi
+armor A 0 AC
 3 2 4 5 0
 5 1 0 P
 A
@@ -611,7 +611,7 @@ necklace wisdom~
 Necklace of Wisdom~
 A small copper necklace lies in dust.~
 copper~
-armor Ag 0 ACgi
+armor A 0 AC
 3 2 4 5 0
 5 1 0 P
 A
@@ -622,7 +622,7 @@ necklace speed~
 Necklace of Speed~
 A small copper necklace lies in dust.~
 copper~
-armor Ag 0 ACgi
+armor A 0 AC
 3 2 4 5 0
 5 1 0 P
 A
@@ -633,7 +633,7 @@ necklace life~
 Necklace of Life~
 A small copper necklace lies in dust.~
 copper~
-armor Ag 0 ACgi
+armor A 0 AC
 3 2 4 5 0
 5 1 0 P
 A
@@ -644,7 +644,7 @@ necklace beauty~
 Necklace of Beauty~
 A small copper necklace lies in dust.~
 copper~
-armor Ag 0 ACgi
+armor A 0 AC
 3 2 4 5 0
 5 1 0 P
 A
@@ -655,7 +655,7 @@ bloody orb~
 bloody orb~
 A orb maded from blood lies here ,waiting his master.~
 flesh~
-armor CYbi 0 AOgu
+armor CYb 0 AO
 4 2 3 7 0
 5 1 0 P
 A
@@ -676,8 +676,8 @@ slime mold~
 slime mold~
 A pile of slime lies here,waiting to be eaten.~
 flesh~
-food 0 0 Ag
-BDhj ACgi 0 0 0
+food 0 0 A
+BD AC 0 0 0
 1 2 0 P
 g none~
 #22471
@@ -685,7 +685,7 @@ ring wildreness~
 ring of wildreness~
 A small ring maded from skin lies here.~
 bearskin~
-armor 0 0 ABgh
+armor 0 0 AB
 -10 0 -3 0 0
 16 2 100 P
 A
@@ -702,7 +702,7 @@ claw serpent~
 claw of serpents~
 A claw of ancient serpent lies in the dust.~
 bone~
-armor ACIgio 0 AIgo
+armor ACI 0 AI
 12 12 13 16 0
 25 5 1000 P
 A
@@ -729,8 +729,8 @@ leaf blade~
 leaf blade~
 A large leaf of unknown tree lies in the grass.~
 wood~
-weapon GKmq 0 ANgt
-sword 9 4 'wrath' DHjn
+weapon GK 0 AN
+sword 9 4 'wrath' DH
 28 4 0 P
 A
 5 2
@@ -752,7 +752,7 @@ leggings tail skin~
 Naga's tail~
 Tail's skin of naga lies on the floor.~
 skin~
-armor 0 0 AFgl
+armor 0 0 AF
 8 8 15 3 0
 28 1 0 P
 A
@@ -772,8 +772,8 @@ staff ice crystal blue~
 ice crystal staff~
 A long staff maded from blue ice crystall lies here.~
 crystal~
-weapon KYq Ci ANgt
-staff 17 2 'wrath' BDFhjl
+weapon KY C AN
+staff 17 2 'wrath' BDF
 45 20 0 P
 A
 30 10
@@ -798,7 +798,7 @@ ring signed fon~
 FoN signed ring~
 A ring with strange sign lies here.~
 energy~
-armor AIgo Ci ABgh
+armor AI C AB
 10 10 10 10 0
 45 2 50000 P
 A
@@ -823,8 +823,8 @@ bow composite darkslayer~
 Composite bow named "DarkSlayer"~
 A long beautiful bow maded from wood and horns lies here.~
 oak~
-weapon CYi Ci ANgt
-bow 17 2 'flbite' Dj
+weapon CY C AN
+bow 17 2 'flbite' D
 45 5 50000 P
 A
 19 5
@@ -847,8 +847,8 @@ quiver skin~
 Ornately designed quiver~
 Ornately designed quiver lies here.~
 skin~
-container ACgi 0 AKgq
-150 Fl 0 100 30
+container AC 0 AK
+150 F 0 100 30
 45 5 0 P
 A
 31 10
@@ -871,7 +871,7 @@ shield wooden~
 wooden shield fashhioned by fresh grass~
 Wooden disk lies in the grass catch your eye.~
 wood~
-armor 0 0 AJgp
+armor 0 0 AJ
 10 10 10 9 0
 37 6 10000 P
 A
@@ -888,7 +888,7 @@ box matches~
 box of matches~
 a box with picture of fire lies here,waiting his master.~
 wood~
-staff ACgi 0 AOgu
+staff AC 0 AO
 35 5 5 'fireball' 0
 33 1 150000 P
 A
@@ -905,8 +905,8 @@ twin bladed axe~
 twin-bladed axe~
 A large axe with twin blades lies here.~
 steel~
-weapon ACgi 0 ANgt
-axe 8 4 'cleave' ADHgjn
+weapon AC 0 AN
+axe 8 4 'cleave' ADH
 0 15 15000 P
 A
 30 2
@@ -1796,11 +1796,11 @@ beautiful picktures,you don't see a danger but sense it.You look around
 and see in one dark corner strange figure surrounded by darkness.
 You think you enter in the unlike situation ...
 ~
-0 ANXgt inside
+0 ANX inside
 D1
 ~
 ~
-ABLZghr 0 22553
+ABLZ 0 22553
 S
 #22486
 In the dark tunnel under forest~
@@ -2370,7 +2370,7 @@ see a high mountain.In the north you see a small hut,blending in the forest.
 D0
 ~
 ~
-ABLZghr 0 22528
+ABLZ 0 22528
 D1
 ~
 ~
@@ -2410,7 +2410,7 @@ see a high mountain.
 D0
 ~
 ~
-ABLZghr 0 22529
+ABLZ 0 22529
 D1
 ~
 ~
@@ -2705,7 +2705,7 @@ nearly western wall.
 D2
 ~
 door~
-ABLZghr 0 22510
+ABLZ 0 22510
 S
 #22529
 Inside a small hut~
@@ -2718,7 +2718,7 @@ nearly eastern wall.But you sense a evil feeling in this room.
 D2
 ~
 ~
-ABLZghr 0 22512
+ABLZ 0 22512
 S
 #22530
 ~
@@ -2754,7 +2754,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D2
 ~
 ~
@@ -2772,7 +2772,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D0
 ~
 ~
@@ -2790,7 +2790,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D0
 ~
 ~
@@ -2812,7 +2812,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D1
 ~
 ~
@@ -2830,7 +2830,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D1
 ~
 ~
@@ -2848,7 +2848,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D0
 ~
 ~
@@ -2870,7 +2870,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D1
 ~
 ~
@@ -2888,7 +2888,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D1
 ~
 ~
@@ -2906,7 +2906,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D1
 ~
 ~
@@ -2924,7 +2924,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D1
 ~
 ~
@@ -2942,7 +2942,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D1
 ~
 ~
@@ -2964,7 +2964,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D0
 ~
 ~
@@ -2986,7 +2986,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D3
 ~
 ~
@@ -3000,7 +3000,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D2
 ~
 ~
@@ -3018,7 +3018,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D0
 ~
 ~
@@ -3036,7 +3036,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D0
 ~
 ~
@@ -3054,7 +3054,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D0
 ~
 ~
@@ -3072,7 +3072,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D1
 ~
 ~
@@ -3090,7 +3090,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D1
 ~
 ~
@@ -3108,7 +3108,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D0
 ~
 ~
@@ -3130,7 +3130,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D0
 ~
 ~
@@ -3148,7 +3148,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D0
 ~
 ~
@@ -3156,7 +3156,7 @@ Z 0 22552
 D3
 ~
 door~
-ABLZghr 0 22485
+ABLZ 0 22485
 S
 #22554
 In the dar deep tunnel~
@@ -3166,7 +3166,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D0
 ~
 ~
@@ -3184,7 +3184,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D1
 ~
 ~
@@ -3202,7 +3202,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D0
 ~
 ~
@@ -3224,7 +3224,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D0
 ~
 ~
@@ -3242,7 +3242,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D0
 ~
 ~
@@ -3260,7 +3260,7 @@ that blocks not maded buy humans hands.Sometime a darkness in tunnel was
 disappeared and you see torch on the wall.You see strange smell here
  and you remmembers this smell - smell of water and blood.
 ~
-0 AXg inside
+0 AX inside
 D0
 ~
 ~

@@ -21,10 +21,10 @@ visitors.  Even so, the guard stands motionless at his post, eyes fixed firmly
 on the empty space in front of him.
 ~
 human~
-BGThmz 0 0 0 ABgh 0 0
+BGT 0 0 0 AB 0 0
 23 0 5d10+450 5d5+1000 3d6+6 'pound'
 -6 -6 -6 4
-CDEFIJKUijklopq
+CDEFIJKU
 stand stand male 10
 0 0 medium unknown
 #19002
@@ -38,10 +38,10 @@ hauberk he wears.  As he sees you, his gray, papery mouth opens, and his
 eyes widen in surprise.....
 ~
 human~
-BCFGhilm 0 0 Bh ABHghn 0 0
+BCFG 0 0 B ABH 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 'slash'
 -15 -15 -15 2
-CDEFIJKijklopq
+CDEFIJK
 stand stand male 0
 0 0 medium unknown
 #19003
@@ -61,10 +61,10 @@ powerful spell, splitting the land in two--but leaving him unable to
 face his failure.
 ~
 human~
-BGThmz 0 NUt 0 ABHghn 0 0
+BGT 0 NU 0 ABH 0 0
 49 0 50d10+4000 5d5+1000 4d10+18 'pound'
 -19 -19 -19 1
-CDEFIJKNijklopqt
+CDEFIJKN
 stand stand male 0
 0 0 medium unknown
 #19004
@@ -77,10 +77,10 @@ as a kind soul: he strolls around the village asking for donations, using the
 money to help the poor and the sick....and lending a hand to the giver as well.
 ~
 human~
-BGhm 0 Hn 0 0 1000 0
+BG 0 H 0 0 1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'pound'
 -11 -11 -11 3
-CDEFIJKijklopq
+CDEFIJK
 stand stand male 0
 0 0 medium unknown
 #19005
@@ -94,10 +94,10 @@ and pleasant; though he eyes your weapon and armor with a concerned look,
 he smiles at you as you walk by, and nods his head in greeting.
 ~
 human~
-Gm 0 Nt 0 0 1000 0
+G 0 N 0 0 1000 0
 19 0 3d9+308 5d5+1000 2d7+5 'punch'
 -4 -4 -4 5
-CDEFIJijklop
+CDEFIJ
 stand stand male 0
 0 0 medium unknown
 #19006
@@ -112,10 +112,10 @@ with concern, she smiles at you when you approach, and nods her head
 in greeting.
 ~
 human~
-Gm 0 Nt 0 0 1000 0
+G 0 N 0 0 1000 0
 19 0 3d9+308 5d5+1000 2d7+5 'punch'
 -4 -4 -4 5
-CDEFIJijklop
+CDEFIJ
 stand stand female 0
 0 0 medium unknown
 #19007
@@ -128,10 +128,10 @@ faintly as the light strikes it.  The horn itself is even more distinctive--
 it appears to be golden, and tipped with something that looks like a diamond.
 ~
 human~
-BGhm 0 HNnt 0 ABgh 1000 0
+BG 0 HN 0 AB 1000 0
 39 0 15d10+1700 5d5+1000 5d6+13 'charge'
 -13 -13 -13 3
-CDEFKijklq
+CDEFK
 stand stand none 0
 0 0 medium unknown
 #19008
@@ -144,10 +144,10 @@ almost impossible to distinguish him from the mountain, since he stands
 completely still with the hood of his robe pulled far over his head.
 ~
 human~
-BGhm 0 Nt 0 ABgh 0 0
+BG 0 N 0 AB 0 0
 19 0 3d9+308 5d5+1000 2d7+5 'slap'
 -4 -4 -4 5
-CDEFIJijklop
+CDEFIJ
 stand stand male 0
 0 0 medium unknown
 #19009
@@ -159,10 +159,10 @@ The watchman's brown robe completely envelops him; only the faint glimmer of
 his eyes shines through the dark shadows inside the robe's hood.
 ~
 human~
-BGhm 0 0 0 ABHghn 0 0
+BG 0 0 0 ABH 0 0
 19 0 3d9+308 5d5+1000 2d7+5 'slap'
 -4 -4 -4 5
-DEFjkl
+DEF
 stand stand male 0
 0 0 medium unknown
 #19010
@@ -174,10 +174,10 @@ The watchman's brown robe completely envelops him; only the faint glimmer of
 his eyes shines through the dark shadows inside the robe's hood.
 ~
 human~
-BGhm 0 0 0 ABHghn 0 0
+BG 0 0 0 ABH 0 0
 19 0 3d9+308 5d5+1000 2d7+5 'slap'
 -4 -4 -4 5
-DFjl
+DF
 stand stand male 0
 0 0 medium unknown
 #19011
@@ -192,10 +192,10 @@ the rest of him is enveloped in a checkered guvuhveen bag and hood dat
 covers his tiny ears.
 ~
 bear~
-BGHhmn 0 NUt Ag ABgh 1000 0
+BGH 0 NU A AB 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 'claw'
 -21 -21 -21 -1
-CFIJKilopq
+CFIJK
 stand stand male 0
 0 0 large unknown
 #19012
@@ -209,10 +209,10 @@ hauberk he wears.  As he sees you, his gray papery mouth opens, and his eyes
 widen in surprise....
 ~
 human~
-BCFGThilmz 0 0 Bh ABHghn 0 0
+BCFGT 0 0 B ABH 0 0
 45 0 25d10+3000 5d5+1000 8d4+16 'slash'
 -15 -15 -15 2
-DEFjkl
+DEF
 stand stand male 0
 0 0 medium unknown
 #19013
@@ -225,10 +225,10 @@ carefully; as it approaches, it lowers its head, pointing its bone horn
 directly at your chest.
 ~
 unique~
-Gm 0 Io Gm ABgh -1000 0
+G 0 I G AB -1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 'magic'
 -15 -15 -15 2
-CDFIJijlop
+CDFIJ
 stand stand none 0
 0 0 medium unknown
 #19014
@@ -241,10 +241,10 @@ underneath her veil; she catches her fiance's eye and winks at him, giggling
 silently as he blushes and smiles.
 ~
 human~
-BGhm 0 HNnt 0 0 1000 0
+BG 0 HN 0 0 1000 0
 25 0 5d10+550 5d5+1000 2d10+7 'slap'
 -7 -7 -7 4
-Fl
+F
 stand stand female 0
 0 0 medium unknown
 #19015
@@ -257,10 +257,10 @@ he's rigid with anticipation.  As his wife-to-be turns and winks at him,
 he relaxes, blushing faintly and smiling at her.
 ~
 human~
-BGhm 0 HNnt 0 0 1000 0
+BG 0 HN 0 0 1000 0
 25 0 5d10+550 5d5+1000 2d10+7 'pound'
 -7 -7 -7 4
-FIJlop
+FIJ
 stand stand male 0
 0 0 medium unknown
 #19016
@@ -273,10 +273,10 @@ towards you, you catch a glimpse of his face: thin, well-worn laugh lines
 intersect with thick, brownish scars.
 ~
 human~
-Gm 0 Nt 0 ABgh 1000 0
+G 0 N 0 AB 1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'divine'
 -11 -11 -11 3
-FIJKlopq
+FIJK
 stand stand male 0
 0 0 medium unknown
 #19017
@@ -291,10 +291,10 @@ over his hooded eyes, making it almost impossible to tell just where he's
 looking.
 ~
 human~
-Gm 0 Nt 0 ABHghn 1000 0
+G 0 N 0 ABH 1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'divine'
 -11 -11 -11 3
-FIJKlopq
+FIJK
 stand stand male 0
 0 0 medium unknown
 #19018
@@ -308,10 +308,10 @@ her face has a certain beauty, it has an air of sternness as well, enhanced by
 the razor-sharp crystal sword at her side.
 ~
 human~
-Gm 0 Nt 0 ABHghn 1000 0
+G 0 N 0 ABH 1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'divine'
 -11 -11 -11 3
-FIJKlopq
+FIJK
 stand stand male 0
 0 0 medium unknown
 #19019
@@ -325,10 +325,10 @@ Realm, constantly shifting his gaze as he enjoys the land's beauty and watches
 for possible threats.
 ~
 human~
-Gm 0 Nt 0 ABHghn 1000 0
+G 0 N 0 ABH 1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'divine'
 -11 -11 -11 3
-FIJKlopq
+FIJK
 stand stand male 0
 0 0 medium unknown
 #19020
@@ -342,10 +342,10 @@ possibly in challenge--catching the light and the blue of his robe in the
 facets of his sword.
 ~
 human~
-Gm 0 Nt 0 ABHghn 1000 0
+G 0 N 0 ABH 1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'divine'
 -11 -11 -11 3
-FIJKlopq
+FIJK
 stand stand male 0
 0 0 medium unknown
 #19021
@@ -359,10 +359,10 @@ in its folds.  At his side, his clear crystal sword looks almost dark as it
 absorbs and reflects the colors of his robe.
 ~
 human~
-Gm 0 Nt 0 ABHghn 1000 0
+G 0 N 0 ABH 1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'divine'
 -11 -11 -11 3
-FIJKlopq
+FIJK
 stand stand male 0
 0 0 medium unknown
 #19022
@@ -373,10 +373,10 @@ A gardener kneels on the ground, tending to the plants.
 An old lady bends over her plants, clearing away the moss and dead leaves.
 ~
 human~
-Gm 0 0 Gm 0 1000 0
+G 0 0 G 0 1000 0
 25 0 5d10+550 5d5+1000 2d10+7 'punch'
 -7 -7 -7 4
-FIJlop
+FIJ
 stand stand female 0
 0 0 medium unknown
 #19023
@@ -389,10 +389,10 @@ be married; he is Father Franklin's assistant, and has taken over most of the
 religious duties in the town.
 ~
 human~
-BGhm 0 Hn 0 0 1000 0
+BG 0 H 0 0 1000 0
 39 0 15d10+1700 5d5+1000 5d6+13 'pound'
 -13 -13 -13 3
-FIJKlopq
+FIJK
 stand stand male 0
 0 0 medium unknown
 #19024
@@ -406,10 +406,10 @@ check.  The wizard giggles as you look at him, and holds up his "Wizard
 Finishing School" diploma.
 ~
 human~
-BGehm 0 Nt 0 ABHMghns 1000 0
+BGe 0 N 0 ABHM 1000 0
 39 0 15d10+1700 5d5+1000 5d6+13 'magic'
 -13 -13 -13 3
-Fl
+F
 stand stand male 0
 0 0 medium unknown
 #19025
@@ -421,10 +421,10 @@ A citizen of the Mirror Realm strolls around the pool table, casually sinking
 rack after rack; he smiles as you enter, then turns back to his game.
 ~
 human~
-BGhm 0 0 0 0 1000 0
+BG 0 0 0 0 1000 0
 25 0 5d10+550 5d5+1000 2d10+7 'punch'
 -7 -7 -7 4
-FIJlop
+FIJ
 stand stand male 0
 0 0 medium unknown
 #19026
@@ -436,10 +436,10 @@ Lauraine is a cheerful, middle-aged woman wearing a plain white apron and a
 white lace cap; she gently dusts the edge of the bar, waiting for a customer.
 ~
 human~
-BGehm 0 0 0 0 1000 0
+BGe 0 0 0 0 1000 0
 39 0 15d10+1700 5d5+1000 5d6+13 'pound'
 -13 -13 -13 3
-FIJlop
+FIJ
 stand stand female 0
 0 0 medium unknown
 #19027
@@ -451,10 +451,10 @@ Sweat pours down the waiter's bald head as he dashes from table to table,
 trying to keep track of all the checks, the food, and the special orders.
 ~
 human~
-BGehm 0 0 0 0 1000 0
+BGe 0 0 0 0 1000 0
 39 0 15d10+1700 5d5+1000 5d6+13 'pound'
 -13 -13 -13 3
-FIJlop
+FIJ
 stand stand male 0
 0 0 medium unknown
 #19028
@@ -469,10 +469,10 @@ bows to you as you approach, and motions with his hands, inviting you to
 train with him.
 ~
 human~
-BGhm CDij HNnt 0 ABgh 1000 0
+BG CD HN 0 AB 1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 'pound'
 -15 -15 -15 2
-CDEFIJKNijklopqt
+CDEFIJKN
 stand stand male 0
 0 0 medium unknown
 #19029
@@ -484,10 +484,10 @@ The proprietor is a thin, tired old man; the adventurers' business isn't doing
 so well right now, what with the land being completely closed off and all.
 ~
 human~
-BGehm CDij Nt 0 ABgh 1000 0
+BGe CD N 0 AB 1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 'pound'
 -15 -15 -15 2
-FIJlop
+FIJ
 stand stand male 0
 0 0 medium unknown
 #19030
@@ -501,10 +501,10 @@ with overdue books....her glare chills you to the bone.  Hope you returned
 your books on time.
 ~
 human~
-BGehm 0 Nt 0 ABgh 1000 0
+BGe 0 N 0 AB 1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 'pound'
 -15 -15 -15 2
-FIJlop
+FIJ
 stand stand male 0
 0 0 medium unknown
 #19031
@@ -519,10 +519,10 @@ of the town helps out with most of the religious duties, but almost everything
 else has become Father Franklin's responsibility.
 ~
 human~
-BGhm 0 Hn 0 0 1000 0
+BG 0 H 0 0 1000 0
 39 0 15d10+1700 5d5+1000 5d6+13 'pound'
 -13 -13 -13 3
-FIlo
+FI
 stand stand male 0
 0 0 medium unknown
 #19032
@@ -536,10 +536,10 @@ the Signs of the Dark on the sigil around his neck and on the hilt of his
 sword.
 ~
 human~
-Gm 0 0 Gm ABHghn -1000 0
+G 0 0 G ABH -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'slash'
 -11 -11 -11 3
-FIKloq
+FIK
 stand stand male 0
 0 0 medium unknown
 #19033
@@ -552,10 +552,10 @@ dark robes; his cold blue eyes transfix you as they slowly pass over your
 figure.
 ~
 human~
-Gm 0 0 Gm ABHghn -1000 0
+G 0 0 G ABH -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'slash'
 -11 -11 -11 3
-FIKloq
+FIK
 stand stand male 0
 0 0 medium unknown
 #19034
@@ -569,10 +569,10 @@ cheeks and arms; you also see that many of those slashes have long healed,
 forming thick, hard scars.
 ~
 human~
-Gem Dj 0 BGhm ABHghn -1000 0
+Ge D 0 BG ABH -1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 'pound'
 -15 -15 -15 2
-FIKloq
+FIK
 stand stand male 0
 0 0 medium unknown
 #19035
@@ -585,10 +585,10 @@ spectacles, check; evil grin, check; otherworldly air, check.  The wizard
 smirks as you look at him, and taps his "Wizard's Finishing School" diploma.
 ~
 human~
-BGehm 0 0 0 ABHghn -1000 0
+BGe 0 0 0 ABH -1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 'magic'
 -15 -15 -15 2
-FIlo
+FI
 stand stand male 0
 0 0 medium unknown
 #19036
@@ -599,10 +599,10 @@ The gardener stands here, hacking away at the tangles of vines.
 The gardener grins evilly at you as she decapitates a dead rose bush.
 ~
 human~
-CGim 0 0 0 ABHghn -1000 0
+CG 0 0 0 ABH -1000 0
 25 0 5d10+550 5d5+1000 2d10+7 'punch'
 -7 -7 -7 4
-FIlo
+FI
 stand stand female 0
 0 0 medium unknown
 #19037
@@ -614,10 +614,10 @@ The young child's knees are green and scraped from all the tree climbing and
 running; still, he looks healthy and strong.
 ~
 human~
-BCGHhimn 0 0 0 0 1000 0
+BCGH 0 0 0 0 1000 0
 20 0 3d9+333 5d5+1000 2d8+5 'punch'
 -4 -4 -4 5
-FIlo
+FI
 stand stand male 0
 0 0 medium unknown
 #19038
@@ -629,10 +629,10 @@ The fisherman glances up at you as you approach, motioning you to be quiet
 so that you don't disturb the fish.
 ~
 human~
-BGhm 0 0 0 0 1000 0
+BG 0 0 0 0 1000 0
 25 0 5d10+550 5d5+1000 2d10+7 'pound'
 -7 -7 -7 4
-FIlo
+FI
 stand stand male 0
 0 0 medium unknown
 #19039
@@ -646,10 +646,10 @@ as you approach; still, he's an big, big animal, and those antlers look sharp,
 even if they are shaky.
 ~
 human~
-BGhm 0 0 0 0 1000 0
+BG 0 0 0 0 1000 0
 30 0 6d12+853 5d5+1000 4d6+8 'charge'
 -9 -9 -9 3
-FIlo
+FI
 stand stand male 0
 0 0 medium unknown
 #19040
@@ -661,10 +661,10 @@ You can't tell anything about whatever this might be...the mists are just too
 thick.
 ~
 unique~
-BFGhlm 0 INot ABgh ABgh -1000 0
+BFG 0 IN AB AB -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 'magic'
 -20 -20 -20 0
-Fl
+F
 stand stand none 0
 0 0 medium unknown
 #19041
@@ -677,10 +677,10 @@ your skin prickles faintly as you watch the creepy creatures climb all over
 each other in their search for food.
 ~
 unique~
-BCFGhilm 0 Io 0 0 -1000 0
+BCFG 0 I 0 0 -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'magic'
 -11 -11 -11 3
-Fl
+F
 stand stand none 0
 0 0 small unknown
 #19042
@@ -693,10 +693,10 @@ apparently, the cheating business isn't doing too well here.  The shark's eyes
 light up as you enter, however, and he motions you over to play a game.
 ~
 human~
-BCGhim 0 0 Gm Hn -1000 0
+BCG 0 0 G H -1000 0
 25 0 5d10+550 5d5+1000 2d10+7 'bite'
 -7 -7 -7 4
-Fl
+F
 stand stand male 0
 0 0 medium unknown
 #19043
@@ -711,10 +711,10 @@ peers at you with red-rimmed eyes as you enter, and mumbles a request for your
 order.
 ~
 human~
-BGehm 0 0 0 ABgh -1000 0
+BGe 0 0 0 AB -1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
-FIlo
+FI
 stand stand female 0
 0 0 medium unknown
 #19044
@@ -728,10 +728,10 @@ to get rid of rather quickly--or at least anything that no one else will touch
 likely turn it around for a handsome profit).
 ~
 human~
-BCGehim 0 0 Gm ABHghn -1000 0
+BCGe 0 0 G ABH -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'pound'
 -11 -11 -11 3
-Fl
+F
 stand stand male 0
 0 0 medium unknown
 #19045
@@ -745,10 +745,10 @@ steps are short and uncertain, as if he has no real idea where he intends to
 go.
 ~
 human~
-Gm 0 0 Gm 0 -1000 0
+G 0 0 G 0 -1000 0
 20 0 3d9+333 5d5+1000 2d8+5 'punch'
 -4 -4 -4 5
-Fl
+F
 stand stand male 0
 0 0 medium unknown
 #19046
@@ -761,10 +761,10 @@ locks her eyes on the ground before her, not even blinking as she approaches
 you.
 ~
 human~
-Gm 0 0 0 0 -1000 0
+G 0 0 0 0 -1000 0
 20 0 3d9+333 5d5+1000 2d8+5 'punch'
 -4 -4 -4 5
-Fl
+F
 stand stand female 0
 0 0 medium unknown
 #19047
@@ -778,7 +778,7 @@ eyes are filled with animal rage.
 Uh-oh.
 ~
 fox~
-BFGhlm 0 0 Gm ABHghn -1000 0
+BFG 0 0 G ABH -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'charge'
 -11 -11 -11 3
 0
@@ -796,10 +796,10 @@ pounds of him.  Including the antlers.  And the hooves.  And the teeth.  Sure,
 he's dopey, but still.....
 ~
 human~
-BCGhim 0 0 0 0 1000 0
+BCG 0 0 0 0 1000 0
 30 0 6d12+853 5d5+1000 4d6+8 'bite'
 -9 -9 -9 3
-Fl
+F
 stand stand none 0
 0 0 medium unknown
 #19049
@@ -812,10 +812,10 @@ It's a big black bear....sharp claws, big teeth, the works.
 And it's coming right at you.
 ~
 bear~
-BCFGhilm 0 Io Gm ABHghn -1000 0
+BCFG 0 I G ABH -1000 0
 30 0 6d12+853 5d5+1000 4d6+8 'claw'
 -9 -9 -9 3
-CFil
+CF
 stand stand none 0
 0 0 large unknown
 #19050
@@ -828,10 +828,10 @@ through his greasy hair.  He picks up a plate of stew, suddenly sneezes
 on it, then tosses the plate back on the table.
 ~
 human~
-BCGehim 0 0 Gm ABHghn -1000 0
+BCGe 0 0 G ABH -1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
-Fl
+F
 stand stand male 0
 0 0 medium unknown
 #19051
@@ -845,10 +845,10 @@ some good.  He refuses to raise his head, or even lift his feet off the ground;
 he only extends his hand towards you, silently asking for money.
 ~
 human~
-BCGhim 0 0 BGhm ABgh -1000 0
+BCG 0 0 BG AB -1000 0
 20 0 3d9+333 5d5+1000 2d8+5 'punch'
 -4 -4 -4 5
-Fl
+F
 stand stand male 0
 0 0 medium unknown
 #19052
@@ -863,10 +863,10 @@ beckons you closer.
 What could she possibly want?
 ~
 human~
-BCGhim 0 0 0 ABgh -1000 0
+BCG 0 0 0 AB -1000 0
 25 0 5d10+550 5d5+1000 2d10+7 'slap'
 -7 -7 -7 4
-Fl
+F
 stand stand male 0
 0 0 medium unknown
 #19053
@@ -879,10 +879,10 @@ as if she was somehow bound to him.  Though he doesn't seem attracted to her,
 he still eyes her carefully, seeming to watch her every move.
 ~
 human~
-BGhm 0 0 0 ABgh -1000 0
+BG 0 0 0 AB -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'pound'
 -11 -11 -11 3
-Fl
+F
 stand stand male 0
 0 0 medium unknown
 #19054
@@ -893,10 +893,10 @@ The shadows shift faintly.
 You see only a shifty black mass.
 ~
 human~
-BGhm 0 Nt ABGghm ABHghn -1000 0
+BG 0 N ABG ABH -1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'pierce'
 -11 -11 -11 3
-FHJNlnpt
+FHJN
 stand stand male 0
 0 0 medium unknown
 #19055
@@ -908,10 +908,10 @@ The Red Master's cloak completely covers his face and body; even his hands and
 feet are hidden somewhere inside its folds.
 ~
 human~
-BGhm 0 HNnt 0 ABHghn 1000 0
+BG 0 HN 0 ABH 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-CDEFHKijklnq
+CDEFHK
 stand stand male 0
 0 0 medium unknown
 #19056
@@ -923,10 +923,10 @@ The Amber Master's cloak completely covers his face and body; even his hands
 and feet are hidden somewhere inside its folds.
 ~
 human~
-BGhm 0 HNnt 0 ABHghn 1000 0
+BG 0 HN 0 ABH 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-CDEFHKijklnq
+CDEFHK
 stand stand male 0
 0 0 medium unknown
 #19057
@@ -938,10 +938,10 @@ The Green Master's cloak completely covers his face and body; even his hands
 and feet are hidden somewhere inside its folds.
 ~
 human~
-BGhm 0 HNnt 0 ABHghn 1000 0
+BG 0 HN 0 ABH 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-CDEFHKijklnq
+CDEFHK
 stand stand male 0
 0 0 medium unknown
 #19058
@@ -953,10 +953,10 @@ The Blue Master's cloak completely covers his face and body; even his hands
 and feet are hidden somewhere inside its folds.
 ~
 human~
-BGhm 0 HNnt 0 ABHghn 1000 0
+BG 0 HN 0 ABH 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-CDEFHKijklnq
+CDEFHK
 stand stand male 0
 0 0 medium unknown
 #19059
@@ -968,10 +968,10 @@ The Violet Master's cloak completely covers his hands and face; even his hands
 and feet are hidden somewhere inside its folds.
 ~
 human~
-BGhm 0 HNnt 0 ABHghn 1000 0
+BG 0 HN 0 ABH 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-CDEFHKijklnq
+CDEFHK
 stand stand male 0
 0 0 medium unknown
 #19060
@@ -983,10 +983,10 @@ The Yellow Master's cloak completely covers his face and body; even his hands
 and feet are hidden somewhere in its folds.
 ~
 human~
-BGhm 0 HNnt 0 ABHghn 1000 0
+BG 0 HN 0 ABH 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-CDEFHKijklnq
+CDEFHK
 stand stand male 0
 0 0 medium unknown
 #19061
@@ -1003,10 +1003,10 @@ and head--they contain no features at all, and only radiate a bright golden
 glow.
 ~
 human~
-BGhm 0 HNnt 0 ABHghn 1000 0
+BG 0 HN 0 ABH 1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-CDEFHKijklnq
+CDEFHK
 stand stand none 0
 0 0 medium unknown
 #19062
@@ -1020,10 +1020,10 @@ feathers intertwined with a few golden ones; its silvery beak glistens in the
 light, with faint sparkles shining on its razor-sharp edges.
 ~
 unique~
-BCFGhilm 0 INot 0 ABgh 0 0
+BCFG 0 IN 0 AB 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pierce'
 -20 -20 -20 0
-FHln
+FH
 stand stand none 0
 0 0 medium unknown
 #19063
@@ -1037,10 +1037,10 @@ a small metal can keeps them calm--calm enough to pick up and inspect at close
 hand.
 ~
 human~
-BGhm 0 Nt 0 0 1000 0
+BG 0 N 0 0 1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
-FKlq
+FK
 stand stand male 0
 0 0 medium unknown
 #19064
@@ -1052,10 +1052,10 @@ The White Master's cloak completely covers him; not even his hands and feet
 can be seen.
 ~
 human~
-BFGhlm 0 0 0 ABHghn -1000 0
+BFG 0 0 0 ABH -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-CDEFHKijklnq
+CDEFHK
 stand stand male 0
 0 0 medium unknown
 #19065
@@ -1067,10 +1067,10 @@ The White Master's cloak completely covers him; not even his face and hands
 can be seen.
 ~
 human~
-BFGhlm 0 0 0 ABHghn -1000 0
+BFG 0 0 0 ABH -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-CDEFHKijklnq
+CDEFHK
 stand stand male 0
 0 0 medium unknown
 #19066
@@ -1082,10 +1082,10 @@ The Black Master's cloak completely covers his body; not even his face
 and hands are visible.
 ~
 human~
-BFGhlm 0 0 0 ABHghn -1000 0
+BFG 0 0 0 ABH -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-CDEFHKijklnq
+CDEFHK
 stand stand male 0
 0 0 medium unknown
 #19067
@@ -1097,10 +1097,10 @@ The Black Master's cloak completely covers his body; not even his face
 and hands can be seen.
 ~
 human~
-BFGhlm 0 0 0 ABHghn -1000 0
+BFG 0 0 0 ABH -1000 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
-CDEFHKijklnq
+CDEFHK
 stand stand male 0
 0 0 medium unknown
 #19068
@@ -1112,10 +1112,10 @@ Jerry Garcia...famous musician, artist, demigod rock-and-roller of the '60's
 through the '90's....has returned from the dead to heal your wounds.
 ~
 human~
-BGhm 0 NUt 0 ABgh 0 0
+BG 0 NU 0 AB 0 0
 90 0 50d10+18500 5d5+5000 17d9+60 'magic'
 -60 -60 -60 -27
-CDEFHKijklnq
+CDEFHK
 stand stand male 0
 0 0 medium unknown
 #19069
@@ -1128,10 +1128,10 @@ to be immeasurably old.  He strums on his banjo as you approach, and invites
 you to have a seat and listen.
 ~
 human~
-BGhm 0 NUt 0 ABgh 1000 0
+BG 0 NU 0 AB 1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
-CDEFHKijklnq
+CDEFHK
 stand stand male 0
 0 0 medium unknown
 #0
@@ -1142,7 +1142,7 @@ mirror shield mirrored~
 a mirrored shield~
 A shield with a mirrored surface lies on the ground.~
 glass~
-armor 0 0 AJgp
+armor 0 0 AJ
 7 7 7 0 0
 23 5 100 P
 A
@@ -1157,7 +1157,7 @@ mirror plate mirrored~
 a mirrored plate of armor~
 A metal plate is on the ground; your face is reflected in its surface.~
 glass~
-armor 0 0 ADgj
+armor 0 0 AD
 6 6 6 0 0
 23 10 100 P
 E
@@ -1170,7 +1170,7 @@ sword shiny silver~
 a shiny silver sword~
 A shiny silver sword lies on the ground here.~
 silver~
-weapon Gm 0 ANgt
+weapon G 0 AN
 sword 4 7 'slash' 0
 23 10 100 P
 g none~
@@ -1179,7 +1179,7 @@ chainmail cowl chainmail~
 a chainmail cowl~
 A chainmail cowl is here.~
 steel~
-armor 0 0 ADgj
+armor 0 0 AD
 6 6 6 0 0
 23 10 10 P
 g none~
@@ -1197,7 +1197,7 @@ robe grey~
 a grey robe~
 A thin grey robe is here.~
 leather~
-armor 0 0 ADgj
+armor 0 0 AD
 15 15 15 10 0
 49 5 500 P
 A
@@ -1212,7 +1212,7 @@ circlet golden~
 the Golden Circlet~
 A golden circlet lies here.~
 gold~
-armor AFGMglms 0 AEgk
+armor AFGM 0 AE
 15 15 15 7 0
 45 30 10000 P
 A
@@ -1234,7 +1234,7 @@ bent sword~
 a bent sword~
 A sword with a rusted, bent blade is here.~
 steel~
-weapon GHMmns 0 ANgt
+weapon GHM 0 AN
 sword 4 11 'slash' 0
 45 10 200 P
 A
@@ -1247,7 +1247,7 @@ worn jerkin chain mail~
 a worn chainmail jerkin~
 This chainmail jerkin is worn and full of holes.~
 leather~
-armor 0 0 ADgj
+armor 0 0 AD
 13 13 13 4 0
 45 10 10 P
 g none~
@@ -1256,7 +1256,7 @@ royal staff king~
 the Royal Staff~
 King Loranhir's golden staff lies here.~
 wood~
-staff Lr 0 AOgu
+staff L 0 AO
 45 10 10 'heal' 0
 30 10 1000 P
 A
@@ -1276,7 +1276,7 @@ harp silver caerlin~
 a silver harp~
 A bright silver harp lies here.~
 silver~
-wand Kq 0 AOgu
+wand K 0 AO
 30 25 25 'sanctuary' 0
 15 10 1000 P
 g none~
@@ -1285,7 +1285,7 @@ pool cue~
 a pool cue~
 A wooden pool cue is here.~
 wood~
-weapon Gm 0 ANgt
+weapon G 0 AN
 mace 5 6 'blast' 0
 25 4 100 P
 g none~
@@ -1310,7 +1310,7 @@ amulet bard's bard~
 a bard's amulet~
 An amulet with a silver rope chain lies here.~
 silver~
-armor Kq 0 ACgi
+armor K 0 AC
 11 12 12 4 0
 35 20 500 P
 A
@@ -1323,7 +1323,7 @@ small steel knife~
 a small steel knife~
 A small steel knife is here.~
 steel~
-weapon Gm 0 ANgt
+weapon G 0 AN
 dagger 6 3 'pierce' 0
 19 2 10 P
 E
@@ -1336,7 +1336,7 @@ potion human flight~
 a potion of human flight~
 A cloudy potion lies here.~
 glass~
-potion Hn 0 Ag
+potion H 0 A
 20 'fly' '' '' ''
 10 0 0 P
 g none~
@@ -1345,7 +1345,7 @@ pill restore restoration~
 a pill of mana and life restoration~
 A glittering silver pill lies here.~
 silver~
-pill Hn 0 Ag
+pill H 0 A
 30 'heal' 'refresh' 'teleport' ''
 15 3 0 P
 g none~
@@ -1354,7 +1354,7 @@ flask holy water~
 a flask of holy water~
 A small flask of clear, bright water lies here.~
 glass~
-potion AHgn 0 Ag
+potion AH 0 A
 25 'bless' 'cure blindness' 'remove curse' ''
 10 5 1000 P
 g none~
@@ -1363,7 +1363,7 @@ staff destruction~
 a staff of destruction~
 A vicious staff lies here.~
 wood~
-staff BHhn 0 AOgu
+staff BH 0 AO
 25 7 7 'earthquake' 0
 10 3 100 P
 g none~
@@ -1372,7 +1372,7 @@ gold coins~
 some coins~
 Some gold coins are scattered on the ground here.~
 gold~
-money 0 0 Ag
+money 0 0 A
 1000 0 0 0 0
 1 4 100 P
 g none~
@@ -1381,7 +1381,7 @@ potion invis invisible~
 a clear potion of invisibility~
 A clear potion of invisibility is here.~
 glass~
-potion Hn 0 Ag
+potion H 0 A
 20 'invisibility' 'detect magic' '' ''
 10 5 0 P
 g none~
@@ -1390,8 +1390,8 @@ hamburger burger~
 a hamburger~
 A juicy hamburger is here.~
 food~
-food 0 0 Ag
-ABCDghij ABCDghij 0 0 0
+food 0 0 A
+ABCD ABCD 0 0 0
 1 2 20 P
 g none~
 #19023
@@ -1399,8 +1399,8 @@ steak yorkshire pudding food~
 steak and Yorkshire Pudding~
 A plate of food lies here.~
 food~
-food 0 0 Ag
-ABCDghij ABCDghij 0 0 0
+food 0 0 A
+ABCD ABCD 0 0 0
 1 2 20 P
 g none~
 #19024
@@ -1408,8 +1408,8 @@ roast chicken food~
 roast Chicken~
 A plate of food lies here.~
 food~
-food 0 0 Ag
-ABCDghij ABCDghij 0 0 0
+food 0 0 A
+ABCD ABCD 0 0 0
 1 1 0 P
 g none~
 #19025
@@ -1417,8 +1417,8 @@ mashed potatoes food~
 mashed potatoes~
 A small bowl of mashed potatoes is here.~
 food~
-food 0 0 Ag
-Ci Ci 0 0 0
+food 0 0 A
+C C 0 0 0
 1 1 0 P
 g none~
 #19026
@@ -1426,8 +1426,8 @@ peas food~
 peas~
 A small bowl of peas is here.~
 food~
-food 0 0 Ag
-Bh Bh 0 0 0
+food 0 0 A
+B B 0 0 0
 1 1 0 P
 g none~
 #19027
@@ -1435,8 +1435,8 @@ baked ham food~
 baked Ham~
 A plate of food lies here.~
 food~
-food 0 0 Ag
-ABCDghij BDhj 0 0 0
+food 0 0 A
+ABCD BD 0 0 0
 1 1 0 P
 g none~
 #19028
@@ -1444,8 +1444,8 @@ green beans food~
 green beans~
 A small dish of green beans lies here.~
 food~
-food 0 0 Ag
-Bh Bh 0 0 0
+food 0 0 A
+B B 0 0 0
 1 1 0 P
 g none~
 #19029
@@ -1453,8 +1453,8 @@ shrimp cocktail food~
 shrimp cocktail~
 A small dish of shrimp is here.~
 food~
-food 0 0 Ag
-Bh Bh 0 0 0
+food 0 0 A
+B B 0 0 0
 1 1 0 P
 g none~
 #19030
@@ -1462,8 +1462,8 @@ green salad food~
 green salad~
 A salad is here.~
 food~
-food 0 0 Ag
-Ci Ci 0 0 0
+food 0 0 A
+C C 0 0 0
 1 2 0 P
 g none~
 #19031
@@ -1471,8 +1471,8 @@ vegetable soup food~
 vegetable soup~
 A bowl of vegetable soup is here.~
 food~
-food 0 0 Ag
-Ci Ci 0 0 0
+food 0 0 A
+C C 0 0 0
 1 1 0 P
 g none~
 #19032
@@ -1511,7 +1511,7 @@ horn golden~
 a unicorn's golden horn~
 A unicorn's horn is here.~
 gold~
-weapon AGKgmq 0 ANgt
+weapon AGK 0 AN
 exotic 5 12 'stab' 0
 39 30 30000 P
 A
@@ -1531,7 +1531,7 @@ ermine blanket~
 an ermine blanket~
 An ermine blanket is here.~
 unknown~
-armor 0 0 ADgj
+armor 0 0 AD
 13 12 12 5 0
 39 5 10 P
 g none~
@@ -1549,7 +1549,7 @@ apple fruit~
 an apple~
 A ripe red apple is here.~
 food~
-pill 0 0 Ag
+pill 0 0 A
 10 'refresh' '' '' ''
 1 1 0 P
 g none~
@@ -1567,8 +1567,8 @@ plum fruit~
 a plum~
 A plum is here.~
 food~
-food 0 0 Ag
-ABgh ABgh 0 0 0
+food 0 0 A
+AB AB 0 0 0
 1 1 0 P
 g none~
 #19039
@@ -1597,7 +1597,7 @@ brown robe~
 a brown robe~
 A brown robe is here.~
 leather~
-armor 0 0 ADgj
+armor 0 0 AD
 5 5 5 0 0
 19 3 0 P
 g none~
@@ -1643,7 +1643,7 @@ oil lamp~
 an oil lamp~
 An oil lamp lies here.~
 oil~
-light Ag 0 Ag
+light A 0 A
 0 0 15 0 0
 1 0 0 P
 g none~
@@ -1652,7 +1652,7 @@ white jacket coat~
 a formal white jacket~
 A white jacket lies here.~
 unknown~
-armor 0 0 AKgq
+armor 0 0 AK
 8 8 8 0 0
 25 5 0 P
 g none~
@@ -1661,7 +1661,7 @@ black tie~
 a black bow tie~
 A black bow tie is here.~
 leather~
-armor 0 0 ACgi
+armor 0 0 AC
 5 5 5 0 0
 25 5 0 P
 g none~
@@ -1670,7 +1670,7 @@ shirt white~
 a crisp white shirt~
 A heavily starched white shirt is here.~
 cloth~
-armor 0 0 ADgj
+armor 0 0 AD
 5 5 5 0 0
 25 5 0 P
 g none~
@@ -1679,7 +1679,7 @@ pants black~
 a pair of black dress pants~
 A pair of black pants lies here.~
 cloth~
-armor 0 0 AFgl
+armor 0 0 AF
 5 5 5 0 0
 25 5 0 P
 g none~
@@ -1688,7 +1688,7 @@ cummerbund~
 a cummerbund~
 A cummerbund lies here.~
 cloth~
-armor 0 0 ALgr
+armor 0 0 AL
 6 6 6 0 0
 25 10 0 P
 A
@@ -1701,7 +1701,7 @@ big black shoes~
 a pair of black shoes~
 A pair of black shoes lies here.~
 leather~
-armor 0 0 AGgm
+armor 0 0 AG
 6 6 6 0 0
 25 3 0 P
 A
@@ -1714,8 +1714,8 @@ engagement band ring~
 an engagement band~
 An engagement band lies here.~
 unknown~
-jewelry AHMgns 0 ABgh
-0 0 0 ABgh 0
+jewelry AHM 0 AB
+0 0 0 AB 0
 25 5 0 P
 A
 4 1
@@ -1728,7 +1728,7 @@ wedding dress~
 a wedding dress~
 A wedding dress is here.~
 cloth~
-armor 0 0 ADgj
+armor 0 0 AD
 5 5 5 0 0
 25 5 0 P
 A
@@ -1746,7 +1746,7 @@ white shoes flat flats~
 a pair of white shoes~
 A pair of white flats lie here.~
 cloth~
-armor 0 0 AGgm
+armor 0 0 AG
 5 5 5 0 0
 25 10 0 P
 A
@@ -1757,7 +1757,7 @@ wedding veil~
 a thin white veil~
 A transparent white veil lies here.~
 cloth~
-armor 0 0 AEgk
+armor 0 0 AE
 5 5 5 0 0
 25 10 0 P
 A
@@ -1768,7 +1768,7 @@ engagement ring diamond~
 a diamond engagement ring~
 A diamond engagement ring lies here.~
 diamond~
-jewelry AHMgns 0 ABgh
+jewelry AHM 0 AB
 0 0 0 0 0
 25 3 1000 P
 A
@@ -1783,7 +1783,7 @@ corsage flowers~
 a corsage~
 A corsage of beautiful flowers lies here.~
 cloth~
-armor 0 0 AOgu
+armor 0 0 AO
 5 5 5 0 0
 25 10 0 P
 A
@@ -1794,7 +1794,7 @@ jar glowing fish~
 a small jar of pale glowing fish~
 A small jar of bioluminescent, glowing fish lies here.~
 unknown~
-light Ag 0 Ag
+light A 0 A
 0 0 -1 0 0
 15 0 0 P
 A
@@ -1805,8 +1805,8 @@ goldfish white~
 the white goldfish~
 The white goldfish nuzzles gently at you as you pass by.~
 food~
-food 0 0 Ag
-Ci Ci 0 0 0
+food 0 0 A
+C C 0 0 0
 2 2 0 P
 g none~
 #19058
@@ -1814,7 +1814,7 @@ crimson robe~
 a crimson robe~
 A crimson robe lies here.~
 cloth~
-armor 0 0 AKgq
+armor 0 0 AK
 10 12 11 5 0
 35 5 100 P
 A
@@ -1825,7 +1825,7 @@ burnt orange robe~
 a burnt-orange robe~
 A burnt orange robe lies here.~
 cloth~
-armor 0 0 AKgq
+armor 0 0 AK
 10 10 11 5 0
 35 5 10 P
 A
@@ -1836,7 +1836,7 @@ yellow sun robe~
 a yellow robe~
 A yellow robe lies here.~
 cloth~
-armor 0 0 AKgq
+armor 0 0 AK
 11 11 10 4 0
 35 5 10 P
 A
@@ -1847,7 +1847,7 @@ forest green robe~
 a forest green robe~
 A forest green robe lies here.~
 cloth~
-armor 0 0 AKgq
+armor 0 0 AK
 11 11 10 7 0
 35 5 10 P
 A
@@ -1858,7 +1858,7 @@ sea blue robe sea-blue~
 a sea-blue robe~
 A sea-blue robe lies here.~
 cloth~
-armor 0 0 AKgq
+armor 0 0 AK
 12 11 11 8 0
 35 5 10 P
 A
@@ -1869,7 +1869,7 @@ violet robe~
 a violet robe~
 A violet robe lies here.~
 cloth~
-armor 0 0 AKgq
+armor 0 0 AK
 11 11 11 6 0
 35 5 10 P
 A
@@ -1880,7 +1880,7 @@ prism sword~
 a prism sword~
 A clear glass sword lies here, reflecting all sorts of rainbow colors.~
 glass~
-weapon Gm 0 ANgt
+weapon G 0 AN
 sword 4 10 'slice' 0
 35 10 4000 P
 A
@@ -1893,7 +1893,7 @@ hoe~
 a hoe~
 A hoe lies here.~
 iron~
-weapon Gm 0 ANgt
+weapon G 0 AN
 exotic 4 7 'charge' 0
 25 14 100 P
 g none~
@@ -1902,7 +1902,7 @@ robe white~
 a white robe~
 A white robe lies here.~
 cloth~
-armor Kq 0 AKgq
+armor K 0 AK
 11 12 11 10 0
 39 5 100 P
 g none~
@@ -1911,7 +1911,7 @@ poultice detection~
 a poultice of detection~
 A small herbal poultice lies hee.~
 food~
-pill 0 0 AOgu
+pill 0 0 AO
 20 'detect invis' 'detect magic' '' ''
 10 1 0 P
 g none~
@@ -1920,7 +1920,7 @@ beer glass~
 beer~
 A foaming glass of beer sits here.~
 glass~
-drink 0 0 Ag
+drink 0 0 A
 1 1 'beer' 0 0
 1 0 0 P
 g none~
@@ -1929,7 +1929,7 @@ whisky whiskey shot~
 whisky~
 A shot of whisky lies here.~
 glass~
-drink 0 0 Ag
+drink 0 0 A
 1 1 'whisky' 0 0
 5 3 0 P
 g none~
@@ -1938,7 +1938,7 @@ lemonade~
 lemonade~
 A glass of lemonade stands here.~
 glass~
-drink 0 0 Ag
+drink 0 0 A
 1 1 'lemonade' 0 0
 5 2 0 P
 g none~
@@ -1947,8 +1947,8 @@ kendo stick staff~
 a kendo~
 A long wooden staff lies here.~
 wood~
-weapon GHmn 0 ANgt
-staff 5 9 'crush' Dj
+weapon GH 0 AN
+staff 5 9 'crush' D
 45 10 100 P
 A
 2 1
@@ -1960,7 +1960,7 @@ karate uniform gi~
 a black gi~
 A black karate uniform lies here.~
 cloth~
-armor 0 0 ADgj
+armor 0 0 AD
 15 15 15 8 0
 45 10 1000 P
 A
@@ -1973,7 +1973,7 @@ red belt master~
 a red master's belt~
 A red master's belt lies here.~
 silk~
-armor Kq 0 ALgr
+armor K 0 AL
 13 13 12 6 0
 45 5 10 P
 A
@@ -1993,7 +1993,7 @@ suitcase~
 a suitcase~
 A suitcase rests here.~
 unknown~
-container 0 0 AOgu
+container 0 0 AO
 25 0 0 10 100
 3 0 0 P
 g none~
@@ -2002,7 +2002,7 @@ canteen~
 a canteen~
 A small canteen lies here.~
 metal~
-drink Hn 0 Ag
+drink H 0 A
 10 10 'water' 0 0
 1 2 0 P
 g none~
@@ -2011,8 +2011,8 @@ pack rations~
 rations~
 A small pack of rations lies here.~
 food~
-food 0 0 Ag
-BChi BChi 0 0 0
+food 0 0 A
+BC BC 0 0 0
 1 1 0 P
 g none~
 #19078
@@ -2020,7 +2020,7 @@ knife pocket pocketknife~
 a pocketknife~
 A pocketknife lies here.~
 steel~
-weapon Gm 0 ANgt
+weapon G 0 AN
 dagger 1 6 'pierce' 0
 2 2 10 P
 g none~
@@ -2029,7 +2029,7 @@ raft~
 a small raft~
 A small raft stands here.~
 leather~
-boat 0 0 Ag
+boat 0 0 A
 0 0 0 0 0
 10 10 0 P
 g none~
@@ -2038,7 +2038,7 @@ cap wizard wizard's~
 a wizard's peaked cap~
 A navy blue cap lies here, covered with stars and moons.~
 cloth~
-armor 0 0 AEgk
+armor 0 0 AE
 13 13 13 4 0
 45 12 100 P
 A
@@ -2049,7 +2049,7 @@ cloak wizards wizard's~
 a wizard's cloak~
 A navy blue cloak lies here, covered with stars and moons.~
 cloth~
-armor 0 0 AKgq
+armor 0 0 AK
 13 13 13 5 0
 45 10 100 P
 g none~
@@ -2058,7 +2058,7 @@ page hymn~
 a hymn~
 A page from a hymnal has fallen on the ground here.~
 glass~
-scroll 0 0 Ag
+scroll 0 0 A
 20 'bless' '' '' ''
 5 1 0 P
 g none~
@@ -2067,7 +2067,7 @@ ring rose~
 a rose-colored ring~
 A rose-colored ring lies here.~
 brass~
-jewelry AKgq 0 ABgh
+jewelry AK 0 AB
 0 0 0 0 0
 39 1 1000 P
 A
@@ -2080,7 +2080,7 @@ clippers~
 a pair of clippers~
 A pair of clippers lie here.~
 steel~
-weapon Gm 0 ANgt
+weapon G 0 AN
 exotic 4 4 'slice' 0
 25 10 10 P
 g none~
@@ -2089,7 +2089,7 @@ club staff wood wooden~
 a thick wooden staff~
 A rough wooden staff lies here.~
 wood~
-weapon 0 0 ANgt
+weapon 0 0 AN
 staff 4 4 'crush' 0
 19 10 0 P
 g none~
@@ -2098,7 +2098,7 @@ leggings mirror mirrored~
 a set of mirrored leggings~
 A set of mirrored leggings lies here.~
 steel~
-armor 0 0 AFgl
+armor 0 0 AF
 7 7 7 0 0
 23 5 0 P
 g none~
@@ -2107,7 +2107,7 @@ shawl white~
 a white shawl~
 A white shawl lies here.~
 cloth~
-armor 0 0 AKgq
+armor 0 0 AK
 13 13 14 6 0
 45 11 100 P
 g none~
@@ -2116,7 +2116,7 @@ boots fishing~
 fishing boots~
 A pair of fishing boots lies here.~
 leather~
-armor Ms 0 AGgm
+armor M 0 AG
 7 7 7 0 0
 25 5 0 P
 A
@@ -2127,8 +2127,8 @@ gaff~
 a gaff~
 A fisherman's gaff lies here.~
 steel~
-weapon Gm 0 ANgt
-spear 5 6 'pierce' DKjq
+weapon G 0 AN
+spear 5 6 'pierce' DK
 25 10 100 P
 g none~
 #19090
@@ -2136,7 +2136,7 @@ rain slicker~
 a rain slicker~
 A rain slicker lies here.~
 cloth~
-armor 0 0 ADgj
+armor 0 0 AD
 5 5 5 0 0
 25 10 0 P
 A
@@ -2147,7 +2147,7 @@ dinghy boat~
 a dinghy~
 A dinghy lies here (It's a kind of boat :-)~
 leather~
-boat 0 0 Ag
+boat 0 0 A
 0 0 0 0 0
 20 10 0 P
 g none~
@@ -2156,8 +2156,8 @@ diploma wizard finishing~
 a "Wizard's Finishing School" diploma~
 A rolled-up piece of paper lies here.~
 paper~
-treasure GKmq 0 AOgu
-Ag 0 0 0 0
+treasure GK 0 AO
+A 0 0 0 0
 1 0 0 P
 A
 3 1
@@ -2181,7 +2181,7 @@ antlers~
 antlers~
 A set of antlers lies on the ground here.~
 cloth~
-armor 0 0 AEgk
+armor 0 0 AE
 9 9 9 4 0
 30 8 10 P
 A
@@ -2203,8 +2203,8 @@ nectarine fruit~
 a nectarine~
 A nectarine stands here.~
 food~
-food 0 0 Ag
-ABgh ABgh 0 0 0
+food 0 0 A
+AB AB 0 0 0
 1 1 0 P
 g none~
 #19096
@@ -2212,7 +2212,7 @@ diploma wizard finishing~
 a "Wizard's Finishing School" diploma~
 A rolled-up piece of paper lies here.~
 paper~
-treasure GJmp 0 AOgu
+treasure GJ 0 AO
 0 0 0 0 0
 1 0 0 P
 A
@@ -2223,7 +2223,7 @@ fangs~
 some fangs~
 Someone's teeth (?) are lying here.~
 bone~
-weapon 0 0 ANgt
+weapon 0 0 AN
 exotic 6 6 'bite' 0
 35 5 100 P
 A
@@ -2234,7 +2234,7 @@ hemlock extract~
 hemlock~
 A glass of hemlock extract lies here.~
 glass~
-drink 0 0 Ag
+drink 0 0 A
 1 1 'water' 0 0
 1 0 0 P
 g none~
@@ -2243,7 +2243,7 @@ ale evil darkale bottle~
 a bottle of evil-smelling ale~
 A bottle of evil-smelling ale lies here.~
 glass~
-drink 0 0 Ag
+drink 0 0 A
 2 2 'water' 0 0
 1 0 0 P
 g none~
@@ -2252,7 +2252,7 @@ water~
 a bottle of water~
 A bottle of water lies here.~
 glass~
-drink 0 0 Ag
+drink 0 0 A
 3 3 'water' 0 0
 1 1 0 P
 g none~
@@ -2261,7 +2261,7 @@ broken bottle~
 a broken bottle~
 A broken bottle lies here.~
 glass~
-weapon Gm 0 ANgt
+weapon G 0 AN
 exotic 6 6 'slime' 0
 40 2 100 P
 A
@@ -2274,7 +2274,7 @@ flask devil brew devil's~
 a flask of devil's brew~
 A flask of devil's brew lies here.~
 glass~
-potion BEGHhkmn 0 Ag
+potion BEGH 0 A
 10 'giant strength' 'shield' '' ''
 5 5 0 P
 g none~
@@ -2283,7 +2283,7 @@ wand soul stealer~
 the Soul Stealer~
 A strange wand is here.~
 wood~
-wand Hn 0 AOgu
+wand H 0 AO
 15 15 15 'charm person' 0
 15 5 5 P
 E
@@ -2300,7 +2300,7 @@ rubber gloves~
 rubber gloves~
 A pair of rubber gloves lies here.~
 rubber~
-armor Jp 0 AHgn
+armor J 0 AH
 11 10 10 5 0
 35 2 0 P
 g none~
@@ -2309,7 +2309,7 @@ scabbard~
 a scabbard~
 A scabbard lies here.~
 unknown~
-container Fl 0 ALgr
+container F 0 AL
 20 0 0 5 100
 5 0 0 P
 g none~
@@ -2318,7 +2318,7 @@ bone horn~
 a horn of bone~
 A unicorn's bony horn lies here.~
 bone~
-weapon EGHJkmnp 0 ANgt
+weapon EGHJ 0 AN
 exotic 6 7 'pierce' 0
 45 5 100 P
 A
@@ -2331,7 +2331,7 @@ red ribbons ribbon~
 a set of red ribbons~
 Some red ribbons lie here.~
 silk~
-armor EHJMknps 0 ACgi
+armor EHJM 0 AC
 9 9 9 4 0
 45 1 10 P
 A
@@ -2357,7 +2357,7 @@ holly berries berry~
 a few holly berries~
 A few holly berries lie here.~
 food~
-pill 0 0 Ag
+pill 0 0 A
 10 'poison' '' '' ''
 2 2 0 P
 g none~
@@ -2366,8 +2366,8 @@ sword obsidian eclipse~
 an eclipse sword~
 A sword of pure obsidian lies here, seeming to swallow up the rays of light.~
 obsidian~
-weapon FGHJMlmnps 0 ANgt
-sword 5 10 'slash' DGjm
+weapon FGHJM 0 AN
+sword 5 10 'slash' DG
 35 20 20000 P
 A
 13 -50
@@ -2430,8 +2430,8 @@ beef stew~
 beef stew~
 A bowl of beef stew lies here.~
 food~
-food 0 0 Ag
-ABgh ABgh 0 0 0
+food 0 0 A
+AB AB 0 0 0
 0 2 0 P
 g none~
 #19114
@@ -2439,7 +2439,7 @@ jar slugs light~
 a small jar of glowing slugs~
 A small jar of bioluminescent slugs lies here.~
 unknown~
-light Hn 0 Ag
+light H 0 A
 0 0 -1 0 0
 15 0 0 P
 E
@@ -2463,8 +2463,8 @@ acorn~
 an acorn~
 An acorn lies here.~
 food~
-food Hn 0 Ag
-BDhj BDhj 0 0 0
+food H 0 A
+BD BD 0 0 0
 1 1 0 P
 g none~
 #19117
@@ -2472,7 +2472,7 @@ tight leather bodice~
 a tight leather bodice~
 A tight leather bodice sits here.~
 leather~
-armor JMps 0 ADgj
+armor JM 0 AD
 6 6 6 0 0
 25 3 0 P
 A
@@ -2485,7 +2485,7 @@ leather miniskirt~
 a tight leather miniskirt~
 A tight leather miniskirt lies here.~
 leather~
-armor Ms 0 AFgl
+armor M 0 AF
 5 5 5 0 0
 25 2 10 P
 A
@@ -2496,8 +2496,8 @@ squid~
 a dead squid~
 Bubbles of swamp gas gently shake the arms of this dead squid.~
 food~
-food 0 0 Ag
-Bh Bh 0 0 0
+food 0 0 A
+B B 0 0 0
 2 2 0 P
 g none~
 #19120
@@ -2514,7 +2514,7 @@ bag newbie~
 a Newbie Bag!~
 A Newbie Bag lies here. ~
 leather~
-container 0 0 Ag
+container 0 0 A
 20 0 0 5 100
 0 0 0 P
 E
@@ -2531,7 +2531,7 @@ circlet silver~
 a silver circlet~
 A silver circlet lies here.~
 silver~
-armor AKgq 0 AEgk
+armor AK 0 AE
 10 10 10 0 0
 50 15 0 P
 A
@@ -2542,7 +2542,7 @@ robe black~
 a black robe~
 A black robe lies here.~
 cloth~
-armor Jp 0 AKgq
+armor J 0 AK
 6 6 6 0 0
 35 5 0 P
 A
@@ -2557,7 +2557,7 @@ white robe~
 a white robe~
 A white robe lies here.~
 cloth~
-armor Jp 0 AKgq
+armor J 0 AK
 6 6 6 0 0
 35 5 0 P
 A
@@ -2570,7 +2570,7 @@ amulet death~
 the Amulet of Death and Dishonor~
 An amulet lies here....it absorbs all the light around it.~
 unknown~
-armor ABFGHMghlmns 0 ACgi
+armor ABFGHM 0 AC
 0 0 0 0 0
 50 5 0 P
 A
@@ -2599,7 +2599,7 @@ cloak black~
 a black cloak~
 A black cloak lies here.~
 cloth~
-armor Fl 0 AKgq
+armor F 0 AK
 16 16 16 7 0
 50 5 0 P
 g none~
@@ -2608,8 +2608,8 @@ blood red dagger~
 a blood-red dagger~
 A blood-red dagger lies here.~
 steel~
-weapon EGJkmp 0 ANgt
-dagger 6 10 'pierce' ADgj
+weapon EGJ 0 AN
+dagger 6 10 'pierce' AD
 45 10 10000 P
 A
 19 15
@@ -2630,7 +2630,7 @@ sigil dark~
 the Sigil of the Dark~
 The Sigil of the Dark lies here.~
 unknown~
-treasure Ag 0 AOgu
+treasure A 0 AO
 0 0 0 0 0
 5 2 0 P
 E
@@ -2651,7 +2651,7 @@ sigil light~
 the Sigil of the Light~
 The Sigil of the Light lies here.~
 unknown~
-treasure Ag 0 AOgu
+treasure A 0 AO
 0 0 0 0 0
 5 2 0 P
 E
@@ -2669,7 +2669,7 @@ netting hat netted beekeeper~
 a beekeeper's hat~
 A beekeeper's hat rests here.~
 cloth~
-armor 0 0 AEgk
+armor 0 0 AE
 2 0 0 0 0
 2 0 0 P
 A
@@ -2688,7 +2688,7 @@ white cloak~
 a white cloak~
 A white cloak lies here.~
 cloth~
-armor Jp 0 ADgj
+armor J 0 AD
 16 17 16 9 0
 50 5 0 P
 A
@@ -2699,7 +2699,7 @@ black cloak~
 a black cloak~
 A black cloak lies here.~
 cloth~
-armor 0 0 ADgj
+armor 0 0 AD
 16 17 17 6 0
 50 5 0 P
 A
@@ -2710,7 +2710,7 @@ smoke can jug~
 a beekeeper's smoke can~
 Thin smoke pours out of a small jug on the ground.~
 wood~
-wand 0 0 AOgu
+wand 0 0 AO
 30 10 10 'blindness' 0
 25 5 100 P
 E
@@ -2725,7 +2725,7 @@ history mirror realm book~
 a History of the Mirror Realm~
 A book lies here.~
 paper~
-trash 0 0 Ag
+trash 0 0 A
 0 0 0 0 0
 2 0 0 P
 E
@@ -2781,7 +2781,7 @@ book legends~
 a Book of Legends~
 A book lies here.~
 paper~
-trash 0 0 Ag
+trash 0 0 A
 0 0 0 0 0
 5 0 0 P
 E
@@ -2815,7 +2815,7 @@ book history midgaard~
 a History of Midgaard~
 A book lies on the ground.~
 paper~
-trash 0 0 Ag
+trash 0 0 A
 0 0 0 0 0
 2 0 0 P
 E
@@ -2852,7 +2852,7 @@ crystal sigil~
 the crystal sigil~
 A small crystalline object sparkles in the dust.~
 crystal~
-trash Ag 0 Ag
+trash A 0 A
 0 0 0 0 0
 5 0 0 P
 A
@@ -2872,7 +2872,7 @@ topaz sigil~
 the yellow topaz sigil~
 A small piece of topaz lies here.~
 unknown~
-trash 0 0 BDhj
+trash 0 0 BD
 0 0 0 0 0
 5 0 0 P
 A
@@ -2895,7 +2895,7 @@ amethyst sigil~
 the amethyst sigil~
 A small piece of polished amethyst sparkles here.~
 unknown~
-treasure 0 0 AOgu
+treasure 0 0 AO
 0 0 0 0 0
 1 1 0 P
 A
@@ -2918,7 +2918,7 @@ ruby sigil~
 the ruby sigil~
 A small chunk of ruby lies here.~
 unknown~
-treasure 0 0 Ag
+treasure 0 0 A
 0 0 0 0 0
 2 2 10 P
 A
@@ -2929,7 +2929,7 @@ sigil sapphire~
 the sapphire sigil~
 A small piece of sapphire lies here.~
 unknown~
-treasure 0 0 AOgu
+treasure 0 0 AO
 0 0 0 0 0
 5 0 0 P
 A
@@ -2964,7 +2964,7 @@ emerald sigil~
 the emerald sigil~
 A small piece of emerald lies here.~
 unknown~
-furniture 0 0 AOgu
+furniture 0 0 AO
 0 0 0 0 0
 8 0 0 P
 A
@@ -2975,7 +2975,7 @@ amber sigil~
 the amber sigil~
 A small piece of amber lies here.~
 unknown~
-furniture 0 0 AOgu
+furniture 0 0 AO
 0 0 0 0 0
 5 0 0 P
 A
@@ -2986,8 +2986,8 @@ honey jar~
 a jar of honey~
 A jar of honey lies here.~
 food~
-food 0 0 Ag
-Bh Bh 0 0 0
+food 0 0 A
+B B 0 0 0
 2 2 0 P
 E
 honey jar~
@@ -2998,7 +2998,7 @@ sword taliesin~
 taliesin~
 A beautiful sword lies here.~
 gold~
-weapon GMms 0 ANgt
+weapon GM 0 AN
 sword 5 9 'slash' 0
 45 0 1000 P
 A
@@ -3023,7 +3023,7 @@ sunrise shield~
 the Sunrise Shield~
 A beautiful jewelled shield lies here.~
 gold~
-armor GMms 0 AJgp
+armor GM 0 AJ
 5 5 5 0 0
 10 0 0 P
 A
@@ -3045,7 +3045,7 @@ red key~
 a red key~
 A red key lies here.~
 iron~
-key 0 0 Ag
+key 0 0 A
 0 0 0 0 0
 1 0 0 P
 g none~
@@ -3054,7 +3054,7 @@ orange key~
 an orange key~
 An orange key lies here.~
 iron~
-key 0 0 Ag
+key 0 0 A
 0 0 0 0 0
 1 0 0 P
 g none~
@@ -3063,7 +3063,7 @@ yellow key~
 a yellow key~
 A yellow key lies here.~
 iron~
-key 0 0 Ag
+key 0 0 A
 0 0 0 0 0
 1 0 0 P
 g none~
@@ -3072,7 +3072,7 @@ green key~
 a green key~
 A green key lies here.~
 iron~
-key 0 0 Ag
+key 0 0 A
 0 0 0 0 0
 1 0 0 P
 g none~
@@ -3081,7 +3081,7 @@ blue key~
 a blue key~
 A blue key lies here.~
 steel~
-key 0 0 Ag
+key 0 0 A
 0 0 0 0 0
 1 0 0 P
 g none~
@@ -3090,7 +3090,7 @@ violet key~
 a violet key~
 A violet key lies here.~
 iron~
-key 0 0 Ag
+key 0 0 A
 0 0 0 0 0
 1 0 0 P
 g none~
@@ -3099,8 +3099,8 @@ fish trout~
 a trout~
 A trout lies here.~
 food~
-food 0 0 Ag
-BChi BChi 0 0 0
+food 0 0 A
+BC BC 0 0 0
 2 2 0 P
 g none~
 #19166
@@ -3108,7 +3108,7 @@ heart key~
 the heart key~
 A small key lies on the ground here; use it to lock yourselves in...~
 food~
-food 0 0 Ag
+food 0 0 A
 0 0 0 0 0
 1 0 0 P
 g none~
@@ -3117,7 +3117,7 @@ champagne bottle~
 a bottle of champagne~
 A bottle of champagne sits on the counter.~
 glass~
-drink 0 0 Ag
+drink 0 0 A
 10 10 'champagne' 0 0
 2 2 0 P
 g none~
@@ -3126,8 +3126,8 @@ spam can~
 a can of Spam~
 A can of Spam lies here.~
 food~
-food 0 0 Ag
-CEik BDhj 0 0 0
+food 0 0 A
+CE BD 0 0 0
 1 3 0 P
 g none~
 #19169
@@ -3135,7 +3135,7 @@ bottle water~
 a bottle of water~
 A bottle of water stands here.~
 glass~
-drink 0 0 Ag
+drink 0 0 A
 20 20 'water' 0 0
 1 2 0 P
 g none~
@@ -3144,7 +3144,7 @@ silver pendant~
 a small silver pendant~
 A small silver pendant lies here.~
 silver~
-armor Ag 0 ACgi
+armor A 0 AC
 4 0 0 0 0
 1 0 0 P
 A
@@ -3155,7 +3155,7 @@ bronze band~
 a simple bronze band~
 A simple bronze band lies here.~
 bronze~
-armor Ag 0 ABgh
+armor A 0 AB
 2 0 0 0 0
 5 0 0 P
 A
@@ -3168,7 +3168,7 @@ thick brown robe~
 a thick brown robe~
 A thick brown robe lies here.~
 cloth~
-armor Ag 0 AKgq
+armor A 0 AK
 2 0 0 0 0
 5 0 0 P
 A
@@ -3294,7 +3294,7 @@ foundering in a storm.~
 D0
 ~
 door doors~
-ABZgh -1 19006
+ABZ -1 19006
 D2
 ~
 ~
@@ -3319,7 +3319,7 @@ Z -1 19007
 D2
 ~
 door doors~
-ABZgh -1 19005
+ABZ -1 19005
 S
 #19007
 Along the Path Above the Realm~
@@ -3345,7 +3345,7 @@ Two wooden guard stations lie to the east and west, suspended over the valley
 floor; though you can see a telescope in each watchtower, the shadows prevent
 you from being sure whether or not anyone is inside.
 ~
-0 Ci field
+0 C field
 D0
 ~
 ~
@@ -3372,7 +3372,7 @@ empty, save for the telescope--there are no beer bottles, pictures, or even
 chairs here; the only thing on the floor is an open hatchway with a large black
 iron knob.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -3390,7 +3390,7 @@ lets you look more closely.  The station is almost completely empty, save
 for the telescope and a large iron knob attached to a small, open hatch in the
 floor.
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~
@@ -3426,7 +3426,7 @@ high and too dark to see the ceiling--but here tapestries hang on the walls,
 while a thick red rug covers the floor.  The tapestry behind you shows a boat
 cresting a deep blue wave; the others are too far away to see clearly.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -3452,7 +3452,7 @@ covered with a simple tapestry: behind you hangs a blue tapestry with a
 smooth, flowing, almost foamy pattern, while a rich brown tapestry hangs 
 to your left, flecked with greens and reds.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -3475,7 +3475,7 @@ crown has been hung from a small bush on the side of the crevice, and the king
 himself is lying down on the muddy ground, lowering the royal robes into the 
 pit so that the young beggar can hold on as the king pulls him to safety.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -3503,7 +3503,7 @@ the center.  The tapestry on the northern wall doesn't follow this pattern,
 however; a recessed alcove fills the center of the wall, flanked by tapestries
 depicting a magnificent shining sword and a sparkling jewelled shield.
 ~
-0 ADgj inside
+0 AD inside
 E
 tapestry tapestries pattern walls wall patterns ~
 The tapestries on each wall combine to form a complete picture; the two blue
@@ -3540,7 +3540,7 @@ Though the knight's horse has fled, running off the right side of the tapestry,
 the knight still struggles on, hacking through burning bushes to reach the 
 frenzied unicorn in the center.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -3562,7 +3562,7 @@ hilted sword with a tremendously fine edge.  An intricate series of warring
 figures fills the tapestry's border, apparently telling the history of some
 battle between good and evil--perhaps a battle over the sword itself.
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -3584,7 +3584,7 @@ however, it's too dark to see if anyone is sitting in it.
 
 Darkness lies in every other direction.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -3613,7 +3613,7 @@ a sparkling jewelled shield.  From here, you can see that the shield is
 incredibly detailed: a complex pattern of encrusted jewels surrounds the edge,
 while an intricate design of converging lines forms a picture of a rising sun.
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
@@ -3635,7 +3635,7 @@ the left and right, while a different tapestry lies to the north, showing
 the king silhouetted against a stormy sky, calling upon the magical forces
 that split his land in two.
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
@@ -3649,7 +3649,7 @@ the mirrored ceiling.  It is too dark to see much of anything; the light
 from the entranceway shines faintly below you, but complete darkness
 lies both ahead of you and to your right.
 ~
-0 ADgj air
+0 AD air
 D0
 ~
 ~
@@ -3667,7 +3667,7 @@ can see the tapestry more clearly from here; you are looking directly at
 the face of a king standing on the bow of his ship, leading his navy into
 battle.
 ~
-0 ADgj air
+0 AD air
 E
 tapestry tapestries king boat~
 The king stands on the prow of his ship, with his long hair blowing in 
@@ -3697,7 +3697,7 @@ Above the Corner~
 The wall curves upward to meet the navy blue cloth that covers the ceiling; the
 blue and brown tapestries continue upwards.
 ~
-0 ADgj air
+0 AD air
 D0
 ~
 ~
@@ -3718,7 +3718,7 @@ eyebrows are furrowed and he is straining to lean into the pit without
 falling in himself.  The child is hunched up on the bottom of the pit, and
 seems barely aware of the robe that the king is lowering down to him.
 ~
-0 ADgj air
+0 AD air
 D0
 ~
 ~
@@ -3727,7 +3727,7 @@ D1
 The tapestry is somewhat translucent to the east.
 ~
 tapestry~
-ABZgh -1 19043
+ABZ -1 19043
 D2
 ~
 ~
@@ -3748,7 +3748,7 @@ you can see far enough away to see each wall somewhat clearly.  You can
 also see a shadowy object in the recessed area to the north; you can't
 see what it is from here, though.
 ~
-0 ADgj air
+0 AD air
 D0
 ~
 ~
@@ -3778,7 +3778,7 @@ threat to the knight in blue than the fire itself.  The knight himself
 appears unfazed by the heat and flames; though he is knee-deep in burning
 brush, his face is set and determined.
 ~
-0 ADgj air
+0 AD air
 D0
 ~
 ~
@@ -3794,7 +3794,7 @@ Z -1 19021
 D3
 ~
 tapestry~
-ABZgh -1 19042
+ABZ -1 19042
 D5
 ~
 ~
@@ -3808,7 +3808,7 @@ a rather unusual sigil on the hilt: the sign of good, a rainbow inside a
 flowering vine, is linked with the sign of evil, a lightning bolt inside
 a circle of bone.
 ~
-0 ADgj air
+0 AD air
 D1
 ~
 ~
@@ -3830,7 +3830,7 @@ from seeing if it's occupied.  You can also see a tapestry in the distance
 to your north; it appears to show a picture of the king standing on a hill
 of some sort, with his arms raised up in the air.
 ~
-0 ADgj air
+0 AD air
 D1
 ~
 ~
@@ -3856,7 +3856,7 @@ thin lines of powdered gemstones, including diamond and ruby; the picture
 of the sun itself is made up of cut diamonds, which reflect beams of
 light in every direction.
 ~
-0 ADgj air
+0 AD air
 D2
 ~
 ~
@@ -3885,7 +3885,7 @@ word words door doors~
 D0
 ~
 ~
-ABZgh -1 19031
+ABZ -1 19031
 D2
 ~
 ~
@@ -3899,7 +3899,7 @@ into dizzying infinity, and every move you make catches the corner of your eye.
 Even the guards standing here wear mirrored armor; they don't appear to be
 disoriented, however.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -3914,7 +3914,7 @@ Mirrors~
 The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -3937,7 +3937,7 @@ Mirrors~
 The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -3956,7 +3956,7 @@ Mirrors~
 The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -3975,7 +3975,7 @@ Mirrors~
 The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -3998,7 +3998,7 @@ Mirrors~
 The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -4021,7 +4021,7 @@ Mirrors~
 The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -4044,7 +4044,7 @@ Mirrors~
 The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -4063,7 +4063,7 @@ Mirrors~
 The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -4082,7 +4082,7 @@ Mirrors~
 The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -4108,7 +4108,7 @@ preventing you from seeing inside.  A strange, mirrored spiral staircase
 leads upwards into a tower; it looks rough and unworn, and the metal 
 joints lack the smooth ruts that you'd expect to see in a well-used stairway.
 ~
-0 DOju inside
+0 DO inside
 D0
 ~
 ~
@@ -4128,11 +4128,11 @@ This small alcove is somewhat lighter than the rest of the hall its walls
 glow faintly with a golden light.  An overturned bowl of rancid food lies on 
 the ground below a hard wooden plank set into a recess in the wall.
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 tapestry~
-ABZgh -1 19026
+ABZ -1 19026
 S
 #19043
 An Alcove~
@@ -4140,7 +4140,7 @@ The alcove here is somewhat better lit than the rest of the hall; the walls
 here glow with a faint golden light.  There is a small shelf set into the
 side of the wall; a thin blanket covers half its rough surface.
 ~
-0 ADgj inside
+0 AD inside
 D3
 ~
 tapestry~
@@ -4154,7 +4154,7 @@ continues downwards to the ground below.  The faint light of a torch flickers
 upwards from the base of this tall, narrow chamber, allowing you to see
 a small handle attached to the hatchway above.
 ~
-0 Dj inside
+0 D inside
 D4
 ~
 hatch hatchway door handle~
@@ -4171,14 +4171,14 @@ as the chamber gently widens.  A torch bolted into the side of the chamber
 reveals the faint outline of a door set into the western wall, as well as a
 small figure carved into the rock above the doorway.
 ~
-0 CDij inside
+0 CD inside
 E
 sign figure carving~
 You see a rainbow in a circle of ivy, the sign of the Light.~
 D3
 ~
 door~
-ABZgh -1 19048
+ABZ -1 19048
 D4
 ~
 ~
@@ -4244,7 +4244,7 @@ Z -1 19049
 D1
 ~
 door~
-ABZgh -1 19045
+ABZ -1 19045
 D2
 ~
 ~
@@ -4324,7 +4324,7 @@ gently at the ripples you leave behind you.  The reeds to the north and west,
 growing at the edge of the pond, provide food for a few more fish; the center
 of the pond lies to the south, just below a white gazebo covered with vines.
 ~
-0 Ci noswim
+0 C noswim
 D1
 ~
 ~
@@ -4345,7 +4345,7 @@ odd, white light: pale, glowing fish fill the water, and small, almost
 microscopic animals have stuck their glowing bodies like barnacles onto the
 gazebo's bottom.
 ~
-0 Ci noswim
+0 C noswim
 D0
 ~
 ~
@@ -4370,7 +4370,7 @@ and heading westwards towards a small gazebo.  The gazebo itself is high
 enough to travel under; the bridge rises fairly high off the water--
 high enough to prevent you from leaving the pond by the eastern bank.
 ~
-0 Ci noswim
+0 C noswim
 D0
 ~
 ~
@@ -4390,7 +4390,7 @@ The pond's clear water ripples gently as you pass across its surface; small
 waves wash against the shores to the east and south.  A wooden bridge
 crosses the pond to the north, leading to a round gazebo covered with vines.
 ~
-0 Ci noswim
+0 C noswim
 D0
 ~
 ~
@@ -4464,7 +4464,7 @@ floating here, with some algae growing around them.  The row of buildings lies
 to the east of here, just beyond the gravel pathway; from here, however, you
 can't see what any of them might hold.
 ~
-0 Ci noswim
+0 C noswim
 D0
 ~
 ~
@@ -4489,7 +4489,7 @@ hundreds of them swim around here, poking gently at everything that passes
 by.  A large, almost pure white goldfish seems to be the center of attention--
 smaller goldfish nip at it almost endlessly.
 ~
-0 Ci noswim
+0 C noswim
 D1
 ~
 ~
@@ -4667,7 +4667,7 @@ D4
 Ivy nearly covers a small panel set into the gazebo's roof.
 ~
 panel~
-ABFZghl -1 19152
+ABFZ -1 19152
 S
 #19068
 Center of the Street~
@@ -4737,7 +4737,7 @@ hidden," a sign says, "potions are too easy to pinch.")  Faint magical
 runes are painted on the ceiling, and are glowing faintly in the 
 darkness; the sign of the Light is painted on the floor.
 ~
-0 Dj inside
+0 D inside
 E
 runes~
 Don't bother.  You'd only rune your appetite. *rofl*~
@@ -4770,7 +4770,7 @@ are a few more people in there, it's still not all that crowded.
 
 A small wooden staircase leads upwards to the bedrooms.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -4793,7 +4793,7 @@ to your right, partially hidden behind a small fern; the kitchen door, blocked
 by a row of tables, flops open and shut constantly as the waiter rushes in 
 and out.
 ~
-0 Dj inside
+0 D inside
 E
 pictures posters~
 You see landscapes of the Plains of the North, the valley of the Mirror Realm,
@@ -4812,7 +4812,7 @@ and scrolls displaying different offensive and defensive techniques.  It is
 actually cooler inside the house than it was outside; the fountains in 
 each corner must help to cool the air.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -4858,7 +4858,7 @@ The well-stocked shelves have a number of items appropriate for adventurers;
 there is one whole section devoted to "Weapons and Armor," while other sections
 have titles like "Luggage" and "Rations".
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~
@@ -4872,7 +4872,7 @@ you don't have a library card anyway, and Mrs. Truxton surely won't give one
 to a wandering soul like you.  A few books are on sale in the front, though, 
 including histories of Midgaard and the Mirror Realm.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -4886,7 +4886,7 @@ The icons on the altar still shine brightly, though, and the church still
 shines with a bright, friendly light; someone still cares enough to keep 
 things mostly clean and neat.
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
@@ -4901,7 +4901,7 @@ green to blue and finally to a deep violet.  The moat below you sparkles,
 reflecting the tower's colors; it seems to be more a thing of beauty than a 
 form of defense.
 ~
-0 Ci field
+0 C field
 D1
 ~
 ~
@@ -4918,7 +4918,7 @@ light throughout what appears to be a relatively small room.  The only exit,
 aside from the one leading out, is a spiral staircase leading upwards through
 a closed hatch in the ceiling.
 ~
-0 CDij field
+0 CD field
 D1
 ~
 ~
@@ -4926,7 +4926,7 @@ Z -1 19078
 D4
 ~
 ~
-ABZgh -1 19080
+ABZ -1 19080
 S
 #19080
 The Red Room~
@@ -4938,14 +4938,14 @@ right, while a long velvet couch sits against the southern wall.  An
 intricately patterned Persian rug covers the floor, with a small 
 octagonal section cut out above the hatch that allowed you into this room.
 ~
-0 Dj inside
+0 D inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 D4
 ~
 ~
-ABCFZghil 19159 19081
+ABCFZ 19159 19081
 D5
 ~
 ~
@@ -4960,18 +4960,18 @@ wooden throne stands against the north wall, just below the Sign of the Light;
 two snapdragons grow on its left and right, while sprigs of goldenrod grow 
 upwards just behind its head.
 ~
-0 Ci inside
+0 C inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 D4
 ~
 ~
-ABCFZghil 19160 19082
+ABCFZ 19160 19082
 D5
 ~
 ~
-AFZgl 19159 19080
+AFZ 19159 19080
 S
 #19082
 The Yellow Room~
@@ -4980,18 +4980,18 @@ seem to amplify the outside light, giving it the power of several suns.  The
 throne on the north wall seems to blaze with its own light; the sunflowers and
 forsythia branches that surround it seem dull in comparison.
 ~
-0 CDij inside
+0 CD inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 D4
 ~
 ~
-ABCFZghil 19161 19083
+ABCFZ 19161 19083
 D5
 ~
 ~
-AFZgl 19160 19081
+AFZ 19160 19081
 S
 #19083
 The Green Room~
@@ -5001,18 +5001,18 @@ grow near the north wall; their drooping branches form a canopy for the carved
 wooden throne beneath them...and partially obscure the Sign of the Light on the
 wall.
 ~
-0 CDij inside
+0 CD inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 D4
 ~
 ~
-ABCFZghil 19162 19084
+ABCFZ 19162 19084
 D5
 ~
 ~
-AFZgl 19161 19082
+AFZ 19161 19082
 S
 #19084
 The Blue Room~
@@ -5023,18 +5023,18 @@ platform, just below the Sign of the Light on the north wall.  A few
 bluebells grow in planters around the room, matching the blue 
 speedwell of the throne as well as the blue marble below your feet.
 ~
-0 CDij inside
+0 CD inside
 E
 sign light~
 You see the Sign of the Light, a rainbow inside a circle of ivy.~
 D4
 ~
 ~
-ABCFZghil 19163 19085
+ABCFZ 19163 19085
 D5
 ~
 ~
-AFZgl 19162 19083
+AFZ 19162 19083
 S
 #19085
 The Violet Room~
@@ -5046,18 +5046,18 @@ swirling them gently around your face and hands.  Sprigs of lilac grow
 from behind the dark throne on the north wall, brushing gently against 
 the Sign of the Light.
 ~
-0 CDij inside
+0 CD inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded by a circle of ivy.~
 D4
 ~
 ~
-ABCFZghil 19164 19086
+ABCFZ 19164 19086
 D5
 ~
 ~
-AFZgl 19163 19084
+AFZ 19163 19084
 S
 #19086
 At the Top of the Tower: The Prism Room~
@@ -5069,14 +5069,14 @@ a smooth glass throne set underneath the northern part of the curving wall.
 Above the throne hangs the Sign of the Light; here, the unfiltered light allows
 it to sparkle with all its rainbow colors.
 ~
-0 CDij inside
+0 CD inside
 E
 sign light~
 You see the Sign of the Light, a rainbow surrounded by a circle of ivy.~
 D5
 ~
 ~
-AFZgl 19164 19085
+AFZ 19164 19085
 S
 #19087
 End of the Path~
@@ -5200,7 +5200,7 @@ as they search for solid soil.  The wooden pathway becomes even darker as it
 passes underneath these uneven rows of trees, finally becoming so dark that you
 need a light to find your way.
 ~
-0 Ag city
+0 A city
 D1
 ~
 ~
@@ -5219,7 +5219,7 @@ reeds and grasses cover the surface, while a school of fish is rotting
 away in a thick cluster of bushes and cattails that hangs over the 
 northern end of the pond.
 ~
-0 Ci noswim
+0 C noswim
 D1
 ~
 ~
@@ -5242,7 +5242,7 @@ looks rather rickety; you can see from here that several of the gazebo's
 boards have rotted away, leaving one whole side that has collapsed into 
 the mire below.
 ~
-0 Ci noswim
+0 C noswim
 D0
 ~
 ~
@@ -5263,7 +5263,7 @@ the bottom of the swamp.  Rushes and cattails grow up out of the edge of the
 pond, keeping the wet soil there from sliding into the deeper parts
 of the pond.
 ~
-0 Ci noswim
+0 C noswim
 D0
 ~
 ~
@@ -5305,7 +5305,7 @@ the forest grows densely here beside the rock wall to the north, stretching
 high into the air as it tries to catch the few feeble rays of light that do 
 make it down through the gloom.
 ~
-0 Ag city
+0 A city
 D1
 ~
 ~
@@ -5322,7 +5322,7 @@ to hold them in the steep, marshy ground.  A small gazebo stands to the south,
 seeming to have lost the struggle against the decay of the swamp; 
 several of its gray boards have fallen into the waters below.
 ~
-0 Ci noswim
+0 C noswim
 D1
 ~
 ~
@@ -5346,7 +5346,7 @@ what might be human footsteps.  Small slugs appear to have helped the natural
 decay process; hundreds of them are stuck to the underside of the gazebo floor,
 and appear to be happily munching away.
 ~
-0 Ci noswim
+0 C noswim
 D0
 ~
 ~
@@ -5368,7 +5368,7 @@ the pond, half over the swamp and half over the marshland; the supports on its
 left side have rotted away, leaving it tilted sharply to one side, and most
 likely preventing anyone from calling it their home.
 ~
-0 Ci noswim
+0 C noswim
 D0
 ~
 ~
@@ -5461,7 +5461,7 @@ the back of a row of wooden buildings, while the other leads over the water to
 the west, passing through a wooden gazebo, and continues eastwards between two
 of the buildings, heading towards a glittering black tower.
 ~
-0 Ci field
+0 C field
 D0
 ~
 ~
@@ -5546,7 +5546,7 @@ the chamber gently widens.  A torch bolted into the side of the chamber reveals
 a door set into the eastern wall, as well as a small figure carved into the
 rock above the doorway.
 ~
-0 CDij inside
+0 CD inside
 E
 sign figure~
 The Sign of the Dark, a raven diving inside a circle of bone, is carved into
@@ -5554,7 +5554,7 @@ the rock above the door.~
 D1
 ~
 ~
-ABZgh -1 19089
+ABZ -1 19089
 D4
 ~
 ~
@@ -5631,7 +5631,7 @@ table just behind the bar, barricaded in by the wreckage of a few old tables
 and chairs; it looks like a few of them may have caused those puddles just
 below you.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -5649,7 +5649,7 @@ field protecting the items from thieves.  Foul concoctions bubble evilly in the
 back corner of the room, and the runes etched on the ceiling give you faint 
 shivers; the sign of the Dark is painted on the floor.
 ~
-0 Dj inside
+0 D inside
 E
 rune runes sign~
 You can't understand them....but you find that every hair of your body is
@@ -5668,7 +5668,7 @@ with only the faintest hint of demonic-looking figures here and there.  The
 floor is liberally coated with vomit and scum, and many of the chairs look to
 have fallen victim to the same fight that took out most of the bar.
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
@@ -5680,7 +5680,7 @@ Only one small candle lights the inside of this house, and it hardly provides
 any illumination at all; dark shadows seem to swallow up every last ray of 
 light.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -5717,7 +5717,7 @@ long ago when the realm was split in two.  A few of the books still look
 readable, though most seem to have been burned or waterlogged as various
 scourges and battles swept through the town.
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~
@@ -5732,7 +5732,7 @@ offers nothing more than rat droppings and dirt, as the villagers have taken
 everything else in their struggle to stay alive; the shelves, the counter, and
 even the staircase to the second floor have been torn apart.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -5746,7 +5746,7 @@ papers, and bones sitting on shelves along the walls of the room.  An altar
 lies at the north of the room, scattered with partially charred bits and pieces
 of...something....
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
@@ -5812,7 +5812,7 @@ Entrance to the Dark Tower~
 Cold gray marble covers the walls and the floor, giving the entire room a dim, 
 dirty air.  Save for a staircase leading upwards, the room is entirely empty.
 ~
-0 Dj city
+0 D city
 D3
 ~
 ~
@@ -5831,15 +5831,15 @@ the room becomes clearer, two more items come into focus: a small hatch in the
 ceiling just a few inches above your head, as well as the sign of the Dark,
 painted in dull black on the shiny black wall.
 ~
-0 ADgj inside
+0 AD inside
 D4
 ~
 ~
-ABFZghl -1 19124
+ABFZ -1 19124
 D5
 ~
 ~
-AFZgl -1 19122
+AFZ -1 19122
 S
 #19124
 Inside the Dark Tower~
@@ -5849,15 +5849,15 @@ providing the only sign of comfort and life; the curving wall stands unbroken
 and unblemished save for the barely visible sign of the Dark, etched in dull
 white against the bright white background.
 ~
-0 Dj inside
+0 D inside
 D4
 ~
 ~
-ABFZghl -1 19125
+ABFZ -1 19125
 D5
 ~
 ~
-AFZgl -1 19123
+AFZ -1 19123
 S
 #19125
 Inside the Dark Tower~
@@ -5868,15 +5868,15 @@ the room becomes clearer, two more items come into focus: a small hatch in the
 ceiling just a few inches above your head, as well as the sign of the Dark,
 painted in dull black on the shiny black wall.
 ~
-0 ADgj inside
+0 AD inside
 D4
 ~
 ~
-ABFZghl -1 19126
+ABFZ -1 19126
 D5
 ~
 ~
-AFZgl -1 19124
+AFZ -1 19124
 S
 #19126
 Inside the Dark Tower~
@@ -5886,15 +5886,15 @@ providing the only sign of comfort and life; the curving wall stands unbroken
 and unblemished, save for the barely visible sign of the Dark, etched in dull
 white against the bright white background.
 ~
-0 ADgj inside
+0 AD inside
 D4
 ~
 ~
-ABFZghl -1 19127
+ABFZ -1 19127
 D5
 ~
 ~
-AFZgl -1 19125
+AFZ -1 19125
 S
 #19127
 The Top of the Dark Tower: Gray Mists~
@@ -5902,11 +5902,11 @@ A thick grey fog swirls around you, blinding you entirely and swallowing up
 every ray of light in the room.  You can only vaguely see what might be the
 sign of the Dark, suspended somewhere in the distance.
 ~
-0 Dj inside
+0 D inside
 D5
 ~
 ~
-AFZgl -1 19126
+AFZ -1 19126
 S
 #19128
 The Dank Room~
@@ -5915,7 +5915,7 @@ hardly enough light to see, but certainly there's nothing in it except for you.
 You don't hear anything either, not even any rats.  What did you do to deserve
 this?
 ~
-0 ACDNOgijtu city
+0 ACDNO city
 S
 #19129
 Merriman's Alcove~
@@ -5928,7 +5928,7 @@ as well as a small stereo system.  The smaller section of the room, though
 partially hidden by a deep blue tapestry, is partially in view; it holds 
 a small bed, a nightstand, and a dresser.
 ~
-0 CDij inside
+0 CD inside
 E
 books bookcase bookcases~
 You skim the titles...
@@ -5954,7 +5954,7 @@ except for a thin sheet of cloth, and the door is rusting off its
 hinges.  The shelves are almost bare, except for a few rusty fishing 
 hooks and a fishing pole locked to the bottom shelf with a thick chain.
 ~
-0 Dj inside
+0 D inside
 D5
 ~
 ~
@@ -6125,7 +6125,7 @@ Z -1 19136
 D5
 ~
 rock~
-ABZgh -1 19155
+ABZ -1 19155
 S
 #19138
 The Tree House~
@@ -6138,7 +6138,7 @@ A thick tree branch passes through the whole left side of the house, leading
 out the southern window; the owner has flattened out part of it, and now 
 uses it as a table.
 ~
-0 Dj inside
+0 D inside
 E
 bee hive beehive bees~
 ~
@@ -6147,7 +6147,7 @@ The space in the ceiling looks large enough to pass through, but you'd have to
 move the netting.
 ~
 netting door~
-ABZgh -1 19153
+ABZ -1 19153
 D5
 ~
 ~
@@ -6161,7 +6161,7 @@ ground hasn't stopped a dense cluster of trees from springing up here. Eerie
 sounds emerge from the gloom around you, sounds like the ooze and spluck of
 bubbling mud to the faint raspy breathing of some sort of animal.
 ~
-0 Ag forest
+0 A forest
 D0
 ~
 ~
@@ -6184,7 +6184,7 @@ every direction, keeping you from seeing more than a few feet ahead of you;
 the hanging plants are slightly thinner to the north, though, allowing just a
 little more light to shine through.
 ~
-0 Ag forest
+0 A forest
 D0
 ~
 ~
@@ -6209,7 +6209,7 @@ mouth full of teeth flash out of a clump of bracken or a fallen tree.  A cool
 breeze blows from the north, where a small, decrepit hut stands, screened 
 by the ivy and wisteria dangling from the low-hanging branches.
 ~
-0 Ag forest
+0 A forest
 D0
 ~
 ~
@@ -6248,7 +6248,7 @@ brushing against the ground. Though the forest canopy is thinner here, it is
 still quite dark; the sun itself is not powerful enough to shine through the
 gloom that surrounds this land.
 ~
-0 Ag forest
+0 A forest
 D0
 ~
 ~
@@ -6265,7 +6265,7 @@ through the dense canopy of branches above you.  The canopy itself seems
 thicker here than elsewhere in the forest, allowing only a few rays of 
 light to reach the forest floor.
 ~
-0 Ag forest
+0 A forest
 D0
 ~
 ~
@@ -6287,7 +6287,7 @@ shaft of blue sky is just visible over the southern mountain wall, far
 beyond the boundaries of this dark realm; another stretch of blue lies to the
 west, beyond the mountain wall that separates this valley from the next.
 ~
-0 Ag forest
+0 A forest
 D0
 ~
 ~
@@ -6309,7 +6309,7 @@ however, has been able to make its home in the cracks and holes worn into
 the rock wall; it stretches high up along the rock wall, reaching almost to
 its top.
 ~
-0 Ag forest
+0 A forest
 D0
 ~
 ~
@@ -6326,7 +6326,7 @@ was one.  You're not supposed to be here....trust me.  I know.  I wrote this
 area :-).  Anyway, better recall or get someone to transfer you out of here,
 'cause this is just a room used by mobprogs.....
 ~
-0 COiu inside
+0 CO inside
 S
 #19148
 The Fisherman's Hut~
@@ -6351,7 +6351,7 @@ reflective steps make it hard to judge where your foot should go.  A simple
 torch bolted on the wall casts a dim light around the staircase, allowing you
 to see the intersection below and the continuing staircase above you.
 ~
-0 ADgj inside
+0 AD inside
 D4
 ~
 ~
@@ -6367,7 +6367,7 @@ The staircase rises further into darkness here, though small sparklings
 from the wall indicate that mirrors still surround you.  A brighter room 
 appears to lie above you, while the staircase continues downwards below you.
 ~
-0 ADgj inside
+0 AD inside
 D4
 ~
 ~
@@ -6385,7 +6385,7 @@ narrow windows, giving the room a bright, almost cheerful air.  Bits of twigs
 and branches cover the floor, piled into a large nest in the center of the room
 by some sort of bird....
 ~
-0 Dj inside
+0 D inside
 D5
 ~
 ~
@@ -6399,11 +6399,11 @@ gazebo, enclosed by its wooden framework.  The wooden panel sits in the
 floorboard beneath you; a simple wooden knob is attached across from two
 shiny brass hinges.
 ~
-0 Ci city
+0 C city
 D5
 ~
 ~
-AFZgl -1 19067
+AFZ -1 19067
 S
 #19153
 In Front of the Hive~
@@ -6431,7 +6431,7 @@ bees buzz loudly but not ominously; many of them have been calmed by the
 smoke, and the rest seem to be content to ignore you and make the delicious
 honey whose sweet, sticky scent fills the air.
 ~
-0 Ci city
+0 C city
 D2
 ~
 ~
@@ -6447,7 +6447,7 @@ from the ceiling, gently brushing your face and hands; as you look, you see
 that a new petal slowly unfurls from the place where the falling one used
 to lie.
 ~
-0 Ci city
+0 C city
 D4
 ~
 ~
@@ -6460,7 +6460,7 @@ mountain wall has almost completely destroyed this room.  Falling rock has
 bashed a large hole in the wall to the west, allowing you to head outside;
 to the north, a doorway still provides access to another room.
 ~
-0 Ci city
+0 C city
 D0
 ~
 ~
@@ -6483,11 +6483,11 @@ by a thick iron grate.
 D0
 ~
 grate fire fireplace~
-ABZgh -1 19158
+ABZ -1 19158
 D1
 ~
 oven door~
-ABZgh -1 19159
+ABZ -1 19159
 D2
 ~
 ~
@@ -6503,7 +6503,7 @@ itself, keeping the flames at a safe distance.  The heat still envelops
 you, though, threatening to cook you with its intensity; the fire is
 to be far hotter and larger than it seemed from the outside.
 ~
-0 Ci city
+0 C city
 D2
 ~
 ~
@@ -6543,7 +6543,7 @@ Z -1 19090
 D3
 ~
 panel~
-ABZgh -1 19159
+ABZ -1 19159
 S
 #19161
 Diving~
@@ -6553,7 +6553,7 @@ than the rest: the pond floor slopes downwards into a deep indentation. The
 gazebo casts a faint white reflection on the water above you....and you can 
 see what appears to be some sort of cave lying just ahead.
 ~
-0 Ci city
+0 C city
 D0
 ~
 ~
@@ -6573,7 +6573,7 @@ fresh, clean scent.  The waterfalls--as well as the water you came from--
 sparkle in the misty light that shines from a large altar in the center of
 the room.
 ~
-0 Ci city
+0 C city
 D2
 ~
 ~
@@ -6587,11 +6587,11 @@ ground.  Crickets and beetles, hidden somewhere in the ivy, chirp loudly
 in the cool, moist air, and the head of a white dove just peeks out of a 
 nest of green branches.
 ~
-0 Ci city
+0 C city
 D0
 ~
 branch tree~
-ABZgh -1 19136
+ABZ -1 19136
 S
 #19164
 Hallway~
@@ -6599,7 +6599,7 @@ A dark, wood-panelled hallway leads north past a series of doors: two
 lie to your left and right in this section of the hall, while three lie in
 the section up ahead.
 ~
-0 Ci city
+0 C city
 D0
 ~
 ~
@@ -6690,7 +6690,7 @@ some privacy...
 D3
 ~
 ~
-AFZgl 19166 19167
+AFZ 19166 19167
 S
 #19170
 The Suite~
@@ -6702,7 +6702,7 @@ variety of colors, ranging from simple black to fluorescent green.
 Musky incense and other smells envelop you, and you drift into a sort of 
 psychedelic fugue....
 ~
-0 Ci inside
+0 C inside
 S
 #0
 

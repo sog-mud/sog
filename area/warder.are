@@ -19,10 +19,10 @@ You understand that you can't describe that
 It looks realy strange. You never see that.
 ~
 unique~
-ABDEJTVeghjkpz BCDFGIhijlmo UVc 0 ABgh 0 0
+BTVe BCDI UVc 0 ABCDF 0 0
 50 25 2d1+5000 1d1+99 5d6+50 'none'
 -10 -10 -10 -10
-ACEFIKgikloq
+ACEFIK
 stand stand none 0
 0 0 giant unknown
 M grall 96000 100~
@@ -48,12 +48,12 @@ The ancient owl sits here
 ~
 ~
 unique~
-BQVWhw Hn HVn 0 ABHghn 0 0
+BQVW H HV 0 ABH 0 0
 92 70 1d100+18000 1d300+900 15d30+40 'divine'
 -90 -90 -90 -90
-CEFNUiklt
+CEFNU
 stand stand female 0
-AHMgns 0 medium unknown
+AHM 0 medium unknown
 r fire 100
 r cold 100
 r lightning 100
@@ -76,7 +76,7 @@ branch broken~
 broken branch~
 A peace of wood lays here.~
 wood~
-key Y ABIJKghopq AOgu
+key Y ABI AO
 0 0 0 0 0
 0 5 0 P
 g none~
@@ -85,7 +85,7 @@ leaf лист~
 the Leaf of Great Oak~
 A humming leaf of oak lays here.~
 wood~
-treasure 0 ABHghn AOgu
+treasure 0 ABH AO
 0 0 0 0 0
 0 1 0 P
 g none~
@@ -94,8 +94,8 @@ hollow in tree дупло~
 the hollow~
 You see small hollow in the tree~
 wood~
-container Y ABgh 0
-10 ABCDghij 96000 15 100
+container Y AB 0
+10 ABCD 96000 15 100
 0 0 0 P
 g none~
 #96003
@@ -112,7 +112,7 @@ spring~
 @eng spring@rus ручей~
 @eng A small strange spring gushes forth here.@rus Маленький странный ручей~
 unknown~
-fountain ABgh 0 0
+fountain AB 0 0
 0 0 'elvish wine' 0 0
 0 0 0 P
 g none~
@@ -121,8 +121,8 @@ branch~
 branch~
 Very comfortable branch has groun here.~
 wood~
-furniture IYo Bh 0
-BDhj GJOQRSTmpuwxyz EHKNknqt DGHjmn DGHjmn
+furniture IY B 0
+BD GJOQRST EHKN DGH DGH
 0 1000000 0 P
 g none~
 #96010
@@ -130,7 +130,7 @@ cap milk~
 cap of milk~
 huge cap of milk is  flying here here~
 wood~
-fountain ABgh 0 0
+fountain AB 0 0
 0 0 'milk' 0 0
 0 0 0 P
 g none~
@@ -139,12 +139,12 @@ item bottle~
 @eng bottle of Clain~
 @eng strange bottle flying here.~
 unknown~
-fountain 0 0 AQgw
+fountain 0 0 AQ
 0 0 'beer' 0 0
 0 0 0 P
 F A 0 0 U
 F A 0 0 V
-F A 0 0 Hn
+F A 0 0 H
 A
 26 3
 A
@@ -165,7 +165,7 @@ You see a large clearing.There are different trees around you.
 It is very strange. You have a feeling: DO NOT go north if not ready.
 You don't know do you understand everything or not.Maybe return?
 ~
-0 TXz forest
+0 TX forest
 D0
 ~
 ~
@@ -182,7 +182,7 @@ Cause that's never ending defenders live maze
 You feel that two minutes between life and death
 How nature will show you invisible face?
 ~
-0 NXt forest
+0 NX forest
 D0
 ~
 ~
@@ -211,7 +211,7 @@ Cause that's never ending defenders live maze
 You feel that two minutes between life and death
 How nature will show you invisible face?
 ~
-0 NXt forest
+0 NX forest
 D0
 ~
 ~
@@ -240,7 +240,7 @@ Cause that's never ending defenders live maze
 You feel that two minutes between life and death
 How nature will show you invisible face?
 ~
-0 NXt forest
+0 NX forest
 D0
 ~
 ~
@@ -269,7 +269,7 @@ Cause that's never ending defenders live maze
 You feel that two minutes between life and death
 How nature will show you invisible face?
 ~
-0 NXt forest
+0 NX forest
 D0
 ~
 ~
@@ -297,7 +297,7 @@ You fell a smell of elven wine
 You know that everything will rotten
 If all intuders never die
 ~
-0 NXt forest
+0 NX forest
 D1
 ~
 ~
@@ -324,7 +324,7 @@ You know between the red and blue
 Is green - the color me and you
 Will paint everything we knew
 ~
-0 NXt forest
+0 NX forest
 D1
 ~
 ~
@@ -347,7 +347,7 @@ We have nice dreams and need some rest
 But we won't die in own bed
 The law of nature tells us that
 ~
-0 NXt forest
+0 NX forest
 D3
 ~
 ~
@@ -362,7 +362,7 @@ We have a strenght,we have a rage
 But never do before you think
 We'll never loose the nature link
 ~
-0 NXt forest
+0 NX forest
 D5
 ~
 ~
@@ -375,7 +375,7 @@ Feel the life.Your heart doesn't lie.
 Now you see part of self in everything.And when you look inside
 you see everything.
 ~
-0 NXt forest
+0 NX forest
 D5
 ~
 ~
@@ -385,7 +385,7 @@ S
 Desert~
 Sands...Sands...Sands...
 ~
-0 ACHKNWXginqt desert
+0 ACHKNWX desert
 D0
 ~
 ~

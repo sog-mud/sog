@@ -20,10 +20,10 @@ APPEAR to be very hungry ... yet.
 Ты счастлив, что оно НЕ КАЖЕТСЯ, очень голодным ... Но все же...
 ~
 wyvern~
-Gm 0 0 0 Hn -200 0
+G 0 0 0 H -200 0
 8 2 8d8+80 1d1+149 2d6+1 'bite'
 5 4 5 6
-DNRjtx
+DNR
 stand stand either 0
 0 0 huge unknown
 #3501
@@ -37,10 +37,10 @@ goblin mountain горный гоблин~
 Мама никогда не учила его чистить зубы...
 ~
 goblin~
-FGTlmz 0 0 0 0 -500 0
+FGT 0 0 0 0 -500 0
 6 1 4d4+65 1d1+99 2d4+1 'punch'
 4 6 4 9
-KRqx
+KR
 stand stand male 25
 0 0 small unknown
 #3502
@@ -55,10 +55,10 @@ He is apparently the only survivor of the ambush.
 но видимо он больше испуган чем ранен.
 ~
 human~
-BHhn 0 0 0 0 500 0
+BH 0 0 0 0 500 0
 4 0 1d12+47 1d1+99 1d6+0 'beating'
 8 8 8 10
-Io
+I
 rest rest male 0
 0 0 small unknown
 r fire -50
@@ -90,10 +90,10 @@ place that is used to be in days past.
 которым она была в прошлом.
 ~
 human~
-BThz 0 0 0 0 500 0
+BJT 0 0 0 0 500 0
 10 1 1d12+200 1d1+149 2d8+1 'punch'
 2 2 2 8
-BFKQhlqw
+BFKQ
 stand stand male 350
 0 0 medium unknown
 r bash 33
@@ -126,10 +126,10 @@ has been sitting here quite a while, drinking himself into oblivion.
 в невменяемом состоянии. Ну надо же было так напиться!...
 ~
 human~
-BSThyz 0 0 0 Ag 600 0
+BST 0 0 0 A 600 0
 8 3 1d12+110 1d1+99 2d6+0 'punch'
 3 5 3 6
-FIJKNQlopqtw
+FIJKNQ
 sit sit male 260
 0 0 medium unknown
 #3505
@@ -144,10 +144,10 @@ little bits.
 при малейшей возможности.
 ~
 human~
-GHSmny 0 0 Gm 0 -900 0
+GHS 0 0 G 0 -900 0
 8 2 1d12+110 1d1+99 2d5+2 'punch'
 5 3 3 6
-BFJKQhlpqw
+BFJKQ
 stand stand male 400
 0 0 medium unknown
 #3506
@@ -162,10 +162,10 @@ beat up upon, but maybe you will do just fine ...
 Поглядев на тебя он задумался - может быть сорвать злость на тебе?... 
 ~
 goblin~
-FGTlmz 0 0 0 0 -600 0
+FGT 0 0 0 0 -600 0
 7 1 1d12+100 1d1+149 1d10+1 'punch'
 3 5 3 8
-DKNRjqtx
+DKNR
 stand stand male 55
 0 0 medium unknown
 #3507
@@ -180,10 +180,10 @@ for his shortsword and lunges for your neck.
 Он хватает свой меч и с криком бьет тебя метя в горло.
 ~
 goblin~
-CFGTilmz 0 0 0 0 -900 0
+CFGT 0 0 0 0 -900 0
 9 2 1d12+120 1d1+199 1d12+3 'punch'
 1 3 1 6
-DJKNRjpqtx
+DJKNR
 stand stand male 500
 0 0 medium unknown
 #0
@@ -194,7 +194,7 @@ sword short меч короткий~
 @eng a goblin's short sword@rus ~~короткий~~ ~~меч~~ гоблина~
 @eng A rusted sword lies on the ground.@rus Ржавеющий меч (short sword) лежит на земле.~
 iron~
-weapon 0 0 ANgt
+weapon 0 0 AN
 sword 2 4 'stab' 0
 5 40 460 A
 A
@@ -211,8 +211,8 @@ spear long копье длинное~
 @eng a long spear@rus ~~длинное~~ ~~копье~~~
 @eng A blackened spear with an evil-looking blade lies here.@rus Почерневшее копье (long spear) со зловещим наконечником валяется на земле.~
 iron~
-weapon 0 0 ANgt
-spear 2 7 'thrust' Fl
+weapon 0 0 AN
+spear 2 7 'thrust' F
 6 80 100 A
 A
 17 2
@@ -228,7 +228,7 @@ helmet horned black шлем рогатый черный~
 @eng a black horned helmet@rus ~~черный~~ ~~рогатый~~ ~~шлем~~~
 @eng A helmet with sharp black horns sits here.@rus Шлем с острыми черными рогами (black horned helmet) небрежно брошен на землю.~
 iron~
-armor 0 0 AEgk
+armor 0 0 AE
 3 5 4 0 1
 5 30 490 A
 g none~
@@ -237,7 +237,7 @@ cloak stained плащ заляпанный~
 @eng a stained travelling cloak@rus ~~заляпанный~~ ~~плащ~~ путешественника~
 @eng A worn and stained cloak is crumpled up on the floor.@rus Изношенный и заляпанный плащ (cloak) выглядит неопрятной грудой тряпья.~
 cloth~
-armor 0 0 ACgi
+armor 0 0 AC
 2 3 4 0 1
 3 40 310 A
 g none~
@@ -246,7 +246,7 @@ bracer leather enchanted нарукавники кожаные плотные~
 @eng an enchanted leather bracer@rus ~~плотные~~ ~~кожаные~~ ~~нарукавники~~~
 @eng A leather bracer with mystic symbols sits here.@rus Плотные нарукавники (bracer) из кожи. На них начертаны мистические символы.~
 leather~
-armor 0 0 AMgs
+armor 0 0 AM
 2 4 4 2 0
 7 10 690 G
 A
@@ -262,7 +262,7 @@ knife dagger нож кинжал~
 @eng a rune-covered knife@rus ~~рунный~~ ~~нож~~~
 @eng A wide-bladed knife sits undisturbed on the floor.@rus Луч света блеснул на широком лезвии ножа (knife) воткнутого в пол.~
 mithril~
-weapon GKmq 0 ANgt
+weapon GK 0 AN
 dagger 2 4 'stab' 0
 5 10 420 P
 A
@@ -381,7 +381,7 @@ a confusion of shops, bars, and market places.
 а на западе превращается в одну из главных улиц города,
 поражающую воображение обилием магазинов, баров и базарчиков.
 ~
-0 Ci city
+0 C city
 D1
 ~
 ~
@@ -857,7 +857,7 @@ look ok.
 На поляне лежит пара мертвых тел, их остановившиеся взгляды направлены на тебя.
 На юг пройти нельзя но в остальных направлениях кажется есть проходы.
 ~
-0 Ag forest
+0 A forest
 E
 carcass body corpse carcasses bodies corpses труп тело трупы тела~
 @eng The corpses looked as if they have been pierced by a large, jagged
@@ -1189,7 +1189,7 @@ small tunnel dug into the mountainside.
 кроме юга. Там ты видишь маленький туннель, врытый в склон горы. Что это может
 означать?!....
 ~
-0 Ag forest
+0 A forest
 D2
 ~
 ~
@@ -1206,7 +1206,7 @@ this forest.  The floor is well worn, and continues south, into the
 mountain, or back north out into the forest.
 @rus Снаружи ты видишь лес Миден'нира.
 ~
-0 Ag city
+0 A city
 D0
 @eng Outside, you see the forest of Miden'nir.
 @rus Снаружи ты видишь лес Миден'нира.
@@ -1228,7 +1228,7 @@ carved into the east wall.
 @rus Туннель становится светлее на севере, там где выход, на юге проход
 все уже и уже. В восточной стенке вырезан проход в маленький альков
 ~
-0 Ag city
+0 A city
 D0
 @eng The tunnel gets wider in this direction.
 @rus Туннели идут во всех направлениях.
@@ -1255,7 +1255,7 @@ and leaves thrown into a pile here, probably serving as a bed.
 @rus Ты внутри маленького алькова. На полу небрежно брошена связка веток и куча
 листьев. Вероятно какое-то бедное существо использует ЭТО как постель...
 ~
-0 Ag city
+0 A city
 E
 twigs leaves bead листья ветки постель~
 @eng The twigs and leaves have all been piled together as a makeshift bed for
@@ -1279,7 +1279,7 @@ this area.  A small archway to the south leads into a large chamber.
 догадываться, что зря поперся через весь этот туннель... Маленький сводчатый
 проход на юг ведет в большую камеру.
 ~
-0 Ag city
+0 A city
 D0
 @eng The tunnel continues north.
 @rus Туннель продолжается на север.
@@ -1303,7 +1303,7 @@ recent meal.
 пещеру. Видимо она используется как главное жилище гоблинов. Там и сям остатки
 разных лесных существ, отвратительно белеют кости, валяются груды гнилого мяса.
 ~
-0 Ag city
+0 A city
 D0
 @eng The tunnel heads north.
 @rus Туннель ведет на север.
@@ -1463,7 +1463,7 @@ south.
 стало неспокойно. Бар прямо к северу от сюда. Если ты хочешь присесть
 за стол - на юге есть свободный...
 ~
-0 CDij city
+0 CD city
 D0
 @eng The bar is here, manned by the innkeeper.
 @rus Барная стойка. За ней владелец гостиницы.
@@ -1538,7 +1538,7 @@ of a spilled drink.
 @rus Ты находишься в более темном углу гостиницы. Большой круглый стол и несколько
 деревянных стульев стоят здесь. На столе большая лужа от пролитого пива.
 ~
-0 Dj city
+0 D city
 D1
 @eng You see the main floor of the Inn to the east.
 @rus Ты видишь главную комнату гостиницы на востоке.
@@ -1569,7 +1569,7 @@ to rest and lick your wounds ...
 @rus Кажется в этом конце гостиницы никого... Вероятно это лучшее место передохнуть
 и подлечить своим раны.
 ~
-0 Dj inside
+0 D inside
 D0
 @eng You see the common room.
 @rus Ты видишь комнату отдыха.

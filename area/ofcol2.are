@@ -19,10 +19,10 @@ you, this guard will only use his deadly skills for the good of the citizens of
 Ofcol.
 ~
 human~
-CTiz 0 Nt 0 0 1000 0
+CT 0 N 0 0 1000 0
 19 0 3d9+333 9d9+100 2d7+5 'none'
 -4 -4 -4 7
-CDEIKLUijkoqr
+CDEIKLU
 stand stand male 5
 0 0 medium unknown
 #601
@@ -37,10 +37,10 @@ is the hardest metal she can find.  She is willing to defend Ofcol to her
 death.
 ~
 human~
-BQehw Dj HNnt 0 Ag 1000 0
+BJQe D HN 0 A 1000 0
 33 16 10d73+487 33d10+100 5d11+19 'none'
 -10 -10 -10 -5
-EIKUkoq
+EIKU
 stand stand female 250
 0 0 medium unknown
 r charm 100
@@ -55,10 +55,10 @@ descendent of a surviving cityguard of old Thalos.  He believes that everything
 has to be hard won to be kept, and that laxity is for the weak.
 ~
 human~
-GQmw 0 HNnt 0 Ag 1000 0
+GQ 0 HN 0 A 1000 0
 27 0 5d10+650 27d9+100 2d10+7 'none'
 -8 -8 -8 4
-EIKUkoq
+EIKU
 stand stand male 250
 0 0 medium unknown
 #603
@@ -73,10 +73,10 @@ or her magic, no one has ever found out.  She isn't very strong physically, but
 she need not be.
 ~
 human~
-BRhx 0 Nt 0 Ag 1000 0
+BR 0 N 0 A 1000 0
 27 0 5d10+600 27d9+100 2d10+6 'none'
 -7 -7 -7 2
-FUl
+FU
 stand stand female 250
 0 0 medium unknown
 #604
@@ -89,10 +89,10 @@ smiling a very big smile, as he looks at your coins.  You wonder if he likes
 the metals or the value of the coins.
 ~
 human~
-Beh 0 Nt 0 0 1000 0
+Be 0 N 0 0 1000 0
 30 0 6d12+1853 15d9+100 4d6+10 'none'
 -13 -13 -13 2
-EFNUklt
+EFNU
 stand stand male 750
 0 0 medium unknown
 #605
@@ -104,10 +104,10 @@ Sam is a middle-aged workman.  He looks tired, but never too tired to get that
 last sale from you.  He grins at you slightly.
 ~
 human~
-Beh 0 Nt 0 0 1000 0
+Be 0 N 0 0 1000 0
 30 0 6d12+1853 15d9+100 4d6+10 'none'
 -13 -13 -13 2
-EFNUklt
+EFNU
 stand stand male 250
 0 0 medium unknown
 #606
@@ -120,10 +120,10 @@ the hard ways of this world and is ready for it.  She spends her time at the
 shop, trading little things (for a wee bit of profit).
 ~
 human~
-Beh 0 Nt 0 0 1000 0
+Be 0 N 0 0 1000 0
 20 0 3d9+1333 10d9+100 2d8+7 'none'
 -7 -7 -7 3
-EFNUklt
+EFNU
 stand stand female 450
 0 0 medium unknown
 #607
@@ -136,10 +136,10 @@ son, Jim, raise and slaughter the animals for him.  Marty still knows how to
 kill, though.
 ~
 human~
-Beh 0 Nt 0 0 1000 0
+Be 0 N 0 0 1000 0
 30 0 6d12+1853 15d9+100 4d6+10 'none'
 -13 -13 -13 2
-EFNUklt
+EFNU
 stand stand male 50
 0 0 medium unknown
 #608
@@ -153,10 +153,10 @@ Farmer Elizabeth smiles at you nicely, but you bet she is doing that just to
 get a good price off of you!
 ~
 human~
-Beh 0 Nt 0 0 1000 0
+Be 0 N 0 0 1000 0
 20 0 3d9+1333 10d9+100 2d8+7 'none'
 -7 -7 -7 3
-EFNUklt
+EFNU
 stand stand female 250
 0 0 medium unknown
 #609
@@ -170,10 +170,10 @@ every time she tastes her whiskey, which is quite often!
 Granny Jenkins cackles again.
 ~
 human~
-Bh 0 Nt 0 0 500 0
+B 0 N 0 0 500 0
 6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
-EFNUklt
+EFNU
 stand stand female 5
 0 0 medium unknown
 #610
@@ -186,10 +186,10 @@ their shared affinity for slaughtering animals.)  Jack leers at you as you
 enter.  "Came by to watch, eh?", he asks.
 ~
 human~
-BFHhln 0 0 0 0 200 0
+BFH 0 0 0 0 200 0
 12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
-EFNUklt
+EFNU
 stand stand male 5
 0 0 medium unknown
 #611
@@ -202,10 +202,10 @@ that, she doesn't look that bad.  She smiles at you demurely, and goes back to
 her work.
 ~
 human~
-BHhn 0 0 0 0 800 0
+BH 0 0 0 0 800 0
 5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
-EFNUklt
+EFNU
 stand stand female 5
 0 0 medium unknown
 #612
@@ -217,10 +217,10 @@ The hen has yellow feathers and small wings.  It looks like a chicken, if
 you've ever seen one.
 ~
 human~
-Hn 0 0 0 0 0 0
+H 0 0 0 0 0 0
 1 0 2d6+10 0d9+100 1d4+0 'none'
 9 9 9 10
-EFNUklt
+EFNU
 stand stand female 0
 0 0 medium unknown
 #613
@@ -234,7 +234,7 @@ human~
 0 0 0 0 0 0 0
 5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
-EFNUklt
+EFNU
 stand stand none 0
 0 0 medium unknown
 #614
@@ -245,10 +245,10 @@ A cow is here, waiting to be milked.
 The cow is just standing here.  She moos at you and otherwise ignores you.
 ~
 human~
-Bh 0 0 0 0 0 0
+B 0 0 0 0 0 0
 5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
-EFNUklt
+EFNU
 stand stand female 0
 0 0 medium unknown
 #615
@@ -260,10 +260,10 @@ The horse whinnies at you, then runs around you a few times, then just goes
 back to grazing.
 ~
 human~
-FHln 0 0 0 0 0 0
+FH 0 0 0 0 0 0
 6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
-EFNUklt
+EFNU
 stand stand none 0
 0 0 medium unknown
 #616
@@ -274,10 +274,10 @@ A pig is playing here, getting itself and you dirty.
 The pig looks dirty.  It snorts and sniffs at you, then goes back to its slop.
 ~
 pig~
-Bh 0 0 0 0 0 0
+B 0 0 0 0 0 0
 4 0 2d7+46 2d9+100 1d5+1 'none'
 6 6 6 9
-EFNRkltx
+EFNR
 stand stand none 0
 0 0 medium unknown
 #617
@@ -290,10 +290,10 @@ for you.  He looks at you strangely, though, wondering why you are so armed and
 armored.
 ~
 human~
-Hn 0 0 0 0 500 0
+H 0 0 0 0 500 0
 5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
-EFNUklt
+EFNU
 stand stand male 5
 0 0 medium unknown
 #618
@@ -306,10 +306,10 @@ for you.  She looks at you strangely, though, wondering why you are so armed
 and armored.
 ~
 human~
-Hn 0 0 0 0 500 0
+H 0 0 0 0 500 0
 5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
-EFNUklt
+EFNU
 stand stand female 5
 0 0 medium unknown
 #619
@@ -321,10 +321,10 @@ The little boy looks up at you and says, 'Hi.  Can I have a piece of candy?'
 He then smiles and runs away, remembering his game.
 ~
 human~
-Hn 0 0 0 0 500 0
+H 0 0 0 0 500 0
 3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
-EFNUklt
+EFNU
 stand stand male 0
 0 0 medium unknown
 #620
@@ -336,10 +336,10 @@ The little girl looks up at you and says, 'Hi.  Can I have a pretty little
 coin?'  She then smiles and runs away, remembering her game.
 ~
 human~
-Hn 0 0 0 0 500 0
+H 0 0 0 0 500 0
 3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
-EFNUklt
+EFNU
 stand stand female 0
 0 0 medium unknown
 #621
@@ -352,10 +352,10 @@ Master and Mistress come back.  You will get me in trouble!  Shoo!', she says.
 She hits you with her broom.
 ~
 human~
-Hn 0 0 0 0 500 0
+H 0 0 0 0 500 0
 5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
-EFNUklt
+EFNU
 stand stand female 2
 0 0 medium unknown
 #622
@@ -368,10 +368,10 @@ join in.  He keeps an eye on you and his glasses, making sure you don't steal
 any.
 ~
 human~
-Beh 0 0 0 0 1000 0
+Be 0 0 0 0 1000 0
 30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
-EFNUklt
+EFNU
 stand stand male 50
 0 0 medium unknown
 #623
@@ -385,10 +385,10 @@ you, this guard will only use his deadly skills for the good of the citizens of
 Ofcol.
 ~
 human~
-BThz 0 Nt 0 0 1000 0
+BT 0 N 0 0 1000 0
 19 0 3d9+333 9d9+100 2d7+5 'none'
 -4 -4 -4 7
-CDEIKLUijkoqr
+CDEIKLU
 stand stand male 50
 0 0 medium unknown
 #624
@@ -401,10 +401,10 @@ peaceful city of Ofcol, and to sing of its unmatched glories.  He smiles at
 you, hinting toward a tip from you in ever a subtle way.
 ~
 human~
-Bh 0 Nt 0 0 800 0
+B 0 N 0 0 800 0
 13 0 2d10+170 6d9+100 2d5+3 'none'
 -1 -1 -1 8
-EFNUklt
+EFNU
 stand stand male 50
 0 0 medium unknown
 #625
@@ -415,10 +415,10 @@ A servant is here, carrying the duties of the Keeper of the Golden Citadel.
 The servant smiles good-naturedly at you, then goes on his duties.
 ~
 human~
-Gm 0 Nt 0 0 1000 0
+G 0 N 0 0 1000 0
 6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
-EFNUklt
+EFNU
 stand stand male 5
 0 0 medium unknown
 #626
@@ -429,10 +429,10 @@ A squire is here, scurrying from duty to duty.
 This young man smiles at you, but is too busy to chat.
 ~
 human~
-Gm 0 Nt 0 0 1000 0
+G 0 N 0 0 1000 0
 7 0 2d6+85 3d9+100 1d8+1 'none'
 4 4 4 9
-EFNUklt
+EFNU
 stand stand male 5
 0 0 medium unknown
 #627
@@ -443,10 +443,10 @@ A page is here, sending a message to his knight.
 The page smiles for you, asking if he can do you a favor too.
 ~
 human~
-Gm 0 Nt 0 0 1000 0
+G 0 N 0 0 1000 0
 5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
-EFNUklt
+EFNU
 stand stand male 5
 0 0 medium unknown
 #628
@@ -460,10 +460,10 @@ with the world.  She devotes all her time to help teach you the ways of her
 god, Bahamut.  The dragon symbol around her neck looks almost alive.
 ~
 human~
-Beh Dj HNnt 0 0 1000 0
+BJe D HN 0 0 1000 0
 29 20 10d56+405 29d10+100 5d10+15 'none'
 -8 -8 -8 -3
-EFNUklt
+EFNU
 stand stand female 50
 0 0 medium unknown
 r bash 100
@@ -494,10 +494,10 @@ STANDING here, young man?  Go help that other squire there!", he yells.  He
 turns to you and with a consipatory tone, whispers, "Kids!"
 ~
 human~
-GTmz 0 HNnt Ag 0 1000 0
+GT 0 HN A 0 1000 0
 20 0 4d10+360 10d9+100 2d8+5 'none'
 -4 -4 -4 7
-CDEIKLUijkoqr
+CDEIKLU
 stand stand male 50
 0 0 medium unknown
 #630
@@ -510,10 +510,10 @@ power.  He smiles at you with a vicious grin.  You're happy that he doesn't
 look upset at your presence. 
 ~
 human~
-Bh 0 HNnt Ag 0 1000 0
+B 0 HN A 0 1000 0
 29 0 6d12+778 14d9+100 2d12+8 'none'
 -9 -9 -9 6
-EFNUklt
+EFNU
 stand stand male 50
 0 0 medium unknown
 #631
@@ -527,10 +527,10 @@ realizing that you're no danger to him, he ignores you.  He waves to one of
 his attendants to escort you away.
 ~
 dragon~
-BChi 0 HNnt Ag 0 1000 0
+BC 0 HN A 0 1000 0
 48 70 25d20+9250 21d9+900 5d17+34 'none'
 -54 -54 -54 -34
-EFNRkltx
+EFNR
 stand stand male 5000
 0 0 medium unknown
 #632
@@ -542,10 +542,10 @@ This elder servant to the Gold Dragon is very loyal to him, willing to risk
 his life for his liege.
 ~
 human~
-BRhx 0 Nt Ag 0 1000 0
+BR 0 N A 0 1000 0
 21 0 3d9+333 21d9+100 2d7+4 'none'
 -4 -4 -4 3
-FUl
+FU
 stand stand male 250
 0 0 medium unknown
 #633
@@ -558,10 +558,10 @@ This person looks like a dragon itself.  His golden scales gleam with power.
 He smiles at you, showing very sharp teeth.
 ~
 human~
-Gm 0 Nt Ag 0 1000 0
+G 0 N A 0 1000 0
 21 0 4d10+360 10d9+100 4d4+5 'none'
 -5 -5 -5 7
-EFNUklt
+EFNU
 stand stand male 250
 0 0 medium unknown
 #634
@@ -575,10 +575,10 @@ you, this guard will only use his deadly skills for the good of the citizens of
 Ofcol.
 ~
 human~
-BThz 0 Nt 0 0 1000 0
+BT 0 N 0 0 1000 0
 19 0 3d9+333 9d9+100 2d7+5 'none'
 -4 -4 -4 7
-CDEIKLUijkoqr
+CDEIKLU
 stand stand male 50
 0 0 medium unknown
 #635
@@ -589,10 +589,10 @@ An Old man is standing here, informing you.
 He is very old. But he still waits for the enterance.
 ~
 human~
-BCGTehimz 0 Nt 0 0 1000 0
+BCGTe 0 N 0 0 1000 0
 81 0 3d9+13333 9d9+100 5d30+45 'none'
 -24 -24 -24 -7
-CDEFGIKLUeijklmoqr
+CDEFGIKLUe
 stand stand male 5
 0 0 giant unknown
 M grall 600 100~
@@ -604,7 +604,7 @@ axe hand~
 a hand axe~
 A hand axe is on the floor here.~
 iron~
-weapon 0 0 ANgt
+weapon 0 0 AN
 axe 1 8 'chop' 0
 4 100 420 P
 E
@@ -618,7 +618,7 @@ meat cleaver~
 a meat cleaver~
 A sharp meat cleaver is just lying on the floor here!~
 iron~
-weapon 0 0 ANgt
+weapon 0 0 AN
 dagger 2 5 'chop' 0
 8 50 530 P
 A
@@ -633,8 +633,8 @@ side meat beef~
 a side of beef~
 A side of beef is here on the floor.~
 meat~
-food 0 0 Ag
-DEjk DEjk 0 0 0
+food 0 0 A
+DE DE 0 0 0
 0 100 50 P
 g none~
 #603
@@ -642,8 +642,8 @@ side meat pork~
 a side of pork~
 A side of pork is here on the floor.~
 meat~
-food 0 0 Ag
-ABCEghik ABCEghik 0 0 0
+food 0 0 A
+ABCE ABCE 0 0 0
 0 100 42 P
 g none~
 #604
@@ -651,8 +651,8 @@ side meat horse~
 a side of horse~
 A side of horse is here on the floor.~
 meat~
-food 0 0 Ag
-BCDEhijk BCDEhijk 0 0 0
+food 0 0 A
+BCDE BCDE 0 0 0
 0 120 21 P
 g none~
 #605
@@ -660,8 +660,8 @@ meat chicken~
 a defeathered chicken~
 A defeathered chicken is here on the floor.~
 meat~
-food 0 0 Ag
-Ek Ek 0 0 0
+food 0 0 A
+E E 0 0 0
 0 50 10 P
 g none~
 #606
@@ -669,7 +669,7 @@ emerald ring~
 an emerald ring~
 An emerald ring is on the floor, gathering dust.~
 amethyst~
-jewelry Gm 0 ABgh
+jewelry G 0 AB
 0 0 0 0 0
 0 10 1000 P
 g none~
@@ -678,7 +678,7 @@ glass trinket~
 a glass trinket~
 A glass trinket is on the floor, gathering dust.~
 glass~
-gem 0 0 AOgu
+gem 0 0 AO
 0 0 0 0 0
 0 10 150 P
 A
@@ -689,7 +689,7 @@ golden necklace~
 a golden necklace~
 A golden necklace is on the floor, gathering dust.~
 gold~
-jewelry 0 0 ACgi
+jewelry 0 0 AC
 0 0 0 0 0
 0 20 500 P
 A
@@ -700,8 +700,8 @@ cabbage~
 a head of cabbage~
 Some fresh cabbage is here, get it while it lasts!~
 food~
-food 0 0 Ag
-CDij CDij 0 0 0
+food 0 0 A
+CD CD 0 0 0
 0 20 2 P
 g none~
 #610
@@ -709,8 +709,8 @@ lettuce~
 a head of lettuce~
 Some fresh lettuce is here, get it while it lasts!~
 plant~
-food 0 0 Ag
-CDij CDij 0 0 0
+food 0 0 A
+CD CD 0 0 0
 0 20 2 P
 g none~
 #611
@@ -718,7 +718,7 @@ milk bottle~
 a bottle of milk~
 A glass bottle of milk is on a shelf here, fresh from the cow.~
 glass~
-drink 0 0 Ag
+drink 0 0 A
 20 20 'milk' 0 0
 0 50 3 P
 g none~
@@ -727,8 +727,8 @@ apple~
 an apple~
 An apple is on the ground.~
 food~
-food 0 0 Ag
-Dj Dj 0 0 0
+food 0 0 A
+D D 0 0 0
 0 10 1 P
 g none~
 #613
@@ -736,8 +736,8 @@ corn~
 an ear of corn~
 An ear of corn is on the ground.~
 food~
-food 0 0 Ag
-Dj Dj 0 0 0
+food 0 0 A
+D D 0 0 0
 0 10 3 P
 g none~
 #614
@@ -745,7 +745,7 @@ hay pile~
 a pile of hay~
 There is a big pile of hay here.~
 wood~
-trash 0 0 Ag
+trash 0 0 A
 0 0 0 0 0
 0 200 0 P
 g none~
@@ -754,8 +754,8 @@ pitchfork fork~
 a pitchfork~
 A pitchfork is on the floor.~
 iron~
-weapon 0 0 ANgt
-spear 3 3 'stab' Kq
+weapon 0 0 AN
+spear 3 3 'stab' K
 7 100 122 P
 g none~
 #616
@@ -763,7 +763,7 @@ vest~
 a leather vest~
 A leather vest is on the floor.~
 leather~
-armor 0 0 ADgj
+armor 0 0 AD
 1 2 2 0 0
 0 100 270 P
 g none~
@@ -772,7 +772,7 @@ sleeves~
 some leather sleeves~
 Some leather sleeves are on the floor.~
 leather~
-armor 0 0 AIgo
+armor 0 0 AI
 1 2 2 0 0
 0 50 136 P
 g none~
@@ -781,7 +781,7 @@ leggings~
 some leather leggings~
 Some leather leggings are on the floor.~
 leather~
-armor 0 0 AFgl
+armor 0 0 AF
 1 2 2 0 0
 0 50 136 P
 g none~
@@ -790,7 +790,7 @@ boots~
 some leather boots~
 Some leather boots are on the floor.~
 leather~
-armor 0 0 AGgm
+armor 0 0 AG
 1 2 2 0 0
 0 50 136 P
 g none~
@@ -799,7 +799,7 @@ signet ring~
 an Ofcol signet ring~
 A shiny ring of gold is in the dirt.~
 gold~
-jewelry Gm 0 ABgh
+jewelry G 0 AB
 0 0 0 0 0
 10 10 730 P
 A
@@ -814,7 +814,7 @@ plate brass~
 brass plate~
 A pile of brass plates is against the wall here.~
 brass~
-armor Gm 0 ADgj
+armor G 0 AD
 6 5 6 1 0
 16 100 2400 P
 A
@@ -827,7 +827,7 @@ helm brass~
 a brass helm~
 A brass helm is against the wall here.~
 brass~
-armor Gm 0 AEgk
+armor G 0 AE
 6 5 6 1 0
 16 100 1280 P
 A
@@ -840,7 +840,7 @@ leggings brass~
 brass leggings~
 A pile of brass plates is against the wall here.~
 brass~
-armor Gm 0 AFgl
+armor G 0 AF
 6 5 6 1 0
 16 100 1280 P
 A
@@ -853,7 +853,7 @@ boots brass~
 brass boots~
 Some brass boots are against the wall here.~
 brass~
-armor Gm 0 AGgm
+armor G 0 AG
 6 5 6 1 0
 16 100 1280 P
 A
@@ -866,7 +866,7 @@ gauntlets brass~
 brass gauntlets~
 Some brass gauntlets are against the wall here.~
 brass~
-armor Gm 0 AHgn
+armor G 0 AH
 6 5 6 1 0
 16 100 1280 P
 A
@@ -879,7 +879,7 @@ sleeves brass~
 brass sleeves~
 A pile of brass plates is against the wall here.~
 brass~
-armor Gm 0 AIgo
+armor G 0 AI
 6 5 6 1 0
 16 100 1280 P
 A
@@ -892,7 +892,7 @@ shield brass~
 a brass shield~
 A big plate of brass is against the wall here.~
 brass~
-armor Gm 0 AJgp
+armor G 0 AJ
 6 5 6 2 0
 16 200 1850 P
 A
@@ -905,7 +905,7 @@ girth brass~
 a brass girth~
 A brass girth is against the wall here.~
 brass~
-armor Gm 0 ALgr
+armor G 0 AL
 6 5 6 1 0
 16 100 1280 P
 A
@@ -918,7 +918,7 @@ bracer brass~
 a brass bracer~
 A brass bracer is against the wall here.~
 brass~
-armor Gm 0 AMgs
+armor G 0 AM
 4 5 6 1 0
 12 100 1040 P
 A
@@ -931,8 +931,8 @@ claymore sword~
 a claymore~
 A VERY big sword is against the wall here.~
 iron~
-weapon Gm 0 ANgt
-sword 4 6 'cleave' Fl
+weapon G 0 AN
+sword 4 6 'cleave' F
 19 160 3100 P
 A
 19 4
@@ -944,7 +944,7 @@ plate silver~
 silver plate~
 A pile of silver plating and chain is on the floor.~
 silver~
-armor GKmq 0 ADgj
+armor GK 0 AD
 8 8 8 2 0
 25 200 5000 P
 A
@@ -957,7 +957,7 @@ helm silver~
 a silver helm~
 A shiny helm is on the floor.~
 silver~
-armor GKmq 0 AEgk
+armor GK 0 AE
 8 8 8 2 0
 25 200 2900 P
 A
@@ -970,7 +970,7 @@ leggings silver~
 silver leggings~
 Some shiny leggings are on the floor.~
 silver~
-armor GKmq 0 AFgl
+armor GK 0 AF
 8 8 8 2 0
 25 200 2900 P
 A
@@ -983,7 +983,7 @@ boots silver~
 silver boots~
 Some shiny boots are on the floor.~
 silver~
-armor GKmq 0 AGgm
+armor GK 0 AG
 8 8 8 2 0
 25 200 2900 P
 A
@@ -996,7 +996,7 @@ gauntlets silver~
 silver gauntlets~
 Some shiny gauntlets are on the floor.~
 silver~
-armor GKmq 0 AHgn
+armor GK 0 AH
 8 8 8 2 0
 25 200 2900 P
 A
@@ -1009,7 +1009,7 @@ sleeves silver~
 silver sleeves~
 Some shiny sleeves are on the floor.~
 silver~
-armor GKmq 0 AIgo
+armor GK 0 AI
 8 8 8 2 0
 25 200 2400 P
 A
@@ -1022,7 +1022,7 @@ shield silver~
 the silver shield~
 A shiny shield is on the floor.~
 silver~
-armor GKmq 0 AJgp
+armor GK 0 AJ
 8 8 8 3 0
 25 240 4200 P
 A
@@ -1035,7 +1035,7 @@ girth silver~
 the silver girth~
 A shiny girth is on the floor.~
 silver~
-armor GKmq 0 ALgr
+armor GK 0 AL
 8 8 8 2 0
 25 200 2400 P
 A
@@ -1048,7 +1048,7 @@ plate platinum~
 platinum plate~
 A pile of silvery metal is on the floor.~
 platinum~
-armor GKmq 0 ADgj
+armor GK 0 AD
 9 9 9 5 0
 33 500 9200 P
 A
@@ -1063,7 +1063,7 @@ helmet platinum~
 the platinum helmet~
 A silvery helmet is on the floor.~
 platinum~
-armor GKmq 0 AEgk
+armor GK 0 AE
 9 9 9 5 0
 33 300 6300 P
 A
@@ -1078,7 +1078,7 @@ leggings platinum~
 platinum leggings~
 Some silvery leggings are on the floor.~
 platinum~
-armor GKmq 0 AFgl
+armor GK 0 AF
 9 9 9 3 0
 33 400 6300 P
 A
@@ -1093,7 +1093,7 @@ boots platinum~
 platinum boots~
 Some silvery boots are on the floor.~
 platinum~
-armor GKmq 0 AGgm
+armor GK 0 AG
 9 9 9 5 0
 33 400 4100 P
 A
@@ -1108,7 +1108,7 @@ gauntlets platinum~
 platinum gauntlets~
 A pair of silvery gauntlets are on the floor.~
 platinum~
-armor GKmq 0 AHgn
+armor GK 0 AH
 9 9 9 5 0
 33 400 4300 P
 A
@@ -1123,7 +1123,7 @@ sleeves platinum~
 platinum sleeves~
 A pair of silvery sleeves are on the floor.~
 platinum~
-armor GKmq 0 AIgo
+armor GK 0 AI
 9 9 9 5 0
 33 400 6300 P
 A
@@ -1138,7 +1138,7 @@ shield spiked platinum~
 the platinum spiked shield~
 A jagged, silvery shield is on the floor.~
 platinum~
-armor GKmq 0 AJgp
+armor GK 0 AJ
 9 9 9 5 0
 33 400 6000 P
 A
@@ -1151,7 +1151,7 @@ girth platinum~
 the platinum girth~
 A silvery girth is on the floor.~
 platinum~
-armor GKmq 0 ALgr
+armor GK 0 AL
 9 9 9 5 0
 33 400 4000 P
 A
@@ -1166,8 +1166,8 @@ avenger holy sword~
 the holy Avenger~
 A glowing silvery sword is hovering here, ready to possess an owner.~
 platinum~
-weapon GKmq 0 ANgt
-sword 5 8 'slice' Io
+weapon GK 0 AN
+sword 5 8 'slice' I
 33 250 5700 P
 A
 19 6
@@ -1179,7 +1179,7 @@ whiskey shot~
 a shot of whiskey~
 A shot of whiskey is on the table.~
 glass~
-drink 0 0 Ag
+drink 0 0 A
 2 2 'whisky' 0 0
 0 10 12 P
 g none~
@@ -1188,7 +1188,7 @@ ale quart~
 a quart of ale~
 A quart of ale is on the table.~
 clay~
-drink 0 0 Ag
+drink 0 0 A
 32 32 'ale' 0 0
 0 20 10 P
 g none~
@@ -1197,7 +1197,7 @@ port brew quart~
 a quart of port brew~
 A quart of port brew is on the table.~
 clay~
-drink 0 0 Ag
+drink 0 0 A
 32 32 'dark ale' 0 0
 0 20 18 P
 g none~
@@ -1206,7 +1206,7 @@ key citadel~
 the citadel key~
 A key is on the floor.~
 iron~
-key 0 0 Ag
+key 0 0 A
 0 0 0 0 0
 0 10 0 P
 g none~
@@ -1215,7 +1215,7 @@ symbol holy~
 the Holy Symbol of Bahamut~
 A very shiny symbol is on the floor.~
 ivory~
-jewelry GIKLmoqr 0 ACgi
+jewelry GIKL 0 AC
 0 0 0 0 0
 17 50 3700 P
 A
@@ -1230,8 +1230,8 @@ ranseur polearm~
 a ranseur~
 A heavy polearm is against the wall here, ready to inflict damage.~
 iron~
-weapon GKmq 0 ANgt
-polearm 4 7 'thrust' Fl
+weapon GK 0 AN
+polearm 4 7 'thrust' F
 24 200 1460 P
 A
 19 -1
@@ -1243,7 +1243,7 @@ torso dragonscale golden~
 a golden dragonscale torso~
 A golden dragonscale torso is on the floor!~
 gold~
-armor GKmq 0 ADgj
+armor GK 0 AD
 7 7 7 3 0
 24 250 6200 P
 A
@@ -1256,7 +1256,7 @@ dragonhelm golden~
 a golden dragonhelm~
 A golden dragonhelm is on the floor!~
 gold~
-armor GKmq 0 AEgk
+armor GK 0 AE
 7 7 7 3 0
 21 100 2800 P
 A
@@ -1269,7 +1269,7 @@ leggings golden~
 golden dragonscale leggings~
 Some golden dragonscale leggings are on the floor!~
 gold~
-armor GKmq 0 AFgl
+armor GK 0 AF
 7 7 7 3 0
 21 100 2800 P
 A
@@ -1282,7 +1282,7 @@ boots golden~
 golden dragonscale boots~
 Some golden dragonscale boots are on the floor!~
 gold~
-armor GKmq 0 AGgm
+armor GK 0 AG
 7 7 7 3 0
 21 100 2800 P
 A
@@ -1295,7 +1295,7 @@ gauntlets golden~
 golden dragonscale gauntlets~
 Some golden dragonscale gauntlets are on the floor!~
 gold~
-armor GKmq 0 AHgn
+armor GK 0 AH
 7 7 7 3 0
 21 100 2800 P
 A
@@ -1308,7 +1308,7 @@ sleeves golden~
 golden dragonscale sleeves~
 Some golden dragonscale sleeves are on the floor!~
 gold~
-armor GKmq 0 AIgo
+armor GK 0 AI
 7 7 7 3 0
 21 100 2800 P
 A
@@ -1321,7 +1321,7 @@ shield golden~
 a golden dragonscale shield~
 A golden dragonscale shield is on the floor!~
 gold~
-armor GKmq 0 AJgp
+armor GK 0 AJ
 7 7 7 4 0
 21 200 3700 P
 A
@@ -1334,7 +1334,7 @@ girth golden~
 a golden dragonscale girth~
 A golden dragonscale girth is on the floor!~
 gold~
-armor GKmq 0 ALgr
+armor GK 0 AL
 7 7 7 3 0
 21 100 2800 P
 A
@@ -1347,7 +1347,7 @@ claw golden~
 the golden claw~
 A small golden claw is on the floor~
 gold~
-weapon GKmq 0 ANgt
+weapon GK 0 AN
 exotic 3 9 'claw' 0
 21 100 2600 P
 A
@@ -1358,7 +1358,7 @@ orb dragonorb~
 the Gold Dragon Orb~
 A very large pearl-like sphere is in the center of this room.~
 gold~
-staff GKLmqr 0 AOgu
+staff GKL 0 AO
 14 4 4 'heal' 0
 17 300 9000 P
 A
@@ -1371,7 +1371,7 @@ robe golden~
 a golden robe~
 A golden robe is on the floor.~
 cloth~
-armor GKmq 0 AKgq
+armor GK 0 AK
 6 6 5 2 0
 17 100 3800 P
 A
@@ -1382,7 +1382,7 @@ house key~
 a house key~
 A house key is on the floor.~
 silver~
-key 0 0 Ag
+key 0 0 A
 0 0 0 0 0
 0 10 0 P
 g none~
@@ -1391,7 +1391,7 @@ broom~
 a broom~
 A broom is against the wall here.~
 wood~
-weapon 0 0 ANgt
+weapon 0 0 AN
 exotic 2 3 'beating' 0
 1 80 760 P
 A
@@ -1404,7 +1404,7 @@ chest~
 a chest~
 A chest is on the floor here.~
 wood~
-container 0 0 Ag
+container 0 0 A
 100 0 0 10 100
 0 100 100 P
 g none~
@@ -1413,7 +1413,7 @@ claw golden~
 the Golden Claw~
 A huge golden claw is on the floor~
 gold~
-weapon GKmq 0 ANgt
+weapon GK 0 AN
 exotic 4 10 'claw' 0
 39 200 7200 P
 A
@@ -1424,7 +1424,7 @@ claw golden~
 the golden claw~
 A large golden claw is on the floor~
 gold~
-weapon GKmq 0 ANgt
+weapon GK 0 AN
 exotic 3 11 'claw' 0
 28 150 4100 P
 A
@@ -1435,7 +1435,7 @@ pit~
 the donation pit~
 A pit for sacrifices is in front of the altar.~
 unknown~
-container 0 Ag 0
+container 0 AJ 0
 10000 0 0 1000 100
 0 0 0 P
 E
@@ -1448,7 +1448,7 @@ fountain~
 fountain~
 A small white fountain gushes forth here.~
 unknown~
-fountain ABGghm Bh 0
+fountain ABG B 0
 0 0 'water' 0 0
 0 0 0 P
 g none~
@@ -1466,12 +1466,12 @@ The exit is to the east.
 огромный перегонный аппарат.  Теперь ты понимаешь зачем ему столько полей. 
 Выход отсюда на востоке (east).  
 ~
-0 DSjy inside
+0 DS inside
 D1
 You see the storage shed.
 ~
 door~
-ABZgh -1 616
+ABZ -1 616
 S
 #601
 @eng The Big Intersection@rus Большой Перекресток~
@@ -1483,7 +1483,7 @@ east and west, and Impy Way runs north and south.
 (Raff Way), пролегающей с запада (west) на восток (east).  
 Здесь многолюдно, каждый спешит куда-то по делам.
 ~
-0 Sy city
+0 S city
 D0
 Impy Way continues north.
 ~
@@ -1514,7 +1514,7 @@ west.  To the north you see a big intersection, and Impy Way continues south.
 на западе (west). К северу (north) отсюда виден большой перекресток
 (Big Interseption), чертова дорога тянется на юг (south).
 ~
-0 Sy city
+0 S city
 D0
 You see the big intersection.
 ~
@@ -1546,7 +1546,7 @@ one side of the room, and on the other side is a workbench.  The exit is east.
 наковальня с одной стороны да верстак с другой.  Выход один - на восток
 (east).  
 ~
-0 DSjy inside
+0 DS inside
 D1
 You see Impy Way.
 ~
@@ -1560,7 +1560,7 @@ the floor.  The smell of burnt hide assaults your nose.  You can tell by the
 looks that the tanning is done VERY CLOSE to here!   A table is near the
 entrance.  The exit is west.
 ~
-0 DSjy inside
+0 DS inside
 D3
 You see Impy Way.
 ~
@@ -1577,7 +1577,7 @@ to go to these stores.
 север (north) и на юг (south).  Многие из горожан, окружающих тебя, спешат
 попасть в эти магазины.  
 ~
-0 Sy city
+0 S city
 D0
 Impy Way continues North.
 ~
@@ -1609,7 +1609,7 @@ sure that you or any other little kid would like to touch!  The exit is east.
 камешков, которые, по твоему убеждению, любой может взять и потрогать. 
 Выход на восток (east).  
 ~
-0 DSjy inside
+0 DS inside
 D1
 You see Impy Way.
 ~
@@ -1622,7 +1622,7 @@ You are in a meat store.  Hanging on hooks are meats of many kinds of
 animals.  In the background, you can hear the sound of blade against flesh.
 It smells like meat here (which is not a good smell).  The exit is west.
 ~
-0 DSjy inside
+0 DS inside
 D3
 You see Impy Way.
 ~
@@ -1639,7 +1639,7 @@ the sound of housewives gossiping at the market.
 House of Ale).  Улица тянется с севера (north) и заканчивается на юге
 (south).  По всей улице слышен гвалт торговок с рынка.  
 ~
-0 Sy city
+0 S city
 D0
 Impy Way continues north.
 ~
@@ -1667,7 +1667,7 @@ This is a very busy bar, with everyone holding homemade bottles of
 ale.  You see even the more gentile persons here, laughing along with
 Nyles, who offers you a quart of ale too.
 ~
-0 DSjy inside
+0 DS inside
 D1
 You see Impy Way.
 ~
@@ -1683,7 +1683,7 @@ is west.
 Много фермеров, если не все сразу, стараются продать тебе свои продукты,
 говоря что ее товар лучше. Выход отсюда на западе (west).
 ~
-0 DSjy inside
+0 DS inside
 D3
 You see Impy Way.
 ~
@@ -1700,7 +1700,7 @@ Way continues north.
 животноводческой ферме (Farm animals). На запад (west) простираются
 поля (fields). Чертова дорога ведет на север (north).
 ~
-0 Sy city
+0 S city
 D0
 Impy Way continues north.
 ~
@@ -1729,7 +1729,7 @@ west.
 видишь какое-то строение к северу (north) отсюда.  Поле простирается на
 запад (west) и юг (south).  
 ~
-0 Sy field
+0 S field
 D0
 You think you see a building north of here.
 ~
@@ -1761,7 +1761,7 @@ The sight of the fruit makes your mouth water.
 хочется?  Можешь прогуляться по кукурузному полю на севере (north) или по
 овощным плантациям на западе (west) если, конечно, хочешь.  
 ~
-0 Sy field
+0 S field
 D0
 You see the corn fields.
 ~
@@ -1782,7 +1782,7 @@ fruit trees, and north are some wheat fields.
 салатом вперемешку с помидорами и картофелем.  Фруктовый сад к востоку
 (east), а пшеничное поле к северу (north) отсюда.  
 ~
-0 Sy field
+0 S field
 D0
 You see the wheat fields.
 ~
@@ -1805,7 +1805,7 @@ stalks, and south of you are the vegetable patches.
 отсюда, но это насущная необходимость.  К востоку (east) от тебя кукурузное
 поле, к югу (south) же - овощная плантация.  
 ~
-0 Sy field
+0 S field
 D1
 You see the corn fields.
 ~
@@ -1827,7 +1827,7 @@ to the west.  The main exit is south.
 Вы видите маленькую дверцу в западной (west) стене сарая.  Главный вход с
 юга (south).  
 ~
-0 DSjy inside
+0 DS inside
 D2
 You see the corn fields.
 ~
@@ -1837,7 +1837,7 @@ D3
 You see the door.
 ~
 door~
-ABZgh -1 600
+ABZ -1 600
 S
 #617
 @eng Slaughterhouse@rus Бойня~
@@ -1847,7 +1847,7 @@ makes your stomach churn.  The exit is to the west.
 @rus  Ты попал на зверобойню, где предсмертный рёв животных режет твои нежные
 уши. Выход из этого рая для некромантов на западе (west).  
 ~
-0 DSjy inside
+0 DS inside
 D3
 You see the dirt road.
 ~
@@ -1859,7 +1859,7 @@ S
 You are on a dirt road.  To the east is a barn, and you see a big chicken
 coop south of you.  The dirt road continues north and west.
 ~
-0 Sy field
+0 S field
 D0
 You see the dirt road.
 ~
@@ -1874,7 +1874,7 @@ D2
 You see the chicken coop.
 ~
 coop~
-ABZgh -1 619
+ABZ -1 619
 D3
 You see the dirt road.
 ~
@@ -1886,19 +1886,19 @@ Chicken Coop~
 You are in the chicken coop.  The smell of chickens and chicken droppings
 makes you gasp.  The exit is north.
 ~
-0 DSjy inside
+0 DS inside
 D0
 You can sense the fresh air.
 ~
 ~
-ABZgh -1 618
+ABZ -1 618
 S
 #620
 Barn~
 You are in a barn.  There are some cows here, munching on mounds of hay.
 Milk is milked and bottled here.  You see the exit west.
 ~
-0 DSjy inside
+0 DS inside
 D3
 You see the dirt road.
 ~
@@ -1910,7 +1910,7 @@ S
 You are on a dirt road.  To the north and south, you see some grass 
 fields.  There is a pigsty west, and the dirt road continues east.
 ~
-0 Sy field
+0 S field
 D0
 You see some grass fields.
 ~
@@ -1937,7 +1937,7 @@ Grass Field~
 You are in a grass field.  Fences block the way north, east, and west.
 The dirt road is to the south.
 ~
-0 Sy field
+0 S field
 D2
 You see the dirt road.
 ~
@@ -1949,7 +1949,7 @@ Grass Field~
 You are in a grass field.  Fences block the way south, east, and west.
 The dirt road is to the north.
 ~
-0 Sy field
+0 S field
 D0
 You see the dirt road.
 ~
@@ -1961,7 +1961,7 @@ S
 For some reason, you are in a pig sty.  You wonder why you are standing in
 muck.  To realize your senses and notice the dirt road is to the east.
 ~
-0 Sy field
+0 S field
 D1
 You see the dry dirt road.
 ~
@@ -1978,7 +1978,7 @@ from home to home.
 север (north) и проходит через большой перекресток (Big Imterseption) на
 юге (south).  
 ~
-0 Sy city
+0 S city
 D0
 Impy Way continues north.
 ~
@@ -1988,7 +1988,7 @@ D1
 You see a big house.
 ~
 door~
-ABCZghi 665 626
+ABCZ 665 626
 D2
 You see a big intersection.
 ~
@@ -1998,7 +1998,7 @@ D3
 You see a big house.
 ~
 door~
-ABCZghi 665 629
+ABCZ 665 629
 S
 #626
 @eng Big House@rus Прихожая~
@@ -2010,7 +2010,7 @@ west.
 Ты можешь пройти через дверь на кухню (east) или подняться в спальню
 по лестнице (up).
 ~
-0 DSjy inside
+0 DS inside
 D1
 You see the kitchen.
 ~
@@ -2020,7 +2020,7 @@ D3
 You see Impy Way.
 ~
 door~
-ABCZghi 665 625
+ABCZ 665 625
 D4
 You see the bedroom.
 ~
@@ -2032,7 +2032,7 @@ S
 You are in the bedroom.  There isn't much of interest except for a bed and
 a closet.  The stairs lead back down.
 ~
-0 DSjy inside
+0 DS inside
 D5
 You see the main room of the house.
 ~
@@ -2046,7 +2046,7 @@ is west of here.
 @rus Ты вошел на кухню - ничего интересненького. Единственный выход 
 отсюда - в прихожую (west).
 ~
-0 DSjy inside
+0 DS inside
 D3
 You see the main room of the house.
 ~
@@ -2063,12 +2063,12 @@ west.
 Ты можешь пройти через дверь на кухню (west) или подняться в спальню
 по лестнице (up).
 ~
-0 DSjy inside
+0 DS inside
 D1
 You see Impy Way.
 ~
 door~
-ABCZghi 665 625
+ABCZ 665 625
 D3
 You see the kitchen.
 ~
@@ -2085,7 +2085,7 @@ S
 You are in the bedroom.  There isn't much of interest except for a bed and
 a closet.  The stairs lead back down.
 ~
-0 DSjy inside
+0 DS inside
 D5
 You see the main room of the house.
 ~
@@ -2099,7 +2099,7 @@ is west of here.
 @rus Ты вошел на кухню - ничего интересненького. Единственный выход 
 отсюда - в прихожую (east).
 ~
-0 DSjy inside
+0 DS inside
 D1
 You see the main room of the house.
 ~
@@ -2116,7 +2116,7 @@ from home to home.
 делам насущным.  Улица продолжается на север (north) и проходит через
 большой перекресток (Big Imterseption) на юге (south).  
 ~
-0 Sy city
+0 S city
 D0
 Impy Way continues north.
 ~
@@ -2126,7 +2126,7 @@ D1
 You see a house.
 ~
 door~
-ABZgh -1 633
+ABZ -1 633
 D2
 Impy Way continues south.
 ~
@@ -2136,14 +2136,14 @@ D3
 You see a house.
 ~
 door~
-ABZgh -1 635
+ABZ -1 635
 S
 #633
 House~
 You are in a house.  The living room and kitchen are all bundled into
 this room.  There is a bedroom south of here.  The exit is west.
 ~
-0 DSjy inside
+0 DS inside
 D2
 You see the bedroom.
 ~
@@ -2153,14 +2153,14 @@ D3
 You see Impy Way.
 ~
 door~
-ABZgh -1 632
+ABZ -1 632
 S
 #634
 @eng Bedroom@rus Спальня~
 You are in a bedroom.  There isn't much of interest here except for a bed
 and a dresser.  The main room of the house is north of here.
 ~
-0 DSjy inside
+0 DS inside
 D0
 You see the main room of the house.
 ~
@@ -2172,12 +2172,12 @@ House~
 You are in a house.  The living room and kitchen are all bundled into
 this room.  There is a bedroom south of here.  The exit is east.
 ~
-0 DSjy inside
+0 DS inside
 D1
 You see Impy Way.
 ~
 door~
-ABZgh -1 632
+ABZ -1 632
 D2
 You see the bedroom.
 ~
@@ -2189,7 +2189,7 @@ S
 You are in a bedroom.  There isn't much of interest here except for a bed
 and a dresser.  The main room of the house is north of here.
 ~
-0 DSjy inside
+0 DS inside
 D0
 You see the main room of the house.
 ~
@@ -2202,7 +2202,7 @@ You are on Impy Way.  Houses are to the east and west of here.  Impy Way
 continues south.  To the north is a big intersection.  There are many people
 walking along the streets.
 ~
-0 Sy city
+0 S city
 D0
 You see a big intersection.
 ~
@@ -2212,7 +2212,7 @@ D1
 You see a house.
 ~
 door~
-ABZgh -1 638
+ABZ -1 638
 D2
 Impy Way continues south.
 ~
@@ -2222,14 +2222,14 @@ D3
 You see a house.
 ~
 door~
-ABZgh -1 640
+ABZ -1 640
 S
 #638
 House~
 You are in a house.  The living room and kitchen are all bundled into
 this room.  There is a bedroom south of here.  The exit is west.
 ~
-0 DSjy inside
+0 DS inside
 D2
 You see the bedroom.
 ~
@@ -2239,14 +2239,14 @@ D3
 You see Impy Way.
 ~
 door~
-ABZgh -1 637
+ABZ -1 637
 S
 #639
 @eng Bedroom@rus Спальня~
 You are in a bedroom.  There isn't much of interest here except for a bed
 and a dresser.  The main room of the house is north of here.
 ~
-0 DSjy inside
+0 DS inside
 D0
 You see the main room of the house.
 ~
@@ -2258,12 +2258,12 @@ House~
 You are in a house.  The living room and kitchen are all bundled into
 this room.  There is a bedroom south of here.  The exit is east.
 ~
-0 DSjy inside
+0 DS inside
 D1
 You see Impy Way.
 ~
 door~
-ABZgh -1 637
+ABZ -1 637
 D2
 You see the bedroom.
 ~
@@ -2275,7 +2275,7 @@ S
 You are in a bedroom.  There isn't much of interest here except for a bed
 and a dresser.  The main room of the house is north of here.
 ~
-0 DSjy inside
+0 DS inside
 D0
 You see the main room of the house.
 ~
@@ -2288,12 +2288,12 @@ You are on the intersection of Impy Way and Swiftest Way.  To the north of
 you is a big house.  Swiftest Way runs east and west, and Impy way continues
 south.  There are quite a few people on this intersection.
 ~
-0 Sy city
+0 S city
 D0
 You see the big house.
 ~
 door~
-ABCZghi 665 643
+ABCZ 665 643
 D1
 Swiftest Way continues east.
 ~
@@ -2317,7 +2317,7 @@ than the average citizen, since there is more than one room to this house.  A
 door leads to the kitchen north, and a bedroom is upstairs.  The exit is to 
 the south.
 ~
-0 DSjy inside
+0 DS inside
 D0
 You see the kitchen.
 ~
@@ -2327,7 +2327,7 @@ D2
 You see Impy Way.
 ~
 door~
-ABCZghi 665 642
+ABCZ 665 642
 D4
 You see the bedroom.
 ~
@@ -2339,7 +2339,7 @@ S
 You are in the bedroom.  There isn't much of interest except for a bed 
 and a closet.  The stairs lead back down.
 ~
-0 DSjy inside
+0 DS inside
 D5
 You see the main room of the house.
 ~
@@ -2351,7 +2351,7 @@ S
 You are in a kitchen.  There isn't much of interest here.  The main room
 is east of here.
 ~
-0 DSjy inside
+0 DS inside
 D2
 You see the main room of the house.
 ~
@@ -2364,7 +2364,7 @@ You are on Swiftest Way, the commoner's residential area.  Small houses
 are north and south of you.  Swiftest Way continues east, and west is a big
 intersection.
 ~
-0 Sy city
+0 S city
 D0
 You see a small house.
 ~
@@ -2391,7 +2391,7 @@ Swiftest Way~
 You are on Swiftest Way, the commoner's residential area.  Small houses
 are north and south of you.  Swiftest Way continues east and west.
 ~
-0 Sy city
+0 S city
 D0
 You see a small house.
 ~
@@ -2418,7 +2418,7 @@ End of Swiftest Way~
 You are on Swiftest Way, the commoner's residential area.  Small houses
 are north, south, and east of you.  Swiftest Way continues west.
 ~
-0 Sy city
+0 S city
 D0
 You see a small house.
 ~
@@ -2446,7 +2446,7 @@ You are on Swiftest Way, the commoner's residential area.  Small houses
 are north and south of you.  Swiftest Way continues west, and to the east you
 see a big intersection.
 ~
-0 Sy city
+0 S city
 D0
 You see a small house.
 ~
@@ -2473,7 +2473,7 @@ Swiftest Way~
 You are on Swiftest Way, the commoner's residential area.  Small houses
 are north and south of you.  Swiftest Way continues east and west.
 ~
-0 Sy city
+0 S city
 D0
 You see a small house.
 ~
@@ -2500,7 +2500,7 @@ The end of Swiftest Way~
 You are on Swiftest Way, the commoner's residential area.  Small houses
 are north, south, and west of you.  Swiftest Way continues east.
 ~
-0 Sy city
+0 S city
 D0
 You see a small house.
 ~
@@ -2528,7 +2528,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the south.
 ~
-0 DSjy inside
+0 DS inside
 D2
 You see Swiftest Way.
 ~
@@ -2541,7 +2541,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the north.
 ~
-0 DSjy inside
+0 DS inside
 D0
 You see Swiftest Way.
 ~
@@ -2554,7 +2554,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the south.
 ~
-0 DSjy inside
+0 DS inside
 D2
 You see Swiftest Way.
 ~
@@ -2567,7 +2567,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the north.
 ~
-0 DSjy inside
+0 DS inside
 D0
 You see Swiftest Way.
 ~
@@ -2580,7 +2580,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the south.
 ~
-0 DSjy inside
+0 DS inside
 D2
 You see the end of Swiftest Way.
 ~
@@ -2593,7 +2593,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the west.
 ~
-0 DSjy inside
+0 DS inside
 D3
 You see the end of Swiftest Way.
 ~
@@ -2606,7 +2606,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the north.
 ~
-0 DSjy inside
+0 DS inside
 D0
 You see the end of Swiftest Way.
 ~
@@ -2619,7 +2619,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the south.
 ~
-0 DSjy inside
+0 DS inside
 D2
 You see Swiftest Way.
 ~
@@ -2632,7 +2632,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the north.
 ~
-0 DSjy inside
+0 DS inside
 D0
 You see Swiftest Way.
 ~
@@ -2645,7 +2645,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the south.
 ~
-0 DSjy inside
+0 DS inside
 D2
 You see Swiftest Way.
 ~
@@ -2658,7 +2658,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the north.
 ~
-0 DSjy inside
+0 DS inside
 D0
 You see Swiftest Way.
 ~
@@ -2671,7 +2671,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the south.
 ~
-0 DSjy inside
+0 DS inside
 D2
 You see the end of Swiftest Way.
 ~
@@ -2684,7 +2684,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the north.
 ~
-0 DSjy inside
+0 DS inside
 D0
 You see the end of Swiftest Way.
 ~
@@ -2697,7 +2697,7 @@ You are in a small house, owned by a commoner of Ofcol.  There isn't much
 of value here to you, but you'd bet that the owner really cherishes the pile
 of stuff here.  The exit is to the east.
 ~
-0 DSjy inside
+0 DS inside
 D1
 You see the end of Swiftest Way.
 ~
@@ -2711,7 +2711,7 @@ the east, you see Raff Way continue toward the Golden Citadel.  There are
 beautiful flowers growing along the road here, making this more of a garden
 than a road.
 ~
-0 Sy city
+0 S city
 D1
 Raff Way continues east.
 ~
@@ -2730,7 +2730,7 @@ the east, you see Raff Way continue toward the Golden Citadel.  There are
 beautiful flowers growing along the road here, making this more of a garden
 than a road.
 ~
-0 Sy city
+0 S city
 D1
 You see the entrance of the Golden Citadel.
 ~
@@ -2752,7 +2752,7 @@ south.
 западу (west) от тебя окраина чертовой дороги (Impy Way) а эта дорога
 продолжается на юг (south).  
 ~
-0 Sy field
+0 S field
 D1
 You see the large building with the bad smell.
 ~
@@ -2776,7 +2776,7 @@ gold columns reach the twelve foot ceiling of this vast chamber.  Servants in
 golden livery wander this place, making even the raggiest messenger boy look
 richer than you are.  Exits lead to the anterooms in the cardinal directions.
 ~
-0 DKNSjqty inside
+0 DKNS inside
 D0
 ~
 ~
@@ -2800,7 +2800,7 @@ You are in an anteroom to the Temple of Ofcol.  Gold tiles cover the
 floor, and servants in golden livery pass you by peaceably.  The temple is to
 the south, and to the north is a hallway.  A stairways leads up.
 ~
-0 DSjy inside
+0 DS inside
 D0
 ~
 ~
@@ -2820,7 +2820,7 @@ You are in an anteroom to the Temple of Ofcol.  Gold tiles cover the
 floor, and servants in golden livery pass you by peaceably.  The temple is to
 the east, and to the west is a hallway.  A stairways leads up.
 ~
-0 DSjy inside
+0 DS inside
 D1
 ~
 ~
@@ -2840,7 +2840,7 @@ You are in an anteroom to the Temple of Ofcol.  Gold tiles cover the
 floor, and servants in golden livery pass you by peaceably.  The temple is to
 the west, and to the east is a hallway.  A stairways leads up.
 ~
-0 DSjy inside
+0 DS inside
 D1
 ~
 ~
@@ -2860,7 +2860,7 @@ You are in an anteroom to the Temple of Ofcol.  Gold tiles cover the
 floor, and servants in golden livery pass you by peaceably.  The temple is to
 the north, and to the south is a hallway.  A stairways leads up.
 ~
-0 DSjy inside
+0 DS inside
 D0
 ~
 ~
@@ -2880,7 +2880,7 @@ You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
 and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead east and south.
 ~
-0 DSjy inside
+0 DS inside
 D1
 ~
 ~
@@ -2896,7 +2896,7 @@ You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
 and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead east, west, and south.
 ~
-0 DSjy inside
+0 DS inside
 D1
 ~
 ~
@@ -2916,7 +2916,7 @@ You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
 and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead west and south.
 ~
-0 DSjy inside
+0 DS inside
 D2
 ~
 ~
@@ -2932,7 +2932,7 @@ You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
 and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead north and south.
 ~
-0 DSjy inside
+0 DS inside
 D0
 ~
 ~
@@ -2948,7 +2948,7 @@ You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
 and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead north and south.
 ~
-0 DSjy inside
+0 DS inside
 D0
 ~
 ~
@@ -2965,7 +2965,7 @@ and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead to the cardinal directions, with the east leading
 toward the Temple of Ofcol, and west leading toward the City of Ofcol.
 ~
-0 DSjy inside
+0 DS inside
 D0
 ~
 ~
@@ -2989,7 +2989,7 @@ You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
 and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead west, north and south.
 ~
-0 DSjy inside
+0 DS inside
 D0
 ~
 ~
@@ -3009,7 +3009,7 @@ You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
 and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead north and south.
 ~
-0 DSjy inside
+0 DS inside
 D0
 ~
 ~
@@ -3025,7 +3025,7 @@ You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
 and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead north and south.
 ~
-0 DSjy inside
+0 DS inside
 D0
 ~
 ~
@@ -3041,7 +3041,7 @@ You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
 and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead north and east.
 ~
-0 DSjy inside
+0 DS inside
 D0
 ~
 ~
@@ -3057,7 +3057,7 @@ You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
 and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead east, west, and north.
 ~
-0 DSjy inside
+0 DS inside
 D0
 ~
 ~
@@ -3077,7 +3077,7 @@ You are in a hallway of the Golden Citadel.  Gold tiles cover the floors,
 and rich golden tapestries drape the walls.  Servants in golden livery pass you
 by peaceably.  Exits lead west and north.
 ~
-0 DSjy inside
+0 DS inside
 D0
 ~
 ~
@@ -3095,7 +3095,7 @@ with platinum cover the floor, walls and the ceiling.  The lights from numerous
 torches reflect from these shimmering planes, giving the illusion that you are
 standing in a gem.  Stairways lead up and down, and the hall leads south. 
 ~
-0 DSjy inside
+0 DS inside
 D2
 ~
 ~
@@ -3117,7 +3117,7 @@ with platinum cover the floor, walls and the ceiling.  The lights from numerous
 torches reflect from these shimmering planes, giving the illusion that you are
 standing in a gem.  Stairways lead up and down, and the hall leads east. 
 ~
-0 DSjy inside
+0 DS inside
 D1
 ~
 ~
@@ -3139,7 +3139,7 @@ are mounted on the walls of this meeting hall.  Surrounding a solid gold table
 are four sons of the Keeper of the Golden Citadel.  They smile at you and ask 
 you to join them in lunch.  Exits lead to the cardinal directions. 
 ~
-0 DSjy inside
+0 DS inside
 D0
 ~
 ~
@@ -3165,7 +3165,7 @@ with platinum cover the floor, walls and the ceiling.  The lights from numerous
 torches reflect from these shimmering planes, giving the illusion that you are
 standing in a gem.  Stairways lead up and down, and the hall leads west. 
 ~
-0 DSjy inside
+0 DS inside
 D3
 ~
 ~
@@ -3187,7 +3187,7 @@ with platinum cover the floor, walls and the ceiling.  The lights from numerous
 torches reflect from these shimmering planes, giving the illusion that you are
 standing in a gem.  Stairways lead up and down, and the hall leads north. 
 ~
-0 DSjy inside
+0 DS inside
 D0
 ~
 ~
@@ -3209,7 +3209,7 @@ gold, and gems of all types glitter from the walls, ceiling, even the floor.
 It is obvious that this room was not meant for you to intrude upon.  A stair-
 case leads back down, and a doorway leads south.
 ~
-0 DSjy inside
+0 DS inside
 D2
 ~
 ~
@@ -3228,7 +3228,7 @@ It is obvious that this room was not meant for you to intrude upon.  A stair-
 case leads back down, and a doorway leads east. There is a door at north
 wall.
 ~
-0 DSjy inside
+0 DS inside
 D1
 ~
 ~
@@ -3247,7 +3247,7 @@ center of this chamber, you see a great wealth of coins, and on top of that
 pile of coins, you see a golden dragon squinting at you.  Exits lead to the
 cardinal directions to the anterooms.
 ~
-0 DSjy inside
+0 DS inside
 D0
 ~
 ~
@@ -3277,7 +3277,7 @@ gold, and gems of all types glitter from the walls, ceiling, even the floor.
 It is obvious that this room was not meant for you to intrude upon.  A stair-
 case leads back down, and a doorway leads west.
 ~
-0 DSjy inside
+0 DS inside
 D3
 ~
 ~
@@ -3295,7 +3295,7 @@ gold, and gems of all types glitter from the walls, ceiling, even the floor.
 It is obvious that this room was not meant for you to intrude upon.  A stair-
 case leads back down, and a doorway leads north.
 ~
-0 DSjy inside
+0 DS inside
 D0
 ~
 ~
@@ -3311,7 +3311,7 @@ You are above the Dragon Chamber.  You curiously note that this shaft that
 connects the chamber to the sky is wide enough that even a dragon can fit
 through.  This shaft leads up and down.
 ~
-0 DSjy inside
+0 DS inside
 D4
 ~
 ~
@@ -3327,7 +3327,7 @@ You are in the shaft leading from the Dragon Chamber.  Below you lies the
 Dragon Chamber of the Golden Citadel.  Above you, you see the sky, but 
 currently, the way out is sealed by a layer of diamond that looks impenetrable.
 ~
-0 DSjy inside
+0 DS inside
 D0
 ~
 ~
@@ -3343,7 +3343,7 @@ You are inside the entrance to the Golden Citadel.  Rich golden tapestries
 line the walls, and golden tiles cover the floors.  The exit to this citadel is
 to the west, while the citadel itself is to the east.
 ~
-0 DSjy inside
+0 DS inside
 D1
 ~
 ~
@@ -3363,7 +3363,7 @@ You are outside the entrance to the Golden Citadel.  A great gate is to
 to the east, marking the entranceway into the citadel.  The road also leads
 back west to Raff Way.
 ~
-0 Sy field
+0 S field
 D1
 ~
 ~

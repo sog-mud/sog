@@ -21,7 +21,7 @@ human~
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #26101
 jet~
 @eng Jet@rus ~~Джет~~~
@@ -34,7 +34,7 @@ human~
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #26102
 keravar master~
 @eng Master Keravar@rus ~~Мастер~~ ~~Керавар~~~
@@ -47,7 +47,7 @@ human~
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #26103
 master pain~
 @eng Master of Pain@rus ~~Мастер~~ Боли ~
@@ -60,7 +60,7 @@ human~
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #26104
 master curses~
 @eng Master of Curses@rus ~~Мастер~~ Проклятий~
@@ -73,7 +73,7 @@ human~
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #26105
 ahae-te~
 @eng Ahae-Te@rus Ахаэ-Тэ~
@@ -86,7 +86,7 @@ human~
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #26106
 soldier imperial~
 @eng imperial soldier@rus ~~солдат~~ имперской гвардии~
@@ -99,7 +99,7 @@ human~
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #26107
 imperial captain~
 @eng imperial captain@rus ~~капитан~~ импермкой гвардии~
@@ -112,7 +112,7 @@ human~
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #26108
 weidian mercenary~
 @eng Weidian mercenary@rus Вейдианский наемник~
@@ -125,7 +125,7 @@ human~
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #26109
 outer guard~
 @eng outer circle guard@rus ~~охранник~~ внешнего круга~
@@ -138,7 +138,7 @@ human~
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #26110
 inner guard~
 @eng inner circle guard@rus ~~охранник~~ внутреннего круга~
@@ -151,7 +151,7 @@ human~
 0
 stand stand none 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 #0
 
 #OBJECTS
@@ -160,7 +160,7 @@ talisman sanity~
 @eng talisman of sanity~
 @eng Strange wooden amulet catches your attention.~
 unknown~
-jewelry GImo 0 ACgi
+jewelry GI 0 AC
 0 0 0 0 0
 92 10 100000 P
 A

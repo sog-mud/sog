@@ -22,10 +22,10 @@ rings and bracelets.
 на его руки одеты великолепные кольца и браслеты.
 ~
 human~
-BVeh Dj HNnt 0 Ag 900 0
+BJVe D HN 0 A 900 0
 83 5 25d10+28800 1d1+1999 10d12+62 'magic'
 -95 -95 -95 -75
-AFgl
+AF
 stand stand male 15000
 0 0 medium unknown
 r bash 33
@@ -56,10 +56,10 @@ body.
 @rus Все тело пекаря покрывают шрамы, но несмотря на это он выглядит счастливым.
 ~
 human~
-BVeh Dj HNnt 0 0 900 0
+BJVe D HN 0 0 900 0
 60 10 20d10+18800 1d1+999 6d10+45 'beating'
 -65 -65 -65 -25
-CDFijl
+CDF
 stand stand male 500
 0 0 medium unknown
 M greet 3022 100~
@@ -90,10 +90,10 @@ grocer бакалейщик~
 @rus Этот высокий бакалейщик двигает по полу два 200 футовых мешка.
 ~
 human~
-BVeh 0 HNnt 0 0 900 0
+BJVe 0 HN 0 0 900 0
 55 10 25d10+15000 1d1+999 9d10+30 'beating'
 -65 -65 -65 -35
-EFJklp
+EFJ
 stand stand male 1300
 0 0 medium unknown
 r bash 33
@@ -123,10 +123,10 @@ weaponsmith~
 @rus Молодой оружейник, который забросил учебу.
 ~
 human~
-BTVehz 0 HNnt 0 0 900 0
+BJTVe F HN 0 0 900 0
 86 15 25d10+28000 1d1+999 6d8+60 'punch'
 -90 -90 -90 -55
-CEIKikoq
+CEIK
 stand stand male 25000
 0 0 medium unknown
 M greet 3024 1~
@@ -156,10 +156,10 @@ An old but very strong armourer, he has made more armours in his
 lifetime than you have ever seen.
 ~
 human~
-BVeh 0 Nt 0 0 900 0
+BJVe F N 0 0 900 0
 65 10 25d10+19300 1d1+999 7d18+50 'punch'
 -85 -85 -85 -45
-CEFJKNiklpqt
+CEFJKN
 stand stand male 25000
 0 0 medium unknown
 M greet 3021 100~
@@ -190,10 +190,10 @@ thief вор~
 @rus Пересчитайте свои денежки!
 ~
 human~
-CHSiny 0 0 BGhm 0 -100 0
+CHS 0 0 BG 0 -100 0
 8 1 6d8+80 1d1+99 1d5+1 'punch'
 2 4 3 7
-EFJNklpt
+EFJN
 stand stand either 100
 0 0 medium unknown
 #3006
@@ -206,10 +206,10 @@ captain капитан~
 @rus Этот капитан убил больше акул, чем вы съели гороха.
 ~
 human~
-BTVehz 0 Hn 0 0 900 0
+BJTVe 0 H 0 0 900 0
 65 15 25d20+18500 1d1+999 5d8+30 'beating'
 -45 -45 -45 -15
-CEIiko
+CEI
 stand stand male 1300
 0 0 medium unknown
 r bash 33
@@ -239,10 +239,10 @@ sailor моряк~
 @rus Этот здоровяк в прекрасной форме!
 ~
 human~
-BTVehz Ci 0 0 0 900 0
+BJTVe C 0 0 0 900 0
 96 20 20d20+29200 1d1+999 10d4+73 'beating'
 -55 -55 -55 -25
-FHJNlnpt
+FHJN
 stand stand male 58
 0 0 medium unknown
 r bash 33
@@ -272,7 +272,7 @@ boy мальчик~
 @rus Он молод и очень счастлив.
 ~
 human~
-BVeh 0 Hn 0 0 900 0
+BJVe 0 H 0 0 900 0
 67 5 10d11+19700 1d1+999 4d5+35 'punch'
 -45 -45 -45 -15
 0
@@ -305,10 +305,10 @@ jeweller ювелир~
 @rus Он жирный и довольный, но наблюдает за своим товаром очень бдительно.
 ~
 human~
-BVeh 0 HVn 0 0 900 0
+BJVe 0 HV 0 0 900 0
 90 10 25d10+28500 1d1+999 5d15+75 'slap'
 -80 -85 -85 -50
-AFgl
+AF
 stand stand male 58000
 0 0 huge unknown
 r bash 33
@@ -340,10 +340,10 @@ keep herself going.
 сводит концы с концами.
 ~
 human~
-BVeh 0 Hn 0 0 900 0
+BJVe 0 H 0 0 900 0
 69 17 25d10+23200 1d1+999 8d8+41 'punch'
 -45 -45 -45 -15
-AFNglt
+AFN
 stand stand male 10000
 0 0 medium unknown
 r bash 33
@@ -376,10 +376,10 @@ commit a crime in his presence.
 и у него огромные мускулы. Он хорошо знает каждый уголок королевств Shades of Gray.
 ~
 giant~
-BTVehz Ek V 0 ABHKghnq 1000 3000
+BJTVe E V 0 ABHK 1000 3000
 85 30 1d1+28999 1d1+1499 5d14+80 'crush'
 -70 -70 -70 -50
-ACDEFHIKLNOTgijklnoqrtuz
+ACDEFHIKLNOT
 stand stand male 0
 0 0 huge unknown
 M greet 3019 10~
@@ -411,10 +411,10 @@ Type 'heal' to see a listing of spells.
   Чтобы узнать, что он может, напиши 'heal'.
 ~
 human~
-ABDEJQVeghjkpw FGHIlmno Hn 0 ABgh 1000 0
+BJQVe HI H 0 AB 1000 0
 120 10 1d1+29099 1d1+1999 10d20+50 'divine'
 -150 -150 -150 -100
-FHIKlnoq
+FHIK
 stand stand male 5000
 0 0 huge unknown
 r bash 33
@@ -442,10 +442,10 @@ janitor дворничиха~
 ~
 ~
 human~
-GHmn 0 0 0 0 900 0
+GH 0 0 0 0 900 0
 1 0 2d6+10 1d1+99 1d5+0 'pound'
 10 10 10 10
-NUt
+NU
 stand stand either 10
 0 0 medium unknown
 r fire -50
@@ -476,10 +476,10 @@ and you notice that she is surrounded by a blue shimmering aura.
 одежды, и ты замечаешь, что ее окружает мерцающая голубая аура.
 ~
 elf~
-BRVehx Dj 0 0 ABLghr 1000 0
+BJRVe D 0 0 ABL 1000 0
 96 0 1d1+29099 1d1+999 43d48+64 'magic'
 -65 -65 -65 -35
-FGlm
+FG
 stand stand female 0
 0 0 medium unknown
 r bash 100
@@ -512,10 +512,10 @@ a peaceful, loving look. You notice that he is surrounded by a white aura.
 любящий взгляд... Ты замечаешь, что он окружен белой аурой.
 ~
 human~
-BQVehw Dj Hn 0 ABKLghqr 1000 0
+BJQVe D H 0 ABKL 1000 0
 96 0 1d1+29099 1d1+999 43d48+64 'divine'
 -65 -65 -65 -35
-EFHIKklnoq
+EFHIK
 stand stand male 0
 0 0 medium unknown
 r bash 100
@@ -548,7 +548,7 @@ human@rus Ты никак не можешь уследить за тем, как двигается твой наставник - нас
 вор. Он одет в бедное платье, выдавая себя за обычного жителя города.
 ~
 human~
-BGSehmy Dj 0 0 0 1000 0
+BGSe D 0 0 0 1000 0
 96 0 1d1+29099 1d1+199 43d48+64 'stab'
 -65 -65 -65 -35
 0
@@ -568,10 +568,10 @@ He has a calm look on his face.
 Он смотрит на тебя успокаивающе.
 ~
 dwarf~
-BTVehz Dj 0 0 ABgh 1000 0
+BJTVe D 0 0 AB 1000 0
 96 0 1d1+29099 1d1+199 43d48+64 'beating'
 -60 -60 -60 -40
-ACDEIKgijkoq
+ACDEIK
 stand stand male 0
 0 0 medium unknown
 r bash 100
@@ -605,10 +605,10 @@ as well as defensive spells make him a deadly opponent.
 и ударных заклинаний делает его смертельно опасным противником.
 ~
 elf~
-BRTVehxz 0 0 Ag Ag 800 0
+BJRTVe 0 0 A A 800 0
 30 5 1d1+999 1d1+499 10d4+10 'magic'
 -12 -12 -12 -8
-AEGgkm
+AEG
 stand stand male 2000
 0 0 medium unknown
 r bash 33
@@ -644,10 +644,10 @@ opponent.
 его смертельным противником.
 ~
 human~
-BQTVehwz 0 0 0 AHgn 800 0
+BJQTVe 0 0 0 AH 800 0
 30 5 1d1+999 1d1+499 5d8+10 'divine'
 -12 -12 -12 -7
-DEIKjkoq
+DEIK
 stand stand male 2000
 0 0 medium unknown
 r bash 33
@@ -682,10 +682,10 @@ them combined with his extraordinary stealth makes him a deadly opponent.
 прятаться делаем его весьма опасным противником!
 ~
 human~
-BSTVehyz 0 0 BGhm ABgh 800 0
+BJSTVe 0 0 BG AB 800 0
 30 8 1d1+999 1d1+99 4d10+12 'pierce'
 -12 -12 -12 -6
-BEFJNhklpt
+BEFJN
 stand stand male 2000
 0 0 medium unknown
 r bash 33
@@ -720,10 +720,10 @@ opponent.
 опыт прежних боев, делают его смертельным противником.
 ~
 human~
-BTVehz 0 0 0 ABgh 800 0
+BJTVe 0 0 0 AB 800 0
 30 10 1d1+999 1d1+199 11d4+10 'punch'
 -12 -12 -12 -4
-ACDEHIKgijknoq
+ACDEHIK
 stand stand male 2000
 0 0 medium unknown
 r bash 33
@@ -753,10 +753,10 @@ bartender бармен~
 @rus Устало выглядящий бармен ненавидит разборки в своем заведении.
 ~
 human~
-BVeh 0 0 0 0 900 0
+BJVe 0 0 0 0 900 0
 23 0 1d1+599 1d1+99 1d8+18 'beating'
 -6 -6 -6 0
-FHJNlnpt
+FHJN
 stand stand male 150
 0 0 medium unknown
 r bash 33
@@ -784,10 +784,10 @@ A waiter is going around from one place to another.
 A tired looking waiter.
 ~
 human~
-BVeh 0 0 0 0 900 0
+BJVe 0 0 0 0 900 0
 23 0 1d1+599 1d1+99 1d8+18 'beating'
 -6 -6 -6 0
-FHJNlnpt
+FHJN
 stand stand male 150
 0 0 medium unknown
 r bash 33
@@ -819,10 +819,10 @@ peaceful life as a waiter.
 спокойную, мирную жизнь официанта.
 ~
 human~
-BRVehx 0 0 0 Ag 600 0
+BJRVe 0 0 0 A 600 0
 23 0 1d1+599 1d1+99 1d8+18 'beating'
 -6 -6 -6 0
-FJNlpt
+FJN
 stand stand male 150
 0 0 medium unknown
 r bash 33
@@ -852,10 +852,10 @@ waiter официант~
 @rus Официант похож на человека, на которого снизошло Откровение богов.
 ~
 human~
-BQVehw 0 0 0 0 600 0
+BJQVe 0 0 0 0 600 0
 23 0 1d1+599 1d1+99 1d8+18 'beating'
 -6 -6 -6 0
-FHJNlnpt
+FHJN
 stand stand male 150
 0 0 medium unknown
 r bash 33
@@ -885,10 +885,10 @@ waiter официант~
 @rus Официант прекрасно знает, где ты держишь свои деньги.
 ~
 human~
-BSVehy 0 0 0 0 600 0
+BJSVe 0 0 0 0 600 0
 23 0 1d1+599 1d1+99 1d8+18 'beating'
 -6 -6 -6 0
-FHJNlnpt
+FHJN
 stand stand male 150
 0 0 medium unknown
 r bash 33
@@ -918,10 +918,10 @@ waiter официант~
 @rus А ведь ему не составит труда разобраться с тобой!
 ~
 human~
-BTVehz 0 0 0 0 600 0
+BJTVe 0 0 0 0 600 0
 23 0 1d1+599 1d1+99 1d8+18 'beating'
 -6 -6 -6 0
-BFHJNhlnpt
+BFHJN
 stand stand male 150
 0 0 medium unknown
 r bash 33
@@ -954,10 +954,10 @@ but do not mess with him or else he'll get upset.
 не понравиться.
 ~
 human~
-BSVehy 0 0 0 0 600 0
+BJSVe 0 0 0 0 600 0
 23 2 1d1+599 1d1+99 1d8+18 'beating'
 -8 -8 -8 -4
-BEFJNhklpt
+BEFJN
 stand stand male 200
 0 0 medium unknown
 r bash 33
@@ -988,10 +988,10 @@ cityguard guard стражник~
 стражник.
 ~
 human~
-CGTimz 0 0 0 0 1000 3000
+CGT 0 0 0 0 1000 3000
 15 3 15d15+160 1d1+149 2d4+4 'punch'
 0 0 0 8
-CDEKLTUijkqrz
+CDEKLTU
 stand stand either 150
 0 0 medium unknown
 V 37001
@@ -1017,10 +1017,10 @@ janitor дворник~
 ~
 ~
 human~
-GHmn 0 0 0 0 900 0
+GH 0 0 0 0 900 0
 1 0 2d6+10 1d1+99 1d5+0 'pound'
 10 10 10 10
-NUt
+NU
 stand stand either 10
 0 0 medium unknown
 M random 3026 10~
@@ -1050,7 +1050,7 @@ around its teeth.
 @rus Собака жутко воняет. На зубах у нее застряли куски недожеванного мяса.
 ~
 fido~
-FGHUlmn 0 0 0 0 -200 0
+FGHU 0 0 0 0 -200 0
 0 0 1d6+4 1d1+99 1d4+0 'bite'
 10 10 10 10
 0
@@ -1066,10 +1066,10 @@ vagabond бродяга~
 @rus Он очень подло выглядит.
 ~
 human~
-CSiy 0 0 0 0 -200 0
+CS 0 0 0 0 -200 0
 5 1 2d6+60 1d1+99 1d6+1 'punch'
 7 5 5 10
-BJNQhptw
+BJNQ
 stand stand male 18
 0 0 medium unknown
 M death 3020 100~
@@ -1097,7 +1097,7 @@ drunk пьяница~
 @rus Он очень счастлив и у него много денег.
 ~
 human~
-Gm 0 0 0 0 0 0
+G 0 0 0 0 0 0
 2 -1 2d6+22 1d1+99 1d6+0 'beating'
 8 8 8 10
 U
@@ -1127,10 +1127,10 @@ beggar попрошайка~
 @rus Попрошайка малость ободрана...
 ~
 human~
-Bh 0 0 0 0 0 0
+B 0 0 0 0 0 0
 1 0 2d6+10 1d1+99 1d5+0 'beating'
 8 8 8 10
-FJNUlpt
+FJNU
 stand stand female 0
 0 0 medium unknown
 M greet 3025 100~
@@ -1160,10 +1160,10 @@ cat кот~
 @rus Бедное создание голодает и совсем одичало.
 ~
 cat~
-FGHUlmn 0 0 0 0 -200 0
+FGHU 0 0 0 0 -200 0
 1 1 1d6+4 1d1+99 1d4+0 'scratch'
 8 8 8 9
-DRjx
+DR
 stand stand either 0
 0 0 small unknown
 r fire -50
@@ -1190,10 +1190,10 @@ cityguard guard стражник~
 @rus Большой, сильный, заслуживающий доверия стражник.
 ~
 human~
-BThz 0 0 0 0 1000 3000
+BT 0 0 0 0 1000 3000
 15 3 15d15+160 1d1+149 2d4+4 'punch'
 0 0 0 8
-CDEKLTUijkqrz
+CDEKLTU
 stand stand either 150
 0 0 medium unknown
 r fire 33
@@ -1220,10 +1220,10 @@ cityguard guard стражник~
 @rus Большой, сильный, заслуживающий доверия стражник.
 ~
 human~
-BThz 0 0 0 0 1000 3000
+BT 0 0 0 0 1000 3000
 15 3 15d15+160 1d1+149 2d4+4 'punch'
 0 0 0 8
-CDEKLTUijkqrz
+CDEKLTU
 stand stand either 150
 0 0 medium unknown
 r fire 33
@@ -1250,10 +1250,10 @@ cityguard guard стражник~
 @rus Большой, крепкий, внушающий доверие стражник.
 ~
 human~
-BThz 0 0 ABgh 0 1000 3000
+BT 0 0 AB 0 1000 3000
 20 4 20d20+200 1d1+199 2d4+7 'punch'
 -4 -6 -6 0
-CDEHKLTUijknqrz
+CDEHKLTU
 stand stand either 500
 0 0 medium unknown
 r fire 33
@@ -1280,10 +1280,10 @@ shopkeeper old man аптекарь~
 @rus Он выглядит довольно опасным. Я бы не $gn{стал} у него воровать...
 ~
 human~
-BQRVehwx 0 HVn 0 ABLghr 1000 0
+BJQRVe 0 HV 0 ABL 1000 0
 92 0 1d1+29599 1d1+999 10d10+20 'magic'
 -65 -65 -65 -25
-FGHlmn
+FGH
 stand stand male 5000
 0 0 medium unknown
 M greet 3023 100~
@@ -1314,10 +1314,10 @@ cityguard guard стражник~
 @rus Большой, сильный, заслуживающий доверия стражник.
 ~
 human~
-BThz 0 0 0 0 1000 3000
+BT 0 0 0 0 1000 3000
 15 3 15d15+160 1d1+149 2d4+4 'punch'
 0 0 0 8
-CDEKLTUijkqrz
+CDEKLTU
 stand stand either 150
 0 0 medium unknown
 r fire 33
@@ -1344,10 +1344,10 @@ cityguard guard стражник~
 @rus Большой, сильный, заслуживающий доверия стражник.
 ~
 human~
-BThz 0 0 0 0 1000 3000
+BT 0 0 0 0 1000 3000
 15 3 15d15+160 1d1+149 2d4+4 'punch'
 0 0 0 8
-CDEKLTUijkqrz
+CDEKLTU
 stand stand either 150
 0 0 medium unknown
 r fire 33
@@ -1374,7 +1374,7 @@ kitten cat pet котенок~
 @rus Котенок выглядит хитрым, маленьким и свирепым.
 ~
 cat~
-BUh 0 0 0 0 400 0
+BU 0 0 0 0 400 0
 1 2 2d6+11 1d1+99 1d4+0 'scratch'
 8 8 8 10
 0
@@ -1404,12 +1404,12 @@ puppy dog pet щенок~
 @rus Щенок выглядит хитрым, маленьким и свирепым.
 ~
 dog~
-BUh 0 0 0 Bh 400 0
+BU 0 0 0 B 400 0
 3 2 4d6+25 1d1+99 1d6+0 'bite'
 7 7 7 10
-Nt
+N
 stand stand male 0
-0 Qw small unknown
+0 Q small unknown
 r fire 33
 r cold 33
 r lightning 33
@@ -1434,12 +1434,12 @@ beagle dog pet гончая~
 @rus Гончая выглядит бесстрашно.
 ~
 dog~
-BUh 0 0 0 Bh 400 0
+BU 0 0 0 B 400 0
 5 3 3d12+50 1d1+99 1d6+0 'bite'
 5 5 5 9
-Nt
+N
 stand stand female 0
-0 Qw small unknown
+0 Q small unknown
 r fire 33
 r cold 33
 r lightning 33
@@ -1464,10 +1464,10 @@ rottweiler dog pet ротвейлер~
 @rus Ротвейлер похож на сильного, храброго бойца.
 ~
 dog~
-BUh 0 0 0 Bh 400 0
+BU 0 0 0 B 400 0
 7 3 6d10+60 1d1+149 2d4+1 'bite'
 4 4 4 8
-CDLijr
+CDL
 stand stand male 0
 0 0 medium unknown
 r fire 33
@@ -1494,10 +1494,10 @@ wolf pet волк~
 @rus Волк похож на сильного, храброго бойца.
 ~
 wolf~
-BUh 0 0 0 Bh 0 0
+BU 0 0 0 B 0 0
 9 3 6d10+80 1d1+99 2d5+1 'bite'
 4 4 4 8
-Ci
+C
 stand stand male 0
 0 0 medium unknown
 r fire 33
@@ -1522,10 +1522,10 @@ A loyal eagle circles overhead.
 The eagle looks like a strong fierce fighter.
 ~
 song bird~
-BUh 0 0 0 Bh 0 0
+BU 0 0 0 B 0 0
 12 3 6d10+130 1d1+99 2d5+3 'claw'
 0 0 0 8
-Nt
+N
 stand stand either 0
 0 U small unknown
 r fire 33
@@ -1550,10 +1550,10 @@ A large, faithful lion is here.
 The great lion looks very fierce.
 ~
 cat~
-BUh 0 0 0 Bh 0 0
+BU 0 0 0 B 0 0
 15 2 4d9+205 1d1+99 2d8+3 'chomp'
 -2 -2 -2 7
-Ci
+C
 stand stand either 0
 0 0 medium unknown
 r fire 33
@@ -1578,10 +1578,10 @@ A great, loyal tiger is here.
 The large, striped tiger looks like a savage fighter.
 ~
 cat~
-BUh 0 0 0 Bh 0 0
+BU 0 0 0 B 0 0
 20 3 4d9+325 1d1+99 4d4+5 'claw'
 -4 -4 -4 6
-CMNist
+CMN
 stand stand either 0
 0 0 medium unknown
 r fire 33
@@ -1610,10 +1610,10 @@ for coming here more often.
 чтобы заходить сюда почаще!
 ~
 human~
-BVeh 0 0 0 0 1000 0
+BJVe 0 0 0 0 1000 0
 23 2 1d1+499 1d1+99 1d8+12 'beating'
 -15 -15 -15 -15
-FGlm
+FG
 stand stand female 180
 0 0 medium unknown
 r bash 33
@@ -1643,7 +1643,7 @@ sexton могильщик~
 @rus Могильщик отдыхает после изнурительной работы.
 ~
 human~
-BHhn 0 0 0 0 800 0
+BH 0 0 0 0 800 0
 3 0 2d6+35 1d1+99 1d7+0 'punch'
 7 7 7 10
 0
@@ -1673,10 +1673,10 @@ swan лебедь~
 @rus Белая, очень элегантная птица.
 ~
 water fowl~
-BUh 0 0 0 0 1000 0
+BU 0 0 0 0 1000 0
 1 0 2d6+10 1d1+99 1d5+0 'peck'
 8 8 8 10
-CFRilx
+CFR
 stand stand either 0
 0 0 small unknown
 r fire -50
@@ -1703,10 +1703,10 @@ duckling утенок~
 @rus Просто прелесть! Выглядит как маленький пушистый комочек.
 ~
 water fowl~
-BUh 0 0 0 0 1000 0
+BU 0 0 0 0 1000 0
 0 0 1d4+0 1d1+99 1d1+0 'peckb'
 10 10 10 10
-FRlx
+FR
 stand stand either 0
 0 0 tiny unknown
 r fire -50
@@ -1733,10 +1733,10 @@ sparrow воробей~
 @rus Воробей вовсю наслаждается жизнью.
 ~
 song bird~
-GHUmn 0 0 0 0 1000 0
+GHU 0 0 0 0 1000 0
 0 0 2d6+0 1d1+99 1d3+0 'peck'
 10 10 10 10
-Rx
+R
 stand stand either 0
 0 0 tiny unknown
 r fire -50
@@ -1763,10 +1763,10 @@ duck утка~
 @rus Довольно жирная птица. И вовсю наслаждается жизнью, пока ее не съели.
 ~
 water fowl~
-GUm 0 0 0 0 1000 0
+GU 0 0 0 0 1000 0
 1 0 2d6+5 1d1+99 1d4+0 'peckb'
 10 10 10 10
-FRlx
+FR
 stand stand either 0
 0 0 small unknown
 r fire -50
@@ -1793,10 +1793,10 @@ captain капитан~
 @rus Большой, сильный и злой капитан.
 ~
 human~
-BCFThilz 0 0 0 Ag 1000 3000
+BCFT 0 0 0 A 1000 3000
 17 4 15d15+190 1d1+199 2d4+6 'punch'
 -2 -2 -2 6
-CDEHKLUijknqr
+CDEHKLU
 stand stand male 500
 0 0 medium unknown
 r fire 33
@@ -1823,10 +1823,10 @@ cityguard guard стражник~
 @rus Большой, сильный, злобный стражник.
 ~
 human~
-BCFThilz 0 0 0 0 1000 3000
+BCFT 0 0 0 0 1000 3000
 15 3 15d15+10 1d1+149 2d4+4 'punch'
 0 0 0 8
-CDEHKLUijknqr
+CDEHKLU
 stand stand either 150
 0 0 medium unknown
 r fire 33
@@ -1857,10 +1857,10 @@ The Secretary says 'Please sit down and have a seat in the meantime'.
 Секретарша произносит "Позалуйста сядте и немного подождите".
 ~
 human~
-Bh 0 0 0 0 900 0
+B 0 0 0 0 900 0
 12 2 4d12+148 1d1+99 2d7+1 'slap'
 0 0 0 8
-FHIlno
+FHI
 sit sit female 100
 0 0 medium unknown
 #3143
@@ -1873,10 +1873,10 @@ mayor мэр~
 @rus Коренастый мужчина средних лет с редкими серыми волосами.
 ~
 human~
-Bh 0 Nt 0 0 900 3000
+BJ 0 N 0 0 900 3000
 23 6 6d10+600 1d1+199 1d8+12 'punch'
 -25 -25 -25 -20
-EFNSklty
+EFNS
 sleep stand male 1000
 0 0 medium unknown
 r bash 33
@@ -1906,10 +1906,10 @@ crier плакальщик~
 @rus Он хорошо выполняет свою работу - полностью залит слезами.
 ~
 human~
-Hn 0 0 0 0 900 0
+H 0 0 0 0 900 0
 1 0 2d6+10 1d1+99 1d5+0 'slap'
 10 10 10 10
-Dj
+D
 stand stand male 14
 0 0 medium unknown
 r fire -50
@@ -1937,10 +1937,10 @@ smiles warmly at you.
 @rus Эсме убирает выбившуюся прядь волос со своих очков и тепло тебе улюбается.
 ~
 human~
-BVeh 0 0 0 0 900 0
+BJVe 0 0 0 0 900 0
 25 0 1d1+999 1d1+199 1d8+10 'slap'
 -15 -15 -15 -15
-FGlm
+FG
 stand stand male 1000
 0 0 medium unknown
 r bash 33
@@ -1976,10 +1976,10 @@ at you, smiling faintly.
 выжидающе, едва улыбаясь.
 ~
 human~
-BVeh 0 0 0 0 900 0
+BJVe 0 0 0 0 900 0
 84 3 20d10+28800 1d1+399 13d60+60 'slap'
 -65 -65 -65 -35
-FGlm
+FG
 stand stand male 8000
 0 0 medium unknown
 r bash 33
@@ -2013,10 +2013,10 @@ get him drunk.
 его!
 ~
 snake~
-BVh 0 0 0 Ag 200 0
+BV 0 0 0 A 200 0
 35 3 11d10+1300 1d1+99 6d6+4 'bite'
 -16 -15 -12 0
-FHNRlntx
+FHNR
 stand stand male 0
 0 0 small unknown
 r pierce 33
@@ -2039,10 +2039,10 @@ of his fencing services are true...
 этот. Либо слухи о скупке краденого все же имеют под собой основание...
 ~
 human~
-BVh Ag 0 0 ABgh 900 0
+BEJV AG 0 0 AB 900 0
 75 0 1d1+28099 1d1+199 15d30+60 'slap'
 -65 -65 -65 -35
-FGlm
+FG
 stand stand male 1000
 0 0 medium unknown
 r bash 33
@@ -2072,10 +2072,10 @@ thief вор~
 @rus Пересчитайте ваши денежки!
 ~
 human~
-CHSiny 0 0 BGhm 0 -100 0
+CHS 0 0 BG 0 -100 0
 30 1 6d8+700 1d1+99 4d5+5 'stab'
 2 4 3 7
-EFJNklpt
+EFJN
 stand stand either 100
 0 0 medium unknown
 #3164
@@ -2089,10 +2089,10 @@ he cuts the beef.
 @rus Мускулистый мужчина, одетый в белый передник, разделывает мясо.
 ~
 human~
-BVeh 0 Hn 0 0 900 0
+BJVe 0 H 0 0 900 0
 48 1 25d10+6250 1d1+999 6d18+16 'none'
 -35 -35 -35 -15
-EFJklp
+EFJ
 stand stand female 7000
 0 0 medium unknown
 r bash 33
@@ -2126,10 +2126,10 @@ or carrying away what is needed and what is not.
 уносит, что не нужно.
 ~
 human~
-Bceh 0 HVn 0 0 500 0
+BJce 0 HV 0 0 500 0
 12 1 6d8+300 1d1+99 4d10+5 'beating'
 2 4 3 7
-EFJNklpt
+EFJN
 stand stand male 100
 0 0 medium unknown
 r charm 100
@@ -2148,10 +2148,10 @@ the altar, and concentrating, to cure the others wounds.
 ее души. Она стоит позади алтаря, готовая излечить раны и помочь страждущим.
 ~
 human~
-ABDEJQRVeghjkpwx DFGHIjlmno Hn 0 ABLghr 1000 0
+BJQRVe DHI H 0 ABL 1000 0
 120 0 1d1+1700 1d1+2000 7d4+50 'divine'
 0 0 0 0
-FGlm
+FG
 stand stand female 0
 0 0 medium unknown
 r bash 100
@@ -2185,10 +2185,10 @@ safe place like this. He has a long, two-handed sword next to him.
 безопасность этого места. У него большой двуручный меч...
 ~
 human~
-BRVehx Dj 0 0 ABLghr 1000 0
+BJRVe D 0 0 ABL 1000 0
 96 0 1d1+29099 1d1+999 20d48+64 'slash'
 -80 -80 -80 -40
-FGlm
+FG
 stand stand male 0
 0 0 medium unknown
 r bash 100
@@ -2220,10 +2220,10 @@ over his body,  and carries strange equipment tied on his belt.
 одежды, а на поясе носит какие-то странные приспособления.
 ~
 human~
-BRVehx Dj 0 0 ABLghr 0 0
+BJRVe D 0 0 ABL 0 0
 96 0 1d1+29099 1d1+999 20d48+64 'slash'
 -80 -80 -80 -30
-FGlm
+FG
 stand stand male 0
 0 0 medium unknown
 r bash 33
@@ -2259,10 +2259,10 @@ willing to practice you, as long as you serve the evil.
 если ты служишь Злу.
 ~
 dark-elf~
-BRVehx Dj 0 0 ABLghr -300 0
+BJRVe D 0 0 ABL -300 0
 96 0 1d1+29099 1d1+999 20d50+64 'slash'
 -80 -80 -80 -40
-FGlm
+FG
 stand stand male 0
 0 0 medium unknown
 r bash 33
@@ -2296,10 +2296,10 @@ and you notice that she is surrounded by a blue shimmering aura.
 одежды, и ты замечаешь вокруг нее мерцающую голубую ауру.
 ~
 elf~
-BRVehx Dj 0 0 ABLghr 0 0
+BJRVe D 0 0 ABL 0 0
 96 0 1d1+29099 1d1+999 20d48+64 'magic'
 -85 -85 -85 -35
-FGlm
+FG
 stand stand female 0
 0 0 medium unknown
 r bash 100
@@ -2333,10 +2333,10 @@ safe place like this.
 безопасном месте.
 ~
 human~
-BRVehx Dj 0 0 ABLghr 1000 0
+BJRVe D 0 0 ABL 1000 0
 96 0 1d1+29099 1d1+999 20d48+64 'slash'
 -80 -80 -80 -40
-FGlm
+FG
 stand stand male 0
 0 0 medium unknown
 r bash 100
@@ -2365,10 +2365,10 @@ Although very handsome, the templeman serves for IMMORTALS and GODS.
 help 'religion' to see a listing of religions available.
 ~
 human~
-BQVehw Dj Hn 0 ABgh 1000 0
+BJQVe D H 0 AB 1000 0
 80 10 1d1+25999 1d1+999 12d44+60 'divine'
 -95 -95 -95 -15
-FHIKlnoq
+FHIK
 stand stand male 5000
 0 0 huge unknown
 M greet 3000 100~
@@ -2415,7 +2415,7 @@ barrel beer бочонок~
 @eng a barrel of beer@rus ~~бочонок~~ пива~
 @eng A beer barrel has been left here.@rus Бочонок (barrel) пива кем-то оставлен здесь.~
 wood~
-drink 0 0 Ag
+drink 0 0 A
 300 300 'beer' 0 0
 0 160 75 P
 g male~
@@ -2424,7 +2424,7 @@ bottle beer бутылка~
 @eng a bottle of beer@rus ~~бутылка~~ пива~
 @eng A beer bottle has been left here.@rus Бутылка (bottle) пива оставлена здесь.~
 glass~
-drink 0 0 Ag
+drink 0 0 A
 16 16 'beer' 0 0
 0 10 5 P
 g female~
@@ -2433,7 +2433,7 @@ bottle ale бутыль~
 @eng a bottle of ale@rus ~~бутыль~~ эля~
 @eng A dark bottle of ale has been left here.@rus Темная бутыль (bottle) с элем оставлена здесь.~
 glass~
-drink 0 0 Ag
+drink 0 0 A
 16 16 'ale' 0 0
 0 20 6 P
 g female~
@@ -2442,7 +2442,7 @@ bottle firebreather~
 a bottle of firebreather~
 A bottle of firebreather has been left here.~
 glass~
-drink 0 0 Ag
+drink 0 0 A
 12 12 'firebreather' 0 0
 0 10 25 P
 g none~
@@ -2451,7 +2451,7 @@ bottle local бутылка~
 @eng a bottle of local specialty@rus ~~бутылка~~ напитка дядюшки Джо~
 @eng A dark bottle has been left here.@rus Темная бутылка (bottle) оставлена здесь.~
 glass~
-drink 0 0 Ag
+drink 0 0 A
 12 12 'local specialty' 0 0
 0 10 11 P
 g none~
@@ -2460,8 +2460,8 @@ sword quest меч квестора~
 @eng quest's sword@rus ~~меч~~ Квестора~
 @eng Questor's sword lies upon the ground, waiting for its owner.@rus Меч (sword) Квестора лежит на земле в ожидании хозяина.~
 adamantite~
-weapon BIho 0 ANgt
-sword 10 6 'cleave' EFkl
+weapon BI 0 AN
+sword 10 6 'cleave' EF
 45 450 5600 P
 E
 scimitar blade~
@@ -2475,8 +2475,8 @@ stone~
 A Clan Stone~
 Somebody left their Clan Stone here.~
 adamantite~
-food 0 0 Ag
-ACDFgijl ACDFgijl 0 0 0
+food 0 0 A
+ACDF ACDF 0 0 0
 0 20 0 P
 g none~
 #3009
@@ -2484,8 +2484,8 @@ pie pot big пирог~
 @eng a big pot pie@rus ~~большой~~ ~~пирог~~~
 @eng A big pot pie has been left here.@rus Большой пирог (pie) был оставлен здесь.~
 food~
-food 0 0 Ag
-CEik DFjl 0 0 0
+food 0 0 A
+CE DF 0 0 0
 0 20 22 P
 g male~
 #3010
@@ -2493,7 +2493,7 @@ pit яма~
 @eng the donation pit@rus ~~яма~~ для жертвоприношений~
 @eng A pit for sacrifices is in front of the altar.@rus Перед алтарем находится яма (pit) для жертвоприношений.~
 unknown~
-container 0 Ag 0
+container 0 AJ 0
 10000 0 0 1000 100
 0 0 0 P
 E
@@ -2506,8 +2506,8 @@ bread хлеб краюха~
 @eng bread@rus ~~краюха~~ хлеба~
 @eng A loaf of bread is here. It doesn't look too stale.@rus Краюха хлеба (bread), еще достаточно свежая, лежит здесь.~
 food~
-food 0 0 Ag
-BEhk CDij 0 0 0
+food 0 0 A
+BE CD 0 0 0
 0 10 9 P
 g female~
 #3012
@@ -2515,8 +2515,8 @@ roll cinnamon рулет~
 @eng a cinnamon roll@rus ~~рулет~~ с корицей~
 @eng A piping hot cinnamon roll is here. It looks delicious!@rus Горячий рулет с корицей (roll) лежит здесь. Он выглядит восхитительно!~
 food~
-food 0 0 Ag
-Ci Dj 0 0 0
+food 0 0 A
+C D 0 0 0
 0 10 16 P
 g male~
 #3013
@@ -2524,8 +2524,8 @@ cookies печенье~
 @eng a batch of Sara's cookies@rus ~~коробка~~ печенья~
 @eng A plate of chocolate chip cookies is here.@rus Плитка шоколадного печенья (cookies) лежит здесь.~
 food~
-food 0 0 Ag
-Dj BDhj 0 0 0
+food 0 0 A
+D BD 0 0 0
 0 10 11 P
 g female~
 #3014
@@ -2533,8 +2533,8 @@ danish blueberry пирожное~
 @eng a blueberry danish@rus ~~пирожное~~ с голубикой~
 @eng A scrumptious blueberry danish is here.@rus Аппетитное голубичное пирожное (danish) лежит здесь.~
 food~
-food 0 0 Ag
-Dj BChi 0 0 0
+food 0 0 A
+D BC 0 0 0
 0 10 5 P
 g none~
 #3020
@@ -2542,7 +2542,7 @@ dagger кинжал~
 @eng a dagger@rus кинжал~
 @eng A dagger with a long thin blade is here.@rus Кинжал (dagger) с длинным тонким лезвием лежит здесь.~
 steel~
-weapon 0 0 ANgt
+weapon 0 0 AN
 dagger 1 4 'stab' 0
 0 10 157 G
 g none~
@@ -2551,7 +2551,7 @@ sword small меч~
 @eng a small sword@rus ~~короткий~~ ~~меч~~~
 @eng A small sword lies here.@rus Короткий меч (sword) лежит здесь.~
 steel~
-weapon 0 0 ANgt
+weapon 0 0 AN
 sword 1 5 'slice' 0
 0 30 250 G
 g male~
@@ -2560,7 +2560,7 @@ sword long меч~
 @eng a long sword@rus ~~длинный~~ ~~меч~~~
 @eng A long sword has been left here.@rus Длинный меч (sword) был оставлен здесь.~
 steel~
-weapon 0 0 ANgt
+weapon 0 0 AN
 sword 2 5 'slash' 0
 7 50 610 G
 g male~
@@ -2569,7 +2569,7 @@ club дубина~
 @eng a club@rus дубина~
 @eng A stout wooden club is here.@rus Крепкая деревянная дубина (club) лежит здесь.~
 wood~
-weapon 0 0 ANgt
+weapon 0 0 AN
 mace 1 7 'pound' 0
 3 30 220 G
 A
@@ -2580,7 +2580,7 @@ mace heavy палица~
 @eng a mace@rus палица~
 @eng A heavy iron mace is here.@rus Тяжелая железная палица (mace) лежит здесь.~
 iron~
-weapon 0 0 ANgt
+weapon 0 0 AN
 mace 2 4 'pound' 0
 6 100 390 G
 A
@@ -2591,7 +2591,7 @@ axe hand топорик~
 @eng a hand axe@rus топорик~
 @eng A small hand axe lies forgotten on the floor.@rus Маленький топор (axe) оставлен кем-то на земле.~
 iron~
-weapon 0 0 ANgt
+weapon 0 0 AN
 axe 1 6 'chop' 0
 1 50 310 G
 g male~
@@ -2600,8 +2600,8 @@ axe battle топор~
 @eng a battle axe@rus ~~боевой~~ ~~топор~~~
 @eng A large steel axe rests on the ground.@rus Большой стальной топор (axe) лежит на земле.~
 steel~
-weapon 0 0 ANgt
-axe 2 5 'chop' Fl
+weapon 0 0 AN
+axe 2 5 'chop' F
 5 90 650 G
 g none~
 #3027
@@ -2609,8 +2609,8 @@ spear копье~
 @eng a spear@rus копье~
 @eng A long spear leans against the wall.@rus Длинное копье (spear) стоит у стены.~
 steel~
-weapon 0 0 ANgt
-spear 1 8 'pierce' Kq
+weapon 0 0 AN
+spear 1 8 'pierce' K
 4 50 84 G
 g none~
 #3028
@@ -2618,8 +2618,8 @@ staff посох~
 @eng a wooden staff@rus ~~деревянный~~ ~~посох~~~
 @eng A stout wooden staff lies on the floor.@rus Прочный деревянный посох (staff) лежит на полу.~
 wood~
-weapon 0 0 ANgt
-staff 1 8 'pound' Fl
+weapon 0 0 AN
+staff 1 8 'pound' F
 9 40 580 G
 A
 17 -2
@@ -2629,7 +2629,7 @@ flail цеп~
 @eng a flail@rus цеп~
 @eng A small iron flail is here.@rus Маленький стальной цеп (flail) лежит здесь.~
 iron~
-weapon 0 0 ANgt
+weapon 0 0 AN
 flail 1 7 'pound' 0
 1 50 77 G
 A
@@ -2640,7 +2640,7 @@ torch факел~
 @eng a torch@rus факел~
 @eng A large torch lies here.@rus Большой факел (torch) оставлен здесь.~
 wood~
-light 0 0 Ag
+light 0 0 A
 0 0 50 0 0
 0 30 4 G
 g male~
@@ -2649,7 +2649,7 @@ lantern фонарь~
 @eng a hooded brass lantern@rus ~~латунный~~ ~~фонарь~~~
 @eng A hooded brass lantern has been left here.@rus Латунный фонарь (lantern) был оставлен здесь.~
 brass~
-light 0 0 Ag
+light 0 0 A
 0 0 250 0 0
 0 40 75 P
 E
@@ -2668,7 +2668,7 @@ bag мешок~
 @eng a bag@rus мешок~
 @eng A small bag.@rus Маленький мешок (bag).~
 leather~
-container 0 0 Ag
+container 0 0 A
 50 0 0 5 100
 0 10 9 G
 g male~
@@ -2677,8 +2677,8 @@ box коробка~
 @eng a box@rus коробка~
 @eng A small box.@rus Маленькая коробка (box).~
 wood~
-container 0 0 Ag
-10 Ag 0 5 100
+container 0 0 A
+10 A 0 5 100
 0 10 30 G
 g female~
 #3039
@@ -2686,7 +2686,7 @@ scroll cancellation свиток~
 @eng a scrool of cancellation@rus ~~свиток~~ очищения~
 @eng A rolled vellum scroll is here.@rus Скрученный тонкий пергамент (scroll) лежит здесь.~
 vellum~
-scroll Gm 0 AOgu
+scroll G 0 AO
 15 'cancellation' '' '' ''
 9 10 1190 P
 E
@@ -2700,7 +2700,7 @@ scroll identify свиток идентификации~
 @eng a scroll of identify@rus ~~свиток~~ познания~
 @eng A scroll has carelessly been left here.@rus Свиток (scroll) познания оставлен здесь.~
 vellum~
-scroll Gm 0 AOgu
+scroll G 0 AO
 12 'identify' '' '' ''
 7 10 890 P
 E
@@ -2719,7 +2719,7 @@ potion return зелье возвращения~
 @eng a swirling potion of return@rus ~~зелье~~ возвращения~
 @eng A small swirling potion has been left here.@rus Маленькая бутылочка с зельем возвращения (potion) была оставлена здесь.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 20 'word of recall' '' '' ''
 0 10 2020 P
 E
@@ -2732,7 +2732,7 @@ scroll recall свиток возвращения~
 @eng a scroll of recall@rus ~~свиток~~ возвращения~
 @eng A scroll has carelessly been left here.@rus Свиток возвращения (recall) был небрежно оставлен здесь.~
 vellum~
-scroll Gm 0 AOgu
+scroll G 0 AO
 20 'word of recall' '' '' ''
 17 20 2900 P
 E
@@ -2745,7 +2745,7 @@ ring protection кольцо защиты~
 @eng a ring of protection@rus кольцо защиты~
 @eng an enchanted ring of protection sits on the floor.@rus Кольцо защиты (ring) лежит на полу.~
 silver~
-treasure Gm 0 ABgh
+treasure G 0 AB
 0 0 0 0 0
 8 10 640 P
 A
@@ -2762,7 +2762,7 @@ wand magic missile missiles жезл магических ракет~
 @eng a wand of magic missiles@rus ~~жезл~~ магических ракет~
 @eng a wooden stick lies on the ground.@rus Деревянная палка (wand) лежит на земле.~
 wood~
-wand Gm 0 AOgu
+wand G 0 AO
 4 10 10 'magic missile' 0
 2 10 320 P
 E
@@ -2775,7 +2775,7 @@ jacket scale mail~
 a scale mail jacket~
 A scale mail jacket is lying on the ground.~
 steel~
-armor 0 0 ADgj
+armor 0 0 AD
 3 4 4 0 2
 5 160 850 G
 g none~
@@ -2784,7 +2784,7 @@ bronze breast plate~
 a bronze breast plate~
 A bronze breast plate is lying on the ground.~
 bronze~
-armor 0 0 ADgj
+armor 0 0 AD
 6 5 7 0 5
 15 200 2100 G
 g none~
@@ -2793,7 +2793,7 @@ bronze breast plate~
 a special bronze breast plate~
 A special bronze breast plate is lying on the ground.~
 bronze~
-armor 0 0 ADgj
+armor 0 0 AD
 6 5 7 0 5
 15 200 2100 G
 g none~
@@ -2802,7 +2802,7 @@ raft плот~
 @eng a raft@rus плот~
 @eng A raft has been left here.@rus Плот (raft) был оставлен кем-то здесь.~
 wood~
-boat 0 0 Ag
+boat 0 0 A
 0 0 0 0 0
 0 750 400 A
 E
@@ -2815,7 +2815,7 @@ canoe челнок~
 @eng a canoe@rus челнок~
 @eng A canoe has been left here.@rus Челнок (canoe) был оставлен кем-то здесь.~
 wood~
-boat 0 0 Ag
+boat 0 0 A
 0 0 0 0 0
 0 320 900 G
 E
@@ -2828,7 +2828,7 @@ bracer strong leather браслет~
 @eng a leather bracer@rus ~~кожаный~~ ~~браслет~~~
 @eng A strong leather bracer is here.@rus Кожаный браслет (bracer) лежит на земле.~
 leather~
-armor 0 0 AMgs
+armor 0 0 AM
 0 2 2 0 0
 0 10 112 G
 g male~
@@ -2837,7 +2837,7 @@ belt leather пояс~
 @eng a leather belt@rus ~~кожаный~~ ~~пояс~~~
 @eng A soft leather belt is here.@rus Мягкий кожаный пояс (belt) лежит здесь.~
 leather~
-armor 0 0 ALgr
+armor 0 0 AL
 1 2 2 0 0
 0 10 136 G
 g male~
@@ -2846,7 +2846,7 @@ girdle leather~
 a leather girdle~
 A wide leather girdle is here.~
 leather~
-armor 0 0 ALgr
+armor 0 0 AL
 1 3 3 0 1
 0 20 220 G
 g none~
@@ -2855,7 +2855,7 @@ jerkin leather~
 a leather jerkin~
 A leather jerkin is lying on the ground.~
 leather~
-armor 0 0 ADgj
+armor 0 0 AD
 1 2 2 0 0
 0 50 270 G
 g none~
@@ -2864,7 +2864,7 @@ cap leather~
 a leather cap~
 A leather cap is lying on the ground.~
 leather~
-armor 0 0 AEgk
+armor 0 0 AE
 1 2 2 0 0
 0 10 136 G
 g none~
@@ -2873,7 +2873,7 @@ pants leather~
 a pair of leather pants~
 A pair of leather pants is lying on the ground.~
 leather~
-armor 0 0 AFgl
+armor 0 0 AF
 1 2 2 0 0
 0 50 136 G
 g none~
@@ -2882,7 +2882,7 @@ boots leather~
 a pair of leather boots~
 A pair of leather boots lies here.~
 leather~
-armor 0 0 AGgm
+armor 0 0 AG
 1 2 2 0 0
 0 30 136 G
 g none~
@@ -2891,7 +2891,7 @@ gloves leather~
 a pair of leather gloves~
 A pair of leather gloves is lying on the ground.~
 leather~
-armor 0 0 AHgn
+armor 0 0 AH
 1 2 2 0 0
 0 10 136 G
 g none~
@@ -2900,7 +2900,7 @@ sleeves leather~
 a pair of leather sleeves~
 A pair of leather sleeves is lying on the ground.~
 leather~
-armor 0 0 AIgo
+armor 0 0 AI
 1 2 2 0 0
 0 30 136 G
 g none~
@@ -2909,7 +2909,7 @@ jerkin hard leather куртка~
 @eng a hard leather jerkin@rus ~~прочная~~ ~~кожаная~~ ~~куртка~~~
 @eng A hard leather jerkin is lying on the ground.@rus Прочная кожаная куртка (jerkin) лежит на земле.~
 leather~
-armor 0 0 ADgj
+armor 0 0 AD
 1 3 3 0 1
 0 80 430 G
 g female~
@@ -2918,7 +2918,7 @@ cap hard leather~
 a hard leather cap~
 A hard leather cap is lying on the ground.~
 leather~
-armor 0 0 AEgk
+armor 0 0 AE
 1 3 3 0 0
 0 20 220 G
 g none~
@@ -2927,7 +2927,7 @@ pants hard leather~
 a pair of hard leather pants~
 A pair of hard leather pants is lying on the ground.~
 leather~
-armor 0 0 AFgl
+armor 0 0 AF
 1 3 3 0 1
 0 70 220 G
 g none~
@@ -2936,7 +2936,7 @@ boots hard leather~
 a pair of hard leather boots~
 A pair of hard leather boots lies here.~
 leather~
-armor 0 0 AGgm
+armor 0 0 AG
 1 3 3 0 1
 0 40 220 G
 g none~
@@ -2945,7 +2945,7 @@ gloves hard leather~
 a pair of hard leather gloves~
 A pair of hard leather gloves is lying on the ground.~
 leather~
-armor 0 0 AHgn
+armor 0 0 AH
 1 3 3 0 1
 0 10 220 G
 g none~
@@ -2954,7 +2954,7 @@ sleeves hard leather~
 a pair of hard leather sleeves~
 A pair of hard leather sleeves is lying on the ground.~
 leather~
-armor 0 0 AIgo
+armor 0 0 AI
 1 3 3 0 1
 0 40 220 G
 g none~
@@ -2963,7 +2963,7 @@ jerkin scale mail~
 a scale mail jerkin~
 A scale mail jerkin is lying on the ground.~
 steel~
-armor 0 0 ADgj
+armor 0 0 AD
 3 4 4 0 2
 5 140 850 P
 g none~
@@ -2972,7 +2972,7 @@ coif scale mail~
 a scale mail coif~
 A scale mail coif is lying on the ground.~
 steel~
-armor 0 0 AEgk
+armor 0 0 AE
 3 4 4 0 1
 5 40 420 P
 g none~
@@ -2981,7 +2981,7 @@ skirt scale mail~
 a long scale mail skirt~
 A long scale mail skirt is lying on the ground.~
 steel~
-armor 0 0 AFgl
+armor 0 0 AF
 3 4 4 0 2
 5 80 420 P
 g none~
@@ -2990,7 +2990,7 @@ boots reinforced~
 a pair of reinforced boots~
 A pair of reinforced boots lies here.~
 leather~
-armor 0 0 AGgm
+armor 0 0 AG
 3 4 4 0 2
 5 40 420 P
 g none~
@@ -2999,7 +2999,7 @@ gloves reinforced~
 a pair of reinforced gloves~
 A pair of reinforced gloves is lying on the ground.~
 leather~
-armor 0 0 AHgn
+armor 0 0 AH
 3 4 4 0 2
 5 20 420 P
 g none~
@@ -3008,7 +3008,7 @@ sleeves scale mail~
 a pair of scale mail sleeves~
 A pair of scale mail sleeves is lying on the ground.~
 steel~
-armor 0 0 AIgo
+armor 0 0 AI
 3 4 4 0 2
 5 60 420 P
 g none~
@@ -3017,7 +3017,7 @@ potion heal healing~
 a potion of healing~
 A potion of healing is here.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 20 'heal' '' '' ''
 11 10 800 P
 g none~
@@ -3026,7 +3026,7 @@ potion sanct sanctuary~
 a potion of sanctuary~
 A potion of sanctuary is here.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 20 'sanctuary' '' '' ''
 11 10 800 P
 g none~
@@ -3035,7 +3035,7 @@ potion divine~
 a potion of divine protection~
 A potion of divine protection is here.~
 crystal~
-potion ABGIghmo 0 AOgu
+potion ABGI 0 AO
 35 'protection evil' 'stone skin' 'enhanced armor' ''
 16 10 1800 P
 g none~
@@ -3044,7 +3044,7 @@ potion cure light~
 a potion of cure light wounds~
 A potion of cure light wounds is here.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 5 'cure light' '' '' ''
 0 10 150 P
 g none~
@@ -3053,7 +3053,7 @@ potion cure serious~
 a potion of cure serious wounds~
 A potion of cure serious wounds is here.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 10 'cure serious' '' '' ''
 1 10 220 P
 g none~
@@ -3062,7 +3062,7 @@ potion cure critical critic~
 a potion of cure critical wounds~
 A potion of cure critical wounds is here.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 15 'cure critical' '' '' ''
 5 10 390 P
 g none~
@@ -3071,7 +3071,7 @@ potion antidote bottle~
 a bottle of antidote~
 A bottle of antidote is here.~
 clay~
-potion Gm 0 AOgu
+potion G 0 AO
 14 'cure poison' 'cure light' 'cure disease' ''
 8 10 550 P
 g none~
@@ -3080,7 +3080,7 @@ potion cure blindness~
 a potion of cure blindness~
 A potion of cure blindness is here.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 13 'cure blindness' '' '' ''
 0 10 230 P
 g none~
@@ -3089,7 +3089,7 @@ vial holy water~
 a vial of holy water~
 A vial of holy water is here.~
 crystal~
-potion AGIgmo 0 AOgu
+potion AGI 0 AO
 20 'bless' 'protection evil' 'remove curse' ''
 10 10 720 P
 g none~
@@ -3098,7 +3098,7 @@ potion armor~
 a potion of armor~
 A potion of armor is here.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 10 'armor' '' '' ''
 0 10 200 P
 g none~
@@ -3107,7 +3107,7 @@ potion negation~
 a potion of negation~
 A potion of negation is here.~
 glass~
-potion BGhm 0 AOgu
+potion BG 0 AO
 35 'cancellation' '' '' ''
 9 10 830 P
 g none~
@@ -3116,7 +3116,7 @@ potion fly flying~
 a potion of flying~
 A potion of flying is here.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 9 'fly' '' '' ''
 3 10 250 P
 g none~
@@ -3125,7 +3125,7 @@ potion true sight~
 a potion of true sight~
 A potion of true sight is here.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 10 'detect invis' 'detect magic' 'detect evil' 'detect good'
 4 10 2290 P
 g none~
@@ -3134,8 +3134,8 @@ arrow wooden деревянная стрела~
 @eng a wooden arrow@rus ~~деревянная~~ ~~стрела~~~
 @eng A wooden arrow with an inner glow lies here.@rus Деревянная стрела (arrow) лежит здесь.~
 wood~
-weapon 0 0 AOgu
-arrow 6 7 'pierce' Kq
+weapon 0 0 AO
+arrow 6 7 'pierce' K
 33 10 500 P
 A
 18 1
@@ -3147,8 +3147,8 @@ arrow silver стрела~
 @eng a silver-headed arrow@rus ~~стрела~~ с серебряным наконечником~
 @eng A silver-headed arrow with an inner glow lies here.@rus Стрела с серебряным наконечником (arrow) лежит здесь.~
 wood~
-weapon 0 0 AOgu
-arrow 7 8 'pierce' Kq
+weapon 0 0 AO
+arrow 7 8 'pierce' K
 49 20 500 P
 A
 18 2
@@ -3160,8 +3160,8 @@ arrow golden стрела~
 @eng a golden-headed arrow@rus ~~стрела~~ с золотым наконечником~
 @eng A golden-headed arrow with an inner glow lies here.@rus Стрела с золотым наконечником (arrow) лежит здесь.~
 wood~
-weapon 0 0 AOgu
-arrow 8 9 'pierce' Kq
+weapon 0 0 AO
+arrow 8 9 'pierce' K
 61 20 500 P
 A
 18 3
@@ -3173,8 +3173,8 @@ arrow adamantite стрела~
 @eng an adamantite-headed arrow@rus ~~стрела~~ с адамантитовым наконечником~
 @eng An adamantite-headed arrow with an inner glow lies here.@rus Стрела с адамантитовым наконечником (arrow) лежит здесь.~
 wood~
-weapon 0 0 AOgu
-arrow 9 10 'pierce' Kq
+weapon 0 0 AO
+arrow 9 10 'pierce' K
 72 20 500 P
 A
 18 4
@@ -3186,7 +3186,7 @@ shield small metal щит~
 @eng a small metal shield@rus ~~маленький~~ ~~металлический~~ ~~щит~~~
 @eng A small metal shield is lying on the ground.@rus Маленький металлический щит (shield) лежит на земле.~
 steel~
-armor 0 0 AJgp
+armor 0 0 AJ
 4 4 4 1 2
 5 60 750 P
 g male~
@@ -3195,7 +3195,7 @@ tea чашка cup~
 @eng a cup of tea@rus ~~чашка~~ чая~
 @eng A cup has been set here.@rus Чашка (cup) чая оставлена здесь.~
 porcelain~
-drink 0 0 Ag
+drink 0 0 A
 6 6 'tea' 0 0
 0 10 8 P
 E
@@ -3208,7 +3208,7 @@ coffee чашка cup~
 @eng a cup of coffee@rus ~~чашка~~ кофе~
 @eng A cup has been set here.@rus Чашка (cup) кофе оставлена здесь.~
 porcelain~
-drink 0 0 Ag
+drink 0 0 A
 6 6 'coffee' 0 0
 0 10 6 P
 E
@@ -3221,7 +3221,7 @@ water чашка cup~
 @eng a cup of water@rus ~~чашка~~ воды~
 @eng A cup has been set here.@rus Чашка (cup) воды оставлена здесь.~
 clay~
-drink 0 0 Ag
+drink 0 0 A
 10 10 'water' 0 0
 0 10 1 P
 E
@@ -3234,7 +3234,7 @@ bracer bronze~
 a bronze bracer~
 A bronze bracer is lying on the ground.~
 bronze~
-armor 0 0 AMgs
+armor 0 0 AM
 3 6 6 0 3
 10 30 760 G
 g none~
@@ -3243,7 +3243,7 @@ bracer iron~
 an iron bracer~
 An iron bracer is lying on the ground.~
 iron~
-armor 0 0 AMgs
+armor 0 0 AM
 3 7 7 0 3
 15 40 1020 G
 g none~
@@ -3252,7 +3252,7 @@ shirt chain mail~
 a chain mail shirt~
 A chain mail shirt is lying on the ground.~
 steel~
-armor 0 0 ADgj
+armor 0 0 AD
 5 4 5 0 3
 10 180 1320 P
 g none~
@@ -3261,7 +3261,7 @@ coif chain mail~
 a chain mail coif~
 A chain mail coif is lying on the ground.~
 steel~
-armor 0 0 AEgk
+armor 0 0 AE
 5 4 5 0 2
 10 50 660 P
 g none~
@@ -3270,7 +3270,7 @@ skirt chain mail~
 a long chain mail skirt~
 A long chain mail skirt is lying on the ground.~
 steel~
-armor 0 0 AFgl
+armor 0 0 AF
 5 4 5 0 3
 10 100 660 P
 g none~
@@ -3279,7 +3279,7 @@ boots ironbound~
 a pair of iron-bound boots~
 A pair of iron-bound boots lies here.~
 iron~
-armor 0 0 AGgm
+armor 0 0 AG
 5 4 5 0 3
 10 60 660 P
 g none~
@@ -3288,7 +3288,7 @@ gauntlets chain mail~
 a pair of chain mail gauntlets~
 A pair of chain mail gauntlets is lying on the ground.~
 steel~
-armor 0 0 AHgn
+armor 0 0 AH
 5 4 5 0 3
 10 40 660 P
 g none~
@@ -3297,7 +3297,7 @@ sleeves chain mail~
 a pair of chain mail sleeves~
 A pair of chain mail sleeves is lying on the ground.~
 steel~
-armor 0 0 AIgo
+armor 0 0 AI
 5 4 5 0 3
 10 80 660 P
 g none~
@@ -3306,7 +3306,7 @@ shield large metal щит~
 @eng a large metal shield@rus ~~большой~~ ~~металлический~~ ~~щит~~~
 @eng A large metal shield is lying on the ground.@rus Большой металлический щит (shield) лежит на земле.~
 steel~
-armor 0 0 AJgp
+armor 0 0 AJ
 5 5 5 2 4
 10 140 1190 P
 g male~
@@ -3315,7 +3315,7 @@ shield small wooden щит~
 @eng a small wooden shield@rus ~~маленький~~ ~~деревянный~~ ~~щит~~~
 @eng A small wooden shield is lying on the ground.@rus Маленький деревянный щит (shield) лежит на земле.~
 wood~
-armor 0 0 AJgp
+armor 0 0 AJ
 4 3 2 1 1
 3 40 510 P
 g male~
@@ -3324,18 +3324,18 @@ anvil наковальня~
 @eng an anvil@rus наковальня~
 @eng An anvil stands in the middle of the room.@rus Наковальня (anvil) стоит в ценре кузни.~
 unknown~
-furniture BYh Bh 0
-Ag EIJKNkopqt Ag BCEFGHIJKLMNOPQRSTUVWXYZabcdefhiklmnopqrstuvwxyz 0
+furniture BY B 0
+A EIJKN A BCEFGHIJKLMNOPQRSTUVWXYZabcde 0
 0 0 0 P
-S 'smithing' 75 Ag
+S 'smithing' 75 A
 g female~
 #3119
 duck утка~
 @eng a duck@rus ~~утка~~ в яблоках~
 @eng A duck is here, no quacking anymore...@rus Утка (duck) здесь, больше не крякает...~
 food~
-food 0 0 Ag
-CEik DFjl 0 0 0
+food 0 0 A
+CE DF 0 0 0
 0 40 100 P
 g female~
 #3120
@@ -3343,7 +3343,7 @@ key iron~
 a key~
 An iron key has been left here.~
 iron~
-key 0 0 Ag
+key 0 0 A
 0 0 0 0 0
 0 10 0 G
 E
@@ -3356,7 +3356,7 @@ key rusty ключ~
 @eng a key@rus ключ~
 @eng A rusty key has been left here.@rus Ржавый ключ (key) оставлен здесь кем-то.~
 iron~
-key 0 0 Ag
+key 0 0 A
 0 0 0 0 0
 0 10 0 W
 E
@@ -3370,7 +3370,7 @@ key wooden~
 a key~
 A wooden key has been left here.~
 wood~
-key 0 0 Ag
+key 0 0 A
 0 0 0 0 0
 0 10 0 G
 E
@@ -3383,7 +3383,7 @@ key brass ключ~
 @eng a key@rus ключ~
 @eng A brass key has been left here.@rus Латунный (brass) ключ (key) оставлен здесь.~
 brass~
-key 0 0 Ag
+key 0 0 A
 0 0 0 0 0
 0 10 0 G
 E
@@ -3397,8 +3397,8 @@ sword long меч~
 @eng a long sword@rus ~~длинный~~ ~~меч~~~
 @eng A long sword has been left here.@rus Длинный меч (sword) был оставлен здесь.~
 steel~
-weapon 0 0 ANgt
-sword 3 10 'slash' Dj
+weapon 0 0 AN
+sword 3 10 'slash' D
 26 50 2000 P
 E
 sword long~
@@ -3414,7 +3414,7 @@ hand cuffs~
 a pair of hand cuffs~
 A pair of hand cuffs has been left here.~
 iron~
-trash 0 0 AOgu
+trash 0 0 AO
 0 0 0 0 0
 0 40 0 A
 g none~
@@ -3424,7 +3424,7 @@ desk drawer стол~
 @eng A desk is set against the western wall.@rus Стол (desk) стоит у западной стены.~
 wood~
 container 0 0 0
-34 ABCDghij 3122 20 100
+34 ABCD 3122 20 100
 0 0 0 G
 E
 desk~
@@ -3443,7 +3443,7 @@ safe сейф~
 @eng A safe is placed in a dark corner of the room.@rus Сейф (safe) установлен в темном углу комнаты.~
 iron~
 container 0 0 0
-34 ABCDghij 3123 20 100
+34 ABCD 3123 20 100
 0 0 0 G
 E
 safe~
@@ -3456,7 +3456,7 @@ silver coins монеты~
 @eng the silver coins@rus ~~серебряные~~ ~~монеты~~~
 @eng A lot of silver is here.@rus Много серебряных монет (silver) лежит тут.~
 silver~
-money 0 0 Ag
+money 0 0 A
 1000 0 0 0 0
 0 0 0 P
 E
@@ -3469,7 +3469,7 @@ city key~
 the City Key~
 The very big City Key is lying here.~
 gold~
-key 0 0 Ag
+key 0 0 A
 0 0 0 0 0
 0 250 100 G
 E
@@ -3485,7 +3485,7 @@ bench скамейка скамья~
 @eng A white-painted wooden bench is standing here.@rus Белая деревянная скамейка (bench) стоит здесь.~
 wood~
 furniture 0 0 0
-ABgh EGHIJKkmnopq BEHKhknq ADFGgjlm ADFGgjlm
+AB EGHIJK BEHK ADFG ADFG
 0 0 0 G
 E
 bench~
@@ -3499,7 +3499,7 @@ fountain water фонтан~
 @eng a fountain@rus фонтан~
 @eng A small white fountain gushes forth here.@rus Маленький белый фонтан (fountain) журчит в центре площади.~
 marble~
-fountain Bh 0 0
+fountain B 0 0
 0 0 'water' 0 0
 0 0 0 G
 E
@@ -3513,7 +3513,7 @@ coins~
 a small pile of coins~
 A small pile of coins lies here.~
 silver~
-money 0 0 Ag
+money 0 0 A
 20 0 0 0 0
 0 0 0 P
 g none~
@@ -3522,7 +3522,7 @@ key steel~
 a steel key~
 A large steel key has been left here.~
 steel~
-key 0 0 Ag
+key 0 0 A
 0 0 0 0 0
 0 10 0 G
 E
@@ -3535,7 +3535,7 @@ skin water buffalo бурдюк~
 @eng a buffalo water skin@rus ~~бурдюк~~ из кожи буйвола~
 @eng A bloated dead buffalo is on the floor.@rus Бурдюк из кожи буйвола (skin) лежит на земле.~
 leather~
-drink 0 0 Ag
+drink 0 0 A
 64 64 'water' 0 0
 0 40 24 G
 g male~
@@ -3598,7 +3598,7 @@ coffee cup cinnamon~
 a cup of cinnamon coffee~
 A piping hot cup of cinnamon coffee is here.~
 porcelain~
-drink 0 0 Ag
+drink 0 0 A
 6 6 'coffee' 0 0
 0 10 12 P
 E
@@ -3611,8 +3611,8 @@ soup bowl~
 a bowl of chicken noodle soup~
 A nice hot bowl of chicken noodle soup is here.~
 wood~
-food 0 0 Ag
-Ci Dj 0 0 0
+food 0 0 A
+C D 0 0 0
 0 20 10 P
 E
 soup~
@@ -3624,8 +3624,8 @@ bowl beef stew~
 a bowl of beef stew~
 A bowl of nice thick beef stew, with lots of vegetables, steams here.~
 food~
-food 0 0 Ag
-ADEgjk ADEgjk 0 0 0
+food 0 0 A
+ADE ADE 0 0 0
 0 30 14 P
 E
 stew bowl~
@@ -3638,8 +3638,8 @@ biscuit~
 a biscuit~
 A yummy biscuit, covered with butter, is here.~
 food~
-food 0 0 Ag
-Ci ABgh 0 0 0
+food 0 0 A
+C AB 0 0 0
 0 10 5 P
 E
 biscuit~
@@ -3651,7 +3651,7 @@ beer bottle killian irish red~
 a bottle of George Killian's Irish Red~
 A dark-tinted bottle of beer is here.~
 glass~
-drink 0 0 Ag
+drink 0 0 A
 16 16 'beer' 0 0
 0 20 20 P
 E
@@ -3665,7 +3665,7 @@ key white~
 a white key~
 A white key has been left here.~
 ivory~
-key 0 0 AOgu
+key 0 0 AO
 0 0 0 0 0
 0 10 0 G
 g none~
@@ -3674,8 +3674,8 @@ map midgaard~
 a map of the city of Midgaard~
 A rolled up map is here.~
 paper~
-map 0 0 Ag
-Ag 0 0 0 0
+map 0 0 A
+A 0 0 0 0
 0 10 500 P
 E
 map midgaard~
@@ -3733,8 +3733,8 @@ map thera~
 a map of Thera~
 A rolled up map is here.~
 paper~
-map 0 0 Ag
-Ag 0 0 0 0
+map 0 0 A
+A 0 0 0 0
 0 10 150 P
 E
 map thera~
@@ -3778,8 +3778,8 @@ map southern midgaard~
 a map of southern Midgaard~
 A rolled up map is here.~
 paper~
-map 0 0 Ag
-Ag 0 0 0 0
+map 0 0 A
+A 0 0 0 0
 0 10 1000 P
 E
 map southern midgaard~
@@ -3833,8 +3833,8 @@ map dwarven kingdom dwarf~
 a map of the Dwarven Kingdom~
 A rolled up map is here.~
 paper~
-map 0 0 Ag
-Ag 0 0 0 0
+map 0 0 A
+A 0 0 0 0
 0 10 750 P
 E
 map dwarven kingdom dwarf~
@@ -3882,8 +3882,8 @@ map moria first~
 a map of the first level of Moria~
 A rolled up map is here.~
 paper~
-map 0 0 Ag
-Ag 0 0 0 0
+map 0 0 A
+A 0 0 0 0
 0 10 1500 P
 E
 map moria first~
@@ -3925,8 +3925,8 @@ map new thalos~
 a map of New Thalos ~
 A rolled up map is here.~
 paper~
-map 0 0 Ag
-Ag 0 0 0 0
+map 0 0 A
+A 0 0 0 0
 0 10 2500 P
 E
 map new thalos~
@@ -3990,8 +3990,8 @@ map olympus~
 a map of Olympus~
 A rolled up map is here.~
 paper~
-map 0 0 Ag
-Ag 0 0 0 0
+map 0 0 A
+A 0 0 0 0
 0 10 2000 P
 E
 map olympus~
@@ -4037,7 +4037,7 @@ map graveyard~
 Map of graveyard~
 A rolled up map lies here.~
 paper~
-map 0 0 Ag
+map 0 0 A
 0 0 0 0 0
 0 5 1500 P
 E
@@ -4090,7 +4090,7 @@ map smurfville~
 Map of the Smurf village~
 A rolled up map lies here.~
 paper~
-map 0 0 Ag
+map 0 0 A
 0 0 0 0 0
 5 5 1500 P
 E
@@ -4159,7 +4159,7 @@ map emerald forest~
 Map of the Emerald Forest~
 a rolled up map lies here.~
 paper~
-map 0 0 Ag
+map 0 0 A
 0 0 0 0 0
 5 5 1500 P
 E
@@ -4200,7 +4200,7 @@ map midennir~
 Map of Miden'nir~
 A rolled up map lies here.~
 paper~
-map 0 0 Ag
+map 0 0 A
 0 0 0 0 0
 5 5 1500 P
 E
@@ -4266,7 +4266,7 @@ pit~
 the donation pit~
 A pit for sacrifices is in front of the altar.~
 unknown~
-container 0 Ag 0
+container 0 A 0
 10000 0 0 1000 100
 0 0 0 P
 g none~
@@ -4275,7 +4275,7 @@ skin water buffalo~
 a buffalo water skin~
 A bloated dead buffalo is on the floor.~
 leather~
-drink 0 0 Ag
+drink 0 0 A
 64 64 'water' 0 0
 0 40 3 G
 g none~
@@ -4284,7 +4284,7 @@ scroll identify свиток~
 @eng a scroll of identify@rus ~~свиток~~ познания~
 @eng A scroll has carelessly been left here.@rus Свиток (scroll) познания оставлен здесь.~
 vellum~
-scroll Gm 0 AOgu
+scroll G 0 AO
 12 'identify' '' '' ''
 7 10 890 P
 E
@@ -4303,7 +4303,7 @@ potion yellow~
 a yellow potion of see invisible~
 A small yellow potion has carelessly been left here.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 12 'detect invis' '' '' ''
 0 10 220 P
 E
@@ -4316,7 +4316,7 @@ scroll recall~
 a scroll of recall~
 A scroll has carelessly been left here.~
 vellum~
-scroll Gm 0 AOgu
+scroll G 0 AO
 20 'word of recall' '' '' ''
 17 20 4900 P
 E
@@ -4329,7 +4329,7 @@ potion heal healing~
 a potion of healing~
 A potion of healing is here.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 20 'heal' '' '' ''
 11 10 800 P
 g none~
@@ -4338,7 +4338,7 @@ potion sanct sanctuary~
 a potion of sanctuary~
 A potion of sanctuary is here.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 20 'sanctuary' '' '' ''
 11 10 800 P
 g none~
@@ -4347,7 +4347,7 @@ potion divine~
 a potion of divine protection~
 A potion of divine protection is here.~
 crystal~
-potion ABGIghmo 0 AOgu
+potion ABGI 0 AO
 35 'protection evil' 'stone skin' 'enhanced armor' 'shield'
 16 10 1800 P
 g none~
@@ -4356,7 +4356,7 @@ potion cure light~
 a potion of cure light wounds~
 A potion of cure light wounds is here.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 5 'cure light' '' '' ''
 0 10 150 P
 g none~
@@ -4365,7 +4365,7 @@ potion cure serious~
 a potion of cure serious wounds~
 A potion of cure serious wounds is here.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 10 'cure serious' '' '' ''
 1 10 220 P
 g none~
@@ -4374,7 +4374,7 @@ potion cure critical critic~
 a potion of cure critical wounds~
 A potion of cure critical wounds is here.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 15 'cure critical' '' '' ''
 5 10 390 P
 g none~
@@ -4383,7 +4383,7 @@ potion antidote bottle~
 a bottle of antidote~
 A bottle of antidote is here.~
 clay~
-potion Gm 0 AOgu
+potion G 0 AO
 14 'cure poison' 'cure light' 'cure disease' ''
 8 10 550 P
 g none~
@@ -4392,7 +4392,7 @@ potion cure blindness~
 a potion of cure blindness~
 A potion of cure blindness is here.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 13 'cure blindness' '' '' ''
 0 10 230 P
 g none~
@@ -4401,7 +4401,7 @@ vial holy water~
 a vial of holy water~
 A vial of holy water is here.~
 crystal~
-potion AGIgmo 0 AOgu
+potion AGI 0 AO
 20 'bless' 'protection evil' 'remove curse' ''
 10 10 720 P
 g none~
@@ -4410,7 +4410,7 @@ potion armor~
 a potion of armor~
 A potion of armor is here.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 10 'armor' '' '' ''
 0 10 200 P
 g none~
@@ -4419,7 +4419,7 @@ potion negation~
 a potion of negation~
 A potion of negation is here.~
 glass~
-potion BGhm 0 AOgu
+potion BG 0 AO
 35 'cancellation' '' '' ''
 9 10 830 P
 g none~
@@ -4428,7 +4428,7 @@ potion fly flying~
 a potion of flying~
 A potion of flying is here.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 9 'fly' '' '' ''
 3 10 250 P
 g none~
@@ -4437,7 +4437,7 @@ potion true sight~
 a potion of true sight~
 A potion of true sight is here.~
 glass~
-potion Gm 0 AOgu
+potion G 0 AO
 10 'detect invis' 'detect magic' 'detect good' 'detect evil'
 4 10 2290 P
 g none~
@@ -4446,7 +4446,7 @@ long sword меч~
 @eng a glowing long sword@rus ~~сверкающий~~ ~~длинный~~ ~~меч~~~
 @eng A glowing long sword is here.@rus Сверкающий длинный меч (sword) лежит здесь.~
 steel~
-weapon 0 0 ANgt
+weapon 0 0 AN
 sword 4 7 'slash' 0
 29 50 3100 G
 A
@@ -4463,7 +4463,7 @@ sword standard merc меч~
 @eng a standard issue sword@rus ~~форменный~~ ~~меч~~~
 @eng You see a standard issue sword here.@rus Форменный меч (sword) оставлен здесь.~
 steel~
-weapon Gm 0 ANgt
+weapon G 0 AN
 sword 3 7 'slash' 0
 16 50 1280 P
 A
@@ -4479,7 +4479,7 @@ dagger standard merc кинжал~
 @eng a standard issue dagger@rus ~~форменный~~ ~~кинжал~~~
 @eng You see a standard issue dagger here.@rus Форменный кинжал (dagger) оставлен здесь.~
 steel~
-weapon Gm 0 ANgt
+weapon G 0 AN
 dagger 2 5 'pierce' 0
 8 20 590 P
 A
@@ -4497,7 +4497,7 @@ mace standard merc палица~
 @eng a standard issue mace@rus ~~форменная~~ ~~палица~~~
 @eng You see a standard issue mace here.@rus Форменная палица (mace) оставлен здесь.~
 iron~
-weapon Gm 0 ANgt
+weapon G 0 AN
 mace 2 4 'pound' 0
 7 100 620 P
 A
@@ -4515,7 +4515,7 @@ vest standard merc жилет~
 @eng a standard issue vest@rus ~~форменный~~ ~~жилет~~~
 @eng You see a standard issue vest here.@rus Форменный жилет (vest) оставлен здесь.~
 leather~
-armor 0 0 ADgj
+armor 0 0 AD
 4 4 3 1 1
 5 50 900 P
 E
@@ -4529,7 +4529,7 @@ shield standard merc щит~
 @eng a standard issue shield@rus ~~форменный~~ ~~щит~~~
 @eng You see a standard issue shield here.@rus Форменный щит (shield) оставлен здесь.~
 steel~
-armor 0 0 AJgp
+armor 0 0 AJ
 4 4 4 2 2
 5 30 810 P
 E
@@ -4543,7 +4543,7 @@ cloak standard merc плащ~
 @eng a standard issue cloak@rus ~~форменный~~ ~~плащ~~~
 @eng You see a standard issue cloak here.@rus Форменный плащ (cloak) оставлен здесь.~
 cloth~
-armor 0 0 ACgi
+armor 0 0 AC
 3 5 4 1 1
 5 40 510 P
 E
@@ -4557,7 +4557,7 @@ helmet standard merc шлем~
 @eng a standard issue helmet@rus ~~форменный~~ ~~шлем~~~
 @eng You see a standard issue helmet here.@rus Форменный шлем (helm) оставлен здесь.~
 leather~
-armor 0 0 AEgk
+armor 0 0 AE
 4 4 3 1 1
 5 30 450 P
 E
@@ -4571,7 +4571,7 @@ leggings standard merc гамаши~
 @eng a pair of standard issue leggings@rus ~~форменные~~ ~~гамаши~~~
 @eng You see a pair of standard issue leggings here.@rus Форменные гамаши (leggins) оставлены здесь.~
 leather~
-armor 0 0 AFgl
+armor 0 0 AF
 4 4 3 1 1
 5 30 450 P
 E
@@ -4585,7 +4585,7 @@ boots standard merc ботинки~
 @eng a pair of standard issue boots@rus ~~форменные~~ ~~ботинки~~~
 @eng You see a pair of standard issue boots here.@rus Форменные ботинки (boots) оставлены здесь.~
 leather~
-armor 0 0 AGgm
+armor 0 0 AG
 4 4 3 1 1
 5 30 450 P
 E
@@ -4599,7 +4599,7 @@ gloves standard merc перчатки стандартные~
 @eng a pair of standard issue gloves@rus ~~форменные~~ ~~перчатки~~~
 @eng You see a pair of standard issue gloves here.@rus Форменные перчатки (gloves) оставлены здесь.~
 leather~
-armor 0 0 AHgn
+armor 0 0 AH
 4 4 3 1 1
 5 30 450 P
 E
@@ -4613,7 +4613,7 @@ sleeves standard merc нарукавники~
 @eng a pair of standard issue sleeves@rus ~~форменные~~ ~~нарукавники~~~
 @eng You see a pair of standard issue sleeves here.@rus Форменные нарукавники (sleeves) оставлены здесь.~
 leather~
-armor 0 0 AIgo
+armor 0 0 AI
 4 4 3 1 1
 5 20 450 P
 E
@@ -4627,7 +4627,7 @@ cape standard merc плащ~
 @eng a standard issue cape@rus ~~форменный~~ ~~плащ~~~
 @eng You see a standard issue cape here.@rus Форменный плащ (cape) оставлен здесь.~
 cloth~
-armor 0 0 AKgq
+armor 0 0 AK
 3 4 3 1 1
 3 20 380 P
 E
@@ -4641,7 +4641,7 @@ belt standard merc пояс~
 @eng a standard issue belt@rus ~~форменный~~ ~~пояс~~~
 @eng You see a standard issue belt here.@rus Форменный пояс (belt) оставлен здесь.~
 bronze~
-armor 0 0 ALgr
+armor 0 0 AL
 4 4 3 1 1
 5 20 450 P
 E
@@ -4655,7 +4655,7 @@ bracer standard merc браслет~
 @eng a standard issue bracer@rus ~~форменный~~ ~~браслет~~~
 @eng You see a standard issue bracer here.@rus Форменный браслет (bracelet) оставлен здесь.~
 bronze~
-armor 0 0 AMgs
+armor 0 0 AM
 2 4 4 1 0
 3 10 390 P
 E
@@ -4669,7 +4669,7 @@ ring signet кольцо~
 @eng a city guard signet ring@rus ~~кольцо~~ с печаткой~
 @eng You see a ring with a strange symbol on the floor.@rus На земле вы видите кольцо (ring) со странным символом.~
 copper~
-treasure Gm 0 ABgh
+treasure G 0 AB
 0 0 0 0 0
 16 10 1280 P
 A
@@ -4682,7 +4682,7 @@ banner war merc знамя~
 @eng a war banner@rus ~~военное~~ ~~знамя~~~
 @eng A war banner is on the floor here.@rus Военное знамя (banner) лежит на земле.~
 cloth~
-light AGgm 0 Ag
+light AG 0 A
 0 0 500 0 0
 8 10 640 P
 A
@@ -4699,7 +4699,7 @@ ring diamond wedding~
 a diamond wedding ring~
 Vanya's diamond wedding ring has been left here.~
 diamond~
-treasure Io 0 ABgh
+treasure I 0 AB
 0 0 0 0 0
 20 10 860 P
 A
@@ -4715,7 +4715,7 @@ band gold wedding~
 a gold wedding band~
 House's gold wedding band has been left here.~
 gold~
-treasure Io 0 ABgh
+treasure I 0 AB
 0 0 0 0 0
 20 10 860 P
 A
@@ -4730,7 +4730,7 @@ pearl жемчужина~
 @eng a small pearl@rus жемчужина~
 @eng A small but well-formed pearl lies here.@rus Маленькая жемчужина (pearl) прекрасной формы лежит здесь.~
 pearl~
-gem 0 Dj AOgu
+gem 0 D AO
 0 0 0 0 0
 0 1 1000 P
 g female~
@@ -4739,7 +4739,7 @@ garnet gem гранат~
 @eng a garnet@rus гранат~
 @eng A garnet catches your eye.@rus Гранат (garnet) притягивает твой взгляд.~
 gem~
-gem 0 Dj AOgu
+gem 0 D AO
 0 0 0 0 0
 0 1 500 P
 g male~
@@ -4748,7 +4748,7 @@ emerald gem изумруд~
 @eng an emerald@rus изумруд~
 @eng A deep green emerald winks at you.@rus Темно зеленый изумруд (emerald) поднигивает тебе.~
 gem~
-gem 0 Dj AOgu
+gem 0 D AO
 0 0 0 0 0
 0 1 5000 P
 g male~
@@ -4757,7 +4757,7 @@ ruby gem рубин~
 @eng a ruby@rus рубин~
 @eng A beautiful, if small, ruby is here.@rus Прекрасный маленький рубин (ruby) лежит здесь.~
 gem~
-gem 0 Dj AOgu
+gem 0 D AO
 0 0 0 0 0
 0 1 6000 P
 g male~
@@ -4766,7 +4766,7 @@ diamond gem бриллиант~
 @eng a diamond@rus бриллиант~
 @eng A diamond catches and reflects the lighting.@rus Бриллиант (diamond) отражает свет.~
 gem~
-gem 0 Dj AOgu
+gem 0 D AO
 0 0 0 0 0
 0 1 10000 P
 g male~
@@ -4775,7 +4775,7 @@ opal опал~
 @eng an opal@rus опал~
 @eng A lustrous opal reminds you of far-off places.@rus Глянцевидный опал (opal) напоминает вам о дальних странах.~
 gem~
-gem 0 Dj AOgu
+gem 0 D AO
 0 0 0 0 0
 0 1 2000 P
 g male~
@@ -4784,7 +4784,7 @@ key gate gatekey ключ мидграард мидгаард~
 @eng the gate key@rus ~~ключ~~ от ворот~
 @eng A key on a chain, is hanging tied to the gate.@rus Ключ (key) прикован цепью к воротам.~
 silver~
-key Y Ag 0
+key Y A 0
 0 0 0 0 0
 1 1 10000 P
 g male~
@@ -4793,8 +4793,8 @@ beef jerky beefjerky кусок~
 @eng some beef jerky@rus ~~кусок~~ говядины~
 @eng Some strips of meat have been left here.@rus Кусок мяса (beef) был оставлен здесь.~
 food~
-food 0 0 Ag
-CEik DFjl 0 0 0
+food 0 0 A
+CE DF 0 0 0
 0 15 100 P
 g none~
 #3381
@@ -4802,8 +4802,8 @@ chicken wholechicken цыпленок~
 @eng a whole chicken@rus цыпленок~
 @eng A dead chicken lies here.@rus Цыпленок (chicken) лежит здесь.~
 food~
-food 0 0 Ag
-BEhk CDij 0 0 0
+food 0 0 A
+BE CD 0 0 0
 0 11 87 P
 g male~
 #3382
@@ -4811,8 +4811,8 @@ map titan~
 a map of the valley of Titans~
 A rolled up map is here.~
 paper~
-map 0 0 Ag
-Ag 0 0 0 0
+map 0 0 A
+A 0 0 0 0
 0 10 500 P
 E
 map titan~
@@ -4865,8 +4865,8 @@ map thera~
 a map of West Thera~
 A rolled up map is here.~
 paper~
-map 0 0 Ag
-Ag 0 0 0 0
+map 0 0 A
+A 0 0 0 0
 0 10 150 P
 E
 map west thera~
@@ -4911,8 +4911,8 @@ map thera~
 a map of East Thera~
 A rolled up map is here.~
 paper~
-map 0 0 Ag
-Ag 0 0 0 0
+map 0 0 A
+A 0 0 0 0
 0 10 150 P
 E
 map east thera~
@@ -4958,8 +4958,8 @@ map newbie~
 a newbie map for East Thera~
 A rolled up map is here.~
 paper~
-map 0 0 Ag
-Ag 0 0 0 0
+map 0 0 A
+A 0 0 0 0
 0 10 150 P
 E
 map newbie~
@@ -4995,8 +4995,8 @@ map newbie~
 a newbie map for West Thera~
 A rolled up map is here.~
 paper~
-map 0 0 Ag
-Ag 0 0 0 0
+map 0 0 A
+A 0 0 0 0
 0 10 150 P
 E
 map newbie~
@@ -5024,8 +5024,8 @@ map green~
 a green map~
 A rolled up map is here.~
 paper~
-map 0 0 Ag
-Ag 0 0 0 0
+map 0 0 A
+A 0 0 0 0
 0 10 65000 P
 E
 map green~
@@ -5072,8 +5072,8 @@ map yellow~
 a yellow map~
 A rolled up map is here.~
 paper~
-map 0 0 Ag
-Ag 0 0 0 0
+map 0 0 A
+A 0 0 0 0
 0 10 55000 P
 E
 map yellow~
@@ -5113,8 +5113,8 @@ map red~
 a red map~
 A rolled up map is here.~
 paper~
-map 0 0 Ag
-Ag 0 0 0 0
+map 0 0 A
+A 0 0 0 0
 0 10 45000 P
 E
 map red~
@@ -5157,8 +5157,8 @@ map blue~
 a blue map~
 A rolled up map is here.~
 paper~
-map 0 0 Ag
-Ag 0 0 0 0
+map 0 0 A
+A 0 0 0 0
 0 10 25000 P
 E
 map blue~
@@ -5195,8 +5195,8 @@ map white~
 a white map~
 A rolled up map is here.~
 paper~
-map 0 0 Ag
-Ag 0 0 0 0
+map 0 0 A
+A 0 0 0 0
 0 2 25000 P
 E
 map white~
@@ -5239,8 +5239,8 @@ map cyan~
 a cyan map~
 A rolled up map is here.~
 paper~
-map 0 0 Ag
-Ag 0 0 0 0
+map 0 0 A
+A 0 0 0 0
 0 2 25000 P
 E
 map cyan~
@@ -5277,8 +5277,8 @@ map black~
 a black map~
 A rolled up map is here.~
 paper~
-map 0 0 Ag
-Ag 0 0 0 0
+map 0 0 A
+A 0 0 0 0
 0 2 5000 P
 E
 map black~
@@ -5315,7 +5315,7 @@ old book~
 an old book about known limited items, Fascicle I~
 This book is titled - "Known Limited Items of Shades of Gray, Fascicle I" ~
 leather~
-trash 0 0 AOgu
+trash 0 0 AO
 0 0 0 0 0
 0 10 200000 P
 E
@@ -5530,7 +5530,7 @@ old book~
 an old book about known limited items, Fascicle II~
 This book is titled - "Known Limited Items of The Shades of Gray Fascicle II"~
 leather~
-trash 0 0 AOgu
+trash 0 0 AO
 0 0 0 0 0
 0 10 200000 P
 E
@@ -5672,7 +5672,7 @@ old book~
 an old book~
 A book, has no title.~
 leather~
-trash 0 0 AOgu
+trash 0 0 AO
 0 0 0 0 0
 0 10 20000 P
 E
@@ -5702,8 +5702,8 @@ quiver колчан~
 @eng quiver@rus колчан~
 @eng A quiver has been carelessly left here.@rus Кто-то оставил здесь колчан для стрел (quiver).~
 leather~
-container 0 0 AKgq
-50 Fl 0 20 100
+container 0 0 AK
+50 F 0 20 100
 1 10 9 G
 g male~
 #3398
@@ -5711,7 +5711,7 @@ map canyon elemental~
 a map of elemental canyon~
 A rolled map is here.~
 unknown~
-map 0 0 Ag
+map 0 0 A
 0 0 0 0 0
 5 5 1500 P
 E
@@ -5766,7 +5766,7 @@ map underdark under dark~
 map of Underdark~
 A rolled up map lies here.~
 paper~
-map 0 0 Ag
+map 0 0 A
 0 0 0 0 0
 5 5 1500 P
 E
@@ -5889,7 +5889,7 @@ SCHOOL.  (type 'up' to go to MUD SCHOOL.)  A small plaque is on this wall.
 {x  Похожие ступени ведут ВВЕРХ через маленькую дверцу ко ВХОДУ в МУД
 ШКОЛУ (нажмите "up" для входа в МУД ШКОЛУ). Маленькая дощечка (plaque) висит на стене.
 ~
-0 DSjy inside
+0 DS inside
 E
 plaque~
 This entire world has been integrated, modified, debugged, and enhanced by
@@ -5927,7 +5927,7 @@ the depths.
 центре комнаты уходит вниз (down) в непроглядную тьму. Отвратительный запах
 доносится из глубины.
 ~
-0 CDKSYijqy inside
+0 CDKSY inside
 D1
 @eng You see your favorite place, the bar of divination.
 @rus Ты видишь свое любимое место, бар клериков.
@@ -5951,7 +5951,7 @@ furniture is set all around the room.  A small sign is hanging on the wall.
 Изящная мебель установлена повсюду в комнате. Маленькая записка (sign) висит
 на стене.
 ~
-0 CDKSYijqy inside
+0 CDKSY inside
 E
 sign~
 @eng The sign reads:
@@ -5987,7 +5987,7 @@ to the bar is in the northern wall.
 сущность клериков. Выход ведет на восток (east) к соборной площади.
 Маленький вход в бар расположен у северной (north) стены.
 ~
-0 DSjy inside
+0 DS inside
 D0
 @eng You see the bar, richly decorated with really stylish furniture.
 @rus Ты видишь бар, богато украшенный модной обстановкой.
@@ -6012,7 +6012,7 @@ square, the center of Midgaard.
 (east) - в таверну "Хрюкающий Кабан". На юге расположена Рыночная площадь - 
 центр Мидгаарда.
 ~
-0 Sy city
+0 S city
 D0
 @eng You see the temple.
 @rus Ты видишь храм.
@@ -6053,7 +6053,7 @@ staircase leads up to the defunct reception room and the bar is to the east.
 простой, но удобной мебелью. Маленькая лестница ведет вверх (up) в
 заброшенную приемную и в бар на востоке (east).
 ~
-0 DSjy inside
+0 DS inside
 D1
 @eng Surprise! You see the bar.
 @rus Сюрприз! Ты видишь бар.
@@ -6086,7 +6086,7 @@ A small sign with big letters is fastened to the bar.
 видишь Соборную площадь. Здесь ты чувствуешь себя как дома.
   Маленькая вывеска (sign) прикрепленна к стойке.
 ~
-0 CDKSijqy inside
+0 CDKS inside
 E
 sign~
 @eng The sign reads:
@@ -6129,7 +6129,7 @@ down to the entrance hall.
 @rus Ты стоишь в грязной, заброшенной приемной. Лестница ведет вниз (down) во
 входной зал.
 ~
-0 DSjy inside
+0 DS inside
 D5
 @eng You see the entrance hall.
 @rus Ты видишь входной зал.
@@ -6147,7 +6147,7 @@ A small sign is on the counter.
 хлеба наполняет комнату. Хлеба и пирожные ровными рядами выложенны на полки.
   Маленькая записка (sign) находится на прилавке.
 ~
-0 Sy inside
+0 S inside
 E
 danish pastry~
 You see that this is truly delicious pastry.  Must be made by a Dane from
@@ -6188,7 +6188,7 @@ A small note hangs on the wall.
 на полках позади прилавка. Тебе до них не дотянуться.
   Маленькая записка (note) прибита к стене.
 ~
-0 DSjy inside
+0 DS inside
 E
 note~
 @eng The note reads:
@@ -6217,7 +6217,7 @@ S
 @eng You are inside the weapon shop.  There is a small note on the counter.
 @rus Ты входишь в Оружейную лавку. На прилавке - маленькая табличка (note).
 ~
-0 DSjy inside
+0 DS inside
 E
 note~
 @eng The note reads:
@@ -6252,7 +6252,7 @@ gate.
 Магазин магических вещей находится на севере (north), а на западе (west) - 
 городские ворота.
 ~
-0 Sy city
+0 S city
 D0
 @eng You see the magic shop.
 @rus Ты видишь магазин магических вещей.
@@ -6287,7 +6287,7 @@ here is the market square.
 отсюда расположен вход в арсенал, а на севере (north) - пекарня. На востоке
 (east) отсюда раскинулась рыночная площадь.
 ~
-0 Sy city
+0 S city
 D0
 @eng You see the bakery.
 @rus Ты видишь пекарню.
@@ -6324,7 +6324,7 @@ road to common square, east and westbound is the main street.
 направлениях: на север (north) к соборной площади, на юг (south) к общей
 площади, с запада (west) на восток (east) пролегает Главная улица.
 ~
-0 Sy city
+0 S city
 E
 statue~
 @eng What you see is the Midgaard Worm, stretching around the Palace of Midgaard.
@@ -6365,7 +6365,7 @@ market place and to the south is the Jeweller's Shop.
 востоке (east). На западе (west) ты видешь Рыночную площадь и на юге 
 (south) - ювелирный магазин.
 ~
-0 Sy city
+0 S city
 D0
 @eng You see the enterance of Holy Temple.
 @rus Ты видишь вход в Святой храм.
@@ -6400,7 +6400,7 @@ leads to the market square.
 (south) - Гильдия мечников. На востоке (east) ты можешь выйти из города.
 А на западе (west) улица ведет к рыночной площади.
 ~
-0 Sy city
+0 S city
 D0
 @eng You see the weapon shop.
 @rus Ты видишь оружейный магазин.
@@ -6431,7 +6431,7 @@ S
 @eng The entrance hall is a small, poor lighted room.
 @rus Вестибюль - это маленькая, плохо освещенная комната. 
 ~
-0 DSjy inside
+0 DS inside
 D0
 @eng You see the main street.
 @rus Ты видишь Главную улицу.
@@ -6452,7 +6452,7 @@ the air.  Illusions of fine furniture appear all around the room.
 @rus Этот бар один из самых загадочных на земле. Таинственные образы плавают в
 воздухе. Иллюзии богатой мебели окружают тебя.
 ~
-0 CDKSYijqy inside
+0 CDKSY inside
 D0
 @eng You see the lobby.
 @rus Ты видишь вестибюль.
@@ -6483,7 +6483,7 @@ depths.
 Колодец посреди комнаты уходит вниз (down) в непроглядную тьму. 
 Отвратительный запах доносится из глубины.
 ~
-0 CDKSYijqy inside
+0 CDKSY inside
 D3
 @eng You see the bar.
 @rus Ты видишь бар.
@@ -6508,7 +6508,7 @@ On the wall is a small note.
 шлемы, щиты и кольчуги. На севере (north) находится Главная улица. К стене
 прикреплена маленькая записка (note).
 ~
-0 DSjy inside
+0 DS inside
 E
 note~
 @eng You can use these commands for trading:
@@ -6545,7 +6545,7 @@ the north is the main street.
 @rus Вестибюль Гильдии Мечников. Это место, где не любят трепать языком.
 На востоке (east) находится бар, а на севере (north) - Главная улица.
 ~
-0 DSjy inside
+0 DS inside
 D0
 @eng You see the main street.
 @rus Ты видишь Главную улицу.
@@ -6568,7 +6568,7 @@ to the west is the entrance hall.
 остались одни лишь маленькие кусочки когда-то целой мебели. На юге (south)
 находится двор, а на западе (west) - Вестибюль Гильдии Мечников.
 ~
-0 CDKSYijqy inside
+0 CDKSY inside
 D2
 @eng You see the practice yard.
 @rus Ты видишь двор для тренировок.
@@ -6589,7 +6589,7 @@ down into darkness.
 @rus Тренировочный зал воинов. На севере (north) расположен бар. Колодец ведет 
 вниз (down) в непроглядную тьму.
 ~
-0 CDKSYijqy inside
+0 CDKSY inside
 D0
 @eng You see the bar.
 @rus Ты видишь бар.
@@ -6614,7 +6614,7 @@ further west.
 таверна, а на севере (north) ты видишь магазин карт Меланхолика. Переулок
 заканчивается дальше на западе (west).
 ~
-0 Sy city
+0 S city
 D0
 @eng You see Melancholy's Map Shop
 @rus Ты видишь магазин карт Меланхолика.
@@ -6651,7 +6651,7 @@ nasty smell.
 переулок. На севере (north) булыжная мостовая соединяет эту площадь
 с рыночной. С юга (south) доносятся неприятные запахи.
 ~
-0 Sy city
+0 S city
 D0
 @eng You see the High road leading to the market place.
 @rus Ты видишь главную дорогу, ведущую на рыночную площадь.
@@ -6686,7 +6686,7 @@ The alley continues east.
 Гильдия (guild) воров. Таверна Греба, знаменитый притон моряков, лежит
 к северу (north). Переулок продолжается на восток (east).
 ~
-0 Sy city
+0 S city
 E
 guild~
 @eng It is the thieves guild, don't enter if you care about your health or money.
@@ -6727,7 +6727,7 @@ is the dark alley and to the east is the thieves' bar.
 деньги, так и саму жизнь, если ты будешь неосторожен. На севере (north) 
 находится темный переулок, а на востоке (east) - бар воров.
 ~
-0 DSjy inside
+0 DS inside
 D0
 @eng You see the alley.
 @rus Ты видишь переулок.
@@ -6752,7 +6752,7 @@ the west is the entrance hall.
 зал.
           (Может быть, мебель (furniture) была украдена?!)
 ~
-0 CDKSYijqy inside
+0 CDKSY inside
 E
 furniture~
 @eng As you look at the furniture, the chair you sit on disappears.
@@ -6778,7 +6778,7 @@ bar.  A well leads down into darkness.
 @rus Секретный тренировочный зал воров и убийц. На севере (north) находится бар.
 Колодец уходит вниз (down) в непроглядную тьму.
 ~
-0 CDKSYijqy inside
+0 CDKSY inside
 D0
 @eng You see the bar.
 @rus Ты видишь бар.
@@ -6805,7 +6805,7 @@ common square. A rickety old bridge leads south to the promenade.
 канализацию. К юге протекает река, к северу лежит Общая площадь. Через реку
 переброшен старый шаткий мост, ведущий к Бульвару.
 ~
-0 CSiy field
+0 CS field
 D0
 @eng You see the common square.
 @rus Ты видишь Общую площадь.
@@ -6834,7 +6834,7 @@ various sorts and sizes.  There is a sign on the wall.
 @rus Зоомагазин - это маленькая, тесная лавка, полная клетками и животными
 разных размеров и форм. Здесь прибита к стене записка (sign).
 ~
-0 DMSjsy inside
+0 DMS inside
 E
 sign~
 @eng The sign reads:
@@ -6874,7 +6874,7 @@ It is vital that this room be immediately after the pet shop.
 @rus Это маленькая темная комнатка, в которой продавец животных держит своих
 зверей. Эта комната находится непосредственно за зоомагазином.
 ~
-0 CDKSijqy inside
+0 CDKS inside
 S
 #3033
 @eng The Magic Shop@rus Магазин магических вещей~
@@ -6887,7 +6887,7 @@ sorts and sizes.
 которых находятся многочисленные полки, заполненные банками, бутылками
 (bottles), книгами (books) и свитками (scrolls) всевозможных видов.
 ~
-0 DSjy inside
+0 DS inside
 E
 jars bottles~
 @eng Some of them are transparent enabling you to see that some contain colored
@@ -6924,7 +6924,7 @@ A small sign with golden letters stands on the desk.
 стоящего в центре комнаты.
 Вывеска (sign) с золотыми письменами стоит на столе.
 ~
-0 DSjy inside
+0 DS inside
 E
 oil lamps~
 @eng They are made from polished gold and looks as if they are securely fastened
@@ -6971,7 +6971,7 @@ A wooden sign is hanging above the fireplace.
 комнаты стоит большой дубовый стол (table).
 Деревянная табличка (sign) прибита над камином.
 ~
-0 DSjy inside
+0 DS inside
 E
 fireplace~
 @eng It is a rather large fireplace made from heavy granite rocks.
@@ -7021,7 +7021,7 @@ east and Wall Road leads both north and south from here.
 соединены мостиком поверх тяжелых деревянных ворот. Главная улица уходит на
 восток (east), а дорога вдоль городской стены - на север (north) и юг (south).
 ~
-0 Sy city
+0 S city
 E
 bridge footbridge~
 It is too high up to reach but it looks as if one easily could walk across it
@@ -7080,7 +7080,7 @@ the city wall.
 (gate). Главная улица уходит на запад (west) отсюда. Дорога вдоль городской
 стены пересекает улицу и уходит на север (north) и на юг (south).
 ~
-0 Sy city
+0 S city
 E
 bridge footbridge~
 @eng It is too high up to reach but it looks as if one easily could walk across it
@@ -7144,7 +7144,7 @@ north of here.
 лежит к востоку (east) от тебя. Дорога продолжается на юг (south), к
 северу (north) лежат городские ворота.
 ~
-0 Sy city
+0 S city
 E
 wall~
 @eng It is built from large grey rocks that have been fastened to each other with
@@ -7180,7 +7180,7 @@ Some letters have been written on the wall here.
 и на север (north). Узкий заброшенный переулок ведет на восток (east).
 На стене (wall) начертаны какие-то письмена (letters).
 ~
-0 Sy city
+0 S city
 E
 letters~
 @eng It says 'Who watches the watchmen?'
@@ -7225,7 +7225,7 @@ is to the north.
 @rus Ты идешь по узкому запущенному переулку, ведущему с востока (east) на запад
 (west). Лавка скорняка на севере (north).
 ~
-0 Sy city
+0 S city
 D0
 The leather shop is to the north.
 ~
@@ -7255,7 +7255,7 @@ here you see the levee.  North is the Pet Shop.
 (east) отсюда. На юге (south) ты видишь набережную. На севере (north)
 расположен зоомагазин.
 ~
-0 Sy city
+0 S city
 D0
 @eng You see, hear, and smell the pet shop.
 @rus Ты видишь, слышишь и обоняешь зоомагазин.
@@ -7292,7 +7292,7 @@ north.
 и ты можешь видеть старый трехэтажный склад на юге (south). Аптека "Источник
 молодости" расположена на севере (north).
 ~
-0 Sy city
+0 S city
 D0
 @eng You see a pricey-looking potion shop.
 @rus Ты видишь магазин микстур.
@@ -7329,7 +7329,7 @@ it must be the Mob Factory!
 нелепо смотрящееся здание, выкрашенное в ярко-оранжевый цвет с лиловыми
 полосками... похоже, это Фабрика Мобов!
 ~
-0 Sy city
+0 S city
 E
 wall~
 @eng It is built from large grey rocks that have been fastened to each other with
@@ -7363,7 +7363,7 @@ several decades, vile smells make you dizzy.
 @rus Ты внутри старой Грязной Таверны. Это место не прибирали в течении
 многих дней, отвратительные запахи заставляют тебя чихать.
 ~
-0 DSjy inside
+0 DS inside
 D0
 @eng You see the alley.
 @rus Ты видишь переулок.
@@ -7375,7 +7375,7 @@ D5
 @rus В полу ты видишь люк (trapdoor).
 ~
 trapdoor~
-ABZgh -1 3062
+ABZ -1 3062
 S
 #3049
 @eng Levee@rus Набережная~
@@ -7387,7 +7387,7 @@ across the river you can see a small boat landing built off of Kate's Diner.
 спуск к реке. На противоположном берегу ты можешь увидеть небольшой причал,
 пристроенный к закусочной Кэтти.
 ~
-0 Sy city
+0 S city
 D0
 @eng You see the Alley.
 @rus Ты видишь переулок.
@@ -7410,7 +7410,7 @@ violet-tinged light.
 очень пыльное, и давно не использовалось по назначению. Сверху падает
 бледно-фиолетовый свет.
 ~
-0 DSjy inside
+0 DS inside
 D0
 @eng You see the alley.
 @rus Ты видишь переулок.
@@ -7434,7 +7434,7 @@ opening in the wall ten feet below the bridge.
 стены (wall) города, и ты видишь, как река течет сквозь отверстие (opening)
 в стене десятью футами ниже моста.
 ~
-0 Sy city
+0 S city
 E
 bridge~
 @eng It is built from large grey rocks that have been fastened to each other with
@@ -7480,7 +7480,7 @@ wall.
 опушка большого леса. Узкая пыльная тропинка уходит на север (north) вдоль
 стены.
 ~
-0 Sy city
+0 S city
 E
 bridge footbridge~
 It is too high up to reach but it looks as if one easily could walk across it
@@ -7532,7 +7532,7 @@ the city wall.
 равнины раскинувшиеся вдали. Узкая пыльная тропинка уходит на север(north)
 вдоль стены.
 ~
-0 Sy city
+0 S city
 E
 bridge footbridge~
 It is too high up to reach but it looks as if one easily could walk across it
@@ -7586,7 +7586,7 @@ seen a rainbow.
 к тебе, а за ним находится десятифутовая статуя сидящего Одина, Верховного
 Бога. Позади алтаря открывается прекрасный атриум, над которым видна радуга.
 ~
-0 DKSjqy inside
+0 DKS inside
 E
 altar~
 Even though the altar is more than ten feet long it appears to be made from a
@@ -7621,7 +7621,7 @@ Judging from the furnishings, he's been made very wealthy by his trade.
 и приворотные зелья. Он поворачивается к вам и смотрит на вас с жадностью.
 Он очень сильно разбогател, продавая свой товар.
 ~
-0 Sy inside
+0 S inside
 D2
 @eng You see the eastern end of alley.
 @rus Вы видите западную часть переулка.
@@ -7634,7 +7634,7 @@ S
 @eng WOW you can fly!  You are floating in the air above Temple Square of Midgaard.
 @rus Вау! Ты умеешь летать! И ты поднялся прямо над храмовой площадью. 
 ~
-0 CSiy air
+0 CS air
 D4
 @eng More of the same.
 @rus То же самое.
@@ -7659,7 +7659,7 @@ bareing longswords guard the doorway to the east.
 тебя на мысль, что это место покинуто много веков назад. Два молодых человека
 с обнаженными длинными мечами охраняют дверь на восток.
 ~
-0 DSYjy inside
+0 DSY inside
 D0
 @eng North is the poor alley, even more safe than this dark temple.
 @rus На севере находится аллея бедняков, сохранившаяся намного лучше, чем этот 
@@ -7688,7 +7688,7 @@ the room.
 чувствуешь себя сильным и защищенным. Орудия пыток хозяина гильдии раскиданы
 повсюду вокруг.
 ~
-0 DKSYjqy inside
+0 DKSY inside
 D3
 @eng Exit to the tample hall is to the west.
 @rus Выход в храмовый зал на западе отсюда.
@@ -7708,7 +7708,7 @@ around.
 пол покрыт деревянными досками. Ты можешь увидеть какие-то приспособления,
 висящие на стенах, некоторые из них небрежно брошены на пол.
 ~
-0 DKSYjqy inside
+0 DKSY inside
 D2
 ~
 ~
@@ -7718,7 +7718,7 @@ D4
 @rus Люк ведет назад, в грязную таверну.
 ~
 trapdoor~
-ABZgh -1 3048
+ABZ -1 3048
 S
 #3063
 @eng Holy Temple@rus Святой храм~
@@ -7735,7 +7735,7 @@ enterance, to the east, seems leading to a large room.
 охраняя его. Дверь, охраняемая двумя рыцарями, ведет на восток (east) в
 большую комнату.
 ~
-0 DKSYjqy inside
+0 DKSY inside
 D1
 @eng The room seems lead to a large shrine.
 @rus Комната уходит в большую святыню.
@@ -7760,7 +7760,7 @@ the opposite walls.  Big swords and silvery shields are hanging on the wall.
 панциря стоят возле противоположной стены. Большие мечи и серебренные щиты
 висят на стенах.
 ~
-0 DKSYjqy inside
+0 DKSY inside
 D3
 @eng To the west you see the big hall of temple.
 @rus На западе ты видишь большой зал храма.
@@ -7779,7 +7779,7 @@ smell of meat can even be felt from the place you are standing.
 города находится на юге (south). На востоке (east) расположена мясная лавка,
 запах мяса из которой заставляет доносится даже до того места, где ты стоишь.
 ~
-0 Sy city
+0 S city
 D0
 @eng You see the large square.
 @rus Ты видишь большую площадь.
@@ -7812,7 +7812,7 @@ selections. The High Road lies to the west.
 вяленой на солнце или же приготовленный различными способами.
 На западе пролегает булыжная мостовая.
 ~
-0 DSjy inside
+0 DS inside
 D3
 @eng You see the High Road.
 @rus Ты видишь главную дорогу.
@@ -7831,7 +7831,7 @@ to north, and Common Square is to the south.
 находится здание с вывеской (sign), подвешенной над дверью. Дорога проходит 
 далее на север (north), а на юге (south) расположена Общая площадь.
 ~
-0 Sy city
+0 S city
 E
 sign~
 @eng The sign reads: General Store
@@ -7868,7 +7868,7 @@ noticeable to south east.
 всех цветов. К востоку (east) на площадь спускается мраморная лестница, а альков
 с алтарем виднеется на юго-востоке (south-east).
 ~
-0 DSjy inside
+0 DS inside
 D1
 @eng The stairs lead to temple square.
 @rus Ступени спускаются к Храмовой площади.
@@ -7891,7 +7891,7 @@ north.
 на юг (south) - в комнату жрицы, а на запад (west) - в храмовый придел. К северу
 (north) площадь выходит на Парковую аллею.
 ~
-0 Sy city
+0 S city
 D0
 @eng You can see the park road.
 @rus Ты видишь Парковую аллею.
@@ -7926,7 +7926,7 @@ life.
 расписаны фресками (painting) и украшены гобеленами (tapestry), а тонкие
 прозрачные занавески украшают окна. Ты думаешь, а не остаться ли тут навечно?..
 ~
-0 DKNSjqty inside
+0 DKNS inside
 E
 painting~
 @eng Getting a closer look to one of the paintings, you decided that you know 
@@ -7969,7 +7969,7 @@ of the park road to the west.
 могут разогнать сгустившуюся тьму. Ты можешь выйти на свежий воздух Парковой
 аллеи к западу от тебя.
 ~
-0 SXy inside
+0 SX inside
 D1
 @eng The altar is to the east.
 @rus На востоке находится алтарь.
@@ -7997,7 +7997,7 @@ to cast a fitful light over the dark enterprise.
 на нем жертвы, требуемые темным богом. Факелы висят на стенах, освещая эти злые
 деяния.
 ~
-0 DKNSjqty inside
+0 DKNS inside
 D3
 ~
 ~
@@ -8009,7 +8009,7 @@ S
 @rus Бар варлоков пахнет очень плохо. Но мистическая атмосфера этого места 
 успокаивает тебя.
 ~
-0 CDKSYijqy inside
+0 CDKSY inside
 D0
 @eng You see the laboratories of males..
 @rus Ты видишь чисто мужские лаборатории.
@@ -8040,7 +8040,7 @@ depths.
 кривых букв еще можно разобрать.  Колодец посреди комнаты уходит вниз
 (down) в непроглядную тьму.  Отвратительный запах доносится из глубины.
 ~
-0 CDKSYijqy inside
+0 CDKSY inside
 D2
 @eng You see the bar.
 @rus Ты видишь бар.
@@ -8063,7 +8063,7 @@ they don't drink drinks with alcohol.
 @rus Двери бара самураев сверкают. Вряд ли ты встретишь здесь посетителей,
 потому что здесь не разрешено пить алкогольные напитки.
 ~
-0 CDKSYijqy inside
+0 CDKSY inside
 D0
 @eng You see the guarting board..
 @rus Ты видишь таверну 'Хрюкающий кабан'.
@@ -8089,7 +8089,7 @@ wall.
 стоят около противоположной стены. Короткие мечи и сверкающие щиты висят на
 стенах.
 ~
-0 CDKSYijqy inside
+0 CDKSY inside
 D1
 @eng To the east you see the bar..
 @rus На востоке ты видишь бар.
@@ -8110,7 +8110,7 @@ praying with the templeman.
 взглядом и $gn{подивился} светящейся в нем мудрости и доброте. В
 комнате стоит тишина, и все располагает к серьезным раздумьям.
 ~
-0 DSjy inside
+0 DS inside
 D2
 @eng By the temple altar.
 @rus У алтаря.
@@ -8131,7 +8131,7 @@ around.
 пол покрыт деревянными досками. Ты можешь увидеть какие-то приспособления,
 висящие на стенах, некоторые из них небрежно брошены на пол.
 ~
-0 DKSYjqy inside
+0 DKSY inside
 D0
 ~
 ~
@@ -8150,7 +8150,7 @@ south along the city wall.
 расположен к востоку (east) от тебя, мост - сразу на севере (north). Площадь
 Собраний простирается дальше к югу (south) вдоль городской стены.
 ~
-0 Sy city
+0 S city
 D0
 @eng You see the Bridge.
 @rus Ты видишь мост.
@@ -8185,7 +8185,7 @@ from here.
 восток (east), а на западе (west) ты видишь городскую стену. Парковая Аллея
 ведет к югу (south).
 ~
-0 Sy city
+0 S city
 D1
 @eng The promenade.
 @rus Бульвар.
@@ -8220,7 +8220,7 @@ to your east.
 виднеется небольшое строение. Астральная площадь, где расположена закусочная
 Кэти, лежит к востоку (east).
 ~
-0 Sy city
+0 S city
 D0
 @eng A rickety old bridge crosses the river, heading towards the city dump.
 @rus Старый шаткий мостик ведет к городской свалке.
@@ -8261,7 +8261,7 @@ and the concourse ends to your east.
 проспект начинается к югу (south), бульвар продолжается на запад (west), а
 Площадь Собраний - к востоку (east) от тебя.
 ~
-0 Sy city
+0 S city
 D0
 @eng You smell the heavenly scents of Kate's Diner.
 @rus До тебя доносятся запахи закусочной Кэти.
@@ -8299,7 +8299,7 @@ concourse becomes wall road.  The Concourse continues south along the wall.
 берега реки к северу (north) от тебя.  Там начинается Дорога у Стены. 
 Площадь Собраний продолжается дальше на юг (south) вдоль городской стены.  
 ~
-0 Sy city
+0 S city
 E
 wall~
 @eng It is built from large grey rocks that have been fastened to each other with
@@ -8335,7 +8335,7 @@ the famous Park Cafe.
 а к югу (south) небольшая тропинка ведет вглубь парка. К востоку (east) - вход
 в знаменитую парковую таверну.
 ~
-0 CSiy city
+0 CS city
 D0
 @eng You see the promenade.
 @rus Ты видишь бульвар.
@@ -8366,7 +8366,7 @@ colorful plants.
 изумительный вид на реку, а сквозь южные окна видны цветущие растения
 парка.
 ~
-0 DSjy inside
+0 DS inside
 D3
 @eng You see the park entrance.
 @rus Ты видишь вход в парк.
@@ -8381,7 +8381,7 @@ south and east.
 @rus Ты идешь по маленькой тропинке через парк. Тропинка продолжается на юг (south)
 и на восток (east).
 ~
-0 Sy city
+0 S city
 D1
 ~
 ~
@@ -8400,7 +8400,7 @@ leads further east and west.
 парковая таверна - на восток от входа. Тропинка ведет на восток (east) и
 на запад (west).
 ~
-0 Sy city
+0 S city
 D0
 @eng You see the northern park entrance.
 @rus Ты видишь северный вход в парк.
@@ -8423,7 +8423,7 @@ south and just north of here you see the southern wall of Park Cafe.
 @rus Ты идешь по тропинке, проходящей через парк. Она продолжается на запад (west)
 и на юг (south), а к северу ты видишь южную стену (wall) парковой таверны.
 ~
-0 Sy city
+0 S city
 E
 wall~
 @eng You see a wall constructed with a heavy logs. Through the window in the wall
@@ -8449,7 +8449,7 @@ in the centre of the room.
 @rus Ты оказался внутри опрятного офиса. Большой стол из потемневшего от времени
 дерева стоит в центре комнаты.
 ~
-0 DSjy inside
+0 DS inside
 D1
 @eng You see Park Road.
 @rus Ты видишь Парковую аллею.
@@ -8461,7 +8461,7 @@ D3
 @rus {R "НЕ ВХОДИТЬ!"{x
 ~
 door~
-ABCZghi 3120 3142
+ABCZ 3120 3142
 S
 #3111
 @eng Park Road@rus Дорога вокруг парка~
@@ -8471,7 +8471,7 @@ notice a sign on the door.  The park entrance is to the east.
 строение (building), на его двери (door) ты замечаешь надпись (sign). Вход
 в парк - на востоке (east) отсюда.
 ~
-0 Sy city
+0 S city
 E
 building door sign~
 @eng The sign on the door says:-
@@ -8509,7 +8509,7 @@ into the park and going west through the entrance you will reach Park Road.
 @rus Ты стоишь у западного входа в парк. Небольшая тропинка ведет к востоку (east)
 в парк, а на западе (west) ты можешь выйти к Парковой Аллее.
 ~
-0 CSiy city
+0 CS city
 D1
 ~
 ~
@@ -8526,7 +8526,7 @@ park entrance and to the east you see a small pond.
 @rus Ты в парке. Тропинка ведет к северу (north) и к западу (west). На западе ты
 видишь вход в парк, а к востоку (east) лежит небольшой пруд.
 ~
-0 Sy city
+0 S city
 D0
 ~
 ~
@@ -8551,7 +8551,7 @@ back on the path from the eastern and western end of the pond.
 @rus Ты плывешь через пруд, чувствуя себя полным идиотом. Ты можешь выбраться на
 тропинку на восточном (east) или западном (west) берегу озерка.
 ~
-0 Sy swim
+0 S swim
 D1
 ~
 ~
@@ -8574,7 +8574,7 @@ park entrance and to the west you see a small pond.
 @rus Ты в парке. Тропинка ведет на север (north) и на восток (east). На западе
 (west) ты видишь небольшой пруд, а к востоку лежит вход в парк.
 ~
-0 Sy city
+0 S city
 D0
 ~
 ~
@@ -8606,7 +8606,7 @@ Avenue.
 @rus Ты стоишь у восточного входа в парк. Тропинка ведет на запад (west) в парк.
 На востоке (east) ты можешь выйти к Изумрудному проспекту.
 ~
-0 CSiy city
+0 CS city
 D1
 ~
 ~
@@ -8624,7 +8624,7 @@ the park entrance and to the east is the not very big Town Hall of Midgaard.
 на юг (south). К западу (west) ты видишь вход в парк, а на востоке расположена
 Ратуша Мидгаарда.
 ~
-0 Sy city
+0 S city
 D0
 ~
 ~
@@ -8647,7 +8647,7 @@ S
 @eng You are on Park Road which leads north and south.
 @rus Ты идешь по Парковой аллее, ведущей с юга (south) на север (north).
 ~
-0 Sy city
+0 S city
 D0
 ~
 ~
@@ -8666,7 +8666,7 @@ town.
 на запад (west). К востоку (east) ты видишь городские трущобы. Не самое приятное
 место в городе.
 ~
-0 Sy city
+0 S city
 D0
 ~
 ~
@@ -8698,7 +8698,7 @@ A road sign is here.
 у твоих ног. Другой конец цепи уходит в бесконечную голубизну неба.
 Дорожнуй указатель прибит к столбу.
 ~
-0 Sy city
+0 S city
 E
 sign~
 @eng The sign points in all directions:
@@ -8760,7 +8760,7 @@ east.
 @rus Ты стоишь на повороте Изумрудного проспекта. Проспект продолжается на юг
 (south) и на восток (east).
 ~
-0 Sy city
+0 S city
 D1
 ~
 ~
@@ -8777,7 +8777,7 @@ here.
 @rus Ты идешь по Парковой аллее, ведущей на север (north) и на юг (south). Улица
 Вязов идет на восток (east) отсюда.
 ~
-0 Sy city
+0 S city
 D0
 ~
 ~
@@ -8798,7 +8798,7 @@ in eastward direction.
 @rus Ты идешь по улице Вязов. Парковая аллея осталась на западе (west), а улица
 Вязов продолжается на восток (east).
 ~
-0 Sy city
+0 S city
 D1
 ~
 ~
@@ -8820,7 +8820,7 @@ street ends to the north near a run-down neighborhood.
 востоке (east), а улица заканчивается на севере (north), около городских
 трущоб.
 ~
-0 Sy city
+0 S city
 E
 grate grating~
 @eng Looks heavy.  A small sign is hanging on it.
@@ -8860,7 +8860,7 @@ D2
 Through the solid iron bars you see the graveyard.
 ~
 grate~
-ABCZghi 3121 3600
+ABCZ 3121 3600
 D3
 ~
 ~
@@ -8873,7 +8873,7 @@ The Concourse is south of here.
 @rus Ты идешь по Изумрудному проспекту, который ведет на север (north). Площадь
 Собраний - к югу (south) отсюда.
 ~
-0 Sy city
+0 S city
 D0
 ~
 ~
@@ -8888,7 +8888,7 @@ S
 @eng You are on Park Road which continues north.  The Concourse is south of here.
 @rus Ты на Парковой аллее, ведущей на север (north). Площадь Собраний лежит к югу.
 ~
-0 Sy city
+0 S city
 D0
 ~
 ~
@@ -8911,7 +8911,7 @@ both north and east.
 @rus Ты стоишь у юго-западного угла городской стены. Площадь Собраний лежит к
 северу (north) и востоку (east).
 ~
-0 Sy city
+0 S city
 D0
 ~
 ~
@@ -8931,7 +8931,7 @@ to the north.
 города лежат к востоку (east), а юго-западный угол стены - к западу (west) от
 тебя. Изумрудный проспект простирается на север (north).
 ~
-0 Sy city
+0 S city
 D0
 @eng Emerald avenue lies to the north.
 @rus Изумрудный проспект простирается на север.
@@ -8958,7 +8958,7 @@ the city wall is east.
 к западу (west) отсюда, а парковая аллея ведет на север (north). Юго-восточный
 угол стены находится к востоку (east).
 ~
-0 ASgy city
+0 AS city
 D0
 ~
 ~
@@ -8981,7 +8981,7 @@ both north and west.
 @rus Ты находишься у юго-восточного угла городской стены. Площадь Собраний лежит
 как к северу (north), так и к западу (west).
 ~
-0 Sy city
+0 S city
 D0
 ~
 ~
@@ -8996,7 +8996,7 @@ S
 @eng You are at Park Road which continues north and south.
 @rus Ты идешь по Парковой аллее, ведущей с юга (south) на север (north).
 ~
-0 Sy city
+0 S city
 D0
 ~
 ~
@@ -9013,7 +9013,7 @@ Austral Square and Kate's Diner, to the east is the small street Penny Lane.
 @rus Ты стоишь на северном конце Изумрудного проспекта. К северу (north) лежит
 Астральная площадь и закусочная Кэти, к востоку (east) - улица Старых Монеток.
 ~
-0 Sy city
+0 S city
 D0
 ~
 ~
@@ -9034,7 +9034,7 @@ and to the south is the Road Crossing.
 @rus Ты стоишь на повороте Изумрудного проспекта. Проспект продолжается на восток
 (east), а к югу (south) лежит перекресток.
 ~
-0 Sy city
+0 S city
 D1
 ~
 ~
@@ -9051,7 +9051,7 @@ and to the north is the Road Crossing.
 @rus Ты стоишь на повороте Изумрудного проспекта. Проспект продолжается на запад
 (west), а к северу (north) лежит перекресток.
 ~
-0 Sy city
+0 S city
 D0
 ~
 ~
@@ -9070,7 +9070,7 @@ under the ground, forming a wall.
 востоке (east) ты видишь перекресток дорог. На юге (south) из-под земли
 вырастает утес, образуя стену.
 ~
-0 Sy city
+0 S city
 D0
 ~
 ~
@@ -9093,7 +9093,7 @@ west is the Road Crossing.
 @rus Ты стоишь на повороте Парковой аллеи. К югу (south) дорога продолжается, а
 к западу (south) расположен перекресток дорог.
 ~
-0 Sy city
+0 S city
 D2
 ~
 ~
@@ -9110,7 +9110,7 @@ along the walls and a long desk is placed in the middle of the room.
 @rus Ты стоишь в приемной городской Ратуши. Деревянные стулья стоят вдоль стен, а
 длинный стол стоит в центре комнаты.
 ~
-0 DSjy inside
+0 DS inside
 D1
 @eng It looks like some kind of office.
 @rus Что-то вроде кабинета...
@@ -9134,7 +9134,7 @@ raised slightly.
 но совершенно пустой стол стоит перед креслом, которое настолько удобно, что
 кажется скорее кроватью с поднятым изголовьем.
 ~
-0 DSbjy inside
+0 DSb inside
 E
 chair armchair~
 This chair is really a masterpiece.  A chair where one can sit as comfortably
@@ -9154,7 +9154,7 @@ continues in eastward direction.
 @rus Ты идешь по улице Старых Монеток. Изумрудный проспект лежит к западу (west),
 а сама улица продолжается к востоку.
 ~
-0 Sy city
+0 S city
 D1
 ~
 ~
@@ -9172,7 +9172,7 @@ the concourse intersects this street to the east.
 продолжается к северу (north) и к западу (west), а перекресток с площадью
 Собраний лежит к востоку (east).
 ~
-0 Sy city
+0 S city
 D0
 ~
 ~
@@ -9194,7 +9194,7 @@ S
 @rus Ты забрел в тупичок в конце улицы Стырых Монеток. Единственный выход лежит к
 югу (south).
 ~
-0 Sy city
+0 S city
 D2
 ~
 ~
@@ -9208,7 +9208,7 @@ Arms is hanging on the north wall and a heavy steel door is to the south.
 висит на северной стене, а выход на юг (south) преграждает тяжелая стальная
 дверь (door).
 ~
-0 DSjy inside
+0 DS inside
 E
 arms~
 @eng Although a bit dusty the Coat of Arms is an excellent piece of work.
@@ -9219,13 +9219,13 @@ D1
 @rus Ты видишь штаб-квартиру городской стражи.
 ~
 door~
-ABCZghi 3120 3110
+ABCZ 3120 3110
 D2
 @eng You see the heavy steel door.
 @rus Ты видишь тяжелую стальную дверь.
 ~
 door~
-ABCZghi 3137 3143
+ABCZ 3137 3143
 S
 #3143
 @eng The Jail@rus Тюрьма~
@@ -9235,7 +9235,7 @@ to the touch.  A heavy steel door is to the north.
 них веет могильным холодом. Тяжелая стальная дверь преграждает выход на север
 (north).
 ~
-0 DSjy inside
+0 DS inside
 E
 wall walls~
 @eng The walls are marked with lots of scratches.  Some of them spell sentences
@@ -9248,7 +9248,7 @@ D0
 @rus Ты видишь тяжелую стальную дверь.
 ~
 door~
-ABCZghi 3137 3142
+ABCZ 3137 3142
 S
 #3144
 @eng The end of Elm Street@rus Окраина улицы Вязов~
@@ -9260,7 +9260,7 @@ south.  It occurs to you that this isn't the happiest section of town.
 вернуться на юг (south), к кладбищу. Очевидно, здесь не самое благополучное
 место в городе.
 ~
-0 Sy city
+0 S city
 D1
 @eng You see a run-down slum neighborood.
 @rus Ты видишь грязные трущобы.
@@ -9303,7 +9303,7 @@ Pull up a chair, perhaps play a game, and take time out to talk.
 особое кофе с корицей, как раз к твоему приходу. Занимай стул, поиграй в
 игру, просто посиди поболтай...
 ~
-0 DKSjqy inside
+0 DKS inside
 E
 window landing~
 @eng You can see a rickety bridge to your northwest, leading back into
@@ -9354,7 +9354,7 @@ half hidden by a stack of books, leads to a room in the back of the shop.
 можешь через окно обозревать Общую площадь. Небольшая дверь, скрытая
 среди шкафов, ведет в заднюю комнату.
 ~
-0 BCShiy inside
+0 BCS inside
 E
 bookcase~
 @eng You see many cartographer journals and topographical studies.  You also see
@@ -9372,7 +9372,7 @@ D0
 @rus Знак гласит: {R"ПОСТОРОННИМ ВХОД ВОСПРЕЩЕН!"{x
 ~
 door~
-ABCFZghil 3161 3161
+ABCFZ 3161 3161
 D2
 @eng To the south is the Poor Alley.  Across the alley, you see the Grubby Inn.
 @rus На юге - переулок Бедняков. На лругой стороне переулка - Грязная Таверна.
@@ -9395,7 +9395,7 @@ that, the room is quite bare.
 столике у восточного окна стоит ваза с одной-единственной белой розой. Комната
 больше ничем не заставлена.
 ~
-0 CSiy inside
+0 CS inside
 E
 chest~
 This chest is firmly locked, and the device by which it opens is beyond your
@@ -9406,7 +9406,7 @@ D2
 @rus Маленькая дверь ведет в лавку.
 ~
 door~
-ABCFZghil 3161 3160
+ABCFZ 3161 3160
 D4
 ~
 ~
@@ -9421,7 +9421,7 @@ adjust, you realize that there are mud puddles all around the room, and
 this is some weird version of windows.  In a flash of revelation, you
 realize that you've entered the Temple of Stupid.
 ~
-0 DSjy inside
+0 DS inside
 E
 puddle puddles~
 The puddles on the floor are filthy and exude a foul stench.
@@ -9445,7 +9445,7 @@ part of the city wall.
 @rus Арка моста на фут поросла мхом и водорослями. Вода несет тебя через дыру 
 в нижней части западной (west) стены.
 ~
-0 CSiy noswim
+0 CS noswim
 E
 wall~
 It is built from large grey rocks that have been fastened to each other with
@@ -9469,7 +9469,7 @@ river flows west towards the bridge.  The riverbanks are too steep to climb.
 @rus На севере ты видишь халупы переулка Бедняков. Река течет на запад (west)
 по направлению к мосту. Береги слишком высоки, чтобы на них взобраться.
 ~
-0 Sy noswim
+0 S noswim
 D1
 ~
 ~
@@ -9488,7 +9488,7 @@ dump to the promenade.
 (west). Берег реки слишом крут, чтобы на него взобраться. Над твоей головой
 проходит мост, соединяющий свалку с бульваром на южном берегу реки.
 ~
-0 CSiy noswim
+0 CS noswim
 D1
 ~
 ~
@@ -9505,7 +9505,7 @@ Diner is to the south.  The river flows in an east west direction.
 @rus Набережная - сразу к северу (north) отсюда. Небольшая пристань виднеется
 у закусочной Кэти к югу (south) отсюда. Река протекает с востока на запад.
 ~
-0 CSiy noswim
+0 CS noswim
 D0
 ~
 ~
@@ -9534,7 +9534,7 @@ levee are west, in the direction of the current.
 мостом и через отверстие в стене. Ниже по течению, на западе (west), лежит
 Набережная.
 ~
-0 Sy noswim
+0 S noswim
 D1
 ~
 ~
@@ -9553,7 +9553,7 @@ can see the stone buttresses of the eastern bridge overhead.
 толстыми вертикальными прутьями, вделанными в стену. Ты видишь каменные опоры
 моста над головой.
 ~
-0 CSiy noswim
+0 CS noswim
 D1
 @eng The iron bars are broken, allowing passage through the hole in the wall.
 Beyond the bars you see a dark tunnel.
@@ -9578,7 +9578,7 @@ You check to make sure you still have your wallet.
 перекресток с Темным Переулком. На всякий случай ты проверяешь, на
 месте ли твой кошелек...
 ~
-0 Sy city
+0 S city
 D0
 @eng The eastern gate of the city is north.
 @rus Ты видишь Восточные Ворота города.
@@ -9603,7 +9603,7 @@ it could be in a place this foul...
 западу. Ты осторожно обходишь лужу какой-то подозрительной жидкости... Кто
 знает, что это может быть, в таком-то месте?..
 ~
-0 Sy city
+0 S city
 D0
 @eng Wall road continues to the north, heading towards the gate.
 @rus Дорога у Стены ведет к Восточным Воротам города.
@@ -9635,7 +9635,7 @@ turns in the concourse.
 переброшен через реку к югу (south) от тебя. За мостом дорога у стены
 выходит на открытое место.
 ~
-0 Sy city
+0 S city
 D0
 @eng You see an intersection with a dark alley.
 @rus Ты видишь перекресток с темным переулком.
@@ -9660,7 +9660,7 @@ loops around the inside of the city walls.
 металлическими прутьями (bar). Дорога у Стены продолжается на север (north),
 к югу (south) обширная площадь Собраний изгибается вдоль городских стен.
 ~
-0 Sy city
+0 S city
 E
 opening bars river~
 @eng Hmm...some of the bars have been ripped out of the wall.  Enough to pass a
@@ -9702,7 +9702,7 @@ currents of the Midgaard river.
 выйти на свежий воздух Бульвара. Под тобой проносятся стремительные воды
 реки Мидгаарда.
 ~
-0 Sy city
+0 S city
 D0
 @eng You can see the clutter of the City Dump.
 @rus Ты видишь завалы городской свалки.
@@ -9733,7 +9733,7 @@ or west.
 в южных лесах. Если осмелишься, можешь выйти из города на юге (south), либо
 иди по Площади Собраний к востоку (east) и западу (west) отсюда.
 ~
-0 Sy city
+0 S city
 D1
 @eng The concourse heads east along the inside of the city wall.
 @rus Площадь Собраний лежит к востоку вдоль стен города.
@@ -9766,7 +9766,7 @@ Migaard lies north.
 вынюхиваешь что-то!). Деревья (и гоблины) Миден'нира - к югу (south) от тебя,
 ворота, чтобы вернуться обратно в город - к северу (north).
 ~
-0 Sy forest
+0 S forest
 D0
 @eng You see the southern gate.
 @rus Ты видишь южные ворота.
@@ -9790,7 +9790,7 @@ intersection with a busy Clan street.
 Мидгаарда. Дорога продолжается вдоль западной стены на север (north),
 по направлению к перекрестку с оживленным проспектом.
 ~
-0 Sy city
+0 S city
 D0
 @eng You see an intersection between wall road and a busy Clan street.
 @rus Ты видишь оживленный перекресток с улицей Ремесленников.
@@ -9813,7 +9813,7 @@ city.  Wall road continues to the north and south.
 магазинами и лавками ремесленников. Улица продолжается на восток (east), к
 дальней стене города. Дорога у Стены ведет на юг (south) и на север (north).
 ~
-0 Sy city
+0 S city
 D0
 @eng Wall road continues to the north, towards the northwestern corner of the wall.
 @rus Дорога продолжается по направлению к северо-западному углу стены.
@@ -9843,7 +9843,7 @@ to the north.
 Мидгаарда. К югу (south) находится перекресток с оживленным проспектом.
 Северо-западный угол стены лежит прямо впереди тебя, на севере (north).
 ~
-0 Sy city
+0 S city
 D0
 @eng You see the northwestern corner of the city wall.
 @rus Ты видишь северо-западный угол городской стены.
@@ -9866,7 +9866,7 @@ the north gate.
 дороги. Ты можешь идти на юг (south) к западным воротам либо на
 восток (east) - к северным.
 ~
-0 Sy city
+0 S city
 D1
 @eng Wall road continues along the northern wall of the city.
 @rus Дорога лежит вдоль северной стены города.
@@ -9888,7 +9888,7 @@ to the east.
 @rus Городская стена возвышается над тобой, пока ты идешь вниз по улице, между
 северо-западным углом стены и Северными Воротами, и далее на восток.
 ~
-0 Sy city
+0 S city
 D1
 @eng Wall road continues to the east, towards the northern gate of Midgaard.
 @rus Дорога продолжается на восток, к северным воротам.
@@ -9918,7 +9918,7 @@ Temple of Midgaard, but there is no way to reach them from here.
 Перенаселенный Ремесленный квартал виднеется к югу (south), а дальше 
 возвышаются тонкие шпили Собора, но прямо тебе не пройти.
 ~
-0 Sy city
+0 S city
 D0
 @eng The northern plains are visible through the gate.
 @rus За воротами простираются Северные Равнины.
@@ -9946,7 +9946,7 @@ road... better be on guard for thieves.
 @rus Ты идешь вдоль городской стены между северными воротами и северо-восточным
 углом стены. Ты видишь кровавые пятна на дороге... Опасайся грабителей!
 ~
-0 Sy city
+0 S city
 D1
 You see the northeastern corner of the city walls.
 ~
@@ -9967,7 +9967,7 @@ to the eastern gate of Midgaard.
 северо-восточного угла городской стены. Северные ворота лежат к западу,
 а дорога на юг (south) приведет тебя к восточным воротам.
 ~
-0 Sy city
+0 S city
 D2
 @eng Wall road continues to the south, along the eastern wall of the city.
 @rus Дорога у стены идет на юг вдоль восточной стены города.
@@ -9990,7 +9990,7 @@ northeast corner of the city wall.
 Ремесленников. Восточная стена города возвышается над тобой, а на севере 
 ты видишь северо-восточный угол этой стены.
 ~
-0 Sy city
+0 S city
 D0
 @eng You can see the northeast corner of the city wall.
 @rus Ты видишь северо-восточный угол городской стены.
@@ -10016,7 +10016,7 @@ Wall road continues to the north and south.
 образующие невообразимый букет. Дорога у Стены ведет с севера (north) на юг
 (south).
 ~
-0 Sy city
+0 S city
 D0
 @eng Wall road continues to the north, along the eastern wall of the city.
 @rus Дорога у Стены продолжается к северу вдоль восточной стены города.
@@ -10045,7 +10045,7 @@ The guards at the gate eye you suspiciously from afar.
 К северу ты можешь заметить перекресток с улицей Ремесленников, по которой
 то и дело проходят люди. Стражники у ворот подозрительно тебя оглядывают.
 ~
-0 Sy city
+0 S city
 D0
 @eng You see an intersection with a busy clan street.
 @rus Ты видишь перекресток с шумной улицей ремесленников.
@@ -10070,7 +10070,7 @@ village of Ofcol.  You can return to Midgaard to the south.
 на север ты видишь широко раскинувшиеся равнины, по которым можно добраться
 до Офкола. К югу (south) ты можешь вернуться в Мидгаард.
 ~
-0 Sy field
+0 S field
 D0
 @eng You see a dusty trail leading around the city.
 @rus Ты видишь пыльную тропинку, идущую в обход городских стен.
@@ -10093,7 +10093,7 @@ alongside a beautiful park.
 Площадь Собраний продолжается на север (north) к мосту и на юг (south) вдоль
 прекрасного парка.
 ~
-0 Sy city
+0 S city
 D0
 @eng The concourse continues to the north, along the city wall.
 @rus Площадь Собраний продолжается на север вдоль стен города.
@@ -10116,7 +10116,7 @@ the southwest corner of the city wall.
 дорога проходит вдоль прекрасного парка, а к югу (south) ты можешь пройти к юго-
 западному углу городской стены.
 ~
-0 Sy city
+0 S city
 D0
 @eng The concourse heads north, passing by a beautiful park.
 @rus Площадь Собраний простирается к северу, проходя через зеленый парк.
@@ -10141,7 +10141,7 @@ Penny Lane lie west.
 перекресток с улицей Вязов. Причудливо вымощенные тротуары улицы Старых Монеток
 видны на западе (west).
 ~
-0 Sy city
+0 S city
 D0
 @eng The concourse continues to the north, towards the east bridge.
 @rus Площадь Собраний продолжается к северу по направлению к восточному мосту.
@@ -10171,7 +10171,7 @@ To your west, you see Elm Street at the graveyard entrance.
 Собраний расстилается к югу (south) и северу (north) от тебя. На западе
 ты видишь улицу Вязов у входа на кладбище.
 ~
-0 Sy city
+0 S city
 D0
 @eng The concourse continues to the north, towards an intersection with Penny Lane.
 @rus Площадь Собраний продолжается к северу по направлению к пересечению с улицей
@@ -10203,7 +10203,7 @@ haggling coming from the east.
 же самая тихая часть города. Ты слышишь, как кто-то оживленно торгуется
 на восток (east) от тебя.
 ~
-0 Sy city
+0 S city
 D1
 @eng Clan Road continues east.
 @rus Улица Ремесленников продолжается на восток.
@@ -10224,7 +10224,7 @@ Clan Road continues on to the east and the west.
 @rus Ты идешь по улице Ремесленников. На юг (south) от тебя находится контора
 менялы. Улица ведет с востока (east) на запад (west).
 ~
-0 Sy city
+0 S city
 D1
 @eng Clan Road continues east.
 @rus Улица Ремесленников продолжается на восток.
@@ -10251,7 +10251,7 @@ Not much traffic passes through this part, as there is nothing to buy.
 @rus Лавки в этой части улицы давно закрыты и заколочены. Покупателей не
 видно, поскольку все равно покупать нечего...
 ~
-0 Sy city
+0 S city
 D1
 @eng Clan Road continues to the east.
 @rus Улица Ремесленников продолжается на восток.
@@ -10276,7 +10276,7 @@ a finely crafted sword. A few minutes, and it will be done.
 же осмеливаешься подойти ближе, то тебе открывается прекрасно сделанный меч.
 Осталось нанести лишь несколько последних штрихов.
 ~
-0 ADSgjy desert
+0 ADS desert
 D2
 ~
 ~
@@ -10289,7 +10289,7 @@ to the east and west. North you here some noises of a smithery.
 @rus Шум и свет отовсюду. Улица Ремесленников продолжается на восток (east)
 и на запад (west). С севера (north) доносится шум кузницы.
 ~
-0 Sy city
+0 S city
 D0
 ~
 ~
@@ -10319,7 +10319,7 @@ happy patrons.  Clan Road continues to the east and west.
 доносится шум веселой пирушки. Улица продолжается на восток (east) и на
 запад (west).
 ~
-0 Sy city
+0 S city
 D1
 @eng Clan Road continues to the east.
 @rus Улица Ремесленников продолжается на восток.
@@ -10348,7 +10348,7 @@ you.  Clan Road continues to the west.
 возвышается городская стена, отбрасывая на тебя тень. Улица Ремесленников
 ведет на запад (west).
 ~
-0 Sy city
+0 S city
 D1
 @eng Wall Road is east of here.
 @rus Дорога у стены пролегает к востоку отсюда.
@@ -10377,7 +10377,7 @@ silver. A smallish sign hangs on the wall, lettered in common.
 ростовщик сидит за большим столом, без всякого сомнения дела его идут
 успешно. Крохотная записка (sign) висит на стене, на ней что-то написано.
 ~
-0 DSjy inside
+0 DS inside
 E
 sign~
 @eng Give me your coins, and I shall change them for you, taking but 1 in 20 for
@@ -10411,7 +10411,7 @@ you search vainly for a clean table to sit at, and then give up.
 когда-то в гневе. Оглядываясь вокруг, ты тщетно ищешь чистый стол (table),
 чтобы присесть, и, не найдя такового, отказываешься от своего намерения.
 ~
-0 DSjy inside
+0 DS inside
 E
 table tables~
 @eng You find a table that's relatively vomit-free.
@@ -10449,7 +10449,7 @@ be had somewhere around here...
 обслуживанию. Бар находится к югу (south) от тебя. На востоке ты можешь
 вернуться в другую половину зала. Ты знаешь, что где-то тут сдают комнаты.
 ~
-0 DSjy inside
+0 DS inside
 D1
 @eng You see another room in the pub.
 @rus Другая половина зала.
@@ -10482,7 +10482,7 @@ prosperous establishment.
 ведет в гостиничные номера этого процветающего заведения.
 столами и ржет над
 ~
-0 DSjy inside
+0 DS inside
 D0
 @eng Clan Road is to the north.
 @rus Улица ремесленников видна через открытые двери.
@@ -10524,7 +10524,7 @@ A sign is on the wall.
 служанок стоят в углу, и кидают в твою сторону многообещающие взгляды.
 На стене ты замечаешь записку.
 ~
-0 DSjy inside
+0 DS inside
 E
 sign~
 @eng The sign says: Don't forget our dinner menu.
@@ -10557,7 +10557,7 @@ A sign is on the wall.
 служанок стоят в углу, и кидают в твою сторону многообещающие взгляды.
 На стене ты замечаешь записку.
 ~
-0 DSjy inside
+0 DS inside
 E
 sign~
 The sign says: Don't forget our dinner menu.
@@ -10588,7 +10588,7 @@ probably waiting for you to ask him for a room.
 Он отрывается от них и внимательно тебя оглядывает. По всей видимости, он ждет,
 когда ты закажешь у него комнату.
 ~
-0 DSjy inside
+0 DS inside
 D5
 @eng The stairs lead back down to the pub.
 @rus Ступени ведут вниз, обратно в таверну.

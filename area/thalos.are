@@ -18,10 +18,10 @@ eyestalks atop the round body which can do anything from charm you
 to disintegrate you.  Beholders are not known for their personality.
 ~
 human~
-BHRehnx Dj 0 0 Ag -870 0
+BHJRe D 0 0 A -870 0
 25 10 5d10+2500 25d9+100 4d4+16 'none'
 -16 -16 -16 -2
-Fl
+F
 stand stand none 1128
 0 0 medium unknown
 r fire 100
@@ -47,10 +47,10 @@ This is a creature with the upper torso of a beautiful woman, but the lower
 body of a four-legged beast.  She licks her lips as she looks at you greedily.
 ~
 human~
-CFGilm 0 0 0 0 -999 0
+CFG 0 0 0 0 -999 0
 9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
-EFNUklt
+EFNU
 stand stand female 50
 0 0 medium unknown
 #5202
@@ -62,10 +62,10 @@ A strong, wooden chest bound with iron straps and a heavy pad-lock on the
 front.
 ~
 human~
-BCFGHhilmn 0 0 Gm 0 10 0
+BCFGH 0 0 G 0 10 0
 11 0 2d8+134 5d9+100 1d10+2 'none'
 1 1 1 8
-EFNUklt
+EFNU
 stand stand none 0
 0 0 medium unknown
 #5203
@@ -75,10 +75,10 @@ Two skeletons lie crushed under a large boulder.
 ~
 ~
 human~
-BCFGHhilmn 0 0 Gm 0 -10 0
+BCFGH 0 0 G 0 -10 0
 11 0 2d8+134 5d9+100 1d10+2 'none'
 1 1 1 8
-EFNUklt
+EFNU
 stand stand none 0
 0 0 medium unknown
 #5204
@@ -88,10 +88,10 @@ The stone floor of this house has been ripped apart.
 ~
 ~
 human~
-BCFGHhilmn 0 0 Gm 0 -140 0
+BCFGH 0 0 G 0 -140 0
 11 0 2d8+134 5d9+100 1d10+2 'none'
 1 1 1 8
-EFNUklt
+EFNU
 stand stand none 0
 0 0 medium unknown
 #5205
@@ -101,10 +101,10 @@ Some broken shards of pottery lie strewn about the floor.
 ~
 ~
 human~
-BCFGHhilmn 0 0 Gm 0 200 0
+BCFGH 0 0 G 0 200 0
 11 0 2d8+134 5d9+100 1d10+2 'none'
 1 1 1 8
-EFNUklt
+EFNU
 stand stand none 0
 0 0 medium unknown
 #5206
@@ -114,10 +114,10 @@ A few wooden planks lie stacked on a low shelf.
 ~
 ~
 human~
-BCFGHhilmn 0 0 Gm 0 0 0
+BCFGH 0 0 G 0 0 0
 11 0 2d8+134 5d9+100 1d10+2 'none'
 1 1 1 8
-EFNUklt
+EFNU
 stand stand none 0
 0 0 medium unknown
 #5207
@@ -128,10 +128,10 @@ A small horned lizard flicks his tongue and slithers away.
 A cute little lizard, that is, if you like reptiles!
 ~
 lizard~
-Hn 0 0 0 0 0 0
+H 0 0 0 0 0 0
 3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
-EFNRkltx
+EFNR
 stand stand none 0
 0 0 medium unknown
 #5208
@@ -143,10 +143,10 @@ It is a big chunk of rock that has been magically formed into a giant
 stone creature. He stands here still guarding the city.
 ~
 golem~
-Bh 0 Nt 0 0 600 0
+B 0 N 0 0 600 0
 25 0 5d10+550 12d9+100 2d10+7 'none'
 -7 -7 -7 6
-EFNUklt
+EFNU
 stand stand none 212
 0 0 medium unknown
 #0
@@ -157,7 +157,7 @@ mithril vest~
 a mithril vest~
 A vest made of mithril plates lies heaped on the floor.~
 mithril~
-armor GKmq 0 ADgj
+armor GK 0 AD
 8 8 8 2 0
 26 300 7600 P
 A
@@ -170,7 +170,7 @@ helm mithril~
 a mithril helm~
 Here lies a large mithril helm.~
 mithril~
-armor GKmq 0 AEgk
+armor GK 0 AE
 8 8 8 2 0
 27 100 3400 P
 A
@@ -181,7 +181,7 @@ gauntlets mithril~
 a pair of mithril gauntlets~
 A pair of mithril gauntlets rests on the ground.~
 mithril~
-armor GKmq 0 AHgn
+armor GK 0 AH
 8 8 8 2 0
 25 100 2700 P
 A
@@ -194,7 +194,7 @@ sleeves mithril~
 some mithril sleeves~
 A set of mithril sleeves lies on the ground.~
 mithril~
-armor GKmq 0 AIgo
+armor GK 0 AI
 8 8 8 2 0
 25 100 2700 P
 A
@@ -207,7 +207,7 @@ boots mithril~
 a pair of mithril boots~
 A pair of mithril boots stands has been left here.~
 mithril~
-armor GKmq 0 AGgm
+armor GK 0 AG
 8 8 8 2 0
 25 60 3100 P
 A
@@ -220,7 +220,7 @@ leggings mithril~
 a set of mithril leggings~
 A set of mithril leggings lie here unattended.~
 mithril~
-armor GKmq 0 AFgl
+armor GK 0 AF
 8 8 8 2 0
 25 100 3100 P
 A
@@ -233,7 +233,7 @@ girth mithril~
 a mithril girth~
 A large iron girth lies at your feet.~
 mithril~
-armor GKmq 0 ALgr
+armor GK 0 AL
 8 8 8 2 0
 26 60 5200 P
 A
@@ -244,7 +244,7 @@ breast plate iron~
 a battered iron breast plate~
 A battered iron breast plate lies here.~
 iron~
-armor 0 0 ADgj
+armor 0 0 AD
 5 5 5 0 0
 4 450 9100 P
 A
@@ -255,7 +255,7 @@ shield iron~
 a sturdy iron shield~
 A small, but sturdy, iron shield has been left here.~
 iron~
-armor GJmp 0 AJgp
+armor GJ 0 AJ
 7 7 7 3 0
 24 100 4400 P
 A
@@ -270,7 +270,7 @@ potion black~
 a black potion~
 A jet black potion sits upright waiting to be taken.~
 glass~
-potion FGlm 0 Ag
+potion FG 0 A
 16 'blindness' 'sanctuary' 'giant strength' ''
 11 50 880 P
 g none~
@@ -279,7 +279,7 @@ potion orange~
 an orange potion~
 A small orange potion lies here.~
 glass~
-potion FGlm 0 Ag
+potion FG 0 A
 20 'detect hidden' '' '' ''
 4 100 400 P
 g none~
@@ -288,7 +288,7 @@ ball quartz~
 a smooth quartz ball~
 A smooth quartz ball lies here gleaming.~
 quartz~
-light Gm 0 AOgu
+light G 0 AO
 0 0 72 0 0
 0 300 50 P
 g none~
@@ -297,7 +297,7 @@ scroll tattered~
 a tattered scroll~
 A worn and tattered scroll has been left here.~
 vellum~
-scroll Gm 0 Ag
+scroll G 0 A
 24 'enchant weapon' '' '' ''
 8 150 1280 P
 g none~
@@ -306,7 +306,7 @@ scroll bound~
 a bound scroll~
 A bound scroll of detection lies at your feet.~
 vellum~
-scroll Gm 0 Ag
+scroll G 0 A
 15 'detect evil' 'detect invis' 'detect magic' ''
 0 150 500 P
 g none~
@@ -315,7 +315,7 @@ flute silver~
 a silver flute~
 A brilliant silver flute glimmers from beneath a rock.~
 silver~
-staff AGgm 0 AOgu
+staff AG 0 AO
 17 1 1 'charm person' 0
 9 10 3300 P
 A
@@ -326,7 +326,7 @@ talisman demon~
 a demon-faced talisman~
 A demon-faced talisman glares at you angrily.~
 bronze~
-jewelry AGgm 0 ACgi
+jewelry AG 0 AC
 0 0 0 0 0
 0 110 0 P
 A
@@ -339,8 +339,8 @@ venison chunk~
 a chunk of venison~
 A large chunk of venison sits here ready to be eaten.~
 food~
-food 0 0 Ag
-DEjk DEjk 0 0 0
+food 0 0 A
+DE DE 0 0 0
 0 200 0 P
 g none~
 #5220
@@ -357,8 +357,8 @@ two-handed two sword~
 a two-handed sword~
 A nice two-handed sword hangs on a hook in the wall.~
 iron~
-weapon GKmq 0 ANgt
-sword 3 11 'chop' Fl
+weapon GK 0 AN
+sword 3 11 'chop' F
 26 240 3300 P
 A
 19 3
@@ -370,7 +370,7 @@ robe black silk~
 a black silk robe~
 A black silk robe lies heaped in one corner.~
 silk~
-armor 0 0 AKgq
+armor 0 0 AK
 1 1 1 5 0
 5 60 410 P
 A
@@ -381,7 +381,7 @@ cloak green~
 a dark green cloak~
 A beautiful dark green cloak has been dropped by someone.~
 cloth~
-armor GJmp 0 ACgi
+armor GJ 0 AC
 7 7 7 2 0
 20 120 1600 P
 A
@@ -392,8 +392,8 @@ seal ebony~
 an engraved ebony seal~
 A small, engraved ebony seal is here.~
 ebony~
-key 0 0 Ag
-BCDEhijk 0 0 0 0
+key 0 0 A
+BCDE 0 0 0 0
 0 20 0 P
 g none~
 #5225
@@ -402,7 +402,7 @@ the desk~
 A dirty, crumbling curved desk is here.~
 wood~
 container 0 0 0
-100 ACDgij 5224 100 100
+100 ACD 5224 100 100
 0 0 0 P
 g none~
 #5226
@@ -410,8 +410,8 @@ seal ivory~
 an engraved ivory seal~
 A small, engraved ivory seal lies here.~
 ivory~
-key 0 0 Ag
-ABCDEghijk 0 0 0 0
+key 0 0 A
+ABCDE 0 0 0 0
 0 20 0 P
 g none~
 #5227
@@ -420,7 +420,7 @@ the glass cabinet~
 A broken glass cabinet is here.~
 glass~
 container 0 0 0
-500 ACDgij 5226 100 100
+500 ACD 5226 100 100
 0 0 0 P
 g none~
 #5228
@@ -428,8 +428,8 @@ arm rotted~
 a rotten arm~
 A rotted arm floats lazily by your feet.~
 flesh~
-food 0 0 Ag
-BEFhkl BEFhkl 0 Ag 0
+food 0 0 A
+BEF BEF 0 A 0
 0 200 0 P
 g none~
 #5230
@@ -437,7 +437,7 @@ stone pale blue~
 a pale blue stone~
 A pale blue stone sits here.~
 stone~
-gem Gm 0 AQgw
+gem G 0 AQ
 0 0 0 0 0
 5 10 550 P
 A
@@ -448,7 +448,7 @@ stone scarlet blue~
 a scarlet and blue stone~
 A pretty scarlet and blue stone has been dropped here.~
 stone~
-gem Gm 0 AQgw
+gem G 0 AQ
 0 0 0 0 0
 5 10 550 P
 A
@@ -459,7 +459,7 @@ stone blue incandescent~
 an incandescent blue stone~
 A small incandescent blue stone lies here.~
 stone~
-gem Gm 0 AQgw
+gem G 0 AQ
 0 0 0 0 0
 5 10 550 P
 A
@@ -470,7 +470,7 @@ stone red deep~
 a deep red stone~
 Someone has left a deep red stone here.~
 stone~
-gem Gm 0 AQgw
+gem G 0 AQ
 0 0 0 0 0
 5 10 550 P
 A
@@ -481,7 +481,7 @@ stone pink~
 a pink stone~
 A tiny pink stone lies at your feet.~
 stone~
-gem Gm 0 AQgw
+gem G 0 AQ
 0 0 0 0 0
 5 10 550 P
 A
@@ -492,7 +492,7 @@ stone pearly white~
 a pearly white stone~
 This pearly white stone would probably sell for a good price.~
 stone~
-gem Gm 0 AQgw
+gem G 0 AQ
 0 0 0 0 0
 5 10 11 P
 A
@@ -503,7 +503,7 @@ stone lavender green~
 a lavender and green stone~
 A stunning lavender and green stone rests on the ground.~
 stone~
-gem Gm 0 AQgw
+gem G 0 AQ
 0 0 0 0 0
 0 10 150 P
 A
@@ -514,7 +514,7 @@ stone grey dull~
 a dull grey stone~
 You can barely make out a dull grey stone on the ground.~
 stone~
-gem 0 0 Ag
+gem 0 0 A
 0 0 0 0 0
 0 10 10 P
 g none~
@@ -523,7 +523,7 @@ stone pink green~
 a pink and green stone~
 A bright pink and green stone has been left here.~
 stone~
-gem Gm 0 AQgw
+gem G 0 AQ
 0 0 0 0 0
 0 10 500 P
 A
@@ -534,7 +534,7 @@ stone clear~
 a clear stone~
 A odd clear stone lies at your feet.~
 stone~
-gem Gm 0 AQgw
+gem G 0 AQ
 0 0 0 0 0
 0 10 100 P
 A
@@ -545,7 +545,7 @@ mandolin~
 a mandolin~
 A mandolin lies against the wall.~
 wood~
-staff Gm 0 AOgu
+staff G 0 AO
 13 3 3 'cure critical' 0
 9 100 2500 P
 g none~
@@ -554,7 +554,7 @@ harp golden~
 a golden harp~
 A battered golden harp has been tipped over.~
 gold~
-staff Gm 0 AOgu
+staff G 0 AO
 18 1 1 'call lightning' 0
 7 500 2700 P
 A
@@ -565,7 +565,7 @@ long dagger slim~
 a long slim dagger~
 A long slim dagger has been left here.~
 steel~
-weapon Gm 0 ANgt
+weapon G 0 AN
 dagger 2 5 'pierce' 0
 8 10 590 P
 A
@@ -578,8 +578,8 @@ water fall waterfall~
 Waterfall~
 You see a beautiful waterfall here.~
 water~
-portal Ag Ag 0
-0 0 Bh 95400 0
+portal A A 0
+0 0 B 95400 0
 0 0 0 P
 g none~
 #0
@@ -592,7 +592,7 @@ steel gates have been forced open and have rusted in place. A hollow
 gust of wind blows by you into the deserted, and seemingly destroyed,
 city.
 ~
-0 Ci city
+0 C city
 D1
 You see a trail out of this blasted place.
 ~
@@ -1048,7 +1048,7 @@ the floor as if some massive battle had taken place here. Draped along
 the back wall is a tattered, jet-black banner with the symbol of the
 Darkside set upon it.
 ~
-0 Dj city
+0 D city
 D1
 A small side street runs past the building.
 ~
@@ -1079,7 +1079,7 @@ In here you find tools and anvils used to make various weapons
 and items. The walls have been stripped clean and only a few incomplete
 pieces of armor and weaponry are left.
 ~
-0 Dj city
+0 D city
 D1
 A small side street runs past the building.
 ~
@@ -1169,7 +1169,7 @@ This was once a very plain house with nothing more than a few chairs
 and a bed. A cold fireplace suggests that the city has been abandoned
 for quite a while. Almost nothing remains of this humble abode.
 ~
-0 Dj city
+0 D city
 D1
 Outside is a small side street.
 ~
@@ -1211,7 +1211,7 @@ but inside these cramped quarters you discover what used to be a shop
 filled with armor, weapons, and various other goods. A small sign flutters
 in the wind.
 ~
-0 Dj city
+0 D city
 D0
 A small side street runs past the shop.
 ~
@@ -1242,7 +1242,7 @@ and most of the valuable items have been taken, leaving worthless debris.
 A few chairs have survived, as well as a large curved desk. To the east
 is a vine-covered archway leading out into a private courtyard.
 ~
-0 Dj city
+0 D city
 D0
 The long hallway leads back to the main reception area of the city hall.
 ~
@@ -1261,7 +1261,7 @@ A large gaping hole in the west wall allows you to see out to one of
 the city's side streets. Obviously no one will be seeing you through today.
 Hallways lead south and east.
 ~
-0 Dj city
+0 D city
 D0
 Main street runs past the city hall.
 ~
@@ -1290,7 +1290,7 @@ but fancy, though. The only thing remaining intact here is a large
 glass cabinet. A long hallway leads west back to the reception area and
 an ivy-covered archway leads south into a private courtyard.
 ~
-0 Dj city
+0 D city
 D2
 ~
 ~
@@ -1355,7 +1355,7 @@ entrance into another building through yet another collapsed wall.
 Between the two buildings are a few blast craters and boulders. An old
 set of wooden steps leads up to a creaking second floor.
 ~
-0 Dj city
+0 D city
 D1
 ~
 ~
@@ -1380,7 +1380,7 @@ find broken shelves and workbenches with various vials and pouches spilling
 contents all across the floor. This was possibly the magic shop of the
 city. The doorway to the east is blocked, making the only exit back west.
 ~
-0 Dj city
+0 D city
 D3
 ~
 ~
@@ -1449,7 +1449,7 @@ yields a dead body floating around in it, skin melted away from months
 of floating in there. The west wall has collapsed revealing another
 collapsed house.
 ~
-0 Dj city
+0 D city
 D0
 ~
 ~
@@ -1490,7 +1490,7 @@ Except for the massive hole in the east wall, everything else looks
 intact, including the windows. Great amounts of steam issue forth from
 the hole in the east wall.
 ~
-0 Dj city
+0 D city
 D1
 ~
 ~
@@ -1508,7 +1508,7 @@ The old rotted floorboards suddenly give way and you fall down, impaling
 yourself on jagged boards below.
 You've fallen, and you can't get up!!!
 ~
-0 Ci city
+0 C city
 S
 #5246
 The north-west watchtower~
@@ -1563,7 +1563,7 @@ strange tongue.
      Wind gusts through the four archways and howls and screams can be
 heard from all parts of the city.
 ~
-0 Dj city
+0 D city
 D0
 A side street leads to the northern half of the city.
 ~
@@ -1805,7 +1805,7 @@ You see a more dense foliage in these stunted trees.  The gloom caused
 by them is enhanced by a draft coming from all around.  The trail turns south
 from the west.
 ~
-0 Ag forest
+0 A forest
 D0
 ~
 ~
@@ -1827,7 +1827,7 @@ You see a more dense foliage in these stunted trees.  The gloom caused
 by them is enhanced by a draft coming from all around.  The trail turns east
 from the north.
 ~
-0 Ag forest
+0 A forest
 D0
 You see nothing in the gloom north of you.
 ~
@@ -1845,7 +1845,7 @@ You see a more dense foliage in these stunted trees.  The gloom caused
 by them is enhanced by a draft coming from all around.  The trail leads
 east and west.
 ~
-0 Ag forest
+0 A forest
 D1
 You see nothing in the gloom east of you.
 ~
@@ -1863,7 +1863,7 @@ You see a more dense foliage in these stunted trees.  The gloom caused
 by them is enhanced by a draft coming from all around.  The trail leads
 down into a valley and west.
 ~
-0 Ag forest
+0 A forest
 D3
 You see nothing in the gloom west of you.
 ~
@@ -1880,7 +1880,7 @@ A valley in the dark dwarf forest~
 You are in a valley in the dark dwarf forest.  Short black grass grows
 around you.  Trails lead in all directions.
 ~
-0 Ag forest
+0 A forest
 D0
 ~
 ~
@@ -1898,7 +1898,7 @@ D3
 You see a dark fox hole.
 ~
 hole fox~
-ABZgh -1 5268
+ABZ -1 5268
 D4
 ~
 ~
@@ -1910,7 +1910,7 @@ You see a small cave.  Skeletons of many types of creatures litter the area.
 Obviously, no fox lives here!  The oppression makes you want to leave and
 vomit.
 ~
-0 Ag forest
+0 A forest
 E
 skeleton skeletons~
 Something is strange about these skeletons.  Upon further investigation, these
@@ -1920,7 +1920,7 @@ D1
 You see the exit from here!
 ~
 fox hole~
-ABZgh -1 5267
+ABZ -1 5267
 D2
 You see more of the cave.
 ~
@@ -1933,7 +1933,7 @@ You are in a small ugly cave.  More skeletons lie around.  It is obvious
 that the owner doesn't want you here.  The exit north is still visible.
 Some writings are on this wall.
 ~
-0 Ag forest
+0 A forest
 E
 skeleton skeletons~
 Something is strange about these skeletons.  Upon further investigation, these
@@ -1961,7 +1961,7 @@ Down the path into a dead end~
 You are down the path.  There is no obvious exit in this place, exit the
 one back up north.  All around you, you see skeletons.
 ~
-0 Ag forest
+0 A forest
 E
 skeleton skeletons~
 Something is strange about these skeletons.  Upon further investigation, these
@@ -1977,14 +1977,14 @@ D5
 You see nothing on the floor except skeletons.
 ~
 secret~
-ABZgh -1 5100
+ABZ -1 5100
 S
 #5271
 The Valley in the dark dwarf forest~
 You are in a valley in the forest.  To the north is a trail out of this
 dark valley.  South is more of this valley.
 ~
-0 Ag forest
+0 A forest
 D0
 You see a trail away from this gloomy valley.
 ~
@@ -2002,7 +2002,7 @@ You are in a dim trail in the dwarf forest.  Not much light passes through
 here.  To the south is a gloomy valley, while to the north the light grows
 brighter.
 ~
-0 Ag forest
+0 A forest
 D0
 You can actually see the trail north of you!
 ~

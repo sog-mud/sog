@@ -17,10 +17,10 @@ spider dirty~
 ~
 ~
 undead~
-BFLRhlrx 0 Vac BGhm 0 -1000 0
+BFJLR 0 JVac BG CDF -1000 0
 80 200 1d1+15000 1d1+10000 1d1+150 'claw'
 -40 -40 -40 -40
-ACEFKgiklq
+ACEFK
 stand stand none 0
 0 0 medium unknown
 r acid 100
@@ -33,7 +33,7 @@ moth melancholy~
 ~
 ~
 sprite~
-BHQRhnwx 0 0 0 0 1000 0
+BHQR 0 0 0 0 1000 0
 70 200 1d1+7000 1d1+7000 1d1+100 'pound'
 -10 -10 -10 -10
 0
@@ -47,10 +47,10 @@ piranha~
 ~
 ~
 fish~
-FLTlrz 0 V Ag ABgh -1000 0
+FLT 0 V A ABCDF -1000 0
 82 200 1d1+10000 1d1+10000 1d1+100 'pierce'
 -30 -30 -30 -30
-EFHKRklnqx
+EFHKR
 stand stand none 0
 0 0 medium unknown
 #33303
@@ -61,10 +61,10 @@ octopus~
 ~
 ~
 snake~
-BRThxz 0 BCDEFGJPQVehijklmpvw BCDEhijk ABCDEFIJghijklop -1000 0
+BJRT 0 JV BD ABDF -1000 0
 85 500 1d1+20000 1d1+20000 1d1+250 'pound'
 -50 -50 -50 -50
-ADEFKgjklq
+ADEFK
 stand stand male 0
 0 0 giant unknown
 r charm 100
@@ -76,13 +76,13 @@ fisherman~
 ~
 ~
 human~
-BGTehmz 0 Hn 0 ABHghn 1000 0
+BGJTe 0 H 0 ABCDFH 1000 0
 80 100 1d1+15000 1d1+15000 1d1+100 'pound'
 -20 -10 -10 -10
-CEFIJKNiklopqt
+CEFIJKN
 stand stand male 0
 0 0 medium unknown
-F for AHMVgns
+F for AHMV
 r charm 100
 #0
 
@@ -92,7 +92,7 @@ web~
 @eng a magic web@rus магическая паутина~
 @eng A strange magic web is lies here.@rus Странная магическая паутина (web) висит здесь.~
 unknown~
-wand CGHMYimns 0 AOgu
+wand CGHMY 0 AO
 91 5 5 'web' 0
 80 100 1000 P
 g none~
@@ -101,8 +101,8 @@ tooth~
 @eng a tooth of piranha@rus зуб пираньи~
 @eng A tooth of piranha lies here.@rus Сломаный зуб (tooth) пираньи лежит здесь.~
 unknown~
-weapon FHln 0 ANgt
-spear 10 11 'pierce' DHKjnq
+weapon FH 0 AN
+spear 10 11 'pierce' DHK
 75 150 1000 P
 g none~
 #33302
@@ -110,7 +110,7 @@ wings moth~
 @eng a pair of moth wings@rus крылья мотылька~
 @eng A pair of moth wings flying here.@rus Крылья (wings) мотылька парят над землей.~
 unknown~
-light FGIKlmoq 0 Ag
+light FGIK 0 A
 0 0 -1 0 0
 70 0 0 P
 A
@@ -127,7 +127,7 @@ pole fishing~
 @eng a fishing pole@rus удочка~
 @eng A broken fishing pole lies here.@rus Сломаная удочка (fishing pole) плавает в воде.~
 wood~
-weapon 0 0 ANgt
+weapon 0 0 AN
 mace 11 10 'pound' 0
 75 50 324 P
 g none~
@@ -136,7 +136,7 @@ boots worn~
 @eng a pair of worn boots@rus рваные ботинки~
 @eng A pair of worn boots lies here.@rus Рваные ботинки (boots) никому не нужные валяются тут.~
 studded leather~
-armor GHMmns 0 AGgm
+armor GHM 0 AG
 -30 -30 -30 -30 0
 85 0 0 P
 A
@@ -173,7 +173,7 @@ g none~
 самого Дьявола. Оглядевшись ты замечаешь внизу (down) затемненый грот.
 Видимо это единственный путь попасть в долину - пройти сквозь гору.
 ~
-0 ANgt hills
+0 AN hills
 D5
 ~
 ~
@@ -185,7 +185,7 @@ S
 крепкой паутиной и в ней висят безжизненные тела. Огромный паук караулит
 тут очередную жертву.
 ~
-0 ANgt hills
+0 AN hills
 D5
 ~
 ~
@@ -197,7 +197,7 @@ S
 пещерное озеро кишашее милыми рыбками, но почему-то тебе не очень хочется
 пуститься в плавь по нему, может попробовать обойти его с севера (north).
 ~
-0 ANgt hills
+0 AN hills
 D0
 ~
 ~
@@ -218,7 +218,7 @@ S
 туда ходить, если нет моли богов о помощи, возможно чем дальше ты
 зайдешь тем сложнее им будет тебя услышать.
 ~
-0 AXg hills
+0 AX hills
 D1
 ~
 ~
@@ -231,7 +231,7 @@ S
 с первого взгляда, но ты чувствуешь что от нее исходит огромная ненависть
 к любому, кто посмелился нарушить границу ее владений.
 ~
-0 ANgt swim
+0 AN swim
 D0
 ~
 ~
@@ -256,7 +256,7 @@ S
 с первого взгляда, но ты чувствуешь что от нее исходит огромная ненависть
 к любому, кто посмелился нарушить границу ее владений.
 ~
-0 ANgt swim
+0 AN swim
 D0
 ~
 ~
@@ -285,7 +285,7 @@ S
 с первого взгляда, но ты чувствуешь что от нее исходит огромная ненависть
 к любому, кто посмелился нарушить границу ее владений.
 ~
-0 ANgt swim
+0 AN swim
 D0
 ~
 ~
@@ -310,7 +310,7 @@ S
 с первого взгляда, но ты чувствуешь что от нее исходит огромная ненависть
 к любому, кто посмелился нарушить границу ее владений.
 ~
-0 Ag swim
+0 A swim
 D0
 ~
 ~
@@ -331,7 +331,7 @@ S
 #33308
 @eng The cave under water@rus Пещера под водой~
 ~
-0 ANgt swim
+0 AN swim
 D4
 ~
 ~
@@ -348,7 +348,7 @@ S
 с первого взгляда, но ты чувствуешь что от нее исходит огромная ненависть
 к любому, кто посмелился нарушить границу ее владений. 
 ~
-0 ANgt swim
+0 AN swim
 D0
 ~
 ~
@@ -369,7 +369,7 @@ S
 #33310
 @eng The cave os tresure@rus Сокровищница~
 ~
-0 ANgt swim
+0 AN swim
 D4
 ~
 ~

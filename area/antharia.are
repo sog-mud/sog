@@ -17,10 +17,10 @@ A tall Antharian is standing before you.  You have no doubt that this
 being can keep the peace...his presence is enough in itself.
 ~
 human~
-GTmz 0 b 0 0 800 0
+GT 0 0 0 0 800 0
 25 0 5d10+550 5d5+1000 2d10+7 'pound'
 -7 -7 -7 4
-CDEKLTUijkqrz
+CDEKLTU
 stand stand male 1000
 0 0 medium unknown
 r fire 33
@@ -47,10 +47,10 @@ your respect.  He is here healing people in the name of Anthar, the
 god of the Antharians.
 ~
 human~
-Qw 0 0 0 0 1000 0
+Q 0 0 0 0 1000 0
 35 0 10d10+1300 5d5+1000 4d7+11 'wrath'
 -11 -11 -11 3
-EFKklq
+EFK
 stand stand male 1000
 0 0 medium unknown
 #12303
@@ -64,7 +64,7 @@ Antharians seem to like it.  All in all, these fish are pretty
 content.
 ~
 human~
-CGim 0 0 0 0 0 0
+CG 0 0 0 0 0 0
 10 0 2d7+121 5d5+100 2d4+2 'charge'
 1 1 1 7
 0
@@ -82,7 +82,7 @@ looking at every detail.
 daily schedule.
 ~
 human~
-Gm 0 0 0 0 0 0
+G 0 0 0 0 0 0
 15 0 3d9+208 5d5+100 2d6+3 'punch'
 -2 -2 -2 6
 0
@@ -100,7 +100,7 @@ looking at every detail.
 daily schedule.
 ~
 human~
-Gm 0 0 0 0 0 0
+G 0 0 0 0 0 0
 16 0 3d9+208 5d5+100 2d6+3 'punch'
 -2 -2 -2 6
 0
@@ -116,7 +116,7 @@ right now in life is play.  PLAY PLAY PLAY!   They try to drag you
 into the fray to play with them.
 ~
 human~
-Gm 0 0 0 0 0 0
+G 0 0 0 0 0 0
 9 0 2d6+110 5d5+100 1d8+2 'punch'
 2 2 2 7
 0
@@ -152,7 +152,7 @@ human~
 0 0 0 0 0 0 0
 42 0 25d10+2250 5d5+1000 3d12+14 'slash'
 -14 -14 -14 3
-CDEFIJKijklopq
+CDEFIJK
 stand stand male 1000
 0 0 medium unknown
 #12323
@@ -165,10 +165,10 @@ powerful and impressive than the Peace Guards.  These guards are here
 to make sure that law and order is maintained, and so it shall.
 ~
 human~
-Gm 0 0 0 Ag 250 0
+G 0 0 0 A 250 0
 32 0 10d10+1000 5d5+1000 6d4+9 'pound'
 -10 -10 -10 3
-CDEFIJKijklopq
+CDEFIJK
 stand stand male 1000
 0 0 medium unknown
 #12340
@@ -183,10 +183,10 @@ councils, which are said to be displayed in a museum inside the
 Temple.
 ~
 human~
-Beh 0 0 0 0 400 0
+Be 0 0 0 0 400 0
 70 0 50d10+18500 5d5+5000 17d9+60 'pound'
 -60 -60 -60 -27
-CEFIJKiklopq
+CEFIJK
 stand stand male 1000
 0 0 medium unknown
 #12341
@@ -199,10 +199,10 @@ sell Antharian food.  He is highly respected, as producing good food
 in this underwater world is not easy.
 ~
 human~
-Beh 0 0 0 0 500 0
+Be 0 0 0 0 500 0
 70 0 50d10+18500 5d5+5000 17d9+60 'pound'
 -60 -60 -60 -27
-CDEFIJKijklopq
+CDEFIJK
 stand stand male 1000
 0 0 medium unknown
 #12344
@@ -216,10 +216,10 @@ are artists of war, and he looks like he could paint a very clear
 portrait of death.
 ~
 human~
-BThz 0 0 0 0 800 0
+BT 0 0 0 0 800 0
 32 0 10d10+1000 5d5+1000 6d4+9 'pound'
 -10 -10 -10 3
-CDEFIKijkloq
+CDEFIK
 stand stand male 1000
 0 0 medium unknown
 #12345
@@ -233,10 +233,10 @@ passed from generation to generation.  The secret is well kept, and
 rightly so -- for their's is the best.
 ~
 human~
-BTehz 0 0 0 0 500 0
+BTe 0 0 0 0 500 0
 70 0 50d10+18500 5d5+5000 17d9+60 'pound'
 -60 -60 -60 -27
-CDEFIJKijklopq
+CDEFIJK
 stand stand male 1000
 0 0 medium unknown
 #12348
@@ -250,10 +250,10 @@ Transformation, and Cyrtpea and her colleages work hard to recover as
 much of this lost magic as possible.
 ~
 human~
-BUeh 0 Nt 0 0 400 0
+BUe 0 N 0 0 400 0
 65 0 50d10+18500 5d5+5000 17d9+60 'pound'
 -60 -60 -60 -27
-CDEFIJKijklopq
+CDEFIJK
 stand stand female 1000
 0 0 medium unknown
 #12360
@@ -265,10 +265,10 @@ A young human is here looking at you.  She is the representative
 from the human race here in Antharia.
 ~
 human~
-Bh 0 0 0 0 0 0
+B 0 0 0 0 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
-CEFIJiklop
+CEFIJ
 stand stand female 1000
 0 0 medium unknown
 #12361
@@ -280,10 +280,10 @@ A young druid is here looking at you.   He is the representative
 from the druids here in Antharia.
 ~
 human~
-Bh 0 0 0 0 0 0
+B 0 0 0 0 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
-CEFIJKiklopq
+CEFIJK
 stand stand male 1000
 0 0 medium unknown
 #12362
@@ -295,10 +295,10 @@ A young Kender is standing here looking at you.  She is the
 representative from the Kender race here in Antharia.
 ~
 human~
-BOhu 0 0 0 0 0 0
+BO 0 0 0 0 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
-CEFIJKiklopq
+CEFIJK
 stand stand female 1000
 0 0 medium unknown
 #12363
@@ -311,10 +311,10 @@ representative from the Antharian government here to answer questions
 from visitors.
 ~
 human~
-Bh 0 0 0 0 0 0
+B 0 0 0 0 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
-CEFIJKQiklopqw
+CEFIJKQ
 stand stand male 1000
 0 0 medium unknown
 #12364
@@ -326,10 +326,10 @@ A young elf is here looking at you.  She is the representative from
 the elven race here in Antharia.
 ~
 elf~
-Bh Dj 0 0 0 0 0
+B D 0 0 0 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
-CEFIJKiklopq
+CEFIJK
 stand stand female 1000
 0 0 medium unknown
 #12365
@@ -341,10 +341,10 @@ A young Dwarf is here looking at you.  He is the representative
 from the Dwarven race here in Antharia.
 ~
 dwarf~
-BQhw 0 0 0 0 0 0
+BQ 0 0 0 0 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
-CEFIJKiklopq
+CEFIJK
 stand stand male 1000
 0 0 medium unknown
 #12370
@@ -356,10 +356,10 @@ A young Illithid is standing here looking at you.  She is the
 representative from the Illithid race here in Antharia.
 ~
 human~
-Bh 0 0 0 0 0 0
+B 0 0 0 0 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
-CEFIJKiklopq
+CEFIJK
 stand stand female 1000
 0 0 medium unknown
 #12371
@@ -371,10 +371,10 @@ A young avian is standing here looking at you.  She is the
 representative from the avian race here in Antharia.
 ~
 human~
-BYh 0 0 0 0 0 0
+BY 0 0 0 0 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
-CEFIJKiklopq
+CEFIJK
 stand stand female 1000
 0 0 medium unknown
 #0
@@ -385,7 +385,7 @@ mother pearl~
 mother of pearl~
 A Mother of Pearl is shining here.~
 copper~
-armor Gm 0 AOgu
+armor G 0 AO
 5 5 5 0 0
 10 10 100 P
 A
@@ -398,7 +398,7 @@ green gem~
 a green gem~
 A green gem is here.~
 copper~
-armor Io 0 AOgu
+armor I 0 AO
 5 5 5 0 0
 10 10 100 P
 A
@@ -411,7 +411,7 @@ sea shell armor~
 a sea turtle shell~
 A shell from a sea turtle works as a nice piece of armor.~
 copper~
-armor Bh 0 ADgj
+armor B 0 AD
 5 5 5 0 0
 10 10 100 P
 A
@@ -424,8 +424,8 @@ giant clamshell~
 a giant clamshell~
 This is a giant clamshell used to store things.~
 copper~
-container Ag 0 AOgu
-8 Ag 0 0 0
+container A 0 AO
+8 A 0 0 0
 0 20 0 P
 g none~
 #12304
@@ -433,7 +433,7 @@ Antharian Signet ring~
 an Antharian signet ring~
 This is an Antharian Signet ring, worn by all defenders of Antharia.~
 copper~
-armor Ag 0 ABgh
+armor A 0 AB
 8 8 8 0 0
 25 5 250 P
 A
@@ -444,8 +444,8 @@ Antharian Signet ring~
 an Antharian signet ring~
 This is an Antharian Signet ring, worn by all defenders of Antharia.~
 copper~
-map APgv 0 ABgh
-Dj 0 0 0 0
+map AP 0 AB
+D 0 0 0 0
 32 5 320 P
 A
 17 -10
@@ -455,8 +455,8 @@ Antharian Signet ring~
 an Antharian signet ring~
 This is an Antharian Signet ring, worn by all defenders of Antharia.~
 copper~
-map APgv 0 ABgh
-Dj 0 0 0 0
+map AP 0 AB
+D 0 0 0 0
 42 5 420 P
 A
 17 -20
@@ -470,7 +470,7 @@ Antharian plate mail~
 Antharian plate mail~
 This is a piece of fine Antharian plate mail.~
 copper~
-armor FMls 0 ADgj
+armor FM 0 AD
 8 8 8 0 0
 25 50 250 P
 A
@@ -489,7 +489,7 @@ Antharian plate mail~
 Antharian plate mail~
 A fine piece of Antharian plate mail is here.~
 copper~
-armor FMls 0 ADgj
+armor FM 0 AD
 3 3 3 0 0
 0 50 0 P
 A
@@ -506,7 +506,7 @@ Antharian plate mail~
 Antharian plate mail~
 A fine piece of Antharian plate mail is here.~
 copper~
-armor Kq 0 ADgj
+armor K 0 AD
 11 11 11 0 0
 42 50 420 P
 A
@@ -521,7 +521,7 @@ synthetic fin~
 a pair of synthetic fins~
 A pair of fins, of Antharian make, are here.~
 copper~
-armor Io 0 AFgl
+armor I 0 AF
 8 8 8 0 0
 25 15 250 P
 A
@@ -532,7 +532,7 @@ synthetic fin~
 a pair of synthetic fins~
 A pair of fins, of Antharian make, are here.~
 copper~
-armor Io 0 AFgl
+armor I 0 AF
 9 9 9 0 0
 32 15 320 P
 A
@@ -543,7 +543,7 @@ synthetic fin~
 a apir of synthetic fins~
 A pair of fins, of Antharian make, are here.~
 copper~
-armor Io 0 AFgl
+armor I 0 AF
 11 11 11 0 0
 42 15 420 P
 A
@@ -554,7 +554,7 @@ Antharian helmet~
 an Antharian helmet~
 A helmet made of Antharian metals is here.~
 copper~
-armor Ag 0 AEgk
+armor A 0 AE
 8 8 8 0 0
 25 15 250 P
 A
@@ -565,7 +565,7 @@ Antharian helmet~
 an Antharian helmet~
 A helmet made of Antharian metals is here.~
 copper~
-armor Ag 0 AEgk
+armor A 0 AE
 9 9 9 0 0
 32 15 320 P
 A
@@ -576,7 +576,7 @@ Antharian helmet~
 an Antharian helmet~
 A helmet made of Antharian metals is here.~
 copper~
-armor Ag 0 AEgk
+armor A 0 AE
 11 11 11 0 0
 42 15 420 P
 A
@@ -589,7 +589,7 @@ Trident~
 a sparkling trident~
 A sparkling trident, of Antharian make, is here.~
 copper~
-weapon Io 0 ANgt
+weapon I 0 AN
 polearm 5 6 'pierce' 0
 25 10 250 P
 A
@@ -604,7 +604,7 @@ trident~
 a sparkling trident~
 A sparkling trident, of Antharian make, is here.~
 copper~
-weapon Io 0 ANgt
+weapon I 0 AN
 polearm 5 7 'pierce' 0
 32 10 320 P
 A
@@ -619,7 +619,7 @@ trident~
 a sparkling trident~
 A sparkling trident, of Antharian make, is here.~
 copper~
-weapon Io 0 ANgt
+weapon I 0 AN
 polearm 5 9 'pierce' 0
 42 15 420 P
 A
@@ -634,8 +634,8 @@ Seafood platter~
 a seafood platter~
 A big plate of Seafood is here.~
 copper~
-food 0 0 ADgj
-BChi 0 0 0 0
+food 0 0 AD
+BC 0 0 0 0
 0 4 0 P
 g none~
 #12320
@@ -643,8 +643,8 @@ Caviar~
 a dish of caviar~
 A small dish of Caviar is here.~
 copper~
-food 0 0 ADgj
-ACgi 0 0 0 0
+food 0 0 AD
+AC 0 0 0 0
 0 4 0 P
 g none~
 #12321
@@ -652,8 +652,8 @@ Special~
 today's special~
 This is the special of the day....NOT to be missed.~
 copper~
-food 0 0 ADgj
-BDhj 0 0 0 0
+food 0 0 AD
+BD 0 0 0 0
 0 5 0 P
 g none~
 #12322
@@ -661,8 +661,8 @@ Sushi~
 some sushi~
 This is sushi.~
 copper~
-food 0 0 ADgj
-ABgh 0 0 0 0
+food 0 0 AD
+AB 0 0 0 0
 0 5 0 P
 g none~
 #12330
@@ -670,7 +670,7 @@ Antharian robe~
 an Antharian robe~
 This is an Antharian robe, woven by hand.~
 copper~
-armor 0 0 AKgq
+armor 0 0 AK
 6 6 6 0 0
 15 10 150 P
 A
@@ -685,7 +685,7 @@ Antharian belt~
 an Antharian belt~
 An Antharian belt, just your size, is here.~
 copper~
-armor 0 0 ALgr
+armor 0 0 AL
 6 6 6 0 0
 16 10 160 P
 A
@@ -698,7 +698,7 @@ Antharian trousers~
 Antharian trousers~
 A pair of simple Antharian trousers are here.~
 copper~
-armor 0 0 AFgl
+armor 0 0 AF
 4 4 4 0 0
 9 5 90 P
 A
@@ -713,7 +713,7 @@ Piece Metal~
 a round piece of metal~
 A round piece of some unknown metal is here.~
 copper~
-wand Fl 0 AOgu
+wand F 0 AO
 38 7 7 'charm person' 0
 38 10 380 P
 g none~
@@ -722,7 +722,7 @@ Crystal potion~
 a crystal potion~
 A liquid substance in a crystal container is here.~
 copper~
-potion Pv 0 AFgl
+potion P 0 AF
 20 'refresh' '' '' ''
 5 3 50 P
 g none~
@@ -731,7 +731,7 @@ crystal scroll~
 a crystal scroll~
 An amazing scroll of crystal is here.~
 copper~
-scroll Ag 0 AIgo
+scroll A 0 AI
 13 'enchant weapon' '' '' ''
 10 3 100 P
 g none~
@@ -740,7 +740,7 @@ glowing seashell~
 a glowing seashell~
 A glowing seashell is here.~
 copper~
-scroll Ag 0 AEgk
+scroll A 0 AE
 5 'detect hidden' '' '' ''
 10 3 100 P
 g none~
@@ -749,7 +749,7 @@ antharian bracer~
 an Antharian style bracer~
 An Antharian style bracer is here.~
 copper~
-armor Gm 0 AMgs
+armor G 0 AM
 8 8 8 0 0
 25 5 250 P
 A
@@ -762,7 +762,7 @@ antharian bracer~
 an Antharian style bracer~
 An Antharian style bracer is here.~
 copper~
-armor Gm 0 AMgs
+armor G 0 AM
 9 9 9 0 0
 32 5 320 P
 A
@@ -775,7 +775,7 @@ antharian bracer~
 an Antharian style bracer~
 An Antharian style bracer is here.~
 copper~
-armor Gm 0 AMgs
+armor G 0 AM
 11 11 11 0 0
 42 5 420 P
 A
@@ -788,7 +788,7 @@ net~
 a net~
 A glowing net is here.~
 copper~
-staff Ag 0 AOgu
+staff A 0 AO
 25 10 10 '' 0
 25 5 250 P
 A
@@ -1376,7 +1376,7 @@ Z -1 12321
 D4
 ~
 ~
-ABCFZghil 12315 12366
+ABCFZ 12315 12366
 S
 #12323
 Main Road of Antharia~
@@ -1675,7 +1675,7 @@ around, it is obvious that Irghum is not hurting for business.  It is
 said that every Antharian visits Irghum at least once a month, and on
 special occasions.  Antharians love their food and love Irghum.
 ~
-0 Dj underwater
+0 D underwater
 D3
 Main street of Antharia.
 ~
@@ -1963,7 +1963,7 @@ This room is full of cobwebs and dust..as no one has been here in
 such a long time.   You have obviously stumbled upon a part of
 Antharian history, as the room still looks like it did 2000 yrs ago.
 ~
-0 CKiq underwater
+0 CK underwater
 S
 #12370
 Illithid Guild~

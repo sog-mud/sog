@@ -16,10 +16,10 @@ A killer frog rises up out of the water.
 The killer frog looks ravenous.
 ~
 human~
-BFGhlm 0 0 0 0 -300 0
+BFG 0 0 0 0 -300 0
 5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
-EFNUklt
+EFNU
 stand stand none 1
 0 0 medium unknown
 #1602
@@ -30,10 +30,10 @@ A stone gargoyle looms over you.
 As you look, the figure seems to shift and move ...
 ~
 human~
-BFGHhlmn 0 0 0 Hn -400 0
+BFGH 0 0 0 H -400 0
 9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
-EFNUklt
+EFNU
 stand stand male 20
 0 0 medium unknown
 #1603
@@ -44,10 +44,10 @@ An angry gargoyle glares at you.
 He looks ready to attack!
 ~
 human~
-CFGilm 0 0 0 Hn -600 0
+CFG 0 0 0 H -600 0
 10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
-EFNUklt
+EFNU
 stand stand male 25
 0 0 medium unknown
 #1604
@@ -58,10 +58,10 @@ An elite gargoyle guards this room against intrusion.
 He snarls at you and says LEAVE OR DIE!
 ~
 human~
-BChi 0 0 0 Hn -600 0
+BC 0 0 0 H -600 0
 12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
-EFNUklt
+EFNU
 stand stand male 40
 0 0 medium unknown
 #1605
@@ -72,10 +72,10 @@ The gargoyle shaman is here, preparing to do battle.
 She says 'I can SEE you! I have been waiting ...'.
 ~
 human~
-BCGQhimw 0 0 0 ABgh -900 0
+BCGQ 0 0 0 AB -900 0
 13 0 2d10+170 13d9+100 1d10+3 'none'
 -1 -1 -1 7
-EIKUkoq
+EIKU
 stand stand female 150
 0 0 medium unknown
 #1606
@@ -86,10 +86,10 @@ Amidst the jungle here, a huge Carnivorous plant reaches out to grab you!
 The plant looks something like a Venus fly-trap, only MUCH larger.
 ~
 human~
-BFGhlm 0 0 0 Hn 0 0
+BFG 0 0 0 H 0 0
 9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
-EFNUklt
+EFNU
 stand stand none 0
 0 0 medium unknown
 #1607
@@ -100,10 +100,10 @@ A huge, gruesome ogre is sprawled here, gnawing some strange meat.
 It thinks that perhaps you would make a better meal.
 ~
 human~
-BCFGhilm 0 0 0 Hn -200 0
+BCFG 0 0 0 H -200 0
 10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
-EFNUklt
+EFNU
 sit stand none 60
 0 0 medium unknown
 #1608
@@ -114,10 +114,10 @@ A dark shadow moves about the room.
 The Shadow is vaguely humanoid. Two glowing pinpoints look at you.
 ~
 human~
-CFGilm 0 0 Ag ABHghn -1000 0
+CFG 0 0 A ABH -1000 0
 10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
-EFNUklt
+EFNU
 stand stand none 45
 0 0 medium unknown
 #1609
@@ -128,10 +128,10 @@ An evil wight lurks in the shadows!
 He glares at you savagely and charges!
 ~
 human~
-BCFGhilm 0 0 0 ABHghn -1000 0
+BCFG 0 0 0 ABH -1000 0
 12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
-EFNUklt
+EFNU
 stand stand male 110
 0 0 medium unknown
 #1610
@@ -142,10 +142,10 @@ A burly minotaur watches you solemnly.
 This powerful creature wonders whether to kill you or not ...
 ~
 human~
-CGim 0 0 0 AHgn -600 0
+CG 0 0 0 AH -600 0
 14 0 2d10+190 7d9+100 1d12+3 'none'
 -1 -1 -1 8
-EFNUklt
+EFNU
 stand stand male 75
 0 0 medium unknown
 #1612
@@ -156,10 +156,10 @@ A bloodthirsty minotaur slowly counts his loot
 He looks up at you and screams 'SO! Coming to steal my hoard!'
 ~
 human~
-BCFGhilm 0 0 0 AHgn -600 0
+BCFG 0 0 0 AH -600 0
 15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
-EFNUklt
+EFNU
 stand stand male 0
 0 0 medium unknown
 #1613
@@ -170,10 +170,10 @@ Sitting here in this room is the Minotaur Captain.
 He looks at you, and a sinister grin slowly spreads on his face ...
 ~
 human~
-BCFGhilm 0 0 0 AHgn -900 0
+BCFG 0 0 0 AH -900 0
 17 0 3d9+258 8d9+100 3d4+4 'none'
 -3 -3 -3 7
-EFNUklt
+EFNU
 stand stand male 0
 0 0 medium unknown
 #1614
@@ -184,10 +184,10 @@ A huge black pudding fills the center of the room!!
 It is a huge black blob that oozes about the room. Its heading toward YOU!
 ~
 human~
-CFGilm 0 0 0 0 -1000 0
+CFG 0 0 0 0 -1000 0
 15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
-EFNUklt
+EFNU
 stand stand none 0
 0 0 medium unknown
 #1615
@@ -198,10 +198,10 @@ A lesser Golem stands guarding the entrance.
 The golem appears to be made of some kind of clay, enchanted to come to life!
 ~
 golem~
-BGhm 0 0 0 Ag 0 0
+BG 0 0 0 A 0 0
 16 0 3d9+233 8d9+100 2d6+4 'none'
 -2 -2 -2 7
-EFNUklt
+EFNU
 stand stand none 0
 0 0 medium unknown
 #1616
@@ -212,10 +212,10 @@ An enormous, ancient wyvern stares down at your tiny form...
 It thunders loudly 'I must protect my Master's wealth!'
 ~
 human~
-CFGilm 0 0 0 ABgh -1000 0
+CFG 0 0 0 AB -1000 0
 18 0 3d9+283 9d9+100 2d7+4 'none'
 -3 -3 -3 7
-EFNUklt
+EFNU
 stand rest male 0
 0 0 medium unknown
 #1617
@@ -226,10 +226,10 @@ A spectre has begun to materialize in front of you!
 Terror fills your heart as you view this master of the undead.
 ~
 human~
-CFGilm 0 0 Ag AHgn -1000 0
+CFG 0 J A AH -1000 0
 19 0 3d9+308 9d9+100 2d7+5 'none'
 -4 -4 -4 7
-EFNUklt
+EFNU
 stand stand male 0
 0 0 medium unknown
 #1702
@@ -240,10 +240,10 @@ A trapper stands here, bartering his pelts.
 The trapper is clad mostly in the fur of various animals he's caught.
 ~
 human~
-Ci 0 0 0 0 0 0
+C 0 0 0 0 0 0
 6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
-EFNUklt
+EFNU
 stand stand male 6
 0 0 medium unknown
 #1704
@@ -254,10 +254,10 @@ A hunter rests in here, carrying a fresh kill.
 The hunter is rugged and sturdy from his occupation.
 ~
 human~
-Ci 0 0 0 0 0 0
+C 0 0 0 0 0 0
 8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
-EFNUklt
+EFNU
 rest stand male 6
 0 0 medium unknown
 #1706
@@ -268,10 +268,10 @@ A grim ranger reclines at a table.
 The years of wanderings have left the ranger hardened and strong.
 ~
 human~
-CGim 0 0 0 Ag 200 0
+CG 0 0 0 A 200 0
 12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
-EFNUklt
+EFNU
 rest stand male 0
 0 0 medium unknown
 #1707
@@ -282,10 +282,10 @@ A leader of the Rangers is watching you solemnly.
 This individual has quite a reputation at the local trading posts!
 ~
 human~
-BChi 0 0 0 Ag 300 0
+BC 0 0 0 A 300 0
 15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
-EFNUklt
+EFNU
 stand stand male 0
 0 0 medium unknown
 #1708
@@ -295,10 +295,10 @@ The Lord of the Rangers catches your eye.
 ~
 ~
 human~
-BChi 0 0 0 Ag 400 0
+BC 0 0 0 A 400 0
 20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
-EFNUklt
+EFNU
 stand stand male 0
 0 0 medium unknown
 #1710
@@ -309,10 +309,10 @@ A male centaur wanders about this area.
 The centaur has the upper torso of a man and lower body of a horse.
 ~
 human~
-Ci 0 0 0 0 200 0
+C 0 0 0 0 200 0
 7 0 2d6+85 3d9+100 1d8+1 'none'
 4 4 4 9
-EFNUklt
+EFNU
 stand stand male 6
 0 0 medium unknown
 #1711
@@ -323,10 +323,10 @@ A female centaur wanders about this area.
 The centaur has the upper torso of a woman and lower body of a horse.
 ~
 human~
-Ci 0 0 0 0 200 0
+C 0 0 0 0 200 0
 7 0 2d6+85 3d9+100 1d8+1 'none'
 4 4 4 9
-EFNUklt
+EFNU
 stand stand female 5
 0 0 medium unknown
 #1712
@@ -337,10 +337,10 @@ An old centaur is resting in a corner.
 This centaur has lived a full life.
 ~
 human~
-Ci 0 0 0 0 200 0
+C 0 0 0 0 200 0
 6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
-EFNUklt
+EFNU
 rest rest male 5
 0 0 medium unknown
 #1714
@@ -351,10 +351,10 @@ One of the centaur elders is here, watching you.
 The elders act as counselors and advisors to the chief.
 ~
 human~
-BChi 0 0 Ag 0 200 0
+BC 0 0 A 0 200 0
 9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
-EFNUklt
+EFNU
 stand stand male 0
 0 0 medium unknown
 #1715
@@ -365,10 +365,10 @@ A strong centaur is standing guard here.
 He appears to be blocking entrance to the next room.
 ~
 human~
-Bh 0 0 Ag 0 200 0
+B 0 0 A 0 200 0
 10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
-EFNUklt
+EFNU
 stand stand male 0
 0 0 medium unknown
 #1716
@@ -380,10 +380,10 @@ He has been the leader of this tribe for many years, and has acquired much
 wisdom.
 ~
 human~
-BChi 0 0 Ag 0 200 0
+BC 0 0 A 0 200 0
 12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
-EFNUklt
+EFNU
 rest stand male 0
 0 0 medium unknown
 #1720
@@ -394,10 +394,10 @@ A displacer beast is grazing nearby.
 As you watch this strange creature, its position seems to flicker and shift.
 ~
 human~
-Hn 0 0 0 0 0 0
+H 0 0 0 0 0 0
 10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
-EFNUklt
+EFNU
 stand stand none 0
 0 0 medium unknown
 #0
@@ -408,7 +408,7 @@ rusty cleaver~
 a rusty cleaver~
 A rusty cleaver lies on a counter top.~
 iron~
-weapon 0 0 ANgt
+weapon 0 0 AN
 dagger 1 6 'chop' 0
 1 20 230 P
 g none~
@@ -417,7 +417,7 @@ fine mace~
 the fine mace~
 There is a large mace of fine quality here.~
 iron~
-weapon Gm 0 ANgt
+weapon G 0 AN
 mace 6 3 'pound' 0
 10 110 570 P
 A
@@ -430,7 +430,7 @@ elven dagger~
 a long elven dagger~
 A long elven dagger made of adamantite is here.~
 steel~
-weapon AGgm 0 ANgt
+weapon AG 0 AN
 dagger 2 5 'pierce' 0
 8 20 700 P
 A
@@ -441,7 +441,7 @@ steel broad sword~
 a steel broad sword~
 A fine steel broad sword is lying on the ground.~
 steel~
-weapon AGgm 0 ANgt
+weapon AG 0 AN
 sword 3 6 'slash' 0
 11 120 910 P
 A
@@ -454,7 +454,7 @@ steel broad sword~
 a steel broad sword~
 A very fine steel broad sword is lying on the ground.~
 steel~
-weapon AGgm 0 ANgt
+weapon AG 0 AN
 sword 3 7 'slash' 0
 15 120 1510 P
 A
@@ -467,7 +467,7 @@ rod might~
 the rod of might~
 A Rod of Might is lying here.~
 oak~
-weapon BGhm 0 ANgt
+weapon BG 0 AN
 mace 3 7 'blast' 0
 14 130 1550 P
 A
@@ -480,7 +480,7 @@ black kite shield~
 a black kite shield~
 There is a large black kite shield lying here.~
 onyx~
-armor AGgm 0 AJgp
+armor AG 0 AJ
 6 6 6 2 0
 13 80 1530 P
 A
@@ -491,7 +491,7 @@ helm~
 a commander's helm~
 A commander's helm rests on a table here.~
 steel~
-armor AGgm 0 AEgk
+armor AG 0 AE
 7 7 7 2 0
 20 40 2300 P
 A
@@ -505,7 +505,7 @@ bracer~
 a mithril bracer~
 A magical bracer made from mithril lies on the ground!~
 mithril~
-armor BGhm 0 AMgs
+armor BG 0 AM
 4 6 6 2 0
 12 20 1540 P
 A
@@ -516,7 +516,7 @@ dark blue cloak~
 a dark blue cloak~
 A valuable cloak of dark blue cloth lies on the floor.~
 cloth~
-clothing AGgm 0 ACgi
+clothing AG 0 AC
 0 0 0 0 0
 0 20 100 P
 A
@@ -527,7 +527,7 @@ dark red potion~
 a dark red potion~
 A dark red potion rests on the ground.~
 glass~
-potion AGgm 0 AOgu
+potion AG 0 AO
 9 'cure blindness' 'cure critical' '' ''
 5 10 320 P
 g none~
@@ -536,8 +536,8 @@ bronze chest~
 a bronze chest~
 There is a sturdy bronze chest in the corner.~
 bronze~
-container 0 0 Ag
-30 ACgi 0 10 100
+container 0 0 A
+30 AC 0 10 100
 0 100 100 P
 g none~
 #1652
@@ -545,7 +545,7 @@ ale barrel~
 a barrel of ale~
 There is a small barrel in one corner.~
 wood~
-drink 0 0 Ag
+drink 0 0 A
 150 2 'ale' 0 0
 0 80 10 P
 g none~
@@ -554,8 +554,8 @@ key twin towers~
 the twin towers key~
 There is a shiny skeleton key on the ground here.~
 unknown~
-key 0 0 Ag
-Ag 0 0 0 0
+key 0 0 A
+A 0 0 0 0
 0 10 0 P
 g none~
 #1692
@@ -563,8 +563,8 @@ strange key~
 a strange key~
 There is a very strange-looking key on the ground here.~
 unknown~
-key AGgm 0 AOgu
-Bh 0 0 0 0
+key AG 0 AO
+B 0 0 0 0
 12 10 750 P
 A
 17 -3
@@ -577,7 +577,7 @@ short bow~
 a short bow~
 A short bow has been carelessly left here.~
 wood~
-weapon 0 0 ANgt
+weapon 0 0 AN
 bow 2 4 'pierce' 0
 5 50 730 P
 E
@@ -590,7 +590,7 @@ long bow~
 a long bow~
 A long bow has been foolishly abandoned here.~
 wood~
-weapon AGgm 0 ANgt
+weapon AG 0 AN
 bow 3 6 'pound' 0
 12 70 220 P
 A
@@ -601,7 +601,7 @@ ancient sword~
 an ancient long sword~
 An ancient long sword has been left here.~
 iron~
-weapon BGhm 0 ANgt
+weapon BG 0 AN
 sword 3 8 'slash' 0
 19 100 2500 P
 A
@@ -614,7 +614,7 @@ fur cap~
 a fur cap~
 A fur cap lies here on the ground.~
 fur~
-armor 0 0 AEgk
+armor 0 0 AE
 2 2 2 0 0
 0 10 168 P
 g none~
@@ -623,7 +623,7 @@ travelling boots~
 a pair of travelling boots~
 A sturdy pair of travelling boots lies here.~
 fur~
-armor Gm 0 AGgm
+armor G 0 AG
 5 5 5 0 0
 12 20 880 P
 A
@@ -634,7 +634,7 @@ bronze ring~
 a bronze ring~
 A ring of etched bronze gleams dimly on the ground.~
 bronze~
-jewelry Gm 0 ABgh
+jewelry G 0 AB
 0 0 0 0 0
 5 10 55 P
 A
@@ -770,14 +770,14 @@ House of Pancakes~
 The moment you enter this room, the ceiling descends and crushes you
 into a pancake.  Don't you hate it when that happens?
 ~
-0 BChi inside
+0 BC inside
 S
 #1608
 Old Store Room~
 You have entered what appears to be an old storeroom. Most of the items
 that were in here appear to have been ruined long ago.
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -788,7 +788,7 @@ Empty Room~
 This room appears to be completely empty. The only exit seems to be the
 way you came.  There are some scratches around the floor.
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
@@ -804,7 +804,7 @@ Minotaur's Room~
 You have entered a secret chamber under the empty room. In this room is
 the worn but cared-for gear and trappings of some large humanoid.
 ~
-0 ACDgij inside
+0 ACD inside
 D4
 ~
 ~
@@ -864,7 +864,7 @@ You are on a foyer on the west side of the structure. The moat is west of
 here. There is also a large door eastward into the structure.  You notice that
 the walls are ornately decorated with very life-like stone gargoyles.
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -882,7 +882,7 @@ ornate balcony surrounds the lobby. To the east, below the balcony, is an
 opening. The door leading out is west.  You notice that the balcony is
 covered in highly ornate and life-like stone gargoyles.
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -898,7 +898,7 @@ You stand in the center of the Western tower's base. Torch brackets occupy
 the four corners of this huge room. Above each torch is a lifelike ornate
 stone gargoyle.  There are doors north and south, and passages east and west.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -921,7 +921,7 @@ The Musty Corridor~
 You are walking along a musty east-west corridor joining the two towers.
 There are room on each side of the corridor, and openings at each end.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -945,7 +945,7 @@ You have entered what must once have been a kitchen. The rusting remains of
 various utensils lie on countertops. There is also an old wash basin and a
 pot-belly stove.  There is a door south, and a serving hatch east.
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
@@ -956,7 +956,7 @@ Conservatory~
 You are in the tower's private conservatory. However, through years of neglect,
 the plants have grown into a hideous jungle.  The only exit is north.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -969,7 +969,7 @@ dominate the room. A horrible odor pervades the room, like some foul-smelling
 beast has been eating and shitting in here.  There is a serving hatch west and
 a door south.
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
@@ -980,7 +980,7 @@ Art Gallery~
 You are in the ruined remains of an art gallery. Everything appears to
 have been stolen long ago, however.  The only exit is north.
 ~
-0 ADgj city
+0 AD city
 D0
 ~
 ~
@@ -994,7 +994,7 @@ gargoyle.  There are are open doors to the north and south, and passages east
 and west.  In addition, a spiral staircase leads up to the next level of this
 tower.
 ~
-0 Dj city
+0 D city
 D0
 ~
 ~
@@ -1019,7 +1019,7 @@ You are in what must once have been a common room for all residents of the
 tower. There is a huge fire pit with a chimney in the center, and the smashed
 remains of a great many table and chairs.  The exit is south.
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
@@ -1036,7 +1036,7 @@ You are in what once was the servant's quarters, as evidenced by the shabby
 belongings and decor. What little remains is rotting and of little value
 anyway.  The only exit is north.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -1048,7 +1048,7 @@ You are in a large, murky cellar. An almost tangible air of horror pervades
 the room.  A thin layer of nitre covers the walls and ceiling.  Rotting
 furniture looms obliquely about the room.
 ~
-0 ADgj city
+0 AD city
 D4
 ~
 ~
@@ -1059,7 +1059,7 @@ On the First Staircase~
 You are on a Spiral staircase connecting the first and second levels of
 the eastern tower. You can go up or down.
 ~
-0 ADgj field
+0 AD field
 D4
 ~
 ~
@@ -1075,7 +1075,7 @@ You are in the center of the second level of the Eastern tower. This large
 room appears quite empty, except for the candle abras firmly fixed to the
 walls.  An opening leads westward, and a spiral staircase leads down.
 ~
-0 ADgj city
+0 AD city
 D3
 ~
 ~
@@ -1092,7 +1092,7 @@ The rotted remains of a plush carpet covers the floor, while several moldy
 tapestries adorn the each side of the hall.  There are door north and south,
 and openings east and west.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -1117,7 +1117,7 @@ Costly paintings and pieces of furniture are tastefully situated.  On the
 north wall is an altar to Knar, the ghastly patron of Gargoyles.  The only
 exit is south.
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
@@ -1128,7 +1128,7 @@ The Library~
 This room appears to have been a library.  Empty book shelves line each wall.
 The only exit is north.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -1141,7 +1141,7 @@ staircase of 29 steps connects this level with the third.  There are doors
 to the east and west.  Except for a torch bracket in each corner, the 
 room is barren.
 ~
-0 Dj city
+0 D city
 D1
 ~
 ~
@@ -1161,7 +1161,7 @@ On the Balcony~
 You are on the balcony overlooking the Grand lobby.  You have a fabulous
 view of the entire room.  The only exit is the way you came in.
 ~
-0 Dj field
+0 D field
 D1
 ~
 ~
@@ -1172,7 +1172,7 @@ The Spiral Stairs~
 You are on a large spiral staircase of 29 steps, leading between the 
 second and third floors.  You can go up or down.
 ~
-0 Dj field
+0 D field
 D4
 ~
 ~
@@ -1188,7 +1188,7 @@ You stand in the center of the western tower's third floor.  This large room
 glows mysteriously with a strange light all its own.  From a door to the east
 comes a strange inky blackness.  A spiral staircase leads down.
 ~
-0 Dj city
+0 D city
 D1
 ~
 ~
@@ -1201,7 +1201,7 @@ S
 #1644
 It's too dark to see anything!~
 ~
-0 ADgj forest
+0 AD forest
 D0
 ~
 ~
@@ -1225,7 +1225,7 @@ In this room, which has somehow evaded the ravages of time, are neatly stored
 racks of common weapons.  They appear to be quite ordinary; however, a chest
 in one corner catches your eye.  The only exit is the way you came in.
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
@@ -1239,7 +1239,7 @@ flying snake-like reptiles with poisonous tails fight humans and dwarves.
 Various objects in the room give evidence that it is occupied by individuals
 of authority.  The only door is north.
 ~
-0 ADgj inside
+0 AD inside
 D0
 ~
 ~
@@ -1252,7 +1252,7 @@ glows with a mysterious light that has no source.  In the center of the room a
 ladder climbs up to a hatchway in the ceiling.  The hatchway is a strange
 looking keyhole.  There is also a door to the west.
 ~
-0 Dj city
+0 D city
 D3
 ~
 ~
@@ -1308,7 +1308,7 @@ Scattered about this room are a great many coins and valuable articles.
 Yet you can't get rid of a feeling of dread!  A mirror-like portal is in the
 western wall.
 ~
-0 ADgj inside
+0 AD inside
 D1
 ~
 ~
@@ -1354,7 +1354,7 @@ You are on the old Eastern Road.  The crossroads to the east joins ANOTHER
 northern route to this road, which continues east.  South of the crossroads is
 an old building.  The area around here is lightly timbered.
 ~
-0 Ci forest
+0 C forest
 D1
 You see a cross roads and an old building.
 ~
@@ -1400,7 +1400,7 @@ You are in a trading post just south of the crossroads, where rangers,
 trappers and hunters from the surrounding area come to buy, sell, and
 barter goods.
 ~
-0 Dj inside
+0 D inside
 D0
 The door opens out on the crossroads.
 ~
@@ -1581,7 +1581,7 @@ A Centaur's Hut~
 You are inside a smallish hut, the home of a family of Centaurs.  The hut
 is sparsely furnished, mostly the trappings of survival.
 ~
-0 Dj inside
+0 D inside
 D2
 The opening leads out onto the clearing.
 ~
@@ -1593,7 +1593,7 @@ A Centaur's Hut~
 You are inside a smallish hut, the home of a family of Centaurs.  The hut
 is sparsely furnished, mostly the trappings of survival.
 ~
-0 Dj inside
+0 D inside
 D0
 The opening leads out onto the clearing.
 ~
@@ -1605,7 +1605,7 @@ A Centaur's Hut~
 You are inside a smallish hut, the home of a family of Centaurs.  The hut
 is sparsely furnished, mostly the trappings of survival.
 ~
-0 Dj inside
+0 D inside
 D2
 The opening leads out onto the clearing.
 ~
@@ -1617,7 +1617,7 @@ A Centaur's Hut~
 You are inside a smallish hut, the home of a family of Centaurs.  The hut
 is sparsely furnished, mostly the trappings of survival.
 ~
-0 Dj inside
+0 D inside
 D0
 The opening leads out onto the clearing.
 ~
@@ -1630,7 +1630,7 @@ You are in the entry foyer of a large hut.  A curtain separates this section
 of the hut from the next section to the west.  To the east is an opening out
 onto the clearing.
 ~
-0 Dj inside
+0 D inside
 D1
 The opening leads out onto the clearing.
 ~
@@ -1648,7 +1648,7 @@ You are in the back of a large hut.  A curtain separates this section from
 the front of the hut to the east.  This room is finely decorated, if
 somewhat primitive.  The decor suggests someone of authority lives here.
 ~
-0 Dj inside
+0 D inside
 D1
 There is a curtain here separating this room from the front of the hut.
 ~

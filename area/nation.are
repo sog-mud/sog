@@ -20,10 +20,10 @@ As you approach he says, "Beware the Goblins!  They
 swarm like flies upon the unwary.  Beware!"
 ~
 human~
-BGehm 0 0 0 0 0 0
+BGe 0 0 0 0 0 0
 25 0 5d10+550 5d5+1000 2d10+7 'punch'
 -7 -7 -7 4
-ENkt
+EN
 stand stand male 10
 0 0 medium unknown
 #9902
@@ -34,10 +34,10 @@ An Eyeless Dwarf bumps into you then ATTACKS!
 This Dwarf has been horribly mutilated.
 ~
 dwarf~
-FGlm 0 0 0 0 0 0
+FG 0 0 0 0 0 0
 5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
-Ek
+E
 stand stand male 10
 0 0 small unknown
 #9903
@@ -49,10 +49,10 @@ This elf is a young adult.  Obviously driven mad by
 his capture and torture.
 ~
 elf~
-FGlm 0 0 0 0 0 0
+FG 0 0 0 0 0 0
 5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
-ENkt
+EN
 stand stand male 10
 0 0 medium unknown
 #9904
@@ -63,10 +63,10 @@ A confused human youth attacks you!
 This youngster is walking around in a daze.
 ~
 human~
-FGlm 0 0 0 0 0 0
+FG 0 0 0 0 0 0
 5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
-ENkt
+EN
 stand stand male 10
 0 0 medium unknown
 #9905
@@ -79,10 +79,10 @@ It's hair is mussed, it smells, and has little
 to no clothes on.
 ~
 goblin~
-Gm 0 0 0 0 0 0
+G 0 0 0 0 0 0
 5 0 2d6+60 5d5+100 1d6+1 'punch'
 5 5 5 9
-ENkt
+EN
 stand stand male 10
 0 0 small unknown
 #9906
@@ -96,10 +96,10 @@ some painted symbols on his chest.  They look like
 circles with dots in the middle.
 ~
 goblin~
-Gm 0 0 0 0 0 0
+G 0 0 0 0 0 0
 8 0 2d7+96 5d5+100 1d7+2 'punch'
 3 3 3 8
-ENkt
+EN
 stand stand male 10
 0 0 medium unknown
 #9907
@@ -111,10 +111,10 @@ She is very short..only 3 1/2 feet tall.  Long oily
 black hair and a green complexion completes the image.
 ~
 goblin~
-Gm 0 0 0 0 0 0
+G 0 0 0 0 0 0
 8 0 2d7+96 5d5+100 1d7+2 'punch'
 3 3 3 8
-ENkt
+EN
 stand stand female 10
 0 0 medium unknown
 #9908
@@ -126,10 +126,10 @@ The guard is lightly armed.  He relies
 upon his claws and fangs to do his work.
 ~
 goblin~
-Gm 0 0 0 0 -300 0
+G 0 0 0 0 -300 0
 15 0 3d9+208 5d5+100 2d6+3 'punch'
 -2 -2 -2 6
-ENkt
+EN
 stand stand male 10
 0 0 medium unknown
 #9909
@@ -142,10 +142,10 @@ covered in symbols from his religion.
 He doesn't notice your intense stare.
 ~
 goblin~
-Gm 0 0 0 0 0 0
+G 0 0 0 0 0 0
 20 0 3d9+333 5d5+1000 2d8+5 'punch'
 -4 -4 -4 5
-ENkt
+EN
 stand stand male 10
 0 0 medium unknown
 #9910
@@ -157,10 +157,10 @@ This warrior is without armor or weapons.  He also is
 covered in blue circles with dots in the center.
 ~
 goblin~
-Gm 0 0 0 0 -500 0
+G 0 0 0 0 -500 0
 10 0 2d7+121 5d5+100 2d4+2 'punch'
 1 1 1 7
-EFNklt
+EFN
 stand stand male 10
 0 0 medium unknown
 #0
@@ -186,7 +186,7 @@ lost quest note~
 a lost quest note~
 A lost quest note is lying here.~
 unknown~
-treasure 0 0 Ag
+treasure 0 0 A
 0 0 0 0 0
 0 1 0 P
 E
@@ -201,7 +201,7 @@ note reward~
 a reward note~
 A reward note has been dropped here.~
 unknown~
-furniture 0 0 Ag
+furniture 0 0 A
 0 0 0 0 0
 0 1 0 P
 E
@@ -217,7 +217,7 @@ necklace~
 a Necklace~
 A Necklace lies here.~
 unknown~
-armor 0 0 ACgi
+armor 0 0 AC
 2 2 2 2 0
 5 1 0 P
 E
@@ -229,7 +229,7 @@ necklace~
 a Necklace~
 A necklace has been dropped here.~
 unknown~
-armor 0 0 ACgi
+armor 0 0 AC
 2 2 2 2 0
 5 5 0 P
 E
@@ -241,7 +241,7 @@ necklace~
 a Necklace~
 A Necklace lies here.~
 unknown~
-armor 0 0 ACgi
+armor 0 0 AC
 2 2 2 2 2
 5 5 0 P
 E
@@ -253,7 +253,7 @@ ring elven elf~
 an Elven Ring~
 An Elven ring has been dropped here.~
 unknown~
-armor 0 0 ABgh
+armor 0 0 AB
 0 0 0 0 0
 5 1 0 P
 E
@@ -265,7 +265,7 @@ ring elven elf~
 an Elven Ring~
 An Elven ring has been dropped here.~
 unknown~
-armor 0 0 ABgh
+armor 0 0 AB
 0 0 0 0 0
 5 1 0 P
 E
@@ -277,7 +277,7 @@ ring elven elf~
 an Elven Ring~
 An Elven ring is lying here.~
 unknown~
-armor 0 0 ABgh
+armor 0 0 AB
 0 0 0 0 0
 5 5 0 P
 E
@@ -289,7 +289,7 @@ child childs toy~
 a Childs toy~
 A childs toy lies here.~
 unknown~
-armor 0 0 AOgu
+armor 0 0 AO
 0 0 0 0 0
 5 5 0 P
 E
@@ -301,7 +301,7 @@ toy child childs~
 a Childs toy~
 A childs toy is lying here.~
 unknown~
-armor 0 0 AOgu
+armor 0 0 AO
 0 0 0 0 0
 5 1 0 P
 E
@@ -313,7 +313,7 @@ child childs toy~
 a Childs toy~
 A childs toy has been dropped here.~
 unknown~
-armor 0 0 AOgu
+armor 0 0 AO
 0 0 0 0 0
 5 1 0 P
 E
@@ -325,7 +325,7 @@ loincloth~
 a loincloth~
 A loincloth has been wadded up and dropped here.~
 unknown~
-armor 0 0 ADgj
+armor 0 0 AD
 2 3 2 2 0
 8 5 0 P
 g none~
@@ -334,7 +334,7 @@ bangle goblin~
 a pair of Goblin Bangles~
 A pair of Goblin Bangles have been dropped here.~
 unknown~
-armor 0 0 AMgs
+armor 0 0 AM
 3 2 3 2 0
 8 1 0 P
 g none~
@@ -347,7 +347,7 @@ The river flows to the west, through the huge hole in the the
 wall which encircles Malo Village.  The village is on the
 north shore of the river to your east.
 ~
-0 Ci noswim
+0 C noswim
 D1
 ~
 ~
@@ -531,7 +531,7 @@ D0
 A grass wall circles this area.
 ~
 grass~
-ABZgh -1 9916
+ABZ -1 9916
 D1
 ~
 ~
@@ -594,7 +594,7 @@ This bedrock landing is concealed by a woven grass wall.  Matted
 grasses cover the ground.  To the north a path through the high
 grasses leads to danger.
 ~
-0 Ci field
+0 C field
 D0
 ~
 ~
@@ -603,7 +603,7 @@ D2
 A grass wall surrounds the area.
 ~
 grass~
-ABZgh -1 9912
+ABZ -1 9912
 S
 #9917
 Grass pathway~
@@ -676,7 +676,7 @@ The grasses have been woven into a small tunnel...all light from
 above has been cut out.  The tunnel is extremely small and will
 only admit two or three persons at a time.
 ~
-0 DJjp inside
+0 DJ inside
 D1
 ~
 ~
@@ -771,7 +771,7 @@ Grass hut~
 This tiny grass hut is filthy.  Small pieces of food, ripped
 clothing and broken pottery litter the floor.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -800,7 +800,7 @@ The grass was cut instead of bent and has now died.  It's
 ugly brown color indicates it's dryness and begs to be 
 set on fire.
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~
@@ -812,7 +812,7 @@ You are standing in a hut which has been smeared with
 blue berries.  The walls are caked with bits and pieces of
 several different fruits but blueberry is the dominant color.
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
@@ -935,7 +935,7 @@ This stick hut is very small, dark and barren.  How odd the
 walls appear to you now that you are inside.  Several of sticks
 appear to be very smooth.
 ~
-0 Dj inside
+0 D inside
 E
 stick sticks~
 The "sticks" are yellowing bones, collected from the
@@ -950,7 +950,7 @@ Stick and grass hut~
 This hut is made from sticks and grass crudely woven together
 into a weak semblance of a home.
 ~
-0 Dj inside
+0 D inside
 E
 stick sticks~
 The "sticks" are actually bones.  They appear to be the bones
@@ -996,7 +996,7 @@ This tiny grass hut is cleaner than you expected and the
 window comes as a great surprise.  Upon closer examination 
 the window is explained.
 ~
-0 Dj inside
+0 D inside
 E
 examination window~
 The window has no frame.  It appears that someone clawed 
@@ -1074,7 +1074,7 @@ Bloody hut~
 This was the location of a bloody killing.  There is blood
 everywhere; on the floor, walls and ceiling.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -1127,7 +1127,7 @@ Looking around you see signs that lead you to believe that this
 hut is for children.  Several small piles of grass, looking much
 like beds, are lying about the floor.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -1254,7 +1254,7 @@ This hut is unlike many of the others in the area.  It is
 constructed of wooden poles with tightly stretched animal skins
 fashioned into walls and ceiling.
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
@@ -1307,7 +1307,7 @@ This wooden hut is well built from the planks of a sailing ship.
 The weathered wood, the round windows, and a figurine of great
 artistry makes this hut much more than you expected.
 ~
-0 Dj inside
+0 D inside
 E
 figurine~
 The figurine is of a busty woman whose sly smile reminds you
@@ -1522,7 +1522,7 @@ The wooden hut is built from the planks of a sailing ship.
 Several round windows allow light and air to enter.  Carved
 into the floor of the hut is a map of the continent.
 ~
-0 Dj inside
+0 D inside
 E
 map~
 The map shows that the continent is shaped much like a cloud.
@@ -1588,7 +1588,7 @@ Looking around you discover several articles of children's
 clothing tacked to the walls.  Some of the clothing is covered
 in blood, while others look brand new.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -1775,7 +1775,7 @@ This hut is made of wooden poles with a layer of grass woven
 inbetween them.  A thick thatch roof keeps out the rain.
 Written in blood, on the wall of the hut is a phrase.
 ~
-0 Dj inside
+0 D inside
 E
 phrase~
 Made by the children of Malo Village.~
@@ -1840,7 +1840,7 @@ Small hut~
 This small hut is well built and has a fire pit in the center 
 of it.  Several small hands are hanging on the walls.
 ~
-0 Dj inside
+0 D inside
 E
 hand hands~
 The hands are from several small children of different races.~
@@ -1884,7 +1884,7 @@ Singlefile path~
 The wall comes very close to one of the Goblin huts.  You will
 have to travel in singlefile to get by.
 ~
-0 Jp field
+0 J field
 D0
 ~
 ~
@@ -1904,7 +1904,7 @@ You are standing in a very small hut near the northern wall.
 Some of the belongings in this hut were made by goblins, some
 were stolen from Malo Village.
 ~
-0 Dj inside
+0 D inside
 D1
 ~
 ~
@@ -1916,7 +1916,7 @@ The grass wall is squeezing you into a very small path.  Some of
 the grasses are hanging down into your path.  They brush against
 your face as you walk under them.
 ~
-0 Jp field
+0 J field
 D1
 ~
 ~
@@ -1938,7 +1938,7 @@ possessions you have seen in quantity have belonged to the
 Malo Villagers.  What is going on?  Where did these goblins
 come from?  Where are they going?  What are they doing here?
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -1949,7 +1949,7 @@ Tiny grass path~
 This kneehigh grass path leads toward Bald Mountain.  The length
 of the grass indicates that few Goblins come in this direction.
 ~
-0 Jp field
+0 J field
 D1
 ~
 ~
@@ -1969,7 +1969,7 @@ This hut has been built from the wood of a sailing vessel.  The
 weathered boards have iron rings embedded in them and a small bell
 in the corner is very dull.
 ~
-0 Dj inside
+0 D inside
 E
 bell~
 Carved into the bell's stand is the name of the ship from 
@@ -2072,7 +2072,7 @@ Grass hut~
 This grass hut is no different than any of the others.  Again the
 question of "where are their possessions?" comes to mind.
 ~
-0 Dj inside
+0 D inside
 D2
 ~
 ~
@@ -2084,7 +2084,7 @@ The grass hut was built somewhere else and moved to this location.
 The grass is silver, and appears to be collecting light.  Looking
 at the hut is hard to do...the light is so bright.
 ~
-0 Dj inside
+0 D inside
 D0
 ~
 ~
@@ -2096,7 +2096,7 @@ You are standing in the entrance of a cave within Bald Mountain.
 Several small offerings are scattered about the room.  To the
 rear of the room is a door.  A door which doesn't open.
 ~
-0 Dj inside
+0 D inside
 D3
 ~
 ~

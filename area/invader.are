@@ -22,10 +22,10 @@ to destroy anyone who dares to penatrate into the chamber.
 попытается проникнуть сюда.  
 ~
 human~
-ABDEJWeghjkp CDFGIijlmo NOTVctuz 0 ABHghn -1000 0
+BJWe CDI JNOTVc 0 ABCDFH -1000 0
 92 40 2d500+25000 1d200+600 10d40+40 'slash'
 -77 -77 -77 -42
-ACEFKNUgiklqt
+ACEFKNU
 stand stand male 5000
 0 0 gargantuan unknown
 M grall 95600 100~
@@ -65,10 +65,10 @@ whole Shades of Gray as in the history.
 того дня, когда весь этот мир склонится перед Инвайдерами.  
 ~
 human~
-BQVcehw Hn 0 0 ABgh -1000 0
+BJQVce H J 0 ABC -1000 0
 90 100 1d1+28999 1d1+999 2d14+60 'magic'
 -85 -85 -85 -15
-AFHIKQglnoqw
+AFHIKQ
 stand stand male 1000
 0 0 medium unknown
 M act 95601 tells you 'great night'~
@@ -98,10 +98,10 @@ bruks vampire~
 ~
 ~
 undead~
-Bh 0 0 0 0 -1000 0
+BJ 0 0 C 0 -1000 0
 1 0 1d1+1 1d1+10000 1d1+1 'kiss'
 -10000 -10000 -10000 -10000
-Gm
+G
 stand stand female 0
 0 0 medium unknown
 M bribe 95602 5000~
@@ -126,10 +126,10 @@ darkness~
 ~
 ~
 unique~
-BOchu 0 Kq AGgm ABgh -10000 0
+BEJOc 0 JK ACG ABCD -10000 0
 200 0 1d1+1000000 0d0+0 0d0+0 'blast'
 0 0 0 0
-Gm
+G
 stand stand none 0
 0 0 medium unknown
 r bash 100
@@ -160,7 +160,7 @@ human~
 0 0 0 0 0 1000 0
 1 0 1d1+10 0d0+0 0d0+0 'slap'
 0 0 0 0
-Qw
+Q
 stand stand female 0
 0 0 medium unknown
 r bash -50
@@ -188,7 +188,7 @@ swamp beast~
 ~
 ~
 undead~
-COciu 0 c 0 0 -1000 0
+COc 0 CJc 0 0 -1000 0
 200 1000 1d1+100000 1d1+100000 1d1+100 'kiss'
 0 0 0 0
 0
@@ -218,7 +218,7 @@ shadow watcher~
 ~
 ~
 undead~
-BOchu 0 0 0 0 -1000 0
+BOc F 0 C D -1000 0
 92 0 1d1+100000 1d1+100000 0d0+0 'wrath'
 -100 -100 -100 -100
 0
@@ -240,8 +240,8 @@ altar skull~
 the skull~
 @eng On the altar you see the skull with dark bones.@rus Алтарь, похожий на череп из темной кости (skull) стоит в центре.~
 bone~
-container CEYik Bh 0
-10 ABCDghij 95602 15 100
+container CEY B 0
+10 ABCD 95602 15 100
 60 2 20 P
 g none~
 #95601
@@ -249,7 +249,7 @@ globe sphere~
 @eng the nothing globe@rus ~~шар~~ пустоты~
 @eng A small, sphere shaped unexistance area floats in the air.@rus Маленькая сфера (sphere) нематериальной субстанции плавает в воздухе.~
 unknown~
-treasure CEik ABCHghin AOgu
+treasure CE ABCH AO
 0 0 0 0 0
 0 2 10000 P
 g none~
@@ -258,7 +258,7 @@ jaw~
 @eng darkish jaw of a skull@rus ~~челюсть~~~
 @eng A dark jaw of a skull.@rus Челюсть (jaw) лежит в углу.~
 bone~
-key CEYik ABIJKghopq AOgu
+key CEY ABI AO
 0 0 0 0 0
 0 2 0 P
 g female~
@@ -268,7 +268,7 @@ white object portal~
 @eng Three magically created objects ({Wwhite{x, {Ggreen{x and {Ddark{x)                            casts strange shadows across the clearing.@rus Три магических объекта ({Wwhite{x, {Ggreen{x и {Ddark{x) мерцают неподалеку.~
 energy~
 portal 0 0 0
-0 0 Bh 95600 0
+0 0 B 95600 0
 0 0 0 P
 g male~
 #95604
@@ -276,8 +276,8 @@ dark object portal~
 @eng dark portal@rus ~~черный портал~~~
 ~
 energy~
-portal Ag 0 0
-0 0 Ek 0 0
+portal A 0 0
+0 0 E 0 0
 0 0 0 P
 g male~
 #95605
@@ -285,8 +285,8 @@ green object portal~
 @eng green portal@rus ~~зеленый~~ ~~портал~~~
 ~
 energy~
-portal Ag 0 0
-0 0 Bh 3124 0
+portal A 0 0
+0 0 B 3124 0
 0 0 0 P
 g male~
 #95606
@@ -294,8 +294,8 @@ shadow~
 @eng shadow@rus ~~тень~~~
 @eng Powerful shadow concentrates around the altar.@rus Истекающая силой тень (shadow) сгустилась вокруг алтаря.~
 shadow~
-furniture CEik Bh 0
-ACDgij 0 ILor DGHjmn DGHjmn
+furniture CE B 0
+ACD 0 IL DGH DGH
 0 0 0 P
 g female~
 #95607
@@ -303,7 +303,7 @@ fountain blood~
 @eng bloody fountain@rus ~~фонтан~~~
 @eng Stream of rancid {rblood{x splash all over you.@rus Поток прогорклой {rкрови{x окатил тебя с головы до ног.~
 stone~
-fountain BJhp Bh 0
+fountain BJ B 0
 0 0 'blood' 0 0
 0 0 0 P
 g male~
@@ -312,7 +312,7 @@ mark знак~
 @eng {DMark of the {RBeast{x@rus {DЗнак {RЗверя{x~
 A small leather scarp with unholy runes lies here.~
 darkness~
-jewelry AMYgs CEik ASgy
+jewelry AMY CE AS
 0 0 0 0 0
 0 0 0 P
 g none~
@@ -328,18 +328,18 @@ shadows watching you!
 валуном.  Вдруг, холодок страха плеснул тебе в лицо - ты почуствовал, что
 тени следят за тобой.  
 ~
-0 ACDKXgijq inside
+0 ACDKX inside
 D0
 ~
 ~
-DZj 0 16081
+DZ 0 16081
 D5
 @eng A dim light of a flickering torch hits the southern wall of the well,
 far down the stone pipe.
 @rus Мерцающий свет догорающего факела отражаясь от южной стены колодца, погложается пастью небольшого туннеля.
 ~
 entrance~
-ABDZghj 0 95601
+ABDZ 0 95601
 S
 #95601
 @eng Bottom of the Well@rus На дне колодца~
@@ -353,7 +353,7 @@ well.
 огромного человека.  Лучше оставь попытки померятся с ним силами на будущее
 и выбирайся из колодца.  
 ~
-0 ACDKNXgijqt inside
+0 ACDKNX inside
 D0
 @eng The doorway leads to a well lit chamber. On the wall is a huge shadow.
 @rus Путь ведет в хорошо освещенный зал.  На стене перед входом видна огромая
@@ -364,7 +364,7 @@ Z -1 95602
 D4
 ~
 ~
-ABDZghj 0 95600
+ABDZ 0 95600
 S
 #95602
 @eng The bottomless pit@rus Бездонная яма~
@@ -376,7 +376,7 @@ ever reach it?
 найти ничего, что могло бы помочь выкарабкаться.  Не видя другого выхода ты
 продолжаешь спускаться вниз.  Что ждет тебя на дне?  Кто знает?  
 ~
-0 DKNXjqt inside
+0 DKNX inside
 D5
 @eng Falling further into the black pit
 @rus Провал уводит дальше, в черную яму.
@@ -394,7 +394,7 @@ ever reach it?
 найти ничего, что могло бы помочь выкарабкаться.  Не видя другого выхода ты
 продолжаешь спускаться вниз.  Что ждет тебя на дне?  Кто знает?
 ~
-0 ADKNgjqt inside
+0 ADKN inside
 D5
 @eng Falling further into the black pit
 @rus Провал уводит дальше, в черную яму.
@@ -412,7 +412,7 @@ ever reach it?
 найти ничего, что могло бы помочь выкарабкаться.  Не видя другого выхода ты
 продолжаешь спускаться вниз.  Что ждет тебя на дне?  Кто знает?
 ~
-0 ADKNgjqt inside
+0 ADKN inside
 D5
 @eng Falling further into the black pit
 @rus Провал уводит дальше, в черную яму.
@@ -430,7 +430,7 @@ ever reach it?
 найти ничего, что могло бы помочь выкарабкаться.  Не видя другого выхода ты
 продолжаешь спускаться вниз.  Что ждет тебя на дне?  Кто знает?
 ~
-0 ADKXgjq inside
+0 ADKX inside
 D5
 @eng Falling further into the black pit
 @rus Провал уводит дальше, в черную яму.
@@ -450,7 +450,7 @@ have been heard.
 выхода ты продолжаешь спускаться вниз.  ЧТО ждет тебя на дне?  Ты отчаянно
 молишь об освобождении - безнадежно.  Кто услышит тебя?  
 ~
-0 ADKNXgjqt inside
+0 ADKNX inside
 D5
 @eng Falling further into the black pit or to the death.
 @rus Провал уводит дальше, в черную яму и смерти.
@@ -468,12 +468,12 @@ mostly about death, eg. skulls, demon claws, fangs...
 следы мощнейшей магии.  Повсюду высечены изображения демонов, черепов,
 клыков...  Ты вспомнил о смерти...  К чему бы это?  
 ~
-0 ACDKNXgijqt inside
+0 ACDKNX inside
 D0
 It's dark to tell anything.
 ~
 ~
-DZj -1 95608
+DZ -1 95608
 D1
 It's dark to tell anything.
 ~
@@ -498,7 +498,7 @@ D5
 @rus На одной из плит в углу зала виднеется темное клеймо в виде огромного черепа.
 ~
 secret~
-ABCDFGIZghijlmo 95602 95610
+ABCDFGIZ 95602 95610
 S
 #95608
 @eng The Pentagram@rus Пентаграмма~
@@ -518,7 +518,7 @@ a black stone with blood script on it. The title with big letters reads
 "{RБратство Инвайдеров{x".  На черных камнях западной стены среди потеков
 крови можно различить руны обозначающие - "{DАнгел Смерти{x".  
 ~
-0 ADKTgjqz inside
+0 ADKT inside
 D0
 ~
 ~
@@ -527,7 +527,7 @@ D2
 You see the dark corridor.
 ~
 ~
-DZj -1 95607
+DZ -1 95607
 M 110 H 100
 S
 #95609
@@ -542,7 +542,7 @@ INVADERS!
 отдышаться и убраться отсюда. Ho помни, это НЕ очень удачное место для
 отдыха. Потому что это место сражений ИНВАЙДЕРОВ!
 ~
-0 ADKTXgjqz inside
+0 ADKTX inside
 D0
 @eng You see the dark corridor.
 @rus Перед тобой темный проход.
@@ -554,7 +554,7 @@ S
 #95610
 @eng Vampires Lair@rus Логово Вампиров~
 ~
-0 KTqz inside
+0 KT inside
 D0
 ~
 ~
@@ -562,12 +562,12 @@ Z 0 95611
 D4
 ~
 ~
-ABCZghi 0 95612
+ABCZ 0 95612
 S
 #95611
 @eng Dark tunnel@rus Темный туннель~
 ~
-0 KTqz inside
+0 KT inside
 D0
 ~
 ~
@@ -587,7 +587,7 @@ S
 смрадной жиже свернувшейся крови ты потрясенно вспоминаешь старую легенду о
 Первом Вампире, возжелавшем попробовать крови самой Земли.  
 ~
-0 AKNTXgqtz inside
+0 AKNTX inside
 D2
 ~
 ~
@@ -596,11 +596,11 @@ S
 #95613
 @eng Dark tunnel@rus Темный туннель~
 ~
-0 KTqz inside
+0 KT inside
 D0
 ~
 ~
-DZj 0 95614
+DZ 0 95614
 D2
 ~
 ~
@@ -609,7 +609,7 @@ S
 #95614
 @eng Dark tunnel@rus Темный туннель~
 ~
-0 AKNTgqtz inside
+0 AKNT inside
 D0
 ~
 ~
@@ -617,12 +617,12 @@ Z 0 95607
 D2
 ~
 ~
-DZj 0 95613
+DZ 0 95613
 S
 #95615
 @eng Underground damp@rus Подземное болото~
 ~
-0 AKTgqz inside
+0 AKT inside
 S
 #0
 

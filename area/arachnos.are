@@ -17,10 +17,10 @@ He looks freshly hatched and sprightly.  His young fangs are just
 growing in as of late.
 ~
 human~
-CGim 0 0 0 Ag 0 0
+CG 0 0 0 A 0 0
 5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
-EFNUklt
+EFNU
 stand stand female 5
 0 0 medium unknown
 #6302
@@ -31,10 +31,10 @@ Yevaud the Usurper of Midgaard is here, grinning evilly at you.
 Old, scaly, but still with a lot of bite in him left.
 ~
 dragon~
-BCGhim 0 0 0 Ag -1000 0
+BCG 0 0 0 A -1000 0
 24 0 5d10+500 12d9+100 2d10+6 'none'
 -6 -6 -6 6
-EFNRkltx
+EFNR
 stand stand male 500
 0 0 medium unknown
 #6303
@@ -45,10 +45,10 @@ The Wolf Spider is here, licking its bloody fangs.
 The Wolf Spider is hairy, very hairy.
 ~
 human~
-BFhl 0 0 0 0 -300 0
+BF 0 0 0 0 -300 0
 6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
-EFNUklt
+EFNU
 stand stand female 62
 0 0 medium unknown
 #6304
@@ -59,10 +59,10 @@ The orc is stuck in the web and he can't get out.
 You notice an evil look in his eyes.
 ~
 orc~
-Bh 0 0 0 0 -400 0
+B 0 0 0 0 -400 0
 5 0 2d6+60 2d9+100 1d6+1 'none'
 5 5 5 9
-EFNRkltx
+EFNR
 stand stand male 5
 0 0 medium unknown
 #6305
@@ -74,10 +74,10 @@ to her master.
 You notice a glazed look in her eyes.
 ~
 human~
-BFhl 0 0 0 0 -800 0
+BF 0 0 0 0 -800 0
 12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
-EFNUklt
+EFNU
 stand stand female 75
 0 0 medium unknown
 #6306
@@ -88,10 +88,10 @@ The drone spider walks around doing her master's bidding.
 An ordinary drone spider.
 ~
 human~
-CGim 0 0 0 0 -300 0
+CG 0 0 0 0 -300 0
 6 0 2d7+71 3d9+100 1d7+1 'none'
 4 4 4 9
-EFNUklt
+EFNU
 stand stand male 10
 0 0 medium unknown
 #6307
@@ -102,10 +102,10 @@ The ethereal spider strides here, traveling to different worlds.
 She winks in and out.
 ~
 human~
-CGim 0 0 0 0 1000 0
+CG 0 0 0 0 1000 0
 10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
-EFNUklt
+EFNU
 stand stand female 62
 0 0 medium unknown
 #6308
@@ -116,10 +116,10 @@ The slave works here relentlessly.
 The slave does not mind you, but will fight like a warrior if attacked.
 ~
 human~
-CGim 0 0 0 0 0 0
+CG 0 0 0 0 0 0
 8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
-EFNUklt
+EFNU
 stand stand male 25
 0 0 medium unknown
 #6309
@@ -131,10 +131,10 @@ Demoniac in nature, but more mischievous.  He twiddles his thumbs
 and creates a magical treasure!
 ~
 human~
-CHin 0 0 AGgm Ag 1000 0
+CH 0 0 AG A 1000 0
 10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
-EFNUklt
+EFNU
 stand stand male 50
 0 0 medium unknown
 #6310
@@ -145,10 +145,10 @@ The Bird Spider snaps its powerful jaws.
 The Bird Spider has very powerful jaws.
 ~
 human~
-BFhl 0 0 0 0 -800 0
+BF 0 0 0 0 -800 0
 14 0 2d10+190 7d9+100 1d12+3 'none'
 -1 -1 -1 8
-EFNUklt
+EFNU
 stand stand female 87
 0 0 medium unknown
 #6311
@@ -160,10 +160,10 @@ A dishevelled veteran warrior in disguise is what he is, but he
 means well.
 ~
 human~
-BChi 0 0 0 Ag -400 0
+BC 0 0 0 A -400 0
 7 0 2d6+85 3d9+100 1d8+1 'none'
 4 4 4 9
-EFNUklt
+EFNU
 stand stand male 37
 0 0 medium unknown
 #6312
@@ -174,10 +174,10 @@ The Donjonkeeper eyes you and wonders how pure your soul is.
 He delves deeper into you as you stare at him.
 ~
 human~
-BChi 0 0 0 Ag 1000 0
+BC 0 0 0 A 1000 0
 25 0 5d10+550 12d9+100 2d10+7 'none'
 -7 -7 -7 6
-EFNUklt
+EFNU
 stand stand male 300
 0 0 medium unknown
 #6313
@@ -188,10 +188,10 @@ The guardian is obviously not doing his job.
 He looks like a lazy bum who sleeps half the time.
 ~
 human~
-FGlm 0 0 Gm 0 250 0
+FG 0 0 G 0 250 0
 17 0 3d9+258 8d9+100 3d4+4 'none'
 -3 -3 -3 7
-EFNUklt
+EFNU
 sleep sleep male 80
 0 0 medium unknown
 #6314
@@ -205,10 +205,10 @@ fangs of normal spiders, but then, as you realize, she does not need
 them.
 ~
 human~
-BFhl 0 0 Ag Ag -1000 0
+BF 0 0 A A -1000 0
 26 0 5d10+600 13d9+100 3d7+7 'none'
 -7 -7 -7 6
-EFNUklt
+EFNU
 stand stand female 500
 0 0 medium unknown
 #6315
@@ -220,10 +220,10 @@ She is the last bastion of good in this realm.  Her mission is to
 someday free the slaves of the Empress.
 ~
 human~
-BChi 0 0 0 Ag 1000 0
+BC 0 0 0 A 1000 0
 26 0 5d10+600 13d9+100 3d7+7 'none'
 -7 -7 -7 6
-EFNUklt
+EFNU
 stand stand female 750
 0 0 medium unknown
 #6316
@@ -234,10 +234,10 @@ A wormkin with no teeth plays here.
 Rather small, you almost feel sad in killing it.
 ~
 dragon~
-Bh 0 0 0 Ag 1000 0
+B 0 0 0 A 1000 0
 10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
-EFNRkltx
+EFNR
 stand stand male 50
 0 0 medium unknown
 #6317
@@ -248,10 +248,10 @@ A wormkin that has grown a bit stares at you inquisitively.
 A medium-sized dragon--seems it hasn't killed anything yet by itself.
 ~
 dragon~
-Bh 0 0 0 Ag 100 0
+B 0 0 0 A 100 0
 13 0 2d10+170 6d9+100 2d5+3 'none'
 -1 -1 -1 8
-EFNRkltx
+EFNR
 stand stand male 250
 0 0 medium unknown
 #6318
@@ -264,10 +264,10 @@ has eight hairy legs that gives it a tremendous speed on almost any surface and
 sharp poisonous fangs to paralyze or kill its prey.
 ~
 human~
-BGhm 0 0 0 Hn -350 0
+BG 0 0 0 H -350 0
 8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
-EFNUklt
+EFNU
 stand stand none 0
 0 0 medium unknown
 #6319
@@ -280,10 +280,10 @@ huge, hairy legs that would give it a tremendous speed on almost any surface
 if it wasn't so immensely fat.  Its large, bulbous eyes stare back at you.
 ~
 human~
-BGhm 0 0 0 AHgn -1000 0
+BG 0 0 0 AH -1000 0
 15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
-EFNUklt
+EFNU
 stand stand female 0
 0 0 medium unknown
 #0
@@ -294,7 +294,7 @@ headdress pontiff's~
 a pontiff's headdress~
 A white cone-shaped head ornament with religious symbols lies here.~
 cloth~
-armor FGlm 0 AEgk
+armor FG 0 AE
 6 6 6 3 0
 18 50 4600 P
 A
@@ -307,7 +307,7 @@ visor black knight's~
 a black knight's visor~
 A black visor sits here.~
 iron~
-armor FGlm 0 AEgk
+armor FG 0 AE
 6 6 6 2 0
 17 50 4600 P
 A
@@ -320,7 +320,7 @@ coins silver gold~
 a big pile of coins~
 A big pile of coins is lying here.~
 silver~
-money 0 0 Ag
+money 0 0 A
 500 20 0 0 0
 0 0 0 P
 g none~
@@ -329,7 +329,7 @@ potion blue~
 a blue potion~
 A blue potion has been left here.~
 glass~
-potion Gm 0 Ag
+potion G 0 A
 15 'cure poison' 'cure critical' 'cure critical' ''
 10 20 700 P
 E
@@ -346,7 +346,7 @@ You are balancing carefully on the giant sticky threads that holds the giant
 web in place.  To the south leads a strand to a cave-like structure made from
 many layers of a spider web.  Another silky strand continues to the north.
 ~
-0 ADgj swim
+0 AD swim
 E
 web~
 The immense spider web moves softly.
@@ -366,7 +366,7 @@ You are balancing carefully on the giant sticky threads that holds the giant
 web in place.  To the north leads a strand to a cave-like structure made from
 many layers of a spider web.
 ~
-0 ADgj swim
+0 AD swim
 E
 web~
 The immense spider web moves softly.
@@ -382,7 +382,7 @@ You are balancing carefully on the giant sticky threads that holds the giant
 web in place.  To the east leads a strand to a cave-like structure made from
 many layers of a spider web.
 ~
-0 ADgj swim
+0 AD swim
 E
 web~
 The immense spider web moves softly.
@@ -398,7 +398,7 @@ You are balancing carefully on the giant sticky threads that holds the giant
 web in place. A single silky strand lead to the south, while another leads
 off into the northern direction.
 ~
-0 ADgj swim
+0 AD swim
 E
 web~
 The immense spider web moves softly.
@@ -420,7 +420,7 @@ You begin to wonder about what lies ahead.  The air is damp here,
 and even the little light that shines through the canopy seems
 absorbed into the webbing.
 ~
-0 Ci city
+0 C city
 D0
 ~
 ~
@@ -1183,7 +1183,7 @@ Mahatma, that silly thief, is here, and he steals everything you
 have.  He says, 'Here, have a quick trip to the Temple of Midgaard.'
 He plunges a black dagger into your back ...
 ~
-0 Ci inside
+0 C inside
 S
 #6390
 The Entrance to the Arachnos' Lair~
@@ -1224,11 +1224,11 @@ Before you you see a large, web-like door.  Various designs
 of ancient runes and names of Midgaard heroes are etched into
 the webwork.  Perhaps lists of victims?  You can't tell.
 ~
-0 Dj field
+0 D field
 D0
 ~
 door north~
-ABZgh 0 6399
+ABZ 0 6399
 D2
 ~
 ~
@@ -1247,7 +1247,7 @@ to her beautiful silken body.
 D2
 ~
 door south~
-ABZgh 0 6392
+ABZ 0 6392
 S
 #0
 

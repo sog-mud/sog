@@ -16,10 +16,10 @@ A poor mudder, lost in this place.
 You will become him if you are not careful.
 ~
 human~
-CGSimy 0 0 0 ABgh 0 0
+CGS 0 0 0 AB 0 0
 4 0 2d6+35 2d9+100 1d6+0 'none'
 7 7 7 9
-BEFJNUhklpt
+BEFJNU
 stand stand male 5
 0 0 medium unknown
 #9302
@@ -30,10 +30,10 @@ A beautiful white star smiles at you.
 You can't tell what the star looks like, she is too bright!
 ~
 human~
-BGhm 0 0 0 Hn 500 0
+BG 0 0 0 H 500 0
 8 0 2d7+96 4d9+100 1d7+2 'none'
 3 3 3 9
-EFNUklt
+EFNU
 stand stand female 25
 0 0 medium unknown
 #9303
@@ -44,10 +44,10 @@ A young nebula, waiting to become a star.
 It hasn't got a definite shape, it is just a cloud of mist.
 ~
 human~
-Gm 0 0 0 Hn 200 0
+G 0 0 0 H 200 0
 10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
-EFNUklt
+EFNU
 stand stand female 50
 0 0 medium unknown
 #9304
@@ -58,10 +58,10 @@ A speedy comet is waiting to crush your head in.
 You see the offspring of Halley's comet, here just to wipe everything out.
 ~
 human~
-CFGilm 0 0 0 0 -500 0
+CFG 0 0 0 0 -500 0
 10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
-EFNUklt
+EFNU
 stand stand male 75
 0 0 medium unknown
 #9305
@@ -73,10 +73,10 @@ You notice the giant is not as tough as his name sounds ...
 Still he can be very powerful.
 ~
 human~
-BGHhmn 0 0 0 Hn 0 0
+BGH 0 0 0 H 0 0
 15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
-EFNUklt
+EFNU
 sleep sleep male 100
 0 0 medium unknown
 #9306
@@ -88,10 +88,10 @@ Like the red giant, he is also appointed to stand guard for the galaxy.
 But somehow he manages to escape.  Though tiny, it can take a lot of hits!
 ~
 human~
-CGim 0 0 0 0 0 0
+CG 0 0 0 0 0 0
 15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
-EFNUklt
+EFNU
 stand stand male 100
 0 0 medium unknown
 #9307
@@ -103,10 +103,10 @@ You can only make out its shape from the darkness.  He was cursed to stay in
 here and his face may never be seen by anyone again.
 ~
 human~
-BGhm 0 0 BGhm Hn -1000 0
+BG 0 0 BG H -1000 0
 18 0 3d9+283 9d9+100 2d7+4 'none'
 -3 -3 -3 7
-EFNUklt
+EFNU
 sit sit male 300
 0 0 medium unknown
 #9308
@@ -118,10 +118,10 @@ She was once a princess of beauty.  However, her beauty has led to a Goddess's
 jealousy and she has to suffer here endlessly until Perseus comes.
 ~
 human~
-BGhm 0 Hn 0 0 1000 0
+BG 0 H 0 0 1000 0
 18 0 3d9+283 9d9+100 2d7+4 'none'
 -3 -3 -3 7
-EFNUklt
+EFNU
 stand stand female 375
 0 0 medium unknown
 #9309
@@ -134,10 +134,10 @@ queen goddess, who disliked him.  But he finished them all and at the end was
 granted immortality. He is a very brave and strong fighter.
 ~
 human~
-BGhm 0 Hn 0 0 1000 0
+BG 0 H 0 0 1000 0
 19 0 3d9+308 9d9+100 2d7+5 'none'
 -4 -4 -4 7
-EFNUklt
+EFNU
 stand stand male 375
 0 0 medium unknown
 #9310
@@ -148,10 +148,10 @@ The wild pegasus is grazing peacefully.
 It is the legendary horse with wings on its back.
 ~
 human~
-BGHhmn 0 0 0 0 300 0
+BGH 0 0 0 0 300 0
 17 0 3d9+258 8d9+100 3d4+4 'none'
 -3 -3 -3 7
-EFNUklt
+EFNU
 stand stand none 250
 0 0 medium unknown
 #9311
@@ -165,10 +165,10 @@ appears on one side of the sky and the other the other side so they will
 never meet. 
 ~
 human~
-BGhm 0 Hn 0 0 300 0
+BG 0 H 0 0 300 0
 19 0 3d9+308 9d9+100 2d7+5 'none'
 -4 -4 -4 7
-EFNUklt
+EFNU
 stand stand male 375
 0 0 medium unknown
 #9312
@@ -180,10 +180,10 @@ These are the seven sisters of the Myths, and as for why they are here, no
 one knows; even the Gods themselves have forgotten.
 ~
 human~
-BGhm 0 0 0 0 300 0
+BG 0 0 0 0 300 0
 11 0 2d8+134 5d9+100 1d10+2 'none'
 1 1 1 8
-EFNUklt
+EFNU
 stand stand female 150
 0 0 medium unknown
 #9313
@@ -196,10 +196,10 @@ before entering the inner galaxy.  His neck is flexing in a random fashion so
 hitting the head is certainly not easy.
 ~
 human~
-BFGhlm 0 0 0 AHgn -1000 0
+BFG 0 J 0 AH -1000 0
 25 0 5d10+550 12d9+100 2d10+7 'none'
 -7 -7 -7 6
-EFNUklt
+EFNU
 stand stand none 750
 0 0 medium unknown
 #9314
@@ -212,10 +212,10 @@ resembles a snake.  Gosh, is this a draco, you wonder, is this the thing
 we are on now?
 ~
 human~
-CGHimn 0 0 0 Hn -700 0
+CGH 0 0 0 H -700 0
 9 0 2d6+110 4d9+100 1d8+2 'none'
 2 2 2 8
-EFNUklt
+EFNU
 stand stand none 200
 0 0 medium unknown
 #9315
@@ -227,10 +227,10 @@ You see a white goat here, the first guardian of the Zodiac,
 also the ruler of Spring. He looks as if he is expecting you.
 ~
 human~
-BGQhmw 0 Hn 0 0 700 0
+BGQ 0 H 0 0 700 0
 22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
-EIKUkoq
+EIKU
 sit sit male 500
 0 0 medium unknown
 #9316
@@ -242,10 +242,10 @@ You see a wild-looking bull with a bad temper.  He is well-built and looks like
 he can fight well ... indeed he has fought with Orion before and survived.
 ~
 human~
-BFGQhlmw 0 Hn 0 Ag -100 0
+BFGQ 0 H 0 A -100 0
 22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
-EIKUkoq
+EIKU
 stand stand male 500
 0 0 medium unknown
 #9317
@@ -257,10 +257,10 @@ As soon as you see him you know that he is the most perfect man you have seen.
 You can't find any imperfections on him.
 ~
 human~
-BGQhmw 0 Hn 0 0 1000 0
+BGQ 0 H 0 0 1000 0
 22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
-EIKUkoq
+EIKU
 stand stand male 500
 0 0 medium unknown
 #9318
@@ -272,10 +272,10 @@ As soon as you see him you see the most imperfect man you have ever seen.
 How can there be such a contrast?  You wonder ...
 ~
 human~
-BCFGHQhilmnw 0 U 0 Ag -1000 0
+BCFGHQ 0 JU 0 A -1000 0
 15 0 3d9+208 15d9+100 2d5+3 'none'
 -2 -2 -2 6
-EIKUkoq
+EIKU
 stand stand male 250
 0 0 medium unknown
 #9319
@@ -288,10 +288,10 @@ Legend is that he was crushed by Hercules when he was sent by Hera to kill him.
 So Hera made Cancer a constellation for his work. 
 ~
 human~
-BGQhmw 0 Hn 0 0 0 0
+BGQ 0 H 0 0 0 0
 22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
-EIKUkoq
+EIKU
 stand stand male 600
 0 0 medium unknown
 #9320
@@ -304,10 +304,10 @@ during his first Labour.  His skin is so weapon-proof that Hercules had to use
 his bare hands to tear the lion into two from its mouth!
 ~
 human~
-BFGQhlmw 0 Hn 0 Ag -100 0
+BFGQ 0 H 0 A -100 0
 22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
-EIKUkoq
+EIKU
 stand stand male 500
 0 0 medium unknown
 #9321
@@ -320,10 +320,10 @@ may not be the maid of chastity and purity at all!  But still she looks
 gorgeous and is waiting for your first move, whatever it is ...
 ~
 human~
-BGQhmw 0 Hn 0 0 1000 0
+BGQ 0 H 0 0 1000 0
 22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
-EIKUkoq
+EIKU
 sit sit female 500
 0 0 medium unknown
 #9322
@@ -335,10 +335,10 @@ He is a wise old man and can see people's thoughts through their eyes....
 Now all he can see from you is greed and bloodshed.
 ~
 human~
-BGQhmw 0 Hn 0 0 1000 0
+BGQ 0 H 0 0 1000 0
 22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
-EIKUkoq
+EIKU
 stand stand male 500
 0 0 medium unknown
 #9323
@@ -350,10 +350,10 @@ Ever since he killed Orion in the myths, he has been punished by having
 Sagittarius' arrow aimed at his heart forever.
 ~
 human~
-BFGQhlmw 0 Hn 0 Ag -200 0
+BFGQ 0 H 0 A -200 0
 22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
-EIKUkoq
+EIKU
 stand stand male 500
 0 0 medium unknown
 #9324
@@ -364,10 +364,10 @@ Sagittarius the centaur is waiting to let go of his well aimed arrow ...
 He is a centaur and a well trained archer. No one can escape his arrows.
 ~
 human~
-BGQhmw 0 Hn 0 0 1000 0
+BGQ 0 H 0 0 1000 0
 22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
-EIKUkoq
+EIKU
 stand stand male 500
 0 0 medium unknown
 #9325
@@ -380,10 +380,10 @@ war but now the gods have decided to put him here, to live out the rest of his
 days in peace.
 ~
 human~
-BGQhmw 0 Hn 0 0 700 0
+BGQ 0 H 0 0 700 0
 22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
-EIKUkoq
+EIKU
 stand stand male 500
 0 0 medium unknown
 #9326
@@ -395,10 +395,10 @@ The pretty Water Bearer is smiling at you, you think you'd better give her a
 hand with holding the vessel. 
 ~
 human~
-BGQhmw 0 Hn 0 0 1000 0
+BGQ 0 H 0 0 1000 0
 22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
-EIKUkoq
+EIKU
 stand stand female 500
 0 0 medium unknown
 #9327
@@ -410,10 +410,10 @@ She has been forced to serve her husband, who had been cursed to turn into a
 fish and she deserves your pity.
 ~
 human~
-BGQhmw 0 Hn 0 0 1000 0
+BGQ 0 H 0 0 1000 0
 22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
-EIKUkoq
+EIKU
 sit sit female 500
 0 0 medium unknown
 #9328
@@ -425,10 +425,10 @@ He was once a very handsome man but now has turned into an ugly big fish.
 So he becomes jealous of any living thing which is more handsome than him.
 ~
 human~
-BFGQhlmw 0 0 0 0 -1000 0
+BFGQ 0 J 0 0 -1000 0
 22 0 5d10+400 22d9+100 2d8+6 'none'
 -5 -5 -5 5
-EIKUkoq
+EIKU
 stand stand male 500
 0 0 medium unknown
 #9329
@@ -440,10 +440,10 @@ The Huge Bear which resides in the northern skies is here.
 You think you'd better turn back.  At least you have got a chance of survival.
 ~
 bear~
-BFGQhlmw 0 Hn 0 Ag 0 0
+BFGQ 0 H 0 A 0 0
 27 0 5d10+650 27d9+100 2d10+7 'none'
 -8 -8 -8 4
-IKRoqx
+IKR
 stand stand none 750
 0 0 medium unknown
 #9330
@@ -454,10 +454,10 @@ Cassiopeia, the queen of the Universe, is sitting on her throne.
 She is the Queen of Dignity; facing her you feel all your dignity has gone.
 ~
 human~
-BGRhmx 0 Hn 0 Ag 700 0
+BGR 0 H 0 A 700 0
 26 0 5d10+550 26d9+100 3d6+6 'none'
 -7 -7 -7 2
-FUl
+FU
 sit sit female 600
 0 0 medium unknown
 #9331
@@ -469,10 +469,10 @@ He is the King of Might as well as of the Universe. You suddenly feel very
 weak and useless in front of him.
 ~
 human~
-BGRhmx 0 Hn 0 0 700 0
+BGR 0 H 0 0 700 0
 26 0 5d10+550 26d9+100 3d6+6 'none'
 -7 -7 -7 2
-FUl
+FU
 sit sit male 600
 0 0 medium unknown
 #9332
@@ -486,10 +486,10 @@ actually a STAR, with dazzling bright light ... maybe you shouldn't have come
 here at all?
 ~
 human~
-BGhm 0 Hn Ag Ag 1000 0
+BG 0 H A A 1000 0
 30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
-EFNUklt
+EFNU
 stand stand male 1000
 0 0 medium unknown
 #0
@@ -500,7 +500,7 @@ comet's tail~
 a comet's tail~
 A long, slender whip lies here.~
 leather~
-weapon ABgh 0 ANgt
+weapon AB 0 AN
 whip 2 7 'whip' 0
 10 90 390 P
 g none~
@@ -509,7 +509,7 @@ arm hercules~
 the Titanic Arm plates of Hercules~
 Arm plates of the Zodiac lie here.~
 titanium~
-armor AGKgmq 0 AIgo
+armor AGK 0 AI
 6 6 6 0 0
 22 100 3100 P
 A
@@ -524,7 +524,7 @@ belt orion~
 the Titanic Belt of Orion~
 A belt of the Zodiac lies here.~
 titanium~
-armor AGKgmq 0 ALgr
+armor AGK 0 AL
 6 6 6 0 0
 17 70 3800 P
 A
@@ -540,7 +540,7 @@ skull draco~
 an ugly skull of Draco~
 A massive skull of a dead Draco lies here.~
 bone~
-staff BGHhmn 0 AOgu
+staff BGH 0 AO
 15 5 5 'call lightning' 0
 14 200 4300 P
 g none~
@@ -549,7 +549,7 @@ fleece aries~
 the Titanic Fleece of Aries~
 A fleece of the Zodiac lies here.~
 titanium~
-armor AGKgmq 0 ACgi
+armor AGK 0 AC
 7 7 7 0 0
 20 90 2000 P
 A
@@ -564,7 +564,7 @@ hoof taurus~
 the Titanic Hoof of Taurus~
 A hoof of the Zodiac lies here.~
 titanium~
-armor AGKgmq 0 AGgm
+armor AGK 0 AG
 3 3 3 0 0
 20 100 1280 P
 A
@@ -581,7 +581,7 @@ mask gemini~
 the Titanic Mask of Gemini~
 A mask of the Zodiac lies here.~
 titanium~
-armor AGHKgmnq 0 AEgk
+armor AGHK 0 AE
 2 2 2 0 0
 16 70 3600 P
 A
@@ -599,7 +599,7 @@ shell cancer~
 the Titanic Shell of Cancer~
 A shell of the Zodiac lies here.~
 bone~
-armor AGKgmq 0 ADgj
+armor AGK 0 AD
 7 7 7 3 0
 20 150 3800 P
 A
@@ -615,7 +615,7 @@ skin leo~
 the Titanic Skin of Leo~
 A skin of the Zodiac lies here.~
 skin~
-armor AGKgmq 0 AKgq
+armor AGK 0 AK
 7 7 7 5 0
 20 150 1740 P
 A
@@ -630,7 +630,7 @@ bracelet virgo~
 the Titanic Bracelet of Virgo~
 A bracelet of the Zodiac lies here.~
 titanium~
-jewelry AGKgmq 0 AMgs
+jewelry AGK 0 AM
 0 0 0 0 0
 15 10 2600 P
 A
@@ -645,7 +645,7 @@ scale libra~
 the Titanic Scale of Libra~
 A shield of the Zodiac lies here.~
 titanium~
-armor AGKgmq 0 AJgp
+armor AGK 0 AJ
 8 8 8 0 0
 25 250 3900 P
 A
@@ -662,7 +662,7 @@ scale libra~
 the Titanic Scale of Libra~
 A shield of the Zodiac lies here.~
 titanium~
-armor BGHhmn 0 AJgp
+armor BGH 0 AJ
 1 1 1 0 0
 0 250 0 P
 A
@@ -679,7 +679,7 @@ sting scorpio~
 the Sting of Scorpio~
 Sting of the Zodiac lies here.~
 ebony~
-weapon AGKgmq 0 ANgt
+weapon AGK 0 AN
 exotic 4 4 'pierce' 0
 19 70 2700 P
 A
@@ -696,8 +696,8 @@ arrow sagittarius~
 the Arrow of Sagittarius~
 The Arrow of Sagittarius lies here.~
 wood~
-weapon AGKgmq 0 AOgu
-arrow 5 5 'pierce' GKmq
+weapon AGK 0 AO
+arrow 5 5 'pierce' GK
 11 70 3400 P
 E
 arrow~
@@ -709,7 +709,7 @@ bow sagittarius~
 the Titanic Bow of Sagittarius~
 The Titanic Bow of Sagittarius lies here.~
 wood~
-weapon AGKgmq 0 ANgt
+weapon AGK 0 AN
 bow 3 9 'blast' 0
 20 200 2800 P
 A
@@ -726,7 +726,7 @@ horns capricon~
 the Titanic Horns of Capricorn~
 A pair of horns of the Zodiac lies here.~
 titanium~
-armor AGKgmq 0 AHgn
+armor AGK 0 AH
 4 4 4 0 0
 22 60 3000 P
 A
@@ -744,7 +744,7 @@ vessel aquarius~
 the Ancient Vessel of Aquarius~
 A vessel of the Zodiac lies here.~
 unknown~
-staff AGKgmq 0 AOgu
+staff AGK 0 AO
 10 10 10 'create spring' 0
 12 120 5900 P
 E
@@ -758,7 +758,7 @@ tail pisces~
 the Titanic Tail of Pisces~
 A fish tail of the Zodiac lies here.~
 titanium~
-armor AGKgmq 0 AFgl
+armor AGK 0 AF
 8 8 8 0 0
 21 100 950 P
 A
@@ -776,7 +776,7 @@ ring dignity~
 the Ring of Dignity~
 A ring of specialty lies here.~
 unknown~
-jewelry ABFGKghlmq 0 ABgh
+jewelry ABFGK 0 AB
 0 0 0 0 0
 26 30 4200 P
 A
@@ -794,7 +794,7 @@ sceptre might~
 the Sceptre of Might~
 A sceptre of interest lies here.~
 unknown~
-light ABFGKghlmq 0 ACDEGHIJKLMNgijkmnopqrst
+light ABFGK 0 ACDEGHIJKLMN
 0 0 -1 0 0
 22 40 2400 P
 A
@@ -811,7 +811,7 @@ ring universe~
 the ring of the universe~
 Here lies a fortune ... a small ring of power.~
 unknown~
-jewelry ABFGIghlmo 0 ABgh
+jewelry ABFGI 0 AB
 0 0 0 0 0
 30 30 1690 P
 A
@@ -828,7 +828,7 @@ great dipper~
 the Great Dipper of the Skies~
 A dazzling white object lies on the ground.~
 unknown~
-weapon ABFGIghlmo 0 ANgt
+weapon ABFGI 0 AN
 exotic 5 6 'blast' 0
 29 200 4200 P
 A
@@ -841,7 +841,7 @@ spring shoot~
 a spring shoot~
 A shoot grows here, covered with dew.~
 wood~
-key ABgh 0 Ag
+key AB 0 A
 0 0 0 0 0
 0 20 0 P
 g none~
@@ -850,7 +850,7 @@ summer flower~
 a summer flower~
 A flower grows here, waiting to be picked up.~
 flower~
-key ABgh 0 Ag
+key AB 0 A
 0 0 0 0 0
 0 20 0 P
 g none~
@@ -859,7 +859,7 @@ autumn leaf~
 an autumn leaf~
 A leaf lies here, as if just fallen from a tree.~
 plant~
-key ABgh 0 Ag
+key AB 0 A
 0 0 0 0 0
 0 20 0 P
 g none~
@@ -868,7 +868,7 @@ winter branch~
 a winter branch~
 A branch lies here, still covered with snow.~
 wood~
-key ABgh 0 Ag
+key AB 0 A
 0 0 0 0 0
 0 20 0 P
 g none~
@@ -877,7 +877,7 @@ chains andromeda~
 chains of Andromeda~
 Some chains lie on the floor.~
 iron~
-trash AFgl 0 Ag
+trash AF 0 A
 0 0 0 0 0
 0 500 0 P
 E
@@ -896,7 +896,7 @@ destiny lie beyond this world.'  You are still wondering what she means when
 you suddenly notice the crystal ball ... it glows fiercely and displays the
 Universe!
 ~
-0 Dj inside
+0 D inside
 D3
 The shadows cloud your vision.
 ~
@@ -1029,7 +1029,7 @@ This bridge, like the other, was made as a memorial.  The nebulae had to
 make one just to show that they are as capable as the stars.  North lies
 a throne room.
 ~
-0 Ag city
+0 A city
 D0
 ~
 ~
@@ -1049,7 +1049,7 @@ You can only faintly make out that it is a throne room as it is too
 dark in here.  In the middle is an empty throne.  You wonder where
 the King has gone, maybe he is hiding from you?
 ~
-0 ADgj inside
+0 AD inside
 D2
 ~
 ~
@@ -1149,7 +1149,7 @@ You are very near to a gigantic red star.  While you are still fascinated
 by its beauty, the star keeps on growing ... suddenly you realize that you'd
 better leave.
 ~
-0 Ci city
+0 C city
 D0
 ~
 ~
@@ -1175,14 +1175,14 @@ You may find yourself lucky to witness this rare event but even luckier,
 you have finally got out of this galaxy as your body turns into dust.
 That really HURTS!  
 ~
-0 BChi inside
+0 BC inside
 S
 #9321
 The Star Cluster~
 You are inside the home of the stars.  All you can see around you are stars
 and nothing else.  You eyes become pretty hurt as you look at them.
 ~
-0 Dj city
+0 D city
 D0
 ~
 ~
@@ -1234,7 +1234,7 @@ Lost in Space~
 You are now lost in space.  Compasses don't work here, sorry.  What's more
 you can sense darkness engulfing you.  You'd better get out quick.
 ~
-0 Ag field
+0 A field
 D0
 ~
 ~
@@ -1254,7 +1254,7 @@ Well you have chosen the wrong path, sorry.  Nothing can escape from this
 monster, not even light.
 PANIC!  You can't escape!
 ~
-0 ABCghi inside
+0 ABC inside
 S
 #9326
 The Homes of the Pleiades~
@@ -1456,7 +1456,7 @@ D4
 You see the forcefield of Spring.
 ~
 forcefield~
-ABCFZghil 9324 9354
+ABCFZ 9324 9354
 D5
 ~
 ~
@@ -1539,7 +1539,7 @@ Inside a Luxurious Bedroom~
 A peaceful feeling overtakes you.  You see a magnificent four-poster bed.
 It's a double bed and there is only room for one more!  Well, what now ... ?
 ~
-0 Dj city
+0 D city
 D3
 ~
 ~
@@ -1551,7 +1551,7 @@ You are standing inside the dock of a court.  You feel an overwhelming
 sense of guilt and you want to protest your innocence!  You fear retribution
 and feel yourself exposed, just like the trees in Autumn.
 ~
-0 Dj city
+0 D city
 D1
 ~
 ~
@@ -1639,19 +1639,19 @@ D4
 You see the forcefield of Summer.
 ~
 forcefield~
-ABCFZghil 9325 9355
+ABCFZ 9325 9355
 D5
 You see the forcefield of Spring.
 ~
 ~
-AFZgl 9324 9339
+AFZ 9324 9339
 S
 #9355
 On the Draco~
 You realize you are standing on scaly ground.  As you wonder what the ground
 is made of, you feel the ground move.
 ~
-0 Ag hills
+0 A hills
 D0
 ~
 ~
@@ -1659,7 +1659,7 @@ Z -1 9356
 D5
 ~
 ~
-AFZgl 9325 9354
+AFZ 9325 9354
 S
 #9356
 Tail of the Draco~
@@ -1667,7 +1667,7 @@ At last you realize that you are on a giant snake-like dragon called the
 Draco, the guardian of the inner galaxy.  You realize that the Draco is
 actually flying now! 
 ~
-0 Ag hills
+0 A hills
 D0
 ~
 ~
@@ -1682,7 +1682,7 @@ Path of the Draco~
 As you struggle along this scaly creature you realize that the only way
 you can reach to the inner galaxy is by going all the way to the head.
 ~
-0 Ag hills
+0 A hills
 D0
 ~
 ~
@@ -1698,7 +1698,7 @@ You are approaching the leg part of this creature.  You look around and see
 that the surrounding is all dark except for some faint lights from the
 distant stars.
 ~
-0 Ag hills
+0 A hills
 D0
 ~
 ~
@@ -1713,12 +1713,12 @@ On the Back of Draco~
 At last you are half way through this long, weary journey. You can see
 the wings are to the east but it seems that another forcefield is in the way.
 ~
-0 Ag hills
+0 A hills
 D1
 You see the forcefield of Autumn.
 ~
 forcefield~
-ABCFZghil 9326 9360
+ABCFZ 9326 9360
 D2
 ~
 ~
@@ -1729,7 +1729,7 @@ Between the Wings of Draco~
 You hear some giant flapping sounds nearby.  You desperately try to get hold
 of something as the forceful gusts sweep you away.
 ~
-0 Ag hills
+0 A hills
 D1
 ~
 ~
@@ -1737,14 +1737,14 @@ Z -1 9361
 D3
 ~
 ~
-AFZgl 9326 9359
+AFZ 9326 9359
 S
 #9361
 Near the Arms of Draco~
 From above you can faintly make out the gigantic arms which extend far
 beyond into the darkness.
 ~
-0 Ag hills
+0 A hills
 D2
 ~
 ~
@@ -1759,7 +1759,7 @@ On the Neck of Draco~
 Your journey is now approaching the end.  However, this neck seems to be
 endless.
 ~
-0 Ag hills
+0 A hills
 D0
 ~
 ~
@@ -1775,7 +1775,7 @@ You have come to the end of Draco, but you can't find the head!
 You see a forcefield to the south, some distance away, beyond reach.
 If only the head were here ...
 ~
-0 Ag hills
+0 A hills
 D1
 ~
 ~
@@ -1784,7 +1784,7 @@ D2
 You see the forcefield of Winter.
 ~
 forcefield~
-ABCFZghil 9327 9364
+ABCFZ 9327 9364
 S
 #9364
 At the Entrance of the Great Dipper~
@@ -1797,7 +1797,7 @@ D0
 You see the forcefield of Winter.
 ~
 forcefield~
-AFZgl 9327 9363
+AFZ 9327 9363
 D2
 ~
 ~
