@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.32 1998-06-09 00:51:46 efdi Exp $
+ * $Id: fight.c,v 1.33 1998-06-10 10:50:48 efdi Exp $
  */
 
 /***************************************************************************
@@ -2529,11 +2529,11 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,int dam,int dt,bool immune ,in
 	else if (dam <=  28) { vs = "{cdecimate{x"; vp = "{cdecimates{x";}
 	else if (dam <=  32) { vs = "{cdevastate{x";vp = "{cdevastates{x";}
 	else if (dam <=  36) { vs = "{cmaim{x";	    vp = "{cmaims{x";}
-	else if (dam <=  42) { vs = "{mMUTILATE{x";  vp = "{mMUTILATES{x"; }
-	else if (dam <=  52) { vs = "{mDISEMBOWEL{x";vp = "{mDISEMBOWELS{x"; }
-	else if (dam <=  65) { vs = "{mDISMEMBER{x"; vp = "{mDISMEMBERS{x";  }
-	else if (dam <=  80) { vs = "{mMASSACRE{x";  vp = "{mMASSACRES{x"; }
-	else if (dam <=  100) { vs = "{mMANGLE{x";   vp = "{mMANGLES{x"; }
+	else if (dam <=  42) { vs = "{MMUTILATE{x";  vp = "{MMUTILATES{x"; }
+	else if (dam <=  52) { vs = "{MDISEMBOWEL{x";vp = "{MDISEMBOWELS{x"; }
+	else if (dam <=  65) { vs = "{MDISMEMBER{x"; vp = "{MDISMEMBERS{x";  }
+	else if (dam <=  80) { vs = "{MMASSACRE{x";  vp = "{MMASSACRES{x"; }
+	else if (dam <=  100) { vs = "{MMANGLE{x";   vp = "{MMANGLES{x"; }
 	else if (dam <=  130) { vs = "{y*** DEMOLISH ***{x";
 				     vp = "{y*** DEMOLISHES ***{x"; 		}
 	else if (dam <= 175) { vs = "{y*** DEVASTATE ***{x";
