@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.11 1999-11-27 08:57:19 fjoe Exp $
+ * $Id: spec.c,v 1.12 1999-11-27 09:47:03 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -462,7 +462,7 @@ replace_cb(void *p, va_list ap)
 		return NULL;
 
 	if ((spec = spec_lookup(*pspn)) != NULL
-	&&  !cc_rules_check("spec", &spec->spec_deps, ch, spn_rm, spn_add))
+	&&  cc_rules_check("spec", &spec->spec_deps, ch, spn_rm, spn_add))
 		return p;
 
 	return NULL;
@@ -477,7 +477,7 @@ spec_replace(CHAR_DATA *ch, const char *spn_rm, const char *spn_add)
 		return -1;
 
 	if ((spec = spec_lookup(spn_add)) != NULL
-	&&  !cc_rules_check("spec", &spec->spec_deps, ch, spn_rm, spn_add))
+	&&  cc_rules_check("spec", &spec->spec_deps, ch, spn_rm, spn_add))
 		return -1;
 
 	if (varr_foreach(&PC(ch)->specs, replace_cb, ch, spn_rm, spn_add))
