@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.6 1998-04-19 10:00:45 fjoe Exp $
+ * $Id: merc.h,v 1.7 1998-04-26 15:57:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -460,6 +460,7 @@ struct	weather_data
 #define CON_PICK_HOMETOWN               18
 #define CON_GET_ETHOS                   19
 #define CON_CREATE_DONE                 20
+#define CON_GET_CODEPAGE		21
 
 
 /*
@@ -486,6 +487,7 @@ struct	descriptor_data
     int			outtop;
     char *		showstr_head;
     char *		showstr_point;
+    struct codepage*	codepage;
 };
 
 

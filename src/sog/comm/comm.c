@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.15 1998-04-26 11:48:59 fjoe Exp $
+ * $Id: comm.c,v 1.16 1998-04-26 15:57:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,13 +58,8 @@
  * -- Furey  26 Jan 1993
  */
 
-#if defined(macintosh)
-#include <types.h>
-#else
 #include <sys/types.h>
 #include <sys/time.h>
-#endif
-
 #include <errno.h>
 #include <stdio.h>
 #include <string.h>
@@ -84,6 +79,7 @@
 #include "act_info.h"
 #include "db.h"
 #include "resource.h"
+#include "charset.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_help		);
@@ -128,18 +124,24 @@ int class_ok( CHAR_DATA *ch , int class);
 #undef __attribute
 #endif
 
+struct codepage {
+	char* name;
+	unsigned char* from;
+	unsigned char* to;
+};
 
+struct codepage codepages[] = {
+	{ "koi8-r", koi8_koi8, koi8_koi8 },
+	{ "alt (cp866)", alt_koi8, koi8_alt },
+	{ "win (cp1251)", win_koi8, koi8_win },
+	{ "iso (ISO-8859-5)", iso_koi8, koi8_iso },
+	{ "mac", mac_koi8, koi8_mac }
+};
+#define NCODEPAGES (sizeof(codepages) / sizeof(struct codepage))
 
 /*
  * Socket and TCP/IP stuff.
  */
-#if	defined(macintosh) || defined(MSDOS)
-const	char	echo_off_str	[] = { '\0' };
-const	char	echo_on_str	[] = { '\0' };
-const	char 	go_ahead_str	[] = { '\0' };
-#endif
-
-#if	defined(unix)
 #include <fcntl.h>
 #include <netdb.h>
 #include <netinet/in.h>
@@ -149,10 +151,9 @@ const	char 	go_ahead_str	[] = { '\0' };
 #else
 #	include "telnet.h"
 #endif
-const	char	echo_off_str	[] = { IAC, WILL, TELOPT_ECHO, '\0' };
-const	char	echo_on_str	[] = { IAC, WONT, TELOPT_ECHO, '\0' };
-const	char 	go_ahead_str	[] = { IAC, GA, '\0' };
-#endif
+char	echo_off_str	[] = { IAC, WILL, TELOPT_ECHO, '\0' };
+char	echo_on_str	[] = { IAC, WONT, TELOPT_ECHO, '\0' };
+char 	go_ahead_str	[] = { IAC, GA, '\0' };
 
 char *get_stat_alias		args( (CHAR_DATA* ch, int which) );
 
@@ -224,30 +225,8 @@ int	socket		args( ( int domain, int type, int protocol ) );
 int	write		args( ( int fd, char *buf, int nbyte ) );
 #endif
 
-#if	defined(macintosh)
-#include <console.h>
-#include <fcntl.h>
-#include <unix.h>
-struct	timeval
-{
-	time_t	tv_sec;
-	time_t	tv_usec;
-};
-#if	!defined(isascii)
-#define	isascii(c)		( (c) < 0200 )
-#endif
-static	long			theKeys	[4];
-
-int	gettimeofday		args( ( struct timeval *tp, void *tzp ) );
-#endif
-
 #if	defined(MIPS_OS)
 extern	int		errno;
-#endif
-
-#if	defined(MSDOS)
-int	gettimeofday	args( ( struct timeval *tp, void *tzp ) );
-int	kbhit		args( ( void ) );
 #endif
 
 #if	defined(NeXT)
@@ -352,22 +331,11 @@ int                 iNumPlayers = 0; /* The number of players on */
 /*
  * OS-dependent local functions.
  */
-#if defined(macintosh) || defined(MSDOS)
-void	game_loop_mac_msdos	args( ( void ) );
-bool	read_from_descriptor	args( ( DESCRIPTOR_DATA *d ) );
-bool	write_to_descriptor	args( ( int desc, char *txt, int length ) );
-#endif
-
-#if defined(unix)
 void	game_loop_unix		args( ( int control ) );
 int	init_socket		args( ( int port ) );
 void	init_descriptor		args( ( int control ) );
 bool	read_from_descriptor	args( ( DESCRIPTOR_DATA *d ) );
 bool	write_to_descriptor	args( ( int desc, char *txt, int length ) );
-#endif
-
-
-
 
 /*
  * Other local functions (OS-independent).
@@ -389,10 +357,7 @@ int main( int argc, char **argv )
 {
     struct timeval now_time;
     int port;
-
-#if defined(unix)
     int control;
-#endif
 
     /* Don't leave save processes stranded */
     signal( SIGQUIT, exit_function );
@@ -409,16 +374,6 @@ int main( int argc, char **argv )
     gettimeofday( &now_time, NULL );
     current_time 	= (time_t) now_time.tv_sec;
     strcpy( str_boot_time, ctime( &current_time ) );
-
-    /*
-     * Macintosh console initialization.
-     */
-#if defined(macintosh)
-    console_options.nrows = 31;
-    cshow( stdout );
-    csetmode( C_RAW, stdin );
-    cecho2file( "log file", 1, stderr );
-#endif
 
     /*
      * Reserve one channel for our use.
@@ -451,20 +406,11 @@ int main( int argc, char **argv )
      * Run the game.
      */
     
-#if defined(macintosh) || defined(MSDOS)
-    boot_db( );
-    log_string( "ready to rock." );
-    game_loop_mac_msdos( );
-#endif
-
-#if defined(unix)
     control = init_socket( port );
     boot_db( );
-    sprintf( log_buf, "ready to rock on port %d.", port );
-    log_string( log_buf );
+    log_printf("ready to rock on port %d.", port);
     game_loop_unix( control );
     close (control);
-#endif
 
     log_area_popularity();
 
@@ -541,165 +487,6 @@ int init_socket( int port )
 #endif
 
 
-
-#if defined(macintosh) || defined(MSDOS)
-void game_loop_mac_msdos( void )
-{
-    struct timeval last_time;
-    struct timeval now_time;
-    static DESCRIPTOR_DATA dcon;
-
-    gettimeofday( &last_time, NULL );
-    current_time = (time_t) last_time.tv_sec;
-
-    /*
-     * New_descriptor analogue.
-     */
-    dcon.descriptor	= 0;
-    dcon.connected	= CON_GET_NAME;
-    dcon.host		= str_dup( "localhost" );
-    dcon.outsize	= 2000;
-    dcon.outbuf		= alloc_mem( dcon.outsize );
-    dcon.next		= descriptor_list;
-    dcon.showstr_head	= NULL;
-    dcon.showstr_point	= NULL;
-    descriptor_list	= &dcon;
-
-    /*
-     * Send the greeting.
-     */
-    {
-	extern char * help_greeting;
-	if ( help_greeting[0] == '.' )
-	    write_to_buffer( &dcon, help_greeting+1, 0 );
-	else
-	    write_to_buffer( &dcon, help_greeting  , 0 );
-    }
-
-    /* Main loop */
-    while ( !merc_down )
-    {
-	DESCRIPTOR_DATA *d;
-
-	/*
-	 * Process input.
-	 */
-	for ( d = descriptor_list; d != NULL; d = d_next )
-	{
-	    d_next	= d->next;
-	    d->fcommand	= FALSE;
-
-#if defined(MSDOS)
-	    if ( kbhit( ) )
-#endif
-	    {
-		if ( d->character != NULL )
-		    d->character->timer = 0;
-		if ( !read_from_descriptor( d ) )
-		{
-		    if ( d->character != NULL)
-			save_char_obj( d->character );
-		    d->outtop	= 0;
-		    close_socket( d );
-		    continue;
-		}
-	    }
-
-	    if (d->character != NULL && d->character->daze > 0)
-		--d->character->daze;
-
-	    if ( d->character != NULL && d->character->wait > 0 )
-	    {
-		--d->character->wait;
-		continue;
-	    }
-
-	    read_from_buffer( d );
-	    if ( d->incomm[0] != '\0' )
-	    {
-		d->fcommand	= TRUE;
-		stop_idling( d->character );
-
-		if ( d->connected == CON_PLAYING )
-		    substitute_alias( d, d->incomm );
-		else
-		    nanny( d, d->incomm );
-
-		d->incomm[0]	= '\0';
-	    }
-	}
-
-
-
-	/*
-	 * Autonomous game motion.
-	 */
-	update_handler( );
-
-
-
-	/*
-	 * Output.
-	 */
-	for ( d = descriptor_list; d != NULL; d = d_next )
-	{
-	    d_next = d->next;
-
-	    if ( ( d->fcommand || d->outtop > 0 ) )
-	    {
-		if ( !process_output( d, TRUE ) )
-		{
-		    if ( d->character != NULL && d->character->level > 1)
-			save_char_obj( d->character );
-		    d->outtop	= 0;
-		    close_socket( d );
-		}
-	    }
-	}
-
-
-
-	/*
-	 * Synchronize to a clock.
-	 * Busy wait (blargh).
-	 */
-	now_time = last_time;
-	for ( ; ; )
-	{
-	    int delta;
-
-#if defined(MSDOS)
-	    if ( kbhit( ) )
-#endif
-	    {
-		if ( dcon.character != NULL )
-		    dcon.character->timer = 0;
-		if ( !read_from_descriptor( &dcon ) )
-		{
-		    if ( dcon.character != NULL && d->character->level > 1)
-			save_char_obj( d->character );
-		    dcon.outtop	= 0;
-		    close_socket( &dcon );
-		}
-#if defined(MSDOS)
-		break;
-#endif
-	    }
-
-	    gettimeofday( &now_time, NULL );
-	    delta = ( now_time.tv_sec  - last_time.tv_sec  ) * 1000 * 1000
-		  + ( now_time.tv_usec - last_time.tv_usec );
-	    if ( delta >= 1000000 / PULSE_PER_SCD )
-		break;
-	}
-	last_time    = now_time;
-	current_time = (time_t) last_time.tv_sec;
-    }
-
-    return;
-}
-#endif
-
 void crash_chronos (int sig)
 {
  char buf[MAX_STRING_LENGTH];
@@ -727,7 +514,6 @@ void crash_chronos (int sig)
  return;
 }
 
-#if defined(unix)
 void game_loop_unix( int control )
 {
     static struct timeval null_time;
@@ -923,11 +709,22 @@ void game_loop_unix( int control )
 
     return;
 }
-#endif
 
+static void cp_print(DESCRIPTOR_DATA* d)
+{
+	char buf[MAX_STRING_LENGTH];
+	int i;
 
+	write_to_buffer(d, "\n\r", 0);
+	for (i = 0; i < NCODEPAGES; i++) {
+		sprintf(buf, "%d) %s  ", i+1, codepages[i].name);
+		write_to_buffer(d, buf, 0);
+	}
+	write_to_buffer(d, "\n\rSelect your codepage: ", 0);
+}
 
-#if defined(unix)
+extern char *help_greeting;
+
 void init_descriptor( int control )
 {
     char buf[MAX_STRING_LENGTH];
@@ -960,12 +757,13 @@ void init_descriptor( int control )
     dnew = new_descriptor();
 
     dnew->descriptor	= desc;
-    dnew->connected	= CON_GET_NAME;
+    dnew->connected	= CON_GET_CODEPAGE;
     dnew->showstr_head	= NULL;
     dnew->showstr_point = NULL;
     dnew->outsize	= 2000;
     dnew->outbuf	= alloc_mem( dnew->outsize );
     dnew->wait_for_se	= 0;
+    dnew->codepage	= codepages;
 
     size = sizeof(sock);
     if ( getpeername( desc, (struct sockaddr *) &sock, &size ) < 0 )
@@ -1019,18 +817,15 @@ void init_descriptor( int control )
      * Send the greeting.
      */
     {
-	extern char * help_greeting;
-/* write_to_buffer( dnew, "\033[2J\033[0;0H\033[0;37;40m\n\r", 0 ); */
 	if ( help_greeting[0] == '.' )
 	    write_to_buffer( dnew, help_greeting+1, 0 );
 	else
 	    write_to_buffer( dnew, help_greeting  , 0 );
+	cp_print(dnew);
     }
 
     return;
 }
-#endif
-
 
 
 void close_socket( DESCRIPTOR_DATA *dclose )
@@ -1093,9 +888,6 @@ void close_socket( DESCRIPTOR_DATA *dclose )
 
     close( dclose->descriptor );
     free_descriptor(dclose);
-#if defined(MSDOS) || defined(macintosh)
-    exit(1);
-#endif
     return;
 }
 
@@ -1134,24 +926,6 @@ bool read_from_descriptor( DESCRIPTOR_DATA *d )
 	return FALSE;
     }
 
-    /* Snarf input. */
-#if defined(macintosh)
-    for ( ; ; )
-    {
-	int c;
-	c = getc( stdin );
-	if ( c == '\0' || c == EOF )
-	    break;
-	putc( c, stdout );
-	if ( c == '\r' )
-	    putc( '\n', stdout );
-	d->inbuf[iStart++] = c;
-	if ( iStart > sizeof(d->inbuf) - 10 )
-	    break;
-    }
-#endif
-
-#if defined(MSDOS) || defined(unix)
 	for ( ; ; ) {
 		int nRead;
 
@@ -1175,7 +949,6 @@ bool read_from_descriptor( DESCRIPTOR_DATA *d )
 			return FALSE;
 		}
 	}
-#endif
 
 	d->inbuf[iStart] = '\0';
 	if (iOld == iStart)
@@ -1279,7 +1052,7 @@ void read_from_buffer( DESCRIPTOR_DATA *d )
 	    --k;
 	else if ((unsigned)d->inbuf[i] >= ' ')
 	/*isascii(d->inbuf[i]) && isprint(d->inbuf[i])) */
-	    d->incomm[k++] = d->inbuf[i];
+	    d->incomm[k++] = d->codepage->from[(unsigned char) d->inbuf[i]];
     }
 
     /*
@@ -1409,14 +1182,14 @@ bool process_output( DESCRIPTOR_DATA *d, bool fPrompt )
 
 	ch = d->original ? d->original : d->character;
 	if (!IS_SET(ch->comm, COMM_COMPACT) )
-	    write_to_buffer( d, "\n\r", 2 );
+	    write_to_buffer(d, "\n\r", 2);
 
 
         if ( IS_SET(ch->comm, COMM_PROMPT) )
             bust_a_prompt( d->character );
 
 	if (IS_SET(ch->comm,COMM_TELNET_GA))
-		write(d->descriptor, go_ahead_str, strlen(go_ahead_str));
+	    write_to_descriptor(d->descriptor, go_ahead_str, 0);
     }
 
     /*
@@ -1615,50 +1388,64 @@ void bust_a_prompt( CHAR_DATA *ch )
 /*
  * Append onto an output buffer.
  */
-void write_to_buffer( DESCRIPTOR_DATA *d, const char *txt, int length )
+void write_to_buffer(DESCRIPTOR_DATA *d, const char *txt, int length)
 {
-    /*
-     * Find length in case caller didn't.
-     */
-    if ( length <= 0 )
-	length = strlen(txt);
+	int size;
+	int i;
+	
+	/*
+	 * Find length in case caller didn't.
+	 */
+	if (length <= 0)
+		length = strlen(txt);
 
-    /*
-     * Initial \n\r if needed.
-     */
-    if ( d->outtop == 0 && !d->fcommand )
-    {
-	d->outbuf[0]	= '\n';
-	d->outbuf[1]	= '\r';
-	d->outtop	= 2;
-    }
+	/*
+	 * Adjust size in case of IACs (they will be doubled)
+	 */
+	size = length;
+	for (i = 0; i < length; i++)
+		if (d->codepage->to[(unsigned char) txt[i]] == IAC)
+			size++;
 
-    /*
-     * Expand the buffer as needed.
-     */
-    while ( d->outtop + length >= d->outsize )
-    {
-	char *outbuf;
+	/*
+	 * Initial \n\r if needed.
+	 */
+	if (d->outtop == 0 && !d->fcommand) {
+		d->outbuf[0]	= '\n';
+		d->outbuf[1]	= '\r';
+		d->outtop	= 2;
+	}
 
-        if (d->outsize >= 32000)
-	{
-	    bug("Buffer overflow. Closing.\n\r",0);
-	    close_socket(d);
-	    return;
- 	}
-	outbuf      = alloc_mem( 2 * d->outsize );
-	strncpy( outbuf, d->outbuf, d->outtop );
-	free_mem( d->outbuf, d->outsize );
-	d->outbuf   = outbuf;
-	d->outsize *= 2;
-    }
+	/*
+	 * Expand the buffer as needed.
+	 */
+	while (d->outtop + size >= d->outsize) {
+		char *outbuf;
 
-    /*
-     * Copy.
-     */
-    strcpy( d->outbuf + d->outtop, txt );
-    d->outtop += length;
-    return;
+		if (d->outsize >= 32000) {
+			bug("Buffer overflow. Closing.\n\r",0);
+			close_socket(d);
+			return;
+ 		}
+		outbuf = alloc_mem(2 * d->outsize);
+		strncpy(outbuf, d->outbuf, d->outtop);
+		free_mem(d->outbuf, d->outsize);
+		d->outbuf = outbuf;
+		d->outsize *= 2;
+	}
+
+	/*
+	 * Copy.
+	 */
+	while (length--) {
+		unsigned char c;
+
+		c = d->codepage->to[(unsigned char) *txt++];
+		d->outbuf[d->outtop++] = c;
+		if (c == IAC)
+			d->outbuf[d->outtop++] = IAC;
+	}
+	return;
 }
 
 
@@ -1675,28 +1462,16 @@ bool write_to_descriptor(int desc, char *txt, int length)
 	int nWrite;
 	int nBlock;
 
-#if defined(macintosh) || defined(MSDOS)
-	if (desc == 0)
-		desc = 1;
-#endif
+    if ( length <= 0 )
+	length = strlen(txt);
 
-	if (length <= 0)
-		length = strlen(txt);
-
-	for (iStart = 0; iStart < length; iStart += nWrite) {
-		char* p;
-
-		nBlock = UMIN(length - iStart, 4096);
-		if ((p = strchr(txt+iStart, IAC)) != NULL)
-			nBlock = UMIN(nBlock, p-(txt+iStart)+1);
-		if ((nWrite = write(desc, txt + iStart, nBlock)) < 0
-		||  (p != NULL && write(desc, p, 1) < 0)) {
-			perror("Write_to_descriptor");
-			return FALSE;
-		}
-	} 
-
-	return TRUE;
+    for ( iStart = 0; iStart < length; iStart += nWrite )
+    {
+	nBlock = UMIN( length - iStart, 4096 );
+	if ( ( nWrite = write( desc, txt + iStart, nBlock ) ) < 0 )
+	    { perror( "Write_to_descriptor" ); return FALSE; }
+    } 
+    return TRUE;
 }
 
 
@@ -1758,6 +1533,24 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	bug( "Nanny: bad d->connected %d.", d->connected );
 	close_socket( d );
 	return;
+
+    case CON_GET_CODEPAGE: {
+		int num;
+
+		if (argument[0] == '\0'
+		||  argument[1] != '\0'
+		||  (num = argument[0] - '1') < 0
+		||  num >= NCODEPAGES) {
+			cp_print(d);
+			break;
+		}
+		d->codepage = codepages+num;
+		log_printf("'%s' codepage selected", d->codepage->name);
+		d->connected = CON_GET_NAME;
+		write_to_buffer(d,
+				"By which name do you wish to be known? ", 0);
+		break;
+    }
 
     case CON_GET_NAME:
 	if ( argument[0] == '\0' )
@@ -1842,8 +1635,8 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 
 	if (fOld) {
 	    /* Old player */
+	    write_to_descriptor(d->descriptor, (char *) echo_off_str, 0);
  	    write_to_buffer(d, "Password: ", 0);
-	    write(d->descriptor, echo_off_str, strlen(echo_off_str));
 	    d->connected = CON_GET_OLD_PASSWORD;
 	    return;
 	}
@@ -1880,13 +1673,14 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	    sprintf(buf, "Wrong password by %s@%s", ch->name, d->host);
 	    log_string(buf);
 	    if (ch->endur == 2)
-	    	close_socket(d);
-	    else {
- 	    	write_to_buffer(d, "Password: ", 0);
-		write(d->descriptor, echo_off_str, strlen(echo_off_str));
-	    	d->connected = CON_GET_OLD_PASSWORD;
-		ch->endur++;
-	    }
+	    	close_socket( d );
+	    else 
+		{
+	    	 write_to_descriptor(d->descriptor, (char *) echo_off_str, 0);
+ 	    	 write_to_buffer(d, "Password: ", 0);
+	    	 d->connected = CON_GET_OLD_PASSWORD;
+		 ch->endur++;
+		}
 	    return;
 	}
  
@@ -1900,7 +1694,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	}
 
 
-	write(d->descriptor, echo_on_str, strlen(echo_on_str));
+	write_to_descriptor(d->descriptor, (char *) echo_on_str, 0);
 
 	if ( check_reconnect( d, ch->name, TRUE ) )
 	    return;
@@ -1995,7 +1789,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
                 free_char( d->character );
                 d->character = NULL;
             }
-	    d->connected = CON_GET_NAME;
+	    d->connected = CON_GET_CODEPAGE;
 	    break;
 
 	case 'n' : case 'N':
@@ -2005,7 +1799,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
                 free_char( d->character );
                 d->character = NULL;
             }
-	    d->connected = CON_GET_NAME;
+	    d->connected = CON_GET_CODEPAGE;
 	    break;
 
 	default:
@@ -2018,11 +1812,10 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	switch ( *argument )
 	{
 	case 'y': case 'Y':
+	    write_to_descriptor(d->descriptor, echo_off_str, 0);
 	    sprintf(buf, "New character.\n\rGive me a password for %s: ",
-		    ch->name);
+		ch->name);
 	    write_to_buffer(d, buf, 0);
-	    write(d->descriptor, echo_off_str, strlen(echo_off_str));
-
 	    d->connected = CON_GET_NEW_PASSWORD;
 	    break;
 
@@ -2083,8 +1876,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	    return;
 	}
 
-	write(d->descriptor, echo_on_str, strlen(echo_on_str));
-
+	write_to_descriptor(d->descriptor, (char *) echo_on_str, 0);
 	sprintf(buf,
 "The Anatolia MUD is home to %d different races with brief descriptions below:",
 			MAX_PC_RACE - 1);
@@ -2671,15 +2463,8 @@ bool check_parse_name( char *name )
     if ( strlen(name) <  2 )
 	return FALSE;
 
-#if defined(MSDOS)
-    if ( strlen(name) >  8 )
-	return FALSE;
-#endif
-
-#if defined(macintosh) || defined(unix)
     if ( strlen(name) > 12 )
 	return FALSE;
-#endif
 
     /*
      * Alphanumerics only.
@@ -2913,14 +2698,10 @@ void page_to_char( const char *txt, CHAR_DATA *ch )
 	return;
     }
 	
-#if defined(macintosh)
-	send_to_char(txt,ch);
-#else
     ch->desc->showstr_head = alloc_mem(strlen(txt) + 1);
     strcpy(ch->desc->showstr_head,txt);
     ch->desc->showstr_point = ch->desc->showstr_head;
     show_string(ch->desc,"");
-#endif
 }
 
 
@@ -3620,30 +3401,13 @@ char* color(char type, CHAR_DATA *ch)
 	return CLEAR;
 }
 
-/*
- * Macintosh support functions.
- */
-#if defined(macintosh)
-int gettimeofday( struct timeval *tp, void *tzp )
-{
-    tp->tv_sec  = time( NULL );
-    tp->tv_usec = 0;
-}
-#endif
-
-
 
 /*
  *  writes bug directly to user screen.
  */
-
 void dump_to_scr( char *text )
 {
-int a;
-
-  a = strlen( text );
-  write(1, text, a);
-  return;
+	write(1, text, strlen(text));
 }
 
 
