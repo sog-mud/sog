@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.119 2001-08-19 19:00:01 fjoe Exp $
+ * $Id: db_area.c,v 1.120 2001-08-20 10:20:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -158,7 +158,7 @@ subst_flag(flag_subst_t *fs, int64_t from)
 #define RES(imm, res, vul, f)						\
 	(IS_SET((imm), (f)) && !IS_SET((vul), (f)) ? 100 :		\
 	 IS_SET((imm), (f)) && IS_SET((vul), (f)) ? 33 :		\
-	 IS_SET((res), (f)) && IS_SET((vul), (f)) ? 0 :			\
+	 IS_SET((res), (f)) && IS_SET((vul), (f)) ? RES_UNDEF :		\
 	 IS_SET((vul), (f)) ? -50 :					\
 	 IS_SET((res), (f)) ? 33 : RES_UNDEF)
 
