@@ -308,7 +308,7 @@ staff necromancy посох rod~
 @eng Rod of Necromancy@rus ~~Посох~~ некромансера~
 @eng Rod made of bone hums casts darkness arounf it.@rus Костяной посох (rod), кажется, поглощает весь свет.~
 bone~
-staff CGJMZh AO
+staff CGh AO
 70 10 10 'black shroud' 0
 10 1 0 P
 S 'bone dragon' 100 A

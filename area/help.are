@@ -152,6 +152,7 @@ PROMPT <%*> where the %* are the various variables you may set yourself.
         %a :  Display your alignment
         %y :  Display your percent hit
         %o :  Display opponents percent hit
+       %T : Display 'tank' percent hit
         %r :  Display the room name you are in
         %e :  Display the exits from the room in NESWDU style
         %R :  Display the vnum you are in (IMMORTAL ONLY)
@@ -190,6 +191,7 @@ Example:  {cPROMPT <%hhp %mm %vmv>{x
        %a : покажет твой alignment
        %y : покажет твое здоровье в процентах от максимума
        %o : покажет здоровье твоего противника в процентах от максимума
+       %T : покажет здоровье "танка" в процентах
        %r : покажет название комнаты, в которой ты находишься 
        %e : покажет выходы из комнаты в виде NWSEU
        %R : покажет номер комнаты, в которой ты находишься (для богов)
@@ -3484,7 +3486,7 @@ Half-Elf    H-Elf    Int,Dex  Str,Con   200     half human, half elf
 Dark-Elf    D-Elf    Int,Dex  Str,Con   500     evil
 Rockseer    Rocks    Int,Dex  Str,Con   500     neutral, "wand", "meld into s."
 Dwarf       Dwarf    Wis,Con    Dex     250     "berserk"
-Svirfnebli  Svirf      Wis      Int	250     "lore", "identify"
+Svirfnebli  Svirf      Wis      Int     250     "lore", "identify"
 Duergar     Duerg    Str,Con  Int,Wis   250     "berserk", "pick lock"
 Arial       Arial    Int,Dex  Str,Con   250     can fly
 Gnome       Gnome    Int,Wis  Str,Con   300     "identify"
@@ -3494,7 +3496,7 @@ Fire Giant  FiGia    Str,Con  Int,Dex   500     evil, "bash","enh. damage"
 Frost Giant FrGia    Str,Con  Int,Dex   500     evil, "bash","enh. damage"
 Githyanki   Githy    Int,Dex  Wis,Con   250     evil, "sword", "dagger"
 Satyr       Satyr      Dex      Int     250     neutral, "camouf.", "ambush"
-Felar       Felar    Dex,Con  Str,Int   450     "hand to hand", "tail"
+Felar       Felar    Dex,Con  Str,Int   250     "hand to hand", "tail"
 Troll       Troll    Str,Con  Int,Dex   400     evil, regen., "fast healing"
 ~
 -1 GNOME GNOMES~
@@ -3645,7 +3647,7 @@ spells.
 Rockseers are a race of renegade elves who lives underworld in rock caves.
 They are inherently intelligent but have neglected intellectualstudies 
 and become very translucent from years of generations of trying to pass 
-rocks.  Like elves, rockseers have infravision and can walk innocent and
+rocks.  Like elves, rockseers have infravision and can walk unnoticed and
 can pass doors easily.Rockseers must stay neutral to cast any spells they 
 might know. And because of their organism they are vulnerable to woods.
 They have a specific spell called 'meld into stone'.
@@ -3665,18 +3667,18 @@ For more information, type "help <class>".
 
 CLASS      ACRONYM   PRIME STAT  SEX   EXTRA	CATEGORY & COMMENTS
 -----      -------   ----------  ----  -----    -------------------
-Witch        Wit      INT 	  F      0      users of offensive magics
+Witch        Wit      INT         F     200     users of offensive magics
 Cleric       Cle      WIS        ANY	 0      users of healing magics
 Thief        Thi      DEX        ANY     0  	masters of the thieving arts
-Warrior      War      STR        ANY     0  	masters of brute combat
-Warlock      Wrk      INT         M    	200	necromantic warriors
+Warrior      War      STR        ANY     0      masters of brute combat
+Warlock      Wrk      INT         M     300     necromantic warriors
 Ranger       Ran      STR	 ANY	200	forest warrior     
 Ninja	     Nin      DEX	 ANY    300   	thief/cleric       
 AntiPaladin  A-P      STR	 ANY	300	warrior/mage       
 Paladin      Pal      STR	 ANY	400	warrior/cleric     
 Samurai      Sam      STR        ANY    500  	masters of ancient battlearts 
 Vampire      Vam      INT	 ANY	300	simply vampire
-Necromancer  Nec      INT        ANY    300     simply necromancer
+Necromancer  Nec      INT        ANY    200     simply necromancer
 ~
 -1 RANGERS~
 RANGER
@@ -4087,14 +4089,14 @@ Chaotic Evil:   Препятствие на пути всего доброго и упорядоченного. Законы и
                 основано на силе, на способности вождя заставить подчинятся.
 ~
 0 RULES~
-These are the rules of the Shades of Gray. Disobeying is grounds
+@eng These are the rules of the Shades of Gray. Disobeying is grounds
 for deletion. For other matters, use common sense.
 
 1. Remember that this is a roleplaying atmosphere.  If an immortal imposes
    their will upon you, you must do it.  Do not ask a wizi-invis god 'who they
    are'.  This is question is considered rude and will not be answered.
-2. Immortals often make announcements via notes, and you are required to 
-   follow accordingly.  Not having read the notes is no excuse.  It is the 
+2. Immortals often make announcements via notes, and you are required to
+   follow accordingly.  Not having read the notes is no excuse.  It is the
    same as if the Immortal told you in person.
 3. Player stealing and killing is permitted and encouraged.
 4. Do not use charmed pets to PK people who are out of your PK range.
@@ -4103,33 +4105,77 @@ for deletion. For other matters, use common sense.
    Do not kill any chars without your pk range in any ways (except clan areas)
    And do not try to kill.
 5. Your presence here is a privilege not a right.  Obey any orders from gods,
-   and you will be fine.  
+   and you will be fine.
 6. MULTICHARRING: You may have more than one character, but you may not use
    multiple logins from same terminal. Punishment for this rule is
-   deleting of one char.
-7. Anyone who assists people in multicharing, i.e. holding equipment while
-   they transfer it, 'looking the other way', etc will be punished harshly.
-8. DO NOT, in any way, shape or form, exploit bugs.  It WILL result in a
-   punishment determined by IMPLEMENTORS.  Repeat DO NOT exploit bugs, you 
-   WILL be IMMEDIATELY punished.
-9. SPAMMING IS ILLEGAL.  (Spam filling up someone's screen with needless 
+   deleting of one char. Anyone who assists people in multicharing,
+   i.e. holding equipment while they transfer it, 'looking the other way',
+   etc will be punished harshly.
+7. DO NOT, in any way, shape or form, exploit bugs. Report it to immortals.
+8. SPAMMING IS ILLEGAL.  (Spam filling up someone's screen with needless
    repetion of anything)  You will be given one warning and then deleted.
    Don't do it.
-10. Sexual harrassment will not be tolerated.  If both parties do not consent
-    to the socials/emotes, then don't do them.
-11. Cheating will not be tolerated. This includes accepting favors from
-    gods and exploiting bugs.
-12. If you are level 20 and have not description you will be given
-    one warning. Then you will be punished.
-13. Pictures ARE NOT allowed in description.
-  
-  These are simple, clear rules.  If you violate them you WILL be
-  punished.  Punishments may vary, depending on previous rules violations, 
-  the situation.  Be prepared for the worst if you are caught breaking 
-  these rules.
+9. Sexual harrassment will not be tolerated.  If both parties do not consent
+   to the socials/emotes, then don't do them.
+10.If you are level 20 and have not description you will be given
+   one warning. Then you will be punished.
+ 
+These are simple, clear rules.  If you violate them you WILL be
+punished.  Punishments may vary, depending on previous rules violations,
+the situation.  Be prepared for the worst if you are caught breaking
+these rules.
 
-  Changes  to these rules are at the discretion of the immortals, and
-  may be done without warning, notice, or even evidence of sanity.
+Changes  to these rules are at the discretion of the immortals, and
+may be done without warning, notice, or even evidence of sanity.
+@rus Ниже перечислены правила, которым должны подчиняться все в Мире Серых
+Теней. Нарушение этих правил влечет за собой наказание, вплоть до
+удаления твоего персонажа и запрещения заходить в Мир Серых Теней. В
+ситуациях не описанных явно в правилах следует полагаться на здравый
+смысл.
+
+  1. Помни, что здесь царит атмосфера ролевой игры. Если к тебе обращается
+     бессмертный, спрашивать как его зовут, невежливо, и вполне вероятно,
+     что ты не получишь ответа на свой вопрос. Если бессмертный говорит
+     тебе что-то сделать, сделай это, не вступая в дискуссию и пререкания.
+
+  2. Бессмертные часто делают объявления через ноты. То, что ты не прочитал
+     объявления не будет тебе оправданием.
+ 
+  3. Убийство игроков и воровство у них разрешается и поощряется. Речь
+     идет об игроках, которые у тебя в ПК.
+
+  4. Никакими способами нельзя убивать игроков вне своего ПК. Сюда
+     относятся любые действия, которые могут привести к смерти (даже
+     в тех случаях, когда не приводят): использование заклинания
+     'teleport', summon к агрессивным монстрам или монстрам, охотя-
+     щимся за игроком, summon ассистящих мобов и т.д.
+     (правило не распространяется на клановые зоны)
+
+  5. Твое присутствие в мире -- не право, а привелегия. Повинуйся всем
+     приказам богов, и ты будешь здоров. :-)
+
+  6. MULTICHARRING: Ты можешь иметь более одного персонажа, но не разрешено
+     заходить ими одновременно, передавать вещи и т.д. Наказание за нарушение
+     этого правила -- уничтожение одного персонажа. Любой, кто помогает
+     в multicharing (хранит вещи, например) также будет наказан.
+
+  7. Ни в коем случае не используй баги. Если ты нашел ошибку, сообщи о
+     ней бессмертным.
+
+  8. Спам наказуем. (Спам заполняет экран бесполезной повторяющейся
+     информацией)
+
+  9. Любые сексуальные приставания недопустимы! Если обе стороны не пришли к
+     согласию по поводу socials/emotes - не делайте этого.
+
+ 10. Персонаж, достигший 20 уровня, обязан иметь описание. Предупреждение
+     будет только одно, потом ты будешь наказан.
+
+Это простые и понятные правила. Если ты нарушишь их, ты будешь наказан.
+Наказания могут быть самые разные, и зависеть от того, какое правило нарушено,
+и от ситуации. Будь готов к самому худшему, если тебя поймают с поличным.
+Изменение правил - прерогатива бессмертных, и бессмертные могут менять правила
+без всякого предупреждения, и даже без всякого основания.
 ~
 0 LAWS LAW ~
 @eng The laws of the land that shall be enforced by the Enforcer Clan are as
@@ -6196,7 +6242,7 @@ and clerics are the most skilled at kicking, although thieves may also learn
 it.
 ~
 -1 PARRY~
-@eng If at first you fail to dodge, block it.  Parry is useful for deflecting 
+If at first you fail to dodge, block it.  Parry is useful for deflecting 
 attacks, and is succesful more often than dodge.  Parry requires a weapon for
 full success, the hand-to-hand skill may also be used, but results in reduced
 damage instead of no damage.  The best chance of parrying occurs when the
@@ -7225,11 +7271,13 @@ This command clear the screen. CLS is a synonym for this command.
 @eng Syntax: {cdescription{x
  
 Use this command to enter your description.
+Pictures ARE NOT allowed in description.
  
 PS: Do not forget about {{x at the end of your description.
 @rus Синтаксис: {cdescription{x
 
 Используй эту команду для ввода описания твоего персонажа.
+Картинка не может считаться описанием.
 ~
 0 PROMOTE~
 @eng Syntax: {cpromote{x <character> <position>
@@ -7943,6 +7991,9 @@ roing smurfs come true?
 @rus Поселение смурфов очень раздражает Гаргамеля, тем более, что смурфы его
 и его кошку совсем не боятся. Сбудется ли мечта Гаргамеля об исчезновении
 смурфов из его жизни навсегда?
+~
+0 CLOAK OF LEAVES~
+Quest info. See also help {CPIXIE FOREST QUEST{x.
 ~
 -1 $~
 

@@ -1169,7 +1169,7 @@ ember уголек~
 @eng A glowing ember from a forge.@rus Светящийся пылающий уголек (ember) выкатился из горна.~
 stone~
 light A A
-0 0 30 0 0
+0 0 -1 0 0
 50 1 0 G
 A
 14 30

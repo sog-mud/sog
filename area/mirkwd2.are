@@ -325,8 +325,8 @@ sword~
 a fine elven sword~
 A fine Elven sword glimmers softly here.~
 metal~
-weapon AL AN
-sword 2 12 cleave DF
+weapon AKL AN
+sword 12 2 cleave DF
 14 45 600 G
 A
 2 1
@@ -1605,6 +1605,10 @@ E 0 8802 0 12		*	a plain elven cloak: about the shoulders
 E 0 8803 0 8		*	a pair of plain elven boots: on the feet
 G 0 8804 0		*	a water flask
 M 0 8811 1 8867 1	* Thorin Oakenshield (A Cell)
+S
+
+#OLIMITS
+O 8811 2	* a fine elven sword
 S
 
 #HELPS

@@ -4,6 +4,7 @@ VNUMs 8600 8699
 Credits Furey~
 Security 9
 LevelRange 1 5
+Flags closed noquest~
 End
 
 #MOBILES
@@ -255,11 +256,6 @@ You see machine dreams and taste violet phosphor.
 ~
 ~
 Z 0 8605
-D2
-You see machine dreams and taste violet phosphor.
-~
-~
-Z 0 8607
 D3
 You see machine dreams and taste violet phosphor.
 ~

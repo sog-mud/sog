@@ -187,15 +187,14 @@ M give 35487 35467~
 
 #OBJECTS
 #35464
-cloak green~
-a green cloak~
+cloak green leaves~
+a cloak of leaves~
 A green cloak lies on the ground.~
 leaves~
 armor 0 AK
 10 10 10 10 0
 30 0 0 P
-S 'shrink' 75 A
-S 'enlarge' 75 A
+S 'cloak of leaves' 75 A
 E
 cloak~
 This cloak was make from green leaves. It's beautiful.
@@ -1074,7 +1073,7 @@ S
 #RESETS
 O 0 35466 0 35468	* an old stump (The forest meadow)
 P 0 35481 5 35466 1	* an old stump: {ya wooden amulet{x
-P 0 35464 -1 35466 1	* an old stump: a green cloak
+P 0 35464 -1 35466 1	* an old stump: a cloak of leaves
 M 0 35476 1 35469 1	* leprechaun (The secret glade)
 M 0 35471 20 35471 4	* an air sprite (A small clearing)
 M 0 35471 20 35472 2	* an air sprite (A small clearing)

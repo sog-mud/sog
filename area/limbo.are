@@ -188,11 +188,13 @@ N 0 0 0
 stand stand male 0
 0 0 medium unknown
 #21
-golem lesser голем~
-a lesser golem~
-A lesser golem is here.
+golem lesser~
+@eng a lesser golem@rus ~~маленький~~ ~~голем~~~
+@eng A lesser golem is here.
+@rus Самый маленький голем (golem) из всех существующих стоит здесь.
 ~
-The golem appears to be made of some kind of clay, enchanted to come to life!.
+@eng The golem appears to be made of some kind of clay, enchanted to come to life!.
+@rus Этот голем -- это статуя из глины, в которую потом вдохнули жизнь.
 ~
 golem~
 ATg SV 0 0
@@ -204,10 +206,13 @@ stand stand male 0
 #22
 golem stone голем~
 @eng a stone golem@rus ~~каменный~~ ~~голем~~~
-A stone golem stands ready to rend its master's enemies apart.
+@eng A stone golem stands ready to rend its master's enemies apart.
+@rus Каменный голем (golem) готов разорвать врагов хозяина на кусочки.
 ~
-This is a large stone statue of a man. The statue stands eight feet tall
+@eng This is a large stone statue of a man. The statue stands eight feet tall
 and looks powerful enough to rip off your head without straining.
+@rus Это большая каменная статуя мужчины. Она восемь вутов в высоту и
+достаточно сильна, чтобы, не напрягаясь, снести тебе голову.
 ~
 golem~
 ATg SV 0 0
@@ -217,9 +222,10 @@ EFO 0 0 0
 stand stand male 0
 0 0 medium unknown
 #23
-golem iron~
+golem iron голем~
 @eng iron golem@rus ~~железный~~ ~~голем~~~
-A huge iron statue of a man stands here.
+@eng A huge iron statue of a man stands here.
+@rus Массивная статуя из железа стоит здесь.
 ~
 This looks to be an iron statue of a human.  The statue stands a good
 fifteen feet tall.  In fact it almost looks as if it can move.  You then glance
@@ -1692,19 +1698,19 @@ O 28 wear_prog wear_prog_ranger_staff	* `a ranger staff'
 O 28 fight_prog fight_prog_ranger_staff	* `a ranger staff'
 O 40 get_prog get_prog_quest_reward	* `the %s Song of %s'
 O 51 fight_prog fight_prog_tattoo_lirail	* `tattoo of Lirail, Goddess of Order and Protection'
-O 52 fight_prog fight_prog_tattoo_amtinor	* `tattoo of Amtinor'
-O 53 fight_prog fight_prog_tattoo_aulin		* `tattoo of Aulin'
+O 52 fight_prog fight_prog_tattoo_amtinor	* `tattoo of Amtinor, God of Woodlands'
+O 53 fight_prog fight_prog_tattoo_aulin	* `tattoo of Aulin, Goddess of Knowledges'
 O 54 fight_prog fight_prog_tattoo_dakkorn	* `tattoo of Dakkorn, God of Justice'
-O 55 fight_prog fight_prog_tattoo_ulwark	* `tattoo of Ulwark, God of Dreams and Ambitions'
+O 55 fight_prog fight_prog_tattoo_ulwark	* `tattoo of Ulwark, God of Dreams and Ambitions.'
 O 56 fight_prog fight_prog_tattoo_moarith	* `tattoo of Moarith, Goddess of Slaughter'
 O 57 fight_prog fight_prog_tattoo_ilissa	* `tattoo of Ilissa, Goddess of Tyranny'
 O 58 fight_prog fight_prog_tattoo_hathir	* `tattoo of Hathir, God of Death'
 O 59 fight_prog fight_prog_tattoo_throrgrim	* `tattoo of Throrgrim, God of Retribution'
-O 60 fight_prog fight_prog_tattoo_irian		* `tattoo of Irian, Goddess of True Chaos'
+O 60 fight_prog fight_prog_tattoo_irian	* `tattoo of Irian, Goddess of True Chaos'
 O 61 fight_prog fight_prog_tattoo_stivrosh	* `tattoo of Stivrosh, God of War'
 O 62 fight_prog fight_prog_tattoo_gwinnerai	* `tattoo of Gwinnerai, Goddess of Honor'
 O 63 fight_prog fight_prog_tattoo_trussk	* `tattoo of Trussk, God of Disease and Suffering'
-O 64 fight_prog fight_prog_tattoo_lessa		* `tattoo of Lessa, Goddess of Magic'
+O 64 fight_prog fight_prog_tattoo_lessa	* `tattoo of Lessa, Goddess of Magic'
 O 65 fight_prog fight_prog_tattoo_vilirna	* `tattoo of Vilirna, Goddess of Life'
 O 66 fight_prog fight_prog_tattoo_calamir	* `tattoo of Calamir, God of Delusion'
 O 67 fight_prog fight_prog_tattoo_cariel	* `tattoo of Cariel, Goddess of Revival'

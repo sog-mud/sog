@@ -45,10 +45,10 @@ A 0 0 0
 stand stand male 0
 0 0 huge unknown
 M act 15004 is dead!!~
-M delay 15003 100~
 M random 15005 5~
-M bribe 15005 1~
-M fight 1 100~
+M delay 15003 100~
+M act 15007 is starving!~
+M act 15007 dying of thirst!~
 #15002
 cockroach~
 @eng cockroach@rus таракан~
@@ -280,6 +280,8 @@ divinity~
 weapon 0 AN
 mace 2000 2000 stab BCDEGHI
 100 0 0 P
+A
+8 500
 S 'critical strike' 1000 0
 S 'resistance' 500 0
 A
@@ -950,7 +952,7 @@ S
 даже бьет небольшой фонтан с вкусным молоком. Тем не менее, здесь до одури 
 скучно.
 ~
-0 CDNSTX inside
+0 CDHKNSTWX inside
 S
 #15010
 @eng {DThe room of Death{x@rus {DКомната Смерти{x~
@@ -1150,6 +1152,7 @@ say Ну вот. так просто ты от меня не избавишься.
 if ispc $n
 say Умер :(
 mob remember $n
+mob delay 1
 endif
 ~
 #15005
@@ -1185,6 +1188,13 @@ endif
 say Спасибо тебе за помощь, $n. Вот твоя награда.
 give cone $n
 mob goto 34400
+~
+#15007
+wake $n
+mob force $n drink fountain
+mob force $n drink fountain
+mob force $n drink fountain
+mob force $n drink fountain
 ~
 #15100
 ~
