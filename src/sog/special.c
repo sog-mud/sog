@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.62 1999-12-11 15:31:20 fjoe Exp $
+ * $Id: special.c,v 1.63 1999-12-16 10:06:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -550,7 +550,7 @@ bool spec_cast_mage(CHAR_DATA *ch)
 		case  2: min_level =  7; spell = "weaken";         break;
 		case  3: min_level =  8; spell = "teleport";       break;
 		case  4: min_level = 11; spell = "colour spray";   break;
-		case  5: min_level = 12; spell = "change sex";     break;
+		case  5:
 		case  6: min_level = 13; spell = "energy drain";   break;
 		case  7:
 		case  8:
