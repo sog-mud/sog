@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.7 1998-09-29 01:06:40 fjoe Exp $
+ * $Id: tables.c,v 1.8 1998-09-29 09:22:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -721,14 +721,14 @@ FLAG vuln_flags[] =
 
 FLAG position_table[] =
 {
-	{ "dead",		POS_DEAD,		FALSE	},
-	{ "mort",		POS_MORTAL,		FALSE	},
-	{ "incap",		POS_INCAP,		FALSE	},
-	{ "stun",		POS_STUNNED,		FALSE	},
+	{ "dead",		POS_DEAD,		TRUE	},
+	{ "mort",		POS_MORTAL,		TRUE	},
+	{ "incap",		POS_INCAP,		TRUE	},
+	{ "stun",		POS_STUNNED,		TRUE	},
 	{ "sleep",		POS_SLEEPING,		TRUE	},
 	{ "rest",		POS_RESTING,		TRUE	},
 	{ "sit",		POS_SITTING,		TRUE	},
-	{ "fight",		POS_FIGHTING,		FALSE	},
+	{ "fight",		POS_FIGHTING,		TRUE	},
 	{ "stand",		POS_STANDING,		TRUE	},
 	{ NULL }
 };
