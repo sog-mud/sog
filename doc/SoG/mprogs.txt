@@ -1,5 +1,5 @@
 #
-# $Id: mprogs.txt,v 1.7 2001-09-17 19:22:57 fjoe Exp $
+# $Id: mprogs.txt,v 1.8 2001-09-23 17:20:04 fjoe Exp $
 #
 
 MPC code style
@@ -104,8 +104,16 @@ act(string msg, char ch, void arg1, void arg2, int act_flags)
 	     TO_VICT    -- жертве (arg2)
 	     TO_NOTVICT -- всем к комнате кроме чара ch и жертвы (arg2)
 
+act_asound(room r, string text, void arg)
+  text выврдится в соседние с r комнаты, arg может использоваться как параметр
+  в text
+
 act_char(string msg, char ch)
   выводит сообщение msg чару ch
+
+act_clan(char ch, string text, void arg)
+  сообщение text выводится по клановому каналу чара ch, arg может использоваться
+  как параметр в text
 
 act_say(char ch, string msg, void arg)
   чаром ch говорится ("say") сообщение msg, в которое подставляется
@@ -168,6 +176,18 @@ int char_level(char ch)
 
 int char_max_hit(char ch)
   возвращает максимальное количество hp чара ch
+
+int char_max_mana(char ch)
+  возвращает максимальное количество mana чара ch
+
+int char_max_moves(char ch)
+  возвращает максимальное количество moves чара ch
+
+int char_mana(char ch)
+  возвращает количество mana чара ch
+
+int char_moves(char ch)
+  возвращает количество moves чара ch
 
 int char_position(char ch)
   позиция ch (POS_RESTING, POS_FIGHTING etc.)
@@ -294,6 +314,9 @@ handle_death(char ch, char victim)
 
 int has_sp(char ch, string spn, string spn_add, string spn_rm)
 
+bool is_act(char ch, int act_flags)
+  стоит ли у чара ch ACT act_flags
+
 bool is_affected(char ch, int aff)
   наложен ли на чара ch аффект aff (e.g AFF_POISON)
 
@@ -315,6 +338,9 @@ bool is_good(char ch)
 bool is_immortal(char ch)
   является ли чар ch immortal'ом
 
+bool is_mount(char ch, char mob)
+  служит ли mob верховым животным для чара ch
+
 bool is_npc(char ch)
   является ли чар ch мобом (npc)
 
@@ -327,15 +353,24 @@ bool is_owner(char ch, obj p)
 bool is_owner_name(obj p, string name)
   принадлежит ли обьект p чару с именем name
 
+bool is_pumped(char ch)
+  есть ли у чара ch адреналин в крови
+
 bool is_safe(char ch, char victim)
 
 bool is_safe_nomessage(char ch, char victim)
+
+bool is_same_group(char first, char second)
+  принадлежит ли чар second группе чара first
 
 bool is_sn_affected(char ch, string sn)
   наложен ли на чара аффект sn (e.g. "berserk")
 
 bool is_wanted(char ch)
   является лм чар ch WANTED
+
+char load_mob(char ch, int vnum)
+  создается моб с номером vnum и ставится в комнату, где находится ch
 
 obj load_obj(char ch, int vnum)
   создается объект с номером vnum и дается чару ch
@@ -365,16 +400,25 @@ int number_percent()
 int number_range(int from, int to)
   возвращает случайное число в диапазоне от from до to
 
+char obj_carried_by(obj p)
+  возвращает чараm у которого находится объект p
+
 obj_cast_spell(string sn, int level, char ch, void vo)
 
 int obj_cost(obj p)
   возвращает стоимость объекта p
 
+obj obj_in(obj p)
+  возвращает объект, в котором находится объект p
+  
 int obj_item_type(obj p)
   item_type объекта p (ITEM_CONTAINER, ITEM_WEAPON etc.)
 
 int obj_level(obj p)
   возвращает уровень обьекта p
+
+room obj_room(obj p)
+  возвращает комнату, в которой находится объект p
 
 int obj_timer(obj p)
   возвращает таймер на обьекте p
@@ -413,6 +457,9 @@ int real_char_level(char ch)
 int room_sector(room r)
   возвращает сектор в комнате r.
 
+int room_vnum(room r)
+  возвращает vnum комнаты r
+
 say_spell(char ch, string sn)
   произносится заклинание sn (или возносится молитва)
 
@@ -425,16 +472,22 @@ scream_effect(char ch, int num, int dam)
   уровня num, наносится урон dam
 
 set_char_gold(char ch, int num)
-  устанавливает чару ch количество золота num.
+  устанавливает чару ch количество золота num
 
 set_char_hit(char ch, int num)
-  ставит чару количество (текущее) hp в размере num.
+  ставит чару количество (текущее) hp в размере num
+
+set_char_mana(char ch, int num)
+  ставит чару количество (текущее) mana в размере num
+
+set_char_moves(char ch, int num)
+  ставит чару количество (текущее) moves в размере num
 
 set_char_silver(char ch, int num)
-  устанавливает чару ch количество серебра num.
+  устанавливает чару ch количество серебра num
 
 set_obj_level(obj p, int level)
-  ставит обьекту p уровень level.
+  ставит обьекту p уровень level
 
 set_obj_timer(obj p, int timer)
   устанавливает таймер на обьект p, длительностью timer
