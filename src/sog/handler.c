@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.77 2004-02-19 17:24:50 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.78 2004-02-19 18:52:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -765,7 +765,7 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 				    ch, wield, NULL, TO_ROOM);
 				act_puts("You stop using $p.",
 					 ch, wield, NULL, TO_CHAR, POS_DEAD);
-				obj_to_char_check(wield, ch);
+				obj_to_char(wield, ch);
 			} else {
 				act("You drop $p.", ch, wield, NULL, TO_CHAR);
 				act("$n drops $p.", ch, wield, NULL, TO_ROOM);
