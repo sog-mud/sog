@@ -18,6 +18,15 @@ Max 100
 End
 
 #SKILL
+Skill 'gash'
+Level 33
+Rating 1
+Min 1
+Adept 75
+Max 100
+End
+
+#SKILL
 Skill 'close contact'
 Level 30
 Rating 2

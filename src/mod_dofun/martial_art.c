@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.136 1999-12-04 07:45:57 kostik Exp $
+ * $Id: martial_art.c,v 1.137 1999-12-04 13:39:11 kostik Exp $
  */
 
 /***************************************************************************
@@ -529,6 +529,189 @@ void do_pound(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (attack) 
+		yell(victim, ch, "Help! $i is attacking me!");
+}
+
+static void gash_drop(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
+{
+	OBJ_DATA *item;
+	if (!(item = get_eq_char(victim, loc)))
+		return;
+	if (IS_OBJ_STAT(item, ITEM_NOREMOVE)) {
+		act("$N is unable to release $p and it pulls $S hand down.", 
+			ch, item, victim, TO_CHAR);
+		act("You are unable to release $p and it pulls your hand down.",
+			ch, item, victim, TO_VICT);
+		act("$N is unable to release $p and it pulls $S hand down.", 
+			ch, item, victim, TO_NOTVICT);
+		} else {
+		act("$N drops $S $p, unable to hold it!",
+			ch, item, victim, TO_CHAR);
+		act("You drop your $p, unable to hold it!",
+			ch, item, victim, TO_VICT);
+		act("$N drops $S $p, unable to hold it!",
+			ch, item, victim, TO_NOTVICT);
+		obj_from_char(item);
+
+		if (IS_OBJ_STAT(item, ITEM_NODROP)
+		|| IS_OBJ_STAT(item, ITEM_INVENTORY))
+			obj_to_char(item, victim);
+		else
+			obj_to_room(item, victim->in_room);
+	}
+}
+
+void do_gash(CHAR_DATA *ch, const char *argument) {
+	
+	CHAR_DATA *victim;
+	int chance, wear_loc;
+	OBJ_DATA *weapon, *second_weap, *gauntlets, *dagger;
+	bool attack;
+	char arg[MAX_INPUT_LENGTH];
+	AFFECT_DATA af;
+
+	if (!(chance = get_skill(ch, "gash"))) {
+		char_puts("Huh?\n", ch);         
+		return;
+	}
+
+	weapon = get_eq_char(ch, WEAR_WIELD);
+	second_weap = get_eq_char(ch, WEAR_SECOND_WIELD);
+
+	if (!weapon) {
+		act("You need to wield a dagger first.",
+		ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (!WEAPON_IS(weapon, WEAPON_DAGGER)
+	&&(!second_weap || WEAPON_IS(second_weap, WEAPON_DAGGER))) {
+		act("You need to wield a dagger first.",
+		ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	one_argument(argument, arg, sizeof(arg));
+
+	if (arg[0] == '\0') {
+		if ((victim = ch->fighting) == NULL) {
+			act("But you aren't fighting anyone!",
+			ch, NULL, NULL, TO_CHAR);
+			return;
+		}
+	} else {
+		victim = get_char_room(ch, arg);
+	}
+	
+	if (!victim || victim->in_room != ch->in_room) {
+		act("They aren't here.", ch, NULL, NULL, TO_CHAR);
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
+		return;
+	}
+	
+	if (!(victim->fighting)) {
+		act("They must be fighting.", ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+	
+	if (victim == ch) {
+		act("That would really hurt. Think twice more.",
+		ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (is_safe(ch, victim))
+		return;
+
+	if (is_affected(victim, "crippled hands")) {
+		act("$s hands are already crippled.", ch, NULL, victim,TO_CHAR);
+		return;
+	}
+
+	WAIT_STATE(ch, skill_beats("gash"));
+
+	if (check_close(ch, victim))
+		return;
+
+	attack = (victim != ch->fighting) && (victim->fighting != ch);
+
+	chance /= 2;
+	chance += get_curr_stat(ch, STAT_DEX) - get_curr_stat(victim, STAT_DEX);
+	chance += LEVEL(ch) - LEVEL(victim);
+
+	wear_loc = WEAPON_IS(weapon, WEAPON_DAGGER) ? WEAR_WIELD : WEAR_SECOND_WIELD;
+	dagger = WEAPON_IS(weapon, WEAPON_DAGGER) ? weapon : second_weap;
+
+	if((number_percent() > chance) || distance_check(ch, victim)) {
+		act("$N notices your maneuver right in time. DOH!",
+		ch, NULL, victim, TO_CHAR);
+		act("You notice $n aiming $s weapon at your hands right in"
+		"time to avoid the attack.", ch, NULL, victim, TO_VICT);
+		check_improve(ch, "gash", FALSE, 3);
+	} else {
+		gauntlets = get_eq_char(victim, WEAR_HANDS);
+		if(gauntlets) {
+			if((gauntlets->pObjIndex->item_type != ITEM_ARMOR)
+			|| !(material_is(gauntlets, MATERIAL_METAL)
+			|| material_is(gauntlets, MATERIAL_INDESTRUCT))) {
+				damage_to_obj(victim, dagger, gauntlets,
+					number_range(30, 40));
+			} else {
+				switch(number_bits(1)) {
+				case 0:
+					act("You only damage your dagger "
+					"against $N's $p.", 
+					ch, gauntlets, victim, TO_CHAR);
+					act("$n's dagger slides off your $p.", 
+					ch, gauntlets, victim, TO_VICT);
+					damage_to_obj(victim, gauntlets, dagger,
+						number_range(30, 40));
+					break;
+				case 1:
+					act("Your dagger only scratches  "
+					"$N's $p.", ch, gauntlets, 
+					victim, TO_CHAR);
+					act("$n's dagger scratches your $p.", 
+					ch, gauntlets, victim, TO_VICT);
+					damage_to_obj(victim, dagger, gauntlets,
+						number_range(30, 40));
+					break;
+				}
+				check_improve(ch, "gash", TRUE, 3);
+				return;
+			}
+		}
+		af.where = TO_AFFECTS;
+		af.type = "crippled hands";
+		af.level = ch->level;
+		af.location = APPLY_HITROLL;
+		af.duration = ch->level/15;
+		af.modifier = -ch->level/5;
+		af.events = EVENT_CHAR_UPDATE;
+
+		gash_drop(ch, victim, WEAR_WIELD);
+		gash_drop(ch, victim, WEAR_SECOND_WIELD);
+		gash_drop(ch, victim, WEAR_HOLD);
+
+
+		act("{RYour gash at $N's hands, crippling it ruthlessly!{x",
+			ch, NULL, victim, TO_CHAR);
+		act("{R$n's dagger strikes for your hands, producing a "
+			"terrible wound!{x", ch, NULL, victim, TO_VICT);
+		act("{R$n gashes at $N's hands, producing a bleeding wound!{x",
+			ch, NULL, victim, TO_ROOM);
+
+		if ((get_eq_char(victim, WEAR_WIELD) == NULL)
+		&&((weapon = get_eq_char(victim, WEAR_SECOND_WIELD)) != NULL)) {
+			unequip_char(victim, weapon);
+			equip_char(victim, weapon, WEAR_WIELD);
+		}
+
+		one_hit(ch, victim, "gash", wear_loc);
+		affect_to_char(victim, &af);
+		check_improve(ch, "gash", TRUE, 3);
+	}
+	if(attack)
 		yell(victim, ch, "Help! $i is attacking me!");
 }
 
@@ -1373,6 +1556,7 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
+	OBJ_DATA *weapon;
 	int foo;
 	int chance;
 	const char *dt = NULL;
@@ -1389,9 +1573,15 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (get_dam_class(ch, get_eq_char(ch, WEAR_WIELD),
+	if (IS_NPC(ch) && get_dam_class(ch, get_eq_char(ch, WEAR_WIELD),
 			 &dt, &foo) != DAM_PIERCE) {
 		char_puts("You need piercing weapon to backstab.\n", ch);
+		return;
+	}
+
+	if (!IS_NPC(ch) && !((weapon = get_eq_char(ch, WEAR_WIELD))
+		&& (WEAPON_IS(weapon, WEAPON_DAGGER)))) {
+		char_puts("You need a dagger for backstab.\n", ch);
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.228 1999-12-04 08:52:30 fjoe Exp $
+ * $Id: fight.c,v 1.229 1999-12-04 13:39:11 kostik Exp $
  */
 
 /***************************************************************************
@@ -1236,7 +1236,9 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	
 	lost_exp = exp_for_level(victim, victim->level+1)-exp_for_level(victim, victim->level);
 	
-	lost_exp /= 4;
+	lost_exp /= 5;
+	if (!IS_NPC(ch))
+		lost_exp /= 2;
 
 	/* Dying penalty: 2/3 way back. */
 	if (IS_WANTED(victim)) {
@@ -1246,7 +1248,7 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	vpc->death++;
 
-	if (vpc->exp < exp_for_level(victim, victim->level) 
+	if (vpc->exp < exp_for_level(victim, victim->level - 1) 
 	&& victim->level > 1) {
 		victim->level--;
 		act("You loose a level!", victim, NULL, NULL, TO_VICT);

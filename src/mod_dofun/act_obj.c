@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.182 1999-12-01 09:07:05 fjoe Exp $
+ * $Id: act_obj.c,v 1.183 1999-12-04 13:39:10 kostik Exp $
  */
 
 /***************************************************************************
@@ -1598,7 +1598,13 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *obj;
 	OBJ_DATA       *obj_inve;
 	int             percent;
+	int 		chance;
 	int		carry_n, carry_w;
+
+	if (!(chance = get_skill(ch, "steal"))) {
+		char_puts("Huh?\n", ch);
+		return;
+	}
 	
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
@@ -1633,12 +1639,14 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 
 	if (is_safe(ch, victim))
 		return;
+
+	chance -= LEVEL(ch) - LEVEL(victim);
 	
 	percent = number_percent() +
 		  (IS_AWAKE(victim) ? 10 : -50) +
 		  (!can_see(victim, ch) ? -10 : 0);
 
-	if ((!IS_NPC(ch) && percent > get_skill(ch, "steal"))
+	if ((!IS_NPC(ch) && percent > chance)
 	||  IS_SET(victim->imm_flags, IMM_STEAL)
 	||  IS_IMMORTAL(victim)
 	||  (victim->in_room &&

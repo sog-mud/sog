@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.3 1999-12-01 09:07:08 fjoe Exp $
+ * $Id: eventfun.c,v 1.4 1999-12-04 13:39:11 kostik Exp $
  */
 
 
@@ -284,6 +284,16 @@ EVENT_FUN(event_updatechar_poison)
 	act("$n shivers and suffers.", ch, NULL, NULL, TO_ROOM); 
 	char_puts("You shiver and suffer.\n", ch);
 	damage(ch, ch, af->level/10 + 1, "poison", DAM_POISON, DAMF_SHOW);
+}
+
+EVENT_FUN(event_updatechar_crippled_hands)
+{
+	if (get_eq_char(ch, WEAR_WIELD) 
+	|| get_eq_char(ch, WEAR_SECOND_WIELD)
+	|| get_eq_char(ch, WEAR_HOLD)) {
+		char_puts("The pain pulses in your crippled hands.", ch);
+		damage(ch, ch, ch->level/2, "crippled hands", DAM_HARM, TRUE);
+	}
 }
 
 EVENT_FUN(event_timeoutchar_bonedragon)
