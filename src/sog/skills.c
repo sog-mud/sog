@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.74.2.9 2002-10-23 15:00:12 tatyana Exp $
+ * $Id: skills.c,v 1.74.2.10 2002-10-26 18:38:28 tatyana Exp $
  */
 
 /***************************************************************************
@@ -135,7 +135,7 @@ void check_improve(CHAR_DATA *ch, int sn, bool success, int multiplier)
 		if (number_percent() < chance) {
 			if ((ps->percent += number_range(1, 3)) > 100)
 				ps->percent = 100;
-			exp = (++ps->percent > 75 ? (skill_level(ch, sn) + 9) * get_curr_stat(ch, STAT_WIS) / 100 : dice(rating, ch->level));
+			exp = (ps->percent > 75 ? (skill_level(ch, sn) + 9) * get_curr_stat(ch, STAT_WIS) / 100 : dice(rating, ch->level));
 			gain_exp(ch, exp);
 			if (ps->percent == 100) {
 				act_puts("{gYou learn from your mistakes and you manage to master {W$t{g!{x",
