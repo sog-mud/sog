@@ -1,4 +1,5 @@
 #!/bin/sh
+
 # Submit a problem report to a GNATS site.
 # Copyright (C) 1993 Free Software Foundation, Inc.
 # Contributed by Brendan Kehoe (brendan@cygnus.com), based on a
@@ -33,22 +34,21 @@ GNATS_ROOT=/usr/local/share/gnats/gnats-db
 # The default mail address for PR submissions. 
 GNATS_ADDR=sog-bugs-submit@sog.me.ru
 
-# Where the gnats category tree lives.
-DATADIR=/etc
-
-# If we've been moved around, try using GCC_EXEC_PREFIX.
-[ ! -d $DATADIR/gnats -a -d "$GCC_EXEC_PREFIX" ] && 
-  DATADIR=/usr/local/lib
-
-
 # The default release for this host.
 DEFAULT_RELEASE="SoG2"
 
+# Categories list
+CATEGORIES="
+bin     - Program bug
+olc     - On-Line Creation issue
+world   - Areas, Races, Classes etc.
+xlate   - Translation bogon
+doc     - Documentation problem
+misc    - Everything else
+"
+
 # The default organization.
 DEFAULT_ORGANIZATION=
-
-# The default site to look for.
-GNATS_SITE=SoG
 
 # Newer config information?
 [ -f ${GNATS_ROOT}/gnats-adm/config ] && . ${GNATS_ROOT}/gnats-adm/config
@@ -176,27 +176,10 @@ while [ $# -gt 0 ]; do
     --request-id) REQUEST_ID=true ;;
     -h | --help) echo "$USAGE"; exit 0 ;;
     -V | --version) echo "$VERSION"; exit 0 ;;
-    -*) echo "$USAGE" ; exit 1 ;;
-    *) if [ -z "$USER_GNATS_SITE" ]; then
-	 if [ ! -r "$DATADIR/gnats/$1" ]; then
-	   echo "$COMMAND: the GNATS site $1 does not have a categories list."
-	   exit 1
-	 else
-	   # The site name is the alias they'll have to have created.
-	   USER_GNATS_SITE=$1
-	 fi
-       else
-	 echo "$USAGE" ; exit 1
-       fi
-       ;;
+    *) echo "$USAGE" ; exit 1 ;;
  esac
  shift
 done
-
-if [ -n "$USER_GNATS_SITE" ] && [ "$USER_GNATS_SITE" != "$GNATS_SITE" ]; then
-  GNATS_SITE=$USER_GNATS_SITE
-  GNATS_ADDR=$USER_GNATS_SITE-gnats
-fi
 
 if [ "$SUBMITTER" = "unknown" -a -z "$REQUEST_ID" -a -z "$IN_FILE" ]; then
   cat << '__EOF__'
@@ -211,18 +194,6 @@ where YOUR-SID is the identification code you received with `send-pr'.
 for this value.  If you do not know your id, run `send-pr --request-id' to 
 get one from your support site.
 __EOF__
-  exit 1
-fi
-
-if [ -r "$DATADIR/gnats/$GNATS_SITE" ]; then
-  CATEGORIES=`grep -v '^#' $DATADIR/gnats/$GNATS_SITE | sort`
-else
-  echo "$COMMAND: could not read $DATADIR/gnats/$GNATS_SITE for categories list."
-  exit 1
-fi
-
-if [ -z "$CATEGORIES" ]; then
-  echo "$COMMAND: the categories list for $GNATS_SITE was empty!"
   exit 1
 fi
 
