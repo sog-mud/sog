@@ -1,48 +1,38 @@
 #!/usr/bin/perl -w
 use strict;
-require "makeutil.pl";
+require "../makeutil.pl";
 
-my @modules = get_modules(@ARGV);
-my $mod;
+if ($#ARGV < 3) {
+	print STDERR "Syntax: makedep.pl <mod_name> <depfile> <cdefile> <modules>...\n";
+	exit(1);
+}
 
-foreach $mod (@modules) {
-	# init deps
-	my %empty;
-	$mod->{deps} = \%empty;
+my $modname = shift(@ARGV);
+my $depfile = shift(@ARGV);
+my $cdepfile = shift(@ARGV);
+my @modules = get_modules("../", @ARGV);
+my %deps;
 
-	my $m;
-	my $hfile = "/" . $mod->{module} . ".h";
-	foreach $m (@modules) {
-		next if $m->{module} eq $mod->{module};
+my $m;
+foreach $m (@modules) {
+	next if $m->{module} eq $modname;
 
-		my $inname = $m->{dir} . "/" . ".depend";
-		open(IN, $inname) || die "$!: can't open $inname";
+	my $hfile = "/" . $m->{module} . ".h";
+	open(IN, $depfile) || die "$!: can't open $depfile";
+	while (<IN>) {
+		next if (/^#/);
 
-		while (<IN>) {
-			next if (/^#/);
-
-			if (/$hfile/) {
-				${$m->{deps}}{$mod->{module}} = 1;
-			}
+		if (/$hfile/) {
+			$deps{$m->{module}} = 1;
 		}
 	}
-
 	close(IN);
 }
 
-foreach $mod (@modules) {
-	my @deps = keys %{$mod->{deps}};
-
-	my $outname = $mod->{dir} . "/" . "_depend.c";
-	if ($#deps >= 0) {
-		print "Creating $outname\n";
-		open(OUT, ">$outname") || die "$!: can't open $outname";
-		print OUT << "__END__";
-const char *_depend = "@deps";
+my @depslist = keys %deps;
+print "Creating $cdepfile\n";
+open(OUT, ">$cdepfile") || die "$!: can't open $cdepfile";
+print OUT << "__END__";
+const char *_depend = "@depslist";
 __END__
-		close(OUT);
-	} elsif (-f $outname) {
-		print "Deleting $outname\n";
-		unlink($outname);
-	}
-}
+close(OUT);

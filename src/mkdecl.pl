@@ -3,7 +3,7 @@ use strict;
 require "makeutil.pl";
 
 my $module_decl = "module_decl";
-my @modules = get_modules(@ARGV);	# siz^H^H^Horder does matter
+my @modules = get_modules("", @ARGV);	# siz^H^H^Horder does matter
 
 my $module_decl_h = $module_decl . ".h";
 my $h_id = "_" . uc($module_decl_h) . "_";

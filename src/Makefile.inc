@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.inc,v 1.10 2000-06-06 09:00:27 fjoe Exp $
+# $Id: Makefile.inc,v 1.11 2000-06-06 10:27:15 fjoe Exp $
 #
 
 #
@@ -34,7 +34,12 @@ INSTDIR=	../..
 MKDEP_CPP_OPTS=	-MM
 MKDEPCMD=	MKDEP_CPP_OPTS=${MKDEP_CPP_OPTS} mkdep
 
-.if defined(MODULE)
+.if !defined(MODULE)
+
+BINDIR=		${INSTDIR}/bin
+
+.else
+
 PROG=		${MODULE}.so.${ABI_VERSION}
 MODULE_ID!=	echo MOD_${MODULE} | tr '[a-z]' '[A-Z]'
 CFLAGS+=	${MOD_CFLAGS} -DMODULE=${MODULE_ID}
@@ -42,25 +47,26 @@ LDFLAGS+=	${MOD_LDFLAGS}
 
 BINDIR=		${INSTDIR}/modules
 
+CDEPFILE=	_depend.c
 DEPCLEANFILES=	${DEPENDFILE}
 
 cleandepend:	_SUBDIR
 	rm -f ${DEPCLEANFILES}
 
-.if exists(_depend.c)
-
 .if !make(depend)
-SRCS+=		_depend.c
+SRCS+=		${CDEPFILE}
 .endif
 
 .if make(cleandepend)
-DEPCLEANFILES+=	_depend.c
+DEPCLEANFILES+=	${CDEPFILE}
 .endif
 
-.endif
+${CDEPFILE}: ${DEPENDFILE} ${.CURDIR}/../Makefile.modules\
+	     ${.CURDIR}/../makedep.pl ${.CURDIR}/../makeutil.pl
+	${.CURDIR}/../makedep.pl ${MODULE} ${DEPENDFILE} ${CDEPFILE} ${MODULES}
 
-.else
-BINDIR=		${INSTDIR}/bin
+.include "${.CURDIR}/../Makefile.modules"
+
 .endif
 
 #

@@ -1,6 +1,7 @@
 sub mod_name {
+	my $subdir = shift;
 	my $dir = shift;
-	my $filename = $dir . "/Makefile";
+	my $filename = $subdir . $dir . "/Makefile";
 
 	open(IN, $filename) || die "$!: can't open $filename";
 	while (<IN>) {
@@ -17,14 +18,15 @@ sub mod_name {
 
 sub get_modules {
 	my $i = 0;
+	my $subdir = shift;
+	my $dir;
 	my @modules;
 
-	for $_ (@_) {
-		next if (/sog/);
-		next if (/make-module-depend/);
-
-		my $dir = $_;
-		$modules[$i++] = { 'dir' => $dir, 'module' => mod_name($dir) };
+	for $dir (@_) {
+		$modules[$i++] = {
+			'dir' => $dir,
+			'module' => mod_name($subdir, $dir)
+		};
 	}
 
 	return @modules;
