@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.25 2000-04-17 15:15:06 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.26 2000-04-21 07:05:50 osya Exp $
  */
 
 /***************************************************************************
@@ -3814,6 +3814,7 @@ void stop_follower(CHAR_DATA *ch)
 	if (IS_AFFECTED(ch, AFF_CHARM)) {
 		REMOVE_BIT(ch->affected_by, AFF_CHARM);
 		affect_bit_strip(ch, TO_AFFECTS, AFF_CHARM);
+		update_pos(ch);
 	}
 
 	if (can_see(ch->master, ch) && ch->in_room != NULL) {

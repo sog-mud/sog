@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.16 2000-04-20 08:01:03 osya Exp $
+ * $Id: act_info.c,v 1.271.2.17 2000-04-21 07:05:46 osya Exp $
  */
 
 /***************************************************************************
@@ -4170,13 +4170,14 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		FLAG_SET(41, 'C', IS_AFFECTED(victim, AFF_CAMOUFLAGE));
 		FLAG_SET(44, 'B', IS_AFFECTED(victim, AFF_BLEND));
 
-		if (flags && IS_SET(ch->comm, COMM_SHOW_RACE)) {
-			char_puts(FLAGS, ch);
-	                act_puts("{c$T{x] ", ch, NULL, race_name(victim->race), TO_CHAR | ACT_NOLF, POS_DEAD);
-		} else if (flags) {
-			char_puts(FLAGS, ch);
-			char_puts("] ", ch);
-		}
+		if (flags || IS_SET(ch->comm, COMM_SHOW_RACE)) 
+			if (IS_SET(ch->comm, COMM_SHOW_RACE)) {
+				char_puts(FLAGS, ch);
+		                act_puts("{c$T{x] ", ch, NULL, race_name(victim->race), TO_CHAR | ACT_NOLF, POS_DEAD);
+			} else {
+				char_puts(FLAGS, ch);
+				char_puts("] ", ch);
+			}
 	}
 
 	if (victim->invis_level >= LEVEL_HERO)
