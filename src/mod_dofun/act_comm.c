@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.210 2000-07-01 15:01:56 avn Exp $
+ * $Id: act_comm.c,v 1.211 2000-08-17 11:38:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1405,6 +1405,7 @@ void do_wanted(CHAR_DATA *ch, const char *argument)
 		 * Commoner can remove wanted only if he/she set it before
 		 */
 		if (!IS_NPC(ch)
+		&&  !IS_IMMORTAL(ch)
 		&&  PC(ch)->clan_status == CLAN_COMMONER
 		&&  str_cmp(PC(victim)->wanted_by, ch->name)) {
 			act("You do not have enough privileges to remove "
