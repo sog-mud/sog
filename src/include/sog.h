@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.15 2001-08-25 04:49:53 fjoe Exp $
+ * $Id: sog.h,v 1.16 2001-08-26 16:17:18 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -535,7 +535,7 @@ DECLARE_PROC4(check_improve,
 	      ARG(bool), success, ARG(int), mult)
 
 DECLARE_FUN1(cchar_t, get_weapon_sn,
-	     ARG(OBJ_DATA), obj)
+	     NULLABLE_ARG(OBJ_DATA), obj)
 DECLARE_FUN2(int, get_weapon_skill,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), sn)
 

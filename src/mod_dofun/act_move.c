@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.272 2001-08-21 13:23:33 kostik Exp $
+ * $Id: act_move.c,v 1.273 2001-08-26 16:17:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1586,7 +1586,7 @@ DO_FUN(do_track, ch, argument)
 			if ((pexit = ch->in_room->exit[d]) != NULL
 			&&  IS_SET(pexit->exit_info, EX_ISDOOR)
 			&&  pexit->keyword != NULL)
-				dofun("open", ch, "%s", dir_name[d]);
+				dofun("open", ch, dir_name[d]);
 			move_char(ch, rh->went, 0);
 			return;
 		}
@@ -3184,7 +3184,7 @@ enter_cb(void *vo, va_list ap)
 	/*
 	 * no following through dead portals
 	 */
-	if (!mem_is(portal, MT_OBJ) || INT(portal->value[0]) == -1) 
+	if (!mem_is(portal, MT_OBJ) || INT(portal->value[0]) == -1)
 		return vch;
 
 	if (vch->master != ch || vch->position != POS_STANDING)
@@ -3203,7 +3203,7 @@ DO_FUN(do_enter, ch, argument)
 	OBJ_DATA *portal;
 	CHAR_DATA *mount;
 
-	if (ch->fighting != NULL) 
+	if (ch->fighting != NULL)
 		return;
 
 	/* nifty portal stuff */
@@ -3220,7 +3220,7 @@ DO_FUN(do_enter, ch, argument)
 		return;
 	}
 
-	if (portal->item_type != ITEM_PORTAL 
+	if (portal->item_type != ITEM_PORTAL
 	||  (IS_SET(INT(portal->value[1]), EX_CLOSED) &&
 	     !IS_TRUSTED(ch, LEVEL_IMMORTAL))) {
 		act_char("You can't seem to find a way in.", ch);
@@ -3248,7 +3248,7 @@ DO_FUN(do_enter, ch, argument)
 
 	if (location == NULL
 	||  location == old_room
-	||  !can_see_room(ch, location) 
+	||  !can_see_room(ch, location)
 	||  (room_is_private(location) && !IS_TRUSTED(ch, LEVEL_IMP))) {
 		act("$p doesn't seem to go anywhere.", ch, portal,NULL,TO_CHAR);
 		return;
@@ -3263,11 +3263,11 @@ DO_FUN(do_enter, ch, argument)
 	act(MOUNTED(ch) ? "$n steps into $p, riding on $N." :
 			  "$n steps into $p.",
 	    ch, portal, MOUNTED(ch), TO_ROOM);
-	
+
 	act(IS_SET(INT(portal->value[2]), GATE_NORMAL_EXIT) ?
 	    "You enter $p." :
 	    "You walk through $p and find yourself somewhere else...",
-	    ch, portal, NULL, TO_CHAR); 
+	    ch, portal, NULL, TO_CHAR);
 
 	mount = MOUNTED(ch);
 	char_from_room(ch);
@@ -3285,7 +3285,7 @@ DO_FUN(do_enter, ch, argument)
 			  TO_ROOM, POS_RESTING);
 	} else {
 		act_puts3(mount ? "$i has arrived through $P, riding $I." :
-	        		  "$i has arrived through $P.",
+				  "$i has arrived through $P.",
 			  location->people, ch, portal, mount,
 			  TO_ROOM, POS_RESTING);
 	}
@@ -3295,8 +3295,8 @@ DO_FUN(do_enter, ch, argument)
 	if (mount) {
 		char_from_room(mount);
 		char_to_room(mount, location);
-  		ch->riding = TRUE;
-  		mount->riding = TRUE;
+		ch->riding = TRUE;
+		mount->riding = TRUE;
 	}
 
 	if (!IS_EXTRACTED(ch))

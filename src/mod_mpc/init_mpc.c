@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.15 2001-08-26 09:17:16 fjoe Exp $
+ * $Id: init_mpc.c,v 1.16 2001-08-26 16:17:26 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -54,6 +54,12 @@ DECLARE_MODINIT_FUN(_module_unload);
 #endif
 
 static dynafun_data_t core_dynafun_tab[] = {
+	DECLARE_PROC3(dofun,
+		      ARG(cchar_t), name, ARG(CHAR_DATA), ch,
+		      ARG(cchar_t), argument)
+	DECLARE_FUN1(int, number_bits,
+		     ARG(int), width)
+	DECLARE_FUN0(int, number_percent)
 	DECLARE_FUN2(int, number_range,
 		     ARG(int), from, ARG(int), to)
 #if defined(MPC)
@@ -79,8 +85,8 @@ hashdata_t h_mpcodes = {
 	NULL,
 
 	STRKEY_HASH_SIZE,
-	k_hash_str,
-	ke_cmp_str
+	k_hash_csstr,
+	ke_cmp_csstr
 };
 
 static
@@ -144,11 +150,16 @@ MODINIT_FUN(_module_unload, m)
 const char *mpc_dynafuns[] = {
 #if !defined(MPC)
 	"act_char",
+	"can_see",
+	"dofun",
 	"has_sp",
 	"level",
+	"mob_interpret",
+	"number_bits",
+	"number_percent",
 	"number_range",
 	"spclass_count",
-	"mob_interpret",
+	"tell_char",
 #else
 	"nonexistent",
 	"number_range",

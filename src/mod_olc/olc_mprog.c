@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mprog.c,v 1.1 2001-08-26 05:49:14 fjoe Exp $
+ * $Id: olc_mprog.c,v 1.2 2001-08-26 16:17:28 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -21,6 +21,7 @@ DECLARE_OLC_FUN(mped_show		);
 DECLARE_OLC_FUN(mped_list		);
 
 DECLARE_OLC_FUN(mped_name		);
+DECLARE_OLC_FUN(mped_flags		);
 DECLARE_OLC_FUN(mped_code		);
 DECLARE_OLC_FUN(mped_compile		);
 DECLARE_OLC_FUN(mped_dump		);
@@ -39,6 +40,7 @@ olc_cmd_t olc_cmds_mprog[] =
 	{ "list",	mped_list,	NULL,		NULL		},
 
 	{ "name",	mped_name,	NULL,		&strkey_mprogs	},
+	{ "flags",	mped_flags,	NULL,		mprog_flags	},
 	{ "code",	mped_code,	NULL,		NULL		},
 	{ "compile",	mped_compile,	NULL,		NULL		},
 	{ "dump",	mped_dump,	NULL,		NULL		},
@@ -196,6 +198,17 @@ OLC_FUN(mped_name)
 	return FALSE;
 }
 
+OLC_FUN(mped_flags)
+{
+	mprog_t *mp;
+	EDIT_MPROG(ch, mp);
+
+	olced_flag(ch, argument, cmd, &mp->flags);
+
+	/* flags are not saved */
+	return FALSE;
+}
+
 OLC_FUN(mped_code)
 {
 	mprog_t *mp;
@@ -259,7 +272,7 @@ FOREACH_CB_FUN(save_mprog_cb, p, ap)
 		return NULL;
 
 	filename = strkey_filename(mp->name, MPC_EXT);
-	if ((fp = olc_fopen(CLASSES_PATH, filename, ch, -1)) == NULL)
+	if ((fp = olc_fopen(MPC_PATH, filename, ch, -1)) == NULL)
 		return NULL;
 
 	REMOVE_BIT(mp->flags, MP_F_CHANGED);
@@ -292,6 +305,6 @@ mprog_update_type(CHAR_DATA *ch, mprog_t *mp)
 	}
 
 	act_puts("MProgEd: $t: type: $T.",
-		 ch, flag_string(mprog_types, mp->type), NULL,
+		 ch, mp->name, flag_string(mprog_types, mp->type),
 		 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 }

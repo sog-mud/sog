@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.h,v 1.16 2001-08-13 18:23:13 fjoe Exp $
+ * $Id: cmd.h,v 1.17 2001-08-26 16:17:17 fjoe Exp $
  */
 
 #ifndef _CMD_H_
@@ -75,6 +75,6 @@ cmd_t *	cmd_cpy		(cmd_t *dst, cmd_t *src);
 void *	cmd_load_cb	(void *p, va_list ap);
 void *	cmd_unload_cb	(void *p, va_list ap);
 
-void	dofun		(const char *name, CHAR_DATA *ch, const char *fmt, ...);
+void	dofun		(const char *name, CHAR_DATA *ch, const char *argument);
 
 #endif

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.37 2001-08-20 16:47:50 fjoe Exp $
+ * $Id: updfun.c,v 1.38 2001-08-26 16:17:32 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -256,11 +256,11 @@ FOREACH_CB_FUN(mobile_update_cb, vo, ap)
 			return NULL;
 	}
 
-#if 0
-	XXX
-/* check triggers (only if mobile still in default position) */
 
 	if (ch->position == ch->pMobIndex->default_pos) {
+#if 0
+	XXX MPC
+/* check triggers (only if mobile still in default position) */
 		if (HAS_TRIGGER(ch, TRIG_DELAY)
 		&&  NPC(ch)->mprog_delay > 0) {
 			if (--NPC(ch)->mprog_delay <= 0) {
@@ -268,12 +268,10 @@ FOREACH_CB_FUN(mobile_update_cb, vo, ap)
 				return NULL;
 			}
 		}
-		if (HAS_TRIGGER(ch, TRIG_RANDOM)) {
-			if(mp_percent_trigger(ch, NULL, NULL, NULL, TRIG_RANDOM))
-			return NULL;
-		}
-	}
 #endif
+		if (pull_mob_trigger(TRIG_MOB_RANDOM, NULL, ch, NULL, NULL) > 0)
+			return NULL;
+	}
 
 /* potion using and stuff for intelligent mobs */
 

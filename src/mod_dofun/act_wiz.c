@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.291 2001-08-21 11:39:00 fjoe Exp $
+ * $Id: act_wiz.c,v 1.292 2001-08-26 16:17:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -748,9 +748,12 @@ DO_FUN(do_transfer, ch, argument)
 			&&  d->character != ch
 			&&  d->character->in_room != NULL
 			&&  can_see(ch, d->character)) {
-				dofun("transfer", ch,
-				      "%s %s",			// notrans
-				      d->character->name, arg2);
+				char buf[MAX_INPUT_LENGTH];
+
+				snprintf(buf, sizeof(buf),
+					 "%s %s",		// notrans
+					 d->character->name, arg2);
+				dofun("transfer", ch, buf);
 			}
 		}
 		return;
@@ -4649,19 +4652,6 @@ DO_FUN(do_dump, ch, argument)
 
 	fclose(fp);
 }
-
-#if 0
-XXX
-DO_FUN(do_mob, ch, argument)
-{
-	/*
-	 * Security check!
-	 */
-	if (ch->desc)
-		return;
-	mob_interpret(ch, argument);
-}
-#endif
 
 DO_FUN(do_shapeshift, ch, argument)
 {

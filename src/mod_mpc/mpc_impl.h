@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.16 2001-08-25 04:53:55 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.17 2001-08-26 16:17:27 fjoe Exp $
  */
 
 #ifndef _MPC_IMPL_H_
@@ -232,7 +232,8 @@ void	c_declare(mpcode_t *mpc);	/* declare variable */
 void	c_declare_assign(mpcode_t *mpc);/* declare variable and assign */
 					/* initial value */
 void	c_cleanup_syms(mpcode_t *mpc);	/* cleanup symbols */
-void	c_return(mpcode_t *mpc);	/* return */
+void	c_return(mpcode_t *mpc);	/* return expr */
+void	c_return_0(mpcode_t *mpc);	/* return */
 
 /*--------------------------------------------------------------------
  * binary operations

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.161 2001-08-26 05:49:16 fjoe Exp $
+ * $Id: tables.c,v 1.162 2001-08-26 16:17:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1577,6 +1577,7 @@ flaginfo_t mprog_flags[] =
 {
 	{ "",			TABLE_BITVAL,		FALSE	},
 
+	{ "trace",		MP_F_TRACE,		TRUE	},
 	{ "changed",		MP_F_CHANGED,		FALSE	},
 
 	{ NULL, 0, FALSE }

@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.79 2001-08-21 16:07:07 kostik Exp $
+ * $Id: special.c,v 1.80 2001-08-26 16:17:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1418,6 +1418,7 @@ static void spec_cast(CHAR_DATA *ch, const char *sn, CHAR_DATA *victim)
 	CHAR_DATA *vch;
 	skill_t *sk;
 	char name[MAX_STRING_LENGTH];
+	char buf[MAX_INPUT_LENGTH];
 
 	if ((sk = skill_lookup(sn)) == NULL)
 		return;
@@ -1425,7 +1426,8 @@ static void spec_cast(CHAR_DATA *ch, const char *sn, CHAR_DATA *victim)
 	if (ch->fighting == victim
 	&&  (sk->target == TAR_CHAR_OFFENSIVE ||
 	     sk->target == TAR_OBJ_CHAR_OFF)) {
-		dofun("cast", ch, "'%s'", sn);
+		snprintf(buf, sizeof(buf), "'%s'", sn);
+		dofun("cast", ch, buf);
 		return;
 	}
 
@@ -1440,6 +1442,7 @@ static void spec_cast(CHAR_DATA *ch, const char *sn, CHAR_DATA *victim)
 	if (vch == NULL)
 		return;		/* can't happen */
 
-	dofun("cast", ch, "'%s' %d.'%s'", sn, num, name);
+	snprintf(buf, sizeof(buf), "'%s' %d.'%s'", sn, num, name);
+	dofun("cast", ch, buf);
 }
 

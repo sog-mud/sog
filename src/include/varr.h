@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.25 2001-08-14 16:06:46 fjoe Exp $
+ * $Id: varr.h,v 1.26 2001-08-26 16:17:18 fjoe Exp $
  */
 
 #ifndef _VARR_H_
@@ -64,6 +64,8 @@ void	varr_delete	(varr *, size_t i);
 void	varr_qsort	(const varr *, int (*)(const void *, const void *));
 void *	varr_bsearch	(const varr *, const void *e,
 			 int (*)(const void *, const void *));
+void *	varr_bsearch_lower(const varr *, const void *e,
+			   int (*)(const void *, const void *));
 
 typedef void *(foreach_cb_t)(void *p, va_list ap);
 #define DECLARE_FOREACH_CB_FUN(fun)	foreach_cb_t fun
@@ -97,7 +99,7 @@ extern inline void *varr_get(varr *v, size_t i)
 	return i >= varr_size(v) ? NULL : VARR_GET(v, i);
 }
 
-#define varr_index(v, q) ((((const char*) q) - ((const char*) (v)->p)) / (v)->v_data->nsize)
+#define varr_index(v, q) ((((const char *) q) - ((const char *) (v)->p)) / (v)->v_data->nsize)
 #define varr_edelete(v, p) (varr_delete((v), varr_index((v), (p))))
 #define varr_isempty(v)	(!varr_size(v))
 

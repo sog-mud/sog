@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.251 2001-08-20 18:18:08 fjoe Exp $
+ * $Id: act_obj.c,v 1.252 2001-08-26 16:17:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -578,10 +578,11 @@ DO_FUN(do_give, ch, argument)
 
 		if (IS_NPC(victim)
 		&&  MOB_IS(victim, MOB_CHANGER)) {
-			int             change;
+			int change;
+			char buf[MAX_INPUT_LENGTH];
+
 			change = (silver ? 95 * amount / 100 / 100
 				  : 95 * amount);
-
 
 			if (!silver && change > victim->silver)
 				victim->silver += change;
@@ -591,20 +592,27 @@ DO_FUN(do_give, ch, argument)
 
 			if (change < 1 && can_see(victim, ch)) {
 				tell_char(victim, ch, "I'm sorry, you did not give me enough to change.");
-				dofun("give", victim, "%d %s %s", // notrans
-				      amount, silver ? "silver" : "gold",
-				      ch->name);
-			}
-			else if (can_see(victim, ch)) {
-				dofun("give", victim, "%d %s %s", // notrans
-				      change, silver ? "gold" : "silver",
-				      ch->name);
-				if (silver)
-					dofun("give", victim,
-					      "%d silver %s",	  // notrans
+
+				snprintf(buf, sizeof(buf),
+					 "%d %s %s",		// notrans
+					 amount, silver ? "silver" : "gold",
+					 ch->name);
+				dofun("give", victim, buf);
+			} else if (can_see(victim, ch)) {
+				snprintf(buf, sizeof(buf),
+					 "%d %s %s",		// notrans
+					 change, silver ? "gold" : "silver",
+					 ch->name);
+				dofun("give", victim, buf);
+
+				if (silver) {
+					snprintf(buf, sizeof(buf),
+					      "%d silver %s",	// notrans
 					      (95 * amount / 100 - change * 100), ch->name);
-				tell_char(victim, ch,
-					    "Thank you, come again.");
+					dofun("give", victim, buf);
+				}
+
+				tell_char(victim, ch, "Thank you, come again.");
 			}
 		}
 		return;
@@ -3641,8 +3649,12 @@ sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 			if (is_same_group(gch, ch))
 				members++;
 
-		if (members > 1 && silver > 1)
-			dofun("split", ch, "%d", silver);
+		if (members > 1 && silver > 1) {
+			char buf[MAX_INPUT_LENGTH];
+
+			snprintf(buf, sizeof(buf), "%d", silver);
+			dofun("split", ch, buf);
+		}
 	}
 
 #if 0

@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.24 2001-08-26 05:49:11 fjoe Exp $
+ * $Id: mpc.y,v 1.25 2001-08-26 16:17:27 fjoe Exp $
  */
 
 /*
@@ -1174,8 +1174,8 @@ hashdata_t h_strings = {
 	strkey_cpy,
 
 	STRKEY_HASH_SIZE,
-	k_hash_str,
-	ke_cmp_str
+	k_hash_csstr,
+	ke_cmp_csstr
 };
 
 hashdata_t h_syms = {
@@ -1186,8 +1186,8 @@ hashdata_t h_syms = {
 	(e_cpy_t) sym_cpy,
 
 	STRKEY_HASH_SIZE,
-	k_hash_str,
-	ke_cmp_str
+	k_hash_csstr,
+	ke_cmp_csstr
 };
 
 varrdata_t v_vos = {
@@ -1361,8 +1361,10 @@ cleanup_syms(mpcode_t *mpc, int block)
 		if (sym == NULL)
 			break;
 
-		log(LOG_INFO, "%s: %s (%d)",
-		    __FUNCTION__, sym->name, sym->s.var.block);
+		if (IS_SET(mpc->mp->flags, MP_F_TRACE)) {
+			log(LOG_INFO, "%s: %s (%d)",
+			    __FUNCTION__, sym->name, sym->s.var.block);
+		}
 		hash_delete(&mpc->syms, sym->name);
 	}
 }
@@ -1450,7 +1452,8 @@ str_var_assign(mpcode_t *mpc, const char *name, const char *s)
 	if ((sym = var_lookup(mpc, name, MT_STR)) == NULL)
 		return -1;
 
-	log(LOG_INFO, "%s: (string) '%s'", name, s);
+	if (IS_SET(mpc->mp->flags, MP_F_TRACE))
+		log(LOG_INFO, "%s: (string) '%s'", name, s);
 	sym->s.var.data.s = alloc_string(mpc, s);
 	return 0;
 }
@@ -1463,7 +1466,8 @@ mob_var_assign(mpcode_t *mpc, const char *name, CHAR_DATA *ch)
 	if ((sym = var_lookup(mpc, name, MT_CHAR)) == NULL)
 		return -1;
 
-	log(LOG_INFO, "%s: (mob) %p", name, ch);
+	if (IS_SET(mpc->mp->flags, MP_F_TRACE))
+		log(LOG_INFO, "%s: (mob) %p", name, ch);
 	sym->s.var.data.ch = ch;
 	return 0;
 }
@@ -1476,7 +1480,8 @@ obj_var_assign(mpcode_t *mpc, const char *name, OBJ_DATA *obj)
 	if ((sym = var_lookup(mpc, name, MT_OBJ)) == NULL)
 		return -1;
 
-	log(LOG_INFO, "%s: (obj) %p", name, obj);
+	if (IS_SET(mpc->mp->flags, MP_F_TRACE))
+		log(LOG_INFO, "%s: (obj) %p", name, obj);
 	sym->s.var.data.obj = obj;
 	return 0;
 }
@@ -1537,6 +1542,7 @@ _mprog_compile(mprog_t *mp)
 			return MPC_ERR_COMPILE;
 		if (var_add(mpc, "$o", MT_OBJ) < 0)
 			return MPC_ERR_COMPILE;
+		break;
 
 	case MP_T_OBJ:
 		if (var_add(mpc, "$o", MT_OBJ) < 0)
@@ -1588,8 +1594,9 @@ _mprog_execute(mprog_t *mp, va_list ap)
 	int rv;
 
 	if ((mpc = mpcode_lookup(mp->name)) == NULL) {
-		fprintf(stderr, "Runtime error: %s: %s: symbol not found\n",
-			__FUNCTION__, "$_");
+		fprintf(stderr, "Runtime error: %s: mpcode not found\n",
+			mp->name);
+		return MPC_ERR_RUNTIME;
 	}
 
 	mpc->mp = mp;

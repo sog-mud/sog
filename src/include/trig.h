@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.h,v 1.3 2001-08-26 05:49:07 fjoe Exp $
+ * $Id: trig.h,v 1.4 2001-08-26 16:17:18 fjoe Exp $
  */
 
 #ifndef _TRIG_H_
@@ -42,7 +42,7 @@
 #define TRIG_MOB_GRALL		7		/* arg: probability	*/
 #define TRIG_MOB_KILL		8		/* arg: probability	*/
 #define TRIG_MOB_HPCNT		9		/* arg: probability	*/
-#define TRIG_MOB_RANDOM		0		/* arg: probability	*/
+#define TRIG_MOB_RANDOM		10		/* arg: probability	*/
 #define TRIG_MOB_SPEECH		11		/* arg: text		*/
 #define TRIG_MOB_EXIT		12		/* arg: probability	*/
 #define TRIG_MOB_EXALL		13		/* arg: probability	*/
@@ -141,13 +141,14 @@ void trig_set_arg(trig_t *trig, const char *arg);
 /**
  * Pull mob trigger of specified type
  */
-int pull_mob_trigger(int trig_type,
+int pull_mob_trigger(int trig_type, const char *arg,
 		     CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj);
 
 /**
  * Pull obj trigger of specified type
  */
-int pull_obj_trigger(int trig_type, OBJ_DATA *obj, CHAR_DATA *victim);
+int pull_obj_trigger(int trig_type, const char *arg,
+		     OBJ_DATA *obj, CHAR_DATA *victim);
 
 /**
  * Pull trigger

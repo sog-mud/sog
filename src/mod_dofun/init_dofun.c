@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1999 SoG Development Team
+ * Copyright (c) 2001 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dofun.c,v 1.12 2001-08-13 19:03:25 fjoe Exp $
+ * $Id: init_dofun.c,v 1.1 2001-08-26 16:17:25 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -44,8 +44,11 @@ MODINIT_FUN(_module_load, m)
 	return 0;
 }
 
+extern bool do_longjmp;
+
 MODINIT_FUN(_module_unload, m)
 {
 	varr_foreach(&commands, cmd_unload_cb, MODULE);
+	do_longjmp = TRUE;
 	return 0;
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mprog.c,v 1.2 2001-08-26 05:49:16 fjoe Exp $
+ * $Id: mprog.c,v 1.3 2001-08-26 16:17:33 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -49,8 +49,8 @@ hashdata_t h_mprogs = {
 	(e_cpy_t) mprog_cpy,
 
 	STRKEY_HASH_SIZE,
-	k_hash_str,
-	ke_cmp_str
+	k_hash_csstr,
+	ke_cmp_csstr
 };
 
 void

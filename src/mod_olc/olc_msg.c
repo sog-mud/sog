@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.53 2001-08-14 16:07:04 fjoe Exp $
+ * $Id: olc_msg.c,v 1.54 2001-08-26 16:17:29 fjoe Exp $
  */
 
 #include "olc.h"
@@ -95,8 +95,11 @@ OLC_FUN(msged_create)
 	mlstr_destroy(&ml);
 
 	if (mlp == NULL) {
+		char buf[MAX_INPUT_LENGTH];
+
 		act_char("MsgEd: msg already exists:", ch);
-		dofun("ashow", ch, "msg %s", argument);
+		snprintf(buf, sizeof(buf), "msg %s", argument);
+		dofun("ashow", ch, buf);
 		return FALSE;
 	}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.36 2001-08-25 04:46:56 fjoe Exp $
+ * $Id: olc_rule.c,v 1.37 2001-08-26 16:17:29 fjoe Exp $
  */
 
 #include "olc.h"
@@ -170,9 +170,12 @@ OLC_FUN(ruleed_create)
 	rcl = l->rules + rulecl;
 
 	if (!impl && erule_lookup(rcl, argument)) {
+		char buf[MAX_INPUT_LENGTH];
+
 		act_puts("RuleEd: $t: already exists:",
 			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
-		dofun("ashow", ch, "expl %s %s", arg1, argument);
+		snprintf(buf, sizeof(buf), "expl %s %s", arg1, argument);
+		dofun("ashow", ch, buf);
 		return FALSE;
 	}
 
@@ -180,7 +183,7 @@ OLC_FUN(ruleed_create)
 		return FALSE;
 
 	rule_init(&rnew);
-	rnew.name 	= str_dup(argument);
+	rnew.name	= str_dup(argument);
 	rnew.arg	= impl ? 0 : strlen(argument);
 	OLCED(ch)	= olced_lookup(rops->id);
 	ch->desc->pEdit = impl ? irule_insert(rcl, atoi(arg2), &rnew) :

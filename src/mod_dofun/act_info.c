@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.392 2001-08-21 13:23:32 kostik Exp $
+ * $Id: act_info.c,v 1.393 2001-08-26 16:17:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -364,7 +364,7 @@ DO_FUN(do_autoexit, ch, argument)
 	TOGGLE_BIT(PC(ch)->plr_flags, PLR_AUTOEXIT);
 	if (IS_SET(PC(ch)->plr_flags, PLR_AUTOEXIT))
 		act_char("Exits will now be displayed.", ch);
-	else 
+	else
 		act_char("Exits will no longer be displayed.", ch);
 }
 
@@ -567,13 +567,14 @@ do_look_room(CHAR_DATA *ch, int flags)
 
 		name = mlstr_cval(&ch->in_room->name, ch);
 		engname = mlstr_mval(&ch->in_room->name);
-		act_puts("{W$t", ch, name, NULL, 		// notrans
+		act_puts("{W$t", ch, name, NULL,		// notrans
 			 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 		if (GET_LANG(ch) && name != engname) {
 			act_puts(" ($t){x", ch, engname, NULL,	// notrans
 				 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 		} else {
-			send_to_char("{x", ch);
+			act_puts("{x", ch, NULL, NULL,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 		}
 
 		if (IS_IMMORTAL(ch)
@@ -583,16 +584,19 @@ do_look_room(CHAR_DATA *ch, int flags)
 				 TO_CHAR | ACT_NOLF, POS_DEAD);
 		}
 
-		send_to_char("\n", ch);
+		act_puts("\n", ch, NULL, NULL,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 
 		if (!IS_SET(flags, LOOK_F_NORDESC)) {
-			send_to_char("  ", ch);			// notrans
+			act_puts("  ", ch, NULL, NULL,		// notrans
+				 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 			act_puts(mlstr_cval(&ch->in_room->description, ch),
 				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
 		}
 
 		if (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_AUTOEXIT)) {
-			send_to_char("\n", ch);
+			act_puts("\n", ch, NULL, NULL,
+				 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 			do_exits(ch, "auto");
 		}
 	} else
@@ -954,7 +958,8 @@ DO_FUN(do_exits, ch, argument)
 	if (fAuto)
 		buf_append(buf, "]{x\n");		// notrans
 
-	send_to_char(buf_string(buf), ch);
+	act_puts("$t", ch, buf_string(buf), NULL,
+		 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 	buf_free(buf);
 
 	if (check_perception)
@@ -1654,10 +1659,13 @@ DO_FUN(do_description, ch, argument)
 
 DO_FUN(do_report, ch, argument)
 {
-	dofun("say", ch, "I have %d/%d hp %d/%d mana %d/%d mv.",
-	      ch->hit, ch->max_hit,
-	      ch->mana, ch->max_mana,
-	      ch->move, ch->max_move);
+	char buf[MAX_INPUT_LENGTH];
+
+	snprintf(buf, sizeof(buf), "I have %d/%d hp %d/%d mana %d/%d mv.",
+		 ch->hit, ch->max_hit,
+		 ch->mana, ch->max_mana,
+		 ch->move, ch->max_move);
+	dofun("say", ch, buf);
 }
 
 /*
@@ -2578,7 +2586,7 @@ DO_FUN(do_oscore, ch, argument)
 
 		if ((vch = PC(ch)->guarding) != NULL) {
 			buf_printf(output, BUF_END, "  You are guarding: {W%s{x\n",
-			   	   vch->name);
+				   vch->name);
 		}
 
 		if ((vch = PC(ch)->guarded_by) != NULL) {
@@ -4254,7 +4262,8 @@ show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNothing)
 
 #define FLAG_SET(pos, c, exp) (buf[pos] = (exp) ? (c) : '.')
 
-static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
+static void
+show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 {
 	const char *msg = str_empty;
 	const void *arg = NULL;
@@ -4373,7 +4382,8 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (victim->incog_level >= LEVEL_HERO)
 		buf_append(output, "[{DIncog{x] ");
 
-	send_to_char(buf_string(output), ch);
+	act_puts("$t", ch, buf_string(output), NULL,
+		 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 
 	if (IS_NPC(victim)
 	&&  victim->position == victim->pMobIndex->start_pos) {
@@ -4400,25 +4410,25 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	case POS_DEAD:
 		msg = "$N {xis DEAD!!";
 		break;
-	
+
 	case POS_MORTAL:
 		msg = "$N {xis mortally wounded.";
 		break;
-	
+
 	case POS_INCAP:
 		msg = "$N {xis incapacitated.";
 		break;
-	
+
 	case POS_STUNNED:
 		msg = "$N {xis lying here stunned.";
 		break;
-	
+
 	case POS_SLEEPING:
 		if (victim->on == NULL) {
 			msg = "$N {xis sleeping here.";
 			break;
 		}
-	
+
 		arg = victim->on;
 		if (IS_SET(INT(victim->on->value[2]), SLEEP_AT))
 			msg = "$N {xis sleeping at $p.";
@@ -4427,7 +4437,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		else
 			msg = "$N {xis sleeping in $p.";
 		break;
-	
+
 	case POS_RESTING:
 		if (victim->on == NULL) {
 			msg = "$N {xis resting here.";
@@ -4442,13 +4452,13 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		else
 			msg = "$N {xis resting in $p.";
 		break;
-	
+
 	case POS_SITTING:
 		if (victim->on == NULL) {
 			msg = "$N {xis sitting here.";
 			break;
 		}
-	
+
 		arg = victim->on;
 		if (IS_SET(INT(victim->on->value[2]), SIT_AT))
 			msg = "$N {xis sitting at $p.";
@@ -4457,7 +4467,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		else
 			msg = "$N {xis sitting in $p.";
 		break;
-	
+
 	case POS_STANDING:
 		if (victim->on == NULL) {
 			if (!IS_NPC(victim)
@@ -4465,7 +4475,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 				arg = PC(victim)->title;
 			else
 				arg = str_empty;
-	
+
 			if (MOUNTED(victim)) {
 				arg3 = MOUNTED(victim);
 				msg = "$N{x$t {xis here, riding $I.";
@@ -4474,7 +4484,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 				msg = "$N{x$t {xis here.";
 			break;
 		}
-	
+
 		arg = victim->on;
 		if (IS_SET(INT(victim->on->value[2]), STAND_AT))
 			msg = "$N {xis standing at $p.";

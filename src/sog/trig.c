@@ -23,21 +23,25 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.3 2001-08-26 05:49:17 fjoe Exp $
+ * $Id: trig.c,v 1.4 2001-08-26 16:17:35 fjoe Exp $
  */
 
 #include <sys/types.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <regex.h>
 
 #include <merc.h>
 #include <mprog.h>
 #include <rwfile.h>
 
-static int vpull_one_trigger(trig_t *trig, int mp_type, va_list ap);
-static int pull_one_trigger(trig_t *trig, int mp_type, ...);
-static int pull_trigger_list(int trig_type, varr *v, int mp_type, ...);
+static int vpull_one_trigger(trig_t *trig, const char *arg,
+			     int mp_type, va_list ap);
+static int pull_one_trigger(trig_t *trig, const char *arg,
+			    int mp_type, ...);
+static int pull_trigger_list(int trig_type, const char *arg,
+			     varr *v, int mp_type, ...);
 
 void
 trig_init(trig_t *trig)
@@ -93,7 +97,7 @@ trig_fread(trig_t *trig, rfile_t *fp)
 void
 trig_fwrite(const char *pre, trig_t *trig, FILE *fp)
 {
-	fprintf(fp, "%s %s %s %s~",
+	fprintf(fp, "%s %s %s %s~\n",
 		pre, flag_string(mptrig_types, trig->trig_type),
 		trig->trig_prog, trig->trig_arg);
 }
@@ -153,12 +157,12 @@ FOREACH_CB_FUN(trig_dump_list_cb, p, ap)
 	BUFFER *buf = va_arg(ap, BUFFER *);
 
 	if (*pcnt == 0) {
-		buf_printf(buf, BUF_END, "\nMP triggers:\n");
-		buf_append(buf, "Number Trigger   Program        Arg [Flags]\n");
-		buf_append(buf, "------ --------- -------------- -----------------------------------------------\n");
+		buf_printf(buf, BUF_END, "MP triggers:\n");
+		buf_append(buf, "Num  Trigger    Program                    Arg [Flags]\n");
+		buf_append(buf, "---- ---------- -------------------------- -------------------------------------\n");
 	}
 
-	buf_printf(buf, BUF_END, "[%2d] %9s %14s %s [%s]\n",
+	buf_printf(buf, BUF_END, "[%2d] %-9s %-26s %s [%s]\n",
 		   *pcnt, flag_string(mptrig_types, trig->trig_type),
 		   trig->trig_prog, trig->trig_arg,
 		   flag_string(mptrig_flags, trig->trig_flags));
@@ -224,21 +228,23 @@ trig_set_arg(trig_t *trig, const char *arg)
 }
 
 int
-pull_mob_trigger(int trig_type, CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
+pull_mob_trigger(int trig_type, const char *arg,
+		 CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 {
 	if (!IS_NPC(ch))
 		return MPC_ERR_NOTFOUND;
 
 	return pull_trigger_list(
-	    trig_type, &ch->pMobIndex->mp_trigs, MP_T_MOB,
+	    trig_type, arg, &ch->pMobIndex->mp_trigs, MP_T_MOB,
 	    ch, victim, obj);
 }
 
 int
-pull_obj_trigger(int trig_type, OBJ_DATA *obj, CHAR_DATA *victim)
+pull_obj_trigger(int trig_type, const char *arg,
+		 OBJ_DATA *obj, CHAR_DATA *victim)
 {
 	return pull_trigger_list(
-	    trig_type, &obj->pObjIndex->mp_trigs, MP_T_OBJ,
+	    trig_type, arg, &obj->pObjIndex->mp_trigs, MP_T_OBJ,
 	    obj, victim);
 }
 
@@ -249,7 +255,8 @@ pull_spec_trigger(spec_t *spec, CHAR_DATA *ch,
 	if (spec->mp_trig.trig_type == TRIG_NONE)
 		return MPC_ERR_NOTFOUND;
 
-	return pull_one_trigger(&spec->mp_trig, MP_T_SPEC, ch, spn_rm, spn_add);
+	return pull_one_trigger(&spec->mp_trig, NULL, MP_T_SPEC,
+				ch, spn_rm, spn_add);
 }
 
 /*--------------------------------------------------------------------
@@ -257,7 +264,7 @@ pull_spec_trigger(spec_t *spec, CHAR_DATA *ch,
  */
 
 static int
-vpull_one_trigger(trig_t *trig, int mp_type, va_list ap)
+vpull_one_trigger(trig_t *trig, const char *arg, int mp_type, va_list ap)
 {
 	mprog_t *mp;
 
@@ -270,35 +277,71 @@ vpull_one_trigger(trig_t *trig, int mp_type, va_list ap)
 	if (mp->type != mp_type)
 		return MPC_ERR_TYPE_MISMATCH;
 
+	if (trig->trig_type == TRIG_MOB_BRIBE) {
+		int silver_needed = atoi(trig->trig_arg);
+		int silver = atoi(arg);
+
+		if (silver < silver_needed)
+			return MPC_ERR_COND_FAILED;
+	} else if (HAS_TEXT_ARG(trig)) {
+		const char *arg_lwr = strlwr(arg);
+		bool match = FALSE;
+
+		if (IS_SET(trig->trig_flags, TRIG_F_REGEXP))
+			match = !regexec(trig->trig_extra, arg, 0, NULL, 0);
+		else {
+			if (!IS_SET(trig->trig_flags, TRIG_F_CASEDEP))
+				arg = arg_lwr;
+			match = strstr(arg, trig->trig_arg) != NULL;
+		}
+
+		if (!match)
+			return MPC_ERR_COND_FAILED;
+	} else {
+		int chance = atoi(trig->trig_arg);
+
+		if (chance < number_percent())
+			return MPC_ERR_COND_FAILED;
+	}
+
 	return mprog_execute(mp, ap);
 }
 
 static int
-pull_one_trigger(trig_t *trig, int mp_type, ...)
+pull_one_trigger(trig_t *trig, const char *arg, int mp_type, ...)
 {
 	int rv;
 	va_list ap;
 
 	va_start(ap, mp_type);
-	rv = vpull_one_trigger(trig, mp_type, ap);
+	rv = vpull_one_trigger(trig, arg, mp_type, ap);
 	va_end(ap);
 
 	return rv;
 }
 
 static int
-pull_trigger_list(int trig_type, varr *v, int mp_type, ...)
+pull_trigger_list(int trig_type, const char *arg, varr *v, int mp_type, ...)
 {
 	trig_t *trig;
-	int rv;
+	int rv = MPC_ERR_NOTFOUND;
 	va_list ap;
+	size_t i;
 
-	trig = varr_bsearch(v, &trig_type, cmpint);
+	trig = varr_bsearch_lower(v, &trig_type, cmpint);
 	if (trig == NULL)
 		return MPC_ERR_NOTFOUND;
 
 	va_start(ap, mp_type);
-	rv = vpull_one_trigger(trig, mp_type, ap);
+	for (i = varr_index(v, trig); i < varr_size(v); i++) {
+		trig = VARR_GET(v, i);
+
+		if (trig->trig_type != trig_type)
+			break;
+
+		if ((rv = vpull_one_trigger(trig, arg, mp_type, ap)) >= 0)
+			break;
+	}
 	va_end(ap);
 
 	return rv;

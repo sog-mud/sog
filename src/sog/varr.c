@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.29 2001-08-17 17:59:16 fjoe Exp $
+ * $Id: varr.c,v 1.30 2001-08-26 16:17:35 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -163,7 +163,7 @@ varr_delete(varr *v, size_t i)
 }
 
 void
-varr_qsort(const varr* v, int (*cmpfun)(const void*, const void*))
+varr_qsort(const varr *v, int (*cmpfun)(const void *, const void *))
 {
 	if (v == NULL || v->nused == 0)
 		return;
@@ -171,11 +171,32 @@ varr_qsort(const varr* v, int (*cmpfun)(const void*, const void*))
 }
 
 void *
-varr_bsearch(const varr* v, const void *e, int (*cmpfun)(const void*, const void*))
+varr_bsearch(const varr *v, const void *e,
+	     int (*cmpfun)(const void *, const void *))
 {
 	if (v == NULL || v->nused == 0)
 		return NULL;
 	return bsearch(e, v->p, v->nused, v->v_data->nsize, cmpfun);
+}
+
+void *
+varr_bsearch_lower(const varr *v, const void *e,
+		   int (*cmpfun)(const void *, const void *))
+{
+	void *elem = varr_bsearch(v, e, cmpfun);
+	size_t i;
+
+	if (elem == NULL)
+		return NULL;
+
+	i = varr_index(v, elem);
+	while (i) {
+		if (!!cmpfun(VARR_GET(v, i), e))
+			break;
+		i--;
+	}
+
+	return VARR_GET(v, i);
 }
 
 void *

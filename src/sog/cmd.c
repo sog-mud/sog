@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.19 2001-08-05 16:36:56 fjoe Exp $
+ * $Id: cmd.c,v 1.20 2001-08-26 16:17:33 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -114,23 +114,17 @@ cmd_unload_cb(void *p, va_list ap)
 }
 
 void
-dofun(const char *name, CHAR_DATA *ch, const char *fmt, ...)
+dofun(const char *name, CHAR_DATA *ch, const char *argument)
 {
 	cmd_t *cmd;
-	char buf[MAX_STRING_LENGTH];
-	va_list ap;
 
 	if ((cmd = cmd_lookup(name)) == NULL) {
 		log(LOG_BUG, "dofun: %s: unknown dofun", name);
 		return;
 	}
 
-	va_start(ap, fmt);
-	vsnprintf(buf, sizeof(buf), fmt, ap);
-	va_end(ap);
-
 	if (cmd->do_fun == NULL)
 		log(LOG_BUG, "dofun: %s: NULL do_fun", cmd->name);
 	else
-		cmd->do_fun(ch, buf);
+		cmd->do_fun(ch, argument);
 }

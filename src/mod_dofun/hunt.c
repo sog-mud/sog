@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.41 2001-08-20 16:47:27 fjoe Exp $
+ * $Id: hunt.c,v 1.42 2001-08-26 16:17:24 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -361,33 +361,39 @@ hunt_victim(CHAR_DATA *ch)
 
 	if (!found || !can_see(ch, ch->hunting)) {
 		if (get_char_area(ch, ch->hunting->name) != NULL) {
-	    		dofun("cast", ch, "portal %s",		// notrans
-			      ch->hunting->name);
-	    		dofun("enter", ch, "portal");
+			char buf[MAX_INPUT_LENGTH];
+
+			snprintf(buf, sizeof(buf), "portal %s",	// notrans
+				 ch->hunting->name);
+			dofun("cast", ch, buf);
+			dofun("enter", ch, "portal");
 			hunt_victim_attack(ch);
-		} else { 
+		} else {
 			dofun("say", ch, "Ahhhh!  My prey is gone!!");
 			ch->hunting = NULL;
-		}  
+		}
 		return;
-	}   /* end if !found or !can_see */ 
+	}   /* end if !found or !can_see */
 
- 	dir = find_path(ch->in_room->vnum, ch->hunting->in_room->vnum,
+	dir = find_path(ch->in_room->vnum, ch->hunting->in_room->vnum,
 			ch, DEFAULT_DEPTH, TRUE);
 
 	if (dir < 0 || dir >= MAX_DIR) {
-		if (get_char_area(ch, ch->hunting->name) != NULL  
+		if (get_char_area(ch, ch->hunting->name) != NULL
 		&&  ch->level > 35) {
-			dofun("cast", ch, "portal %s",		// notrans
-			      ch->hunting->name);
+			char buf[MAX_INPUT_LENGTH];
+
+			snprintf(buf, sizeof(buf), "portal %s",	// notrans
+				 ch->hunting->name);
+			dofun("cast", ch, buf);
 			dofun("enter", ch, "portal");
 			hunt_victim_attack(ch);
-		} else { 
+		} else {
 			act_say(ch, "I have lost $i!", ch->hunting);
 			ch->hunting = NULL;
 		}
 		return;
-	} /* if dir < 0 or >= MAX_DIR */  
+	} /* if dir < 0 or >= MAX_DIR */
 
 	if (ch->in_room->exit[dir]
 	&&  IS_SET(ch->in_room->exit[dir]->exit_info, EX_CLOSED)) {

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.312 2001-08-21 13:48:50 fjoe Exp $
+ * $Id: handler.c,v 1.313 2001-08-26 16:17:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1691,6 +1691,46 @@ static int movement_loss[MAX_SECT] =
 	1, 2, 2, 3, 4, 6, 4, 1, 12, 10, 6
 };
 
+static
+FOREACH_CB_FUN(pull_obj_trigger_cb, p, ap)
+{
+	OBJ_DATA *obj = (OBJ_DATA *) p;
+
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	int trig_type = va_arg(ap, int);
+
+	pull_obj_trigger(trig_type, NULL, obj, ch);
+
+	return NULL;
+}
+
+static
+FOREACH_CB_FUN(pull_mob_greet_cb, p, ap)
+{
+	CHAR_DATA *vch = (CHAR_DATA *) p;
+
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+
+	pull_mob_trigger(TRIG_MOB_GREET, NULL, vch, ch, NULL);
+	vo_foreach(vch, &iter_obj_char, pull_obj_trigger_cb,
+		   ch, TRIG_OBJ_GREET);
+
+	return NULL;
+}
+
+static
+FOREACH_CB_FUN(pull_mob_exit_cb, p, ap)
+{
+	CHAR_DATA *vch = (CHAR_DATA *) p;
+
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+
+	if (pull_mob_trigger(TRIG_MOB_EXIT, NULL, vch, ch, NULL) > 0)
+		return p;
+
+	return NULL;
+}
+
 bool
 move_char(CHAR_DATA *ch, int door, flag_t flags)
 {
@@ -1701,11 +1741,6 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 	ROOM_INDEX_DATA *to_room;
 	EXIT_DATA *pexit;
 	bool room_has_pc;
-#if 0
-	XXX
-	OBJ_DATA *obj;
-	OBJ_DATA *obj_next;
-#endif
 	int act_flags;
 	AFFECT_DATA *paf;
 
@@ -1793,13 +1828,12 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 			ch, NULL, NULL, TO_ROOM);
 	}
 
-#if 0
 	/*
 	 * Exit trigger, if activated, bail out. Only PCs are triggered.
 	 */
-	if (!IS_NPC(ch) && mp_exit_trigger(ch, door))
+	if (!IS_NPC(ch)
+	&&  vo_foreach(ch->in_room, &iter_char_room, pull_mob_exit_cb, ch) != NULL)
 		return FALSE;
-#endif
 
 	in_room = ch->in_room;
 	if ((pexit = in_room->exit[door]) == NULL
@@ -2123,41 +2157,22 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 	if (!room_has_pc)
 		return TRUE;
 
-#if 0
-	XXX
 	/*
 	 * pull GREET and ENTRY triggers
 	 *
 	 * if someone is following the char, these triggers get activated
 	 * for the followers before the char, but it's safer this way...
 	 */
-	for (fch = to_room->people; fch; fch = fch_next) {
-		fch_next = fch->next_in_room;
+	if (!IS_NPC(ch)) {
+		vo_foreach(to_room, &iter_char_room, pull_mob_greet_cb, ch);
+		vo_foreach(to_room, &iter_obj_room, pull_obj_trigger_cb,
+			   ch, TRIG_OBJ_GREET);
 
-		/* greet progs for items carried by people in room */
-		for (obj = fch->carrying; obj; obj = obj_next) {
-			obj_next = obj->next_content;
-			oprog_call(OPROG_GREET, obj, ch, NULL);
-		}
+		vo_foreach(ch, &iter_obj_char, pull_obj_trigger_cb,
+			   ch, TRIG_OBJ_ENTRY);
 	}
+	pull_mob_trigger(TRIG_MOB_ENTRY, NULL, ch, NULL, NULL);
 
-	for (obj = ch->in_room->contents; obj != NULL; obj = obj_next) {
-		obj_next = obj->next_content;
-		oprog_call(OPROG_GREET, obj, ch, NULL);
-	}
-
-	if (!IS_NPC(ch))
-		mp_greet_trigger(ch);
-
-	for (obj = ch->carrying; obj; obj = obj_next) {
-		obj_next = obj->next_content;
-		oprog_call(OPROG_ENTRY, obj, NULL, NULL);
-	}
-
-	XXX
-	if (IS_NPC(ch) && HAS_TRIGGER(ch, TRIG_ENTRY))
-		mp_percent_trigger(ch, NULL, NULL, NULL, TRIG_ENTRY);
-#endif
 	return TRUE;
 }
 
@@ -2805,9 +2820,13 @@ get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
 			if (members > 1
 			&&  (INT(obj->value[0]) > 1 ||
 			     INT(obj->value[1]))) {
-				dofun("split", ch,
-				      "%d %d", obj->value[0],	// notrans
-				      obj->value[1]);
+				char buf[MAX_INPUT_LENGTH];
+
+				snprintf(buf, sizeof(buf),
+					 "%d %d",		// notrans
+					 INT(obj->value[0]),
+					 INT(obj->value[1]));
+				dofun("split", ch, buf);
 			}
 		}
 		extract_obj(obj, 0);

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.318 2001-08-21 13:23:37 kostik Exp $
+ * $Id: fight.c,v 1.319 2001-08-26 16:17:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -711,23 +711,13 @@ handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (!is_duel)
 		group_gain(ch, victim);
 
-#if 0
-	XXX
-	/*
-	 * Death trigger
-	 */
-	if (vnpc && HAS_TRIGGER(victim, TRIG_DEATH)) {
-		victim->position = POS_STANDING;
-		mp_percent_trigger(victim, ch, NULL, NULL, TRIG_DEATH);
-	}
-#endif
-
 	/*
 	 * IS_NPC victim is not valid after raw_kill
 	 */
-	corpse = raw_kill(ch, victim);
+	if ((corpse = raw_kill(ch, victim)) == NULL)
+		return;
 
-	if (!IS_NPC(ch) && vnpc && vroom == ch->in_room && corpse) {
+	if (!IS_NPC(ch) && vnpc && vroom == ch->in_room) {
 		flag_t f_plr = PC(ch)->plr_flags;
 
 		if (IS_VAMPIRE(ch) && !IS_IMMORTAL(ch)) {
@@ -1488,6 +1478,9 @@ raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 		}
 		return NULL;
 	}
+
+	if (pull_mob_trigger(TRIG_MOB_DEATH, NULL, victim, ch, NULL) > 0)
+		return NULL;
 
 #if 0
 	XXX

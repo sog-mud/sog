@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.16 2001-08-25 04:53:55 fjoe Exp $
+ * $Id: mpc_c.c,v 1.17 2001-08-26 16:17:27 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -38,6 +38,7 @@
 #include <dynafun.h>
 #include <util.h>
 #include <flag.h>
+#include <mprog.h>
 
 #include "mpc_impl.h"
 #include "mpc_iter.h"
@@ -55,13 +56,13 @@ static void mpc_assert(mpcode_t *mpc, const char *ctx, int e,
 		       const char *fmt, ...)
 	__attribute__ ((format(printf, 4, 5)));
 
-static void dumpvar(mpcode_t *mpc, sym_t *sym);
+static void dumpvar(const char *ctx, mpcode_t *mpc, sym_t *sym);
 
-#if 1
-#define TRACE log(LOG_INFO, __FUNCTION__)
-#else
-#define TRACE
-#endif
+#define TRACE								\
+	do {								\
+		if (IS_SET(mpc->mp->flags, MP_F_TRACE))			\
+			log(LOG_INFO, __FUNCTION__);			\
+	} while (0)
 
 void
 c_pop(mpcode_t *mpc)
@@ -85,7 +86,7 @@ c_pop(mpcode_t *mpc)
 	sym->s.var.type_tag = type_tag;
 	sym->s.var.data = *v;
 
-	// dumpvar(mpc, sym);
+	// dumpvar(__FUNCTION__, mpc, sym);
 }
 
 void
@@ -106,7 +107,9 @@ c_push_var(mpcode_t *mpc)
 	TRACE;
 	sym = sym_get(mpc, SYM_VAR);
 	push(mpc, sym->s.var.data);
-	dumpvar(mpc, sym);
+
+	if (IS_SET(mpc->mp->flags, MP_F_TRACE))
+		dumpvar(__FUNCTION__, mpc, sym);
 }
 
 void
@@ -119,6 +122,7 @@ c_push_retval(mpcode_t *mpc)
 	int nargs;
 	int *argtype;
 	dynafun_args_t *args;
+	dynafun_args_t dummy_args;
 	dynafun_data_t *d;
 
 	TRACE;
@@ -179,11 +183,15 @@ c_push_retval(mpcode_t *mpc)
 	/*
 	 * This code is highly non-portable (see dynafun.c/dynafun_build_args)
 	 */
-	args = (dynafun_args_t *) VARR_GET(
-	    &mpc->data, varr_size(&mpc->data) - nargs);
-	mpc_assert(mpc, __FUNCTION__,
-	    varr_size(&mpc->data) >= (size_t) nargs, "data stack underflow");
-	varr_size(&mpc->data) -= nargs;
+	if (nargs == 0)
+		args = &dummy_args;
+	else {
+		mpc_assert(mpc, __FUNCTION__,
+		    varr_size(&mpc->data) >= (size_t) nargs, "data stack underflow");
+		args = (dynafun_args_t *) VARR_GET(
+		    &mpc->data, varr_size(&mpc->data) - nargs);
+		varr_size(&mpc->data) -= nargs;
+	}
 
 	if (rv_tag == MT_VOID) {
 		vo.s = NULL;
@@ -349,11 +357,11 @@ c_foreach(mpcode_t *mpc)
 	v.s = (const char *) id;
 	push(mpc, v);
 
-	args = (dynafun_args_t *) VARR_GET(
-	    &mpc->data, varr_size(&mpc->data) - (iter->init.nargs + 2));
 	mpc_assert(mpc, __FUNCTION__,
 	    varr_size(&mpc->data) >= (size_t) (iter->init.nargs + 2),
 	    "data stack underflow");
+	args = (dynafun_args_t *) VARR_GET(
+	    &mpc->data, varr_size(&mpc->data) - (iter->init.nargs + 2));
 	iter->init.fun(*args);
 	varr_size(&mpc->data) -= iter->init.nargs + 2;
 
@@ -460,6 +468,26 @@ void
 c_return(mpcode_t *mpc)
 {
 	TRACE;
+
+	mpc->ip = INVALID_ADDR;
+}
+
+void
+c_return_0(mpcode_t *mpc)
+{
+	sym_t *sym;
+
+	TRACE;
+
+	sym = (sym_t *) hash_lookup(&mpc->syms, "$_");
+	mpc_assert(mpc, __FUNCTION__,
+	    sym != NULL, "$_: symbol not found");
+	mpc_assert(mpc, __FUNCTION__,
+	    sym->type == SYM_VAR, "$_: not a %d (got symtype %d)",
+	    SYM_VAR, sym->type);
+
+	sym->s.var.type_tag = MT_INT;
+	sym->s.var.data.i = 0;
 
 	mpc->ip = INVALID_ADDR;
 }
@@ -789,24 +817,26 @@ mpc_assert(mpcode_t *mpc, const char *ctx, int e, const char *fmt, ...)
 }
 
 static void
-dumpvar(mpcode_t *mpc, sym_t *sym)
+dumpvar(const char *ctx, mpcode_t *mpc, sym_t *sym)
 {
 	UNUSED_ARG(mpc);
 
 	switch (sym->s.var.type_tag) {
 	case MT_INT:
-		fprintf(stderr, "%s: (int) %d\n", sym->name, sym->s.var.data.i);
+		log(LOG_INFO, "%s: %s: (int) %d",
+		    ctx, sym->name, sym->s.var.data.i);
 		break;
 
 	case MT_STR:
-		fprintf(stderr, "%s: (string) '%s'\n",
-			sym->name, sym->s.var.data.s);
+		log(LOG_INFO, "%s: %s: (string) '%s'",
+		    ctx, sym->name, sym->s.var.data.s);
 		break;
 
 	default:
-		fprintf(stderr, "%s: (%s) %p\n",
-			sym->name, flag_string(mpc_types, sym->s.var.type_tag),
-			sym->s.var.data.ch);
+		log(LOG_INFO, "%s: %s: (%s) %p",
+		    ctx, sym->name,
+		    flag_string(mpc_types, sym->s.var.type_tag),
+		    sym->s.var.data.ch);
 		break;
 	}
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mprog.h,v 1.2 2001-08-26 05:49:07 fjoe Exp $
+ * $Id: mprog.h,v 1.3 2001-08-26 16:17:18 fjoe Exp $
  */
 
 #ifndef _MPROG_H_
@@ -48,7 +48,8 @@ enum {
 	MP_S_READY,		/**< program compiled ok */
 };
 
-#define MP_F_CHANGED		(Z)
+#define MP_F_TRACE		(A)	/**< mprog should be traced	*/
+#define MP_F_CHANGED		(Z)	/**< mprog is changed (for OLC)	*/
 
 /**
  * Program
@@ -85,5 +86,6 @@ extern int (*mprog_execute)(mprog_t *mp, va_list ap);
 #define MPC_ERR_NOTFOUND	(-5)	/* trigger/program not found	*/
 #define MPC_ERR_UNLOADED	(-6)	/* mod_mpc is not loaded	*/
 #define MPC_ERR_TYPE_MISMATCH	(-7)	/* mprog type mismatch		*/
+#define MPC_ERR_COND_FAILED	(-8)	/* trig arg condition failed	*/
 
 #endif /* _MPROG_H_ */
