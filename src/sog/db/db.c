@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.13 1998-06-02 16:52:41 fjoe Exp $
+ * $Id: db.c,v 1.14 1998-06-02 18:21:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,7 @@
 #include <sys/time.h>
 #include <sys/resource.h>
 #include <sys/dir.h>
+#include <sys/syslimits.h>
 
 #include "merc.h"
 #include "db.h"
@@ -525,7 +526,7 @@ void boot_db(void)
 	 * Initialize rate_table 
 	 */
 	for (i = 0; i < RATE_TABLE_SIZE; ++i) {
-		*(rate_table[i].name) = 0;
+		rate_table[i].name = NULL;
 		rate_table[i].pc_killed = 0;
 	}
 
@@ -808,7 +809,7 @@ void load_old_mob(FILE *fp)
 		pMobIndex->start_pos		= fread_number(fp);	/* Unused */
 		pMobIndex->default_pos		= fread_number(fp);	/* Unused */
 
-  	if (pMobIndex->start_pos < POS_SLEEPING)
+		if (pMobIndex->start_pos < POS_SLEEPING)
 		    pMobIndex->start_pos = POS_STANDING;
 		if (pMobIndex->default_pos < POS_SLEEPING)
 		    pMobIndex->default_pos = POS_STANDING;
@@ -1189,7 +1190,7 @@ void load_rooms(FILE *fp)
 		/* Area number */		  fread_number(fp);
 		pRoomIndex->room_flags		= fread_flag(fp);
  
-  	if (3000 <= vnum && vnum < 3400)
+		if (3000 <= vnum && vnum < 3400)
 		   SET_BIT(pRoomIndex->room_flags,ROOM_LAW);
 
 		pRoomIndex->sector_type		= fread_number(fp);
@@ -1869,7 +1870,7 @@ void reset_area(AREA_DATA *pArea)
 	}
 
 	
-  return;
+	return;
 }
 
 
@@ -2251,7 +2252,7 @@ void clone_mobile(CHAR_DATA *parent, CHAR_DATA *clone)
  */
 OBJ_DATA *create_object(OBJ_INDEX_DATA *pObjIndex, int level)
 {
-  return create_object_org(pObjIndex,level,TRUE);
+	return create_object_org(pObjIndex,level,TRUE);
 }
 
 /*
@@ -2260,7 +2261,7 @@ OBJ_DATA *create_object(OBJ_INDEX_DATA *pObjIndex, int level)
  */
 OBJ_DATA *create_object_nocount(OBJ_INDEX_DATA *pObjIndex, int level)
 {
-  return create_object_org(pObjIndex,level,FALSE);
+	return create_object_org(pObjIndex,level,FALSE);
 }
 
 /*
@@ -2419,11 +2420,11 @@ OBJ_DATA *create_object_org(OBJ_INDEX_DATA *pObjIndex, int level, bool Count)
 		    obj->value[0]	= obj->cost;
 		break;
 	}
-  
+	
 	for (paf = pObjIndex->affected; paf != NULL; paf = paf->next) 
 		if (paf->location == APPLY_SPELL_AFFECT)
 		    affect_to_obj(obj,paf);
-  
+	
 	obj->next		= object_list;
 	object_list		= obj;
 	if (Count)
@@ -2464,7 +2465,7 @@ void clone_object(OBJ_DATA *parent, OBJ_DATA *clone)
 
 	/* affects */
 	clone->enchanted	= parent->enchanted;
-  
+	
 	for (paf = parent->affected; paf != NULL; paf = paf->next) 
 		affect_to_obj(clone,paf);
 
@@ -3869,12 +3870,12 @@ void tail_chain(void)
 
 void load_olimits(FILE *fp)
 {
-  int vnum;
-  int limit;
-  char ch;
-  OBJ_INDEX_DATA *pIndex;
+	int vnum;
+	int limit;
+	char ch;
+	OBJ_INDEX_DATA *pIndex;
 
-  for (ch = fread_letter(fp); ch != 'S'; ch = fread_letter(fp))
+	for (ch = fread_letter(fp); ch != 'S'; ch = fread_letter(fp))
 	{
 	  switch(ch)
 		{
@@ -3903,151 +3904,71 @@ void load_olimits(FILE *fp)
 /*
  * Add the objects in players not logged on to object count 
  */
-#if	defined(linux)
 void load_limited_objects()
 {
-  struct dirent *dp;
+	struct direct *dp;
 
-  int i;
-  DIR *dirp;
-  FILE *pfile;
-  char letter;
-  char *word;
-  char buf[100]; 
-  bool fReadLevel;
-  char buf2[160];
-  int vnum;
+	int i, killed;
+	DIR *dirp;
+	FILE *pfile;
+	char letter;
+	char *word;
+	char buf[PATH_MAX]; 
+	bool fReadLevel;
+	char buf2[160];
+	int minnum;
+	int vnum;
 
-  total_levels = 0;
+	total_levels = 0;
 
 
-  if ((dirp = opendir(PLAYER_DIR)) == NULL)
-	{
-	  bug("Load_limited_objects: unable to open player directory.",0);
-	  exit(1);
+	if ((dirp = opendir(PLAYER_DIR)) == NULL) {
+		bug("Load_limited_objects: unable to open player directory.",
+		    0);
+		exit(1);
 	}
 
-  for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp))
-	{
-	  if (strlen(dp->d_name) >= 3)
-		{
-		  sprintf(buf, "%s/",PLAYER_DIR);
-		  strcat(buf, dp->d_name);
-		  
-		  fReadLevel = FALSE;
+	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
+		char* pname;
 
-		  if ((pfile = fopen(buf, "r")) == NULL)
-		    bug("Load_limited_objects: Can't open player file.",0);
-		  else
-		    {
-		      for (letter = fread_letter(pfile);letter != EOF;
-			   letter = fread_letter(pfile))
-			{
-			  if (letter == 'L')
-			    {
-			      if (!fReadLevel) {
-				
-			      word = fread_word(pfile);
-			      
-			      if (!str_cmp(word, "evl") || !str_cmp(word,"ev") ||
-				  !str_cmp(word, "evel")) {
-				i = fread_number(pfile);
-				fReadLevel = TRUE;
-				total_levels += UMAX(0,i - 5);
-sprintf(buf2, "[%s]'s file +: %d\n\r", buf, UMAX(0, i-5));
-dump_to_scr(buf2);
-			        continue;
-				}
-			      }
-			    }
-			  else if (letter == '#') 
-			    {
-			      word = fread_word(pfile);
+		if (dp->d_namlen < 3)
+			continue;
 
-			      if (!str_cmp(word, "O") || !str_cmp(word, "OBJECT"))
-				{
-				  fread_word(pfile); 
-				  fBootDb = FALSE;
-				  vnum = fread_number(pfile);
-				  if (get_obj_index(vnum) != NULL)
-				  	get_obj_index(vnum)->count++;
-				  fBootDb = TRUE;
-				}
-			    }
+		snprintf(buf, sizeof(buf), "%s%s", PLAYER_DIR, dp->d_name);
+		fReadLevel = FALSE;
 
-			}
-		      fclose(pfile);
-		    }
+		if ((pfile = fopen(buf, "r")) == NULL) {
+			bug("Load_limited_objects: Can't open player file.", 0);
+			continue;
 		}
-	}
-  closedir(dirp);
-}
 
-#else
-
-void load_limited_objects()
-{
-  struct direct *dp;
-
-  int i, killed;
-  DIR *dirp;
-  FILE *pfile;
-  char letter;
-  char *word;
-  char buf[100]; 
-  bool fReadLevel;
-  char buf2[160];
-  int minnum = -1;
-  int vnum;
-
-  total_levels = 0;
-
-
-  if ((dirp = opendir(PLAYER_DIR)) == NULL)
-	{
-	  bug("Load_limited_objects: unable to open player directory.",0);
-	  exit(1);
-	}
-
-  for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp))
-	{
-	  if (dp->d_namlen >= 3)
-		{
-		  sprintf(buf, PLAYER_DIR);
-		  strcat(buf, dp->d_name);
-		  
-		  fReadLevel = FALSE;
-
-		  if ((pfile = fopen(buf, "r")) == NULL)
-		    bug("Load_limited_objects: Can't open player file.",0);
-		  else
-		    {
-		      for (letter = fread_letter(pfile);letter != EOF;
-			   letter = fread_letter(pfile))
-			{
-			  if (letter == 'L')
-			    {
-			      if (!fReadLevel) {
+		pname = NULL;
+		for (letter = fread_letter(pfile); letter != EOF;
+						letter = fread_letter(pfile)) {
+			if (letter == 'L') {
+				if (!fReadLevel) {
 				
-			      word = fread_word(pfile);
+				word = fread_word(pfile);
 			      
-			      if (!str_cmp(word, "evl") || !str_cmp(word,"ev") ||
-				  !str_cmp(word, "evel")) {
-				i = fread_number(pfile);
-				fReadLevel = TRUE;
-				total_levels += UMAX(0,i - 5);
-sprintf(buf2, "[%s]'s file +: %d\n\r", buf, UMAX(0, i-5));
-dump_to_scr(buf2);
-			        continue;
+				if (!str_cmp(word, "evl")
+				||  !str_cmp(word,"ev")
+				||  !str_cmp(word, "evel")) {
+					i = fread_number(pfile);
+					fReadLevel = TRUE;
+					total_levels += UMAX(0,i - 5);
+					snprintf(buf2, sizeof(buf2),
+						 "[%s]'s file +: %d\n\r",
+						 buf, UMAX(0, i-5));
+					dump_to_scr(buf2);
+					continue;
 				}
-			      }
-			    }
-			  else if (letter == '#') 
-			    {
-			      word = fread_word(pfile);
+				}
+			}
+			else if (letter == '#') {
+				word = fread_word(pfile);
 
-			      if (!str_cmp(word, "O") || !str_cmp(word, "OBJECT"))
-				{
+				if (!str_cmp(word, "O")
+				||  !str_cmp(word, "OBJECT")) {
 				  fread_word(pfile); 
 				  fBootDb = FALSE;
 				  vnum = fread_number(pfile);
@@ -4055,35 +3976,47 @@ dump_to_scr(buf2);
 				  	get_obj_index(vnum)->count++;
 				  fBootDb = TRUE;
 				}
-			    } else if (letter == 'P') {
+			} else if (letter == 'P') {
 				word = fread_word(pfile);
 				if (!strcmp(word, "C_Killed")) {
+					if (pname == NULL) {
+						bug("load_limited_objects: "
+						    "PC_Killed before Name "
+						    "in pfile", 0);
+						exit(1);
+					}
+
 					killed = fread_number(pfile);
-					minnum = -1;
 
-					for (i = 0;i < RATE_TABLE_SIZE; ++i)
-						if (rate_table[i].pc_killed 
-							< killed)
-						    minnum = i;
+					minnum = 0;
+					for (i = 1; i < RATE_TABLE_SIZE; ++i)
+						if (rate_table[i].pc_killed <
+						    rate_table[minnum].pc_killed)
+							minnum = i;
 
-					if (minnum >= 0) {
-						strcpy(rate_table[minnum].name, 
-							dp->d_name);
+					if (rate_table[minnum].pc_killed <
+								killed) {
+						if (rate_table[minnum].name !=
+								NULL)
+							free_string(rate_table[minnum].name);
+						rate_table[minnum].name = pname;
 						rate_table[minnum].pc_killed = 
 							killed;
 					}	
 				}	
 			} 
-		      }
-		      fclose(pfile);
-		    }
+			else if (letter == 'N') {
+				if (strcmp(fread_word(pfile), "ame") == 0)
+					pname = fread_string(pfile);
+			}
 		}
+
+		fclose(pfile);
 	}
-  closedir(dirp);
+	closedir(dirp);
 }
 
 
-#endif
 /*
  * Given a name, return the appropriate prac fun.
  */

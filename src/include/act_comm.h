@@ -15,7 +15,7 @@ void	do_rating	(CHAR_DATA *ch, char *argument);
 #define RATE_TABLE_SIZE 20
 
 typedef struct {
-	char name[MAX_INPUT_LENGTH];
+	char *name;
 	int pc_killed;
 } tag_rate_table;
 

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.23 1998-06-02 15:56:03 fjoe Exp $
+ * $Id: fight.c,v 1.24 1998-06-02 18:21:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -128,22 +128,26 @@ void get_gold_corpse(CHAR_DATA *ch, OBJ_DATA *corpse)
  */
 void rating_update(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	int i, minnum = -1;
+	int i, minnum;
 	if (IS_NPC(ch) || IS_NPC(victim) || ch == victim)
 		return;
 
 	ch->pcdata->pc_killed++;
 	
+	minnum = 0;
 	for (i = 0; i < RATE_TABLE_SIZE; ++i) {
-		if (rate_table[i].pc_killed < ch->pcdata->pc_killed)
+		if (str_cmp(ch->name, rate_table[i].name) == 0) {
+			rate_table[i].pc_killed = ch->pcdata->pc_killed;
+			return;
+		}
+		if (rate_table[i].pc_killed < rate_table[minnum].pc_killed)
 			minnum = i;
-		if (!str_cmp(ch->name, rate_table[i].name))
-			break;
 	}
 
-	if (minnum >= 0) {
-		strcpy(rate_table[minnum].name, ch->name);
-		rate_table[minnum].pc_killed = ch->pcdata->pc_killed;
+	if (rate_table[minnum].pc_killed < ch->pcdata->pc_killed) {
+		if (rate_table[minnum].name != NULL)
+			free_string(rate_table[minnum].name);
+		rate_table[minnum].name = str_dup(ch->name);
 	} 	
 }
 
@@ -1021,8 +1025,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)
 
 	if (dt == gsn_assassinate)
 	  {
-		if (number_percent() <= URANGE(10, 20+(ch->level-victim->level)*2, 50) && !counter)
-		  {
+		if (number_percent() <= URANGE(10, 20+(ch->level-victim->level)*2, 50) && !counter && !IS_IMMORTAL(victim)) {
 		    act_puts("You {R+++ASSASSINATE+++{x $N!",ch,NULL,victim,TO_CHAR,
 			      POS_RESTING);
 		    act("$N is DEAD!",ch,NULL,victim,TO_CHAR);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.34 1998-06-02 16:52:40 fjoe Exp $
+ * $Id: act_comm.c,v 1.35 1998-06-02 18:21:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -79,12 +79,12 @@ void do_rating(CHAR_DATA *ch, char *argument)
 {
 	int i;
 	qsort(rate_table, RATE_TABLE_SIZE, sizeof(tag_rate_table), compar);
-	send_to_char("Name\t\t|\tPC's killed\n\r", ch);
+	send_to_char("Name                    | PC's killed\n\r", ch);
 	send_to_char("-------------------------------------\n\r", ch);
 	for (i = 0; i < RATE_TABLE_SIZE; ++i) {
-		if (!*rate_table[i].name || !rate_table[i].pc_killed)
+		if (rate_table[i].name == NULL)
 			continue;
-		char_printf(ch, "%s\t\t|\t%d\n\r", rate_table[i].name, 
+		char_printf(ch, "%-24s| %d\n\r", rate_table[i].name, 
 					rate_table[i].pc_killed);
 	}
 	char_printf(ch, "\n\rYou have killed {R%d{x players.\n\r", ch->pcdata->pc_killed);
