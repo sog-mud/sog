@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.175 2001-01-23 21:47:00 fjoe Exp $
+ * $Id: interp.c,v 1.176 2001-05-09 13:15:43 kostik Exp $
  */
 
 /***************************************************************************
@@ -253,15 +253,6 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 			act_puts("You step out of shadows.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			act("$n steps out of shadows.",
-			    ch, NULL, NULL, TO_ROOM);
-		}
-
-		if (HAS_INVIS(ch, ID_IMP_INVIS)
-		&&  min_pos == POS_FIGHTING) {
-			affect_bit_strip(ch, TO_INVIS, ID_IMP_INVIS);
-			act_puts("You fade into existence.",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			act("$n fades into existence.",
 			    ch, NULL, NULL, TO_ROOM);
 		}
 	}

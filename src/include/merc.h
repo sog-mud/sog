@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.322 2001-04-03 14:44:32 cs Exp $
+ * $Id: merc.h,v 1.323 2001-05-09 13:15:35 kostik Exp $
  */
 
 /***************************************************************************
@@ -2143,7 +2143,7 @@ const char *	one_argument	(const char *argument, char *arg_first, size_t);
 const char *	first_arg	(const char *argument, char *arg_first, size_t,
 				 bool fCase);
 
-int  	get_resist	(CHAR_DATA *ch, int dam_class);
+int	get_resist	(CHAR_DATA *ch, int dam_class);
 int	get_luck	(CHAR_DATA *ch);
 void	yell		(CHAR_DATA *victim, CHAR_DATA *ch, const char * argument);
 
@@ -2257,7 +2257,7 @@ int	number_percent	(void);
 int	number_door	(void);
 int	number_bits	(int width);
 int	dice		(int number, int size);
-int 	dice_wlb	(int number, int dice, CHAR_DATA *ch, CHAR_DATA *victim);
+int	dice_wlb	(int number, int dice, CHAR_DATA *ch, CHAR_DATA *victim);
 /* Dice with luck bonus */
 int	interpolate	(int level, int value_00, int value_32);
 char *	capitalize	(const char *str);
@@ -2289,7 +2289,7 @@ void		do_music	(CHAR_DATA *ch, const char *argument);
 void		do_gossip	(CHAR_DATA *ch, const char *argument);
 CHAR_DATA*	leader_lookup	(CHAR_DATA *ch);
 const char *	garble		(CHAR_DATA *ch, const char *txt);
-void 		do_tell_raw	(CHAR_DATA *ch, CHAR_DATA *victim,
+void		do_tell_raw	(CHAR_DATA *ch, CHAR_DATA *victim,
 				 const char *msg);
 #define	is_same_group(ach, bch) (leader_lookup(ach) == leader_lookup(bch))
 void	do_who_raw	(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output);
@@ -2323,6 +2323,8 @@ const char *get_cond_alias(OBJ_DATA *obj);
 void gain_exp		(CHAR_DATA *ch, int gain);
 void advance_level	(CHAR_DATA *ch);
 void delevel		(CHAR_DATA *ch);
+
+void make_visible(CHAR_DATA *ch, bool at_will);
 
 bool (*olc_interpret)(DESCRIPTOR_DATA *d, const char *argument);
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.371 2001-04-03 14:44:32 cs Exp $
+ * $Id: act_info.c,v 1.372 2001-05-09 13:15:37 kostik Exp $
  */
 
 /***************************************************************************
@@ -4235,7 +4235,8 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	}
 
 	if (IS_SET(ch->comm, COMM_LONG)) {
-		if (HAS_INVIS(victim, ID_INVIS))
+		if (HAS_INVIS(victim, ID_INVIS)
+		|| HAS_INVIS(victim, ID_IMP_INVIS))
 			buf_append(output, "({yInvis{x) ");
 		if (HAS_INVIS(victim, ID_HIDDEN))
 			buf_append(output, "({DHidden{x) ");
@@ -4251,8 +4252,6 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			buf_append(output, "({DUndead{x) ");
 		if (RIDDEN(victim))
 			buf_append(output, "({GRidden{x) ");
-		if (HAS_INVIS(victim, ID_IMP_INVIS))
-			buf_append(output, "({bImproved{x) ");
 		if (IS_EVIL(victim) && HAS_DETECT(ch, ID_EVIL))
 			buf_append(output, "({RRed Aura{x) ");
 		if (IS_GOOD(victim) && HAS_DETECT(ch, ID_GOOD))
@@ -4261,9 +4260,9 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			buf_append(output, "({WWhite Aura{x) ");
 		if (IS_AFFECTED(victim, AFF_BLACK_SHROUD))
 			buf_append(output, "({DBlack Aura{x) ");
-		if (HAS_INVIS(victim, ID_FADE)) 
+		if (HAS_INVIS(victim, ID_FADE))
 			buf_append(output, "({yFade{x) ");
-		if (HAS_INVIS(victim, ID_CAMOUFLAGE)) 
+		if (HAS_INVIS(victim, ID_CAMOUFLAGE))
 			buf_append(output, "({gCamf{x) ");
 		if (HAS_INVIS(victim, ID_BLEND))
 			buf_append(output, "({gBlending{x) ");
@@ -4277,16 +4276,16 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		bool diff;
 
 		strnzcpy(buf, sizeof(buf), FLAGS);
-		FLAG_SET( 5, 'I', HAS_INVIS(victim, ID_INVIS));
+		FLAG_SET( 5, 'I', HAS_INVIS(victim, ID_INVIS)
+		|| HAS_INVIS(victim, ID_IMP_INVIS));
 		FLAG_SET( 8, 'H', HAS_INVIS(victim, ID_HIDDEN));
-		FLAG_SET(11, 'C', IS_AFFECTED(victim, AFF_CHARM) 
+		FLAG_SET(11, 'C', IS_AFFECTED(victim, AFF_CHARM)
 				  && HAS_DETECT(ch, ID_CHARM));
 		FLAG_SET(14, 'T', IS_AFFECTED(victim, AFF_PASS_DOOR));
 		FLAG_SET(17, 'P', IS_AFFECTED(victim, AFF_FAERIE_FIRE));
 		FLAG_SET(20, 'U', IS_SET(victim->form, FORM_UNDEAD) &&
 				  HAS_DETECT(ch, ID_UNDEAD));
 		FLAG_SET(23, 'R', RIDDEN(victim));
-		FLAG_SET(26, 'I', HAS_INVIS(victim, ID_IMP_INVIS));
 		FLAG_SET(29, 'E', IS_EVIL(victim) &&
 				  HAS_DETECT(ch, ID_EVIL));
 		FLAG_SET(32, 'G', IS_GOOD(victim) &&

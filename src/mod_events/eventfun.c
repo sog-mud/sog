@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.23 2001-01-12 15:33:49 cs Exp $
+ * $Id: eventfun.c,v 1.24 2001-05-09 13:15:40 kostik Exp $
  */
 
 
@@ -190,12 +190,12 @@ EVENT_FUN(event_update_espirit)
 
 EVENT_FUN(event_leave_lshield)
 {
-	if (ch == af->owner) affect_strip_room(ch->in_room, af->type);	
+	if (ch == af->owner) affect_strip_room(ch->in_room, af->type);
 }
 
 EVENT_FUN(event_enter_rlight)
 {
-	dofun("visible", ch, str_empty);
+	make_visible(ch, FALSE);
 }
 
 EVENT_FUN(event_update_rlight)

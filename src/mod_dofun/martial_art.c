@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.176 2001-02-28 19:59:36 fjoe Exp $
+ * $Id: martial_art.c,v 1.177 2001-05-09 13:15:38 kostik Exp $
  */
 
 /***************************************************************************
@@ -3373,7 +3373,7 @@ void do_truesight(CHAR_DATA *ch, const char *argument)
 
 	if (number_percent() < chance) {
 		AFFECT_DATA af;
-	
+
 		af.where    = TO_DETECTS;
 		af.type     = "truesight";
 		af.level    = ch->level;

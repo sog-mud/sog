@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.235 2001-04-03 14:44:34 cs Exp $
+ * $Id: spellfun.c,v 1.236 2001-05-09 13:15:41 kostik Exp $
  */
 
 /***************************************************************************
@@ -4017,7 +4017,7 @@ void spell_stalker(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	stalker->gold = 0;
 	stalker->silver = 0;
 	stalker->affected_by |= (ID_ALL_INVIS | ID_EVIL | ID_MAGIC | ID_GOOD);
-	
+
 	NPC(stalker)->target = victim;
 	free_string(stalker->clan);
 	stalker->clan   = str_qdup(ch->clan);
@@ -5169,8 +5169,10 @@ scream_cb(void *vo, va_list ap)
 		scream_effect(vch, level/2, dam/4);
 	else
 		scream_effect(vch, level, dam);
+
 	if (vch->fighting)
 		stop_fighting(vch, TRUE);
+
 	return NULL;
 }
 
@@ -6318,35 +6320,6 @@ void spell_improved_invis(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.owner	= NULL;
 	affect_to_char(victim, &af);
 	act_char("You fade out of existence.", victim);
-}
-
-void spell_improved_detect(const char *sn, int level, CHAR_DATA *ch, void *vo) 
-{
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	AFFECT_DATA af;
-
-	if (HAS_DETECT(victim, ID_IMP_INVIS)) {
-		if (victim == ch)
-			act_char("You can already see improved invisible.", ch);
-		else {
-			act("$N can already see improved invisible.",
-			    ch, NULL, victim, TO_CHAR);
-		}
-		return;
-	}
-
-	af.where	= TO_DETECTS;
-	af.type		= sn;
-	af.level	= level;
-	af.duration	= level / 3;
-	af.modifier	= 0;
-	INT(af.location)= APPLY_NONE;
-	af.bitvector	= ID_IMP_INVIS;
-	af.owner	= NULL;
-	affect_to_char(victim, &af);
-	act_char("Your eyes tingle.", victim);
-	if (ch != victim)
-		act_char("Ok.", ch);
 }
 
 void spell_randomizer(const char *sn, int level, CHAR_DATA *ch, void *vo)

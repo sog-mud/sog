@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.293 2001-04-03 14:44:34 cs Exp $
+ * $Id: fight.c,v 1.294 2001-05-09 13:15:40 kostik Exp $
  */
 
 /***************************************************************************
@@ -1039,10 +1039,11 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 	}
 
 	/*
-	 * No one in combat can hide, be invis or camoed.
+	 * No one in combat can hide, be invis or camoed. But can be
+	 * imp invis.
 	 */
-	if (HAS_INVIS(ch, ID_ALL_INVIS))
-		dofun("visible", ch, str_empty);
+	if (HAS_INVIS(ch, ID_ALL_INVIS & ~ID_IMP_INVIS))
+		make_visible(ch, FALSE);
 
 	/*
 	 * strip sneak

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.283 2001-02-18 10:20:15 fjoe Exp $
+ * $Id: handler.c,v 1.284 2001-05-09 13:15:42 kostik Exp $
  */
 
 /***************************************************************************
@@ -246,7 +246,7 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 	&&   obj->item_type == ITEM_LIGHT
 	&&   INT(obj->value[2]) != 0)
 		++ch->in_room->light;
-		
+
 	if (pRoomIndex->affected) {
 		if (IS_IMMORTAL(ch))
 			dofun("raffects", ch, str_empty);
@@ -274,7 +274,7 @@ void obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch)
 	obj->carried_by		= ch;
 	obj->in_room		= NULL;
 	obj->in_obj		= NULL;
-	
+
 	if (obj->last_owner && !IS_NPC(ch) && obj->last_owner != ch) {
 		name_add(&PC(obj->last_owner)->enemy_list, ch->name, NULL,NULL);
 		PC(ch)->last_offence = current_time;
@@ -381,7 +381,7 @@ OBJ_DATA *get_eq_char(CHAR_DATA *ch, int iWear)
 	if (ch == NULL)
 		return NULL;
 
-	if (ch->shapeform) 
+	if (ch->shapeform)
 		return NULL;
 
 	for (obj = ch->carrying; obj != NULL; obj = obj->next_content)
@@ -1545,12 +1545,15 @@ bool can_see_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	CHAR_DATA *vch;
+	flag_t ch_can_see = ch->has_detect;
+	if (ch_can_see & ID_INVIS)
+		ch_can_see |= ID_IMP_INVIS;
 
 	if (ch == NULL || victim == NULL) {
 		log(LOG_BUG, "can_see: ch = %p, victim = %p", ch, victim);
 		return FALSE;
 	}
-	
+
 	vch = GET_ORIGINAL(ch);
 	if (ch == victim || vch == victim)
 		return TRUE;
@@ -1593,7 +1596,7 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (room_is_dark(ch) && !HAS_DETECT(ch, ID_INFRARED))
 		return FALSE;
 
-	if ((victim->has_invis & ID_ALL_INVIS & ~ch->has_detect) != 0)
+	if ((victim->has_invis & ID_ALL_INVIS & ~ch_can_see) != 0)
 		return FALSE;
 
 	return TRUE;
@@ -4536,6 +4539,46 @@ label_add(OBJ_DATA *obj, const char *label)
 	const char *p = obj->label;
 	obj->label = str_printf("%s %s", obj->label, label);
 	free_string(p);
+}
+
+void
+make_visible(CHAR_DATA *ch, bool at_will)
+{
+	if (HAS_INVIS(ch, ID_HIDDEN | ID_FADE)) {
+		REMOVE_INVIS(ch, ID_HIDDEN | ID_FADE);
+		act_puts("You step out of shadows.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		act_puts("$n steps out of shadows.",
+			 ch, NULL, NULL, TO_ROOM, POS_RESTING);
+	}
+
+	if (HAS_INVIS(ch, ID_CAMOUFLAGE | ID_BLEND)) {
+		REMOVE_INVIS(ch, ID_CAMOUFLAGE | ID_BLEND);
+		affect_bit_strip(ch, TO_INVIS, ID_BLEND);
+		act_puts("You step out from your cover.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		act("$n steps out from $m's cover.",
+		    ch, NULL, NULL, TO_ROOM);
+	}
+
+	if (HAS_INVIS(ch, ID_INVIS)) {
+		REMOVE_INVIS(ch, ID_INVIS);
+		affect_bit_strip(ch, TO_INVIS, ID_INVIS);
+		act_puts("You fade into existence.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		act("$n fades into existence.", ch, NULL, NULL, TO_ROOM);
+	}
+
+	if (!at_will)
+		return;
+
+	if (HAS_INVIS(ch, ID_IMP_INVIS)) {
+		REMOVE_INVIS(ch, ID_IMP_INVIS);
+		affect_bit_strip(ch, TO_INVIS, ID_IMP_INVIS);
+		act_puts("You fade into existence.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		act("$n fades into existence.", ch, NULL, NULL, TO_ROOM);
+	}
 }
 
 /*--------------------------------------------------------------------

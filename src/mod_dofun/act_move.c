@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.254 2001-04-03 14:44:33 cs Exp $
+ * $Id: act_move.c,v 1.255 2001-05-09 13:15:38 kostik Exp $
  */
 
 /***************************************************************************
@@ -1391,39 +1391,18 @@ void do_acute(CHAR_DATA *ch, const char *argument)
 /*
  * Contributed by Alander
  */
-void do_visible(CHAR_DATA *ch, const char *argument)
+
+void
+do_visible(CHAR_DATA *ch, const char *argument)
 {
-	if (HAS_INVIS(ch, ID_HIDDEN | ID_FADE)) {
-		REMOVE_INVIS(ch, ID_HIDDEN | ID_FADE);
-		act_puts("You step out of shadows.",
-			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		act_puts("$n steps out of shadows.",
-			 ch, NULL, NULL, TO_ROOM, POS_RESTING);
-	}
-
-	if (HAS_INVIS(ch, ID_CAMOUFLAGE | ID_BLEND)) {
-		REMOVE_INVIS(ch, ID_CAMOUFLAGE | ID_BLEND);
-		affect_bit_strip(ch, TO_INVIS, ID_BLEND);
-		act_puts("You step out from your cover.",
-			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		act("$n steps out from $m's cover.",
-		    ch, NULL, NULL, TO_ROOM);
-	}
-
-	if (HAS_INVIS(ch, ID_INVIS | ID_IMP_INVIS)) {
-		REMOVE_INVIS(ch, ID_INVIS | ID_IMP_INVIS);
-		affect_bit_strip(ch, TO_INVIS, ID_INVIS | ID_IMP_INVIS);
-		act_puts("You fade into existence.",
-			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		act("$n fades into existence.", ch, NULL, NULL, TO_ROOM);
-	}
+	make_visible(ch, TRUE);
 }
 
 void do_recall(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *location;
 	CHAR_DATA *pet;
- 
+
 	if (IS_NPC(ch)) {
 		act_char("Only players can recall.", ch);
 		return;
