@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.71 2000-06-05 12:06:14 fjoe Exp $
+# $Id: Makefile,v 1.72 2000-06-05 12:20:12 fjoe Exp $
 #
 
 # sog should be the first!
@@ -11,7 +11,7 @@ HFILES=		abi_version.h module_decl.h
 
 depend: ${HFILES} _SUBDIRUSE
 
-clean: _SUBDIRUSE
+cleandepend: _SUBDIRUSE
 	rm -f ${HFILES} module_decl.c
 
 abi_version.h: Makefile.inc
