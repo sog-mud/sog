@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.110 1999-04-15 09:14:17 fjoe Exp $
+ * $Id: save.c,v 1.111 1999-04-15 09:41:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -165,7 +165,6 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 	fwrite_string(fp, "Name", ch->name);
 	mlstr_fwrite(fp, "ShD", ch->short_descr);
 	fprintf(fp, "LogO %ld\n", current_time);
-	fprintf(fp, "Vers %d\n", 6);
 	fprintf(fp, "Ethos %s\n", flag_string(ethos_table, ch->ethos));
 	fwrite_string(fp, "Hometown", hometown_name(ch->hometown));
 
