@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.55.2.3 2002-09-01 16:56:57 tatyana Exp $
+ * $Id: olc_obj.c,v 1.55.2.4 2004-02-17 22:27:56 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -297,9 +297,9 @@ OLC_FUN(objed_show)
 		buf_printf(output, "[%4d] %12.12s %8d %7.7s %s"
 				   "\n",
 			   cnt,
-			   (paf->location > 0)? 
-			       flag_string(apply_flags, paf->location):
-			       skill_name(-(paf->location)),
+			   paf->where == TO_SKILLS ?
+			       skill_name(-(paf->location)) :
+			       flag_string(apply_flags, paf->location),
 			   paf->modifier,
 			   flag_string(apply_types, paf->where),
 			   w ? flag_string(w->table, paf->bitvector) : "none");
@@ -505,10 +505,9 @@ OLC_FUN(objed_addaffect)
 	}
 
 	if (wh[0] == '\0') {
-		where = (location < 0) ? TO_SKILLS : -1;
+		where = (location < 0) ? TO_SKILLS : TO_OBJECT;
 		bitvector = 0;
-	}
-	else {
+	} else {
 		where_t *w;
 
 		if ((where = flag_value(apply_types, wh)) < 0) {
