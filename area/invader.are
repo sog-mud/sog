@@ -1,6 +1,6 @@
 #AREADATA
 Name Invader~
-VNUMs 95600 95609
+VNUMs 95600 95629
 Credits Asena~
 Security 9
 LevelRange 90 100
@@ -85,7 +85,7 @@ G female
 #95603
 white object portal~
 @eng white portal@rus ~~белый~~ ~~портал~~~
-@eng Three magically created objects ({Wwhite{x, {Ggreen{x and {Ddark{x)                            casts strange shadows across the clearing.@rus Три магических объекта ({Wwhite{x, {Ggreen{x и {Ddark{x) мерцают вокруг алтаря.~
+@eng Three magically created objects ({Wwhite{x, {Ggreen{x and {Ddark{x)                            casts strange shadows across the clearing.@rus Три магических объекта ({Wwhite{x, {Ggreen{x и {Ddark{x) мерцают неподалеку.~
 energy~
 portal 0 0
 0 0 B 95600 0
@@ -126,118 +126,148 @@ G female
 @eng You are standing near a ruined stone well blocked by a big boulder on
 the well mouth. A cold breeze of fear, sweeps your face, as you feel the 
 shadows watching you!
-@rus Вы стоите возле разрушенного каменного колодца, зев которого загораживает огромный валун. Вы испытываете страх, понимая что призраки следят за вами.
+@rus Ты стоишь у разрушенного каменного колодца, зев которого прикрыт огромным
+валуном.  Вдруг, холодок страха плеснул тебе в лицо - ты почуствовал, что
+тени следят за тобой.  
 ~
 0 ACDK inside
 D0
 ~
 ~
-Z 0 16081
+DZ 0 16081
 D5
-A dim light of a flickering torch hits the southern wall of the well, 
+@eng A dim light of a flickering torch hits the southern wall of the well,
 far down the stone pipe.
+@rus Мерцающий свет догорающего факела отражаясь от южной стены колодца, погложается пастью небольшого туннеля.
 ~
-enterance~
-ABGZ -1 95601
+entrance~
+ABDZ 0 95601
 S
 #95601
 @eng Bottom of the Well@rus На дне колодца~
-This place is dimly lit by a flickering torch from a doorway leading north.
+@eng This place is dimly lit by a flickering torch from a doorway leading north.
 A shadow from fire light dances on the far northern wall, which seems to 
 belong a strong human. Better consider going further, and climb back the 
 well.
+@rus Свет факела мерцающего наверху, едва достигает дна колодца.  Начинающийся
+у северной стены туннель уходит резко вниз.  Над ним, на стене, ты
+различаешь силуэт рожденный тенями и багровым светом из глубины, похожий на
+огромного человека.  Лучше оставь попытки померятся с ним силами на будущее
+и выбирайся из колодца.  
 ~
 0 ACDK inside
 D0
-The doorway leads to a well lit chamber. On the wall is a huge shadow.
+@eng The doorway leads to a well lit chamber. On the wall is a huge shadow.
+@rus Путь ведет в хорошо освещенный зал.  На стене перед входом видна огромая
+тень.  
 ~
 ~
 Z -1 95602
 D4
-You can only see the opening of the well.
 ~
-enterance~
-ABGZ -1 95600
+~
+ABDZ 0 95600
 S
 #95602
 @eng The bottomless pit@rus Бездонная яма~
-You fall, forever downwards into the bottomless pit. About you blackness
+@eng You fall, forever downwards into the bottomless pit. About you blackness
 races, with no sign of a wall for support. You look up and see the same
 nothingness as you do downward. What awaits you at the bottom? Will you
 ever reach it?
+@rus Ты провалился в яму, кажущуюся бездонной.  Двигаясь во тьме, ты не можешь
+найти ничего, что могло бы помочь выкарабкаться.  Не видя другого выхода ты
+продолжаешь спускаться вниз.  Что ждет тебя на дне?  Кто знает?  
 ~
 0 ADN inside
 D5
-Falling further into the black pit
+@eng Falling further into the black pit
+@rus Провал уводит дальше, в черную яму.
 ~
 ~
-Z 0 95604
+Z 0 95603
 S
 #95603
-The bottomless pit~
-You fall, forever downwards into the bottomless pit. About you blackness
+@eng The bottomless pit@rus Бездонная яма~
+@eng You fall, forever downwards into the bottomless pit. About you blackness
 races, with no sign of a wall for support. You look up and see the same
 nothingness as you do downward. What awaits you at the bottom? Will you
 ever reach it?
+@rus   Ты провалился в яму, кажущуюся бездонной.  Двигаясь во тьме, ты не можешь
+найти ничего, что могло бы помочь выкарабкаться.  Не видя другого выхода ты
+продолжаешь спускаться вниз.  Что ждет тебя на дне?  Кто знает?
 ~
 0 ADN inside
 D5
-Falling further into the black pit
+@eng Falling further into the black pit
+@rus Провал уводит дальше, в черную яму.
 ~
 ~
 Z 0 95604
 S
 #95604
 @eng The bottomless pit@rus Бездонная яма~
-You fall, forever downwards into the bottomless pit. About you blackness
+@eng You fall, forever downwards into the bottomless pit. About you blackness
 races, with no sign of a wall for support. You look up and see the same
 nothingness as you do downward. What awaits you at the bottom? Will you
 ever reach it?
+@rus   Ты провалился в яму, кажущуюся бездонной.  Двигаясь во тьме, ты не можешь
+найти ничего, что могло бы помочь выкарабкаться.  Не видя другого выхода ты
+продолжаешь спускаться вниз.  Что ждет тебя на дне?  Кто знает?
 ~
 0 ADN inside
 D5
-Falling further into the black pit
+@eng Falling further into the black pit
+@rus Провал уводит дальше, в черную яму.
 ~
 ~
 Z 0 95605
 S
 #95605
 @eng The bottomless pit@rus Бездонная яма~
-You fall, forever downwards into the bottomless pit. About you blackness
+@eng You fall, forever downwards into the bottomless pit. About you blackness
 races, with no sign of a wall for support. You look up and see the same
 nothingness as you do downward. What awaits you at the bottom? Will you
 ever reach it?
+@rus   Ты провалился в яму, кажущуюся бездонной.  Двигаясь во тьме, ты не можешь
+найти ничего, что могло бы помочь выкарабкаться.  Не видя другого выхода ты
+продолжаешь спускаться вниз.  Что ждет тебя на дне?  Кто знает?
 ~
 0 ADN inside
 D5
-Falling further into the black pit
+@eng Falling further into the black pit
+@rus Провал уводит дальше, в черную яму.
 ~
 ~
 Z 0 95606
 S
 #95606
 @eng The bottomless pit@rus Бездонная яма~
-You fall, forever downwards into the bottomless pit. About you blackness
+@eng You fall, forever downwards into the bottomless pit. About you blackness
 races, with no sign of a wall for support. You look up and see the same
 nothingness as you do downward. What awaits you at the bottom? Will you
 ever reach it? Desperately you pray for deliverence- you dont know if you
 have been heard.
+@rus  Ты провалился в яму, кажущуюся бездонной.  Двигаясь во тьме, ты не
+можешь найти ничего, что могло бы помочь выкарабкаться.  Не видя другого
+выхода ты продолжаешь спускаться вниз.  ЧТО ждет тебя на дне?  Ты отчаянно
+молишь об освобождении - безнадежно.  Кто услышит тебя?  
 ~
-0 ADK inside
+0 ADKN inside
 D5
-Falling further into the black pit or to the death.
+@eng Falling further into the black pit or to the death.
+@rus Провал уводит дальше, в черную яму и смерти.
 ~
 ~
 Z 0 95607
 S
 #95607
-Shadowy chambers~
+@eng Shadowy chambers@rus Зал теней~
 @eng You are inside chamber, with dancing shadows on the walls. The walls are
 almost black in colour. It's as if it has been burnt by a powerful spell.
 The walls has small cracks along it and there are many symbols on them,
 mostly about death, eg. skulls, demon claws, fangs...
-@rus Ты попал в зал с танцующими на стенах тенями.  Их черные камни несут на
-себе следы мощнейшей магии.  Повсюду высечены изображения демонов, черепов,
+@rus Ты попал в зал с танцующими на стенах тенями.  Черные камни несут на себе
+следы мощнейшей магии.  Повсюду высечены изображения демонов, черепов,
 клыков...  Ты вспомнил о смерти...  К чему бы это?  
 ~
 0 ADK inside
@@ -263,7 +293,7 @@ It's dark to tell anything.
 Z -1 95607
 S
 #95608
-The Pentagram~
+@eng The Pentagram@rus Пентаграмма~
 @eng Now, you have stepped into a large chamber hewn of black stone. A black
 altar rises from the space between the line in the center of pentagram. At
 the center of the pentagram, you see a human skull is on a huge altar. The
@@ -289,7 +319,7 @@ DZ -1 95607
 M 110 H 100
 S
 #95609
-The Battle Field~
+@eng The Battle Field@rus Арена~
 @eng Most probably you fled here, if you are not a cabal member of INVADERS.
 Thus the darkness of the room horrifies you. While waiting the time
 that your adrenalin will calm down, you want to rest. But you know that

@@ -136,7 +136,7 @@ BaseLen -1
 Form 1 -и~
 Form 2 -е~
 Form 3 -у~
-Form 4 -ей~
+Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
 End
@@ -175,6 +175,17 @@ Form 6 -у~
 End
 
 #RULE
+Name -а~
+BaseLen -1
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name -ик~
 Form 1 -а~
 Form 2 -у~
@@ -196,14 +207,14 @@ Form 6 -ка~
 End
 
 #RULE
-Name -це~
+Name -ия~
 BaseLen -1
-Form 1 -а~
-Form 2 -у~
-Form 3 -е~
-Form 4 -ем~
-Form 5 -е~
-Form 6 -е~
+Form 1 -и~
+Form 2 -и~
+Form 3 -ю~
+Form 4 -ей~
+Form 5 -и~
+Form 6 -ю~
 End
 
 #RULE
@@ -218,25 +229,14 @@ Form 6 -е~
 End
 
 #RULE
-Name -о~
+Name -це~
 BaseLen -1
 Form 1 -а~
 Form 2 -у~
-Form 3 -о~
-Form 4 -ом~
+Form 3 -е~
+Form 4 -ем~
 Form 5 -е~
-Form 6 -о~
-End
-
-#RULE
-Name -ия~
-BaseLen -1
-Form 1 -и~
-Form 2 -и~
-Form 3 -ю~
-Form 4 -ей~
-Form 5 -и~
-Form 6 -ю~
+Form 6 -е~
 End
 
 #$

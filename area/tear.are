@@ -343,7 +343,7 @@ stand stand male 0
 #OBJECTS
 #110000
 Beautiful fountain~
-{CBeautiful {Wfountain{x~
+{BBeautiful{x {Wfountain{x~
 @eng {CBeautiful {Wfountain{x gushes forth here.@rus {CBeautiful {Wfountain{x gushes forth here.~
 water~
 fountain 0 0
@@ -8071,7 +8071,7 @@ E 0 110188 0 6		*	hat with bright feather: over the head
 E 0 110192 0 12		*	dusty cloak: about the shoulders
 O 0 110162 0 110244	* portal stone ()
 M 0 110183 1 110481 1	* innkeeper (Bar)
-O 0 110000 0 110481	* {CBeautiful {Wfountain{x (Bar)
+O 0 110000 0 110481	* {BBeautiful{x {Wfountain{x (Bar)
 O 0 110160 0 110482	* wooden bed (Bedroom)
 S
 

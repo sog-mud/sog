@@ -111,6 +111,10 @@ unknown~
 armor 0 AB
 0 0 0 0 0
 96 0 0 P
+A
+19 150
+A
+18 300
 F
 A 0 0 H
 A
@@ -235,6 +239,19 @@ E
 statue~
 Under construction
 ~
+G none
+#44013
+great ring jafar power~
+ring of jafar power~
+a small obidian ring lies here.~
+obsidian~
+armor 0 AB
+0 0 0 0 0
+50 0 0 P
+A
+20 15
+A
+19 5
 G none
 #0
 

@@ -94,6 +94,33 @@ stand stand none 10000
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
+#38007
+varafinij~
+Varafinij~
+Varafinij is snooping here .
+~
+It's him !!!
+~
+troll~
+0 DFHV 0 0
+35 30 1d1+4000 1d1+1000 1d1+40 pound
+-10 -10 -10 -10
+0 BU 0 0
+stand stand none 10000
+0 0 medium unknown
+#38008
+demon of second circle red dragon~
+{RRED DRAGON{x~
+{RRed Dragon of Infererno{x
+~
+~
+red dragon~
+BCGQRT DFHUVcl 0 0
+100 800 1d1+30000 1d1+30000 1d1+500 flame
+-100 -100 -100 -100
+AEFHKO BU 0 0
+stand stand none 999999
+0 0 medium unknown
 #38102
 ded moroz~
 @eng {CFather Frost{x@rus {CДед Мороз{x~
@@ -506,6 +533,57 @@ A
 A
 13 30
 G none
+#38026
+first divine power helm~
+Helm of Divine Power~
+Divine Helm lies here in a dust ...~
+unknown~
+armor IRYa AE
+20 20 20 20 0
+35 1 1 P
+A
+13 -10
+A
+19 3
+A
+18 3
+A
+5 1
+A
+4 1
+A
+2 1
+A
+1 1
+G none
+#38027
+proba~
+1~
+1~
+unknown~
+armor 0 AO
+0 0 0 0 0
+0 1 1 P
+A
+8 8
+G none
+#38028
+first power dragon skull~
+Dragons Skull~
+Skull lies here ...~
+unknown~
+armor HRa AE
+20 20 20 20 0
+91 1 100 P
+A
+19 20
+A
+18 20
+A
+12 500
+A
+13 500
+G none
 #38095
 {rБольшой пионерский БАРАБАН{w dark glass~
 dark glass~
@@ -641,6 +719,13 @@ Wooden floor is clearned by barmen. The room is lighted by tourches.
 над входом. Тут всегда можно отдохнуть, развлечься, выпить и закусить.
 ~
 0 CK inside
+S
+#38201
+@eng Arena@rus Арена Испытаний~
+@eng Wild 
+@rus Жутковатое место ... Тут Боги испытывают силу и ум смертных ...
+~
+0 AQ inside
 S
 #38500
 @eng The Gates of Nightmare@rus Врата ужаса~
@@ -980,6 +1065,7 @@ O 38017 1	* Blessed Shield of Gods
 O 38018 1	* {YBlessed {WHelm {xof Honor
 O 38019 1	* {RBlessed Ring of Life{x
 O 38020 1	* {YBlessed Belt of Truth{x
+O 38028 5	* Dragons Skull
 S
 
 #MOBPROGS

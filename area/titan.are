@@ -3275,12 +3275,18 @@ To the main corridor.
 Z 0 18041
 S
 #18045
-The Main Road Continues~
-Yes, once again the main road continues. You notice to the east there is 
+@eng The Main Road Continues@rus Главная Дорога продолжается~
+@eng Yes, once again the main road continues. You notice to the east there is 
 a Chocolate Shoppe and to the west, a fancy bar named The Blue Rabbit. 
 You cannot chose which you want to see first. But wait.. You wanted to find 
 an Inn! Perhaps the chocolate and the drinks can wait for another day... 
 Maybe not! The exits are in all directions: north, south, east, and west.
+@rus Да, дорога все еще продолжается. Вы замечаете на Востоке Шоколадный магазин
+и на Западе изысканный бар с названием "Синий Кролик". Вы не можете выбрать,
+куда хотите заглянуть сначала. Но подождите... Вы же хотели найти Постоялый
+Двор! Возможно шоколад и выпивка могут подождать и другого раза,.. а может
+быть и нет! Выходы ведут во всех направлениях: Север (North), Юг (South),
+Восток (East) и Запад (West).
 ~
 0 AS inside
 D0
@@ -3340,12 +3346,17 @@ To the road.
 Z 0 18045
 S
 #18049
-The Town Center~
-You have entered the town center, an major intersection in the roads. 
+@eng The Town Center@rus Центр Города~
+@eng You have entered the town center, an major intersection in the roads. 
 You see by the signs that mark the streets that if you followed the road west 
 it would take you to the palace, south would take you along the southern main 
 roads, and east would take you to several other intersections and shops. Which
 way shall you chose? North, East, South or West?
+@rus Вы дошли да центра города, основного пересечения дорог. Исходя из табличек,
+развешанных по улицам, Вы видите, что если последуете дорогой на Запад (West),
+она приведет вас к Дворцу, на Юг (South) Вы пойдете вдоль главной южной улицы,
+а на востоке (East) будут еще перекрестки и магазины. Какое же направление
+выбрать? Север, Восток, Юг, Запад?
 ~
 0 AS city
 D0
@@ -3368,12 +3379,18 @@ D3
 Z 0 18074
 S
 #18050
-The Southern Main Street~
-You have reached the Southern Main Street. Shops line this road ten times 
+@eng The Southern Main Street@rus Главная Южная Улица~
+@eng You have reached the Southern Main Street. Shops line this road ten times 
 more  then they did the others. You notice many people everywhere, enjoying 
 the glorious day. To the east there is an icecream shoppe. To the west you 
 see an brightly colored store called The Red Dragon. You wonder what sorts of 
 things you may find there! Exits are north, east, west, and south.
+@rus Вы дошли до Главной Южной Улицы. Магазинов тут раз в десять больше. чем
+где-либо в другом месте. Вы замечаете повсюду много людей, наслождающихся
+чудесным деньком. На востоке (East) расположено Кафе Мороженное, на Западе
+(West) Вы видите ярко раскрашенную лавку с названием "Красный Дракон".
+Представляете, сколько различных вещей, можно найти там! Выходы ведут на
+Север, Восток, Запад и Юг.
 ~
 0 AS forest
 D0
@@ -3455,11 +3472,16 @@ The Red Dragon.
 Z 0 18052
 S
 #18054
-Along The Southern Main Street~
-You continue walking down the road and notice that a rare Apiarist shop lies 
+@eng Along The Southern Main Street@rus Вдоль Главной Южной Улицы~
+@eng You continue walking down the road and notice that a rare Apiarist shop lies 
 to the west. To the east you see a beautiful Florist shop, selling the most 
 beautiful flowers you have ever seen. To street continues in a north south 
 direction, with to the east a Florist and to the west and Apiarist.
+@rus Вы продолжаете идти дальше по дороге и замечаете редкий пчеловодный магазин,
+расположенный на Западе. На Востоке Вы видите великолепный цветочный магазин,
+где продаются большинство из где-либо видимых прекраснейших цветов. Улица
+продолжается в Северном (North) и Южном (South) направлениях с цветочным
+магазином на Востоке (East) и пчеловодным на Западе (West).
 ~
 0 AS forest
 D0

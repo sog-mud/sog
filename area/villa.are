@@ -583,6 +583,7 @@ copper~
 key 0 AO
 0 0 0 0 0
 0 1 0 P
+G none
 #24101
 barrel beer~
 a barrel of beer~
@@ -592,6 +593,7 @@ copper~
 drink 0 A
 30 30 'beer' 0 0
 0 60 0 P
+G none
 #24102
 bottle beer~
 a bottle of rough beer~
@@ -600,6 +602,7 @@ copper~
 drink 0 A
 4 4 'beer' 0 0
 0 10 0 P
+G none
 #24103
 bottle ale~
 a bottle of home brew ale~
@@ -608,6 +611,7 @@ copper~
 drink 0 A
 5 5 'ale' 0 0
 0 10 0 P
+G none
 #24104
 bottle firebreather~
 a bottle of rough spirits~
@@ -616,6 +620,7 @@ copper~
 drink 0 A
 8 8 'firebreather' 0 0
 0 10 0 P
+G none
 #24105
 bottle local~
 a bottle of brewer's specialty ("Holy Water")~
@@ -624,6 +629,7 @@ copper~
 drink 0 A
 8 8 'local specialty' 0 0
 0 10 0 P
+G none
 #24106
 torch~
 a torch~
@@ -632,6 +638,7 @@ copper~
 light 0 AQ
 0 0 24 0 0
 0 1 0 P
+G none
 #24107
 lamp~
 a stone lamp~
@@ -640,6 +647,7 @@ copper~
 light 0 AO
 0 0 100 0 0
 0 4 0 P
+G none
 #24108
 brew yellow~
 a yellow brew~
@@ -648,6 +656,7 @@ copper~
 potion G A
 12 'bless' '' '' ''
 5 1 50 P
+G none
 #24109
 skin water buffalo~
 a buffalo water skin~
@@ -656,6 +665,7 @@ copper~
 drink 0 A
 25 25 'water' 0 0
 0 5 0 P
+G none
 #24110
 jug water~
 a jug of water~
@@ -664,6 +674,7 @@ copper~
 drink A A
 60 60 'water' 0 0
 0 85 0 P
+G none
 #24111
 club~
 a heavy lead-sheathed club~
@@ -676,6 +687,7 @@ A
 18 -2
 A
 19 4
+G none
 #24112
 mace~
 a bone mace~
@@ -688,6 +700,7 @@ A
 18 -1
 A
 19 1
+G none
 #24113
 dagger~
 a bronze dagger~
@@ -700,6 +713,7 @@ A
 18 -1
 A
 19 -1
+G none
 #24114
 blade sword~
 a bronze sword~
@@ -712,6 +726,7 @@ A
 18 -2
 A
 19 2
+G none
 #24115
 sandals~
 a pair of sandals~
@@ -720,6 +735,7 @@ copper~
 armor 0 AG
 5 5 5 0 0
 10 15 100 P
+G none
 #24116
 belt~
 a hide belt~
@@ -728,6 +744,7 @@ copper~
 armor 0 AL
 5 5 5 0 0
 10 20 100 P
+G none
 #24117
 bronze helm~
 a bronze helm~
@@ -740,6 +757,7 @@ A
 17 -2
 A
 17 -2
+G none
 #24118
 cloak~
 a rough fur cloak~
@@ -752,6 +770,7 @@ A
 17 -5
 A
 23 -1
+G none
 #24119
 ring~
 a bronze ring~
@@ -760,6 +779,7 @@ copper~
 key A AB
 0 0 0 0 0
 0 1 0 P
+G none
 #24120
 black bread~
 black bread~
@@ -768,6 +788,7 @@ copper~
 food 0 A
 AC 0 0 0 0
 0 3 0 P
+G none
 #24121
 cheese~
 cheese~
@@ -776,6 +797,7 @@ copper~
 food 0 A
 D 0 0 0 0
 0 5 0 P
+G none
 #24122
 dried meat~
 a strip of dried meat~
@@ -784,6 +806,7 @@ copper~
 food 0 A
 BD 0 0 0 0
 0 5 0 P
+G none
 #24123
 egg~
 an egg~
@@ -792,14 +815,16 @@ copper~
 food 0 A
 C 0 0 0 0
 0 5 0 P
+G none
 #24124
-potion~
+potion foul~
 a foul potion~
 A foul potion rolls around here.~
 copper~
 potion ABG A
 10 'invisibility' 'heal' 'fly' ''
 5 2 50 P
+G none
 #24125
 totem~
 the village totem~
@@ -808,6 +833,7 @@ copper~
 furniture 0 0
 0 0 0 0 0
 91 1000 910 P
+G none
 #24126
 wolf head~
 a wolf's head~
@@ -819,6 +845,7 @@ armor 0 AE
 93 75 930 P
 A
 13 250
+G none
 #24127
 club~
 the chief's club~
@@ -834,6 +861,7 @@ A
 19 6
 A
 23 -3
+G none
 #24128
 stick~
 a stick~
@@ -842,6 +870,7 @@ copper~
 weapon 0 AN
 exotic 2 5 pound 0
 4 15 40 P
+G none
 #24129
 wooden club~
 a wooden club~
@@ -852,6 +881,7 @@ exotic 5 11 crush 0
 50 15 500 P
 A
 19 6
+G none
 #24130
 boiled leather jerkin~
 a boiled leather jerkin~
@@ -864,6 +894,7 @@ A
 5 2
 A
 17 -15
+G none
 #24131
 bone bracelet~
 a rune-covered bone bracelet~
@@ -876,6 +907,7 @@ A
 2 1
 A
 18 2
+G none
 #24132
 fur cloak~
 a fur cloak~
@@ -888,6 +920,7 @@ A
 12 25
 A
 17 -5
+G none
 #24133
 helm~
 a boar tusk helm~
@@ -898,6 +931,7 @@ armor 0 AE
 50 10 500 P
 A
 17 -10
+G none
 #24134
 shield~
 an ox-hide shield~
@@ -913,6 +947,7 @@ A
 23 -2
 A
 24 -2
+G none
 #24135
 spear~
 a throwing spear~
@@ -926,6 +961,7 @@ A
 18 2
 A
 19 2
+G none
 #24136
 papyrus~
 a blank papyrus~
@@ -935,6 +971,7 @@ copper~
 scroll 0 AO
 0 '' '' '' ''
 10 1 100 P
+G none
 #24137
 potion~
 a shimmering potion~
@@ -944,6 +981,7 @@ copper~
 potion G AO
 5 'mind light' 'cure poison' 'curse' ''
 5 1 50 P
+G none
 #24138
 gate~
 a stone gate~
@@ -952,6 +990,7 @@ copper~
 jewelry 0 0
 DFHILMNO 0 0 0 0
 48 1 480 P
+G none
 #0
 
 #ROOMS

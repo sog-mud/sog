@@ -1,6 +1,6 @@
 #AREADATA
 Name knight~
-VNUMs 95200 95209
+VNUMs 95200 95229
 Credits Chronos~
 Security 9
 LevelRange 90 100
@@ -297,9 +297,123 @@ D4
 ~
 Z 0 95201
 S
+#95210
+Before the castle~
+~
+0 0 inside
+D0
+~
+~
+Z 0 95211
+S
+#95211
+Entrance to the castle~
+~
+0 0 inside
+D1
+~
+~
+Z 0 95212
+D2
+~
+~
+Z 0 95210
+D3
+~
+~
+DZ 0 95214
+S
+#95212
+Between the wall and moat~
+~
+0 0 inside
+D1
+~
+~
+Z 0 95213
+D3
+~
+~
+Z 0 95211
+S
+#95213
+Stables~
+~
+0 0 inside
+D3
+~
+~
+Z 0 95212
+S
+#95214
+Between the wall and moat~
+~
+0 0 inside
+D0
+~
+~
+Z 0 95215
+D1
+~
+~
+DZ 0 95211
+S
+#95215
+Inner yard~
+~
+0 0 inside
+D0
+~
+~
+Z 0 95216
+D2
+~
+~
+Z 0 95214
+D3
+~
+~
+ABZ 0 95218
+S
+#95216
+Dinner hall~
+~
+0 0 inside
+D0
+~
+~
+Z 0 95217
+D2
+~
+~
+Z 0 95215
+S
+#95217
+Altar~
+~
+0 0 inside
+D2
+~
+~
+Z 0 95216
+S
+#95218
+In the guardtower~
+~
+0 0 inside
+D0
+~
+~
+Z 0 95215
+D1
+~
+~
+Z 0 95214
+S
 #0
 
 #RESETS
+D 0 95215 3 1	* Inner yard: door to the west: closed
 M 0 95201 1 95200 1	* the protector (The Enterance of Castle)
 E 0 95200 0 17		*	a golden key: held in the hands
 O 0 95203 0 95201	* Round Table (Inside the Great Hall)
@@ -312,6 +426,8 @@ M 0 95204 1 95206 1	* the white horse (Horse room)
 M 0 95205 1 95206 1	* the great white horse (Horse room)
 O 0 95205 0 95207	* fountain (Winter garden)
 O 0 95204 0 95207	* statue of King Arthur (Winter garden)
+M 0 95202 2 95213 1	* the stable keeper (Stables)
+M 0 95200 2 95217 1	* A healer (Altar)
 S
 
 #SHOPS
