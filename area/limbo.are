@@ -1269,7 +1269,7 @@ golden mace булава~
 @eng A shiny gold mace is on the ground.@rus Блестящая золотистая булава (mace) лежит на земле.~
 gold~
 weapon AIPTW AN
-mace 8 1 crush 0
+mace 11 1 crush 0
 20 200 0 P
 G female
 #82
