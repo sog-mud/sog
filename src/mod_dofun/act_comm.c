@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.101 1998-10-21 05:00:27 fjoe Exp $
+ * $Id: act_comm.c,v 1.102 1998-10-24 09:00:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -496,6 +496,11 @@ void do_immtalk(CHAR_DATA *ch, const char *argument)
 		 return;
 	}
 
+	if (IS_SET(ch->comm, COMM_NOCHANNELS)) {
+		 char_puts("The gods have revoked your channel privileges.\n\r", ch);
+		 return;
+	}
+	
 	REMOVE_BIT(ch->comm, COMM_NOWIZ);
 
 	act_puts("{W$n{x: {C$t{x", ch, argument, NULL, TO_CHAR, POS_DEAD);

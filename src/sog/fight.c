@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.90 1998-10-22 08:48:11 fjoe Exp $
+ * $Id: fight.c,v 1.91 1998-10-24 09:00:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -720,10 +720,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 			if (IS_WEAPON_STAT(wield,WEAPON_HOLY)
 			&&  IS_GOOD(ch) && IS_EVIL(victim)
 			&&  number_percent() < 30) {
-				act_puts("$p shines with a holy area.",
-					 ch, wield, NULL, TO_CHAR, POS_DEAD);
-				act_puts("$p shines with a holy area.",
-					 ch, wield, NULL, TO_ROOM, POS_DEAD);
+				act_puts("$N's flesh is burned with the holy weapon.", ch, wield, victim, TO_NOTVICT, POS_DEAD);
+				act_puts("Your flesh is burned with the holy weapon.", ch, wield, victim, TO_VICT, POS_DEAD);
 				dam += dam * 120 / 100;
 			}
 		}
