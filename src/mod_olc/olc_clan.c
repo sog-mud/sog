@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.40 1999-12-16 12:24:48 fjoe Exp $
+ * $Id: olc_clan.c,v 1.41 2000-03-30 21:00:53 avn Exp $
  */
 
 #include "olc.h"
@@ -95,7 +95,7 @@ OLC_FUN(claned_create)
 
 	clan_init(&clan);
 	clan.name = str_dup(arg);
-	cl = hash_insert(&clans, &clan, clan.name);
+	cl = hash_insert(&clans, clan.name, &clan);
 	clan_destroy(&clan);
 
 	if (cl == NULL) {

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.333 2000-03-30 16:05:47 fjoe Exp $
+ * $Id: act_info.c,v 1.334 2000-03-30 21:00:49 avn Exp $
  */
 
 /***************************************************************************
@@ -4583,14 +4583,35 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 	BUFFER *output;
 	char name[MAX_STRING_LENGTH];
 	int cnt = 0;
+	CHAR_DATA *vch;
 
 	output = buf_new(-1);
 	buf_printf(output, "List of %s of %s:\n", name_list, clan->name);
+	buf_add(output, "Status   Level Race  Class   Ethos-align   Name\n");
+	buf_add(output, "-------- ----- ----- ----- --------------- -------------\n");
 
 	list = first_arg(list, name, sizeof(name), FALSE);
 	for (; name[0]; list = first_arg(list, name, sizeof(name), FALSE)) {
+		if ((vch = char_load(name, LOAD_F_NOCREATE)) == NULL) {
+			buf_printf(output, "[{RInvalid entry{x] %s (report this to immortals)\n", name);
+			continue;
+		}
+
+		if (str_cmp(vch->clan, clan->name)) {
+			buf_printf(output, "[{RInvalid entry{x] %s (report this to immortals)\n", vch->name);
+			char_nuke(ch);
+			continue;
+		}
 		cnt++;
-		buf_printf(output, "- %s\n", name);
+		buf_printf(output, "%-8s  %3d  %-5s  %-3s  %7s-%-7s %s\n",
+			flag_string(clan_status_table, PC(vch)->clan_status),
+			vch->level,
+			race_lookup(vch->race)->race_pcdata->who_name,
+			class_lookup(vch->class)->who_name,
+			flag_string(ethos_table, vch->ethos),
+			flag_string(align_names, NALIGN(vch)),
+			vch->name);
+		char_nuke(vch);
 	}
 
 	if (!cnt)

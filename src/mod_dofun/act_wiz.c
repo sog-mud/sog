@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.233 2000-03-30 07:00:56 fjoe Exp $
+ * $Id: act_wiz.c,v 1.234 2000-03-30 21:00:50 avn Exp $
  */
 
 /***************************************************************************
@@ -3307,6 +3307,36 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		spec_update(victim);
 		PC(victim)->exp = exp_for_level(victim, victim->level);
 		 altered = TRUE;
+		goto cleanup;
+	}
+
+	if (!str_prefix(arg2, "clan")) {
+		clan_t *cl, *clo;
+
+		if ((cl = clan_search(arg3)) == NULL) {
+			BUFFER *output = buf_new(-1);
+			buf_add(output, "Possible clans are: ");
+			strkey_printall(&clans, output);
+			send_to_char(buf_string(output), ch);
+			buf_free(output);
+			goto cleanup;
+		}
+
+		if (!IS_NULLSTR(victim->clan)
+		&& (clo = clan_lookup(victim->clan))) {
+			clan_update_lists(clo, victim, TRUE);
+			clan_save(clo);
+		}
+
+		free_string(victim->clan);
+		victim->clan = str_qdup(cl->name);
+		PC(victim)->clan_status = CLAN_COMMONER;
+		name_add(&cl->member_list, victim->name, NULL, NULL);
+		clan_save(cl);
+
+		spec_update(victim);
+		update_skills(victim);
+		altered = TRUE;
 		goto cleanup;
 	}
 
