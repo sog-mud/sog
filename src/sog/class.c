@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.37 2001-09-15 17:12:53 fjoe Exp $
+ * $Id: class.c,v 1.38 2001-11-30 21:18:02 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -109,41 +109,30 @@ avltree_info_t c_info_classes =
 	MT_PVOID, sizeof(class_t), ke_cmp_str,
 };
 
-static void *
-guild_ok_cb(void *p, va_list ap)
-{
-	class_t *cl = (class_t *) p;
-
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
-	int vnum = va_arg(ap, int);
-	const char **cn_found = va_arg(ap, const char **);
-	size_t iGuild;
-
-	for (iGuild = 0; iGuild < cl->guilds.nused; iGuild++) {
-		if (vnum == *(int *) VARR_GET(&cl->guilds, iGuild)) {
-			if (IS_CLASS(cl->name, ch->class))
-				return p;
-			*cn_found = cl->name;
-		}
-	}
-
-	return NULL;
-}
-
 /*
  * guild_ok - check if ch allowed in the room (if the room is guild)
  */
 int
 guild_ok(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 {
-	const char *cn_found;
+	const char *cn_found = str_empty;
+	class_t *cl;
 
 	if (!IS_SET(room->room_flags, ROOM_GUILD)
 	||  IS_IMMORTAL(ch))
 		return TRUE;
 
-	if (c_foreach(&classes, guild_ok_cb, ch, room->vnum, &cn_found))
-		return TRUE;
+	C_FOREACH(cl, &classes) {
+		int *pvnum;
+
+		C_FOREACH(pvnum, &cl->guilds) {
+			if (room->vnum == *pvnum) {
+				if (IS_CLASS(cl->name, ch->class))
+					return TRUE;
+				cn_found = cl->name;
+			}
+		}
+	}
 
 	if (IS_NULLSTR(cn_found)) {
 		/*

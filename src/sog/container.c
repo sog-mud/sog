@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: container.c,v 1.3 2001-09-13 16:22:21 fjoe Exp $
+ * $Id: container.c,v 1.4 2001-11-30 21:18:03 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -38,9 +38,6 @@
 #include <str.h>
 #include <util.h>
 
-static DECLARE_FOREACH_CB_FUN(str_search_cb);
-static DECLARE_FOREACH_CB_FUN(mlstr_search_cb);
-
 void *
 c_foreach(void *c, foreach_cb_t cb, ...)
 {
@@ -54,28 +51,23 @@ c_foreach(void *c, foreach_cb_t cb, ...)
 	return rv;
 }
 
-static
-FOREACH_CB_FUN(get_nth_elem_cb, p, ap)
-{
-	int *pnum = va_arg(ap, int *);
-
-	if (!--*pnum)
-		return p;
-
-	return NULL;
-}
-
 void *
 c_random_elem_foreach(void *c)
 {
 	size_t size = c_size(c);
 	int num;
+	void *elem;
 
 	if (!size)
 		return NULL;
 
 	num = number_range(1, size);
-	return c_foreach(c, get_nth_elem_cb, &num);
+	C_FOREACH(elem, c) {
+		if (!--num)
+			return elem;
+	}
+
+	return NULL;
 }
 
 void
@@ -144,7 +136,7 @@ c_strkey_lookup(void *c, const char *name)
 void *
 c_strkey_search(void *c, const char *name)
 {
-	void *p;
+	void *elem;
 
 	if (IS_NULLSTR(name))
 		return NULL;
@@ -152,19 +144,24 @@ c_strkey_search(void *c, const char *name)
 	/*
 	 * try exact match first
 	 */
-	if ((p = c_lookup(c, name)) != NULL)
-		return p;
+	if ((elem = c_lookup(c, name)) != NULL)
+		return elem;
 
 	/*
 	 * search by prefix
 	 */
-	return c_foreach(c, str_search_cb, name);
+	C_FOREACH(elem, c) {
+		if (!str_prefix(name, *(const char **) elem))
+			return elem;
+	}
+
+	return NULL;
 }
 
 void *
 c_mlstrkey_search(void *c, const char *name)
 {
-	void *p;
+	void *elem;
 
 	if (IS_NULLSTR(name))
 		return NULL;
@@ -172,13 +169,18 @@ c_mlstrkey_search(void *c, const char *name)
 	/*
 	 * try exact match first
 	 */
-	if ((p = c_lookup(c, name)) != NULL)
-		return p;
+	if ((elem = c_lookup(c, name)) != NULL)
+		return elem;
 
 	/*
 	 * search by prefix
 	 */
-	return c_foreach(c, mlstr_search_cb, name);
+	C_FOREACH(elem, c) {
+		if (!str_prefix(name, mlstr_mval((mlstring *) elem)))
+			return elem;
+	}
+
+	return NULL;
 }
 
 void
@@ -254,26 +256,4 @@ strkey_filename(const char *name, const char *ext)
 	if (!IS_NULLSTR(ext))
 		strnzcat(buf[ind], sizeof(buf[ind]), ext);
 	return buf[ind];
-}
-
-/*--------------------------------------------------------------------
- * static functions
- */
-
-FOREACH_CB_FUN(str_search_cb, p, ap)
-{
-	const char *name = va_arg(ap, const char *);
-
-	if (!str_prefix(name, *(const char **) p))
-		return p;
-
-	return NULL;
-}
-
-FOREACH_CB_FUN(mlstr_search_cb, p, ap)
-{
-	const char *key = va_arg(ap, const char *);
-	if (!str_prefix(key, mlstr_mval((mlstring *) p)))
-		return p;
-	return NULL;
 }

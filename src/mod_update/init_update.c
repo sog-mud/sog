@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_update.c,v 1.16 2001-09-13 16:22:17 fjoe Exp $
+ * $Id: init_update.c,v 1.17 2001-11-30 21:18:01 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -82,10 +82,13 @@ DBDATA db_uhandlers = { dbfun_uhandlers, NULL, 0 };
 
 MODINIT_FUN(_module_load, m)
 {
+	cmd_t *cmd;
+
 	c_init(&uhandlers, &c_info_uhandlers);
 	db_load_file(&db_uhandlers, ETC_PATH, UHANDLERS_CONF);
 
-	c_foreach(&commands, cmd_load_cb, MODULE, m);
+	C_FOREACH(cmd, &commands)
+		cmd_load(cmd, MODULE, m);
 	uhandler_load(m->name);
 	update_register(m);
 	return 0;
@@ -93,9 +96,12 @@ MODINIT_FUN(_module_load, m)
 
 MODINIT_FUN(_module_unload, m)
 {
+	cmd_t *cmd;
+
 	update_unregister();
 	uhandler_unload(m->name);
-	c_foreach(&commands, cmd_unload_cb, MODULE);
+	C_FOREACH(cmd, &commands)
+		cmd_unload(cmd, MODULE);
 	c_destroy(&uhandlers);
 	return 0;
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: container.h,v 1.4 2001-09-14 10:01:05 fjoe Exp $
+ * $Id: container.h,v 1.5 2001-11-30 21:17:57 fjoe Exp $
  */
 
 #ifndef _CONTAINER_H_
@@ -44,6 +44,10 @@ struct c_ops_t {
 	void (*c_move)(void *c, const void *k, const void *k_new);
 
 	void *(*c_foreach)(void *c, foreach_cb_t cb, va_list ap);
+
+	void *(*c_first)(void *c);
+	bool (*c_cond)(void *c, void *elem);
+	void *(*c_next)(void *c, void *elem);
 
 	size_t (*c_size)(void *c);
 	bool (*c_isempty)(void *c);
@@ -70,6 +74,10 @@ struct c_ops_t {
 #define c_isempty(c)		(C_OPS(c)->c_isempty(c))
 
 void *	c_foreach(void *c, foreach_cb_t cb, ...);
+#define C_FOREACH(var, cont)					\
+	for ((var) = C_OPS(cont)->c_first(cont);		\
+	     C_OPS(cont)->c_cond((cont), (var));		\
+	     (var) = C_OPS(cont)->c_next((cont), (var)))
 
 #define c_random_elem(c)	(C_OPS(c)->c_random_elem(c))
 void *	c_random_elem_foreach(void *c);
@@ -131,6 +139,10 @@ char *	strkey_filename(const char *name, const char *ext);
 									\
 	static void *name##_foreach(void *c, foreach_cb_t cb, va_list ap); \
 									\
+	static void *name##_first(void *c);				\
+	static bool name##_cond(void *c, void *elem);			\
+	static void *name##_next(void *c, void *elem);			\
+									\
 	static size_t name##_size(void *c);				\
 	static bool name##_isempty(void *c);				\
 	static void *name##_random_elem(void *c);			\
@@ -147,6 +159,10 @@ char *	strkey_filename(const char *name, const char *ext);
 		name##_move,						\
 									\
 		name##_foreach,						\
+									\
+		name##_first,						\
+		name##_cond,						\
+		name##_next,						\
 									\
 		name##_size,						\
 		name##_isempty,						\

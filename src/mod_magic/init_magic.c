@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_magic.c,v 1.17 2001-09-12 19:42:53 fjoe Exp $
+ * $Id: init_magic.c,v 1.18 2001-11-30 21:17:59 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -43,7 +43,10 @@ static DECLARE_FOREACH_CB_FUN(unload_cb);
 
 MODINIT_FUN(_module_load, m)
 {
-	c_foreach(&commands, cmd_load_cb, MODULE, m);
+	cmd_t *cmd;
+
+	C_FOREACH(cmd, &commands)
+		cmd_load(cmd, MODULE, m);
 	c_foreach(&skills, load_cb, m);
 	dynafun_tab_register(__mod_tab(MODULE), m);
 	return 0;
@@ -51,9 +54,12 @@ MODINIT_FUN(_module_load, m)
 
 MODINIT_FUN(_module_unload, m)
 {
+	cmd_t *cmd;
+
 	dynafun_tab_unregister(__mod_tab(MODULE));
 	c_foreach(&skills, unload_cb, NULL);
-	c_foreach(&commands, cmd_unload_cb, MODULE);
+	C_FOREACH(cmd, &commands)
+		cmd_unload(cmd, MODULE);
 	return 0;
 }
 

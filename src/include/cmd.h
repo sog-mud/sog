@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.h,v 1.20 2001-09-15 17:12:31 fjoe Exp $
+ * $Id: cmd.h,v 1.21 2001-11-30 21:17:56 fjoe Exp $
  */
 
 #ifndef _CMD_H_
@@ -68,8 +68,8 @@ extern varr_info_t c_info_commands;
 #define cmd_lookup(name)	((cmd_t *) c_strkey_lookup(&commands, (name)))
 #define cmd_search(name)	((cmd_t *) c_strkey_search(&commands, (name)))
 
-void *	cmd_load_cb	(void *p, va_list ap);
-void *	cmd_unload_cb	(void *p, va_list ap);
+void	cmd_load	(cmd_t *cmd, int cmd_mod, module_t *m);
+void	cmd_unload	(cmd_t *cmd, int cmd_mod);
 
 void	dofun		(const char *name, CHAR_DATA *ch, const char *argument);
 

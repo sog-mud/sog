@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.c,v 1.19 2001-09-13 16:22:21 fjoe Exp $
+ * $Id: damtype.c,v 1.20 2001-11-30 21:18:03 fjoe Exp $
  */
 
 #include <string.h>
@@ -60,18 +60,6 @@ avltree_info_t c_info_damtypes =
 	MT_PVOID, sizeof(damtype_t), ke_cmp_str
 };
 
-static const
-FOREACH_CB_FUN(damtype_slot_cb, p, ap)
-{
-	damtype_t *d = (damtype_t *) p;
-
-	int slot = va_arg(ap, int);
-
-	if (d->dam_slot == slot)
-		return (const void*) d->dam_name;
-	return NULL;
-}
-
 /*
  * Lookup a damtype by slot number.
  * Used for old object loading.
@@ -79,15 +67,18 @@ FOREACH_CB_FUN(damtype_slot_cb, p, ap)
 const char *
 damtype_slot_lookup(int slot)
 {
-	const char *dn;
+	damtype_t *d;
 
 	if (slot < 0)
-		return NULL;
+		return str_empty;
 
-	dn = c_foreach(&damtypes, (void *) damtype_slot_cb, slot);
-	if (IS_NULLSTR(dn))
-		log(LOG_ERROR, "damtype_slot_lookup: unknown slot %d", slot);
-	return str_qdup(dn);
+	C_FOREACH(d, &damtypes) {
+		if (d->dam_slot == slot)
+			return str_qdup(d->dam_name);
+	}
+
+	log(LOG_ERROR, "damtype_slot_lookup: unknown slot %d", slot);
+	return str_empty;
 }
 
 gmlstr_t *

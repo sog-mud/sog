@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.24 2001-09-15 17:12:53 fjoe Exp $
+ * $Id: cmd.c,v 1.25 2001-11-30 21:18:02 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -69,36 +69,23 @@ varr_info_t c_info_commands =
 	sizeof(cmd_t), 16
 };
 
-void *
-cmd_load_cb(void *p, va_list ap)
+void
+cmd_load(cmd_t *cmd, int cmd_mod, module_t *m)
 {
-	cmd_t *cmd = (cmd_t *) p;
-
-	int cmd_mod = va_arg(ap, int);
-	module_t *m = va_arg(ap, module_t*);
-
 	if (cmd_mod < 0
 	||  cmd_mod == cmd->cmd_mod) {
 		cmd->do_fun = dlsym(m->dlh, cmd->dofun_name);
 		if (cmd->do_fun == NULL)
 			log(LOG_INFO, "cmd_load: %s", dlerror());
 	}
-
-	return NULL;
 }
 
-void *
-cmd_unload_cb(void *p, va_list ap)
+void
+cmd_unload(cmd_t *cmd, int cmd_mod)
 {
-	cmd_t *cmd = (cmd_t *) p;
-
-	int cmd_mod = va_arg(ap, int);
-
 	if (cmd_mod < 0
 	||  cmd_mod == cmd->cmd_mod)
 		cmd->do_fun = NULL;
-
-	return NULL;
 }
 
 void

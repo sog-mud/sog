@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.140 2001-11-21 14:33:35 kostik Exp $
+ * $Id: recycle.c,v 1.141 2001-11-30 21:18:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1212,32 +1212,24 @@ avltree_info_t c_info_skills =
 	MT_SKILL, sizeof(skill_t), ke_cmp_mlstr
 };
 
-static void *
-skills_dump_cb(void *p, va_list ap)
-{
-	skill_t *sk = (skill_t *) p;
-
-	BUFFER *output = va_arg(ap, BUFFER *);
-	int skill_type = va_arg(ap, int);
-	int *pcol = va_arg(ap, int *);
-
-	const char *sn = gmlstr_mval(&sk->sk_name);
-
-	if (!str_cmp(sn, "reserved")
-	||  (skill_type >= 0 && sk->skill_type != skill_type))
-		return NULL;
-
-	buf_printf(output, BUF_END, "%-19.18s", sn);		// notrans
-	if (++(*pcol) % 4 == 0)
-		buf_append(output, "\n");
-	return 0;
-}
-
 void
 skills_dump(BUFFER *output, int skill_type)
 {
+	skill_t *sk;
 	int col = 0;
-	c_foreach(&skills, skills_dump_cb, output, skill_type, &col);
+
+	C_FOREACH(sk, &skills) {
+		const char *sn = gmlstr_mval(&sk->sk_name);
+
+		if (!str_cmp(sn, "reserved")
+		||  (skill_type >= 0 && sk->skill_type != skill_type))
+			continue;
+
+		buf_printf(output, BUF_END, "%-19.18s", sn);	// notrans
+		if (++col % 4 == 0)
+			buf_append(output, "\n");
+	}
+
 	if (col % 4)
 		buf_append(output, "\n");
 }

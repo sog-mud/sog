@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.23 2001-09-16 18:14:29 fjoe Exp $
+ * $Id: trig.c,v 1.24 2001-11-30 21:18:04 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -130,74 +130,33 @@ trig_fread_list(varr *v, rfile_t *fp)
 	return TRUE;
 }
 
-static
-FOREACH_CB_FUN(trig_fwrite_list_cb, p, ap)
-{
-	trig_t *trig = (trig_t *) p;
-
-	const char *pre = va_arg(ap, const char *);
-	FILE *fp = va_arg(ap, FILE *);
-
-	trig_fwrite(pre, trig, fp);
-	return NULL;
-}
-
 void
 trig_fwrite_list(const char *pre, varr *v, FILE *fp)
 {
-	c_foreach(v, trig_fwrite_list_cb, pre, fp);
-}
+	trig_t *trig;
 
-static
-FOREACH_CB_FUN(trig_dump_list_cb, p, ap)
-{
-	trig_t *trig = (trig_t *) p;
-
-	int *pcnt = va_arg(ap, int *);
-	BUFFER *buf = va_arg(ap, BUFFER *);
-
-	if (*pcnt == 0) {
-		buf_append(buf, "Num  Trigger     Program                    Arg [Flags]\n");
-		buf_append(buf, "---- ----------- -------------------------- -----------------------------------\n");
-	}
-
-	buf_printf(buf, BUF_END, "[%2d] %-11s %-26s %s [%s]\n",
-		   *pcnt, flag_string(mptrig_types, trig->trig_type),
-		   trig->trig_prog, trig->trig_arg,
-		   flag_string(mptrig_flags, trig->trig_flags));
-	(*pcnt)++;
-
-	return NULL;
+	C_FOREACH(trig, v)
+		trig_fwrite(pre, trig, fp);
 }
 
 void
 trig_dump_list(varr *v, BUFFER *buf)
 {
 	int cnt = 0;
+	trig_t *trig;
 
-	c_foreach(v, trig_dump_list_cb, &cnt, buf);
-}
+	C_FOREACH(trig, v) {
+		if (cnt == 0) {
+			buf_append(buf, "Num  Trigger     Program                    Arg [Flags]\n");
+			buf_append(buf, "---- ----------- -------------------------- -----------------------------------\n");
+		}
 
-static
-FOREACH_CB_FUN(find_greater_cb, p, ap)
-{
-	trig_t *t = (trig_t *) p;
-
-	varr *v = va_arg(ap, varr *);
-	int trig_type = va_arg(ap, int);
-
-	if (t->trig_type > trig_type)
-		return t;
-
-	/*
-	 * we hit the end
-	 *
-	 * c_size(v) > 1
-	 */
-	if (varr_index(v, t) == c_size(v) - 1)
-		return t + 1;
-
-	return NULL;
+		buf_printf(buf, BUF_END, "[%2d] %-11s %-26s %s [%s]\n",
+		    cnt, flag_string(mptrig_types, trig->trig_type),
+		    trig->trig_prog, trig->trig_arg,
+		    flag_string(mptrig_flags, trig->trig_flags));
+		cnt++;
+	}
 }
 
 trig_t *
@@ -206,8 +165,22 @@ trig_new(varr *v, int trig_type)
 	int idx = 0;
 	trig_t *t;
 
-	if ((t = c_foreach(v, find_greater_cb, v, trig_type)) != NULL)
-		idx = varr_index(v, t);
+	C_FOREACH(t, v) {
+		if (t->trig_type > trig_type) {
+			idx = varr_index(v, t);
+			break;
+		}
+
+		/*
+		 * we hit the end
+		 *
+		 * c_size(v) > 1
+		 */
+		if (varr_index(v, t) == c_size(v) - 1) {
+			idx = varr_index(v, t) + 1;
+			break;
+		}
+	}
 
 	t = varr_insert(v, idx);
 	t->trig_type = trig_type;

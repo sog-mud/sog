@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: avltree.c,v 1.8 2001-11-10 20:40:45 fjoe Exp $
+ * $Id: avltree.c,v 1.9 2001-11-30 21:18:02 fjoe Exp $
  */
 
 #include <assert.h>
@@ -213,6 +213,43 @@ avltree_foreach(void *c, foreach_cb_t cb, va_list ap)
 	}
 
 	return rv;
+}
+
+static void *
+avltree_node_next(avlnode_t *curr)
+{
+	avlnode_t *next = RIGHT(curr);
+	int rtag = RTAG(curr);
+
+	curr = next;
+	if (rtag == TAG_TREE) {
+		while (LEFT(curr) != NULL)
+			curr = LEFT(curr);
+	}
+
+	return GET_DATA(curr);
+}
+
+static void *
+avltree_first(void *c)
+{
+	avltree_t *avl = (avltree_t *) c;
+	return avltree_node_next(&avl->root);
+}
+
+static bool
+avltree_cond(void *c, void *elem)
+{
+	avltree_t *avl = (avltree_t *) c;
+
+	return GET_AVLNODE(elem) == &avl->root;
+}
+
+static void *
+avltree_next(void *c, void *elem)
+{
+	UNUSED_ARG(c);
+	return avltree_node_next(GET_AVLNODE(elem));
 }
 
 static size_t

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.39 2001-09-14 19:27:46 fjoe Exp $
+ * $Id: varr.c,v 1.40 2001-11-30 21:18:04 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -292,34 +292,19 @@ varr_destroy(void *c)
 	varr_destroy_nd(v);
 }
 
-static
-FOREACH_CB_FUN(varr_erase_cb, p, ap)
-{
-	varr *v = va_arg(ap, varr *);
-
-	v->v_data->e_destroy(p);
-	return NULL;
-}
-
 static void
 varr_erase(void *c)
 {
 	varr *v = (varr *) c;
 
-	if (v->v_data->e_destroy)
-		c_foreach(v, varr_erase_cb, v);
+	if (v->v_data->e_destroy) {
+		void *elem;
+
+		C_FOREACH(elem, v)
+			v->v_data->e_destroy(elem);
+	}
+
 	v->nused = 0;
-}
-
-static
-FOREACH_CB_FUN(str_lookup_cb, p, ap)
-{
-	const char *name = va_arg(ap, const char *);
-
-	if (!str_cmp(name, *(const char **) p))
-		return p;
-
-	return NULL;
 }
 
 static void *
@@ -327,11 +312,17 @@ varr_lookup(void *c, const void *k)
 {
 	varr *v = (varr *) c;
 	const char *name = (const char *) k;
+	void *elem;
 
 	if (IS_NULLSTR(name))
 		return NULL;
 
-	return c_foreach(v, str_lookup_cb, name);
+	C_FOREACH(elem, v) {
+		if (!str_cmp(name, *(const char **) elem))
+			return elem;
+	}
+
+	return NULL;
 }
 
 static void *
@@ -362,6 +353,30 @@ static void *
 varr_foreach(void *c, foreach_cb_t cb, va_list ap)
 {
 	return varr_anforeach(c, 0, cb, ap);
+}
+
+static void *
+varr_first(void *c)
+{
+	varr *v = (varr *) c;
+
+	return VARR_GET(v, 0);
+}
+
+static bool
+varr_cond(void *c, void *elem)
+{
+	varr *v = (varr *) c;
+
+	return varr_index(v, elem) < varr_size(v);
+}
+
+static void *
+varr_next(void *c, void *elem)
+{
+	varr *v = (varr *) c;
+
+	return VARR_GET(v, varr_index(v, elem) + 1);
 }
 
 static size_t

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: module.c,v 1.31 2001-09-15 17:12:54 fjoe Exp $
+ * $Id: module.c,v 1.32 2001-11-30 21:18:03 fjoe Exp $
  */
 
 /*
@@ -49,14 +49,7 @@
 
 varr modules;
 
-static DECLARE_FOREACH_CB_FUN(mod_load_cb);
 static DECLARE_FOREACH_CB_FUN(mod_unload_cb);
-static DECLARE_FOREACH_CB_FUN(mod_lookup_cb);
-
-static DECLARE_FOREACH_CB_FUN(boot_load_cb);
-static DECLARE_FOREACH_CB_FUN(boot_cb);
-
-static DECLARE_FOREACH_CB_FUN(checkdep_cb);
 
 static int	modset_add	(varr *v, module_t *m, time_t curr_time);
 static module_t *modset_search	(varr *v, const char *name);
@@ -66,16 +59,17 @@ static int	module_cmp	(const void *p, const void *q);
 static varr_info_t c_info_modset = {
 	&varr_ops, NULL, NULL,
 
-	sizeof(module_t*), 4
+	sizeof(module_t *), 4
 };
 
 extern bool do_longjmp;
 extern jmp_buf game_loop_jmpbuf;
 
 int
-mod_reload(module_t* m, time_t curr_time)
+mod_reload(module_t *m, time_t curr_time)
 {
 	varr v;
+	module_t **mp;
 
 	c_init(&v, &c_info_modset);
 
@@ -86,7 +80,50 @@ mod_reload(module_t* m, time_t curr_time)
 
 	varr_qsort(&v, modset_elem_cmp);
 	varr_rforeach(&v, mod_unload_cb);
-	c_foreach(&v, mod_load_cb);
+
+	C_FOREACH(mp, &v) {
+		MODINIT_FUN *callback;
+		void *dlh;
+		const char *_depend;
+
+		if ((*mp)->dlh != NULL)
+			continue;
+
+		/*
+		 * open .so
+		 */
+		dlh = dlopen((*mp)->file_name, RTLD_NOW);
+		if (dlh == NULL) {
+			log(LOG_ERROR, "mod_load: %s", dlerror());
+			continue;
+		}
+
+		/*
+		 * call on-load callback.
+		 * (*mp)->dlh should be set before
+		 */
+		(*mp)->dlh = dlh;
+		if ((callback = dlsym((*mp)->dlh, "_module_load")) != NULL // notrans
+		&&  callback((*mp)) < 0) {
+			dlclose((*mp)->dlh);
+			(*mp)->dlh = NULL;
+			continue;
+		}
+
+		/*
+		 * update dependencies
+		 */
+		free_string((*mp)->mod_deps);
+		_depend = dlsym((*mp)->dlh, "_depend");		// notrans
+		(*mp)->mod_deps = str_dup(_depend);
+
+		/*
+		 * update `last_reload' time
+		 */
+		time(&(*mp)->last_reload);
+		log(LOG_INFO, "module `%s' (%s) loaded",
+		    (*mp)->name, (*mp)->file_name);
+	}
 
 	c_destroy(&v);
 
@@ -105,10 +142,20 @@ mod_unload(module_t *m)
 {
 	module_t *m_dep;
 
-	if ((m_dep = c_foreach(&modules, checkdep_cb, m->name)) != NULL) {
-		log(LOG_ERROR, "modules `%s' (%s) can't be unloaded: module `%s' (%s) depends on it",
-		    m->name, m->file_name, m_dep->name, m_dep->file_name);
-		return -1;
+	C_FOREACH(m_dep, &modules) {
+		/*
+		 * skip self and not loaded modules
+		 */
+		if (m_dep->dlh == NULL
+		||  !str_cmp(m_dep->name, m->name))
+			return NULL;
+
+		if (is_name_strict(m->name, m_dep->mod_deps)) {
+			log(LOG_ERROR, "module `%s' (%s) can't be unloaded: module `%s' (%s) depends on it",
+			    m->name, m->file_name,
+			    m_dep->name, m_dep->file_name);
+			return -1;
+		}
 	}
 
 	dlclose(m->dlh);
@@ -120,7 +167,14 @@ mod_unload(module_t *m)
 module_t *
 mod_lookup(const char *name)
 {
-	return c_foreach(&modules, mod_lookup_cb, name);
+	module_t *m;
+
+	C_FOREACH(m, &modules) {
+		if (!str_prefix(name, m->name))
+			return m;
+	}
+
+	return NULL;
 }
 
 static varr_info_t c_info_modules = {
@@ -135,6 +189,7 @@ boot_modules()
 	time_t curr_time;
 	FILE *fp;
 	char buf[MAX_INPUT_LENGTH];
+	module_t *m;
 
 	c_init(&modules, &c_info_modules);
 
@@ -153,7 +208,6 @@ boot_modules()
 		char arg[MAX_INPUT_LENGTH];
 		int mod_prio;
 		size_t len;
-		module_t *m;
 
 		/* strip trailing '\n' */
 		len = strlen(buf);
@@ -217,65 +271,33 @@ boot_modules()
 	init_dynafuns();
 
 	varr_qsort(&modules, module_cmp);
-	c_foreach(&modules, boot_load_cb, curr_time);
-	c_foreach(&modules, boot_cb);
+
+	/*
+	 * load all modules
+	 */
+	C_FOREACH(m, &modules) {
+		if (mod_reload(m, curr_time) < 0)
+			exit(1);
+	}
+
+	/*
+	 * call module initializers
+	 */
+	C_FOREACH(m, &modules) {
+		MODINIT_FUN *callback;
+
+		if (m->dlh == NULL
+		||  (callback = dlsym(m->dlh, "_module_boot")) == NULL) // notrans
+			continue;
+
+		if (callback(m) < 0)
+			exit(1);
+	}
 }
 
 /*--------------------------------------------------------------------
  * static functions
  */
-
-/*
- * load module
- */
-static
-FOREACH_CB_FUN(mod_load_cb, arg, ap)
-{
-	module_t *m = *(module_t **) arg;
-
-	MODINIT_FUN *callback;
-	void *dlh;
-	const char *_depend;
-
-	if (m->dlh != NULL)
-		return NULL;
-
-	/*
-	 * open .so
-	 */
-	dlh = dlopen(m->file_name, RTLD_NOW);
-	if (dlh == NULL) {
-		log(LOG_ERROR, "mod_load: %s", dlerror());
-		return NULL;
-	}
-
-	/*
-	 * call on-load callback.
-	 * m->dlh should be set before
-	 */
-	m->dlh = dlh;
-
-	if ((callback = dlsym(m->dlh, "_module_load")) != NULL // notrans
-	&&  callback(m) < 0) {
-		dlclose(m->dlh);
-		m->dlh = NULL;
-		return NULL;
-	}
-
-	/*
-	 * update dependencies
-	 */
-	free_string(m->mod_deps);
-	_depend = dlsym(m->dlh, "_depend");			// notrans
-	m->mod_deps = str_dup(_depend);
-
-	/*
-	 * update `last_reload' time
-	 */
-	time(&m->last_reload);
-	log(LOG_INFO, "module `%s' (%s) loaded", m->name, m->file_name);
-	return NULL;
-}
 
 /*
  * unload previously loaded module
@@ -300,74 +322,13 @@ FOREACH_CB_FUN(mod_unload_cb, arg, ap)
 	return NULL;
 }
 
-static
-FOREACH_CB_FUN(mod_lookup_cb, p, ap)
-{
-	module_t *m = (module_t *) p;
-
-	const char *name = va_arg(ap, const char *);
-
-	if (!str_prefix(name, m->name))
-		return m;
-
-	return NULL;
-}
-
-static
-FOREACH_CB_FUN(boot_load_cb, p, ap)
-{
-	module_t *m = (module_t *) p;
-
-	time_t curr_time = va_arg(ap, time_t);
-
-	if (mod_reload(m, curr_time) < 0)
-		exit(1);
-
-	return NULL;
-}
-
-static
-FOREACH_CB_FUN(boot_cb, p, ap)
-{
-	module_t *m = (module_t *) p;
-
-	MODINIT_FUN *callback;
-
-	if (m->dlh == NULL
-	||  (callback = dlsym(m->dlh, "_module_boot")) == NULL) // notrans
-		return NULL;
-
-	if (callback(m) < 0)
-		exit(1);
-
-	return NULL;
-}
-
-static
-FOREACH_CB_FUN(modset_add_cb, p, ap)
-{
-	module_t *m = (module_t *) p;
-
-	varr *v = va_arg(ap, varr *);
-	const char *name = va_arg(ap, const char *);
-	time_t curr_time = va_arg(ap, time_t);
-
-	if (is_name_strict(name, m->mod_deps)
-	&&  !modset_search(v, m->name)
-	&&  m->dlh != NULL
-	&&  m->last_reload < curr_time
-	&&  modset_add(v, m, curr_time) < 0)
-		return m;
-
-	return NULL;
-}
-
 static int
 modset_add(varr *v, module_t *m, time_t curr_time)
 {
 	struct stat s;
 	void *dlh;
 	module_t **mp;
+	module_t *m_dep;
 	char buf[PATH_MAX];
 
 	/*
@@ -403,48 +364,30 @@ modset_add(varr *v, module_t *m, time_t curr_time)
 
 	mp = (module_t **) varr_enew(v);
 	*mp = m;
-	if (c_foreach(&modules, modset_add_cb, v, m->name, curr_time))
-		return -1;
+
+	C_FOREACH(m_dep, &modules) {
+		if (is_name_strict(m->name, m_dep->mod_deps)
+		&&  !modset_search(v, m_dep->name)
+		&&  m_dep->dlh != NULL
+		&&  m_dep->last_reload < curr_time
+		&&  modset_add(v, m_dep, curr_time) < 0)
+			return -1;
+	}
+
 	return 0;
-}
-
-static
-FOREACH_CB_FUN(modset_search_cb, p, ap)
-{
-	module_t *m = *(module_t **) p;
-
-	const char *name = va_arg(ap, const char *);
-
-	if (!str_cmp(name, m->name))
-		return m;
-
-	return NULL;
-}
-
-static
-FOREACH_CB_FUN(checkdep_cb, p, ap)
-{
-	module_t *m = (module_t *) p;
-
-	const char *name = va_arg(ap, const char *);
-
-	/*
-	 * skip self and not loaded modules
-	 */
-	if (m->dlh == NULL
-	||  !str_cmp(m->name, name))
-		return NULL;
-
-	if (is_name_strict(name, m->mod_deps))
-		return m;
-
-	return NULL;
 }
 
 static module_t *
 modset_search(varr *v, const char *name)
 {
-	return c_foreach(v, modset_search_cb, name);
+	module_t **mp;
+
+	C_FOREACH(mp, v) {
+		if (!str_cmp(name, (*mp)->name))
+			return *mp;
+	}
+
+	return NULL;
 }
 
 static int

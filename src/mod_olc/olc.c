@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.148 2001-09-15 17:12:45 fjoe Exp $
+ * $Id: olc.c,v 1.149 2001-11-30 21:18:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -136,13 +136,16 @@ const char *skip_commands[] = { "n", "w", "e", "s", "u", "d" };
 
 MODINIT_FUN(_module_load, m)
 {
+	cmd_t *cmd;
+
 	olc_interpret = dlsym(m->dlh, "_olc_interpret");
 	if (olc_interpret == NULL) {
 		log(LOG_INFO, "_module_load(mod_olc): %s", dlerror());
 		return -1;
 	}
 
-	c_foreach(&commands, cmd_load_cb, MODULE, m);
+	C_FOREACH(cmd, &commands)
+		cmd_load(cmd, MODULE, m);
 	qsort(skip_commands, NSKIP_COMMANDS, sizeof(*skip_commands), cmpstr);
 	return 0;
 }
@@ -150,6 +153,7 @@ MODINIT_FUN(_module_load, m)
 MODINIT_FUN(_module_unload, m)
 {
 	DESCRIPTOR_DATA *d;
+	cmd_t *cmd;
 
 	/* drop all the builders out OLC editors */
 	for (d = descriptor_list; d; d = d->next) {
@@ -162,7 +166,8 @@ MODINIT_FUN(_module_unload, m)
 		edit_done(d);
 	}
 
-	c_foreach(&commands, cmd_unload_cb, MODULE);
+	C_FOREACH(cmd, &commands)
+		cmd_unload(cmd, MODULE);
 	olc_interpret = NULL;
 	return 0;
 }
