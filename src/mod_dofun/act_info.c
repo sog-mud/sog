@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.81 2004-02-17 23:59:48 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.82 2004-02-19 14:30:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3011,7 +3011,7 @@ void do_gain(CHAR_DATA *ch, const char *argument)
 
 	if (!str_prefix(arg, "revert")) {
 		if (pc->train < 1) {
-			do_tell_raw(tr, ch, "You are not ready yet.");
+			tell_char(tr, ch, "You are not ready yet.");
 			return;
 		}
 
@@ -3024,7 +3024,7 @@ void do_gain(CHAR_DATA *ch, const char *argument)
 
 	if (!str_prefix(arg, "convert")) {
 		if (pc->practice < 10) {
-			do_tell_raw(tr, ch, "You are not ready yet.");
+			tell_char(tr, ch, "You are not ready yet.");
 			return;
 		}
 
@@ -3035,7 +3035,7 @@ void do_gain(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	do_tell_raw(tr, ch, "I do not understand...");
+	tell_char(tr, ch, "I do not understand...");
 }
 
 /* RT spells and skills show the players spells (or skills) */

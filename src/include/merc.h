@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.42 2004-02-18 23:23:04 fjoe Exp $
+ * $Id: merc.h,v 1.234.2.43 2004-02-19 14:30:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1925,9 +1925,9 @@ int trust_level(CHAR_DATA *ch);
 #define DAZE_STATE(ch, npulse)	((ch)->daze = UMAX((ch)->daze, (npulse)))
 
 #define COINS_WEIGHT(silver, gold) ((silver) / 10 + (gold) * 2 / 5)
+#define MONEY_WEIGHT(obj)	COINS_WEIGHT((obj)->value[0], (obj)->value[1])
 #define get_carry_weight(ch)	((ch)->carry_weight +			\
 				 COINS_WEIGHT((ch)->silver, (ch)->gold))
-#define MONEY_WEIGHT(obj)	COINS_WEIGHT(obj->value[0], obj->value[1])
 
 #define HAS_TRIGGER(ch,trig)	(IS_SET((ch)->pMobIndex->mptrig_types, (trig)))
 #define IS_SWITCHED( ch )       (ch->desc && ch->desc->original)
@@ -2364,7 +2364,7 @@ void		do_music	(CHAR_DATA *ch, const char *argument);
 void		do_gossip	(CHAR_DATA *ch, const char *argument);
 CHAR_DATA*	leader_lookup	(CHAR_DATA *ch);
 const char *	garble		(CHAR_DATA *ch, const char *txt);
-bool		do_tell_raw	(CHAR_DATA *ch, CHAR_DATA *victim,
+bool		tell_char	(CHAR_DATA *ch, CHAR_DATA *victim,
 				 const char *msg);
 #define	is_same_group(ach, bch) (leader_lookup(ach) == leader_lookup(bch))
 void	do_who_raw	(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.53 2004-02-18 22:54:11 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.54 2004-02-19 14:30:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -589,7 +589,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 				victim->gold += change;
 
 			if (change < 1 && can_see(victim, ch)) {
-				do_tell_raw(victim, ch, "I'm sorry, you did not give me enough to change.");
+				tell_char(victim, ch, "I'm sorry, you did not give me enough to change.");
 				dofun("give", victim, "%d %s %s",
 				      amount, silver ? "silver" : "gold",
 				      ch->name);
@@ -602,7 +602,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 					dofun("give", victim,
 					      "%d silver %s",
 					      (95 * amount / 100 - change * 100), ch->name);
-				do_tell_raw(victim, ch,
+				tell_char(victim, ch,
 					    "Thank you, come again.");
 			}
 		}
@@ -634,7 +634,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 
 	if (IS_NPC(victim) && victim->pMobIndex->pShop != NULL
 	&&  !HAS_TRIGGER(victim, TRIG_GIVE)) {
-		do_tell_raw(victim, ch, "Sorry, you'll have to sell that.");
+		tell_char(victim, ch, "Sorry, you'll have to sell that.");
 		return;
 	}
 
@@ -2060,7 +2060,7 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 	cost = get_cost(keeper, obj, TRUE);
 
 	if (cost <= 0 || !can_see_obj(ch, obj)) {
-		do_tell_raw(keeper, ch, "I don't sell that -- try 'list'");
+		tell_char(keeper, ch, "I don't sell that -- try 'list'");
 		return;
 	}
 	if (!IS_OBJ_STAT(obj, ITEM_INVENTORY)) {
@@ -2074,14 +2074,14 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 		}
 
 		if (count < number) {
-			do_tell_raw(keeper, ch,
+			tell_char(keeper, ch,
 				    "I don't have that many in stock.'");
 			return;
 		}
 	}
 	if ((ch->silver + ch->gold * 100) < cost * number) {
 		if (number > 1) {
-			do_tell_raw(keeper, ch,
+			tell_char(keeper, ch,
 				    "You can't afford to buy that many.'");
 		} else {
 			act("$n tells you '{GYou can't afford to buy $p.{x'",
@@ -2251,7 +2251,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 		return;
 
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		do_tell_raw(keeper, ch, "You don't have that item.");
+		tell_char(keeper, ch, "You don't have that item.");
 		return;
 	}
 	if (!can_drop_obj(ch, obj)) {
@@ -2293,7 +2293,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 
 	if ((carry_w = can_carry_w(ch)) >= 0
 	&&  get_carry_weight(ch) + COINS_WEIGHT(silver, gold) > carry_w) {
-		do_tell_raw(
+		tell_char(
 		    keeper, ch, "I'm afraid you can't carry that weight.");
 		return;
 	}
@@ -2344,7 +2344,7 @@ void do_value(CHAR_DATA * ch, const char *argument)
 		return;
 
 	if ((obj = get_obj_carry(ch, arg)) == NULL) {
-		do_tell_raw(keeper, ch, "You don't have that item.");
+		tell_char(keeper, ch, "You don't have that item.");
 		return;
 	}
 	if (!can_see_obj(keeper, obj)) {

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.73 2004-02-17 22:27:16 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.74 2004-02-19 14:30:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3515,7 +3515,7 @@ const char *garble(CHAR_DATA *ch, const char *i)
 	return buf;
 }
 
-bool do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
+bool tell_char(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 {
 	if (ch == victim) {
 		char_puts("Talking to yourself, eh?\n", ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.48 2004-02-18 22:25:20 fjoe Exp $
+ * $Id: act_comm.c,v 1.187.2.49 2004-02-19 14:30:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -267,7 +267,7 @@ void do_tell(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	do_tell_raw(ch, get_char_world(ch, arg), argument);
+	tell_char(ch, get_char_world(ch, arg), argument);
 }
 
 void do_reply(CHAR_DATA *ch, const char *argument)
@@ -277,7 +277,7 @@ void do_reply(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	do_tell_raw(ch, PC(ch)->reply, argument);
+	tell_char(ch, PC(ch)->reply, argument);
 }
 
 void do_mtell(CHAR_DATA *ch, const char *argument)
@@ -294,7 +294,7 @@ void do_mtell(CHAR_DATA *ch, const char *argument)
 	}
 
 	victim = get_char_world(ch, arg);
-	if (!do_tell_raw(ch, victim, argument))
+	if (!tell_char(ch, victim, argument))
 		return;
 
 	if (IS_NPC(ch))
@@ -2482,5 +2482,5 @@ do_retell(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	do_tell_raw(ch, PC(ch)->retell, argument);
+	tell_char(ch, PC(ch)->retell, argument);
 }
