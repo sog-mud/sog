@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_form.c,v 1.21 1999-02-23 22:06:50 fjoe Exp $
+ * $Id: olc_form.c,v 1.22 1999-02-23 22:26:12 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -65,8 +65,8 @@ OLC_CMD_DATA olc_cmds_form[] =
 	{ "base",		formed_baselen	},
 	{ "add",		formed_add	},
 	{ "del",		formed_del	},
-	{ "form_delet",		olced_spell_out	},
-	{ "form_delete",	formed_formdel	},
+	{ "delete_for",		olced_spell_out	},
+	{ "delete_form",	formed_formdel	},
 
 	{ "commands",		show_commands	},
 	{ NULL }

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.147 1999-02-23 22:06:48 fjoe Exp $
+ * $Id: comm.c,v 1.148 1999-02-23 22:26:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -284,14 +284,6 @@ int main(int argc, char **argv)
 	infofd	= init_socket(port+1);
 
 	boot_db();
-
-	/*
-	 * Reserve one channel for our use.
-	 */
-	if ((fpReserve = fopen(NULL_FILE, "r")) == NULL) {
-		log_printf("%s: %s", NULL_FILE, strerror(errno));
-		exit(1);
-	}
 
 	log_printf("ready to rock on port %d.", port);
 	log_printf("info service started on port %d.", port+1);
@@ -2213,13 +2205,13 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			max_on = UMAX(count, max_on);
 			if ((max_on_file = dfopen(TMP_PATH, MAXON_FILE, "r"))) {
 				fscanf(max_on_file, "%d", &tmp);
-				dfclose(max_on_file);
+				fclose(max_on_file);
 			}
 			if (tmp < max_on
 			&&  (max_on_file = dfopen(TMP_PATH, MAXON_FILE, "w"))) {
 				fprintf(max_on_file, "%d", max_on);
 				log("Global max_on changed.");
-				dfclose(max_on_file);
+				fclose(max_on_file);
 			}
 		}
 
@@ -2562,7 +2554,7 @@ void log_area_popularity(void)
 		else
 			fprintf(fp,"%-60s %u\n",area->name,area->count);
 
-	dfclose(fp);
+	fclose(fp);
 }
 
 bool class_ok(CHAR_DATA *ch, int class)

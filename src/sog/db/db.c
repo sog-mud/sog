@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.114 1999-02-23 22:06:49 fjoe Exp $
+ * $Id: db.c,v 1.115 1999-02-23 22:26:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -281,7 +281,7 @@ void db_load_list(DBDATA *dbdata, const char *path, const char *file)
 			dbdata->dbinit(dbdata);
 		db_parse_file(dbdata, path, name);
 	}
-	dfclose(fp);
+	fclose(fp);
 }
 
 /*
@@ -1900,7 +1900,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	fprintf(fp,"Exits	%4d (%8d bytes)\n",
 		top_exit, top_exit * (sizeof(*exit)));
 
-	dfclose(fp);
+	fclose(fp);
 
 	/* start printing out mobile data */
 	if ((fp = dfopen(TMP_PATH, "mob.dmp", "w")) == NULL)
@@ -1917,7 +1917,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 			pMobIndex->vnum,pMobIndex->count,
 			pMobIndex->killed,mlstr_mval(pMobIndex->short_descr));
 		}
-	dfclose(fp);
+	fclose(fp);
 
 	/* start printing out object data */
 	if ((fp = dfopen(TMP_PATH, "obj.dmp", "w")) == NULL)
@@ -1937,7 +1937,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 		}
 
 	/* close file */
-	dfclose(fp);
+	fclose(fp);
 }
 
 /*
@@ -2131,7 +2131,7 @@ void append_file(CHAR_DATA *ch, const char *file, const char *str)
 	else {
 		fprintf(fp, "[%5d] %s: %s\n",
 		    ch->in_room ? ch->in_room->vnum : 0, ch->name, str);
-		dfclose(fp);
+		fclose(fp);
 	}
 }
 
@@ -2224,7 +2224,7 @@ void load_limited_objects()
 		}
 
 		free_string(pname);
-		dfclose(pfile);
+		fclose(pfile);
 	}
 	closedir(dirp);
 }

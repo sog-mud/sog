@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.128 1999-02-23 22:06:43 fjoe Exp $
+ * $Id: act_wiz.c,v 1.129 1999-02-23 22:26:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -114,7 +114,7 @@ void do_objlist(CHAR_DATA *ch, const char *argument)
 		fprintf(fp, "%s", fix_string(buf_string(buf)));
 	}
 	buf_free(buf);
-	dfclose(fp);
+	fclose(fp);
 }
 
 void do_limited(CHAR_DATA *ch, const char *argument)
@@ -1749,7 +1749,7 @@ void do_shutdown(CHAR_DATA *ch, const char *argument)
 					    strerror(errno));
 				return;
 			}
-			dfclose(fp);
+			fclose(fp);
 			wiznet("$N has activated shutdown", ch, NULL, 0, 0, 0);
 			char_puts("Shutdown activated.\n", ch);
 		}

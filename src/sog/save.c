@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.104 1999-02-23 22:06:47 fjoe Exp $
+ * $Id: save.c,v 1.105 1999-02-23 22:26:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -135,7 +135,7 @@ void save_char_obj(CHAR_DATA * ch, bool reboot)
 			return;
 		fprintf(fp, "Lev %2d %s%s\n",
 		      ch->level, ch->name, ch->pcdata->title);
-		dfclose(fp);
+		fclose(fp);
 	}
 
 	if ((fp = dfopen(PLAYER_PATH, TMP_FILE, "w")) == NULL)
@@ -150,7 +150,7 @@ void save_char_obj(CHAR_DATA * ch, bool reboot)
 	if (ch->pet && ch->pet->in_room == ch->in_room)
 		fwrite_pet(ch->pet, fp);
 	fprintf(fp, "#END\n");
-	dfclose(fp);
+	fclose(fp);
 	d2rename(PLAYER_PATH, TMP_FILE, PLAYER_PATH, name);
 }
 
@@ -614,7 +614,7 @@ void load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 				break;
 			}
 		}
-		dfclose(fp);
+		fclose(fp);
 	}
 
 	/* initialize race */

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msg.c,v 1.15 1999-02-23 22:06:50 fjoe Exp $
+ * $Id: msg.c,v 1.16 1999-02-23 22:26:12 fjoe Exp $
  */
 
 #if	defined (LINUX) || defined (WIN32)
@@ -80,6 +80,8 @@ void load_msgdb(void)
 		}
 		msg_add(ml);
 	}
+
+	fclose(fp);
 }
 
 mlstring **msg_add(mlstring *ml)

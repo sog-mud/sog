@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.60 1999-02-23 22:06:50 fjoe Exp $
+ * $Id: olc_save.c,v 1.61 1999-02-23 22:26:13 fjoe Exp $
  */
 
 /**************************************************************************
@@ -64,7 +64,7 @@ void save_area_list()
 		fprintf(fp, "%s\n", pArea->file_name);
 
 	fprintf(fp, "$\n");
-	dfclose(fp);
+	fclose(fp);
 }
 
 void save_mobprogs(FILE *fp, AREA_DATA *pArea)
@@ -907,7 +907,7 @@ void save_area(AREA_DATA *pArea)
 
 	fprintf(fp, "#$\n");
 
-	dfclose(fp);
+	fclose(fp);
 }
 
 void save_skills()
@@ -956,7 +956,7 @@ void save_clan(CHAR_DATA *ch, CLAN_DATA *clan)
 
 	fprintf(fp, "End\n\n"
 		    "#$\n");
-	dfclose(fp);
+	fclose(fp);
 
 /* save plists */
 	if ((fp = dfopen(PLISTS_PATH, clan->file_name, "w")) == NULL) {
@@ -974,7 +974,7 @@ void save_clan(CHAR_DATA *ch, CLAN_DATA *clan)
 
 	fprintf(fp, "End\n\n"
 		    "#$\n");
-	dfclose(fp);
+	fclose(fp);
 
 	save_print(ch, "    %s (%s)", clan->name, clan->file_name);
 }
@@ -1009,7 +1009,7 @@ void save_clans(CHAR_DATA *ch)
 	}
 
 	fprintf(fp, "$\n");
-	dfclose(fp);
+	fclose(fp);
 
 	if (!found)
 		save_print(ch, "    None.");
@@ -1046,7 +1046,7 @@ void save_msgdb(CHAR_DATA *ch)
 	}
 
 	fprintf(fp, "$~\n");
-	dfclose(fp);
+	fclose(fp);
 	save_print(ch, "Msgdb saved.");
 }
 
@@ -1095,7 +1095,7 @@ bool save_words(CHAR_DATA *ch, const char *filename, varr *hash)
 	}
 
 	fprintf(fp, "#$\n");
-	dfclose(fp);
+	fclose(fp);
 	return TRUE;
 }
 
@@ -1131,7 +1131,7 @@ bool save_lang(CHAR_DATA *ch, LANG_DATA *l)
 	fwrite_string(fp, "QtysFile", l->file_qtys);
 	fprintf(fp, "End\n\n"
 		    "#$\n");
-	dfclose(fp);
+	fclose(fp);
 	return TRUE;
 }
 
@@ -1188,7 +1188,7 @@ void save_langs(CHAR_DATA *ch)
 			fprintf(fp, "%s\n", l->file_name);
 		}
 		fprintf(fp, "$\n");
-		dfclose(fp);
+		fclose(fp);
 	}
 }
 
@@ -1233,7 +1233,7 @@ void save_socials(CHAR_DATA *ch)
 	}
 
 	fprintf(fp, "#$\n");
-	dfclose(fp);
+	fclose(fp);
 	save_print(ch, "Socials saved.");
 }
 

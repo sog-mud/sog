@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.124 1999-02-23 22:06:44 fjoe Exp $
+ * $Id: interp.c,v 1.125 1999-02-23 22:26:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -538,7 +538,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 			fprintf(imm_log, "%s [%s] %s\n",
 				strtime(time(NULL)), ch->name, logline);
 			fprintf(imm_log, buf);
-			dfclose(imm_log);
+			fclose(imm_log);
 		}
 	}
 #endif

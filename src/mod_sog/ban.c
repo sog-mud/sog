@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.28 1999-02-23 22:06:48 fjoe Exp $
+ * $Id: ban.c,v 1.29 1999-02-23 22:26:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -122,7 +122,7 @@ void save_bans(void)
 	}
      }
 
-     dfclose(fp);
+     fclose(fp);
 
      if (!found)
 	dunlink(ETC_PATH, BAN_FILE);
@@ -142,7 +142,7 @@ void load_bans(void)
         BAN_DATA *pban;
         if (feof(fp))
         {
-            dfclose(fp);
+            fclose(fp);
             return;
         }
  

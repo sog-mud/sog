@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.24 1999-02-23 07:42:44 fjoe Exp $
+ * $Id: olc_msg.c,v 1.25 1999-02-23 22:26:12 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -52,8 +52,8 @@ OLC_CMD_DATA olc_cmds_msg[] =
 	{ "list",	msged_list	},
 
 	{ "msg",	msged_msg	},
-	{ "msg_delet",	olced_spell_out	},
-	{ "msg_delete",	msged_del	},
+	{ "delete_ms",	olced_spell_out	},
+	{ "delete_msg",	msged_del	},
 
 	{ "commands",	show_commands	},
 	{ NULL }

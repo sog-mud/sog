@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.48 1999-02-23 22:06:46 fjoe Exp $
+ * $Id: note.c,v 1.49 1999-02-23 22:26:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -239,7 +239,7 @@ void save_notes(int type)
 
 	for (; pnote; pnote = pnote->next) 
 		fwrite_note(fp, pnote);
-	dfclose(fp);
+	fclose(fp);
 }
 
 void load_notes(void)
@@ -271,7 +271,7 @@ void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
 	    letter = getc(fp);
             if (feof(fp))
             {
-                dfclose(fp);
+                fclose(fp);
                 return;
             }
         }
@@ -365,7 +365,7 @@ void append_note(NOTE_DATA *pnote)
 	if ((fp = dfopen(NOTES_PATH, name, "a")) == NULL) 
 		return;
 	fwrite_note(fp, pnote);
-        dfclose(fp);
+        fclose(fp);
 }
 
 bool is_note_to(CHAR_DATA *ch, NOTE_DATA *pnote)
