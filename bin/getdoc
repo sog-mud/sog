@@ -1,0 +1,73 @@
+#!/usr/bin/perl -w
+#
+# $Id: getdoc,v 1.1 2002-07-16 05:54:43 fjoe Exp $
+#
+use strict;
+use CGI qw(:standard);
+
+#
+# settings
+my $cvs = '/usr/bin/cvs';
+my $cvsroot = '/usr/local/cvsroot';
+
+#
+# files which this script is allowed to checkout
+my %valid_files = (
+	'sog/doc/SoG/builders.guide' => 1,
+	'sog/doc/SoG/mprogs.txt' => 1,
+	'sog/doc/SoG/obj_rules.txt' => 1,
+	'sog/doc/SoG/sog_olc_guide.txt' => 1,
+	'sog/doc/SoG/triggers.txt' => 1,
+);
+
+my $file = param('file');
+unless ($file) {
+	print << "EOF";
+Content-type: text/html
+
+EOF
+	exit(0);
+}
+
+unless (exists $valid_files{$file}) {
+	print << "EOF";
+Content-type: text/plain
+
+$file: No such file or directory
+EOF
+	exit(0);
+}
+
+#
+# build args list
+my @args = ($cvs, "-qfR", "-d", $cvsroot, "co", "-p");
+my $tag = param('tag');
+push @args, "-r", $tag if $tag;
+push @args, $file;
+push @args, "2>&1";
+
+#
+# HTTP response header
+if (param('download')) {
+	my $f = $file;
+	$f =~ s|.*/(.*)|$1|;
+
+	print << "EOF";
+Content-type: application/octet-stream
+Content-disposition: attachment; filename="$f"
+
+EOF
+} else {
+	print << "EOF";
+Content-type: text/plain
+
+EOF
+}
+
+#
+# here we go
+open F, "@args|" or die "Can't open pipe to $cvs: $!\n";
+while (<F>) {
+	print;
+}
+close F;
