@@ -1279,7 +1279,7 @@ Get back to questor before your time runs out!
 @rus Выпить что?
 ~
 @eng $N is using:@rus $N $gN{использует}:~
-@eng The clouds disappear.@rus Небо прояснилось.
+@eng The clouds disappear.@rus Небо прояснилось.~
 @eng The auctioneer charges you an auction fee of $j gold.@rus Ведущий взял с тебя $j $qj{золотых} за участие в торгах.~
 @eng Pour what into what?
 @rus Перелить что во что?
