@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.150 2000-01-04 23:50:03 avn Exp $
+ * $Id: save.c,v 1.151 2000-01-05 15:28:53 avn Exp $
  */
 
 /***************************************************************************
@@ -868,6 +868,13 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 			KEY("Trai", PC(ch)->train, fread_number(fp));
 			KEY("Trust", PC(ch)->trust, fread_flags(fp));
 			SKEY("Twitlist", PC(ch)->twitlist, fread_string(fp));
+			if (IS_TOKEN(fp, "Titl")) {
+				const char *p = fread_string(fp);
+				set_title(ch, p);
+				free_string(p);
+				fMatch = TRUE;
+				break;
+			}
 			break;
 
 		case 'V':

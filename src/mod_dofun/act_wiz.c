@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.223 2000-01-04 19:27:47 fjoe Exp $
+ * $Id: act_wiz.c,v 1.224 2000-01-05 15:28:52 avn Exp $
  */
 
 /***************************************************************************
@@ -2549,16 +2549,6 @@ void do_string(CHAR_DATA *ch, const char *argument)
 			mlstr_editnl(&victim->long_descr, arg3);
 			return;
 		}
-
-		if (!str_prefix(arg2, "title")) {
-			if (IS_NPC(victim)) {
-				char_puts("Not on NPC's.\n", ch);
-				return;
-			}
-
-			set_title(victim, arg3);
-			return;
-		}
 	}
 	
 	if (!str_prefix(type,"object")) {
@@ -3663,7 +3653,7 @@ void do_popularity(CHAR_DATA *ch, const char *argument)
 	buf_free(output);
 }
 
-void do_ititle(CHAR_DATA *ch, const char *argument)
+void do_title(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -3675,9 +3665,14 @@ void do_ititle(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	victim = get_char_world(ch, arg);
+	victim = get_char_room(ch, arg);
 	if (victim == NULL)  {
-		char_puts("Nobody is playing with that name.\n", ch);
+		char_puts("Nobody here with that name.\n", ch);
+		return;
+	}
+
+	if (IS_SET(PC(victim)->plr_flags, PLR_NOTITLE)) {
+		act("You can't change $N's title.\n", ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
@@ -3692,7 +3687,9 @@ void do_ititle(CHAR_DATA *ch, const char *argument)
 	}
 
 	set_title(victim, argument);
-	char_puts("Ok.\n", ch);
+	act("$n grants $N a new title!", ch, NULL, victim, TO_NOTVICT);
+	act("$n grants you a new title!", ch, NULL, victim, TO_VICT);
+	act("You grant $N a new title!", ch, NULL, victim, TO_CHAR);
 }
 
 /*

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: info.c,v 1.14 2000-01-04 23:50:04 avn Exp $
+ * $Id: info.c,v 1.15 2000-01-05 15:28:54 avn Exp $
  */
 
 #include <sys/types.h>
@@ -325,62 +325,29 @@ void	cmd_show(const char *argument)
 
 	buf[0] = '\0';
 
-	snprintf(buf, sizeof(buf), "%s\n",
-		IS_SET(PC(ch)->www_show_flags, WSHOW_RACE) ? PC(ch)->race : "Unknown");
-
-	snprintf(buf, sizeof(buf), "%s%s\n", buf,
-		IS_SET(PC(ch)->www_show_flags, WSHOW_CLASS) ? ch->class : "Unknown");
-
-	snprintf(buf, sizeof(buf), "%s%s %s\n", buf,
-		IS_SET(PC(ch)->www_show_flags, WSHOW_CLAN) ? ch->clan : "Unknown",
-		IS_SET(PC(ch)->www_show_flags, WSHOW_CLAN) ? flag_string(clan_status_table, PC(ch)->clan_status) : "");
-
-	snprintf(buf, sizeof(buf), "%s%d\n", buf,
-		IS_SET(PC(ch)->www_show_flags, WSHOW_LEVEL) ? ch->level : -1);
-
-	snprintf(buf, sizeof(buf), "%s%s\n", buf,
-		IS_SET(PC(ch)->www_show_flags, WSHOW_ALIGN) ? flag_string(align_names, NALIGN(ch)) : "Unknown");
-
-	snprintf(buf, sizeof(buf), "%s%s\n", buf,
-		IS_SET(PC(ch)->www_show_flags, WSHOW_RELIGION) ? religion_name(GET_RELIGION(ch)) : "Unknown");
-
-	snprintf(buf, sizeof(buf), "%s%s\n", buf,
-		IS_SET(PC(ch)->www_show_flags, WSHOW_ETHOS) ? flag_string(ethos_table, ch->ethos) : "Unknown");
-
-	snprintf(buf, sizeof(buf), "%s%s\n", buf,
-		IS_SET(PC(ch)->www_show_flags, WSHOW_SEX) ? mlstr_mval(&ch->gender) : "Unknown");
-
-	snprintf(buf, sizeof(buf), "%s%s\n", buf,
-		IS_SET(PC(ch)->www_show_flags, WSHOW_SLANG) ? flag_string(slang_table, ch->slang) : "Unknown");
-
-	snprintf(buf, sizeof(buf), "%s%d\n", buf,
-		IS_SET(PC(ch)->www_show_flags, WSHOW_DEATHS) ? PC(ch)->death : -1);
-
-	snprintf(buf, sizeof(buf), "%s%d %d\n", buf,
-		IS_SET(PC(ch)->www_show_flags, WSHOW_KILLS) ? PC(ch)->has_killed : -1,
-		IS_SET(PC(ch)->www_show_flags, WSHOW_KILLS) ? PC(ch)->anti_killed : -1);
-
-	snprintf(buf, sizeof(buf), "%s%d\n", buf,
-		IS_SET(PC(ch)->www_show_flags, WSHOW_PCKILLS) ? PC(ch)->pc_killed : -1);
-
 	output = buf_new(-1);
-	buf_add(output, PC(ch)->title);
-	parse_colors(buf_string(output), arg, sizeof(arg), format);
-
-	snprintf(buf, sizeof(buf), "%s%s\n", buf,
-		IS_SET(PC(ch)->www_show_flags, WSHOW_TITLE) ? arg : "");
-
-	buf_free(output);
-
-	snprintf(buf, sizeof(buf), "%s%s\n", buf,
-		IS_SET(PC(ch)->www_show_flags, WSHOW_HOMETOWN) ? hometown_name(PC(ch)->hometown) : "Unknown");
-		   
-	snprintf(buf, sizeof(buf), "%s%d\n", buf,
-		IS_SET(PC(ch)->www_show_flags, WSHOW_AGE) ? get_age(ch) : -1);
-
-	snprintf(buf, sizeof(buf), "%s%s\n", buf,
+	buf_printf(output, "%s\n%s\n%s %s\n%d\n%s\n%s\n%s\n%s\n%s\n%d\n%d %d\n%d\n%s\n%s\n%d\n%s\n",
+		IS_SET(PC(ch)->www_show_flags, WSHOW_RACE) ? PC(ch)->race : "Unknown",
+		IS_SET(PC(ch)->www_show_flags, WSHOW_CLASS) ? ch->class : "Unknown",
+		(IS_SET(PC(ch)->www_show_flags, WSHOW_CLAN) && !IS_NULLSTR(ch->clan)) ? ch->clan : "Unknown",
+		(IS_SET(PC(ch)->www_show_flags, WSHOW_CLAN) && !IS_NULLSTR(ch->clan)) ? flag_string(clan_status_table, PC(ch)->clan_status) : "",
+		IS_SET(PC(ch)->www_show_flags, WSHOW_LEVEL) ? ch->level : -1,
+		IS_SET(PC(ch)->www_show_flags, WSHOW_ALIGN) ? flag_string(align_names, NALIGN(ch)) : "Unknown",
+		IS_SET(PC(ch)->www_show_flags, WSHOW_RELIGION) ? religion_name(GET_RELIGION(ch)) : "Unknown",
+		IS_SET(PC(ch)->www_show_flags, WSHOW_ETHOS) ? flag_string(ethos_table, ch->ethos) : "Unknown",
+		IS_SET(PC(ch)->www_show_flags, WSHOW_SEX) ? mlstr_mval(&ch->gender) : "Unknown",
+		IS_SET(PC(ch)->www_show_flags, WSHOW_SLANG) ? flag_string(slang_table, ch->slang) : "Unknown",
+		IS_SET(PC(ch)->www_show_flags, WSHOW_DEATHS) ? PC(ch)->death : -1,
+		IS_SET(PC(ch)->www_show_flags, WSHOW_KILLS) ? PC(ch)->has_killed : -1,
+		IS_SET(PC(ch)->www_show_flags, WSHOW_KILLS) ? PC(ch)->anti_killed : -1,
+		IS_SET(PC(ch)->www_show_flags, WSHOW_PCKILLS) ? PC(ch)->pc_killed : -1,
+		IS_SET(PC(ch)->www_show_flags, WSHOW_TITLE) ? PC(ch)->title : "",
+		IS_SET(PC(ch)->www_show_flags, WSHOW_HOMETOWN) ? hometown_name(PC(ch)->hometown) : "Unknown",
+		IS_SET(PC(ch)->www_show_flags, WSHOW_AGE) ? get_age(ch) : -1,
 		IS_WANTED(ch) ? "WANTED" : "");
 
+	parse_colors(buf_string(output), buf, sizeof(buf), format);
+	buf_free(output);
 	char_nuke(ch);
 }
 
