@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.13 2000-08-01 13:29:04 fjoe Exp $
+ * $Id: spellfun.c,v 1.181.2.14 2001-01-11 21:46:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3127,11 +3127,18 @@ void spell_plague(int sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (saves_spell(level,victim,DAM_DISEASE) ||
-		(IS_NPC(victim) && IS_SET(victim->pMobIndex->act, ACT_UNDEAD)))
-	{
-		if (ch->in_room == victim->in_room)
-		  act("$N seems to be unaffected.",ch,NULL,victim,TO_CHAR);
+	if (saves_spell(level, victim, DAM_DISEASE)
+	||  (IS_NPC(victim) && IS_SET(victim->pMobIndex->act, ACT_UNDEAD))) {
+		if (ch->in_room != victim->in_room)
+			return;
+
+		if (ch == victim) {
+			act("You seem to be unaffected",
+			    ch, NULL, NULL, TO_CHAR);
+		} else {
+			act("$N seems to be unaffected.",
+			    ch, NULL, victim, TO_CHAR);
+		}
 		return;
 	}
 
