@@ -60,7 +60,7 @@ arm-chair кресло~
 @eng The soft arm-chair offers you to rest.@rus Мягкое кресло (arm-chair) манит к себе, приглашая отдохнуть.~
 unknown~
 furniture AG 0 0
-A EIJKN FI DEFG DEFG
+1 10000 FI 120 120
 0 0 0 P
 g @rus none~
 #2506
@@ -125,7 +125,7 @@ carpet дорожка~
 @eng A red carpet lies on steps of the staircase.@rus Ковровая дорожка (carpet) красного цвета заглушает твои шаги.~
 wool~
 furniture 0 0 0
-BD EIJKN EHK 0 0
+10 10000 EHK 0 0
 0 0 0 P
 g @rus female~
 #2513

@@ -734,7 +734,7 @@ a pair of red dragon claws~
 You can see a pair of large red dragon claws on the floor.~
 bone~
 furniture GJ 0 AH
-AD 0 0 0 0
+9 0 0 0 0
 20 40 1150 P
 a '' to_object 20 -1 2 19 0
 g @rus none~
