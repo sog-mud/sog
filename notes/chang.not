@@ -4083,3 +4083,79 @@ Salut!
 А список всех переключаемых данной командой флажков доступен
 если ввести auto без аргументов.
 ~
+Sender  Phrinn~
+Date    Wed Dec 11 22:15:40 2002~
+Stamp   1039634140
+To      all~
+Subject skills~
+Text
+Greeting!
+ 
+  По пожеланиям трудящихся добавлены %владения и
+скиллы отсортированы по уровню.
+ 
+{WФринн{x.
+~
+Sender  Phrinn~
+Date    Wed Feb 26 23:34:32 2003~
+Stamp   1046291672
+To      all~
+Subject minor changes~
+Text
+Greeting!
+ 
+- баг с катаной поправлен. чьи катаны остались перекошенными,
+обращайтесь. (катаны, которые не были выкуплены у квестора,
+магическим образом пропали)
+- запрещено гейтится на чужих чармисов
+ 
+{WФринн{x.
+~
+Sender  Phrinn~
+Date    Thu Feb 27 20:10:56 2003~
+Stamp   1046365856
+To      all~
+Subject blur~
+Text
+Greeting!
+ 
+Отныне 'blur' стоит 100 mana. Также его больше невозможно наложить на себя в бою.
+ 
+{WФринн{x.
+~
+Sender  Phrinn~
+Date    Tue Mar  4 16:22:44 2003~
+Stamp   1046784164
+To      all~
+Subject minor changes~
+Text
+Greeting!
+ 
+Дамадж у катаны увеличен. После успешного 'disi' и 'abolish undead'
+вешается ghost state. (а вообще о том, что он не вешался надо было
+давным давно сообщить, а не так что это выплывает при очередных
+разборках)
+ 
+{WФринн{x.
+~
+Sender  Tyan~
+Date    Thu Feb 19 03:38:21 2004~
+Stamp   1077151101
+To      all~
+Subject some bugs fixed~
+Text
+hi, there!
+ 
+1. Damroll, level и прочие статы bone dragon'а не сохранялись.
+2. Экскалибур починен.
+3. Починены многочисленные ошибки с sacrifice.
+4. Теперь при продаже вещей и при split (включая автосплит) проверяется
+вес игрока.
+5. Исправлена ошибка, из-за которой некоторые мобы рождались с con 3.
+6. Исправлены leprechaun, sprite, imp quasit и guardian.
+7. Исправлен портал в mystic pond.
+ 
+Happy mudding.
+ 
+{WTyan{x
+~
