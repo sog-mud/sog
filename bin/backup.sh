@@ -11,7 +11,7 @@ export SOG_HOME
 
 #
 # determine time stamp
-stamp=`LC_TIME=en_US.ISO_8859-1 date | awk '{ print $3"-"$2"-"$6 }'`
+stamp=`LC_TIME=en_GB.ISO_8859-1 date | awk '{ printf "%s-%02d-%d", $3, $2, $6 }'`
 
 cd $SOG_HOME/player || exit 1
 tar cvfz ../backup/backup-$stamp.tar.gz *
