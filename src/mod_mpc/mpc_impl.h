@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.17 2001-08-26 16:17:27 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.18 2001-09-01 19:08:31 fjoe Exp $
  */
 
 #ifndef _MPC_IMPL_H_
@@ -76,6 +76,15 @@ sym_t *	sym_cpy(sym_t *dst, const sym_t *src);
 extern hash_t glob_syms;		/* (sym_t) */
 extern hashdata_t h_syms;
 extern flaginfo_t mpc_types[];
+
+#define IS_PTR_TYPE(type_tag)						\
+	((type_tag) == MT_STR ||					\
+	 (type_tag) == MT_CHAR ||					\
+	 (type_tag) == MT_OBJ ||					\
+	 (type_tag) == MT_ROOM)						\
+
+#define TYPE_IS(type_tag1, type_tag2)					\
+	 (IS_PTR_TYPE(type_tag1) && (type_tag2) == MT_PVOID)
 
 /**
  * Switch jump table

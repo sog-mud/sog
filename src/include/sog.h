@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.17 2001-08-31 10:29:28 fjoe Exp $
+ * $Id: sog.h,v 1.18 2001-09-01 19:08:22 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -174,18 +174,18 @@ DECLARE_FUN1(bool, room_is_private,
 DECLARE_FUN2(ROOM_INDEX_DATA, find_location,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), argument)
 
-DECLARE_PROC4(get_obj,
-	      ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj,
-	      NULLABLE_ARG(OBJ_DATA), container,
-	      NULLABLE_ARG(cchar_t), msg_others)
+DECLARE_FUN4(bool, get_obj,
+	     ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj,
+	     NULLABLE_ARG(OBJ_DATA), container,
+	     NULLABLE_ARG(cchar_t), msg_others)
 DECLARE_PROC2(quaff_obj,
 	      ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj)
-DECLARE_PROC3(wear_obj,
-	      ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj, ARG(bool), fReplace)
+DECLARE_FUN3(bool, wear_obj,
+	     ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj, ARG(bool), fReplace)
 DECLARE_FUN3(bool, remove_obj,
 	     ARG(CHAR_DATA), ch, ARG(int), iWear, ARG(bool), fReplace)
-DECLARE_PROC3(give_obj,
-	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(OBJ_DATA), obj)
+DECLARE_FUN3(bool, give_obj,
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(OBJ_DATA), obj)
 
 DECLARE_PROC2(look_char,
 	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim)
@@ -193,10 +193,10 @@ DECLARE_PROC2(look_char,
 DECLARE_FUN4(OBJ_DATA, get_obj_list,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), argument,
 	     NULLABLE_ARG(OBJ_DATA), list, ARG(int), flags)
-DECLARE_FUN2(OBJ_DATA, get_obj_carry,
-	     ARG(CHAR_DATA), ch, ARG(cchar_t), argument)
-DECLARE_FUN2(OBJ_DATA, get_obj_wear,
-	     ARG(CHAR_DATA), ch, ARG(cchar_t), argument)
+DECLARE_FUN3(OBJ_DATA, get_obj_carry,
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(cchar_t), argument)
+DECLARE_FUN3(OBJ_DATA, get_obj_wear,
+	     ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim, ARG(cchar_t), argument)
 DECLARE_FUN2(OBJ_DATA, get_obj_here,
 	     ARG(CHAR_DATA), ch, ARG(cchar_t), argument)
 DECLARE_FUN2(OBJ_DATA, get_obj_room,
@@ -349,7 +349,8 @@ DECLARE_FUN3(pchar_t, format_obj_to_char,
 DECLARE_PROC3(show_list_to_char,
 	      NULLABLE_ARG(OBJ_DATA), list, ARG(CHAR_DATA), ch, ARG(int), flags)
 DECLARE_PROC3(show_obj_to_char,
-	      ARG(CHAR_DATA), ch, ARG(OBJ_DATA), obj, ARG(flag_t), wear_loc)
+	      ARG(CHAR_DATA), ch, NULLABLE_ARG(OBJ_DATA), obj,
+	      ARG(flag_t), wear_loc)
 
 /*--- scan_pfiles.c */
 DECLARE_PROC0(scan_pfiles)
@@ -440,7 +441,8 @@ DECLARE_PROC3(show_affects,
 #define FOA_F_NOAFFECTS		(B)	/* do not show bit affects	*/
 
 DECLARE_PROC3(format_obj_affects,
-	      ARG(BUFFER), output, ARG(AFFECT_DATA), paf, ARG(int), flags)
+	      ARG(BUFFER), output, NULLABLE_ARG(AFFECT_DATA), paf,
+	      ARG(int), flags)
 
 /*--- fight.c */
 

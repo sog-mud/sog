@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.33 2001-08-30 18:50:10 fjoe Exp $
+ * $Id: magic.c,v 1.34 2001-09-01 19:08:27 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,6 +34,8 @@
 
 #include <magic.h>
 #include "magic_impl.h"
+
+static int get_cpdata_bysn(CHAR_DATA *ch, const char *sn, cpdata_t *cp);
 
 /*
  * Cast spells at targets using a magical object.
@@ -63,7 +65,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	case TAR_IGNORE:
 		vo = NULL;
 		bch = ch;
-		bane_damage = 10*bch->level;
+		bane_damage = 10 * bch->level;
 		break;
 
 	case TAR_CHAR_OFFENSIVE:
@@ -76,7 +78,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		}
 
 		bch = vo;
-		bane_damage = 10*bch->level;
+		bane_damage = 10 * bch->level;
 		bane_chance = 2 * get_skill(vo, "spellbane") / 3;
 		break;
 
@@ -90,7 +92,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			return;
 		}
 		bch = vo;
-		bane_damage = 10*bch->level;
+		bane_damage = 10 * bch->level;
 		break;
 
 	case TAR_OBJ_INV:
@@ -116,7 +118,7 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		/* mem_is handles NULL vo properly (returns FALSE) */
 		if (mem_is(vo, MT_CHAR)) {
 			bch = vo;
-			bane_damage = 3*bch->level;
+			bane_damage = 3 * bch->level;
 		} else if (!mem_is(vo, MT_OBJ)) {
 			act_char("You can't do that.", ch);
 			return;
@@ -183,6 +185,119 @@ obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		if (victim->fighting == NULL)
 			multi_hit(victim, ch, NULL);
 	}
+}
+
+void
+cast(const char *sn, CHAR_DATA *ch, const char *argument)
+{
+	cpdata_t cp;
+	sptarget_t spt;
+
+	if (get_cpdata_bysn(ch, sn, &cp) < 0)
+		return;
+
+	sptarget_init(&spt);
+
+	switch (cp.sk->target) {
+	default:
+		log(LOG_BUG, "cast_mob: %s: bad target %d",
+		    sn, cp.sk->target);
+		return;
+
+	case TAR_IGNORE:
+		spt.bch = ch;
+		break;
+
+	case TAR_CHAR_OFFENSIVE:
+	case TAR_CHAR_DEFENSIVE:
+	case TAR_CHAR_SELF:
+	case TAR_OBJ_INV:
+	case TAR_OBJ_CHAR_OFF:
+	case TAR_OBJ_CHAR_DEF:
+		act_char("You can't cast this spell or use prayer on that.", ch);
+		return;
+	}
+
+	target_name = argument;
+	cast_spell(ch, &cp, &spt);
+}
+
+void
+cast_char(const char *sn, CHAR_DATA *ch, CHAR_DATA *victim)
+{
+	cpdata_t cp;
+	sptarget_t spt;
+
+	if (get_cpdata_bysn(ch, sn, &cp) < 0)
+		return;
+
+	sptarget_init(&spt);
+
+	switch (cp.sk->target) {
+	default:
+		log(LOG_BUG, "cast_mob: %s: bad target %d",
+		    sn, cp.sk->target);
+		return;
+
+	case TAR_IGNORE:
+	case TAR_OBJ_INV:
+		act_char("You can't cast this spell or use prayer on that.", ch);
+		return;
+
+	case TAR_CHAR_OFFENSIVE:
+		spt.bane_chance = 2 * get_skill(victim, "spellbane") / 3;
+		/* FALLTHRU */
+
+	case TAR_CHAR_DEFENSIVE:
+	case TAR_OBJ_CHAR_OFF:
+	case TAR_OBJ_CHAR_DEF:
+		spt.vo = victim;
+		spt.bch = victim;
+		break;
+
+	case TAR_CHAR_SELF:
+		spt.vo = ch;
+		spt.bch = ch;
+		break;
+	}
+
+	target_name = victim->name;
+	cast_spell(ch, &cp, &spt);
+}
+
+void
+cast_obj(const char *sn, CHAR_DATA *ch, OBJ_DATA *obj)
+{
+	cpdata_t cp;
+	sptarget_t spt;
+
+	if (get_cpdata_bysn(ch, sn, &cp) < 0)
+		return;
+
+	sptarget_init(&spt);
+
+	switch (cp.sk->target) {
+	default:
+		log(LOG_BUG, "cast_obj: %s: bad target %d",
+		    sn, cp.sk->target);
+		return;
+
+	case TAR_IGNORE:
+	case TAR_CHAR_OFFENSIVE:
+	case TAR_CHAR_DEFENSIVE:
+	case TAR_CHAR_SELF:
+		act_char("You can't cast this spell or use prayer on that.", ch);
+		return;
+
+	case TAR_OBJ_INV:
+	case TAR_OBJ_CHAR_OFF:
+	case TAR_OBJ_CHAR_DEF:
+		spt.vo = obj;
+		break;
+	}
+
+	target_name = obj->pObjIndex->name;
+	cast_spell(ch, &cp, &spt);
 }
 
 /*
@@ -287,4 +402,24 @@ check_dispel(int dis_level, CHAR_DATA *victim, const char *sn)
 	    }
 	}
 	return FALSE;
+}
+
+static int
+get_cpdata_bysn(CHAR_DATA *ch, const char *sn, cpdata_t *cp)
+{
+	cpdata_init(cp);
+
+	cp->sn = sn;
+	if ((cp->sk = skill_lookup(sn)) == NULL
+	||  (cp->chance = get_skill(ch, sn)) == 0) {
+		act_char("You don't know any spells or prayers of that name.", ch);
+		return -1;
+	}
+
+	if (cp->sk->skill_type != ST_SPELL && cp->sk->skill_type != ST_PRAYER) {
+		act_char("That's not a spell or prayer.", ch);
+		return -1;
+	}
+
+	return 0;
 }

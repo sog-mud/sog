@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic_impl.h,v 1.2 2001-07-31 18:14:53 fjoe Exp $
+ * $Id: magic_impl.h,v 1.3 2001-09-01 19:08:28 fjoe Exp $
  */
 
 #ifndef _MAGIC_IMPL_H_
@@ -31,9 +31,43 @@
 
 extern const char *target_name;
 
-bool	check_trust	(CHAR_DATA *ch, CHAR_DATA *victim);
-bool	spellbane	(CHAR_DATA *bch, CHAR_DATA *ch,
-			 int bane_chance, int bane_damage);
-bool	saves_dispel	(int dis_level, int spell_level, int duration);
+/**
+ * cast/pray data
+ */
+struct cpdata_t {
+	const char *sn;
+	skill_t *sk;
+	int chance;
+	int mana;
+	bool shadow;
+};
+typedef struct cpdata_t cpdata_t;
+
+/**
+ * Spell/prayer target
+ */
+struct sptarget_t {
+	void *vo;
+
+	int door;
+	bool cast_far;
+
+	CHAR_DATA *bch;
+	int bane_chance;
+};
+typedef struct sptarget_t sptarget_t;
+
+bool saves_dispel(int dis_level, int spell_level, int duration);
+bool check_trust(CHAR_DATA *ch, CHAR_DATA *victim);
+bool spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage);
+
+void cpdata_init(cpdata_t *cp);
+int get_cpdata(CHAR_DATA *ch, const char *argument,
+	       int skill_type, cpdata_t *cp);
+
+void sptarget_init(sptarget_t *spt);
+int find_sptarget(CHAR_DATA *ch, skill_t *sk, sptarget_t *spt);
+
+void cast_spell(CHAR_DATA *ch, cpdata_t *cp, sptarget_t *spt);
 
 #endif /* _MAGIC_IMPL_H_ */

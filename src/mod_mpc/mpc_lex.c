@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_lex.c,v 1.15 2001-08-28 21:52:16 fjoe Exp $
+ * $Id: mpc_lex.c,v 1.16 2001-09-01 19:08:31 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -172,7 +172,7 @@ struct flaginfo_t mpc_types[] =
 
 	{ "int",	MT_INT,			FALSE	},
 	{ "string",	MT_STR,			FALSE	},
-	{ "mob",	MT_CHAR,		FALSE	},
+	{ "char",	MT_CHAR,		FALSE	},
 	{ "obj",	MT_OBJ,			FALSE	},
 	{ "room",	MT_ROOM,		FALSE	},
 

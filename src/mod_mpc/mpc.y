@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.29 2001-08-31 10:29:32 fjoe Exp $
+ * $Id: mpc.y,v 1.30 2001-09-01 19:08:30 fjoe Exp $
  */
 
 /*
@@ -205,7 +205,9 @@ code3(mpcode_t *mpc,
 
 #define BOP_CHECK_TYPES(opname, type_tag1, type_tag2)			\
 	do {								\
-		if ((type_tag1) != (type_tag2)) {			\
+		if ((type_tag1) != (type_tag2)				\
+		&&  !TYPE_IS((type_tag1), (type_tag2))			\
+		&&  !TYPE_IS((type_tag2), (type_tag1)))	{		\
 			compile_error(mpc,				\
 			    "invalid operand types for '%s' ('%s' and '%s')",\
 			    (opname),					\
@@ -804,11 +806,7 @@ expr:	L_IDENT assign expr %prec '=' {
 
 			if (d->argtype[i].type_tag == MT_PVOID
 			||  d->argtype[i].type_tag == MT_PCVOID
-			||  (got_type == MT_PVOID &&
-			     (d->argtype[i].type_tag == MT_STR ||
-			      d->argtype[i].type_tag == MT_CHAR ||
-			      d->argtype[i].type_tag == MT_OBJ ||
-			      d->argtype[i].type_tag == MT_ROOM))) {
+			||  TYPE_IS(d->argtype[i].type_tag, got_type)) {
 				code(mpc, (void *) d->argtype[i].type_tag);
 				continue;
 			}
@@ -925,6 +923,9 @@ expr:	L_IDENT assign expr %prec '=' {
 
 		switch ($1) {
 		case MT_INT:
+		case MT_CHAR:
+		case MT_OBJ:
+		case MT_ROOM:
 			code(mpc, c_bop_eq);
 			break;
 
@@ -943,6 +944,9 @@ expr:	L_IDENT assign expr %prec '=' {
 
 		switch ($1) {
 		case MT_INT:
+		case MT_CHAR:
+		case MT_OBJ:
+		case MT_ROOM:
 			code(mpc, c_bop_ne);
 			break;
 
@@ -1586,6 +1590,9 @@ _mprog_compile(mprog_t *mp)
 	||  !IS_NULLSTR(buf_string(mpc->mp->errbuf)))
 		return MPC_ERR_COMPILE;
 
+	if (IS_SET(mpc->mp->flags, MP_F_TRACE))
+		mpcode_dump(mpc);
+
 	buf_free(mpc->mp->errbuf);
 	mpc->mp->errbuf = NULL;
 
@@ -1594,7 +1601,6 @@ _mprog_compile(mprog_t *mp)
 	mpc->cp = str_empty;
 	mpc->mp = NULL;
 
-	mpcode_dump(mpc);
 	return 0;
 }
 

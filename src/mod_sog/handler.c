@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.317 2001-08-31 10:29:34 fjoe Exp $
+ * $Id: handler.c,v 1.318 2001-09-01 19:08:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2359,11 +2359,17 @@ get_char_room_raw(CHAR_DATA *ch, const char *name,
 {
 	CHAR_DATA *rch;
 	bool ugly;
+	int vnum = 0;
 
 	if (!str_cmp(name, "self"))
 		return ch;
 
 	ugly = !str_cmp(name, "ugly");
+
+	if ((IS_NPC(ch) || IS_IMMORTAL(ch))
+	&&  is_number(name))
+		vnum = atoi(name);
+
 	for (rch = room->people; rch; rch = rch->next_in_room) {
 		CHAR_DATA *vch;
 
@@ -2378,7 +2384,11 @@ get_char_room_raw(CHAR_DATA *ch, const char *name,
 		vch = (is_affected(rch, "doppelganger") &&
 		       (IS_NPC(ch) || !IS_SET(PC(ch)->plr_flags, PLR_HOLYLIGHT))) ?
 					rch->doppel : rch;
-		if ((!IS_IMMORTAL(ch) || name[0]) && !is_name(name, vch->name))
+		if (vnum) {
+			if (!IS_NPC(vch) || vnum != vch->pMobIndex->vnum)
+				continue;
+		} else if ((!IS_IMMORTAL(ch) || name[0])
+		       &&  !is_name(name, vch->name))
 			continue;
 
 		if (!--(*number))
@@ -2410,6 +2420,7 @@ get_char_area(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *ach;
 	uint number;
+	int vnum = 0;
 
 	number = number_argument(argument, arg, sizeof(arg));
 	if (!number)
@@ -2421,14 +2432,23 @@ get_char_area(CHAR_DATA *ch, const char *argument)
 	if (arg[0] == '\0')
 		return NULL;
 
+	if ((IS_NPC(ch) || IS_IMMORTAL(ch))
+	&&  is_number(arg))
+		vnum = atoi(arg);
+
 	for (ach = char_list; ach; ach = ach->next) {
 		if (!ach->in_room
 		||  ach->in_room == ch->in_room)
 			continue;
 
 		if (ach->in_room->area != ch->in_room->area
-		||  !can_see(ch, ach)
-		||  !is_name(arg, ach->name))
+		||  !can_see(ch, ach))
+			continue;
+
+		if (vnum) {
+			if (!IS_NPC(ach) || vnum != ach->pMobIndex->vnum)
+				continue;
+		} else if (!is_name(arg, ach->name))
 			continue;
 
 		if (!--number)
@@ -2446,6 +2466,7 @@ get_char_world(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *wch;
 	uint number;
+	int vnum = 0;
 
 	number = number_argument(argument, arg, sizeof(arg));
 	if (!number)
@@ -2457,11 +2478,20 @@ get_char_world(CHAR_DATA *ch, const char *argument)
 	if (arg[0] == '\0')
 		return NULL;
 
+	if ((IS_NPC(ch) || IS_IMMORTAL(ch))
+	&&  is_number(arg))
+		vnum = atoi(arg);
+
 	for (wch = char_list; wch; wch = wch->next) {
 		if (!wch->in_room
 		||  wch->in_room == ch->in_room
-		||  !can_see(ch, wch)
-		||  !is_name(arg, wch->name))
+		||  !can_see(ch, wch))
+			continue;
+
+		if (vnum) {
+			if (!IS_NPC(wch) || vnum != wch->pMobIndex->vnum)
+				continue;
+		} else if (!is_name(arg, wch->name))
 			continue;
 
 		if (!--number)
@@ -2719,7 +2749,7 @@ find_location(CHAR_DATA *ch, const char *argument)
 	return NULL;
 }
 
-void
+bool
 get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
 	const char *msg_others)
 {
@@ -2734,21 +2764,21 @@ get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
 	     IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA) &&
 	     !IS_OWNER(ch, obj))) {
 		act("You can't take $p.", ch, obj, NULL, TO_CHAR);
-		return;
+		return FALSE;
 	}
 
 	if ((carry_n = can_carry_n(ch)) >= 0
 	&&  ch->carry_number + get_obj_number(obj) > carry_n) {
 		act_puts("$P: you can't carry that many items.",
 			 ch, NULL, obj, TO_CHAR, POS_DEAD);
-		return;
+		return FALSE;
 	}
 
 	if ((carry_w = can_carry_w(ch)) >= 0
 	&&  get_carry_weight(ch) + get_obj_weight(obj) > carry_w) {
 		act_puts("$P: you can't carry that much weight.",
 			 ch, NULL, obj, TO_CHAR, POS_DEAD);
-		return;
+		return FALSE;
 	}
 
 	if (obj->in_room != NULL) {
@@ -2757,7 +2787,7 @@ get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
 			if (gch->on == obj) {
 				act_puts("$N appears to be using $p.",
 					 ch, obj, gch, TO_CHAR, POS_DEAD);
-				return;
+				return FALSE;
 			}
 		}
 	}
@@ -2767,7 +2797,7 @@ get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
 		&&  get_carry_weight(ch) + MONEY_WEIGHT(obj) > carry_w) {
 			act_puts("$P: you can't carry that much weight.",
 				 ch, NULL, obj, TO_CHAR, POS_DEAD);
-			return;
+			return FALSE;
 		}
 	}
 
@@ -2841,6 +2871,8 @@ get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
 		oprog_call(OPROG_GET, obj, ch, NULL);
 #endif
 	}
+
+	return FALSE;
 }
 
 void
@@ -2878,7 +2910,7 @@ quaff_obj(CHAR_DATA *ch, OBJ_DATA *obj)
  * Optional replacement of existing objects.
  * Big repetitive code, ick.
  */
-void
+bool
 wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 {
 #if 0
@@ -2894,23 +2926,22 @@ wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 	&&  (!IS_SET(ch->form, FORM_BIPED) ||
 	     !IS_SET(ch->form, FORM_SENTIENT))) {
 		act("WEAR ?", ch, NULL, NULL, TO_CHAR);
-		return;
+		return FALSE;
 	}
 
 	if (ch->shapeform) {
 		act("You cannot reach your items.",
 			ch, NULL, NULL, TO_CHAR);
-		return;
+		return FALSE;
 	}
 
 	if (obj->item_type == ITEM_LIGHT) {
 		if (!remove_obj(ch, WEAR_LIGHT, fReplace))
-			return;
+			return FALSE;
 		act("$n lights $p and holds it.", ch, obj, NULL, TO_ROOM);
 		act_puts("You light $p and hold it.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		equip_char(ch, obj, WEAR_LIGHT);
-		return;
+		return equip_char(ch, obj, WEAR_LIGHT) != NULL;
 	}
 
 	if (CAN_WEAR(obj, ITEM_WEAR_FINGER)) {
@@ -2918,15 +2949,14 @@ wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 		&&  get_eq_char(ch, WEAR_FINGER_R) != NULL
 		&&  !remove_obj(ch, WEAR_FINGER_L, fReplace)
 		&&  !remove_obj(ch, WEAR_FINGER_R, fReplace))
-			return;
+			return FALSE;
 
 		if (get_eq_char(ch, WEAR_FINGER_L) == NULL) {
 			act("$n wears $p on $s left finger.",
 			    ch, obj, NULL, TO_ROOM);
 			act_puts("You wear $p on your left finger.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
-			equip_char(ch, obj, WEAR_FINGER_L);
-			return;
+			return equip_char(ch, obj, WEAR_FINGER_L) != NULL;
 		}
 
 		if (get_eq_char(ch, WEAR_FINGER_R) == NULL) {
@@ -2934,128 +2964,113 @@ wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 			    ch, obj, NULL, TO_ROOM);
 			act_puts("You wear $p on your right finger.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
-			equip_char(ch, obj, WEAR_FINGER_R);
-			return;
+			return equip_char(ch, obj, WEAR_FINGER_R) != NULL;
 		}
 
 		log(LOG_BUG, "wear_obj: no free finger");
 		act_char("You already wear two rings.", ch);
-		return;
+		return FALSE;
 	}
 
 	if (CAN_WEAR(obj, ITEM_WEAR_NECK)) {
-		if (get_eq_char(ch, WEAR_NECK) != NULL
-		&&  !remove_obj(ch, WEAR_NECK, fReplace))
-			return;
+		if (!remove_obj(ch, WEAR_NECK, fReplace))
+			return FALSE;
 
-		if (get_eq_char(ch, WEAR_NECK) == NULL) {
-			act("$n wears $p around $s neck.",
-			    ch, obj, NULL, TO_ROOM);
-			act_puts("You wear $p around your neck.",
-				 ch, obj, NULL, TO_CHAR, POS_DEAD);
-			equip_char(ch, obj, WEAR_NECK);
-			return;
-		}
-
+		act("$n wears $p around $s neck.",
+		    ch, obj, NULL, TO_ROOM);
+		act_puts("You wear $p around your neck.",
+			 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		return equip_char(ch, obj, WEAR_NECK) != NULL;
 	}
 
 	if (CAN_WEAR(obj, ITEM_WEAR_FACE)) {
 		if (!remove_obj(ch, WEAR_FACE, fReplace))
-			return;
+			return FALSE;
 
 		act("$n wears $p on $s face.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wear $p on your face.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		equip_char(ch, obj, WEAR_FACE);
-		return;
+		return equip_char(ch, obj, WEAR_FACE) != NULL;
 	}
 
 	if (CAN_WEAR(obj, ITEM_WEAR_BODY)) {
 		if (!remove_obj(ch, WEAR_BODY, fReplace))
-			return;
+			return FALSE;
 
 		act("$n wears $p on $s torso.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wear $p on your torso.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		equip_char(ch, obj, WEAR_BODY);
-		return;
+		return equip_char(ch, obj, WEAR_BODY) != NULL;
 	}
 
 	if (CAN_WEAR(obj, ITEM_WEAR_HEAD)) {
 		if (!remove_obj(ch, WEAR_HEAD, fReplace))
-			return;
+			return FALSE;
 
 		act("$n wears $p on $s head.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wear $p on your head.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		equip_char(ch, obj, WEAR_HEAD);
-		return;
+		return equip_char(ch, obj, WEAR_HEAD) != NULL;
 	}
 
 	if (CAN_WEAR(obj, ITEM_WEAR_LEGS)) {
 		if (!remove_obj(ch, WEAR_LEGS, fReplace))
-			return;
+			return FALSE;
 
 		act("$n wears $p on $s legs.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wear $p on your legs.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		equip_char(ch, obj, WEAR_LEGS);
-		return;
+		return equip_char(ch, obj, WEAR_LEGS) != NULL;
 	}
 
 	if (CAN_WEAR(obj, ITEM_WEAR_FEET)) {
 		if (!remove_obj(ch, WEAR_FEET, fReplace))
-			return;
+			return FALSE;
 
 		act("$n wears $p on $s feet.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wear $p on your feet.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		equip_char(ch, obj, WEAR_FEET);
-		return;
+		return equip_char(ch, obj, WEAR_FEET) != NULL;
 	}
 
 	if (CAN_WEAR(obj, ITEM_WEAR_HANDS)) {
 		if (!remove_obj(ch, WEAR_HANDS, fReplace))
-			return;
+			return FALSE;
 
 		act("$n wears $p on $s hands.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wear $p on your hands.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		equip_char(ch, obj, WEAR_HANDS);
-		return;
+		return equip_char(ch, obj, WEAR_HANDS) != NULL;
 	}
 
 	if (CAN_WEAR(obj, ITEM_WEAR_ARMS)) {
 		if (!remove_obj(ch, WEAR_ARMS, fReplace))
-			return;
+			return FALSE;
 
 		act("$n wears $p on $s arms.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wear $p on your arms.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		equip_char(ch, obj, WEAR_ARMS);
-		return;
+		return equip_char(ch, obj, WEAR_ARMS) != NULL;
 	}
 
 	if (CAN_WEAR(obj, ITEM_WEAR_ABOUT)) {
 		if (!remove_obj(ch, WEAR_ABOUT, fReplace))
-			return;
+			return FALSE;
 
 		act("$n wears $p on $s torso.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wear $p on your torso.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		equip_char(ch, obj, WEAR_ABOUT);
-		return;
+		return equip_char(ch, obj, WEAR_ABOUT) != NULL;
 	}
 
 	if (CAN_WEAR(obj, ITEM_WEAR_WAIST)) {
 		if (!remove_obj(ch, WEAR_WAIST, fReplace))
-			return;
+			return FALSE;
 
 		act("$n wears $p about $s waist.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wear $p about your waist.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		equip_char(ch, obj, WEAR_WAIST);
-		return;
+		return equip_char(ch, obj, WEAR_WAIST) != NULL;
 	}
 
 	if (CAN_WEAR(obj, ITEM_WEAR_WRIST)) {
@@ -3063,15 +3078,14 @@ wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 		&&  get_eq_char(ch, WEAR_WRIST_R) != NULL
 		&&  !remove_obj(ch, WEAR_WRIST_L, fReplace)
 		&&  !remove_obj(ch, WEAR_WRIST_R, fReplace))
-			return;
+			return FALSE;
 
 		if (get_eq_char(ch, WEAR_WRIST_L) == NULL) {
 			act("$n wears $p around $s left wrist.",
 			    ch, obj, NULL, TO_ROOM);
 			act_puts("You wear $p around your left wrist.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
-			equip_char(ch, obj, WEAR_WRIST_L);
-			return;
+			return equip_char(ch, obj, WEAR_WRIST_L) != NULL;
 		}
 
 		if (get_eq_char(ch, WEAR_WRIST_R) == NULL) {
@@ -3079,30 +3093,28 @@ wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 			    ch, obj, NULL, TO_ROOM);
 			act_puts("You wear $p around your right wrist.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
-			equip_char(ch, obj, WEAR_WRIST_R);
-			return;
+			return equip_char(ch, obj, WEAR_WRIST_R) != NULL;
 		}
 
 		log(LOG_BUG, "wear_obj: no free wrist");
 		act_char("You already wear two wrist items.", ch);
-		return;
+		return FALSE;
 	}
 
 	if (CAN_WEAR(obj, ITEM_WEAR_SHIELD)) {
 		if (!remove_obj(ch, WEAR_SHIELD, fReplace))
-			return;
+			return FALSE;
 
 		if (!free_hands(ch)) {
 			act_puts("Your hands are full.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			return;
+			return FALSE;
 		}
 
 		act("$n wears $p as a shield.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wear $p as a shield.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		equip_char(ch, obj, WEAR_SHIELD);
-		return;
+		return equip_char(ch, obj, WEAR_SHIELD) != NULL;
 	}
 
 	if (CAN_WEAR(obj, ITEM_WIELD)) {
@@ -3112,19 +3124,19 @@ wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 		if (!IS_NPC(ch)
 		&&  get_obj_weight(obj) > str_app[get_curr_stat(ch, STAT_STR)].wield) {
 			act_char("It is too heavy for you to wield.", ch);
-			return;
+			return FALSE;
 		}
 
 		if (is_affected(ch, "crippled hands")) {
 			act("Your crippled hands refuse to hold $p.",
 				ch, obj, NULL, TO_CHAR);
-			return;
+			return FALSE;
 		}
 
 		if ((weapon = get_eq_char(ch, WEAR_WIELD))
 		&&  free_hands(ch) - need_hands(ch, weapon) < 2) {
 			act_char("You need two hands free for that weapon.", ch);
-			return;
+			return FALSE;
 		}
 
 		if ((weapon = get_eq_char(ch, WEAR_SECOND_WIELD)))
@@ -3133,7 +3145,7 @@ wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 		if (!remove_obj(ch, WEAR_WIELD, fReplace)) {
 			if (weapon)
 				equip_char(ch, weapon, WEAR_SECOND_WIELD);
-			return;
+			return FALSE;
 		}
 
 		act("$n wields $p.", ch, obj, NULL, TO_ROOM);
@@ -3142,7 +3154,7 @@ wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 		if (weapon)
 			equip_char(ch, weapon, WEAR_SECOND_WIELD);
 		if (obj == NULL)
-			return;
+			return FALSE;
 
 		skill = get_weapon_skill(ch, get_weapon_sn(obj));
 
@@ -3168,72 +3180,69 @@ wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 			act_puts("You don't even know which end is up on $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		}
-		return;
+		return TRUE;
 	}
 
 	if (CAN_WEAR(obj, ITEM_HOLD)) {
 		if (!remove_obj(ch, WEAR_HOLD, fReplace))
-			return;
+			return FALSE;
 
 		if (!free_hands(ch)) {
 			act_puts("Your hands are full.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			return;
+			return FALSE;
 		}
 
 		if (is_affected(ch, "crippled hands")) {
 			act("Your crippled hands refuse to hold $p.",
 				ch, obj, NULL, TO_CHAR);
-			return;
+			return FALSE;
 		}
 
 		act("$n holds $p in $s hand.", ch, obj, NULL, TO_ROOM);
 		act_puts("You hold $p in your hand.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		equip_char(ch, obj, WEAR_HOLD);
-		return;
+		return equip_char(ch, obj, WEAR_HOLD) != NULL;
 	}
 
 	if (CAN_WEAR(obj, ITEM_WEAR_FLOAT)) {
 		if (!remove_obj(ch, WEAR_FLOAT, fReplace))
-			return;
+			return FALSE;
 
 		act("$n releases $p to float next to $m.",
 		    ch, obj, NULL, TO_ROOM);
 		act_puts("You release $p and it floats next to you.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		equip_char(ch, obj, WEAR_FLOAT);
-		return;
+		return equip_char(ch, obj, WEAR_FLOAT) != NULL;
 	}
 
 	if (CAN_WEAR(obj, ITEM_WEAR_TATTOO) && IS_IMMORTAL(ch)) {
 		if (!remove_obj(ch, WEAR_TATTOO, fReplace))
-			return;
+			return FALSE;
 
 		act("$n now uses $p as tattoo of $s religion.",
 		    ch, obj, NULL, TO_ROOM);
 		act_puts("You now use $p as the tattoo of your religion.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		equip_char(ch, obj, WEAR_TATTOO);
-		return;
+		return equip_char(ch, obj, WEAR_TATTOO) != NULL;
 	}
 
 	if (CAN_WEAR(obj, ITEM_WEAR_CLANMARK)) {
 		if (!remove_obj(ch, WEAR_CLANMARK, fReplace))
-			return;
+			return FALSE;
 
 		act("$n now uses $p as $s clan mark.",
 		    ch, obj, NULL, TO_ROOM);
 		act_puts("You now use $p as your clan mark.",
 		    ch, obj, NULL, TO_CHAR, POS_DEAD);
-		equip_char(ch, obj, WEAR_CLANMARK);
-		return;
+		return equip_char(ch, obj, WEAR_CLANMARK) != NULL;
 	}
 
 	if (fReplace) {
 		act("You can't wear, wield or hold $p.",
 		    ch, obj, NULL, TO_CHAR);
 	}
+	return FALSE;
 }
 
 /*
@@ -3299,14 +3308,14 @@ remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
 	return TRUE;
 }
 
-void
+bool
 give_obj(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 {
 	int carry_w, carry_n;
 
 	if (obj->wear_loc != WEAR_NONE) {
 		act_char("You must remove it first.", ch);
-		return;
+		return FALSE;
 	}
 
 	if (IS_NPC(victim) && victim->pMobIndex->pShop != NULL) {
@@ -3315,37 +3324,37 @@ give_obj(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 	&&  !HAS_TRIGGER(victim, TRIG_GIVE)) {
 #endif
 		tell_char(victim, ch, "Sorry, you'll have to sell that.");
-		return;
+		return FALSE;
 	}
 
 	if (!can_drop_obj(ch, obj)) {
 		act_char("You can't let go of it.", ch);
-		return;
+		return FALSE;
 	}
 
 	if ((carry_n = can_carry_n(victim)) >= 0
 	&&  victim->carry_number + get_obj_number(obj) > carry_n) {
 		act("$N has $S hands full.", ch, NULL, victim, TO_CHAR);
-		return;
+		return FALSE;
 	}
 
 	if ((carry_w = can_carry_w(victim)) >= 0
 	&&  get_carry_weight(victim) + get_obj_weight(obj) > carry_w) {
 		act("$N can't carry that much weight.",
 		    ch, NULL, victim, TO_CHAR);
-		return;
+		return FALSE;
 	}
 
 	if (OBJ_IS(obj, OBJ_QUEST)
 	&&  !IS_IMMORTAL(ch) && !IS_IMMORTAL(victim)) {
 		act_puts("Even you are not that silly to give $p to $N.",
 			 ch, obj, victim, TO_CHAR, POS_DEAD);
-		return;
+		return FALSE;
 	}
 
 	if (!can_see_obj(victim, obj)) {
 		act("$N can't see it.", ch, NULL, victim, TO_CHAR);
-		return;
+		return FALSE;
 	}
 
 	obj->last_owner = NULL;
@@ -3361,6 +3370,7 @@ give_obj(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 	XXX MPC
 	oprog_call(OPROG_GIVE, obj, ch, victim);
 #endif
+	return TRUE;
 }
 
 void
@@ -3549,10 +3559,20 @@ get_obj_list_raw(CHAR_DATA *ch, const char *name,
 		 uint *number, OBJ_DATA *list, int flags)
 {
 	OBJ_DATA *obj;
+	int vnum = 0;
+
+	if ((IS_NPC(ch) || IS_IMMORTAL(ch))
+	&&  is_number(name))
+		vnum = atoi(name);
 
 	for (obj = list; obj; obj = obj->next_content) {
-		if (!can_see_obj(ch, obj)
-		||  !IS_OBJ_NAME(obj, name))
+		if (!can_see_obj(ch, obj))
+			continue;
+
+		if (vnum) {
+			if (vnum != obj->pObjIndex->vnum)
+				continue;
+		} else if (!IS_OBJ_NAME(obj, name))
 			continue;
 
 		switch (flags) {
@@ -3621,7 +3641,7 @@ get_obj_list(CHAR_DATA *ch, const char *argument, OBJ_DATA *list, int flags)
 /*
  * Find an obj in player's inventory.
  */
-OBJ_DATA *get_obj_carry(CHAR_DATA *ch, const char *argument)
+OBJ_DATA *get_obj_carry(CHAR_DATA *ch, CHAR_DATA *victim, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	uint number;
@@ -3630,14 +3650,14 @@ OBJ_DATA *get_obj_carry(CHAR_DATA *ch, const char *argument)
 	if (!number || arg[0] == '\0')
 		return NULL;
 
-	return get_obj_list_raw(ch, arg, &number, ch->carrying,
-				GETOBJ_F_INV);
+	return get_obj_list_raw(
+	    ch, arg, &number, victim->carrying, GETOBJ_F_INV);
 }
 
 /*
  * Find an obj in player's equipment.
  */
-OBJ_DATA *get_obj_wear(CHAR_DATA *ch, const char *argument)
+OBJ_DATA *get_obj_wear(CHAR_DATA *ch, CHAR_DATA *victim, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	uint number;
@@ -3646,7 +3666,8 @@ OBJ_DATA *get_obj_wear(CHAR_DATA *ch, const char *argument)
 	if (!number || arg[0] == '\0')
 		return NULL;
 
-	return get_obj_list_raw(ch, arg, &number, ch->carrying, GETOBJ_F_WORN);
+	return get_obj_list_raw(
+	    ch, arg, &number, victim->carrying, GETOBJ_F_WORN);
 }
 
 /*
@@ -3708,6 +3729,7 @@ get_obj_world(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
 	uint number;
+	int vnum = 0;
 
 	number = number_argument(argument, arg, sizeof(arg));
 	if (!number || arg[0] == '\0')
@@ -3716,10 +3738,19 @@ get_obj_world(CHAR_DATA *ch, const char *argument)
 	if ((obj = get_obj_here_raw(ch, arg, &number)))
 		return obj;
 
+	if ((IS_NPC(ch) || IS_IMMORTAL(ch))
+	&&  is_number(arg))
+		vnum = atoi(arg);
+
 	for (obj = object_list; obj; obj = obj->next) {
+		if (vnum) {
+			if (vnum != obj->pObjIndex->vnum)
+				continue;
+		} else if (!IS_OBJ_NAME(obj, arg))
+			continue;
+
 		if (can_see_obj(ch, obj)
 		&&  obj->carried_by != ch
-		&&  IS_OBJ_NAME(obj, arg)
 		&&  !--number)
 			return obj;
 	}

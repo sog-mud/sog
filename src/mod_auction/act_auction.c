@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_auction.c,v 1.3 2001-08-20 16:47:21 fjoe Exp $
+ * $Id: act_auction.c,v 1.4 2001-09-01 19:08:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -190,7 +190,7 @@ do_auction(CHAR_DATA *ch, const char *argument)
 
 	/* finally... */
 
-	obj = get_obj_carry (ch, arg1); /* does char have the item ? */
+	obj = get_obj_carry(ch, ch, arg1); /* does char have the item ? */
 
 	if (obj == NULL) {
 		act_puts("You aren't carrying that.",

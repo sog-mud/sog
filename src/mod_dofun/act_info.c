@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.396 2001-08-31 10:29:29 fjoe Exp $
+ * $Id: act_info.c,v 1.397 2001-09-01 19:08:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1355,7 +1355,7 @@ DO_FUN(do_compare, ch, argument)
 		return;
 	}
 
-	if ((obj1 = get_obj_carry(ch, arg1)) == NULL) {
+	if ((obj1 = get_obj_carry(ch, ch, arg1)) == NULL) {
 		act_char("You do not have that item.", ch);
 		return;
 	}
@@ -1373,8 +1373,7 @@ DO_FUN(do_compare, ch, argument)
 			act_char("You aren't wearing anything comparable.", ch);
 			return;
 		}
-	}
-	else if ((obj2 = get_obj_carry(ch,arg2)) == NULL) {
+	} else if ((obj2 = get_obj_carry(ch, ch, arg2)) == NULL) {
 		act_char("You do not have that item.", ch);
 		return;
 	}
@@ -1882,8 +1881,8 @@ DO_FUN(do_request, ch, argument)
 		return;
 	}
 
-	if (((obj = get_obj_carry(victim , arg1)) == NULL &&
-	     (obj = get_obj_wear(victim, arg1)) == NULL)
+	if (((obj = get_obj_carry(victim, victim, arg1)) == NULL &&
+	     (obj = get_obj_wear(victim, victim, arg1)) == NULL)
 	||  IS_OBJ_STAT(obj, ITEM_INVENTORY)) {
 		do_say(victim, "Sorry, I don't have that.");
 		return;
@@ -1898,7 +1897,7 @@ DO_FUN(do_request, ch, argument)
 	if (obj->wear_loc != WEAR_NONE)
 		unequip_char(victim, obj);
 
-	if (!can_drop_obj(ch, obj)) {
+	if (!can_drop_obj(victim, obj)) {
 		do_say(victim, "Sorry, I can't let go of it. It's cursed.");
 		return;
 	}
@@ -2198,7 +2197,7 @@ DO_FUN(do_identify, ch, argument)
 	OBJ_DATA *obj;
 	CHAR_DATA *rch;
 
-	if ((obj = get_obj_carry(ch, argument)) == NULL) {
+	if ((obj = get_obj_carry(ch, ch, argument)) == NULL) {
 		 act_char("You are not carrying that.", ch);
 		 return;
 	}
@@ -3633,8 +3632,8 @@ DO_FUN(do_demand, ch, argument)
 
 	check_improve(ch, "demand", TRUE, 1);
 
-	if (((obj = get_obj_carry(victim , arg1)) == NULL
-	&&   (obj = get_obj_wear(victim, arg1)) == NULL)
+	if (((obj = get_obj_carry(victim, victim, arg1)) == NULL
+	&&   (obj = get_obj_wear(victim, victim, arg1)) == NULL)
 	||  IS_OBJ_STAT(obj, ITEM_INVENTORY)) {
 		do_say(victim, "Sorry, I don't have that.");
 		return;
@@ -3648,7 +3647,7 @@ DO_FUN(do_demand, ch, argument)
 	if (obj->wear_loc != WEAR_NONE)
 		unequip_char(victim, obj);
 
-	if (!can_drop_obj(ch, obj)) {
+	if (!can_drop_obj(victim, obj)) {
 		do_say(victim, "It's cursed so, I can't let go of it. "
 			       "Forgive me, my master.");
 		return;

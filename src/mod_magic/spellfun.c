@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.261 2001-08-30 18:50:10 fjoe Exp $
+ * $Id: spellfun.c,v 1.262 2001-09-01 19:08:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -640,7 +640,7 @@ SPELL_FUN(spell_continual_light, sn, level, ch, vo)
 	OBJ_DATA *light;
 
 	if (target_name[0] != '\0') { /* do a glow on some object */
-		light = get_obj_carry(ch,target_name);
+		light = get_obj_carry(ch, ch, target_name);
 
 		if (light == NULL) {
 			act_char("You don't see that here.", ch);
@@ -4136,7 +4136,7 @@ SPELL_FUN(spell_tesseract, sn, level, ch, vo)
 	CHAR_DATA *wch_next;
 	CHAR_DATA *pet = NULL;
 
-	if ((victim = get_char_world(ch,target_name)) == NULL
+	if ((victim = get_char_world(ch, target_name)) == NULL
 	||  saves_spell(level, victim, DAM_OTHER)
 	||  !can_gate(ch, victim)) {
 		act_char("You failed.", ch);

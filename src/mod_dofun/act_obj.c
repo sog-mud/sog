@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.255 2001-08-31 10:29:30 fjoe Exp $
+ * $Id: act_obj.c,v 1.256 2001-09-01 19:08:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -300,7 +300,7 @@ DO_FUN(do_put, ch, argument)
 
 	if (str_cmp(arg1, "all") && str_prefix("all.", arg1)) {
 		/* 'put obj container' */
-		if ((obj = get_obj_carry(ch, arg1)) == NULL) {
+		if ((obj = get_obj_carry(ch, ch, arg1)) == NULL) {
 			act_char("You do not have that item.", ch);
 			return;
 		}
@@ -443,7 +443,7 @@ DO_FUN(do_drop, ch, argument)
 	}
 	if (str_cmp(arg, "all") && str_prefix("all.", arg)) {
 		/* 'drop obj' */
-		if ((obj = get_obj_carry(ch, arg)) == NULL) {
+		if ((obj = get_obj_carry(ch, ch, arg)) == NULL) {
 			act_char("You do not have that item.", ch);
 			return;
 		}
@@ -618,7 +618,7 @@ DO_FUN(do_give, ch, argument)
 		return;
 	}
 
-	if ((obj = get_obj_carry(ch, arg)) == NULL) {
+	if ((obj = get_obj_carry(ch, ch, arg)) == NULL) {
 		act_char("You do not have that item.", ch);
 		return;
 	}
@@ -880,7 +880,7 @@ DO_FUN(do_fill, ch, argument)
 		act_char("Fill what?", ch);
 		return;
 	}
-	if ((obj = get_obj_carry(ch, arg)) == NULL) {
+	if ((obj = get_obj_carry(ch, ch, arg)) == NULL) {
 		act_char("You do not have that item.", ch);
 		return;
 	}
@@ -940,7 +940,7 @@ DO_FUN(do_pour, ch, argument)
 		act_char("Pour what into what?", ch);
 		return;
 	}
-	if ((out = get_obj_carry(ch, arg)) == NULL) {
+	if ((out = get_obj_carry(ch, ch, arg)) == NULL) {
 		act_char("You don't have that item.", ch);
 		return;
 	}
@@ -1156,14 +1156,14 @@ DO_FUN(do_eat, ch, argument)
 		act_char("Eat what?", ch);
 		return;
 	}
-	
+
 	if (is_affected(ch, "bellyache")) {
-		act("You cannot force yourself to eat.", 
+		act("You cannot force yourself to eat.",
 			ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
-	if ((obj = get_obj_carry(ch, arg)) == NULL) {
+	if ((obj = get_obj_carry(ch, ch, arg)) == NULL) {
 		act_char("You do not have that item.", ch);
 		return;
 	}
@@ -1305,7 +1305,7 @@ DO_FUN(do_wear, ch, argument)
 			if (obj->wear_loc == WEAR_NONE && can_see_obj(ch, obj))
 				wear_obj(ch, obj, FALSE);
 		}
-	} else if ((obj = get_obj_carry(ch, arg)) == NULL) {
+	} else if ((obj = get_obj_carry(ch, ch, arg)) == NULL) {
 		act_char("You do not have that item.", ch);
 		return;
 	} else
@@ -1342,7 +1342,7 @@ DO_FUN(do_remove, ch, argument)
 		}
 		return;
 	}
-	if ((obj = get_obj_wear(ch, arg)) == NULL) {
+	if ((obj = get_obj_wear(ch, ch, arg)) == NULL) {
 		act_char("You do not have that item.", ch);
 		return;
 	}
@@ -1397,7 +1397,7 @@ DO_FUN(do_quaff, ch, argument)
 		return;
 	}
 
-	if ((obj = get_obj_carry(ch, arg)) == NULL) {
+	if ((obj = get_obj_carry(ch, ch, arg)) == NULL) {
 		act_char("You do not have that potion.", ch);
 		return;
 	}
@@ -1430,7 +1430,7 @@ DO_FUN(do_recite, ch, argument)
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
 
-	if ((scroll = get_obj_carry(ch, arg1)) == NULL) {
+	if ((scroll = get_obj_carry(ch, ch, arg1)) == NULL) {
 		act_char("You do not have that scroll.", ch);
 		return;
 	}
@@ -2212,7 +2212,7 @@ DO_FUN(do_sell, ch, argument)
 	if ((keeper = find_keeper(ch)) == NULL)
 		return;
 
-	if ((obj = get_obj_carry(ch, arg)) == NULL) {
+	if ((obj = get_obj_carry(ch, ch, arg)) == NULL) {
 		tell_char(keeper, ch, "You don't have that item.");
 		return;
 	}
@@ -2292,7 +2292,7 @@ DO_FUN(do_value, ch, argument)
 	if ((keeper = find_keeper(ch)) == NULL)
 		return;
 
-	if ((obj = get_obj_carry(ch, arg)) == NULL) {
+	if ((obj = get_obj_carry(ch, ch, arg)) == NULL) {
 		tell_char(keeper, ch, "You don't have that item.");
 		return;
 	}
@@ -2668,7 +2668,7 @@ DO_FUN(do_lore, ch, argument)
 	}
 
 	argument = one_argument(argument, arg, sizeof(arg));
-	if ((obj = get_obj_carry(ch, arg)) == NULL) {
+	if ((obj = get_obj_carry(ch, ch, arg)) == NULL) {
 		act_char("You do not have that object.", ch);
 		return;
 	}
@@ -3047,7 +3047,7 @@ DO_FUN(do_second_wield, ch, argument)
 		act_char("Wear which weapon in your off-hand?", ch);
 		return;
 	}
-	obj = get_obj_carry(ch, argument);
+	obj = get_obj_carry(ch, ch, argument);
 	if (obj == NULL) {
 		act_char("You don't have that item.", ch);
 		return;
@@ -3117,7 +3117,7 @@ DO_FUN(do_enchant, ch, argument)
 		act_char("Wear which weapon to enchant?", ch);
 		return;
 	}
-	obj = get_obj_carry(ch, argument);
+	obj = get_obj_carry(ch, ch, argument);
 
 	if (obj == NULL) {
 		act_char("You don't have that item.", ch);
@@ -3169,7 +3169,7 @@ DO_FUN(do_label, ch, argument)
 		return;
 	}
 
-	if ((obj = get_obj_carry(ch, obj_name)) == NULL) {
+	if ((obj = get_obj_carry(ch, ch, obj_name)) == NULL) {
 		act_char("You don't have that object.", ch);
 		return;
 	}
@@ -3216,25 +3216,24 @@ DO_FUN(do_repair, ch, argument)
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-	do_say(mob,"I will repair a weapon for you, for a price.");
-	act_char("Type estimate <weapon> to be assessed for damage.", ch);
-	return;
-	}
-	if ((obj = get_obj_carry(ch, arg)) == NULL)
-	{
-	do_say(mob,"You don't have that item.");
-	return;
+		do_say(mob,"I will repair a weapon for you, for a price.");
+		act_char("Type estimate <weapon> to be assessed for damage.", ch);
+		return;
 	}
 
-	if (obj->pObjIndex->vnum == OBJ_VNUM_HAMMER)
-	{
-	 do_say(mob,"That hammer is beyond my power.");
-	 return;
+	if ((obj = get_obj_carry(ch, ch, arg)) == NULL) {
+		do_say(mob, "You don't have that item.");
+		return;
+	}
+
+	if (obj->pObjIndex->vnum == OBJ_VNUM_HAMMER) {
+		act_say(mob, "$P is beyond my power.", obj);
+		return;
 	}
 
 	if (obj->condition >= 100) {
-	do_say(mob,"But that item is not broken.");
-	    return;
+		do_say(mob,"But that item is not broken.");
+		return;
 	}
 
 	if (obj->cost == 0) {
@@ -3285,13 +3284,13 @@ DO_FUN(do_estimate, ch, argument)
 		return;
 	}
 
-	if ((obj = (get_obj_carry(ch, arg))) == NULL) {
+	if ((obj = get_obj_carry(ch, ch, arg)) == NULL) {
 		do_say(mob, "You don't have that item.");
 		return;
 	}
 
 	if (obj->pObjIndex->vnum == OBJ_VNUM_HAMMER) {
-		do_say(mob, "$P is beyond my power.");
+		act_say(mob, "$P is beyond my power.", obj);
 		return;
 	}
 
@@ -3336,7 +3335,7 @@ DO_FUN(do_smithing, ch, argument)
 		return;
 	}
 
-	if ((obj = get_obj_carry(ch, arg)) == NULL) {
+	if ((obj = get_obj_carry(ch, ch, arg)) == NULL) {
 		act_char("You are not carrying that.", ch);
 		return;
 	}

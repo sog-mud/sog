@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.194 2001-08-30 18:50:06 fjoe Exp $
+ * $Id: martial_art.c,v 1.195 2001-09-01 19:08:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3277,7 +3277,7 @@ DO_FUN(do_trophy, ch, argument)
 		return;
 	}
 
-	if ((part = get_obj_carry(ch, arg)) == NULL) {
+	if ((part = get_obj_carry(ch, ch, arg)) == NULL) {
 		act_char("You do not have that body part.", ch);
 		return;
 	}
@@ -4297,7 +4297,7 @@ DO_FUN(do_katana, ch, argument)
 		return;
 	}
 
-	if ((part = get_obj_carry(ch, arg)) == NULL) {
+	if ((part = get_obj_carry(ch, ch, arg)) == NULL) {
 		act_char("You do not have chunk of iron.", ch);
 		return;
 	}
