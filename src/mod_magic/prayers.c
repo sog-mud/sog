@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.78 2004-03-07 21:57:56 tatyana Exp $
+ * $Id: prayers.c,v 1.79 2004-03-10 10:20:58 tatyana Exp $
  */
 
 /***************************************************************************
@@ -168,6 +168,7 @@ DECLARE_SPELL_FUN(prayer_fire_elemental);
 DECLARE_SPELL_FUN(prayer_earth_elemental);
 DECLARE_SPELL_FUN(prayer_produce_flame);
 DECLARE_SPELL_FUN(prayer_death_breathing);
+DECLARE_SPELL_FUN(prayer_incendiary_cloud);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -3306,11 +3307,9 @@ SPELL_FUN(prayer_wail_of_the_banshee, sn, level, ch, vo)
 	dam = dam / 5;
 	foreach (vch, char_in_room(ch->in_room)) {
 		if (vch == victim
-		||  vch == ch
 		||  is_sn_affected(vch, "deafen")
 		||  IS_SET(vch->form, FORM_UNDEAD)
-		||  IS_IMMORTAL(vch)
-		||  is_safe_nomessage(ch, vch))
+		||  is_safe_spell(ch, vch, TRUE))
 			continue;
 		damage(ch, vch, dam, sn, DAM_F_SHOW);
 	} end_foreach(vch);
@@ -3931,9 +3930,7 @@ SPELL_FUN(prayer_geyser, sn, level, ch, vo)
 	dam = calc_spell_damage(ch, level, sn);
 
 	foreach (victim, char_in_room(ch->in_room)) {
-		if (ch == victim
-		||  IS_IMMORTAL(victim)
-		||  is_safe_nomessage(ch, victim))
+		if (is_safe_spell(ch, victim, TRUE))
 			continue;
 
 		if (saves_spell(level, victim, DAM_WATER))
@@ -4205,14 +4202,12 @@ SPELL_FUN(prayer_produce_flame, sn, level, ch, vo)
 	}
 
 	foreach (vch, char_in_room(ch->in_room)) {
-		if (ch == vch
-		||  IS_IMMORTAL(vch)
-		||  is_safe(ch, vch)
+		if (is_safe_spell(ch, vch, TRUE)
 		||  vch == victim)
 			continue;
 
 		if (saves_spell(level, vch, DAM_FIRE)
-		||  number_bits(2) == 0)
+		||  number_bits(1) == 0)
 			return;
 
 		paf = aff_new(TO_AFFECTS, sn);
@@ -4225,7 +4220,6 @@ SPELL_FUN(prayer_produce_flame, sn, level, ch, vo)
 		act("$N is blinded by flame!", ch, NULL, vch, TO_CHAR);
 		act("$N is blinded by flame!", ch, NULL, vch, TO_NOTVICT);
 		act("You are blinded by flame!", ch, NULL, vch, TO_VICT);
-
 	} end_foreach(vch);
 }
 
@@ -4267,4 +4261,27 @@ SPELL_FUN(prayer_death_breathing, sn, level, ch, vo)
 
 	act("Death is now behind $N!", ch, NULL, victim, TO_CHAR);
 	act("Death is now behind you!", ch, NULL, victim, TO_VICT);
+}
+/* Domain: fire
+ * room attack
+ */
+SPELL_FUN(prayer_incendiary_cloud, sn, level, ch, vo)
+{
+	CHAR_DATA *vch;
+
+	act_char("You create incendiary cloud!", ch);
+	act("$n creates incendiary cloud!", ch, NULL, NULL, TO_ROOM);
+
+	foreach (vch, char_in_room(ch->in_room)) {
+		int dam;
+
+		if (is_safe_spell(ch, vch, TRUE))
+			continue;
+
+		dam = calc_spell_damage(ch, level, sn);
+		if (saves_spell(level, vch, DAM_FIRE))
+			dam /= 2;
+
+		damage(ch, vch, dam, sn, DAM_F_SHOW);
+	} end_foreach(vch);
 }
