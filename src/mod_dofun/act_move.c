@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.175 1999-05-27 09:52:39 kostik Exp $
+ * $Id: act_move.c,v 1.176 1999-05-29 12:15:02 avn Exp $
  */
 
 /***************************************************************************
@@ -2515,7 +2515,7 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 		damage(ch, victim, 0, sn, DAM_NONE, DAMF_SHOW);
 		check_improve(ch, sn, FALSE, 1);
 	}
-	yell(victim, ch, "Help! %s tryed to touch me!");
+	yell(victim, ch, "Help! %s tried to touch me!");
 }
 
 void do_fly(CHAR_DATA *ch, const char *argument)
