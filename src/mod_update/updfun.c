@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.17 2000-10-10 15:28:10 fjoe Exp $
+ * $Id: updfun.c,v 1.18 2000-10-13 08:41:44 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -1108,8 +1108,10 @@ raffect_update(void)
 void
 clan_update(void)
 {
-	if (time_info.hour == 0)
-		hash_foreach(&clans, clan_item_update_cb);
+	if (time_info.hour != 0)
+		return;
+
+	hash_foreach(&clans, clan_item_update_cb);
 }
 
 void
@@ -1927,6 +1929,9 @@ clan_item_update_cb(void *p, va_list ap)
 	OBJ_DATA *obj;
 
 	if (clan->obj_ptr == NULL) 
+		return NULL;
+
+	if (IS_AUCTIONED(clan->obj_ptr))
 		return NULL;
 
 	if (clan->altar_ptr == NULL) {
