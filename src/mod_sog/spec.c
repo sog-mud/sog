@@ -23,12 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.29 2001-08-20 16:47:46 fjoe Exp $
+ * $Id: spec.c,v 1.30 2001-08-25 04:49:55 fjoe Exp $
  */
 
 #include <stdio.h>
 
 #include <merc.h>
+#include <mprog.h>
 
 #include <sog.h>
 
@@ -365,11 +366,9 @@ spec_update(CHAR_DATA *ch)
 		update_skills(ch);
 }
 
-static const
+static
 FOREACH_CB_FUN(replace_cb, p, ap)
 {
-#if 0
-	XXX
 	const char **pspn = (const char **) p;
 
 	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
@@ -377,16 +376,13 @@ FOREACH_CB_FUN(replace_cb, p, ap)
 	const char *spn_add = va_arg(ap, const char *);
 
 	spec_t *spec;
-	const char *rv;
 
 	if (!str_cmp(*pspn, spn_rm))
 		return NULL;
 
 	if ((spec = spec_lookup(*pspn)) != NULL
-	&&  (rv = cc_vexpr_check(&spec->spec_deps, "spec", ch,	// notrans
-				 spn_rm, spn_add)) != NULL)
-		return rv;
-#endif
+	&&  pull_trigger(&spec->mp_trig, MP_T_SPEC, ch, spn_rm, spn_add) > 0)
+		return p;
 
 	return NULL;
 }
@@ -446,37 +442,30 @@ spec_del(CHAR_DATA *ch, const char *spn)
 	return TRUE;
 }
 
-const char *
+bool
 spec_replace(CHAR_DATA *ch, const char *spn_rm, const char *spn_add)
 {
 	const char *rv;
-#if 0
-	XXX
 	spec_t *spec;
-#endif
 
 	if (IS_NPC(ch))
-		return "is_npc";				// notrans
+		return FALSE;
 
-#if 0
-	XXX
 	if ((spec = spec_lookup(spn_add)) != NULL
-	&&  (rv = cc_vexpr_check(&spec->spec_deps, "spec", ch,	// notrans
-				 spn_rm, spn_add)) != NULL)
-		return rv;
-#endif
+	&&  pull_trigger(&spec->mp_trig, MP_T_SPEC, ch, spn_rm, spn_add) > 0)
+		return FALSE;
 
-	if ((rv = varr_foreach(&PC(ch)->specs, (void*)replace_cb, ch,
+	if ((rv = varr_foreach(&PC(ch)->specs, replace_cb, ch,
 			       spn_rm, spn_add)) != NULL)
-		return rv;
+		return FALSE;
 
 	if (!spec_del(ch, spn_rm))
-		return "spec_del";				// notrans
+		return FALSE;
 
 	if (!spec_add(ch, spn_add)) {
 		spec_add(ch, spn_rm);
-		return "spec_add";				// notrans
+		return FALSE;
 	}
 
-	return NULL;
+	return TRUE;
 }

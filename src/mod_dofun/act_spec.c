@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.24 2001-08-20 16:47:25 fjoe Exp $
+ * $Id: act_spec.c,v 1.25 2001-08-25 04:49:54 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -82,12 +82,9 @@ DO_FUN(do_read, ch, argument)
 	chance = (chance * get_curr_stat(ch, STAT_INT)) / 18;
 
 	if (number_percent() > chance
-	||  (spec_replace(ch, NULL, STR(book->value[1])) != NULL)) {
+	||  !spec_replace(ch, NULL, STR(book->value[1]))) {
 		int eff = INT(book->value[3]);
-		act("You didn't understand contents of $t.",
-			ch, flag_string(book_class, INT(book->value[0])), 
-			NULL, TO_CHAR);
-		act("$p glows with strange red light, then disappears.", 
+		act("$p glows with strange red light, then disappears.",
 			ch, book, NULL, TO_CHAR);
 
 		obj_from_char(book);
@@ -158,17 +155,14 @@ DO_FUN(do_specialize, ch, argument)
 	}
 
 	if (has_spec(ch, weapon)) {
-		act_puts("You already specialize in $T.", 
+		act_puts("You already specialize in $T.",
 			ch, NULL, output, TO_CHAR, POS_DEAD);
 		return;
 	}
 
-	if (spec_replace(ch, NULL, weapon) == NULL) {
-		act_puts("You specialize in $T.", 
+	if (spec_replace(ch, NULL, weapon)) {
+		act_puts("You specialize in $T.",
 			ch, NULL, output, TO_CHAR, POS_DEAD);
-	} else {
-		act_puts("You are not ready to specialize in $T yet.",
-			 ch, NULL, output, TO_CHAR, POS_DEAD);
 	}
 }
 
@@ -253,11 +247,8 @@ DO_FUN(do_magicschool, ch, argument)
 			return;
 		}
 
-		if (spec_replace(ch, repl, major_school) == NULL) {
+		if (spec_replace(ch, repl, major_school)) {
 			act("You have chosen $T as your major magic school.",
-				ch, NULL, school_name, TO_CHAR);
-		} else {
-			act("You cannot choose $T as your major school.",
 				ch, NULL, school_name, TO_CHAR);
 		}
 	} else {
@@ -273,11 +264,8 @@ DO_FUN(do_magicschool, ch, argument)
 			return;
 		}
 
-		if (spec_replace(ch, NULL, minor_school) == NULL) {
+		if (spec_replace(ch, NULL, minor_school)) {
 			act("You have chosen $T as your minor magic school.",
-				ch, NULL, school_name, TO_CHAR);
-		} else {
-			act("You cannot choose $T as your magic school.",
 				ch, NULL, school_name, TO_CHAR);
 		}
 	}
