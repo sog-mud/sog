@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msg.c,v 1.20 1999-06-10 18:19:05 fjoe Exp $
+ * $Id: msg.c,v 1.21 1999-12-15 15:35:43 fjoe Exp $
  */
 
 #if	defined (LINUX) || defined (WIN32)
@@ -31,6 +31,7 @@
 #endif
 
 #include <limits.h>
+#include <stdarg.h>
 #include <stdio.h>
 
 #include "const.h"

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.196 1999-12-15 08:14:16 fjoe Exp $
+ * $Id: db.c,v 1.197 1999-12-15 15:35:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1076,18 +1076,20 @@ void reset_area(AREA_DATA *pArea)
 			reset_room(pRoom, 0);
 }
 
-static void cb_xxx_of(int lang, const char **p, void *arg)
+static const char *
+cb_xxx_of(int lang, const char **p, va_list ap)
 {
-	mlstring *owner = (mlstring*) arg;
+	mlstring *owner = va_arg(ap, mlstring *);
 	const char *q;
 
 	if (IS_NULLSTR(*p))
-		return;
+		return NULL;
 
 	q = str_printf(*p, word_form(mlstr_val(owner, lang), 1,
 				     lang, RULES_CASE));
 	free_string(*p);
 	*p = q;
+	return NULL;
 }
 
 /*
@@ -1283,9 +1285,9 @@ CHAR_DATA *create_mob_of(MOB_INDEX_DATA *pMobIndex, mlstring *owner)
 {
 	CHAR_DATA *mob = create_mob(pMobIndex);
 
-	mlstr_foreach(&mob->short_descr, owner, cb_xxx_of);
-	mlstr_foreach(&mob->long_descr, owner, cb_xxx_of);
-	mlstr_foreach(&mob->description, owner, cb_xxx_of);
+	mlstr_foreach(&mob->short_descr, cb_xxx_of, owner);
+	mlstr_foreach(&mob->long_descr, cb_xxx_of, owner);
+	mlstr_foreach(&mob->description, cb_xxx_of, owner);
 
 	return mob;
 }
@@ -1429,8 +1431,8 @@ OBJ_DATA *create_obj_of(OBJ_INDEX_DATA *pObjIndex, mlstring *owner)
 {
 	OBJ_DATA *obj = create_obj(pObjIndex, 0);
 
-	mlstr_foreach(&obj->short_descr, owner, cb_xxx_of);
-	mlstr_foreach(&obj->description, owner, cb_xxx_of);
+	mlstr_foreach(&obj->short_descr, cb_xxx_of, owner);
+	mlstr_foreach(&obj->description, cb_xxx_of, owner);
 
 	return obj;
 }

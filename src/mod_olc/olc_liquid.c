@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_liquid.c,v 1.4 1999-12-14 00:26:39 avn Exp $
+ * $Id: olc_liquid.c,v 1.5 1999-12-15 15:35:39 fjoe Exp $
  */
 
 #include "olc.h"
@@ -37,6 +37,7 @@ DECLARE_OLC_FUN(liqed_touch		);
 DECLARE_OLC_FUN(liqed_show		);
 DECLARE_OLC_FUN(liqed_list		);
 
+DECLARE_OLC_FUN(liqed_gender		);
 DECLARE_OLC_FUN(liqed_color		);
 DECLARE_OLC_FUN(liqed_affect		);
 DECLARE_OLC_FUN(liqed_sip		);
@@ -54,7 +55,8 @@ olc_cmd_t olc_cmds_liq[] =
 	{ "show",	liqed_show					},
 	{ "list",	liqed_list					},
 
-	{ "name",	olced_strkey,	NULL,	&strkey_liquids		},
+	{ "name",	olced_mlstrkey,	NULL,	&strkey_liquids		},
+	{ "gender",	liqed_gender,	NULL,	gender_table		},
 	{ "color",	liqed_color					},
 	{ "affect",	liqed_affect					},
 	{ "sip",	liqed_sip					},
@@ -86,12 +88,12 @@ OLC_FUN(liqed_create)
 	 */
 
 	liquid_init(&lq);
-	lq.name = str_dup(argument);
-	l = hash_insert(&liquids, lq.name, &lq);
+	mlstr_init(&lq.lq_name, argument);
+	l = hash_insert(&liquids, argument, &lq);
 	liquid_destroy(&lq);
 
 	if (l == NULL) {
-		char_printf(ch, "LiqEd: %s: already exists.\n", lq.name);
+		char_printf(ch, "LiqEd: %s: already exists.\n", argument);
 		return FALSE;
 	}
 
@@ -133,9 +135,9 @@ static void *liquid_save_cb(void *p, va_list ap)
 	int i;
 
 	fprintf(fp, "#LIQUID\n");
-	fprintf(fp, "Name %s~\n", lq->name);
-	if (!IS_NULLSTR(lq->color))
-		fprintf(fp, "Color %s~\n", lq->color);
+	mlstr_fwrite(fp, "Name", &lq->lq_name);
+	mlstr_fwrite(fp, "Gender", &lq->lq_gender);
+	mlstr_fwrite(fp, "Color", &lq->lq_color);
 	fprintf(fp, "Affect");
 	for (i = 0; i < MAX_COND; i++)
 		fprintf(fp, " %d", lq->affect[i]);
@@ -161,7 +163,7 @@ OLC_FUN(liqed_save)
 
 	fprintf(fp, "#$\n");
 	fclose(fp);
-	olc_printf(ch, "Liquids saved");
+	olc_printf(ch, "Liquids saved.");
 	REMOVE_BIT(changed_flags, CF_LIQUID);
 	return FALSE;
 }
@@ -176,28 +178,35 @@ OLC_FUN(liqed_show)
 {
 	liquid_t *lq;
 	int i;
+	BUFFER *buf;
 
-	if (argument[0] == '\0')
+	if (argument[0] == '\0') {
 		if (IS_EDIT(ch, ED_LIQUID))
 			EDIT_LIQ(ch, lq);
 		else 
 			OLC_ERROR("'OLC ASHOW'");
-	else
-		if (!(lq = liquid_search(argument))) {
+	} else if ((lq = liquid_search(argument)) == NULL) {
 			char_printf(ch, "LiqEd: %s: no such liquid.\n", argument);
 			return FALSE;
-		}
+	}
 	
-	char_printf(ch, "Name [%s]\n", lq->name);
-	if (!IS_NULLSTR(lq->color))
-		char_printf(ch, "Color [%s]\n", lq->color);
-	char_printf(ch, "Affects:\n");
-	for (i = 0; i < MAX_COND; i++)
-		if (lq->affect[i])
-			char_printf(ch, "  %s by [%d]\n",
-				    flag_string(cond_table, i), lq->affect[i]);
+	buf = buf_new(-1);
+	mlstr_dump(buf, "Name:   ", &lq->lq_name);
+	mlstr_dump(buf, "Gender: ", &lq->lq_gender);
+	mlstr_dump(buf, "Color:  ", &lq->lq_color);
 	if (lq->sip)
-		char_printf(ch, "Sip [%d]\n", lq->sip);
+		buf_printf(buf, "Sip:    [%d]\n", lq->sip);
+
+	buf_add(buf, "Affects:\n");
+	for (i = 0; i < MAX_COND; i++) {
+		if (lq->affect[i]) {
+			buf_printf(buf, "  %s by [%d]\n",
+				    flag_string(cond_table, i), lq->affect[i]);
+		}
+	}
+
+	page_to_char(buf_string(buf), ch);
+	buf_free(buf);
 	return FALSE;
 }
 
@@ -212,12 +221,20 @@ OLC_FUN(liqed_list)
 	return FALSE;
 }
 
+OLC_FUN(liqed_gender)
+{
+	liquid_t *lq;
+
+	EDIT_LIQ(ch, lq);
+	return olced_gender(ch, argument, cmd, &lq->lq_gender);
+}
+
 OLC_FUN(liqed_color)
 {
 	liquid_t *lq;
 
 	EDIT_LIQ(ch, lq);
-	return olced_str(ch, argument, cmd, &lq->color);
+	return olced_mlstr(ch, argument, cmd, &lq->lq_color);
 }
 
 OLC_FUN(liqed_sip)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_damtype.c,v 1.4 1999-10-26 13:52:58 fjoe Exp $
+ * $Id: db_damtype.c,v 1.5 1999-12-15 15:35:46 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -83,9 +83,12 @@ DBLOAD_FUN(load_damtype)
 				return;
 			}
 			break;
+		case 'G':
+			MLSKEY("Gender", d.dam_gender);
+			break;
 		case 'N':
 			KEY("Name", d.dam_name, fread_sword(fp));
-			SKEY("Noun", d.dam_noun, fread_string(fp));
+			MLSKEY("Noun", d.dam_noun);
 			break;
 		case 'S':
 			KEY("Slot", d.dam_slot, fread_number(fp));

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.5 1999-12-15 00:14:14 avn Exp $
+ * $Id: olc_skill.c,v 1.6 1999-12-15 15:35:40 fjoe Exp $
  */
 
 #include "olc.h"
@@ -37,6 +37,7 @@ DECLARE_OLC_FUN(skilled_touch		);
 DECLARE_OLC_FUN(skilled_show		);
 DECLARE_OLC_FUN(skilled_list		);
 
+DECLARE_OLC_FUN(skilled_gender		);
 DECLARE_OLC_FUN(skilled_funname		);
 DECLARE_OLC_FUN(skilled_target		);
 DECLARE_OLC_FUN(skilled_minpos		);
@@ -62,7 +63,8 @@ olc_cmd_t olc_cmds_skill[] =
 	{ "show",	skilled_show					},
 	{ "list",	skilled_list					},
 
-	{ "name",	olced_strkey,	NULL,	&strkey_skills		},
+	{ "name",	olced_mlstrkey,	NULL,	&strkey_skills		},
+	{ "gender",	skilled_gender,	NULL,	gender_table		},
 	{ "funname",	skilled_funname, validate_funname		},
 	{ "target",	skilled_target, NULL,	skill_targets		},
 	{ "minpos",	skilled_minpos, NULL,	position_table		},
@@ -100,12 +102,12 @@ OLC_FUN(skilled_create)
 	 */
 
 	skill_init(&sk);
-	sk.name = str_dup(argument);
-	s = hash_insert(&skills, sk.name, &sk);
+	mlstr_init(&sk.sk_name, argument);
+	s = hash_insert(&skills, argument, &sk);
 	skill_destroy(&sk);
 
 	if (s == NULL) {
-		char_printf(ch, "SkillEd: %s: already exists.\n", sk.name);
+		char_printf(ch, "SkillEd: %s: already exists.\n", argument);
 		return FALSE;
 	}
 
@@ -146,7 +148,8 @@ static void *skill_save_cb(void *p, va_list ap)
 	FILE *fp = va_arg(ap, FILE *);
 
 	fprintf(fp, "#SKILL\n");
-	fprintf(fp, "Name %s~\n", sk->name);
+	mlstr_fwrite(fp, "Name", &sk->sk_name);
+	mlstr_fwrite(fp, "Gender", &sk->sk_gender);
 	fprintf(fp, "Type %s\n", flag_string(skill_types, sk->skill_type));
 	fprintf(fp, "Group %s\n", flag_string(skill_groups, sk->group));
 	fprintf(fp, "MinPos %s\n", flag_string(position_table, sk->min_pos));
@@ -157,16 +160,13 @@ static void *skill_save_cb(void *p, va_list ap)
 		fprintf(fp, "Flags %s~\n", flag_string(skill_flags, sk->skill_flags));
 	if (sk->min_mana)
 		fprintf(fp, "MinMana %d\n", sk->min_mana);
-	if (!IS_NULLSTR(sk->noun_damage))
-		fprintf(fp, "NounDamage %s~\n", sk->noun_damage);
+	mlstr_fwrite(fp, "NounDamage", &sk->noun_damage);
 	if (sk->slot)
 		fprintf(fp, "Slot %d\n", sk->slot);
 	if (!IS_NULLSTR(sk->fun_name))
 		fprintf(fp, "SpellFun %s\n", sk->fun_name);
-	if (!IS_NULLSTR(sk->msg_off))
-		fprintf(fp, "WearOff %s~\n", sk->msg_off);
-	if (!IS_NULLSTR(sk->msg_obj))
-		fprintf(fp, "ObjWearOff %s~\n", sk->msg_obj);
+	mlstr_fwrite(fp, "WearOff", &sk->msg_off);
+	mlstr_fwrite(fp, "ObjWearOff", &sk->msg_obj);
 	for (ev = sk->eventlist; ev; ev = ev->next)
 		fprintf(fp, "Event %s %s\n",
 			flag_string(events_table, ev->event),
@@ -191,7 +191,7 @@ OLC_FUN(skilled_save)
 
 	fprintf(fp, "#$\n");
 	fclose(fp);
-	olc_printf(ch, "Skills saved");
+	olc_printf(ch, "Skills saved.");
 	REMOVE_BIT(changed_flags, CF_SKILL);
 	return FALSE;
 }
@@ -206,7 +206,8 @@ OLC_FUN(skilled_show)
 {
 	skill_t *sk;
 	event_fun_t *ev;
-	int i=1;
+	int i = 1;
+	BUFFER *buf;
 
 	if (argument[0] == '\0') {
 		if (IS_EDIT(ch, ED_SKILL))
@@ -220,37 +221,41 @@ OLC_FUN(skilled_show)
 		}
 	}
 	
-	char_printf(ch, "Name       [%s]\n", sk->name);
-	char_printf(ch, "Type       [%s]     Group       [%s]\n",
+	buf = buf_new(-1);
+	mlstr_dump(buf, "Name       ", &sk->sk_name);
+	mlstr_dump(buf, "Gender:    ", &sk->sk_gender);
+	buf_printf(buf, "Type       [%s]     Group       [%s]\n",
 			flag_string(skill_types, sk->skill_type),
 			flag_string(skill_groups, sk->group));
-	char_printf(ch, "MinPos     [%s]     Target      [%s]\n",
+	buf_printf(buf, "MinPos     [%s]     Target      [%s]\n",
 			flag_string(position_table, sk->min_pos),
 			flag_string(skill_targets, sk->target));
 	if (sk->beats)
-		char_printf(ch, "Beats      [%d]\n", sk->beats);
+		buf_printf(buf, "Beats      [%d]\n", sk->beats);
 	if (sk->skill_flags)
-		char_printf(ch, "Flags      [%s]\n",
+		buf_printf(buf, "Flags      [%s]\n",
 				flag_string(skill_flags, sk->skill_flags));
 	if (sk->min_mana)
-		char_printf(ch, "MinMana    [%d]\n", sk->min_mana);
-	if (!IS_NULLSTR(sk->noun_damage))
-		char_printf(ch, "NounDamage [%s]\n", sk->noun_damage);
+		buf_printf(buf, "MinMana    [%d]\n", sk->min_mana);
+	mlstr_dump(buf, "NounDamage [%s]\n", &sk->noun_damage);
 	if (sk->slot)
-		char_printf(ch, "Slot       [%d]\n", sk->slot);
+		buf_printf(buf, "Slot       [%d]\n", sk->slot);
+
 	if (!IS_NULLSTR(sk->fun_name))
-		char_printf(ch, "SpellFun    [%s]\n", sk->fun_name);
-	if (!IS_NULLSTR(sk->msg_off))
-		char_printf(ch, "WearOff     [%s]\n", sk->msg_off);
-	if (!IS_NULLSTR(sk->msg_obj))
-		char_printf(ch, "ObjWearOff  [%s]\n", sk->msg_obj);
+		buf_printf(buf, "SpellFun   [%s]\n", sk->fun_name);
+
+	mlstr_dump(buf, "WearOff     ", &sk->msg_off);
+	mlstr_dump(buf, "ObjWearOff  ", &sk->msg_obj);
 	for (ev = sk->eventlist; ev; ev = ev->next, i++) {
 		if (i == 1)
-			char_puts("Events:\n", ch);
-		char_printf(ch, "%d) in event   [%s] call fun [%s]\n", i,
+			buf_add(buf, "Events:\n");
+		buf_printf(buf, "%d) in event   [%s] call fun [%s]\n", i,
 			flag_string(events_table, ev->event),
 			ev->fun_name);
 	}
+
+	page_to_char(buf_string(buf), ch);
+	buf_free(buf);
 	return FALSE;
 }
 
@@ -263,6 +268,14 @@ OLC_FUN(skilled_list)
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);
 	return FALSE;
+}
+
+OLC_FUN(skilled_gender)
+{
+	skill_t *sk;
+
+	EDIT_SKILL(ch, sk);
+	return olced_gender(ch, argument, cmd, &sk->sk_gender);
 }
 
 OLC_FUN(skilled_funname)
@@ -318,7 +331,7 @@ OLC_FUN(skilled_noun)
 	skill_t *sk;
 
 	EDIT_SKILL(ch, sk);
-	return olced_str(ch, argument, cmd, &sk->noun_damage);
+	return olced_mlstr(ch, argument, cmd, &sk->noun_damage);
 }
 
 OLC_FUN(skilled_msgoff)
@@ -326,7 +339,7 @@ OLC_FUN(skilled_msgoff)
 	skill_t *sk;
 
 	EDIT_SKILL(ch, sk);
-	return olced_str(ch, argument, cmd, &sk->msg_off);
+	return olced_mlstr(ch, argument, cmd, &sk->msg_off);
 }
 
 OLC_FUN(skilled_msgobj)
@@ -334,7 +347,7 @@ OLC_FUN(skilled_msgobj)
 	skill_t *sk;
 
 	EDIT_SKILL(ch, sk);
-	return olced_str(ch, argument, cmd, &sk->msg_obj);
+	return olced_mlstr(ch, argument, cmd, &sk->msg_obj);
 }
 
 OLC_FUN(skilled_flags)

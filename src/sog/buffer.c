@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.18 1999-11-23 12:14:31 fjoe Exp $
+ * $Id: buffer.c,v 1.19 1999-12-15 15:35:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -40,6 +40,7 @@
 *	ROM license, in the file Rom24/doc/rom.license			   *
 ***************************************************************************/
 
+#include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>

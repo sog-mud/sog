@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.68 1999-12-14 15:31:12 fjoe Exp $
+ * $Id: olc_area.c,v 1.69 1999-12-15 15:35:38 fjoe Exp $
  */
 
 #include "olc.h"
@@ -1128,6 +1128,8 @@ static void save_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex)
 					flag_string(size_table, pExit->size));
 			mlstr_fwrite(fp, NULL,	  &pExit->description);
 			fprintf(fp, "%s~\n",      pExit->keyword);
+			mlstr_fwrite(fp, NULL, &pExit->exit_name);
+			mlstr_fwrite(fp, NULL, &pExit->gender);
 			fprintf(fp, "%s %d %d\n",
 				format_flags(pExit->rs_flags | EX_BITVAL),
 				pExit->key,

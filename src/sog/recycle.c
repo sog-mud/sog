@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.89 1999-12-14 15:31:15 fjoe Exp $
+ * $Id: recycle.c,v 1.90 1999-12-15 15:35:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -540,6 +540,8 @@ EXIT_DATA *new_exit(void)
 
         pExit = calloc(1, sizeof(*pExit));
 	pExit->keyword = str_empty;
+	mlstr_init(&pExit->exit_name, str_empty);
+	mlstr_init(&pExit->gender, str_empty);
 	pExit->size = SIZE_GARGANTUAN;
 
         top_exit++;
@@ -552,6 +554,7 @@ void free_exit(EXIT_DATA *pExit)
 		return;
 
 	free_string(pExit->keyword);
+	mlstr_destroy(&pExit->gender);
 	mlstr_destroy(&pExit->description);
 
 	top_exit--;

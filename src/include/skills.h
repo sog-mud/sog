@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.26 1999-12-11 15:31:10 fjoe Exp $
+ * $Id: skills.h,v 1.27 1999-12-15 15:35:37 fjoe Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -55,7 +55,8 @@
 
 typedef struct skill_t skill_t;
 struct skill_t {
-	const char *	name;			/* skill name */
+	mlstring	sk_name;		/* skill name */
+	mlstring	sk_gender;		/* skill gender */
 	const char *	fun_name;		/* skill function name */
 	SPELL_FUN *	fun;			/* skill function */
 	flag_t		target;			/* legal target */
@@ -63,9 +64,9 @@ struct skill_t {
 	int		slot;			/* slot for #OBJOLD loading */
 	int		min_mana;		/* min mana used */
 	int		beats;			/* waiting time after use */
-	const char *	noun_damage;		/* damage message */
-	const char *	msg_off;		/* wear off message */
-	const char *	msg_obj;		/* wear off message for obj */
+	mlstring	noun_damage;		/* damage message */
+	mlstring	msg_off;		/* wear off message */
+	mlstring 	msg_obj;		/* wear off message for obj */
 	flag_t		skill_flags;		/* skill flags */
 	const char *	restrict_race;		/* race restrictions */
 	flag_t		group;			/* skill group */

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.176 1999-12-15 08:14:16 fjoe Exp $
+ * $Id: update.c,v 1.177 1999-12-15 15:35:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1276,9 +1276,9 @@ void char_update(void)
 				     paf_next->type != paf->type ||
 				     paf_next->duration > 0)
 				&&  (sk = skill_lookup(paf->type)) != NULL
-				&&  !IS_NULLSTR(sk->msg_off)) 
-					act_puts(sk->msg_off, ch, NULL, NULL,
-						 TO_CHAR, POS_DEAD);
+				&&  !mlstr_null(&sk->msg_off)) 
+					act_mlputs(&sk->msg_off, ch, NULL, NULL,
+						   TO_CHAR, POS_DEAD);
 
 				check_one_event(ch, paf, EVENT_CHAR_TIMEOUT);
 				if (IS_EXTRACTED(ch))
@@ -1370,15 +1370,19 @@ void update_obj_affects(OBJ_DATA *obj)
 			     paf_next->duration > 0)
 			&&  paf->type > 0
 			&&  (sk = skill_lookup(paf->type)) != NULL
-			&&  !IS_NULLSTR(sk->msg_obj)) {
-				if (obj->carried_by != NULL) 
-					act(sk->msg_obj, obj->carried_by,
-					   obj, NULL, TO_CHAR);
+			&&  !mlstr_null(&sk->msg_obj)) {
+				if (obj->carried_by != NULL) {
+					act_mlputs(&sk->msg_obj,
+						   obj->carried_by, obj, NULL,
+						   TO_CHAR, POS_DEAD);
+				}
 
 				if (obj->in_room != NULL 
-				&&  obj->in_room->people)
-					act(sk->msg_obj, obj->in_room->people,
-					   obj, NULL, TO_ALL);
+				&&  obj->in_room->people) {
+					act_mlputs(&sk->msg_obj,
+						   obj->in_room->people, obj,
+						   NULL, TO_ALL, POS_DEAD);
+				}
                 	}
 			affect_remove_obj(obj, paf);
         	}

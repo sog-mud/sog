@@ -23,10 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.c,v 1.5 1999-12-14 15:31:15 fjoe Exp $
+ * $Id: strkey_hash.c,v 1.6 1999-12-15 15:35:44 fjoe Exp $
  */
 
 #include <limits.h>
+#include <stdarg.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -39,6 +40,7 @@
 #include "strkey_hash.h"
 #include "buffer.h"
 #include "str.h"
+#include "mlstring.h"
 #include "db.h"
 #include "log.h"
 
@@ -54,12 +56,17 @@ void strkey_destroy(void *p)
 
 int strkey_hash(const void *k, size_t hsize)
 {
-	return hashistr((const char*) k, 32, hsize);
+	return hashistr((const char *) k, 32, hsize);
 }
 
 int strkey_struct_cmp(const void *k, const void *e)
 {
-	return str_cmp((const char*) k, *(const char**) e);
+	return str_cmp((const char *) k, *(const char**) e);
+}
+
+int strkey_mlstruct_cmp(const void *k, const void *e)
+{
+	return str_cmp((const char *) k, mlstr_mval((mlstring *) e));
 }
 
 void *

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.155 1999-12-12 20:43:09 avn Exp $
+ * $Id: spellfun2.c,v 1.156 1999-12-15 15:35:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2585,16 +2585,17 @@ void spell_attract_other(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	spellfun_call("charm person", sn, level+2, ch, vo);
 }
 
-static void
-cb_strip(int lang, const char **p, void *arg)
+static const char *
+cb_strip(int lang, const char **p, va_list ap)
 {
 	char buf[MAX_STRING_LENGTH];
-	const char *r = mlstr_val((mlstring*) arg, lang);
+	mlstring *mlp = va_arg(ap, mlstring *);
+	const char *r = mlstr_val(mlp, lang);
 	const char *q;
 
 	if (IS_NULLSTR(*p)
 	||  (q = strstr(r, "%s")) == NULL)
-		return;
+		return NULL;
 
 	strnzncpy(buf, sizeof(buf), r, q-r);
 	if (!str_prefix(buf, *p)) {
@@ -2602,6 +2603,8 @@ cb_strip(int lang, const char **p, void *arg)
 		free_string(*p);
 		*p = s;
 	}
+
+	return NULL;
 }
 
 void spell_animate_dead(const char *sn, int level, CHAR_DATA *ch, void *vo)
@@ -2679,7 +2682,7 @@ void spell_animate_dead(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		/*
 		 * strip "The undead body of "
 		 */
-		mlstr_foreach(&ml, &undead_idx->short_descr, cb_strip);
+		mlstr_foreach(&ml, cb_strip, &undead_idx->short_descr);
 
 		undead = create_mob_of(undead_idx, &ml);
 		mlstr_destroy(&ml);
@@ -3585,93 +3588,91 @@ void spell_witch_curse(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act("Now you got the path to death.", victim, NULL, NULL, TO_CHAR);
 }
 
-void spell_knock (const char *sn, int level, CHAR_DATA *ch, void *vo)
+void spell_knock(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	char arg[MAX_INPUT_LENGTH];
 	int chance=0;
 	int door;
-	const	int	rev_dir		[]		=
-	{
-	    2, 3, 0, 1, 5, 4
-	};
+	EXIT_DATA *pexit;
+	const int rev_dir[] = { 2, 3, 0, 1, 5, 4 };
 
 	target_name = one_argument(target_name, arg, sizeof(arg));
  
-	if (arg[0] == '\0')
-	{
-	char_puts("Knock which door or direction.\n",ch);
-	return;
+	if (arg[0] == '\0') {
+		char_puts("Knock which door or direction.\n", ch);
+		return;
 	}
 
-	if (ch->fighting)
-	{	
-	char_puts("Wait until the fight finishes.\n",ch);
-	return;
+	if (ch->fighting) {	
+		char_puts("Wait until the fight finishes.\n", ch);
+		return;
 	}
 
-	if ((door = find_door(ch, arg)) >= 0)
-	{
-	ROOM_INDEX_DATA *to_room;
-	EXIT_DATA *pexit;
-	EXIT_DATA *pexit_rev;
+	if ((door = find_door(ch, arg)) < 0) {
+		char_puts("You can't see that here.\n", ch);
+		return;
+	}
 
 	pexit = ch->in_room->exit[door];
-	if (!IS_SET(pexit->exit_info, EX_CLOSED))
-	    { char_puts("It's already open.\n",      ch); return; }
-	if (!IS_SET(pexit->exit_info, EX_LOCKED))
-	    { char_puts("Just try to open it.\n",     ch); return; }
-	if (IS_SET(pexit->exit_info, EX_NOPASS))
-	    { char_puts("A mystical shield protects the exit.\n",ch); 
-	      return; }
-	chance = level / 5 + get_curr_stat(ch,STAT_INT) + get_skill(ch,sn) / 5;
+	if (!IS_SET(pexit->exit_info, EX_CLOSED)) {
+		act("It's already open.\n",
+		    ch, &pexit->exit_name, NULL, TO_CHAR);
+		return;
+	}
 
-	act("You knock $d, and try to open $d.",
-	    ch, NULL, pexit->keyword, TO_CHAR);
-	act("$n knocks $d, and tries to open $d.",
-	    ch, NULL, pexit->keyword, TO_ROOM);
+	if (!IS_SET(pexit->exit_info, EX_LOCKED)) {
+		act("Just try to open it.",
+		    ch, &pexit->exit_name, NULL, TO_CHAR);
+		return;
+	}
+
+	if (IS_SET(pexit->exit_info, EX_NOPASS)) {
+		act("A mystical shield protects $v.",
+		    ch, &pexit->exit_name, NULL, TO_CHAR);
+		return;
+	}
+
+	chance = level / 5 + get_curr_stat(ch, STAT_INT) + get_skill(ch,sn) / 5;
+
+	act("You knock $v, and try to open it.",
+	    ch, &pexit->exit_name, NULL, TO_CHAR);
+	act("$n knocks $v, and tries to open it.",
+	    ch, &pexit->exit_name, NULL, TO_ROOM);
 
 	if (room_dark(ch->in_room))
 		chance /= 2;
 
 	/* now the attack */
-	if (number_percent() < chance)
-	 {
-	REMOVE_BIT(pexit->exit_info, EX_LOCKED);
-	REMOVE_BIT(pexit->exit_info, EX_CLOSED);
-	act("$n knocks the $d and opens the lock.",
-	    ch, NULL, pexit->keyword, TO_ROOM);
-	act_puts("You successed to open the $d.",
-		 ch, NULL, pexit->keyword, TO_CHAR, POS_DEAD);
+	if (number_percent() < chance) {
+		ROOM_INDEX_DATA *to_room;
+		EXIT_DATA *pexit_rev;
 
-	/* open the other side */
-	if ((to_room   = pexit->to_room.r           ) != NULL
-	&&   (pexit_rev = to_room->exit[rev_dir[door]]) != NULL
-	&&   pexit_rev->to_room.r == ch->in_room)
-	{
-	    CHAR_DATA *rch;
+		REMOVE_BIT(pexit->exit_info, EX_LOCKED | EX_CLOSED);
+		REMOVE_BIT(pexit->exit_info, EX_CLOSED);
+		act("$n knocks $v and opens the lock.",
+		    ch, &pexit->exit_name, NULL, TO_ROOM);
+		act_puts("You successed to open $v.",
+		         ch, &pexit->exit_name, NULL, TO_CHAR, POS_DEAD);
 
-	    REMOVE_BIT(pexit_rev->exit_info, EX_CLOSED);
-	    REMOVE_BIT(pexit_rev->exit_info, EX_LOCKED);
-	    for (rch = to_room->people; rch != NULL; rch = rch->next_in_room)
-		act("The $d opens.", rch, NULL, pexit_rev->keyword, TO_CHAR);
+		/* open the other side */
+		if ((to_room = pexit->to_room.r) != NULL
+		&&  (pexit_rev = to_room->exit[rev_dir[door]]) != NULL
+		&&  pexit_rev->to_room.r == ch->in_room) {
+			REMOVE_BIT(pexit_rev->exit_info, EX_CLOSED | EX_LOCKED);
+			act("$v opens.", to_room->people,
+			    &pexit_rev->exit_name, NULL, TO_ROOM);
+		}
+	} else {
+		act("You couldn't knock $v.",
+		    ch, &pexit->exit_name, NULL, TO_CHAR);
+		act("$n failed to knock $v.",
+		    ch, &pexit->exit_name, NULL, TO_ROOM);
 	}
-	 }
-	else
-	 {
-	act("You couldn't knock the $d!",
-	    ch,NULL,pexit->keyword,TO_CHAR);
-	act("$n failed to knock the $d.",
-	    ch,NULL,pexit->keyword,TO_ROOM);
-	 }
-	return;
-	}
-
-	char_puts("You can't see that here.\n",ch);
 }
 
-void spell_hallucination (const char *sn, int level, CHAR_DATA *ch, void *vo) 
+void spell_hallucination(const char *sn, int level, CHAR_DATA *ch, void *vo) 
 {
- char_puts("That spell is under construction.\n",ch);
+	char_puts("That spell is under construction.\n", ch);
 }
 
 void spell_wolf(const char *sn, int level, CHAR_DATA *ch, void *vo)	

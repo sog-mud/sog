@@ -23,10 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_msg.c,v 1.7 1999-10-26 13:52:58 fjoe Exp $
+ * $Id: db_msg.c,v 1.8 1999-12-15 15:35:46 fjoe Exp $
  */
 
 #include <limits.h>
+#include <stdarg.h>
 #include <stdio.h>
 #include <ctype.h>
 

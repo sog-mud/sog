@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.18 1999-12-15 08:14:15 fjoe Exp $
+ * $Id: affects.c,v 1.19 1999-12-15 15:35:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -395,7 +395,9 @@ void affect_check(CHAR_DATA *ch, int where, flag_t vector)
 {
 	OBJ_DATA *obj;
 
-	if (where == TO_OBJECT || where == TO_WEAPON || vector == 0)
+	if (where == TO_OBJECT
+	||  where == TO_WEAPON
+	||  vector == 0)
 		return;
 
 	affect_check_list(ch, ch->affected, where, vector);
@@ -423,7 +425,7 @@ void affect_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
 
 	paf_new->next = ch->affected;
 	ch->affected = paf_new;
-	affect_modify(ch, aff_dup(paf), TRUE);
+	affect_modify(ch, paf_new, TRUE);
 }
 
 /* give an affect to an object */

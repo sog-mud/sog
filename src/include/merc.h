@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.271 1999-12-14 15:31:10 fjoe Exp $
+ * $Id: merc.h,v 1.272 1999-12-15 15:35:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -63,6 +63,7 @@
 
 #include <limits.h>
 #include <ctype.h>
+#include <stdarg.h>
 
 #include "typedef.h"
 #include "const.h"
@@ -1516,6 +1517,8 @@ struct exit_data
 	flag_t		size;
 	int		key;
 	const char *	keyword;
+	mlstring	exit_name;
+	mlstring	gender;
 	mlstring	description;
 	EXIT_DATA *	next;		/* OLC */
 	flag_t		rs_flags;	/* OLC */

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skill.c,v 1.18 1999-12-11 15:31:23 fjoe Exp $
+ * $Id: db_skill.c,v 1.19 1999-12-15 15:35:46 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -51,7 +51,7 @@ DBINIT_FUN(init_skills)
 			  (varr_e_init_t) skill_init,
 			  (varr_e_destroy_t) skill_destroy);
 		skills.k_hash = strkey_hash;
-		skills.ke_cmp = strkey_struct_cmp;
+		skills.ke_cmp = strkey_mlstruct_cmp;
 		skills.e_cpy = (hash_e_cpy_t) skill_cpy;
 	}
 }
@@ -72,10 +72,12 @@ DBLOAD_FUN(load_skill)
 			break;
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
-				if (IS_NULLSTR(sk.name)) {
+				const char *sn = mlstr_mval(&sk.sk_name);
+
+				if (IS_NULLSTR(sn)) {
 					db_error("load_skill",
 						 "skill name undefined");
-				} else if (!hash_insert(&skills, sk.name, &sk)) {
+				} else if (!hash_insert(&skills, sn, &sk)) {
 					db_error("load_skill",
 						 "duplicate skill name");
 				}
@@ -112,6 +114,7 @@ DBLOAD_FUN(load_skill)
 		case 'G':
 			KEY("Group", sk.group,
 			    fread_fword(skill_groups, fp));
+			MLSKEY("Gender", sk.sk_gender);
 			break;
 		case 'M':
 			KEY("MinMana", sk.min_mana, fread_number(fp));
@@ -119,11 +122,11 @@ DBLOAD_FUN(load_skill)
 			    fread_fword(position_table, fp));
 			break;
 		case 'N':
-			SKEY("Name", sk.name, fread_string(fp));
-			SKEY("NounDamage", sk.noun_damage, fread_string(fp));
+			MLSKEY("Name", sk.sk_name);
+			MLSKEY("NounDamage", sk.noun_damage);
 			break;
 		case 'O':
-			SKEY("ObjWearOff", sk.msg_obj, fread_string(fp));
+			MLSKEY("ObjWearOff", sk.msg_obj);
 			break;
 		case 'S':
 			KEY("Slot", sk.slot, fread_number(fp));
@@ -136,7 +139,7 @@ DBLOAD_FUN(load_skill)
 			    fread_fword(skill_targets, fp));
 			break;
 		case 'W':
-			SKEY("WearOff", sk.msg_off, fread_string(fp));
+			MLSKEY("WearOff", sk.msg_off);
 			break;
 		}
 

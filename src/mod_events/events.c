@@ -23,9 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: events.c,v 1.2 1999-11-22 14:54:23 fjoe Exp $
+ * $Id: events.c,v 1.3 1999-12-15 15:35:35 fjoe Exp $
  */
 
+#include <stdarg.h>
 #include <stdio.h>
 #include <dlfcn.h>
 
@@ -34,6 +35,7 @@
 #include "varr.h"
 #include "hash.h"
 #include "log.h"
+#include "mlstring.h"
 #include "skills.h"
 #include "module.h"
 

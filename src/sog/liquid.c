@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: liquid.c,v 1.2 1999-10-21 14:31:05 fjoe Exp $
+ * $Id: liquid.c,v 1.3 1999-12-15 15:35:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -36,8 +36,9 @@ void liquid_init(liquid_t *lq)
 {
 	int i;
 
-	lq->name = str_empty;
-	lq->color = str_empty;
+	mlstr_init(&lq->lq_name, str_empty);
+	mlstr_init(&lq->lq_gender, str_empty);
+	mlstr_init(&lq->lq_color, str_empty);
 	for (i = 0; i < MAX_COND; i++)
 		lq->affect[i] = 0;
 	lq->sip = 0;
@@ -47,8 +48,9 @@ liquid_t *liquid_cpy(liquid_t *dst, const liquid_t *src)
 {
 	int i;
 
-	dst->name = str_qdup(src->name);
-	dst->color = str_dup(src->color);
+	mlstr_cpy(&dst->lq_name, &src->lq_name);
+	mlstr_cpy(&dst->lq_gender, &src->lq_gender);
+	mlstr_cpy(&dst->lq_color, &src->lq_color);
 	for (i = 0; i < MAX_COND; i++)
 		dst->affect[i] = src->affect[i];
 	dst->sip = src->sip;
@@ -57,7 +59,8 @@ liquid_t *liquid_cpy(liquid_t *dst, const liquid_t *src)
 
 void liquid_destroy(liquid_t *lq)
 {
-	free_string(lq->name);
-	free_string(lq->color);
+	mlstr_destroy(&lq->lq_name);
+	mlstr_destroy(&lq->lq_gender);
+	mlstr_destroy(&lq->lq_color);
 }
 

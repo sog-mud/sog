@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.46 1999-12-11 15:31:21 fjoe Exp $
+ * $Id: comm_act.c,v 1.47 1999-12-15 15:35:44 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -251,7 +251,15 @@ act_format_text(const char *text, CHAR_DATA *ch, CHAR_DATA *to,
 		return text;
 	return fix_short(text);
 }
-	
+
+static const char *
+act_format_mltext(mlstring *mltext, CHAR_DATA *ch, CHAR_DATA *to,
+		  int to_lang, int act_flags)
+{
+	return act_format_text(mlstr_val(mltext, to_lang),
+			       ch, to, to_lang, act_flags);
+}
+
 static const char *
 act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int to_lang, int act_flags)
 {
@@ -271,18 +279,6 @@ act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, int to_lang, int act_flags)
 	return fix_short(descr);
 }
 
-static const char *
-door_name(const char *name)
-{
-	static char buf[MAX_STRING_LENGTH];
-
-	if (IS_NULLSTR(name))
-		return "door";
-
-	one_argument(name, buf, sizeof(buf));
-	return buf;
-}
-
 #define CHECK_STRING(p)						\
 	if (p == NULL) {					\
 		log("act_buf: format '%s', NULL string arg",	\
@@ -297,6 +293,22 @@ door_name(const char *name)
 		    format);					\
 		sp--;						\
 		break;						\
+	}
+
+#define CHECK_MLSTRING(ml)						\
+	if (!mlstr_valid(ml)) {						\
+		log("act_buf: format '%s', invalid mlstring arg",	\
+		    format);						\
+		i = NULL;						\
+		break;							\
+	}
+
+#define CHECK_MLSTRING2(ml)						\
+	if (!mlstr_valid(ml)) { 					\
+		log("act_buf: format '%s', invalid mlstring arg",	\
+		    format);						\
+		sp--;							\
+		break;							\
 	}
 
 #define CHECK_TYPE(p, mem_type)					\
@@ -346,6 +358,13 @@ door_name(const char *name)
 				    ACT_FLAGS(flags));			\
 	}
 
+#define MLTEXT_ARG(mltext, flags)					\
+	{								\
+		CHECK_MLSTRING(mltext);					\
+		i = act_format_mltext(mltext, ch, to, opt->to_lang,	\
+				      ACT_FLAGS(flags));		\
+	}
+
 /*
  * vch is (CHAR_DATA*) arg2
  * vch1 is (CHAR_DATA*) arg1
@@ -360,7 +379,7 @@ door_name(const char *name)
  * $B
  * $c - $cn{...} - case number ``n''
  * $C
- * $d - door name (arg2)
+ * $d
  * $D
  * $e - he_she(ch)
  * $E - he_she(vch)
@@ -413,8 +432,8 @@ door_name(const char *name)
  * $T - text(arg2)
  * $u - text(arg1)
  * $U - text(arg3)
- * $v
- * $V
+ * $v - mltext(arg1)
+ * $V - mltext(arg3)
  * $w
  * $W
  * $x
@@ -427,19 +446,23 @@ door_name(const char *name)
  * $$ - "$"
  *
  */
+
+#define VCH	((CHAR_DATA *) arg2)
+#define VCH1	((CHAR_DATA *) arg1)
+#define VCH3	((CHAR_DATA *) arg3)
+#define NUM1	((int) arg1)
+#define NUM3	((int) arg3)
+#define ROOM1	((ROOM_INDEX_DATA *) arg1)
+#define ROOM3	((ROOM_INDEX_DATA *) arg3)
+#define OBJ1	((OBJ_DATA *) arg1)
+#define OBJ2	((OBJ_DATA *) arg2)
+#define ML1	((mlstring *) arg1)
+#define ML3	((mlstring *) arg3)
+
 void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 	     const void *arg1, const void *arg2, const void *arg3,
 	     actopt_t *opt, char *buf, size_t buf_len)
 {
-	CHAR_DATA *	vch = (CHAR_DATA*) arg2;
-	CHAR_DATA *	vch1 = (CHAR_DATA*) arg1;
-	CHAR_DATA *	vch3 = (CHAR_DATA*) arg3;
-	int		num1 = (int) arg1;
-	int		num3 = (int) arg3;
-	ROOM_INDEX_DATA *room1 = (ROOM_INDEX_DATA*) arg1;
-	ROOM_INDEX_DATA *room3 = (ROOM_INDEX_DATA*) arg3;
-	OBJ_DATA *	obj1 = (OBJ_DATA*) arg1;
-	OBJ_DATA *	obj2 = (OBJ_DATA*) arg2;
 	char 		tmp	[MAX_STRING_LENGTH];
 	char		tmp2	[MAX_STRING_LENGTH];
 
@@ -554,15 +577,23 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 				TEXT_ARG(arg3, opt->act_flags & ~ACT_STRANS);
 				break;
 
+			case 'v':
+				MLTEXT_ARG(ML1, opt->act_flags & ~ACT_STRANS);
+				break;
+
+			case 'V':
+				MLTEXT_ARG(ML3, opt->act_flags & ~ACT_STRANS);
+				break;
+
 /* room arguments */
 			case 'r':
-				CHECK_TYPE(room1, MT_ROOM);
-				i = mlstr_mval(&room1->name);
+				CHECK_TYPE(ROOM1, MT_ROOM);
+				i = mlstr_mval(&ROOM1->name);
 				break;
 
 			case 'R':
-				CHECK_TYPE(room3, MT_ROOM);
-				i = mlstr_mval(&room3->name);
+				CHECK_TYPE(ROOM3, MT_ROOM);
+				i = mlstr_mval(&ROOM3->name);
 				break;
 
 /* char arguments */
@@ -571,25 +602,25 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 				break;
 
 			case 'N':
-				CHAR_ARG(vch);
+				CHAR_ARG(VCH);
 				break;
 
 			case 'i':
-				CHAR_ARG(vch1);
+				CHAR_ARG(VCH1);
 				break;
 
 			case 'I':
-				CHAR_ARG(vch3);
+				CHAR_ARG(VCH3);
 				break;
 
 /* numeric arguments */
 			case 'j':
-				snprintf(tmp, sizeof(tmp), "%d", num1);
+				snprintf(tmp, sizeof(tmp), "%d", NUM1);
 				i = tmp;
 				break;
 
 			case 'J':
-				snprintf(tmp, sizeof(tmp), "%d", num3);
+				snprintf(tmp, sizeof(tmp), "%d", NUM3);
 				i = tmp;
 				break;
 
@@ -600,8 +631,8 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 				break;
 	
 			case 'E':
-				CHECK_TYPE(vch, MT_CHAR);
-				i = he_she[PERS_SEX(vch, to, opt->to_lang)];
+				CHECK_TYPE(VCH, MT_CHAR);
+				i = he_she[PERS_SEX(VCH, to, opt->to_lang)];
 				break;
 	
 			case 'm':
@@ -610,8 +641,8 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 				break;
 	
 			case 'M':
-				CHECK_TYPE(vch, MT_CHAR);
-				i = him_her[PERS_SEX(vch, to, opt->to_lang)];
+				CHECK_TYPE(VCH, MT_CHAR);
+				i = him_her[PERS_SEX(VCH, to, opt->to_lang)];
 				break;
 	
 			case 's':
@@ -620,23 +651,17 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 				break;
 	
 			case 'S':
-				CHECK_TYPE(vch, MT_CHAR);
-				i = his_her[PERS_SEX(vch, to, opt->to_lang)];
+				CHECK_TYPE(VCH, MT_CHAR);
+				i = his_her[PERS_SEX(VCH, to, opt->to_lang)];
 				break;
 
 /* obj arguments */
 			case 'p':
-				OBJ_ARG(obj1);
+				OBJ_ARG(OBJ1);
 				break;
 
 			case 'P':
-				OBJ_ARG(obj2);
-				break;
-
-/* door arguments */
-			case 'd':
-				CHECK_STRING(arg2);
-				i = GETMSG(door_name(arg2), opt->to_lang);
+				OBJ_ARG(OBJ2);
 				break;
 
 /* $gx{...}, $cx{...}, $qx{...} arguments */
@@ -685,16 +710,10 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 				case 'g':
 					switch (subcode = *s++) {
-					case 'd':
-						CHECK_STRING(arg2);
-						tstack[sp].arg =
-						    msg_gender(door_name(arg2));
-						break;
-
 					case 'N':
-						CHECK_TYPE2(vch, MT_CHAR);
+						CHECK_TYPE2(VCH, MT_CHAR);
 						tstack[sp].arg =
-							PERS_SEX(vch, to, opt->to_lang);
+							PERS_SEX(VCH, to, opt->to_lang);
 						break;
 
 					case 'n':
@@ -704,15 +723,15 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 						break;
 
 					case 'i':
-						CHECK_TYPE2(vch1, MT_CHAR);
+						CHECK_TYPE2(VCH1, MT_CHAR);
 						tstack[sp].arg =
-							PERS_SEX(vch1, to, opt->to_lang);
+							PERS_SEX(VCH1, to, opt->to_lang);
 						break;
 
 					case 'I':
-						CHECK_TYPE2(vch3, MT_CHAR);
+						CHECK_TYPE2(VCH3, MT_CHAR);
 						tstack[sp].arg =
-							PERS_SEX(vch3, to, opt->to_lang);
+							PERS_SEX(VCH3, to, opt->to_lang);
 						break;
 
 					case 'o':
@@ -720,13 +739,13 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 						break;
 
 					case 'p':
-						CHECK_TYPE2(obj1, MT_OBJ);
-						tstack[sp].arg = GET_SEX(&obj1->pObjIndex->gender, opt->to_lang);
+						CHECK_TYPE2(OBJ1, MT_OBJ);
+						tstack[sp].arg = GET_SEX(&OBJ1->pObjIndex->gender, opt->to_lang);
 						break;
 
 					case 'P':
-						CHECK_TYPE2(obj2, MT_OBJ);
-						tstack[sp].arg = GET_SEX(&obj2->pObjIndex->gender, opt->to_lang);
+						CHECK_TYPE2(OBJ2, MT_OBJ);
+						tstack[sp].arg = GET_SEX(&OBJ2->pObjIndex->gender, opt->to_lang);
 						break;
 
 					case 't':
@@ -746,6 +765,16 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 						CHECK_STRING(arg3);
 						tstack[sp].arg =
 							msg_gender(arg3);
+						break;
+
+					case 'v':
+						CHECK_MLSTRING2(ML1+1);
+						tstack[sp].arg = GET_SEX(ML1+1, opt->to_lang);
+						break;
+
+					case 'V':
+						CHECK_MLSTRING2(ML3+1);
+						tstack[sp].arg = GET_SEX(ML3+1, opt->to_lang);
 						break;
 
 					case '0':
@@ -770,11 +799,11 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 				case 'q':
 					switch(subcode = *s++) {
 					case 'j':
-						tstack[sp].arg = num1;
+						tstack[sp].arg = NUM1;
 						break;
 
 					case 'J':
-						tstack[sp].arg = num3;
+						tstack[sp].arg = NUM3;
 						break;
 					default:
 						log("act_buf: '%s': "
@@ -820,12 +849,9 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 	}
 }
 
-static CHAR_DATA*
-act_args(CHAR_DATA *ch, CHAR_DATA *vch, int act_flags, const char *format)
+static CHAR_DATA *
+act_args(CHAR_DATA *ch, CHAR_DATA *vch, int act_flags)
 {
-	if (format == NULL)
-		return NULL;
-
 	if (IS_SET(act_flags, TO_CHAR))
 		return ch;
 
@@ -925,7 +951,8 @@ void act_puts3(const char *format, CHAR_DATA *ch,
 	CHAR_DATA *to;
 	CHAR_DATA *vch = (CHAR_DATA *) arg2;
 
-	if ((to = act_args(ch, vch, act_flags, format)) == NULL)
+	if (IS_NULLSTR(format)
+	||  (to = act_args(ch, vch, act_flags)) == NULL)
 		return;
 
 	if (IS_SET(act_flags, TO_CHAR | TO_VICT)) {
@@ -942,6 +969,34 @@ void act_puts3(const char *format, CHAR_DATA *ch,
 
 		act_raw(ch, to, arg1, arg2, arg3,
 			format, act_flags);
+	}
+}
+
+void act_mlputs3(mlstring *mlformat, CHAR_DATA *ch,
+	         const void *arg1, const void *arg2, const void *arg3,
+	         int act_flags, int min_pos)
+{
+	CHAR_DATA *to;
+	CHAR_DATA *vch = (CHAR_DATA *) arg2;
+
+	if (mlstr_null(mlformat)
+	||  (to = act_args(ch, vch, act_flags)) == NULL)
+		return;
+
+	if (IS_SET(act_flags, TO_CHAR | TO_VICT)) {
+		if (!act_skip(ch, vch, to, act_flags, min_pos)) {
+			act_raw(ch, to, arg1, arg2, arg3,
+				mlstr_cval(mlformat, to), act_flags);
+		}
+		return;
+	}
+		
+	for(; to; to = to->next_in_room) {
+		if (act_skip(ch, vch, to, act_flags, min_pos)) 
+			continue;
+
+		act_raw(ch, to, arg1, arg2, arg3,
+			mlstr_cval(mlformat, to), act_flags);
 	}
 }
 

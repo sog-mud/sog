@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.302 1999-12-15 08:13:06 fjoe Exp $
+ * $Id: act_info.c,v 1.303 1999-12-15 15:35:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -494,7 +494,7 @@ static void do_look_in(CHAR_DATA* ch, const char *argument)
 			break;
 		}
 
-		act_puts3("It's $ufilled with a $U liquid.",
+		act_puts3("It's $ufilled with a $V liquid.",
 			  ch,
 			  INT(obj->value[1]) < 0 ?
 				"" :
@@ -503,7 +503,7 @@ static void do_look_in(CHAR_DATA* ch, const char *argument)
 			  INT(obj->value[1]) < 3 * INT(obj->value[0]) / 4 ?
 			 	"about half-" :
 			 	"more than half-",
-			  obj, lq->color, TO_CHAR, POS_DEAD);
+			  obj, &lq->lq_color, TO_CHAR, POS_DEAD);
 		break;
 
 	case ITEM_CONTAINER:
@@ -766,12 +766,14 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	&&  pexit->keyword[0] != '\0'
 	&&  pexit->keyword[0] != ' ') {
 		if (IS_SET(pexit->exit_info, EX_CLOSED)) {
-			act_puts("The $d is closed.",
-				 ch, NULL, pexit->keyword, TO_CHAR, POS_DEAD);
+			act_puts("$v is closed.",
+				 ch, &pexit->exit_name, NULL,
+				 TO_CHAR, POS_DEAD);
+		} else if (IS_SET(pexit->exit_info, EX_ISDOOR)) {
+			act_puts("$v is open.",
+				 ch, &pexit->exit_name,
+				 NULL, TO_CHAR, POS_DEAD);
 		}
-		else if (IS_SET(pexit->exit_info, EX_ISDOOR))
-			act_puts("The $d is open.",
-				 ch, NULL, pexit->keyword, TO_CHAR, POS_DEAD);
 	}
 }
 
@@ -2997,12 +2999,14 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 	pc_sk->percent += int_app[get_curr_stat(ch, STAT_INT)].learn /
 							spec_sk.rating;
 	if (pc_sk->percent < spec_sk.adept) {
-		act("You practice $T.", ch, NULL, sk->name, TO_CHAR);
-		act("$n practices $T.", ch, NULL, sk->name, TO_ROOM);
+		act("You practice $V.", ch, NULL, &sk->sk_name, TO_CHAR);
+		act("$n practices $V.", ch, NULL, &sk->sk_name, TO_ROOM);
 	} else {
 		pc_sk->percent = spec_sk.adept;
-		act("You are now learned at $T.", ch, NULL, sk->name, TO_CHAR);
-		act("$n is now learned at $T.", ch, NULL, sk->name, TO_ROOM);
+		act("You are now learned at $V.",
+		    ch, NULL, &sk->sk_name, TO_CHAR);
+		act("$n is now learned at $V.",
+		    ch, NULL, &sk->sk_name, TO_ROOM);
 	}
 }
 
@@ -3370,8 +3374,9 @@ glist_cb(void *p, va_list ap)
 	int *pcol = va_arg(ap, int *);
 
 	if (group == sk->group) {
+		const char *sn = mlstr_mval(&sk->sk_name);
 		char_printf(ch, "%c%-18s",
-			pc_skill_lookup(ch, sk->name) ?  '*' : ' ', sk->name);
+			    pc_skill_lookup(ch, sn) ?  '*' : ' ', sn);
 		if (*pcol)
 			char_puts("\n", ch);
 		*pcol = 1 - *pcol;
@@ -3439,7 +3444,7 @@ void do_slook(CHAR_DATA *ch, const char *argument)
 	}
 
 	char_printf(ch, "Skill '%s' in group '%s'.\n",
-		    sk->name,
+		    mlstr_mval(&sk->sk_name),
 		    flag_string(skill_groups, sk->group));
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.94 1999-12-11 15:31:19 fjoe Exp $
+ * $Id: skills.c,v 1.95 1999-12-15 15:35:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -186,7 +186,7 @@ apply_sa_cb(void *p, va_list ap)
 	int *pmod = va_arg(ap, int *);
 
 	if ((!IS_SET(sa->bit, SK_AFF_ALL) &&
-	     !IS_SKILL(sa->sn, sk->name))
+	     !IS_SKILL(sa->sn, mlstr_mval(&sk->sk_name)))
 	||  (IS_SET(sa->bit, SK_AFF_NOTCLAN) &&
 	     IS_SET(sk->skill_flags, SKILL_CLAN))
 	||  (!IS_SET(sa->bit, SK_AFF_TEACH) &&
@@ -362,7 +362,8 @@ void say_spell(CHAR_DATA *ch, const skill_t* spell)
 	}
 
 	buf[0]	= '\0';
-	for (pName = spell->name; *pName != '\0'; pName += length) {
+	pName = mlstr_mval(&spell->sk_name);
+	for (; *pName != '\0'; pName += length) {
 		for (iSyl = 0; (length = strlen(syl_table[iSyl].old)); iSyl++) {
 			if (!str_prefix(syl_table[iSyl].old, pName)) {
 				strnzcat(buf, sizeof(buf), syl_table[iSyl].new);
@@ -382,8 +383,8 @@ void say_spell(CHAR_DATA *ch, const skill_t* spell)
 			act("$n utters the words, '$t'.", ch, buf, rch, TO_VICT);
 			check_improve(rch, "spell craft", FALSE, 5);
 		} else  {
-			act("$n utters the words, '$t'.",
-			    ch, spell->name, rch, TO_VICT);
+			act("$n utters the words, '$v'.",
+			    ch, &spell->sk_name, rch, TO_VICT);
 			check_improve(rch, "spell craft", TRUE, 5);
 		}
 	}
@@ -448,7 +449,7 @@ skill_slot_cb(void *p, va_list ap)
 	int slot = va_arg(ap, int);
 
 	if (sk->slot == slot)
-		return (void*) sk->name;
+		return (void*) mlstr_mval(&sk->sk_name);
 	return NULL;
 }
 
@@ -471,7 +472,8 @@ const char *skill_slot_lookup(int slot)
 
 void skill_init(skill_t *sk)
 {
-	sk->name = str_empty;
+	mlstr_init(&sk->sk_name, str_empty);
+	mlstr_init(&sk->sk_gender, str_empty);
 	sk->fun_name = str_empty;
 	sk->fun = NULL;
 	sk->target = 0;
@@ -479,9 +481,9 @@ void skill_init(skill_t *sk)
 	sk->slot = 0;
 	sk->min_mana = 0;
 	sk->beats = 0;
-	sk->noun_damage = str_empty;
-	sk->msg_off = str_empty;
-	sk->msg_obj = str_empty;
+	mlstr_init(&sk->noun_damage, str_empty);
+	mlstr_init(&sk->msg_off, str_empty);
+	mlstr_init(&sk->msg_obj, str_empty);
 	sk->skill_flags = 0;
 	sk->restrict_race = str_empty;
 	sk->group = 0;
@@ -493,7 +495,8 @@ skill_t *skill_cpy(skill_t *dst, const skill_t *src)
 {
 	event_fun_t *evfs, *evfd;
 
-	dst->name = str_qdup(src->name);
+	mlstr_cpy(&dst->sk_name, &src->sk_name);
+	mlstr_cpy(&dst->sk_gender, &src->sk_gender);
 	dst->fun_name = str_qdup(src->fun_name);
 	dst->fun = src->fun;
 	dst->target = src->target;
@@ -501,9 +504,9 @@ skill_t *skill_cpy(skill_t *dst, const skill_t *src)
 	dst->slot = src->slot;
 	dst->min_mana = src->min_mana;
 	dst->beats = src->beats;
-	dst->noun_damage = str_qdup(src->noun_damage);
-	dst->msg_off = str_qdup(src->msg_off);
-	dst->msg_obj = str_qdup(src->msg_obj);
+	mlstr_cpy(&dst->noun_damage, &src->noun_damage);
+	mlstr_cpy(&dst->msg_off, &src->msg_off);
+	mlstr_cpy(&dst->msg_obj, &src->msg_obj);
 	dst->skill_flags = src->skill_flags;
 	dst->restrict_race = str_qdup(src->restrict_race);
 	dst->group = src->group;
@@ -525,11 +528,12 @@ void skill_destroy(skill_t *sk)
 {
 	event_fun_t *evf, *evf_next;
 
-	free_string(sk->name);
+	mlstr_destroy(&sk->sk_name);
+	mlstr_destroy(&sk->sk_gender);
 	free_string(sk->fun_name);
-	free_string(sk->noun_damage);
-	free_string(sk->msg_off);
-	free_string(sk->msg_obj);
+	mlstr_destroy(&sk->noun_damage);
+	mlstr_destroy(&sk->msg_off);
+	mlstr_destroy(&sk->msg_obj);
 	free_string(sk->restrict_race);
 
 	for (evf = sk->eventlist; evf; evf = evf_next) {
@@ -537,7 +541,6 @@ void skill_destroy(skill_t *sk)
 		evf_free(evf);
 	}
 }
-
 
 /*
  *  routine that checks for matching events and calls event function
@@ -684,6 +687,7 @@ static int
 get_mob_skill(CHAR_DATA *ch, skill_t *sk)
 {
 	mob_skill_t *mob_skill;
+	const char *sn;
 
 	if (sk->skill_type == ST_SPELL
 	||  sk->skill_type == ST_PRAYER)
@@ -692,7 +696,8 @@ get_mob_skill(CHAR_DATA *ch, skill_t *sk)
 	if (!mob_skill_count)
 		mob_skill_init();
 
-	mob_skill = bsearch(&sk->name, mob_skill_tab, mob_skill_count,
+	sn = mlstr_mval(&sk->sk_name);
+	mob_skill = bsearch(&sn, mob_skill_tab, mob_skill_count,
 			    sizeof(mob_skill_t), cmpstr);
 	if (mob_skill == NULL)
 		return 0;

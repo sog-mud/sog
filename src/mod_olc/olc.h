@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.62 1999-12-15 08:14:15 fjoe Exp $
+ * $Id: olc.h,v 1.63 1999-12-15 15:35:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -125,6 +125,7 @@ struct olced_strkey_t {
  */
 DECLARE_OLC_FUN(olced_spell_out);
 DECLARE_OLC_FUN(olced_strkey);
+DECLARE_OLC_FUN(olced_mlstrkey);
 
 bool olced_number	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, int *);

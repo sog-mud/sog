@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.h,v 1.5 1999-12-14 15:31:11 fjoe Exp $
+ * $Id: strkey_hash.h,v 1.6 1999-12-15 15:35:37 fjoe Exp $
  */
 
 #ifndef _STRKEY_HASH_H_
@@ -40,6 +40,7 @@ void		strkey_destroy(void*);
 
 int		strkey_hash(const void *k, size_t hsize);
 int		strkey_struct_cmp(const void *k, const void *e);
+int		strkey_mlstruct_cmp(const void *k, const void *e);
 
 void *		strkey_lookup(hash_t *h, const char *name);
 

@@ -23,9 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.c,v 1.7 1999-11-22 14:54:26 fjoe Exp $
+ * $Id: hash.c,v 1.8 1999-12-15 15:35:43 fjoe Exp $
  */
 
+#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 

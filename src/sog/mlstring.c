@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.44 1999-11-23 12:14:32 fjoe Exp $
+ * $Id: mlstring.c,v 1.45 1999-12-15 15:35:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -254,7 +254,24 @@ const char * mlstr_val(const mlstring *mlp, int lang)
 bool mlstr_null(const mlstring *mlp)
 {
 	const char *mval = mlstr_mval(mlp);
-	return (mval == NULL) || (*mval == '\0');
+	return IS_NULLSTR(mval);
+}
+
+static const char *
+mlstr_valid_cb(int lang, const char **p, va_list ap)
+{
+	if (!mem_is(*p, MT_STR))
+		return *p;
+
+	return NULL;
+}
+
+bool mlstr_valid(const mlstring *mlp)
+{
+	if (mlp->nlang < 0 || mlp->nlang > langs.nused)
+		return FALSE;
+
+	return mlstr_foreach((mlstring *) mlp, mlstr_valid_cb) == NULL;
 }
 
 int mlstr_cmp(const mlstring *mlp1, const mlstring *mlp2)
@@ -325,21 +342,28 @@ bool mlstr_append(CHAR_DATA *ch, mlstring *mlp, const char *arg)
 	return TRUE;
 }
 
-void mlstr_foreach(mlstring *mlp, void *arg,
-		    void (*cb)(int lang, const char **p, void *arg))
+const char *
+mlstr_foreach(mlstring *mlp, 
+	      const char * (*cb)(int lang, const char **p, va_list ap), ...)
 {
 	int lang;
+	const char *rv = NULL;
+	va_list ap;
 
 	if (mlp == NULL)
-		return;
+		return rv;
 
-	if (mlp->nlang == 0) {
-		cb(0, &mlp->u.str, arg);
-		return;
+	va_start(ap, cb);
+	if (mlp->nlang == 0)
+		rv = cb(0, &mlp->u.str, ap);
+	else {
+		for (lang = 0; lang < mlp->nlang; lang++) {
+			if ((rv = cb(lang, mlp->u.lstr + lang, ap)) != NULL)
+				break;
+		}
 	}
-
-	for (lang = 0; lang < mlp->nlang; lang++)
-		cb(lang, mlp->u.lstr + lang, arg);
+	va_end(ap);
+	return rv;
 }
 
 bool mlstr_edit(mlstring *mlp, const char *argument)
@@ -414,49 +438,61 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *mlp)
 	}
 }
 
-static void cb_addnl(int lang, const char **p, void *arg)
+static const char *
+cb_addnl(int lang, const char **p, va_list ap)
 {
 	char buf[MAX_STRING_LENGTH];
 	size_t len;
 
+	bool *pchanged;
+
 	if (*p == NULL
 	||  (len = strlen(*p)) == 0
 	||  (*p)[len-1] == '\n')
-		return;
+		return NULL;
 
 	snprintf(buf, sizeof(buf), "%s\n", *p);
 	free_string(*p);
 	*p = str_dup(buf);
-	*(bool*) arg = TRUE;
+
+	pchanged = va_arg(ap, bool *);
+	*pchanged = TRUE;
+	return NULL;
 }
 
-static void cb_stripnl(int lang, const char **p, void *arg)
+static const char *
+cb_stripnl(int lang, const char **p, va_list ap)
 {
 	char buf[MAX_STRING_LENGTH];
-	size_t len = strlen(*p);
+	size_t len;
+
+	bool *pchanged;
 
 	if (*p == NULL
 	||  (len = strlen(*p)) == 0
 	||  (*p)[len-1] != '\n')
-		return;
+		return NULL;
 
 	strnzncpy(buf, sizeof(buf), *p, len-1);
 	free_string(*p);
 	*p = str_dup(buf);
-	*(bool*) arg = TRUE;
+
+	pchanged = va_arg(ap, bool *);
+	*pchanged = TRUE;
+	return NULL;
 }
 
 bool mlstr_addnl(mlstring *mlp)
 {
 	bool changed = FALSE;
-	mlstr_foreach(mlp, &changed, cb_addnl);
+	mlstr_foreach(mlp, cb_addnl, &changed);
 	return changed;
 }
 
 bool mlstr_stripnl(mlstring *mlp)
 {
 	bool changed = FALSE;
-	mlstr_foreach(mlp, &changed, cb_stripnl);
+	mlstr_foreach(mlp, cb_stripnl, &changed);
 	return changed;
 }
 

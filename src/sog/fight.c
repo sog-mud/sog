@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.238 1999-12-14 05:25:26 fjoe Exp $
+ * $Id: fight.c,v 1.239 1999-12-15 15:35:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2661,113 +2661,87 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 	const char *msg_char;
 	const char *msg_vict = NULL;
 	const char *msg_notvict;
-	const char *dam_noun = str_empty;
+	mlstring *dam_noun = NULL;
 
 	if (dam == 0) {
 		vs = "miss";
 		vp = "misses";
-	}
-	else if (dam <= 4) {
+	} else if (dam <= 4) {
 		vs = "{cscratch{x";
 		vp = "{cscratches{x";
-	}
-	else if (dam <= 8) {
+	} else if (dam <= 8) {
 		vs = "{cgraze{x";
 		vp = "{cgrazes{x";
-	}
-	else if (dam <= 12) {
+	} else if (dam <= 12) {
 		vs = "{chit{x";
 		vp = "{chits{x";
-	}
-	else if (dam <= 16) {
+	} else if (dam <= 16) {
 		vs = "{cinjure{x";
 		vp = "{cinjures{x";
-	}
-	else if (dam <= 20) {
+	} else if (dam <= 20) {
 		vs = "{cwound{x";
 		vp = "{cwounds{x";
-	}
-	else if (dam <= 24) {
+	} else if (dam <= 24) {
 		vs = "{cmaul{x";
 		vp = "{cmauls{x";
-	}
-	else if (dam <= 28) {
+	} else if (dam <= 28) {
 		vs = "{cdecimate{x";
 		vp = "{cdecimates{x";
-	}
-	else if (dam <= 32) {
+	} else if (dam <= 32) {
 		vs = "{cdevastate{x";
 		vp = "{cdevastates{x";
-	}
-	else if (dam <= 36) {
+	} else if (dam <= 36) {
 		vs = "{cmaim{x";
 		vp = "{cmaims{x";
-	}
-	else if (dam <= 42) {
+	} else if (dam <= 42) {
 		vs = "{MMUTILATE{x";
 		vp = "{MMUTILATES{x";
-	}
-	else if (dam <= 52) {
+	} else if (dam <= 52) {
 		vs = "{MDISEMBOWEL{x";
 		vp = "{MDISEMBOWELS{x";
-	}
-	else if (dam <= 65) {
+	} else if (dam <= 65) {
 		vs = "{MDISMEMBER{x";
 		vp = "{MDISMEMBERS{x";
-	}
-	else if (dam <= 80) {
+	} else if (dam <= 80) {
 		vs = "{MMASSACRE{x";
 		vp = "{MMASSACRES{x";
-	}
-	else if (dam <= 100) {
+	} else if (dam <= 100) {
 		vs = "{MMANGLE{x";
 		vp = "{MMANGLES{x";
-	}
-	else if (dam <= 130) {
+	} else if (dam <= 130) {
 		vs = "{y*** DEMOLISH ***{x";
 		vp = "{y*** DEMOLISHES ***{x";
-	}
-	else if (dam <= 175) {
+	} else if (dam <= 175) {
 		vs = "{y*** DEVASTATE ***{x";
 		vp = "{y*** DEVASTATES ***{x";
-	}
-	else if (dam <= 250) {
+	} else if (dam <= 250) {
 		vs = "{y=== OBLITERATE ==={x";
 		vp = "{y=== OBLITERATES ==={x";
-	}
-	else if (dam <= 325) {
+	} else if (dam <= 325) {
 		vs = "{y=== ATOMIZE ==={x";
 		vp = "{y=== ATOMIZES ==={x";
-	}
-	else if (dam <= 400) {
+	} else if (dam <= 400) {
 		vs = "{R>>> ANNIHILATE <<<{x";
 		vp = "{R>>> ANNIHILATES <<<{x";
-	}
-	else if (dam <= 500) {
+	} else if (dam <= 500) {
 		vs = "{R>>> ERADICATE <<<{x";
 		vp = "{R>>> ERADICATES <<<{x";
-	}
-	else if (dam <= 650) {
+	} else if (dam <= 650) {
 		vs = "{R-==> ELECTRONIZE <==-{x";
 		vp = "{R-==> ELECTRONIZES <==-{x";
-	}
-	else if (dam <= 800) {
+	} else if (dam <= 800) {
 		vs = "{R-==> SKELETONIZE <==-{x";
 		vp = "{R-==> SKELETONIZES <==-{x";
-	}
-	else if (dam <= 1000) {
+	} else if (dam <= 1000) {
 		vs = "{R### NUKE ###{x";
 		vp = "{R### NUKES ###{x";
-	}
-	else if (dam <= 1250) {
+	} else if (dam <= 1250) {
 		vs = "{R### TERMINATE ###{x";
 		vp = "{R### TERMINATES ###{x";
-	}
-	else if (dam <= 1500) {
+	} else if (dam <= 1500) {
 		vs = "{R[*] TEAR UP [*]{x";
 		vp = "{R[*] TEARS UP [*]{x";
-	}
-	else {
+	} else {
 		vs = "{*{R[*] POWER HIT [*]{x";
 		vp = "{*{R[*] POWER HITS [*]{x";
 	}
@@ -2815,30 +2789,33 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 			dam_noun = damtype_noun(dt);
 		else {
 			skill_t *sk = skill_lookup(dt);
-			dam_noun = sk ? sk->noun_damage : "hit";
+			if ((sk = skill_lookup(dt)) != NULL)
+				dam_noun = &sk->noun_damage;
 		}
+
+		if (dam_noun == NULL)
+			dam_noun = damtype_noun("hit");
 
 		if (immune) {
 			if (ch == victim) {
-				msg_notvict = "$n is unaffected by $s own $U.";
+				msg_notvict = "$n is unaffected by $s own $V.";
 				msg_char = "Luckily, you are immune to that.";
-			}
-			else {
-				msg_notvict = "$N is unaffected by $n's $U!";
-				msg_char = "$N is unaffected by your $U!";
-				msg_vict = "$n's $U is powerless against you.";
+			} else {
+				msg_notvict = "$N is unaffected by $n's $V!";
+				msg_char = "$N is unaffected by your $V!";
+				msg_vict = "$n's $V is powerless against you.";
 			}
 		} else {
 			vs = vp;
 
 			if (ch == victim) {
-				msg_notvict = "$n's $U $u $m.";
-				msg_char = "Your $U $u you.";
+				msg_notvict = "$n's $V $u $m.";
+				msg_char = "Your $V $u you.";
 			}
 			else {
-				msg_notvict = "$n's $U $u $N.";
-				msg_char = "Your $U $u $N.";
-				msg_vict = "$n's $U $u you.";
+				msg_notvict = "$n's $V $u $N.";
+				msg_char = "Your $V $u $N.";
+				msg_vict = "$n's $V $u you.";
 			}
 		}
 	}

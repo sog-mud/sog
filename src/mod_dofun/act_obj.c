@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.186 1999-12-11 15:31:03 fjoe Exp $
+ * $Id: act_obj.c,v 1.187 1999-12-15 15:35:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -156,8 +156,8 @@ void do_get(CHAR_DATA * ch, const char *argument)
 	}
 
 	if (IS_SET(INT(container->value[1]), CONT_CLOSED)) {
-		act_puts("The $d is closed.",
-			 ch, NULL, container->name, TO_CHAR, POS_DEAD);
+		act_puts("$p is closed.",
+			 ch, container->name, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
 	if (str_cmp(arg1, "all") && str_prefix("all.", arg1)) {
@@ -927,10 +927,10 @@ void do_fill(CHAR_DATA * ch, const char *argument)
 		bug("Unknown liquid: %s", STR(fountain->value[2]));
 		return;
 	}
-	act_puts3("You fill $p with $U from $P.",
-		   ch, obj, fountain, lq->name, TO_CHAR, POS_DEAD);
-	act_puts3("$n fills $p with $U from $P.",
-		   ch, obj, fountain, lq->name, TO_ROOM, POS_RESTING);
+	act_puts3("You fill $p with $V from $P.",
+		   ch, obj, fountain, &lq->lq_name, TO_CHAR, POS_DEAD);
+	act_puts3("$n fills $p with $V from $P.",
+		   ch, obj, fountain, &lq->lq_name, TO_ROOM, POS_RESTING);
 	STR_ASSIGN(obj->value[2], str_qdup(fountain->value[2].s));
 	INT(obj->value[1]) = INT(obj->value[0]);
 
@@ -968,15 +968,17 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 		}
 		INT(out->value[1]) = 0;
 		INT(out->value[3]) = 0;
-		act_puts3("You invert $p, spilling $T $U.",
-			  ch, out, lq->name,
+		act_puts3("You invert $p, spilling $T $V.",
+			  ch, out, 
 			  IS_WATER(ch->in_room) ? "in to the water" :
 						  "all over the ground",
+			  &lq->lq_name,
 			  TO_CHAR, POS_DEAD);
-		act_puts3("$n inverts $p, spilling $T $U.",
-			  ch, out, lq->name,
+		act_puts3("$n inverts $p, spilling $T $V.",
+			  ch, out,
 			  IS_WATER(ch->in_room) ? "in to the water" :
 						  "all over the ground",
+			  &lq->lq_name,
 			  TO_ROOM, POS_RESTING);
 		return;
 	}
@@ -1027,18 +1029,17 @@ void do_pour(CHAR_DATA * ch, const char *argument)
 	INT(in->value[2]) = INT(out->value[2]);
 
 	if (vch == NULL) {
-		act_puts3("You pour $U from $p into $P.",
-			  ch, out, in, lq->name, TO_CHAR, POS_DEAD);
-		act_puts3("$n pours $U from $p into $P.",
-			  ch, out, in, lq->name, TO_ROOM, POS_RESTING);
-	}
-	else {
-		act_puts3("You pour some $U for $N.",
-			  ch, NULL, vch, lq->name, TO_CHAR, POS_DEAD);
-		act_puts3("$n pours you some $U.",
-			  ch, NULL, vch, lq->name, TO_VICT, POS_RESTING);
-		act_puts3("$n pours some $U for $N.",
-			  ch, NULL, vch, lq->name, TO_NOTVICT, POS_RESTING);
+		act_puts3("You pour $V from $p into $P.",
+			  ch, out, in, &lq->lq_name, TO_CHAR, POS_DEAD);
+		act_puts3("$n pours $V from $p into $P.",
+			  ch, out, in, &lq->lq_name, TO_ROOM, POS_RESTING);
+	} else {
+		act_puts3("You pour some $V for $N.",
+			  ch, NULL, vch, &lq->lq_name, TO_CHAR, POS_DEAD);
+		act_puts3("$n pours you some $V.",
+			  ch, NULL, vch, &lq->lq_name, TO_VICT, POS_RESTING);
+		act_puts3("$n pours some $V for $N.",
+			  ch, NULL, vch, &lq->lq_name, TO_NOTVICT, POS_RESTING);
 	}
 
 }
@@ -1103,8 +1104,11 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		char_puts("You're too full to drink more.\n", ch);
 		return;
 	}
-	act("$n drinks $T from $p.", ch, obj, lq->name, TO_ROOM);
-	act_puts("You drink $T from $p.", ch, obj, lq->name, TO_CHAR, POS_DEAD);
+
+	act_puts3("$n drinks $V from $p.",
+		  ch, obj, NULL, &lq->lq_name, TO_ROOM, POS_RESTING);
+	act_puts3("You drink $V from $p.",
+		  ch, obj, NULL, &lq->lq_name, TO_CHAR, POS_DEAD);
 
 	if (ch->fighting)
 		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
@@ -2298,7 +2302,7 @@ random_spell(void)
 			break;
 	}
 
-	return sk->name;
+	return mlstr_mval(&sk->sk_name);
 }
 
 void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)

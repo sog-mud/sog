@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.77 1999-12-14 15:31:16 fjoe Exp $
+ * $Id: db_area.c,v 1.78 1999-12-15 15:35:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -335,31 +335,6 @@ DBLOAD_FUN(load_areadata)
 	}
 }
  
-void cb_strip_nl(int lang, const char **p, void *arg)
-{
-	char buf[MAX_STRING_LENGTH];
-	size_t len, oldlen;
-
-	if (*p == NULL
-	||  (len = strlen(*p)) == 0)
-		return;
-
-	oldlen = len;
-	while ((*p)[len-1] == '\n') {
-		if (len < 2
-		||  (*p)[len-2] != '\n')
-			break;
-		len--;
-	}
-
-	if (oldlen != len) {
-		strnzncpy(buf, sizeof(buf), *p, len);
-		free_string(*p);
-		*p = str_dup(buf);
-		TOUCH_AREA((AREA_DATA*) arg);
-	}
-}
-
 /*
  * Snarf a help section.
  */
@@ -385,8 +360,9 @@ DBLOAD_FUN(load_helps)
 		pHelp->level	= level;
 		pHelp->keyword	= keyword;
 		mlstr_fread(fp, &pHelp->text);
-		
-		mlstr_foreach(&pHelp->text, area_current, cb_strip_nl);
+	
+		if (mlstr_stripnl(&pHelp->text))
+			TOUCH_AREA(area_current);
 		help_add(area_current, pHelp);
 	}
 }
@@ -637,6 +613,53 @@ DBLOAD_FUN(load_rooms)
 					TOUCH_AREA(area_current);
 
 				pexit->keyword		= fread_string(fp);
+				if (area_current->ver < 2) {
+					msg_t *m;
+					char buf[MAX_STRING_LENGTH];
+					char buf2[MAX_STRING_LENGTH];
+
+					one_argument(pexit->keyword,
+						     buf, sizeof(buf));
+					if (buf[0] == '\0') {
+						strnzcpy(buf, sizeof(buf),
+							 "door");
+					}
+
+					mlstr_init(&pexit->gender, "none");
+
+					if ((m = msg_lookup(buf)) != NULL
+					&&  str_cmp(buf, "north")
+					&&  str_cmp(buf, "south")
+					&&  str_cmp(buf, "up")
+					&&  str_cmp(buf, "down")
+					&&  str_cmp(buf, "east")
+					&&  str_cmp(buf, "west")
+					&&  str_cmp(buf, "silver")
+					&&  str_cmp(buf, "gold")) {
+						const char **p;
+						mlstr_cpy(&pexit->exit_name,
+							  &m->ml);
+						p = mlstr_convert(&pexit->exit_name, 0);
+						snprintf(buf2, sizeof(buf2),
+							 "the %s", *p);
+						free_string(*p);
+						*p = str_dup(buf2);
+
+						if (m->gender) {
+							p = mlstr_convert(&pexit->gender, 1);
+							free_string(*p);
+							*p = str_dup(flag_string(gender_table, m->gender));
+						}
+					} else {
+						snprintf(buf2, sizeof(buf2),
+							 "the %s", buf);
+						mlstr_init(&pexit->exit_name,
+							   buf2);
+					}
+				} else {
+					mlstr_fread(fp, &pexit->exit_name);
+					mlstr_fread(fp, &pexit->gender);
+				}
 				pexit->exit_info	= 0;
 				pexit->rs_flags		= 0;	/* OLC */
 				locks			= fread_flags(fp);

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.215 1999-12-14 15:31:14 fjoe Exp $
+ * $Id: handler.c,v 1.216 1999-12-15 15:35:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1319,46 +1319,29 @@ money_form(int lang, char *buf, size_t len, int num, const char *name)
 	strnzcpy(buf, len, word_form(tmp, num, lang, RULES_QTY));
 }
 
-struct _data {
-	int num1;
-	const char *name1;
-	int num2;
-	const char *name2;
-};
-
-static void
-money_cb(int lang, const char **p, void *arg)
+static const char *
+money_descr_cb(int lang, const char **p, va_list ap)
 {
+	int num1 = va_arg(ap, int);
+	const char *name1 = va_arg(ap, const char *);
+	int num2 = va_arg(ap, int);
+	const char *name2 = va_arg(ap, const char *);
+
 	char buf1[MAX_STRING_LENGTH];
 	char buf2[MAX_STRING_LENGTH];
 
 	const char *q;
-	struct _data *d = (struct _data *) arg;
 
 	if (IS_NULLSTR(*p))
-		return;
+		return NULL;
 
-	money_form(lang, buf1, sizeof(buf1), d->num1, d->name1);
-	money_form(lang, buf2, sizeof(buf2), d->num2, d->name2);
+	money_form(lang, buf1, sizeof(buf1), num1, name1);
+	money_form(lang, buf2, sizeof(buf2), num2, name2);
 
-	q = str_printf(*p, d->num1, buf1, d->num2, buf2);
+	q = str_printf(*p, num1, buf1, num2, buf2);
 	free_string(*p);
 	*p = q;
-}
-
-static void
-money_descr(mlstring *descr,
-	    int num1, const char *name1,
-	    int num2, const char *name2)
-{
-	struct _data data;
-
-	data.num1 = num1;
-	data.num2 = num2;
-	data.name1 = name1;
-	data.name2 = name2;
-
-	mlstr_foreach(descr, &data, money_cb);
+	return NULL;
 }
 
 /*
@@ -1383,25 +1366,24 @@ OBJ_DATA *create_money(int gold, int silver)
 	else if (silver == 0) {
 		pObjIndex = get_obj_index(OBJ_VNUM_GOLD_SOME);
 		obj = create_obj(pObjIndex, 0);
-		money_descr(&obj->short_descr, gold, "gold coins", -1, NULL);
+		mlstr_foreach(&obj->short_descr, money_descr_cb,
+			      gold, "gold coins", -1, NULL);
 		INT(obj->value[1]) = gold;
 		obj->cost	= 100*gold;
 		obj->weight	= gold/5;
-	}
-	else if (gold == 0) {
+	} else if (gold == 0) {
 		pObjIndex = get_obj_index(OBJ_VNUM_SILVER_SOME);
 		obj = create_obj(pObjIndex, 0);
-		money_descr(&obj->short_descr,
-			    silver, "silver coins", -1, NULL);
+		mlstr_foreach(&obj->short_descr, money_descr_cb,
+			      silver, "silver coins", -1, NULL);
 		INT(obj->value[0]) = silver;
 		obj->cost	= silver;
 		obj->weight	= silver/20;
-	}
-	else {
+	} else {
 		pObjIndex = get_obj_index(OBJ_VNUM_COINS);
 		obj = create_obj(pObjIndex, 0);
-		money_descr(&obj->short_descr,
-			    silver, "silver coins", gold, "gold coins");
+		mlstr_foreach(&obj->short_descr, money_descr_cb,
+			      silver, "silver coins", gold, "gold coins");
 		INT(obj->value[0]) = silver;
 		INT(obj->value[1]) = gold;
 		obj->cost	= 100*gold + silver;
@@ -1410,7 +1392,6 @@ OBJ_DATA *create_money(int gold, int silver)
 
 	return obj;
 }
-
 
 /*
  * Return # of objects which an object counts as.
@@ -2029,7 +2010,8 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 		if ((lq = liquid_lookup(STR(obj->value[2]))) == NULL)
 			break;
 		buf_printf(output, "It holds %s-colored %s.\n",
-			   lq->color, lq->name);
+			   mlstr_mval(&lq->lq_color),
+			   mlstr_mval(&lq->lq_name));
 		break;
 
 	case ITEM_CONTAINER:
@@ -2158,10 +2140,12 @@ bool check_dispel(int dis_level, CHAR_DATA *victim, const char *sn)
 	            if (!saves_dispel(dis_level,af->level,af->duration)) {
 			skill_t *sk;
 
-	                affect_strip(victim,sn);
+	                affect_strip(victim, sn);
 			if ((sk = skill_lookup(sn)) != NULL
-			&&  !IS_NULLSTR(sk->msg_off))
-				char_printf(victim, "%s\n", sk->msg_off);
+			&&  !mlstr_null(&sk->msg_off)) {
+				act_mlputs(&sk->msg_off, victim, NULL, NULL,
+					   TO_CHAR, POS_DEAD);
+			}
 			return TRUE;
 		    } else
 			af->level--;
@@ -3073,10 +3057,10 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	}
 
 	if (ch->size > pexit->size) {
-		act_puts("$d is too narrow for you to pass.",
-			ch, NULL, pexit->keyword, TO_CHAR, POS_DEAD);
-		act("$n tries to leave through $d, but almost stucks there.",
-			ch, NULL, pexit->keyword, TO_ROOM);
+		act_puts("$v is too narrow for you to pass.",
+			ch, &pexit->exit_name, NULL, TO_CHAR, POS_DEAD);
+		act("$n tries to leave through $v, but almost stucks there.",
+		    ch, &pexit->exit_name, NULL, TO_ROOM);
 		return FALSE;
 	}
 
@@ -3099,14 +3083,15 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	&&  !IS_TRUSTED(ch, LEVEL_IMMORTAL)) {
 		if (IS_AFFECTED(ch, AFF_PASS_DOOR)
 		&&  IS_SET(pexit->exit_info, EX_NOPASS)) {
-  			act_puts("You failed to pass through the $d.",
-				 ch, NULL, pexit->keyword, TO_CHAR, POS_DEAD);
-			act("$n tries to pass through the $d, but $e fails.",
-			    ch, NULL, pexit->keyword, TO_ROOM);
-		}
-		else {
-			act_puts("The $d is closed.",
-				 ch, NULL, pexit->keyword, TO_CHAR, POS_DEAD);
+  			act_puts("You failed to pass through $v.",
+				 ch, &pexit->exit_name, NULL,
+				 TO_CHAR, POS_DEAD);
+			act("$n tries to pass through $v, but $e fails.",
+			    ch, &pexit->exit_name, NULL, TO_ROOM);
+		} else {
+			act_puts("$v is closed.",
+				 ch, &pexit->exit_name, NULL,
+				 TO_CHAR, POS_DEAD);
 		}
 		return FALSE;
 	}
@@ -3516,8 +3501,8 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container,
 	if (obj->pObjIndex->item_type == ITEM_MONEY) {
 		if (carry_w >= 0
 		&&  get_carry_weight(ch) + MONEY_WEIGHT(obj) > carry_w) {
-			act_puts("$d: you can't carry that much weight.",
-				 ch, NULL, obj->name, TO_CHAR, POS_DEAD);
+			act_puts("$p: you can't carry that much weight.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
 			return;
 		}
 	}

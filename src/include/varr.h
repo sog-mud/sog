@@ -23,13 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.12 1999-11-23 12:14:30 fjoe Exp $
+ * $Id: varr.h,v 1.13 1999-12-15 15:35:37 fjoe Exp $
  */
 
 #ifndef _VARR_H_
 #define _VARR_H_
-
-#include <stdarg.h>
 
 typedef void (*varr_e_init_t)(void *);
 typedef void *(*varr_e_cpy_t)(void *, void *);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_liquid.c,v 1.5 1999-10-26 13:52:58 fjoe Exp $
+ * $Id: db_liquid.c,v 1.6 1999-12-15 15:35:46 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -51,7 +51,7 @@ DBINIT_FUN(init_liquids)
 			  (varr_e_init_t) liquid_init,
 			  (varr_e_destroy_t) liquid_destroy);
 		liquids.k_hash = strkey_hash;
-		liquids.ke_cmp = strkey_struct_cmp;
+		liquids.ke_cmp = strkey_mlstruct_cmp;
 		liquids.e_cpy = (hash_e_cpy_t) liquid_cpy;
 	}
 }
@@ -77,22 +77,59 @@ DBLOAD_FUN(load_liquid)
 			}
 			break;
 		case 'C':
-			SKEY("Color", lq.color, fread_string(fp));
+			MLSKEY("Color", lq.lq_color);
 			break;
 		case 'E':
 			if (IS_TOKEN(fp, "End")) {
-				if (IS_NULLSTR(lq.name))
+				const char *ln = mlstr_mval(&lq.lq_name);
+				const char *cn = mlstr_mval(&lq.lq_color);
+				msg_t *m;
+
+				if (mlstr_nlang(&lq.lq_name) == 0
+				&&  (m = msg_lookup(ln)) != NULL
+				&&  str_cmp(ln, "north")
+				&&  str_cmp(ln, "south")
+				&&  str_cmp(ln, "up")
+				&&  str_cmp(ln, "down")
+				&&  str_cmp(ln, "east")
+				&&  str_cmp(ln, "west")
+				&&  str_cmp(ln, "silver")
+				&&  str_cmp(ln, "gold")) {
+					mlstr_cpy(&lq.lq_name, &m->ml);
+					if (m->gender) {
+						const char **pp = mlstr_convert(&lq.lq_gender, 1);
+						free_string(*pp);
+						*pp = str_dup(flag_string(gender_table, m->gender));
+					}
+				}
+
+				if (mlstr_nlang(&lq.lq_color) == 0
+				&&  (m = msg_lookup(cn)) != NULL
+				&&  str_cmp(cn, "north")
+				&&  str_cmp(cn, "south")
+				&&  str_cmp(cn, "up")
+				&&  str_cmp(cn, "down")
+				&&  str_cmp(cn, "east")
+				&&  str_cmp(cn, "west")
+				&&  str_cmp(cn, "silver")
+				&&  str_cmp(cn, "gold"))
+					mlstr_cpy(&lq.lq_color, &m->ml);
+
+				if (IS_NULLSTR(ln))
 					db_error("load_liquid",
 						 "liquid name undefined");
-				else if (!hash_insert(&liquids, lq.name, &lq))
+				else if (!hash_insert(&liquids, ln, &lq))
 					db_error("load_liquid",
 						 "duplicate liquid name");
 				liquid_destroy(&lq);
 				return;
 			}
 			break;
+		case 'G':
+			MLSKEY("Gender", lq.lq_gender);
+			break;
 		case 'N':
-			SKEY("Name", lq.name, fread_string(fp));
+			MLSKEY("Name", lq.lq_name);
 			break;
 		case 'S':
 			KEY("Sip", lq.sip, fread_number(fp));

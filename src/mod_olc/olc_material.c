@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_material.c,v 1.9 1999-12-14 00:26:40 avn Exp $
+ * $Id: olc_material.c,v 1.10 1999-12-15 15:35:39 fjoe Exp $
  */
 
 #include "olc.h"
@@ -158,7 +158,7 @@ OLC_FUN(mated_save)
 
 	fprintf(fp, "#$\n");
 	fclose(fp);
-	olc_printf(ch, "Materials saved");
+	olc_printf(ch, "Materials saved.");
 	REMOVE_BIT(changed_flags, CF_MATERIAL);
 	return FALSE;
 }

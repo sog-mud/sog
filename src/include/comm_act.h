@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.h,v 1.19 1999-12-03 11:57:15 fjoe Exp $
+ * $Id: comm_act.h,v 1.20 1999-12-15 15:35:35 fjoe Exp $
  */
 
 #ifndef _COMM_ACT_H_
@@ -85,16 +85,23 @@ typedef struct actopt_t {
 #define act_puts(format, ch, arg1, arg2, type, min_pos)		\
 		act_puts3((format), (ch), (arg1), (arg2), NULL,	\
 			  (type), (min_pos))
+#define act_mlputs(mlformat, ch, arg1, arg2, type, min_pos)		\
+		act_mlputs3((mlformat), (ch), (arg1), (arg2), NULL,	\
+			    (type), (min_pos))
+
 /*
  * ->to must not be NULL for all char/obj formatting or if ACT_STRANS is set
  * other formatting functions use opt->to_lang/opt->to_sex instead
  */
-void	act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
-		const void *arg1, const void *arg2, const void *arg3,
-		actopt_t *opt, char *buf, size_t buf_len);
-void    act_puts3(const char *format, CHAR_DATA *ch,
-		  const void *arg1, const void *arg2, const void *arg3,
-		  int act_flags, int min_pos);
+void	act_buf		(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
+			 const void *arg1, const void *arg2, const void *arg3,
+			 actopt_t *opt, char *buf, size_t buf_len);
+void    act_puts3	(const char *format, CHAR_DATA *ch,
+			 const void *arg1, const void *arg2, const void *arg3,
+			 int act_flags, int min_pos);
+void	act_mlputs3	(mlstring *mlformat, CHAR_DATA *ch,
+			 const void *arg1, const void *arg2, const void *arg3,
+			 int act_flags, int min_pos);
 
 /*
  * misc comm act-like functions

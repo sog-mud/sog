@@ -23,9 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_cc_fun.c,v 1.1 1999-12-14 15:31:11 fjoe Exp $
+ * $Id: init_cc_fun.c,v 1.2 1999-12-15 15:35:37 fjoe Exp $
  */
 
+#include <stdarg.h>
 #include <stdio.h>
 #include <dlfcn.h>
 

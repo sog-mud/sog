@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.213 1999-12-14 15:31:08 fjoe Exp $
+ * $Id: act_wiz.c,v 1.214 1999-12-15 15:35:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1116,8 +1116,8 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 		if ((lq = liquid_lookup(STR(obj->value[2]))) == NULL)
 			break;
 		buf_printf(output, "It holds %s-colored %s.\n",
-			   lq->color,
-			   lq->name);
+			   mlstr_mval(&lq->lq_color),
+			   mlstr_mval(&lq->lq_name));
 		break;
 	  
 	case ITEM_WEAPON:
@@ -2484,7 +2484,7 @@ sset_cb(void *p, va_list ap)
 	CHAR_DATA *victim = va_arg(ap, CHAR_DATA *);
 	int val = va_arg(ap, int);
 
-	set_skill(victim, sk->name, val);
+	set_skill(victim, mlstr_mval(&sk->sk_name), val);
 	return NULL;
 }
 
@@ -2546,7 +2546,7 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 			}
 			sn = arg2;
 		} else
-			sn = sk->name;
+			sn = mlstr_mval(&sk->sk_name);
 
 		set_skill(victim, sn, value);
 		char_printf(ch, "do_sset: '%s': %d%%\n", sn, value);
@@ -3927,9 +3927,9 @@ void do_noaffect(CHAR_DATA *ch, const char *argument)
 			skill_t *sk;
 
 			if ((sk = skill_lookup(paf->type))
-			&&  !IS_NULLSTR(sk->msg_off))
-				act_puts(sk->msg_off, victim, NULL, NULL, 
-					 TO_CHAR, POS_RESTING);
+			&&  !mlstr_null(&sk->msg_off))
+				act_mlputs(&sk->msg_off, victim, NULL, NULL, 
+					   TO_CHAR, POS_RESTING);
 		  
 			affect_remove(victim, paf);
 		}

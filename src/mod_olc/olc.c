@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.95 1999-12-15 08:14:15 fjoe Exp $
+ * $Id: olc.c,v 1.96 1999-12-15 15:35:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -289,7 +289,7 @@ OLC_FUN(olced_strkey)
 
 	if (o->path) {
 		d2rename(o->path, strkey_filename(*(const char**) p, o->ext),
-			 o->path, strkey_filename(*(const char**) arg, o->ext));
+			 o->path, strkey_filename(arg, o->ext));
 	}
 
 	hash_delete(o->h, p);
@@ -297,6 +297,66 @@ OLC_FUN(olced_strkey)
 
 	free_string(*(const char **) q);
 	*(const char **) q = str_dup(arg);
+	char_puts("Ok.\n", ch);
+	return TRUE;
+}
+
+OLC_FUN(olced_mlstrkey)
+{
+	char arg[MAX_INPUT_LENGTH];
+	int lang;
+	const char **pp;
+	void *p;
+
+	one_argument(argument, arg, sizeof(arg));
+	if (IS_NULLSTR(arg) || IS_NULLSTR(argument)) {
+		char_printf(ch, "Syntax: %s <lang> <string>\n", cmd->name);
+		return FALSE;
+	}
+
+	if ((lang = lang_lookup(arg)) < 0) {
+		char_printf(ch, "%s: %s: unknown language\n",
+			    OLCED(ch)->name, arg);
+		return FALSE;
+	}
+
+	p = ch->desc->pEdit;
+
+	if (!lang) {
+		void *q;
+		olced_strkey_t *o;
+
+		/* gonna change key */
+		if (olced_busy(ch, OLCED(ch)->id, NULL, NULL))
+			return FALSE;
+
+		if (!str_cmp(mlstr_mval((mlstring *) p), argument)) {
+			char_puts("Ok.\n", ch);
+			return FALSE;
+		}
+
+		o = (olced_strkey_t *) cmd->arg1;
+		if ((q = hash_insert(o->h, argument, p)) == NULL) {
+			char_printf(ch, "%s: %s: duplicate name.\n",
+				    OLCED(ch)->name, argument);
+			return FALSE;
+		}
+
+		if (o->path) {
+			d2rename(o->path,
+				 strkey_filename(mlstr_mval((mlstring*) p),
+						 o->ext),
+				 o->path,
+				 strkey_filename(argument, o->ext));
+		}
+
+		hash_delete(o->h, p);
+		p = ch->desc->pEdit = q;
+	}
+
+	pp = mlstr_convert((mlstring *) p, lang);
+	free_string(*pp);
+	*pp = str_dup(argument);
 	char_puts("Ok.\n", ch);
 	return TRUE;
 }

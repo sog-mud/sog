@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.13 1999-11-27 09:17:38 kostik Exp $
+ * $Id: act_magic.c,v 1.14 1999-12-15 15:35:34 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -45,6 +45,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	pc_skill_t *pc_sk = NULL;
 	int chance = 0;
 	skill_t *spell;
+	const char *sn;
 	CHAR_DATA *familiar = NULL;
 	CHAR_DATA *gch;
 
@@ -91,7 +92,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		spell = skill_search(arg1);
 
 	if (spell == NULL
-	||  (chance = get_skill(ch, spell->name)) == 0) {
+	||  (chance = get_skill(ch, (sn = mlstr_mval(&spell->sk_name)))) == 0) {
 		char_puts("You don't know any spells of that name.\n", ch);
 		return;
 	}
@@ -133,7 +134,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!IS_NPC(ch)) {
-		mana = skill_mana(ch, spell->name);
+		mana = skill_mana(ch, sn);
 		if (ch->mana < mana) {
 			char_puts("You don't have enough mana.\n", ch);
 			return;
@@ -152,7 +153,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 	switch (spell->target) {
 	default:
-		bug("do_cast: %s: bad target %d.", spell->name, spell->target);
+		bug("do_cast: %s: bad target %d.", sn, spell->target);
 		return;
 
 	case TAR_IGNORE:
@@ -282,7 +283,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		break;
 	}
 
-	if (str_cmp(spell->name, "ventriloquate"))
+	if (str_cmp(sn, "ventriloquate"))
 		say_spell(ch, spell);
 
 	if (mem_is(vo, MT_CHAR)) {
@@ -326,7 +327,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 	if (number_percent() > chance) {
 		char_puts("You lost your concentration.\n", ch);
-		check_improve(ch, spell->name, FALSE, 1);
+		check_improve(ch, sn, FALSE, 1);
 		ch->mana -= mana / 2;
 		if (cast_far) cast_far = FALSE;
 	} else {
@@ -405,11 +406,10 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			ch->mana += mana/2;
 		}
 
-		check_improve(ch, spell->name, TRUE, 1);
+		check_improve(ch, sn, TRUE, 1);
 		if (bch && spellbane(bch, ch, bane_chance, 3 * LEVEL(bch)))
 			return;
-		spell->fun(spell->name,
-			   IS_NPC(ch) ? ch->level : slevel, ch, vo);
+		spell->fun(sn, IS_NPC(ch) ? ch->level : slevel, ch, vo);
 		if (victim && IS_EXTRACTED(victim))
 			return;
 	}
@@ -446,6 +446,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 	int chance = 0;
 	int cha;
 	skill_t *prayer;
+	const char *sn;
 
 	CHAR_DATA *bch;		/* char to check spellbane on */
 	int bane_chance;	/* spellbane chance */
@@ -484,7 +485,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 		prayer = skill_search(arg1);
 
 	if (prayer == NULL
-	||  (chance = get_skill(ch, prayer->name)) == 0) {
+	||  (chance = get_skill(ch, (sn = mlstr_mval(&prayer->sk_name)))) == 0) {
 		char_puts("You don't know any prayers of that name.\n", ch);
 		return;
 	}
@@ -501,7 +502,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!IS_NPC(ch)) {
-		mana = skill_mana(ch, prayer->name);
+		mana = skill_mana(ch, sn);
 		if (ch->mana < mana) {
 			char_puts("You don't have enough mana.\n", ch);
 			return;
@@ -520,7 +521,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 
 	switch (prayer->target) {
 	default:
-		bug("do_pray: %s: bad target %d.", prayer->name, prayer->target);
+		bug("do_pray: %s: bad target %d.", sn, prayer->target);
 		return;
 
 	case TAR_IGNORE:
@@ -699,7 +700,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 
 	if (number_percent() > chance) {
 		char_puts("Your god doesn't hear you.\n", ch);
-		check_improve(ch, prayer->name, FALSE, 1);
+		check_improve(ch, sn, FALSE, 1);
 		ch->mana -= mana / 2;
 		if (cast_far) cast_far = FALSE;
 	} else {
@@ -711,11 +712,10 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 
 		ch->mana -= mana;
 
-		check_improve(ch, prayer->name, TRUE, 1);
+		check_improve(ch, sn, TRUE, 1);
 		if (bch && spellbane(bch, ch, bane_chance, 3 * LEVEL(bch)))
 			return;
-		prayer->fun(prayer->name,
-			   IS_NPC(ch) ? ch->level : slevel, ch, vo);
+		prayer->fun(sn, IS_NPC(ch) ? ch->level : slevel, ch, vo);
 		if (victim && IS_EXTRACTED(victim))
 			return;
 	}

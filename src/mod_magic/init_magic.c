@@ -23,15 +23,17 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_magic.c,v 1.5 1999-11-22 14:54:28 fjoe Exp $
+ * $Id: init_magic.c,v 1.6 1999-12-15 15:35:47 fjoe Exp $
  */
 
+#include <stdarg.h>
 #include <stdio.h>
 #include <dlfcn.h>
 
 #include "typedef.h"
 #include "varr.h"
 #include "hash.h"
+#include "mlstring.h"
 #include "skills.h"
 #include "log.h"
 

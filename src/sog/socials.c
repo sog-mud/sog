@@ -23,9 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: socials.c,v 1.3 1999-03-08 13:56:07 fjoe Exp $
+ * $Id: socials.c,v 1.4 1999-12-15 15:35:43 fjoe Exp $
  */
 
+#include <stdarg.h>
 #include <stdio.h>
 
 #include "typedef.h"
