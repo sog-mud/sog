@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_info.c,v 1.17 2000-04-03 14:24:30 fjoe Exp $
+ * $Id: comm_info.c,v 1.18 2000-04-20 12:17:28 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -41,6 +41,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#if defined(SUNOS) || defined(SVR4) || defined(LINUX)
+#	include <crypt.h>
+#endif
 
 #include "merc.h"
 #include "comm_info.h"

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.239 2000-04-18 09:17:12 fjoe Exp $
+ * $Id: act_wiz.c,v 1.240 2000-04-20 12:17:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,10 @@
 #include <unistd.h>
 #endif
 #include <limits.h>
+
+#if defined(SUNOS) || defined(SVR4) || defined(LINUX)
+#	include <crypt.h>
+#endif
 
 #if defined(BSD44)
 #	include <fnmatch.h>
