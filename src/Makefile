@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.2 1998-06-06 12:35:26 fjoe Exp $
+# $Id: Makefile,v 1.3 1998-06-12 06:40:17 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -38,7 +38,7 @@ muddy: $(OFILES)
 	$(CC) -c $(CFLAGS) $<
 
 depend:
-	makedepend -- $(CFLAGS) -- `echo $(OFILES) | sed 's/\.o/.c/g'`
+	mkdep $(CFLAGS) `echo $(OFILES) | sed 's/\.o/.c/g'`
 
 clean:
 	rm -f *.o *.core muddy
