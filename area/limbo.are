@@ -502,7 +502,7 @@ corpse труп~
 flesh~
 pc_corpse OR AP
 0 0 0 A 0
-0 1000 150 D
+0 1000 0 D
 G male
 #12
 head голова~
@@ -568,9 +568,9 @@ mace 9 0 divine I
 0 0 0 P
 G male
 #19
-lock-pick picklock отмычка~
+lock-pick picklock отмычка needle игла~
 @eng lock-pick@rus отмычка~
-@eng A small steel needle lies here.@rus Маленькая стальная игла блестит в пыли.~
+@eng A small steel needle lies here.@rus Маленькая стальная игла (needle) блестит в пыли.~
 steel~
 trash h AO
 0 0 0 0 0
@@ -1273,8 +1273,8 @@ chameleon poncho~
 You see something strange.~
 unknown~
 armor 0 AK
-0 0 0 0 0
-0 0 0 P
+20 20 20 20 0
+0 1 100 P
 G none
 #79
 golden staff посох~
@@ -1603,7 +1603,7 @@ S
 @eng {bIsle of Misfortune{x@rus {bОстров Невезения{x~
 @rus Весь покрытый {Gзеленью{x, абсолютно весь.
 ~
-0 BHKNSUb forest
+0 HKNSUb forest
 M 13 H 13
 S
 #0

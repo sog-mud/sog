@@ -2658,6 +2658,16 @@ Form 6 -у~
 End
 
 #RULE
+Name тамплиер~
+BaseLen 8
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#RULE
 Name свинья~
 BaseLen 5
 Form 1 -и~
@@ -9695,6 +9705,15 @@ Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
+End
+
+#RULE
+Name {YО{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wо{Yе {Wк{Yо{Wл{Yь{Wц{Yо{x~
+Form 1 {YО{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wо{Yг{Wо {Wк{Yо{Wл{Yь{Wц{Yа{x~
+Form 2 {YО{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wо{Yм{Wу {Wк{Yо{Wл{Yь{Wц{Yу{x~
+Form 3 {YО{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wо{Yе {Wк{Yо{Wл{Yь{Wц{Yо{x~
+Form 4 {YО{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wы{Yм {Wк{Yо{Wл{Yь{Wц{Yо{Wм{x~
+Form 5 {YО{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wо{Yм {Wк{Yо{Wл{Yь{Wц{Yе{x~
 End
 
 #RULE

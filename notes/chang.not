@@ -3718,3 +3718,162 @@ smash (удар с размаха)
 {WPhrinn{x.
 PS. все сказанное о типах удара только для драки без оружия, ессно
 ~
+Sender  Phrinn~
+Date    Fri Jan  4 00:52:27 2002~
+Stamp   1010094747
+To      all~
+Subject ghosts~
+Text
+Привет!
+ 
+Привидения теперь модные ;) Они умеют не только летать и
+ходить сквозь двери, но и дышать/плавать под водой и видеть
+в темноте (кое-что). А еще они теперь красивые =)
+ 
+{WФринн{x.
+PS. больше не удасться левелиться на экскалибуре
+~
+Sender  Phrinn~
+Date    Mon Jan  7 23:25:28 2002~
+Stamp   1010435128
+To      all~
+Subject mccp~
+Text
+Привет!
+ 
+Теперь поддерживается mccp v1/v2. help compress, help mccp
+для получения более подробной информации.
+ 
+{WФринн{x.
+~
+Sender  Phrinn~
+Date    Tue Jan  8 23:45:02 2002~
+Stamp   1010522702
+To      all~
+Subject balance~
+Text
+Привет!
+ 
+Команда balance теперь может использоваться в любом месте мира,
+а не только в банке.
+ 
+{WФринн{x.
+PS. ghost'ы пьяниц не будут больше пьяными (это после ребута)
+~
+Sender  Phrinn~
+Date    Thu Jan 10 18:53:35 2002~
+Stamp   1010678015
+To      all~
+Subject group, summon чармисов~
+Text
+hi, there!
+ 
+В информации про группу не пишется exp для мобов;
+можно самонить своих собственных чармисов, коняшек
+безо всяких заморочек с nosum.
+ 
+{WФринн{x.
+~
+Sender  Phrinn~
+Date    Fri Jan 11 23:01:57 2002~
+Stamp   1010779317
+To      all~
+Subject чармисы~
+Text
+Привет!
+ 
+Теперь чармисы не смогут общаться с человеком, у которого
+их хозяин в twitlist.
+ 
+{WФринн{x.
+~
+Sender  Phrinn~
+Date    Tue Jan 15 20:08:50 2002~
+Stamp   1011114530
+To      all~
+Subject scream~
+Text
+Привет!
+ 
+Прошло время... Магия слабела... (задавлимая BattleRagers?)
+И в один день все узрели, что scream перестал наносить какой-
+либо урон.. 
+ 
+{WФринн{x.
+~
+Sender  Phrinn~
+Date    Wed Jan 30 14:45:40 2002~
+Stamp   1012391140
+To      all~
+Subject мелочи~
+Text
+Привет!
+ 
+Вероятность для disi и pwk сделана одинаковой,
+в сообщения про lost concentation, при попытке
+наколдовать защитное заклинание типа armor на
+другого и в сообщение при попытке наколдовать
+что-то на отсутствующий объект или человека
+добавлено название заклинания.
+ 
+{WPhrinn{x.
+~
+Sender  Phrinn~
+Date    Thu Jan 31 22:57:13 2002~
+Stamp   1012507033
+To      all~
+Subject keep/unkeep/crucify~
+Text
+Привет!
+ 
+Появились две новые команды keep/unkeep. Позволяют метить ценные объекты.
+При этом на них не распространяется приставка all (drop all, sac all) и их
+нельзя случайно продать в магазине или выставить на аукцион. Отличаются
+они * в начале.
+ 
+Cross в crucify имеет теперь таймер.
+ 
+{WPhrinn{x.
+~
+Sender  Phrinn~
+Date    Thu Feb  7 17:56:27 2002~
+Stamp   1013082987
+To      all~
+Subject misses and verbose~
+Text
+hi, there!
+ 
+по toggle noverbose теперь вырезаются misses удары. все.
+в том числе и всякие bs, bite, etc...
+ 
+{WPhrinn{x.
+~
+Sender  Phrinn~
+Date    Thu Feb  7 21:46:06 2002~
+Stamp   1013096766
+To      all~
+Subject 'chameleon poncho', help lich~
+Text
+hi, there!
+ 
+Клан хантеров получает новое умение: 'chameleon poncho'. Которое
+создает накидку, дающую аффект 'stealth'. Чар под таким аффектом
+не показывается по команде where.
+ 
+Дополнен help lich.
+ 
+{WPhrinn{x.
+~
+Sender  Phrinn~
+Date    Sat Feb  9 00:18:21 2002~
+Stamp   1013192301
+To      all~
+Subject prompt and perception~
+Text
+hi, there!
+ 
+для чаров с умением perception закрытые двери теперь показываются в
+промпте по %e.
+ 
+{WPhrinn{x.
+~

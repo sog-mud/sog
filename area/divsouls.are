@@ -786,7 +786,7 @@ ABCG BIJU 0 0
 -39 -38 -36 -34
 F 0 E 0
 stand stand either 100
-DIL 0 medium unknown
+IL 0 medium unknown
 #11650
 ykres silent figure~
 Ykres~
@@ -3249,7 +3249,6 @@ energy~
 armor AB AI
 20 20 20 20 0
 76 40 4300 P
-F A 0 0 V
 A
 19 5
 A

@@ -2111,7 +2111,7 @@ It's too smoky to see.
 Z -1 10415
 S
 #10417
-Bedroom.~
+The bedroom~
 This is a small bedroom. It is well furnished and is a drastic change from
 the room you just stepped out of. A bed stands against the far wall.
 Upon the headboard of the bed are carved two cherub-like figures, with the
@@ -4681,7 +4681,7 @@ S
 D 0 10404 3 1	* Landing: door to the west: closed
 D 0 10405 1 1	* Gateway to Hell: door to the east: closed
 D 0 10416 1 1	* Greed: door to the east: closed
-D 0 10417 3 1	* Bedroom.: door to the west: closed
+D 0 10417 3 1	* The bedroom: door to the west: closed
 D 0 10433 2 1	* Cell: door to the south: closed
 D 0 10435 2 1	* Stone Hall: door to the south: closed
 D 0 10437 2 1	* Cell: door to the south: closed
@@ -4724,9 +4724,9 @@ M 0 10407 1 10415 1	* a yummy beef pot pie (Gluttony)
 M 0 10408 1 10415 1	* a yummy vegetable pot pie (Gluttony)
 M 0 10402 1 10416 1	* the pile of gold coins (Greed)
 M 0 10405 1 10416 1	* the gold bar (Greed)
-M 0 10403 1 10417 1	* the male Dee (Bedroom.)
+M 0 10403 1 10417 1	* the male Dee (The bedroom)
 E 0 10402 0 16		*	a black leather whip: wielded
-M 0 10404 1 10417 1	* the female Dee (Bedroom.)
+M 0 10404 1 10417 1	* the female Dee (The bedroom)
 E 0 10403 0 16		*	a hickey maker: wielded
 M 0 10414 1 10419 1	* bloody severed arm (Room full of Body Parts.)
 M 0 10415 1 10419 1	* bloody severed foot (Room full of Body Parts.)

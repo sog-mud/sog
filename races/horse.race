@@ -1,5 +1,6 @@
 #RACE
 Name horse~
+Damtype charge
 Act rideable~
 Off dodge fast~
 Form edible animal mammal~

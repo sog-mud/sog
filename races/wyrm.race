@@ -23,7 +23,7 @@ Skill 'claws' 10
 Stats 2 -1 2 -3 4 0 
 MaxStats 22 19 22 17 24 25 
 Size large
-HPBonus 30
+HPBonus 15
 RestrictAlign evil neutral~
 Slang common
 End

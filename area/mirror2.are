@@ -916,6 +916,9 @@ ABG DFHJN 1000 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
+M greet 19009 100~
+M give 19011 19144~
+M death 19012 100~
 #19056
 amber master~
 the Amber Master~
@@ -931,6 +934,9 @@ ABG DFHJN 1000 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
+M greet 19008 100~
+M give 19013 19149~
+M death 19014 100~
 #19057
 green master~
 the Green Master~
@@ -946,6 +952,9 @@ ABG DFHJN 1000 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
+M greet 19007 100~
+M give 19017 19148~
+M death 19018 100~
 #19058
 blue master~
 the Blue Master~
@@ -961,6 +970,9 @@ ABG DFHJN 1000 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
+M greet 19006 100~
+M give 19019 19145~
+M death 19020 100~
 #19059
 violet master~
 the Violet Master~
@@ -976,6 +988,9 @@ ABG DFHJN 1000 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
+M greet 19005 100~
+M give 19021 19142~
+M death 19022 100~
 #19060
 yellow master~
 the Yellow Master~
@@ -991,6 +1006,9 @@ ABG DFHJN 1000 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
+M greet 19010 100~
+M give 19015 19140~
+M death 19016 100~
 #19061
 light figure being lord master~
 the Master of Light~
@@ -1011,6 +1029,8 @@ ABG DFHJN 1000 0
 CDEFHK 0 0 0
 stand stand none 0
 0 0 medium unknown
+M give 19004 19138~
+M greet 19023 100~
 #19062
 phoenix bird~
 the Phoenix~
@@ -1061,6 +1081,7 @@ ABFG DFJ -1000 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
+M death 19024 100~
 #19065
 white master~
 the White Master~
@@ -1076,6 +1097,7 @@ ABFG DFJ -1000 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
+M death 19024 100~
 #19066
 black master~
 the Black Master~
@@ -1091,6 +1113,7 @@ ABFG DFJ -1000 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
+M death 19024 100~
 #19067
 black master~
 the Black Master~
@@ -1106,6 +1129,7 @@ ABFG DFJ -1000 0
 CDEFHK 0 0 0
 stand stand male 0
 0 0 medium unknown
+M death 19024 100~
 #19068
 jerry garcia~
 Jerry Garcia~
@@ -3179,6 +3203,15 @@ A
 A
 4 1
 G none
+#19173
+key dark~
+dark key~
+Dark key is lying here, absorbing light in the room.~
+ivory bone~
+key CE A
+0 0 0 0 0
+1 1 1000 P
+G none
 #0
 
 #ROOMS
@@ -4948,7 +4981,7 @@ You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 D4
 ~
 ~
-ABCFZ 19159 19081
+ABCFGZ 19159 19081
 D5
 ~
 ~
@@ -4970,11 +5003,11 @@ You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 D4
 ~
 ~
-ABCFZ 19160 19082
+ABCFGZ 19160 19082
 D5
 ~
 ~
-AFZ 19159 19080
+AFGZ 19159 19080
 S
 #19082
 The Yellow Room~
@@ -4990,11 +5023,11 @@ You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 D4
 ~
 ~
-ABCFZ 19161 19083
+ABCFGZ 19161 19083
 D5
 ~
 ~
-AFZ 19160 19081
+AFGZ 19160 19081
 S
 #19083
 The Green Room~
@@ -5011,11 +5044,11 @@ You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 D4
 ~
 ~
-ABCFZ 19162 19084
+ABCFGZ 19162 19084
 D5
 ~
 ~
-AFZ 19161 19082
+AFGZ 19161 19082
 S
 #19084
 The Blue Room~
@@ -5033,11 +5066,11 @@ You see the Sign of the Light, a rainbow inside a circle of ivy.~
 D4
 ~
 ~
-ABCFZ 19163 19085
+ABCFGZ 19163 19085
 D5
 ~
 ~
-AFZ 19162 19083
+AFGZ 19162 19083
 S
 #19085
 The Violet Room~
@@ -5056,11 +5089,11 @@ You see the Sign of the Light, a rainbow surrounded by a circle of ivy.~
 D4
 ~
 ~
-ABCFZ 19164 19086
+ABCFGZ 19164 19086
 D5
 ~
 ~
-AFZ 19163 19084
+AFGZ 19163 19084
 S
 #19086
 At the Top of the Tower: The Prism Room~
@@ -5079,7 +5112,7 @@ You see the Sign of the Light, a rainbow surrounded by a circle of ivy.~
 D5
 ~
 ~
-AFZ 19164 19085
+AFGZ 19164 19085
 S
 #19087
 End of the Path~
@@ -5838,7 +5871,7 @@ painted in dull black on the shiny black wall.
 D4
 ~
 ~
-ABFZ -1 19124
+ABCFGZ 19173 19124
 D5
 ~
 ~
@@ -5856,11 +5889,11 @@ white against the bright white background.
 D4
 ~
 ~
-ABFZ -1 19125
+ABCFGZ 19173 19125
 D5
 ~
 ~
-AFZ -1 19123
+ACFGZ -1 19123
 S
 #19125
 Inside the Dark Tower~
@@ -5875,11 +5908,11 @@ painted in dull black on the shiny black wall.
 D4
 ~
 ~
-ABFZ -1 19126
+ABCFGZ 19173 19126
 D5
 ~
 ~
-AFZ -1 19124
+ACFGZ -1 19124
 S
 #19126
 Inside the Dark Tower~
@@ -5893,11 +5926,11 @@ white against the bright white background.
 D4
 ~
 ~
-ABFZ -1 19127
+ABCFGZ 19173 19127
 D5
 ~
 ~
-AFZ -1 19125
+ACFGZ -1 19125
 S
 #19127
 The Top of the Dark Tower: Gray Mists~
@@ -5909,7 +5942,7 @@ sign of the Dark, suspended somewhere in the distance.
 D5
 ~
 ~
-AFZ -1 19126
+ACFGZ -1 19126
 S
 #19128
 The Dank Room~
@@ -6768,10 +6801,14 @@ D 0 19083 4 2	* The Green Room: door to the up: closed and locked
 D 0 19084 4 2	* The Blue Room: door to the up: closed and locked
 D 0 19085 4 2	* The Violet Room: door to the up: closed and locked
 D 0 19108 1 1	* The Foot of the Rock Ladder : door to the east: closed
-D 0 19123 4 1	* Inside the Dark Tower: door to the up: closed
-D 0 19124 4 1	* Inside the Dark Tower: door to the up: closed
-D 0 19125 4 1	* Inside the Dark Tower: door to the up: closed
-D 0 19126 4 1	* Inside the Dark Tower: door to the up: closed
+D 0 19123 4 2	* Inside the Dark Tower: door to the up: closed and locked
+D 0 19124 4 2	* Inside the Dark Tower: door to the up: closed and locked
+D 0 19124 5 2	* Inside the Dark Tower: door to the down: closed and locked
+D 0 19125 4 2	* Inside the Dark Tower: door to the up: closed and locked
+D 0 19125 5 2	* Inside the Dark Tower: door to the down: closed and locked
+D 0 19126 4 2	* Inside the Dark Tower: door to the up: closed and locked
+D 0 19126 5 2	* Inside the Dark Tower: door to the down: closed and locked
+D 0 19127 5 2	* The Top of the Dark Tower: Gray Mists: door to the down: closed and locked
 D 0 19137 5 1	* The Forest : door to the down: closed
 D 0 19138 4 1	* The Tree House: door to the up: closed
 D 0 19157 0 1	* Inside the House: The Kitchen: door to the north: closed
@@ -7121,6 +7158,145 @@ mob echo The Phoenix begins to glow...and then suddenly explodes in a fireball!
 mob echo A pile of ashes drifts to the floor....
 mob echo As you peer closer, you see a small phoenix amidst the ashes.
 mob mload 19062
+mob goto 19147
+~
+#19004
+bow $n
+say You truly know this land.
+give light $n
+mob oload 19129
+purge crystal
+~
+#19005
+say I expect you have come questing for Taliesin and the Sunrise Shield...
+say To pass, you must either defeat me, or prove that you know this land...
+say Bring me the Amethyst Sigil....or kill me!
+~
+#19006
+say I expect you have come questing for Taliesin and the Sunrise Shield...
+say To pass, you must either defeat me, or prove that you know this land...
+say Bring me the Sapphire Sigil....or kill me!
+~
+#19007
+say I expect you have come questing for Taliesin and the Sunrise Shield...
+say To pass, you must either defeat me, or prove that you know this land...
+say Bring me the Emerald Sigil....or kill me!
+~
+#19008
+say I expect you have come questing for Taliesin and the Sunrise Shield...
+say To pass, you must either defeat me, or prove that you know this land...
+say Bring me the Amber Sigil....or kill me!
+~
+#19009
+say I expect you have come questing for Taliesin and the Sunrise Shield...
+say To pass, you must either defeat me, or prove that you know this land...
+say Bring me the Ruby Sigil....or kill me!
+~
+#19010
+say I expect you have come questing for Taliesin and the Sunrise Shield...
+say To pass, you must either defeat me, or prove that you know this land...
+say Bring me the Topaz Sigil....or kill me!
+~
+#19011
+bow $n
+say You truly know this land.
+mob oload 19159
+unlock up
+open up
+~
+#19012
+say You have defeated me...and you may pass.
+mob oload 19159
+unlock up
+open up
+emote disappears in a flash of golden light!
+mob goto 19147
+~
+#19013
+bow $n
+say You truly know this land.
+mob oload 19160
+unlock up
+open up
+~
+#19014
+say You have defeated me...and you may pass.
+mob oload 19160
+unlock up
+open up
+emote disappears in a flash of golden light!
+mob goto 19147
+~
+#19015
+bow $n
+say You truly know this land.
+mob oload 19161
+unlock up
+open up
+~
+#19016
+say You have defeated me...and you may pass.
+mob oload 19161
+unlock up
+open up
+emote disappears in a flash of golden light!
+mob goto 19147
+~
+#19017
+bow $n
+say You truly know this land.
+mob oload 19162
+unlock up
+open up
+~
+#19018
+say You have defeated me...and you may pass.
+mob oload 19162
+unlock up
+open up
+emote disappears in a flash of golden light!
+mob goto 19147
+~
+#19019
+bow $n
+say You truly know this land.
+mob oload 19163
+unlock up
+open up
+~
+#19020
+say You have defeated me...and you may pass.
+mob oload 19163
+unlock up
+open up
+emote disappears in a flash of golden light!
+mob goto 19147
+~
+#19021
+bow $n
+say You truly know this land.
+mob oload 19164
+unlock up
+open up
+~
+#19022
+say You have defeated me...and you may pass.
+mob oload 19164
+unlock up
+open up
+emote disappears in a flash of golden light!
+mob goto 19147
+~
+#19023
+say Congratulations on surviving the tower to this point.
+say Now you have come to your final challenge:
+say Bring me Crystal Sigil or defeat me in combat!
+~
+#19024
+mob oload 19173
+say You may pass now.
+unlock up
+open up
 mob goto 19147
 ~
 #0

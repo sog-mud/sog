@@ -2441,7 +2441,7 @@ fountain water фонтан~
 @eng A small white fountain gushes forth here.@rus Маленький белый фонтан (fountain) журчит в центре площади.~
 marble~
 fountain B 0
--1 -1 'champagne' 0 0
+-1 -1 'water' 0 0
 0 0 0 G
 E
 fountain~
@@ -9616,7 +9616,6 @@ E 0 3364 0 1		*	a city guard signet ring: on the left finger
 E 0 3350 0 16		*	a standard issue sword: wielded
 E 0 3353 0 5		*	a standard issue vest: on the body
 E 0 3356 0 6		*	a standard issue helmet: over the head
-O 0 9 0 3014	* Christmas tree (Market Square)
 M 0 3062 16 3016 4	* the beastly fido (The Main Street)
 M 0 3024 1 3017 1	* the sorcerer (Entrance to Mage's Guild)
 M 0 3060 18 3017 2	* the cityguard (Entrance to Mage's Guild)

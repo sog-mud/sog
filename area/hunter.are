@@ -117,7 +117,7 @@ camp fire костер~
 @eng You see small camp-fire on the center of glade.@rus Небольшой костер (camp-fire) горит в центре поляны.~
 fire~
 furniture 0 0
-100 100000 GJ 200 200
+100 100000 AGJM 200 200
 0 10 10 P
 G male
 #95705

@@ -3785,7 +3785,39 @@ Use this command without argument to ask for a price of hometown change.
 жительства.
 ~
 -1 ETHOS~
-@eng Now 'help ethos' is available only in russian. Sorry.
+@eng Ethos defines character's own valued principles and his attitude to
+society, cultural traditions, and law.  There are three possibilities:
+
+  -- lawful; such character respects and obeys all the laws and
+traditions of society, no matter whether he benefits from it or not.
+Laws prevail over his personal values and principles, and govern his
+behavior.  Under any circumstances lawful character tries to find
+the answers in traditions and law first, and if this fails, he may ask
+people surrounding him, or find answers in himself.  He is always devoted
+to serving the society, it's prosperity, and keeping it's traditions.
+Lawful character will never ever break the law, even if it is meaningless,
+or stupid (but such kind of thoughts never cross his mind); he will do
+do it neither for himself, nor for his friends.
+
+  -- chaotic; is the opposite of lawful.  Such character always and
+everywhere is guided by his own beliefs and principles.  No matter what
+he does, the key factor is his own benefit, not his friend's, group-
+mate's, or anyone's else; he does not care about society either.  However,
+being chaotic does not mean that such character is committed to break the
+law, or go against it, still he would not doubt doing so, but only if
+the law contradicts with his own principles or interests.  It should be
+noted that character who's life goes as "his left (or right) heel wants"
+is not really a chaotic, but simply does not have any stand, and he
+actually should think about it.
+ 
+  -- neutral; is somewhat a middle of two extremities: serving the society
+and serving himself; uncomplaining acceptance of the laws and persistent
+commitment to his own ideals only.  Society as a whole does not matter
+much for neutral character, but people (and other creatures) who form
+it do.  They might be his friends, group-mates, or might confess the same
+idea or region as he does.  Neutral character may break the law, if he, or
+his friend needs it, or give up on his own interests for the sake his deed
+(order, guild, etc).
 @rus Ethos определяет отношение персонажа и его личностной системы ценностей
 с обществом и традициями и законами, в нем существующими. Возможны три
 варианта:
@@ -4025,7 +4057,37 @@ See also: ROLEPLAYING GROUP ALIGNMENT
 Смотри также: {CROLEPLAY, ALIGN, GROUP{x
 ~
 -1 ALIGNMENT~
-@eng Now 'help alignmnet' is available only on russian. Sorry.
+@eng Alignment defines character's creed, his behavior in various
+situations and circumstances, and what is the most important to him
+in his life.
+
+-- good; such character has an "open soul", he recognizes and accepts
+only bright and fair nature of people surrounding him; he always
+tries to help those in need, provided it does not go against his own
+principles (for chaotic), and does not break the law (for lawful);
+good character appreciates and respects others, and he would not do
+anything harmful to anyone.
+
+-- evil; evil character lives for himself only, his own benefit is
+of high importance to him.  He will not hesitate to hurt anyone, if
+his interests require doing so.  He may kill, yet may help, if this
+would enrich him, or allow to raise his social status.
+ 
+-- neutral; such character is not openly generous (as good), but neither
+is an egoist (as evil).  He lives primarily for Idea, which can be
+anything, such as secret order, science, honor of uniform, money, or
+whatever.
+ 
+A note on "good vs. evil".  Evil character is not committed to
+doing harm.  His "evilness" does only mean that he will do that
+when needed.  Therefore, if good character finds out, say, from
+'know alignment' that someone is evil and attacks that character,
+he can no longer be called "good".  Such kind of deed would simply
+be an indication of former good's cowardice.  That is, "evil alignment"
+is not enough of reason for good character to start the confrontation,
+as well as that evil character indeed had evil intents.  A single
+thought cannot be justified as a crime, and no one can prove whether
+it really did cross someone's mind or not.
 @rus Alignment определяет мировозрение персонажа, его поведение в различных
 ситуациях и то, что является главным в его жизни.
  
@@ -5269,6 +5331,8 @@ CALL       [vnum] [victim] [target1] [target2]
 быть с легкостью отобрана, и это будет необратимо.
 ~
 0 CLANS~
+7 following clans are available for players in Shades of Gray:
+BattleRagers, Chaos, Enforcers, Hunters, Invaders, Knights, Shalafi.
 See also: {CHELP PHILOSOPHY{x and {CHELP CLAN <clan name>{x
 ~
 92 'WIZ GRANT' GRANT~
@@ -5295,10 +5359,10 @@ arguments, GRANT will show current grant list for that player.
  
 This command allows you to give an additional name to an object. You can refer
 to this object with a new name later. Labeling costs 10 quest points.
-@rus Синтаксис: {clabel{x <обьект> <имя>
+@rus Синтаксис: {clabel{x <объект> <имя>
  
-Эта команда позволяет добавить новое имя обьекту. После этого ты можешь обра-
-щаться к обьекту по новому имени. Это стоит 10 квестовых очков.
+Эта команда позволяет добавить новое имя объекту. После этого ты можешь обра-
+щаться к объекту по новому имени. Это стоит 10 квестовых очков.
 ~
 0 'OLC CLAN SKILL'~
 Syntax: skill add skill_name level percent
@@ -5394,7 +5458,7 @@ sometimes the outlawers and innocents as well...
 ideals. Scattered by the Darkness, they rose again and again to stand in the 
 way of Death, Chaos and Terror...
  
-  Check out our homepage at http://knightsofsog.narod.ru.
+  Check out our homepage at {Chttp://knightsofsog.narod.ru{x
 @rus ... Хаос воцарился в мире.  Мир разделился  на семь частей.  Хаос,  Террор  и 
 Беспорядок встали с одной стороны, Закон, Порядок и Справедливость - с другой.
 Приверженцы Равновесия  поставили себя вне Закона,  но отказались подчиниться 
@@ -5414,7 +5478,7 @@ way of Death, Chaos and Terror...
 и что бы ты не делал,  всегда помни:  отныне и навсегда звание твое - Рыцарь, 
 имя тебе - Честь!
  
-  Посетить нашу домашнюю страницу можно по http://knightsofsog.narod.ru.
+  Посетить нашу домашнюю страницу можно по {Chttp://knightsofsog.narod.ru{x
 ~
 0 'OLC ROOM CLONE'~
 Syntax: clone [all] vnum
@@ -5721,7 +5785,7 @@ be found by typing {CHELP LAWS{x or {CHELP COMMANDMENTS{x.
  {G*{x Игрокам можно менять плохие имена при помощи команды RENAME
 ~
 92 JOBS~
-@eng This is a partial list of what a god of any given level should be doing. It is
+This is a partial list of what a god of any given level should be doing. It is
 not complete yet.
 
 Angels:(92-94)
@@ -7785,6 +7849,23 @@ can use that weapon.
 new race (immunity, resistance, vulnerability, etc.) Some spell from necro-
 mancy group you can use only as undead.
   Valid undead types: lich, zombie, ghoul, undead.
+ 
+       |   Lich:         |  Ghoul:      |    Zombie:     |    Undead:
+=======+=================+==============+================+====================
+Immune:| charm, cold,    | disease      | charm, poison  | poison, disease
+       | poison, disease |              |   disease      |
+       | lightning       |              |                |
+-------+-----------------+--------------+----------------+--------------------
+Vuln:  | holy            | magic weapon |    weapon      | light, holy, silver
+-------+-----------------+--------------+----------------+--------------------
+Resist:| magic, weapon   | charm        | magic, cold    | negative, energy
+-------+-----------------+--------------+----------------+--------------------
+Damtype| drain           | punch        | punch          | punch
+-------+-----------------+--------------+----------------+--------------------
+Any:   | fast            | slow         | slow           | detect evil/good
+       |                 |              |                | detect invis/hidden
+       |                 |              |                | infrared
+------------------------------------------------------------------------------
 @rus Синтаксис:{c cast 'lich'{x <тип нежити>
 
   С помощью этого заклинания можно превратить себя в один из видов нежити.
@@ -7792,6 +7873,23 @@ mancy group you can use only as undead.
 устойчивости, уязвимости и т.п.) Часть некромансерских заклинаний может
 быть использована только в форме нежити.
   Типы нежити, в которые можно превратиться: lich, zombie, ghoul, undead.
+ 
+       |   Lich:         |  Ghoul:      |    Zombie:     |    Undead:
+=======+=================+==============+================+====================
+Immune:| charm, cold,    | disease      | charm, poison  | poison, disease
+       | poison, disease |              |   disease      |
+       | lightning       |              |                |
+-------+-----------------+--------------+----------------+--------------------
+Vuln:  | holy            | magic weapon |    weapon      | light, holy, silver
+-------+-----------------+--------------+----------------+--------------------
+Resist:| magic, weapon   | charm        | magic, cold    | negative, energy
+-------+-----------------+--------------+----------------+--------------------
+Damtype| drain           | punch        | punch          | punch
+-------+-----------------+--------------+----------------+--------------------
+Any:   | fast            | slow         | slow           | detect evil/good
+       |                 |              |                | detect invis/hidden
+       |                 |              |                | infrared
+------------------------------------------------------------------------------
 ~
 0 DEATH RIPPLE DEATH WAVE~
 @eng Syntax:{c cast 'death ripple'{x <direction>
@@ -8046,6 +8144,55 @@ claws.
 существа у когорых есть когти: фелары и вырмы. Если вырм или
 фелар сражается без оружия у него есть шанс нанести противнику
 более сильный урон своими когтями.
+~
+0 COMPRESS~
+@eng This help is available only in russian. Sorry.
+@rus Синтаксис: {ccompress{x [on|off]
+ 
+  COMPRESS без параметров показывает текущее состояние опции компрессии,
+протокол компрессии, поддерживаемый клиентом, и статистику передачи данных.
+  COMPRESS OFF выключает опцию компрессии, если она включена.
+  COMPRESS ON включает опцию компрессии, если она выключена, и клиент
+поддерживает одну из версий протокола компрессии.
+ 
+Смотри также {CHELP MCCP{x.
+~
+0 MCCP~
+@eng This help is available only in russian. Sorry.
+@rus   Сервер поддерживает mud client compression protocol (mccp),
+позволяющий, при налиичии поддержки со стороны клиента,
+обеспечивать сжатие исходящего трафика сервера. На данный
+момент поддерживаются протоколы версий 1 и 2. Использование
+данного протокола позволяет существенно уменьшить загрузку
+каналов связи, экономить трафик пользователям, для которых
+это актуально, кроме этого, уменьшается время реакции, с
+точки зрения пользователя, на введенные команды.
+  Наличие поддержки у клиента одного из поддерживаемых про-
+токолов компрессии и, при наличии поддержки, включение данной
+опции производится автоматически.
+
+Список клиентов, поддерживающих данный протокол, можно найти
+по адресу: http://www.randomly.org/projects/MCCP/clients.html
+
+Смотри также {CHELP COMPRESS{x.
+~
+0 KEEP UNKEEP~
+@eng Syntax: {ckeep{x <object>
+Syntax: {cunkeep{x <object>
+ 
+You can keep valuable object. You need to unkeep so object for selling it
+in the shop or on auction. When you drop all or sac all these objects are
+not dropped or sacrificed. They are marked by *.
+@rus Синтаксис:{c keep{x <объект>
+Синтаксис:{c unkeep{x <объект>
+ 
+Ты можешь пометить ценные объекты (keep). Такие обьекты не кидаются на
+землю при drop all, не приносятся в жертву при sac all. Чтобы такую вещь
+продать на аукционе или в магазине с нее нужно снять метку. Вещи с этим
+флагом отмечены *.
+~
+0 CHAMELEON PONCHO~
+Syntax: {cponcho{x corpse
 ~
 -1 $~
 

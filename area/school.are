@@ -1521,8 +1521,8 @@ S
 Light fluoresces off the ceiling in soft white tones.  Of course, there is a
 sign on the wall.  Find your own exit here.
 @rus Ты находишься в белой квадратной комнате. Стены чистые, окон нет. Мягкий
-свет исходит из потолка. Ну конечно, на стене ты видишь {Mзнак (sign){x.
-Найди выход сам.
+свет исходит из потолка. Ну, конечно, на стене ты видишь {Mзнак (sign){x.
+Найди выход $gn{сам}..
 ~
 0 CDRS inside
 E

@@ -525,7 +525,7 @@ unknown~
 treasure 0 AO
 0 0 0 0 0
 0 0 0 P
-G none
+G male
 #15028
 bell~
 @eng {Wlittle magic bell{x@rus {Wмаленький глиняный колокольчик{x~
@@ -599,7 +599,7 @@ jewelry T AE
 G female
 #15035
 bottle champagne~
-@eng {ga bottle of champagne{x@rus {gбутылка шампанского{x~
+@eng {ga bottle of champagne{x@rus {g~~бутылка~~ шампанского{x~
 @eng Bottle of champagne is here.@rus Бутылка шампанского оставлена кем-то здесь.~
 стекло~
 drink GRYa AOP
@@ -874,6 +874,54 @@ perfectly. Strange signs on the bottom read:
 {y| /  |  \/  |    <  | \| <  /__{x
 ~
 G female
+#15062
+ring кольцо~
+@eng {Yt{Wh{Ye {Ww{Ye{Wd{Yd{Wi{Yn{Wg {Yr{Wi{Yn{Wg{x@rus ~~{YО{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wо{Yе {Wк{Yо{Wл{Yь{Wц{Yо{x~~ {CМикаэлы{x~
+@eng The wedding ring is lying here.@rus Чье-то {Yо{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wо{Yе {Wк{Yо{Wл{Yь{Wц{Yо {x(ring) лежит здесь и ждет свою {Cхозяйку{x.~
+gold~
+jewelry AHR ABP
+0 0 0 0 0
+1 0 0 P
+A
+12 10
+A
+13 10
+A
+20 -1
+A
+19 1
+A
+18 1
+E
+ring кольцо~
+@eng {CFlagar{x presented this precious ring to {CMikaela{x.
+@rus Это драгоценное {Yк{Wо{Yл{Wе{Yч{Wк{Yо {CФлагар{x подарил {CМикаэле{x в День их Свадьбы.
+~
+G none
+#15063
+ring кольцо~
+@eng {Yt{Wh{Ye {Ww{Ye{Wd{Yd{Wi{Yn{Wg {Yr{Wi{Yn{Wg{x@rus ~~{YО{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wо{Yе {Wк{Yо{Wл{Yь{Wц{Yо{x~~ {CФлагара{x~
+@eng The wedding ring is lying here.@rus Чье-то {Yо{Wб{Yр{Wу{Yч{Wа{Yл{Wь{Yн{Wо{Yе {Wк{Yо{Wл{Yь{Wц{Yо{x (ring) лежит здесь и ждет своего {Cхозяина{x.~
+gold~
+jewelry AR ABP
+0 0 0 0 0
+1 0 0 P
+A
+12 10
+A
+13 10
+A
+20 -1
+A
+19 1
+A
+18 1
+E
+ring кольцо~
+@eng {CMikaela{x presented this precious ring to {CFlagar{x.
+@rus Это драгоценное {Yк{Wо{Yл{Wе{Yч{Wк{Yо {CМикаэла{x подарила {CФлагару{x в День их Свадьбы.
+~
+G none
 #15087
 nut орех~
 @eng the gold nut@rus ~~золотой~~ ~~орех~~~
@@ -1325,7 +1373,7 @@ say Ну вот. так просто ты от меня н избавишься.
 #0
 
 #HELPS
-0 'CLAN HUNTER' HUNTER~
+0 'CLAN HUNTERS' HUNTERS~
 @eng From the ancient times, greed, jealousy, envy of humans
 (and other creatures as well) forces them to kill each other.
 However not everyone could afford to buy a sword, dagger,

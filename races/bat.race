@@ -1,5 +1,6 @@
 #RACE
 Name bat~
+Damtype bite
 Aff flying dark_vision~
 Off dodge fast~
 Vuln light~
