@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.119 1998-12-02 09:08:00 fjoe Exp $
+ * $Id: act_comm.c,v 1.120 1998-12-07 09:10:21 kostik Exp $
  */
 
 /***************************************************************************
@@ -502,14 +502,14 @@ void do_immtalk(CHAR_DATA *ch, const char *argument)
 	
 	REMOVE_BIT(ch->comm, COMM_NOWIZ);
 
-	act_puts("{W$n{x: {C$t{x", ch, argument, NULL, TO_CHAR, POS_DEAD);
+	act_puts("{W$n{x: {B$t{x", ch, argument, NULL, TO_CHAR, POS_DEAD);
 	for (d = descriptor_list; d; d = d->next) {
 		CHAR_DATA *victim = d->original ? d->original : d->character;
 
 		if (d->connected == CON_PLAYING
 		&&  IS_IMMORTAL(victim)
 		&&  !IS_SET(victim->comm, COMM_NOWIZ))
-			act_puts("{W$n{x: {C$t{x", ch, argument, d->character,
+			act_puts("{W$n{x: {B$t{x", ch, argument, d->character,
 				 TO_VICT | ACT_TOBUF, POS_DEAD);
 	}
 }

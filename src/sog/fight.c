@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.108 1998-12-01 10:53:51 fjoe Exp $
+ * $Id: fight.c,v 1.109 1998-12-07 09:10:23 kostik Exp $
  */
 
 /***************************************************************************
@@ -890,12 +890,12 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 		dam *= 3;
 
 	if ((sk2 = get_skill(ch, gsn_deathblow)) > 1) {
-		if (number_percent() < 0.125 * sk2) {
+		if (number_percent() <  (sk2/8)) {
 			act("You deliver a blow of deadly force!",
 			    ch, NULL, NULL, TO_CHAR);
 			act("$n delivers a blow of deadly force!",
 			    ch, NULL, NULL, TO_ROOM);
-			dam *= ch->level/20 + 1;
+			dam = ch->level*dam/20;
 			check_improve(ch, gsn_deathblow, TRUE, 1);
 		}
 		else
@@ -2470,7 +2470,7 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 	if ((chance = get_skill(ch, gsn_mortal_strike))
 	&&  get_eq_char(ch, WEAR_WIELD)
 	&&  ch->level > (victim->level - 5)) {
-		chance /= 5;
+		chance /= 30;
 		chance += 1 + (ch->level - victim->level) / 2;
 		if (number_percent() < chance) {
 			act_puts("Your flash strike instantly slays $N!",
@@ -2542,7 +2542,7 @@ void do_murder(CHAR_DATA *ch, const char *argument)
 	if ((chance = get_skill(ch, gsn_mortal_strike))
 	&&  get_eq_char(ch, WEAR_WIELD)
 	&&  ch->level > (victim->level - 5)) {
-		chance /= 5;
+		chance /= 30;
 		chance += 1 + (ch->level - victim->level) / 2;
 		if (number_percent() < chance) {
 			act_puts("Your flash strike instantly slays $N!",
