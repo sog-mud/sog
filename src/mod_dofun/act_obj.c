@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.26 2001-06-26 18:24:44 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.27 2001-07-04 19:43:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3163,8 +3163,10 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 
 	ch->gold -= cost;
 	mob->gold += cost;
-	act_puts("$n takes $p from $N, repairs it, and returns it to $N",
-		 mob, obj, ch, TO_ROOM, POS_RESTING);
+	act_puts("$N takes $p from you, repairs it, and returns it back.",
+		 ch, obj, mob, TO_CHAR, POS_RESTING);
+	act_puts("$N takes $p from $n, repairs it, and returns it back.",
+		 ch, obj, mob, TO_ROOM, POS_RESTING);
 	obj->condition = 100;
 }
 
@@ -3537,11 +3539,19 @@ static uint get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 	return cost;
 }
 
-static void sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
+static void sac_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 {
 	int             silver;
 	CHAR_DATA      *gch;
 	int             members;
+
+	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
+		if (gch->on == obj) {
+			act("$N appears to be using $p.",
+			    ch, obj, gch, TO_CHAR);
+			return;
+		}
+	}
 
 	if (!CAN_WEAR(obj, ITEM_TAKE) || CAN_WEAR(obj, ITEM_NO_SAC)) {
 		act_puts("$p is not an acceptable sacrifice.",

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.164.2.3 2001-05-22 18:56:23 kostik Exp $
+ * $Id: interp.c,v 1.164.2.4 2001-07-04 19:43:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -61,6 +61,11 @@ void interpret_social(social_t *soc, CHAR_DATA *ch, const char *argument);
 #define LOG_NORMAL	0
 #define LOG_ALWAYS	1
 #define LOG_NEVER	2
+
+/*
+ * OLC hook
+ */
+bool (*olc_interpret)(DESCRIPTOR_DATA *d, const char *argument);
 
 /*
  * Log-all switch.

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.15 2001-06-26 18:02:20 fjoe Exp $
+ * $Id: merc.h,v 1.234.2.16 2001-07-04 19:42:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2364,7 +2364,7 @@ const char *get_cond_alias(OBJ_DATA *obj);
 void advance		(CHAR_DATA *ch, int level);
 void gain_exp		(CHAR_DATA *ch, int gain);
 
-bool (*olc_interpret)(DESCRIPTOR_DATA *d, const char *argument);
+extern bool (*olc_interpret)(DESCRIPTOR_DATA *d, const char *argument);
 
 void	gain_condition	(CHAR_DATA *ch, int iCond, int value);
 void	update_handler	(void);

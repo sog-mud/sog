@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.31 2001-06-28 08:59:51 fjoe Exp $
+ * $Id: fight.c,v 1.202.2.32 2001-07-04 19:43:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1275,6 +1275,26 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	if (IS_EXTRACTED(victim))
 		return FALSE;
 
+	/*
+	 * strip sleeping affects
+	 * (only for DAMF_LIGHT_V if ch == victim
+	 * otherwise blackjack/vtouch etc. will not take effect on
+	 * poisoned/plagued etc. char)
+	 */
+	if (IS_AFFECTED(victim, AFF_SLEEP)
+	&&  (ch != victim || dam_type == DAM_LIGHT_V)) {
+		REMOVE_BIT(victim->affected_by, AFF_SLEEP);
+		affect_bit_strip(victim, TO_AFFECTS, AFF_SLEEP);
+	}
+
+	/*
+	 * strip calm affects
+	 */
+	if (IS_AFFECTED(victim, AFF_CALM)) {
+		REMOVE_BIT(victim->affected_by, AFF_CALM);
+		affect_bit_strip(victim, TO_AFFECTS, AFF_CALM);
+	}
+
 	if (victim != ch) {
 		/*
 		 * Certain attacks are forbidden.
@@ -1289,6 +1309,12 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 							   NULL, TRIG_KILL);
 				}
 			}
+
+			/*
+			 * stand up if victim was bashed (and is not idle)
+			 */
+			if (IS_NPC(victim) || PC(victim)->idle_timer <= 4)
+				victim->position = POS_FIGHTING;
 		}
 
 		if (victim->position > POS_STUNNED) {
@@ -2000,11 +2026,6 @@ void set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (ch->fighting != NULL) {
 		bug("Set_fighting: already fighting", 0);
 		return;
-	}
-
-	if (IS_AFFECTED(ch, AFF_SLEEP)) {
-		REMOVE_BIT(ch->affected_by, AFF_SLEEP);
-		affect_bit_strip(ch, TO_AFFECTS, AFF_SLEEP);
 	}
 
 	ch->on = NULL;

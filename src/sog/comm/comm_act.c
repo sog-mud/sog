@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.40.2.5 2001-06-19 09:22:35 kostik Exp $
+ * $Id: comm_act.c,v 1.40.2.6 2001-07-04 19:43:11 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -937,18 +937,13 @@ const char *
 act_speech(CHAR_DATA *ch, CHAR_DATA *vch, const char *text, const void *arg)
 {
 	static char buf[MAX_STRING_LENGTH];
+	actopt_t opt;
 
-	if (arg) {
-		actopt_t opt;
+	opt.to_lang = GET_LANG(vch);
+	opt.act_flags = ACT_NOUCASE | ACT_NOLF;
 
-		opt.to_lang = GET_LANG(vch);
-		opt.act_flags = ACT_NOUCASE | ACT_NOLF;
-
-		act_buf(text, ch, ch, arg, NULL, NULL, &opt, buf, sizeof(buf));
-		text = buf;
-	}
-
-	return text;
+	act_buf(text, ch, ch, arg, NULL, NULL, &opt, buf, sizeof(buf));
+	return buf;
 }
 
 void act_yell(CHAR_DATA *ch, const char *text, const void *arg,

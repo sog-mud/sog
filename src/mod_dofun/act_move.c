@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.202.2.19 2001-06-26 18:24:42 fjoe Exp $
+ * $Id: act_move.c,v 1.202.2.20 2001-07-04 19:42:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3469,8 +3469,8 @@ void do_forest(CHAR_DATA* ch, const char* argument)
 	}
 
 	one_argument(argument, arg, sizeof(arg));
-	if (*arg == '\0') {
-		char_puts("Usage: forest {{ attack|defense|normal}", ch);
+	if (arg[0] == '\0') {
+		char_puts("Usage: forest {{ attack|defense|normal }\n", ch);
 		return;
 	}
 
