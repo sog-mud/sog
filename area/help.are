@@ -48,36 +48,36 @@ a person).
 0 PROMPT~
 Syntax: prompt
 Syntax: prompt all
-Syntax: prompt <%*>
+Syntax: prompt <%%*>
  
 PROMPT with out an argument will turn your prompt on or off.
  
 PROMPT ALL will give you the standard "<hits mana moves>" prompt.
  
-PROMPT <%*> where the %* are the various variables you may set yourself.
+PROMPT <%%*> where the %%* are the various variables you may set yourself.
  
-        %h :  Display your current hits
-        %H :  Display your maximum hits
-        %m :  Display your current mana
-        %M :  Display your maximum mana
-        %v :  Display your current moves
-        %V :  Display your maximum moves
-        %x :  Display your current experience
-	%X :  Display experience to level
-        %g :  Display your gold held
-	%s :  Display silver carried
-        %a :  Display your alignment
-	%y :  Display your percent hit
-        %o :  Display opponents percent hit
-        %r :  Display the room name you are in
-	%e :  Display the exits from the room in NESWDU style
-	%c :  Display a carriage return (useful for multi-line prompts)
-        %R :  Display the vnum you are in (IMMORTAL ONLY)
-        %z :  Display the area name you are in (IMMORTAL ONLY)
-	%n :  Display your name
-	%S :  Display your sex
+        %%h :  Display your current hits
+        %%H :  Display your maximum hits
+        %%m :  Display your current mana
+        %%M :  Display your maximum mana
+        %%v :  Display your current moves
+        %%V :  Display your maximum moves
+        %%x :  Display your current experience
+	%%X :  Display experience to level
+        %%g :  Display your gold held
+	%%s :  Display silver carried
+        %%a :  Display your alignment
+	%%y :  Display your percent hit
+        %%o :  Display opponents percent hit
+        %%r :  Display the room name you are in
+	%%e :  Display the exits from the room in NESWDU style
+	%%c :  Display a carriage return (useful for multi-line prompts)
+        %%R :  Display the vnum you are in (IMMORTAL ONLY)
+        %%z :  Display the area name you are in (IMMORTAL ONLY)
+	%%n :  Display your name
+	%%S :  Display your sex
 
-Example:  PROMPT <%hhp %mm %vmv>
+Example:  PROMPT <%%hhp %%mm %%vmv>
         Will set your prompt to "<10hp 100m 100mv>"
  
 ~
