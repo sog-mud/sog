@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.84 2001-09-07 15:40:20 fjoe Exp $
+ * $Id: olc_mob.c,v 1.85 2001-09-09 09:46:46 kostik Exp $
  */
 
 #include "olc.h"
@@ -82,6 +82,7 @@ DECLARE_OLC_FUN(mobed_addaffect		);
 DECLARE_OLC_FUN(mobed_delaffect		);
 DECLARE_OLC_FUN(mobed_del		);
 DECLARE_OLC_FUN(mobed_where		);
+DECLARE_OLC_FUN(mobed_xmult		);
 
 DECLARE_VALIDATE_FUN(validate_fvnum	);
 
@@ -140,6 +141,7 @@ olc_cmd_t olc_cmds_mob[] =
 	{ "where",	mobed_where,	NULL,		NULL		},
 	{ "delete_mo",	olced_spell_out, NULL,		NULL		},
 	{ "delete_mob", mobed_del,	NULL,		NULL		},
+	{ "xmult",	mobed_xmult,	NULL,		NULL		},
 
 	{ "commands",	show_commands,	NULL,		NULL		},
 	{ "version",	show_version,	NULL,		NULL		},
@@ -352,6 +354,9 @@ OLC_FUN(mobed_show)
 		buf_printf(buf, BUF_END, "Incog level: [%d]\n",
 			   pMob->incog_level);
 	}
+
+	buf_printf(buf, BUF_END, "Expierence multiplier: [%d%%]\n",
+	    pMob->xp_multiplier);
 
 	if (pMob->practicer) {
 		buf_printf(buf, BUF_END, "Practicer:   [%s]\n",
@@ -1207,6 +1212,13 @@ OLC_FUN(mobed_where)
 
 	show_resets(ch, vnum, "mob", show_mob_resets);
 	return FALSE;
+}
+
+OLC_FUN(mobed_xmult)
+{
+	MOB_INDEX_DATA *pMob;
+	EDIT_MOB(ch, pMob);
+	return olced_number(ch, argument, cmd, &pMob->xp_multiplier);
 }
 
 /* Local functions */

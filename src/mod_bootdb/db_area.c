@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.129 2001-09-07 15:56:50 fjoe Exp $
+ * $Id: db_area.c,v 1.130 2001-09-09 09:46:45 kostik Exp $
  */
 
 /***************************************************************************
@@ -1282,6 +1282,8 @@ DBLOAD_FUN(load_mobiles)
 					fread_number(fp);
 				}
 				pMobIndex->resists[_res] = fread_number(fp);
+			} else if (letter == 'x') {
+				pMobIndex->xp_multiplier = fread_number(fp);
 			} else {
 				xungetc(fp);
 				break;

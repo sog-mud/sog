@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.326 2001-09-07 19:34:43 fjoe Exp $
+ * $Id: fight.c,v 1.327 2001-09-09 09:46:47 kostik Exp $
  */
 
 /***************************************************************************
@@ -65,6 +65,8 @@ struct xpc_t {
 	int group_levels;
 	int v_level;
 	int v_align;
+	int multiplier;
+	int divisor;
 };
 typedef struct xpc_t xpc_t;
 
@@ -2745,6 +2747,14 @@ xpc_compute(CHAR_DATA *ch, CHAR_DATA *victim, xpc_t *xpc)
 	xpc->members = 0;
 	xpc->group_levels = 0;
 
+	xpc->multiplier = victim->pMobIndex->xp_multiplier;
+	xpc->divisor = 100;
+
+	xpc->multiplier *= victim->max_hit;
+	xpc->divisor *= victim->pMobIndex->hit[DICE_BONUS] +
+	    (victim->pMobIndex->hit[DICE_TYPE] + 1) *
+	    victim->pMobIndex->hit[DICE_NUMBER] / 2;
+
 	if (!IS_NPC(victim) || victim == ch)
 		return;
 
@@ -2801,7 +2811,7 @@ group_gain(CHAR_DATA *ch, xpc_t *xpc)
 		}
 
 		xp = xp_compute(gch, xpc);
-		if (xp >= 0) {
+		if (xp > 0) {
 			act_puts("You receive $j experience points.",
 				 gch, (const void *) xp, NULL,
 				 TO_CHAR, POS_DEAD);
@@ -2853,6 +2863,7 @@ xp_compute(CHAR_DATA *gch, xpc_t *xpc)
 	/* more exp at the low levels - NO! */
 
 	/* randomize the rewards */
+	xp = xp * xpc->multiplier / UMIN(1, xpc->divisor);
 	xp = number_range(xp * 3/4, xp * 5/4);
 
 	/* adjust for grouping */

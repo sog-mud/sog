@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.130 2001-09-07 19:34:47 fjoe Exp $
+ * $Id: recycle.c,v 1.131 2001-09-09 09:46:48 kostik Exp $
  */
 
 /***************************************************************************
@@ -982,6 +982,7 @@ new_mob_index(void)
 	pMob->size		= SIZE_MEDIUM;
 	pMob->start_pos		= POS_STANDING;
 	pMob->default_pos	= POS_STANDING;
+	pMob->xp_multiplier	= 100;
 	pMob->damtype		= str_empty;
 	mlstr_init2(&pMob->gender, flag_string(gender_table, SEX_NEUTRAL));
 	for (i = 0; i < MAX_RESIST; i++)

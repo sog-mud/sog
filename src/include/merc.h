@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.360 2001-09-07 19:34:26 fjoe Exp $
+ * $Id: merc.h,v 1.361 2001-09-09 09:46:43 kostik Exp $
  */
 
 /***************************************************************************
@@ -1293,6 +1293,7 @@ struct mob_index_data
 	int			alignment;
 	int			level;
 	int			hitroll;
+	int			xp_multiplier;
 	int			hit[3];
 	int			mana[3];
 	int			damage[3];
