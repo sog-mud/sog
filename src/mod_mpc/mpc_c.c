@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.10 2001-06-23 15:49:36 fjoe Exp $
+ * $Id: mpc_c.c,v 1.11 2001-06-23 17:17:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -581,15 +581,33 @@ c_bop_div(prog_t *prog)
 void
 c_bop_ne_string(prog_t *prog)
 {
+	vo_t *v1;
+	vo_t *v2;
+	vo_t v;
+
 	TRACE;
-	/* XXX */
+
+	v2 = pop(prog);
+	v1 = pop(prog);
+
+	v.i = str_cscmp(v1->s, v2->s);
+	push(prog, v);
 }
 
 void
 c_bop_eq_string(prog_t *prog)
 {
+	vo_t *v1;
+	vo_t *v2;
+	vo_t v;
+
 	TRACE;
-	/* XXX */
+
+	v2 = pop(prog);
+	v1 = pop(prog);
+
+	v.i = !str_cscmp(v1->s, v2->s);
+	push(prog, v);
 }
 
 /*--------------------------------------------------------------------

@@ -1,0 +1,24 @@
+string s = "abcdef\n";
+prints(s);
+string q = "abcdef\n";
+
+if (q == s)
+	prints("equal");
+else
+	prints("not equal");
+if (q != s)
+	prints("not equal");
+else
+	prints("equal");
+
+string r = "foo";
+
+if (q == r)
+	prints("equal");
+else
+	prints("not equal");
+if (q != r)
+	prints("not equal");
+else
+	prints("equal");
+

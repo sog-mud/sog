@@ -1,0 +1,7 @@
+int i = number_range(1, 10);
+if (i) {
+	int j = i;
+	int k;
+	print2(j, k);
+}
+// print2(j, k);

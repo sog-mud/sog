@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.21 2001-02-11 14:35:44 fjoe Exp $
+ * $Id: str.c,v 1.22 2001-06-23 17:17:17 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -364,6 +364,18 @@ int
 cscmpstr(const void *p1, const void *p2)
 {
 	return str_cscmp(*(char**) p1, *(char**) p2);
+}
+
+int
+backslash(int ch)
+{
+	const char *p;
+	static char transtab[] = "a\ab\bf\fn\nr\rt\tv\v";
+
+	p = strchr(transtab, ch);
+	if (p != NULL)
+		return p[1];
+	return ch;
 }
 
 /*----------------------------------------------------------------------------

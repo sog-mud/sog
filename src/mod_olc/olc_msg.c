@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.50 2001-06-22 07:13:45 avn Exp $
+ * $Id: olc_msg.c,v 1.51 2001-06-23 17:17:17 fjoe Exp $
  */
 
 #include "olc.h"
@@ -322,20 +322,7 @@ static const char *atomsg(const char *argument)
 
 	for (o = 0, i = argument; o < sizeof(buf)-1 && *i; i++, o++) {
 		if (*i == '\\' && *(i+1)) {
-			switch (*++i) {
-			case 'a':
-				buf[o] = '\r';
-				break;
-			case 'r':
-				buf[o] = '\r';
-				break;
-			case 'n':
-				buf[o] = '\n';
-				break;
-			default:
-				buf[o] = *i;
-				break;
-			}
+			buf[o] = backslash(*++i);
 			continue;
 		}
 		buf[o] = *i;

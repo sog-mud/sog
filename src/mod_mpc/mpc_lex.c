@@ -23,13 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_lex.c,v 1.5 2001-06-23 15:49:36 fjoe Exp $
+ * $Id: mpc_lex.c,v 1.6 2001-06-23 17:17:15 fjoe Exp $
  */
 
 #include <ctype.h>
 #include <setjmp.h>
 #include <stdarg.h>
 #include <stdio.h>
+#include <string.h>
 
 #include <typedef.h>
 #include <varr.h>
@@ -319,8 +320,32 @@ mpc_lex(prog_t *prog)
 			/* NOTREACHED */
 
 		case '"':
-			/* XXX */
 			yyp = yytext;
+
+			for (; ; ) {
+				ch = mpc_getc(prog);
+				if (ch == EOF) {
+					compile_error(prog,
+					    "EOF while parsing string");
+					break;
+				}
+
+				if (ch == '"')
+					break;
+
+				if (ch == '\\') {
+					ch = mpc_getc(prog);
+					if (ch == EOF) {
+						compile_error(prog,
+						    "EOF while parsing string");
+						break;
+					}
+
+					ch = backslash(ch);
+				}
+
+				STORE(ch);
+			}
 
 			STORE('\0');
 			mpc_lval.string = alloc_string(prog, yytext);

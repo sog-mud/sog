@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.13 2001-06-23 15:49:36 fjoe Exp $
+ * $Id: mpc.y,v 1.14 2001-06-23 17:17:15 fjoe Exp $
  */
 
 /*
@@ -1466,10 +1466,17 @@ print2(int i, int j)
 	fprintf(stderr, "===> %s: %d, %d\n", __FUNCTION__, i, j);
 }
 
+void
+prints(const char *s)
+{
+	fprintf(stderr, "===> %s: '%s'\n", __FUNCTION__, s);
+}
+
 static dynafun_data_t mpc_dynafun_tab[] = {
 	{ "number_range",	MT_INT, 2,	{ MT_INT, MT_INT }	},
 	{ "print",		MT_VOID, 1,	{ MT_INT }		},
 	{ "print2",		MT_VOID, 2,	{ MT_INT, MT_INT }	},
+	{ "prints",		MT_VOID, 1,	{ MT_STR }		},
 	{ "nonexistent",	MT_VOID, 0				},
 	{ NULL }
 };
@@ -1478,6 +1485,7 @@ const char *mpc_dynafuns[] = {
 	"number_range",
 	"print",
 	"print2",
+	"prints",
 	"nonexistent",
 	NULL
 };

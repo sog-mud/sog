@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.h,v 1.15 2001-06-20 06:37:39 avn Exp $
+ * $Id: str.h,v 1.16 2001-06-23 17:17:14 fjoe Exp $
  */
 
 #ifndef _STR_H_
@@ -79,5 +79,7 @@ int cmpstr(const void *p1, const void *p2);
  * Assumes that arguments are (const char **)
  */
 int cscmpstr(const void *p1, const void *p2);
+
+int backslash(int ch);
 
 #endif
