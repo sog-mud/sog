@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.142 1999-02-19 10:42:38 fjoe Exp $
+ * $Id: act_comm.c,v 1.143 1999-02-19 11:12:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2063,6 +2063,8 @@ DO_FUN(do_toggle)
 		act_puts(IS_SET(*bits, t->bit) ? t->msg_on : t->msg_off,
 			 ch, t->desc, NULL, TO_CHAR | ACT_TRANS, POS_DEAD);
 	}
+
+	char_printf(ch, "%s: no such toggle(s).\n", argument);
 }
 
 static toggle_t *toggle_lookup(const char *name)

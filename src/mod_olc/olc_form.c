@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_form.c,v 1.14 1999-02-19 06:30:18 fjoe Exp $
+ * $Id: olc_form.c,v 1.15 1999-02-19 11:12:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -201,6 +201,7 @@ OLC_FUN(formed_touch)
 OLC_FUN(formed_show)
 {
 	int i;
+	char buf[MAX_STRING_LENGTH];
 	WORD_DATA *w;
 	LANG_DATA *l;
 
@@ -252,13 +253,8 @@ OLC_FUN(formed_show)
 		    ch->desc->editor == ED_QTY ?	"qty" :
 							"unknown");
 
-	if (w->base_len) {
-		char buf[MAX_STRING_LENGTH];
-		strnzcpy(buf, w->name, UMIN(w->base_len+1, sizeof(buf)));
-		char_printf(ch, "Base: [%d] (%s)\n", w->base_len, buf);
-	}
-	else
-		char_printf(ch, "Base: [%d]\n", w->base_len);
+	strnzcpy(buf, w->name, UMIN(w->base_len+1, sizeof(buf)));
+	char_printf(ch, "Base: [%s] (%d)\n", buf, w->base_len);
 
 	for (i = 0; i < w->f.nused; i++) {
 		char **p = VARR_GET(&w->f, i);
