@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.29 1998-06-12 14:26:00 fjoe Exp $
+ * $Id: update.c,v 1.30 1998-06-14 13:42:42 efdi Exp $
  */
 
 /***************************************************************************
@@ -159,7 +159,7 @@ void advance_level(CHAR_DATA *ch)
 	ch->pcdata->perm_move += add_move;
 
 	char_printf(ch, "%s {C%d{x hp, {C%d{x mana, {C%d{x mv {C%d{x"
-			" prac.\n\r", msg(UPDATE_YOUR_GAIN_IS, ch),
+			" prac.\n\r", msg(YOUR_GAIN_IS, ch),
 			add_hp, add_mana, add_move, add_prac);
 	return;
 }   
@@ -183,7 +183,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 	ch->exp = UMAX(base_exp(ch, ch->pcdata->points), ch->exp + gain);
 	while (ch->level < LEVEL_HERO &&
 	       exp_to_level(ch, ch->pcdata->points) <= 0) {
-		send_to_char(msg(UPDATE_YOU_RAISE_A_LEVEL, ch), ch);
+		send_to_char(msg(YOU_RAISE_A_LEVEL, ch), ch);
 		ch->level += 1;
 
 		/* added for samurais by chronos */
@@ -580,7 +580,7 @@ void mobile_update(void)
 				ch->pcdata->adr_stops_shown = 0;
 			else if (!ch->pcdata->adr_stops_shown) {
 				ch->pcdata->adr_stops_shown = 1;
-				send_to_char(msg(UPDATE_CALMING_DOWN, ch),
+				send_to_char(msg(CALMING_DOWN, ch),
 						 ch);
 			}
 
@@ -889,22 +889,22 @@ void weather_update(void)
 		switch (time_info.hour) {
 		case  5:
 			weather_info.sunlight = SUN_LIGHT;
-			strcpy(buf, msg(UPDATE_WEATHER_DAY_BEGUN, ch));
+			strcpy(buf, msg(WEATHER_DAY_BEGUN, ch));
 			break;
 
 		case  6:
 			weather_info.sunlight = SUN_RISE;
-			strcpy(buf, msg(UPDATE_WEATHER_SUN_IN_THE_EAST, ch));
+			strcpy(buf, msg(WEATHER_SUN_IN_THE_EAST, ch));
 			break;
 
 		case 19:
 			weather_info.sunlight = SUN_SET;
-			strcpy(buf, msg(UPDATE_WEATHER_SUN_IN_THE_WEST, ch));
+			strcpy(buf, msg(WEATHER_SUN_IN_THE_WEST, ch));
 			break;
 
 		case 20:
 			weather_info.sunlight = SUN_DARK;
-			strcpy(buf, msg(UPDATE_WEATHER_NIGHT_BEGUN, ch));
+			strcpy(buf, msg(WEATHER_NIGHT_BEGUN, ch));
 			break;
 		}
 
@@ -917,7 +917,7 @@ void weather_update(void)
 		case SKY_CLOUDLESS:
 			if (weather_info.mmhg < 990
 			|| (weather_info.mmhg < 1010 && number_bits(2) == 0)) {
-				strcat(buf, msg(UPDATE_WEATHER_GETTING_CLOUDY, ch));
+				strcat(buf, msg(WEATHER_GETTING_CLOUDY, ch));
 				weather_info.sky = SKY_CLOUDY;
 			}
 			break;
@@ -925,25 +925,25 @@ void weather_update(void)
 		case SKY_CLOUDY:
 			if (weather_info.mmhg < 970
 			|| (weather_info.mmhg < 990 && number_bits(2) == 0)) {
-				strcat(buf, msg(UPDATE_WEATHER_IT_STARTS_TO_RAIN, ch));
+				strcat(buf, msg(WEATHER_IT_STARTS_TO_RAIN, ch));
 				weather_info.sky = SKY_RAINING;
 			}
 
 			if (weather_info.mmhg > 1030 && number_bits(2) == 0) {
-				strcat(buf, msg(UPDATE_WEATHER_THE_CLOUDS_DISAPPEAR, ch));
+				strcat(buf, msg(WEATHER_THE_CLOUDS_DISAPPEAR, ch));
 				weather_info.sky = SKY_CLOUDLESS;
 			}
 			break;
 
 		case SKY_RAINING:
 			if (weather_info.mmhg < 970 && number_bits(2) == 0) {
-				strcat(buf, msg(UPDATE_WEATHER_LIGHTNING_FLASHES, ch));
+				strcat(buf, msg(WEATHER_LIGHTNING_FLASHES, ch));
 				weather_info.sky = SKY_LIGHTNING;
 			}
 
 			if (weather_info.mmhg > 1030
 			|| (weather_info.mmhg > 1010 && number_bits(2) == 0)) {
-				strcat(buf, msg(UPDATE_WEATHER_THE_RAIN_STOPPED, ch));
+				strcat(buf, msg(WEATHER_THE_RAIN_STOPPED, ch));
 				weather_info.sky = SKY_CLOUDY;
 			}
 			break;
@@ -951,7 +951,7 @@ void weather_update(void)
 		case SKY_LIGHTNING:
 			if (weather_info.mmhg > 1010
 			|| (weather_info.mmhg > 990 && number_bits(2) == 0)) {
-				strcat(buf, msg(UPDATE_WEATHER_LIGHTNING_STOPPED, ch));
+				strcat(buf, msg(WEATHER_LIGHTNING_STOPPED, ch));
 				weather_info.sky = SKY_RAINING;
 			}
 			break;
@@ -2210,11 +2210,11 @@ void check_reboot(void)
 			if (d->character != NULL)
 				if (rebooter)
 					char_nprintf(d->character, 
-						     UPDATE_REBOOT_IN,
+						     REBOOT_IN,
 					    	     reboot_counter);
 				else
 					char_nprintf(d->character, 
-						     UPDATE_AUTOREBOOT_IN,
+						     AUTOREBOOT_IN,
 					    	     reboot_counter);
 
 		/* FALLTHRU */

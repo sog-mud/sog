@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.31 1998-06-13 11:55:09 fjoe Exp $
+ * $Id: act_quest.c,v 1.32 1998-06-14 13:42:41 efdi Exp $
  */
 
 /***************************************************************************
@@ -192,7 +192,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 
 	if (questman == NULL 
 	    || questman->spec_fun != spec_lookup("spec_questmaster")) {
-		send_to_char(msg(MOVE_YOU_CANT_DO_THAT_HERE, ch), ch);
+		send_to_char(msg(YOU_CANT_DO_THAT_HERE, ch), ch);
 		return;
 	}
 
@@ -318,7 +318,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 				act_nprintf(ch, NULL, questman, TO_CHAR, 
 					   POS_DEAD, QUEST_N_GIVES_YOU_SECRET);
 				act_nprintf(ch, NULL, questman, TO_ALL, POS_DEAD,
-					    UPDATE_WEATHER_LIGHTNING_FLASHES);
+					    WEATHER_LIGHTNING_FLASHES);
 				return;
 			} else {
 				sprintf(buf, msg(QUEST_NOT_ENOUGH_QP, ch), 

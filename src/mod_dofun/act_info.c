@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.71 1998-06-12 14:40:26 efdi Exp $
+ * $Id: act_info.c,v 1.72 1998-06-14 13:42:40 efdi Exp $
  */
 
 /***************************************************************************
@@ -133,19 +133,19 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 
 	if (IS_SET(ch->comm, COMM_LONG)) {
 		if (IS_OBJ_STAT(obj, ITEM_INVIS))
-			strcat(buf, msg(INFO_INVIS, ch));
+			strcat(buf, msg(INVIS, ch));
 		if (IS_OBJ_STAT(obj, ITEM_DARK))
-			strcat(buf, msg(INFO_DARK, ch));
+			strcat(buf, msg(DARK, ch));
 		if (CAN_DETECT(ch, DETECT_EVIL) && IS_OBJ_STAT(obj, ITEM_EVIL))
-			strcat(buf, msg(INFO_RED_AURA, ch));
+			strcat(buf, msg(RED_AURA, ch));
 		if (CAN_DETECT(ch, DETECT_GOOD) && IS_OBJ_STAT(obj,ITEM_BLESS))
-			strcat(buf, msg(INFO_BLUE_AURA, ch));
+			strcat(buf, msg(BLUE_AURA, ch));
 		if (CAN_DETECT(ch, DETECT_MAGIC) && IS_OBJ_STAT(obj,ITEM_MAGIC))
-			strcat(buf, msg(INFO_MAGICAL, ch));
+			strcat(buf, msg(MAGICAL, ch));
 		if (IS_OBJ_STAT(obj, ITEM_GLOW))
-			strcat(buf, msg(INFO_GLOWING, ch));
+			strcat(buf, msg(GLOWING, ch));
 		if (IS_OBJ_STAT(obj, ITEM_HUM))
-			strcat(buf, msg(INFO_HUMMING, ch));
+			strcat(buf, msg(HUMMING, ch));
 	}
 	else {
 		static char FLAGS[] = "{x[{y.{D.{R.{B.{M.{W.{Y.{x] ";
@@ -291,7 +291,7 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 	if (fShowNothing && nShow == 0) {
 		if (IS_NPC(ch) || IS_SET(ch->comm, COMM_COMBINE))
 			send_to_char("     ", ch);
-		send_to_char(msg(INFO_NOTHING, ch), ch);
+		send_to_char(msg(NOTHING, ch), ch);
 	}
 
 	page_to_char(buf_string(output),ch);
@@ -316,7 +316,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	if (!IS_NPC(ch) && IS_NPC(victim) && ch->pcdata->questmob > 0
 	&&  victim->hunter == ch)
-		strcat(buf, msg(INFO_TARGET, ch));
+		strcat(buf, msg(TARGET, ch));
 
 /*
 	sprintf(message,"(%s) ",race_table[RACE(victim)].name);
@@ -326,34 +326,34 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	if (IS_SET(ch->comm, COMM_LONG)) {
 		if (IS_AFFECTED(victim, AFF_INVISIBLE))
-			strcat(buf, msg(INFO_INVIS, ch));
+			strcat(buf, msg(INVIS, ch));
 		if (IS_AFFECTED(victim, AFF_HIDE)) 
-			strcat(buf, msg(INFO_HIDDEN, ch));
+			strcat(buf, msg(HIDDEN, ch));
 		if (IS_AFFECTED(victim, AFF_CHARM)) 
-			strcat(buf, msg(INFO_CHARMED, ch));
+			strcat(buf, msg(CHARMED, ch));
 		if (IS_AFFECTED(victim, AFF_PASS_DOOR)) 
-			strcat(buf, msg(INFO_TRANSLUCENT, ch));
+			strcat(buf, msg(TRANSLUCENT, ch));
 		if (IS_AFFECTED(victim, AFF_FAERIE_FIRE)) 
-			strcat(buf, msg(INFO_PINK_AURA, ch));
+			strcat(buf, msg(PINK_AURA, ch));
 		if (IS_NPC(victim) && IS_SET(victim->act,ACT_UNDEAD)
 		&&  CAN_DETECT(ch, DETECT_UNDEAD))
-			strcat(buf, msg(INFO_UNDEAD, ch));
+			strcat(buf, msg(UNDEAD, ch));
 		if (RIDDEN(victim))
-			strcat(buf, msg(INFO_RIDDEN, ch));
+			strcat(buf, msg(RIDDEN, ch));
 		if (IS_AFFECTED(victim,AFF_IMP_INVIS))
-			strcat(buf, msg(INFO_IMPROVED, ch));
+			strcat(buf, msg(IMPROVED, ch));
 		if (IS_EVIL(victim) && CAN_DETECT(ch, DETECT_EVIL))
-			strcat(buf, msg(INFO_RED_AURA, ch));
+			strcat(buf, msg(RED_AURA, ch));
 		if (IS_GOOD(victim) && CAN_DETECT(ch, DETECT_GOOD))
-			strcat(buf, msg(INFO_GOLDEN_AURA, ch));
+			strcat(buf, msg(GOLDEN_AURA, ch));
 		if (IS_AFFECTED(victim, AFF_SANCTUARY))
-			strcat(buf, msg(INFO_WHITE_AURA, ch));
+			strcat(buf, msg(WHITE_AURA, ch));
 		if (IS_AFFECTED(victim, AFF_FADE)) 
-			strcat(buf, msg(INFO_FADE, ch));
+			strcat(buf, msg(FADE, ch));
 		if (!IS_NPC(victim) && IS_SET(victim->act, PLR_WANTED))
-			strcat(buf, msg(INFO_WANTED, ch));
+			strcat(buf, msg(WANTED, ch));
 		if (IS_AFFECTED(victim, AFF_CAMOUFLAGE)) 
-			strcat(buf, msg(INFO_CAMF, ch));
+			strcat(buf, msg(CAMF, ch));
 	}
 	else {
 		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{R.{g.{x] ";
@@ -418,94 +418,94 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	switch (victim->position) {
 	case POS_DEAD:
-		strcat(buf, vmsg(INFO_IS_DEAD, ch, victim));
+		strcat(buf, vmsg(IS_DEAD, ch, victim));
 		break;
 
 	case POS_MORTAL:
-		strcat(buf, vmsg(INFO_IS_MORTALLY_WOUNDED, ch, victim));
+		strcat(buf, vmsg(IS_MORTALLY_WOUNDED, ch, victim));
 		break;
 
 	case POS_INCAP:
-		strcat(buf, vmsg(INFO_IS_INCAPACITATED, ch, victim));
+		strcat(buf, vmsg(IS_INCAPACITATED, ch, victim));
 		break;
 
 	case POS_STUNNED:
-		strcat(buf, vmsg(INFO_IS_LYING_HERE_STUNNED, ch, victim));
+		strcat(buf, vmsg(IS_LYING_HERE_STUNNED, ch, victim));
 		break;
 
 	case POS_SLEEPING:
 		if (victim->on == NULL) {
-			strcat(buf, msg(INFO_SLEEPING, ch));
+			strcat(buf, msg(SLEEPING, ch));
 			break;
 		}
 		if (victim->on->pIndexData->vnum == 1200)
 			return;
 
 		if (IS_SET(victim->on->value[2], SLEEP_AT))
-			msgnum = INFO_SLEEPING_AT;
+			msgnum = SLEEPING_AT;
 		else if (IS_SET(victim->on->value[2], SLEEP_ON))
-			msgnum = INFO_SLEEPING_ON;
+			msgnum = SLEEPING_ON;
 		else
-			msgnum = INFO_SLEEPING_IN;
+			msgnum = SLEEPING_IN;
 
 		sprintf(strend(buf), msg(msgnum, ch), victim->on->short_descr);
 		break;
 
 	case POS_RESTING:
 		if (victim->on == NULL) {
-			strcat(buf, msg(INFO_RESTING, ch));
+			strcat(buf, msg(RESTING, ch));
 			break;
 		}
 
 		if (IS_SET(victim->on->value[2], REST_AT))
-			msgnum = INFO_RESTING_AT;
+			msgnum = RESTING_AT;
 		else if (IS_SET(victim->on->value[2], REST_ON))
-			msgnum = INFO_RESTING_ON;
+			msgnum = RESTING_ON;
 		else
-			msgnum = INFO_RESTING_IN;
+			msgnum = RESTING_IN;
 		sprintf(strend(buf), msg(msgnum, ch), victim->on->short_descr);
 		break;
 
 	case POS_SITTING:
 		if (victim->on == NULL) {
-			strcat(buf, msg(INFO_SITTING, ch));
+			strcat(buf, msg(SITTING, ch));
 			break;
 		}
 
 		if (IS_SET(victim->on->value[2], SIT_AT))
-			msgnum = INFO_SITTING_AT;
+			msgnum = SITTING_AT;
 		else if (IS_SET(victim->on->value[2], SIT_ON))
-			msgnum = INFO_SITTING_ON;
+			msgnum = SITTING_ON;
 		else
-			msgnum = INFO_SITTING_IN;
+			msgnum = SITTING_IN;
 		sprintf(strend(buf), msg(msgnum, ch), victim->on->short_descr);
 		break;
 
 	case POS_STANDING:
 		if (victim->on == NULL) {
 			if (MOUNTED(victim))
-				sprintf(strend(buf), msg(INFO_HERE_RIDING, ch),
+				sprintf(strend(buf), msg(HERE_RIDING, ch),
 					PERS(MOUNTED(victim),ch));
 			else
-				strcat(buf, msg(INFO_IS_HERE, ch));
+				strcat(buf, msg(IS_HERE, ch));
 			break;
 		}
 
 		if (IS_SET(victim->on->value[2],STAND_AT))
-			msgnum = INFO_STANDING_AT;
+			msgnum = STANDING_AT;
 		else if (IS_SET(victim->on->value[2],STAND_ON))
-			msgnum = INFO_STANDING_ON;
+			msgnum = STANDING_ON;
 		else
-			msgnum = INFO_STANDING;
+			msgnum = STANDING;
 		sprintf(strend(buf), msg(msgnum, ch), victim->on->short_descr);
 		break;
 
 	case POS_FIGHTING:
-		strcat(buf, msg(INFO_FIGHTING, ch));
+		strcat(buf, msg(FIGHTING, ch));
 		if (victim->fighting == NULL)
 			strcat(buf, "thin air??");
 		else if (victim->fighting == ch)
-			strcat(buf, msg(INFO_FIGHTING_YOU, ch));
+			strcat(buf, msg(FIGHTING_YOU, ch));
 		else if (victim->in_room == victim->fighting->in_room) {
 			strcat(buf, PERS(victim->fighting, ch));
 			strcat(buf, ".");
@@ -535,12 +535,12 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (can_see(victim, ch)) {
 		if (ch == victim)
 			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-					INFO_N_LOOKS_AT_SELF);
+					N_LOOKS_AT_SELF);
 		else {
 			act_nprintf(ch, NULL, victim, TO_VICT, POS_RESTING,
-					INFO_N_LOOKS_AT_YOU);
+					N_LOOKS_AT_YOU);
 			act_nprintf(ch, NULL, victim, TO_NOTVICT, POS_RESTING,
-					INFO_N_LOOKS_AT_N);
+					N_LOOKS_AT_N);
 		}
 	}
 
@@ -548,13 +548,13 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		send_to_char(vict->description, ch);
 	else
 		act_nprintf(ch, NULL, victim, TO_CHAR, POS_DEAD,
-				INFO_SEE_NOTHING_SPECIAL);
+				SEE_NOTHING_SPECIAL);
 
 	if (MOUNTED(victim))
-		char_printf(ch, msg(INFO_IS_RIDING_S, ch),
+		char_printf(ch, msg(IS_RIDING_S, ch),
 			    PERS(victim,ch), PERS(MOUNTED(victim),ch));
 	if (RIDDEN(victim))
-		char_printf(ch, vmsg(INFO_IS_RIDDEN_BY_S, ch, victim),
+		char_printf(ch, vmsg(IS_RIDDEN_BY_S, ch, victim),
 			    PERS(victim,ch), PERS(RIDDEN(victim),ch));
 
 	if (victim->max_hit > 0)
@@ -563,21 +563,21 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		percent = -1;
 
 	if (percent >= 100)
-		msgnum = INFO_IS_IN_PERFECT_HEALTH;
+		msgnum = IS_IN_PERFECT_HEALTH;
 	else if (percent >= 90)
-		msgnum = INFO_HAS_A_FEW_SCRATCHES;
+		msgnum = HAS_A_FEW_SCRATCHES;
 	else if (percent >= 75)
-		msgnum = INFO_HAS_SOME_SMALL_BUT_DISGUSTING_CUTS;
+		msgnum = HAS_SOME_SMALL_BUT_DISGUSTING_CUTS;
 	else if (percent >= 50)
-		msgnum = INFO_IS_COVERED_WITH_BLEEDING_WOUNDS;
+		msgnum = IS_COVERED_WITH_BLEEDING_WOUNDS;
 	else if (percent >= 30)
-		msgnum = INFO_IS_GUSHING_BLOOD;
+		msgnum = IS_GUSHING_BLOOD;
 	else if (percent >= 15)
-		msgnum = INFO_IS_WRITHING_IN_AGONY;
+		msgnum = IS_WRITHING_IN_AGONY;
 	else if (percent >= 0)
-		msgnum = INFO_IS_CONVULSING_ON_THE_GROUND;
+		msgnum = IS_CONVULSING_ON_THE_GROUND;
 	else
-		msgnum = INFO_IS_NEARLY_DEAD;
+		msgnum = IS_NEARLY_DEAD;
 
 	/* vampire ... */
 	if (percent < 90 && ch->class == CLASS_VAMPIRE && ch->level > 10)
@@ -595,13 +595,13 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 
 			if (!found) {
 				send_to_char("\n\r", ch);
-				act(msg(INFO_IS_USING, ch), ch, NULL, victim,
+				act(msg(IS_USING, ch), ch, NULL, victim,
 				    TO_CHAR);
 				found = TRUE;
 			}
 
 			act_nprintf(ch, NULL, NULL, TO_CHAR, POS_RESTING,
-				   INFO_S_S,
+				   S_S,
 				   msg(EQ_USED_AS_LIGHT + show_order[i], ch),
 				   format_obj_to_char(obj, ch, TRUE));
 		}
@@ -615,10 +615,10 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 
 		if (!found) {
 			send_to_char("\n\r", ch);
-			act(msg(INFO_IS_USING, ch), ch, NULL, victim, TO_CHAR);
+			act(msg(IS_USING, ch), ch, NULL, victim, TO_CHAR);
 			found = TRUE;
 		}
-		act_nprintf(ch, NULL, NULL, TO_CHAR, POS_RESTING, INFO_S_S,
+		act_nprintf(ch, NULL, NULL, TO_CHAR, POS_RESTING, S_S,
 			   msg(EQ_STUCK_IN, ch),
 			   format_obj_to_char(obj, ch, TRUE));
 	}
@@ -626,7 +626,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	if (victim != ch
 	&&  !IS_NPC(ch)
 	&&  number_percent() < get_skill(ch,gsn_peek)) {
-		send_to_char(msg(INFO_YOU_PEEK_AT_THE_INVENTORY, ch), ch);
+		send_to_char(msg(YOU_PEEK_AT_THE_INVENTORY, ch), ch);
 		check_improve(ch,gsn_peek,TRUE,4);
 		show_list_to_char(is_affected(victim,gsn_mirror) ?
 				  vict->carrying : victim->carrying,
@@ -652,7 +652,7 @@ void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 		if (can_see(ch, rch))
 			show_char_to_char_0(rch, ch);
 		else if (room_is_dark(ch) && IS_AFFECTED(rch, AFF_INFRARED)) {
-			send_to_char(msg(INFO_GLOWING_RED_EYES, ch), ch);
+			send_to_char(msg(GLOWING_RED_EYES, ch), ch);
 			if (!IS_IMMORTAL(rch))
 				life_count++;
 		}
@@ -661,7 +661,7 @@ void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 	}
 
 	if (life_count && CAN_DETECT(ch,DETECT_LIFE))
-		char_printf(ch, msg(INFO_FEEL_MORE_LIVES, ch),
+		char_printf(ch, msg(FEEL_MORE_LIVES, ch),
 			    life_count, (life_count == 1) ? "form" : "forms");
 	return;
 }
@@ -673,7 +673,7 @@ bool check_blind(CHAR_DATA *ch)
 		return TRUE;
 
 	if (IS_AFFECTED(ch, AFF_BLIND)) {
-		send_to_char(msg(INFO_CANT_SEE_THING, ch), ch);
+		send_to_char(msg(CANT_SEE_THING, ch), ch);
 		return FALSE;
 	}
 
@@ -1099,26 +1099,26 @@ void do_look_in(CHAR_DATA* ch, char* arg)
 	OBJ_DATA *obj;
 
 	if ((obj = get_obj_here(ch, arg)) == NULL) {
-		send_to_char(msg(MOVE_YOU_DONT_SEE_THAT, ch), ch);
+		send_to_char(msg(YOU_DONT_SEE_THAT, ch), ch);
 		return;
 	}
 
 	switch (obj->item_type) {
 	default:
-		send_to_char(msg(INFO_THATS_NOT_CONTAINER, ch), ch);
+		send_to_char(msg(THATS_NOT_CONTAINER, ch), ch);
 		break;
 
 	case ITEM_DRINK_CON:
 		if (obj->value[1] <= 0) {
-			send_to_char(msg(INFO_IT_IS_EMPTY, ch), ch);
+			send_to_char(msg(IT_IS_EMPTY, ch), ch);
 			break;
 		}
 
-		char_printf(ch, msg(INFO_ITS_FILLED_S, ch),
+		char_printf(ch, msg(ITS_FILLED_S, ch),
 			    obj->value[1] < obj->value[0] / 4 ?
-			    msg(INFO_LESS_THAN_HALF, ch) :
+			    msg(LESS_THAN_HALF, ch) :
 			    obj->value[1] < 3 * obj->value[0] / 4 ?
-			    msg(INFO_ABOUT_HALF,ch):msg(INFO_MORE_THAN_HALF,ch),
+			    msg(ABOUT_HALF,ch):msg(MORE_THAN_HALF,ch),
 			    liq_table[obj->value[2]].liq_color);
 		break;
 
@@ -1126,11 +1126,11 @@ void do_look_in(CHAR_DATA* ch, char* arg)
 	case ITEM_CORPSE_NPC:
 	case ITEM_CORPSE_PC:
 		if (IS_SET(obj->value[1], CONT_CLOSED)) {
-			send_to_char(msg(INFO_IT_IS_CLOSED, ch), ch);
+			send_to_char(msg(IT_IS_CLOSED, ch), ch);
 			break;
 		}
 
-		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, INFO_P_HOLDS);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, P_HOLDS);
 		show_list_to_char(obj->contains, ch, TRUE, TRUE);
 		break;
 	}
@@ -1152,12 +1152,12 @@ void do_look(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (ch->position < POS_SLEEPING) {
-		send_to_char(msg(INFO_CANT_SEE_BUT_STARS, ch), ch);
+		send_to_char(msg(CANT_SEE_BUT_STARS, ch), ch);
 		return;
 	}
 
 	if (ch->position == POS_SLEEPING) {
-		send_to_char(msg(INFO_CANT_SEE_SLEEPING, ch), ch);
+		send_to_char(msg(CANT_SEE_SLEEPING, ch), ch);
 		return;
 	}
 
@@ -1167,7 +1167,7 @@ void do_look(CHAR_DATA *ch, char *argument)
 	if (!IS_NPC(ch)
 	&&  !IS_SET(ch->act, PLR_HOLYLIGHT)
 	&&  room_is_dark(ch)) {
-		send_to_char(msg(INFO_PITCH_BLACK, ch), ch);
+		send_to_char(msg(PITCH_BLACK, ch), ch);
 		show_char_to_char(ch->in_room->people, ch);
 		return;
 	}
@@ -1206,7 +1206,7 @@ void do_look(CHAR_DATA *ch, char *argument)
 	if (!str_cmp(arg1, "i") || !str_cmp(arg1, "in") || !str_cmp(arg1,"on")) {
 		/* 'look in' */
 		if (arg2[0] == '\0') {
-			send_to_char(msg(INFO_LOOK_IN_WHAT, ch), ch);
+			send_to_char(msg(LOOK_IN_WHAT, ch), ch);
 			return;
 		}
 
@@ -1274,7 +1274,7 @@ void do_look(CHAR_DATA *ch, char *argument)
 			if (is_name(arg3, obj->name))
 				if (++count == number) {
 					send_to_char(
-					  msg(INFO_NOTHING_SPECIAL_IT, ch), ch);
+					  msg(NOTHING_SPECIAL_IT, ch), ch);
 					return;
 				}
 		}
@@ -1317,9 +1317,9 @@ void do_look(CHAR_DATA *ch, char *argument)
 
 	if (count > 0 && count != number) {
 		if (count == 1)
-			char_printf(ch, msg(INFO_ONLY_SEE_ONE_S, ch), arg3);
+			char_printf(ch, msg(ONLY_SEE_ONE_S, ch), arg3);
 		else
-			char_printf(ch, msg(INFO_ONLY_SEE_D_THOSE, ch), count);
+			char_printf(ch, msg(ONLY_SEE_D_THOSE, ch), count);
 		return;
 	}
 
@@ -1330,31 +1330,31 @@ void do_look(CHAR_DATA *ch, char *argument)
 	else if (!str_cmp(arg1, "u") || !str_cmp(arg1, "up" )) door = 4;
 	else if (!str_cmp(arg1, "d") || !str_cmp(arg1, "down")) door = 5;
 	else {
-		send_to_char(msg(MOVE_YOU_DONT_SEE_THAT, ch), ch);
+		send_to_char(msg(YOU_DONT_SEE_THAT, ch), ch);
 		return;
 	}
 
 	/* 'look direction' */
 	if ((pexit = ch->in_room->exit[door]) == NULL) {
-		send_to_char(msg(INFO_NOTHING_SPECIAL_THERE, ch), ch);
+		send_to_char(msg(NOTHING_SPECIAL_THERE, ch), ch);
 		return;
 	}
 
 	if (pexit->description != NULL && pexit->description[0] != '\0')
 		send_to_char(pexit->description, ch);
 	else
-		send_to_char(msg(INFO_NOTHING_SPECIAL_THERE, ch), ch);
+		send_to_char(msg(NOTHING_SPECIAL_THERE, ch), ch);
 
 	if (pexit->keyword    != NULL
 	&&  pexit->keyword[0] != '\0'
 	&&  pexit->keyword[0] != ' ') {
 		if (IS_SET(pexit->exit_info, EX_CLOSED)) {
 			act_nprintf(ch, NULL, pexit->keyword, TO_CHAR,
-					POS_DEAD, MOVE_THE_D_IS_CLOSED);
+					POS_DEAD, THE_D_IS_CLOSED);
 		}
 		else if (IS_SET(pexit->exit_info, EX_ISDOOR))
 			act_nprintf(ch, NULL, pexit->keyword, TO_CHAR,
-					POS_DEAD, INFO_THE_D_IS_OPEN);
+					POS_DEAD, THE_D_IS_OPEN);
 	}
 
 	return;
@@ -1379,12 +1379,12 @@ void do_examine(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (ch->position < POS_SLEEPING) {
-		send_to_char(msg(INFO_CANT_SEE_BUT_STARS, ch), ch);
+		send_to_char(msg(CANT_SEE_BUT_STARS, ch), ch);
 		return;
 	}
 
 	if (ch->position == POS_SLEEPING) {
-		send_to_char(msg(INFO_CANT_SEE_SLEEPING, ch), ch);
+		send_to_char(msg(CANT_SEE_SLEEPING, ch), ch);
 		return;
 	}
 
@@ -1392,7 +1392,7 @@ void do_examine(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (arg[0] == '\0') {
-		send_to_char(msg(INFO_EXA_WHAT, ch), ch);
+		send_to_char(msg(EXA_WHAT, ch), ch);
 		return;
 	}
 
@@ -1403,28 +1403,28 @@ void do_examine(CHAR_DATA *ch, char *argument)
 		case ITEM_MONEY:
 			if (obj->value[0] == 0) {
 				if (obj->value[1] == 0)
-					char_puts(msg(INFO_NO_COINS_PILE, ch),
+					char_puts(msg(NO_COINS_PILE, ch),
 							 ch);
 				else if (obj->value[1] == 1)
-					char_puts(msg(INFO_ONE_GOLD_COIN, ch),
+					char_puts(msg(ONE_GOLD_COIN, ch),
 						  ch);
 				else
 					char_printf(ch, 
-						    msg(INFO_D_GOLD_COINS, ch),
+						    msg(D_GOLD_COINS, ch),
 						    obj->value[1]);
 			}
 			else if (obj->value[1] == 0) {
 				if (obj->value[0] == 1)
-					char_puts(msg(INFO_ONE_SILVER_COIN, ch),
+					char_puts(msg(ONE_SILVER_COIN, ch),
 							 ch);
 				else
 					char_printf(ch, 
-						   msg(INFO_D_SILVER_COINS, ch),
+						   msg(D_SILVER_COINS, ch),
 						   obj->value[0]);
 			}
 			else
 				char_printf(ch, 
-					    msg(INFO_D_SILVER_AND_D_GOLD, ch), 
+					    msg(D_SILVER_AND_D_GOLD, ch), 
 					    obj->value[1],obj->value[0]);
 			break;
 
@@ -1458,12 +1458,12 @@ void do_exits(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (fAuto)
-		sprintf(buf, msg(INFO_EXITS, ch));
+		sprintf(buf, msg(EXITS, ch));
 	else if (IS_IMMORTAL(ch))
-		sprintf(buf, msg(INFO_OBVIOUS_EXITS_IMM, ch),
+		sprintf(buf, msg(OBVIOUS_EXITS_IMM, ch),
 			ch->in_room->vnum);
 	else
-		sprintf(buf, msg(INFO_OBVIOUS_EXITS, ch));
+		sprintf(buf, msg(OBVIOUS_EXITS, ch));
 
 	found = FALSE;
 	for (door = 0; door <= 5; door++) {
@@ -1482,11 +1482,11 @@ void do_exits(CHAR_DATA *ch, char *argument)
 				sprintf(strchr(buf, '\0'), "{C%-5s{x - %s",
 					capitalize(dir_name[door]),
 					room_dark(pexit->u1.to_room) ?
-					msg(INFO_TOO_DARK_TO_TELL, ch) :
+					msg(TOO_DARK_TO_TELL, ch) :
 					pexit->u1.to_room->name);
 				p = strend(buf);
 				if (IS_IMMORTAL(ch))
-					sprintf(p, msg(INFO_ROOM_D, ch),
+					sprintf(p, msg(ROOM_D, ch),
 						pexit->u1.to_room->vnum);
 				else
 					sprintf(p, "\n\r");
@@ -1511,7 +1511,7 @@ void do_exits(CHAR_DATA *ch, char *argument)
 
 				p = strend(buf);
 				if (IS_IMMORTAL(ch))
-					sprintf(p, msg(INFO_ROOM_D, ch),
+					sprintf(p, msg(ROOM_D, ch),
 						pexit->u1.to_room->vnum);
 				else
 					sprintf(p, "\n\r");
@@ -1520,7 +1520,7 @@ void do_exits(CHAR_DATA *ch, char *argument)
 	}
 
 	if (!found)
-		strcat(buf, fAuto ? msg(INFO_NONE, ch) : msg(INFO_CAPNONE, ch));
+		strcat(buf, fAuto ? msg(NONE, ch) : msg(CAPNONE, ch));
 
 	if (fAuto)
 		strcat(buf, "]{x\n\r");
@@ -1532,23 +1532,23 @@ void do_exits(CHAR_DATA *ch, char *argument)
 
 void do_worth(CHAR_DATA *ch, char *argument)
 {
-	char_printf(ch, msg(INFO_HAVE_D_GOLD_D_SILVER, ch),
+	char_printf(ch, msg(HAVE_D_GOLD_D_SILVER, ch),
 		    ch->gold, ch->silver);
 	if (!IS_NPC(ch) && ch->level < LEVEL_HERO)
-		char_printf(ch, msg(INFO_AND_D_EXP, ch),
+		char_printf(ch, msg(AND_D_EXP, ch),
 			    ch->exp, exp_to_level(ch, ch->pcdata->points));
 	char_puts(".\n\r", ch);
 
 	if (!IS_NPC(ch))
-		char_printf(ch, msg(INFO_HAVE_KILLED, ch),
+		char_printf(ch, msg(HAVE_KILLED, ch),
 			    ch->pcdata->has_killed,
-			    IS_GOOD(ch) ? msg(INFO_NON_GOODS, ch) :
-			    IS_EVIL(ch) ? msg(INFO_NON_EVILS, ch) : 
-					  msg(INFO_NON_NEUTRALS, ch),
+			    IS_GOOD(ch) ? msg(NON_GOODS, ch) :
+			    IS_EVIL(ch) ? msg(NON_EVILS, ch) : 
+					  msg(NON_NEUTRALS, ch),
 			    ch->pcdata->anti_killed,
-			    IS_GOOD(ch) ? msg(INFO_GOODS, ch) :
-			    IS_EVIL(ch) ? msg(INFO_EVILS, ch) : 
-					  msg(INFO_NEUTRALS, ch));
+			    IS_GOOD(ch) ? msg(GOODS, ch) :
+			    IS_EVIL(ch) ? msg(EVILS, ch) : 
+					  msg(NEUTRALS, ch));
 	return;
 }
 
@@ -1591,16 +1591,16 @@ void do_time(CHAR_DATA *ch, char *argument)
 
 	if (!IS_SET(ch->in_room->room_flags,ROOM_INDOORS) || IS_IMMORTAL(ch))
 		act_nprintf(ch, NULL, NULL, TO_CHAR, POS_RESTING,
-			   INFO_ITS_S,
+			   ITS_S,
 			   (time_info.hour>=5 && time_info.hour<9) ?
-						msg(INFO_TIME_DAWN, ch) :
+						msg(TIME_DAWN, ch) :
 			   (time_info.hour>=9 && time_info.hour<12) ?
-						msg(INFO_TIME_MORNING, ch) :
+						msg(TIME_MORNING, ch) :
 			   (time_info.hour>=12 && time_info.hour<18) ?
-						msg(INFO_TIME_MID_DAY, ch) :
+						msg(TIME_MID_DAY, ch) :
 			   (time_info.hour>=18 && time_info.hour<21) ?
-						msg(INFO_TIME_EVENING, ch) :
-			   msg(INFO_TIME_NIGHT, ch));
+						msg(TIME_EVENING, ch) :
+			   msg(TIME_NIGHT, ch));
 
 	if (!IS_IMMORTAL(ch))
 		return;
@@ -1678,7 +1678,7 @@ void do_help(CHAR_DATA *ch, char *argument)
 		}
 	}
 
-	send_to_char(msg(INFO_NO_HELP_ON_WORD, ch), ch);
+	send_to_char(msg(NO_HELP_ON_WORD, ch), ch);
 	return;
 }
 
@@ -2010,7 +2010,7 @@ void do_who(CHAR_DATA *ch, char *argument)
 
 	max_on = UMAX(count, max_on);
 	sprintf(strend(output),
-		msg(INFO_PLAYERS_FOUND, ch),
+		msg(PLAYERS_FOUND, ch),
 		nMatch, max_on);
 	page_to_char(output, ch);
 	return;
@@ -2027,7 +2027,7 @@ void do_whois (CHAR_DATA *ch, char *argument)
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0') {
-		send_to_char(msg(INFO_MUST_PROVIDE_NAME, ch), ch);
+		send_to_char(msg(MUST_PROVIDE_NAME, ch), ch);
 		return;
 	}
 
@@ -2055,7 +2055,7 @@ void do_whois (CHAR_DATA *ch, char *argument)
 	}
 
 	if (!found) {
-		send_to_char(msg(INFO_NO_ONE_THAT_NAME, ch), ch);
+		send_to_char(msg(NO_ONE_THAT_NAME, ch), ch);
 		return;
 	}
 
@@ -2076,18 +2076,18 @@ void do_count(CHAR_DATA *ch, char *argument)
 
 	max_on = UMAX(count,max_on);
 
-	char_printf(ch, msg(INFO_D_CHARS_ON, ch), count);
+	char_printf(ch, msg(D_CHARS_ON, ch), count);
 	if (max_on == count)
-		char_puts(msg(INFO_MOST_SO_FAR_TODAY, ch), ch);
+		char_puts(msg(MOST_SO_FAR_TODAY, ch), ch);
 	else
-		char_printf(ch, msg(INFO_MOST_TODAY_WAS, ch), max_on);
+		char_printf(ch, msg(MOST_TODAY_WAS, ch), max_on);
 	char_puts(".\n\r", ch);
 }
 
 
 void do_inventory(CHAR_DATA *ch, char *argument)
 {
-	send_to_char(msg(INFO_YOU_ARE_CARRYING, ch), ch);
+	send_to_char(msg(YOU_ARE_CARRYING, ch), ch);
 	show_list_to_char(ch->carrying, ch, TRUE, TRUE);
 	return;
 }
@@ -2099,7 +2099,7 @@ void do_equipment(CHAR_DATA *ch, char *argument)
 	int i;
 	bool found;
 
-	send_to_char(msg(INFO_YOU_ARE_USING, ch), ch);
+	send_to_char(msg(YOU_ARE_USING, ch), ch);
 	found = FALSE;
 	for (i = 0; show_order[i] >= 0; i++) {
 		if ((obj = get_eq_char(ch, show_order[i])) == NULL)
@@ -2110,7 +2110,7 @@ void do_equipment(CHAR_DATA *ch, char *argument)
 			char_printf(ch, "%s\n\r",
 				    format_obj_to_char(obj, ch, TRUE));
 		else
-			send_to_char(msg(INFO_SOMETHING, ch), ch);
+			send_to_char(msg(SOMETHING, ch), ch);
 		found = TRUE;
 	}
 
@@ -2123,12 +2123,12 @@ void do_equipment(CHAR_DATA *ch, char *argument)
 			char_printf(ch, "%s\n\r",
 				    format_obj_to_char(obj, ch, TRUE));
 		else
-			send_to_char(msg(INFO_SOMETHING, ch), ch);
+			send_to_char(msg(SOMETHING, ch), ch);
 		found = TRUE;
 	}
 
 	if (!found)
-		send_to_char(msg(INFO_NOTHING, ch), ch);
+		send_to_char(msg(NOTHING, ch), ch);
 
 	return;
 }
@@ -2147,12 +2147,12 @@ void do_compare(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 	if (arg1[0] == '\0') {
-		send_to_char(msg(INFO_COMPARE_WHAT, ch), ch);
+		send_to_char(msg(COMPARE_WHAT, ch), ch);
 		return;
 	}
 
 	if ((obj1 = get_obj_carry(ch, arg1)) == NULL) {
-		send_to_char(msg(INFO_DONT_HAVE_ITEM, ch), ch);
+		send_to_char(msg(DONT_HAVE_ITEM, ch), ch);
 		return;
 	}
 
@@ -2166,12 +2166,12 @@ void do_compare(CHAR_DATA *ch, char *argument)
 				break;
 
 		if (obj2 == NULL) {
-			send_to_char(msg(INFO_ARENT_WEAR_COMPARABLE, ch), ch);
+			send_to_char(msg(ARENT_WEAR_COMPARABLE, ch), ch);
 			return;
 		}
 	}
 	else if ((obj2 = get_obj_carry(ch,arg2)) == NULL) {
-		send_to_char(msg(INFO_DONT_HAVE_ITEM, ch), ch);
+		send_to_char(msg(DONT_HAVE_ITEM, ch), ch);
 		return;
 	}
 
@@ -2180,13 +2180,13 @@ void do_compare(CHAR_DATA *ch, char *argument)
 	value2	= 0;
 
 	if (obj1 == obj2)
-		cmsg = msg(INFO_COMPARE_P_TO_ITSELF, ch);
+		cmsg = msg(COMPARE_P_TO_ITSELF, ch);
 	else if (obj1->item_type != obj2->item_type)
-		cmsg = msg(INFO_CANT_COMPARE_P_P, ch);
+		cmsg = msg(CANT_COMPARE_P_P, ch);
 	else {
 		switch (obj1->item_type) {
 		default:
-			cmsg = msg(INFO_CANT_COMPARE_P_P, ch);
+			cmsg = msg(CANT_COMPARE_P_P, ch);
 			break;
 
 		case ITEM_ARMOR:
@@ -2210,11 +2210,11 @@ void do_compare(CHAR_DATA *ch, char *argument)
 
 	if (cmsg == NULL)
 		if (value1 == value2)
-			cmsg = msg(INFO_P_P_LOOKS_SAME, ch);
+			cmsg = msg(P_P_LOOKS_SAME, ch);
 		else if (value1  > value2)
-			cmsg = msg(INFO_P_LOOKS_BETTER_P, ch);
+			cmsg = msg(P_LOOKS_BETTER_P, ch);
 		else
-			cmsg = msg(INFO_P_LOOKS_WORSE_P, ch);
+			cmsg = msg(P_LOOKS_WORSE_P, ch);
 
 	act(cmsg, ch, obj1, obj2, TO_CHAR);
 	return;
@@ -2242,7 +2242,7 @@ void do_where(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (room_is_dark(ch) && !IS_SET(ch->act, PLR_HOLYLIGHT)) {
-		send_to_char(msg(INFO_TOO_DARK_SEE, ch), ch);
+		send_to_char(msg(TOO_DARK_SEE, ch), ch);
 		return;
 	}
 
@@ -2250,7 +2250,7 @@ void do_where(CHAR_DATA *ch, char *argument)
 		fPKonly = TRUE;
 
 	if (arg[0] == '\0' || fPKonly) {
-		send_to_char(msg(INFO_PLAYERS_NEAR_YOU, ch), ch);
+		send_to_char(msg(PLAYERS_NEAR_YOU, ch), ch);
 		found = FALSE;
 		for (d = descriptor_list; d; d = d->next) {
 			if (d->connected == CON_PLAYING
@@ -2269,7 +2269,7 @@ void do_where(CHAR_DATA *ch, char *argument)
 			}
 		}
 		if (!found)
-			send_to_char(msg(INFO_CAPNONE, ch), ch);
+			send_to_char(msg(CAPNONE, ch), ch);
 	}
 	else {
 		found = FALSE;
@@ -2291,7 +2291,7 @@ void do_where(CHAR_DATA *ch, char *argument)
 		}
 		if (!found)
 			act_nprintf(ch, NULL, arg, TO_CHAR, POS_DEAD,
-					INFO_DIDNT_FIND_ANY);
+					DIDNT_FIND_ANY);
 	}
 }
 
@@ -2307,46 +2307,46 @@ void do_consider(CHAR_DATA *ch, char *argument)
 	one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
-		send_to_char(msg(INFO_CONSIDER_WHOM, ch), ch);
+		send_to_char(msg(CONSIDER_WHOM, ch), ch);
 		return;
 	}
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
-		send_to_char(msg(MOVE_THEY_ARENT_HERE, ch), ch);
+		send_to_char(msg(THEY_ARENT_HERE, ch), ch);
 		return;
 	}
 
 	if (is_safe(ch, victim)) {
-		send_to_char(msg(INFO_DONT_EVEN_THINK, ch), ch);
+		send_to_char(msg(DONT_EVEN_THINK, ch), ch);
 		return;
 	}
 
 	diff = victim->level - ch->level;
 
-	     if (diff <= -10) cmsg = msg(INFO_CAN_KILL_NAKED, ch);
-	else if (diff <=  -5) cmsg = msg(INFO_IS_NOT_MATCH_FOR_YOU, ch);
-	else if (diff <=  -2) cmsg = msg(INFO_LOOKS_EASY_KILL, ch);
-	else if (diff <=   1) cmsg = msg(INFO_PERFECT_MATCH, ch);
-	else if (diff <=   4) cmsg = msg(INFO_FEEL_LUCKY_PUNK, ch);
-	else if (diff <=   9) cmsg = msg(INFO_LAUGHS_AT_YOU_MERCILESSLY, ch);
-	else		      cmsg = msg(INFO_DEATH_WILL_THANK_YOU, ch);
+	     if (diff <= -10) cmsg = msg(CAN_KILL_NAKED, ch);
+	else if (diff <=  -5) cmsg = msg(IS_NOT_MATCH_FOR_YOU, ch);
+	else if (diff <=  -2) cmsg = msg(LOOKS_EASY_KILL, ch);
+	else if (diff <=   1) cmsg = msg(PERFECT_MATCH, ch);
+	else if (diff <=   4) cmsg = msg(FEEL_LUCKY_PUNK, ch);
+	else if (diff <=   9) cmsg = msg(LAUGHS_AT_YOU_MERCILESSLY, ch);
+	else		      cmsg = msg(DEATH_WILL_THANK_YOU, ch);
 
 	if (IS_EVIL(ch) && IS_EVIL(victim))
-		align = msg(INFO_GRINS_EVILLY_WITH, ch);
+		align = msg(GRINS_EVILLY_WITH, ch);
 	else if (IS_GOOD(victim) && IS_GOOD(ch))
-		align = msg(INFO_GREETS_YOU_WARMLY, ch);
+		align = msg(GREETS_YOU_WARMLY, ch);
 	else if (IS_GOOD(victim) && IS_EVIL(ch))
-		align = msg(INFO_HOPE_YOU_WILL_TURN, ch);
+		align = msg(HOPE_YOU_WILL_TURN, ch);
 	else if (IS_EVIL(victim) && IS_GOOD(ch))
-		align = msg(INFO_GRINS_EVILLY_AT, ch);
+		align = msg(GRINS_EVILLY_AT, ch);
 	else if (IS_NEUTRAL(ch) && IS_EVIL(victim))
-		align = msg(INFO_GRINS_EVILLY, ch);
+		align = msg(GRINS_EVILLY, ch);
 	else if (IS_NEUTRAL(ch) && IS_GOOD(victim))
-		align = msg(INFO_SMILES_HAPPILY, ch);
+		align = msg(SMILES_HAPPILY, ch);
 	else if (IS_NEUTRAL(ch) && IS_NEUTRAL(victim))
-		align = msg(INFO_LOOKS_AS_YOU, ch);
+		align = msg(LOOKS_AS_YOU, ch);
 	else
-		align = msg(INFO_LOOKS_VERY_DISINTERESTED, ch);
+		align = msg(LOOKS_VERY_DISINTERESTED, ch);
 
 	act(cmsg, ch, NULL, victim, TO_CHAR);
 	act(align, ch, NULL, victim, TO_CHAR);
@@ -2388,17 +2388,17 @@ void do_title(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (CANT_CHANGE_TITLE(ch)) {
-		send_to_char(msg(INFO_CANT_CHANGE_TITLE, ch), ch);
+		send_to_char(msg(CANT_CHANGE_TITLE, ch), ch);
 		return;
 	}
 
 	if (argument[0] == '\0') {
-		send_to_char(msg(INFO_CHANGE_TITLE_TO_WHAT, ch), ch);
+		send_to_char(msg(CHANGE_TITLE_TO_WHAT, ch), ch);
 		return;
 	}
 
 	if (strchr(argument, '%') != NULL) {
-		send_to_char(msg(INFO_ILLEGAL_CHARACTER_TITLE, ch), ch);
+		send_to_char(msg(ILLEGAL_CHARACTER_TITLE, ch), ch);
 		return;
 	}
 
@@ -2407,7 +2407,7 @@ void do_title(CHAR_DATA *ch, char *argument)
 
 	smash_tilde(argument);
 	set_title(ch, argument);
-	send_to_char(msg(MOVE_OK, ch), ch);
+	send_to_char(msg(OK, ch), ch);
 }
 
 
@@ -2425,7 +2425,7 @@ void do_description(CHAR_DATA *ch, char *argument)
 
 			if (ch->description == NULL
 			||  ch->description[0] == '\0') {
-				send_to_char(msg(INFO_NO_LINES_TO_REMOVE, ch),
+				send_to_char(msg(NO_LINES_TO_REMOVE, ch),
 					     ch);
 				return;
 			}
@@ -2444,10 +2444,10 @@ void do_description(CHAR_DATA *ch, char *argument)
 						free_string(ch->description);
 						ch->description = str_dup(buf);
 						send_to_char(	
-						    msg(INFO_YOUR_DESC_IS, ch), 						    ch);
+						    msg(YOUR_DESC_IS, ch), 						    ch);
 						send_to_char(ch->description ?
 							ch->description :
-						      msg(INFO_BR_NONE_BR, ch), 
+						      msg(BR_NONE_BR, ch), 
 						      ch);
 						return;
 					}
@@ -2456,7 +2456,7 @@ void do_description(CHAR_DATA *ch, char *argument)
 			buf[0] = '\0';
 			free_string(ch->description);
 			ch->description = str_dup(buf);
-			send_to_char(msg(INFO_DESC_CLEARED, ch), ch);
+			send_to_char(msg(DESC_CLEARED, ch), ch);
 			return;
 		}
 
@@ -2467,7 +2467,7 @@ void do_description(CHAR_DATA *ch, char *argument)
 
 			if (strlen(buf) + strlen(argument) 
 				>= MAX_STRING_LENGTH - 2) {
-				send_to_char(msg(INFO_DESC_TOO_LONG, ch), ch);
+				send_to_char(msg(DESC_TOO_LONG, ch), ch);
 				return;
 			}
 
@@ -2478,20 +2478,20 @@ void do_description(CHAR_DATA *ch, char *argument)
 		}
 	}
 
-	send_to_char(msg(INFO_YOUR_DESC_IS, ch), ch);
+	send_to_char(msg(YOUR_DESC_IS, ch), ch);
 	send_to_char(ch->description ? ch->description : 
-					msg(INFO_BR_NONE_BR, ch), ch);
+					msg(BR_NONE_BR, ch), ch);
 	return;
 }
 
 
 void do_report(CHAR_DATA *ch, char *argument)
 {
-	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, INFO_REPORT_I_HAVE,
+	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, REPORT_I_HAVE,
 	       ch->hit, ch->max_hit,
 	       ch->mana, ch->max_mana,
 	       ch->move, ch->max_move);
-	act_nprintf(ch, NULL, NULL, TO_CHAR, POS_DEAD, INFO_REPORT_I_HAVE_TO_CH,
+	act_nprintf(ch, NULL, NULL, TO_CHAR, POS_DEAD, REPORT_I_HAVE_TO_CH,
 	       ch->hit, ch->max_hit,
 	       ch->mana, ch->max_mana,
 	       ch->move, ch->max_move);
@@ -2675,12 +2675,12 @@ void do_scan(CHAR_DATA *ch, char *argument)
 		dir2 = "down";
 		break;
 	default:
-		send_to_char(msg(MOVE_WRONG_DIRECTION, ch), ch);
+		send_to_char(msg(WRONG_DIRECTION, ch), ch);
 		return;
 	}
 
-	char_printf(ch, msg(INFO_YOU_SCAN_S, ch), dir2);
-	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, INFO_N_SCANS_S, dir2);
+	char_printf(ch, msg(YOU_SCAN_S, ch), dir2);
+	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, N_SCANS_S, dir2);
 
 	if (!check_blind(ch))
 		return;
@@ -2698,7 +2698,7 @@ void do_scan(CHAR_DATA *ch, char *argument)
 
 		if (IS_SET(exit->exit_info,EX_CLOSED)
 		&&  can_see_room(ch,exit->u1.to_room)) {
-			send_to_char(msg(MOVE_SCAN_DOOR_CLOSED, ch), ch);
+			send_to_char(msg(SCAN_DOOR_CLOSED, ch), ch);
 			return;
 		}
 		for (numpeople = 0, person = to_room->people; person != NULL;
@@ -2928,7 +2928,7 @@ void do_detect_hidden(CHAR_DATA *ch, char *argument)
 
 	if (IS_NPC(ch)
 	||  ch->level < skill_table[gsn_detect_hidden].skill_level[ch->class]) {
-		send_to_char(msg(MOVE_HUH, ch), ch);
+		send_to_char(msg(HUH, ch), ch);
 		return;
 	}
 
@@ -2965,7 +2965,7 @@ void do_bear_call(CHAR_DATA *ch, char *argument)
 
 	if (IS_NPC(ch)
 	||  ch->level < skill_table[gsn_bear_call].skill_level[ch->class]) {
-		send_to_char(msg(MOVE_HUH, ch), ch);
+		send_to_char(msg(HUH, ch), ch);
 		return;
 	}
 
@@ -3177,8 +3177,8 @@ void do_score(CHAR_DATA *ch, char *argument)
 
 	char_printf(ch, "     {G| {RAlign:  {x%-11s  {C|                |{x %-7s %-19s {G|{x\n\r",
 		IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral",
-		msg(INFO_YOU_ARE, ch),
-		msg(INFO_POS_NAME_DEAD + ch->position, ch));
+		msg(YOU_ARE, ch),
+		msg(POS_NAME_DEAD + ch->position, ch));
 
 	send_to_char("     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x{x\n\r", ch);
 
@@ -3286,7 +3286,7 @@ void do_oscore(CHAR_DATA *ch, char *argument)
 	char_printf(ch,
 		"%s {W%s{x%s, level {W%d{x, {c%d{x years old "
 		"(%d hours).\n\r",
-		msg(INFO_YOU_ARE, ch),
+		msg(YOU_ARE, ch),
 		ch->name,
 		IS_NPC(ch) ? "" : ch->pcdata->title, ch->level, get_age(ch),
 		(ch->played + (int) (current_time - ch->logon)) / 3600);
@@ -3395,8 +3395,8 @@ void do_oscore(CHAR_DATA *ch, char *argument)
 		send_to_char("You are {rdesiring your home{x.\n\r", ch);
 
 	char_printf(ch, "%s %s.\n\r",
-		msg(INFO_YOU_ARE, ch),
-		msg(INFO_POS_NAME_DEAD + ch->position, ch));
+		msg(YOU_ARE, ch),
+		msg(POS_NAME_DEAD + ch->position, ch));
 
 	if ((ch->position == POS_SLEEPING || ch->position == POS_RESTING ||
 	     ch->position == POS_FIGHTING || ch->position == POS_STANDING)
@@ -3664,12 +3664,12 @@ char *get_cond_alias(OBJ_DATA *obj, CHAR_DATA *ch)
 
 	istat = obj->condition;
 
-	if	(istat >  99) stat = msg(INFO_COND_EXCELLENT, ch);
-	else if (istat >= 80) stat = msg(INFO_COND_GOOD, ch);
-	else if (istat >= 60) stat = msg(INFO_COND_FINE, ch);
-	else if (istat >= 40) stat = msg(INFO_COND_AVERAGE, ch);
-	else if (istat >= 20) stat = msg(INFO_COND_POOR, ch);
-	else			stat = msg(INFO_COND_FRAGILE, ch);
+	if	(istat >  99) stat = msg(COND_EXCELLENT, ch);
+	else if (istat >= 80) stat = msg(COND_GOOD, ch);
+	else if (istat >= 60) stat = msg(COND_FINE, ch);
+	else if (istat >= 40) stat = msg(COND_AVERAGE, ch);
+	else if (istat >= 20) stat = msg(COND_POOR, ch);
+	else			stat = msg(COND_FRAGILE, ch);
 
 	return stat;
 }

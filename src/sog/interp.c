@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.21 1998-06-14 10:37:31 efdi Exp $
+ * $Id: interp.c,v 1.22 1998-06-14 13:42:41 efdi Exp $
  */
 
 /***************************************************************************
@@ -504,7 +504,7 @@ void interpret( CHAR_DATA *ch, char *argument, bool is_order )
      */
     if ( !IS_NPC(ch) && IS_SET(ch->act, PLR_FREEZE) )
     {
-	send_to_char(msg(INTERP_FROZEN, ch), ch);
+	send_to_char(msg(FROZEN, ch), ch);
 	return;
     }
 
@@ -564,39 +564,39 @@ void interpret( CHAR_DATA *ch, char *argument, bool is_order )
        		 */
 		if (!is_order && IS_AFFECTED(ch,AFF_CHARM)
 		&&  cmd_table[cmd].do_fun != do_return) {
-			send_to_char(msg(INTERP_ASK_MASTER, ch), ch);
+			send_to_char(msg(ASK_MASTER, ch), ch);
 			return;
 		}
 
           if ( IS_AFFECTED(ch,AFF_STUN) && 
 		!(cmd_table[cmd].extra & CMD_KEEP_HIDE) ) {
-	   send_to_char(msg(INTERP_TOO_STUNNED, ch), ch);
+	   send_to_char(msg(TOO_STUNNED, ch), ch);
 	   return;
 	  }
           /* Come out of hiding for most commands */
           if ( IS_AFFECTED(ch, AFF_HIDE) && !IS_NPC(ch)
           && !(cmd_table[cmd].extra & CMD_KEEP_HIDE) ) {
               REMOVE_BIT(ch->affected_by, AFF_HIDE);
-              send_to_char(msg(MOVE_YOU_STEP_OUT_SHADOWS, ch), ch);
+              send_to_char(msg(YOU_STEP_OUT_SHADOWS, ch), ch);
               act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
-			  MOVE_N_STEPS_OUT_OF_SHADOWS);
+			  N_STEPS_OUT_OF_SHADOWS);
           }
 
           if ( IS_AFFECTED(ch, AFF_FADE) && !IS_NPC(ch)
           && !(cmd_table[cmd].extra & CMD_KEEP_HIDE) ) {
               REMOVE_BIT(ch->affected_by, AFF_FADE);
-              send_to_char(msg(MOVE_YOU_STEP_OUT_SHADOWS, ch), ch);
+              send_to_char(msg(YOU_STEP_OUT_SHADOWS, ch), ch);
               act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
-			  MOVE_N_STEPS_OUT_OF_SHADOWS);
+			  N_STEPS_OUT_OF_SHADOWS);
           }
 
           if ( IS_AFFECTED(ch, AFF_IMP_INVIS) && !IS_NPC(ch)
           && (cmd_table[cmd].position == POS_FIGHTING) ) {
 	      affect_strip(ch,gsn_imp_invis);
               REMOVE_BIT(ch->affected_by, AFF_IMP_INVIS);
-              send_to_char(msg(MOVE_YOU_FADE_INTO_EXIST, ch), ch);
+              send_to_char(msg(YOU_FADE_INTO_EXIST, ch), ch);
               act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-			  MOVE_N_FADES_INTO_EXIST);
+			  N_FADES_INTO_EXIST);
           }
 
           /* prevent ghosts from doing a bunch of commands */
@@ -637,7 +637,7 @@ void interpret( CHAR_DATA *ch, char *argument, bool is_order )
 	 * Look for command in socials table.
 	 */
 	if ( !check_social( ch, command, argument ) )  {
-	    send_to_char(msg(MOVE_HUH, ch), ch);
+	    send_to_char(msg(HUH, ch), ch);
 	    return;
 	}
 	else
@@ -652,32 +652,32 @@ void interpret( CHAR_DATA *ch, char *argument, bool is_order )
 	switch( ch->position )
 	{
 	case POS_DEAD:
-	    send_to_char(msg(INTERP_YOU_ARE_DEAD, ch), ch);
+	    send_to_char(msg(YOU_ARE_DEAD, ch), ch);
 	    break;
 
 	case POS_MORTAL:
 	case POS_INCAP:
-	    send_to_char(msg(INTERP_HURT_FAR_TOO_BAD, ch), ch);
+	    send_to_char(msg(HURT_FAR_TOO_BAD, ch), ch);
 	    break;
 
 	case POS_STUNNED:
-	    send_to_char(msg(INTERP_YOU_TOO_STUNNED, ch), ch);
+	    send_to_char(msg(YOU_TOO_STUNNED, ch), ch);
 	    break;
 
 	case POS_SLEEPING:
-	    send_to_char(msg(INTERP_I_YOUR_DREAMS, ch), ch);
+	    send_to_char(msg(I_YOUR_DREAMS, ch), ch);
 	    break;
 
 	case POS_RESTING:
-	    send_to_char(msg(INTERP_TOO_RELAXED, ch), ch);
+	    send_to_char(msg(TOO_RELAXED, ch), ch);
 	    break;
 
 	case POS_SITTING:
-	    send_to_char(msg(INTERP_BETTER_STANDUP, ch), ch);
+	    send_to_char(msg(BETTER_STANDUP, ch), ch);
 	    break;
 
 	case POS_FIGHTING:
-	    send_to_char(msg(INTERP_NO_WAY_FIGHT, ch), ch);
+	    send_to_char(msg(NO_WAY_FIGHT, ch), ch);
 	    break;
 
 	}

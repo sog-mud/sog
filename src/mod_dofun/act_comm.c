@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.42 1998-06-13 18:45:03 fjoe Exp $
+ * $Id: act_comm.c,v 1.43 1998-06-14 13:42:40 efdi Exp $
  */
 
 /***************************************************************************
@@ -499,7 +499,7 @@ void do_tell_raw(CHAR_DATA *ch, char *msg, CHAR_DATA *victim)
 
 	if (victim == NULL 
 	|| (IS_NPC(victim) && victim->in_room != ch->in_room)) {
-		send_to_char(msg(MOVE_THEY_ARENT_HERE, ch), ch);
+		send_to_char(msg(THEY_ARENT_HERE, ch), ch);
 		return;
 	}
 
