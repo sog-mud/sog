@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.18 1998-05-20 12:27:40 efdi Exp $
+# $Id: english.lang,v 1.19 1998-05-21 14:56:11 efdi Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -484,3 +484,18 @@ INFO_LOOKS_AS_YOU	"{W$N{x looks just as disinterested as you."
 INFO_LOOKS_VERY_DISINTERESTED	"{W$N{x looks very disinterested."
 MOVE_SCAN_HERE		"{Chere{x:\n\r"
 MOVE_SCAN_DOOR_CLOSED	"	You see closed door.\n\r"
+MOVE_PUSH_WHOM_WHERE	"Push whom to what diretion?\n\r"
+MOVE_CANT_PUSH_MOUNTED	"You can't push while mounted.\n\r"
+MOVE_CANT_PUSH_RIDDEN	"You can't push while being ridden.\n\r"
+MOVE_TOO_DAZED_TO_PUSH	"You are too dazed to push anyone.\n\r"
+MOVE_THATS_POINTLESS	"That's pointless.\n\r"
+MOVE_DIR_IS_CLOSED	"Direction is closed.\n\r"
+MOVE_DIR_IS_LOCKED	"Direction is locked.\n\r"
+MOVE_YOU_WEBBED_WANT_WHAT	"You're webbed, and want to do WHAT?!?\n\r"
+MOVE_N_TRIES_PUSH_WEBBED	"$n stupidly tries to push $N while webbed."
+MOVE_PUSH_VICT_WEBBED	"You attempt to push $N, but the webs hold $m in place."
+MOVE_N_PUSHES_VICT_WEBBED	"$n attempts to push $n, but fails as the webs hold $n in place."
+MOVE_OOPS	"Oops.\n\r"
+MOVE_N_TRIED_PUSH_YOU	"$n tried to push you.\n\r"
+MOVE_N_TRIED_PUSH_N	"$n tried to push $N.\n\r"
+MOVE_KEEP_HANDS_OUT	"Keep your hands out of me, %s!"

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.39 1998-05-20 21:21:47 efdi Exp $
+ * $Id: act_move.c,v 1.40 1998-05-21 14:55:55 efdi Exp $
  */
 
 /***************************************************************************
@@ -2913,45 +2913,41 @@ void do_push(CHAR_DATA *ch, char *argument)
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0')
-	{
-		send_to_char("Push whom to what diretion?\n\r", ch);
+	if (arg1[0] == '\0' || arg2[0] == '\0') {
+		send_to_char(msg(MOVE_PUSH_WHOM_WHERE, ch), ch);
 		return;
 	}
 
-	if (MOUNTED(ch)) 
-	{
-		  send_to_char("You can't push while mounted.\n\r", ch);
+	if (MOUNTED(ch)) {
+		  send_to_char(msg(MOVE_CANT_PUSH_MOUNTED, ch), ch);
 		  return;
 	}
-	if (RIDDEN(ch)) 
-	{
-		  send_to_char("You can't push while being ridden.\n\r", ch);
+	if (RIDDEN(ch)) {
+		  send_to_char(msg(MOVE_CANT_PUSH_RIDDEN, ch), ch);
 		  return;
 	}
 
 	if (IS_NPC(ch) && IS_SET(ch->affected_by, AFF_CHARM) 
-		&& (ch->master != NULL))
-		{
-		send_to_char("You are to dazed to push anyone.\n\r", ch);
+		&& (ch->master != NULL)) {
+		send_to_char(msg(MOVE_TOO_DAZED_TO_PUSH, ch), ch);
 		return;
-		}
+	}
 
 	if ((victim = get_char_room(ch, arg1)) == NULL)
 	{
-		send_to_char("They aren't here.\n\r", ch);
+		send_to_char(msg(MOVE_THEY_ARENT_HERE, ch), ch);
 		return;
 	}
 
 	if (!IS_NPC(victim) && victim->desc == NULL)
 	{
-		send_to_char("You can't do that.\n\r", ch);
+		send_to_char(msg(MOVE_YOU_CANT_DO_THAT, ch), ch);
 		return;
 	}
 
 	if (victim == ch)
 	{
-		send_to_char("That's pointless.\n\r", ch);
+		send_to_char(msg(MOVE_THATS_POINTLESS, ch), ch);
 		return;
 	}
 
@@ -2960,7 +2956,7 @@ void do_push(CHAR_DATA *ch, char *argument)
 
 	if (victim->position == POS_FIGHTING)
 	{
-		send_to_char("Wait till the end of fight.\n\r",ch);
+		send_to_char(msg(MOVE_WAIT_FIGHT_FINISH, ch), ch);
 		return;
 	}
 
@@ -2974,26 +2970,27 @@ if ((door = find_exit(ch, arg2)) >= 0)
 	 if (IS_SET(pexit->exit_info, EX_ISDOOR)) 
 		{
 		    if (IS_SET(pexit->exit_info, EX_CLOSED))
-		    send_to_char("Direction is closed.\n\r",      ch); 
+		    send_to_char(msg(MOVE_DIR_IS_CLOSED, ch), ch); 
 		    else if (IS_SET(pexit->exit_info, EX_LOCKED))
-		     send_to_char("Direction is locked.\n\r",     ch); 
+		     send_to_char(msg(MOVE_DIR_IS_LOCKED, ch), ch); 
 	 	  return;
 		}
 	}
 
 	if (CAN_DETECT(ch,ADET_WEB))
 	{
-		send_to_char("You're webbed, and want to do WHAT?!?\n\r", ch);
-		act("$n stupidly tries to push $N while webbed.", ch, NULL, victim, TO_ROOM);
+		send_to_char(msg(MOVE_YOU_WEBBED_WANT_WHAT, ch), ch);
+		act_printf(ch, NULL, victim, TO_ROOM, POS_RESTING, 
+				MOVE_N_TRIES_PUSH_WEBBED);
 		return; 
 	}
 
 	if (CAN_DETECT(victim,ADET_WEB))
 	{
-		act("You attempt to push $N, but the webs hold $m in place.",
-		  ch, NULL, victim, TO_CHAR);
-		act("$n attempts to push $n, but fails as the webs hold $n in place.",
-		  ch, NULL, victim, TO_ROOM);
+		act_printf(ch, NULL, victim, TO_CHAR, POS_DEAD, 
+				MOVE_PUSH_VICT_WEBBED);
+		act_printf(ch, NULL, victim, TO_ROOM, POS_RESTING,
+				MOVE_N_PUSHES_VICT_WEBBED);
 		return; 
 	}
 
@@ -3011,15 +3008,17 @@ if ((door = find_exit(ch, arg2)) >= 0)
 		 * Failure.
 		 */
 
-		send_to_char("Oops.\n\r", ch);
-		  if (!IS_AFFECTED(victim, AFF_SLEEP)) {
-		    victim->position= victim->position==POS_SLEEPING? POS_STANDING:
-						victim->position;
-		  act("$n tried to push you.\n\r", ch, NULL, victim,TO_VICT );
-		  }
-		act("$n tried to push $N.\n\r",  ch, NULL, victim,TO_NOTVICT);
+		send_to_char(msg(MOVE_OOPS, ch), ch);
+		if (!IS_AFFECTED(victim, AFF_SLEEP)) {
+		   victim->position = victim->position == POS_SLEEPING ? 
+					POS_STANDING : victim->position;
+		   act_printf(ch, NULL, victim, TO_VICT, POS_RESTING,
+				MOVE_N_TRIED_PUSH_YOU);
+		}
+		act_printf(ch, NULL, victim, TO_NOTVICT, POS_RESTING, 
+				MOVE_N_TRIED_PUSH_N);
 
-		  sprintf(buf,"Keep your hands out of me, %s!",ch->name);
+		sprintf(buf, msg(MOVE_KEEP_HANDS_OUT, ch), ch->name);
 
 		if (IS_AWAKE(victim))
 		  	do_yell(victim, buf);
