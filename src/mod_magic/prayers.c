@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.63 2004-03-01 18:55:57 tatyana Exp $
+ * $Id: prayers.c,v 1.64 2004-03-01 19:44:02 tatyana Exp $
  */
 
 /***************************************************************************
@@ -154,6 +154,7 @@ DECLARE_SPELL_FUN(prayer_air_ward);
 DECLARE_SPELL_FUN(prayer_earth_ward);
 DECLARE_SPELL_FUN(prayer_fire_ward);
 DECLARE_SPELL_FUN(prayer_death_ward);
+DECLARE_SPELL_FUN(prayer_spear_of_death);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -3575,4 +3576,64 @@ SPELL_FUN(prayer_death_ward, sn, level, ch, vo)
 	aff_free(paf);
 
 	act("Your god grant you protection!", ch, NULL, NULL, TO_CHAR);
+}
+
+SPELL_FUN(prayer_spear_of_death, sn, level, ch, vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	int dam;
+
+	if (ch == victim) {
+		act_char("Even you are not so silly.", ch);
+		return;
+	}
+
+        act("You create a spear from darkness and throw it toward $N!",
+	    ch, NULL, victim, TO_CHAR);
+	act("$n creates a spear from darkness and throws it toward $N!",
+	    ch, NULL, victim, TO_NOTVICT);
+	act("$n creates a spear from darkness and throws it toward you!",
+	    ch, NULL, victim, TO_VICT);
+
+	if (!is_sn_affected(victim, sn)
+	&&  !IS_SET(victim->form, FORM_UNDEAD)
+	&&  !saves_spell(level, victim, DAM_NEGATIVE)) {
+		AFFECT_DATA *paf;
+		int mod = get_curr_stat(ch, STAT_INT);
+
+		paf = aff_new(TO_AFFECTS, sn);
+		paf->duration	= mod / 4;
+		paf->level	= level;
+		INT(paf->location)= APPLY_STR;
+		paf->modifier	= - mod / 5;
+		affect_to_char(victim, paf);
+
+		INT(paf->location)= APPLY_INT;
+		affect_to_char(victim, paf);
+
+		INT(paf->location)= APPLY_WIS;
+		affect_to_char(victim, paf);
+
+		INT(paf->location)= APPLY_DEX;
+		affect_to_char(victim, paf);
+
+		INT(paf->location)= APPLY_CON;
+		affect_to_char(victim, paf);
+
+		INT(paf->location)= APPLY_LUCK;
+		paf->modifier	= - mod;
+		affect_to_char(victim, paf);
+		aff_free(paf);
+
+		act_char("A spear of darkness sears your body!", victim);
+		act("A spear of darkness sears $n's body!",
+		    victim, NULL, NULL, TO_ROOM);
+	}
+
+	dam = calc_spell_damage(ch, level, sn);
+	if (IS_SET(victim->form, FORM_UNDEAD)
+	||  saves_spell(level, victim, DAM_NEGATIVE))
+		dam /= 3;
+
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
