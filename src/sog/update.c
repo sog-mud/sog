@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.165 1999-10-25 08:23:38 fjoe Exp $
+ * $Id: update.c,v 1.166 1999-10-26 13:26:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -896,7 +896,7 @@ int i;
 bool is_potion(OBJ_DATA *potion, const char *sn)
 {
 	int i;
-	for (i = 0; i < 5; i++) {
+	for (i = 1; i < 5; i++) {
 		if (IS_SKILL(potion->value[i].s, sn))
 			return TRUE;
 	}

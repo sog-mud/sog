@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.16 1999-09-08 10:40:07 fjoe Exp $
+ * $Id: buffer.c,v 1.17 1999-10-26 13:26:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -121,6 +121,8 @@ void buf_free(BUFFER *buffer)
 
 bool buf_add(BUFFER *buffer, const char *string)
 {
+	if (IS_NULLSTR(string))
+		return TRUE;
 	return buf_cat(buffer, buffer->lang < 0 ?
 				string : GETMSG(string, buffer->lang));
 }
