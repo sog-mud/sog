@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.253 2000-05-23 12:42:06 fjoe Exp $
+ * $Id: handler.c,v 1.254 2000-05-24 21:13:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1316,13 +1316,6 @@ money_form(int lang, char *buf, size_t len, int num, const char *name)
 	strnzcpy(buf, len, word_form(tmp, num, lang, RULES_QTY));
 }
 
-struct _data {
-	int num1;
-	const char *name1;
-	int num2;
-	const char *name2;
-};
-
 static const char *
 money_descr_cb(int lang, const char **p, va_list ap)
 {
@@ -1813,30 +1806,6 @@ void path_to_track(CHAR_DATA *ch, CHAR_DATA *victim, int door)
 	}
 	add_mind(victim, ch->name);
 	dofun("track", victim, str_empty);
-}
-
-int pk_range(int level)
-{
-	return UMAX(4, level/10 + 2);
-}
-
-bool in_PK(CHAR_DATA *ch, CHAR_DATA *victim)
-{
-	if (IS_NPC(ch) || IS_NPC(victim))
-		return TRUE;
-
-	if (victim->level < LEVEL_PK || ch->level < LEVEL_PK)
-		return FALSE;
-
-	/* level adjustment */
-	if (ch != victim && !IS_IMMORTAL(ch)
-	&&  (ch->level >= (victim->level + pk_range(ch->level)) ||
-	     ch->level <= (victim->level - pk_range(ch->level)))
-	&&  (victim->level >= (ch->level + pk_range(victim->level)) ||
-	     victim->level <= (ch->level - pk_range(victim->level))))
-		return FALSE;
-
-	return TRUE;
 }
 
 bool can_gate(CHAR_DATA *ch, CHAR_DATA *victim)
@@ -4316,37 +4285,6 @@ bool random_eq_damage(CHAR_DATA *ch, CHAR_DATA *victim, int loc_wield)
 	return make_eq_damage(ch, victim, loc_wield, i);
 }
 
-/*
- * finds guard for ch (if any) when mob attacks
- * ch is assumed to be !IS_NPC
- */
-CHAR_DATA *check_guard(CHAR_DATA *ch, CHAR_DATA *mob)
-{
-	int chance;
-	CHAR_DATA *guarded_by = PC(ch)->guarded_by;
-
-	if (guarded_by == NULL
-	||  get_char_room(ch, guarded_by->name) == NULL)
-		return ch;
-	else {
-		chance = get_skill(guarded_by, "guard") - 
-				3 * (ch->level - mob->level) / 2;
-		if (number_percent() < chance) {
-			act("$n jumps in front of $N!",
-			    guarded_by, NULL, ch, TO_NOTVICT);
-			act("$n jumps in front of you!",
-			    guarded_by, NULL, ch, TO_VICT);
-			act("You jump in front of $N!",
-			    guarded_by, NULL, ch, TO_CHAR);
-			check_improve(guarded_by, "guard", TRUE, 3);
-			return guarded_by;
-		} else {
-			check_improve(guarded_by, "guard", FALSE, 3);
-			return ch;
-		}
-	}
-}
-
 static inline int
 get_played(CHAR_DATA *ch, bool add_age)
 {
@@ -4493,6 +4431,8 @@ void delevel(CHAR_DATA *ch)
 		return;
 	}
 
+	act("You loose a level!", ch, NULL, NULL, TO_CHAR);
+	ch->level--;
 	update_skills(ch);
 
 	lost_hitp = max_hit_gain(ch, cl);
@@ -4514,12 +4454,13 @@ void delevel(CHAR_DATA *ch)
 
 	if(ch->perm_hit <= 0) {
 		act("You've lost your life power.", ch, NULL, NULL, TO_CHAR);
-		delete_player(ch, "lack of HP");
+		delete_player(ch, "lack of hp");
 	} else if (ch->perm_mana <= 0) {
 		act("You've lost all your power.", ch, NULL, NULL, TO_CHAR);
 		delete_player(ch, "lack of mana");
 	} else if (ch->perm_move <= 0) {
-		act("You've lost all your ability to move.", ch, NULL, NULL, TO_CHAR);
+		act("You've lost all your ability to move.",
+		    ch, NULL, NULL, TO_CHAR);
 		delete_player(ch, "lack of move");
 	}
 }
@@ -4636,3 +4577,39 @@ void bad_effect(CHAR_DATA* ch, int effect)
 		return;
 	}
 }
+
+int get_resist(CHAR_DATA *ch, int dam_class) 
+{
+	int16_t *resists;
+	int16_t bonus=0;
+
+	if (ch->shapeform)
+		resists = ch->shapeform->resists;
+	else
+		resists = ch->resists;
+
+	switch(dam_class) {
+	case DAM_POISON:
+	case DAM_DISEASE:
+		bonus = get_curr_stat(ch, STAT_CON) - 18;
+		break;
+	case DAM_BASH:
+		bonus = (get_curr_stat(ch, STAT_CON) - 18) / 2;
+		break;
+	case DAM_MENTAL:
+		bonus = (get_curr_stat(ch, STAT_WIS) + get_curr_stat(ch, STAT_INT) - 36) / 2;
+		break;
+	case DAM_HOLY:
+		bonus = ch->alignment / 500;
+		break;
+	case DAM_NEGATIVE:
+		bonus = - ch->alignment / 500;
+		break;
+	}
+
+	if (dam_class != DAM_NONE)
+		return URANGE(-100, resists[dam_class] + bonus, 100);
+
+	return IS_IMMORTAL(ch)? 100 : 0;
+}
+

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.301 2000-04-16 09:21:35 fjoe Exp $
+ * $Id: merc.h,v 1.302 2000-05-24 21:13:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1969,8 +1969,6 @@ extern		bool			MOBtrigger;
  * One big lump ... this is every function in Merc.
  */
 
-void	handle_death(CHAR_DATA *ch, CHAR_DATA *victim);
-
 ROOM_INDEX_DATA  *get_random_room(CHAR_DATA *ch, AREA_DATA *area);
 CHAR_DATA *random_char(ROOM_INDEX_DATA *room);
 CHAR_DATA *nth_char(CHAR_DATA *ch, int n);
@@ -2081,7 +2079,6 @@ void	back_home	(CHAR_DATA *ch);
 CHAR_DATA*	find_char	(CHAR_DATA *ch, const char *argument, int door, int range);
 CHAR_DATA*	get_char_spell	(CHAR_DATA *ch, const char *argument, int *door, int range);
 void	path_to_track	(CHAR_DATA *ch, CHAR_DATA *victim, int door);
-bool	in_PK(CHAR_DATA *ch, CHAR_DATA *victim);
 bool	can_gate(CHAR_DATA *ch, CHAR_DATA *victim);
 void	transfer_char(CHAR_DATA *ch, CHAR_DATA *vch,
 		      ROOM_INDEX_DATA *to_room,
@@ -2122,6 +2119,9 @@ uint	mult_argument	(const char *argument, char *arg, size_t len);
 const char *	one_argument	(const char *argument, char *arg_first, size_t);
 const char *	first_arg	(const char *argument, char *arg_first, size_t,
 				 bool fCase);
+
+int  	get_resist	(CHAR_DATA *ch, int dam_class);
+void	yell		(CHAR_DATA *victim, CHAR_DATA *ch, const char * argument);
 
 /*
  * victim is assumed to be !IS_NPC

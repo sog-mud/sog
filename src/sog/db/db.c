@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.222 2000-04-25 13:18:06 fjoe Exp $
+ * $Id: db.c,v 1.223 2000-05-24 21:13:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -67,6 +67,7 @@
 #include "note.h"
 #include "ban.h"
 #include "rfile.h"
+#include "dynafun.h"
 
 #if defined(BSD44)
 #	include <fnmatch.h>
@@ -465,6 +466,8 @@ void boot_db(void)
 	else if (weather_info.mmhg <= 1000) weather_info.sky = SKY_RAINING;
 	else if (weather_info.mmhg <= 1020) weather_info.sky = SKY_CLOUDY;
 	else                                weather_info.sky = SKY_CLOUDLESS;
+
+	init_dynafuns();
 
 	db_load_list(&db_langs, LANG_PATH, LANG_LIST);
 	db_load_file(&db_glob_gmlstr, ETC_PATH, GLOB_GMLSTR_FILE);

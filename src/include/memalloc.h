@@ -23,17 +23,20 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.h,v 1.6 2000-01-05 14:53:18 fjoe Exp $
+ * $Id: memalloc.h,v 1.7 2000-05-24 21:13:01 fjoe Exp $
  */
 
 #ifndef _MEMALLOC_H_
 #define _MEMALLOC_H_
 
 enum {
+	MT_VOID,
+	MT_INT,
 	MT_STR,
 	MT_CHAR,
 	MT_OBJ,
 	MT_ROOM,
+	MT_AFFECT,
 };
 
 #define MEM_VALID	0x5a	/* valid chunk signature	*/

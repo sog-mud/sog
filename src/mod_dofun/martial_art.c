@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.156 2000-04-16 09:21:41 fjoe Exp $
+ * $Id: martial_art.c,v 1.157 2000-05-24 21:13:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1651,9 +1651,7 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	OBJ_DATA *weapon;
-	int foo;
 	int chance;
-	const char *dt = NULL;
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -1667,8 +1665,8 @@ void do_backstab(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_NPC(ch) && get_dam_class(ch, get_eq_char(ch, WEAR_WIELD),
-			 &dt, &foo) != DAM_PIERCE) {
+	if (IS_NPC(ch)
+	&&  get_dam_class(ch, get_eq_char(ch, WEAR_WIELD)) != DAM_PIERCE) {
 		char_puts("You need piercing weapon to backstab.\n", ch);
 		return;
 	}

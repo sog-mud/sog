@@ -1,5 +1,5 @@
 /*
- * $Id: fight.h,v 1.23 2000-04-06 05:40:45 fjoe Exp $
+ * $Id: fight.h,v 1.24 2000-05-24 21:13:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -42,34 +42,13 @@
 
 #ifndef _FIGHT_H_
 #define _FIGHT_H_
+#define MODULE_NAME MOD_FIGHT
 
-OBJ_DATA *raw_kill(CHAR_DATA *ch, CHAR_DATA *victim);
+#include "dynafun.h"
 
-bool	is_safe 	(CHAR_DATA *ch, CHAR_DATA *victim);
-bool	is_safe_nomessage (CHAR_DATA *ch, CHAR_DATA *victim);
-bool	is_safe_spell	(CHAR_DATA *ch, CHAR_DATA *victim, bool area);
-bool	is_safe_rspell	(AFFECT_DATA *af, CHAR_DATA *victim);
-void	multi_hit	(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt);
-bool	damage		(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
-			 const char *dt, int class, int dam_flags);
-int  	get_resist	(CHAR_DATA *ch, int dam_class);
-void	update_pos	(CHAR_DATA *victim);
-void	set_fighting	(CHAR_DATA *ch, CHAR_DATA *victim);
-void	stop_fighting	(CHAR_DATA *ch, bool fBoth);
-bool	can_kill	(CHAR_DATA *ch, CHAR_DATA *victim);
-CHAR_DATA *  check_guard     (CHAR_DATA *ch, CHAR_DATA *mob);
-void	one_hit 	(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt,
-			 bool secondary);
-bool	check_obj_dodge	(CHAR_DATA *ch, CHAR_DATA *victim,
-			 OBJ_DATA *obj, int bonus);
-int	get_dam_class	(CHAR_DATA *ch, OBJ_DATA *wield, const char **dt,
-			 int *dam_flags);
-void	yell		(CHAR_DATA *victim, CHAR_DATA *ch, const char * argument);
-
-void		dam_alias	(int dam, const char **pvs, const char **pvp);
-const char *	vs_dam_alias	(int dam);
-const char *	vp_dam_alias	(int dam);
-
+/*
+ * dam_flags
+ */
 #define DAMF_NONE	(0)
 #define DAMF_SHOW	(A)	/* show dam message */
 #define DAMF_SECOND	(B)	/* damage inflicted by second weapon */
@@ -80,4 +59,48 @@ const char *	vp_dam_alias	(int dam);
 #define DAMF_LIGHT_V	(G)	/* light in room */
 #define DAMF_TRAP_ROOM	(H)	/* room trap damage */
 
+__MODULE_START_DECL(_fight)
+
+DECLARE_FUN4(void, one_hit,
+	     CHAR_DATA, ch, CHAR_DATA, victim, cchar_t, dt, bool, secondary)
+DECLARE_FUN2(void, handle_death,
+	     CHAR_DATA, ch, CHAR_DATA, victim)
+DECLARE_FUN3(void, multi_hit,
+	     CHAR_DATA, ch, CHAR_DATA, victim, cchar_t, dt)
+DECLARE_FUN6(bool, damage,
+	     CHAR_DATA, ch, CHAR_DATA, victim, int, dam,
+	     cchar_t, dt, int, class, int, dam_flags)
+DECLARE_FUN1(void, update_pos,
+	     CHAR_DATA, victim)
+DECLARE_FUN2(void, set_fighting,
+	     CHAR_DATA, ch, CHAR_DATA, victim)
+DECLARE_FUN2(void, stop_fighting,
+	     CHAR_DATA, ch, bool, fBoth)
+DECLARE_FUN2(OBJ_DATA, raw_kill,
+	     CHAR_DATA, ch, CHAR_DATA, victim)
+DECLARE_FUN1(cchar_t, vs_dam_alias,
+	     int, dam)
+DECLARE_FUN1(cchar_t, vp_dam_alias,
+	     int, dam)
+DECLARE_FUN4(bool, check_obj_dodge,
+	     CHAR_DATA, ch, CHAR_DATA, victim,
+	     OBJ_DATA, obj, int, bonus)
+DECLARE_FUN2(bool, is_safe,
+	     CHAR_DATA, ch, CHAR_DATA, victim)
+DECLARE_FUN2(bool, is_safe_nomessage,
+	     CHAR_DATA, ch, CHAR_DATA, victim)
+DECLARE_FUN3(bool, is_safe_spell,
+	     CHAR_DATA, ch, CHAR_DATA, victim, bool, area)
+DECLARE_FUN2(bool, is_safe_rspell,
+	     AFFECT_DATA, af, CHAR_DATA, victim)
+DECLARE_FUN2(int, get_dam_class,
+	     CHAR_DATA, ch, OBJ_DATA, wield)
+DECLARE_FUN2(CHAR_DATA, check_guard,
+	     CHAR_DATA, ch, CHAR_DATA, mob)
+DECLARE_FUN2(bool, in_PK,
+	     CHAR_DATA, ch, CHAR_DATA, victim)
+
+__MODULE_END_DECL
+
+#undef MODULE_NAME
 #endif
