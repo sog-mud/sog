@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: damtype.c,v 1.9 2000-02-10 14:08:45 fjoe Exp $
+ * $Id: damtype.c,v 1.10 2000-03-25 13:17:38 avn Exp $
  */
 
 #include <string.h>
@@ -102,7 +102,7 @@ int
 damtype_class(const char *dn)
 {
 	damtype_t *d;
-	STRKEY_CHECK(&damtypes, dn, "damtype_noun");
+	STRKEY_CHECK(&damtypes, dn, "damtype_class");
 	d = damtype_lookup(dn);
 	if (d != NULL)
 		return d->dam_class;

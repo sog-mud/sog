@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.108 2000-02-10 14:08:52 fjoe Exp $
+ * $Id: skills.c,v 1.109 2000-03-25 13:17:40 avn Exp $
  */
 
 /***************************************************************************
@@ -279,24 +279,11 @@ const char* get_weapon_sn(OBJ_DATA *wield)
 	if (wield == NULL)
 		return "hand to hand";
 
-	if (wield->item_type != ITEM_WEAPON)
+	if (wield->item_type != ITEM_WEAPON
+	||  INT(wield->value[0]) == WEAPON_EXOTIC)
 		return NULL;
 
-	switch (INT(wield->value[0])) {
-	default :               return NULL;
-	case(WEAPON_SWORD):     return "sword";
-	case(WEAPON_DAGGER):    return "dagger";
-	case(WEAPON_SPEAR):     return "spear";
-	case(WEAPON_MACE):      return "mace";
-	case(WEAPON_AXE):       return "axe";
-	case(WEAPON_FLAIL):     return "flail";
-	case(WEAPON_WHIP):      return "whip";
-	case(WEAPON_POLEARM):   return "polearm";
-	case(WEAPON_BOW):	return "bow";
-	case(WEAPON_ARROW):	return "arrow";
-	case(WEAPON_LANCE):	return "lance";
-	case(WEAPON_STAFF):	return "staff";
-	}
+	return flag_string(weapon_class, INT(wield->value[0]));
 }
 
 int get_weapon_skill(CHAR_DATA *ch, const char *sn)

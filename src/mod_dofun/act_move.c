@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.233 2000-03-05 17:14:40 avn Exp $
+ * $Id: act_move.c,v 1.234 2000-03-25 13:17:36 avn Exp $
  */
 
 /***************************************************************************
@@ -2821,7 +2821,8 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 			}
 		        else obj_to_room(arrow,victim->in_room); 
 
-			damage(ch, victim, dam, sn, DAM_PIERCE, DAMF_SHOW);
+			damage(ch, victim, dam, sn,
+				damtype_class(arrow->value[3].s), DAMF_SHOW);
 			if (!IS_EXTRACTED(victim))
 				path_to_track(ch,victim,door);
 		    }
