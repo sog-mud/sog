@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.216 2000-03-27 21:13:05 avn Exp $
+ * $Id: db.c,v 1.217 2000-03-28 07:01:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -159,6 +159,8 @@ const char NEWS_FILE		[] = "news.not";
 const char CHANGES_FILE		[] = "chang.not";
 const char SHUTDOWN_FILE	[] = "shutdown";	/* For 'shutdown' */
 const char EQCHECK_FILE		[] = "eqcheck";		/* limited eq checks */
+const char EQCHECK_SAVE_ALL_FILE[] = "eqcheck_save_all";/* save all pfiles on */
+							/* eq checks	      */
 const char BAN_FILE		[] = "ban.txt";
 const char MAXON_FILE		[] = "maxon.txt";
 const char AREASTAT_FILE	[] = "areastat.txt";
@@ -1839,16 +1841,21 @@ void scan_pfiles()
 	struct dirent *dp;
 	DIR *dirp;
 	bool eqcheck = dfexist(TMP_PATH, EQCHECK_FILE);
+	bool eqcheck_save_all = dfexist(TMP_PATH, EQCHECK_SAVE_ALL_FILE);
 	bool should_clear, pet;
 	char fullname [PATH_MAX];
 
-	log(LOG_INFO, "scan_pfiles: start (eqcheck is %s)",
-		   eqcheck ? "active" : "inactive");
+	log(LOG_INFO, "scan_pfiles: start (eqcheck: %s, save all: %s)",
+		   eqcheck ? "active" : "inactive",
+		   eqcheck_save_all ? "yes" : "no");
 
 	if (eqcheck
 	&&  dunlink(TMP_PATH, EQCHECK_FILE) < 0)
-		log(LOG_INFO, "scan_pfiles: unable to deactivate eq checker (%s)",
-			   strerror(errno));
+		log(LOG_INFO, "scan_pfiles: unable to deactivate eq checker (%s)", strerror(errno));
+
+	if (eqcheck_save_all
+	&&  dunlink(TMP_PATH, EQCHECK_SAVE_ALL_FILE) < 0)
+		log(LOG_INFO, "scan_pfiles: unable to deactivate 'save all' in eq checker (%s)", strerror(errno));
 
 	if ((dirp = opendir(PLAYER_PATH)) == NULL) {
 		log(LOG_ERROR, "scan_pfiles: unable to open player directory");
@@ -1918,8 +1925,9 @@ void scan_pfiles()
 	}
 	closedir(dirp);
 
-	log(LOG_INFO, "scan_pfiles: end (eqcheck is %s)",
-		   dfexist(TMP_PATH, EQCHECK_FILE) ? "active" : "inactive");
+	log(LOG_INFO, "scan_pfiles: end (eqcheck: %s, save all: %s)",
+		   dfexist(TMP_PATH, EQCHECK_FILE) ? "active" : "inactive",
+		   dfexist(TMP_PATH, EQCHECK_SAVE_ALL_FILE) ? "yes" : "no");
 }
 
 void move_pfiles(int minvnum, int maxvnum, int delta)

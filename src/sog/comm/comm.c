@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.224 2000-03-28 06:10:33 fjoe Exp $
+ * $Id: comm.c,v 1.225 2000-03-28 07:01:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1053,7 +1053,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 void read_from_buffer(DESCRIPTOR_DATA *d)
 {
 	int i, j, k;
-	bool repeat = FALSE;
+	bool repeat;
 
 	/*
 	 * Hold horses if pending command already.

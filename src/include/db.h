@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.70 2000-02-29 17:14:57 avn Exp $
+ * $Id: db.h,v 1.71 2000-03-28 07:01:33 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -251,6 +251,7 @@ extern const char NEWS_FILE	[];
 extern const char CHANGES_FILE	[];
 extern const char SHUTDOWN_FILE	[];
 extern const char EQCHECK_FILE	[];
+extern const char EQCHECK_SAVE_ALL_FILE [];
 extern const char BAN_FILE	[];
 extern const char MAXON_FILE	[];
 extern const char AREASTAT_FILE	[];
