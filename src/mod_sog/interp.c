@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.19 1998-06-10 06:53:03 efdi Exp $
+ * $Id: interp.c,v 1.20 1998-06-11 12:46:14 efdi Exp $
  */
 
 /***************************************************************************
@@ -126,7 +126,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "smithing",	do_smithing,	POS_RESTING,	 0,  LOG_NORMAL, 1,0},
     { "sockets",        do_sockets,	POS_DEAD,       L4,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST},
     { "stand",		do_stand,	POS_SLEEPING,	 0,  LOG_NORMAL, 1,0},
-    { "tell",		do_tell,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "tell",		do_tell,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "unlock",         do_unlock,      POS_RESTING,     0,  LOG_NORMAL, 1,0},
     { "wield",		do_wear,	POS_RESTING,	 0,  LOG_NORMAL, 1,0},
     { "wizhelp",	do_wizhelp,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
