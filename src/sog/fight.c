@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.33 2001-07-04 19:55:42 fjoe Exp $
+ * $Id: fight.c,v 1.202.2.34 2001-07-06 08:34:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1313,8 +1313,12 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 
 			/*
 			 * stand up if victim was bashed (and is not idle)
+			 * check that victim is fighting
+			 * (if victim is range-attacked and is not fighting
+			 * with someone else victim->fighting will be NULL)
 			 */
-			if (IS_NPC(victim) || PC(victim)->idle_timer <= 4)
+			if ((IS_NPC(victim) || PC(victim)->idle_timer <= 4)
+			&&  victim->fighting != NULL)
 				victim->position = POS_FIGHTING;
 		}
 
@@ -1627,13 +1631,15 @@ bool is_safe_nomessage(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	if (IS_NPC(ch)
 	&&  IS_AFFECTED(ch, AFF_CHARM)
-	&&  ch->master
+	&&  ch->master != NULL
 	&&  ch->in_room == ch->master->in_room)
 		return is_safe_nomessage(ch->master, victim);
-	
+
 	if (IS_NPC(victim)
+	&&  victim->fighting != ch
 	&&  IS_AFFECTED(victim, AFF_CHARM)
-	&&  victim->master)
+	&&  victim->master != NULL
+	&&  victim->in_room == victim->master->in_room)
 		return is_safe_nomessage(ch, victim->master);
 
 	if (IS_NPC(victim)
@@ -2024,18 +2030,20 @@ void update_pos(CHAR_DATA *victim)
  */
 void set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 {
+	/*
+	 * short circuit if victim is range attacked
+	 */
+	if (ch->in_room != victim->in_room)
+		return;
+
 	if (ch->fighting != NULL) {
 		bug("Set_fighting: already fighting", 0);
 		return;
 	}
 
 	ch->on = NULL;
-
-	if (ch->in_room == victim->in_room) {
-		ch->fighting = victim;
-		ch->position = POS_FIGHTING;
-	} else
-		ch->position = POS_STANDING;
+	ch->fighting = victim;
+	ch->position = POS_FIGHTING;
 }
 
 static void STOP_FIGHTING(CHAR_DATA *ch)
@@ -2813,17 +2821,17 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,
 	}	
 	if (ch == victim) {
 		act_puts3(msg_notvict, ch, vp, NULL, attack,
-			  TO_ROOM, POS_RESTING);
+			  TO_ROOM, POS_DEAD);
 		act_puts3(msg_char, ch, vs, NULL, attack,
-			  TO_CHAR, POS_RESTING);
+			  TO_CHAR, POS_DEAD);
 	}
 	else {
 		act_puts3(msg_notvict, ch, vp, victim, attack,
-			  TO_NOTVICT, POS_RESTING);
+			  TO_NOTVICT, POS_DEAD);
 		act_puts3(msg_char, ch, vs, victim, attack,
-			  TO_CHAR, POS_RESTING);
+			  TO_CHAR, POS_DEAD);
 		act_puts3(msg_vict, ch, vp, victim, attack,
-			  TO_VICT, POS_RESTING);
+			  TO_VICT, POS_DEAD);
 	}
 }
 
