@@ -291,9 +291,6 @@ Get back to questor before your time runs out!
 @rus Заглянуть во что?
 ~
 @eng Vile pilferers have stolen {W%s{z from the royal treasury!@rus Подлые жулики украли {W%s{z из королевской сокровищницы!~
-@eng You move silently again.
-@rus Ты опять двигаешься бесшумно.
-~
 @eng You can't rest on that.
 @rus Ты не можешь на этом отдыхать.
 ~
@@ -583,6 +580,9 @@ Get back to questor before your time runs out!
 @eng You don't want to drain your master.
 @rus Ты не хочешь усыплять своего хозяина.
 ~
+@eng You move silently again.
+@rus Ты опять двигаешься бесшумно.
+~
 @eng $N gives you 60 practices.@rus $N дает тебе 60 практик.~
 @eng $n gets $p from $P.@rus $n достает $p из $P.~
 @eng $n holds $p in $s hand.@rus $n берет $p в руку.~
@@ -676,7 +676,6 @@ Get back to questor before your time runs out!
 @eng You wear $p about your waist.@rus Ты надеваешь $p на талию.~
 @eng $N is using:@rus $N использует:~
 @eng There's no room on $p for you.@rus На $p больше нет места.~
-@eng You say '{G$t{x'@rus Ты произносишь: "{G$t{x"~
 @eng $n tries to camouflage $mself against the lone leaf on the ground.@rus $n пытается замаскироваться под одинокий лист на дороге.~
 @eng As $n sacrifices the corpse, @rus На жертвенном костре $n осталось лежать ~
 @eng They must be sleeping.
@@ -885,6 +884,7 @@ You peek at the inventory:
 @eng You must transform to vampire before casting!
 @rus Тебе нужно стать вампиром, чтобы колдовать!
 ~
+@eng You say '{G$t{x'@rus Ты произносишь: "{G$t{x"~
 @eng night@rus ночь~
 @eng %s belongs to %s, not you.
 @rus %s принадлежит %s, а не тебе.
