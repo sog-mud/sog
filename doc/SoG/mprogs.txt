@@ -1,6 +1,92 @@
 #
-# $Id: mprogs.txt,v 1.4 2001-09-15 19:34:18 fjoe Exp $
+# $Id: mprogs.txt,v 1.5 2001-09-15 20:15:43 fjoe Exp $
 #
+
+MP types
+--------
+
+string	-- a string
+char	-- character (mobile)
+obj	-- object
+room	-- room
+
+MP statements
+-------------
+
+Valid statements are:
+
+1) 'if' operator
+
+if (expr)
+	stmt;
+[else
+	stmt;]
+
+2) 'switch' operator
+
+swtich (expr) {
+case const:
+	stmt;
+	....
+[default:
+	stmt;
+	...]
+}
+
+3) 'foreach' operator
+
+foreach (var, iter([iter args...]))
+	stmt;
+
+4) 'return' operator
+
+return expr;
+
+5) expression
+
+expr;
+
+6) compound statement
+
+{
+	stmt;
+	...
+}
+
+7) declaration
+
+type var [= expr];
+
+MP expressions
+--------------
+
+All C expressions are valid in MPC:
+- all arithmetic operators (+, -, /, %, *),
+- all logical operators (&&, ||) with incomplete operands calculation,
+- all assignment operators (=, +=, -=, /=, %=, *=, <<=, >>=)
+- pre/post increment/decrement operators (pre and post ++, --)
+- tertiary operator ?:
+- function calls
+
+MP iterators
+------------
+
+int range(int from, int to)
+	from should not be greater than to
+
+char char_in_room(room r)
+
+char char_in_world()
+
+char npc_in_world()
+
+obj obj_in_obj(obj o)
+
+obj obj_of_char(char ch)
+
+obj obj_in_room(room r)
+
+obj obj_in_world()
 
 MP functions:
 -------------
@@ -110,8 +196,8 @@ fire_effect(char ch, int num, int dam)
   вешает (пытается повесить) на чара fire_effect
   уровня num, наносится урон dam
 
-extract_obj(obj p)
-  уничтожает обьект p ($p для обьекта, для которого вызывается прога)
+extract_obj(obj p, int flags)
+  уничтожает обьект p
 
 char get_char_area(char ch, string arg)
   чаром ch в арии, где он находится, ищется чар с именем arg
