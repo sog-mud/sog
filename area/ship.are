@@ -6,7 +6,7 @@ VNUMs 10601 10899
 Credits kami kamimusubi~
 Security 1
 LevelRange 1 45
-ResetMessage @rus с тихим звоном мир содрогнулся~
+ResetMessage @rus С тихим звоном мир содрогнулся.~
 Flags B
 End
 
@@ -259,7 +259,7 @@ old dragon старый дракон black черный~
 и иногдя струйки пламени.
 ~
 black dragon~
-JRZ 0 Jd 0 ABCDFJL -1000 0
+BJRZ 0 Jd 0 ABCDFJL -1000 0
 60 0 110d11+5000 60d10+1000 5d20+50 'frbite'
 -50 -50 -50 -60
 CXY
@@ -299,6 +299,21 @@ sleep sleep none 20000
 g @eng none@rus male~
 F aff T
 a 'water breathing' to_affects 50 -1 0 0 0
+#10612
+щупальце~
+@rus ~~щупалце~~ спрута~
+@rus Покрытое мощными присосками щупальце пытается схватить тебя.
+~
+~
+water fowl~
+B 0 0 0 0 0 0
+10 0 3d22+100 10d10+100 2d5+3 'slice'
+7 7 7 8
+ORZ
+stand stand none 200
+0 0 medium unknown
+F par ACDEFHKP
+a 'water breathing' to_affects 10 -1 0 0 0
 #0
 
 #OBJECTS
@@ -487,6 +502,17 @@ weapon HM 0 AN
 exotic 0 0 '' 0
 30 200 100000 P
 g @eng none@rus female~
+#10619
+black dragon scale shield черный щит чешуя чешуйка~
+@eng black dragon shield@rus ~~чешуйка~~ черного дракона~
+@rus Матово блестящая чешуйка жадно поглощает свет.~
+dragonscale~
+armor GJUY BCEFL AJ
+200 200 200 200 0
+40 250 1000000 P
+a 'spellbane' to_skills 40 -1 100 'spellbane' A
+a '' to_affects 40 -1 -3 20 J
+g @eng none@rus male~
 #10810
 key ключ~
 @eng silver key@rus ~~серебрянный~~ ~~ключик~~~
@@ -6923,6 +6949,8 @@ S
 
 #SPECIALS
 M 10606 spec_breath_frost	* ice demon
+M 10610 spec_breath_any	* old black dragon
+M 10612 spec_thief	* 
 S
 
 #RESETS
@@ -7076,6 +7104,7 @@ R 0 10829 3	* 4th: randomize
 R 0 10829 4	* 4th: randomize
 R 0 10829 6	* 4th: randomize
 M 0 10610 1 10829 1	* old black dragon (4th)
+E 0 10619 0 11		*	old black dragon<as a shield>: black dragon shield
 R 0 10830 2	* 4th: randomize
 R 0 10830 3	* 4th: randomize
 R 0 10830 4	* 4th: randomize
@@ -7110,6 +7139,7 @@ R 0 10838 3	* 4th: randomize
 R 0 10838 4	* 4th: randomize
 R 0 10838 5	* 4th: randomize
 M 0 10611 1 10838 1	* giant octopus (4th)
+M 0 10612 8 10838 8	*  (4th)
 R 0 10839 2	* 4th: randomize
 R 0 10839 3	* 4th: randomize
 R 0 10839 4	* 4th: randomize
@@ -7180,6 +7210,7 @@ O 10615 1	* right claw of ice demon
 O 10616 2	* heart of fire demon
 O 10617 1	* skin of ice demon
 O 10618 10	* 
+O 10619 1	* black dragon shield
 S
 
 #MOBPROGS

@@ -1889,7 +1889,7 @@ a '' to_object 85 -1 8 19 0
 g @rus plural~
 #36331
 spiritus vini~
-{c spiritus vini {x~
+{cspiritus vini{x~
 @eng A strange aura floats here.@rus Винный дух (vini) витает здесь.~
 nothingness~
 armor BG 0 AQ
@@ -1902,7 +1902,7 @@ a '' to_object 90 -1 10 19 0
 g @rus none~
 #36332
 waistcoat dirty плащ~
-@eng dirty waistcoat@rus {W~~пыльный~~ ~~плащ~~ {z~
+@eng dirty waistcoat@rus {w~~пыльный~~ ~~плащ~~{x~
 @eng An old dusty waistcoat lies here in the dirt.@rus Старый пыльный плащ (waistcoat) лежит на траве.~
 silk~
 armor AGY 0 AK
@@ -7889,7 +7889,7 @@ E 0 36359 0 9		*	warrior on competition<on the hands>: tournament gauntlets
 E 0 36366 0 16		*	warrior on competition<wielded>: tournament morningstar
 M 0 36350 10 36376 1	* tiny bird (Wasted Lawn)
 M 0 36305 1 36378 1	* Old Veteran (Wasted Lawn)
-E 0 36331 0 18		*	Old Veteran<floating nearby>: {c spiritus vini {x
+E 0 36331 0 18		*	Old Veteran<floating nearby>: {cspiritus vini{x
 E 0 36332 0 12		*	Old Veteran<about the shoulders>: dirty waistcoat
 E 0 36333 0 13		*	Old Veteran<around the waist>: shoulder belt
 E 0 36334 0 16		*	Old Veteran<wielded>: old veteran's sword

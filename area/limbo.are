@@ -422,7 +422,7 @@ r sound 33
 bone dragon lich~
 @eng bone dragon@rus ~~костяной~~ ~~дракон~~~
 @eng Huge undead dragon unfurls his wings.
-@rus Огромный дракон разворачивает крылья.
+@rus Огромный дракон (dragon) разворачивает крылья.
 ~
 @eng This huge creature walks with a deadly grace. But a smell... It smells
 really BAD!
@@ -436,6 +436,7 @@ OT 0 S 0 A 0 0
 CFHLO
 stand stand none 0
 0 0 huge unknown
+g @eng none@rus male~
 F aff T
 r bash -33
 r pierce 50

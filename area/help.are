@@ -4462,9 +4462,35 @@ There are following religions available:
 	To you : cure poison
 ~
 -2 STATS~
-There are currently 6 stats, which are STR,INT,WIS,DEX,CON,CHA. Each
+@eng There are currently 6 stats, which are STR,INT,WIS,DEX,CON,CHA. Each
 has special importance in your mud life, while fighting, gaining hitpoint 
 mana at each tick, gaining hitpoint,mana and movement at gaining level,etc.
+ 
+ (Str)ength|(Int)ellect| (Wis)dom  |(Dex)terity|(Con)stitution|(Cha)risma
+-----------|-----------|-----------|-----------|--------------|------------
+ Titanic   | Genious   | Excellent | Fast      | Iron         | Charismatic
+ Herculian | Clever    | Wise      | Quick     | Hearty       | Familier
+ Strong    | Good      | Good      | Dextrous  | Healthy      | Good
+ Average   | Average   | Average   | Average   | Average      | Average
+ Poor      | Poor      | Dim       | Clumsy    | Poor         | Poor
+ Weak      | Hopeless  | Fool      | Slow      | Fragile      | Mongol
+___________|___________|___________|___________|______________|____________
+@rus У всего движущегося в этом мире имеется шесть параметров. Это
+STR (Сила), INT (Интеллект), WIS (Мудрость), DEX (Проворность),
+CON (Сложение), CHA (Харизма). Они определяют всю жизнь персонажа -
+бой, восстановление очков здоровья и магии, увеличение очков здо-
+ровья, магии и движения при переходе на другой уровень, и многое
+другое.
+
+ (Str)ength|(Int)ellect| (Wis)dom  |(Dex)terity|(Con)stitution|(Cha)risma
+-----------|-----------|-----------|-----------|--------------|------------
+ Titanic   | Genious   | Excellent | Fast      | Iron         | Charismatic
+ Herculian | Clever    | Wise      | Quick     | Hearty       | Familier
+ Strong    | Good      | Good      | Dextrous  | Healthy      | Good
+ Average   | Average   | Average   | Average   | Average      | Average
+ Poor      | Poor      | Dim       | Clumsy    | Poor         | Poor
+ Weak      | Hopeless  | Fool      | Slow      | Fragile      | Mongol
+___________|___________|___________|___________|______________|____________
 ~
 0 'LIMITED EQUIPMENTS' 'LIMIT EQUIPMENTS'~
 Some of the items have been limited. You may find more information about
@@ -4778,6 +4804,7 @@ appropriately.
 Syntax: {cedit area{x [<vnum>]
 Syntax: {cedit clan{x <name>
 Syntax: {cedit class{x <name>
+Syntax: {cedit cmd {x<name>
 Syntax: {cedit explicit{x <rule class> <word>
 Syntax: {cedit help{x [<num>.]<topic>
 Syntax: {cedit implicit{x <rule class> <num>
@@ -5822,7 +5849,7 @@ E.g., to ban all newbies from everywhere save for iclub.nsu.ru, enter:
  
 Команда BAN служит для задания правил пропуска игроков в игру. Выбрать тип
 ограничения входа можно при помощи опции <кого> - допустимы значения {call{x,
-{cplayers{x и {newbies{x. Маска задается как игрок@@сервер. Для указания сервера
+{cplayers{x и {cnewbies{x. Маска задается как игрок@@сервер. Для указания сервера
 можно использовать как IP-адреса, так и символьные имена.
  
 BAN DELETE удаляет правило с указанным номером.

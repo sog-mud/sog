@@ -1,6 +1,7 @@
 #AREADATA
 Ver 4
 Name Sands of Sorrow~
+Builders angi~
 VNUMs 5000 5099
 Credits Anon~
 Security 9
@@ -10,11 +11,13 @@ End
 #MOBILES
 #5000
 dervish raggity~
-The dervish~
-The raggity dervish walks on aimlessly.
+@eng The dervish@rus Дервишь~
+@eng The raggity dervish walks on aimlessly.
+@rus Усталый Дервишь бесцельно бродит здесь.
 ~
-Dressed in loose fitting rags, this man looks like he could use
+@eng Dressed in loose fitting rags, this man looks like he could use
 some rest.
+@rus Множество бесформенных и грЯзных трок накинуто на него поверх голого тела... Он выглЯдет очень усталым.
 ~
 human~
 CGH 0 0 G 0 900 0
@@ -567,9 +570,10 @@ g @rus none~
 
 #ROOMS
 #5001
-A long tunnel~
-You encounter some rapids as you enter this tunnel cut out of
+@eng A long tunnel@rus Длинный туннель~
+@eng You encounter some rapids as you enter this tunnel cut out of
 the mountains by the river.
+@rus Ты вошел в туннель, начинающийсЯ в горе у реки.
 ~
 0 AD noswim
 D1
@@ -586,8 +590,9 @@ D3
 Z 0 3205
 S
 #5002
-A long tunnel~
-The tunnel branches off north.
+@eng A long tunnel@rus Длинный туннель~
+@eng The tunnel branches off north.
+@rus Туннель продолжаетсЯ на север(north).
 ~
 0 AD noswim
 D0
@@ -610,8 +615,9 @@ D3
 Z 0 5001
 S
 #5003
-A long tunnel~
-The tunnel branches off south.
+@eng A long tunnel@rus Длинный туннель~
+@eng The tunnel branches off south.
+@rus Туннель продолжаетсЯ на юг(south).
 ~
 0 AD noswim
 D1
@@ -634,8 +640,9 @@ D3
 Z 0 5002
 S
 #5004
-A long tunnel~
-The tunnel branches off to the south.
+@eng A long tunnel@rus Темный туннель~
+@eng The tunnel branches off to the south.
+@rus Туннель продолжаетсЯ на юг(south).
 ~
 0 AD noswim
 D1
@@ -658,11 +665,14 @@ D3
 Z 0 5003
 S
 #5005
-An underground lake~
-You are floating on a jet-black underground lake fed by dripping
+@eng An underground lake@rus Подземное озеро~
+@eng You are floating on a jet-black underground lake fed by dripping
 water and lime from above. The tunnel continues to the east and the river
 leads back west. To the north is a roughly-hewn hallway. There is also
 a tunnel south.
+@rus Ты плывешь по черному подземному озеру. Сверху отовсюду капает вода...
+Потолок весь покрыт известью. На севере(north) видна пещера,
+темный туннель уходит на восток(east) и запад(west).
 ~
 0 AD noswim
 D0
@@ -691,8 +701,9 @@ D3
 Z 0 5004
 S
 #5006
-A long narrow tunnel~
-The tunnel rises sharply to the east.
+@eng A long narrow tunnel@rus Длинный узкий туннель~
+@eng The tunnel rises sharply to the east.
+@rus Туннель уходит в темноту на восток(east)...
 ~
 0 AD mountain
 D1
@@ -709,9 +720,10 @@ D3
 Z 0 5005
 S
 #5007
-A wide tunnel~
-The tunnel continues east and west. To the east the tunnel dives
+@eng A wide tunnel@rus Широкий туннель~
+@eng The tunnel continues east and west. To the east the tunnel dives
 down into a bright light.
+@rus на востоке(east) виднеетсЯ свет.
 ~
 0 AD mountain
 D1
@@ -728,9 +740,11 @@ D3
 Z 0 5006
 S
 #5008
-Cave-in~
-You stand at the edge of a large pile of rubble created from the last
+@eng Cave-in@rus Обвал~
+@eng You stand at the edge of a large pile of rubble created from the last
 rockslide.
+@rus Ты стоишь на большой куче щебнЯ, собравшегосЯ здесь в результате
+последнего оползнЯ.
 ~
 0 AD mountain
 D2
@@ -748,9 +762,10 @@ You can easily slide down the rocks without getting hurt.
 Z 0 5009
 S
 #5009
-At the foot of the rubble~
-You are at the bottom of a large pile of rubble. A tunnel branches
+@eng At the foot of the rubble@rus Куча щебнЯ~
+@eng You are at the bottom of a large pile of rubble. A tunnel branches
 off to the north and east.
+@rus Ты стоишь на большой груде щебнЯ. Туннель продолжаетсЯ на север(north) и восток(east).
 ~
 0 AD mountain
 D0
@@ -773,9 +788,10 @@ D4
 Z 0 5008
 S
 #5010
-Cave entrance~
-You stand in the middle of a large and beautiful cave. A path leads
+@eng Cave entrance@rus Вход в пещеру~
+@eng You stand in the middle of a large and beautiful cave. A path leads
 deeper into the darkness.
+@rus Ты стоишь в большой красивой пещере. Еле заметнаЯ тропинка уходит в глубь, в темноту...
 ~
 0 AD mountain
 D2
@@ -793,9 +809,11 @@ You look down into the cave. Bones are strewn about everywhere.
 Z 0 5011
 S
 #5011
-Giant cave~
-This cavern overwhelms you. The walls and ceiling seem miles away.
+@eng Giant cave@rus ОгромнаЯ пещера~
+@eng This cavern overwhelms you. The walls and ceiling seem miles away.
 Bones of previous adventurers lie strewn on the cavern floor.
+@rus Размеры этой пещеры завараживают вас... 
+Стен и потолока не видно... Весь пол пещеры усыпан костЯми предыдущих гостей...
 ~
 0 AD mountain
 D4
@@ -806,8 +824,9 @@ D4
 Z 0 5010
 S
 #5012
-Narrow bend~
-The tunnel turns to the south and west.
+@eng Narrow bend@rus Узкий проход~
+@eng The tunnel turns to the south and west.
+@rus Туннель поворачивает на юг(south) и запад(west).
 ~
 0 AD mountain
 D2
@@ -824,8 +843,9 @@ D3
 Z 0 5009
 S
 #5013
-Large cave~
-You are standing in a large cave. Many furs are spread out on the floor.
+@eng Large cave@rus БольшаЯ пещера~
+@eng You are standing in a large cave. Many furs are spread out on the floor.
+@rus Ты стоишь в большой пещере. Весь пол усыпан мехом.
 ~
 0 AD mountain
 D0
@@ -842,8 +862,9 @@ D1
 Z 0 5014
 S
 #5014
-Damp hallway~
-The walls here are extremely damp, as well as the floor.
+@eng Damp hallway@rus Пещера~
+@eng The walls here are extremely damp, as well as the floor.
+@rus Все стены этой пещеры покрыты водой.
 ~
 0 AD mountain
 D1
@@ -861,8 +882,9 @@ D3
 Z 0 5013
 S
 #5015
-Underground pool~
-You are wading in a knee deep pool of lime-water.
+@eng Underground pool@rus Подземный водоем~
+@eng You are wading in a knee deep pool of lime-water.
+@rus Ты пробираешьсЯ по колено в смеси воды и извести.
 ~
 0 AD swim
 D2
@@ -879,9 +901,10 @@ D3
 Z 0 5014
 S
 #5016
-Damp hallway~
-The walls of the tunnel are extremely damp here. You hear the faint
+@eng Damp hallway@rus Пещера~
+@eng The walls of the tunnel are extremely damp here. You hear the faint
 sound of running water to the south.
+@rus Все стены этой пещеры покрыты водой, на юге(south) слышен звук падающей воды.
 ~
 0 AD mountain
 D0
@@ -899,9 +922,10 @@ D2
 Z 0 5005
 S
 #5017
-Narrow crawlway~
-This crawlway is just big enough for a human to crawl through or a
+@eng Narrow crawlway@rus Низкий проход~
+@eng This crawlway is just big enough for a human to crawl through or a
 halfling to walk through.
+@rus Через этот проход можно пройти только ползком или на четвереньках.
 ~
 0 AD mountain
 D0
@@ -925,9 +949,10 @@ You smell the fragrant odor of fungus.
 Z 0 5019
 S
 #5018
-Large cavern~
-You have entered a very large cavern. The rock formations would amaze
+@eng Large cavern@rus БольшаЯ пещера~
+@eng You have entered a very large cavern. The rock formations would amaze
 almost any dwarf.
+@rus Вы вошли в очень большую пещеру, находЯсь в ней даже самый большой почувствует себЯ карликом.
 ~
 0 AD mountain
 D0
@@ -944,9 +969,10 @@ D3
 Z 0 5017
 S
 #5019
-Fungus patch~
-As you walk through the fungus patch, you are shot at by many millions of
+@eng Fungus patch@rus Пещера усыпаннаЯ грибами~
+@eng As you walk through the fungus patch, you are shot at by many millions of
 spores. You can hardly breathe.
+@rus Ты идешь по пещере спошь усыпанной грибами... Тебе сложно дышать из-за большого количества спор летающих в воздухе.
 ~
 0 AD mountain
 D0
@@ -964,9 +990,10 @@ The fragrant smell of fungus spores continues to the east
 Z 0 5020
 S
 #5020
-Fungus path~
-As you walk along the path, millions of spores are shot at you. You can
+@eng Fungus path@rus Грибной путь~
+@eng As you walk along the path, millions of spores are shot at you. You can
 hardly breathe.
+@rus Тебе сложно дышать из-за большого количества спор летающих в воздухе.
 ~
 0 AD mountain
 D2
@@ -985,9 +1012,10 @@ The fragrant smell of spores continues to the west.
 Z 0 5019
 S
 #5021
-Fungus temple~
-You find yourself standing inside of a giant mushroom. The inside
+@eng Fungus temple@rus Грибной храм~
+@eng You find yourself standing inside of a giant mushroom. The inside
 is decorated in the fashion of a temple.
+@rus Ты стоишь внутри огромного гриба, внутреннЯЯ его часть украшена в стиле храма.
 ~
 0 AD mountain
 D0
@@ -1004,8 +1032,9 @@ D1
 Z 0 5022
 S
 #5022
-Sloping passage~
-You follow a path sloping down from the fungus temple.
+@eng Sloping passage@rus Тропинка~
+@eng You follow a path sloping down from the fungus temple.
+@rus Ты идёшь по тропинке уходЯщей вниз от Храма-Гриба.
 ~
 0 AD mountain
 D3
@@ -1022,8 +1051,9 @@ D5
 Z 0 5023
 S
 #5023
-Sloping passage~
-You are on a path that gently slopes up from the underground pool.
+@eng Sloping passage@rus Тропинка~
+@eng You are on a path that gently slopes up from the underground pool.
+@rus Ты находишьсЯ на тропинке, плавно спускающейск подземному озеру.
 ~
 0 AD mountain
 D0
@@ -1041,9 +1071,10 @@ D4
 Z 0 5022
 S
 #5024
-The Sands of Sorrow~
-A vast desert stretches for miles, the sand constantly shifting around you.
+@eng The Sands of Sorrow@rus Пески горЯ~
+@eng A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
+@rus Ты стоишь посреди пустыни. Песок вокруг тебЯ простираетсЯ на мили... Ты чувствуешь себЯ потерЯнным.
 ~
 0 N desert
 D0
@@ -1076,9 +1107,10 @@ Sand as far as the eye can see.
 Z 0 5026
 S
 #5025
-The Sands of Sorrow~
-A vast desert stretches for miles, the sand constantly shifting around you.
+@eng The Sands of Sorrow@rus Пески горЯ~
+@eng A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
+@rus Ты стоишь посреди пустыни. Песок вокруг тебЯ простираетсЯ на мили... Ты чувствуешь себЯ потерЯнным.
 ~
 0 N desert
 E
@@ -1117,9 +1149,10 @@ Sand as far as the eye can see.
 Z 0 5024
 S
 #5026
-The Sands of Sorrow~
-A vast desert stretches for miles, the sand constantly shifting around you.
+@eng The Sands of Sorrow@rus Пески горЯ~
+@eng A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
+@rus Ты стоишь посреди пустыни. Песок вокруг тебЯ простираетсЯ на мили... Ты чувствуешь себЯ потерЯнным.
 ~
 0 N desert
 D0
@@ -1152,9 +1185,10 @@ Sand as far as the eye can see.
 Z 0 5025
 S
 #5027
-The Sands of Sorrow~
-A vast desert stretches for miles, the sand constantly shifting around you.
+@eng The Sands of Sorrow@rus Пески горЯ~
+@eng A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
+@rus Ты стоишь посреди пустыни. Песок вокруг тебЯ простираетсЯ на мили... Ты чувствуешь себЯ потерЯнным.
 ~
 0 N desert
 D0
@@ -1187,9 +1221,10 @@ You see a river flowing into the mountain.
 Z 0 5007
 S
 #5028
-The Sands of Sorrow~
-A vast desert stretches for miles, the sand constantly shifting around you.
+@eng The Sands of Sorrow@rus Пески горЯ~
+@eng A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
+@rus Ты стоишь посреди пустыни. Песок вокруг тебЯ простираетсЯ на мили... Ты чувствуешь себЯ потерЯнным.
 ~
 0 N desert
 D0
@@ -1222,9 +1257,10 @@ Sand as far as the eye can see.
 Z 0 5027
 S
 #5029
-The Sands of Sorrow~
-A vast desert stretches for miles, the sand constantly shifting around you.
+@eng The Sands of Sorrow@rus Пески горЯ~
+@eng A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
+@rus Ты стоишь посреди пустыни. Песок вокруг тебЯ простираетсЯ на мили... Ты чувствуешь себЯ потерЯнным.
 ~
 0 N desert
 D0
@@ -1257,9 +1293,10 @@ Sand as far as the eye can see.
 Z 0 5028
 S
 #5030
-The Sands of Sorrow~
-A vast desert stretches for miles, the sand constantly shifting around you.
+@eng The Sands of Sorrow@rus Пески горЯ~
+@eng A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
+@rus Ты стоишь посреди пустыни. Песок вокруг тебЯ простираетсЯ на мили... Ты чувствуешь себЯ потерЯнным.
 ~
 0 N desert
 D0
@@ -1292,9 +1329,10 @@ Sand as far as the eye can see.
 Z 0 5032
 S
 #5031
-The Sands of Sorrow~
-A vast desert stretches for miles, the sand constantly shifting around you.
+@eng The Sands of Sorrow@rus Пески горЯ~
+@eng A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
+@rus Ты стоишь посреди пустыни. Песок вокруг тебЯ простираетсЯ на мили... Ты чувствуешь себЯ потерЯнным.
 ~
 0 N desert
 D0
@@ -1327,9 +1365,10 @@ Sand as far as the eye can see.
 Z 0 5030
 S
 #5032
-The Sands of Sorrow~
-A vast desert stretches for miles, the sand constantly shifting around you.
+@eng The Sands of Sorrow@rus Пески горЯ~
+@eng A vast desert stretches for miles, the sand constantly shifting around you.
 You feel lost.
+@rus Ты стоишь посреди пустыни. Песок вокруг тебЯ простираетсЯ на мили... Ты чувствуешь себЯ потерЯнным.
 ~
 0 N desert
 D0
@@ -1362,11 +1401,12 @@ Sand as far as the eye can see.
 Z 0 5031
 S
 #5056
-A nomad camp~
-This small group of desert nomads has stopped for the day to rest
+@eng A nomad camp@rus Лагерь кочевника~
+@eng This small group of desert nomads has stopped for the day to rest
 and refresh themselves beside this beautiful oasis. Three tents and some
 camels make up the party. From within two of the tents you hear muffled
 voices, obviously surprised at your visit.
+@rus МаленькаЯ группа кочевников пустыни отдыхает здесь. Отдохни около этого красивого оазиса. Вокруг ты видишь верблюдов и три маленькие палатки. Из двух палаток доносстихие голоса, вероЯтно удивленные вашему поЯвлению.
 ~
 0 0 field
 D0
@@ -1392,10 +1432,11 @@ Sand as far as the eye can see.
 Z 0 5025
 S
 #5057
-Inside a small tent~
-This is a small and simple tent with few possessions in sight. Lying
+@eng Inside a small tent@rus Внутри маленькой палатки~
+@eng This is a small and simple tent with few possessions in sight. Lying
 here and there are young-looking men and women, possibly slaves to the
 leader of this band.
+@rus Ты стоишь внутри маленькой дрЯхлой палатки. Вокруг сидЯт мужчины и женщины - рабы.
 ~
 0 0 field
 D1
@@ -1414,10 +1455,11 @@ You see the center of the nomad camp.
 Z 0 5056
 S
 #5058
-Beside the camels~
-Here stand about ten camels, all hitched to some stakes plugged into
+@eng Beside the camels@rus Около верблюдов~
+@eng Here stand about ten camels, all hitched to some stakes plugged into
 the ground. To the east you see a small tent while to the north you see a
 larger, fancier tent.
+@rus Здесь ты видишь дюжену верблюдов, лежащих на земле. На востоке(east) стоит маленькаЯ дрЯхлаЯ палатка, а на севере(north) палатка вождЯ.
 ~
 0 0 field
 D0
@@ -1444,9 +1486,10 @@ You see the center of the nomad camp.
 Z 0 5056
 S
 #5059
-The warrior's tent.~
-This tent has a few furnishings, but mainly it holds the band's
+@eng The warrior's tent.@rus Палатка воинов~
+@eng This tent has a few furnishings, but mainly it holds the band's
 protectors. They all stare at you coldly as you enter.
+@rus ЗайдЯ в эту полатку, ты ощущаешь на себе холодные взглЯды воинов-кочевников.
 ~
 0 0 field
 D3
@@ -1458,10 +1501,11 @@ Outside you see some peaceful camels.
 Z 0 5058
 S
 #5060
-The main tent~
-This tent is as lavishly decorated on the inside as it is on the
+@eng The main tent@rus ГлавнаЯ палатка~
+@eng This tent is as lavishly decorated on the inside as it is on the
 outside. A fancy carpet lies on the sand and numerous baskets line the
 walls.
+@rus Ты внутри палатки вождЯ. На песке причудливыми формами лежит ковер, высокие рЯды корзинок подпирают стены.
 ~
 0 H field
 D1
@@ -1479,10 +1523,11 @@ You see some peaceful camels.
 Z 0 5058
 S
 #5061
-The main tent~
-This is where the leader of this band of nomads resides. He is
+@eng The main tent@rus ГлавнаЯ палатка~
+@eng This is where the leader of this band of nomads resides. He is
 definitely rich as you inspect the tapestries, baskets, and a few
 paintings as well.
+@rus В этой части палатки проживает вождь кочевников. Он определенно очень богат. На земле лежат дорогие ковры, множество корзин стоит по бокам, на стенах весЯт кортины.
 ~
 0 H field
 D3
@@ -1494,10 +1539,11 @@ You see the entrance to this tent.
 Z 0 5060
 S
 #5062
-Strange Glowing Sand~
-A vast desert stretches for miles, the sand constantly shifting around
+@eng Strange Glowing Sand@rus Горие пески~
+@eng A vast desert stretches for miles, the sand constantly shifting around
 you.  But this patch of desert looks different...the sand glows.  You see a
 futuristic city to the south.
+@rus ОгромнаЯ пустынЯ простираетсЯ на мили вперед. Но в этой ее части песок особенно горЯч.
 ~
 0 CD mountain
 D3
@@ -1509,10 +1555,11 @@ Sand as far as the eye can see.
 Z 0 5029
 S
 #5063
-The wind-swept ledge~
-Being very careful not to lose your balance, you look around and
+@eng The wind-swept ledge@rus Каньен~
+@eng Being very careful not to lose your balance, you look around and
 find that this canyon is about a half a kilometer deep. To the west is
 a dark cave leading under the desert sands.
+@rus Нужно быть очень осторожным что бы не потерЯть равновесие. Под ногами ты видишь пропасть. На западе(west) ты видишь глубокую пещеру, уходЯщую под пески...
 ~
 0 0 mountain
 D0
@@ -1531,10 +1578,11 @@ You see a dark cave.
 Z 0 5064
 S
 #5064
-The cave mouth~
-The air in here is MUCH cooler than outside. From the west you hear
+@eng The cave mouth@rus ГлубокаЯ пещера~
+@eng The air in here is MUCH cooler than outside. From the west you hear
 strange sounds, but can see nothing. The cave slopes down into the
 darkness.
+@rus Воздух здесь - НАМНОГО холоднее чем наружи, вокруг темнота, со всех сторон доносЯтсЯ странные звуки. 
 ~
 0 AD mountain
 D1
@@ -1552,11 +1600,12 @@ D3
 Z 0 5065
 S
 #5065
-The mysterious lair.~
-You have stumbled upon the home of something. From the treasure
+@eng The mysterious lair.@rus Таинственное логово~
+@eng You have stumbled upon the home of something. From the treasure
 haphazardly strewn about and the rotting carcasses, you would guess that
 this is a dragon's lair. As to what type, you can't really say. The cave
 narrows out into a tunnel to the west.
+@rus Вы наткнулись на чье-то логово... вокруг веет противный запах, от трупов лежащих на каменном полу...
 ~
 0 AD mountain
 D1
@@ -1573,9 +1622,10 @@ door~
 ABCFZ 5024 5066
 S
 #5066
-A wide tunnel~
-This tunnel seems to go on forever into the darkness. You carefully
+@eng A wide tunnel@rus Широкий туннель~
+@eng This tunnel seems to go on forever into the darkness. You carefully
 feel your way along the walls.
+@rus СоздаётсЯ такое впечатление что этот туннель уходит в бесконечность... Ты уверенно продвигаешьсЯ в его глубь ,держась за стены.
 ~
 0 ACD mountain
 D1
@@ -1592,9 +1642,10 @@ D3
 Z 0 5067
 S
 #5067
-A narrower tunnel~
-The tunnel becomes very narrow and you fight to squeeze your way through.
+@eng A narrower tunnel@rus Туннель~
+@eng The tunnel becomes very narrow and you fight to squeeze your way through.
 The floor seems to level off a little.
+@rus Туннель становитсЯ более узким... пол постепенно выравниваетсЯ.
 ~
 0 AD mountain
 D1
@@ -1611,9 +1662,10 @@ D2
 Z 0 5068
 S
 #5068
-A narrow crack~
-This part of the tunnel is the hardest to move through as the walls
+@eng A narrow crack@rus УзкаЯ трещина~
+@eng This part of the tunnel is the hardest to move through as the walls
 move in to meet you.
+@rus Через эту часть туннелпродвигатьсЯ сложнее всего, здесь едва хватает места что бы идти боком...
 ~
 0 AD mountain
 D0
@@ -1630,9 +1682,10 @@ D3
 Z 0 5069
 S
 #5069
-A small cavern.~
-It is dark and damp and bats hang from the ceiling. A narrow crack is
+@eng A small cavern.@rus МаленькаЯ пещера~
+@eng It is dark and damp and bats hang from the ceiling. A narrow crack is
 in the east wall. The floor now slopes upwards.
+@rus Здесь очень темно, с потолка капает что-то мокрое... На востоке(east) видна узкатрещена, тропа теперь ведет на верх.
 ~
 0 AD mountain
 D0
@@ -1649,9 +1702,10 @@ D1
 Z 0 5068
 S
 #5070
-A small shaft~
-From within this shaft you can see a narrow hole in the roof just
+@eng A small shaft@rus МаленькаЯ шахта~
+@eng From within this shaft you can see a narrow hole in the roof just
 large enough for one person. Back south is the cavern.
+@rus На верху(up) ты видешь небольшое отверстие, а на юг(south) простираетсЯ пещера.
 ~
 0 AD mountain
 D2

@@ -83,12 +83,14 @@ r cold 50
 r charm -33
 #34104
 guard water elemental~
-@eng Guardian of Verges~
+@eng Guardian of Verges@rus ~~Хранитель~~ Грани~
 @eng The Fluid Guardian of Verges stay here
+@rus Хранитель грани смотрит на тебя
 ~
 @eng You see a transparent humanoid in sparkling silver plate. You look in his face but on face     onli one big eye and on fore head is one big ear.  You srugged and go away. Strnge people live in Verges.
  
  
+@rus Хранитель выглядит как огромная струя воды. Ты смотришь на его лицо и видишь всего один глаз и огромное ухо Вместо шлема. Он тихо ругается и отворачивается от тебя. Странные существа населяют Грани.
 ~
 water elemental~
 BG 0 0 0 0 350 0
@@ -105,10 +107,13 @@ r fire -33
 r cold -58
 #34105
 mage novice~
-@eng Novice Mage~
+@eng Novice Mage@rus ~~Новичок~~ ~~Маг~~~
 @eng Novice mage here casts magic missile
+@rus Новичок Маг колдует магическую стрелку
 ~
 @eng You see a thin man, who casts a magic missile. But missile turn and began flee around him. He yell 'Flee, who may' and flee away.
+@rus Жутко худой человек рядом с тобой читает на заклятье магической стрелки.
+Она вылетает и начинает кружить вокруг него. Он громко кричит "Спасайся кто может" и убегает.
 ~
 human~
 R 0 0 0 AH -300 0
@@ -119,13 +124,12 @@ stand stand male 1105
 0 0 medium unknown
 #34106
 giant forecaster~
-@eng Forecaster@rus ~~Черный~~ ~~Король~~~
+@eng Forecaster@rus ~~Синоптик~~~
 @eng Forecaster here looking in the sky
-@rus Фигура Черного Короля (King) возвышается перед тобой.
+@rus Синоптик глядит в безоблачное небо
 ~
 @eng Here stand a strange giant with umbrella. He look in the clear sky and mutter 'It seems rain starts'.
-@rus Мрачная, угрожающего вида фигура. При взгляде на него сразу ясно, почему он
-король, а ты -- нет.
+@rus Странный гигант с зонтиком стоит здесь, глядит в небо, и бормочет себе под нос: "Кажеться дождь собирается".
 ~
 storm giant~
 0 0 0 0 0 0 0

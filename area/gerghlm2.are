@@ -2150,10 +2150,12 @@ g @rus none~
 
 #ROOMS
 #7500
-Entrance to the park.~
-This is the entrance to a small park. You see that it is full of animals,
+@eng Entrance to the park.@rus Вход в парк~
+@eng This is the entrance to a small park. You see that it is full of animals,
 birds, and reptiles.  There are also people here, strolling around in the
 romantic setting.
+@rus Это вход в маленький парк. Ты видишь здесь много животных, птиц и рептилий.
+Также здесь прогуливаются люди, предаваясь романтическим мечтам.
 ~
 0 0 forest
 D2
@@ -2165,9 +2167,11 @@ You see the park.
 Z -1 7501
 S
 #7501
-Inside the park.~
-You are standing inside what looks like a park--probably because it is
+@eng Inside the park.@rus Внутри парка~
+@eng You are standing inside what looks like a park--probably because it is
 one...
+@rus Ты стоишь внутри того, что выглядит как парк - вероятно потому, что это он
+и есть...
 ~
 0 0 forest
 D0
@@ -2193,9 +2197,11 @@ You see the park continue on.
 Z -1 7503
 S
 #7502
-The Park.~
-You are in the park, it is green, and bright, but for some reason,
+@eng The Park.@rus Парк~
+@eng You are in the park, it is green, and bright, but for some reason,
 someone placed a wall to the north, east, and south....
+@rus Ты в парке, здесь светло и много зелени, но по какой-то причине кто-то
+поместил стены на севере, востоке и юге... 
 ~
 0 0 forest
 D3
@@ -2207,9 +2213,11 @@ You see the park.
 Z -1 7501
 S
 #7503
-The Park.~
-You are in the park.  The breeze flows around you like a current of
+@eng The Park.@rus Парк~
+@eng You are in the park.  The breeze flows around you like a current of
 refreshing water.
+@rus Ты в парке. Легкий ветерок, подобно потоку освежающей воды, струитсЯ
+вокруг тебя.
 ~
 0 0 forest
 D0
