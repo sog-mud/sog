@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.9 2000-04-25 13:22:11 fjoe Exp $
+ * $Id: spellfun.c,v 1.181.2.10 2000-04-26 07:16:56 avn Exp $
  */
 
 /***************************************************************************
@@ -4723,9 +4723,9 @@ spell_ice_sphere(int sn, int level, CHAR_DATA *ch, void *vo)
 	};
 
 	if (is_affected(ch, gsn_fire_sphere)) {
-		act("Your fire sphere blushes and goes out!",
+		act("Your fire sphere flashes and goes out!",
 		    ch, NULL, NULL, TO_CHAR);
-		act("$n's fire sphere blushes and goes out!",
+		act("$n's fire sphere flashes and goes out!",
 		    ch, NULL, NULL, TO_ROOM);
                 damage(ch, ch, dice(level, 4), TYPE_HIT, DAM_FIRE, TRUE);
 		affect_strip(ch, gsn_fire_sphere);
@@ -4741,9 +4741,9 @@ spell_ice_sphere(int sn, int level, CHAR_DATA *ch, void *vo)
 	af.bitvector = 0;
 	affect_to_char(ch, &af);
 
-	act("Fine shiny sphere starts glowing around you.",
+	act("You are surrounded by shiny sphere.",
 	    ch, NULL, NULL, TO_CHAR);
-	act("Fine shiny sphere starts glowing around $n.",
+	act("Fine shiny sphere surrounds $n.",
 	    ch, NULL, NULL, TO_ROOM);
 }
 
