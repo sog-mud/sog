@@ -1,5 +1,5 @@
 /*
- * $Id: auction.c,v 1.45.2.1 1999-12-02 13:32:27 fjoe Exp $
+ * $Id: auction.c,v 1.45.2.2 2000-06-08 18:13:30 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -188,7 +188,7 @@ void auction_give_obj(CHAR_DATA* victim)
 	    victim, obj, NULL, TO_ROOM);
 
 	if ((carry_w = can_carry_w(victim)) >= 0
-	&&  victim->carry_weight + get_obj_weight(obj) > carry_w) {
+	&&  get_carry_weight(victim) + get_obj_weight(obj) > carry_w) {
 		act("$p is too heavy for you to carry.",
 		    victim, obj, NULL, TO_CHAR);
 		act("$n is carrying too much to carry $p and $e drops it.",

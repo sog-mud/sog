@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.202.2.8 2000-05-05 14:16:05 fjoe Exp $
+ * $Id: act_move.c,v 1.202.2.9 2000-06-08 18:13:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -646,7 +646,8 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		obj = get_obj_list(ch,argument,ch->in_room->contents);
+		obj = get_obj_list(ch, argument, ch->in_room->contents,
+				   GETOBJ_F_ANY);
 		if (obj == NULL) {
 			char_puts("You don't see that here.\n", ch);
 			return;
@@ -767,7 +768,8 @@ void do_rest(CHAR_DATA *ch, const char *argument)
 
 	/* okay, now that we know we can rest, find an object to rest on */
 	if (argument[0] != '\0') {
-		obj = get_obj_list(ch,argument,ch->in_room->contents);
+		obj = get_obj_list(ch, argument,
+				   ch->in_room->contents, GETOBJ_F_ANY);
 		if (obj == NULL) {
 		    char_puts("You don't see that here.\n", ch);
 		    return;
@@ -909,7 +911,8 @@ void do_sit(CHAR_DATA *ch, const char *argument)
 
 	/* okay, now that we know we can sit, find an object to sit on */
 	if (argument[0] != '\0') {
-		obj = get_obj_list(ch,argument,ch->in_room->contents);
+		obj = get_obj_list(ch, argument,
+				   ch->in_room->contents, GETOBJ_F_ANY);
 		if (obj == NULL) {
 			char_puts("You don't see that here.\n", ch);
 			return;
@@ -1050,7 +1053,8 @@ void do_sleep(CHAR_DATA *ch, const char *argument)
 				obj = ch->on;
 			else
 				obj = get_obj_list(ch, argument,
-						   ch->in_room->contents);
+						   ch->in_room->contents,
+						   GETOBJ_F_ANY);
 
 			if (obj == NULL) {
 				char_puts("You don't see that here.\n", ch);
@@ -3159,7 +3163,8 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 	}
 
 	old_room = ch->in_room;
-	portal = get_obj_list(ch, argument, ch->in_room->contents);
+	portal = get_obj_list(ch, argument,
+			      ch->in_room->contents, GETOBJ_F_ANY);
 	
 	if (portal == NULL) {
 		char_puts("You don't see that here.\n",ch);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.57.2.2 1999-12-16 12:39:58 fjoe Exp $
+ * $Id: olc_room.c,v 1.57.2.3 2000-06-08 18:13:28 fjoe Exp $
  */
 
 #include "olc.h"
@@ -654,7 +654,7 @@ OLC_FUN(roomed_oreset)
 	 * Load into object's inventory.
 	 */
 	if (argument[0] == '\0'
-	&& ((to_obj = get_obj_list(ch, arg2, pRoom->contents)) != NULL))
+	&& ((to_obj = get_obj_list(ch, arg2, pRoom->contents, GETOBJ_F_ANY)) != NULL))
 	{
 		pReset		= reset_new();
 		pReset->command	= 'P';

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.28 2000-05-23 12:41:58 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.29 2000-06-08 18:13:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2018,15 +2018,6 @@ OBJ_DATA *get_obj_type(OBJ_INDEX_DATA *pObjIndex)
 }
 
 /*
- * flags for get_obj_list_raw
- */
-enum {
-	GETOBJ_F_WEAR_ANY,	/* any obj->wear_loc			     */
-	GETOBJ_F_WEAR_NONE,	/* obj->wear_loc == WEAR_NONE (in inventory) */
-	GETOBJ_F_WEAR,		/* obj->wear_loc != WEAR_NONE (worn)	     */
-};
-
-/*
  * Find an obj in a list.
  */
 OBJ_DATA *get_obj_list_raw(CHAR_DATA *ch, const char *name, uint *number,
@@ -2040,12 +2031,12 @@ OBJ_DATA *get_obj_list_raw(CHAR_DATA *ch, const char *name, uint *number,
 			continue;
 
 		switch (flags) {
-		case GETOBJ_F_WEAR_NONE:
+		case GETOBJ_F_INV:
 			if (obj->wear_loc != WEAR_NONE)
 				continue;
 			break;
 
-		case GETOBJ_F_WEAR:
+		case GETOBJ_F_WORN:
 			if (obj->wear_loc == WEAR_NONE)
 				continue;
 			break;
@@ -2067,18 +2058,18 @@ OBJ_DATA *get_obj_here_raw(CHAR_DATA *ch, const char *name, uint *number)
 
 /* search in player's inventory */
 	obj = get_obj_list_raw(ch, name, number, ch->carrying,
-			       GETOBJ_F_WEAR_NONE);
+			       GETOBJ_F_INV);
 	if (obj)
 		return obj;
 
 /* search in player's eq */
-	obj = get_obj_list_raw(ch, name, number, ch->carrying, GETOBJ_F_WEAR);
+	obj = get_obj_list_raw(ch, name, number, ch->carrying, GETOBJ_F_WORN);
 	if (obj)
 		return obj;
 
 /* search in room contents */
 	obj = get_obj_list_raw(ch, name, number, ch->in_room->contents,
-			       GETOBJ_F_WEAR_ANY);
+			       GETOBJ_F_ANY);
 	if (obj)
 		return obj;
 
@@ -2088,7 +2079,8 @@ OBJ_DATA *get_obj_here_raw(CHAR_DATA *ch, const char *name, uint *number)
 /*
  * Find an obj in a list.
  */
-OBJ_DATA *get_obj_list(CHAR_DATA *ch, const char *argument, OBJ_DATA *list)
+OBJ_DATA *
+get_obj_list(CHAR_DATA *ch, const char *argument, OBJ_DATA *list, int flags)
 {
 	char arg[MAX_INPUT_LENGTH];
 	uint number;
@@ -2097,7 +2089,7 @@ OBJ_DATA *get_obj_list(CHAR_DATA *ch, const char *argument, OBJ_DATA *list)
 	if (!number || arg[0] == '\0')
 		return NULL;
 
-	return get_obj_list_raw(ch, arg, &number, list, GETOBJ_F_WEAR_ANY);
+	return get_obj_list_raw(ch, arg, &number, list, flags);
 }
 
 /*
@@ -2113,7 +2105,7 @@ OBJ_DATA *get_obj_carry(CHAR_DATA *ch, const char *argument)
 		return NULL;
 
 	return get_obj_list_raw(ch, arg, &number, ch->carrying,
-				GETOBJ_F_WEAR_NONE);
+				GETOBJ_F_INV);
 }
 
 /*
@@ -2128,7 +2120,7 @@ OBJ_DATA *get_obj_wear(CHAR_DATA *ch, const char *argument)
 	if (!number || arg[0] == '\0')
 		return NULL;
 
-	return get_obj_list_raw(ch, arg, &number, ch->carrying, GETOBJ_F_WEAR);
+	return get_obj_list_raw(ch, arg, &number, ch->carrying, GETOBJ_F_WORN);
 }
 
 /*
@@ -2165,7 +2157,7 @@ OBJ_DATA *get_obj_room(CHAR_DATA *ch, const char *argument)
 		 * search in the vch's inventory
 		 */
 		obj = get_obj_list_raw(ch, arg, &number, vch->carrying,
-				       GETOBJ_F_WEAR_NONE);
+				       GETOBJ_F_INV);
 		if (obj)
 			return obj;
 
@@ -2173,7 +2165,7 @@ OBJ_DATA *get_obj_room(CHAR_DATA *ch, const char *argument)
 		 * search in the vch's eq
 		 */
 		obj = get_obj_list_raw(ch, arg, &number, vch->carrying,
-				       GETOBJ_F_WEAR);
+				       GETOBJ_F_WORN);
 		if (obj)
 			return obj;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.15 2000-05-05 08:20:31 osya Exp $
+ * $Id: fight.c,v 1.202.2.16 2000-06-08 18:13:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1715,8 +1715,8 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 
 	if (number_percent() > chance) {
 		/* size and weight */
-		chance += ch->carry_weight / 25;
-		chance -= victim->carry_weight / 20;
+		chance += get_carry_weight(ch) / 25;
+		chance -= get_carry_weight(victim) / 20;
 
 		if (ch->size < victim->size)
 			chance += (ch->size - victim->size) * 25;
