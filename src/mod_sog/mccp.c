@@ -8,7 +8,7 @@
  * This code may be freely distributed and used if this copyright notice is
  * retained intact.
  *
- * $Id: mccp.c,v 1.1 2001-12-15 13:47:52 matrim Exp $
+ * $Id: mccp.c,v 1.2 2001-12-16 10:06:00 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -138,14 +138,17 @@ processCompressed(DESCRIPTOR_DATA *desc)
 			nBlock = UMIN (len - iStart, 4096);
 			if ((nWrite = write (desc->descriptor,
 			    desc->out_compress_buf + iStart, nBlock)) < 0) {
-				if (errno == EAGAIN || errno == ENOSR)
+				if (errno == EAGAIN)
 					break;
-
+#if defined(LINUX)
+				if (errno == ENOSR)
+					break;
+#endif
 				return FALSE; /* write error */
 			}
 
 			if (nWrite <= 0)
-			break;
+				break;
 		}
 
 		if (iStart) {
