@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.178 1999-12-17 12:59:03 fjoe Exp $
+ * $Id: update.c,v 1.179 1999-12-18 12:20:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1124,7 +1124,7 @@ void char_update(void)
 		if (!ch->fighting) {
 			flag_t inv_skip = 0;
 
-			affect_check(ch, TO_AFFECTS, -1);
+			affect_check(ch, -1, -1);
 
 			/* Remove caltrops effect after fight off */
 			if (is_affected(ch, "caltrops"))

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.243 1999-12-16 11:38:39 kostik Exp $
+ * $Id: fight.c,v 1.244 1999-12-18 12:20:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1416,6 +1416,14 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	 */
 	if (HAS_INVIS(ch, ID_ALL_INVIS))
 		dofun("visible", ch, str_empty);
+
+	/*
+	 * strip sneak
+	 */
+	if (HAS_INVIS(ch, ID_SNEAK)) {
+		REMOVE_INVIS(ch, ID_SNEAK);
+		affect_bit_strip(ch, TO_INVIS, ID_SNEAK);
+	}
 
 	/*
 	 * Damage modifiers.
