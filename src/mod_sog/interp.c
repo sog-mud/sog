@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.156 1999-06-22 13:50:45 fjoe Exp $
+ * $Id: interp.c,v 1.157 1999-06-24 01:13:48 avn Exp $
  */
 
 /***************************************************************************
@@ -409,6 +409,7 @@ cmd_t cmd_table[] =
     { "load",		do_load,	POS_DEAD,	L4,  LOG_ALWAYS	},
     { "newlock",	do_newlock,	POS_DEAD,	L4,  LOG_ALWAYS	},
     { "noaffect",	do_noaffect,	POS_DEAD,	L5,  LOG_ALWAYS	},
+    { "nonote",		do_nonote,	POS_DEAD,	L5,  LOG_ALWAYS },
     { "nochannels",	do_nochannels,	POS_DEAD,	L5,  LOG_ALWAYS	},
     { "notitle",	do_notitle,	POS_DEAD,	L5,  LOG_ALWAYS	},
     { "noemote",	do_noemote,	POS_DEAD,	L5,  LOG_ALWAYS	},

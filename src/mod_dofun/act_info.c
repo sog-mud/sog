@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.253 1999-06-22 12:37:13 fjoe Exp $
+ * $Id: act_info.c,v 1.254 1999-06-24 01:13:47 avn Exp $
  */
 
 /***************************************************************************
@@ -1741,12 +1741,9 @@ DO_FUN(do_who)
 			continue;
 		}
 
-		if (!str_cmp(arg, "clan")) {
-			SET_BIT(flags, WHO_F_CLAN);
-			continue;
-		}
 
-		if ((i = cln_lookup(arg)) > 0) {
+		if ((i = cln_lookup(arg)) > 0
+		 && IS_IMMORTAL(ch)) {
 			name_add(&clan_names, CLAN(i)->name, NULL, NULL);
 			SET_BIT(flags, WHO_F_RCLAN);
 			continue;
@@ -1758,8 +1755,18 @@ DO_FUN(do_who)
 			continue;
 		}
 
-		if (!IS_IMMORTAL(ch))
+		if (!str_cmp(arg, "clan")) {
+			if (IS_IMMORTAL(ch))
+				SET_BIT(flags, WHO_F_CLAN);
+			else if (ch->clan) {
+				SET_BIT(flags, WHO_F_RCLAN);
+				i = ch->clan;
+				name_add(&clan_names, CLAN(i)->name, NULL,NULL);
+			}
 			continue;
+		}
+
+		if (!IS_IMMORTAL(ch)) continue;
 
 		if ((i = cn_lookup(arg)) >= 0) {
 			name_add(&class_names, CLASS(i)->name, NULL, NULL);

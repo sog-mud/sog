@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.161 1999-06-22 13:50:44 fjoe Exp $
+ * $Id: act_wiz.c,v 1.162 1999-06-24 01:13:48 avn Exp $
  */
 
 /***************************************************************************
@@ -374,6 +374,44 @@ void do_outfit(CHAR_DATA *ch, const char *argument)
 	}
 
 	char_puts("You have been equipped by gods.\n",ch);
+}
+
+void do_nonote(CHAR_DATA *ch, const char *argument)
+{
+	char arg[MAX_INPUT_LENGTH];
+	CHAR_DATA *victim;
+
+	one_argument(argument, arg, sizeof(arg));
+
+	if (arg[0] == '\0') {
+		char_puts("Ban whose notes?\n", ch);
+		return;
+	}
+
+	if ((victim = get_char_world(ch, arg)) == NULL) {
+		char_puts("They aren't here.\n", ch);
+		return;
+	}
+
+	if (!IS_NPC(victim) && victim->level >= ch->level) {
+		char_puts("You failed.\n", ch);
+		return;
+	}
+
+	if (IS_SET(victim->comm, COMM_NONOTE)) {
+		REMOVE_BIT(victim->comm, COMM_NONOTE);
+		char_puts("You may write notes again.\n", victim);
+		char_puts("NONOTE removed.\n", ch);
+		wiznet("$N grants $i right to write notes",
+			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
+	}
+	else {
+		SET_BIT(victim->comm, COMM_NONOTE);
+		char_puts("Your notes will be sent to Abyss now.\n", victim);
+		char_puts("NONOTE set.\n", ch);
+		wiznet("$N revokes $i's right to write notes",
+			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
+	}
 }
 
 /* RT nochannels command, for those spammers */

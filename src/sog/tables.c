@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.73 1999-06-22 12:37:22 fjoe Exp $
+ * $Id: tables.c,v 1.74 1999-06-24 01:13:49 avn Exp $
  */
 
 /***************************************************************************
@@ -355,7 +355,6 @@ flag_t comm_flags[] =
 	{ "combine",		COMM_COMBINE,		TRUE	},
 	{ "telnet_ga",		COMM_TELNET_GA,		TRUE	},
 	{ "showaff",		COMM_SHOWAFF,		TRUE	},
-	{ "nograts",		COMM_NOGRATS,		TRUE	},
 	{ "color",		COMM_COLOR,		TRUE	},
 	{ "noemote",		COMM_NOEMOTE,		FALSE	},
 	{ "noshout",		COMM_NOSHOUT,		FALSE	},
