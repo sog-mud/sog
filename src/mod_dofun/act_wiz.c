@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.305 2001-10-21 22:13:20 fjoe Exp $
+ * $Id: act_wiz.c,v 1.306 2001-11-01 13:21:44 kostik Exp $
  */
 
 /***************************************************************************
@@ -3622,7 +3622,7 @@ DO_FUN(do_mset, ch, argument)
 			act_char("No such hometown.", ch);
 			goto cleanup;
 		}
-	    
+
 		PC(victim)->hometown = value;
 		altered = TRUE;
 		goto cleanup;
@@ -3748,7 +3748,7 @@ DO_FUN(do_mset, ch, argument)
 			free_string(PC(victim)->race);
 			PC(victim)->race = str_qdup(r->name);
 		}
-			
+
 		race_resetstats(victim);
 		spec_update(victim);
 		PC(victim)->exp = exp_for_level(victim, victim->level);
@@ -3827,7 +3827,7 @@ DO_FUN(do_popularity, ch, argument)
 	buf_append(output, "Area popularity statistics (in char * ticks)\n");
 
 	for (area = area_first,i=0; area != NULL; area = area->next,i++) {
-		if (i % 2 == 0) 
+		if (i % 2 == 0)
 			buf_append(output, "\n");
 		buf_printf(output, BUF_END, "%-20s %-8u       ",// notrans
 			   area->name, area->count);
@@ -3961,7 +3961,7 @@ DO_FUN(do_rename, ch, argument)
 		file_name = capitalize(new_name);
 		if (dfexist(PLAYER_PATH, file_name)) {
 			act_char("A player with that name already exists!", ch);
-			goto cleanup;		
+			goto cleanup;
 		}
 
 		/* check .gz pfile */
@@ -3969,10 +3969,10 @@ DO_FUN(do_rename, ch, argument)
 			 "%s.gz", file_name);			// notrans
 		if (dfexist(PLAYER_PATH, strsave)) {
 			act_char("A player with that name already exists in a compressed file!", ch);
-			goto cleanup;		
+			goto cleanup;
 		}
 
-		dunlink(PLAYER_PATH, capitalize(victim->name)); 
+		dunlink(PLAYER_PATH, capitalize(victim->name));
 	}
 
 	/* change poofin/poofout */
@@ -4016,21 +4016,21 @@ DO_FUN(do_rename, ch, argument)
 	mlstr_destroy(&victim->short_descr);
 	mlstr_init2(&victim->short_descr, new_name);
 	altered = TRUE;
-		
+
 	act_char("Character renamed.", ch);
 	act_puts("$n has renamed you to $N!",
 		 ch, NULL, victim, TO_VICT, POS_DEAD);
 
 cleanup:
 	/*
-	 * NOTE: Players who are level 1 do NOT get saved under a new name 
+	 * NOTE: Players who are level 1 do NOT get saved under a new name
 	 */
 
 	if (altered)
 		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
-	if (loaded) 
+	if (loaded)
 		char_nuke(victim);
-} 
+}
 
 DO_FUN(do_wizpass, ch, argument)
 {

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.174 2001-10-21 21:34:04 fjoe Exp $
+ * $Id: tables.c,v 1.175 2001-11-01 13:21:46 kostik Exp $
  */
 
 /***************************************************************************
@@ -181,6 +181,7 @@ flaginfo_t affect_flags[] =
 	{ "protect_evil",	AFF_PROTECT_EVIL,	TRUE	},
 	{ "protect_good",	AFF_PROTECT_GOOD,	TRUE	},
 	{ "turned",		AFF_TURNED,		TRUE	},
+	{ "doomed",		AFF_DOOMED,		TRUE	},
 	{ "sleep",		AFF_SLEEP,		TRUE	},
 	{ "charm",		AFF_CHARM,		TRUE	},
 	{ "flying",		AFF_FLYING,		TRUE	},

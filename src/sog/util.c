@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.39 2001-09-16 20:04:17 fjoe Exp $
+ * $Id: util.c,v 1.40 2001-11-01 13:21:46 kostik Exp $
  */
 
 #include <sys/stat.h>
@@ -529,15 +529,22 @@ dice_wlb(int number, int size, CHAR_DATA *ch, CHAR_DATA *victim)
 
 	int luck_diff;
 
-	luck_diff = ((ch == NULL) ? 50 : GET_LUCK(ch)) -
-		 ((victim == NULL) ? 50 : GET_LUCK(victim));
-
 	switch (size) {
 	case 0:
 		return 0;
 	case 1:
 		return number;
 	}
+
+	if ((ch != NULL) && IS_AFFECTED(ch, AFF_DOOMED))
+		return number;
+
+	if ((victim != NULL) && IS_AFFECTED(victim, AFF_DOOMED))
+		return number * size;
+
+	luck_diff = ((ch == NULL) ? 50 : GET_LUCK(ch)) -
+		 ((victim == NULL) ? 50 : GET_LUCK(victim));
+
 
 	for (idice = 0, sum = 0; idice < number; idice++) {
 		int cand;

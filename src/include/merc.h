@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.371 2001-10-21 21:33:50 fjoe Exp $
+ * $Id: merc.h,v 1.372 2001-11-01 13:21:42 kostik Exp $
  */
 
 /***************************************************************************
@@ -651,6 +651,7 @@ struct wiznet_type
 #define AFF_PROTECT_EVIL	(N)
 #define AFF_PROTECT_GOOD	(O)
 #define AFF_TURNED		(P)/* Character is turned into other creature */
+#define AFF_DOOMED		(Q)/* Character is VERY unlucky */
 #define AFF_SLEEP		(R)
 #define AFF_CHARM		(S)
 #define AFF_FLYING		(T)
