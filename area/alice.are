@@ -224,7 +224,10 @@ m mob_greet @ all~
 dofun("say", $n, "I really must be getting home. The night air doesn't suit my throat.");
 return 0;
 ~
-m mob_kill mob_kill_bamf_self 100~
+m mob_kill @ 100~
+cast_char("bamf", $n, $n);
+return 1;
+~
 m mob_exit @ all~
 dofun("say", $n, "Farewell!");
 return 0;
@@ -581,7 +584,10 @@ act("$n grins at you.", $n, NULL, $N, TO_VICT);
 act("$n grins at $N.", $n, NULL, $N, TO_NOTVICT);
 return 0;
 ~
-m mob_kill mob_kill_bamf_self 100~
+m mob_kill @ 100~
+cast_char("bamf", $n, $n);
+return 1;
+~
 m mob_random @ 1~
 dofun("say", $n, "In that direction lives the March Hare.");
 dofun("say", $n, "And in that direction lives the Mad Hatter.");
@@ -592,7 +598,11 @@ tell_char($n, $N, "Do you play croquet with the Queen today? I'll see you there!
 dofun("emote", $n, "waves its tail and vanishes.");
 return 0;
 ~
-m mob_look mob_look_cast_invis 100~
+m mob_look @ 100~
+if (!is_sn_affected($n, "invisibility"))
+        cast_char("invisibility", $n, $n);
+return 0;
+~
 #21022
 mad hatter~
 the Mad Hatter~
@@ -617,8 +627,14 @@ BGT 0 H 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_greet mob_greet_no_room all~
-m mob_exit mob_exit_stuff_dormouse all~
+m mob_greet @ all~
+dofun("say", $n, "No room! No room!");
+return 0;
+~
+m mob_exit @ all~
+dofun("emote", $n, "begins to stuff the dormouse into a teapot.");
+return 0;
+~
 m mob_look @ 100~
 dofun("say", $n, "Why is a raven like a writing desk?");
 return 0;
@@ -648,8 +664,14 @@ BGT 0 H 0 0 400 0
 EFNU
 stand stand male 0
 0 0 medium unknown
-m mob_greet mob_greet_no_room all~
-m mob_exit mob_exit_stuff_dormouse all~
+m mob_greet @ all~
+dofun("say", $n, "No room! No room!");
+return 0;
+~
+m mob_exit @ all~
+dofun("emote", $n, "begins to stuff the dormouse into a teapot.");
+return 0;
+~
 #21024
 dormouse~
 the Dormouse~
@@ -884,7 +906,11 @@ dofun("emote", $n, "hurriedly hides a tart behind his back.");
 return 0;
 ~
 m mob_random mob_random_thief 100~
-m mob_look mob_look_cast_invis 100~
+m mob_look @ 100~
+if (!is_sn_affected($n, "invisibility"))
+        cast_char("invisibility", $n, $n);
+return 0;
+~
 m mob_tell @ ~
 dofun("say", $n, "Nothing!");
 return 0;
