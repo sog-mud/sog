@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.68 1998-08-03 15:09:02 fjoe Exp $
+# $Id: english.lang,v 1.69 1998-08-05 06:56:29 fjoe Exp $
 #
 
 NOTHING		"Nothing.\n\r"
@@ -552,7 +552,7 @@ N_SNARLS_N		"$N snarls and attacks $n!"
 YOU_SNARL_N	"You snarl and attack $n!"
 FIGHTING_YOU	"YOU!"
 REBOOT_IN	"{*{W*****{R rEBOOT IN {W%d{R MIN. {W*****{x\n\r",
-AUTOREBOOT_IN    "{*{W*****{R AUTOMATIC REBOOT IN {W%d{R MIN. {W*****{x\n\r",
+AUTOREBOOT_IN    "{*{W*****{R AUTOMAGIC rEBOOT IN {W%d{R MIN. {W*****{x\n\r",
 P_STRIKES_YOU	"$p strikes you!"
 YOU_P_STRIKES_N	"Your $p strikes $N!"
 N_P_STRIKES_N	"$n's $p strikes $N!"
