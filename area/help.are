@@ -5869,6 +5869,7 @@ immortal 'WIZ BAN' BAN~
 @eng Syntax: {cban add{x <num> {callow{x <who> <mask>
 Syntax: {cban add{x <num> {cdeny{x <who> <mask>
 Syntax: {cban delete{x <num>
+Syntax: {cban{x {{ {cshow{x | {clist{x }
  
 BAN ADD defines a rule for banning hosts. <who> option can be {call{x,
 {cplayers{x or {cnewbies{x. <mask> is specified in form player@@host.
@@ -5883,6 +5884,7 @@ E.g., to ban all newbies from everywhere save for iclub.nsu.ru, enter:
 @rus Синтаксис: {cban add{x <номер> {cdeny{x <кого> <маска>
 Синтаксис: {cban add{x <номер> {callow{x <кого> <маска>
 Синтаксис: {cban delete{x <номер>
+Синтаксис: {cban{x {{ {cshow{x | {clist{x }
  
 Команда BAN служит для задания правил пропуска игроков в игру. Выбрать тип
 ограничения входа можно при помощи опции <кого> - допустимы значения {call{x,
