@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.297 2002-10-23 07:20:09 tatyana Exp $
+ * $Id: spellfun.c,v 1.298 2002-10-24 07:54:44 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1686,18 +1686,23 @@ SPELL_FUN(spell_locate_object, sn, level, ch, vo)
 			    PERS(in_obj->carried_by, ch, GET_LANG(ch), ACT_FORMSH));
 			number++;
 		} else {
-			if (obj->in_room == NULL)
+			if (obj->in_room == NULL) {
+				if (IS_AUCTIONED(obj)) {
+					buf_printf(buffer, BUF_END,
+						   "Object is on "
+						   "auction right now.\n");
+					number++;
+				}
 				continue;
+			}
 
-			if (IS_IMMORTAL(ch) && in_obj->in_room != NULL) {
+			if (IS_IMMORTAL(ch)) {
 				buf_printf(buffer, BUF_END, "One is in %s [Room %d]\n",
 					   mlstr_cval(&in_obj->in_room->name, ch),
 					   in_obj->in_room->vnum);
 				number++;
 			} else {
 				buf_printf(buffer, BUF_END, "One is in %s\n",
-					   in_obj->in_room == NULL ?
-					   "somewhere" :
 					   mlstr_cval(&in_obj->in_room->name, ch));
 				number++;
 			}
