@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.18 1999-02-17 07:53:29 fjoe Exp $
+ * $Id: olc_msg.c,v 1.19 1999-02-17 10:45:57 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -146,6 +146,7 @@ OLC_FUN(msged_show)
 OLC_FUN(msged_list)
 {
 	int i;
+	int num;
 	BUFFER *output = NULL;
 
 	if (argument[0] == '\0') {
@@ -153,6 +154,7 @@ OLC_FUN(msged_list)
 		return FALSE;
 	}
 		
+	num = 0;
 	for (i = 0; i < MAX_MSG_HASH; i++) {
 		int j;
 		varr *v = msg_hash_table+i;
@@ -164,9 +166,8 @@ OLC_FUN(msged_list)
 			if (strstr(name, argument)) {
 				if (output == NULL)
 					output = buf_new(-1);
-				buf_add(output, name);
-				if (name[strlen(name)-1] != '\n')
-					buf_add(output, "\n");
+				buf_printf(output, "%2d. [%s]\n",
+					   ++num, msgtoa(name));
 			}
 		}
 	}
@@ -279,6 +280,9 @@ static const char *atomsg(const char *argument)
 	for (o = 0, i = argument; o < sizeof(buf)-1 && *i; i++, o++) {
 		if (*i == '\\' && *(i+1)) {
 			switch (*++i) {
+			case 'a':
+				buf[o] = '\r';
+				break;
 			case 'r':
 				buf[o] = '\r';
 				break;
@@ -306,6 +310,10 @@ static const char* msgtoa(const char *argument)
 
 	for (o = 0, i = argument; o < sizeof(buf)-2 && *i; i++, o++) {
 		switch (*i) {
+		case '\a':
+			buf[o++] = '\\';
+			buf[o] = 'a';
+			continue;
 		case '\n':
 			buf[o++] = '\\';
 			buf[o] = 'n';
@@ -335,7 +343,7 @@ static void msg_dump(BUFFER *buf, mlstring *ml)
 	static char FORMAT[] = "[%s] [%s]\n";
 
 	if (!nlang) {
-		buf_printf(buf, FORMAT, "all", mlstr_mval(ml));
+		buf_printf(buf, FORMAT, "all", msgtoa(mlstr_mval(ml)));
 		return;
 	}
 
