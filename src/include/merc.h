@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.313 2000-10-29 20:46:14 fjoe Exp $
+ * $Id: merc.h,v 1.314 2000-11-17 17:14:18 avn Exp $
  */
 
 /***************************************************************************
@@ -2225,7 +2225,9 @@ void		help_free	(HELP_DATA*);
 void		boot_db_system	(void);
 void		boot_db		(void);
 
-CHAR_DATA *	create_mob	(MOB_INDEX_DATA *pMobIndex);
+#define CM_F_NOLIST	(A)	/* do not insert in char_list */
+
+CHAR_DATA *	create_mob	(MOB_INDEX_DATA *pMobIndex, int flags);
 CHAR_DATA *	create_mob_of	(MOB_INDEX_DATA *pMobIndex, mlstring *owner);
 CHAR_DATA *	clone_mob	(CHAR_DATA *parent);
 

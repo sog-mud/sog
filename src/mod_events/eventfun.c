@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.20 2000-10-04 20:28:47 fjoe Exp $
+ * $Id: eventfun.c,v 1.21 2000-11-17 17:14:19 avn Exp $
  */
 
 
@@ -357,7 +357,7 @@ EVENT_FUN(event_timeoutchar_bonedragon)
 	act("Cocoon explodes and nasty dracolich emerges!",
 	    ch, NULL, NULL, TO_ALL);
 
-	drag = create_mob(get_mob_index(MOB_VNUM_BONE_DRAGON));
+	drag = create_mob(get_mob_index(MOB_VNUM_BONE_DRAGON), 0);
 	for (i = 0; i < MAX_STAT; i++)
 		drag->perm_stat[i] = UMIN(25, 15 + dlev / 10);
 	drag->perm_stat[STAT_STR] += 3;

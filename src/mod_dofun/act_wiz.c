@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.260 2000-10-22 17:53:41 fjoe Exp $
+ * $Id: act_wiz.c,v 1.261 2000-11-17 17:14:18 avn Exp $
  */
 
 /***************************************************************************
@@ -2011,7 +2011,7 @@ void do_mload(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	victim = create_mob(pMobIndex);
+	victim = create_mob(pMobIndex, 0);
 	act("$n has created $N!", ch, NULL, victim, TO_ROOM);
 	wiznet("$N loads $i.", ch, victim,
 	       WIZ_LOAD, WIZ_SECURE, trust_level(ch));

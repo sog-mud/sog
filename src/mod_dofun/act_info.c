@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.362 2000-10-29 20:46:15 fjoe Exp $
+ * $Id: act_info.c,v 1.363 2000-11-17 17:14:18 avn Exp $
  */
 
 /***************************************************************************
@@ -187,7 +187,7 @@ void do_socials(CHAR_DATA *ch, const char *argument)
 	do {
 		mob_index = get_mob_index(number_range(1, top_vnum_mob));
 	} while (mob_index == NULL);
-	mob = create_mob(mob_index);
+	mob = create_mob(mob_index, 0);
 
 	SHOW_SOCIAL("Having used with no argument specified, you see:",
 		    soc->noarg_char);
@@ -2103,7 +2103,7 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	}
 
 	check_improve(ch, "bear call", TRUE, 1);
-	bear = create_mob(get_mob_index(MOB_VNUM_BEAR));
+	bear = create_mob(get_mob_index(MOB_VNUM_BEAR), 0);
 
 	for (i = 0; i < MAX_STAT; i++)
 		bear->perm_stat[i] = UMIN(25, 2 * ch->perm_stat[i]);
@@ -2821,7 +2821,7 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	}
 
 	check_improve(ch, "lion call", TRUE, 1);
-	lion = create_mob(get_mob_index(MOB_VNUM_LION));
+	lion = create_mob(get_mob_index(MOB_VNUM_LION), 0);
 
 	for (i = 0; i < MAX_STAT; i++)
 		lion->perm_stat[i] = UMIN(25,2 * ch->perm_stat[i]);

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.232 2000-10-21 18:15:52 fjoe Exp $
+ * $Id: db.c,v 1.233 2000-11-17 17:14:21 avn Exp $
  */
 
 /***************************************************************************
@@ -880,7 +880,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 				break;
 			}
 
-			last_mob = create_mob(pMobIndex);
+			last_mob = create_mob(pMobIndex, 0);
 			NPC(last_mob)->zone = pRoom->area;
 			char_to_room(last_mob, pRoom);
 			if (IS_EXTRACTED(last_mob)) {
@@ -1090,7 +1090,7 @@ cb_xxx_of(int lang, const char **p, va_list ap)
 /*
  * Create an instance of a mobile.
  */
-CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
+CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex, int flags)
 {
 	CHAR_DATA *mob;
 	int i;
@@ -1284,12 +1284,15 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 		affect_to_char(mob, paf);
 
 	/* link the mob to the world list */
-	if (char_list_lastpc) {
-		mob->next = char_list_lastpc->next;
-		char_list_lastpc->next = mob;
-	} else {
-		mob->next = char_list;
-		char_list = mob;
+	/* if CM_F_NOLIST is not set */
+	if (!IS_SET(flags, CM_F_NOLIST)) {
+		if (char_list_lastpc) {
+			mob->next = char_list_lastpc->next;
+			char_list_lastpc->next = mob;
+		} else {
+			mob->next = char_list;
+			char_list = mob;
+		}
 	}
 
 	pMobIndex->count++;
@@ -1298,7 +1301,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 
 CHAR_DATA *create_mob_of(MOB_INDEX_DATA *pMobIndex, mlstring *owner)
 {
-	CHAR_DATA *mob = create_mob(pMobIndex);
+	CHAR_DATA *mob = create_mob(pMobIndex, 0);
 
 	mlstr_foreach(&mob->short_descr, cb_xxx_of, owner);
 	mlstr_foreach(&mob->long_descr, cb_xxx_of, owner);
@@ -1315,7 +1318,7 @@ clone_mob(CHAR_DATA *parent)
 	AFFECT_DATA *paf, *paf_next;
 	CHAR_DATA *clone;
 
-	clone = create_mob(parent->pMobIndex);
+	clone = create_mob(parent->pMobIndex, 0);
 
 	/* start fixing values */ 
 	free_string(clone->name);

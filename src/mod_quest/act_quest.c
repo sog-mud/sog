@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.144 2000-10-07 20:41:09 fjoe Exp $
+ * $Id: act_quest.c,v 1.145 2000-11-17 17:14:20 avn Exp $
  */
 
 #include <sys/types.h>
@@ -397,7 +397,7 @@ static void quest_info(CHAR_DATA *ch, char* arg)
 
 		questinfo = get_mob_index(PC(ch)->questmob);
 		if (questinfo != NULL) {
-			CHAR_DATA *mob = create_mob(questinfo);
+			CHAR_DATA *mob = create_mob(questinfo, 0);
 			ROOM_INDEX_DATA *qroom;
 
 			act("You are on a quest to slay the dreaded {W$N{x!",

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.52 2000-10-21 18:15:50 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.53 2000-11-17 17:14:20 avn Exp $
  */
 
 /***************************************************************************
@@ -402,7 +402,7 @@ void do_mpmload(CHAR_DATA *ch, const char *argument)
 	    vnum, IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
     }
-    victim = create_mob(pMobIndex);
+    victim = create_mob(pMobIndex, 0);
     char_to_room(victim, ch->in_room);
 }
 
