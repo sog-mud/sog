@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.36 2001-04-23 13:57:29 cs Exp $
+ * $Id: spellfun2.c,v 1.139.2.37 2001-05-01 08:42:58 kostik Exp $
  */
 
 /***************************************************************************
@@ -2537,32 +2537,32 @@ void spell_scream(int sn, int level, CHAR_DATA *ch, void *vo)
 	act("$n screams with a disturbing NOISE!.",ch,NULL,NULL,TO_ROOM);
 	act("You scream with a powerful sound.",ch,NULL,NULL,TO_CHAR);
 
-	hpch = UMAX(10, ch->hit);
-	hp_dam  = number_range(hpch/9+1, hpch/5);
-	dice_dam = dice(level,20);
-	dam = UMAX(hp_dam + dice_dam /10 , dice_dam + hp_dam /10);
+	hpch		= UMAX(10, ch->hit);
+	hp_dam		= number_range(hpch/9+1, hpch/5);
+	dice_dam	= dice(level,20);
+	dam		= UMAX(hp_dam + dice_dam /10 , dice_dam + hp_dam /10);
 
 	scream_effect(ch->in_room,level,dam/2,TARGET_ROOM);
 
-	for (vch = ch->in_room->people; vch != NULL; vch = vch_next)
-	{
-	vch_next = vch->next_in_room;
+	for (vch = ch->in_room->people; vch != NULL; vch = vch_next) {
+		vch_next = vch->next_in_room;
 
-	if (is_safe_spell(ch,vch,TRUE))
-	    continue;
+		if (is_safe_spell(ch,vch,TRUE))
+			continue;
 
-	    if (saves_spell(level,vch,DAM_ENERGY))
-	    {
-		scream_effect(vch,level/2,dam/4,TARGET_CHAR);
-/*		damage(ch,vch,dam/2,sn,DAM_ENERGY,TRUE); */
-	     if (vch->fighting)  stop_fighting(vch , TRUE);
-	    }
-	    else
-	    {
-		scream_effect(vch,level,dam,TARGET_CHAR);
-/*		damage(ch,vch,dam,sn,DAM_ENERGY,TRUE); */
-	     if (vch->fighting)  stop_fighting(vch , TRUE);
-	    }
+		if (saves_spell(level,vch,DAM_ENERGY)) {
+			scream_effect(vch,level/2,dam/4,TARGET_CHAR);
+			damage(ch,vch,dam/2,sn,DAM_SOUND,TRUE);
+
+			if (vch->fighting)
+				stop_fighting(vch , TRUE);
+		} else {
+			scream_effect(vch,level,dam,TARGET_CHAR);
+			damage(ch, vch, dam, sn, DAM_SOUND, TRUE);
+
+			if (vch->fighting)
+				stop_fighting(vch , TRUE);
+		}
 	}
 }
 
