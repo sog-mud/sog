@@ -2510,6 +2510,22 @@ container 0 0
 100 ABCD 9910 0 0
 35 5 350 P
 G none
+#34251
+bottle elixir eternity пузырек эликсир вечности~
+@eng Elixir of Eternity@rus ~~Эликсир~~ Вечности~
+@eng A small shining bottle attracts your eye.@rus Сияние маленького пузырька (bottle) привлекло твой взгляд.~
+glassteel~
+drink A A
+300 300 'salt water' 1 0
+1 1 1000 P
+E
+elixir эликсир~
+@eng A small plaque is attachet to the bottle:
+'The eternity smells like oil. Everything smells like oil. Serre.'
+@rus К пузырьку присобачена маленькая записка:
+'Вечность пахнет нефтью. Все пахнет нефтью. Серр.'
+~
+G male
 #0
 
 #ROOMS

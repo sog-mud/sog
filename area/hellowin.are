@@ -1291,8 +1291,13 @@ a karach~
 A karach is forgotten here.~
 platinum~
 weapon HIMYa AN
-sword 10 1 slash DJ
+sword 10 14 cleave DJ
 70 60 0 P
+F A 0 0 V
+A
+19 15
+A
+18 15
 E
 karach~
 The letters 'Hypujo' is carved on the handle.
