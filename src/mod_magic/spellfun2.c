@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.101 1999-05-17 14:10:18 fjoe Exp $
+ * $Id: spellfun2.c,v 1.102 1999-05-17 20:05:29 avn Exp $
  */
 
 /***************************************************************************
@@ -5249,3 +5249,15 @@ void spell_hunger_weapon(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	else 
 		act("You failed.", ch, obj, NULL, TO_ALL);
 }
+
+void spell_mana_restore(int sn, int level, CHAR_DATA *ch, void *vo, int target)
+{
+	CHAR_DATA *vch = (CHAR_DATA *) vo;
+	int restore;
+
+	restore = 5 * level / 2;
+	vch->mana = UMIN(vch->max_mana, vch->mana + restore);
+	act("A warm glow passes through you.", vch, NULL, NULL, TO_CHAR);
+	if (ch != vch) char_puts("Ok.\n", ch);
+}
+

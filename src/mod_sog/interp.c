@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.138 1999-05-17 14:10:17 fjoe Exp $
+ * $Id: interp.c,v 1.139 1999-05-17 20:05:29 avn Exp $
  */
 
 /***************************************************************************
@@ -429,8 +429,8 @@ cmd_t cmd_table[] =
     { "mwhere",		do_mwhere,	POS_DEAD,	IM,  LOG_NORMAL	},
     { "owhere",		do_owhere,	POS_DEAD,	IM,  LOG_NORMAL	},
     { "peace",		do_peace,	POS_DEAD,	L5,  LOG_NORMAL	},
-    { "penalty",	do_penalty,	POS_DEAD,	L7,  LOG_NORMAL	},
-    { "penalties",	do_penalty,	POS_DEAD,	L7,  LOG_NORMAL	},
+    { "penalty",	do_penalty,	POS_DEAD,	L8,  LOG_NORMAL	},
+    { "penalties",	do_penalty,	POS_DEAD,	L8,  LOG_NORMAL	},
     { "echo",		do_recho,	POS_DEAD,	L6,  LOG_ALWAYS	},
     { "return",         do_return,      POS_DEAD,       0,  LOG_NORMAL, CMD_CHARMED_OK | CMD_HIDDEN },
     { "snoop",		do_snoop,	POS_DEAD,	ML,  LOG_ALWAYS	},
@@ -568,7 +568,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		&&  IS_SET(ch->plr_flags, PLR_FREEZE)
 		&&  !IS_SET(cmd->flags, CMD_FROZEN_OK)) {
 			char_puts("You're totally frozen!\n", ch);
-			continue;
+			return;
 		}
 
 		if (IS_SET(cmd->flags, CMD_DISABLED)) {

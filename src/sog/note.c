@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.52 1999-04-16 15:52:20 fjoe Exp $
+ * $Id: note.c,v 1.53 1999-05-17 20:05:30 avn Exp $
  */
 
 /***************************************************************************
@@ -139,7 +139,7 @@ void do_unread(CHAR_DATA *ch, const char *argument)
 	char_printf(ch,"You have %d unread idea%s to peruse.\n",
 	    count, count > 1 ? "s" : str_empty);
     }
-    if (IS_TRUSTED(ch,ANGEL) && (count = count_spool(ch,penalty_list)) > 0)
+    if (IS_IMMORTAL(ch) && (count = count_spool(ch,penalty_list)) > 0)
     {
 	found = TRUE;
 	char_printf(ch,"%d %s been added.\n",

@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.19 1999-02-17 07:53:21 fjoe Exp $
+ * $Id: healer.c,v 1.20 1999-05-17 20:05:29 avn Exp $
  */
 
 /***************************************************************************
@@ -49,6 +49,33 @@
 
 DECLARE_DO_FUN(	do_say	);
 
+typedef struct
+{
+	char * const	keyword;
+	char * const	name;
+	char * const	spellname;
+	int		level;
+	int		price;
+} heal_t;
+
+heal_t heal_table[] =
+{
+    { "light",		"cure light wounds",	"cure light", 0, 10 },
+    { "serious",	"cure serious wounds",	"cure serious", 0, 15 },
+    { "critical",	"cure critical wounds",	"cure critical", 0, 25 },
+    { "heal",		"healing spell",	"heal", 0, 50 },
+    { "blind",		"cure blindness",	"cure blindness", 0, 20 },
+    { "disease",	"cure disease",		"cure disease", 0, 15 },
+    { "poison",		"cure poison",		"cure poison", 0, 25 },
+    { "uncurse",	"remove curse",		"remove curse", 0, 50 },
+    { "refresh",	"restore movement",	"refresh", 0, 5 },
+    { "mana",		"restore mana",		"mana restore", 20, 10 },
+    { "master",		"master heal spell",	"master healing", 0, 200 },
+    { "energize",	"restore 300 mana",	"mana restore", 0, 200 },
+
+    { NULL }
+};
+
 void do_heal(CHAR_DATA *ch, const char *argument)
 {
     CHAR_DATA *mob;
@@ -56,7 +83,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     int sn;
     int cost;
     SPELL_FUN *spell;
-    char *words;	
+    heal_t *h;
 
     /* check for healer */
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
@@ -78,126 +105,24 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 
     if (arg[0] == '\0') {
         /* display price list */
-	act("Healer offers the following spells.",ch,NULL,mob,TO_CHAR);
-	char_puts("  light   : cure light wounds     10 gold\n",ch);
-	char_puts("  serious : cure serious wounds   15 gold\n",ch);
-	char_puts("  critic  : cure critical wounds  25 gold\n",ch);
-	char_puts("  heal    : healing spell         50 gold\n",ch);
-	char_puts("  blind   : cure blindness        20 gold\n",ch);
-	char_puts("  disease : cure disease          15 gold\n",ch);
-	char_puts("  poison  : cure poison           25 gold\n",ch); 
-	char_puts("  uncurse : remove curse          50 gold\n",ch);
-	char_puts("  refresh : restore movement       5 gold\n",ch);
-	char_puts("  mana    : restore mana          10 gold\n",ch);
-	char_puts("  master heal: master heal spell 200 gold\n",ch);
-	char_puts("  energize : restore 300 mana    200 gold\n",ch);
+	act("$N offers the following spells.",ch,NULL,mob,TO_CHAR);
+	for (h = heal_table; h->keyword; h++)
+	    char_printf(ch, "%10s : %20s : %d gold\n",
+		h->keyword, h->name, h->price);
 	char_puts(" Type heal <type> to be healed.\n",ch);
 	return;
     }
 
-    if (!str_prefix(arg,"light"))
-    {
-        spell = spell_cure_light;
-	sn    = sn_lookup("cure light");
-	words = "judicandus dies";
-	 cost  = 1000;
-    }
+    for (h = heal_table; h->keyword; h++)
+	if (!str_prefix(arg, h->keyword)) break;
 
-    else if (!str_prefix(arg,"serious"))
+    if (h->name == NULL)	
     {
-	spell = spell_cure_serious;
-	sn    = sn_lookup("cure serious");
-	words = "judicandus gzfuajg";
-	cost  = 1600;
-    }
-
-    else if (!str_prefix(arg,"critical"))
-    {
-	spell = spell_cure_critical;
-	sn    = sn_lookup("cure critical");
-	words = "judicandus qfuhuqar";
-	cost  = 2500;
-    }
-
-    else if (!str_prefix(arg,"heal"))
-    {
-	spell = spell_heal;
-	sn = sn_lookup("heal");
-	words = "pzar";
-	cost  = 5000;
-    }
-
-    else if (!str_prefix(arg,"blindness"))
-    {
-	spell = spell_cure_blindness;
-	sn    = sn_lookup("cure blindness");
-      	words = "judicandus noselacri";		
-        cost  = 2000;
-    }
-
-    else if (!str_prefix(arg,"disease"))
-    {
-	spell = spell_cure_disease;
-	sn    = sn_lookup("cure disease");
-	words = "judicandus eugzagz";
-	cost = 1500;
-    }
-
-    else if (!str_prefix(arg,"poison"))
-    {
-	spell = spell_cure_poison;
-	sn    = sn_lookup("cure poison");
-	words = "judicandus sausabru";
-	cost  = 2500;
-    }
-	
-    else if (!str_prefix(arg,"uncurse") || !str_prefix(arg,"curse"))
-    {
-	spell = spell_remove_curse; 
-	sn    = sn_lookup("remove curse");
-	words = "candussido judifgz";
-	cost  = 5000;
-    }
-
-    else if (!str_prefix(arg,"mana"))
-    {
-        spell = NULL;
-        sn = -3;
-        words = "candamira";
-        cost = 1000;
-    }
-
-	
-    else if (!str_prefix(arg,"refresh") || !str_prefix(arg,"moves"))
-    {
-	spell =  spell_refresh;
-	sn    = sn_lookup("refresh");
-	words = "candusima"; 
-	cost  = 500;
-    }
-
-    else if (!str_prefix(arg,"master"))
-    {
-	spell =  spell_master_healing;
-	sn    = sn_lookup("master healing");
-	words = "candastra nikazubra"; 
-	cost  = 20000;
-    }
-
-    else if (!str_prefix(arg,"energize"))
-    {
-	spell =  NULL;
-	sn    = -2;
-	words = "energizer"; 
-	cost  = 20000;
-    }
-
-    else 
-    {
-	act("Healer does not offer that spell.  Type 'heal' for a list.",
+	act("$N does not offer that spell.  Type 'heal' for a list.",
 	    ch,NULL,mob,TO_CHAR);
 	return;
     }
+    cost = 100 * h->price;
 
     if (cost > (ch->gold * 100 + ch->silver))
     {
@@ -208,24 +133,26 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 
     WAIT_STATE(ch,PULSE_VIOLENCE);
 
+    if (!can_see(mob, ch)) {
+	do_say(mob, "I can't cast on those whom I don't see.");
+	return;
+    }
+
     deduct_cost(ch, cost);
 
-    act("$n utters the words, '$t'.", mob, words, NULL, TO_ROOM);
-    if (sn == -2)
-     {
-	ch->mana += 300;
-	ch->mana = UMIN(ch->mana,ch->max_mana);
-	char_puts("A warm glow passes through you.\n",ch);
-     }
-    if (sn == -3)
-    {
-	ch->mana += dice(2,8) + mob->level / 3;
-	ch->mana = UMIN(ch->mana,ch->max_mana);
-	char_puts("A warm glow passes through you.\n",ch);
-    }
-  
-     if (sn < 0)
+    sn = sn_lookup(h->spellname);
+    if (sn == -1) {
+	bug("do_heal: invalid spell name", 0);
 	return;
-    
-     spell(sn,mob->level,mob,ch,TARGET_CHAR);
+    }
+
+    spell = (SKILL(sn))->spell_fun;
+    if (!spell) {
+	bug("do_heal: no spell fun for skill", 0);
+	return;
+    }
+
+    say_spell(mob, sn);
+    spell(sn, (h->level)?(h->level):(mob->level),
+	mob, ch, TARGET_CHAR);
 }
