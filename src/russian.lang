@@ -1,5 +1,5 @@
 #
-# $Id: russian.lang,v 1.102 1998-09-10 22:16:19 fjoe Exp $
+# $Id: russian.lang,v 1.103 1998-09-19 11:13:06 fjoe Exp $
 #
 
 MSG_NOTHING  		"Ничего.\n\r",	
@@ -1028,4 +1028,4 @@ MSG_N_SPELLBANE_DEFLECTS	"Проклятье на $n отразило заклинание!"
 MSG_CAST_SPELL_ON_WHOM	"Прочитать заклинание на кого?\n\r"
 MSG_CANT_CAST_SPELL_ON_N_FAR
 		"Ты не можешь читать заклинания на $N на таком расстоянии."
-
+MSG_YOU_HAVE_NO_UNREAD "А новостей на сегодня больше нет.\n\r"

@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.81 1998-09-17 11:13:04 fjoe Exp $
+# $Id: english.lang,v 1.82 1998-09-19 11:13:06 fjoe Exp $
 #
 
 MSG_NOTHING		"Nothing.\n\r"
@@ -851,4 +851,4 @@ MSG_YOUR_SPELLBANE_DEFLECTS	"Your spellbane deflects the spell!"
 MSG_N_SPELLBANE_DEFLECTS	"$n's spellbane deflects the spell!"
 MSG_CAST_SPELL_ON_WHOM	"Cast the spell on whom?\n\r"
 MSG_CANT_CAST_SPELL_ON_N_FAR "You can't cast this spell to $N at this distance."
-
+MSG_YOU_HAVE_NO_UNREAD "You have no unread notes.\n\r"

@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.91 1998-09-01 18:29:07 fjoe Exp $
+ * $Id: resource.h,v 1.92 1998-09-19 11:13:06 fjoe Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -851,6 +851,7 @@ enum {
 	MSG_N_SPELLBANE_DEFLECTS,
 	MSG_CAST_SPELL_ON_WHOM,
 	MSG_CANT_CAST_SPELL_ON_N_FAR,
+	MSG_YOU_HAVE_NO_UNREAD,
 };
 
 #endif
