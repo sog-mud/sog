@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.265 2000-10-15 17:19:32 fjoe Exp $
+ * $Id: handler.c,v 1.266 2000-10-21 17:00:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1102,7 +1102,7 @@ OBJ_DATA *get_obj_list_raw(CHAR_DATA *ch, const char *name, uint *number,
 
 	for (obj = list; obj; obj = obj->next_content) {
 		if (!can_see_obj(ch, obj)
-		||  !is_name(name, obj->name))
+		||  !IS_OBJ_NAME(obj, name))
 			continue;
 
 		switch (flags) {
@@ -1264,12 +1264,13 @@ OBJ_DATA *get_obj_world(CHAR_DATA *ch, const char *argument)
 	if ((obj = get_obj_here_raw(ch, arg, &number)))
 		return obj;
 
-	for (obj = object_list; obj; obj = obj->next)
+	for (obj = object_list; obj; obj = obj->next) {
 		if (can_see_obj(ch, obj)
 		&&  obj->carried_by != ch
-		&&  is_name(arg, obj->name)
+		&&  IS_OBJ_NAME(obj, arg)
 		&&  !--number)
 			return obj;
+	}
 
 	return NULL;
 }
@@ -1999,9 +2000,9 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 	liquid_t *lq;
 
 	buf_printf(output, BUF_END,
-		"Object '%s' is type %s, stat flags %s.\n"
+		"Object '%s%s' is type %s, stat flags %s.\n"
 		"Weight is %d, value is %d, level is %d.\n",
-		obj->name,
+		obj->name, obj->label,
 		flag_string(item_types, obj->item_type),
 		flag_string(stat_flags, obj->stat_flags & ~ITEM_ENCHANTED),
 		obj->weight,
@@ -3568,13 +3569,17 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container,
 
 void quaff_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 {
+	OBJ_DATA *vial;
+
 	act("$n quaffs $p.", ch, obj, NULL, TO_ROOM);
 	act_puts("You quaff $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 
 	if (IS_PUMPED(ch) || ch->fighting != NULL)
 		WAIT_STATE(ch, 2 * get_pulse("violence"));
 
-	obj_to_char(create_obj(get_obj_index(OBJ_VNUM_POTION_VIAL), 0), ch);
+	vial = create_obj(get_obj_index(OBJ_VNUM_POTION_VIAL), 0);
+	vial->label = str_qdup(obj->label);
+	obj_to_char(vial, ch);
 
 	obj_cast_spell(obj->value[1].s, INT(obj->value[0]), ch, ch);
 
@@ -4553,4 +4558,12 @@ int get_resist(CHAR_DATA *ch, int dam_class)
 		return URANGE(-100, resists[dam_class] + bonus, 100);
 
 	return IS_IMMORTAL(ch)? 100 : 0;
+}
+
+void
+label_add(OBJ_DATA *obj, const char *label)
+{
+	const char *p = obj->label;
+	obj->label = str_printf("%s %s", obj->label, label);
+	free_string(p);
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_expr.c,v 1.10 2000-10-07 10:58:05 fjoe Exp $
+ * $Id: cc_expr.c,v 1.11 2000-10-21 17:00:55 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -249,4 +249,3 @@ cc_expr_destroy(cc_expr_t *e)
 	free_string(e->mfun);
 	free_string(e->expr);
 }
-

@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.73 2000-10-15 17:19:31 fjoe Exp $
+ * $Id: olc.h,v 1.74 2000-10-21 17:00:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -202,6 +202,8 @@ void		olc_printf	(CHAR_DATA *ch, const char *format, ...);
 
 BUFFER *	show_mob_resets(int vnum);
 BUFFER *	show_obj_resets(int vnum);
+void		show_resets(CHAR_DATA *ch, int vnum, const char *xxx,
+			    BUFFER *(*show_xxx_resets)(int));
 
 const char *	format_dice(int *dice);
 

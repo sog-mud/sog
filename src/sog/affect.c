@@ -1,5 +1,5 @@
 /*
- * $Id: affect.c,v 1.45 2000-10-07 10:58:05 fjoe Exp $
+ * $Id: affect.c,v 1.46 2000-10-21 17:00:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -926,9 +926,9 @@ void show_name(CHAR_DATA *ch, BUFFER *output,
 	       AFFECT_DATA *paf, AFFECT_DATA *paf_last)
 {
 	skill_t *aff;
-	char * aff_type;
+	char *aff_type;
 	
-	if (IS_NULLSTR(paf->type)) 
+	if (IS_NULLSTR(paf->type))
 		aff_type = "Item";
 	else if ((aff = skill_lookup(paf->type)) != NULL) {
 		switch(aff->skill_type) {
@@ -948,7 +948,7 @@ void show_name(CHAR_DATA *ch, BUFFER *output,
 		aff_type = "Something";
 
 	if (paf_last && IS_SKILL(paf->type, paf_last->type))
-		if (ch && ch->level < 20)
+		if (ch && ch->level < MAX_LEVEL / 3)
 			return;
 		else
 			buf_append(output, "                           ");
@@ -970,7 +970,8 @@ void show_loc_affect(CHAR_DATA *ch, BUFFER *output,
 {
 	where_t *w;
 
-	if ((w = where_lookup(paf->where)) == NULL)
+	if ((w = where_lookup(paf->where)) == NULL
+	||  IS_NULLSTR(w->loc_format))
 		return;
 
 	if ((INT(paf->location) == APPLY_NONE || paf->modifier == 0)
@@ -978,15 +979,13 @@ void show_loc_affect(CHAR_DATA *ch, BUFFER *output,
 		return;
 
 	show_name(ch, output, paf, *ppaf);
-	if (!IS_NULLSTR(w->loc_format)) {
-		buf_append(output, ": ");
-		buf_printf(output, BUF_END, w->loc_format,
-				   w->loc_table ?
-					SFLAGS(w->loc_table, paf->location) :
-					STR(paf->location),
-				   paf->modifier);
-		show_duration(output, paf);
-	}
+	buf_append(output, ": ");
+	buf_printf(output, BUF_END, w->loc_format,
+		   w->loc_table ?
+			SFLAGS(w->loc_table, paf->location) :
+			STR(paf->location),
+		   paf->modifier);
+	show_duration(output, paf);
 	*ppaf = paf;
 }
 
@@ -995,20 +994,19 @@ void show_bit_affect(BUFFER *output, AFFECT_DATA *paf, AFFECT_DATA **ppaf)
 	where_t *w;
 
 	if ((w = where_lookup(paf->where)) == NULL
-	||  !paf->bitvector)
+	||  !paf->bitvector
+	||  IS_NULLSTR(w->bit_format))
 		return;
 
 	show_name(NULL, output, paf, *ppaf);
-	if (!IS_NULLSTR(w->bit_format)) {
-		buf_append(output, ": ");
-		buf_printf(output, BUF_END, w->bit_format,
-			flag_string(w->bit_table, paf->bitvector));
-		show_duration(output, paf);
-	}
+	buf_append(output, ": ");
+	buf_printf(output, BUF_END, w->bit_format,
+		flag_string(w->bit_table, paf->bitvector));
+	show_duration(output, paf);
 	*ppaf = paf;
 }
 
-void show_obj_affects(CHAR_DATA *ch, BUFFER *output, AFFECT_DATA *paf)
+void show_obj_affects(BUFFER *output, AFFECT_DATA *paf)
 {
 	AFFECT_DATA *paf_last = NULL;
 
@@ -1016,7 +1014,7 @@ void show_obj_affects(CHAR_DATA *ch, BUFFER *output, AFFECT_DATA *paf)
 		show_bit_affect(output, paf, &paf_last);
 }
 
-void show_affects2(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output)
+void show_affects(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output)
 {
 	OBJ_DATA *obj;
 	AFFECT_DATA *paf, *paf_last = NULL;
@@ -1056,16 +1054,17 @@ void show_affects2(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output)
 		}
 	}
 
-	if (ch->level < 20)
+	if (ch->level < MAX_LEVEL / 3)
 		return;
 
-	for (obj = ch->carrying; obj; obj = obj->next_content)
+	for (obj = vch->carrying; obj; obj = obj->next_content) {
 		if (obj->wear_loc != WEAR_NONE) {
 			if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED))
-				show_obj_affects(ch, output,
+				show_obj_affects(output,
 						 obj->pObjIndex->affected);
-			show_obj_affects(ch, output, obj->affected);
+			show_obj_affects(output, obj->affected);
 		}
+	}
 }
 
 void aff_fwrite(AFFECT_DATA *paf, FILE *fp)

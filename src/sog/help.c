@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: help.c,v 1.16 2000-10-07 10:58:06 fjoe Exp $
+ * $Id: help.c,v 1.17 2000-10-21 17:00:55 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -140,14 +140,8 @@ void help_show_raw(int level, int lang, BUFFER *output, const char *keyword)
 			buf_printf(output, BUF_END, "{C%s{x\n\n", pFirst->keyword);
 
 		text = mlstr_val(&pFirst->text, lang);
-
-		/*
-		 * Strip leading '.' to allow initial blanks.
-		 */
-		if (text) {
-			buf_append(output, text[0] == '.' ? text+1 : text);
-			buf_append(output, "\n");
-		}
+		if (text)
+			buf_printf(output, BUF_END, "%s\n", text);
 	}
 }
 

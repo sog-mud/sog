@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.18 2000-10-07 20:41:08 fjoe Exp $
+ * $Id: olc_skill.c,v 1.19 2000-10-21 17:00:54 fjoe Exp $
  */
 
 #include "olc.h"
@@ -276,8 +276,8 @@ OLC_FUN(skilled_show)
 	if (!IS_NULLSTR(sk->fun_name))
 		buf_printf(buf, BUF_END, "SpellFun   [%s]\n", sk->fun_name);
 
-	mlstr_dump(buf, "WearOff     ", &sk->msg_off);
-	mlstr_dump(buf, "ObjWearOff  ", &sk->msg_obj);
+	mlstr_dump(buf, "WearOff    ", &sk->msg_off);
+	mlstr_dump(buf, "ObjWearOff ", &sk->msg_obj);
 	varr_foreach(&sk->events, event_show_cb, buf);
 
 	page_to_char(buf_string(buf), ch);

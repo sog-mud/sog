@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.357 2000-10-16 18:18:22 fjoe Exp $
+ * $Id: act_info.c,v 1.358 2000-10-21 17:00:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -639,7 +639,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 					continue;
 			}
 
-			if (is_name(arg3, obj->name))
+			if (IS_OBJ_NAME(obj, arg3))
 				if (++count == number) {
 					act_char("You see nothing special about it.", ch);
 					return;
@@ -669,7 +669,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 				}
 		}
 
-		if (is_name(arg3, obj->name))
+		if (IS_OBJ_NAME(obj, arg3))
 			if (++count == number) {
 				act_puts(format_long(&obj->description, ch),
 					 ch, NULL, NULL, TO_CHAR,
@@ -2367,7 +2367,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	buf_append(output, "  {G\\________________________________________________________________\\__/{x\n");
 
 	if (IS_SET(ch->comm, COMM_SHOWAFF))
-		show_affects(ch, output);
+		show_affects(ch, ch, output);
 	send_to_char(buf_string(output), ch);
 	buf_free(output);
 }
@@ -2632,7 +2632,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 */
 
 	if (IS_SET(ch->comm, COMM_SHOWAFF))
-		show_affects(ch, output);
+		show_affects(ch, ch, output);
 	send_to_char(buf_string(output), ch);
 	buf_free(output);
 }
@@ -2642,7 +2642,7 @@ void do_affects(CHAR_DATA *ch, const char *argument)
 	BUFFER *output;
 
 	output = buf_new(GET_LANG(ch));
-	show_affects(ch, output);
+	show_affects(ch, ch, output);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }
@@ -4610,16 +4610,21 @@ void do_commands(CHAR_DATA *ch, const char *argument)
 {
 	int col;
 	int i;
+	varr v;
  
+	varr_cpy(&v, &commands);
+	varr_qsort(&v, cmpstr);
+
 	col = 0;
-	for (i = 0; i < commands.nused; i++) {
-		cmd_t *cmd = VARR_GET(&commands, i);
+	for (i = 0; i < v.nused; i++) {
+		cmd_t *cmd = VARR_GET(&v, i);
 
 		if (cmd->min_level < LEVEL_HERO
 		&&  cmd->min_level <= ch->level 
 		&&  !IS_SET(cmd->cmd_flags, CMD_HIDDEN)) {
 			act_puts("$f-12{$t}", ch, cmd->name, NULL,
-				 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
+				 TO_CHAR | ACT_NOTRANS | ACT_NOLF | ACT_NOUCASE,
+				 POS_DEAD);
 			if (++col % 6 == 0)
 				send_to_char("\n", ch);
 		}
@@ -4627,21 +4632,27 @@ void do_commands(CHAR_DATA *ch, const char *argument)
  
 	if (col % 6 != 0)
 		send_to_char("\n", ch);
+
+	varr_destroy(&v);
 }
 
 void do_wizhelp(CHAR_DATA *ch, const char *argument)
 {
 	int i;
 	int col;
- 
+	varr v;
+
 	if (IS_NPC(ch)) {
 		act_char("Huh?", ch);
 		return;
 	}
 
+	varr_cpy(&v, &commands);
+	varr_qsort(&v, cmpstr);
+
 	col = 0;
-	for (i = 0; i < commands.nused; i++) {
-		cmd_t *cmd = VARR_GET(&commands, i);
+	for (i = 0; i < v.nused; i++) {
+		cmd_t *cmd = VARR_GET(&v, i);
 
 		if (cmd->min_level < LEVEL_IMMORTAL)
 			continue;
@@ -4651,13 +4662,16 @@ void do_wizhelp(CHAR_DATA *ch, const char *argument)
 			continue;
 
 		act_puts("$f-12{$t}", ch, cmd->name, NULL,
-			 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
+			 TO_CHAR | ACT_NOTRANS | ACT_NOLF | ACT_NOUCASE,
+			 POS_DEAD);
 		if (++col % 6 == 0)
 			send_to_char("\n", ch);
 	}
  
 	if (col % 6 != 0)
 		send_to_char("\n", ch);
+
+	varr_destroy(&v);
 }
 
 static void
@@ -4686,8 +4700,7 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 
 		if (str_cmp(vch->clan, clan->name)) {
 			buf_printf(output, BUF_END, "[{RInvalid entry{x] %s (report this to immortals)\n", vch->name);
-			char_nuke(ch);
-			continue;
+			goto cleanup;
 		}
 
 		cnt++;
@@ -4701,6 +4714,8 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 			flag_string(ethos_table, vch->ethos),
 			flag_string(align_names, NALIGN(vch)),
 			vch->name);
+
+cleanup:
 		char_nuke(vch);
 	}
 

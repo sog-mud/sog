@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.217 2000-10-16 18:18:22 fjoe Exp $
+ * $Id: act_comm.c,v 1.218 2000-10-21 17:00:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1768,26 +1768,20 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 	if ((clan = clan_lookup(victim->clan)) == NULL
 	||  (!IS_CLAN(victim->clan, ch->clan) && !IS_IMMORTAL(ch))) {
 		act_char("They are not an a clan.", ch);
-		if (loaded)
-			char_nuke(victim);
-		return;
+		goto cleanup;
 	}
 
 	vpc = PC(victim);
 
 	if (!IS_IMMORTAL(ch) && vpc->clan_status == CLAN_LEADER) {
 		act_char("You don't have enough power to promote them.", ch);
-		if (loaded)
-			char_nuke(victim);
-		return;
+		goto cleanup;
 	}
 
 	if (!str_prefix(arg2, "leader") && IS_IMMORTAL(ch)) {
 		if (vpc->clan_status == CLAN_LEADER) {
 			act_char("They are already leader in a clan.", ch);
-			if (loaded)
-				char_nuke(victim);
-			return;
+			goto cleanup;
 		}
 
 		clan_update_lists(clan, victim, FALSE);
@@ -1805,9 +1799,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 	if (!str_prefix(arg2, "secondary")) {
 		if (vpc->clan_status == CLAN_SECOND) {
 			act_char("They are already second in a clan.", ch);
-			if (loaded)
-				char_nuke(victim);
-			return;
+			goto cleanup;
 		}
 
 		clan_update_lists(clan, victim, FALSE);
@@ -1825,9 +1817,7 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 	if (!str_prefix(arg2, "commoner")) {
 		if (vpc->clan_status == CLAN_COMMONER) {
 			act_char("They are already commoner in a clan.", ch);
-			if (loaded)
-				char_nuke(victim);
-			return;
+			goto cleanup;
 		}
 
 		clan_update_lists(clan, victim, FALSE);

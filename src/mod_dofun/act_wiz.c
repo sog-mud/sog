@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.257 2000-10-15 17:19:30 fjoe Exp $
+ * $Id: act_wiz.c,v 1.258 2000-10-21 17:00:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -277,6 +277,7 @@ void do_nonote(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	bool loaded = FALSE;
+	bool altered = FALSE;
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -298,14 +299,15 @@ void do_nonote(CHAR_DATA *ch, const char *argument)
 		goto cleanup;
 	}
 
-	if (IS_SET(victim->comm, COMM_NONOTE)) {
-		REMOVE_BIT(victim->comm, COMM_NONOTE);
+	TOGGLE_BIT(victim->comm, COMM_NONOTE);
+	altered = TRUE;
+
+	if (!IS_SET(victim->comm, COMM_NONOTE)) {
 		act_char("You may write notes again.", victim);
 		act_char("NONOTE removed.", ch);
 		wiznet("$N grants $i right to write notes",
 			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
 	} else {
-		SET_BIT(victim->comm, COMM_NONOTE);
 		act_char("Your notes will be sent to Abyss now.", victim);
 		act_char("NONOTE set.", ch);
 		wiznet("$N revokes $i's right to write notes",
@@ -313,10 +315,10 @@ void do_nonote(CHAR_DATA *ch, const char *argument)
 	}
 
 cleanup:
-	if (loaded) {
-		char_save(victim, SAVE_F_PSCAN);
+	if (altered)
+		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
+	if (loaded) 
 		char_nuke(victim);
-	}
 }
 
 /* RT nochannels command, for those spammers */
@@ -325,6 +327,7 @@ void do_nochannels(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	bool loaded = FALSE;
+	bool altered = FALSE;
 	
 	one_argument(argument, arg, sizeof(arg));
 	
@@ -347,6 +350,8 @@ void do_nochannels(CHAR_DATA *ch, const char *argument)
 	}
 	
 	TOGGLE_BIT(victim->chan, CHAN_NOCHANNELS);
+	altered = TRUE;
+
 	if (!IS_SET(victim->chan, CHAN_NOCHANNELS)) {
 		act_char("The gods have restored your channel priviliges.", victim);
 		act_char("NOCHANNELS removed.", ch);
@@ -360,10 +365,10 @@ void do_nochannels(CHAR_DATA *ch, const char *argument)
 	}
 
 cleanup:
-	if (loaded) {
-		char_save(victim, SAVE_F_PSCAN);
+	if (altered)
+		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
+	if (loaded) 
 		char_nuke(victim);
-	}
 }
 
 void do_smote(CHAR_DATA *ch, const char *argument)
@@ -529,12 +534,18 @@ void do_disconnect(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	for (d = descriptor_list; d != NULL; d = d->next)
+	if (!IS_TRUSTED(ch, trust_level(victim))) {
+		act_char("You failed.", ch);
+		return;
+	}
+
+	for (d = descriptor_list; d != NULL; d = d->next) {
 		if (d == victim->desc) {
 			close_descriptor(d, SAVE_F_NORMAL);
 			act_char("Ok.", ch);
 			return;
 		}
+	}
 
 	log(LOG_BUG, "do_disconnect: desc not found");
 	act_char("Descriptor not found!", ch);
@@ -1021,6 +1032,8 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 
 	output = buf_new(-1);
 	buf_printf(output, BUF_END, "Name(s): %s\n", obj->name);
+	if (!IS_NULLSTR(obj->label))
+		buf_printf(output, BUF_END, "Label(s):%s\n", obj->label);
 	if (!mlstr_null(&obj->owner))
 		buf_printf(output, BUF_END, "Owner: [%s]\n", mlstr_mval(&obj->owner));
 	buf_printf(output, BUF_END, "Vnum: %d  Type: %s  Resets: %d\n",
@@ -1156,6 +1169,11 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 		loaded = TRUE;
+	}
+
+	if (!IS_TRUSTED(ch, trust_level(victim))) {
+		act_char("You failed.", ch);
+		goto cleanup;
 	}
 
 	output = buf_new(-1);
@@ -1315,7 +1333,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		}
 	}
 
-	show_affects2(ch, victim, output);
+	show_affects(ch, victim, output);
 
 	if (!varr_isempty(&victim->sk_affected)) {
 		buf_append(output, "Skill affects:\n");
@@ -1371,7 +1389,8 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 
-	if (loaded)
+cleanup:
+	if (loaded) 
 		char_nuke(victim);
 }
 
@@ -1540,7 +1559,7 @@ void do_owhere(CHAR_DATA *ch, const char *argument)
 	for (obj = object_list; obj != NULL; obj = obj->next) {
 		if (!can_see_obj(ch, obj)
 		|| (vnum > 0 && obj->pObjIndex->vnum != vnum) 
-		|| (vnum < 0 && !is_name(argument, obj->name)))
+		|| (vnum < 0 && !IS_OBJ_NAME(obj, argument)))
 	        	continue;
 	
 		if (buffer == NULL)
@@ -1594,58 +1613,68 @@ void do_mwhere(CHAR_DATA *ch, const char *argument)
 		/* show characters logged */
 
 		buffer = buf_new(-1);
-		for (d = descriptor_list; d != NULL; d = d->next)
-		{
-		    if (d->character != NULL && d->connected == CON_PLAYING
-		    &&  d->character->in_room != NULL && can_see(ch,d->character)
-		    &&  can_see_room(ch,d->character->in_room))
-		    {
+		for (d = descriptor_list; d != NULL; d = d->next) {
+			if (d->character == NULL
+			||  d->connected != CON_PLAYING
+			||  d->character->in_room == NULL
+			||  !can_see(ch, d->character)
+			||  !can_see_room(ch, d->character->in_room))
+				continue;
+
 			victim = d->character;
 			count++;
-			if (d->original != NULL)
-			    buf_printf(buffer, BUF_END,"%3d) %s (in the body of %s) is in %s [%d]\n",
-				count, d->original->name,
-				mlstr_mval(&victim->short_descr),
-				mlstr_mval(&victim->in_room->name),
-				victim->in_room->vnum);
-			else
-			    buf_printf(buffer, BUF_END,"%3d) %s is in %s [%d]\n",
-				count, victim->name,
-				mlstr_mval(&victim->in_room->name),
-				victim->in_room->vnum);
-		    }
+			if (d->original != NULL) {
+				buf_printf(buffer, BUF_END,
+					   "%3d) %s (in the body of %s) is in %s [%d]\n",
+					   count,
+					   d->original->name,
+					   mlstr_mval(&victim->short_descr),
+					   mlstr_mval(&victim->in_room->name),
+					   victim->in_room->vnum);
+			} else {
+				buf_printf(buffer, BUF_END,
+					   "%3d) %s is in %s [%d]\n",
+					   count,
+					   victim->name,
+					   mlstr_mval(&victim->in_room->name),
+					   victim->in_room->vnum);
+			}
 		}
 
-	    page_to_char(buf_string(buffer),ch);
+		page_to_char(buf_string(buffer),ch);
 		buf_free(buffer);
 		return;
 	}
 
 	buffer = NULL;
-	if (is_number(argument)) vnum = atoi(argument);
+	if (is_number(argument))
+		vnum = atoi(argument);
 
-	for (victim = char_list; victim; victim = victim->next)
+	for (victim = char_list; victim; victim = victim->next) {
 		if (victim->in_room
 		&&  can_see(ch, victim)
-		&&  (is_name(argument, victim->name)
-		    || (IS_NPC(victim) && victim->pMobIndex->vnum == vnum))) {
+		&&  (is_name(argument, victim->name) ||
+		     (IS_NPC(victim) && victim->pMobIndex->vnum == vnum))) {
 			if (buffer == NULL)
 				buffer = buf_new(-1);
 
 			count++;
-			buf_printf(buffer, BUF_END, "%3d) [%5d] %-28s [%5d] %s\n",
-			  count, IS_NPC(victim) ? victim->pMobIndex->vnum : 0,
-			  IS_NPC(victim) ?
-			      mlstr_mval(&victim->short_descr) : victim->name,
-			  victim->in_room->vnum,
-			  mlstr_mval(&victim->in_room->name));
+			buf_printf(buffer, BUF_END,
+				   "%3d) [%5d] %-28s [%5d] %s\n",
+				   count,
+				   IS_NPC(victim) ? victim->pMobIndex->vnum : 0,
+				   IS_NPC(victim) ?
+					mlstr_mval(&victim->short_descr) :
+					victim->name,
+				   victim->in_room->vnum,
+				   mlstr_mval(&victim->in_room->name));
 		}
+	}
 
 	if (buffer) {
 		page_to_char(buf_string(buffer),ch);
 		buf_free(buffer);
-	}
-	else
+	} else
 		act("You didn't find any $T.", ch, NULL, argument, TO_CHAR);
 }
 
@@ -1653,6 +1682,7 @@ void do_protect(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	bool loaded = FALSE;
+	bool altered = FALSE;
 
 	if (argument[0] == '\0') {
 		do_help(ch, "'WIZ PROTECT'");
@@ -1667,22 +1697,29 @@ void do_protect(CHAR_DATA *ch, const char *argument)
 		loaded = TRUE;
 	}
 
-	if (IS_SET(victim->comm, COMM_SNOOP_PROOF)) {
+	if (!IS_TRUSTED(ch, trust_level(victim))) {
+		act_char("You failed.", ch);
+		goto cleanup;
+	}
+
+	TOGGLE_BIT(victim->comm, COMM_SNOOP_PROOF);
+	altered = TRUE;
+
+	if (!IS_SET(victim->comm, COMM_SNOOP_PROOF)) {
 		act_puts("$N is no longer snoop-proof.", ch, NULL, victim,
 			 TO_CHAR, POS_DEAD);
 		act_char("Your snoop-proofing was just removed.", victim);
-		REMOVE_BIT(victim->comm, COMM_SNOOP_PROOF);
 	} else {
 		act_puts("$N is now snoop-proof.", ch, NULL, victim, TO_CHAR,
 			 POS_DEAD);
 		act_char("You are now immune to snooping.", victim);
-		SET_BIT(victim->comm, COMM_SNOOP_PROOF);
 	}
 
-	if (loaded) {
-		char_save(victim, SAVE_F_PSCAN);
+cleanup:
+	if (altered)
+		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
+	if (loaded) 
 		char_nuke(victim);
-	}
 }
 	
 void do_snoop(CHAR_DATA *ch, const char *argument)
@@ -1736,12 +1773,14 @@ void do_snoop(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->desc != NULL)
-		for (d = ch->desc->snoop_by; d != NULL; d = d->snoop_by)
-		    if (d->character == victim || d->original == victim) {
-			act_char("No snoop loops.", ch);
-			return;
-		    }
+	if (ch->desc != NULL) {
+		for (d = ch->desc->snoop_by; d != NULL; d = d->snoop_by) {
+			if (d->character == victim || d->original == victim) {
+				act_char("No snoop loops.", ch);
+				return;
+			}
+		}
+	}
 
 	victim->desc->snoop_by = ch->desc;
 	wiznet("$N starts snooping on $i.",
@@ -1912,7 +1951,7 @@ void do_clone(CHAR_DATA *ch, const char *argument)
 
 void do_load(CHAR_DATA *ch, const char *argument)
 {
-	 char arg[MAX_INPUT_LENGTH];
+	char arg[MAX_INPUT_LENGTH];
 
 	argument = one_argument(argument, arg, sizeof(arg));
 
@@ -1930,8 +1969,9 @@ void do_load(CHAR_DATA *ch, const char *argument)
 		do_oload(ch, argument);
 		return;
 	}
+
 	/* echo syntax */
-	do_load(ch,str_empty);
+	do_load(ch, str_empty);
 }
 
 void do_mload(CHAR_DATA *ch, const char *argument)
@@ -2100,7 +2140,8 @@ void do_restore(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	
-	if (ch->level >=  MAX_LEVEL - 1 && !str_cmp(arg, "all")) {
+	if (ch->level >= MAX_LEVEL - 1
+	&&  !str_cmp(arg, "all")) {
 		/*
 		 * cure all
 		 */
@@ -2134,6 +2175,7 @@ void do_freeze(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	bool loaded = FALSE;
+	bool altered = FALSE;
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -2159,6 +2201,8 @@ void do_freeze(CHAR_DATA *ch, const char *argument)
 	}
 
 	TOGGLE_BIT(PC(victim)->plr_flags, PLR_FREEZE);
+	altered = TRUE;
+
 	if (!IS_SET(PC(victim)->plr_flags, PLR_FREEZE)) {
 		act_char("You can play again.", victim);
 		act_char("FREEZE removed.", ch);
@@ -2172,11 +2216,10 @@ void do_freeze(CHAR_DATA *ch, const char *argument)
 	}
 
 cleanup:
-	if (loaded) {
-		char_save(victim, SAVE_F_PSCAN);
+	if (altered)
+		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
+	if (loaded) 
 		char_nuke(victim);
-	} else
-		char_save(victim, 0);
 }
 
 void do_log(CHAR_DATA *ch, const char *argument)
@@ -2227,6 +2270,7 @@ void do_noemote(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	bool loaded = FALSE;
+	bool altered = FALSE;
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -2248,14 +2292,15 @@ void do_noemote(CHAR_DATA *ch, const char *argument)
 		goto cleanup;
 	}
 
-	if (IS_SET(victim->comm, COMM_NOEMOTE)) {
-		REMOVE_BIT(victim->comm, COMM_NOEMOTE);
+	TOGGLE_BIT(victim->comm, COMM_NOEMOTE);
+	altered = TRUE;
+
+	if (!IS_SET(victim->comm, COMM_NOEMOTE)) {
 		act_char("You can emote again.", victim);
 		act_char("NOEMOTE removed.", ch);
 		wiznet("$N restores emotes to $i.",
 			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
 	} else {
-		SET_BIT(victim->comm, COMM_NOEMOTE);
 		act_char("You can't emote!", victim);
 		act_char("NOEMOTE set.", ch);
 		wiznet("$N revokes $i's emotes.",
@@ -2263,10 +2308,10 @@ void do_noemote(CHAR_DATA *ch, const char *argument)
 	}
 
 cleanup:
-	if (loaded) {
-		char_save(victim, SAVE_F_PSCAN);
+	if (altered)
+		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
+	if (loaded) 
 		char_nuke(victim);
-	}
 }
 
 void do_notell(CHAR_DATA *ch, const char *argument)
@@ -2274,6 +2319,7 @@ void do_notell(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	bool loaded = FALSE;
+	bool altered = FALSE;
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -2295,14 +2341,15 @@ void do_notell(CHAR_DATA *ch, const char *argument)
 		goto cleanup;
 	}
 
-	if (IS_SET(victim->comm, COMM_NOTELL)) {
-		REMOVE_BIT(victim->comm, COMM_NOTELL);
+	TOGGLE_BIT(victim->comm, COMM_NOTELL);
+	altered = TRUE;
+
+	if (!IS_SET(victim->comm, COMM_NOTELL)) {
 		act_char("You can tell again.", victim);
 		act_char("NOTELL removed.", ch);
 		wiznet("$N restores tells to $i.",
 			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
 	} else {
-		SET_BIT(victim->comm, COMM_NOTELL);
 		act_char("You can't tell!", victim);
 		act_char("NOTELL set.", ch);
 		wiznet("$N revokes $i's tells.",
@@ -2310,10 +2357,10 @@ void do_notell(CHAR_DATA *ch, const char *argument)
 	}
 
 cleanup:
-	if (loaded) {
-		char_save(victim, SAVE_F_PSCAN);
+	if (altered)
+		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
+	if (loaded) 
 		char_nuke(victim);
-	}
 }
 
 void do_peace(CHAR_DATA *ch, const char *argument)
@@ -2330,13 +2377,13 @@ void do_peace(CHAR_DATA *ch, const char *argument)
 			 */
 			AFFECT_DATA af;
 
-			af.where = TO_AFFECTS;
-			af.type = "calm";
-			af.level = MAX_LEVEL;
-			af.duration = 15;
-			INT(af.location) = APPLY_NONE;
-			af.modifier = 0;
-			af.bitvector = AFF_CALM;
+			af.where	= TO_AFFECTS;
+			af.type		= "calm";
+			af.level	= MAX_LEVEL;
+			af.duration	= 15;
+			INT(af.location)= APPLY_NONE;
+			af.modifier	= 0;
+			af.bitvector	= AFF_CALM;
 			af.owner	= NULL;
 			affect_to_char(rch, &af);
 		}
@@ -2353,8 +2400,7 @@ void do_wizlock(CHAR_DATA *ch, const char *argument)
 	if (wizlock) {
 		wiznet("$N has wizlocked the game.", ch, NULL, 0, 0, 0);
 		act_char("Game wizlocked.", ch);
-	}
-	else {
+	} else {
 		wiznet("$N removes wizlock.", ch, NULL, 0, 0, 0);
 		act_char("Game un-wizlocked.", ch);
 	}
@@ -2369,8 +2415,7 @@ void do_newlock(CHAR_DATA *ch, const char *argument)
 	if (newlock) {
 		wiznet("$N locks out new characters.", ch, NULL, 0, 0, 0);
 		act_char("New characters have been locked out.", ch);
-	}
-	else {
+	} else {
 		wiznet("$N allows new characters back in.", ch, NULL, 0, 0, 0);
 		act_char("Newlock removed.", ch);
 	}
@@ -2482,7 +2527,7 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 			sn = gmlstr_mval(&sk->sk_name);
 
 		set_skill(victim, sn, value);
-		act_puts("do_sset: '$T': $j%%", ch, (const void *) value, sn,
+		act_puts("do_sset: '$T': $j%", ch, (const void *) value, sn,
 			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 	}
 	update_skills(victim);
@@ -2572,9 +2617,8 @@ void do_string(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (!str_prefix(arg2, "name")) {
-			free_string(obj->name);
-			obj->name = str_dup(arg3);
+		if (!str_prefix(arg2, "label")) {
+			name_toggle(&obj->label, arg3, ch, "label");
 			return;
 		}
 
@@ -3002,6 +3046,7 @@ void do_advance(CHAR_DATA *ch, const char *argument)
 	char arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	bool loaded = FALSE;
+	bool altered = FALSE;
 	int level;
 
 	argument = one_argument(argument, arg1, sizeof(arg1));
@@ -3040,12 +3085,13 @@ void do_advance(CHAR_DATA *ch, const char *argument)
 	}
 
 	advance(victim, level);
+	altered = TRUE;
 
 cleanup:
-	if (loaded) {
-		char_save(victim, SAVE_F_PSCAN);
+	if (altered)
+		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
+	if (loaded) 
 		char_nuke(victim);
-	}
 }
 
 void
@@ -3078,6 +3124,11 @@ do_mset(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 		loaded = TRUE;
+	}
+
+	if (!IS_TRUSTED(ch, trust_level(victim))) {
+		act_char("You failed.", ch);
+		goto cleanup;
 	}
 
 	/*
@@ -3198,7 +3249,7 @@ do_mset(CHAR_DATA *ch, const char *argument)
 
 		mlstr_destroy(&victim->gender);
 		mlstr_init2(&victim->gender, flag_string(gender_table, sex));
-		 altered = TRUE;
+		altered = TRUE;
 		goto cleanup;
 	}
 
@@ -3223,7 +3274,7 @@ do_mset(CHAR_DATA *ch, const char *argument)
 		victim->class = str_qdup(cl->name);
 		spec_update(victim);
 		PC(victim)->exp = exp_for_level(victim, victim->level);
-		 altered = TRUE;
+		altered = TRUE;
 		goto cleanup;
 	}
 
@@ -3290,28 +3341,24 @@ do_mset(CHAR_DATA *ch, const char *argument)
 		goto cleanup;
 	}
 
-	if (!str_prefix(arg2, "level"))
-	{
-		if (!IS_NPC(victim))
-		{
-		    act_char("Not on PC's.", ch);
-		    goto cleanup;
+	if (!str_prefix(arg2, "level")) {
+		if (!IS_NPC(victim)) {
+			act_char("Not on PC's.", ch);
+			goto cleanup;
 		}
 
-		if (value < 0 || value > 100)
-		{
-		    act_char("Level range is 0 to 100.", ch);
-		    goto cleanup;
+		if (value < 0 || value > 100) {
+			act_char("Level range is 0 to 100.", ch);
+			goto cleanup;
 		}
 		victim->level = value;
-		 altered = TRUE;
+		altered = TRUE;
 		goto cleanup;
 	}
 
-	if (!str_prefix(arg2, "gold"))
-	{
+	if (!str_prefix(arg2, "gold")) {
 		victim->gold = value;
-		 altered = TRUE;
+		altered = TRUE;
 		goto cleanup;
 	}
 
@@ -3328,7 +3375,7 @@ do_mset(CHAR_DATA *ch, const char *argument)
 		victim->max_hit += delta;
 		victim->hit = victim->max_hit;
 		update_pos(victim);
-		 altered = TRUE;
+		altered = TRUE;
 		goto cleanup;
 	}
 
@@ -3344,7 +3391,7 @@ do_mset(CHAR_DATA *ch, const char *argument)
 		victim->perm_mana += delta;
 		victim->max_mana += delta;
 		victim->mana = victim->max_mana;
-		 altered = TRUE;
+		altered = TRUE;
 		goto cleanup;
 	}
 
@@ -3360,7 +3407,7 @@ do_mset(CHAR_DATA *ch, const char *argument)
 		victim->perm_move += delta;
 		victim->max_move += delta;
 		victim->move = victim->max_move;
-		 altered = TRUE;
+		altered = TRUE;
 		goto cleanup;
 	}
 
@@ -3375,7 +3422,7 @@ do_mset(CHAR_DATA *ch, const char *argument)
 			goto cleanup;
 		}
 		PC(victim)->practice = value;
-		 altered = TRUE;
+		altered = TRUE;
 		goto cleanup;
 	}
 
@@ -3390,7 +3437,7 @@ do_mset(CHAR_DATA *ch, const char *argument)
 			goto cleanup;
 		}
 		PC(victim)->train = value;
-		 altered = TRUE;
+		altered = TRUE;
 		goto cleanup;
 	}
 
@@ -3401,7 +3448,7 @@ do_mset(CHAR_DATA *ch, const char *argument)
 		}
 		victim->alignment = value;
 		act_char("Remember to check their hometown.", ch);
-		 altered = TRUE;
+		altered = TRUE;
 		goto cleanup;
 	}
 
@@ -3422,7 +3469,7 @@ do_mset(CHAR_DATA *ch, const char *argument)
 		}
 
 		victim->ethos = ethos;
-		 altered = TRUE;
+		altered = TRUE;
 		goto cleanup;
 	}
 
@@ -3443,96 +3490,82 @@ do_mset(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_prefix(arg2, "thirst")) {
-		if (IS_NPC(victim))
-		{
-		    act_char("Not on NPC's.", ch);
-		    goto cleanup;
+		if (IS_NPC(victim)) {
+			act_char("Not on NPC's.", ch);
+			goto cleanup;
 		}
 
-		if (value < -1 || value > 100)
-		{
-		    act_char("Thirst range is -1 to 100.", ch);
-		    goto cleanup;
+		if (value < -1 || value > 100) {
+			act_char("Thirst range is -1 to 100.", ch);
+			goto cleanup;
 		}
 
 		PC(victim)->condition[COND_THIRST] = value;
-		 altered = TRUE;
+		altered = TRUE;
 		goto cleanup;
 	}
 
-	if (!str_prefix(arg2, "drunk"))
-	{
-		if (IS_NPC(victim))
-		{
-		    act_char("Not on NPC's.", ch);
-		    goto cleanup;
+	if (!str_prefix(arg2, "drunk")) {
+		if (IS_NPC(victim)) {
+			act_char("Not on NPC's.", ch);
+			goto cleanup;
 		}
 
-		if (value < -1 || value > 100)
-		{
-		    act_char("Drunk range is -1 to 100.", ch);
-		    goto cleanup;
+		if (value < -1 || value > 100) {
+			act_char("Drunk range is -1 to 100.", ch);
+			goto cleanup;
 		}
 
 		PC(victim)->condition[COND_DRUNK] = value;
-		 altered = TRUE;
+		altered = TRUE;
 		goto cleanup;
 	}
 
-	if (!str_prefix(arg2, "full"))
-	{
-		if (IS_NPC(victim))
-		{
-		    act_char("Not on NPC's.", ch);
-		    goto cleanup;
+	if (!str_prefix(arg2, "full")) {
+		if (IS_NPC(victim)) {
+			act_char("Not on NPC's.", ch);
+			goto cleanup;
 		}
 
-		if (value < -1 || value > 100)
-		{
-		    act_char("Full range is -1 to 100.", ch);
-		    goto cleanup;
+		if (value < -1 || value > 100) {
+			act_char("Full range is -1 to 100.", ch);
+			goto cleanup;
 		}
 
 		PC(victim)->condition[COND_FULL] = value;
-		 altered = TRUE;
+		altered = TRUE;
 		goto cleanup;
 	}
 
-	if (!str_prefix(arg2, "hunger"))
-	{
-		if (IS_NPC(victim))
-		{
-		    act_char("Not on NPC's.", ch);
-		    goto cleanup;
+	if (!str_prefix(arg2, "hunger")) {
+		if (IS_NPC(victim)) {
+			act_char("Not on NPC's.", ch);
+			goto cleanup;
 		}
 
-		if (value < -1 || value > 100)
-		{
-		    act_char("Hunger range is -1 to 100.", ch);
-		    goto cleanup;
+		if (value < -1 || value > 100) {
+			act_char("Hunger range is -1 to 100.", ch);
+			goto cleanup;
 		}
 
 		PC(victim)->condition[COND_HUNGER] = value;
-		 altered = TRUE;
+		altered = TRUE;
 		goto cleanup;
 	}
 
-	if (!str_prefix(arg2, "bloodlust"))
-	{
-		if (IS_NPC(victim))
-		{
-		    act_char("Not on NPC's.", ch);
-		    goto cleanup;
+	if (!str_prefix(arg2, "bloodlust")) {
+		if (IS_NPC(victim)) {
+			act_char("Not on NPC's.", ch);
+			goto cleanup;
 		}
 
-		if (value < -1 || value > 100)
-		{
-		    act_char("Full range is -1 to 100.", ch);
-		    goto cleanup;
+		if (value < -1 || value > 100) {
+			act_char("Full range is -1 to 100.", ch);
+			goto cleanup;
 		}
 
 		PC(victim)->condition[COND_BLOODLUST] = value;
-		 altered = TRUE;
+		altered = TRUE;
 		goto cleanup;
 	}
 
@@ -3542,14 +3575,13 @@ do_mset(CHAR_DATA *ch, const char *argument)
 			goto cleanup;
 		}
 
-		if (value < -1 || value > 100)
-		{
-		    act_char("Full range is -1 to 100.", ch);
-		    goto cleanup;
+		if (value < -1 || value > 100) {
+			act_char("Desire range is -1 to 100.", ch);
+			goto cleanup;
 		}
 
 		PC(victim)->condition[COND_DESIRE] = value;
-		 altered = TRUE;
+		altered = TRUE;
 		goto cleanup;
 	}
 
@@ -3581,7 +3613,7 @@ do_mset(CHAR_DATA *ch, const char *argument)
 		race_resetstats(victim);
 		spec_update(victim);
 		PC(victim)->exp = exp_for_level(victim, victim->level);
-		 altered = TRUE;
+		altered = TRUE;
 		goto cleanup;
 	}
 
@@ -3592,7 +3624,7 @@ do_mset(CHAR_DATA *ch, const char *argument)
 		}
 		REMOVE_BIT(PC(victim)->plr_flags, PLR_GHOST);
 		act_char("Ok.", ch);
-		 altered = TRUE;
+		altered = TRUE;
 		goto cleanup;
 	}
 
@@ -3623,28 +3655,27 @@ void do_smite(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_NPC(victim)) {
-	  act_char("That poor mob never did anything to you.", ch);
-	  return;
+		act_char("That poor mob never did anything to you.", ch);
+		return;
 	}
 
-	if (victim->level > ch->level) {
-	  act_char("How dare you!", ch);
-	  return;
+	if (!IS_TRUSTED(ch, trust_level(victim))) {
+		act_char("How dare you!", ch);
+		return;
 	}
 
 	if (victim->position < POS_SLEEPING) {
-	  act_char("Take pity on the poor thing.", ch);
-	  return;
+		act_char("Take pity on the poor thing.", ch);
+		return;
 	}
 
-	act("A bolt comes down out of the heavens and smites you!", victim, NULL,
-		ch, TO_CHAR);
+	act("A bolt comes down out of the heavens and smites you!",
+	    victim, NULL, ch, TO_CHAR);
 	act("You reach down and smite $n!", victim, NULL, ch, TO_VICT);
 	act("A bolt from the heavens smites $n!", victim, NULL, ch, TO_NOTVICT);
 	victim->hit = 1;
 	victim->mana = 0;
 	victim->move = 0;
-	return;
 }
 
 void do_popularity(CHAR_DATA *ch, const char *argument)
@@ -3673,6 +3704,7 @@ void do_title(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	bool loaded = FALSE;
+	bool altered = FALSE;
 
 	if (IS_NPC(ch))
 		return;
@@ -3712,19 +3744,21 @@ void do_title(CHAR_DATA *ch, const char *argument)
 	}
 
 	set_title(victim, argument);
+	altered = TRUE;
+
 	act("$n grants $N a new title!", ch, NULL, victim, TO_NOTVICT);
 	act("$n grants you a new title!", ch, NULL, victim, TO_VICT);
 	act("You grant $N a new title!", ch, NULL, victim, TO_CHAR);
 
 cleanup:
-	if (loaded) {
-		char_save(victim, SAVE_F_PSCAN);
+	if (altered)
+		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
+	if (loaded) 
 		char_nuke(victim);
-	}
 }
 
 /*
- * .gz files are checked for too, just in case.
+ * .gz files are checked too, just in case.
  */
 
 void do_rename(CHAR_DATA* ch, const char *argument)
@@ -3736,6 +3770,7 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 
 	CHAR_DATA *victim;
 	bool loaded = FALSE;
+	bool altered = FALSE;
 	OBJ_DATA *obj;
 	clan_t *clan;
 		
@@ -3841,6 +3876,7 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 	victim->name = str_dup(new_name);
 	mlstr_destroy(&victim->short_descr);
 	mlstr_init2(&victim->short_descr, new_name);
+	altered = TRUE;
 		
 	act_char("Character renamed.", ch);
 	act_puts("$n has renamed you to $N!",
@@ -3851,11 +3887,10 @@ cleanup:
 	 * NOTE: Players who are level 1 do NOT get saved under a new name 
 	 */
 
-	if (loaded) {
+	if (altered)
+		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
+	if (loaded) 
 		char_nuke(victim);
-		char_save(victim, SAVE_F_PSCAN);
-	} else
-		char_save(victim, 0);
 } 
 
 void do_wizpass(CHAR_DATA *ch, const char *argument)
@@ -3865,6 +3900,7 @@ void do_wizpass(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	const char *pwdnew;
 	bool loaded = FALSE;
+	bool altered = FALSE;
 
 	if (argument[0] == '\0') {
 		do_help(ch, "'WIZ WIZPASS'");
@@ -3910,18 +3946,24 @@ void do_wizpass(CHAR_DATA *ch, const char *argument)
 
 	free_string(PC(victim)->pwd);
 	PC(victim)->pwd = str_dup(pwdnew);
-	act_puts("$t: password changed to '$T'.", ch, victim->name, arg2,
-		 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+	altered = TRUE;
 
-cleanup:
-	if (loaded) {
-		char_save(victim, SAVE_F_PSCAN);
-		char_nuke(victim);
+	if (ch == victim) {
+		act_puts("You set your password to '$t'.",
+			 ch, arg2, victim, TO_CHAR, POS_DEAD);
 	} else {
+		act_puts("$t: password changed to '$T'.",
+			 ch, victim->name, arg2,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		act_puts("$N sets your password to '$t'.",
 			 ch, arg2, victim, TO_CHAR, POS_DEAD);
-		char_save(victim, 0);
 	}
+
+cleanup:
+	if (altered)
+		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
+	if (loaded) 
+		char_nuke(victim);
 }
    
 void do_noaffect(CHAR_DATA *ch, const char *argument)
@@ -3930,6 +3972,7 @@ void do_noaffect(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	bool loaded = FALSE;
+	bool altered = FALSE;
 
 	if (!IS_IMMORTAL(ch))
 		return;
@@ -3948,6 +3991,11 @@ void do_noaffect(CHAR_DATA *ch, const char *argument)
 		loaded = TRUE;
 	}
 	 
+	if (!IS_TRUSTED(ch, trust_level(victim))) {
+		act_char("You failed.", ch);
+		goto cleanup;
+	}
+
 	for (paf = victim->affected; paf != NULL; paf = paf_next) {
 		paf_next = paf->next;
 		if (paf->duration >= 0) {
@@ -3961,11 +4009,13 @@ void do_noaffect(CHAR_DATA *ch, const char *argument)
 			affect_remove(victim, paf);
 		}
 	}
+	altered = TRUE;
 
-	if (loaded) {
-		char_save(victim, SAVE_F_PSCAN);
+cleanup:
+	if (altered)
+		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
+	if (loaded) 
 		char_nuke(victim);
-	}
 }
 
 void do_affrooms(CHAR_DATA *ch, const char *argument)
@@ -4074,6 +4124,11 @@ void do_grant(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (!IS_TRUSTED(ch, trust_level(victim))) {
+		act_char("You failed.", ch);
+		goto cleanup;
+	}
+
 	if (arg2[0] == '\0') {
 		act_puts("Granted commands for $t: [$T]",
 			 ch, victim->name, PC(victim)->granted,
@@ -4145,11 +4200,10 @@ void do_grant(CHAR_DATA *ch, const char *argument)
 	}
 
 cleanup:
-	if (loaded) {
-		if (altered)
-			char_save(victim, SAVE_F_PSCAN);
+	if (altered)
+		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
+	if (loaded) 
 		char_nuke(victim);
-	}
 }
 
 void do_disable(CHAR_DATA *ch, const char *argument)
@@ -4566,10 +4620,6 @@ void do_shapeshift(CHAR_DATA *ch, const char *argument)
 
 	shapeshift(ch, arg);
 }
-
-
-
-
 
 /* 
  * Displays MOBprogram triggers of a mobile

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.c,v 1.194 2000-10-04 20:28:50 fjoe Exp $
+ * $Id: update.c,v 1.195 2000-10-21 17:00:54 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -82,9 +82,8 @@ void *
 update_one(const char *hdlr_name)
 {
 	uhandler_t *hdlr = uhandler_search(hdlr_name);
-	if (!hdlr)
-		return NULL;
-	uhandler_update(hdlr);
+	if (hdlr)
+		uhandler_update(hdlr);
 	return hdlr;
 }
 

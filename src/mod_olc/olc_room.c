@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.83 2000-10-07 20:41:08 fjoe Exp $
+ * $Id: olc_room.c,v 1.84 2000-10-21 17:00:53 fjoe Exp $
  */
 
 #include "olc.h"
@@ -1027,10 +1027,6 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		int vnum;	
 		bool show_mob;
 
-		BUFFER *buf;
-		const char *xxx;
-		BUFFER *(*show_xxx_resets)(int);
-
 		if (!str_prefix(arg2, "mob"))
 			show_mob = TRUE;
 		else if (!str_prefix(arg2, "obj"))
@@ -1046,25 +1042,10 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		}
 
 		vnum = atoi(arg3);
-		if (show_mob) {
-			show_xxx_resets = show_mob_resets;
-			xxx = "mob";
-		} else {
-			show_xxx_resets = show_obj_resets;
-			xxx = "obj";
-		}
-
-		buf = show_xxx_resets(vnum);
-		if (!buf) {
-			act_puts3("No resets for $t vnum $J found.",
-				  ch, xxx, NULL, (const void *) vnum,
-				  TO_CHAR, POS_DEAD);
-			return;
-		}
-
-		buf_printf(buf, BUF_START, "Resets for %s vnum %d:", xxx, vnum);
-		page_to_char(buf_string(buf), ch);
-		buf_free(buf);
+		if (show_mob)
+			show_resets(ch, vnum, "mob", show_obj_resets);
+		else
+			show_resets(ch, vnum, "obj", show_obj_resets);
 		return;
 	}
 
@@ -1317,12 +1298,27 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_prefix(arg1, "now")) {
-		if (!IS_BUILDER(ch, ch->in_room->area)) {
-			act_char("Insufficient security.", ch);
-			return;
-		}
 		reset_room(ch->in_room, RESET_F_NOPCHECK);
 		act_char("Room reset.", ch);
+		return;
+	}
+
+	if (!str_cmp(arg1, "clear")) {
+		RESET_DATA *r, *r_next;
+
+		if (room->reset_first == NULL) {
+			act_char("No resets in this room.", ch);
+			return;
+		}
+
+		for (r = room->reset_first; r; r = r_next) {
+			r_next = r->next;
+			reset_free(r);
+		}
+		room->reset_first = room->reset_last = NULL;
+		TOUCH_AREA(room->area);
+
+		act_char("Resets in the room cleared.", ch);
 		return;
 	}
 

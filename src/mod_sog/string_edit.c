@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.43 2000-10-15 17:19:33 fjoe Exp $
+ * $Id: string_edit.c,v 1.44 2000-10-21 17:00:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -29,21 +29,22 @@ char *numlines(const char *);
 /*****************************************************************************
  Name:		string_append
  Purpose:	Puts player into append mode for given string.
- Called by:	(many)olc_act.c
  ****************************************************************************/
 void string_append(CHAR_DATA *ch, const char **pString)
 {
-	act_char("-=======- Entering APPEND Mode -========-", ch);
-	act_char("    Type :h on a new line for help", ch);
-	act_char(" Terminate with a ~ or @ on a blank line.", ch);
-	act_char("-=======================================-", ch);
-
 	if (*pString == NULL)
 		*pString = str_dup(str_empty);
-	send_to_char(numlines(*pString), ch);
 
 	ch->desc->pString = pString;
 	ch->desc->backup = str_dup(*pString);
+
+	act_puts("-=======- Entering APPEND Mode -========-\n"
+		 "    Type :h on a new line for help\n"
+		 " Terminate with a ~ or @ on a blank line.\n"
+		 "-=======================================-\n"
+		 "$t",
+		 ch, numlines(*pString), NULL,
+		 TO_CHAR | ACT_SEDIT | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 }
 
 /*****************************************************************************
@@ -94,7 +95,8 @@ void string_add_exit(CHAR_DATA *ch, bool save)
 	DESCRIPTOR_DATA *d = ch->desc;
 
 	if (!save) {
-		act_char("No changes saved.", ch);
+		act_puts("No changes saved.",
+			 ch, NULL, NULL, TO_CHAR | ACT_SEDIT, POS_DEAD);
 		free_string(*d->pString);
 		*d->pString = d->backup;
 	} else {
@@ -137,7 +139,8 @@ void string_add(CHAR_DATA *ch, const char *argument)
 		 * clear string
 		 */
 		if (!str_cscmp(arg1+1, "c")) {
-			act_char("String cleared.", ch);
+			act_puts("String cleared.",
+				 ch, NULL, NULL, TO_CHAR | ACT_SEDIT, POS_DEAD);
 			free_string(*ch->desc->pString);
 			*ch->desc->pString = str_dup(str_empty);
 			return;
@@ -147,8 +150,10 @@ void string_add(CHAR_DATA *ch, const char *argument)
 		 * show string
 		 */
 		if (!str_cscmp(arg1+1, "s")) {
-			act_char("String so far:\n", ch);
-			send_to_char(numlines(*ch->desc->pString), ch);
+			act_puts("String so far:\n"
+				 "$t", ch, numlines(*ch->desc->pString), NULL,
+				 TO_CHAR | ACT_SEDIT | ACT_NOTRANS | ACT_NOLF,
+				 POS_DEAD);
 			return;
 		}
 
@@ -160,16 +165,17 @@ void string_add(CHAR_DATA *ch, const char *argument)
 				arg1[2] = '\0';
 				act_puts("Usage:  :$t \"old string\" \"new string\"",
 					 ch, arg1+1, NULL,
-					 TO_CHAR | ACT_NOTRANS, POS_DEAD);
+					 TO_CHAR | ACT_SEDIT | ACT_NOTRANS, POS_DEAD);
 				return;
 			}
 
-			*ch->desc->pString =
-				string_replace(*ch->desc->pString, arg2, arg3,
-					       arg1[1] == 'r' ? 0 : SR_F_ALL);
+			*ch->desc->pString = string_replace(
+			    *ch->desc->pString, arg2, arg3,
+			    arg1[1] == 'r' ? 0 : SR_F_ALL);
 			act_puts3("$t'$T' replaced with '$U'.",
-				  ch, arg1[1] == 'r' ? str_empty : "All ", arg2,
-				  arg3, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+				  ch, arg1[1] == 'r' ? str_empty : "All ",
+				  arg2, arg3,
+				  TO_CHAR | ACT_NOTRANS | ACT_SEDIT, POS_DEAD);
 			return;
 		}
 
@@ -178,7 +184,8 @@ void string_add(CHAR_DATA *ch, const char *argument)
 		 */
 		if (!str_cscmp(arg1+1, "f")) {
 			*ch->desc->pString = format_string(*ch->desc->pString);
-			act_char("String formatted.", ch);
+			act_puts("String formatted.",
+				 ch, NULL, NULL, TO_CHAR | ACT_SEDIT, POS_DEAD);
 			return;
 		}
 
@@ -188,7 +195,8 @@ void string_add(CHAR_DATA *ch, const char *argument)
 		 if (!str_cscmp(arg1+1, "ld")) {
 			*ch->desc->pString = string_linedel(*ch->desc->pString,
 							    atoi(arg2));
-			act_char("Line deleted.", ch);
+			act_puts("Line deleted.",
+				 ch, NULL, NULL, TO_CHAR | ACT_SEDIT, POS_DEAD);
 			return;
 		}
 
@@ -198,7 +206,8 @@ void string_add(CHAR_DATA *ch, const char *argument)
 		if (!str_cscmp(arg1+1, "li")) {
 			*ch->desc->pString = string_lineadd(*ch->desc->pString,
 							   tmparg3, atoi(arg2));
-			act_char("Line inserted.", ch);
+			act_puts("Line inserted.",
+				 ch, NULL, NULL, TO_CHAR | ACT_SEDIT, POS_DEAD);
 			return;
 		}
 
@@ -210,7 +219,8 @@ void string_add(CHAR_DATA *ch, const char *argument)
 							    atoi(arg2));
 			*ch->desc->pString = string_lineadd(*ch->desc->pString,
 							   tmparg3, atoi(arg2));
-			act_char("Line replaced.", ch);
+			act_puts("Line replaced.",
+				 ch, NULL, NULL, TO_CHAR | ACT_SEDIT, POS_DEAD);
 			return;
 		}
 
@@ -238,7 +248,7 @@ void string_add(CHAR_DATA *ch, const char *argument)
 			/*
 			 * use do_help here
 			 */
-			act_char("Sedit help (commands on blank line):\n"
+			act_puts("Sedit help (commands on blank line):\n"
 				 ":r 'old' 'new'   - replace a substring (first occurence)\n"
 				 ":R 'old' 'new'   - replace a substring (all occurences)\n"
 				 "                   (requires '', \"\")\n"
@@ -250,11 +260,13 @@ void string_add(CHAR_DATA *ch, const char *argument)
 				 ":li <num> <str>  - insert <str> before line #num\n"
 				 ":lr <num> <str>  - replace line #num with <str>\n"
 				 "@, ~, :x, :wq    - finish editing (save changes)\n"
-				 ":q!              - abort editing (do not save changes)", ch);
+				 ":q!              - abort editing (do not save changes)",
+				 ch, NULL, NULL, TO_CHAR | ACT_SEDIT, POS_DEAD);
 			return;
 		}
 
-		act_char("SEdit: Invalid command.", ch);
+		act_puts("SEdit: Invalid command.",
+			 ch, NULL, NULL, TO_CHAR | ACT_SEDIT, POS_DEAD);
 		return;
 	}
 
@@ -272,19 +284,20 @@ void string_add(CHAR_DATA *ch, const char *argument)
 	*/
 	len = strlen(argument);
 	if (strlen(*ch->desc->pString) + len >= (MAX_STRING_LENGTH - 4)) {
-		act_char("String too long, last line skipped.", ch);
+		act_puts("String too long, last line skipped.",
+			 ch, NULL, NULL, TO_CHAR | ACT_SEDIT, POS_DEAD);
 		return;
 	}
 
 	p = *ch->desc->pString;
 	if (argument[len-1] == '\\') {
 		strnzncpy(arg1, sizeof(arg1), argument, len-1);
-		*ch->desc->pString = str_printf("%s%s",
-						*ch->desc->pString, arg1);
+		*ch->desc->pString = str_printf(
+		    "%s%s", *ch->desc->pString, arg1);
+	} else {
+		*ch->desc->pString = str_printf(
+		    "%s%s\n", *ch->desc->pString, argument);
 	}
-	else
-		*ch->desc->pString = str_printf("%s%s\n",
-						*ch->desc->pString, argument);
 	free_string(p);
 }
 
@@ -295,7 +308,6 @@ void string_add(CHAR_DATA *ch, const char *argument)
 /*****************************************************************************
  Name:		format_string
  Purpose:	Special string formating and word-wrapping.
- Called by:	string_add(string.c) (many)olc_act.c
  ****************************************************************************/
 const char *format_string(const char *oldstring /*, bool fSpace */)
 {

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.309 2000-10-15 17:19:28 fjoe Exp $
+ * $Id: merc.h,v 1.310 2000-10-21 17:00:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1653,6 +1653,7 @@ struct obj_data
 	OBJ_INDEX_DATA *	pObjIndex;
 	ROOM_INDEX_DATA *	in_room;
 	const char *		name;
+	const char *		label;
 	mlstring		short_descr;
 	mlstring		description;
 	flag_t	 		stat_flags;
@@ -2118,6 +2119,10 @@ void	recall(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
 bool remove_obj (CHAR_DATA * ch, int iWear, bool fReplace);
 void wear_obj   (CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace);
 int free_hands	(CHAR_DATA * ch);
+
+#define IS_OBJ_NAME(obj, _name)	(is_name(_name, (obj)->name) ||	\
+				 is_name(_name, (obj)->label))
+void	label_add(OBJ_DATA *obj, const char *name);
 
 bool	check_blind	(CHAR_DATA *ch);
 bool	check_blind_raw	(CHAR_DATA *ch);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update_impl.h,v 1.1 2000-06-01 17:57:50 fjoe Exp $
+ * $Id: update_impl.h,v 1.2 2000-10-21 17:00:54 fjoe Exp $
  */
 
 #ifndef __UPDATE_H_
@@ -54,7 +54,7 @@ struct uhandler_t {
 };
 
 #define uhandler_lookup(ln)	((uhandler_t*) strkey_lookup(&uhandlers, (ln)))
-#define uhandler_search(ln)	((uhandler_t*) mlstrkey_search(&uhandlers, (ln)))
+#define uhandler_search(ln)	((uhandler_t*) strkey_search(&uhandlers, (ln)))
 
 void		uhandler_init(uhandler_t *hdlr);
 void		uhandler_destroy(uhandler_t *hdlr);

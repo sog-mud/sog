@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.168 2000-10-07 18:14:50 fjoe Exp $
+ * $Id: save.c,v 1.169 2000-10-21 17:00:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -498,13 +498,14 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	mlstr_fwrite(fp, "Owner", &obj->owner);
 
 	if (obj->pObjIndex->limit < 0) {
-		if (str_cmp(obj->name, obj->pObjIndex->name))
-			fwrite_string(fp, "Name", obj->name);
 		if (mlstr_cmp(&obj->short_descr, &obj->pObjIndex->short_descr))
 			mlstr_fwrite(fp, "ShD", &obj->short_descr);
 		if (mlstr_cmp(&obj->description, &obj->pObjIndex->description))
 			mlstr_fwrite(fp, "Desc", &obj->description);
 	}
+
+	if (!IS_NULLSTR(obj->label))
+		fwrite_string(fp, "Label", obj->label);
 
 	if (obj->stat_flags != obj->pObjIndex->stat_flags)
 		fprintf(fp, "StatF %d\n", obj->stat_flags);
@@ -1180,11 +1181,10 @@ fread_obj(CHAR_DATA * ch, rfile_t * fp, int flags)
 
 		case 'L':
 			KEY("Lev", obj->level, fread_number(fp));
+			SKEY("Label", obj->label, fread_string(fp));
 			break;
 
 		case 'N':
-			SKEY("Name", obj->name, fread_string(fp));
-
 			if (IS_TOKEN(fp, "Nest")) {
 				iNest = fread_number(fp);
 				if (iNest < 0 || iNest >= MAX_NEST) {

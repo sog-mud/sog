@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.105 2000-10-07 18:14:50 fjoe Exp $
+ * $Id: recycle.c,v 1.106 2000-10-21 17:00:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -132,13 +132,13 @@ OBJ_DATA *new_obj(void)
 		free_obj_list = free_obj_list->next;
 		obj_free_count--;
 		mem_validate(obj);
-	}
-	else {
+	} else {
 		obj = mem_alloc(MT_OBJ, sizeof(*obj));
 		obj_count++;
 	}
 
 	memset(obj, '\0', sizeof(*obj));
+	obj->label = str_empty;
 	return obj;
 }
 
@@ -161,6 +161,9 @@ void free_obj(OBJ_DATA *obj)
    
 	free_string(obj->name);
 	obj->name = NULL;
+
+	free_string(obj->label);
+	obj->label = str_empty;
 
 	mlstr_destroy(&obj->description);
 	mlstr_destroy(&obj->short_descr);
@@ -662,7 +665,7 @@ void free_obj_index(OBJ_INDEX_DATA *pObj)
 	varr_destroy(&pObj->restrictions);
 
 	top_obj_index--;
-	free(pObj);
+	mem_free(pObj);
 }
 
 MOB_INDEX_DATA *new_mob_index(void)

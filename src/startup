@@ -45,5 +45,4 @@ while [ 1 ]; do
 	if [ $exitcode -ne 0 ]; then
 		exit 1
 	fi
-	sleep 15
 done

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.23 2000-10-07 10:58:06 fjoe Exp $
+ * $Id: varr.c,v 1.24 2000-10-21 17:00:57 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -85,9 +85,9 @@ varr_destroy_cb(void *p, va_list ap)
 
 void varr_destroy(varr *v)
 {
-	v->nalloc = v->nused = 0;
 	if (v->v_data->e_destroy)
 		varr_foreach(v, varr_destroy_cb, v);
+	v->nalloc = v->nused = 0;
 	free(v->p);
 }
 	

@@ -1,5 +1,5 @@
 /*
- * $Id: affects.h,v 1.14 2000-03-07 09:21:52 avn Exp $
+ * $Id: affects.h,v 1.15 2000-10-21 17:00:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -137,8 +137,7 @@ void	strip_raff_owner(CHAR_DATA *ch);
 #define FOA_F_NODURATION	(A)	/* do not show duration		*/
 #define FOA_F_NOAFFECTS		(B)	/* do not show bit affects	*/
 
-void	show_affects2(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output);
-#define show_affects(ch, output)	show_affects2(ch, ch, output)
+void	show_affects(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output);
 
 void	format_obj(BUFFER *output, OBJ_DATA *obj);
 void	format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags);

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.223 2000-10-07 18:14:57 fjoe Exp $
+ * $Id: spellfun.c,v 1.224 2000-10-21 17:00:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -792,12 +792,8 @@ void spell_create_water(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		STR_ASSIGN(obj->value[2], str_dup("water"));
 		INT(obj->value[1]) += water;
 
-		if (!is_name("water", obj->name)) {
-			const char *p = obj->name;
-			obj->name = str_printf("%s %s", obj->name, "water");
-			free_string(p);
-		}
-
+		if (!IS_OBJ_NAME(obj, "water"))
+			label_add(obj, "water");
 		act("$p is filled.", ch, obj, NULL, TO_CHAR);
 	}
 }
@@ -1060,14 +1056,12 @@ void spell_bluefire(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
 
-	if (!IS_NPC(ch) && !IS_NEUTRAL(ch))
-	{
+	if (!IS_NPC(ch) && !IS_NEUTRAL(ch)) {
 		victim = ch;
 		act_char("Your blue fire turn upon you!", ch);
 	}
 
-	if (victim != ch)
-	{
+	if (victim != ch) {
 		act("$n calls forth the blue fire of earth $N!",
 		    ch,NULL,victim,TO_ROOM);
 		act("$n has assailed you with the neutrals of earth!",
@@ -1288,16 +1282,16 @@ void spell_detect_poison(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	OBJ_DATA *obj = (OBJ_DATA *) vo;
 
-	if (obj->item_type == ITEM_DRINK_CON || obj->item_type == ITEM_FOOD)
-	{
+	if (obj->item_type == ITEM_DRINK_CON || obj->item_type == ITEM_FOOD) {
 		if (INT(obj->value[3]) != 0)
-		    act_char("You smell poisonous fumes.", ch);
-		else
-		    act_char("It looks delicious.", ch);
-	}
-	else
-	{
-		act_char("It doesn't look poisoned.", ch);
+			act_char("You smell poisonous fumes.", ch);
+		else {
+			act_puts("$p looks delicious.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		}
+	} else {
+		act_puts("$p doesn't look poisoned.",
+			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 	}
 }
 
@@ -1309,22 +1303,28 @@ void spell_dispel_evil(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	if (!IS_NPC(ch) && IS_EVIL(ch))
 		victim = ch;
 
-	if (IS_GOOD(victim))
-	{
-		act("Gods protects $N.", ch, NULL, victim, TO_ROOM);
+	if (IS_GOOD(victim)) {
+		if (ch == victim)
+			act_char("Gods protect you.", ch);
+		else
+			act("Gods protect $N.", ch, NULL, victim, TO_ROOM);
 		return;
 	}
 
-	if (IS_NEUTRAL(victim))
-	{
-		act("$N does not seem to be affected.", ch, NULL, victim, TO_CHAR);
+	if (IS_NEUTRAL(victim)) {
+		if (ch == victim)
+			act_char("You do not seem to be affected.", ch);
+		else {
+			act("$N does not seem to be affected.",
+			    ch, NULL, victim, TO_CHAR);
+		}
 		return;
 	}
 
 	if (victim->hit > (level * 4))
-	  dam = dice(level, 4);
+		dam = dice(level, 4);
 	else
-	  dam = UMAX(victim->hit, dice(level,4));
+		dam = UMAX(victim->hit, dice(level,4));
 	if (saves_spell(level, victim,DAM_HOLY))
 		dam /= 2;
 	damage(ch, victim, dam, sn, DAM_HOLY, DAMF_SHOW);
@@ -1338,22 +1338,30 @@ void spell_dispel_good(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	if (!IS_NPC(ch) && IS_GOOD(ch))
 		victim = ch;
 
-	if (IS_EVIL(victim))
-	{
-		act("$N is protected by $S evil.", ch, NULL, victim, TO_ROOM);
+	if (IS_EVIL(victim)) {
+		if (ch == victim)
+			act_char("You are protected by your evil.", ch);
+		else {
+			act("$N is protected by $S evil.",
+			    ch, NULL, victim, TO_ROOM);
+		}
 		return;
 	}
 
-	if (IS_NEUTRAL(victim))
-	{
-		act("$N does not seem to be affected.", ch, NULL, victim, TO_CHAR);
+	if (IS_NEUTRAL(victim)) {
+		if (ch == victim) 
+			act_char("You do not seem to be affected.", ch);
+		else {
+			act("$N does not seem to be affected.",
+			    ch, NULL, victim, TO_CHAR);
+		}
 		return;
 	}
 
 	if (victim->hit > (level * 4))
-	  dam = dice(level, 4);
+		dam = dice(level, 4);
 	else
-	  dam = UMAX(victim->hit, dice(level,4));
+		dam = UMAX(victim->hit, dice(level,4));
 	if (saves_spell(level, victim,DAM_NEGATIVE))
 		dam /= 2;
 	damage(ch, victim, dam, sn, DAM_NEGATIVE, DAMF_SHOW);
@@ -2658,7 +2666,8 @@ void spell_locate_object(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	max_found = IS_IMMORTAL(ch) ? 200 : 2 * level;
 
 	for (obj = object_list; obj != NULL; obj = obj->next) {
-		if (!can_see_obj(ch, obj) || !is_name(target_name, obj->name)
+		if (!can_see_obj(ch, obj)
+		||  !IS_OBJ_NAME(obj, target_name)
 		||  OBJ_IS(obj, OBJ_NOLOCATE)
 		||  (OBJ_IS(obj, OBJ_CHQUEST) &&
 		     chquest_carried_by(obj) == NULL)
@@ -3887,7 +3896,8 @@ void spell_find_object(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	max_found = IS_IMMORTAL(ch) ? 200 : 2 * level;
 
 	for (obj = object_list; obj != NULL; obj = obj->next) {
-		if (!can_see_obj(ch, obj) || !is_name(target_name, obj->name)
+		if (!can_see_obj(ch, obj)
+		||  !IS_OBJ_NAME(obj, target_name)
 		||  OBJ_IS(obj, OBJ_NOFIND)
 		||  number_percent() > 2 * level
 		||  LEVEL(ch) < obj->level

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.221 2000-10-15 17:19:30 fjoe Exp $
+ * $Id: act_obj.c,v 1.222 2000-10-21 17:00:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -121,7 +121,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 			for (obj = ch->in_room->contents; obj != NULL;
 			     obj = obj_next) {
 				obj_next = obj->next_content;
-				if ((arg1[3] == '\0' || is_name(arg1+4, obj->name))
+				if ((arg1[3] == '\0' || IS_OBJ_NAME(obj, arg1+4))
 				&& can_see_obj(ch, obj)) {
 					found = TRUE;
 					get_obj(ch, obj, NULL, NULL);
@@ -186,7 +186,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 		found = FALSE;
 		for (obj = container->contains; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
-			if ((arg1[3] == '\0' || is_name(&arg1[4], obj->name))
+			if ((arg1[3] == '\0' || IS_OBJ_NAME(obj, arg1 + 4))
 			    && can_see_obj(ch, obj)) {
 				found = TRUE;
 				if (OBJ_IS(container, OBJ_PIT)
@@ -315,7 +315,7 @@ void do_put(CHAR_DATA * ch, const char *argument)
 		for (obj = ch->carrying; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
 
-			if ((arg1[3] == '\0' || is_name(&arg1[4], obj->name))
+			if ((arg1[3] == '\0' || IS_OBJ_NAME(obj, arg1+4))
 			&&  can_see_obj(ch, obj)
 			&&  WEIGHT_MULT(obj) == 100
 			&&  obj->wear_loc == WEAR_NONE
@@ -426,7 +426,7 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 		for (obj = ch->carrying; obj != NULL; obj = obj_next) {
 			obj_next = obj->next_content;
 
-			if ((arg[3] == '\0' || is_name(&arg[4], obj->name))
+			if ((arg[3] == '\0' || IS_OBJ_NAME(obj, arg+4))
 			&&  can_see_obj(ch, obj)
 			&&  obj->wear_loc == WEAR_NONE
 			&&  can_drop_obj(ch, obj)) {
@@ -2165,9 +2165,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 			if (obj->wear_loc == WEAR_NONE
 			    && can_see_obj(ch, obj)
 			    && (cost = get_cost(keeper, obj, TRUE)) > 0
-			    && (arg[0] == '\0' ||
-				is_name(arg, obj->name))) {
-
+			    && (arg[0] == '\0' || IS_OBJ_NAME(obj, arg))) {
 				if (!buf) {
 					buf = buf_new(GET_LANG(ch));
 					buf_append(buf, "[Lv Price Qty] Item\n");
@@ -2444,80 +2442,77 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 	chance = number_percent();
 
 	if (percent < 20) {
-		buf_printf(output, BUF_END, "Object '%s'.\n", obj->name);
+		buf_printf(output, BUF_END,
+			   "Object '%s%s'.\n",
+			   obj->name, obj->label);
 		check_improve(ch, "lore", TRUE, 8);
 		return;
 	} else if (percent < 40) {
 		buf_printf(output, BUF_END,
-			    "Object '%s'.  Weight is %d, value is %d.\n",
-			    obj->name,
-		chance < 60 ? obj->weight : number_range(1, 2 * obj->weight),
-		     chance < 60 ? number_range(1, 2 * obj->cost) : obj->cost
-			);
-		if (str_cmp(obj->material, "oldstyle"))
-			buf_printf(output, BUF_END, "Material is %s.\n", obj->material);
+			   "Object '%s%s'.\n"
+			   "Weight is %d, value is %d.\n"
+			   "Material is %s.\n",
+			   obj->name, obj->label,
+			   chance < 60 ?
+				obj->weight :
+				number_range(obj->weight / 2, 2 * obj->weight),
+			   chance < 60 ?
+				number_range(obj->cost / 2, 2 * obj->cost) :
+				obj->cost,
+			   obj->material);
 		check_improve(ch, "lore", TRUE, 7);
 		return;
 	} else if (percent < 60) {
 		buf_printf(output, BUF_END,
-			    "Object '%s' has weight %d.\nValue is %d, level is %d.\nMaterial is %s.\n",
-			    obj->name,
-			    obj->weight,
-		    chance < 60 ? number_range(1, 2 * obj->cost) : obj->cost,
-		  chance < 60 ? obj->level : number_range(1, 2 * obj->level),
-		str_cmp(obj->material, "oldstyle") ? obj->material : "unknown"
-			);
+			   "Object '%s%s'.\n"
+			   "Weight is %d.\n"
+			   "Value is %d, level is %d.\n"
+			   "Material is %s.\n",
+			   obj->name, obj->label,
+			   obj->weight,
+			   chance < 60 ?
+				number_range(obj->cost / 2, 2 * obj->cost) :
+				obj->cost,
+			   chance < 60 ?
+				obj->level :
+				number_range(obj->level / 2, 2 * obj->level),
+			   obj->material);
 		check_improve(ch, "lore", TRUE, 6);
 		return;
 	} else if (percent < 80) {
 		buf_printf(output, BUF_END,
-			    "Object '%s' is type %s, stat flags %s.\n"
-			    "Obj flags %s.\n"
-			    "Weight is %d, value is %d, level is %d.\n"
-			    "Material is %s.\n",
-			    obj->name,
-			    flag_string(item_types, obj->item_type),
-			    flag_string(stat_flags, obj->stat_flags),
-			    flag_string(obj_flags, obj->pObjIndex->obj_flags),
-			    obj->weight,
-		    chance < 60 ? number_range(1, 2 * obj->cost) : obj->cost,
-		  chance < 60 ? obj->level : number_range(1, 2 * obj->level),
-		str_cmp(obj->material, "oldstyle") ? obj->material : "unknown"
-			);
+			   "Object '%s%s' is type %s, extra flags %s.\n"
+			   "Obj flags %s.\n"
+			   "Weight is %d, value is %d, level is %d.\n"
+			   "Material is %s.\n",
+			   obj->name, obj->label,
+			   flag_string(item_types, obj->item_type),
+			   flag_string(stat_flags, obj->stat_flags),
+			   flag_string(obj_flags, obj->pObjIndex->obj_flags),
+			   obj->weight,
+			   chance < 60 ?
+				number_range(obj->cost / 2, 2 * obj->cost) :
+				obj->cost,
+			   chance < 60 ?
+				obj->level :
+				number_range(obj->level / 2, 2 * obj->level),
+			   obj->material);
 		check_improve(ch, "lore", TRUE, 5);
 		return;
-	} else if (percent < 85) 
+	} else {
 		buf_printf(output, BUF_END,
-			    "Object '%s' is type %s, extra flags %s.\n"
-			    "Obj flags %s.\n"
-			    "Weight is %d, value is %d, level is %d.\n"
-			    "Material is %s.\n",
-			    obj->name,
-			    flag_string(item_types, obj->item_type),
-			    flag_string(stat_flags, obj->stat_flags),
-			    flag_string(obj_flags, obj->pObjIndex->obj_flags),
-			    obj->weight,
-			    obj->cost,
-			    obj->level,
-			    str_cmp(obj->material, "oldstyle") ?
-				obj->material : "unknown"
-			);
-	else {
-		buf_printf(output, BUF_END,
-			    "Object '%s' is type %s, extra flags %s.\n"
-			    "Obj flags %s.\n"
-			    "Weight is %d, value is %d, level is %d.\n"
-			    "Material is %s.\n",
-			    obj->name,
-			    flag_string(item_types, obj->item_type),
-			    flag_string(stat_flags, obj->stat_flags),
-			    flag_string(obj_flags, obj->pObjIndex->obj_flags),
-			    obj->weight,
-			    obj->cost,
-			    obj->level,
-			    str_cmp(obj->material, "oldstyle") ?
-				obj->material : "unknown"
-			);
+			   "Object '%s%s' is type %s, extra flags %s.\n"
+			   "Obj flags %s.\n"
+			   "Weight is %d, value is %d, level is %d.\n"
+			   "Material is %s.\n",
+			   obj->name, obj->label,
+			   flag_string(item_types, obj->item_type),
+			   flag_string(stat_flags, obj->stat_flags),
+			   flag_string(obj_flags, obj->pObjIndex->obj_flags),
+			   obj->weight,
+			   obj->cost,
+			   obj->level,
+			   obj->material);
 	}
 
 	v0 = obj->value[0];
@@ -3143,7 +3138,6 @@ void do_enchant(CHAR_DATA * ch, const char *argument)
 void do_label(CHAR_DATA* ch, const char *argument)
 {
 	OBJ_DATA *obj;
-	const char *p;
 	char obj_name[MAX_INPUT_LENGTH];
 	char label[MAX_INPUT_LENGTH];
 	
@@ -3158,30 +3152,27 @@ void do_label(CHAR_DATA* ch, const char *argument)
 		return;
 	}
 
-	if (!label[0]) {
-		act_char("How do you want to label it?", ch);
-		return;
-	}
-
 	if ((obj = get_obj_carry(ch, obj_name)) == NULL) {
 		act_char("You don't have that object.", ch);
 		return;
 	}
 	
+	if (!label[0]) {
+		act_char("How do you want to label it?", ch);
+		return;
+	}
+
 	if (PC(ch)->questpoints < 10) {
 		act_char("You do not have enough questpoints for labeling.", ch);
 		return;
 	}
 
-	if ((strlen(obj->name) + strlen(label) + 2) >= MAX_STRING_LENGTH) {
+	if ((strlen(obj->label) + strlen(label) + 2) >= MAX_STRING_LENGTH) {
 		act_char("You can't label this object with this label.", ch);
 		return;
 	}
 
-	p = obj->name;
-	obj->name = str_printf("%s %s", obj->name, label);
-	free_string(p);
-	
+	label_add(obj, label);
 	PC(ch)->questpoints -= 10;
 	act_char("Ok.", ch);
 }
@@ -3304,88 +3295,6 @@ void do_estimate(CHAR_DATA *ch, const char *argument)
 
 	act_say(mob, "It will cost you $j gold to fix that item.",
 		(const void*) cost);
-}
-
-void do_restring(CHAR_DATA *ch, const char *argument)
-{
-#if 0
-	CHAR_DATA *mob;
-	char arg  [MAX_INPUT_LENGTH];
-	char arg1 [MAX_INPUT_LENGTH];
-	OBJ_DATA *obj;
-	int cost = 2000;
-
-	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
-	{
-	    if (IS_NPC(mob) && MOB_IS(mob, MOB_REPAIRMAN))
-	        break;
-	}
- 
-	if (mob == NULL) {
-#endif
-	    act_char("You can't do that here.", ch);
-	    return;
-#if 0
-	/* XXX */
-	}
-
-	argument = one_argument(argument, arg, sizeof(arg));
-	argument = one_argument(argument, arg1, sizeof(arg1));
-
-	if (arg[0] == '\0' || arg1[0] == '\0' || argument[0] == '\0')
-	{
-		act_char("Syntax:", ch);
-		act_char("  restring <obj> <field> <string>", ch);
-		act_char("    fields: name short long", ch);
-		return;
-	}
-
-	if ((obj = (get_obj_carry(ch, arg))) == NULL) {
-		do_say(mob, "You don't have that item.");
-		return;
-	}
-
-	cost += (obj->level * 1500);
-
-	if (cost > ch->gold) {
-		act("$N says 'You do not have enough gold for my services.'",
-		  ch,NULL,mob,TO_CHAR);
-		return;
-	}
-	
-	if (!str_prefix(arg1, "name")) {
-		free_string(obj->name);
-		obj->name = str_dup(argument);
-	}
-	else
-	if (!str_prefix(arg1, "short")) {
-		free_string(obj->short_descr);
-	    obj->short_descr = str_dup(argument);
-	}
-	else
-	if (!str_prefix(arg1, "long")) {
-		free_string(obj->description);
-		obj->description = str_dup(argument);
-	}
-	else {
-		act_char("That's not a valid Field.", ch);
-		return;
-	}
-	
-	WAIT_STATE(ch, get_pulse("violence"));
-
-	ch->gold -= cost;
-	mob->gold += cost;
-	act("$N takes $n's item, tinkers with it, and returns it to $n.",
-	    ch, NULL, mob, TO_ROOM);
-	act_puts("$N takes $p, tinkers with it and returns it to you.\n",
-		 ch, obj, mob, TO_CHAR, POS_DEAD);
-	act_puts("Remember, if we find your new string offensive, "
-		 "we will not be happy.",
-		 chi, NULL, NULL, TO_CHAR, POS_DEAD);
-	act_puts("This is your ONE AND ONLY warning.",
-		 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-#endif
 }
 
 void do_smithing(CHAR_DATA *ch, const char *argument)
@@ -3549,7 +3458,7 @@ static OBJ_DATA *get_obj_keeper(CHAR_DATA *ch, CHAR_DATA *keeper,
 		if (obj->wear_loc == WEAR_NONE
 		    && can_see_obj(keeper, obj)
 		    && can_see_obj(ch, obj)
-		    && is_name(arg, obj->name)) {
+		    && IS_OBJ_NAME(obj, arg)) {
 			if (++count == number)
 				return obj;
 

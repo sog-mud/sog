@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.196 2000-10-13 11:01:56 fjoe Exp $
+ * $Id: spellfun2.c,v 1.197 2000-10-21 17:00:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1353,6 +1353,7 @@ void spell_brew(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		potion = create_obj(get_obj_index(OBJ_VNUM_POTION_GOLDEN), 0);
 	else
 		potion = create_obj(get_obj_index(OBJ_VNUM_POTION_SWIRLING), 0);
+	potion->label = str_qdup(vial->label);
 	potion->level = ch->level;
 	INT(potion->value[0]) = level;
 
@@ -1406,7 +1407,7 @@ void spell_brew(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	  		spell = "holy word";
 	  		break;
 		case 5:
-	  		spell = "invis";
+	  		spell = "invisibility";
 	  		break;
 		case 6:
 	  		spell = "cure light";
@@ -1451,8 +1452,8 @@ void spell_brew(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	extract_obj(obj, 0);
 	act("You brew $p from your resources!", ch, potion, NULL, TO_CHAR);
 	act("$n brews $p from $s resources!", ch, potion, NULL, TO_ROOM);
-
 	obj_to_char(potion, ch);
+
 	extract_obj(vial, 0);
 }
 
@@ -3193,16 +3194,18 @@ void spell_magic_jar(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	extract_obj(vial, 0);
-
 	fire	= create_obj_of(get_obj_index(OBJ_VNUM_MAGIC_JAR),
 				&victim->short_descr);
+	fire->label = str_qdup(vial->label);
 	fire->level = ch->level;
 	mlstr_cpy(&fire->owner, &victim->short_descr);
 	fire->ed = ed_new2(fire->pObjIndex->ed, victim->name);
 	fire->cost = 0;
+
+	extract_obj(vial, 0);
 	obj_to_char(fire, ch);    
 	SET_BIT(PC(victim)->plr_flags, PLR_NOEXP);
+
 	act_puts("You catch $N's spirit into your vial.",
 		 ch, NULL, victim, TO_CHAR, POS_DEAD);
 	act_puts("$n catches your spirit into vial.",

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.63 2000-10-07 10:58:07 fjoe Exp $
+ * $Id: comm_act.c,v 1.64 2000-10-21 17:00:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -985,13 +985,13 @@ act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 			buf_append(PC(to)->buffer, tmp);
 		else if (to->desc) {
 			if (IS_SET(to->comm, COMM_QUIET_EDITOR)
-			&&  to->desc->pString)
+			&&  to->desc->pString
+			&&  !IS_SET(act_flags, ACT_SEDIT))
 				buf_append(PC(to)->buffer, tmp);
 			else
 				write_to_buffer(to->desc, tmp, 0);
 		}
-	}
-	else {
+	} else {
 		if (!IS_SET(act_flags, ACT_NOTRIG))
 			mp_act_trigger(tmp, to, ch, arg1, arg2, TRIG_ACT);
 		if (to->desc)

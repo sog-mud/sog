@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.39 2000-10-15 17:19:32 fjoe Exp $
+ * $Id: olc_race.c,v 1.40 2000-10-21 17:00:53 fjoe Exp $
  */
 
 #include "olc.h"
@@ -256,7 +256,7 @@ OLC_FUN(raceed_show)
 	if (str_cmp(r->damtype, "punch"))
 		buf_printf(output, BUF_END, "Damage type:   [%s]\n", r->damtype);
 	
-	buf_printf(output, BUF_END, "Luck bonus:	   [%d]\n", r->luck_bonus);		
+	buf_printf(output, BUF_END, "Luck bonus:    [%d]\n", r->luck_bonus);		
 
 	for (i = 0, j = 0; i < MAX_RESIST; i++) {
 		if (r->resists[i]) {

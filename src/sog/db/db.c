@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.230 2000-10-07 18:14:52 fjoe Exp $
+ * $Id: db.c,v 1.231 2000-10-21 17:00:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1472,6 +1472,7 @@ clone_obj(OBJ_DATA *parent)
 	/* start fixing the object */
 	free_string(clone->name);
 	clone->name 		= str_qdup(parent->name);
+	clone->label 		= str_qdup(parent->label);
 
 	mlstr_cpy(&clone->short_descr, &parent->short_descr);
 	mlstr_cpy(&clone->description, &parent->description);
@@ -1597,7 +1598,10 @@ char *fix_string(const char *s)
 	if (IS_NULLSTR(s))
 		return str_empty;
 
-	for (p = buf; *s && p-buf < sizeof(buf)-2; s++) {
+	if (*s == '.' || isspace(*s))
+		*p++ = '.';
+
+	for (;*s && p-buf < sizeof(buf)-2; s++) {
 		switch (*s) {
 		case '\r':
 			break;

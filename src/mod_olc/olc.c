@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.122 2000-10-15 17:19:31 fjoe Exp $
+ * $Id: olc.c,v 1.123 2000-10-21 17:00:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1608,6 +1608,23 @@ show_obj_resets(int vnum)
 	}
 
 	return buf;
+}
+
+void
+show_resets(CHAR_DATA *ch, int vnum, const char *xxx,
+	    BUFFER *(*show_xxx_resets)(int))
+{
+	BUFFER *buf = show_xxx_resets(vnum);
+	if (!buf) {
+		act_puts3("No resets for $t vnum $J found.",
+			  ch, xxx, NULL, (const void *) vnum,
+			  TO_CHAR, POS_DEAD);
+		return;
+	}
+
+	buf_printf(buf, BUF_START, "Resets for %s vnum %d:\n", xxx, vnum);
+	page_to_char(buf_string(buf), ch);
+	buf_free(buf);
 }
 
 const char *

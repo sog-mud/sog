@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.87 2000-10-07 20:41:07 fjoe Exp $
+ * $Id: olc_obj.c,v 1.88 2000-10-21 17:00:53 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -631,7 +631,6 @@ OLC_FUN(objed_restrictions)
 OLC_FUN(objed_where)
 {
 	int vnum;
-	BUFFER *buf;
 	char arg[MAX_INPUT_LENGTH];
 
 	one_argument(argument, arg, sizeof(arg));
@@ -647,19 +646,7 @@ OLC_FUN(objed_where)
 		vnum = obj->vnum;
 	}
 
-	buf = show_obj_resets(vnum);
-	if (!buf) {
-		act_puts("MobEd: No resets for obj vnum $j found.",
-			 ch, (const void *) vnum, NULL, TO_CHAR, POS_DEAD);
-		return FALSE;
-	}
-
-	if (buf != NULL) {
-		buf_printf(buf, BUF_START, "Resets for obj vnum %d:", vnum);
-		page_to_char(buf_string(buf), ch);
-		buf_free(buf);
-		return FALSE;
-	}
+	show_resets(ch, vnum, "obj", show_obj_resets);
 	return FALSE;
 }
 

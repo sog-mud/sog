@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.c,v 1.14 2000-10-07 10:58:06 fjoe Exp $
+ * $Id: rwfile.c,v 1.15 2000-10-21 17:00:56 fjoe Exp $
  */
 
 static char str_end[] = "End";
@@ -333,15 +333,13 @@ const char *fread_string(rfile_t *fp)
 {
 	char buf[MAX_STRING_LENGTH];
 	char *plast = buf;
-	int c = fread_letter(fp);
+	int c;
+
+	c = fread_letter(fp);
+	if (c == '.')
+		c = xgetc(fp);
 
 	for (;;) {
-		/*
-		 * Back off the char type lookup,
-		 *   it was too dirty for portability.
-		 *   -- Furey
-		 */
-
 		if (plast - buf >= sizeof(buf) - 1) {
 			log(LOG_ERROR, "fread_string: line too long (truncated)");
 			buf[sizeof(buf)-1] = '\0';

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.234 2000-10-15 17:19:34 fjoe Exp $
+ * $Id: comm.c,v 1.235 2000-10-21 17:00:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1476,10 +1476,6 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 				i = ch->in_room->area->name;
 			else
 				i = "";
-			break;
-
-		case '%':
-			i = "%%";
 			break;
 
 		case 'E':
