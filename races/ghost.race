@@ -3,11 +3,15 @@ Name ghost~
 Act undead~
 Aff flying~
 Off fade~
-Imm poison negative disease drowning~
-Res weapon~
-Vuln holy~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
+Resist bash 33
+Resist pierce 33
+Resist slash 33
+Resist holy -50
+Resist negative 100
+Resist disease 100
+Resist poison 100
 End
 
 #$

@@ -1,16 +1,20 @@
 #RACE
 Name green dragon~
 Aff infrared flying~
-Res charm bash poison~
-Vuln pierce~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
+Resist bash 33
+Resist pierce -50
+Resist poison 33
+Resist charm 33
 End
 
 #PCRACE
-Shortname GreDr
-BonusSkills 'bash', 'breath', 'berserk'~
-Size huge~
+Shortname GreDr~
 SkillSpec race_green_dragon
+BonusSkills 'bash', 'breath', 'berserk'~
+Size huge
+Slang common
 End
+
 #$

@@ -1,11 +1,25 @@
 #RACE
 Name zombie~
 Aff slow~
-Imm charm magic poison~
-Res cold~
-Vuln weapon~
 Form edible sentient undead biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
+Resist bash -50
+Resist pierce -50
+Resist slash -50
+Resist fire 100
+Resist cold 100
+Resist lightning 100
+Resist acid 100
+Resist holy 100
+Resist negative 100
+Resist energy 100
+Resist mental 100
+Resist sound 100
+Resist disease 100
+Resist poison 100
+Resist charm 100
+Resist harm 100
+Resist light 100
 End
 
 #PCRACE

@@ -1,16 +1,20 @@
 #RACE
 Name red dragon~
 Aff infrared flying~
-Res charm bash fire~
-Vuln pierce~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
+Resist bash 33
+Resist pierce -50
+Resist fire 33
+Resist charm 33
 End
 
 #PCRACE
-Shortname RedDr
-BonusSkills 'bash', 'breath', 'berserk'~
-Size huge~
+Shortname RedDr~
 SkillSpec race_red_dragon
+BonusSkills 'bash', 'breath', 'berserk'~
+Size huge
+Slang common
 End
+
 #$

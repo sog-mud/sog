@@ -1,10 +1,9 @@
 #RACE
 Name drow~
 Aff infrared~
-Res charm~
-Vuln iron~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
+Resist charm 33
 End
 
 #$

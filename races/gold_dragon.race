@@ -1,10 +1,13 @@
 #RACE
 Name gold dragon~
 Aff infrared flying~
-Res charm bash fire poison~
-Vuln pierce~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
+Resist bash 33
+Resist pierce -50
+Resist fire 33
+Resist poison 33
+Resist charm 33
 End
 
 #$

@@ -1,10 +1,20 @@
 #RACE
 Name doll~
-Imm cold poison negative holy mental disease drowning~
-Res bash light~
-Vuln slash fire lightning acid energy~
 Form other construct biped cold_blood~
 Parts head arms legs hands feet eye~
+Resist bash 33
+Resist slash -50
+Resist fire -50
+Resist cold 100
+Resist lightning -50
+Resist acid -50
+Resist holy 100
+Resist negative 100
+Resist energy -50
+Resist mental 100
+Resist disease 100
+Resist poison 100
+Resist light 33
 End
 
 #$

@@ -2,26 +2,21 @@
 Name troll~
 Aff infrared regeneration~
 Off berserk~
-Res charm~
-Resist bash 26
-Resist slash 11
-Resist pierce 11
-Resist fire -35
-Resist acid -30
 Form edible poison sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye claws fangs~
+Resist charm 33
 End
 
 #PCRACE
 Shortname Troll~
 Points 400
-Class 'warrior' 100
 Class 'anti-paladin' 100
 Class 'ranger' 100
-BonusSkills 'fast healing'~
+Class 'warrior' 100
 SkillSpec race_troll
-Stats 2 -2 -1 -2 3 0
-MaxStats 19 23 20 25 18 25
+BonusSkills 'fast healing'~
+Stats 2 -2 -1 -2 3 0 
+MaxStats 19 23 20 25 18 25 
 Size large
 RestrictAlign evil~
 Slang trollish

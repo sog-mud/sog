@@ -1,9 +1,10 @@
 #RACE
 Name fish~
 Aff swim~
-Vuln fire cold~
 Form edible sentient dragon~
 Parts head heart brains guts ear eye fins scales~
+Resist fire -50
+Resist cold -50
 End
 
 #$

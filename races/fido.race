@@ -1,9 +1,22 @@
 #RACE
 Name fido~
 Off dodge assist_race~
-Vuln magic~
 Form edible poison animal mammal~
 Parts head legs heart brains guts feet ear eye tail fangs~
+Resist fire -50
+Resist cold -50
+Resist lightning -50
+Resist acid -50
+Resist holy -50
+Resist negative -50
+Resist energy -50
+Resist mental -50
+Resist sound -50
+Resist disease -50
+Resist poison -50
+Resist charm -50
+Resist harm -50
+Resist light -50
 End
 
 #$

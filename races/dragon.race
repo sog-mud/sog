@@ -1,10 +1,13 @@
 #RACE
 Name dragon~
 Aff infrared flying~
-Res charm bash fire~
-Vuln pierce cold~
 Form edible sentient dragon~
 Parts head legs heart brains guts hands feet fingers ear eye wings tail claws fangs scales~
+Resist bash 33
+Resist pierce -50
+Resist fire 33
+Resist cold -50
+Resist charm 33
 End
 
 #$

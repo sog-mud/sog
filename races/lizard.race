@@ -1,9 +1,9 @@
 #RACE
 Name lizard~
-Res poison~
-Vuln cold~
 Form edible animal reptile cold_blood~
 Parts head legs heart brains guts feet eye tail fangs~
+Resist cold -50
+Resist poison 33
 End
 
 #$

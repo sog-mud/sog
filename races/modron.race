@@ -2,10 +2,16 @@
 Name modron~
 Aff infrared~
 Off assist_align assist_race~
-Imm charm negative holy mental disease~
-Res fire cold acid~
 Form sentient~
 Parts head arms legs hands feet ear eye~
+Resist fire 33
+Resist cold 33
+Resist acid 33
+Resist holy 100
+Resist negative 100
+Resist mental 100
+Resist disease 100
+Resist charm 100
 End
 
 #$

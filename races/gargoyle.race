@@ -3,10 +3,13 @@ Name gargoyle~
 Act aggressive~
 Aff flying~
 Off fast~
-Res weapon~
-Vuln fire cold~
 Form edible~
 Parts head legs heart brains guts feet eye wings~
+Resist bash 33
+Resist pierce 33
+Resist slash 33
+Resist fire -50
+Resist cold -50
 End
 
 #$

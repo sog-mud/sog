@@ -1,9 +1,22 @@
 #RACE
 Name beholder~
 Aff regeneration~
-Res magic~
 Form edible sentient biped mammal~
 Parts head brains eye~
+Resist fire 33
+Resist cold 33
+Resist lightning 33
+Resist acid 33
+Resist holy 33
+Resist negative 33
+Resist energy 33
+Resist mental 33
+Resist sound 33
+Resist disease 33
+Resist poison 33
+Resist charm 33
+Resist harm 33
+Resist light 33
 End
 
 #$

@@ -1,11 +1,14 @@
 #RACE
 Name undead~
 Aff detect_evil detect_invis detect_hidden detect_good infrared pass_door~
-Imm poison disease drowning~
-Res negative energy~
-Vuln light holy silver~
 Form edible sentient undead biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
+Resist holy -50
+Resist negative 33
+Resist energy 33
+Resist disease 100
+Resist poison 100
+Resist light -50
 End
 
 #PCRACE

@@ -1,9 +1,10 @@
 #RACE
 Name hobgoblin~
 Aff infrared~
-Res poison disease~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye tusks~
+Resist disease 33
+Resist poison 33
 End
 
 #$

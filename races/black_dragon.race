@@ -1,16 +1,20 @@
 #RACE
 Name black dragon~
 Aff infrared flying~
-Res charm bash acid~
-Vuln pierce~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
+Resist bash 33
+Resist pierce -50
+Resist acid 33
+Resist charm 33
 End
 
 #PCRACE
-Shortname BlaDr
-BonusSkills 'bash', 'breath', 'berserk'~
-Size huge~
+Shortname BlaDr~
 SkillSpec race_black_dragon
+BonusSkills 'bash', 'breath', 'berserk'~
+Size huge
+Slang common
 End
+
 #$

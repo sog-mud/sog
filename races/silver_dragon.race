@@ -1,10 +1,12 @@
 #RACE
 Name silver dragon~
 Aff infrared flying~
-Res charm bash cold~
-Vuln pierce~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
+Resist bash 33
+Resist pierce -50
+Resist cold 33
+Resist charm 33
 End
 
 #$

@@ -1,17 +1,20 @@
 #RACE
 Name white dragon~
 Aff infrared flying~
-Res charm bash cold~
-Vuln pierce~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
+Resist bash 33
+Resist pierce -50
+Resist cold 33
+Resist charm 33
 End
-
 
 #PCRACE
-Shortname BluDr
-BonusSkills 'bash', 'breath', 'berserk'~
-Size huge~
+Shortname WhiDr~
 SkillSpec race_white_dragon
+BonusSkills 'bash', 'breath', 'berserk'~
+Size huge
+Slang common
 End
+
 #$
