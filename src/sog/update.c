@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.19 2000-04-17 13:56:20 fjoe Exp $
+ * $Id: update.c,v 1.157.2.20 2000-04-21 03:57:12 osya Exp $
  */
 
 /***************************************************************************
@@ -1862,7 +1862,8 @@ void aggr_update(void)
 
 			/* Mad mob attacks! */
 			if (npc->last_fought == wch
-			&&  !IS_AFFECTED(ch, AFF_SCREAM | AFF_CALM)) {
+			&& !IS_AFFECTED(ch, AFF_SCREAM | AFF_CALM)
+			&& ch->position >= POS_RESTING) {
 				act_yell(ch, "$i! Now you die!", wch, NULL);
 				wch = check_guard(wch, ch); 
 				dofun("murder", ch, wch->name);
@@ -2183,7 +2184,8 @@ void track_update(void)
 			if (IS_IMMORTAL(vch)
 			||  !can_see(ch, vch)
 			||  is_safe_nomessage(ch, vch)
-			||  !is_name(vch->name, npc->in_mind))
+			||  !is_name(vch->name, npc->in_mind)
+			|| ch->position < POS_RESTING)
 				continue;
 
 			act_yell(ch, "So we meet again, $i!", vch, NULL);
