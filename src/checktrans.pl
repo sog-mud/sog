@@ -1,20 +1,31 @@
 #!/usr/bin/perl -w
 #
-# $Id: checktrans.pl,v 1.6 2001-01-18 22:33:19 fjoe Exp $
+# $Id: checktrans.pl,v 1.7 2001-01-23 21:22:18 fjoe Exp $
 #
-# Usage: checktrans.pl [-u] [-d] files...
+# Usage: checktrans.pl [-u] [-d] [-F] files...
 # Options:
-#	-u	- do not print unused messages from msgdb
+#	-u	- print unused messages from msgdb
 #	-d	- debug
+#	-F	- do not print untranslated messages by file
 #
 
 use strict;
 use Getopt::Std;
-use vars qw/ $opt_u $opt_d /;
+use vars qw/ $opt_u $opt_d $opt_F /;
 
 # path to msgdb
-my $msgdb_path = "../etc/msgdb";
-#my $msgdb_path = "foo";
+my $sog_root = "..";
+my $checktrans_filename = "checktrans";
+my $byfile_filename = "checktrans.byfile";
+
+#
+# messages to skip (skill names are added here)
+my @skip_msgs = ( '', ' ', ' \'%s\'' );
+
+# some common messages
+push @skip_msgs, qw / Ok. all %s %s%c%s %d \n ]\n {x $t %s\n .\n auto ON OFF /;
+push @skip_msgs, qw / none (none) /;
+push @skip_msgs, qw / r w w+ a a+ /;
 
 #
 # msgdb: msgdb (read from <STDIN>)
@@ -36,6 +47,11 @@ my %msgdb_nonl;
 #
 # notfound: messages not found in sources without translation (same as %msgdb)
 my %msgdb_notfound;
+
+#
+# messages to skip (messages which are keys of this hash are not checked
+# for translation)
+my %skip = map { $_ => 1 } @skip_msgs;
 
 #
 # key value is hash
@@ -74,8 +90,8 @@ sub process_file
 		next if (/^#/);
 
 		# skip some specific strings
-		next if (/(KEY|aff_write_list|get_pulse|skill_beats|str_printf|yyerror)\("/);
-		next if (/(IS_TOKEN|check_improve|db_set_arg|do_help|fwrite_string|fprintf|fwrite_word|get_skill|mlstr_dump|mlstr_fwrite|log|skill_mana|str_cmp|str_cscmp|str_prefix|strcmp)\([a-zA-Z_][a-zA-Z0-9_+()]*, "/);
+		next if (/(KEY|aff_fwrite_list|glob_lookup|str_printf|yyerror)\("/);
+		next if (/(IS_TOKEN|db_set_arg|do_help|fwrite_string|fprintf|fwrite_word|is_name|mlstr_dump|mlstr_fwrite|log|str_cmp|str_cscmp|str_prefix|strcmp)\([&a-zA-Z_][a-zA-Z0-9_+->()]*, "/);
 		next if (/dofun\("help", [a-zA-Z_][a-zA-Z0-9_]*, "/);
 		next if (m|// notrans$|);
 
@@ -152,7 +168,9 @@ sub process_file
 				# we just found an eos and it is not
 				# space character
 				print STDERR "end of string: $linenum:$i\n" if $opt_d;
-				push @{$file_strings{join '', @string}}, $start_line;
+				my $str = join '', @string;
+				push @{$file_strings{$str}}, $start_line
+				    if !exists $skip{$str};
 				$#string = -1;
 				$seen_eos = 0;
 			}
@@ -163,10 +181,11 @@ sub process_file
 	} continue {
 		print STDERR "$linenum: ", join '', @line if $opt_d;
 	}
+	close(INPUT);
 
-	print STDERR "All the strings:\n" if $opt_d;
-	foreach my $i (keys %file_strings) {
-		print STDERR "string: $i, line(s): @{$file_strings{$i}}\n" if $opt_d;
+	my @strings = keys %file_strings;
+	my $found = 0;
+	foreach my $i (@strings) {
 		my $nonl = $i;
 		$nonl =~ s/\\n$//;
 		if (exists $msgdb{$i}) {
@@ -177,9 +196,28 @@ sub process_file
 			%{$msgdb_nl{$nonl}}->{$filename} = \@{$file_strings{$i}};
 		} else {
 			%{$msgdb_notfound{$i}}->{$filename} = \@{$file_strings{$i}};
+			if (!$opt_F) {
+				if (!$found) {
+					$found = 1;
+					my $usage_count = $#strings + 1;
+					print BYFILE "File $filename (${usage_count}):\n";
+				}
+				print BYFILE "\t[$i]: @{$file_strings{$i}}\n";
+			}
 		}
 	}
-	close(INPUT);
+	print BYFILE "\n" if ($found && !$opt_F);
+}
+
+sub usage_count
+{
+	my $file_ref = shift;
+	my $count = 0;
+
+	foreach my $f (keys %{$file_ref}) {
+		$count += $#{$file_ref->{$f}};
+	}
+	return $count;
 }
 
 sub dump_messages
@@ -187,14 +225,20 @@ sub dump_messages
 	my $title = shift;
 	my $msgdb_ref = shift;
 
-	print "$title:\n";
-	foreach my $i (keys %{$msgdb_ref}) {
-		print "[$i]\n";
-		foreach my $f (keys %{%{$msgdb_ref}->{$i}}) {
-			print "\t$f: [@{%{$msgdb_ref}->{$i}->{$f}}]\n";
+	#
+	# sort by number of files (descending)
+	my @strings = sort { usage_count(%{$msgdb_ref}->{$b}) <=> usage_count(%{$msgdb_ref}->{$a}) } keys %{$msgdb_ref};
+	return if $#strings < 0;
+
+	print CHECKTRANS "$title:\n";
+	foreach my $i (@strings) {
+		my $file_ref = %{$msgdb_ref}->{$i};
+		print CHECKTRANS "[$i]\n";
+		foreach my $f (keys %{$file_ref}) {
+			print CHECKTRANS "\t$f: [@{$file_ref->{$f}}]\n";
 		}
 	}
-	print "\n";
+	print CHECKTRANS "\n";
 }
 
 sub add_message
@@ -212,13 +256,13 @@ sub add_message
 # main program
 #
 
-getopts('ud');
+getopts('udF');
 
 #
-# read msgdb from STDIN
+# read msgdb
 my $msg = "";
 my $search_rus = 0;		# we are searching for @rus
-open(IN, "<$msgdb_path");
+open(IN, "<$sog_root/etc/msgdb");
 while (<IN>) {
 	chomp;
 	last if (/^\$~$/);
@@ -255,6 +299,63 @@ while (<IN>) {
 }
 close(IN);
 
+#
+# read skills.conf (all skill names will be skipped)
+open(IN, "<$sog_root/etc/skills.conf");
+while (<IN>) {
+	chomp;
+	if (s/^Name (.*)~$/$1/) {
+		s/\@eng (.*)\@rus.*/$1/;
+		$skip{$_} = 1;
+	}
+}
+close(IN);
+
+#
+# read cmd.conf (all command names will be skipped)
+open(IN, "<$sog_root/etc/cmd.conf");
+while (<IN>) {
+	chomp;
+	$skip{$_} = 1 if (s/^name (.*)~$/$1/);
+}
+close(IN);
+
+#
+# read cmd.conf (all command names will be skipped)
+open(IN, "<$sog_root/etc/uhandlers.conf");
+while (<IN>) {
+	chomp;
+	$skip{$_} = 1 if (s/^name (.*)~$/$1/);
+}
+close(IN);
+
+#
+# read specs
+open(IN, "grep -h '^Name ' $sog_root/specs/*|");
+while (<IN>) {
+	chomp;
+	$skip{$_} = 1 if (s/^Name (.*)~$/$1/);
+}
+close(IN);
+
+#
+# read damtype.conf (all damtype names will be skipped)
+open(IN, "<$sog_root/etc/damtype.conf");
+while (<IN>) {
+	chomp;
+	$skip{$_} = 1 if (s/^Name (.*)$/$1/);
+}
+close(IN);
+
+#
+# read materials.conf (all material names will be skipped
+open(IN, "<$sog_root/etc/materials.conf");
+while (<IN>) {
+	chomp;
+	$skip{$_} = 1 if (s/^Name (.*)~$/$1/);
+}
+close(IN);
+
 if ($opt_d) {
 	my @msgdb_eng = keys %msgdb;
 	print STDERR "All english msgdb messages:\n";
@@ -264,20 +365,34 @@ if ($opt_d) {
 }
 
 #
-# process input files
+# process input files and generate byfile statistics
+rename($byfile_filename, "${byfile_filename}.old")
+	if ( -f $byfile_filename );
+open(BYFILE, ">$byfile_filename");
+
 foreach my $i (@ARGV) {
 	process_file($i);
 }
 
+close(BYFILE);
+
+#
+# generate overall statistics
+rename($checktrans_filename, "${checktrans_filename}.old")
+	if ( -f $checktrans_filename );
+open(CHECKTRANS, ">$checktrans_filename");
+
 if ($opt_u) {
-	print "===> Unused messages:\n";
+	print CHECKTRANS "===> Unused messages:\n";
 	foreach my $i (keys %msgdb) {
 		next if (%{$msgdb{$i}});
-		print "\t'$i'\n";
+		print CHECKTRANS "\t[$i]\n";
 	}
-	print "\n";
+	print CHECKTRANS "\n";
 }
 
 dump_messages("===> Messages used with '\\n' added", \%msgdb_nl);
 dump_messages("===> Messages used with '\\n' stripped", \%msgdb_nonl);
-dump_messages("===> Messages without translation", \%msgdb_notfound);
+dump_messages("===> Messages without translation", \%msgdb_notfound) if !$opt_F;
+
+close(CHECKTRANS);

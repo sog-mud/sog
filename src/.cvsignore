@@ -6,4 +6,7 @@ GTAGS
 GPATHS
 GRTAGS
 GSYMS
-checktrans.out
+checktrans
+checktrans.old
+checktrans.byfile
+checktrans.byfile.old
