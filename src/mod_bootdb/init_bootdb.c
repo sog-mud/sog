@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.20 2003-04-19 16:12:27 fjoe Exp $
+ * $Id: init_bootdb.c,v 1.21 2003-04-22 07:34:45 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -54,7 +54,9 @@ static void load_mprogs(void);
 
 static void fix_resets(void);
 static void fix_exits(void);
+#if FIX_MPROGS
 static void fix_mprogs(void);
+#endif
 static void fix_practicers(void);
 
 MODINIT_FUN(_module_load, m)
@@ -96,7 +98,9 @@ MODINIT_FUN(_module_load, m)
 
 	fix_resets();
 	fix_exits();
+#if FIX_MPROGS
 	fix_mprogs();
+#endif
 	fix_practicers();
 
 	msgq_init(&msgq_immtalk, MSGQ_LEN_CHAN);
@@ -425,6 +429,7 @@ fix_resets(void)
 	}
 }
 
+#if FIX_MPROGS
 static trig_t *
 trig_lookup_v(varr *v, const char *name, int *ptrigvnum)
 {
@@ -607,6 +612,7 @@ fix_mprogs(void)
 
 	fclose(fp);
 }
+#endif
 
 #define V7_MOB_PRACTICE	(D)
 
