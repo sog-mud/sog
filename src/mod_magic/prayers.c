@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.1 2001-02-11 14:37:28 fjoe Exp $
+ * $Id: prayers.c,v 1.2 2001-02-11 18:22:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2151,25 +2151,22 @@ prayer_bless_weapon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (obj->item_type == ITEM_WEAPON) {
-		if (IS_WEAPON_STAT(obj, WEAPON_HOLY)) {
-			act("$p is already blessed for holy attacks.",
-			    ch, obj, NULL, TO_CHAR);
-			return;
-		}
+	if (IS_WEAPON_STAT(obj, WEAPON_HOLY)) {
+		act("$p is already blessed for holy attacks.",
+		    ch, obj, NULL, TO_CHAR);
+		return;
+	}
 
-		if (IS_WEAPON_STAT(obj, WEAPON_FLAMING)
-		||  IS_WEAPON_STAT(obj, WEAPON_FROST)
-		||  IS_WEAPON_STAT(obj, WEAPON_VAMPIRIC)
-		||  IS_WEAPON_STAT(obj, WEAPON_SHARP)
-		||  IS_WEAPON_STAT(obj, WEAPON_VORPAL)
-		||  IS_WEAPON_STAT(obj, WEAPON_SHOCKING)
-		||  IS_OBJ_STAT(obj, ITEM_BLESS)
-		|| IS_OBJ_STAT(obj, ITEM_BURN_PROOF)) {
-			act("You can't seem to bless $p.",
-			    ch, obj, NULL, TO_CHAR);
-			return;
-		}
+	if (IS_WEAPON_STAT(obj, WEAPON_FLAMING)
+	||  IS_WEAPON_STAT(obj, WEAPON_FROST)
+	||  IS_WEAPON_STAT(obj, WEAPON_VAMPIRIC)
+	||  IS_WEAPON_STAT(obj, WEAPON_SHARP)
+	||  IS_WEAPON_STAT(obj, WEAPON_VORPAL)
+	||  IS_WEAPON_STAT(obj, WEAPON_SHOCKING)
+	||  IS_OBJ_STAT(obj, ITEM_BLESS)
+	||  IS_OBJ_STAT(obj, ITEM_BURN_PROOF)) {
+		act("You can't seem to bless $p.", ch, obj, NULL, TO_CHAR);
+		return;
 	}
 
 	af.where	= TO_WEAPON;
