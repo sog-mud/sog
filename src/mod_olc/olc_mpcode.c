@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mpcode.c,v 1.22 1998-12-23 16:11:21 fjoe Exp $
+ * $Id: olc_mpcode.c,v 1.23 1999-02-10 15:58:51 fjoe Exp $
  */
 
 /* The following code is based on ILAB OLC by Jason Dinkel */
@@ -58,17 +58,17 @@ OLC_FUN(mped_create)
 
 	pArea = area_vnum_lookup(value);
 	if (!pArea) {
-		char_puts("MPEdit: That vnum is not assigned an area.\n", ch);
+		char_puts("MPEd: That vnum is not assigned an area.\n", ch);
 		return FALSE;
 	}
 
 	if (!IS_BUILDER(ch, pArea)) {
-		char_puts("MPEdit: Insufficient security.\n", ch);
+		char_puts("MPEd: Insufficient security.\n", ch);
 		return FALSE;
 	}
 
 	if (mpcode_lookup(value)) {
-		char_puts("MPEdit: vnum already exists.\n", ch);
+		char_puts("MPEd: vnum already exists.\n", ch);
 		return FALSE;
 	}
 
@@ -79,7 +79,7 @@ OLC_FUN(mped_create)
 	ch->desc->pEdit		= (void *)mpcode;
 	ch->desc->editor	= ED_MPCODE;
 	touch_area(pArea);
-	char_puts("MPEdit: mpcode created.\n", ch);
+	char_puts("MPEd: mpcode created.\n", ch);
 	return FALSE;
 }
 
@@ -99,13 +99,13 @@ OLC_FUN(mped_edit)
 	value = atoi(arg);
 	mpcode = mpcode_lookup(value);
 	if (!mpcode) {
-		char_puts("MPEdit: Vnum does not exist.\n", ch);
+		char_puts("MPEd: Vnum does not exist.\n", ch);
 		return FALSE;
 	}
 
 	pArea = area_vnum_lookup(mpcode->vnum);
 	if (!IS_BUILDER(ch, pArea)) {
-		char_puts("MEdit: Insufficient security.\n", ch);
+		char_puts("MPEd: Insufficient security.\n", ch);
 	       	return FALSE;
 	}
 
@@ -139,7 +139,7 @@ OLC_FUN(mped_show)
 		int value = atoi(arg);
 		mpcode = mpcode_lookup(value);
 		if (!mpcode) {
-			char_puts("MPEdit: Vnum does not exist.\n", ch);
+			char_puts("MPEd: Vnum does not exist.\n", ch);
 			return FALSE;
 		}
 	}

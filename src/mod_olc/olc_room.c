@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.31 1998-12-28 14:27:18 kostik Exp $
+ * $Id: olc_room.c,v 1.32 1999-02-10 15:58:51 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -359,7 +359,7 @@ OLC_FUN(roomed_list)
 	}
 
 	if (!found) 
-		char_puts("REdit: No rooms in this area.\n", ch);
+		char_puts("RoomEd: No rooms in this area.\n", ch);
 	else {
 		if (col % 3 != 0)
 			buf_add(buffer, "\n");

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.25 1998-12-23 16:11:20 fjoe Exp $
+ * $Id: olc_help.c,v 1.26 1999-02-10 15:58:51 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -69,7 +69,7 @@ OLC_FUN(helped_create)
 	AREA_DATA *pArea;
 
 	if (ch->pcdata->security < SECURITY_HELP) {
-		char_puts("HEdit: Insufficient security.\n", ch);
+		char_puts("HelpEd: Insufficient security.\n", ch);
 		return FALSE;
 	}
 
@@ -80,7 +80,7 @@ OLC_FUN(helped_create)
 
 	if ((pHelp = help_lookup(1, argument)) != NULL) {
 		char_printf(ch,
-			    "HEdit: Help already exists in area %s (%s).\n",
+			    "HelpEd: Help already exists in area %s (%s).\n",
 			    pHelp->area->name, pHelp->area->file_name);
 		return FALSE;
 	}
@@ -115,7 +115,7 @@ OLC_FUN(helped_edit)
 	HELP_DATA *pHelp;
 
 	if (ch->pcdata->security < SECURITY_HELP) {
-		char_puts("HEdit: Insufficient security.\n", ch);
+		char_puts("HelpEd: Insufficient security.\n", ch);
 		return FALSE;
 	}
 
@@ -126,7 +126,7 @@ OLC_FUN(helped_edit)
 	}
 
 	if ((pHelp = help_lookup(num, keyword)) == NULL) {
-		char_printf(ch, "HEdit: %s: Help not found.\n",
+		char_printf(ch, "HelpEd: %s: Help not found.\n",
 			    keyword);
 		return FALSE;
 	}
@@ -169,7 +169,7 @@ OLC_FUN(helped_show)
 		}
 
 		if ((pHelp = help_lookup(num, keyword)) == NULL) {
-			char_printf(ch, "HEdit: %s: Help not found.\n",
+			char_printf(ch, "HelpEd: %s: Help not found.\n",
 				    keyword);
 			return FALSE;
 		}
@@ -254,7 +254,7 @@ OLC_FUN(helped_del)
 	EDIT_HELP(ch, pHelp);
 	touch_area(pHelp->area);
 	help_free(pHelp);
-	char_puts("HEdit: Help deleted.\n", ch);
+	char_puts("HelpEd: Help deleted.\n", ch);
 	edit_done(ch->desc);
 	return FALSE;
 }

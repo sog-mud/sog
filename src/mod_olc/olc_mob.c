@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.27 1998-12-26 08:43:32 fjoe Exp $
+ * $Id: olc_mob.c,v 1.28 1999-02-10 15:58:51 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -154,17 +154,17 @@ OLC_FUN(mobed_create)
 
 	pArea = area_vnum_lookup(value);
 	if (!pArea) {
-		char_puts("MEdit: That vnum is not assigned an area.\n", ch);
+		char_puts("MobEd: That vnum is not assigned an area.\n", ch);
 		return FALSE;
 	}
 
 	if (!IS_BUILDER(ch, pArea)) {
-		char_puts("MEdit: Insufficient security.\n", ch);
+		char_puts("MobEd: Insufficient security.\n", ch);
 		return FALSE;
 	}
 
 	if (get_mob_index(value)) {
-		char_puts("MEdit: Mobile vnum already exists.\n", ch);
+		char_puts("MobEd: Mobile vnum already exists.\n", ch);
 		return FALSE;
 	}
 
@@ -182,7 +182,7 @@ OLC_FUN(mobed_create)
 	ch->desc->pEdit		= (void *)pMob;
 	ch->desc->editor	= ED_MOB;
 	touch_area(pArea);
-	char_puts("MEdit: Mobile created.\n", ch);
+	char_puts("MobEd: Mobile created.\n", ch);
 	return FALSE;
 }
 
@@ -201,13 +201,13 @@ OLC_FUN(mobed_edit)
 
 	value = atoi(arg);
 	if ((pMob = get_mob_index(value)) == NULL) {
-		char_puts("MEdit: Vnum does not exist.\n", ch);
+		char_puts("MobEd: Vnum does not exist.\n", ch);
 		return FALSE;
 	}
 
 	pArea = area_vnum_lookup(pMob->vnum);
 	if (!IS_BUILDER(ch, pArea)) {
-		char_puts("MEdit: Insufficient security.\n", ch);
+		char_puts("MobEd: Insufficient security.\n", ch);
 	       	return FALSE;
 	}
 
@@ -244,7 +244,7 @@ OLC_FUN(mobed_show)
 	else {
 		int value = atoi(arg);
 		if ((pMob = get_mob_index(value)) == NULL) {
-			char_puts("MEdit: Vnum does not exist.\n", ch);
+			char_puts("MobEd: Vnum does not exist.\n", ch);
 			return FALSE;
 		}
 	}
@@ -433,7 +433,7 @@ OLC_FUN(mobed_list)
 	}
 
 	if (!found) 
-		char_puts("MEdit: No mobiles in this area.\n", ch);
+		char_puts("MobEd: No mobiles in this area.\n", ch);
 	else {
 		if (col % 3 != 0)
 			buf_add(buffer, "\n");
@@ -473,7 +473,7 @@ OLC_FUN(mobed_spec)
 		return TRUE;
 	}
 
-	char_puts("MEdit: No such special function.\n", ch);
+	char_puts("MobEd: No such special function.\n", ch);
 	return FALSE;
 }
 
@@ -584,7 +584,7 @@ OLC_FUN(mobed_shop)
 
 		if (!pMob->pShop)
 		{
-			char_puts("MEdit:  Debes crear un shop primero (shop assign).\n", ch);
+			char_puts("MobEd:  Debes crear un shop primero (shop assign).\n", ch);
 			return FALSE;
 		}
 
@@ -607,7 +607,7 @@ OLC_FUN(mobed_shop)
 
 		if (!pMob->pShop)
 		{
-			char_puts("MEdit:  Debes crear un shop primero (shop assign).\n", ch);
+			char_puts("MobEd:  Debes crear un shop primero (shop assign).\n", ch);
 			return FALSE;
 		}
 
@@ -632,19 +632,19 @@ OLC_FUN(mobed_shop)
 
 		if (atoi(arg1) >= MAX_TRADE)
 		{
-			char_printf(ch, "MEdit:  May sell %d items max.\n", MAX_TRADE);
+			char_printf(ch, "MobEd:  May sell %d items max.\n", MAX_TRADE);
 			return FALSE;
 		}
 
 		if (!pMob->pShop)
 		{
-			char_puts("MEdit:  Debes crear un shop primero (shop assign).\n", ch);
+			char_puts("MobEd:  Debes crear un shop primero (shop assign).\n", ch);
 			return FALSE;
 		}
 
 		if ((value = flag_value(item_types, argument)) == 0)
 		{
-			char_puts("MEdit:  That type of item is not known.\n", ch);
+			char_puts("MobEd:  That type of item is not known.\n", ch);
 			return FALSE;
 		}
 
@@ -1083,7 +1083,7 @@ OLC_FUN(mobed_trigdel)
 	}
 
 	if (!(mptrig = pMob->mptrig_list)) {
-		 char_puts("MEdit:  Nonexistent trigger.\n",ch);
+		 char_puts("MobEd:  Nonexistent trigger.\n",ch);
 		 return FALSE;
 	}
 

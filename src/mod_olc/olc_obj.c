@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.26 1998-12-26 08:43:33 fjoe Exp $
+ * $Id: olc_obj.c,v 1.27 1999-02-10 15:58:51 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -137,17 +137,17 @@ OLC_FUN(objed_create)
 
 	pArea = area_vnum_lookup(value);
 	if (!pArea) {
-		char_puts("OEdit: That vnum is not assigned an area.\n", ch);
+		char_puts("ObjEd: That vnum is not assigned an area.\n", ch);
 		return FALSE;
 	}
 
 	if (!IS_BUILDER(ch, pArea)) {
-		char_puts("OEdit: Insufficient security.\n", ch);
+		char_puts("ObjEd: Insufficient security.\n", ch);
 		return FALSE;
 	}
 
 	if (get_obj_index(value)) {
-		char_puts("OEdit: Object vnum already exists.\n", ch);
+		char_puts("ObjEd: Object vnum already exists.\n", ch);
 		return FALSE;
 	}
 		 
@@ -164,7 +164,7 @@ OLC_FUN(objed_create)
 	ch->desc->pEdit		= (void *)pObj;
 	ch->desc->editor	= ED_OBJ;
 	touch_area(pArea);
-	char_puts("OEdit: Object created.\n", ch);
+	char_puts("ObjEd: Object created.\n", ch);
 	return FALSE;
 }
 
@@ -184,13 +184,13 @@ OLC_FUN(objed_edit)
 	value = atoi(arg);
 	pObj = get_obj_index(value);
 	if (!pObj) {
-		char_puts("OEdit: Vnum does not exist.\n", ch);
+		char_puts("ObjEd: Vnum does not exist.\n", ch);
 		return FALSE;
 	}
 
 	pArea = area_vnum_lookup(pObj->vnum);
 	if (!IS_BUILDER(ch, pArea)) {
-		char_puts("OEdit: Insufficient security.\n", ch);
+		char_puts("ObjEd: Insufficient security.\n", ch);
 	       	return FALSE;
 	}
 
@@ -229,7 +229,7 @@ OLC_FUN(objed_show)
 		int value = atoi(arg);
 		pObj = get_obj_index(value);
 		if (!pObj) {
-			char_puts("OEdit: Vnum does not exist.\n", ch);
+			char_puts("ObjEd: Vnum does not exist.\n", ch);
 			return FALSE;
 		}
 	}
@@ -563,7 +563,7 @@ OLC_FUN(objed_addapply)
 	}
 
 	if ((wd = where_lookup(where)) == NULL) {
-		char_puts("OEdit: bit vector table undefined. "
+		char_puts("ObjEd: bit vector table undefined. "
 			  "Report it to implementors.\n", ch);
 		return FALSE;
 	}
@@ -628,7 +628,7 @@ OLC_FUN(objed_delaffect)
 
 	if (!(pAf = pObj->affected))
 	{
-		char_puts("OEdit:  Non-existant affect.\n", ch);
+		char_puts("ObjEd:  Non-existant affect.\n", ch);
 		return FALSE;
 	}
 
@@ -1457,7 +1457,7 @@ VALIDATE_FUN(validate_condition)
 	int val = *(int*) arg;
 
 	if (val < 0 || val > 100) {
-		char_puts("OEdit: condition can range from 0 (ruined) "
+		char_puts("ObjEd: condition can range from 0 (ruined) "
 			  "to 100 (perfect).\n", ch);
 		return FALSE;
 	}
