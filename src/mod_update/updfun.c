@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.68 2004-03-03 15:37:31 tatyana Exp $
+ * $Id: updfun.c,v 1.69 2004-03-07 21:57:57 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -255,7 +255,9 @@ UPDATE_FOREACH_FUN(mobile_update_foreach, vo)
 		}
 	}
 
-	if (IS_AFFECTED(ch, AFF_REGENERATION) && ch->in_room != NULL) {
+	if (IS_AFFECTED(ch, AFF_REGENERATION)
+	&& ch->in_room != NULL
+	&& !is_sn_affected(ch, "death breathing")) {
 		ch->hit = UMIN(ch->hit + ch->level / 10, ch->max_hit);
 		if (IS_RACE(ch->race, "troll"))
 			ch->hit = UMIN(ch->hit + ch->level / 10, ch->max_hit);
@@ -709,20 +711,23 @@ UPDATE_FOREACH_FUN(char_update_foreach, vo)
 			return FALSE;
 		}
 
-		if (ch->hit < ch->max_hit)
-			ch->hit += hit_gain(ch);
-		else
-			ch->hit = ch->max_hit;
+		if (!is_sn_affected(ch, "death breathing")) {
+			if (ch->hit < ch->max_hit)
+				ch->hit += hit_gain(ch);
+			else
+				ch->hit = ch->max_hit;
 
-		if (ch->mana < ch->max_mana)
-			ch->mana += mana_gain(ch);
-		else
-			ch->mana = ch->max_mana;
+			if (ch->mana < ch->max_mana)
+				ch->mana += mana_gain(ch);
+			else
+				ch->mana = ch->max_mana;
 
-		if (ch->move < ch->max_move)
-			ch->move += move_gain(ch);
-		else
-			ch->move = ch->max_move;
+			if (ch->move < ch->max_move)
+				ch->move += move_gain(ch);
+			else
+				ch->move = ch->max_move;
+		} else
+			act_char("You feel death breathing...", ch);
 
 		if (ch->desc != NULL
 		&&  (old_hit != ch->hit || old_mana != ch->mana ||

@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.77 2004-03-07 21:23:36 tatyana Exp $
+ * $Id: prayers.c,v 1.78 2004-03-07 21:57:56 tatyana Exp $
  */
 
 /***************************************************************************
@@ -167,6 +167,7 @@ DECLARE_SPELL_FUN(prayer_water_elemental);
 DECLARE_SPELL_FUN(prayer_fire_elemental);
 DECLARE_SPELL_FUN(prayer_earth_elemental);
 DECLARE_SPELL_FUN(prayer_produce_flame);
+DECLARE_SPELL_FUN(prayer_death_breathing);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -4226,4 +4227,44 @@ SPELL_FUN(prayer_produce_flame, sn, level, ch, vo)
 		act("You are blinded by flame!", ch, NULL, vch, TO_VICT);
 
 	} end_foreach(vch);
+}
+
+/* Domain: death
+ * block victim's regeneration ability
+ */
+SPELL_FUN(prayer_death_breathing, sn, level, ch, vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA *paf;
+
+	if (victim == ch) {
+		act_char("You are not so silly!", ch);
+		return;
+	}
+
+	if (is_sn_affected(victim, sn)) {
+		act("$N is already on the way to death.",
+		    ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	act("You tried to cloak $N with death breathing...",
+	    ch, NULL, victim, TO_CHAR);
+	act("$n tried to cloak you with death breathing...",
+	    ch, NULL, victim, TO_VICT);
+
+	if (saves_spell(level, victim, DAM_NEGATIVE)) {
+		act("$N avoid your influence.", ch, NULL, victim, TO_CHAR);
+		act("You avoid $n's influence.", ch, NULL, victim, TO_VICT);
+		return;
+	}
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level = level;
+	paf->duration = level / 5;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
+	act("Death is now behind $N!", ch, NULL, victim, TO_CHAR);
+	act("Death is now behind you!", ch, NULL, victim, TO_VICT);
 }
