@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.29 2004-02-22 23:22:18 fjoe Exp $
+ * $Id: comm.c,v 1.30 2004-02-22 23:27:16 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -1287,7 +1287,7 @@ process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 	/*
 	 * Bust a prompt.
 	 */
-	if (!merc_down && ch && d->qbuf[0] != '\0') {
+	if (!merc_down && ch) {
 		if (d->showstr_point) {
 			act_puts("[Hit Return to continue]",
 				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
@@ -1296,7 +1296,7 @@ process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 			if (d->pString) {
 				send_to_char("  > ", ch);	// notrans
 				ga = TRUE;
-			} else {
+			} else if (d->qbuf[0] == '\0') {
 				CHAR_DATA *victim;
 
 				/* battle prompt */
