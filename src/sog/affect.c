@@ -1,5 +1,5 @@
 /*
- * $Id: affect.c,v 1.10 1999-11-25 12:26:24 fjoe Exp $
+ * $Id: affect.c,v 1.11 1999-11-26 07:11:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -950,8 +950,10 @@ AFFECT_DATA *fread_affect(rfile_t *fp)
 	paf->modifier = fread_number(fp);
 	switch (paf->where) {
 	case TO_SKILLS:
-	case TO_RACE:
 		paf->location = fread_strkey(fp, &skills, "fread_affect");
+		break;
+	case TO_RACE:
+		paf->location = fread_strkey(fp, &races, "fread_affect");
 		break;
 	default:
 		INT_VAL(paf->location) = fread_number(fp);
