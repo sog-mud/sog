@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.50 1999-03-10 11:06:23 fjoe Exp $
+ * $Id: olc.c,v 1.51 1999-03-10 11:10:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -275,7 +275,7 @@ bool olced_str_text(CHAR_DATA *ch, const char *argument,
 {
 	if (argument[0] =='\0') {
 		string_append(ch, pStr);
-		return TRUE;
+		return FALSE;
 	}
 
 	char_printf(ch, "Syntax: %s\n", cmd->name);
@@ -311,7 +311,7 @@ bool olced_mlstr_text(CHAR_DATA *ch, const char *argument,
 		char_printf(ch, "Syntax: %s lang\n", cmd->name);
 		return FALSE;
 	}
-	return TRUE;
+	return FALSE;
 }
 
 static void cb_format(int lang, const char **p, void *arg)
