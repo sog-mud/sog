@@ -585,10 +585,9 @@ are no longer shown on score (this can be changed by using 'show' command).
 ~
 -1 LANGUAGE~
 Language command is used to switch native language. Now only russian and
-english are implemented.
+english is implemented.
 	
 	language [ russian | english ]
-
 ~
 
 0 $~
