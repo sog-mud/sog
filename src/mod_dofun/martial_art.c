@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.18 2001-05-21 18:53:49 fjoe Exp $
+ * $Id: martial_art.c,v 1.114.2.19 2001-05-21 18:59:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2392,7 +2392,7 @@ void do_warcry(CHAR_DATA *ch, const char *argument)
 	affect_to_char(ch, &af);
 	
 	af.location  = APPLY_SAVING_SPELL;
-	af.modifier  = 0 - UMAX(1, (LEVEL(ch) / 8);
+	af.modifier  = 0 - UMAX(1, LEVEL(ch) / 8);
 	affect_to_char(ch, &af);
 
 	char_puts("You feel righteous as you yell out your warcry.\n", ch);
