@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.3 1999-07-20 14:52:18 avn Exp $
+ * $Id: olc_race.c,v 1.4 1999-07-21 04:19:18 avn Exp $
  */
 
 #include "olc.h"
@@ -126,7 +126,7 @@ static void save_race(CHAR_DATA *ch, race_t *race);
 
 OLC_FUN(raceed_create)
 {
-	int rcn;
+	int rn;
 	race_t *race;
 	char arg[MAX_STRING_LENGTH];
 
@@ -142,9 +142,9 @@ OLC_FUN(raceed_create)
 		return FALSE;
 	}
 
-	if ((rcn = rn_lookup(arg)) > 0 || !str_prefix(arg, "unique")) {
+	if ((rn = rn_lookup(arg)) >= 0) {
 		char_printf(ch, "RaceEd: %s: already exists.\n",
-			    RACE(rcn)->name);
+			    RACE(rn)->name);
 		return FALSE;
 	}
 
@@ -162,21 +162,19 @@ OLC_FUN(raceed_create)
 OLC_FUN(raceed_edit)
 {
 	int rn;
-	char arg[MAX_STRING_LENGTH];
 
 	if (ch->pcdata->security < SECURITY_RACE) {
 		char_puts("RaceEd: Insufficient security.\n", ch);
 		return FALSE;
 	}
 
-	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		dofun("help", ch, "'OLC EDIT'");
 		return FALSE;
 	}
 
-	if ((rn = rn_lookup(arg)) == 0 && str_prefix(arg, "unique")) {
-		char_printf(ch, "RaceEd: %s: No such race.\n", arg);
+	if ((rn = rn_lookup(argument)) < 0) {
+		char_printf(ch, "RaceEd: %s: No such race.\n", argument);
 		return FALSE;
 	}
 
@@ -222,14 +220,12 @@ OLC_FUN(raceed_touch)
 
 OLC_FUN(raceed_show)
 {
-	char arg[MAX_STRING_LENGTH];
 	int i;
 	BUFFER *output;
 	race_t *race;
 	bool found;
 
-	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0') {
+	if (argument[0] == '\0') {
 		if (IS_EDIT(ch, ED_RACE))
 			EDIT_RACE(ch, race);
 		else {
@@ -238,8 +234,8 @@ OLC_FUN(raceed_show)
 		}
 	}
 	else {
-		if ((i = rn_lookup(arg)) < 0) {
-			char_printf(ch, "RaceEd: %s: No such race.\n", arg);
+		if ((i = rn_lookup(argument)) < 0) {
+			char_printf(ch, "RaceEd: %s: No such race.\n", argument);
 			return FALSE;
 		}
 		race = RACE(i);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.42 1999-06-29 10:57:04 fjoe Exp $
+ * $Id: olc_mob.c,v 1.43 1999-07-21 04:19:18 avn Exp $
  */
 
 #include "olc.h"
@@ -900,7 +900,7 @@ OLC_FUN(mobed_race)
 	int race = 0;
 
 	if (argument[0]
-	&&  (!str_prefix(argument, "unique") || (race = rn_lookup(argument)))) {
+	&&  (race = rn_lookup(argument)) >= 0) {
 		race_t *r;
 		EDIT_MOB(ch, pMob);
 

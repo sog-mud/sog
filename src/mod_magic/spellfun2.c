@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.124 1999-07-19 13:25:18 avn Exp $
+ * $Id: spellfun2.c,v 1.125 1999-07-21 04:19:19 avn Exp $
  */
 
 /***************************************************************************
@@ -4683,12 +4683,12 @@ void spell_polymorph(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	race = rn_lookup(target_name);
 	r = RACE(race);
-	if (!r->pcdata) {
+	if (!r->pcdata || r->pcdata->classes.nused) {
 		char_puts("That is not a valid race to polymorph.\n",ch); 
 		return;
 	}
 
-	if (IS_SET(r->race_flags, RACE_UNDEAD)) {
+	if (IS_SET(r->form, FORM_UNDEAD)) {
 		char_puts("You posess no necromantic powers to do this.\n",ch);
 		return;
 	}
@@ -4724,8 +4724,8 @@ void spell_lich(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	race = rn_lookup(target_name);
 	r = RACE(race);
-	if (!r->pcdata || !IS_SET(r->race_flags, RACE_UNDEAD)) {
-		char_puts("This is not an undead type.\n", ch);
+	if (!r->pcdata || !IS_SET(r->form, FORM_UNDEAD)) {
+		char_puts("This is not a valid undead type.\n", ch);
 		return;
 	}
 
@@ -4973,7 +4973,7 @@ void spell_control_undead(int sn, int level, CHAR_DATA *ch, void *vo)
  	r=RACE(victim->race);
   
  	if  ((!IS_NPC(victim) || !IS_SET(victim->pIndexData->act, ACT_UNDEAD)) 
-             && (!IS_SET(r->race_flags, RACE_UNDEAD))) {
+             && (!IS_SET(r->form, FORM_UNDEAD))) {
   		act("$N doesn't seem to be an undead.",ch,NULL,victim,TO_CHAR);
   		return;
   	}

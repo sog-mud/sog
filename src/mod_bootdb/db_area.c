@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.57 1999-06-30 20:11:11 fjoe Exp $
+ * $Id: db_area.c,v 1.58 1999-07-21 04:19:19 avn Exp $
  */
 
 /***************************************************************************
@@ -360,7 +360,7 @@ DBLOAD_FUN(load_old_mob)
 		/* compute the race BS */
 		one_argument(pMobIndex->name, name, sizeof(name));
  
-		if (name[0] == '\0' || (race =  rn_lookup(name)) == 0) {
+		if (name[0] == '\0' || (race =  rn_lookup(name)) < 0) {
 			race_t *r;
 
 			/* fill in with blanks */

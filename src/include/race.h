@@ -23,14 +23,13 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.9 1999-07-20 06:26:54 avn Exp $
+ * $Id: race.h,v 1.10 1999-07-21 04:19:18 avn Exp $
  */
 
 #ifndef _RACE_H_
 #define _RACE_H_
 
-#define RACE_UNDEAD		(A)	/* undead race */
-#define RACE_NOCH		(B)	/* can't live in common hometowns */
+#define RACE_NOCH		(A)	/* can't live in common hometowns */
 #define RACE_CHANGED		(Z)	/* OLC internal flag */
 
 struct race_t

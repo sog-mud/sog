@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.265 1999-07-21 03:34:18 kostik Exp $
+ * $Id: act_info.c,v 1.266 1999-07-21 04:19:15 avn Exp $
  */
 
 /***************************************************************************
@@ -1088,7 +1088,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 			continue;
 		}
 
-		if ((i = rn_lookup(arg)) > 0 && RACE(i)->pcdata) {
+		if ((i = rn_lookup(arg)) >= 0 && RACE(i)->pcdata) {
 			name_add(&race_names, RACE(i)->name, NULL, NULL);
 			SET_BIT(flags, WHO_F_RRACE);
 			continue;
@@ -3547,8 +3547,9 @@ void do_control(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((r = race_lookup(ORG_RACE(victim))) && r->pcdata) {
-		char_puts("You should try this on monsters?\n", ch);
+	if ((r = race_lookup(ORG_RACE(victim))) <=0 
+	|| !IS_SET(r->form, FORM_ANIMAL)) {
+		char_puts("You should try this on animals?\n", ch);
 		return;
 	}
 

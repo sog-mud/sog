@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.82 1999-07-20 06:26:54 avn Exp $
+ * $Id: tables.c,v 1.83 1999-07-21 04:19:18 avn Exp $
  */
 
 /***************************************************************************
@@ -1099,7 +1099,6 @@ flag_t race_flags[] =
 {
 	{ "",			TABLE_BITVAL			},
 
-	{ "undead",		RACE_UNDEAD,		TRUE	},
 	{ "noch",		RACE_NOCH,		TRUE	},
 	{ "changed",		RACE_CHANGED,		FALSE	},
 

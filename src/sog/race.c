@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.3 1999-06-24 06:36:32 fjoe Exp $
+ * $Id: race.c,v 1.4 1999-07-21 04:19:18 avn Exp $
  */
 
 #include <stdio.h>
@@ -93,6 +93,6 @@ int rn_lookup(const char *name)
 			return num;
 	}
  
-	return 0;
+	return -1;
 }
 

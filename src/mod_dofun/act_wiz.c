@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.178 1999-07-21 03:34:23 kostik Exp $
+ * $Id: act_wiz.c,v 1.179 1999-07-21 04:19:17 avn Exp $
  */
 
 /***************************************************************************
@@ -3588,7 +3588,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 
 		race = rn_lookup(arg3);
 
-		if (race == 0) {
+		if (race == -1) {
 			char_puts("That is not a valid race.\n",ch);
 			return;
 		}
