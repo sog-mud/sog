@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.32 2001-02-20 14:33:44 cs Exp $
+ * $Id: spellfun2.c,v 1.139.2.33 2001-03-09 21:34:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5750,7 +5750,9 @@ void spell_death_ripple(int sn, int level, CHAR_DATA *ch, void *vo)
 		|| IS_SET(next_room->exit[rev_dir[door]]->exit_info, EX_CLOSED))
 			return;
 
-		act("You feel breathing from the $T", next_room->people, NULL, from_dir_name[rev_dir[door]], TO_ALL);
+		act("You feel breathing from $T.",
+		    next_room->people, NULL, from_dir_name[rev_dir[door]],
+		    TO_ALL);
 		v_counter += damage_to_all_in_room(sn, level, ch, next_room, door);	
 		prev_room = next_room ;
 	}
