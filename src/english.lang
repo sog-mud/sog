@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.46 1998-06-12 14:40:44 efdi Exp $
+# $Id: english.lang,v 1.47 1998-06-14 10:37:44 efdi Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -668,3 +668,13 @@ INFO_REPORT_I_HAVE	"$n says '{GI have {c%d/%d{G hp {c%d/%d{G mana {c%d/%d{G mv.{
 INFO_REPORT_I_HAVE_TO_CH  "You say '{GI have {c%d/%d{G hp {c%d/%d{G mana {c%d/%d{G mv.{x'"
 INFO_YOU_SCAN_S		"You scan %s.\n\r"
 INFO_N_SCANS_S		"$n scans %s."
+INTERP_FROZEN		"You're totally frozen!\n\r"
+INTERP_ASK_MASTER	"First ask to your beloved master!\n\r"
+INTERP_TOO_STUNNED	"You are STUNNED to do that.\n\r"
+INTERP_YOU_ARE_DEAD	"Lie still; you are DEAD.\n\r"
+INTERP_HURT_FAR_TOO_BAD	"You are hurt far too bad for that.\n\r"
+INTERP_YOU_TOO_STUNNED	"You are too stunned to do that.\n\r"
+INTERP_I_YOUR_DREAMS	"In your dreams, or what?\n\r"
+INTERP_TOO_RELAXED	"Nah... You feel too relaxed...\n\r"
+INTERP_BETTER_STANDUP	"Better stand up first.\n\r"
+INTERP_NO_WAY_FIGHT	"No way!  You are still fighting!\n\r"

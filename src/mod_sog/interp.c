@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.20 1998-06-11 12:46:14 efdi Exp $
+ * $Id: interp.c,v 1.21 1998-06-14 10:37:31 efdi Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,7 @@
 #include "act_info.h"
 #include "db.h"
 #include "comm.h"
+#include "resource.h"
 
 #undef IMMORTALS_LOGS
 
@@ -503,7 +504,7 @@ void interpret( CHAR_DATA *ch, char *argument, bool is_order )
      */
     if ( !IS_NPC(ch) && IS_SET(ch->act, PLR_FREEZE) )
     {
-	send_to_char( "You're totally frozen!\n\r", ch );
+	send_to_char(msg(INTERP_FROZEN, ch), ch);
 	return;
     }
 
@@ -563,47 +564,45 @@ void interpret( CHAR_DATA *ch, char *argument, bool is_order )
        		 */
 		if (!is_order && IS_AFFECTED(ch,AFF_CHARM)
 		&&  cmd_table[cmd].do_fun != do_return) {
-			send_to_char("First ask to your beloved master!\n\r",
-				     ch);
+			send_to_char(msg(INTERP_ASK_MASTER, ch), ch);
 			return;
 		}
 
           if ( IS_AFFECTED(ch,AFF_STUN) && 
-		!(cmd_table[cmd].extra & CMD_KEEP_HIDE) )
-	  {
-	   send_to_char("You are STUNNED to do that.\n\r",ch);
+		!(cmd_table[cmd].extra & CMD_KEEP_HIDE) ) {
+	   send_to_char(msg(INTERP_TOO_STUNNED, ch), ch);
 	   return;
 	  }
           /* Come out of hiding for most commands */
           if ( IS_AFFECTED(ch, AFF_HIDE) && !IS_NPC(ch)
-              && !(cmd_table[cmd].extra & CMD_KEEP_HIDE) )
-          {
+          && !(cmd_table[cmd].extra & CMD_KEEP_HIDE) ) {
               REMOVE_BIT(ch->affected_by, AFF_HIDE);
-              send_to_char("You step out of the shadows.\n\r", ch);
-              act("$n steps out of the shadows.", ch, NULL, NULL, TO_ROOM);
+              send_to_char(msg(MOVE_YOU_STEP_OUT_SHADOWS, ch), ch);
+              act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
+			  MOVE_N_STEPS_OUT_OF_SHADOWS);
           }
 
           if ( IS_AFFECTED(ch, AFF_FADE) && !IS_NPC(ch)
-              && !(cmd_table[cmd].extra & CMD_KEEP_HIDE) )
-          {
+          && !(cmd_table[cmd].extra & CMD_KEEP_HIDE) ) {
               REMOVE_BIT(ch->affected_by, AFF_FADE);
-              send_to_char("You step out of the shadows.\n\r", ch);
-              act("$n steps out of the shadows.", ch, NULL, NULL, TO_ROOM);
+              send_to_char(msg(MOVE_YOU_STEP_OUT_SHADOWS, ch), ch);
+              act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
+			  MOVE_N_STEPS_OUT_OF_SHADOWS);
           }
 
           if ( IS_AFFECTED(ch, AFF_IMP_INVIS) && !IS_NPC(ch)
-              && (cmd_table[cmd].position == POS_FIGHTING) )
-          {
+          && (cmd_table[cmd].position == POS_FIGHTING) ) {
 	      affect_strip(ch,gsn_imp_invis);
               REMOVE_BIT(ch->affected_by, AFF_IMP_INVIS);
-              send_to_char("You fade into existence.\n\r", ch);
-              act("$n fades into existence.", ch, NULL, NULL, TO_ROOM);
+              send_to_char(msg(MOVE_YOU_FADE_INTO_EXIST, ch), ch);
+              act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+			  MOVE_N_FADES_INTO_EXIST);
           }
 
           /* prevent ghosts from doing a bunch of commands */
           if (IS_SET(ch->act, PLR_GHOST) && !IS_NPC(ch)
-              && !(cmd_table[cmd].extra & CMD_GHOST) )
-            continue;
+          && !(cmd_table[cmd].extra & CMD_GHOST) )
+          	continue;
 
 	 	found = TRUE;
 		break;
@@ -638,7 +637,7 @@ void interpret( CHAR_DATA *ch, char *argument, bool is_order )
 	 * Look for command in socials table.
 	 */
 	if ( !check_social( ch, command, argument ) )  {
-	    send_to_char( "Huh?\n\r", ch );
+	    send_to_char(msg(MOVE_HUH, ch), ch);
 	    return;
 	}
 	else
@@ -653,32 +652,32 @@ void interpret( CHAR_DATA *ch, char *argument, bool is_order )
 	switch( ch->position )
 	{
 	case POS_DEAD:
-	    send_to_char( "Lie still; you are DEAD.\n\r", ch );
+	    send_to_char(msg(INTERP_YOU_ARE_DEAD, ch), ch);
 	    break;
 
 	case POS_MORTAL:
 	case POS_INCAP:
-	    send_to_char( "You are hurt far too bad for that.\n\r", ch );
+	    send_to_char(msg(INTERP_HURT_FAR_TOO_BAD, ch), ch);
 	    break;
 
 	case POS_STUNNED:
-	    send_to_char( "You are too stunned to do that.\n\r", ch );
+	    send_to_char(msg(INTERP_YOU_TOO_STUNNED, ch), ch);
 	    break;
 
 	case POS_SLEEPING:
-	    send_to_char( "In your dreams, or what?\n\r", ch );
+	    send_to_char(msg(INTERP_I_YOUR_DREAMS, ch), ch);
 	    break;
 
 	case POS_RESTING:
-	    send_to_char( "Nah... You feel too relaxed...\n\r", ch);
+	    send_to_char(msg(INTERP_TOO_RELAXED, ch), ch);
 	    break;
 
 	case POS_SITTING:
-	    send_to_char( "Better stand up first.\n\r",ch);
+	    send_to_char(msg(INTERP_BETTER_STANDUP, ch), ch);
 	    break;
 
 	case POS_FIGHTING:
-	    send_to_char( "No way!  You are still fighting!\n\r", ch);
+	    send_to_char(msg(INTERP_NO_WAY_FIGHT, ch), ch);
 	    break;
 
 	}

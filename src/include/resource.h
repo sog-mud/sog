@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.68 1998-06-12 14:40:27 efdi Exp $
+ * $Id: resource.h,v 1.69 1998-06-14 10:37:32 efdi Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -670,6 +670,16 @@ enum {
 	INFO_REPORT_I_HAVE_TO_CH,
 	INFO_YOU_SCAN_S,
 	INFO_N_SCANS_S,
+	INTERP_FROZEN,
+	INTERP_ASK_MASTER,
+	INTERP_TOO_STUNNED,
+	INTERP_YOU_ARE_DEAD,
+	INTERP_HURT_FAR_TOO_BAD,
+	INTERP_YOU_TOO_STUNNED,
+	INTERP_I_YOUR_DREAMS,
+	INTERP_TOO_RELAXED,
+	INTERP_BETTER_STANDUP,
+	INTERP_NO_WAY_FIGHT,
 };
 
 #endif
