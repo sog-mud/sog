@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.180 1999-11-27 11:06:10 fjoe Exp $
+ * $Id: act_obj.c,v 1.181 1999-11-28 07:41:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1058,10 +1058,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		char_puts("You fail to reach your mouth.  *Hic*\n", ch);
 		return;
 	}
-	if ((lq = liquid_lookup(STR_VAL(obj->value[2]))) == NULL) {
-		bug("Do_drink: bad liquid %s.", STR_VAL(obj->value[2]));
-		return;
-	}
+
 	switch (obj->pObjIndex->item_type) {
 	default:
 		char_puts("You can't drink from that.\n", ch);
@@ -1079,6 +1076,12 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		amount = 1;
 		break;
 	}
+
+	if ((lq = liquid_lookup(STR_VAL(obj->value[2]))) == NULL) {
+		bug("Do_drink: bad liquid %s.", STR_VAL(obj->value[2]));
+		return;
+	}
+
 	if (!IS_NPC(ch) && !IS_IMMORTAL(ch)
 	    && PC(ch)->condition[COND_FULL] > 80) {
 		char_puts("You're too full to drink more.\n", ch);
