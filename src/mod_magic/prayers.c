@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.79 2004-03-10 10:20:58 tatyana Exp $
+ * $Id: prayers.c,v 1.80 2004-03-13 18:20:06 kets Exp $
  */
 
 /***************************************************************************
@@ -105,7 +105,7 @@ DECLARE_SPELL_FUN(prayer_black_shroud);
 DECLARE_SPELL_FUN(prayer_solar_flight);
 DECLARE_SPELL_FUN(prayer_black_death);
 DECLARE_SPELL_FUN(prayer_etheral_fist);
-DECLARE_SPELL_FUN(prayer_earthquake);
+DECLARE_SPELL_FUN(prayer_meteor_shower);
 DECLARE_SPELL_FUN(prayer_blade_barrier);
 DECLARE_SPELL_FUN(prayer_anathema);
 DECLARE_SPELL_FUN(prayer_heat_metal);
@@ -168,6 +168,12 @@ DECLARE_SPELL_FUN(prayer_fire_elemental);
 DECLARE_SPELL_FUN(prayer_earth_elemental);
 DECLARE_SPELL_FUN(prayer_produce_flame);
 DECLARE_SPELL_FUN(prayer_death_breathing);
+DECLARE_SPELL_FUN(prayer_rock_skin);
+DECLARE_SPELL_FUN(prayer_spike_stones);
+DECLARE_SPELL_FUN(prayer_strength_of_earth);
+DECLARE_SPELL_FUN(prayer_soil_barbs);
+DECLARE_SPELL_FUN(prayer_earthquake);
+DECLARE_SPELL_FUN(prayer_hail_of_stones);
 DECLARE_SPELL_FUN(prayer_incendiary_cloud);
 
 static void
@@ -1570,27 +1576,44 @@ SPELL_FUN(prayer_etheral_fist, sn, level, ch, vo)
 
 SPELL_FUN(prayer_earthquake, sn, level, ch, vo)
 {
+	ROOM_INDEX_DATA *room;
+	EXIT_DATA *to_room, *back;
 	CHAR_DATA *vch;
+	int dam, door = -1;
 
 	act_char("The earth trembles beneath your feet!", ch);
 	act("$n makes the earth tremble and shiver.", ch, NULL, NULL, TO_ROOM);
 
-	foreach (vch, char_in_world()) {
-		if (vch->in_room == ch->in_room) {
-			if (is_safe_spell(ch, vch, TRUE))
-				continue;
+	if (!IS_NULLSTR(target_name)) {
+		if (!check_blind(ch)
+		||  (door = exit_lookup(target_name)) < 0
+		||  (to_room = ch->in_room->exit[door]) == NULL
+		||  IS_SET(to_room->exit_info, EX_CLOSED)
+		||  (room = to_room->to_room.r) == NULL
+		||  (back = room->exit[rev_dir[door]]) == NULL
+		||  IS_SET(back->exit_info, EX_CLOSED)
+		||  back->to_room.r != ch->in_room)
+			return;
+	} else	
+		room = ch->in_room;
 
-			if (IS_AFFECTED(vch, AFF_FLYING))
-				damage(ch, vch, 0, sn, DAM_F_SHOW);
-			else {
-				damage(ch, vch, level + dice(2, 8),
-				       sn, DAM_F_SHOW);
-			}
+	dam = calc_spell_damage(ch, level, sn);
+
+	foreach (vch, char_in_room(room)) {
+		if ((IS_NPC(vch) && IS_NPC(ch))
+		||  (IS_NPC(vch) && IS_SET(vch->pMobIndex->act, ACT_NOTRACK))
+		||  is_safe_spell(ch, vch, TRUE))
 			continue;
-		}
+			
+		if (IS_AFFECTED(vch, AFF_FLYING)
+		||  saves_spell(level, vch, DAM_EARTH))
+			dam = 0;
 
-		if (vch->in_room->area == ch->in_room->area)
-			act_char("The earth trembles and shivers.", vch);
+		damage(ch, vch, dam, sn, DAM_F_SHOW);
+		
+		if (IS_NPC(vch) 
+		&&  room != ch->in_room)
+			path_to_track(ch, vch, door);
 	} end_foreach(vch);
 }
 
@@ -4262,6 +4285,184 @@ SPELL_FUN(prayer_death_breathing, sn, level, ch, vo)
 	act("Death is now behind $N!", ch, NULL, victim, TO_CHAR);
 	act("Death is now behind you!", ch, NULL, victim, TO_VICT);
 }
+
+SPELL_FUN(prayer_rock_skin, sn, level, ch, vo)
+{
+	AFFECT_DATA *paf;
+
+	if (is_sn_affected(ch, sn)) {
+		act_char("Your skin are already protected by rocks.", ch);
+		return;
+	}
+	
+	paf = aff_new(TO_RESISTS, sn);
+	paf->level	= level;
+	paf->duration	= level / 10;
+	paf->modifier	= 33;
+	INT(paf->location)= DAM_SLASH;
+	affect_to_char(ch, paf);
+
+	INT(paf->location)= DAM_PIERCE;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
+	act_char("Rocks stood out on yours skin protecting you.", ch);
+}
+
+SPELL_FUN(prayer_spike_stones, sn, level, ch, vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+
+	act_puts("You send a torrent of spike stones at $N.",
+		 ch, NULL, victim, TO_CHAR, POS_DEAD);
+	act("$n sends a torrent of spike stones at you!",
+	    ch, NULL, victim, TO_VICT);
+	inflict_spell_damage(ch, victim, level, sn);
+	spellfun("slow", NULL, 2 * level / 3, ch, vo);
+}
+
+SPELL_FUN(prayer_strength_of_earth, sn, level, ch, vo)
+{
+	AFFECT_DATA *paf;
+
+	if (is_sn_affected(ch, sn)) {
+		act_char("You are already full of the strength of earth.",
+		         ch);
+		return;
+	}
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level / 3;
+	paf->modifier	= level / 9;
+
+	INT(paf->location) = APPLY_HITROLL;
+	affect_to_char(ch, paf);
+
+	INT(paf->location) = APPLY_DAMROLL;
+	affect_to_char(ch, paf);
+
+	paf->modifier = -level;
+	INT(paf->location) = APPLY_AC;
+	affect_to_char(ch, paf);
+
+	paf->modifier = level / 15;
+	INT(paf->location) = APPLY_STR;
+	affect_to_char(ch, paf);
+
+	paf->modifier = level / 15;
+	INT(paf->location) = APPLY_CON;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
+	act_char("The strength of the earth fills you.", ch);
+	act("$n looks a bit stocky now.", ch, NULL, NULL, TO_ROOM);
+}
+
+/* domain: earth
+ * Prayer filles soil of a room with sharp barbs.
+ * Basrb damages all creaturesin room (owner has immunity).
+ * Enter room event: event_enter_barbs
+ * Update room event: event_update_barbs
+ */
+SPELL_FUN(prayer_soil_barbs, sn, level, ch, vo)
+{
+	AFFECT_DATA *paf;
+
+	if (IS_SET(ch->in_room->room_flags, ROOM_LAW)) {
+		act_char("This room is protected by gods.", ch);
+		return;
+	}
+
+	if (is_sn_affected_room(ch->in_room, sn)) {
+		act_char("This room has already been full of barbs.", ch);
+		return;
+	}
+
+	if (ch->in_room->sector_type == SECT_AIR
+	||  ch->in_room->sector_type == SECT_WATER_SWIM
+	||  ch->in_room->sector_type == SECT_WATER_NOSWIM
+	||  ch->in_room->sector_type == SECT_UNDERWATER) {
+		act_char("You can't reach the ground.", ch);
+		return;
+	}
+
+	if (is_sn_affected(ch, sn)) {
+		act_char("Try to grow barbs later.", ch);
+		return;
+	}
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->type      = sn;
+	paf->duration  = number_range(5, 7);
+	paf->level     = level;
+	paf->modifier  = 0;
+	paf->bitvector = 0;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
+	paf = aff_new(TO_ROOM_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level / 15;
+	paf->owner	= ch;
+	affect_to_room(ch->in_room, paf);
+	aff_free(paf);
+
+	act_char("Many sharp barbs step out from the soil.", ch);
+	act("Many sharp barbs step out from the soil.",
+	    ch, NULL, NULL, TO_ROOM);
+}
+
+SPELL_FUN(prayer_meteor_shower, sn, level, ch, vo)
+{
+	CHAR_DATA *vch;
+
+	act_char("Meteors rain down from the sky!", ch);
+	act("$n makes meteors rain down from the sky.", ch, NULL, NULL, TO_ROOM);
+
+	foreach (vch, char_in_room(ch->in_room)) {
+		if (!is_safe_spell(ch, vch, TRUE))
+			inflict_spell_damage(ch, vch, level, sn);
+	} end_foreach(vch);
+}
+
+SPELL_FUN(prayer_hail_of_stones, sn, level, ch, vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	CHAR_DATA *mount;
+	int dam;
+
+	act_puts("You hit $N by a hail of stones.",
+	         ch, NULL, victim, TO_CHAR, POS_DEAD);
+	act("$n hits you by a hail stones!", ch, NULL, victim, TO_VICT);
+
+	dam = calc_spell_damage(ch, level, sn);
+
+	if (!saves_spell(level, victim, DAM_EARTH)) {
+		if ((mount = MOUNTED(victim))) {
+			act_puts("You fall down from $N.",
+				 victim, NULL, mount, TO_CHAR, POS_DEAD);
+			act("$n falls down from $N.",
+			    victim, NULL, mount, TO_NOTVICT);
+			act_puts("$n falls down from you.",
+				 victim, NULL, mount, TO_VICT, POS_SLEEPING);
+				 
+			victim->riding = FALSE;
+			mount->riding = FALSE;
+		}
+		
+		if (IS_AFFECTED(victim, AFF_FLYING)) {
+			REMOVE_BIT(victim->affected_by, AFF_FLYING);
+			act_char("You can't fly under such a hail and touch the ground.",
+				 victim);
+			act("$n stops flying.", victim, NULL, NULL, TO_NOTVICT);
+		}
+	} else
+		dam /= 2;
+
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
+}
+
 /* Domain: fire
  * room attack
  */
