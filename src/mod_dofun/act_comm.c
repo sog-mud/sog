@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.190 1999-11-23 12:14:25 fjoe Exp $
+ * $Id: act_comm.c,v 1.191 1999-11-26 12:00:40 kostik Exp $
  */
 
 /***************************************************************************
@@ -606,7 +606,7 @@ void do_clan(CHAR_DATA *ch, const char *argument)
 	act_clan(ch, argument, NULL);
 }
 
-void do_pray(CHAR_DATA *ch, const char *argument)
+void do_implore(CHAR_DATA *ch, const char *argument)
 {
 	DESCRIPTOR_DATA *d;
 

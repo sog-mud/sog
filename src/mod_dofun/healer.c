@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.34 1999-10-21 12:51:51 fjoe Exp $
+ * $Id: healer.c,v 1.35 1999-11-26 12:00:42 kostik Exp $
  */
 
 /*-
@@ -142,6 +142,6 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     }
 
     deduct_cost(ch, cost);
-    say_spell(mob, h->spellname);
+    say_spell(mob, skill_search(h->spellname));
     spellfun_call(h->spellname, NULL, mob->level, mob, ch);
 }

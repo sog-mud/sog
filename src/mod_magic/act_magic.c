@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.10 1999-11-19 13:11:47 fjoe Exp $
+ * $Id: act_magic.c,v 1.11 1999-11-26 12:00:41 kostik Exp $
  */
 
 #include <stdio.h>
@@ -283,7 +283,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (str_cmp(spell->name, "ventriloquate"))
-		say_spell(ch, spell->name);
+		say_spell(ch, spell);
 
 	if (mem_is(vo, MT_CHAR)) {
 		vo = (void*) victim;
@@ -409,6 +409,299 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		if (bch && spellbane(bch, ch, bane_chance, 3 * LEVEL(bch)))
 			return;
 		spell->fun(spell->name,
+			   IS_NPC(ch) ? ch->level : slevel, ch, vo);
+		if (victim && IS_EXTRACTED(victim))
+			return;
+	}
+		
+	if (cast_far && door != -1)
+		path_to_track(ch, victim, door);
+	else if (offensive && victim != ch && victim->master != ch) {
+		CHAR_DATA *vch;
+		CHAR_DATA *vch_next;
+
+		for (vch = ch->in_room->people; vch; vch = vch_next) {
+			vch_next = vch->next_in_room;
+			if (victim == vch && victim->fighting == NULL) {
+				if (victim->position != POS_SLEEPING)
+					multi_hit(victim, ch, NULL);
+				break;
+			}
+		}
+	}
+}
+
+
+void do_pray(CHAR_DATA *ch, const char *argument)
+{
+	char arg1[MAX_INPUT_LENGTH];
+	CHAR_DATA *victim;
+	OBJ_DATA *obj;
+	void *vo;
+	int mana;
+	int door, range;
+	bool cast_far = FALSE;
+	bool offensive = FALSE;
+	pc_skill_t *pc_sk = NULL;
+	int chance = 0;
+	skill_t *prayer;
+
+	CHAR_DATA *bch;		/* char to check spellbane on */
+	int bane_chance;	/* spellbane chance */
+
+	if (HAS_SKILL(ch, "spellbane") && !IS_IMMORTAL(ch)) {
+		char_puts("You are Battle Rager, you prefer not to use prayers.\n",
+			  ch);
+		return;
+	}
+
+	if (is_affected(ch, "garble") || is_affected(ch, "deafen")) {
+		char_puts("You can't get the right intonations.\n", ch);
+		return;
+	}
+
+	target_name = one_argument(argument, arg1, sizeof(arg1));
+	if (arg1[0] == '\0') {
+		char_puts("Pray for what?\n", ch);
+		return;
+	}
+
+	if (IS_NPC(ch)) {
+		if (!str_cmp(arg1, "nowait")) {
+			target_name = one_argument(target_name,
+						   arg1, sizeof(arg1));
+			if (ch->wait)
+				ch->wait = 0;
+		} else if (ch->wait) 
+			return;
+	} else
+		pc_sk = (pc_skill_t*) skill_vsearch(&PC(ch)->learned, arg1);
+
+	if (pc_sk != NULL)
+		prayer = skill_lookup(pc_sk->sn);
+	else
+		prayer = skill_search(arg1);
+
+	if (prayer == NULL
+	||  (chance = get_skill(ch, prayer->name)) == 0) {
+		char_puts("You don't know any prayers of that name.\n", ch);
+		return;
+	}
+	
+	if (prayer->skill_type != ST_PRAYER
+	||  prayer->fun == NULL) {
+		char_puts("That's not a prayer.\n", ch);
+		return;
+	}
+
+	if (ch->position < prayer->min_pos) {
+		char_puts("You can't concentrate enough.\n", ch);
+		return;
+	}
+
+	if (!IS_NPC(ch)) {
+		mana = skill_mana(ch, prayer->name);
+		if (ch->mana < mana) {
+			char_puts("You don't have enough mana.\n", ch);
+			return;
+		}
+	} else
+		mana = 0;
+
+	/*
+	 * Locate targets.
+	 */
+	victim		= NULL;
+	obj		= NULL;
+	vo		= NULL;
+	bane_chance	= 100;
+	bch		= NULL;
+
+	switch (prayer->target) {
+	default:
+		bug("do_pray: %s: bad target %d.", prayer->name, prayer->target);
+		return;
+
+	case TAR_IGNORE:
+		bch = ch;
+		break;
+
+	case TAR_CHAR_OFFENSIVE:
+		if (target_name[0] == '\0') {
+			if ((victim = ch->fighting) == NULL) {
+				char_puts("Use this prayer on whom?\n", ch);
+				return;
+			}
+		} else if ((range = allowed_other(ch, prayer)) > 0) {
+			if ((victim = get_char_spell(ch, target_name,
+						     &door, range)) == NULL) {
+				WAIT_STATE(ch, MISSING_TARGET_DELAY);
+				return;
+			}
+
+			if (victim->in_room != ch->in_room) {
+				cast_far = TRUE;
+				if (IS_NPC(victim)) {
+					if (room_is_private(ch->in_room)) {
+						WAIT_STATE(ch, prayer->beats);
+						char_puts("You can't cast this spell from private room right now.\n", ch);
+						return;
+					}
+
+					if (IS_SET(victim->pMobIndex->act,
+						   ACT_NOTRACK)) {
+						WAIT_STATE(ch, prayer->beats);
+						act_puts("You can't cast this spell to $N at this distance.", ch, NULL, victim, TO_CHAR, POS_DEAD);
+						return;
+					}	
+				}
+			}
+		}
+		else if ((victim = get_char_room(ch, target_name)) == NULL) {
+			WAIT_STATE(ch, MISSING_TARGET_DELAY);
+			char_puts("They aren't here.\n", ch);
+			return;
+		}
+
+		vo = victim;
+		bch = victim;
+		break;
+
+	case TAR_CHAR_DEFENSIVE:
+		if (target_name[0] == '\0')
+			victim = ch;
+		else if ((victim = get_char_room(ch, target_name)) == NULL) {
+			char_puts("They aren't here.\n", ch);
+			return;
+		}
+
+		vo = victim;
+		bch = victim;
+		break;
+
+	case TAR_CHAR_SELF:
+		if (target_name[0] == '\0')
+			victim = ch;
+		else if ((victim = get_char_room(ch, target_name)) == NULL
+		     ||  (!IS_NPC(ch) && victim != ch)) {
+			char_puts("They can pray their gods themself.\n", ch);
+			return;
+		}
+
+		vo = victim;
+		bch = victim;
+		break;
+
+	case TAR_OBJ_INV:
+		if (target_name[0] == '\0') {
+			char_puts("Use this prayer on what?\n",
+				  ch);
+			return;
+		}
+
+		if ((obj = get_obj_carry(ch, target_name)) == NULL) {
+			char_puts("You are not carrying that.\n", ch);
+			return;
+		}
+
+		vo = obj;
+		bch = ch;
+		break;
+
+	case TAR_OBJ_CHAR_OFF:
+		if (target_name[0] == '\0') {
+			if ((victim = ch->fighting) == NULL) {
+				WAIT_STATE(ch, MISSING_TARGET_DELAY);
+				char_puts("Use this prayer on whom or what?\n",
+					  ch);
+				return;
+			}
+			vo = victim;
+		}
+		else if ((victim = get_char_room(ch, target_name)))
+			vo = victim;
+		else if ((obj = get_obj_here(ch, target_name)))
+			vo = obj;
+		else {
+			WAIT_STATE(ch, prayer->beats);
+			char_puts("You don't see that here.\n",ch);
+			return;
+		}
+		bch = victim;
+		break;
+
+	case TAR_OBJ_CHAR_DEF:
+		if (target_name[0] == '\0') {
+			victim = ch;
+			vo = victim;
+		}
+		else if ((victim = get_char_room(ch, target_name)))
+			vo = victim;
+		else if ((obj = get_obj_carry(ch, target_name)))
+			vo = obj;
+		else {
+			char_puts("You don't see that here.\n",ch);
+			return;
+		}
+		bch = victim;
+		break;
+	}
+
+	say_spell(ch, prayer);
+
+	if (mem_is(vo, MT_CHAR)) {
+		vo = (void*) victim;
+
+		switch (prayer->target) {
+		case TAR_CHAR_DEFENSIVE:
+		case TAR_OBJ_CHAR_DEF:
+			if (IS_SET(prayer->skill_flags, SKILL_QUESTIONABLE)
+			&&  !check_trust(ch, victim)) {
+				char_puts("They do not trust you enough.\n",
+					  ch);
+				return;
+			}
+			break;
+
+		case TAR_CHAR_OFFENSIVE:
+		case TAR_OBJ_CHAR_OFF:
+			offensive = TRUE;
+			if (IS_SET(prayer->skill_flags, SKILL_QUESTIONABLE))
+				offensive = !check_trust(ch, victim);
+
+			if (offensive) {
+				if (is_safe(ch, victim))
+					return;
+
+				if (!IS_NPC(ch)
+				&&  !IS_NPC(victim)
+				&&  victim != ch
+				&&  ch->fighting != victim
+				&&  victim->fighting != ch
+				&&  !is_same_group(ch, victim))
+					yell(victim, ch,
+					     "Help! I've been attacked by $i!");
+				break;
+			}
+		}
+	}
+
+	WAIT_STATE(ch, prayer->beats);
+
+	if (number_percent() > chance) {
+		char_puts("Your god doesn't hear you.\n", ch);
+		check_improve(ch, prayer->name, FALSE, 1);
+		ch->mana -= mana / 2;
+		if (cast_far) cast_far = FALSE;
+	} else {
+		int slevel = LEVEL(ch);
+
+		ch->mana -= mana;
+
+		check_improve(ch, prayer->name, TRUE, 1);
+		if (bch && spellbane(bch, ch, bane_chance, 3 * LEVEL(bch)))
+			return;
+		prayer->fun(prayer->name,
 			   IS_NPC(ch) ? ch->level : slevel, ch, vo);
 		if (victim && IS_EXTRACTED(victim))
 			return;

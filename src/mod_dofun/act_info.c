@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.287 1999-11-23 12:14:26 fjoe Exp $
+ * $Id: act_info.c,v 1.288 1999-11-26 12:00:40 kostik Exp $
  */
 
 /***************************************************************************
@@ -3169,7 +3169,17 @@ skill_knowledge_alias(CHAR_DATA *ch, pc_skill_t *pc_sk, spec_skill_t *spec_sk)
 }
 		
 /* RT spells and skills show the players spells (or skills) */
-void do_spells(CHAR_DATA *ch, const char *argument)
+void do_prayers(CHAR_DATA *ch, const char *argument)
+{
+	spell_list(ST_PRAYER, ch, argument);
+}
+
+void do_spells(CHAR_DATA *ch, const char *argument) 
+{
+	spell_list(ST_SPELL, ch, argument);
+}
+
+void spell_list(flag32_t type, CHAR_DATA *ch, const char *argument)
 {
 	BUFFER *spell_list[LEVEL_IMMORTAL+1];
 	int lev;
@@ -3193,7 +3203,7 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 
 		if (pc_sk->percent == 0
 		||  (sk = skill_lookup(pc_sk->sn)) == NULL
-		||  sk->skill_type != ST_SPELL)
+		||  sk->skill_type != type)
 			continue;
 
 		knowledge = skill_knowledge_alias(ch, pc_sk, &spec_sk);
@@ -3217,8 +3227,14 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 	/* return results */
 	
 	if (!found) {
-		char_puts("You know no spells.\n",ch);
-		return;
+		switch(type) {
+ 			case ST_PRAYER: 
+				char_puts("You do not have any empowers.\n",ch);
+				return;
+			case ST_SPELL:
+				char_puts("You know no spells.\n",ch);
+				return;
+		}
 	}
 	
 	output = buf_new(-1);

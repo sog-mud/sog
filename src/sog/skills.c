@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.85 1999-11-23 12:14:32 fjoe Exp $
+ * $Id: skills.c,v 1.86 1999-11-26 12:00:44 kostik Exp $
  */
 
 /***************************************************************************
@@ -297,7 +297,7 @@ int get_weapon_skill(CHAR_DATA *ch, const char *sn)
 /*
  * Utter mystical words for an sn.
  */
-void say_spell(CHAR_DATA *ch, const char *sn)
+void say_spell(CHAR_DATA *ch, const skill_t* spell)
 {
 	char buf  [MAX_STRING_LENGTH];
 	CHAR_DATA *rch;
@@ -347,8 +347,19 @@ void say_spell(CHAR_DATA *ch, const char *sn)
 		{ str_empty, str_empty }
 	};
 
+	if (spell->skill_type == ST_PRAYER) {
+		if (!IS_EVIL(ch)) {
+			act("$n raises $s hands to the sky in holy prayer.",
+				ch, NULL, NULL, TO_ROOM);
+		} else {
+			act("$n utters the words of unholy power.",
+				ch, NULL, NULL, TO_ROOM);
+		}
+		return;
+	}
+
 	buf[0]	= '\0';
-	for (pName = sn; *pName != '\0'; pName += length) {
+	for (pName = spell->name; *pName != '\0'; pName += length) {
 		for (iSyl = 0; (length = strlen(syl_table[iSyl].old)); iSyl++) {
 			if (!str_prefix(syl_table[iSyl].old, pName)) {
 				strnzcat(buf, sizeof(buf), syl_table[iSyl].new);
@@ -369,7 +380,7 @@ void say_spell(CHAR_DATA *ch, const char *sn)
 			check_improve(rch, "spell craft", FALSE, 5);
 		} else  {
 			act("$n utters the words, '$t'.",
-			    ch, sn, rch, TO_VICT);
+			    ch, spell->name, rch, TO_VICT);
 			check_improve(rch, "spell craft", TRUE, 5);
 		}
 	}
