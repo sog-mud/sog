@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.45.2.3 2000-03-27 04:01:17 osya Exp $
+ * $Id: const.h,v 1.45.2.4 2000-03-27 08:43:31 osya Exp $
  */
 
 #ifndef _CONST_H_
@@ -222,7 +222,7 @@ enum {
 #define MOB_VNUM_SUM_SHADOW		26
 #define MOB_VNUM_COCOON			27
 #define MOB_VNUM_BONE_DRAGON		28
-#define MOB_VNUM_CRYPT_THING		15030 /* in the Heaven area (abrazak.are) */
+#define MOB_VNUM_CRYPT_THING		32 
 
 #define MOB_VNUM_LESSER_GOLEM		21
 #define MOB_VNUM_STONE_GOLEM		22
