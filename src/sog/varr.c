@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.28 2001-08-05 16:37:04 fjoe Exp $
+ * $Id: varr.c,v 1.29 2001-08-17 17:59:16 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -363,7 +363,7 @@ vstr_dump(varr *v, BUFFER *buf)
 {
 	int col = 0;
 	varr_foreach(v, vstr_dump_cb, buf, &col);
-	if (col % 4)
+	if (col % 4 != 0)
 		buf_append(buf, "\n");
 }
 #endif
