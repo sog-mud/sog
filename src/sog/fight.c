@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.31 1998-06-07 20:44:02 efdi Exp $
+ * $Id: fight.c,v 1.32 1998-06-09 00:51:46 efdi Exp $
  */
 
 /***************************************************************************
@@ -2519,45 +2519,45 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,int dam,int dt,bool immune ,in
 	const char *attack;
 	char punct;
 
-		 if (dam ==   0) { vs = "miss";	vp = "misses";		}
-	else if (dam <=   4) { vs = "scratch";	vp = "scratches";	}
-	else if (dam <=   8) { vs = "graze";	vp = "grazes";		}
-	else if (dam <=  12) { vs = "hit";	vp = "hits";		}
-	else if (dam <=  16) { vs = "injure";	vp = "injures"; 	}
-	else if (dam <=  20) { vs = "wound";	vp = "wounds";		}
-	else if (dam <=  24) { vs = "maul";	vp = "mauls";		}
-	else if (dam <=  28) { vs = "decimate";	vp = "decimates";	}
-	else if (dam <=  32) { vs = "devastate";	vp = "devastates";	}
-	else if (dam <=  36) { vs = "maim";	vp = "maims";		}
-	else if (dam <=  42) { vs = "MUTILATE";	vp = "MUTILATES";	}
-	else if (dam <=  52) { vs = "DISEMBOWEL"; vp = "DISEMBOWELS";	}
-	else if (dam <=  65) { vs = "DISMEMBER";	vp = "DISMEMBERS";	}
-	else if (dam <=  80) { vs = "MASSACRE";	vp = "MASSACRES";	}
-	else if (dam <=  100) { vs = "MANGLE";	vp = "MANGLES"; 	}
-	else if (dam <=  130) { vs = "*** DEMOLISH ***";
-				     vp = "*** DEMOLISHES ***"; 		}
-	else if (dam <= 175) { vs = "*** DEVASTATE ***";
-				     vp = "*** DEVASTATES ***"; 		}
-	else if (dam <= 250)  { vs = "=== OBLITERATE ===";
-				     vp = "=== OBLITERATES ===";		}
-	else if (dam <= 325)  { vs = "==== ATOMIZE ====";
-				     vp = "==== ATOMIZES ===="; }
-	else if (dam <= 400)  { vs = "<*> <*> ANNIHILATE <*> <*>";
-				     vp = "<*> <*> ANNIHILATES <*> <*>";	}
-	else if (dam <= 500)  { vs = "<*>!<*> ERADICATE <*>!<*>";
-				     vp = "<*>!<*> ERADICATES <*>!<*>"; }
-	else if (dam <= 650)  { vs = "<*><*><*> ELECTRONIZE <*><*><*>";
-				     vp = "<*><*><*> ELECTRONIZES <*><*><*>";	}
-	else if (dam <= 800)  { vs = "(<*>)!(<*>) SKELETONIZE (<*>)!(<*>)";
-				     vp = "(<*>)!(<*>) SKELETONIZES (<*>)!(<*>)";}
-	else if (dam <= 1000)  { vs = "(*)!(*)!(*) NUKE (*)!(*)!(*)";
-				     vp = "(*)!(*)!(*) NUKES (*)!(*)!(*)";	}
-	else if (dam <= 1250)  { vs = "(*)!<*>!(*) TERMINATE (*)!<*>!(*)";
-				     vp = "(*)!<*>!(*) TERMINATES (*)!<*>!(*)"; }
-	else if (dam <= 1500)  { vs = "<*>!(*)!<*>> TEAR UP <<*)!(*)!<*>";
-				     vp = "<*>!(*)!<*>> TEARS UP <<*)!(*)!<*>"; }
-	else		   { vs = "\007=<*) (*>= ! POWER HIT ! =<*) (*>=\007";
-				     vp = "\007=<*) (*>= ! POWER HITS ! =<*) (*>=\007";}
+		 if (dam ==   0) { vs = "{cmiss{x"; vp = "{cmisses{x";}
+	else if (dam <=   4) { vs = "{cscratch{x";  vp = "{cscratches{x";}
+	else if (dam <=   8) { vs = "{cgraze{x";    vp = "{cgrazes{x";}
+	else if (dam <=  12) { vs = "{chit{x";      vp = "{chits{x";}
+	else if (dam <=  16) { vs = "{cinjure{x";   vp = "{cinjures{x"; }
+	else if (dam <=  20) { vs = "{cwound{x";    vp = "{cwounds{x";}
+	else if (dam <=  24) { vs = "{cmaul{x";     vp = "{cmauls{x";}
+	else if (dam <=  28) { vs = "{cdecimate{x"; vp = "{cdecimates{x";}
+	else if (dam <=  32) { vs = "{cdevastate{x";vp = "{cdevastates{x";}
+	else if (dam <=  36) { vs = "{cmaim{x";	    vp = "{cmaims{x";}
+	else if (dam <=  42) { vs = "{mMUTILATE{x";  vp = "{mMUTILATES{x"; }
+	else if (dam <=  52) { vs = "{mDISEMBOWEL{x";vp = "{mDISEMBOWELS{x"; }
+	else if (dam <=  65) { vs = "{mDISMEMBER{x"; vp = "{mDISMEMBERS{x";  }
+	else if (dam <=  80) { vs = "{mMASSACRE{x";  vp = "{mMASSACRES{x"; }
+	else if (dam <=  100) { vs = "{mMANGLE{x";   vp = "{mMANGLES{x"; }
+	else if (dam <=  130) { vs = "{y*** DEMOLISH ***{x";
+				     vp = "{y*** DEMOLISHES ***{x"; 		}
+	else if (dam <= 175) { vs = "{y*** DEVASTATE ***{x";
+				     vp = "{y*** DEVASTATES ***{x"; 		}
+	else if (dam <= 250)  { vs = "{y=== OBLITERATE ==={x";
+				     vp = "{y=== OBLITERATES ==={x";		}
+	else if (dam <= 325)  { vs = "{y==== ATOMIZE ===={x";
+				     vp = "{y==== ATOMIZES ===={x"; }
+	else if (dam <= 400)  { vs = "{R<*> <*> ANNIHILATE <*> <*>{x";
+				     vp = "{R<*> <*> ANNIHILATES <*> <*>{x";	}
+	else if (dam <= 500)  { vs = "{R<*>!<*> ERADICATE <*>!<*>{x";
+				     vp = "{R<*>!<*> ERADICATES <*>!<*>{x"; }
+	else if (dam <= 650)  { vs = "{R<*><*><*> ELECTRONIZE <*><*><*>{x";
+				     vp = "{R<*><*><*> ELECTRONIZES <*><*><*>{x";	}
+	else if (dam <= 800)  { vs = "{R(<*>)!(<*>) SKELETONIZE (<*>)!(<*>){x";
+				     vp = "{R(<*>)!(<*>) SKELETONIZES (<*>)!(<*>){x";}
+	else if (dam <= 1000)  { vs = "{R(*)!(*)!(*) NUKE (*)!(*)!(*){x";
+				     vp = "{R(*)!(*)!(*) NUKES (*)!(*)!(*){x";	}
+	else if (dam <= 1250)  { vs = "{R(*)!<*>!(*) TERMINATE (*)!<*>!(*){x";
+				     vp = "{R(*)!<*>!(*) TERMINATES (*)!<*>!(*){x"; }
+	else if (dam <= 1500)  { vs = "{R<*>!(*)!<*>> TEAR UP <<*)!(*)!<*>{x";
+				     vp = "{R<*>!(*)!<*>> TEARS UP <<*)!(*)!<*>{x"; }
+	else		   { vs = "\007{R=<*) (*>= ! POWER HIT ! =<*) (*>={x\007";
+				     vp = "\007{R=<*) (*>= ! POWER HITS ! =<*) (*>={x\007";}
 
 	if (victim->level < 20)	punct	= (dam <= 24) ? '.' : '!';
 	else if (victim->level < 50)  punct = (dam <= 50) ? '.' : '!';
