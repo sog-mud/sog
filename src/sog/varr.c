@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.34 2001-09-12 19:43:21 fjoe Exp $
+ * $Id: varr.c,v 1.35 2001-09-13 12:03:11 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -345,11 +345,10 @@ varr_lookup(void *c, const void *k)
 }
 
 static void *
-varr_add(void *c, const void *k, const void *e, int flags)
+varr_add(void *c, const void *k, int flags)
 {
 	UNUSED_ARG(c);
 	UNUSED_ARG(k);
-	UNUSED_ARG(e);
 	UNUSED_ARG(flags);
 	return NULL;
 }

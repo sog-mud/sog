@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.32 2001-09-12 19:43:00 fjoe Exp $
+ * $Id: olc_class.c,v 1.33 2001-09-13 12:03:00 fjoe Exp $
  */
 
 #include "olc.h"
@@ -104,7 +104,6 @@ static DECLARE_FOREACH_CB_FUN(save_class_cb);
 OLC_FUN(classed_create)
 {
 	class_t *cl;
-	class_t class;
 	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_CLASS) {
@@ -121,17 +120,13 @@ OLC_FUN(classed_create)
 	 * adds new elements to the end of varr
 	 */
 
-	class_init(&class);
-	class.name	= str_dup(arg);
-	cl = c_insert(&classes, class.name, &class);
-	class_destroy(&class);
-
-	if (cl == NULL) {
+	if ((cl = c_insert(&classes, arg)) == NULL) {
 		act_puts("ClassEd: $t: already exists.",
 			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
+	cl->name = str_dup(arg);
 	ch->desc->pEdit	= cl;
 	OLCED(ch)	= olced_lookup(ED_CLASS);
 	touch_class(cl);

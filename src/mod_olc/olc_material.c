@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_material.c,v 1.21 2001-09-12 19:43:01 fjoe Exp $
+ * $Id: olc_material.c,v 1.22 2001-09-13 12:03:01 fjoe Exp $
  */
 
 #include "olc.h"
@@ -72,15 +72,16 @@ static void *material_save_cb(void *p, va_list ap);
 
 OLC_FUN(mated_create)
 {
-	material_t mat;
 	material_t *m;
+	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_MATERIAL) {
 		act_char("MatEd: Insufficient security for creating materials.", ch);
 		return FALSE;
 	}
 
-	if (argument[0] == '\0')
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0')
 		OLC_ERROR("'OLC CREATE'");
 
 	/*
@@ -88,17 +89,13 @@ OLC_FUN(mated_create)
 	 * adds new elements to the end of varr
 	 */
 
-	material_init(&mat);
-	mat.name = str_dup(argument);
-	m = c_insert(&materials, mat.name, &mat);
-	material_destroy(&mat);
-
-	if (m == NULL) {
+	if ((m = c_insert(&materials, arg)) == NULL) {
 		act_puts("MatEd: $t: already exists.",
-			 ch, mat.name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
+	m->name		= str_dup(arg);
 	OLCED(ch)	= olced_lookup(ED_MATERIAL);
 	SET_BIT(changed_flags, CF_MATERIAL);
 	ch->desc->pEdit = m;
@@ -109,18 +106,20 @@ OLC_FUN(mated_create)
 OLC_FUN(mated_edit)
 {
 	material_t *mat;
+	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_MATERIAL) {
 		act_char("MatEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
-	if (argument[0] == '\0')
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0')
 		OLC_ERROR("'OLC EDIT'");
 
-	if (!(mat = material_search(argument))) {
+	if (!(mat = material_search(arg))) {
 		act_puts("MatEd: $t: No such material.",
-			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -177,20 +176,22 @@ OLC_FUN(mated_touch)
 OLC_FUN(mated_show)
 {
 	material_t *mat;
+	char arg[MAX_INPUT_LENGTH];
 
-	if (argument[0] == '\0')
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0')
 		if (IS_EDIT(ch, ED_MATERIAL))
 			EDIT_MAT(ch, mat);
 		else
 			OLC_ERROR("'OLC ASHOW'");
 	else
-		if (!(mat = material_search(argument))) {
+		if (!(mat = material_search(arg))) {
 			act_puts("MatEd: $t: no such material.",
-				 ch, argument, NULL,
+				 ch, arg, NULL,
 				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}
-	
+
 	act_puts("Name [$t]",
 		 ch, mat->name, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	if (mat->float_time) {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_update.c,v 1.14 2001-09-12 19:43:12 fjoe Exp $
+ * $Id: init_update.c,v 1.15 2001-09-13 12:03:07 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -86,9 +86,7 @@ MODINIT_FUN(_module_unload, m)
 
 DBLOAD_FUN(load_uhandler)
 {
-	uhandler_t hdlr;
-
-	uhandler_init(&hdlr);
+	uhandler_t *hdlr = NULL;
 
 	for (;;) {
 		bool fMatch = FALSE;
@@ -96,49 +94,60 @@ DBLOAD_FUN(load_uhandler)
 		fread_keyword(fp);
 		switch (rfile_tokfl(fp)) {
 		case 'E':
+			CHECK_VAR(hdlr, "Name");
+
 			if (IS_TOKEN(fp, "End")) {
-				hdlr.cnt = number_range(1, hdlr.ticks);
-				if (IS_NULLSTR(hdlr.name))
-					log(LOG_ERROR, "load_uhandler: name undefined");
-				else if (IS_NULLSTR(hdlr.fun_name))
+				hdlr->cnt = number_range(1, hdlr->ticks);
+				if (IS_NULLSTR(hdlr->fun_name))
 					log(LOG_ERROR, "load_uhandler: fun name undefined");
-				else if (!hdlr.ticks)
+				else if (!hdlr->ticks) {
 					log(LOG_ERROR, "load_uhandler: ticks undefined");
-				else if (!c_insert(&uhandlers, hdlr.name, &hdlr))
-					log(LOG_ERROR, "load_uhandler: %s: duplicate uhandler name", hdlr.name);
-				uhandler_destroy(&hdlr);
+					hdlr->ticks = 1;
+				}
 				return;
 			}
 			break;
 
 		case 'F':
-			SKEY("Fun", hdlr.fun_name, fread_string(fp));
+			CHECK_VAR(hdlr, "Name");
+
+			SKEY("Fun", hdlr->fun_name, fread_string(fp));
 			break;
 
 		case 'I':
-			KEY("Iterator", hdlr.iter,
+			CHECK_VAR(hdlr, "Name");
+
+			KEY("Iterator", hdlr->iter,
 			    (vo_iter_t *) (uintptr_t) fread_fword(
 				iterator_names, fp));
 			break;
 
 		case 'M':
-			KEY("Module", hdlr.mod,
+			CHECK_VAR(hdlr, "Name");
+
+			KEY("Module", hdlr->mod,
 			    fread_fword(module_names, fp));
 			break;
 
 		case 'N':
-			SKEY("Name", hdlr.name, fread_string(fp));
-			SKEY("Notify", hdlr.notify, fread_string(fp));
+			SPKEY("Name", hdlr->name, fread_string(fp),
+			      &uhandlers, hdlr);
+
+			CHECK_VAR(hdlr, "Name");
+
+			SKEY("Notify", hdlr->notify, fread_string(fp));
 			break;
 
 		case 'T':
-			KEY("Ticks", hdlr.ticks, fread_number(fp));
+			CHECK_VAR(hdlr, "Name");
+
+			KEY("Ticks", hdlr->ticks, fread_number(fp));
 			break;
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "load_uhandler: %s: Unknown keyword",
-			    rfile_tok(fp));
+			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}

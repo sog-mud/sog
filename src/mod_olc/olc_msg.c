@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.55 2001-09-12 19:43:02 fjoe Exp $
+ * $Id: olc_msg.c,v 1.56 2001-09-13 12:03:01 fjoe Exp $
  */
 
 #include "olc.h"
@@ -72,7 +72,6 @@ static const char*	atomsg(const char *argument);
 
 OLC_FUN(msged_create)
 {
-	mlstring ml;
 	mlstring *mlp;
 	const char *arg;
 
@@ -90,11 +89,7 @@ OLC_FUN(msged_create)
 		return FALSE;
 	}
 
-	mlstr_init2(&ml, arg);
-	mlp = c_insert(&msgdb, arg, &ml);
-	mlstr_destroy(&ml);
-
-	if (mlp == NULL) {
+	if ((mlp = c_insert(&msgdb, arg)) == NULL) {
 		char buf[MAX_INPUT_LENGTH];
 
 		act_char("MsgEd: msg already exists:", ch);
@@ -103,6 +98,7 @@ OLC_FUN(msged_create)
 		return FALSE;
 	}
 
+	mlstr_init2(mlp, arg);
 	ch->desc->pEdit	= mlp;
 	OLCED(ch)	= olced_lookup(ED_MSG);
 	SET_BIT(changed_flags, CF_MSGDB);

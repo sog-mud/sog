@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.55 2001-09-12 19:43:02 fjoe Exp $
+ * $Id: olc_race.c,v 1.56 2001-09-13 12:03:01 fjoe Exp $
  */
 
 #include "olc.h"
@@ -135,7 +135,6 @@ static DECLARE_FOREACH_CB_FUN(print_race_cb);
 OLC_FUN(raceed_create)
 {
 	race_t *r;
-	race_t race;
 	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_RACE) {
@@ -152,17 +151,13 @@ OLC_FUN(raceed_create)
 	 * adds new elements to the end of varr
 	 */
 
-	race_init(&race);
-	race.name = str_dup(arg);
-	r = c_insert(&races, race.name, &race);
-	race_destroy(&race);
-
-	if (r == NULL) {
+	if ((r = c_insert(&races, arg)) == NULL) {
 		act_puts("RaceEd: $t: already exists.",
 			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
+	r->name = str_dup(arg);
 	ch->desc->pEdit	= r;
 	OLCED(ch) = olced_lookup(ED_RACE);
 	touch_race(r);

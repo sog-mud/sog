@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.34 2001-09-12 19:42:44 fjoe Exp $
+ * $Id: db_lang.c,v 1.35 2001-09-13 12:02:51 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -123,8 +123,8 @@ DBLOAD_FUN(load_lang)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "load_lang: %s: Unknown keyword",
-				 rfile_tok(fp));
+			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}
@@ -187,8 +187,8 @@ DBLOAD_FUN(load_rulecl)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "load_rulecl: %s: Unknown keyword",
-				 rfile_tok(fp));
+			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}
@@ -250,8 +250,8 @@ load_rules(rfile_t *fp, rulecl_t *rcl, rule_t* (*rule_add)(rulecl_t*, rule_t*))
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "load_rules: %s: Unknown keyword",
-				 rfile_tok(fp));
+			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}

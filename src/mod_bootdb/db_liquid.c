@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_liquid.c,v 1.17 2001-09-12 19:42:44 fjoe Exp $
+ * $Id: db_liquid.c,v 1.18 2001-09-13 12:02:52 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -53,9 +53,7 @@ DBINIT_FUN(init_liquids)
 
 DBLOAD_FUN(load_liquid)
 {
-	liquid_t lq;
-
-	liquid_init(&lq);
+	liquid_t *lq = NULL;
 
 	for (;;) {
 		bool fMatch = FALSE;
@@ -63,43 +61,50 @@ DBLOAD_FUN(load_liquid)
 		fread_keyword(fp);
 		switch (rfile_tokfl(fp)) {
 		case 'A':
+			CHECK_VAR(lq, "Name");
+
 			if (IS_TOKEN(fp, "Affect")) {
 				int i;
 
 				for (i = 0; i < MAX_COND; i++)
-					lq.affect[i] = fread_number(fp);
+					lq->affect[i] = fread_number(fp);
 				fMatch = TRUE;
 			}
 			break;
-		case 'C':
-			MLSKEY("Color", lq.lq_color);
-			break;
-		case 'E':
-			if (IS_TOKEN(fp, "End")) {
-				const char *ln = gmlstr_mval(&lq.lq_name);
 
-				if (IS_NULLSTR(ln))
-					log(LOG_ERROR, "load_liquid: liquid name undefined");
-				else if (!c_insert(&liquids, ln, &lq))
-					log(LOG_ERROR, "load_liquid: duplicate liquid name");
-				liquid_destroy(&lq);
+		case 'C':
+			CHECK_VAR(lq, "Name");
+
+			MLSKEY("Color", lq->lq_color);
+			break;
+
+		case 'E':
+			CHECK_VAR(lq, "Name");
+
+			if (IS_TOKEN(fp, "End"))
 				return;
-			}
 			break;
+
 		case 'G':
-			MLSKEY("Gender", lq.lq_name.gender);
+			CHECK_VAR(lq, "Name");
+
+			MLSKEY("Gender", lq->lq_name.gender);
 			break;
+
 		case 'N':
-			MLSKEY("Name", lq.lq_name.ml);
+			MLSPKEY("Name", lq->lq_name.ml, &liquids, lq);
 			break;
+
 		case 'S':
-			KEY("Sip", lq.sip, fread_number(fp));
+			CHECK_VAR(lq, "Name");
+
+			KEY("Sip", lq->sip, fread_number(fp));
 			break;
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "load_liquid: %s: Unknown keyword",
-				 rfile_tok(fp));
+			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}

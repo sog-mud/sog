@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: affect.c,v 1.65 2001-09-12 19:43:15 fjoe Exp $
+ * $Id: affect.c,v 1.66 2001-09-13 12:03:07 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -235,10 +235,8 @@ aff_fread(rfile_t *fp, int r_flags)
 {
 	AFFECT_DATA *paf = aff_new(TO_AFFECTS, str_empty);
 
-	if (!IS_SET(r_flags, AFF_X_NOTYPE)) {
-		paf->type = c_fread_strkey(
-		    fp, &skills, "aff_fread");		// notrans
-	}
+	if (!IS_SET(r_flags, AFF_X_NOTYPE))
+		paf->type = fread_strkey(fp, &skills);
 
 	paf->where = fread_fword(affect_where_types, fp);
 	if (paf->where < 0)
@@ -246,16 +244,13 @@ aff_fread(rfile_t *fp, int r_flags)
 
 	switch (paf->where) {
 	case TO_SKILLS:
-		paf->location.s = c_fread_strkey(
-		    fp, &skills, "aff_fread");			// notrans
+		paf->location.s = fread_strkey(fp, &skills);
 		break;
 	case TO_RACE:
-		paf->location.s = c_fread_strkey(
-		    fp, &races, "aff_fread");			// notrans
+		paf->location.s = fread_strkey(fp, &races);
 		break;
 	case TO_FORM:
-		paf->location.s = c_fread_strkey(
-		    fp, &forms, "aff_fread");			// notrans
+		paf->location.s = fread_strkey(fp, &forms);
 		break;
 	case TO_RESISTS:
 	case TO_FORMRESISTS:
@@ -283,7 +278,7 @@ aff_fread_v5(rfile_t *fp)
 	const char *name;
 	AFFECT_DATA *paf = aff_new(TO_AFFECTS, str_empty);
 
-	paf->type = c_fread_strkey(fp, &skills, "aff_fread"); // notrans
+	paf->type = fread_strkey(fp, &skills);
 
 	/*
 	 * fixup for areas with 0 < ver <= 5
@@ -308,16 +303,13 @@ aff_fread_v5(rfile_t *fp)
 	paf->modifier = fread_number(fp);
 	switch (paf->where) {
 	case TO_SKILLS:
-		paf->location.s = c_fread_strkey(
-		    fp, &skills, "aff_fread");			// notrans
+		paf->location.s = fread_strkey(fp, &skills);
 		break;
 	case TO_RACE:
-		paf->location.s = c_fread_strkey(
-		    fp, &races, "aff_fread");			// notrans
+		paf->location.s = fread_strkey(fp, &races);
 		break;
 	case TO_FORM:
-		paf->location.s = c_fread_strkey(
-		    fp, &forms, "aff_fread");			// notrans
+		paf->location.s = fread_strkey(fp, &forms);
 		break;
 	case TO_RESISTS:
 	case TO_FORMRESISTS:

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_liquid.c,v 1.19 2001-09-12 19:43:01 fjoe Exp $
+ * $Id: olc_liquid.c,v 1.20 2001-09-13 12:03:00 fjoe Exp $
  */
 
 #include "olc.h"
@@ -74,15 +74,16 @@ static void *liquid_save_cb(void *p, va_list ap);
 
 OLC_FUN(liqed_create)
 {
-	liquid_t lq;
-	liquid_t *l;
+	liquid_t *lq;
+	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_MATERIAL) {
 		act_char("LiqEd: Insufficient security for creating liquids.", ch);
 		return FALSE;
 	}
 
-	if (argument[0] == '\0')
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0')
 		OLC_ERROR("'OLC CREATE'");
 
 	/*
@@ -90,19 +91,15 @@ OLC_FUN(liqed_create)
 	 * adds new elements to the end of varr
 	 */
 
-	liquid_init(&lq);
-	mlstr_init2(&lq.lq_name.ml, argument);
-	l = c_insert(&liquids, argument, &lq);
-	liquid_destroy(&lq);
-
-	if (l == NULL) {
+	if ((lq = c_insert(&liquids, arg)) == NULL) {
 		act_puts("LiqEd: $t: already exists.",
-			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
+	mlstr_init2(&lq->lq_name.ml, arg);
 	OLCED(ch)	= olced_lookup(ED_LIQUID);
-	ch->desc->pEdit = l;
+	ch->desc->pEdit = lq;
 	act_char("Liquid created.", ch);
 	SET_BIT(changed_flags, CF_LIQUID);
 	return FALSE;
@@ -111,18 +108,20 @@ OLC_FUN(liqed_create)
 OLC_FUN(liqed_edit)
 {
 	liquid_t *lq;
+	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_MATERIAL) {
 		act_char("LiqEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
-	if (argument[0] == '\0')
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0')
 		OLC_ERROR("'OLC EDIT'");
 
-	if (!(lq = liquid_search(argument))) {
+	if (!(lq = liquid_search(arg))) {
 		act_puts("LiqEd: $t: No such liquid.",
-			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -184,19 +183,21 @@ OLC_FUN(liqed_show)
 	liquid_t *lq;
 	int i;
 	BUFFER *buf;
+	char arg[MAX_INPUT_LENGTH];
 
-	if (argument[0] == '\0') {
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
 		if (IS_EDIT(ch, ED_LIQUID))
 			EDIT_LIQ(ch, lq);
-		else 
+		else
 			OLC_ERROR("'OLC ASHOW'");
-	} else if ((lq = liquid_search(argument)) == NULL) {
+	} else if ((lq = liquid_search(arg)) == NULL) {
 			act_puts("LiqEd: $t: no such liquid.",
-				 ch, argument, NULL,
+				 ch, arg, NULL,
 				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 	}
-	
+
 	buf = buf_new(0);
 	mlstr_dump(buf, "Name:   ", &lq->lq_name.ml, DUMP_LEVEL(ch));
 	mlstr_dump(buf, "Gender: ", &lq->lq_name.gender, DUMP_LEVEL(ch));

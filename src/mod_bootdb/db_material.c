@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_material.c,v 1.14 2001-09-12 19:42:44 fjoe Exp $
+ * $Id: db_material.c,v 1.15 2001-09-13 12:02:52 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -53,9 +53,7 @@ DBINIT_FUN(init_materials)
 
 DBLOAD_FUN(load_material)
 {
-	material_t mat;
-
-	material_init(&mat);
+	material_t *mat = NULL;
 
 	for (;;) {
 		bool fMatch = FALSE;
@@ -63,32 +61,36 @@ DBLOAD_FUN(load_material)
 		fread_keyword(fp);
 		switch (rfile_tokfl(fp)) {
 		case 'D':
-			KEY("Damc", mat.dam_class, fread_fword(dam_classes, fp));
+			CHECK_VAR(mat, "Name");
+
+			KEY("Damc", mat->dam_class,
+			    fread_fword(dam_classes, fp));
 			break;
+
 		case 'E':
-			if (IS_TOKEN(fp, "End")) {
-				if (IS_NULLSTR(mat.name)) {
-					log(LOG_ERROR, "load_material: material name undefined");
-				} else if (!c_insert(&materials, mat.name, &mat)) {
-					log(LOG_ERROR, "load_material: duplicate material name");
-				}
-				material_destroy(&mat);
+			CHECK_VAR(mat, "Name");
+
+			if (IS_TOKEN(fp, "End"))
 				return;
-			}
 			break;
+
 		case 'F':
-			KEY("Float", mat.float_time, fread_number(fp));
-			KEY("Flags", mat.mat_flags,
+			CHECK_VAR(mat, "Name");
+
+			KEY("Float", mat->float_time, fread_number(fp));
+			KEY("Flags", mat->mat_flags,
 			    fread_fstring(material_flags, fp));
 			break;
+
 		case 'N':
-			SKEY("Name", mat.name, fread_string(fp));
+			SPKEY("Name", mat->name, fread_string(fp),
+			      &materials, mat);
 			break;
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "load_material: %s: Unknown keyword",
-				 rfile_tok(fp));
+			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}

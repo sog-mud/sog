@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.36 2001-09-12 19:42:55 fjoe Exp $
+ * $Id: mpc.y,v 1.37 2001-09-13 12:02:57 fjoe Exp $
  */
 
 /*
@@ -51,6 +51,7 @@
 #include <varr.h>
 #include <hash.h>
 #include <container.h>
+#include <avltree.h>
 #include <dynafun.h>
 #include <memalloc.h>
 #include <buffer.h>
@@ -312,40 +313,35 @@ stmt_list:	/* empty */
 
 stmt:	';'
 	| L_TYPE L_IDENT ';' {
-		const void *p;
-		sym_t sym;
+		sym_t *s;
 
-		sym.name = str_dup($2);
-		sym.type = SYM_VAR;
-		sym.s.var.type_tag = $1;
-		sym.s.var.is_const = FALSE;
-		sym.s.var.block = mpc->curr_block;
+		if ((s = c_insert(&mpc->syms, $2)) == NULL) {
+			compile_error(mpc, "%s: duplicate symbol", $2);
+			YYERROR;
+		}
+
+		s->name = str_dup($2);
+		s->type = SYM_VAR;
+		s->s.var.type_tag = $1;
+		s->s.var.is_const = FALSE;
+		s->s.var.block = mpc->curr_block;
 
 		switch ($1) {
 		case MT_STR:
-			sym.s.var.data.s = NULL;
+			s->s.var.data.s = NULL;
 			break;
 
 		case MT_INT:
 		default:
-			sym.s.var.data.i = 0;
+			s->s.var.data.i = 0;
 			break;
 		};
 
-		if ((p = c_insert(&mpc->syms, sym.name, &sym)) == NULL) {
-			sym_destroy(&sym);
-			compile_error(mpc, "%s: duplicate symbol", sym.name);
-			YYERROR;
-		}
-
-		code3(mpc, c_declare, sym.name, (void *) sym.s.var.type_tag);
-		code(mpc, (void *) sym.s.var.block);
-
-		sym_destroy(&sym);
+		code3(mpc, c_declare, s->name, (void *) s->s.var.type_tag);
+		code(mpc, (void *) s->s.var.block);
 	}
 	| L_TYPE L_IDENT '=' comma_expr ';' {
-		const void *p;
-		sym_t sym;
+		sym_t *s;
 
 		if ($1 != $4) {
 			compile_error(mpc, "type mismatch (%d vs. %d)",
@@ -353,23 +349,20 @@ stmt:	';'
 			YYERROR;
 		}
 
-		sym.name = str_dup($2);
-		sym.type = SYM_VAR;
-		sym.s.var.type_tag = $1;
-		sym.s.var.is_const = FALSE;
-		sym.s.var.block = mpc->curr_block;
-
-		if ((p = c_insert(&mpc->syms, sym.name, &sym)) == NULL) {
-			sym_destroy(&sym);
-			compile_error(mpc, "%s: duplicate symbol", sym.name);
+		if ((s = c_insert(&mpc->syms, $2)) == NULL) {
+			compile_error(mpc, "%s: duplicate symbol", $2);
 			YYERROR;
 		}
 
-		code3(mpc,
-		    c_declare_assign, sym.name, (void *) sym.s.var.type_tag);
-		code(mpc, (void *) sym.s.var.block);
+		s->name = str_dup($2);
+		s->type = SYM_VAR;
+		s->s.var.type_tag = $1;
+		s->s.var.is_const = FALSE;
+		s->s.var.block = mpc->curr_block;
 
-		sym_destroy(&sym);
+		code3(mpc,
+		    c_declare_assign, s->name, (void *) s->s.var.type_tag);
+		code(mpc, (void *) s->s.var.block);
 	}
 	| comma_expr ';' {
 		/*
@@ -389,19 +382,16 @@ stmt:	';'
 	;
 
 label:	L_IDENT ':' {
-		sym_t sym;
-		void *p;
+		sym_t *s;
 
-		sym.name = str_dup($1);
-		sym.type = SYM_LABEL;
-		sym.s.label.addr = c_size(&mpc->code);
-
-		if ((p = c_insert(&mpc->syms, sym.name, &sym)) == NULL) {
-			sym_destroy(&sym);
-			compile_error(mpc, "%s: duplicate symbol", sym.name);
+		if ((s = c_insert(&mpc->syms, $1)) == NULL) {
+			compile_error(mpc, "%s: duplicate symbol", $1);
 			YYERROR;
 		}
-		sym_destroy(&sym);
+
+		s->name = str_dup($1);
+		s->type = SYM_LABEL;
+		s->s.label.addr = c_size(&mpc->code);
 	}
 	;
 
@@ -1130,7 +1120,7 @@ mpc_error(mpcode_t *mpc, const char *errmsg)
 	return 1;
 }
 
-hash_t glob_syms;
+avltree_t glob_syms;
 
 void
 sym_init(sym_t *sym)
@@ -1194,32 +1184,24 @@ varrdata_t v_iterdata = {
 	NULL, NULL, NULL
 };
 
-hashdata_t h_strings = {
-	&hash_ops,
+avltree_info_t avltree_info_strings = {
+	&avltree_ops,
 
-	sizeof(char *), 4,
+	MT_PVOID, sizeof(char *), ke_cmp_csstr,
 
 	strkey_init,
 	strkey_destroy,
-	strkey_cpy,
-
-	STRKEY_HASH_SIZE,
-	k_hash_csstr,
-	ke_cmp_csstr
+	strkey_cpy
 };
 
-hashdata_t h_syms = {
-	&hash_ops,
+avltree_info_t avltree_info_syms = {
+	&avltree_ops,
 
-	sizeof(sym_t), 4,
+	MT_PVOID, sizeof(sym_t), ke_cmp_csstr,
 
 	(e_init_t) sym_init,
 	(e_destroy_t) sym_destroy,
-	(e_cpy_t) sym_cpy,
-
-	STRKEY_HASH_SIZE,
-	k_hash_csstr,
-	ke_cmp_csstr
+	(e_cpy_t) sym_cpy
 };
 
 varrdata_t v_vos = {
@@ -1237,8 +1219,8 @@ mpcode_init(mpcode_t *mpc)
 	mpc->mp = NULL;
 	mpc->lineno = 0;
 
-	c_init(&mpc->strings, &h_strings);
-	c_init(&mpc->syms, &h_syms);
+	c_init(&mpc->strings, &avltree_info_strings);
+	c_init(&mpc->syms, &avltree_info_syms);
 
 	c_init(&mpc->cstack, &v_ints);
 	c_init(&mpc->args, &v_ints);
@@ -1426,30 +1408,30 @@ alloc_string(mpcode_t *mpc, const char *s)
 	if (IS_NULLSTR(s))
 		return str_empty;
 
-	if ((p = c_lookup(&mpc->strings, s)) == NULL)
-		p = c_insert(&mpc->strings, s, &s);
+	if ((p = c_lookup(&mpc->strings, s)) == NULL) {
+		p = c_insert(&mpc->strings, s);
+		*p = str_dup(s);
+	}
+
 	return *p;
 }
 
 static int
 var_add(mpcode_t *mpc, const char *name, int type_tag)
 {
-	sym_t sym;
 	sym_t *s;
 
-	sym.name = str_dup(name);
-	sym.type = SYM_VAR;
-	sym.s.var.type_tag = type_tag;
-	sym.s.var.is_const = FALSE;
-	sym.s.var.block = -1;
-	sym.s.var.data.i = 0;
-
-	if ((s = (sym_t *) c_insert(&mpc->syms, sym.name, &sym)) == NULL) {
-		sym_destroy(&sym);
-		compile_error(mpc, "%s: duplicate symbol", sym.name);
+	if ((s = (sym_t *) c_insert(&mpc->syms, name)) == NULL) {
+		compile_error(mpc, "%s: duplicate symbol", name);
 		return -1;
 	}
-	sym_destroy(&sym);
+
+	s->name = str_dup(name);
+	s->type = SYM_VAR;
+	s->s.var.type_tag = type_tag;
+	s->s.var.is_const = FALSE;
+	s->s.var.block = -1;
+	s->s.var.data.i = 0;
 
 	return 0;
 }
@@ -1516,16 +1498,13 @@ _mprog_compile(mprog_t *mp)
 		buf_clear(mp->errbuf);
 
 	if ((mpc = mpcode_lookup(mp->name)) == NULL) {
-		mpcode_t mpcode;
-
-		mpcode_init(&mpcode);
-		mpcode.name = str_qdup(mp->name);
-		if ((mpc = (mpcode_t *) c_insert(&mpcodes, mpcode.name, &mpcode)) == NULL) {
+		if ((mpc = (mpcode_t *) c_insert(&mpcodes, mp->name)) == NULL) {
 			log(LOG_ERROR, "compile_mprog: %s: mpcode already exists",
-			    mpcode.name);
-			mpcode_destroy(&mpcode);
+			    mp->name);
 			return MPC_ERR_INTERNAL;
 		}
+
+		mpc->name = str_qdup(mp->name);
 	}
 
 	mpc->mp = mp;

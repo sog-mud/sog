@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: container.c,v 1.1 2001-09-12 19:43:16 fjoe Exp $
+ * $Id: container.c,v 1.2 2001-09-13 12:03:08 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -122,10 +122,10 @@ c_mlstrkey_dump(void *c, BUFFER *buf)
 }
 
 const char *
-c_fread_strkey(rfile_t *fp, void *c, const char *id)
+c_fread_strkey(const char *ctx, rfile_t *fp, void *c)
 {
 	const char *name = fread_sword(fp);
-	C_STRKEY_CHECK(c, name, id);
+	C_STRKEY_CHECK(ctx, c, name);
 	return name;
 }
 

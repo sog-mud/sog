@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.c,v 1.129 2001-09-12 19:43:09 fjoe Exp $
+ * $Id: skills.c,v 1.130 2001-09-13 12:03:04 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -93,7 +93,7 @@ gmlstr_t *
 skill_noun(const char *sn)
 {
 	skill_t *sk;
-	C_STRKEY_CHECK(&skills, sn, "skill_noun");		// notrans
+	STRKEY_CHECK(&skills, sn);
 	sk = skill_lookup(sn);
 	if (sk != NULL)
 		return &sk->noun_damage;
@@ -170,7 +170,7 @@ _set_skill(CHAR_DATA *ch, const char *sn, int percent, bool replace)
 	if (IS_NULLSTR(sn))
 		return;
 
-	C_STRKEY_CHECK(&skills, sn, "_set_skill");		// notrans
+	STRKEY_CHECK(&skills, sn);
 
 	if ((pc_sk = pc_skill_lookup(ch, sn)) != NULL) {
 		if (replace || pc_sk->percent < percent)

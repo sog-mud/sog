@@ -1,6 +1,6 @@
 /*-
  * Copyright (c) 1999 SoG Development Team
- * All rights reserved.
+ * All rights reservedt->
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_damtype.c,v 1.17 2001-09-12 19:42:42 fjoe Exp $
+ * $Id: db_damtype.c,v 1.18 2001-09-13 12:02:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -53,9 +53,7 @@ DBINIT_FUN(init_damtype)
 
 DBLOAD_FUN(load_damtype)
 {
-	damtype_t d;
-
-	damtype_init(&d);
+	damtype_t *dt = NULL;
 
 	for (;;) {
 		bool fMatch = FALSE;
@@ -63,34 +61,43 @@ DBLOAD_FUN(load_damtype)
 		fread_keyword(fp);
 		switch (rfile_tokfl(fp)) {
 		case 'C':
-			KEY("Class", d.dam_class, fread_fword(dam_classes, fp));
+			CHECK_VAR(dt, "Name");
+
+			KEY("Class", dt->dam_class, fread_fword(dam_classes, fp));
 			break;
+
 		case 'E':
-			if (IS_TOKEN(fp, "End")) {
-				if (IS_NULLSTR(d.dam_name)) {
-					log(LOG_ERROR, "load_damtype: damtype name undefined");
-				} else if (!c_insert(&damtypes, d.dam_name, &d)) {
-					log(LOG_ERROR, "load_damtype: duplicate damtype name");
-				}
-				damtype_destroy(&d);
+			CHECK_VAR(dt, "Name");
+
+			if (IS_TOKEN(fp, "End"))
 				return;
-			}
 			break;
+
 		case 'G':
-			MLSKEY("Gender", d.dam_noun.gender);
+			CHECK_VAR(dt, "Name");
+
+			MLSKEY("Gender", dt->dam_noun.gender);
 			break;
+
 		case 'N':
-			KEY("Name", d.dam_name, fread_sword(fp));
-			MLSKEY("Noun", d.dam_noun.ml);
+			SPKEY("Name", dt->dam_name, fread_sword(fp),
+			      &damtypes, dt);
+
+			CHECK_VAR(dt, "Name");
+
+			MLSKEY("Noun", dt->dam_noun.ml);
 			break;
+
 		case 'S':
-			KEY("Slot", d.dam_slot, fread_number(fp));
+			CHECK_VAR(dt, "Name");
+
+			KEY("Slot", dt->dam_slot, fread_number(fp));
 			break;
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "load_damtype: %s: Unknown keyword",
-				 rfile_tok(fp));
+			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.133 2001-09-12 19:42:41 fjoe Exp $
+ * $Id: db_area.c,v 1.134 2001-09-13 12:02:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -297,8 +297,7 @@ DBLOAD_FUN(load_areadata)
 			SKEY("Builders", pArea->builders, fread_string(fp));
 			break;
 		case 'C':
-			KEY("Clan", pArea->clan,
-			    c_fread_strkey(fp, &clans, "load_areadata")); // notrans
+			KEY("Clan", pArea->clan, fread_strkey(fp, &clans));
 			SKEY("Credits", pArea->credits, fread_string(fp));
 			break;
 		case 'E':
@@ -346,8 +345,8 @@ DBLOAD_FUN(load_areadata)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "load_areadata: %s: Unknown keyword",
-				 rfile_tok(fp));
+			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}
@@ -1096,7 +1095,7 @@ DBLOAD_FUN(load_mobiles)
 		mlstr_fread(fp, &pMobIndex->description);
 		free_string(pMobIndex->race);
 		pMobIndex->race			= fread_string(fp);
-		C_STRKEY_CHECK(&races, pMobIndex->race, "load_mob"); // notrans
+		STRKEY_CHECK(&races, pMobIndex->race);
 		r = race_lookup(pMobIndex->race);
 
 		if (area_current->ver > 0) {
@@ -1153,8 +1152,7 @@ DBLOAD_FUN(load_mobiles)
 		pMobIndex->damage[DICE_TYPE]	= fread_number(fp);
 		fread_letter(fp);
 		pMobIndex->damage[DICE_BONUS]	= fread_number(fp);
-		pMobIndex->damtype	= c_fread_strkey(
-		    fp, &damtypes, "load_mobiles");		// notrans
+		pMobIndex->damtype		= fread_strkey(fp, &damtypes);
 
 		/* read armor class */
 		pMobIndex->ac[AC_PIERCE]	= fread_number(fp) * 10;
@@ -1242,8 +1240,7 @@ DBLOAD_FUN(load_mobiles)
 					log(LOG_ERROR, "load_mobiles: duplicate clan.");
 					return;
 				}
-				pMobIndex->clan = c_fread_strkey(
-				    fp, &clans, "load_mobiles"); // notrans
+				pMobIndex->clan = fread_strkey(fp, &clans);
 			} else if (letter == 'W')
 				pMobIndex->invis_level = fread_number(fp);
 			else if (letter == 'I')
@@ -1715,8 +1712,7 @@ DBLOAD_FUN(load_objects)
 				paf = aff_new(TO_SKILLS, str_empty);
 				paf->level = pObjIndex->level;
 				paf->duration = -1;
-				paf->location.s = c_fread_strkey(
-				    fp, &skills, "load_objects"); // notrans
+				paf->location.s = fread_strkey(fp, &skills);
 				paf->modifier = fread_number(fp);
 				paf->bitvector = fread_flags(fp);
 				SLIST_ADD(

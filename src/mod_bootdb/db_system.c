@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.23 2001-09-12 19:42:45 fjoe Exp $
+ * $Id: db_system.c,v 1.24 2001-09-13 12:02:54 fjoe Exp $
  */
 
 #if !defined(WIN32)
@@ -97,8 +97,8 @@ DBLOAD_FUN(load_system)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "load_system: %s: Unknown keyword",
-				 rfile_tok(fp));
+			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}
@@ -145,8 +145,8 @@ DBLOAD_FUN(load_info)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "load_info: %s: Unknown keyword",
-				 rfile_tok(fp));
+			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}

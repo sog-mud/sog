@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.h,v 1.13 2001-08-02 18:19:53 fjoe Exp $
+ * $Id: rwfile.h,v 1.14 2001-09-13 12:02:48 fjoe Exp $
  */
 
 #ifndef _RWFILE_H_
@@ -117,5 +117,69 @@ void		fwrite_number	(FILE *fp, const char *name, int num);
 			fMatch = TRUE;			\
 			break;				\
 		}
+
+#define SPKEY(k, field, val, c, var)					\
+	if (IS_TOKEN(fp, (k))) {					\
+		const char *name = (val);				\
+									\
+		if ((var) != NULL) {					\
+			log(LOG_ERROR, "%s: duplicate '%s'",		\
+			    __FUNCTION__, (k));				\
+			free_string(name);				\
+			fread_to_end(fp);				\
+			return;						\
+		}							\
+									\
+		(var) = c_insert((c), name);				\
+		if ((var) == NULL) {					\
+			log(LOG_ERROR, "%s: %s: duplicate elem",	\
+			    __FUNCTION__, (name));			\
+			free_string(name);				\
+			fread_to_end(fp);				\
+			return;						\
+		}							\
+									\
+		(field) = name;						\
+		fMatch = TRUE;						\
+		break;							\
+	}
+
+#define MLSPKEY(k, field, c, var)					\
+	if (IS_TOKEN(fp, (k))) {					\
+		mlstring ml;						\
+									\
+		mlstr_init(&ml);					\
+		mlstr_fread(fp, &ml);					\
+									\
+		if ((var) != NULL) {					\
+			log(LOG_ERROR, "%s: duplicate '%s'",		\
+			    __FUNCTION__, (k));				\
+			mlstr_destroy(&ml);				\
+			fread_to_end(fp);				\
+			return;						\
+		}							\
+									\
+		(var) = c_insert((c), mlstr_mval(&ml));			\
+		if ((var) == NULL) {					\
+			log(LOG_ERROR, "%s: %s: duplicate elem",	\
+			    __FUNCTION__, mlstr_mval(&ml));		\
+			mlstr_destroy(&ml);				\
+			fread_to_end(fp);				\
+			return;						\
+		}							\
+									\
+		mlstr_cpy(&(field), &ml);				\
+		mlstr_destroy(&ml);					\
+		fMatch = TRUE;						\
+		break;							\
+	}
+
+#define CHECK_VAR(var, name)						\
+	if ((var) == NULL) {						\
+		log(LOG_ERROR, "%s: '%s' expected",			\
+		    __FUNCTION__, (name));				\
+		fread_to_end(fp);					\
+		return;							\
+	}
 
 #endif /* _RWFILE_H_ */

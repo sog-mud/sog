@@ -23,9 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skill.c,v 1.32 2001-09-12 19:42:45 fjoe Exp $
+ * $Id: db_skill.c,v 1.33 2001-09-13 12:02:53 fjoe Exp $
  */
 
+#include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -48,14 +49,12 @@ DBDATA db_skills = { dbfun_skills, init_skills, 0 };
 DBINIT_FUN(init_skills)
 {
 	if (!DBDATA_VALID(dbdata))
-		c_init(&skills, &h_skills);
+		c_init(&skills, &avltree_info_skills);
 }
 
 DBLOAD_FUN(load_skill)
 {
-	skill_t sk;
-
-	skill_init(&sk);
+	skill_t *sk = NULL;
 
 	for (;;) {
 		bool fMatch = FALSE;
@@ -63,20 +62,17 @@ DBLOAD_FUN(load_skill)
 		fread_keyword(fp);
 		switch (rfile_tokfl(fp)) {
 		case 'B':
-			KEY("Beats", sk.beats, fread_number(fp));
-			break;
-		case 'E':
-			if (IS_TOKEN(fp, "End")) {
-				const char *sn = gmlstr_mval(&sk.sk_name);
+			CHECK_VAR(sk, "Name");
 
-				if (IS_NULLSTR(sn)) {
-					log(LOG_ERROR, "load_skill: skill name undefined");
-				} else if (!c_insert(&skills, sn, &sk)) {
-					log(LOG_ERROR, "load_skill: duplicate skill name");
-				}
-				skill_destroy(&sk);
+			KEY("Beats", sk->beats, fread_number(fp));
+			break;
+
+		case 'E':
+			CHECK_VAR(sk, "Name");
+
+			if (IS_TOKEN(fp, "End"))
 				return;
-			}
+
 			if (IS_TOKEN(fp, "Event")) {
 				flag_t event = fread_fword(events_classes, fp);
 				evf_t *evf;
@@ -87,69 +83,97 @@ DBLOAD_FUN(load_skill)
 					break;
 				}
 
-				evf = varr_bsearch(&sk.events, &event, cmpint);
+				evf = varr_bsearch(&sk->events, &event, cmpint);
 				if (evf != NULL) {
 					log(LOG_ERROR, "load_skill: %s: duplicate event", flag_string(events_classes, event));
 					fread_to_eol(fp);
 					break;
 				}
 
-				evf = varr_enew(&sk.events);
+				evf = varr_enew(&sk->events);
 				evf->event = event;
 				evf->fun_name = fread_sword(fp);
-				varr_qsort(&sk.events, cmpint);
+				varr_qsort(&sk->events, cmpint);
 				fMatch = TRUE;
 				break;
 			}
 			break;
+
 		case 'F':
-			KEY("Flags", sk.skill_flags,
+			CHECK_VAR(sk, "Name");
+
+			KEY("Flags", sk->skill_flags,
 			    fread_fstring(skill_flags, fp));
-			SKEY("Fun", sk.fun_name, fread_string(fp));
+			SKEY("Fun", sk->fun_name, fread_string(fp));
 			break;
+
 		case 'G':
-			KEY("Group", sk.group,
+			CHECK_VAR(sk, "Name");
+
+			KEY("Group", sk->group,
 			    fread_fword(skill_groups, fp));
-			MLSKEY("Gender", sk.sk_name.gender);
+			MLSKEY("Gender", sk->sk_name.gender);
 			break;
+
 		case 'M':
-			KEY("MinMana", sk.min_mana, fread_number(fp));
-			KEY("MinPos", sk.min_pos,
+			CHECK_VAR(sk, "Name");
+
+			KEY("MinMana", sk->min_mana, fread_number(fp));
+			KEY("MinPos", sk->min_pos,
 			    fread_fword(position_table, fp));
 			break;
+
 		case 'N':
-			MLSKEY("Name", sk.sk_name.ml);
-			MLSKEY("NounDamage", sk.noun_damage.ml);
-			MLSKEY("NounGender", sk.noun_damage.gender);
+			MLSPKEY("Name", sk->sk_name.ml, &skills, sk);
+
+			CHECK_VAR(sk, "Name");
+
+			MLSKEY("NounDamage", sk->noun_damage.ml);
+			MLSKEY("NounGender", sk->noun_damage.gender);
 			break;
+
 		case 'O':
-			MLSKEY("ObjWearOff", sk.msg_obj);
+			CHECK_VAR(sk, "Name");
+
+			MLSKEY("ObjWearOff", sk->msg_obj);
 			break;
+
 		case 'R':
-			KEY("Rank", sk.rank, fread_number(fp));
-			if (sk.rank < 0 || sk.rank > 7) {
-				sk.rank = 0;
-				log(LOG_ERROR,
-				    "load_skill: rank should be beetwen 0..7");	// notrans
+			CHECK_VAR(sk, "Name");
+
+			KEY("Rank", sk->rank, fread_number(fp));
+			if (sk->rank < 0 || sk->rank > 7) {
+				sk->rank = 0;
+				log(LOG_ERROR, "%s: rank should be beetwen 0..7",
+				    __FUNCTION__);
 			}
 			break;
+
 		case 'S':
-			KEY("SpellFun", sk.fun_name, fread_sword(fp));
+			CHECK_VAR(sk, "Name");
+
+			KEY("SpellFun", sk->fun_name, fread_sword(fp));
 			break;
+
 		case 'T':
-			KEY("Type", sk.skill_type,
+			CHECK_VAR(sk, "Name");
+
+			KEY("Type", sk->skill_type,
 			    fread_fword(skill_types, fp));
-			KEY("Target", sk.target,
+			KEY("Target", sk->target,
 			    fread_fword(skill_targets, fp));
 			break;
+
 		case 'W':
-			MLSKEY("WearOff", sk.msg_off);
+			CHECK_VAR(sk, "Name");
+
+			MLSKEY("WearOff", sk->msg_off);
 			break;
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "load_skill: %s: Unknown keyword",
-			    rfile_tok(fp));
+			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_social.c,v 1.20 2001-09-12 19:42:45 fjoe Exp $
+ * $Id: db_social.c,v 1.21 2001-09-13 12:02:53 fjoe Exp $
  */
 
 #include <limits.h>
@@ -92,8 +92,8 @@ DBLOAD_FUN(load_social)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "load_social: %s: Unknown keyword",
-				 rfile_tok(fp));
+			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}

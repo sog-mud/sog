@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: avltree.c,v 1.2 2001-09-12 19:43:15 fjoe Exp $
+ * $Id: avltree.c,v 1.3 2001-09-13 12:03:08 fjoe Exp $
  */
 
 #include <assert.h>
@@ -34,8 +34,8 @@
 #include <avltree.h>
 #include <memalloc.h>
 
-#define GET_DATA(an) ((void *)(uintptr_t) (((const char *) an) + sizeof(avlnode_t) + sizeof(memchunk_t)))
-#define GET_AVLNODE(p) ((avlnode_t *)(uintptr_t) (((const char *) p) - sizeof(avlnode_t) - sizeof(memchunk_t)))
+#define GET_DATA(an) ((void *)(uintptr_t) (((const char *) (an)) + sizeof(avlnode_t) + sizeof(memchunk_t)))
+#define GET_AVLNODE(p) ((avlnode_t *)(uintptr_t) (((const char *) (p)) - sizeof(avlnode_t) - sizeof(memchunk_t)))
 
 #define DIR_LEFT	0
 #define DIR_RIGHT	1
@@ -54,9 +54,7 @@ static void avlnode_init(avlnode_t *node,
 			 avlnode_t *right, int right_tag);
 static avlnode_t *avlnode_new(avltree_t *avl,
 			      avlnode_t *left, int left_tag,
-			      avlnode_t *right, int right_tag,
-			      const void *e);
-static void avlnode_copy_data(avltree_t *avl, avlnode_t *node, const void *e);
+			      avlnode_t *right, int right_tag);
 
 void
 avltree_init(void *c, void *info)
@@ -64,7 +62,7 @@ avltree_init(void *c, void *info)
 	avltree_t *avl = (avltree_t *) c;
 
 	avl->info = info;
-	avlnode_init(&avl->root, NULL, TAG_TREE, &avl->root, TAG_THREAD);
+	avlnode_init(&avl->root, NULL, TAG_TREE, &avl->root, TAG_TREE);
 	avl->count = 0;
 }
 
@@ -75,7 +73,7 @@ FOREACH_CB_FUN(destroy_cb, p, ap)
 
 	if (avl->info->e_destroy)
 		avl->info->e_destroy(p);
-	mem_free(GET_AVLNODE(p));
+	mem_free(p);
 	return NULL;
 }
 
@@ -130,7 +128,7 @@ avltree_lookup(void *c, const void *k)
 }
 
 static void *
-avltree_add(void *c, const void *k, const void *e, int flags)
+avltree_add(void *c, const void *k, int flags)
 {
 	avltree_t *avl = (avltree_t *) c;
 	avlnode_t *curr, *next;
@@ -148,8 +146,9 @@ avltree_add(void *c, const void *k, const void *e, int flags)
 			return NULL;
 
 		next = LEFT(t) = avlnode_new(
-		    avl, NULL, TAG_TREE, t, TAG_THREAD, e);
+		    avl, NULL, TAG_TREE, t, TAG_THREAD);
 		assert(avl->count == 1);
+
 		return GET_DATA(next);
 	}
 
@@ -164,8 +163,11 @@ avltree_add(void *c, const void *k, const void *e, int flags)
 				 * insert to the left
 				 */
 
+				if (!IS_SET(flags, CA_F_INSERT))
+					return NULL;
+
 				next = avlnode_new(
-				    avl, NULL, TAG_TREE, curr, TAG_THREAD, e);
+				    avl, NULL, TAG_TREE, curr, TAG_THREAD);
 				LEFT(curr) = next;
 				break;
 			}
@@ -173,14 +175,17 @@ avltree_add(void *c, const void *k, const void *e, int flags)
 			curr->dir_cache = DIR_RIGHT;
 
 			next = RIGHT(curr);
-			if ((RTAG(curr)) == TAG_THREAD) {
+			if (RTAG(curr) == TAG_THREAD) {
 				/*
 				 * insert to the right
 				 */
 
+				if (!IS_SET(flags, CA_F_INSERT))
+					return NULL;
+
 				next = avlnode_new(
 				    avl, NULL, TAG_TREE,
-				    RIGHT(curr), RTAG(curr), e);
+				    RIGHT(curr), RTAG(curr));
 				RIGHT(curr) = next;
 				RTAG(curr) = TAG_TREE;
 				break;
@@ -188,14 +193,20 @@ avltree_add(void *c, const void *k, const void *e, int flags)
 
 			assert(next != NULL);
 		} else {
+			void *elem;
+
 			/*
 			 * found it
 			 */
 			if (!IS_SET(flags, CA_F_UPDATE))
 				return NULL;
 
-			avlnode_copy_data(avl, curr, e);
-			return GET_DATA(curr);
+			elem = GET_DATA(curr);
+			if (avl->info->e_destroy != NULL)
+				avl->info->e_destroy(elem);
+			if (avl->info->e_init != NULL)
+				avl->info->e_init(elem);
+			return elem;
 		}
 
 		if (next->bal != 0) {
@@ -235,7 +246,7 @@ avltree_add(void *c, const void *k, const void *e, int flags)
 			}
 
 			s->bal = r->bal = 0;
-		} else{
+		} else {
 			assert(r->bal == 1);
 
 			curr = RIGHT(r);
@@ -322,12 +333,284 @@ avltree_add(void *c, const void *k, const void *e, int flags)
 
 	return GET_DATA(next);
 }
+
+#define AVL_MAX_HEIGHT 32
+
 void
-avltree_delete(void *c, const void *k)
+avltree_delete(void *c, const void *key)
 {
-	/* XXX */
-	UNUSED_ARG(c);
-	UNUSED_ARG(k);
+	avltree_t *avl = (avltree_t *) c;
+
+	avlnode_t *pa[AVL_MAX_HEIGHT];		/* Stack P: Nodes. */
+	unsigned char a[AVL_MAX_HEIGHT];	/* Stack P: Bits. */
+	int k = 1;				/* Stack P: Pointer. */
+
+	avlnode_t *curr;
+	avlnode_t **q;
+	void *p;
+
+	curr = avl->root.link[0];
+	if (curr == NULL)
+		return;
+
+	a[0] = 0;
+	pa[0] = &avl->root;
+
+	/*
+	 * find elem
+	 */
+	for (;;) {
+		int diff = avl->info->ke_cmp(key, GET_DATA(curr));
+
+		if (diff == 0)
+			break;
+
+		pa[k] = curr;
+		if (diff < 0) {
+			if (LEFT(curr) != NULL) {
+				curr = LEFT(curr);
+				a[k] = 0;
+			} else
+				return;
+		} else if (diff > 0) {
+			if (RTAG(curr) == TAG_TREE) {
+				curr = RIGHT(curr);
+				a[k] = 1;
+			} else
+				return;
+		}
+		k++;
+	}
+
+	q = &pa[k - 1]->link[a[k - 1]];
+
+	/*
+	 * disconnect from the tree
+	 */
+	if (RTAG(curr) == TAG_THREAD) {
+		if (LEFT(curr) != NULL) {
+			avlnode_t *const x = LEFT(curr);
+
+			*q = x;
+			(*q)->bal = 0;
+			if (RTAG(x) == TAG_THREAD) {
+				if (a[k - 1] == 1)
+					RIGHT(x) = RIGHT(curr);
+				else
+					RIGHT(x) = pa[k - 1];
+			}
+		} else {
+			*q = curr->link[a[k - 1]];
+			if (a[k - 1] == 0)
+				pa[k - 1]->link[0] = NULL;
+			else
+				pa[k - 1]->tag[1] = TAG_THREAD;
+		}
+	} else {
+		avlnode_t *r = RIGHT(curr);
+
+		if (LEFT(r) == NULL) {
+			LEFT(r) = LEFT(curr);
+			r->bal = curr->bal;
+
+			if (LEFT(r) != NULL) {
+				avlnode_t *s = LEFT(r);
+
+				while (RTAG(s) == TAG_TREE)
+					s = RIGHT(s);
+
+				assert (RTAG(s) == TAG_THREAD);
+				RIGHT(s) = r;
+			}
+
+			*q = r;
+			a[k] = 1;
+			pa[k++] = r;
+		} else {
+			avlnode_t *s = LEFT(r);
+			avlnode_t **qq;
+
+			a[k] = 1;
+			qq = &pa[k++];
+
+			a[k] = 0;
+			pa[k++] = r;
+
+			while (LEFT(s) != NULL) {
+				r = s;
+				s = LEFT(r);
+				a[k] = 0;
+				pa[k++] = r;
+			}
+
+			*qq = *q = s;
+			if (RTAG(s) == TAG_TREE)
+				LEFT(r) = RIGHT(s);
+			else
+				LEFT(r) = NULL;
+
+			LEFT(s) = LEFT(curr);
+			LTAG(s) = LTAG(curr);
+
+			RIGHT(s) = r;
+			RTAG(s) = TAG_TREE;
+
+			s->bal = curr->bal;
+
+			if ((r = LEFT(s)) != NULL) {
+				while (RTAG(r) != TAG_THREAD)
+					r = RIGHT(r);
+
+				assert (RIGHT(r) == curr);
+				RIGHT(r) = s;
+			}
+		}
+	}
+
+	/*
+	 * call e_destroy() and free memory
+	 */
+	avl->count--;
+	p = GET_DATA(curr);
+	if (avl->info->e_destroy != NULL)
+		avl->info->e_destroy(p);
+	mem_free(p);
+
+	/*
+	 * fixup balance
+	 */
+	assert (k > 0);
+
+	while (--k) {
+		avlnode_t *const s = pa[k];
+
+		if (a[k] == 0) {
+			avlnode_t *const r = RIGHT(s);
+
+			/* D10. */
+			if (s->bal == -1) {
+				s->bal = 0;
+				continue;
+			} else if (s->bal == 0) {
+				s->bal = +1;
+				break;
+			}
+
+			assert (s->bal == +1);
+
+			if (RTAG(s) == TAG_THREAD || r->bal == 0) {
+				RIGHT(s) = LEFT(r);
+				LEFT(r) = s;
+				r->bal = -1;
+				pa[k - 1]->link[a[k - 1]] = r;
+				break;
+			} else if (r->bal == +1) {
+				if (LEFT(r) != NULL) {
+					RTAG(s) = TAG_TREE;
+					RIGHT(s) = LEFT(r);
+				} else
+					RTAG(s) = TAG_THREAD;
+
+				LEFT(r) = s;
+				s->bal = r->bal = 0;
+				pa[k - 1]->link[a[k - 1]] = r;
+			} else {
+				assert (r->bal == -1);
+
+				curr = LEFT(r);
+				if (RTAG(curr) == TAG_TREE)
+					LEFT(r) = RIGHT(curr);
+				else
+					LEFT(r) = NULL;
+				RIGHT(curr) = r;
+				RTAG(curr) = TAG_TREE;
+				if (LEFT(curr) == NULL) {
+					RIGHT(s) = curr;
+					RTAG(s) = TAG_THREAD;
+				} else {
+					RIGHT(s) = LEFT(curr);
+					RTAG(s) = TAG_TREE;
+				}
+
+				LEFT(curr) = s;
+				if (curr->bal == +1) {
+					s->bal = -1;
+					r->bal = 0;
+				} else if (curr->bal == 0)
+					s->bal = r->bal = 0;
+				else {
+					assert (curr->bal == -1);
+					s->bal = 0;
+					r->bal = +1;
+				}
+
+				curr->bal = 0;
+				pa[k - 1]->link[a[k - 1]] = curr;
+				if (a[k - 1] == 1)
+					pa[k - 1]->tag[1] = TAG_TREE;
+			}
+		} else {
+			avlnode_t *const r = LEFT(s);
+
+			if (s->bal == +1) {
+				s->bal = 0;
+				continue;
+			} else if (s->bal == 0) {
+				s->bal = -1;
+				break;
+			}
+
+			assert (s->bal == -1);
+			if (LEFT(s) == NULL || r->bal == 0) {
+				LEFT(s) = RIGHT(r);
+				RIGHT(r) = s;
+				r->bal = +1;
+				pa[k - 1]->link[a[k - 1]] = r;
+				break;
+			} else if (r->bal == -1) {
+				if (RTAG(r) == TAG_TREE)
+					LEFT(s) = RIGHT(r);
+				else
+					LEFT(s) = NULL;
+				RIGHT(r) = s;
+				RTAG(r) = TAG_TREE;
+				s->bal = r->bal = 0;
+				pa[k - 1]->link[a[k - 1]] = r;
+			} else {
+				assert (r->bal == +1);
+
+				curr = RIGHT(r);
+				if (LEFT(curr) != NULL) {
+					RTAG(r) = TAG_TREE;
+					RIGHT(r) = LEFT(curr);
+				} else
+					RTAG(r) = TAG_THREAD;
+
+				LEFT(curr) = r;
+				if (RTAG(curr) == TAG_THREAD)
+					LEFT(s) = NULL;
+				else
+					LEFT(s) = RIGHT(curr);
+				RIGHT(curr) = s;
+				RTAG(curr) = TAG_TREE;
+
+				if (curr->bal == -1) {
+					s->bal = +1;
+					r->bal = 0;
+				} else if (curr->bal == 0)
+					s->bal = r->bal = 0;
+				else {
+					assert (curr->bal == +1);
+					s->bal = 0, r->bal = -1;
+				}
+
+				curr->bal = 0;
+				if (a[k - 1] == 1)
+					pa[k - 1]->tag[1] = TAG_TREE;
+				pa[k - 1]->link[a[k - 1]] = curr;
+			}
+		}
+	}
 }
 
 static void *
@@ -398,30 +681,19 @@ avlnode_init(avlnode_t *node,
 
 static avlnode_t *
 avlnode_new(avltree_t *avl,
-	     avlnode_t *left, int left_tag, avlnode_t *right, int right_tag,
-	     const void *e)
+	    avlnode_t *left, int left_tag, avlnode_t *right, int right_tag)
 {
 	avlnode_t *node;
+	void *p;
 
-	node = mem_alloc2(
+	p = mem_alloc2(
 	    avl->info->type_tag, avl->info->esize, sizeof(avlnode_t));
-	avlnode_init(node, left, left_tag, right, right_tag);
+	if (avl->info->e_init != NULL)
+		avl->info->e_init(p);
 
 	avl->count++;
-	if (avl->info->e_init != NULL)
-		avl->info->e_init(GET_DATA(node));
-
-	if (e != NULL)
-		avlnode_copy_data(avl, node, e);
+	node = GET_AVLNODE(p);
+	avlnode_init(node, left, left_tag, right, right_tag);
 
 	return node;
-}
-
-static void
-avlnode_copy_data(avltree_t *avl, avlnode_t *node, const void *e)
-{
-	if (avl->info->e_cpy != NULL)
-		avl->info->e_cpy(GET_DATA(node), e);
-	else
-		memcpy(GET_DATA(node), e, avl->info->esize);
 }

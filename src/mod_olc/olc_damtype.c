@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_damtype.c,v 1.9 2001-09-12 19:43:00 fjoe Exp $
+ * $Id: olc_damtype.c,v 1.10 2001-09-13 12:03:00 fjoe Exp $
  */
 
 /*
@@ -84,8 +84,7 @@ static void *damt_save_cb(void *p, va_list ap);
 
 OLC_FUN(damted_create)
 {
-	damtype_t dt;
-	damtype_t *d;
+	damtype_t *dt;
 	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_DAMT) {
@@ -103,19 +102,15 @@ OLC_FUN(damted_create)
 	 * adds new elements to the end of varr
 	 */
 
-	damtype_init(&dt);
-	dt.dam_name = str_dup(arg);
-	d = c_insert(&damtypes, arg, &dt);
-	damtype_destroy(&dt);
-
-	if (d == NULL) {
+	if ((dt = c_insert(&damtypes, arg)) == NULL) {
 		act_puts("DamtEd: $t: already exists.",
 			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
+	dt->dam_name	= str_dup(arg);
 	OLCED(ch)	= olced_lookup(ED_DAMT);
-	ch->desc->pEdit = d;
+	ch->desc->pEdit = dt;
 	act_char("Damtype created.", ch);
 	SET_BIT(changed_flags, CF_DAMT);
 	return FALSE;

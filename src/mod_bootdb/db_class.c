@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.40 2001-09-12 19:42:42 fjoe Exp $
+ * $Id: db_class.c,v 1.41 2001-09-13 12:02:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -58,9 +58,7 @@ DBINIT_FUN(init_class)
 DBLOAD_FUN(load_class)
 {
 	int i;
-	class_t class;
-
-	class_init(&class);
+	class_t *cl = NULL;
 
 	for (;;) {
 		bool fMatch = FALSE;
@@ -68,91 +66,118 @@ DBLOAD_FUN(load_class)
 		fread_keyword(fp);
 		switch(rfile_tokfl(fp)) {
 		case 'A':
-			KEY("AddExp", class.points, fread_number(fp));
+			CHECK_VAR(cl, "Name");
+
+			KEY("AddExp", cl->points, fread_number(fp));
 			break;
+
 		case 'D':
-			KEY("DeathLimit", class.death_limit,
+			CHECK_VAR(cl, "Name");
+
+			KEY("DeathLimit", cl->death_limit,
 			    fread_number(fp));
 			break;
-		case 'E':
-			if (IS_TOKEN(fp, "End")) {
-				class_t *cl;
 
-				if (IS_NULLSTR(class.name)) {
-					log(LOG_ERROR, "load_class: class name undefined");
-				} else if ((cl = c_insert(&classes,
-						class.name, &class)) == NULL) {
-					log(LOG_ERROR, "load_class: duplicate class name");
-				} else {
-					varr_qsort(&cl->guilds, cmpint);
-					db_set_arg(dbdata, "POSE", cl);
-				}
-				class_destroy(&class);
+		case 'E':
+			CHECK_VAR(cl, "Name");
+
+			if (IS_TOKEN(fp, "End")) {
+				varr_qsort(&cl->guilds, cmpint);
+				db_set_arg(dbdata, "POSE", cl);
 				return;
 			}
+
 		case 'F':
-			KEY("Flags", class.class_flags,
+			CHECK_VAR(cl, "Name");
+
+			KEY("Flags", cl->class_flags,
 			    fread_fstring(class_flags, fp));
 			break;
+
 		case 'G':
+			CHECK_VAR(cl, "Name");
+
 			if (IS_TOKEN(fp, "GuildRoom")) {
 				int vnum = fread_number(fp);
-				int *pvnum = varr_enew(&class.guilds);
+				int *pvnum = varr_enew(&cl->guilds);
 				*pvnum = vnum;
 				fMatch = TRUE;
 			}
 			break;
+
 		case 'H':
-			KEY("HPRate", class.hp_rate, fread_number(fp));
+			CHECK_VAR(cl, "Name");
+
+			KEY("HPRate", cl->hp_rate, fread_number(fp));
 			break;
+
 		case 'L':
-			KEY("LuckBonus", class.luck_bonus, fread_number(fp));
+			CHECK_VAR(cl, "Name");
+
+			KEY("LuckBonus", cl->luck_bonus, fread_number(fp));
 			break;
+
 		case 'M':
-			KEY("ManaRate", class.mana_rate, fread_number(fp));
+			CHECK_VAR(cl, "Name");
+
+			KEY("ManaRate", cl->mana_rate, fread_number(fp));
 			break;
+
 		case 'N':
-			SKEY("Name", class.name, fread_string(fp));
+			SPKEY("Name", cl->name, fread_string(fp),
+			      &classes, cl);
 			break;
+
 		case 'P':
-			KEY("PrimeStat", class.attr_prime,
+			CHECK_VAR(cl, "Name");
+
+			KEY("PrimeStat", cl->attr_prime,
 			    fread_fword(stat_aliases, fp));
 			break;
+
 		case 'R':
-			KEY("RestrictAlign", class.restrict_align,
+			CHECK_VAR(cl, "Name");
+
+			KEY("RestrictAlign", cl->restrict_align,
 			    fread_fstring(ralign_names, fp));
-			SKEY("RestrictSex", class.restrict_sex,
+			SKEY("RestrictSex", cl->restrict_sex,
 			     fread_string(fp));
-			KEY("RestrictEthos", class.restrict_ethos,
+			KEY("RestrictEthos", cl->restrict_ethos,
 			    fread_fstring(ethos_table, fp));
 			break;
+
 		case 'S':
-			KEY("SchoolWeapon", class.weapon,
+			CHECK_VAR(cl, "Name");
+
+			KEY("SchoolWeapon", cl->weapon,
 			    fread_number(fp));
-			SKEY("SkillSpec", class.skill_spec, c_fread_strkey(
-			    fp, &specs, "load_class")); // notrans
+			SKEY("SkillSpec", cl->skill_spec,
+			     fread_strkey(fp, &specs));
 			if (IS_TOKEN(fp, "ShortName")) {
 				const char *p = fread_string(fp);
-				strnzcpy(class.who_name,
-					 sizeof(class.who_name), p);
+				strnzcpy(cl->who_name,
+					 sizeof(cl->who_name), p);
 				free_string(p);
 				fMatch = TRUE;
 			}
 			if (IS_TOKEN(fp, "StatMod")) {
 				for (i = 0; i < MAX_STAT; i++)
-					class.mod_stat[i] = fread_number(fp);
+					cl->mod_stat[i] = fread_number(fp);
 				fMatch = TRUE;
 			}
 			break;
+
 		case 'T':
-			KEY("Thac0_00", class.thac0_00, fread_number(fp));
-			KEY("Thac0_32", class.thac0_32, fread_number(fp));
+			CHECK_VAR(cl, "Name");
+
+			KEY("Thac0_00", cl->thac0_00, fread_number(fp));
+			KEY("Thac0_32", cl->thac0_32, fread_number(fp));
 			break;
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "load_class: %s: Unknown keyword",
-				 rfile_tok(fp));
+			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}
@@ -187,8 +212,8 @@ DBLOAD_FUN(load_pose)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "load_pose: %s: Unknown keyword",
-				 rfile_tok(fp));
+			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}

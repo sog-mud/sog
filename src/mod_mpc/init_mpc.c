@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.30 2001-09-12 19:42:55 fjoe Exp $
+ * $Id: init_mpc.c,v 1.31 2001-09-13 12:02:56 fjoe Exp $
  */
 
 #include <dlfcn.h>
@@ -78,20 +78,16 @@ static dynafun_data_t core_dynafun_tab[] = {
 };
 
 #if !defined(MPC)
-hash_t mpcodes;
+avltree_t mpcodes;
 
-hashdata_t h_mpcodes = {
-	&hash_ops,
+avltree_info_t avltree_info_mpcodes = {
+	&avltree_ops,
 
-	sizeof(mpcode_t), 4,
+	MT_PVOID, sizeof(mpcode_t), ke_cmp_csstr,
 
 	(e_init_t) mpcode_init,
 	(e_destroy_t) mpcode_destroy,
 	NULL,
-
-	STRKEY_HASH_SIZE,
-	k_hash_csstr,
-	ke_cmp_csstr
 };
 
 static
@@ -130,7 +126,7 @@ MODINIT_FUN(_module_load, m)
 
 	dynafun_tab_register(__mod_tab(MODULE), m);
 
-	c_init(&mpcodes, &h_mpcodes);
+	c_init(&mpcodes, &avltree_info_mpcodes);
 	c_foreach(&mprogs, compile_mprog_cb);
 
 	return 0;
@@ -275,43 +271,40 @@ mpc_init(void)
 	const char **pp;
 	module_t m;
 
-	hash_init(&glob_syms, &h_syms);
+	c_init(&glob_syms, &avltree_info_syms);
 
 	/*
 	 * add consts to global symbol table
 	 */
 	for (ic = ic_tab; ic->name != NULL; ic++) {
-		const void *p;
-		sym_t sym;
+		sym_t *s;
 
-		sym.name = str_dup(ic->name);
-		sym.type = SYM_VAR;
-		sym.s.var.type_tag = ic->type_tag;
-		sym.s.var.data.i = ic->value;
-		sym.s.var.is_const = TRUE;
-
-		if ((p = c_insert(&glob_syms, sym.name, &sym)) == NULL) {
+		if ((s = c_insert(&glob_syms, ic->name)) == NULL) {
 			log(LOG_ERROR, "%s: duplicate symbol (const)",
-			    sym.name);
+			    ic->name);
+			continue;
 		}
-		sym_destroy(&sym);
+
+		s->name = str_dup(ic->name);
+		s->type = SYM_VAR;
+		s->s.var.type_tag = ic->type_tag;
+		s->s.var.data.i = ic->value;
+		s->s.var.is_const = TRUE;
 	}
 
 	/*
 	 * add dynafuns to global symbol table
 	 */
 	for (pp = mpc_dynafuns; *pp != NULL; pp++) {
-		const void *p;
-		sym_t sym;
+		sym_t *s;
 
-		sym.name = str_dup(*pp);
-		sym.type = SYM_FUNC;
-
-		if ((p = c_insert(&glob_syms, sym.name, &sym)) == NULL) {
-			log(LOG_ERROR, "%s: duplicate symbol (func)",
-			    sym.name);
+		if ((s = c_insert(&glob_syms, *pp)) == NULL) {
+			log(LOG_ERROR, "%s: duplicate symbol (func)", *pp);
+			continue;
 		}
-		sym_destroy(&sym);
+
+		s->name = str_dup(*pp);
+		s->type = SYM_FUNC;
 	}
 
 #if defined(MPC)

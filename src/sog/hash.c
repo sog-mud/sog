@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.c,v 1.21 2001-09-12 19:43:17 fjoe Exp $
+ * $Id: hash.c,v 1.22 2001-09-13 12:03:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -134,7 +134,7 @@ hash_lookup(void *c, const void *k)
 }
 
 static void *
-hash_add(void *c, const void *k, const void *e, int flags)
+hash_add(void *c, const void *k, int flags)
 {
 	hash_t *h = (hash_t *) c;
 	varr *v = h->v + h->h_data->k_hash(k, h->h_data->hsize);
@@ -147,13 +147,13 @@ hash_add(void *c, const void *k, const void *e, int flags)
 	} else {
 		if (!IS_SET(flags, CA_F_UPDATE))
 			return NULL;
-		if (v->v_data->e_destroy)
+		if (v->v_data->e_destroy != NULL)
 			v->v_data->e_destroy(elem);
+		if (v->v_data->e_init != NULL)
+			v->v_data->e_init(elem);
 	}
 
-	if (h->h_data->e_cpy)
-		return h->h_data->e_cpy(elem, e);
-	return memcpy(elem, e, h->h_data->nsize);
+	return elem;
 }
 
 static void

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_form.c,v 1.15 2001-09-12 19:42:43 fjoe Exp $
+ * $Id: db_form.c,v 1.16 2001-09-13 12:02:51 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -53,9 +53,7 @@ DBINIT_FUN(init_form)
 
 DBLOAD_FUN(load_form)
 {
-	form_index_t f;
-
-	form_init(&f);
+	form_index_t *f = NULL;
 
 	for (;;) {
 		bool fMatch = FALSE;
@@ -63,65 +61,83 @@ DBLOAD_FUN(load_form)
 		fread_keyword(fp);
 		switch (rfile_tokfl(fp)) {
 		case 'A':
-			KEY("Attacks", f.num_attacks, fread_number(fp));
+			CHECK_VAR(f, "Name");
+
+			KEY("Attacks", f->num_attacks, fread_number(fp));
 			break;
+
 		case 'D':
-			KEY("Damtype", f.damtype, c_fread_strkey(
-			    fp, &damtypes, "load_form"));	// notrans
+			CHECK_VAR(f, "Name");
+
+			KEY("Damtype", f->damtype, fread_strkey(fp, &damtypes));
 			if (IS_TOKEN(fp, "Damage")) {
-				f.damage[DICE_NUMBER]	= fread_number(fp);
+				f->damage[DICE_NUMBER]	= fread_number(fp);
 				fread_letter(fp);
-				f.damage[DICE_TYPE]	= fread_number(fp);
+				f->damage[DICE_TYPE]	= fread_number(fp);
 				fread_letter(fp);
-				f.damage[DICE_BONUS]	= fread_number(fp);
+				f->damage[DICE_BONUS]	= fread_number(fp);
 				fMatch = TRUE;
 				break;
 			}
-			MLSKEY("Description", f.description);
+			MLSKEY("Description", f->description);
 			break;
+
 		case 'F':
-			KEY("Flags", f.flags, fread_fstring(shapeform_flags, fp));
+			CHECK_VAR(f, "Name");
+
+			KEY("Flags", f->flags,
+			    fread_fstring(shapeform_flags, fp));
 			break;
+
 		case 'H':
-			KEY("Hitroll", f.hitroll, fread_number(fp));
+			CHECK_VAR(f, "Name");
+
+			KEY("Hitroll", f->hitroll, fread_number(fp));
 			break;
+
 		case 'E':
-			if (IS_TOKEN(fp, "End")) {
-				if (IS_NULLSTR(f.name)) {
-					log(LOG_ERROR, "load_form: form name undefined");
-				} else if (!c_insert(&forms, f.name, &f)) {
-					log(LOG_ERROR, "load_form: duplicate form name");
-				}
-				form_destroy(&f);
+			CHECK_VAR(f, "Name");
+
+			if (IS_TOKEN(fp, "End"))
 				return;
-			}
 			break;
+
 		case 'L':
-			MLSKEY("LongDesc", f.long_desc);
+			CHECK_VAR(f, "Name");
+
+			MLSKEY("LongDesc", f->long_desc);
 			break;
+
 		case 'N':
-			KEY("Name", f.name, fread_sword(fp));
+			SPKEY("Name", f->name, fread_sword(fp),
+			      &forms, f);
 			break;
+
 		case 'S':
-			MLSKEY("ShortDesc", f.short_desc);
-			SKEY("SkillSpec", f.skill_spec, c_fread_strkey(
-			    fp, &specs, "load_form"))		// notrans
+			CHECK_VAR(f, "Name");
+
+			MLSKEY("ShortDesc", f->short_desc);
+			SKEY("SkillSpec", f->skill_spec,
+			     fread_strkey(fp, &specs));
 			if (IS_TOKEN(fp, "Stats")) {
 				int i;
 				for (i = 0; i < MAX_STAT; i++)
-					f.stats[i] = fread_number(fp);
+					f->stats[i] = fread_number(fp);
 				fMatch = TRUE;
 				break;
 			}
 			break;
+
 		case 'R':
+			CHECK_VAR(f, "Name");
+
 			if (IS_TOKEN(fp, "Resist")) {
 				int res = fread_fword(dam_classes, fp);
 				if (res < 0 || res == DAM_NONE) {
 					log(LOG_ERROR, "load_form: unknown resistance name");
 					fread_number(fp);
 				} else {
-					f.resists[res] = fread_number(fp);
+					f->resists[res] = fread_number(fp);
 				}
 				fMatch = TRUE;
 				break;
@@ -131,8 +147,8 @@ DBLOAD_FUN(load_form)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "load_form: %s: Unknown keyword",
-				 rfile_tok(fp));
+			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}

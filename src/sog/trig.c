@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.15 2001-09-12 19:43:21 fjoe Exp $
+ * $Id: trig.c,v 1.16 2001-09-13 12:03:11 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -87,8 +87,7 @@ trig_fread(trig_t *trig, rfile_t *fp)
 		return;
 	}
 
-	trig->trig_prog = str_dup(c_fread_strkey(
-	    fp, &mprogs, "trig_fread"));			// notrans
+	trig->trig_prog = fread_strkey(fp, &mprogs);
 	trig->trig_arg = fread_string(fp);
 }
 

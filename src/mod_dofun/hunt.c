@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.44 2001-09-12 19:42:50 fjoe Exp $
+ * $Id: hunt.c,v 1.45 2001-09-13 12:02:55 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -207,7 +207,7 @@ find_path(int in_room_vnum, int out_room_vnum,
 {
 	room_q *q_head, *q_tail, *tmp_q;
 	hash_t x_room;
-	room_d d_room;
+	room_d *d_room;
 	bool thru_doors;
 	int count;
 	ROOM_INDEX_DATA	*startp;
@@ -221,9 +221,9 @@ find_path(int in_room_vnum, int out_room_vnum,
 	startp = get_room_index(in_room_vnum);
 
 	c_init(&x_room, &h_room);
-	d_room.vnum = in_room_vnum;
-	d_room.exit = -1;
-	c_insert(&x_room, &in_room_vnum, &d_room);
+	d_room = c_insert(&x_room, &in_room_vnum);
+	d_room->vnum = in_room_vnum;
+	d_room->exit = -1;
 
 	/* initialize queue */
 	q_head = (room_q *) malloc(sizeof(room_q));
@@ -307,9 +307,9 @@ find_path(int in_room_vnum, int out_room_vnum,
 				continue;
 			}
 
-			d_room.vnum = tmp_room;
-			d_room.exit = (dp->exit == -1 ? i : dp->exit);
-			c_insert(&x_room, &tmp_room, &d_room);
+			d_room = c_insert(&x_room, &tmp_room);
+			d_room->vnum = tmp_room;
+			d_room->exit = (dp->exit == -1 ? i : dp->exit);
 		}
 	}
 

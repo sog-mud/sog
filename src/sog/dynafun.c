@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.c,v 1.17 2001-09-12 19:43:16 fjoe Exp $
+ * $Id: dynafun.c,v 1.18 2001-09-13 12:03:09 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -218,7 +218,6 @@ dynafun_cpy(dynafun_data_t *d1, const dynafun_data_t *d2)
 	 * do not use `str_qdup' here because *d2 can be (and is)
 	 * statically allocated
 	 */
-	free_string(d1->name);
 	d1->name = str_dup(d2->name);
 
 	d1->rv_tag = d2->rv_tag;
@@ -337,15 +336,18 @@ static void
 dynafun_register(dynafun_data_t *d, void *arg)
 {
 	module_t *m = (module_t *) arg;
+	dynafun_data_t *d2;
 
-	if ((d = c_insert(&dynafuns, d->name, d)) == NULL) {
+	if ((d2 = c_insert(&dynafuns, d->name)) == NULL) {
 		log(LOG_BUG, "dynafun_register: %s: duplicate dynafun name",
 		    d->name);
 	}
 
-	if ((d->fun = dlsym(m->dlh, d->name)) == NULL) {
+	dynafun_cpy(d2, d);
+
+	if ((d2->fun = dlsym(m->dlh, d2->name)) == NULL) {
 		log(LOG_BUG, "dynafun_register: %s: not found",
-		    d->name);
+		    d2->name);
 	}
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_spec.c,v 1.24 2001-09-12 19:42:45 fjoe Exp $
+ * $Id: db_spec.c,v 1.25 2001-09-13 12:02:53 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -57,9 +57,7 @@ DBINIT_FUN(init_specs)
 
 DBLOAD_FUN(load_spec)
 {
-	spec_t sp;
-
-	spec_init(&sp);
+	spec_t *sp = NULL;
 
 	for (;;) {
 		bool fMatch = FALSE;
@@ -67,36 +65,37 @@ DBLOAD_FUN(load_spec)
 		fread_keyword(fp);
 		switch (rfile_tokfl(fp)) {
 		case 'E':
-			if (IS_TOKEN(fp, "End")) {
-				race_t *psp;
+			CHECK_VAR(sp, "Name");
 
-				if (IS_NULLSTR(sp.spec_name)) {
-					log(LOG_ERROR, "load_spec: spec name undefined");
-				} else if ((psp = c_insert(&specs,
-						sp.spec_name, &sp)) == NULL) {
-					log(LOG_ERROR, "load_spec: duplicate spec name");
-				} else {
-					db_set_arg(dbdata, "SKILL", psp);
-				}
-				spec_destroy(&sp);
+			if (IS_TOKEN(fp, "End")) {
+				db_set_arg(dbdata, "SKILL", sp);
 				return;
 			}
 			break;
+
 		case 'C':
-			KEY("Class", sp.spec_class,
+			CHECK_VAR(sp, "Name");
+
+			KEY("Class", sp->spec_class,
 			    fread_fword(spec_classes, fp));
 			break;
+
 		case 'N':
-			SKEY("Name", sp.spec_name, fread_string(fp));
+			SPKEY("Name", sp->spec_name, fread_string(fp),
+			      &specs, sp);
 			break;
+
 		case 'T':
-			SKEY("Trigger", sp.mp_trig.trig_prog, fread_string(fp));
+			CHECK_VAR(sp, "Name");
+
+			SKEY("Trigger", sp->mp_trig.trig_prog,
+			     fread_string(fp));
 			break;
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "load_spec: %s: Unknown keyword",
-				 rfile_tok(fp));
+			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}
@@ -144,14 +143,14 @@ DBLOAD_FUN(load_spec_skill)
 			KEY("Rating", spec_sk->rating, fread_number(fp));
 			break;
 		case 'S':
-			SKEY("Skill", spec_sk->sn, c_fread_strkey(
-			    fp, &skills, "load_spec_skill"));	// notrans
+			SKEY("Skill", spec_sk->sn,
+			     fread_strkey(fp, &skills));
 			break;
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "load_spec_skill: %s: Unknown keyword",
-				 rfile_tok(fp));
+			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}

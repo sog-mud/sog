@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.22 2001-09-12 19:42:56 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.23 2001-09-13 12:02:57 fjoe Exp $
  */
 
 #ifndef _MPC_IMPL_H_
@@ -72,8 +72,8 @@ void	sym_init(sym_t *sym);
 void	sym_destroy(sym_t *sym);
 sym_t *	sym_cpy(sym_t *dst, const sym_t *src);
 
-extern hash_t glob_syms;		/* (sym_t) */
-extern hashdata_t h_syms;
+extern avltree_t glob_syms;		/* (sym_t) */
+extern avltree_info_t avltree_info_syms;
 extern flaginfo_t mpc_types[];
 
 #define IS_PTR_TYPE(type_tag)						\
@@ -109,8 +109,8 @@ struct mpcode_t {
 	const char *cp;		/**< current position (for lexer)	*/
 	int lineno;		/**< current line number		*/
 
-	hash_t strings;		/**< (const char *) string space	*/
-	hash_t syms;		/**< (sym_t) symbols			*/
+	avltree_t strings;	/**< (const char *) string space	*/
+	avltree_t syms;		/**< (sym_t) symbols			*/
 
 	/* compiler data */
 	varr cstack;		/**< (void *) compiler stack		*/
@@ -133,7 +133,7 @@ struct mpcode_t {
 };
 typedef struct mpcode_t mpcode_t;
 
-extern hash_t mpcodes;
+extern avltree_t mpcodes;
 
 /**
  * Initialize program

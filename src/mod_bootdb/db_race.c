@@ -6,7 +6,7 @@
  * modification, are permitted provided that the following conditions
  * are met:
  * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
+ *    notice, this list of conditions and the following disclaimer->
  * 2. Redistributions in binary form must reproduce the above copyright
  *    notice, this list of conditions and the following disclaimer in the
  *    documentation and/or other materials provided with the distribution.
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.39 2001-09-12 19:42:44 fjoe Exp $
+ * $Id: db_race.c,v 1.40 2001-09-13 12:02:52 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -56,77 +56,91 @@ DBINIT_FUN(init_race)
 
 DBLOAD_FUN(load_race)
 {
-	race_t r;
+	race_t *r = NULL;
 
-	race_init(&r);
 	for (;;) {
 		bool fMatch = FALSE;
 
 		fread_keyword(fp);
 		switch(rfile_tokfl(fp)) {
 		case 'A':
-			KEY("Aff", r.aff, fread_fstring(affect_flags, fp));
-			KEY("Act", r.act, fread_fstring(mob_act_flags, fp));
+			CHECK_VAR(r, "Name");
+
+			KEY("Aff", r->aff, fread_fstring(affect_flags, fp));
+			KEY("Act", r->act, fread_fstring(mob_act_flags, fp));
 			if (IS_TOKEN(fp, "Affc")) {
 				AFFECT_DATA *paf = aff_fread(fp, AFF_X_NOLD);
-				SLIST_ADD(AFFECT_DATA, r.affected, paf);
+				SLIST_ADD(AFFECT_DATA, r->affected, paf);
 				fMatch = TRUE;
 				break;
 			}
 			break;
+
 		case 'D':
-			KEY("Det", r.has_detect, fread_fstring(id_flags, fp));
-			KEY("Damtype", r.damtype, c_fread_strkey(
-			    fp, &damtypes, "load_mobiles"));	// notrans
+			CHECK_VAR(r, "Name");
+
+			KEY("Det", r->has_detect, fread_fstring(id_flags, fp));
+			KEY("Damtype", r->damtype,
+			    fread_strkey(fp, &damtypes));
 			break;
+
 		case 'E':
+			CHECK_VAR(r, "Name");
+
 			if (IS_TOKEN(fp, "End")) {
-				race_t *pr;
-
-				if (IS_NULLSTR(r.name)) {
-					log(LOG_ERROR, "load_race: race name undefined");
-					race_destroy(&r);
-					return;
-				}
-
-				if ((pr = c_insert(&races, r.name, &r)) == NULL) {
-					log(LOG_ERROR, "load_race: duplicate race name");
-				} else {
-					db_set_arg(dbdata, "PCRACE", pr);
-				}
-
-				race_destroy(&r);
+				db_set_arg(dbdata, "PCRACE", r);
 				return;
 			}
 			break;
+
 		case 'F':
-			KEY("Form", r.form, fread_fstring(form_flags, fp));
-			KEY("Flags", r.race_flags, fread_fstring(race_flags, fp));
+			CHECK_VAR(r, "Name");
+
+			KEY("Form", r->form, fread_fstring(form_flags, fp));
+			KEY("Flags", r->race_flags, fread_fstring(race_flags, fp));
 			break;
+
 		case 'I':
-			KEY("Inv", r.has_invis, fread_fstring(id_flags, fp));
+			CHECK_VAR(r, "Name");
+
+			KEY("Inv", r->has_invis, fread_fstring(id_flags, fp));
 			break;
+
 		case 'L':
-			KEY("LuckBonus", r.luck_bonus, fread_number(fp));
+			CHECK_VAR(r, "Name");
+
+			KEY("LuckBonus", r->luck_bonus, fread_number(fp));
 			break;
+
 		case 'N':
-			SKEY("Name", r.name, fread_string(fp));
+			SPKEY("Name", r->name, fread_string(fp),
+			      &races, r);
 			break;
+
 		case 'O':
-			KEY("Off", r.off, fread_fstring(off_flags, fp));
+			CHECK_VAR(r, "Name");
+
+			KEY("Off", r->off, fread_fstring(off_flags, fp));
 			break;
+
 		case 'P':
-			KEY("Parts", r.parts, fread_fstring(part_flags, fp));
+			CHECK_VAR(r, "Name");
+
+			KEY("Parts", r->parts, fread_fstring(part_flags, fp));
 			break;
+
 		case 'R':
+			CHECK_VAR(r, "Name");
+
 			if (IS_TOKEN(fp, "Resist")) {
 				int res = fread_fword(dam_classes, fp);
 				if (res < 0 || res == DAM_NONE) {
-					log(LOG_ERROR, "load_race: unknown resist name");
+					log(LOG_ERROR,
+					    "%s: unknown resist name",
+					    __FUNCTION__);
 					fread_number(fp);
-				} else {
-					r.resists[res] = fread_number(fp);
-				}
+				} else
+					r->resists[res] = fread_number(fp);
 				fMatch = TRUE;
 				break;
 			};
@@ -134,8 +148,8 @@ DBLOAD_FUN(load_race)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "load_race: %s: Unknown keyword",
-				 rfile_tok(fp));
+			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}
@@ -218,8 +232,8 @@ DBLOAD_FUN(load_pcrace)
 		case 'S':
 			KEY("Size", pcr->size, fread_fword(size_table, fp));
 			KEY("Slang", pcr->slang, fread_fword(slang_table, fp));
-			SKEY("SkillSpec", pcr->skill_spec, c_fread_strkey(
-			    fp, &specs, "load_pcrace"));	// notrans
+			SKEY("SkillSpec", pcr->skill_spec,
+			     fread_strkey(fp, &specs));
 			if (IS_TOKEN(fp, "ShortName")) {
 				const char *p = fread_string(fp);
 				strnzcpy(pcr->who_name, sizeof(pcr->who_name),
@@ -238,8 +252,8 @@ DBLOAD_FUN(load_pcrace)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "load_pcrace: %s: Unknown keyword",
-				 rfile_tok(fp));
+			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}

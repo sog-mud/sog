@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.26 2001-09-12 19:43:03 fjoe Exp $
+ * $Id: olc_skill.c,v 1.27 2001-09-13 12:03:02 fjoe Exp $
  */
 
 #include "olc.h"
@@ -95,15 +95,16 @@ olc_cmd_t olc_cmds_skill[] =
 
 OLC_FUN(skilled_create)
 {
-	skill_t sk;
-	skill_t *s;
+	skill_t *sk;
+	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_SKILL) {
 		act_char("SkillEd: Insufficient security for creating skills.", ch);
 		return FALSE;
 	}
 
-	if (argument[0] == '\0')
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0')
 		OLC_ERROR("'OLC CREATE'");
 
 	/*
@@ -111,19 +112,15 @@ OLC_FUN(skilled_create)
 	 * adds new elements to the end of varr
 	 */
 
-	skill_init(&sk);
-	mlstr_init2(&sk.sk_name.ml, argument);
-	s = c_insert(&skills, argument, &sk);
-	skill_destroy(&sk);
-
-	if (s == NULL) {
+	if ((sk = c_insert(&skills, arg)) == NULL) {
 		act_puts("SkillEd: $t: already exists.",
-			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
+	mlstr_init2(&sk->sk_name.ml, arg);
 	OLCED(ch)	= olced_lookup(ED_SKILL);
-	ch->desc->pEdit = s;
+	ch->desc->pEdit = sk;
 	act_char("Skill created.", ch);
 	SET_BIT(changed_flags, CF_SKILL);
 	return FALSE;
@@ -132,18 +129,20 @@ OLC_FUN(skilled_create)
 OLC_FUN(skilled_edit)
 {
 	skill_t *sk;
+	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_SKILL) {
 		act_char("SkillEd: Insufficient security.", ch);
 		return FALSE;
 	}
 
-	if (argument[0] == '\0')
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0')
 		OLC_ERROR("'OLC EDIT'");
 
-	if (!(sk = skill_search(argument))) {
+	if (!(sk = skill_search(arg))) {
 		act_puts("SkillEd: $t: No such skill.",
-			 ch, argument, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
+			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
@@ -241,16 +240,18 @@ OLC_FUN(skilled_show)
 {
 	skill_t *sk;
 	BUFFER *buf;
+	char arg[MAX_INPUT_LENGTH];
 
-	if (argument[0] == '\0') {
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
 		if (IS_EDIT(ch, ED_SKILL))
 			EDIT_SKILL(ch, sk);
 		else
 			OLC_ERROR("'OLC ASHOW'");
 	} else {
-		if (!(sk = skill_search(argument))) {
+		if (!(sk = skill_search(arg))) {
 			act_puts("SkillEd: $t: no such skill.",
-				 ch, argument, NULL,
+				 ch, arg, NULL,
 				 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 			return FALSE;
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.133 2001-09-12 19:43:20 fjoe Exp $
+ * $Id: recycle.c,v 1.134 2001-09-13 12:03:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1048,22 +1048,7 @@ get_mob_index(int vnum)
  * skill_t
  */
 
-hash_t skills;
-
-hashdata_t h_skills =
-{
-	&hash_ops,
-
-	sizeof(skill_t), 1,
-
-	(e_init_t) skill_init,
-	(e_destroy_t) skill_destroy,
-	(e_cpy_t) skill_cpy,
-
-	STRKEY_HASH_SIZE,
-	k_hash_str,
-	ke_cmp_mlstr
-};
+avltree_t skills;
 
 avltree_info_t avltree_info_skills =
 {

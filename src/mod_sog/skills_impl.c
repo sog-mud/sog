@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills_impl.c,v 1.3 2001-09-12 19:43:10 fjoe Exp $
+ * $Id: skills_impl.c,v 1.4 2001-09-13 12:03:05 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -165,8 +165,7 @@ mob_skill_init(void)
 	mob_skill_t *mob_skill;
 
 	for (mob_skill = mob_skill_tab; mob_skill->sn; mob_skill++) {
-		C_STRKEY_CHECK(
-		    &skills, mob_skill->sn, "mob_skill_init");	// notrans
+		STRKEY_CHECK(&skills, mob_skill->sn);
 		mob_skill_count++;
 	}
 	qsort(mob_skill_tab, mob_skill_count, sizeof(mob_skill_t), cmpstr);

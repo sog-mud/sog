@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.35 2001-09-12 19:42:42 fjoe Exp $
+ * $Id: db_clan.c,v 1.36 2001-09-13 12:02:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -66,9 +66,7 @@ DBINIT_FUN(init_clans)
 
 DBLOAD_FUN(load_clan)
 {
-	clan_t clan;
-
-	clan_init(&clan);
+	clan_t *clan = NULL;
 
 	for (;;) {
 		bool fMatch = FALSE;
@@ -76,53 +74,70 @@ DBLOAD_FUN(load_clan)
 		fread_keyword(fp);
 		switch (rfile_tokfl(fp)) {
 		case 'A':
-			KEY("Altar", clan.altar_vnum, fread_number(fp));
+			CHECK_VAR(clan, "Name");
+
+			KEY("Altar", clan->altar_vnum, fread_number(fp));
 			break;
+
 		case 'E':
+			CHECK_VAR(clan, "Name");
+
 			if (IS_TOKEN(fp, "End")) {
-				clan_t *pclan;
-				if (IS_NULLSTR(clan.name)) {
-					log(LOG_ERROR, "load_clan: clan name not defined");
-				} else if ((pclan = c_insert(&clans,
-						clan.name, &clan)) != NULL) {
-					const char *file_name =
-						strkey_filename(clan.name, CLAN_EXT);
-					if (dfexist(PLISTS_PATH, file_name)) {
-						db_set_arg(&db_plists, "PLISTS",
-							   pclan);
-						db_load_file(&db_plists,
-							     PLISTS_PATH,
-							     file_name);
-					}
+				const char *filename;
+
+				filename = strkey_filename(
+				    clan->name, CLAN_EXT);
+				if (dfexist(PLISTS_PATH, filename)) {
+					db_set_arg(&db_plists, "PLISTS", clan);
+					db_load_file(
+					    &db_plists, PLISTS_PATH, filename);
 				}
-				clan_destroy(&clan);
+
 				return;
 			}
 			break;
+
 		case 'F':
-			KEY("Flags", clan.clan_flags,
+			CHECK_VAR(clan, "Name");
+
+			KEY("Flags", clan->clan_flags,
 			    fread_fstring(clan_flags, fp));
 			break;
+
 		case 'I':
-			KEY("Item", clan.obj_vnum, fread_number(fp));
+			CHECK_VAR(clan, "Name");
+
+			KEY("Item", clan->obj_vnum, fread_number(fp));
 			break;
+
 		case 'M':
-			KEY("Mark", clan.mark_vnum, fread_number(fp));
+			CHECK_VAR(clan, "Name");
+
+			KEY("Mark", clan->mark_vnum, fread_number(fp));
 			break;
+
 		case 'N':
-			SKEY("Name", clan.name, fread_string(fp));
+			SPKEY("Name", clan->name, fread_string(fp),
+			      &clans, clan);
 			break;
+
 		case 'R':
-			KEY("Recall", clan.recall_vnum, fread_number(fp));
+			CHECK_VAR(clan, "Name");
+
+			KEY("Recall", clan->recall_vnum, fread_number(fp));
 			break;
+
 		case 'S':
-			SKEY("SkillSpec", clan.skill_spec, c_fread_strkey(
-			    fp, &specs, "load_clan"));		// notrans
+			CHECK_VAR(clan, "Name");
+
+			SKEY("SkillSpec", clan->skill_spec,
+			     fread_strkey(fp, &specs));
+			break;
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "load_clan: %s: Unknown keyword",
-				 rfile_tok(fp));
+			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}
@@ -153,8 +168,8 @@ DBLOAD_FUN(load_plists)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "load_plists: %s: Unknown keyword",
-				 rfile_tok(fp));
+			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}

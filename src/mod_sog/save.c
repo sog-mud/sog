@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.194 2001-09-12 19:43:09 fjoe Exp $
+ * $Id: save.c,v 1.195 2001-09-13 12:03:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -649,10 +649,8 @@ fread_char(CHAR_DATA *ch, rfile_t *fp, int flags)
 			break;
 
 		case 'C':
-			KEY("Class", ch->class, c_fread_strkey(
-			    fp, &classes, "fread_char"));	// notrans
-			KEY("Clan", ch->clan, c_fread_strkey(
-			    fp, &clans, "fread_char"));		// notrans
+			KEY("Class", ch->class, fread_strkey(fp, &classes));
+			KEY("Clan", ch->clan, fread_strkey(fp, &clans));
 			KEY("ClanStatus", PC(ch)->clan_status,
 			    fread_number(fp));
 			if (IS_TOKEN(fp, "CndC")) {
@@ -788,8 +786,7 @@ fread_char(CHAR_DATA *ch, rfile_t *fp, int flags)
 			break;
 
 		case 'P':
-			KEY("Peti", PC(ch)->petition, c_fread_strkey(
-			    fp, &clans, "fread_char"));		// notrans
+			KEY("Peti", PC(ch)->petition, fread_strkey(fp, &clans));
 			KEY("PLev", PC(ch)->plevels, fread_number(fp));
 			SKEY("Pass", PC(ch)->pwd, fread_string(fp));
 			KEY("PC_Killed", PC(ch)->pc_killed, fread_number(fp));
@@ -807,8 +804,7 @@ fread_char(CHAR_DATA *ch, rfile_t *fp, int flags)
 		case 'R':
 			if (IS_TOKEN(fp, "Race")) {
 				free_string(ch->race);
-				ch->race = c_fread_strkey(
-				    fp, &races, "fread_char");	// notrans
+				ch->race = fread_strkey(fp, &races);
 				PC(ch)->race = str_qdup(ch->race);
 				race_resetstats(ch);
 				fMatch = TRUE;
@@ -840,14 +836,12 @@ fread_char(CHAR_DATA *ch, rfile_t *fp, int flags)
 			KEY("Silv", ch->silver, fread_number(fp));
 			if (IS_TOKEN(fp, "Spec")) {
 				const char **pspn = varr_enew(&PC(ch)->specs);
-				*pspn = c_fread_strkey(
-				    fp, &specs, "fread_char");	// notrans
+				*pspn = fread_strkey(fp, &specs);
 				fMatch = TRUE;
 			}
 			if (IS_TOKEN(fp, "Sk")) {
 				int value = fread_number(fp);
-				const char *sn = c_fread_strkey(
-				    fp, &skills, "fread_char");	// notrans
+				const char *sn = fread_strkey(fp, &skills);
 				set_skill(ch, sn, value);
 				free_string(sn);
 				fMatch = TRUE;
@@ -943,8 +937,7 @@ fread_pet(CHAR_DATA *ch, rfile_t *fp, int flags)
 			break;
 
 		case 'C':
-			KEY("Clan", pet->clan, c_fread_strkey(
-			    fp, &clans, "fread_pet"));		// notrans
+			KEY("Clan", pet->clan, fread_strkey(fp, &clans));
 			KEY("Comm", pet->comm, fread_flags(fp));
 			KEY("Chan", pet->chan, fread_flags(fp));
 			break;
@@ -1145,11 +1138,11 @@ fread_obj(CHAR_DATA *ch, CHAR_DATA *obj_to, rfile_t *fp, int flags)
 
 			if (IS_TOKEN(fp, "Spell")) {
 				int iValue = fread_number(fp);
-				const char *sn = c_fread_strkey(
-				    fp, &skills, "fread_obj");	// notrans
+				const char *sn = fread_strkey(fp, &skills);
 
 				if (iValue < 0 || iValue > 3) {
-					log(LOG_INFO, "fread_obj: %s: %d: bad iValue", ch->name, iValue);
+					log(LOG_INFO, "%s: %s: %d: bad iValue",
+					    __FUNCTION__, ch->name, iValue);
 					free_string(sn);
 				} else
 					STR_ASSIGN(obj->value[iValue], sn);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.c,v 1.13 2001-09-12 19:43:18 fjoe Exp $
+ * $Id: memalloc.c,v 1.14 2001-09-13 12:03:10 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,7 +34,7 @@
 #include <memalloc.h>
 
 #define GET_CHUNK(p)							\
-	((memchunk_t *) (((char*)(uintptr_t)(p)) - sizeof(memchunk_t)))
+	(((memchunk_t *) (uintptr_t)(p)) - 1)
 
 void *
 mem_alloc2(int type_tag, size_t mem_len, size_t mem_prealloc)
@@ -52,7 +52,7 @@ mem_alloc2(int type_tag, size_t mem_len, size_t mem_prealloc)
 	m->mem_prealloc = mem_prealloc;
 	m->mem_tags = 0;
 
-	return ((void*) (p + mem_prealloc + sizeof(memchunk_t)));
+	return (void *) (m + 1);
 }
 
 void
@@ -66,6 +66,7 @@ mem_free(const void *p)
 	m = GET_CHUNK(p);
 	if (m->mem_sign != MEM_VALID) {
 		log(LOG_INFO, "mem_free: invalid pointer");
+		abort();
 		return;
 	}
 

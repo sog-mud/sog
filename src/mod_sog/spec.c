@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.32 2001-09-12 19:43:10 fjoe Exp $
+ * $Id: spec.c,v 1.33 2001-09-13 12:03:05 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -395,7 +395,7 @@ has_spec(CHAR_DATA *ch, const char *spn)
 	if (IS_NPC(ch) || IS_NULLSTR(spn))
 		return FALSE;
 
-	C_STRKEY_CHECK(&specs, spn, "spec_add");		// notrans
+	STRKEY_CHECK(&specs, spn);
 
 	return varr_bsearch(&PC(ch)->specs, &spn, cmpstr) != NULL;
 }
@@ -411,7 +411,7 @@ spec_add(CHAR_DATA *ch, const char *spn)
 	if (IS_NULLSTR(spn))
 		return TRUE;
 
-	C_STRKEY_CHECK(&specs, spn, "spec_add");		// notrans
+	STRKEY_CHECK(&specs, spn);
 
 	pspn = varr_bsearch(&PC(ch)->specs, &spn, cmpstr);
 	if (pspn != NULL)
@@ -431,7 +431,7 @@ spec_del(CHAR_DATA *ch, const char *spn)
 	if (IS_NULLSTR(spn))
 		return TRUE;
 
-	C_STRKEY_CHECK(&specs, spn, "spec_add");		// notrans
+	STRKEY_CHECK(&specs, spn);
 
 	pspn = varr_bsearch(&PC(ch)->specs, &spn, cmpstr);
 	if (pspn == NULL)

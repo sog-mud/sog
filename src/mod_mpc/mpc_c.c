@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.25 2001-09-12 19:42:55 fjoe Exp $
+ * $Id: mpc_c.c,v 1.26 2001-09-13 12:02:57 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,6 +34,7 @@
 #include <memalloc.h>
 #include <varr.h>
 #include <hash.h>
+#include <avltree.h>
 #include <container.h>
 #include <dynafun.h>
 #include <util.h>
@@ -435,58 +436,51 @@ c_foreach_next(mpcode_t *mpc)
 void
 c_declare(mpcode_t *mpc)
 {
-	sym_t sym;
-	void *p;
+	sym_t *s;
+	const char *name = code_get(mpc);
 
 	TRACE((LOG_INFO, __FUNCTION__));
 
-	sym.name = str_dup(code_get(mpc));
-	sym.type = SYM_VAR;
-	sym.s.var.type_tag = CODE_GET(int, mpc);
-	sym.s.var.is_const = FALSE;
-	sym.s.var.block = CODE_GET(int, mpc);
+	s = c_insert(&mpc->syms, name);
+	mpc_assert(mpc, __FUNCTION__,
+	    s != NULL, "%s: duplicate symbol", name);
 
-	switch (sym.s.var.type_tag) {
-	case MT_STR:
-		sym.s.var.data.s = NULL;
+	s->name = str_dup(name);
+	s->type = SYM_VAR;
+	s->s.var.type_tag = CODE_GET(int, mpc);
+	s->s.var.is_const = FALSE;
+	s->s.var.block = CODE_GET(int, mpc);
+
+	switch (s->s.var.type_tag) {
+	case MT_INT:
+		s->s.var.data.i = 0;
 		break;
 
-	case MT_INT:
 	default:
-		sym.s.var.data.i = 0;
+		s->s.var.data.p = NULL;
 		break;
 	};
-
-	p = c_insert(&mpc->syms, sym.name, &sym);
-	if (p == NULL)
-		sym_destroy(&sym);
-	mpc_assert(mpc, __FUNCTION__,
-	    p != NULL, "%s: duplicate symbol", sym.name);
-	sym_destroy(&sym);
 }
 
 void
 c_declare_assign(mpcode_t *mpc)
 {
-	sym_t sym;
 	sym_t *s;
 	vo_t *v;
+	const char *name = code_get(mpc);
 
 	TRACE((LOG_INFO, __FUNCTION__));
 
-	sym.name = str_dup(code_get(mpc));
-	sym.type = SYM_VAR;
-	sym.s.var.type_tag = CODE_GET(int, mpc);
-	sym.s.var.is_const = FALSE;
-	sym.s.var.block = CODE_GET(int, mpc);
-	TRACE((LOG_INFO, "%s: block %d", __FUNCTION__, sym.s.var.block));
-
-	s = (sym_t *) c_insert(&mpc->syms, sym.name, &sym);
-	if (s == NULL)
-		sym_destroy(&sym);
+	s = (sym_t *) c_insert(&mpc->syms, name);
 	mpc_assert(mpc, __FUNCTION__,
-	    s != NULL, "%s: duplicate symbol", sym.name);
-	sym_destroy(&sym);
+	    s != NULL, "%s: duplicate symbol", name);
+
+	s->name = str_dup(name);
+	s->type = SYM_VAR;
+	s->s.var.type_tag = CODE_GET(int, mpc);
+	s->s.var.is_const = FALSE;
+	s->s.var.block = CODE_GET(int, mpc);
+	TRACE((LOG_INFO, "%s: block %d", __FUNCTION__, s->s.var.block));
 
 	v = pop(mpc);
 	s->s.var.data = *v;

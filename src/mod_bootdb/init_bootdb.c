@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.9 2001-09-12 19:42:46 fjoe Exp $
+ * $Id: init_bootdb.c,v 1.10 2001-09-13 12:02:54 fjoe Exp $
  */
 
 #include <sys/stat.h>
@@ -124,22 +124,29 @@ load_msgdb(void)
 		return;
 	}
 
-	mlstr_init(&ml);
 	for (;;) {
 		const char *key;
+		mlstring *mlp;
 
+		mlstr_init(&ml);
 		mlstr_fread(fp, &ml);
 		key = mlstr_mval(&ml);
 
-		if (!strcmp(key, "$"))
+		if (!strcmp(key, "$")) {
+			mlstr_destroy(&ml);
 			break;
+		}
 
-		if (!c_insert(&msgdb, key, &ml))
+		if ((mlp = c_insert(&msgdb, key)) == NULL) {
 			log(LOG_ERROR, "load_msgdb: %s: duplicate msg", key);
-		else
-			msgcnt++;
+			mlstr_destroy(&ml);
+			continue;
+		}
+
+		msgcnt++;
+		mlstr_cpy(mlp, &ml);
+		mlstr_destroy(&ml);
 	}
-	mlstr_destroy(&ml);
 
 	log(LOG_INFO, "load_msgdb: %d msgs loaded", msgcnt);
 	rfile_close(fp);
@@ -182,8 +189,9 @@ load_mprog(const char *name)
 	char buf[MAX_INPUT_LENGTH];
 	char *q;
 	rfile_t *fp;
-	mprog_t mprog;
 	mprog_t *mp;
+	const char *mp_name;
+	int mp_type;
 
 	fp = rfile_open(MPC_PATH, name);
 	if (fp == NULL) {
@@ -199,28 +207,29 @@ load_mprog(const char *name)
 	if (q == NULL)
 		q = strchr(name, '\0');
 
-	mprog_init(&mprog);
-	mprog.name = str_ndup(name, q - name);
+	mp_name = str_ndup(name, q - name);
 
 	if ((q = strchr(name, '_')) == NULL) {
 		log(LOG_ERROR, "load_mprog: %s: unable to determine mprog type (no underscores in name)", name);
-		mprog_destroy(&mprog);
+		free_string(mp_name);
 		goto bailout;
 	}
 	strnzncpy(buf, sizeof(buf), name, (size_t) (q - name));
 
-	if ((mprog.type = flag_svalue(mprog_types, buf)) < 0) {
+	if ((mp_type = flag_svalue(mprog_types, buf)) < 0) {
 		log(LOG_ERROR, "load_mprog: %s: unknown type", buf);
-		mprog_destroy(&mprog);
+		free_string(mp_name);
 		goto bailout;
 	}
 
-	if ((mp = (mprog_t *) c_insert(&mprogs, mprog.name, &mprog)) == NULL) {
-		fprintf(stderr, "load_mprog: %s: duplicate mprog", mprog.name);
-		mprog_destroy(&mprog);
+	if ((mp = (mprog_t *) c_insert(&mprogs, mp_name)) == NULL) {
+		fprintf(stderr, "load_mprog: %s: duplicate mprog", mp_name);
+		free_string(mp_name);
 		goto bailout;
 	}
 
+	mp->name = mp_name;
+	mp->type = mp_type;
 	mp->text = str_ndup(fp->p, fp->len);
 
 bailout:

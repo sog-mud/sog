@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_hometown.c,v 1.14 2001-09-12 19:42:43 fjoe Exp $
+ * $Id: db_hometown.c,v 1.15 2001-09-13 12:02:51 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -97,8 +97,8 @@ DBLOAD_FUN(load_hometown)
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "load_hometown: %s: Unknown keyword",
-				 rfile_tok(fp));
+			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}

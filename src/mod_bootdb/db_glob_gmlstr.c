@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_glob_gmlstr.c,v 1.3 2001-09-12 19:42:43 fjoe Exp $
+ * $Id: db_glob_gmlstr.c,v 1.4 2001-09-13 12:02:51 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -51,15 +51,25 @@ DBINIT_FUN(init_glob_gmlstr)
 DBLOAD_FUN(load_glob_gmlstr)
 {
 	gmlstr_t gml;
+	gmlstr_t *gmlp;
 
 	gmlstr_init(&gml);
 	mlstr_fread(fp, &gml.ml);
 	if (mlstr_null(&gml.ml)) {
 		gmlstr_destroy(&gml);
-		log(LOG_ERROR, "load_glob_gmlstr: null gmlstr");
+		log(LOG_ERROR, "%s: null gmlstr", __FUNCTION__);
 		fread_to_end(fp);
 		return;
 	}
+
+	if ((gmlp = c_insert(&glob_gmlstr, gmlstr_mval(&gml))) == NULL) {
+		log(LOG_ERROR, "%s: %s: duplicate gmlstr",
+		    __FUNCTION__, gmlstr_mval(&gml));
+		fread_to_end(fp);
+		return;
+	}
+	gmlstr_cpy(gmlp, &gml);
+	gmlstr_destroy(&gml);
 
 	for (;;) {
 		bool fMatch = FALSE;
@@ -67,22 +77,17 @@ DBLOAD_FUN(load_glob_gmlstr)
 		fread_keyword(fp);
 		switch (rfile_tokfl(fp)) {
 		case 'E':
-			if (IS_TOKEN(fp, "End")) {
-				if (c_insert(&glob_gmlstr, gmlstr_mval(&gml), &gml) == NULL) {
-					log(LOG_ERROR, "load_gmlstr: duplicate gmlstr");
-				}
-				gmlstr_destroy(&gml);
+			if (IS_TOKEN(fp, "End"))
 				return;
-			}
 			break;
 		case 'G':
-			MLSKEY("gender", gml.gender);
+			MLSKEY("gender", gmlp->gender);
 			break;
 		}
 
 		if (!fMatch) {
-			log(LOG_ERROR, "load_glob_gmlstr: %s: Unknown keyword",
-				 rfile_tok(fp));
+			log(LOG_ERROR, "%s: %s: Unknown keyword",
+			    __FUNCTION__, rfile_tok(fp));
 			fread_to_eol(fp);
 		}
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.364 2001-09-12 19:42:36 fjoe Exp $
+ * $Id: merc.h,v 1.365 2001-09-13 12:02:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2152,13 +2152,8 @@ typedef struct evf_t {
 	EVENT_FUN *		fun;
 } evf_t;
 
-#ifdef NOTYET
 extern avltree_t skills;
 extern avltree_info_t avltree_info_skills;
-#else
-extern hash_t skills;
-extern hashdata_t h_skills;
-#endif
 
 #define IS_SKILL(sn1, sn2)	(!str_cmp((sn1), (sn2)))
 

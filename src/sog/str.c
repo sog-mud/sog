@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.33 2001-09-12 12:32:53 fjoe Exp $
+ * $Id: str.c,v 1.34 2001-09-13 12:03:11 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -58,8 +58,8 @@ struct str {
 	str *		next;
 };
 
-#define GET_DATA(s) (((const char *) s) + sizeof(str) + sizeof(memchunk_t))
-#define GET_STR(p) ((str *)(uintptr_t)(((const char *) p) - sizeof(str) - sizeof(memchunk_t)))
+#define GET_DATA(s) (((const char *) (s)) + sizeof(str) + sizeof(memchunk_t))
+#define GET_STR(p) ((str *)(uintptr_t)(((const char *) (p)) - sizeof(str) - sizeof(memchunk_t)))
 
 str *hash_str[MAX_STRING_HASH];
 

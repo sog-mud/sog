@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.143 2001-09-12 19:42:58 fjoe Exp $
+ * $Id: olc.c,v 1.144 2001-09-13 12:02:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -286,6 +286,9 @@ OLC_FUN(olced_strkey)
 	olced_strkey_t *o;
 	void *q;
 
+	act_char("olced_strkey is currently broken.", ch);
+	return FALSE;
+
 	one_argument(argument, arg, sizeof(arg));
 	if (IS_NULLSTR(arg)) {
 		act_puts("Syntax: $t <string>",
@@ -309,7 +312,7 @@ OLC_FUN(olced_strkey)
 	}
 
 	o = (olced_strkey_t *) cmd->arg1;
-	if ((q = c_insert(o->c, arg, ch->desc->pEdit)) == NULL) {
+	if ((q = c_insert(o->c, arg)) == NULL) {
 		act_puts("$t: $T: duplicate name.",
 			 ch, OLCED(ch)->name, arg,
 			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
@@ -347,6 +350,9 @@ _olced_mlstrkey(CHAR_DATA *ch, const char *langname, const char *argument,
 	const char *old_key;
 	void *q;
 	olced_strkey_t *o;
+
+	act_char("olced_mlstrkey is currently broken.", ch);
+	return FALSE;
 
 	if (IS_NULLSTR(argument)) {
 		act_puts("Syntax: $t <lang> <string>",
@@ -392,7 +398,7 @@ _olced_mlstrkey(CHAR_DATA *ch, const char *langname, const char *argument,
 			return TRUE;
 		}
 
-		if ((q = c_insert(o->c, argument, q)) == NULL) {
+		if ((q = c_insert(o->c, argument)) == NULL) {
 			act_puts("$t: $T: duplicate name.",
 				 ch, OLCED(ch)->name, argument,
 				 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
@@ -1403,7 +1409,7 @@ VALIDATE_FUN(validate_room_vnum)
 VALIDATE_FUN(validate_skill_spec)
 {
 	const char *spn = (const char *) arg;
-	C_STRKEY_CHECK(&specs, spn, OLCED(ch)->name);
+	C_STRKEY_CHECK(OLCED(ch)->name, &specs, spn);
 	return TRUE;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mprog.c,v 1.6 2001-09-12 19:43:02 fjoe Exp $
+ * $Id: olc_mprog.c,v 1.7 2001-09-13 12:03:01 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -56,7 +56,6 @@ static void mprog_update_type(CHAR_DATA *ch, mprog_t *mp);
 OLC_FUN(mped_create)
 {
 	mprog_t *mp;
-	mprog_t mprog;
 	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_MPROG) {
@@ -73,16 +72,13 @@ OLC_FUN(mped_create)
 	 * adds new elements to the end of varr
 	 */
 
-	mprog_init(&mprog);
-	mprog.name	= str_dup(arg);
-	mp = c_insert(&mprogs, mprog.name, &mprog);
-
-	if (mp == NULL) {
+	if ((mp = c_insert(&mprogs, arg)) == NULL) {
 		act_puts("MProgEd: $t: already exists.",
 			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
+	mp->name = str_dup(arg);
 	mp->text = str_printf(
 	    "/*\n"
 	    " * $%s$\n"

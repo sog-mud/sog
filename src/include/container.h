@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: container.h,v 1.1 2001-09-12 19:42:33 fjoe Exp $
+ * $Id: container.h,v 1.2 2001-09-13 12:02:46 fjoe Exp $
  */
 
 #ifndef _CONTAINER_H_
@@ -39,7 +39,7 @@ struct c_ops_t {
 
 	void *(*c_lookup)(void *c, const void *k);
 
-	void *(*c_add)(void *c, const void *k, const void *e, int flags);
+	void *(*c_add)(void *c, const void *k, int flags);
 	void (*c_delete)(void *c, const void *k);
 
 	void *(*c_foreach)(void *c, foreach_cb_t cb, va_list ap);
@@ -57,10 +57,10 @@ struct c_ops_t {
 
 #define c_lookup(c, k)		(C_OPS(c)->c_lookup((c), (k)))
 
-#define c_insert(c, k, e)	(C_OPS(c)->c_add(c, k, e, CA_F_INSERT))
-#define c_update(c, k, e)	(C_OPS(c)->c_add((c), (k), (e), CA_F_UPDATE))
-#define c_replace(c, k, e)	(C_OPS(c)->c_add(			\
-				    (c), (k), (e), CA_F_INSERT | CA_F_UPDATE))
+#define c_insert(c, k)		(C_OPS(c)->c_add((c), (k), CA_F_INSERT))
+#define c_update(c, k)		(C_OPS(c)->c_add((c), (k),  CA_F_UPDATE))
+#define c_replace(c, k)		(C_OPS(c)->c_add(			\
+				    (c), (k), CA_F_INSERT | CA_F_UPDATE))
 
 #define c_delete(c, k)		(C_OPS(c)->c_delete((c), (k)))
 
@@ -79,21 +79,25 @@ void *c_mlstrkey_search(void *c, const char *name);
 void c_strkey_dump(void *c, BUFFER *buf);
 void c_mlstrkey_dump(void *c, BUFFER *buf);
 
-const char *c_fread_strkey(rfile_t *fp, void *c, const char *id);
+const char *c_fread_strkey(const char *ctx, rfile_t *fp, void *c);
+#define fread_strkey(fp, c)						\
+	c_fread_strkey(__FUNCTION__, (fp), (c))
 
 void *c_random_elem_foreach(void *c);
 
 #define C_STRKEY_STRICT_CHECKS
 #if defined(C_STRKEY_STRICT_CHECKS)
-#define C_STRKEY_CHECK(c, key, id)					\
+#define C_STRKEY_CHECK(ctx, c, key)					\
 	do {								\
 		if (!IS_NULLSTR(key)					\
 		&&  c_strkey_lookup((c), (key)) == NULL)		\
 			log(LOG_WARN, "%s: unknown string key '%s'",	\
-			    id, key);					\
+			    (ctx), (key));				\
 	} while (0)
+#define STRKEY_CHECK(c, key)	C_STRKEY_CHECK(__FUNCTION__, (c), (key))
 #else
-#define C_STRKEY_CHECK(h, key, id)
+#define C_STRKEY_CHECK(ctx, c, key)
+#define STRKEY_CHECK(c, key)
 #endif
 
 #define DEFINE_C_OPS(name)						\
@@ -101,8 +105,7 @@ void *c_random_elem_foreach(void *c);
 									\
 	static void *name##_lookup(void *c, const void *k);		\
 									\
-	static void *name##_add(void *c, const void *k, const void *e,	\
-			       int flags);				\
+	static void *name##_add(void *c, const void *k, int flags);	\
 	static void name##_delete(void *c, const void *k);		\
 									\
 	static void *name##_foreach(void *c, foreach_cb_t cb, va_list ap); \

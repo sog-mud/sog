@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.51 2001-09-12 19:42:59 fjoe Exp $
+ * $Id: olc_clan.c,v 1.52 2001-09-13 12:02:59 fjoe Exp $
  */
 
 #include "olc.h"
@@ -76,7 +76,6 @@ static void *save_clan_cb(void *p, va_list ap);
 
 OLC_FUN(claned_create)
 {
-	clan_t clan;
 	clan_t *cl;
 	char arg[MAX_STRING_LENGTH];
 
@@ -94,17 +93,13 @@ OLC_FUN(claned_create)
 	 * adds new elements to the end of varr
 	 */
 
-	clan_init(&clan);
-	clan.name = str_dup(arg);
-	cl = c_insert(&clans, clan.name, &clan);
-	clan_destroy(&clan);
-
-	if (cl == NULL) {
+	if ((cl = c_insert(&clans, arg)) == NULL) {
 		act_puts("ClanEd: $t: already exists.",
 			 ch, arg, NULL, TO_CHAR | ACT_NOTRANS, POS_DEAD);
 		return FALSE;
 	}
 
+	cl->name = str_dup(arg);
 	ch->desc->pEdit	= cl;
 	OLCED(ch)	= olced_lookup(ED_CLAN);
 	touch_clan(cl);
