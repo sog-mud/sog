@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.6 1999-12-15 15:35:40 fjoe Exp $
+ * $Id: olc_skill.c,v 1.7 1999-12-15 21:25:29 avn Exp $
  */
 
 #include "olc.h"
@@ -237,7 +237,7 @@ OLC_FUN(skilled_show)
 				flag_string(skill_flags, sk->skill_flags));
 	if (sk->min_mana)
 		buf_printf(buf, "MinMana    [%d]\n", sk->min_mana);
-	mlstr_dump(buf, "NounDamage [%s]\n", &sk->noun_damage);
+	mlstr_dump(buf, "NounDamage ", &sk->noun_damage);
 	if (sk->slot)
 		buf_printf(buf, "Slot       [%d]\n", sk->slot);
 
