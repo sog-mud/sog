@@ -1862,7 +1862,7 @@ skeleton~
 a skeleton of a decayed creature~
 A skeleton with sticky bits of decayed flesh is here.~
 bone~
-unknown 0 A 0
+npc_corpse 0 A 0
 0 0 0 0 0
 0 0 0 P
 #29757

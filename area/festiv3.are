@@ -2163,7 +2163,7 @@ hole dark нора~
 @eng A dark hole beckons you amidst the bushes.@rus Темная нора (hole) виднеется среди кустов.~
 ebony~
 portal Y B 0
-0 EMNOPQRSTUVWXYZabcde A 36348 0
+0 0 A 36348 0
 0 1000 0 P
 g @rus female~
 #36385
@@ -2533,7 +2533,7 @@ gap щель~
 @eng A gap between the roots of the shrub looks very interesting.@rus Щель (gap) между корнями куста выглядит интригующе.~
 wood~
 portal Y 0 0
-0 EMNOPQRSTUVWXYZabcde A 36352 0
+0 0 A 36352 0
 0 10000 0 P
 g @rus female~
 #36411
@@ -2649,7 +2649,7 @@ portrait grandfather портрет~
 @eng A portrait of Grandfather hangs on the wall.@rus Портрет Дедушки (portrait) висит на стене.~
 canvas~
 portal AY B 0
-0 EMNOPQRSTUVWXYZabcde A 36358 0
+0 0 A 36358 0
 0 10000 0 P
 g @rus male~
 #36421
@@ -2658,7 +2658,7 @@ mirror wall зеркало~
 @eng A long wide mirror stands by the wall.@rus Высокое и широкое зеркало (mirror) стоит у стены (wall).~
 glass~
 portal Y B 0
-0 EMNOPQRSTUVWXYZabcde A 36357 0
+0 0 A 36357 0
 0 10000 0 P
 g @rus none~
 #36422
