@@ -1,5 +1,5 @@
 #
-# $Id: mprogs.txt,v 1.26 2004-02-13 14:56:54 fjoe Exp $
+# $Id: mprogs.txt,v 1.27 2004-02-18 23:42:27 fjoe Exp $
 #
 
 MPC code style
@@ -137,24 +137,38 @@ case const:
 foreach (var, iter([iter args...]))
 	stmt;
 
-4) 'return' operator
+4) 'break' operator
+
+break [label];
+
+Прерывает 'foreach' цикл. Если указана метка, то прерывает
+'foreach' цикл, помеченный этой меткой.
+
+5) 'continue' operator
+
+continue [label];
+
+Переходит на следущую итерацию 'foreach' цикла. Если указана метка,
+то переходит на следущую итерацию 'foreach' цикла, помеченного этой меткой.
+
+6) 'return' operator
 
 return expr;
 
-5) expression
+7) expression
 
 expr;
 
-6) compound statement
+8) compound statement
 
 {
 	stmt;
 	...
 }
 
-7) declaration
+9) declaration
 
-7.1) type var [= expr];
+9.1) type var [= expr];
 	Объявление переменной типа type с именем var (с инициализатором).
 
 Примеры:
@@ -162,7 +176,7 @@ expr;
 int i = 0;	// объявление переменной i типа int и инциализация ее нулем
 string s;	// объявление переменной s типа string
 
-7.2) {persistent | static} type var[ident];
+9.2) {persistent | static} type var[ident];
 
 	Объявление статической переменной типа type с именем ident,
 связанной с (хранящейся в) переменной var.
