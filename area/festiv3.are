@@ -1,6 +1,6 @@
 #AREADATA
 Name Festival Town~
-Builders agrael kami thorn~
+Builders agrael kami thorn diogen~
 VNUMs 36300 36499
 Credits Agrael Kami~
 Security 9
@@ -9,13 +9,18 @@ End
 
 #MOBILES
 #36300
-grand father old man~
-Grandfather~
-You see a powerful old man standing here.
+grandfather old man дедушка~
+@eng Grandfather@rus Дедушка~
+@eng You see a powerful old man standing here.
+@rus Ты видишь могучего старика (grandfather), стоящего тут.
 ~
-{x    You gaze upon a majestic old man with grey hair and long beard
+@eng {x    You gaze upon a majestic old man with grey hair and long beard
 lowered on his cape. He looks like a person who has passed through
 lots of trials and known the reality of life.
+@rus Ты смотришь на величественного старика с седыми волосами
+и длинной бородой, спускающейся до пояса. Он выглядит как
+человек, прошедший через многие испытания и знающий, почем
+фунт лиха.
 ~
 ghost~
 ATf BDFU 0 0
@@ -28,45 +33,60 @@ F act O
 M death 36301 100~
 M fight 36300 40~
 #36301
-Green Bowman man~
-green bowman~
-A tall man stands here shooting arrows.
+bowman man green лучник~
+@eng green bowman@rus ~~Зеленый~~ ~~лучник~~~
+@eng A tall man stands here shooting arrows.
+@rus Высокий лучник (bowman) выпускает стрелы одна за одной.
 ~
-A tall man dressed all in green stands here. A red plume flows above 
+@eng A tall man dressed all in green stands here. A red plume flows above 
 his hat. He looks at you then scans to the north, preparing an arrow
 to shoot. His longbow sounds sharply and you think that better to 
 stay away of the pass he is shooting.
+@rus Высокий мужчина, облаченный в зеленые одежды, стоит тут. Красное
+перо развевается над его шапочкой. Он оглянулся на тебя и снова стал
+вглядываться на север, вытаскивая очередную стрелу из колчана. Его
+длинный лук с сильным звоном спущенный тетивы посылает стрелу точно
+в цель, и ты стараешься уйти с линии огня.
 ~
 human~
-AGT FNPUZ 1000 0
+AGT FNPZ 1000 0
 91 0 101d20+30000 85d10+1000 13d10+70 punch
 -60 -60 -60 -58
 EFHIJKLNQY ABIX LQ G
 sit stand male 5000
 0 0 medium unknown
 #36302
-Acute Eye red man~
-Acute Eye~
-A sneaky red-skinned man throws axes northward.
+man acute eye индеец~
+@eng Acute Eye@rus ~~Зоркий~~ ~~Глаз~~~
+@eng A sneaky red-skinned man throws axes northward.
+@rus Ловкий индеец (acute) метает топоры в цель.
 ~
-This man seems to be very strong. His eyes glows red and you realize
+@eng This man seems to be very strong. His eyes glows red and you realize
 that you'll never be such a person like he. You are to fall on your
 knees and to bow before him.
+@rus Вождь краснокожих Зоркий Глаз выглядит очень величественно. Его
+глаза светятся красным, его движения выверены, и ты понимаешь, что
+тебе никогда не стать таким же, как он. Ты готов упасть на колени
+и поклониться ему.
 ~
 human~
-AGT JPUVc 0 0
+AGT JPVc 0 0
 90 0 91d20+22000 82d10+1000 11d11+60 punch
 -55 -55 -55 -53
 AEFHIJKN T H I
 sit stand male 10000
 0 0 medium unknown
 #36303
-tumbu yumbu black man~
-Tumbu-Yumbu~
-A man with black hair stands here.
+tumbu yumbu black man негр~
+@eng Tumbu-Yumbu@rus Тумбу-Юмбу~
+@eng A man with black hair stands here.
+@rus Черноволосый мужчина (tumbu) улыбается тебе.
 ~
-"Such a pity that you forget your bag! Your would be able to gather
+@eng "Such a pity that you forget your bag! Your would be able to gather
 some memories about my life." - says Tumbu-Yumbu and smiles at you.
+@rus "Какая жалость, что ты не захватил с собой большую сумку! Ты
+мог бы собрать большую колекцию моих воспоминаний." - говорит
+Тумбу-Юмбу и улыбается тебе.
 ~
 human~
 AGT DOVZ -100 0
@@ -76,16 +96,20 @@ CFHIKN 0 H I
 sit stand male 3000
 0 0 medium unknown
 #36304
-lee huang wang black man~
-Lee Huang Wang~
-A man dressed in black screams and attacks!
+lee huang wang black man китаец~
+@eng Lee Huang Wang@rus Ли Хуань ~~Ван~~~
+@eng A man dressed in black screams and attacks!
+@rus Некто (lee), облаченный в черные доспехи, вскрикивает и нападает.
 ~
-You are lucky! Fortunatly, he attacks not you but a target at the 
+@eng You are lucky! Fortunatly, he attacks not you but a target at the 
 northern edge of the lawn. His dark clothes shine brightly for being
 polished.
+@rus Тебе повезло! К счастью, он атакует не тебя, а мишень на
+северном краю поляны. Его темные доспехи сверкают на солнце,
+тщательно отполированые.
 ~
 human~
-AGT OUa -300 0
+AGT Oa -300 0
 90 0 95d20+23000 85d10+1000 11d11+70 pound
 -60 -65 -65 -55
 ADEFIJK 0 IP HN
@@ -989,9 +1013,9 @@ M fight 36302 100~
 
 #OBJECTS
 #36300
-bracer feathery~
-@eng feathery bracer@rus браслет из перьев~
-@eng Beautiful color feathers lie here.@rus Красивые цветные перья лежат здесь.~
+bracer feathery браслет feathers~
+@eng feathery bracer@rus ~~браслет~~ из перьев~
+@eng Beautiful color feathers lie here.@rus Красивые разноцветные перья (feathers) лежат здесь.~
 feathers~
 armor A AM
 25 25 25 10 0
@@ -1006,11 +1030,11 @@ A
 18 6
 A
 19 6
-G none
+G male
 #36301
-tomahawk axe~
-@eng tomahawk@rus томогавк~
-@eng A small throwing axe lies on the ground.@rus Небольшой метательный топорик валяется на земле.~
+tomahawk axe томагавк~
+@eng tomahawk@rus томагавк~
+@eng A small throwing axe lies on the ground.@rus Небольшой метательный топорик (axe) валяется на земле.~
 steel~
 weapon BY AN
 axe 15 7 slash DEK
@@ -1019,11 +1043,11 @@ A
 18 11
 A
 19 15
-G none
+G male
 #36302
-necklace tooth~
-@eng tooth necklace@rus ожерелье из зубов~
-@eng A set of teeth lies here.@rus Коллекция всевозможных зубов лежит здесь.~
+necklace tooth ожерелье~
+@eng tooth necklace@rus ~~ожерелье~~ из клыков~
+@eng A set of teeth lies here.@rus Коллекция всевозможных зубов (tooth) лежит здесь.~
 horn~
 armor BG AC
 26 28 26 20 0
@@ -1038,9 +1062,9 @@ A
 19 7
 G none
 #36303
-skirt palm~
-@eng short palm skirt@rus короткая юбка из пальмовых листьев~
-@eng A bunch of palm leaves lies on the ground.@rus Связка пальмовых листьев лежит тут.~
+skirt palm юбка~
+@eng short palm skirt@rus ~~короткая~~ ~~юбка~~ из пальмовых листьев~
+@eng A bunch of palm leaves lies on the ground.@rus Связка пальмовых (palm) листьев лежит тут.~
 bamboo~
 armor I AF
 20 20 20 10 0
@@ -1055,11 +1079,11 @@ A
 18 7
 A
 19 7
-G none
+G female
 #36304
-bracer charisma feathery~
-@eng bracer of charisma@rus Браслет удачи~
-@eng A feathery bracer is hanging here.@rus Пушистый браслет весит здесь.~
+bracer charisma feathery браслет~
+@eng bracer of charisma@rus ~~браслет~~ удачи~
+@eng A feathery bracer is hanging here.@rus Пушистый браслет (bracer) висит здесь.~
 feathers~
 armor AGI AI
 25 25 25 19 0
@@ -1072,11 +1096,11 @@ A
 18 7
 A
 19 7
-G none
+G male
 #36305
-shield ebony~
-@eng ebony shield@rus Эбеновый щит~
-@eng An ebony shield lies neglected.@rus Щит из темного дерева лежит неподалеку.~
+shield ebony щит~
+@eng ebony shield@rus ~~щит~~ из черного дерева~
+@eng An ebony shield lies neglected.@rus Щит (shield) из черного дерева оставлен на земле.~
 ebony~
 armor CE AJ
 35 35 35 15 0
@@ -1091,11 +1115,11 @@ A
 18 8
 A
 19 8
-G none
+G male
 #36306
-skin leo~
+lion шкура skin~
 @eng leo skin@rus ~~львиная~~ ~~шкура~~~
-@eng A sneaking lion tries to bite you.@rus Крадущийся лев (leo) пытается уксить тебя.~
+@eng A sneaking lion tries to bite you.@rus Крадущийся лев (lion) пытается укусить тебя.~
 hard leather~
 armor H AK
 25 26 24 19 0
@@ -1112,11 +1136,11 @@ A
 19 8
 A
 24 -5
-G none
+G female
 #36307
-stick reet spear bamboo~
+stick reet spear bamboo копье~
 @eng reet stick@rus ~~бамбуковая~~ ~~палочка~~~
-@eng A long piece of bamboo lies here.@rus Длинный кусок бамбука лежит здесь.~
+@eng A long piece of bamboo lies here.@rus Длинный кусок бамбука (stick) лежит здесь.~
 bamboo~
 weapon BI AN
 spear 11 10 pierce CK
@@ -1125,11 +1149,11 @@ A
 18 10
 A
 19 10
-G none
+G female
 #36308
-casque black helm~
+casque black helm шлем~
 @eng black casque@rus ~~черный~~ ~~шлем~~~
-@eng A strange helm gets your attention.@rus Странный шлем привлек твое внимание.~
+@eng A strange helm gets your attention.@rus Странный шлем (casque) привлек твое внимание.~
 iron~
 armor E AE
 30 30 30 20 0
@@ -1138,11 +1162,11 @@ A
 18 8
 A
 19 8
-G none
+G male
 #36309
-plate black scale~
+plate black scale кольчуга~
 @eng black scale platemail@rus ~~черная~~ ~~кольчуга~~~
-@eng A plate glows in dark.@rus Кольчуга блестит в темноте.~
+@eng A plate glows in dark.@rus Кольчуга (platemail) блестит в темноте.~
 black dragonscale~
 armor ABCEG AD
 35 35 35 27 0
@@ -1155,11 +1179,11 @@ A
 19 12
 A
 24 -5
-G none
+G female
 #36310
-gauntlets black dragon~
+gauntlets black dragon перчатки~
 @eng black dragon gauntlets@rus ~~перчатки~~ из кожи черного дракона~
-@eng A pair of dark scale gauntlets is waiting to be worn.@rus Пара черных перчаток ждет своего хозяина.~
+@eng A pair of dark scale gauntlets is waiting to be worn.@rus Пара черных перчаток (gauntlets) ждет своего хозяина.~
 black dragonscale~
 armor ABCEG AH
 30 30 30 24 0
@@ -1168,11 +1192,11 @@ A
 18 7
 A
 19 7
-G none
+G plural
 #36311
-plates leg black dragon~
+leg black dragon plates поножи~
 @eng black dragon leg plates@rus ~~поножи~~ из черной драконьей кожи~
-@eng A pile of black scale lies here.@rus Груда черной чешуи лежит здесь.~
+@eng A pile of black scale lies here.@rus Груда черной чешуи (leg) лежит здесь.~
 black dragonscale~
 armor ABCEG AF
 28 28 28 16 0
@@ -1183,11 +1207,11 @@ A
 18 7
 A
 19 7
-G none
+G plural
 #36312
 bow short~
 @eng short bow@rus ~~короткий~~ ~~лук~~~
-@eng A short wooden bow lies here.@rus Короткий деревянный лук лежит тут.~
+@eng A short wooden bow lies here.@rus Короткий деревянный лук (bow) лежит тут.~
 wood~
 weapon G AN
 bow 8 10 blast 0
@@ -1196,11 +1220,11 @@ A
 18 5
 A
 19 5
-G none
+G male
 #36313
-boots black scale dragon~
+boots black scale dragon сапоги~
 @eng black dragon boots@rus ~~черные~~ ~~сапоги~~~
-@eng A pair of scale dragon boots sits here.@rus Драконьи морды с носков чернах сапог грозно поглядавают на тебя.~
+@eng A pair of scale dragon boots sits here.@rus Драконьи морды грозно поглядавают на тебя с носков чернах сапог (boots).~
 black dragonscale~
 armor ABCEG AG
 31 28 31 20 0
@@ -1211,18 +1235,18 @@ A
 18 8
 A
 19 8
-G none
+G plural
 #36314
-pot ink girth~
+pot ink girth чернильница~
 @eng ink-pot@rus ~~чернильница~~~
-@eng An ink-pot is hanging on a rope.@rus Чернильница весит на шнурке.~
+@eng An ink-pot is hanging on a rope.@rus Чернильница (ink pot) висит на шнурке.~
 quartz~
-armor AGIY AL
-0 0 0 0 0
+drink AGIY AL
+100 0 'water' 0 0
 25 0 1000 P
 A
 4 10
-G none
+G female
 #36315
 apple~
 @eng apple@rus ~~яблоко~~~
@@ -1475,7 +1499,7 @@ A
 G none
 #36329
 leggings scalp~
-@eng scalp leggings@rus ~~штаны~~ ~~украшенные~~ скальпами~
+@eng scalp leggings@rus ~~штаны~~, ~~украшенные~~ скальпами~
 @eng Someone has left a pile of scalps here.@rus Некто оставил тут кучу скальпов.~
 fur~
 armor CEG AF
@@ -1744,8 +1768,8 @@ A
 G none
 #36347
 pen goose~
-goose pen~
-A feather shaped like a pen lies here.~
+@eng goose pen@rus ~~гусиное~~ ~~перо~~~
+@eng A feather shaped like a pen lies here.@rus Остро очиненое перо лежит здесь.~
 feathers~
 weapon BIJK AN
 exotic 5 7 pierce 0
@@ -1759,8 +1783,8 @@ A
 G none
 #36348
 scroll dispatch witch hunt~
-witch-hunt dispatch~
-A scroll lies on the table.~
+@eng witch-hunt dispatch@rus донос~
+@eng A scroll lies on the table.@rus Свиток лежит на столе.~
 kid leather~
 scroll ABGITU AO
 35 'cancellation' 'curse' 'dispel evil' 'dispel magic'
@@ -1768,8 +1792,8 @@ scroll ABGITU AO
 G none
 #36349
 scroll rescript witch hunt~
-witch-hunt rescript~
-A scroll with a big circle stamp hangs on the wall.~
+@eng witch-hunt rescript@rus ~~распоряжение~~ об охоте на ведьм~
+@eng A scroll with a big circle stamp hangs on the wall.@rus Свиток с большой круглой печатью висит на стене.~
 kid leather~
 scroll ABGUY AO
 90 'dispel magic' 'dispel evil' 'cancellation' 'weaken'
@@ -1777,8 +1801,8 @@ scroll ABGUY AO
 G none
 #36350
 ring tournament~
-tournament ring~
-A ring engraved with a short inscription lies here.~
+@eng tournament ring@rus ~~турнирное~~ ~~кольцо~~~
+@eng A ring engraved with a short inscription lies here.@rus Кольцо с выгравированной на нем короткой надписью лежит тут.~
 iron~
 armor 0 AB
 8 8 8 5 0
@@ -1790,8 +1814,8 @@ A
 G none
 #36351
 scarf tournament~
-tournament scarf~
-A scarf with a short inscription lies on the ground.~
+@eng tournament scarf@rus ~~турнирный~~ ~~шарф~~~
+@eng A scarf with a short inscription lies on the ground.@rus Шарф с короткой надписью лежит на земле.~
 iron~
 armor 0 AC
 10 10 10 5 0
@@ -1803,8 +1827,8 @@ A
 G none
 #36352
 helm tournament~
-tournament helm~
-An iron helm lies here.~
+@eng tournament helm@rus ~~турнирный~~ ~~шлем~~~
+@eng An iron helm lies here.@rus Железный шлем лежит здесь.~
 iron~
 armor 0 AE
 15 15 15 10 0
@@ -1814,8 +1838,8 @@ A
 G none
 #36353
 plate breast tournament~
-tournament breast plate~
-A plate with dark carvings lies here neglected.~
+@eng tournament breast plate@rus ~~турнирный~~ ~~нагрудник~~~
+@eng A plate with dark carvings lies here neglected.@rus Нагрудник с темной надписью лежит неподалеку.~
 iron~
 armor 0 AD
 15 15 15 10 0
@@ -1827,8 +1851,8 @@ A
 G none
 #36354
 plate leg tournament~
-tournament leg's plate~
-A pile of a tournament armor lies here.~
+@eng tournament leg's plate@rus ~~турнирные~~ ~~поножи~~~
+@eng A pile of a tournament armor lies here.@rus Груда турнирных доспехов лежит тут.~
 iron~
 armor 0 AF
 10 10 10 5 0

@@ -112,12 +112,16 @@ ATc FHJNVf 1000 0
 stand stand male 0
 0 0 medium unknown
 #16
-squire~
-the squire~
-A squire is stands here, with a smile in his face.
+squire оруженосец~
+@eng the squire@rus оруженосец~
+@eng A squire is stands here, with a smile in his face.
+@rus Оруженосец (squire) стоит здесь с глупой улыбкой на лице.
 ~
-This noble squire is serving his apprenticeship in the ways of honor
+@eng This noble squire is serving his apprenticeship in the ways of honor
 and chivalry under his master.
+@rus Юноша благородного происхождения. Он совершенствует свои воинские
+умения и готовится к посвящению в рыцари под руководством своего
+мудрого наставника.
 ~
 human~
 ATc FHJNSVf 1000 0
@@ -442,7 +446,7 @@ corpse труп~
 @eng the corpse of %s@rus ~~труп~~ %s~
 @eng The corpse of %s is lying here.@rus Ты видишь труп (corpse) %s.~
 flesh~
-pc_corpse OR A
+pc_corpse OR AP
 0 0 0 A 0
 0 1000 0 D
 G male
@@ -510,8 +514,8 @@ mace 9 0 divine I
 0 0 0 P
 G male
 #19
-pick lockpick lock-pick~
-@eng lock-pick@rus ~~отмычка~~~
+lock-pick picklock отмычка~
+@eng lock-pick@rus отмычка~
 @eng A small steell needle lies here.@rus Маленькая стальная игла блестит в пыли.~
 steel~
 trash h AO
@@ -531,7 +535,7 @@ D D 0 0 0
 0 10 0 P
 G male
 #21
-ball light~
+ball light шар~
 @eng a bright ball of light@rus ~~светящийся~~ ~~шар~~~
 @eng A bright ball of light shimmers in the air.@rus Ярко светящийся шар (ball) мерцает в воздухе.~
 energy~

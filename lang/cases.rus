@@ -43,6 +43,28 @@ Form 6 -а~
 End
 
 #RULE
+Name птица~
+BaseLen 4
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ей~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
+Name коза~
+BaseLen 3
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name тирский~
 BaseLen 5
 Form 1 -ого~
@@ -170,6 +192,17 @@ Form 5 -е~
 End
 
 #RULE
+Name надд~
+BaseLen 4
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
 Name глаз~
 BaseLen 4
 Form 1 -а~
@@ -223,6 +256,16 @@ Form 6 -о~
 End
 
 #RULE
+Name телосложение~
+BaseLen 11
+Form 1 -х~
+Form 2 -м~
+Form 4 -ми~
+Form 5 -х~
+Form 6 -х~
+End
+
+#RULE
 Name священный~
 BaseLen 7
 Form 1 -ого~
@@ -231,6 +274,17 @@ Form 3 -ый~
 Form 4 -ым~
 Form 5 -ом~
 Form 6 -ого~
+End
+
+#RULE
+Name гусиное~
+BaseLen 5
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ое~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ое~
 End
 
 #RULE
@@ -249,8 +303,10 @@ Name жидкость~
 BaseLen 7
 Form 1 -и~
 Form 2 -и~
+Form 3 -ь~
 Form 4 -ью~
 Form 5 -и~
+Form 6 -ь~
 End
 
 #RULE
@@ -338,6 +394,17 @@ Form 6 -о~
 End
 
 #RULE
+Name здоровенный~
+BaseLen 9
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name пояс~
 BaseLen 4
 Form 1 -а~
@@ -390,6 +457,37 @@ Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
 Form 6 -ую~
+End
+
+#RULE
+Name слон~
+BaseLen 4
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
+Name томагавк~
+BaseLen 8
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#RULE
+Name пика~
+BaseLen 3
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
@@ -481,6 +579,17 @@ Form 6 -ы~
 End
 
 #RULE
+Name зритель~
+BaseLen 6
+Form 1 -я~
+Form 2 -ю~
+Form 3 -я~
+Form 4 -ем~
+Form 5 -е~
+Form 6 -я~
+End
+
+#RULE
 Name волшебник~
 BaseLen 9
 Form 1 -а~
@@ -500,6 +609,17 @@ Form 3 -ый~
 Form 4 -ым~
 Form 5 -ом~
 Form 6 -ого~
+End
+
+#RULE
+Name четыре~
+BaseLen 5
+Form 1 -ех~
+Form 2 -ем~
+Form 3 -е~
+Form 4 -ьмя~
+Form 5 -ех~
+Form 6 -е~
 End
 
 #RULE
@@ -536,6 +656,17 @@ Form 6 -и~
 End
 
 #RULE
+Name семь~
+BaseLen 3
+Form 1 -и~
+Form 2 -и~
+Form 3 -ь~
+Form 4 -ью~
+Form 5 -и~
+Form 6 -ь~
+End
+
+#RULE
 Name куча~
 BaseLen 3
 Form 1 -и~
@@ -553,6 +684,7 @@ Form 1 -я~
 Form 2 -ю~
 Form 3 -я~
 Form 4 -ем~
+Form 5 -е~
 Form 6 -я~
 End
 
@@ -590,6 +722,17 @@ Form 6 -ого~
 End
 
 #RULE
+Name одна~
+BaseLen 2
+Form 1 -ной~
+Form 2 -ной~
+Form 3 -ну~
+Form 4 -ной~
+Form 5 -ной~
+Form 6 -ну~
+End
+
+#RULE
 Name медведица~
 BaseLen 8
 Form 1 -ы~
@@ -598,6 +741,17 @@ Form 3 -у~
 Form 4 -ей~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name лошадь~
+BaseLen 5
+Form 1 -и~
+Form 2 -и~
+Form 3 -ь~
+Form 4 -ью~
+Form 5 -и~
+Form 6 -ь~
 End
 
 #RULE
@@ -640,6 +794,17 @@ Form 3 -~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -~
+End
+
+#RULE
+Name Средняя~
+BaseLen 5
+Form 1 -ей~
+Form 2 -ей~
+Form 3 -юю~
+Form 4 -ей~
+Form 5 -ей~
+Form 6 -юю~
 End
 
 #RULE
@@ -817,6 +982,17 @@ Form 6 -его~
 End
 
 #RULE
+Name птичка~
+BaseLen 5
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name тролль-разбойник~
 BaseLen 16
 Form 1 тролля-разбойника~
@@ -899,6 +1075,16 @@ Form 6 -ого~
 End
 
 #RULE
+Name часы~
+Form 1 -ов~
+Form 2 -ам~
+Form 3 -ы~
+Form 4 -ами~
+Form 5 -ах~
+Form 6 -ы~
+End
+
+#RULE
 Name эйджил~
 BaseLen 6
 Form 1 -а~
@@ -938,6 +1124,17 @@ Form 6 -ое~
 End
 
 #RULE
+Name пять~
+BaseLen 3
+Form 1 -и~
+Form 2 -и~
+Form 3 -ь~
+Form 4 -ью~
+Form 5 -и~
+Form 6 -ь~
+End
+
+#RULE
 Name молодой~
 BaseLen 5
 Form 1 -ого~
@@ -946,6 +1143,17 @@ Form 3 -ой~
 Form 4 -ым~
 Form 5 -ом~
 Form 6 -ого~
+End
+
+#RULE
+Name медаль~
+BaseLen 5
+Form 1 -и~
+Form 2 -и~
+Form 3 -ь~
+Form 4 -ью~
+Form 5 -и~
+Form 6 -ь~
 End
 
 #RULE
@@ -999,6 +1207,17 @@ Form 3 -~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -~
+End
+
+#RULE
+Name чернильница~
+BaseLen 10
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
@@ -1079,6 +1298,39 @@ Form 6 -ую~
 End
 
 #RULE
+Name конь~
+BaseLen 3
+Form 1 -я~
+Form 2 -ю~
+Form 3 -я~
+Form 4 -ем~
+Form 5 -е~
+Form 6 -я~
+End
+
+#RULE
+Name привидение~
+BaseLen 9
+Form 1 -я~
+Form 2 -ю~
+Form 3 -е~
+Form 4 -ем~
+Form 5 -и~
+Form 6 -е~
+End
+
+#RULE
+Name ван~
+BaseLen 3
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
 Name рыцарь~
 BaseLen 5
 Form 1 -я~
@@ -1112,6 +1364,17 @@ Form 6 -~
 End
 
 #RULE
+Name Крошечная~
+BaseLen 7
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
+End
+
+#RULE
 Name клинок~
 BaseLen 4
 Form 1 -ка~
@@ -1142,6 +1405,28 @@ Form 3 -ью~
 Form 4 -ей~
 Form 5 -ей~
 Form 6 -ью~
+End
+
+#RULE
+Name Десять~
+BaseLen 5
+Form 1 -и~
+Form 2 -и~
+Form 3 -ь~
+Form 4 -ью~
+Form 5 -и~
+Form 6 -ь~
+End
+
+#RULE
+Name пиявка~
+BaseLen 5
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
@@ -1230,6 +1515,28 @@ Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
 Form 6 -ую~
+End
+
+#RULE
+Name работница~
+BaseLen 8
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ей~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
+Name шестеренка~
+BaseLen 9
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
@@ -1343,6 +1650,17 @@ Form 6 -у~
 End
 
 #RULE
+Name палочка~
+BaseLen 6
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name панама~
 BaseLen 5
 Form 1 -ы~
@@ -1372,6 +1690,17 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name учебная~
+BaseLen 5
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
 End
 
 #RULE
@@ -1405,6 +1734,17 @@ Form 3 -ок~
 Form 4 -ком~
 Form 5 -ке~
 Form 6 -ка~
+End
+
+#RULE
+Name статуя~
+BaseLen 5
+Form 1 -и~
+Form 2 -е~
+Form 3 -ю~
+Form 4 -ей~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
@@ -1522,6 +1862,17 @@ Name виски~
 End
 
 #RULE
+Name полка~
+BaseLen 4
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name наемник~
 BaseLen 7
 Form 1 -а~
@@ -1610,6 +1961,17 @@ Form 6 -у~
 End
 
 #RULE
+Name фестивальный~
+BaseLen 10
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name корона~
 BaseLen 5
 Form 1 -ы~
@@ -1683,6 +2045,17 @@ Form 2 -у~
 Form 3 -~
 Form 4 -ом~
 Form 5 -е~
+End
+
+#RULE
+Name записка~
+BaseLen 6
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
@@ -1859,6 +2232,17 @@ Form 6 -ую~
 End
 
 #RULE
+Name священник~
+BaseLen 9
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
 Name сила~
 BaseLen 3
 Form 1 -ы~
@@ -1889,6 +2273,15 @@ Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
+End
+
+#RULE
+Name флюгер~
+BaseLen 6
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
 End
 
 #RULE
@@ -1947,6 +2340,17 @@ Form 6 -~
 End
 
 #RULE
+Name Маятник~
+BaseLen 7
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
 Name кожаная~
 BaseLen 5
 Form 1 -ой~
@@ -1969,6 +2373,17 @@ Form 6 -~
 End
 
 #RULE
+Name горилла~
+BaseLen 6
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name короткохвостый~
 BaseLen 12
 Form 1 -ого~
@@ -1977,6 +2392,17 @@ Form 3 -ый~
 Form 4 -ым~
 Form 5 -ом~
 Form 6 -ого~
+End
+
+#RULE
+Name карлик~
+BaseLen 6
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
 End
 
 #RULE
@@ -1998,6 +2424,28 @@ Form 2 -ьему~
 Form 3 -ий~
 Form 4 -ьим~
 Form 5 -ьем~
+End
+
+#RULE
+Name пегас~
+BaseLen 5
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
+Name конюх~
+BaseLen 5
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
 End
 
 #RULE
@@ -2073,6 +2521,17 @@ Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
 Form 6 -ую~
+End
+
+#RULE
+Name клоун~
+BaseLen 5
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
 End
 
 #RULE
@@ -2192,8 +2651,29 @@ Form 6 -у~
 End
 
 #RULE
+Name оруженосец~
+BaseLen 8
+Form 1 -ца~
+Form 2 -цу~
+Form 3 -ца~
+Form 4 -цем~
+Form 5 -це~
+Form 6 -ца~
+End
+
+#RULE
+Name одежка~
+BaseLen 5
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name сид-охранник~
-BaseLen 12
 Form 1 сида-охранника~
 Form 2 сиду-охраннику~
 Form 3 сида-охранника~
@@ -2211,6 +2691,17 @@ Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
 Form 6 -ую~
+End
+
+#RULE
+Name лучник~
+BaseLen 6
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
 End
 
 #RULE
@@ -2244,6 +2735,17 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name билетер~
+BaseLen 7
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
 End
 
 #RULE
@@ -2296,6 +2798,17 @@ Form 6 -ую~
 End
 
 #RULE
+Name козленок~
+BaseLen 6
+Form 1 -ка~
+Form 2 -ку~
+Form 3 -ка~
+Form 4 -ком~
+Form 5 -ке~
+Form 6 -ка~
+End
+
+#RULE
 Name бутылка~
 BaseLen 6
 Form 1 -и~
@@ -2304,6 +2817,15 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name час~
+BaseLen 3
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
 End
 
 #RULE
@@ -2371,6 +2893,16 @@ Form 6 -ы~
 End
 
 #RULE
+Name лев~
+Form 1 льва~
+Form 2 льву~
+Form 3 льва~
+Form 4 львом~
+Form 5 льве~
+Form 6 льва~
+End
+
+#RULE
 Name спрайт~
 BaseLen 6
 Form 1 -а~
@@ -2433,6 +2965,17 @@ Form 3 -~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
+End
+
+#RULE
+Name юбка~
+BaseLen 3
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
@@ -2559,8 +3102,30 @@ Form 6 -ую~
 End
 
 #RULE
+Name осел~
+BaseLen 2
+Form 1 -ла~
+Form 2 -лу~
+Form 3 -ла~
+Form 4 -лом~
+Form 5 -ле~
+Form 6 -ла~
+End
+
+#RULE
 Name кошечка~
 BaseLen 6
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
+Name футболка~
+BaseLen 7
 Form 1 -и~
 Form 2 -е~
 Form 3 -у~
@@ -2648,6 +3213,17 @@ Form 6 -а~
 End
 
 #RULE
+Name ветеринар~
+BaseLen 9
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
 Name призрак~
 BaseLen 7
 Form 1 -а~
@@ -2697,6 +3273,11 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name морриган~
+BaseLen 8
 End
 
 #RULE
@@ -2788,6 +3369,17 @@ Form 6 -ого~
 End
 
 #RULE
+Name три~
+BaseLen 2
+Form 1 -ех~
+Form 2 -ем~
+Form 3 -и~
+Form 4 -емя~
+Form 5 -ех~
+Form 6 -и~
+End
+
+#RULE
 Name топорик~
 BaseLen 7
 Form 1 -а~
@@ -2812,6 +3404,28 @@ End
 #RULE
 Name золотые~
 Form 1 золотых~
+End
+
+#RULE
+Name смотритель~
+BaseLen 9
+Form 1 -я~
+Form 2 -ю~
+Form 3 -я~
+Form 4 -ем~
+Form 5 -е~
+Form 6 -я~
+End
+
+#RULE
+Name одинадцать~
+BaseLen 9
+Form 1 -и~
+Form 2 -и~
+Form 3 -ь~
+Form 4 -ью~
+Form 5 -и~
+Form 6 -ь~
 End
 
 #RULE
@@ -2859,6 +3473,17 @@ Form 6 -и~
 End
 
 #RULE
+Name мать~
+BaseLen 3
+Form 1 -ери~
+Form 2 -ери~
+Form 3 -ь~
+Form 4 -ерью~
+Form 5 -ери~
+Form 6 -ь~
+End
+
+#RULE
 Name божественный~
 BaseLen 10
 Form 1 -ого~
@@ -2900,6 +3525,15 @@ Form 3 -ый~
 Form 4 -ым~
 Form 5 -ом~
 Form 6 -ого~
+End
+
+#RULE
+Name мудрость~
+BaseLen 7
+Form 1 -и~
+Form 2 -и~
+Form 4 -ью~
+Form 5 -и~
 End
 
 #RULE
@@ -3036,6 +3670,21 @@ Form 6 -ки~
 End
 
 #RULE
+Name сапоги~
+End
+
+#RULE
+Name часовщик~
+BaseLen 8
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
 Name железный~
 BaseLen 6
 Form 1 -ого~
@@ -3143,6 +3792,16 @@ Form 6 -ую~
 End
 
 #RULE
+Name обаяние~
+BaseLen 6
+Form 1 -х~
+Form 2 -м~
+Form 4 -ми~
+Form 5 -х~
+Form 6 -х~
+End
+
+#RULE
 Name колпак~
 BaseLen 6
 Form 1 -а~
@@ -3231,6 +3890,17 @@ Form 6 -е~
 End
 
 #RULE
+Name мама~
+BaseLen 3
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
 Name оратор~
 BaseLen 6
 Form 1 -а~
@@ -3250,6 +3920,15 @@ Form 3 -ок~
 Form 4 -ком~
 Form 5 -ке~
 Form 6 -ок~
+End
+
+#RULE
+Name Шесть~
+BaseLen 4
+Form 1 -и~
+Form 2 -и~
+Form 4 -ью~
+Form 5 -и~
 End
 
 #RULE
@@ -3286,6 +3965,17 @@ Form 6 -у~
 End
 
 #RULE
+Name пыльный~
+BaseLen 5
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name большое~
 BaseLen 5
 Form 1 -ого~
@@ -3313,6 +4003,28 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name мышь~
+BaseLen 3
+Form 1 -и~
+Form 2 -и~
+Form 3 -ь~
+Form 4 -ью~
+Form 5 -и~
+Form 6 -ь~
+End
+
+#RULE
+Name Гилс~
+BaseLen 4
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
 End
 
 #RULE
@@ -3389,6 +4101,17 @@ Form 6 -~
 End
 
 #RULE
+Name бумажка~
+BaseLen 6
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name воришка~
 BaseLen 6
 Form 1 -и~
@@ -3433,12 +4156,42 @@ Form 6 -ого~
 End
 
 #RULE
+Name малыш~
+End
+
+#RULE
 Name диск~
 BaseLen 4
 Form 1 -а~
 Form 2 -у~
 Form 4 -ом~
 Form 5 -е~
+End
+
+#RULE
+Name дельфин~
+BaseLen 7
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
+Name бобби~
+BaseLen 5
+End
+
+#RULE
+Name часов~
+Form 1 -ов~
+Form 2 -ам~
+Form 3 -ов~
+Form 4 -ами~
+Form 5 -ах~
+Form 6 -ов~
 End
 
 #RULE
@@ -3486,6 +4239,15 @@ Form 6 -а~
 End
 
 #RULE
+Name билет~
+BaseLen 5
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#RULE
 Name пьяница~
 BaseLen 6
 Form 1 -ы~
@@ -3516,6 +4278,17 @@ Form 3 -ый~
 Form 4 -ым~
 Form 5 -ом~
 Form 6 -ого~
+End
+
+#RULE
+Name трубочист~
+BaseLen 9
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
 End
 
 #RULE
@@ -3750,6 +4523,17 @@ Form 6 -а~
 End
 
 #RULE
+Name бронзовый~
+BaseLen 7
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name красный~
 BaseLen 5
 Form 1 -ого~
@@ -3814,6 +4598,17 @@ Form 6 -ого~
 End
 
 #RULE
+Name свеча~
+BaseLen 4
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name крольчиха~
 BaseLen 8
 Form 1 -и~
@@ -3865,6 +4660,17 @@ Form 3 -о~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -о~
+End
+
+#RULE
+Name гигант~
+BaseLen 6
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
 End
 
 #RULE
@@ -3971,6 +4777,17 @@ Form 5 -ах~
 End
 
 #RULE
+Name сатир~
+BaseLen 5
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
 Name кассандра~
 BaseLen 8
 Form 1 -ы~
@@ -3979,6 +4796,17 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name дворецкий~
+BaseLen 7
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ого~
+Form 4 -им~
+Form 5 -ом~
+Form 6 -ого~
 End
 
 #RULE
@@ -4076,6 +4904,17 @@ Form 6 -~
 End
 
 #RULE
+Name крокодил~
+BaseLen 8
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
 Name ювелир~
 BaseLen 6
 Form 1 -а~
@@ -4117,6 +4956,17 @@ Form 3 -ый~
 Form 4 -ым~
 Form 5 -ом~
 Form 6 -ого~
+End
+
+#RULE
+Name трусливая~
+BaseLen 7
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
 End
 
 #RULE
@@ -4162,6 +5012,26 @@ Form 6 -ого~
 End
 
 #RULE
+Name Девять~
+BaseLen 5
+Form 1 -и~
+Form 2 -и~
+Form 4 -ью~
+Form 5 -и~
+End
+
+#RULE
+Name единорог~
+BaseLen 8
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
 Name большая~
 BaseLen 5
 Form 1 -ой~
@@ -4184,6 +5054,26 @@ Form 6 -у~
 End
 
 #RULE
+Name Двенадцать~
+BaseLen 9
+Form 1 -и~
+Form 2 -и~
+Form 4 -ью~
+Form 5 -и~
+End
+
+#RULE
+Name две~
+BaseLen 2
+Form 1 -ух~
+Form 2 -ум~
+Form 3 -е~
+Form 4 -умя~
+Form 5 -ух~
+Form 6 -е~
+End
+
+#RULE
 Name последователь~
 BaseLen 12
 Form 1 -я~
@@ -4192,6 +5082,15 @@ Form 3 -я~
 Form 4 -ем~
 Form 5 -е~
 Form 6 -я~
+End
+
+#RULE
+Name ореол~
+BaseLen 5
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
 End
 
 #RULE
@@ -4248,6 +5147,17 @@ Form 5 -е~
 End
 
 #RULE
+Name один~
+BaseLen 2
+Form 1 -ного~
+Form 2 -ному~
+Form 3 -ин~
+Form 4 -ним~
+Form 5 -ном~
+Form 6 -ин~
+End
+
+#RULE
 Name кираса~
 BaseLen 5
 Form 1 -ы~
@@ -4298,6 +5208,39 @@ Form 3 -ь~
 Form 4 -ью~
 Form 5 -и~
 Form 6 -ь~
+End
+
+#RULE
+Name мамаша~
+BaseLen 5
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ей~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
+Name львиная~
+BaseLen 5
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+Form 6 -ую~
+End
+
+#RULE
+Name голубь~
+BaseLen 5
+Form 1 -я~
+Form 2 -ю~
+Form 3 -я~
+Form 4 -ем~
+Form 5 -е~
+Form 6 -я~
 End
 
 #RULE
@@ -4362,6 +5305,17 @@ Form 3 -~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -~
+End
+
+#RULE
+Name стрелка~
+BaseLen 6
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
 End
 
 #RULE
@@ -4431,6 +5385,17 @@ Form 6 -ого~
 End
 
 #RULE
+Name шут~
+BaseLen 3
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
 Name ликер~
 BaseLen 5
 Form 1 -а~
@@ -4492,6 +5457,16 @@ Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
 Form 6 -ую~
+End
+
+#RULE
+Name часа~
+Form 1 -ов~
+Form 2 -ам~
+Form 3 -а~
+Form 4 -ами~
+Form 5 -ах~
+Form 6 -а~
 End
 
 #RULE
@@ -4601,6 +5576,28 @@ Form 6 -у~
 End
 
 #RULE
+Name шкура~
+BaseLen 4
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
+Name томас~
+BaseLen 5
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
 Name тень~
 BaseLen 3
 Form 1 -и~
@@ -4678,8 +5675,30 @@ Form 6 -у~
 End
 
 #RULE
+Name мечеглотатель~
+BaseLen 12
+Form 1 -я~
+Form 2 -ю~
+Form 3 -я~
+Form 4 -ем~
+Form 5 -е~
+Form 6 -я~
+End
+
+#RULE
 Name королев~
 Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
+Name шкатулка~
+BaseLen 7
+Form 1 -и~
 Form 2 -е~
 Form 3 -у~
 Form 4 -ой~
@@ -4723,7 +5742,11 @@ End
 #RULE
 Name вода~
 BaseLen 3
+Form 1 -ы~
+Form 2 -е~
 Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
 Form 6 -у~
 End
 
@@ -4767,6 +5790,17 @@ Form 3 -у~
 Form 4 -ой~
 Form 5 -е~
 Form 6 -у~
+End
+
+#RULE
+Name ослик~
+BaseLen 5
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -а~
 End
 
 #RULE
@@ -4820,6 +5854,17 @@ Form 1 -ого~
 Form 2 -ому~
 Form 3 -ый~
 Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
+Name ветеранский~
+BaseLen 9
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ий~
+Form 4 -им~
 Form 5 -ом~
 Form 6 -ого~
 End
@@ -5056,6 +6101,16 @@ Form 6 -а~
 End
 
 #RULE
+Name одно~
+Form 1 -ного~
+Form 2 -ному~
+Form 3 -но~
+Form 4 -ним~
+Form 5 -ном~
+Form 6 -но~
+End
+
+#RULE
 Name мешочек~
 BaseLen 5
 Form 1 -ка~
@@ -5121,6 +6176,17 @@ Form 6 -у~
 End
 
 #RULE
+Name восемь~
+BaseLen 3
+Form 1 -ьми~
+Form 2 -ьми~
+Form 3 -ь~
+Form 4 -ьми~
+Form 5 -ьми~
+Form 6 -ь~
+End
+
+#RULE
 Name пузырек~
 BaseLen 5
 Form 1 -ька~
@@ -5137,6 +6203,17 @@ Form 2 -у~
 Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
+Form 6 -а~
+End
+
+#RULE
+Name два~
+BaseLen 2
+Form 1 -ух~
+Form 2 -ум~
+Form 3 -а~
+Form 4 -умя~
+Form 5 -ух~
 Form 6 -а~
 End
 
@@ -5229,6 +6306,28 @@ Form 5 -ах~
 End
 
 #RULE
+Name козел~
+BaseLen 3
+Form 1 -ла~
+Form 2 -лу~
+Form 3 -ла~
+Form 4 -лом~
+Form 5 -ле~
+Form 6 -ла~
+End
+
+#RULE
+Name отец~
+BaseLen 2
+Form 1 -ца~
+Form 2 -цу~
+Form 3 -ца~
+Form 4 -цом~
+Form 5 -це~
+Form 6 -ца~
+End
+
+#RULE
 Name крыло~
 BaseLen 4
 Form 1 -а~
@@ -5243,6 +6342,17 @@ End
 Name стрелка ~
 BaseLen 6
 Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
+Name папа~
+BaseLen 3
+Form 1 -ы~
 Form 2 -е~
 Form 3 -у~
 Form 4 -ой~

@@ -1,5 +1,6 @@
 #AREADATA
 Name Zoo of Midgaard~
+Builders valium~
 VNUMs 8200 8299
 Credits Anon~
 Security 9
@@ -8,13 +9,17 @@ End
 
 #MOBILES
 #8200
-shopkeeper giles~
-Giles~
-Giles the shopkeeper sits with his feet up on the counter.
+giles гилс shopkeeper~
+@eng Giles@rus Гилс~
+@eng Giles the shopkeeper sits with his feet up on the counter.
+@rus Гилс (Giles) - продавец сидит здесь, задрав ноги на прилавок.
 ~
-Giles sits here most of the time serving things to the visitors of the zoo. 
+@eng Giles sits here most of the time serving things to the visitors of the zoo. 
 His lazy streak prevents him from doing any other job and besides the pay's 
 good here.
+@rus Гилс (Giles)  сидит здесь и большую часть своего времени тратит на то,
+чтобы продать кому-нибудь один из своих товаров. Его крайняя лень
+не позволяет ему заниматься чем-нибудь еще кроме торговли.
 ~
 human~
 ABGe D 0 0
@@ -41,11 +46,13 @@ E 0 0 0
 stand stand male 100
 0 0 medium unknown
 #8202
-giant leech~
-a giant leech~
-A giant leech sticks to your arm.
+giant leech пиявка~
+@eng a giant leech@rus Пиявка~
+@eng A giant leech sticks to your arm.
+@rus Гигантская пиявка (leech) присосалась к твоей руке.
 ~
-A little browny black leech.
+@eng A little browny black leech.
+@rus Небольшая черно-коричневая пиявка.
 ~
 bear~
 ABEF J 0 0
@@ -81,17 +88,23 @@ ABCE 0 50 0
 stand stand female 0
 0 0 medium unknown
 #8205
-unicorn~
-the unicorn~
-A unicorn stands here.
+unicorn единорог~
+@eng the unicorn@rus Единорог~
+@eng A unicorn stands here.
+@rus Серебряно-белый единорог (unicorn) нетерпеливо роет копытом землю.
 ~
-fox~
+@eng fox@rus Перед тобой стоит животное неописуемой красоты. На первый взгляд,
+оно похоже на белую, седую лошадь, но, приглядевшись, ты замечаешь
+длинный, сияющий рог. Этот рог и поставил это прекрасное животное
+под угрозу вымирания. Этот рог -- волшебный, в этом сила и красота 
+единорогов.
+~
 unique~
 AB 0 1000 0
 15 0 3d9+208 149d1+1 2d6+3 pierce
 -2 -2 -2 7
 IJ 0 0 0
-stand stand female 0
+stand stand male 0
 0 0 medium unknown
 #8206
 crocodile~
@@ -124,12 +137,18 @@ C AB 0 0
 stand stand female 0
 0 0 medium unknown
 #8208
-baby dragon lizard huge 8ft~
-the baby dragon~
-A huge 8ft long lizard sits here.
+baby dragon lizard huge 8ft дракончик~
+@eng the baby dragon@rus ~~малыш~~-~~дракончик~~~
+@eng A huge 8ft long lizard sits here.
+@rus Маленький дракон играет с пламенем, вырывающимся у него изо рта.
 ~
-This lizard looks like a scaled down version of a dragon. As you look at him 
+@eng This lizard looks like a scaled down version of a dragon. As you look at him 
 he burps and a cloud of smoke comes outa of his mouth.
+@rus Перед вами детеныш настоящего дракона. В его глазах легко прочитать
+страх и одиночество, но даже эти чувства не могут скрыть ярости, 
+которая определяет сущность его племени. Вообще-то он здорово
+смахивает на обьевшуюся ящерицу, но, в отличии от неё, он может
+постоять за себя.
 ~
 dragon~
 AB 0 2 0
@@ -167,11 +186,16 @@ F AB 0 0
 stand stand male 0
 0 0 medium unknown
 #8211
-zoo assistant young woman~
-the zoo assistant~
-A young woman is here preparing food here.
+assistant woman девушка zoo young~
+@eng the zoo assistant@rus ~~работница~~ зоопарка~
+@eng A young woman is here preparing food here.
+@rus Красивая девушка (woman) готовит здесь еду для обитателей зоопарка.
 ~
-human~
+@eng human@rus Одного взгляда на эту красавицу достаточно, чтобы у тебя перехватило 
+дыхание и ты $gn{понял}, что боги создавали её по своему образу 
+и подобию. Тебе также кажется, что такая красота не должна погибать 
+на кухне, но ты ничего не можешь поделать.
+~
 unique~
 AB 0 200 0
 10 0 2d7+121 99d1+1 2d4+2 punch
@@ -179,12 +203,17 @@ AB 0 200 0
 E 0 0 0
 stand stand female 0
 0 0 medium unknown
+W 1
 #8230
-pig~
-a pig~
-A pig is here, wallowing in mud.
+pig свинья~
+@eng a pig@rus свинья~
+@eng A pig is here, wallowing in mud.
+@rus Свинья (pig) здесь, купается в грязи.
 ~
-This is a small pink pig. Nothing more, Nothing less.
+@eng This is a small pink pig. Nothing more, Nothing less.
+@rus Вопреки общему мнению, свиньи -- очень чистоплотные животные.
+Да, они купаются в грязи, но это единственный способ избавится
+от блох. Свинья, которая перед тобой - не исключение.
 ~
 pig~
 AB 0 0 0
@@ -300,24 +329,26 @@ stand stand female 0
 
 #OBJECTS
 #8200
-key small brass~
-a small brass key~
-A small brass key lies here.~
+key small brass ключ~
+@eng a small brass key@rus ~~маленький~~ ~~латунный~~ ~~ключ~~~
+@eng A small brass key lies here.@rus Маленький латунный ключик (key) лежит здесь.~
 brass~
 key 0 A
 0 0 0 0 0
 1 10 4 P
 E
-key~
-It is a small, simple brass key with no inscriptions 
+key ключ~
+@eng It is a small, simple brass key with no inscriptions 
 or marks of any kind.
+@rus Это совсем маленький ключик, изготовленный из латуни, без каких-либо
+надписей на нем.
 ~
-G none
+G male
 #8201
-tee shirt tee-shirt~
-a tee-shirt~
-A plain white tee-shite with large multi-coloured writting on the front 
-is here.~
+tee-shirt футболка~
+@eng a tee-shirt@rus футболка~
+@eng A plain white tee-shite with large multi-coloured writting on the front 
+is here.@rus Белая футболка (tee-shirt) с большой цветастой надписью спереди.~
 satin~
 clothing 0 AK
 0 0 0 0 0
@@ -325,49 +356,52 @@ clothing 0 AK
 A
 17 -1
 E
-writting~
-The writting on the tee-shirt reads 
+writting футболка tee-shirt~
+@eng The writting on the tee-shirt reads 
 "I've been to the Midgaard Zoo"
+@rus Надпись на футболке гласит: "Я был в зоопарке Мидгаарда!"
 ~
-G none
+G female
 #8202
-china mug~
-a mug~
-A china mug with multi-coloured writting on it.~
+mug кружка~
+@eng a mug@rus кружка~
+@eng A china mug with multi-coloured writting on it.@rus Китайская пестрая кружка (mug).~
 porcelain~
 drink 0 AO
 3 3 'lemonade' 0 0
 1 10 10 P
 E
-writting~
-The writting on the mug reads
+writting mug кружка~
+@eng The writting on the mug reads
 "I've been to the Midgaard Zoo"
+@rus Надпись на кружке гласит: "Я был в зоопарке Мидгаарда!"
 ~
-G none
+G female
 #8203
-fountain water~
-a fountain~
-A small white fountain gushes forth here.~
+fountain water фонтан~
+@eng a fountain@rus фонтан~
+@eng A small white fountain gushes forth here.@rus Маленький белый фонтан (fountain) струится здесь.~
 ~
 fountain 0 0
 0 0 'water' 0 0
 0 0 0 G
 E
-fountain~
-It is very nice.  Made from fine white marble.
+fountain фонтан~
+@eng It is very nice.  Made from fine white marble.
+@rus Этот фонтан сделан из прекрасного белого мрамора и очень красив.
 ~
-G none
+G male
 #8204
-map zoo foldable~
-a map of Midgaard Zoo~
+map zoo foldable карта~
+@eng a map of Midgaard Zoo@rus ~~карта~~ зоопарка Мидгаарда~
 A small foldable map lies here.~
 paper~
 map 0 AO
 0 0 0 0 0
 1 12 200 P
 E
-map zoo~
-The Midgaard Zoo
+map zoo карта~
+@eng The Midgaard Zoo
 
              [ ]
             / |
@@ -385,12 +419,29 @@ The Midgaard Zoo
              [T]        |        E = Elephant
                        [U]       b = Bear
 
+@rus Зоопарк города Мидгаарда.
+ 
+             [ ]
+            / |
+           /  |                   1 = магазин подарков
+         [1]-[2]--[3]             2 = колодец желаний
+              |                   3 = детский зоопарк
+        [4]--[ ]                  4 = офис директора
+              |                   5 = крокодил
+     [5]      |   [11]            6 = склад кормов
+      |       |    |              7 = дельфин
+     [ ]-----[ ]--[ ]--[ ]-[6]    8 = слон
+      |       |    |    |         9 = медведь
+     [7] [8]-[ ]  [9]   |         10 = маленький дракон
+              |        [ ]-[10]   11 = горилла
+             [12]       |         12 = тигр
+                       [13]       13 = единорог
 ~
 G none
 #8205
-zoo dagger~
-a zoo dagger~
-A small, iron dagger with multi-coloured writting lies here.~
+dagger кинжал zoo~
+@eng a zoo dagger@rus зоо-~~кинжал~~~
+@eng A small, iron dagger with multi-coloured writting lies here.@rus Маленький, стальной кинжал (dagger) с многоцветной рукоятью лежит здесь.~
 iron~
 weapon 0 AN
 dagger 3 5 pierce 0
@@ -406,10 +457,14 @@ G none
 #ROOMS
 #8200
 @eng Outside the Midgaard Zoo@rus Перед зоопарком Мидгаарда~
-You are at the end of a path in the park. You are standing outside main 
+@eng You are at the end of a path in the park. You are standing outside main 
 gate of the zoo of Midgaard. To the west you can see a small pond and a small 
 path leads of to the east. To the south are two turnstiles. One leading into 
 the zoo and one leading back out.
+@rus Вы находитесь в конце парковой тропинки. Вы стоите перед главными 
+воротами зоопарка Мидгаарда. На западе виднеется маленкий пруд, а 
+на восток ведет узенькая тропинка. На юге расположены два турникета: 
+один ведет в зоопарк, а другой назад в парк.
 ~
 0 C city
 E
@@ -431,12 +486,17 @@ D5
 Z -1 3115
 S
 #8201
-The Zoo Wishing Well~
-You are standing just inside the entrance to the Midgaard zoo. 
+@eng The Zoo Wishing Well@rus Колодец желаний~
+@eng You are standing just inside the entrance to the Midgaard zoo. 
 The turnstile leading back out should be to the west, but a small building 
 is there instead. You only assume that you must go that way to get back out. 
 To the east is a brightly painted entrance to the Kiddies Zoo and to the south 
 is the Main Zoo.
+@rus Вы стоите около самого входа в зоопарк. Выход должен бы находиться 
+на западе, но вместо этого там расположено какое-то здание. Однако вы 
+понимаете, что должны идти туда, чтобы покинуть зоопарк. На востоке 
+расположен ярко разрисованный вход в Детский зоопарк, а на юге 
+непосредственно Главный зоопарк.
 ~
 0 0 city
 D1
@@ -461,9 +521,12 @@ grate~
 ABCZ 8200 8203
 S
 #8203
-Bottom of the Wishing Well~
-You are up to you neck is thick murky water. You can just make out 
+@eng Bottom of the Wishing Well@rus На дне колодца~
+@eng You are up to you neck is thick murky water. You can just make out 
 enough hand and foot holds to allow you to climb up back to the surface.
+@rus Ты стоишь в липкой, мутной воде, которая доходит тебе до шеи.
+Ты можешь вытащить из неё руки ровно на столько, чтобы вылезти
+на поверхность колодца.
 ~
 0 A swim
 D4
@@ -473,9 +536,12 @@ grate~
 Z 8200 8201
 S
 #8204
-A path in the zoo~
-You are standing on a small path in the zoo. To the west is a small 
+@eng A path in the zoo@rus Тропинка~
+@eng You are standing on a small path in the zoo. To the west is a small 
 important looking building and to both the north and south the path continues.
+@rus Вы стоите на маленькой тенистой тропинке, бегущей по территории 
+зоопарка. На западе виднеется маленькое, важно выглядещее здание, 
+а тропинка продолжается  и на север и на юг.
 ~
 0 0 city
 D0
@@ -495,11 +561,16 @@ door~
 ABZ -1 8206
 S
 #8205
-The Gift Shop~
-Row apon row of pointless zoo mercandise lines the walls of this room. 
+@eng The Gift Shop@rus Магазин сувениров~
+@eng Row apon row of pointless zoo mercandise lines the walls of this room. 
 Why anyone one would want an 'I've been to Midgaard Zoo' Tee-shirt is beyond 
 you. North leads through a turnstile to the out side world and east leads back 
 into the zoo. A sign sits on the shop counter. 
+@rus На стенах друг на друге висят различные товары, относящиееся к 
+зоопарку. Например, кто-нибудь может захотеть футболку "Я был в 
+зоопарке Мидгаарда", которая висит позади тебя. Через турникет на 
+севере вы можете покинуть зоопарк, а на востоке расположен 
+непосредственно сам зоопарк. На прилавке прибита табличка(sign).
 ~
 0 D inside
 E
@@ -524,9 +595,12 @@ door~
 AFZ -1 8201
 S
 #8206
-Zoo Keepers Office~
-You are standing in the office of the Zoo keeper. A large oak desk fills 
+@eng Zoo Keepers Office@rus Офис директора~
+@eng You are standing in the office of the Zoo keeper. A large oak desk fills 
 the room litered with numerous small pieces of paper.
+@rus Вы стоите в офисе директора зоопарка. Огромный дубовый стол,
+усеянный многочисленными бумагами, занимает большую часть 
+пространства этой комнаты.
 ~
 0 D inside
 E
@@ -540,9 +614,11 @@ door~
 ABZ -1 8204
 S
 #8207
-Crossroads in the Zoo~
-You are standing in the middle of a crossroads. Paths lead off to the 
+@eng Crossroads in the Zoo@rus Перекресток~
+@eng You are standing in the middle of a crossroads. Paths lead off to the 
 north, east, south and west.
+@rus  Вы стоите на середине перекрестка четырех тропинок, которые ведут
+на север, юг, восток и запад.
 ~
 0 0 city
 D0
@@ -567,9 +643,12 @@ You can see a small path.
 Z -1 8210
 S
 #8208
-A path between cages~
-You are standing in a path inside the famous midgaarrd zoo. To the north 
+@eng A path between cages@rus Тропинка между клетками~
+@eng You are standing in a path inside the famous midgaarrd zoo. To the north 
 and south there are cages. The path continues to the east and west.
+@rus Вы стоите на тропинке идущей через известный зоопарк Мидгаарда. 
+На юге и на севере находятся клетки, тропинка продолжается
+на запад и на восток.
 ~
 0 0 city
 D0
@@ -596,9 +675,11 @@ You can see the crossroads.
 Z -1 8207
 S
 #8209
-A path between cages~
-You are standing in a path inside the famous midgaarrd zoo. To the west 
+@eng A path between cages@rus Тропинка между клеток~
+@eng You are standing in a path inside the famous midgaarrd zoo. To the west 
 and south there are cages. The path leads back north.
+@rus Вы стоите на тропинке между клетками. Сами клетки расположены 
+на западе и на юге. Тропинка ведет обратно на север.
 ~
 0 0 city
 D0
@@ -619,10 +700,12 @@ cage door~
 ABCFZ 8200 8215
 S
 #8210
-A path between cages~
-You are standing in a path inside the famous midgaarrd zoo. To the north 
+@eng A path between cages@rus Тропинка между клетками~
+@eng You are standing in a path inside the famous midgaarrd zoo. To the north 
 and south there are cages. Both of these cages are around pools of water. The 
 path leads back to the east.
+@rus Вы стоите на тропинке, которая ведет к клеткам на север и на юг.
+Так же вы можете вернуться назад на перекресток на востоке.
 ~
 0 0 city
 D0
@@ -644,9 +727,12 @@ door cage~
 ABCFZ 8200 8217
 S
 #8211
-The gorilla cage~
-You are standing in the zoo's gorilla cage. A buddle of stray lies under 
+@eng The gorilla cage@rus Клетка гориллы~
+@eng You are standing in the zoo's gorilla cage. A buddle of stray lies under 
 a large uprooted tree here. The door out of the cage is to the south.
+@rus Вы находитесь в клетке с гориллой.Тень нежной прохладной разливается
+около большого раскидистого дерева рядом с клеткой. Дверь, ведущая
+из клетки находится на юге.
 ~
 0 0 city
 D2
@@ -656,10 +742,14 @@ door cage~
 ABCFZ 8200 8208
 S
 #8212
-The bear cage~
-You are standing in the zoo's bear cage. A large chunk of meat lies half 
+@eng The bear cage@rus Клетка медведя~
+@eng You are standing in the zoo's bear cage. A large chunk of meat lies half 
 eaten in one corner of the cage. You wonder what it was before the bear got 
 hold of it. The door out of the cage is to the north.
+@rus Вы стоите в медвежьей клетке. Огромный кусок мяса, наполовину 
+съеденный, валяется в одном из углов клетки. Вы можете только 
+гадать, чем было это мясо до того, как до него добрался медведь.
+Выход из клетки находится на севере.
 ~
 0 0 city
 D0
@@ -669,9 +759,11 @@ door cage~
 ABCFZ 8200 8208
 S
 #8213
-A bend in the path~
-The path bends from the west to the south here. A door leading to a small 
+@eng A bend in the path@rus Поворот тропинки~
+@eng The path bends from the west to the south here. A door leading to a small 
 hut is to the east of here.
+@rus В этом месте тропинка сворачивает с запада на юг. Дверь на
+востоке ведет в маленькую хижину.
 ~
 0 0 city
 D1
@@ -691,8 +783,13 @@ You can see a small path.
 Z -1 8208
 S
 #8214
-The tiger cage~
-You are standing in the zoo's tiger cage. Long grass grows every where here. No wonder really you wouldn't come in here to cut it. Suddenly you realize you are in here. What have you done? Perhaps you should make a run for the door to the north.
+@eng The tiger cage@rus Клетка тигра~
+@eng You are standing in the zoo's tiger cage. Long grass grows every where here. No wonder really you wouldn't come in here to cut it. Suddenly you realize you are in here. What have you done? Perhaps you should make a run for the door to the north.
+@rus Вы стоите в тигровой клетке. Здесь повсюду растет длинная трава.
+Это не удивительно, лично вы ни за что бы не пошли ее косить.
+Другие тоже. Внезапно вы понимаете, что вы внутри и нет больше 
+прутьев клетки разделяющих вас и тигра. Возможно вам следует
+бежать через дверь на север.
 ~
 0 0 city
 D0
@@ -702,9 +799,11 @@ cage door~
 ABCFZ 8200 8209
 S
 #8215
-The elephant cage~
-You are standing in the zoo's elephant cage. The ground here is hard and 
+@eng The elephant cage@rus Клетка со слоном~
+@eng You are standing in the zoo's elephant cage. The ground here is hard and 
 dust. A door out of the cage is to the east.                
+@rus Вы стоите в клетке слона. Земля здесь твердая и пыльная. Выход --
+через дверь на востоке.
 ~
 0 0 city
 D1
@@ -714,9 +813,11 @@ cage door~
 ABCFZ 8200 8209
 S
 #8216
-The crocodile cage~
-You are standing in the zoo's crocodile cage. Most of the cage if taken up 
+@eng The crocodile cage@rus Клетка с крокодилами~
+@eng You are standing in the zoo's crocodile cage. Most of the cage if taken up 
 with a large pool of water. A door out of the cage is to the south.
+@rus Вы стоите в клетке с крокодилами. Болбшую часть клетки занимает
+бассейн с мутной водой. Единственная дверь ведет на юг.
 ~
 0 0 swim
 D2
@@ -726,9 +827,11 @@ cage door~
 ABCFZ 8200 8210
 S
 #8217
-The dolphins cage~
-You are in the zoo's dolphin cage. You are swimming in a pool of water. 
+@eng The dolphins cage@rus Бассейн с дельфинами~
+@eng You are in the zoo's dolphin cage. You are swimming in a pool of water. 
 A door out of the cage is to the north.
+@rus Вы плаваете в бассейне вметсе с дельфинами. Дверь наружу находится
+на севере.
 ~
 0 0 swim
 D0
@@ -738,9 +841,11 @@ cage door~
 ABCFZ 8200 8210
 S
 #8218
-A path between cages~
-You are standing in a path inside the famous midgaarrd zoo. To the east 
+@eng A path between cages@rus Тропинка между клетками~
+@eng You are standing in a path inside the famous midgaarrd zoo. To the east 
 and south there are cages. The path leads back north.
+@rus Вы стоите на на тропинке, ведушей между клеток, которые находятся 
+на юге и на востоке. Сама тропинка ведет только назад на север.
 ~
 0 0 city
 D0
@@ -760,10 +865,13 @@ cage door~
 ABCFZ 8200 8221
 S
 #8219
-The animal food store hut~
-You are standing in a small hut. From looking around you gather it is used 
+@eng The animal food store hut@rus Склад корма для животных~
+@eng You are standing in a small hut. From looking around you gather it is used 
 to store food for all the animal in the zoo. A door out of the hut is to the 
 west.
+@rus Вы находитесь в маленькой хижине, с первого взгляда вам становится
+ясно, что это здание используется для хранения еды для всех 
+обитателей зоопарка. Дверь наружу -- на западе.
 ~
 0 D inside
 D3
@@ -773,9 +881,11 @@ door~
 Z -1 8213
 S
 #8220
-The baby dragon cage~
-You are standing in the zoo's baby dragon cage. The cage is totally empty 
+@eng The baby dragon cage@rus Пещера малыша - дракона~
+@eng You are standing in the zoo's baby dragon cage. The cage is totally empty 
 of all stuff. A door out of the cage is to the west.
+@rus Вы стоите в клетке, в которой нет абсолютно никаких вещей. Эта
+клетка принадлежит малышу - дракону. Дверь отсюда ведет на запад.
 ~
 0 0 city
 D3
@@ -785,9 +895,11 @@ cage door~
 ABCFZ 8200 8218
 S
 #8221
-the unicorn cage~
-You are standing in the zoo's unicorn cage. Inside the cage feels cold. 
+@eng the unicorn cage@rus Клетка единорога~
+@eng You are standing in the zoo's unicorn cage. Inside the cage feels cold. 
 A door out of the cage is to the north.
+@rus Вы стоите в клетке единорога. Здесь, в клетке, довольно прохладно.
+Дверь, ведущая наружу -- на севере.
 ~
 0 0 city
 D0
@@ -797,9 +909,11 @@ cage door~
 ABCFZ 8200 8218
 S
 #8230
-Entrance to the Kiddies Zoo~
-You are standing in the entrance to the Kiddies Zoo in Midgaard. 
+@eng Entrance to the Kiddies Zoo@rus Вход в Детский зоопарк~
+@eng You are standing in the entrance to the Kiddies Zoo in Midgaard. 
 To the west is the zoo's well and to the east there is a small path.
+@rus Вы стоите перед входом в детскую часть Зоопарка Мидгаарда.
+На западе находится колодец, а на восток ведет маленькая тропка.
 ~
 0 0 city
 D1
@@ -814,10 +928,13 @@ You can see a Well.
 Z -1 8201
 S
 #8231
-A small path in the Kiddies Zoo~
-You are standing on a small path in the Kiddies Zoo. To the north there is 
+@eng A small path in the Kiddies Zoo@rus Тропинка в Детском зоопарке~
+@eng You are standing on a small path in the Kiddies Zoo. To the north there is 
 a enclosure containing goats, and to the south there is a pig pen. The path 
 continues to the east and the entrance is west.
+@rus Вы стоите на узкой тропинке, бегущей через Детский зоопарк.
+На севере -- вальер, содержащий коз, а на севере -- яма со свиньями.
+Тропинка продолжается на востоке, а на западе располежен вход.
 ~
 0 0 city
 D0
@@ -842,9 +959,11 @@ You can see the entrance way.
 Z -1 8230
 S
 #8232
-The goat enclosure~
-A large fallen tree is here so visitors can sit and play with the goats. 
+@eng The goat enclosure@rus Козлиный вольер~
+@eng A large fallen tree is here so visitors can sit and play with the goats. 
 A small path is to the south.
+@rus На земле лежит поваленное дерево, так что посетители могут
+присесть и поиграть с козами. На юге -- едва заметная тропинка.
 ~
 0 0 city
 D2
@@ -854,9 +973,12 @@ You can see a small path.
 Z -1 8231
 S
 #8233
-The pig pen~
-You are standing up to you ankles in mud mixed up with bits of straw. 
+@eng The pig pen@rus Свиной вольер~
+@eng You are standing up to you ankles in mud mixed up with bits of straw. 
 A foul smell fills your nostrils. You can go back to the path to the north.
+@rus Вы стоите на краю твердой почвы, а под вами -- яма, заполненная
+грязью, перемешанной с соломой. Запах грязи заполняет ваши
+легкие. Вы можете покинуть это место, пойдя на север.
 ~
 0 0 city
 D0
@@ -866,10 +988,13 @@ You can see a small path.
 Z -1 8231
 S
 #8234
-A small path in the Kiddies Zoo~
-You are standing on a small path in the Kiddies Zoo. To the north there is 
+@eng A small path in the Kiddies Zoo@rus Тропинка в Детском зоопарке~
+@eng You are standing on a small path in the Kiddies Zoo. To the north there is 
 a large aviry and to the south there is a small stable. The path leads back 
 west.
+@rus Вы стоите на маленькой тропинке в Детском зоопарке. На севере
+расположены большие клетки, а на юге -- миниатюрая конюшня.
+Тропинка ведет назад на запад.
 ~
 0 0 city
 D0
@@ -889,10 +1014,13 @@ You can see a small path.
 Z -1 8231
 S
 #8235
-A stable~
-You are standing in a small stable. Straw lays all over the floor and 
+@eng A stable@rus Конюшня~
+@eng You are standing in a small stable. Straw lays all over the floor and 
 various horse shoes and leather tack items have been nailed firmly to the 
 walls. There is a door out to the north.
+@rus Вы стоите в небольшой конюшне. Пол покрывает тонкий слой сена,
+а различные подковы, седла и уздечки развешены по стенам. Вы 
+можете покинуть это место через дверь на севере.
 ~
 0 D inside
 D0
@@ -902,9 +1030,11 @@ door~
 ABZ -1 8234
 S
 #8236
-In the Aviary~
-You are standing in a large aviary. The aviry continues to the north and 
+@eng In the Aviary@rus Большая клетка~
+@eng You are standing in a large aviary. The aviry continues to the north and 
 a door out is to the south.
+@rus Вы стоите в большой клетке, которая продолжается на севере.
+Выход расположен на юге, где вы видите дверь. 
 ~
 0 D inside
 D0
@@ -919,9 +1049,10 @@ door~
 ABZ -1 8234
 S
 #8237
-In the Aviary~
-You are standing in a large aviary. The aviary continues to the West and 
+@eng In the Aviary@rus Большая клетка~
+@eng You are standing in a large aviary. The aviary continues to the West and 
 the South.
+@rus Вы стоите в большой клетке, она продолжается на юг и на запад.
 ~
 0 D field
 D2
@@ -936,8 +1067,9 @@ You can see the aviary continue.
 Z -1 8238
 S
 #8238
-In the Aviary~
-You are standing at the end of the aviary. More aviary is to the east.
+@eng In the Aviary@rus Большая клетка~
+@eng You are standing at the end of the aviary. More aviary is to the east.
+@rus Вы стоите в конце клетки, большая часть которой -- на востоке.
 ~
 0 D inside
 D1

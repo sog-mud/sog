@@ -31,15 +31,18 @@ EFHIKN BLQ 0 N
 stand stand male 5000
 0 0 medium unknown
 #12001
-titania queen титания~
+titania queen титания королева~
 @eng Queen Titania@rus ~~королева~~ ~~Титания~~~
 @eng Queen Titania of the Seelie Court is here dancing with her fairy maids.
 @rus Королева Титания (Titania) танцует и играет со своими друзьями фейри.
 ~
-The Queen of the Seelie is a tall, fair-skinned, perfectly perportioned 
+@eng The Queen of the Seelie is a tall, fair-skinned, perfectly perportioned 
 woman.  She radiates a soft golden glow, her laughter is like the 
 sparkling of water off of a stream and her smile is the dazzling radiance 
 of the sun.
+@rus Высокая, светлокожая женщина необычайной красоты. Она прямо-таки
+излучает сияние, а ее смех подобен журчанию ручейка. Ее нежная
+улыбка подобно солнцу озаряет все вокруг.
 ~
 elf~
 ABQ CDEHT 1000 0
@@ -49,12 +52,15 @@ FKN BLQ C N
 stand stand female 5000
 0 0 medium unknown
 #12002
-puck~
-Puck~
-The Puck lurks here dreaming up yet another scheme.
+puck пак~
+@eng Puck@rus Пак~
+@eng The Puck lurks here dreaming up yet another scheme.
+@rus Пак (Puck) притаился здесь, замышляя новую пакость.
 ~
-A jester for both the Courts, a master of trickery and deceit and 
+@eng A jester for both the Courts, a master of trickery and deceit and 
 laughter and joy, Puck is a dangerous one indeed.
+@rus Придворный шут, мастер розыгрышей и интриг, всегда что-то затевающий.
+Его, пожалуй, действительно стоит опасаться.
 ~
 human~
 AGHS BNPQTU 0 0
@@ -64,12 +70,16 @@ BEFHIJKNY BLQ C NZ
 sit sit male 100
 0 0 medium unknown
 #12003
-thomas~
-True Thomas~
-The poet master of the Seelie Court stands here.
+thomas томас master~
+@eng True Thomas@rus Томас~
+@eng The poet master of the Seelie Court stands here.
+@rus Томас (Thomas), придворный поэт, стоит здесь.
 ~
-Thomas is an old Fae but he retains the power of his position still.  His 
+@eng Thomas is an old Fae but he retains the power of his position still.  His 
 voice is clear and strong and his mind is much quicker than yours.
+@rus Томас -- один из старейших жителей королевства, он помнит все, что 
+происходило здесь. Его голос силен и чист, а соображает он гораздо
+лучше тебя.
 ~
 elf~
 ABR ACDEFZ 850 0
@@ -80,14 +90,20 @@ stand stand male 500
 0 0 medium unknown
 #12004
 king gwyn nudd~
-Gwyn ap Nudd~
+@eng Gwyn ap Nudd@rus Гвин-ап-~~Надд~~~
 Gwyn ap Nudd, soverign of the Unseelie Court stands before you.
 ~
-The King of night, the dead, winter and ice, Gwyn ap Nudd is the 
+@eng The King of night, the dead, winter and ice, Gwyn ap Nudd is the 
 complete opposite of his brother Oberon.  His hair is raven black, his 
 skin a pale white, his eyes an ice blue.  His stare fills your soul with 
 a chill and yet you get a strange feeling of exhillaration.  Gwyn 
 embodies not only the terror of death but the seductive beauty of night.
+@rus Король ночи, повелитель смерти, зимы и холодаб он полная 
+противоположность своего брата Оберона. Его волосы цвета
+воронова крыла, а глаза ярко-голубого цвета с кристаликами
+льда в них. Они мрачно сияют на фоне бледной белой кожи.
+Но Гвин олицитворение не только террора и смерти, но и 
+обольстительной красоты ночи.
 ~
 elf~
 ABT Z -1000 0
@@ -97,13 +113,16 @@ EFHIKN BLQ 0 N
 stand stand male 500
 0 0 medium unknown
 #12005
-morrigan queen~
-The Morrigan~
-The terrible Morrigan waits here ready to devour you.
+morrigan queen морриган~
+@eng The Morrigan@rus Морриган~
+@eng The terrible Morrigan waits here ready to devour you.
+@rus Ужасная Морриган (Morrigan) только и ждет возможности уничтожить тебя.
 ~
-The Morrigan is the Queen of the Unseelie and the most destructive of all 
+@eng The Morrigan is the Queen of the Unseelie and the most destructive of all 
 the Fae.  She is the most feared of all the creatures of the night, for 
 while the Puck may be harmfull the Morrigan is deadly.
+@rus Морриган -- королева Запределья. Самая невоздержанная из фейри. Она
+самое пугающие создание ночи, ее повелительница.
 ~
 unique~
 ACFGOT CDEFZ -1000 0
@@ -222,12 +241,15 @@ EIKLQRTU 0 LQ N
 stand stand male 500
 0 0 medium unknown
 #12012
-sidhe knight~
-a noble sidhe knight~
-A noble sidhe knight of the Seelie court is here on a quest.
+sidhe knight рыцарь сид~
+@eng a noble sidhe knight@rus ~~благородный~~ ~~рыцарь~~-~~сид~~~
+@eng A noble sidhe knight of the Seelie court is here on a quest.
+@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.
 ~
-This knight is the epitome of chivalry.  The embodyment of honor, 
+@eng This knight is the epitome of chivalry.  The embodyment of honor, 
 loyalty, courage and skill in battle.
+@rus Этот сид -- олицитворение рыцарства. Соединение чести, лояльности, 
+храбрости, мужества, отваги и умения драться.
 ~
 elf~
 AGT G 1000 0
@@ -237,12 +259,15 @@ CDEFIKLS 0 LQ M
 stand stand male 500
 0 0 medium unknown
 #12013
-sidhe knight~
-a noble sidhe knight~
-A noble sidhe knight of the Seelie court is here on a quest.
+sidhe knight рыцарь сид~
+@eng a noble sidhe knight@rus ~~благородный~~ ~~сид~~-~~рыцарь~~~
+@eng A noble sidhe knight of the Seelie court is here on a quest.
+@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.
 ~
-This knight is the epitome of chivalry.  The embodyment of honor,
+@eng This knight is the epitome of chivalry.  The embodyment of honor,
 loyalty, courage and skill in battle.
+@rus Этот сид -- олицитворение рыцарства. Соединение чести, лояльности, 
+храбрости, мужества, отваги и умения драться.
 ~
 elf~
 AGT G 1000 0
@@ -252,12 +277,15 @@ CDEFIKLS N LQ M
 stand stand female 500
 0 0 medium unknown
 #12014
-sidhe knight~
-a noble sidhe knight~
-A noble sidhe knight of the Unseelie court is here on a quest.
+sidhe knight сид рыцарь~
+@eng a noble sidhe knight@rus ~~благородный~~ ~~сид~~-~~рыцарь~~~
+@eng A noble sidhe knight of the Unseelie court is here on a quest.
+@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.
 ~
-This knight is the epitome of chivalry.  The embodyment of power and 
+@eng This knight is the epitome of chivalry.  The embodyment of power and 
 skill in battle.
+@rus Этот сид -- олицитворение рыцарства. Соединение чести, лояльности, 
+храбрости, мужества, отваги и умения драться.
 ~
 elf~
 AGT G -1000 0
@@ -267,12 +295,15 @@ CDEFIKLS M LQ N
 stand stand male 500
 0 0 medium unknown
 #12015
-sidhe knight~
-a noble sidhe knight~
-A noble sidhe knight of the Unseelie court is here on a quest.
+sidhe knight сид рыцарь~
+@eng a noble sidhe knight@rus ~~благородный~~ ~~сид~~-~~рыцарь~~~
+@eng A noble sidhe knight of the Unseelie court is here on a quest.
+@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.
 ~
-This knight is the epitome of chivalry.  The embodyment of power and 
+@eng This knight is the epitome of chivalry.  The embodyment of power and 
 skill in battle.
+@rus Этот сид -- олицитворение рыцарства. Соединение чести, лояльности, 
+храбрости, мужества, отваги и умения драться.
 ~
 elf~
 AGT G 1000 0
@@ -282,12 +313,15 @@ CDEFIKLS N LQ M
 stand stand female 500
 0 0 medium unknown
 #12016
-sidhe knight~
-a noble sidhe knight~
-A noble sidhe knight stands here looking bored.
+sidhe knight сид рыцарь~
+@eng a noble sidhe knight@rus ~~благородный~~ ~~сид~~-~~рыцарь~~~
+@eng A noble sidhe knight stands here looking bored.
+@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.
 ~
-This knight is the epitome of chivalry.  The embodyment of honor,
+@eng This knight is the epitome of chivalry.  The embodyment of honor,
 loyalty, courage and skill in battle.
+@rus Этот сид -- олицитворение рыцарства. Соединение чести, лояльности, 
+храбрости, мужества, отваги и умения драться.
 ~
 elf~
 ABT G 1000 0
@@ -297,12 +331,15 @@ CDEFIKLS N LQ M
 stand stand male 500
 0 0 medium unknown
 #12017
-sidhe knight~
-a noble sidhe knight~
-A sidhe knight is here embroiled within the affairs of the court.
+sidhe knight сид рыцарь~
+@eng a noble sidhe knight@rus ~~благородный~~ ~~сид~~-~~рыцарь~~~
+@eng A sidhe knight is here embroiled within the affairs of the court.
+@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.
 ~
-This knight is the epitome of chivalry.  The embodyment of power and 
+@eng This knight is the epitome of chivalry.  The embodyment of power and 
 skill in battle.
+@rus Этот сид -- олицитворение рыцарства. Соединение чести, лояльности, 
+храбрости, мужества, отваги и умения драться.
 ~
 elf~
 ABT G -1000 0
@@ -312,12 +349,15 @@ CDEFIKLS M LQ N
 stand stand male 500
 0 0 medium unknown
 #12018
-sidhe knight~
-a noble sidhe knight~
-A noble sidhe knight is attempting to win the favor of a beautiful patron.
+sidhe knight сид рыцарь~
+@eng a noble sidhe knight@rus ~~благородный~~ ~~сид~~-~~рыцарь~~~
+@eng A noble sidhe knight is attempting to win the favor of a beautiful patron.
+@rus Благородный сид-рыцарь (sidhe) выполняет свое задание.
 ~
-This knight is the epitome of chivalry.  The embodyment of power and 
+@eng This knight is the epitome of chivalry.  The embodyment of power and 
 skill in battle. 
+@rus Этот сид -- олицитворение рыцарства. Соединение чести, лояльности, 
+храбрости, мужества, отваги и умения драться.
 ~
 elf~
 ABT G -1000 0
@@ -327,13 +367,17 @@ CDEFIKLS M LQ N
 stand stand female 500
 0 0 medium unknown
 #12019
-troll guard~
-a troll guard~
-A stoic troll guard stands here watching you.
+troll guard тролль охранник~
+@eng a troll guard@rus ~~тролль~~-~~охранник~~~
+@eng A stoic troll guard stands here watching you.
+@rus Могучий тролль-охранник (guard) внимательно наблюдает за тобой.
 ~
-This troll stands about 9 feet tall and looks as if he was made of 
+@eng This troll stands about 9 feet tall and looks as if he was made of 
 stone.  Once the rulers of Arcadia trolls such as this one now serve the 
 sidhe as faithfull warriors.
+@rus Этот тролль ростом около девяти футов. Он кажется сделанным из
+камня. В качестве охранников Аркадии, обучавшихся у сидов, они
+заслужили репутацию хороших воинов.
 ~
 giant~
 ABT Nbcd 1000 0
@@ -343,13 +387,17 @@ CDIKNQU B 0 NZ
 stand stand male 500
 0 0 giant unknown
 #12020
-troll guard~
-a troll guard~
-A stoic troll guard stands here watching you.
+troll guard тролль охранник~
+@eng a troll guard@rus ~~тролль~~-~~охранник~~~
+@eng A stoic troll guard stands here watching you.
+@rus Могучий тролль-охранник (guard) внимательно наблюдает за тобой.
 ~
-This troll stands about 9 feet tall and looks as if he was made of
+@eng This troll stands about 9 feet tall and looks as if he was made of
 stone.  Once the rulers of Arcadia trolls such as this one now serve the
 sidhe as faithfull warriors.
+@rus Этот тролль ростом около девяти футов. Он кажется сделанным из
+камня. В качестве охранников Аркадии, обучавшихся у сидов, они
+заслужили репутацию хороших воинов.
 ~
 troll~
 ABT Nbd -1000 0
@@ -359,14 +407,18 @@ CIKNQU B 0 JNPZ
 stand stand male 500
 0 0 giant unknown
 #12021
-pooka jester~
-a pooka jester~
-A pooka jester is here making you look foolish.
+pooka jester шут~
+@eng a pooka jester@rus шут~
+@eng A pooka jester is here making you look foolish.
+@rus Шут (jester) пытается выставить тебя дураком.
 ~
-Dressed in a garishly bright, multi-colored, clashing, frilly lace 
+@eng Dressed in a garishly bright, multi-colored, clashing, frilly lace 
 jump-suit, it hurts just to look at him.  This pooka is a master of making 
 people laugh.  You don't even mind when he throws the pie in your face. 
 After all, it's all in good fun. 
+@rus Одетый в разноцветный колпак с колокольчиками и неуклюжий костюм, он
+непроизвольно вызывает улыбку. Он мастер смешить людей, но с него
+станется запустить в тебя пирогом.
 ~
 human~
 AGHS P 100 0
@@ -376,14 +428,19 @@ BEFHJN 0 BX NZ
 stand stand male 500
 0 0 medium unknown
 #12022
-pooka jester~
+pooka jester шут~
 a pooka jester~
-A pooka jester is here planning your fall.
+@eng A pooka jester is here planning your fall.
+@rus Шут (jester) пытается выставить тебя дураком.
 ~
-Dressed in a garishly bright, multi-colored, clashing, frilly lace
+@eng Dressed in a garishly bright, multi-colored, clashing, frilly lace
 jump-suit, it hurts just to look at him.  This pooka is a master of making
 fun of people.  You don't ever realy know if his jokes are truly just for 
 fun....
+@rus Одетый в разноцветный колпак с колокольчиками и неуклюжий костюм, он
+непроизвольно вызывает улыбку. Он мастер смешить людей, но не верится
+что все его шутки призваны веселить людей. Кажется, за всем этим 
+маскарадом что-то кроется.
 ~
 human~
 AGHS PQ -100 0
@@ -393,9 +450,10 @@ BEFHJN 0 BX NZ
 stand stand male 500
 0 0 medium unknown
 #12023
-satyr drinker drunk~
-a satyr drinker~
-A satyr is sitting here with a bottle on one side and a woman on the other.
+satyr drinker drunk сатир~
+@eng a satyr drinker@rus ~~пьяница~~-~~сатир~~~
+@eng A satyr is sitting here with a bottle on one side and a woman on the other.
+@rus Сатир (satyp) сидит здесь, прижимая к себе с одной стороны бутылку, а с другой женщину.
 ~
 Half-man, half-goat satyrs are the party animals of the Fae.  Renowned 
 for their great stamina they can drink more than almost any other being.
@@ -1200,28 +1258,28 @@ unknown~
 container 0 0
 100 0 0 50 100
 1 0 0 A
-G none
+G female
 #12029
-slime bit~
-A bit of slime~
-A small bit of purple slime with luminescent blue streaks.~
+slime bit кусок~
+@eng A bit of slime@rus ~~кусок~~ грязи~
+@eng A small bit of purple slime with luminescent blue streaks.@rus Кусок красноватой грязи (slime) с голубыми прожилками валяется здесь.~
 unknown~
 pill A A
 30 'know alignment' 'armor' '' ''
 28 2 0 G
-G none
+G male
 #12030
-bookshelf~
-A large oak bookshelf~
-This bookshelf is filled with books on various subjects.~
+bookshelf полка~
+@eng A large oak bookshelf@rus ~~книжная~~ ~~полка~~~
+@eng This bookshelf is filled with books on various subjects.@rus Эта книжная полка (bookshelf) до отказа наполнена разного рода литературой.~
 unknown~
 container 0 0
 100 0 12065 50 100
 0 0 0 P
-G none
+G female
 #12031
-manuscript~
-An ancient manuscript~
+manuscript манускрипт~
+@eng An ancient manuscript@rus ~~старинный~~ ~~манускрипт~~~
 An ancient manuscript on the subject of the Seelie and Unseelie.~
 unknown~
 treasure 0 A
@@ -1246,7 +1304,7 @@ their existence.  The change is one of internal alliance and a once
 honest and loving Seelie fae can become a dishonest and distrusting one 
 by changing courts.
 ~
-G none
+G male
 #12032
 manuscript~
 An ancient manuscript~

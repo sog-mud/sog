@@ -1,5 +1,6 @@
 #AREADATA
 Name Knight~
+Builders diogen~
 VNUMs 95200 95229
 Credits Chronos~
 Security 9
@@ -10,15 +11,19 @@ End
 
 #MOBILES
 #95200
-knight healer cabal~
-A healer~
-The healer of the Knights' is here to heal you.
+knight healer cabal священник~
+@eng A healer@rus Священник~
+@eng The healer of the Knights' is here to heal you.
+@rus Священник (healer) благославляет тебя на подвиги.
 ~
-After retiring long fights, he chose to heal his mates against evils
+@eng After retiring long fights, he chose to heal his mates against evils
 with his long experienced wise years.
+@rus Устав от войн и прочей мирской суеты, он удалился в тихое
+святилище. Священник всегда готов излечить раны, нанесенные
+приспешниками зла, и благославить тебя на борьбу со Злом.
 ~
 human~
-ABQVae DFH 1000 0
+ABQae DFH 1000 0
 90 0 1d1+18999 1d1+999 20d24+40 divine
 -95 -95 -95 -75
 FHIK ABC D 0
@@ -26,12 +31,15 @@ stand stand male 1000
 0 0 medium unknown
 C Knights~
 #95201
-knight protector guard~
-the protector~
-Protector, the knight, is guarding the enterance.
+knight protector guard дворецкий~
+@eng the protector@rus дворецкий~
+@eng Protector, the knight, is guarding the enterance.
+@rus Дворецкий (protector) встречает тебя на входе в Замок.
 ~
-Although his old age, he is still good enough in all martial arts. His
+@eng Although his old age, he is still good enough in all martial arts. His
 bright body armor is shining upon you.
+@rus Несмотря на свой почтенный возраст, дворецкий все еще достаточно
+крепко держит в руке меч, чтобы не пустить в замок непрошенных гостей.
 ~
 human~
 ABJKWef DFHJVZlmt 0 0
@@ -44,26 +52,35 @@ M grall 95200 100~
 M exall 95201 0~
 C Knights~
 #95202
-knight shopkeeper mount~
-the stable keeper~
-The stable keeper is selling horses.
+knight mount keeper конюх~
+@eng the stable keeper@rus конюх~
+@eng The stable keeper is selling horses.
+@rus Конюх (keeper) ухаживает за животными.
 ~
-Although his old age, he is still good enough in all martial arts. His
+@eng Although his old age, he is still good enough in all martial arts. His
 bright body armor is shining upon you.
+@rus Несмотря на свои годы, конюх еще помнит, как в молодости не только
+ухаживал за лошадьми, но и сам сражался наравне с рыцарями Замка. Его
+доспехи по-прежнему начищены до блеска, а остро отточенный меч висит
+на стене.
 ~
 human~
-ABVWe DFHJVZ 0 0
+ABWe DFHJVZ 0 0
 92 40 2d500+25000 1d200+1600 10d40+50 punch
 -90 -90 -90 -50
 ACDEFKNU AB 0 0
 stand stand male 5000
 0 0 medium unknown
 #95203
-grey horse mount~
-the grey horse~
-A grey horse is standing here.
+horse mount конь grey~
+@eng the grey horse@rus ~~конь~~ в яблоках~
+@eng A grey horse is standing here.
+@rus Серый конь (horse) в яблоках стоит здесь.
 ~
-It is saddled with light tack, and has long slender limbs for speed.
+@eng It is saddled with light tack, and has long slender limbs for speed.
+@rus Серый конь в яблоках оседлан и подкован. Тщательно расчесанная
+грива развевается на ветру, начищенные пряжки сбруи блестят в лучах
+солнца.
 ~
 horse~
 ABIWZ FHJV 1000 0
@@ -73,25 +90,31 @@ N AB 0 0
 stand stand male 5000
 0 0 medium unknown
 #95204
-white horse mount~
-the white horse~
-A white horse is standing here.
+horse mount конь white~
+@eng the white horse@rus ~~белогривый~~ ~~конь~~~
+@eng A white horse is standing here.
+@rus Ослепительно-белый конь (horse) стоит здесь.
 ~
-It is saddled with light tack, and has long slender limbs for speed.
+@eng It is saddled with light tack, and has long slender limbs for speed.
+@rus Крепкий боевой конь гарцует перед тобой. Сияние его снежно-
+белой гривы ослепляет тебя.
 ~
 horse~
 ABIWZ FHJV 1000 0
-45 20 25d10+3000 1d200+1600 6d6+10 wrath
+45 20 25d10+3000 1d200+1600 7d6+25 wrath
 -20 -20 -20 -10
 N AB 0 0
 stand stand male 5000
 0 0 medium unknown
 #95205
-mount unicorn~
-the unicorn~
-A white unicorn is standing here.
+mount unicorn единорог~
+@eng the unicorn@rus единорог~
+@eng A white unicorn is standing here.
+@rus Белый единорог (unicorn) стоит здесь.
 ~
-It is saddled with light tack, and has long slender limbs for speed.
+@eng It is saddled with light tack, and has long slender limbs for speed.
+@rus Белый единорог рад помочь своему всаднику добраться куда
+угодно в этом мире! Его перевитый рог сверкает на свету.
 ~
 horse~
 ABIWZ FHJPV 1000 0
@@ -101,14 +124,18 @@ JN AB CLQ 0
 stand stand male 5000
 0 0 medium unknown
 #95206
-pegasus mount~
-the pegasus~
-A pegasus is flying here.
+pegasus mount пегас~
+@eng the pegasus@rus пегас~
+@eng A pegasus is flying here.
+@rus Пегас (pegasus) лениво махает крыльями.
 ~
-@rus Замечательная белая лошадка с изящными копытцами
-грациозно изогнутой шейкой, трепещущими ноздрями и 
-большими белыми крыльями. Пегас косится на тебя недоверчиво
-и печально вздыхает.
+@eng A beautiful white horse with pretty hooves, gracefully curved
+neck, trembling snuffers and big white wings. The Pegasus squints
+at you suspiciuosely and sighs saddly.
+@rus Замечательная белая лошадка с изящными копытцами, грациозно
+изогнутой шейкой, трепещущими ноздрями и большими белыми
+крыльями. Пегас косится на тебя недоверчиво и печально
+вздыхает.
 ~
 horse~
 ABIWZ BDFHJPTUV 1000 0
@@ -118,10 +145,15 @@ N AB CLQ 0
 stand stand male 5000
 0 0 medium unknown
 #95207
-mount dragon golden~
-the golden dragon~
-A golden dragon is flying here.
+mount dragon golden дракон~
+@eng the golden dragon@rus ~~золотой~~ ~~дракон~~~
+@eng A golden dragon is flying here.
+@rus Золотой дракон (dragon) парит здесь.
 ~
+@eng A huge golden mount with strong muscles, hard membranes of
+powerful wings and a tail, gleeming with gemstones. You are
+submerged in the infinite wisdom of it's eyes, disabled
+to see in that deepness anymore...
 @rus Огромная золотая гора с четким рельефом мощных мускулов,
 жесткими перепонками могучих крыльев и сверкающим
 драгоценными каменьями хвостом. Ты утопаешь в бесконечной 
@@ -140,53 +172,53 @@ stand stand male 5000
 #OBJECTS
 #95200
 key golden ключ~
-a golden key~
-A golden key is left on the floor.~
+@eng a golden key@rus ~~золотой~~ ~~ключ~~~
+@eng A golden key is left on the floor.@rus Золотой ключ (key) оставлен на полу.~
 gold~
-key ORYf AOP
+key RYf AOP
 0 0 0 0 0
 0 4 0 P
-G none
+G male
 #95201
-altar~
-the altar~
-There is a huge golden altar in the middle of the room.~
+altar алтарь~
+@eng the altar@rus ~~алтарь~~~
+@eng There is a huge golden altar in the middle of the room.@rus Большой алтарь (altar), сделанный из золота, стоит в середине святилища.~
 gold~
-container ORY P
+container RY P
 10 ABCD 95200 15 100
 60 1 20 P
-G none
+G male
 #95202
-large medal honor~
-Large medal of honor~
-The large medal of honor is left here.~
+medal honor медаль large~
+@eng Large medal of honor@rus ~~Большая~~ ~~медаль~~ Чести~
+@eng The large medal of honor is left here.@rus Большая медаль (medal) Чести лежит здесь.~
 gold~
 treasure ORe AO
 0 0 0 0 0
 0 1 100000 P
-G none
+G female
 #95203
-round table~
-@eng Round Table@rus Круглый Стол~
-@eng Heavy round table stands here, waiting for Knights to feast at.@rus Круглый Стол приглашает присоединиться к угощению.~
+table стол round~
+@eng Round Table@rus ~~Круглый~~ ~~Стол~~~
+@eng Heavy round table stands here, waiting for Knights to feast at.@rus Круглый Стол (table) приглашает присоединиться к угощению.~
 wood~
 furniture 0 0
 ABCD FHJKPQ DGN CDFI CDFI
 0 15000 0 P
 G male
 #95204
-statue~
-statue of King Arthur~
-Huge statue of man riding a horse is in the shade of trees.~
+statue статуя~
+@eng statue of King Arthur@rus ~~Статуя~~ Короля Артура~
+@eng Huge statue of man riding a horse is in the shade of trees.@rus Большая статуя всадника (statue) скрывается в тени деревьев.~
 unknown~
 furniture AB 0
-0 0 0 0 0
+BD EIJKN A 0 0
 50 50000 0 P
-G none
+G female
 #95205
 fountain knight~
 @eng fountain@rus фонтан~
-@eng Marble fountain depicting a noble Knight who tears Invaders mouth.@rus Мраморная скульптура Рыцаря, разрывающего пасть Захватчика.~
+@eng Marble fountain depicting a noble Knight who tears Invaders mouth.@rus Мраморная скульптура Рыцаря (knight), разрывающего пасть Захватчика.~
 marble~
 fountain R 0
 100000 100000 'mead' 0 0
@@ -204,7 +236,7 @@ G male
 holy lance~
 {WHoly blessed Lance{x~
 {WVery beautiful Lance{x glowing here.~
-silver~
+energy~
 weapon ABIKTa AN
 lance 12 12 charge DEI
 75 200 1000000 P
@@ -216,23 +248,26 @@ A
 18 20
 G none
 #95210
-aura majesty аура~
-Aura of {BMajesty{x~
-Something strange is here.~
+aura majesty ореол~
+@eng Aura of {BMajesty{x@rus ~~Ореол~~ {w{GВеличия{g~
+@eng Something strange is here.@rus Что-то странное здесь.~
 unknown~
 jewelry AIMTYZ AS
 0 0 0 0 0
 0 0 0 P
-G none
+G male
 #0
 
 #ROOMS
 #95200
 @eng The Enterance of Castle@rus Вход в замок~
-You are standing in the entrance of the Knights' castle. You can see the
+@eng You are standing in the entrance of the Knights' castle. You can see the
 greater hall lying towards north. South leaves the entrance into the castle.
 You see two long swords against the wall here, one is on the east wall and
 the other one is on the west wall.
+@rus Ты стоишь на входе в Рыцарский замок. Ты видишь длинную галерею,
+уходящюю на север. На юге ты можешь выйти из замка. На стенах
+висят перекрещенные двуручные мечи и щиты с гербом Замка.
 ~
 0 DKX inside
 D0
@@ -245,11 +280,15 @@ D2
 Z 0 7663
 S
 #95201
-Inside the Great Hall~
-There four exits in north, east, west and south. To the north you see
+@eng Inside the Great Hall@rus Зал Круглого Стола~
+@eng There four exits in north, east, west and south. To the north you see
 the shrine, to the east you see Squire Barracks, to the south you see
 enterance and to the west you see a storage room. On the walls you see
 bright knight armors hung, indicating that this a protected area.
+@rus Ты приходишь в Большой Зал. На севере (north) - вход в часовню,
+на востоке (east) можно пройти в бараки и к конюшням, на юге ты
+можешь спуститься (down) в Зимний Сад. На западе (west) находится
+Оружейная. На стенах, как и везде в замке, развешено оружие и доспехи.
 ~
 0 DKX inside
 D0
@@ -270,9 +309,12 @@ D5
 Z 0 95207
 S
 #95202
-Squire Barracks~
-You see some squires either resting or sleeping. You notice that this
+@eng Squire Barracks@rus Бараки~
+@eng You see some squires either resting or sleeping. You notice that this
 room is the squire traniee room.
+@rus Ты входишь в бараки, где размещены оруженосцы. Некоторые из
+них как раз отдыхают здесь, ты слышишь легкое похрапывание из
+дальнего угла бараков.
 ~
 0 DKX inside
 D1
@@ -285,10 +327,14 @@ D3
 Z -1 95201
 S
 #95203
-Storage Room~
-You see some swords and armors are tossed aside in the storage of the
+@eng Storage Room@rus Оружейная~
+@eng You see some swords and armors are tossed aside in the storage of the
 Knights of Shades of Gray. This room is used by Knights, especially in cabal
 wars or for helping young knights.
+@rus Различные мечи, доспехи и прочая амуниция в строгом порядке
+развешены по стенам и разложены по полкам. Рыцари выбирают здесь
+доспехи по размеру и мечи по руке, чтобы во всеоружии встретить
+врага.
 ~
 0 DKX inside
 D1
@@ -297,11 +343,15 @@ D1
 Z -1 95201
 S
 #95204
-The Altar~
-You are now in front of the huge golden altar. On the altar you see some
+@eng The Altar@rus Часовня~
+@eng You are now in front of the huge golden altar. On the altar you see some
 special signs carved with adamantite letters. When you look up to the
 ceiling you notice that a big model of the same sign is carved with golden
 material. 
+@rus Ты стоишь перед большим алтарем из золота. На алтаре ты видишь
+особые знаки в виде инкрустации из адамантитовых букв. Подняв взгляд
+к сводам, ты видишь те же знаки, вырезанные из золота и покрывающие
+всю поверхность купола.
 ~
 0 DKX inside
 D2
@@ -310,9 +360,13 @@ D2
 Z -1 95201
 S
 #95205
-Stables~
-You see some horses either resting or eating. You notice that this
+@eng Stables@rus Конюшни~
+@eng You see some horses either resting or eating. You notice that this
 room is the used for maintainance of horses for Knights.
+@rus Ты входишь в конюшни и видишь вокруг разные породы верховых животных.
+Одни просто отдыхают, другие что-то пережевывают. Наверное, что-то
+вкусное, судя по их довольным мордам. Ты можешь выбрать себе кого-
+нибудь соответственно своим умениям.
 ~
 0 DKMX inside
 D3
@@ -329,15 +383,19 @@ room is the used for maintainance of horses for Knights.
 S
 #95207
 @eng Winter garden@rus Зимний сад~
-You're crossing a small garden. Surrounded by evergreen trees and bushes,
+@eng You're crossing a small garden. Surrounded by evergreen trees and bushes,
 you hear bird songs and feel that you can stay in this paradise forever. But,
 your duties call you for struggle with the evil ones!
+@rus Ты идешь по небольшому саду. Окруженный вечнозелными деревьями
+и кустами, ты вслушиваешься в пение птиц и чувствуешь, что мог бы
+остаться в этом райском уголке навечно. Но твой долг призывает тебя
+продолжить борьбу со Злом!
 ~
 0 KX forest
 D2
 ~
 ~
-Z 0 95221
+Z 0 95222
 D4
 ~
 ~
@@ -513,7 +571,7 @@ swords, maces and lances hanging along the east and west walls.
 D0
 ~
 ~
-Z 0 95207
+Z 0 95222
 D2
 ~
 ~
@@ -531,6 +589,14 @@ swords, maces and lances hanging along the east and west walls.
 множество мечей, булав и алебард, висящих на стенах.
 ~
 0 DKX inside
+D0
+~
+~
+Z 0 95207
+D2
+~
+~
+Z 0 95221
 S
 #0
 

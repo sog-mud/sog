@@ -1712,7 +1712,7 @@ D3
 Z -1 40103
 S
 #40103
-East Main Road~
+@eng East Main Road@rus Восточный проспект~
 @eng You  are  on  the  eastern  part  of  the  Main  Road  in Elvenhame. 
 Fiery-red-leafed maple trees line the road, at the bases of which grow
 small lavender flowers.
@@ -1735,10 +1735,13 @@ D3
 Z -1 40104
 S
 #40104
-East Main Road~
-You are on the eastern part of the Main Road in Elvenhame. 
-Fiery-red-leafed maple trees line the road, at the bases of 
-which grow small lavender flowers. 
+@eng East Main Road@rus Восточный проспект~
+@eng You  are  on  the  eastern  part  of  the  Main  Road  in Elvenhame.
+Fiery-red-leafed maple trees line the road, at the bases of which grow
+small lavender flowers.
+@rus Ты стоишь на восточном проспекте Эльвенхейма. Ровными  рядами  вдоль
+него стоят клены, словно пылая своими огненно-красными кронами.  Вдоль
+обочин благоухает лаванда.
 ~
 0 0 city
 D1
@@ -1751,10 +1754,13 @@ D3
 Z -1 40105
 S
 #40105
-Guild Square~
-Guild Square is the intersection of Main Road and Guild Road.
-Lined with fiery-red-leaved maple trees and lavender flowers, 
-this intersection is one of the busiest in Elvenhame. 
+@eng Guild Square@rus Площадь Гильдий~
+@eng Guild Square is the intersection of Main Road and Guild Road.  Lined
+with  fiery-red-leaved    maple   trees  and  lavender  flowers,  this
+intersection is one of the busiest in Elvenhame.
+@rus Площадь Гильдий на пересечении проспекта с Улицей Гильдий.Засаженная 
+пламенными  кленами  и благоухающими цветами,  эта  площадь -- одна из
+самых оживленных в Elvenhame.
 ~
 0 0 city
 D0
@@ -1775,10 +1781,13 @@ D3
 Z -1 40106
 S
 #40106
-East Main Road~
-You are on the eastern part of the Main Road in Elvenhame. 
-Fiery-red-leafed maple trees line the road, at the bases of 
-which grow small lavender flowers.
+@eng East Main Road@rus Восточный проспект~
+@eng You  are  on  the  eastern  part  of  the  Main  Road  in Elvenhame. 
+Fiery-red-leafed maple trees line the road, at the bases of which grow
+small lavender flowers.
+@rus Вы находитесь на восточном  проспекте  Эльвенхейма.  Вдоль проспекта
+пламенеют кроваво-красными кронами клены,у подножий которых благоухают
+маленькие цветы.
 ~
 0 0 city
 D1
@@ -1791,10 +1800,13 @@ D3
 Z -1 40107
 S
 #40107
-East Main Street~
-You are on the eastern part of the Main Road in Elvenhame. 
-Fiery-red-leafed maple trees line the road, at the bases of 
-which grow small lavender flowers. 
+@eng East Main Street@rus Восточная улица~
+@eng You  are  on  the  eastern  part  of  the  Main  Road  in Elvenhame. 
+Fiery-red-leafed maple trees line the road, at the bases of which grow
+small lavender flowers.
+@rus Вы находитесь на восточном  проспекте  Эльвенхейма.  Вдоль проспекта
+пламенеют кроваво-красными кронами клены,у подножий которых благоухают
+маленькие цветы.
 ~
 0 0 city
 D1
@@ -1807,11 +1819,15 @@ D3
 Z -1 40121
 S
 #40108
-Guild Road~
-You are on Guild Road. East you see a newly painted building 
-surrounded by little blue and red flowers, the Music Guild. 
-West you see a dark building surrounded by wild flowers and 
-poorly landscaped, the Necromancers' Guild.
+@eng Guild Road@rus Улица Гильдий~
+@eng You  are  on  Guild  Road.  East  you  see  a newly painted building
+surrounded by little blue and red flowers, the  Music Guild.  West you
+see a dark building surrounded by wild flowers and  poorly landscaped,
+the Necromancers' Guild.
+@rus Вы находитесь на Улице Гильдий. На востоке -- свежеокрашенное здание,
+окруженное небольшими синими и красными цветами -- ГильдиЯ Музыки.  На
+западе Вы видите темное здание, окруженное дикими  цветами  и  мрачным
+пейзажем, Гильдиею Некроманов.
 ~
 0 0 city
 D0
@@ -1832,18 +1848,24 @@ D3
 Z -1 40115
 S
 #40109
-Guild Road~
-You are on Guild Road. The road is lined with fiery-red 
-leaved maple trees and lavender flowers. To the east is 
-a store with a large sign on the door.
+@eng Guild Road@rus Улица Гильдий~
+@eng You are on Guild Road. The road is lined with fiery-red leaved maple
+trees and lavender flowers. To the east is  a  store with a large sign
+on the door.
+@rus Вы находитесь на Улице Гильдий.  Улица  обрамлена  пламенно-красными
+и цветами лаванды. На востоке -- лавка с большим знаком на двери.
 ~
 0 0 city
 E
 sign~
-OPENING SOON
+@eng OPENING SOON
           STRADI'S VARIOUS INSTRUMENTS
 
                (watch this space)
+@rus ОТКРЫТО СПОЗАРАНКУ
+           РАЗНООБРАЗНЫЕ ИНСТРУМЕНТЫ СТРАДИ
+ 
+         (посетите это место)
 ~
 D0
 ~

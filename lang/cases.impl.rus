@@ -265,8 +265,10 @@ Name -ть~
 BaseLen -1
 Form 1 -и~
 Form 2 -и~
+Form 3 -ь~
 Form 4 -ью~
 Form 5 -и~
+Form 6 -ь~
 End
 
 #RULE
@@ -277,6 +279,17 @@ Form 2 -м~
 Form 4 -ми~
 Form 5 -х~
 Form 6 -х~
+End
+
+#RULE
+Name -щаяся~
+BaseLen -5
+Form 1 -щейся~
+Form 2 -щейся~
+Form 3 -щуюся~
+Form 4 -щейся~
+Form 5 -щейся~
+Form 6 -щуюся~
 End
 
 #$

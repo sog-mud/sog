@@ -1,11 +1,10 @@
 #AREADATA
 Name Clock Tower~
-Builders agrael kami~
+Builders agrael kami diogen~
 VNUMs 4900 4999
 Credits Kami Agrael~
 Security 9
 LevelRange 1 30
-Flags closed noquest~
 End
 
 #MOBILES
@@ -30,13 +29,18 @@ CEFJK HKLTX 0 N
 stand stand male 3000
 AZc D large unknown
 #4901
-mechanic watch maker~
-Mechanic~
-A watch-maker works here, repairing something.
+mechanic watch maker часовщик~
+@eng Mechanic@rus Часовщик~
+@eng A watch-maker works here, repairing something.
+@rus Часовой мастер (mechanic) копается тут, что-то подкручивая.
 ~
-Mechanic is clad in grey oiled robe. With a wise look
+@eng Mechanic is clad in grey oiled robe. With a wise look
 in his eyes he stares deep into the clock-work and
 seemingly does not pay any attention at you.
+@rus Часовщик облачен в серый потрепанный фартук, весь в
+пятнах смазки. Мудрыми глазами он пристально всматривается
+вглубь механизма часов и, очевидно, нисколько тебя не
+замечает.
 ~
 human~
 AGQ FH 0 0
@@ -46,13 +50,17 @@ EFIKNV P N 0
 stand stand male 1000
 0 0 medium unknown
 #4902
-watchman clock tower~
-Watchman~
-The clock-tower watchman sits here, resting.
+watchman clock tower смотритель~
+@eng Watchman@rus ~~Смотритель~~ Башни~
+@eng The clock-tower watchman sits here, resting.
+@rus Смотритель Башни (watchman) сидит тут, отдыхая.
 ~
-Just a watchman. He looks rather tired and asleep.
+@eng Just a watchman. He looks rather tired and asleep.
 Probably he did not paid enough and so aloows you
 to enter the Clock Tower.
+@rus Простой смотритель. Он выглядит очень усталым и сонным.
+Вероятно, ему платят не очень много, так что он беспре-
+пятственно пропускает тебя в Башню.
 ~
 human~
 AGQ DFHNV 0 0
@@ -62,13 +70,17 @@ CDEFHIJKNc BP HIKLMOPRS J
 stand stand male 5000
 0 0 medium unknown
 #4903
-pendulum~
-Pendulum~
-The Pendulum looms from one wall to another.
+pendulum маятник~
+@eng Pendulum@rus Маятник~
+@eng The Pendulum looms hither and thither.
+@rus Маятник (pendulum) качается туда-сюда.
 ~
-You see a strange massive ball on a stick. It moves
+@eng You see a strange massive ball on a stick. It moves
 with a strong regularity in order not to leave the
 City without explicit time.
+@rus Перед тобой странный массивный шар на конце длинного стержня.
+Он качается из стороны в сторону, не отвлекаясь ни на миг,
+чтобы город не остался без точного времени.
 ~
 unique~
 AGTY DFHTV 0 0
@@ -78,11 +90,13 @@ CEFHK 0 CD N
 stand stand male 3456
 AZc B large unknown
 #4904
-hand long big~
-Long Hand~
-A Long Hand shows you right time.
+hand long big стрелка~
+@eng Long Hand@rus ~~Большая~~ ~~Стрелка~~~
+@eng A Long Hand shows you right time.
+@rus Большая стрелка (hand) показывает тебе правильное время.
 ~
-A big long arrow points at the edge of the clock face.
+@eng A big long arrow points at the edge of the clock face.
+@rus Длинная стрелка указывает на край циферблата.
 ~
 unique~
 AGTW TV 0 0
@@ -92,11 +106,13 @@ CDEFHIKNT 0 0 0
 stand stand male 2430
 AZc B medium unknown
 #4905
-hand short small~
-Short Hand~
-A Short Hand shows you right time.
+hand short small стрелка~
+@eng Short Hand@rus ~~Маленькая~~ ~~Стрелка~~~
+@eng A Short Hand shows you right time.
+@rus Малая стрелка (hand) показывает тебе верное время.
 ~
-A small short arrow points at the edge of the clock face.
+@eng A small short arrow points at the edge of the clock face.
+@rus Маленькая стрелка указывает на край циферблата.
 ~
 unique~
 AGTW TV 0 0
@@ -106,12 +122,15 @@ CEFHIKNT 0 0 0
 stand stand male 2340
 AZc B medium unknown
 #4906
-weatercock weather cock~
-Wearthercock~
-A wearthercock shows the direction that wind blows.
+weather cock флюгер wearthercock~
+@eng Wearthercock@rus Флюгер~
+@eng A wearthercock shows the direction that wind blows.
+@rus Петушок (wearthercock) указывает направление ветра.
 ~
-You see a cock made of brass. It rotates about the
+@eng You see a cock made of brass. It rotates about the
 top of the spire each time the wind blows.
+@rus Перед тобой петушок, сделанный из латуни. Он вращается
+на верхушке шпиля каждый раз, когда дует ветер.
 ~
 unique~
 ABGR DT 0 0
@@ -121,14 +140,18 @@ ABGR DT 0 0
 stand stand male 0
 AW ABCDEF medium unknown
 #4907
-chimney sweep~
-Chimney-sweep~
-A chimney-sweep sits at the tile singing for his
+chimney sweep трубочист~
+@eng Chimney-sweep@rus Трубочист~
+@eng A chimney-sweep sits at the tile singing for his
 girl-friend.
+@rus Веселый трубочист (chimney) сидит на крыше и поет серенады.
 ~
-Clad all in black, he seems anyway to be a very good
+@eng Clad all in black, he seems anyway to be a very good
 and kind. He sings son about his lovely friend. He
 scatters some bread bits around him for pigeons.
+@rus Трубочист одет во все черное, но это не мешает ему быть
+очень добрым и приветливым. Он поет песню о своей подруге
+и кормит голубей крошками хлеба.
 ~
 human~
 AGHT HNPT 1000 0
@@ -138,12 +161,15 @@ EFHIJKV N 0 M
 sit sit male 230
 0 0 medium unknown
 #4908
-one clock~
-One o'clock~
-One o'clock stands here on a clock face.
+one clock один~
+@eng One o'clock@rus ~~Один~~ ~~Час~~~
+@eng One o'clock stands here on a clock face.
+@rus Цифра Один (one) стоит на циферблате.
 ~
-You see a strong warrior with the number <1> engraved
+@eng You see a strong warrior with the number <1> engraved
 on his armour.
+@rus Ты видишь могучего воина с цифрой <1>, выгравированной
+на его доспехах.
 ~
 unique~
 ABGH TV 0 0
@@ -153,12 +179,15 @@ CEFKd 0 0 0
 stand stand male 120
 AM ABCDEF medium unknown
 #4909
-two clock~
-Two o'clock~
-Two o'clock stands here on a clock face.
+two clock два~
+@eng Two o'clock@rus ~~Два~~ ~~Часа~~~
+@eng Two o'clock stands here on a clock face.
+@rus Цифра Два (two) стоит на циферблате.
 ~
-You see a strong warrior with the number <2> engraved
+@eng You see a strong warrior with the number <2> engraved
 on his armour.
+@rus Ты видишь могучего воина с цифрой <2>, выгравированной
+на его доспехах.
 ~
 unique~
 ABGH TV 0 0
@@ -168,12 +197,15 @@ CEFKd 0 0 0
 stand stand male 120
 AM ABCDEF medium unknown
 #4910
-three clock~
-Three o'clock~
-Three o'clock stands here on a clock face.
+three clock три~
+@eng Three o'clock@rus ~~Три~~ ~~Часа~~~
+@eng Three o'clock stands here on a clock face.
+@rus Цифра Три (three) стоит на циферблате.
 ~
-You see a strong warrior with the number <3> engraved
+@eng You see a strong warrior with the number <3> engraved
 on his armour.
+@rus Ты видишь могучего воина с цифрой <3>, выгравированной
+на его доспехах.
 ~
 unique~
 ABGH TV 0 0
@@ -183,12 +215,15 @@ CEFKd 0 0 0
 stand stand male 130
 AM ABCDEF medium unknown
 #4911
-four clock~
-Four o'clock~
-Four o'clock stands here on a clock face.
+four clock четыре~
+@eng Four o'clock@rus ~~Четыре~~ ~~Часа~~~
+@eng Four o'clock stands here on a clock face.
+@rus Цифра Четыре (four) стоит на циферблате.
 ~
-You see a strong warrior with the number <4> engraved
+@eng You see a strong warrior with the number <4> engraved
 on his armour.
+@rus Ты видишь могучего воина с цифрой <4>, выгравированной
+на его доспехах.
 ~
 unique~
 ABGH TV 0 0
@@ -198,12 +233,15 @@ CEFKd 0 0 0
 stand stand male 150
 AM ABCDEF medium unknown
 #4912
-five clock~
-Five o'clock~
-Five o'clock stands here on a clock face.
+five clock пять~
+@eng Five o'clock@rus ~~Пять~~ ~~Часов~~~
+@eng Five o'clock stands here on a clock face.
+@rus Цифра Пять (five) стоит на циферблате.
 ~
-You see a strong warrior with the number <5> engraved
+@eng You see a strong warrior with the number <5> engraved
 on his armour.
+@rus Ты видишь могучего воина с цифрой <5>, выгравированной
+на его доспехах.
 ~
 unique~
 ABGH TV 0 0
@@ -213,12 +251,15 @@ CEFKd 0 0 0
 stand stand male 220
 AM ABCDEF medium unknown
 #4913
-six clock~
-Six o'clock~
-Six o'clock stands here on a clock face.
+six clock шесть~
+@eng Six o'clock@rus ~~Шесть~~ ~~Часов~~~
+@eng Six o'clock stands here on a clock face.
+@rus Цифра Шесть (six) стоит на циферблате.
 ~
-You see a strong warrior with the number <6> engraved
+@eng You see a strong warrior with the number <6> engraved
 on his armour.
+@rus Ты видишь могучего воина с цифрой <6>, выгравированной
+на его доспехах.
 ~
 unique~
 ABGH TV 0 0
@@ -228,12 +269,15 @@ CEFKd 0 0 0
 stand stand male 620
 AM ABCDEF medium unknown
 #4914
-seven clock~
-Seven o'clock~
-Seven o'clock stands here on a clock face.
+seven clock семь~
+@eng Seven o'clock@rus ~~Семь~~ ~~Часов~~~
+@eng Seven o'clock stands here on a clock face.
+@rus Цифра Семь (seven) стоит на циферблате.
 ~
-You see a strong warrior with the number <7> engraved
+@eng You see a strong warrior with the number <7> engraved
 on his armour.
+@rus Ты видишь могучего воина с цифрой <7>, выгравированной
+на его доспехах.
 ~
 unique~
 ABGH TV 0 0
@@ -243,12 +287,15 @@ CEFKd 0 0 0
 stand stand male 520
 AM ABCDEF medium unknown
 #4915
-eight clock~
-Eight o'clock~
-Eight o'clock stands here on a clock face.
+eight clock восемь~
+@eng Eight o'clock@rus ~~Восемь~~ ~~Часов~~~
+@eng Eight o'clock stands here on a clock face.
+@rus Цифра Восемь (eight) стоит на циферблате.
 ~
-You see a strong warrior with the number <8> engraved
+@eng You see a strong warrior with the number <8> engraved
 on his armour.
+@rus Ты видишь могучего воина с цифрой <8>, выгравированной
+на его доспехах.
 ~
 unique~
 ABGH TV 0 0
@@ -258,12 +305,15 @@ CEFKd 0 0 0
 stand stand male 1120
 AM ABCDEF medium unknown
 #4916
-nine clock~
-Nine o'clock~
-Nine o'clock stands here on a clock face.
+nine clock девять~
+@eng Nine o'clock@rus ~~Девять~~ ~~Часов~~~
+@eng Nine o'clock stands here on a clock face.
+@rus Цифра Девять (nine) стоит на циферблате.
 ~
-You see a strong warrior with the number <9> engraved
+@eng You see a strong warrior with the number <9> engraved
 on his armour.
+@rus Ты видишь могучего воина с цифрой <9>, выгравированной
+на его доспехах.
 ~
 unique~
 ABGH TV 0 0
@@ -273,12 +323,15 @@ CEFKd 0 0 0
 stand stand male 920
 AM ABCDEF medium unknown
 #4917
-ten clock~
-Ten o'clock~
-Ten o'clock stands here on a clock face.
+ten clock десять~
+@eng Ten o'clock@rus ~~Десять~~ ~~Часов~~~
+@eng Ten o'clock stands here on a clock face.
+@rus Цифра Десять (ten) стоит на циферблате.
 ~
-You see a strong warrior with the number <10> engraved
+@eng You see a strong warrior with the number <10> engraved
 on his armour.
+@rus Ты видишь могучего воина с цифрой <10>, выгравированной
+на его доспехах.
 ~
 unique~
 ABGH TV 0 0
@@ -288,12 +341,15 @@ CEFKd 0 0 0
 stand stand male 1020
 AM ABCDEF medium unknown
 #4918
-eleven clock~
-Eleven o'clock~
-Eleven o'clock stands here on a clock face.
+eleven clock одиннадцать~
+@eng Eleven o'clock@rus ~~Одиннадцать~~ ~~Часов~~~
+@eng Eleven o'clock stands here on a clock face.
+@rus Цифра Одиннадцать (eleven) стоит на циферблате.
 ~
-You see a strong warrior with the number <11> engraved
+@eng You see a strong warrior with the number <11> engraved
 on his armour.
+@rus Ты видишь могучего воина с цифрой <11>, выгравированной
+на его доспехах.
 ~
 unique~
 ABGH TV 0 0
@@ -303,12 +359,15 @@ CEFKd 0 0 0
 stand stand male 1020
 AM ABCDEF medium unknown
 #4919
-twelve clock~
-Twelve o'clock~
-Twelve o'clock stands here on a clock face.
+twelve clock двенадцать~
+@eng Twelve o'clock@rus ~~Двенадцать~~ ~~Часов~~~
+@eng Twelve o'clock stands here on a clock face.
+@rus Цифра Двенадцать (twelve) стоит на циферблате.
 ~
-You see a strong warrior with the number <12> engraved
+@eng You see a strong warrior with the number <12> engraved
 on his armour.
+@rus Ты видишь могучего воина с цифрой <12>, выгравированной
+на его доспехах.
 ~
 unique~
 ABGH TV 0 0
@@ -318,76 +377,90 @@ CEFKd 0 0 0
 stand stand male 1200
 AM ABCDEF medium unknown
 #4920
-large gear~
-Large gear~
-Large gear is here moving slowly.
+gear шестеренка large~
+@eng Large gear@rus ~~Большая~~ ~~шестеренка~~~
+@eng Large gear is here moving slowly.
+@rus Большая шестеренка (gear) медленно крутится здесь.
 ~
-You see a round piece of metal spinning connected
+@eng You see a round piece of metal spinning connected
 with the others.
+@rus Круглая железка вращается вместе с другими, 
+большими и маленькими.
 ~
 unique~
 AGTY d 0 0
 20 0 5d50+250 20d10+100 5d5+15 scratch
 -20 -40 -20 -10
 CEId 0 0 0
-stand stand male 0
+stand stand female 0
 AM ADEF large unknown
 #4921
-medium gear~
-Medium gear~
-Medium gear is here.
+gear шестеренка medium~
+@eng Medium gear@rus ~~Средняя~~ ~~шестеренка~~~
+@eng Medium gear is here.
+@rus Средняя шестеренка (gear) крутится здесь.
 ~
-You see a round piece of metal spinning connected
+@eng You see a round piece of metal spinning connected
 with the others.
 
+@rus Круглая железка вращается вместе с другими,
+большими и маленькими.
 ~
 unique~
 AGTY 0 0 0
 15 0 5d30+160 15d10+100 3d5+8 scratch
 -15 -30 -15 -10
 EFIKd 0 0 0
-stand stand male 0
+stand stand female 0
 AM ABCDEF medium unknown
 #4922
-small gear~
-Small gear~
-Small gear is here moving quickly.
+small gear шестеренка~
+@eng Small gear@rus ~~Маленькая~~ ~~шестеренка~~~
+@eng Small gear is here moving quickly.
+@rus Маленькая шестеренка (gear) быстро крутится здесь.
 ~
-You see a round piece of metal spinning connected
+@eng You see a round piece of metal spinning connected
 with the others.
-
+@rus Круглая железка вращается вместе с другими,
+большими и маленькими.
 ~
 unique~
 AGTY 0 0 0
 10 0 3d22+96 10d10+100 2d5+5 scratch
 -10 -20 -10 -6
 FHIKd 0 0 0
-stand stand male 0
+stand stand female 0
 AM ABCDEF small unknown
 #4923
-tiny gear~
-Tiny gear~
-Tiny gear moves here very fast.
+tiny gear шестеренка~
+@eng Tiny gear@rus ~~Крошечная~~ ~~шестеренка~~~
+@eng Tiny gear moves here very fast.
+@rus Крошечная шестеренка (gear) стремительно крутится здесь.
 ~
-You see a round piece of metal spinning connected
+@eng You see a round piece of metal spinning connected
 with the others.
 
+@rus Круглая железка вращается вместе с другими,
+большими и маленькими.
 ~
 unique~
 AGHTY V 0 0
 5 0 1d17+42 5d10+100 2d3+2 scratch
 -5 -10 -5 -2
 FHIJKNd 0 0 0
-stand stand male 0
+stand stand female 0
 AM ABCDEF tiny unknown
 #4924
-pigeon tower~
-tower pigeon~
-A pigeon is here searching for food.
+pigeon tower голубь~
+@eng tower pigeon@rus голубь~
+@eng A pigeon is here searching for food.
+@rus Голубь (pigeon) роется здесь в поисках пищи.
 ~
-A beautiful pigeon walks on the roof, cooing and
+@eng A beautiful pigeon walks on the roof, cooing and
 pecking bits of bread scattered by the chimney-
 sweep.
+@rus Голубь важно расхаживает по крыше, воркуя и склевывая
+крошки хлеба, рассыпанные трубочистом.
 ~
 unique~
 ACGHQW DFNPTV 1000 0
@@ -397,10 +470,13 @@ DFHIJd N 0 0
 stand stand male 230
 AW ABCDEF small unknown
 #4925
-ghost terrifying~
-terrifying ghost~
-A strange figure looks like a ghost.
+ghost terrifying привидение~
+@eng terrifying ghost@rus ~~ужасное~~ ~~привидение~~~
+@eng A strange figure looks like a ghost.
+@rus Странная фигура выглядит, словно привидение (ghost) ...
 ~
+@eng What do you want to see? This is GHOST!!!
+@rus А что ты хотел увидеть? Это же ПРИВИДЕНИЕ!!!
 ~
 ghost~
 AGR B 0 0
@@ -410,9 +486,10 @@ HQ 0 0 0
 stand stand none 0
 0 0 medium unknown
 #4926
-bat angry~
-angry bat~
-A very angry bat is flying here.
+bat angry мышь~
+@eng angry bat@rus ~~летучая~~ ~~мышь~~~
+@eng A very angry bat is flying here.
+@rus Очень злая летучая мышь (bat) летает здесь.
 ~
 ~
 bat~
@@ -423,13 +500,14 @@ AFGT D -1000 0
 stand stand none 0
 0 0 small unknown
 #4927
-rat wimpy~
-wimpy rat~
-A big rat looks at you.
+rat wimpy крыса~
+@eng wimpy rat@rus ~~трусливая~~ ~~крыса~~~
+@eng A big rat looks at you.
+@rus Большая жирная крыса (rat) смотрит на тебя.
 ~
 ~
 bat~
-AFGT F -1000 0
+AFGHT F -1000 0
 8 0 10d10+100 0d0+0 5d2+5 bite
 0 0 0 0
 Q 0 0 0
@@ -437,9 +515,10 @@ stand stand female 0
 0 0 small unknown
 F aff T
 #4928
-spider small~
-small spider~
-A small spider is trying to get out from you.
+spider small паук~
+@eng small spider@rus ~~маленький~~ ~~паук~~~
+@eng A small spider is trying to get out from your way.
+@rus Маленький паучок (spider) пытается убраться с твоей дороги.
 ~
 ~
 centipede~
@@ -450,9 +529,10 @@ AGHR 0 0 0
 stand stand male 0
 0 0 tiny unknown
 #4929
-spider huge~
-HUGE spider~
-A huge spider attacks you!
+spider huge паук~
+@eng HUGE spider@rus ~~здоровенный~~ ~~паук~~~
+@eng A huge spider attacks you!
+@rus Здоровенный паук (spider) бросается на тебя!
 ~
 ~
 centipede~
@@ -569,7 +649,7 @@ A
 19 5
 A
 24 -5
-G none
+G male
 #4901
 robe mechanic фартук~
 @eng robe of mechanic@rus ~~фартук~~ часовщика~
@@ -599,16 +679,16 @@ A
 19 3
 G male
 #4903
-cabinet конторка~
-@eng cabinet@rus конторка~
-@eng An ebony cabinet stands here.@rus Конторка (cabinet) из черного дерева стоит в углу.~
-ivory~
+box carved шкатулка~
+@eng carved box@rus шкатулка~
+@eng A beautiful carved box stands on the cabinet.@rus Красивая резная шкатулка (box) стоит на конторке.~
+ebony~
 container CRY 0
 100 ABCD 4904 100 100
 0 0 0 P
 G female
 #4904
-ivory key ключ~
+key ключ ivory~
 @eng ivory key@rus ~~ключ~~ из слоновой кости~
 @eng An ivory key is tied to the gold chain.@rus Ключ из слоновой кости (ivory) подвешен на золотой цепочке.~
 ivory~
@@ -1024,7 +1104,7 @@ mace clock булава~
 @eng clock mace@rus ~~булава~~ из башенных часов~
 @eng A havy mace lies here.@rus Тяжелая булава (mace) лежит здесь.~
 brass~
-weapon 0 0
+weapon 0 AN
 mace 4 8 crush 0
 18 60 3500 P
 G female
@@ -1033,7 +1113,7 @@ lance clock пика~
 @eng clock lance@rus ~~пика~~ из башенных часов~
 @eng A huge lance lies here.@rus Здоровенная пика (lance) лежит здесь.~
 brass~
-weapon 0 0
+weapon 0 AN
 lance 12 3 none 0
 30 100 5000 P
 G female
@@ -1044,6 +1124,15 @@ exit door дверь~
 unknown~
 portal 0 0
 0 0 0 36332 0
+0 0 0 P
+G male
+#4945
+cabinet конторка~
+@eng cabinet@rus конторка~
+@eng An ebony cabinet stands here.@rus Конторка (cabinet) из черного дерева стоит в углу.~
+ebony~
+furniture CRY 0
+B DFGHIJ DN BD BD
 0 0 0 P
 G none
 #0
@@ -3113,7 +3202,7 @@ to the wall.
 подле него. В углу стоит небольшая конторка.
 Маленькая табличка (tablet) прибита к стене.
 ~
-0 AD inside
+0 ADJ inside
 E
 tablet~
 Agrael build this Tower in June, 1999.
@@ -3390,8 +3479,9 @@ M 0 4928 3 4995 1	* small spider (Spiral Staircase)
 E 0 4913 0 12		*	spider's web: about the shoulders
 M 0 4928 3 4997 1	* small spider (Spiral Staircase)
 M 0 4927 5 4997 2	* wimpy rat (Spiral Staircase)
-O 0 4903 0 4999	* cabinet (Watchman's Shelter)
-P 0 4905 1 4903 1	* cabinet: bronze clock key
+O 0 4903 0 4999	* carved box (Watchman's Shelter)
+P 0 4905 1 4903 1	* carved box: bronze clock key
+O 0 4945 0 4999	* cabinet (Watchman's Shelter)
 M 0 4902 1 4999 1	* Watchman (Watchman's Shelter)
 E 0 4904 0 17		*	ivory key: held in the hands
 S
