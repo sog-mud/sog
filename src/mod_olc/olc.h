@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.54 1999-12-03 11:57:16 fjoe Exp $
+ * $Id: olc.h,v 1.55 1999-12-03 22:33:09 avn Exp $
  */
 
 /***************************************************************************
@@ -62,8 +62,8 @@ enum {
 #define CF_SOCIAL	(B)
 #define CF_CMD		(C)
 #define CF_SKILL	(D)
-#define CF_MATERIAL	(D)
-#define CF_LIQUID	(D)
+#define CF_MATERIAL	(E)
+#define CF_LIQUID	(F)
 
 extern int changed_flags;
 
@@ -205,6 +205,7 @@ void		olc_printf	(CHAR_DATA *ch, const char *format, ...);
 #define SECURITY_RACE		4
 #define SECURITY_CLASS		9
 #define SECURITY_MATERIAL	2
+#define SECURITY_SKILL		8
 
 #endif
 

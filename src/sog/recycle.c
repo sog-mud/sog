@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.82 1999-12-03 11:57:17 fjoe Exp $
+ * $Id: recycle.c,v 1.83 1999-12-03 22:33:09 avn Exp $
  */
 
 /***************************************************************************
@@ -66,8 +66,9 @@ event_fun_t *evf_new(void)
 	return calloc(1, sizeof(event_fun_t));
 }
 
-void evf_free(event_fun_t * evf)
+void evf_free(event_fun_t* evf)
 {
+	free_string(evf->fun_name);
 	free(evf);
 }
 

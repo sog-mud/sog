@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.90 1999-12-01 09:07:13 fjoe Exp $
+ * $Id: skills.c,v 1.91 1999-12-03 22:33:09 avn Exp $
  */
 
 /***************************************************************************
@@ -534,7 +534,6 @@ void skill_destroy(skill_t *sk)
 
 	for (evf = sk->eventlist; evf; evf = evf_next) {
 		evf_next = evf->next;
-		free_string(evf->fun_name);
 		evf_free(evf);
 	}
 }

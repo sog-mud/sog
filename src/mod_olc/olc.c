@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.85 1999-12-03 11:57:15 fjoe Exp $
+ * $Id: olc.c,v 1.86 1999-12-03 22:33:09 avn Exp $
  */
 
 /***************************************************************************
@@ -106,9 +106,9 @@ olced_t olced_table[] = {
 	{ ED_CLASS,	"ClassEd",	olc_cmds_class	},
 	{ ED_MATERIAL,	"MatEd",	olc_cmds_mat	},
 	{ ED_LIQUID,	"LiqEd",	olc_cmds_liq	},
+	{ ED_SKILL,	"SkillEd",	olc_cmds_skill	},
 #if 0
 	{ ED_CMD,	"CmdEd",	olc_cmds_cmd	}, 
-	{ ED_SKILL,	"SkillEd",	olc_cmds_skill	},
 #endif
 	{ NULL }
 };

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skills.c,v 1.16 1999-10-26 13:52:58 fjoe Exp $
+ * $Id: db_skills.c,v 1.17 1999-12-03 22:33:09 avn Exp $
  */
 
 #include <stdio.h>
@@ -96,7 +96,7 @@ DBLOAD_FUN(load_skill)
 							 "duplicate fun name");
 						return;
 					}
-				evf = calloc(1, sizeof(event_fun_t));
+				evf = evf_new();
 				evf->event = event;
 				evf->fun_name = fun_name;
 				evf->next = sk.eventlist;
