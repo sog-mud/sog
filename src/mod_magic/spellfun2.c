@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.45 2001-10-14 17:14:23 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139.2.46 2001-10-14 19:18:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -187,7 +187,8 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo)
 	if (saves_spell(level-2, victim, DAM_ENERGY)
 	||  number_bits(1) == 0
 	||  IS_IMMORTAL(victim)
-	||  IS_CLAN_GUARD(victim)) {
+	||  IS_CLAN_GUARD(victim)
+	||  IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)) {
 		dam = dice(level, 24) ;
 		damage(ch, victim, dam, sn, DAM_ENERGY, TRUE);
 		return;
@@ -2622,8 +2623,7 @@ void spell_animate_dead(int sn, int level, CHAR_DATA *ch, void *vo)
 		if (count_charmed(ch)) 
 			return;
 
-		if (ch->in_room != NULL
-		&&  IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
+		if (IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
 			act_puts("You can't animate deads here.",
 				ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			return;
@@ -3226,8 +3226,7 @@ void spell_lion_help(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (ch->in_room == NULL
-	&&  IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
+	if (IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
 		char_puts("No lions can hear you.\n", ch);
 		return;
 	}
@@ -4982,8 +4981,7 @@ void spell_control_undead(int sn, int level, CHAR_DATA *ch, void *vo)
 	||  IS_AFFECTED(ch, AFF_CHARM)
 	||  saves_spell(level, victim, DAM_OTHER)
 	||  (IS_NPC(victim) && victim->pMobIndex->pShop != NULL)
-	||  (victim->in_room &&
-		IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)))
+	||  IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA))
 			return;
 
 	if (is_safe(ch, victim))
@@ -5778,10 +5776,11 @@ void spell_abolish_undead(int sn, int level, CHAR_DATA *ch, void *vo)
                 return;
         }
 
-        if (saves_spell(level+2, victim, DAM_HOLY)
-        ||  number_bits(1) == 0
-        ||  IS_IMMORTAL(victim)
-        ||  IS_CLAN_GUARD(victim)) {
+	if (saves_spell(level+2, victim, DAM_HOLY)
+	||  number_bits(1) == 0
+	||  IS_IMMORTAL(victim)
+	||  IS_CLAN_GUARD(victim)
+	||  IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)) {
                 dam = dice(level, 24) ;
                 damage(ch, victim, dam, sn, DAM_HOLY, TRUE);
                 return;
@@ -5893,9 +5892,9 @@ void spell_crypt_thing(int sn, int level, CHAR_DATA *ch, void *vo)
 	                }
 	        }
 
-                if (ch->in_room != NULL
-                &&  IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
-                        act_puts("You can't animate deads here.", ch, NULL, NULL, TO_CHAR, POS_DEAD);
+                if (IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
+                        act_puts("You can't animate deads here.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
                         return;
                 }
 
