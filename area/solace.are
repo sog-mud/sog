@@ -1189,6 +1189,14 @@ mace 5 5 'crush' 0
 f object hitroll 4 0
 f object damroll 1 0
 f object mana -50 0
+m obj_greet @ 87~
+if (!is_class($n, "wizard"))
+        return 0;
+act("$p glows and pulses.", $n, $p, NULL, TO_ALL);
+return 1;
+~
+m obj_entry obj_random_mage_masher 87~
+m obj_random obj_random_mage_masher 13~
 E
 hammer warhammer~
 This hammer has the words, "MAGE MASHER" engraved into it's head.

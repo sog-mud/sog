@@ -66,6 +66,51 @@ CDEFIJKN
 stand stand male 0
 0 0 medium unknown
 m mob_fight mob_fight_cast_mage 100~
+m mob_fight @ 40~
+act("'Guards! Guards!' shouts Loranhir hoarsely.", $n, NULL, $N, TO_ROOM);
+if (dice(1,2) == 1)
+	return 0;
+act("You see a faint glitter from your left as an armored figure approaches.", $n, NULL, $N, TO_ROOM);
+act("A mirror guardian silently begins his attack!", $n, NULL, $N, TO_ALL);
+char guard = load_mob($n, 19001);
+dofun("rescue", guard, "loranhir");
+return 0;
+~
+m mob_give @ 19129~
+obj taliesin = load_obj($n, 19157);
+if (taliesin == NULL)
+	return 1;
+
+social_char("bow", $n, $N);
+act_say($N, "You have proven your worthiness...here is the sword Taliesin.", NULL);
+give_obj($n, $N, taliesin);
+extract_obj($p, 0);
+return 0;
+~
+m mob_give @ 19128~
+obj sunrise = load_obj($n, 19158);
+if(sunrise == NULL)
+	return 1;
+
+social_char("bow", $n, $N);
+act_say($N, "You have proven your worthiness...here is the Sunrise Shield.", NULL);
+give_obj($n, $N, sunrise);
+extract_obj($p, 0);
+return 0;
+~
+m mob_greet @ all~
+/*
+ * Вместо say поставил псевдо-tell
+ *                     Grothendieck
+ */
+act("$n sighs gently.", $n, NULL, $N, TO_ROOM);
+act("$n tells you:", $n, NULL, $N, TO_VICT);
+act("        Do you desire the sword Taliesin and the Sunrise Shield?", $n, NULL, $N, TO_VICT);
+act("        If you do, you must bring me the two Sigils of the Light and Dark.....", $n, NULL, $N, TO_VICT);
+act("        Only then will you have proven yourself worthy....", $n, NULL, $N, TO_VICT);
+
+return 0;
+~
 #19004
 caerlin bard~
 Caerlin~
@@ -81,7 +126,34 @@ BG 0 H 0 0 1000 0
 CDEFIJK
 stand stand male 0
 0 0 medium unknown
+m mob_bribe @ 5000~
+social_char("smile", $n, $N);
+act_say($n, "Thank you....here is a gift of protection in return.", $N);
+dofun("zap", $n, "$N");
+return 0;
+~
+m mob_bribe @ 100~
+social_char("smile", $n, $N);
+social_char("thank", $n, $N); 
+return 0;
+~
+m mob_bribe @ 100000~
+social_char("kneel", $n, $N);
+tell_char($n, $N, "You have done more than you know....I will tell you this:");
+tell_char($n, $N, "To win the Sunrise Shield and the Sword Taliesin...");
+tell_char($n, $N, "...you must visit both towers in our realm.");
+social_char("bow", $n, $N);
+return 0;
+~
 m mob_fight mob_fight_cast_cleric 100~
+m mob_greet @ 70~
+if (is_good($N))
+        social_char("smile", $n, $N);
+else
+        social_char("frown", $n, $N);
+return 0;
+
+~
 #19005
 commoner mirror citizen man~
 the young man~
@@ -130,6 +202,22 @@ BG 0 HN 0 AB 1000 0
 CDEFK
 stand stand none 0
 0 0 medium unknown
+m mob_fight @ 100~
+if (dice(1, 10) < 4) {
+	act("$n whinnies in terror.", $n, NULL, $N, TO_ROOM);
+	dofun("kick", $n, "");
+}
+
+if (dice(1, 10) < 4) {
+	act("$n charges at you, lowering its horn at your heart!",
+            $n, NULL, $N, TO_VICT);
+	act("$n charges at $N, lowering its horn at $gN{his} heart!",
+            $n, NULL, $N, TO_NOTVICT);
+	damage($n, $N, dice(char_level($n),10), "stab", DAM_PIERCE, DAM_F_SHOW);
+}
+
+return 0;
+~
 #19008
 watchman~
 a watchman~
@@ -145,6 +233,11 @@ BG 0 N 0 AB 0 0
 CDEFIJ
 stand stand male 0
 0 0 medium unknown
+m mob_random @ 20~
+act("The watchman's robe swirls gently in the breeze.",
+    $n, NULL, NULL, TO_ROOM);
+return 0;
+~
 #19009
 watchman~
 a watchman~
@@ -224,6 +317,13 @@ CDFIJ
 stand stand none 0
 0 0 medium unknown
 m mob_fight mob_fight_poison_bite 100~
+m mob_fight @ 40~
+act("The Grey Mare stares you right in the eye....", $n, NULL, $N, TO_VICT);
+act("The Grey Mare stares $N right in the eye....", $n, NULL, $N, TO_NOTVICT);
+act("You are rooted to the spot!", $n, NULL, $N, TO_VICT);
+dofun("crush", $n, "");
+return 0;
+~
 #19014
 bride woman~
 the bride~
@@ -239,6 +339,13 @@ BG 0 HN 0 0 1000 0
 F
 stand stand female 0
 0 0 medium unknown
+m mob_random @ 10~
+char groom = get_char_room($n, char_room($n), "19015");
+if (groom == NULL)
+	return 1;
+social_char("nudge", $n, groom);
+return 0;
+~
 #19015
 groom man~
 the groom~
@@ -254,6 +361,15 @@ BG 0 HN 0 0 1000 0
 FIJ
 stand stand male 0
 0 0 medium unknown
+m mob_random @ 100~
+if(number_percent() < 15)
+        act("$n turns green.", $n, NULL, NULL, TO_ROOM);
+if (number_percent() < 20)
+        act("$n turns blue.", $n, NULL, NULL, TO_ROOM);
+if (number_percent() < 25)
+        act("$n turns white.", $n, NULL, NULL, TO_ROOM);
+return 0;
+~
 #19016
 red lord scarlet~
 the Red Lord~
@@ -396,6 +512,14 @@ F
 stand stand male 0
 0 0 medium unknown
 m mob_fight mob_fight_cast_mage 100~
+m mob_greet @ 100~
+act_say($n, "Welcome, $N!", $N);
+return 0;
+~
+m mob_random @ 30~
+mob_interpret($n, "giggle");
+return 0;
+~
 #19025
 pool man~
 the pool player~
@@ -410,6 +534,20 @@ BG 0 0 0 0 1000 0
 FIJ
 stand stand male 0
 0 0 medium unknown
+m mob_random @ 100~
+int chance = number_percent();
+
+if (chance<10) {
+	act("$n collects all the balls, sets up a new rack, and breaks.",
+            $n, NULL, NULL, TO_ROOM);
+} else if (chance < 25)
+	act("$n sinks a combination shot.", $n, NULL, NULL, TO_ROOM);
+else if (chance < 45)
+	act("$n misses a bank shot.", $n, NULL, NULL, TO_ROOM);
+else if (chance < 70)
+	act("$n makes a straight shot.", $n, NULL, NULL, TO_ROOM);
+return 0;
+~
 #19026
 lauraine barkeep~
 Lauraine the barkeep~
@@ -455,6 +593,40 @@ BG CD HN 0 AB 1000 0
 CDEFIJKN
 stand stand male 0
 0 0 medium unknown
+m mob_fight @ 100~
+int chance = number_percent();
+char vict = get_random_fighting($n);
+if (chance < 35) {
+	act("$n throws $N out of the room!", $n, NULL, $N, TO_NOTVICT);
+	act("$n throws you out of the room!", $n, NULL, $N, TO_VICT);
+	transfer_char($n, 19069);
+	act("You land with a thump on the hard dirt ground.",
+	    $N, NULL, $N, TO_VICT);
+	act("$N lands with a thump on the hard dirt ground.",
+	    $N, NULL, $N, TO_NOTVICT);
+} else if (chance < 45) {
+	act("$n screams 'HATAI!'", $n, NULL, NULL, TO_ROOM);
+	damage($n, vict, 57, "bodyslam", DAM_BASH, DAM_F_SHOW);
+	wait_state(vict, dice(1, 4) * PULSE_VIOLENCE);
+} else if (chance < 60) {
+	act("$n screams 'YOTAH!'", $n, NULL, NULL, TO_ROOM);
+	damage($n, vict, dice(2, 3), "kicked dirt", DAM_NONE, DAM_F_SHOW);
+	if (!is_affected(vict, AFF_BLIND) {
+		affect_char(vict, TO_AFFECTS, "dirt kicking",
+		    char_level($n), 0, APPLY_HITROLL, -5, AFF_BLIND);
+	}
+} else if (chance < 85) {
+	act("$n screams 'AIYIII!'", $n, NULL, NULL, TO_ROOM);
+	damage($n, vict, 3 * number_range(1, char_level($n)),
+	    "kick", DAM_BASH, DAM_F_SHOW);
+}
+
+return 0;
+~
+m mob_greet @ 100~
+social_char("bow", $n, $N);
+return 0;
+~
 #19029
 proprietor shopkeeper man~
 the proprietor~
@@ -485,6 +657,11 @@ BGe 0 N 0 AB 1000 0
 FIJ
 stand stand male 0
 0 0 medium unknown
+m mob_greet @ 50~
+act("$n peers at you over her half-moon reading glasses.",
+    $n, NULL, $N, TO_VICT);
+return 0;
+~
 #19031
 father franklin~
 Father Franklin~
@@ -550,6 +727,24 @@ Ge 0 0 BG ABH -1000 0
 FIK
 stand stand male 0
 0 0 medium unknown
+m mob_fight @ 100~
+char vict = get_random_fighting($n);
+if (number_percent() < 30 && !is_affected(vict, AFF_BLIND)) {
+	damage($n, vict, dice(2,3), "kicked dirt", DAM_NONE, DAM_F_SHOW);
+        affect_char(vict, TO_AFFECTS, "dirt kicking", char_level($n), 0,
+            APPLY_HITROLL, -5, AFF_BLIND);
+}
+
+if (number_percent() < 50) {
+	damage($n, $N, dice(char_level($n), 7), "stab",
+            DAM_PIERCE, DAM_F_SHOW);
+}
+return 0;
+~
+m mob_greet @ 100~
+backstab_char($n, $N, backstab_chance($n));
+return 0;
+~
 #19035
 wizard standard evil~
 a standard issue wizard~
@@ -566,6 +761,14 @@ FI
 stand stand male 0
 0 0 medium unknown
 m mob_fight mob_fight_cast_mage 100~
+m mob_greet @ 70~
+social_char("smirk", $n, $N);
+return 0;
+~
+m mob_random @ 50~
+mob_interpret($n, "snicker");
+return 0;
+~
 #19036
 gardener gardner lady~
 the gardener~
@@ -608,6 +811,17 @@ BG 0 0 0 0 1000 0
 FI
 stand stand male 0
 0 0 medium unknown
+m mob_greet @ 70~
+if (number_percent() < 25) {
+        act("$n reels in his line, detaches the fish from the end, and casts.",
+            $n, NULL, NULL, TO_ROOM);
+        load_obj($n, 19165);
+} else {
+        act("$n reels in his empty line, sighs, and recasts.",
+            $n, NULL, NULL, TO_ROOM);
+}
+return 0;
+~
 #19039
 deer buck~
 The buck~
@@ -670,7 +884,60 @@ BCG 0 0 G H -1000 0
 F
 stand stand male 0
 0 0 medium unknown
+m mob_bribe @ 1000~
+act("$n takes the Ace of Spades and two queens from a deck, turning them down.", $n, NULL, $N, TO_ROOM);
+act("$n mixes the cards.", $n, NULL, $N, TO_ROOM);
+act_say($n, "OK....where is the ace of spades? Say 'one', 'two', or 'three'.", $N);
+return 0;
+~
+m mob_greet @ 70~
+tell_char($n, $N, "Hi, kid...care to play?");
+tell_char($n, $N, "A round of three-card monte for just 10 gold coins!");
+return 0;
+~
 m mob_random mob_random_thief 100~
+m mob_speech @ one~
+if (char_silver($n) + 10 * char_gold($n) < 1000) {
+	act_say($n, "First of all, $N, give me 10 gold coins.", $N);
+	return 1;
+}
+
+set_char_gold($n, 0);
+set_char_silver($n, 0);
+act_say($n, "Nope!", NULL);
+act("$n turns over the second card.", $n, NULL, NULL, TO_ROOM);
+act_say($n, "There it was......waiting for you!", NULL);
+act("$n picks up the cards and shuffles.", $n, NULL, NULL, TO_ROOM);
+return 0;
+~
+m mob_speech @ two~
+if (char_silver($n) + 10 * char_gold($n)<1000) {
+	act_say($n, "First of all, $N, give me 10 gold coins.", $N);
+	return 1;
+}
+
+set_char_gold($n, 0);
+set_char_silver($n, 0);
+act_say($n, "Nope!", NULL);
+act("$n turns over the first card.", $n, NULL, NULL, TO_ROOM);
+act_say($n, "There it was......waiting for you!", NULL);
+act("$n picks up the cards and shuffles.", $n, NULL, NULL, TO_ROOM);
+return 0;
+~
+m mob_speech @ three~
+if (char_silver($n) + 10 * char_gold($n) < 1000) {
+	act_say($n, "First of all, $N, give me 10 gold coins.", $N);
+	return 1;
+}
+
+set_char_gold($n, 0);
+set_char_silver($n, 0);
+act_say($n, "Nope!", NULL);
+act("$n turns over the first card.", $n, NULL, NULL, TO_ROOM);
+act_say($n, "There it was......waiting for you!", NULL);
+act("$n picks up the cards and shuffles.", $n, NULL, NULL, TO_ROOM);
+return 0;
+~
 #19043
 hepzibah bartender~
 Hepzibah the Barkeep~
@@ -837,6 +1104,11 @@ BCG 0 0 0 AB -1000 0
 F
 stand stand male 0
 0 0 medium unknown
+m mob_greet @ 70~
+if (char_sex($N) == SEX_MALE)
+	social_char("wink", $n, $N);
+return 0;
+~
 m mob_random mob_random_thief 100~
 #19053
 pimp man master~
@@ -882,7 +1154,33 @@ BG 0 HN 0 ABH 1000 0
 CDEFHK
 stand stand male 0
 0 0 medium unknown
+m mob_death @ 100~
+act_say($n, "You have defeated me...and you may pass.", NULL);
+act("$n disappears in a flash of golden light!", $n, NULL, NULL, TO_ROOM);
+transfer_char($n, 19147);
+transfer_char($N, 19081);
+return 0;
+~
 m mob_fight mob_fight_breath_fire 100~
+m mob_give @ 19144~
+social_char("bow", $n, $N);
+act_say($n, "You truly know this land, $N.", $N);
+obj key = load_obj($n, 19159);
+unlock_door($n, "up");
+open_door($n, "up");
+dofun("wear", $n, "sigil");
+give_obj($n, $N, key);
+return 0;
+~
+m mob_greet @ 100~
+tell_char($n, $N, "I expect you have come questing for Taliesin and the Sunrise
+Shield...");
+tell_char($n, $N, "To pass, you must either defeat me, or prove that you know
+this land...");
+tell_char($n, $N, "Bring me the Ruby Sigil....or kill me!");
+return 0;
+~
+m mob_exit mob_exit_up_light_tower up~
 #19056
 amber master~
 the Amber Master~
@@ -897,7 +1195,33 @@ BG 0 HN 0 ABH 1000 0
 CDEFHK
 stand stand male 0
 0 0 medium unknown
+m mob_death @ 100~
+act_say($n, "You have defeated me...and you may pass.", NULL);
+act("$n disappears in a flash of golden light!", $n, NULL, NULL, TO_ROOM);
+transfer_char($n, 19147);
+transfer_char($N, 19082);
+return 0;
+~
 m mob_fight mob_fight_breath_gas 100~
+m mob_give @ 19149~
+social_char("bow", $n, $N);
+act_say($n, "You truly know this land, $N.", $N);
+obj key = load_obj($n, 19160);
+unlock_door($n, "up");
+open_door($n, "up");
+dofun("wear", $n, "sigil");
+give_obj($n, $N, key);
+return 0;
+~
+m mob_greet @ 100~
+tell_char($n, $N, "I expect you have come questing for Taliesin and the Sunrise
+Shield...");
+tell_char($n, $N, "To pass, you must either defeat me, or prove that you know
+this land...");
+tell_char($n, $N, "Bring me the Amber Sigil....or kill me!");
+return 0;
+~
+m mob_exit mob_exit_up_light_tower up~
 #19057
 green master~
 the Green Master~
@@ -912,7 +1236,33 @@ BG 0 HN 0 ABH 1000 0
 CDEFHK
 stand stand male 0
 0 0 medium unknown
+m mob_death @ 100~
+act_say($n, "You have defeated me...and you may pass.", NULL);
+act("$n disappears in a flash of golden light!", $n, NULL, NULL, TO_ROOM);
+transfer_char($n, 19147);
+transfer_char($N, 19084);
+return 0;
+~
 m mob_fight mob_fight_breath_acid 100~
+m mob_give @ 19148~
+social_char("bow", $n, $N);
+act_say($n, "You truly know this land, $N.", $N);
+obj key = load_obj($n, 19162);
+unlock_door($n, "up");
+open_door($n, "up");
+dofun("wear", $n, "sigil");
+give_obj($n, $N, key);
+return 0;
+~
+m mob_greet @ 100~
+tell_char($n, $N, "I expect you have come questing for Taliesin and the Sunrise
+Shield...");
+tell_char($n, $N, "To pass, you must either defeat me, or prove that you know
+this land...");
+tell_char($n, $N, "Bring me the Emerald Sigil....or kill me!");
+return 0;
+~
+m mob_exit mob_exit_up_light_tower up~
 #19058
 blue master~
 the Blue Master~
@@ -927,7 +1277,33 @@ BG 0 HN 0 ABH 1000 0
 CDEFHK
 stand stand male 0
 0 0 medium unknown
+m mob_death @ 100~
+act_say($n, "You have defeated me...and you may pass.", NULL);
+act("$n disappears in a flash of golden light!", $n, NULL, NULL, TO_ROOM);
+transfer_char($n, 19147);
+transfer_char($N, 19085);
+return 0;
+~
 m mob_fight mob_fight_breath_frost 100~
+m mob_give @ 19145~
+social_char("bow", $n, $N);
+act_say($n, "You truly know this land, $N.", $N);
+obj key = load_obj($n, 19163);
+unlock_door($n, "up");
+open_door($n, "up");
+dofun("wear", $n, "sigil");
+give_obj($n, $N, key);
+return 0;
+~
+m mob_greet @ 100~
+tell_char($n, $N, "I expect you have come questing for Taliesin and the Sunrise
+Shield...");
+tell_char($n, $N, "To pass, you must either defeat me, or prove that you know
+this land...");
+tell_char($n, $N, "Bring me the Sapphire Sigil....or kill me!");
+return 0;
+~
+m mob_exit mob_exit_up_light_tower up~
 #19059
 violet master~
 the Violet Master~
@@ -942,7 +1318,33 @@ BG 0 HN 0 ABH 1000 0
 CDEFHK
 stand stand male 0
 0 0 medium unknown
+m mob_death @ 100~
+act_say($n, "You have defeated me...and you may pass.", NULL);
+act("$n disappears in a flash of golden light!", $n, NULL, NULL, TO_ROOM);
+transfer_char($n, 19147);
+transfer_char($N, 19086);
+return 0;
+~
 m mob_fight mob_fight_breath_gas 100~
+m mob_give @ 19142~
+social_char("bow", $n, $N);
+act_say($n, "You truly know this land, $N.", $N);
+obj key = load_obj($n, 19164);
+unlock_door($n, "up");
+open_door($n, "up");
+dofun("wear", $n, "sigil");
+give_obj($n, $N, key);
+return 0;
+~
+m mob_greet @ 100~
+tell_char($n, $N, "I expect you have come questing for Taliesin and the Sunrise
+Shield...");
+tell_char($n, $N, "To pass, you must either defeat me, or prove that you know
+this land...");
+tell_char($n, $N, "Bring me the Amethyst Sigil....or kill me!");
+return 0;
+~
+m mob_exit mob_exit_up_light_tower up~
 #19060
 yellow master~
 the Yellow Master~
@@ -957,7 +1359,33 @@ BG 0 HN 0 ABH 1000 0
 CDEFHK
 stand stand male 0
 0 0 medium unknown
+m mob_death @ 100~
+act_say($n, "You have defeated me...and you may pass.", NULL);
+act("$n disappears in a flash of golden light!", $n, NULL, NULL, TO_ROOM);
+transfer_char($n, 19147);
+transfer_char($N, 19083);
+return 0;
+~
 m mob_fight mob_fight_breath_lightning 100~
+m mob_give @ 19140~
+social_char("bow", $n, $N);
+act_say($n, "You truly know this land, $N.", $N);
+obj key = load_obj($n, 19161);
+unlock_door($n, "up");
+open_door($n, "up");
+dofun("wear", $n, "sigil");
+give_obj($n, $N, key);
+return 0;
+~
+m mob_greet @ 100~
+tell_char($n, $N, "I expect you have come questing for Taliesin and the Sunrise
+Shield...");
+tell_char($n, $N, "To pass, you must either defeat me, or prove that you know
+this land...");
+tell_char($n, $N, "Bring me the Topaz Sigil....or kill me!");
+return 0;
+~
+m mob_exit mob_exit_up_light_tower up~
 #19061
 light figure being lord master~
 the Master of Light~
@@ -978,6 +1406,12 @@ CDEFHK
 stand stand none 0
 0 0 medium unknown
 m mob_fight mob_fight_breath_any 100~
+m mob_greet @ 100~
+tell_char($n, $N, "Congratulations on surviving the tower to this point.");
+tell_char($n, $N, "Now you have come to your final challenge:");
+tell_char($n, $N, "defeat me in combat!");
+return 0;
+~
 #19062
 phoenix bird~
 the Phoenix~
@@ -994,6 +1428,17 @@ BCFG 0 IN 0 AB 0 0
 FH
 stand stand none 0
 0 0 medium unknown
+m mob_death @ 100~
+act("$n begins to glow...and then suddenly explodes in a fireball!",
+    $n, NULL, NULL, TO_ROOM);
+act("A pile of ashes drifts to the floor....", $n, NULL, NULL, TO_ROOM);
+act("As you peer closer, you see a small phoenix amidst the ashes.",
+    $n, NULL, NULL, TO_ROOM);
+char phoenix = load_mob($n, 19062);
+act("$n screeches loudly...and attacks!", $n,  NULL, NULL, TO_ROOM);
+transfer_char($n, 19147);
+return 0;
+~
 m mob_fight mob_fight_breath_any 100~
 #19063
 mandeep beekeeper bee keeper~
@@ -1011,6 +1456,10 @@ BG 0 N 0 0 1000 0
 FK
 stand stand male 0
 0 0 medium unknown
+m mob_greet @ 40~
+act("$n puffs his bees with smoke.", $n, NULL, $N, TO_ROOM);
+return 0;
+~
 #19064
 white master~
 the White Master~
@@ -1026,6 +1475,7 @@ CDEFHK
 stand stand male 0
 0 0 medium unknown
 m mob_fight mob_fight_cast_undead 100~
+m mob_exit mob_exit_up_dark_tower up~
 #19065
 white master~
 the White Master~
@@ -1041,6 +1491,7 @@ CDEFHK
 stand stand male 0
 0 0 medium unknown
 m mob_fight mob_fight_cast_undead 100~
+m mob_exit mob_exit_up_dark_tower up~
 #19066
 black master~
 the Black Master~
@@ -1056,6 +1507,7 @@ CDEFHK
 stand stand male 0
 0 0 medium unknown
 m mob_fight mob_fight_cast_undead 100~
+m mob_exit mob_exit_up_dark_tower up~
 #19067
 black master~
 the Black Master~
@@ -1071,6 +1523,7 @@ CDEFHK
 stand stand male 0
 0 0 medium unknown
 m mob_fight mob_fight_cast_undead 100~
+m mob_exit mob_exit_up_dark_tower up~
 #19068
 jerry garcia~
 Jerry Garcia~

@@ -978,7 +978,7 @@ BCG 0 I A H 0 0
 -20 -20 -20 -17
 F
 stand stand either 100
-D 0 medium unknown
+0 0 medium unknown
 r bash 33
 #11650
 ykres silent figure~

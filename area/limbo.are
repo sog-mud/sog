@@ -150,7 +150,8 @@ B 0 0 0 0 0 0
 0 0 0 0
 EFN
 stand stand male 0
-0 0 medium unknown
+D 0 medium unknown
+F par ABCDEFGHIJK
 r bash 100
 r fire 33
 r cold -50
@@ -1830,7 +1831,7 @@ a katana sword~
 A katana sword is forgotten here.~
 iron~
 weapon 0 F AN
-sword 10 1 'slash' D
+sword 10 1 'slash' DJ
 15 60 0 P
 m obj_wear @ 100~
 if (!is_owner($p, $n))

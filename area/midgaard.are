@@ -795,9 +795,9 @@ return 1;
 ~
 m mob_death @ 100~
 if (number_percent() < 50)
-        dofun("say", $n, "Now I go to a better place.");
+        act_say($n, "Now I go to a better place.", NULL);
 else
-        dofun("say", $n, "Forgive me God for I have sinned...");
+        act_say($n, "Forgive me God for I have sinned...", NULL);
 return 0;
 ~
 m mob_fight @ 100~
