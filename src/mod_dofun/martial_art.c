@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.126 1999-11-26 09:36:52 fjoe Exp $
+ * $Id: martial_art.c,v 1.127 1999-11-27 08:57:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1244,7 +1244,7 @@ void do_kick(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, skill_beats("kick"));
 	if (IS_NPC(ch) || number_percent() < chance) {
 		kick_dam = number_range(1, LEVEL(ch));
-		if (HAS_SKILL(ch, "katana")
+		if (has_spec(ch, "class_samurai")
 		&&  (get_eq_char(ch, WEAR_FEET) == NULL)) 
 			kick_dam *= 2;
 		kick_dam += ch->damroll / 2;
@@ -3820,7 +3820,7 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!HAS_SKILL(ch, "dishonor")) {
+	if ((chance = get_skill(ch, "dishonor")) == 0) {
 		char_puts("Which honor?\n", ch);
 		return;
 	}
@@ -3843,7 +3843,6 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 	}
 
 	was_in = ch->in_room;
-	chance = get_skill(ch, "dishonor");
 	for (attempt = 0; attempt < 6; attempt++) {
 		EXIT_DATA *pexit;
 		int door;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.191 1999-11-26 12:00:40 kostik Exp $
+ * $Id: act_comm.c,v 1.192 1999-11-27 08:57:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -947,12 +947,14 @@ void do_group(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((HAS_SKILL(ch, "ruler badge") && HAS_SKILL(victim, "disperse"))
-	||  (HAS_SKILL(ch, "disperse") && HAS_SKILL(victim, "ruler badge"))
-	||  (HAS_SKILL(ch, "evil spirit") && HAS_SKILL(victim, "riding"))
-	||  (HAS_SKILL(ch, "riding") && HAS_SKILL(victim, "evil spirit"))
-	||  (HAS_SKILL(ch, "mastering spell") && HAS_SKILL(victim, "spellbane"))
-	||  (HAS_SKILL(ch, "spellbane") && HAS_SKILL(victim, "mastering spell"))) {
+	if ((has_spec(ch, "clan_rulers") && has_spec(victim, "clan_chaos"))
+	||  (has_spec(ch, "clan_chaos") && has_spec(victim, "clan_rulers"))
+	||  (has_spec(ch, "clan_invaders") && has_spec(victim, "clan_knights"))
+	||  (has_spec(ch, "clan_knights") && has_spec(victim, "clan_invaders"))
+	||  (has_spec(ch, "clan_shalafi") &&
+	     has_spec(victim, "clan_battleragers"))
+	||  (has_spec(ch, "clan_battleragers") &&
+	     has_spec(victim, "clan_shalafi"))) {
 		act_puts("You hate $n's clan, how can you join $n's group?", ch, NULL, victim, TO_VICT, POS_SLEEPING);
 		act_puts("You hate $N's clan, how can you want $N to join your group", ch, NULL, victim, TO_CHAR, POS_SLEEPING);
 		return;
@@ -1196,7 +1198,7 @@ void do_judge(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 
-	if (!HAS_SKILL(ch, "ruler badge")) {
+	if (!has_spec(ch, "clan_rulers")) {
 		char_puts("Huh?\n", ch);
 		return;
 	}

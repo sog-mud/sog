@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.216 1999-11-22 10:16:44 kostik Exp $
+ * $Id: fight.c,v 1.217 1999-11-27 08:57:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2722,7 +2722,7 @@ bool check_obj_dodge(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj, int bonus)
 	if (!IS_AWAKE(victim) || MOUNTED(victim))
 		return FALSE;
 
-	if (!IS_NPC(victim) && HAS_SKILL(victim, "spellbane")) {
+	if (!IS_NPC(victim) && has_spec(victim, "clan_battleragers")) {
 		if (PC(victim)->clan_status) {
 			act("You catch $p that had been shot to you.",
 			    ch, obj, victim, TO_VICT);

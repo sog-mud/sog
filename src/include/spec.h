@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.h,v 1.4 1999-11-26 08:24:18 kostik Exp $
+ * $Id: spec.h,v 1.5 1999-11-27 08:57:16 fjoe Exp $
  */
 
 #ifndef _SPEC_H_
@@ -71,6 +71,7 @@ void spec_skill_init(spec_skill_t *spec_sk);
 
 void spec_stats		(CHAR_DATA *ch, spec_skill_t *spec_sk);
 
+bool has_spec		(CHAR_DATA *ch, const char *spn);
 bool spec_add		(CHAR_DATA *ch, const char *spn);
 bool spec_del		(CHAR_DATA *ch, const char *spn);
 

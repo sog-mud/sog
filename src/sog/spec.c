@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.10 1999-11-24 11:18:41 fjoe Exp $
+ * $Id: spec.c,v 1.11 1999-11-27 08:57:19 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -293,6 +293,20 @@ bailout:
  *
  * the caller should call update_skills him/her(oh, no:)self
  */
+
+/*
+ * has_spec -- true, if `ch' has `spn'
+ */
+bool
+has_spec(CHAR_DATA *ch, const char *spn)
+{
+	if (IS_NPC(ch) || IS_NULLSTR(spn))
+		return FALSE;
+
+	STRKEY_CHECK(&specs, spn, "spec_add");
+
+	return varr_bsearch(&PC(ch)->specs, &spn, cmpstr) != NULL;
+}
 
 /*
  * spec_add -- add spec `spn' to `ch'

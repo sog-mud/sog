@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.13 1999-11-27 08:24:21 fjoe Exp $
+ * $Id: magic.c,v 1.14 1999-11-27 08:57:19 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -43,7 +43,7 @@ bool spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage)
 	if (IS_IMMORTAL(bch) || IS_IMMORTAL(ch))
 		bane_chance = 0;
 
-	if (HAS_SKILL(bch, "spellbane")
+	if (has_spec(bch, "clan_battleragers")
 	&&  number_percent() < bane_chance) {
 		if (ch == bch) {
 	        	act_puts("Your spellbane deflects the spell!",

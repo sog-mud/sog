@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.35 1999-11-26 12:00:42 kostik Exp $
+ * $Id: healer.c,v 1.36 1999-11-27 08:57:12 fjoe Exp $
  */
 
 /*-
@@ -121,7 +121,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     }
     cost = get_heal_cost(h, mob, ch);
 
-    if (HAS_SKILL(ch, "spellbane") && (h->price > 0)) {
+    if (has_spec(ch, "clan_battleragers") && (h->price > 0)) {
 	char_puts("You are Battle Rager, not the filthy magician\n",ch);
 	return;
     }

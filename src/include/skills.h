@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.24 1999-11-26 12:00:43 kostik Exp $
+ * $Id: skills.h,v 1.25 1999-11-27 08:57:16 fjoe Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -82,7 +82,6 @@ struct event_fun_t {
 
 extern hash_t skills;
 
-#define HAS_SKILL(ch, sn)	(skill_level(ch, sn) < LEVEL_IMMORTAL)
 #define IS_SKILL(sn1, sn2)	(!str_cmp((sn1), (sn2)))
 
 void mob_skill_init(void);

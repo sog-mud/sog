@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.11 1999-11-26 12:00:41 kostik Exp $
+ * $Id: act_magic.c,v 1.12 1999-11-27 08:57:12 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -51,7 +51,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *bch;		/* char to check spellbane on */
 	int bane_chance;	/* spellbane chance */
 
-	if (HAS_SKILL(ch, "spellbane") && !IS_IMMORTAL(ch)) {
+	if (has_spec(ch, "clan_battleragers") && !IS_IMMORTAL(ch)) {
 		char_puts("You are Battle Rager, not the filthy magician.\n",
 			  ch);
 		return;
@@ -449,7 +449,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *bch;		/* char to check spellbane on */
 	int bane_chance;	/* spellbane chance */
 
-	if (HAS_SKILL(ch, "spellbane") && !IS_IMMORTAL(ch)) {
+	if (has_spec(ch, "clan_battleragers") && !IS_IMMORTAL(ch)) {
 		char_puts("You are Battle Rager, you prefer not to use prayers.\n",
 			  ch);
 		return;

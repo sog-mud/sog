@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.177 1999-11-27 06:05:47 fjoe Exp $
+ * $Id: act_obj.c,v 1.178 1999-11-27 08:57:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1313,7 +1313,7 @@ void do_quaff(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *obj;
 	one_argument(argument, arg, sizeof(arg));
 	
-	if (HAS_SKILL(ch, "spellbane")) {
+	if (has_spec(ch, "clan_battleragers")) {
 		char_puts("You are Battle Rager, not filthy magician!\n",ch);
 		return;
 	}
@@ -1347,7 +1347,7 @@ void do_recite(CHAR_DATA * ch, const char *argument)
 	void *vo;
 	OBJ_DATA *scroll;
 
-	if (HAS_SKILL(ch, "spellbane")) {
+	if (has_spec(ch, "clan_battleragers")) {
 		char_puts ("RECITE? You are Battle Rager!\n", ch);
 		return;
 	}
@@ -1387,14 +1387,26 @@ void do_recite(CHAR_DATA * ch, const char *argument)
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		check_improve(ch, "scrolls", FALSE, 2);
 	} else {
-		obj_cast_spell(scroll->value[1].s, INT_VAL(scroll->value[0]), ch, vo);
-		obj_cast_spell(scroll->value[2].s, INT_VAL(scroll->value[0]), ch, vo);
-		obj_cast_spell(scroll->value[3].s, INT_VAL(scroll->value[0]), ch, vo);
-		obj_cast_spell(scroll->value[4].s, INT_VAL(scroll->value[0]), ch, vo);
 		check_improve(ch, "scrolls", TRUE, 2);
 
 		if (IS_PUMPED(ch) || ch->fighting != NULL)
 			WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
+
+		do {
+			obj_cast_spell(scroll->value[1].s, INT_VAL(scroll->value[0]), ch, vo);
+			if (IS_EXTRACTED(ch))
+				break;
+
+			obj_cast_spell(scroll->value[2].s, INT_VAL(scroll->value[0]), ch, vo);
+			if (IS_EXTRACTED(ch))
+				break;
+				
+			obj_cast_spell(scroll->value[3].s, INT_VAL(scroll->value[0]), ch, vo);
+			if (IS_EXTRACTED(ch))
+				break;
+
+			obj_cast_spell(scroll->value[4].s, INT_VAL(scroll->value[0]), ch, vo);
+		} while (0);
 	}
 
 	extract_obj(scroll, 0);
@@ -1407,7 +1419,7 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *staff;
 	skill_t *	sk;
 
-	if (HAS_SKILL(ch, "spellbane")) {
+	if (has_spec(ch, "clan_battleragers")) {
 		char_puts("BRANDISH? You are not a filthy magician!\n",ch);
 		return;
 	}
@@ -1439,6 +1451,8 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 			if (!sk)
 				return;
 
+			check_improve(ch, "staves", TRUE, 2);
+
 			for (vch = ch->in_room->people; vch; vch = vch_next) {
 				vch_next = vch->next_in_room;
 
@@ -1469,10 +1483,10 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 
 				obj_cast_spell(staff->value[3].s,
 					       INT_VAL(staff->value[0]), ch, vch);
-				if (IS_SET(sk->skill_flags, SKILL_AREA_ATTACK))
+				if (IS_EXTRACTED(ch)
+				||  IS_SET(sk->skill_flags, SKILL_AREA_ATTACK))
 					break;
 			}
-			check_improve(ch, "staves", TRUE, 2);
 		}
 	}
 
@@ -1491,7 +1505,7 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA *wand;
 	void *vo;
 	
-	if (HAS_SKILL(ch, "spellbane")) {
+	if (has_spec(ch, "clan_battleragers")) {
 		char_puts("You'd destroy magic, not use it!\n",ch);
 		return;
 	}
@@ -1550,10 +1564,11 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 			    ch, wand, NULL, TO_ROOM);
 			check_improve(ch, "wands", FALSE, 2);
 		} else {
-			obj_cast_spell(wand->value[3].s, INT_VAL(wand->value[0]), ch, vo);
 			check_improve(ch, "wands", TRUE, 2);
+			obj_cast_spell(wand->value[3].s, INT_VAL(wand->value[0]), ch, vo);
 		}
 	}
+
 	if (--INT_VAL(wand->value[2]) <= 0) {
 		act("$n's $p explodes into fragments.",
 		    ch, wand, NULL, TO_ROOM);

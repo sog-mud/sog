@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.148 1999-11-25 12:26:27 fjoe Exp $
+ * $Id: spellfun2.c,v 1.149 1999-11-27 08:57:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4111,7 +4111,8 @@ void spell_group_heal(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *gch;
 
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
-		if (is_same_group(ch, gch) && !HAS_SKILL(gch, "spellbane")) {
+		if (is_same_group(ch, gch)
+		&&  !has_spec(gch, "clan_battleragers")) {
 			spellfun_call("master healing", NULL, level, ch, gch);
 			spellfun_call("refresh", NULL, level, ch, gch);
 		}
