@@ -7680,8 +7680,6 @@ S
 
 #SPECIALS
 M 3000 spec_cast_mage	* the wizard
-M 3003 spec_repairman	* the weaponsmith
-M 3004 spec_repairman	* the armourer
 M 3005 spec_thief	* the thief
 M 3009 spec_cast_mage	* the jeweller
 M 3012 spec_cast_adept	* the healer

@@ -4922,8 +4922,6 @@ S
 #0
 
 #SPECIALS
-M 18006 spec_repairman	* the armourer
-M 18010 spec_repairman	* the weaponsmith
 M 18017 spec_cast_cleric	* the town sheriff
 M 18020 spec_cast_mage	* a stinky prisoner
 M 18031 spec_thief	* a grubby beggar

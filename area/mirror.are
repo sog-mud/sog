@@ -3402,8 +3402,6 @@ M 5331 spec_guard	* the cityguard
 M 5332 spec_janitor	* the janitor
 M 5333 spec_fido	* the beastly fido
 M 5334 spec_guard	* the cityguard
-M 5338 spec_repairman	* the weaponsmith
-M 5339 spec_repairman	* the armourer
 M 5342 spec_cast_adept	* the healer
 M 5345 spec_cast_adept	* the templeman
 S
