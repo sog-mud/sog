@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.33 2004-05-26 05:39:36 tatyana Exp $
+ * $Id: note.c,v 1.34 2004-05-26 15:14:35 tatyana Exp $
  */
 
 /***************************************************************************
@@ -615,7 +615,7 @@ parse_note(CHAR_DATA *ch, const char *argument, int type)
 		anum = atoi(argument);
 		vnum = 0;
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
-			if (vnum++ == anum) {
+			if (is_note_to(ch, pnote) && vnum++ == anum) {
 				if (can_delete_note(ch, pnote)) {
 					note_remove(ch, pnote, FALSE);
 					act_char("Ok.", ch);
@@ -681,7 +681,7 @@ parse_note(CHAR_DATA *ch, const char *argument, int type)
 		anum = atoi(argument);
 		vnum = 0;
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
-			if (vnum++ == anum) {
+			if (is_note_to(ch, pnote) && vnum++ == anum) {
 				if (can_delete_note(ch, pnote)) {
 					note_remove(ch, pnote, TRUE);
 					act_char("Ok.", ch);
