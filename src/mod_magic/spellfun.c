@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.4 2000-03-29 07:22:59 fjoe Exp $
+ * $Id: spellfun.c,v 1.181.2.5 2000-04-17 10:58:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3715,6 +3715,7 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo)
 	||  IS_SET(ch->in_room->area->area_flags, AREA_CLOSED)
 	||  room_is_private(ch->in_room)
 	||  IS_SET(victim->imm_flags, IMM_SUMMON)
+	||  saves_spell(level, victim, DAM_OTHER)
 	||  (victim->in_room->exit[0] == NULL &&
 	     victim->in_room->exit[1] == NULL &&
 	     victim->in_room->exit[2] == NULL &&
@@ -3724,13 +3725,11 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo)
 		failed = TRUE;
 	else if (IS_NPC(victim)) {
 		if (victim->pMobIndex->pShop != NULL
-		||  saves_spell(level, victim, DAM_OTHER)
 		||  IS_SET(victim->pMobIndex->act, ACT_AGGRESSIVE)
 		||  IS_SET(ch->in_room->room_flags, ROOM_NOMOB)
 		||  NPC(victim)->hunter)
 			failed = TRUE;
-	}
-	else {
+	} else {
 		if (victim->level >= LEVEL_HERO
 		||  ((!in_PK(ch, victim) ||
 		      ch->in_room->area != victim->in_room->area) &&
