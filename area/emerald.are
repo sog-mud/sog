@@ -2898,7 +2898,7 @@ g @rus male~
 #241
 hell spear копье ад преисподняя~
 @eng a Hell-Spear@rus ~~Копье~~ Преисподней~
-@eng A Hell-Spear wreathed in black flames.@Адское копье окутано языками черного пламени.~
+@eng A Hell-Spear wreathed in black flames.@rus Адское копье окутано языками черного пламени.~
 darkness~
 weapon CHJ 0 AN
 spear 9 3 'pierce' AK
@@ -3200,7 +3200,7 @@ only by dousing its dark flame with milk.
 g @rus female~
 #260
 ring scarab beetle кольцо скарабей~
-@eng a gold scarab ring@~~золотое~~ ~~кольцо~~ со скарабеем~
+@eng a gold scarab ring@rus ~~золотое~~ ~~кольцо~~ со скарабеем~
 @eng A petrified beetle dipped in gold has been dead a long time.@rus Окаменевший жук оплавлен в золото.~
 gold~
 armor ACGJ 0 AB
