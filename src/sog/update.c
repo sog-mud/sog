@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.12 2000-03-27 08:47:32 fjoe Exp $
+ * $Id: update.c,v 1.157.2.13 2000-03-27 09:34:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -729,12 +729,6 @@ void mobile_update(void)
 				continue;
 		}
 
-		if (ch->pMobIndex->pShop != NULL /* give him some gold */
-		||  (ch->gold * 100 + ch->silver) < ch->pMobIndex->wealth) {
-			ch->gold += ch->pMobIndex->wealth * number_range(1,20)/5000000;
-			ch->silver += ch->pMobIndex->wealth * number_range(1,20)/50000;
-		}
-	 
 /* check triggers (only if mobile still in default position) */
 
 		if (ch->position == ch->pMobIndex->default_pos) {
