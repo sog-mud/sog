@@ -1303,6 +1303,14 @@ Form 3 -и~
 End
 
 #RULE
+Name осторожен~
+BaseLen 7
+Form 1 -на~
+Form 2 -но~
+Form 3 -ны~
+End
+
+#RULE
 Name бессмертный~
 BaseLen 9
 Form 1 -ая~
@@ -1868,6 +1876,14 @@ End
 #RULE
 Name розовый~
 BaseLen 5
+Form 1 -ая~
+Form 2 -ое~
+Form 3 -ые~
+End
+
+#RULE
+Name первый~
+BaseLen 4
 Form 1 -ая~
 Form 2 -ое~
 Form 3 -ые~

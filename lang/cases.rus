@@ -3053,17 +3053,6 @@ Form 6 -ь~
 End
 
 #RULE
-Name мастеровой~
-BaseLen 8
-Form 1 -ого~
-Form 2 -ому~
-Form 3 -ого~
-Form 4 -ым~
-Form 5 -ом~
-Form 6 -ого~
-End
-
-#RULE
 Name пиявка~
 BaseLen 5
 Form 1 -и~
@@ -3515,6 +3504,15 @@ Form 1 -а~
 Form 2 -у~
 Form 4 -ом~
 Form 5 -е~
+End
+
+#RULE
+Name самородок~
+BaseLen 7
+Form 1 -ка~
+Form 2 -ку~
+Form 4 -ком~
+Form 5 -ке~
 End
 
 #RULE
@@ -4640,6 +4638,15 @@ Form 5 -е~
 End
 
 #RULE
+Name щупальце~
+BaseLen 7
+Form 1 -а~
+Form 2 -у~
+Form 4 -ем~
+Form 5 -е~
+End
+
+#RULE
 Name величавый~
 BaseLen 7
 Form 1 -ого~
@@ -4665,6 +4672,17 @@ End
 Name палка~
 BaseLen 4
 Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
+Name химера~
+BaseLen 5
+Form 1 -ы~
 Form 2 -е~
 Form 3 -у~
 Form 4 -ой~
@@ -5291,6 +5309,17 @@ Form 6 -у~
 End
 
 #RULE
+Name груша~
+BaseLen 4
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ей~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name графин~
 BaseLen 6
 Form 1 -а~
@@ -5825,6 +5854,17 @@ Form 3 -ый~
 Form 4 -ым~
 Form 5 -ом~
 Form 6 -ого~
+End
+
+#RULE
+Name амброзия~
+BaseLen 7
+Form 1 -и~
+Form 2 -и~
+Form 3 -ю~
+Form 4 -и~
+Form 5 -и~
+Form 6 -ю~
 End
 
 #RULE
@@ -6617,7 +6657,6 @@ Name призрак~
 BaseLen 7
 Form 1 -а~
 Form 2 -у~
-Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
@@ -8048,6 +8087,15 @@ Form 6 -ого~
 End
 
 #RULE
+Name гром~
+BaseLen 4
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#RULE
 Name браслет~
 BaseLen 7
 Form 1 -а~
@@ -9268,8 +9316,8 @@ Name разносчик~
 BaseLen 9
 Form 1 -а~
 Form 2 -у~
-Form 4 -ом~
 Form 3 -а~
+Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
 End
@@ -9785,6 +9833,17 @@ Form 6 -ого~
 End
 
 #RULE
+Name мастеровой~
+BaseLen 8
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ого~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name лесная~
 BaseLen 4
 Form 1 -ой~
@@ -9912,6 +9971,15 @@ Form 3 -а~
 Form 4 -ом~
 Form 5 -е~
 Form 6 -а~
+End
+
+#RULE
+Name персик~
+BaseLen 6
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
 End
 
 #RULE
@@ -10888,6 +10956,15 @@ Form 3 -ий~
 Form 4 -им~
 Form 5 -ом~
 Form 6 -ого~
+End
+
+#RULE
+Name гроздь~
+BaseLen 5
+Form 1 -и~
+Form 2 -и~
+Form 4 -ью~
+Form 5 -и~
 End
 
 #RULE
@@ -12241,15 +12318,6 @@ Form 6 -у~
 End
 
 #RULE
-Name щупальце~
-BaseLen 7
-Form 1 -а~
-Form 2 -у~
-Form 4 -ем~
-Form 5 -е~
-End
-
-#RULE
 Name мешок~
 BaseLen 3
 Form 1 -ка~
@@ -13137,17 +13205,6 @@ Form 3 -ый~
 Form 4 -ым~
 Form 5 -ом~
 Form 6 -ого~
-End
-
-#RULE
-Name стрелка~
-BaseLen 6
-Form 1 -и~
-Form 2 -е~
-Form 3 -у~
-Form 4 -ой~
-Form 5 -е~
-Form 6 -у~
 End
 
 #RULE
