@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.125 1999-02-21 19:19:22 fjoe Exp $
+ * $Id: act_wiz.c,v 1.126 1999-02-22 05:04:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3875,17 +3875,22 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		if (cn != victim->clan) {
 			CLAN_DATA *clan;
 
-			if ((clan = clan_lookup(victim->clan))) {
+			if (victim->clan
+			&&  (clan = clan_lookup(victim->clan))) {
 				clan_update_lists(clan, victim, TRUE);
 				clan_save(clan);
 			}
 
-			clan = CLAN(cn);
-			name_add(&clan->member_list, victim->name, NULL, NULL);
-			clan_save(clan);
-
 			victim->clan = cn;
 			victim->pcdata->clan_status = CLAN_COMMONER;
+
+			if (cn) {
+				clan = CLAN(cn);
+				name_add(&clan->member_list, victim->name,
+					 NULL, NULL);
+				clan_save(clan);
+			}
+
 			update_skills(victim);
 		}
 

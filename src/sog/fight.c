@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.142 1999-02-20 16:44:22 fjoe Exp $
+ * $Id: fight.c,v 1.143 1999-02-22 05:04:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1793,25 +1793,21 @@ void make_corpse(CHAR_DATA *ch)
 	OBJ_DATA *obj_next;
 	int i;
 
-	corpse	= create_obj_of(get_obj_index(OBJ_VNUM_CORPSE_NPC),
-				ch->short_descr);
-	corpse->owner = mlstr_dup(ch->short_descr);
-
 	if (IS_NPC(ch)) {
+		corpse	= create_obj_of(get_obj_index(OBJ_VNUM_CORPSE_NPC),
+					ch->short_descr);
 		corpse->timer	= number_range(3, 6);
-		if (ch->gold > 0 || ch->silver > 0)
-		  {
-		    if (IS_SET(ch->form,FORM_INSTANT_DECAY))
-		      obj_to_room(create_money(ch->gold, ch->silver), ch->in_room);
-		    else
-		      obj_to_obj(create_money(ch->gold, ch->silver), corpse);
-		    ch->gold = 0;
+		if (ch->gold > 0 || ch->silver > 0) {
+			OBJ_DATA *money = create_money(ch->gold, ch->silver);
+			if (IS_SET(ch->form,FORM_INSTANT_DECAY))
+				obj_to_room(money, ch->in_room);
+			else
+				obj_to_obj(money, corpse);
 		}
-		corpse->cost = 0;
-		corpse->level = ch->level;
 	}
-	else
-	  {
+	else {
+		corpse	= create_obj_of(get_obj_index(OBJ_VNUM_CORPSE_PC),
+					ch->short_descr);
 		if (IS_GOOD(ch))
 		  i = 0;
 		if (IS_EVIL(ch))
@@ -1820,18 +1816,17 @@ void make_corpse(CHAR_DATA *ch)
 		  i = 1;
 
 		corpse->timer	= number_range(25, 40);
-		REMOVE_BIT(ch->plr_flags, PLR_CANLOOT);
 		corpse->altar = hometown_table[ch->hometown].altar[i];
 		corpse->pit = hometown_table[ch->hometown].pit[i];
-		corpse->level = ch->level;
 
-		if (ch->gold > 0 || ch->silver > 0) {
-		    obj_to_obj(create_money(ch->gold, ch->silver), corpse);
-		    ch->gold = 0;
-		    ch->silver = 0;
-		}
-		corpse->cost = 0;
+		if (ch->gold > 0 || ch->silver > 0)
+			obj_to_obj(create_money(ch->gold, ch->silver), corpse);
 	}
+
+	ch->gold = 0;
+	ch->silver = 0;
+	corpse->owner = mlstr_dup(ch->short_descr);
+	corpse->level = ch->level;
 
 	for (obj = ch->carrying; obj != NULL; obj = obj_next) {
 		obj_next = obj->next_content;
