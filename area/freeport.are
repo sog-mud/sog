@@ -170,8 +170,8 @@ cargo storage, but excellent raiding speed.
 ~
 human~
 ABCEe 0 300 0
-95 0 50d10+22500 5d5+5000 12d15+68 'slash'
--71 -71 -71 -37
+65 0 50d10+8250 10d10+1000 11d5+35 'slash'
+-35 -35 -35 -17
 EFNU 0 0 0
 stand stand male 8000
 0 0 medium unknown
@@ -246,8 +246,8 @@ had sold out Freeport to the pirates.
 ~
 human~
 ABCDEe 0 600 0
-95 0 50d10+22500 5d5+5000 12d15+68 'slash'
--71 -71 -71 -37
+65 0 50d10+8250 10d10+1000 11d5+35 'slash'
+-35 -35 -35 -17
 EFNU 0 0 0
 stand stand male 10000
 0 0 medium unknown
@@ -263,8 +263,8 @@ fenced goods, Anwar clams up.
 ~
 elf~
 ABCEVe 0 -300 0
-95 0 50d10+22500 5d5+5000 12d15+68 'slash'
--71 -71 -71 -37
+65 0 50d10+8250 10d10+1000 11d5+35 'slash'
+-35 -35 -35 -17
 EFNU 0 0 0
 stand stand male 15000
 0 0 medium unknown
@@ -280,8 +280,8 @@ armor.
 ~
 dwarf~
 ABCESVe 0 700 0
-94 0 50d10+21500 5d5+5000 10d18+66 'slash'
--69 -69 -69 -35
+65 0 50d10+8250 10d10+1000 11d5+35 'slash'
+-35 -35 -35 -17
 EFNU 0 C 0
 stand stand male 15000
 0 0 medium unknown
@@ -297,8 +297,8 @@ to identify anything you may have.
 ~
 human~
 ABCERVe 0 -700 0
-94 0 50d10+21500 5d5+5000 10d18+66 'pierce'
--69 -69 -69 -35
+65 0 50d10+8250 10d10+1000 11d5+35 'pierce'
+-35 -35 -35 -17
 EFNU 0 0 0
 stand stand female 15000
 0 0 medium unknown
@@ -413,8 +413,8 @@ just last month had a week stay by a very rich visitor named Lord Vulture.
 ~
 human~
 ABCEe 0 400 0
-94 0 50d10+21500 5d5+5000 10d18+66 'pound'
--69 -69 -69 -35
+65 0 50d10+8250 10d10+1000 11d5+35 'pound'
+-35 -35 -35 -17
 EFNU 0 0 0
 stand stand female 9000
 0 0 medium unknown
@@ -767,7 +767,7 @@ an emerald longsword~
 An emerald longsword is here.~
 stone~
 weapon G AN
-exotic 5 10 'none' 0
+sword 5 10 'none' 0
 46 10 3200 P
 A
 17 -10
@@ -2673,5 +2673,12 @@ S
 29219 9 2 3 4 28 140 60 17 23
 29227 17 19 0 0 0 110 90 0 23
 0
+
+#OLIMITS
+O 29217 5	* a dwarven thrower
+O 29226 13	* an emerald longsword
+O 29232 1	* bladed boots
+O 29233 6	* a dimensional cape
+S
 
 #$

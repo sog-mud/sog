@@ -202,10 +202,10 @@ an earthy colored robe and bears a twisted staff. His flowing white beard
 offsets his rosy cheeks and sparkling blue eyes.
 ~
 human~
-ABCH CDEJT 750 0
-40 0 15d10+1850 5d5+1000 4d8+13 'pound'
+ABCH CDEHJNT 750 0
+40 0 15d10+1850 5d5+1000 4d8+13 'wrath'
 -13 -13 -13 3
-EFNU 0 0 0
+EFHNU C D 0
 stand stand male 1000
 0 0 medium unknown
 #17314
@@ -1054,7 +1054,7 @@ G none
 bracer white~
 a white bracer~
 A humming, blinding white bracer lies here!~
-admantite~
+adamantite~
 armor ABGK AM
 11 11 11 11 0
 40 2 3000 P
@@ -1108,7 +1108,7 @@ G none
 sword excalibur~
 excalibur~
 A beautiful dragon hilted sword lies here!~
-admantite~
+adamantite~
 weapon BKL AN
 sword 5 8 'slice' D
 38 4 4500 P
@@ -1179,9 +1179,9 @@ armor 0 AG
 9 9 9 0 0
 30 0 2000 P
 A
-19 4
+18 2
 A
-18 4
+19 2
 G none
 #17315
 gauntlets bravery~
@@ -1217,7 +1217,7 @@ merlin's staff~
 A staff of two intertwined vines lies here in a circle of power!~
 wood~
 staff ABCGH AO
-80 20 20 'dispel magic' 0
+45 5 5 'dispel magic' 0
 40 10 5000 P
 A
 12 10
@@ -1395,7 +1395,7 @@ G none
 spear unholy~
 a spear glowing in an unholy dark light~
 A spear is here, glowing with an unholy dark light.~
-admantite~
+adamantite~
 weapon ACEG AN
 spear 5 8 'pierce' CK
 34 10 2500 P
@@ -1620,7 +1620,7 @@ G none
 lifecutter~
 lifecutter~
 A blue black crusader hilt sword is stuck in the ground~
-admantite~
+adamantite~
 weapon C AN
 sword 5 7 'slash' C
 32 20 3200 P

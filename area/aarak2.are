@@ -3719,8 +3719,10 @@ S
 0
 
 #OLIMITS
-O 5644 3	* a pair of talon extenders
-O 5655 3	* a pair of talon extenders
+O 5639 5	* a wicked, spiked shield
+O 5644 5	* a pair of talon extenders
+O 5650 5	* a wicked, spiked shield
+O 5655 5	* a pair of talon extenders
 S
 
 #$

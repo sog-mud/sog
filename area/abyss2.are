@@ -770,7 +770,7 @@ G none
 two handed sword flaming~
 a Flaming Two-Handed Sword~
 An finely crafted two handed sword lies here engulfed in flamed.~
-fire~
+flame~
 weapon GLO AN
 sword 5 11 'blast' AF
 50 40 36740 G
@@ -873,7 +873,7 @@ G none
 fire blade~
 the fire blade~
 A large sword lies here, smoldering in flames.~
-fire~
+flame~
 weapon AGL AN
 sword 5 5 'blast' A
 25 400 13780 G
@@ -2789,6 +2789,7 @@ O 0 25028 0 25098	* portal (A Small Portal)
 S
 
 #OLIMITS
+O 25015 3	* a Flaming Two-Handed Sword
 O 25022 5	* an Ivory Bracelet
 S
 

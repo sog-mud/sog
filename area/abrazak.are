@@ -2,7 +2,7 @@
 Name Heaven~
 VNUMs 15000 15199
 Credits abrazak~
-Security 7
+Security 1
 LevelRange 0 0
 ResetMessage @eng Something happened.@rus Что-то случилось.~
 Flags closed~
@@ -365,7 +365,7 @@ G none
 box~
 {Dящик ворсинского пива{x~
 {DЯщик темного Ворсинского пива дожидается своего хозяина здесь.{x~
-дерево~
+wood~
 container GRYa AOP
 20 0 0 100 0
 1 0 0 P
@@ -374,7 +374,7 @@ G none
 bottle~
 {Dбутылка холодного Ворсинского пива{x~
 {DБутылка холодного Ворсинского пива лежит здесь.{x~
-стекло~
+glass~
 drink CGRYa AOP
 20 20 'beer' 0 0
 1 0 0 P
@@ -429,7 +429,7 @@ G none
 bottle champagne~
 @eng {ga bottle of champagne{x@rus {gбутылка шампанского{x~
 @eng Bottle of champagne is here.@rus Бутылка шампанского оставлена кем-то здесь.~
-стекло~
+glass~
 drink GRYa AOP
 -1 2147483647 'champagne' 0 0
 0 0 0 P
@@ -438,7 +438,7 @@ G none
 chocolate sweet~
 @eng {ychocolate sweet{x@rus {yшоколадная конфета{x~
 @eng Chocolate sweet is here.@rus Шоколадная конфета валяется тут.~
-шоколад~
+chocolate~
 pill GRYa AOP
 30 'haste' 'frenzy' 'enhanced armor' 'sanctuary'
 0 0 0 P

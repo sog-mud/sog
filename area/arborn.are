@@ -1,5 +1,6 @@
 #AREADATA
 Name Arborn's home~
+Builders hlodvig solmyr azrael~
 VNUMs 36100 36199
 Credits Arborn~
 Security 3
@@ -90,6 +91,34 @@ AQa Vu -1000 0
 0 0 0 0
 stand stand male 0
 0 0 small unknown
+#36109
+barbarian weapon cleaver варвар оружиедолбатель~
+barbarian~
+The very huge barbarian, Weapon CLeaver, stands here.
+~
+~
+fire giant~
+A CDEFGHTVclmnst 0 0
+100 100 1d1+999 1d1+9999 1d1+999 ''
+-100 -100 -100 -100
+EFHK ABCDENQZ 0 0
+stand stand male 1000
+0 0 huge unknown
+#36110
+rediska~
+Solmyr~
+@eng Solmyr the Master Disintegrater is here
+@rus Здесь стоит великий Мастер Дизинтегрэйтор Solmyr
+~
+~
+modron~
+AFHR BDFHNUflty 0 0
+95 100 500d2+5000 500d2+3000 10d10+100 'magic'
+-100 -100 -100 -100
+0 0 0 X
+stand stand male 0
+ABDMPYZ E huge unknown
+V 36110
 #36114
 irlaniel~
 @eng Irlaniel@rus Ирланиэль~
@@ -212,7 +241,7 @@ helm seeing~
 unknown~
 armor 0 AE
 100 100 100 100 0
-100 0 0 P
+48 0 0 P
 A
 8 2000
 F A 0 0 t
@@ -519,6 +548,40 @@ A
 A
 18 12
 G none
+#36124
+wings крылья~
+@eng huge {Wglary white{x wings@rus ~~огромные~~ {W~~ослепително-белые~~{x ~~крылья~~~
+@eng You couldn't beleave your own eyes - Azrael's wings lie here...@rus Ты не $gn{{поверил} своим глазам - здесь лежат крылья (wings) Азраила...~
+feathers~
+armor AGIJKMRTYZ AI
+-40 -40 -40 -40 0
+46 0 0 P
+F A 0 0 T
+E
+wings~
+@eng It is not only big, it is huge!......  
+@rus Они не просто большие, они гигантские! Тебя поражает их ослепительная красота.
+Ты даже не сомневаешься, что одного их взмаха достаточно, чтобы взмыть высоко
+в небо.
+~
+E
+крылья~
+@eng It is not only big, it is huge!......
+@rus Они не просто большие, они гигантские! Тебя поражает их ослепительная красота.
+Ты даже не сомневаешься, что одного их взмаха достаточно, чтобы взмыть высоко
+в небо.
+~
+G plural
+#36125
+tattoo татуировка~
+@eng Tamplier's {Ygolden sign{x@rus {Y~~золотой знак~~{x ~~Тамплиеров~~~
+@eng Tamplier's {Ygolden sign{x peers through clothis@rus ~~{Yзолотой знак{x~~ ~~Тамплиеров~~ виднеется сквозь одежду~
+energy~
+jewelry ABGIU AR
+0 0 0 0 0
+46 0 0 P
+F A 0 0 c
+G none
 #36130
 erastus~
 skull of Erastus~
@@ -801,6 +864,103 @@ trash e AO
 0 0 0 0 0
 0 0 0 P
 G none
+#36162
+longsword~
+longsword~
+longsword here~
+unknown~
+trash 0 0
+0 0 0 0 0
+0 200 0 P
+G male
+#36163
+aura~
+@eng {Ddark aura{x@rus {D ~~темная~~ ~~аура~~ {x~
+@eng {DDark Aura{x floats in the air.@rus В воздухе витает {Dтемная аура{x (aura).~
+shadow~
+armor ABCEFJSTYb AQ
+-10000 -10000 -10000 -10000 0
+0 0 1000 P
+F V 20 -10000 N
+F I 19 1000 D
+F I 18 1000 E
+F I 0 0 K
+F I 0 0 H
+F I 0 0 J
+F I 0 0 B
+F I 0 0 S
+F I 0 0 P
+A
+8 100
+F I 0 0 C
+F A 0 0 u
+F I 0 0 O
+F I 0 0 U
+F I 0 0 T
+G female
+#36164
+wand~
+Wand of {RDisintegration{x~
+Dangerous wand has been left here~
+oak~
+wand ABGHIJKMSTb AO
+100 1 1 'disintegrate' 0
+95 100 1000000 P
+G none
+#36165
+wand дрын~
+@eng wand@rus ~~дрын~~~
+@eng Wand is here.@rus Какой-то дрын (wand) валяется тута.~
+wood~
+wand A AO
+100 100 100 'remove curse' 0
+0 0 0 P
+G male
+#36166
+лужа pool~
+@eng {Ddirty{x pool@rus {D ~~грязная~~{x ~~лужа~~~
+@eng The very dirty pool surrounds the column.@rus {DГрязнющая лужа{x (pool) окружает столб.~
+water~
+fountain C 0
+9999999 9999999 'water' 135135360 0
+0 0 0 P
+G female
+#36167
+диван sofa~
+@eng Huge Sofa@rus ~~Огромный~~ ~~Диван~~~
+@eng A Huge Sofa stands here waiting for someone.@rus Огромный диван (sofa) ждет усталого путника.~
+unknown~
+furniture 0 0
+A ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz EHK DFGHIJ DFGHIJ
+0 0 0 P
+G male
+#36168
+tattoo татуировка hlodvig~
+@eng {Gthe Dragon, consuming his tail{x@rus {G~~дракон~~, ~~пожирающий~~ свой хвост{x~
+@eng A tattoo flying in the air.@rus Татуировка Хлодвига (tattoo) летает по воздуху.~
+energy~
+tattoo ATUY AR
+0 0 -1 0 0
+0 0 0 P
+G female
+#36169
+dagger кинжал~
+@eng dagger of demon's@rus ~~кинжал~~ демонов~
+@eng {DDagger of demon's{x has been left here@rus Почему-то здесь валяется {DКинжал демонов{x~
+adamantite~
+weapon ABCGIJTYZa AN
+dagger 1000000 1 'pierce' ADE
+46 100 1000000 P
+G male
+#36170
+tattoo eros татуировка эрос~
+@eng tattoo of eros, god of love@rus татуировка Эроса, бога любви~
+@eng A tattoo flying in the air.@rus Татуировка Эроса (tattoo) летает по воздуху.~
+energy~
+tattoo ATUY AR
+0 0 -1 0 0
+0 0 0 P
+G none
 #36178
 ~
 ~
@@ -1017,6 +1177,31 @@ S
 ~
 0 K inside
 S
+#36114
+@eng The proving field of the Mad Demiurg@rus Полигон сумасшедшего Демиурга~
+Небольшая поляна завалена различными кусками непонятного происхождения и
+назначения. По всей видимости здесь проводит свои опыты какой-то безумный
+Демиург. В центре поляны стоит {yзолотой столб{x с укрепленной на нем {yзолотой{x
+{yтабличкой (sign){x.
+~
+0 NPX field
+E
+sign~
+@eng sign
+@rus сигн
+~
+E
+plaq~
+@eng What are you doing here?
+@rus mwlk
+ 
+~
+E
+plaq~
+@rus Н-да, ты до сих пор здесь?  
+~
+M 1000 H 100
+S
 #36130
 Balthazar's home~
 It's pretty dark here. Little light came through a small window.
@@ -1043,6 +1228,7 @@ S
 #0
 
 #SPECIALS
+M 36110 spec_cast_mage	* Solmyr
 M 36114 spec_cast_cleric	* Irlaniel
 M 36115 spec_cast_mage	* Remitoel
 S
@@ -1062,8 +1248,21 @@ M 0 36101 4 36111 4	* TARGET (At the targets)
 M 0 36101 4 36111 4	* TARGET (At the targets)
 M 0 36101 4 36111 4	* TARGET (At the targets)
 M 0 36101 4 36111 4	* TARGET (At the targets)
+M 0 36110 1 36114 1	* Solmyr (The proving field of the Mad Demiurg)
+E 0 36164 0 17		*	Wand of {RDisintegration{x: held in the hands
+O 0 36165 0 36114	* wand (The proving field of the Mad Demiurg)
+O 0 36166 0 36114	* {Ddirty{x pool (The proving field of the Mad Demiurg)
+O 0 36167 0 36114	* Huge Sofa (The proving field of the Mad Demiurg)
+M 0 36109 1 36114 1	* barbarian (The proving field of the Mad Demiurg)
+E 0 36162 0 16		*	longsword: wielded
 O 0 36160 0 36160	* Pit (Яма)
 P 0 36161 1 36160 1	* Pit: nothing
+S
+
+#OLIMITS
+O 36124 1	* huge {Wglary white{x wings
+O 36125 1	* Tamplier's {Ygolden sign{x
+O 36163 1	* {Ddark aura{x
 S
 
 #MOBPROGS

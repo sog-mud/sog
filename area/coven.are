@@ -349,7 +349,7 @@ G none
 amulet flaming~
 the flaming amulet~
 A flaming amulet is here, searing the ground.~
-fire~
+flame~
 key 0 AC
 0 0 0 0 0
 20 20 1000 P
@@ -445,7 +445,7 @@ G none
 ring fire~
 a ring of fire~
 A ring of fire is here, smoldering on the ground.~
-fire~
+flame~
 armor AQ AB
 1 1 1 1 0
 30 50 3000 P

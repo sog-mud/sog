@@ -333,11 +333,11 @@ armor GHJM AK
 17 17 17 2 0
 51 50 29470 G
 A
-17 -30
+20 -5
+A
+17 -15
 A
 2 2
-A
-24 -10
 G none
 #13402
 Ciquala's staff~
@@ -1045,6 +1045,11 @@ M 0 13416 4 13419 2	* Lich (The hidden crypt of Ciquala)
 M 0 13416 4 13419 2	* Lich (The hidden crypt of Ciquala)
 M 0 13417 4 13419 2	* vampire (The hidden crypt of Ciquala)
 M 0 13417 4 13419 2	* vampire (The hidden crypt of Ciquala)
+S
+
+#OLIMITS
+O 13400 2	* Ciquala's sword
+O 13401 2	* Ciquala's robe
 S
 
 #HELPS

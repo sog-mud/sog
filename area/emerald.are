@@ -2783,7 +2783,7 @@ the dagger of Yog-Sothoth~
 A blue steel dagger with a blackened hilt lies here.~
 steel~
 weapon AEJM AN
-dagger 8 6 'pierce' B
+dagger 8 6 'frbite' B
 50 7 25000 G
 A
 18 4
@@ -6292,5 +6292,10 @@ S
 223 0 0 0 0 0 120 80 0 23
 233 0 0 0 0 0 120 80 0 23
 0
+
+#OLIMITS
+O 264 10	* the whipping tail of a manticore
+O 265 3	* the dagger of Yog-Sothoth
+S
 
 #$

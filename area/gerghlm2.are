@@ -1737,7 +1737,7 @@ the Death's Scythe~
 Very dangerous evil scythe is here.~
 mithril~
 weapon G AN
-exotic 10 8 'smash' DE
+polearm 10 8 'smash' DEF
 60 200 50000 P
 G none
 #0
@@ -5419,7 +5419,7 @@ S
 0
 
 #OLIMITS
-O 7699 2	* the Death's Scythe
+O 7699 1	* the Death's Scythe
 S
 
 #HELPS

@@ -9,8 +9,8 @@ End
 
 #MOBILES
 #13000
-giant guard~
-a giant guard~
+giant guard гигант охранник~
+@eng a giant guard@rus ~~гигантский~~ ~~охранник~~~
 A giant guard glances around, looking to stop trouble.
 ~
 Standing around 12 feet tall, this giant seems to keep things safe in the 
@@ -57,13 +57,18 @@ AFIJKNRVX 0 0 0
 stand stand male 200
 0 0 giant unknown
 #13003
-giant mistress Shannon~
-Shannon, the Battle Mistress~
-Screaming at your entrance, Shannon readies her weapon and attacks!
+giant mistress Shannon гигант госпожа шаннон~
+@eng Shannon, the Battle Mistress@rus ~~воительница~~ Шаннон~
+@eng Screaming at your entrance, Shannon readies her weapon and attacks!
+@rus Проинзительно вскрикнув при твоем появлении, Шаннон (Shannon) вскинула оружие и напала.
 ~
-She is the epitomy of battle. Hair tossed about and muscles like that of
+@eng She is the epitomy of battle. Hair tossed about and muscles like that of
 no other female giant you have ever seen, she seems to posses both power
 and control to level anyone who challenges her.
+@rus Она без ума от битв. С беспокойно равевающимися волосами и мускулами, каких
+ты никогда не видел до этого у женщин гигантов, она, похоже, любит ощутить
+всю свою силу и почувствовать контроль над любым, кто только посмеет к ней
+обратиться.
 ~
 giant~
 ABFGT V 0 0
@@ -73,7 +78,7 @@ ACDEFIJK 0 0 0
 stand stand female 0
 0 0 giant unknown
 #13004
-giant cleric Iupsil~
+giant cleric Iupsil гигант священник иупсил~
 Iupsil, the Master Cleric~
 Uttering a prayer, the Master Cleric turns to you with a smile.
 ~
@@ -243,9 +248,9 @@ sit stand male 0
 
 #OBJECTS
 #13000
-claymore adamantite~
-an adamantite claymore~
-A claymore forged of adamantite rests here.~
+claymore adamantite адамантитовый палаш~
+@eng an adamantite claymore@rus ~~адамантитовый~~ ~~палаш~~~
+@eng A claymore forged of adamantite rests here.@rus Выкованный из адамантита палаш (claymore) отдыхает здесь от битв.~
 adamantite~
 weapon 0 AN
 sword 6 5 'slash' 0
@@ -254,11 +259,11 @@ A
 1 2
 A
 13 10
-G none
+G male
 #13001
-dagger thiulor~
-the Barbed Dagger of Thiulor~
-A barbed and deadly dagger rests here in a pool of poison.~
+dagger thiulor кинжал тиулора~
+@eng the Barbed Dagger of Thiulor@rus ~~ядовитый~~ ~~кинжал~~ Тиулора~
+@eng A barbed and deadly dagger rests here in a pool of poison.@rus Ядовитый и смертоносный кинжал (dagger) лежит тут в лужице яда.~
 adamantite~
 weapon BEIM AN
 dagger 7 7 'pierce' H
@@ -268,32 +273,32 @@ A
 18 3
 A
 19 3
-G none
+G male
 #13002
-cloak stealth~
-the cloak of stealth~
-A cloak of strange material sits silently here.~
+cloak stealth плащ скрытности~
+@eng the cloak of stealth@rus ~~плащ~~ скрытности~
+@eng A cloak of strange material sits silently here.@rus Здесь безмолвно лежит плащ из странного материала (cloak).~
 etherealness~
 armor T AK
 1 1 1 1 0
 45 30 8000 P
 F A 0 0 P
-G none
+G male
 #13003
-mask spy~
-a Spy Mask~
-A strange mask is here radiating the unknown.~
+mask spy маска шпиона~
+@eng a Spy Mask@rus ~~шпионская~~ ~~маска~~~
+@eng A strange mask is here radiating the unknown.@rus Здесь лежит странная, излучающая неизвестность, маска (mask).~
 iron~
 armor ABGT AE
 1 1 1 1 0
 45 50 8000 P
 F A 0 0 D
 F A 0 0 F
-G none
+G female
 #13004
-banner~
-the Banner of the Castle of Giants~
-A Banner of the Castle of Giants flows in the wind here.~
+banner знамя~
+@eng the Banner of the Castle of Giants@rus ~~знамя~~ Замка Гигантов~
+@eng A Banner of the Castle of Giants flows in the wind here.@rus Знамя Замка Гигантов (banner) развевается на ветру.~
 cloth~
 light A A
 0 0 -1 0 0
@@ -304,9 +309,9 @@ A
 13 50
 G none
 #13005
-ring glory~
-the Ring of Glory~
-A glorious ring shines brightly here, glowing with the strength of a giant.~
+ring glory кольцо славы~
+@eng the Ring of Glory@rus ~~Кольцо~~ славы~
+@eng A glorious ring shines brightly here, glowing with the strength of a giant.@rus Великолепное кольцо (ring) ярко сверкает, излучая силу гигантов.~
 adamantite~
 armor ABM AB
 15 40 15 10 10
@@ -323,9 +328,9 @@ A
 24 -4
 G none
 #13006
-huge broadsword~
-the huge broadsword of Destruction~
-A powerful weapon of destruction lies here, waiting to be wielded.~
+huge broadsword огромный широкий меч~
+@eng the huge broadsword of Destruction@rus ~~огромный~~ ~~широкий~~ ~~Меч~~ Разрушения~
+@eng A powerful weapon of destruction lies here, waiting to be wielded.@rus На полу лежит ждущее своего череда мощное оружие (broadsword).~
 adamantite~
 weapon ABM AN
 sword 10 7 'slice' CF
@@ -336,10 +341,10 @@ A
 18 1
 A
 19 6
-G none
+G male
 #13007
-small spiked ring~
-a small spiked ring~
+small spiked ring небольшое шипастое колечко~
+@eng a small spiked ring@rus ~~небольшое~~ ~~шипастое~~ ~~колечко~~~
 A ring sits here with jagged spikes coming from it's sides.~
 iron~
 armor 0 AB
@@ -651,10 +656,16 @@ G none
 #ROOMS
 #13000
 @eng A dusty path@rus Пыльная тропа~
-The dust on this path is making it quite difficult to gather in your 
+@eng The dust on this path is making it quite difficult to gather in your 
 surroundings. On both sides of you are trees and you think you hear birds
 chirp in the distance. Far to the north is what looks to be a Castle,
 while south leads into the dwarven forests.
+@rus Из-за пыли на дороге довольно трудно что-нибудь сказать об окружающей тебя
+природе. По обе стороны от дороги растут деревья, и тебе кажется, что откуда-то
+издалека до тебя доносится чирикание птичек. Далеко на севере должен быть
+Замок Гигантов (ты на это очень надеешься), а вот на юг тропа уводит в 
+Дварфовский Лес.
+
 ~
 0 0 forest
 D0
@@ -667,11 +678,15 @@ D2
 Z 0 5277
 S
 #13001
-A dusty path~
-The dust on this path is making it quite difficult to gather in your 
+@eng A dusty path@rus Пыльная тропа~
+@eng The dust on this path is making it quite difficult to gather in your 
 surroundings. On both sides of you are trees and you think you hear birds
 chirp in the distance. To the north is a clearing and you make out a Castle
 in the distance. 
+@rus Из-за пыли на дороге довольно трудно что-нибудь сказать об окружающей тебя
+природе. По обе стороны от дороги растут деревья, и тебе кажется, что откуда-то
+издалека до тебя доносится чирикание птичек. На севере виднеется полянка и
+ты уже можешь различить в той стороне Замок Гигантов.
 ~
 0 0 forest
 D0
@@ -684,13 +699,19 @@ D2
 Z 0 13000
 S
 #13002
-A peaceful clearing~
-As you enter the clearing you are surprised at the silence. Unlike the dusty
+@eng A peaceful clearing@rus Спокойная полянка~
+@eng As you enter the clearing you are surprised at the silence. Unlike the dusty
 road to the south or the castle to the north, it seems to fill your body 
 with thoughts of peace and happiness. You can't understand what is giving
 off this sensation. The flowers? They are certainly plentiful here. Perhaps
 the stone markers that seem to enclose this clearing from the rest of the
 forest. No matter. It makes you feel good... that's it.
+@rus Как только ты $gn{вступил} на полянку, тебя сразу же поражает царящая здесь тишина
+В отличие от пыльной дороги на юге и замка на севере здесь тебя заполняет
+чувство умиротворенности и спокойствия. И ты не можешь понять, что же задает
+тебе такое настроение. Цветы? Конечно, здесь изобилие их. А может быть это
+каменные мемориалы, которые окружают полянку и защищают ее от наступления леса?
+Не важно. Это хорошо, тебе здесь нравится... и больше ничего.
 ~
 0 C field
 D0
@@ -704,11 +725,15 @@ Z 0 13001
 M 125 H 125
 S
 #13003
-Before the Castle of the Giants~
-Standing before the Castle of the Giants you gaze in awe at the splendid 
+@eng Before the Castle of the Giants@rus Перед Замком Гигантов~
+@eng Standing before the Castle of the Giants you gaze in awe at the splendid 
 display of wealth and influence. Two stone lions are on each side of the
 huge adamantite door north of you. Off to the south you see what looks 
 like a large clearing.
+@rus Стоя перед Замком ты с благоговением и трепетом вглядываешься в выставленные
+напоказ роскошь и богатство. По обе стороны от огромной несокрушимой двери
+на севере стоят два каменных льва. На юге виднеется что-то, очень похожее на
+обычную полянку.
 ~
 0 0 field
 D0
@@ -721,7 +746,7 @@ D2
 Z 0 13002
 S
 #13004
-Foyer of the Castle~
+@eng Foyer of the Castle@rus Фойе Замка~
 The foyer of this castle is rather large compared to other foyers you have
 seen before. The Lord of the Giants here obviously has gold to spare, as he 
 has collected rare art pieces and placed them around the room. Two hallways
@@ -2272,6 +2297,7 @@ S
 O 13001 3	* the Barbed Dagger of Thiulor
 O 13002 2	* the cloak of stealth
 O 13003 2	* a Spy Mask
+O 13004 3	* the Banner of the Castle of Giants
 O 13005 4	* the Ring of Glory
 O 13006 1	* the huge broadsword of Destruction
 O 13008 3	* a suit of spiked adamantite platemail
@@ -2289,6 +2315,7 @@ O 13022 3	* some bloody gloves of elven skin
 O 13023 2	* Skin of the Giant Lord
 O 13024 6	* fine fur cloak
 O 13025 3	* some spiked adamantite sleeves
+O 13026 4	* a ring of the torturer
 S
 
 #$

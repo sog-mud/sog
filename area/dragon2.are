@@ -209,8 +209,8 @@ Midgaard he retired. And found this job.
 ~
 human~
 ABHS DEJPZu -500 2402
-91 0 10d30+19000 100d10+100 15d15+10 'pound'
--81 -81 -81 -30
+65 0 50d10+8250 10d10+1000 11d5+35 'pound'
+-33 -33 -33 -17
 FHKN 0 0 D
 stand stand male 1499
 0 0 medium unknown
@@ -226,8 +226,8 @@ He is, the old dragon, resting and getting off tired of years.
 ~
 gold dragon~
 AHS DEPZ 1000 2402
-91 50 10d30+20400 100d10+100 5d35+60 'punch'
--75 -75 -75 -30
+65 50 50d10+8250 10d10+1000 11d5+35 'punch'
+-33 -33 -33 -17
 FHKN 0 0 D
 stand stand male 1499
 0 0 small unknown
@@ -347,7 +347,7 @@ armor AGI AC
 18 18 18 9 0
 40 120 3500 G
 A
-24 -10
+20 -5
 A
 18 5
 A
@@ -368,7 +368,7 @@ armor AGI AC
 18 18 18 9 0
 40 120 3500 G
 A
-24 -10
+20 -6
 A
 18 5
 A
@@ -614,11 +614,11 @@ weapon ABCFGHM AN
 staff 5 11 'pound' D
 52 200 45780 G
 A
+12 100
+A
 19 6
 A
 18 6
-A
-12 250
 A
 13 -50
 E
@@ -2992,6 +2992,12 @@ M 0 2413 1 2501 1	* Fireflash (Before the office of retired dragon)
 E 0 2435 0 17		*	an old seal: held in the hands
 O 0 2436 0 2501	* box (Before the office of retired dragon)
 P 0 2437 4 2436 100	* box: abridged papers
+S
+
+#OLIMITS
+O 2408 3	* a pair of pixie wings
+O 2418 3	* a wisp of DragonFyre
+O 2421 3	* the Staff of the Magius
 S
 
 #MOBPROGS

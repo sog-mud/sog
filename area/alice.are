@@ -2890,6 +2890,11 @@ M 0 21035 1 21061 1	* the Knave of Hearts (The Witness Box)
 G 0 21059 0		*	the Queen's tarts
 S
 
+#OLIMITS
+O 21055 5	* the King of Heart's crown
+O 21060 5	* the executioner's axe
+S
+
 #MOBPROGS
 #21000
 emote raises her eyebrows quizzically.

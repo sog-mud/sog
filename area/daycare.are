@@ -79,18 +79,20 @@ DJNR 0 0 0
 stand stand male 5
 0 0 small unknown
 #6605
-doll old~
-an old doll~
-An abused and old doll is here.
+doll old кукла~
+@eng an old doll@rus ~~старая~~ ~~кукла~~~
+@eng An abused and old doll is here.
+@rus Старая порченная кукла (doll) оставлена здесь.
 ~
-This doll has been hugged and played with until there is almost nothing left.
+@eng This doll has been hugged and played with until there is almost nothing left.
+@rus Эта кукла была любима и с ней игрались, но сейчас от нее мало что осталось.
 ~
 doll~
 ACG 0 -2 0
 1 0 1d10+1 1d1+99 1d4+0 'beating'
 8 5 9 10
 R 0 0 0
-stand stand none 0
+stand stand female 0
 0 0 small unknown
 #6606
 nanny~
@@ -370,9 +372,11 @@ You see a staircase leading down.
 Z -1 6607
 S
 #6606
-The Messy Bathroom~
-You hold your nose as you realize you have made the worst mistake of your
+@eng The Messy Bathroom@rus Грязная ванная~
+@eng You hold your nose as you realize you have made the worst mistake of your
 life.  The air is rancid and the walls are stained.
+@rus Ты $gn{зажал} нос, осознавая, что $gn{сделал} самую большую ошибку в жизни. Воздух
+в комнате протухший, а стены покрыты пятнами.
 ~
 0 D inside
 D1
@@ -383,8 +387,10 @@ Z -1 6603
 S
 #6607
 The Staircase~
-You stand on top of a staircase leading down, and wonder what mystery could
+@eng You stand on top of a staircase leading down, and wonder what mystery could
 lie down under.  Beware!
+@rus Ты стоишь в начале лестницы, ведущей вниз и можешь только догадываться,
+что скрывается там внизу. Будь $gn{осторожен}!
 ~
 0 D inside
 D1
@@ -468,9 +474,11 @@ You see the playground.
 Z -1 6610
 S
 #6612
-Entrance to the Mini-Maze~
-You stand in the entrance to a small, but confusing maze.  You really hope
+@eng Entrance to the Mini-Maze@rus Вход в мини-лабиринт.~
+@eng You stand in the entrance to a small, but confusing maze.  You really hope
 that you don't get lost.
+@rus Ты стоишь на входе в небольшой, но хорошо запутанный лабиринт. Остается
+надеятся, что повезет, и ты не потеряешься в нем.
 ~
 0 ACD field
 D1
@@ -484,8 +492,9 @@ You see some stairs.
 Z -1 6607
 S
 #6613
-Mini-Maze~
-You are in a small passage that looks just like every other one.
+@eng Mini-Maze@rus Мини-лабиринт~
+@eng You are in a small passage that looks just like every other one.
+@rus Ты стоишь в нешироком коридорчике, ничем не отличающемся от других таких же.
 ~
 0 AD field
 D1
@@ -502,8 +511,9 @@ D3
 Z -1 6612
 S
 #6614
-Mini-Maze~
-You are in a small passage that looks just like every other one.
+@eng Mini-Maze@rus Мини-лабиринт~
+@eng You are in a small passage that looks just like every other one.
+@rus Ты стоишь в нешироком коридорчике, ничем не отличающемся от других таких же.
 ~
 0 AD field
 D2
@@ -530,8 +540,9 @@ D1
 Z -1 6616
 S
 #6616
-Mini-Maze~
-You are in a small passage that looks just like every other one.
+@eng Mini-Maze@rus Мини-лабиринт~
+@eng You are in a small passage that looks just like every other one.
+@rus Ты стоишь в нешироком коридорчике, ничем не отличающемся от других таких же.
 ~
 0 AD field
 D0
@@ -548,7 +559,7 @@ D3
 Z -1 6615
 S
 #6624
-End of the Mini-Maze~
+@eng End of the Mini-Maze@rus Конец мини-лабиринта~
 You stand at the end of your journey.  There is a big sign here and you had
 better read it!
 ~

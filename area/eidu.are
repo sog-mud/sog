@@ -71,7 +71,7 @@ grand katana of war~
 japan steel~
 weapon IMT AN
 sword 100 30 'pierce' D
-40 10 0 P
+5 10 0 P
 F A 0 0 V
 A
 18 300
@@ -154,7 +154,7 @@ container 0 AL
 1000000 A 0 1000 1
 0 0 0 P
 A
-8 50
+8 150
 A
 13 1000
 A

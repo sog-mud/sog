@@ -591,14 +591,8 @@ a Heron marked blade~
 The blade of a swordmaster lies at your feet.~
 iron~
 weapon GIM AN
-sword 10 11 'slash' DE
+sword 10 8 'slash' DE
 60 12 600 P
-A
-19 15
-A
-18 10
-A
-13 50
 G none
 #23021
 malkierian battle helm crane~
@@ -636,14 +630,8 @@ a heartstone dagger~
 A dagger made of a strange material is here.~
 unknown~
 weapon GM AN
-dagger 10 11 'pierce' D
+dagger 10 7 'pierce' D
 60 10 600 P
-A
-19 10
-A
-18 10
-A
-4 3
 G none
 #23024
 lord sceptre~
@@ -6050,7 +6038,11 @@ S
 
 #OLIMITS
 O 23020 1	* a Heron marked blade
+O 23021 6	* a helm stylized into a golden crane
+O 23022 10	* a suit of Malkerian battle armor
 O 23023 1	* a heartstone dagger
+O 23033 5	* a plain dress pannelled with lightning bolts
+O 23035 5	* a wicked-looking knife
 S
 
 #$
