@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.48 2002-01-05 16:21:57 matrim Exp $
+ * $Id: act_info.c,v 1.271.2.49 2002-01-08 17:34:48 tatyana Exp $
  */
 
 /***************************************************************************
@@ -4986,7 +4986,7 @@ void do_compress(CHAR_DATA *ch, const char *argument)
 	BUFFER *output;
 
 	if (!ch->desc) {
-		char_puts("What descriptor?!", ch);
+		char_puts("What descriptor?!\n", ch);
 		return;
 	}
 
@@ -4995,12 +4995,12 @@ void do_compress(CHAR_DATA *ch, const char *argument)
 	if (!str_cmp(arg1, "on") && ch->desc->mccp_support) {
 		if (ch->desc->out_compress == NULL) {
 			if (!compressStart(ch->desc))
-				char_puts("Failed.", ch);
+				char_puts("Failed.\n", ch);
 			else
-				char_puts("Ok, compression enabled.", ch);
+				char_puts("Ok, compression enabled.\n", ch);
 		}
 		else
-			char_puts("Compression is already enabled.", ch);
+			char_puts("Compression is already enabled.\n", ch);
 
 		return;
 	}
@@ -5008,12 +5008,12 @@ void do_compress(CHAR_DATA *ch, const char *argument)
 	if (!str_cmp(arg1, "off") && ch->desc->mccp_support) {
 		if (ch->desc->out_compress != NULL) {
 			if (!compressEnd(ch->desc))
-				char_puts("Failed.", ch);
+				char_puts("Failed.\n", ch);
 			else
-				char_puts("Ok, compression disabled.", ch);
+				char_puts("Ok, compression disabled.\n", ch);
 		}
 		else
-			char_puts("Compression is already disabled.", ch);
+			char_puts("Compression is already disabled.\n", ch);
 
 		return;
 	}
