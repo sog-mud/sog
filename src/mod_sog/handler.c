@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.269 2000-10-29 20:46:16 fjoe Exp $
+ * $Id: handler.c,v 1.270 2000-11-23 15:47:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -413,11 +413,9 @@ void _equip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 /*
  * Equip a char with an obj. Return obj on success. Otherwise returns NULL.
  */
-OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
+OBJ_DATA *
+equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 {
-	if (ch->shapeform)
-		return NULL;
-
 	if (iWear == WEAR_STUCK_IN) {
 		obj->wear_loc = iWear;
 		return obj;
@@ -480,9 +478,6 @@ void strip_obj_affects(CHAR_DATA *ch, OBJ_DATA *obj, AFFECT_DATA *paf)
 void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 {
 	int i;
-
-	if (ch->shapeform)
-		return;
 
 	if (obj->wear_loc == WEAR_NONE) {
 		log(LOG_BUG, "unequip_char: already unequipped");
@@ -3440,20 +3435,26 @@ bool can_loot(CHAR_DATA * ch, OBJ_DATA * obj)
 	return TRUE;
 }
 
+int need_hands(CHAR_DATA *ch, OBJ_DATA *weapon)
+{
+	int need = 1;
+
+	if (WEAPON_IS_LONG(weapon)
+	||  (IS_WEAPON_STAT(weapon, WEAPON_TWO_HANDS) &&
+	     ch->size < SIZE_LARGE))
+		need++;
+
+	return need;
+}
+
 int free_hands(CHAR_DATA *ch)
 {
 	int free_hands = 2;
 	OBJ_DATA *weapon;
 
 	weapon = get_eq_char(ch, WEAR_WIELD);
-	if (weapon) {
-		free_hands--;
-		if (IS_WEAPON_STAT(weapon, WEAPON_TWO_HANDS)
-		&&  ch->size < SIZE_LARGE)
-			free_hands = 0;
-		if (WEAPON_IS(weapon, WEAPON_STAFF)) 
-			free_hands = 0;
-	}
+	if (weapon)
+		free_hands -= need_hands(ch, weapon);
 
 	if (get_eq_char(ch, WEAR_SECOND_WIELD))
 		free_hands--;
@@ -3618,11 +3619,15 @@ bool remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		return FALSE;
 	}
-	if ((obj->item_type == ITEM_TATTOO) && (!IS_IMMORTAL(ch))) {
+
+	if (obj->item_type == ITEM_TATTOO && !IS_IMMORTAL(ch)) {
 		act_puts("You must scratch it to remove $p.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		return FALSE;
 	}
+
+#if 0
+	/* XXX should be moved to do_remove */
 	if (iWear == WEAR_STUCK_IN) {
 		const char *wsn = get_weapon_sn(obj);
 		unequip_char(ch, obj);
@@ -3640,12 +3645,14 @@ bool remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
                 WAIT_STATE(ch, 4);
 		return TRUE;
 	}
+#endif
+
 	unequip_char(ch, obj);
 	act("$n stops using $p.", ch, obj, NULL, TO_ROOM);
 	act_puts("You stop using $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 
 	if (iWear == WEAR_WIELD
-	    && (obj = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL) {
+	&&  (obj = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL) {
 		unequip_char(ch, obj);
 		equip_char(ch, obj, WEAR_WIELD);
 	}
@@ -3664,12 +3671,12 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 		return;
 	}
 
-	if (IS_NPC(ch) && (!IS_SET(ch->form, FORM_BIPED)
-	|| !IS_SET(ch->form, FORM_SENTIENT))) {
+	if (IS_NPC(ch)
+	&&  (!IS_SET(ch->form, FORM_BIPED) ||
+	     !IS_SET(ch->form, FORM_SENTIENT))) {
 		act("WEAR ?", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
-	
 
 	if (ch->shapeform) {
 		act("You cannot reach your items.",
@@ -3880,78 +3887,68 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 	}
 
 	if (CAN_WEAR(obj, ITEM_WIELD)) {
-		int             skill;
-		OBJ_DATA       *dual;
+		int skill;
+		OBJ_DATA *weapon;
 
-		if ((dual = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL)
-			unequip_char(ch, dual);
-
-		if (!remove_obj(ch, WEAR_WIELD, fReplace))
-			return;
-
-		if (!free_hands(ch)) {
-			act_puts("Your hands are full.",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		if (!IS_NPC(ch)
+		&&  get_obj_weight(obj) > str_app[get_curr_stat(ch, STAT_STR)].wield) {
+			act_char("It is too heavy for you to wield.", ch);
 			return;
 		}
-		
+
 		if (is_affected(ch, "crippled hands")) {
 			act("Your crippled hands refuse to hold $p.",
 				ch, obj, NULL, TO_CHAR);
 			return;
 		}
 
-		if (!IS_NPC(ch)
-		&& get_obj_weight(obj) >
-			  str_app[get_curr_stat(ch, STAT_STR)].wield) {
-			act_char("It is too heavy for you to wield.", ch);
-			if (dual)
-				equip_char(ch, dual, WEAR_SECOND_WIELD);
+		if ((weapon = get_eq_char(ch, WEAR_WIELD))
+		&&  free_hands(ch) - need_hands(ch, weapon) < 2) {
+			act_char("You need two hands free for that weapon.", ch);
 			return;
 		}
 
-		if ((WEAPON_IS(obj, WEAPON_STAFF) ||
-		    (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS)
-		&&  !IS_NPC(ch) && ch->size < SIZE_LARGE))
-		&&  free_hands(ch) < 2) {
-			act_char("You need two hands free for that weapon.", ch);
-			if (dual)
-				equip_char(ch, dual, WEAR_SECOND_WIELD);
+		if ((weapon = get_eq_char(ch, WEAR_SECOND_WIELD)))
+			unequip_char(ch, weapon);
+
+		if (!remove_obj(ch, WEAR_WIELD, fReplace)) {
+			if (weapon)
+				equip_char(ch, weapon, WEAR_SECOND_WIELD);
 			return;
 		}
 
 		act("$n wields $p.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wield $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 		obj = equip_char(ch, obj, WEAR_WIELD);
-		if (dual)
-			equip_char(ch, dual, WEAR_SECOND_WIELD);
-
+		if (weapon)
+			equip_char(ch, weapon, WEAR_SECOND_WIELD);
 		if (obj == NULL)
 			return;
 
 		skill = get_weapon_skill(ch, get_weapon_sn(obj));
 
-		if (skill >= 100)
+		if (skill >= 100) {
 			act_puts("$p feels like a part of you!",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		else if (skill > 85)
+		} else if (skill > 85) {
 			act_puts("You feel quite confident with $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		else if (skill > 70)
+		} else if (skill > 70) {
 			act_puts("You are skilled with $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		else if (skill > 50)
+		} else if (skill > 50) {
 			act_puts("Your skill with $p is adequate.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		else if (skill > 25)
+		} else if (skill > 25) {
 			act_puts("$p feels a little clumsy in your hands.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		else if (skill > 1)
+		} else if (skill > 1) {
 			act_puts("You fumble and almost drop $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
-		else
+		} else {
 			act_puts("You don't even know which end is up on $p.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		}
 		return;
 	}
 
