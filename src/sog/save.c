@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.108 1999-03-17 15:27:37 kostik Exp $
+ * $Id: save.c,v 1.109 1999-04-15 06:51:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -166,7 +166,6 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 
 	fwrite_string(fp, "Name", ch->name);
 	mlstr_fwrite(fp, "ShD", ch->short_descr);
-	fprintf(fp, "Id   %d\n", ch->id);
 	fprintf(fp, "LogO %ld\n", current_time);
 	fprintf(fp, "Vers %d\n", 6);
 	fprintf(fp, "Ethos %s\n", flag_string(ethos_table, ch->ethos));
@@ -558,7 +557,6 @@ void load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 	ch->desc = d;
 	ch->name = str_dup(capitalize(name));
 	ch->short_descr = mlstr_new(ch->name);
-	ch->id = get_pc_id();
 	ch->race = rn_lookup("human");
 	ch->plr_flags = PLR_NOSUMMON | PLR_NOCANCEL;
 	ch->comm = COMM_COMBINE | COMM_PROMPT;
@@ -948,7 +946,6 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'I':
-			KEY("Id", ch->id, fread_number(fp));
 			KEY("InvisLevel", ch->invis_level, fread_number(fp));
 			KEY("Inco", ch->incog_level, fread_number(fp));
 			KEY("Invi", ch->invis_level, fread_number(fp));
@@ -1081,8 +1078,6 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'V':
-			KEY("Version", ch->version, fread_number(fp));
-			KEY("Vers", ch->version, fread_number(fp));
 			if (!str_cmp(word, "Vnum")) {
 				ch->pIndexData = get_mob_index(fread_number(fp));
 				fMatch = TRUE;

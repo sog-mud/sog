@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.130 1999-04-13 02:48:34 kostik Exp $
+ * $Id: interp.c,v 1.131 1999-04-15 06:51:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -671,7 +671,8 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		if (IS_AFFECTED(ch, AFF_IMP_INVIS)
 		&&  min_pos == POS_FIGHTING) {
 			affect_bit_strip(ch, TO_AFFECTS, AFF_IMP_INVIS);
-			char_puts("You fade into existence.\n", ch);
+			act_puts("You fade into existence.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			act("$n fades into existence.",
 			    ch, NULL, NULL, TO_ROOM);
 		}

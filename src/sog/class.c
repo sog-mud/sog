@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.10 1999-02-10 14:57:35 fjoe Exp $
+ * $Id: class.c,v 1.11 1999-04-15 06:51:05 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -41,7 +41,7 @@ CLASS_DATA *class_new(void)
 	class->skills.nstep = 8;
 	class->restrict_sex = -1;
 	class->death_limit = -1;
-	class->poses.nsize = sizeof(POSE_DATA);
+	class->poses.nsize = sizeof(pose_t);
 	class->poses.nstep = 4;
 	class->guild.nsize = sizeof(int);
 	class->guild.nstep = 4;

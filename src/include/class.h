@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.14 1999-03-11 09:04:31 fjoe Exp $
+ * $Id: class.h,v 1.15 1999-04-15 06:51:05 fjoe Exp $
  */
 
 #ifndef _CLASS_H_
@@ -62,9 +62,9 @@ struct class_data {
 	int		death_limit;		/* death limit */
 };
 
-struct pose_data {
-	mlstring *	self;		/* what is seen by char */
-	mlstring *	others;		/* what is seen by others */
+struct pose_t {
+	const char *	self;		/* what is seen by char */
+	const char *	others;		/* what is seen by others */
 };
 
 /* class flags */

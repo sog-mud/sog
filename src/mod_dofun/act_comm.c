@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.156 1999-04-05 11:53:55 fjoe Exp $
+ * $Id: act_comm.c,v 1.157 1999-04-15 06:51:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -747,240 +747,6 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 	 }
 }
 
-#if 0
-/*
- * All the posing stuff.
- */
-struct	pose_table_type
-{
-	char *	message[2*MAX_CLASS];
-};
-
-const	struct	pose_table_type	pose_table	[]	=
-{
-	{
-	{
-		"You sizzle with energy.",
-		"$n sizzles with energy.",
-		"You feel very holy.",
-		"$n looks very holy.",
-		"You perform a small card trick.",
-		"$n performs a small card trick.",
-		"You show your bulging muscles.",
-		"$n shows $s bulging muscles."
-	}
-	},
-
-	{
-	{
-		"You turn into a butterfly, then return to your normal shape.",
-		"$n turns into a butterfly, then returns to $s normal shape.",
-		"You nonchalantly turn wine into water.",
-		"$n nonchalantly turns wine into water.",
-		"You wiggle your ears alternately.",
-		"$n wiggles $s ears alternately.",
-		"You crack nuts between your fingers.",
-		"$n cracks nuts between $s fingers."
-	}
-	},
-
-	{
-	{
-		"Blue sparks fly from your fingers.",
-		"Blue sparks fly from $n's fingers.",
-		"A halo appears over your head.",
-		"A halo appears over $n's head.",
-		"You nimbly tie yourself into a knot.",
-		"$n nimbly ties $mself into a knot.",
-		"You grizzle your teeth and look mean.",
-		"$n grizzles $s teeth and looks mean."
-	}
-	},
-
-	{
-	{
-		"Little red lights dance in your eyes.",
-		"Little red lights dance in $n's eyes.",
-		"You recite words of wisdom.",
-		"$n recites words of wisdom.",
-		"You juggle with daggers, apples, and eyeballs.",
-		"$n juggles with daggers, apples, and eyeballs.",
-		"You hit your head, and your eyes roll.",
-		"$n hits $s head, and $s eyes roll."
-	}
-	},
-
-	{
-	{
-		"A slimy green monster appears before you and bows.",
-		"A slimy green monster appears before $n and bows.",
-		"Deep in prayer, you levitate.",
-		"Deep in prayer, $n levitates.",
-		"You steal the underwear off every person in the room.",
-		"Your underwear is gone!  $n stole it!",
-		"Crunch, crunch -- you munch a bottle.",
-		"Crunch, crunch -- $n munches a bottle."
-	}
-	},
-
-	{
-	{
-		"You turn everybody into a little pink elephant.",
-		"You are turned into a little pink elephant by $n.",
-		"An angel consults you.",
-		"An angel consults $n.",
-		"The dice roll ... and you win again.",
-		"The dice roll ... and $n wins again.",
-		"... 98, 99, 100 ... you do pushups.",
-		"... 98, 99, 100 ... $n does pushups."
-	}
-	},
-
-	{
-	{
-		"A small ball of light dances on your fingertips.",
-		"A small ball of light dances on $n's fingertips.",
-		"Your body glows with an unearthly light.",
-		"$n's body glows with an unearthly light.",
-		"You count the money in everyone's pockets.",
-		"Check your money, $n is counting it.",
-		"Arnold Schwarzenegger admires your physique.",
-		"Arnold Schwarzenegger admires $n's physique."
-	}
-	},
-
-	{
-	{
-		"Smoke and fumes leak from your nostrils.",
-		"Smoke and fumes leak from $n's nostrils.",
-		"A spot light hits you.",
-		"A spot light hits $n.",
-		"You balance a pocket knife on your tongue.",
-		"$n balances a pocket knife on your tongue.",
-		"Watch your feet, you are juggling granite boulders.",
-		"Watch your feet, $n is juggling granite boulders."
-	}
-	},
-
-	{
-	{
-		"The light flickers as you rap in magical languages.",
-		"The light flickers as $n raps in magical languages.",
-		"Everyone levitates as you pray.",
-		"You levitate as $n prays.",
-		"You produce a coin from everyone's ear.",
-		"$n produces a coin from your ear.",
-		"Oomph!  You squeeze water out of a granite boulder.",
-		"Oomph!  $n squeezes water out of a granite boulder."
-	}
-	},
-
-	{
-	{
-		"Your head disappears.",
-		"$n's head disappears.",
-		"A cool breeze refreshes you.",
-		"A cool breeze refreshes $n.",
-		"You step behind your shadow.",
-		"$n steps behind $s shadow.",
-		"You pick your teeth with a spear.",
-		"$n picks $s teeth with a spear."
-	}
-	},
-
-	{
-	{
-		"A fire elemental singes your hair.",
-		"A fire elemental singes $n's hair.",
-		"The sun pierces through the clouds to illuminate you.",
-		"The sun pierces through the clouds to illuminate $n.",
-		"Your eyes dance with greed.",
-		"$n's eyes dance with greed.",
-		"Everyone is swept off their foot by your hug.",
-		"You are swept off your feet by $n's hug."
-	}
-	},
-
-	{
-	{
-		"The sky changes color to match your eyes.",
-		"The sky changes color to match $n's eyes.",
-		"The ocean parts before you.",
-		"The ocean parts before $n.",
-		"You deftly steal everyone's weapon.",
-		"$n deftly steals your weapon.",
-		"Your karate chop splits a tree.",
-		"$n's karate chop splits a tree."
-	}
-	},
-
-	{
-	{
-		"The stones dance to your command.",
-		"The stones dance to $n's command.",
-		"A thunder cloud kneels to you.",
-		"A thunder cloud kneels to $n.",
-		"The Grey Mouser buys you a beer.",
-		"The Grey Mouser buys $n a beer.",
-		"A strap of your armor breaks over your mighty thews.",
-		"A strap of $n's armor breaks over $s mighty thews."
-	}
-	},
-
-	{
-	{
-		"The heavens and grass change colour as you smile.",
-		"The heavens and grass change colour as $n smiles.",
-		"The Burning Man speaks to you.",
-		"The Burning Man speaks to $n.",
-		"Everyone's pocket explodes with your fireworks.",
-		"Your pocket explodes with $n's fireworks.",
-		"A boulder cracks at your frown.",
-		"A boulder cracks at $n's frown."
-	}
-	},
-
-	{
-	{
-		"Everyone's clothes are transparent, and you are laughing.",
-		"Your clothes are transparent, and $n is laughing.",
-		"An eye in a pyramid winks at you.",
-		"An eye in a pyramid winks at $n.",
-		"Everyone discovers your dagger a centimeter from their eye.",
-		"You discover $n's dagger a centimeter from your eye.",
-		"Mercenaries arrive to do your bidding.",
-		"Mercenaries arrive to do $n's bidding."
-	}
-	},
-
-	{
-	{
-		"A black hole swallows you.",
-		"A black hole swallows $n.",
-		"Valentine Michael Smith offers you a glass of water.",
-		"Valentine Michael Smith offers $n a glass of water.",
-		"Where did you go?",
-		"Where did $n go?",
-		"Four matched Percherons bring in your chariot.",
-		"Four matched Percherons bring in $n's chariot."
-	}
-	},
-
-	{
-	{
-		"The world shimmers in time with your whistling.",
-		"The world shimmers in time with $n's whistling.",
-		"Gods give you a staff.",
-		"Gods give $n a staff.",
-		"Click.",
-		"Click.",
-		"Atlas asks you to relieve him.",
-		"Atlas asks $n to relieve him."
-	}
-	}
-};
-#endif
-
 void do_pose(CHAR_DATA *ch, const char *argument)
 {
 #if 0
@@ -1043,7 +809,7 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 	CHAR_DATA *vch, *vch_next;
 	OBJ_DATA *obj,*obj_next,*obj_in;
 	int cn;
-	int id;
+	const char *name;
 
 	if (IS_NPC(ch))
 		return;
@@ -1210,7 +976,7 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 	 * After extract_char the ch is no longer valid!
 	 */
 	save_char_obj(ch, FALSE);
-	id = ch->id;
+	name = str_qdup(ch->name);
 	d = ch->desc;
 	if (Count)
 		 extract_char(ch, TRUE);
@@ -1220,14 +986,22 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 	if (d)
 		close_descriptor(d);
 
-	/* toast evil cheating bastards    */
+	/*
+	 * toast evil cheating bastards 
+	 *
+	 * Workaround against clone cheat --
+	 * Log in once, connect a second time and enter only name,
+	 * drop all and quit with first character, finish login
+	 * with second. This clones the player's inventory.
+	 */
 	for (d = descriptor_list; d; d = d_next) {
 		CHAR_DATA *tch;
 
 		d_next = d->next;
 		tch = d->original ? d->original : d->character;
-		if (tch && tch->id == id) {
-			extract_char_nocount(tch, TRUE);
+		if (tch && !str_cmp(name, tch->name)) {
+			if (d->connected == CON_PLAYING)
+				extract_char_nocount(tch, TRUE);
 			close_descriptor(d);
 		} 
 	}

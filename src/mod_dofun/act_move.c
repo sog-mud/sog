@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.161 1999-04-13 19:30:52 fjoe Exp $
+ * $Id: act_move.c,v 1.162 1999-04-15 06:51:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1755,7 +1755,8 @@ void do_visible(CHAR_DATA *ch, const char *argument)
 	if (IS_AFFECTED(ch, AFF_INVIS | AFF_IMP_INVIS)) {
 		REMOVE_BIT(ch->affected_by, AFF_INVIS | AFF_IMP_INVIS);
 		affect_bit_strip(ch, TO_AFFECTS, AFF_INVIS | AFF_IMP_INVIS);
-		char_puts("You fade into existence.\n", ch);
+		act_puts("You fade into existence.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act("$n fades into existence.", ch, NULL, NULL, TO_ROOM);
 	}
 }

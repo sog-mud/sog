@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.173 1999-03-22 09:52:21 fjoe Exp $
+ * $Id: merc.h,v 1.174 1999-04-15 06:51:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1283,8 +1283,6 @@ struct char_data
 	AREA_DATA * 		zone;
 	PC_DATA *		pcdata;
 	const char *		name;
-	int			id;
-	int			version;
 	mlstring *		short_descr;
 	mlstring *		long_descr;
 	mlstring *		description;

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.124 1999-03-25 13:12:29 kostik Exp $
+ * $Id: db.c,v 1.125 1999-04-15 06:51:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -969,7 +969,6 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 	mob->short_descr	= mlstr_dup(pMobIndex->short_descr);
 	mob->long_descr		= mlstr_dup(pMobIndex->long_descr);
 	mob->description	= mlstr_dup(pMobIndex->description);
-	mob->id			= get_mob_id();
 	mob->spec_fun		= pMobIndex->spec_fun;
 	mob->class		= CLASS_CLERIC;
 
@@ -1153,7 +1152,6 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 	
 	/* start fixing values */ 
 	clone->name 		= str_qdup(parent->name);
-	clone->version		= parent->version;
 	clone->short_descr	= mlstr_dup(parent->short_descr);
 	clone->long_descr	= mlstr_dup(parent->long_descr);
 	clone->description	= mlstr_dup(parent->description);

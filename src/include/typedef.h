@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.18 1999-03-10 17:23:32 fjoe Exp $
+ * $Id: typedef.h,v 1.19 1999-04-15 06:51:06 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -76,7 +76,6 @@ typedef struct pc_skill			PC_SKILL;
 typedef struct clan_data		CLAN_DATA;
 typedef struct where_data		WHERE_DATA;
 typedef struct class_data		CLASS_DATA;
-typedef struct pose_data		POSE_DATA;
 typedef struct skill_data		SKILL_DATA;
 typedef struct namedp			NAMEDP;
 typedef struct lang_data		LANG_DATA;
@@ -86,6 +85,7 @@ typedef struct race_pcdata		RACE_PCDATA;
 typedef struct race_class_data		RACE_CLASS_DATA;
 typedef struct race_skill		RACE_SKILL;
 typedef struct mlstring			mlstring;
+typedef struct pose_t			pose_t;
 typedef struct rulecl_t			rulecl_t;
 typedef struct olced_t 			olced_t;	
 typedef struct rule_t			rule_t;

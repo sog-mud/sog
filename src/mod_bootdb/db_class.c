@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.16 1999-03-11 09:04:33 fjoe Exp $
+ * $Id: db_class.c,v 1.17 1999-04-15 06:51:06 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -177,7 +177,7 @@ DBLOAD_FUN(load_class)
 DBLOAD_FUN(load_pose)
 {
 	CLASS_DATA *class = arg;
-	POSE_DATA *pose;
+	pose_t *pose;
 
 	if (!class) {
 		db_error("load_pose", "No #CLASS seen yet");
@@ -185,6 +185,6 @@ DBLOAD_FUN(load_pose)
 	}
 
 	pose = varr_enew(&class->poses);
-	pose->self = mlstr_fread(fp);
-	pose->others = mlstr_fread(fp);
+	pose->self = fread_string(fp);
+	pose->others = fread_string(fp);
 }

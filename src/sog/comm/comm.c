@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.170 1999-04-15 05:39:32 fjoe Exp $
+ * $Id: comm.c,v 1.171 1999-04-15 06:51:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1581,7 +1581,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 {
 	char buf[MAX_STRING_LENGTH];
 	DESCRIPTOR_DATA *d_old, *d_next;
-	const char *name;
 	char buf1[MAX_STRING_LENGTH];
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *ch;
@@ -2190,25 +2189,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		||  check_reconnect(d, ch->name, TRUE))
 			return;
 
-		/*
-		 * Workaround against clone cheat --
-		 * Log in once, connect a second time and enter only name,
-		 * drop all and quit with first character, finish login
-		 * with second. This clones the player's inventory.
-		 */
-		name = str_qdup(ch->name);
-		free_char(ch);
-		load_char_obj(d, name);
-		free_string(name);
-		ch = d->character;
-
-		if (IS_SET(ch->plr_flags, PLR_NEW)) {
-			write_to_buffer(d, "Please login again to create a new "
-					   "character.\n\r", 0);
-			close_descriptor(d);
-			return;
-		}
-	  
 		log_printf("%s@%s has connected.", ch->name, d->host);
 		d->connected = CON_READ_IMOTD;
 
