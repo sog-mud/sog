@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.141 1999-12-01 09:07:13 fjoe Exp $
+ * $Id: save.c,v 1.142 1999-12-01 15:03:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -707,6 +707,7 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 				if (PC(ch)->dvdata->pagelen < MIN_PAGELEN-2)
 					PC(ch)->dvdata->pagelen = MAX_PAGELEN-2;
 
+				varr_qsort(&PC(ch)->specs, cmpstr);
 				spec_update(ch);
 
 				/* XXX update clan lists */
