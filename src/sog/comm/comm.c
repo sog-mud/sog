@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.40 1998-06-07 07:15:39 fjoe Exp $
+ * $Id: comm.c,v 1.41 1998-06-10 03:32:11 efdi Exp $
  */
 
 /***************************************************************************
@@ -1646,20 +1646,18 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
 	case CON_GET_OLD_PASSWORD:
 	write_to_buffer( d, "\n\r", 2 );
 
-	if ( strcmp( crypt( argument, ch->pcdata->pwd ), ch->pcdata->pwd ) )
-	{
+	if (strcmp(crypt(argument, ch->pcdata->pwd), ch->pcdata->pwd)) {
 	    write_to_buffer( d, "Wrong password.\n\r", 0 );
 	    sprintf(buf, "Wrong password by %s@%s", ch->name, d->host);
 	    log_string(buf);
 	    if (ch->endur == 2)
 	    	close_socket( d );
-	    else 
-		{
-	    	 write_to_descriptor(d->descriptor, (char *) echo_off_str, 0);
- 	    	 write_to_buffer(d, "Password: ", 0);
-	    	 d->connected = CON_GET_OLD_PASSWORD;
-		 ch->endur++;
-		}
+	    else {
+	    	write_to_descriptor(d->descriptor, (char *) echo_off_str, 0);
+ 	    	write_to_buffer(d, "Password: ", 0);
+	    	d->connected = CON_GET_OLD_PASSWORD;
+		ch->endur++;
+	    }
 	    return;
 	}
  

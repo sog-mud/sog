@@ -1,5 +1,5 @@
 /*
- * $Id: rating.c,v 1.3 1998-06-03 20:56:34 fjoe Exp $
+ * $Id: rating.c,v 1.4 1998-06-10 03:32:12 efdi Exp $
  */
 
 #include <sys/time.h>
@@ -79,7 +79,17 @@ void do_rating(CHAR_DATA *ch, char *argument)
 		char_printf(ch, "%-24s| %d\n\r",
 			    rating_table[i].name, rating_table[i].pc_killed);
 	}
-	char_printf(ch, "\n\rYou have killed {R%d{x player(s).\n\r",
-		    ch->pcdata->pc_killed);
+	if (!ch->pcdata->pc_killed)
+		send_to_char("\n\rDo you profess to be SO {Cpeaceful{x?\n\r"
+			     "You have killed no one.\n\r", ch);
+	else {
+		if (!strcmp(rating_table[0].name, ch->name))
+			send_to_char("\n\rI bet you are {Rawful{x. \n\r"
+				     "You're at the top of this list!", ch);
+		char_printf(ch, "\n\rYou have killed %s{R%d{x player%s.\n\r",
+			    ch->pcdata->pc_killed == 1 ? "ONLY " : "",
+			    ch->pcdata->pc_killed, 
+			    ch->pcdata->pc_killed == 1 ? "" : "s");
+	}
 }
 
