@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.35 1998-07-08 09:57:13 fjoe Exp $
+ * $Id: db.c,v 1.36 1998-07-09 14:02:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -585,6 +585,10 @@ void boot_db(void)
 		if (fpArea != stdin)
 			fclose(fpArea);
 		fpArea = NULL;
+
+		if (area_last != NULL) 
+			REMOVE_BIT(area_last->area_flags, AREA_LOADING);
+
 	}
 	fclose(fpList);
 
@@ -643,10 +647,8 @@ void load_area(FILE *fp)
 
 	if (area_first == NULL)
 		area_first = pArea;
-	if (area_last != NULL) {
+	if (area_last != NULL) 
 		area_last->next = pArea;
-		REMOVE_BIT(area_last->area_flags, AREA_LOADING); /* OLC */
-	}
 
 	area_last	= pArea;
 	pArea->next	= NULL;

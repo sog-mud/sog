@@ -1,5 +1,5 @@
 /*
- * $Id: resource.c,v 1.23 1998-07-09 13:41:32 fjoe Exp $
+ * $Id: resource.c,v 1.24 1998-07-09 14:02:24 fjoe Exp $
  */
 
 #include <limits.h>
@@ -8,6 +8,8 @@
 #include "merc.h"
 #include "resource.h"
 #include "db.h"
+#include "comm.h"
+#include "log.h"
 
 #ifdef SUNOS
 #	include <stdarg.h>
@@ -101,9 +103,9 @@ void do_lang(CHAR_DATA *ch, char *argument)
 	lang = lang_lookup(arg);
 	if (lang < 0) {
 		char_nputs(LANG_USAGE_PRE, ch);
-		for (i = 0; lang_table[i] != NULL; i++)
+		for (lang = 0; lang < nlang; lang++)
 			char_printf(ch, "%s%s",
-				    i == 0 ? "" : " | ", lang_table[i]);
+				    lang == 0 ? "" : " | ", lang_table[lang]);
 		char_nputs(LANG_USAGE_POST, ch);
 		return;
 	}
