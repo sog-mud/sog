@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.21 1998-10-23 09:22:50 fjoe Exp $
+ * $Id: ban.c,v 1.22 1998-10-26 08:39:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -215,7 +215,7 @@ void ban_site(CHAR_DATA *ch, const char *argument, bool fPerm)
 			return;
   		}
 
-		buffer = buf_new(0);
+		buffer = buf_new(-1);
 
         	buf_add(buffer, "Banned sites  level  type     status\n\r");
 		for (pban = ban_list;pban != NULL;pban = pban->next) {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.22 1998-10-24 09:45:08 fjoe Exp $
+ * $Id: olc_area.c,v 1.23 1998-10-26 08:40:06 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -194,7 +194,7 @@ OLC_FUN(areaed_list)
 			continue;
 
 		if (output == NULL) {
-			output = buf_new(0);
+			output = buf_new(-1);
     			buf_printf(output, "[%3s] [%-27s] (%-5s-%5s) [%-10s] %3s [%-10s]\n\r",
 				   "Num", "Area Name", "lvnum", "uvnum",
 				   "Filename", "Sec", "Builders");

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.19 1998-10-23 09:33:35 fjoe Exp $
+ * $Id: olc_obj.c,v 1.20 1998-10-26 08:40:09 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -235,7 +235,7 @@ OLC_FUN(objed_show)
 
 	pArea = area_vnum_lookup(pObj->vnum);
 
-	output = buf_new(0);
+	output = buf_new(-1);
 	buf_printf(output, "Name:        [%s]\n\rArea:        [%5d] %s\n\r",
 		pObj->name, pArea->vnum, pArea->name);
 
@@ -325,7 +325,7 @@ OLC_FUN(objed_list)
 	if ((pArea = get_edited_area(ch)) == NULL)
 		pArea = ch->in_room->area;
 
-	buffer  = buf_new(0);
+	buffer  = buf_new(-1);
 	fAll    = !str_cmp(arg, "all");
 	found   = FALSE;
 
@@ -969,7 +969,7 @@ bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
 {
 	BUFFER *output;
 
-	output = buf_new(0);
+	output = buf_new(-1);
 	switch(pObj->item_type) {
 	default:
 		break;
@@ -1306,7 +1306,7 @@ static void show_skill_cmds(CHAR_DATA *ch, int tar)
 	int  col;
 	BUFFER *output;
  
-	output = buf_new(0);
+	output = buf_new(-1);
 	col = 0;
 	for (sn = 0; sn < skills.nused; sn++) {
 		SKILL_DATA *sk = SKILL(sn);
@@ -1333,7 +1333,7 @@ void show_liqlist(CHAR_DATA *ch)
 	int liq;
 	BUFFER *buffer;
 	
-	buffer = buf_new(0);
+	buffer = buf_new(-1);
 	
 	for (liq = 0; liq_table[liq].liq_name != NULL; liq++) {
 		if ((liq % 21) == 0)
@@ -1355,7 +1355,7 @@ void show_damlist(CHAR_DATA *ch)
 	int att;
 	BUFFER *buffer;
 	
-	buffer = buf_new(0);
+	buffer = buf_new(-1);
 	
 	for (att = 0; attack_table[att].name != NULL; att++) {
 		if ((att % 21) == 0)

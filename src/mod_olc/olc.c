@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.33 1998-10-23 09:23:36 fjoe Exp $
+ * $Id: olc.c,v 1.34 1998-10-26 08:40:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -383,7 +383,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 			return FALSE;
 		}
 
-		output = buf_new(0);
+		output = buf_new(-1);
 		buf_printf(output, "Keyword:     [%s]\n\r", ed->keyword);
 		mlstr_dump(output, "Description: ", ed->description);
 		page_to_char(buf_string(output), ch);
@@ -596,7 +596,7 @@ bool show_commands(CHAR_DATA *ch, const char *argument)
 	if (olced == NULL)
 		return FALSE;
 
-	output = buf_new(0); 
+	output = buf_new(-1); 
 
 	for (col = 0, cmd = olced->cmd_table+FUN_FIRST; cmd->name; cmd++) {
 		buf_printf(output, "%-15.15s", cmd->name);

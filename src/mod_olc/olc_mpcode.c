@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mpcode.c,v 1.19 1998-10-17 11:29:46 fjoe Exp $
+ * $Id: olc_mpcode.c,v 1.20 1998-10-26 08:40:08 fjoe Exp $
  */
 
 /* The following code is based on ILAB OLC by Jason Dinkel */
@@ -161,7 +161,7 @@ OLC_FUN(mped_list)
 	char blah;
 	AREA_DATA *ad;
 
-	buffer = buf_new(0);
+	buffer = buf_new(-1);
 
 	for (mpcode = mpcode_list; mpcode !=NULL; mpcode = mpcode->next)
 		if (fAll || ENTRE(ch->in_room->area->min_vnum, mpcode->vnum, ch->in_room->area->max_vnum)) {

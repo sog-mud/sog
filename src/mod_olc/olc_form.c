@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_form.c,v 1.2 1998-10-08 13:31:28 fjoe Exp $
+ * $Id: olc_form.c,v 1.3 1998-10-26 08:40:10 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -262,7 +262,7 @@ OLC_FUN(worded_list)
 
 			if (!str_prefix(argument, w->name)) {
 				if (output == NULL)
-					output = buf_new(0);
+					output = buf_new(-1);
 				buf_printf(output, "%s\n\r", w->name);
 			}
 		}

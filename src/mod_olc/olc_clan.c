@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.12 1998-10-17 11:29:46 fjoe Exp $
+ * $Id: olc_clan.c,v 1.13 1998-10-26 08:40:06 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -167,7 +167,7 @@ OLC_FUN(claned_show)
 		clan = CLAN(i);
 	}
 
-	output = buf_new(0);
+	output = buf_new(-1);
 	buf_printf(output,
 		   "Name:        [%s]\n\r"
 		   "Filename:    [%s]\n\r",

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.115 1998-10-23 09:22:50 fjoe Exp $
+ * $Id: comm.c,v 1.116 1998-10-26 08:39:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2130,7 +2130,7 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 
 
 	if (ch->level == 0) {
-		int sn;
+		OBJ_DATA *wield;
 
 	    ch->level	= 1;
 	    ch->exp     = base_exp(ch);
@@ -2164,9 +2164,8 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	    if (ch->hometown == 4)
 	  obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP_OLD),0),ch);
 
-		sn = get_weapon_sn(ch, WEAR_WIELD);
-		if (get_skill(ch, sn) < 40) 
-			set_skill(ch, get_weapon_sn(ch, WEAR_WIELD), 40);
+		if ((wield = get_eq_char(ch, WEAR_WIELD)))
+			set_skill_raw(ch, get_weapon_sn(wield), 40, FALSE);
 
 	    char_to_room(ch, get_room_index(ROOM_VNUM_SCHOOL));
 	    char_puts("\n\r",ch);

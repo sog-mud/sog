@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.21 1998-10-23 09:23:36 fjoe Exp $
+ * $Id: olc_mob.c,v 1.22 1998-10-26 08:40:07 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -248,7 +248,7 @@ OLC_FUN(mobed_show)
 		}
 	}
 
-	buf = buf_new(0);
+	buf = buf_new(-1);
 
 	pArea = area_vnum_lookup(pMob->vnum);
 	buf_printf(buf, "Name:        [%s]\n\rArea:        [%5d] %s\n\r",
@@ -411,7 +411,7 @@ OLC_FUN(mobed_list)
 	if ((pArea = get_edited_area(ch)) == NULL)
 		pArea = ch->in_room->area;
 
-	buffer = buf_new(0);
+	buffer = buf_new(-1);
 	fAll    = !str_cmp(arg, "all");
 	found   = FALSE;
 
@@ -968,7 +968,7 @@ OLC_FUN(mobed_group)
 			return FALSE;
 		}
 
-		buffer = buf_new(0);
+		buffer = buf_new(-1);
 
 		for (temp = 0; temp < 65536; temp++) {
 			pMTemp = get_mob_index(temp);
@@ -1170,7 +1170,7 @@ static void show_spec_cmds(CHAR_DATA *ch)
 	int  col;
 	BUFFER *output;
 
-	output = buf_new(0);
+	output = buf_new(-1);
 	col = 0;
 	buf_add(output, "Preceed special functions with 'spec_'\n\r\n\r");
 	for (spec = 0; spec_table[spec].function != NULL; spec++) {

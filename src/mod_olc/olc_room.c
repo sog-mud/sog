@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.24 1998-10-24 12:41:48 fjoe Exp $
+ * $Id: olc_room.c,v 1.25 1998-10-26 08:40:09 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -219,7 +219,7 @@ OLC_FUN(roomed_show)
 		return FALSE;
 	}
 
-	output = buf_new(0);
+	output = buf_new(-1);
 	
 	buf_add(output, "Description:\n\r");
 	mlstr_dump(output, str_empty, pRoom->description);
@@ -345,7 +345,7 @@ OLC_FUN(roomed_list)
 	int  col = 0;
 
 	pArea = ch->in_room->area;
-	buffer = buf_new(0);
+	buffer = buf_new(-1);
 	found   = FALSE;
 
 	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
@@ -862,7 +862,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 	if (command[0] == '?') {
 		BUFFER *output;
 
-		output = buf_new(0);
+		output = buf_new(-1);
 		help_show(ch, output, "'OLC EXITS'");
 		buf_printf(output, "Valid exit flags are:\n\r");
 		show_flags_buf(output, exit_flags);
@@ -1063,7 +1063,7 @@ void display_resets(CHAR_DATA *ch)
     BUFFER *		buf;
     int 		iReset = 0;
 
-    buf = buf_new(0);
+    buf = buf_new(-1);
     
     buf_add(buf,
   " No.  Loads    Description       Location         Vnum   Mx Mn Description"
