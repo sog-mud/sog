@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.103 2004-02-11 22:25:30 sg Exp $
+ * $Id: act.c,v 1.104 2004-05-24 18:34:52 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -190,7 +190,8 @@ PERS(CHAR_DATA *ch, CHAR_DATA *to, uint to_lang, int act_flags)
 			return smash_tilde(
 			    mlstr_val(&ch->short_descr, to_lang),
 			    act_flags);
-		} else if (IS_AFFECTED(ch, AFF_TURNED) && !IS_IMMORTAL(to)) {
+		} else if ((IS_AFFECTED(ch, AFF_TURNED) && !IS_IMMORTAL(to))
+		       ||  IS_SET(PC(ch)->plr_flags, PLR_GHOST)) {
 			return word_form(GETMSG(PC(ch)->form_name, to_lang),
 					 GET_SEX(&ch->gender, to_lang), to_lang,
 					 RULES_GENDER);

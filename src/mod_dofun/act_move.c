@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.303 2004-03-03 15:37:29 tatyana Exp $
+ * $Id: act_move.c,v 1.304 2004-05-24 18:34:51 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1792,7 +1792,8 @@ DO_FUN(do_fly, ch, argument)
 
 		if (is_bit_affected(ch, TO_AFFECTS, AFF_FLYING)
 		||  ((r = race_lookup(ch->race)) && (r->aff & AFF_FLYING))
-		||  has_obj_affect(ch, AFF_FLYING)) {
+		||  has_obj_affect(ch, AFF_FLYING)
+		||  IS_SET(PC(ch)->plr_flags, PLR_GHOST)) {
 			SET_BIT(ch->affected_by, AFF_FLYING);
 			act_char("You start to fly.", ch);
 		}
@@ -1801,7 +1802,7 @@ DO_FUN(do_fly, ch, argument)
 			return;
 		}
 	} else if (!str_cmp(arg,"down")) {
-		if (IS_AFFECTED(ch,AFF_FLYING)) {
+		if (IS_AFFECTED(ch, AFF_FLYING)) {
 			REMOVE_BIT(ch->affected_by, AFF_FLYING);
 			act_char("You slowly touch the ground.", ch);
 		}

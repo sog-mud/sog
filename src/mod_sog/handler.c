@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.398 2004-04-08 11:53:08 kets Exp $
+ * $Id: handler.c,v 1.399 2004-05-24 18:34:52 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1696,8 +1696,15 @@ get_eq_char(CHAR_DATA *ch, int iWear)
 	return NULL;
 }
 
-#define CAN_SWIM(ch)	(IS_IMMORTAL(ch) || number_percent() < get_skill(ch, "swimming") || is_sn_affected(ch, "water walk"))
-#define CAN_FLY(ch)	(IS_IMMORTAL(ch) || IS_AFFECTED(ch, AFF_FLYING))
+#define CAN_SWIM(ch)							\
+	(IS_IMMORTAL(ch) ||						\
+	 number_percent() < get_skill(ch, "swimming") ||		\
+	 (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_GHOST)))
+
+#define CAN_FLY(ch)							\
+	(IS_IMMORTAL(ch) ||						\
+	 IS_AFFECTED(ch, AFF_FLYING) ||					\
+	 (!IS_NPC(ch) && IS_SET(PC(ch)->plr_flags, PLR_GHOST)))
 
 static int movement_loss[MAX_SECT] =
 {
@@ -5483,6 +5490,8 @@ do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 
 	if (IS_IMMORTAL(wch))
 		buf_printf(output, BUF_END, "{W%s{x", wch->name);  // notrans
+	else if (IS_SET(PC(wch)->plr_flags, PLR_GHOST))
+		buf_append(output, PC(wch)->form_name);
 	else
 		buf_append(output, wch->name);
 
