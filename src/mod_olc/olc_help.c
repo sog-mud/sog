@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.22 1998-12-01 10:55:10 fjoe Exp $
+ * $Id: olc_help.c,v 1.23 1998-12-07 05:34:12 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -40,6 +40,7 @@ DECLARE_OLC_FUN(helped_create		);
 DECLARE_OLC_FUN(helped_edit		);
 DECLARE_OLC_FUN(helped_touch		);
 DECLARE_OLC_FUN(helped_show		);
+DECLARE_OLC_FUN(helped_list		);
 
 DECLARE_OLC_FUN(helped_level		);
 DECLARE_OLC_FUN(helped_keyword		);
@@ -52,7 +53,7 @@ OLC_CMD_DATA olc_cmds_help[] =
 	{ "edit",	helped_edit	},
 	{ "touch",	helped_touch	},
 	{ "show",	helped_show	},
-	{ "list",	NULL		},
+	{ "list",	helped_list	},
 
 	{ "level",	helped_level	},
 	{ "keywords",	helped_keyword	},
@@ -184,6 +185,46 @@ OLC_FUN(helped_show)
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 
+	return FALSE;
+}
+
+extern HELP_DATA *help_first;
+
+OLC_FUN(helped_list)
+{
+	BUFFER *output;
+	AREA_DATA *pArea = NULL;
+	HELP_DATA *pHelp;
+	char arg[MAX_INPUT_LENGTH];
+
+	one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		if ((pArea = get_edited_area(ch)) == NULL) {
+			do_help(ch, "'OLC ALIST'");
+			return FALSE;
+		}
+	}
+
+	output = buf_new(-1);
+
+	if (pArea) {
+		buf_printf(output, "Available help topics in area '%s' [%d]:\n",
+			   pArea->name, pArea->vnum);
+		for (pHelp = pArea->help_first; pHelp;
+						pHelp = pHelp->next_in_area)
+			buf_printf(output, "    o %s\n", pHelp->keyword);
+	}
+	else {
+		buf_printf(output, "Available help topics on keyword '%s':\n",
+			   arg);
+		for (pHelp = help_first; pHelp; pHelp = pHelp->next)
+			if (is_name(arg, pHelp->keyword))
+				buf_printf(output, "    o %s\n",
+					   pHelp->keyword);
+	}
+
+	page_to_char(buf_string(output), ch);
+	buf_free(output);
 	return FALSE;
 }
 
