@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.194 1999-07-16 05:36:12 kostik Exp $
+ * $Id: fight.c,v 1.195 1999-09-07 06:54:25 kostik Exp $
  */
 
 /***************************************************************************
@@ -1146,7 +1146,7 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 
 	/* Dying penalty: 2/3 way back. */
-	if (IS_WANTED(victim) && victim->level > 1) {
+	if (IS_WANTED(victim) && victim->level > 2) {
 		SET_WANTED(victim, NULL);
 		victim->level--;
 		victim->pcdata->plevels++;
