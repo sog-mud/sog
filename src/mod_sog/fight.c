@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.38 1998-06-18 05:19:13 fjoe Exp $
+ * $Id: fight.c,v 1.39 1998-06-18 20:21:41 efdi Exp $
  */
 
 /***************************************************************************
@@ -2203,19 +2203,20 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
   victim->pcdata->condition[COND_BLOODLUST] = 40;
   victim->pcdata->condition[COND_DESIRE] = 40;
 
-  if (tattoo != NULL)
-	{
-	  obj_to_char(tattoo, victim);
-	  equip_char(victim, tattoo, WEAR_TATTOO);
+	if (tattoo != NULL) {
+		obj_to_char(tattoo, victim);
+		equip_char(victim, tattoo, WEAR_TATTOO);
 	}
- save_char_obj(victim);
+	save_char_obj(victim);
 
-  /*
-   * Calm down the tracking mobiles
-   */
-  for (tmp_ch = char_list; tmp_ch != NULL; tmp_ch = tmp_ch->next)
-	if (tmp_ch->last_fought == victim)
-	  tmp_ch->last_fought = NULL;
+	/*
+	 * Calm down the tracking mobiles
+	 */
+	for (tmp_ch = char_list; tmp_ch != NULL; tmp_ch = tmp_ch->next) {
+		if (tmp_ch->last_fought == victim)
+			tmp_ch->last_fought = NULL;
+		remove_mind(tmp_ch, victim->name);
+	}
 
   return;
 }

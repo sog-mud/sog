@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.17 1998-06-18 05:19:13 fjoe Exp $
+ * $Id: handler.c,v 1.18 1998-06-18 20:21:42 efdi Exp $
  */
 
 /***************************************************************************
@@ -4149,7 +4149,7 @@ void remove_mind(CHAR_DATA *ch, char *str)
 	char *mind = ch->in_mind;
 
 	if (!IS_NPC(ch) || ch->in_room == NULL 
-	||  mind == NULL || !is_name(str,mind)) return;
+	||  mind == NULL || !is_name(str, mind)) return;
 
 	buf[0] = '\0';
 	do { 
@@ -4161,8 +4161,7 @@ void remove_mind(CHAR_DATA *ch, char *str)
 				snprintf(buff, sizeof(buff), "%s %s", buf, arg);
 			strcpy(buf,buff);
 		}
-	}
-	while (mind[0] != '\0');
+	} while (mind[0] != '\0');
  
 	free_string(ch->in_mind);
 	if (is_number(buf)) {
