@@ -1,5 +1,7 @@
 /*
- * $Id: skills.c,v 1.74.2.5 2000-06-09 12:18:53 fjoe Exp $
+
+	return slevel;
+ * $Id: skills.c,v 1.74.2.6 2000-07-04 09:09:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -552,7 +554,8 @@ void say_spell(CHAR_DATA *ch, int sn)
 }
 
 /* find min level of the skill for char */
-int skill_level(CHAR_DATA *ch, int sn)
+int
+_skill_level(CHAR_DATA *ch, int sn)
 {
 	int slevel = LEVEL_IMMORTAL;
 	skill_t *sk;
@@ -585,10 +588,16 @@ int skill_level(CHAR_DATA *ch, int sn)
 	if ((race_skill = rskill_lookup(r, sn)))
 		slevel = UMIN(slevel, race_skill->level);
 
-	if (get_skill_mod(ch, sn, 1))
-		slevel = 1;
-
 	return slevel;
+}
+
+int
+skill_level(CHAR_DATA *ch, int sn)
+{
+	if (get_skill_mod(ch, sn, 1))
+		return 1;
+
+	return _skill_level(ch, sn);
 }
 
 /*

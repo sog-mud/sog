@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.16.2.2 1999-12-16 12:39:52 fjoe Exp $
+ * $Id: skills.h,v 1.16.2.3 2000-07-04 09:09:38 fjoe Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -62,7 +62,7 @@ struct skill_t {
 
 extern varr skills;
 
-#define HAS_SKILL(ch, sn)	(skill_level(ch, sn) < LEVEL_IMMORTAL)
+#define HAS_SKILL(ch, sn)	(_skill_level(ch, sn) < LEVEL_IMMORTAL)
 
 #define SKILL(sn)		((skill_t*) VARR_GET(&skills, sn))
 #define skill_lookup(sn)	((skill_t*) varr_get(&skills, sn))
@@ -80,7 +80,12 @@ int		get_skill_mod	(CHAR_DATA *ch, int sn, int percent);
 int		get_skill	(CHAR_DATA *ch, int sn);
 void		set_skill	(CHAR_DATA *ch, int sn, int value);
 void		set_skill_raw	(CHAR_DATA *ch, int sn, int value, bool repl);
+
+/* skill level */
 int		skill_level	(CHAR_DATA *ch, int sn);
+
+/* skill level without skill affects */
+int		_skill_level	(CHAR_DATA *ch, int sn);
 
 void		update_skills	(CHAR_DATA *ch);
 

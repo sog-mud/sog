@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.7 2000-06-08 18:13:22 fjoe Exp $
+ * $Id: martial_art.c,v 1.114.2.8 2000-07-04 09:09:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3616,8 +3616,7 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((sn_dishonor = sn_lookup("dishonor")) < 0
-	||  !HAS_SKILL(ch, sn_dishonor)) {
+	if ((sn_dishonor = sn_lookup("dishonor")) < 0) {
 		char_puts("Which honor?\n", ch);
 		return;
 	}
