@@ -15,13 +15,7 @@ if [ -e shutdown.txt ]; then
 	rm -f shutdown.txt
 fi
 
-if [ x$TERM=xxterm ]; then
-	echo ']2;SoG console';
-fi
-
-if [ x$TERM=xxterm-color ]; then
-	echo ']2;SoG console';
-fi
+[ x$TERM = xxterm -o x$TERM = xxterm-color ] && echo ']2;SoG console';
 
 while [ 1 ]; do
 	if [ -r tmp/lastlog ]; then
