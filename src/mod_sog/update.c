@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.22 1998-06-02 15:56:07 fjoe Exp $
+ * $Id: update.c,v 1.23 1998-06-02 19:13:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2183,7 +2183,6 @@ void room_affect_update(void)
 
 void check_reboot(void)
 {
-	char buf[MAX_STRING_LENGTH];
 	DESCRIPTOR_DATA *d;
 
 	switch(reboot_counter) {
@@ -2199,11 +2198,10 @@ void check_reboot(void)
 	case 5:
 	case 10:
 	case 15:
-		sprintf(buf,
-			"\007***** REBOOT IN %i MINUTES *****\007\n\r",
-			reboot_counter);
 		for (d = descriptor_list; d != NULL; d = d->next) 
-			write_to_buffer(d,buf,0);
+			if (d->character != NULL)
+				char_nprintf(d->character, UPDATE_REBOOT_IN,
+					     reboot_counter);
 		/* FALLTHRU */
 	default: 
 		reboot_counter--;

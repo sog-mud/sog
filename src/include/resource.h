@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.56 1998-06-02 15:56:06 fjoe Exp $
+ * $Id: resource.h,v 1.57 1998-06-02 19:13:56 fjoe Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -558,6 +558,7 @@ enum {
 	MOVE_N_SNARLS_N,
 	MOVE_YOU_SNARL_N,
 	INFO_FIGHTING_YOU,
+	UPDATE_REBOOT_IN,
 };
 
 #endif

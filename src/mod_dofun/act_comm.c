@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.35 1998-06-02 18:21:21 fjoe Exp $
+ * $Id: act_comm.c,v 1.36 1998-06-02 19:13:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -80,7 +80,7 @@ void do_rating(CHAR_DATA *ch, char *argument)
 	int i;
 	qsort(rate_table, RATE_TABLE_SIZE, sizeof(tag_rate_table), compar);
 	send_to_char("Name                    | PC's killed\n\r", ch);
-	send_to_char("-------------------------------------\n\r", ch);
+	send_to_char("------------------------+------------\n\r", ch);
 	for (i = 0; i < RATE_TABLE_SIZE; ++i) {
 		if (rate_table[i].name == NULL)
 			continue;
