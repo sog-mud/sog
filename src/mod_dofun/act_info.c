@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.154 1998-10-28 06:31:57 fjoe Exp $
+ * $Id: act_info.c,v 1.155 1998-10-29 07:29:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -652,6 +652,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		}
 
 	if (victim != ch
+	&&  (!IS_IMMORTAL(victim) || IS_IMMORTAL(ch))
 	&&  !IS_NPC(ch)
 	&&  number_percent() < get_skill(ch, gsn_peek)) {
 		char_puts("\n\rYou peek at the inventory:\n\r", ch);
