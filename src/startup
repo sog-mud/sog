@@ -1,0 +1,34 @@
+#!/bin/csh
+umask 002
+set port = 9911
+set muddy = `pwd`/muddy
+
+cd ../area
+
+# Set limits.
+if ( -e shutdown.txt ) rm -f shutdown.txt
+
+while ( 1 )
+    # If you want to have logs in a different directory,
+    #   change the 'set logfile' line to reflect the directory name.
+    set index = 1000
+    while ( 1 )
+	set logfile = ../log/$index.log
+	if ( ! -e $logfile ) break
+	@ index++
+    end
+
+    # Copy rot binary from bin directory.
+    # after a compile, place the new binary in the bin directory,
+    # this way a reboot will install the new binary, instead of
+    # of having to shut down.
+    # Run rot.
+    $muddy $port >&! $logfile
+
+    # Restart, giving old connections a chance to die.
+    if ( -e shutdown.txt ) then
+	rm -f shutdown.txt
+	exit 0
+    endif
+    sleep 15
+end
