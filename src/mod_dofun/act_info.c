@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.100 1998-07-19 21:19:06 efdi Exp $
+ * $Id: act_info.c,v 1.101 1998-07-25 01:32:22 efdi Exp $
  */
 
 /***************************************************************************
@@ -69,6 +69,7 @@
 #include "buffer.h"
 #include "mlstring.h"
 #include "string_edit.h"
+#include "util.h"
 
 #if defined(SUNOS) || defined(SVR4)
 #	include <crypt.h>
@@ -1701,6 +1702,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 	char clan[MAX_STRING_LENGTH]; 
 	char *afk;
 	char *act;
+	char name[MAX_STRING_LENGTH];
 	char *title;
 	char level[100];
 	int trusted;
@@ -1729,10 +1731,16 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 		race = "     ";
 
 	*clan = '\0';
-	if (wch->clan
-	&&  (ch->clan == wch->clan || IS_IMMORTAL(ch)))
+	if (ch->clan != CLAN_NONE) {
 		snprintf(clan, MAX_STRING_LENGTH, "[{c%s{x] ",
-			 clan_table[wch->clan].short_name);
+			 clan_table[ch->clan].short_name);
+		if (ch->clan != wch->clan) {
+			char *p = clan;
+			while(*p)
+				*p++ = ' ';
+			*(p-4) = '\0'; /* DIRTY patch for colors */
+		}
+	}
 
 	if (IS_SET(wch->comm, COMM_AFK))
 		afk = "{c[AFK]{x ";
@@ -1753,6 +1761,11 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 		act = "{R(WANTED){x";
 	else
 		act = EMPTY_STRING;
+
+	if(IS_IMMORTAL(wch))
+		snprintf(name, MAX_STRING_LENGTH, "{W%s{x", wch->name);
+	else
+		strnzcpy(name, wch->name, MAX_STRING_LENGTH);
 
 	if (IS_NPC(wch))
 		title = " Believer of Chronos";
@@ -1775,7 +1788,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 		wizi,
 		pk,
 		act,
-		wch->name,
+		name,
 		title);
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.44 1998-07-14 07:47:41 fjoe Exp $
+ * $Id: act_obj.c,v 1.45 1998-07-25 01:32:22 efdi Exp $
  */
 
 /***************************************************************************
@@ -1350,7 +1350,8 @@ remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
 		return FALSE;
 	}
 	if ((obj->item_type == ITEM_TATTOO) && (!IS_IMMORTAL(ch))) {
-		char_nputs(YOU_MUST_SCRATCH_TO_REMOVE, ch);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+			    YOU_MUST_SCRATCH_TO_REMOVE);
 		return FALSE;
 	}
 	if (iWear == WEAR_STUCK_IN) {

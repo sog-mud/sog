@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.40 1998-07-22 22:21:19 efdi Exp $
+ * $Id: save.c,v 1.41 1998-07-25 01:32:23 efdi Exp $
  */
 
 /***************************************************************************
@@ -730,48 +730,8 @@ load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 	    && ch->class != CLASS_VAMPIRE)
 		ch->pcdata->condition[COND_BLOODLUST] = 48;
 
-	/* fix levels */
-	if (found && ch->version < 3 && (ch->level > 35 || ch->trust > 35)) {
-		switch (ch->level) {
-		case (40):
-			ch->level = MAX_LEVEL;
-			break;	/* imp -> imp */
-		case (39):
-			ch->level = MAX_LEVEL - 2;
-			break;	/* god -> supreme */
-		case (38):
-			ch->level = MAX_LEVEL - 4;
-			break;	/* deity -> god */
-		case (37):
-			ch->level = MAX_LEVEL - 7;
-			break;	/* angel -> demigod */
-		}
-
-		switch (ch->trust) {
-		case (40):
-			ch->trust = MAX_LEVEL;
-			break;	/* imp -> imp */
-		case (39):
-			ch->trust = MAX_LEVEL - 2;
-			break;	/* god -> supreme */
-		case (38):
-			ch->trust = MAX_LEVEL - 4;
-			break;	/* deity -> god */
-		case (37):
-			ch->trust = MAX_LEVEL - 7;
-			break;	/* angel ->demigod */
-		case (36):
-			ch->trust = LEVEL_HERO;
-			break;	/* hero -> hero */
-		}
-	}
-	/* ream gold */
-	if (found && ch->version < 4) {
-		ch->gold /= 100;
-	}
-	if (found && ch->version < 6) {
+	if (found && ch->version < 6)
 		ch->pcdata->learned[gsn_spell_craft] = 1;
-	}
 	return found;
 }
 
