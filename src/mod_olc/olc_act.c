@@ -1,5 +1,5 @@
 /*
- * $Id: olc_act.c,v 1.13 1998-08-14 03:36:23 fjoe Exp $
+ * $Id: olc_act.c,v 1.14 1998-08-14 22:33:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3431,8 +3431,8 @@ MEDIT(medit_show)
 
 		for (cnt=0, list=pMob->mprogs; list; list=list->next) {
 			if (cnt ==0) {
-				buf_add(buf, " Number Vnum Trigger Phrase Flags\n\r");
-				buf_add(buf, " ------ ---- ------- ------ ---------------------------------------------------\n\r");
+				buf_add(buf, " Number Vnum Trigger Phrase [Flags]\n\r");
+				buf_add(buf, " ------ ---- ------- ----------------------------------------------------------\n\r");
 			}
 
 			buf_printf(buf, "[%5d] %4d %7s %s [%s]\n\r", cnt,

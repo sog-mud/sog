@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.88 1998-08-14 05:45:16 fjoe Exp $
+ * $Id: resource.h,v 1.89 1998-08-14 22:33:07 fjoe Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -293,9 +293,8 @@ enum {
 	MSG_TRACKS_LEAD_S,
 	MSG_DONT_SEE_TRACKS,
 	MSG_YOU_CANT_BE_MORE_VAMPIRE,
-	MSG_YOU_SHOW_MORE_UGGLY,
+	MSG_YOU_SHOW_MORE_UGLY,
 	MSG_GO_AND_ASK_QUESTOR,
-	MSG_GO_KILL_PLAYER,
 	MSG_WAIT_NIGHT,
 	MSG_FEEL_GREATER,
 	MSG_CANNOT_RECOGNIZE,

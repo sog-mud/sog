@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.73 1998-08-14 06:18:46 fjoe Exp $
+# $Id: english.lang,v 1.74 1998-08-14 22:33:05 fjoe Exp $
 #
 
 MSG_NOTHING		"Nothing.\n\r"
@@ -286,12 +286,11 @@ MSG_THERE_ARE_NO_TRAIN_TRACKS_HERE "There are no train tracks here.\n\r"
 MSG_N_CHECKS_TRACKS 	"$n checks the ground for tracks."
 MSG_TRACKS_LEAD_S 	"%s's tracks lead %s.\n\r"
 MSG_DONT_SEE_TRACKS 	"You don't see any tracks.\n\r"
-MSG_YOU_CANT_BE_MORE_VAMPIRE "You can't be much more vampire!\n\r"
-MSG_YOU_SHOW_MORE_UGGLY 	"You try to show yourself even more uggly.\n\r"
-MSG_GO_AND_ASK_QUESTOR 	"Go and the questor to help you.\n\r"
-MSG_GO_KILL_PLAYER 	"If you want to be more vampire go and kill a player.\n\r"
+MSG_YOU_CANT_BE_MORE_VAMPIRE "But you are already vampire. Kill them! Kill them!\n\r"
+MSG_YOU_SHOW_MORE_UGLY 	"You try to show yourself even more ugly.\n\r"
+MSG_GO_AND_ASK_QUESTOR 	"Go and ask the questor. He'll help you.\n\r"
 MSG_WAIT_NIGHT 		"You should wait for the evening or night to transform to a vampire.\n\r"
-MSG_FEEL_GREATER 		"You feel yourself getting greater and greater.\n\r"
+MSG_FEEL_GREATER 	"You feel yourself getting greater and greater.\n\r"
 MSG_CANNOT_RECOGNIZE 	"You cannot recognize $n anymore."
 MSG_DONT_KNOW_BITE 	"You don't know how to bite creatures.\n\r"
 MSG_MUST_TRANSFORM_VAMP 	"You must transform vampire before biting.\n\r"

@@ -2,7 +2,7 @@
 #define _OLC_H_
 
 /*
- * $Id: olc.h,v 1.6 1998-08-07 07:48:54 fjoe Exp $
+ * $Id: olc.h,v 1.7 1998-08-14 22:33:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,6 +60,7 @@ typedef	bool OLC_FUN		(CHAR_DATA *ch, const char *argument);
 #define ED_OBJECT	3
 #define ED_MOBILE	4
 #define ED_MPCODE	5
+#define ED_HELP		6
 
 
 
@@ -71,6 +72,7 @@ void    redit           (CHAR_DATA *ch, const char *argument);
 void    medit           (CHAR_DATA *ch, const char *argument);
 void    oedit           (CHAR_DATA *ch, const char *argument);
 void	mpedit		(CHAR_DATA *ch, const char *argument);
+void	hedit		(CHAR_DATA *ch, const char *argument);
 
 
 /*
@@ -124,16 +126,22 @@ extern const struct olc_cmd_type	redit_table[];
 extern const struct olc_cmd_type	oedit_table[];
 extern const struct olc_cmd_type	medit_table[];
 extern const struct olc_cmd_type	mpedit_table[];
+extern const struct olc_cmd_type	hedit_table[];
 
 
 /*
  * Editor Commands.
  */
-DECLARE_DO_FUN(do_aedit       );
-DECLARE_DO_FUN(do_redit       );
-DECLARE_DO_FUN(do_oedit       );
-DECLARE_DO_FUN(do_medit       );
+DECLARE_DO_FUN(do_alist		);
+DECLARE_DO_FUN(do_asave		);
+DECLARE_DO_FUN(do_olc		);
+DECLARE_DO_FUN(do_resets	);
+DECLARE_DO_FUN(do_aedit		);
+DECLARE_DO_FUN(do_redit		);
+DECLARE_DO_FUN(do_oedit		);
+DECLARE_DO_FUN(do_medit		);
 DECLARE_DO_FUN(do_mpedit	);
+DECLARE_DO_FUN(do_hedit		);
 
 
 /*
@@ -269,6 +277,12 @@ DECLARE_OLC_FUN(mpedit_code		);
 DECLARE_OLC_FUN(mpedit_show		);
 DECLARE_OLC_FUN(mpedit_list		);
 
+/* help editor */
+DECLARE_OLC_FUN(hedit_create		);
+DECLARE_OLC_FUN(hedit_show		);
+DECLARE_OLC_FUN(hedit_level		);
+DECLARE_OLC_FUN(hedit_keyword		);
+DECLARE_OLC_FUN(hedit_text		);
 
 /*
  * Macros
@@ -281,6 +295,7 @@ DECLARE_OLC_FUN(mpedit_list		);
 #define EDIT_ROOM(Ch, Room)	(Room = Ch->in_room)
 #define EDIT_AREA(Ch, Area)	(Area = (AREA_DATA *)Ch->desc->pEdit)
 #define EDIT_MPCODE(Ch, Code)   (Code = (MPROG_CODE*)Ch->desc->pEdit)
+#define EDIT_HELP(Ch, Code)	(Code = (HELP_DATA*)Ch->desc->pEdit)
 
 
 /*

@@ -1,5 +1,5 @@
 /*
- * $Id: olc.c,v 1.8 1998-08-10 10:37:55 fjoe Exp $
+ * $Id: olc.c,v 1.9 1998-08-14 22:33:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,6 +59,9 @@ bool run_olc_editor(DESCRIPTOR_DATA *d)
     case ED_MPCODE:
     	mpedit(d->character, d->incomm);
     	break;
+    case ED_HELP:
+	hedit(d->character, d->incomm);
+	break;
     default:
 	return FALSE;
     }
@@ -75,22 +78,25 @@ char *olc_ed_name(CHAR_DATA *ch)
     switch (ch->desc->editor)
     {
     case ED_AREA:
-	sprintf(buf, "AEdit");
+	strncpy(buf, "AEdit", sizeof(buf));
 	break;
     case ED_ROOM:
-	sprintf(buf, "REdit");
+	strncpy(buf, "REdit", sizeof(buf));
 	break;
     case ED_OBJECT:
-	sprintf(buf, "OEdit");
+	strncpy(buf, "OEdit", sizeof(buf));
 	break;
     case ED_MOBILE:
-	sprintf(buf, "MEdit");
+	strncpy(buf, "MEdit", sizeof(buf));
 	break;
     case ED_MPCODE:
-    	sprintf(buf, "MPEdit");
+    	strncpy(buf, "MPEdit", sizeof(buf));
+	break;
+    case ED_HELP:
+	strncpy(buf, "HEdit", sizeof(buf));
 	break;
     default:
-	sprintf(buf, " ");
+	strncpy(buf, " ", sizeof(buf));
 	break;
     }
     return buf;
@@ -194,6 +200,9 @@ bool show_commands(CHAR_DATA *ch, const char *argument)
 	    break;
 	case ED_MPCODE:
 	    show_olc_cmds(ch, mpedit_table);
+	    break;
+	case ED_HELP:
+	    show_olc_cmds(ch, hedit_table);
 	    break;
     }
 
@@ -649,6 +658,7 @@ const struct editor_cmd_type editor_table[] =
     {   "object",	do_oedit	},
     {   "mobile",	do_medit	},
     {	"mpcode",	do_mpedit	},
+    {	"help",		do_hedit	},
 
     {	NULL,		0,		}
 };
@@ -709,9 +719,8 @@ void do_aedit(CHAR_DATA *ch, const char *argument)
 	    return;
 	}
     } else if (!str_cmp(arg, "create")) {
-	if (ch->pcdata->security < 9)
-	{
-		send_to_char("AEdit : Seguridad insuficiente para crear area.\n\r", ch);
+	if (ch->pcdata->security < 9) {
+		send_to_char("AEdit: Insufficient security for creating areas.\n\r", ch);
 		return;
 	}
 
@@ -720,9 +729,8 @@ void do_aedit(CHAR_DATA *ch, const char *argument)
 	return;
     }
 
-    if (!IS_BUILDER(ch,pArea))
-    {
-	send_to_char("Insuficiente seguridad para editar areas.\n\r",ch);
+    if (!IS_BUILDER(ch,pArea)) {
+	send_to_char("Insufficient security for editing areas.\n\r",ch);
 	return;
     }
 
@@ -750,7 +758,7 @@ void do_redit(CHAR_DATA *ch, const char *argument)
     {
 	if (!IS_BUILDER(ch, pRoom->area))
 	{
-		send_to_char("Insuficiente seguridad para modificar cuartos.\n\r" , ch);
+		send_to_char("Insufficient security to modify rooms.\n\r" , ch);
         	return;
 	}
 
@@ -784,7 +792,7 @@ void do_redit(CHAR_DATA *ch, const char *argument)
 
 	if (!pRoom)
 	{
-		send_to_char("REdit : cuarto inexistente.\n\r", ch);
+		send_to_char("REdit: cuarto inexistente.\n\r", ch);
 		return;
 	}
 
@@ -1441,7 +1449,7 @@ void do_alist(CHAR_DATA *ch, const char *argument)
 			char *lowered;
 			bool match;
 
-			lowered = strdup(pArea->name);
+			lowered = str_dup(pArea->name);
 			strlwr(lowered);
 			match = strstr(lowered, arg) != NULL;
 			free(lowered);

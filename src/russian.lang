@@ -1,5 +1,5 @@
 #
-# $Id: russian.lang,v 1.96 1998-08-14 05:45:16 fjoe Exp $
+# $Id: russian.lang,v 1.97 1998-08-14 22:33:07 fjoe Exp $
 #
 
 MSG_NOTHING  		"Ничего.\n\r",	
@@ -290,9 +290,8 @@ MSG_N_CHECKS_TRACKS 	"$n внимательно рассматривает следы на земле."
 MSG_TRACKS_LEAD_S 	"Следы %s ведут на %s.\n\r"
 MSG_DONT_SEE_TRACKS 	"Здесь нет следов.\n\r"
 MSG_YOU_CANT_BE_MORE_VAMPIRE "Ты не можешь стать еще большим вампиром чем сейчас!\n\r"
-MSG_YOU_SHOW_MORE_UGGLY 	"Ты пытаешься выглядеть еще более ужасно.\n\r"
+MSG_YOU_SHOW_MORE_UGLY 	"Ты пытаешься выглядеть еще более ужасно.\n\r"
 MSG_GO_AND_ASK_QUESTOR 	"Иди к квестору и попроси у него помощи.\n\r"
-MSG_GO_KILL_PLAYER 	"Хочешь быть вампиром - убей игрока.\n\r"
 MSG_WAIT_NIGHT 		"Тебе нужно подождать вечера или ночи, чтобы стать вампиром.\n\r"
 MSG_FEEL_GREATER 		"Ты чуствуешь, как становишься все больше и БОЛЬШЕ.\n\r"
 MSG_CANNOT_RECOGNIZE 	"$n стал неузнаваем."

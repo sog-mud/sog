@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mpcode.c,v 1.3 1998-07-11 20:55:14 fjoe Exp $
+ * $Id: olc_mpcode.c,v 1.4 1998-08-14 22:33:06 fjoe Exp $
  */
 
 /* The following code is based on ILAB OLC by Jason Dinkel */
@@ -189,7 +189,7 @@ MPEDIT (mpedit_create)
     ch->desc->pEdit		= (void *)pMcode;
     ch->desc->editor		= ED_MPCODE;
 
-    send_to_char("MobProgram Code Created.\n\r",ch);
+    send_to_char("MobProgram code created.\n\r",ch);
 
     return TRUE;
 }

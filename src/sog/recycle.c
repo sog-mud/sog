@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.17 1998-08-14 06:18:47 fjoe Exp $
+ * $Id: recycle.c,v 1.18 1998-08-14 22:33:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -627,23 +627,6 @@ void free_mprog(MPROG_LIST *mp)
 	mp->next = mprog_free;
 	mprog_free = mp;
 }
-
-
-HELP_AREA * had_free;
-
-HELP_AREA * new_had(void)
-{
-	HELP_AREA * had;
-
-	if (had_free) {
-		had		= had_free;
-		had_free	= had_free->next;
-	}
-	else
-		had		= alloc_perm(sizeof(*had));
-	return had;
-}
-
 
 HELP_DATA * help_free;
 extern int top_help;

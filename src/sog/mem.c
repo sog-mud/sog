@@ -1,5 +1,5 @@
 /*
- * $Id: mem.c,v 1.7 1998-08-14 03:36:22 fjoe Exp $
+ * $Id: mem.c,v 1.8 1998-08-14 22:33:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -92,37 +92,43 @@ void free_reset_data(RESET_DATA *pReset)
 
 AREA_DATA *new_area(void)
 {
-    AREA_DATA *pArea;
-    char buf[MAX_INPUT_LENGTH];
+	AREA_DATA *pArea;
 
-    if (!area_free)
-    {
-        pArea   =   alloc_perm(sizeof(*pArea));
-	pArea->resetmsg	= NULL;
-        top_area++;
-    }
-    else
-    {
-        pArea       =   area_free;
-        area_free   =   area_free->next;
-    }
+	if (!area_free) {
+		pArea		= alloc_perm(sizeof(*pArea));
+		top_area++;
+	}
+	else {
+		pArea		= area_free;
+		area_free	= area_free->next;
+	}
 
-    pArea->next             =   NULL;
-    pArea->name             =   str_dup("New area");
-/*    pArea->recall           =   ROOM_VNUM_TEMPLE;      ROM OLC */
-    pArea->area_flags       =   AREA_ADDED;
-    pArea->security         =   1;
-    pArea->builders         =   str_dup("None");
-    pArea->min_vnum            =   0;
-    pArea->max_vnum            =   0;
-    pArea->age              =   0;
-    pArea->nplayer          =   0;
-    pArea->empty            =   TRUE;              /* ROM patch */
-    sprintf(buf, "area%d.are", pArea->vnum);
-    pArea->file_name        =   str_dup(buf);
-    pArea->vnum             =   top_area-1;
+	pArea->next		= NULL;
+	pArea->reset_first	= NULL;
+	pArea->reset_last	= NULL;
+	pArea->help_first	= NULL;
+	pArea->help_last	= NULL;
+	pArea->file_name	= str_printf("area%d.are", pArea->vnum);
+	pArea->name		= str_dup("New area");
+	pArea->writer		= NULL;
+	pArea->credits		= NULL;
+	pArea->age		= 0;
+	pArea->nplayer		= 0;
+	pArea->low_range	= 0;
+	pArea->high_range	= 0;
+	pArea->min_vnum		= 0;
+	pArea->max_vnum		= 0;
+	pArea->empty		= TRUE;              /* ROM patch */
+	pArea->builders		= str_dup("None");
+	pArea->vnum		= top_area-1;
+	pArea->area_flags	= AREA_ADDED;
+	pArea->security		= 1;
+	pArea->count		= 0;
+	pArea->resetmsg		= NULL;
+	pArea->area_flag	= 0;
+/*    pArea->recall		= ROOM_VNUM_TEMPLE;      ROM OLC */
 
-    return pArea;
+	return pArea;
 }
 
 
@@ -302,21 +308,19 @@ OBJ_INDEX_DATA *new_obj_index(void)
     OBJ_INDEX_DATA *pObj;
     int value;
 
-    if (!obj_index_free)
-    {
+    if (!obj_index_free) {
         pObj           =   alloc_perm(sizeof(*pObj));
-    	pObj->short_descr   =   NULL;
-    	pObj->description   =   NULL;
         top_obj_index++;
     }
-    else
-    {
+    else {
         pObj            =   obj_index_free;
         obj_index_free  =   obj_index_free->next;
     }
 
+    pObj->short_descr   =   NULL;
+    pObj->description   =   NULL;
     pObj->next          =   NULL;
-    pObj->ed   =   NULL;
+    pObj->ed		=   NULL;
     pObj->affected      =   NULL;
     pObj->area          =   NULL;
     pObj->name          =   str_dup("no name");
@@ -330,6 +334,7 @@ OBJ_INDEX_DATA *new_obj_index(void)
     pObj->material      =   str_dup("unknown");      /* ROM */
     pObj->condition     =   100;                        /* ROM */
     pObj->limit		=   -1;
+    pObj->oprogs	= NULL;
     for (value = 0; value < 5; value++)               /* 5 - ROM */
         pObj->value[value]  =   0;
 
@@ -369,9 +374,6 @@ MOB_INDEX_DATA *new_mob_index(void)
     if (!mob_index_free)
     {
         pMob           =   alloc_perm(sizeof(*pMob));
-    	pMob->short_descr   =   NULL;
-    	pMob->long_descr    =   NULL;
-    	pMob->description   =   NULL;
         top_mob_index++;
     }
     else
@@ -380,6 +382,9 @@ MOB_INDEX_DATA *new_mob_index(void)
         mob_index_free  =   mob_index_free->next;
     }
 
+    pMob->short_descr   =   NULL;
+    pMob->long_descr    =   NULL;
+    pMob->description   =   NULL;
     pMob->next          =   NULL;
     pMob->spec_fun      =   NULL;
     pMob->pShop         =   NULL;

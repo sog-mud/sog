@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.25 1998-08-14 05:45:15 fjoe Exp $
+ * $Id: mob_prog.c,v 1.26 1998-08-14 22:33:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1124,7 +1124,7 @@ void mp_act_trigger(const char *argument, CHAR_DATA *mob, CHAR_DATA *ch,
 	MPROG_LIST *prg;
 	char *lowered;
 
-	lowered = strdup(argument);
+	lowered = str_dup(argument);
 	strlwr(lowered);
 
 	for (prg = mob->pIndexData->mprogs; prg != NULL; prg = prg->next) {

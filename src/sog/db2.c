@@ -1,5 +1,5 @@
 /*
- * $Id: db2.c,v 1.20 1998-08-14 03:36:20 fjoe Exp $
+ * $Id: db2.c,v 1.21 1998-08-14 22:33:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -110,7 +110,7 @@ void load_mobiles(FILE *fp)
 {
     MOB_INDEX_DATA *pMobIndex;
  
-    if (!area_last)
+    if (!area_current)
         db_error("load_mobiles", "no #AREA seen yet.");
 
     for (; ;)
@@ -311,13 +311,12 @@ void load_objects(FILE *fp)
 {
     OBJ_INDEX_DATA *pObjIndex;
  
-    if (!area_last)
+    if (!area_current)
         db_error("load_objects", "no #AREA seen yet.");
 
     for (; ;)
     {
 	char *p;
-	int i;
         int vnum;
         char letter;
         int iHash;
@@ -348,6 +347,7 @@ void load_objects(FILE *fp)
         pObjIndex->short_descr		= mlstr_fread(fp);
         pObjIndex->description		= mlstr_fread(fp);
         pObjIndex->material		= fread_string(fp);
+	pObjIndex->oprogs		= NULL;
 
 	p = fread_word(fp);
 	pObjIndex->item_type		= item_lookup(p);
@@ -411,8 +411,6 @@ void load_objects(FILE *fp)
 	pObjIndex->level		= fread_number(fp);
         pObjIndex->weight               = fread_number(fp);
         pObjIndex->cost                 = fread_number(fp); 
-	for (i = 0; i < OPROG_MAX; i++)
-		pObjIndex->oprogs[i] = NULL;
         pObjIndex->limit                = -1; 
 
         /* condition */

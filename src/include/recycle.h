@@ -2,7 +2,7 @@
 #define _RECYCLE_H_
 
 /*
- * $Id: recycle.h,v 1.7 1998-08-14 03:36:24 fjoe Exp $
+ * $Id: recycle.h,v 1.8 1998-08-14 22:33:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -93,7 +93,6 @@ void	free_pcdata  (PC_DATA *pcdata);
 long 	get_pc_id  (void);
 long	get_mob_id  (void);
 
-HELP_AREA *	new_had		 (void);
 HELP_DATA *	new_help	 (void);
 
 #endif

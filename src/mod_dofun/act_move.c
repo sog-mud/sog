@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.80 1998-08-14 05:45:11 fjoe Exp $
+ * $Id: act_move.c,v 1.81 1998-08-14 22:33:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2241,7 +2241,7 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	}
 
 	if ((chance = get_skill(ch, gsn_vampire)) == 0) {
-		char_nputs(MSG_YOU_SHOW_MORE_UGGLY, ch);
+		char_nputs(MSG_YOU_SHOW_MORE_UGLY, ch);
 		return;
 	}
 
@@ -2249,12 +2249,6 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 		char_nputs(MSG_GO_AND_ASK_QUESTOR, ch);
 		return;
 	}
-
-	if (is_affected(ch, gsn_vampire)) {
-		char_nputs(MSG_GO_KILL_PLAYER, ch);
-		return;
-	}
-
 
 	if (weather_info.sunlight == SUN_LIGHT 
 	||  weather_info.sunlight == SUN_RISE) {
@@ -2266,11 +2260,12 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	duration = level / 10 ;
 	duration += 5;
 
-/* haste */
-	af.where     = TO_AFFECTS;
 	af.type      = gsn_vampire;
 	af.level     = level;
 	af.duration  = duration;
+
+/* haste */
+	af.where     = TO_AFFECTS;
 	af.location  = APPLY_DEX;
 	af.modifier  = 1 + (level /20);
 	af.bitvector = AFF_HASTE;
@@ -2278,9 +2273,6 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 
 /* giant strength + infrared */
 	af.where     = TO_AFFECTS;
-	af.type      = gsn_vampire;
-	af.level     = level;
-	af.duration  = duration;
 	af.location  = APPLY_STR;
 	af.modifier  = 1 + (level / 20);
 	af.bitvector = AFF_INFRARED;
@@ -2288,9 +2280,6 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 
 /* size */
 	af.where     = TO_AFFECTS;
-	af.type      = gsn_vampire;
-	af.level     = level;
-	af.duration  = duration;
 	af.location  = APPLY_SIZE;
 	af.modifier  = 1 + (level / 50);
 	af.bitvector = AFF_SNEAK;
@@ -2298,9 +2287,6 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 
 /* damroll */
 	af.where     = TO_AFFECTS;
-	af.type      = gsn_vampire;
-	af.level     = level;
-	af.duration  = duration;
 	af.location  = APPLY_DAMROLL;
 	af.modifier  = ch->damroll;
 	af.bitvector = AFF_BERSERK;
@@ -2308,9 +2294,6 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 
 /* negative immunity */
 	af.where = TO_IMMUNE;
-	af.type = gsn_vampire;
-	af.duration = duration;
-	af.level = level;
 	af.location = APPLY_NONE;
 	af.modifier = 0;
 	af.bitvector = IMM_NEGATIVE;
@@ -2318,17 +2301,20 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 
 /* vampire flag */
 	af.where     = TO_ACT_FLAG;
-	af.type      = gsn_vampire;
-	af.level     = level;
-	af.duration  = duration;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = PLR_VAMPIRE;
 	affect_to_char(ch, &af);
 
+/* flying */
+	af.where     = TO_AFFECTS;
+	af.location  = 0;
+	af.modifier  = 0;
+	af.bitvector = AFF_FLYING;
+	affect_to_char(ch, &af);
+
 	char_nputs(MSG_FEEL_GREATER, ch);
 	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MSG_CANNOT_RECOGNIZE);
-	return;
 }
 
 void do_vbite(CHAR_DATA *ch, const char *argument)
@@ -2785,7 +2771,8 @@ void do_fly(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (is_affected(ch,gsn_fly) 
+		if (is_affected(ch, gsn_fly) 
+		||  is_affected(ch, gsn_vampire)
 		||  (race_table[RACE(ch)].aff & AFF_FLYING) 
 		||  affect_check_obj(ch, AFF_FLYING)) {
 			SET_BIT(ch->affected_by,AFF_FLYING);
@@ -3634,22 +3621,18 @@ char *find_way(CHAR_DATA *ch,ROOM_INDEX_DATA *rstart, ROOM_INDEX_DATA *rend)
 
 void do_human(CHAR_DATA *ch, const char *argument)
 {
-	if (ch->class != CLASS_VAMPIRE)
-	{
-	 char_nputs(MSG_HUH, ch);
-	 return;
+	if (ch->class != CLASS_VAMPIRE) {
+		char_nputs(MSG_HUH, ch);
+		return;
 	}
 	 
-	if (!IS_VAMPIRE(ch))
-	{
-	 char_nputs(MSG_ALREADY_HUMAN, ch);
-	 return;
+	if (!IS_VAMPIRE(ch)) {
+		char_nputs(MSG_ALREADY_HUMAN, ch);
+		return;
 	}
 
-   affect_strip(ch, gsn_vampire);
-   REMOVE_BIT(ch->act,PLR_VAMPIRE);
-   char_nputs(MSG_RETURN_TO_SIZE, ch);
-   return;
+	affect_strip(ch, gsn_vampire);
+	char_nputs(MSG_RETURN_TO_SIZE, ch);
 }
 
 

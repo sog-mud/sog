@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.68 1998-08-14 05:45:15 fjoe Exp $
+ * $Id: merc.h,v 1.69 1998-08-14 22:33:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -74,7 +74,6 @@ typedef struct	descriptor_data 	DESCRIPTOR_DATA;
 typedef struct	exit_data		EXIT_DATA;
 typedef struct	ed_data			ED_DATA;
 typedef struct	help_data		HELP_DATA;
-typedef struct	help_area_data		HELP_AREA;
 typedef struct	kill_data		KILL_DATA;
 typedef struct	mob_index_data		MOB_INDEX_DATA;
 typedef struct	note_data		NOTE_DATA;
@@ -406,22 +405,14 @@ struct	con_app_type
 struct	help_data
 {
 	HELP_DATA *	next;
-	HELP_DATA *	next_area;
+	HELP_DATA *	next_in_area;
+	AREA_DATA *	area;
+
 	int		level;
 	char * 		keyword;
 	mlstring *	text;
 };
 	
-struct help_area_data
-{
- 	HELP_AREA *	next;
- 	HELP_DATA *	first;
- 	HELP_DATA *	last;
- 	AREA_DATA *	area;
- 	char *		filename;
-};
-	
-
 /*
  * Shop types.
  */
@@ -2016,7 +2007,7 @@ struct	obj_index_data
 	int 			cost;
 	int 			value[5];
 	int 			limit;
-	OPROG_FUN *		oprogs[OPROG_MAX];
+	OPROG_FUN **		oprogs;
 };
 
 
@@ -2119,7 +2110,8 @@ struct	area_data
 	AREA_DATA * 	next;
 	RESET_DATA *	reset_first;
 	RESET_DATA *	reset_last;
-	HELP_AREA *	helps;
+	HELP_DATA *	help_first;
+	HELP_DATA *	help_last;
 	char *		file_name;
 	char *		name;
 	char *		writer;
@@ -2694,7 +2686,6 @@ extern	char *	const			title_table	[MAX_CLASS]
 /*
  * Global variables.
  */
-extern		HELP_DATA	  *	help_first;
 extern		SHOP_DATA	  *	shop_first;
 
 extern		CHAR_DATA	  *	char_list;
@@ -3025,30 +3016,6 @@ extern	const	struct	spec_type	spec_table	[];
 /*
  * Global variables
  */
-extern		AREA_DATA *		area_first;
-extern		AREA_DATA *		area_last;
-extern		SHOP_DATA *		shop_last;
-
-extern		int			top_affect;
-extern		int			top_area;
-extern		int			top_ed;
-extern		int			top_exit;
-extern		int			top_help;
-extern		int			top_mob_index;
-extern		int			top_obj_index;
-extern		int			top_reset;
-extern		int			top_room;
-extern		int			top_shop;
-
-extern		int			top_vnum_mob;
-extern		int			top_vnum_obj;
-extern		int			top_vnum_room;
-
-extern		char			str_empty       [1];
-
-extern		MOB_INDEX_DATA *	mob_index_hash  [MAX_KEY_HASH];
-extern		OBJ_INDEX_DATA *	obj_index_hash  [MAX_KEY_HASH];
-extern		ROOM_INDEX_DATA *	room_index_hash [MAX_KEY_HASH];
 
 struct flag_type
 {

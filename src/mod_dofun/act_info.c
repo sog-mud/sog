@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.117 1998-08-14 05:45:10 fjoe Exp $
+ * $Id: act_info.c,v 1.118 1998-08-14 22:33:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1631,65 +1631,59 @@ void do_weather(CHAR_DATA *ch, const char *argument)
 void do_help(CHAR_DATA *ch, const char *argument)
 {
 	HELP_DATA *pHelp;
+	HELP_DATA *pFirst = NULL;
 	BUFFER *output = NULL;
-	char argall[MAX_INPUT_LENGTH],argone[MAX_INPUT_LENGTH];
 
 	if (argument[0] == '\0')
 		argument = "summary";
-
-	/* this parts handles help a b so that it returns help 'a b' */
-	argall[0] = '\0';
-	while (argument[0] != '\0') {
-		argument = one_argument(argument,argone);
-		if (argall[0] != '\0')
-			strcat(argall," ");
-		strcat(argall, argone);
-	}
-
-	/*
-	 * prevent spamming
-	 */
-	if (strlen(argall) < 2) {
-		char_puts("Help topic must be at least 2 characters long.\n\r",
-			  ch);
-		return;
-	}
 
 	for (pHelp = help_first; pHelp != NULL; pHelp = pHelp->next) {
 		if (pHelp->level > get_trust(ch))
 			continue;
 
-		if (is_name(argall, pHelp->keyword)) {
-			char *text;
+		if (is_name(argument, pHelp->keyword)) {
+			if (pFirst == NULL) {
+				pFirst = pHelp;
+				continue;
+			}
 
-			if (output == NULL)
+			/* found second matched help topic */
+			if (output == NULL) {
 				output = buf_new(0);
-			else
-				buf_add(output, "\n\r-------------------------------------------------------------------------------\n\r\n\r");
-
-			if (pHelp->level > -2
-			&&  str_cmp(pHelp->keyword, "imotd"))
-				buf_printf(output, "{C%s{x\n\r\n\r",
-					 pHelp->keyword);
-
-			text = mlstr_cval(pHelp->text, ch);
-
-			/*
-			 * Strip leading '.' to allow initial blanks.
-			 */
-			if (text[0] == '.')
-				buf_add(output, text+1);
-			else
-				buf_add(output, text);
+				buf_add(output, "Available topics:\n\r");
+				buf_printf(output, "    o %s\n\r", pFirst->keyword);
+			}
+			buf_printf(output, "    o %s\n\r", pHelp->keyword);
 		}
 	}
 
-	if (output == NULL)
+	if (pFirst == NULL) {
 		send_to_char(msg(MSG_NO_HELP_ON_WORD, ch), ch);
-	else {
-		page_to_char(buf_string(output), ch);
-		buf_free(output);
+		return;
 	}
+
+	if (output == NULL) {
+		char *text;
+
+		output = buf_new(0);
+		if (pFirst->level > -2
+		&&  str_cmp(pFirst->keyword, "imotd"))
+			buf_printf(output, "{C%s{x\n\r\n\r",
+				 pFirst->keyword);
+
+		text = mlstr_cval(pFirst->text, ch);
+
+		/*
+		 * Strip leading '.' to allow initial blanks.
+		 */
+		if (text[0] == '.')
+			buf_add(output, text+1);
+		else
+			buf_add(output, text);
+	}
+
+	page_to_char(buf_string(output), ch);
+	buf_free(output);
 }
 
 

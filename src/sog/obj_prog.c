@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.22 1998-08-14 05:45:16 fjoe Exp $
+ * $Id: obj_prog.c,v 1.23 1998-08-14 22:33:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -279,8 +279,9 @@ int optype_lookup(const char *name)
 
 int oprog_call(int optype, OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
-	if (obj->pIndexData->oprogs[optype] != NULL)
-		return (obj->pIndexData->oprogs[optype]) (obj, ch, arg);
+	if (obj->pIndexData->oprogs
+	&&  obj->pIndexData->oprogs[optype] != NULL)
+		return (obj->pIndexData->oprogs[optype])(obj, ch, arg);
 	return 0;
 }
 
@@ -327,6 +328,9 @@ void oprog_set(OBJ_INDEX_DATA *pObjIndex,const char *progtype, const char *name)
 		exit(1);
 	}
 
+	if (pObjIndex->oprogs == NULL)
+		pObjIndex->oprogs = malloc(sizeof(*pObjIndex->oprogs) *
+					   OPROG_MAX);
 	pObjIndex->oprogs[opindex] = oprog->fn;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.53 1998-08-14 05:45:14 fjoe Exp $
+ * $Id: interp.c,v 1.54 1998-08-14 22:33:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,6 +56,7 @@
 #include "comm.h"
 #include "resource.h"
 #include "log.h"
+#include "olc.h"
 
 #undef IMMORTALS_LOGS
 
@@ -491,6 +492,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "aedit",		do_aedit,	POS_DEAD,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
     { "oedit",		do_oedit,	POS_DEAD,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
     { "mpedit",		do_mpedit,	POS_DEAD,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "hedit",		do_hedit,	POS_DEAD,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
 
     /*
      * End of list.

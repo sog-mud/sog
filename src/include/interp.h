@@ -2,7 +2,7 @@
 #define _INTERP_H_
 
 /*
- * $Id: interp.h,v 1.15 1998-08-06 13:50:12 fjoe Exp $
+ * $Id: interp.h,v 1.16 1998-08-14 22:33:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -410,15 +410,6 @@ DECLARE_DO_FUN( do_worth	);
 DECLARE_DO_FUN(	do_yell		);
 DECLARE_DO_FUN(	do_zap		);
 DECLARE_DO_FUN(	do_zecho	);
-DECLARE_DO_FUN( do_olc		);
-DECLARE_DO_FUN( do_asave	);
-DECLARE_DO_FUN( do_alist	);
-DECLARE_DO_FUN( do_resets	);
-DECLARE_DO_FUN( do_redit	);
-DECLARE_DO_FUN( do_aedit	);
-DECLARE_DO_FUN( do_medit	);
-DECLARE_DO_FUN( do_oedit	);
-DECLARE_DO_FUN( do_mpedit	);
 
 #endif
 

@@ -2,7 +2,7 @@
 #define _DB_H_
 
 /*
- * $Id: db.h,v 1.16 1998-08-14 03:36:20 fjoe Exp $
+ * $Id: db.h,v 1.17 1998-08-14 22:33:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,17 +46,34 @@
 extern bool fBootDb;
 extern int		newmobs;
 extern int		newobjs;
-extern MOB_INDEX_DATA 	*mob_index_hash          [MAX_KEY_HASH];
-extern OBJ_INDEX_DATA 	*obj_index_hash          [MAX_KEY_HASH];
+extern MOB_INDEX_DATA *	mob_index_hash	[MAX_KEY_HASH];
+extern OBJ_INDEX_DATA *	obj_index_hash	[MAX_KEY_HASH];
+extern ROOM_INDEX_DATA *room_index_hash [MAX_KEY_HASH];
 extern int		top_mob_index;
 extern int		top_obj_index;
+extern int		top_vnum_mob;
+extern int		top_vnum_obj;
+extern int		top_vnum_room;
 extern int  		top_affect;
 extern int		top_ed; 
-extern AREA_DATA 	*area_first;
-extern AREA_DATA 	*area_last;
+extern int		top_area;
+extern int		top_exit;
+extern int		top_help;
+extern int		top_reset;
+extern int		top_room;
+extern int		top_shop;
+extern AREA_DATA *	area_first;
+extern AREA_DATA *	area_last;
+extern AREA_DATA *	area_current;
+extern HELP_DATA *	help_first;
+extern SHOP_DATA *	shop_last;
+
+extern		char			str_empty[1];
 
 void	reset_area      (AREA_DATA * pArea);		/* OLC */
 void	reset_room	(ROOM_INDEX_DATA *pRoom);	/* OLC */
+
+void		help_add	(AREA_DATA*, HELP_DATA*);
 
 void		boot_db		(void);
 CHAR_DATA *	create_mob	(MOB_INDEX_DATA *pMobIndex);
@@ -119,9 +136,6 @@ void	convert_obj(OBJ_INDEX_DATA *obj);
 
 /* macro for flag swapping */
 #define GET_UNSET(flag1,flag2)	(~(flag1)&((flag1)|(flag2)))
-
-/* Magic number for memory allocation */
-#define MAGIC_NUM 52571214
 
 extern void vnum_check( int vnum );                    /* OLC */
 

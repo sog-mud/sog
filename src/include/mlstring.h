@@ -2,7 +2,7 @@
 #define _MLSTRING_H_
 
 /*
- * $Id: mlstring.h,v 1.5 1998-08-14 03:36:22 fjoe Exp $
+ * $Id: mlstring.h,v 1.6 1998-08-14 22:33:06 fjoe Exp $
  */
 
 mlstring * 	mlstr_fread	(FILE *fp);
@@ -28,5 +28,6 @@ bool		mlstr_change_desc(mlstring **mlp, const char *argument);
 
 void		mlstr_dump	(BUFFER *buf, const char *name,
 				 const mlstring *ml);
+extern mlstring mlstr_empty;
 
 #endif

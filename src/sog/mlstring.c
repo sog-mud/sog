@@ -1,5 +1,5 @@
 /*
- * $Id: mlstring.c,v 1.9 1998-08-14 05:45:15 fjoe Exp $
+ * $Id: mlstring.c,v 1.10 1998-08-14 22:33:05 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -34,6 +34,8 @@ struct mlstring {
 	int nlang;
 	int ref;
 };
+
+mlstring mlstr_empty;
 
 static void smash_a(char *s);
 static char* fix_mlstring(const char* s);
@@ -96,7 +98,7 @@ mlstring *mlstr_fread(FILE *fp)
 			s += 2;
 		}
 		smash_a(q);
-		res->u.lstr[lang] = strdup(q);
+		res->u.lstr[lang] = str_dup(q);
 	}
 
 	/* some diagnostics */
@@ -128,7 +130,7 @@ void mlstr_fwrite(FILE *fp, const char* name, const mlstring *ml)
 
 void mlstr_free(mlstring *ml)
 {
-	if (ml == NULL || !ml->ref || --ml->ref)
+	if (ml == NULL || ml == &mlstr_empty || !ml->ref || --ml->ref)
 		return;
 
 	if (ml->nlang == 0)
@@ -147,6 +149,9 @@ mlstring *mlstr_dup(mlstring *ml)
 {
 	if (ml == NULL)
 		return NULL;
+
+	if (ml == &mlstr_empty)
+		return &mlstr_empty;
 
 	ml->ref++;
 	return ml;
@@ -168,14 +173,14 @@ mlstring *mlstr_printf(mlstring *ml,...)
 	va_start(ap, ml);
 	if (ml->nlang == 0) {
 		vsnprintf(buf, sizeof(buf), ml->u.str, ap);
-		res->u.str = strdup(buf);
+		res->u.str = str_dup(buf);
 	}
 	else {
 		int lang;
 
 		for (lang = 0; lang < ml->nlang; lang++) {
 			vsnprintf(buf, sizeof(buf), ml->u.lstr[lang], ap);
-			res->u.lstr[lang] = strdup(buf);
+			res->u.lstr[lang] = str_dup(buf);
 		}
 	}
 	va_end(ap);
@@ -301,7 +306,7 @@ bool mlstr_change(mlstring **mlp, const char *argument)
 
 	p = mlstr_convert(mlp, lang);
 	free(*p);
-	*p = strdup(argument);
+	*p = str_dup(argument);
 	return TRUE;
 }
 
@@ -361,7 +366,7 @@ static void smash_a(char *s)
 	}
 }
 
-static char * fix_mlstring(const char *s)
+static char *fix_mlstring(const char *s)
 {
 	char *p;
 	static char buf[MAX_STRING_LENGTH*2];
@@ -402,13 +407,13 @@ static mlstring *mlstr_split(mlstring *ml)
 	res->nlang = ml->nlang;
 	ml->ref--;
 	if (ml->nlang == 0) {
-		res->u.str = strdup(ml->u.str);
+		res->u.str = str_dup(ml->u.str);
 		return res;
 	}
 
 	res->u.lstr = alloc_mem(sizeof(char*) * res->nlang);
 	for (lang = 0; lang < res->nlang; lang++)
-		res->u.lstr[lang] = strdup(ml->u.lstr[lang]);
+		res->u.lstr[lang] = str_dup(ml->u.lstr[lang]);
 	return res;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.54 1998-08-14 05:45:13 fjoe Exp $
+ * $Id: db.c,v 1.55 1998-08-14 22:33:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -106,9 +106,6 @@ extern  AFFECT_DATA	*affect_free;
  */
 HELP_DATA *		help_first;
 HELP_DATA *		help_last;
-
-HELP_AREA *		had_list;
-HELP_AREA *		had_last;
 
 SHOP_DATA *		shop_first;
 SHOP_DATA *		shop_last;
@@ -377,7 +374,7 @@ ROOM_INDEX_DATA *	room_index_hash		[MAX_KEY_HASH];
 
 AREA_DATA *		area_first;
 AREA_DATA *		area_last;
-AREA_DATA *		current_area;
+AREA_DATA *		area_current;
 int			line_number;
 
 char			str_empty	[1];
@@ -421,7 +418,7 @@ char			strArea[MAX_INPUT_LENGTH];
 void    init_mm         (void);
 void	load_area	(FILE *fp);
 void    load_areadata   (FILE *fp);			   /* OLC */
-void	load_helps	(FILE *fp, char *fname);
+void	load_helps	(FILE *fp);
 void    load_omprogs    (FILE *fp);
 void	load_old_mob	(FILE *fp);
 void 	load_mobiles	(FILE *fp);
@@ -536,7 +533,7 @@ void boot_db(void)
 			}
 		}
 
-		current_area = NULL;
+		area_current = NULL;
 		line_number = 1;
 
 		for (; ;) {
@@ -552,7 +549,7 @@ void boot_db(void)
 			     if (word[0] == '$'           )                 break;
 			else if (!str_cmp(word, "AREA"   )) load_area    (fpArea);
   /* OLC */		else if (!str_cmp(word, "AREADATA")) load_areadata(fpArea);
-			else if (!str_cmp(word, "HELPS"  )) load_helps   (fpArea, strArea);
+			else if (!str_cmp(word, "HELPS"  )) load_helps   (fpArea);
 			else if (!str_cmp(word, "MOBOLD" )) load_old_mob (fpArea);
 			else if (!str_cmp(word, "MOBILES")) load_mobiles (fpArea);
 			else if (!str_cmp(word, "MOBPROGS")) load_mobprogs(fpArea);
@@ -578,9 +575,9 @@ void boot_db(void)
 			fclose(fpArea);
 		fpArea = NULL;
 
-		if (current_area != NULL) {
-			REMOVE_BIT(current_area->area_flags, AREA_LOADING);
-			current_area = NULL;
+		if (area_current != NULL) {
+			REMOVE_BIT(area_current->area_flags, AREA_LOADING);
+			area_current = NULL;
 		}
 	}
 	fclose(fpList);
@@ -615,6 +612,8 @@ void load_area(FILE *fp)
 	pArea = alloc_perm(sizeof(*pArea));
 	pArea->reset_first	= NULL;
 	pArea->reset_last	= NULL;
+	pArea->help_first	= NULL;
+	pArea->help_last	= NULL;
 	pArea->file_name	= fread_string(fp);
 
 	pArea->area_flags	= AREA_LOADING;
@@ -645,7 +644,7 @@ void load_area(FILE *fp)
 
 	area_last	= pArea;
 	pArea->next	= NULL;
-	current_area	= pArea;
+	area_current	= pArea;
 
 	top_area++;
 }
@@ -739,7 +738,7 @@ void load_areadata(FILE *fp)
 			        	area_last->next = pArea;
 				area_last	= pArea;
 				pArea->next	= NULL;
-				current_area	= pArea;
+				area_current	= pArea;
 				top_area++;
 				return;
 			}
@@ -798,40 +797,48 @@ void vnum_check(int vnum)
 	}
 }
  
+void help_add(AREA_DATA *pArea, HELP_DATA* pHelp)
+{
+/* insert into global help list */
+	if (help_first == NULL)
+		help_first = pHelp;
+	if (help_last != NULL)
+		help_last->next = pHelp;
+	help_last		= pHelp;
+	pHelp->next		= NULL;
+	
+/* insert into help list for given area */
+	if (pArea->help_first == NULL)
+		pArea->help_first = pHelp;
+	if (pArea->help_last != NULL)
+		pArea->help_last->next_in_area = pHelp;
+	pArea->help_last = pHelp;
+	pHelp->next_in_area	= NULL;
+
+/* link help with given area */
+	pHelp->area		= pArea;
+}
 
 /*
  * Snarf a help section.
  */
-void load_helps(FILE *fp, char *fname)
+void load_helps(FILE *fp)
 {
 	HELP_DATA *pHelp;
 	int level;
 	char *keyword;
 
+	if (!area_current) {  /* OLC */
+		log("load_helps: no #AREA seen yet.");
+		exit(1);
+	}
+
 	for (; ;) {
-		HELP_AREA * had;
-	
 		level		= fread_number(fp);
 		keyword		= fread_string(fp);
 	
 		if (keyword[0] == '$')
 			break;
-	
-		if (had_list == NULL || strcmp(fname, had_last->filename)) {
-			had			= new_had();
-			had->filename		= str_dup(fname);
-			had->area		= current_area;
-			had->next = NULL;
-			if (current_area)
-				current_area->helps	= had;
-			if (had_list == NULL)
-				had_list = had;
-			if (had_last != NULL)
-				had_last->next = had;
-			had_last = had;
-		}
-		else
-			had			= had_last;
 	
 		pHelp		= new_help();
 		pHelp->level	= level;
@@ -841,22 +848,7 @@ void load_helps(FILE *fp, char *fname)
 		if (!str_cmp(pHelp->keyword, "greeting"))
 			help_greeting = mlstr_mval(pHelp->text);
 
-		if (help_first == NULL)
-			help_first = pHelp;
-		if (help_last  != NULL)
-			help_last->next = pHelp;
-
-		help_last		= pHelp;
-		pHelp->next		= NULL;
-	
-		if (had->first == NULL)
-			had->first	= pHelp;
-		if (had->last == NULL)
-			had->last	= pHelp;
-	
-		had->last->next_area	= pHelp;
-		had->last		= pHelp;
-		pHelp->next_area	= NULL;
+		help_add(area_current, pHelp);
 	}
 }
 
@@ -871,7 +863,7 @@ void load_old_mob(FILE *fp)
 	int race;
 	char name[MAX_STRING_LENGTH];
 
-	if (!area_last) {  /* OLC */
+	if (!area_current) {  /* OLC */
 		log("load_mobiles: no #AREA seen yet.");
 		exit(1);
 	}
@@ -1026,11 +1018,10 @@ void load_old_obj(FILE *fp)
 {
 	OBJ_INDEX_DATA *pObjIndex;
 
-	if (!area_last)
+	if (!area_current)
 		db_error("load_old_obj", "no #AREA seen yet.");
 
 	for (; ;) {
-		int i;
 		int vnum;
 		char letter;
 		int iHash;
@@ -1076,8 +1067,7 @@ void load_old_obj(FILE *fp)
 		pObjIndex->cost		= fread_number(fp);	/* Unused */
 		/* Cost per day */	  fread_number(fp);
 		pObjIndex->limit	= -1;
-		for (i = 0; i < OPROG_MAX; i++)
-			pObjIndex->oprogs[i] = NULL;
+		pObjIndex->oprogs	= NULL;
 
 		if (pObjIndex->item_type == ITEM_WEAPON)
 			if (is_name("two",pObjIndex->name) 
@@ -1186,7 +1176,7 @@ void load_resets(FILE *fp)
 	int iLastRoom = 0;
 	int iLastObj  = 0;
 
-	if (area_last == NULL)
+	if (area_current == NULL)
 		db_error("load_resets", "no #AREA seen yet.");
 
 	for (; ;) {
@@ -1309,7 +1299,7 @@ void load_rooms(FILE *fp)
 {
 	ROOM_INDEX_DATA *pRoomIndex;
 
-	if (area_last == NULL) 
+	if (area_current == NULL) 
 		db_error("load_rooms", "no #AREA seen yet.");
 
 	for (; ;) {
@@ -1467,7 +1457,7 @@ void load_mobprogs(FILE *fp)
 {
     MPROG_CODE *pMprog;
 
-    if (area_last == NULL)
+    if (area_current == NULL)
     {
 	log("load_mobprogs: no #AREA seen yet.");
 	exit(1);
@@ -3443,7 +3433,7 @@ char *fread_string(FILE *fp)
 		if (plast - buf >= sizeof(buf) - 1) {
 			bug("fread_string: line too long (truncated)", 0);
 			buf[sizeof(buf)-1] = '\0';
-			return strdup(buf);
+			return str_dup(buf);
 		}
 
 		switch (c = xgetc(fp)) {
@@ -3466,7 +3456,7 @@ char *fread_string(FILE *fp)
  
 		case '~':
 			*plast++ = '\0';
-			return strdup(buf);
+			return str_dup(buf);
 		}
 	}
 }
@@ -3641,7 +3631,7 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 		pArea2 = pArea2->next;
 
 	output = buf_new(0);
-	buf_add(output, "Current areas of Muddy MUD: \n\r");
+	buf_add(output, "Current areas of Muddy Realms: \n\r");
 	for (iArea = 0; iArea < iAreaHalf; iArea++) {
 		buf_printf(output,"{W{{{x%2d %3d{W} {B%-20s {C%8s{x ",
 			pArea1->low_range,pArea1->high_range,
@@ -4382,12 +4372,12 @@ void load_practicer(FILE *fp)
 
 void load_resetmsg(FILE *fp)
 {
-	current_area->resetmsg = mlstr_fread(fp);
+	area_current->resetmsg = mlstr_fread(fp);
 }
 
 void load_aflag(FILE *fp)
 {
-	current_area->area_flag = fread_flags(fp);
+	area_current->area_flag = fread_flags(fp);
 }
 
 
@@ -4440,7 +4430,7 @@ void db_error(const char* fn, const char* fmt,...)
 	va_end(ap);
 
 	log_printf("%s: line %d: %s: %s",
-		   current_area == NULL ? "???" : current_area->file_name,
+		   area_current == NULL ? "???" : area_current->file_name,
 		   line_number, fn, buf);
 	exit(1);
 }
