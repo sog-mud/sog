@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.89.2.21 2003-02-27 16:55:28 tatyana Exp $
+ * $Id: tables.c,v 1.89.2.22 2004-02-18 22:22:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -626,9 +626,8 @@ flag_t wear_flags[] =
 	{ "wrist",		ITEM_WEAR_WRIST,	TRUE	},
 	{ "wield",		ITEM_WIELD,		TRUE	},
 	{ "hold",		ITEM_HOLD,		TRUE	},
-	{ "nosac",		ITEM_NO_SAC,		TRUE	},
+	{ "nosac",		ITEM_NO_SAC,		FALSE	},
 	{ "float_around",	ITEM_WEAR_FLOAT,	TRUE	},
-/*	{ "twohands",		ITEM_TWO_HANDS,		TRUE	}, */
 	{ "tattoo",		ITEM_WEAR_TATTOO,	TRUE	},
 	{ "clanmark",		ITEM_WEAR_CLANMARK,	TRUE	},
 

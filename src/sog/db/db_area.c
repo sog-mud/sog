@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.58.2.3 2003-03-06 16:00:42 avn Exp $
+ * $Id: db_area.c,v 1.58.2.4 2004-02-18 22:22:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1520,6 +1520,13 @@ DBLOAD_FUN(load_objects)
 	&&  pObjIndex->value[0] == WEAPON_SPEAR
 	&&  !IS_SET(pObjIndex->value[4], WEAPON_THROW)) {
 		SET_BIT(pObjIndex->value[4], WEAPON_THROW);
+		TOUCH_AREA(area_current);
+	}
+
+	if (CAN_WEAR(pObjIndex, ITEM_NO_SAC)) {
+		printlog("obj #%d: ITEM_NO_SAC -> ITEM_NOSAC", pObjIndex->vnum);
+		REMOVE_BIT(pObjIndex->wear_flags, ITEM_NO_SAC);
+		SET_BIT(pObjIndex->extra_flags, ITEM_NOSAC);
 		TOUCH_AREA(area_current);
 	}
 
