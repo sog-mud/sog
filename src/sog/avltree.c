@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: avltree.c,v 1.11 2001-12-10 22:20:46 fjoe Exp $
+ * $Id: avltree.c,v 1.12 2001-12-10 22:44:22 fjoe Exp $
  */
 
 #include <assert.h>
@@ -306,7 +306,7 @@ avlnode_add(void *c, const void *k, int flags, avlnode_t *node)
 		 * tree is empty
 		 */
 
-		if (IS_SET(flags, CA_F_NOUPDATE))
+		if (IS_SET(flags, CA_F_NOINSERT))
 			return NULL;
 
 		next = LEFT(t) = avlnode_new(
@@ -327,7 +327,7 @@ avlnode_add(void *c, const void *k, int flags, avlnode_t *node)
 				 * insert to the left
 				 */
 
-				if (IS_SET(flags, CA_F_NOUPDATE))
+				if (IS_SET(flags, CA_F_NOINSERT))
 					return NULL;
 
 				next = avlnode_new(
@@ -345,7 +345,7 @@ avlnode_add(void *c, const void *k, int flags, avlnode_t *node)
 				 * insert to the right
 				 */
 
-				if (IS_SET(flags, CA_F_NOUPDATE))
+				if (IS_SET(flags, CA_F_NOINSERT))
 					return NULL;
 
 				next = avlnode_new(
@@ -363,7 +363,7 @@ avlnode_add(void *c, const void *k, int flags, avlnode_t *node)
 			/*
 			 * found it
 			 */
-			if (IS_SET(flags, CA_F_NOINSERT))
+			if (IS_SET(flags, CA_F_NOUPDATE))
 				return NULL;
 
 			elem = GET_DATA(curr);
