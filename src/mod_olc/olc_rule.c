@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.41 2001-12-03 22:28:35 fjoe Exp $
+ * $Id: olc_rule.c,v 1.42 2001-12-05 19:00:17 fjoe Exp $
  */
 
 #include "olc.h"
@@ -394,7 +394,7 @@ OLC_FUN(ruleed_list)
 	}
 
 	if (rops->id == ED_IMPL) {
-		if (c_size(&rcl->impl)) {
+		if (!c_isempty(&rcl->impl)) {
 			rule_t *r;
 
 			output = buf_new(0);
