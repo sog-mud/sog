@@ -1620,7 +1620,7 @@ foliage is thick here, preventing you from touching the wall. You hear the
 songs of birds overhead. Looking up, you see that the trees here are very
 tall.
 @rus На севере ты видишь превосходно построенную стену, слишком высокую чтобы
-за ней можно было что-то увидеть. Густой кустарник не даёт тебе подобраться к
+за ней можно было что-то увидеть. Густой кустарник не дает тебе подобраться к
 ней. Ты слышишь пение птиц над головой. Взглянув вверх, ты понимаешь, что
 деревья здесь высокие.
 ~
@@ -1822,7 +1822,7 @@ over. The foliage here is thick, preventing you from approaching the wall and
 examining it more closely. The trees here are tall. From above come the songs
 of birds.
 @rus Стена, что возвышаетеся на западе, неплохо отстроена, но она слишком высока,
-чтобы за ней можно было что-то увидеть. Подойти и рассмотреть её поближе тебе
+чтобы за ней можно было что-то увидеть. Подойти и рассмотреть ее поближе тебе
 мешает здешняя очень пышная растительность. Кругом высоченные деревья, а
 наверху птички поют.
 ~
@@ -1979,7 +1979,7 @@ S
 path goes no farther north, but continues south. The shrubbery is thick
 around you. You hear the faint song of birds to the west.
 @rus Лесной полог над тобой полностью закрывает весь свет. Тропинка больше не ве-
-дёт на север, но продолжается на юг. Вокруг тебя густой кустарник. С запада
+дет на север, но продолжается на юг. Вокруг тебя густой кустарник. С запада
 доносится слабая трель
 ~
 0 A forest
@@ -2129,7 +2129,7 @@ S
 @eng The path stretches north and south, to the east and west are thick, thorny
 shrubs. The trees are tall, and from above you can hear birds chirping. To
 the west you see a clearing, and you hear the sound of gurgling water.
-@rus Тропа ведёт с юга на север. На востоке и западе от тебя пышные заросли колю-
+@rus Тропа ведет с юга на север. На востоке и западе от тебя пышные заросли колю-
 чего кустарника. Кругом высокие деревья. Сверху доносится чириканье птиц. На
 западе ты видишь опушку и слышишь звук журчащей воды.
 ~
@@ -2259,7 +2259,7 @@ S
 @eng The foliage is so thick here it's a wonder you can move. Up above, the trees
 form a dark canopy keeping most of the light out. You hear the very faint
 songs of birds from the west.
-@rus Удивительно, как это ты ещё можешь двигаться, ведь здесь такой пышный ку-
+@rus Удивительно, как это ты еще можешь двигаться, ведь здесь такой пышный ку-
 старник. Из-за своих темных крон, деревья собирают большую часть солнечного
 света. До тебя доносится слабая птичья трель с запада.
 ~
@@ -2295,7 +2295,7 @@ S
 dark foliage. Above your head, the canopy of leaves is thick and keeps light
 out. You hear little rustling noises in the brush but cannot see what is
 causing them.
-@rus К востоку от тебя тёмная стена, слишком высокая, чтобы можно было увидеть
+@rus К востоку от тебя темная стена, слишком высокая, чтобы можно было увидеть
 что-то за ней, а кругом пышный кустарник. Густой полог над твоей головой сдер-
 живает весь свет. Ты слышишь тихие журчащие звуки в траве, но никак не уви-
 дишь, что их вызывает.
@@ -2353,8 +2353,8 @@ trees this side of it. Birdsong delights your ears here, and you can also
 hear the buzzing of bees as they visit the flowers here.
 @rus Как только сворачиваешь с тропинки что востоке, кто-то посадил розовый садик
 и тщательно ухаживает за ним. На севере непроницаемая тьма с рядами похожих на
-папоротник деревьев с этой стороны от неё. Птичьи трели улаждают твой слух,
-да жужжание пчёлок, что прилетают навестить здешние цветочки.
+папоротник деревьев с этой стороны от нее. Птичьи трели улаждают твой слух,
+да жужжание пчелок, что прилетают навестить здешние цветочки.
 ~
 0 0 forest
 D1
@@ -2451,7 +2451,7 @@ S
 bright and spring-like. At the base of the trees are small flowers and green
 grass. To the east the way is impassable.
 @rus Вокруг изящные похожие на папоротник деревья. зелень их воздушных листьев
-светла и броска. Под ними живёт зелёная травка и маленькие цветочки. Путь на
+светла и броска. Под ними живет зеленая травка и маленькие цветочки. Путь на
 восток непроходим.
 ~
 0 0 forest
@@ -2480,7 +2480,7 @@ S
 leaves above you barely letting in the light. Westward the way is impassable,
 but from that direction you hear faint birdsong. Eastward is dark, thick
 wood.
-@rus Тропа ведёт на север и на юг. Всё, что тебя окружает, - тьма, листва над го-
+@rus Тропа ведет на север и на юг. Все, что тебя окружает, - тьма, листва над го-
 ловой еле пропускает свет. Пройти на запад нет никакой возможности, хотя ты
 слышишь слабую птичью трель. На востоке - мрак, дремучий лес.
 ~
@@ -2509,8 +2509,8 @@ S
 @eng The shrubbery is so thick here it's a wonder you can move. Vines and thorns
 seek to tangle and trip you. Up above, the trees form a dark canopy keeping
 most of the light out. You hear the very faint songs of birds from the west.
-@rus Кустарник настолько густ здесь, что просто удивительно, как ты ещё не за-
-стрял в нём. Колючие кусты и виноградная лоза пытаются опутать и уронить тебя.
+@rus Кустарник настолько густ здесь, что просто удивительно, как ты еще не за-
+стрял в нем. Колючие кусты и виноградная лоза пытаются опутать и уронить тебя.
 Лесной полог над головой сдерживает почти весь свет. До тебя доносится очень
 слабая трель с запада.
 ~
@@ -2539,8 +2539,8 @@ S
 @eng To the east is a dark wall too high too peek over, and all around is thick
 dark foliage. Above your head, the canopy of leaves is thick and keeps light
 out.
-@rus На востоке тёмная стена, слишком высокая, чтобы за ней можно было что-то
-увидеть, а вокруг тёмная густая листва. Кроны деревьев над твоей головой сдер-
+@rus На востоке темная стена, слишком высокая, чтобы за ней можно было что-то
+увидеть, а вокруг темная густая листва. Кроны деревьев над твоей головой сдер-
 живают весь солнечный свет.
 ~
 0 A forest
@@ -2603,7 +2603,7 @@ little yellow flowers dot the soft green grass. The gentle scent of roses
 wafts in from the north.
 @rus Здесь источник журчит совей водицей в чистый искрящийся бассейн. Время от
 времени, вода вырывается вверх и разлетается на сотни маленьких капелек.
-Деревья, похожие на папоротник, тихо покачиваются. Маленькие жёлтенькие
+Деревья, похожие на папоротник, тихо покачиваются. Маленькие желтенькие
 цветочки усеяли мягкую травку. Нежный аромат роз доносится с запада.
 ~
 0 0 forest
@@ -2637,7 +2637,7 @@ S
 @eng The path continues north and south. From the west you hear gurgling sounds.
 All around you are delicate trees with light green fern-like leaves.
 @rus Тропинка бежит на север и на юг. С запада ты слышишь журчащие звуки. Тебя
-окружают изящные деревья с светло-зелёными похожими на папоротник листьями.
+окружают изящные деревья с светло-зелеными похожими на папоротник листьями.
 ~
 0 0 forest
 D0
@@ -2669,7 +2669,7 @@ S
 @eng The Faerie Circle@rus Волшебный Круг~
 @eng In the midst of this lovely glade of soft green grass is a perfectly round
 circle of small grey mushrooms.
-@rus В центре этой мягкой чудесной зелёной полянки - очень правильной формы
+@rus В центре этой мягкой чудесной зеленой полянки - очень правильной формы
 круг из маленьких сереньких грибочков.
 ~
 0 0 forest
@@ -2705,8 +2705,8 @@ wooden rack and a long rope (at the end of which is a shiney bucket), it
 appears to be usable, the water drinkable. Nearby are fern-like trees, and
 little flowers dot the grass.
 @rus Очень старый, но в хорошем состоянии, колодец стоит здесь. Аккуратно сло-
-женный из камней, с деревянным воротом и длинной верёвкой (на конце которой
-привязано блестящее ведёрко), кажется вполне пригодным, да и воду пить можно.
+женный из камней, с деревянным воротом и длинной веревкой (на конце которой
+привязано блестящее ведерко), кажется вполне пригодным, да и воду пить можно.
 А вокруг похожие на папоротник деревья, да маленькие цветочки усеяли травку.
 ~
 0 0 forest
@@ -2739,7 +2739,7 @@ S
 @eng Northern Path in the Pine Wood@rus Северная Тропа в Сосновом Лесу~
 @eng The path extends northward, to the south you see the path's intersection. To
 the east you see pine trees, to the west a well and some fern-like trees.
-@rus Тропа тянется на север, а на юге ты видишь перекрёсток.  К востоку от тебя
+@rus Тропа тянется на север, а на юге ты видишь перекресток.  К востоку от тебя
 сосны, к западу - колодец в окружении похожих на папоротник деревьев.
 ~
 0 0 forest
@@ -2773,8 +2773,8 @@ S
 @eng The trees here are all sharp and needly, but no matter the season, they're
 always green. Dead brown needles cover the forest floor here. West and south
 you see a path.
-@rus Вокруг вечно-зелёные деревья с грубой корой и колючими иголками вместо
-листьев. Давно опавшие и высохшие, они усыпали всё под ногами. На западе и юге
+@rus Вокруг вечно-зеленые деревья с грубой корой и колючими иголками вместо
+листьев. Давно опавшие и высохшие, они усыпали все под ногами. На западе и юге
 ты видишь тропу.
 ~
 0 0 forest
@@ -2843,7 +2843,7 @@ S
 @eng North is a high wall riddled with cracks. You cannot peer over it, you
 cannot peek through the cracks. The trees here are bent out of shape,
 very unnatural-looking.
-@rus На севере - высокая испещрённая трещинами стена. Через неё нельзя ни пере-
+@rus На севере - высокая испещренная трещинами стена. Через нее нельзя ни пере-
 лезть, ни посмотреть сквозь трещины. Деревья здесь теряют свои привычные очер-
 тания - выглядят неестественно. 
 ~
