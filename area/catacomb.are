@@ -303,7 +303,7 @@ f object hitroll 3 0
 m obj_wear obj_wear_excalibur 100~
 m obj_remove obj_remove_excalibur 100~
 m obj_sac @ 100~
-if (IS_NPC($n))
+if (is_npc($n))
 	return 1;
 act("The gods are infuriated!", $n, NULL, NULL, TO_ALL);
 int hit = char_hit($n);
