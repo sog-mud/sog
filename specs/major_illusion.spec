@@ -118,4 +118,12 @@ Adept 75
 Max 100
 End
 
+#SKILL
+Skill 'shadow magic'
+Level 38
+Rating 1
+Adept 75
+Max 100
+End
+
 #$
