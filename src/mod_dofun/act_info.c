@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.106 1998-07-29 10:15:35 fjoe Exp $
+ * $Id: act_info.c,v 1.107 1998-07-29 18:20:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1738,7 +1738,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	if (wch->clan != CLAN_NONE
 	&&  (wch->clan == ch->clan || ch->level >= LEVEL_IMMORTAL))
 		buf_printf(output, "[{c%s{x] ",
-			   clan_table[ch->clan].short_name);
+			   clan_table[wch->clan].short_name);
 
 	if (IS_SET(wch->comm, COMM_AFK))
 		buf_add(output, "{c[AFK]{x ");
