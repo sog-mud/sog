@@ -122,7 +122,7 @@ g @rus none~
 
 #ROOMS
 #95500
-@eng The Enterance@rus Вход~
+@eng The Entrance@rus Вход~
 @eng Welcome to Paradise of the Chaos Realms. There is neither rule nor law
 here. 
 @rus Добро пожаловать в рай Хаоса. Здесь не существует правил и законов.
@@ -225,7 +225,7 @@ M 95501 spec_cast_seneschal	* Ivan the guardian of Chaos Realms
 S
 
 #RESETS
-M 0 95501 1 95500 1	* Ivan the guardian of Chaos Realms (The Enterance)
+M 0 95501 1 95500 1	* Ivan the guardian of Chaos Realms (The Entrance)
 E 0 95500 0 17		*	Ivan the guardian of Chaos Realms<held in the hands>: a black marble key
 M 0 95500 1 95504 1	* a Healer (The Altar)
 O 0 95501 0 95504	* the altar (The Altar)

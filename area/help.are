@@ -2165,7 +2165,7 @@ train thirst drunk full hometown ethos noghost clan trouble security qpoints
 qtime relig bloodlust desire
  
 For {cSET OBJ{x:
-value0 value1 value2 value3 value4 owner level cost timer
+owner timer
  
 For {cSET ROOM{x:
 flags sector
@@ -2186,7 +2186,7 @@ train thirst drunk full hometown ethos noghost clan trouble security qpoints
 qtime relig bloodlust desire
  
 ‰Ã— {cSET OBJ{x:
-value0 value1 value2 value3 value4 owner level cost timer
+owner timer
  
 ‰Ã— {cSET ROOM{x:
 flags sector
@@ -6389,7 +6389,7 @@ Toggles given option on/off. Available options are:
 {ccombine{x    - defines whether same items in your inventory will be combined
              (shown with numbers) or shown separated.
 {clong flags{x - toggles oldstyle flag view, like ({MPink Aura{x)({RRed Aura{x)...
-             New format looks like [[{y.{D.{m.{c.{MP{D.{G.{b.{RR{Y.{W.{y.{g.{g.{x]. See {CHELP FLAGS{x.
+             New format looks like [{y.{D.{m.{c.{MP{D.{G.{b.{RR{Y.{W.{y.{g.{g.{x]. See {CHELP FLAGS{x.
 {cnobust{x     - will not send you new prompt each time your hp/mana/moves have
              changed. Useful to avoid spam from regeneration.
 {cnoflee{x     - with this option turned on, your character will not attempt
