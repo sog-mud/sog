@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.c,v 1.190 2000-06-01 17:57:51 fjoe Exp $
+ * $Id: update.c,v 1.191 2000-06-01 18:53:18 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -63,7 +63,6 @@ uhandler_unload(const char *mod_name)
 void *
 update_handler(void)
 {
-	log(LOG_INFO, "update_handler");
 	hash_foreach(&uhandlers, uhandler_tick_cb);
 	return NULL;
 }
