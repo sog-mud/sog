@@ -1,5 +1,5 @@
 #
-# $Id: mprogs.txt,v 1.23 2003-10-08 09:54:19 tatyana Exp $
+# $Id: mprogs.txt,v 1.24 2004-02-12 20:17:23 sg Exp $
 #
 
 MPC code style
@@ -272,7 +272,7 @@ Inline-триггер удобно применять для использования программ, которые
 Кроме того, создание и редактирование MPC программ, которые привязываются
 к триггеру обычного типа, требует более высокого уровня OLC-привилегий,
 тогда как для создания и редактирования MPC-кода inline-триггера
-дополнительных OLC-привилений не требуется. Еще одним преимуществом
+дополнительных OLC-привилегий не требуется. Еще одним преимуществом
 использования inline-триггеров является компактность ареи (MPC программы
 inline-триггеров сохраняются в том же .are файле, что и объекты, на
 которые ставятся триггеры). Кроме этого, при использовании inline-триггеров
@@ -291,7 +291,7 @@ act(string msg, Char ch, any arg1, any arg2, int act_flags)
 	     TO_NOTVICT -- всем к комнате кроме чара ch и жертвы (arg2)
 
 act_around(Room r, string text, any arg)
-  text выврдится в соседние с r комнаты, arg может использоваться как параметр
+  text выводится в соседние с r комнаты, arg может использоваться как параметр
   в text
 
 act_char(string msg, Char ch)
@@ -318,7 +318,7 @@ affect_strip(Char ch, string aff)
   снимается аффект aff с чара ch
 
 int calc_spell_damage(Char ch, int level, string sn);
-  считается дамадж, который должен нанестить умением sn ("acid blast")
+  считается дамадж, который должен нанестись умением sn ("acid blast")
   уровня level чаром ch
 
 bool can_backstab(Char ch)
@@ -355,13 +355,13 @@ bool close_door(Char ch, string door)
   чар ch закрывает (пытается) дверь
 
 bool close_obj(Char ch, Obj p)
-  чар ch выполняет операцию закрытия обьекта p
+  чар ch выполняет операцию закрытия объекта p
 
 Char create_mob(int vnum, int flags)
   создает моба по его внуму
 
 Obj create_obj(int vnum, int flags)
-  создает обьект по его внуму
+  создает объект по его внуму
 
 bool damage(Char ch, Char victim, int dam, string dt, int dam_flags)
   чаром ch наносится чару victim урон в размере dam. Урон типа sn.
@@ -374,10 +374,10 @@ dofun(string name, Char ch, string arg)
   чар ch выполняет do-функцию 'name'
 
 drop_obj(Char ch, Obj p)
-  чаром ch бросается обьект p
+  чаром ch бросается объект p
 
 extract_obj(Obj p, int flags)
-  уничтожает обьект p
+  уничтожает объект p
 
 Char get_char_area(Char ch, string arg)
   чаром ch в арии, где он находится, ищется чар с именем arg
@@ -403,7 +403,7 @@ bool get_obj(Char ch, Obj p, Obj container, string msg_others)
   происходит действие (может быть NULL)
 
 Obj get_obj_carry(Char ch, Char victim, string arg)
-  чаром ch смотрится у чара victim, есть ли у последнего обьект c 
+  чаром ch смотрится у чара victim, есть ли у последнего объект c 
   именем arg, arg может быть vnum'ом
 
 Obj get_obj_here(Char ch, string arg)
@@ -434,8 +434,9 @@ Char get_random_fighting(Char ch)
 Room get_room_index(int vnum)
   возвращает комнату по ее внуму (NULL, если комнаты с таким внумом нет)
 
-get_skill(Char ch, string skill_name)
-  имеется лм у чара указанное умение 
+int get_skill(Char ch, string skill_name)
+  возвращает процент знания чаром данного умения, если оно у чара есть,
+  и 0 в противном случае 
 
 bool give_obj(Char ch, Char victim, Obj p)
   чаром ch чару victim дается объект p (пытается)
@@ -498,10 +499,10 @@ bool is_npc(Char ch)
   является ли чар ch мобом (npc)
 
 bool is_owner(Char ch, Obj p)
-  является ли чар ch owner'ом обьекта p
+  является ли чар ch owner'ом объекта p
 
 bool is_owner_name(Obj p, string name)
-  принадлежит ли обьект p чару с именем name
+  принадлежит ли объект p чару с именем name
 
 bool is_pumped(Char ch)
   есть ли у чара ch адреналин в крови
@@ -568,7 +569,7 @@ bool open_door(Char ch, string door)
   чар ch открывает (пытается) дверь door 
 
 bool open_obj(Char ch, Obj p)
-  открывает (пытается открыть) обьет p, открывает обьект чар ch
+  открывает (пытается открыть) объект p, открывает объект чар ch
 
 int real_char_level(Char ch)
   возвращает реальный (без +lev) уровень чара ch
@@ -613,10 +614,10 @@ int umin(int i1, int i2)
   минимальное из чисел i1, i2
 
 bool unlock_door(Char ch, door)
-  размыкает (пытается) дверь, действие пройзволит чар ch
+  размыкает (пытается) дверь, действие производит чар ch
 
 bool unlock_obj(Char ch, Obj p)
-  размыкает (пытается) обьект p, действие пройзволит чар ch
+  размыкает (пытается) объект p, действие производит чар ch
 
 wait_state(Char ch, int dur)
   чару ch делается задержка длительностью dur
