@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.34 2001-08-13 18:23:32 fjoe Exp $
+ * $Id: eventfun.c,v 1.35 2001-08-20 17:03:27 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -31,7 +31,7 @@
 
 #include <merc.h>
 
-#include <handler.h>
+#include <sog.h>
 #include <magic.h>
 
 DECLARE_EVENT_FUN(event_enter_lshield);
