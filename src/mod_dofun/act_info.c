@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.202 1999-02-19 09:47:45 fjoe Exp $
+ * $Id: act_info.c,v 1.203 1999-02-19 09:53:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -151,7 +151,7 @@ const char *format_descr(mlstring *ml, CHAR_DATA *looker)
 		return s;
 
 	strnzcpy(buf, s, UMIN(p - s + 1, sizeof(buf)));
-	strnzcat(buf, q+1, sizeof(buf));
+	strnzcat(buf, *++q ? q+1 : q, sizeof(buf));
 	return buf;
 }
 
