@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.34 2000-11-17 12:49:36 avn Exp $
+ * $Id: update.c,v 1.157.2.35 2000-11-21 14:21:55 avn Exp $
  */
 
 /***************************************************************************
@@ -1353,7 +1353,9 @@ void char_update(void)
 			witch.level = af->level;
 			witch.duration = af->duration;
 			witch.location = af->location;
-			witch.modifier = af->modifier * 2 < 0 ? af->modifier - ch->max_hit : af->modifier * 2;
+			witch.modifier = (ch->max_hit + af->modifier < 0) ?
+						af->modifier - ch->max_hit :
+						af->modifier * 2;
 			witch.bitvector = 0;
 	
 			affect_remove(ch, af);

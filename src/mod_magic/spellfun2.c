@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.27 2000-11-17 12:49:34 avn Exp $
+ * $Id: spellfun2.c,v 1.139.2.28 2000-11-21 14:21:53 avn Exp $
  */
 
 /***************************************************************************
@@ -3605,6 +3605,7 @@ void spell_witch_curse(int sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier     = - level;
 	af.bitvector    = 0;
 	affect_to_char(victim, &af);
+	victim->hit = UMIN(victim->hit, victim->max_hit);
 
 	act("Now $n got the path to death.", victim, NULL, NULL, TO_ROOM);
 	act("Now you got the path to death.", victim, NULL, NULL, TO_CHAR);
