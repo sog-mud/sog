@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.21 1998-07-14 07:47:48 fjoe Exp $
+ * $Id: mob_prog.c,v 1.22 1998-07-21 14:10:16 efdi Exp $
  */
 
 /***************************************************************************
@@ -85,6 +85,7 @@ enum {
 	CHK_ISACTIVE,
 	CHK_ISDELAY,
 	CHK_ISVISIBLE,
+	CHK_ISGHOST,
 	CHK_HASTARGET,
 	CHK_ISTARGET,
 	CHK_EXISTS,
@@ -166,6 +167,7 @@ const char * fn_keyword[] =
     "isactive",		/* if isactive $n	- is $n's position > SLEEPING */
     "isdelay",		/* if isdelay $i	- does $i have mobprog pending */
     "isvisible",	/* if isvisible $n	- can mob see $n */
+    "isghost",		/* if isghost $n	- is $n ghost */
     "hastarget",	/* if hastarget $i	- does $i have a valid target */
     "istarget",		/* if istarget $n	- is $n mob's target */
     "exists",		/* if exists $n		- does $n exist somewhere */
@@ -549,6 +551,8 @@ int cmd_eval(int vnum, const char *line, int check,
 		&&  lval_char->in_room == lval_char->mprog_target->in_room);
 	case CHK_ISTARGET:
 	    return(lval_char != NULL && mob->mprog_target == lval_char);
+	case CHK_ISGHOST:
+		return (lval_char && IS_SET(lval_char->act, PLR_GHOST));
 	default:;
      }
 
