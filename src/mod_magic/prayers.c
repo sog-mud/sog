@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.80 2004-03-13 18:20:06 kets Exp $
+ * $Id: prayers.c,v 1.81 2004-04-08 11:50:55 kets Exp $
  */
 
 /***************************************************************************
@@ -175,6 +175,10 @@ DECLARE_SPELL_FUN(prayer_soil_barbs);
 DECLARE_SPELL_FUN(prayer_earthquake);
 DECLARE_SPELL_FUN(prayer_hail_of_stones);
 DECLARE_SPELL_FUN(prayer_incendiary_cloud);
+DECLARE_SPELL_FUN(prayer_unholy_aura);
+DECLARE_SPELL_FUN(prayer_unholy_blight);
+DECLARE_SPELL_FUN(prayer_inspire_weapon);
+DECLARE_SPELL_FUN(prayer_blasphemy);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -2978,6 +2982,7 @@ SPELL_FUN(prayer_golden_aura, sn, level, ch, vo)
 		INT(paf->location)= APPLY_HITROLL;
 		paf->modifier	= UMAX(1, level / 8);
 		paf->bitvector	= 0;
+		paf->duration	= level / 4;
 		affect_to_char(vch, paf);
 
 		INT(paf->location)= APPLY_SAVING_SPELL;
@@ -4485,4 +4490,211 @@ SPELL_FUN(prayer_incendiary_cloud, sn, level, ch, vo)
 
 		damage(ch, vch, dam, sn, DAM_F_SHOW);
 	} end_foreach(vch);
+}
+
+SPELL_FUN(prayer_unholy_aura, sn, level, ch, vo)
+{
+	CHAR_DATA *vch = vo;
+
+	for (vch = ch->in_room->people; vch != NULL; vch = vch->next_in_room) {
+		AFFECT_DATA *paf;
+
+		if (!is_same_group(vch, ch) || !IS_EVIL(ch))
+			continue;
+
+		if (is_sn_affected(vch, sn)) {
+			if (vch == ch)
+				act_char("You are already protected by a unholy aura.", ch);
+			else
+				act("$N is already protected by a unholy aura.",
+				    ch, NULL, vch, TO_CHAR);
+			continue;
+		}
+
+		paf = aff_new(TO_AFFECTS, sn);
+		INT(paf->location)= APPLY_HITROLL;
+		paf->modifier	= UMAX(1, level / 8);
+		paf->bitvector	= 0;
+		paf->duration	= level / 4;
+		affect_to_char(vch, paf);
+
+		INT(paf->location)= APPLY_SAVING_SPELL;
+		paf->modifier	=  -UMAX(1, level / 8);
+		affect_to_char(vch, paf);
+		aff_free(paf);
+
+		act_char("You feel a unholy aura around you.", vch);
+		if (ch != vch)
+			act("A unholy aura surrounds $N.",
+			    ch, NULL, vch, TO_CHAR);
+	}
+}
+
+SPELL_FUN(prayer_unholy_blight, sn, level, ch, vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	int dam, align;
+
+	if (IS_GOOD(ch)) {
+		victim = ch;
+		act_char("Gods are indignant with your action!", ch);
+	}
+
+	if (victim != ch) {
+		act("$n raises $s hand, and a wave of unholy blight spreads forth!",
+		    ch, NULL, NULL, TO_ROOM);
+		act_char("You raise your hand and a wave of unholy blight spreads forth!", ch);
+	}
+
+	if (IS_EVIL(victim)) {
+		act("$n seems unharmed by the blight.",
+		    victim, NULL, victim, TO_ROOM);
+		act_char("The blight seems powerless to affect you.", victim);
+		return;
+	}
+
+	dam = calc_spell_damage(ch, level, sn);
+	if (saves_spell(level, victim, DAM_EVIL))
+		dam /= 2;
+
+	align = victim->alignment;
+	align += 350;
+
+	if (align > 1000)
+		align = 1000 + (align - 1000) / 3;
+
+	dam = (dam * align * align) / 1000000;
+
+	spellfun("poison", NULL, 4 * level / 3, ch, victim);
+	damage(ch, victim, dam, sn, DAM_F_SHOW);
+}
+
+SPELL_FUN(prayer_inspire_weapon, sn, level, ch, vo)
+{
+	OBJ_DATA *obj = (OBJ_DATA *) vo;
+	AFFECT_DATA *paf;
+
+	if (obj->pObjIndex->item_type != ITEM_WEAPON) {
+		act_char("That isn't a weapon.", ch);
+		return;
+	}
+
+	if (obj->wear_loc != -1) {
+		act_char("The item must be carried to be inspired.",
+			 ch);
+		return;
+	}
+
+	if (IS_WEAPON_STAT(obj, WEAPON_VORPAL)) {
+		act("$p is already inspired with a soul.",
+		    ch, obj, NULL, TO_CHAR);
+		return;
+	}
+
+	if (IS_WEAPON_STAT(obj, WEAPON_HOLY)
+	||  IS_OBJ_STAT(obj, ITEM_ANTI_EVIL)
+	||  IS_OBJ_STAT(obj, ITEM_BLESS)) {
+		act("You can't seem to inspire $p.", ch, obj, NULL, TO_CHAR);
+		return;
+	}
+
+	paf = aff_new(TO_WEAPON, sn);
+	paf->level	= level / 2;
+	paf->duration	= level / 8;
+	paf->bitvector	= WEAPON_VORPAL;
+	affect_to_obj(obj, paf);
+	aff_free(paf);
+
+	act("$p is inspired with a part of your soul.", ch, obj, NULL, TO_CHAR);
+	act("Now it can slay enemies without your help.", ch, obj, NULL, TO_CHAR);
+}
+
+SPELL_FUN(prayer_blasphemy, sn, level, ch, vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA *paf;
+
+	if (victim == ch)
+		act_char("That wouldn't work.", ch);
+
+	if (IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)) {
+		act_char("You cann't use this power here.", ch);
+		return;
+	}
+
+	if (IS_IMMORTAL(victim)) {
+		act_char("You is not powerful enough.", ch);
+		return;
+	}
+
+	act("$n utters blasphemy against $N!.",
+	    ch, NULL, victim, TO_NOTVICT);
+	act("You utter blasphemy against $N!",
+	    ch, NULL, victim, TO_CHAR);
+
+	if (!can_hear(victim)) {
+		act("Your victim ignores all you attempts - $gN{he}'s deaf!",
+		    ch, NULL, victim, TO_CHAR);
+		act("You see $n's lips moving, but you cann't hear anything!",
+		    ch, NULL, victim, TO_VICT);
+		return;
+	}
+
+	act("$n utters blasphemy against you!",
+	    ch, NULL, victim, TO_VICT);
+
+	if (is_sn_affected(victim, sn)) {
+		act("$N is already affected by blasphemy, "
+		    "you cann't do more damage.", ch, NULL, victim, TO_CHAR);
+		act_char("You feel unclean but it passes quickly.", victim);
+		return;
+	}
+
+	if (IS_NPC(victim)
+	&&  IS_CLAN_GUARD(victim)) {
+		act("$N shivers momentarily but it passes.",
+		    ch, NULL, NULL, TO_NOTVICT);
+		return;
+	}
+
+	if (saves_spell(level, victim, DAM_EVIL)) {
+		act("$n shivers momentarily but it passes.",
+		    victim, NULL, NULL, TO_ROOM);
+		act("You feel a brief pain, but it passes.",
+		    victim, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (level >= 4 * LEVEL_HERO / 5
+	&&  !saves_spell(level - 5, victim, DAM_EVIL)) {
+		act("$n's face distorten and $gn{his} head explodes!",
+		    victim, NULL, NULL, TO_ROOM);
+		act("$N's blasphemy overwhelms your head "
+		    "causing it to explode!", victim, NULL, ch, TO_CHAR);
+		raw_kill(ch, victim);
+		return;
+	}
+
+	act("You feel very unclean.",
+	    victim, NULL, NULL, TO_CHAR);
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->bitvector	= AFF_WEAKEN;
+	
+	if (level >= LEVEL_HERO / 3)
+		paf->bitvector |= AFF_PLAGUE;
+		
+	if (level >= 2 * LEVEL_HERO / 3
+	&& number_percent() < 70) {
+		act("You feel so bad, you cann't do anything!.",
+		    victim, NULL, NULL, TO_CHAR);
+		paf->bitvector |= AFF_STUN;
+	}
+
+	paf->level	= level;
+	paf->duration	= 1 + number_range(level / 20, level / 10);
+	INT(paf->location)= APPLY_STR;
+	paf->modifier	= -(2 + level / 7);
+	affect_to_char(victim, paf);
+	aff_free(paf);
 }
