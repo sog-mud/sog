@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.59 1998-11-27 07:23:39 kostik Exp $
+ * $Id: spellfun2.c,v 1.60 1998-11-30 08:40:59 kostik Exp $
  */
 
 /***************************************************************************
@@ -3357,8 +3357,7 @@ void spell_witch_curse(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		return;
 	}
 
-	if (saves_spell(level, victim, DAM_NEGATIVE)
-	||  IS_IMMORTAL(victim)
+	if (IS_IMMORTAL(victim)
 	||  IS_CLAN_GUARD(victim)) {
 		damage(ch, victim, dice(level, 8), sn, DAM_NEGATIVE, TRUE);
 		return;
