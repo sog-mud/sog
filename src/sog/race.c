@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.5.2.2 1999-12-16 12:40:03 fjoe Exp $
+ * $Id: race.c,v 1.5.2.3 2001-11-21 07:46:38 avn Exp $
  */
 
 #include <stdio.h>
@@ -46,6 +46,8 @@ pcrace_t *pcrace_new(void)
 
 	varr_init(&pcr->skills, sizeof(rskill_t), 2);
 	varr_init(&pcr->classes, sizeof(rclass_t), 4);
+	SET_BIT(pcr->restrict_align, RA_ALL);
+	SET_BIT(pcr->restrict_ethos, ETHOS_ALL);
 
 	return pcr;
 }

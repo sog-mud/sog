@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.16 2001-09-14 18:11:08 fjoe Exp $
+ * $Id: comm.c,v 1.200.2.17 2001-11-21 07:46:38 avn Exp $
  */
 
 /***************************************************************************
@@ -926,7 +926,7 @@ void close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 		if (d != NULL)
 			d->next = dclose->next;
 		else
-			bug("Close_socket: dclose not found.", 0);
+			bug("Close_socket: dclose not found.");
 	}
 
 #if !defined( WIN32 )
@@ -1680,8 +1680,8 @@ int search_sockets(DESCRIPTOR_DATA *inp)
 	return 0;
 }
   
-int align_restrict(CHAR_DATA *ch);
-int ethos_check(CHAR_DATA *ch);
+int align_restrict(CHAR_DATA *ch, char response);
+int ethos_check(CHAR_DATA *ch, char response);
 
 static void print_hometown(CHAR_DATA *ch)
 {
@@ -2155,12 +2155,9 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		case 'y': case 'Y':	
 			for (i = 0; i < MAX_STATS; i++)
 				ch->mod_stat[i] = 0;
-			if (!align_restrict(ch)) {
-				char_puts("You may be good, neutral, or evil.\n", ch);
-				char_puts("Which alignment (G/N/E)? ", ch);
+			if (!align_restrict(ch, 'H')) {
 				d->connected = CON_GET_ALIGNMENT;
 			} else {
-				char_puts("[Hit Return to Continue]", ch);
 				print_hometown(ch);
 			}
 			break;
@@ -2169,15 +2166,15 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			for (i = 0; i < MAX_STATS; i++)
 				ch->perm_stat[i] = number_range(10, get_max_train(ch, i));
 
-		char_printf(ch, "Str:%s  Int:%s  Wis:%s  "
-				"Dex:%s  Con:%s  Cha:%s\n",
-			 get_stat_alias(ch, STAT_STR),
-			 get_stat_alias(ch, STAT_INT),
-			 get_stat_alias(ch, STAT_WIS),
-			 get_stat_alias(ch, STAT_DEX),
-			 get_stat_alias(ch, STAT_CON),
-			 get_stat_alias(ch, STAT_CHA));
-		char_puts("Accept (Y/N)? ", ch);
+			char_printf(ch, "Str:%s  Int:%s  Wis:%s  "
+					"Dex:%s  Con:%s  Cha:%s\n",
+				get_stat_alias(ch, STAT_STR),
+				get_stat_alias(ch, STAT_INT),
+				get_stat_alias(ch, STAT_WIS),
+				get_stat_alias(ch, STAT_DEX),
+				get_stat_alias(ch, STAT_CON),
+				get_stat_alias(ch, STAT_CHA));
+			char_puts("Accept (Y/N)? ", ch);
 
 			d->connected = CON_ACCEPT_STATS;
 			break;
@@ -2189,26 +2186,9 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		break;
 	    
 	case CON_GET_ALIGNMENT:
-		switch(argument[0]) {
-		case 'g' : case 'G' : 
-			ch->alignment = 1000; 
-			break;
-		case 'n' : case 'N' : 
-			ch->alignment = 0;	
-			break;
-		case 'e' : case 'E' : 
-			ch->alignment = -1000; 
-			break;
-		default:
-			char_puts("That's not a valid alignment.\n", ch);
-			char_puts("Which alignment (G/N/E)? ", ch);
-			return;
+		if (align_restrict(ch, argument[0])) {
+			print_hometown(ch);
 		}
-		act_puts("Now your character is $t.",
-			 ch, flag_string(align_names, NALIGN(ch)), NULL,
-			 TO_CHAR, POS_DEAD);
-		char_puts("[Hit Return to Continue]", ch);
-		print_hometown(ch);
 		break;
 	
 	case CON_PICK_HOMETOWN: {
@@ -2231,44 +2211,11 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		break;
 	}
 	
-	  case CON_GET_ETHOS:
-		if (!ch->endur) {
-			switch(argument[0]) {
-			case 'H': case 'h': case '?': 
-				dofun("help", ch, "ALIGNMENT");
-				return;
-				/* NOTREACHED */
-
-			case 'L': case 'l': 
-				ch->ethos = ETHOS_LAWFUL; 
-				break;
-			case 'N': case 'n': 
-				ch->ethos = ETHOS_NEUTRAL; 
-				break;
-			case 'C': case 'c': 
-				ch->ethos = ETHOS_CHAOTIC; 
-				break;
-			default:
-				char_puts("\nThat is not a valid ethos.\n", ch);
-				char_puts("What ethos do you want, (L/N/C) (type 'help' for more info)? ", ch);
-				return;
-			}
-			act_puts("Now you are $t-$T.",
-				 ch, flag_string(ethos_table, ch->ethos),
-				 flag_string(align_names, NALIGN(ch)),
-				 TO_CHAR, POS_DEAD);
-		} else {
-			ch->endur = 0;
-			if (!ethos_check(ch)) {
-				char_puts("What ethos do you want, (L/N/C) (type 'help' for more info)? ", ch);
-				d->connected = CON_GET_ETHOS;
-				return;
-			} else {
-				ch->ethos = 1;
-			}
+	case CON_GET_ETHOS:
+		if (ethos_check(ch, ch->endur ? ch->endur = 0, 'H' : argument[0])) {
+			char_puts("[Hit Return to Continue]", ch);
+			d->connected = CON_CREATE_DONE;
 		}
-		char_puts("[Hit Return to Continue]", ch);
-		d->connected = CON_CREATE_DONE;
 		break;
 
 	case CON_CREATE_DONE:
@@ -2701,51 +2648,136 @@ bool class_ok(CHAR_DATA *ch, int class)
 	return TRUE;
 }
 
-int align_restrict(CHAR_DATA *ch)
+/*
+ * returns: 0 - the character should select (another) align
+ *          1 - proceed to hometown picking
+ */
+#define CHALIGN(a) (IS_SET(a, RA_GOOD) ? 1000 : IS_SET(a, RA_EVIL) ? -1000 : 0)
+int align_restrict(CHAR_DATA *ch, char resp)
 {
 	race_t *r;
-
-	if ((r = race_lookup(ORG_RACE(ch))) == NULL
-	||  !r->race_pcdata)
-		return RA_NONE;
-
-	if (r->race_pcdata->restrict_align == RA_GOOD
-	||  CLASS(ch->class)->restrict_align == RA_GOOD) {
-		char_puts("Your character has good tendencies.\n", ch);
-		ch->alignment = 1000;
-		return RA_GOOD;
-	}
-
-	if (r->race_pcdata->restrict_align == RA_NEUTRAL
-	||  CLASS(ch->class)->restrict_align == RA_NEUTRAL) {
-		char_puts("Your character has neutral tendencies.\n", ch);
-		ch->alignment = 0;
-		return RA_NEUTRAL;
-	}
-
-	if (r->race_pcdata->restrict_align == RA_EVIL
-	||  CLASS(ch->class)->restrict_align == RA_EVIL) {
-		char_puts("Your character has evil tendencies.\n", ch);
-		ch->alignment = -1000;
-		return RA_EVIL;
-	}		
-
-	return RA_NONE;
-}
-
-int ethos_check(CHAR_DATA *ch)
-{
 	class_t *cl;
+	flag32_t al, wal = RA_NONE;
 
-	if ((cl = class_lookup(ch->class))) {
-		/*
-		 * temporary workaround for paladins
-		 */
-		if (IS_SET(cl->restrict_ethos, ETHOS_LAWFUL)) {
-			char_puts("You are Lawful.\n", ch);
+	if ((cl = class_lookup(ch->class)) == NULL
+	|| (r = race_lookup(ORG_RACE(ch))) == NULL
+	|| !r->race_pcdata)
+		return 0;
+
+	al = r->race_pcdata->restrict_align & cl->restrict_align;
+	if (al == 0) {
+		bug("%s %s has no valid align", r->name, cl->name);
+		char_puts("You cannot use this race/class combination.\n", ch);
+		char_puts("Bug have been reported.\n", ch);
+		close_descriptor(ch->desc, SAVE_F_NONE);
+		return 0;
+	}
+	if (al == RA_GOOD
+	||  al == RA_NEUTRAL
+	||  al == RA_EVIL) {
+		act("Your character has $t tendencies.",
+			ch, flag_string(ralign_names, al), NULL, TO_CHAR);
+		ch->alignment = CHALIGN(al);
+		return 1;
+	}
+
+	switch (resp) {
+	case 'H': case 'h':
+		dofun("help", ch, "ALIGNMENT");
+		break;
+	case 'G': case 'g':
+		wal = RA_GOOD;
+		break;
+	case 'N': case 'n':
+		wal = RA_NEUTRAL;
+		break;
+	case 'E': case 'e':
+		wal = RA_EVIL;
+		break;
+	default:
+		act("This is not a valid alignment.", ch, NULL, NULL, TO_CHAR);
+		break;
+	}
+	if (wal != RA_NONE) {
+		if (IS_SET(al, wal)) {
+			act("Now your character is $t.",
+				ch, flag_string(ralign_names, wal),
+				NULL, TO_CHAR);
+			ch->alignment = CHALIGN(wal);
 			return 1;
 		}
+		else
+			act("This is not a valid alignment for you.",
+				ch, NULL, NULL, TO_CHAR);
 	}
+	act("You can be of the following alignments: $t",
+		ch, flag_string(ralign_names, al), NULL, TO_CHAR);
+	act("Which alignment (G/N/E)?", ch, NULL, NULL, TO_CHAR | ACT_NOLF);
+	return 0;
+}
+
+int ethos_check(CHAR_DATA *ch, char resp)
+{
+	class_t *cl;
+	race_t *r;
+	flag32_t eth, weth = ETHOS_NONE;
+
+	if ((cl = class_lookup(ch->class)) == NULL
+	|| (r = race_lookup(ORG_RACE(ch))) == NULL
+	|| !r->race_pcdata)
+		return 0;
+
+	eth = r->race_pcdata->restrict_ethos & cl->restrict_ethos;
+	if (eth == 0) {
+		bug("%s %s has no valid ethos", r->name, cl->name);
+		char_puts("You cannot use this race/class combination.\n", ch);
+		char_puts("Bug have been reported.\n", ch);
+		close_descriptor(ch->desc, SAVE_F_NONE);
+		return 0;
+	}
+
+	if (eth == ETHOS_LAWFUL
+	||  eth == ETHOS_NEUTRAL
+	||  eth == ETHOS_CHAOTIC) {
+		act("You are $t.",
+			ch, flag_string(ethos_table, eth), NULL, TO_CHAR);
+		ch->ethos = eth;
+		return 1;
+	}
+
+	switch (resp) {
+	case 'H': case 'h':
+		dofun("help", ch, "ETHOS");
+		break;
+	case 'L': case 'l':
+		weth = ETHOS_LAWFUL;
+		break;
+	case 'N': case 'n':
+		weth = ETHOS_NEUTRAL;
+		break;
+	case 'C': case 'c':
+		weth = ETHOS_CHAOTIC;
+		break;
+	default:
+		act("This is not a valid ethos.", ch, NULL, NULL, TO_CHAR);
+		break;
+	}
+	if (weth != ETHOS_NONE) {
+		if (IS_SET(eth, weth)) {
+			ch->ethos = weth;
+			act("Now you are $t-$T.", ch,
+				flag_string(ethos_table, ch->ethos),
+				flag_string(align_names, NALIGN(ch)),
+				TO_CHAR);
+			return 1;
+		}
+		else
+			act("This is not a valid ethos for you.",
+				ch, NULL, NULL, TO_CHAR);
+	}
+	act("You can have ethos of: $t",
+		ch, flag_string(ethos_table, eth), NULL, TO_CHAR);
+	act("Which ethos (L/N/C)?", ch, NULL, NULL, TO_CHAR | ACT_NOLF);
 	return 0;
 }
 

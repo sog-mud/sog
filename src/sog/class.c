@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.16.2.2 2000-04-03 06:45:07 fjoe Exp $
+ * $Id: class.c,v 1.16.2.3 2001-11-21 07:46:37 avn Exp $
  */
 
 #include <stdio.h>
@@ -45,6 +45,8 @@ class_t *class_new(void)
 	class->mana_rate = 100;
 	class->restrict_sex = -1;
 	class->death_limit = -1;
+	SET_BIT(class->restrict_align, RA_ALL);
+	SET_BIT(class->restrict_ethos, ETHOS_ALL);
 
 	return class;
 }

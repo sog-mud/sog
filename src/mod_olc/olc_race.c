@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.8.2.2 2000-03-27 22:13:04 avn Exp $
+ * $Id: olc_race.c,v 1.8.2.3 2001-11-21 07:46:36 avn Exp $
  */
 
 #include "olc.h"
@@ -944,10 +944,10 @@ static void save_race(CHAR_DATA *ch, race_t *race)
 	if (race->race_pcdata->prac_bonus)
 		fprintf(fp, "PracBonus %d\n",
 			race->race_pcdata->prac_bonus);
-	if (race->race_pcdata->restrict_align)
+	if (race->race_pcdata->restrict_align != RA_ALL)
 		fprintf(fp, "RestrictAlign %s~\n",
 			flag_string(ralign_names, race->race_pcdata->restrict_align));
-	if (race->race_pcdata->restrict_ethos)
+	if (race->race_pcdata->restrict_ethos != ETHOS_ALL)
 		fprintf(fp, "RestrictEthos %s~\n",
 			flag_string(ethos_table, race->race_pcdata->restrict_ethos));
 	fprintf(fp, "Slang %s\n",

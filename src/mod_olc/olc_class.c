@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.4.2.3 2000-04-03 06:45:06 fjoe Exp $
+ * $Id: olc_class.c,v 1.4.2.4 2001-11-21 07:46:36 avn Exp $
  */
 
 #include "olc.h"
@@ -771,13 +771,13 @@ static void save_class(CHAR_DATA *ch, class_t *class)
 		fprintf(fp, " %d",
 			   class->stats[i]);
 	fprintf(fp, "\n");
-	if (class->restrict_align)
+	if (class->restrict_align != RA_ALL)
 		fprintf(fp, "RestrictAlign %s~\n",
 			flag_string(ralign_names, class->restrict_align));
 	if (class->restrict_sex != -1)
 		fprintf(fp, "RestrictSex %s~\n",
 			flag_string(sex_table, class->restrict_sex));
-	if (class->restrict_ethos)
+	if (class->restrict_ethos != ETHOS_ALL)
 		fprintf(fp, "RestrictEthos %s~\n",
 			flag_string(ethos_table, class->restrict_ethos));
 	if (class->death_limit != -1)

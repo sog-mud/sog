@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.17 2001-11-16 05:50:50 avn Exp $
+ * $Id: merc.h,v 1.234.2.18 2001-11-21 07:46:33 avn Exp $
  */
 
 /***************************************************************************
@@ -119,6 +119,7 @@ extern flag32_t mud_options;
 #define RA_GOOD			(A)
 #define RA_NEUTRAL		(B)
 #define RA_EVIL			(C)
+#define RA_ALL			(RA_GOOD | RA_NEUTRAL | RA_EVIL)
 
 /*
  * Time and weather stuff.
@@ -1126,6 +1127,7 @@ enum {
 #define ETHOS_LAWFUL	(A)
 #define ETHOS_NEUTRAL	(B)
 #define ETHOS_CHAOTIC	(C)
+#define ETHOS_ALL	(ETHOS_LAWFUL | ETHOS_NEUTRAL | ETHOS_CHAOTIC)
 
 /*
  * ACT bits for players.
