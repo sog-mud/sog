@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: vo_iter.c,v 1.9 2001-09-15 17:12:55 fjoe Exp $
+ * $Id: vo_iter.c,v 1.10 2002-11-28 20:08:05 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -54,12 +54,12 @@ VO_ITER(first_char_room)
 {
 	if (vo == NULL)
 		return NULL;
-	return ((ROOM_INDEX_DATA *)vo)->people;
+	return ((ROOM_INDEX_DATA *) vo)->people;
 }
 
 VO_ITER(next_char_room)
 {
-	return ((CHAR_DATA *)vo)->next_in_room;
+	return ((CHAR_DATA *) vo)->next_in_room;
 }
 
 VO_ITER(first_obj_world)
@@ -69,33 +69,43 @@ VO_ITER(first_obj_world)
 
 VO_ITER(next_obj_world)
 {
-	return ((OBJ_DATA *)vo)->next;
+	return ((OBJ_DATA *) vo)->next;
 }
 
 VO_ITER(first_obj_room)
 {
 	if (vo == NULL)
 		return NULL;
-	return ((ROOM_INDEX_DATA *)vo)->contents;
+	return ((ROOM_INDEX_DATA *) vo)->contents;
 }
 
 VO_ITER(first_obj_char)
 {
 	if (vo == NULL)
 		return NULL;
-	return ((CHAR_DATA *)vo)->carrying;
+	return ((CHAR_DATA *) vo)->carrying;
 }
 
 VO_ITER(first_obj_obj)
 {
 	if (vo == NULL)
 		return NULL;
-	return ((OBJ_DATA *)vo)->contains;
+	return ((OBJ_DATA *) vo)->contains;
 }
 
 VO_ITER(next_obj_list)
 {
 	return ((OBJ_DATA *) vo)->next_content;
+}
+
+VO_ITER(first_descriptor)
+{
+	return descriptor_list;
+}
+
+VO_ITER(next_descriptor)
+{
+	return ((DESCRIPTOR_DATA *) vo)->next;
 }
 
 vo_iter_t iter_char_world = {
@@ -140,6 +150,12 @@ vo_iter_t iter_obj_obj = {
 	MT_OBJ
 };
 
+vo_iter_t iter_descriptor = {
+	first_descriptor,
+	next_descriptor,
+	MT_DESCRIPTOR
+};
+
 void *
 vo_foreach(void *cont, vo_iter_t *iter, vo_foreach_cb_t cb, ...)
 {
@@ -148,19 +164,15 @@ vo_foreach(void *cont, vo_iter_t *iter, vo_foreach_cb_t cb, ...)
 	va_list ap;
 	int ftag;
 
-	if ((vo = vo_foreach_init(cont, iter, &ftag)) == 0)
-		return NULL;
-
 	va_start(ap, cb);
-	while (vo_foreach_cond(cont, iter, ftag, &vo, &vo_next)) {
+	for (vo = vo_foreach_init(cont, iter, &ftag);
+	     (vo = vo_foreach_cond(cont, iter, ftag, vo, &vo_next)) != NULL;
+	     vo = vo_next) {
 		if ((rv = cb(vo, ap)) != NULL)
 			break;
-
-		vo = vo_next;
 	}
+	vo_foreach_destroy(cont, iter, &ftag, vo_next);
 	va_end(ap);
-
-	vo_foreach_destroy(cont, iter, ftag, rv != NULL);
 
 	return rv;
 }
@@ -170,12 +182,19 @@ static int cnt;
 void *
 vo_foreach_init(void *cont, vo_iter_t *iter, int *pftag)
 {
+	int ftag;
 	void *vo;
 
-	if (cnt < 0 || cnt > 7) {
-		log(LOG_BUG, "vo_foreach: cnt overflow (%d)", cnt);
-		return NULL;
-	}
+	if (pftag != NULL) {
+		ftag = (1 << cnt++);
+		*pftag = ftag;
+
+		if (cnt <= 0 || cnt > 8) {
+			log(LOG_BUG, "vo_foreach: cnt overflow (%d)", cnt);
+			return NULL;
+		}
+	} else
+		ftag = 1;
 
 	/*
 	 * sanity check
@@ -192,60 +211,65 @@ vo_foreach_init(void *cont, vo_iter_t *iter, int *pftag)
 	/*
 	 * mark all the objects in list
 	 */
-	*pftag = (1 << cnt++);
 	for (; vo != NULL; vo = iter->next(vo))
-		mem_tag(vo, *pftag);
+		mem_tag(vo, ftag);
 
 	return iter->first(cont);
 }
 
 void
-vo_foreach_destroy(void *cont, vo_iter_t *iter, int ftag, bool untag)
+vo_foreach_destroy(void *cont, vo_iter_t *iter, int *pftag, void *vo)
 {
+	int ftag;
+	void *vo_next;
+
+	if (pftag != NULL) {
+		ftag = *pftag;
+		cnt--;
+	} else
+		ftag = 1;
+
 	/*
 	 * untag objects that were not processed
 	 */
-	if (untag) {
-		void *vo;
-
-		for (vo = iter->first(cont); vo != NULL; vo = iter->next(vo))
-			mem_untag(vo, ftag);
-	}
-
-	cnt--;
+	for (;
+	     (vo = vo_foreach_cond(cont, iter, ftag, vo, &vo_next)) != NULL;
+	     vo = vo_next)
+		;
 }
 
-bool
+void *
 vo_foreach_cond(void *cont, vo_iter_t *iter, int ftag,
-		void **pvo, void **pvo_next)
+		void *vo, void **pvo_next)
 {
-	while (*pvo != NULL) {
+	while (vo != NULL) {
 		/*
 		 * skip untagged (already processed) objects
 		 */
-		if (!mem_tagged(*pvo, ftag)) {
-			*pvo = iter->next(*pvo);
+		if (!mem_tagged(vo, ftag)) {
+			vo = iter->next(vo);
 			continue;
 		}
 
 		/*
 		 * extracted object encountered -- restart
 		 */
-		if (!mem_is(*pvo, iter->mem_type)) {
+		if (!mem_is(vo, iter->mem_type)) {
 			log(LOG_INFO, "vo_foreach: restarting (mt %d)\n",
 			    iter->mem_type);
-			*pvo = iter->first(cont);
+			vo = iter->first(cont);
 			continue;
 		}
 
 		/*
 		 * untag object
 		 */
-		mem_untag(*pvo, ftag);
+		mem_untag(vo, ftag);
 
-		*pvo_next = iter->next(*pvo);
-		return TRUE;
+		*pvo_next = iter->next(vo);
+		return vo;
 	}
 
-	return FALSE;
+	*pvo_next = NULL;
+	return vo;
 }

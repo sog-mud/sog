@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_iter.c,v 1.8 2001-09-15 19:55:47 fjoe Exp $
+ * $Id: mpc_iter.c,v 1.9 2002-11-28 20:08:04 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -186,14 +186,15 @@ static void
 vo_iter_destroy(iterdata_t *id)
 {
 	vo_foreach_destroy(
-	    id->vo.p, id->iter->vo_iter, id->ftag, TRUE);
+	    id->vo.p, id->iter->vo_iter, &id->ftag, id->vo_next.p);
 }
 
 static bool
 vo_iter_cond(iterdata_t *id, vo_t *v)
 {
-	return vo_foreach_cond(
-	    id->vo.p, id->iter->vo_iter, id->ftag, &v->p, &id->vo_next.p);
+	v->p = vo_foreach_cond(
+	    id->vo.p, id->iter->vo_iter, id->ftag, v->p, &id->vo_next.p);
+	return v->p != NULL;
 }
 
 static void
