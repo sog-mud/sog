@@ -1,0 +1,28 @@
+#RACE
+Name wyrm~
+Aff infrared flying~
+Res slash cold bash~
+Vuln pierce~
+Form edible sentient biped mammal~
+Parts head arms legs heart brains guts hands fingers ear eye~
+End
+
+#PCRACE
+Shortname Wyrm~
+Points 600
+Class 'anti-paladin' 100
+Class 'cleric' 100
+Class 'necromancer' 100
+Class 'warlock' 100
+Class 'warrior' 100
+Class 'witch' 100
+BonusSkills 'claws' 'tail'~
+Skill 'tail' 23
+Skill 'claws' 10
+Stats 2 -1 2 -3 4 0 
+MaxStats 22 19 22 17 24 25 
+Size large
+RestrictAlign evil neutral~
+End
+
+#$
