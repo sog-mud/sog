@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.27 2002-11-28 20:31:36 fjoe Exp $
+ * $Id: comm.c,v 1.200.2.28 2002-11-28 20:45:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -163,6 +163,7 @@ char compress_dont	[] = { IAC, DONT, TELOPT_COMPRESS, '\0' };
  * Global variables.
  */
 DESCRIPTOR_DATA *   descriptor_list;	/* All open descriptors		*/
+DESCRIPTOR_DATA *   descriptor_next;	/* next descriptor in game_loop	*/
 bool		    merc_down;		/* Shutdown			*/
 bool		    wizlock;		/* Game is wizlocked		*/
 bool		    newlock;		/* Game is newlocked		*/
@@ -688,8 +689,8 @@ void game_loop_unix(void)
 		/*
 		 * Process input.
 		 */
-		for (d = descriptor_list; d != NULL; d = d_next) {
-			d_next		= d->next;
+		for (d = descriptor_list; d != NULL; d = descriptor_next) {
+			descriptor_next = d->next;
 			d->fcommand	= FALSE;
 
 			if (FD_ISSET(d->descriptor, &in_set)) {
@@ -970,6 +971,9 @@ void close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 		free(dclose->out_compress_buf);
 		free(dclose->out_compress);
 	}
+
+	if (dclose == descriptor_next)
+		descriptor_next = descriptor_next->next;
 
 	if (dclose == descriptor_list)
 		descriptor_list = descriptor_list->next;
