@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.214 2000-04-19 10:29:51 fjoe Exp $
+ * $Id: spellfun.c,v 1.215 2000-04-19 11:26:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3194,21 +3194,38 @@ void spell_sanctuary(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	AFFECT_DATA af;
 
 	if (IS_AFFECTED(victim, AFF_SANCTUARY)) {
-		if (victim == ch)
-			char_puts("You are already in sanctuary.\n", ch);
-		else
+		if (victim == ch) {
+			act_puts("You are already in sanctuary.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		} else {
 			act("$N is already in sanctuary.",
 			    ch, NULL, victim, TO_CHAR);
+		}
 		return;
 	}
 
 	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)) {
-		if (victim == ch)
-	 		char_puts("But you are surrounded by black shroud.\n",
-				  ch);
-		else
-			act("But $N is surrounded by black shroud.\n",
+		if (victim == ch) {
+	 		act_puts("But you are surrounded by black shroud.",
+				  ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		} else {
+			act("But $N is surrounded by black shroud.",
 			    ch, NULL, victim, TO_CHAR);
+		}
+		return;
+	}
+
+	if (IS_EVIL(ch)) {
+		act_puts("The gods are infuriated!",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		damage(ch, ch, dice(level, IS_EVIL(ch) ? 2 : 1),
+		       NULL, DAM_HOLY, DAMF_SHOW);
+		return;
+	}
+
+	if (IS_EVIL(victim)) {
+		act("Your god does not seems to like $N",
+			ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
@@ -3219,10 +3236,11 @@ void spell_sanctuary(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	INT(af.location) = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = AFF_SANCTUARY;
-	af.owner	= NULL;
+	af.owner     = NULL;
 	affect_to_char(victim, &af);
 	act("$n is surrounded by a white aura.", victim, NULL, NULL, TO_ROOM);
-	char_puts("You are surrounded by a white aura.\n", victim);
+	act_puts("You are surrounded by a white aura.",
+		 victim, NULL, NULL, TO_CHAR, POS_DEAD);
 }
 
 void spell_black_shroud(const char *sn, int level, CHAR_DATA *ch, void *vo)
@@ -3230,16 +3248,31 @@ void spell_black_shroud(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA*) vo;
 	AFFECT_DATA af;
 
+	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)) {
+		if (victim == ch) {
+			act_puts("You are already protected.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		} else {
+			act("$N is already protected.",
+			    ch, NULL, victim, TO_CHAR);
+		}
+		return;
+	}
+
 	if (IS_AFFECTED(victim, AFF_SANCTUARY)) {
-		if (victim==ch)
-			char_puts("But you are in sanctuary.\n", ch);
-		else
-			act("But $N in sanctuary.", ch, NULL, victim,TO_CHAR);
+		if (victim == ch) {
+			act_puts("But you are in sanctuary.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		} else {
+			act("But $N is in sanctuary.",
+			    ch, NULL, victim, TO_CHAR);
+		}
 		return;
 	}
 
 	if (!IS_EVIL(ch)) {
-		char_puts("The gods are infuriated!.\n", ch);
+		act_puts("The gods are infuriated!",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		damage(ch, ch, dice(level, IS_GOOD(ch) ? 2 : 1),
 		       NULL, DAM_HOLY, DAMF_SHOW);
 		return;
@@ -3248,15 +3281,6 @@ void spell_black_shroud(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	if (!IS_EVIL(victim)) {
 		act("Your god does not seems to like $N", 
 		    ch, NULL, victim, TO_CHAR);
-		return;
-	}
-
-	if (is_affected(victim, sn)) {
-		if (victim == ch)
-			char_puts("You are already protected.\n", ch);
-		else
-			act("$N is already protected.\n",
-			    ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
@@ -3269,8 +3293,9 @@ void spell_black_shroud(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.bitvector = AFF_BLACK_SHROUD;
 	af.owner	= NULL;
 	affect_to_char(victim, &af);
-	act ("$n is surrounded by black aura.", victim, NULL, NULL, TO_ROOM);
-	char_puts("You are surrounded by black aura.\n", victim);
+	act("$n is surrounded by black aura.", victim, NULL, NULL, TO_ROOM);
+	act_puts("You are surrounded by black aura.",
+		 victim, NULL, NULL, TO_CHAR, POS_DEAD);
 }
 
 void spell_shield(const char *sn, int level, CHAR_DATA *ch, void *vo)
