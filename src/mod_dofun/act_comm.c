@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.31 2001-12-18 11:44:42 tatyana Exp $
+ * $Id: act_comm.c,v 1.187.2.32 2002-01-08 20:40:54 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1784,7 +1784,7 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 
 	if ((mark = get_eq_char(ch, WEAR_CLANMARK)) != NULL
 	&&  mark->pObjIndex->vnum == OBJ_VNUM_RENEGADE_MARK) {
-		act_puts("You are renegade and connot join clans anymore.",
+		act_puts("You are renegade and can't join clans anymore.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
