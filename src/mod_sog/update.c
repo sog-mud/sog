@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.127 1999-05-21 13:31:34 fjoe Exp $
+ * $Id: update.c,v 1.128 1999-05-21 18:42:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -786,8 +786,7 @@ void mobile_update(void)
 		&&  (!IS_SET(act, ACT_STAY_AREA) ||
 		     pexit->to_room.r->area == ch->in_room->area) 
 		&&  (!IS_SET(act, ACT_AGGRESSIVE) ||
-		     !IS_SET(pexit->to_room.r->room_flags,
-			     ROOM_PEACE | ROOM_SAFE))
+		     !IS_SET(pexit->to_room.r->room_flags, ROOM_PEACE))
 		&&  (!IS_SET(act, ACT_OUTDOORS) ||
 		     !IS_SET(pexit->to_room.r->room_flags, ROOM_INDOORS)) 
 		&&  (!IS_SET(act, ACT_INDOORS) ||
