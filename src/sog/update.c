@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.109 1999-02-26 08:11:39 fjoe Exp $
+ * $Id: update.c,v 1.110 1999-02-26 11:56:52 kostik Exp $
  */
 
 /***************************************************************************
@@ -431,7 +431,7 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 	if (iCond == COND_FULL && (ch->pcdata->condition[COND_FULL] < 0))
 		ch->pcdata->condition[COND_FULL] = 0;
 
-	if ((iCond == COND_DRUNK) && (condition < 1)) 
+	if ((iCond == COND_DRUNK) && (ch->pcdata->condition[COND_DRUNK] < 1)) 
 		ch->pcdata->condition[COND_DRUNK] = 0;
 
 	if (ch->pcdata->condition[iCond] < 1
