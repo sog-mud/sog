@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.8 1998-04-21 22:03:56 efdi Exp $
+ * $Id: save.c,v 1.9 1998-04-22 06:08:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,6 +60,7 @@
 #include "db.h"
 #include "comm.h"
 #include "const.h"
+#include "act_info.h"
 #include "resource.h"
  
 #if !defined(macintosh)
@@ -1226,10 +1227,10 @@ void fread_char( CHAR_DATA *ch, FILE *fp )
 	    KEY( "Trust",	ch->trust,		fread_number( fp ) );
 	    KEY( "Tru",		ch->trust,		fread_number( fp ) );
 
-	    if ( !str_cmp( word, "Title" )  || !str_cmp( word, "Titl"))
-	    {
-		ch->pcdata->title = fread_string( fp );
-		smash_percent(ch->pcdata->title);
+	    if ( !str_cmp( word, "Title" )  || !str_cmp( word, "Titl")) {
+		char* p = fread_string( fp );
+		set_title(ch, p);
+		free_string(p);
 		fMatch = TRUE;
 		break;
 	    }

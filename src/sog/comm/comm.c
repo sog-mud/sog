@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.12 1998-04-21 22:03:53 efdi Exp $
+ * $Id: comm.c,v 1.13 1998-04-22 06:08:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2508,10 +2508,9 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	    ch->practice += 5;
 	    ch->pcdata->death = 0;
 
-	    sprintf( buf, "the %s",
-		title_table [ch->class] [ch->level]
-		[ch->sex == SEX_FEMALE ? 1 : 0] );
-	    set_title( ch, buf );
+	    set_title(ch, "the %s",
+			title_table [ch->class] [ch->level]
+			[ch->sex == SEX_FEMALE ? 1 : 0] );
 
 	    do_outfit(ch,"");
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.8 1998-04-21 22:03:49 efdi Exp $
+ * $Id: act_comm.c,v 1.9 1998-04-22 06:08:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -310,8 +310,6 @@ void do_say(CHAR_DATA *ch, char *argument, ...)
       send_to_char( "But, you are not in a room!\n\r", ch );
       return;
     }
-
-	smash_percent(argument);
 
 	va_start(ap, argument);
 	vsprintf(buf, argument, ap);

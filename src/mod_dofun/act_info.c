@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.12 1998-04-21 22:03:50 efdi Exp $
+ * $Id: act_info.c,v 1.13 1998-04-22 06:08:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1048,38 +1048,32 @@ void do_prompt(CHAR_DATA *ch, char *argument)
 {
    char buf[MAX_STRING_LENGTH];
  
-   if ( argument[0] == '\0' )
-   {
-	if (IS_SET(ch->comm,COMM_PROMPT))
-   	{
+   if ( argument[0] == '\0' ) {
+	if (IS_SET(ch->comm,COMM_PROMPT)) {
 	  	    send_to_char("You will no longer see prompts.\n\r",ch);
 	  	    REMOVE_BIT(ch->comm,COMM_PROMPT);
 		}
-		else
-		{
+		else {
 	  	    send_to_char("You will now see prompts.\n\r",ch);
 	  	    SET_BIT(ch->comm,COMM_PROMPT);
 		}
 	   return;
    }
 
-   if( !strcmp( argument, "all" ) )
-	  strcpy( buf, DEFAULT_PROMPT);
-   else
-   {
-	  if ( strlen(argument) > 50 )
-	     argument[50] = '\0';
-	  strcpy( buf, argument );
-	  smash_tilde( buf );
+   if(!strcmp(argument, "all"))
+	  strcpy(buf, DEFAULT_PROMPT);
+   else {
+	  if (strlen(argument) > 50)
+		argument[50] = '\0';
+	  sprintf(buf, argument);
+	  smash_tilde(buf);
 	  if (str_suffix("%c",buf))
-	strcat(buf," ");
-	
+		strcat(buf," ");
    }
  
-   free_string( ch->prompt );
-   ch->prompt = str_dup( buf );
-   sprintf(buf,"Prompt set to %s\n\r",ch->prompt );
-   send_to_char(buf,ch);
+   free_string(ch->prompt);
+   ch->prompt = str_dup(buf);
+   char_printf(ch,"Prompt set to %s\n\r",ch->prompt);
    return;
 }
 
@@ -1829,7 +1823,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 		act = EMPTY_STRING;
 
 	if (IS_NPC(wch))
-		title = "Believer of Chronos";
+		title = " Believer of Chronos";
 	else 
 		title = wch->pcdata->title;
 
@@ -1839,7 +1833,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, char* output)
 	sprintf(level, "%2d", wch->level);
 	trusted = IS_TRUSTED(ch, LEVEL_IMMORTAL) || ch == wch ||
 		  wch->level >= LEVEL_HERO;
-	sprintf(buf, "[{C%s{x %s {Y%s{x] %s[{C%s{x] %s%s %s\n\r",
+	sprintf(buf, "[{C%s{x %s {Y%s{x] %s[{C%s{x] %s%s%s\n\r",
 		trusted ? level
 			: (get_curr_stat(wch, STAT_CHA) < 18) ? level : "  ",
 		RACE(wch) < MAX_PC_RACE ? pc_race_table[RACE(wch)].who_name 
@@ -2534,18 +2528,23 @@ void set_title(CHAR_DATA *ch, char *title, ...)
 {
 	va_list ap;
 	char buf[MAX_STRING_LENGTH];
- 	static char skip[] = ".,!?"; 
+	char* p;
+ 	static char nospace[] = ".,!?"; 
 
 	if (IS_NPC(ch)) {
 		bug("Set_title: NPC.", 0);
 		return;
 	}
 
-	if (strchr(skip, title[0]))
-		title ++;
+	if (strchr(nospace, title[0]))
+		p = buf;
+	else {
+		buf[0] = ' ';
+		p = buf+1;
+	}
 
 	va_start(ap, title);
-	vsprintf(buf, title, ap);
+	vsprintf(p, title, ap);
 	va_end(ap);
 
 	free_string(ch->pcdata->title);
@@ -2577,7 +2576,6 @@ void do_title(CHAR_DATA *ch, char *argument)
 		argument[45] = '\0';
 
 	smash_tilde(argument);
-	smash_percent(argument);
 	set_title(ch, argument);
 	send_to_char("Ok.\n\r", ch);
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.7 1998-04-21 11:36:36 fjoe Exp $
+ * $Id: interp.c,v 1.8 1998-04-22 06:08:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -687,6 +687,7 @@ void interpret( CHAR_DATA *ch, char *argument, bool is_order )
 	/*
 	 * Dispatch the command.
 	 */
+	smash_percent(argument);
 	(*cmd_table[cmd].do_fun) ( ch, argument );
 
 	tail_chain();
