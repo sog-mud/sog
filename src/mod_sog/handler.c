@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.277 2001-01-23 21:47:00 fjoe Exp $
+ * $Id: handler.c,v 1.278 2001-01-24 17:25:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4107,6 +4107,20 @@ void reboot_mud(void)
 		d_next = d->next;
 		write_to_buffer(d,"SoG is going down for rebooting NOW!\n\r",0);
 		close_descriptor(d, SAVE_F_REBOOT);
+	}
+
+	/*
+	 * activate eqcheck on next boot
+	 */
+	if (!rebooter) {
+		FILE *fp = dfopen(TMP_PATH, EQCHECK_FILE, "w");
+		if (!fp) {
+			log(LOG_ERROR,
+			    "reboot_mud: unable to activate eqcheck");
+		} else {
+			log(LOG_INFO, "reboot_mud: eqcheck activated");
+			fclose(fp);
+		}
 	}
 
 	merc_down = TRUE;
