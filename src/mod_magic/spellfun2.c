@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.137 1999-09-30 09:24:34 osya Exp $
+ * $Id: spellfun2.c,v 1.138 1999-09-30 10:08:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5736,11 +5736,13 @@ void spell_death_ripple(int sn, int level, CHAR_DATA *ch, void *vo)
 		next_room = exit->to_room.r;		
 
                 if (exit == NULL 
-                || next_room == NULL
-                || IS_SET(exit->exit_info, EX_CLOSED)
-                || !can_see_room(ch, next_room)
-		|| next_room->exit[rev_dir[door]]->to_room.r !=  prev_room
-		|| v_counter > level/10) 
+		||  next_room == NULL
+		||  IS_SET(exit->exit_info, EX_CLOSED)
+		||  !can_see_room(ch, next_room)
+		||  next_room->exit == NULL
+		||  next_room->exit[rev_dir[door]] == NULL
+		||  next_room->exit[rev_dir[door]]->to_room.r != prev_room
+		||  v_counter > level/10) 
                         return;
 
                 prev_room = exit->to_room.r;
