@@ -1,5 +1,5 @@
 /*
- * $Id: fight.h,v 1.13.2.1 2000-04-05 14:23:50 osya Exp $
+ * $Id: fight.h,v 1.13.2.2 2004-02-20 16:26:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -69,5 +69,6 @@ void	yell		(CHAR_DATA *victim, CHAR_DATA *ch, const char * argument);
 #define DAMF_NONE	(0)
 #define DAMF_SHOW	(A)	/* show dam message */
 #define DAMF_SECOND	(B)	/* damage inflicted by second weapon */
+#define DAMF_STUN	(C)	/* damage inflicted by master hand */
 
 #endif

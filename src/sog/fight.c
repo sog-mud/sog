@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.66 2003-09-30 01:25:19 fjoe Exp $
+ * $Id: fight.c,v 1.202.2.67 2004-02-20 16:26:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -67,6 +67,7 @@ bool	check_parry		(CHAR_DATA *ch, CHAR_DATA *victim, int loc);
 bool	check_block		(CHAR_DATA *ch, CHAR_DATA *victim, int loc);
 bool	check_blink		(CHAR_DATA *ch, CHAR_DATA *victim);
 bool	check_hand_block	(CHAR_DATA *ch, CHAR_DATA *victim);
+void	check_stun		(CHAR_DATA *ch, CHAR_DATA *victim);
 void	dam_message		(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 				 int dt, bool immune, int dam_type);
 void	death_cry		(CHAR_DATA *ch, CHAR_DATA *victim);
@@ -840,29 +841,14 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 				act_puts("Your flesh is burned with the holy aura of $p.", victim, wield, NULL, TO_CHAR, POS_DEAD);
 				dam += dam * 120 / 100;
 			}
-		}
-		else {
-			dam = number_range(1 + 4 * sk / 100,
-					   2 * LEVEL(ch) / 3 * sk / 100);
+		} else {
+			dam = number_range(
+			    1 + 4 * sk / 100, 2 * LEVEL(ch) / 3 * sk / 100);
 			if ((sk2 = get_skill(ch, gsn_master_hand))
-			&& number_percent() <= sk2) {
+			&&  number_percent() <= sk2) {
 				check_improve(ch, gsn_master_hand, TRUE, 6);
 				dam += dam * 110 /100;
-				if (number_percent() < sk2/5+LEVEL(ch)-LEVEL(victim)) {
-					SET_BIT(victim->affected_by,
-						AFF_WEAK_STUN);
-					act_puts("You hit $N with a stunning "
-						 "force!", ch, NULL, victim,
-						 TO_CHAR, POS_DEAD);
-					act_puts("$n hits you with a stunning "
-						 "force!", ch, NULL, victim,
-						 TO_VICT, POS_DEAD);
-					act_puts("$n hits $N with a stunning "
-						 "force!", ch, NULL, victim,
-						 TO_NOTVICT, POS_RESTING);
-					check_improve(ch, gsn_master_hand,
-						      TRUE, 6);
-				}
+				SET_BIT(dam_flags, DAMF_STUN);
 			}
 		}
 	}
@@ -1037,7 +1023,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 		dam = 1;
 
 	if (counter) {
-		damage(ch, ch, 2*dam, dt, dam_type, DAMF_SHOW);
+		damage(ch, ch, 2*dam, dt, dam_type, dam_flags);
 		multi_hit(victim, ch, TYPE_UNDEFINED);
 		return;
 	}
@@ -1469,6 +1455,8 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 			return FALSE;
 		if (check_blink(ch, victim))
 			return FALSE;
+		if (IS_SET(dam_flags, DAMF_STUN))
+			check_stun(ch, victim);
 	}
 
 	switch(check_immune(victim, dam_type)) {
@@ -2045,6 +2033,31 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim)
 	}
 	check_improve(victim, gsn_dodge, TRUE, 6);
 	return TRUE;
+}
+
+void
+check_stun(CHAR_DATA *ch, CHAR_DATA *victim)
+{
+	int chance;
+
+	if ((chance = get_skill(ch, gsn_master_hand)) == 0)
+		return;
+
+	chance /= 3;
+	chance += get_curr_stat(ch, STAT_STR);
+	chance -= get_curr_stat(victim, STAT_CON);
+	chance += LEVEL(ch)-LEVEL(victim);
+
+	if (number_percent() < chance) {
+		SET_BIT(victim->affected_by, AFF_WEAK_STUN);
+		act_puts("You hit $N with a stunning force!",
+			 ch, NULL, victim, TO_CHAR, POS_DEAD);
+		act_puts("$n hits you with a stunning " "force!",
+			 ch, NULL, victim, TO_VICT, POS_DEAD);
+		act_puts("$n hits $N with a stunning force!",
+			 ch, NULL, victim, TO_NOTVICT, POS_RESTING);
+		check_improve(ch, gsn_master_hand, TRUE, 6);
+	}
 }
 
 /*
