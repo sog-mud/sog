@@ -79,6 +79,12 @@ Form 3 -ут~
 End
 
 #RULE
+Name -щет~
+BaseLen -2
+Form 3 -ут~
+End
+
+#RULE
 Name -дет~
 BaseLen -2
 Form 1 -ет~
