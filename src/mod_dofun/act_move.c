@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.151 1999-02-24 10:13:31 kostik Exp $
+ * $Id: act_move.c,v 1.152 1999-02-24 18:07:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -242,23 +242,19 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 	if (!IS_NPC(ch)) {
 		int move;
 
-		if (IS_SET(to_room->room_flags, ROOM_GUILD)) {
-			if (!guild_ok(ch, to_room)) {
+		if (!IS_IMMORTAL(ch)) {
+			if (IS_SET(to_room->room_flags, ROOM_GUILD)
+			&&  !guild_ok(ch, to_room)) {
 				char_puts("You aren't allowed there.\n", ch);
 				return FALSE;
 			}
-			else if (IS_PUMPED(ch) && !IS_IMMORTAL(ch)) {
-				char_puts("You feel too bloody to"
-					" go in there now.", ch);
+
+			if (IS_PUMPED(ch)
+			&&  IS_SET(to_room->room_flags, ROOM_PEACE | ROOM_GUILD)) {
+				act_puts("You feel too bloody to go in there now.",
+					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+				return FALSE;
 			}
-		}
-
-
-		if (!IS_IMMORTAL(ch) && IS_PUMPED(ch)
-		&&  IS_SET(to_room->room_flags, ROOM_PEACE)) {
-			act_puts("You feel too bloody to go in there now.",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			return FALSE;
 		}
 
 		if (in_room->sector_type == SECT_AIR
