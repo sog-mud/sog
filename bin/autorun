@@ -1,9 +1,16 @@
 #!/bin/sh
 umask 002
 
+#
+# locale settings for FreeBSD
+#LANG=ru_RU.KOI8-R; export LANG
+LANG=koi8-r; export LANG
+LC_TIME=en_US.ISO_8859-1; export LC_TIME
 lastlog=tmp/lastlog
 muddy=bin/muddy
 shutdown=tmp/shutdown
+core=core
+home=/home/mud
 index=0
 
 if [ "$1" = "" ]; then
@@ -12,7 +19,7 @@ else
 	port=$1
 fi
 
-cd /usr/local/muddy
+cd $home
 
 if [ -r $shutdown ]; then
 	rm $shutdown
@@ -39,13 +46,13 @@ do
 	$muddy $port >$logfile 2>&1
 	exitcode=$?
 
-	avail=`df -k /usr | tail -1 | awk '{ print $4 }'`
-	if [ -r muddy.core ]
+	avail=`df -k $home | tail -1 | awk '{ print $4 }'`
+	if [ -r $core ]
 	then
-		chmod g+rw muddy.core
+		chmod g+rw $core
 		if [ $avail -gt 65535 ]
 		then
-			mv muddy.core corefiles/core.$index
+			mv $core corefiles/core.$index
 			cp -p $muddy corefiles/muddy.$index
 		else
 			echo `date` "Low space (${avail}k) on disk: corefile not renamed" >> $logfile

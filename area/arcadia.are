@@ -1,5 +1,6 @@
 #AREADATA
 Name Arcadia~
+Builders arwen~
 VNUMs 12000 12157
 Credits Cernunn~
 Security 9
@@ -787,6 +788,7 @@ wood~
 armor G AE
 5 6 5 3 0
 22 3 30 P
+G none
 #12001
 nectar~
 A drop of nectar~
@@ -795,6 +797,7 @@ cloth~
 potion Q A
 25 'refresh' 'cure critical' 'cure poison' 'cure blindness'
 22 1 0 P
+G none
 #12002
 trident~
 A silver trident~
@@ -803,6 +806,7 @@ silver~
 weapon AG AN
 spear 6 6 pierce 0
 28 30 800 P
+G none
 #12003
 opal bracelet~
 an opal bracelet~
@@ -813,6 +817,7 @@ armor AG AM
 30 5 400 P
 A
 19 3
+G none
 #12004
 gossamer gown~
 A light gossamer gown~
@@ -825,6 +830,7 @@ A
 14 50
 A
 2 2
+G none
 #12005
 slender sword~
 A small slender sword~
@@ -835,6 +841,7 @@ sword 4 9 slash 0
 32 10 800 P
 A
 18 3
+G none
 #12006
 boots~
 A pair of grey boots~
@@ -847,6 +854,7 @@ A
 2 2
 A
 14 110
+G none
 #12007
 pixie bow~
 A pixie bow~
@@ -857,6 +865,7 @@ wand ABC AO
 30 2 1000 P
 A
 20 1
+G none
 #12008
 wavy kris blade~
 A dull kris blade~
@@ -867,6 +876,7 @@ dagger 4 10 pierce D
 40 9 30 W
 A
 19 4
+G none
 #12009
 jagged blade~
 A jagged blade~
@@ -883,6 +893,7 @@ A
 4 -2
 A
 1 2
+G none
 #12010
 red cap~
 A red cap~
@@ -895,6 +906,7 @@ A
 19 3
 A
 3 -3
+G none
 #12011
 club~
 A blood stained club~
@@ -907,6 +919,7 @@ A
 19 7
 A
 12 -50
+G none
 #12012
 book~
 A book of Tales~
@@ -919,6 +932,7 @@ A
 14 100
 A
 4 3
+G none
 #12013
 khopesh~
 A gleaming khopesh~
@@ -927,6 +941,7 @@ unknown~
 weapon G AN
 sword 8 7 slash 0
 56 30 1200 P
+G none
 #12014
 unfinished helmet~
 An unfinished helmet~
@@ -935,6 +950,7 @@ unknown~
 armor G AEO
 14 14 12 12 0
 51 15 800 G
+G none
 #12015
 unfinished boots~
 An unfinished pair of boots~
@@ -948,6 +964,7 @@ A
 5 4
 A
 2 4
+G none
 #12016
 stitching needle~
 A stitching needle~
@@ -956,6 +973,7 @@ iron~
 weapon AG AN
 dagger 6 9 pierce 0
 51 1 200 P
+G none
 #12017
 leather apron~
 A scorched leather apron~
@@ -966,6 +984,7 @@ armor 0 AK
 51 20 100 A
 A
 13 30
+G none
 #12018
 pan pipes~
 Pan pipes~
@@ -974,6 +993,7 @@ wood~
 wand G AO
 50 20 20 'charm person' 0
 60 3 400 P
+G none
 #12019
 flagon~
 A flagon of dark ale~
@@ -986,6 +1006,7 @@ A
 18 -2
 A
 5 3
+G none
 #12020
 jester cap~
 A jester's cap~
@@ -1000,6 +1021,7 @@ A
 2 1
 A
 3 -3
+G none
 #12021
 unfinished axe~
 An unfinished axe~
@@ -1014,6 +1036,7 @@ A
 18 -1
 A
 1 1
+G none
 #12022
 ember~
 A fiery ember~
@@ -1024,6 +1047,7 @@ light A A
 50 1 0 G
 A
 1 4
+G none
 #12023
 pile coals~
 A pile of coals~
@@ -1032,6 +1056,7 @@ stone~
 container A 0
 100 0 0 50 100
 100 1 0 P
+G none
 #12024
 forge~
 A HUGE stone forge~
@@ -1040,6 +1065,7 @@ stone~
 container 0 0
 100 0 0 50 100
 100 1 0 W
+G none
 #12025
 dark sword~
 A crude, dark sword~
@@ -1064,6 +1090,7 @@ A
 20 -2
 A
 12 -50
+G none
 #12026
 fountain~
 A beautiful crystal fountain~
@@ -1077,6 +1104,7 @@ fountain~
 A beautiful fountain of some light and dark crystal reflects light from a 
 thousand different facets inviting you to watch as much as it does to drink.
 ~
+G none
 #12027
 bucket~
 A wooden bucket~
@@ -1090,6 +1118,7 @@ water~
 The water in the bucket looks quite dirty.  It doesn't look like it would 
 quench your thirst.
 ~
+G none
 #12028
 slime pool~
 slime pool~
@@ -1098,6 +1127,7 @@ unknown~
 container 0 0
 100 0 0 50 100
 1 0 0 A
+G none
 #12029
 slime bit~
 A bit of slime~
@@ -1106,6 +1136,7 @@ unknown~
 pill A A
 30 'know alignment' 'armor' '' ''
 28 2 0 G
+G none
 #12030
 bookshelf~
 A large oak bookshelf~
@@ -1114,6 +1145,7 @@ unknown~
 container 0 0
 100 0 12065 50 100
 0 0 0 P
+G none
 #12031
 manuscript~
 An ancient manuscript~
@@ -1141,6 +1173,7 @@ their existence.  The change is one of internal alliance and a once
 honest and loving Seelie fae can become a dishonest and distrusting one 
 by changing courts.
 ~
+G none
 #12032
 manuscript~
 An ancient manuscript~
@@ -1165,6 +1198,7 @@ change of roles since the last cycle of fae existence. Why the Fool is
 exempt from these yearly changes is a mystery that only he may know and 
 as is his nature he isn't telling.
 ~
+G none
 #12033
 jester stick~
 A jester's stick~
@@ -1173,6 +1207,7 @@ unknown~
 staff BI AO
 60 20 20 'faerie fog' 0
 58 7 1200 G
+G none
 #12034
 jester stick~
 A jester's stick~
@@ -1181,6 +1216,7 @@ unknown~
 staff BI AO
 60 20 20 'blindness' 0
 58 7 1200 G
+G none
 #12035
 jester stick~
 A jester's stick~
@@ -1189,6 +1225,7 @@ unknown~
 staff BI AO
 60 20 20 'teleport' 0
 58 7 1200 G
+G none
 #12036
 white marble mace~
 A white  mace~
@@ -1205,6 +1242,7 @@ A
 1 2
 A
 19 7
+G none
 #12037
 spiked club~
 A twisted spiked club~
@@ -1221,6 +1259,7 @@ A
 1 2
 A
 19 7
+G none
 #12038
 ice shield~
 An ice shield~
@@ -1233,6 +1272,7 @@ A
 17 -10
 A
 24 -7
+G none
 #12039
 oath ring~
 An oath ring~
@@ -1245,6 +1285,7 @@ A
 13 40
 A
 17 -5
+G none
 #12040
 noble cape~
 A noble's cape~
@@ -1253,6 +1294,7 @@ unknown~
 armor G AC
 22 22 22 16 0
 72 5 1200 P
+G none
 #12041
 noble sword~
 A sidhe broadsword~
@@ -1261,6 +1303,7 @@ unknown~
 weapon G AN
 sword 10 8 slash 0
 72 5 1200 P
+G none
 #12042
 noble breastplate~
 A sidhe breastplate~
@@ -1271,6 +1314,7 @@ armor G AD
 72 9 1200 P
 A
 4 2
+G none
 #12043
 sidhe armguards~
 A pair of sidhe armguards~
@@ -1281,6 +1325,7 @@ armor G AI
 68 6 1100 P
 A
 1 1
+G none
 #12044
 sidhe greaves~
 A pair of sidhe greaves~
@@ -1291,6 +1336,7 @@ armor G AF
 68 6 800 P
 A
 14 50
+G none
 #12045
 sidhe braceers~
 An engraved sidhe bracer~
@@ -1303,6 +1349,7 @@ A
 19 5
 A
 18 5
+G none
 #12046
 noble circlet~
 A noble's circlet~
@@ -1317,6 +1364,7 @@ A
 4 4
 A
 5 5
+G none
 #12047
 noble rapier~
 A noble's rapier~
@@ -1329,6 +1377,7 @@ A
 18 5
 A
 19 5
+G none
 #12048
 heart night~
 The heart of Night~
@@ -1347,6 +1396,7 @@ A
 13 50
 A
 12 50
+G none
 #12049
 night blood~
 night's blood~
@@ -1355,6 +1405,7 @@ unknown~
 potion G AO
 80 'pass door' 'sanctuary' '' ''
 82 3 3000 P
+G none
 #12050
 stag horned helmet~
 A stag horned helmet~
@@ -1365,6 +1416,7 @@ armor G AE
 86 11 2800 P
 A
 18 6
+G none
 #12051
 silver torc~
 A silver torc~
@@ -1375,6 +1427,7 @@ armor G AC
 86 11 2900 P
 A
 4 3
+G none
 #12052
 poetry~
 poetry~
@@ -1383,6 +1436,7 @@ unknown~
 scroll G A
 80 'enchant weapon' 'enchant weapon' 'enchant weapon' ''
 78 2 5000 P
+G none
 #12053
 robe~
 A poet's robe~
@@ -1393,6 +1447,7 @@ armor G AK
 78 7 2000 P
 A
 3 4
+G none
 #12054
 gown~
 An embroidered gown~
@@ -1403,6 +1458,7 @@ armor G AK
 84 8 2000 P
 A
 12 100
+G none
 #12055
 locket~
 A summer locket~
@@ -1417,6 +1473,7 @@ A
 3 2
 A
 19 4
+G none
 #12056
 golden torc~
 A golden torc~
@@ -1431,6 +1488,7 @@ A
 5 2
 A
 4 2
+G none
 #12057
 cloak shadows~
 The cloak of shadows~
@@ -1441,6 +1499,7 @@ armor CG AC
 84 2 3000 P
 A
 2 3
+G none
 #12058
 bag tricks~
 A bag of tricks~
@@ -1449,6 +1508,7 @@ unknown~
 container G AO
 1000 0 0 500 100
 82 2 0 P
+G none
 #12059
 orange~
 An orange~
@@ -1457,6 +1517,7 @@ unknown~
 pill 0 A
 82 'curse' 'sleep' 'blindness' 'poison'
 83 1 0 P
+G none
 #12060
 pebble~
 A small pebble~
@@ -1469,6 +1530,7 @@ A
 9 50
 A
 6 1
+G none
 #12061
 slime bit~
 A bit of slime~
@@ -1477,6 +1539,7 @@ unknown~
 boat A A
 BCDE 0 0 DEGJ 0
 28 2 0 G
+G none
 #12062
 bed~
 An unmade bed~
@@ -1485,6 +1548,7 @@ unknown~
 container 0 0
 100 0 0 50 72
 0 0 0 P
+G none
 #12063
 bed~
 A well made bed~
@@ -1493,6 +1557,7 @@ unknown~
 container 0 0
 100 0 0 50 72
 0 0 0 P
+G none
 #12064
 scroll armor~
 A scroll of armor making~
@@ -1501,6 +1566,7 @@ unknown~
 scroll FG A
 60 'armor' 'shield' 'stone skin' 'bless'
 55 3 1000 P
+G none
 #12065
 oak key~
 A small oak key~
@@ -1509,6 +1575,7 @@ unknown~
 key B A
 0 0 0 0 0
 55 1 0 P
+G none
 #12066
 page~
 A page of glowing script~
@@ -1517,6 +1584,7 @@ unknown~
 scroll AG A
 50 'word of recall' '' '' ''
 55 4 10000 P
+G none
 #12067
 black key~
 A small Black key~
@@ -1525,6 +1593,7 @@ unknown~
 key CF A
 0 0 0 0 0
 55 1 0 W
+G none
 #12068
 glowing dust~
 Some glowing dust~
@@ -1533,6 +1602,7 @@ unknown~
 pill G A
 90 'dispel evil' 'create spring' 'armor' ''
 82 1 0 P
+G none
 #12069
 crested shield~
 A crested shield~
@@ -1543,185 +1613,245 @@ armor G AJ
 74 13 1200 P
 A
 17 -10
+G none
 #0
 
 #ROOMS
 #12001
-In a Field~
-You are standing out in a field of tall grass.  To the southeast 
+@eng In a Field@rus В поле~
+@eng You are standing out in a field of tall grass.  To the southeast 
 you can see a hill with it's top shrouded in mist.  Behind the mist you 
 catch faint glimpses of what looks to be a large castle.  To the east and 
 south is the hillside and to the west and north tangled brush prevents 
 any movement.
+@rus Ты стоишь на поле среди волнующегося моря высокой зеленой травы. На юго-
+востоке от тебя возвышается величественный холм, вершина которого скрыта
+серебрящимся туманом. Там, среди искристых живых капелек мелькают очертания
+чего-то весьма похожего на большой замок. На восток и юг от тебя простираются
+склоны холма, а дорогу на север и запад преграждают спутанные заросли
+колючего кустарника.
 ~
 0 0 field
 D1
-Toward the hillside.
+@eng Toward the hillside.
+@rus Склон холма.
 ~
 ~
 Z 0 12002
 D2
-Toward the hillside.
+@eng Toward the hillside.
+@rus Склон холма.
 ~
 ~
 Z 0 12005
 S
 #12002
-On the Hillside.~
-You are on the side of a gently sloping hill.  The mist still 
+@eng On the Hillside@rus На склоне холма~
+@eng You are on the side of a gently sloping hill.  The mist still 
 obscures the top but you can no longer recapture the glimpses of the 
 building through the mist.  You can head south up the hill, west to the 
 field or east around the hill.  To the north brambles block all movement.
+@rus Ты стоишь на склоне пологого холма. Дымка по-прежнему скрывает его вершину,
+и уже совсем не видно призрачных очертаний замка, прячущегося в тумане.
+Ты можешь пойти на юг -- вверх по склону холма, либо на запад, где
+колышется травяное море, либо на восток в обход холма. Дорогу на север
+прекраждают пышные густые заросли куманики.
 ~
 0 0 hills
 D1
-On the Hillside.
+@eng On the Hillside.
+@rus На склоне холма.
 ~
 ~
 Z -1 12003
 D2
-Further up the Hill.
+@eng Further up the Hill.
+@rus Вверх по склону.
 ~
 ~
 Z -1 12006
 D3
-In a Field.
+@eng In a Field.
+@rus Море колышущейся травы.
 ~
 ~
 Z -1 12001
 S
 #12003
-On the Hillside.~
-You are on the side of a gently sloping hill.  The mist still
-obscures the top but you can no longer recapture the glimpses of the
-building through the mist.  You can head south up the hill, east to the
+@eng On the Hillside@rus На склоне холма~
+@eng You are on the side of a gently sloping hill.  The mist still 
+obscures the top but you can no longer recapture the glimpses of the 
+building through the mist.  You can head south up the hill, east to the 
 field or west around the hill.  To the north brambles block all movement.
+@rus Ты стоишь на склоне пологого холма. Дымка по-прежнему скрывает его вершину,
+и уже совсем не видно призрачных очертаний замка, прячущегося в тумане.
+Ты можешь пойти на юг -- вверх по склону холма, либо на запад, где
+колышется травяное море, либо на восток в обход холма. Дорогу на север
+прекраждают пышные густые заросли куманики.
 ~
 0 0 hills
 D1
-In a Field.
+@eng In a Field.
+@rus Море колышущейся травы.
 ~
 ~
 Z -1 12004
 D2
-Further up the Hill.
+@eng Further up the Hill.
+@rus Вверх по склону.
 ~
 ~
 Z -1 12007
 D3
-On the Hillside..
+@eng On the Hillside..
+@rus На склоне холма.
 ~
 ~
 Z -1 12002
 S
 #12004
-In a Field~
-You are standing out in a field of tall grass.  To the southeast
+@eng In a Field@rus В поле~
+@eng You are standing out in a field of tall grass.  To the southwest
 you can see a hill with it's top shrouded in mist.  Behind the mist you
 catch faint glimpses of what looks to be a large castle.  To the west and
 south is the hillside and to the east and north tangled brush prevents
 any movement.
+@rus Ты стоишь на поле среди волнующегося моря высокой зеленой травы. На юго-
+западе от тебя возвышается величественный холм, вершина которого скрыта 
+серебрящимся туманом. Там, среди искристых живых капелек мелькают очертания 
+чего-то весьма похожего на большой замок. На запад и юг от тебя простираются
+склоны холма, а дорогу на север и восток преграждают спутанные заросли
+колючего кустарника.
 ~
 0 0 field
 D2
-Toward the hillside.
+@eng Toward the hillside.
+@rus Склон холма.
 ~
 ~
 Z 0 12008
 D3
-Toward the hillside.
+@eng Toward the hillside.
+@rus Склон холма.
 ~
 ~
 Z -1 12003
 S
 #12005
-On the Hillside.~
-You are on the side of a gently sloping hill.  The mist still
+@eng On the Hillside@rus На склоне холма~
+@eng You are on the side of a gently sloping hill.  The mist still
 obscures the top but you can no longer recapture the glimpses of the
 building through the mist.  You can head east up the hill, north to the
 field or south around the hill.  To the west brambles block all movement.
+@rus Ты стоишь на склоне пологого холма. Дымка по-прежнему скрывает его вершину,
+и уже совсем не видно призрачных очертаний замка, прячущегося в тумане.  
+Ты можешь пойти на восток -- вверх по склону холма, либо на север, где
+колышется травяное море, либо на юг в обход холма. Дорогу на запад
+преграждают пышные густые заросли куманики.
 ~
 0 0 hills
 D0
-In a Field.
+@eng In a Field.
+@rus Море колышущейся травы.
 ~
 ~
 Z -1 12001
 D1
-Further up the Hill.
+@eng Further up the Hill.
+@rus Вверх по склону.
 ~
 ~
 Z -1 12006
 D2
-On the Hillside..
+@eng On the Hillside..
+@rus Склон холма.
 ~
 ~
 Z -1 12009
 S
 #12006
-Further up the Hillside.~
-You are almost to the top of this hill.  Above you is the top of the 
-hill and in all other directions the hill extends.~
+@eng Further up the Hillside@rus Вверх по склону~
+@eng You are almost to the top of this hill.  Above you is the top of the 
+hill and in all other directions the hill extends.@rus Вот уже и почти вершина, она находится прямо над тобой. А во все
+стороны простираются пологие поросшие травой склоны холма.
+~
 0 0 hills
 D0
-On the Hillside.
+@eng On the Hillside.
+@rus Склон холма.
 ~
 ~
 Z -1 12002
 D1
-On the Hillside.
+@eng On the Hillside.
+@rus Склон холма.
 ~
 ~
 Z -1 12007
 D2
-On the Hillside.
+@eng On the Hillside.
+@rus Склон холма.
 ~
 ~
 Z -1 12010
 D3
-On the Hillside.
+@eng On the Hillside.
+@rus Склон холма.
 ~
 ~
 Z -1 12005
 D4
-On top of the Hill.
+@eng On top of the Hill.
+@rus Вершина холма.
 ~
 ~
 Z -1 12021
 S
 #12007
-Further up the Hillside.~
-You are almost to the top of this hill.  Above you is the top of the
+@eng Further up the Hillside@rus Вверх по склону~
+@eng You are almost to the top of this hill.  Above you is the top of the
 hill and in all other directions the hill extends. You could't find a
-path to the up.~
+path to the up.@rus Вот уже и почти вершина, она находится прямо над тобой. А во все стороны
+простираются пологие склоны холма. Вершина-то она, конечно, совсем рядом, 
+но что-то здесь совсем не видно дороги наверх.
+~
 0 0 hills
 D0
-On the Hillside.
+@eng On the Hillside.
+@rus Склон холма.
 ~
 ~
 Z -1 12003
 D1
-On the Hillside.
+@eng On the Hillside.
+@rus Склон холма.
 ~
 ~
 Z -1 12008
 D2
-On the Hillside.
+@eng On the Hillside.
+@rus Склон холма.
 ~
 ~
 Z -1 12011
 D3
-On the Hillside.
+@eng On the Hillside.
+@rus Склон холма.
 ~
 ~
 Z -1 12006
 S
 #12008
-On the Hillside.~
-You are on the side of a gently sloping hill.  The mist still
+@eng On the Hillside@rus На склоне холма~
+@eng You are on the side of a gently sloping hill.  The mist still
 obscures the top but you can no longer recapture the glimpses of the
 building through the mist.  You can head west up the hill, north to the
 field or south around the hill.  To the east brambles block all movement.
+@rus Ты стоишь на склоне пологого холма. Дымка по-прежнему скрывает его вершину,
+и уже совсем не видно призрачных очертаний замка, прячущегося в тумане.
+Ты можешь пойти на запад -- вверх по холму, либо на север, где колышется
+травяное море, либо на юг в обход холма. Дорогу на восток преграждают
+пышные густые заросли куманики.
 ~
 0 0 hills
 D0
@@ -1741,159 +1871,206 @@ Further up the Hill.
 Z -1 12007
 S
 #12009
-On the Hillside.~
-You are on the side of a gently sloping hill.  The mist still
+@eng On the Hillside@rus На склоне холма~
+@eng You are on the side of a gently sloping hill.  The mist still
 obscures the top but you can no longer recapture the glimpses of the
 building through the mist.  You can head east up the hill, south to the
 field or north around the hill.  To the west brambles block all movement.
+@rus Ты стоишь на склоне пологого холма. Дымка по-прежнему скрывает его вершину,
+и уже совсем не видно призрачных очертаний замка, прячущегося в тумане.
+Ты можешь пойти на восток -- вверх по склону холма, либо на север или юг
+в обход холма. На западе дорогу преграждают пышные густые заросли
+куманики.
 ~
 0 0 hills
 D0
-On the Hillside.
+@eng On the Hillside.
+@rus Склон холма.
 ~
 ~
 Z -1 12005
 D1
-Further up the Hill.
+@eng Further up the Hill.
+@rus Вверх по склону.
 ~
 ~
 Z -1 12010
 D2
-In a Field.
+@eng In a Field.
+@rus Колышущаяся трава.
 ~
 ~
 Z -1 12013
 S
 #12010
-Further up the Hillside.~
-You are almost to the top of this hill.  Above you is the top of the
-hill and in all other directions the hill extends.You could't find a
-path to the up.
+@eng Further up the Hillside@rus Вверх по склону~
+@eng You are almost to the top of this hill.  Above you is the top of the
+hill and in all other directions the hill extends. You could't find a
+path to the up.@rus Вот уже и почти вершина, она находится прямо над тобой. А во все стороны
+простираются пологие склоны холма. Вершина-то она, конечно, совсем рядом, 
+но что-то здесь совсем не видно дороги наверх.
 ~
 0 0 hills
 D0
-On the Hillside.
+@eng On the Hillside.
+@rus На склоне холма.
 ~
 ~
 Z -1 12006
 D1
-On the Hillside.
+@eng On the Hillside.
+@rus На склоне холма.
 ~
 ~
 Z -1 12011
 D2
-On the Hillside.
+@eng On the Hillside.
+@rus На склоне холма.
 ~
 ~
 Z -1 12014
 D3
-On the Hillside.
+@eng On the Hillside.
+@rus На склоне холма.
 ~
 ~
 Z -1 12009
 S
 #12011
-Further up the Hillside.~
-You are almost to the top of this hill.  Above you is the top of the
-hill and in all other directions the hill extends.You could't find a
-path to the up.
+@eng Further up the Hillside@rus Вверх по склону~
+@eng You are almost to the top of this hill.  Above you is the top of the
+hill and in all other directions the hill extends. You could't find a
+path to the up.@rus Вот уже и почти вершина, она находится прямо над тобой. А во все стороны
+простираются пологие склоны холма. Вершина-то она, конечно, совсем рядом, 
+но что-то здесь совсем не видно дороги наверх.
 ~
 0 0 hills
 D0
-On the Hillside.
+@eng On the Hillside.
+@rus На склоне холма.
 ~
 ~
 Z -1 12007
 D1
-On the Hillside.
+@eng On the Hillside.
+@rus На склоне холма.
 ~
 ~
 Z -1 12012
 D2
-On the Hillside.
+@eng On the Hillside.
+@rus На склоне холма.
 ~
 ~
 Z -1 12015
 D3
-On the Hillside.
+@eng On the Hillside.
+@rus На склоне холма.
 ~
 ~
 Z -1 12010
 S
 #12012
-On the Hillside.~
-You are on the side of a gently sloping hill.  The mist still
+@eng On the Hillside@rus На склоне холма~
+@eng You are on the side of a gently sloping hill.  The mist still
 obscures the top but you can no longer recapture the glimpses of the
 building through the mist.  You can head west up the hill, south to the
 field or north around the hill.  To the east brambles block all movement.
+@rus Ты стоишь на склоне пологого холма. Дымка по-прежнему скрывает его вершину,
+и уже совсем не видно призрачных очертаний замка, прячущегося в тумане. 
+Ты можешь пойти на запад -- вверх по холму, либо на юг, где колышется   
+травяное море, либо на север в обход холма. Дорогу на восток преграждают  
+пышные густые заросли куманики.
 ~
 0 0 hills
 D0
-On the Hillside.
+@eng On the Hillside.
+@rus Склон холма.
 ~
 ~
 Z -1 12008
 D2
-In a Field.
+@eng In a Field.
+@rus Море колышущейся травы.
 ~
 ~
 Z -1 12016
 S
 #12013
-In a Field~
-You are standing out in a field of tall grass.  To the northeast
+@eng In a Field@rus В поле~
+@eng You are standing out in a field of tall grass.  To the northeast
 you can see a hill with it's top shrouded in mist.  Behind the mist you
 catch faint glimpses of what looks to be a large castle.  To the east and
 north is the hillside, to the south is more field and to the west tangled 
 brush prevents any movement.
+@rus Ты стоишь на поле среди волнующегося моря высокой зеленой травы. На северо-
+востоке от тебя возвышается величественный холм, вершина которого скрыта  
+серебрящимся туманом. Там, среди искристых живых капелек мелькают очертания 
+чего-то весьма похожего на большой замок. На восток и на север от тебя 
+простираются склоны холма. Дорогу на запад преграждают густые заросли 
+колючего кустарника, а на юге колышется зеленое травяное море.
 ~
 0 0 field
 D0
-On a Hillside.
+@eng On a Hillside.
+@rus Склон холма.
 ~
 ~
 Z -1 12009
 D1
-On a Hillside.
+@eng On a Hillside.
+@rus Склон холма.
 ~
 ~
 Z -1 12014
 D2
-In a Field.
+@eng In a Field.
+@rus Море колышущейся травы.
 ~
 ~
 Z -1 12017
 S
 #12014
-On the Hillside.~
-You are on the side of a gently sloping hill.  The mist still
+@eng On the Hillside@rus На склоне холма~
+@eng You are on the side of a gently sloping hill.  The mist still
 obscures the top but you can no longer recapture the glimpses of the
 building through the mist.  You can head north up the hill, west to the 
 field or east around the hill.
+@rus Ты стоишь на склоне пологого холма. Дымка по-прежнему скрывает его вершину,
+и уже совсем не видно призрачных очертаний замка, прячущегося в тумане. 
+Ты можешь пойти на север -- вверх по холму, на запад, где колышется травяное
+море, либо на восток в обход холма.
 ~
 0 0 hills
 D0
-Further up the Hill.
+@eng Further up the Hill.
+@rus Вверх по склону.
 ~
 ~
 Z -1 12010
 D1
-On the Hillside.
+@eng On the Hillside.
+@rus На склоне холма.
 ~
 ~
 Z -1 12015
 D3
-In a Field.
+@eng In a Field.
+@rus Море колышущейся травы.
 ~
 ~
 Z -1 12013
 S
 #12015
-On the Hillside.~
-You are on the side of a gently sloping hill.  The mist still
+@eng On the Hillside@rus На склоне холма~
+@eng You are on the side of a gently sloping hill.  The mist still
 obscures the top but you can no longer recapture the glimpses of the
 building through the mist.  You can head north up the hill, south or
 east to the field or west around the hill.
+@rus Ты стоишь на склоне пологого холма. Дымка по-прежнему скрывает его вершину,
+и уже совсем не видно призрачных очертаний замка, прячущегося в тумане.   
+Ты можешь пойти на север -- вверх по холму, на юг или восток, где колышется
+травяное море или на запад в обход холма.
 ~
 0 0 hills
 D0
@@ -1918,111 +2095,146 @@ On the Hillside.
 Z -1 12014
 S
 #12016
-In a Field~
-You are standing out in a field of tall grass.  To the northwest
+@eng In a Field@rus В поле~
+@eng You are standing out in a field of tall grass.  To the northwest
 you can see a hill with it's top shrouded in mist.  Behind the mist you
 catch faint glimpses of what looks to be a large castle.  To the west and
 north is the hillside, to the south is more field and to the east tangled 
 brush prevents any movement.
+@rus Ты стоишь на поле среди волнующегося моря высокой зеленой травы. На северо-
+западе от тебя возвышается величественный холм, вершина которого скрыта
+серебрящимся туманом. Там, среди искристых живых капелек, мелькают очертания
+чего-то весьма похожего на большой замок. На запад и север от тебя 
+простираются склоны холма, на юге колышется травяное море, а дорогу на восток
+преграждают густые заросли колючего кустарника.
 ~
 0 0 field
 D0
-On a Hillside.
+@eng On a Hillside.
+@rus Склон холма.
 ~
 ~
 Z -1 12012
 D2
-In a Field.
+@eng In a Field.
+@rus Море колышущейся травы.
 ~
 ~
 Z -1 12020
 D3
-On a Hillside.
+@eng On a Hillside.
+@rus Склон холма.
 ~
 ~
 Z -1 12015
 S
 #12017
-In a Field~
-You are standing out in a field of tall grass.  To the northwest
+@eng In a Field@rus В поле~
+@eng You are standing out in a field of tall grass.  To the northwest
 you can see a hill with it's top shrouded in mist.  Behind the mist you
 catch faint glimpses of what looks to be a large castle.  To the east and
 north is more field and to the west and south tangled brush prevents any
 movement.
+@rus Ты стоишь на поле среди волнующегося моря высокой зеленой травы. На северо-
+западе от тебя возвышается величественный холм, вершина которого скрыта
+серебрящимся туманом. Там, среди искристых живых капелек, мелькают очертания
+чего-то весьма похожего на большой замок. На востоке и на севере колышется 
+море трав, дорогу на юг и запад преграждают густые заросли колючего кустарника.
 ~
 0 0 field
 D0
-In a Field.
+@eng In a Field.
+@rus Поля.
 ~
 ~
 Z -1 12013
 D1
-In a Field.
+@eng In a Field.
+@rus Поля.
 ~
 ~
 Z -1 12018
 S
 #12018
-The Path's Beginning~
-You are in a field like almost any field.  To the east and west the field
+@eng The Path's Beginning@rus Начало дороги~
+@eng You are in a field like almost any field.  To the east and west the field
 continues and to the north you see a path of grass that is noticeably
 darker than the rest which circles around the hill.  To the south are
 more plentiful trail.
+@rus На запад и восток от тебя простирается поистине бесконечное море зелени.
+Куда не кинь взгляд, везде высокая трава, слегка колышущаяся от ветра.
+На севере растительность приобретает более темный оттенок. Туда и убегает
+тропинка, приведшая тебя сюда.
 ~
 0 VW field
 D0
-Along the Path
+@eng Along the Path
+@rus Дорога.
 ~
 ~
 Z -1 12022
 D1
-In a Field
+@eng In a Field
+@rus Поля.
 ~
 ~
 Z -1 12019
 D2
-Along The Trail
+@eng Along The Trail
+@rus Дорога.
 ~
 ~
 Z 0 7827
 D3
-In a Field
+@eng In a Field
+@rus Поля.
 ~
 ~
 Z -1 12017
 S
 #12019
-In a Field~
-You are standing out in a field of tall grass.  To the north
+@eng In a Field@rus В поле~
+@eng You are standing out in a field of tall grass.  To the north
 you can see a hill with it's top shrouded in mist.  Behind the mist you
 catch faint glimpses of what looks to be a large castle.  To the west and
 east is more field, to the north you can head up the hill and to the 
 south you see a path.
+@rus Ты стоишь на поле среди волнующегося моря высокой зеленой травы. На севере
+от тебя возвышается величественный холм, вершина которого скрыта 
+серебрящимся туманом. Там, среди искристых живых капелек, мелькают очертания
+чего-то весьма похожего на большой замок. Поля продолжаются на запад и 
+восток.
 ~
 0 0 field
 D0
-On a Hillside.
+@eng On a Hillside.
+@rus На склоне холма.
 ~
 ~
 Z -1 12015
 D1
-In a Field.
+@eng In a Field.
+@rus Поля.
 ~
 ~
 Z -1 12020
 D3
-In a Field.
+@eng In a Field.
+@rus Поля.
 ~
 ~
 Z -1 12018
 S
 #12020
-In a Field~
-You are standing out in a field of tall grass.  To the northwest
+@eng In a Field@rus В поле~
+@eng You are standing out in a field of tall grass.  To the northwest
 you can see a hill with it's top shrouded in mist.  Behind the mist you
 catch faint glimpses of what looks to be a large castle.  To the west and
 north is more field and to the east and south tangled brush prevents any
 movement.
+@rus Ты стоишь на поле среди волнующегося моря высокой зеленой травы. На северо-
+западе возвышается величественный холм, вершина которого скрыта серебрящимся
+туманом.
 ~
 0 0 field
 D0

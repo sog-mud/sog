@@ -9,13 +9,16 @@ End
 
 #MOBILES
 #95500
-healer adept~
-a Healer~
-An adept and healer of the Lords of Anatolia is here.
+adept healer~
+@eng a Healer@rus Адепт~
+@eng An adept and healer of the Lords of Anatolia is here.
+@rus Адепт и лекарь (Adept) лордов Хаоса стоит здесь.
 ~
-He is an old, wise cleric blessing his old friends of Lords of Chaos
+@eng He is an old, wise cleric blessing his old friends of Lords of Chaos
 Realms to break law. He belives that the more powerful you are the longer
 you live.
+@rus Мудрый клерик благославляет лордов Хаоса нарушать законы. Он напоминает вам,
+что чем сильнее вы, тем дольше проживете.
 ~
 human~
 ABQVae DFH 1000 0
@@ -26,12 +29,15 @@ stand stand male 1000
 0 0 medium unknown
 C Chaos~
 #95501
-guardian Chaos Ivan~
-Ivan the guardian of Chaos Realms~
-Ivan, the guardian of Chaos Realms, is guarding the enterance.
+ivan guardian chaos~
+@eng Ivan the guardian of Chaos Realms@rus Иван~
+@eng Ivan, the guardian of Chaos Realms, is guarding the enterance.
+@rus Страж Хаоса Иван (Ivan) охраняет вход.
 ~
-Ivan is wearing a complete set of dark armor and he is standing as a steel
+@eng Ivan is wearing a complete set of dark armor and he is standing as a steel
 wall in front of the chaos realms.
+@rus Иван одет в черные доспехи и преграждает вход в королевства Хаоса словно
+стальная стена.
 ~
 human~
 ABKWef DFHJVZlmt 0 0
@@ -46,9 +52,9 @@ C Chaos~
 
 #OBJECTS
 #95500
-key black marble~
-a black marble key~
-A black marble key is on the ground.~
+marble black key~
+@eng a black marble key@rus черный мраморный ключ~
+@eng A black marble key is on the ground.@rus Черный мраморный ключ (marble) лежит на земле.~
 marble~
 key ORYf AO
 0 0 0 0 0
@@ -56,17 +62,17 @@ key ORYf AO
 G none
 #95501
 altar~
-the altar~
-There is a huge black altar in the middle of the room.~
+@eng the altar@rus алтарь~
+@eng There is a huge black altar in the middle of the room.@rus Огромный черный алтарь (altar) находится в центре комнаты.~
 gold~
 container ORY P
 10 ABCD 95500 15 100
 60 1 20 P
 G none
 #95502
-item chaos~
-item of chaos~
-The item of chaos is here.~
+essence chaos~
+@eng item of chaos@rus сущность хаоса~
+@eng The item of chaos is here.@rus Сущность хаоса (essence) лежит здесь.~
 gold~
 treasure ORe AO
 0 0 0 0 0
@@ -85,9 +91,10 @@ G none
 
 #ROOMS
 #95500
-The Enterance~
-Welcome to Paradise of the Chaos Realms. There is neither rule nor law
+@eng The Enterance@rus Вход~
+@eng Welcome to Paradise of the Chaos Realms. There is neither rule nor law
 here. 
+@rus Добро пожаловать в рай Хаоса. Здесь не существует правил и законов.
 ~
 0 DKX inside
 D0
@@ -100,9 +107,11 @@ D3
 Z 0 9786
 S
 #95501
-Inside the Great Hall~
-There is a long hall covered with the embles of the Lords of the Chaos
+@eng Inside the Great Hall@rus Огромного коридора~
+@eng There is a long hall covered with the embles of the Lords of the Chaos
 Realms. The smooth wooden floors are well polished. 
+@rus Стены коридора покрыты эмблемами лордов Хаоса. Деревянный пол хорошо
+отполирован.
 ~
 0 DKX inside
 D0
@@ -123,9 +132,11 @@ D3
 Z -1 95503
 S
 #95502
-Squire Barracs~
-This room serves as a barracks of the squires of this chaos realms. The
+@eng Squire Barracs@rus Бараки скайров~
+@eng This room serves as a barracks of the squires of this chaos realms. The
 room is gloomy, wet and in a state of disorder. 
+@rus Эти бараки предназначены для сквайров лордов Хаоса. В них царит мрак,
+сырость и беспорядок.
 ~
 0 DKX inside
 D3
@@ -134,10 +145,12 @@ D3
 Z -1 95501
 S
 #95503
-Storage Room~
-You see many boxes before you, apparently this is a storage room some
+@eng Storage Room@rus Склад~
+@eng You see many boxes before you, apparently this is a storage room some
 sort. This is where the lords of chaos realms store all theirspare
 clothing, armor and weapon.
+@rus Перед собой вы видите множество коробок. Очевидно, вещи здесь упорядочены.
+На этом складе лорды Хаоса хранят свои запасные доспехи и оружие.
 ~
 0 DKX inside
 D1
@@ -146,8 +159,9 @@ D1
 Z -1 95501
 S
 #95504
-The Altar~
-There is only one rule: the more powerful you are the longer you live.
+@eng The Altar@rus Алтарь~
+@eng There is only one rule: the more powerful you are the longer you live.
+@rus Здесь существует только одно правило: чем сильнее ты, тем дольше будешь жить.
 ~
 0 DKX inside
 D2

@@ -162,7 +162,7 @@ He advances toward you.
 бросается в атаку.
 ~
 troll~
-0 P -500 0
+A P -500 0
 8 0 2d7+96 4d9+100 1d7+2 none
 3 3 3 9
 0 0 0 0
@@ -299,8 +299,10 @@ Z 0 2803
 S
 #2803
 Troll's Living Room~
-This small cave opens to the north, south, east, and west.  You are
+@eng This small cave opens to the north, south, east, and west.  You are
 overcome by the stench and consider turning around.
+@rus Эта маленькая пещерка продолжается во все стороны света. Ты начинаешь
+задумываться - а не повернуть ли назад, такой тут стоит запах.
 ~
 0 AD inside
 D0

@@ -72,7 +72,7 @@ You see a shadow off Elemental of Life
 ~
 ~
 fire elemental~
-BGRT H -1000 0
+ABGRT u -1000 0
 32 50 2000d1+1 100d10+400 10d3+4 divine
 0 0 0 0
 0 BU 0 0

@@ -14,14 +14,12 @@ Strong Elf watch to you.
 ~
 ~
 elf~
-A DEFHNTVclm 10000 0
+ABTc DEFHNTVclmt 5000 0
 70 500 1d1+20000 1d1+10000 1d1+200 pound
 -70 -70 -70 -70
 ADEFHIKNQ ABINPX CDE 0
 stand stand male 0
 0 0 medium unknown
-F aff JP
-F res B
 #0
 
 #ROOMS
@@ -29,14 +27,191 @@ F res B
 @eng Borders ambush@rus Пограничная засада~
 ~
 0 0 forest
+D0
+~
+~
+DZ 0 95902
 D1
 ~
 ~
 Z 0 95900
+D2
+~
+~
+AIZ 0 95901
 D3
 ~
 ~
 Z 0 95900
+S
+#95901
+@eng Entrance in the Lothlorien@rus На подступах к Лотлориену~
+~
+0 0 forest
+D0
+~
+~
+AIZ 0 95900
+D1
+~
+~
+Z 0 95901
+D3
+~
+~
+Z 0 95901
+S
+#95902
+@eng Narrow Path@rus Узкая тропинка~
+~
+0 J forest
+D0
+~
+~
+Z 0 95903
+D1
+~
+~
+Z 0 95902
+D2
+~
+~
+DZ 0 95900
+D3
+~
+~
+Z 0 95902
+S
+#95903
+@eng Inside the Great Mallorn@rus У подножия Великого Меллорна~
+~
+0 0 forest
+D0
+~
+~
+Z 0 95901
+D1
+~
+~
+Z 0 95906
+D2
+~
+~
+Z 0 95902
+D3
+~
+~
+Z 0 95908
+D4
+~
+~
+Z 0 95904
+S
+#95904
+@eng Guest level@rus Гостевой уровень~
+~
+0 0 forest
+D4
+~
+~
+Z 0 95905
+D5
+~
+~
+Z 0 95903
+S
+#95905
+@eng Reception Hall@rus Приемная Владык~
+~
+0 0 forest
+D5
+~
+~
+Z 0 95904
+S
+#95906
+@eng Clearing before the Great Mallorn@rus Лужайка перед Великим Мелорном~
+~
+0 0 forest
+D0
+~
+~
+Z 0 95908
+D1
+~
+~
+Z 0 95907
+D2
+~
+~
+Z 0 95909
+D3
+~
+~
+Z 0 95903
+S
+#95907
+@eng the Green Wood@rus Зеленый Лес~
+~
+0 0 forest
+D0
+~
+~
+Z 0 95909
+D1
+~
+~
+Z 0 95909
+D2
+~
+~
+Z 0 95908
+D3
+~
+~
+Z 0 95906
+S
+#95908
+@eng Clearing before the Great Mallorn@rus Лужайка перед Великим Мелорном~
+~
+0 0 forest
+D0
+~
+~
+Z 0 95907
+D1
+~
+~
+Z 0 95903
+D2
+~
+~
+Z 0 95906
+D3
+~
+~
+Z 0 95909
+S
+#95909
+@eng the Green Wood@rus Зеленый Лес~
+~
+0 0 forest
+D0
+~
+~
+Z 0 95906
+D1
+~
+~
+Z 0 95908
+D2
+~
+~
+Z 0 95907
+D3
+~
+~
+Z 0 95907
 S
 #0
 

@@ -144,6 +144,7 @@ E
 sword~
 It looks heavier than your average short sword, but it could use some oiling.
 ~
+G none
 #3501
 spear long~
 a long spear~
@@ -158,6 +159,7 @@ E
 spear~
 This used to be a boar spear, but it has been used for more dangerous game.
 ~
+G none
 #3502
 helmet horned black~
 a black horned helmet~
@@ -166,6 +168,7 @@ iron~
 armor 0 AE
 3 5 4 0 1
 5 30 490 A
+G none
 #3503
 cloak stained~
 a stained travelling cloak~
@@ -174,6 +177,7 @@ cloth~
 armor 0 AC
 2 3 4 0 1
 3 40 310 A
+G none
 #3504
 bracer leather enchanted~
 an enchanted leather bracer~
@@ -188,6 +192,7 @@ E
 bracer~
 This bracer is covered with runes of protection and luck in combat.
 ~
+G none
 #3505
 knife dagger~
 a rune-covered knife~
@@ -204,6 +209,7 @@ It's very sharp, you suspect this knife is more effective than many swords.
 It appears to be of elvish origins, and is made of finely crafted mithril,
 with a stylized ivory hilt.
 ~
+G none
 #0
 
 #ROOMS
@@ -247,7 +253,7 @@ D2
 Z 0 3502
 S
 #3502
-The Cross Roads~
+@eng The Cross Roads@rus Перекресток~
 Here, the great eastern road intersects with an older road between the mines
 of Moria and the ruined city of Thalos.  The outskirts of Midgaard lie to your
 west, and the highway continues the the east.  An old northern road leads to

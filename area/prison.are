@@ -1260,7 +1260,7 @@ G none
 
 #ROOMS
 #32000
-Entrance to the Prison~
+@eng Entrance to the Prison@rus Вход в тюрьму~
 You are standing in the shadow of a formiddable building. There are no
 windows only slits to let in light. In the distance you hear screams that
 send chills down your spine.
@@ -1277,7 +1277,7 @@ Prison of midgaard
 Z -1 3100
 S
 #32001
-The Prison of Midgaard~
+@eng The Prison of Midgaard@rus Тюрьма~
 You are standing in front of a large prison. It looks as if what goes in  
 never comes out. A large rusty gate is to the north. A plaque is on the wall.
 ~

@@ -94,6 +94,20 @@ AQa Vu -1000 0
 0 0 0 0
 stand stand male 0
 0 0 small unknown
+#36114
+irlaniel~
+@eng Irlaniel@rus Ирланиэль~
+@eng A ball of energy hovers before you.
+@rus Сгусток энергии парит перед тобой.
+~
+~
+unique~
+0 DFHJMNOPTUVZclm 0 0
+45 70 0d0+0 0d0+0 0d0+0 shock
+-1 -1 -1 0
+ACDEFHKNO ABJLMNPQR CDEFGHIK 0
+stand stand male 0
+DH 0 huge unknown
 #0
 
 #OBJECTS
@@ -230,6 +244,24 @@ A
 A
 18 500
 G none
+#36108
+invisible niche~
+invisible niche~
+~
+unknown~
+container 0 0
+100 0 0 100 100
+0 0 0 P
+G none
+#36109
+~
+Portal room key~
+~
+unknown~
+key 0 0
+0 0 0 0 0
+0 0 0 P
+G none
 #36110
 grail holy~
 @eng Holy Grail@rus Святой Грааль~
@@ -272,6 +304,21 @@ staff ARTY AOP
 50 40 40 'assist' 0
 10 15 0 P
 G none
+#36114
+ring jade~
+@eng ring with a great jade stone@rus кольцо с большим жадеитом~
+@eng White metal ring with a big jade glows with its magic.@rus Кольцо белого металла с большим жадеитом светится от вложенной в него магии.~
+iridium~
+jewelry AR ABP
+0 0 0 0 0
+35 2 250000 P
+F
+A 0 0 c
+A
+24 -3
+A
+13 25
+G none
 #0
 
 #ROOMS
@@ -293,11 +340,15 @@ D1
 ~
 ~
 Z 0 36101
+D5
+~
+~
+ABCFZ 36109 36113
 S
 #36101
 Shooting place~
 ~
-0 N inside
+0 N forest
 D2
 ~
 ~
@@ -445,10 +496,23 @@ D2
 ~
 Z 0 36100
 S
+#36113
+~
+~
+0 0 inside
+D4
+~
+~
+ABCFZ 0 36100
+S
 #0
 
 #RESETS
+D 0 36100 5 2	* Arborn's home: door to the down: closed and locked
+D 0 36113 4 2	* : door to the up: closed and locked
 M 0 36100 1 36100 1	* Healer (Arborn's home)
+O 0 36108 0 36100	* invisible niche (Arborn's home)
+P 0 36109 1 36108 1	* invisible niche: Portal room key
 O 0 36100 0 36100	* sofa (Arborn's home)
 M 0 36102 4 36101 4	* training mob (Shooting place)
 M 0 36102 4 36101 4	* training mob (Shooting place)

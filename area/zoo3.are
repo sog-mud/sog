@@ -312,6 +312,7 @@ key~
 It is a small, simple brass key with no inscriptions 
 or marks of any kind.
 ~
+G none
 #8201
 tee shirt tee-shirt~
 a tee-shirt~
@@ -328,6 +329,7 @@ writting~
 The writting on the tee-shirt reads 
 "I've been to the Midgaard Zoo"
 ~
+G none
 #8202
 china mug~
 a mug~
@@ -341,6 +343,7 @@ writting~
 The writting on the mug reads
 "I've been to the Midgaard Zoo"
 ~
+G none
 #8203
 fountain water~
 a fountain~
@@ -353,6 +356,7 @@ E
 fountain~
 It is very nice.  Made from fine white marble.
 ~
+G none
 #8204
 map zoo foldable~
 a map of Midgaard Zoo~
@@ -382,6 +386,7 @@ The Midgaard Zoo
                        [U]       b = Bear
 
 ~
+G none
 #8205
 zoo dagger~
 a zoo dagger~
@@ -395,11 +400,12 @@ writting~
 The writting on the tee-shirt reads
 "I've been to the Midgaard Zoo"
 ~
+G none
 #0
 
 #ROOMS
 #8200
-Outside the Midgaard Zoo~
+@eng Outside the Midgaard Zoo@rus Перед зоопарком Мидгаарда~
 You are at the end of a path in the park. You are standing outside main 
 gate of the zoo of Midgaard. To the west you can see a small pond and a small 
 path leads of to the east. To the south are two turnstiles. One leading into 

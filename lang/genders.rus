@@ -1,13 +1,73 @@
 #WORD
-Name твой~
-BaseLen 2
-Form 1 -оя~
-Form 2 -ое~
+Name он~
+Form 1 она~
+Form 2 оно~
 End
 
 #WORD
-Name видимый~
-Form 1 видимая~
+Name его~
+Form 1 ее~
+End
+
+#WORD
+Name вооруженный~
+BaseLen 9
+Form 1 -ая~
+End
+
+#WORD
+Name ранен~
+BaseLen 5
+Form 1 -а~
+Form 2 -о~
+End
+
+#WORD
+Name насчитал~
+BaseLen 8
+Form 1 -а~
+End
+
+#WORD
+Name него~
+Form 1 нее~
+End
+
+#WORD
+Name уклонился~
+BaseLen 7
+Form 1 -ась~
+Form 2 -ось~
+End
+
+#WORD
+Name принесен~
+BaseLen 8
+Form 1 -а~
+End
+
+#WORD
+Name заинтересован~
+BaseLen 13
+Form 1 -а~
+Form 2 -о~
+End
+
+#WORD
+Name приготовил~
+Form 1 приготовила~
+End
+
+#WORD
+Name способен~
+BaseLen 6
+Form 1 -на~
+End
+
+#WORD
+Name разделал~
+BaseLen 8
+Form 1 -а~
 End
 
 #WORD
@@ -22,45 +82,31 @@ Form 1 отважная~
 End
 
 #WORD
-Name способен~
-BaseLen 6
-Form 1 -на~
+Name создал~
+Form 1 создала~
 End
 
 #WORD
-Name принесен~
+Name видимый~
+Form 1 видимая~
+End
+
+#WORD
+Name им~
+Form 1 ей~
+End
+
+#WORD
+Name твой~
+BaseLen 2
+Form 1 -оя~
+Form 2 -ое~
+End
+
+#WORD
+Name успокоился~
 BaseLen 8
-Form 1 -а~
-End
-
-#WORD
-Name насчитал~
-BaseLen 8
-Form 1 -а~
-End
-
-#WORD
-Name разделал~
-BaseLen 8
-Form 1 -а~
-End
-
-#WORD
-Name уклонился~
-BaseLen 7
 Form 1 -ась~
-Form 2 -ось~
-End
-
-#WORD
-Name него~
-Form 1 нее~
-End
-
-#WORD
-Name бессмертный~
-BaseLen 9
-Form 1 -ая~
 End
 
 #WORD
@@ -71,43 +117,9 @@ Form 2 -о~
 End
 
 #WORD
-Name он~
-Form 1 она~
-Form 2 оно~
-End
-
-#WORD
-Name создал~
-Form 1 создала~
-End
-
-#WORD
-Name приготовил~
-Form 1 приготовила~
-End
-
-#WORD
-Name вооруженный~
+Name бессмертный~
 BaseLen 9
 Form 1 -ая~
-End
-
-#WORD
-Name успокоился~
-BaseLen 8
-Form 1 -ась~
-End
-
-#WORD
-Name ранен~
-BaseLen 5
-Form 1 -а~
-Form 2 -о~
-End
-
-#WORD
-Name его~
-Form 1 ее~
 End
 
 #$
