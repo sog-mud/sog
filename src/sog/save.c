@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.126.2.23 2004-02-18 22:21:11 fjoe Exp $
+ * $Id: save.c,v 1.126.2.24 2004-02-18 22:22:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -452,7 +452,7 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp, int flags)
 	/*
 	 * Stats that can be changed by affects should be written
 	 * AFTER affects so they will be read after them
-	 * and will not increase after each save/load.
+	 * and will not increase after each load.
 	 */
 	if (pet->damroll != pet->pMobIndex->damage[DICE_BONUS])
 		fprintf(fp, "Damr %d\n", pet->damroll);
