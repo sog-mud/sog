@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: healer.c,v 1.39 2000-01-11 08:12:15 fjoe Exp $
+ * $Id: healer.c,v 1.40 2000-02-20 10:13:04 avn Exp $
  */
 
 #include <sys/types.h>
@@ -133,7 +133,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	WAIT_STATE(ch, PULSE_VIOLENCE);
+	WAIT_STATE(ch, get_pulse("violence"));
 
 	if (cost < 0) {
 		deduct_cost(ch, -cost);

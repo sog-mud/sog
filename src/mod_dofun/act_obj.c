@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.204 2000-02-19 14:26:57 avn Exp $
+ * $Id: act_obj.c,v 1.205 2000-02-20 10:07:47 avn Exp $
  */
 
 /***************************************************************************
@@ -1128,7 +1128,7 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 		  ch, obj, NULL, &lq->lq_name, TO_CHAR, POS_DEAD);
 
 	if (ch->fighting)
-		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
+		WAIT_STATE(ch, 3 * get_pulse("violence"));
 
 	for (i = 0; i < MAX_COND; i++)
 		gain_condition(ch, i, lq->affect[i]);
@@ -1197,7 +1197,7 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 	act("$n eats $p.", ch, obj, NULL, TO_ROOM);
 	act_puts("You eat $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 	if (ch->fighting != NULL)
-		WAIT_STATE(ch, 3 * PULSE_VIOLENCE);
+		WAIT_STATE(ch, 3 * get_pulse("violence"));
 
 	switch (obj->item_type) {
 
@@ -1469,7 +1469,7 @@ void do_recite(CHAR_DATA * ch, const char *argument)
 		check_improve(ch, "scrolls", TRUE, 2);
 
 		if (IS_PUMPED(ch) || ch->fighting != NULL)
-			WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
+			WAIT_STATE(ch, 2 * get_pulse("violence"));
 
 		do {
 			obj_cast_spell(scroll->value[1].s, INT(scroll->value[0]), ch, vo);
@@ -1555,7 +1555,7 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 	if ((sk = skill_lookup(staff->value[3].s)) == NULL)
 		return;
 
-	WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
+	WAIT_STATE(ch, 2 * get_pulse("violence"));
 
 	if (INT(staff->value[2]) > 0) {
 		act("$n brandishes $p.", ch, staff, NULL, TO_ROOM);
@@ -1616,7 +1616,7 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
+	WAIT_STATE(ch, 2 * get_pulse("violence"));
 
 	if (INT(wand->value[2]) > 0) {
 		if (mem_is(vo, MT_CHAR)) {
@@ -3159,7 +3159,7 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	WAIT_STATE(ch,PULSE_VIOLENCE);
+	WAIT_STATE(ch,get_pulse("violence"));
 
 	ch->gold -= cost;
 	mob->gold += cost;
@@ -3288,7 +3288,7 @@ void do_restring(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	
-	WAIT_STATE(ch, PULSE_VIOLENCE);
+	WAIT_STATE(ch, get_pulse("violence"));
 
 	ch->gold -= cost;
 	mob->gold += cost;
@@ -3964,7 +3964,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	        auction.buyer = ch;
 	        auction.bet   = newbet;
 	        auction.going = 0;
-	        auction.pulse = PULSE_AUCTION; /* start the auction over again */
+	        update_reset("auction"); /* start the auction over again */
 
 	        act_auction("A bet of $J gold has been received on $p.",
 			    auction.item, NULL, (const void*) newbet,
@@ -4048,7 +4048,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		auction.bet = 0; 	/* obj->cost / 100 */
 		auction.buyer = NULL;
 		auction.seller = ch;
-		auction.pulse = PULSE_AUCTION;
+		update_reset("auction");
 		auction.going = 0;
 
 		act_auction("A new item has been received: {Y$p{x.",

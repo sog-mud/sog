@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.229 2000-02-19 14:26:58 avn Exp $
+ * $Id: act_wiz.c,v 1.230 2000-02-20 10:10:22 avn Exp $
  */
 
 /***************************************************************************
@@ -252,66 +252,8 @@ void do_tick(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!str_prefix(arg, "area")) {
-		area_update();
-		char_puts("Area updated.\n", ch);
+	if (update_one(arg))
 		return;
-	}
-
-	if (is_name(arg, "char player")) {
-		vo_foreach(NULL, &iter_char_world, char_update_cb);
-		char_puts("Players updated.\n", ch);
-		return;
-	}
-
-	if (!str_prefix(arg, "mobile")) {
-		vo_foreach(NULL, &iter_char_world, mobile_update_cb);
-		char_puts("Mobiles updated.\n", ch);
-		return;
-	}
-
-	if (!str_prefix(arg, "room")) {
-		room_update();
-		char_puts("Room updated.\n", ch);
-		return;
-	}
-
-	if (!str_prefix(arg, "track")) {
-		vo_foreach(NULL, &iter_npc_world, track_update_cb);
-		char_puts("Tracks updated.\n", ch);
-		return;
-	}
-
-	if (!str_prefix(arg, "obj")) {
-		vo_foreach(NULL, &iter_obj_world, obj_update_cb);
-		char_puts("Objects updated.\n", ch);
-		return;
-	}
-
-	if (!str_prefix(arg, "chquest")) {
-		chquest_update();
-		char_puts("Challenge quests updated.\n", ch);
-		return;
-	}
-
-	if (!str_prefix(arg, "quest")) {
-		quest_update();
-		char_puts("Auto-quests updated.\n", ch);
-		return;
-	}
-
-	if (!str_prefix(arg, "clan")) {
-		hash_foreach(&clans, clan_item_update_cb);
-		char_puts("Clan item location updated.\n", ch);
-		return;
-	}
-
-	if (!str_prefix(arg, "weather")) {
-		weather_update();
-		char_puts("Weather updated.\n", ch);
-		return;
-	}
-
 	do_tick(ch, str_empty);
 }
 
@@ -4511,3 +4453,58 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 	}
 }
 
+void *
+update_print_cb(void *p, va_list ap)
+{
+	update_info_t *ui = (update_info_t *) p;
+	BUFFER *buf = va_arg(ap, BUFFER *);
+
+	buf_printf(buf, "[%9s] %5d %5d %s\n",
+			ui->name, ui->max, ui->cnt, ui->fun_name);
+	return NULL;
+}
+
+void *
+update_set_cb(void *p, va_list ap)
+{
+	update_info_t *ui = (update_info_t *) p;
+	const char *s = va_arg(ap, const char *);
+	int value = va_arg(ap, int);
+
+	if (str_cmp(s, ui->name))
+		return NULL;
+
+	ui->max = value;
+	return ui;
+}
+
+void do_settick(CHAR_DATA *ch, const char *argument)
+{
+	char arg[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
+	int val;
+
+	argument = one_argument(argument, arg, sizeof(arg));
+
+	if (arg[0] == '\0') {
+		BUFFER *buf;
+
+		buf = buf_new(-1);
+		buf_add(buf, "    Name     Max   Cur     Function\n");
+		buf_add(buf, "----------- ----- ----- ---------------\n");
+		varr_foreach(&updates, update_print_cb, buf);
+		page_to_char(buf_string(buf), ch);
+		buf_free(buf);
+		return;
+	}
+
+	one_argument(argument, arg2, sizeof(arg2));
+	val = atoi(arg2);
+	if (!val) {
+		char_puts("Non-zero, please.\n", ch);
+		return;
+	}
+	if (!varr_foreach(&updates, update_set_cb, arg, val)) {
+		dofun("help", ch, "'WIZ SETTICK'");
+	}
+
+}
