@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.15 2000-10-15 15:46:43 fjoe Exp $
+ * $Id: act_obj.c,v 1.165.2.16 2000-10-21 17:08:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2355,8 +2355,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 		buf_printf(output, "Object '%s'.\n", obj->name);
 		check_improve(ch, sn, TRUE, 8);
 		return;
-	}
-	else if (percent < 40) {
+	} else if (percent < 40) {
 		buf_printf(output,
 			    "Object '%s'.  Weight is %d, value is %d.\n",
 			    obj->name,
@@ -2367,8 +2366,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 			buf_printf(output, "Material is %s.\n", obj->material);
 		check_improve(ch, sn, TRUE, 7);
 		return;
-	}
-	else if (percent < 60) {
+	} else if (percent < 60) {
 		buf_printf(output,
 			    "Object '%s' has weight %d.\nValue is %d, level is %d.\nMaterial is %s.\n",
 			    obj->name,
@@ -2379,8 +2377,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 			);
 		check_improve(ch, sn, TRUE, 6);
 		return;
-	}
-	else if (percent < 80) {
+	} else if (percent < 80) {
 		buf_printf(output,
 			    "Object '%s' is type %s, extra flags %s.\nWeight is %d, value is %d, level is %d.\nMaterial is %s.\n",
 			    obj->name,
@@ -2393,20 +2390,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 			);
 		check_improve(ch, sn, TRUE, 5);
 		return;
-	}
-	else if (percent < 85) 
-		buf_printf(output,
-			    "Object '%s' is type %s, extra flags %s.\nWeight is %d, value is %d, level is %d.\nMaterial is %s.\n",
-			    obj->name,
-			    flag_string(item_types, obj->pObjIndex->item_type),
-			    flag_string(extra_flags, obj->extra_flags),
-			    obj->weight,
-			    obj->cost,
-			    obj->level,
-			    str_cmp(obj->material, "oldstyle") ?
-				obj->material : "unknown"
-			);
-	else
+	} else
 		buf_printf(output,
 			    "Object '%s' is type %s, extra flags %s.\nWeight is %d, value is %d, level is %d.\nMaterial is %s.\n",
 			    obj->name,
