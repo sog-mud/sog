@@ -1,5 +1,5 @@
 /*
- * $Id: strsep.c,v 1.6 2003-09-29 23:11:19 fjoe Exp $
+ * $Id: strsep.c,v 1.7 2003-09-30 00:11:04 fjoe Exp $
  */
 
 /*-
@@ -37,7 +37,6 @@
 
 #include <string.h>
 #include <stdio.h>
-
 #include <compat/compat.h>
 
 #if defined(LIBC_SCCS) && !defined(lint)
