@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.39 1998-11-14 09:01:12 fjoe Exp $
+ * $Id: skills.c,v 1.40 1998-11-14 09:32:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -155,10 +155,12 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 		if (lev > (IS_IMMORTAL(ch) ? LEVEL_IMMORTAL : LEVEL_HERO))
 			continue;
 
-		snprintf(buf, sizeof(buf),
-			 ch->level < lev ?
-				"%-18s  n/a      " : "%-18s  %3d mana  ",
-			 sk->name, mana_cost(ch, ps->sn));
+		if (ch->level < lev)
+			snprintf(buf, sizeof(buf), "%-18s  n/a      ",
+				 sk->name);
+		else
+			snprintf(buf, sizeof(buf), "%-18s  %3d mana  ",
+				 sk->name, mana_cost(ch, ps->sn));
 			
 		if (spell_list[lev][0] == '\0')
 			snprintf(spell_list[lev], sizeof(spell_list[lev]),
@@ -222,7 +224,7 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 			continue;
 
 		snprintf(buf, sizeof(buf),
-			 ch ->level < lev ?
+			 ch->level < lev ?
 				"%-18s n/a      " : "%-18s %3d%%      ",
 			 sk->name, ps->percent);
 
