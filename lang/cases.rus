@@ -4024,6 +4024,17 @@ Form 5 -е~
 End
 
 #RULE
+Name четырехрукий~
+BaseLen 10
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ий~
+Form 4 -им~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name рыбацкая~
 BaseLen 6
 Form 1 -ой~
@@ -7505,6 +7516,17 @@ Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
 Form 6 -ую~
+End
+
+#RULE
+Name одноглазый~
+BaseLen 8
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+Form 6 -ого~
 End
 
 #RULE
