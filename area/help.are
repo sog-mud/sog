@@ -638,7 +638,7 @@ Syntax: cast 'knock' <door>
  key. This spell fails against no-pass doors.
 ~
 0 BASH DOOR~
-Syntax : bashdoor <direction>
+Syntax: bashdoor <direction>
 
 ~
 0 FIRE SHIELD~
@@ -718,7 +718,7 @@ only one way to protect from this attack.
 ~
 0 'POWER WORD STUN' STUN~
 
-Syntax : cast 'power word stun' <victim>
+Syntax: cast 'power word stun' <victim>
 
 	Only powerful anti-paladins can learn the secret of this spell 
 to stun their victims. Victims cannot do anything for a while.
@@ -1054,7 +1054,7 @@ In order to STEAL successfully, you must practice the appropriate skill.
 
 0 PRACTICE~
 Syntax: PRACTICE
-Syntax: PRACTICE <skill|spell>
+Syntax: PRACTICE <skill | spell>
 
 PRACTICE without an argument tells you your current ability level in all
 the skills and spells available to you.  You can check this anywhere.
@@ -1093,34 +1093,36 @@ their groups:
  
 If you SLOOK the spell or skill and find it in group `{cnone{x', `{cweather{x',
 `{ccreation{x', `{charmful{x', `{cprotective{x' or `{cdetection{x', then you
-can practice that {cin your guild{x.
+can practice that {gin your guild{x.
 
 
-FOR MORE HELP , look help of GLIST, SLOOK, TEACH, LEARN.
+FOR MORE HELP, look help of GLIST, SLOOK, TEACH, LEARN.
 ~
 
 0 GLIST~
 Syntax: glist <group>
  
-	Gives the skills and spells of that group.
-example : glist meditation , glist defensive.....
+        Gives the list of skills and spells of that group.
+
+Example: glist meditation, glist defensive.....
 ~
 0 SLOOK~
 Syntax: slook <skill or spell>
 
 	Gives group of corresponding spell or skill.
-example : slook armor , slook meditation.....Then go to the master of that
+
+Example: slook armor, slook meditation.....Then go to the master of that
 skill or spell to learn 
 ~
 0 TEACH~
-Syntax : teach 
+Syntax:  teach 
 	
 	It allows the hero to teach his/her 100% skills to the players
 in the room. It holds hero teach mode.
 
 ~
 0 LEARN~
-Syntax : learn <spell or skill> <hero>
+Syntax: learn <spell | skill> <hero>
 
 	It allows player to learn any group of skills or spells from
 a hero.But the hero's corresponding skills must be 100% and hero must
@@ -1961,7 +1963,7 @@ shield.
 
 Syntax: weapon cleave
 	Master fighters can break the opponent's weapon into two parts by 
-using sword or axe. Of course ,axe type weapons has more chance than 
+using sword or axe. Of course,axe type weapons has more chance than 
 sword types. And don't forget this attack is meaningless if your 
 opponents use a weapon which is made of titanium or platinum elements or 
 limited weapons.
@@ -1995,7 +1997,7 @@ a timer and it can give damage to your victims only once.
 ~
 0 'LIGHTNING SHIELD'~
 
-Syntax : cast 'lightning shield'
+Syntax: cast 'lightning shield'
 
 	Powerful necromancers and witchs can make a shield to protect 
 themself that wake them if they are sleeping when any mobiles or victims 
@@ -2003,7 +2005,7 @@ entered the room.
 ~
 0 'SHOCKING TRAP'~
 
-	Necromancers , Witchs and Warlocks can make a magical trap. 
+	Necromancers, Witchs and Warlocks can make a magical trap. 
 ~
 0 SLEEP~
 Syntax: cast sleep <victim>
@@ -2079,13 +2081,13 @@ Arial:     Arials are a highly dextrous and smart race.They always fly. And
 	   arials costs 250  exps per level.
 Giant:     Giants are great and strong race. They are higher in constitution. 
 	   There are currently FOUR: Fire-Gia, Storm-Gia, Frost-Gia, Cloud-Gia.
-Felar:	   They are not strong , but has the ability to see in the dark, called 
+Felar:	   They are not strong, but has the ability to see in the dark, called 
 	   infravision. And felar costs 250 extra exps per level.
 Rockseer  :Rockseer are  fragile, agile and dextrous creatures. They can pass 
 	   all kinds of doors. They are neutral, cost 500 extra exps per level.
 Githyanki :Human like creatures but high in intelligent. They can be fighter,
 	   caster, or fighter/caster.Cost 250 creation points.
-Satyr	  :Half human ,half goat race.High in dexterity but low much strong.
+Satyr	  :Half human,half goat race.High in dexterity but low much strong.
 	   They are good ranger and thieves.Cost 250 creation points.
 Troll     :Hindered by their slow intellect and mobility, grow to obtain a
            state of health.They cost extra 300 creation points.
@@ -2132,19 +2134,19 @@ always stay neutral, else they will lose their spells and are frowned upon.
 ~
 -1 'STORM GIANT' STORMGIANTS~
  Storm giants are the largest of the giant races, ranging from 12-20 feet in 
-height.  They are strong , and almost as durable as the dwarves. They aren't 
+height.  They are strong, and almost as durable as the dwarves. They aren't 
 too bright, however, and their huge size makes them more clumsy than the 
 other races.  Giants make the best warriors of any race, but are
 ill-suited for any other profession.
 
-Storm giants resist lightning , can fly.  However, they are the most clever 
+Storm giants resist lightning, can fly.  However, they are the most clever 
 of giants. Storm giants, due to their  size and stamina, receive the fast 
 healing and bash skills for free. Cloud giants have weapon resistance.
 
 ~
 -1 'FIRE GIANT' FIREGIANTS~
  Storm giants are the large, ranging from 9-12 feet in height.  They are 
-strong , and almost as durable as the dwarves. They aren't too bright, 
+strong, and almost as durable as the dwarves. They aren't too bright, 
 however, and their huge size makes them more clumsy than the 
 other races.  Giants make the best warriors of any race, but are
 ill-suited for any other profession.
@@ -2156,7 +2158,7 @@ stamina, receive the fast healing and bash skills for free.
 ~
 -1 'CLOUD GIANT' CLOUDGIANTS~
  Cloud giants are the large, ranging from 9-12 feet in height.  They are 
-strong , and almost as durable as the dwarves. They aren't too bright, 
+strong, and almost as durable as the dwarves. They aren't too bright, 
 however, and their huge size makes them more clumsy than the 
 other races.  Giants make the best warriors of any race, but are
 ill-suited for any other profession.
@@ -2168,7 +2170,7 @@ have weapon resistance.
 ~
 -1 'FROST GIANT' FROSTGIANTS~
  Frost giants are the largest of the giant races, ranging from 9-12 feet in 
-height.  They are strong , and almost as durable as the dwarves. They aren't 
+height.  They are strong, and almost as durable as the dwarves. They aren't 
 too bright, however, and their huge size makes them more clumsy than the 
 other races.  Giants make the best warriors of any race, but are
 ill-suited for any other profession.
@@ -2286,13 +2288,13 @@ mithril.
 
 Satyrs are a race of half human and half goat race.They are evil.  They are 
 inherently dextrerious. But not strengthful. Due the desterity they can
-steal from someone , camuflage themselves and ambush opponents very easly.
+steal from someone, camuflage themselves and ambush opponents very easly.
 
 ~                      
 -1 GITHYANKI~
 
 Githyanki's are more intelligient then humanbeings. But they are constitutive
-as human race. But they are evil. And they can be either fighter , caster or
+as human race. But they are evil. And they can be either fighter, caster or
 fighter/caster races.They are good warriors . But casters use only offensive 
 spells.
 
@@ -2500,7 +2502,7 @@ level. The weapon created may only be wielded by rangers.
 LIONCALL
 TIGER POWER
 
-  Similar to bear call, the lion call , calls 2 powerful lions to your
+  Similar to bear call, the lion call, calls 2 powerful lions to your
 rescue.
   Tiger power calls 10 tigers from forest to join you. And increase your
 damroll & hitroll.  
@@ -2513,7 +2515,7 @@ and movement 1 . Then gains them very quickly.
 ~
 0 MOUSE~
 	
-   A vampire can flee a fight , or can live a place by dividing himself into
+   A vampire can flee a fight, or can live a place by dividing himself into
 too many mouses. At this moment you must kill all mouses to kill the vampire.
 
 ~
@@ -2541,7 +2543,7 @@ hitroll higher.
 0 SCREAM~
 Syntax: cast scream
 
-    A powerful warlock , when screams, can disturb all the mobiles and all
+    A powerful warlock, when screams, can disturb all the mobiles and all
 glass and ice made objects.The objects gets broken and mobiles can't do
 anything. Then the FIGHT STOPS for a moment, that warlock can escape.
 ~
@@ -2570,7 +2572,7 @@ hold an item and wear a shield.
 0 'EXPLODE'~
 
     A samurai can explode some material so that every mobile in the effected
-by this burning. The burning affect fills the room. And potions bubles , and
+by this burning. The burning affect fills the room. And potions bubles, and
 mobiles can be blind.
 ~
 0 'DRAGONS BREATH'~
@@ -3063,9 +3065,9 @@ are special for the character. Any other character cannot get or wear
 these items. Also these items cannot get damage. As you lost one of them 
 because of crashes note to gods.
 
-Syntax : help weaponreward... for more information about the reward weapon.
-Syntax : help ringreward..... for more information about the reward ring.
-Syntax : help girthreward.... for more information about the reward girth.
+Syntax: help weaponreward... for more information about the reward weapon.
+Syntax: help ringreward..... for more information about the reward ring.
+Syntax: help girthreward.... for more information about the reward girth.
 ~
 0 WEAPONREWARD~
 
@@ -3135,7 +3137,7 @@ Affects strength by 2.
         quest trouble  : if you lose a quest obj, you can regain it. But
                          at most 3 times.
        
-Syntax : help reward ... for more information about the quest reward. 
+Syntax: help reward ... for more information about the quest reward. 
 ~
 -1 AUCTION~
 
@@ -3149,7 +3151,7 @@ auction bet <bet>	- will bet on the item
 auction stop		- will stop the auction, return the gold to the last
 			  better and transfer the item to seller(imm only).
 
-Notice that auction is must-colored ,to make you aware!
+Notice that auction is must-colored,to make you aware!
 ~
 -1 CHA CHARISMA~
 	* Charisma is regenerated again. If your charisma is below 18
@@ -3157,7 +3159,7 @@ then every one can see your level when they type "who", and also you
 become VULNERABLE to CHARM.
 	* Charisma is trainable.
 	* All players can have at most 25 charisma. But if you left a 
-clan , you can have at most 24 charisma.
+clan, you can have at most 24 charisma.
 	* Charisma doesn't effect any damage.
 	* All you have killed is counted ( to see type "worth" ). And
 only for good characters every 200 mobiles that you killed having opposite
@@ -3192,15 +3194,15 @@ he/she has the clan power with him/her.
 -1 'EYED SWORD'~
 Syntax: cast 'eyed sword'
 
-	A lion clan member when casts this spell , creates the special 
+	A lion clan member when casts this spell, creates the special 
 weapon of its clan. It can only be cast once.Then when one losts this
-sword ,one must use 'weapon call' spell to get it back.If the sword purged
+sword,one must use 'weapon call' spell to get it back.If the sword purged
 in resetting of an area then it appears in the shrine of Clan LIONs.
 ~
 -1 'MOVE CAMUFLAGED'~
 Syntax: cammove
 
-	A lion clan member can move , without losing his/her affect of
+	A lion clan member can move, without losing his/her affect of
 camuflage.
 ~
 -1 LEADER LEADERS~
@@ -3212,7 +3214,7 @@ If any problem occurs, you are RESPONSIBLE.
 ~
 -1 RELIG RELIGION~
 	Find the Templeman in the Midgaard, and say the name of your god.
-Syntax : say <god_name> 
+Syntax: say <god_name> 
 	The list of religions.
      Leader		  Ethos	
 ----------------------------------------------
@@ -3235,9 +3237,9 @@ Syntax : say <god_name>
     "Eros",	 	"God of Love"
 
 	For more information about the tattoos  
-Syntax : help 'atum-ra'
-Syntax : help 'zeus'
-Syntax : help 'siebele'
+Syntax: help 'atum-ra'
+Syntax: help 'zeus'
+Syntax: help 'siebele'
                       So on
 
 	Don't forget that some of the tattoos can be seen powerful with respect
@@ -3337,8 +3339,8 @@ to the others, but their probabities is much lower.
 ~
 -1 STAT STATS~
 	There are currently 6 stats, which are STR,INT,WIS,DEX,CON,CHA. Each
-has special importance in your mud life, while fighting , gaining hitpoint 
-mana at each tick, gaining hitpoint,mana and movement at gaining level ,etc.
+has special importance in your mud life, while fighting, gaining hitpoint 
+mana at each tick, gaining hitpoint,mana and movement at gaining level,etc.
 ~
 0 LIMITED LIMIT 'LIMIT EQUIPMENTS' 'LIMITED EQUIPMENTS'~
 Some of the items have been limited. You may find more information about
@@ -3373,7 +3375,7 @@ Arial:     Arials are a highly dextrous and smart race.They always fly. And
 Giant:     They looks as if huge human. But they are greater and stronger.
 	   They are higher in constitution. But with less intelligence.And 
 	   giant cost 500 extra exps per level.
-Felar:	   They seems like cats actually not.They are not strong , but has 
+Felar:	   They seems like cats actually not.They are not strong, but has 
 	   the ability to see in the dark, called infravision. And felar costs
 	   250 extra exps per level.
 Duergar:   Similar to their cousins dwarves, duergars are strong and high in
