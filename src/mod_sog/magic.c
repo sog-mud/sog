@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.20 2000-02-10 14:08:49 fjoe Exp $
+ * $Id: magic.c,v 1.21 2000-03-29 14:33:27 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -41,7 +41,7 @@ const char *target_name;
 bool spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage)
 {
 	if (IS_IMMORTAL(bch) || IS_IMMORTAL(ch))
-		bane_chance = 0;
+		return FALSE;
 
 	if (has_spec(bch, "clan_battleragers")
 	&&  number_percent() < bane_chance) {
@@ -60,9 +60,10 @@ bool spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage)
 			    ch, NULL, bch, TO_VICT);
 			act("$N deflects $n's spell!",
 			    ch, NULL, bch, TO_NOTVICT);
-			if (!is_safe(bch, ch))
+			if (!is_safe(bch, ch) && !is_safe(ch, bch)) {
 				damage(bch, ch, bane_damage, "spellbane",
 				       DAM_NEGATIVE, DAMF_SHOW);
+			}
 	        }
 	        return TRUE;
 	}
