@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.10 1998-05-18 16:12:45 efdi Exp $
+# $Id: english.lang,v 1.11 1998-05-18 16:16:13 efdi Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -398,7 +398,7 @@ QUEST_YOU_ASK_FOR_QUEST	"You ask $N for a quest."
 QUEST_YOU_ALREADY_ON_QUEST	"But you already on a quest!"
 QUEST_BRAVE_BUT_LET_SOMEONE_ELSE	"You're very brave, {W%s{G, but let someone else have a chance."
 QUEST_COME_BACK_LATER	"Come back later."
-QUEST_DONT_HAVE_QUEST	"I'm sorry, but i don't have any quests for you at this time."
+QUEST_DONT_HAVE_QUESTS	"I'm sorry, but i don't have any quests for you at this time."
 QUEST_TRY_AGAIN_LATER	"Try again later."
 QUEST_RUNES_MOST_HEINOUS	"Rune's most heinous criminal, {W%s{G, has escaped from the dungeon."
 QUEST_HAS_MURDERED     "Since the escape ,{W%s{G has murdered {W%d{x civilians!"
