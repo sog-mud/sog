@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.89.2.12 2001-12-11 14:53:43 tatyana Exp $
+ * $Id: tables.c,v 1.89.2.13 2002-01-04 16:38:12 matrim Exp $
  */
 
 /***************************************************************************
@@ -138,11 +138,9 @@ flag_t plr_flags[] =
 	{ "autosplit",		PLR_AUTOSPLIT,		FALSE	},
 	{ "bought_pet",		PLR_BOUGHT_PET,		FALSE	},
 	{ "holylight",		PLR_HOLYLIGHT,		FALSE	},
-	{ "can_loot",		PLR_CANLOOT,		FALSE	},
 	{ "nogive",		PLR_NOGIVE,		FALSE	},
 	{ "nosummon",		PLR_NOSUMMON,		FALSE	},
 	{ "nofollow",		PLR_NOFOLLOW,		FALSE	},
-	{ "permit",		PLR_PERMIT,		TRUE	},
 	{ "log",		PLR_LOG,		FALSE	},
 	{ "freeze",		PLR_FREEZE,		FALSE	},
 	{ "ghost",		PLR_GHOST,		FALSE	},
@@ -345,10 +343,8 @@ flag_t comm_flags[] =
 	{ "deaf",		COMM_DEAF,		TRUE	},
 	{ "nowiz",		COMM_NOWIZ,		TRUE	},
 	{ "nogossip",		COMM_NOGOSSIP,		TRUE	},
-	{ "noquestion",		COMM_NOQUESTION,	TRUE	},
 	{ "noauction",		COMM_NOAUCTION,		TRUE	},
 	{ "nomusic",		COMM_NOMUSIC,		TRUE	},
-	{ "noquote",		COMM_NOQUOTE,		TRUE	},
 	{ "noclan",		COMM_NOCLAN,		TRUE	},
 	{ "quiet_editor",	COMM_QUIET_EDITOR,	TRUE	},
 	{ "compact",		COMM_COMPACT,		TRUE	},
