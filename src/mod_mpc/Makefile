@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.10 2001-09-02 16:21:58 fjoe Exp $
+# $Id: Makefile,v 1.11 2001-09-02 17:57:46 fjoe Exp $
 #
 
 SRCS=		mpc.y mpc_dynafun.c mpc_iter.c mpc_lex.c mpc_c.c mpc_const.c
@@ -25,9 +25,9 @@ SRCS+=		init_mpc.c
 .endif
 
 afterdepend:
-	@(grep -q 'int yygrowstack()' mpc.c || true) && \
+	@(grep -q 'int yygrowstack()' mpc.c && \
 	sed 's/int yygrowstack()/int yygrowstack(void)/' mpc.c > .mpc.c && \
-	mv -f .mpc.c mpc.c
+	mv -f .mpc.c mpc.c) || true
 
 .include <bsd.prog.mk>
 
