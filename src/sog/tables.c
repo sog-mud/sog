@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.180 2001-12-04 20:38:27 tatyana Exp $
+ * $Id: tables.c,v 1.181 2001-12-07 07:07:09 avn Exp $
  */
 
 /***************************************************************************
@@ -897,7 +897,6 @@ flaginfo_t skill_groups[] =
 {
 	{ "",			TABLE_BITVAL,		FALSE	},
 
-	{ "none",		GROUP_NONE,		TRUE	},
 	{ "weaponsmaster",	GROUP_WEAPONSMASTER,	TRUE	},
 	{ "attack",		GROUP_ATTACK,		TRUE	},
 	{ "benedictions",	GROUP_BENEDICTIONS,	TRUE	},
