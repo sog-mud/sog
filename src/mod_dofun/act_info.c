@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.20 1998-05-04 09:34:02 fjoe Exp $
+ * $Id: act_info.c,v 1.21 1998-05-04 10:06:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -289,7 +289,7 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 
 	if (fShowNothing && nShow == 0) {
 		if (IS_NPC(ch) || IS_SET(ch->comm, COMM_COMBINE))
-			send_to_char("	   ", ch);
+			send_to_char("     ", ch);
 		send_to_char(msg(INFO_NOTHING, ch), ch);
 	}
 
@@ -753,7 +753,7 @@ void do_autolist(CHAR_DATA *ch, char *argument)
 	if (IS_NPC(ch))
 		return;
 
-	send_to_char("action	     status\n\r",ch);
+	send_to_char("action         status\n\r",ch);
 	send_to_char("---------------------\n\r",ch);
 	do_print_sw(ch, "color", IS_SET(ch->act,PLR_COLOR));
 	do_print_sw(ch, "autoassist", IS_SET(ch->act,PLR_AUTOASSIST));
@@ -1144,7 +1144,7 @@ void do_look(CHAR_DATA *ch, char *argument)
 
 		if (arg1[0] == '\0'
 		||  (!IS_NPC(ch) && !IS_SET(ch->comm, COMM_BRIEF))) {
-			send_to_char("	", ch);
+			send_to_char("  ", ch);
 			send_to_char(ch->in_room->description, ch);
 		}
 
@@ -3169,7 +3169,7 @@ void do_score(CHAR_DATA *ch, char *argument)
 	int ekle = 0;
 	int delta;
 
-	send_to_char("\n\r     {G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/~~\\{x\n\r", ch);
+	send_to_char("\n\r      {G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/~~\\{x\n\r", ch);
 
 	strcpy(title, IS_NPC(ch) ? "Believer of Chronos." : ch->pcdata->title);
 	delta = strlen(title) - cstrlen(title);
@@ -3179,7 +3179,7 @@ void do_score(CHAR_DATA *ch, char *argument)
 
 	send_to_char("     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x\n\r", ch);
 
-	char_printf(ch, "     {G| {RLevel:  {x%3d        {C|	{RStr:	{x%2d(%2d)  {C| {RReligion  :  {x%-10s {G|{x\n\r",
+	char_printf(ch, "     {G| {RLevel:  {x%3d          {C|  {RStr:  {x%2d(%2d)  {C| {RReligion  :  {x%-10s {G|{x\n\r",
 		ch->level,ch->perm_stat[STAT_STR],get_curr_stat(ch,STAT_STR),
 		      (ch->religion <= RELIGION_NONE) ||
 		 (ch->religion > MAX_RELIGION) ? "none" :
@@ -3197,80 +3197,80 @@ void do_score(CHAR_DATA *ch, char *argument)
 	ch->perm_stat[STAT_WIS], get_curr_stat(ch,STAT_WIS),ch->train);
 
 	char_printf(ch,
-"     {G| {RClass:  {x%-12s {C|  {RDex:  {x%2d(%2d)  {C| {RQuest Pnts:	{x%4d	    {G|{x\n\r",
+"     {G| {RClass:  {x%-12s {C|  {RDex:  {x%2d(%2d)  {C| {RQuest Pnts:  {x%4d       {G|{x\n\r",
 		IS_NPC(ch) ? "mobile" : class_table[ch->class].name,
 		ch->perm_stat[STAT_DEX], get_curr_stat(ch,STAT_DEX),
 		IS_NPC(ch) ? 0 : ch->pcdata->questpoints);
 
 	char_printf(ch,
-"     {G| {RHome :  {x%-12s {C|  {RCon:  {x%2d(%2d)  {C| {RQuest Time:	 {x%3d	     {G|{x\n\r",
+"     {G| {RHome :  {x%-12s {C|  {RCon:  {x%2d(%2d)  {C| {RQuest Time:   {x%3d       {G|{x\n\r",
 		IS_NPC(ch) ? "Midgaard" : hometown_table[ch->hometown].name,
 		ch->perm_stat[STAT_CON], get_curr_stat(ch,STAT_CON),
 		IS_NPC(ch) ? 0 : ch->pcdata->nextquest);
 	char_printf(ch,
-"     {G| {REthos:  {x%-11s  {C|  {RCha:  {x%2d(%2d)  {C| {R%s	   :  {x%4d	  {G|{x\n\r",
+"     {G| {REthos:  {x%-11s  {C|  {RCha:  {x%2d(%2d)  {C| {R%s     :  {x%4d       {G|{x\n\r",
 		IS_NPC(ch) ? "mobile" : ch->ethos == 1 ? "lawful" :
 	ch->ethos == 2 ? "neutral" : ch->ethos == 3 ? "chaotic" : "none",
 		ch->perm_stat[STAT_CHA], get_curr_stat(ch,STAT_CHA),
 		ch->class == 9 ? "Death" : "Wimpy" ,
 		ch->class == 9 ? ch->pcdata->death : ch->wimpy);
 
-	char_printf(ch, "     {G| {RAlign:  {x%-11s  {C|		|{x %-7s %-19s {G|{x\n\r",
+	char_printf(ch, "     {G| {RAlign:  {x%-11s  {C|                |{x %-7s %-19s {G|{x\n\r",
 		IS_GOOD(ch) ? "good" : IS_EVIL(ch) ? "evil" : "neutral",
 		msg(INFO_YOU_ARE, ch),
 		msg(INFO_POS_NAME_DEAD + ch->position*3, ch));
 
-	send_to_char("	   {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x{x\n\r", ch);
+	send_to_char("     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x{x\n\r", ch);
 
 	if (ch->guarding != NULL) {
 		ekle = 1;
 		char_printf(ch,
-"     {G| {GYou are guarding: {x%-10s					 {G|{x\n\r",
+"     {G| {GYou are guarding: {x%-10s                                    {G|{x\n\r",
 			    ch->guarding->name);
 	}
 
 	if (ch->guarded_by != NULL) {
 		ekle = 1;
 		char_printf(ch,
-"     {G| {GYou are guarded by: {x%-10s 				 {G|{x\n\r",
+"     {G| {GYou are guarded by: {x%-10s                                  {G|{x\n\r",
 			    ch->guarded_by->name);
 	}
 
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DRUNK] > 10) {
 		ekle = 1;
 		char_printf(ch,
-"     {G| {GYou are drunk.						    {G|{x\n\r");
+"     {G| {GYou are drunk.                                                  {G|{x\n\r");
 	}
 
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_THIRST] <= 0) {
 		ekle = 1;
 		char_printf(ch,
-"     {G| {YYou are thirsty.						    {G|{x\n\r");
+"     {G| {YYou are thirsty.                                                {G|{x\n\r");
 	}
 /*    if (!IS_NPC(ch) && ch->pcdata->condition[COND_FULL]   ==	0) */
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_HUNGER] <= 0) {
 		ekle = 1;
 		char_printf(ch,
-"     {G| {YYou are hungry.{x						      {G|{x\n\r");
+"     {G| {YYou are hungry.                                                 {G|{x\n\r");
 	}
 
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_BLOODLUST] <= 0) {
 		ekle = 1;
 		char_printf(ch,
-"     {G|{x {YYou are hungry for blood.{x					{G|{x\n\r");
+"     {G| {YYou are hungry for blood.                                       {G|{x\n\r");
 	}
 
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DESIRE] <=  0) {
 		ekle = 1;
 		char_printf(ch,
-"     {G| {YYou are desiring your home. 				    {G|{x\n\r");
+"     {G| {YYou are desiring your home.                                     {G|{x\n\r");
 	}
 
 	if (ch->last_fight_time != -1 && !IS_IMMORTAL(ch) &&
 	    (current_time - ch->last_fight_time)<FIGHT_DELAY_TIME) {
 		ekle = 1;
 		char_printf(ch,
-"     {G| {RYour adrenalin is gushing!					    {G|{x\n\r");
+"     {G| {RYour adrenalin is gushing!                                      {G|{x\n\r");
 	}
 
 	if (ekle)
@@ -3278,38 +3278,38 @@ void do_score(CHAR_DATA *ch, char *argument)
 "     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x\n\r");
 
 	char_printf(ch,
-"     {G| {RItems Carried :    {x%2d/%-4d	   {RArmor vs magic  : {x%4d	  {G|{x\n\r",
+"     {G| {RItems Carried :   {x%2d/%-4d           {RArmor vs magic  : {x%4d      {G|{x\n\r",
 		ch->carry_number, can_carry_n(ch),
 		GET_AC(ch,AC_EXOTIC));
 
 	char_printf(ch,
-"     {G| {RWeight Carried:  {x%4d/%-8d      {RArmor vs bash   : {x%4d	    {G|{x\n\r",
+"     {G| {RWeight Carried:  {x%4d/%-8d      {RArmor vs bash   : {x%4d      {G|{x\n\r",
 	ch->carry_weight, can_carry_w(ch),GET_AC(ch,AC_BASH));
 
 	char_printf(ch,
-"     {G| {RGold	  :   {Y%-10ld	      {RArmor vs pierce : {x%4d      {G|{x\n\r",
+"     {G| {RGold          :   {Y%-10ld        {RArmor vs pierce : {x%4d      {G|{x\n\r",
 		 ch->gold,GET_AC(ch,AC_PIERCE));
 
 	char_printf(ch,
-"     {G| {RSilver	  :   {W%-10ld	      {RArmor vs slash	: {x%4d      {G|{x\n\r",
+"     {G| {RSilver        :   {W%-10ld        {RArmor vs slash  : {x%4d      {G|{x\n\r",
 		 ch->silver,GET_AC(ch,AC_SLASH));
 
 	char_printf(ch,
-"     {G| {RCurrent exp   :   {x%-6d		{RSaves vs Spell  : {x%4d      {G|{x\n\r",
+"     {G| {RCurrent exp   :   {x%-6d            {RSaves vs Spell  : {x%4d      {G|{x\n\r",
 		ch->exp,ch->saving_throw);
 
 	char_printf(ch,
-"     {G| {RExp to level  :   {x%-6d					    {G|{x\n\r",
+"     {G| {RExp to level  :   {x%-6d                                        {G|{x\n\r",
 		IS_NPC(ch) ? 0 : exp_to_level(ch,ch->pcdata->points));
 
 	char_printf(ch,
-"     {G|				      {RHitP: {x%5d / %5d	  {G|{x\n\r",
+"     {G|                                     {RHitP: {x%5d / %5d         {G|{x\n\r",
 		   ch->hit, ch->max_hit);
 	char_printf(ch,
-"     {G| {RHitroll	  :   {x%-3d		   {RMana: {x%5d / %5d	       {G|{x\n\r",
+"     {G| {RHitroll       :   {x%-3d               {RMana: {x%5d / %5d         {G|{x\n\r",
 		   GET_HITROLL(ch),ch->mana, ch->max_mana);
 	char_printf(ch,
-"     {G| {RDamroll	  :   {x%-3d		   {RMove: {x%5d / %5d	       {G|{x\n\r",
+"     {G| {RDamroll       :   {x%-3d               {RMove: {x%5d / %5d         {G|{x\n\r",
 		    GET_DAMROLL(ch), ch->move, ch->max_move);
 	char_printf(ch, "  {G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/   |{x\n\r");
 	char_printf(ch, "  {G\\________________________________________________________________\\__/{x\n\r");
@@ -3444,8 +3444,8 @@ void do_oscore(CHAR_DATA *ch, char *argument)
 	/* print AC values */
 	if (ch->level >= 25)
 		char_printf(ch,
-			"Armor: pierce: {g%d{x	bash: {g%d{x  "
-			"slash: {g%d{x	magic: {g%d{x\n\r",
+			"Armor: pierce: {g%d{x  bash: {g%d{x  "
+			"slash: {g%d{x  magic: {g%d{x\n\r",
 			GET_AC(ch, AC_PIERCE), GET_AC(ch, AC_BASH),
 			GET_AC(ch, AC_SLASH), GET_AC(ch, AC_EXOTIC));
 
@@ -3521,17 +3521,17 @@ void do_oscore(CHAR_DATA *ch, char *argument)
 
 	switch (ch->ethos) {
 	case 1:
-		send_to_char("	You have a lawful ethos.\n\r", ch);
+		send_to_char("  You have a lawful ethos.\n\r", ch);
 		break;
 	case 2:
-		send_to_char("	You have a neutral ethos.\n\r", ch);
+		send_to_char("  You have a neutral ethos.\n\r", ch);
 		break;
 	case 3:
-		send_to_char("	You have a chaotic ethos.\n\r", ch);
+		send_to_char("  You have a chaotic ethos.\n\r", ch);
 		break;
 	default:
 		if (!IS_NPC(ch))
-			send_to_char("	You have no ethos, "
+			send_to_char("  You have no ethos, "
 				     "report it to the gods!\n\r", ch);
 	}
 
@@ -3562,7 +3562,7 @@ void do_affects(CHAR_DATA *ch, char *argument)
 	for (paf = ch->affected; paf != NULL; paf = paf->next) {
 		if (paf_last != NULL && paf->type == paf_last->type)
 			if (ch->level >= 20)
-				char_puts("			 ", ch);
+				char_puts("                      ", ch);
 			else
 				continue;
 		else
@@ -3726,7 +3726,7 @@ void do_raffects(CHAR_DATA *ch, char *argument)
 	for (paf = ch->in_room->affected; paf != NULL; paf = paf->next) {
 		if (paf_last != NULL && paf->type == paf_last->type)
 			if (ch->level >= 20)
-				char_puts("			 ", ch);
+				char_puts("                      ", ch);
 			else
 				continue;
 		else
