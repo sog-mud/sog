@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.41 2001-12-05 16:50:10 avn Exp $
+ * $Id: act_info.c,v 1.271.2.42 2001-12-05 19:09:51 avn Exp $
  */
 
 /***************************************************************************
@@ -4722,7 +4722,7 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 
 		r = race_lookup(vch->race);
 		cl = class_lookup(vch->class);
-		buf_printf(output, "%-8s  %3d  %-5s  %-3s  %7s-%-7s %s%s\n",
+		buf_printf(output, "%-8s  %3d  %-5s  %-3s  %7s-%-7s %s%s{x\n",
 			flag_string(clan_status_table, PC(vch)->clan_status),
 			vch->level,
 			r && r->race_pcdata ? r->race_pcdata->who_name : "none",
