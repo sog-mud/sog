@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.228 2001-01-11 21:43:12 fjoe Exp $
+ * $Id: act_obj.c,v 1.229 2001-01-16 19:22:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1910,75 +1910,76 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (IS_SET(pet->pMobIndex->act, ACT_RIDEABLE)
-	&&  get_skill(ch, "riding") && !MOUNTED(ch)) {
-		cost = 10 * pet->level * pet->level;
-
-		if ((ch->silver + 100 * ch->gold) < cost) {
-			act_char("You can't afford it.", ch);
-			return;
-		}
-		if (ch->level < pet->level + 5) {
-			act_char("You're not powerful enough to master this pet.", ch);
-			return;
-		}
-		deduct_cost(ch, cost);
-		pet = create_mob(pet->pMobIndex, 0);
-		pet->comm = COMM_NOTELL;
-		pet->chan = CHAN_NOSHOUT | CHAN_NOCHANNELS;
-
-		char_to_room(pet, ch->in_room);
-		if (IS_EXTRACTED(pet))
-			return;
-
-		do_mount(ch, pet->name);
-		act_char("Enjoy your mount.", ch);
-		act("$n bought $N as a mount.", ch, NULL, pet, TO_ROOM);
-		return;
-	}
-	if (GET_PET(ch) != NULL) {
-		act_char("You already own a pet.", ch);
-		return;
-	}
 	cost = 10 * pet->level * pet->level;
-
 	if ((ch->silver + 100 * ch->gold) < cost) {
 		act_char("You can't afford it.", ch);
 		return;
 	}
+
 	if (LEVEL(ch) < LEVEL(pet)) {
 		act_char("You're not powerful enough to master this pet.", ch);
 		return;
 	}
-	/* haggle */
-	roll = number_percent();
-	if (roll < get_skill(ch, "haggle")) {
-		cost -= cost / 2 * roll / 100;
-		act_puts("You haggle the price down to $j $qj{coins}.",
-			 ch, (const void *) cost, NULL, TO_CHAR, POS_DEAD);
-		check_improve(ch, "haggle", TRUE, 4);
+
+	/*
+	 * ridable pets
+	 */
+	if (IS_SET(pet->pMobIndex->act, ACT_RIDEABLE)) {
+		if (MOUNTED(ch)) {
+			act_char("You are already riding.", ch);
+			return;
+		}
+
+		if (get_skill(ch, "riding") == 0) {
+			act_char("You're not powerful enough to master this pet.", ch);
+			return;
+		}
+	} else {
+		if (GET_PET(ch) != NULL) {
+			act_char("You already own a pet.", ch);
+			return;
+		}
+
+		/* haggle */
+		roll = number_percent();
+		if (roll < get_skill(ch, "haggle")) {
+			cost -= cost / 2 * roll / 100;
+			act_puts("You haggle the price down to $j $qj{coins}.",
+				 ch, (const void *) cost, NULL, TO_CHAR, POS_DEAD);
+			check_improve(ch, "haggle", TRUE, 4);
+		}
 	}
+	
 	deduct_cost(ch, cost);
 	pet = create_mob(pet->pMobIndex, 0);
-	SET_BIT(pet->affected_by, AFF_CHARM);
 	pet->comm = COMM_NOTELL;
 	pet->chan = CHAN_NOSHOUT | CHAN_NOCHANNELS;
-
-	argument = one_argument(argument, arg, sizeof(arg));
-	if (arg[0] != '\0')
-		pet->name = str_printf(pet->pMobIndex->name, arg);
-	mlstr_printf(&pet->description,
-		     &pet->pMobIndex->description, ch->name);
 
 	char_to_room(pet, ch->in_room);
 	if (IS_EXTRACTED(pet))
 		return;
 
-	add_follower(pet, ch);
-	pet->leader = ch;
-	PC(ch)->pet = pet;
-	act_char("Enjoy your pet.", ch);
-	act("$n bought $N as a pet.", ch, NULL, pet, TO_ROOM);
+	if (IS_SET(pet->pMobIndex->act, ACT_RIDEABLE)) {
+		act_char("Enjoy your mount.", ch);
+		act("$n bought $N as a mount.", ch, NULL, pet, TO_ROOM);
+
+		do_mount(ch, pet->name);
+	} else {
+		SET_BIT(pet->affected_by, AFF_CHARM);
+
+		argument = one_argument(argument, arg, sizeof(arg));
+		if (arg[0] != '\0')
+			pet->name = str_printf(pet->pMobIndex->name, arg);
+		mlstr_printf(&pet->description,
+			     &pet->pMobIndex->description, ch->name);
+
+		add_follower(pet, ch);
+		pet->leader = ch;
+		PC(ch)->pet = pet;
+
+		act_char("Enjoy your pet.", ch);
+		act("$n bought $N as a pet.", ch, NULL, pet, TO_ROOM);
+	}
 }
 
 void do_buy(CHAR_DATA * ch, const char *argument)
