@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.10 1998-11-26 13:19:34 fjoe Exp $
+ * $Id: skills.h,v 1.11 1999-02-09 09:33:58 kostik Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -36,6 +36,7 @@
 #define SKILL_CLAN	(A)
 #define SKILL_RANGE	(B)
 #define SKILL_AREA_ATTACK	(C)
+#define SKILL_QUESTIONABLE	(D)
 
 struct skill_data {
 	const char *	name;			/* skill name */

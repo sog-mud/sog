@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.h,v 1.9 1999-01-21 12:23:52 kostik Exp $
+ * $Id: gsn.h,v 1.10 1999-02-09 09:34:05 kostik Exp $
  */
 
 #ifndef _GSN_H_
@@ -59,6 +59,7 @@ extern int gsn_plague;
 extern int gsn_sleep;
 extern int gsn_sanctuary;
 extern int gsn_black_shroud;
+extern int gsn_demand;
 extern int gsn_fly;
 
 extern int gsn_fourth_attack;

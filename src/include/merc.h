@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.136 1999-02-08 16:34:02 fjoe Exp $
+ * $Id: merc.h,v 1.137 1999-02-09 09:33:57 kostik Exp $
  */
 
 /***************************************************************************
@@ -1085,6 +1085,11 @@ enum {
 #define PLR_NOCANCEL		(S)
 #define PLR_GHOST		(T)
 
+/* Trust stuff */
+#define TRUST_GROUP		(A)
+#define TRUST_CLAN		(B)
+#define TRUST_ALL		(C)
+
 /* penalty flags */
 #define PLR_PERMIT		(U)
 #define PLR_LOG 		(W)
@@ -1349,6 +1354,7 @@ struct pc_data
 	int 			perm_mana;
 	int 			perm_move;
 	sflag_t			true_sex;
+	sflag_t			trust;
 	sflag_t			wiznet; /* wiz stuff */
 	int 			last_level;
 	int			condition	[MAX_COND];

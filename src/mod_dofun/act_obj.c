@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.111 1999-02-08 16:33:56 fjoe Exp $
+ * $Id: act_obj.c,v 1.112 1999-02-09 09:33:56 kostik Exp $
  */
 
 /***************************************************************************
@@ -2064,9 +2064,10 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 						continue;
 					break;
 				}
-
+#ifdef 0
 				if (is_safe(ch, vch))
 					continue;
+#endif
 
 				obj_cast_spell(staff->value[3],
 					       staff->value[0], ch, vch, NULL);
@@ -2129,9 +2130,10 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 			return;
 		}
 	}
-
+#ifdef 0
 	if (victim && is_safe(ch, victim))
 		return;
+#endif
 
 	WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 

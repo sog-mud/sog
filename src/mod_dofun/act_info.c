@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.184 1999-02-08 16:33:54 fjoe Exp $
+ * $Id: act_info.c,v 1.185 1999-02-09 09:33:55 kostik Exp $
  */
 
 /***************************************************************************
@@ -3571,10 +3571,6 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch))
 		return;
 
-	if (ch->class != CLASS_ANTI_PALADIN) {
-		char_puts("You can't do that.\n", ch);
-		return;
-	}
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
 		char_puts("Demand what from whom?\n", ch);
@@ -3598,14 +3594,16 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 	chance += (get_curr_stat(ch,STAT_CHA) - 15) * 10;
 	chance += ch->level - victim->level;
 
-	if (victim->level >= ch->level + 10 || victim->level >= ch->level * 2)
-		chance = 0;
+	chance = (get_skill(ch, gsn_demand))*chance/100;
 
 	if (number_percent() > chance) {
 		do_say(victim, "I'm not about to give you anything!");
+		check_improve(ch, gsn_demand, FALSE, 1);
 		do_murder(victim, ch->name);
 		return;
 	}
+
+	check_improve(ch, gsn_demand, TRUE, 1);
 
 	if (((obj = get_obj_carry(victim , arg1)) == NULL
 	&&   (obj = get_obj_wear(victim, arg1)) == NULL)

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.34 1999-02-02 15:50:22 kostik Exp $
+ * $Id: interp.h,v 1.35 1999-02-09 09:33:57 kostik Exp $
  */
 
 /***************************************************************************
@@ -212,6 +212,7 @@ DECLARE_DO_FUN(do_newlock	);
 DECLARE_DO_FUN(do_news		);
 DECLARE_DO_FUN(do_noaffect	);
 DECLARE_DO_FUN(do_nocancel	);
+DECLARE_DO_FUN(do_trust		);
 DECLARE_DO_FUN(do_nochannels	);
 DECLARE_DO_FUN(do_noemote	);
 DECLARE_DO_FUN(do_nofollow	);

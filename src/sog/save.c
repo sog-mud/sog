@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.93 1999-02-02 15:50:23 kostik Exp $
+ * $Id: save.c,v 1.94 1999-02-09 09:33:58 kostik Exp $
  */
 
 /***************************************************************************
@@ -238,6 +238,9 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 
 		if (pcdata->wiznet)
 			fprintf(fp, "Wizn %s\n", format_flags(pcdata->wiznet));
+
+		if (pcdata->trust)
+			fprintf(fp, "Trust %s\n", format_flags(pcdata->trust));
 
 		for (qt = pcdata->qtrouble; qt; qt = qt->next)
 			fprintf(fp, "Qtrouble %d %d\n", qt->vnum, qt->count);
@@ -1008,6 +1011,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("TrueSex", ch->pcdata->true_sex, fread_number(fp));
 			KEY("TSex", ch->pcdata->true_sex, fread_number(fp));
 			KEY("Trai", ch->train, fread_number(fp));
+			KEY("Trust", ch->pcdata->trust, fread_flags(fp));
 			SKEY("Twitlist", ch->pcdata->twitlist);
 			if (!str_cmp(word, "Title") || !str_cmp(word, "Titl")) {
 				const char *p = fread_string(fp);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.130 1999-02-05 09:22:04 kostik Exp $
+ * $Id: act_comm.c,v 1.131 1999-02-09 09:33:55 kostik Exp $
  */
 
 /***************************************************************************
@@ -1805,6 +1805,76 @@ DO_FUN(do_judge)
 					  "unknown");
 }
 
+DO_FUN(do_trust)
+{	
+	char arg[MAX_INPUT_LENGTH];
+	
+	if (IS_NPC(ch)) {
+		char_puts("Huh?\n", ch);
+		return;
+	}
+	one_argument (argument, arg);
+
+	if (!str_cmp(arg,"\0")) {
+		if (IS_SET(ch->pcdata->trust, TRUST_ALL)) {
+			char_puts("You allow everyone to cast questionable spells on you.\n", ch);
+			return;
+		}
+		if (!IS_SET(ch->pcdata->trust, TRUST_GROUP|TRUST_CLAN)) {
+			char_puts("You do not allow anyone to cast questionable spells on you.\n", ch);
+			return;
+		}
+		if (IS_SET(ch->pcdata->trust, TRUST_CLAN)) 
+			char_puts("You trust your clan with questionable spells.\n", ch);
+		if (IS_SET(ch->pcdata->trust, TRUST_GROUP))
+			char_puts("You trust your group with questionable spells.\n", ch);
+		return;
+	};
+	if (!str_cmp(arg, "clan")) {
+		if (ch->clan == 0) {
+			char_puts("You are not in clan.\n", ch);
+			return;
+		};
+
+		if (IS_SET(ch->pcdata->trust, TRUST_CLAN)) {
+			char_puts("You no longer trust your clan with questionable spells.\n", ch);
+			REMOVE_BIT(ch->pcdata->trust, TRUST_CLAN);
+		}
+		else {
+			char_puts("You now trust your clan with questionable spells.\n", ch);
+			SET_BIT(ch->pcdata->trust, TRUST_CLAN);
+		}
+		return;
+	}
+
+	if (!str_cmp(arg, "group")) {
+		if (IS_SET(ch->pcdata->trust, TRUST_GROUP)) {
+			char_puts("You no longer trust your group with questionable spells.\n", ch);
+			REMOVE_BIT(ch->pcdata->trust, TRUST_GROUP);
+		}
+		else {
+			char_puts("You allow your group to cast questionable spells on you.\n", ch);
+			SET_BIT(ch->pcdata->trust, TRUST_GROUP);
+		}
+		return;
+	}
+
+	if (!str_cmp(arg, "all")) {
+		if (IS_SET(ch->pcdata->trust, TRUST_ALL)) {
+			char_puts("You no longer allow everyone to cast questionable spells on you.\n", ch);
+			REMOVE_BIT(ch->pcdata->trust, TRUST_ALL);
+		}
+		else {
+			char_puts("You allow everyone to cast questionable spells on you.\n", ch);
+			SET_BIT(ch->pcdata->trust, TRUST_ALL);
+		}
+		return;
+	}
+
+	char_puts("Syntax: trust {group|clan|all}.\n", ch);
+	return;
+
+}
 DO_FUN(do_wanted)
 {
 	char arg[MAX_INPUT_LENGTH];

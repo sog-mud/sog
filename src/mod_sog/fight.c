@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.123 1999-02-08 16:33:58 fjoe Exp $
+ * $Id: fight.c,v 1.124 1999-02-09 09:33:56 kostik Exp $
  */
 
 /***************************************************************************
@@ -96,6 +96,7 @@ void	group_gain		(CHAR_DATA *ch, CHAR_DATA *victim);
 int	xp_compute		(CHAR_DATA *gch, CHAR_DATA *victim,
 				 int total_levels, int members);
 bool	is_safe 		(CHAR_DATA *ch, CHAR_DATA *victim);
+
 void	make_corpse		(CHAR_DATA *ch);
 void	one_hit 		(CHAR_DATA *ch, CHAR_DATA *victim, int dt,
 				 int loc);
@@ -1496,6 +1497,21 @@ bool is_safe(CHAR_DATA *ch, CHAR_DATA *victim)
 		return TRUE;
 	}
 	return FALSE;
+}
+
+bool check_trust(CHAR_DATA *ch, CHAR_DATA *victim)
+{
+	if (IS_NPC(victim))
+		return is_same_group(ch, victim);
+
+	if (ch == victim) return TRUE;
+	if (IS_SET(victim->pcdata->trust, TRUST_ALL)) 
+		return TRUE;
+
+	return 	(IS_SET(victim->pcdata->trust, TRUST_GROUP) 
+		&& is_same_group(ch, victim))
+		|| (IS_SET(victim->pcdata->trust, TRUST_CLAN)
+		&& (ch->clan == victim->clan));
 }
 
 bool is_safe_spell(CHAR_DATA *ch, CHAR_DATA *victim, bool area)

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.h,v 1.8 1998-11-18 07:43:44 fjoe Exp $
+ * $Id: fight.h,v 1.9 1999-02-09 09:33:57 kostik Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,7 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part);
 bool	is_safe 	(CHAR_DATA *ch, CHAR_DATA *victim);
 bool	is_safe_nomessage (CHAR_DATA *ch, CHAR_DATA *victim);
 bool	is_safe_spell	(CHAR_DATA *ch, CHAR_DATA *victim, bool area);
+bool	check_trust	(CHAR_DATA *ch, CHAR_DATA *victim);
 void	violence_update (void);
 void	multi_hit	(CHAR_DATA *ch, CHAR_DATA *victim, int dt);
 bool	damage		(CHAR_DATA *ch, CHAR_DATA *victim, int dam,

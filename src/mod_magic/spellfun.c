@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.106 1999-02-08 16:33:59 fjoe Exp $
+ * $Id: spellfun.c,v 1.107 1999-02-09 09:33:57 kostik Exp $
  */
 
 /***************************************************************************
@@ -246,6 +246,11 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		}
 
 		vo = (void *) victim;
+		if (IS_SET(spell->flags, SKILL_QUESTIONABLE) 
+		&& !check_trust(ch, victim)) {
+			char_puts("They do not trust you enough for this spell.\n", ch);
+			return;
+		}
 		target = TARGET_CHAR;
 		break;
 
@@ -335,7 +340,9 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 	if (spell->target == TAR_CHAR_OFFENSIVE
 	||  (spell->target == TAR_OBJ_CHAR_OFF && target == TARGET_CHAR)) {
-		if (is_safe(ch, victim))
+		if (!(IS_SET(spell->flags, SKILL_QUESTIONABLE)
+		&& check_trust(ch, victim))
+		&& is_safe(ch, victim))
 			return;
 
 		if (!IS_NPC(ch)
@@ -343,7 +350,9 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		&&  victim != ch
 		&&  ch->fighting != victim
 		&&  victim->fighting != ch
-		&&  !IS_AFFECTED(victim, AFF_CHARM)) 
+		&&  !IS_AFFECTED(victim, AFF_CHARM)
+		&&  !(IS_SET(spell->flags, SKILL_QUESTIONABLE) 
+		&&  check_trust(ch, victim)))
 			doprintf(do_yell, victim,
 				 "Die, %s, you sorcerous dog!",
 				 PERS(ch,victim));
@@ -446,7 +455,9 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	else if ((spell->target == TAR_CHAR_OFFENSIVE ||
 		 (spell->target == TAR_OBJ_CHAR_OFF && target == TARGET_CHAR))
 	&&   victim != ch
-	&&   victim->master != ch) {
+	&&   victim->master != ch
+	&&   !(IS_SET(spell->flags, SKILL_QUESTIONABLE)
+	&&   check_trust(ch, victim))) {
 		CHAR_DATA *vch;
 		CHAR_DATA *vch_next;
 
@@ -494,8 +505,10 @@ void obj_cast_spell(int sn, int level,
 			char_puts("You can't do that.\n", ch);
 			return;
 		}
-		if (is_safe(ch, victim)) {
-			char_puts("Something isn't right...\n",ch);
+		if ( !(IS_SET(spell->flags, SKILL_QUESTIONABLE)
+		&& check_trust(ch, victim))
+		&& is_safe(ch, victim)) {
+	/*		char_puts("Something isn't right...\n",ch); */
 			return;
 		}
 		vo = (void *) victim;
@@ -508,6 +521,11 @@ void obj_cast_spell(int sn, int level,
 		if (victim == NULL)
 			victim = ch;
 		vo = (void *) victim;
+		if (IS_SET(spell->flags, SKILL_QUESTIONABLE)
+		&& !check_trust(ch, victim)) {
+			char_puts("They do not trust you enough for this spell.\n", ch);
+			return;
+		}
 		target = TARGET_CHAR;
 		break;
 
@@ -550,6 +568,11 @@ void obj_cast_spell(int sn, int level,
 			target = TARGET_CHAR;
 		}
 		else if (victim != NULL) {
+			if (IS_SET(spell->flags, SKILL_QUESTIONABLE)
+			&& !check_trust(ch, victim)) {
+				char_puts("They do not trust you enough for this spell.\n", ch);
+				return;
+			}
 			vo = (void *) victim;
 			target = TARGET_CHAR;
 		}
@@ -596,12 +619,18 @@ void obj_cast_spell(int sn, int level,
 	if ((spell->target == TAR_CHAR_OFFENSIVE ||
 	    (spell->target == TAR_OBJ_CHAR_OFF && target == TARGET_CHAR))
 	&&  victim != ch
-	&&  victim->master != ch) {
+	&&  victim->master != ch
+	&&  !(IS_SET(spell->flags, SKILL_QUESTIONABLE)
+	&&  check_trust(ch, victim))) {
 		CHAR_DATA *vch;
 		CHAR_DATA *vch_next;
 
 		for (vch = ch->in_room->people; vch; vch = vch_next) {
 			vch_next = vch->next_in_room;
+
+			if (victim == vch) doprintf(do_yell, victim,
+			"Help! %s is attacking me!", PERS(ch, victim));
+
 			if (victim == vch && victim->fighting == NULL) {
 				multi_hit(victim, ch, TYPE_UNDEFINED);
 				break;
@@ -890,6 +919,7 @@ void spell_cancellation(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	level += 2;
 
+#ifdef 0
 	if ((!IS_NPC(ch) && IS_NPC(victim) &&
 	     (!IS_AFFECTED(ch, AFF_CHARM) || ch->master != victim))
 	||  (IS_NPC(ch) && !IS_NPC(victim))
@@ -898,6 +928,7 @@ void spell_cancellation(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		char_puts("You failed, try dispel magic.\n",ch);
 		return;
 	}
+#endif
 
 	/* unlike dispel magic, the victim gets NO save */
 
@@ -4323,7 +4354,6 @@ void spell_word_of_recall(int sn, int level, CHAR_DATA *ch,void *vo, int target)
 
 	if (IS_NPC(victim))
 		return;
-
 	if (victim->fighting
 	&&  (vcl = class_lookup(victim->class))
 	&&  !CAN_FLEE(victim, vcl)) {
