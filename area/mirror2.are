@@ -1947,7 +1947,7 @@ a kendo~
 A long wooden staff lies here.~
 wood~
 weapon GH AN
-spear 5 9 crush D
+spear 5 9 crush DK
 45 10 100 P
 A
 2 1
@@ -2089,7 +2089,7 @@ a thick wooden staff~
 A rough wooden staff lies here.~
 wood~
 weapon 0 AN
-spear 4 4 crush 0
+spear 4 4 crush K
 19 10 0 P
 G none
 #19086
@@ -2127,7 +2127,7 @@ a gaff~
 A fisherman's gaff lies here.~
 steel~
 weapon G AN
-spear 5 6 pierce D
+spear 5 6 pierce DK
 25 10 100 P
 G none
 #19090

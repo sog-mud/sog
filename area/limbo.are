@@ -614,7 +614,7 @@ ranger staff посох~
 @eng There is a Ranger's Staff here on the ground.@rus Охотник забыл свой посох (staff) тут.~
 ebony~
 weapon A AN
-spear 0 0 pierce 0
+spear 0 0 pierce K
 0 160 0 P
 G male
 #29
@@ -1185,6 +1185,15 @@ armor GIRYZ AJ
 30 30 30 20 0
 0 240 20000 P
 G male
+#75
+herb healing травка bunch~
+@eng a bunch of herbs.~
+~
+unknown~
+pill G AO
+0 'reserved' 'reserved' 'reserved' 'reserved'
+0 1 1 P
+G none
 #80
 golden dagger кинжал~
 @eng a golden dagger@rus ~~золотистый~~ ~~кинжал~~~

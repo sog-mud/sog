@@ -576,7 +576,7 @@ A weaponsmith.
 A young weaponsmith, who still has lots to learn.
 ~
 human~
-ABTVe H 900 0
+ABTVei H 900 0
 86 15 25d10+25000 1d1+999 6d8+20 punch
 -50 -50 -50 -25
 CEIK AB CD 0
@@ -592,7 +592,7 @@ An old but very strong armourer, he has made more armours in his
 lifetime than you have ever seen.
 ~
 human~
-ABVe 0 900 0
+ABVei 0 900 0
 65 10 25d10+23300 1d1+999 7d5+20 punch
 -55 -55 -55 -15
 CEFJKN AB CD 0

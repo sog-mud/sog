@@ -277,7 +277,7 @@ Igor stands here doing... something.
 You see a small dwarf with a large hump on his left shoulder.
 ~
 human~
-ABTVXYe D 800 0
+ABTVXYei D 800 0
 23 0 5d10+650 11d9+100 3d6+6 none
 -6 -6 -6 6
 EFNU 0 0 0
@@ -1508,7 +1508,7 @@ an awl-pike~
 An awl pike lies here.~
 iron~
 weapon 0 AN
-spear 1 10 pierce 0
+spear 1 10 pierce K
 6 30 108 P
 G none
 #9505

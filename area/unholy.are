@@ -665,8 +665,8 @@ throwing axe~
 a throwing axe~
 A throwing axe hangs by a thong from a hook on one wall.~
 ~
-warp_stone 0 AO
-0 0 0 0 0
+weapon 0 AN
+axe 8 9 chop K
 60 5 2500 P
 G none
 #30838
@@ -693,7 +693,7 @@ a quarterstaff~
 A quarterstaff is lying on the floor here.~
 ~
 weapon 0 AN
-spear 6 8 crush 0
+spear 6 8 crush K
 59 5 2500 P
 G none
 #30841

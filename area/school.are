@@ -630,7 +630,7 @@ a sub issue spear~
 You see a sub issue spear here.~
 wood~
 weapon U AN
-spear 1 6 thrust 0
+spear 1 6 thrust K
 1 50 111 P
 A
 18 1
@@ -646,7 +646,7 @@ a sub issue staff~
 You see a sub issue staff here.~
 wood~
 weapon U AN
-spear 1 5 pound F
+spear 1 5 pound FK
 1 40 290 P
 A
 18 2

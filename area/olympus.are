@@ -450,7 +450,7 @@ the spear of Ares~
 A wicked spear rests on the ground here.~
 titanium~
 weapon FGJ AN
-spear 5 10 thrust 0
+spear 5 10 thrust K
 48 180 2000 P
 A
 19 4
@@ -484,7 +484,7 @@ poseidon's Trident~
 A huge three pronged spear lies here.~
 oak~
 weapon FGK AN
-spear 7 7 pierce F
+spear 7 7 pierce FK
 47 160 5700 P
 A
 4 2

@@ -468,9 +468,9 @@ A
 13 35
 G none
 #18799
-light holy pillar~
-@eng holy light@rus божественный свет~
-@eng The pillar of light falls from the heaven.@rus Столб света льется с неба освещая все вокруг.~
+light holy pillar свет~
+@eng holy light@rus ~~божественный~~ ~~свет~~~
+@eng The pillar of light falls from the heaven.@rus Столб света (light) льется с неба, освещая все вокруг.~
 holy~
 light AIh A
 0 0 -1 0 0

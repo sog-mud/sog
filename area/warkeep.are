@@ -98,13 +98,14 @@ These trolls are meant to prevent strangers from entering the inner keep,
 but they see so many strange creatures here they aren't sure which type is
 allowed and which isn't.
 ~
-human~
-ABDG JN -400 0
+troll~
+0 0 -400 0
 25 0 5d10+550 5d5+1000 2d10+7 pound
 -7 -7 -7 4
-CDEFIJKQ 0 0 0
+EFIJKQ 0 0 0
 stand stand male 1000
 0 0 medium unknown
+F off D
 #15706
 flesh golem~
 a flesh golem~
@@ -304,8 +305,8 @@ An ogre slave grunts as you enter, then turns back to his work.
 These evil giant-kin have been captured by Baragar and set to work as miners
 and laborers helping to excavate the ancient lower cavers beneath the keep.
 ~
-human~
-AG J -400 0
+ogre~
+0 0 -400 0
 18 0 3d9+283 5d5+1000 2d7+4 punch
 -3 -3 -3 6
 FS 0 0 0

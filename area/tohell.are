@@ -1091,7 +1091,7 @@ a wicked-looking trident~
 A wicked-looking trident is stuck into the ground.~
 unknown~
 weapon AEGJ AN
-spear 4 12 stab F
+spear 4 12 stab FK
 45 70 3100 P
 A
 19 3
@@ -1321,7 +1321,7 @@ an ice spear~
 A spear made out of ice lies here.~
 unknown~
 weapon 0 AN
-spear 6 8 pierce BF
+spear 6 8 pierce BFK
 48 50 1330 P
 G none
 #10420

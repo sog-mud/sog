@@ -1013,7 +1013,7 @@ tomahawk~
 A small throwing axe lies on the ground.~
 steel~
 weapon BY AN
-axe 15 7 slash DE
+axe 15 7 slash DEK
 90 40 10000 P
 A
 18 11
@@ -1119,7 +1119,7 @@ reet stick~
 A long piece of bamboo lies here.~
 bamboo~
 weapon BI AN
-spear 11 10 pierce C
+spear 11 10 pierce CK
 95 10 100 P
 A
 18 10

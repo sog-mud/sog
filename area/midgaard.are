@@ -71,7 +71,7 @@ weaponsmith~
 @rus Молодой оружейник, который забросил учебу.
 ~
 human~
-ABTVe HN 900 0
+ABTVei HN 900 0
 86 15 25d10+28000 1d1+999 6d8+60 punch
 -90 -90 -90 -55
 CEIK AB CD 0
@@ -87,7 +87,7 @@ An old but very strong armourer, he has made more armours in his
 lifetime than you have ever seen.
 ~
 human~
-ABVe N 900 0
+ABVei N 900 0
 65 10 25d10+19300 1d1+999 7d18+50 punch
 -85 -85 -85 -45
 CEFJKN AB CD 0
@@ -1412,7 +1412,7 @@ spear копье~
 @eng A long spear leans against the wall.@rus Длинное копье (spear) стоит у стены.~
 steel~
 weapon 0 AN
-spear 1 8 pierce 0
+spear 1 8 pierce K
 4 50 84 G
 G none
 #3028
@@ -1421,7 +1421,7 @@ staff посох~
 @eng A stout wooden staff lies on the floor.@rus Прочный деревянный посох (staff) лежит на полу.~
 wood~
 weapon 0 AN
-spear 1 8 pound F
+spear 1 8 pound FK
 9 40 580 G
 A
 17 -2

@@ -1151,7 +1151,7 @@ a wooden staff~
 A wooden staff is against the wall here.~
 wood~
 weapon 0 AN
-spear 1 4 crush 0
+spear 1 4 crush K
 0 60 42 P
 G none
 #1321
@@ -1726,7 +1726,7 @@ an iron shod staff~
 A grey piece of wood shod in iron has been left here.~
 wood~
 weapon G AN
-spear 4 8 pound F
+spear 4 8 pound FK
 27 70 1280 P
 A
 18 3

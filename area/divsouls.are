@@ -3432,7 +3432,7 @@ a brilliant red tailfeather~
 A long red feather gleams brightly.~
 feathers~
 weapon A AN
-spear 10 10 pierce DG
+spear 10 10 pierce DGK
 80 380 3450 P
 A
 19 5
@@ -3963,7 +3963,7 @@ an adamantite throwing knife~
 A sharp blue black knife gleams here.~
 adamantite~
 weapon C AN
-dagger 9 6 pierce H
+dagger 9 6 pierce HK
 55 150 4500 P
 A
 19 4

@@ -98,7 +98,7 @@ tooth~
 @eng A tooth of piranha lies here.@rus Сломаный зуб (tooth) пираньи лежит здесь.~
 unknown~
 weapon FH AN
-spear 10 11 pierce DH
+spear 10 11 pierce DHK
 75 150 1000 P
 G none
 #33302

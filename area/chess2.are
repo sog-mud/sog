@@ -494,7 +494,7 @@ spear black pawn копье~
 @eng The spear of a Black Pawn lies here.@rus Копье (spear) черной пешки оставлено здесь.~
 steel~
 weapon J AN
-spear 2 7 thrust 0
+spear 2 7 thrust K
 10 100 750 G
 G none
 #4223
@@ -503,7 +503,7 @@ spear white pawn копье~
 @eng The spear of a White Pawn lies here.@rus Копье (spear) белой пешки оставлено здесь.~
 steel~
 weapon K AN
-spear 2 7 thrust 0
+spear 2 7 thrust K
 10 100 750 G
 G none
 #4224

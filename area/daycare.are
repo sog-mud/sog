@@ -194,7 +194,7 @@ a broom~
 A stout straw broom lies on the floor.~
 wood~
 weapon 0 AN
-spear 2 3 pound F
+spear 2 3 pound FK
 4 30 270 W
 A
 18 -1
@@ -243,7 +243,7 @@ a toy gun~
 A toy gun with a sharp bayonet lies here.~
 wood~
 weapon 0 AN
-spear 2 3 stab F
+spear 2 3 stab FK
 4 20 300 G
 A
 17 -1

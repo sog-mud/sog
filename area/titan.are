@@ -96,7 +96,7 @@ runs to you as you walk in, asking if you need any help. If
 you're in need of armour here is the place to shop!
 ~
 giant~
-ABTe CDEFJ -500 0
+ABTei CDEFJ -500 0
 53 0 50d10+13000 1d1+99 6d7+41 slice
 -33 -33 -33 2
 EIK ABCDL N K
@@ -165,7 +165,7 @@ the forging of the weapons. If ever you were to go to war, this would be the
 place to get your weapons.
 ~
 giant~
-ABTe CDEFJ 0 0
+ABTei CDEFJ 0 0
 53 0 50d10+15000 1d1+99 6d7+41 sting
 -43 -43 -43 -30
 CDEFIKN ABDL N K
@@ -1815,7 +1815,7 @@ a Silver Spear of The Titans~
 A large silver spear is here on the ground.~
 silver~
 weapon AB AN
-spear 5 7 pierce 0
+spear 5 7 pierce K
 25 250 5250 P
 A
 18 4

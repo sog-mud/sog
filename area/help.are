@@ -13,28 +13,24 @@ End
 @eng Shades of Gray is based on Anatolia MUD -- see help anatolia.
                      Original idea, concept and coding:
         Farmer Joe                   [Iluvatar] (fjoe@@iclub.nsu.ru)
-	Konstantin Svintsoff          [abrazak] (kostik@@iclub.nsu.ru)
+{x        Constantin Svintsoff           [Nergal] (kostik@@iclub.nsu.ru)
         Alexander Morokhovets            [Eros] (efdi@@iclub.nsu.ru)
         Alexey Neyman                  [Arborn] (avn@@org.chem.msu.su)
 
                      Web page design:
         Denis Petrakov                         (den@@oapmg.sscc.ru)
- 
-@@rus @@rus S@@rus Sh@rus Shades of Gray составлен на основе MUDа Anatolia -- смотри help anatolia.
-
+@rus {DShades of Gray{x составлен на основе MUDа {GAnatolia{x -- смотри {CHELP ANATOLIA{x.
                  Первоначальная идея, концепция и кодирование:
-
-        Farmer Joe                   [Iluvatar] (fjoe@@iclub.nsu.ru)
-        Константин Свинцов            [abrazak] (kostik@@iclub.nsu.ru)
-        Александр Мороховец              [Eros] (efdi@@iclub.nsu.ru)
-        Алексей Нейман                 [Arborn] (avn@@org.chem.msu.su)
-
+        Farmer Joe                   [{cIluvatar{x] ({rfjoe@@iclub.nsu.ru{x)
+        Константин Свинцов             [{cNergal{x] ({rkostik@@iclub.nsu.ru{x)
+        Александр Мороховец              [{cEros{x] ({refdi@@iclub.nsu.ru{x)
+        Алексей Нейман                 [{cArborn{x] ({ravn@@org.chem.msu.su{x)
+ 
                              Дизайн Web-страницы:
-
-        Денис Петраков                          (den@@oapmg.sscc.ru)
+        Денис Петраков                          ({rden@@oapmg.sscc.ru{x)
 ~
 -1 DIKU~
-.                    Original game idea, concept, and design:
+@eng .                    Original game idea, concept, and design:
 
           Katja Nyboe               [Superwoman] (katz@@freja.diku.dk)
           Tom Madsen              [Stormbringer] (noop@@freja.diku.dk)
@@ -46,16 +42,36 @@ End
 Developed at: DIKU -- The Department of Computer Science
                       at the University of Copenhagen.
 
-
+@rus                 Первоначальная игровая идея, концепция, и дизайн:
+  
+          Katja Nyboe               [{cSuperwoman{x] ({rkatz@@freja.diku.dk{x)
+          Tom Madsen              [{cStormbringer{x] ({rnoop@@freja.diku.dk{x)
+          Hans Henrik Staerfeldt           [{cGod{x] ({rbombman@@freja.diku.dk{x)
+          Michael Seifert                 [{cPapi{x] ({rseifert@@freja.diku.dk{x)
+          Sebastian Hammer               [{cQuinn{x] ({rquinn@@freja.diku.dk{x)
+  
+  
+Разработан в: DIKU -- факультет информатики Копенгагенского университета.
 ~
 -1 GOLD SILVER MONEY~
-Midgaard's economy is based on gold and silver coinage (and the lowly copper,
+@eng Midgaard's economy is based on gold and silver coinage (and the lowly copper,
 which you as an adventurer are far too proud to carry).  Gold coins are worth
 100 silver coins, but are also four times as heavy (25 to the pound, as 
 opposed to 100 to the pound for silver). Gems can be bought to alleviate weight problems
 from the Midgaard jeweller, he charges a mere 10% more than they are worth.
 10 gems weigh one pound, and they can be worth more than 100 gold pieces for
 the highest quality stones.
+ 
+See also HELP BANK.
+@rus Экономика Мидгарда основана на золотой и серебряной чеканке (и не использует 
+медь, которую ты, являясь авантюристом, просто не переносишь). Золотые монеты
+стоят 100 серебряных монет, но - они в четыре раза тяжелее. Чтобы облегчить
+проблемы веса у ювелира Мидгарда могут быть куплены драгоценные камни, но 
+учтите, что он имеет с перепродажи 10 % от стоимости камней. 10 драгоценных
+камней весят один фунт, и они могут стоить больше чем 100 золотых, для камней
+самого высокого качества, тогда как тот же фунт весят 25 золотых или 
+100 серебрянных монет.
+Смотри также {CHELP BANK{x
 ~
 0 BRIEF COMPACT~
 Brief and compact help set your display options for the game. Typing brief
@@ -64,15 +80,19 @@ toggles on and off the showing of room descriptions when you move around
 removes the extra blank line before your prompt.
 ~
 -1 DEAF~
-The deaf toggle turns off incoming tells, helpfull if you are being bombarded
+@eng The deaf toggle turns off incoming tells, helpfull if you are being bombarded
 by messages from other players.  You can still use reply (see 'help reply') to
 reply to people who were telling you before you went deaf, although you
 cannot reply to a deaf person unless you or they are a diety (it's mostly 
 useful for sending a quick "I'm being spammed so I went deaf" message to
 a person).
+@rus Переключатель {Gdeaf{x выключает получение сообщений(tell). Тем не менее, ты можешь
+использовать команду {Greply{x (смотри {CHELP REPLY{x) для ответа человеку с которым
+ты общался до набора этой команды. Однако данная команда не отменяет обращений
+богов к тебе. 
 ~
 0 PROMPT~
-Syntax: prompt
+@eng Syntax: prompt
 Syntax: prompt show
 Syntax: prompt all
 Syntax: prompt <%*>
@@ -109,9 +129,46 @@ PROMPT <%*> where the %* are the various variables you may set yourself.
 Example:  PROMPT <%hhp %mm %vmv>
         Will set your prompt to "<10hp 100m 100mv>"
  
+@rus Синтаксис: {Gprompt{x
+Синтаксис: {Gprompt show{x
+Синтаксис: {Gprompt all{x
+Синтаксис: {Gprompt {C<%*>{x
+ 
+{GPROMPT{x без аргументов выведет твое текущее приглашение.
+{GPROMPT SHOW{x покажет твою текущую конфигурацию строки приглавшения.
+{GPROMPT ALL{x установит тебе стандартное приглашение.
+ 
+{GPROMPT {C<%*>{x где %* -это различные аргументы, позволяющие вам самостоятельно
+установить приглашение
+
+        {M%h{x :  Отобразит твое текущее здоровье (hp)
+        {M%H{x :  Отобразит твое максимальное здоровье (hp)
+        {M%m{x :  Отобразит твою текущую ману (mana)
+        {M%M{x :  Отобразит твою максимальную ману (mana)
+        {M%v{x :  Отобразит твои текущие шаги (moves)
+        {M%V{x :  Отобразит твои максимальние шаги (moves)
+        {M%x{x :  Отобразит твой текущий опыт (exp)
+        {M%X{x :  Отобразит необходимый тебе опыт (exp) до следующего уровня
+        {M%g{x :  Отобразит сумму золотом которую ты несешь
+        {M%s{x :  Отобразит сумму серебром которую ты несешь
+        {M%a{x :  Отобразит твой alignment
+        {M%y{x :  Отобразит твое здоровье в процентах от максимума
+        {M%o{x :  Отобразит здоровье противника в процентах от максимума
+        {M%r{x :  Отобразит название комнаты в которой ты находишся
+        {M%e{x :  Отобразит выходы из комнаты в стиле NESWDU
+        {M%R{x :  Отобразит номер комнаты в которой ты находишся ({RТОЛЬКО ДЛЯ БОГОВ{x)
+        {M%z{x :  Отобразит название зоны в которой ты находишся ({RТОЛЬКО ДЛЯ БОГОВ{x)
+        {M%n{x :  Отобразит твое имя
+        {M%S{x :  Отобразит твой пол
+        {M%t{x :  Отобразит время в MUDе
+        {M%W{x :  Отобразит твой уровень невидимости ({RТОЛЬКО ДЛЯ БОГОВ{x)
+        {M%I{x :  Отобразит твой уровень инкогнито ({RТОЛЬКО ДЛЯ БОГОВ{x)
+
+Пример:  {GPROMPT <%hhp %mm %vmv>{x
+         Установит тебе приглашение "<10hp 100m 100mv>"
 ~
 -1 SUMMARY~
-____________________________________________________________________________
+@eng ____________________________________________________________________________
 || MOVEMENT                       |    GROUP                              ||
 || north south east west up down  |    follow group gtell split           ||
 || exits recall                   |                                       ||
@@ -133,9 +190,32 @@ ____________________________________________________________________________
      For more help, type 'help <topic>' for any command, skill, or spell.
      Also help on: DAMAGE DEATH EXPERIENCE NEWS TICK WIZLIST QUESTS
 
+@rus {G____________________________________________________________________________
+|| {YПЕРЕМЕЩЕНИЕ                    {G|    {YГРУППЫ                             {G||
+|| {xnorth south east west up down  {G|    {xfollow group gtell split           {G||
+|| {xexits recall enter             {G|                                       {G||
+|| {xsleep wake rest stand          {G|                                       {G||
+||________________________________|_______________________________________||
+|| {YПРЕДМЕТЫ                       {G|    {YИНФОРМАЦИЯ / ОБЩЕНИЕ               {G||
+|| {xget put drop give sacrifice    {G|    {xhelp credits commands areas        {G||
+|| {xwear wield hold                {G|    {xreport score time weather where who{G||
+|| {xrecite quaff zap brandish      {G|    {xdescription password title         {G||
+|| {xlock unlock open close pick    {G|    {xbug idea typo                      {G||
+|| {xinventory equipment look       {G|    {xgossip say shout tell yell         {G||
+|| {xeat drink fill compare         {G|    {xemote pose                         {G||
+|| {xlist buy sell value            {G|    {xnote pray worth raffect affect     {G||
+||________________________________|_______________________________________||
+|| {YБОЙ                            {G|    {YОСТАЛЬНОЕ                          {G||
+|| {xkill flee kick rescue disarm   {G|    {x! save quit demand request         {G||
+|| {xbackstab cast wimpy            {G|    {xpractice train quest               {G||
+||________________________________|_______________________________________||{x
+
+            Для того чтобы узнать больше наберите {CHELP {C<topic>{x
+                на любую комманду умение или заклинание.
+     А также {CHELP DAMAGE, DEATH, EXPERIENCE, NEWS, TICK, WIZLIST, QUESTS{x
 ~
 0 DEATH~
-When your character dies, you are reincarnated back at the Altar of the Temple
+@eng When your character dies, you are reincarnated back at the Altar of the Temple
 of Midgaard.  Your corpse is left behind in the room where you were killed,
 together with all of your equipment.
 
@@ -153,9 +233,28 @@ Corpses decay after time, but the objects inside corpses fall to the ground.
 If your constitution falls below 3, character will not be 
 resurrected in temple.
   
+@rus Когда ваш персонаж умирает, он возрождается на алтаре Храма твоего родного
+города. Твой труп остается в комнате, где ты был убит, вместе со всеми твоими
+вещами.
+
+Действие всех заклинаний, под действием которых ты находился, прекращается 
+со смертью.
+
+Смерть не влияет на нахождение в группе или следование за другим персонажем.
+
+Во время смерти ты теряешь очки опыта.  Количество очков опыта, теряемое тобой
+зависит от количества твоих очков опыта, расы, класса и предыдущих смертей.
+
+После каждых трех смертей твое телосложение ({ccon{x) уменьшается на единицу.
+
+Тело через некоторое время разлагается, но вещи, находящиеся в твоем трупе
+попадаютв жертвенную яму ({cpit{x).
+
+Если твое телосложение падает до 3, персонаж не воскрешается на алтаре,
+а стирается автоматически.
 ~
 0 EXPERIENCE LEVEL XP~
-Your character advances in power by gaining experience.  You need a set 
+@eng Your character advances in power by gaining experience.  You need a set 
 amount of experience points for each level based on your race and class.
 You gain experience by:
 
@@ -176,9 +275,30 @@ lately; and some random variation.
 25 % of real exp which got if alone.
     A group which consist of three player will reduce your experience points
 50 % of real exp which got if alone. 
+@rus Персонаж становится сильнее, получая опыт. Количесво единиц опыта, необхо-
+димого для получения следующего уровня, растет по мере твоего продвижения.
+
+{gТы получаешь опыт за:{x
+
+    то что являешься частью группы, убившей монстра
+
+{gТы теряешь опыт за:{x
+
+    бегство из боя
+    в результате использования на тебя некоторых заклинаний
+    смерти
+
+{gОпыт, который ты получаете за убийства, зависит от нескольких вещей:{x
+
+    сколько игроков находятся в твоей группе;
+    разницы твоего уровня и уровня монстра;
+    твоего alignment`а и alignment`а монстра;
+    некоторого случайного фактора.
+
+Группы из 2 или 3 персонажей получают большее количество очков опыта.
 ~
 0 COLOR COLOUR ANSI~
-Syntax: color              Toggles color mode on/off
+@eng Syntax: color              Toggles color mode on/off
 
 You may also talk in color; the format is like this: the 'escape character'
 to specify a color is the left handed brace '{{', following that you should
@@ -205,15 +325,45 @@ Other {{? sequences are:
 Color is courtesy of Lope from Loping Through The MUD.
 Direct questions to ant@@solace.mh.se or leave at note at Loping
 Through The MUD, current site lttm.westside.net port 23 or 9000
+@rus Ты можешь использовать цвет в своих сообщениях и нотах. Формат таких сообщений
+таков: левая фигурная скобка '{{', за которой идет символ цвета. Допустимы
+следующие варианты:
+
+         {x{{x     возврат к цвету по умолчанию
+
+         {r{{r     красный {m{{m     розовый
+         {g{{g     зеленый {c{{c     голубой
+         {y{{y     желтый  {w{{w     белый
+         {b{{b     синий   {D{{D     серый{x
+
+Для получения более ярких цветов, используй заглавные буквы : {RR{GG{YY{BB{MM{CC{WW{x
+Использование цвета выглядит гораздо лучше, если вы заканчиваете строку ее
+естественным цветом. Например:
+                {RLope gossips '{Cпривет {Gвсем{R'{x
+        выглядит лучше, чем
+                {RLope gossips '{Cпривет {Gвсем'{x
+
+Существуют также следующие {{?-последовательности:
+         {{*     звуковой сигнал
+         {{\     новая строка
+         {{z     возврат к предыдущему цвету
+
+Поддержка цвета предоставлена Lope из Loping Through The MUD.
+Вопросы направляйте по адресу ant@@solace.mh.se или оставьте ноту
+на Loping Through The MUD (текущий адрес lttm.westside.net, порт
+23 или 9000)
 ~
 0 PET PETS~
-You can buy pets in the pet shop.  You may own only one pet at a time, after 
+@eng You can buy pets in the pet shop.  You may own only one pet at a time, after 
 the old one dies you may purchase a replacement.
 
 New pets are planned for a shop in New Thalos.
+@rus Ты можешь покупать домашних животных в зоомагазине ({cpet shop{x). Ты можешь иметь
+только одно домашнее животное одновременно, только после того, как старое
+умирает, ты можешь купить замену.
 ~
 0 TICK~
-Many of the game actions are based upon interval timers, including combat,
+@eng Many of the game actions are based upon interval timers, including combat,
 most autonomous monster actions, hp/mana/move regeneration, spell duration,
 weather, and area resetting.
 
@@ -223,14 +373,27 @@ Of these timers, the hp/mana/move regeneration timer is popularly called the
 Area resetting happens roughly every 106 sec. if no one is in the area;
 less often (15 minutes) if some one is.  Also note that objects lying on
 the ground will not be regenerated if anyone is in the area when it resets.
+@rus Многие из действий игры основаны на временных интервалах, включая бой, автоном-
+ные действия монстра, восстановление hp/mana/move, длительность заклинаний,
+изменения погоды, обновление зон.  
+
+Из этих интервалов, периов восстановления hp/mana/move обычно называется '{Mтик{x'.
+
+Обновление зоны случается приблизительно каждые 106 секунд, если никто не нахо-
+дится в зоне; реже (15 минут) если кто-то есть в зоне. Также обратите внимание,
+что объекты, находящиеся на земле не появятся, если кто-либо находится в зоне в
+момент обновления.
 ~
 0 !~
-Syntax: !
+@eng Syntax: !
 
 ! repeats the last command you typed.
+@rus Синтаксис: {G!{x
+
+{G!{x повторяет последнюю введенную команду.
 ~
 0 NORTH SOUTH EAST WEST UP DOWN~
-Syntax: north
+@eng Syntax: north
 Syntax: south
 Syntax: east
 Syntax: west
@@ -238,9 +401,17 @@ Syntax: up
 Syntax: down
 
 Use these commands to walk in a particular direction.
+@rus Синтаксис: {Gnorth{x
+Синтаксис: {Gsouth{x
+Синтаксис: {Geast{x
+Синтаксис: {Gwest{x
+Синтаксис: {Gup{x
+Синтаксис: {Gdown{x
+
+Эти команды используются для перемещений в соответствующем направлении.
 ~
 -2 NAME~
-NAME POLICY:
+@eng NAME POLICY:
 In order to create a role-playing and adventure atmosphere throughout the
 Shades of Gray, you must choose a name accordingly explained below:
  
@@ -260,9 +431,30 @@ UNACCEPTABLE:
 Anyway, immortals may ask you to choose another name if they consider your name inappropriate.
 
 If your name fits above restrictions, type Y. Otherwise choose another name.
-Last decision depend upon Immortals of Shades of Gray. Do you accept? ~
+Last decision depend upon Immortals of Shades of Gray. Do you accept? @rus .              {R*** {YВЫБОР ИМЕНИ {R***{x
+
+Для создания ролевой атмосферы в этом мире, ты должен выбрать имя согласно 
+указанным ниже правилам:
+
+{GПРИЕМЛЕМО{x:
+{M1){x  Имена соответствующие средневековой эпохе (Takasi, Mitra)
+{M2){x  Выдуманные имена с красивым звучанием.  (Priatros, Sansoles)
+
+{RНЕПРИЕМЛЕМО{x:                                                        
+{M1){x  Грубые или сексуально-ориентированные имена.  (.........)
+{M2){x  Названия и имена животных.  (Horse, Doll)          
+{M3){x  Наборы случайных символов.  (Asdfg, Qwdldkf)                
+{M4){x  Имена, включающие ранг или титул.   (Lord, Sir,...)
+{M5){x  Наукообразные изречения. (Proof, Logic, Electrics...)
+{M6){x  Названия предметов. (Necklace, Staff, Sword etc)              
+{M7){x  Составные имена. (FarmerJoe, Maryjane etc.)
+
+В любоом случае Боги могут "предложить" тебе сменить имя.
+
+Если твое имя удовлетворяет вышеуказанным требованиям нажмите {CY{x, иначе выберите
+другое имя. Последнее решение зависит от Богов. Ты согласен? ~
 0 CAST~
-Syntax: cast <spell> <target>
+@eng Syntax: cast <spell> <target>
 
 Before you can cast a spell, you have to practice it.  The more you practice,
 the higher chance you have of success when casting.  Casting spells costs mana.
@@ -280,16 +472,43 @@ The effect of the spell is reduced or eliminated if the victim makes the
 saving throw successfully.
 
 See also the help sections for individual spells.
+@rus Синтаксис: {Gcast {C<заклинание> <цель>{x
+
+Прежде, чем ты сможешь произносить заклинание, ты должен практиковать его. Чем 
+больше ты практикуешь, тем более высок шанс успеха. Произнесение заклинания 
+забирает ману. Стоимость заклинаний уменьшается по мере увеличения твоего 
+уровня.
+
+Указание цели не всегда обязательно. Многие заклинания направляются на правиль-
+ную цель автоматически, особенно в бою.
+
+Если название заклинания состоит более чем из одного слова, ты должен заключить
+его в апострофы.
+Например: {Gcast 'cure critical' frag.{x
+
+Когда ты используете боевое заклинание, жертва обычно получает возможность 
+полностью или частично избежать действия этого заклинания. Эффект заклинания
+зависит от saves жертвы, чем меньше их величина тем лучше она избегает действия 
+вредных заклинаний. Успех заклинания также зависит от уровня заклинания,
+жертвы и сопротивляемости жертвы какому-либо типу ущерба.
+
+Также смотри {CHELP <название заклинания>{x.
 ~
 0 EXITS~
-Syntax: exits
+@eng Syntax: exits
 
 Tells you the visible exits of the room you are in.  Not all exits are visible.
 You can use the 'bump' technique to find hidden exits.  (Try to walk in a
 certain direction and see what you bump into).
+@rus Синтаксис: {Gexits{x
+
+Сообщает вам очевидные выходы из комнаты, в которой вы находитесь.  Не все 
+выходы могут быть легко обнаружены. Для поиска скрытых выходов можно использо-
+вать методику "ударов лбом об стену".  (Попытайтесь идти в разных направлениях
+и смотрите, во что вы упираетесь).
 ~
 0 DROP GET GIVE PUT TAKE~
-Syntax: drop <object>
+@eng Syntax: drop <object>
 Syntax: drop <amount> coins
 Syntax: get  <object>
 Syntax: get  <object> <container>
@@ -308,16 +527,41 @@ PUT puts an object into a container.
 
 DROP, GET and PUT understand the object names 'ALL' for all objects and
 'ALL.object' for all objects with the same name.
+@rus Синтаксис: {Gdrop {C<объект>{x
+Синтаксис: {Gdrop {C<сумма> {Ggold{x
+Синтаксис: {Gdrop {C<сумма> {Gsilver{x
+Синтаксис: {Gget  {C<объект>{x
+Синтаксис: {Gget  {C<объект> <контейнер>{x
+Синтаксис: {Ggive {C<объект> <персонаж>{x
+Синтаксис: {Ggive {C<сумма> {Ggold {C<персонаж>{x
+Синтаксис: {Ggive {C<сумма> {Gsilver {C<персонаж>{x
+Синтаксис: {Gput  {C<объект> <контейнер>{x
+
+{GDROP{x бросает объект или деньги на землю.
+
+{GGET{x или {GTAKE{x берет объект лежащий на земле или в контейнере (даже в трупе) 
+
+{GGIVE{x передает объект или деньги другому персонажу.
+
+{GPUT{x кладет объект в контейнер.
+
+{GDROP{x, {GGET{x и {GPUT{x под названием 'all' понимают все объекты и
+под 'all.object' все объекты с одинаковым названием {C<object>{x.
 ~
 0 EQUIPMENT INVENTORY~
-Syntax: equipment
+@eng Syntax: equipment
 Syntax: inventory
 
 EQUIPMENT lists your equipment (armor, weapons, and held items).
 INVENTORY lists your inventory.
+@rus Синтаксис: {Gequipment{x
+Синтаксис: {Ginventory{x
+
+{GEQUIPMENT{x показывает твое снаряжение (броня, оружие и другие вещи).
+{GINVENTORY{x показывает содержимое твоего мешка ({cinventory{x).
 ~
 0 COMPARE~
-Syntax: compare <object-1> <object-2>
+@eng Syntax: compare <object-1> <object-2>
 Syntax: compare <object>
  
 COMPARE compares two objects in your inventory.  If both objects are weapons,
@@ -328,9 +572,19 @@ COMPARE with one argument compares an object in your inventory to the object
 you are currently wearing or wielding of the same type.
  
 COMPARE doesn't consider any special modifiers of the objects.
+@rus Синтаксис: {Gcompare {C<объект-1> <объект-2>{x
+Синтаксис: {Gcompare {C<объект>{x
+
+{GCOMPARE{x сравнивает два объекта находящихся в твоем мешке.  Если предметы 
+являются оружием, она сообщит об объекте с лучшим наносимым средним ущербом.
+Если оба объекта - броня, она сообщит о предмете с лучшим классом брони.
+
+{GCOMPARE{x с одним аргументом сравнивает предмет с аналогичным одетым на тебе.
+
+{GCOMPARE{x не учитывает специальные модификаторы ообъектов.
 ~
-0 FLEE~
-Syntax: flee
+0 FLEE RESCUE ESCAPE DISHONOR~
+@eng Syntax: flee
 Syntax: rescue   <character>
 
 Once you start a fight, you can't just walk away from it.  If the fight
@@ -351,9 +605,32 @@ clan guardians.
 If you are Samurai, after level 10 you can NOT FLEE,so be careful.(You may 
 flee if victim's level is much higher than your level (level difference is
 6). But you won't wimp out.)
+@rus Синтаксис: {Gflee{x
+Синтаксис: {Grescue {C<персонаж>{x
+Синтаксис: {Gescape {C<направление>{x
+Синтаксис: {Gdishonor{x
+
+Как только ты начал бой, ты уже не можете просто выйти из него. Если тебе не
+нравится течение боя, ты можешь пытаться cбежать ({GFLEE{x), или другой персонаж
+может спасти ({GRESCUE{x) тебя.
+
+Некоторые классы настолько преуспели в сбегании из боя, что могут выбирать
+направление, в котором они будут пытаться сбежать ({GESCAPE{x).
+
+Если ты теряешь связь в течение боя, то персонаж продолжает его, но будет
+автоматически пытаться сбежать время от времени. 
+
+Если ты находишся под действием заклинания '{gpass door{x', то ты можешь сбегать
+через закрытые двери.
+
+Ты не можешь сбежать внутрь клана из боя с клановыми охранниками.
+
+Если ты выбрал путь самурая, то после 10-го уровня ты не можешь сбежать из
+боя. Если уровень противника намного выше твоего (более чем на 6), то ты можеim
+обесчестить ({GDISHONOR{x) себя и покинуть поле боя.
 ~
-0 EXAMINE LOOK~
-Syntax: look
+0 LOOK EXAMINE GLANCE~
+@eng Syntax: look
 Syntax: look    <object>
 Syntax: look    <character>
 Syntax: look    <direction>
@@ -366,9 +643,26 @@ Syntax: examine <corpse>
 LOOK looks at something and sees what you can see.
 
 EXAMINE is short for 'LOOK container' followed by 'LOOK IN container'.
+@rus Синтаксис: {Glook{x
+Синтаксис: {Glook    {C<объект>{x
+Синтаксис: {Glook    {C<персонаж>{x
+Синтаксис: {Glook    {C<направление>{x
+Синтаксис: {Glook    {C<ключевое слово>{x
+Синтаксис: {Glook in {C<контейнер>{x
+Синтаксис: {Glook in {C<труп>{x
+Синтаксис: {Gexamine {C<контейнер>{x
+Синтаксис: {Gexamine {C<труп>{x
+Синтаксис: {Gglance
+
+{GLOOK{x позволяет посмотреть на или во что-либо и сообщает тебе, что ты можешь
+увидеть.
+
+{GGLANCE{x сообщает название комнаты, пропуская ее описание.
+
+{GEXAMINE{x - сокращения для {GLOOK {C<контейнер>{x и {GLOOK IN {C<контейнер>{x последовательно.
 ~
 0 ORDER~
-Syntax: order <character> command
+@eng Syntax: order <character> command
 Syntax: order all command
 
 ORDER orders one or all of your charmed followers (including pets) to
@@ -379,9 +673,20 @@ will incur the same penalty as if they attacked you directly.
 Most charmed creatures lose their aggresive nature (while charmed).
 
 If your charmed creature engages in combat, that will break the charm.
+@rus Синтаксис: {Gorder {C<персонаж> <команда>{x
+Синтаксис: {Gorder all {C<команда>{x
+
+{GORDER{x приказывает одному или всем зачарованным вами существам, включая домашних
+животных, исполнить команду. Вы несете ответственность за действия зачарованных
+вами существ, и за атаку ваших последователей другие несут ту же ответствен-
+ность, что и за нападение непосредственно на вас.
+
+Агрессивные существа теряют свою агрессивность, пока зачарованы.
+
+Если вы нападаете на зачаровнных вами существ, это разрывает узы заклинания.
 ~
 0 REST SLEEP STAND WAKE~
-Syntax: rest
+@eng Syntax: rest
 Syntax: sleep
 Syntax: stand
 Syntax: wake
@@ -393,9 +698,30 @@ you won't hear many things happen.
 
 Use STAND or WAKE to come back to a standing position.  You can
 also WAKE other sleeping characters.
+@rus Синтаксис: {Grest{x
+Синтаксис: {Gsleep{x
+Синтаксис: {Gstand{x
+Синтаксис: {Gsit{x
+Синтаксис: {Gwake{x
+Синтаксис: {Gwake {C<персонаж>{x
+Синтаксис: {Gsit {C<объект>{x
+Синтаксис: {Grest {C<объект>{x
+Синтаксис: {Gsleep {C<объект>{x
+Синтаксис: {Gstand {C<объект>{x
+
+Эти команды служат для изменения положения твоего тела. Когда ты отдыхаешь 
+({GREST{x) или спишь ({GSLEEP{x), твои hp/mana/move восстанавливаются быстрее. Но,
+в этих положениях ты гораздо уязвимее для нападения, а когда ты спишь, ты
+можешь не заметить многих вещей.
+
+Команды {GSTAND{x или {GWAKE{x возвращают в вертикальное положение. Nы также можете
+разбудить ({GWAKE{x) другого спящего персонажа.
+
+Использование этих команд с именем обьекта как аргументом приведет к использо-
+ванию этого объекта для отдыха или сна.
 ~
 0 GTELL ; REPLY SAY TELL~
-Syntax: gtell <message>
+@eng Syntax: gtell <message>
 Syntax: say   <message>
 Syntax: tell  <character> <message>
 
@@ -411,9 +737,27 @@ TELL sends a message to one awake player anywhere in the world.
 REPLY sends a message to the last player who sent you a TELL.  REPLY will work
 even if you can't see the player, and without revealing their identity.  This
 is handy for talking to invisible or switched immortal players.
+@rus Синтаксис: {Ggtell {C<сообщение>{x
+Синтаксис: {Gsay   {C<сообщение>{x
+Синтаксис: {Gtell  {C<персонаж> <сообщение>{x
+Синтаксис: {Greply {C<сообщение>{x
+
+Все эти команды предназначены для общения с джругими персонажами. {GGTELL{x посылает
+сообщение всем членам твоей группы, где бы они ни были, даже если они спят,
+оглушены или умирают. {G;{x является синонимом для {GGTELL{x.
+
+{GSAY{x посылает сообщение всем бодрствующим игрокам, находящимся в одной комнате с
+тобой. Апостроф ({G'{x) является синонимом для {GSAY{x.
+
+{GTELL{x посылает сообщение указанному персонажу.
+
+{GREPLY{x посылает сообщение игроку, который последним послал тебе сообщение при
+помощи команды {GTELL{x. Команду {GREPLY{x можно использовать даже если ты не видишь
+персонажа, с которым говоришь, что делает ее незаменимой для разговора с
+игроками, которых ты не видишь или с Богами.
 ~
 -1 NOTE NOTES CHANGES NEWS PENALTY IDEA UNREAD~
-The notes in Shades of Gray replace the bulletin boards and mail systems
+@eng The notes in Shades of Gray replace the bulletin boards and mail systems
 found on many other muds. The following options are usable:
 
 {creading notes{x:
@@ -447,9 +791,47 @@ idea read 5 will read idea #5.  Posting to the news and changes boards is
 restricted. The 'unread' command can be used to show your unread notes on
 all the note spools.
  
+@rus Обьявления в мире {DСерых Теней{x заменяют почту, распространенную в других мирах.
+Доступны следующие команды:
+
+{Cчтение обьявлений{x
+{Gnote list{x     : показ списка обьявлений (непрочитанные помечены буквой N)
+{Gnote read{x     : чтение обьявления по номеру. read next покажет первое 
+              : непрочитанное обьявление
+{Gnote remove{x   : удаляет обьявление, написанное тебе или тобой
+{Gnote catchup{x  : помечает все обьявления как прочитанные
+
+{Gnote read{x получает номер обьявления как аргумент
+{Gnote list{x можно использовать с расширенным синтаксисом для фильтрования
+сообщений по отправителю или получателю:
+{Gnote list from {C<имя>{x
+{Gnote list to {C<имя>{x
+
+{Cнаписание обьявлений{x
+{Gnote to{x         : устанавливает получателей обьявления (all - всем, 
+                : immortal - богам, clan - всем клановым игрокам, 
+                : <название клана> - всем его членам, <имя> - одному игроку)
+{Gnote subject{x    : устанавливает заголовок обьявления
+{Gnote edit{x       : вызывает текстовый редактор для воода текста обьявления
+{Gnote clear{x      : сбрасывает написание обьявления
+{Gnote show{x       : показывает вид обьявления
+{Gnote post{x       : помещает обьявление на доску обьявлений
+{Gnote forward num{x: пересылает обьявление другому получателю
+{Gnote quote num{x  : аналогично note forward, но все оригинальные строки помечаются
+                : символом '>'
+
+'{Gnote cancel{x' является синонимом для '{Gnote clear{x'
+'{Gnote reply{x' является синонимом для '{Gnote quote{x'
+'{Gnote{x' без аргументов является синонимом для '{Gnote read next{x'
+При входе в игру, тебе сообщат, сколько непрочитанных сообщений тебя ждет.
+
+Существует еще четыре доски обьявлений, это {Gideas, news, changes{x и {Gpenalties{x
+({rтолько для богов{x). Они используются точно так же. Написание обьявлений на доски
+обьявлений {Gnews{x и {Gchanges{x доступно только Богам. Команда {GUNREAD{x используется для
+выяснения количества непрочитанных сообщений на всех досках обьявлений. 
 ~
-0 SHOUT YELL~
-Syntax: shout   <message>
+0 SHOUT YELL GOSSIP MUSIC~
+@eng Syntax: shout   <message>
 Syntax: yell    <message>
 
 SHOUT sends a message to all awake players in the world.  To curb excessive
@@ -458,9 +840,26 @@ shouting, SHOUT imposes a three-second delay on the shouter.
 YELL sends a message to all awake players within your area.
 
 Type a channel name by itself to turn it off.
+@rus Синтаксис: {Gshout   {C<сообщение>{x
+Синтаксис: {Gyell    {C<сообщение>{x
+Синтаксис: {Ggossip  {C<сообщение>{x
+Синтаксис: {Gmusic   {C<сообщение>{x
+
+{GSHOUT{x посылает сообщение всем игрокам по всему миру. Для предотвращения
+излишних криков, использование SHOUT на 3 секунды блокирует кричавшего.
+
+{GYELL{x посылает сообщение всем бодрствующим игрокам в одной с вами зоне.
+
+{GGOSSIP{x посылает сообщение всем игрокам, игнорируя {ctwitlist{x (смотри {CHELP TWIT{x).
+Канал {GGOSSIP{x не может быть отключен.
+
+{GMUSIC{x предназначен для громкого, на весь мир распевания песен.
+
+Использование этих команд без аргументов включает/выключает соответствующий
+канал.
 ~
 0 EMOTE PMOTE POSE~
-Syntax: emote <action>
+@eng Syntax: emote <action>
 Syntax: pose
 
 EMOTE is used to express emotions or actions.  Besides EMOTE, there are
@@ -472,12 +871,29 @@ name (i.e. pmote bonks Alander will be read as bonks you by Alander, and
 as bonks Alander by everyone else).
 
 POSE produces a random message depending on your class and level.
+@rus Синтаксис: {Gemote {C<действие>{x
+Синтаксис: {Gpmote {C<действие>{x
+Синтаксис: {Gpose{x
+
+{GEMOTE{x используется, чтобы выразить эмоции или действия. Помимо {GEMOTE{x существует
+множество встроенных команд, например {GCACKLE, HUG{x и {GTHANK{x (введите {GSOCIALS{x для
+вывода списка).
+
+{GPMOTE{x действует аналогично {GEMOTE{x, но будет заменять имена персонажа на 'you'.
+Например, {Gpmote bonks Alander{x выведет '{Bbonks you{x' Аландеру, и '{Bbonks Alander{x'
+всем остальным.
+
+{GPOSE{x выдает случайное сообщение, зависящее от вашего класса и уровня.
 ~
 52 SMOTE~
-Syntax: smote <action>
+@eng Syntax: smote <action>
 
 Smote works exactly like pmote, except you must place your name somewhere in
 the string, and it will show that string to everyone in the room.
+@rus Синтаксис: {Gsmote {C<действие>{x
+
+{GSMOTE{x работает аналогично {GPMOTE{x, за исключением того, что имя может стоять в
+любом месте строки.
 ~
 0 HOLD REMOVE WEAR WIELD~
 Syntax: hold   <object>
@@ -2836,7 +3252,7 @@ Syntax: cb (message)
 This is the command used to talk on a clan channel.  
 Used by itself, it is a toggle to turn the clan channel on and off.
 ~
-0 DEPOSIT WITHDRAW BALANCE ~
+0 DEPOSIT WITHDRAW BALANCE BANK~
 Syntax: deposit  <number>
 Syntax: withdraw <number>
 Syntax: balance
@@ -3426,140 +3842,6 @@ An up-to-date list of liquid types can be obtained by typing
    value 2    unused
    value 3    unused
    value 4    unused
-~
-92 TRANSLATE~
-Инструкция по переводу арий.
-ver 1.1
-by Askold
-25.07.98
-
-Внимание: сочетание '&' заменяет тильду.
-          тк муд не позволяет ее показывать.
-
-Если строка, описывающая что-то (long description,short description
-объекта) начинается с символа '@@',  то она считается multi-language
-string. 
-
-В общем виде формат выглядит так:
-<mlstring>   ::= <lstring> [<lstring>...]
-<lstring>    ::= @@<langid> <текст>
-<langid>     ::= 'eng' | 'rus'
-
-вхождения символа '@@' в <текст> должны дублироваться
-<текст> заканчивается на первой недублированной собачке ('@@') или тильде.
-
-Переводятся следущие поля:
--> для мобов: long description, look description, 
-   (третья и четвертая строки в описании)
-   *обязательно в третьей строке делать английскую сноску на имя моба
-   (см. первую строку на предмет ключевых слов)
-
--> для объектов: object short, object long 
-   (вторая и третья строки)
-   *обязательно в третьей строке делать английскую сноску на имя
-   объекта (см.первую строку на предмет ключевых слов)
-
--> для комнат: room name, room description, exit description 
-   (первая и вторая строки и то, что идет непосредственно за Dn
-   то, что видно, если делаешь look north/south/.../ etc.)
-   * !!!ВНИМАНИЕ!!!  В названии комнаты НЕ надо делать дублировать
-   англоязычное название, типа 'Рыночная Площадь (Market Square)',
-   муд это сделает автоматически.
-   *обязательно дублировать географические направления выходов
-    (типа. выход на юг(south))
-
-
-Примеры - как должно стать:
-(Обратите снимание, где можно ставить Enter в строке, а где нет)
-
-#MOBILES
-#3700
-acolyte cleric&
-the acolyte of Zump&
-@@eng An acolyte of Zump welcomes you to mud school.
-@@rus Служитель (acolyte) Зуки приглашает тебя в МУД школу.
-&
-@@eng He's big and bad.  Don't mess with him.
-@@rus Он большой и вредный. Не доставляй ему неприятностей!
-Он произносит: танцы-шманцы-обжиманцы-фантики-бантики-лимпопо!
-К чему бы это????
-&
-human&
-<кут до хере>
-
-#OBJECTS
-#3700
-mace sub merc&
-@@eng a sub issue mace@@rus Картонная дубина&
-@@eng You see a sub issue mace here.
-@@rus Ты видишь картонную дубину (mace) здесь.
-&
-bronze&
-<кут до хере>
-
-#ROOMS
-#3700
-@@eng Entrance to Mud School@@rus Вход в МУД школу&
-@@eng This is the entrance to the Merc Mud School.  Go north to go through mud
-school.  If you have been here before and want to go directly to the arena,
-go south.
-
-A sign warns 'You may not pass these doors once you have passed level 5.'
-
-P.S. Use '{Rlang rus{x' command, if you want {Rrussian language{x
-P.P.S. Use '{Bcolor{x' to enable {Bfull ANSI color support{x.
-@@rus Это вход в МУД школу. Иди на север (north), чтоб пройти курс обучения
-в школе. Если ты там уже был и хочешь попасть на арену, то иди на юг (south).
-На востоке (east) ты видишь вход в музей.
-
-Над дверью ты видишь знак:
-{R'Ты не можешь войти в эти двери, если ты достиг 6 уровня.'{x
-&
-0 CD 0
-D0
-@@eng You see the doorway into the Mud School Building.
-@@rus Ты видишь проход ведущий в МУД школу.
-&
-&
-0 0 3757
-D1
-@@eng You see the entrance to the museum.
-@@rus Ты видишь вход в музей.
-&
-&
-0 -1 400
-D2
-@@eng You see the one way door into the Arena of Mud School.
-@@rus Ты видишь дверь в одну сторону на арену.
-&
-door&
-1 -1 3744
-D5
-@@eng You see the Temple of Midgaard.
-@@rus Ты видишь храм Мидгарда.
-&
-&
-0 0 3001
-S
-<кут до хере>
-
-
-Примечания:
-- Перевод должен быть логичный и в тему, то есть нельзя использовать
-  технократические слова и обороты.  Главное должен сохранятся смысл
-  переведенного.  Приколы и шутки допустимы, но как уже было сказано
-  не в ущерб смыслу.
-
-- Любые изменения параметров мобов/вещей/комнат ЗАПРЕЩЕНЫ.
-  Виноватые буду жестоко наказаны.  Это относится и к тому,  если Вы
-  найдете ошибку в арии (например,нет выхода куда-нить итп)-сообщите
-  богам об этом, но сами ничего не изменяйте.
-
-- Карты берутся на http://iclub.nsu.ru/cgi-bin/cvsweb/muddy/area
-  Брать надо самую последнюю версию (первую по списку гр.гря)
-
-fin
-
 ~
 92 PRICE 'CLAN PRICE'~
 Прайс-лист на клан и все прилагающиеся услуги:
@@ -4179,7 +4461,7 @@ it from list of available quest items.
         |::XXXX|                                            |::XXXX|
         |X::XXX|              Implementors [100]            |X::XXX|
         |XX::XX|              ******************            |XX::XX|
-        |::XXXX|              Iluvatar, abrazak             |::XXXX|
+        |::XXXX|              Iluvatar, Nergal              |::XXXX|
         |::XXXX|                                            |::XXXX|
         |::XXXX|                                            |::XXXX|
         |X::XXX|                Creators [99]               |X::XXX|
@@ -4214,7 +4496,7 @@ it from list of available quest items.
        | .//\.  |                                          | .//\.  |
        |.  /  . |               Avatars [92]               |.  /  . |
        | .//\.  |               ************               | .//\.  |
-       |.  /  . |                                          |.  /  . |
+       |  /  .  |                  Rondor                  |.  /  . |
        |.  /  . |                                          |.  /  . |
         \ //\. /                                            \ //\. /
          \ /. /                                              \ /. /
@@ -5136,6 +5418,9 @@ legendary experts in it.
 @eng This automatic skill allows unarmed person to block enemy attack with his 
 or her hands. 
 @rus Это автоматическое умение позволяет отбивать наносимые удары голыми руками.
+~
+0 MASTERING HAND~
+This automatic skill allows ninjas to fight more efficiently then unarmed.
 ~
 -1 $~
 
