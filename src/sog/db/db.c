@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.32 2004-05-11 19:29:45 kets Exp $
+ * $Id: db.c,v 1.169.2.33 2004-05-11 20:07:49 kets Exp $
  */
 
 /***************************************************************************
@@ -2323,10 +2323,17 @@ int fread_clan(FILE *fp)
 void randomize_affs(OBJ_DATA *pObj)
 {
 	AFFECT_DATA *paf;
+	int lobound, hibound;
+	
+	if (number_percent() > 40)
+		return;
+
+	lobound = pObj->pObjIndex->limit != -1 ? 90 : 80;
+	hibound = pObj->pObjIndex->limit != -1 ? 105 : 110;
 
 	affect_enchant(pObj);
 
-	for (paf = pObj->affected; paf != NULL; paf = paf->next)
+	for (paf = pObj->affected; paf != NULL; paf = paf->next) {
 		switch (paf->location) {
 		case APPLY_MANA:
 		case APPLY_HIT:
@@ -2340,10 +2347,11 @@ void randomize_affs(OBJ_DATA *pObj)
 		case APPLY_SAVING_BREATH:
 		case APPLY_SAVING_SPELL:
 			paf->modifier = paf->modifier > 0 ?
-				number_range(paf->modifier * 8 / 10, 
-					     paf->modifier * 11 / 10) :
-				number_range(paf->modifier * 11 / 10, 
-					     paf->modifier * 8 / 10);
+				number_range(paf->modifier * lobound / 100, 
+					     paf->modifier * hibound / 100) :
+				number_range(paf->modifier * hibound / 100, 
+					     paf->modifier * lobound / 100);
 			break;
 		}
+	}
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.49.2.6 2004-05-11 19:29:44 kets Exp $
+ * $Id: olc_area.c,v 1.49.2.7 2004-05-11 20:07:45 kets Exp $
  */
 
 #include "olc.h"
@@ -1850,7 +1850,7 @@ markfuzzy_area(CHAR_DATA *ch, AREA_DATA *pArea, bool nomessage)
 		if ((pObjIndex = get_obj_index(vnum)) == NULL) 
 			continue;
 
-		if (SET_BIT(pObjIndex->extra_flags, ITEM_CHQUEST))
+		if (IS_SET(pObjIndex->extra_flags, ITEM_CHQUEST))
 			continue;
 			
 		fuzzy = 0;
@@ -1904,13 +1904,11 @@ removefuzzy_area(CHAR_DATA *ch, AREA_DATA *pArea, bool nomessage)
 	int vnum;
 
 	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
-		if ((pObjIndex = get_obj_index(vnum)) == NULL) {
+		if ((pObjIndex = get_obj_index(vnum)) == NULL)
 			continue;
-		}
 
-		if (!IS_SET(pObjIndex->extra_flags, ITEM_FUZZY)) {
+		if (!IS_SET(pObjIndex->extra_flags, ITEM_FUZZY))
 			continue;
-		}
 
 		REMOVE_BIT(pObjIndex->extra_flags, ITEM_FUZZY);
 		if (!nomessage) {
