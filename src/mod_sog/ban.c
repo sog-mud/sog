@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.11 1998-08-17 18:47:03 fjoe Exp $
+ * $Id: ban.c,v 1.12 1998-09-01 18:29:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,16 +46,54 @@
 #include <string.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <ctype.h>
+
 #include "merc.h"
-#include "recycle.h"
 #include "db.h"
-#include "comm.h"
-#include "act_obj.h"
-#include "util.h"
-#include "log.h"
-#include "buffer.h"
+#include "ban.h"
+
+struct ban_data
+{
+	BAN_DATA *	next;
+	bool		valid;
+	sflag_t		ban_flags;
+	int		level;
+	char *		name;
+};
 
 BAN_DATA *ban_list;
+BAN_DATA *ban_free;
+
+BAN_DATA *new_ban(void)
+{
+    static BAN_DATA ban_zero;
+    BAN_DATA *ban;
+
+    if (ban_free == NULL)
+	ban = alloc_perm(sizeof(*ban));
+    else
+    {
+	ban = ban_free;
+	ban_free = ban_free->next;
+    }
+
+    *ban = ban_zero;
+    VALIDATE(ban);
+    ban->name = str_empty;
+    return ban;
+}
+
+void free_ban(BAN_DATA *ban)
+{
+    if (!IS_VALID(ban))
+	return;
+
+    free_string(ban->name);
+    INVALIDATE(ban);
+
+    ban->next = ban_free;
+    ban_free = ban;
+}
 
 void save_bans(void)
 {
@@ -64,10 +102,10 @@ void save_bans(void)
     bool found = FALSE;
     char buf[160];
 
-    fclose( fpReserve ); 
-    if ( ( fp = fopen( BAN_FILE, "w" ) ) == NULL )
+    fclose(fpReserve); 
+    if ((fp = dfopen(ETC_PATH, BAN_FILE, "w")) == NULL)
     {
-        perror( BAN_FILE );
+        perror(BAN_FILE);
     }
 
     for (pban = ban_list; pban != NULL; pban = pban->next)
@@ -75,21 +113,21 @@ void save_bans(void)
 	if (IS_SET(pban->ban_flags,BAN_PERMANENT))
 	{
 	    found = TRUE;
-	    sprintf( buf, "%-20s %-2d %s\n\r", pban->name, pban->level,
-		    format_flags(pban->ban_flags) );
-	    dump_to_scr( buf );
+	    sprintf(buf, "%-20s %-2d %s\n\r", pban->name, pban->level,
+		    format_flags(pban->ban_flags));
+	    dump_to_scr(buf);
 	    fprintf(fp,"%-20s %-2d %s\n",pban->name,pban->level,
 		format_flags(pban->ban_flags));
 	}
      }
 
      fclose(fp);
-     fpReserve = fopen( NULL_FILE, "r" );
+     fpReserve = fopen(NULL_FILE, "r");
      if (!found)
-	unlink(BAN_FILE);
+	dunlink(ETC_PATH, BAN_FILE);
 
-     if ( fpReserve == NULL )
-	bug("ban_save: can't open null file.", 0 );
+     if (fpReserve == NULL)
+	bug("ban_save: can't open null file.", 0);
 }
 
 void load_bans(void)
@@ -97,16 +135,16 @@ void load_bans(void)
     FILE *fp;
     BAN_DATA *ban_last;
  
-    if ( ( fp = fopen( BAN_FILE, "r" ) ) == NULL )
+    if ((fp = dfopen(ETC_PATH, BAN_FILE, "r")) == NULL)
         return;
  
     ban_last = NULL;
-    for ( ; ; )
+    for (; ;)
     {
         BAN_DATA *pban;
-        if ( feof(fp) )
+        if (feof(fp))
         {
-            fclose( fp );
+            fclose(fp);
             return;
         }
  
@@ -133,7 +171,7 @@ bool check_ban(char *site,int type)
     strcpy(host,capitalize(site));
     host[0] = LOWER(host[0]);
 
-    for ( pban = ban_list; pban != NULL; pban = pban->next ) 
+    for (pban = ban_list; pban != NULL; pban = pban->next) 
     {
 	if(!IS_SET(pban->ban_flags,type))
 	    continue;
@@ -241,13 +279,13 @@ void ban_site(CHAR_DATA *ch, const char *argument, bool fPerm)
     }
 
     prev = NULL;
-    for ( pban = ban_list; pban != NULL; prev = pban, pban = pban->next )
+    for (pban = ban_list; pban != NULL; prev = pban, pban = pban->next)
     {
         if (!str_cmp(name,pban->name))
         {
 	    if (pban->level > get_trust(ch))
 	    {
-            	send_to_char( "That ban was set by a higher power.\n\r", ch );
+            	send_to_char("That ban was set by a higher power.\n\r", ch);
             	return;
 	    }
 	    else
@@ -292,24 +330,24 @@ void do_permban(CHAR_DATA *ch, const char *argument)
     ban_site(ch,argument,TRUE);
 }
 
-void do_allow( CHAR_DATA *ch, const char *argument )                        
+void do_allow(CHAR_DATA *ch, const char *argument)                        
 {
     char arg[MAX_INPUT_LENGTH];
     BAN_DATA *prev;
     BAN_DATA *curr;
 
-    one_argument( argument, arg );
+    one_argument(argument, arg);
 
-    if ( arg[0] == '\0' )
+    if (arg[0] == '\0')
     {
-        send_to_char( "Remove which site from the ban list?\n\r", ch );
+        send_to_char("Remove which site from the ban list?\n\r", ch);
         return;
     }
 
     prev = NULL;
-    for ( curr = ban_list; curr != NULL; prev = curr, curr = curr->next )
+    for (curr = ban_list; curr != NULL; prev = curr, curr = curr->next)
     {
-        if ( !str_cmp( arg, curr->name ) )
+        if (!str_cmp(arg, curr->name))
         {
 	    if (curr->level > get_trust(ch))
 	    {
@@ -317,7 +355,7 @@ void do_allow( CHAR_DATA *ch, const char *argument )
 		   "You are not powerful enough to lift that ban.\n\r",ch);
 		return;
 	    }
-            if ( prev == NULL )
+            if (prev == NULL)
                 ban_list   = ban_list->next;
             else
                 prev->next = curr->next;
@@ -329,8 +367,7 @@ void do_allow( CHAR_DATA *ch, const char *argument )
         }
     }
 
-    send_to_char( "Site is not banned.\n\r", ch );
+    send_to_char("Site is not banned.\n\r", ch);
     return;
 }
-
 

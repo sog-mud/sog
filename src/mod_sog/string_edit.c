@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.12 1998-08-18 18:05:40 fjoe Exp $
+ * $Id: string_edit.c,v 1.13 1998-09-01 18:29:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -24,10 +24,6 @@
 #include <time.h>
 
 #include "merc.h"
-#include "db.h"
-#include "comm.h"
-#include "log.h"
-#include "string_edit.h"
 
 char *string_linedel(char *, int);
 char *string_lineadd(char *, char *, int);

@@ -1,42 +1,95 @@
 /*
- * $Id: clan.c,v 1.9 1998-08-17 18:47:03 fjoe Exp $
+ * $Id: clan.c,v 1.10 1998-09-01 18:29:16 fjoe Exp $
  */
 
 #include <sys/syslimits.h>
 #include <sys/time.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <dirent.h>
 #include <string.h>
 #include "merc.h"
-#include "comm.h"
 #include "db.h"
-#include "resource.h"
-#include "lookup.h"
-#include "log.h"
-#include "util.h"
 #include "interp.h"
+
+varr *clans;
+
+int cn_lookup(const char *name)
+{
+	int cn;
+
+	if (IS_NULLSTR(name))
+		return -1;
+
+	for (cn = 0; cn < clans->nused; cn++)
+		if (!str_cmp(name, CLAN(cn)->name))
+			return cn;
+
+	return -1;
+}
+
+const char *clan_name(int cn)
+{
+	CLAN_DATA *clan = clan_lookup(cn);
+	if (clan)
+		return clan->name;
+	return "None";
+}
 
 void do_petition(CHAR_DATA *ch, const char *argument)
 {
-	int clan = CLAN_NONE;
-	CHAR_DATA *victim = NULL;
-	char arg1[MAX_STRING_LENGTH],
-	     arg2[MAX_STRING_LENGTH];
+	bool accept;
+	int cn = 0;
+	CLAN_DATA *clan = NULL;
+	char arg1[MAX_STRING_LENGTH];
 
 	if (IS_NPC(ch))
 		return;	
 
 	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
 
-	if (!*arg1) {
-		char_puts("Usage: petition <accept|reject> <char-name>\n\r"
-			  "   or: petition <clan-name>\n\r", ch);
+	if (IS_NULLSTR(arg1)) {
+		if (ch->clan || IS_IMMORTAL(ch)) 
+			char_printf(ch,
+				    "Usage: petition %s<accept | reject> "
+				    "<char name>\n\r",
+				    IS_IMMORTAL(ch) ? "<clan name> " : "");
+		if (ch->pcdata->clan_status != CLAN_LEADER)
+			char_puts("Usage: petition <clan name>\n\r", ch);
 		return;
 	}
 
-	if (!str_prefix(arg1, "accept")) {
-		if (!*arg2) {
+	if (IS_IMMORTAL(ch)) {
+		cn = cn_lookup(arg1);
+		if (cn <= 0) {
+			char_printf(ch, "%s: unknown clan\n\r", arg1);
+			do_petition(ch, "");
+			return;
+		}
+		argument = one_argument(argument, arg1);
+		if (IS_NULLSTR(arg1)) {
+			do_petition(ch, "");
+			return;
+		}
+		clan = CLAN(cn);
+	}
+
+	if ((accept = !str_prefix(arg1, "accept"))
+	||  !str_prefix(arg1, "reject")) {
+		CHAR_DATA *victim;
+		char arg2[MAX_STRING_LENGTH];
+
+		if (!IS_IMMORTAL(ch)) {
+			if (ch->clan == 0
+			||  (clan = clan_lookup(ch->clan)) == NULL) {
+				do_petition(ch, "");
+				return;
+			}
+			cn = ch->clan;
+		}
+
+		argument = one_argument(argument, arg2);
+		if (IS_NULLSTR(arg2)) {
 			do_petition(ch, "");
 			return;
 		}
@@ -44,8 +97,8 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		if (ch->pcdata->clan_status != CLAN_LEADER
 		&&  ch->pcdata->clan_status != CLAN_SECOND
 		&&  !IS_IMMORTAL(ch)) {
-			char_puts("You don't have enough power to accept "
-				  "petitions.\n\r", ch);
+			char_puts("You don't have enough power to "
+				  "accept/reject petitions.\n\r", ch);
 			return;
 		}
 
@@ -55,62 +108,50 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (victim->pcdata->petition != ch->clan) {
-			char_puts("They didn't petition.\n\r", ch);
-			return;
-		}
-		victim->clan = ch->clan;
-		victim->pcdata->petition = CLAN_NONE;
-		victim->pcdata->clan_status = CLAN_COMMON;
-		char_nputs(MSG_OK, ch);
-		char_puts("Greet new member!\n\r", ch);
-		char_printf(victim, "Your petition to %s has been "
-			    "accepted.\n\r",
-			    clan_table[victim->clan].short_name);
-		char_printf(victim, "You are now one of %s!\n\r",
-			    clan_table[victim->clan].long_name);
-		return;
-	}
-
-	if (!str_prefix(arg1, "reject")) {
-		if (!*arg2) {
-			do_petition(ch, "");
+		if (accept) {
+			if (victim->pcdata->petition != cn) {
+				char_puts("They didn't petition.\n\r", ch);
+				return;
+			}
+			victim->clan = cn;
+			victim->pcdata->petition = CLAN_NONE;
+			victim->pcdata->clan_status = CLAN_COMMON;
+			update_skills(victim);
+			char_nputs(MSG_OK, ch);
+			char_puts("Greet new member!\n\r", ch);
+			char_printf(victim, "Your petition to %s has been "
+				    "accepted.\n\r",
+				    clan->name);
+			char_printf(victim, "You are now one of %s!\n\r",
+				    clan->name);
 			return;
 		}
 
-		if (ch->pcdata->clan_status != CLAN_LEADER
-		&&  ch->pcdata->clan_status != CLAN_SECOND
-		&&  !IS_IMMORTAL(ch)) {
-			char_puts("You don't have enough power to reject "
-				  "petitions.\n\r", ch);
-			return;
-		}
-
-		if (!(victim = get_char_world(ch, arg2))
-		||  IS_NPC(victim)) {
-			char_puts("Can't find them.\n\r", ch);
-			return;
-		}
-
-		if (victim->clan == ch->clan
-		&&  victim->pcdata->clan_status != CLAN_LEADER) {
+/* handle 'petition reject' */
+		if (victim->clan == cn) {
+			if (victim->pcdata->clan_status == CLAN_LEADER
+			&&  !IS_IMMORTAL(ch)) {
+				char_puts("You don't have enough power "
+					  "to do that.\n\r", ch);
+				return;
+			}
 			victim->clan = CLAN_NONE;
 			victim->pcdata->petition = CLAN_NONE;
+			update_skills(victim);
 			char_nputs(MSG_OK, ch);
-			char_puts("They are not a member of your clan "
-				  "any more.\n\r", ch);
-			char_puts("You are not a member of any clan "
-				  "any more.\n\r", victim);
+			char_printf(ch, "They are not a member of %s "
+					"anymore.\n\r", clan->name);
+			char_printf(ch, "You are not a member of %s "
+					"anymore.\n\r", clan->name);
 			return;
 		}
 
-		if (victim->pcdata->petition == ch->clan) {
+		if (victim->pcdata->petition == cn) {
 			victim->pcdata->petition = CLAN_NONE;
-			char_nputs(MSG_OK, ch);
 			char_puts("Petition was rejected.\n\r", ch);
 			char_printf(victim, "Your petition to %s was "
 				    "rejected.\n\r",
-				    clan_table[ch->clan].short_name);
+				    clan->name);
 			return;
 		}
 
@@ -118,23 +159,29 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((clan = clan_lookup(arg1)) == -1 ||  clan == CLAN_NONE) {
+	if (IS_IMMORTAL(ch)) {
+		char_puts("Nah, you shouldn't do that.\n\r", ch);
+		return;
+	}
+
+	if ((cn = cn_lookup(arg1)) <= 0) {
 		char_puts("No such clan.\n\r", ch);
 		return;
 	}
 
-	ch->pcdata->petition = clan;
+	ch->pcdata->petition = cn;
 	char_puts("Petition sent.\n\r", ch);
 }
 
 void do_promote(CHAR_DATA *ch, const char *argument)
 {
-	char arg1[MAX_STRING_LENGTH],
-	     arg2[MAX_STRING_LENGTH];
+	char arg1[MAX_STRING_LENGTH];
+	char arg2[MAX_STRING_LENGTH];
 	CHAR_DATA *victim;
+	CLAN_DATA *clan;
 
-	if (!IS_IMMORTAL(ch)
-	&&  (IS_NPC(ch) || ch->pcdata->clan_status != CLAN_LEADER)) {
+	if (IS_NPC(ch)
+	||  (!IS_IMMORTAL(ch) && ch->pcdata->clan_status != CLAN_LEADER)) {
 		char_nputs(MSG_HUH, ch);
 		return;
 	}
@@ -143,33 +190,33 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg2);
 
 	if (!*arg1 || !*arg2) {
-		char_puts("Usage: promote <char-name> <commoner|secondary>\n\r",
+		char_puts("Usage: promote <char name> <commoner | secondary>\n\r",
 			  ch);
 		if (IS_IMMORTAL(ch))
-			char_puts("    or: promote <char-name> <leader>\n\r",
+			char_puts("    or: promote <char name> <leader>\n\r",
 				  ch);
 		return;
 	}
 
 	victim = get_char_world(ch, arg1);
-
 	if (!victim || IS_NPC(victim)) {
 		char_nputs(MSG_THEY_ARENT_HERE, ch);
 		return;
 	}
 
-	if (!str_prefix(arg2, "leader")) {
-		if (!IS_IMMORTAL(ch)) {
-			char_puts("This option is only for immortals.\n\r",
-				  ch);
-			return;
-		}
+	if (victim->clan == 0 || (clan = clan_lookup(victim->clan)) == NULL
+	||  (victim->clan != ch->clan && !IS_IMMORTAL(ch))) {
+		char_puts("They are not an a clan.\n\r", ch);
+		return;
+	}
 
-		if (victim->clan == CLAN_NONE) {
-			char_puts("They are clanless.\n\r", ch);
-			return;
-		}
+	if (!IS_IMMORTAL(ch) && victim->pcdata->clan_status == CLAN_LEADER) {
+		char_puts("You don't have enough power to promote them.\n\r",
+			  ch);
+		return;
+	}
 
+	if (!str_prefix(arg2, "leader") && IS_IMMORTAL(ch)) {
 		victim->pcdata->clan_status = CLAN_LEADER;
 		char_nputs(MSG_OK, ch);
 		char_puts("They are now leader in their clan.\n\r", ch);
@@ -177,54 +224,33 @@ void do_promote(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->clan != victim->clan) {
-		char_puts("You don't have enough power to change "
-			  "there status.\n\r", ch);
-		return;
-	}
-
 	if (!str_prefix(arg2, "secondary")) {
 		if (victim->pcdata->clan_status == CLAN_SECOND) {
-			char_puts("They are already second in your clan.\n\r",
+			char_puts("They are already second in a clan.\n\r",
 				  ch);
 			return;
 		}
 
-		if (victim->pcdata->clan_status == CLAN_LEADER
-		&&  !IS_IMMORTAL(ch)) {
-			char_puts("You don't have enough power to promote "
-				  "them to be secondary.\n\r", ch);
-			return;
-		}
-
 		victim->pcdata->clan_status = CLAN_SECOND;
-		char_nputs(MSG_OK, ch);
-		char_puts("They are now second in clan.\n\r", ch);
-		char_puts("You are now second in clan.\n\r", victim);
+		char_puts("They are now second in the clan.\n\r", ch);
+		char_puts("You are now second in the clan.\n\r", victim);
 		return;
 	}
 
 	if (!str_prefix(arg2, "commoner")) {
 		if (victim->pcdata->clan_status == CLAN_COMMON) {
-			char_puts("They are already common in your clan.\n\r",
+			char_puts("They are already commoner in a clan.\n\r",
 				  ch);
 			return;
 		}
 
-		if (victim->pcdata->clan_status == CLAN_LEADER
-		&&  !IS_IMMORTAL(ch)) {
-			char_puts("You don't have enough power to promote "
-				  "them to be commoner.\n\r", ch);
-			return;
-		}
-
 		victim->pcdata->clan_status = CLAN_COMMON;
-		char_nputs(MSG_OK, ch);
-		char_puts("They are now common in your clan.\n\r", ch);
-		char_puts("You are now common in your clan.\n\r", victim);
+		char_puts("They are now commoner in the clan.\n\r", ch);
+		char_puts("You are now commoner in the clan.\n\r", victim);
 		return;
 	}
 
+	do_promote(ch, "");
 }
 
 char *get_status_alias(int status)
@@ -242,6 +268,8 @@ char *get_status_alias(int status)
 
 void do_clanlist(CHAR_DATA *ch, const char *argument)
 {
+	char_puts("clanlist: temporarily disabled.\n\r", ch);
+#if 0
 	DESCRIPTOR_DATA *d;
 	FILE *pfile;
 	DIR *dirp;
@@ -310,4 +338,5 @@ void do_clanlist(CHAR_DATA *ch, const char *argument)
 				    get_status_alias(status));
 		fclose(pfile);
 	}
+#endif
 }

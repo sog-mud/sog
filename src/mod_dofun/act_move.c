@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.83 1998-08-17 18:47:02 fjoe Exp $
+ * $Id: act_move.c,v 1.84 1998-09-01 18:29:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,32 +45,13 @@
 #include <stdio.h>
 #include <string.h>
 #include "merc.h"
-#include "recycle.h"
-#include "db.h"
-#include "comm.h"
-#include "resource.h"
 #include "hometown.h"
-#include "magic.h"
 #include "update.h"
-#include "util.h"
-#include "log.h"
 #include "act_move.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
-#include "mlstring.h"
 #include "interp.h"
 #include "fight.h"
-
-/* command procedures needed */
-DECLARE_DO_FUN(do_look		);
-DECLARE_DO_FUN(do_recall	);
-DECLARE_DO_FUN(do_stand		);
-DECLARE_DO_FUN(do_yell		);
-void	one_hit		args((CHAR_DATA *ch, CHAR_DATA *victim, int dt ,bool secondary)); 
-int 	mount_success 	args((CHAR_DATA *ch, CHAR_DATA *mount, int canattack));
-int 	find_path	args((int in_room_vnum, int out_room_vnum, CHAR_DATA *ch, int depth, int in_zone));
-int	check_obj_dodge	args((CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj, int bonus)); 
-
 
 char *	const	dir_name	[]		=
 {
@@ -92,11 +73,10 @@ const	int	movement_loss	[SECT_MAX]	=
 /*
  * Local functions.
  */
-int	find_door	args((CHAR_DATA *ch, char *arg));
-int 	find_exit	args((CHAR_DATA *ch, char *arg));
-bool	has_key		args((CHAR_DATA *ch, int key));
-
-
+int	find_door	(CHAR_DATA *ch, char *arg);
+int 	find_exit	(CHAR_DATA *ch, char *arg);
+bool	has_key		(CHAR_DATA *ch, int key);
+int	mount_success	(CHAR_DATA *ch, CHAR_DATA *mount, int canattack);
 
 void move_char(CHAR_DATA *ch, int door, bool follow)
 {
@@ -115,13 +95,13 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		return;
 	}
 
-	if (CAN_DETECT(ch, ADET_WEB) 
-	|| (MOUNTED(ch) && CAN_DETECT(ch->mount, ADET_WEB))) {
+	if (IS_AFFECTED(ch, AFF_DETECT_WEB) 
+	|| (MOUNTED(ch) && IS_AFFECTED(ch->mount, AFF_DETECT_WEB))) {
 		WAIT_STATE(ch, PULSE_VIOLENCE);
 		if (number_percent() < str_app[IS_NPC(ch) ?
 			20 : get_curr_stat(ch,STAT_STR)].tohit * 5) {
 		 	affect_strip(ch, gsn_web);
-		 	REMOVE_BIT(ch->detection, ADET_WEB);
+		 	REMOVE_BIT(ch->affected_by, AFF_DETECT_WEB);
 		 	char_nputs(MSG_WHEN_YOU_ATTEMPT_YOU_BREAK_WEBS, ch);
 		 	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				    MSG_N_BREAKS_THE_WEBS);
@@ -150,20 +130,20 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		int chance;
 
 		if (IS_NPC(ch)
-		||  (chance = get_skill(ch, gsn_move_camf)) == 0) {
+		||  (chance = get_skill(ch, gsn_camouflage_move)) == 0) {
 			REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
 			char_nputs(MSG_YOU_STEP_OUT_COVER, ch);
 			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				    MSG_N_STEPS_OUT_COVER);
 		}	    
 		else if (number_percent() < chance)
-			check_improve(ch, gsn_move_camf, TRUE, 5);
+			check_improve(ch, gsn_camouflage_move, TRUE, 5);
 		else {
 			REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
 			char_nputs(MSG_YOU_STEP_OUT_COVER, ch);
 			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				    MSG_N_STEPS_OUT_COVER);
-			check_improve(ch, gsn_move_camf, FALSE, 5);
+			check_improve(ch, gsn_camouflage_move, FALSE, 5);
 		}	    
 	}
 
@@ -366,7 +346,6 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	 }
 
 	if (IS_AFFECTED(ch, AFF_CAMOUFLAGE)
-	&&  to_room->sector_type != SECT_FIELD
 	&&  to_room->sector_type != SECT_FOREST
 	&&  to_room->sector_type != SECT_MOUNTAIN
 	&&  to_room->sector_type != SECT_HILLS) {
@@ -1043,10 +1022,7 @@ void do_unlock(CHAR_DATA *ch, const char *argument)
 		}
 		  return;
 	}
-	return;
 }
-
-
 
 void do_pick(CHAR_DATA *ch, const char *argument)
 {
@@ -1054,6 +1030,14 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *gch;
 	OBJ_DATA *obj;
 	int door;
+	int sn;
+	int chance;
+
+	if ((sn = sn_lookup("pick lock")) < 0
+	||  (chance = get_skill(ch, sn)) == 0) {
+		char_nputs(MSG_HUH, ch);
+		return;
+	}
 
 	one_argument(argument, arg);
 
@@ -1067,22 +1051,22 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 		  return;
 	}
 
-	WAIT_STATE(ch, skill_table[gsn_pick_lock].beats);
+	WAIT_STATE(ch, SKILL(sn)->beats);
 
 	/* look for guards */
-	for (gch = ch->in_room->people; gch; gch = gch->next_in_room)
-	{
-		if (IS_NPC(gch) && IS_AWAKE(gch) && ch->level + 5 < gch->level)
-		{
-		    act_nprintf(ch, NULL, gch, TO_CHAR, POS_RESTING, MSG_N_IS_STANDING_TOO_CLOSE_TO_LOCK);
-		    return;
+	for (gch = ch->in_room->people; gch; gch = gch->next_in_room) {
+		if (IS_NPC(gch)
+		&&  IS_AWAKE(gch)
+		&&  ch->level + 5 < gch->level) {
+			act_nprintf(ch, NULL, gch, TO_CHAR, POS_RESTING,
+				    MSG_N_IS_STANDING_TOO_CLOSE_TO_LOCK);
+			return;
 		}
 	}
 
-	if (!IS_NPC(ch) && number_percent() > get_skill(ch,gsn_pick_lock))
-	{
+	if (!IS_NPC(ch) && number_percent() > chance) {
 		char_nputs(MSG_YOU_FAILED, ch);
-		check_improve(ch,gsn_pick_lock,FALSE,2);
+		check_improve(ch, sn, FALSE, 2);
 		return;
 	}
 
@@ -1112,7 +1096,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 		    REMOVE_BIT(obj->value[1],EX_LOCKED);
 		    act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MSG_YOU_PICK_THE_LOCK_ON_P);
 		    act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MSG_N_PICKS_THE_LOCK_ON_P);
-		    check_improve(ch,gsn_pick_lock,TRUE,2);
+		    check_improve(ch, sn, TRUE, 2);
 		    return;
 		}
 
@@ -1132,7 +1116,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 		REMOVE_BIT(obj->value[1], CONT_LOCKED);
 		  act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, MSG_YOU_PICK_THE_LOCK_ON_P);
 		  act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, MSG_N_PICKS_THE_LOCK_ON_P);
-		check_improve(ch,gsn_pick_lock,TRUE,2);
+		check_improve(ch, sn, TRUE, 2);
 		return;
 	}
 
@@ -1156,7 +1140,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 		REMOVE_BIT(pexit->exit_info, EX_LOCKED);
 		char_nputs(MSG_CLICK, ch);
 		act_nprintf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING, MSG_N_PICKS_THE_D);
-		check_improve(ch,gsn_pick_lock,TRUE,2);
+		check_improve(ch, sn, TRUE, 2);
 
 		/* pick the other side */
 		if ((to_room   = pexit->u1.to_room           ) != NULL
@@ -1166,12 +1150,7 @@ void do_pick(CHAR_DATA *ch, const char *argument)
 		    REMOVE_BIT(pexit_rev->exit_info, EX_LOCKED);
 		}
 	}
-
-	return;
 }
-
-
-
 
 void do_stand(CHAR_DATA *ch, const char *argument)
 {
@@ -1728,10 +1707,13 @@ void do_wake(CHAR_DATA *ch, const char *argument)
 
 void do_sneak(CHAR_DATA *ch, const char *argument)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA	af;
+	int		chance;
 
-	if (MOUNTED(ch)) 
-	{
+	if ((chance = get_skill(ch, gsn_sneak)) == 0)
+		return;
+
+	if (MOUNTED(ch)) {
 		  char_nputs(MSG_YOU_CANT_SNEAK_MOUNTED, ch);
 		  return;
 	}
@@ -1739,12 +1721,11 @@ void do_sneak(CHAR_DATA *ch, const char *argument)
 	char_nputs(MSG_YOU_ATTEMPT_TO_MOVE_SILENTLY, ch);
 	affect_strip(ch, gsn_sneak);
 
-	if (IS_AFFECTED(ch,AFF_SNEAK))
+	if (IS_AFFECTED(ch, AFF_SNEAK))
 		return;
 
-	if (number_percent() < get_skill(ch,gsn_sneak))
-	{
-		check_improve(ch,gsn_sneak,TRUE,3);
+	if (number_percent() < chance) {
+		check_improve(ch, gsn_sneak, TRUE, 3);
 		af.where     = TO_AFFECTS;
 		af.type      = gsn_sneak;
 		af.level     = ch->level; 
@@ -1755,25 +1736,20 @@ void do_sneak(CHAR_DATA *ch, const char *argument)
 		affect_to_char(ch, &af);
 	}
 	else
-		check_improve(ch,gsn_sneak,FALSE,3);
-
-	return;
+		check_improve(ch, gsn_sneak, FALSE, 3);
 }
-
-
 
 void do_hide(CHAR_DATA *ch, const char *argument)
 {
-	int forest;
+	int chance;
+	sflag_t sector;
 
-	if (MOUNTED(ch)) 
-	{
+	if (MOUNTED(ch)) {
 		  char_nputs(MSG_YOU_CANT_HIDE_MOUNTED, ch);
 		  return;
 	}
 
-	if (RIDDEN(ch)) 
-	{
+	if (RIDDEN(ch)) {
 		  char_nputs(MSG_YOU_CANT_HIDE_RIDDEN, ch);
 		  return;
 	}
@@ -1782,41 +1758,45 @@ void do_hide(CHAR_DATA *ch, const char *argument)
 		char_nputs(MSG_YOU_CANNOT_HIDE_GLOWING, ch);
 		return;
 	}
-	forest = 0;
-	forest += ch->in_room->sector_type == SECT_FOREST ? 60 : 0;
-	forest += ch->in_room->sector_type == SECT_FIELD ? 60 : 0;
 
 	char_nputs(MSG_YOU_ATTEMPT_TO_HIDE, ch);
 
-	if (number_percent() < get_skill(ch,gsn_hide)-forest) {
-		SET_BIT(ch->affected_by, AFF_HIDE);
-		check_improve(ch,gsn_hide,TRUE,3);
-	} else  {
-		REMOVE_BIT(ch->affected_by, AFF_HIDE);
-		check_improve(ch,gsn_hide,FALSE,3);
+	if ((chance = get_skill(ch, gsn_hide)) == 0) {
+		char_nputs(MSG_HUH, ch);
+		return;
 	}
 
-	return;
+	sector = ch->in_room->sector_type;
+	if (sector == SECT_FOREST
+	||  sector == SECT_HILLS
+	||  sector == SECT_MOUNTAIN)
+		chance += 15;
+	else if (sector == SECT_CITY)
+		chance -= 15;
+	
+	if (number_percent() < chance) {
+		SET_BIT(ch->affected_by, AFF_HIDE);
+		check_improve(ch, gsn_hide, TRUE, 3);
+	}
+	else  {
+		REMOVE_BIT(ch->affected_by, AFF_HIDE);
+		check_improve(ch, gsn_hide, FALSE, 3);
+	}
 }
 
 void do_camouflage(CHAR_DATA *ch, const char *argument)
 {
-	int chance;
+	int		sn;
+	int		chance;
+	sflag_t		sector;
 
-	if (MOUNTED(ch)) 
-	{
-		  char_nputs(MSG_YOU_CANT_CAMOUFLAGE_MOUNTED, ch);
-		  return;
-	}
-	if (RIDDEN(ch)) 
-	{
-		  char_nputs(MSG_YOU_CANT_CAMOUFLAGE_RIDDEN, ch);
-		  return;
+	if (MOUNTED(ch)) {
+		char_nputs(MSG_YOU_CANT_CAMOUFLAGE_MOUNTED, ch);
+		return;
 	}
 
-	if (IS_NPC(ch)
-	||  (chance = get_skill(ch, gsn_camouflage)) == 0) {
-		char_nputs(MSG_YOU_DONT_KNOW_CAMOUFLAGE, ch);
+	if (RIDDEN(ch)) {
+		char_nputs(MSG_YOU_CANT_CAMOUFLAGE_RIDDEN, ch);
 		return;
 	}
 
@@ -1825,30 +1805,34 @@ void do_camouflage(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->in_room->sector_type != SECT_FOREST &&
-		ch->in_room->sector_type != SECT_HILLS  &&
-		ch->in_room->sector_type != SECT_MOUNTAIN)
-		{
+	if ((sn = sn_lookup("camouflage")) < 0
+	||  (chance = get_skill(ch, sn)) == 0) {
+		char_nputs(MSG_YOU_DONT_KNOW_CAMOUFLAGE, ch);
+		return;
+	}
+
+	sector = ch->in_room->sector_type;
+	if (sector != SECT_FOREST
+	&&  sector != SECT_HILLS
+	&&  sector != SECT_MOUNTAIN) {
 		char_nputs(MSG_THERES_NO_COVER_HERE, ch);
 		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MSG_N_TRIES_TO_CAMOUFLAGE);
 		return;
-		}
+	}
+
 	char_nputs(MSG_YOU_ATTEMPT_TO_CAMOUFLAGE, ch);
-	WAIT_STATE(ch, skill_table[gsn_camouflage].beats);
+	WAIT_STATE(ch, SKILL(sn)->beats);
 
 	if (IS_AFFECTED(ch, AFF_CAMOUFLAGE))
 		REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
 
-
 	if (IS_NPC(ch) || number_percent() < chance) {
 		SET_BIT(ch->affected_by, AFF_CAMOUFLAGE);
-		check_improve(ch, gsn_camouflage, TRUE, 1);
+		check_improve(ch, sn, TRUE, 1);
 	}
 	else
-		check_improve(ch, gsn_camouflage, FALSE, 1);
-
-	return;
+		check_improve(ch, sn, FALSE, 1);
 }
 
 /*
@@ -1876,17 +1860,17 @@ void do_visible(CHAR_DATA *ch, const char *argument)
 	}
 	if (IS_SET(ch->affected_by, AFF_INVISIBLE)) {
 		char_nputs(MSG_YOU_FADE_INTO_EXIST, ch);
-		affect_strip(ch, gsn_invis);
+		affect_strip(ch, gsn_invisibility);
 		affect_strip(ch, gsn_mass_invis);
 		REMOVE_BIT(ch->affected_by, AFF_INVISIBLE);
 		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MSG_N_FADES_INTO_EXIST);
 	}
-	if (IS_SET(ch->affected_by, AFF_IMP_INVIS)) {
+	if (IS_SET(ch->affected_by, AFF_IMP)) {
 		char_nputs(MSG_YOU_FADE_INTO_EXIST, ch);
-		affect_strip(ch, gsn_invis);
-		affect_strip(ch, gsn_imp_invis);
-		REMOVE_BIT(ch->affected_by, AFF_IMP_INVIS);
+		affect_strip(ch, gsn_invisibility);
+		affect_strip(ch, gsn_improved_invis);
+		REMOVE_BIT(ch->affected_by, AFF_IMP);
 		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MSG_N_FADES_INTO_EXIST);
 	}
@@ -1898,7 +1882,6 @@ void do_visible(CHAR_DATA *ch, const char *argument)
 	}
 
 	affect_strip (ch, gsn_mass_invis);
-	return;
 }
 
 void do_recall(CHAR_DATA *ch, const char *argument)
@@ -1908,12 +1891,6 @@ void do_recall(CHAR_DATA *ch, const char *argument)
  
 	if (IS_NPC(ch) && !IS_SET(ch->act, ACT_PET)) {
 		char_nputs(MSG_ONLY_PLAYERS_RECALL, ch);
-		return;
-	}
-
-	if (is_affected(ch, gsn_holler)) {
-		char_puts("Gods laugh under your pray.\n\r", ch);
-		do_say(ch, "RiCFalsch...\n\r");
 		return;
 	}
 
@@ -1954,48 +1931,24 @@ void do_recall(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-#if 0
-	if ((victim = ch->fighting) != NULL)
-	{
-		char_nputs(MSG_YOU_ARE_STILL_FIGHTING, ch);
-
-		if (IS_NPC(ch))
-		    skill = 40 + ch->level;
-		else
-		    skill = get_skill(ch,gsn_recall);
-
-		if (number_percent() < 80 * skill / 100)
-		{
-		    check_improve(ch,gsn_recall,FALSE,6);
-		    WAIT_STATE(ch, 4);
-		    char_nputs(MSG_YOU_FAILED, ch);
-		    return;
-		}
-
-		lose = 25;
-		gain_exp(ch, 0 - lose);
-		check_improve(ch,gsn_recall,TRUE,4);
-		char_nprintf(ch, MSG_RECALL_FROM_COMBAT, lose);
-		stop_fighting(ch, TRUE); 
-	}
-#endif
-
 	ch->move /= 2;
-	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-				MSG_N_DISAPPEARS);
+	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MSG_N_DISAPPEARS);
 	char_from_room(ch);
 	char_to_room(ch, location);
 	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-				MSG_N_APPEARS_IN_THE_ROOM);
+		    MSG_N_APPEARS_IN_THE_ROOM);
 	do_look(ch, "auto");
 	
 	if (ch->pet != NULL) {
+		act_nprintf(ch->pet, NULL, NULL, TO_ROOM, POS_RESTING,
+			    MSG_N_DISAPPEARS);
  		char_from_room(ch->pet);
 		char_to_room(ch->pet, location);
+		act_nprintf(ch->pet, NULL, NULL, TO_ROOM, POS_RESTING,
+			    MSG_N_APPEARS_IN_THE_ROOM);
 		do_look(ch->pet, "auto");
 	}
 }
-
 
 void do_train(CHAR_DATA *ch, const char *argument)
 {
@@ -2003,7 +1956,6 @@ void do_train(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *mob;
 	int stat = - 1;
 	char *pOutput = NULL;
-	int cost;
 
 	if (IS_NPC(ch))
 		return;
@@ -2011,11 +1963,12 @@ void do_train(CHAR_DATA *ch, const char *argument)
 	/*
 	 * Check for trainer.
 	 */
-	for (mob = ch->in_room->people; mob; mob = mob->next_in_room) {
-		if (IS_NPC(mob) && (IS_SET(mob->act, ACT_PRACTICE) 
-		|| IS_SET(mob->act,ACT_TRAIN) || IS_SET(mob->act,ACT_GAIN)))
-		    break;
-	}
+	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
+		if (IS_NPC(mob)
+		&&  (IS_SET(mob->act, ACT_PRACTICE) ||
+		     IS_SET(mob->act, ACT_TRAIN) ||
+		     IS_SET(mob->act, ACT_GAIN)))
+			break;
 
 	if (mob == NULL) {
 		char_nputs(MSG_YOU_CANT_DO_THAT_HERE, ch);
@@ -2027,64 +1980,31 @@ void do_train(CHAR_DATA *ch, const char *argument)
 		argument = "foo";
 	}
 
-	cost = 1;
-
-	if (!str_cmp(argument, "str"))
-	{
-		if (class_table[ch->class].attr_prime == STAT_STR)
-		    cost    = 1;
+	if (!str_cmp(argument, "str")) {
 		stat        = STAT_STR;
 		pOutput     = "strength";
 	}
-
-	else if (!str_cmp(argument, "int"))
-	{
-		if (class_table[ch->class].attr_prime == STAT_INT)
-		    cost    = 1;
+	else if (!str_cmp(argument, "int")) {
 		stat	    = STAT_INT;
 		pOutput     = "intelligence";
 	}
-
-	else if (!str_cmp(argument, "wis"))
-	{
-		if (class_table[ch->class].attr_prime == STAT_WIS)
-		    cost    = 1;
+	else if (!str_cmp(argument, "wis")) {
 		stat	    = STAT_WIS;
 		pOutput     = "wisdom";
 	}
-
-	else if (!str_cmp(argument, "dex"))
-	{
-		if (class_table[ch->class].attr_prime == STAT_DEX)
-		    cost    = 1;
+	else if (!str_cmp(argument, "dex")) {
 		stat  	    = STAT_DEX;
 		pOutput     = "dexterity";
 	}
-
-	else if (!str_cmp(argument, "con"))
-	{
-		if (class_table[ch->class].attr_prime == STAT_CON)
-		    cost    = 1;
+	else if (!str_cmp(argument, "con")) {
 		stat	    = STAT_CON;
 		pOutput     = "constitution";
 	}
-
-	else if (!str_cmp(argument, "cha"))
-	{
-		if (class_table[ch->class].attr_prime == STAT_CHA)
-		    cost    = 1;
+	else if (!str_cmp(argument, "cha")) {
 		stat	    = STAT_CHA;
 		pOutput     = "charisma";
 	}
-
-	else if (!str_cmp(argument, "hp"))
-		cost = 1;
-
-	else if (!str_cmp(argument, "mana"))
-		cost = 1;
-
-	else
-	{
+	else {
 		strcpy(buf, msg(MSG_YOU_CAN_TRAIN, ch));
 		if (ch->perm_stat[STAT_STR] < get_max_train2(ch,STAT_STR)) 
 		    strcat(buf, " str");
@@ -2098,136 +2018,90 @@ void do_train(CHAR_DATA *ch, const char *argument)
 		    strcat(buf, " con");
 		if (ch->perm_stat[STAT_CHA] < get_max_train2(ch,STAT_CHA))  
 		    strcat(buf, " cha");
-		strcat(buf, " hp mana");
 
-		if (buf[strlen(buf)-1] != ':')
-		{
-		    strcat(buf, ".\n\r");
-		    send_to_char(buf, ch);
+		if (buf[strlen(buf)-1] != ':') {
+			strcat(buf, ".\n\r");
+			send_to_char(buf, ch);
 		}
-		else
-		{
-		    /*
-		     * This message dedicated to Jordan ... you big stud!
-		     */
-		    act("You have nothing left to train, you $T!",
-			ch, NULL,
-			ch->sex == SEX_MALE   ? "big stud" :
-			ch->sex == SEX_FEMALE ? "hot babe" :
-						"wild thing",
-			TO_CHAR);
+		else {
+			/*
+			 * This message dedicated to Jordan ... you big stud!
+			 */
+			act("You have nothing left to train, you $T!",
+			    ch, NULL,
+			    ch->sex == SEX_MALE   ? "big stud" :
+			    ch->sex == SEX_FEMALE ? "hot babe" :
+						    "wild thing",
+			    TO_CHAR);
 		}
-
 		return;
 	}
 
-	if (!str_cmp("hp",argument))
-	{
-		if (cost > ch->train)
-		{
-		 	    char_nputs(MSG_NOT_ENOUGH_TRAININGS, ch);
-		      return;
-		  }
- 
-		ch->train -= cost;
-		  ch->pcdata->perm_hit += 10;
-		  ch->max_hit += 10;
-		  ch->hit +=10;
-		  act_nprintf(ch, NULL, NULL, TO_CHAR, POS_DEAD,
-				MSG_YOUR_DURABILITY_INCREASES);
-		  act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-				MSG_N_DURABILITY_INCREASES);
-		  return;
-	}
- 
-	if (!str_cmp("mana",argument))
-	{
-		  if (cost > ch->train)
-		  {
-		 	    char_nputs(MSG_NOT_ENOUGH_TRAININGS, ch);
-		      return;
-		  }
-
-		ch->train -= cost;
-		  ch->pcdata->perm_mana += 10;
-		  ch->max_mana += 10;
-		  ch->mana += 10;
-		  act_nprintf(ch, NULL, NULL, TO_CHAR, POS_DEAD,
-				MSG_YOUR_POWER_INCREASES);
-		  act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-				MSG_N_POWER_INCREASES);
-		  return;
-	}
-
-	if (ch->perm_stat[stat]  >= get_max_train2(ch,stat))
-	{
-		act_nprintf(ch, NULL, pOutput, TO_CHAR, POS_DEAD, MSG_YOUR_T_IS_MAX);
+	if (ch->perm_stat[stat] >= get_max_train2(ch,stat)) {
+		act_nprintf(ch, NULL, pOutput, TO_CHAR, POS_DEAD,
+			    MSG_YOUR_T_IS_MAX);
 		return;
 	}
 
-	if (cost > ch->train)
-	{
-		  char_nputs(MSG_NOT_ENOUGH_TRAININGS, ch);
+	if (ch->train < 1) {
+		char_nputs(MSG_NOT_ENOUGH_TRAININGS, ch);
 		return;
 	}
 
-	ch->train		-= cost;
-  
-	ch->perm_stat[stat]		+= 1;
+	ch->train--;
+	ch->perm_stat[stat] += 1;
 	act_nprintf(ch, NULL, pOutput, TO_CHAR, POS_DEAD, MSG_YOUR_T_INCREASES);
 	act_nprintf(ch, NULL, pOutput, TO_ROOM, POS_RESTING, MSG_N_T_INCREASES);
-	return;
 }
-
-
 
 void do_track(CHAR_DATA *ch, const char *argument)
 {
-  ROOM_HISTORY_DATA *rh;
-  EXIT_DATA *pexit;
-  static char *door[] = { "north","east","south","west","up","down",
+	ROOM_HISTORY_DATA *rh;
+	EXIT_DATA *pexit;
+	static char *door[] = { "north","east","south","west","up","down",
 		                      "that way" };
-  int d;
+	int d;
+	int chance;
 
-  if (!IS_NPC(ch) && get_skill(ch,gsn_track) < 2) {
-	char_nputs(MSG_THERE_ARE_NO_TRAIN_TRACKS_HERE, ch);
-	return;
-  }
+	if ((chance = get_skill(ch, gsn_track)) == 0) {
+		char_nputs(MSG_THERE_ARE_NO_TRAIN_TRACKS_HERE, ch);
+		return;
+	}
 
-  WAIT_STATE(ch, skill_table[gsn_track].beats);
-  act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MSG_N_CHECKS_TRACKS);
+	WAIT_STATE(ch, SKILL(gsn_track)->beats);
+	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MSG_N_CHECKS_TRACKS);
 
-  if (IS_NPC(ch) || number_percent() < get_skill(ch,gsn_track))
-	{
-		if (IS_NPC(ch))
-		{
-		   ch->status = 0;
-		 if (ch->last_fought != NULL && !IS_SET(ch->act,ACT_NOTRACK))
-			add_mind(ch,ch->last_fought->name);
-		  }
-		for (rh = ch->in_room->history;rh != NULL;rh = rh->next)
-		  if (is_name(argument,rh->name)) 
-		   {
-		    check_improve(ch,gsn_track,TRUE,1);
-		  if ((d = rh->went) == -1) continue;
-		    char_nprintf(ch, MSG_TRACKS_LEAD_S, capitalize(rh->name),
-				 door[d]);
-		  if ((pexit = ch->in_room->exit[d]) != NULL
-		    &&   IS_SET(pexit->exit_info, EX_ISDOOR)
-		    &&   pexit->keyword != NULL)
-		     doprintf(do_open, ch,"%s",door[d]);
-		    move_char(ch,rh->went,FALSE);
-		    return;
+	if (number_percent() < chance) {
+		if (IS_NPC(ch)) {
+			ch->status = 0;
+			if (ch->last_fought != NULL
+			&&  !IS_SET(ch->act,ACT_NOTRACK))
+				add_mind(ch,ch->last_fought->name);
+		}
+
+		for (rh = ch->in_room->history; rh != NULL; rh = rh->next)
+			if (is_name(argument, rh->name)) {
+				check_improve(ch, gsn_track, TRUE, 1);
+			if ((d = rh->went) == -1)
+				continue;
+			char_nprintf(ch, MSG_TRACKS_LEAD_S,
+				     rh->name, door[d]);
+			if ((pexit = ch->in_room->exit[d]) != NULL
+			&&  IS_SET(pexit->exit_info, EX_ISDOOR)
+			&&  pexit->keyword != NULL)
+				doprintf(do_open, ch, "%s", door[d]);
+			move_char(ch, rh->went, FALSE);
+			return;
 		}
 	}
 
-		char_nputs(MSG_DONT_SEE_TRACKS, ch);
+	char_nputs(MSG_DONT_SEE_TRACKS, ch);
 
-		if (IS_NPC(ch))
-			ch->status = 5; /* for stalker */
-		check_improve(ch, gsn_track, FALSE, 1);
+	if (IS_NPC(ch))
+		ch->status = 5; /* for stalker */
+
+	check_improve(ch, gsn_track, FALSE, 1);
 }
-
 
 void do_vampire(CHAR_DATA *ch, const char *argument)
 {
@@ -2298,13 +2172,6 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	af.bitvector = IMM_NEGATIVE;
 	affect_to_char(ch, &af);
 
-/* vampire flag */
-	af.where     = TO_ACT_FLAG;
-	af.location  = APPLY_NONE;
-	af.modifier  = 0;
-	af.bitvector = PLR_VAMPIRE;
-	affect_to_char(ch, &af);
-
 /* flying */
 	af.where     = TO_AFFECTS;
 	af.location  = 0;
@@ -2349,9 +2216,8 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((IS_NPC(ch)) && (!(IS_NPC(victim))))
+	if (IS_NPC(ch) && !IS_NPC(victim))
 		return;
-		
 
 	if (victim == ch) {
 		char_nputs(MSG_HOW_CAN_YOU_SNEAK_YOU, ch);
@@ -2366,8 +2232,7 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-
-	WAIT_STATE(ch, skill_table[gsn_vampiric_bite].beats);
+	WAIT_STATE(ch, SKILL(gsn_vampiric_bite)->beats);
 
 	if (victim->hit < (8 * victim->max_hit / 10) && (IS_AWAKE(victim))) {
 		act_nprintf(ch, NULL, victim, TO_CHAR, POS_DEAD,
@@ -2382,22 +2247,21 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!IS_AWAKE(victim)
-	&& (IS_NPC(ch)
-	||  number_percent() < ((chance * 7 / 10) +
+	&&  (IS_NPC(ch) ||
+	     number_percent() < ((chance * 7 / 10) +
 		(2 * (ch->level - victim->level)) ))) {
 		check_improve(ch,gsn_vampiric_bite,TRUE,1);
-		one_hit(ch, victim, gsn_vampiric_bite,FALSE);
+		one_hit(ch, victim, gsn_vampiric_bite, FALSE);
 	}
 	else {
-		check_improve(ch,gsn_vampiric_bite,FALSE,1);
-		damage(ch, victim, 0, gsn_vampiric_bite,DAM_NONE, TRUE);
+		check_improve(ch, gsn_vampiric_bite, FALSE, 1);
+		damage(ch, victim, 0, gsn_vampiric_bite, DAM_NONE, TRUE);
 	}
 
 	/* Player shouts if he doesn't die */
 	if (!(IS_NPC(victim)) && !(IS_NPC(ch)) 
 		&& victim->position == POS_FIGHTING)
-  	    doprintf(do_yell, victim, msg(MSG_HELP_TRIED_TO_BITE, victim));
-	return;
+		doprintf(do_yell, victim, msg(MSG_HELP_TRIED_TO_BITE, victim));
 }
 
 void do_bash_door(CHAR_DATA *ch, const char *argument)
@@ -2406,6 +2270,7 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *gch;
 	int chance;
 	int damage_bash,door;
+	int beats;
 
 	ROOM_INDEX_DATA *to_room;
 	EXIT_DATA *pexit;
@@ -2413,8 +2278,7 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 
 	one_argument(argument,arg);
  
-	if ((chance = get_skill(ch, gsn_bash_door)) == 0
-	||  (IS_NPC(ch) && !IS_SET(ch->off_flags,OFF_BASH))) {	
+	if ((chance = get_skill(ch, gsn_bash_door)) == 0) {
 		char_nputs(MSG_BASH_WHATS_THAT, ch);
 		return;
 	}
@@ -2491,9 +2355,10 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 	if (room_dark(ch->in_room))
 		chance /= 2;
 
+	beats = SKILL(gsn_bash_door)->beats;
 	/* now the attack */
 	if (number_percent() < chance) {
-		check_improve(ch,gsn_bash_door,TRUE,1);
+		check_improve(ch, gsn_bash_door, TRUE, 1);
 
 		REMOVE_BIT(pexit->exit_info, EX_LOCKED);
 		REMOVE_BIT(pexit->exit_info, EX_CLOSED);
@@ -2517,7 +2382,7 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 		}
 
 		check_improve(ch, gsn_bash_door, TRUE, 1);
-		WAIT_STATE(ch,skill_table[gsn_bash_door].beats);
+		WAIT_STATE(ch, beats);
 	}
 	else {
 		char_nputs(MSG_YOU_FALL_ON_FACE, ch);
@@ -2525,25 +2390,23 @@ void do_bash_door(CHAR_DATA *ch, const char *argument)
 			    MSG_N_FALLS_ON_FACE);
 		check_improve(ch, gsn_bash_door, FALSE, 1);
 		ch->position = POS_RESTING;
-		WAIT_STATE(ch,skill_table[gsn_bash_door].beats * 3/2); 
+		WAIT_STATE(ch, beats * 3 / 2); 
 		damage_bash = ch->damroll +
 			      number_range(4,4 + 4* ch->size + chance/5);
 		damage(ch, ch, damage_bash, gsn_bash_door, DAM_BASH, TRUE);
 	}
-
 }
 
 void do_blink(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
-	argument = one_argument(argument, arg);
-
-	if (!IS_NPC(ch)
-	&&  ch->level < skill_table[gsn_blink].skill_level[ch->class]) {
+	if (get_skill(ch, gsn_blink) == 0) {
 		char_nputs(MSG_HUH, ch);
 		return;
 	}
+
+	argument = one_argument(argument, arg);
 
 	if (arg[0] == '\0') {
 		char_nprintf(ch, MSG_CURRENT_BLINK,
@@ -2564,19 +2427,19 @@ void do_blink(CHAR_DATA *ch, const char *argument)
 	}
 
 	char_nprintf(ch, MSG_IS_S_A_STATUS, arg);
-	return;
 }
 
 void do_vanish(CHAR_DATA *ch, const char *argument)
 {
 	ROOM_INDEX_DATA *pRoomIndex;
+	int chance;
+	int sn;
 
-	if (!IS_NPC(ch)
-	    && ch->level < skill_table[gsn_vanish].skill_level[ch->class]) {
+	if ((sn = sn_lookup("vanish")) < 0
+	||  (chance = get_skill(ch, sn)) == 0) {
 		char_nputs(MSG_HUH, ch);
 		return;
 	}
-
 
 	if (ch->mana < 25) {
 		char_nputs(MSG_DONT_HAVE_POWER, ch);
@@ -2584,109 +2447,80 @@ void do_vanish(CHAR_DATA *ch, const char *argument)
 	}
 	ch->mana -= 25;
 
-	if (number_percent() > get_skill(ch,gsn_vanish)) {
+	if (number_percent() > chance) {
 		char_nputs(MSG_YOU_FAILED, ch);
-		WAIT_STATE(ch, skill_table[gsn_vanish].beats);
-		check_improve(ch,gsn_vanish,FALSE,1);
+		WAIT_STATE(ch, SKILL(sn)->beats);
+		check_improve(ch, sn, FALSE, 1);
 		return;
 	}
 
-  WAIT_STATE(ch, skill_table[gsn_vanish].beats);
+	WAIT_STATE(ch, SKILL(sn)->beats);
 
-  if (ch->in_room == NULL
-		||   IS_SET(ch->in_room->room_flags, ROOM_NO_RECALL))
-	{
+	if (ch->in_room == NULL
+	||  IS_SET(ch->in_room->room_flags, ROOM_NO_RECALL)) {
 		char_nputs(MSG_YOU_FAILED, ch);
 		return;
 	}
 
-  for (; ;)
-	{
+	for (; ;) {
 		if ((pRoomIndex = get_room_index(number_range(0, 65535))) == NULL)
-		continue;
+			continue;
 		if ((ch->in_room->vnum < 500 || ch->in_room->vnum > 600)
-		    && (pRoomIndex->vnum > 500 && pRoomIndex->vnum < 600))
-		continue;
+		&&  (pRoomIndex->vnum > 500 && pRoomIndex->vnum < 600))
+			continue;
 		if (can_see_room(ch,pRoomIndex) 
-			&& !room_is_private(pRoomIndex)
-			&& ch->in_room->area == pRoomIndex->area)
-		  break;
+		&&  !room_is_private(pRoomIndex)
+		&&  ch->in_room->area == pRoomIndex->area)
+			break;
 	}
 
-  
-  act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MSG_N_THROWS_GLOBE);
+	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MSG_N_THROWS_GLOBE);
+	check_improve(ch, sn, TRUE, 1);
 
-  check_improve(ch,gsn_vanish,TRUE,1);
-
-  if (!IS_NPC(ch) && ch->fighting != NULL && number_bits(1) == 1) 
-  {
-	char_nputs(MSG_YOU_FAILED, ch);
-	return;
-  }
-
-  act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MSG_N_IS_GONE);
-
-  char_from_room(ch);
-  char_to_room(ch, pRoomIndex);
-  act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MSG_N_APPEARS_FROM_NOWHERE);
-  do_look(ch, "auto");
-  stop_fighting(ch,TRUE);
-  return;
-}
-
-void do_detect_sneak(CHAR_DATA *ch, const char *argument) 
-{
-	AFFECT_DATA af;
-
-	if (is_affected(ch, gsn_detect_sneak))
-	{
-		char_nputs(MSG_YOU_CAN_ALREADY_DETECT_SNEAK, ch);
+  	if (!IS_NPC(ch) && ch->fighting != NULL && number_bits(1) == 1) {
+		char_nputs(MSG_YOU_FAILED, ch);
+		return;
 	}
-	af.where	 = TO_DETECTS;
-	af.type      = gsn_detect_sneak;
-	af.level     = ch->level;
-	af.duration  = ch->level / 10;
-	af.location  = APPLY_NONE;
-	af.modifier  = 0;
-	af.bitvector = DETECT_SNEAK;
-	affect_to_char(ch, &af);
-	char_nputs(MSG_YOU_CAN_DETECT_THE_SNEAK, ch);
-	return;
-}
 
+	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MSG_N_IS_GONE);
+
+	char_from_room(ch);
+	char_to_room(ch, pRoomIndex);
+	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+		    MSG_N_APPEARS_FROM_NOWHERE);
+	do_look(ch, "auto");
+	stop_fighting(ch, TRUE);
+}
 
 void do_fade(CHAR_DATA *ch, const char *argument)
 {
-	if (ch_skill_nok(ch,gsn_fade)) return;
+	if (get_skill(ch, gsn_fade) == 0)
+		return;
 
-	if (MOUNTED(ch)) 
-	{
+	if (MOUNTED(ch)) {
 		  char_nputs(MSG_CANT_FADE_MOUNTED, ch);
 		  return;
 	}
-	if (RIDDEN(ch)) 
-	{
+
+	if (RIDDEN(ch)) {
 		  char_nputs(MSG_CANT_FADE_RIDDEN, ch);
 		  return;
 	}
 
-	if (!clan_ok(ch,gsn_fade)) return;
 	char_nputs(MSG_YOU_ATTEMPT_TO_FADE, ch);
-
 	SET_BIT(ch->affected_by, AFF_FADE);
-	check_improve(ch,gsn_fade,TRUE,3);
-
-	return;
+	check_improve(ch, gsn_fade, TRUE, 3);
 }
 
 void do_vtouch(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	AFFECT_DATA af;
+	int chance;
+	int sn;
 
-	if (IS_NPC(ch) ||
-	    ch->level < skill_table[gsn_vampiric_touch].skill_level[ch->class])
-	{
+	if ((sn = sn_lookup("vampiric touch")) < 0
+	||  (chance = get_skill(ch, sn)) == 0) {
 		char_nputs(MSG_LACK_SKILL_DRAIN_TOUCH, ch);
 		return;
 	}
@@ -2706,12 +2540,12 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch==victim) {
+	if (ch == victim) {
 		char_nputs(MSG_EVEN_YOU_NOT_SO_STUPID, ch);
 		return;
 	}
 
-	if (is_affected(victim,gsn_vampiric_touch))
+	if (is_affected(victim, sn))
 		return;
 
 	if (is_safe(ch,victim))
@@ -2720,32 +2554,31 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 	SET_FIGHT_TIME(victim);
 	SET_FIGHT_TIME(ch);
 
-	WAIT_STATE(ch,skill_table[gsn_vampiric_touch].beats);
+	WAIT_STATE(ch, SKILL(sn)->beats);
 
-	if (IS_NPC(ch) || 
-	    number_percent() < 0.85 * get_skill(ch,gsn_vampiric_touch)) {
+	if (IS_NPC(ch) || number_percent() < 0.85 * chance) {
 		act_nprintf(victim, NULL, ch, TO_VICT, POS_DEAD, 
 				MSG_YOU_TOUCH_NS_NECK);
 		act_nprintf(victim, NULL, ch, TO_CHAR, POS_RESTING, 
 				MSG_N_TOUCHES_YOUR_NECK);
 		act_nprintf(victim, NULL, ch, TO_NOTVICT, POS_RESTING,
 				MSG_N_TOUCHES_NS_NECK);
-		check_improve(ch,gsn_vampiric_touch,TRUE,1);
+		check_improve(ch, sn, TRUE, 1);
 		
-		af.type = gsn_vampiric_touch;
-		  af.where = TO_AFFECTS;
+		af.type = sn;
+		af.where = TO_AFFECTS;
 		af.level = ch->level;
 		af.duration = ch->level / 20 + 1;
 		af.location = APPLY_NONE;
 		af.modifier = 0;
 		af.bitvector = AFF_SLEEP;
-		affect_join (victim,&af);
+		affect_join(victim,&af);
 
 		if (IS_AWAKE(victim))
-		  victim->position = POS_SLEEPING;
+			victim->position = POS_SLEEPING;
 	} else {
-		damage(ch, victim, 0, gsn_vampiric_touch, DAM_NONE, TRUE);
-		check_improve(ch, gsn_vampiric_touch, FALSE, 1);
+		damage(ch, victim, 0, sn, DAM_NONE, TRUE);
+		check_improve(ch, sn, FALSE, 1);
 	}
 }
 
@@ -2799,7 +2632,7 @@ void do_fly(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	WAIT_STATE(ch, skill_table[gsn_fly].beats);   
+	WAIT_STATE(ch, SKILL(gsn_fly)->beats);   
 }
 		 
 
@@ -2808,8 +2641,10 @@ void do_push(CHAR_DATA *ch, const char *argument)
 	char arg1 [MAX_INPUT_LENGTH];
 	char arg2 [MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
+	EXIT_DATA *pexit;
 	int percent;
 	int door;
+	int sn;
 
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
@@ -2820,12 +2655,13 @@ void do_push(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (MOUNTED(ch)) {
-		  char_nputs(MSG_CANT_PUSH_MOUNTED, ch);
-		  return;
+		char_nputs(MSG_CANT_PUSH_MOUNTED, ch);
+		return;
 	}
+
 	if (RIDDEN(ch)) {
-		  char_nputs(MSG_CANT_PUSH_RIDDEN, ch);
-		  return;
+		char_nputs(MSG_CANT_PUSH_RIDDEN, ch);
+		return;
 	}
 
 	if (IS_NPC(ch) && IS_SET(ch->affected_by, AFF_CHARM) 
@@ -2834,20 +2670,17 @@ void do_push(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg1)) == NULL)
-	{
+	if ((victim = get_char_room(ch, arg1)) == NULL) {
 		char_nputs(MSG_THEY_ARENT_HERE, ch);
 		return;
 	}
 
-	if (!IS_NPC(victim) && victim->desc == NULL)
-	{
+	if (!IS_NPC(victim) && victim->desc == NULL) {
 		char_nputs(MSG_YOU_CANT_DO_THAT, ch);
 		return;
 	}
 
-	if (victim == ch)
-	{
+	if (victim == ch) {
 		char_nputs(MSG_THATS_POINTLESS, ch);
 		return;
 	}
@@ -2855,38 +2688,32 @@ void do_push(CHAR_DATA *ch, const char *argument)
 	if (is_safe(ch,victim))
 		return;
 
-	if (victim->position == POS_FIGHTING)
-	{
+	if (victim->position == POS_FIGHTING) {
 		char_nputs(MSG_WAIT_FIGHT_FINISH, ch);
 		return;
 	}
 
-if ((door = find_exit(ch, arg2)) >= 0)
- {
-		/* 'push' */
-	EXIT_DATA *pexit;
+	if ((door = find_exit(ch, arg2)) < 0)
+		return;
 
-	if ((pexit = ch->in_room->exit[door]) != NULL)
-	{
-	 if (IS_SET(pexit->exit_info, EX_ISDOOR)) 
-		{
-		    if (IS_SET(pexit->exit_info, EX_CLOSED))
-		    char_nputs(MSG_DIR_IS_CLOSED, ch); 
-		    else if (IS_SET(pexit->exit_info, EX_LOCKED))
-		     char_nputs(MSG_DIR_IS_LOCKED, ch); 
-	 	  return;
+	if ((pexit = ch->in_room->exit[door]) != NULL) {
+		if (IS_SET(pexit->exit_info, EX_ISDOOR)) {
+			if (IS_SET(pexit->exit_info, EX_CLOSED))
+				char_nputs(MSG_DIR_IS_CLOSED, ch); 
+			else if (IS_SET(pexit->exit_info, EX_LOCKED))
+				char_nputs(MSG_DIR_IS_LOCKED, ch); 
+			return;
 		}
 	}
 
-	if (CAN_DETECT(ch,ADET_WEB))
-	{
+	if (IS_AFFECTED(ch,AFF_DETECT_WEB)) {
 		char_nputs(MSG_YOU_WEBBED_WANT_WHAT, ch);
 		act_nprintf(ch, NULL, victim, TO_ROOM, POS_RESTING, 
 				MSG_N_TRIES_PUSH_WEBBED);
 		return; 
 	}
 
-	if (CAN_DETECT(victim, ADET_WEB)) {
+	if (IS_AFFECTED(victim, AFF_DETECT_WEB)) {
 		act_nprintf(victim, NULL, ch, TO_VICT, POS_DEAD, 
 				MSG_PUSH_VICT_WEBBED);
 		act_nprintf(victim, NULL, ch, TO_NOTVICT, POS_RESTING,
@@ -2894,83 +2721,78 @@ if ((door = find_exit(ch, arg2)) >= 0)
 		return; 
 	}
 
-	WAIT_STATE(ch, skill_table[gsn_push].beats);
+	if ((sn = sn_lookup("push")) < 0)
+		return;
+
+	WAIT_STATE(ch, SKILL(sn)->beats);
 	percent  = number_percent() + (IS_AWAKE(victim) ? 10 : -50);
 	percent += can_see(victim, ch) ? -10 : 0;
 
 	if (victim->position == POS_FIGHTING
 	||  (IS_NPC(victim) && IS_SET(victim->act, ACT_NOTRACK))
-	||  (!IS_NPC(ch) && percent > get_skill(ch,gsn_push))) {
+	||  (!IS_NPC(ch) && percent > get_skill(ch, sn))) {
 		/*
 		 * Failure.
 		 */
 
 		char_nputs(MSG_OOPS, ch);
 		if (!IS_AFFECTED(victim, AFF_SLEEP)) {
-		   victim->position = victim->position == POS_SLEEPING ? 
-					POS_STANDING : victim->position;
-		   act_nprintf(ch, NULL, victim, TO_VICT, POS_RESTING,
-				MSG_N_TRIED_PUSH_YOU);
+			victim->position = victim->position == POS_SLEEPING ? 
+					   POS_STANDING : victim->position;
+			act_nprintf(ch, NULL, victim, TO_VICT, POS_RESTING,
+				    MSG_N_TRIED_PUSH_YOU);
 		}
 		act_nprintf(ch, NULL, victim, TO_NOTVICT, POS_RESTING, 
 				MSG_N_TRIED_PUSH_N);
 
-
 		if (IS_AWAKE(victim))
 			doprintf(do_yell, victim,
 				 msg(MSG_KEEP_HANDS_OUT, ch), ch->name);
-		if (!IS_NPC(ch))
-		{
-		    if (IS_NPC(victim))
-		    {
-		        check_improve(ch,gsn_push,FALSE,2);
-			multi_hit(victim, ch, TYPE_UNDEFINED, MSTRIKE);
-		    }
+		if (!IS_NPC(ch) && IS_NPC(victim)) {
+			check_improve(ch, sn, FALSE, 2);
+			multi_hit(victim, ch, TYPE_UNDEFINED);
 		}
-
 		return;
 	}
 
-
 	act_nprintf(ch, NULL, victim, TO_CHAR, POS_SLEEPING,
-		       MSG_YOU_PUSH, dir_name[door]);
+		    MSG_YOU_PUSH, dir_name[door]);
 	act_nprintf(ch, NULL, victim, TO_VICT, POS_SLEEPING,
-		       MSG_PUSHES_YOU, dir_name[door]);
+		    MSG_PUSHES_YOU, dir_name[door]);
 	act_nprintf(ch, NULL, victim, TO_NOTVICT, POS_SLEEPING,
-		       MSG_PUSHES_N_TO, dir_name[door]);
+		    MSG_PUSHES_N_TO, dir_name[door]);
 	move_char(victim, door, FALSE);
 
-	check_improve(ch,gsn_push,TRUE,1);
- }
-   return;
+	check_improve(ch, sn, TRUE, 1);
 }
-
 
 void do_crecall(CHAR_DATA *ch, const char *argument)
 {
-	CHAR_DATA *victim;
 	ROOM_INDEX_DATA *location;
-	int point = clan_table[ch->clan].room_vnum;
+	CLAN_DATA *clan;
 	AFFECT_DATA af;
+	int sn;
 
-	if (ch_skill_nok(ch,gsn_clan_recall))
+	if ((sn = sn_lookup("clan recall")) < 0
+	||  get_skill(ch, sn) == 0
+	||  (clan = clan_lookup(ch->clan)) == NULL) {
+		char_nputs(MSG_HUH, ch);
 		return;
+	}
 
-	if (!clan_ok(ch,gsn_clan_recall))
-		return;
-
-	if (is_affected(ch, gsn_clan_recall))
+	if (is_affected(ch, sn)) {
 		char_nputs(MSG_CANT_PRAY_NOW, ch);
+		return;
+	}
 
-	if (ch->desc != NULL && IS_PUMPED(ch)) {
+	if (ch->desc && IS_PUMPED(ch)) {
 		char_nputs(MSG_TOO_PUMPED_TO_PRAY, ch);
 		return;
 	}
 
-	act_nprintf(ch, 0, 0, TO_ROOM, POS_RESTING,
-		    clan_table[ch->clan].string_prays);
+	act_mlputs(ch, NULL, NULL, TO_ROOM, POS_RESTING, clan->msg_prays);
 	
-	if ((location = get_room_index(point))== NULL) {
+	if ((location = get_room_index(clan->recall_vnum)) == NULL) {
 		char_nputs(MSG_YOU_ARE_COMPLETELY_LOST, ch);
 		return;
 	}
@@ -2979,24 +2801,18 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_NO_RECALL)
-	||   IS_AFFECTED(ch, AFF_CURSE) 
-	||   IS_RAFFECTED(ch->in_room, RAFF_CURSE)) {
+	||  IS_AFFECTED(ch, AFF_CURSE) 
+	||  IS_RAFFECTED(ch->in_room, RAFF_CURSE)) {
 		char_nputs(MSG_GODS_FORSAKEN_YOU, ch);
 		return;
 	}
 
-	if ((victim = ch->fighting) != NULL) {
-		char_nputs(MSG_YOU_ARE_STILL_FIGHTING, ch);
-		return;
-	}
-
 	ch->move /= 2;
-	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-		    clan_table[ch->clan].string_vanishes);
+	act_mlputs(ch, NULL, NULL, TO_ROOM, POS_RESTING, clan->msg_vanishes);
 	char_from_room(ch);
 	char_to_room(ch, location);
-	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, 
-			MSG_N_APPEARS_IN_THE_ROOM);
+	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+		    MSG_N_APPEARS_IN_THE_ROOM);
 	do_look(ch, "auto");
 	
 	if (ch->pet != NULL) {
@@ -3005,15 +2821,13 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 		do_look(ch->pet, "auto");
 	}
 
-	af.type      = gsn_clan_recall;
+	af.type      = sn;
 	af.level     = ch->level;
-	af.duration  = 5;
+	af.duration  = SKILL(sn)->beats;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = 0;
 	affect_to_char(ch, &af);
-
-	return;
 }
 
 void do_escape(CHAR_DATA *ch, const char *argument)
@@ -3023,10 +2837,11 @@ void do_escape(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	char arg[MAX_INPUT_LENGTH];
 	int door;
-
+	int chance;
+	int sn;
 
 	if ((victim = ch->fighting) == NULL) {
-		  if (ch->position == POS_FIGHTING)
+		if (ch->position == POS_FIGHTING)
 		      ch->position = POS_STANDING;
 		char_nputs(MSG_ARENT_FIGHTING, ch);
 		return;
@@ -3048,74 +2863,75 @@ void do_escape(CHAR_DATA *ch, const char *argument)
 		  return;
 	}
 
-	if (!IS_NPC(ch) && ch->level <
-			skill_table[gsn_escape].skill_level[ch->class]) {
+	if ((sn = sn_lookup("escape")) < 0
+	||  (chance = get_skill(ch, sn)) == 0) {
 		char_nputs(MSG_TRY_FLEE, ch);
 		return;
 	}
 
 	was_in = ch->in_room;
-	while (1) {
-	 if ((door = find_exit(ch, arg)) >= 0) {
-		EXIT_DATA *pexit;
+	while (TRUE) {
+		if ((door = find_exit(ch, arg)) >= 0) {
+			EXIT_DATA *pexit;
 
-		if ((pexit = was_in->exit[door]) == 0
-		||   pexit->u1.to_room == NULL
-		|| (IS_SET(pexit->exit_info, EX_CLOSED) 
-		&& (!IS_AFFECTED(ch, AFF_PASS_DOOR) 
-		|| IS_SET(pexit->exit_info,EX_NOPASS))
-		&&   !IS_TRUSTED(ch,ANGEL))
-		|| (IS_SET(pexit->exit_info , EX_NOFLEE))
-		|| (IS_NPC(ch)
-		&&   IS_SET(pexit->u1.to_room->room_flags, ROOM_NOMOB))) {
-			char_nputs(MSG_SOMETHING_PREVENTS_ESCAPE, ch); 
-			return;
-		}
-
-		if (number_percent() > get_skill(ch,gsn_escape)) {
-			char_nputs(MSG_ESCAPE_FAILED, ch);
-			check_improve(ch, gsn_escape, FALSE, 1);	
-			return;
-		}
-
-		check_improve(ch,gsn_escape,TRUE,1);	
-		move_char(ch, door, FALSE);
-		if ((now_in = ch->in_room) == was_in)
-			continue;
-
-		ch->in_room = was_in;
-		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-			    MSG_N_ESCAPED);
-		ch->in_room = now_in;
-
-		if (!IS_NPC(ch)) {
-			char_nputs(MSG_YOU_ESCAPED_FROM_COMBAT, ch);
-			if (ch->level < LEVEL_HERO) {
-				char_nprintf(ch, MSG_YOU_LOSE_D_EXPS, 10);
-				gain_exp(ch, -10);
+			if ((pexit = was_in->exit[door]) == 0
+			||  pexit->u1.to_room == NULL
+			||  (IS_SET(pexit->exit_info, EX_CLOSED) &&
+			    (!IS_AFFECTED(ch, AFF_PASS_DOOR) 
+			||  IS_SET(pexit->exit_info, EX_NOPASS)) &&
+			    !IS_TRUSTED(ch,ANGEL))
+			||  (IS_SET(pexit->exit_info , EX_NOFLEE))
+			||  (IS_NPC(ch) &&
+			     IS_SET(pexit->u1.to_room->room_flags, ROOM_NOMOB))) {
+				char_nputs(MSG_SOMETHING_PREVENTS_ESCAPE, ch); 
+				return;
 			}
-		}
-		else
-			ch->last_fought = NULL;  /* Once fled, 
+
+			if (number_percent() > chance) {
+				char_nputs(MSG_ESCAPE_FAILED, ch);
+				check_improve(ch, sn, FALSE, 1);	
+				return;
+			}
+
+			check_improve(ch, sn, TRUE, 1);	
+			move_char(ch, door, FALSE);
+			if ((now_in = ch->in_room) == was_in)
+				continue;
+
+			ch->in_room = was_in;
+			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+				    MSG_N_ESCAPED);
+			ch->in_room = now_in;
+
+			if (!IS_NPC(ch)) {
+				char_nputs(MSG_YOU_ESCAPED_FROM_COMBAT, ch);
+				if (ch->level < LEVEL_HERO) {
+					char_nprintf(ch, MSG_YOU_LOSE_D_EXPS,
+						     10);
+					gain_exp(ch, -10);
+				}
+			}
+			else
+				ch->last_fought = NULL;  /* Once fled, 
 						    the mob will not go after */
 
-		stop_fighting(ch, TRUE);
-		return;
-	 } else 
-		char_nputs(MSG_WRONG_DIRECTION, ch);
+			stop_fighting(ch, TRUE);
+			return;
+		} else 
+			char_nputs(MSG_WRONG_DIRECTION, ch);
 		break;
 	}
 	char_nputs(MSG_COULDNT_ESCAPE, ch);
-	return;
 }
 
 void do_layhands(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	AFFECT_DATA af;
+	int sn;
 
-	if (IS_NPC(ch) ||
-	    ch->level < skill_table[gsn_lay_hands].skill_level[ch->class]) {
+	if ((sn = sn_lookup("lay hands")) < 0
+	||  get_skill(ch, sn) == 0) {
 		char_nputs(MSG_CANT_LAY_HANDS, ch);
 		return;
 	}
@@ -3125,13 +2941,13 @@ void do_layhands(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_affected(ch, gsn_lay_hands)) {
+	if (is_affected(ch, sn)) {
 		 char_nputs(MSG_CANT_CONCENTRATE_ENOUGH, ch);
 		 return;
 	}
-	WAIT_STATE(ch,skill_table[gsn_lay_hands].beats);
+	WAIT_STATE(ch, SKILL(sn)->beats);
 
-	af.type = gsn_lay_hands;
+	af.type = sn;
 	af.where = TO_AFFECTS;
 	af.level = ch->level;
 	af.duration = 2;
@@ -3145,33 +2961,40 @@ void do_layhands(CHAR_DATA *ch, const char *argument)
 	char_nputs(MSG_WARM_FEELING, victim);
 	if (ch != victim)
 		char_nputs(MSG_OK, ch);
-	check_improve(ch,gsn_lay_hands,TRUE,1);
-
+	check_improve(ch, sn, TRUE, 1);
 }
 
 int mount_success(CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
 {
-  int percent;
-  int success;
+	int	percent;
+	int	success;
+	int	chance;
+	int	sn;
 
-  percent = number_percent() + (ch->level < mount->level ? 
-		      (mount->level - ch->level) * 3 : 
-		      (mount->level - ch->level) * 2);
+	if ((sn = sn_lookup("riding")) < 0
+	||  (chance = get_skill(ch, sn)) == 0)
+		return FALSE;
 
-  if (!ch->fighting)
-	percent -= 25;
+	percent = number_percent() + (ch->level < mount->level ? 
+		  (mount->level - ch->level) * 3 : 
+		  (mount->level - ch->level) * 2);
 
-  if (!IS_NPC(ch) && IS_DRUNK(ch)) {
-	percent += get_skill(ch,gsn_riding) / 2;
-	char_nputs(MSG_MOUNT_DRUNKEN, ch);
-  }
+	if (!ch->fighting)
+		percent -= 25;
 
-  success = percent - get_skill(ch,gsn_riding);
-  if(success <= 0) { /* Success */
-	check_improve(ch, gsn_riding, TRUE, 1);
-	return(1);
-  } else {
-	check_improve(ch, gsn_riding, FALSE, 1);
+	if (!IS_NPC(ch) && IS_DRUNK(ch)) {
+		percent += chance / 2;
+		char_nputs(MSG_MOUNT_DRUNKEN, ch);
+	}
+
+	success = percent - chance;
+
+	if (success <= 0) { /* Success */
+		check_improve(ch, sn, TRUE, 1);
+		return TRUE;
+	}
+
+	check_improve(ch, sn, FALSE, 1);
 	if (success >= 10 && MOUNTED(ch) == mount) {
 		act_nprintf(ch, NULL, mount, TO_CHAR, POS_DEAD, 
 				MSG_YOU_FALL_OFF_N);
@@ -3185,10 +3008,8 @@ int mount_success(CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
 		if (ch->position > POS_STUNNED) 
 			ch->position=POS_SITTING;
 	
-	/*  if (ch->hit > 2) { */
-		  ch->hit -= 5;
-		  update_pos(ch);
-		
+		ch->hit -= 5;
+		update_pos(ch);
 	}
 	if (success >= 40 && canattack) {
 		act_nprintf(ch, NULL, mount, TO_CHAR, POS_DEAD,
@@ -3208,8 +3029,7 @@ int mount_success(CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
 		damage(mount, ch, number_range(1, mount->level),
 			gsn_kick, DAM_BASH, TRUE);
 	}
-  }
-  return 0;
+	return FALSE;
 }
 
 /*
@@ -3217,84 +3037,74 @@ int mount_success(CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
  */
 void do_mount(CHAR_DATA *ch, const char *argument)
 {
-  char arg[MAX_INPUT_LENGTH];
-  struct char_data *mount;
+	char 		arg[MAX_INPUT_LENGTH];
+	CHAR_DATA *	mount;
 
-  argument = one_argument(argument, arg);
+	argument = one_argument(argument, arg);
 
-  if (IS_NPC(ch)) 
-	return;
-
-  if (arg[0] == '\0' && ch->mount && ch->mount->in_room == ch->in_room) {
-	mount = ch->mount;
-  } else if (arg[0] == '\0') {
-	char_nputs(MSG_MOUNT_WHAT, ch);
-	return;
-  }
-
- if (!(mount = get_char_room(ch, arg))) {
-	char_nputs(MSG_YOU_DONT_SEE_THAT, ch);
-	return;
-  }
+	if (arg[0] == '\0') {
+		if (ch->mount && ch->mount->in_room == ch->in_room)
+			mount = ch->mount;
+		else {
+			char_nputs(MSG_MOUNT_WHAT, ch);
+			return;
+		}
+	}
+	else if ((mount = get_char_room(ch, arg)) == NULL) {
+		char_nputs(MSG_YOU_DONT_SEE_THAT, ch);
+		return;
+  	}
  
-  if (!SKILL_OK(ch,gsn_riding)) {
-	char_nputs(MSG_DONT_KNOW_RIDE, ch);
-	return;
-  } 
-
-  if (!IS_NPC(mount) 
-		|| !IS_SET(mount->act,ACT_RIDEABLE)
-		  || IS_SET(mount->act,ACT_NOTRACK)) { 
-	char_nputs(MSG_CANT_RIDE_THAT, ch); 
-	return;
-  }
+	if (!IS_NPC(mount) || !IS_SET(mount->act, ACT_RIDEABLE)
+	||  IS_SET(mount->act, ACT_NOTRACK)) { 
+		char_nputs(MSG_CANT_RIDE_THAT, ch); 
+		return;
+	}
   
-  if (mount->level - 5 > ch->level) {
-	char_nputs(MSG_BEAST_TOO_POWERFUL, ch);
-	return;
-  }    
+	if (mount->level - 5 > ch->level) {
+		char_nputs(MSG_BEAST_TOO_POWERFUL, ch);
+		return;
+	}
 
-  if((mount->mount) && (!mount->riding) && (mount->mount != ch)) {
-	char_nprintf(ch, MSG_S_BELONGS_TO_S, mlstr_cval(mount->short_descr, ch),
+	if ((mount->mount) && (!mount->riding) && (mount->mount != ch)) {
+		char_nprintf(ch, MSG_S_BELONGS_TO_S,
+			     mlstr_cval(mount->short_descr, ch),
 		             mount->mount->name);
-	return;
-  } 
+		return;
+	} 
 
-  if (mount->position < POS_STANDING) {
-	char_nputs(MSG_MOUNT_MUST_STAND, ch);
-	return;
-  }
+	if (mount->position < POS_STANDING) {
+		char_nputs(MSG_MOUNT_MUST_STAND, ch);
+		return;
+	}
 
-  if (RIDDEN(mount)) {
-	char_nputs(MSG_ALREADY_RIDDEN, ch);
-	return;
-  } else if (MOUNTED(ch)) {
-	char_nputs(MSG_ALREADY_RIDING, ch);
-	return;
-  }
+	if (RIDDEN(mount)) {
+		char_nputs(MSG_ALREADY_RIDDEN, ch);
+		return;
+	} else if (MOUNTED(ch)) {
+		char_nputs(MSG_ALREADY_RIDING, ch);
+		return;
+	}
 
-  if(!mount_success(ch, mount, TRUE)) {
-	char_nputs(MSG_FAIL_TO_MOUNT, ch);  
-	return; 
-  }
+	if(!mount_success(ch, mount, TRUE)) {
+		char_nputs(MSG_FAIL_TO_MOUNT, ch);  
+		return; 
+	}
 
-  act_nprintf(ch, NULL, mount, TO_CHAR, POS_DEAD, MSG_YOU_HOP_ON_N);
-  act_nprintf(ch, NULL, mount, TO_NOTVICT, POS_RESTING, MSG_N_HOPS_ON_N);
-  act_nprintf(ch, NULL, mount, TO_VICT, POS_SLEEPING, MSG_N_HOPS_ON_YOU);
+	act_nprintf(ch, NULL, mount, TO_CHAR, POS_DEAD, MSG_YOU_HOP_ON_N);
+	act_nprintf(ch, NULL, mount, TO_NOTVICT, POS_RESTING, MSG_N_HOPS_ON_N);
+	act_nprintf(ch, NULL, mount, TO_VICT, POS_SLEEPING, MSG_N_HOPS_ON_YOU);
  
-  ch->mount = mount;
-  ch->riding = TRUE;
-  mount->mount = ch;
-  mount->riding = TRUE;
+	ch->mount = mount;
+	ch->riding = TRUE;
+	mount->mount = ch;
+	mount->riding = TRUE;
   
-  /* No sneaky people on mounts */
-  affect_strip(ch, gsn_sneak);
-  REMOVE_BIT(ch->affected_by, AFF_SNEAK);
-  REMOVE_BIT(ch->affected_by, AFF_HIDE);
-  affect_strip(ch, gsn_fade);
-  REMOVE_BIT(ch->affected_by, AFF_FADE);
-  affect_strip(ch, gsn_imp_invis);
-  REMOVE_BIT(ch->affected_by, AFF_IMP_INVIS);
+	/* No sneaky people on mounts */
+	affect_strip(ch, gsn_sneak);
+	REMOVE_BIT(ch->affected_by, AFF_HIDE);
+	affect_strip(ch, gsn_fade);
+	affect_strip(ch, gsn_improved_invis);
 }
 
 void do_dismount(CHAR_DATA *ch, const char *argument)
@@ -3444,12 +3254,12 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 			path_to_track(ch,victim,door);
 
 		    }
-		    return 1;
+		    return TRUE;
 		  }
 		  else {
 		 	  obj_to_room(arrow,victim->in_room);
 		          act("$p sticks in the ground at your feet!",victim,arrow,NULL, TO_ALL);
-		          return 0;
+		          return FALSE;
 		        }
 		 }
  	 pExit = dest_room->exit[ door ];
@@ -3464,9 +3274,8 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow,
 					dir_name[rev_dir[door]]);
 		 }
 		}
- return 0;
+	return FALSE;
 }
-		
 
 void do_shoot(CHAR_DATA *ch, const char *argument)
 {
@@ -3475,92 +3284,87 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *arrow; 
 	char arg1[512],arg2[512];
 	bool success;
-	int chance,direction;
+	int chance, direction;
 	int range = (ch->level / 10) + 1;
 	
-   if (IS_NPC(ch)) return; /* Mobs can't use bows */
+	if (IS_NPC(ch))
+		return; /* Mobs can't use bows */
 
-   if (!SKILL_OK(ch,gsn_bow))
-		{
-		  send_to_char("You don't know how to shoot.\n\r",ch);
-		  return;
-		}
-
-   argument=one_argument(argument, arg1);
-   one_argument(argument, arg2);
-
-   if (arg1[0] == '\0' || arg2[0] == '\0')
-	{
-		send_to_char("Shoot what diretion and whom?\n\r", ch);
+	if (IS_NPC(ch) || (chance = get_skill(ch, gsn_bow)) == 0) {
+		send_to_char("You don't know how to shoot.\n\r",ch);
 		return;
 	}
 
-	if (ch->fighting)
-	{
-		send_to_char("You cannot concentrate on shooting arrows.\n\r",ch);
+	argument = one_argument(argument, arg1);
+	one_argument(argument, arg2);
+
+	if (arg1[0] == '\0' || arg2[0] == '\0') {
+		char_puts("Shoot what direction and whom?\n\r", ch);
 		return;
 	}
 
-   direction = find_exit(ch, arg1);
+	if (ch->fighting) {
+		char_puts("You cannot concentrate on shooting arrows.\n\r",ch);
+		return;
+	}
 
-   if (direction<0 || direction > 5) 
-		{
-		 send_to_char("Shoot which direction and whom?\n\r",ch);
-		 return;
-		}
+	direction = find_exit(ch, arg1);
+
+	if (direction < 0 || direction >= MAX_DIR) {
+		send_to_char("Shoot which direction and whom?\n\r",ch);
+		return;
+	}
 		
 	if ((victim = find_char(ch, arg2, direction, range)) == NULL)
 		return;
 
-	if (!IS_NPC(victim) && victim->desc == NULL)
-	{
+	if (!IS_NPC(victim) && victim->desc == NULL) {
 		send_to_char("You can't do that.\n\r", ch);
 		return;
 	}
 
-	if (victim == ch)
-	{
+	if (victim == ch) {
 		send_to_char("That's pointless.\n\r", ch);
 		return;
 	}
 
-	if (is_safe(ch,victim))
-	{
-		char_printf(ch,"Gods protect %s.\n\r",victim->name);
+	if (is_safe(ch,victim)) {
+		char_printf(ch, "Gods protect %s.\n\r",
+			    PERS(victim, ch));
 		return;
 	}
 
-   wield = get_eq_char(ch, WEAR_WIELD);
-   arrow = get_eq_char(ch, WEAR_HOLD);    
+	wield = get_eq_char(ch, WEAR_WIELD);
+	arrow = get_eq_char(ch, WEAR_HOLD);    
 
-   if (!wield || wield->item_type!=ITEM_WEAPON || wield->value[0]!=WEAPON_BOW)
-		{
-		 send_to_char("You need a bow to shoot!\n\r",ch);
-		 return;    	
-		}
+	if (!wield || wield->item_type != ITEM_WEAPON
+	||  wield->value[0]!=WEAPON_BOW) {
+		send_to_char("You need a bow to shoot!\n\r",ch);
+		return;    	
+	}
 
-   if (get_eq_char(ch,WEAR_SECOND_WIELD) || get_eq_char(ch,WEAR_SHIELD))
-		{
-		 send_to_char("Your second hand should be free!\n\r",ch);
-		 return;    	
-		}
+	if (get_eq_char(ch, WEAR_SECOND_WIELD)
+	||  get_eq_char(ch, WEAR_SHIELD)) {
+		send_to_char("Your second hand should be free!\n\r",ch);
+		return;    	
+	}
 
-   if (!arrow)
-		{
-		 send_to_char("You need an arrow holding for your ammunition!\n\r",ch);
+	if (!arrow) {
+		 char_puts("You need an arrow holding for your ammunition!\n\r",
+			   ch);
 		 return;    	
-		}	
+	}
 		
-	if (arrow->item_type!=ITEM_WEAPON || arrow->value[0] != WEAPON_ARROW) 
-		{
-		 send_to_char("That's not the right kind of arrow!\n\r",ch);
-		 return;
-		}
+	if (arrow->item_type != ITEM_WEAPON
+	||  arrow->value[0] != WEAPON_ARROW) {
+		send_to_char("That's not the right kind of arrow!\n\r",ch);
+		return;
+	}
 		
 	
-	WAIT_STATE(ch, skill_table[gsn_bow].beats);
+	WAIT_STATE(ch, SKILL(gsn_bow)->beats);
    
-	chance = (get_skill(ch,gsn_bow) - 50) * 2;
+	chance = (chance - 50) * 2;
 	if (ch->position == POS_SLEEPING)
 		chance += 40;
 	if (ch->position == POS_RESTING)
@@ -3570,14 +3374,14 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 	chance += GET_HITROLL(ch);
 
 	act_printf(ch, arrow, NULL, TO_CHAR, POS_RESTING,
-		   "You shoot $p to %s.", dir_name[ direction ]);
+		   "You shoot $p to %s.", dir_name[direction]);
 	act_printf(ch, arrow, NULL, TO_ROOM, POS_RESTING,
-		   "$n shoots $p to %s.", dir_name[ direction ]);
+		   "$n shoots $p to %s.", dir_name[direction]);
 
 	obj_from_char(arrow);
-	success = send_arrow(ch,victim,arrow,direction,chance,
-			dice(wield->value[1],wield->value[2]));
-	check_improve(ch,gsn_bow,TRUE,1);
+	success = send_arrow(ch, victim, arrow, direction, chance,
+			     dice(wield->value[1],wield->value[2]));
+	check_improve(ch, gsn_bow, TRUE, 1);
 }
 
 
@@ -3633,7 +3437,6 @@ void do_human(CHAR_DATA *ch, const char *argument)
 	char_nputs(MSG_RETURN_TO_SIZE, ch);
 }
 
-
 void do_throw_spear(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
@@ -3642,77 +3445,65 @@ void do_throw_spear(CHAR_DATA *ch, const char *argument)
 	bool success;
 	int chance,direction;
 	int range = (ch->level / 10) + 1;
-	
-   if (IS_NPC(ch)) return; /* Mobs can't shoot spears */
 
-   if (!SKILL_OK(ch,gsn_spear))
-		{
-		  send_to_char("You don't know how to throw a spear.\n\r",ch);
-		  return;
-		}
-
-   argument=one_argument(argument, arg1);
-   one_argument(argument, arg2);
-
-   if (arg1[0] == '\0' || arg2[0] == '\0')
-	{
-		send_to_char("Throw spear what diretion and whom?\n\r", ch);
+	if (IS_NPC(ch) || (chance = get_skill(ch, gsn_spear)) == 0) {
+		send_to_char("You don't know how to throw a spear.\n\r",ch);
 		return;
 	}
 
-	if (ch->fighting)
-	{
-		send_to_char("You cannot concentrate on throwing spear.\n\r",ch);
+	argument = one_argument(argument, arg1);
+	one_argument(argument, arg2);
+
+  	if (arg1[0] == '\0' || arg2[0] == '\0') {
+		char_puts("Throw spear what direction and whom?\n\r", ch);
 		return;
 	}
 
-   direction = find_exit(ch, arg1);
+	if (ch->fighting) {
+		char_puts("You cannot concentrate on throwing spear.\n\r", ch);
+		return;
+	}
 
-   if (direction<0 || direction > 5) 
-		{
-		 send_to_char("Throw which direction and whom?\n\r",ch);
-		 return;
-		}
+	direction = find_exit(ch, arg1);
+	if (direction < 0 || direction >= MAX_DIR) {
+		send_to_char("Throw which direction and whom?\n\r",ch);
+		return;
+	}
 		
 	if ((victim = find_char(ch, arg2, direction, range)) == NULL)
 		return;
 
-	if (!IS_NPC(victim) && victim->desc == NULL)
-	{
+	if (!IS_NPC(victim) && victim->desc == NULL) {
 		send_to_char("You can't do that.\n\r", ch);
 		return;
 	}
 
-	if (victim == ch)
-	{
+	if (victim == ch) {
 		send_to_char("That's pointless.\n\r", ch);
 		return;
 	}
 
-	if (is_safe(ch,victim))
-	{
-		char_printf(ch,"Gods protect %s.\n\r",victim->name);
+	if (is_safe(ch,victim)) {
+		char_printf(ch, "Gods protect %s.\n\r",
+			    PERS(victim, ch));
 		return;
 	}
 
-   spear = get_eq_char(ch, WEAR_WIELD);
+	spear = get_eq_char(ch, WEAR_WIELD);
+	if (!spear || spear->item_type != ITEM_WEAPON
+	||  spear->value[0] != WEAPON_SPEAR) {
+		send_to_char("You need a spear to throw!\n\r",ch);
+		return;    	
+	}
 
-   if (!spear || spear->item_type!=ITEM_WEAPON || spear->value[0]!=WEAPON_SPEAR)
-		{
-		 send_to_char("You need a spear to throw!\n\r",ch);
-		 return;    	
-		}
+	if (get_eq_char(ch,WEAR_SECOND_WIELD) || get_eq_char(ch,WEAR_SHIELD)) {
+		send_to_char("Your second hand should be free!\n\r",ch);
+		return;    	
+	}
 
-   if (get_eq_char(ch,WEAR_SECOND_WIELD) || get_eq_char(ch,WEAR_SHIELD))
-		{
-		 send_to_char("Your second hand should be free!\n\r",ch);
-		 return;    	
-		}
-
-	
-	WAIT_STATE(ch, skill_table[gsn_spear].beats);
+	WAIT_STATE(ch, SKILL(gsn_spear)->beats);
    
-	chance = (get_skill(ch,gsn_spear) - 50) * 2;
+	chance = (chance - 50) * 2;
 	if (ch->position == POS_SLEEPING)
 		chance += 40;
 	if (ch->position == POS_RESTING)
@@ -3729,35 +3520,7 @@ void do_throw_spear(CHAR_DATA *ch, const char *argument)
 	obj_from_char(spear);
 	success = send_arrow(ch,victim,spear,direction,chance,
 			dice(spear->value[1],spear->value[2]));
-	check_improve(ch,gsn_spear,TRUE,1);
-}
-
-
-/*
- * guild_check - == 0 - the room is not a guild
- *		  > 0 - the room is guild and ch is allowed there
- *		  < 0 - the room is guild and ch is not allowed there
- */
-int guild_check(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
-{
-	int class = CLASS_NONE;
-	int iClass, iGuild;
-
-	for (iClass = 0; iClass < MAX_CLASS; iClass++)
-		for (iGuild = 0; class_table[iClass].guild[iGuild]; iGuild++)	
-		    	if (room->vnum == class_table[iClass].guild[iGuild]) {
-				if (iClass == ch->class)
-					return 1;
-				class = iClass;
-			}
-
-	if (class == CLASS_NONE)
-		return 0;
-
-	if (IS_IMMORTAL(ch))
-		return 1;
-
-	return -1;
+	check_improve(ch, gsn_spear, TRUE, 1);
 }
 
 
@@ -3960,7 +3723,7 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 	 return;
 	}
 
-	WAIT_STATE(ch, skill_table[gsn_settraps].beats);
+	WAIT_STATE(ch, SKILL(gsn_settraps)->beats);
 
 	if (IS_NPC(ch) || number_percent() <  chance * 7 / 10) {
 	  AFFECT_DATA af,af2;
@@ -4057,7 +3820,7 @@ void do_thumbling(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	WAIT_STATE(ch, skill_table[gsn_thumbling].beats);
+	WAIT_STATE(ch, SKILL(gsn_thumbling)->beats);
 
 	af.where	= TO_AFFECTS;
 	af.type		= gsn_thumbling;

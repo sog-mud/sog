@@ -1,14 +1,23 @@
 /*
- * $Id: buffer.c,v 1.3 1998-08-10 10:37:52 fjoe Exp $
+ * $Id: buffer.c,v 1.4 1998-09-01 18:29:16 fjoe Exp $
  */
 #include <stdio.h>
 #include <stdarg.h>
 #include <string.h>
+#include <stdlib.h>
 
-#include "merc.h"
+#include "typedef.h"
+#include "const.h"
 #include "buffer.h"
-#include "db.h"
 #include "log.h"
+
+struct buf_data
+{
+	BUFFER *	next;
+	int		state;	/* error state of the buffer */
+	int		size;	/* buffer size in bytes */
+	char *		string; /* buffer's string */
+};
 
 #define BUF_LIST_MAX		10
 #define BUF_DEFAULT_SIZE 	1024
@@ -31,7 +40,6 @@ const int buf_size[BUF_LIST_MAX] =
 	16, 32, 64, 128, 256, 1024, 2048, 4096, 8192, 16384
 };
 
-
 /* local procedure for finding the next acceptable size */
 /* -1 indicates out-of-boundary error */
 int get_size (int val)
@@ -50,51 +58,44 @@ BUFFER *buf_new(int size)
 	BUFFER *buffer;
  
 	if (free_list == NULL) {
-		buffer = alloc_perm(sizeof(*buffer));
+		buffer		= malloc(sizeof(*buffer));
 		nAllocBuf++;
 	}
 	else {
-		buffer = free_list;
-		free_list = free_list->next;
+		buffer		= free_list;
+		free_list	= free_list->next;
 	}
  
 	if (size == 0)
 		size = BUF_DEFAULT_SIZE;
 
-	buffer->next        = NULL;
-	buffer->state       = BUFFER_SAFE;
-	buffer->size        = get_size(size);
+	buffer->next		= NULL;
+	buffer->state		= BUFFER_SAFE;
+	buffer->size		= get_size(size);
 	if (buffer->size == -1) {
 		log_printf("new_buf: buffer size %d: too large", size);
 		exit(1);
 	}
-	buffer->string      = alloc_mem(buffer->size);
-	buffer->string[0]   = '\0';
-	VALIDATE(buffer);
+	buffer->string		= malloc(buffer->size);
+	buffer->string[0]	= '\0';
  
 	sAllocBuf += buffer->size;
 
 	return buffer;
 }
 
-
 void buf_free(BUFFER *buffer)
 {
-	if (!IS_VALID(buffer))
-		return;
-
 	sAllocBuf -= buffer->size;
 
-	free_mem(buffer->string, buffer->size);
-	buffer->string = NULL;
-	buffer->size   = 0;
-	buffer->state  = BUFFER_FREED;
-	INVALIDATE(buffer);
+	free(buffer->string);
+	buffer->string	= NULL;
+	buffer->size	= 0;
+	buffer->state	= BUFFER_FREED;
 
-	buffer->next  = free_list;
-	free_list      = buffer;
+	buffer->next	= free_list;
+	free_list	= buffer;
 }
-
 
 bool buf_add(BUFFER *buffer, const char *string)
 {
@@ -122,9 +123,17 @@ bool buf_add(BUFFER *buffer, const char *string)
 	}
 
 	if (buffer->size != oldsize) {
-		buffer->string	= alloc_mem(buffer->size);
-		strcpy(buffer->string, oldstr);
-		free_mem(oldstr, oldsize);
+		char *p;
+
+		p = realloc(buffer->string, buffer->size);
+		if (p == NULL) {
+			buffer->size = oldsize;
+			buffer->state = BUFFER_OVERFLOW;
+			log_printf("buf_add: '%s': realloc failed", string);
+			return FALSE;
+		}
+
+		buffer->string	= p;
 		sAllocBuf += buffer->size - oldsize;
 	}
 
@@ -132,13 +141,11 @@ bool buf_add(BUFFER *buffer, const char *string)
 	return TRUE;
 }
 
-
 void buf_clear(BUFFER *buffer)
 {
-	buffer->string[0] = '\0';
-	buffer->state     = BUFFER_SAFE;
+	buffer->string[0]	= '\0';
+	buffer->state		= BUFFER_SAFE;
 }
-
 
 bool buf_printf(BUFFER *buffer, const char *format, ...)
 {
@@ -150,5 +157,10 @@ bool buf_printf(BUFFER *buffer, const char *format, ...)
 	va_end(ap);
 
 	return buf_add(buffer, buf);
+}
+
+char* buf_string(BUFFER *buffer)
+{
+	return buffer->string;
 }
 

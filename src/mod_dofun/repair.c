@@ -1,14 +1,10 @@
 /*
- * $Id: repair.c,v 1.4 1998-07-23 01:25:08 efdi Exp $
+ * $Id: repair.c,v 1.5 1998-09-01 18:29:20 fjoe Exp $
  */
 
 #include <stdio.h>
 #include "merc.h"
-#include "db.h"
-#include "comm.h"
-#include "util.h"
 #include "interp.h"
-#include "mlstring.h"
 
 void damage_to_obj(CHAR_DATA *ch,OBJ_DATA *wield, OBJ_DATA *worn, int damage) 
 {
@@ -580,56 +576,51 @@ void do_smithing(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_DATA *obj;
 	OBJ_DATA *hammer;
+	int sn;
+	int chance;
 
-	if (IS_NPC(ch)
-	||   ch->level < skill_table[gsn_smithing].skill_level[ch->class])
-	{
-	send_to_char("Huh?\n\r", ch);
-	return;
+	if ((sn = sn_lookup("smithing")) < 0
+	||  (chance = get_skill(ch, sn)) == 0) {
+		char_nputs(MSG_HUH, ch);
+		return;
 	}
 
 
-	if (ch->fighting)
-	{
-	    send_to_char("Wait until the fight finishes.\n\r", ch);
-	    return;
+	if (ch->fighting) {
+		send_to_char("Wait until the fight finishes.\n\r", ch);
+		return;
 	}
 
 	one_argument(argument,arg);
 
-	if (arg[0] == '\0')
-	{
-	send_to_char("Which object do you want to repair.\n\r",ch);
-	return;
+	if (arg[0] == '\0') {
+		send_to_char("Which object do you want to repair.\n\r",ch);
+		return;
 	}
 
-	if ((obj = get_obj_carry(ch, arg)) == NULL)
-	{
-	send_to_char("You are not carrying that.\n\r",ch);
-	return;
+	if ((obj = get_obj_carry(ch, arg)) == NULL) {
+		send_to_char("You are not carrying that.\n\r",ch);
+		return;
 	}
 
-   if (obj->condition >= 100)
-	{
-	send_to_char("But that item is not broken.\n\r",ch);
-	return;
+	if (obj->condition >= 100) {
+		send_to_char("But that item is not broken.\n\r",ch);
+		return;
 	}
 
-	if ((hammer = get_eq_char(ch, WEAR_HOLD)) == NULL)
-	{
-	send_to_char("You are not holding a hammer.\n\r",ch);
-	return;
+	if ((hammer = get_eq_char(ch, WEAR_HOLD)) == NULL) {
+		send_to_char("You are not holding a hammer.\n\r",ch);
+		return;
 	}
 
-	if (hammer->pIndexData->vnum != OBJ_VNUM_HAMMER)
-	{
-	send_to_char("That is not the correct hammer.\n\r",ch);
-	return;
+	if (hammer->pIndexData->vnum != OBJ_VNUM_HAMMER) {
+		send_to_char("That is not the correct hammer.\n\r",ch);
+		return;
 	}
 
-	WAIT_STATE(ch,2 * PULSE_VIOLENCE);
-	if (number_percent() > get_skill(ch,gsn_smithing)) {
-		check_improve(ch, gsn_smithing, FALSE, 8);
+	WAIT_STATE(ch, SKILL(sn)->beats);
+	if (number_percent() > chance) {
+		check_improve(ch, sn, FALSE, 8);
 		act_puts("$n tries to repair $p with the hammer but fails.",
 			 ch, obj, NULL, TO_ROOM, POS_RESTING);
 		act_puts("You failed to repair $p.",
@@ -637,13 +628,12 @@ void do_smithing(CHAR_DATA *ch, const char *argument)
 		hammer->condition -= 25;
 	}
 	else {
-		check_improve(ch, gsn_smithing, TRUE, 4);
+		check_improve(ch, sn, TRUE, 4);
 		act_puts("$n repairs $p with the hammer.",
 			 ch, obj, NULL, TO_ROOM, POS_RESTING);
 		act_puts("You repair $p.",
 			 ch, obj, NULL, TO_CHAR, POS_RESTING);
-		obj->condition = UMAX(100, obj->condition +
-					   (get_skill(ch,gsn_smithing) / 2));
+		obj->condition = UMAX(100, obj->condition + (chance / 2));
 		hammer->condition -= 25;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.6 1998-07-03 15:18:41 fjoe Exp $
+ * $Id: effects.c,v 1.7 1998-09-01 18:29:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,12 +46,7 @@
 #include <string.h>
 #include <time.h>
 #include "merc.h"
-#include "recycle.h"
-#include "comm.h"
-#include "db.h"
 #include "update.h"
-#include "lookup.h"
-#include "magic.h"
 
 void acid_effect(void *vo, int level, int dam, int target)
 {
@@ -238,7 +233,7 @@ void cold_effect(void *vo, int level, int dam, int target)
             act("$n turns blue and shivers.",victim,NULL,NULL,TO_ROOM);
 	    act("A chill sinks deep into your bones.",victim,NULL,NULL,TO_CHAR);
             af.where     = TO_AFFECTS;
-            af.type      = skill_lookup("chill touch");
+            af.type      = sn_lookup("chill touch");
             af.level     = level;
             af.duration  = 6;
             af.location  = APPLY_STR;
@@ -344,7 +339,7 @@ void fire_effect(void *vo, int level, int dam, int target)
 		victim,NULL,NULL,TO_CHAR);
 	 
             af.where        = TO_AFFECTS;
-            af.type         = skill_lookup("fire breath");
+            af.type         = sn_lookup("fire breath");
             af.level        = level;
             af.duration     = number_range(0,level/10);
             af.location     = APPLY_HITROLL;
@@ -669,7 +664,7 @@ void sand_effect(void *vo, int level, int dam, int target)
 		victim,NULL,NULL,TO_CHAR);
 	 
             af.where        = TO_AFFECTS;
-            af.type         = skill_lookup("sand storm");
+            af.type         = sn_lookup("sand storm");
             af.level        = level;
             af.duration     = number_range(0,level/10);
             af.location     = APPLY_HITROLL;

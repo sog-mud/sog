@@ -1,5 +1,5 @@
 /*
- * $Id: rating.c,v 1.6 1998-07-11 20:55:15 fjoe Exp $
+ * $Id: rating.c,v 1.7 1998-09-01 18:29:20 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -7,8 +7,6 @@
 #include <stdio.h>
 #include "merc.h"
 #include "rating.h"
-#include "db.h"
-#include "comm.h"
 
 struct rating_data {
 	char *name;

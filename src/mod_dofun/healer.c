@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.7 1998-07-11 20:55:11 fjoe Exp $
+ * $Id: healer.c,v 1.8 1998-09-01 18:29:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,10 +46,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include "merc.h"
-#include "magic.h"
-#include "db.h"
-#include "comm.h"
-#include "lookup.h"
 
 DECLARE_DO_FUN(	do_say	);
 
@@ -62,36 +58,19 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     char *words;	
 
     /* check for healer */
-    for ( mob = ch->in_room->people; mob; mob = mob->next_in_room )
-    {
-        if ( IS_NPC(mob) && IS_SET(mob->act, ACT_HEALER))
-	 {
-	  if (ch->clan && is_name("clan",mob->name))
-		{
-    		 if (is_name(clan_table[ch->clan].short_name,mob->name) )
+	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
+		if (IS_NPC(mob) && IS_SET(mob->act, ACT_HEALER)
+		&&  (!mob->clan || mob->clan == ch->clan))
 		 	break;
-		 else continue;
-		}
-          else  break;
-	 }
-    }
  
-    if ( mob == NULL )
-    {
-        send_to_char( "You can't do that here.\n\r", ch );
-        return;
-    }
-
-    if ( ch->clan == CLAN_BATTLE )
-    {
-        send_to_char( "You are BattleRager, not a filthy magician.\n\r",ch );
+    if (mob == NULL) {
+        send_to_char("You can't do that here.\n\r", ch);
         return;
     }
 
     one_argument(argument,arg);
 
-    if (arg[0] == '\0')
-    {
+    if (arg[0] == '\0') {
         /* display price list */
 	act("Healer offers the following spells.",ch,NULL,mob,TO_CHAR);
 	send_to_char("  light   : cure light wounds     10 gold\n\r",ch);
@@ -113,7 +92,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     if (!str_prefix(arg,"light"))
     {
         spell = spell_cure_light;
-	sn    = skill_lookup("cure light");
+	sn    = sn_lookup("cure light");
 	words = "judicandus dies";
 	 cost  = 1000;
     }
@@ -121,7 +100,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     else if (!str_prefix(arg,"serious"))
     {
 	spell = spell_cure_serious;
-	sn    = skill_lookup("cure serious");
+	sn    = sn_lookup("cure serious");
 	words = "judicandus gzfuajg";
 	cost  = 1600;
     }
@@ -129,7 +108,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     else if (!str_prefix(arg,"critical"))
     {
 	spell = spell_cure_critical;
-	sn    = skill_lookup("cure critical");
+	sn    = sn_lookup("cure critical");
 	words = "judicandus qfuhuqar";
 	cost  = 2500;
     }
@@ -137,7 +116,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     else if (!str_prefix(arg,"heal"))
     {
 	spell = spell_heal;
-	sn = skill_lookup("heal");
+	sn = sn_lookup("heal");
 	words = "pzar";
 	cost  = 5000;
     }
@@ -145,7 +124,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     else if (!str_prefix(arg,"blindness"))
     {
 	spell = spell_cure_blindness;
-	sn    = skill_lookup("cure blindness");
+	sn    = sn_lookup("cure blindness");
       	words = "judicandus noselacri";		
         cost  = 2000;
     }
@@ -153,7 +132,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     else if (!str_prefix(arg,"disease"))
     {
 	spell = spell_cure_disease;
-	sn    = skill_lookup("cure disease");
+	sn    = sn_lookup("cure disease");
 	words = "judicandus eugzagz";
 	cost = 1500;
     }
@@ -161,7 +140,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     else if (!str_prefix(arg,"poison"))
     {
 	spell = spell_cure_poison;
-	sn    = skill_lookup("cure poison");
+	sn    = sn_lookup("cure poison");
 	words = "judicandus sausabru";
 	cost  = 2500;
     }
@@ -169,7 +148,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     else if (!str_prefix(arg,"uncurse") || !str_prefix(arg,"curse"))
     {
 	spell = spell_remove_curse; 
-	sn    = skill_lookup("remove curse");
+	sn    = sn_lookup("remove curse");
 	words = "candussido judifgz";
 	cost  = 5000;
     }
@@ -186,20 +165,20 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     else if (!str_prefix(arg,"refresh") || !str_prefix(arg,"moves"))
     {
 	spell =  spell_refresh;
-	sn    = skill_lookup("refresh");
+	sn    = sn_lookup("refresh");
 	words = "candusima"; 
 	cost  = 500;
     }
 
-    else if (!str_prefix(arg,"master") )
+    else if (!str_prefix(arg,"master"))
     {
-	spell =  spell_master_heal;
-	sn    = skill_lookup("master healing");
+	spell =  spell_master_healing;
+	sn    = sn_lookup("master healing");
 	words = "candastra nikazubra"; 
 	cost  = 20000;
     }
 
-    else if (!str_prefix(arg,"energize") )
+    else if (!str_prefix(arg,"energize"))
     {
 	spell =  NULL;
 	sn    = -2;
@@ -245,58 +224,3 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     
      spell(sn,mob->level,mob,ch,TARGET_CHAR);
 }
-
-
-void heal_battle(CHAR_DATA *mob, CHAR_DATA *ch )
-{
-    int sn;
-
-    if (is_name(clan_table[ch->clan].short_name,mob->name) )
-	return;
-
-    if (IS_NPC(ch) || ch->clan != CLAN_BATTLE)
-       {
-	do_say(mob,"I won't help you.");
-	return;
-       }
-
-    if (!IS_AFFECTED(ch,AFF_BLIND) && !IS_AFFECTED(ch,AFF_PLAGUE)
-	 && !IS_AFFECTED(ch,AFF_POISON) && !IS_AFFECTED(ch,AFF_CURSE) )
-       {
-	do_say(mob,"You don't need my help, my dear.");
-	return;
-       }
-
-    act("$n gives you some herbs to eat.",mob,NULL,ch,TO_VICT);
-    act("You eat that herbs.",mob,NULL,ch,TO_VICT);
-    act("You give the herbs to $N.",mob,NULL,ch,TO_CHAR);
-    act("$N eats the herbs that you give.",mob,NULL,ch,TO_CHAR);
-    act("$n gives the herbs to $N.",mob,NULL,ch,TO_NOTVICT);
-    act("$n eats the herbs that $N gave $m.",mob,NULL,ch,TO_NOTVICT);
-
-    WAIT_STATE(ch,PULSE_VIOLENCE);
-
-    if (IS_AFFECTED(ch,AFF_BLIND))
-      {
-       sn = skill_lookup("cure blindness");
-       spell_cure_blindness(sn,mob->level,mob,ch,TARGET_CHAR);
-      }
-
-    if (IS_AFFECTED(ch,AFF_PLAGUE))
-      {
-       sn = skill_lookup("cure disease");
-       spell_cure_disease(sn,mob->level,mob,ch,TARGET_CHAR);
-      }
-    if (IS_AFFECTED(ch,AFF_POISON))
-      {
-       sn = skill_lookup("cure poison");
-       spell_cure_poison(sn,mob->level,mob,ch,TARGET_CHAR);
-      }
-    if (IS_AFFECTED(ch,AFF_CURSE))
-      {
-       sn = skill_lookup("remove curse");
-       spell_remove_curse(sn,mob->level,mob,ch,TARGET_CHAR);
-      }
-    return;
-}
-

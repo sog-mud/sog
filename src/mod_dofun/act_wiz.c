@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.53 1998-08-18 17:18:20 fjoe Exp $
+ * $Id: act_wiz.c,v 1.54 1998-09-01 18:29:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,25 +47,15 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <unistd.h>
+#include <limits.h>
 #include "merc.h"
-#include "recycle.h"
-#include "lookup.h"
-#include "db.h"
-#include "comm.h"
 #include "act_info.h"
 #include "act_wiz.h"
 #include "hometown.h"
-#include "magic.h"
-#include "resource.h"
 #include "update.h"
-#include "util.h"
 #include "quest.h"
-#include "log.h"
 #include "act_move.h"
 #include "obj_prog.h"
-#include "buffer.h"
-#include "tables.h"
-#include "mlstring.h"
 #include "interp.h"
 #include "fight.h"
 #include "quest.h"
@@ -80,7 +70,6 @@ DECLARE_DO_FUN(do_oset		);
 DECLARE_DO_FUN(do_sset		);
 DECLARE_DO_FUN(do_mfind		);
 DECLARE_DO_FUN(do_ofind		);
-DECLARE_DO_FUN(do_slookup	);
 DECLARE_DO_FUN(do_mload		);
 DECLARE_DO_FUN(do_oload		);
 DECLARE_DO_FUN(do_force		);
@@ -103,198 +92,32 @@ bool write_to_descriptor  args((int desc, char *txt, int length));
 void reboot_muddy(void);
 extern int rebooter;
 
-
-void do_clan_scan(CHAR_DATA *ch, const char *argument)
-{
-	int i;
-
-	for(i = 1; clan_table[i].long_name != NULL; i++) {
-		char_printf(ch, "  Cabal: %s, room %d, item %d, ptr: %s ", 
-			    clan_table[i].short_name, clan_table[i].room_vnum, 
-			    clan_table[i].obj_vnum,
-			    clan_table[i].obj_ptr != NULL ?
-			    mlstr_mval(clan_table[i].obj_ptr->short_descr) :
-			    "(NULL)");
-		if (clan_table[i].obj_ptr != NULL) {
-			char *p;
-
-			p = clan_table[i].obj_ptr->in_room != NULL ?
-			  mlstr_cval(clan_table[i].obj_ptr->in_room->name, ch) :
-			  "(NULL)";
-			char_printf(ch, "now_in_room: %s", p);
-		}
-		char_puts("\n\r", ch);
-	}
-}
-
 void do_objlist(CHAR_DATA *ch, const char *argument)
 {
 	FILE *fp;
 	OBJ_DATA *obj;
-	AFFECT_DATA *paf;
+	BUFFER *buf;
 
-	 if ((fp=fopen("objlist.txt", "w+")) == NULL) {
+	if ((fp = dfopen(TMP_PATH, "objlist.txt", "w+")) == NULL) {
 	 	char_puts("File error.\n\r", ch);
 	 	return;
-	 }
-
-	 for(obj = object_list; obj != NULL; obj = obj->next) {
-	 if (obj->pIndexData->affected != NULL)	
-	 /*  if (obj->item_type == ITEM_WEAPON)	*/
-	 {
-	   fprintf(fp, "\n#Obj: %s (Vnum : %d) \n",
-		mlstr_mval(obj->short_descr) ,obj->pIndexData->vnum);
-	fprintf(fp,
-		"Object '%s' is type %s, extra flags %s.\nWeight is %d, value is %d, level is %d.\n",
-
-		obj->name,
-		item_type_name(obj),
-		extra_bit_name(obj->extra_flags),
-		obj->weight / 10,
-		obj->cost,
-		obj->level
-		);
-
-	switch (obj->item_type)
-	{
-	case ITEM_SCROLL:
-	case ITEM_POTION:
-	case ITEM_PILL:
-		fprintf(fp, "Level %d spells of:", obj->value[0]);
-
-		if (obj->value[1] >= 0 && obj->value[1] < MAX_SKILL)
-		{
-		    fprintf(fp, " '%s'", skill_table[obj->value[1]].name);
-		}
-
-		if (obj->value[2] >= 0 && obj->value[2] < MAX_SKILL)
-		{
-		    fprintf(fp, " '%s'", skill_table[obj->value[2]].name);
-		}
-
-		if (obj->value[3] >= 0 && obj->value[3] < MAX_SKILL)
-		{
-		    fprintf(fp, " '%s'", skill_table[obj->value[3]].name);
-		}
-
-		if (obj->value[4] >= 0 && obj->value[4] < MAX_SKILL)
-		{
-		    fprintf(fp, " '%s'", skill_table[obj->value[4]].name);
-		}
-
-		fprintf(fp,".\n");
-		break;
-
-	case ITEM_WAND: 
-	case ITEM_STAFF: 
-		fprintf(fp, "Has %d charges of level %d", obj->value[2], obj->value[0]);
-	  
-		if (obj->value[3] >= 0 && obj->value[3] < MAX_SKILL)
-		{
-		    fprintf(fp, " '%s'", skill_table[obj->value[3]].name);
-		}
-
-		fprintf(fp,".\n");
-		break;
-
-	case ITEM_DRINK_CON:
-	    fprintf(fp,"It holds %s-colored %s.\n",
-		    liq_table[obj->value[2]].liq_color,
-	        liq_table[obj->value[2]].liq_name);
-	    break;
-
-	case ITEM_CONTAINER:
-		fprintf(fp,"Capacity: %d#  Maximum weight: %d#  flags: %s\n",
-		    obj->value[0], obj->value[3], cont_bit_name(obj->value[1]));
-		if (obj->value[4] != 100)
-		{
-		    fprintf(fp,"Weight multiplier: %d%%\n",
-			obj->value[4]);
-		}
-		break;
-			
-	case ITEM_WEAPON:
-		fprintf(fp,"Weapon type is ");
-		switch (obj->value[0])
-		{
-		    case(WEAPON_EXOTIC) : fprintf(fp,"exotic.\n");	break;
-		    case(WEAPON_SWORD)  : fprintf(fp,"sword.\n");	break;	
-		    case(WEAPON_DAGGER) : fprintf(fp,"dagger.\n");	break;
-		    case(WEAPON_SPEAR)	: fprintf(fp,"spear/staff.\n");	break;
-		    case(WEAPON_MACE) 	: fprintf(fp,"mace/club.\n");	break;
-		    case(WEAPON_AXE)	: fprintf(fp,"axe.\n");		break;
-		    case(WEAPON_FLAIL)	: fprintf(fp,"flail.\n");	break;
-		    case(WEAPON_WHIP)	: fprintf(fp,"whip.\n");	break;
-		    case(WEAPON_POLEARM): fprintf(fp,"polearm.\n");	break;
-		    case(WEAPON_BOW)	: fprintf(fp,"bow.\n");		break;
-		    case(WEAPON_ARROW)	: fprintf(fp,"arrow.\n");	break;
-		    case(WEAPON_LANCE)	: fprintf(fp,"lance.\n");	break;
-		    default		: fprintf(fp,"unknown.\n");	break;
-		}
-		if (obj->pIndexData->new_format)
-		    fprintf(fp,"Damage is %dd%d (average %d).\n",
-			obj->value[1],obj->value[2],
-			(1 + obj->value[2]) * obj->value[1] / 2);
-		else
-		    fprintf(fp, "Damage is %d to %d (average %d).\n",
-		    	obj->value[1], obj->value[2],
-		    	(obj->value[1] + obj->value[2]) / 2);
-	    if (obj->value[4])  /* weapon flags */
-	    {
-	        fprintf(fp,"Weapons flags: %s\n",weapon_bit_name(obj->value[4]));
-		}
-		break;
-
-	case ITEM_ARMOR:
-		fprintf(fp, 
-		"Armor class is %d pierce, %d bash, %d slash, and %d vs. magic.\n", 
-		    obj->value[0], obj->value[1], obj->value[2], obj->value[3]);
-		break;
 	}
-	   for(paf=obj->pIndexData->affected; paf != NULL; paf = paf->next)
-	   {
-	        if (paf == NULL) continue;
-	        fprintf(fp, "  Affects %s by %d.\n",
-	            affect_loc_name(paf->location), paf->modifier);
-	        if (paf->bitvector)
-	        {
-	            switch(paf->where)
-	            {
-	                case TO_AFFECTS:
-	                    fprintf(fp,"   Adds %s affect.\n",
-	                        affect_bit_name(paf->bitvector));
-	                    break;
-	                case TO_OBJECT:
-	                    fprintf(fp,"   Adds %s object flag.\n",
-	                        extra_bit_name(paf->bitvector));
-	                    break;
-	                case TO_IMMUNE:
-	                    fprintf(fp,"   Adds immunity to %s.\n",
-	                        imm_bit_name(paf->bitvector));
-	                    break;
-	                case TO_RESIST:
-	                    fprintf(fp,"   Adds resistance to %s.\n\r",
-	                        imm_bit_name(paf->bitvector));
-	                    break;
-	                case TO_VULN:
-	                    fprintf(fp,"   Adds vulnerability to %s.\n\r",
-	                        imm_bit_name(paf->bitvector));
-	                    break;
-	                case TO_DETECTS:
-	                    fprintf(fp,"   Adds %s detection.\n\r",
-	                        detect_bit_name(paf->bitvector));
-	                    break;
-	                default:
-	                    fprintf(fp,"   Unknown bit %d: %d\n\r",
-	                        paf->where,paf->bitvector);
-	                    break;
-	            }
-	        }
-	   }
-	 }
-	 }
-	 fclose(fp);
-	 return;
+
+	buf = buf_new(0);
+	for(obj = object_list; obj != NULL; obj = obj->next) {
+		if (obj->pIndexData->affected == NULL)
+			continue;
+
+		buf_clear(buf);
+		buf_printf(buf, "\n#Obj: %s (Vnum : %d) \n",
+			   mlstr_mval(obj->short_descr),
+			   obj->pIndexData->vnum);
+		format_obj(buf, obj);
+		format_obj_affects(buf, obj->pIndexData->affected, FALSE);
+		fprintf(fp, "%s", fix_string(buf_string(buf)));
+	}
+	buf_free(buf);
+	fclose(fp);
 }
 
 void do_limited(CHAR_DATA *ch, const char *argument)
@@ -491,10 +314,11 @@ void do_tick(CHAR_DATA *ch, const char *argument)
 void do_outfit (CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *obj;
+	CLASS_DATA *cl = class_lookup(ch->class);
 	int sn,vnum;
 
-	if ((ch->level > 5 || IS_NPC(ch)) && !IS_IMMORTAL(ch))
-	{
+	if ((ch->level > 5 || IS_NPC(ch) || cl == NULL)
+	&&  !IS_IMMORTAL(ch)) {
 		char_puts("Find it yourself!\n\r",ch);
 		return;
 	}
@@ -517,14 +341,11 @@ void do_outfit (CHAR_DATA *ch, const char *argument)
 	    equip_char(ch, obj, WEAR_BODY);
 	}
 
-
-	
 	/* do the weapon thing */
-	if ((obj = get_eq_char(ch,WEAR_WIELD)) == NULL)
-	{
+	if ((obj = get_eq_char(ch,WEAR_WIELD)) == NULL) {
 		sn = 0; 
 		vnum = OBJ_VNUM_SCHOOL_SWORD; /* just in case! */
-	    vnum = class_table[ch->class].weapon;
+		vnum = cl->weapon;
 		obj = create_obj(get_obj_index(vnum),0);
 		obj->condition = 100;
 	 	obj_to_char(obj,ch);
@@ -1199,11 +1020,11 @@ void do_rstat(CHAR_DATA *ch, const char *argument)
 
 	if (ch->in_room->affected_by)
 		buf_printf(output, "Affected by %s\n\r", 
-			   raffect_bit_name(ch->in_room->affected_by));
+			   flag_string(raffect_flags, ch->in_room->affected_by));
 
 	if (ch->in_room->room_flags)
-		buf_printf(output, "Roomflags %s\n\r", 
-			   flag_room_name(ch->in_room->room_flags));
+		buf_printf(output, "Room Flags %s\n\r", 
+			   flag_string(room_flags, ch->in_room->room_flags));
 
 	mlstr_dump(output, "Name: ", location->name);
 	buf_printf(output, "Area: '%s'\n\rOwner: '%s'\n\r",
@@ -1280,7 +1101,6 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	int i;
 	BUFFER *output;
 	char arg[MAX_INPUT_LENGTH];
-	AFFECT_DATA *paf;
 	OBJ_DATA *obj;
 
 	one_argument(argument, arg);
@@ -1301,13 +1121,16 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 	buf_printf(output, "Vnum: %d  Format: %s  Type: %s  Resets: %d\n\r",
 		obj->pIndexData->vnum,
 		obj->pIndexData->new_format ? "new" : "old",
-		item_type_name(obj), obj->pIndexData->reset_num);
+		flag_string(item_types, obj->item_type),
+		obj->pIndexData->reset_num);
 
 	mlstr_dump(output, "Short description: ", obj->short_descr);
 	mlstr_dump(output, "Long description: ", obj->description);
 
-	buf_printf(output, "Wear bits: %s\n\r", wear_bit_name(obj->wear_flags));
-	buf_printf(output, "Extra bits: %s\n\r", extra_bit_name(obj->extra_flags));
+	buf_printf(output, "Wear bits: %s\n\r",
+		   flag_string(wear_flags, obj->wear_flags));
+	buf_printf(output, "Extra bits: %s\n\r",
+		   flag_string(extra_flags, obj->extra_flags));
 	buf_printf(output, "Number: %d/%d  Weight: %d/%d/%d (10th pounds)\n\r",
 		1,           get_obj_number(obj),
 		obj->weight, get_obj_weight(obj),get_true_weight(obj));
@@ -1340,9 +1163,9 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 		buf_printf(output, "Level %d spells of:", obj->value[0]);
 
 		for (i = 1; i < 5; i++)
-			if (obj->value[i] >= 0 && obj->value[i] < MAX_SKILL) 
+			if (obj->value[i] >= 0) 
 				buf_printf(output, " '%s'",
-					   skill_table[obj->value[i]].name);
+					   skill_name(obj->value[i]));
 		buf_add(output, ".\n\r");
 		break;
 
@@ -1351,9 +1174,9 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 		buf_printf(output, "Has %d(%d) charges of level %d",
 			   obj->value[1], obj->value[2], obj->value[0]);
 	  
-		if (obj->value[3] >= 0 && obj->value[3] < MAX_SKILL) 
+		if (obj->value[3] >= 0) 
 			buf_printf(output, " '%s'",
-				   skill_table[obj->value[3]].name);
+				   skill_name(obj->value[3]));
 		buf_add(output, ".\n\r");
 		break;
 
@@ -1381,7 +1204,7 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 		    
 		if (obj->value[4])  /* weapon flags */
 		        buf_printf(output,"Weapons flags: %s\n\r",
-				   weapon_bit_name(obj->value[4]));
+				   flag_string(weapon_type2, obj->value[4]));
 		break;
 
 	case ITEM_ARMOR:
@@ -1392,10 +1215,11 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 
 	case ITEM_CONTAINER:
 	        buf_printf(output,"Capacity: %d#  Maximum weight: %d#  flags: %s\n\r",
-	            obj->value[0], obj->value[3], cont_bit_name(obj->value[1]));
+	        	   obj->value[0], obj->value[3],
+			   flag_string(cont_flags, obj->value[1]));
 	        if (obj->value[4] != 100)
-	            buf_printf(output,"Weight multiplier: %d%%\n\r",
-			    obj->value[4]);
+	        	buf_printf(output,"Weight multiplier: %d%%\n\r",
+				   obj->value[4]);
 		break;
 	}
 
@@ -1422,94 +1246,9 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 		buf_add(output, "'\n\r");
 	}
 
-	for (paf = obj->affected; paf != NULL; paf = paf->next)
-	{
-		buf_printf(output, "Affects %s by %d, level %d",
-		    affect_loc_name(paf->location), paf->modifier,paf->level);
-		if (paf->duration > -1)
-		    buf_printf(output,", %d hours.\n\r",paf->duration);
-		else
-		    buf_add(output, ".\n\r");
-		if (paf->bitvector)
-		{
-		    switch(paf->where)
-		    {
-			case TO_AFFECTS:
-			    buf_printf(output,"Adds %s affect.\n",
-				affect_bit_name(paf->bitvector));
-			    break;
-	            case TO_WEAPON:
-	                buf_printf(output,"Adds %s weapon flags.\n",
-	                    weapon_bit_name(paf->bitvector));
-			    break;
-			case TO_OBJECT:
-			    buf_printf(output,"Adds %s object flag.\n",
-				extra_bit_name(paf->bitvector));
-			    break;
-			case TO_IMMUNE:
-			    buf_printf(output,"Adds immunity to %s.\n",
-				imm_bit_name(paf->bitvector));
-			    break;
-			case TO_RESIST:
-			    buf_printf(output,"Adds resistance to %s.\n\r",
-				imm_bit_name(paf->bitvector));
-			    break;
-			case TO_VULN:
-			    buf_printf(output,"Adds vulnerability to %s.\n\r",
-				imm_bit_name(paf->bitvector));
-			    break;
-			case TO_DETECTS:
-			    buf_printf(output,"Adds %s detection.\n\r",
-				detect_bit_name(paf->bitvector));
-			    break;
-			default:
-			    buf_printf(output,"Unknown bit %d: %d\n\r",
-				paf->where,paf->bitvector);
-			    break;
-		    }
-		}
-	}
-
+	format_obj_affects(output, obj->affected, TRUE);
 	if (!obj->enchanted)
-	for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
-	{
-		buf_printf(output, "Affects %s by %d, level %d.\n\r",
-		    affect_loc_name(paf->location), paf->modifier,paf->level);
-	    if (paf->bitvector)
-	    {
-	        switch(paf->where)
-	        {
-	            case TO_AFFECTS:
-	                buf_printf(output,"Adds %s affect.\n",
-	                    affect_bit_name(paf->bitvector));
-	                break;
-	            case TO_OBJECT:
-	                buf_printf(output,"Adds %s object flag.\n",
-	                    extra_bit_name(paf->bitvector));
-	                break;
-	            case TO_IMMUNE:
-	                buf_printf(output,"Adds immunity to %s.\n",
-	                    imm_bit_name(paf->bitvector));
-	                break;
-	            case TO_RESIST:
-	                buf_printf(output,"Adds resistance to %s.\n\r",
-	                    imm_bit_name(paf->bitvector));
-	                break;
-	            case TO_VULN:
-	                buf_printf(output,"Adds vulnerability to %s.\n\r",
-	                    imm_bit_name(paf->bitvector));
-	                break;
-	            case TO_DETECTS:
-	                buf_printf(output,"Adds %s detection.\n\r",
-	                    detect_bit_name(paf->bitvector));
-	                break;
-	            default:
-	                buf_printf(output,"Unknown bit %d: %d\n\r",
-	                    paf->where,paf->bitvector);
-	                break;
-	        }
-	    }
-	}
+		format_obj_affects(output, obj->pIndexData->affected, FALSE);
 
 	if (obj->pIndexData->oprogs) {
 		buf_add(output, "Object progs:\n");
@@ -1604,7 +1343,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	buf_printf(output,
 		"Lv: %d  Class: %s  Align: %s  Gold: %ld  Silver: %ld  Exp: %d\n\r",
 		victim->level,       
-		IS_NPC(victim) ? "mobile" : class_table[victim->class].name,            
+		IS_NPC(victim) ? "mobile" : class_name(victim->class),          
 		buf,
 		victim->gold, victim->silver, victim->exp);
 
@@ -1646,33 +1385,38 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		    victim->timer);
 	}
 
-	buf_printf(output, "Act: %s\n\r",act_bit_name(victim->act));
+	buf_printf(output, "Act: [%s]\n\r",
+		   flag_string(IS_NPC(victim) ? act_flags : plr_flags,
+			       victim->act));
 	
 	if (victim->comm)
-		buf_printf(output, "Comm: %s\n\r",comm_bit_name(victim->comm));
+		buf_printf(output, "Comm: [%s]\n\r",
+			   flag_string(comm_flags, victim->comm));
 
 	if (IS_NPC(victim) && victim->off_flags)
-		buf_printf(output, "Offense: %s\n\r",off_bit_name(victim->off_flags));
+		buf_printf(output, "Offense: [%s]\n\r",
+			   flag_string(off_flags, victim->off_flags));
 
 	if (victim->imm_flags)
-		buf_printf(output, "Immune: %s\n\r",imm_bit_name(victim->imm_flags));
+		buf_printf(output, "Immune: [%s]\n\r",
+			   flag_string(imm_flags, victim->imm_flags));
 	
 	if (victim->res_flags)
-		buf_printf(output, "Resist: %s\n\r", imm_bit_name(victim->res_flags));
+		buf_printf(output, "Resist: [%s]\n\r",
+			   flag_string(res_flags, victim->res_flags));
 
 	if (victim->vuln_flags)
-		buf_printf(output, "Vulnerable: %s\n\r", imm_bit_name(victim->vuln_flags));
+		buf_printf(output, "Vulnerable: [%s]\n\r",
+			   flag_string(vuln_flags, victim->vuln_flags));
 
-	if (victim->detection)
-		buf_printf(output, "Detection: %s\n\r", 
-		(victim->detection) ? detect_bit_name(victim->detection) : "(none)");
-
-	buf_printf(output, "Form: %s\n\r", form_bit_name(victim->form));
-	buf_printf(output, "Parts: %s\n\r", part_bit_name(victim->parts));
+	buf_printf(output, "Form: [%s]\n\r",
+		   flag_string(form_flags, victim->form));
+	buf_printf(output, "Parts: [%s]\n\r",
+		   flag_string(part_flags, victim->parts));
 
 	if (victim->affected_by)
 		buf_printf(output, "Affected by %s\n\r", 
-		    affect_bit_name(victim->affected_by));
+			   flag_string(affect_flags, victim->affected_by));
 
 	buf_printf(output, "Master: %s  Leader: %s  Pet: %s\n\r",
 		victim->master      ? victim->master->name   : "(none)",
@@ -1694,11 +1438,11 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	for (paf = victim->affected; paf != NULL; paf = paf->next)
 		buf_printf(output,
 		    "Spell: '{c%s{x' modifies {c%s{x by {c%d{x for {c%d{x hours with bits {c%s{x, level {c%d{x.\n\r",
-		    paf->type > 0 ? skill_table[paf->type].name : "none",
-		    affect_loc_name(paf->location),
+			skill_name(paf->type),
+		    flag_string(apply_flags, paf->location),
 		    paf->modifier,
 		    paf->duration,
-		    affect_bit_name(paf->bitvector),
+		    flag_string(affect_flags, paf->bitvector),
 		    paf->level
 		   );
 
@@ -1731,9 +1475,9 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		ctime(&(victim->last_fight_time)),
 		victim->pumped);
 	buf_printf(output, "In_mind: [%s]\n\r", 
-			victim->in_mind != NULL ? victim->in_mind : "none");
+			victim->in_mind ? victim->in_mind : "none");
 
-	char_puts(buf_string(output), ch);
+	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }
 
@@ -2854,39 +2598,6 @@ void do_newlock(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-
-void do_slookup(CHAR_DATA *ch, const char *argument)
-{
-	char buf[MAX_STRING_LENGTH];
-	char arg[MAX_INPUT_LENGTH];
-	int sn;
-
-	one_argument(argument, arg);
-	if (arg[0] == '\0') {
-		char_puts("Lookup which skill or spell?\n\r", ch);
-		return;
-	}
-
-	if (!str_cmp(arg, "all"))
-		for (sn = 0; sn < MAX_SKILL; sn++) {
-		    if (skill_table[sn].name == NULL)
-			break;
-		    sprintf(buf, "Sn: %3d  Slot: %3d  Skill/spell: '%s'\n\r",
-			sn, skill_table[sn].slot, skill_table[sn].name);
-		    char_puts(buf, ch);
-		}
-	else {
-		if ((sn = skill_lookup(arg)) < 0) {
-			char_puts("No such skill or spell.\n\r", ch);
-			return;
-		}
-
-		sprintf(buf, "Sn: %3d  Slot: %3d  Skill/spell: '%s'\n\r",
-		    sn, skill_table[sn].slot, skill_table[sn].name);
-		char_puts(buf, ch);
-	}
-}
-
 /* RT set replaces sset, mset, oset, and rset */
 
 void do_set(CHAR_DATA *ch, const char *argument)
@@ -2963,7 +2674,7 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 
 	fAll = !str_cmp(arg2, "all");
 	sn   = 0;
-	if (!fAll && (sn = skill_lookup(arg2)) < 0) {
+	if (!fAll && (sn = sn_lookup(arg2)) < 0) {
 		char_puts("No such skill or spell.\n\r", ch);
 		return;
 	}
@@ -2983,15 +2694,10 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (fAll)
-		for (sn = 0; sn < MAX_SKILL; sn++) {
-			if ((skill_table[sn].name != NULL) 
-			&&  ((victim->clan == skill_table[sn].clan) 
-			||  (skill_table[sn].clan == CLAN_NONE)) 
-			&&  (SKILL_RACE_OK(victim,sn)) )
-				victim->pcdata->learned[sn] = value;
-		}
+		for (sn = 0; sn < skills->nused; sn++)
+			set_skill(ch, sn, 100);
 	else
-		victim->pcdata->learned[sn] = value;
+		set_skill(ch, sn, value);
 }
 
 
@@ -3608,6 +3314,57 @@ void do_prefix (CHAR_DATA *ch, const char *argument)
 	ch->prefix = str_dup(argument);
 }
 
+void advance(CHAR_DATA *victim, int level)
+{
+	int iLevel;
+	int tra;
+	int pra;
+
+	tra = victim->train;
+	pra = victim->practice;
+
+	/*
+	 * Lower level:
+	 *   Reset to level 1.
+	 *   Then raise again.
+	 *   Currently, an imp can lower another imp.
+	 *   -- Swiftest
+	 */
+	if (level <= victim->level) {
+		int temp_prac;
+
+		char_puts("**** OOOOHHHHHHHHHH  NNNNOOOO ****\n\r", victim);
+		temp_prac = victim->practice;
+		victim->level		= 1;
+		victim->exp		= base_exp(victim);
+		victim->max_hit		= 10;
+		victim->max_mana	= 100;
+		victim->max_move	= 100;
+		victim->practice	= 0;
+		victim->hit		= victim->max_hit;
+		victim->mana		= victim->max_mana;
+		victim->move		= victim->max_move;
+		victim->pcdata->perm_hit	= victim->max_hit;
+		victim->pcdata->perm_mana	= victim->max_mana;
+		victim->pcdata->perm_move	= victim->max_move;
+		advance_level(victim);
+		victim->practice	= temp_prac;
+	}
+	else 
+		char_puts("**** OOOOHHHHHHHHHH  YYYYEEEESSS ****\n\r", victim);
+
+	for (iLevel = victim->level ; iLevel < level; iLevel++) {
+		char_nputs(MSG_YOU_RAISE_A_LEVEL, victim);
+		victim->exp += exp_to_level(victim);
+		victim->level += 1;
+		advance_level(victim);
+	}
+	victim->trust = 0;
+	victim->exp_tl		= 0;
+	victim->train		= tra;
+	victim->practice	= pra;
+	save_char_obj(victim, FALSE);
+}
 
 void do_advance(CHAR_DATA *ch, const char *argument)
 {
@@ -3615,7 +3372,6 @@ void do_advance(CHAR_DATA *ch, const char *argument)
 	char arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	int level;
-	int iLevel;
 
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
@@ -3659,46 +3415,7 @@ void do_advance(CHAR_DATA *ch, const char *argument)
 	  else total_levels -= (ch->level - 5);
 	}
 
-	/*
-	 * Lower level:
-	 *   Reset to level 1.
-	 *   Then raise again.
-	 *   Currently, an imp can lower another imp.
-	 *   -- Swiftest
-	 */
-	if (level <= victim->level)
-	{
-	    int temp_prac;
-
-		char_puts("Lowering a player's level!\n\r", ch);
-		char_puts("**** OOOOHHHHHHHHHH  NNNNOOOO ****\n\r", victim);
-		temp_prac = victim->practice;
-		victim->level    = 1;
-		victim->exp      = exp_to_level(victim,victim->pcdata->points);
-		victim->max_hit  = 10;
-		victim->max_mana = 100;
-		victim->max_move = 100;
-		victim->practice = 0;
-		victim->hit      = victim->max_hit;
-		victim->mana     = victim->max_mana;
-		victim->move     = victim->max_move;
-		advance_level(victim);
-		victim->practice = temp_prac;
-	}
-	else
-	{
-		char_puts("Raising a player's level!\n\r", ch);
-		char_puts("**** OOOOHHHHHHHHHH  YYYYEEEESSS ****\n\r", victim);
-	}
-
-	for (iLevel = victim->level ; iLevel < level; iLevel++) {
-		char_nputs(MSG_YOU_RAISE_A_LEVEL, victim);
-		victim->exp += exp_to_level(victim,victim->pcdata->points);
-		victim->level += 1;
-		advance_level(victim);
-	}
-	victim->trust = 0;
-	save_char_obj(victim, FALSE);
+	advance(victim, level);
 }
 
 void do_mset(CHAR_DATA *ch, const char *argument)
@@ -3708,7 +3425,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	char arg3 [MAX_INPUT_LENGTH];
 	char arg4 [MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-	int value, val2, sn;
+	int value, val2;
 
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
@@ -3905,27 +3622,25 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!str_prefix(arg2, "class"))
-	{
-		int class;
+	if (!str_prefix(arg2, "class")) {
+		int cl;
 
-		if (IS_NPC(victim))
-		{
-		    char_puts("Mobiles have no class.\n\r",ch);
-		    return;
+		if (IS_NPC(victim)) {
+			char_puts("Mobiles have no class.\n\r",ch);
+			return;
 		}
 
-		class = class_lookup(arg3);
-		if (class == -1) {
+		cl = cln_lookup(arg3);
+		if (cl < 0) {
 			BUFFER *output;
 
 			output = buf_new(0);
 
 			buf_add(output, "Possible classes are: ");
-	    		for (class = 0; class < MAX_CLASS; class++) {
-	        		if (class > 0)
+	    		for (cl = 0; cl < classes->nused; cl++) {
+	        		if (cl > 0)
 	                		buf_add(output, " ");
-	        		buf_add(output, class_table[class].name);
+	        		buf_add(output, CLASS(cl)->name);
 	    		}
 	        	buf_add(output, ".\n\r");
 
@@ -3934,7 +3649,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		victim->class = class;
+		victim->class = cl;
 		return;
 	}
 
@@ -4185,23 +3900,9 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		    return;
 		}
 
-		if (!IS_NPC(victim) && !race_table[race].pc_race)
-		{
+		if (!IS_NPC(victim) && !race_table[race].pc_race) {
 		    char_puts("That is not a valid player race.\n\r",ch);
 		    return;
-		}
-
-		if (!IS_NPC(victim))
-		for (sn = 0; sn < MAX_SKILL; sn++)
-		{
-		    if ((skill_table[sn].name != NULL) 
-			&& !SKILL_RACE_OK(victim,sn)	)
-			victim->pcdata->learned[sn]	= 0;
-
-		    if ((skill_table[sn].name != NULL) 
-			&&  (ORG_RACE(victim) == skill_table[sn].race) 
-			)
-			victim->pcdata->learned[sn]	= 70;
 		}
 
 		if (ORG_RACE(victim) == RACE(victim)) RACE(victim) = race;
@@ -4220,16 +3921,19 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_prefix(arg2, "clan")) {
-		int clan;
+		int cn;
+
 		if (IS_NPC(victim)) {
 			char_puts("Not on NPC.\n\r", ch);
 			return;
 		}
-		if ((clan = clan_lookup(arg3)) < 0) {
+
+		if ((cn = cn_lookup(arg3)) < 0) {
 			char_puts("Incorrect clan name.\n\r", ch);
 			return;
 		}
-		victim->clan = clan;
+
+		victim->clan = cn;
 		char_nputs(MSG_OK, ch);
 		return;
 	}
@@ -4384,82 +4088,76 @@ void do_ititle(CHAR_DATA *ch, const char *argument)
  * .gz files are checked for too, just in case.
  */
 
-bool check_parse_name (char* name);  
+bool check_parse_name(char* name);  
 
-void do_rename (CHAR_DATA* ch, const char *argument)
+void do_rename(CHAR_DATA* ch, const char *argument)
 {
 	char old_name[MAX_INPUT_LENGTH], 
-	     new_name[MAX_INPUT_LENGTH],
-	     strsave [MAX_INPUT_LENGTH];
+	     new_name[MAX_INPUT_LENGTH];
+	char strsave[PATH_MAX];
+	char *file_name;
 
 	CHAR_DATA* victim;
 	FILE* file;
 		
 	argument = one_argument(argument, old_name); 
-	one_argument (argument, new_name);
+		   one_argument(argument, new_name);
 		
 	if (!old_name[0]) {
-		char_puts ("Rename who?\n\r",ch);
+		char_puts("Rename who?\n\r",ch);
 		return;
 	}
 		
-	victim = get_char_world (ch, old_name);
+	victim = get_char_world(ch, old_name);
 		
 	if (!victim) {
-		char_puts ("There is no such a person online.\n\r",ch);
+		char_puts("There is no such a person online.\n\r",ch);
 		return;
 	}
 		
 	if (IS_NPC(victim)) {   
-		char_puts ("You cannot use Rename on NPCs.\n\r",ch);
+		char_puts("You cannot use Rename on NPCs.\n\r",ch);
 		return;
 	}
 
 	if ((victim != ch) && (get_trust (victim) >= get_trust (ch))) {
-		char_puts ("You failed.\n\r",ch);
+		char_puts("You failed.\n\r",ch);
 		return;
 	}
 		
 	if (!victim->desc || (victim->desc->connected != CON_PLAYING)) {
-		char_puts ("This player has lost his link or is inside a pager or the like.\n\r",ch);
+		char_puts("This player has lost his link or is inside a pager or the like.\n\r",ch);
 		return;
 	}
 
 	if (!new_name[0]) {
-		char_puts ("Rename to what new name?\n\r",ch);
+		char_puts("Rename to what new name?\n\r",ch);
 		return;
 	}
 		
-/*
 	if (victim->clan) {
-		char_puts ("This player is member of a clan, remove him from there first.\n\r",ch);
+		char_puts("This player is member of a clan, remove him from the clan first.\n\r",ch);
 		return;
 	}
-*/
 
-	new_name[0] = UPPER(new_name[0]);
 	if (!check_parse_name(new_name)) {
-		char_puts ("The new name is illegal.\n\r",ch);
+		char_puts("The new name is illegal.\n\r",ch);
 		return;
 	}
 
-	sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(new_name)); 
-
-	fclose (fpReserve); 
-	file = fopen (strsave, "r"); 
+	file_name = capitalize(new_name);
+	fclose(fpReserve); 
+	file = dfopen (PLAYER_PATH, file_name, "r"); 
 	if (file) {
-		char_puts ("A player with that name already exists!\n\r",ch);
-		fclose (file);
+		fclose(file);
 		fpReserve = fopen(NULL_FILE, "r"); 
+		char_puts("A player with that name already exists!\n\r",ch);
 		return;		
 	}
-	fpReserve = fopen(NULL_FILE, "r");  
 
-		/* Check .gz file ! */
-	sprintf(strsave, "%s%s.gz", PLAYER_DIR, capitalize(new_name));
-
-	fclose (fpReserve); 
-	file = fopen (strsave, "r"); 
+/* check .gz file ! */
+	snprintf(strsave, sizeof(strsave), "%s%s.gz", PLAYER_PATH, file_name);
+	file = dfopen(PLAYER_PATH, strsave, "r"); 
 	if (file) {
 		char_puts ("A player with that name already exists in a compressed file!\n\r",ch);
 		fclose (file);
@@ -4473,21 +4171,17 @@ void do_rename (CHAR_DATA* ch, const char *argument)
 		return;
 	}
 
-	sprintf(strsave, "%s%s", PLAYER_DIR, capitalize(victim->name));
-
 /*
  * NOTE: Players who are level 1 do NOT get saved under a new name 
  */
-		free_string (victim->name);
-		victim->name = str_dup (capitalize(new_name));
+	free_string(victim->name);
+	victim->name = str_dup(new_name);
+	save_char_obj(victim, FALSE);
 		
-		save_char_obj (victim, FALSE);
-		
-		unlink (strsave); 
-		char_puts ("Character renamed.\n\r",ch);
-		victim->position = POS_STANDING; 
-		act ("$n has renamed you to $N!",ch,NULL,victim,TO_VICT);
-				
+	dunlink(PLAYER_PATH, capitalize(old_name)); 
+	char_puts ("Character renamed.\n\r",ch);
+	victim->position = POS_STANDING; 
+	act ("$n has renamed you to $N!",ch,NULL,victim,TO_VICT);
 } 
 
 void do_notitle(CHAR_DATA *ch, const char *argument)
@@ -4538,11 +4232,12 @@ void do_noaffect(CHAR_DATA *ch, const char *argument)
 	for (paf = victim->affected; paf != NULL; paf = paf_next) {
 		paf_next = paf->next;
 		if (paf->duration >= 0) {
-	        	if (paf->type > 0 && skill_table[paf->type].msg_off) {
-				char_puts(skill_table[paf->type].msg_off,
-					  victim);
-				char_puts("\n\r", victim);
-			}
+			SKILL_DATA *sk;
+
+			if ((sk = skill_lookup(paf->type))
+			&&  !IS_NULLSTR(sk->msg_off))
+				act_puts(sk->msg_off, victim, NULL, NULL, 
+					 TO_CHAR, POS_RESTING);
 		  
 			affect_remove(victim, paf);
 		}
@@ -4657,164 +4352,3 @@ void reboot_muddy(void)
 	}
 	merc_down = TRUE;    
 }
-
-void do_flag_mob(CHAR_DATA *ch, const char *argument, CHAR_DATA *victim);
-
-void do_flag(CHAR_DATA *ch, const char *argument)
-{
-	char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
-
-	argument = one_argument(argument, arg1);
-	argument = one_argument(argument, arg2);
-
-	if (arg1[0] == '\0') {
-		send_to_char("Syntax:\n\r",ch);
-		send_to_char("  flag mob  <name> <field> <flags>\n\r",ch);
-		send_to_char("  flag char <name> <field> <flags>\n\r",ch);
-		send_to_char("  flag obj  <name> <field> <flags>\n\r",ch);
-		send_to_char("  flag room <room> <field> <flags>\n\r",ch);
-		send_to_char("  mob flags : act, aff, off, imm, res, vuln, form, part, det, pra\n\r",ch);
-		send_to_char("  char flags: plr, comm, aff, imm, res, vuln\n\r",ch);
-		send_to_char("  obj flags : extra, wear, cont, gate, exit\n\r",ch);
-		send_to_char("  room flags: room\n\r",ch);
-		send_to_char("  +: add flag, -: remove flag, = set equal to\n\r",ch);
-		send_to_char("  otherwise flag toggles the flags listed.\n\r",ch);
-		return;
-	}
-
-	if (arg2[0] == '\0') {
-		send_to_char("What do you wish to set flags on?\n\r",ch);
-		return;
-	}
-
-	if (!str_prefix(arg1, "mob") || !str_prefix(arg1, "char")) {
-		CHAR_DATA *victim;
-		victim = get_char_world(ch, arg2);
-		if (victim == NULL) {
-			send_to_char("You can't find them.\n\r",ch);
-			return;
-		}
-		do_flag_mob(ch, argument, victim);
-	}
-	send_to_char("That's not an acceptable target.\n\r",ch);
-}
-
-void do_flag_mob(CHAR_DATA *ch, const char *argument, CHAR_DATA *victim)
-{
-	char arg1[MAX_INPUT_LENGTH];
-	const FLAG *flag_table;
-	int *flag;
-	int marked;
-
-	argument = one_argument(argument, arg1);
-
-	if (arg1[0] == '\0') {
-		send_to_char("You need to specify a flag to set.\n\r",ch);
-		return;
-	}
-
-	if (argument[0] == '\0') {
-		send_to_char("Which flags do you wish to change?\n\r",ch);
-		return;
-	}
-
-        /* select a flag to set */
-	if (!str_prefix(arg1, "act")) {
-		if (!IS_NPC(victim)) {
-			send_to_char("Use plr for PCs.\n\r",ch);
-			return;
-		}
-
-		flag = &victim->act;
-		flag_table = act_flags;
-	}
-	else if (!str_prefix(arg1, "plr")) {
-		if (IS_NPC(victim)) {
-			send_to_char("Use act for NPCs.\n\r",ch);
-			return;
-		}
-
-		flag = &victim->act;
-		flag_table = plr_flags;
-	}
- 	else if (!str_prefix(arg1, "aff")) {
-		flag = &victim->affected_by;
-		flag_table = affect_flags;
-	}
-	else if (!str_prefix(arg1, "det")) {
-		flag = &victim->detection;
-		flag_table = detect_flags;
-	}
-  	else if (!str_prefix(arg1, "immunity")) {
-		flag = &victim->imm_flags;
-		flag_table = imm_flags;
-	}
-	else if (!str_prefix(arg1, "resist")) {
-		flag = &victim->res_flags;
-		flag_table = imm_flags;
-	}
-	else if (!str_prefix(arg1, "vuln")) {
-		flag = &victim->vuln_flags;
-		flag_table = imm_flags;
-	}
-	else if (!str_prefix(arg1, "form")) {
-		if (!IS_NPC(victim)) {
-	 		send_to_char("Form can't be set on PCs.\n\r",ch);
-			return;
-		}
-		flag = &victim->form;
-		flag_table = form_flags;
-	}
-	else if (!str_prefix(arg1, "parts")) {
-		if (!IS_NPC(victim)) {
-			send_to_char("Parts can't be set on PCs.\n\r",ch);
-			return;
-		}
-		flag = &victim->parts;
-		flag_table = part_flags;
-	}
-	else if (!str_prefix(arg1,"comm")) {
-		if (IS_NPC(victim)) {
-			send_to_char("Comm can't be set on NPCs.\n\r",ch);
-			return;
-		}
-		flag = &victim->comm;
-		flag_table = comm_flags;
-	}
-	else {
-		send_to_char("That's not an acceptable flag.\n\r",ch);
-		return;
-	}
-
-	victim->zone = NULL;
-	marked = 0;
-
-        /* mark the words */
-        for (; ;) {
-		char word[MAX_INPUT_LENGTH];
-		const FLAG *f;
-
-		argument = one_argument(argument, word);
-
-		if (word[0] == '\0')
-			break;
-
-		if ((f = flag_lookup(flag_table, word)) == NULL) {
-			char_printf(ch, "'%s': unknown flag.\n\r", word);
-			return;
-		}
-		if (!f->settable) {
-			char_printf(ch, "'%s': flag is not settable.\n\r",
-				    f->name);
-			continue;
-		}
-		SET_BIT(marked, f->bit);
-	}
-
-	if (marked) {
-		TOGGLE_BIT(*flag, marked);
-		char_printf(ch, "'%s': flag(s) toggled.\n\r",
-			    flag_string(flag_table, marked));
-	}
-}
-

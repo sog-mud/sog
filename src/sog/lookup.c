@@ -1,5 +1,5 @@
 /*
- * $Id: lookup.c,v 1.11 1998-08-17 18:47:06 fjoe Exp $
+ * $Id: lookup.c,v 1.12 1998-09-01 18:29:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,47 +44,32 @@
 #include <stdio.h>
 #include <time.h>
 #include "merc.h"
-#include "tables.h"
-#include "lookup.h"
-#include "db.h"
-#include "log.h"
 
 int position_lookup(const char *name)
 {
 	return flag_value(position_table, name);
 }
 
-
 int size_lookup (const char *name)
 {
 	return flag_value(size_table, name);
 }
 
-int slang_lookup (const char *name)
+int weapon_lookup (const char *name)
 {
-   int lang;
-
-   if (LOWER(name[0]) == 'm' && 
-     (!str_prefix(name,"mothertongue") || !str_prefix(name,"motherlanguage")))
-   return SLANG_MAX;
-
-   for (lang = 0; lang < SLANG_MAX; lang++)
-   {
-	if (LOWER(name[0]) == LOWER(slang_table[lang].name[0])
-	&&  !str_prefix(name,slang_table[lang].name))
-	    return lang;
-   }
-   
-   return -1;
+	return flag_value(weapon_class, name);
 }
 
-	 
+int item_lookup(const char *name)
+{
+	return flag_value(item_types, name);
+}
+
 /* returns material number */
-int material_lookup (const char *name)
+int material_lookup(const char *name)
 {
 	return 0;
 }
-
 
 /* returns race number */
 int race_lookup (const char *name)
@@ -115,38 +100,6 @@ int liq_lookup (const char *name)
 
 	return LIQ_WATER;
 }
-
-
-int weapon_lookup (const char *name)
-{
-	int type;
-
-	for (type = 0; weapon_table[type].name != NULL; type++)
-	{
-		if (LOWER(name[0]) == LOWER(weapon_table[type].name[0])
-		&&  !str_prefix(name,weapon_table[type].name))
-		    return type;
-	}
- 
-	return -1;
-}
-
-
-int item_lookup(const char *name)
-{
-	int type;
-
-	for (type = 0; item_table[type].name != NULL; type++)
-	{
-	    if (LOWER(name[0]) == LOWER(item_table[type].name[0])
-	    &&  !str_prefix(name,item_table[type].name))
-	        return item_table[type].type;
-	}
- 
-	return -1;
-}
-
-
 int attack_lookup  (const char *name)
 {
 	int att;
@@ -178,74 +131,3 @@ long wiznet_lookup (const char *name)
 }
 
 
-/* returns class number */
-int class_lookup (const char *name)
-{
-   int class;
- 
-   for (class = 0; class < (MAX_CLASS-1); class++)
-   {
-	    if (LOWER(name[0]) == LOWER(class_table[class].name[0])
-	    &&  !str_prefix(name,class_table[class].name))
-	        return class;
-   }
- 
-   return -1;
-}
-
-
-int clan_lookup (const char *argument)
-{
-   int clan;
- 
-   for (clan = 0; clan_table[clan].long_name; clan++) {
-	    if (LOWER(argument[0]) == LOWER(clan_table[clan].short_name[0])
-	    &&  !str_prefix(argument,clan_table[clan].short_name))
-	        return clan;
-   }
- 
-   return -1;
-}
-
-
-/*
- * Lookup a skill by name.
- */
-int skill_lookup(const char *name)
-{
-	int sn;
-
-	if (name == NULL)
-		return -1;
-
-	for (sn = 0; sn < MAX_SKILL; sn++) {
-		if (skill_table[sn].name == NULL)
-			break;
-		if (LOWER(name[0]) == LOWER(skill_table[sn].name[0])
-		&&  !str_prefix(name, skill_table[sn].name))
-			return sn;
-	}
-
-	return -1;
-}
-
-/*
- * Lookup a skill by slot number.
- * Used for object loading.
- */
-int slot_lookup(int slot)
-{
-	int sn;
-
-	if (slot <= 0)
-		return -1;
-
-	for (sn = 0; sn < MAX_SKILL; sn++)
-	{
-		if (slot == skill_table[sn].slot)
-		    return sn;
-	}
-
-	db_error("slot_lookup", "bad slot %d.", slot);
-	return -1;
-}

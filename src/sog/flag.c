@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.8 1998-08-18 17:18:21 fjoe Exp $
+ * $Id: flag.c,v 1.9 1998-09-01 18:29:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -27,9 +27,7 @@
 #include <string.h>
 #include <time.h>
 #include "merc.h"
-#include "tables.h"
 #include "util.h"
-#include "db.h"
 #include "comm.h"
 #include "log.h"
 
@@ -49,39 +47,50 @@ struct flag_stat_type
 const struct flag_stat_type flag_stat_table[] =
 {
 /*	{ structure		is_stat	}, */
-	{ area_flags,		FALSE	},
-	{ sex_table,		TRUE	},
-	{ exit_flags,		FALSE	},
-	{ door_resets,		TRUE	},
-	{ room_flags,		FALSE	},
-	{ sector_types,		TRUE	},
-	{ type_flags,		TRUE	},
-	{ extra_flags,		FALSE	},
-	{ wear_flags,		FALSE	},
 	{ act_flags,		FALSE	},
+/*	{ skill_flags,		FALSE	},	not implemented yet */
+	{ plr_flags,		FALSE	},
 	{ affect_flags,		FALSE	},
-	{ detect_flags,		FALSE	},
-	{ skill_groups,		FALSE	},
-	{ apply_flags,		TRUE	},
-	{ apply_types,		TRUE	},
-	{ wear_loc_flags,	TRUE	},
-	{ wear_loc_strings,	TRUE	},
-	{ container_flags,	FALSE	},
-	{ form_flags,		FALSE	},
-	{ part_flags,		FALSE	},
-	{ ac_type,		TRUE	},
-	{ size_table,		TRUE	},
-	{ position_table,	TRUE	},
+	{ raffect_flags,	FALSE	},
 	{ off_flags,		FALSE	},
 	{ imm_flags,		FALSE	},
+	{ form_flags,		FALSE	},
+	{ part_flags,		FALSE	},
+	{ comm_flags,		FALSE	},
+	{ extra_flags,		FALSE	},
+	{ wear_flags,		FALSE	},
+	{ portal_flags,		FALSE	},
+	{ room_flags,		FALSE	},
+	{ exit_flags,		FALSE	},
+	{ area_flags,		FALSE	},
+	{ sector_types,		TRUE	},
+	{ wear_loc_strings,	TRUE	},
+	{ wear_loc_flags,	TRUE	},
+	{ door_resets,		TRUE	},
 	{ res_flags,		FALSE	},
 	{ vuln_flags,		FALSE	},
-	{ weapon_class,		TRUE	},
-	{ weapon_type2,		FALSE	},
-	{ apply_types,		TRUE	},
-	{ mptrig_flags,		FALSE	},
-	{ mptrig_types,		TRUE	},
+	{ apply_flags,		TRUE	},
+	{ rapply_flags,		TRUE	},
+	{ sex_table,		TRUE	},
 	{ furniture_flags,	TRUE	},
+	{ weapon_class,		TRUE	},
+	{ apply_types,		TRUE	},
+	{ weapon_type2,		FALSE	},
+	{ size_table,		TRUE	},
+	{ position_table,	TRUE	},
+	{ ac_type,		TRUE	},
+	{ cont_flags,		FALSE	},
+	{ skill_groups,		FALSE	},
+	{ skill_targets,	TRUE	},
+	{ mptrig_types,		TRUE	},
+	{ mptrig_flags,		FALSE	},
+	{ clan_flags,		FALSE	},
+	{ item_types,		TRUE	},
+	{ slang_table,		TRUE	},
+	{ stat_names,		TRUE	},
+	{ skill_flags,		FALSE	},
+	{ class_flags,		FALSE	},
+	{ align_names,		TRUE	},
 	{ NULL }
 };
 
@@ -122,14 +131,14 @@ const FLAG* flag_lookup(const FLAG *f, const char *name)
  Purpose:	Returns the value of the flags entered.  Multi-flags accepted.
  Called by:	olc.c and olc_act.c.
  ****************************************************************************/
-int flag_value(const FLAG *flag_table, const char *argument)
+flag_t flag_value(const FLAG *flag_table, const char *argument)
 {
 	const FLAG *f;
-	int marked;
+	flag_t marked;
 
 	if (is_stat(flag_table)) {
 		if ((f = flag_lookup(flag_table, argument)) == NULL)
-			return 0;
+			return -1;
 		return f->bit;
 	}
 
@@ -162,7 +171,7 @@ int flag_value(const FLAG *flag_table, const char *argument)
  Purpose:	Returns string with name(s) of the flags or stat entered.
  Called by:	act_olc.c, olc.c, and olc_save.c.
  ****************************************************************************/
-char *flag_string(const FLAG *flag_table, int bits)
+char *flag_string(const FLAG *flag_table, flag_t bits)
 {
 	static char buf[NBUFS][BUFSZ];
 	static int cnt = 0;
@@ -188,5 +197,38 @@ char *flag_string(const FLAG *flag_table, int bits)
 		}
 	}
 	return (buf[cnt][0] != '\0') ? buf[cnt]+1 : stat ? "unknown" : "none";
+}
+
+void show_flags_buf(BUFFER *output, const FLAG *flag_table)
+{
+	int  flag;
+	int  col;
+ 
+	col = 0;
+	for (flag = 0; flag_table[flag].name != NULL; flag++) {
+		if (flag_table[flag].settable) {
+			buf_printf(output, "%-19.18s", flag_table[flag].name);
+			if (++col % 4 == 0)
+				buf_add(output, "\n\r");
+		}
+	}
+ 
+	if (col % 4 != 0)
+		buf_add(output, "\n\r");
+
+}
+
+/*****************************************************************************
+ Name:		show_flags
+ Purpose:	Displays settable flags and stats.
+ ****************************************************************************/
+void show_flags(CHAR_DATA *ch, const FLAG *flag_table)
+{
+	BUFFER *output;
+
+	output = buf_new(0);
+	show_flags_buf(output, flag_table);
+	page_to_char(buf_string(output), ch);
+	buf_free(output);
 }
 

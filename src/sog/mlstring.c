@@ -1,19 +1,15 @@
 /*
- * $Id: mlstring.c,v 1.13 1998-08-18 17:18:21 fjoe Exp $
+ * $Id: mlstring.c,v 1.14 1998-09-01 18:29:19 fjoe Exp $
  */
 
 #include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
+
 #include "merc.h"
 #include "db.h"
-#include "resource.h"
-#include "log.h"
-#include "string_edit.h"
-#include "buffer.h"
-#include "mlstring.h"
-#include "util.h"
 
 /*
  * multi-language string implementation

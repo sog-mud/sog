@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.86 1998-08-17 18:47:03 fjoe Exp $
+ * $Id: comm.c,v 1.87 1998-09-01 18:29:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -78,26 +78,16 @@
 #include <stdlib.h>
 
 #include "merc.h"
-#include "recycle.h"
-#include "comm.h"
 #include "act_wiz.h"
 #include "act_info.h"
-#include "db.h"
-#include "resource.h"
 #include "charset.h"
 #include "hometown.h"
-#include "lookup.h"
-#include "magic.h"
 #include "quest.h"
 #include "update.h"
-#include "log.h"
 #include "interp.h"
 #include "olc.h"
 #include "mob_prog.h"
-#include "string_edit.h"
-#include "mlstring.h"
-#include "util.h"
-#include "buffer.h"
+#include "ban.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_help		);
@@ -204,141 +194,6 @@ char 	go_ahead_str	[] = { IAC, GA, '\0' };
 
 char *get_stat_alias		args((CHAR_DATA* ch, int which));
 
-
-/*
- * OS-dependent declarations.
- */
-
-#if	defined(_AIX)
-#include <sys/select.h>
-int	accept		args((int s, struct sockaddr *addr, int *addrlen));
-int	bind		args((int s, struct sockaddr *name, int namelen));
-void	bzero		args((char *b, int length));
-int	getpeername	args((int s, struct sockaddr *name, int *namelen));
-int	getsockname	args((int s, struct sockaddr *name, int *namelen));
-int	gettimeofday	args((struct timeval *tp, struct timezone *tzp));
-int	listen		args((int s, int backlog));
-int	setsockopt	args((int s, int level, int optname, void *optval,
-			    int optlen));
-int	socket		args((int domain, int type, int protocol));
-#endif
-
-#if	defined(apollo)
-#include <unistd.h>
-void	bzero		args((char *b, int length));
-#endif
-
-#if	defined(__hpux)
-int	accept		args((int s, void *addr, int *addrlen));
-int	bind		args((int s, const void *addr, int addrlen));
-void	bzero		args((char *b, int length));
-int	getpeername	args((int s, void *addr, int *addrlen));
-int	getsockname	args((int s, void *name, int *addrlen));
-int	gettimeofday	args((struct timeval *tp, struct timezone *tzp));
-int	listen		args((int s, int backlog));
-int	setsockopt	args((int s, int level, int optname,
- 				const void *optval, int optlen));
-int	socket		args((int domain, int type, int protocol));
-#endif
-
-#if	defined(interactive)
-#include <net/errno.h>
-#include <sys/fnctl.h>
-#endif
-
-#if	defined(linux)
-int accept __P ((int __sockfd, __const struct sockaddr *__peer,	int *__paddrlen));
-int bind __P ((int __sockfd, __const struct sockaddr *__my_addr,int __addrlen));
-/*
-int	accept		args((int s, struct sockaddr *addr, int *addrlen));
-int	bind		args((int s, struct sockaddr *name, int namelen));
-*/
-int	close		args((int fd));
-int	getpeername	args((int s, struct sockaddr *name, int *namelen));
-int	getsockname	args((int s, struct sockaddr *name, int *namelen));
-int	gettimeofday	args((struct timeval *tp, struct timezone *tzp));
-int	listen		args((int s, int backlog));
-int	read		args((int fd, char *buf, int nbyte));
-int	select		args((int width, fd_set *readfds, fd_set *writefds,
-			    fd_set *exceptfds, struct timeval *timeout));
-int	socket		args((int domain, int type, int protocol));
-int	write		args((int fd, char *buf, int nbyte));
-#endif
-
-#if	defined(MIPS_OS)
-extern	int		errno;
-#endif
-
-#if	defined(NeXT)
-int	close		args((int fd));
-int	fcntl		args((int fd, int cmd, int arg));
-#if	!defined(htons)
-u_short	htons		args((u_short hostshort));
-#endif
-#if	!defined(ntohl)
-u_long	ntohl		args((u_long hostlong));
-#endif
-int	read		args((int fd, char *buf, int nbyte));
-int	select		args((int width, fd_set *readfds, fd_set *writefds,
-			    fd_set *exceptfds, struct timeval *timeout));
-int	write		args((int fd, char *buf, int nbyte));
-#endif
-
-#if	defined(sequent)
-int	accept		args((int s, struct sockaddr *addr, int *addrlen));
-int	bind		args((int s, struct sockaddr *name, int namelen));
-int	close		args((int fd));
-int	fcntl		args((int fd, int cmd, int arg));
-int	getpeername	args((int s, struct sockaddr *name, int *namelen));
-int	getsockname	args((int s, struct sockaddr *name, int *namelen));
-int	gettimeofday	args((struct timeval *tp, struct timezone *tzp));
-#if	!defined(htons)
-u_short	htons		args((u_short hostshort));
-#endif
-int	listen		args((int s, int backlog));
-#if	!defined(ntohl)
-u_long	ntohl		args((u_long hostlong));
-#endif
-int	read		args((int fd, char *buf, int nbyte));
-int	select		args((int width, fd_set *readfds, fd_set *writefds,
-			    fd_set *exceptfds, struct timeval *timeout));
-int	setsockopt	args((int s, int level, int optname, caddr_t optval,
-			    int optlen));
-int	socket		args((int domain, int type, int protocol));
-int	write		args((int fd, char *buf, int nbyte));
-#endif
-
-/* This includes Solaris Sys V as well */
-#if defined(SUNOS)
-#	include <crypt.h>
-#	include "compat.h"
-#endif
-
-#if defined(SVR4)
-#	include <arpa/inet.h>
-#	include <crypt.h>
-#endif
-
-#if defined(ultrix)
-int	accept		args((int s, struct sockaddr *addr, int *addrlen));
-int	bind		args((int s, struct sockaddr *name, int namelen));
-void	bzero		args((char *b, int length));
-int	close		args((int fd));
-int	getpeername	args((int s, struct sockaddr *name, int *namelen));
-int	getsockname	args((int s, struct sockaddr *name, int *namelen));
-int	gettimeofday	args((struct timeval *tp, struct timezone *tzp));
-int	listen		args((int s, int backlog));
-int	read		args((int fd, char *buf, int nbyte));
-int	select		args((int width, fd_set *readfds, fd_set *writefds,
-			    fd_set *exceptfds, struct timeval *timeout));
-int	setsockopt	args((int s, int level, int optname, void *optval,
-			    int optlen));
-int	socket		args((int domain, int type, int protocol));
-int	write		args((int fd, char *buf, int nbyte));
-#endif
-
-
-
 /*
  * Global variables.
  */
@@ -352,8 +207,6 @@ bool		    newlock;		/* Game is newlocked		*/
 char		    str_boot_time[MAX_INPUT_LENGTH];
 time_t		    current_time;	/* time of this pulse */	
 int                 iNumPlayers = 0; /* The number of players on */
- 
-
 
 /*
  * OS-dependent local functions.
@@ -405,10 +258,9 @@ int main(int argc, char **argv)
 	/*
 	 * Reserve one channel for our use.
 	 */
-	if ((fpReserve = fopen(NULL_FILE, "r")) == NULL)
-	{
-	perror(NULL_FILE);
-	exit(1);
+	if ((fpReserve = fopen(NULL_FILE, "r")) == NULL) {
+		perror(NULL_FILE);
+		exit(1);
 	}
 
 	/*
@@ -450,6 +302,39 @@ int main(int argc, char **argv)
 	return 0;
 }
 
+
+/* stuff for recycling descriptors */
+DESCRIPTOR_DATA *descriptor_free;
+
+DESCRIPTOR_DATA *new_descriptor(void)
+{
+    static DESCRIPTOR_DATA d_zero;
+    DESCRIPTOR_DATA *d;
+
+    if (descriptor_free == NULL)
+	d = alloc_perm(sizeof(*d));
+    else
+    {
+	d = descriptor_free;
+	descriptor_free = descriptor_free->next;
+    }
+	
+    *d = d_zero;
+    VALIDATE(d);
+    return d;
+}
+
+void free_descriptor(DESCRIPTOR_DATA *d)
+{
+    if (!IS_VALID(d))
+	return;
+
+    free_string( d->host );
+    free_mem( d->outbuf, d->outsize );
+    INVALIDATE(d);
+    d->next = descriptor_free;
+    descriptor_free = d;
+}
 
 
 int init_socket(int port)
@@ -1296,7 +1181,7 @@ void bust_a_prompt(CHAR_DATA *ch)
 		case 'X':
 			if (!IS_NPC(ch)) {
 				snprintf(buf2, sizeof(buf2), "%d",
-					 exp_to_level(ch,ch->pcdata->points));
+					 exp_to_level(ch));
 				i = buf2;
 			}
 			else
@@ -1491,18 +1376,7 @@ int hometown_check(CHAR_DATA *ch);
 int hometown_ok(CHAR_DATA *ch, int home);
 int ethos_check(CHAR_DATA *ch);
 
-/* add skills */
-void add_race_skills(CHAR_DATA* ch, int race)
-{
-	int i;
-	for (i = 0; i < 5; i++) {
-		int sn = skill_lookup(pc_race_table[race].skills[i]);
-
-		if (sn < 0)
-			break;
-		ch->pcdata->learned[sn] = 100;
-	}
-}
+void advance(CHAR_DATA *victim, int level);
 
 /*
  * Deal with sockets that haven't logged in yet.
@@ -1824,7 +1698,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	    break;
 	}
 
-	    ORG_RACE(ch) = race;
+	ORG_RACE(ch) = race;
 	RACE(ch) = race;
 	for (i=0; i < MAX_STATS;i++)
 	      ch->mod_stat[i] = 0;
@@ -1833,9 +1707,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	for (i = 0; i < MAX_STATS; i++)
 	    ch->mod_stat[i] += pc_race_table[race].stats[i];	*/
 
-	for (i = 0; i < MAX_SKILL; i++)
-		ch->pcdata->learned[i] = 0;
-
 	/* Add race modifiers */
 	ch->max_hit += pc_race_table[race].hp_bonus;
 	ch->hit = ch->max_hit;
@@ -1843,15 +1714,12 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	ch->mana = ch->max_mana;
 	ch->practice = pc_race_table[race].prac_bonus;
 
-	ch->detection   = ch->affected_by|race_table[race].det;
 	ch->affected_by = ch->affected_by|race_table[race].aff;
 	ch->imm_flags	= ch->imm_flags|race_table[race].imm;
 	ch->res_flags	= ch->res_flags|race_table[race].res;
 	ch->vuln_flags	= ch->vuln_flags|race_table[race].vuln;
 	ch->form	= race_table[race].form;
 	ch->parts	= race_table[race].parts;
-
-	add_race_skills(ch, race);
 
 	/* add cost */
 	ch->pcdata->points = pc_race_table[race].points;
@@ -1880,18 +1748,18 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 	strcpy(buf, "Select a class:\n\r[ ");
 	sprintf(buf1,"             (Continuing:)  ");
-	for (iClass = 0; iClass < (MAX_CLASS-1); iClass++)
+	for (iClass = 0; iClass < classes->nused; iClass++)
 	{
 	  if (class_ok(ch,iClass))
 	    {
 	     if (iClass < 7)
 	      {
-	      	strcat(buf, class_table[iClass].name);
+	      	strcat(buf, CLASS(iClass)->name);
 	      	strcat(buf, " ");
 	      }
 	     else
 	      {
-	      	strcat(buf1, class_table[iClass].name);
+	      	strcat(buf1, CLASS(iClass)->name);
 	      	strcat(buf1, " ");
 	      }
 	    }
@@ -1906,7 +1774,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	    break;
 
 	case CON_GET_NEW_CLASS:
-	iClass = class_lookup(argument);
+	iClass = cln_lookup(argument);
 	argument = one_argument(argument,arg);
 
 	if (!str_cmp(arg,"help"))
@@ -1936,13 +1804,13 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 	    ch->class = iClass;
 
-	ch->pcdata->points += class_table[iClass].points;
-	    act("You are now $t.", ch, class_table[iClass].name, NULL, TO_CHAR);
+	ch->pcdata->points += CLASS(iClass)->points;
+	    act("You are now $t.", ch, CLASS(iClass)->name, NULL, TO_CHAR);
 
 	for (i=0; i < MAX_STATS; i++)
 	  {
 	   ch->perm_stat[i] = number_range(10, 
-(20 + pc_race_table[ORG_RACE(ch)].stats[i] + class_table[ch->class].stats[i]));
+(20 + pc_race_table[ORG_RACE(ch)].stats[i] + CLASS(iClass)->stats[i]));
 	  ch->perm_stat[i] = UMIN(25, ch->perm_stat[i]);
 	  }
 
@@ -1991,7 +1859,7 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	for (i=0; i < MAX_STATS; i++)
 	  {
 	   ch->perm_stat[i] = number_range(10, 
-(20 + pc_race_table[ORG_RACE(ch)].stats[i] + class_table[ch->class].stats[i]));
+(20 + pc_race_table[ORG_RACE(ch)].stats[i] + CLASS(ch->class)->stats[i]));
 	  ch->perm_stat[i] = UMIN(25, ch->perm_stat[i]);
 	  }
 
@@ -2143,10 +2011,8 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	     break;
 
 	case CON_CREATE_DONE:
-	log_printf("%s@%s new player.", ch->name, d->host);
-	    group_add(ch);
-	    ch->pcdata->learned[gsn_recall] = 75;
-	    write_to_buffer(d, "\n\r", 2);
+		log_printf("%s@%s new player.", ch->name, d->host);
+		write_to_buffer(d, "\n\r", 2);
 	    do_help(ch, "motd");
 	    d->connected = CON_READ_MOTD;
 	    return;
@@ -2244,13 +2110,13 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 		d->connected = CON_READ_MOTD;
 	/* FALL THRU */
 	case CON_READ_MOTD:
+		update_skills(ch);
 		write_to_buffer(d, 
 		"\n\rWelcome to Muddy Multi User Dungeon. Enjoy!!...\n\r",
 		    0);
 		ch->next	= char_list;
 		char_list	= ch;
 		d->connected	= CON_PLAYING;
-		reset_char(ch);
 		{
 			int count;
 			extern int max_on;
@@ -2261,17 +2127,17 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 				if (d->connected == CON_PLAYING)
 			       		count++;
 			max_on = UMAX(count, max_on);
-			if(!(max_on_file = fopen(MAX_ON_FILE, "r")))
-				bug("nanny: couldn't open MAX_ON_FILE for read",					 0);
+			if(!(max_on_file = dfopen(TMP_PATH, MAXON_FILE, "r")))
+				log_printf("nanny: couldn't open %s for read",
+					   MAXON_FILE);
 			else {
 				fscanf(max_on_file, "%d", &tmp);
 				fclose(max_on_file);
 			}
 			if (tmp < max_on) {
-				if(!(max_on_file = fopen(MAX_ON_FILE, "w"))) {
-					bug("nanny: couldn't open MAX_ON_FILE "
-					    "for write", 0);
-				}
+				if(!(max_on_file = dfopen(TMP_PATH, MAXON_FILE, "w")))
+					log_printf("nanny: couldn't open %s"
+						   "for write", MAXON_FILE);
 				fprintf(max_on_file, "%d", max_on);
 				log("Global max_on changed.");
 				fclose(max_on_file);
@@ -2281,10 +2147,10 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 
 
 	if (ch->level == 0) {
-		char title[MAX_TITLE_LENGTH];
+		int sn;
 
 	    ch->level	= 1;
-	    ch->exp     = base_exp(ch,ch->pcdata->points);
+	    ch->exp     = base_exp(ch);
 	    ch->hit	= ch->max_hit;
 	    ch->mana	= ch->max_mana;
 	    ch->move	= ch->max_move;
@@ -2292,10 +2158,7 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	    ch->practice += 5;
 	    ch->pcdata->death = 0;
 
-		snprintf(title, sizeof(title), "the %s",
-			title_table [ch->class] [ch->level]
-			[ch->sex == SEX_FEMALE ? 1 : 0]);
-		set_title(ch, title);
+		set_title(ch, title_lookup(ch));
 
 	    do_outfit(ch, "");
 
@@ -2318,8 +2181,9 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	    if (ch->hometown == 4)
 	  obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP_OLD),0),ch);
 
-		if (!skill_is_native(ch, get_weapon_sn(ch, WEAR_WIELD)))
- 	    		ch->pcdata->learned[get_weapon_sn(ch, WEAR_WIELD)] = 40;
+		sn = get_weapon_sn(ch, WEAR_WIELD);
+		if (get_skill(ch, sn) < 40) 
+			set_skill(ch, get_weapon_sn(ch, WEAR_WIELD), 40);
 
 	    char_to_room(ch, get_room_index(ROOM_VNUM_SCHOOL));
 	    send_to_char("\n\r",ch);
@@ -2339,19 +2203,32 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	    char_to_room(ch, get_room_index(ROOM_VNUM_TEMPLE));
 	}
 
-	if  (!IS_IMMORTAL(ch)) 
-		act("$n has entered the game.", ch, NULL,NULL, TO_ROOM);
-	if (ch->exp < (exp_per_level(ch,ch->pcdata->points) * ch->level))
-		{
-		 ch->exp = (ch->level) * (exp_per_level(ch,ch->pcdata->points));
-		}
-	else if (ch->exp > (exp_per_level(ch,ch->pcdata->points) * (ch->level + 1)))
-		{
-		 ch->exp = (ch->level + 1) * (exp_per_level(ch,ch->pcdata->points));
-		 ch->exp -= 10;
+		if (!IS_IMMORTAL(ch)) {
+			act("$n has entered the game.", ch, NULL,NULL, TO_ROOM);
+			for (i = 2; exp_for_level(ch, i) < ch->exp; i++)
+				;
+
+			if (i < ch->level) {
+				int con;
+				int wis;
+				int inte;
+
+				con = ch->perm_stat[STAT_CON];
+				wis = ch->perm_stat[STAT_WIS];
+				inte = ch->perm_stat[STAT_INT];
+				ch->perm_stat[STAT_CON] = get_max_train(ch, STAT_CON);
+				ch->perm_stat[STAT_WIS] = get_max_train(ch, STAT_WIS);
+				ch->perm_stat[STAT_INT] = get_max_train(ch, STAT_INT);
+				do_remove(ch, "all");
+				advance(ch, i-1);
+		 		ch->perm_stat[STAT_CON] = con;
+		 		ch->perm_stat[STAT_WIS] = wis;
+		 		ch->perm_stat[STAT_INT] = inte;
+			}
 		}
 
-		
+		reset_char(ch);
+
 		/* quest code */
 		nextquest = -abs(ch->pcdata->questtime);
 		quest_cancel(ch);
@@ -2364,12 +2241,12 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 	    for (i = 0; i < MAX_STATS; i++)
 	{
 	    if (ch->perm_stat[i] > 
-(20 + pc_race_table[ORG_RACE(ch)].stats[i] + class_table[ch->class].stats[i]))
+(20 + pc_race_table[ORG_RACE(ch)].stats[i] + CLASS(ch->class)->stats[i]))
 	  {
 	   ch->train += (ch->perm_stat[i] - 
-(20 + pc_race_table[ORG_RACE(ch)].stats[i] + class_table[ch->class].stats[i]));
+(20 + pc_race_table[ORG_RACE(ch)].stats[i] + CLASS(ch->class)->stats[i]));
 	   ch->perm_stat[i] = 
-	20 + pc_race_table[ORG_RACE(ch)].stats[i] + class_table[ch->class].stats[i];
+	20 + pc_race_table[ORG_RACE(ch)].stats[i] + CLASS(ch->class)->stats[i];
 	  }
 	}
 
@@ -2393,7 +2270,6 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
     return;
 }
 
-
 /*
  * Parse a name for acceptability.
  */
@@ -2406,78 +2282,65 @@ bool check_parse_name(const char *name)
 	/*
 	 * Reserved words.
 	 */
-	if (is_name(name, 
-	"all auto immortal self something the you demise balance circle loner honor none"))
-	return FALSE;
+	if (is_name(name, "all auto immortals self someone something the you "
+			  "demise balance circle loner honor none"))
+		return FALSE;
 	
-	if (!str_cmp(capitalize(name),"Chronos") || !str_prefix("Chro",name)
-	|| !str_suffix("ronos",name))
-	return FALSE;
-
 	/*
 	 * Length restrictions.
 	 */
 	 
 	if (strlen(name) <  2)
-	return FALSE;
+		return FALSE;
 
 	if (strlen(name) > 12)
-	return FALSE;
+		return FALSE;
 
 	/*
 	 * Alphanumerics only.
 	 * Lock out IllIll twits.
 	 */
 	fIll = TRUE;
-	for (pc = name; *pc != '\0'; pc++)
-	{
-	    if (!isalpha(*pc))
-		return FALSE;
+	for (pc = name; *pc != '\0'; pc++) {
+		if (!isalpha(*pc))
+			return FALSE;
 
-	    if (isupper(*pc)) /* ugly anti-caps hack */
-	    {
-		if (adjcaps)
-		    cleancaps = TRUE;
-		total_caps++;
-		adjcaps = TRUE;
-	    }
-	    else
-		adjcaps = FALSE;
+		if (isupper(*pc)) { /* ugly anti-caps hack */
+			if (adjcaps)
+				cleancaps = TRUE;
+			total_caps++;
+			adjcaps = TRUE;
+		}
+		else
+			adjcaps = FALSE;
 
-	    if (LOWER(*pc) != 'i' && LOWER(*pc) != 'l')
-		fIll = FALSE;
+		if (LOWER(*pc) != 'i' && LOWER(*pc) != 'l')
+			fIll = FALSE;
 	}
 
 	if (fIll)
-	    return FALSE;
+		return FALSE;
 
 	if (total_caps > strlen(name) / 2)
-	    return FALSE;
+		return FALSE;
 
 	/*
 	 * Prevent players from naming themselves after mobs.
 	 */
 	{
-	extern MOB_INDEX_DATA *mob_index_hash[MAX_KEY_HASH];
-	MOB_INDEX_DATA *pMobIndex;
-	int iHash;
+		MOB_INDEX_DATA *pMobIndex;
+		int iHash;
 
-	for (iHash = 0; iHash < MAX_KEY_HASH; iHash++)
-	{
-	    for (pMobIndex  = mob_index_hash[iHash];
-		  pMobIndex != NULL;
-		  pMobIndex  = pMobIndex->next)
-	    {
-		if (is_name(name, pMobIndex->name))
-		    return FALSE;
-	    }
-	}
+		for (iHash = 0; iHash < MAX_KEY_HASH; iHash++) {
+			for (pMobIndex  = mob_index_hash[iHash];
+			     pMobIndex != NULL; pMobIndex  = pMobIndex->next) 
+				if (is_name(name, pMobIndex->name))
+					return FALSE;
+		}
 	}
 
 	return TRUE;
 }
-
-
 
 /*
  * Look for link-dead player to reconnect.
@@ -2523,8 +2386,6 @@ bool check_reconnect(DESCRIPTOR_DATA *d, const char *name, bool fConn)
 
 	return FALSE;
 }
-
-
 
 /*
  * Check if already playing.
@@ -2600,11 +2461,9 @@ void parse_colors(const char *i, CHAR_DATA *ch, char *o, size_t len)
 
 	reset_color = curr_color = CLEAR;
 	for (p = o; *i && p - o < len - 1; i++) {
-		if (*i == '{') {
-			if (*++i) {
-				strnzcpy(p, color(*i, ch), len - 1 - (p - o));
-				p = strchr(p, '\0');
-			}
+		if (*i == '{' && *(i+1)) {
+			strnzcpy(p, color(*++i, ch), len - 1 - (p - o));
+			p = strchr(p, '\0');
 			continue;
 		}
 		*p++ = *i;
@@ -2644,7 +2503,6 @@ void page_to_char(const char *txt, CHAR_DATA *ch)
 	ch->desc->showstr_point = ch->desc->showstr_head;
 	show_string(ch->desc, "");
 }
-
 
 /* string pager */
 void show_string(struct descriptor_data *d, char *input)
@@ -2708,117 +2566,125 @@ static
 void act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	     const void *arg1, const void *arg2, char *str, int flags)
 {
-    CHAR_DATA 	*vch = (CHAR_DATA *) arg2;
-    OBJ_DATA 	*obj1 = (OBJ_DATA  *) arg1;
-    OBJ_DATA 	*obj2 = (OBJ_DATA  *) arg2;
-    char	*point;
-    char 	*i;
-    char 	buf[MAX_STRING_LENGTH];
-    char 	tmp[MAX_STRING_LENGTH];
-    char 	fname[MAX_INPUT_LENGTH];
+	CHAR_DATA *	vch = (CHAR_DATA*) arg2;
+	OBJ_DATA *	obj1 = (OBJ_DATA*) arg1;
+	OBJ_DATA *	obj2 = (OBJ_DATA*) arg2;
+	char 		buf	[MAX_STRING_LENGTH];
+	char 		tmp	[MAX_STRING_LENGTH];
+	char 		fname	[MAX_INPUT_LENGTH];
+	char *		point = buf;
+	char *		s = str;
+	char *		i;
 
-    point   = buf;
-
-    while(*str)
-	if (*str == '$') {
-		++str;
-		i = " <@@@> ";
-		if (!arg2 && *str >= 'A' && *str <= 'Z' &&  *str != 'G') {
-			bug("Act: missing arg2 for code %d.", (int)*str);
+	while(*s) {
+		if (*s != '$') {
+			*point++ = *s++;
 			continue;
 		}
-		switch (*str) {
-		default:  
-			bug("Act: bad code %d.", (int)*str);
-			break;
 
+/* parse control chars */
+		s++;
+
+		if (!arg2 && *s >= 'A' && *s <= 'Z') {
+			log_printf("act_raw: '%s': missing arg2", str);
+			continue;
+		}
+
+		switch (*s) {
+		default:  
+			i = " <@@@> ";
+			log_printf("act_raw: '%s': bad code '%c'", str, *s);
+			break;
+	
 		case 't': 
 			i = (char *) arg1;                            
 			break;
-
+	
 		case 'T': 
 			i = (char *) arg2;                            
 			break;
-
+	
 		case 'n':
 			i = PERS(ch, to);
 			break;
-
+	
 		case 'N':
 			i = PERS(vch, to);
 			break;
-
+	
 		case 'e':
 			i = he_she[URANGE(0, ch->sex, SEX_MAX-1)];    
 			break;
-
+	
 		case 'E':
 			i = he_she[URANGE(0, vch->sex, SEX_MAX-1)];
 			break;
-
+	
 		case 'm':
 			i = him_her[URANGE(0, ch->sex, SEX_MAX-1)];
 			break;
-
+	
 		case 'M':
-			i = him_her  [URANGE(0, vch->sex, SEX_MAX-1)];
+			i = him_her[URANGE(0, vch->sex, SEX_MAX-1)];
 			break;
-
+	
 		case 's':
-			i = his_her [URANGE(0, ch->sex, SEX_MAX-1)];
+			i = his_her[URANGE(0, ch->sex, SEX_MAX-1)];
 			break;
-
+	
 		case 'S':
-			i = his_her  [URANGE(0, vch->sex, SEX_MAX-1)];
+			i = his_her[URANGE(0, vch->sex, SEX_MAX-1)];
 			break;
-
+	
 		case 'p':
-			i = can_see_obj(to, obj1)
-			  ? mlstr_cval(obj1->short_descr, to)
-			  : "something";
+			i = can_see_obj(to, obj1) ?
+				mlstr_cval(obj1->short_descr, to) : "something";
 			break;
-
+	
 		case 'P':
-			i = can_see_obj(to, obj2)
-			  ? mlstr_cval(obj2->short_descr, to)
-			  : "something";
+			i = can_see_obj(to, obj2) ?
+				mlstr_cval(obj2->short_descr, to) : "something";
 			break;
-
+	
 		case 'd':
-			if (!arg2 || ((char *) arg2)[0] == '\0')
-			    i = "door";
+			if (IS_NULLSTR(arg2))
+				i = "door";
 			else {
-			    one_argument((char *) arg2, fname);
-			    i = fname;
+				one_argument(arg2, fname);
+				i = fname;
 			}
 			break;
 		}
-		++str;
-
-		if(i) {
+		s++;
+	
+		if (i) {
 			while((*point++ = *i++));
 			point--;
 		}
-	} else
-		*point++ = *str++;
+	}
  
-    *point++	= '\n';
-    *point++	= '\r';
-    *point	= '\0';
+	*point++	= '\n';
+	*point++	= '\r';
+	*point		= '\0';
 
-    parse_colors(buf, to, tmp, sizeof(tmp)); 
-    tmp[0] = UPPER(tmp[0]);
+/* first non-control char is uppercased */
+	for (s = buf; *s == '{'; s++)
+		if (*(s+1))
+			s++;
+	*s = UPPER(*s);
 
-    if (to->desc)
-    	write_to_buffer(to->desc, tmp, 0);
-    else if (!IS_NPC(to)) {
-	if (IS_SET(flags, TO_BUF))
-		buf_add(to->pcdata->buffer, tmp);
-    }
-    else if (!IS_SET(flags, NO_TRIGGER))
-    	mp_act_trigger(tmp, to, ch, arg1, arg2, TRIG_ACT);
+	parse_colors(buf, to, tmp, sizeof(tmp)); 
+
+	if (!IS_NPC(to)) {
+		if ((IS_SET(to->comm, COMM_AFK) || to->desc == NULL)
+		&&  IS_SET(flags, TO_BUF))
+			buf_add(to->pcdata->buffer, tmp);
+		else if (to->desc)
+			write_to_buffer(to->desc, tmp, 0);
+	}
+	else if (!IS_SET(flags, NO_TRIGGER))
+		mp_act_trigger(tmp, to, ch, arg1, arg2, TRIG_ACT);
 }
-
 
 void act_nprintf(CHAR_DATA *ch, const void *arg1, 
 	      const void *arg2, int flags, int min_pos, int msgid, ...)
@@ -2916,6 +2782,48 @@ void act_printf(CHAR_DATA *ch, const void *arg1,
 	}
 }
 
+void act_mlputs(CHAR_DATA *ch, const void *arg1, 
+		const void *arg2, int flags, int min_pos,
+		mlstring* text)
+{
+	CHAR_DATA *to;
+	CHAR_DATA *vch = (CHAR_DATA *) arg2;
+
+	if (ch == NULL || ch->in_room == NULL || text == NULL)
+		return;
+
+	to = ch->in_room->people;
+	if (IS_SET(flags, TO_VICT)) {
+		if (vch == NULL) {
+	        	bug("Act: null vch with TO_VICT.", 0);
+	        	return;
+		}
+
+		if (vch->in_room == NULL)
+			return;
+
+		to = vch->in_room->people;
+	}
+ 
+	for(; to ; to = to->next_in_room) {
+		if ((IS_NPC(to) && !HAS_TRIGGER(to, TRIG_ACT))
+	/*	||  (!IS_NPC(to) && to->desc == NULL) */
+		||  to->position < min_pos)
+	        	continue;
+ 
+		if (IS_SET(flags, TO_CHAR) && to != ch)
+			continue;
+		if (IS_SET(flags, TO_VICT) && (to != vch || to == ch))
+			continue;
+		if (IS_SET(flags, TO_ROOM) && to == ch)
+			continue;
+		if (IS_SET(flags, TO_NOTVICT) && (to == ch || to == vch))
+			continue;
+	
+		act_raw(ch, to, arg1, arg2, mlstr_cval(text, to), flags);
+	}
+}
+
 char* color(char type, CHAR_DATA *ch)
 {
 	char *color;
@@ -2925,8 +2833,6 @@ char* color(char type, CHAR_DATA *ch)
 		return "\a";
 	case '{':
 		return "{";
-	case '\\':
-		return "\n\r";
 	}
 
 	if (IS_NPC(ch) || !IS_SET(ch->act, PLR_COLOR))
@@ -3006,7 +2912,6 @@ char* color(char type, CHAR_DATA *ch)
 	return curr_color = color;
 }
 
-
 /*
  *  writes bug directly to user screen.
  */
@@ -3015,15 +2920,13 @@ void dump_to_scr(char *text)
 	write(1, text, strlen(text));
 }
 
-
 int log_area_popularity(void)
 {
 	FILE *fp;
 	AREA_DATA *area;
 	extern AREA_DATA *area_first;
 
-	system("rm -f area_stat.txt");
-	fp = fopen(AREASTAT_FILE, "a");
+	fp = dfopen(TMP_PATH, AREASTAT_FILE, "w");
 	fprintf(fp,"\nBooted %sArea popularity statistics (in char * ticks)\n",
 	        str_boot_time);
 
@@ -3044,14 +2947,14 @@ int log_area_popularity(void)
 
 void exit_function()
 {
-  dump_to_scr("Exiting from the player saver.\n\r");
-  wait(NULL);
+	dump_to_scr("Exiting from the player saver.\n\r");
+	wait(NULL);
 }
 
 char *get_stat_alias(CHAR_DATA *ch, int where)
 {
-char *stat;
-int istat;
+	char *stat;
+	int istat;
 
 	if (where == STAT_STR)  {
 	  istat=get_curr_stat(ch,STAT_STR);
@@ -3124,7 +3027,6 @@ int istat;
 
 }
 
-
 bool class_ok(CHAR_DATA *ch , int class)
 {
 	if (pc_race_table[ORG_RACE(ch)].class_mult[class] == -1
@@ -3137,32 +3039,29 @@ bool class_ok(CHAR_DATA *ch , int class)
 
 int align_restrict(CHAR_DATA *ch)
 {
- DESCRIPTOR_DATA *d = ch->desc;
+	DESCRIPTOR_DATA *d = ch->desc;
 
 	if (IS_SET(pc_race_table[ORG_RACE(ch)].align,CR_GOOD)
-	|| IS_SET(class_table[ch->class].align,CR_GOOD))
-	  {
-	write_to_buffer(d, "Your character has good tendencies.\n\r",0);
-	ch->alignment = 1000;
-	return N_ALIGN_GOOD;
-	  }
+	||  IS_SET(CLASS(ch->class)->align,CR_GOOD)) {
+		write_to_buffer(d, "Your character has good tendencies.\n\r",0);
+		ch->alignment = 1000;
+		return CR_GOOD;
+	}
 
 	if (IS_SET(pc_race_table[ORG_RACE(ch)].align,CR_NEUTRAL)
-	|| IS_SET(class_table[ch->class].align,CR_NEUTRAL))
-	  {
-	write_to_buffer(d, "Your character has neutral tendencies.\n\r",0);
-	ch->alignment = 0;
-	return N_ALIGN_NEUTRAL;
-	  }
+	||  IS_SET(CLASS(ch->class)->align,CR_NEUTRAL)) {
+		write_to_buffer(d, "Your character has neutral tendencies.\n\r",0);
+		ch->alignment = 0;
+		return CR_NEUTRAL;
+	}
 
 	if (IS_SET(pc_race_table[ORG_RACE(ch)].align,CR_EVIL)
-	|| IS_SET(class_table[ch->class].align,CR_EVIL))
-	  {
-	write_to_buffer(d, "Your character has evil tendencies.\n\r",0);
-	ch->alignment = -1000;
-	return N_ALIGN_EVIL;
-	  }		
-   return N_ALIGN_ALL;		
+	||  IS_SET(CLASS(ch->class)->align,CR_EVIL)) {
+		write_to_buffer(d, "Your character has evil tendencies.\n\r",0);
+		ch->alignment = -1000;
+		return CR_EVIL;
+	}		
+	return CR_NONE;		
 }
 
 int hometown_check(CHAR_DATA *ch)
@@ -3192,8 +3091,8 @@ int hometown_check(CHAR_DATA *ch)
 
 int hometown_ok(CHAR_DATA *ch, int home)
 {
- if (!IS_NEUTRAL(ch) && home == 3) return 0;
- return 1;
+	if (!IS_NEUTRAL(ch) && home == 3) return 0;
+		return 1;
 }
 
 int ethos_check(CHAR_DATA *ch)
@@ -3206,5 +3105,4 @@ int ethos_check(CHAR_DATA *ch)
 	}
 	return 0;
 }
-
 

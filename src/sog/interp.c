@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.56 1998-08-17 19:21:03 fjoe Exp $
+ * $Id: interp.c,v 1.57 1998-09-01 18:29:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,7 +52,6 @@
 #include "act_wiz.h"
 #include "act_comm.h"
 #include "act_info.h"
-#include "db.h"
 #include "comm.h"
 #include "resource.h"
 #include "log.h"
@@ -160,7 +159,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "news",		do_news,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "raffects",	do_raffects,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "rating",		do_rating,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "read",		do_read,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "read",		do_look,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "report",		do_report,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "rules",		do_rules,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "scan",           do_scan,        POS_RESTING,     0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
@@ -280,7 +279,6 @@ const	struct	cmd_type	cmd_table	[] =
     { "rent",		do_rent,	POS_DEAD,	 0,  LOG_NORMAL, 0,0 },
     { "save",		do_save,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
     { "sleep",		do_sleep,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "slist",		do_slist,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "sneak",		do_sneak,	POS_STANDING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "split",		do_split,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
     { "steal",		do_steal,	POS_STANDING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
@@ -304,7 +302,6 @@ const	struct	cmd_type	cmd_table	[] =
     { "give",		do_give,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "heal",		do_heal,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 }, 
     { "hold",		do_wear,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "holler",		do_holler,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "layhands",	do_layhands,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
     { "list",		do_list,	POS_RESTING,	 0,  LOG_NORMAL, 1,CMD_KEEP_HIDE | CMD_GHOST },
     { "lock",		do_lock,	POS_RESTING,	 0,  LOG_NORMAL, 1, 0 },
@@ -399,7 +396,6 @@ const	struct	cmd_type	cmd_table	[] =
     { "ban",		do_ban,		POS_DEAD,	L2,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "deny",		do_deny,	POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "disconnect",	do_disconnect,	POS_DEAD,	L3,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "flag",		do_flag,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "freeze",		do_freeze,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "permban",	do_permban,	POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "protect",	do_protect,	POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
@@ -407,7 +403,6 @@ const	struct	cmd_type	cmd_table	[] =
     { "reboot",		do_reboot,	POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "smite",		do_smite,	POS_DEAD,	L2,  LOG_ALWAYS, 1,0 },
     { "limited",	do_limited,	POS_DEAD,	L2,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "lookup",		do_slookup,	POS_DEAD,	L2,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "popularity",	do_popularity,	POS_DEAD,	L2,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "shutdow",	do_shutdow,	POS_DEAD,	L1,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST },
     { "shutdown",	do_shutdown,	POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST},
@@ -451,7 +446,6 @@ const	struct	cmd_type	cmd_table	[] =
     { "wizinvis",	do_invis,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "vnum",		do_vnum,	POS_DEAD,	L4,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "zecho",		do_zecho,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "clan_scan",	do_clan_scan,	POS_STANDING,    60,  LOG_NEVER, 0, CMD_KEEP_HIDE|CMD_GHOST },
     { "clone",		do_clone,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "wiznet",		do_wiznet,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
     { "immtalk",	do_immtalk,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
@@ -484,16 +478,18 @@ const	struct	cmd_type	cmd_table	[] =
     /*
      * OLC
      */
-    { "edit",		do_olc,		POS_DEAD,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "asave",          do_asave,	POS_DEAD,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "alist",		do_alist,	POS_DEAD,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "resets",		do_resets,	POS_DEAD,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "redit",		do_redit,	POS_DEAD,    0,	 LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "medit",		do_medit,	POS_DEAD,    0,	 LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "aedit",		do_aedit,	POS_DEAD,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "oedit",		do_oedit,	POS_DEAD,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "mpedit",		do_mpedit,	POS_DEAD,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "hedit",		do_hedit,	POS_DEAD,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "edit",		do_olc,		POS_DEAD,   IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "asave",          do_asave,	POS_DEAD,   IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "alist",		do_alist,	POS_DEAD,   IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "clist",		do_clist,	POS_DEAD,   IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "resets",		do_resets,	POS_DEAD,   IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "redit",		do_redit,	POS_DEAD,   IM,	 LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "medit",		do_medit,	POS_DEAD,   IM,	 LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "aedit",		do_aedit,	POS_DEAD,   IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "oedit",		do_oedit,	POS_DEAD,   IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "mpedit",		do_mpedit,	POS_DEAD,   IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "hedit",		do_hedit,	POS_DEAD,   IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "cedit",		do_cedit,	POS_DEAD,   IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
 
     /*
      * End of list.
@@ -548,7 +544,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 
 #ifdef IMMORTALS_LOGS
  	if (IS_IMMORTAL(ch)) {
-		if ((imm_log = fopen(IMM_LOG_FILE, "a+")) == NULL)
+		if ((imm_log = dfopen(GODS_PATH, IMMLOG_FILE, "a+")) == NULL)
 			bug("cannot open imm_log_file", 0);
 		else {
 			strtime = (char *) malloc(100);
@@ -606,10 +602,10 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 				    MSG_N_STEPS_OUT_OF_SHADOWS);
         	}
 
-		if (IS_AFFECTED(ch, AFF_IMP_INVIS) && !IS_NPC(ch)
+		if (IS_AFFECTED(ch, AFF_IMP) && !IS_NPC(ch)
 		&& (cmd_table[cmd].position == POS_FIGHTING)) {
-			affect_strip(ch, gsn_imp_invis);
-			REMOVE_BIT(ch->affected_by, AFF_IMP_INVIS);
+			affect_strip(ch, gsn_improved_invis);
+			REMOVE_BIT(ch->affected_by, AFF_IMP);
 			char_nputs(MSG_YOU_FADE_INTO_EXIST, ch);
 			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				    MSG_N_FADES_INTO_EXIST);
@@ -764,10 +760,10 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 			  POS_RESTING); 
 	}
 
-	if (IS_AFFECTED(ch, AFF_IMP_INVIS) && !IS_NPC(ch)
+	if (IS_AFFECTED(ch, AFF_IMP) && !IS_NPC(ch)
 	&& (cmd_table[cmd].position == POS_FIGHTING)) {
-		affect_strip(ch, gsn_imp_invis);
-		REMOVE_BIT(ch->affected_by, AFF_IMP_INVIS);
+		affect_strip(ch, gsn_improved_invis);
+		REMOVE_BIT(ch->affected_by, AFF_IMP);
 		char_nputs(MSG_YOU_FADE_INTO_EXIST, ch);
 		act_nputs(MSG_N_FADES_INTO_EXIST, ch, NULL, NULL, TO_ROOM,
 			  POS_RESTING);
@@ -847,7 +843,7 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
  */
 bool is_number(const char *argument)
 {
-	if (*argument == '\0')
+	if (IS_NULLSTR(argument))
     		return FALSE;
  
 	if (*argument == '+' || *argument == '-')

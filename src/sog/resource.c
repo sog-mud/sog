@@ -1,15 +1,11 @@
 /*
- * $Id: resource.c,v 1.31 1998-08-15 12:40:49 fjoe Exp $
+ * $Id: resource.c,v 1.32 1998-09-01 18:29:20 fjoe Exp $
  */
 
 #include <limits.h>
 #include <stdio.h>
 #include <time.h>
 #include "merc.h"
-#include "resource.h"
-#include "db.h"
-#include "comm.h"
-#include "log.h"
 #include "interp.h"
 
 #ifdef SUNOS
@@ -146,7 +142,7 @@ static void lang_load(int lang, char* fname);
 static void msgid_add(char* name, int msgid);
 static msgid_lookup(char* name);
 static msgid_cmp(const void*, const void*);
-static char* name_lookup(int msgid);
+static char* msgid_name_lookup(int msgid);
 
 void msgdb_load()
 {
@@ -161,7 +157,7 @@ void msgdb_load()
 	 * load msg identifiers
 	 */
 
-	f = fopen(RESOURCE_H, "r");
+	f = dfopen(MSGDB_PATH, RESOURCE_H, "r");
 	if (f == NULL) {
 		perror(RESOURCE_H);
 		exit(EX_NOINPUT);
@@ -212,7 +208,7 @@ void msgdb_load()
 	/*
 	 * load language files
 	 */
-	f = fopen(LANG_LST, "r");
+	f = dfopen(MSGDB_PATH, LANG_LST, "r");
 	if (f == NULL) {
 		perror(LANG_LST);
 		exit(EX_NOINPUT);
@@ -262,7 +258,7 @@ lang_load(int lang, char* fname)
 	char buf[BUFSZ];
 	FILE* f;
 
-	f = fopen(fname, "r");
+	f = dfopen(MSGDB_PATH, fname, "r");
 	if (f == NULL) {
 		perror(fname);
 		exit(EX_NOINPUT);
@@ -435,7 +431,7 @@ lang_load(int lang, char* fname)
 			undefined = 1;
 		if (undefined) {
 			fprintf(stderr, "%s: %s undefined\n",
-				fname, name_lookup(i));
+				fname, msgid_name_lookup(i));
 			err = 1;
 		}
 	}
@@ -487,7 +483,7 @@ msgid_add(char* name, int msgid)
 
 static
 char*
-name_lookup(int msgid)
+msgid_name_lookup(int msgid)
 {
 	int i;
 

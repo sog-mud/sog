@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.60 1998-08-17 18:47:02 fjoe Exp $
+ * $Id: act_obj.c,v 1.61 1998-09-01 18:29:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,29 +46,15 @@
 #include <string.h>
 #include <stdlib.h>
 #include "merc.h"
-#include "comm.h"
-#include "db.h"
 #include "act_wiz.h"
 #include "act_comm.h"
-#include "magic.h"
 #include "quest.h"
 #include "update.h"
-#include "util.h"
-#include "resource.h"
 #include "act_obj.h"
-#include "log.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
-#include "mlstring.h"
 #include "fight.h"
-
-/* command procedures needed */
-DECLARE_DO_FUN(do_split);
-DECLARE_DO_FUN(do_yell);
-DECLARE_DO_FUN(do_say);
-DECLARE_DO_FUN(do_mount);
-
-
+#include "interp.h"
 
 /*
  * Local functions.
@@ -76,10 +62,6 @@ DECLARE_DO_FUN(do_mount);
 #define CD CHAR_DATA
 #define OD OBJ_DATA
 
-DECLARE_SPELL_FUN(spell_enchant_weapon);
-
-bool remove_obj args((CHAR_DATA * ch, int iWear, bool fReplace));
-void wear_obj   args((CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace));
 CD             *find_keeper args((CHAR_DATA * ch));
 int get_cost    args((CHAR_DATA * keeper, OBJ_DATA * obj, bool fBuy));
 void obj_to_keeper args((OBJ_DATA * obj, CHAR_DATA * ch));
@@ -891,7 +873,9 @@ do_envenom(CHAR_DATA * ch, const char *argument)
 {
 	OBJ_DATA       *obj;
 	AFFECT_DATA     af;
-	int             percent, skill;
+	int		percent, chance;
+	int		sn;
+
 	/* find out what */
 	if (argument == '\0') {
 		send_to_char("Envenom what item?\n\r", ch);
@@ -903,46 +887,56 @@ do_envenom(CHAR_DATA * ch, const char *argument)
 		send_to_char("You don't have that item.\n\r", ch);
 		return;
 	}
-	if ((skill = get_skill(ch, gsn_envenom)) < 1) {
+
+	if ((sn = sn_lookup("envenom")) < 0
+	||  (chance = get_skill(ch, sn)) == 0) {
 		send_to_char("Are you crazy? You'd poison yourself!\n\r", ch);
 		return;
 	}
+
 	if (obj->item_type == ITEM_FOOD || obj->item_type == ITEM_DRINK_CON) {
-		if (IS_OBJ_STAT(obj, ITEM_BLESS) || IS_OBJ_STAT(obj, ITEM_BURN_PROOF)) {
+		if (IS_OBJ_STAT(obj, ITEM_BLESS)
+		||  IS_OBJ_STAT(obj, ITEM_BURN_PROOF)) {
 			act("You fail to poison $p.", ch, obj, NULL, TO_CHAR);
 			return;
 		}
-		if (number_percent() < skill) {	/* success! */
-			act("$n treats $p with deadly poison.", ch, obj, NULL, TO_ROOM);
-			act("You treat $p with deadly poison.", ch, obj, NULL, TO_CHAR);
+
+		if (number_percent() < chance) {	/* success! */
+			act("$n treats $p with deadly poison.",
+			    ch, obj, NULL, TO_ROOM);
+			act("You treat $p with deadly poison.",
+			    ch, obj, NULL, TO_CHAR);
 			if (!obj->value[3]) {
 				obj->value[3] = 1;
-				check_improve(ch, gsn_envenom, TRUE, 4);
+				check_improve(ch, sn, TRUE, 4);
 			}
-			WAIT_STATE(ch, skill_table[gsn_envenom].beats);
+			WAIT_STATE(ch, SKILL(sn)->beats);
 			return;
 		}
 		act("You fail to poison $p.", ch, obj, NULL, TO_CHAR);
 		if (!obj->value[3])
-			check_improve(ch, gsn_envenom, FALSE, 4);
-		WAIT_STATE(ch, skill_table[gsn_envenom].beats);
+			check_improve(ch, sn, FALSE, 4);
+		WAIT_STATE(ch, SKILL(sn)->beats);
 		return;
 	}
-	if (obj->item_type == ITEM_WEAPON) {
+	else if (obj->item_type == ITEM_WEAPON) {
 		if (IS_WEAPON_STAT(obj, WEAPON_FLAMING)
-		    || IS_WEAPON_STAT(obj, WEAPON_FROST)
-		    || IS_WEAPON_STAT(obj, WEAPON_VAMPIRIC)
-		    || IS_WEAPON_STAT(obj, WEAPON_SHARP)
-		    || IS_WEAPON_STAT(obj, WEAPON_VORPAL)
-		    || IS_WEAPON_STAT(obj, WEAPON_SHOCKING)
-		    || IS_WEAPON_STAT(obj, WEAPON_HOLY)
-		    || IS_OBJ_STAT(obj, ITEM_BLESS) || IS_OBJ_STAT(obj, ITEM_BURN_PROOF)) {
-			act("You can't seem to envenom $p.", ch, obj, NULL, TO_CHAR);
+		||  IS_WEAPON_STAT(obj, WEAPON_FROST)
+		||  IS_WEAPON_STAT(obj, WEAPON_VAMPIRIC)
+		||  IS_WEAPON_STAT(obj, WEAPON_SHARP)
+		||  IS_WEAPON_STAT(obj, WEAPON_VORPAL)
+		||  IS_WEAPON_STAT(obj, WEAPON_SHOCKING)
+		||  IS_WEAPON_STAT(obj, WEAPON_HOLY)
+		||  IS_OBJ_STAT(obj, ITEM_BLESS)
+		||  IS_OBJ_STAT(obj, ITEM_BURN_PROOF)) {
+			act("You can't seem to envenom $p.",
+			    ch, obj, NULL, TO_CHAR);
 			return;
 		}
 		if (obj->value[3] < 0
-		    || attack_table[obj->value[3]].damage == DAM_BASH) {
-			send_to_char("You can only envenom edged weapons.\n\r", ch);
+		||  attack_table[obj->value[3]].damage == DAM_BASH) {
+			char_puts("You can only envenom edged weapons.\n\r",
+				  ch);
 			return;
 		}
 		if (IS_WEAPON_STAT(obj, WEAPON_POISON)) {
@@ -950,8 +944,7 @@ do_envenom(CHAR_DATA * ch, const char *argument)
 			return;
 		}
 		percent = number_percent();
-		if (percent < skill) {
-
+		if (percent < chance) {
 			af.where = TO_WEAPON;
 			af.type = gsn_poison;
 			af.level = ch->level * percent / 100;
@@ -964,18 +957,17 @@ do_envenom(CHAR_DATA * ch, const char *argument)
 			if (!IS_AFFECTED(ch, AFF_SNEAK))
 				act("$n coats $p with deadly venom.", ch, obj, NULL, TO_ROOM);
 			act("You coat $p with venom.", ch, obj, NULL, TO_CHAR);
-			check_improve(ch, gsn_envenom, TRUE, 3);
-			WAIT_STATE(ch, skill_table[gsn_envenom].beats);
+			check_improve(ch, sn, TRUE, 3);
+			WAIT_STATE(ch, SKILL(sn)->beats);
 			return;
 		} else {
 			act("You fail to envenom $p.", ch, obj, NULL, TO_CHAR);
-			check_improve(ch, gsn_envenom, FALSE, 3);
-			WAIT_STATE(ch, skill_table[gsn_envenom].beats);
+			check_improve(ch, sn, FALSE, 3);
+			WAIT_STATE(ch, SKILL(sn)->beats);
 			return;
 		}
 	}
 	act("You can't poison $p.", ch, obj, NULL, TO_CHAR);
-	return;
 }
 
 void 
@@ -1377,10 +1369,7 @@ remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
 void 
 wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 {
-	int             wear_level = ch->level;
-	if ((class_table[ch->class].fMana && obj->item_type == ITEM_ARMOR)
-	 || (!class_table[ch->class].fMana && obj->item_type == ITEM_WEAPON))
-		wear_level += 3;
+	int             wear_level = get_wear_level(ch, obj);
 
 	if (wear_level < obj->level) {
 		char_printf(ch, msg(MSG_MUST_BE_LEVEL_TO_USE, ch), obj->level);
@@ -1666,8 +1655,6 @@ wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 	}
 	if (fReplace)
 		char_nputs(MSG_CANT_WEAR_IT, ch);
-
-	return;
 }
 
 
@@ -1944,11 +1931,8 @@ do_recite(CHAR_DATA * ch, const char *argument)
 	CHAR_DATA      *victim;
 	OBJ_DATA       *scroll;
 	OBJ_DATA       *obj;
-	if (ch->clan == CLAN_BATTLE) {
-		send_to_char(
-			     "RECITE?!  You are a battle rager, not a filthy magician!\n\r", ch);
-		return;
-	}
+	int		sn;
+
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -1956,28 +1940,32 @@ do_recite(CHAR_DATA * ch, const char *argument)
 		char_nputs(MSG_DONT_HAVE_SCROLL, ch);
 		return;
 	}
+
 	if (scroll->item_type != ITEM_SCROLL) {
 		char_nputs(MSG_CAN_RECITE_ONLY_SCROLLS, ch);
 		return;
 	}
-	if (ch->level < scroll->level) {
+
+	if (ch->level < scroll->level
+	||  (sn = sn_lookup("scrolls")) < 0) {
 		char_nputs(MSG_SCROLL_TOO_COMPLEX, ch);
 		return;
 	}
+
 	obj = NULL;
 	if (arg2[0] == '\0')
 		victim = ch;
 	else if ((victim = get_char_room(ch, arg2)) == NULL
-		 && (obj = get_obj_here(ch, arg2)) == NULL) {
+	&&       (obj = get_obj_here(ch, arg2)) == NULL) {
 		char_nputs(MSG_CANT_FIND_IT, ch);
 		return;
 	}
 	act_nprintf(ch, scroll, NULL, TO_ROOM, POS_RESTING, MSG_N_RECITES_P);
 	act_nprintf(ch, scroll, NULL, TO_CHAR, POS_DEAD, MSG_YOU_RECITE_P);
 
-	if (number_percent() >= get_skill(ch, gsn_scrolls) * 4 / 5) {
+	if (number_percent() >= get_skill(ch, sn) * 4 / 5) {
 		char_nputs(MSG_MISPRONOUNCE_SYLLABLE, ch);
-		check_improve(ch, gsn_scrolls, FALSE, 2);
+		check_improve(ch, sn, FALSE, 2);
 	} else {
 		obj_cast_spell(scroll->value[1], scroll->value[0],
 			       ch, victim, obj);
@@ -1987,7 +1975,7 @@ do_recite(CHAR_DATA * ch, const char *argument)
 			       ch, victim, obj);
 		obj_cast_spell(scroll->value[4], scroll->value[0],
 			       ch, victim, obj);
-		check_improve(ch, gsn_scrolls, TRUE, 2);
+		check_improve(ch, sn, TRUE, 2);
 
 		if (IS_PUMPED(ch) || ch->fighting != NULL)
 			WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
@@ -2005,44 +1993,39 @@ do_brandish(CHAR_DATA * ch, const char *argument)
 	CHAR_DATA      *vch_next;
 	OBJ_DATA       *staff;
 	int             sn;
-	if (IS_SET(ch->act, PLR_GHOST)) {
-		send_to_char("You can't do it while being a ghost.\n\r", ch);
-	}
-	if (ch->clan == CLAN_BATTLE) {
-		send_to_char("You are not a filthy magician!\n\r", ch);
-		return;
-	}
+	SKILL_DATA *	sk;
+
 	if ((staff = get_eq_char(ch, WEAR_HOLD)) == NULL) {
 		send_to_char("You hold nothing in your hand.\n\r", ch);
 		return;
 	}
+
 	if (staff->item_type != ITEM_STAFF) {
 		send_to_char("You can brandish only with a staff.\n\r", ch);
 		return;
 	}
-	if ((sn = staff->value[3]) < 0
-	    || sn >= MAX_SKILL
-	    || skill_table[sn].spell_fun == 0) {
-		bug("Do_brandish: bad sn %d.", sn);
+
+	if ((sk = skill_lookup(staff->value[3])) == NULL
+	||  sk->spell_fun == NULL
+	||  (sn = sn_lookup("staves")) < 0)
 		return;
-	}
+
 	WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 
 	if (staff->value[2] > 0) {
 		act("$n brandishes $p.", ch, staff, NULL, TO_ROOM);
 		act("You brandish $p.", ch, staff, NULL, TO_CHAR);
 		if (ch->level + 3 < staff->level
-		    || number_percent() >= 10 + get_skill(ch, gsn_staves) * 4 / 5) {
+		|| number_percent() >= 10 + get_skill(ch, sn) * 4 / 5) {
 			act("You fail to invoke $p.", ch, staff, NULL, TO_CHAR);
 			act("...and nothing happens.", ch, NULL, NULL, TO_ROOM);
-			check_improve(ch, gsn_staves, FALSE, 2);
+			check_improve(ch, sn, FALSE, 2);
 		} else
 			for (vch = ch->in_room->people; vch; vch = vch_next) {
 				vch_next = vch->next_in_room;
 
-				switch (skill_table[sn].target) {
+				switch (sk->target) {
 				default:
-					bug("Do_brandish: bad target for sn %d.", sn);
 					return;
 
 				case TAR_IGNORE:
@@ -2069,8 +2052,9 @@ do_brandish(CHAR_DATA * ch, const char *argument)
 				if (is_safe(ch, vch))
 					continue;
 
-				obj_cast_spell(staff->value[3], staff->value[0], ch, vch, NULL);
-				check_improve(ch, gsn_staves, TRUE, 2);
+				obj_cast_spell(staff->value[3],
+					       staff->value[0], ch, vch, NULL);
+				check_improve(ch, sn, TRUE, 2);
 			}
 	}
 	if (--staff->value[2] <= 0) {
@@ -2078,7 +2062,6 @@ do_brandish(CHAR_DATA * ch, const char *argument)
 		act("Your $p blazes bright and is gone.", ch, staff, NULL, TO_CHAR);
 		extract_obj(staff);
 	}
-	return;
 }
 
 
@@ -2090,10 +2073,8 @@ do_zap(CHAR_DATA * ch, const char *argument)
 	CHAR_DATA      *victim;
 	OBJ_DATA       *wand;
 	OBJ_DATA       *obj;
-	if (ch->clan == CLAN_BATTLE) {
-		send_to_char("You'd destroy the magic, not use it!\n\r", ch);
-		return;
-	}
+	int		sn;
+
 	one_argument(argument, arg);
 	if (arg[0] == '\0' && ch->fighting == NULL) {
 		send_to_char("Zap whom or what?\n\r", ch);
@@ -2107,6 +2088,10 @@ do_zap(CHAR_DATA * ch, const char *argument)
 		send_to_char("You can zap only with a wand.\n\r", ch);
 		return;
 	}
+
+	if ((sn = sn_lookup("wands")) < 0)
+		return;
+
 	obj = NULL;
 	if (arg[0] == '\0') {
 		if (ch->fighting != NULL) {
@@ -2138,15 +2123,16 @@ do_zap(CHAR_DATA * ch, const char *argument)
 		}
 
 		if (ch->level + 5 < wand->level
-		    || number_percent() >= 20 + get_skill(ch, gsn_wands) * 4 / 5) {
+		|| number_percent() >= 20 + get_skill(ch, sn) * 4 / 5) {
 			act("Your efforts with $p produce only smoke and sparks.",
 			    ch, wand, NULL, TO_CHAR);
 			act("$n's efforts with $p produce only smoke and sparks.",
 			    ch, wand, NULL, TO_ROOM);
-			check_improve(ch, gsn_wands, FALSE, 2);
+			check_improve(ch, sn, FALSE, 2);
 		} else {
-			obj_cast_spell(wand->value[3], wand->value[0], ch, victim, obj);
-			check_improve(ch, gsn_wands, TRUE, 2);
+			obj_cast_spell(wand->value[3], wand->value[0],
+				       ch, victim, obj);
+			check_improve(ch, sn, TRUE, 2);
 		}
 	}
 	if (--wand->value[2] <= 0) {
@@ -2154,10 +2140,7 @@ do_zap(CHAR_DATA * ch, const char *argument)
 		act("Your $p explodes into fragments.", ch, wand, NULL, TO_CHAR);
 		extract_obj(wand);
 	}
-	return;
 }
-
-
 
 void 
 do_steal(CHAR_DATA * ch, const char *argument)
@@ -2168,6 +2151,8 @@ do_steal(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *obj;
 	OBJ_DATA       *obj_inve;
 	int             percent;
+	int		sn;
+	
 	argument = one_argument(argument, arg1);
 	argument = one_argument(argument, arg2);
 
@@ -2194,14 +2179,15 @@ do_steal(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (is_safe(ch, victim))
+	if (is_safe(ch, victim)
+	||  (sn = sn_lookup("steal")) < 0)
 		return;
 	
-	WAIT_STATE(ch, skill_table[gsn_steal].beats);
+	WAIT_STATE(ch, SKILL(sn)->beats);
 	percent = number_percent() + (IS_AWAKE(victim) ? 10 : -50);
 	percent += can_see(victim, ch) ? -10 : 0;
 
-	if ((!IS_NPC(ch) && percent > get_skill(ch, gsn_steal))
+	if ((!IS_NPC(ch) && percent > get_skill(ch, sn))
 	||  IS_SET(victim->imm_flags, IMM_STEAL)
 	||  IS_IMMORTAL(victim)) {
 		/*
@@ -2246,8 +2232,8 @@ do_steal(CHAR_DATA * ch, const char *argument)
 			}
 
 		if (!IS_NPC(ch) && IS_NPC(victim)) {
-			check_improve(ch, gsn_steal, FALSE, 2);
-			multi_hit(victim, ch, TYPE_UNDEFINED, MSTRIKE);
+			check_improve(ch, sn, FALSE, 2);
+			multi_hit(victim, ch, TYPE_UNDEFINED);
 		}
 		return;
 	}
@@ -2275,7 +2261,7 @@ do_steal(CHAR_DATA * ch, const char *argument)
 		char_printf(ch, "Bingo!  You got %d %s coins.\n\r",
 			    amount_s != 0 ? amount_s : amount_g,
 			    amount_s != 0 ? "silver" : "gold");
-		check_improve(ch, gsn_steal, TRUE, 2);
+		check_improve(ch, sn, TRUE, 2);
 		return;
 	}
 	if ((obj = get_obj_carry(victim, arg1)) == NULL) {
@@ -2300,7 +2286,7 @@ do_steal(CHAR_DATA * ch, const char *argument)
 		obj_from_char(obj);
 		obj_to_char(obj, ch);
 		send_to_char("You got it!\n\r", ch);
-		check_improve(ch, gsn_steal, TRUE, 2);
+		check_improve(ch, sn, TRUE, 2);
 	} else {
 		obj_inve = NULL;
 		obj_inve = create_obj(obj->pIndexData, 0);
@@ -2308,7 +2294,7 @@ do_steal(CHAR_DATA * ch, const char *argument)
 		REMOVE_BIT(obj_inve->extra_flags, ITEM_INVENTORY);
 		obj_to_char(obj_inve, ch);
 		send_to_char("You got one of them!\n\r", ch);
-		check_improve(ch, gsn_steal, TRUE, 1);
+		check_improve(ch, sn, TRUE, 1);
 	}
 }
 
@@ -2546,6 +2532,7 @@ do_buy_pet(CHAR_DATA * ch, const char *argument)
 		check_improve(ch, gsn_haggle, TRUE, 4);
 	}
 	deduct_cost(ch, cost);
+	pet = create_mob(pet->pIndexData);
 	SET_BIT(pet->affected_by, AFF_CHARM);
 	pet->comm = COMM_NOTELL | COMM_NOSHOUT | COMM_NOCHANNELS;
 
@@ -2896,12 +2883,15 @@ do_herbs(CHAR_DATA * ch, const char *argument)
 {
 	CHAR_DATA      *victim;
 	char            arg[MAX_INPUT_LENGTH];
-	one_argument(argument, arg);
+	int		sn;
 
-	if (IS_NPC(ch))
+	if (IS_NPC(ch)
+	||  (sn = sn_lookup("herbs")) < 0)
 		return;
 
-	if (is_affected(ch, gsn_herbs)) {
+	one_argument(argument, arg);
+
+	if (is_affected(ch, sn)) {
 		send_to_char("You can't find any more herbs.\n\r", ch);
 		return;
 	}
@@ -2911,14 +2901,14 @@ do_herbs(CHAR_DATA * ch, const char *argument)
 		send_to_char("They're not here.\n\r", ch);
 		return;
 	}
-	WAIT_STATE(ch, skill_table[gsn_herbs].beats);
+	WAIT_STATE(ch, SKILL(sn)->beats);
 
-	if (ch->in_room->sector_type != SECT_INSIDE &&
-	    ch->in_room->sector_type != SECT_CITY &&
-	    (IS_NPC(ch) || number_percent() < get_skill(ch, gsn_herbs))) {
+	if (ch->in_room->sector_type != SECT_INSIDE
+	&&  ch->in_room->sector_type != SECT_CITY
+	&&  number_percent() < get_skill(ch, sn)) {
 		AFFECT_DATA     af;
 		af.where = TO_AFFECTS;
-		af.type = gsn_herbs;
+		af.type = sn;
 		af.level = ch->level;
 		af.duration = 5;
 		af.location = APPLY_NONE;
@@ -2940,52 +2930,61 @@ do_herbs(CHAR_DATA * ch, const char *argument)
 			act("$n looks better.", victim, NULL, NULL, TO_ROOM);
 		}
 		victim->hit = UMIN(victim->max_hit, victim->hit + 5 * ch->level);
-		check_improve(ch, gsn_herbs, TRUE, 1);
+		check_improve(ch, sn, TRUE, 1);
 		if (is_affected(victim, gsn_plague)) {
 			if (check_dispel(ch->level, victim, gsn_plague)) {
 				send_to_char("Your sores vanish.\n\r", victim);
-				act("$n looks relieved as $s sores vanish.", victim, NULL, NULL, TO_ROOM);
+				act("$n looks relieved as $s sores vanish.",
+				    victim, NULL, NULL, TO_ROOM);
 			}
 		}
 	} else {
-		send_to_char("You search for herbs but find none here.\n\r", ch);
+		char_puts("You search for herbs but find none here.\n\r", ch);
 		act("$n looks around for herbs.", ch, NULL, NULL, TO_ROOM);
-		check_improve(ch, gsn_herbs, FALSE, 1);
+		check_improve(ch, sn, FALSE, 1);
 	}
 }
 
-void 
-do_lore(CHAR_DATA * ch, const char *argument)
+void do_lore(CHAR_DATA * ch, const char *argument)
 {
-	char            arg1[MAX_INPUT_LENGTH];
-	OBJ_DATA       *obj;
-	AFFECT_DATA    *paf;
-	int             chance;
-	int             skill;
-	int             value0, value1, value2, value3, value4;
+	char		arg1[MAX_INPUT_LENGTH];
+	OBJ_DATA *	obj;
+	AFFECT_DATA *	paf;
+	int		chance;
+	int		percent;
+	int		value0, value1, value2, value3, value4;
+	int		mana;
+	int		max_skill;
+	int		sn;
+
 	argument = one_argument(argument, arg1);
 
 	if ((obj = get_obj_carry(ch, arg1)) == NULL) {
 		send_to_char("You do not have that object.\n\r", ch);
 		return;
 	}
-	if (ch->mana < 30) {
-		send_to_char("You don't have enough mana.\n\r", ch);
-		return;
-	}
-	if (IS_NPC(ch) || (skill = get_skill(ch, gsn_lore)) < 10) {
+
+	if ((sn = sn_lookup("lore")) < 0
+	||  (percent = get_skill(ch, sn)) < 10) {
 		send_to_char("The meaning of this object escapes you for the moment.\n\r", ch);
 		return;
 	}
+
+	mana = SKILL(sn)->min_mana;
+	if (ch->mana < mana) {
+		send_to_char("You don't have enough mana.\n\r", ch);
+		return;
+	}
+	ch->mana -= mana;
+
 	/* a random lore */
 	chance = number_percent();
 
-	if (skill < 20) {
+	if (percent < 20) {
 		char_printf(ch, "Object '%s'.\n\r", obj->name);
-		ch->mana -= 30;
-		check_improve(ch, gsn_lore, TRUE, 8);
+		check_improve(ch, sn, TRUE, 8);
 		return;
-	} else if (get_skill(ch, gsn_lore) < 40) {
+	} else if (percent < 40) {
 		char_printf(ch,
 			    "Object '%s'.  Weight is %d, value is %d.\n\r",
 			    obj->name,
@@ -2994,10 +2993,9 @@ do_lore(CHAR_DATA * ch, const char *argument)
 			);
 		if (str_cmp(obj->material, "oldstyle"))
 			char_printf(ch, "Material is %s.\n\r", obj->material);
-		ch->mana -= 30;
-		check_improve(ch, gsn_lore, TRUE, 7);
+		check_improve(ch, sn, TRUE, 7);
 		return;
-	} else if (get_skill(ch, gsn_lore) < 60) {
+	} else if (percent < 60) {
 		char_printf(ch,
 			    "Object '%s' has weight %d.\n\rValue is %d, level is %d.\n\rMaterial is %s.\n\r",
 			    obj->name,
@@ -3006,29 +3004,27 @@ do_lore(CHAR_DATA * ch, const char *argument)
 		  chance < 60 ? obj->level : number_range(1, 2 * obj->level),
 		str_cmp(obj->material, "oldstyle") ? obj->material : "unknown"
 			);
-		ch->mana -= 30;
-		check_improve(ch, gsn_lore, TRUE, 6);
+		check_improve(ch, sn, TRUE, 6);
 		return;
-	} else if (get_skill(ch, gsn_lore) < 80) {
+	} else if (percent < 80) {
 		char_printf(ch,
 			    "Object '%s' is type %s, extra flags %s.\n\rWeight is %d, value is %d, level is %d.\n\rMaterial is %s.\n\r",
 			    obj->name,
-			    item_type_name(obj),
-			    extra_bit_name(obj->extra_flags),
+			    flag_string(item_types, obj->item_type),
+			    flag_string(extra_flags, obj->extra_flags),
 			    obj->weight,
 		    chance < 60 ? number_range(1, 2 * obj->cost) : obj->cost,
 		  chance < 60 ? obj->level : number_range(1, 2 * obj->level),
 		str_cmp(obj->material, "oldstyle") ? obj->material : "unknown"
 			);
-		ch->mana -= 30;
-		check_improve(ch, gsn_lore, TRUE, 5);
+		check_improve(ch, sn, TRUE, 5);
 		return;
-	} else if (get_skill(ch, gsn_lore) < 85) 
+	} else if (percent < 85) 
 		char_printf(ch,
 			    "Object '%s' is type %s, extra flags %s.\n\rWeight is %d, value is %d, level is %d.\n\rMaterial is %s.\n\r",
 			    obj->name,
-			    item_type_name(obj),
-			    extra_bit_name(obj->extra_flags),
+			    flag_string(item_types, obj->item_type),
+			    flag_string(extra_flags, obj->extra_flags),
 			    obj->weight,
 			    obj->cost,
 			    obj->level,
@@ -3038,15 +3034,13 @@ do_lore(CHAR_DATA * ch, const char *argument)
 		char_printf(ch,
 			    "Object '%s' is type %s, extra flags %s.\n\rWeight is %d, value is %d, level is %d.\n\rMaterial is %s.\n\r",
 			    obj->name,
-			    item_type_name(obj),
-			    extra_bit_name(obj->extra_flags),
+			    flag_string(item_types, obj->item_type),
+			    flag_string(extra_flags, obj->extra_flags),
 			    obj->weight,
 			    obj->cost,
 			    obj->level,
 		str_cmp(obj->material, "oldstyle") ? obj->material : "unknown"
 			);
-
-	ch->mana -= 30;
 
 	value0 = obj->value[0];
 	value1 = obj->value[1];
@@ -3054,54 +3048,52 @@ do_lore(CHAR_DATA * ch, const char *argument)
 	value3 = obj->value[3];
 	value4 = obj->value[4];
 
+	max_skill = skills->nused;
+
 	switch (obj->item_type) {
 	case ITEM_SCROLL:
 	case ITEM_POTION:
 	case ITEM_PILL:
-		if (get_skill(ch, gsn_lore) < 85) {
+		if (percent < 85) {
 			value0 = number_range(1, 60);
 			if (chance > 40) {
-				value1 = number_range(1, (MAX_SKILL - 1));
+				value1 = number_range(1, (max_skill - 1));
 				if (chance > 60) {
-					value2 = number_range(1, (MAX_SKILL - 1));
+					value2 = number_range(1, (max_skill - 1));
 					if (chance > 80)
-						value3 = number_range(1, (MAX_SKILL - 1));
+						value3 = number_range(1, (max_skill - 1));
 				}
 			}
 		} else {
 			if (chance > 60) {
-				value1 = number_range(1, (MAX_SKILL - 1));
+				value1 = number_range(1, (max_skill - 1));
 				if (chance > 80) {
-					value2 = number_range(1, (MAX_SKILL - 1));
+					value2 = number_range(1, (max_skill - 1));
 					if (chance > 95)
-						value3 = number_range(1, (MAX_SKILL - 1));
+						value3 = number_range(1, (max_skill - 1));
 				}
 			}
 		}
 
 		char_printf(ch, "Level %d spells of:", obj->value[0]);
-
-		if (value1 >= 0 && value1 < MAX_SKILL)
-			char_printf(ch, " '%s'", skill_table[value1].name);
-
-		if (value2 >= 0 && value2 < MAX_SKILL)
-			char_printf(ch, " '%s'", skill_table[value2].name);
-
-		if (value3 >= 0 && value3 < MAX_SKILL)
-			char_printf(ch, " '%s'", skill_table[value3].name);
-
-		if (value4 >= 0 && value4 < MAX_SKILL)
-			char_printf(ch, " '%s'", skill_table[value4].name);
+		if (value1 >= 0)
+			char_printf(ch, " '%s'", skill_name(value1));
+		if (value2 >= 0)
+			char_printf(ch, " '%s'", skill_name(value2));
+		if (value3 >= 0)
+			char_printf(ch, " '%s'", skill_name(value3));
+		if (value4 >= 0)
+			char_printf(ch, " '%s'", skill_name(value4));
 
 		send_to_char(".\n\r", ch);
 		break;
 
 	case ITEM_WAND:
 	case ITEM_STAFF:
-		if (get_skill(ch, gsn_lore) < 85) {
+		if (percent < 85) {
 			value0 = number_range(1, 60);
 			if (chance > 40) {
-				value3 = number_range(1, (MAX_SKILL - 1));
+				value3 = number_range(1, (max_skill - 1));
 				if (chance > 60) {
 					value2 = number_range(0, 2 * obj->value[2]);
 					if (chance > 80)
@@ -3110,7 +3102,7 @@ do_lore(CHAR_DATA * ch, const char *argument)
 			}
 		} else {
 			if (chance > 60) {
-				value3 = number_range(1, (MAX_SKILL - 1));
+				value3 = number_range(1, (max_skill - 1));
 				if (chance > 80) {
 					value2 = number_range(0, 2 * obj->value[2]);
 					if (chance > 95)
@@ -3119,20 +3111,13 @@ do_lore(CHAR_DATA * ch, const char *argument)
 			}
 		}
 
-		char_printf(ch, "Has %d(%d) charges of level %d",
-			    value1, value2, value0);
-
-		if (value3 >= 0 && value3 < MAX_SKILL) {
-			send_to_char(" '", ch);
-			send_to_char(skill_table[value3].name, ch);
-			send_to_char("'", ch);
-		}
-		send_to_char(".\n\r", ch);
+		char_printf(ch, "Has %d(%d) charges of level %d '%s'.\n\r",
+			    value1, value2, value0, skill_name(value3));
 		break;
 
 	case ITEM_WEAPON:
 		send_to_char("Weapon type is ", ch);
-		if (get_skill(ch, gsn_lore) < 85) {
+		if (percent < 85) {
 			value0 = number_range(0, 8);
 			if (chance > 33) {
 				value1 = number_range(1, 2 * obj->value[1]);
@@ -3147,47 +3132,8 @@ do_lore(CHAR_DATA * ch, const char *argument)
 			}
 		}
 
-		switch (value0) {
-		case (WEAPON_EXOTIC):
-			send_to_char("exotic.\n\r", ch);
-			break;
-		case (WEAPON_SWORD):
-			send_to_char("sword.\n\r", ch);
-			break;
-		case (WEAPON_DAGGER):
-			send_to_char("dagger.\n\r", ch);
-			break;
-		case (WEAPON_SPEAR):
-			send_to_char("spear/staff.\n\r", ch);
-			break;
-		case (WEAPON_MACE):
-			send_to_char("mace/club.\n\r", ch);
-			break;
-		case (WEAPON_AXE):
-			send_to_char("axe.\n\r", ch);
-			break;
-		case (WEAPON_FLAIL):
-			send_to_char("flail.\n\r", ch);
-			break;
-		case (WEAPON_WHIP):
-			send_to_char("whip.\n\r", ch);
-			break;
-		case (WEAPON_POLEARM):
-			send_to_char("polearm.\n\r", ch);
-			break;
-		case (WEAPON_BOW):
-			send_to_char("bow.\n\r", ch);
-			break;
-		case (WEAPON_ARROW):
-			send_to_char("arrow.\n\r", ch);
-			break;
-		case (WEAPON_LANCE):
-			send_to_char("lance.\n\r", ch);
-			break;
-		default:
-			send_to_char("unknown.\n\r", ch);
-			break;
-		}
+		char_printf(ch, "%s.\n\r", flag_string(weapon_class, value0));
+
 		if (obj->pIndexData->new_format)
 			char_printf(ch, "Damage is %dd%d (average %d).\n\r",
 				    value1, value2,
@@ -3199,7 +3145,7 @@ do_lore(CHAR_DATA * ch, const char *argument)
 		break;
 
 	case ITEM_ARMOR:
-		if (get_skill(ch, gsn_lore) < 85) {
+		if (percent < 85) {
 			if (chance > 25) {
 				value2 = number_range(0, 2 * obj->value[2]);
 				if (chance > 45) {
@@ -3231,8 +3177,8 @@ do_lore(CHAR_DATA * ch, const char *argument)
 		break;
 	}
 
-	if (get_skill(ch, gsn_lore) < 87) {
-		check_improve(ch, gsn_lore, TRUE, 5);
+	if (percent < 87) {
+		check_improve(ch, sn, TRUE, 5);
 		return;
 	}
 
@@ -3240,27 +3186,26 @@ do_lore(CHAR_DATA * ch, const char *argument)
 		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
 			if (paf->location != APPLY_NONE && paf->modifier != 0)
 				char_printf(ch, "Affects %s by %d.\n\r",
-					    affect_loc_name(paf->location), paf->modifier);
+					    flag_string(apply_flags,
+							paf->location),
+					    paf->modifier);
 
 	for (paf = obj->affected; paf != NULL; paf = paf->next)
 		if (paf->location != APPLY_NONE && paf->modifier != 0)
 			char_printf(ch, "Affects %s by %d.\n\r",
-			      affect_loc_name(paf->location), paf->modifier);
-	check_improve(ch, gsn_lore, TRUE, 5);
-	return;
+				    flag_string(apply_flags, paf->location),
+				    paf->modifier);
+	check_improve(ch, sn, TRUE, 5);
 }
 
-
-
-void 
-do_butcher(CHAR_DATA * ch, const char *argument)
+void do_butcher(CHAR_DATA * ch, const char *argument)
 {
 	OBJ_DATA       *obj;
 	char            arg[MAX_STRING_LENGTH];
 	OBJ_DATA       *tmp_obj;
 	OBJ_DATA       *tmp_next;
-	if (IS_NPC(ch))
-		return;
+	int		sn;
+	int		chance;
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0') {
@@ -3272,7 +3217,7 @@ do_butcher(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 	if (obj->item_type != ITEM_CORPSE_PC
-	    && obj->item_type != ITEM_CORPSE_NPC) {
+	&&  obj->item_type != ITEM_CORPSE_NPC) {
 		send_to_char("You can't butcher that.\n\r", ch);
 		return;
 	}
@@ -3280,11 +3225,14 @@ do_butcher(CHAR_DATA * ch, const char *argument)
 		send_to_char("Put it down first.\n\r", ch);
 		return;
 	}
-	if (!IS_NPC(ch) && get_skill(ch, gsn_butcher) < 1) {
+
+	if ((sn = sn_lookup("butcher")) < 0
+	||  (chance = get_skill(ch, sn)) == 0) {
 		send_to_char("You don't have the precision instruments "
 			     "for that.", ch);
 		return;
 	}
+
 	obj_from_room(obj);
 
 	for (tmp_obj = obj->contains; tmp_obj != NULL; tmp_obj = tmp_next) {
@@ -3293,8 +3241,7 @@ do_butcher(CHAR_DATA * ch, const char *argument)
 		obj_to_room(tmp_obj, ch->in_room);
 	}
 
-
-	if (IS_NPC(ch) || number_percent() < get_skill(ch, gsn_butcher)) {
+	if (number_percent() < chance) {
 		int             numsteaks;
 		int             i;
 		OBJ_DATA       *steak;
@@ -3313,7 +3260,7 @@ do_butcher(CHAR_DATA * ch, const char *argument)
 			act("You butcher $p and create a steak.",
 			    ch, obj, NULL, TO_CHAR);
 		}
-		check_improve(ch, gsn_butcher, TRUE, 1);
+		check_improve(ch, sn, TRUE, 1);
 
 		for (i = 0; i < numsteaks; i++) {
 			steak = create_named_obj(get_obj_index(OBJ_VNUM_STEAK), 0, mlstr_mval(obj->short_descr));
@@ -3324,11 +3271,10 @@ do_butcher(CHAR_DATA * ch, const char *argument)
 		act("$n fails to butcher $p and destroys it.",
 		    ch, obj, NULL, TO_ROOM);
 
-		check_improve(ch, gsn_butcher, FALSE, 1);
+		check_improve(ch, sn, FALSE, 1);
 	}
 	extract_obj(obj);
 }
-
 
 void 
 do_balance(CHAR_DATA * ch, const char *argument)
@@ -3473,15 +3419,13 @@ do_deposit(CHAR_DATA * ch, const char *argument)
 	act("$n steps up to the teller window.", ch, NULL, NULL, TO_ROOM);
 }
 
-
-
 /* wear object as a secondary weapon */
-
 void 
 do_second_wield(CHAR_DATA * ch, const char *argument)
 {
 	OBJ_DATA       *obj;
 	int             sn, skill;
+
 	if (get_skill(ch, gsn_second_weapon) == 0) {
 		send_to_char("You don't know how to wield a second weapon.\n\r", ch);
 		return;
@@ -3550,9 +3494,7 @@ do_second_wield(CHAR_DATA * ch, const char *argument)
 			act("You don't even know which end is up on $p.",
 			    ch, obj, NULL, TO_CHAR);
 	}
-	return;
 }
-
 
 void 
 do_enchant(CHAR_DATA * ch, const char *argument)
@@ -3560,10 +3502,14 @@ do_enchant(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *obj;
 	int             wear_level;
 	int             chance;
-	if ((chance = get_skill(ch, gsn_enchant_sword)) == 0) {
-		send_to_char("Huh?.\n\r", ch);
+	int		sn;
+
+	if ((sn = sn_lookup("enchant sword")) < 0
+	||  (chance = get_skill(ch, sn)) == 0) {
+		char_nputs(MSG_HUH, ch);
 		return;
 	}
+
 	if (argument[0] == '\0') {	/* empty */
 		send_to_char("Wear which weapon to enchant?\n\r", ch);
 		return;
@@ -3574,10 +3520,7 @@ do_enchant(CHAR_DATA * ch, const char *argument)
 		send_to_char("You don't have that item.\n\r", ch);
 		return;
 	}
-	wear_level = ch->level;
-	if ((class_table[ch->class].fMana && obj->item_type == ITEM_ARMOR)
-	 || (!class_table[ch->class].fMana && obj->item_type == ITEM_WEAPON))
-		wear_level += 3;
+	wear_level = get_wear_level(ch, obj);
 
 	if (wear_level < obj->level) {
 		char_printf(ch, "You must be level %d to be able to enchant this object.\n\r", obj->level);
@@ -3593,14 +3536,13 @@ do_enchant(CHAR_DATA * ch, const char *argument)
 		send_to_char("You lost your concentration.\n\r", ch);
 		act("$n tries to enchant $p, but he forgets how for a moment.",
 		    ch, obj, NULL, TO_ROOM);
-		WAIT_STATE(ch, skill_table[gsn_enchant_sword].beats);
-		check_improve(ch, gsn_enchant_sword, FALSE, 6);
+		WAIT_STATE(ch, SKILL(sn)->beats);
+		check_improve(ch, sn, FALSE, 6);
 		ch->mana -= 50;
 		return;
 	}
 	ch->mana -= 100;
 	spell_enchant_weapon(24, ch->level, ch, obj, TARGET_OBJ);
-	check_improve(ch, gsn_enchant_sword, TRUE, 2);
-	WAIT_STATE(ch, skill_table[gsn_enchant_sword].beats);
-	return;
+	check_improve(ch, sn, TRUE, 2);
+	WAIT_STATE(ch, SKILL(sn)->beats);
 }

@@ -1,24 +1,17 @@
 /*
- * $Id: olc_help.c,v 1.4 1998-08-18 09:50:17 fjoe Exp $
+ * $Id: olc_help.c,v 1.5 1998-09-01 18:29:25 fjoe Exp $
  */
-#include <sys/types.h>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
 #include "merc.h"
 #include "olc.h"
-#include "db.h"
-#include "resource.h"
-#include "comm.h"
-#include "buffer.h"
-#include "mlstring.h"
-#include "recycle.h"
-#include "util.h"
 #include "interp.h"
 
-#define HEDIT(fun)	bool fun(CHAR_DATA *ch, const char *argument)
-#define EDIT_HELP(Ch, Code)	(Code = (HELP_DATA*)Ch->desc->pEdit)
+#define HEDIT(fun)		bool fun(CHAR_DATA *ch, const char *argument)
+#define EDIT_HELP(ch, help)	(help = (HELP_DATA*) ch->desc->pEdit)
 
 DECLARE_OLC_FUN(hedit_create		);
 DECLARE_OLC_FUN(hedit_edit		);
@@ -85,7 +78,7 @@ void do_hedit(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 		
-	if (ch->pcdata->security < 9) {
+	if (ch->pcdata->security < SECURITY_HELP) {
 		char_puts("HEdit: Insufficient security for editing helps\n\r", ch);
 		return;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.6 1998-08-14 05:45:14 fjoe Exp $
+ * $Id: hunt.c,v 1.7 1998-09-01 18:29:17 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -7,7 +7,6 @@
 #include <string.h>
 #include "merc.h"
 #include "comm.h"
-#include "db.h"
 #include "util.h"
 #include "resource.h"
 #include "log.h"
@@ -454,135 +453,119 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	int direction,i;
 	bool fArea,ok;
+	int sn_hunt;
+	int sn_world_find;
+	int chance;
+	int chance2;
   
-	if (ch_skill_nok(ch,gsn_hunt))
+	if ((sn_hunt = sn_lookup("hunt")) < 0
+	||  (sn_world_find = sn_lookup("world find")) < 0
+	||  (chance = get_skill(ch, sn_hunt)) == 0)
 		return;
 
-	if (!clan_ok(ch,gsn_hunt)) return;
+	one_argument(argument, arg);
 
-	if (!IS_NPC(ch)
-	&&   ch->level < skill_table[gsn_hunt].skill_level[ch->class])
-	{
-	send_to_char("Huh?\n\r", ch);
-	return;
+	if (arg[0] == '\0') {
+		send_to_char("Whom are you trying to hunt?\n\r", ch);
+		return;
 	}
 
-  one_argument(argument, arg);
+	fArea = !IS_IMMORTAL(ch);
 
-  if(arg[0] == '\0')
-	{
-	  send_to_char("Whom are you trying to hunt?\n\r", ch);
-	  return;
+	if ((chance2 = get_skill(ch, sn_world_find))) {
+		if (number_percent() < chance2) {
+			fArea = 0;
+			check_improve(ch, sn_world_find, FALSE, 1);
+		}
+		else
+			check_improve(ch, sn_world_find, TRUE, 1);
 	}
 
-/*  fArea = (get_trust(ch) < MAX_LEVEL); */
-  fArea = !(IS_IMMORTAL(ch));
+	if (fArea)
+		victim = get_char_area(ch, arg);
+	else
+		victim = get_char_world(ch, arg);
 
-  if (ch->level >= skill_table[gsn_world_find].skill_level[ch->class])
-	{
-	 if (number_percent() < get_skill(ch,gsn_world_find))
-	  {
-	   fArea = 0;
-	   check_improve(ch,gsn_world_find,TRUE,1);
-	  }
-	 check_improve(ch,gsn_world_find,FALSE,1);
+ 	if (victim == NULL) {
+		send_to_char("No-one around by that name.\n\r", ch);
+		return;
 	}
 
-  if(fArea)
-	victim = get_char_area(ch, arg);
-  else
-	victim = get_char_world(ch, arg);
-
-  if(victim == NULL)
-	{
-	  send_to_char("No-one around by that name.\n\r", ch);
-	  return;
+	if (ch->in_room == victim->in_room) {
+		act("$N is here!", ch, NULL, victim, TO_CHAR);
+		return;
 	}
 
-  if(ch->in_room == victim->in_room)
-	{
-	  act("$N is here!", ch, NULL, victim, TO_CHAR);
-	  return;
+	if (IS_NPC(ch)) {
+		ch->hunting = victim;
+		hunt_victim(ch);
+		return;
 	}
 
-  if(IS_NPC(ch ))
-  {
-	ch->hunting = victim;
-	hunt_victim(ch);
-	return;
-  }
-
-
-  /*
-   * Deduct some movement.
-   */
-  if (!IS_IMMORTAL(ch))
-{
-  if(ch->endur > 2)
-	ch->endur -= 3;
-  else
-	{
-	  send_to_char("You're too exhausted to hunt anyone!\n\r", ch);
-	  return;
-	}
-}
-
-  act("$n stares intently at the ground.", ch, NULL, NULL, TO_ROOM);
-
-  WAIT_STATE(ch, skill_table[gsn_hunt].beats);
-  direction = find_path(ch->in_room->vnum, victim->in_room->vnum,
-			ch, -40000, fArea);
-
-  if(direction == -1)
-	{
-	  act("You couldn't find a path to $N from here.",
-	  ch, NULL, victim, TO_CHAR);
-	  return;
+	/*
+	 * Deduct some movement.
+	 */
+	if (!IS_IMMORTAL(ch)) {
+		if (ch->endur > 2)
+			ch->endur -= 3;
+		else {
+			char_puts("You're too exhausted to hunt anyone!\n\r",
+				  ch);
+			return;
+		}
 	}
 
-  if(direction < 0 || direction > 5)
-	{
-	  send_to_char("Hmm... Something seems to be wrong.\n\r", ch);
-	  return;
+	act("$n stares intently at the ground.", ch, NULL, NULL, TO_ROOM);
+
+ 	WAIT_STATE(ch, SKILL(sn_hunt)->beats);
+	direction = find_path(ch->in_room->vnum, victim->in_room->vnum,
+			      ch, -40000, fArea);
+
+ 	if (direction < 0) {
+		act("You couldn't find a path to $N from here.",
+		    ch, NULL, victim, TO_CHAR);
+		return;
 	}
 
-  /*
-   * Give a random direction if the player misses the die roll.
-   */
-  if (IS_NPC (ch) && number_percent () > 75)        /* NPC @ 25% */
-	{
-	log("Do PC hunt");
-	ok=FALSE;
-	for(i=0;i<6;i++) {
-		if (ch->in_room->exit[direction]!=NULL) {
-			ok=TRUE;
-			break;
+	if (direction >= MAX_DIR) {
+		send_to_char("Hmm... Something seems to be wrong.\n\r", ch);
+		return;
+	}
+
+	/*
+	 * Give a random direction if the player misses the die roll.
+	 */
+	if (IS_NPC (ch) && number_percent () > 75) {       /* NPC @ 25% */
+		log("Do PC hunt");
+		ok = FALSE;
+		for(i = 0; i < 6; i++) {
+			if (ch->in_room->exit[direction]) {
+				ok = TRUE;
+				break;
 			}
 		}
-	if (ok)	
-	{
-	  do
-	{
-	  direction = number_door();
-	}
-	  while((ch->in_room->exit[direction] == NULL)
-	    || (ch->in_room->exit[direction]->u1.to_room == NULL));
-	}
-else {
-	  log("Do hunt, player hunt, no exits from room!");
-  	  ch->hunting=NULL;
-  	  send_to_char("Your room has not exits!!!!\n\r",ch);
-  	  return;
-  	}
-  /*
-   * Display the results of the search.
-   */
-  }
-	act_nprintf(ch, NULL, victim, TO_CHAR, POS_RESTING,
-		   MSG_HERA_IS_FROM_HERE, dir_name[direction]);
-  return;
-}
 
+		if (ok)	{
+			do {
+				direction = number_door();
+			}
+			while ((ch->in_room->exit[direction] == NULL) ||
+			       (ch->in_room->exit[direction]->u1.to_room == NULL));
+		}
+		else {
+			log("Do hunt, player hunt, no exits from room!");
+			ch->hunting = NULL;
+			send_to_char("Your room has not exits!!!!\n\r", ch);
+			return;
+		}
+	}
+
+	/*
+	 * Display the results of the search.
+	 */
+	act_nprintf(ch, NULL, victim, TO_CHAR, POS_RESTING,
+		    MSG_HERA_IS_FROM_HERE, dir_name[direction]);
+}
 
 void hunt_victim_attack(CHAR_DATA* ch)
 {
@@ -596,7 +579,7 @@ void hunt_victim_attack(CHAR_DATA* ch)
 		    ch, NULL, ch->hunting, TO_VICT);
 		act("You glare at $N and say, '{GYe shall DIE!{x'.",
 		    ch, NULL, ch->hunting, TO_CHAR);
-		multi_hit(ch, ch->hunting, TYPE_UNDEFINED, MSTRIKE);
+		multi_hit(ch, ch->hunting, TYPE_UNDEFINED);
 		ch->hunting = NULL;
 	}  
 }
@@ -643,7 +626,7 @@ void hunt_victim(CHAR_DATA *ch)
  	dir = find_path(ch->in_room->vnum, ch->hunting->in_room->vnum,
 			ch, -40000, TRUE);
 
-	if(dir < 0 || dir > 5) {
+	if(dir < 0 || dir >= MAX_DIR) {
 		/* 1 */ 
 		if (get_char_area(ch, ch->hunting->name) != NULL  
 		&&  ch->level > 35) {
@@ -660,8 +643,7 @@ void hunt_victim(CHAR_DATA *ch)
 			ch->hunting = NULL;
 		}
 		return;
-	} /* if dir < 0 or > 5 */  
-
+	} /* if dir < 0 or >= MAX_DIR */  
 
 	if (ch->in_room->exit[dir]
 	&&  IS_SET(ch->in_room->exit[dir]->exit_info, EX_CLOSED)) {
@@ -677,186 +659,3 @@ void hunt_victim(CHAR_DATA *ch)
 	move_char(ch, dir, FALSE);
 	hunt_victim_attack(ch);
 }
-
-#if 0
-void hunt_victim_old(CHAR_DATA *ch)
-{
-  int		dir,i;
-  bool		found,ok;
-  CHAR_DATA	*tmp;
-
-  if(ch == NULL || ch->hunting == NULL || !IS_NPC(ch)) 
-   {
-	if (IS_NPC(ch))
-	  {
-		if ((ROOM_INDEX_DATA*)ch->logon!=ch->in_room)
-		log("HUNT: Return creature to original home!");
-	   	act("\n\rA glowing portal appears.",ch,NULL,NULL,TO_ROOM);	    	
-		act("$n steps through a glowing portal.\n\r",ch,NULL,NULL,TO_ROOM);
-	   	char_from_room(ch);
-		char_to_room(ch,(ROOM_INDEX_DATA*)ch->logon);
-	    }
-	return;
-   }
-
-  /*
-   * Make sure the victim still exists.
-   */
-  for(found = 0, tmp = char_list; tmp && !found; tmp = tmp->next)
-	if(ch->hunting == tmp)
-	  found = 1;
-
-  if(!found || !can_see(ch, ch->hunting))
-	{
-/*1 */  if(get_char_world(ch, ch->hunting->name) != NULL  
-	        && ch-> level > 35)
-	    {
-	       log("mob portal");
-	       doprintf(do_cast, ch, "portal %s", ch->hunting->name);
-	       log("do_enter1");
-	       do_enter(ch, "portal");
-	       if (ch->in_room==NULL || ch->hunting==NULL)
-			return;
-	if(ch->in_room == ch->hunting->in_room) {
-	  act("$n glares at $N and says, 'Ye shall DIE!'",
-	  ch, NULL, ch->hunting, TO_NOTVICT);
-	  act("$n glares at you and says, 'Ye shall DIE!'",
-	  ch, NULL, ch->hunting, TO_VICT);
-	  act("You glare at $N and say, 'Ye shall DIE!",
-	  ch, NULL, ch->hunting, TO_CHAR);
-	  multi_hit(ch, ch->hunting, TYPE_UNDEFINED, MSRTIKE);
-	  ch->hunting = NULL;
-	  return;
-	}  
-	   log("done1");  
-	   	return;
-	    } 
-	   else { 
-	   if (IS_NPC(ch)) 
-	 {
-	      if ((ROOM_INDEX_DATA*)ch->logon!=ch->in_room) 
-	      {
-	 	   log("HUNT: Send mob home");
-		   act("\n\rA glowing portal appears.",ch,NULL,NULL,TO_ROOM);	    	
-		   act("$n steps through a glowing portal.\n\r",ch,NULL,NULL,TO_ROOM); 
-	   	   char_from_room(ch);
-		   char_to_room(ch,(ROOM_INDEX_DATA*)ch->logon);
-		  }
-	     }
-
-	     do_say(ch, "Ahhhh!  My prey is gone!!");
-	     ch->hunting = NULL;
-	     return;
-	    }  
-	}   /* end if !found or !can_see */ 
-
-
-
-  dir = find_path(ch->in_room->vnum, ch->hunting->in_room->vnum,
-		  ch, -40000, TRUE);
-
-  if(dir < 0 || dir > 5)
-  {
-/* 1 */ 
-	if(get_char_area(ch, ch->hunting->name) != NULL  
-	    && ch-> level > 35)
-	{
-	  log("mob portal");
-	  doprintf(do_cast, ch, "portal %s", ch->hunting->name);
-	  log("do_enter2");
-	  do_enter(ch, "portal");
-  if (ch->in_room==NULL || ch->hunting==NULL) return;
-  if(ch->in_room == ch->hunting->in_room)
-	{
-	  act("$n glares at $N and says, 'Ye shall DIE!'",
-	  ch, NULL, ch->hunting, TO_NOTVICT);
-	  act("$n glares at you and says, 'Ye shall DIE!'",
-	  ch, NULL, ch->hunting, TO_VICT);
-	  act("You glare at $N and say, 'Ye shall DIE!",
-	  ch, NULL, ch->hunting, TO_CHAR);
-	  multi_hit(ch, ch->hunting, TYPE_UNDEFINED, MSTRIKE);
-	  ch->hunting = NULL;
-	  return;
-	}  
-	  log("done2"); 
-	  return;
-	}
-	else
-	{ 
-	 if (IS_NPC(ch)) 
-	   {
-		if ((ROOM_INDEX_DATA*)ch->logon!=ch->in_room)
-	    {  
-	      log("HUNT: return creature to original room");
-	  act("\n\rA glowing portal appears.",ch,NULL,NULL,TO_ROOM);	    	
-	  act("$n steps through a glowing portal.\n\r",ch,NULL,NULL,TO_ROOM);
-	  char_from_room(ch);
-		  char_to_room(ch,(ROOM_INDEX_DATA*)ch->logon);
-		}
-	  }   
-
-	  act("$n says 'I have lost $M!'", ch, NULL, ch->hunting, TO_ROOM);
-	  ch->hunting = NULL;
-	  return;
-	}
-   } /* if dir < 0 or > 5 */  
-
-  /*
-   * Give a random direction if the mob misses the die roll.
-   */
-  if(number_percent () > 75)        /* @ 25% */
-	{
-		ok=FALSE;
-	    for(i=0;i<6;i++) {
-		if (ch->in_room->exit[dir]!=NULL) {
-			ok=TRUE;
-			break;
-			}
-		}
-	if(ok) {
-	  do
-	    {
-	  dir = number_door();
-	    }
-	  while((ch->in_room->exit[dir] == NULL)
-	    || (ch->in_room->exit[dir]->u1.to_room == NULL));
-	   }
-	  else {
-	  log("Do hunt, player hunt, no exits from room!");
-  	  ch->hunting=NULL;
-  	  send_to_char("Your room has not exits!!!!\n\r",ch);
-  	  return;
-  	}	    
-	}
-	
-
-
-  if(ch->in_room->exit[dir] && IS_SET(ch->in_room->exit[dir]->exit_info, EX_CLOSED))
-	{
-	  do_open(ch,(char *)dir_name[dir]);
-	  return;
-	}
-	if (!ch->in_room->exit[dir]) {
-		log("BUG:  hunt through null door");
-		return;
-		}
-  move_char(ch, dir, FALSE);
-  /* Deth...this shouldn't have to be here..but it got
-  here in a core file with ch->hunting==null.. */
-  if (ch->in_room==NULL || ch->hunting==NULL) return;
-  if(ch->in_room == ch->hunting->in_room)
-	{
-	  act("$n glares at $N and says, 'Ye shall DIE!'",
-	  ch, NULL, ch->hunting, TO_NOTVICT);
-	  act("$n glares at you and says, 'Ye shall DIE!'",
-	  ch, NULL, ch->hunting, TO_VICT);
-	  act("You glare at $N and say, 'Ye shall DIE!",
-	  ch, NULL, ch->hunting, TO_CHAR);
-	  multi_hit(ch, ch->hunting, TYPE_UNDEFINED, MSTRIKE);
-	  ch->hunting = NULL;
-	  return;
-	}  
-  return;
-}
-#endif
-

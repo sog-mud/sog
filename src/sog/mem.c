@@ -1,5 +1,5 @@
 /*
- * $Id: mem.c,v 1.11 1998-08-18 09:50:12 fjoe Exp $
+ * $Id: mem.c,v 1.12 1998-09-01 18:29:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -24,10 +24,6 @@
 #include <string.h>
 #include <time.h>
 #include "merc.h"
-#include "db.h"
-#include "lookup.h"
-#include "recycle.h"
-#include "mlstring.h"
 
 /*
  * Globals
@@ -198,8 +194,6 @@ EXIT_DATA *new_exit(void)
     return pExit;
 }
 
-
-
 void free_exit(EXIT_DATA *pExit)
 {
     free_string(pExit->keyword);
@@ -333,31 +327,32 @@ OBJ_INDEX_DATA *new_obj_index(void)
     int value;
 
     if (!obj_index_free) {
-        pObj           =   alloc_perm(sizeof(*pObj));
+        pObj           =  alloc_perm(sizeof(*pObj));
         top_obj_index++;
     }
     else {
-        pObj            =   obj_index_free;
-        obj_index_free  =   obj_index_free->next;
+        pObj            = obj_index_free;
+        obj_index_free  = obj_index_free->next;
     }
 
-    pObj->short_descr   =   NULL;
-    pObj->description   =   NULL;
-    pObj->next          =   NULL;
-    pObj->ed		=   NULL;
-    pObj->affected      =   NULL;
-    pObj->name          =   str_dup("no name");
-    pObj->vnum          =   0;
-    pObj->item_type     =   ITEM_TRASH;
-    pObj->extra_flags   =   0;
-    pObj->wear_flags    =   0;
-    pObj->count         =   0;
-    pObj->weight        =   0;
-    pObj->cost          =   0;
-    pObj->material      =   str_dup("unknown");      /* ROM */
-    pObj->condition     =   100;                        /* ROM */
-    pObj->limit		=   -1;
+    pObj->short_descr   = NULL;
+    pObj->description   = NULL;
+    pObj->next          = NULL;
+    pObj->ed		= NULL;
+    pObj->affected      = NULL;
+    pObj->name          = str_dup("no name");
+    pObj->vnum          = 0;
+    pObj->item_type     = ITEM_TRASH;
+    pObj->extra_flags   = 0;
+    pObj->wear_flags    = 0;
+    pObj->count         = 0;
+    pObj->weight        = 0;
+    pObj->cost          = 0;
+    pObj->material      = str_dup("unknown");      /* ROM */
+    pObj->condition     = 100;                        /* ROM */
+    pObj->limit		= -1;
     pObj->oprogs	= NULL;
+    pObj->clan		= 0;
     for (value = 0; value < 5; value++)               /* 5 - ROM */
         pObj->value[value]  =   0;
 
@@ -434,18 +429,19 @@ MOB_INDEX_DATA *new_mob_index(void)
     pMob->ac[AC_BASH]	=   0;           /* ROM patch -- Hugin */
     pMob->ac[AC_SLASH]	=   0;           /* ROM patch -- Hugin */
     pMob->ac[AC_EXOTIC]	=   0;           /* ROM patch -- Hugin */
-    pMob->hit[DICE_NUMBER]	=   0;   /* ROM patch -- Hugin */
-    pMob->hit[DICE_TYPE]	=   0;   /* ROM patch -- Hugin */
-    pMob->hit[DICE_BONUS]	=   0;   /* ROM patch -- Hugin */
-    pMob->mana[DICE_NUMBER]	=   0;   /* ROM patch -- Hugin */
-    pMob->mana[DICE_TYPE]	=   0;   /* ROM patch -- Hugin */
-    pMob->mana[DICE_BONUS]	=   0;   /* ROM patch -- Hugin */
-    pMob->damage[DICE_NUMBER]	=   0;   /* ROM patch -- Hugin */
-    pMob->damage[DICE_TYPE]	=   0;   /* ROM patch -- Hugin */
-    pMob->damage[DICE_NUMBER]	=   0;   /* ROM patch -- Hugin */
-    pMob->start_pos             =   POS_STANDING; /*  -- Hugin */
-    pMob->default_pos           =   POS_STANDING; /*  -- Hugin */
-    pMob->wealth                =   0;
+    pMob->hit[DICE_NUMBER]	= 0;   /* ROM patch -- Hugin */
+    pMob->hit[DICE_TYPE]	= 0;   /* ROM patch -- Hugin */
+    pMob->hit[DICE_BONUS]	= 0;   /* ROM patch -- Hugin */
+    pMob->mana[DICE_NUMBER]	= 0;   /* ROM patch -- Hugin */
+    pMob->mana[DICE_TYPE]	= 0;   /* ROM patch -- Hugin */
+    pMob->mana[DICE_BONUS]	= 0;   /* ROM patch -- Hugin */
+    pMob->damage[DICE_NUMBER]	= 0;   /* ROM patch -- Hugin */
+    pMob->damage[DICE_TYPE]	= 0;   /* ROM patch -- Hugin */
+    pMob->damage[DICE_NUMBER]	= 0;   /* ROM patch -- Hugin */
+    pMob->start_pos             = POS_STANDING; /*  -- Hugin */
+    pMob->default_pos           = POS_STANDING; /*  -- Hugin */
+    pMob->wealth                = 0;
+    pMob->clan			= 0;
 
     pMob->new_format            = TRUE;  /* ROM */
 

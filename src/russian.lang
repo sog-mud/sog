@@ -1,5 +1,5 @@
 #
-# $Id: russian.lang,v 1.99 1998-08-17 18:47:07 fjoe Exp $
+# $Id: russian.lang,v 1.100 1998-09-01 18:29:07 fjoe Exp $
 #
 
 MSG_NOTHING  		"Ничего.\n\r",	
@@ -410,8 +410,6 @@ MSG_N_IS_GONE  vsexdep  "$n исчезло!"
 MSG_N_APPEARS_FROM_NOWHERE	vsexdep  "$n появилось из ниоткуда."
 					 "$n появилось из ниоткуда."
 					 "$n появилось из ниоткуда."
-MSG_YOU_CAN_ALREADY_DETECT_SNEAK "Ты и так уже замечаешь крадущихся.\n\r"
-MSG_YOU_CAN_DETECT_THE_SNEAK	"Теперь ты замечаешь крадущихся.\n\r"
 MSG_CANT_FADE_MOUNTED	"Ты не можешь поблекнуть верхом.\n\r"
 MSG_CANT_FADE_RIDDEN	"Ты не можешь поблекнуть оседланным.\n\r"
 MSG_YOU_ATTEMPT_TO_FADE	"Ты пытаешься поблекнуть.\n\r"

@@ -2,10 +2,8 @@
 #define _COMM_H_
 
 /*
- * $Id: comm.h,v 1.10 1998-08-14 03:36:19 fjoe Exp $
+ * $Id: comm.h,v 1.11 1998-09-01 18:29:16 fjoe Exp $
  */
-
-#define MAX_ON_FILE	"max_on.txt"
 
 void	show_string	(struct descriptor_data *d, char *input);
 void	close_socket	(DESCRIPTOR_DATA *dclose);
@@ -40,6 +38,8 @@ void    act_printf(CHAR_DATA *ch, const void *arg1, const void *arg2,
 		act_nprintf(ch, arg1, arg2, type, min_pos, msg_num)
 void    act_nprintf(CHAR_DATA *ch, const void *arg1, const void *arg2,
 		    int type, int min_pos, int msg_num, ...);
+void	act_mlputs(CHAR_DATA *ch, const void *arg1, const void *arg2,
+		   int type, int min_pos, mlstring*);
 
 void    dump_to_scr(char *text);
 

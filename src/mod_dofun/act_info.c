@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.120 1998-08-17 18:47:01 fjoe Exp $
+ * $Id: act_info.c,v 1.121 1998-09-01 18:29:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,29 +47,16 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdarg.h>
+#include <unistd.h>
 #include <ctype.h>
 #include "merc.h"
-#include "db.h"
-#include "comm.h"
-#include "const.h"
-#include "magic.h"
-#include "recycle.h"
-#include "lookup.h"
-#include "resource.h"
 #include "act_info.h"
 #include "act_comm.h"
-#include "const.h"
 #include "hometown.h"
 #include "interp.h"
 #include "update.h"
-#include "util.h"
 #include "quest.h"
-#include "log.h"
 #include "obj_prog.h"
-#include "buffer.h"
-#include "mlstring.h"
-#include "string_edit.h"
-#include "util.h"
 #include "fight.h"
 
 #if defined(SUNOS) || defined(SVR4)
@@ -126,6 +113,8 @@ void	show_char_to_char_1	args((CHAR_DATA *victim, CHAR_DATA *ch));
 void	show_char_to_char	args((CHAR_DATA *list, CHAR_DATA *ch));
 bool	check_blind		args((CHAR_DATA *ch));
 
+#define strend(s) (strchr(s, '\0'))
+
 char *obj_name(OBJ_DATA *obj, CHAR_DATA *ch)
 {
 	static char buf[MAX_STRING_LENGTH];
@@ -154,11 +143,11 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 			strcat(buf, msg(MSG_INVIS, ch));
 		if (IS_OBJ_STAT(obj, ITEM_DARK))
 			strcat(buf, msg(MSG_DARK, ch));
-		if (CAN_DETECT(ch, DETECT_EVIL) && IS_OBJ_STAT(obj, ITEM_EVIL))
+		if (IS_AFFECTED(ch, AFF_DETECT_EVIL) && IS_OBJ_STAT(obj, ITEM_EVIL))
 			strcat(buf, msg(MSG_RED_AURA, ch));
-		if (CAN_DETECT(ch, DETECT_GOOD) && IS_OBJ_STAT(obj,ITEM_BLESS))
+		if (IS_AFFECTED(ch, AFF_DETECT_GOOD) && IS_OBJ_STAT(obj,ITEM_BLESS))
 			strcat(buf, msg(MSG_BLUE_AURA, ch));
-		if (CAN_DETECT(ch, DETECT_MAGIC) && IS_OBJ_STAT(obj,ITEM_MAGIC))
+		if (IS_AFFECTED(ch, AFF_DETECT_MAGIC) && IS_OBJ_STAT(obj,ITEM_MAGIC))
 			strcat(buf, msg(MSG_MAGICAL, ch));
 		if (IS_OBJ_STAT(obj, ITEM_GLOW))
 			strcat(buf, msg(MSG_GLOWING, ch));
@@ -170,11 +159,11 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		strcpy(buf, FLAGS);
 		if (IS_OBJ_STAT(obj, ITEM_INVIS)	)   buf[5] = 'I';
 		if (IS_OBJ_STAT(obj, ITEM_DARK)		)   buf[8] = 'D';
-		if (CAN_DETECT(ch, DETECT_EVIL)
+		if (IS_AFFECTED(ch, AFF_DETECT_EVIL)
 		&& IS_OBJ_STAT(obj, ITEM_EVIL)		)   buf[11] = 'E';
-		if (CAN_DETECT(ch, DETECT_GOOD)
+		if (IS_AFFECTED(ch, AFF_DETECT_GOOD)
 		&&  IS_OBJ_STAT(obj,ITEM_BLESS)		)   buf[14] = 'B';
-		if (CAN_DETECT(ch, DETECT_MAGIC)
+		if (IS_AFFECTED(ch, AFF_DETECT_MAGIC)
 		&& IS_OBJ_STAT(obj, ITEM_MAGIC)		)   buf[17] = 'M';
 		if (IS_OBJ_STAT(obj, ITEM_GLOW)		)   buf[20] = 'G';
 		if (IS_OBJ_STAT(obj, ITEM_HUM)		)   buf[23] = 'H';
@@ -212,7 +201,6 @@ char *format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, bool fShort)
 		strcat(buf, mlstr_cval(obj->description, ch));
 	return buf;
 }
-
 
 /*
  * Show a list to a character.
@@ -352,15 +340,15 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		if (IS_AFFECTED(victim, AFF_FAERIE_FIRE)) 
 			buf_add(output, msg(MSG_PINK_AURA, ch));
 		if (IS_NPC(victim) && IS_SET(victim->act,ACT_UNDEAD)
-		&&  CAN_DETECT(ch, DETECT_UNDEAD))
+		&&  IS_AFFECTED(ch, AFF_DETECT_UNDEAD))
 			buf_add(output, msg(MSG_UNDEAD, ch));
 		if (RIDDEN(victim))
 			buf_add(output, msg(MSG_RIDDEN, ch));
-		if (IS_AFFECTED(victim,AFF_IMP_INVIS))
+		if (IS_AFFECTED(victim,AFF_IMP))
 			buf_add(output, msg(MSG_IMPROVED, ch));
-		if (IS_EVIL(victim) && CAN_DETECT(ch, DETECT_EVIL))
+		if (IS_EVIL(victim) && IS_AFFECTED(ch, AFF_DETECT_EVIL))
 			buf_add(output, msg(MSG_RED_AURA, ch));
-		if (IS_GOOD(victim) && CAN_DETECT(ch, DETECT_GOOD))
+		if (IS_GOOD(victim) && IS_AFFECTED(ch, AFF_DETECT_GOOD))
 			buf_add(output, msg(MSG_GOLDEN_AURA, ch));
 		if (IS_AFFECTED(victim, AFF_SANCTUARY))
 			buf_add(output, msg(MSG_WHITE_AURA, ch));
@@ -380,13 +368,13 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		FLAG_SET(17, 'P', IS_AFFECTED(victim, AFF_FAERIE_FIRE));
 		FLAG_SET(20, 'U', IS_NPC(victim) &&
 				  IS_SET(victim->act, ACT_UNDEAD) &&
-				  CAN_DETECT(ch, DETECT_UNDEAD));
+				  IS_AFFECTED(ch, AFF_DETECT_UNDEAD));
 		FLAG_SET(23, 'R', RIDDEN(victim));
-		FLAG_SET(26, 'I', IS_AFFECTED(victim, AFF_IMP_INVIS));
+		FLAG_SET(26, 'I', IS_AFFECTED(victim, AFF_IMP));
 		FLAG_SET(29, 'E', IS_EVIL(victim) &&
-				  CAN_DETECT(ch, DETECT_EVIL));
+				  IS_AFFECTED(ch, AFF_DETECT_EVIL));
 		FLAG_SET(32, 'G', IS_GOOD(victim) &&
-				  CAN_DETECT(ch, DETECT_GOOD));
+				  IS_AFFECTED(ch, AFF_DETECT_GOOD));
 		FLAG_SET(35, 'S', IS_AFFECTED(victim, AFF_SANCTUARY));
 		FLAG_SET(38, 'C', IS_AFFECTED(victim, AFF_CAMOUFLAGE));
 		FLAG_SET(41, 'F', IS_AFFECTED(victim, AFF_FADE));
@@ -517,7 +505,6 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	buf_free(output);
 }
 
-
 void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 {
 	OBJ_DATA *obj;
@@ -539,12 +526,13 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		}
 	}
 
-	if (!IS_NULLSTR(desc = mlstr_mval(victim->description))) {
-		if (IS_NPC(victim))
-			char_mlputs(victim->description, ch);
-		else
-			char_puts(desc, ch);
-	}
+	if (IS_NPC(victim))
+		desc = mlstr_cval(victim->description, ch);
+	else
+		desc = mlstr_mval(victim->description);
+
+	if (!IS_NULLSTR(desc))
+		char_puts(desc, ch);
 	else
 		act_nprintf(victim, NULL, ch, TO_VICT, POS_DEAD,
 				MSG_SEE_NOTHING_SPECIAL);
@@ -624,13 +612,12 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	if (victim != ch
 	&&  !IS_NPC(ch)
-	&&  number_percent() < get_skill(ch,gsn_peek)) {
+	&&  number_percent() < get_skill(ch, gsn_peek)) {
 		send_to_char(msg(MSG_YOU_PEEK_AT_THE_INVENTORY, ch), ch);
 		check_improve(ch, gsn_peek, TRUE, 4);
 		show_list_to_char(victim->carrying, ch, TRUE, TRUE);
 	}
 }
-
 
 void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 {
@@ -655,12 +642,11 @@ void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 			life_count++;
 	}
 
-	if (life_count && CAN_DETECT(ch,DETECT_LIFE))
+	if (life_count && IS_AFFECTED(ch,AFF_DETECT_LIFE))
 		char_printf(ch, msg(MSG_FEEL_MORE_LIVES, ch),
 			    life_count, (life_count == 1) ? "form" : "forms");
 	return;
 }
-
 
 bool check_blind_raw(CHAR_DATA *ch)
 {
@@ -673,7 +659,6 @@ bool check_blind_raw(CHAR_DATA *ch)
 	return TRUE;
 }
 
-
 bool check_blind(CHAR_DATA *ch)
 {
 	bool can_see = check_blind_raw(ch);
@@ -684,13 +669,11 @@ bool check_blind(CHAR_DATA *ch)
 	return can_see;
 }
 
-
 void do_clear(CHAR_DATA *ch, const char *argument)
 {
 	if (!IS_NPC(ch))
 		send_to_char("\033[0;0H\033[2J", ch);
 }
-
 
 /* changes your scroll */
 void do_scroll(CHAR_DATA *ch, const char *argument)
@@ -730,7 +713,6 @@ void do_scroll(CHAR_DATA *ch, const char *argument)
 	ch->lines = lines - 2;
 }
 
-
 /* RT does socials */
 void do_socials(CHAR_DATA *ch, const char *argument)
 {
@@ -747,37 +729,31 @@ void do_socials(CHAR_DATA *ch, const char *argument)
 		send_to_char("\n\r",ch);
 }
 
-
 /* RT Commands to replace news, motd, imotd, etc from ROM */
 void do_motd(CHAR_DATA *ch, const char *argument)
 {
 	do_help(ch, "motd");
 }
 
-
 void do_imotd(CHAR_DATA *ch, const char *argument)
 {
 	do_help(ch, "imotd");
 }
-
 
 void do_rules(CHAR_DATA *ch, const char *argument)
 {
 	do_help(ch, "rules");
 }
 
-
 void do_story(CHAR_DATA *ch, const char *argument)
 {
 	do_help(ch, "story");
 }
 
-
 void do_wizlist(CHAR_DATA *ch, const char *argument)
 {
 	do_help(ch, "wizlist");
 }
-
 
 /* RT this following section holds all the auto commands from ROM, as well as
    replacements for config */
@@ -815,7 +791,6 @@ void do_autolist(CHAR_DATA *ch, const char *argument)
 		send_to_char("You accept followers.\n\r",ch);
 }
 
-
 void do_autoassist(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch))
@@ -830,7 +805,6 @@ void do_autoassist(CHAR_DATA *ch, const char *argument)
 		SET_BIT(ch->act,PLR_AUTOASSIST);
 	}
 }
-
 
 void do_autoexit(CHAR_DATA *ch, const char *argument)
 {
@@ -847,7 +821,6 @@ void do_autoexit(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-
 void do_autogold(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch))
@@ -862,7 +835,6 @@ void do_autogold(CHAR_DATA *ch, const char *argument)
 		SET_BIT(ch->act,PLR_AUTOGOLD);
 	}
 }
-
 
 void do_autoloot(CHAR_DATA *ch, const char *argument)
 {
@@ -879,7 +851,6 @@ void do_autoloot(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-
 void do_autosac(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch))
@@ -895,7 +866,6 @@ void do_autosac(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-
 void do_autosplit(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch))
@@ -910,7 +880,6 @@ void do_autosplit(CHAR_DATA *ch, const char *argument)
 		SET_BIT(ch->act,PLR_AUTOSPLIT);
 	}
 }
-
 
 void do_color(CHAR_DATA *ch, const char *argument)
 {
@@ -928,7 +897,6 @@ void do_color(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-
 void do_brief(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_SET(ch->comm,COMM_BRIEF)) {
@@ -940,7 +908,6 @@ void do_brief(CHAR_DATA *ch, const char *argument)
 		SET_BIT(ch->comm,COMM_BRIEF);
 	}
 }
-
 
 void do_compact(CHAR_DATA *ch, const char *argument)
 {
@@ -954,7 +921,6 @@ void do_compact(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-
 void do_long(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_SET(ch->comm,COMM_LONG)) {
@@ -966,7 +932,6 @@ void do_long(CHAR_DATA *ch, const char *argument)
 		SET_BIT(ch->comm,COMM_LONG);
 	}
 }
-
 
 void do_show(CHAR_DATA *ch, const char *argument)
 {
@@ -980,7 +945,6 @@ void do_show(CHAR_DATA *ch, const char *argument)
 		SET_BIT(ch->comm,COMM_SHOW_AFFECTS);
 	}
 }
-
 
 void do_prompt(CHAR_DATA *ch, const char *argument)
 {
@@ -1010,7 +974,6 @@ void do_prompt(CHAR_DATA *ch, const char *argument)
 	char_printf(ch, "Prompt set to '%s'\n\r", ch->prompt);
 }
 
-
 void do_combine(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_SET(ch->comm,COMM_COMBINE)) {
@@ -1022,7 +985,6 @@ void do_combine(CHAR_DATA *ch, const char *argument)
 		SET_BIT(ch->comm,COMM_COMBINE);
 	}
 }
-
 
 void do_noloot(CHAR_DATA *ch, const char *argument)
 {
@@ -1038,7 +1000,6 @@ void do_noloot(CHAR_DATA *ch, const char *argument)
 		SET_BIT(ch->act,PLR_CANLOOT);
 	}
 }
-
 
 void do_nofollow(CHAR_DATA *ch, const char *argument)
 {
@@ -1061,7 +1022,6 @@ void do_nofollow(CHAR_DATA *ch, const char *argument)
 		die_follower(ch);
 	}
 }
-
 
 void do_nosummon(CHAR_DATA *ch, const char *argument)
 {
@@ -1090,7 +1050,6 @@ void do_nosummon(CHAR_DATA *ch, const char *argument)
 		}
 	}
 }
-
 
 void do_look_in(CHAR_DATA* ch, const char *argument)
 {
@@ -1207,7 +1166,9 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!str_cmp(arg1, "i") || !str_cmp(arg1, "in") || !str_cmp(arg1,"on")) {
+	if (!str_cmp(arg1, "i")
+	||  !str_cmp(arg1, "in")
+	||  !str_cmp(arg1,"on")) {
 		/* 'look in' */
 		if (arg2[0] == '\0') {
 			char_nputs(MSG_LOOK_IN_WHAT, ch);
@@ -1359,14 +1320,6 @@ void do_look(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-
-/* RT added back for the hell of it */
-void do_read(CHAR_DATA *ch, const char *argument)
-{
-	do_look(ch,argument);
-}
-
-
 void do_examine(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -1428,10 +1381,7 @@ void do_examine(CHAR_DATA *ch, const char *argument)
 			do_look_in(ch, argument);
 		}
 	}
-
-	return;
 }
-
 
 /*
  * Thanks to Zrin for auto-exit part.
@@ -1509,10 +1459,7 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 
 	if (fAuto)
 		char_puts("]{x\n\r", ch);
-
-	return;
 }
-
 
 void do_worth(CHAR_DATA *ch, const char *argument)
 {
@@ -1520,7 +1467,7 @@ void do_worth(CHAR_DATA *ch, const char *argument)
 		    ch->gold, ch->silver);
 	if (!IS_NPC(ch) && ch->level < LEVEL_HERO)
 		char_printf(ch, msg(MSG_AND_D_EXP, ch),
-			    ch->exp, exp_to_level(ch, ch->pcdata->points));
+			    ch->exp, exp_to_level(ch));
 	char_puts(".\n\r", ch);
 
 	if (!IS_NPC(ch))
@@ -1533,9 +1480,7 @@ void do_worth(CHAR_DATA *ch, const char *argument)
 			    IS_GOOD(ch) ? msg(MSG_GOODS, ch) :
 			    IS_EVIL(ch) ? msg(MSG_EVILS, ch) : 
 					  msg(MSG_NEUTRALS, ch));
-	return;
 }
-
 
 char *	const	day_name	[] =
 {
@@ -1550,7 +1495,6 @@ char *	const	month_name	[] =
 	"the Sun", "the Heat", "the Battle", "the Dark Shades", "the Shadows",
 	"the Long Shadows", "the Ancient Darkness", "the Great Evil"
 };
-
 
 void do_time(CHAR_DATA *ch, const char *argument)
 {
@@ -1592,16 +1536,13 @@ void do_time(CHAR_DATA *ch, const char *argument)
 	char_printf(ch, "MUDDY started up at %s\n\r"
 			"The system time is %s.\n\r",
 			str_boot_time, (char*) ctime(&current_time));
-	return;
 }
-
 
 void do_date(CHAR_DATA *ch, const char *argument)
 {
 	time_t t = time(NULL);
 	char_puts(ctime(&t), ch);
 }
-
 
 void do_weather(CHAR_DATA *ch, const char *argument)
 {
@@ -1622,72 +1563,29 @@ void do_weather(CHAR_DATA *ch, const char *argument)
 		    weather_info.change >= 0 ?
 		    "a warm southerly breeze blows" :
 		    "a cold northern gust blows");
-	return;
 }
-
 
 void do_help(CHAR_DATA *ch, const char *argument)
 {
-	HELP_DATA *pHelp;
-	HELP_DATA *pFirst = NULL;
-	BUFFER *output = NULL;
+	BUFFER *output;
 
 	if (argument[0] == '\0')
 		argument = "summary";
 
-	for (pHelp = help_first; pHelp != NULL; pHelp = pHelp->next) {
-		if (pHelp->level > get_trust(ch))
-			continue;
-
-		if (is_name(argument, pHelp->keyword)) {
-			if (pFirst == NULL) {
-				pFirst = pHelp;
-				continue;
-			}
-
-			/* found second matched help topic */
-			if (output == NULL) {
-				output = buf_new(0);
-				buf_add(output, "Available topics:\n\r");
-				buf_printf(output, "    o %s\n\r", pFirst->keyword);
-			}
-			buf_printf(output, "    o %s\n\r", pHelp->keyword);
-		}
-	}
-
-	if (pFirst == NULL) {
-		char_nprintf(ch, MSG_NO_HELP_ON_WORD, argument);
-		return;
-	}
-
-	if (output == NULL) {
-		char *text;
-
-		output = buf_new(0);
-		if (pFirst->level > -2
-		&&  str_cmp(pFirst->keyword, "imotd"))
-			buf_printf(output, "{C%s{x\n\r\n\r",
-				 pFirst->keyword);
-
-		text = mlstr_cval(pFirst->text, ch);
-
-		/*
-		 * Strip leading '.' to allow initial blanks.
-		 */
-		if (text)
-			if (text[0] == '.')
-				buf_add(output, text+1);
-			else
-				buf_add(output, text);
-	}
-
+	output = buf_new(0);
+	help_show(ch, output, argument);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }
 
-
 static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 {
+	CLAN_DATA *clan;
+	CLASS_DATA *cl;
+
+	if ((cl = class_lookup(wch->class)) == NULL)
+		return;
+
 	buf_add(output, "[");
 	if (IS_IMMORTAL(ch) || ch == wch
 	||  wch->level >= LEVEL_HERO || get_curr_stat(wch, STAT_CHA) < 18)
@@ -1718,17 +1616,18 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 
 		buf_add(output, " {Y");
 		if (IS_IMMORTAL(ch) || ch == wch)
-			buf_add(output, class_table[wch->class].who_name);
+			buf_add(output, cl->who_name);
 		else
 			buf_add(output, "   ");
 	}
 
 	buf_add(output, "{x] ");
 
-	if (wch->clan != CLAN_NONE
-	&&  (wch->clan == ch->clan || IS_IMMORTAL(ch)))
-		buf_printf(output, "[{c%s{x] ",
-			   clan_table[wch->clan].short_name);
+	if (wch->clan
+	&&  (clan = clan_lookup(wch->clan))
+	&&  (!IS_SET(clan->flags, CLAN_HIDDEN) ||
+	     wch->clan == ch->clan || IS_IMMORTAL(ch)))
+		buf_printf(output, "[{c%s{x] ", clan->name);
 
 	if (IS_SET(wch->comm, COMM_AFK))
 		buf_add(output, "{c[AFK]{x ");
@@ -1755,12 +1654,13 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	buf_add(output, "{x\n\r");
 }
 
-
 void do_who(CHAR_DATA *ch, const char *argument)
 {
 	BUFFER *output;
 	DESCRIPTOR_DATA *d;
+#if 0
 	int iClass;
+#endif
 	int iRace;
 	int iLevelLower;
 	int iLevelUpper;
@@ -1768,7 +1668,6 @@ void do_who(CHAR_DATA *ch, const char *argument)
 	int nMatch;
 	int vnum;
 	int count;
-	bool rgfClass[MAX_CLASS];
 	bool rgfRace[MAX_PC_RACE];
 	bool fClassRestrict;
 	bool fRaceRestrict;
@@ -1788,11 +1687,8 @@ void do_who(CHAR_DATA *ch, const char *argument)
 	vnum = 0;
 	fTattoo = FALSE;
 
-	for (iClass = 0; iClass < MAX_CLASS; iClass++)
-		rgfClass[iClass] = FALSE;
 	for (iRace = 0; iRace < MAX_PC_RACE; iRace++)
 		rgfRace[iRace] = FALSE;
-
 
 	/*
 	 * Parse arguments.
@@ -1832,6 +1728,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 			}
 			continue;
 		}
+
 		/*
 		 * Look for classes to turn on.
 		 */
@@ -1841,7 +1738,8 @@ void do_who(CHAR_DATA *ch, const char *argument)
 			iRace = race_lookup(arg);
 
 			if (iRace == 0 || iRace >= MAX_PC_RACE) {
-				iClass = class_lookup(arg);
+#if 0
+				iClass = cln_lookup(arg);
 				if (iClass == -1 || !IS_IMMORTAL(ch)) {
 					send_to_char("That's not a "
 						     "valid race.\n\r",
@@ -1850,6 +1748,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 				}
 				fClassRestrict = TRUE;
 				rgfClass[iClass] = TRUE;
+#endif
 			}
 			else {
 				fRaceRestrict = TRUE;
@@ -1883,7 +1782,9 @@ void do_who(CHAR_DATA *ch, const char *argument)
 
 		if (wch->level < iLevelLower || wch->level > iLevelUpper
 		||  (fImmortalOnly && wch->level < LEVEL_HERO)
+#if 0
 		||  (fClassRestrict && !rgfClass[wch->class])
+#endif
 		||  (fClassRestrict && IS_IMMORTAL(wch))
 		||  (fRaceRestrict && !rgfRace[RACE(wch)])
 		||  (fRaceRestrict && IS_IMMORTAL(wch))
@@ -1905,7 +1806,6 @@ void do_who(CHAR_DATA *ch, const char *argument)
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 }
-
 
 /* whois command */
 void do_whois(CHAR_DATA *ch, const char *argument)
@@ -1952,7 +1852,6 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 	buf_free(output);
 }
 
-
 void do_count(CHAR_DATA *ch, const char *argument)
 {
 	int count;
@@ -1974,14 +1873,11 @@ void do_count(CHAR_DATA *ch, const char *argument)
 	char_puts(".\n\r", ch);
 }
 
-
 void do_inventory(CHAR_DATA *ch, const char *argument)
 {
 	send_to_char(msg(MSG_YOU_ARE_CARRYING, ch), ch);
 	show_list_to_char(ch->carrying, ch, TRUE, TRUE);
-	return;
 }
-
 
 void do_equipment(CHAR_DATA *ch, const char *argument)
 {
@@ -2018,11 +1914,8 @@ void do_equipment(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!found)
-		send_to_char(msg(MSG_NOTHING, ch), ch);
-
-	return;
+		char_nputs(MSG_NOTHING, ch);
 }
-
 
 void do_compare(CHAR_DATA *ch, const char *argument)
 {
@@ -2107,16 +2000,12 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 			cmsg = msg(MSG_P_LOOKS_WORSE_P, ch);
 
 	act(cmsg, ch, obj1, obj2, TO_CHAR);
-	return;
 }
-
 
 void do_credits(CHAR_DATA *ch, const char *argument)
 {
 	do_help(ch, "muddy");
-	return;
 }
-
 
 void do_where(CHAR_DATA *ch, const char *argument)
 {
@@ -2183,7 +2072,6 @@ void do_where(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-
 void do_consider(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -2241,7 +2129,6 @@ void do_consider(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-
 void set_title(CHAR_DATA *ch, const char *title)
 {
 	char buf[MAX_TITLE_LENGTH];
@@ -2260,13 +2147,12 @@ void set_title(CHAR_DATA *ch, const char *title)
 	ch->pcdata->title = str_dup(buf);
 }
 
-
 void do_title(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch))
 		return;
 
-	if (MSG_CANT_CHANGE_TITLE(ch)) {
+	if (CANT_CHANGE_TITLE(ch)) {
 		char_nputs(MSG_CANT_CHANGE_TITLE, ch);
 		return;
 	}
@@ -2285,7 +2171,6 @@ void do_title(CHAR_DATA *ch, const char *argument)
 	char_nputs(MSG_OK, ch);
 }
 
-
 void do_description(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_STRING_LENGTH];
@@ -2300,7 +2185,6 @@ void do_description(CHAR_DATA *ch, const char *argument)
 	char_nprintf(ch, MSG_YOUR_DESC_IS, mlstr_mval(ch->description));
 }
 
-
 void do_report(CHAR_DATA *ch, const char *argument)
 {
 	act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING, MSG_REPORT_I_HAVE,
@@ -2312,7 +2196,6 @@ void do_report(CHAR_DATA *ch, const char *argument)
 	       ch->mana, ch->max_mana,
 	       ch->move, ch->max_move);
 }
-
 
 /*
  * 'Wimpy' originally by Dionysos.
@@ -2352,7 +2235,6 @@ void do_wimpy(CHAR_DATA *ch, const char *argument)
 	char_printf(ch, "Wimpy set to %d hit points.\n\r", wimpy);
 	return;
 }
-
 
 void do_password(CHAR_DATA *ch, const char *argument)
 {
@@ -2611,11 +2493,8 @@ void do_request(CHAR_DATA *ch, const char *argument)
 	af.location = APPLY_NONE;
 	af.modifier = 0;
 	af.bitvector = 0;
-	affect_to_char (ch, &af);
-
-	return;
+	affect_to_char(ch, &af);
 }
-
 
 void do_hometown(CHAR_DATA *ch, const char *argument)
 {
@@ -2695,59 +2574,61 @@ void do_hometown(CHAR_DATA *ch, const char *argument)
 	send_to_char(".\n\r", ch);
 }
 
-
 void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 {
-	AFFECT_DATA af;
+	AFFECT_DATA	af;
+	int		chance;
+	int		sn;
 
-
-	if (IS_NPC(ch)
-	||  ch->level < skill_table[gsn_detect_hidden].skill_level[ch->class]) {
-		send_to_char(msg(MSG_HUH, ch), ch);
+	if ((sn = sn_lookup("detect hide")) < 0
+	||  (chance = get_skill(ch, sn)) == 0) {
+		char_nputs(MSG_HUH, ch);
 		return;
 	}
 
-	if (CAN_DETECT(ch, DETECT_HIDDEN)) {
+	if (IS_AFFECTED(ch, AFF_DETECT_HIDDEN)) {
 		send_to_char("You are already as alert as you can be. \n\r",ch);
 		return;
 	}
 
-	if (number_percent() > get_skill(ch, gsn_detect_hidden)) {
+	if (number_percent() > chance) {
 		send_to_char("You peer intently at the shadows "
 			     "but they are unrevealing.\n\r", ch);
 		return;
 	}
-	af.where     = TO_DETECTS;
-	af.type      = gsn_detect_hidden;
+
+	af.where     = TO_AFFECTS;
+	af.type      = sn;
 	af.level     = ch->level;
 	af.duration  = ch->level;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
-	af.bitvector = DETECT_HIDDEN;
+	af.bitvector = AFF_DETECT_HIDDEN;
 	affect_to_char(ch, &af);
 	send_to_char("Your awareness improves.\n\r", ch);
-	return;
 }
-
 
 void do_bear_call(CHAR_DATA *ch, const char *argument)
 {
-	CHAR_DATA *gch;
-	CHAR_DATA *bear;
-	CHAR_DATA *bear2;
-	AFFECT_DATA af;
-	int i;
+	CHAR_DATA *	gch;
+	CHAR_DATA *	bear;
+	CHAR_DATA *	bear2;
+	AFFECT_DATA	af;
+	int		i;
+	int		chance;
+	int		sn;
+	int		mana;
 
-	if (IS_NPC(ch)
-	||  ch->level < skill_table[gsn_bear_call].skill_level[ch->class]) {
-		send_to_char(msg(MSG_HUH, ch), ch);
+	if ((sn = sn_lookup("bear call")) < 0
+	||  (chance = get_skill(ch, sn)) == 0) {
+		char_nputs(MSG_HUH, ch);
 		return;
 	}
 
 	send_to_char("You call for bears help you.\n\r",ch);
 	act("$n shouts a bear call.",ch,NULL,NULL,TO_ROOM);
 
-	if (is_affected(ch, gsn_bear_call)) {
+	if (is_affected(ch, sn)) {
 		send_to_char("You cannot summon the strength to handle "
 			     "more bears right now.\n\r", ch);
 		return;
@@ -2769,12 +2650,6 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (number_percent() > get_skill(ch, gsn_bear_call)) {
-		send_to_char("No bears listen you.\n\r", ch);
-		check_improve(ch,gsn_bear_call,TRUE,1);
-		return;
-	}
-
 	if (IS_SET(ch->in_room->room_flags, ROOM_SAFE)
 	||  IS_SET(ch->in_room->room_flags, ROOM_PRIVATE)
 	||  IS_SET(ch->in_room->room_flags, ROOM_SOLITARY)
@@ -2789,14 +2664,21 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->mana < 125) {
+	mana = SKILL(sn)->min_mana;
+	if (ch->mana < mana) {
 		send_to_char("You don't have enough mana "
 			     "to shout a bear call.\n\r", ch);
 		return;
 	}
-	ch->mana -= 125;
+	ch->mana -= mana;
 
-	check_improve(ch, gsn_bear_call, TRUE, 1);
+	if (number_percent() > chance) {
+		send_to_char("No bears listen you.\n\r", ch);
+		check_improve(ch, sn, FALSE, 1);
+		return;
+	}
+
+	check_improve(ch, sn, TRUE, 1);
 	bear = create_mob(get_mob_index(MOB_VNUM_BEAR));
 
 	for (i=0;i < MAX_STATS; i++)
@@ -2828,16 +2710,14 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	act("Two bears come to $n's rescue!",ch,NULL,NULL,TO_ROOM);
 
 	af.where	      = TO_AFFECTS;
-	af.type 	      = gsn_bear_call;
+	af.type 	      = sn;
 	af.level	      = ch->level;
-	af.duration	      = 24;
+	af.duration	      = SKILL(sn)->beats;
 	af.bitvector	      = 0;
 	af.modifier	      = 0;
 	af.location	      = APPLY_NONE;
 	affect_to_char(ch, &af);
-
 }
-
 
 void do_identify(CHAR_DATA *ch, const char *argument)
 {
@@ -2876,32 +2756,16 @@ void do_identify(CHAR_DATA *ch, const char *argument)
 	spell_identify(0, 0, ch, obj ,0);
 }
 
-
-size_t cstrlen(char* cstr)
-{
-	size_t res;
-
-	if (cstr == NULL)
-		return 0;
-
-	res = strlen(cstr);
-	while ((cstr = strchr(cstr, '{')) != NULL) {
-		if (*(cstr+1) == '{')
-			res--;
-		else
-			res -= 2;
-		cstr += 2;
-	}
-
-	return res;
-}
-
 void do_score(CHAR_DATA *ch, const char *argument)
 {
 	char buf2[MAX_INPUT_LENGTH];
 	char title[MAX_STRING_LENGTH];
 	int ekle = 0;
 	int delta;
+	CLASS_DATA *cl;
+
+	if ((cl = class_lookup(ch->class)) == NULL)
+		return;
 
 	send_to_char("\n\r      {G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/~~\\{x\n\r", ch);
 
@@ -2932,7 +2796,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 
 	char_printf(ch,
 "     {G| {RClass:  {x%-12s {C|  {RDex:  {x%2d(%2d)  {C| {RQuest Pnts:  {x%4d       {G|{x\n\r",
-		IS_NPC(ch) ? "mobile" : class_table[ch->class].name,
+		IS_NPC(ch) ? "mobile" : cl->name,
 		ch->perm_stat[STAT_DEX], get_curr_stat(ch,STAT_DEX),
 		IS_NPC(ch) ? 0 : ch->pcdata->questpoints);
 
@@ -3040,7 +2904,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 
 	char_printf(ch,
 "     {G| {RExp to level  :   {x%-6d                                        {G|{x\n\r",
-		IS_NPC(ch) ? 0 : exp_to_level(ch,ch->pcdata->points));
+		IS_NPC(ch) ? 0 : exp_to_level(ch));
 
 	char_printf(ch,
 "     {G|                                     {RHitP: {x%5d / %5d         {G|{x\n\r",
@@ -3060,8 +2924,12 @@ void do_score(CHAR_DATA *ch, const char *argument)
 
 void do_oscore(CHAR_DATA *ch, const char *argument)
 {
+	CLASS_DATA *cl;
 	char buf2[MAX_STRING_LENGTH];
 	int i;
+
+	if ((cl = class_lookup(ch->class)) == NULL)
+		return;
 
 	char_printf(ch,
 		"%s {W%s{x%s, level {W%d{x, {c%d{x years old "
@@ -3079,7 +2947,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 		"Hometown: {c%s{x\n\r",
 		race_table[ORG_RACE(ch)].name,
 		ch->sex == 0 ? "sexless" : ch->sex == 1 ? "male" : "female",
-		IS_NPC(ch) ? "mobile" : class_table[ch->class].name,
+		IS_NPC(ch) ? "mobile" : cl->name,
 		IS_NPC(ch) ? "Midgaard" : hometown_table[ch->hometown].name);
 
 	char_printf(ch,
@@ -3135,7 +3003,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 	/* KIO shows exp to level */
 	if (!IS_NPC(ch) && ch->level < LEVEL_HERO)
 		char_printf(ch, "You need {c%d{x exp to level.\n\r",
-			exp_to_level(ch,ch->pcdata->points));
+			exp_to_level(ch));
 
 	if (!IS_NPC(ch))
 		char_printf(ch,
@@ -3294,7 +3162,6 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 		do_affects(ch, NULL);
 }
 
-
 void do_affects(CHAR_DATA *ch, const char *argument)
 {
 	AFFECT_DATA *paf, *paf_last = NULL;
@@ -3313,13 +3180,12 @@ void do_affects(CHAR_DATA *ch, const char *argument)
 				continue;
 		else
 			char_printf(ch, "%s {c%-15s{x", msg(MSG_AFF_SPELL, ch),
-				    paf->type > 0 ?
-				    skill_table[paf->type].name : "none");
+				    skill_name(paf->type));
 
 		if (ch->level >= 20) {
 			char_printf(ch, ": %s {c%s{x %s {c%d{x ",
 				    msg(MSG_AFF_MODIFIES, ch),
-				    affect_loc_name(paf->location),
+				    flag_string(apply_flags, paf->location),
 				    msg(MSG_AFF_BY, ch),
 				    paf->modifier);
 			if (paf->duration == -1 || paf->duration == -2)
@@ -3331,21 +3197,21 @@ void do_affects(CHAR_DATA *ch, const char *argument)
 		send_to_char("\n\r", ch);
 		paf_last = paf;
 	}
-
-	return;
 }
-
 
 void do_lion_call(CHAR_DATA *ch, const char *argument)
 {
-	CHAR_DATA *gch;
-	CHAR_DATA *bear;
-	CHAR_DATA *bear2;
-	AFFECT_DATA af;
-	int i;
+	CHAR_DATA *	gch;
+	CHAR_DATA *	lion;
+	CHAR_DATA *	lion2;
+	AFFECT_DATA	af;
+	int		i;
+	int		chance;
+	int		sn;
+	int		mana;
 
-	if (IS_NPC(ch)
-	||  ch->level < skill_table[gsn_lion_call].skill_level[ch->class]) {
+	if ((sn = sn_lookup("lion call")) < 0
+	||  (chance = get_skill(ch, sn)) == 0) {
 		char_nputs(MSG_HUH, ch);
 		return;
 	}
@@ -3353,7 +3219,7 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	send_to_char("You call for lions help you.\n\r",ch);
 	act("$n shouts a lion call.",ch,NULL,NULL,TO_ROOM);
 
-	if (is_affected(ch, gsn_lion_call)) {
+	if (is_affected(ch, sn)) {
 		send_to_char("You cannot summon the strength to handle "
 			     "more lions right now.\n\r", ch);
 		return;
@@ -3375,11 +3241,6 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (number_percent() > get_skill(ch, gsn_lion_call)) {
-		send_to_char("No lions listen you.\n\r", ch);
-		return;
-	}
-
 	if (IS_SET(ch->in_room->room_flags, ROOM_SAFE)
 	||  IS_SET(ch->in_room->room_flags, ROOM_PRIVATE)
 	||  IS_SET(ch->in_room->room_flags, ROOM_SOLITARY)
@@ -3394,52 +3255,59 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->mana < 125) {
+	mana = SKILL(sn)->min_mana;
+	if (ch->mana < mana) {
 		send_to_char("You don't have enough mana "
 			     "to shout a lion call.\n\r", ch);
 		return;
 	}
-	ch->mana -= 125;
+	ch->mana -= mana;
 
-	bear = create_mob(get_mob_index(MOB_VNUM_LION));
+	if (number_percent() > chance) {
+		check_improve(ch, sn, FALSE, 1);
+		send_to_char("No lions listen you.\n\r", ch);
+		return;
+	}
+
+	check_improve(ch, sn, TRUE, 1);
+	lion = create_mob(get_mob_index(MOB_VNUM_LION));
 
 	for (i=0;i < MAX_STATS; i++)
-		bear->perm_stat[i] = UMIN(25,2 * ch->perm_stat[i]);
+		lion->perm_stat[i] = UMIN(25,2 * ch->perm_stat[i]);
 
-	bear->max_hit = IS_NPC(ch) ? ch->max_hit : ch->pcdata->perm_hit;
-	bear->hit = bear->max_hit;
-	bear->max_mana = IS_NPC(ch) ? ch->max_mana : ch->pcdata->perm_mana;
-	bear->mana = bear->max_mana;
-	bear->alignment = ch->alignment;
-	bear->level = UMIN(100,1 * ch->level-2);
+	lion->max_hit = IS_NPC(ch) ? ch->max_hit : ch->pcdata->perm_hit;
+	lion->hit = lion->max_hit;
+	lion->max_mana = IS_NPC(ch) ? ch->max_mana : ch->pcdata->perm_mana;
+	lion->mana = lion->max_mana;
+	lion->alignment = ch->alignment;
+	lion->level = UMIN(100,1 * ch->level-2);
 	for (i=0; i < 3; i++)
-		bear->armor[i] = interpolate(bear->level,100,-100);
-	bear->armor[3] = interpolate(bear->level,100,0);
-	bear->sex = ch->sex;
-	bear->gold = 0;
+		lion->armor[i] = interpolate(lion->level,100,-100);
+	lion->armor[3] = interpolate(lion->level,100,0);
+	lion->sex = ch->sex;
+	lion->gold = 0;
 
-	bear2 = create_mob(bear->pIndexData);
-	clone_mob(bear,bear2);
+	lion2 = create_mob(lion->pIndexData);
+	clone_mob(lion,lion2);
 
-	SET_BIT(bear->affected_by, AFF_CHARM);
-	SET_BIT(bear2->affected_by, AFF_CHARM);
-	bear->master = bear2->master = ch;
-	bear->leader = bear2->leader = ch;
+	SET_BIT(lion->affected_by, AFF_CHARM);
+	SET_BIT(lion2->affected_by, AFF_CHARM);
+	lion->master = lion2->master = ch;
+	lion->leader = lion2->leader = ch;
 
-	char_to_room(bear,ch->in_room);
-	char_to_room(bear2,ch->in_room);
+	char_to_room(lion,ch->in_room);
+	char_to_room(lion2,ch->in_room);
 	send_to_char("Two lions come to your rescue!\n\r",ch);
-	act("Two bears come to $n's rescue!",ch,NULL,NULL,TO_ROOM);
+	act("Two lions come to $n's rescue!",ch,NULL,NULL,TO_ROOM);
 
 	af.where	      = TO_AFFECTS;
-	af.type 	      = gsn_lion_call;
+	af.type 	      = sn;
 	af.level	      = ch->level;
-	af.duration	      = 24;
+	af.duration	      = SKILL(sn)->beats;
 	af.bitvector	      = 0;
 	af.modifier	      = 0;
 	af.location	      = APPLY_NONE;
 	affect_to_char(ch, &af);
-
 }
 
 /* object condition aliases */
@@ -3460,13 +3328,19 @@ char *get_cond_alias(OBJ_DATA *obj, CHAR_DATA *ch)
 	return stat;
 }
 
-
 /* new practice */
 void do_practice(CHAR_DATA *ch, const char *argument)
 {
-	int sn;
-	CHAR_DATA *mob;
-	int adept;
+	CHAR_DATA	*mob;
+	int		sn;
+	SKILL_DATA	*sk;
+	PC_SKILL	*ps;
+	CLASS_DATA	*cl;
+	CLASS_SKILL	*cs;
+	int		adept;
+	bool		found;
+	int		rating;
+	char		arg[MAX_STRING_LENGTH];
 
 	if (IS_NPC(ch))
 		return;
@@ -3474,29 +3348,38 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 	if (argument[0] == '\0') {
 		BUFFER *output;
 		int col = 0;
+		int i;
 
 		output = buf_new(0);
-		for (sn = 0; sn < MAX_SKILL; sn++) {
-			if (skill_table[sn].name == NULL)
-				break;
-			if (!SKILL_OK(ch, sn)
-			||  ch->pcdata->learned[sn] == 0)
+
+		for (i = 0; i < ch->pcdata->learned->nused; i++) {
+			ps = VARR_GET(ch->pcdata->learned, i);
+
+			if (ps->percent == 0
+			||  (sk = skill_lookup(ps->sn)) == NULL
+			||  skill_level(ch, ps->sn) > ch->level)
 				continue;
 
 			buf_printf(output, "%-18s %3d%%  ",
-				skill_table[sn].name, ch->pcdata->learned[sn]);
+				   sk->name, ps->percent);
 			if (++col % 3 == 0)
 				buf_add(output, "\n\r");
 		}
 
-		if (col % 3 != 0)
+		if (col % 3)
 			buf_add(output, "\n\r");
 
 		buf_printf(output, "You have %d practice sessions left.\n\r",
-			ch->practice);
+			   ch->practice);
 
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
+		return;
+	}
+
+	if ((cl = CLASS(ch->class)) == NULL) {
+		log_printf("do_practice: %s: class %d: unknown",
+			   ch->name, ch->class);
 		return;
 	}
 
@@ -3505,8 +3388,11 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((sn = find_spell(ch, argument)) < 0
-	||  ch->pcdata->learned[sn] == 0) {
+	one_argument(argument, arg);
+
+	if ((ps = skill_vlookup(ch->pcdata->learned, arg)) == NULL
+	||  ps->percent == 0
+	||  skill_level(ch, sn = ps->sn) > ch->level) {
 		send_to_char("You can't practice that.\n\r", ch);
 		return;
 	}
@@ -3517,79 +3403,80 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	found = FALSE;
+	sk = SKILL(sn);
 	for (mob = ch->in_room->people; mob != NULL; mob = mob->next_in_room) {
 		if (!IS_NPC(mob) || !IS_SET(mob->act, ACT_PRACTICE))
 			continue;
 
-		if (skill_table[sn].clan != CLAN_NONE) {
+		found = TRUE;
+
+		if (IS_SET(sk->flags, SKILL_CLAN)) {
 			if (ch->clan == mob->clan)
 				break;
 			continue;
 		}
 
-		if ((mob->pIndexData->practicer == 0
-		&&  (skill_table[sn].group == GROUP_NONE
-		||   skill_table[sn].group == GROUP_CREATION
-		||   skill_table[sn].group == GROUP_HARMFUL
-		||   skill_table[sn].group == GROUP_PROTECTIVE
-		||   skill_table[sn].group == GROUP_DETECTION
-		||   skill_table[sn].group == GROUP_WEATHER))
-		||  (mob->pIndexData->practicer & skill_table[sn].group))
+		if ((mob->pIndexData->practicer == 0 &&
+		    (sk->group == GROUP_NONE ||
+		     IS_SET(sk->group,	GROUP_CREATION | GROUP_HARMFUL |
+					GROUP_PROTECTIVE | GROUP_DETECTION |
+					GROUP_WEATHER)))
+		||  IS_SET(mob->pIndexData->practicer, sk->group))
 			break;
 	}
 
 	if (mob == NULL) {
-		  send_to_char("You can't do that here. "
-			       "USE glist, slook for more info.\n\r", ch);
-		  return;
+		if (found)
+			char_puts("You can't do that here. "
+				  "Use 'slook skill', 'help practice' "
+				  "for more info.\n\r", ch);
+		else
+			char_puts("You couldn't find anyone "
+				  "who can teach you.\n\r", ch);
+		return;
 	}
 
-	adept = IS_NPC(ch) ? 100 : class_table[ch->class].skill_adept;
-
-	if (ch->pcdata->learned[sn] >= adept) {
+	adept = cl->skill_adept;
+	if (ps->percent >= adept) {
 		char_printf(ch, "You are already learned at %s.\n\r",
-			    skill_table[sn].name);
+			    sk->name);
 		return;
 	}
 
 	ch->practice--;
-	ch->pcdata->learned[sn] += int_app[get_curr_stat(ch,STAT_INT)].learn /
-				   UMAX(skill_table[sn].rating[ch->class],1);
-	if (ch->pcdata->learned[sn] < adept) {
-		act("You practice $T.",
-		    ch, NULL, skill_table[sn].name, TO_CHAR);
-		act("$n practices $T.",
-		    ch, NULL, skill_table[sn].name, TO_ROOM);
+
+	cs = class_skill_lookup(cl, sn);
+	rating = cs ? UMAX(cs->rating, 1) : 1;
+	ps->percent += int_app[get_curr_stat(ch,STAT_INT)].learn / rating;
+
+	if (ps->percent < adept) {
+		act("You practice $T.", ch, NULL, sk->name, TO_CHAR);
+		act("$n practices $T.", ch, NULL, sk->name, TO_ROOM);
 	}
 	else {
-		ch->pcdata->learned[sn] = adept;
-		act("You are now learned at $T.",
-		    ch, NULL, skill_table[sn].name, TO_CHAR);
-		act("$n is now learned at $T.",
-		    ch, NULL, skill_table[sn].name, TO_ROOM);
+		ps->percent = adept;
+		act("You are now learned at $T.", ch, NULL, sk->name, TO_CHAR);
+		act("$n is now learned at $T.", ch, NULL, sk->name, TO_ROOM);
 	}
 }
 
-
 void do_camp(CHAR_DATA *ch, const char *argument)
 {
-	AFFECT_DATA af,af2;
+	AFFECT_DATA af;
+	int sn;
+	int chance;
+	int mana;
 
-	if (IS_NPC(ch)
-	||  ch->level < skill_table[gsn_camp].skill_level[ch->class]) {
+	if ((sn = sn_lookup("camp")) < 0
+	||  (chance = get_skill(ch, sn)) == 0) {
 		char_nputs(MSG_HUH, ch);
 		return;
 	}
 
-	if (is_affected(ch, gsn_camp)) {
+	if (is_affected(ch, sn)) {
 		send_to_char("You don't have enough power to handle more "
 			     "camp areas.\n\r", ch);
-		return;
-	}
-
-	if (number_percent() > get_skill(ch, gsn_camp)) {
-		send_to_char("You failed to make your camp.\n\r", ch);
-		check_improve(ch, gsn_camp, TRUE, 4);
 		return;
 	}
 
@@ -3605,43 +3492,48 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->mana < 150) {
+	mana = SKILL(sn)->min_mana;
+	if (ch->mana < mana) {
 		send_to_char("You don't have enough mana to make a camp.\n\r",
 			     ch);
 		return;
 	}
+	ch->mana -= mana;
 
-	check_improve(ch, gsn_camp, TRUE, 4);
-	ch->mana -= 150;
+	if (number_percent() > chance) {
+		send_to_char("You failed to make your camp.\n\r", ch);
+		check_improve(ch, sn, FALSE, 4);
+		return;
+	}
 
-	WAIT_STATE(ch, skill_table[gsn_camp].beats);
+	check_improve(ch, sn, TRUE, 4);
+	WAIT_STATE(ch, SKILL(sn)->beats);
 
 	send_to_char("You succeeded to make your camp.\n\r", ch);
 	act("$n succeeded to make $s camp.", ch, NULL, NULL, TO_ROOM);
 
-	af.where	      = TO_AFFECTS;
-	af.type 	      = gsn_camp;
-	af.level	      = ch->level;
-	af.duration	      = 12;
-	af.bitvector	      = 0;
-	af.modifier	      = 0;
-	af.location	      = APPLY_NONE;
+	af.where	= TO_AFFECTS;
+	af.type 	= sn;
+	af.level	= ch->level;
+	af.duration	= 12;
+	af.bitvector	= 0;
+	af.modifier	= 0;
+	af.location	= APPLY_NONE;
 	affect_to_char(ch, &af);
 
-	af2.where	      = TO_ROOM_CONST;
-	af2.type	      = gsn_camp;
-	af2.level	      = ch->level;
-	af2.duration	      = ch->level / 20;
-	af2.bitvector	      = 0;
-	af2.modifier	      = 2 * ch->level;
-	af2.location	      = APPLY_ROOM_HEAL;
-	affect_to_room(ch->in_room, &af2);
+	af.where	= TO_ROOM_CONST;
+	af.type		= sn;
+	af.level	= ch->level;
+	af.duration	= ch->level / 20;
+	af.bitvector	= 0;
+	af.modifier	= 2 * ch->level;
+	af.location	= APPLY_ROOM_HEAL;
+	affect_to_room(ch->in_room, &af);
 
-	af2.modifier	      = ch->level;
-	af2.location	      = APPLY_ROOM_MANA;
-	affect_to_room(ch->in_room, &af2);
+	af.modifier	= ch->level;
+	af.location	= APPLY_ROOM_MANA;
+	affect_to_room(ch->in_room, &af);
 }
-
 
 void do_demand(CHAR_DATA *ch, const char *argument)
 {
@@ -3735,17 +3627,17 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 	send_to_char("Your power makes all around the world shivering.\n\r",ch);
 }
 
-
 void do_control(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	int chance;
+	int sn;
 
 	argument = one_argument(argument, arg);
 
-	if (IS_NPC(ch)
-	||  ch->level < skill_table[gsn_control_animal].skill_level[ch->class]) {
+	if ((sn = sn_lookup("control animal")) < 0
+	||  (chance = get_skill(ch, sn)) == 0) {
 		char_nputs(MSG_HUH, ch);
 		return;
 	}
@@ -3765,15 +3657,13 @@ void do_control(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_safe(ch,victim))
+	if (is_safe(ch, victim))
 		return;
 
 	if (count_charmed(ch))
 		return;
 
-	WAIT_STATE(ch, PULSE_VIOLENCE);
-
-	chance = get_skill(ch,gsn_control_animal);
+	WAIT_STATE(ch, SKILL(sn)->beats);
 
 	chance += (get_curr_stat(ch,STAT_CHA) - 20) * 5;
 	chance += (ch->level - victim->level) * 3;
@@ -3786,13 +3676,13 @@ void do_control(CHAR_DATA *ch, const char *argument)
 	||  ch->level < (victim->level + 2)
 	||  IS_SET(victim->imm_flags,IMM_CHARM)
 	||  (IS_NPC(victim) && victim->pIndexData->pShop != NULL)) {
-		check_improve(ch,gsn_control_animal,FALSE,2);
+		check_improve(ch, sn, FALSE, 2);
 		do_say(victim,"I'm not about to follow you!");
 		do_murder(victim, ch->name);
 		return;
 	}
 
-	check_improve(ch,gsn_control_animal,TRUE,2);
+	check_improve(ch, sn, TRUE, 2);
 
 	if (victim->master)
 		stop_follower(victim);
@@ -3801,24 +3691,25 @@ void do_control(CHAR_DATA *ch, const char *argument)
 
 	act("Isn't $n just so nice?", ch, NULL, victim, TO_VICT);
 	if (ch != victim)
-		act("$N looks at you with adoring eyes.", ch, NULL, victim,
-		    TO_CHAR);
-	return;
+		act("$N looks at you with adoring eyes.",
+		    ch, NULL, victim, TO_NOTVICT);
 }
-
 
 void do_make_arrow(CHAR_DATA *ch, const char *argument)
 {
 	OBJ_DATA *arrow;
-	AFFECT_DATA tohit,todam,saf;
-	int count,color,mana,wait;
+	AFFECT_DATA af, saf;
+	int count, color, mana, wait;
 	char arg[MAX_INPUT_LENGTH];
-	char *str;
+	char *str = "wooden";
+	int chance;
+	int sn;
 
 	if (IS_NPC(ch))
 		return;
 
-	if (!SKILL_OK(ch, gsn_make_arrow)) {
+	if ((sn = sn_lookup("make arrow")) < 0
+	||  (chance = get_skill(ch, sn)) == 0) {
 		send_to_char("You don't know how to make arrows.\n\r", ch);
 		return;
 	}
@@ -3830,24 +3721,43 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	mana = skill_table[gsn_make_arrow].min_mana;
-	wait = skill_table[gsn_make_arrow].beats;
+	mana = SKILL(sn)->min_mana;
+	wait = SKILL(sn)->beats;
 
+	color = -1;
 	argument = one_argument(argument, arg);
-	     if (arg[0] == '\0') color = 0;
-	else if (!str_prefix(arg,"green")) color = gsn_green_arrow;
-	else if (!str_prefix(arg,"red")) color = gsn_red_arrow;
-	else if (!str_prefix(arg,"white")) color = gsn_white_arrow;
-	else if (!str_prefix(arg,"blue")) color = gsn_blue_arrow;
-	else {
+	if (arg[0] == '\0')
+		color = 0;
+	else if (!str_prefix(arg, "green")) {
+		color = sn_lookup("green arrow");
+		saf.bitvector	= WEAPON_POISON;
+		str = "green";
+	}
+	else if (!str_prefix(arg, "red")) {
+		color = sn_lookup("red arrow");
+		saf.bitvector	= WEAPON_FLAMING;
+		str = "red";
+	}
+	else if (!str_prefix(arg, "white")) {
+		color = sn_lookup("white arrow");
+		saf.bitvector	= WEAPON_FROST;
+		str = "white";
+	}
+	else if (!str_prefix(arg, "blue")) {
+		color = sn_lookup("blue arrow");
+		saf.bitvector	= WEAPON_SHOCKING;
+		str = "blue";
+	}
+
+	if (color < 0) {
 		send_to_char("You don't know how to make "
 			     "that kind of arrow.\n\r", ch);
 		return;
 	}
 
-	if (color != 0) {
-		mana += skill_table[color].min_mana;
-		wait += skill_table[color].beats;
+	if (color) {
+		mana += SKILL(color)->min_mana;
+		wait += SKILL(color)->beats;
 	}
 
 	if (ch->mana < mana) {
@@ -3855,90 +3765,79 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 			     "to make that kind of arrows.\n\r", ch);
 		return;
 	}
+
 	ch->mana -= mana;
-	WAIT_STATE(ch,wait);
+	WAIT_STATE(ch, wait);
 
 	send_to_char("You start to make arrows!\n\r",ch);
 	act("$n starts to make arrows!",ch,NULL,NULL,TO_ROOM);
-	for(count = 0; count < (ch->level/5); count++) {
-		if (number_percent() > get_skill(ch, gsn_make_arrow)) {
+	for(count = 0; count < ch->level / 5; count++) {
+		if (number_percent() > chance) {
 			send_to_char("You failed to make the arrow, "
 				     "and broke it.\n\r", ch);
-			check_improve(ch, gsn_make_arrow, FALSE, 3);
+			check_improve(ch, sn, FALSE, 3);
+			if (color)
+				check_improve(ch, color, FALSE, 3);
 			continue;
 		}
-		send_to_char("You successfully make an arrow.\n\r", ch);
-		check_improve(ch, gsn_make_arrow, TRUE, 3);
 
-		if (color != 0) {
+		send_to_char("You successfully make an arrow.\n\r", ch);
+		check_improve(ch, sn, TRUE, 3);
+		if (color)
+			check_improve(ch, color, TRUE, 3);
+
+		arrow = create_named_obj(get_obj_index(OBJ_VNUM_RANGER_ARROW),
+					 ch->level, str);
+		arrow->level = ch->level;
+		arrow->value[1] = 4 + ch->level / 10;
+		arrow->value[2] = 4 + ch->level / 10;
+
+		af.where	 = TO_OBJECT;
+		af.type		 = sn;
+		af.level	 = ch->level;
+		af.duration	 = -1;
+		af.location	 = APPLY_HITROLL;
+		af.modifier	 = ch->level / 10;
+		af.bitvector 	 = 0;
+		affect_to_obj(arrow, &af);
+
+		af.where	= TO_OBJECT;
+		af.type		= sn;
+		af.level	= ch->level;
+		af.duration	= -1;
+		af.location	= APPLY_DAMROLL;
+		af.modifier	= ch->level / 10;
+		af.bitvector	= 0;
+		affect_to_obj(arrow, &af);
+
+		if (color) {
 			saf.where	 = TO_WEAPON;
 			saf.type	 = color;
 			saf.level	 = ch->level;
 			saf.duration	 = -1;
 			saf.location	 = 0;
 			saf.modifier	 = 0;
-
-			if (color == gsn_green_arrow) {
-				saf.bitvector	= WEAPON_POISON;
-				str = "green";
-			}
-			else if (color == gsn_red_arrow) {
-				saf.bitvector	= WEAPON_FLAMING;
-				str = "red";
-			}
-			else if (color == gsn_white_arrow) {
-				saf.bitvector	= WEAPON_FROST;
-				str = "white";
-			}
-			else {
-				saf.bitvector	= WEAPON_SHOCKING;
-				str = "blue";
-			}
-		}
-		else
-			str = "wooden";
-
-		arrow = create_named_obj(get_obj_index(OBJ_VNUM_RANGER_ARROW), ch->level, str);
-		arrow->level = ch->level;
-		arrow->value[1] = 4 + ch->level / 10;
-		arrow->value[2] = 4 + ch->level / 10;
-
-		tohit.where		 = TO_OBJECT;
-		tohit.type		 = gsn_make_arrow;
-		tohit.level		 = ch->level;
-		tohit.duration		 = -1;
-		tohit.location		 = APPLY_HITROLL;
-		tohit.modifier		 = ch->level / 10;
-		tohit.bitvector 	 = 0;
-		affect_to_obj(arrow, &tohit);
-
-		todam.where		 = TO_OBJECT;
-		todam.type		 = gsn_make_arrow;
-		todam.level		 = ch->level;
-		todam.duration		 = -1;
-		todam.location		 = APPLY_DAMROLL;
-		todam.modifier		 = ch->level / 10;
-		todam.bitvector 	 = 0;
-		affect_to_obj(arrow,&todam);
-		if (color)
 			affect_to_obj(arrow, &saf);
+		}
 
 		obj_to_char(arrow, ch);
 		arrow = NULL;
 	}
 }
 
-
 void do_make_bow(CHAR_DATA *ch, const char *argument)
 {
-	OBJ_DATA *bow;
-	AFFECT_DATA tohit,todam;
-	int mana,wait;
+	OBJ_DATA *	bow;
+	AFFECT_DATA	af;
+	int		mana;
+	int		sn;
+	int		chance;
 
 	if (IS_NPC(ch))
 		return;
 
-	if (!SKILL_OK(ch, gsn_make_bow)) {
+	if ((sn = sn_lookup("make bow")) < 0
+	||  (chance = get_skill(ch, sn)) == 0) {
 		send_to_char("You don't know how to make bows.\n\r", ch);
 		return;
 	}
@@ -3950,52 +3849,49 @@ void do_make_bow(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	mana = skill_table[gsn_make_bow].min_mana;
-	wait = skill_table[gsn_make_bow].beats;
-
+	mana = SKILL(sn)->min_mana;
 	if (ch->mana < mana) {
 		send_to_char("You don't have enough energy to make a bow.\n\r",
 			     ch);
 		return;
 	}
 	ch->mana -= mana;
-	WAIT_STATE(ch,wait);
+	WAIT_STATE(ch, SKILL(sn)->beats);
 
-	if (number_percent() > get_skill(ch, gsn_make_bow)) {
+	if (number_percent() > chance) {
 		send_to_char("You failed to make the bow, and broke it.\n\r",
 			     ch);
-		check_improve(ch, gsn_make_bow, FALSE, 1);
+		check_improve(ch, sn, FALSE, 1);
 		return;
 	}
 	send_to_char("You successfully make bow.\n\r", ch);
-	check_improve(ch, gsn_make_bow, TRUE, 1);
+	check_improve(ch, sn, TRUE, 1);
 
 	bow = create_obj(get_obj_index(OBJ_VNUM_RANGER_BOW), ch->level);
 	bow->level = ch->level;
 	bow->value[1] = 4 + ch->level / 15;
 	bow->value[2] = 4 + ch->level / 15;
 
-	tohit.where		 = TO_OBJECT;
-	tohit.type		 = gsn_make_arrow;
-	tohit.level		 = ch->level;
-	tohit.duration		 = -1;
-	tohit.location		 = APPLY_HITROLL;
-	tohit.modifier		 = ch->level / 10;
-	tohit.bitvector 	 = 0;
-	affect_to_obj(bow,&tohit);
+	af.where	= TO_OBJECT;
+	af.type		= sn;
+	af.level	= ch->level;
+	af.duration	= -1;
+	af.location	= APPLY_HITROLL;
+	af.modifier	= ch->level / 10;
+	af.bitvector 	= 0;
+	affect_to_obj(bow, &af);
 
-	todam.where		 = TO_OBJECT;
-	todam.type		 = gsn_make_arrow;
-	todam.level		 = ch->level;
-	todam.duration		 = -1;
-	todam.location		 = APPLY_DAMROLL;
-	todam.modifier		 = ch->level / 10;
-	todam.bitvector 	 = 0;
-	affect_to_obj(bow,&todam);
+	af.where	= TO_OBJECT;
+	af.type		= sn;
+	af.level	= ch->level;
+	af.duration	= -1;
+	af.location	= APPLY_DAMROLL;
+	af.modifier	= ch->level / 10;
+	af.bitvector 	= 0;
+	affect_to_obj(bow, &af);
 
-	obj_to_char(bow,ch);
+	obj_to_char(bow, ch);
 }
-
 
 void do_make(CHAR_DATA *ch, const char *argument)
 {

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.22 1998-08-18 17:18:27 fjoe Exp $
+ * $Id: olc_save.c,v 1.23 1998-09-01 18:29:26 fjoe Exp $
  */
 
 /**************************************************************************
@@ -25,18 +25,16 @@
 
 #include <sys/types.h>
 #include <ctype.h>
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdarg.h>
 #include <time.h>
 #include "merc.h"
 #include "olc.h"
-#include "log.h"
-#include "db.h"
-#include "comm.h"
 #include "obj_prog.h"
-#include "tables.h"
-#include "mlstring.h"
+#include "interp.h"
 
 #define DIF(a,b) (~((~a)|(b)))
 
@@ -46,6 +44,8 @@
  *  may aid in debugging.
  */
 #define VERBOSE
+
+static void save_print(CHAR_DATA *ch, const char *format, ...);
 
 /*****************************************************************************
  Name:		save_area_list
@@ -57,9 +57,9 @@ void save_area_list()
 	FILE *fp;
 	AREA_DATA *pArea;
 
-	if ((fp = fopen("area.lst", "w")) == NULL) {
+	if ((fp = dfopen(AREA_PATH, AREA_LIST, "w")) == NULL) {
 		bug("Save_area_list: fopen", 0);
-		perror("area.lst");
+		perror(AREA_LIST);
 	}
 	else {
 		/*
@@ -74,45 +74,6 @@ void save_area_list()
 		fprintf(fp, "$\n");
 		fclose(fp);
 	}
-}
-
-
-/*
- * ROM OLC
- * Used in save_mobile and save_object below.  Writes
- * flags on the form fread_flag reads.
- * 
- * buf[] must hold at least 32+1 characters.
- *
- * -- Hugin
- */
-char *fwrite_flag(int flags, char buf[])
-{
-    char offset;
-    char *cp;
-
-    buf[0] = '\0';
-
-    if (flags == 0)
-    {
-	strcpy(buf, "0");
-	return buf;
-    }
-
-    /* 32 -- number of bits in a long */
-
-    for (offset = 0, cp = buf; offset < 32; offset++)
-	if (flags & (1 << offset))
-	{
-	    if (offset <= 'Z' - 'A')
-		*(cp++) = 'A' + offset;
-	    else
-		*(cp++) = 'a' + offset - ('Z' - 'A' + 1);
-	}
-
-    *cp = '\0';
-
-    return buf;
 }
 
 void save_mobprogs(FILE *fp, AREA_DATA *pArea)
@@ -145,8 +106,7 @@ void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 {
     int race = pMobIndex->race;
     MPTRIG *mptrig;
-    char buf[MAX_STRING_LENGTH];
-    int temp;
+    flag_t temp;
 
     fprintf(fp, "#%d\n",	pMobIndex->vnum);
     fprintf(fp, "%s~\n",	pMobIndex->name);
@@ -154,12 +114,10 @@ void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
     mlstr_fwrite(fp, NULL,	pMobIndex->long_descr);
     mlstr_fwrite(fp, NULL,	pMobIndex->description);
     fprintf(fp, "%s~\n",	race_table[race].name);
-    fprintf(fp, "%s ",		fwrite_flag(pMobIndex->act &
-					    ~race_table[pMobIndex->race].act,
-					    buf));
-    fprintf(fp, "%s ",		fwrite_flag(pMobIndex->affected_by &
-					    ~race_table[pMobIndex->race].aff,
-					    buf));
+    fprintf(fp, "%s ",		format_flags(pMobIndex->act &
+					    ~race_table[pMobIndex->race].act));
+    fprintf(fp, "%s ",		format_flags(pMobIndex->affected_by &
+					    ~race_table[pMobIndex->race].aff));
     fprintf(fp, "%d %d\n",	pMobIndex->alignment , pMobIndex->group);
     fprintf(fp, "%d ",		pMobIndex->level);
     fprintf(fp, "%d ",		pMobIndex->hitroll);
@@ -178,64 +136,51 @@ void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 				pMobIndex->ac[AC_BASH]   / 10, 
 				pMobIndex->ac[AC_SLASH]  / 10, 
 				pMobIndex->ac[AC_EXOTIC] / 10);
-    fprintf(fp, "%s ",		fwrite_flag(pMobIndex->off_flags &
-					    ~race_table[pMobIndex->race].off,
-					    buf));
-    fprintf(fp, "%s ",		fwrite_flag(pMobIndex->imm_flags &
-					    ~race_table[pMobIndex->race].imm,
-					    buf));
-    fprintf(fp, "%s ",		fwrite_flag(pMobIndex->res_flags &
-					    ~race_table[pMobIndex->race].res,
-					    buf));
-    fprintf(fp, "%s\n",		fwrite_flag(pMobIndex->vuln_flags &
-					    ~race_table[pMobIndex->race].vuln,
-					    buf));
+    fprintf(fp, "%s ",		format_flags(pMobIndex->off_flags &
+					    ~race_table[pMobIndex->race].off));
+    fprintf(fp, "%s ",		format_flags(pMobIndex->imm_flags &
+					    ~race_table[pMobIndex->race].imm));
+    fprintf(fp, "%s ",		format_flags(pMobIndex->res_flags &
+					    ~race_table[pMobIndex->race].res));
+    fprintf(fp, "%s\n",		format_flags(pMobIndex->vuln_flags &
+					    ~race_table[pMobIndex->race].vuln));
     fprintf(fp, "%s %s %s %d\n",
 			flag_string(position_table, pMobIndex->start_pos),
 			flag_string(position_table, pMobIndex->default_pos),
 			flag_string(sex_table, pMobIndex->sex),
 			pMobIndex->wealth);
-    fprintf(fp, "%s ",		fwrite_flag(pMobIndex->form &
-					    ~race_table[pMobIndex->race].form,
-					    buf));
-    fprintf(fp, "%s ",		fwrite_flag(pMobIndex->parts &
-					    ~race_table[pMobIndex->race].parts,
-					    buf));
+    fprintf(fp, "%s ",		format_flags(pMobIndex->form &
+					    ~race_table[pMobIndex->race].form));
+    fprintf(fp, "%s ",		format_flags(pMobIndex->parts &
+					   ~race_table[pMobIndex->race].parts));
 
     fprintf(fp, "%s ",		size_table[pMobIndex->size].name);
     fprintf(fp, "%s\n",	IS_NULLSTR(pMobIndex->material) ? pMobIndex->material : "unknown");
 
-/* save detection flags */
-    if ((temp = pMobIndex->detection & ~race_table[pMobIndex->race].det))
-	fprintf(fp, "A det %s\n", fwrite_flag(temp, buf));
-
 /* save diffs */
     if ((temp = DIF(race_table[race].act,pMobIndex->act)))
-     	fprintf(fp, "F act %s\n", fwrite_flag(temp, buf));
+     	fprintf(fp, "F act %s\n", format_flags(temp));
 
     if ((temp = DIF(race_table[race].aff,pMobIndex->affected_by)))
-     	fprintf(fp, "F aff %s\n", fwrite_flag(temp, buf));
-
-    if ((temp = DIF(race_table[race].det,pMobIndex->detection)))
-     	fprintf(fp, "F det %s\n", fwrite_flag(temp, buf));
+     	fprintf(fp, "F aff %s\n", format_flags(temp));
 
     if ((temp = DIF(race_table[race].off,pMobIndex->off_flags)))
-     	fprintf(fp, "F off %s\n", fwrite_flag(temp, buf));
+     	fprintf(fp, "F off %s\n", format_flags(temp));
 
     if ((temp = DIF(race_table[race].imm,pMobIndex->imm_flags)))
-     	fprintf(fp, "F imm %s\n", fwrite_flag(temp, buf));
+     	fprintf(fp, "F imm %s\n", format_flags(temp));
 
     if ((temp = DIF(race_table[race].res,pMobIndex->res_flags)))
-     	fprintf(fp, "F res %s\n", fwrite_flag(temp, buf));
+     	fprintf(fp, "F res %s\n", format_flags(temp));
 
     if ((temp = DIF(race_table[race].vuln,pMobIndex->vuln_flags)))
-     	fprintf(fp, "F vul %s\n", fwrite_flag(temp, buf));
+     	fprintf(fp, "F vul %s\n", format_flags(temp));
 
     if ((temp = DIF(race_table[race].form,pMobIndex->form)))
-     	fprintf(fp, "F for %s\n", fwrite_flag(temp, buf));
+     	fprintf(fp, "F for %s\n", format_flags(temp));
 
     if ((temp = DIF(race_table[race].parts,pMobIndex->parts)))
-    	fprintf(fp, "F par %s\n", fwrite_flag(temp, buf));
+    	fprintf(fp, "F par %s\n", format_flags(temp));
 
     for (mptrig = pMobIndex->mptrig_list; mptrig; mptrig = mptrig->next)
     {
@@ -243,6 +188,9 @@ void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
         flag_string(mptrig_types, mptrig->type), mptrig->vnum,
                 mptrig->phrase);
     }
+
+    if (pMobIndex->clan)
+		fprintf(fp, "C %s~\n", clan_name(pMobIndex->clan));
 }
 
 
@@ -286,19 +234,18 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
     char letter;
     AFFECT_DATA *pAf;
     ED_DATA *pEd;
-    char buf[MAX_STRING_LENGTH];
 
     fprintf(fp, "#%d\n",	pObjIndex->vnum);
     fprintf(fp, "%s~\n",	pObjIndex->name);
     mlstr_fwrite(fp, NULL,	pObjIndex->short_descr);
     mlstr_fwrite(fp, NULL,	pObjIndex->description);
     fprintf(fp, "%s~\n",	pObjIndex->material);
-    fprintf(fp, "%s ",		item_name(pObjIndex->item_type));
-    fprintf(fp, "%s ",		fwrite_flag(pObjIndex->extra_flags, buf));
-    fprintf(fp, "%s\n",		fwrite_flag(pObjIndex->wear_flags,  buf));
+    fprintf(fp, "%s ",		flag_string(item_types, pObjIndex->item_type));
+    fprintf(fp, "%s ",		format_flags(pObjIndex->extra_flags));
+    fprintf(fp, "%s\n",		format_flags(pObjIndex->wear_flags));
 
 /*
- *  Using fwrite_flag to write most values gives a strange
+ *  Using format_flags to write most values gives a strange
  *  looking area file, consider making a case for each
  *  item type later.
  */
@@ -306,12 +253,23 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
     switch (pObjIndex->item_type)
     {
         default:
-	    fprintf(fp, "%s ",	fwrite_flag(pObjIndex->value[0], buf));
-	    fprintf(fp, "%s ",	fwrite_flag(pObjIndex->value[1], buf));
-	    fprintf(fp, "%s ",	fwrite_flag(pObjIndex->value[2], buf));
-	    fprintf(fp, "%s ",	fwrite_flag(pObjIndex->value[3], buf));
-	    fprintf(fp, "%s\n",	fwrite_flag(pObjIndex->value[4], buf));
+	    fprintf(fp, "%s %s %s %s %s\n",
+			format_flags(pObjIndex->value[0]),
+	    		format_flags(pObjIndex->value[1]),
+	    		format_flags(pObjIndex->value[2]),
+	    		format_flags(pObjIndex->value[3]),
+	    		format_flags(pObjIndex->value[4]));
 	    break;
+
+	case ITEM_MONEY:
+	case ITEM_ARMOR:
+	    fprintf(fp, "%d %d %d %d %d\n",
+			pObjIndex->value[0],
+	    		pObjIndex->value[1],
+	    		pObjIndex->value[2],
+	    		pObjIndex->value[3],
+	    		pObjIndex->value[4]);
+		break;
 
         case ITEM_DRINK_CON:
         case ITEM_FOUNTAIN:
@@ -326,7 +284,7 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
         case ITEM_CONTAINER:
             fprintf(fp, "%d %s %d %d %d\n",
                      pObjIndex->value[0],
-                     fwrite_flag(pObjIndex->value[1], buf),
+                     format_flags(pObjIndex->value[1]),
                      pObjIndex->value[2],
                      pObjIndex->value[3],
                      pObjIndex->value[4]);
@@ -334,32 +292,27 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 
         case ITEM_WEAPON:
             fprintf(fp, "%s %d %d %s %s\n",
-                     weapon_name(pObjIndex->value[0]),
+                     flag_string(weapon_class, pObjIndex->value[0]),
                      pObjIndex->value[1],
                      pObjIndex->value[2],
                      attack_table[pObjIndex->value[3]].name,
-                     fwrite_flag(pObjIndex->value[4], buf));
+                     format_flags(pObjIndex->value[4]));
             break;
             
         case ITEM_PILL:
         case ITEM_POTION:
         case ITEM_SCROLL:
 	    fprintf(fp, "%d '%s' '%s' '%s' '%s'\n",
-		     pObjIndex->value[0] > 0 ? /* no negative numbers */
-		     pObjIndex->value[0]
-		     : 0,
+/* no negative numbers */
+		     pObjIndex->value[0] > 0 ? pObjIndex->value[0] : 0,
 		     pObjIndex->value[1] != -1 ?
-		     skill_table[pObjIndex->value[1]].name
-		     : "",
+			skill_name(pObjIndex->value[1]) : "",
 		     pObjIndex->value[2] != -1 ?
-		     skill_table[pObjIndex->value[2]].name
-		     : "",
+		     	skill_name(pObjIndex->value[2]) : "",
 		     pObjIndex->value[3] != -1 ?
-		     skill_table[pObjIndex->value[3]].name
-		     : "",
+		     	skill_name(pObjIndex->value[3]) : "",
 		     pObjIndex->value[4] != -1 ?
-		     skill_table[pObjIndex->value[4]].name
-		     : "");
+		     	skill_name(pObjIndex->value[4]) : "");
 	    break;
 
         case ITEM_STAFF:
@@ -369,25 +322,26 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 	    			pObjIndex->value[1],
 	    			pObjIndex->value[2],
 	    			pObjIndex->value[3] != -1 ?
-	    				skill_table[pObjIndex->value[3]].name :
-	    				"",
+	    				skill_name(pObjIndex->value[3]) : "",
 	    			pObjIndex->value[4]);
 	    break;
 	case ITEM_PORTAL:
-	    fprintf(fp, "%s ",	fwrite_flag(pObjIndex->value[0], buf));
-	    fprintf(fp, "%s ",	fwrite_flag(pObjIndex->value[1], buf));
-	    fprintf(fp, "%s ",	fwrite_flag(pObjIndex->value[2], buf));
-	    fprintf(fp, "%d ",	pObjIndex->value[3]);
-	    fprintf(fp, "%s\n",	fwrite_flag(pObjIndex->value[4], buf));
+	    fprintf(fp, "%s %s %s %d %s\n",
+			format_flags(pObjIndex->value[0]),
+	    		format_flags(pObjIndex->value[1]),
+	    		format_flags(pObjIndex->value[2]),
+	    		pObjIndex->value[3],
+	    		format_flags(pObjIndex->value[4]));
 	    break;
 	case ITEM_LIGHT:
 	case ITEM_TATTOO:
 	case ITEM_TREASURE:
-	    fprintf(fp, "%s ",	fwrite_flag(pObjIndex->value[0], buf));
-	    fprintf(fp, "%s ",	fwrite_flag(pObjIndex->value[1], buf));
-	    fprintf(fp, "%d ",	pObjIndex->value[2]);
-	    fprintf(fp, "%s ",	fwrite_flag(pObjIndex->value[3], buf));
-	    fprintf(fp, "%s\n",	fwrite_flag(pObjIndex->value[4], buf));
+	    fprintf(fp, "%s %s %d %s %s\n",
+			format_flags(pObjIndex->value[0]),
+	    		format_flags(pObjIndex->value[1]),
+	    		pObjIndex->value[2],
+	    		format_flags(pObjIndex->value[3]),
+	    		format_flags(pObjIndex->value[4]));
 	    break;
     }
 
@@ -427,9 +381,6 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 			case TO_VULN:
 				fprintf(fp, "V ");
 				break;
-			case TO_DETECTS:
-				fprintf(fp, "D ");
-				break;
 			default:
 				log_printf("olc_save: vnum %d: "
 					   "invalid affect->where: %d",
@@ -438,7 +389,7 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 		}
 		
 		fprintf(fp, "%d %d %s\n", pAf->location, pAf->modifier,
-				fwrite_flag(pAf->bitvector, buf));
+				format_flags(pAf->bitvector));
 	}
     }
 
@@ -446,6 +397,9 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
         fprintf(fp, "E\n%s~\n", pEd->keyword);
 	mlstr_fwrite(fp, NULL, pEd->description);
     }
+
+    if (pObjIndex->clan)
+	fprintf(fp, "C %s~\n", clan_name(pObjIndex->clan));
 }
  
 
@@ -486,7 +440,6 @@ void save_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex)
 	int door;
 	ED_DATA *pEd;
 	EXIT_DATA *pExit;
-    	char buf[MAX_STRING_LENGTH];
 	EXIT_DATA *exit[MAX_DIR];
 	int max_door;
 
@@ -494,9 +447,9 @@ void save_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex)
 	mlstr_fwrite(fp, NULL,	pRoomIndex->name);
 	mlstr_fwrite(fp, NULL,	pRoomIndex->description);
 	fprintf(fp, "0 ");
-        fprintf(fp, "%s ",	fwrite_flag(pRoomIndex->room_flags,
-						    buf));
-        fprintf(fp, "%d\n",	pRoomIndex->sector_type);
+        fprintf(fp, "%s ",	format_flags(pRoomIndex->room_flags));
+        fprintf(fp, "%s\n",	flag_string(sector_types,
+					    pRoomIndex->sector_type));
 
         for (pEd = pRoomIndex->ed; pEd; pEd = pEd->next) {
         	fprintf(fp, "E\n%s~\n", pEd->keyword);
@@ -532,7 +485,7 @@ void save_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex)
 			mlstr_fwrite(fp, NULL,	  pExit->description);
 			fprintf(fp, "%s~\n",      pExit->keyword);
 			fprintf(fp, "%s %d %d\n",
-				fwrite_flag(pExit->rs_flags | EX_BITVAL, buf),
+				format_flags(pExit->rs_flags | EX_BITVAL),
 				pExit->key,
 				pExit->u1.to_room->vnum);
 		}
@@ -541,11 +494,12 @@ void save_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex)
 	if (pRoomIndex->mana_rate != 100 || pRoomIndex->heal_rate != 100)
 		fprintf (fp, "M %d H %d\n", pRoomIndex->mana_rate,
 					    pRoomIndex->heal_rate);
-	if (pRoomIndex->clan > 0)
-		fprintf (fp, "C %s~\n", clan_table[pRoomIndex->clan].short_name);
 		 			     
 	if (!IS_NULLSTR(pRoomIndex->owner))
 		fprintf (fp, "O %s~\n" , pRoomIndex->owner);
+
+	if (pRoomIndex->clan)
+		fprintf(fp, "C %s~\n", clan_name(pRoomIndex->clan));
 
 	fprintf(fp, "S\n");
 }
@@ -949,12 +903,11 @@ void save_helps(FILE *fp, AREA_DATA *pArea)
  ****************************************************************************/
 void save_area(AREA_DATA *pArea)
 {
-	char buf[MAX_STRING_LENGTH];
 	FILE *fp;
 	int flags;
 
 	fclose(fpReserve);
-	if (!(fp = fopen(pArea->file_name, "w"))) {
+	if (!(fp = dfopen(AREA_PATH, pArea->file_name, "w"))) {
 		bug("Open_area: fopen", 0);
 		perror(pArea->file_name);
 	}
@@ -970,7 +923,7 @@ void save_area(AREA_DATA *pArea)
 		mlstr_fwrite(fp, "ResetMessage", pArea->resetmsg);
 	flags = pArea->flags & ~AREA_CHANGED;
 	if (flags)
-		fprintf(fp, "Flags %s\n",	fwrite_flag(flags, buf));
+		fprintf(fp, "Flags %s\n", flag_string(area_flags, flags));
 	fprintf(fp, "End\n\n");
 
 	if (pArea->min_vnum && pArea->max_vnum) {
@@ -991,6 +944,87 @@ void save_area(AREA_DATA *pArea)
 
 	fclose(fp);
 	fpReserve = fopen(NULL_FILE, "r");
+}
+
+void save_skills()
+{
+}
+
+void save_clan(CHAR_DATA *ch, CLAN_DATA *clan)
+{
+	int i;
+	FILE *fp;
+
+	fp = dfopen(CLANS_PATH, clan->file_name, "w");
+	if (fp == NULL) {
+		save_print(ch, "%s: %s", clan->file_name, strerror(errno));
+		return;
+	}
+		
+	fprintf(fp, "#CLAN\n");
+
+	fprintf(fp, "Name %s~\n", clan->name);
+	fprintf(fp, "Filename %s~\n", clan->file_name);
+	if (clan->recall_vnum)
+		fprintf(fp, "Recall %d\n", clan->recall_vnum);
+	if (!mlstr_null(clan->msg_prays))
+		mlstr_fwrite(fp, "MsgPrays", clan->msg_prays);
+	if (!mlstr_null(clan->msg_vanishes))
+		mlstr_fwrite(fp, "MsgVanishes", clan->msg_vanishes);
+
+	REMOVE_BIT(clan->flags, CLAN_CHANGED);
+	if (clan->flags)
+		fprintf(fp, "Flags %s~\n",
+			flag_string(clan_flags, clan->flags));
+
+	for (i = 0; i < clan->skills->nused; i++) {
+		CLAN_SKILL *cs = VARR_GET(clan->skills, i);
+
+		if (cs->sn > 0) 
+			fprintf(fp, "Skill '%s' %d\n",
+				skill_name(cs->sn), cs->level);
+	}
+
+	fprintf(fp, "End\n\n"
+		    "#$\n");
+	fclose(fp);
+
+	save_print(ch, "    %s (%s)", clan->name, clan->file_name);
+}
+
+void save_clans(CHAR_DATA *ch)
+{
+	int i;
+	FILE *fp;
+	bool found = FALSE;
+	int sec = ch ? (IS_NPC(ch) ? 0 : ch->pcdata->security) : 9;
+
+	if (sec < SECURITY_CLAN) {
+		save_print(ch, "Insufficient security to save clans.");
+		return;
+	}
+
+	fp = dfopen(CLANS_PATH, CLAN_LIST, "w");
+	if (fp == NULL) {
+		save_print(ch, "%s: %s", CLAN_LIST, strerror(errno));
+		return;
+	}
+
+	save_print(ch, "Saved clans:");
+
+	for (i = 0; i < clans->nused; i++) {
+		fprintf(fp, "%s\n", CLAN(i)->file_name);
+		if (IS_SET(CLAN(i)->flags, CLAN_CHANGED)) {
+			save_clan(ch, CLAN(i));
+			found = TRUE;
+		}
+	}
+
+	fprintf(fp, "$\n");
+	fclose(fp);
+
+	if (!found)
+		save_print(ch, "    None.");
 }
 
 void do_asave_raw(CHAR_DATA *ch, int flags)
@@ -1050,12 +1084,8 @@ void do_asave_raw(CHAR_DATA *ch, int flags)
 void do_asave(CHAR_DATA *ch, const char *argument)
 {
 	if (argument[0] == '\0') {
-		if (ch) {
-			send_to_char("Syntax:\n\r", ch);
-			send_to_char("  asave changed  - saves all changed zones\n\r",	ch);
-			send_to_char("  asave world    - saves the world! (db dump)\n\r",	ch);
-			send_to_char("\n\r", ch);
-		}
+		if (ch)
+			do_help(ch, "'OLC ASAVE'");
 		return;
 	}
 
@@ -1081,8 +1111,37 @@ void do_asave(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (!str_cmp("skills", argument)) {
+		save_skills(ch);
+		if (ch)
+			send_to_char("You saved skills table.\n\r", ch);
+		else
+			log("Saved skills table");
+		return;
+	}
+
+	if (!str_cmp("clans", argument)) {
+		save_clans(ch);
+		return;
+	}
+
 	/* Show correct syntax. */
 	/* -------------------- */
 	if (ch)
 		do_asave(ch, "");
+}
+
+static void save_print(CHAR_DATA *ch, const char *format, ...)
+{
+	char buf[MAX_STRING_LENGTH];
+	va_list ap;
+
+	va_start(ap, format);
+	vsnprintf(buf, sizeof(buf), format, ap);
+	va_end(ap);
+
+	if (ch)
+		char_printf(ch, "%s\n\r", buf);
+	else
+		log(buf);
 }

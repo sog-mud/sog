@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.11 1998-08-17 18:47:07 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.12 1998-09-01 18:29:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,18 +44,11 @@
 #include "merc.h"
 #include "mob_cmds.h"
 #include "mob_prog.h"
-#include "db.h"
 #include "act_obj.h"
 #include "act_move.h"
-#include "comm.h"
 #include "act_comm.h"
-#include "log.h"
 #include "interp.h"
-#include "util.h"
-#include "lookup.h"
-#include "mlstring.h"
 #include "fight.h"
-#include "tables.h"
 
 DECLARE_DO_FUN(do_look 	);
 extern ROOM_INDEX_DATA *find_location(CHAR_DATA *, char *);
@@ -336,8 +329,7 @@ void do_mpkill(CHAR_DATA *ch, const char *argument)
 	return;
     }
 
-    multi_hit(ch, victim, TYPE_UNDEFINED, NO_MSTRIKE);
-    return;
+    multi_hit(ch, victim, TYPE_UNDEFINED);
 }
 
 /*
@@ -361,8 +353,7 @@ void do_mpassist(CHAR_DATA *ch, const char *argument)
     if (victim == ch || ch->fighting != NULL || victim->fighting == NULL)
 	return;
 
-    multi_hit(ch, victim->fighting, TYPE_UNDEFINED, NO_MSTRIKE);
-    return;
+    multi_hit(ch, victim->fighting, TYPE_UNDEFINED);
 }
 
 
@@ -1000,13 +991,13 @@ void do_mpcast(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((sn = skill_lookup(spell)) < 0) {
+	if ((sn = sn_lookup(spell)) < 0) {
 		bug("MpCast - No such spell from vnum %d.", 
 			IS_NPC(ch) ? ch->pIndexData->vnum : 0);
 		return;
 	}
 
-	switch (skill_table[sn].target) {
+	switch (SKILL(sn)->target) {
 	default:
 		return;
 	case TAR_IGNORE: 
@@ -1063,7 +1054,7 @@ void do_mpcast(CHAR_DATA *ch, const char *argument)
 		break;
 	}
 
-	(*skill_table[sn].spell_fun)(sn, ch->level, ch, victim, target);
+	SKILL(sn)->spell_fun(sn, ch->level, ch, victim, target);
 }
 
 /*

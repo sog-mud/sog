@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.19 1998-08-17 18:47:07 fjoe Exp $
+ * $Id: recycle.c,v 1.20 1998-09-01 18:29:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,119 +46,8 @@
 #include <string.h>
 #include <stdlib.h>
 #include "merc.h"
-#include "recycle.h"
 #include "db.h"
-#include "comm.h"
 #include "hometown.h"
-#include "log.h"
-#include "lookup.h"
-#include "buffer.h"
-#include "mlstring.h"
-
-HELP_DATA *		help_first;
-HELP_DATA *		help_last;
-
-/* stuff for recyling notes */
-NOTE_DATA *note_free;
-
-NOTE_DATA *new_note()
-{
-    NOTE_DATA *note;
-
-    if (note_free == NULL)
-	note = alloc_perm(sizeof(*note));
-    else
-    { 
-	note = note_free;
-	note_free = note_free->next;
-    }
-    VALIDATE(note);
-    return note;
-}
-
-void free_note(NOTE_DATA *note)
-{
-    if (!IS_VALID(note))
-	return;
-
-    free_string( note->text    );
-    free_string( note->subject );
-    free_string( note->to_list );
-    free_string( note->date    );
-    free_string( note->sender  );
-    INVALIDATE(note);
-
-    note->next = note_free;
-    note_free   = note;
-}
-
-    
-/* stuff for recycling ban structures */
-BAN_DATA *ban_free;
-
-BAN_DATA *new_ban(void)
-{
-    static BAN_DATA ban_zero;
-    BAN_DATA *ban;
-
-    if (ban_free == NULL)
-	ban = alloc_perm(sizeof(*ban));
-    else
-    {
-	ban = ban_free;
-	ban_free = ban_free->next;
-    }
-
-    *ban = ban_zero;
-    VALIDATE(ban);
-    ban->name = &str_empty[0];
-    return ban;
-}
-
-void free_ban(BAN_DATA *ban)
-{
-    if (!IS_VALID(ban))
-	return;
-
-    free_string(ban->name);
-    INVALIDATE(ban);
-
-    ban->next = ban_free;
-    ban_free = ban;
-}
-
-/* stuff for recycling descriptors */
-DESCRIPTOR_DATA *descriptor_free;
-
-DESCRIPTOR_DATA *new_descriptor(void)
-{
-    static DESCRIPTOR_DATA d_zero;
-    DESCRIPTOR_DATA *d;
-
-    if (descriptor_free == NULL)
-	d = alloc_perm(sizeof(*d));
-    else
-    {
-	d = descriptor_free;
-	descriptor_free = descriptor_free->next;
-    }
-	
-    *d = d_zero;
-    VALIDATE(d);
-    return d;
-}
-
-void free_descriptor(DESCRIPTOR_DATA *d)
-{
-    if (!IS_VALID(d))
-	return;
-
-    free_string( d->host );
-    free_mem( d->outbuf, d->outsize );
-    INVALIDATE(d);
-    d->next = descriptor_free;
-    descriptor_free = d;
-}
 
 /* stuff for recycling extended descs */
 ED_DATA *ed_free_list;
@@ -344,122 +233,33 @@ CHAR_DATA *new_char (void)
 	int i;
 
 	if (char_free == NULL) 
-		ch = alloc_perm(sizeof(*ch));
+		ch = calloc(1, sizeof(*ch));
 	else {
 		ch = char_free;
 		char_free = char_free->next;
+		memset(ch, 0, sizeof(*ch));
 	}
 
 	VALIDATE(ch);
 
-	ch->short_descr		= NULL;
-	ch->long_descr		= NULL;
-	ch->description		= NULL;
-	ch->next		= NULL;
-	ch->next_in_room	= NULL;
-	ch->master		= NULL;
-	ch->leader		= NULL;
-	ch->fighting		= NULL;
-	ch->reply		= NULL;
-	ch->last_fought		= NULL;
 	RESET_FIGHT_TIME(ch);
 	ch->last_death_time	= -1;
-	ch->pet			= NULL;
-	ch->mprog_target	= NULL;
-	ch->guarding		= NULL;
-	ch->guarded_by		= NULL;
-	ch->spec_fun		= NULL;
-	ch->pIndexData		= NULL;
-	ch->desc		= NULL;
-	ch->affected		= NULL;
-	ch->pnote		= NULL;
-	ch->carrying		= NULL;
-	ch->on			= NULL;
-	ch->in_room		= NULL;
-	ch->was_in_room		= NULL;
-	ch->zone		= NULL;
-	ch->pcdata		= NULL;
-	ch->name		= NULL;
-	ch->id			= 0;
-	ch->version		= 0;
-	ch->prompt		= NULL;
 	ch->prefix		= str_empty;
-	ch->group		= 0;
-	ch->sex			= 0;
-	ch->class		= 0;
-	ch->race		= 0;
-	ch->clan		= 0;
-	ch->hometown		= 0;
-	ch->ethos		= 0;
-	ch->level		= 0;
-	ch->trust		= 0;
-	ch->played		= 0;
 	ch->lines		= PAGELEN;
 	ch->logon		= current_time;
-	ch->timer		= 0;
-	ch->wait		= 0;
-	ch->daze		= 0;
 	ch->hit			= 20;
 	ch->max_hit		= 20;
 	ch->mana		= 100;
 	ch->max_mana		= 100;
 	ch->move		= 100;
 	ch->max_move		= 100;
-	ch->gold		= 0;
-	ch->silver		= 0;
-	ch->exp			= 0;
-	ch->act			= 0;
-	ch->comm		= 0;
-	ch->wiznet		= 0;
-	ch->imm_flags		= 0;
-	ch->res_flags		= 0;
-	ch->vuln_flags		= 0;
-	ch->invis_level		= 0;
-	ch->incog_level		= 0;
-	ch->affected_by		= 0;
-	ch->detection		= 0;
 	ch->position		= POS_STANDING;
-	ch->practice		= 0;
-	ch->train		= 0;
-	ch->carry_weight	= 0;
-	ch->carry_number	= 0;
-	ch->saving_throw	= 0;
-	ch->alignment		= 0;
-	ch->hitroll		= 0;
-	ch->damroll		= 0;
 	for (i = 0; i < 4; i++)
 		ch->armor[i]	= 100;
-	ch->wimpy		= 0;
-	for (i = 0; i < MAX_STATS; i ++) {
+	for (i = 0; i < MAX_STATS; i ++)
 		ch->perm_stat[i] = 13;
-		ch->mod_stat[i] = 0;
-	}
-	ch->form		= 0;
-	ch->parts		= 0;
-	ch->size		= 0;
-	ch->material		= NULL;
-	ch->off_flags		= 0;
-	for (i = 0; i < 3; i++)
-		ch->damage[i]	= 0;
-	ch->dam_type		= 0;
-	ch->start_pos		= 0;
-	ch->default_pos		= 0;
-	ch->mprog_delay		= 0;
-	ch->status		= 0;
-	ch->extracted		= FALSE;
-	ch->in_mind		= NULL;
-	ch->religion		= RELIGION_NONE;
-	ch->hunting		= NULL;
-	ch->endur		= 0;
-	ch->riding		= FALSE;
-	ch->mount		= NULL;
-	ch->slang		= LANG_COMMON;
-	ch->lang		= 0;
-	ch->hunter		= NULL;
-
 	return ch;
 }
-
 
 void free_char (CHAR_DATA *ch)
 {
@@ -505,65 +305,31 @@ void free_char (CHAR_DATA *ch)
     return;
 }
 
-PC_DATA *pcdata_free;
-
 PC_DATA *new_pcdata(void)
 {
-    int alias;
-
-    static PC_DATA pcdata_zero;
-    PC_DATA *pcdata;
-
-    if (pcdata_free == NULL)
-	pcdata = alloc_perm(sizeof(*pcdata));
-    else
-    {
-	pcdata = pcdata_free;
-	pcdata_free = pcdata_free->next;
-    }
-
-    *pcdata = pcdata_zero;
-
-    for (alias = 0; alias < MAX_ALIAS; alias++)
-    {
-	pcdata->alias[alias] = NULL;
-	pcdata->alias_sub[alias] = NULL;
-    }
-
-    pcdata->buffer = buf_new(0);
-    
-    VALIDATE(pcdata);
-    return pcdata;
+	PC_DATA *pcdata;
+	pcdata = calloc(1, sizeof(*pcdata));
+	pcdata->buffer = buf_new(0);
+	pcdata->learned = varr_new(sizeof(PC_SKILL), 8);
+	return pcdata;
 }
 	
-
 void free_pcdata(PC_DATA *pcdata)
 {
-    int alias;
+	int alias;
 
-    if (!IS_VALID(pcdata))
-	return;
-
-    free_string(pcdata->pwd);
-    free_string(pcdata->bamfin);
-    free_string(pcdata->bamfout);
-    free_string(pcdata->title);
-    buf_free(pcdata->buffer);
+	free_string(pcdata->pwd);
+	free_string(pcdata->bamfin);
+	free_string(pcdata->bamfout);
+	free_string(pcdata->title);
+	buf_free(pcdata->buffer);
+	varr_free(pcdata->learned);
     
-    for (alias = 0; alias < MAX_ALIAS; alias++)
-    {
-	free_string(pcdata->alias[alias]);
-	free_string(pcdata->alias_sub[alias]);
-    }
-    INVALIDATE(pcdata);
-    pcdata->next = pcdata_free;
-    pcdata_free = pcdata;
-
-    return;
+	for (alias = 0; alias < MAX_ALIAS; alias++) {
+		free_string(pcdata->alias[alias]);
+		free_string(pcdata->alias_sub[alias]);
+	}
 }
-
-	
-
 
 /* stuff for setting ids */
 long	last_pc_id;
@@ -628,93 +394,3 @@ void mptrig_free(MPTRIG *mp)
 	mp->next = mptrig_free_list;
 	mptrig_free_list = mp;
 }
-
-extern int top_help;
-
-HELP_DATA * help_new(void)
-{
-	top_help++;
-	return calloc(1, sizeof(HELP_DATA));
-}
-
-void help_add(AREA_DATA *pArea, HELP_DATA* pHelp)
-{
-/* insert into global help list */
-	if (help_first == NULL)
-		help_first = pHelp;
-	if (help_last != NULL)
-		help_last->next = pHelp;
-	help_last		= pHelp;
-	pHelp->next		= NULL;
-	
-/* insert into help list for given area */
-	if (pArea->help_first == NULL)
-		pArea->help_first = pHelp;
-	if (pArea->help_last != NULL)
-		pArea->help_last->next_in_area = pHelp;
-	pArea->help_last = pHelp;
-	pHelp->next_in_area	= NULL;
-
-/* link help with given area */
-	pHelp->area		= pArea;
-}
-
-HELP_DATA *help_lookup(int num, const char *keyword)
-{
-	HELP_DATA *res;
-
-	if (num <= 0 || IS_NULLSTR(keyword))
-		return NULL;
-
-	for (res = help_first; res != NULL; res = res->next)
-		if (is_name(keyword, res->keyword) && !--num)
-			return res;
-	return NULL;
-}
-
-void help_free(HELP_DATA *pHelp)
-{
-	HELP_DATA *p;
-	HELP_DATA *prev;
-	AREA_DATA *pArea;
-
-/* remove from global list */
-	for (prev = NULL, p = help_first; p != NULL; p = p->next) {
-		if (p == pHelp)
-			break;
-		prev = p;
-	}
-		
-	if (p) {
-		if (prev) 
-			prev->next = pHelp->next;
-		else
-			help_first = help_first->next;
-		if (help_last == pHelp)
-			help_last = prev;
-	}
-
-/* remove from area */
-	pArea = pHelp->area;
-	for (prev = NULL, p = pArea->help_first; p != NULL; p = p->next) {
-		if (p == pHelp)
-			break;
-		prev = p;
-	}
-
-	if (p) {
-		if (prev)
-			prev->next = pHelp->next;
-		else
-			pArea->help_first = pArea->help_first->next;
-		if (pArea->help_last == pHelp)
-			help_last = prev;
-	}
-
-/* free memory */
-	free_string(pHelp->keyword);
-	mlstr_free(pHelp->text);
-	free(pHelp);
-	top_help--;
-}
-

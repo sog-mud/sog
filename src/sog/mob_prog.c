@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.27 1998-08-17 18:47:07 fjoe Exp $
+ * $Id: mob_prog.c,v 1.28 1998-09-01 18:29:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,16 +46,10 @@
 #include <sys/types.h>
 #include <ctype.h>
 #include "merc.h"
-#include "lookup.h"
-#include "db.h"
 #include "mob_cmds.h"
 #include "mob_prog.h"
 #include "act_comm.h"
-#include "log.h"
 #include "interp.h"
-#include "tables.h"
-#include "mlstring.h"
-#include "util.h"
 
 /*
  * These defines correspond to the entries in fn_keyword[] table.
@@ -120,8 +114,7 @@ enum {
 	CHK_WIS,
 	CHK_DEX,
 	CHK_CON,
-	CHK_CHA,
-	CHK_DETECT,
+	CHK_CHA
 };
 
 /*
@@ -564,9 +557,6 @@ int cmd_eval(int vnum, const char *line, int check,
 	case CHK_AFFECTED:
 	    return(lval_char != NULL 
 		&&  IS_SET(lval_char->affected_by, flag_value(affect_flags, buf)));
-	case CHK_DETECT:
-	    return (lval_char != NULL
-		&& IS_SET(lval_char->detection, flag_value(detect_flags, buf))); 
 	case CHK_ACT:
 	    return(lval_char != NULL 
 		&&  IS_SET(lval_char->act, flag_value(act_flags, buf)));
@@ -607,7 +597,8 @@ int cmd_eval(int vnum, const char *line, int check,
 	case CHK_POS:
 	    return(lval_char != NULL && lval_char->position == position_lookup(buf));
 	case CHK_CLAN:
-	    return(lval_char != NULL && lval_char->clan == clan_lookup(buf));
+	    return(lval_char != NULL &&
+		   !str_cmp(clan_name(lval_char->clan), buf));
 	case CHK_RACE:
 	    return(lval_char != NULL && lval_char->race == race_lookup(buf));
 	case CHK_OBJTYPE:

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.73 1998-08-15 12:40:46 fjoe Exp $
+ * $Id: act_comm.c,v 1.74 1998-09-01 18:29:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,20 +51,12 @@
 #include "merc.h"
 #include "interp.h"
 #include "act_wiz.h"
-#include "recycle.h"
-#include "comm.h"
-#include "db.h"
 #include "interp.h"
-#include "resource.h"
 #include "act_comm.h"
 #include "quest.h"
-#include "log.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
-#include "buffer.h"
 #include "auction.h"
-#include "lookup.h"
-#include "mlstring.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_quit	);
@@ -73,7 +65,6 @@ DECLARE_DO_FUN(do_quit_count);
 void do_quit_org	args((CHAR_DATA *ch, const char *argument, bool Count));
 bool proper_order	args((CHAR_DATA *ch, const char *argument));
 char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *argument);
-extern int gsn_holler;
 
 void do_afk(CHAR_DATA *ch, const char *argument)
 {
@@ -101,13 +92,11 @@ void do_music(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch))
 		return;
 
-	if (is_affected(ch, gsn_holler)) {
-		char_puts("You could produce only some bubbles.\n\r", ch);
-		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, "$n wanted to "
-			"music something but could produce only some bubbles.");
-		return;
+	if (IS_SET(ch->comm,COMM_NOCHANNELS)) {
+		 send_to_char("The gods have revoked your channel privileges.\n\r", ch);
+		 return;
 	}
-
+	
 	if (argument[0] == '\0') {
 		/* send_to_char("Music what?.\n\r",ch);
 		   return;
@@ -154,15 +143,12 @@ void do_gossip(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch))
 		return;
 
-	if (is_affected(ch, gsn_holler)) {
-		char_puts("You could produce only some bubbles.\n\r", ch);
-		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, "$n wanted to "
-		      "gossip something but could produce only some bubbles.");
-		return;
+	if (IS_SET(ch->comm,COMM_NOCHANNELS)) {
+		 send_to_char("The gods have revoked your channel privileges.\n\r", ch);
+		 return;
 	}
-
-	if (argument[0] == '\0')
-	{
+	
+	if (argument[0] == '\0') {
 		/* send_to_char("Gossip what?.\n\r",ch);
 		   return;
 		*/
@@ -209,8 +195,6 @@ void do_delet(CHAR_DATA *ch, const char *argument)
 
 void do_delete(CHAR_DATA *ch, const char *argument)
 {
-	char strsave[MAX_INPUT_LENGTH];
-
 	if (IS_NPC(ch))
 		return;
 	
@@ -221,11 +205,10 @@ void do_delete(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		snprintf(strsave, sizeof(strsave), "%s%s", PLAYER_DIR, capitalize(ch->name));
 		wiznet("$N turns $Mself into line noise.",ch,NULL,0,0,0);
 		RESET_FIGHT_TIME(ch);
 		do_quit_count(ch,"");
-		unlink(strsave);
+		dunlink(PLAYER_PATH, capitalize(ch->name));
 		return;
 	}
 
@@ -404,13 +387,6 @@ void do_say(CHAR_DATA *ch, const char *argument)
 	char buf[MAX_STRING_LENGTH];
 	char trans[MAX_STRING_LENGTH];
   
-	if (is_affected(ch, gsn_holler)) {
-		char_puts("You could produce only some bubbles.\n\r", ch);
-		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, "$n wanted to "
-			"say something but could produce only some bubbles.");
-		return;
-	}
-
 	if (argument[0] == '\0') {
 		send_to_char("Say what?\n\r", ch);
 		return;
@@ -470,13 +446,11 @@ void do_shout(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch))
 		return;
 
-	if (is_affected(ch, gsn_holler)) {
-		char_puts("You could produce only some bubbles.\n\r", ch);
-		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, "$n wanted to "
-			"shout something but could produce only some bubbles.");
-		return;
+	if (IS_SET(ch->comm,COMM_NOCHANNELS)) {
+		 send_to_char("The gods have revoked your channel privileges.\n\r", ch);
+		 return;
 	}
-
+	
 	if (argument[0] == '\0') {
 		 send_to_char("Shout what?.\n\r",ch);
 		 return;
@@ -534,17 +508,6 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 	else
 		strcpy(buf, msg);
 
-	if (!IS_NPC(victim)) {
-		if (victim->desc == NULL)
-			act_puts("$N seems to have misplaced $S link..."
-				 "try again later.", ch, NULL, victim,
-				 TO_CHAR, POS_DEAD);
-		else if (IS_SET(victim->comm, COMM_AFK))
-			act_puts("$E is AFK, but your tell will go through "
-				 "when $E returns.", ch, NULL, victim,
-				 TO_CHAR, POS_DEAD);
-	}
-
 	if (IS_SET(victim->comm, (COMM_QUIET | COMM_DEAF))
 	&&  !IS_IMMORTAL(ch) && !IS_IMMORTAL(victim)) {
 		act_puts("$E is not receiving tells.", ch, 0, victim,
@@ -558,13 +521,13 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 
 	if (!IS_NPC(victim)) {
 		if (victim->desc == NULL)
-			act_puts("$N seems to have misplaced $S link..."
-				 "try again later.", ch, NULL, victim,
-				 TO_CHAR, POS_DEAD);
+			act_puts("$N seems to have misplaced $S link but"
+				 "your tell will go through if $E returns.",
+				 ch, NULL, victim, TO_CHAR, POS_DEAD);
 		else if (IS_SET(victim->comm, COMM_AFK))
 			act_puts("$E is AFK, but your tell will go through "
-				 "when $E returns.", ch, NULL, victim,
-				 TO_CHAR, POS_DEAD);
+				 "when $E returns.",
+				 ch, NULL, victim, TO_CHAR, POS_DEAD);
 	}
 
 
@@ -577,13 +540,6 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 void do_tell(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
-
-	if (is_affected(ch, gsn_holler)) {
-		char_puts("You could produce only some bubbles.\n\r", ch);
-		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, "$n wanted to "
-			"tell something but could produce only some bubbles.");
-		return;
-	}
 
 	argument = one_argument(argument, arg);
 	if (arg[0] == '\0' || argument[0] == '\0') {
@@ -606,15 +562,12 @@ void do_yell(CHAR_DATA *ch, const char *argument)
 	char buf[MAX_INPUT_LENGTH];
 	char trans[MAX_STRING_LENGTH];
 
-	if (is_affected(ch, gsn_holler)) {
-		char_puts("You could produce only some bubbles.\n\r", ch);
-		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, "$n wanted to "
-			"yell something but could produce only some bubbles.");
-		return;
+	if (IS_SET(ch->comm,COMM_NOCHANNELS)) {
+		 send_to_char("The gods have revoked your channel privileges.\n\r", ch);
+		 return;
 	}
-
-	if (argument[0] == '\0')
-	{
+	
+	if (argument[0] == '\0') {
 	send_to_char("Yell what?\n\r", ch);
 	return;
 	}
@@ -640,21 +593,11 @@ void do_yell(CHAR_DATA *ch, const char *argument)
 		              ch, trans, d->character, TO_VICT, POS_DEAD);
 	}
 	}
-
-	return;
 }
-
 
 void do_emote(CHAR_DATA *ch, const char *argument)
 {
 	char buf[MAX_INPUT_LENGTH];
-
-	if (is_affected(ch, gsn_holler)) {
-		char_puts("You could produce only some bubbles.\n\r", ch);
-		act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, "$n wanted to "
-			"emote something but could produce only some bubbles.");
-		return;
-	}
 
 	if (!IS_NPC(ch) && IS_SET(ch->comm, COMM_NOEMOTE)) {
 		send_to_char("You can't show your emotions.\n\r", ch);
@@ -748,7 +691,7 @@ void do_pmote(CHAR_DATA *ch, const char *argument)
 	}
 }
 
-
+#if 0
 /*
  * All the posing stuff.
  */
@@ -980,11 +923,12 @@ const	struct	pose_table_type	pose_table	[]	=
 	}
 	}
 };
-
+#endif
 
 
 void do_pose(CHAR_DATA *ch, const char *argument)
 {
+#if 0
 	int level;
 	int pose;
 
@@ -993,9 +937,9 @@ void do_pose(CHAR_DATA *ch, const char *argument)
 
 	level = UMIN(ch->level, sizeof(pose_table) / sizeof(pose_table[0]) - 1);
 	pose  = number_range(0, level);
-
 	act(pose_table[pose].message[2*ch->class+0], ch, NULL, NULL, TO_CHAR);
 	act(pose_table[pose].message[2*ch->class+1], ch, NULL, NULL, TO_ROOM | TO_BUF);
+#endif
 }
 
 
@@ -1049,11 +993,6 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 
 	if (IS_NPC(ch))
 		return;
-
-	if (is_affected(ch, gsn_holler)) {
-		char_puts("You can't even imagine how to quit.\n\r", ch);
-		return;
-	}
 
 	if (ch->position == POS_FIGHTING) {
 		send_to_char("No way! You are fighting.\n\r", ch);
@@ -1489,17 +1428,20 @@ void do_group(CHAR_DATA *ch, const char *argument)
 
 		char_printf(ch, "%s's group:\n\r", PERS(leader_lookup(ch), ch));
 
-		for (gch = char_list; gch != NULL; gch = gch->next) {
+		for (gch = char_list; gch != NULL; gch = gch->next)
 			if (is_same_group(gch, ch))
-				char_printf(ch, "[%2d %s] %-16s %d/%d hp %d/%d mana %d/%d mv   %5d xp\n\r",
+				char_printf(ch,
+					    "[%2d %s] %-16s %d/%d hp "
+					    "%d/%d mana %d/%d mv   %5d xp\n\r",
 					    gch->level,
-		    IS_NPC(gch) ? "Mob" : class_table[gch->class].who_name,
-		    capitalize(PERS(gch, ch)),
-		    gch->hit,   gch->max_hit,
-		    gch->mana,  gch->max_mana,
-		    gch->move,  gch->max_move,
-		    gch->exp);
-		}
+					    IS_NPC(ch) ?
+						"Mob" :
+						 class_who_name(gch->class),
+					    PERS(gch, ch),
+					    gch->hit,   gch->max_hit,
+					    gch->mana,  gch->max_mana,
+					    gch->move,  gch->max_move,
+					    gch->exp);
 		return;
 	}
 
@@ -1763,16 +1705,24 @@ void do_gtell(CHAR_DATA *ch, const char *argument)
 
 void do_clan(CHAR_DATA *ch, const char *argument)
 {
+	CLAN_DATA *clan;
 	DESCRIPTOR_DATA *d;
 	char buf[MAX_STRING_LENGTH];
 	char buf2[MAX_INPUT_LENGTH];
 
-	if (!(ch->clan)) {
-		char_puts("You are not in a Cabal.\n\r",ch);
+	if (!ch->clan) {
+		char_puts("You are not in a clan.\n\r", ch);
 		return;
 	}
 
-	snprintf(buf, sizeof(buf), "[%s] $n: {C$t{x",clan_table[ch->clan].short_name);
+	clan = clan_lookup(ch->clan);
+	if (clan == NULL) {
+		char_puts("Your clan is closed.\n\r", ch);
+		return;
+	}
+
+	snprintf(buf, sizeof(buf), "[%s] $n: {C$t{x",
+		 clan->name);
 
 	if (is_affected(ch,gsn_garble))
 		 garble(buf2,argument);
@@ -1843,11 +1793,11 @@ char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *argument)
 	||  (ch == NULL) || (victim == NULL)
 	||  IS_NPC(ch) || IS_NPC(victim)
 	||  IS_IMMORTAL(ch) || IS_IMMORTAL(victim)
-	||  ch->slang == LANG_COMMON
+	||  ch->slang == SLANG_COMMON
 	||  ch->slang == pc_race_table[ORG_RACE(victim)].slang) {
 		if (IS_IMMORTAL(victim))
 			snprintf(trans, sizeof(trans), "{{%s} %s",
-				slang_table[ch->slang].name, argument);
+				 flag_string(slang_table, ch->slang), argument);
 		else
 			snprintf(trans, sizeof(trans), "%s", argument);
 		return trans;
@@ -1860,7 +1810,7 @@ char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *argument)
 	buf[i] = '\0';
 
 	snprintf(trans, sizeof(trans), "{{%s} %s",
-		 slang_table[ch->slang].name, buf);
+		 flag_string(slang_table, ch->slang), buf);
 	return trans;
 }
 
@@ -1870,31 +1820,32 @@ void do_speak(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	int language;
 
-	if (IS_NPC(ch)) return;
+	if (IS_NPC(ch))
+		return;
 
 	argument = one_argument(argument,arg);
 	if (arg[0] == '\0') {
 		char_printf(ch, "You now speak %s.\n\r", 
-			slang_table[ch->slang].name);
+			flag_string(slang_table, ch->slang));
 		send_to_char("You can speak :\n\r", ch);
 		char_printf(ch, "       common, %s\n\r",
-			slang_table[pc_race_table[ORG_RACE(ch)].slang].name);
+			    flag_string(slang_table,
+					pc_race_table[ORG_RACE(ch)].slang));
 		return;
 	}
 
-	language = slang_lookup(arg);
-
-	if (language == -1)
-		{
+	if ((language = flag_value(slang_table, arg)) < 0) {
 		send_to_char("You never heard of that language.\n\r", ch);
 		return;
-		}
+	}
 
 	if (language >= SLANG_MAX)
-	ch->slang = pc_race_table[ORG_RACE(ch)].slang;
-	else ch->slang = language;
+		ch->slang = pc_race_table[ORG_RACE(ch)].slang;
+	else
+		ch->slang = language;
 	
-	char_printf(ch,"Now you speak %s.\n\r",slang_table[ch->slang].name);
+	char_printf(ch,"Now you speak %s.\n\r",
+		    flag_string(slang_table, ch->slang));
 }
 
 void do_noiac(CHAR_DATA *ch, const char *argument)

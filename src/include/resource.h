@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.90 1998-08-15 12:40:49 fjoe Exp $
+ * $Id: resource.h,v 1.91 1998-09-01 18:29:07 fjoe Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -363,8 +363,6 @@ enum {
 	MSG_N_THROWS_GLOBE,
 	MSG_N_IS_GONE,
 	MSG_N_APPEARS_FROM_NOWHERE,
-	MSG_YOU_CAN_ALREADY_DETECT_SNEAK,
-	MSG_YOU_CAN_DETECT_THE_SNEAK,
 	MSG_CANT_FADE_MOUNTED,
 	MSG_CANT_FADE_RIDDEN,
 	MSG_YOU_ATTEMPT_TO_FADE,

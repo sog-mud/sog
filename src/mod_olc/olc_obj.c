@@ -1,5 +1,5 @@
 /*
- * $Id: olc_obj.c,v 1.2 1998-08-18 09:50:18 fjoe Exp $
+ * $Id: olc_obj.c,v 1.3 1998-09-01 18:29:26 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -10,16 +10,7 @@
 #include <time.h>
 #include "merc.h"
 #include "olc.h"
-#include "recycle.h"
-#include "lookup.h"
-#include "comm.h"
-#include "db.h"
-#include "string_edit.h"
-#include "magic.h"
 #include "interp.h"
-#include "buffer.h"
-#include "tables.h"
-#include "mlstring.h"
 
 #define OEDIT(fun)		bool fun(CHAR_DATA *ch, const char *argument)
 #define EDIT_OBJ(Ch, Obj)	(Obj = (OBJ_INDEX_DATA *)Ch->desc->pEdit)
@@ -29,60 +20,64 @@ DECLARE_OLC_FUN(oedit_create		);
 DECLARE_OLC_FUN(oedit_name		);
 DECLARE_OLC_FUN(oedit_short		);
 DECLARE_OLC_FUN(oedit_long		);
-DECLARE_OLC_FUN(oedit_addaffect	);
+DECLARE_OLC_FUN(oedit_addaffect		);
 DECLARE_OLC_FUN(oedit_addapply		);
-DECLARE_OLC_FUN(oedit_delaffect	);
+DECLARE_OLC_FUN(oedit_delaffect		);
 DECLARE_OLC_FUN(oedit_value0		);
 DECLARE_OLC_FUN(oedit_value1		);
 DECLARE_OLC_FUN(oedit_value2		);
 DECLARE_OLC_FUN(oedit_value3		);
-DECLARE_OLC_FUN(oedit_value4		);  /* ROM */
+DECLARE_OLC_FUN(oedit_value4		);
 DECLARE_OLC_FUN(oedit_weight		);
 DECLARE_OLC_FUN(oedit_limit		);
 DECLARE_OLC_FUN(oedit_cost		);
 DECLARE_OLC_FUN(oedit_ed		);
 
-DECLARE_OLC_FUN(oedit_extra           );  /* ROM */
-DECLARE_OLC_FUN(oedit_wear            );  /* ROM */
-DECLARE_OLC_FUN(oedit_type            );  /* ROM */
-DECLARE_OLC_FUN(oedit_affect          );  /* ROM */
-DECLARE_OLC_FUN(oedit_material		);  /* ROM */
-DECLARE_OLC_FUN(oedit_level           );  /* ROM */
-DECLARE_OLC_FUN(oedit_condition       );  /* ROM */
+DECLARE_OLC_FUN(oedit_extra		);
+DECLARE_OLC_FUN(oedit_wear		);
+DECLARE_OLC_FUN(oedit_type		);
+DECLARE_OLC_FUN(oedit_affect		);
+DECLARE_OLC_FUN(oedit_material		);
+DECLARE_OLC_FUN(oedit_level		);
+DECLARE_OLC_FUN(oedit_condition		);
+DECLARE_OLC_FUN(oedit_clan		);
+
+DECLARE_VALIDATE_FUN(validate_condition);
 
 OLC_CMD_DATA oedit_table[] =
 {
-/*  {   command		function	}, */
+/*	{ command	function		arg			}, */
 
-    {   "addaffect",	oedit_addaffect	},
-    {	"addapply",	oedit_addapply	},
-    {   "cost",		oedit_cost	},
-    {   "create",	oedit_create	},
-    {   "delaffect",	oedit_delaffect	},
-    {   "ed",		oedit_ed	},
-    {   "long",		oedit_long	},
-    {   "name",		oedit_name	},
-    {   "short",	oedit_short	},
-    {	"show",		oedit_show	},
-    {   "v0",		oedit_value0	},
-    {   "v1",		oedit_value1	},
-    {   "v2",		oedit_value2	},
-    {   "v3",		oedit_value3	},
-    {   "v4",		oedit_value4	},  /* ROM */
-    {   "weight",	oedit_weight	},
-    {   "limit",	oedit_limit	},
+	{ "addaffect",	oedit_addaffect					},
+	{ "addapply",	oedit_addapply					},
+	{ "cost",	oedit_cost					},
+	{ "create",	oedit_create					},
+	{ "delaffect",	oedit_delaffect					},
+	{ "ed",		oedit_ed					},
+	{ "long",	oedit_long					},
+	{ "name",	oedit_name					},
+	{ "short",	oedit_short					},
+	{ "show",	oedit_show					},
+	{ "v0",		oedit_value0					},
+	{ "v1",		oedit_value1					},
+	{ "v2",		oedit_value2					},
+	{ "v3",		oedit_value3					},
+	{ "v4",		oedit_value4					},
+	{ "weight",	oedit_weight					},
+	{ "limit",	oedit_limit					},
 
-    {   "extra",        oedit_extra,	extra_flags     },  /* ROM */
-    {   "wear",         oedit_wear,	wear_flags      },  /* ROM */
-    {   "type",         oedit_type,	type_flags      },  /* ROM */
-    {   "material",     oedit_material  },  /* ROM */
-    {   "level",        oedit_level     },  /* ROM */
-    {   "condition",    oedit_condition },  /* ROM */
+	{ "extra",	oedit_extra,		extra_flags		},
+	{ "wear",	oedit_wear,		wear_flags		},
+	{ "type",	oedit_type,		item_types		},
+	{ "material",	oedit_material 					},
+	{ "level",	oedit_level					},
+	{ "condition",	oedit_condition,	validate_condition	},
+	{ "clan",	oedit_clan					},
 
-    {   "version",	show_version	},
-    {   "commands",	show_commands	},
+	{ "version",	show_version					},
+	{ "commands",	show_commands					},
 
-    {	NULL,		0,		}
+	{ NULL }
 };
 
 static void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *obj);
@@ -221,6 +216,7 @@ OEDIT(oedit_show)
 	AFFECT_DATA *paf;
 	int cnt;
 	BUFFER *output;
+	CLAN_DATA *clan;
 
 	EDIT_OBJ(ch, pObj);
 	pArea = area_vnum_lookup(pObj->vnum);
@@ -231,7 +227,10 @@ OEDIT(oedit_show)
 
 	buf_printf(output, "Vnum:        [%5d]\n\rType:        [%s]\n\r",
 		pObj->vnum,
-		flag_string(type_flags, pObj->item_type));
+		flag_string(item_types, pObj->item_type));
+
+	if (pObj->clan && (clan = clan_lookup(pObj->clan))) 
+		buf_printf(output, "Clan      : [%s]\n\r", clan->name);
 
 	if (pObj->limit != -1)
 		buf_printf(output, "Limit:       [%5d]\n\r", pObj->limit);
@@ -304,22 +303,21 @@ OEDIT(oedit_addaffect)
 	argument = one_argument(argument, loc);
 	one_argument(argument, mod);
 
-	if (loc[0] == '\0' || mod[0] == '\0' || !is_number(mod))
-	{
+	if (loc[0] == '\0' || mod[0] == '\0' || !is_number(mod)) {
 		send_to_char("Syntax:  addaffect [location] [#xmod]\n\r", ch);
 		return FALSE;
 	}
 
 	if ((value = flag_value(apply_flags, loc)) < 0) {
 		send_to_char("Valid affects are:\n\r", ch);
-		show_flag_cmds(ch, apply_flags);
+		show_flags(ch, apply_flags);
 		return FALSE;
 	}
 
 	pAf             =   new_affect();
 	pAf->location   =   value;
 	pAf->modifier   =   atoi(mod);
-	pAf->where	    =   TO_OBJECT;
+	pAf->where	=   TO_OBJECT;
 	pAf->type       =   -1;
 	pAf->duration   =   -1;
 	pAf->bitvector  =   0;
@@ -333,9 +331,10 @@ OEDIT(oedit_addaffect)
 
 OEDIT(oedit_addapply)
 {
-	int value,bv,typ;
+	int location, bv, where;
 	OBJ_INDEX_DATA *pObj;
 	AFFECT_DATA *pAf;
+	WHERE_DATA *wd;
 	char loc[MAX_STRING_LENGTH];
 	char mod[MAX_STRING_LENGTH];
 	char type[MAX_STRING_LENGTH];
@@ -348,35 +347,40 @@ OEDIT(oedit_addapply)
 	argument = one_argument(argument, mod);
 	one_argument(argument, bvector);
 
-	if (type[0] == '\0' || (typ = flag_value(apply_types, type)) < 0) {
-		send_to_char("Invalid apply type. Valid apply types are:\n\r", ch);
-		show_flag_cmds(ch, apply_types);
+	if ((where = flag_value(apply_types, type)) < 0) {
+		char_puts("Invalid apply type. Valid apply types are:\n\r", ch);
+		show_flags(ch, apply_types);
 		return FALSE;
 	}
 
-	if (loc[0] == '\0' || (value = flag_value(apply_flags, loc)) < 0) {
-		send_to_char("Valid applys are:\n\r", ch);
-		show_flag_cmds(ch, apply_flags);
+	if ((location = flag_value(apply_flags, loc)) < 0) {
+		char_puts("Valid applies are:\n\r", ch);
+		show_flags(ch, apply_flags);
 		return FALSE;
 	}
 
-	if (bvector[0] == '\0' || (bv = flag_value(bitvector_type[typ].table, bvector)) < 0) {
-		send_to_char("Invalid bitvector type.\n\r", ch);
-		send_to_char("Valid bitvector types are:\n\r", ch);
-		show_flag_cmds(ch, bitvector_type[typ].table);
+	if ((wd = where_lookup(where)) == NULL) {
+		char_puts("OEdit: bit vector table undefined. "
+			  "Report it to implementors.\n\r", ch);
 		return FALSE;
 	}
 
-	if (mod[0] == '\0' || !is_number(mod))
-	{
-		send_to_char("Syntax:  addapply [type] [location] [#xmod] [bitvector]\n\r", ch);
+	if ((bv = flag_value(wd->table, bvector)) == 0) {
+		char_puts("Valid bitvector types are:\n\r", ch);
+		show_flags(ch, wd->table);
+		return FALSE;
+	}
+
+	if (!is_number(mod)) {
+		char_puts("Syntax: addapply type location "
+			  "mod bitvector\n\r", ch);
 		return FALSE;
 	}
 
 	pAf             = new_affect();
-	pAf->location   = value;
+	pAf->location   = location;
 	pAf->modifier   = atoi(mod);
-	pAf->where	= apply_types[typ].bit;
+	pAf->where	= where;
 	pAf->type	= -1;
 	pAf->duration   = -1;
 	pAf->bitvector  = bv;
@@ -452,64 +456,26 @@ OEDIT(oedit_delaffect)
 	return TRUE;
 }
 
-
-
 OEDIT(oedit_name)
 {
 	OBJ_INDEX_DATA *pObj;
-
 	EDIT_OBJ(ch, pObj);
-
-	if (argument[0] == '\0')
-	{
-		send_to_char("Syntax:  name [string]\n\r", ch);
-		return FALSE;
-	}
-
-	free_string(pObj->name);
-	pObj->name = str_dup(argument);
-
-	send_to_char("Name set.\n\r", ch);
-	return TRUE;
+	return olced_str(ch, argument, oedit_name, &pObj->name);
 }
-
-
 
 OEDIT(oedit_short)
 {
 	OBJ_INDEX_DATA *pObj;
-
 	EDIT_OBJ(ch, pObj);
-
-	if (argument[0] == '\0') {
-		send_to_char("Syntax:  short lang [string]\n\r", ch);
-		return FALSE;
-	}
-
-	mlstr_edit(&pObj->short_descr, argument);
-	send_to_char("Short description set.\n\r", ch);
-	return TRUE;
+	return olced_mlstr(ch, argument, oedit_short, &pObj->short_descr);
 }
-
-
 
 OEDIT(oedit_long)
 {
 	OBJ_INDEX_DATA *pObj;
-
 	EDIT_OBJ(ch, pObj);
-
-	if (argument[0] == '\0') {
-		send_to_char("Syntax:  long lang [string]\n\r", ch);
-		return FALSE;
-	}
-
-	mlstr_edit(&pObj->description, argument);
-	send_to_char("Long description set.\n\r", ch);
-	return TRUE;
+	return olced_mlstr(ch, argument, oedit_long, &pObj->description);
 }
-
-
 
 bool set_value(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj, const char *argument, int value)
 {
@@ -545,101 +511,48 @@ bool oedit_values(CHAR_DATA *ch, const char *argument, int value)
 
 OEDIT(oedit_value0)
 {
-	if (oedit_values(ch, argument, 0))
-		 return TRUE;
-
-	return FALSE;
+	return oedit_values(ch, argument, 0);
 }
 
 OEDIT(oedit_value1)
 {
-	if (oedit_values(ch, argument, 1))
-		 return TRUE;
-
-	return FALSE;
+	return oedit_values(ch, argument, 1);
 }
 
 OEDIT(oedit_value2)
 {
-	if (oedit_values(ch, argument, 2))
-		 return TRUE;
-
-	return FALSE;
+	return oedit_values(ch, argument, 2);
 }
 
 OEDIT(oedit_value3)
 {
-	if (oedit_values(ch, argument, 3))
-		 return TRUE;
-
-	return FALSE;
+	return oedit_values(ch, argument, 3);
 }
 
 OEDIT(oedit_value4)
 {
-	if (oedit_values(ch, argument, 4))
-		 return TRUE;
-
-	return FALSE;
+	return oedit_values(ch, argument, 4);
 }
 
 OEDIT(oedit_weight)
 {
 	OBJ_INDEX_DATA *pObj;
-
 	EDIT_OBJ(ch, pObj);
-
-	if (argument[0] == '\0' || !is_number(argument))
-	{
-		send_to_char("Syntax:  weight [number]\n\r", ch);
-		return FALSE;
-	}
-
-	pObj->weight = atoi(argument);
-
-	send_to_char("Weight set.\n\r", ch);
-	return TRUE;
+	return olced_number(ch, argument, oedit_weight, &pObj->weight);
 }
 
 OEDIT(oedit_limit)
 {
 	OBJ_INDEX_DATA *pObj;
-
 	EDIT_OBJ(ch, pObj);
-
-	if (str_cmp(argument, "none") == NULL) {
-		pObj->limit = -1;
-		char_puts("Limit removed.\n\r", ch);
-		return TRUE;
-	}
-
-	if (argument[0] == '\0' || !is_number(argument)) {
-		send_to_char("Syntax:  olimit [number | none]\n\r", ch);
-		return FALSE;
-	}
-
-	pObj->limit = atoi(argument);
-
-	char_puts("Limit set.\n\r", ch);
-	return TRUE;
+	return olced_number(ch, argument, oedit_limit, &pObj->limit);
 }
 
 OEDIT(oedit_cost)
 {
 	OBJ_INDEX_DATA *pObj;
-
 	EDIT_OBJ(ch, pObj);
-
-	if (argument[0] == '\0' || !is_number(argument))
-	{
-		send_to_char("Syntax:  cost [number]\n\r", ch);
-		return FALSE;
-	}
-
-	pObj->cost = atoi(argument);
-
-	send_to_char("Cost set.\n\r", ch);
-	return TRUE;
+	return olced_number(ch, argument, oedit_cost, &pObj->cost);
 }
 
 OEDIT(oedit_create)
@@ -650,28 +563,24 @@ OEDIT(oedit_create)
 	int  iHash;
 
 	value = atoi(argument);
-	if (argument[0] == '\0' || value == 0)
-	{
-		send_to_char("Syntax:  oedit create [vnum]\n\r", ch);
+	if (argument[0] == '\0' || value == 0) {
+		send_to_char("Syntax: oedit create [vnum]\n\r", ch);
 		return FALSE;
 	}
 
 	pArea = area_vnum_lookup(value);
-	if (!pArea)
-	{
-		send_to_char("OEdit:  That vnum is not assigned an area.\n\r", ch);
+	if (!pArea) {
+		send_to_char("OEdit: That vnum is not assigned an area.\n\r", ch);
 		return FALSE;
 	}
 
-	if (!IS_BUILDER(ch, pArea))
-	{
-		send_to_char("OEdit:  Vnum in an area you cannot build in.\n\r", ch);
+	if (!IS_BUILDER(ch, pArea)) {
+		send_to_char("OEdit: Vnum in an area you cannot build in.\n\r", ch);
 		return FALSE;
 	}
 
-	if (get_obj_index(value))
-	{
-		send_to_char("OEdit:  Object vnum already exists.\n\r", ch);
+	if (get_obj_index(value)) {
+		send_to_char("OEdit: Object vnum already exists.\n\r", ch);
 		return FALSE;
 	}
 		 
@@ -744,29 +653,16 @@ OEDIT(oedit_level)
 OEDIT(oedit_condition)
 {
 	OBJ_INDEX_DATA *pObj;
-	int value;
-
-	if (argument[0] != '\0'
-	&& (value = atoi (argument)) >= 0
-	&& (value <= 100))
-	{
-		EDIT_OBJ(ch, pObj);
-
-		pObj->condition = value;
-		send_to_char("Condition set.\n\r", ch);
-
-		return TRUE;
-	}
-
-	send_to_char("Syntax:  condition [number]\n\r"
-			  "Where number can range from 0 (ruined) to 100 (perfect).\n\r",
-			  ch);
-	return FALSE;
+	EDIT_OBJ(ch, pObj);
+	return olced_number(ch, argument, oedit_condition, &pObj->condition);
 }
 
-
-
-
+OEDIT(oedit_clan)
+{
+	OBJ_INDEX_DATA *pObj;
+	EDIT_OBJ(ch, pObj);
+	return olced_clan(ch, argument, oedit_clan, &pObj->clan);
+}
 
 void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *obj)
 {
@@ -791,8 +687,7 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *obj)
 			obj->value[0],
 			obj->value[1],
 			obj->value[2],
-			obj->value[3] != -1 ? skill_table[obj->value[3]].name
-			                    : "none");
+			skill_name(obj->value[3]));
 		break;
 
 	case ITEM_PORTAL:
@@ -831,14 +726,10 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *obj)
 			"[v3] Spell:  %s\n\r"
 			"[v4] Spell:  %s\n\r",
 			obj->value[0],
-			obj->value[1] != -1 ? skill_table[obj->value[1]].name
-			                    : "none",
-			obj->value[2] != -1 ? skill_table[obj->value[2]].name
-		                             : "none",
-			obj->value[3] != -1 ? skill_table[obj->value[3]].name
-			                    : "none",
-			obj->value[4] != -1 ? skill_table[obj->value[4]].name
-			                    : "none");
+			skill_name(obj->value[1]),
+			skill_name(obj->value[2]),
+			skill_name(obj->value[3]),
+			skill_name(obj->value[4]));
 		break;
 
 /* ARMOR for ROM */
@@ -877,7 +768,7 @@ void show_obj_values(BUFFER *output, OBJ_INDEX_DATA *obj)
 			"[v3] Capacity    [%d]\n\r"
 			"[v4] Weight Mult [%d]\n\r",
 			obj->value[0],
-			flag_string(container_flags, obj->value[1]),
+			flag_string(cont_flags, obj->value[1]),
 		        get_obj_index(obj->value[2]) ?
 			mlstr_mval(get_obj_index(obj->value[2])->short_descr) :
 			"none",
@@ -968,7 +859,7 @@ bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
 			break;
 		case 3:
 			buf_add(output, "SPELL TYPE SET.\n\r");
-			pObj->value[3] = skill_lookup(argument);
+			pObj->value[3] = sn_lookup(argument);
 			break;
 		}
 		break;
@@ -986,19 +877,19 @@ bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
 			break;
 		case 1:
 			buf_add(output, "SPELL TYPE 1 SET.\n\r\n\r");
-			pObj->value[1] = skill_lookup(argument);
+			pObj->value[1] = sn_lookup(argument);
 			break;
 		case 2:
 			buf_add(output, "SPELL TYPE 2 SET.\n\r\n\r");
-			pObj->value[2] = skill_lookup(argument);
+			pObj->value[2] = sn_lookup(argument);
 			break;
 		case 3:
 			buf_add(output, "SPELL TYPE 3 SET.\n\r\n\r");
-			pObj->value[3] = skill_lookup(argument);
+			pObj->value[3] = sn_lookup(argument);
 			break;
 		case 4:
 			buf_add(output, "SPELL TYPE 4 SET.\n\r\n\r");
-			pObj->value[4] = skill_lookup(argument);
+			pObj->value[4] = sn_lookup(argument);
 			break;
  		}
 		break;
@@ -1127,7 +1018,7 @@ bool set_obj_values(CHAR_DATA *ch, OBJ_INDEX_DATA *pObj,
 			pObj->value[0] = atoi(argument);
 			break;
 		case 1:
-			if ((value = flag_value(container_flags, argument)))
+			if ((value = flag_value(cont_flags, argument)))
 				TOGGLE_BIT(pObj->value[1], value);
 			else {
 				do_help (ch, "ITEM_CONTAINER");
@@ -1270,16 +1161,14 @@ static void show_skill_cmds(CHAR_DATA *ch, int tar)
  
 	output = buf_new(0);
 	col = 0;
-	for (sn = 0; sn < MAX_SKILL; sn++) {
-		if (!skill_table[sn].name)
-			break;
+	for (sn = 0; sn < skills->nused; sn++) {
+		SKILL_DATA *sk = SKILL(sn);
 
-		if (!str_cmp(skill_table[sn].name, "reserved")
-		||  skill_table[sn].spell_fun == spell_null)
+		if (!str_cmp(sk->name, "reserved") || sk->spell_fun == NULL)
 			continue;
 
-		if (tar == -1 || skill_table[sn].target == tar) {
-			buf_printf(output, "%-19.18s", skill_table[sn].name);
+		if (tar == -1 || sk->target == tar) {
+			buf_printf(output, "%-19.18s", sk->name);
 			if (++col % 4 == 0)
 				buf_add(output, "\n\r");
 		}
@@ -1334,11 +1223,11 @@ void show_damlist(CHAR_DATA *ch)
 }
 
 #if 0
-	{ "type",	type_flags,	"Types of objects."		},
+	{ "type",	item_types,	"Types of objects."		},
 	{ "extra",	extra_flags,	"Object attributes."		},
 	{ "wear",	wear_flags,	"Where to wear object."		},
 	{ "wear-loc",	wear_loc_flags,	"Where mobile wears object."	},
-	{ "container",	container_flags,"Container status."		},
+	{ "container",	cont_flags,"Container status."		},
 
 /* ROM specific bits: */
 
@@ -1354,3 +1243,16 @@ void show_damlist(CHAR_DATA *ch)
 	{ NULL,		NULL,		 NULL				}
 };
 #endif
+
+VALIDATOR(validate_condition)
+{
+	int val = *(int*) arg;
+
+	if (val < 0 || val > 100) {
+		char_puts("OEdit: condition can range from 0 (ruined) "
+			  "to 100 (perfect).\n\r", ch);
+		return FALSE;
+	}
+	return TRUE;
+}
+

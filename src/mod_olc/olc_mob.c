@@ -1,15 +1,12 @@
+/*
+ * $Id: olc_mob.c,v 1.3 1998-09-01 18:29:26 fjoe Exp $
+ */
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include "merc.h"
 #include "olc.h"
-#include "comm.h"
-#include "string_edit.h"
-#include "db.h"
-#include "tables.h"
-#include "buffer.h"
-#include "mlstring.h"
-#include "lookup.h"
 #include "interp.h"
 
 #define MEDIT(fun)		bool fun(CHAR_DATA *ch, const char *argument)
@@ -53,54 +50,54 @@ DECLARE_OLC_FUN(medit_damtype		);  /* ROM */
 DECLARE_OLC_FUN(medit_group		);  /* ROM */
 DECLARE_OLC_FUN(medit_trigadd		);  /* ROM */
 DECLARE_OLC_FUN(medit_trigdel		);  /* ROM */
-DECLARE_OLC_FUN(medit_detect		); 
 DECLARE_OLC_FUN(medit_prac		); 
+DECLARE_OLC_FUN(medit_clan		);
 
 OLC_CMD_DATA medit_table[] =
 {
-/*  { command		function		args		}, */
-    { "alignment",	medit_align				},
-    { "create",		medit_create				},
-    { "desc",		medit_desc				},
-    { "level",		medit_level				},
-    { "long",		medit_long				},
-    { "name",		medit_name				},
-    { "shop",		medit_shop				},
-    { "short",		medit_short				},
-    { "show",		medit_show				},
-    { "spec",		medit_spec				},
+/*	{ command	function		args		}, */
+	{ "alignment",	medit_align				},
+	{ "create",	medit_create				},
+	{ "desc",	medit_desc				},
+	{ "level",	medit_level				},
+	{ "long",	medit_long				},
+	{ "name",	medit_name				},
+	{ "shop",	medit_shop				},
+	{ "short",	medit_short				},
+	{ "show",	medit_show				},
+	{ "spec",	medit_spec				},
 
-    { "sex",		medit_sex,		sex_table	},
-    { "act",		medit_act,		act_flags	},
-    { "affect",		medit_affect,		affect_flags	},
-    { "detect",		medit_detect,		detect_flags	},
-    { "prac",		medit_prac,		skill_groups	},
-    { "armor",		medit_ac				},
-    { "form",		medit_form,		form_flags	},
-    { "part",		medit_part,		part_flags	},
-    { "imm",		medit_imm,		imm_flags	},
-    { "res",		medit_res,		res_flags	},
-    { "vuln",		medit_vuln,		vuln_flags	},
-    { "material",	medit_material				},
-    { "off",		medit_off,		off_flags	},
-    { "size",		medit_size,		size_table	},
-    { "hitdice",	medit_hitdice				},
-    { "manadice",	medit_manadice				},
-    { "damdice",	medit_damdice				},
-    { "race",		medit_race				},
-    { "startpos",	medit_startpos,		position_table	},
-    { "defaultpos",	medit_defaultpos,	position_table	},
-    { "wealth",		medit_gold				},
-    { "hitroll",	medit_hitroll				},
-    { "damtype",	medit_damtype				},
-    { "group",		medit_group				},
-    { "trigadd",	medit_trigadd				},
-    { "trigdel",	medit_trigdel				},
+	{ "sex",	medit_sex,		sex_table	},
+	{ "act",	medit_act,		act_flags	},
+	{ "affect",	medit_affect,		affect_flags	},
+	{ "prac",	medit_prac,		skill_groups	},
+	{ "armor",	medit_ac				},
+	{ "form",	medit_form,		form_flags	},
+	{ "part",	medit_part,		part_flags	},
+	{ "imm",	medit_imm,		imm_flags	},
+	{ "res",	medit_res,		res_flags	},
+	{ "vuln",	medit_vuln,		vuln_flags	},
+	{ "material",	medit_material				},
+	{ "off",	medit_off,		off_flags	},
+	{ "size",	medit_size,		size_table	},
+	{ "hitdice",	medit_hitdice				},
+	{ "manadice",	medit_manadice				},
+	{ "damdice",	medit_damdice				},
+	{ "race",	medit_race				},
+	{ "startpos",	medit_startpos,		position_table	},
+	{ "defaultpos",	medit_defaultpos,	position_table	},
+	{ "wealth",	medit_gold				},
+	{ "hitroll",	medit_hitroll				},
+	{ "damtype",	medit_damtype				},
+	{ "group",	medit_group				},
+	{ "clan",	medit_clan				},
+	{ "trigadd",	medit_trigadd				},
+	{ "trigdel",	medit_trigdel				},
 
-    { "commands",	show_commands				},
-    { "version",	show_version				},
+	{ "commands",	show_commands				},
+	{ "version",	show_version				},
 
-    { NULL }
+	{ NULL }
 };
 
 static void show_spec_cmds(CHAR_DATA *ch);
@@ -228,6 +225,7 @@ MEDIT(medit_show)
 	AREA_DATA	*pArea;
 	MPTRIG *mptrig;
 	BUFFER *buf;
+	CLAN_DATA *clan;
 
 	EDIT_MOB(ch, pMob);
 
@@ -244,6 +242,9 @@ MEDIT(medit_show)
 		pMob->vnum,
 		flag_string(sex_table, pMob->sex),
 		race_table[pMob->race].name);
+
+	if (pMob->clan && (clan = clan_lookup(pMob->clan))) 
+		buf_printf(buf, "Clan      : [%s]\n\r", clan->name);
 
 	buf_printf(buf, "Level:       [%2d]    Align: [%4d]      Hitroll: [%2d] Dam Type:    [%s]\n\r",
 		pMob->level,	pMob->alignment,
@@ -271,8 +272,6 @@ MEDIT(medit_show)
 
 	buf_printf(buf, "Affected by: [%s]\n\r",
 		flag_string(affect_flags, pMob->affected_by));
-	buf_printf(buf, "Can detect:  [%s]\n\r",
-		flag_string(detect_flags, pMob->detection));
 
 /* ROM values: */
 
@@ -344,7 +343,7 @@ MEDIT(medit_show)
 				buf_add(buf, "  ------ -----------\n\r");
 			}
 			buf_printf(buf, "  [%4d] %s\n\r", iTrade,
-				flag_string(type_flags, pShop->buy_type[iTrade]));
+				flag_string(item_types, pShop->buy_type[iTrade]));
 			}
 		}
 	}
@@ -607,7 +606,7 @@ MEDIT(medit_shop)
 			return FALSE;
 		}
 
-		if ((value = flag_value(type_flags, argument)) == 0)
+		if ((value = flag_value(item_types, argument)) == 0)
 		{
 			send_to_char("MEdit:  That type of item is not known.\n\r", ch);
 			return FALSE;
@@ -707,13 +706,6 @@ MEDIT(medit_affect)
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
 	return olced_flag(ch, argument, medit_affect, &pMob->affected_by);
-}
-
-MEDIT(medit_detect) 
-{
-	MOB_INDEX_DATA *pMob;
-	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, medit_detect, &pMob->detection);
 }
 
 MEDIT(medit_prac) 
@@ -868,7 +860,6 @@ MEDIT(medit_race)
 
 		pMob->race = race;
 		pMob->act	  |= race_table[race].act;
-		pMob->detection	  |= race_table[race].det;
 		pMob->affected_by |= race_table[race].aff;
 		pMob->off_flags   |= race_table[race].off;
 		pMob->imm_flags   |= race_table[race].imm;
@@ -982,7 +973,14 @@ MEDIT(medit_group)
 	return FALSE;
 }
 
-MEDIT (medit_trigadd)
+MEDIT(medit_clan)
+{
+	MOB_INDEX_DATA *pMob;
+	EDIT_MOB(ch, pMob);
+	return olced_clan(ch, argument, medit_clan, &pMob->clan);
+}
+
+MEDIT(medit_trigadd)
 {
 	int value;
 	MOB_INDEX_DATA *pMob;
@@ -998,7 +996,7 @@ MEDIT (medit_trigadd)
 	argument=one_argument(argument, phrase);
 
 	if (!str_cmp(num, "?")) {
-		show_flag_cmds(ch, mptrig_types);
+		show_flags(ch, mptrig_types);
 		return FALSE;
 	}
 
@@ -1024,7 +1022,7 @@ MEDIT (medit_trigadd)
 	return TRUE;
 }
 
-MEDIT (medit_trigdel)
+MEDIT(medit_trigdel)
 {
 	MOB_INDEX_DATA *pMob;
 	MPTRIG *mptrig;

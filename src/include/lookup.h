@@ -2,7 +2,7 @@
 #define _LOMSG_OKUP_H_
 
 /*
- * $Id: lookup.h,v 1.8 1998-08-17 18:47:06 fjoe Exp $
+ * $Id: lookup.h,v 1.9 1998-09-01 18:29:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -48,16 +48,12 @@ int	position_lookup	(const char *name);
 int 	size_lookup	(const char *name);
 int	race_lookup	(const char *name);
 int	item_lookup	(const char *name);
+
 int	liq_lookup	(const char *name);
 int	material_lookup (const char *name);
 int	weapon_lookup	(const char *name);
 int	attack_lookup	(const char *name);
-int	slang_lookup	(const char *name);
 long	wiznet_lookup	(const char *name);
-int	class_lookup	(const char *name);
-int	clan_lookup	(const char *argument);
-int	skill_lookup	(const char *name );
-int	slot_lookup	(int slot );
 
 #endif
 

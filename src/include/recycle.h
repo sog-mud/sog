@@ -2,7 +2,7 @@
 #define _RECYCLE_H_
 
 /*
- * $Id: recycle.h,v 1.9 1998-08-17 18:47:07 fjoe Exp $
+ * $Id: recycle.h,v 1.10 1998-09-01 18:29:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,7 +44,6 @@
 ***************************************************************************/
 
 /* externs */
-extern char str_empty[1];
 extern int mobile_count;
 
 /* note recycling */
@@ -96,6 +95,8 @@ long	get_mob_id  (void);
 HELP_DATA *	help_new	(void);
 void		help_add	(AREA_DATA*, HELP_DATA*);
 HELP_DATA *	help_lookup	(int num, const char *keyword);
+void		help_show	(CHAR_DATA *ch, BUFFER *output,
+				 const char *keyword);
 void		help_free	(HELP_DATA*);
 
 #endif

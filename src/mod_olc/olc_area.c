@@ -1,12 +1,12 @@
+/*
+ * $Id: olc_area.c,v 1.4 1998-09-01 18:29:25 fjoe Exp $
+ */
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include "merc.h"
 #include "olc.h"
-#include "comm.h"
-#include "string_edit.h"
-#include "db.h"
-#include "tables.h"
 
 #define AEDIT(fun)		bool fun(CHAR_DATA *ch, const char *argument)
 #define EDIT_AREA(Ch, Area)	(Area = (AREA_DATA *)Ch->desc->pEdit)
@@ -26,7 +26,6 @@ DECLARE_OLC_FUN(aedit_credits		);
 DECLARE_OLC_FUN(aedit_minlevel		);
 DECLARE_OLC_FUN(aedit_maxlevel		);
 
-DECLARE_VALIDATE_FUN(validate_file	);
 DECLARE_VALIDATE_FUN(validate_security	);
 DECLARE_VALIDATE_FUN(validate_minvnum	);
 DECLARE_VALIDATE_FUN(validate_maxvnum	);
@@ -39,7 +38,7 @@ OLC_CMD_DATA aedit_table[] =
 	{ "area",	aedit_flags,	area_flags		},
 	{ "builder",	aedit_builder				},
 	{ "create",	aedit_create				},
-	{ "filename",	aedit_file,	validate_file		},
+	{ "filename",	aedit_file,	validate_filename	},
 	{ "name",	aedit_name				},
 	{ "reset",	aedit_reset				},
 	{ "security",	aedit_security, validate_security	},
@@ -159,8 +158,10 @@ AEDIT(aedit_show)
 	char_printf(ch, "Age:      [%d]\n\r",	pArea->age);
 	char_printf(ch, "Players:  [%d]\n\r", pArea->nplayer);
 	char_printf(ch, "Security: [%d]\n\r", pArea->security);
-	char_printf(ch, "Builders: [%s]\n\r", pArea->builders);
-	char_printf(ch, "Credits : [%s]\n\r", pArea->credits);
+	if (!IS_NULLSTR(pArea->builders))
+		char_printf(ch, "Builders: [%s]\n\r", pArea->builders);
+	if (!IS_NULLSTR(pArea->credits))
+		char_printf(ch, "Credits : [%s]\n\r", pArea->credits);
 	char_printf(ch, "Flags:    [%s]\n\r",
 			flag_string(area_flags, pArea->flags));
 	return FALSE;
@@ -312,15 +313,6 @@ AEDIT(aedit_maxvnum)
 }
 
 /* Validators */
-
-VALIDATOR(validate_file)
-{
-	if (strpbrk(arg, "/")) {
-		char_puts("AEdit: Invalid characters in file name.\n\r", ch);
-		return FALSE;
-	}
-	return TRUE;
-}
 
 VALIDATOR(validate_security)
 {

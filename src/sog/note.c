@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.17 1998-08-14 05:45:15 fjoe Exp $
+ * $Id: note.c,v 1.18 1998-09-01 18:29:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,19 +47,36 @@
 #include <stdlib.h>
 #include <time.h>
 #include <ctype.h>
+
 #include "merc.h"
-#include "recycle.h"
 #include "db.h"
-#include "comm.h"
-#include "log.h"
-#include "resource.h"
-#include "buffer.h"
-#include "string_edit.h"
+
+/*
+ * Data structure for notes.
+ */
+
+#define NOTE_NOTE	0
+#define NOTE_IDEA	1
+#define NOTE_PENALTY	2
+#define NOTE_NEWS	3
+#define NOTE_CHANGES	4
+struct note_data
+{
+	NOTE_DATA *	next;
+	bool		valid;
+	int		type;
+	char *		sender;
+	char *		date;
+	char *		to_list;
+	char *		subject;
+	char *		text;
+	time_t		date_stamp;
+};
 
 /* globals from db.c for load_notes */
 extern  int     _filbuf         args((FILE *));
 extern FILE *                  fpArea;
-extern char                    strArea[MAX_INPUT_LENGTH];
+extern char                    filename[MAX_INPUT_LENGTH];
 
 /* local procedures */
 void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time);
@@ -71,6 +88,40 @@ NOTE_DATA *idea_list;
 NOTE_DATA *penalty_list;
 NOTE_DATA *news_list;
 NOTE_DATA *changes_list;
+
+/* stuff for recyling notes */
+NOTE_DATA *note_free;
+
+NOTE_DATA *new_note()
+{
+    NOTE_DATA *note;
+
+    if (note_free == NULL)
+	note = alloc_perm(sizeof(*note));
+    else
+    { 
+	note = note_free;
+	note_free = note_free->next;
+    }
+    VALIDATE(note);
+    return note;
+}
+
+void free_note(NOTE_DATA *note)
+{
+    if (!IS_VALID(note))
+	return;
+
+    free_string( note->text    );
+    free_string( note->subject );
+    free_string( note->to_list );
+    free_string( note->date    );
+    free_string( note->sender  );
+    INVALIDATE(note);
+
+    note->next = note_free;
+    note_free   = note;
+}
 
 int count_spool(CHAR_DATA *ch, NOTE_DATA *spool)
 {
@@ -185,7 +236,7 @@ void save_notes(int type)
     }
 
     fclose(fpReserve);
-    if ((fp = fopen(name, "w")) == NULL)
+    if ((fp = dfopen(NOTES_PATH, name, "w")) == NULL)
 	perror(name);
     else {
 	for (; pnote != NULL; pnote = pnote->next) {
@@ -216,7 +267,7 @@ void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
     FILE *fp;
     NOTE_DATA *pnotelast;
  
-    if ((fp = fopen(name, "r")) == NULL)
+    if ((fp = dfopen(NOTES_PATH, name, "r")) == NULL)
 	return;
 	 
     pnotelast = NULL;
@@ -279,7 +330,7 @@ void load_thread(char *name, NOTE_DATA **list, int type, time_t free_time)
         pnotelast       = pnote;
     }
  
-    strcpy(strArea, NOTE_FILE);
+    strcpy(filename, NOTE_FILE);
     fpArea = fp;
     bug("Load_notes: bad key word.", 0);
     exit(1);
@@ -327,7 +378,7 @@ void append_note(NOTE_DATA *pnote)
     }
 
     fclose(fpReserve);
-    if ((fp = fopen(name, "a")) == NULL)
+    if ((fp = dfopen(NOTES_PATH, name, "a")) == NULL)
         perror(name);
     else {
         fprintf(fp, "Sender  %s~\n", pnote->sender);
@@ -343,22 +394,25 @@ void append_note(NOTE_DATA *pnote)
 
 bool is_note_to(CHAR_DATA *ch, NOTE_DATA *pnote)
 {
-    if (!str_cmp(ch->name, pnote->sender))
-	return TRUE;
+	CLAN_DATA *clan;
 
-    if (!str_cmp("all", pnote->to_list))
-	return TRUE;
+	if (!str_cmp(ch->name, pnote->sender))
+		return TRUE;
 
-    if (IS_IMMORTAL(ch) && is_name("imm", pnote->to_list))
-	return TRUE;
+	if (!str_cmp("all", pnote->to_list))
+		return TRUE;
 
-    if (is_name(ch->name, pnote->to_list))
-	return TRUE;
+	if (IS_IMMORTAL(ch) && is_name("imm", pnote->to_list))
+		return TRUE;
 
-    if (is_name(clan_table[ch->clan].short_name, pnote->to_list))
-	return TRUE;
+	if (is_name(ch->name, pnote->to_list))
+		return TRUE;
 
-    return FALSE;
+	if ((clan = clan_lookup(ch->clan))
+	&&  is_name(clan->name, pnote->to_list))
+		return TRUE;
+
+	return FALSE;
 }
 
 void note_attach(CHAR_DATA *ch, int type)

@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.23 1998-08-14 22:33:06 fjoe Exp $
+ * $Id: obj_prog.c,v 1.24 1998-09-01 18:29:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,17 +45,8 @@
 #include <string.h>
 #include <time.h>
 #include "merc.h"
-#include "magic.h"
 #include "interp.h"
-#include "db.h"
-#include "comm.h"
-#include "resource.h"
 #include "fight.h"
-#include "log.h"
-#include "lookup.h"
-#include "mlstring.h"
-
-int one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool second);
 
 #define DECLARE_OPROG(f) OPROG_FUN f
 
@@ -64,10 +55,6 @@ DECLARE_OPROG(remove_prog_excalibur);
 DECLARE_OPROG(death_prog_excalibur);
 DECLARE_OPROG(speech_prog_excalibur);
 DECLARE_OPROG(sac_prog_excalibur);
-
-DECLARE_OPROG(sac_prog_clan_item);
-DECLARE_OPROG(get_prog_clan_item);
-DECLARE_OPROG(give_prog_clan_item);
 
 DECLARE_OPROG(fight_prog_sub_weapon);
 DECLARE_OPROG(speech_prog_kassandra);
@@ -189,9 +176,6 @@ OPROG_DATA oprog_table[] = {
 	{ "death_prog_excalibur", death_prog_excalibur },
 	{ "speech_prog_excalibur", speech_prog_excalibur },
 	{ "sac_prog_excalibur", sac_prog_excalibur },
-	{ "sac_prog_clan_item", sac_prog_clan_item },
-	{ "get_prog_clan_item", get_prog_clan_item },
-	{ "give_prog_clan_item", give_prog_clan_item },
 	{ "fight_prog_sub_weapon", fight_prog_sub_weapon },
 	{ "speech_prog_kassandra", speech_prog_kassandra },
 	{ "fight_prog_chaos_blade", fight_prog_chaos_blade },
@@ -543,102 +527,6 @@ int get_prog_quest_obj(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	return 0;
 }
 
-int get_prog_clan_item(OBJ_DATA *obj, CHAR_DATA *ch, void *arg) 
-{
-	if (IS_NPC(ch))
-	{
-	  act("You are not worthy to have $p and drop it.",
-		 ch, obj, NULL, TO_CHAR);
-	  act("$n is not worthy to have $p and drops it.",
-		 ch, obj, NULL, TO_ROOM);
-	  obj_from_char(obj);
-	  obj_to_room(obj, ch->in_room);
-	  return 0;
-	}
-	else
-	{
-
-	  DESCRIPTOR_DATA *d;
-
-	  for (d = descriptor_list; d; d = d->next)
-	    {
-	      if (d->connected == CON_PLAYING && 
-		     clan_table[d->character->clan].obj_ptr == obj)
-	 	  act_puts("You feel a shudder in your Cabal Power!",
-			   d->character,NULL,NULL,TO_CHAR,POS_DEAD);
-		}
-	}
-	return 0;
-}
-
-bool sac_prog_clan_item(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
-{
-	OBJ_DATA *container;
-	OBJ_DATA *item;
-	int i;
-
-	act("The gods are infuriated!",ch,NULL,NULL,TO_CHAR);
-	act("The gods are infuriated!",ch,NULL,NULL,TO_ROOM);
-	damage(ch,ch,ch->hit -10,TYPE_HIT,DAM_HOLY, TRUE); 
-	ch->gold = 0;
-
-	for(i = 1; clan_table[i].long_name != NULL; i++)
-	if (clan_table[i].obj_ptr == obj) break;
-	if (clan_table[i].long_name != NULL)  {
-	if (obj->pIndexData->vnum == clan_table[CLAN_RULER].obj_vnum)
-	  container = create_obj(get_obj_index(OBJ_VNUM_RULER_STAND),100);
-	else if (obj->pIndexData->vnum == clan_table[CLAN_INVADER].obj_vnum)
-	  container = create_obj(get_obj_index(OBJ_VNUM_INVADER_SKULL),100);
-	else if (obj->pIndexData->vnum == clan_table[CLAN_BATTLE].obj_vnum)
-	  container = create_obj(get_obj_index(OBJ_VNUM_BATTLE_THRONE),100);
-	else if (obj->pIndexData->vnum == clan_table[CLAN_KNIGHT].obj_vnum)
-	  container = create_obj(get_obj_index(OBJ_VNUM_KNIGHT_ALTAR), 100);
-	else if (obj->pIndexData->vnum == clan_table[CLAN_CHAOS].obj_vnum)
-	  container = create_obj(get_obj_index(OBJ_VNUM_CHAOS_ALTAR), 100);
-	else if (obj->pIndexData->vnum == clan_table[CLAN_LIONS].obj_vnum)
-	  container = create_obj(get_obj_index(OBJ_VNUM_LIONS_ALTAR), 100);
-	else if (obj->pIndexData->vnum == clan_table[CLAN_HUNTER].obj_vnum)
-	  container = create_obj(get_obj_index(OBJ_VNUM_HUNTER_ALTAR), 100);
-	else
-	  container = create_obj(get_obj_index(OBJ_VNUM_SHALAFI_ALTAR),100);
-
-	item = create_obj(get_obj_index(clan_table[i].obj_vnum), 100);
-	obj_to_obj(item, container);
-	obj_to_room(container, get_room_index(clan_table[i].room_vnum));
-	if (get_room_index(clan_table[i].room_vnum)->people != NULL)  {
-		act_printf(get_room_index(clan_table[i].room_vnum)->people,
-			   NULL,NULL, TO_CHAR, POS_RESTING,
-			   "You see %s forming again slowly.\n\r", 
-			   mlstr_mval(container->short_descr));
-		act_printf(get_room_index(clan_table[i].room_vnum)->people,
-			   NULL, NULL, TO_ROOM, POS_RESTING,
-			   "You see %s forming again slowly.\n\r", 
-			   mlstr_mval(container->short_descr));
-	}
-	}
-	else
-	bug("oprog: sac_clan_item: Was not the clan's item.", 0);
-
-	return 0; 
-} 
-
-int give_prog_clan_item(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
-{
-	CHAR_DATA *mob = (CHAR_DATA*) arg;
-
-	if (IS_NPC(mob))
-
-	{
-	  act("You are not worthy to have $p and drop it.",
-		 mob, obj, NULL, TO_CHAR);
-	  act("$n is not worthy to have $p and drops it.",
-		 mob, obj, NULL, TO_ROOM);
-	  obj_from_char(obj);
-	  obj_to_room(obj, mob->in_room);
-	}
-	return 0;
-}
-
 int speech_prog_kassandra(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {
 	char *speech = (char*) arg;
@@ -712,7 +600,7 @@ int fight_prog_tattoo_apollon(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	case 2:
 		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
 		do_yell(ch, "Ever dance with good....");
-		obj_cast_spell(skill_lookup("holy word"), ch->level, ch,
+		obj_cast_spell(sn_lookup("holy word"), ch->level, ch,
 			       NULL, obj);
 		break;
 	}
@@ -736,7 +624,7 @@ int fight_prog_tattoo_zeus(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	case 3:
 		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
 		if (IS_AFFECTED(ch, AFF_PLAGUE))
-			obj_cast_spell(skill_lookup("cure disease"),
+			obj_cast_spell(sn_lookup("cure disease"),
 				       MAX_LEVEL, ch, ch, obj);
   		if (IS_AFFECTED(ch, AFF_POISON))
   			obj_cast_spell(gsn_cure_poison,
@@ -904,7 +792,7 @@ int fight_prog_tattoo_phobos(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 		break;
 	case 1:
 		char_nputs(MSG_TATTOO_GLOWS_RED, ch);
-		obj_cast_spell(skill_lookup("colour spray"),
+		obj_cast_spell(sn_lookup("colour spray"),
 			       ch->level, ch, ch->fighting, obj);
 		break;
 	}
@@ -1064,11 +952,11 @@ int fight_prog_tattoo_eros(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	case 0:
 	case 1:
 		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
-		obj_cast_spell(skill_lookup("heal"), ch->level, ch, ch, obj);
+		obj_cast_spell(sn_lookup("heal"), ch->level, ch, ch, obj);
 		break;
 	case 2:
 		char_nputs(MSG_TATTOO_GLOWS_BLUE, ch);
-		obj_cast_spell(skill_lookup("group heal"),
+		obj_cast_spell(sn_lookup("group heal"),
 			       ch->level, ch, ch, obj);
 		break;
 	}

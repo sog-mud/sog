@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.63 1998-08-17 18:47:07 fjoe Exp $
+ * $Id: act_quest.c,v 1.64 1998-09-01 18:29:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -64,16 +64,8 @@
 #include <time.h>
 
 #include "merc.h"
-#include "recycle.h"
-#include "db.h"
-#include "comm.h"
-#include "resource.h"
 #include "hometown.h"
-#include "log.h"
-#include "magic.h"
 #include "quest.h"
-#include "lookup.h"
-#include "mlstring.h"
 
 #ifdef SUNOS
 #	include <stdarg.h>
@@ -85,10 +77,7 @@
  */
 #define QUEST_VNUM_GIRTH	94
 #define QUEST_VNUM_RING		95
-#define QUEST_VNUM_WEAPON	96
-#define QUEST_VNUM_SWORD	31
-#define QUEST_VNUM_DAGGER	32
-#define QUEST_VNUM_MACE		33
+#define QUEST_VNUM_RUG		50
 #define VNUM_CANTEEN		34402
 
 #define TROUBLE_MAX 3
@@ -137,41 +126,8 @@ struct qitem_data qitem_table[] = {
 	{ "the Ring of Real Heroism",	1000, CLASS_NONE,
 	   QUEST_VNUM_RING, NULL				},
 
-	{ "the Real Hero's Dagger",	1000, CLASS_WITCH,
-	   QUEST_VNUM_DAGGER, NULL				},
-
-	{ "the Real Hero's Mace",	1000, CLASS_CLERIC,
-	   QUEST_VNUM_MACE, NULL				},
-
-	{ "the Real Hero's Dagger",	1000, CLASS_THIEF,
-	   QUEST_VNUM_DAGGER, NULL				},
-
-	{ "the Real Hero's Sword",	1000, CLASS_WARRIOR,
-	   QUEST_VNUM_SWORD, NULL				},
-
-	{ "the Real Hero's Sword",	1000, CLASS_PALADIN,
-	   QUEST_VNUM_SWORD, NULL				},
-
-	{ "the Real Hero's Sword",	1000, CLASS_ANTI_PALADIN,
-	   QUEST_VNUM_SWORD, NULL				},
-
-	{ "the Real Hero's Dagger",	1000, CLASS_NINJA,
-	   QUEST_VNUM_SWORD, NULL				},
-
-	{ "the Real Hero's Sword",	1000, CLASS_RANGER,
-	   QUEST_VNUM_SWORD, NULL				},
-
-	{ "the Real Hero's Dagger",	1000, CLASS_WARLOCK,
-	   QUEST_VNUM_DAGGER, NULL				},
-
-	{ "the Real Hero's Sword",	1000, CLASS_SAMURAI,
-	   QUEST_VNUM_SWORD, NULL				},
-
-	{ "the Real Hero's Dagger",	1000, CLASS_VAMPIRE,
-	   QUEST_VNUM_DAGGER, NULL				},
-
-	{ "the Real Hero's Dagger",	1000, CLASS_NECROMANCER,
-	   QUEST_VNUM_DAGGER, NULL				},
+	{ "small magic rug",		 750, CLASS_NONE,
+	   QUEST_VNUM_RUG, NULL					},
 
 	{ "350,000 gold pieces",	 500, CLASS_NONE,
 	   0, buy_gold						},
@@ -972,7 +928,7 @@ static bool buy_katana(CHAR_DATA *ch, CHAR_DATA *questor)
 
 static bool buy_vampire(CHAR_DATA *ch, CHAR_DATA *questor)
 {
-	ch->pcdata->learned[skill_lookup("vampire")] = 100;
+	set_skill(ch, gsn_vampire, 100);
 	act_nprintf(ch, NULL, questor, TO_ROOM, POS_RESTING,
 					MSG_N_GIVES_SECRET);
 	act_nprintf(ch, NULL, questor, TO_CHAR, POS_DEAD,

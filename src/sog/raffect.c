@@ -1,18 +1,12 @@
 /*
- * $Id: raffect.c,v 1.6 1998-08-14 05:45:16 fjoe Exp $
+ * $Id: raffect.c,v 1.7 1998-09-01 18:29:20 fjoe Exp $
  */
 
 #include <sys/time.h>
 #include <stdio.h>
 
 #include "merc.h"
-#include "db.h"
-#include "log.h"
-#include "comm.h"
-#include "resource.h"
-#include "recycle.h"
 #include "interp.h"
-#include "lookup.h"
 #include "raffects.h"
 #include "fight.h"
 
@@ -316,7 +310,7 @@ void raffect_to_char(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
 	 int sn;
 	 CHAR_DATA *vch;
 
-	 if ((sn = skill_lookup("lightning shield")) == -1)
+	 if ((sn = sn_lookup("lightning shield")) == -1)
 		{ bug("Bad sn for lightning shield",0); return; }
 
 	 for (vch=room->people;vch;vch=vch->next_in_room)
@@ -354,7 +348,7 @@ void raffect_to_char(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
   {
 	 int sn;
 
-	 if ((sn = skill_lookup("shocking trap")) == -1)
+	 if ((sn = sn_lookup("shocking trap")) == -1)
 		{ bug("Bad sn for shocking shield",0); return; }
 
 	 send_to_char("The shocking waves of room shocks you.\n\r",ch);
@@ -397,7 +391,7 @@ void raffect_back_char(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
 	if (IS_ROOM_AFFECTED(room, RAFF_LSHIELD)) {
 		int sn;
 
-	if ((sn = skill_lookup("lightning shield")) == -1)
+	if ((sn = sn_lookup("lightning shield")) == -1)
 		{ bug("Bad sn for lightning shield",0); return; }
 	if (is_room_owner(ch,room)) 
 		{
@@ -427,13 +421,12 @@ void do_raffects(CHAR_DATA *ch, const char *argument)
 				continue;
 		else
 			char_printf(ch, "%s {c%-15s{x", msg(MSG_AFF_SPELL, ch),
-				    paf->type > 0 ?
-				    skill_table[paf->type].name : "none");
+				    skill_name(paf->type));
 
 		if (ch->level >= 20) {
 			char_printf(ch, ": %s {c%s{x %s {c%d{x ",
 				    msg(MSG_AFF_MODIFIES, ch),
-				    raffect_loc_name(paf->location),
+				    flag_string(rapply_flags, paf->location),
 				    msg(MSG_AFF_BY, ch),
 				    paf->modifier);
 			if (paf->duration == -1 || paf->duration == -2)

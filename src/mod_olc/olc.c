@@ -1,5 +1,5 @@
 /*
- * $Id: olc.c,v 1.13 1998-08-18 17:18:27 fjoe Exp $
+ * $Id: olc.c,v 1.14 1998-09-01 18:29:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -23,17 +23,7 @@
 #include <time.h>
 #include "merc.h"
 #include "olc.h"
-#include "comm.h"
-#include "db.h"
 #include "interp.h"
-#include "tables.h"
-#include "buffer.h"
-#include "mlstring.h"
-#include "util.h"
-#include "recycle.h"
-#include "magic.h"
-#include "resource.h"
-#include "string_edit.h"
 
 /*
  * The version info.  Please use this info when reporting bugs.
@@ -66,17 +56,19 @@ typedef struct olced_data OLCED_DATA;
 
 OLCED_DATA olced_table[] = {
 	{	ED_AREA,	"AEdit",	aedit,
-		aedit_table,	"area",		do_aedit,	},
+		aedit_table,	"area",		do_aedit	},
 	{	ED_ROOM,	"REdit",	redit,
-		redit_table,	"room",		do_redit,	},
+		redit_table,	"room",		do_redit	},
 	{	ED_OBJECT,	"OEdit",	oedit,
-		oedit_table,	"object",	do_oedit,	},
+		oedit_table,	"object",	do_oedit	},
 	{	ED_MOBILE,	"MEdit",	medit,
-		medit_table,	"mobile",	do_medit,	},
+		medit_table,	"mobile",	do_medit	},
 	{	ED_MPCODE,	"MPEdit",	mpedit,
-		mpedit_table,	"mpcode",	do_mpedit,	},
+		mpedit_table,	"mpcode",	do_mpedit	},
 	{	ED_HELP,	"HEdit",	hedit,
-		hedit_table,	"help",		do_hedit,	},
+		hedit_table,	"help",		do_hedit	},
+	{	ED_CLAN,	"CEdit",	cedit,
+		cedit_table,	"clan",		do_cedit	},
 	{ -1 }
 };
 
@@ -317,13 +309,14 @@ bool olced_ed(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 	return FALSE;
 }
 
-bool olced_flag(CHAR_DATA *ch, const char *argument, OLC_FUN* fun, int *pInt)
+bool olced_flag(CHAR_DATA *ch, const char *argument,
+		OLC_FUN* fun, flag_t *pflag)
 {
 	int stat;
 	OLC_CMD_DATA *cmd;
 	OLCED_DATA *olced;
 	const FLAG *f;
-	int marked;
+	flag_t marked;
 
 	if ((olced = olced_lookup(ch->desc->editor)) == NULL
 	||  (cmd = olced_cmd_lookup(ch, fun, olced)) == NULL)
@@ -340,7 +333,7 @@ bool olced_flag(CHAR_DATA *ch, const char *argument, OLC_FUN* fun, int *pInt)
 	}
 
 	if (!str_cmp(argument, "?")) {
-		show_flag_cmds(ch, cmd->arg1);
+		show_flags(ch, cmd->arg1);
 		return FALSE;
 	}
 
@@ -357,7 +350,7 @@ bool olced_flag(CHAR_DATA *ch, const char *argument, OLC_FUN* fun, int *pInt)
 				    olced->name, cmd->name, f->name);
 			return FALSE;
 		}
-		*pInt = f->bit;
+		*pflag = f->bit;
 		char_printf(ch, "%s: %s: '%s': Ok.\n\r",
 			    olced->name, cmd->name, f->name);
 		return TRUE;
@@ -392,7 +385,7 @@ bool olced_flag(CHAR_DATA *ch, const char *argument, OLC_FUN* fun, int *pInt)
 	}
 
 	if (marked) {
-		TOGGLE_BIT(*pInt, marked);
+		TOGGLE_BIT(*pflag, marked);
 		char_printf(ch, "%s: %s: '%s': flag(s) toggled.\n\r",
 			    olced->name, cmd->name,
 			    flag_string(cmd->arg1, marked));
@@ -437,6 +430,36 @@ bail_out:
 	return FALSE;
 }
 
+bool olced_clan(CHAR_DATA *ch, const char *argument, OLC_FUN *fun, int *vnum)
+{
+	OLC_CMD_DATA *cmd;
+	int cn;
+
+	if ((cmd = olc_cmd_lookup(ch, fun)) == NULL)
+		return FALSE;
+
+	if (IS_NULLSTR(argument)) {
+		char_printf(ch, "Syntax: %s clan\n\r"
+				"Use 'clan ?' for list of valid clans.\n\r"
+				"Use 'clan none' to reset clan.\n\r",
+			    cmd->name);
+		return FALSE;
+	}
+
+	if (!str_prefix(argument, "none")) {
+		*vnum = 0;
+		return TRUE;
+	}
+
+	if ((cn = cn_lookup(argument)) == NULL) {
+		char_printf(ch, "'%s': unknown clan.\n\r", argument);
+		return FALSE;
+	}
+
+	*vnum = cn;
+	return TRUE;
+}
+
 /*****************************************************************************
  Name:		show_commands
  Purpose:	Display all olc commands.
@@ -467,33 +490,6 @@ bool show_version(CHAR_DATA *ch, const char *argument)
 
 	return FALSE;
 }    
-
-/*****************************************************************************
- Name:		show_flag_cmds
- Purpose:	Displays settable flags and stats.
- ****************************************************************************/
-void show_flag_cmds(CHAR_DATA *ch, const FLAG *flag_table)
-{
-	BUFFER *output;
-	int  flag;
-	int  col;
- 
-	output = buf_new(0);
-	col = 0;
-	for (flag = 0; flag_table[flag].name != NULL; flag++) {
-		if (flag_table[flag].settable) {
-			buf_printf(output, "%-19.18s", flag_table[flag].name);
-			if (++col % 4 == 0)
-				buf_add(output, "\n\r");
-		}
-	}
- 
-	if (col % 4 != 0)
-		buf_add(output, "\n\r");
-
-	page_to_char(buf_string(output), ch);
-	buf_free(output);
-}
 
 /*****************************************************************************
  Name:		edit_done
@@ -583,6 +579,14 @@ void do_alist(CHAR_DATA *ch, const char *argument)
 		char_puts("No areas with that name found.\n\r", ch);
 }
 
+void do_clist(CHAR_DATA *ch, const char *argument)
+{
+	int i;
+
+	for (i = 0; i < clans->nused; i++)
+		char_printf(ch, "[%d] %s\n\r", i, CLAN(i)->name);
+}
+
 OLC_CMD_DATA *olc_cmd_lookup(CHAR_DATA *ch, OLC_FUN *fun)
 {
 	OLCED_DATA *olced = olced_lookup(ch->desc->editor);
@@ -641,5 +645,14 @@ void show_olc_cmds(CHAR_DATA *ch, OLC_CMD_DATA *olc_table)
 
     send_to_char(buf1, ch);
     return;
+}
+
+VALIDATOR(validate_filename)
+{
+	if (strpbrk(arg, "/")) {
+		char_puts("AEdit: Invalid characters in file name.\n\r", ch);
+		return FALSE;
+	}
+	return TRUE;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: auction.c,v 1.10 1998-08-14 05:45:12 fjoe Exp $
+ * $Id: auction.c,v 1.11 1998-09-01 18:29:16 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -8,11 +8,7 @@
 #include <ctype.h>
 #include <string.h>
 #include "merc.h"
-#include "comm.h"
-#include "magic.h"
-#include "db.h"
 #include "auction.h"
-#include "mlstring.h"
 
 AUCTION_DATA auction = { NULL };
 
@@ -449,7 +445,8 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	switch (obj->item_type) {
 	default:
 		act_puts("You cannot auction $T.",
-			 ch, NULL, item_type_name(obj), TO_CHAR, POS_SLEEPING);
+			 ch, NULL, flag_string(item_types, obj->item_type),
+			 TO_CHAR, POS_SLEEPING);
 		break;
 
 	case ITEM_LIGHT:

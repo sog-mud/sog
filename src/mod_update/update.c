@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.57 1998-08-15 12:40:49 fjoe Exp $
+ * $Id: update.c,v 1.58 1998-09-01 18:29:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,18 +47,11 @@
 #include "merc.h"
 #include "act_obj.h"
 #include "act_wiz.h"
-#include "db.h"
-#include "comm.h"
 #include "act_info.h"
-#include "resource.h"
-#include "magic.h"
 #include "update.h"
-#include "util.h"
-#include "log.h"
 #include "act_move.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
-#include "lookup.h"
 #include "fight.h"
 
 /* command procedures needed */
@@ -116,35 +109,34 @@ int	rebooter = 0;
  */
 void advance_level(CHAR_DATA *ch)
 {
-	char* p;
 	int add_hp;
 	int add_mana;
 	int add_move;
 	int add_prac;
+	CLASS_DATA *cl;
 
 	if (IS_NPC(ch)) {
 		bug("Advance_level: a mob to advance!", 0);
 		return;
 	}
 
+	if ((cl = class_lookup(ch->class)) == NULL) {
+		log_printf("advance_level", "%s: unknown class %d",
+			   ch->name, ch->class);
+		return;
+	}
+
 	ch->pcdata->last_level = (ch->played +
 				  (int) (current_time - ch->logon)) / 3600;
-
-	p = title_table[ch->class][ch->level-1][ch->sex == SEX_FEMALE ? 1 : 0];
-	if (strstr(ch->pcdata->title, p) || MSG_CANT_CHANGE_TITLE(ch)) {
-		char title[MAX_TITLE_LENGTH];
-
-		snprintf(title, sizeof(title), "the %s", p);
-		set_title(ch, title);
-	}
+	set_title(ch, title_lookup(ch));
 
 	add_hp = (con_app[get_curr_stat(ch,STAT_CON)].hitp +
 		  number_range(1,5)) - 3;
-	add_hp = (add_hp * class_table[ch->class].hp_rate) / 100;
+	add_hp = (add_hp * cl->hp_rate) / 100;
 	add_mana = number_range(get_curr_stat(ch,STAT_INT)/2,
 				(2*get_curr_stat(ch,STAT_INT) +
 				 get_curr_stat(ch,STAT_WIS)/5));
-	add_mana = (add_mana * class_table[ch->class].mana_rate) / 100;
+	add_mana = (add_mana * cl->mana_rate) / 100;
 
 	add_move = number_range(1, (get_curr_stat(ch,STAT_CON) +
 				    get_curr_stat(ch,STAT_DEX)) / 6);
@@ -172,30 +164,25 @@ void advance_level(CHAR_DATA *ch)
 	char_printf(ch, "%s {C%d{x hp, {C%d{x mana, {C%d{x mv {C%d{x"
 			" prac.\n\r", msg(MSG_YOUR_GAIN_IS, ch),
 			add_hp, add_mana, add_move, add_prac);
-	return;
 }   
-
 
 void gain_exp(CHAR_DATA *ch, int gain)
 {
 	if (IS_NPC(ch) || ch->level >= LEVEL_HERO)
 		return;
 
-	if (IS_SET(ch->act,PLR_NOEXP)) {
+	if (IS_SET(ch->act,PLR_NOEXP) && gain > 0) {
 		send_to_char("You can't gain exp without your spirit.\n\r", ch);
 		return;
 	}
-/*
-	ch->exp = UMAX(exp_per_level(ch,ch->pcdata->points), ch->exp + gain);
-	while (ch->level < LEVEL_HERO &&
-	       ch->exp >= exp_per_level(ch,ch->pcdata->points) * (ch->level+1));
-*/
 
-	ch->exp = UMAX(base_exp(ch, ch->pcdata->points), ch->exp + gain);
-	while (ch->level < LEVEL_HERO &&
-	       exp_to_level(ch, ch->pcdata->points) <= 0) {
+	ch->exp += gain;
+	ch->exp_tl += gain;
+
+	while (ch->level < LEVEL_HERO && exp_to_level(ch) <= 0) {
 		char_nputs(MSG_YOU_RAISE_A_LEVEL, ch);
 		ch->level += 1;
+		ch->exp_tl = 0;
 
 		if ((ch->class == CLASS_SAMURAI) && (ch->level == 10))
 			ch->wimpy = 0;
@@ -204,8 +191,8 @@ void gain_exp(CHAR_DATA *ch, int gain)
 		if (ch->level > 5)
 			total_levels++;
 
-		if (ch->level == 90)
-	        	log_printf("%s made level 90.", ch->name);
+		if (ch->level == 91)
+	        	log_printf("%s made level 91.", ch->name);
 
 		wiznet_printf(ch, NULL, WIZ_LEVELS, 0, 0,
 			      "$N has attained level %d!",(int)ch->level);
@@ -214,8 +201,6 @@ void gain_exp(CHAR_DATA *ch, int gain)
 	}
 }
 
-
-
 /*
  * Regeneration stuff.
  */
@@ -223,18 +208,17 @@ int hit_gain(CHAR_DATA *ch)
 {
 	int gain;
 	int number;
+	CLASS_DATA *cl;
 
-	if (ch->in_room == NULL)
-	return 0;
+	if (ch->in_room == NULL || (cl = class_lookup(ch->class)) == NULL)
+		return 0;
 
-	if (IS_NPC(ch))
-	{
+	if (IS_NPC(ch)) {
 	gain =  5 + ch->level;
  	if (IS_AFFECTED(ch,AFF_REGENERATION))
 	    gain *= 2;
 
-	switch(ch->position)
-	{
+	switch(ch->position) {
 	        default :           gain /= 2;                      break;
 	        case POS_SLEEPING:  gain = 3 * gain/2;              break;
 	        case POS_RESTING:                                   break;
@@ -246,7 +230,7 @@ int hit_gain(CHAR_DATA *ch)
 	else
 	{
 	gain = UMAX(3, 2 * get_curr_stat(ch,STAT_CON) + (7 * ch->level) / 4); 
-	gain = (gain * class_table[ch->class].hp_rate) / 100;
+	gain = (gain * cl->hp_rate) / 100;
  	number = number_percent();
 	if (number < get_skill(ch,gsn_fast_healing))
 	{
@@ -309,9 +293,10 @@ int mana_gain(CHAR_DATA *ch)
 {
 	int gain;
 	int number;
+	CLASS_DATA *cl;
 
-	if (ch->in_room == NULL)
-	return 0;
+	if (ch->in_room == NULL || (cl = class_lookup(ch->class)) == NULL)
+		return 0;
 
 	if (IS_NPC(ch))
 	{
@@ -328,7 +313,7 @@ int mana_gain(CHAR_DATA *ch)
 	{
 	gain = get_curr_stat(ch,STAT_WIS)
 		      + (2 * get_curr_stat(ch,STAT_INT)) + ch->level;
-	gain = (gain * class_table[ch->class].mana_rate) / 100;
+	gain = (gain * cl->mana_rate) / 100;
 	number = number_percent();
 	if (number < get_skill(ch,gsn_meditation))
 	{
@@ -344,8 +329,8 @@ int mana_gain(CHAR_DATA *ch)
 	        check_improve(ch,gsn_trance,TRUE,8);
 	}
 
-	if (!class_table[ch->class].fMana)
-	    gain /= 2;
+	if (!IS_SET(cl->flags, CLASS_MAGIC))
+		gain /= 2;
 
 	switch (ch->position)
 	{
@@ -815,13 +800,13 @@ int i;
   cl = 0;
   for (i=1;i<5;i++)
   {
-	if (skill_lookup("cure critical") == potion->value[i])
+	if (sn_lookup("cure critical") == potion->value[i])
 	  cl += 3;
-	if (skill_lookup("cure light") == potion->value[i])
+	if (sn_lookup("cure light") == potion->value[i])
 	  cl += 1;
-	if (skill_lookup("cure serious") == potion->value[i])
+	if (sn_lookup("cure serious") == potion->value[i])
 	  cl += 2;
-	if (skill_lookup("heal") == potion->value[i])
+	if (sn_lookup("heal") == potion->value[i])
 	  cl += 4;
   }
   return(cl);
@@ -833,15 +818,15 @@ int i;
   al = 0;
   for (i=1;i<5;i++)
   {
-	if (skill_lookup("armor") == potion->value[i])
+	if (sn_lookup("armor") == potion->value[i])
 	  al += 1;
-	if (skill_lookup("shield") == potion->value[i])
+	if (sn_lookup("shield") == potion->value[i])
 	  al += 1;
-	if (skill_lookup("stone skin") == potion->value[i])
+	if (sn_lookup("stone skin") == potion->value[i])
 	  al += 2;
-	if (skill_lookup("sanctuary") == potion->value[i])
+	if (sn_lookup("sanctuary") == potion->value[i])
 	  al += 4;
-	if (skill_lookup("protection") == potion->value[i])
+	if (sn_lookup("protection") == potion->value[i])
 	  al += 3;
   }
   return(al);
@@ -852,7 +837,7 @@ bool potion_cure_blind(OBJ_DATA *potion)
 int i;
   for (i=0;i<5;i++)
   {
-	if (skill_lookup("cure blindness") == potion->value[i])
+	if (sn_lookup("cure blindness") == potion->value[i])
 	  return(TRUE);
   }
   return(FALSE);
@@ -862,7 +847,7 @@ bool potion_cure_poison(OBJ_DATA *potion)
 int i;
   for (i=0;i<5;i++)
   {
-	if (skill_lookup("cure poison") == potion->value[i])
+	if (sn_lookup("cure poison") == potion->value[i])
 	  return(TRUE);
   }
   return(FALSE);
@@ -872,7 +857,7 @@ bool potion_cure_disease(OBJ_DATA *potion)
 int i;
   for (i=0;i<5;i++)
   {
-	if (skill_lookup("cure disease") == potion->value[i])
+	if (sn_lookup("cure disease") == potion->value[i])
 	  return(TRUE);
   }
   return(FALSE);
@@ -1196,20 +1181,17 @@ void char_update(void)
 				if (number_range(0, 4) == 0 && paf->level > 0)
 					paf->level--;
 				/* spell strength fades with time */
-			} else if (paf->duration < 0);
-			else {
-				if (paf_next == NULL
-				|| paf_next->type != paf->type
-				|| paf_next->duration > 0) {
-					if (paf->type > 0 
-					&& skill_table[paf->type].msg_off) {
-						send_to_char(
-						 skill_table[paf->type].msg_off,
-						 ch);
-						send_to_char("\n\r", ch);
-					}
-				}
-	  
+			}
+			else if (paf->duration == 0) {
+				SKILL_DATA *sk;
+
+				if ((paf_next == NULL ||
+				     paf_next->type != paf->type ||
+				     paf_next->duration > 0)
+				&&  paf->type > 0
+				&&  (sk = skill_lookup(paf->type))
+				&&  !IS_NULLSTR(sk->msg_off)) 
+					char_printf(ch, "%s\n\r", sk->msg_off);
 				affect_remove(ch, paf);
 			}
 		}
@@ -1387,7 +1369,6 @@ void water_float_update(void)
 void update_obj_affects(OBJ_DATA *obj)
 {
 	AFFECT_DATA *paf, *paf_next;
-	CHAR_DATA *rch;
 
 	/* go through affects and decrement */
 	for (paf = obj->affected; paf != NULL; paf = paf_next) {
@@ -1397,24 +1378,23 @@ void update_obj_affects(OBJ_DATA *obj)
 			/* spell strength fades with time */
         		if (number_range(0,4) == 0 && paf->level > 0)
 				paf->level--;
+        	}
+		else if (paf->duration == 0) {
+			SKILL_DATA *sk;
 
-        	} else if (paf->duration == 0) {
 			if ((paf_next == NULL || paf_next->type != paf->type ||
 			     paf_next->duration > 0)
-			&&  skill_table[paf->type].msg_obj
-			&&  paf->type > 0) {
-				if (obj->carried_by != NULL) {
-					rch = obj->carried_by;
-					act(skill_table[paf->type].msg_obj,
-					    rch, obj, NULL, TO_CHAR);
-				}
+			&&  paf->type > 0
+			&&  (sk = skill_lookup(paf->type))
+			&&  !IS_NULLSTR(sk->msg_obj)) {
+				if (obj->carried_by != NULL) 
+					act(sk->msg_obj, obj->carried_by,
+					   obj, NULL, TO_CHAR);
 
 				if (obj->in_room != NULL 
-				&& obj->in_room->people) {
-					rch = obj->in_room->people;
-					act(skill_table[paf->type].msg_obj,
-					    rch, obj, NULL, TO_ALL);
-				}
+				&&  obj->in_room->people)
+					act(sk->msg_obj, obj->in_room->people,
+					   obj, NULL, TO_ALL);
                 	}
 			affect_remove_obj(obj, paf);
         	}
@@ -1684,7 +1664,7 @@ void aggr_update(void)
 					 PERS(wch,ch));
 				wch = check_guard(wch, ch); 
 
-				multi_hit(ch,wch,TYPE_UNDEFINED, NO_MSTRIKE);
+				multi_hit(ch,wch,TYPE_UNDEFINED);
 				continue;
 			}
 
@@ -1723,13 +1703,10 @@ void aggr_update(void)
 
 			if (!is_safe_nomessage(ch, victim)) {
 				victim = check_guard(victim, ch); 
-				multi_hit(ch, victim, TYPE_UNDEFINED,
-					  NO_MSTRIKE);
+				multi_hit(ch, victim, TYPE_UNDEFINED);
 			}
 		}
 	}
-
-	return;
 }
 
 
@@ -1835,9 +1812,9 @@ void light_update(void)
 	if ((dam_light = isn_dark_safe(ch)) == 0) 	
 		continue;	
 
-	if (dam_light != 2 && number_percent() < get_skill(ch,gsn_light_res))
+	if (dam_light != 2 && number_percent() < get_skill(ch,gsn_light_resistance))
 	{
-	    check_improve(ch,gsn_light_res,TRUE,32);
+	    check_improve(ch,gsn_light_resistance,TRUE,32);
 	    continue;
 	}
 
@@ -1859,54 +1836,33 @@ void light_update(void)
 	return;
 }
 
-
 void room_update(void)
 {   
 	ROOM_INDEX_DATA *room;
 	ROOM_INDEX_DATA *room_next;
 
-	for (room = top_affected_room; room ; room = room_next)
-	{
-	AFFECT_DATA *paf;
-	AFFECT_DATA *paf_next;
+	for (room = top_affected_room; room; room = room_next) {
+		AFFECT_DATA *paf;
+		AFFECT_DATA *paf_next;
 
-	room_next = room->aff_next;
+		room_next = room->aff_next;
 
-	for (paf = room->affected; paf != NULL; paf = paf_next)
-	{
-	    paf_next	= paf->next;
-	    if (paf->duration > 0)
-	    {
-		paf->duration--;
+		for (paf = room->affected; paf != NULL; paf = paf_next) {
+			paf_next = paf->next;
+
+			if (paf->duration > 0) {
+				paf->duration--;
 /*
-		if (number_range(0,4) == 0 && paf->level > 0)
-		  paf->level--;
-	 spell strength shouldn't fade with time 
-	 because checks safe_rpsell with af->level */
-	        }
-	    else if (paf->duration < 0)
-		;
-	    else
-	    {
-		if (paf_next == NULL
-		||   paf_next->type != paf->type
-		||   paf_next->duration > 0)
-		{
-/*
-		    if (paf->type > 0 && skill_table[paf->type].msg_off)
-		    {
-			act(skill_table[paf->type].msg_off, ch);
-			send_to_char("\n\r", ch);
-		    }
+ * spell strength shouldn't fade with time 
+ * because of checks in safe_rspell with af->level 
+				if (number_range(0,4) == 0 && paf->level > 0)
+					paf->level--;
 */
+			}
+			else if (paf->duration == 0)
+				affect_remove_room(room, paf);
 		}
-	  
-		affect_remove_room(room, paf);
-	    }
 	}
-
-	}
-	return;
 }
 
 void room_affect_update(void)

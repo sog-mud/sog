@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.76 1998-08-17 18:47:05 fjoe Exp $
+# $Id: english.lang,v 1.77 1998-09-01 18:29:07 fjoe Exp $
 #
 
 MSG_NOTHING		"Nothing.\n\r"
@@ -358,8 +358,6 @@ MSG_DONT_HAVE_POWER	"You don't have enough power.\n\r"
 MSG_N_THROWS_GLOBE	"$n throws down a small globe."
 MSG_N_IS_GONE		"$n is gone!"
 MSG_N_APPEARS_FROM_NOWHERE	"$n appears form nowhere."
-MSG_YOU_CAN_ALREADY_DETECT_SNEAK "You can already detect sneaking.\n\r"
-MSG_YOU_CAN_DETECT_THE_SNEAK	"You can detect the sneaking.\n\r"
 MSG_CANT_FADE_MOUNTED	"You can't fade while mounted.\n\r"
 MSG_CANT_FADE_RIDDEN	"You can't fade while being ridden.\n\r"
 MSG_YOU_ATTEMPT_TO_FADE	"You attempt to fade.\n\r"
@@ -576,7 +574,7 @@ MSG_IS_LYING_HERE_STUNNED	" is lying here stunned."
 MSG_N_LOOKS_AT_SELF	"$n looks at $mself."
 MSG_N_LOOKS_AT_YOU	"$n looks at you."
 MSG_N_LOOKS_AT_N	"$n looks at $N."
-MSG_SEE_NOTHING_SPECIAL	"You see nothing special about $M."
+MSG_SEE_NOTHING_SPECIAL	"You see nothing special about $m."
 MSG_IS_RIDING_S	"%s is riding %s.\n\r"
 MSG_IS_RIDDEN_BY_S	"%s is being ridden by %s.\n\r"
 MSG_DARK		"({DDark{x) "

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.49 1998-08-18 18:05:39 fjoe Exp $
+ * $Id: save.c,v 1.50 1998-09-01 18:29:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,24 +53,12 @@
 #endif
 
 #include "merc.h"
-#include "recycle.h"
-#include "lookup.h"
 #include "db.h"
-#include "comm.h"
-#include "const.h"
 #include "act_info.h"
-#include "resource.h"
 #include "hometown.h"
-#include "magic.h"
 #include "quest.h"
-#include "util.h"
-#include "log.h"
-#include "mlstring.h"
 
 extern int _filbuf args((FILE *));
-
-int             rename(const char *oldfname, const char *newfname);
-
 
 /*
  * Array of containers read for proper re-nesting of objects.
@@ -78,7 +66,7 @@ int             rename(const char *oldfname, const char *newfname);
 #define MAX_NEST	100
 static OBJ_DATA *rgObjNest[MAX_NEST];
 
-
+char DEFAULT_PROMPT[] = "<%n: {M%h{xhp {C%m{xm {W%v{xmv Opp:%o> ";
 
 /*
  * Local functions.
@@ -86,6 +74,7 @@ static OBJ_DATA *rgObjNest[MAX_NEST];
 void fwrite_char (CHAR_DATA * ch, FILE * fp, bool reboot);
 void fwrite_obj (CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest);
 void fwrite_pet (CHAR_DATA * pet, FILE * fp);
+void fwrite_affect(AFFECT_DATA *paf, FILE *fp);
 void fread_char (CHAR_DATA * ch, FILE * fp);
 void fread_pet  (CHAR_DATA * ch, FILE * fp);
 void fread_obj  (CHAR_DATA * ch, FILE * fp);
@@ -100,22 +89,21 @@ void fread_obj  (CHAR_DATA * ch, FILE * fp);
 
 void save_char_obj(CHAR_DATA * ch, bool reboot)
 {
-	char            strsave[PATH_MAX];
 	FILE           *fp;
+	const char 	*name;
 	if (IS_NPC(ch) || ch->level < 2)
 		return;
 
 	if (ch->desc != NULL && ch->desc->original != NULL)
 		ch = ch->desc->original;
 
+	name = capitalize(ch->name);
 	/* create god log */
 	if (IS_IMMORTAL(ch)) {
 		fclose(fpReserve);
-		snprintf(strsave, sizeof(strsave),
-			 "%s%s", GOD_DIR, capitalize(ch->name));
-		if ((fp = fopen(strsave, "w")) == NULL) {
+		if ((fp = dfopen(GODS_PATH, name, "w")) == NULL) {
 			bug("Save_char_obj: fopen", 0);
-			perror(strsave);
+			perror(ch->name);
 		}
 		fprintf(fp, "Lev %2d Trust %2d  %s%s\n",
 		      ch->level, get_trust(ch), ch->name, ch->pcdata->title);
@@ -126,11 +114,9 @@ void save_char_obj(CHAR_DATA * ch, bool reboot)
 
 	}
 	fclose(fpReserve);
-	snprintf(strsave, sizeof(strsave),
-		 "%s%s", PLAYER_DIR, capitalize(ch->name));
-	if ((fp = fopen(TEMP_FILE, "w")) == NULL) {
+	if ((fp = dfopen(PLAYER_PATH, TMP_FILE, "w")) == NULL) {
 		bug("Save_char_obj: fopen", 0);
-		perror(strsave);
+		perror(TMP_FILE);
 	} else {
 		send_to_char("Saving.\n\r", ch);
 		fwrite_char(ch, fp, reboot);
@@ -142,7 +128,7 @@ void save_char_obj(CHAR_DATA * ch, bool reboot)
 		fprintf(fp, "#END\n");
 	}
 	fclose(fp);
-	rename(TEMP_FILE, strsave);
+	d2rename(PLAYER_PATH, TMP_FILE, PLAYER_PATH, name);
 	fpReserve = fopen(NULL_FILE, "r");
 	if (fpReserve == NULL)
 		bug("save_char_obj: Can't open null file.", 0);
@@ -157,7 +143,8 @@ void
 fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 {
 	AFFECT_DATA    *paf;
-	int             sn, pos;
+	int		pos;
+
 	fprintf(fp, "#%s\n", IS_NPC(ch) ? "MOB" : "PLAYER");
 
 	fprintf(fp, "Name %s~\n", ch->name);
@@ -168,13 +155,14 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 	fprintf(fp, "Home %d\n", ch->hometown);
 
 	if (ch->clan) {
-		fprintf(fp, "Clan %s~\n", clan_table[ch->clan].short_name);
+		fprintf(fp, "Clan %s~\n", clan_name(ch->clan));
 		if (!IS_NPC(ch))
 			fprintf(fp, "ClanStatus %d\n", ch->pcdata->clan_status);
 	}
 
 	if (!IS_NULLSTR(mlstr_mval(ch->description)))
-		fprintf(fp, "Desc %s~\n", mlstr_mval(ch->description));
+		fprintf(fp, "Desc %s~\n",
+			fix_string(mlstr_mval(ch->description)));
 	if (ch->prompt != NULL || !str_cmp(ch->prompt, DEFAULT_PROMPT))
 		fprintf(fp, "Prom %s~\n", ch->prompt);
 	fprintf(fp, "Race %s~\n", pc_race_table[ORG_RACE(ch)].name);
@@ -200,7 +188,8 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 		fprintf(fp, "Silv %d\n", ch->silver);
 	else
 		fprintf(fp, "Silv %d\n", 0);
-	fprintf(fp, "Exp  %d\n", ch->exp);
+	fprintf(fp, "Exp %d\n", ch->exp);
+	fprintf(fp, "ExpTL %d\n", ch->exp_tl);
 	if (ch->act != 0)
 		if (IS_NPC(ch))
 			fprintf(fp, "Act  %s\n", format_flags(ch->act));
@@ -209,15 +198,13 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 				format_flags(ch->act & ~(PLR_NOEXP |
 							 PLR_CHANGED_AFF |
 							 PLR_GHOST)));
-	if (ch->affected_by != 0) {
+	if (ch->affected_by) {
 		if (IS_NPC(ch))
 			fprintf(fp, "AfBy %s\n", format_flags(ch->affected_by));
 		else
 			fprintf(fp, "AfBy %s\n",
 			     format_flags((ch->affected_by & (~AFF_CHARM))));
 	}
-	if (ch->detection != 0)
-		fprintf(fp, "Detect %s\n", format_flags(ch->detection));
 	fprintf(fp, "Comm %s\n", format_flags(ch->comm & ~(COMM_AFK)));
 	if (ch->wiznet)
 		fprintf(fp, "Wizn %s\n", format_flags(ch->wiznet));
@@ -264,6 +251,7 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 		fprintf(fp, "Vnum %d\n", ch->pIndexData->vnum);
 	} else {
 		QTROUBLE_DATA  *qt;
+		int i;
 
 		for (qt = ch->pcdata->qtrouble; qt; qt = qt->next)
 			fprintf(fp, "Qtrouble %d %d\n", qt->vnum, qt->count);
@@ -322,11 +310,14 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 				ch->pcdata->alias_sub[pos]);
 		}
 
-		for (sn = 0; sn < MAX_SKILL; sn++) {
-			if (skill_table[sn].name != NULL && ch->pcdata->learned[sn] > 0) {
-				fprintf(fp, "Sk %d '%s'\n",
-					ch->pcdata->learned[sn], skill_table[sn].name);
-			}
+		for (i = 0; i < ch->pcdata->learned->nused; i++) {
+			PC_SKILL *ps = VARR_GET(ch->pcdata->learned, i);
+
+			if (ps->percent == 0)
+				continue;
+
+			fprintf(fp, "Sk %d '%s'\n",
+				ps->percent, skill_name(ps->sn));
 		}
 
 		if (ch->pcdata->questpoints != 0)
@@ -345,26 +336,16 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 	}
 
 	for (paf = ch->affected; paf != NULL; paf = paf->next) {
-		if (paf->type < 0 || paf->type >= MAX_SKILL)
+		if (!IS_NPC(ch) && paf->where == TO_AFFECTS
+		&&  IS_SET(paf->bitvector, AFF_CHARM))
 			continue;
 
-		if (!IS_NPC(ch) && paf->bitvector == AFF_CHARM)
-			continue;
-
-		fprintf(fp, "Affc '%s' %3d %3d %3d %3d %3d %10d\n",
-			skill_table[paf->type].name,
-			paf->where,
-			paf->level,
-			paf->duration,
-			paf->modifier,
-			paf->location,
-			paf->bitvector
-			);
+		fwrite_affect(paf, fp);
 	}
 
 	fprintf(fp, "End\n\n");
-	return;
 }
+
 /* write a pet */
 void 
 fwrite_pet(CHAR_DATA * pet, FILE * fp)
@@ -377,7 +358,7 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp)
 	fprintf(fp, "Name %s~\n", pet->name);
 	fprintf(fp, "LogO %ld\n", current_time);
 	if (pet->clan)
-		fprintf(fp, "Clan %s~\n", clan_table[pet->clan].short_name);
+		fprintf(fp, "Clan %s~\n", clan_name(pet->clan));
 	if (mlstr_cmp(pet->short_descr, pet->pIndexData->short_descr) != 0)
 		mlstr_fwrite(fp, "ShD", pet->short_descr);
 	if (mlstr_cmp(pet->long_descr, pet->pIndexData->long_descr) != 0)
@@ -401,8 +382,6 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp)
 		fprintf(fp, "Act  %s\n", format_flags(pet->act));
 	if (pet->affected_by != pet->pIndexData->affected_by)
 		fprintf(fp, "AfBy %s\n", format_flags(pet->affected_by));
-	if (pet->detection != pet->pIndexData->detection)
-		fprintf(fp, "Detect %s\n", format_flags(pet->detection));
 	if (pet->comm != 0)
 		fprintf(fp, "Comm %s\n", format_flags(pet->comm));
 	fprintf(fp, "Pos  %d\n", pet->position = POS_FIGHTING ? POS_STANDING : pet->position);
@@ -425,18 +404,10 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp)
 		pet->mod_stat[STAT_WIS], pet->mod_stat[STAT_DEX],
 		pet->mod_stat[STAT_CON], pet->mod_stat[STAT_CHA]);
 
-	for (paf = pet->affected; paf != NULL; paf = paf->next) {
-		if (paf->type < 0 || paf->type >= MAX_SKILL)
-			continue;
-
-		fprintf(fp, "Affc '%s' %3d %3d %3d %3d %3d %10d\n",
-			skill_table[paf->type].name,
-			paf->where, paf->level, paf->duration, paf->modifier, paf->location,
-			paf->bitvector);
-	}
+	for (paf = pet->affected; paf != NULL; paf = paf->next)
+		fwrite_affect(paf, fp);
 
 	fprintf(fp, "End\n");
-	return;
 }
 /*
  * Write an object and its contents.
@@ -446,7 +417,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 {
 	ED_DATA *ed;
 	AFFECT_DATA    *paf;
-	int             i;
+
 	/*
 	 * Slick recursion to write lists backwards, so loading them will load
 	 * in forwards order.
@@ -454,9 +425,9 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	if (obj->next_content != NULL)
 		fwrite_obj(ch, obj->next_content, fp, iNest);
 
-	for (i = 1; clan_table[i].long_name != NULL; i++)
-		if (obj->pIndexData->vnum == clan_table[i].obj_vnum)
-			return;
+	/* XXX */
+	if (obj->pIndexData->clan)
+		return;
 
 	/*
 	 * Castrate storage characters.
@@ -530,15 +501,15 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	case ITEM_SCROLL:
 		if (obj->value[1] > 0) {
 			fprintf(fp, "Spell 1 '%s'\n",
-				skill_table[obj->value[1]].name);
+				skill_name(obj->value[1]));
 		}
 		if (obj->value[2] > 0) {
 			fprintf(fp, "Spell 2 '%s'\n",
-				skill_table[obj->value[2]].name);
+				skill_name(obj->value[2]));
 		}
 		if (obj->value[3] > 0) {
 			fprintf(fp, "Spell 3 '%s'\n",
-				skill_table[obj->value[3]].name);
+				skill_name(obj->value[3]));
 		}
 		break;
 
@@ -547,24 +518,13 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	case ITEM_WAND:
 		if (obj->value[3] > 0) {
 			fprintf(fp, "Spell 3 '%s'\n",
-				skill_table[obj->value[3]].name);
+				skill_name(obj->value[3]));
 		}
 		break;
 	}
 
-	for (paf = obj->affected; paf != NULL; paf = paf->next) {
-		if (paf->type < 0 || paf->type >= MAX_SKILL)
-			continue;
-		fprintf(fp, "Affc '%s' %3d %3d %3d %3d %3d %10d\n",
-			skill_table[paf->type].name,
-			paf->where,
-			paf->level,
-			paf->duration,
-			paf->modifier,
-			paf->location,
-			paf->bitvector
-			);
-	}
+	for (paf = obj->affected; paf != NULL; paf = paf->next)
+		fwrite_affect(paf, fp);
 
 	for (ed = obj->ed; ed != NULL; ed = ed->next) {
 		fprintf(fp, "ExDe %s~ ", ed->keyword);
@@ -578,19 +538,15 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 }
 
 
-void add_race_skills(CHAR_DATA * ch, int race);
-
 /*
  * Load a char and inventory into a new ch structure.
  */
 bool 
 load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 {
-	char            strsave[PATH_MAX];
 	CHAR_DATA      *ch;
 	FILE           *fp;
 	bool            found;
-	int		sn;
 	ch = new_char();
 	ch->pcdata = new_pcdata();
 
@@ -612,8 +568,6 @@ load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 	ch->pcdata->bamfin = str_dup("");
 	ch->pcdata->bamfout = str_dup("");
 	ch->pcdata->title = str_dup("");
-	for (sn = 0; sn < MAX_SKILL; sn++)
-		ch->pcdata->learned[sn] = 0;
 	ch->pcdata->condition[COND_THIRST] = 48;
 	ch->pcdata->condition[COND_FULL] = 48;
 	ch->pcdata->condition[COND_HUNGER] = 48;
@@ -634,18 +588,15 @@ load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 	found = FALSE;
 	fclose(fpReserve);
 
-	/* decompress if .gz file exists */
-	snprintf(strsave, sizeof(strsave),
-		 "%s%s%s", PLAYER_DIR, capitalize(name), ".gz");
-	if ((fp = fopen(strsave, "r")) != NULL) {
+	name = capitalize(name);
+	snprintf(filename, sizeof(filename), "%s/%s.gz", PLAYER_PATH, name);
+	if ((fp = fopen(filename, "r")) != NULL) {
 		char buf[PATH_MAX * 2];
 		fclose(fp);
-		snprintf(buf, sizeof(buf), "gzip -dfq %s", strsave);
+		snprintf(buf, sizeof(buf), "gzip -dfq %s", filename);
 		system(buf);
 	}
-	snprintf(strsave, sizeof(strsave),
-		 "%s%s", PLAYER_DIR, capitalize(name));
-	if ((fp = fopen(strsave, "r")) != NULL) {
+	if ((fp = dfopen(PLAYER_PATH, name, "r")) != NULL) {
 		int             iNest;
 		for (iNest = 0; iNest < MAX_NEST; iNest++)
 			rgObjNest[iNest] = NULL;
@@ -666,7 +617,6 @@ load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 			word = fread_word(fp);
 			if (!str_cmp(word, "PLAYER")) {
 				fread_char(ch, fp);
-				add_race_skills(ch, ch->pcdata->race);
 			} else if (!str_cmp(word, "OBJECT"))
 				fread_obj(ch, fp);
 			else if (!str_cmp(word, "O"))
@@ -697,7 +647,6 @@ load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 		ch->size = pc_race_table[ORG_RACE(ch)].size;
 		ch->dam_type = 17;	/* punch */
 
-		ch->detection = ch->detection | race_table[RACE(ch)].det;
 		ch->affected_by = ch->affected_by | race_table[RACE(ch)].aff;
 		ch->imm_flags = ch->imm_flags | race_table[RACE(ch)].imm;
 		ch->res_flags = ch->res_flags | race_table[RACE(ch)].res;
@@ -705,12 +654,11 @@ load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 		ch->form = race_table[RACE(ch)].form;
 		ch->parts = race_table[RACE(ch)].parts;
 	}
+
 	if (ch->pcdata->condition[COND_BLOODLUST] < 48
 	    && ch->class != CLASS_VAMPIRE)
 		ch->pcdata->condition[COND_BLOODLUST] = 48;
 
-	if (found && ch->version < 6)
-		ch->pcdata->learned[gsn_spell_craft] = 1;
 	return found;
 }
 
@@ -792,7 +740,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 				int             sn;
 				paf = new_affect();
 
-				sn = skill_lookup(fread_word(fp));
+				sn = sn_lookup(fread_word(fp));
 				if (sn < 0)
 					bug("Fread_char: unknown skill.", 0);
 				else
@@ -802,7 +750,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 				paf->duration = fread_number(fp);
 				paf->modifier = fread_number(fp);
 				paf->location = fread_number(fp);
-				paf->bitvector = fread_number(fp);
+				paf->bitvector = fread_flags(fp);
 				paf->next = ch->affected;
 				ch->affected = paf;
 				fMatch = TRUE;
@@ -813,7 +761,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 				int             sn;
 				paf = new_affect();
 
-				sn = skill_lookup(fread_word(fp));
+				sn = sn_lookup(fread_word(fp));
 				if (sn < 0)
 					bug("Fread_char: unknown skill.", 0);
 				else
@@ -824,7 +772,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 				paf->duration = fread_number(fp);
 				paf->modifier = fread_number(fp);
 				paf->location = fread_number(fp);
-				paf->bitvector = fread_number(fp);
+				paf->bitvector = fread_flags(fp);
 				paf->next = ch->affected;
 				ch->affected = paf;
 				fMatch = TRUE;
@@ -858,21 +806,9 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 		case 'C':
 			KEY("Class", ch->class, fread_number(fp));
 			KEY("Cla", ch->class, fread_number(fp));
+			KEY("Clan", ch->clan, fread_clan(fp));
 			KEY("ClanStatus", ch->pcdata->clan_status,
 			    fread_number(fp));
-
-			if (!str_cmp(word, "Clan")) {
-				char *p = fread_string(fp);
-				int clan = clan_lookup(p);
-
-				if (clan < 0) 
-					log_printf("fread_char: unknown clan:"
-						   " `%s'", p);
-				else
-					ch->clan = clan;
-				fMatch = TRUE;
-				break;
-			}
 			if (!str_cmp(word, "Condition")
 			|| !str_cmp(word, "Cond")) {
 				ch->pcdata->condition[0] = fread_number(fp);
@@ -908,7 +844,6 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("Dam", ch->damroll, fread_number(fp));
 			MLSKEY("Desc", ch->description);
 			KEY("Dead", ch->pcdata->death, fread_number(fp));
-			KEY("Detect", ch->detection, fread_flags(fp));
 			break;
 
 		case 'E':
@@ -940,6 +875,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 				return;
 			}
 			KEY("Exp", ch->exp, fread_number(fp));
+			KEY("ExpTL", ch->exp_tl, fread_number(fp));
 			KEY("Etho", ch->ethos, fread_number(fp));
 			break;
 
@@ -1031,44 +967,6 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("QuestGiv", ch->pcdata->questgiver, fread_number(fp));
 			KEY("QuestPnts", ch->pcdata->questpoints, fread_number(fp));
 
-			/* handle old quest trouble */
-			if (strcmp(word, "Ques") == 0) {
-
-#define QUEST_ITEM1 94
-#define QUEST_ITEM2 95
-#define QUEST_ITEM3 96
-#define QUEST_WEAPON		(C)
-#define QUEST_GIRTH		(D)
-#define QUEST_RING		(E)
-#define QUEST_WEAPON2		(F)
-#define QUEST_GIRTH2		(G)
-#define QUEST_RING2		(H)
-#define QUEST_WEAPON3		(I)
-#define QUEST_GIRTH3		(J)
-#define QUEST_RING3		(K)
-
-				int             old_quest;
-				old_quest = fread_flags(fp);
-				fMatch = TRUE;
-				if (old_quest & QUEST_GIRTH)
-					qtrouble_set(ch, QUEST_ITEM1, 1);
-				if (old_quest & QUEST_GIRTH2)
-					qtrouble_set(ch, QUEST_ITEM1, 2);
-				if (old_quest & QUEST_GIRTH3)
-					qtrouble_set(ch, QUEST_ITEM1, 3);
-				if (old_quest & QUEST_RING)
-					qtrouble_set(ch, QUEST_ITEM2, 1);
-				if (old_quest & QUEST_RING2)
-					qtrouble_set(ch, QUEST_ITEM2, 2);
-				if (old_quest & QUEST_RING3)
-					qtrouble_set(ch, QUEST_ITEM2, 3);
-				if (old_quest & QUEST_WEAPON)
-					qtrouble_set(ch, QUEST_ITEM3, 1);
-				if (old_quest & QUEST_WEAPON2)
-					qtrouble_set(ch, QUEST_ITEM3, 2);
-				if (old_quest & QUEST_WEAPON3)
-					qtrouble_set(ch, QUEST_ITEM3, 3);
-			}
 			if (str_cmp(word, "Qtrouble") == 0) {
 				int             vnum;
 				int             count;
@@ -1115,12 +1013,13 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 				char           *temp;
 				value = fread_number(fp);
 				temp = fread_word(fp);
-				sn = skill_lookup(temp);
+				sn = sn_lookup(temp);
 				if (sn < 0) {
 					fprintf(stderr, "%s", temp);
 					bug("Fread_char: unknown skill. ", 0);
-				} else
-					ch->pcdata->learned[sn] = value;
+				}
+				else
+					set_skill(ch, sn, value);
 				fMatch = TRUE;
 			}
 			break;
@@ -1216,7 +1115,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 				int             sn;
 				paf = new_affect();
 
-				sn = skill_lookup(fread_word(fp));
+				sn = sn_lookup(fread_word(fp));
 				if (sn < 0)
 					bug("Fread_char: unknown skill.", 0);
 				else
@@ -1226,7 +1125,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 				paf->duration = fread_number(fp);
 				paf->modifier = fread_number(fp);
 				paf->location = fread_number(fp);
-				paf->bitvector = fread_number(fp);
+				paf->bitvector = fread_flags(fp);
 				paf->next = pet->affected;
 				pet->affected = paf;
 				fMatch = TRUE;
@@ -1237,7 +1136,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 				int             sn;
 				paf = new_affect();
 
-				sn = skill_lookup(fread_word(fp));
+				sn = sn_lookup(fread_word(fp));
 				if (sn < 0)
 					bug("Fread_char: unknown skill.", 0);
 				else
@@ -1248,7 +1147,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 				paf->duration = fread_number(fp);
 				paf->modifier = fread_number(fp);
 				paf->location = fread_number(fp);
-				paf->bitvector = fread_number(fp);
+				paf->bitvector = fread_flags(fp);
 				paf->next = pet->affected;
 				pet->affected = paf;
 				fMatch = TRUE;
@@ -1271,25 +1170,13 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 			break;
 
 		case 'C':
-			if (!str_cmp(word, "Clan")) {
-				char *p = fread_string(fp);
-				int clan = clan_lookup(p);
-
-				if (clan < 0) 
-					log_printf("fread_pet: unknown clan:"
-						   " `%s'", p);
-				else
-					pet->clan = clan;
-				fMatch = TRUE;
-				break;
-			}
+			KEY("Clan", pet->clan, fread_clan(fp));
 			KEY("Comm", pet->comm, fread_flags(fp));
 			break;
 
 		case 'D':
 			KEY("Dam", pet->damroll, fread_number(fp));
 			MLSKEY("Desc", pet->description);
-			KEY("Detect", pet->detection, fread_flags(fp));
 			break;
 
 		case 'E':
@@ -1406,7 +1293,6 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 			obj = create_obj_nocount(get_obj_index(vnum), -1);
 			new_format = TRUE;
 		}
-
 	}
 	if (obj == NULL) {	/* either not found or old style */
 		obj = new_obj();
@@ -1435,7 +1321,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 				int             sn;
 				paf = new_affect();
 
-				sn = skill_lookup(fread_word(fp));
+				sn = sn_lookup(fread_word(fp));
 				if (sn < 0)
 					bug("Fread_obj: unknown skill.", 0);
 				else
@@ -1445,7 +1331,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 				paf->duration = fread_number(fp);
 				paf->modifier = fread_number(fp);
 				paf->location = fread_number(fp);
-				paf->bitvector = fread_number(fp);
+				paf->bitvector = fread_flags(fp);
 				paf->next = obj->affected;
 				obj->affected = paf;
 				fMatch = TRUE;
@@ -1456,7 +1342,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 				int             sn;
 				paf = new_affect();
 
-				sn = skill_lookup(fread_word(fp));
+				sn = sn_lookup(fread_word(fp));
 				if (sn < 0)
 					bug("Fread_obj: unknown skill.", 0);
 				else
@@ -1467,7 +1353,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 				paf->duration = fread_number(fp);
 				paf->modifier = fread_number(fp);
 				paf->location = fread_number(fp);
-				paf->bitvector = fread_number(fp);
+				paf->bitvector = fread_flags(fp);
 				paf->next = obj->affected;
 				obj->affected = paf;
 				fMatch = TRUE;
@@ -1588,7 +1474,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 				int             iValue;
 				int             sn;
 				iValue = fread_number(fp);
-				sn = skill_lookup(fread_word(fp));
+				sn = sn_lookup(fread_word(fp));
 				if (iValue < 0 || iValue > 3) {
 					bug("Fread_obj: bad iValue %d.", iValue);
 				} else if (sn < 0) {
@@ -1655,3 +1541,17 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 		}
 	}
 }
+
+void fwrite_affect(AFFECT_DATA *paf, FILE *fp)
+{
+	SKILL_DATA *sk;
+
+	if ((sk = skill_lookup(paf->type)) == NULL)
+		return;
+
+	fprintf(fp, "Affc '%s' %3d %3d %3d %3d %3d %s\n",
+		sk->name,
+		paf->where, paf->level, paf->duration, paf->modifier,
+		paf->location, format_flags(paf->bitvector));
+}
+

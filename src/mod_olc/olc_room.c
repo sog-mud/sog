@@ -1,14 +1,12 @@
+/*
+ * $Id: olc_room.c,v 1.3 1998-09-01 18:29:26 fjoe Exp $
+ */
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include "merc.h"
 #include "olc.h"
-#include "comm.h"
-#include "string_edit.h"
-#include "db.h"
-#include "tables.h"
-#include "buffer.h"
-#include "mlstring.h"
 #include "act_move.h"
 #include "interp.h"
 
@@ -113,16 +111,13 @@ void do_redit(CHAR_DATA *ch, const char *argument)
 	return;
     }
     else
-    if (!str_cmp(arg1, "create"))	/* redit create <vnum> */
-    {
-	if (argument[0] == '\0' || atoi(argument) == 0)
-	{
+    if (!str_cmp(arg1, "create")) {	/* redit create <vnum> */
+	if (argument[0] == '\0' || atoi(argument) == 0) {
 	    send_to_char("Syntax:  edit room create [vnum]\n\r", ch);
 	    return;
 	}
 
-	if (redit_create(ch, argument)) /* pEdit == nuevo cuarto */
-	{
+	if (redit_create(ch, argument)) { /* pEdit == nuevo cuarto */
 	    ch->desc->editor = ED_ROOM;
 	    char_from_room(ch);
 	    char_to_room(ch, ch->desc->pEdit);
@@ -131,19 +126,16 @@ void do_redit(CHAR_DATA *ch, const char *argument)
 
 	return;
     }
-    else if (!IS_NULLSTR(arg1))	/* redit <vnum> */
-    {
+    else if (!IS_NULLSTR(arg1))	{ /* redit <vnum> */
 	pRoom = get_room_index(atoi(arg1));
 
-	if (!pRoom)
-	{
-		send_to_char("REdit: cuarto inexistente.\n\r", ch);
+	if (!pRoom) {
+		send_to_char("REdit: vnum not found.\n\r", ch);
 		return;
 	}
 
-	if (!IS_BUILDER(ch, pRoom->area))
-	{
-		send_to_char("REdit : insuficiente seguridad para editar cuarto.\n\r", ch);
+	if (!IS_BUILDER(ch, pRoom->area)) {
+		send_to_char("REdit: insufficient security for editing rooms.\n\r", ch);
 		return;
 	}
 
@@ -151,16 +143,13 @@ void do_redit(CHAR_DATA *ch, const char *argument)
 	char_to_room(ch, pRoom);
     }
 
-    if (!IS_BUILDER(ch, pRoom->area))
-    {
-    	send_to_char("REdit : Insuficiente seguridad para editar cuartos.\n\r", ch);
+    if (!IS_BUILDER(ch, pRoom->area)) {
+	send_to_char("REdit: insufficient security for editing rooms.\n\r", ch);
     	return;
     }
 
     ch->desc->pEdit	= (void *) pRoom;
     ch->desc->editor	= ED_ROOM;
-
-    return;
 }
 
 /* Room Interpreter, called by do_redit. */
@@ -181,7 +170,7 @@ void redit(CHAR_DATA *ch, const char *argument)
 
     if (!IS_BUILDER(ch, pArea))
     {
-        send_to_char("REdit:  Insufficient security to modify room.\n\r", ch);
+        send_to_char("REdit: Insufficient security for editing rooms.\n\r", ch);
 	edit_done(ch);
 	return;
     }
@@ -227,6 +216,7 @@ REDIT(redit_show)
 	CHAR_DATA	*rch;
 	int		door;
 	bool		fcnt;
+	CLAN_DATA	*clan;
 	
 	EDIT_ROOM(ch, pRoom);
 
@@ -239,16 +229,16 @@ REDIT(redit_show)
 		   pRoom->area->vnum, pRoom->area->name);
 	buf_printf(output, "Vnum:       [%5d]\n\rSector:     [%s]\n\r",
 		   pRoom->vnum, flag_string(sector_types, pRoom->sector_type));
+
+	if (pRoom->clan && (clan = clan_lookup(pRoom->clan))) 
+		buf_printf(output, "Clan      : [%s]\n\r", clan->name);
+
 	buf_printf(output, "Room flags: [%s]\n\r",
 		   flag_string(room_flags, pRoom->room_flags));
 
 	if (pRoom->heal_rate != 100 || pRoom->mana_rate != 100)
 		buf_printf(output, "Health rec: [%d]\n\rMana rec  : [%d]\n\r",
 			   pRoom->heal_rate, pRoom->mana_rate);
-
-	if (pRoom->clan > 0)
-		buf_printf(output, "Clan      : [%d] %s\n\r",
-			   pRoom->clan, clan_table[pRoom->clan].short_name);
 
 	if (!IS_NULLSTR(pRoom->owner))
 		buf_printf(output, "Owner     : [%s]\n\r", pRoom->owner);
@@ -401,21 +391,18 @@ REDIT(redit_create)
 	}
 
 	pArea = area_vnum_lookup(value);
-	if (!pArea)
-	{
-		send_to_char("REdit:  That vnum is not assigned an area.\n\r", ch);
+	if (!pArea) {
+		send_to_char("REdit: vnum is not assigned an area.\n\r", ch);
 		return FALSE;
 	}
 
-	if (!IS_BUILDER(ch, pArea))
-	{
-		send_to_char("REdit:  Vnum in an area you cannot build in.\n\r", ch);
+	if (!IS_BUILDER(ch, pArea)) {
+        	send_to_char("REdit: Insufficient security for editing rooms.\n\r", ch);
 		return FALSE;
 	}
 
-	if (get_room_index(value))
-	{
-		send_to_char("REdit:  Room vnum already exists.\n\r", ch);
+	if (get_room_index(value)) {
+		send_to_char("REdit: Room vnum already exists.\n\r", ch);
 		return FALSE;
 	}
 
@@ -623,8 +610,6 @@ REDIT(redit_mlist)
 	return FALSE;
 }
 
-
-
 REDIT(redit_olist)
 {
 	OBJ_INDEX_DATA	*pObjIndex;
@@ -649,7 +634,7 @@ REDIT(redit_olist)
 	for (vnum = pArea->min_vnum; vnum <= pArea->max_vnum; vnum++) {
 		if ((pObjIndex = get_obj_index(vnum))) {
 			if (fAll || is_name(arg, pObjIndex->name)
-			|| flag_value(type_flags, arg) == pObjIndex->item_type) {
+			|| flag_value(item_types, arg) == pObjIndex->item_type) {
 				found = TRUE;
 				buf_printf(buffer, "[%5d] %-17.16s",
 					   pObjIndex->vnum,
@@ -673,65 +658,43 @@ REDIT(redit_olist)
 	return FALSE;
 }
 
-
-
 REDIT(redit_mshow)
 {
 	MOB_INDEX_DATA *pMob;
 	int value;
 
-	if (argument[0] == '\0') {
-		send_to_char("Syntax:  mshow <vnum>\n\r", ch);
+	if (argument[0] == '\0' || !is_number(argument)) {
+		send_to_char("Syntax: mshow vnum\n\r", ch);
 		return FALSE;
 	}
 
-	if (!is_number(argument)) {
-		send_to_char("REdit: Ingresa un numero.\n\r", ch);
+	value = atoi(argument);
+	if (!(pMob = get_mob_index(value))) {
+		send_to_char("REdit: vnum not found.\n\r", ch);
 		return FALSE;
 	}
-
-	if (is_number(argument)) {
-		value = atoi(argument);
-		if (!(pMob = get_mob_index(value))) {
-			send_to_char("REdit:  That mobile does not exist.\n\r", ch);
-			return FALSE;
-		}
-
-		ch->desc->pEdit = (void *)pMob;
-	}
- 
+	ch->desc->pEdit = (void *)pMob;
 	medit_show(ch, argument);
 	ch->desc->pEdit = (void *)ch->in_room;
 	return FALSE; 
 }
-
-
 
 REDIT(redit_oshow)
 {
 	OBJ_INDEX_DATA *pObj;
 	int value;
 
-	if (argument[0] == '\0') {
+	if (argument[0] == '\0' || !is_number(argument)) {
 		send_to_char("Syntax:  oshow <vnum>\n\r", ch);
 		return FALSE;
 	}
 
-	if (!is_number(argument)) {
-		send_to_char("REdit: Ingresa un numero.\n\r", ch);
+	value = atoi(argument);
+	if (!(pObj = get_obj_index(value))) {
+		send_to_char("REdit:  That object does not exist.\n\r", ch);
 		return FALSE;
 	}
-
-	if (is_number(argument)) {
-		value = atoi(argument);
-		if (!(pObj = get_obj_index(value))) {
-			send_to_char("REdit:  That object does not exist.\n\r", ch);
-			return FALSE;
-		}
-
-		ch->desc->pEdit = (void *)pObj;
-	}
- 
+	ch->desc->pEdit = (void *)pObj;
 	oedit_show(ch, argument);
 	ch->desc->pEdit = (void *)ch->in_room;
 	return FALSE; 
@@ -767,8 +730,6 @@ const struct wear_type wear_table[] =
 	{	-1					}
 };
 
-
-
 /*****************************************************************************
  Name:		wear_loc
  Purpose:	Returns the location of the bit that matches the count.
@@ -787,8 +748,6 @@ int wear_loc(int bits, int count)
 	return -1;
 }
 
-
-
 /*****************************************************************************
  Name:		wear_bit
  Purpose:	Converts a wear_loc into a bit.
@@ -805,8 +764,6 @@ int wear_bit(int loc)
  
 	return 0;
 }
-
-
 
 REDIT(redit_oreset)
 {
@@ -1091,9 +1048,14 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 	}
 
 	if (command[0] == '?') {
-		do_help(ch, "'OLC EXITS'");
-		char_printf(ch, "Valid exit flags are:\n\r");
-		show_flag_cmds(ch, exit_flags);
+		BUFFER *output;
+
+		output = buf_new(0);
+		help_show(ch, output, "'OLC EXITS'");
+		buf_printf(output, "Valid exit flags are:\n\r");
+		show_flags_buf(output, exit_flags);
+		page_to_char(buf_string(output), ch);
+		buf_free(output);
 		return FALSE;
 	}
 
@@ -1132,8 +1094,6 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 
 		if (arg[0] == '\0' || !is_number(arg)) {
 			do_help(ch, "'OLC EXITS'");
-			char_printf(ch, "Syntax: %s link [vnum]\n\r",
-				    cmd->name);
 			return FALSE;
 		}
 
@@ -1500,8 +1460,6 @@ void display_resets(CHAR_DATA *ch)
     send_to_char(buf_string(buf), ch);
     buf_free(buf);
 }
-
-
 
 void do_resets(CHAR_DATA *ch, const char *argument)
 {
