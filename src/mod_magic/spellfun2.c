@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.165 1999-12-29 12:11:34 kostik Exp $
+ * $Id: spellfun2.c,v 1.166 2000-01-03 11:33:19 kostik Exp $
  */
 
 /***************************************************************************
@@ -3644,6 +3644,16 @@ void spell_hallucination(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
+	if (is_affected(victim, sn)) {
+		if (ch == victim) {
+			char_puts("You are already hallucinating.\n", ch);
+		} else {
+			act("$E is already hallucinating.", ch, NULL, victim, 
+				TO_CHAR);
+		}
+		return;
+	}
+
 	if (saves_spell(level, victim, DAM_MENTAL)) {
 		act("$N seems to be unaffected.", ch, NULL, victim, TO_CHAR);
 		return;
@@ -3658,7 +3668,7 @@ void spell_hallucination(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.bitvector	= 0;
 	
 	affect_to_char(victim, &af);
-	char_puts("You start to see things.", victim);
+	char_puts("You start to see things.\n", victim);
 
 	if (victim != ch) {
 		act("$N starts hallucinating.", ch, NULL, victim, TO_CHAR);
