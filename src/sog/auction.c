@@ -1,5 +1,5 @@
 /*
- * $Id: auction.c,v 1.8 1998-07-14 07:47:41 fjoe Exp $
+ * $Id: auction.c,v 1.9 1998-07-31 15:39:54 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -428,11 +428,10 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	}
 
 	argument = one_argument(argument, starting);
-	if (starting[0] == '\0'
-	||  (auction.starting = atoi(starting)) < MIN_START_PRICE) {
-		char_printf(ch,
-			"You must specify the starting price (at least %d gold).\n\r",
-			MIN_START_PRICE);
+	if (starting[0] == '\0')
+		auction.starting = MIN_START_PRICE;
+	else if ((auction.starting = atoi(starting)) < MIN_START_PRICE) {
+		char_printf(ch, "You must specify the starting price (at least %d gold).\n\r", MIN_START_PRICE);
 		return;
 	}
 

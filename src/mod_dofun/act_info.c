@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.107 1998-07-29 18:20:36 fjoe Exp $
+ * $Id: act_info.c,v 1.108 1998-07-31 15:39:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1695,30 +1695,27 @@ void do_help(CHAR_DATA *ch, const char *argument)
 
 static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 {
-	bool trusted = IS_TRUSTED(ch, LEVEL_IMMORTAL) || ch == wch ||
-		       wch->level >= LEVEL_HERO ||
-		       get_curr_stat(wch, STAT_CHA) < 18;
-
 	buf_add(output, "[");
-	if (trusted)
+	if (ch->level >= LEVEL_IMMORTAL || ch == wch
+	||  wch->level >= LEVEL_HERO || get_curr_stat(wch, STAT_CHA) < 18)
 		buf_printf(output, "{C%3d{x ", wch->level);
 	else
 		buf_add(output, "    ");
 
-	if (wch->level >= LEVEL_IMMORTAL) {
+	if (wch->level >= LEVEL_HERO) {
 		buf_add(output, "  {G");
 		switch (wch->level) {
-		case IMPLEMENTOR:	buf_add(output, "IMP"); break;
-		case CREATOR:		buf_add(output, "CRE"); break;
-		case SUPREME:		buf_add(output, "SUP"); break;
-		case DEITY:		buf_add(output, "DEI"); break;
-		case GOD:		buf_add(output, "GOD"); break;
-		case IMMORTAL:		buf_add(output, "IMM"); break;
-		case DEMI:		buf_add(output, "DEM"); break;
-		case ANGEL:		buf_add(output, "ANG"); break;
-		case AVATAR:		buf_add(output, "AVA"); break;
+		case IMPLEMENTOR:	buf_add(output, "IMP    "); break;
+		case CREATOR:		buf_add(output, "CRE    "); break;
+		case SUPREME:		buf_add(output, "SUP    "); break;
+		case DEITY:		buf_add(output, "DEI    "); break;
+		case GOD:		buf_add(output, "GOD    "); break;
+		case IMMORTAL:		buf_add(output, "IMM    "); break;
+		case DEMI:		buf_add(output, "DEM    "); break;
+		case ANGEL:		buf_add(output, "ANG    "); break;
+		case AVATAR:		buf_add(output, "AVA    "); break;
+		case HERO:		buf_add(output, "HERO   "); break;
 		}
-		buf_add(output, "    ");
 	}
 	else {
 		if (RACE(wch) < MAX_PC_RACE)
@@ -1727,7 +1724,7 @@ static void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 			buf_add(output, "     ");
 
 		buf_add(output, " {Y");
-		if (trusted)
+		if (ch->level >= LEVEL_IMMORTAL || ch == wch)
 			buf_add(output, class_table[wch->class].who_name);
 		else
 			buf_add(output, "   ");
