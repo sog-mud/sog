@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.58 2001-09-14 10:01:10 fjoe Exp $
+ * $Id: olc_msg.c,v 1.59 2001-09-14 10:08:50 fjoe Exp $
  */
 
 #include "olc.h"
@@ -128,40 +128,19 @@ OLC_FUN(msged_edit)
 	return FALSE;
 }
 
-static void *
-msged_add_cb(void *p, va_list ap)
+static
+FOREACH_CB_FUN(msged_save_cb, p, ap)
 {
-	const char *mval = mlstr_mval((mlstring *) p);
-	varr *v = va_arg(ap, varr *);
-	const char **str;
-
-	if (IS_NULLSTR(mval))
-		return NULL;
-	str = varr_enew(v);
-	*str = mval;
-	return NULL;
-}
-
-static void *
-msged_save_cb(void *p, va_list ap)
-{
+	mlstring *ml = (mlstring *) p;
 	FILE *fp = va_arg(ap, FILE *);
-	mlstring *ml = msg_lookup(*(const char **) p);
 
 	mlstr_fwrite(fp, NULL, ml);
 	return NULL;
 }
 
-static varrdata_t v_msgdb = {
-	&varr_ops, NULL, NULL,
-
-	sizeof(const char *), 64
-};
-
 OLC_FUN(msged_save)
 {
 	FILE *fp;
-	varr v;
 
 	if (!IS_SET(changed_flags, CF_MSGDB)) {
 		olc_printf(ch, "Msgdb is not changed.");
@@ -171,11 +150,7 @@ OLC_FUN(msged_save)
 	if ((fp = olc_fopen(ETC_PATH, MSGDB_FILE, ch, SECURITY_MSGDB)) == NULL)
 		return FALSE;
 
-	c_init(&v, &v_msgdb);
-	c_foreach(&msgdb, msged_add_cb, &v);
-	varr_qsort(&v, cscmpstr);
-	c_foreach(&v, msged_save_cb, fp);
-	c_destroy(&v);
+	c_foreach(&msgdb, msged_save_cb, fp);
 
 	fprintf(fp, "$~\n");
 	fclose(fp);
