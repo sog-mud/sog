@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_look_mad_hatter.mpc,v 1.1 2001-08-31 10:19:42 fjoe Exp $
+ */
+
+dofun("say", $n, "Why is a raven like a writing desk?");

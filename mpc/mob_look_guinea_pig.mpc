@@ -1,0 +1,10 @@
+/*
+ * $Id: mob_look_guinea_pig.mpc,v 1.1 2001-08-31 10:19:41 fjoe Exp $
+ */
+
+look_char($n, $N);
+tell_char($n, $N, "You don't look too well!");
+ 
+obj o = create_obj(21019, 0);
+obj_to_char(o, $n);
+give_obj($n, $N, o);

@@ -1,0 +1,6 @@
+/*
+ * $Id: mob_greet_gardener_five.mpc,v 1.1 2001-08-31 10:19:34 fjoe Exp $
+ */
+
+dofun("say", $n, "I couldn't help it. Seven jogged my elbow!");
+dofun("emote", $n, "returns to painting the bush.");

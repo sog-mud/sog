@@ -1,0 +1,6 @@
+/*
+ * $Id: mob_look_alice.mpc,v 1.1 2001-08-31 10:19:40 fjoe Exp $
+ */
+
+dofun("say", $n, "Pleased to meet you!");
+mob_interpret($n, "curtsey");

@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_look_king_of_hearts.mpc,v 1.1 2001-08-31 10:19:41 fjoe Exp $
+ */
+
+dofun("say", $n, "Hmph!");

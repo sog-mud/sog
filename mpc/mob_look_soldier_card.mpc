@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_look_soldier_card.mpc,v 1.1 2001-08-31 10:19:42 fjoe Exp $
+ */
+
+tell_char($n, $N, "You lookin' to be clubbed?");

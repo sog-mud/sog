@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_look_lory.mpc,v 1.1 2001-08-31 10:19:42 fjoe Exp $
+ */
+
+dofun("say", $n, "Don't stare, youngster!");

@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_greet_soldier_card.mpc,v 1.1 2001-08-31 10:19:36 fjoe Exp $
+ */
+
+dofun("emote", $n, "quickly bends over as someone whacks a hedgehog at him.");

@@ -1,0 +1,5 @@
+/*
+ * $Id: mob_look_fish_footman.mpc,v 1.1 2001-08-31 10:19:40 fjoe Exp $
+ */
+
+dofun("say", $n, "There's no sense in knocking.");
