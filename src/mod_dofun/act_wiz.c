@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.282 2001-08-02 18:20:04 fjoe Exp $
+ * $Id: act_wiz.c,v 1.283 2001-08-02 18:38:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,7 +58,7 @@
 #if defined(BSD44)
 #	include <fnmatch.h>
 #else
-#	include "../compat/fnmatch.h"
+#	include <compat/fnmatch.h>
 #endif
 
 #include <merc.h>

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.186 2001-07-31 18:14:43 fjoe Exp $
+ * $Id: martial_art.c,v 1.187 2001-08-02 18:38:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,7 +49,7 @@
 #include <update.h>
 
 #ifdef SUNOS
-#	include "compat/compat.h"
+#	include <compat/compat.h>
 #endif
 
 DECLARE_DO_FUN(do_yell		);

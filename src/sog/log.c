@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: log.c,v 1.30 2001-07-29 09:43:22 fjoe Exp $
+ * $Id: log.c,v 1.31 2001-08-02 18:38:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -34,7 +34,7 @@
 #include "merc.h"
 
 #ifdef SUNOS
-#	include "compat/compat.h"
+#	include <compat/compat.h>
 #endif
 #ifdef WIN32
 #	include <string.h>

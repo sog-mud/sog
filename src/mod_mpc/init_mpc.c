@@ -23,19 +23,24 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.8 2001-08-02 18:20:10 fjoe Exp $
+ * $Id: init_mpc.c,v 1.9 2001-08-02 18:38:42 fjoe Exp $
  */
 
 #include <sys/stat.h>
 #include <dlfcn.h>
 #include <errno.h>
 #include <dirent.h>
-#include <fnmatch.h>
 #include <setjmp.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
 #include <limits.h>
+
+#if defined(BSD44)
+#	include <fnmatch.h>
+#else
+#	include <compat/fnmatch.h>
+#endif
 
 #include <merc.h>
 #include <dynafun.h>

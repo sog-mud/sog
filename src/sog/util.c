@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.31 2001-08-02 18:20:19 fjoe Exp $
+ * $Id: util.c,v 1.32 2001-08-02 18:38:44 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -40,7 +40,7 @@
 #include <merc.h>
 
 #ifdef SUNOS
-#	include "compat/compat.h"
+#	include <compat/compat.h>
 #endif
 
 #if defined(WIN32)
