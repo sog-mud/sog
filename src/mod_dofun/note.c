@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.4.2.6 2002-11-28 21:54:34 fjoe Exp $
+ * $Id: note.c,v 1.4.2.7 2004-05-24 17:59:14 tatyana Exp $
  */
 
 /***************************************************************************
@@ -128,6 +128,7 @@ static void note_show(BUFFER *buf, note_t *pnote, int vnum);
 static const char *note_quote(note_t *pnote);
 static void update_read(CHAR_DATA *ch, note_t *pnote);
 static bool is_note_to(CHAR_DATA *ch, note_t *pnote);
+static bool can_delete_note(CHAR_DATA *ch, note_t *pnote);
 static bool note_attach(CHAR_DATA *ch, int type);
 static void note_remove(CHAR_DATA *ch, note_t *pnote, bool delete);
 static bool hide_note(CHAR_DATA *ch, note_t *pnote);
@@ -235,6 +236,16 @@ static bool is_note_to(CHAR_DATA *ch, note_t *pnote)
 	return FALSE;
 }
 
+static bool can_delete_note(CHAR_DATA *ch, note_t *pnote)
+{
+	if (!str_cmp(ch->name, pnote->sender))
+		return TRUE;
+
+	if (IS_IMMORTAL(ch))
+		return TRUE;
+
+	return FALSE;
+}
 /*
  * note attach - create note
  * Returns: TRUE  - everything is ok, note attached
@@ -468,7 +479,7 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 			}
 		}
  
-		char_printf(ch,"There aren't that many %s.\n",list_name);
+		char_printf(ch,"There aren't that many %s.\n", list_name);
 		return;
 	}
 
@@ -543,14 +554,18 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		anum = atoi(argument);
 		vnum = 0;
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
-			if (is_note_to(ch, pnote) && vnum++ == anum) {
+			if (can_delete_note(ch, pnote) && vnum++ == anum) {
 				note_remove(ch, pnote, FALSE);
 				char_puts("Ok.\n", ch);
+				return;
+			} else {
+				act_char("You can remove only your "
+					 "own messages.", ch);
 				return;
 			}
 		}
  
-		char_printf(ch, "There aren't that many %s.", list_name);
+		char_printf(ch, "There aren't that many %s.\n", list_name);
 		return;
 	}
  
@@ -600,14 +615,18 @@ static void parse_note(CHAR_DATA *ch, const char *argument, int type)
 		anum = atoi(argument);
 		vnum = 0;
 		for (pnote = *list; pnote != NULL; pnote = pnote->next) {
-			if (is_note_to(ch, pnote) && vnum++ == anum) {
+			if (can_delete_note(ch, pnote) && vnum++ == anum) {
 				note_remove(ch, pnote, TRUE);
 				char_puts("Ok.\n", ch);
+				return;
+			} else {
+				act_char("You can remove only your "
+					 "own messages.", ch);
 				return;
 			}
 		}
 
-		char_printf(ch,"There aren't that many %s.", list_name);
+		char_printf(ch, "There aren't that many %s.\n", list_name);
 		return;
 	}
 
