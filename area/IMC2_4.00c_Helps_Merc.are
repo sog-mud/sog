@@ -12,12 +12,12 @@ End
 IMC2 4.00 Continuum Helps Copyright (c) 2003 by Kris Craig
 ~
 1 IMC IMC2 CONTINUUM~
-                                      IMC2 4.00 Continuum
+IMC2 4.00 Continuum
                                       ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
 
  ______________________________________________________________________________________________
 |                                                                                              |
-| Original IMC2 Code Copyright 1996,1997 Oliver Jowett <oliver@jowett.manawatu.planet.co.nz>   |
+| Original IMC2 Code Copyright 1996,1997 Oliver Jowett <oliver@@jowett.manawatu.planet.co.nz>   |
 | IMC2 Gold versions 1.00-2.00g Copyright 1999-2001 MudWorld www.mudworld.org                  |
 | IMC2 3.10 Mud-Net Copyright 2002 Roger Libiez ( Samson )                                     |
 | Additional code for 3.10 Copyright 2002 Orion Elder                                          |
@@ -138,10 +138,10 @@ tell will receive a message back telling them that you're afk).
 Command form in previous versions: N/A - IMC2 4.00 Continuum Original
 ~
 1 IMCPBEEP IMCBEEP RBEEP~
-imcpbeep <person>@<mudname>
+imcpbeep <person>@@<mudname>
 
 Basically a "tap on the shoulder" to someone over the network.  When you 
-impbeep someone, that person sees "Person@MUD imcbeeps you."  
+impbeep someone, that person sees "Person@@MUD imcbeeps you."  
 
 Command form in previous clients:  imcbeep, rbeep
 ~
@@ -153,7 +153,7 @@ Queries every MUD on the network to see if <person> is online.
 Command form in previous clients:  imclocate, rwhois
 ~
 1 IMCPINFO IMCFINGER RFINGER~
-imcpinfo <person>@<mudname>
+imcpinfo <person>@@<mudname>
 
 Queries target MUD for finger info on target person.
 
@@ -181,16 +181,16 @@ imcpsettings <function> +/-<item>
 Consolidates several commands from previous clients into one blanket command.
 
 Changes:  'imclisten <channel>' is now 'imcpsettings subscribe <channel>', 
-'imcignore <mud>/<person@mud>' is now 'imcpsettings blacklist 
-<mud>/<person@mud>'
+'imcignore <mud>/<person@@mud>' is now 'imcpsettings blacklist 
+<mud>/<person@@mud>'
 
 Syntax: imcpsettings show   - lists IMC2 network functions and IMC2 channels
         imcpsettings subscribe +channel - creates a subscription to a channel
         imcpsettings subscribe -channel - deletes a subscription to a channel
         imcpsettings blacklist +mud - adds a mud to the blacklist
         imcpsettings blacklist -mud - removes a mud from the blacklist
-        imcpsettings blacklist +person@mud - adds a player to the blacklist
-        imcpsettings blacklist -person@mud - removes a player from the 
+        imcpsettings blacklist +person@@mud - adds a player to the blacklist
+        imcpsettings blacklist -person@@mud - removes a player from the 
 blacklist
         imcpsettings function +nfunction  - switches on a network function
         imcpsettings function -nfunction  - switches off a network function
@@ -203,9 +203,9 @@ There is also the 'all' option to set or unset all available functions.
 Command form in previous clients: imclisten, imcflags, rchannels, ichan
 ~
 1 IMCPTELL IMCTELL RTELL~
-imcptell <person@mudname>
+imcptell <person@@mudname>
 
-Sends a private 'tell' message over the network to person@mud.
+Sends a private 'tell' message over the network to person@@mud.
 
 Command form in previous clients: imctell, rtell
 ~
@@ -253,13 +253,13 @@ Nope!  Changed your mind!  Let's make it a public channel:  imccadmin policy
 Hub11-Imaginary:BogusChat public
 
 Let's make your pal Roosta an operator:  imccadmin addop 
-Hub11-Imaginary:BogusChat Roosta@TheGhetto
+Hub11-Imaginary:BogusChat Roosta@@TheGhetto
 
 Ok, Roosta just mugged your sister....  imccadmin removeop 
-Hub11-Imaginary:BogusChat Roosta@TheGhetto
+Hub11-Imaginary:BogusChat Roosta@@TheGhetto
 
 In fact, you don't even want him on this public channel anymore!
-So.... imccadmin exclude Hub11-Imaginary:BogusChat Roosta@TheGhetto
+So.... imccadmin exclude Hub11-Imaginary:BogusChat Roosta@@TheGhetto
 
 Command form in previous clients: imccommand, icommand
 ~
@@ -637,6 +637,6 @@ Current WhoStyles:
                  2 - Fiery Bowels of Hell
                  3 - IMC2 Classic
 ~
-0 $~
+-1 $~
 
 #$
