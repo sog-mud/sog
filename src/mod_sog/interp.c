@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.153 1999-06-17 19:44:44 avn Exp $
+ * $Id: interp.c,v 1.154 1999-06-18 04:57:10 kostik Exp $
  */
 
 /***************************************************************************
@@ -338,6 +338,7 @@ cmd_t cmd_table[] =
     { "berserk",	do_berserk,	POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "bloodthirst",	do_bloodthirst,	POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "blackjack",	do_blackjack,	POS_STANDING,	 0,  LOG_NORMAL },
+    { "blend",		do_blend,	POS_STANDING,	 0,  LOG_NORMAL },
     { "caltrops",       do_caltrops,    POS_FIGHTING,    0,  LOG_NORMAL	},
     { "explode",	do_explode, 	POS_FIGHTING,    0,  LOG_NORMAL	},
     { "camouflage",     do_camouflage,  POS_STANDING,    0,  LOG_NORMAL	},
@@ -378,6 +379,7 @@ cmd_t cmd_table[] =
     { "blink",		do_blink,	POS_FIGHTING,    0,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "knife", 		do_knife,	POS_STANDING,	 0,  LOG_NORMAL },
     { "mark",		do_mark,	POS_STANDING,	 0,  LOG_NORMAL	},
+    { "awareness",	do_awareness,	POS_STANDING,	 0,  LOG_NORMAL },
 
 
     /*

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.161 1999-06-17 19:28:03 fjoe Exp $
+ * $Id: handler.c,v 1.162 1999-06-18 04:57:10 kostik Exp $
  */
 
 /***************************************************************************
@@ -2595,6 +2595,10 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	if (IS_AFFECTED(victim,AFF_CAMOUFLAGE) &&
 	    !IS_AFFECTED(ch,AFF_ACUTE_VISION))
+	  return FALSE;
+
+	if (IS_AFFECTED(victim, AFF_BLEND) &&
+	    !IS_AFFECTED(ch, AFF_AWARENESS))
 	  return FALSE;
 
 	if (IS_AFFECTED(victim, AFF_HIDE)

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.250 1999-06-17 19:44:41 avn Exp $
+ * $Id: act_info.c,v 1.251 1999-06-18 04:57:07 kostik Exp $
  */
 
 /***************************************************************************
@@ -374,9 +374,11 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			char_puts("({yFade{x) ", ch);
 		if (IS_AFFECTED(victim, AFF_CAMOUFLAGE)) 
 			char_puts("({gCamf{x) ", ch);
+		if (IS_AFFECTED(victim, AFF_BLEND))
+			char_puts("({gBlending{x) ", ch);
 	}
 	else {
-		static char flag_tS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{x] ";
+		static char flag_tS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{g.{x] ";
 		bool flags = FALSE;
 
 		flag_t_SET( 5, 'I', IS_AFFECTED(victim, AFF_INVIS));
@@ -403,6 +405,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 		flag_t_SET(38, 'C', IS_AFFECTED(victim, AFF_CAMOUFLAGE));
 		flag_t_SET(41, 'F', IS_AFFECTED(victim, AFF_FADE));
+		flag_t_SET(44, 'B', IS_AFFECTED(victim, AFF_BLEND));
 
 		if (flags)
 			char_puts(flag_tS, ch);
@@ -2708,6 +2711,46 @@ void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 	af.modifier  = 0;
 	af.bitvector = AFF_DETECT_HIDDEN;
 	affect_to_char(ch, &af);
+	char_puts("Your awareness improves.\n", ch);
+	check_improve(ch, sn, TRUE, 1);
+}
+
+void do_awareness(CHAR_DATA *ch, const char *argument)
+{
+	AFFECT_DATA	af;
+	int		chance;
+	int		sn;
+
+	if ((sn = sn_lookup("awareness")) < 0
+	||  (chance = get_skill(ch, sn)) == 0) {
+		char_puts("Huh?\n", ch);
+		return;
+	}
+
+	if (IS_AFFECTED(ch, AFF_AWARENESS)) {
+		char_puts("You are already as alert as you can be. \n",ch);
+		return;
+	}
+
+	if (number_percent() > chance) {
+		char_puts("You peer intently at the shadows "
+			     "but they are unrevealing.\n", ch);
+		check_improve(ch, sn, FALSE, 1);
+		return;
+	}
+
+	af.where     = TO_AFFECTS;
+	af.type      = sn;
+	af.level     = LEVEL(ch);
+	af.duration  = LEVEL(ch);
+	af.location  = APPLY_NONE;
+	af.modifier  = 0;
+	af.bitvector = AFF_AWARENESS;
+	affect_to_char(ch, &af);
+
+	af.bitvector = AFF_ACUTE_VISION;
+	affect_to_char(ch, &af);
+
 	char_puts("Your awareness improves.\n", ch);
 	check_improve(ch, sn, TRUE, 1);
 }

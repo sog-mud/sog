@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.181 1999-06-17 19:28:02 fjoe Exp $
+ * $Id: fight.c,v 1.182 1999-06-18 04:57:09 kostik Exp $
  */
 
 /***************************************************************************
@@ -785,12 +785,12 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 					act_puts("You hit $N with a stunning "
 						 "force!", ch, NULL, victim,
 						 TO_CHAR, POS_DEAD);
-					act_puts("$n hit you with a stunning "
+					act_puts("$n hits you with a stunning "
 						 "force!", ch, NULL, victim,
 						 TO_VICT, POS_DEAD);
 					act_puts("$n hits $N with a stunning "
 						 "force!", ch, NULL, victim,
-						 TO_NOTVICT, POS_DEAD);
+						 TO_NOTVICT, POS_RESTING);
 					check_improve(ch, gsn_master_hand,
 						      TRUE, 6);
 				}

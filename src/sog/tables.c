@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.71 1999-06-17 19:44:45 avn Exp $
+ * $Id: tables.c,v 1.72 1999-06-18 04:57:12 kostik Exp $
  */
 
 /***************************************************************************
@@ -202,6 +202,8 @@ flag_t affect_flags[] =
 	{ "detect_life",	AFF_DETECT_LIFE,	TRUE	},
 	{ "acute_vision",	AFF_ACUTE_VISION,	TRUE	},
 	{ "black_shroud",	AFF_BLACK_SHROUD,	TRUE	},
+	{ "blending",		AFF_BLEND,		TRUE	},
+	{ "detect_blend",	AFF_AWARENESS,		TRUE	},
 	{ "questtarget",	AFF_QUESTTARGET,	FALSE	},
 
 	{ NULL }

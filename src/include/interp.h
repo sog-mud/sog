@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.51 1999-05-27 09:52:41 kostik Exp $
+ * $Id: interp.h,v 1.52 1999-06-18 04:57:11 kostik Exp $
  */
 
 /***************************************************************************
@@ -389,6 +389,8 @@ DECLARE_DO_FUN(do_zap		);
 DECLARE_DO_FUN(do_zecho		);
 DECLARE_DO_FUN(do_qtarget	);
 DECLARE_DO_FUN(do_kidnap	);
+DECLARE_DO_FUN(do_blend		);
+DECLARE_DO_FUN(do_awareness	);
 
 #endif
 

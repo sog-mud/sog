@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.98 1999-06-17 19:44:44 avn Exp $
+ * $Id: martial_art.c,v 1.99 1999-06-18 04:57:11 kostik Exp $
  */
 
 /***************************************************************************
@@ -1606,6 +1606,7 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+
 	if (IS_AFFECTED(ch, AFF_CHARM))  {
 		char_puts("You don't want to grap your beloved masters' neck.\n",
 			  ch);
@@ -1626,6 +1627,11 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 
 	if (is_affected(victim, gsn_strangle))
 		return;
+
+	if (MOUNTED(victim)) {
+		char_puts("You can't strangle a riding one.\n", ch);
+		return;
+	}
 
 	if (is_safe(ch, victim))
 		return;
@@ -1657,6 +1663,8 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 
 		if (IS_AWAKE(victim))
 			victim->position = POS_SLEEPING;
+		if (RIDDEN(victim)) 
+			do_dismount(RIDDEN(victim), str_empty);
 	}
 	else {
 		damage(ch,victim, 0, gsn_strangle, DAM_NONE, TRUE);
@@ -1745,6 +1753,8 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 
 		if (IS_AWAKE(victim))
 			victim->position = POS_SLEEPING;
+		if (RIDDEN(victim))
+			do_dismount(RIDDEN(victim), str_empty);
 	}
 	else {
 		damage(ch, victim, ch->level/2, gsn_blackjack, DAM_NONE, TRUE);

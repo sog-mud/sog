@@ -122,6 +122,7 @@ Skill 'scrolls' 1 2 0
 Skill 'staves' 1 2 0
 Skill 'trance' 14 1 0
 Skill 'wands' 1 1 0
+Skill 'throwing weapons' 56 3 -5
 Title 0 male the Man~
 Title 0 female the Woman~
 Title 1 male the Apprentice of Magic~

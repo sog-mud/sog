@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.179 1999-06-17 19:44:42 avn Exp $
+ * $Id: act_move.c,v 1.180 1999-06-18 04:57:08 kostik Exp $
  */
 
 /***************************************************************************
@@ -172,6 +172,14 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 			    ch, NULL, NULL, TO_ROOM);
 			check_improve(ch, gsn_camouflage_move, FALSE, 5);
 		}	    
+	}
+	if (IS_AFFECTED(ch, AFF_BLEND)) {
+		REMOVE_BIT(ch->affected_by, AFF_BLEND);
+		affect_bit_strip(ch, TO_AFFECTS, AFF_BLEND);
+		act_puts("You step out from your cover.",
+			ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		act("$n steps out from $m's cover.",
+			ch, NULL, NULL, TO_ROOM);
 	}
 
 	/*
@@ -1738,6 +1746,58 @@ void do_camouflage(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, sn, FALSE, 1);
 }
 
+void do_blend(CHAR_DATA *ch, const char *argument)
+{	
+	int chance;
+	flag32_t sector;
+
+	AFFECT_DATA af;
+
+	if ((chance = get_skill(ch, gsn_forest_blending)) == 0) {
+		act_puts("You do not know how to blend in the forests.", 
+			ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
+	}
+
+	if (IS_AFFECTED(ch, AFF_FAERIE_FIRE)) {
+		act_puts("You can't blend while glowing.",
+			ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
+	}
+
+	if (IS_AFFECTED(ch, AFF_BLEND)) {
+		act_puts("You are already blending.",
+			ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
+	}
+
+	sector = ch->in_room->sector_type;
+
+	if (sector != SECT_FOREST) {
+		act_puts("You are not in the forest.",
+			ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
+	}
+	
+	act_puts("You attempt to blend in the forest.",
+		ch, NULL, NULL, TO_CHAR, POS_DEAD);
+	act_puts("$n attempts to blend in the forest.",
+		ch, NULL, NULL, TO_ROOM, POS_RESTING);
+	if (number_percent()<chance) {
+		af.where 	= TO_AFFECTS;
+		af.type		= gsn_forest_blending;
+		af.level	= LEVEL(ch);
+		af.location	= APPLY_NONE;
+		af.modifier	= 0;
+		af.bitvector	= AFF_BLEND;
+		affect_to_char(ch, &af);
+		check_improve(ch, gsn_forest_blending, 2, TRUE);
+	}
+	else {
+		check_improve(ch, gsn_forest_blending, 2, FALSE);
+	}
+}
+
 /*
  * Contributed by Alander
  */
@@ -1751,8 +1811,9 @@ void do_visible(CHAR_DATA *ch, const char *argument)
 			 ch, NULL, NULL, TO_ROOM, POS_RESTING);
 	}
 
-	if (IS_AFFECTED(ch, AFF_CAMOUFLAGE)) {
-		REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
+	if (IS_AFFECTED(ch, AFF_CAMOUFLAGE) || IS_AFFECTED(ch, AFF_BLEND)) {
+		REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE | AFF_BLEND);
+		affect_bit_strip(ch, TO_AFFECTS, AFF_BLEND);
 		act_puts("You step out from your cover.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act("$n steps out from $m's cover.",

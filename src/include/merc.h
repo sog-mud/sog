@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.206 1999-06-17 19:44:45 avn Exp $
+ * $Id: merc.h,v 1.207 1999-06-18 04:57:11 kostik Exp $
  */
 
 /***************************************************************************
@@ -723,7 +723,8 @@ where_t *where_lookup(flag32_t where);
 #define AFF_ACUTE_VISION	(tt)
 #define AFF_BLACK_SHROUD	(uu)
 #define AFF_QUESTTARGET		(vv)
-
+#define AFF_BLEND		(ww)	/* Forest blending */
+#define AFF_AWARENESS		(xx)	/* Detect blend and camouflage */
 /*
  * *AFF* bits for rooms
  */
