@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.53 1999-02-15 12:51:21 fjoe Exp $
+ * $Id: olc_save.c,v 1.54 1999-02-15 18:19:45 fjoe Exp $
  */
 
 /**************************************************************************
@@ -100,7 +100,7 @@ void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 {
     RACE_DATA *r = race_lookup(pMobIndex->race);
     MPTRIG *mptrig;
-    flag_t temp;
+    flag64_t temp;
 
     if (r == NULL) {
 	log_printf("save_mobile: %d: unknown race", pMobIndex->race);
@@ -145,7 +145,7 @@ void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
     fprintf(fp, "%s ",		format_flags(pMobIndex->form & ~r->form));
     fprintf(fp, "%s ",		format_flags(pMobIndex->parts & ~r->parts));
 
-    fprintf(fp, "%s ",		size_table[pMobIndex->size].name);
+    fprintf(fp, "%s ",		flag_string(size_table, pMobIndex->size));
     fprintf(fp, "%s\n",	IS_NULLSTR(pMobIndex->material) ? pMobIndex->material : "unknown");
 
 /* save diffs */

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.100 1999-02-12 18:14:36 fjoe Exp $
+ * $Id: update.c,v 1.101 1999-02-15 18:19:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -550,7 +550,7 @@ void mobile_update(void)
 	/* Examine all mobs. */
 	for (ch = char_list; ch != NULL; ch = ch_next) {
 		bool bust_prompt = FALSE;
-		flag_t act;
+		flag64_t act;
 
 		ch_next = ch->next;
 
@@ -1023,7 +1023,7 @@ void char_update(void)
 		}
 		
 		if (!ch->fighting) {
-			flag_t skip = AFF_FLYING;
+			flag64_t skip = AFF_FLYING;
 
 			affect_check(ch, TO_AFFECTS, -1);
 
@@ -1664,7 +1664,7 @@ void aggr_update(void)
 
 		for (ch = wch->in_room->people; ch != NULL; ch = ch_next) {
 			int count;
-			flag_t act;
+			flag64_t act;
 
 			ch_next = ch->next_in_room;
 

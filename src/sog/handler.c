@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.109 1999-02-11 09:45:46 kostik Exp $
+ * $Id: handler.c,v 1.110 1999-02-15 18:19:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -68,7 +68,7 @@ int	age_to_num	(int age);
 /* friend stuff -- for NPC's mostly */
 bool is_friend(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	flag_t off;
+	flag64_t off;
 	if (is_same_group(ch, victim))
 		return TRUE;
 
@@ -953,7 +953,7 @@ AFFECT_DATA  *affect_find(AFFECT_DATA *paf, int sn)
 }
 
 void affect_check_list(CHAR_DATA *ch, AFFECT_DATA *paf,
-		       int where, flag_t vector)
+		       int where, flag64_t vector)
 {
 	for (; paf; paf = paf->next)
 		if ((where < 0 || paf->where == where)
@@ -975,7 +975,7 @@ void affect_check_list(CHAR_DATA *ch, AFFECT_DATA *paf,
 }
 
 /* fix object affects when removing one */
-void affect_check(CHAR_DATA *ch, int where, flag_t vector)
+void affect_check(CHAR_DATA *ch, int where, flag64_t vector)
 {
 	OBJ_DATA *obj;
 
@@ -1146,7 +1146,7 @@ void affect_strip(CHAR_DATA *ch, int sn)
 /*
  * strip all affects which affect given bitvector
  */
-void affect_bit_strip(CHAR_DATA *ch, int where, flag_t bits)
+void affect_bit_strip(CHAR_DATA *ch, int where, flag64_t bits)
 {
 	AFFECT_DATA *paf;
 	AFFECT_DATA *paf_next;
@@ -1172,7 +1172,7 @@ bool is_affected(CHAR_DATA *ch, int sn)
 	return FALSE;
 }
 
-bool is_bit_affected(CHAR_DATA *ch, int where, flag_t bits)
+bool is_bit_affected(CHAR_DATA *ch, int where, flag64_t bits)
 {
 	AFFECT_DATA *paf;
 
@@ -3296,7 +3296,7 @@ void show_loc_affect(CHAR_DATA *ch, BUFFER *output,
 }
 
 void show_bit_affect(BUFFER *output, AFFECT_DATA *paf, AFFECT_DATA **ppaf,
-		     sflag_t where)
+		     flag32_t where)
 {
 	char buf[MAX_STRING_LENGTH];
 	WHERE_DATA *w;

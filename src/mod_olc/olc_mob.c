@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.29 1999-02-11 16:40:32 fjoe Exp $
+ * $Id: olc_mob.c,v 1.30 1999-02-15 18:19:44 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -727,28 +727,28 @@ OLC_FUN(mobed_sex)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, mobed_sex, &pMob->sex);
+	return olced_flag32(ch, argument, mobed_sex, &pMob->sex);
 }
 
 OLC_FUN(mobed_act)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, mobed_act, &pMob->act);
+	return olced_flag64(ch, argument, mobed_act, &pMob->act);
 }
 
 OLC_FUN(mobed_affect)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, mobed_affect, &pMob->affected_by);
+	return olced_flag64(ch, argument, mobed_affect, &pMob->affected_by);
 }
 
 OLC_FUN(mobed_prac) 
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, mobed_prac, &pMob->practicer);
+	return olced_flag32(ch, argument, mobed_prac, &pMob->practicer);
 }
 
 OLC_FUN(mobed_ac)
@@ -812,35 +812,35 @@ OLC_FUN(mobed_form)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, mobed_form, &pMob->form);
+	return olced_flag32(ch, argument, mobed_form, &pMob->form);
 }
 
 OLC_FUN(mobed_part)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, mobed_part, &pMob->parts);
+	return olced_flag32(ch, argument, mobed_part, &pMob->parts);
 }
 
 OLC_FUN(mobed_imm)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, mobed_imm, &pMob->imm_flags);
+	return olced_flag32(ch, argument, mobed_imm, &pMob->imm_flags);
 }
 
 OLC_FUN(mobed_res)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, mobed_res, &pMob->res_flags);
+	return olced_flag32(ch, argument, mobed_res, &pMob->res_flags);
 }
 
 OLC_FUN(mobed_vuln)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, mobed_vuln, &pMob->vuln_flags);
+	return olced_flag32(ch, argument, mobed_vuln, &pMob->vuln_flags);
 }
 
 OLC_FUN(mobed_material)
@@ -854,14 +854,14 @@ OLC_FUN(mobed_off)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, mobed_off, &pMob->off_flags);
+	return olced_flag32(ch, argument, mobed_off, &pMob->off_flags);
 }
 
 OLC_FUN(mobed_size)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, mobed_size, &pMob->size);
+	return olced_flag32(ch, argument, mobed_size, &pMob->size);
 }
 
 OLC_FUN(mobed_hitdice)
@@ -932,14 +932,14 @@ OLC_FUN(mobed_startpos)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, mobed_startpos, &pMob->start_pos);
+	return olced_flag32(ch, argument, mobed_startpos, &pMob->start_pos);
 }
 
 OLC_FUN(mobed_defaultpos)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag(ch, argument, mobed_defaultpos, &pMob->default_pos);
+	return olced_flag32(ch, argument, mobed_defaultpos, &pMob->default_pos);
 }
 
 OLC_FUN(mobed_gold)

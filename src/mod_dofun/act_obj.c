@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.115 1999-02-12 18:32:00 fjoe Exp $
+ * $Id: act_obj.c,v 1.116 1999-02-15 18:19:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2488,7 +2488,7 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 	int		cost, roll;
 	char            arg[MAX_INPUT_LENGTH];
 	CHAR_DATA	*pet;
-	flag_t		act;
+	flag64_t		act;
 	ROOM_INDEX_DATA *pRoomIndexNext;
 	ROOM_INDEX_DATA *in_room;
 

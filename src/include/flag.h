@@ -1,5 +1,5 @@
 /*
- * $Id: flag.h,v 1.2 1998-09-17 15:51:19 fjoe Exp $
+ * $Id: flag.h,v 1.3 1999-02-15 18:19:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -17,28 +17,24 @@
 #ifndef _FLAG_H_
 #define _FLAG_H_
 
-/*-------------------------------------------------------------------
- * flag/stat stuff
- *
- * all flags in structures which are edited via OLC MUST BE flag_t
- * (otherwise olced_flag would not work)
- *
- */
+enum {
+	TABLE_BITVAL,	/* table contains bit values		*/
+	TABLE_INTVAL	/* table contains integer values	*/
+};
 
 struct flag
 {
-	char *	name;
-	flag_t	bit;
-	bool	settable;
+	const char *	name;
+	flag64_t	bit;
+	bool		settable;
 };
 
-int		is_stat		(const FLAG *flag_table);
-const FLAG *	flag_lookup	(const FLAG *flag_table, const char* name);
-flag_t		flag_value	(const FLAG *flag_table, const char *argument);
-char *		flag_string	(const FLAG *flag_table, flag_t bits);
+const FLAG *	flag_lookup	(const FLAG *flag64_table, const char* name);
+flag64_t	flag_value	(const FLAG *flag64_table, const char *argument);
+const char *	flag_string	(const FLAG *flag64_table, flag64_t bits);
 
-void show_flags_buf(BUFFER *output, const FLAG *flag_table);
-void show_flags(CHAR_DATA *ch, const FLAG *flag_table);
+void show_flags_buf(BUFFER *output, const FLAG *flag64_table);
+void show_flags(CHAR_DATA *ch, const FLAG *flag64_table);
 
 #endif
 

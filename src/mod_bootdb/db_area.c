@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.23 1999-02-15 12:51:11 fjoe Exp $
+ * $Id: db_area.c,v 1.24 1999-02-15 18:19:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1212,8 +1212,7 @@ DBLOAD_FUN(load_mobiles)
 	pMobIndex->form			= fread_flags(fp) | r->form;
 	pMobIndex->parts		= fread_flags(fp) | r->parts;
 	/* size */
-	CHECK_POS(pMobIndex->size, size_lookup(fread_word(fp)), "size");
-/*	pMobIndex->size			= size_lookup(fread_word(fp)); */
+	pMobIndex->size			= fread_fword(size_table, fp);
 	pMobIndex->material		= str_dup(fread_word(fp));
  
 	for (; ;)
@@ -1314,7 +1313,6 @@ DBLOAD_FUN(load_objects)
 
     for (; ;)
     {
-	char *p;
         int vnum;
         char letter;
         int iHash;
@@ -1347,13 +1345,7 @@ DBLOAD_FUN(load_objects)
         pObjIndex->material		= fread_string(fp);
 	pObjIndex->oprogs		= NULL;
 
-	p = fread_word(fp);
-	pObjIndex->item_type		= item_lookup(p);
-	if (pObjIndex->item_type < 0) 
-		log_printf("load_objects: vnum %d: unknown item type '%s'",
-			   pObjIndex->vnum, p);
-
-/*        pObjIndex->item_type            = item_lookup(fread_word(fp)); */
+	pObjIndex->item_type		= fread_fword(item_types, fp);
         pObjIndex->extra_flags          = fread_flags(fp);
         pObjIndex->wear_flags           = fread_flags(fp);
 	switch(pObjIndex->item_type)
@@ -1377,8 +1369,7 @@ DBLOAD_FUN(load_objects)
 	case ITEM_FOUNTAIN:
             pObjIndex->value[0]         = fread_number(fp);
             pObjIndex->value[1]         = fread_number(fp);
-	    CHECK_POS(pObjIndex->value[2], liq_lookup(fread_word(fp)), "liq_lookup" );
-/*            pObjIndex->value[2]         = liq_lookup(fread_word(fp)); */
+	    pObjIndex->value[2]		= liq_lookup(fread_word(fp));
             pObjIndex->value[3]         = fread_number(fp);
             pObjIndex->value[4]         = fread_number(fp);
             break;

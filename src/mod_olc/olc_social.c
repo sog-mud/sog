@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.2 1999-02-15 13:18:57 fjoe Exp $
+ * $Id: olc_social.c,v 1.3 1999-02-15 18:19:45 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -229,7 +229,7 @@ OLC_FUN(soced_min_pos)
 {
 	social_t *soc;
 	EDIT_SOC(ch, soc);
-	return olced_flag(ch, argument, soced_min_pos, &soc->min_pos);
+	return olced_flag32(ch, argument, soced_min_pos, &soc->min_pos);
 }
 
 OLC_FUN(soced_found_char)

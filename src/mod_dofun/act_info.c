@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.194 1999-02-15 16:02:16 fjoe Exp $
+ * $Id: act_info.c,v 1.195 1999-02-15 18:19:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -563,7 +563,7 @@ char* wear_loc_names[] =
 	"<stuck in>          $t",
 };
 
-void show_obj_to_char(CHAR_DATA *ch, OBJ_DATA *obj, sflag_t wear_loc)
+void show_obj_to_char(CHAR_DATA *ch, OBJ_DATA *obj, flag32_t wear_loc)
 {
 	bool can_see = can_see_obj(ch, obj);
 	act(wear_loc_names[wear_loc], ch,

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.33 1999-02-11 05:38:29 fjoe Exp $
+ * $Id: olc_room.c,v 1.34 1999-02-15 18:19:45 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -746,14 +746,14 @@ OLC_FUN(roomed_room)
 {
 	ROOM_INDEX_DATA *room;
 	EDIT_ROOM(ch, room);
-	return olced_flag(ch, argument, roomed_room, &room->room_flags);
+	return olced_flag32(ch, argument, roomed_room, &room->room_flags);
 }
 
 OLC_FUN(roomed_sector)
 {
 	ROOM_INDEX_DATA *room;
 	EDIT_ROOM(ch, room);
-	return olced_flag(ch, argument, roomed_sector, &room->sector_type);
+	return olced_flag32(ch, argument, roomed_sector, &room->sector_type);
 }
 
 OLC_FUN(roomed_owner)

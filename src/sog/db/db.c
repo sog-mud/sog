@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.103 1999-02-15 12:51:10 fjoe Exp $
+ * $Id: db.c,v 1.104 1999-02-15 18:19:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1622,9 +1622,9 @@ int fread_number(FILE *fp)
 	return number;
 }
 
-flag_t fread_flags(FILE *fp)
+flag64_t fread_flags(FILE *fp)
 {
-	flag_t number;
+	flag64_t number;
 	char c;
 	bool negative = FALSE;
 
@@ -1662,9 +1662,9 @@ flag_t fread_flags(FILE *fp)
 	return number;
 }
 
-flag_t flag_convert(char letter)
+flag64_t flag_convert(char letter)
 {
-	flag_t bitsum = 0;
+	flag64_t bitsum = 0;
 	char i;
 
 	if ('A' <= letter && letter <= 'Z') {
@@ -2258,7 +2258,7 @@ void load_limited_objects()
 #define NBUF 5
 #define NBITS 52
 
-char *format_flags(flag_t flags)
+char *format_flags(flag64_t flags)
 {
 	static int cnt;
 	static char buf[NBUF][NBITS+1];
@@ -2267,7 +2267,7 @@ char *format_flags(flag_t flags)
 	cnt = (cnt + 1) % NBUF;
 
 	for (count = 0; count < NBITS;  count++)
-		if (IS_SET(flags, (flag_t) 1 << count)) {
+		if (IS_SET(flags, (flag64_t) 1 << count)) {
 	        	if (count < 26)
 	        		buf[cnt][pos] = 'A' + count;
 	        	else
@@ -2419,7 +2419,7 @@ void convert_object(OBJ_INDEX_DATA *pObjIndex)
 /*
  * read flag word (not f-word :)
  */
-flag_t fread_fword(const FLAG *table, FILE *fp)
+flag64_t fread_fword(const FLAG *table, FILE *fp)
 {
 	char *name = fread_word(fp);
 
@@ -2429,10 +2429,10 @@ flag_t fread_fword(const FLAG *table, FILE *fp)
 	return flag_value(table, name);
 }
 
-flag_t fread_fstring(const FLAG *table, FILE *fp)
+flag64_t fread_fstring(const FLAG *table, FILE *fp)
 {
 	const char *s = fread_string(fp);
-	flag_t val;
+	flag64_t val;
 
 	if (is_number(s))
 		val = atoi(s);

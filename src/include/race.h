@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.2 1999-02-08 16:34:03 fjoe Exp $
+ * $Id: race.h,v 1.3 1999-02-15 18:19:41 fjoe Exp $
  */
 
 #ifndef _RACE_H_
@@ -33,14 +33,14 @@ struct race_data
 {
 	const char *	name;		/* call name of the race	*/
 	const char *	file_name;	/* filename			*/
-	flag_t		act;		/* act bits			*/
-	flag_t		aff;		/* aff bits			*/
-	flag_t		off;		/* off bits			*/
-	flag_t		imm;		/* imm bits			*/
-	flag_t		res;		/* res bits			*/
-	flag_t		vuln;		/* vuln bits			*/
-	flag_t		form;		/* default form flag		*/
-	flag_t		parts;		/* default body parts		*/
+	flag64_t	act;		/* act bits			*/
+	flag64_t	aff;		/* aff bits			*/
+	flag32_t	off;		/* off bits			*/
+	flag32_t	imm;		/* imm bits			*/
+	flag32_t	res;		/* res bits			*/
+	flag32_t	vuln;		/* vuln bits			*/
+	flag32_t	form;		/* default form flag		*/
+	flag32_t	parts;		/* default body parts		*/
 	RACE_PCDATA *	pcdata;		/* additional data for pc races */
 };
 
@@ -54,7 +54,7 @@ struct race_pcdata
 	varr 	skills;			/* race skills			*/
 	int	stats[MAX_STATS];	/* starting stats		*/
 	int	max_stats[MAX_STATS];	/* maximum stats		*/
-	sflag_t	size;			/* aff bits for the race	*/
+	flag32_t size;			/* aff bits for the race	*/
 	int 	hp_bonus;		/* initial hp bonus		*/
 	int 	mana_bonus;		/* initial mana bonus		*/
 	int 	prac_bonus;		/* initial practice bonus	*/

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.148 1999-02-15 16:02:18 fjoe Exp $
+ * $Id: merc.h,v 1.149 1999-02-15 18:19:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -307,13 +307,13 @@ struct spec_type
 struct affect_data
 {
 	AFFECT_DATA *	next;
-	sflag_t		where;
+	flag32_t	where;
 	int		type;
 	int		level;
 	int		duration;
 	int		location;
 	int		modifier;
-	flag_t 		bitvector;
+	flag64_t 	bitvector;
 };
 
 /* where definitions */
@@ -326,12 +326,12 @@ struct affect_data
 
 struct where_data
 {
-	sflag_t	where;
-	FLAG *	table;
-	char *	format;
+	flag32_t	where;
+	FLAG *		table;
+	const char *	format;
 };
 
-WHERE_DATA *where_lookup(sflag_t where);
+WHERE_DATA *where_lookup(flag32_t where);
 
 /* where definitions for room */
 #define TO_ROOM_AFFECTS 0
@@ -1207,7 +1207,7 @@ struct mob_index_data
 	mlstring *		short_descr;
 	mlstring *		long_descr;
 	mlstring *		description;
-	flag_t			affected_by;
+	flag64_t		affected_by;
 	int			alignment;
 	int			level;
 	int			hitroll;
@@ -1216,21 +1216,21 @@ struct mob_index_data
 	int			damage[3];
 	int			ac[4];
 	int			dam_type;
-	flag_t			act;
-	flag_t			off_flags;
-	flag_t			imm_flags;
-	flag_t			res_flags;
-	flag_t			vuln_flags;
-	flag_t			start_pos;
-	flag_t			default_pos;
-	flag_t			sex;
+	flag64_t		act;
+	flag32_t		off_flags;
+	flag32_t		imm_flags;
+	flag32_t		res_flags;
+	flag32_t		vuln_flags;
+	flag32_t		start_pos;
+	flag32_t		default_pos;
+	flag32_t		sex;
 	int			race;
 	int			wealth;
-	flag_t			form;
-	flag_t			parts;
-	flag_t			size;
+	flag32_t		form;
+	flag32_t		parts;
+	flag32_t		size;
 	const char *		material;
-	flag_t			practicer;
+	flag32_t		practicer;
 	int			clan;
 	int			invis_level;	/* mobinvis level */
 };
@@ -1273,7 +1273,7 @@ struct char_data
 	const char *		prompt;
 	const char *		prefix;
 	int			group;
-	sflag_t			sex;
+	flag32_t		sex;
 	int			class;
 	int			race;
 	int			clan;
@@ -1296,15 +1296,15 @@ struct char_data
 	int			silver;
 	int 			exp;	/* total exp */
 	int			exp_tl;	/* exp gained this level */
-	sflag_t			plr_flags;
-	sflag_t			comm;	/* RT added to pad the vector */
-	sflag_t			imm_flags;
-	sflag_t			res_flags;
-	sflag_t			vuln_flags;
+	flag32_t		plr_flags;
+	flag32_t		comm;	/* RT added to pad the vector */
+	flag32_t		imm_flags;
+	flag32_t		res_flags;
+	flag32_t		vuln_flags;
 	int			invis_level;
 	int			incog_level;
-	flag_t			affected_by;
-	sflag_t			position;
+	flag64_t		affected_by;
+	flag32_t		position;
 	int			practice;
 	int			train;
 	int			carry_weight;
@@ -1319,15 +1319,15 @@ struct char_data
 	int			perm_stat[MAX_STATS];
 	int			mod_stat[MAX_STATS];
 	/* parts stuff */
-	sflag_t			form;
-	sflag_t			parts;
-	sflag_t			size;
+	flag32_t		form;
+	flag32_t		parts;
+	flag32_t		size;
 	const char *		material;
 	/* mobile stuff */
 	int			damage[3];
 	int			dam_type;
-	sflag_t			start_pos;
-	sflag_t			default_pos;
+	flag32_t		start_pos;
+	flag32_t		default_pos;
 	int			mprog_delay;
 	bool			extracted;
 	const char *		in_mind;
@@ -1363,9 +1363,9 @@ struct pc_data
 	int 			perm_hit;
 	int 			perm_mana;
 	int 			perm_move;
-	sflag_t			true_sex;
-	sflag_t			trust;
-	sflag_t			wiznet; /* wiz stuff */
+	flag32_t		true_sex;
+	flag32_t		trust;
+	flag32_t		wiznet; /* wiz stuff */
 	int 			last_level;
 	int			condition	[MAX_COND];
 	varr			learned;
@@ -1462,9 +1462,9 @@ struct obj_index_data
 	int			vnum;
 	int			reset_num;
 	const char *		material;
-	flag_t			item_type;
-	flag_t			extra_flags;
-	flag_t			wear_flags;
+	flag32_t		item_type;
+	flag64_t		extra_flags;
+	flag32_t		wear_flags;
 	int			level;
 	int			condition;
 	int			count;
@@ -1494,9 +1494,9 @@ struct obj_data
 	const char *		name;
 	mlstring *		short_descr;
 	mlstring *		description;
-	sflag_t 		extra_flags;
-	sflag_t 		wear_flags;
-	sflag_t			wear_loc;
+	flag32_t 		extra_flags;
+	flag32_t 		wear_flags;
+	flag32_t		wear_loc;
 	int			weight;
 	uint 			cost;
 	int			level;
@@ -1522,12 +1522,12 @@ struct exit_data
 		ROOM_INDEX_DATA *	to_room;
 		int			vnum;
 	} u1;
-	sflag_t		exit_info;
+	flag32_t	exit_info;
 	int		key;
 	const char *	keyword;
 	mlstring *	description;
 	EXIT_DATA *	next;		/* OLC */
-	sflag_t		rs_flags;	/* OLC */
+	flag32_t	rs_flags;	/* OLC */
 	int		orig_door;	/* OLC */
 };
 
@@ -1580,7 +1580,7 @@ struct area_data
 	int		clan;
 	const char *	builders;	/* OLC */ /* Listing of */
 	int		vnum;		/* OLC */ /* Area vnum  */
-	flag_t		flags;		/* OLC */
+	flag32_t	flags;		/* OLC */
 	int		security;	/* OLC */ /* Value 1-9  */
 	uint		count;
 	mlstring *	resetmsg;
@@ -1613,9 +1613,9 @@ struct room_index_data
 	const char *		owner;
 	int 			clan;
 	int			vnum;
-	flag_t			room_flags;
+	flag32_t		room_flags;
 	int			light;
-	flag_t			sector_type;
+	flag32_t		sector_type;
 	int			heal_rate;
 	int			mana_rate;
 	ROOM_HISTORY_DATA * 	history;
@@ -1651,7 +1651,7 @@ struct mptrig
 {
 	int		type;
 	const char *	phrase;
-	sflag_t		flags;
+	flag32_t	flags;
 	int		vnum;		/* mob prog code vnum */
 	void *		extra;
 	MPTRIG * 	next;
@@ -1695,12 +1695,6 @@ struct mpcode
 #define IS_WATER(var) 	(((var)->sector_type == SECT_WATER_SWIM) || \
 				 ((var)->sector_type == SECT_WATER_NOSWIM))
 #define PERCENT(cur, max)	(max==0?0:((cur)*100)/(max))
-#define CHECK_POS(a, b, c)						\
-		{							\
-			(a) = (b);					\
-			if ((a) < 0)					\
-				bug("CHECK_POS : " c " == %d < 0", a);	\
-		}
 
 /*
  * Character macros.
@@ -1865,7 +1859,7 @@ void	scream_effect	(void *vo, int level, int dam, int target);
 
 /* handler.c */
 AFFECT_DATA	*affect_find (AFFECT_DATA *paf, int sn);
-void	affect_check	(CHAR_DATA *ch, int where, flag_t vector);
+void	affect_check	(CHAR_DATA *ch, int where, flag64_t vector);
 int	count_users	(OBJ_DATA *obj);
 void	deduct_cost	(CHAR_DATA *ch, uint cost);
 void	affect_enchant	(OBJ_DATA *obj);
@@ -1895,9 +1889,9 @@ void	affect_to_obj	(OBJ_DATA *obj, AFFECT_DATA *paf);
 void	affect_remove	(CHAR_DATA *ch, AFFECT_DATA *paf);
 void	affect_remove_obj (OBJ_DATA *obj, AFFECT_DATA *paf);
 void	affect_strip	(CHAR_DATA *ch, int sn);
-void	affect_bit_strip(CHAR_DATA *ch, int where, flag_t bits);
+void	affect_bit_strip(CHAR_DATA *ch, int where, flag64_t bits);
 bool	is_affected	(CHAR_DATA *ch, int sn);
-bool	is_bit_affected	(CHAR_DATA *ch, int where, flag_t bits);
+bool	is_bit_affected	(CHAR_DATA *ch, int where, flag64_t bits);
 int	has_obj_affect	(CHAR_DATA *ch, int vector);
 void	affect_to_room	(ROOM_INDEX_DATA *room, AFFECT_DATA *paf);
 void	affect_remove_room	(ROOM_INDEX_DATA *room, AFFECT_DATA *paf);
@@ -2095,7 +2089,7 @@ ED_DATA * ed_lookup(const char *name, ED_DATA *ed);
 MOB_INDEX_DATA *	get_mob_index	(int vnum);
 OBJ_INDEX_DATA *	get_obj_index	(int vnum);
 ROOM_INDEX_DATA *	get_room_index	(int vnum);
-flag_t	flag_convert	(char letter);
+flag64_t	flag_convert	(char letter);
 void *	alloc_perm	(int sMem);
 int	number_fuzzy	(int number);
 int	number_range	(int from, int to);
@@ -2108,7 +2102,7 @@ int	interpolate	(int level, int value_00, int value_32);
 char *	capitalize	(const char *str);
 void	append_file	(CHAR_DATA *ch, const char *file, const char *str);
 void	tail_chain	(void);
-char *format_flags(flag_t flags);
+char *format_flags(flag64_t flags);
 
 #define chance(num) (number_range(1, 100) <= num)
 

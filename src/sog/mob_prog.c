@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.39 1998-12-23 16:11:17 fjoe Exp $
+ * $Id: mob_prog.c,v 1.40 1999-02-15 18:19:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -584,9 +584,9 @@ int cmd_eval(int vnum, const char *line, int check,
 	    else
 		return(lval_char != NULL && (get_obj_wear(lval_char, buf) != NULL));
 	case CHK_HAS:
-	    return(lval_char != NULL && has_item(lval_char, -1, item_lookup(buf), FALSE));
+	    return(lval_char != NULL && has_item(lval_char, -1, flag_value(item_types, buf), FALSE));
 	case CHK_USES:
-	    return(lval_char != NULL && has_item(lval_char, -1, item_lookup(buf), TRUE));
+	    return(lval_char != NULL && has_item(lval_char, -1, flag_value(item_types, buf), TRUE));
 	case CHK_NAME:
             switch(code)
             {
@@ -602,14 +602,14 @@ int cmd_eval(int vnum, const char *line, int check,
 		    return(lval_obj != NULL && is_name(buf, lval_obj->name));
 	    }
 	case CHK_POS:
-	    return(lval_char != NULL && lval_char->position == position_lookup(buf));
+	    return(lval_char != NULL && lval_char->position == flag_value(position_table, buf));
 	case CHK_CLAN:
 	    return(lval_char != NULL &&
 		   !str_cmp(clan_name(lval_char->clan), buf));
 	case CHK_RACE:
 	    return(lval_char != NULL && lval_char->race == rn_lookup(buf));
 	case CHK_OBJTYPE:
-	    return(lval_obj != NULL && lval_obj->pIndexData->item_type == item_lookup(buf));
+	    return(lval_obj != NULL && lval_obj->pIndexData->item_type == flag_value(item_types, buf));
 	default:;
     }
 

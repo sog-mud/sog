@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.28 1999-02-11 16:40:32 fjoe Exp $
+ * $Id: olc_obj.c,v 1.29 1999-02-15 18:19:45 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -453,8 +453,8 @@ OLC_FUN(objed_addaffect)
 {
 	int location;
 	int modifier;
-	sflag_t where;
-	flag_t bitvector;
+	flag32_t where;
+	flag64_t bitvector;
 	OBJ_INDEX_DATA *pObj;
 	AFFECT_DATA *pAf;
 	char loc[MAX_STRING_LENGTH];
@@ -758,14 +758,14 @@ OLC_FUN(objed_extra)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_flag(ch, argument, objed_extra, &pObj->extra_flags);
+	return olced_flag64(ch, argument, objed_extra, &pObj->extra_flags);
 }
 
 OLC_FUN(objed_wear)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_flag(ch, argument, objed_wear, &pObj->wear_flags);
+	return olced_flag32(ch, argument, objed_wear, &pObj->wear_flags);
 }
 
 OLC_FUN(objed_type)
@@ -773,7 +773,7 @@ OLC_FUN(objed_type)
 	bool changed;
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	changed = olced_flag(ch, argument, objed_type, &pObj->item_type);
+	changed = olced_flag32(ch, argument, objed_type, &pObj->item_type);
 	if (changed) {
 		pObj->value[0] = 0;
 		pObj->value[1] = 0;

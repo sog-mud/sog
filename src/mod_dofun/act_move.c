@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.136 1999-02-12 18:14:32 fjoe Exp $
+ * $Id: act_move.c,v 1.137 1999-02-15 18:19:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1603,7 +1603,7 @@ void do_sneak(CHAR_DATA *ch, const char *argument)
 void do_hide(CHAR_DATA *ch, const char *argument)
 {
 	int chance;
-	sflag_t sector;
+	flag32_t sector;
 
 	if (MOUNTED(ch)) {
 		  char_puts("You can't hide while mounted.\n", ch);
@@ -1649,7 +1649,7 @@ void do_camouflage(CHAR_DATA *ch, const char *argument)
 {
 	int		sn;
 	int		chance;
-	sflag_t		sector;
+	flag32_t		sector;
 
 	if (MOUNTED(ch)) {
 		char_puts("You can't camouflage while mounted.\n", ch);

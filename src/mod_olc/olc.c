@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.38 1999-02-15 12:51:21 fjoe Exp $
+ * $Id: olc.c,v 1.39 1999-02-15 18:19:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -408,14 +408,15 @@ bool olced_exd(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 	return FALSE;
 }
 
-bool olced_flag(CHAR_DATA *ch, const char *argument,
-		OLC_FUN* fun, flag_t *pflag)
+bool olced_flag64(CHAR_DATA *ch, const char *argument,
+		OLC_FUN* fun, flag64_t *pflag)
 {
-	int stat;
 	OLC_CMD_DATA *cmd;
 	OLCED_DATA *olced;
+	const FLAG *flag64_table;
 	const FLAG *f;
-	flag_t marked;
+	flag64_t ttype;
+	const char *tname;
 
 	if ((olced = olced_lookup(ch->desc->editor)) == NULL
 	||  (cmd = cmd_lookup(olced->cmd_table, fun)) == NULL)
@@ -426,17 +427,60 @@ bool olced_flag(CHAR_DATA *ch, const char *argument,
 		return FALSE;
 	}
 
-	if ((stat = is_stat(cmd->arg1)) < 0) {
-		char_printf(ch, "%s: %s: Unknown table of values (report it to implementors).\n", olced->name, cmd->name);
-		return FALSE;
-	}
-
 	if (!str_cmp(argument, "?")) {
 		show_flags(ch, cmd->arg1);
 		return FALSE;
 	}
 
-	if (stat) {
+	flag64_table = cmd->arg1;
+	tname = flag64_table->name;
+	ttype = flag64_table->bit;
+	flag64_table++;
+
+	switch (ttype) {
+	case TABLE_BITVAL: {
+		flag64_t marked = 0;
+
+		/*
+		 * Accept multiple flags.
+		 */
+		for (;;) {
+			char word[MAX_INPUT_LENGTH];
+	
+			argument = one_argument(argument, word);
+	
+			if (word[0] == '\0')
+				break;
+	
+			if ((f = flag_lookup(cmd->arg1, word)) == NULL) {
+				char_printf(ch, "Syntax: %s flag...\n"
+						"Type '%s ?' for a list of "
+						"acceptable flags.\n",
+						cmd->name, cmd->name);
+				return FALSE;
+			}
+			if (!f->settable) {
+				char_printf(ch, "%s: %s: '%s': flag is not "
+						"settable.\n",
+					    olced->name, cmd->name, f->name);
+				continue;
+			}
+			SET_BIT(marked, f->bit);
+		}
+	
+		if (marked) {
+			TOGGLE_BIT(*pflag, marked);
+			char_printf(ch, "%s: %s: '%s': flag(s) toggled.\n",
+				    olced->name, cmd->name,
+				    flag_string(cmd->arg1, marked));
+			return TRUE;
+		}
+		return FALSE;
+
+		/* NOT REACHED */
+	}
+
+	case TABLE_INTVAL:
 		if ((f = flag_lookup(cmd->arg1, argument)) == NULL) {
 			char_printf(ch, "Syntax: %s value\n"
 					"Type '%s ?' for a list of "
@@ -453,44 +497,23 @@ bool olced_flag(CHAR_DATA *ch, const char *argument,
 		char_printf(ch, "%s: %s: '%s': Ok.\n",
 			    olced->name, cmd->name, f->name);
 		return TRUE;
+		/* NOT REACHED */
+
+	default:
+		char_printf(ch, "%s: %s: %s: table type %d unknown (report it to implementors).\n", olced->name, cmd->name, tname, ttype);
+		return FALSE;
+		/* NOT REACHED */
 	}
+}
 
-	marked = 0;
-
-	/*
-	 * Accept multiple flags.
-	 */
-	for (;;) {
-		char word[MAX_INPUT_LENGTH];
-
-		argument = one_argument(argument, word);
-
-		if (word[0] == '\0')
-			break;
-
-		if ((f = flag_lookup(cmd->arg1, word)) == NULL) {
-			char_printf(ch, "Syntax: %s flag...\n"
-					"Type '%s ?' for a list of "
-					"acceptable flags.\n",
-					cmd->name, cmd->name);
-			return FALSE;
-		}
-		if (!f->settable) {
-			char_printf(ch, "%s: %s: '%s': flag is not settable.\n",
-				    olced->name, cmd->name, f->name);
-			continue;
-		}
-		SET_BIT(marked, f->bit);
-	}
-
-	if (marked) {
-		TOGGLE_BIT(*pflag, marked);
-		char_printf(ch, "%s: %s: '%s': flag(s) toggled.\n",
-			    olced->name, cmd->name,
-			    flag_string(cmd->arg1, marked));
-		return TRUE;
-	}
-	return FALSE;
+bool olced_flag32(CHAR_DATA *ch, const char *argument,
+		 OLC_FUN *fun, flag32_t *psflag)
+{
+	flag64_t flag = (flag64_t) (*psflag);
+	bool retval = olced_flag64(ch, argument, fun, &flag);
+	if (retval)
+		*psflag = (flag32_t) flag;
+	return retval;
 }
 
 bool olced_dice(CHAR_DATA *ch, const char *argument, OLC_FUN *fun, int *dice)

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.136 1999-02-12 10:39:42 fjoe Exp $
+ * $Id: act_comm.c,v 1.137 1999-02-15 18:19:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1943,14 +1943,14 @@ struct toggle_t {
 	const char *name;	/* flag name				*/
 	const char *desc;	/* toggle description			*/
 	FLAG *f;		/* flag table				*/
-	sflag_t bit;		/* flag bit				*/
+	flag32_t bit;		/* flag bit				*/
 	const char *msg_on;	/* msg to print when flag toggled on	*/
 	const char *msg_off;	/* ---//--- off				*/
 };
 
 static toggle_t *toggle_lookup(const char *name);
 static void toggle_print(CHAR_DATA *ch, toggle_t *t);
-static sflag_t* toggle_bits(CHAR_DATA *ch, toggle_t *t);
+static flag32_t* toggle_bits(CHAR_DATA *ch, toggle_t *t);
 
 /*
  * alphabetize these table by name if you are adding new entries
@@ -2046,7 +2046,7 @@ DO_FUN(do_toggle)
 	}
 
 	for (; arg[0]; argument = one_argument(argument, arg)) {
-		sflag_t* bits;
+		flag32_t* bits;
 
 		if ((t = toggle_lookup(arg)) == NULL
 		||  (bits = toggle_bits(ch, t)) == NULL)
@@ -2070,7 +2070,7 @@ static toggle_t *toggle_lookup(const char *name)
 
 static void toggle_print(CHAR_DATA *ch, toggle_t *t)
 {
-	sflag_t *bits;
+	flag32_t *bits;
 
 	if ((bits = toggle_bits(ch, t)) < 0)
 		return;
@@ -2081,7 +2081,7 @@ static void toggle_print(CHAR_DATA *ch, toggle_t *t)
 		   IS_SET(*bits, t->bit) ? "ON" : "OFF");
 }
 
-static sflag_t* toggle_bits(CHAR_DATA *ch, toggle_t *t)
+static flag32_t* toggle_bits(CHAR_DATA *ch, toggle_t *t)
 {
 	if (t->f == comm_flags)
 		return &ch->comm;

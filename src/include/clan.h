@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.h,v 1.12 1999-02-12 10:33:28 kostik Exp $
+ * $Id: clan.h,v 1.13 1999-02-15 18:19:38 fjoe Exp $
  */
 
 #ifndef _CLAN_H_
@@ -54,7 +54,7 @@ struct clan_data
 
 	varr		skills;		/* clan skills */
 
-	flag_t		flags;		/* clan flags */
+	flag32_t	flags;		/* clan flags */
 
 	int 		altar_vnum;	/* vnum of room with clan item */
 	int	 	obj_vnum;	/* vnum of clan item */

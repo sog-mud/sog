@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.29 1999-02-15 12:51:21 fjoe Exp $
+ * $Id: olc.h,v 1.30 1999-02-15 18:19:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -118,8 +118,10 @@ bool olced_mlstrnl	(CHAR_DATA *ch, const char *argument,
 bool olced_mlstr_text	(CHAR_DATA *ch, const char *argument,
 			 OLC_FUN *olc_fun, mlstring**);
 bool olced_exd		(CHAR_DATA *ch, const char* argument, ED_DATA**);
-bool olced_flag		(CHAR_DATA *ch, const char* argument,
-			 OLC_FUN *olc_fun, flag_t*);
+bool olced_flag64	(CHAR_DATA *ch, const char* argument,
+			 OLC_FUN *olc_fun, flag64_t*);
+bool olced_flag32	(CHAR_DATA *ch, const char* argument,
+			 OLC_FUN *olc_fun, flag32_t*);
 bool olced_dice		(CHAR_DATA *ch, const char *argument,
 			 OLC_FUN *fun, int *dice);
 bool olced_clan		(CHAR_DATA *ch, const char *argument,

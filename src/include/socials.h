@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: socials.h,v 1.2 1999-02-15 13:18:55 fjoe Exp $
+ * $Id: socials.h,v 1.3 1999-02-15 18:19:43 fjoe Exp $
  */
 
 #ifndef _SOCIALS_H_
@@ -35,7 +35,7 @@
 struct social_t
 {
 	const char *	name;
-	flag_t		min_pos;
+	flag32_t	min_pos;
 
 	const char *	found_char;
 	const char *	found_vict;

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.50 1999-02-12 18:14:35 fjoe Exp $
+ * $Id: skills.c,v 1.51 1999-02-15 18:19:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -432,7 +432,7 @@ DO_FUN(do_glist)
 {
 	char arg[MAX_INPUT_LENGTH];
 	int col = 0;
-	flag_t group = GROUP_NONE;
+	flag64_t group = GROUP_NONE;
 	int sn;
 
 	one_argument(argument, arg);
@@ -641,8 +641,8 @@ int get_skill(CHAR_DATA *ch, int sn)
 			skill = ps->percent;
 	}
 	else {
-		flag_t act = ch->pIndexData->act;
-		flag_t off = ch->pIndexData->off_flags;
+		flag64_t act = ch->pIndexData->act;
+		flag64_t off = ch->pIndexData->off_flags;
 
 		/* mobiles */
 		if (sk->spell_fun)

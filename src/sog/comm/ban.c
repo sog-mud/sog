@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.24 1998-12-01 10:54:23 fjoe Exp $
+ * $Id: ban.c,v 1.25 1999-02-15 18:19:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -62,7 +62,7 @@ struct ban_data
 {
 	BAN_DATA *	next;
 	bool		valid;
-	sflag_t		ban_flags;
+	flag32_t	ban_flags;
 	int		level;
 	const char *	name;
 };

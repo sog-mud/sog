@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.132 1999-02-15 16:02:16 fjoe Exp $
+ * $Id: fight.c,v 1.133 1999-02-15 18:19:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -414,8 +414,8 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 {
 	CHAR_DATA *vch, *vch_next;
-	flag_t act = ch->pIndexData->act;
-	flag_t off = ch->pIndexData->off_flags;
+	flag64_t act = ch->pIndexData->act;
+	flag64_t off = ch->pIndexData->off_flags;
 
 	/* no attack by ridden mobiles except spec_casts */
 	if (RIDDEN(ch)) {
@@ -615,7 +615,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 	 * Calculate to-hit-armor-class-0 versus armor.
 	 */
 	if (IS_NPC(ch)) {
-		flag_t act = ch->pIndexData->act;
+		flag64_t act = ch->pIndexData->act;
 
 		thac0_00 = 20;
 		thac0_32 = -4;	 /* as good as a thief */
@@ -1393,7 +1393,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	 * Wimp out?
 	 */
 	if (IS_NPC(victim) && dam > 0 && victim->wait < PULSE_VIOLENCE / 2) {
-		flag_t act = victim->pIndexData->act;
+		flag64_t act = victim->pIndexData->act;
 		if ((IS_SET(act, ACT_WIMPY) && number_bits(2) == 0 &&
 		     victim->hit < victim->max_hit / 5)
 		||  (IS_AFFECTED(victim, AFF_CHARM) &&

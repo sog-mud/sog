@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.115 1999-02-15 13:18:51 fjoe Exp $
+ * $Id: interp.c,v 1.116 1999-02-15 18:19:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -511,7 +511,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	bool found;
 	social_t *soc = NULL;
 	int min_pos;
-	flag_t cmd_flags;
+	flag64_t cmd_flags;
 
 	/*
 	 * Strip leading spaces.

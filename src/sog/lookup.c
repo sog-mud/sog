@@ -1,5 +1,5 @@
 /*
- * $Id: lookup.c,v 1.15 1998-12-03 14:08:10 fjoe Exp $
+ * $Id: lookup.c,v 1.16 1999-02-15 18:19:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,26 +45,6 @@
 #include <time.h>
 #include "merc.h"
 #include "db/db.h"
-
-int position_lookup(const char *name)
-{
-	return flag_value(position_table, name);
-}
-
-int size_lookup(const char *name)
-{
-	return flag_value(size_table, name);
-}
-
-int weapon_lookup(const char *name)
-{
-	return flag_value(weapon_class, name);
-}
-
-int item_lookup(const char *name)
-{
-	return flag_value(item_types, name);
-}
 
 /* returns material number */
 int material_lookup(const char *name)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.11 1999-02-09 09:33:58 kostik Exp $
+ * $Id: skills.h,v 1.12 1999-02-15 18:19:41 fjoe Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -41,8 +41,8 @@
 struct skill_data {
 	const char *	name;			/* skill name */
 	SPELL_FUN *	spell_fun;		/* spell function */
-	sflag_t		target;			/* legal target */
-	sflag_t		minimum_position;	/* position for caster */
+	flag32_t	target;			/* legal target */
+	flag32_t	minimum_position;	/* position for caster */
 	int *		pgsn;			/* pointer to gsn */
 	int		slot;			/* slot for #OBJOLD loading */
 	int		min_mana;		/* min mana used */
@@ -50,9 +50,9 @@ struct skill_data {
 	const char *	noun_damage;		/* damage message */
 	const char *	msg_off;		/* wear off message */
 	const char *	msg_obj;		/* wear off message for obj */
-	int		flags;			/* skill flags */
+	flag32_t	flags;			/* skill flags */
 	const char *	restrict_race;		/* race restrictions */
-	sflag_t		group;			/* skill group */
+	flag32_t	group;			/* skill group */
 };
 
 extern varr skills;

@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.36 1999-02-12 18:14:35 fjoe Exp $
+ * $Id: special.c,v 1.37 1999-02-15 18:19:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1449,7 +1449,7 @@ static void spec_cast(CHAR_DATA *ch, const char *spell_name, CHAR_DATA *victim)
 	CHAR_DATA *vch;
 	char name[MAX_STRING_LENGTH];
 	int sn;
-	sflag_t target;
+	flag32_t target;
 
 	if ((sn = sn_lookup(spell_name)) < 0)
 		return;

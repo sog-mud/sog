@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.6 1998-12-23 16:11:20 fjoe Exp $
+ * $Id: olc_lang.c,v 1.7 1999-02-15 18:19:44 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -202,7 +202,7 @@ OLC_FUN(langed_flags)
 {
 	LANG_DATA *l;
 	EDIT_LANG(ch, l);
-	return olced_flag(ch, argument, langed_flags, &l->flags);
+	return olced_flag32(ch, argument, langed_flags, &l->flags);
 }
 
 OLC_FUN(langed_slangof)

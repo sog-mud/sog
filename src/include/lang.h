@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.h,v 1.5 1999-02-12 16:22:41 fjoe Exp $
+ * $Id: lang.h,v 1.6 1999-02-15 18:19:43 fjoe Exp $
  */
 
 #ifndef _LANG_H_
@@ -34,7 +34,7 @@ struct lang_data {
 	int		vnum;
 	const char *	file_name;
 
-	flag_t		flags;
+	flag32_t	flags;
 	int		slang_of;		/* id of base lang */
 
 	const char *	file_genders;

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.43 1999-02-15 16:02:18 fjoe Exp $
+ * $Id: tables.c,v 1.44 1999-02-15 18:19:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,8 +46,15 @@
 #include "merc.h"
 #include "db/lang.h"
 
+/*
+ * first element of each FLAG[] table describes type of values
+ * in the table.
+ */
+
 FLAG slang_table[] =
 {
+	{ "",			TABLE_INTVAL,			},
+
 	{ "common",		SLANG_COMMON,		TRUE	},
 	{ "human",		SLANG_HUMAN,		TRUE	},
 	{ "elvish",		SLANG_ELVISH,		TRUE	},
@@ -62,6 +69,8 @@ FLAG slang_table[] =
 
 FLAG size_table[] =
 { 
+	{ "",			TABLE_INTVAL			},
+
 	{ "tiny",		SIZE_TINY,		TRUE	},
 	{ "small", 		SIZE_SMALL,		TRUE	},
 	{ "medium",		SIZE_MEDIUM,		TRUE	},
@@ -74,6 +83,8 @@ FLAG size_table[] =
 
 FLAG act_flags[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "npc",		ACT_NPC,		FALSE	},
 	{ "sentinel",		ACT_SENTINEL,		TRUE	},
 	{ "scavenger",		ACT_SCAVENGER,		TRUE	},
@@ -106,6 +117,8 @@ FLAG act_flags[] =
 
 FLAG plr_flags[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "npc",		PLR_NPC,		FALSE	},
 	{ "autolook",		PLR_AUTOLOOK,		FALSE	},
 	{ "autoassist",		PLR_AUTOASSIST,		FALSE	},
@@ -134,6 +147,8 @@ FLAG plr_flags[] =
 
 FLAG affect_flags[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "blind",		AFF_BLIND,		TRUE	},
 	{ "invisible",		AFF_INVIS,		TRUE	},
 	{ "detect_evil",	AFF_DETECT_EVIL,	TRUE	},
@@ -186,6 +201,8 @@ FLAG affect_flags[] =
 
 FLAG off_flags[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "area_attack",	OFF_AREA_ATTACK,	TRUE	},
 	{ "backstab",		OFF_BACKSTAB,		TRUE	},
 	{ "bash",		OFF_BASH,		TRUE	},
@@ -212,6 +229,8 @@ FLAG off_flags[] =
 
 FLAG imm_flags[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "summon",		IMM_SUMMON,		TRUE	},
 	{ "charm",		IMM_CHARM,		TRUE	},
 	{ "magic",		IMM_MAGIC,		TRUE	},
@@ -241,6 +260,8 @@ FLAG imm_flags[] =
 
 FLAG form_flags[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "edible",		FORM_EDIBLE,		TRUE	},
 	{ "poison",		FORM_POISON,		TRUE	},
 	{ "magical",		FORM_MAGICAL,		TRUE	},
@@ -272,6 +293,8 @@ FLAG form_flags[] =
 
 FLAG part_flags[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "head",		PART_HEAD,		TRUE	},
 	{ "arms",		PART_ARMS,		TRUE	},
 	{ "legs",		PART_LEGS,		TRUE	},
@@ -299,6 +322,8 @@ FLAG part_flags[] =
 
 FLAG comm_flags[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "quiet",		COMM_QUIET,		TRUE	},
 	{ "deaf",		COMM_DEAF,		TRUE	},
 	{ "nowiz",		COMM_NOWIZ,		TRUE	},
@@ -333,6 +358,8 @@ FLAG comm_flags[] =
 
 FLAG clan_flags[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "hidden",		CLAN_HIDDEN,		TRUE	},
 	{ "changed",		CLAN_CHANGED,		FALSE	},
 	{ NULL }
@@ -340,6 +367,8 @@ FLAG clan_flags[] =
 
 FLAG area_flags[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "hometown",		AREA_HOMETOWN,		TRUE	},
 	{ "under_construction",	AREA_UNDER_CONSTRUCTION,TRUE	},
 	{ "noquest",		AREA_NOQUEST,		TRUE	},
@@ -349,6 +378,8 @@ FLAG area_flags[] =
 
 FLAG sex_table[] =
 {
+	{ "",			TABLE_INTVAL			},
+
 	{ "none",		SEX_NEUTRAL,		TRUE	},
 	{ "male",		SEX_MALE,		TRUE	},
 	{ "female",		SEX_FEMALE,		TRUE	},
@@ -360,6 +391,8 @@ FLAG sex_table[] =
 
 FLAG exit_flags[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "door",		EX_ISDOOR,		TRUE    },
 	{ "closed",		EX_CLOSED,		TRUE	},
 	{ "locked",		EX_LOCKED,		TRUE	},
@@ -376,6 +409,8 @@ FLAG exit_flags[] =
 
 FLAG door_resets[] =
 {
+	{ "",			TABLE_INTVAL			},
+
 	{ "open",			0,		TRUE	},
 	{ "closed",			1,		TRUE	},
 	{ "closed and locked",		2,		TRUE	},
@@ -384,6 +419,8 @@ FLAG door_resets[] =
 
 FLAG room_flags[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "dark",		ROOM_DARK,		TRUE	},
 	{ "nomob",		ROOM_NOMOB,		TRUE	},
 	{ "indoors",		ROOM_INDOORS,		TRUE	},
@@ -410,6 +447,8 @@ FLAG room_flags[] =
 
 FLAG sector_types[] =
 {
+	{ "",			TABLE_INTVAL			},
+
 	{ "inside",		SECT_INSIDE,		TRUE	},
 	{ "city",		SECT_CITY,		TRUE	},
 	{ "field",		SECT_FIELD,		TRUE	},
@@ -426,6 +465,8 @@ FLAG sector_types[] =
 
 FLAG item_types[] =
 {
+	{ "",			TABLE_INTVAL			},
+
 	{ "light",		ITEM_LIGHT,		TRUE	},
 	{ "scroll",		ITEM_SCROLL,		TRUE	},
 	{ "wand",		ITEM_WAND,		TRUE	},
@@ -461,6 +502,8 @@ FLAG item_types[] =
 
 FLAG extra_flags[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "glow",		ITEM_GLOW,		TRUE	},
 	{ "hum",		ITEM_HUM,		TRUE	},
 	{ "dark",		ITEM_DARK,		TRUE	},
@@ -498,6 +541,8 @@ FLAG extra_flags[] =
 
 FLAG wear_flags[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "take",		ITEM_TAKE,		TRUE	},
 	{ "finger",		ITEM_WEAR_FINGER,	TRUE	},
 	{ "neck",		ITEM_WEAR_NECK,		TRUE	},
@@ -527,6 +572,8 @@ FLAG wear_flags[] =
 */
 FLAG apply_flags[] =
 {
+	{ "",			TABLE_INTVAL			},
+
 	{ "strength",		APPLY_STR,		TRUE	},
 	{ "dexterity",		APPLY_DEX,		TRUE	},
 	{ "intelligence",	APPLY_INT,		TRUE	},
@@ -561,6 +608,8 @@ FLAG apply_flags[] =
 
 FLAG rapply_flags[] =
 {
+	{ "",			TABLE_INTVAL			},
+
 	{ "healrate",		APPLY_ROOM_HEAL,	TRUE	},
 	{ "manarate",		APPLY_ROOM_MANA,	TRUE	},
 	{ NULL }
@@ -571,6 +620,8 @@ FLAG rapply_flags[] =
  */
 FLAG wear_loc_strings[] =
 {
+	{ "",				TABLE_INTVAL			},
+
 	{ "in the inventory",		WEAR_NONE,		TRUE	},
 	{ "as a light",			WEAR_LIGHT,		TRUE	},
 	{ "on the left finger",		WEAR_FINGER_L,		TRUE	},
@@ -600,6 +651,8 @@ FLAG wear_loc_strings[] =
 
 FLAG wear_loc_flags[] =
 {
+	{ "",			TABLE_INTVAL			},
+
 	{ "none",		WEAR_NONE,		TRUE	},
 	{ "inventory",		WEAR_NONE,		TRUE	},
 	{ "light",		WEAR_LIGHT,		TRUE	},
@@ -630,6 +683,8 @@ FLAG wear_loc_flags[] =
 
 FLAG cont_flags[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "closable",		CONT_CLOSEABLE,		TRUE	},
 	{ "pickproof",		CONT_PICKPROOF,		TRUE	},
 	{ "closed",		CONT_CLOSED,		TRUE	},
@@ -641,6 +696,8 @@ FLAG cont_flags[] =
 
 FLAG ac_type[] =
 {
+	{ "",			TABLE_INTVAL			},
+
 	{ "pierce",		AC_PIERCE,		TRUE	},
 	{ "bash",		AC_BASH,		TRUE	},
 	{ "slash",		AC_SLASH,		TRUE	},
@@ -650,6 +707,8 @@ FLAG ac_type[] =
 
 FLAG weapon_class[] =
 {
+	{ "",			TABLE_INTVAL			},
+
 	{ "exotic",		WEAPON_EXOTIC,		TRUE    },
 	{ "sword",		WEAPON_SWORD,		TRUE    },
 	{ "dagger",		WEAPON_DAGGER,		TRUE    },
@@ -668,6 +727,8 @@ FLAG weapon_class[] =
 
 FLAG weapon_type2[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "flaming",		WEAPON_FLAMING,		TRUE	},
 	{ "frost",		WEAPON_FROST,		TRUE	},
 	{ "vampiric",		WEAPON_VAMPIRIC,	TRUE	},
@@ -683,6 +744,8 @@ FLAG weapon_type2[] =
 
 FLAG res_flags[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "summon",		RES_SUMMON,		TRUE	},
 	{ "charm",		RES_CHARM,		TRUE	},
 	{ "magic",		RES_MAGIC,		TRUE	},
@@ -711,6 +774,8 @@ FLAG res_flags[] =
 
 FLAG vuln_flags[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "summon",		VULN_SUMMON,		TRUE	},
 	{ "charm",		VULN_CHARM,		TRUE	},
 	{ "magic",		VULN_MAGIC,		TRUE	},
@@ -739,6 +804,8 @@ FLAG vuln_flags[] =
 
 FLAG position_table[] =
 {
+	{ "",			TABLE_INTVAL			},
+
 	{ "dead",		POS_DEAD,		TRUE	},
 	{ "mort",		POS_MORTAL,		TRUE	},
 	{ "incap",		POS_INCAP,		TRUE	},
@@ -753,6 +820,8 @@ FLAG position_table[] =
 
 FLAG position_names[] =
 {
+	{ "",			TABLE_INTVAL	},
+
 	{ "DEAD",		POS_DEAD	},
 	{ "mortally wounded",	POS_MORTAL	},
 	{ "incapacitated",	POS_INCAP	},
@@ -767,6 +836,8 @@ FLAG position_names[] =
 
 FLAG portal_flags[]=
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "normal_exit",	GATE_NORMAL_EXIT,	TRUE	},
 	{ "nocurse",		GATE_NOCURSE,		TRUE	},
 	{ "gowith",		GATE_GOWITH,		TRUE	},
@@ -777,6 +848,8 @@ FLAG portal_flags[]=
 
 FLAG furniture_flags[]=
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "stand_at",		STAND_AT,		TRUE	},
 	{ "stand_on",		STAND_ON,		TRUE	},
 	{ "stand_in",		STAND_IN,		TRUE	},
@@ -798,6 +871,8 @@ FLAG furniture_flags[]=
 
 FLAG apply_types[] =
 {
+	{ "",			TABLE_INTVAL			},
+
 	{ "affects",		TO_AFFECTS,		TRUE	},
 /*	{ "object",		TO_OBJECT,		TRUE	}, */
 	{ "immune",		TO_IMMUNE,		TRUE	},
@@ -809,6 +884,8 @@ FLAG apply_types[] =
 
 FLAG raffect_flags[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "shocking",		RAFF_SHOCKING,		TRUE	},
 	{ "lshield",		RAFF_LSHIELD,		TRUE	},
 	{ "thief_trap",		RAFF_THIEF_TRAP,	TRUE	},
@@ -824,6 +901,8 @@ FLAG raffect_flags[] =
 
 FLAG skill_groups[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "none",		GROUP_NONE,		TRUE	},
 	{ "weaponsmaster",	GROUP_WEAPONSMASTER,	TRUE	},
 	{ "attack",		GROUP_ATTACK,		TRUE	},
@@ -854,6 +933,8 @@ FLAG skill_groups[] =
 
 FLAG mptrig_types[] =
 {
+	{ "",			TABLE_INTVAL			},
+
 	{ "act",		TRIG_ACT,		TRUE	},
 	{ "bribe",		TRIG_BRIBE,		TRUE 	},
 	{ "death",		TRIG_DEATH,		TRUE    },
@@ -875,12 +956,16 @@ FLAG mptrig_types[] =
 
 FLAG mptrig_flags[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "case-sensitive",	TRIG_CASEDEP,		FALSE	},
 	{ NULL }
 };
 
 FLAG skill_targets[] =
 {
+	{ "",			TABLE_INTVAL			},
+
 	{ "ignore",		TAR_IGNORE,		TRUE	},
 	{ "charoff",		TAR_CHAR_OFFENSIVE,	TRUE	},
 	{ "chardef",		TAR_CHAR_DEFENSIVE,	TRUE	},
@@ -893,6 +978,8 @@ FLAG skill_targets[] =
 
 FLAG stat_names[] =
 {
+	{ "",			TABLE_INTVAL			},
+
 	{ "str",		STAT_STR,		TRUE	},
 	{ "int",		STAT_INT,		TRUE	},
 	{ "dex",		STAT_DEX,		TRUE	},
@@ -904,6 +991,8 @@ FLAG stat_names[] =
 
 FLAG skill_flags[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "clan",		SKILL_CLAN,		TRUE	},
 	{ "range",		SKILL_RANGE,		TRUE	},
 	{ "area_attack",	SKILL_AREA_ATTACK,	TRUE	},
@@ -913,12 +1002,16 @@ FLAG skill_flags[] =
 
 FLAG class_flags[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "mage",		CLASS_MAGIC,		TRUE	},
 	{ NULL }
 };
 
 FLAG align_names[] =
 {
+	{ "",			TABLE_INTVAL			},
+
 	{ "evil",		CR_EVIL,		TRUE	},
 	{ "neutral",		CR_NEUTRAL,		TRUE	},
 	{ "good",		CR_GOOD,		TRUE	},
@@ -927,6 +1020,8 @@ FLAG align_names[] =
 
 FLAG lang_flags[] =
 {
+	{ "",			TABLE_BITVAL			},
+
 	{ "hidden",		LANG_HIDDEN,		TRUE	},
 	{ "genders_changed",	LANG_GENDERS_CHANGED,	FALSE	},
 	{ "cases_changed",	LANG_CASES_CHANGED,	FALSE	},
@@ -936,6 +1031,8 @@ FLAG lang_flags[] =
 
 FLAG ethos_table[] =
 {
+	{ "",			TABLE_INTVAL			},
+
 	{ "lawful",		ETHOS_LAWFUL,		TRUE	},
 	{ "neutral",		ETHOS_NEUTRAL,		TRUE	},
 	{ "chaotic",		ETHOS_CHAOTIC,		TRUE	},
@@ -1237,7 +1334,7 @@ WHERE_DATA where_table[] =
 	{ -1 }
 };
 
-WHERE_DATA *where_lookup(sflag_t where)
+WHERE_DATA *where_lookup(flag32_t where)
 {
 	WHERE_DATA *wd;
 
