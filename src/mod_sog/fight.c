@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.92 1998-10-26 08:38:19 fjoe Exp $
+ * $Id: fight.c,v 1.93 1998-10-27 08:17:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -934,11 +934,10 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 		if (IS_WEAPON_STAT(wield, WEAPON_VORPAL)) {
 			int chance;
 
-			chance = (get_skill(ch, get_weapon_sn(wield)) +
-				  get_curr_stat(ch, STAT_STR) * 4 - 1) / 200 +
-				  1;
+			chance = get_skill(ch, get_weapon_sn(wield)) +
+				 get_curr_stat(ch, STAT_STR) * 4;
 
-			if (chance > number_range(1, 1000)) {
+			if (chance > number_range(1, 200000)) {
 				act("$p makes an huge arc in the air, "
 				    "chopping $n's head OFF!",
 				     victim, wield, NULL, TO_ROOM);

@@ -1,5 +1,5 @@
 /*
- * $Id: repair.c,v 1.10 1998-10-26 08:38:22 fjoe Exp $
+ * $Id: repair.c,v 1.11 1998-10-27 08:17:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -369,7 +369,8 @@ void check_eq_damage(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	if (IS_NPC(victim) || number_percent() < 94)
 		return;
 
-	wield = get_eq_char(ch, loc);
+	if ((wield = get_eq_char(ch, loc)) == NULL)
+		return;
  	sn = get_weapon_sn(wield);
  	skill = get_skill(ch, sn);
 
