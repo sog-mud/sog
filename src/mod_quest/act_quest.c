@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.74 1998-10-10 04:36:24 fjoe Exp $
+ * $Id: act_quest.c,v 1.75 1998-10-12 08:47:46 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -785,6 +785,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 	/* ok, give him requested item */
 
 	obj = create_named_obj(get_obj_index(item_vnum), ch->level, ch->name);
+	obj->owner = str_dup(ch->name);
 	mlstr_free(obj->short_descr);
 	obj->short_descr = mlstr_printf(obj->pIndexData->short_descr,
 			IS_GOOD(ch) ?		"holy" :

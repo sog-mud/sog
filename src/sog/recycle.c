@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.29 1998-10-12 04:56:40 fjoe Exp $
+ * $Id: recycle.c,v 1.30 1998-10-12 08:47:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -42,6 +42,7 @@
 
 #include <sys/types.h>
 #include <sys/time.h>
+#include <regex.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -256,13 +257,34 @@ MPTRIG *mptrig_new(int type, const char *phrase, int vnum)
 
 	mptrig = calloc(1, sizeof(*mptrig));
 	mptrig->type	= type;
-	mptrig->phrase	= str_dup(phrase);
 	mptrig->vnum	= vnum;
+	mptrig->phrase	= str_dup(phrase);
+
 	for (p = mptrig->phrase; *p; p++)
 		if (ISUPPER(*p)) {
 			SET_BIT(mptrig->flags, TRIG_CASEDEP);
 			break;
 		}
+
+	if ((type == TRIG_ACT || type == TRIG_SPEECH) && phrase[0] == '*') {
+		int errcode;
+		int cflags = REG_EXTENDED | REG_NOSUB;
+
+		SET_BIT(mptrig->flags, TRIG_REGEXP);
+		if (!IS_SET(mptrig->flags, TRIG_CASEDEP))
+			cflags |= REG_ICASE;
+
+		mptrig->extra = malloc(sizeof(regex_t));
+		errcode = regcomp(mptrig->extra, phrase+1, cflags);
+		if (errcode) {
+			char buf[MAX_STRING_LENGTH];
+
+			regerror(errcode, mptrig->extra, buf, sizeof(buf));
+			log_printf("bad trigger for vnum %d (phrase '%s'): %s",
+				   vnum, phrase, buf);
+		}
+	}
+		
 	return mptrig;
 }
 
@@ -284,5 +306,12 @@ void mptrig_free(MPTRIG *mp)
 {
 	if (!mp)
 		return;
+
+	if (IS_SET(mp->flags, TRIG_REGEXP)) {
+		regfree(mp->extra);
+		free(mp->extra);
+	}
+
+	free_string(mp->phrase);
 	free(mp);
 }

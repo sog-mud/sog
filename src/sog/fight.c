@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.83 1998-10-12 04:56:37 fjoe Exp $
+ * $Id: fight.c,v 1.84 1998-10-12 08:47:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -121,6 +121,10 @@ void violence_update(void)
 
 	for (ch = char_list; ch != NULL; ch = ch_next) {
 		ch_next = ch->next;
+
+		/* decrement the wait */
+		if (ch->desc == NULL)
+			ch->wait = UMAX(0, ch->wait - PULSE_VIOLENCE);
 
 		if ((victim = ch->fighting) == NULL || ch->in_room == NULL)
 			continue;
@@ -259,10 +263,6 @@ void check_assist(CHAR_DATA *ch,CHAR_DATA *victim)
 void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 {
 	int     chance;
-
-	/* decrement the wait */
-	if (ch->desc == NULL)
-		ch->wait = UMAX(0,ch->wait - PULSE_VIOLENCE);
 
 	/* no attacks for stunnies -- just a check */
 	if (ch->position < POS_RESTING)
@@ -1720,6 +1720,7 @@ void make_corpse(CHAR_DATA *ch)
 	if (IS_NPC(ch)) {
 		/* XXX */
 		corpse		= create_named_obj(get_obj_index(OBJ_VNUM_CORPSE_NPC), ch->level, mlstr_mval(ch->short_descr));
+		corpse->owner	= str_dup(ch->name);
 		corpse->timer	= number_range(3, 6);
 		if (ch->gold > 0 || ch->silver > 0)
 		  {
@@ -1743,6 +1744,7 @@ void make_corpse(CHAR_DATA *ch)
 		  i = 1;
 
 		corpse		= create_named_obj(get_obj_index(OBJ_VNUM_CORPSE_PC), ch->level, ch->name);
+		corpse->owner	= str_dup(ch->name);
 		corpse->timer	= number_range(25, 40);
 		REMOVE_BIT(ch->act,PLR_CANLOOT);
 		corpse->owner = str_dup(ch->name);
@@ -1871,8 +1873,8 @@ void death_cry_org(CHAR_DATA *ch, int part)
 						ch->name;
 		obj		= create_named_obj(get_obj_index(vnum), 0,
 					name);
-		obj->timer	= number_range(4, 7);
 		obj->owner = str_dup(name);
+		obj->timer	= number_range(4, 7);
 
 		if (obj->pIndexData->item_type == ITEM_FOOD) {
 			if (IS_SET(ch->form,FORM_POISON))

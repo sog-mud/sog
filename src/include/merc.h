@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.95 1998-10-12 04:56:39 fjoe Exp $
+ * $Id: merc.h,v 1.96 1998-10-12 08:47:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1655,6 +1655,7 @@ struct room_index_data
 
 /* trigger flags */
 #define TRIG_CASEDEP	(A)
+#define TRIG_REGEXP	(B)
 
 struct mptrig
 {
@@ -1662,6 +1663,7 @@ struct mptrig
 	const char *	phrase;
 	sflag_t		flags;
 	int		vnum;		/* mob prog code vnum */
+	void *		extra;
 	MPTRIG * 	next;
 };
 

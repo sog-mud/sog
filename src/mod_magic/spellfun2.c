@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.50 1998-10-12 04:56:39 fjoe Exp $
+ * $Id: spellfun2.c,v 1.51 1998-10-12 08:47:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2839,6 +2839,7 @@ void spell_eyed_sword (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	
 	eyed	= create_named_obj(get_obj_index(OBJ_VNUM_EYED_SWORD), 0,
 				      ch->name);
+	eyed->owner = str_dup(ch->name);
 	eyed->altar = hometown_table[ch->hometown].altar[i];
 	eyed->pit = hometown_table[ch->hometown].pit[i];
 	eyed->level = ch->level;

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.33 1998-10-09 13:42:42 fjoe Exp $
+ * $Id: mob_prog.c,v 1.34 1998-10-12 08:47:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,6 +45,7 @@
 #include <time.h>
 #include <sys/types.h>
 #include <ctype.h>
+#include <regex.h>
 #include "merc.h"
 #include "mob_cmds.h"
 #include "mob_prog.h"
@@ -1118,9 +1119,19 @@ void mp_act_trigger(const char *argument, CHAR_DATA *mob, CHAR_DATA *ch,
 	char *l = strlwr(argument);
 
 	for (mptrig = mob->pIndexData->mptrig_list; mptrig; mptrig = mptrig->next) {
- 		if (mptrig->type == type 
-		&&  strstr(IS_SET(mptrig->flags, TRIG_CASEDEP) ?
-		    argument : l, mptrig->phrase)) {
+		bool match;
+
+ 		if (mptrig->type != type)
+			continue;
+
+		match = FALSE;
+		if (IS_SET(mptrig->flags, TRIG_REGEXP)) 
+			match = !regexec(mptrig->extra, argument, 0, NULL, 0);
+		else if (strstr(IS_SET(mptrig->flags, TRIG_CASEDEP) ?
+				argument : l, mptrig->phrase))
+			match = TRUE;
+
+		if (match) {
 			program_flow(mptrig->vnum, mob, ch, arg1, arg2);
 			break;
 		}

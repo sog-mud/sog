@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.68 1998-10-12 04:56:40 fjoe Exp $
+ * $Id: save.c,v 1.69 1998-10-12 08:47:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -432,7 +432,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 /* do not save named objs if ch is not owner */
 	if (!IS_NULLSTR(obj->owner)
 	&&  str_cmp(obj->owner, ch->name)) {
-		log_printf("%s: %s of %s", ch->name, obj->name, obj->owner);
+		log_printf("%s: '%s' of %s", ch->name, obj->name, obj->owner);
 		act("$p vanishes!", ch, obj, NULL, TO_CHAR);
 		extract_obj(obj);
 		return;

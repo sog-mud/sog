@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.67 1998-10-12 04:56:38 fjoe Exp $
+ * $Id: spellfun.c,v 1.68 1998-10-12 08:47:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -107,8 +107,10 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_NPC(ch)) {
-		if (ch->wait)
+		if (ch->wait) {
+			log_printf("%s: wait state %d", ch->name, ch->wait);
 			return;
+		}
 		sn = sn_lookup(arg1);
 		chance = get_skill(ch, sn);
 	}
