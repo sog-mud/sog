@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_update.c,v 1.5 2000-06-05 12:06:25 fjoe Exp $
+ * $Id: init_update.c,v 1.6 2000-06-06 09:47:45 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -115,7 +115,7 @@ DBLOAD_FUN(load_uhandler)
 
 		case 'M':
 			KEY("Module", hdlr.mod,
-			    fread_fstring(module_names, fp));
+			    fread_fword(module_names, fp));
 			break;
 
 		case 'N':
