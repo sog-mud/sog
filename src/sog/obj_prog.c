@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.39 1998-10-10 04:36:24 fjoe Exp $
+ * $Id: obj_prog.c,v 1.40 1998-10-10 06:25:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1517,20 +1517,28 @@ int wear_prog_eyed_sword(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 int wear_prog_katana_sword(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (obj->pIndexData->item_type == ITEM_WEAPON 
-		&& IS_WEAPON_STAT(obj,WEAPON_KATANA)
-		&& strstr(mlstr_mval(obj->ed->description), ch->name) != NULL)
-	{
-	if (ch->level <= 10)			obj->value[2] = 3;
-	else if (ch->level > 10 && ch->level <= 20)   obj->value[2] = 4;
-	else if (ch->level > 20 && ch->level <= 30)   obj->value[2] = 5;
-	else if (ch->level > 30 && ch->level <= 40)   obj->value[2] = 6;
-	else if (ch->level > 40 && ch->level <= 50)   obj->value[2] = 7;
-	else if (ch->level > 50 && ch->level <= 60)   obj->value[2] = 8;
-	else if (ch->level > 60 && ch->level <= 70)   obj->value[2] = 9;
-	else if (ch->level > 70 && ch->level <= 80)   obj->value[2] = 11;
-	else obj->value[2] = 12;
-	obj->level = ch->level;
-	char_puts("You feel your katana like a part of you!\n\r",ch);
+	&&  IS_WEAPON_STAT(obj, WEAPON_KATANA)
+	&&  !str_cmp(obj->owner, ch->name)) {
+		if (ch->level <= 10)
+			obj->value[2] = 3;
+		else if (ch->level > 10 && ch->level <= 20)
+			obj->value[2] = 4;
+		else if (ch->level > 20 && ch->level <= 30)
+			obj->value[2] = 5;
+		else if (ch->level > 30 && ch->level <= 40)
+			obj->value[2] = 6;
+		else if (ch->level > 40 && ch->level <= 50)
+			obj->value[2] = 7;
+		else if (ch->level > 50 && ch->level <= 60)
+			obj->value[2] = 8;
+		else if (ch->level > 60 && ch->level <= 70)
+			obj->value[2] = 9;
+		else if (ch->level > 70 && ch->level <= 80)
+			obj->value[2] = 11;
+		else
+			obj->value[2] = 12;
+		obj->level = ch->level;
+		char_puts("You feel your katana like a part of you!\n\r", ch);
 	}
 	return 0;
 }
@@ -1588,8 +1596,7 @@ int wear_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	AFFECT_DATA af;
 
-	if (strstr(mlstr_mval(obj->ed->description), "cold") != NULL)  
-	{
+	if (strstr(mlstr_mval(obj->ed->description), "cold") != NULL)  {
 	if (!is_affected(ch, gsn_fire_shield))
 	{
 	  char_puts("As you wear shield, you become resistive to cold.\n\r", ch);

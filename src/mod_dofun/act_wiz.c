@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.73 1998-10-10 04:36:21 fjoe Exp $
+ * $Id: act_wiz.c,v 1.74 1998-10-10 06:25:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2710,7 +2710,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 	}
 	
 	if (!str_prefix(type, "character") || !str_prefix(type, "mobile")) {
-		if ((victim = get_char_world(ch, arg1)) == NULL) {
+		if ((victim = get_char_room(ch, arg1)) == NULL) {
 			char_puts("They aren't here.\n\r", ch);
 			return;
 		}
@@ -2740,7 +2740,7 @@ void do_string(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (!str_prefix(arg2, "desc")) {
-			mlstr_editnl(&victim->description, arg3);
+			mlstr_append(ch, &victim->description, arg3);
 			return;
 		}
 
@@ -2762,26 +2762,12 @@ void do_string(CHAR_DATA *ch, const char *argument)
 			set_title(victim, arg3);
 			return;
 		}
-
-		if (!str_prefix(arg2, "spec")) {
-			if (!IS_NPC(victim)) {
-				char_puts("Not on PC's.\n\r", ch);
-				return;
-			}
-
-			if ((victim->spec_fun = spec_lookup(arg3)) == 0) {
-				char_puts("No such spec fun.\n\r", ch);
-				return;
-			}
-
-			return;
-		}
 	}
 	
 	if (!str_prefix(type,"object")) {
 		/* string an obj */
 		
-	 	if ((obj = get_obj_world(ch, arg1)) == NULL) {
+	 	if ((obj = get_obj_room(ch, arg1)) == NULL) {
 			char_puts("Nothing like that in heaven or earth.\n\r",
 				  ch);
 			return;
@@ -2799,25 +2785,31 @@ void do_string(CHAR_DATA *ch, const char *argument)
 		}
 
 		if (!str_prefix(arg2, "long")) {
-			mlstr_editnl(&obj->description, arg3);
+			mlstr_edit(&obj->description, arg3);
 			return;
 		}
 
-		if (!str_prefix(arg2, "ed") || !str_prefix(arg2, "extended")) {
+		if (!str_prefix(arg2, "ed")
+		||  !str_prefix(arg2, "extended")
+		||  !str_prefix(arg2, "exd")) {
 			ED_DATA *ed;
+
+			if (obj->carried_by != ch) {
+				char_puts("Obj must be in your inventory.\n\r", ch);
+				return;
+			}
 
 			argument = one_argument(argument, arg3);
 			if (argument == NULL) {
 				char_puts("Syntax: oset <object> ed <keyword> "
-					  "lang <string>\n\r", ch);
+					  "lang\n\r", ch);
 				return;
 			}
-
 
 			ed = ed_new();
 			ed->keyword		= str_dup(arg3);
 			ed->next		= obj->ed;
-			mlstr_editnl(&ed->description, argument);
+			mlstr_append(ch, &ed->description, argument);
 			obj->ed	= ed;
 			return;
 		}
@@ -2826,7 +2818,6 @@ void do_string(CHAR_DATA *ch, const char *argument)
 	/* echo bad use message */
 	do_string(ch,str_empty);
 }
-
 
 void do_oset(CHAR_DATA *ch, const char *argument)
 {

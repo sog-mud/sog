@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.91 1998-10-10 04:36:24 fjoe Exp $
+ * $Id: merc.h,v 1.92 1998-10-10 06:25:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1954,6 +1954,7 @@ OBJ_DATA *	get_obj_list	(CHAR_DATA *ch, const char *argument,
 OBJ_DATA *	get_obj_carry	(CHAR_DATA *ch, const char *argument);
 OBJ_DATA *	get_obj_wear	(CHAR_DATA *ch, const char *argument);
 OBJ_DATA *	get_obj_here	(CHAR_DATA *ch, const char *argument);
+OBJ_DATA *	get_obj_room	(CHAR_DATA *ch, const char *argument);
 OBJ_DATA *	get_obj_world	(CHAR_DATA *ch, const char *argument);
 OBJ_DATA *	create_money	(int gold, int silver);
 int	get_obj_number	(OBJ_DATA *obj);

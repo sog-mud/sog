@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.67 1998-10-10 04:36:22 fjoe Exp $
+ * $Id: handler.c,v 1.68 1998-10-10 06:25:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2133,19 +2133,39 @@ OBJ_DATA *get_obj_here(CHAR_DATA *ch, const char *argument)
 		return NULL;
 
 	obj = get_obj_list(ch, argument, ch->in_room->contents);
-	if (obj != NULL)
+	if (obj)
 		return obj;
 
-	if ((obj = get_obj_carry(ch, argument)) != NULL)
+	if ((obj = get_obj_carry(ch, argument)))
 		return obj;
 
-	if ((obj = get_obj_wear(ch, argument)) != NULL)
+	if ((obj = get_obj_wear(ch, argument)))
 		return obj;
 
 	return NULL;
 }
 
+OBJ_DATA *get_obj_room(CHAR_DATA *ch, const char *argument)
+{
+	OBJ_DATA *obj;
+	CHAR_DATA *vch;
 
+	if (IS_NULLSTR(argument))
+		return NULL;
+
+	if ((obj = get_obj_here(ch, argument)))
+		return obj;
+
+	for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {
+		if ((obj = get_obj_carry(vch, argument)))
+			return obj;
+
+		if ((obj = get_obj_wear(vch, argument)))
+			return obj;
+	}
+
+	return NULL;
+}
 
 /*
  * Find an obj in the world.
