@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.c,v 1.1 1999-05-22 13:38:34 fjoe Exp $
+ * $Id: chquest.c,v 1.2 1999-05-23 17:51:24 fjoe Exp $
  */
 
 /*
@@ -50,6 +50,7 @@ DECLARE_DO_FUN(do_help);
 
 static void chquest_startq(chquest_t *q);
 static void chquest_stopq(chquest_t *q);
+static inline void chquest_status(CHAR_DATA *ch);
 
 static chquest_t *chquest_lookup(OBJ_INDEX_DATA *obj_index);
 
@@ -72,23 +73,7 @@ void do_chquest(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_prefix(arg, "status")) {
-		chquest_t *q;
-
-		char_puts("Challenge quest items:\n", ch);
-		for (q = chquest_list; q; q = q->next) {
-			char_printf(ch, "- %s (vnum %d) - ",
-				    mlstr_mval(q->obj_index->short_descr),
-				    q->obj_index->vnum);
-			if (q->obj)
-				char_printf(ch, "running (%d ticks left).\n",
-					    q->obj->timer);
-
-			else if (q->delay < 0)
-				char_puts("stopped.\n", ch);
-			else
-				char_printf(ch, "%d area ticks to start.\n",
-					    q->delay);
-		}
+		chquest_status(ch);
 		return;
 	}
 
@@ -286,5 +271,51 @@ static void chquest_stopq(chquest_t *q)
 		   mlstr_mval(q->obj_index->short_descr), q->obj_index->vnum);
 	q->obj = NULL;
 	q->delay = -1;
+}
+
+static inline void chquest_status(CHAR_DATA *ch)
+{
+	chquest_t *q;
+
+	char_puts("Challenge quest items:\n", ch);
+	for (q = chquest_list; q; q = q->next) {
+		OBJ_DATA *obj;
+
+		char_printf(ch, "- %s (vnum %d) - ",
+			    mlstr_mval(q->obj_index->short_descr),
+			    q->obj_index->vnum);
+
+		if (q->delay < 0) {
+			char_puts("stopped.\n", ch);
+			continue;
+		} else if (q->delay > 0) {
+			char_printf(ch, "%d area ticks to start.\n",
+				    q->delay);
+			continue;
+		}
+
+		if ((obj = q->obj) == NULL) {
+			char_puts("status unknown.\n", ch);
+			continue;
+		}
+
+		char_printf(ch, "running (%d ticks left).\n",
+			    q->obj->timer);
+
+		while (obj->in_obj)
+			obj = obj->in_obj;
+
+		if (obj->carried_by) {
+			act_puts3("        $r (vnum $J), carried by $N.",
+				  ch, obj->carried_by->in_room, obj->carried_by,
+				  (const void*) obj->carried_by->in_room->vnum,
+				  TO_CHAR, POS_DEAD);
+		} else if (obj->in_room) {
+			act_puts3("         $r (vnum $J).",
+				  ch, obj->in_room, NULL,
+				  (const void*) obj->in_room->vnum,
+				  TO_CHAR, POS_DEAD);
+		}
+	}
 }
 
