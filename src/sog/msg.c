@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: msg.c,v 1.3 1998-09-23 05:18:45 fjoe Exp $
+ * $Id: msg.c,v 1.4 1998-09-24 14:09:02 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -39,7 +39,7 @@
 
 varr *msg_hash_table[MAX_MSG_HASH];
 
-#define msghash(s) hashstr(s, 20, MAX_MSG_HASH)
+#define msghash(s) hashstr(s, 32, MAX_MSG_HASH)
 static int cmpmsg(const void*, const void*);
 static int cmpmlstr(const void*, const void*);
 

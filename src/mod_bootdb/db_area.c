@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.5 1998-09-19 11:13:32 fjoe Exp $
+ * $Id: db_area.c,v 1.6 1998-09-24 14:09:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -168,7 +168,7 @@ DBLOAD_FUN(load_areadata)
 	pArea->file_name	= str_dup(filename);
 	pArea->vnum		= top_area;
 	pArea->name		= str_dup("New Area");
-	pArea->builders		= str_dup("");
+	pArea->builders		= str_dup(str_empty);
 	pArea->security		= 9;                    /* 9 -- Hugin */
 	pArea->min_vnum		= 0;
 	pArea->max_vnum		= 0;
@@ -732,7 +732,7 @@ DBLOAD_FUN(load_rooms)
 		pRoomIndex->name	= NULL;
 		pRoomIndex->description	= NULL;
 
-		pRoomIndex->owner	= str_dup("");
+		pRoomIndex->owner	= str_dup(str_empty);
 		pRoomIndex->people	= NULL;
 		pRoomIndex->contents	= NULL;
 		pRoomIndex->ed		= NULL;

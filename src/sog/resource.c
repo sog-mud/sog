@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resource.c,v 1.37 1998-09-22 18:07:26 fjoe Exp $
+ * $Id: resource.c,v 1.38 1998-09-24 14:09:02 fjoe Exp $
  */
 
 #include <limits.h>
@@ -116,14 +116,14 @@ void do_lang(CHAR_DATA *ch, const char *argument)
 		char_puts("Usage: lang [ ", ch);
 		for (lang = 0; lang < nlang; lang++)
 			char_printf(ch, "%s%s",
-				    lang == 0 ? "" : " | ", lang_table[lang]);
+				    lang == 0 ? str_empty : " | ", lang_table[lang]);
 		char_puts(" ]\\n\\r", ch);
 		return;
 	}
 
 	ch->lang = lang;
-	do_lang(ch, "");
-	do_look(ch, "");
+	do_lang(ch, str_empty);
+	do_look(ch, str_empty);
 }
 
 /*

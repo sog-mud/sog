@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.66 1998-09-20 17:01:26 fjoe Exp $
+ * $Id: db.c,v 1.67 1998-09-24 14:09:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1129,7 +1129,7 @@ CHAR_DATA *create_mob_org(MOB_INDEX_DATA *pMobIndex, int flags)
 		mob->form		= pMobIndex->form;
 		mob->parts		= pMobIndex->parts;
 		mob->size		= SIZE_MEDIUM;
-		mob->material		= "";
+		mob->material		= str_empty;
 /*
 		for (i = 0; i < MAX_STATS; i ++)
 		    mob->perm_stat[i] = 11 + mob->level/4;
@@ -1310,7 +1310,7 @@ OBJ_DATA *create_obj_org(OBJ_INDEX_DATA *pObjIndex, int level, int flags)
 	obj->value[3]		= pObjIndex->value[3];
 	obj->value[4]		= pObjIndex->value[4];
 	obj->weight		= pObjIndex->weight;
-	obj->from      		= str_dup(""); /* used with body parts */
+	obj->from      		= str_dup(str_empty); /* used with body parts */
 	obj->condition		= pObjIndex->condition;
 	obj->cost = pObjIndex->cost;
 
