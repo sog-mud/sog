@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.105 1998-10-23 09:22:24 fjoe Exp $
+ * $Id: merc.h,v 1.106 1998-10-24 09:44:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1590,6 +1590,7 @@ struct area_data
 	int		min_vnum;
 	int		max_vnum;
 	bool		empty;
+	int		clan;
 	const char *	builders;	/* OLC */ /* Listing of */
 	int		vnum;		/* OLC */ /* Area vnum  */
 	flag_t		flags;		/* OLC */

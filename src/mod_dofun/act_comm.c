@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.102 1998-10-24 09:00:29 fjoe Exp $
+ * $Id: act_comm.c,v 1.103 1998-10-24 09:44:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1046,13 +1046,8 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 		return;
 	}
 
-	if (ch->position  < POS_STUNNED ) {
+	if (ch->position < POS_STUNNED ) {
 		char_puts("You're not DEAD yet.\n\r", ch);
-		return;
-	}
-
-	if (!IS_IMMORTAL(ch) && IS_PUMPED(ch)) {
-		char_puts("Your adrenalin is gushing! You can't quit yet.\n\r", ch);
 		return;
 	}
 
@@ -1073,23 +1068,38 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 		return;
 	}
 
-	if (!IS_IMMORTAL(ch)
-	&&  ch->in_room && IS_RAFFECTED(ch->in_room, RAFF_ESPIRIT)) {
-		char_puts("Evil spirits in the area prevents you from leaving.\n\r", ch);
-		return;
-	}
+	if (!IS_IMMORTAL(ch)) {
+		if (IS_PUMPED(ch)) {
+			char_puts("Your adrenalin is gushing! You can't quit yet.\n\r", ch);
+			return;
+		}
 
-	if (!IS_IMMORTAL(ch)
-	&&  !get_skill(ch, gsn_evil_spirit)
-	&&  is_affected(ch, gsn_evil_spirit)) {
-		char_puts("Evil spirits in you prevents you from leaving.\n\r", ch);
-		return;
+		if (is_affected(ch, gsn_witch_curse)) {
+			char_puts("You are cursed. Wait till you DIE!\n\r", ch);
+			return;
+		}
+
+		if (ch->in_room->area->clan
+		&&  ch->in_room->area->clan != ch->clan) {
+			char_puts("You can't quit here.\n\r", ch);
+			return;
+		}
+
+		if (ch->in_room && IS_RAFFECTED(ch->in_room, RAFF_ESPIRIT)) {
+			char_puts("Evil spirits in the area prevents you from leaving.\n\r", ch);
+			return;
+		}
+
+		if (!get_skill(ch, gsn_evil_spirit)
+		&&  is_affected(ch, gsn_evil_spirit)) {
+			char_puts("Evil spirits in you prevents you from leaving.\n\r", ch);
+			return;
+		}
 	}
 
 	char_puts("Alas, all good things must come to an end.\n\r", ch);
 	char_puts("You hit reality hard. Reality truth does unspeakable things to you.\n\r", ch);
-	act_puts("$n has left the game.", ch, NULL, NULL, TO_ROOM,
-		 POS_RESTING);
+	act_puts("$n has left the game.", ch, NULL, NULL, TO_ROOM, POS_RESTING);
 	log_printf("%s has quit.", ch->name);
 	wiznet("{W$N{x rejoins the real world.",ch,NULL,WIZ_LOGINS,0,ch->level);
 
