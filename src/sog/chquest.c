@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: chquest.c,v 1.8 1999-05-27 19:33:11 fjoe Exp $
+ * $Id: chquest.c,v 1.9 1999-06-10 11:47:27 fjoe Exp $
  */
 
 /*
@@ -175,7 +175,7 @@ void chquest_add(OBJ_INDEX_DATA *obj_index)
 	if ((q = chquest_lookup(obj_index)) != NULL)
 		return;
 
-	log_printf("chquest_add: added '%s' (vnum %d)",
+	log("chquest_add: added '%s' (vnum %d)",
 		   mlstr_mval(obj_index->short_descr), obj_index->vnum);
 
 	q = calloc(1, sizeof(*q));
@@ -216,7 +216,7 @@ bool chquest_delete(CHAR_DATA *ch, OBJ_INDEX_DATA *obj_index)
 	chquest_stopq(q);
 	free(q);
 
-	log_printf("chquest_delete: deleted '%s' (vnum %d)",
+	log("chquest_delete: deleted '%s' (vnum %d)",
 		   mlstr_mval(obj_index->short_descr), obj_index->vnum);
 	return TRUE;
 }
@@ -233,7 +233,7 @@ void chquest_extract(OBJ_DATA *obj)
 	if ((q = chquest_lookup_obj(obj)) == NULL)
 		return;
 
-	log_printf("chquest_extract: finished quest for '%s' (vnum %d)",
+	log("chquest_extract: finished quest for '%s' (vnum %d)",
 		   mlstr_mval(q->obj_index->short_descr), q->obj_index->vnum);
 	SET_WAITING(q, number_range(15, 20));
 }
@@ -286,7 +286,7 @@ static void chquest_startq(chquest_t *q)
 {
 	ROOM_INDEX_DATA *room;
 
-	log_printf("chquest_startq: started chquest for '%s' (vnum %d)",
+	log("chquest_startq: started chquest for '%s' (vnum %d)",
 	   	   mlstr_mval(q->obj_index->short_descr), q->obj_index->vnum);
 
 	SET_RUNNING(q);
@@ -305,7 +305,7 @@ static void chquest_stopq(chquest_t *q)
 	if (IS_STOPPED(q))
 		return;
 
-	log_printf("chquest_stopq: stopped quest for '%s' (vnum %d)",
+	log("chquest_stopq: stopped quest for '%s' (vnum %d)",
 		   mlstr_mval(q->obj_index->short_descr), q->obj_index->vnum);
 	if (IS_RUNNING(q))
 		extract_obj(q->obj, XO_F_NOCHQUEST);

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.49 1999-05-22 16:21:07 avn Exp $
+ * $Id: recycle.c,v 1.50 1999-06-10 11:47:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -48,9 +48,19 @@
 #include <stdlib.h>
 #include "merc.h"
 #include "db/db.h"
+#include "db/memalloc.h"
 
-/* stuff for recycling extended descs */
-extern int top_ed;
+/*
+ * Globals
+ */
+extern int	top_reset;
+extern int	top_area;
+extern int	top_exit;
+extern int	top_room;
+extern int	top_mprog_index;
+extern int	top_ed;
+
+void	aff_free(AFFECT_DATA *af);
 
 ED_DATA *ed_new(void)
 {
@@ -156,14 +166,14 @@ OBJ_DATA *new_obj(void)
 	if (free_obj_list) {
 		obj = free_obj_list;
 		free_obj_list = free_obj_list->next;
-		memset(obj, '\0', sizeof(*obj));
 		obj_free_count--;
 	}
 	else {
-		obj = calloc(1, sizeof(*obj));
+		obj = mem_alloc(MT_OBJ, sizeof(*obj));
 		obj_count++;
 	}
 
+	memset(obj, '\0', sizeof(*obj));
 	return obj;
 }
 
@@ -217,14 +227,14 @@ CHAR_DATA *new_char(void)
 	if (free_char_list) {
 		ch = free_char_list;
 		free_char_list = free_char_list->next;
-		memset(ch, '\0', sizeof(*ch));
 		mob_free_count--;
 	}
 	else {
-		ch = calloc(1, sizeof(*ch));
+		ch = mem_alloc(MT_CHAR, sizeof(*ch));
 		mob_count++;
 	}
 
+	memset(ch, 0, sizeof(*ch));
 	RESET_FIGHT_TIME(ch);
 	ch->last_death_time	= -1;
 	ch->prefix		= str_empty;
@@ -388,7 +398,7 @@ MPTRIG *mptrig_new(int type, const char *phrase, int vnum)
 			char buf[MAX_STRING_LENGTH];
 
 			regerror(errcode, mptrig->extra, buf, sizeof(buf));
-			log_printf("bad trigger for vnum %d (phrase '%s'): %s",
+			log("bad trigger for vnum %d (phrase '%s'): %s",
 				   vnum, phrase, buf);
 		}
 	}
@@ -422,4 +432,274 @@ void mptrig_free(MPTRIG *mp)
 
 	free_string(mp->phrase);
 	free(mp);
+}
+
+RESET_DATA *new_reset_data(void)
+{
+	RESET_DATA *pReset;
+
+	pReset = calloc(1, sizeof(*pReset));
+	pReset->command = 'X';
+
+	top_reset++;
+	return pReset;
+}
+
+void free_reset_data(RESET_DATA *pReset)
+{
+	if (!pReset)
+		return;
+	top_reset--;
+	free(pReset);
+}
+
+AREA_DATA *new_area(void)
+{
+	AREA_DATA *pArea;
+
+	pArea = calloc(1, sizeof(*pArea));
+	pArea->vnum		= top_area;
+	pArea->file_name	= str_printf("area%d.are", pArea->vnum);
+	pArea->builders		= str_empty;
+	pArea->name		= str_dup("New area");
+	pArea->empty		= TRUE;              /* ROM patch */
+	pArea->security		= 1;
+
+	top_area++;
+	return pArea;
+}
+
+/*****************************************************************************
+ Name:		area_lookup
+ Purpose:	Returns pointer to area with given vnum.
+ Called by:	do_aedit(olc.c).
+ ****************************************************************************/
+AREA_DATA *area_lookup(int vnum)
+{
+	AREA_DATA *pArea;
+
+	for (pArea = area_first; pArea; pArea = pArea->next)
+		if (pArea->vnum == vnum)
+			return pArea;
+
+	return 0;
+}
+
+AREA_DATA *area_vnum_lookup(int vnum)
+{
+	AREA_DATA *pArea;
+
+	for (pArea = area_first; pArea; pArea = pArea->next) {
+		 if (vnum >= pArea->min_vnum
+		 &&  vnum <= pArea->max_vnum)
+		     return pArea;
+	}
+
+	return 0;
+}
+
+void free_area(AREA_DATA *pArea)
+{
+	free_string(pArea->name);
+	free_string(pArea->file_name);
+	free_string(pArea->builders);
+	free_string(pArea->credits);
+	top_area--;
+	free(pArea);
+}
+
+EXIT_DATA *new_exit(void)
+{
+	EXIT_DATA *pExit;
+
+        pExit = calloc(1, sizeof(*pExit));
+	pExit->keyword = str_empty;
+
+        top_exit++;
+	return pExit;
+}
+
+void free_exit(EXIT_DATA *pExit)
+{
+	if (!pExit)
+		return;
+
+	free_string(pExit->keyword);
+	mlstr_free(pExit->description);
+
+	top_exit--;
+	free(pExit);
+}
+
+ROOM_INDEX_DATA *new_room_index(void)
+{
+	ROOM_INDEX_DATA *pRoom;
+
+        pRoom = mem_alloc(MT_ROOM, sizeof(*pRoom));
+	memset(pRoom, 0, sizeof(*pRoom));
+	pRoom->owner = str_empty;
+	pRoom->heal_rate = 100;
+	pRoom->mana_rate = 100;
+
+        top_room++;
+	return pRoom;
+}
+
+void free_room_index(ROOM_INDEX_DATA *pRoom)
+{
+	int door;
+	RESET_DATA *pReset;
+
+	mlstr_free(pRoom->name);
+	mlstr_free(pRoom->description);
+	free_string(pRoom->owner);
+
+	for (door = 0; door < MAX_DIR; door++)
+        	if (pRoom->exit[door])
+			free_exit(pRoom->exit[door]);
+
+	ed_free(pRoom->ed);
+
+	for (pReset = pRoom->reset_first; pReset; pReset = pReset->next)
+		free_reset_data(pReset);
+
+	top_room--;
+	mem_free(pRoom);
+}
+
+SHOP_DATA *new_shop(void)
+{
+	SHOP_DATA *pShop;
+
+        pShop = calloc(1, sizeof(*pShop));
+	pShop->profit_buy   =   100;
+	pShop->profit_sell  =   100;
+	pShop->close_hour   =   23;
+
+        top_shop++;
+	return pShop;
+}
+
+void free_shop(SHOP_DATA *pShop)
+{
+	if (!pShop)
+		return;
+	top_shop--;
+	free(pShop);
+}
+
+OBJ_INDEX_DATA *new_obj_index(void)
+{
+	OBJ_INDEX_DATA *pObj;
+
+        pObj = calloc(1, sizeof(*pObj));
+
+	pObj->name		= str_dup(str_empty);
+	pObj->item_type		= ITEM_TRASH;
+	pObj->material		= str_dup("unknown");
+	pObj->condition		= 100;
+	pObj->limit		= -1;
+
+        top_obj_index++;
+	return pObj;
+}
+
+void free_obj_index(OBJ_INDEX_DATA *pObj)
+{
+	AFFECT_DATA *paf, *paf_next;
+
+	if (!pObj)
+		return;
+
+	free_string(pObj->name);
+	free_string(pObj->material);
+	mlstr_free(pObj->short_descr);
+	mlstr_free(pObj->description);
+
+	for (paf = pObj->affected; paf; paf = paf_next) {
+		paf_next = paf->next;
+		aff_free(paf);
+	}
+
+	ed_free(pObj->ed);
+    
+	top_obj_index--;
+	free(pObj);
+}
+
+MOB_INDEX_DATA *new_mob_index(void)
+{
+	MOB_INDEX_DATA *pMob;
+
+        pMob = calloc(1, sizeof(*pMob));
+	pMob->name		= str_dup(str_empty);
+	pMob->act		= ACT_NPC;
+	pMob->race		= rn_lookup("human");
+	pMob->material		= str_dup("unknown");
+	pMob->size		= SIZE_MEDIUM;
+	pMob->start_pos		= POS_STANDING;
+	pMob->default_pos	= POS_STANDING;
+
+	top_mob_index++;
+	return pMob;
+}
+
+void free_mob_index(MOB_INDEX_DATA *pMob)
+{
+	if (!pMob)
+		return;
+
+	free_string(pMob->name);
+	free_string(pMob->material);
+	mlstr_free(pMob->short_descr);
+	mlstr_free(pMob->long_descr);
+	mlstr_free(pMob->description);
+	mptrig_free(pMob->mptrig_list);
+	free_shop(pMob->pShop);
+
+	top_mob_index--;
+	free(pMob);
+}
+
+MPCODE *mpcode_list;
+
+MPCODE *mpcode_new(void)
+{
+	MPCODE *mpcode;
+
+        mpcode = calloc(1, sizeof(*mpcode));
+	mpcode->code = str_empty;
+
+	top_mprog_index++;
+	return mpcode;
+}
+
+void mpcode_add(MPCODE *mpcode)
+{
+	if (mpcode_list == NULL)
+		mpcode_list = mpcode;
+	else {
+		mpcode->next = mpcode_list;
+		mpcode_list = mpcode;
+	}
+}
+
+MPCODE *mpcode_lookup(int vnum)
+{
+	MPCODE *mpcode;
+	for (mpcode = mpcode_list; mpcode; mpcode = mpcode->next)
+	    	if (mpcode->vnum == vnum)
+        		return mpcode;
+	return NULL;
+}    
+ 
+void mpcode_free(MPCODE *mpcode)
+{
+	if (!mpcode)
+		return;
+
+	free_string(mpcode->code);
+
+	top_mprog_index--;
+	free(mpcode);
 }

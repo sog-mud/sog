@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.150 1999-06-06 18:15:48 fjoe Exp $
+ * $Id: db.c,v 1.151 1999-06-10 11:47:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -421,12 +421,12 @@ void boot_db(void)
 void vnum_check(AREA_DATA *area, int vnum)
 {
 	if (area->min_vnum == 0 || area->max_vnum == 0) {
-		log_printf("%s: min_vnum or max_vnum not assigned",
+		log("%s: min_vnum or max_vnum not assigned",
 			   area->file_name);
 	}
 
 	if (vnum < area->min_vnum || vnum > area->max_vnum) {
-		log_printf("%s: %d not in area vnum range",
+		log("%s: %d not in area vnum range",
 			   area->file_name, vnum);
 	}
 }
@@ -706,15 +706,15 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
         case 'O':
             if (!(pObjIndex = get_obj_index(pReset->arg1)))
             {
-                log_printf("reset_room: 'O' 1 : bad vnum %d", pReset->arg1);
-                log_printf("reset_room: %c %d %d %d",pReset->arg1, pReset->arg2, pReset->arg3, pReset->arg4);
+                log("reset_room: 'O' 1 : bad vnum %d", pReset->arg1);
+                log("reset_room: %c %d %d %d",pReset->arg1, pReset->arg2, pReset->arg3, pReset->arg4);
                 continue;
             }
 
             if (!(pRoomIndex = get_room_index(pReset->arg3)))
             {
-                log_printf("reset_room: 'O' 2 : bad vnum %d.", pReset->arg3);
-                log_printf("reset_room: %c %d %d %d", pReset->arg1, pReset->arg2, pReset->arg3, pReset->arg4);
+                log("reset_room: 'O' 2 : bad vnum %d.", pReset->arg3);
+                log("reset_room: %c %d %d %d", pReset->arg1, pReset->arg2, pReset->arg3, pReset->arg4);
                 continue;
             }
 
@@ -777,7 +777,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
 		    if ((pObjIndex->limit != -1             ) &&
 		         (pObjIndex->count >= pObjIndex->limit)) {
 		        last = FALSE;
-		        log_printf("room_reset: room %d: obj %d: "
+		        log("room_reset: room %d: obj %d: "
 				   "[P] OBJ limit reached",
 				   pRoom->vnum, pObjIndex->vnum);
 		        break;
@@ -2150,12 +2150,12 @@ void scan_pfiles()
 	DIR *dirp;
 	bool eqcheck = dfexist(TMP_PATH, EQCHECK_FILE);
 
-	log_printf("scan_pfiles: start (eqcheck is %s)",
+	log("scan_pfiles: start (eqcheck is %s)",
 		   eqcheck ? "active" : "inactive");
 
 	if (eqcheck
 	&&  dunlink(TMP_PATH, EQCHECK_FILE) < 0)
-		log_printf("scan_pfiles: unable to deactivate eq checker (%s)",
+		log("scan_pfiles: unable to deactivate eq checker (%s)",
 			   strerror(errno));
 
 	if ((dirp = opendir(PLAYER_PATH)) == NULL) {
@@ -2194,7 +2194,7 @@ void scan_pfiles()
 				continue;
 
 			changed = TRUE;
-			log_printf("scan_pfiles: %s: %s (vnum %d)",
+			log("scan_pfiles: %s: %s (vnum %d)",
 				   ch->name,
 				   mlstr_mval(obj->pIndexData->short_descr),
 				   obj->pIndexData->vnum);
@@ -2211,7 +2211,7 @@ void scan_pfiles()
 	}
 	closedir(dirp);
 
-	log_printf("scan_pfiles: end (eqcheck is %s)",
+	log("scan_pfiles: end (eqcheck is %s)",
 		   dfexist(TMP_PATH, EQCHECK_FILE) ? "active" : "inactive");
 }
 
@@ -2252,12 +2252,12 @@ void db_error(const char* fn, const char* fmt,...)
 	va_end(ap);
 
 	if (fBootDb) {
-		log_printf("%s: line %d: %s: %s",
+		log("%s: line %d: %s: %s",
 			   filename, line_number, fn, buf);
 		exit(1);
 	}
 
-	log_printf("%s: %s", fn, buf);
+	log("%s: %s", fn, buf);
 }
 
 /*****************************************************************************

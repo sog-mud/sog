@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.23 1999-06-03 12:13:36 fjoe Exp $
+ * $Id: act.c,v 1.24 1999-06-10 11:47:33 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -33,6 +33,7 @@
 #include "comm_colors.h"
 #include "mob_prog.h"
 #include "db/lang.h"
+#include "db/memalloc.h"
 
 /*
  * char/mob short/long formatting
@@ -256,6 +257,22 @@ door_name(const char *name)
 	return buf;
 }
 
+#define CHECK_TYPE(p, mem_type)					\
+	if (!mem_is(p, mem_type)) {				\
+		log("act_buf: format '%s', expected type %d",	\
+		    format, mem_type);				\
+		i = NULL;					\
+		break;						\
+	}
+
+#define CHECK_TYPE2(p, mem_type)				\
+	if (!mem_is(p, mem_type)) {				\
+		log("act_buf: format '%s', expected type %d",	\
+		    format, mem_type);				\
+		sp--;						\
+		break;						\
+	}
+
 /*
  * vch is (CHAR_DATA*) arg2
  * vch1 is (CHAR_DATA*) arg1
@@ -407,7 +424,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 			switch (code = *s++) {
 			default:  
 				i = " <@@@> ";
-				log_printf("act_raw: '%s': bad code $%c",
+				log("act_buf: '%s': bad code $%c",
 					   format, code);
 				continue;
 /* text arguments */
@@ -425,38 +442,49 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 				break;
 
 			case 'b':
-			case 'B':
-				act_buf(code == 'b' ? arg1 : arg2, ch, to,
-					arg1, arg2, arg3, opt,
+				act_buf(arg1, ch, to, arg1, arg2, arg3, opt,
 					tmp, sizeof(tmp));
 				i = tmp;
 				break;
+
+			case 'B':
+				act_buf(arg2, ch, to, arg1, arg2, arg3, opt,
+					tmp, sizeof(tmp));
+				i = tmp;
+				break;
+
 /* room arguments */
 			case 'r':
+				CHECK_TYPE(room1, MT_ROOM);
 				i = mlstr_mval(room1->name);
 				break;
 
 			case 'R':
+				CHECK_TYPE(room3, MT_ROOM);
 				i = mlstr_mval(room3->name);
 				break;
 
 /* char arguments */
 			case 'n':
+				CHECK_TYPE(ch, MT_CHAR);
 				i = PERS2(ch, to,
 				  (sp < 0) ? (opt->act_flags | ACT_FIXSH) : 0);
 				break;
 
 			case 'N':
+				CHECK_TYPE(vch, MT_CHAR);
 				i = PERS2(vch, to,
 				  (sp < 0) ? (opt->act_flags | ACT_FIXSH) : 0);
 				break;
 
 			case 'i':
+				CHECK_TYPE(vch1, MT_CHAR);
 				i = PERS2(vch1, to,
 				  (sp < 0) ? (opt->act_flags | ACT_FIXSH) : 0);
 				break;
 
 			case 'I':
+				CHECK_TYPE(vch3, MT_CHAR);
 				i = PERS2(vch3, to,
 				  (sp < 0) ? (opt->act_flags | ACT_FIXSH) : 0);
 				break;
@@ -474,36 +502,44 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 /* him/her arguments. obsolete. $gx{...} should be used instead */
 			case 'e':
+				CHECK_TYPE(ch, MT_CHAR);
 				i = he_she[SEX(ch, to)];
 				break;
 	
 			case 'E':
+				CHECK_TYPE(vch, MT_CHAR);
 				i = he_she[SEX(vch, to)];
 				break;
 	
 			case 'm':
+				CHECK_TYPE(ch, MT_CHAR);
 				i = him_her[SEX(ch, to)];
 				break;
 	
 			case 'M':
+				CHECK_TYPE(vch, MT_CHAR);
 				i = him_her[SEX(vch, to)];
 				break;
 	
 			case 's':
+				CHECK_TYPE(ch, MT_CHAR);
 				i = his_her[SEX(ch, to)];
 				break;
 	
 			case 'S':
+				CHECK_TYPE(vch, MT_CHAR);
 				i = his_her[SEX(vch, to)];
 				break;
 
 /* obj arguments */
 			case 'p':
+				CHECK_TYPE(obj1, MT_OBJ);
 				i = act_format_obj(obj1, to, sp,
 						   opt->act_flags);
 				break;
 
 			case 'P':
+				CHECK_TYPE(obj2, MT_OBJ);
 				i = act_format_obj(obj2, to, sp,
 						   opt->act_flags);
 				break;
@@ -518,13 +554,13 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 			case 'c':
 			case 'q':
 				if (*(s+1) != '{') {
-					log_printf("act_raw: '%s': "
+					log("act_raw: '%s': "
 						   "syntax error", format);
 					continue;
 				}
 
 				if (++sp >= TSTACK_SZ) {
-					log_printf("act_raw: '%s': "
+					log("act_raw: '%s': "
 						   "tstack overflow", format);
 					continue;
 				}
@@ -547,18 +583,22 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 						break;
 
 					case 'N':
+						CHECK_TYPE2(vch, MT_CHAR);
 						tstack[sp].arg = vch->sex;
 						break;
 
 					case 'n':
+						CHECK_TYPE2(ch, MT_CHAR);
 						tstack[sp].arg = ch->sex;
 						break;
 
 					case 'i':
+						CHECK_TYPE2(vch1, MT_CHAR);
 						tstack[sp].arg = vch1->sex;
 						break;
 
 					case 'I':
+						CHECK_TYPE2(vch3, MT_CHAR);
 						tstack[sp].arg = vch3->sex;
 						break;
 
@@ -567,10 +607,12 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 						break;
 
 					case 'p':
+						CHECK_TYPE2(obj1, MT_OBJ);
 						tstack[sp].arg = obj1->pIndexData->gender;
 						break;
 
 					case 'P':
+						CHECK_TYPE2(obj2, MT_OBJ);
 						tstack[sp].arg = obj2->pIndexData->gender;
 						break;
 
@@ -591,7 +633,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 						break;
 
 					default:
-						log_printf("act_raw: '%s': "
+						log("act_buf: '%s': "
 							   "bad subcode '%c'",
 							   format, subcode);
 						sp--;
@@ -609,7 +651,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 						tstack[sp].arg = num3;
 						break;
 					default:
-						log_printf("act_raw: '%s': "
+						log("act_raw: '%s': "
 							   "bad subcode '%c'",
 							   format, subcode);
 						sp--;

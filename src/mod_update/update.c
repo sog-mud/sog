@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.136 1999-06-04 14:54:43 avn Exp $
+ * $Id: update.c,v 1.137 1999-06-10 11:47:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -115,7 +115,7 @@ void advance_level(CHAR_DATA *ch)
 	}
 
 	if ((cl = class_lookup(ch->class)) == NULL) {
-		log_printf("advance_level", "%s: unknown class %d",
+		log("advance_level", "%s: unknown class %d",
 			   ch->name, ch->class);
 		return;
 	}
@@ -190,7 +190,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 			ch->wimpy = 0;
 
 		if (ch->level == 91)
-	        	log_printf("%s made level 91.", ch->name);
+	        	log("%s made level 91.", ch->name);
 
 		wiznet("$N has attained level $j!",
 			ch, (const void*) ch->level, WIZ_LEVELS, 0, 0);
@@ -560,7 +560,7 @@ void mobile_update(void)
 		ch_next = ch->next;
 
 		if (IS_EXTRACTED(ch)) {
-			log_printf("mobile_update: extracted char");
+			log("mobile_update: extracted char");
 			continue;
 		}
 
@@ -1522,7 +1522,7 @@ save_corpse_contents(OBJ_DATA *corpse)
 			if (pit->pIndexData == altar->pit)
 				break;
 	} else {
-		log_printf("save_corpse_contents: null altar (owner: %s)",
+		log("save_corpse_contents: null altar (owner: %s)",
 			   mlstr_mval(corpse->owner));
 	}
 
@@ -1640,7 +1640,7 @@ void obj_update_list(OBJ_DATA *obj)
 	for (i = 0; obj && obj->extracted; obj = obj->next, i++)
 		;
 	if (i) {
-		log_printf("obj_update_list: skipped %d extracted objs, "
+		log("obj_update_list: skipped %d extracted objs, "
 			   "object_list == %p, obj == %p, "
 			   "last_updated_obj == %p, "
 			   "last_updated_obj->next == %p",

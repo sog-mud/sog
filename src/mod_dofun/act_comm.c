@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.169 1999-05-31 08:17:22 fjoe Exp $
+ * $Id: act_comm.c,v 1.170 1999-06-10 11:47:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -941,7 +941,7 @@ void quit_char(CHAR_DATA *ch, int flags)
 	char_puts("Alas, all good things must come to an end.\n", ch);
 	char_puts("You hit reality hard. Reality truth does unspeakable things to you.\n", ch);
 	act_puts("$n has left the game.", ch, NULL, NULL, TO_ROOM, POS_RESTING);
-	log_printf("%s has quit.", ch->name);
+	log("%s has quit.", ch->name);
 	wiznet("{W$N{x rejoins the real world.",
 		ch, NULL, WIZ_LOGINS, 0, ch->level);
 
@@ -1560,7 +1560,7 @@ DO_FUN(do_lang)
 	if (*arg == '\0') {
 		l = varr_get(&langs, ch->lang);
 		if (l == NULL) {
-			log_printf("do_lang: %s: lang == %d\n",
+			log("do_lang: %s: lang == %d\n",
 				   ch->name, ch->lang);
 			l = VARR_GET(&langs, ch->lang = 0);
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.156 1999-06-03 11:17:09 fjoe Exp $
+ * $Id: handler.c,v 1.157 1999-06-10 11:47:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -730,14 +730,14 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	}
 	default:
 		if (IS_NPC(ch)) {
-			log_printf("affect_modify: vnum %d: in room %d: "
+			log("affect_modify: vnum %d: in room %d: "
 				   "unknown location %d, where: %d",
 				   ch->pIndexData->vnum,
 				   ch->in_room ? ch->in_room->vnum : -1,
 				   paf->location, paf->where);
 		}
 		else {
-			log_printf("affect_modify: %s: unknown location %d"
+			log("affect_modify: %s: unknown location %d"
 				"where: %d", ch->name, paf->location,
 				paf->where);
 		}
@@ -1244,7 +1244,7 @@ void obj_from_char(OBJ_DATA *obj)
 
 	if ((ch = obj->carried_by) == NULL) {
 		bug("Obj_from_char: null ch.", 0);
-		log_printf("Name %s", obj->name);
+		log("Name %s", obj->name);
 		return;
 	}
 
@@ -1335,7 +1335,7 @@ OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 
 	if (get_eq_char(ch, iWear)) {
 		if (IS_NPC(ch)) {
-			log_printf("equip_char: vnum %d: in_room %d: "
+			log("equip_char: vnum %d: in_room %d: "
 				   "obj vnum %d: location %s: "
 				   "already equipped.",
 				   ch->pIndexData->vnum,
@@ -1344,7 +1344,7 @@ OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 				   flag_string(wear_loc_flags, iWear));
 		}
 		else {
-			log_printf("equip_char: %s: location %s: "
+			log("equip_char: %s: location %s: "
 				   "already equipped.",
 				   ch->name,
 				   flag_string(wear_loc_flags, iWear));
@@ -1477,7 +1477,7 @@ void obj_from_room(OBJ_DATA *obj)
 	CHAR_DATA *ch;
 
 	if ((in_room = obj->in_room) == NULL) {
-		log_printf("obj_from_room: NULL obj->in_room (vnum %d)",
+		log("obj_from_room: NULL obj->in_room (vnum %d)",
 			   obj->pIndexData->vnum);
 		return;
 	}
@@ -1533,7 +1533,7 @@ void obj_to_room(OBJ_DATA *obj, ROOM_INDEX_DATA *pRoomIndex)
 void obj_to_obj(OBJ_DATA *obj, OBJ_DATA *obj_to)
 {
 	if (obj == obj_to) {
-		log_printf("obj_to_obj: obj == obj_to (vnum %d)",
+		log("obj_to_obj: obj == obj_to (vnum %d)",
 			   obj->pIndexData->vnum);
 		return;
 	}
@@ -1605,7 +1605,7 @@ void extract_obj(OBJ_DATA *obj, int flags)
 	OBJ_DATA *obj_next;
 
 	if (obj->extracted) {
-		log_printf("extract_obj: %s, vnum %d: already extracted",
+		log("extract_obj: %s, vnum %d: already extracted",
 			   obj->name, obj->pIndexData->vnum);
 		return;
 	}
@@ -1720,7 +1720,7 @@ void extract_char(CHAR_DATA *ch, int flags)
 			 * if it's already been extracted,
 			 * something bad is going on
 			 */
-			log_printf("Warning! Extraction of %s.", ch->name);
+			log("Warning! Extraction of %s.", ch->name);
 			return;
 		}
 		else {
@@ -2244,13 +2244,13 @@ void deduct_cost(CHAR_DATA *ch, uint cost)
 	}
 
 	if (ch->gold < gold) {
-		log_printf("deduct cost: %s: ch->gold (%d) < gold (%d)",
+		log("deduct cost: %s: ch->gold (%d) < gold (%d)",
 			   ch->name, ch->gold, gold);
 		ch->gold = gold;
 	}
 
 	if (ch->silver < silver) {
-		log_printf("deduct cost: %s: ch->silver (%d) < silver (%d)",
+		log("deduct cost: %s: ch->silver (%d) < silver (%d)",
 			   ch->name, ch->silver, silver);
 		ch->silver = silver;
 	}
@@ -2323,7 +2323,7 @@ OBJ_DATA *create_money(int gold, int silver)
 	OBJ_DATA *obj;
 
 	if (gold < 0 || silver < 0 || (gold == 0 && silver == 0)) {
-		log_printf("create_money: gold %d, silver %d",
+		log("create_money: gold %d, silver %d",
 			   gold, silver);
 		gold = UMAX(1, gold);
 		silver = UMAX(1, silver);
@@ -2812,7 +2812,7 @@ void path_to_track(CHAR_DATA *ch, CHAR_DATA *victim, int door)
 	    if ((pExit = temp->exit[opdoor]) == NULL
 		    || (temp = pExit->to_room.r) == NULL)
 		{
-		 log_printf("[*****] Path to track: Range: %d Room: %d opdoor:%d",
+		 log("[*****] Path to track: Range: %d Room: %d opdoor:%d",
 			range,temp->vnum,opdoor); 
 		 return;
 		}
@@ -3471,7 +3471,7 @@ void set_leader(CHAR_DATA *ch, CHAR_DATA *lch)
 
 		for (tch = lch; tch && tch != ch; tch = tch_next) {
 			tch_next = tch->leader;
-			log_printf("set_leader: removing cycle: %s", tch->name);
+			log("set_leader: removing cycle: %s", tch->name);
 			tch->leader = NULL;
 			stop_follower(tch);
 		}

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.181 1999-05-20 19:59:04 fjoe Exp $
+ * $Id: comm.c,v 1.182 1999-06-10 11:47:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -220,7 +220,7 @@ static void open_sockets(varr *v, const char *logm)
 		int sock;
 		if ((sock = init_socket(port)) < 0)
 			continue;
-		log_printf(logm, port);
+		log(logm, port);
 		GETINT(v, j++) = sock;
 	}
 	v->nused = j;
@@ -276,7 +276,7 @@ int main(int argc, char **argv)
 	srand((unsigned) time(NULL));
 	err = WSAStartup(wVersionRequested, &wsaData); 
 	if (err) {
-		log_printf("winsock.dll: %s", strerror(errno));
+		log("winsock.dll: %s", strerror(errno));
 		exit(1);
 	}
 #else
@@ -320,7 +320,7 @@ int main(int argc, char **argv)
 	}
 
 	if (!control_sockets.nused) {
-		log_printf("no control sockets defined");
+		log("no control sockets defined");
 		exit(1);
 	}
 	check_info = (!!info_sockets.nused);
@@ -331,12 +331,12 @@ int main(int argc, char **argv)
 	open_sockets(&info_sockets, "info service started on port %d");
 
 	if (!control_sockets.nused) {
-		log_printf("no control sockets could be opened.");
+		log("no control sockets could be opened.");
 		exit(1);
 	}
 
 	if (check_info && !info_sockets.nused) {
-		log_printf("no info service sockets could be opened.");
+		log("no info service sockets could be opened.");
 		exit(1);
 	}
 
@@ -402,14 +402,14 @@ int init_socket(int port)
 #else
 	if ((fd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
 #endif
-		log_printf("init_socket(%d): socket: %s",
+		log("init_socket(%d): socket: %s",
 			   port, strerror(errno));
 		return -1;
 	}
 
 	if (setsockopt(fd, SOL_SOCKET, SO_REUSEADDR,
 		       (char *) &x, sizeof(x)) < 0) {
-		log_printf("init_socket(%d): setsockopt: SO_REUSEADDR: %s",
+		log("init_socket(%d): setsockopt: SO_REUSEADDR: %s",
 			   port, strerror(errno));
 #if defined (WIN32)
 		closesocket(fd);
@@ -422,7 +422,7 @@ int init_socket(int port)
 	ld.l_onoff  = 0;
 	if (setsockopt(fd, SOL_SOCKET, SO_LINGER,
 		       (char *) &ld, sizeof(ld)) < 0) {
-		log_printf("init_socket(%d): setsockopt: SO_LINGER: %s",
+		log("init_socket(%d): setsockopt: SO_LINGER: %s",
 			   port, strerror(errno));
 #if defined (WIN32)
 		closesocket(fd);
@@ -441,7 +441,7 @@ int init_socket(int port)
 	sa.sin_port	= htons(port);
 
 	if (bind(fd, (struct sockaddr *) &sa, sizeof(sa)) < 0) {
-		log_printf("init_socket(%d): bind: %s", port, strerror(errno));
+		log("init_socket(%d): bind: %s", port, strerror(errno));
 #if defined (WIN32)
 		closesocket(fd);
 #else
@@ -451,7 +451,7 @@ int init_socket(int port)
 	}
 
 	if (listen(fd, 3) < 0) {
-		log_printf("init_socket(%d): listen: %s",
+		log("init_socket(%d): listen: %s",
 			   port, strerror(errno));
 #if defined (WIN32)
 		closesocket(fd);
@@ -539,7 +539,7 @@ void game_loop_unix(void)
 
 		if (select(maxdesc+1,
 			   &in_set, &out_set, &exc_set, &null_time) < 0) {
-			log_printf("game_loop: select: %s", strerror(errno));
+			log("game_loop: select: %s", strerror(errno));
 			exit(1);
 		}
 
@@ -679,7 +679,7 @@ void game_loop_unix(void)
 		stall_time.tv_usec = usecDelta;
 		stall_time.tv_sec  = secDelta;
 		if (select(0, NULL, NULL, NULL, &stall_time) < 0) {
-		    log_printf("game_loop: select: stall: %s", strerror(errno));
+		    log("game_loop: select: stall: %s", strerror(errno));
 		    exit(1);
 		}
 	    }
@@ -743,13 +743,13 @@ void init_descriptor(int control)
 	size = sizeof(sock);
 	getsockname(control, (struct sockaddr *) &sock, &size);
 	if ((desc = accept(control, (struct sockaddr *) &sock, &size)) < 0) {
-		log_printf("init_descriptor: accept: %s", strerror(errno));
+		log("init_descriptor: accept: %s", strerror(errno));
 		return;
 	}
 
 #if !defined (WIN32)
 	if (fcntl(desc, F_SETFL, FNDELAY) < 0) {
-		log_printf("init_descriptor: fcntl: FNDELAY: %s",
+		log("init_descriptor: fcntl: FNDELAY: %s",
 			   strerror(errno));
 		return;
 	}
@@ -776,7 +776,7 @@ void init_descriptor(int control)
 
 	size = sizeof(sock);
 	if (getpeername(desc, (struct sockaddr *) &sock, &size) < 0) {
-		log_printf("init_descriptor: getpeername: %s",
+		log("init_descriptor: getpeername: %s",
 			   strerror(errno));
 		return;
 	}
@@ -793,7 +793,7 @@ void init_descriptor(int control)
 	}
 #endif
 
-	log_printf("sock.sinaddr: %s", inet_ntoa(sock.sin_addr));
+	log("sock.sinaddr: %s", inet_ntoa(sock.sin_addr));
 
 	dnew->next		= descriptor_list;
 	descriptor_list		= dnew;
@@ -827,7 +827,7 @@ void close_descriptor(DESCRIPTOR_DATA *dclose)
 			d->snoop_by = NULL;
 
 	if ((ch = dclose->character) != NULL) {
-		log_printf("Closing link to %s.", ch->name);
+		log("Closing link to %s.", ch->name);
 		if (dclose->connected == CON_PLAYING) {
 			act("$n has lost $s link.", ch, NULL, NULL, TO_ROOM);
 			wiznet("Net death has claimed $N.", ch, NULL,
@@ -877,7 +877,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 	/* Check for overflow. */
 	iOld = iStart = strlen(d->inbuf);
 	if (iStart >= sizeof(d->inbuf) - 10) {
-		log_printf("%s input overflow!", d->host);
+		log("%s input overflow!", d->host);
 		write_to_descriptor(d->descriptor,
 				    "\n\r*** PUT A LID ON IT!!! ***\n\r", 0);
 		return FALSE;
@@ -912,7 +912,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 	    break;
 #endif
 		else {
-			log_printf("read_from_descriptor: %s", strerror(errno));
+			log("read_from_descriptor: %s", strerror(errno));
 			return FALSE;
 		}
 	}
@@ -1038,7 +1038,7 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 			if (ch && ++d->repeat >= 100) {
 				char buf[MAX_STRING_LENGTH];
 
-				log_printf("%s input spamming!", d->host);
+				log("%s input spamming!", d->host);
 				snprintf(buf, sizeof(buf),
 					 "Inlast:[%s] Incomm:[%s]!",
 					 d->inlast, d->incomm);
@@ -1524,7 +1524,7 @@ bool write_to_descriptor(int desc, char *txt, uint length)
 #else
 		if ((nWrite = send(desc, txt + iStart, nBlock, 0)) < 0) {
 #endif
-			log_printf("write_to_descriptor: %s", strerror(errno));
+			log("write_to_descriptor: %s", strerror(errno));
 			return FALSE;
 		}
 	} 
@@ -1631,7 +1631,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		d->codepage = codepages+num;
-		log_printf("'%s' codepage selected", d->codepage->name);
+		log("'%s' codepage selected", d->codepage->name);
 		d->connected = CON_GET_NAME;
 		write_to_buffer(d, "By which name do you wish to be known? ", 0);
 		break;
@@ -2151,7 +2151,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	     break;
 
 	case CON_CREATE_DONE:
-		log_printf("%s@%s new player.", ch->name, d->host);
+		log("%s@%s new player.", ch->name, d->host);
 		write_to_buffer(d, "\n\r", 2);
 		do_help(ch, "motd");
 		char_puts("[Press Enter to continue]", ch);
@@ -2163,7 +2163,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		if (strcmp(crypt(argument, ch->pcdata->pwd), ch->pcdata->pwd)) {
 			write_to_buffer(d, "Wrong password.\n\r", 0);
-			log_printf("Wrong password by %s@%s",
+			log("Wrong password by %s@%s",
 				   ch->name, d->host);
 			if (ch->endur == 2)
 				close_descriptor(d);
@@ -2189,7 +2189,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		||  check_reconnect(d, ch->name, TRUE))
 			return;
 
-		log_printf("%s@%s has connected.", ch->name, d->host);
+		log("%s@%s has connected.", ch->name, d->host);
 		d->connected = CON_READ_IMOTD;
 
 		/* FALL THRU */
@@ -2398,7 +2398,7 @@ bool check_reconnect(DESCRIPTOR_DATA *d, const char *name, bool fConn)
 				act("$n has reconnected.",
 				    ch, NULL, NULL, TO_ROOM);
 
-				log_printf("%s@%s reconnected.",
+				log("%s@%s reconnected.",
 					   ch->name, d->host);
 				wiznet("$N groks the fullness of $S link.",
 				       ch, NULL, WIZ_LINKS, 0, 0);
@@ -2655,7 +2655,7 @@ void resolv_done()
 
 	while (fgets(buf, sizeof(buf), rfin)) {
 		if ((p = strchr(buf, '\n')) == NULL) {
-			log_printf("rfin: line too long, skipping to '\\n'");
+			log("rfin: line too long, skipping to '\\n'");
 			while(fgetc(rfin) != '\n')
 				;
 			continue;
@@ -2666,7 +2666,7 @@ void resolv_done()
 			continue;
 		*host++ = '\0';
 
-		log_printf("resolv_done: %s@%s", buf, host);
+		log("resolv_done: %s@%s", buf, host);
 
 		for (d = descriptor_list; d; d = d->next) {
 			if (d->host

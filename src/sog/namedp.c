@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: namedp.c,v 1.5 1999-04-16 15:52:20 fjoe Exp $
+ * $Id: namedp.c,v 1.6 1999-06-10 11:47:30 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -54,5 +54,5 @@ void namedp_check(const namedp_t *np)
 {
 	for (; np->name; np++)
 		if (!np->touched) 
-			log_printf("%s: not touched", np->name);
+			log("%s: not touched", np->name);
 }

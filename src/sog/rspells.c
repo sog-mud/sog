@@ -1,5 +1,5 @@
 /*
- * $Id: rspells.c,v 1.2 1999-05-24 18:06:58 avn Exp $
+ * $Id: rspells.c,v 1.3 1999-06-10 11:47:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -80,7 +80,7 @@ void init_raff_table(void)
 
 	for (rac = raff_table; rac->name != NULL; rac++)
 		if ((rac->sn = sn_lookup(rac->name)) == -1) {
-			log_printf("[*****] BUG: init_raff_table:"
+			log("[*****] BUG: init_raff_table:"
 			"invalid skill name (%s) in table", rac->name);
 			rac->sn = 0;
 		}
@@ -94,9 +94,9 @@ EVENT_FUN * get_event_fun(int sn, int event)
 		if (rac->event == event
 		&& rac->sn == sn)
 			return rac->event_fun;
-	log_printf("[*****] BUG: get_event_fun: skill %s event %d", 
+	log("[*****] BUG: get_event_fun: skill %s event %d", 
 		skill_name(sn), event);
-	log_printf("[*****] BUG: get_event_fun: No such event in table");
+	log("[*****] BUG: get_event_fun: No such event in table");
 	return NULL;
 }
 

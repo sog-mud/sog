@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.34 1999-05-15 10:56:28 fjoe Exp $
+ * $Id: ban.c,v 1.35 1999-06-10 11:47:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -131,7 +131,7 @@ const char *format_ban(ban_t *pban)
 	if (ch)					\
 		do_help(ch, "'WIZ BAN'");	\
 	else					\
-		log_printf arg;			\
+		log arg;			\
 }
 
 void ban_add(CHAR_DATA *ch, const char *argument)
@@ -180,7 +180,7 @@ void ban_add(CHAR_DATA *ch, const char *argument)
 			if (ch)
 				char_printf(ch, "do_ban: rule %d already exists.\n", ban_num);
 			else
-				log_printf("do_ban: rule %d already exists.\n", ban_num);
+				log("do_ban: rule %d already exists.\n", ban_num);
 			return;
 		}
 		if (b->ban_num > ban_num)
@@ -203,7 +203,7 @@ void ban_add(CHAR_DATA *ch, const char *argument)
 
 	if (ch) {
 		char_printf(ch, "do_ban: rule added.\n");
-		log_printf("Log %s: ban add %s", ch->name, format_ban(bnew));
+		log("Log %s: ban add %s", ch->name, format_ban(bnew));
 		save_bans();
 	}
 }
@@ -242,7 +242,7 @@ void ban_delete(CHAR_DATA *ch, const char *argument)
 	free(curr);
 
 	char_printf(ch, "do_ban: rule %d deleted.\n", ban_num);
-	log_printf("Log %s: ban delete %d", ch->name, ban_num);
+	log("Log %s: ban delete %d", ch->name, ban_num);
 	save_bans();
 }
 

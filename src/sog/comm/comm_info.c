@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_info.c,v 1.6 1999-03-19 18:55:31 fjoe Exp $
+ * $Id: comm_info.c,v 1.7 1999-06-10 11:47:33 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -66,12 +66,12 @@ void info_newconn(int infofd)
 
 	getsockname(infofd, (struct sockaddr*) &sock, &size);
 	if ((fd = accept(infofd, (struct sockaddr*) &sock, &size)) < 0) {
-		log_printf("info_newconn: accept: %s", strerror(errno));
+		log("info_newconn: accept: %s", strerror(errno));
 		return;
 	}
 
 	if (getpeername(fd, (struct sockaddr *) &sock, &size) < 0) {
-		log_printf("info_newconn: getpeername: %s", strerror(errno));
+		log("info_newconn: getpeername: %s", strerror(errno));
 #ifdef WIN32
 		closesocket(fd);
 #else
@@ -80,7 +80,7 @@ void info_newconn(int infofd)
 		return;
 	}
 
-	log_printf("info_newconn: sock.sin_addr: %s", inet_ntoa(sock.sin_addr));
+	log("info_newconn: sock.sin_addr: %s", inet_ntoa(sock.sin_addr));
 
 	for (i = 0; i < info_trusted.nused; i++) {
 		struct in_addr* in_addr = VARR_GET(&info_trusted, i);
@@ -89,7 +89,7 @@ void info_newconn(int infofd)
 	}
 
 	if (i >= info_trusted.nused) {
-		log_printf("info_newconn: incoming connection refused");
+		log("info_newconn: incoming connection refused");
 #ifdef WIN32
 		closesocket(fd);
 #else
@@ -100,7 +100,7 @@ void info_newconn(int infofd)
 
 #if !defined (WIN32)
 	if (fcntl(fd, F_SETFL, FNDELAY) < 0) {
-		log_printf("info_newconn: fcntl: FNDELAY: %s", strerror(errno));
+		log("info_newconn: fcntl: FNDELAY: %s", strerror(errno));
 		close(fd);
 		return;
 	}
@@ -132,7 +132,7 @@ void info_process_cmd(INFO_DESC *id)
         if ( WSAGetLastError() == WSAEWOULDBLOCK)
 #endif
 			return;
-		log_printf("info_input: read: %s", strerror(errno));
+		log("info_input: read: %s", strerror(errno));
 		goto bail_out;
 	}
 	buf[nread] = '\0';
@@ -142,7 +142,7 @@ void info_process_cmd(INFO_DESC *id)
 
 	if ((q = strpbrk(p, " \n\r\t")))
 		*q = '\0';
-	log_printf("process_who: output format requested: '%s'", p);
+	log("process_who: output format requested: '%s'", p);
 	format = format_lookup(p);
 
 	output = buf_new(-1);

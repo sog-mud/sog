@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.72 1999-05-26 09:13:36 fjoe Exp $
+ * $Id: olc_save.c,v 1.73 1999-06-10 11:47:35 fjoe Exp $
  */
 
 /**************************************************************************
@@ -99,7 +99,7 @@ void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
     flag64_t temp;
 
     if (r == NULL) {
-	log_printf("save_mobile: %d: unknown race", pMobIndex->race);
+	log("save_mobile: %d: unknown race", pMobIndex->race);
 	return;
     }
 
@@ -373,7 +373,7 @@ void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 				letter = 'V';
 				break;
 			default:
-				log_printf("olc_save: vnum %d: "
+				log("olc_save: vnum %d: "
 					   "invalid affect->where: %d",
 					   pObjIndex->vnum, pAf->where);
 				continue;
@@ -1323,7 +1323,7 @@ void save_areas(CHAR_DATA *ch, int flags)
 			char_printf(ch, "    %s (%s)\n",
 				    pArea->name, pArea->file_name);
 		else
-			log_printf("    %s (%s)",
+			log("    %s (%s)",
 				   pArea->name, pArea->file_name);
 		REMOVE_BIT(pArea->flags, flags);
 	}

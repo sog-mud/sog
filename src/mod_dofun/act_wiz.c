@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.151 1999-05-24 09:02:08 fjoe Exp $
+ * $Id: act_wiz.c,v 1.152 1999-06-10 11:47:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4349,7 +4349,7 @@ void do_find(CHAR_DATA *ch, const char *argument)
 
 	path = find_way(ch, ch->in_room, location);
 	char_printf(ch, "%s.\n", path);
-	log_printf("From %d to %d: %s.\n",
+	log("From %d to %d: %s.\n",
 		   ch->in_room->vnum, location->vnum, path);
 	return;
 }
@@ -4416,9 +4416,9 @@ void reboot_mud(void)
 	if (!rebooter) {
 		FILE *fp = dfopen(TMP_PATH, EQCHECK_FILE, "w");
 		if (!fp)
-			log_printf("reboot_mud: unable to activate eqcheck");
+			log("reboot_mud: unable to activate eqcheck");
 		else {
-			log_printf("reboot_mud: eqcheck activated");
+			log("reboot_mud: eqcheck activated");
 			fclose(fp);
 		}
 	}

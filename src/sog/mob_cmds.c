@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.34 1999-05-19 08:05:35 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.35 1999-06-10 11:47:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -122,7 +122,7 @@ void mob_interpret(CHAR_DATA *ch, const char *argument)
 	    return;
 	}
     }
-    log_printf("mob_interpret: invalid cmd from mob %d: '%s'",
+    log("mob_interpret: invalid cmd from mob %d: '%s'",
 	IS_NPC(ch) ? ch->pIndexData->vnum : 0, command);
 }
 
@@ -474,7 +474,7 @@ void do_mpmload(CHAR_DATA *ch, const char *argument)
     vnum = atoi(arg);
     if ((pMobIndex = get_mob_index(vnum)) == NULL)
     {
-	log_printf("mpmload: bad mob index (%d) from mob %d",
+	log("mpmload: bad mob index (%d) from mob %d",
 	    vnum, IS_NPC(ch) ? ch->pIndexData->vnum : 0);
 	return;
     }

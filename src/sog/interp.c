@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.148 1999-05-27 09:52:41 kostik Exp $
+ * $Id: interp.c,v 1.149 1999-06-10 11:47:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -624,7 +624,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	||   fLogAll
 	||   cmd->log == LOG_ALWAYS) && logline[0] != '\0' 
 	&&   logline[0] != '\n') {
-		log_printf("Log %s: %s", ch->name, logline);
+		log("Log %s: %s", ch->name, logline);
 		wiznet("Log $N: $t", ch, logline, WIZ_SECURE, 0, ch->level);
 	}
 

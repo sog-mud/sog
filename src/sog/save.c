@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.118 1999-05-22 13:37:30 fjoe Exp $
+ * $Id: save.c,v 1.119 1999-06-10 11:47:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -464,7 +464,7 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 	if (!IS_IMMORTAL(ch)
 	&&  IS_SET(obj->pIndexData->extra_flags, ITEM_QUEST)
 	&&  !IS_OWNER(ch, obj)) {
-		log_printf("fwrite_obj: %s: '%s' of %s",
+		log("fwrite_obj: %s: '%s' of %s",
 			   ch->name, obj->name,
 			   mlstr_mval(obj->owner));
 		act("$p vanishes!", ch, obj, NULL, TO_CHAR);
@@ -808,7 +808,7 @@ CHAR_DATA *load_char_obj(const char *name, int flags)
 			continue;
 		}
 		if (letter != '#') {
-			log_printf("load_char_obj: %s: # not found.", ch->name);
+			log("load_char_obj: %s: # not found.", ch->name);
 			break;
 		}
 		word = fread_word(fp);
@@ -823,7 +823,7 @@ CHAR_DATA *load_char_obj(const char *name, int flags)
 		else if (!str_cmp(word, "END"))
 			break;
 		else {
-			log_printf("load_char_obj: %s: %s: bad section.", 
+			log("load_char_obj: %s: %s: bad section.", 
 				   ch->name, word);
 			break;
 		}
@@ -936,7 +936,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 				const char *skname = fread_word(fp);
 				int sn = sn_lookup(skname);
 				if (sn < 0)
-					log_printf("fread_char: %s: %s: unknown skill", ch->name, skname);
+					log("fread_char: %s: %s: unknown skill", ch->name, skname);
 
 				paf->type = sn;
 				paf->level = fread_number(fp);
@@ -959,7 +959,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 				const char *skname = fread_word(fp);
 				int sn = sn_lookup(skname);
 				if (sn < 0)
-					log_printf("fread_char: %s: %s: unknown skill", ch->name, skname);
+					log("fread_char: %s: %s: unknown skill", ch->name, skname);
 
 				paf->type = sn;
 				paf->where = fread_number(fp);
@@ -1264,7 +1264,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 				char *skname = fread_word(fp);
 				int sn = sn_lookup(skname);
 				if (sn < 0)
-					log_printf("fread_char: %s: %s: unknown skill", ch->name, skname);
+					log("fread_char: %s: %s: unknown skill", ch->name, skname);
 				else
 					set_skill(ch, sn, value);
 				fMatch = TRUE;
@@ -1304,7 +1304,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 		}
 
 		if (!fMatch) {
-			log_printf("fread_char: %s: %s: no match",
+			log("fread_char: %s: %s: no match",
 				   ch->name, word);
 			fread_to_eol(fp);
 		}
@@ -1325,13 +1325,13 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 		int             vnum;
 		vnum = fread_number(fp);
 		if (get_mob_index(vnum) == NULL) {
-			log_printf("fread_pet: %s: %d: bad vnum",
+			log("fread_pet: %s: %d: bad vnum",
 				   ch->name, vnum);
 			pet = create_mob(get_mob_index(MOB_VNUM_KITTEN));
 		} else
 			pet = create_mob(get_mob_index(vnum));
 	} else {
-		log_printf("fread_pet: %s: no vnum in file", ch->name);
+		log("fread_pet: %s: no vnum in file", ch->name);
 		pet = create_mob(get_mob_index(MOB_VNUM_KITTEN));
 	}
 
@@ -1361,7 +1361,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 				const char *skname = fread_word(fp);
 				int sn = sn_lookup(skname);
 				if (sn < 0)
-					log_printf("fread_pet: %s: %s: unknown skill", ch->name, skname);
+					log("fread_pet: %s: %s: unknown skill", ch->name, skname);
 
 				paf->type = sn;
 				paf->level = fread_number(fp);
@@ -1384,7 +1384,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 				const char *skname = fread_word(fp);
 				int sn = sn_lookup(skname);
 				if (sn < 0)
-					log_printf("fread_pet: %s: %s: unknown skill", ch->name, skname);
+					log("fread_pet: %s: %s: unknown skill", ch->name, skname);
 
 				paf->type = sn;
 				paf->where = fread_number(fp);
@@ -1506,7 +1506,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 		}
 
 		if (!fMatch) {
-			log_printf("fread_pet: %s: %s: no match",
+			log("fread_pet: %s: %s: no match",
 				   ch->name, word);
 			fread_to_eol(fp);
 		}
@@ -1538,7 +1538,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 
 		vnum = fread_number(fp);
 		if (get_obj_index(vnum) == NULL)
-			log_printf("fread_obj: %s: %d: bad vnum",
+			log("fread_obj: %s: %d: bad vnum",
 				   ch->name, vnum);
 		else 
 			obj = create_obj(get_obj_index(vnum), CO_F_NOCOUNT);
@@ -1570,7 +1570,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 				const char *skname = fread_word(fp);
 				int sn = sn_lookup(skname);
 				if (sn < 0)
-					log_printf("fread_obj: %s: %s: unknown skill", ch->name, skname);
+					log("fread_obj: %s: %s: unknown skill", ch->name, skname);
 
 				paf->type = sn;
 				paf->level = fread_number(fp);
@@ -1593,7 +1593,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 				const char *skname = fread_word(fp);
 				int sn = sn_lookup(skname);
 				if (sn < 0)
-					log_printf("fread_obj: %s: %s: unknown skill", ch->name, skname);
+					log("fread_obj: %s: %s: unknown skill", ch->name, skname);
 
 				paf->type = sn;
 				paf->where = fread_number(fp);
@@ -1646,7 +1646,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 						ITEM_ENCHANTED);
 				if (!fNest
 				||  (fVnum && obj->pIndexData == NULL)) {
-					log_printf("fread_obj: %s: incomplete object", ch->name);
+					log("fread_obj: %s: incomplete object", ch->name);
 					free_obj(obj);
 					return;
 				}
@@ -1685,7 +1685,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 			if (!str_cmp(word, "Nest")) {
 				iNest = fread_number(fp);
 				if (iNest < 0 || iNest >= MAX_NEST) {
-					log_printf("fread_obj: %s: bad nest %d",
+					log("fread_obj: %s: bad nest %d",
 						   ch->name, iNest);
 				} else {
 					rgObjNest[iNest] = obj;
@@ -1713,9 +1713,9 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 				int sn = sn_lookup(skname);
 
 				if (iValue < 0 || iValue > 3)
-					log_printf("fread_obj: %s: %d: bad iValue", ch->name, iValue);
+					log("fread_obj: %s: %d: bad iValue", ch->name, iValue);
 				else if (sn < 0)
-					log_printf("fread_obj: %s: %s: unknown skill", ch->name, skname);
+					log("fread_obj: %s: %s: unknown skill", ch->name, skname);
 				else
 					obj->value[iValue] = sn;
 
@@ -1753,7 +1753,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 				int             vnum;
 				vnum = fread_number(fp);
 				if ((obj->pIndexData = get_obj_index(vnum)) == NULL)
-					log_printf("fread_obj: %s: bad vnum %d",
+					log("fread_obj: %s: bad vnum %d",
 						   ch->name, vnum);
 				else
 					fVnum = TRUE;
@@ -1770,7 +1770,7 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 		}
 
 		if (!fMatch) {
-			log_printf("fread_obj: %s: %s: no match",
+			log("fread_obj: %s: %s: no match",
 				   ch->name, word);
 			fread_to_eol(fp);
 		}

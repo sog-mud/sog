@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.46 1999-06-03 12:13:36 fjoe Exp $
+ * $Id: db_area.c,v 1.47 1999-06-10 11:47:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -828,33 +828,15 @@ DBLOAD_FUN(load_rooms)
 		}
 		fBootDb = TRUE;
 
-		pRoomIndex		= alloc_perm(sizeof(*pRoomIndex));
-		pRoomIndex->name	= NULL;
-		pRoomIndex->description	= NULL;
+		pRoomIndex		= new_room_index();
 
-		pRoomIndex->owner	= str_dup(str_empty);
-		pRoomIndex->people	= NULL;
-		pRoomIndex->contents	= NULL;
-		pRoomIndex->ed		= NULL;
-		pRoomIndex->history     = NULL;
 		pRoomIndex->area	= area_current;
 		pRoomIndex->vnum	= vnum;
 		pRoomIndex->name	= mlstr_fread(fp);
 		pRoomIndex->description	= mlstr_fread(fp);
 		/* Area number */	  fread_number(fp);
 		pRoomIndex->room_flags	= fread_flags(fp);
- 
 		pRoomIndex->sector_type	= fread_fword(sector_types, fp);
-		pRoomIndex->light	= 0;
-		for (door = 0; door <= 5; door++)
-			pRoomIndex->exit[door] = NULL;
-
-		/* defaults */
-		pRoomIndex->heal_rate = 100;
-		pRoomIndex->mana_rate = 100;
-		pRoomIndex->affected = NULL;
-		pRoomIndex->affected_by = 0;
-		pRoomIndex->aff_next = NULL;
 
 		for (; ;) {
 			letter = fread_letter(fp);

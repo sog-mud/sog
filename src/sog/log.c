@@ -1,5 +1,5 @@
 /*
- * $Id: log.c,v 1.13 1999-03-19 18:55:23 fjoe Exp $
+ * $Id: log.c,v 1.14 1999-06-10 11:47:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -60,7 +60,7 @@
 /*
  * Writes a string to the log.
  */
-void log_printf(const char *format, ...)
+void log(const char *format, ...)
 {
 #if defined(WIN32)
 	FILE *logfile;

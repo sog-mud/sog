@@ -1,5 +1,5 @@
 /*
- * $Id: raffect.c,v 1.25 1999-05-24 07:05:41 fjoe Exp $
+ * $Id: raffect.c,v 1.26 1999-06-10 11:47:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -106,7 +106,7 @@ void affect_to_room(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf)
 	ROOM_INDEX_DATA *pRoomIndex;
 
 	if (paf->owner == NULL) {
-		log_printf("[*****] BUG: affect_to_room: NULL owner");
+		log("[*****] BUG: affect_to_room: NULL owner");
 		return;
 	}
 
@@ -329,7 +329,7 @@ void check_room_affects(CHAR_DATA *ch, ROOM_INDEX_DATA *room, int event)
 		}
 
 		if (raf->event_fun == NULL) {
-			log_printf("[*****] BUG: check_room_affects: "
+			log("[*****] BUG: check_room_affects: "
 				   "no event_fun for %d event", event);
 			continue;
 		}

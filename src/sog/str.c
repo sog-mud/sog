@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.12 1999-05-18 17:52:03 fjoe Exp $
+ * $Id: str.c,v 1.13 1999-06-10 11:47:32 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -35,6 +35,7 @@
 #include "typedef.h"
 #include "const.h"
 #include "str.h"
+#include "db/memalloc.h"
 
 #if defined (WIN32)
 #	define vsnprintf	_vsnprintf
@@ -53,8 +54,10 @@ typedef struct str str;
 struct str {
 	int		ref;
 	str *		next;
-	char 		p[0];
 };
+
+#define GET_DATA(s) (((char*) s) + sizeof(str) + sizeof(memchunk_t))
+#define GET_STR(p) ((str*) (((char*) p) - sizeof(str) - sizeof(memchunk_t)))
 
 str *hash_str[MAX_STRING_HASH];
 
@@ -73,7 +76,7 @@ const char *str_dup(const char *p)
 	if ((s = str_lookup(p, &hash)) == NULL)
 		s = str_alloc(p, hash);
 	s->ref++;
-	return s->p;
+	return GET_DATA(s);
 }
 
 const char *str_qdup(const char *p)
@@ -84,7 +87,7 @@ const char *str_qdup(const char *p)
 		return str_empty;
 
 	str_count++;
-	s = (str *)(p - sizeof(str));
+	s = GET_STR(p);
 	s->ref++;
 	return p;
 }
@@ -100,7 +103,7 @@ void free_string(const char *p)
 	str_count--;
 	hash = strhash(p);
 	for (q = NULL, s = hash_str[hash]; s; s = s->next) {
-		if (!strcmp(s->p, p))
+		if (!strcmp(GET_DATA(s), p))
 			break;
 		q = s;
 	}
@@ -113,7 +116,7 @@ void free_string(const char *p)
 	else
 		hash_str[hash] = hash_str[hash]->next;
 	str_real_count--;
-	free(s);
+	mem_free(p);
 }
 
 /*
@@ -343,10 +346,13 @@ int cmpstr(const void *p1, const void *p2)
 
 static str *str_alloc(const char *p, int hash)
 {
+	char *q;
 	str *s;
+
 	str_real_count++;
-	s = malloc(sizeof(*s) + strlen(p) + 1);
-	strcpy(s->p, p);
+	q = mem_alloc2(MT_STR, strlen(p) + 1, sizeof(str));
+	strcpy(q, p);
+	s = GET_STR(q);
 	s->ref = 0;
 	s->next = hash_str[hash];
 	return hash_str[hash] = s;
@@ -356,7 +362,7 @@ static str *str_lookup(const char *p, int *hash)
 {
 	str *s;
 	for (s = hash_str[*hash = strhash(p)]; s; s = s->next)
-		if (!strcmp(s->p, p))
+		if (!strcmp(GET_DATA(s), p))
 			return s;
 	return NULL;
 }
