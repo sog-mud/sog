@@ -1101,6 +1101,8 @@ $n takes advantage of your fall, stabbing you down."~
 @eng $t: command disabled.@rus $t: команда сделана недоступной.~
 @eng $t: command enabled.@rus $t: команда доступна.~
 @eng $t: command not found.@rus $t: нет такой команды.~
+@eng $t: name list reset.@rus $t: список очищен.~
+@eng $t: name list set to ALL.@rus $t: список установлен в 'all'.~
 @eng $t: name list too long@rus $t: список слишком длинный~
 @eng $t: no such clan.@rus $t: нет такого клана.~
 @eng $t: no such toggle.@rus $t: нет такой настройки.~
@@ -1228,6 +1230,7 @@ $n takes advantage of your fall, stabbing you down."~
 @eng Alas, all good things must come to an end.@rus Увы, все хорошее заканчивается.~
 @eng Alas, you cannot go that way.@rus Увы, ты не можешь идти туда.~
 @eng Alias removed.@rus Сокращение убрано.~
+@eng Alias substitution too long. Truncated.@rus Результат подстановки алиаса слишком длинен. Результат обрезан.~
 @eng Alignment range is -1000 to 1000.@rus Допустимый диапазон значений -1000...1000.~
 @eng All active players restored.@rus Здоровье всех активных игроков восстановлено.~
 @eng All occurences of '$t' replaced with '$T'.@rus Все вхождения подстроки '$t' заменены на '$T'.~
@@ -1583,6 +1586,7 @@ $n takes advantage of your fall, stabbing you down."~
 @eng Line deleted.@rus Строка удалена.~
 @eng Line inserted.@rus Строка вставлена.~
 @eng Line replaced.@rus Строка заменена.~
+@eng Line too long, prefix not processed.@rus Слишком длинная команда. Префикс опущен.~
 @eng Line too long.
 @rus Строка слишком длинная.
 ~
@@ -1781,7 +1785,7 @@ $n takes advantage of your fall, stabbing you down."~
 @eng Put what in what?@rus Положить что во что?~
 @eng Quaff what?@rus Выпить что?~
 Quest staff waits patiently to return.~
-@eng Quiet mode off.@rus Все сообщения будут тебе показываться при использовании редактора.~
+@eng Quiet mode off.@rus При использовании редактора будут показываться все сообщения.~
 @eng Quiet mode on.@rus Во время использования редактора тебя не будут отвлекать посторонние сообщения.~
 @eng Quiet mode removed.@rus Режим тишины выключен.~
 @eng Quote which number?@rus Включить в свое текст обьявления с каким номером?~
@@ -2163,6 +2167,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng Unalias what?@rus Убрать какое сокращение?~
 @eng Unlock what?@rus Разомкнуть что?~
 @eng Unluckily your corpse is devoured.@rus К несчастью твой труп уничтожен.~
+@eng Usage:  :$t "old string" "new string"@rus Использование:  :$t "старая подстрока" "новая подстрока"~
 @eng Usage: lang [ @rus Использование: lang [ ~
 @eng Use 'desc edit' to edit your description.@rus Используй команду 'desc edit', чтобы поменять свое описание.~
 @eng Use social <name> to view what that social does.@rus 'Social <название>' покажет тебе, что эта команда делает.~
