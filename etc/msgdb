@@ -75,6 +75,7 @@ Your hometown is $t, permanently.@rus .
 @eng $E is already asleep.@rus $E уже $gE{спит}.~
 @eng $E is already hallucinating.@rus У $c1{$E} уже давно галюцинации.~
 @eng $E is moving too quickly.@rus $E $gE{движется} слишком быстро.~
+@eng $F-20{$T} : $j gold@rus $F-30{$T} : $j $qj{золотых}~
 @eng $N already has divine favor.@rus Божественное благословение уже пребывает с $c4{$N}.~
 @eng $N already has infravision.@rus $N уже $gN{обладает} умением видеть в темноте.~
 @eng $N appears from nowhere.@rus $N $gN{появился} из ниоткуда.~
@@ -91,6 +92,7 @@ Your hometown is $t, permanently.@rus .
 @eng $N can already detect good.@rus $N уже $gN{обладает} умением видеть добро.~
 @eng $N can already detect magic.@rus $N уже $gN{обладает} умением видеть магию.~
 @eng $N can already detect undead.@rus $N уже $gN{обладает} умением видеть нежить среди живых.~
+@eng $N can already see improved invisible.@rus $N уже имеет возможность видеть совершенно невидимое.~
 @eng $N can already see invisible things.@rus $N уже $gN{может} видеть невидимое.~
 @eng $N can already sense faded lifeforms.@rus $N уже $gN{обладает} этой способностью.~
 @eng $N can already sense hidden lifeforms.@rus $N уже имеет возможность видеть скрытые формы жизни.~
@@ -396,6 +398,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n fades out of existence.@rus $n $gn{исчезает} из реальности.~
 @eng $n failed to knock $d.@rus У $n не получилось отпереть $c3{$d}.~
 @eng $n fails to butcher $p and destroys it.@rus $n $gn{пытался} освежевать $c3{$p}, но уничтожил $gp{его}.~
+@eng $n fails to focus $s spell properly.@rus У $c1{$n} не получается сосредоточиться над своим заклинанием как следует.~
 @eng $n falls flat on $s face.@rus $n $gn{свалился} лицом вниз.~
 @eng $n falls into a deep sleep.@rus $n $gn{провалился} в глубогий сон.~
 @eng $n falls to the ground!@rus $n $gn{свалился} на землю!~
@@ -556,6 +559,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n prays for transportation!@rus $n $gn{молит} о возвращении домой!~
 @eng $n prays for transportation.@rus $n $gn{молит} о перемещении.~
 @eng $n prays the gods of the storm for help.@rus $n $gn{молит} покровителей бурь и штормов о помощи.~
+@eng $n prays upper Lord of Battleragers for transportation.@rus $n $gn{просит} покровителя Яростных-в-битве о перемещении.~
 @eng $n pushes $N to $t.@rus $n $gn{выталкивает} $c6{$N} $t.~
 @eng $n pushes you to $t.@rus $n $gn{выталкивает} тебя $t.~
 @eng $n puts $p in $P.@rus $n $gn{кладет} $c3{$p} в $c3{$P}.~
@@ -781,6 +785,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $n's spell fizzles out and fails.@rus Заклинание $c1{$n} не произвело видимого эффекта.~
 @eng $n's spellbane deflects the spell!@rus Проклятье на $n отразило заклинание!~
 @eng $n's tail slides off your protective shield.@rus Твое защитное поле остановило хвост $c1{$n}, не дав $gn{ему} ударить тебя.~
+@eng $n's weapon runs through $N's chest!@rus Оружие $c1{$n} пронзило грудь $c1{$N}!~
 @eng $p and $P are revealed by $n's sacrifice.@rus На жертвенном костре $n остались $p и $P.~
 @eng $p and $P look about the same.@rus $p и $P очень похожи.~
 @eng $p blackens and crisps!@rus $p $gp{почернел} и $gp{рассыпался}!~
@@ -901,6 +906,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng $p: going $T, starting price $J gold.@rus Лот "$p". Начальная цена $J $qJ{золотых} -- $T!~
 @eng $p: sold to $N for $J gold.@rus $p: продано $c2{$N} за $J $c3{$qJ{золотых}}.~
 @eng $t aliases to '$T'.@rus $t: сокращение для '$T'.~
+@eng $t has just been reset.@rus Зона '$t' обновлена.~
 @eng $t is now aliased to '$T'.@rus $t: теперь сокращение для '$T'.~
 @eng $t off.@rus $t выключено.~
 @eng $t on.@rus $t установлено.~
@@ -1021,6 +1027,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng Affected by %s
 @rus Находится под воздействием %s
 ~
+@eng Ahhhh!  My prey is gone!!@rus Аххх! Добыча ускользнула!!~
 @eng Alas, you cannot go that way.@rus Увы, ты не можешь идти туда.~
 @eng Alias removed.@rus Сокращение убрано.~
 @eng Alignment range is -1000 to 1000.@rus Допустимый диапазон значений -1000...1000.~
@@ -1089,6 +1096,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng But you aren't in the same group as $N.@rus Но ты не в одной группе с $c4{$N}.~
 @eng But you'd rather follow $N!@rus Неа... Лучше идти за $c4{$N}!~
 @eng But you're already guarding someone else!@rus Но ты уже охраняешь кого-то другого!~
+@eng But you're already protected by your honor.@rus Твоя честь уже защищает тебя.~
 @eng But you're not fighting!@rus Но ты не сражаешься!~
 @eng But you've already got one trophy!@rus Но у тебя уже есть один трофей!~
 @eng But your hands are both busy.@rus Обе твои руки уже заняты.~
@@ -1224,6 +1232,7 @@ $n $gn{нанес} на $c3{$p} смертельный яд.~
 @eng I don't remember you. Go away!@rus Я тебя не знаю. Убирайся отсюда!~
 @eng I don't sell that -- try 'list'@rus Я не продаю этого. Набери <list>, чтобы посмотреть, чем я торгую.~
 @eng I don't trade with folks I can't see.@rus Я не торгую с теми, кого не вижу.~
+@eng I have lost $i!@rus След $c1{$i} потерян!~
 @eng I see no $T here.@rus Здесь нет $c1{$T}.~
 @eng I see no door $T here.@rus Я не вижу здесь дверей $T.~
 @eng I see no exit $T here.@rus Я не вижу здесь выходов на $T.~
@@ -1691,6 +1700,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng They aren't here.@rus Тут нет таких.~
 @eng They aren't holding anything.@rus Не во что переливать.~
 @eng They aren't there.@rus Таких здесь нет.~
+@eng They can pray their gods themself.@rus В случае нужды они самостоятельно вознесут молитвы.~
 @eng They do not trust you enough for this spell.@rus Тебе не доверяют настолько, чтобы позволить это.~
 @eng They do not trust you enough.@rus Тебе настолько не доверяют.~
 @eng They don't hold the same liquid.@rus Там какая-то другая жидкость.~
@@ -1703,6 +1713,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng This is not a valid undead type.@rus Такого рода нежити не существует.~
 @eng This liquid was too powerful for you to drink.@rus Аура силы, окружающая это жидкость, не позволяет тебе ее выпить.~
 @eng This power is used too recently.@rus Нельзя пользоваться этим столь часто.~
+@eng This room has already been affected by deadly venom.@rus Все вокруг уже пропитано смертельным ядом.~
 @eng This room has already been affected by sleep gas.@rus Это место уже окутано облаком сонного газа.~
 @eng This room has already been cursed.@rus Это место уже проклято.~
 @eng This room has already been diseased.@rus Все вокруг уже пронизано болезнью.~
@@ -1734,6 +1745,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng Two bears come to $n's rescue!@rus Два медведя явились по зову $c1{$n} $gn{ему} на помощь!~
 @eng Two bears come to your rescue!@rus Услышав зов, два медведя явились тебе на помощь!~
 @eng Two demons are more than you can control!@rus Два демона -- это выше твоих сил!~
+@eng Two guards come to your rescue!@rus По твоему зову два охранника явились на помощь!~
 @eng Two iron golems are more than you can control!@rus Два железных голема -- это больше, чем ты можешь удержать под контролем!~
 @eng Two lions come to $n's rescue!@rus Два льва явились на помощь $c2{$n}!~
 @eng Two lions come to your rescue!@rus Два льва явились на помощь по твоему зову!~
@@ -1803,6 +1815,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng Wrong direction.@rus Неправильное направление.~
 @eng Wrong password.@rus Неправильный пароль.~
 @eng Yell what?@rus Прокричать что?~
+@eng Yess! Your Great Master resurrects you!@rus Даа! Твой Великий Покровитель оживил тебя!~
 @eng You $u $N.@rus Ты $u $c6{$N}.~
 @eng You accept followers.@rus Ты разрешаешь следовать за собой.~
 @eng You allow everyone to cast questionable spells on you.@rus Любой может воздействовать на тебя сомнительными заклинаниями.~
@@ -1819,6 +1832,9 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You are@rus Ты~
 @eng You are @rus Ты ~
 @eng You are $t $T.@rus Ты $t $T.~
+@eng You are Battle Rager, not filthy magician!@rus Ты принадлежишь к клану Яростных-в-битве, а не братии глупых волшебников.~
+@eng You are Battlerager, not the filthy magician.@rus Ты принадлежишь к клану Яростных-в-битве, а не братии глупых волшебников.~
+@eng You are Battlerager, you prefer not to use prayers.@rus Ты принадлежишь к клану Яростных-в-битве и не пользуешься молитвами.~
 @eng You are STUNNED to do that.@rus Ты оглушен и не можешь этого сделать.~
 @eng You are affected by:
 @rus Ты находишься под влиянием:
@@ -1865,8 +1881,8 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You are anti-social!@rus Ты анти-социален!~
 @eng You are asleep yourself!@rus Но ты же сам спишь!~
 @eng You are banned from this mud.
-@rus Тебе запрещен доступ в Мир Серых Теней.
-~
+@rus Тебе запрещен доступ в Мир Серых Теней.
+~
 @eng You are being guarded by $n.@rus Тебя $gn{охраняет} $n.~
 @eng You are beyond this power.@rus Ты $gn{неподвластен} этому.~
 @eng You are blinded by $n's attack!@rus Удар $c1{$n} ослепляет тебя!~
@@ -1966,6 +1982,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @rus Тебя мучает {rжажда{x.
 ~
 @eng You aren't able to drink anything.@rus Ты пить сейчас не в состоянии.~
+@eng You aren't able to imitate this spell.@rus Ты не можешь скопировать это заклинание.~
 @eng You aren't able to move.@rus Ты не можешь двигаться.~
 @eng You aren't able to take anything in this form.@rus Находять в этой форме, ты не можешь поднять что-либо.~
 @eng You aren't allowed in the city.@rus Тебе не разрешено входить в этот город.~
@@ -2022,6 +2039,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You calm down.@rus Спокойствие покидает тебя.~
 @eng You can already breath under water.@rus Ты и так можешь дышать под водой.~
 @eng You can already see everything.@rus Ты и так все видишь.~
+@eng You can already see improved invisible.@rus Ты уже имеешь возможность видеть совершенно невидимое.~
 @eng You can already see in the dark.@rus Ты и так уже умеешь видеть в темноте.~
 @eng You can already see invisible.@rus Ты уже обладаешь способностью видеть невидимое.~
 @eng You can already sense evil.@rus Ты уже обладаешь способностью распозновать злое начало.~
@@ -2330,6 +2348,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You fail to reach your mouth.  *Hic*@rus Ты не можешь дотянуться до рта. *Иик*~
 @eng You failed and destroyed it.@rus Ошибившись, ты $gn{уничтожил} свои ресурсы.~
 @eng You failed to escape.@rus Тебе не удалось сбежать.~
+@eng You failed to focus your spell properly.@rus У тебя не получается сосредоточиться над заклинанием как следует.~
 @eng You failed to make the arrow, and broke it.@rus Делая новую стрелу, ты неуклюжим движением ломаешь ее.~
 @eng You failed to make the bow, and broke it.@rus Делая лук, ты неуклюжим движением ломаешь его.~
 @eng You failed to make your camp.@rus С лагерем ничего не вышло.~
@@ -2676,6 +2695,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You sure are BLEEDING!@rus Ты истекаешь КРОВЬЮ!~
 @eng You surrender to $N!@rus Ты сдаешься $c2{$N}!~
 @eng You take $N down with a weird judo move!@rus Ловким движением ты бросаешь $c6{$N} на землю.~
+@eng You take some energy of your $N and power of your spell increases.@rus Ты забираешь часть энергии у $gN{твоего} $c1{$N}, и сила твоего заклинания увеличивается.~
 @eng You take some energy of your $N to cast a spell.@rus Ты берешь часть энергии $gN{твоего} $c1{$N} для своего заклинания.~
 @eng You teach $T.@rus Ты обучаешь умению '$T'.~
 @eng You tell $N '{G$t{x'@rus Ты говоришь $c2{$N}: "{G$t{x"~
@@ -2818,6 +2838,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng Your hometown is $t, permanently. You can't change your hometown.@rus Твоим домашним городом навсегда останется $t, и ты не сможешь этого изменить.~
 @eng Your honor protects you.@rus Твоя честь защищает тебя.~
 @eng Your honour doesn't let you recall!@rus Честь не позволяет тебе сделать это сейчас!~
+@eng Your imitation doesn't seem to have any effect.@rus Твоя имитация не произвела никакого эффекта.~
 @eng Your magic $t fizzle out near your victim.@rus Твоя магия рассеялась, едва достигнув твоей жертвы.~
 @eng Your message didn't get through!@rus Твое сообщение не дошло до адресата!~
 @eng Your message didn't get through.@rus Твои слова не дошли.~
@@ -2826,6 +2847,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng Your mount can't fly.@rus Твое верховое животное летать не умеет.~
 @eng Your mount must be standing.@rus Твое животное должно стоять.~
 @eng Your mount subbornly refuses to go that way.@rus Твое животное упорно отказывается идти в эту сторону.~
+@eng Your movements are already free.@rus Твои движения ничто не сковывает.~
 @eng Your muscles stop responding.@rus Твое тело теряет чувтвительность.~
 @eng Your muscles surge with heightened power!@rus Твои мышцы налились небывалой силой!~
 @eng Your notes will be sent to Abyss now.@rus Твои обьявления будут отправляться в бездну отныне.~
@@ -2870,8 +2892,8 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng Your thirst for blood continues.@rus Ты по-прежнему жаждешь крови.~
 @eng Your thirst is quenched.@rus Ты больше не испытываешь жажды.~
 @eng Your victim has left the game.
-@rus Твоя жертва покинула мир.
-~
+@rus Твоя жертва покинула мир.
+~
 @eng Your victim is a npc. Not necessary!@rus Твоя жертва -- не живой персонаж. Нет необходимости!~
 @eng Your victim is beyond this power.@rus Твоя жертва неподвласна этому.~
 @eng Your victim is unaffected by hand of undead.@rus Твоя жертва неуязвима к прикосновению нежити.~
@@ -2911,8 +2933,11 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng cloudy@rus покрыто облаками~
 @eng combined items in inventory list@rus компактный вид твоего мешка~
 @eng compact mode@rus сжатый вывод~
+@eng cure blindness@rus исцеление слепоты~
 @eng cure critical wounds@rus лечение опасных ран~
+@eng cure disease@rus исцеление болезни~
 @eng cure light wounds@rus излечение легких ранений~
+@eng cure poison@rus излечение отравления~
 @eng cure serious wounds@rus излечение серьезных ран~
 @eng dawn@rus светает~
 @eng do not bust prompt if hp/mana/move changed mode@rus не обновлять строку подсказки при изменении hp/mana/moves~
@@ -2989,6 +3014,7 @@ grant: cmd min level cannot be higher than yours.~
 @eng rainy@rus затянуто тяжелыми дождевыми тучами~
 @eng ranger's healing@rus лечение травами~
 @eng rat@rus крыса~
+@eng remove curse@rus избавление от проклятья~
 @eng resistant against@rus сопротивляемость к~
 @eng resting@rus отдыхаешь~
 @eng restore 300 mana@rus восстановление маны (300)~

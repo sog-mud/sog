@@ -155,11 +155,14 @@ stand stand female 0
 r negative 10
 r charm -33
 #7809
-pyrohydra pyro hydra~
-the pyrohydra~
-A big beast with many heads, each breathing fire, stares at you with malice.~
-This big beast looks like a small red dragon, but has many more heads than a
+pyrohydra pyro hydra beast существо гидра огненная~
+@eng the pyrohydra@rus ~~огненная~~ ~~гидра~~~
+@eng A big beast with many heads, each breathing fire, stares at you with malice.@rus Огромное существо (pyrohydra) со множеством голов, каждая из которых выдыхает пламя, глядит на тебя с неприкрытой злобой.~
+@eng This big beast looks like a small red dragon, but has many more heads than a
 regular dragon, too.  It doesn't look happy.
+@rus Это огромное существо похоже на небольшого красного дракона, только
+голов у него значительно больше, чем обычно имеет дракон. Оно совсем
+не выглядит осчастливленным твоим вторжением.
 ~
 human~
 BF 0 0 0 H 0 0
@@ -168,6 +171,7 @@ BF 0 0 0 H 0 0
 EFNU
 stand stand none 0
 0 0 medium unknown
+g @eng none@rus female~
 #7810
 hermit man old~
 an old hermit~
@@ -209,10 +213,12 @@ EFNU
 stand stand none 0
 0 0 medium unknown
 #7813
-wolf~
-a wolf~
-A wolf is here, looking for small prey.~
-The wolf is covered with brown hair.  It looks at you with fright.
+wolf волк~
+@eng a wolf@rus волк~
+@eng A wolf is here, looking for small prey.@rus Волк (wolf) поглощен поиском добычи.~
+@eng The wolf is covered with brown hair.  It looks at you with fright.
+@rus Волк весь покрыт коричневым мехом. Он глядит на тебя со страхом в
+глазах.
 ~
 wolf~
 FH 0 0 0 0 0 0
@@ -221,12 +227,15 @@ FH 0 0 0 0 0 0
 ENR
 stand stand none 0
 0 0 medium unknown
+g @eng none@rus male~
 #7814
 antelope антилопа~
 @eng an antelope@rus антилопа~
 @eng An antelope is here, peacefully munching on grass.@rus Антилопа (antelope) мирно щиплет травку.~
-With horns and spots over coarse, brown hair, this beast is the spit and
+@eng With horns and spots over coarse, brown hair, this beast is the spit and
 image of ... an antelope.
+@rus С этими рожками и копытами, коричневой шерстью, это существо вылитый
+портрет ... антилопы.
 ~
 human~
 H 0 0 0 0 0 0
@@ -2606,10 +2615,13 @@ The valley continues to the west.
 Z 0 7874
 S
 #7874
-The Small Valley~
-You are in the small valley.  Strangely, tall trees grow here, almost as
+@eng The Small Valley@rus Маленькая долина~
+@eng You are in the small valley.  Strangely, tall trees grow here, almost as
 if some magic was used to help them grow.  To the south-east is a small
-shack.  To the north is the oak doors of an high tower.  
+shack.
+@rus Ты находишься в совсем небольшой долине. Что странно, здесь растет
+очень высокая трава, словно кто-то использовал магию, чтобы ей помочь.
+На юго-востоке ты видишь хижину.
 ~
 0 0 field
 D1
@@ -2752,7 +2764,7 @@ S
 @eng You are in the den of the pyrohydra.  All the walls are charred, and this
 room is filled with a smell close to that of burning tar.
 @rus Ты находишься в логове огненной гидры. Все стены здесь обуглены, и
-комната наполнена заполнена запахами гари и смолы.
+комната наполнена запахами гари и смолы.
 ~
 0 AD inside
 D0
@@ -2812,7 +2824,7 @@ secret door~
 ABCZ 7805 7880
 S
 #7883
-WAY Far Down into the Valley~
+@eng WAY Far Down into the Valley@rus Вниз по склону холма..~
 @eng You have fallen trying to go down this steep hill.  Maybe that wasn't that
 good an idea, huh?
 
@@ -2820,6 +2832,7 @@ You've fallen, and you can't get up!
 @rus Ты падаешь и катишься вниз по склону холма. Наверное, пойти сюда было
 не очень хорошей идеей.
  
+  Ты $gn{достиг} самого низа и не можешь выбраться наверх.
 ~
 0 C inside
 S
