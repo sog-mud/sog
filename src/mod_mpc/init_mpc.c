@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.41 2001-11-11 17:42:13 avn Exp $
+ * $Id: init_mpc.c,v 1.42 2001-11-12 10:24:17 avn Exp $
  */
 
 #include <dlfcn.h>
@@ -451,7 +451,7 @@ mpc_init(void)
 	init_dynafuns();
 #endif
 
-	m.dlh = dlopen(NULL, RTLD_LAZY);
+	m.dlh = dlopen(NULL, RTLD_NOW);
 	if (m.dlh == NULL) {
 #if defined(MPC)
 		fprintf(stderr, "dlopen: %s", dlerror());
