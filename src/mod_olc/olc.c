@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.30 1998-10-17 11:29:46 fjoe Exp $
+ * $Id: olc.c,v 1.31 1998-10-17 11:45:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -607,6 +607,9 @@ AREA_DATA *get_edited_area(CHAR_DATA *ch)
 	int vnum;
 	const char *id = ch->desc->editor;
 	void *p = ch->desc->pEdit;
+
+	if (id == ED_AREA)
+		return p;
 
 	if (id == ED_HELP)
 		return ((HELP_DATA*) p)->area;
