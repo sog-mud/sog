@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.244 2000-06-08 07:27:24 fjoe Exp $
+ * $Id: act_wiz.c,v 1.245 2000-06-08 07:48:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2347,27 +2347,27 @@ void do_set(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		do_help(ch, "'WIZ SET'");
+		do_help(ch, "1.'WIZ SET'");
 		return;
 	}
 
-	if (!str_prefix(arg,"mobile") || !str_prefix(arg,"character")) {
-		do_mset(ch,argument);
+	if (!str_prefix(arg, "mobile") || !str_prefix(arg, "character")) {
+		do_mset(ch, argument);
 		return;
 	}
 
-	if (!str_prefix(arg,"skill") || !str_prefix(arg,"spell")) {
-		do_sset(ch,argument);
+	if (!str_prefix(arg, "skill")) {
+		do_sset(ch, argument);
 		return;
 	}
 
-	if (!str_prefix(arg,"object")) {
-		do_oset(ch,argument);
+	if (!str_prefix(arg, "object")) {
+		do_oset(ch, argument);
 		return;
 	}
 
-	if (!str_prefix(arg,"room")) {
-		do_rset(ch,argument);
+	if (!str_prefix(arg, "room")) {
+		do_rset(ch, argument);
 		return;
 	}
 
@@ -2400,10 +2400,7 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg3, sizeof(arg3));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
-		char_puts("Syntax:\n",ch);
-		char_puts("  set skill <name> <spell or skill> <value>\n", ch);
-		char_puts("  set skill <name> all <value>\n",ch);  
-		char_puts("(use the name of the skill, not the number)\n",ch);
+		do_set(ch, str_empty);
 		return;
 	}
 
@@ -2592,7 +2589,7 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 		   one_argument(argument, arg3, sizeof(arg3));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
-		do_help(ch, "'WIZ SET'");
+		do_set(ch, str_empty);
 		return;
 	}
 
@@ -2617,7 +2614,7 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 	/*
 	 * Generate usage message.
 	 */
-	do_oset(ch, str_empty);
+	do_set(ch, str_empty);
 }
 
 void do_rset(CHAR_DATA *ch, const char *argument)
@@ -2633,7 +2630,7 @@ void do_rset(CHAR_DATA *ch, const char *argument)
 		   one_argument(argument, arg3, sizeof(arg3));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
-		do_help(ch, "'WIZ SET'");
+		do_set(ch, str_empty);
 		return;
 	}
 
@@ -2673,8 +2670,7 @@ void do_rset(CHAR_DATA *ch, const char *argument)
 	/*
 	 * Generate usage message.
 	 */
-	do_rset(ch, str_empty);
-	return;
+	do_set(ch, str_empty);
 }
 
 void do_sockets(CHAR_DATA *ch, const char *argument)
@@ -3025,7 +3021,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	one_argument(p, arg4, sizeof(arg4));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
-		do_help(ch, "'WIZ SET'");
+		do_set(ch, str_empty);
 		return;
 	}
 
@@ -3623,7 +3619,7 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	/*
 	 * Generate usage message.
 	 */
-	do_mset(ch, str_empty);
+	do_set(ch, str_empty);
 
 cleanup:
 	if (altered)
