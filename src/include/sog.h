@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.38 2002-03-26 14:35:05 kostik Exp $
+ * $Id: sog.h,v 1.39 2002-08-26 16:13:34 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -654,6 +654,7 @@ DECLARE_FUN4(cchar_t, PERS,
 #define ACT_FORMSH	(P)	/* call format_short for short descrs	    */
 #define ACT_SEDIT	(Q)	/* string editor message		    */
 				/* (do not buffer it)			    */
+#define ACT_NOCANSEE	(R)	/* do not perform can_see checks	    */
 #define ACT_NOFIXSH	(Z)	/* do not fix char/obj short descrs	    */
 				/* (used internally in comm_act.c for not   */
 				/* stripping '~' when short descrs are      */

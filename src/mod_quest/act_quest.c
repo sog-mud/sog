@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.162 2001-12-03 22:28:37 fjoe Exp $
+ * $Id: act_quest.c,v 1.163 2002-08-26 16:13:36 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -406,7 +406,8 @@ DO_FUN(quest_info, ch, arg)
 
 		act_puts(
 		    "You are on a quest to slay the dreaded {W$N{x!",
-		    ch, NULL, mob, TO_CHAR | ACT_FORMSH, POS_DEAD);
+		    ch, NULL, mob, TO_CHAR | ACT_FORMSH | ACT_NOCANSEE,
+		    POS_DEAD);
 		extract_char(mob, 0);
 
 		if (PC(ch)->qroom_vnum
@@ -508,7 +509,7 @@ DO_FUN(quest_buy, ch, arg)
 				buy_ok = quest_give_item(ch, questor,
 						qitem->vnum, 0);
 
-			if (buy_ok) 
+			if (buy_ok)
 				PC(ch)->questpoints -= qitem->price;
 			return;
 		}
@@ -628,7 +629,8 @@ DO_FUN(quest_request, ch, arg)
 
 		act_puts("    Vile pilferers have stolen {W$p{x "
 			 "from the royal treasury!",
-			 questor, eyed, ch, TO_VICT | ACT_FORMSH, POS_DEAD);
+			 questor, eyed, ch, TO_VICT | ACT_FORMSH | ACT_NOCANSEE,
+			 POS_DEAD);
 		act_puts("    My court wizardess, with her magic mirror, "
 			 "has pinpointed its location.",
 			 questor, NULL, ch, TO_VICT, POS_DEAD);
@@ -642,7 +644,7 @@ DO_FUN(quest_request, ch, arg)
 			act_puts("    Rune's most heinous criminal, {W$i{x,\n"
 				 "    has escaped from the dungeon.",
 				 questor, victim, ch,
-				 TO_VICT | ACT_FORMSH, POS_DEAD);
+				 TO_VICT | ACT_FORMSH | ACT_NOCANSEE, POS_DEAD);
 			act_puts3("    Since the escape, $i has murdered "
 				  "$J $qJ{civilians}!",
 				  questor, victim, ch, (const void *) n,
@@ -654,7 +656,7 @@ DO_FUN(quest_request, ch, arg)
 			act_puts("    An enemy of mine, {W$i{x,\n"
 				 "    is making vile threats against the crown.",
 				 questor, victim, ch,
-				 TO_VICT | ACT_FORMSH, POS_DEAD);
+				 TO_VICT | ACT_FORMSH | ACT_NOCANSEE, POS_DEAD);
 			act_puts("    This threat must be eliminated!",
 				 questor, victim, ch, TO_VICT, POS_DEAD);
 		}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.92 2001-12-08 00:08:39 tatyana Exp $
+ * $Id: act.c,v 1.93 2002-08-26 16:13:37 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -158,7 +158,7 @@ format_long(mlstring *ml, CHAR_DATA *to)
 const char *
 PERS(CHAR_DATA *ch, CHAR_DATA *to, uint to_lang, int act_flags)
 {
-	bool visible = can_see(to, ch);
+	bool visible = (act_flags & ACT_NOCANSEE) != 0 || can_see(to, ch);
 
 	if (is_sn_affected(ch, "doppelganger")
 	&&  (IS_NPC(to) ||
@@ -290,7 +290,7 @@ act_format_obj(OBJ_DATA *obj, CHAR_DATA *to, uint to_lang,
 	if (!IS_NPC(to) && is_sn_affected(to, "hallucination"))
 		obj = nth_obj(obj, PC(to)->random_value);
 
-	if (!can_see_obj(to, obj))
+	if ((act_flags & ACT_NOCANSEE) == 0 && !can_see_obj(to, obj))
 		return GETMSG("something", to_lang);
 
 	if (IS_SET(act_flags, ACT_FORMSH)) {
