@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.329 2000-02-19 14:26:55 avn Exp $
+ * $Id: act_info.c,v 1.330 2000-02-20 09:59:40 avn Exp $
  */
 
 /***************************************************************************
@@ -1758,7 +1758,7 @@ void do_request(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	WAIT_STATE(ch, PULSE_VIOLENCE);
+	WAIT_STATE(ch, get_pulse("violence"));
 	ch->move -= 10;
 	ch->move = UMAX(ch->move, 0);
 
@@ -3480,7 +3480,7 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	WAIT_STATE(ch, PULSE_VIOLENCE);
+	WAIT_STATE(ch, get_pulse("violence"));
 
 	chance = IS_EVIL(victim) ? 10 : IS_GOOD(victim) ? -5 : 0;
 	chance += (get_curr_stat(ch,STAT_CHA) - 15) * 10;
