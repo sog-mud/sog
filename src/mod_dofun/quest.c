@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.114 1999-06-28 09:04:15 fjoe Exp $
+ * $Id: quest.c,v 1.115 1999-06-28 12:21:40 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -647,7 +647,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 				  TO_VICT, POS_DEAD);
 			act_puts("The penalty for this crime is death, "
 				 "and you are to deliver the sentence!",
-				 questor, NULL, ch, TO_VICT, POS_DEAD);
+				 questor, victim, ch, TO_VICT, POS_DEAD);
 		}
 		else {
 			act_puts("An enemy of mine, {W$i{x, is making "
@@ -655,7 +655,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 				 questor, victim, ch,
 				 TO_VICT | ACT_FORMSH, POS_DEAD);
 			act_puts("This threat must be eliminated!",
-				 questor, NULL, ch, TO_VICT, POS_DEAD);
+				 questor, victim, ch, TO_VICT, POS_DEAD);
 		}
 
 		act_puts3("Seek $i out in the vicinity of {W$R{x!",
