@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.17 1998-06-02 21:49:18 fjoe Exp $
+ * $Id: interp.c,v 1.18 1998-06-07 07:51:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -547,25 +547,26 @@ void interpret( CHAR_DATA *ch, char *argument, bool is_order )
 	argument = one_argument( argument, command );
     }
 
-    /*
-     * Look for command in command table.
-     */
-    found = FALSE;
-    trust = get_trust( ch );
-    for ( cmd = 0; cmd_table[cmd].name[0] != '\0'; cmd++ )
-    {
-	if ( command[0] == cmd_table[cmd].name[0]
-	&&   !str_prefix( command, cmd_table[cmd].name )
-	&&   cmd_table[cmd].level <= trust )
-	{
-         /*
-          * Implement charmed mobs commands.
-          */
-         if ( !is_order && IS_AFFECTED(ch,AFF_CHARM) )
-          {
-	   send_to_char( "First ask to your beloved master!\n\r", ch );
-	   return;
-          }
+	/*
+	 * Look for command in command table.
+	 */
+	found = FALSE;
+	trust = get_trust(ch);
+	for (cmd = 0; cmd_table[cmd].name[0] != '\0'; cmd++) {
+		if (command[0] != cmd_table[cmd].name[0]
+		||  str_prefix(command, cmd_table[cmd].name)
+		||   cmd_table[cmd].level > trust)
+			continue;
+
+         	/*
+ 	         * Implement charmed mobs commands.
+       		 */
+		if (!is_order && IS_AFFECTED(ch,AFF_CHARM)
+		&&  cmd_table[cmd].do_fun != do_return) {
+			send_to_char("First ask to your beloved master!\n\r",
+				     ch);
+			return;
+		}
 
           if ( IS_AFFECTED(ch,AFF_STUN) && 
 		!(cmd_table[cmd].extra & CMD_KEEP_HIDE) )
@@ -604,10 +605,9 @@ void interpret( CHAR_DATA *ch, char *argument, bool is_order )
               && !(cmd_table[cmd].extra & CMD_GHOST) )
             continue;
 
-	    found = TRUE;
-	    break;
+	 	found = TRUE;
+		break;
 	}
-    }
 
     /*
      * Log and snoop.
