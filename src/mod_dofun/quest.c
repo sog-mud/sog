@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.36 1998-06-18 05:19:15 fjoe Exp $
+ * $Id: quest.c,v 1.37 1998-06-20 22:26:56 efdi Exp $
  */
 
 /***************************************************************************
@@ -72,7 +72,6 @@
 #include "log.h"
 #include "magic.h"
 #include "quest.h"
-#include "log.h"
 
 #ifdef SUNOS
 #	include <stdarg.h>
@@ -565,7 +564,6 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 	}
 
 	if (mob_count == 0) {
-		log_printf("quest_generate: no quests for %s", ch->name);
 		quest_tell(ch, questor, msg(QUEST_DONT_HAVE_QUESTS, ch));
 		quest_tell(ch, questor, msg(QUEST_TRY_AGAIN_LATER, ch));
 		ch->pcdata->questtime = -5;
@@ -573,7 +571,6 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 	}
 
 	victim = mobs[number_range(0, mob_count-1)];
-	log_printf("quest_generate: quest for %s (%d): %s (%d, %d), %s (%d)\n",
 		   ch->name, ch->level,
 		   victim->name, victim->level, victim->pIndexData->vnum,
 		   victim->in_room->name, victim->in_room->vnum);
