@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.164.2.6 2002-11-21 13:56:46 fjoe Exp $
+ * $Id: interp.c,v 1.164.2.7 2002-11-21 14:05:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -489,7 +489,8 @@ const char *first_arg(const char *argument, char *arg_first, size_t len,
 		argument++;
 
 /* check quotes */
-	if (*argument == '\'' || *argument == '"')
+	if ((argument[0] == '\'' || argument[0] == '"')
+	&&  argument[1] != '\0')
 		cEnd = *argument++;
 
 	for (q = arg_first; *argument && q - arg_first + 1 < len; argument++) {
