@@ -2390,7 +2390,7 @@ G 0 14011 0		*	a greater beholder: an gold key
 M 0 14002 7 14040 1	* a greater beholder (The Inner Chamber)
 G 0 14011 0		*	a greater beholder: an gold key
 M 0 14003 1 14040 1	* a Zhentil cleric (The Inner Chamber)
-E 0 14004 0 16		*	a Zhentil cleric<wielded>: a spiked leather flail
+E 0 14004 0 16		*	a Zhentil cleric <wielded>: a spiked leather flail
 M 0 14001 1 14041 1	* Xanath the beholder lord (The Chamber of Xanath)
 G 0 14020 0		*	Xanath the beholder lord: a shiny iron key
 G 0 14003 0		*	Xanath the beholder lord: the eye of a beholder
@@ -2404,22 +2404,22 @@ M 0 14018 7 14064 1	* a beholder corps elite (In a hall of beholders)
 G 0 14006 0		*	a beholder corps elite: a beholder eyestalk
 G 0 14020 0		*	a beholder corps elite: a shiny iron key
 M 0 14007 1 14066 1	* a dark-elven trader (In a well furnished room)
-E 0 14018 0 3		*	a dark-elven trader<around the neck>: a spider-shaped broach
-E 0 14026 0 1		*	a dark-elven trader<on the left finger>: a burning spiked ring
-E 0 14032 0 4		*	a dark-elven trader<on the face>: an ivory necklace
+E 0 14018 0 3		*	a dark-elven trader <around the neck>: a spider-shaped broach
+E 0 14026 0 1		*	a dark-elven trader <on the left finger>: a burning spiked ring
+E 0 14032 0 4		*	a dark-elven trader <on the face>: an ivory necklace
 M 0 14010 1 14067 1	* the drow necromancer (In a dark room of arcana power)
-E 0 14019 0 16		*	the drow necromancer<wielded>: a sacrificial knife
-E 0 14027 0 17		*	the drow necromancer<held in the hands>: a soulbinder
+E 0 14019 0 16		*	the drow necromancer <wielded>: a sacrificial knife
+E 0 14027 0 17		*	the drow necromancer <held in the hands>: a soulbinder
 M 0 14009 1 14069 1	* a rakshasa prisoner (The prisoner's room)
 M 0 14008 1 14071 1	* a dark-elven bodyguard (In a bare room filled with rubble)
-E 0 14029 0 16		*	a dark-elven bodyguard<wielded>: the acid singer scimitar
-E 0 14015 0 13		*	a dark-elven bodyguard<around the waist>: a belt of dried grey-elven intestines
-E 0 14028 0 10		*	a dark-elven bodyguard<on the arms>: a pair of black armguards
+E 0 14029 0 16		*	a dark-elven bodyguard <wielded>: the acid singer scimitar
+E 0 14015 0 13		*	a dark-elven bodyguard <around the waist>: a belt of dried grey-elven intestines
+E 0 14028 0 10		*	a dark-elven bodyguard <on the arms>: a pair of black armguards
 M 0 14013 1 14073 1	* an ancient beholder (In a slime encrusted room)
-E 0 14022 0 16		*	an ancient beholder<wielded>: the bloody eyestalk of a beholder
+E 0 14022 0 16		*	an ancient beholder <wielded>: the bloody eyestalk of a beholder
 M 0 14014 1 14074 1	* a stone giant lord (A stone filled room)
-E 0 14025 0 16		*	a stone giant lord<wielded>: a stone club named 'Bone crusher'
-E 0 14030 0 5		*	a stone giant lord<on the body>: the skin of a stone giant lord
+E 0 14025 0 16		*	a stone giant lord <wielded>: a stone club named 'Bone crusher'
+E 0 14030 0 5		*	a stone giant lord <on the body>: the skin of a stone giant lord
 S
 
 #OLIMITS

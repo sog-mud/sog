@@ -2208,17 +2208,17 @@ M 0 4427 1 4407 1	* the cotton candy vendor (The Cotton Candy Vendor)
 G 0 4401 0		*	the cotton candy vendor: cotton candy
 M 0 4404 1 4408 1	* little Bobby (The Entrance to the Freak Shows)
 M 0 4406 1 4409 1	* the Bearded Lady (The Tent of the Bearded Lady)
-E 0 4402 0 17		*	the Bearded Lady<held in the hands>: a hairy key
+E 0 4402 0 17		*	the Bearded Lady <held in the hands>: a hairy key
 M 0 4407 1 4410 1	* the Illusionist (The Tent of the Illusionist)
-E 0 4405 0 17		*	the Illusionist<held in the hands>: a shimmering key
+E 0 4405 0 17		*	the Illusionist <held in the hands>: a shimmering key
 M 0 4408 1 4411 1	* the Midget (The Midget's Tent)
-E 0 4404 0 17		*	the Midget<held in the hands>: a small key
+E 0 4404 0 17		*	the Midget <held in the hands>: a small key
 G 0 4411 0		*	the Midget: the midget's purse
 P 0 4437 1 0 1	* the midget's purse: a bunch of coins
 M 0 4410 1 4412 1	* the Sword Swallower (The Sword Swallower's Tent)
-E 0 4406 0 17		*	the Sword Swallower<held in the hands>: a slender key
+E 0 4406 0 17		*	the Sword Swallower <held in the hands>: a slender key
 M 0 4409 1 4413 1	* Ivan (The Strongman's Tent)
-E 0 4403 0 17		*	Ivan<held in the hands>: a huge key
+E 0 4403 0 17		*	Ivan <held in the hands>: a huge key
 O 0 4414 0 4413	* a barbell (The Strongman's Tent)
 M 0 4401 1 4414 1	* a small child (The Path to the Big Top)
 M 0 4402 1 4414 1	* the child's father (The Path to the Big Top)
@@ -2232,31 +2232,31 @@ M 0 4411 1 4418 1	* a member of the audience (In the Grand Stands)
 M 0 4411 1 4418 1	* a member of the audience (In the Grand Stands)
 M 0 4411 1 4419 1	* a member of the audience (First Look at the Big Top)
 M 0 4415 1 4419 1	* the Ringmaster (First Look at the Big Top)
-E 0 4421 0 6		*	the Ringmaster<over the head>: a tophat
+E 0 4421 0 6		*	the Ringmaster <over the head>: a tophat
 M 0 4411 1 4420 1	* a member of the audience (In the Grand Stands)
 M 0 4411 1 4420 1	* a member of the audience (In the Grand Stands)
 M 0 4411 1 4420 1	* a member of the audience (In the Grand Stands)
 M 0 4412 1 4422 1	* a red-nosed clown (The 2nd Ring - You'd better read the description of this room. )
-E 0 4439 0 5		*	a red-nosed clown<on the body>: a red clown nose
+E 0 4439 0 5		*	a red-nosed clown <on the body>: a red clown nose
 M 0 4413 1 4422 1	* a clown with big shoes (The 2nd Ring - You'd better read the description of this room. )
-E 0 4420 0 8		*	a clown with big shoes<on the feet>: big clown shoes
+E 0 4420 0 8		*	a clown with big shoes <on the feet>: big clown shoes
 M 0 4416 1 4423 1	* the knife thrower (The 3rd Ring)
-E 0 4416 0 16		*	the knife thrower<wielded>: a sharp knife
+E 0 4416 0 16		*	the knife thrower <wielded>: a sharp knife
 G 0 4431 0		*	the knife thrower: drugged food
 M 0 4417 1 4423 1	* the knife thrower's assistant (The 3rd Ring)
-E 0 4417 0 17		*	the knife thrower's assistant<held in the hands>: a blindfold
+E 0 4417 0 17		*	the knife thrower's assistant <held in the hands>: a blindfold
 M 0 4418 1 4424 1	* the lion tamer (The 1st Ring)
-E 0 4418 0 16		*	the lion tamer<wielded>: a whip
+E 0 4418 0 16		*	the lion tamer <wielded>: a whip
 M 0 4419 3 4424 3	* a ferocious Lion (The 1st Ring)
 M 0 4419 3 4424 1	* a ferocious Lion (The 1st Ring)
 M 0 4419 3 4424 1	* a ferocious Lion (The 1st Ring)
 M 0 4420 1 4425 1	* a tightrope walker (On the High Wire)
-E 0 4419 0 17		*	a tightrope walker<held in the hands>: tightrope walker's pole
+E 0 4419 0 17		*	a tightrope walker <held in the hands>: tightrope walker's pole
 M 0 4420 1 4426 1	* a tightrope walker (On the High Wire)
-E 0 4419 0 17		*	a tightrope walker<held in the hands>: tightrope walker's pole
+E 0 4419 0 17		*	a tightrope walker <held in the hands>: tightrope walker's pole
 G 0 4436 0		*	a tightrope walker: the key to the lion's cage
 M 0 4412 1 4429 1	* a red-nosed clown (Behind the Big Top)
-E 0 4439 0 5		*	a red-nosed clown<on the body>: a red clown nose
+E 0 4439 0 5		*	a red-nosed clown <on the body>: a red clown nose
 M 0 4421 6 4430 1	* an animal keeper (The Animal Pens)
 M 0 4422 2 4431 1	* an elephant (The Elephant Pen)
 M 0 4423 2 4432 1	* a trained bear (The Bear Pen)
@@ -2278,26 +2278,26 @@ O 0 4423 0 4441	* a chest (The Illusionist's Trailer)
 P 0 4409 0 0 1	* a chest: a pointy translucent staff
 M 0 4425 1 4442 1	* a poor horse (The Circus Owner's Trailer)
 M 0 4426 1 4442 1	* the Circus Owner (The Circus Owner's Trailer)
-E 0 4448 0 16		*	the Circus Owner<wielded>: a scalpel
-E 0 4427 0 17		*	the Circus Owner<held in the hands>: a paper
+E 0 4448 0 16		*	the Circus Owner <wielded>: a scalpel
+E 0 4427 0 17		*	the Circus Owner <held in the hands>: a paper
 O 0 4428 0 4443	* a combination safe (The Secret Room)
 P 0 4412 0 0 1	* a combination safe: a bunch of coins
 M 0 4412 1 4444 1	* a red-nosed clown (The Clown's Room below the 2nd Ring)
-E 0 4439 0 5		*	a red-nosed clown<on the body>: a red clown nose
+E 0 4439 0 5		*	a red-nosed clown <on the body>: a red clown nose
 M 0 4412 1 4444 1	* a red-nosed clown (The Clown's Room below the 2nd Ring)
-E 0 4439 0 5		*	a red-nosed clown<on the body>: a red clown nose
+E 0 4439 0 5		*	a red-nosed clown <on the body>: a red clown nose
 M 0 4413 1 4444 1	* a clown with big shoes (The Clown's Room below the 2nd Ring)
-E 0 4420 0 8		*	a clown with big shoes<on the feet>: big clown shoes
+E 0 4420 0 8		*	a clown with big shoes <on the feet>: big clown shoes
 M 0 4414 1 4444 1	* a big clown (The Clown's Room below the 2nd Ring)
-E 0 4430 0 17		*	a big clown<held in the hands>: a bucket
+E 0 4430 0 17		*	a big clown <held in the hands>: a bucket
 M 0 4414 1 4444 1	* a big clown (The Clown's Room below the 2nd Ring)
-E 0 4430 0 17		*	a big clown<held in the hands>: a bucket
+E 0 4430 0 17		*	a big clown <held in the hands>: a bucket
 M 0 4421 6 4445 1	* an animal keeper (Behind the Big Top)
 M 0 4412 1 4446 1	* a red-nosed clown (Behind the Big Top)
-E 0 4439 0 5		*	a red-nosed clown<on the body>: a red clown nose
+E 0 4439 0 5		*	a red-nosed clown <on the body>: a red clown nose
 M 0 4421 6 4447 1	* an animal keeper (Behind the Big Top)
 M 0 4420 1 4448 1	* a tightrope walker (The Tightrope Walkers Trailer)
-E 0 4419 0 17		*	a tightrope walker<held in the hands>: tightrope walker's pole
+E 0 4419 0 17		*	a tightrope walker <held in the hands>: tightrope walker's pole
 G 0 4441 0		*	a tightrope walker: a key
 O 0 4440 0 4448	* a chest (The Tightrope Walkers Trailer)
 P 0 4442 0 0 1	* a chest: a clear potion
@@ -2312,7 +2312,7 @@ O 0 4445 0 4469	* homemade stuffing (Binky's Kitchen)
 O 0 4446 0 4469	* a slice of cherry pie (Binky's Kitchen)
 O 0 4447 0 4469	* a wineskin (Binky's Kitchen)
 M 0 4450 1 4469 1	* Binky's chef (Binky's Kitchen)
-E 0 4450 0 16		*	Binky's chef<wielded>: a carving knife
+E 0 4450 0 16		*	Binky's chef <wielded>: a carving knife
 S
 
 #SHOPS

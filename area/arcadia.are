@@ -7045,149 +7045,149 @@ S
 M 0 12043 25 12001 1	* a flower faery (In a Field)
 G 0 12001 0		*	a flower faery: A drop of nectar
 M 0 12036 13 12039 1	* a pixie (Along the path)
-E 0 12006 0 8		*	a pixie<on the feet>: A pair of grey boots
-E 0 12007 0 17		*	a pixie<held in the hands>: A pixie bow
+E 0 12006 0 8		*	a pixie <on the feet>: A pair of grey boots
+E 0 12007 0 17		*	a pixie <held in the hands>: A pixie bow
 M 0 12041 3 12041 1	* an exotic mermaid (The Deep end of the Lake)
 M 0 12036 13 12043 1	* a pixie (An Enchanted Forest)
-E 0 12007 0 17		*	a pixie<held in the hands>: A pixie bow
-E 0 12006 0 8		*	a pixie<on the feet>: A pair of grey boots
+E 0 12007 0 17		*	a pixie <held in the hands>: A pixie bow
+E 0 12006 0 8		*	a pixie <on the feet>: A pair of grey boots
 M 0 12044 12 12043 1	* an acorn faery (An Enchanted Forest)
-E 0 12000 0 6		*	an acorn faery<over the head>: An acorn hat
+E 0 12000 0 6		*	an acorn faery <over the head>: An acorn hat
 M 0 12013 2 12044 1	* a noble sidhe knight (An Enchanted Forest)
-E 0 12042 0 5		*	a noble sidhe knight<on the body>: A sidhe breastplate
-E 0 12041 0 16		*	a noble sidhe knight<wielded>: A sidhe broadsword
-E 0 12040 0 3		*	a noble sidhe knight<around the neck>: A noble's cape
+E 0 12042 0 5		*	a noble sidhe knight <on the body>: A sidhe breastplate
+E 0 12041 0 16		*	a noble sidhe knight <wielded>: A sidhe broadsword
+E 0 12040 0 3		*	a noble sidhe knight <around the neck>: A noble's cape
 M 0 12034 6 12044 1	* a sluagh watcher (An Enchanted Forest)
 M 0 12044 12 12046 1	* an acorn faery (An Enchanted Forest)
-E 0 12000 0 6		*	an acorn faery<over the head>: An acorn hat
+E 0 12000 0 6		*	an acorn faery <over the head>: An acorn hat
 M 0 12025 5 12048 1	* a satyr singer (An Enchanted Forest)
 M 0 12029 4 12048 1	* an adventurous eshu (An Enchanted Forest)
-E 0 12013 0 16		*	an adventurous eshu<wielded>: A gleaming khopesh
+E 0 12013 0 16		*	an adventurous eshu <wielded>: A gleaming khopesh
 M 0 12038 5 12050 1	* a sylph (An Enchanted Forest)
-E 0 12004 0 12		*	a sylph<about the shoulders>: A light gossamer gown
+E 0 12004 0 12		*	a sylph <about the shoulders>: A light gossamer gown
 M 0 12037 10 12051 1	* a sprite (An Enchanted Forest)
-E 0 12005 0 16		*	a sprite<wielded>: A small slender sword
-E 0 12006 0 8		*	a sprite<on the feet>: A pair of grey boots
+E 0 12005 0 16		*	a sprite <wielded>: A small slender sword
+E 0 12006 0 8		*	a sprite <on the feet>: A pair of grey boots
 M 0 12037 10 12052 1	* a sprite (An Enchanted Forest)
-E 0 12005 0 16		*	a sprite<wielded>: A small slender sword
-E 0 12006 0 8		*	a sprite<on the feet>: A pair of grey boots
+E 0 12005 0 16		*	a sprite <wielded>: A small slender sword
+E 0 12006 0 8		*	a sprite <on the feet>: A pair of grey boots
 M 0 12044 12 12052 1	* an acorn faery (An Enchanted Forest)
-E 0 12000 0 6		*	an acorn faery<over the head>: An acorn hat
+E 0 12000 0 6		*	an acorn faery <over the head>: An acorn hat
 M 0 12024 6 12052 1	* a satyr piper (An Enchanted Forest)
-E 0 12018 0 17		*	a satyr piper<held in the hands>: Pan pipes
+E 0 12018 0 17		*	a satyr piper <held in the hands>: Pan pipes
 M 0 12044 12 12053 1	* an acorn faery (An Enchanted Forest)
-E 0 12000 0 6		*	an acorn faery<over the head>: An acorn hat
+E 0 12000 0 6		*	an acorn faery <over the head>: An acorn hat
 M 0 12015 2 12054 1	* a noble sidhe knight (The Lake Shore)
-E 0 12042 0 5		*	a noble sidhe knight<on the body>: A sidhe breastplate
-E 0 12041 0 16		*	a noble sidhe knight<wielded>: A sidhe broadsword
-E 0 12040 0 3		*	a noble sidhe knight<around the neck>: A noble's cape
+E 0 12042 0 5		*	a noble sidhe knight <on the body>: A sidhe breastplate
+E 0 12041 0 16		*	a noble sidhe knight <wielded>: A sidhe broadsword
+E 0 12040 0 3		*	a noble sidhe knight <around the neck>: A noble's cape
 M 0 12039 2 12054 1	* a beautiful nymph (The Lake Shore)
-E 0 12003 0 15		*	a beautiful nymph<on the right wrist>: an opal bracelet
+E 0 12003 0 15		*	a beautiful nymph <on the right wrist>: an opal bracelet
 M 0 12041 3 12055 1	* an exotic mermaid (The Deep end of the Lake)
 M 0 12042 1 12055 1	* an strange merman (The Deep end of the Lake)
-E 0 12002 0 16		*	an strange merman<wielded>: A silver trident
+E 0 12002 0 16		*	an strange merman <wielded>: A silver trident
 M 0 12039 2 12056 1	* a beautiful nymph (The Lake Shore)
-E 0 12003 0 15		*	a beautiful nymph<on the right wrist>: an opal bracelet
+E 0 12003 0 15		*	a beautiful nymph <on the right wrist>: an opal bracelet
 M 0 12036 13 12057 1	* a pixie (The Lake Shore)
-E 0 12007 0 17		*	a pixie<held in the hands>: A pixie bow
-E 0 12006 0 8		*	a pixie<on the feet>: A pair of grey boots
+E 0 12007 0 17		*	a pixie <held in the hands>: A pixie bow
+E 0 12006 0 8		*	a pixie <on the feet>: A pair of grey boots
 M 0 12024 6 12059 1	* a satyr piper (An Enchanted Forest)
-E 0 12018 0 17		*	a satyr piper<held in the hands>: Pan pipes
+E 0 12018 0 17		*	a satyr piper <held in the hands>: Pan pipes
 M 0 12026 1 12060 1	* a lusty satyr (An Enchanted Forest)
 M 0 12037 10 12060 1	* a sprite (An Enchanted Forest)
-E 0 12005 0 16		*	a sprite<wielded>: A small slender sword
-E 0 12006 0 8		*	a sprite<on the feet>: A pair of grey boots
+E 0 12005 0 16		*	a sprite <wielded>: A small slender sword
+E 0 12006 0 8		*	a sprite <on the feet>: A pair of grey boots
 M 0 12038 5 12060 1	* a sylph (An Enchanted Forest)
-E 0 12004 0 12		*	a sylph<about the shoulders>: A light gossamer gown
+E 0 12004 0 12		*	a sylph <about the shoulders>: A light gossamer gown
 M 0 12040 5 12060 1	* a playful dryad (An Enchanted Forest)
 M 0 12024 6 12061 1	* a satyr piper (An Enchanted Forest)
-E 0 12018 0 17		*	a satyr piper<held in the hands>: Pan pipes
+E 0 12018 0 17		*	a satyr piper <held in the hands>: Pan pipes
 M 0 12024 6 12062 1	* a satyr piper (An Enchanted Forest)
-E 0 12018 0 17		*	a satyr piper<held in the hands>: Pan pipes
+E 0 12018 0 17		*	a satyr piper <held in the hands>: Pan pipes
 M 0 12044 12 12062 1	* an acorn faery (An Enchanted Forest)
-E 0 12000 0 6		*	an acorn faery<over the head>: An acorn hat
+E 0 12000 0 6		*	an acorn faery <over the head>: An acorn hat
 M 0 12006 3 12066 1	* a sidhe noble (The Forest Edge)
-E 0 12047 0 16		*	a sidhe noble<wielded>: A noble's rapier
-E 0 12069 0 11		*	a sidhe noble<as a shield>: A crested shield
-E 0 12046 0 6		*	a sidhe noble<over the head>: A noble's circlet
+E 0 12047 0 16		*	a sidhe noble <wielded>: A noble's rapier
+E 0 12069 0 11		*	a sidhe noble <as a shield>: A crested shield
+E 0 12046 0 6		*	a sidhe noble <over the head>: A noble's circlet
 M 0 12036 13 12066 1	* a pixie (The Forest Edge)
-E 0 12007 0 17		*	a pixie<held in the hands>: A pixie bow
-E 0 12006 0 8		*	a pixie<on the feet>: A pair of grey boots
+E 0 12007 0 17		*	a pixie <held in the hands>: A pixie bow
+E 0 12006 0 8		*	a pixie <on the feet>: A pair of grey boots
 M 0 12038 5 12066 1	* a sylph (The Forest Edge)
-E 0 12004 0 12		*	a sylph<about the shoulders>: A light gossamer gown
+E 0 12004 0 12		*	a sylph <about the shoulders>: A light gossamer gown
 M 0 12036 13 12068 1	* a pixie (The Forest Edge)
-E 0 12007 0 17		*	a pixie<held in the hands>: A pixie bow
-E 0 12006 0 8		*	a pixie<on the feet>: A pair of grey boots
+E 0 12007 0 17		*	a pixie <held in the hands>: A pixie bow
+E 0 12006 0 8		*	a pixie <on the feet>: A pair of grey boots
 M 0 12044 12 12069 1	* an acorn faery (An Enchanted Forest)
-E 0 12000 0 6		*	an acorn faery<over the head>: An acorn hat
+E 0 12000 0 6		*	an acorn faery <over the head>: An acorn hat
 M 0 12029 4 12070 1	* an adventurous eshu (An Enchanted Forest)
-E 0 12013 0 16		*	an adventurous eshu<wielded>: A gleaming khopesh
+E 0 12013 0 16		*	an adventurous eshu <wielded>: A gleaming khopesh
 M 0 12037 10 12071 1	* a sprite (The Forest Edge)
-E 0 12005 0 16		*	a sprite<wielded>: A small slender sword
-E 0 12006 0 8		*	a sprite<on the feet>: A pair of grey boots
+E 0 12005 0 16		*	a sprite <wielded>: A small slender sword
+E 0 12006 0 8		*	a sprite <on the feet>: A pair of grey boots
 M 0 12038 5 12072 1	* a sylph (The Forest Edge)
-E 0 12004 0 12		*	a sylph<about the shoulders>: A light gossamer gown
+E 0 12004 0 12		*	a sylph <about the shoulders>: A light gossamer gown
 M 0 12043 25 12073 1	* a flower faery (The Flower Meadow)
 G 0 12001 0		*	a flower faery: A drop of nectar
 M 0 12034 6 12074 1	* a sluagh watcher (The Flower Meadow)
 M 0 12037 10 12074 1	* a sprite (The Flower Meadow)
-E 0 12005 0 16		*	a sprite<wielded>: A small slender sword
-E 0 12006 0 8		*	a sprite<on the feet>: A pair of grey boots
+E 0 12005 0 16		*	a sprite <wielded>: A small slender sword
+E 0 12006 0 8		*	a sprite <on the feet>: A pair of grey boots
 M 0 12043 25 12075 1	* a flower faery (The Flower Meadow)
 G 0 12001 0		*	a flower faery: A drop of nectar
 M 0 12043 25 12077 1	* a flower faery (The Flower Meadow)
 G 0 12001 0		*	a flower faery: A drop of nectar
 M 0 12007 3 12080 1	* a sidhe noble (The Flower Meadow)
-E 0 12047 0 16		*	a sidhe noble<wielded>: A noble's rapier
-E 0 12069 0 11		*	a sidhe noble<as a shield>: A crested shield
-E 0 12046 0 6		*	a sidhe noble<over the head>: A noble's circlet
+E 0 12047 0 16		*	a sidhe noble <wielded>: A noble's rapier
+E 0 12069 0 11		*	a sidhe noble <as a shield>: A crested shield
+E 0 12046 0 6		*	a sidhe noble <over the head>: A noble's circlet
 M 0 12036 13 12080 1	* a pixie (The Flower Meadow)
-E 0 12007 0 17		*	a pixie<held in the hands>: A pixie bow
-E 0 12006 0 8		*	a pixie<on the feet>: A pair of grey boots
+E 0 12007 0 17		*	a pixie <held in the hands>: A pixie bow
+E 0 12006 0 8		*	a pixie <on the feet>: A pair of grey boots
 M 0 12038 5 12080 1	* a sylph (The Flower Meadow)
-E 0 12004 0 12		*	a sylph<about the shoulders>: A light gossamer gown
+E 0 12004 0 12		*	a sylph <about the shoulders>: A light gossamer gown
 M 0 12037 10 12081 1	* a sprite (Before the Castle Gates)
-E 0 12005 0 16		*	a sprite<wielded>: A small slender sword
-E 0 12006 0 8		*	a sprite<on the feet>: A pair of grey boots
+E 0 12005 0 16		*	a sprite <wielded>: A small slender sword
+E 0 12006 0 8		*	a sprite <on the feet>: A pair of grey boots
 M 0 12023 3 12082 1	* a satyr drinker (On the Dirt Trod)
-E 0 12019 0 17		*	a satyr drinker<held in the hands>: A flagon of dark ale
+E 0 12019 0 17		*	a satyr drinker <held in the hands>: A flagon of dark ale
 M 0 12008 3 12083 1	* a sidhe noble (On the Dirt Trod)
-E 0 12047 0 16		*	a sidhe noble<wielded>: A noble's rapier
-E 0 12069 0 11		*	a sidhe noble<as a shield>: A crested shield
-E 0 12046 0 6		*	a sidhe noble<over the head>: A noble's circlet
+E 0 12047 0 16		*	a sidhe noble <wielded>: A noble's rapier
+E 0 12069 0 11		*	a sidhe noble <as a shield>: A crested shield
+E 0 12046 0 6		*	a sidhe noble <over the head>: A noble's circlet
 M 0 12040 5 12083 1	* a playful dryad (On the Dirt Trod)
 M 0 12023 3 12083 1	* a satyr drinker (On the Dirt Trod)
-E 0 12019 0 17		*	a satyr drinker<held in the hands>: A flagon of dark ale
+E 0 12019 0 17		*	a satyr drinker <held in the hands>: A flagon of dark ale
 M 0 12023 3 12084 1	* a satyr drinker (The Dog Tail Inn)
 G 0 12019 0		*	a satyr drinker: A flagon of dark ale
 M 0 12024 6 12084 1	* a satyr piper (The Dog Tail Inn)
-E 0 12018 0 17		*	a satyr piper<held in the hands>: Pan pipes
+E 0 12018 0 17		*	a satyr piper <held in the hands>: Pan pipes
 M 0 12030 3 12084 1	* an eshu (The Dog Tail Inn)
 G 0 12007 0		*	an eshu: A pixie bow
 M 0 12031 2 12084 1	* a drunken eshu (The Dog Tail Inn)
 G 0 12019 0		*	a drunken eshu: A flagon of dark ale
 M 0 12037 10 12085 1	* a sprite (The Flower Meadow)
-E 0 12005 0 16		*	a sprite<wielded>: A small slender sword
-E 0 12006 0 8		*	a sprite<on the feet>: A pair of grey boots
+E 0 12005 0 16		*	a sprite <wielded>: A small slender sword
+E 0 12006 0 8		*	a sprite <on the feet>: A pair of grey boots
 M 0 12043 25 12085 1	* a flower faery (The Flower Meadow)
 G 0 12001 0		*	a flower faery: A drop of nectar
 M 0 12036 13 12086 1	* a pixie (The Flower Meadow)
-E 0 12007 0 17		*	a pixie<held in the hands>: A pixie bow
-E 0 12006 0 8		*	a pixie<on the feet>: A pair of grey boots
+E 0 12007 0 17		*	a pixie <held in the hands>: A pixie bow
+E 0 12006 0 8		*	a pixie <on the feet>: A pair of grey boots
 M 0 12040 5 12086 1	* a playful dryad (The Flower Meadow)
 M 0 12043 25 12087 1	* a flower faery (The Flower Meadow)
 G 0 12001 0		*	a flower faery: A drop of nectar
 M 0 12025 5 12089 1	* a satyr singer (The Flower Meadow)
 M 0 12014 2 12089 1	* a noble sidhe knight (The Flower Meadow)
-E 0 12042 0 5		*	a noble sidhe knight<on the body>: A sidhe breastplate
-E 0 12041 0 16		*	a noble sidhe knight<wielded>: A sidhe broadsword
-E 0 12040 0 3		*	a noble sidhe knight<around the neck>: A noble's cape
+E 0 12042 0 5		*	a noble sidhe knight <on the body>: A sidhe breastplate
+E 0 12041 0 16		*	a noble sidhe knight <wielded>: A sidhe broadsword
+E 0 12040 0 3		*	a noble sidhe knight <around the neck>: A noble's cape
 M 0 12036 13 12089 1	* a pixie (The Flower Meadow)
-E 0 12007 0 17		*	a pixie<held in the hands>: A pixie bow
-E 0 12006 0 8		*	a pixie<on the feet>: A pair of grey boots
+E 0 12007 0 17		*	a pixie <held in the hands>: A pixie bow
+E 0 12006 0 8		*	a pixie <on the feet>: A pair of grey boots
 M 0 12037 10 12089 1	* a sprite (The Flower Meadow)
-E 0 12005 0 16		*	a sprite<wielded>: A small slender sword
-E 0 12006 0 8		*	a sprite<on the feet>: A pair of grey boots
+E 0 12005 0 16		*	a sprite <wielded>: A small slender sword
+E 0 12006 0 8		*	a sprite <on the feet>: A pair of grey boots
 M 0 12040 5 12089 1	* a playful dryad (The Flower Meadow)
 M 0 12025 5 12093 1	* a satyr singer (The Flower Meadow)
 M 0 12025 5 12094 1	* a satyr singer (The Flower Meadow)
@@ -7196,10 +7196,10 @@ G 0 12001 0		*	a flower faery: A drop of nectar
 M 0 12025 5 12095 1	* a satyr singer (The Flower Meadow)
 M 0 12034 6 12095 1	* a sluagh watcher (The Flower Meadow)
 M 0 12036 13 12095 1	* a pixie (The Flower Meadow)
-E 0 12007 0 17		*	a pixie<held in the hands>: A pixie bow
-E 0 12006 0 8		*	a pixie<on the feet>: A pair of grey boots
+E 0 12007 0 17		*	a pixie <held in the hands>: A pixie bow
+E 0 12006 0 8		*	a pixie <on the feet>: A pair of grey boots
 M 0 12029 4 12096 1	* an adventurous eshu (The Flower Meadow)
-E 0 12013 0 16		*	an adventurous eshu<wielded>: A gleaming khopesh
+E 0 12013 0 16		*	an adventurous eshu <wielded>: A gleaming khopesh
 M 0 12043 25 12096 1	* a flower faery (The Flower Meadow)
 G 0 12001 0		*	a flower faery: A drop of nectar
 M 0 12043 25 12097 1	* a flower faery (The Flower Meadow)
@@ -7211,202 +7211,202 @@ O 0 12023 0 12100	* A pile of coals (The Great Stone Forge)
 P 0 12025 1 0 1	* A pile of coals: A crude, dark sword
 M 0 12028 3 12100 1	* a boggan smith (The Great Stone Forge)
 G 0 12021 0		*	a boggan smith: An unfinished axe
-E 0 12017 0 12		*	a boggan smith<about the shoulders>: A scorched leather apron
+E 0 12017 0 12		*	a boggan smith <about the shoulders>: A scorched leather apron
 M 0 12028 3 12100 1	* a boggan smith (The Great Stone Forge)
 G 0 12014 0		*	a boggan smith: An unfinished helmet
-E 0 12017 0 12		*	a boggan smith<about the shoulders>: A scorched leather apron
+E 0 12017 0 12		*	a boggan smith <about the shoulders>: A scorched leather apron
 M 0 12012 2 12102 1	* a noble sidhe knight (Up on a Path in the Mountains)
-E 0 12042 0 5		*	a noble sidhe knight<on the body>: A sidhe breastplate
-E 0 12041 0 16		*	a noble sidhe knight<wielded>: A sidhe broadsword
-E 0 12040 0 3		*	a noble sidhe knight<around the neck>: A noble's cape
+E 0 12042 0 5		*	a noble sidhe knight <on the body>: A sidhe breastplate
+E 0 12041 0 16		*	a noble sidhe knight <wielded>: A sidhe broadsword
+E 0 12040 0 3		*	a noble sidhe knight <around the neck>: A noble's cape
 M 0 12027 1 12104 1	* a boggan craftsman (The Crafts Shoppe)
 G 0 12015 0		*	a boggan craftsman: An unfinished pair of boots
-E 0 12016 0 16		*	a boggan craftsman<wielded>: A stitching needle
+E 0 12016 0 16		*	a boggan craftsman <wielded>: A stitching needle
 M 0 12034 6 12109 1	* a sluagh watcher (The Trophy Room)
 O 0 12062 0 12110	* An unmade bed (A Small Bedroom)
 O 0 12062 0 12111	* An unmade bed (A Small Bedroom)
 O 0 12063 0 12112	* A well made bed (A Small Bedroom)
 P 0 12064 1 0 1	* A well made bed: A scroll of armor making
 M 0 12032 4 12113 1	* a savage redcap (A Dark Abyss)
-E 0 12011 0 16		*	a savage redcap<wielded>: A blood stained club
-E 0 12010 0 6		*	a savage redcap<over the head>: A red cap
+E 0 12011 0 16		*	a savage redcap <wielded>: A blood stained club
+E 0 12010 0 6		*	a savage redcap <over the head>: A red cap
 M 0 12032 4 12114 1	* a savage redcap (More Darkness and Slime)
-E 0 12011 0 16		*	a savage redcap<wielded>: A blood stained club
-E 0 12010 0 6		*	a savage redcap<over the head>: A red cap
+E 0 12011 0 16		*	a savage redcap <wielded>: A blood stained club
+E 0 12010 0 6		*	a savage redcap <over the head>: A red cap
 O 0 12028 0 12115	* slime pool (The Forbiden Room)
 P 0 12029 4 0 1	* slime pool: A bit of slime
 P 0 12061 4 0 1	* slime pool: A bit of slime
 M 0 12035 2 12115 1	* a sluagh guardian (The Forbiden Room)
 G 0 12067 0		*	a sluagh guardian: A small Black key
-E 0 12008 0 16		*	a sluagh guardian<wielded>: A dull kris blade
+E 0 12008 0 16		*	a sluagh guardian <wielded>: A dull kris blade
 M 0 12020 5 12116 1	* a troll guard (Top of the Western Guard Tower)
-E 0 12039 0 1		*	a troll guard<on the left finger>: An oath ring
-E 0 12038 0 11		*	a troll guard<as a shield>: An ice shield
-E 0 12037 0 16		*	a troll guard<wielded>: A twisted spiked club
+E 0 12039 0 1		*	a troll guard <on the left finger>: An oath ring
+E 0 12038 0 11		*	a troll guard <as a shield>: An ice shield
+E 0 12037 0 16		*	a troll guard <wielded>: A twisted spiked club
 M 0 12037 10 12116 1	* a sprite (Top of the Western Guard Tower)
-E 0 12005 0 16		*	a sprite<wielded>: A small slender sword
-E 0 12006 0 8		*	a sprite<on the feet>: A pair of grey boots
+E 0 12005 0 16		*	a sprite <wielded>: A small slender sword
+E 0 12006 0 8		*	a sprite <on the feet>: A pair of grey boots
 M 0 12011 2 12118 1	* a sidhe guard (The Guard Barracks)
-E 0 12045 0 14		*	a sidhe guard<on the left wrist>: An engraved sidhe bracer
-E 0 12045 0 15		*	a sidhe guard<on the right wrist>: An engraved sidhe bracer
-E 0 12044 0 7		*	a sidhe guard<on the legs>: A pair of sidhe greaves
-E 0 12043 0 10		*	a sidhe guard<on the arms>: A pair of sidhe armguards
+E 0 12045 0 14		*	a sidhe guard <on the left wrist>: An engraved sidhe bracer
+E 0 12045 0 15		*	a sidhe guard <on the right wrist>: An engraved sidhe bracer
+E 0 12044 0 7		*	a sidhe guard <on the legs>: A pair of sidhe greaves
+E 0 12043 0 10		*	a sidhe guard <on the arms>: A pair of sidhe armguards
 M 0 12020 5 12118 1	* a troll guard (The Guard Barracks)
-E 0 12039 0 1		*	a troll guard<on the left finger>: An oath ring
-E 0 12038 0 11		*	a troll guard<as a shield>: An ice shield
-E 0 12037 0 16		*	a troll guard<wielded>: A twisted spiked club
+E 0 12039 0 1		*	a troll guard <on the left finger>: An oath ring
+E 0 12038 0 11		*	a troll guard <as a shield>: An ice shield
+E 0 12037 0 16		*	a troll guard <wielded>: A twisted spiked club
 M 0 12034 6 12119 1	* a sluagh watcher (The Gates of the Fae Stronghold)
 M 0 12036 13 12119 1	* a pixie (The Gates of the Fae Stronghold)
-E 0 12007 0 17		*	a pixie<held in the hands>: A pixie bow
-E 0 12006 0 8		*	a pixie<on the feet>: A pair of grey boots
+E 0 12007 0 17		*	a pixie <held in the hands>: A pixie bow
+E 0 12006 0 8		*	a pixie <on the feet>: A pair of grey boots
 M 0 12019 6 12120 2	* a troll guard (The East Tower)
 G 0 12065 0		*	a troll guard: A small oak key
-E 0 12039 0 1		*	a troll guard<on the left finger>: An oath ring
-E 0 12038 0 11		*	a troll guard<as a shield>: An ice shield
-E 0 12036 0 16		*	a troll guard<wielded>: A white  mace
+E 0 12039 0 1		*	a troll guard <on the left finger>: An oath ring
+E 0 12038 0 11		*	a troll guard <as a shield>: An ice shield
+E 0 12036 0 16		*	a troll guard <wielded>: A white  mace
 M 0 12019 6 12120 2	* a troll guard (The East Tower)
-E 0 12039 0 1		*	a troll guard<on the left finger>: An oath ring
-E 0 12038 0 11		*	a troll guard<as a shield>: An ice shield
-E 0 12036 0 16		*	a troll guard<wielded>: A white  mace
+E 0 12039 0 1		*	a troll guard <on the left finger>: An oath ring
+E 0 12038 0 11		*	a troll guard <as a shield>: An ice shield
+E 0 12036 0 16		*	a troll guard <wielded>: A white  mace
 M 0 12010 3 12121 1	* a sidhe guard (Inside the East Tower)
-E 0 12045 0 14		*	a sidhe guard<on the left wrist>: An engraved sidhe bracer
-E 0 12045 0 15		*	a sidhe guard<on the right wrist>: An engraved sidhe bracer
-E 0 12044 0 7		*	a sidhe guard<on the legs>: A pair of sidhe greaves
-E 0 12043 0 10		*	a sidhe guard<on the arms>: A pair of sidhe armguards
+E 0 12045 0 14		*	a sidhe guard <on the left wrist>: An engraved sidhe bracer
+E 0 12045 0 15		*	a sidhe guard <on the right wrist>: An engraved sidhe bracer
+E 0 12044 0 7		*	a sidhe guard <on the legs>: A pair of sidhe greaves
+E 0 12043 0 10		*	a sidhe guard <on the arms>: A pair of sidhe armguards
 M 0 12020 8 12123 1	* a troll guard (The Entryway)
-E 0 12039 0 1		*	a troll guard<on the left finger>: An oath ring
-E 0 12038 0 11		*	a troll guard<as a shield>: An ice shield
-E 0 12037 0 16		*	a troll guard<wielded>: A twisted spiked club
+E 0 12039 0 1		*	a troll guard <on the left finger>: An oath ring
+E 0 12038 0 11		*	a troll guard <as a shield>: An ice shield
+E 0 12037 0 16		*	a troll guard <wielded>: A twisted spiked club
 M 0 12029 4 12125 1	* an adventurous eshu (The Hall of Summer)
-E 0 12013 0 16		*	an adventurous eshu<wielded>: A gleaming khopesh
+E 0 12013 0 16		*	an adventurous eshu <wielded>: A gleaming khopesh
 M 0 12020 8 12131 1	* a troll guard (The Base of the Tower)
-E 0 12039 0 1		*	a troll guard<on the left finger>: An oath ring
-E 0 12038 0 11		*	a troll guard<as a shield>: An ice shield
-E 0 12037 0 16		*	a troll guard<wielded>: A twisted spiked club
+E 0 12039 0 1		*	a troll guard <on the left finger>: An oath ring
+E 0 12038 0 11		*	a troll guard <as a shield>: An ice shield
+E 0 12037 0 16		*	a troll guard <wielded>: A twisted spiked club
 M 0 12031 2 12131 1	* a drunken eshu (The Base of the Tower)
 G 0 12019 0		*	a drunken eshu: A flagon of dark ale
 M 0 12037 10 12132 1	* a sprite (A Hallway)
-E 0 12005 0 16		*	a sprite<wielded>: A small slender sword
-E 0 12006 0 8		*	a sprite<on the feet>: A pair of grey boots
+E 0 12005 0 16		*	a sprite <wielded>: A small slender sword
+E 0 12006 0 8		*	a sprite <on the feet>: A pair of grey boots
 M 0 12019 6 12134 1	* a troll guard (The Courtyard)
-E 0 12039 0 1		*	a troll guard<on the left finger>: An oath ring
-E 0 12038 0 11		*	a troll guard<as a shield>: An ice shield
-E 0 12036 0 16		*	a troll guard<wielded>: A white  mace
+E 0 12039 0 1		*	a troll guard <on the left finger>: An oath ring
+E 0 12038 0 11		*	a troll guard <as a shield>: An ice shield
+E 0 12036 0 16		*	a troll guard <wielded>: A white  mace
 M 0 12003 1 12134 1	* True Thomas (The Courtyard)
 G 0 12052 0		*	True Thomas: poetry
-E 0 12053 0 12		*	True Thomas<about the shoulders>: A poet's robe
+E 0 12053 0 12		*	True Thomas <about the shoulders>: A poet's robe
 M 0 12022 2 12134 1	* a pooka jester (The Courtyard)
 G 0 12033 0		*	a pooka jester: A jester's stick
-E 0 12020 0 6		*	a pooka jester<over the head>: A jester's cap
+E 0 12020 0 6		*	a pooka jester <over the head>: A jester's cap
 O 0 12026 0 12134	* A beautiful crystal fountain (The Courtyard)
 M 0 12024 6 12134 1	* a satyr piper (The Courtyard)
-E 0 12018 0 17		*	a satyr piper<held in the hands>: Pan pipes
+E 0 12018 0 17		*	a satyr piper <held in the hands>: Pan pipes
 M 0 12030 3 12134 1	* an eshu (The Courtyard)
-E 0 12007 0 17		*	an eshu<held in the hands>: A pixie bow
+E 0 12007 0 17		*	an eshu <held in the hands>: A pixie bow
 M 0 12040 5 12134 1	* a playful dryad (The Courtyard)
 M 0 12019 6 12135 1	* a troll guard (A Hallway)
-E 0 12039 0 1		*	a troll guard<on the left finger>: An oath ring
-E 0 12038 0 11		*	a troll guard<as a shield>: An ice shield
-E 0 12036 0 16		*	a troll guard<wielded>: A white  mace
+E 0 12039 0 1		*	a troll guard <on the left finger>: An oath ring
+E 0 12038 0 11		*	a troll guard <as a shield>: An ice shield
+E 0 12036 0 16		*	a troll guard <wielded>: A white  mace
 M 0 12036 13 12136 1	* a pixie (A Hallway)
-E 0 12007 0 17		*	a pixie<held in the hands>: A pixie bow
-E 0 12006 0 8		*	a pixie<on the feet>: A pair of grey boots
+E 0 12007 0 17		*	a pixie <held in the hands>: A pixie bow
+E 0 12006 0 8		*	a pixie <on the feet>: A pair of grey boots
 M 0 12019 6 12138 1	* a troll guard (Inside the Eastern Tower)
-E 0 12039 0 1		*	a troll guard<on the left finger>: An oath ring
-E 0 12038 0 11		*	a troll guard<as a shield>: An ice shield
-E 0 12036 0 16		*	a troll guard<wielded>: A white  mace
+E 0 12039 0 1		*	a troll guard <on the left finger>: An oath ring
+E 0 12038 0 11		*	a troll guard <as a shield>: An ice shield
+E 0 12036 0 16		*	a troll guard <wielded>: A white  mace
 O 0 12030 0 12141	* A large oak bookshelf (The Chamber of Lughnasadh)
 P 0 12066 2 0 1	* A large oak bookshelf: A page of glowing script
 P 0 12032 4 0 1	* A large oak bookshelf: An ancient manuscript
 P 0 12031 4 0 1	* A large oak bookshelf: An ancient manuscript
 M 0 12011 2 12142 1	* a sidhe guard (Inside the Western Guard Tower)
-E 0 12045 0 14		*	a sidhe guard<on the left wrist>: An engraved sidhe bracer
-E 0 12045 0 15		*	a sidhe guard<on the right wrist>: An engraved sidhe bracer
-E 0 12044 0 7		*	a sidhe guard<on the legs>: A pair of sidhe greaves
-E 0 12043 0 10		*	a sidhe guard<on the arms>: A pair of sidhe armguards
+E 0 12045 0 14		*	a sidhe guard <on the left wrist>: An engraved sidhe bracer
+E 0 12045 0 15		*	a sidhe guard <on the right wrist>: An engraved sidhe bracer
+E 0 12044 0 7		*	a sidhe guard <on the legs>: A pair of sidhe greaves
+E 0 12043 0 10		*	a sidhe guard <on the arms>: A pair of sidhe armguards
 M 0 12008 3 12143 1	* a sidhe noble (Top of the Western Guard Tower)
-E 0 12047 0 16		*	a sidhe noble<wielded>: A noble's rapier
-E 0 12069 0 11		*	a sidhe noble<as a shield>: A crested shield
-E 0 12046 0 6		*	a sidhe noble<over the head>: A noble's circlet
+E 0 12047 0 16		*	a sidhe noble <wielded>: A noble's rapier
+E 0 12069 0 11		*	a sidhe noble <as a shield>: A crested shield
+E 0 12046 0 6		*	a sidhe noble <over the head>: A noble's circlet
 M 0 12032 4 12143 1	* a savage redcap (Top of the Western Guard Tower)
-E 0 12011 0 16		*	a savage redcap<wielded>: A blood stained club
-E 0 12010 0 6		*	a savage redcap<over the head>: A red cap
+E 0 12011 0 16		*	a savage redcap <wielded>: A blood stained club
+E 0 12010 0 6		*	a savage redcap <over the head>: A red cap
 G 0 12058 0		*	a savage redcap: A bag of tricks
 P 0 12068 1 0 1	* A bag of tricks: Some glowing dust
 P 0 12059 3 0 1	* A bag of tricks: an orange
 P 0 12060 1 0 1	* A bag of tricks: A small pebble
-E 0 12057 0 3		*	a savage redcap<around the neck>: The cloak of shadows
+E 0 12057 0 3		*	a savage redcap <around the neck>: The cloak of shadows
 M 0 12006 3 12144 1	* a sidhe noble (The Court of the Fae)
-E 0 12047 0 16		*	a sidhe noble<wielded>: A noble's rapier
-E 0 12069 0 11		*	a sidhe noble<as a shield>: A crested shield
-E 0 12046 0 6		*	a sidhe noble<over the head>: A noble's circlet
+E 0 12047 0 16		*	a sidhe noble <wielded>: A noble's rapier
+E 0 12069 0 11		*	a sidhe noble <as a shield>: A crested shield
+E 0 12046 0 6		*	a sidhe noble <over the head>: A noble's circlet
 M 0 12009 3 12144 1	* a sidhe noble (The Court of the Fae)
-E 0 12047 0 16		*	a sidhe noble<wielded>: A noble's rapier
-E 0 12069 0 11		*	a sidhe noble<as a shield>: A crested shield
-E 0 12046 0 6		*	a sidhe noble<over the head>: A noble's circlet
+E 0 12047 0 16		*	a sidhe noble <wielded>: A noble's rapier
+E 0 12069 0 11		*	a sidhe noble <as a shield>: A crested shield
+E 0 12046 0 6		*	a sidhe noble <over the head>: A noble's circlet
 M 0 12016 2 12144 1	* a noble sidhe knight (The Court of the Fae)
-E 0 12042 0 5		*	a noble sidhe knight<on the body>: A sidhe breastplate
-E 0 12041 0 16		*	a noble sidhe knight<wielded>: A sidhe broadsword
-E 0 12040 0 3		*	a noble sidhe knight<around the neck>: A noble's cape
+E 0 12042 0 5		*	a noble sidhe knight <on the body>: A sidhe breastplate
+E 0 12041 0 16		*	a noble sidhe knight <wielded>: A sidhe broadsword
+E 0 12040 0 3		*	a noble sidhe knight <around the neck>: A noble's cape
 M 0 12017 2 12144 1	* a noble sidhe knight (The Court of the Fae)
-E 0 12042 0 5		*	a noble sidhe knight<on the body>: A sidhe breastplate
-E 0 12041 0 16		*	a noble sidhe knight<wielded>: A sidhe broadsword
-E 0 12040 0 3		*	a noble sidhe knight<around the neck>: A noble's cape
+E 0 12042 0 5		*	a noble sidhe knight <on the body>: A sidhe breastplate
+E 0 12041 0 16		*	a noble sidhe knight <wielded>: A sidhe broadsword
+E 0 12040 0 3		*	a noble sidhe knight <around the neck>: A noble's cape
 M 0 12018 2 12144 1	* a noble sidhe knight (The Court of the Fae)
-E 0 12042 0 5		*	a noble sidhe knight<on the body>: A sidhe breastplate
-E 0 12041 0 16		*	a noble sidhe knight<wielded>: A sidhe broadsword
-E 0 12040 0 3		*	a noble sidhe knight<around the neck>: A noble's cape
+E 0 12042 0 5		*	a noble sidhe knight <on the body>: A sidhe breastplate
+E 0 12041 0 16		*	a noble sidhe knight <wielded>: A sidhe broadsword
+E 0 12040 0 3		*	a noble sidhe knight <around the neck>: A noble's cape
 M 0 12019 6 12144 1	* a troll guard (The Court of the Fae)
-E 0 12039 0 1		*	a troll guard<on the left finger>: An oath ring
-E 0 12038 0 11		*	a troll guard<as a shield>: An ice shield
-E 0 12036 0 16		*	a troll guard<wielded>: A white  mace
+E 0 12039 0 1		*	a troll guard <on the left finger>: An oath ring
+E 0 12038 0 11		*	a troll guard <as a shield>: An ice shield
+E 0 12036 0 16		*	a troll guard <wielded>: A white  mace
 M 0 12021 1 12144 1	* a pooka jester (The Court of the Fae)
 G 0 12035 0		*	a pooka jester: A jester's stick
-E 0 12020 0 6		*	a pooka jester<over the head>: A jester's cap
+E 0 12020 0 6		*	a pooka jester <over the head>: A jester's cap
 M 0 12022 2 12144 1	* a pooka jester (The Court of the Fae)
 G 0 12034 0		*	a pooka jester: A jester's stick
 M 0 12030 3 12144 1	* an eshu (The Court of the Fae)
 G 0 12007 0		*	an eshu: A pixie bow
 M 0 12034 6 12144 1	* a sluagh watcher (The Court of the Fae)
 M 0 12010 3 12145 1	* a sidhe guard (The Top of the Eastern Guard Tower)
-E 0 12045 0 15		*	a sidhe guard<on the right wrist>: An engraved sidhe bracer
-E 0 12043 0 10		*	a sidhe guard<on the arms>: A pair of sidhe armguards
+E 0 12045 0 15		*	a sidhe guard <on the right wrist>: An engraved sidhe bracer
+E 0 12043 0 10		*	a sidhe guard <on the arms>: A pair of sidhe armguards
 M 0 12000 1 12146 1	* Oberon (The Throne of the Seelie Fae)
-E 0 12056 0 3		*	Oberon<around the neck>: A golden torc
+E 0 12056 0 3		*	Oberon <around the neck>: A golden torc
 M 0 12001 1 12146 1	* Queen Titania (The Throne of the Seelie Fae)
-E 0 12054 0 5		*	Queen Titania<on the body>: An embroidered gown
-E 0 12055 0 3		*	Queen Titania<around the neck>: A summer locket
+E 0 12054 0 5		*	Queen Titania <on the body>: An embroidered gown
+E 0 12055 0 3		*	Queen Titania <around the neck>: A summer locket
 M 0 12010 3 12146 1	* a sidhe guard (The Throne of the Seelie Fae)
-E 0 12045 0 14		*	a sidhe guard<on the left wrist>: An engraved sidhe bracer
-E 0 12045 0 15		*	a sidhe guard<on the right wrist>: An engraved sidhe bracer
-E 0 12044 0 7		*	a sidhe guard<on the legs>: A pair of sidhe greaves
-E 0 12043 0 10		*	a sidhe guard<on the arms>: A pair of sidhe armguards
+E 0 12045 0 14		*	a sidhe guard <on the left wrist>: An engraved sidhe bracer
+E 0 12045 0 15		*	a sidhe guard <on the right wrist>: An engraved sidhe bracer
+E 0 12044 0 7		*	a sidhe guard <on the legs>: A pair of sidhe greaves
+E 0 12043 0 10		*	a sidhe guard <on the arms>: A pair of sidhe armguards
 O 0 12028 0 12148	* slime pool (The Watcher's Home)
 P 0 12061 4 0 1	* slime pool: A bit of slime
 P 0 12029 4 0 1	* slime pool: A bit of slime
 M 0 12032 4 12148 1	* a savage redcap (The Watcher's Home)
-E 0 12011 0 16		*	a savage redcap<wielded>: A blood stained club
-E 0 12010 0 6		*	a savage redcap<over the head>: A red cap
+E 0 12011 0 16		*	a savage redcap <wielded>: A blood stained club
+E 0 12010 0 6		*	a savage redcap <over the head>: A red cap
 M 0 12033 3 12148 1	* a murderous redcap (The Watcher's Home)
-E 0 12009 0 16		*	a murderous redcap<wielded>: A jagged blade
-E 0 12010 0 6		*	a murderous redcap<over the head>: A red cap
+E 0 12009 0 16		*	a murderous redcap <wielded>: A jagged blade
+E 0 12010 0 6		*	a murderous redcap <over the head>: A red cap
 M 0 12035 2 12148 1	* a sluagh guardian (The Watcher's Home)
-E 0 12008 0 16		*	a sluagh guardian<wielded>: A dull kris blade
+E 0 12008 0 16		*	a sluagh guardian <wielded>: A dull kris blade
 M 0 12004 1 12149 1	* Gwyn ap Nudd (The Hidden Court)
-E 0 12051 0 3		*	Gwyn ap Nudd<around the neck>: A silver crescent
-E 0 12050 0 6		*	Gwyn ap Nudd<over the head>: A stag horned helmet
+E 0 12051 0 3		*	Gwyn ap Nudd <around the neck>: A silver crescent
+E 0 12050 0 6		*	Gwyn ap Nudd <over the head>: A stag horned helmet
 M 0 12020 5 12149 1	* a troll guard (The Hidden Court)
-E 0 12039 0 1		*	a troll guard<on the left finger>: An oath ring
-E 0 12038 0 11		*	a troll guard<as a shield>: An ice shield
-E 0 12037 0 16		*	a troll guard<wielded>: A twisted spiked club
+E 0 12039 0 1		*	a troll guard <on the left finger>: An oath ring
+E 0 12038 0 11		*	a troll guard <as a shield>: An ice shield
+E 0 12037 0 16		*	a troll guard <wielded>: A twisted spiked club
 M 0 12005 1 12150 1	* The Morrigan (The Hidden Court)
 G 0 12049 0		*	The Morrigan: night's blood
 G 0 12048 0		*	The Morrigan: The heart of Night
 M 0 12033 3 12150 1	* a murderous redcap (The Hidden Court)
-E 0 12009 0 16		*	a murderous redcap<wielded>: A jagged blade
-E 0 12010 0 6		*	a murderous redcap<over the head>: A red cap
+E 0 12009 0 16		*	a murderous redcap <wielded>: A jagged blade
+E 0 12010 0 6		*	a murderous redcap <over the head>: A red cap
 M 0 12045 1 12156 1	* A little boy (Behind the Hill)
-E 0 12018 0 17		*	A little boy<held in the hands>: Pan pipes
+E 0 12018 0 17		*	A little boy <held in the hands>: Pan pipes
 M 0 12046 1 12157 1	* A CuSidhe (Under the Hill)
 M 0 12047 1 12157 1	* A BoSidhe (Under the Hill)
 M 0 12048 1 12157 1	* A CatSidhe (Under the Hill)

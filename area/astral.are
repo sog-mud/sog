@@ -3903,7 +3903,7 @@ S
 
 #RESETS
 M 0 7700 1 7706 1	* the Astral Guardian (The Astral Gate)
-E 0 7700 0 16		*	the Astral Guardian<wielded>: massive sledgehammer
+E 0 7700 0 16		*	the Astral Guardian <wielded>: massive sledgehammer
 R 0 7708 6	* Exploring the Astral Plane: randomize
 R 0 7709 6	* Exploring the Astral Plane: randomize
 R 0 7710 6	* Exploring the Astral Plane: randomize
@@ -3911,74 +3911,74 @@ R 0 7711 6	* Exploring the Astral Plane: randomize
 R 0 7712 6	* Exploring the Astral Plane: randomize
 R 0 7713 6	* Roaming the Astral Plane: randomize
 M 0 7704 10 7713 1	* the poor soulless being (Roaming the Astral Plane)
-E 0 3022 0 16		*	the poor soulless being<wielded>: a long sword
+E 0 3022 0 16		*	the poor soulless being <wielded>: a long sword
 R 0 7714 6	* Roaming the Astral Plane: randomize
 M 0 7704 10 7714 1	* the poor soulless being (Roaming the Astral Plane)
-E 0 3022 0 16		*	the poor soulless being<wielded>: a long sword
+E 0 3022 0 16		*	the poor soulless being <wielded>: a long sword
 R 0 7715 6	* Roaming the Astral Plane: randomize
 M 0 7704 10 7715 1	* the poor soulless being (Roaming the Astral Plane)
-E 0 3022 0 16		*	the poor soulless being<wielded>: a long sword
+E 0 3022 0 16		*	the poor soulless being <wielded>: a long sword
 R 0 7716 6	* Roaming the Astral Plane: randomize
 M 0 7704 10 7716 1	* the poor soulless being (Roaming the Astral Plane)
-E 0 3022 0 16		*	the poor soulless being<wielded>: a long sword
+E 0 3022 0 16		*	the poor soulless being <wielded>: a long sword
 R 0 7717 6	* Roaming the Astral Plane: randomize
 M 0 7704 10 7717 1	* the poor soulless being (Roaming the Astral Plane)
-E 0 3022 0 16		*	the poor soulless being<wielded>: a long sword
+E 0 3022 0 16		*	the poor soulless being <wielded>: a long sword
 R 0 7718 6	* Wandering the Astral Plane: randomize
 M 0 7704 10 7718 1	* the poor soulless being (Wandering the Astral Plane)
-E 0 3022 0 16		*	the poor soulless being<wielded>: a long sword
+E 0 3022 0 16		*	the poor soulless being <wielded>: a long sword
 M 0 7705 8 7718 2	* the githyanki hunter (Wandering the Astral Plane)
-E 0 7707 0 16		*	the githyanki hunter<wielded>: silvery dagger
+E 0 7707 0 16		*	the githyanki hunter <wielded>: silvery dagger
 R 0 7719 6	* Wandering the Astral Plane: randomize
 M 0 7704 10 7719 1	* the poor soulless being (Wandering the Astral Plane)
-E 0 3022 0 16		*	the poor soulless being<wielded>: a long sword
+E 0 3022 0 16		*	the poor soulless being <wielded>: a long sword
 R 0 7720 6	* Wandering the Astral Plane: randomize
 M 0 7703 4 7720 1	* the invisible stalker (Wandering the Astral Plane)
 G 0 7714 0		*	the invisible stalker: some astral powder
 M 0 7704 10 7720 1	* the poor soulless being (Wandering the Astral Plane)
-E 0 3022 0 16		*	the poor soulless being<wielded>: a long sword
+E 0 3022 0 16		*	the poor soulless being <wielded>: a long sword
 M 0 7705 8 7720 2	* the githyanki hunter (Wandering the Astral Plane)
-E 0 7707 0 16		*	the githyanki hunter<wielded>: silvery dagger
+E 0 7707 0 16		*	the githyanki hunter <wielded>: silvery dagger
 R 0 7721 6	* Wandering the Astral Plane: randomize
 M 0 7704 10 7721 1	* the poor soulless being (Wandering the Astral Plane)
-E 0 3022 0 16		*	the poor soulless being<wielded>: a long sword
+E 0 3022 0 16		*	the poor soulless being <wielded>: a long sword
 R 0 7722 6	* Wandering the Astral Plane: randomize
 M 0 7704 10 7722 1	* the poor soulless being (Wandering the Astral Plane)
-E 0 3022 0 16		*	the poor soulless being<wielded>: a long sword
+E 0 3022 0 16		*	the poor soulless being <wielded>: a long sword
 M 0 7705 8 7722 2	* the githyanki hunter (Wandering the Astral Plane)
-E 0 7707 0 16		*	the githyanki hunter<wielded>: silvery dagger
+E 0 7707 0 16		*	the githyanki hunter <wielded>: silvery dagger
 R 0 7723 6	* Travelling the Astral Plane: randomize
 M 0 7706 6 7723 3	* the githyanki warrior (Travelling the Astral Plane)
-E 0 7708 0 16		*	the githyanki warrior<wielded>: extremely sharp and thin sword
-E 0 7715 0 5		*	the githyanki warrior<on the body>: splint mail vest
+E 0 7708 0 16		*	the githyanki warrior <wielded>: extremely sharp and thin sword
+E 0 7715 0 5		*	the githyanki warrior <on the body>: splint mail vest
 R 0 7724 6	* Travelling the Astral Plane: randomize
 M 0 7703 4 7724 1	* the invisible stalker (Travelling the Astral Plane)
 G 0 7714 0		*	the invisible stalker: some astral powder
 M 0 7705 8 7724 2	* the githyanki hunter (Travelling the Astral Plane)
-E 0 7707 0 16		*	the githyanki hunter<wielded>: silvery dagger
+E 0 7707 0 16		*	the githyanki hunter <wielded>: silvery dagger
 R 0 7725 6	* Travelling the Astral Plane: randomize
 R 0 7726 6	* Travelling the Astral Plane: randomize
 M 0 7703 4 7726 1	* the invisible stalker (Travelling the Astral Plane)
 G 0 7714 0		*	the invisible stalker: some astral powder
 R 0 7727 6	* Travelling the Astral Plane: randomize
 M 0 7706 6 7727 3	* the githyanki warrior (Travelling the Astral Plane)
-E 0 7708 0 16		*	the githyanki warrior<wielded>: extremely sharp and thin sword
-E 0 7715 0 5		*	the githyanki warrior<on the body>: splint mail vest
+E 0 7708 0 16		*	the githyanki warrior <wielded>: extremely sharp and thin sword
+E 0 7715 0 5		*	the githyanki warrior <on the body>: splint mail vest
 R 0 7728 6	* Traversing the Astral Plane: randomize
 R 0 7729 6	* Traversing the Astral Plane: randomize
 M 0 7710 6 7729 3	* the evil gish (Traversing the Astral Plane)
-E 0 7706 0 16		*	the evil gish<wielded>: silvery knife
+E 0 7706 0 16		*	the evil gish <wielded>: silvery knife
 R 0 7730 6	* Traversing the Astral Plane: randomize
 M 0 7703 4 7730 1	* the invisible stalker (Traversing the Astral Plane)
 G 0 7714 0		*	the invisible stalker: some astral powder
 M 0 7708 3 7730 2	* the githyanki knight (Traversing the Astral Plane)
-E 0 7709 0 16		*	the githyanki knight<wielded>: thin two-handed sword
-E 0 7715 0 5		*	the githyanki knight<on the body>: splint mail vest
-E 0 7716 0 7		*	the githyanki knight<on the legs>: splint mail skirt
-E 0 7717 0 10		*	the githyanki knight<on the arms>: pair of splint mail sleeves
+E 0 7709 0 16		*	the githyanki knight <wielded>: thin two-handed sword
+E 0 7715 0 5		*	the githyanki knight <on the body>: splint mail vest
+E 0 7716 0 7		*	the githyanki knight <on the legs>: splint mail skirt
+E 0 7717 0 10		*	the githyanki knight <on the arms>: pair of splint mail sleeves
 R 0 7731 6	* Traversing the Astral Plane: randomize
 M 0 7710 6 7731 3	* the evil gish (Traversing the Astral Plane)
-E 0 7706 0 16		*	the evil gish<wielded>: silvery knife
+E 0 7706 0 16		*	the evil gish <wielded>: silvery knife
 R 0 7732 6	* Traversing the Astral Plane: randomize
 R 0 7733 6	* Lost in the Astral Plane: randomize
 M 0 7701 2 7733 1	* pitch-black nightmare (Lost in the Astral Plane)
@@ -4005,84 +4005,84 @@ G 0 7721 0		*	the insubstantial ghost: vial of murky fluid
 M 0 7715 3 7749 1	* the insubstantial ghost (Deep Within the Astral Plane)
 G 0 7721 0		*	the insubstantial ghost: vial of murky fluid
 M 0 7707 8 7751 1	* the githyanki guardian (A guard station)
-E 0 7708 0 16		*	the githyanki guardian<wielded>: extremely sharp and thin sword
-E 0 7715 0 5		*	the githyanki guardian<on the body>: splint mail vest
+E 0 7708 0 16		*	the githyanki guardian <wielded>: extremely sharp and thin sword
+E 0 7715 0 5		*	the githyanki guardian <on the body>: splint mail vest
 M 0 7707 8 7751 1	* the githyanki guardian (A guard station)
-E 0 7708 0 16		*	the githyanki guardian<wielded>: extremely sharp and thin sword
-E 0 7715 0 5		*	the githyanki guardian<on the body>: splint mail vest
+E 0 7708 0 16		*	the githyanki guardian <wielded>: extremely sharp and thin sword
+E 0 7715 0 5		*	the githyanki guardian <on the body>: splint mail vest
 M 0 7711 6 7753 1	* the evil gish (A grey road)
-E 0 7706 0 16		*	the evil gish<wielded>: silvery knife
+E 0 7706 0 16		*	the evil gish <wielded>: silvery knife
 M 0 7708 3 7755 1	* the githyanki knight (A grey road)
-E 0 7709 0 16		*	the githyanki knight<wielded>: thin two-handed sword
-E 0 7715 0 5		*	the githyanki knight<on the body>: splint mail vest
-E 0 7716 0 7		*	the githyanki knight<on the legs>: splint mail skirt
-E 0 7717 0 10		*	the githyanki knight<on the arms>: pair of splint mail sleeves
+E 0 7709 0 16		*	the githyanki knight <wielded>: thin two-handed sword
+E 0 7715 0 5		*	the githyanki knight <on the body>: splint mail vest
+E 0 7716 0 7		*	the githyanki knight <on the legs>: splint mail skirt
+E 0 7717 0 10		*	the githyanki knight <on the arms>: pair of splint mail sleeves
 M 0 7711 6 7759 1	* the evil gish (A grey road)
-E 0 7706 0 16		*	the evil gish<wielded>: silvery knife
+E 0 7706 0 16		*	the evil gish <wielded>: silvery knife
 M 0 7711 6 7762 2	* the evil gish (A small building)
-E 0 7706 0 16		*	the evil gish<wielded>: silvery knife
+E 0 7706 0 16		*	the evil gish <wielded>: silvery knife
 M 0 7711 6 7762 2	* the evil gish (A small building)
-E 0 7706 0 16		*	the evil gish<wielded>: silvery knife
+E 0 7706 0 16		*	the evil gish <wielded>: silvery knife
 G 0 7722 0		*	the evil gish: silvery-colored potion
 M 0 7711 6 7763 2	* the evil gish (A small building)
-E 0 7706 0 16		*	the evil gish<wielded>: silvery knife
+E 0 7706 0 16		*	the evil gish <wielded>: silvery knife
 M 0 7711 6 7763 2	* the evil gish (A small building)
-E 0 7706 0 16		*	the evil gish<wielded>: silvery knife
+E 0 7706 0 16		*	the evil gish <wielded>: silvery knife
 G 0 7722 0		*	the evil gish: silvery-colored potion
 M 0 7712 4 7764 1	* the warlock of the Gith (A large dwelling)
-E 0 7710 0 16		*	the warlock of the Gith<wielded>: silvery sword
+E 0 7710 0 16		*	the warlock of the Gith <wielded>: silvery sword
 G 0 7703 0		*	the warlock of the Gith: scroll with githyanki writings on it
 M 0 7707 8 7765 1	* the githyanki guardian (The Githyanki Weaponry)
-E 0 7708 0 16		*	the githyanki guardian<wielded>: extremely sharp and thin sword
-E 0 7715 0 5		*	the githyanki guardian<on the body>: splint mail vest
+E 0 7708 0 16		*	the githyanki guardian <wielded>: extremely sharp and thin sword
+E 0 7715 0 5		*	the githyanki guardian <on the body>: splint mail vest
 M 0 7707 8 7765 1	* the githyanki guardian (The Githyanki Weaponry)
-E 0 7708 0 16		*	the githyanki guardian<wielded>: extremely sharp and thin sword
-E 0 7715 0 5		*	the githyanki guardian<on the body>: splint mail vest
+E 0 7708 0 16		*	the githyanki guardian <wielded>: extremely sharp and thin sword
+E 0 7715 0 5		*	the githyanki guardian <on the body>: splint mail vest
 M 0 7707 8 7767 1	* the githyanki guardian (The Githyanki Armoury)
-E 0 7708 0 16		*	the githyanki guardian<wielded>: extremely sharp and thin sword
-E 0 7715 0 5		*	the githyanki guardian<on the body>: splint mail vest
+E 0 7708 0 16		*	the githyanki guardian <wielded>: extremely sharp and thin sword
+E 0 7715 0 5		*	the githyanki guardian <on the body>: splint mail vest
 M 0 7707 8 7767 1	* the githyanki guardian (The Githyanki Armoury)
-E 0 7708 0 16		*	the githyanki guardian<wielded>: extremely sharp and thin sword
-E 0 7715 0 5		*	the githyanki guardian<on the body>: splint mail vest
+E 0 7708 0 16		*	the githyanki guardian <wielded>: extremely sharp and thin sword
+E 0 7715 0 5		*	the githyanki guardian <on the body>: splint mail vest
 M 0 7718 1 7768 1	* the enslaved red dragon (Inside the furnace)
-E 0 7713 0 0		*	the enslaved red dragon<as a light>: brightly flaming stone
+E 0 7713 0 0		*	the enslaved red dragon <as a light>: brightly flaming stone
 M 0 7719 6 7768 6	* the massive blast of fire (Inside the furnace)
 M 0 7707 8 7769 1	* the githyanki guardian (A guard station)
-E 0 7708 0 16		*	the githyanki guardian<wielded>: extremely sharp and thin sword
-E 0 7715 0 5		*	the githyanki guardian<on the body>: splint mail vest
+E 0 7708 0 16		*	the githyanki guardian <wielded>: extremely sharp and thin sword
+E 0 7715 0 5		*	the githyanki guardian <on the body>: splint mail vest
 M 0 7707 8 7769 1	* the githyanki guardian (A guard station)
-E 0 7708 0 16		*	the githyanki guardian<wielded>: extremely sharp and thin sword
-E 0 7715 0 5		*	the githyanki guardian<on the body>: splint mail vest
+E 0 7708 0 16		*	the githyanki guardian <wielded>: extremely sharp and thin sword
+E 0 7715 0 5		*	the githyanki guardian <on the body>: splint mail vest
 M 0 7717 1 7771 1	* the tortured mindflayer prisoner (A cramped cell)
 M 0 7716 1 7772 1	* imprisoned githzerai (A tiny cell)
 M 0 7712 4 7773 1	* the warlock of the Gith (A large dwelling)
-E 0 7710 0 16		*	the warlock of the Gith<wielded>: silvery sword
+E 0 7710 0 16		*	the warlock of the Gith <wielded>: silvery sword
 G 0 7703 0		*	the warlock of the Gith: scroll with githyanki writings on it
 M 0 7712 4 7774 2	* the warlock of the Gith (South End of the Hall)
-E 0 7710 0 16		*	the warlock of the Gith<wielded>: silvery sword
+E 0 7710 0 16		*	the warlock of the Gith <wielded>: silvery sword
 G 0 7703 0		*	the warlock of the Gith: scroll with githyanki writings on it
 M 0 7712 4 7774 2	* the warlock of the Gith (South End of the Hall)
-E 0 7710 0 16		*	the warlock of the Gith<wielded>: silvery sword
+E 0 7710 0 16		*	the warlock of the Gith <wielded>: silvery sword
 G 0 7703 0		*	the warlock of the Gith: scroll with githyanki writings on it
 M 0 7709 2 7776 2	* the githyanki protector (The Altar Chamber)
-E 0 7709 0 16		*	the githyanki protector<wielded>: thin two-handed sword
-E 0 7715 0 5		*	the githyanki protector<on the body>: splint mail vest
-E 0 7716 0 7		*	the githyanki protector<on the legs>: splint mail skirt
-E 0 7717 0 10		*	the githyanki protector<on the arms>: pair of splint mail sleeves
-E 0 7718 0 9		*	the githyanki protector<on the hands>: pair of ornately designed gauntlets
+E 0 7709 0 16		*	the githyanki protector <wielded>: thin two-handed sword
+E 0 7715 0 5		*	the githyanki protector <on the body>: splint mail vest
+E 0 7716 0 7		*	the githyanki protector <on the legs>: splint mail skirt
+E 0 7717 0 10		*	the githyanki protector <on the arms>: pair of splint mail sleeves
+E 0 7718 0 9		*	the githyanki protector <on the hands>: pair of ornately designed gauntlets
 M 0 7709 2 7776 2	* the githyanki protector (The Altar Chamber)
-E 0 7709 0 16		*	the githyanki protector<wielded>: thin two-handed sword
-E 0 7715 0 5		*	the githyanki protector<on the body>: splint mail vest
-E 0 7716 0 7		*	the githyanki protector<on the legs>: splint mail skirt
-E 0 7717 0 10		*	the githyanki protector<on the arms>: pair of splint mail sleeves
-E 0 7718 0 9		*	the githyanki protector<on the hands>: pair of ornately designed gauntlets
+E 0 7709 0 16		*	the githyanki protector <wielded>: thin two-handed sword
+E 0 7715 0 5		*	the githyanki protector <on the body>: splint mail vest
+E 0 7716 0 7		*	the githyanki protector <on the legs>: splint mail skirt
+E 0 7717 0 10		*	the githyanki protector <on the arms>: pair of splint mail sleeves
+E 0 7718 0 9		*	the githyanki protector <on the hands>: pair of ornately designed gauntlets
 M 0 7713 1 7777 1	* the lich-queen (Before the Altar)
-E 0 7711 0 16		*	the lich-queen<wielded>: iron barbed flail
-E 0 7724 0 17		*	the lich-queen<held in the hands>: black pentagram
+E 0 7711 0 16		*	the lich-queen <wielded>: iron barbed flail
+E 0 7724 0 17		*	the lich-queen <held in the hands>: black pentagram
 G 0 7702 0		*	the lich-queen: black etched tablet
 M 0 7714 1 7779 1	* Lord Gith (Utter darkness and despair)
-E 0 7712 0 16		*	Lord Gith<wielded>: unholy sword of the githyanki
-E 0 7719 0 5		*	Lord Gith<on the body>: decaying vest made from cracked leather
+E 0 7712 0 16		*	Lord Gith <wielded>: unholy sword of the githyanki
+E 0 7719 0 5		*	Lord Gith <on the body>: decaying vest made from cracked leather
 G 0 7725 0		*	Lord Gith: rotting pouch
 S
 

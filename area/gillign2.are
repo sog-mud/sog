@@ -1773,65 +1773,65 @@ S
 
 #RESETS
 M 0 32102 1 32102 1	* The Skipper (Aboard the Minnow)
-E 0 32102 0 16		*	The Skipper<wielded>: a skippers hat
+E 0 32102 0 16		*	The Skipper <wielded>: a skippers hat
 M 0 32108 1 32103 1	* A camera man (End of the beach)
-E 0 32133 0 3		*	A camera man<around the neck>: A 35 millimeter camera
+E 0 32133 0 3		*	A camera man <around the neck>: A 35 millimeter camera
 M 0 32109 1 32103 1	* A Director (End of the beach)
-E 0 32130 0 16		*	A Director<wielded>: A bullhorn
-E 0 32131 0 4		*	A Director<on the face>: A directors scarf
+E 0 32130 0 16		*	A Director <wielded>: A bullhorn
+E 0 32131 0 4		*	A Director <on the face>: A directors scarf
 M 0 32111 3 32105 1	* A headhunter (The Jungle)
-E 0 32114 0 7		*	A headhunter<on the legs>: A grass skirt
-E 0 32115 0 16		*	A headhunter<wielded>: A headhunters spear
+E 0 32114 0 7		*	A headhunter <on the legs>: A grass skirt
+E 0 32115 0 16		*	A headhunter <wielded>: A headhunters spear
 M 0 32115 4 32107 2	* Totem Pole (Deeper in the jungle)
-E 0 32126 0 6		*	Totem Pole<over the head>: A Voodoo mask
+E 0 32126 0 6		*	Totem Pole <over the head>: A Voodoo mask
 M 0 32112 1 32108 1	* The Headhunter King (The Shrine)
-E 0 32116 0 6		*	The Headhunter King<over the head>: The headdress of the king
-E 0 32117 0 16		*	The Headhunter King<wielded>: Raunchy teeth
-E 0 32118 0 3		*	The Headhunter King<around the neck>: A necklace made of teeth
+E 0 32116 0 6		*	The Headhunter King <over the head>: The headdress of the king
+E 0 32117 0 16		*	The Headhunter King <wielded>: Raunchy teeth
+E 0 32118 0 3		*	The Headhunter King <around the neck>: A necklace made of teeth
 M 0 32113 1 32112 1	* A Referee (The basketball court)
-E 0 32109 0 17		*	A Referee<held in the hands>: a white cane
-E 0 32110 0 4		*	A Referee<on the face>: A whistle
+E 0 32109 0 17		*	A Referee <held in the hands>: a white cane
+E 0 32110 0 4		*	A Referee <on the face>: A whistle
 M 0 32117 1 32113 1	* a Robot (Southern end of the courts)
-E 0 32124 0 17		*	a Robot<held in the hands>: A calculater
+E 0 32124 0 17		*	a Robot <held in the hands>: A calculater
 M 0 32126 1 32113 1	* Meadowlark Lemon (Southern end of the courts)
-E 0 32125 0 5		*	Meadowlark Lemon<on the body>: A Globetrotter jersey
+E 0 32125 0 5		*	Meadowlark Lemon <on the body>: A Globetrotter jersey
 M 0 32116 1 32114 1	* a Surfer (Deadend in the path)
-E 0 32123 0 17		*	a Surfer<held in the hands>: A surfboard
+E 0 32123 0 17		*	a Surfer <held in the hands>: A surfboard
 M 0 32114 2 32122 1	* A Russian Astronaut (The Satellite)
-E 0 32122 0 8		*	A Russian Astronaut<on the feet>: Moon boots
+E 0 32122 0 8		*	A Russian Astronaut <on the feet>: Moon boots
 M 0 32121 4 32123 1	* A Chicken Person (Northern Clearing)
-E 0 32113 0 17		*	A Chicken Person<held in the hands>: A chicken feather
+E 0 32113 0 17		*	A Chicken Person <held in the hands>: A chicken feather
 M 0 32107 1 32126 1	* Ginger (Picnic table)
-E 0 32105 0 5		*	Ginger<on the body>: a sequenned dress
+E 0 32105 0 5		*	Ginger <on the body>: a sequenned dress
 M 0 32123 1 32126 1	* Hurricane Andrew (Picnic table)
-E 0 32132 0 17		*	Hurricane Andrew<held in the hands>: The hurricane staff
+E 0 32132 0 17		*	Hurricane Andrew <held in the hands>: The hurricane staff
 M 0 32103 1 32127 1	* The Professor (Professors Lab)
-E 0 32103 0 6		*	The Professor<over the head>: a pair of glasses
+E 0 32103 0 6		*	The Professor <over the head>: a pair of glasses
 M 0 32106 1 32129 1	* Mary Anne (Gingers Hut)
-E 0 32104 0 7		*	Mary Anne<on the legs>: short shorts
+E 0 32104 0 7		*	Mary Anne <on the legs>: short shorts
 M 0 32110 1 32131 1	* A lion (A branch in the path)
-E 0 32111 0 4		*	A lion<on the face>: A lions mane
+E 0 32111 0 4		*	A lion <on the face>: A lions mane
 M 0 32118 1 32134 1	* Robinson Cruesoe (Cruesoe's hut)
-E 0 32120 0 13		*	Robinson Cruesoe<around the waist>: A belt made from palm
+E 0 32120 0 13		*	Robinson Cruesoe <around the waist>: A belt made from palm
 M 0 32119 1 32134 1	* Friday (Cruesoe's hut)
-E 0 32119 0 14		*	Friday<on the left wrist>: A bracelet made of palm
+E 0 32119 0 14		*	Friday <on the left wrist>: A bracelet made of palm
 M 0 32124 1 32135 1	* A Sumo (Continuing up)
-E 0 32127 0 7		*	A Sumo<on the legs>: Sumo pants
+E 0 32127 0 7		*	A Sumo <on the legs>: Sumo pants
 M 0 32101 1 32138 1	* Gilligan (The cave)
-E 0 32100 0 6		*	Gilligan<over the head>: a first mates cap
-E 0 32101 0 5		*	Gilligan<on the body>: a red shirt
+E 0 32100 0 6		*	Gilligan <over the head>: a first mates cap
+E 0 32101 0 5		*	Gilligan <on the body>: a red shirt
 M 0 32105 1 32141 1	* Mrs.Howell (Howells hut)
-E 0 32108 0 3		*	Mrs.Howell<around the neck>: a pearl necklace
+E 0 32108 0 3		*	Mrs.Howell <around the neck>: a pearl necklace
 M 0 32104 1 32142 1	* Mr.Howell (19th hole)
-E 0 32106 0 6		*	Mr.Howell<over the head>: a nine iron
-E 0 32107 0 17		*	Mr.Howell<held in the hands>: a Mai tai cocktail
+E 0 32106 0 6		*	Mr.Howell <over the head>: a nine iron
+E 0 32107 0 17		*	Mr.Howell <held in the hands>: a Mai tai cocktail
 M 0 32120 1 32145 1	* A Land Shark (Third tee)
-E 0 32121 0 6		*	A Land Shark<over the head>: Groucho glasses
+E 0 32121 0 6		*	A Land Shark <over the head>: Groucho glasses
 M 0 32122 1 32154 1	* A Monkey (The top of the tree)
-E 0 32112 0 17		*	A Monkey<held in the hands>: A coconut
+E 0 32112 0 17		*	A Monkey <held in the hands>: A coconut
 M 0 32125 1 32156 1	* A Butterfly Catcher (West side)
-E 0 32128 0 16		*	A Butterfly Catcher<wielded>: A butterfly net
-E 0 32129 0 6		*	A Butterfly Catcher<over the head>: A safari hat
+E 0 32128 0 16		*	A Butterfly Catcher <wielded>: A butterfly net
+E 0 32129 0 6		*	A Butterfly Catcher <over the head>: A safari hat
 S
 
 #$

@@ -6554,30 +6554,30 @@ M 0 7520 6 7551 1	* a cleaner worm (Very clean Sewers)
 M 0 7520 6 7552 1	* a cleaner worm (Very clean Sewers)
 M 0 7520 6 7553 1	* a cleaner worm (Very clean Sewers)
 M 0 7523 30 7559 1	* a troubadour (Dirt Path)
-E 0 7514 0 17		*	a troubadour<held in the hands>: a harp
+E 0 7514 0 17		*	a troubadour <held in the hands>: a harp
 M 0 7531 25 7564 2	* a Gerighelm cityguard (West-Street of Gerighelm)
-E 0 7524 0 1		*	a Gerighelm cityguard<on the left finger>: Gerighelm guard ring
-E 0 7529 0 5		*	a Gerighelm cityguard<on the body>: a Gerighelm vest
-E 0 7535 0 16		*	a Gerighelm cityguard<wielded>: a Gerighelm sword
-E 0 7534 0 15		*	a Gerighelm cityguard<on the right wrist>: a Gerighelm bracer
+E 0 7524 0 1		*	a Gerighelm cityguard <on the left finger>: Gerighelm guard ring
+E 0 7529 0 5		*	a Gerighelm cityguard <on the body>: a Gerighelm vest
+E 0 7535 0 16		*	a Gerighelm cityguard <wielded>: a Gerighelm sword
+E 0 7534 0 15		*	a Gerighelm cityguard <on the right wrist>: a Gerighelm bracer
 M 0 7528 25 7564 2	* a junior guard (West-Street of Gerighelm)
-E 0 7519 0 5		*	a junior guard<on the body>: a junior guard vest
-E 0 7520 0 11		*	a junior guard<as a shield>: a junior guard shield
-E 0 7521 0 0		*	a junior guard<as a light>: a junior guard lantern
-E 0 7522 0 16		*	a junior guard<wielded>: a junior guard cudgel
+E 0 7519 0 5		*	a junior guard <on the body>: a junior guard vest
+E 0 7520 0 11		*	a junior guard <as a shield>: a junior guard shield
+E 0 7521 0 0		*	a junior guard <as a light>: a junior guard lantern
+E 0 7522 0 16		*	a junior guard <wielded>: a junior guard cudgel
 M 0 7532 15 7568 2	* a Gerighelm cityguard (Peter Ave)
-E 0 7524 0 1		*	a Gerighelm cityguard<on the left finger>: Gerighelm guard ring
-E 0 7529 0 5		*	a Gerighelm cityguard<on the body>: a Gerighelm vest
-E 0 7535 0 16		*	a Gerighelm cityguard<wielded>: a Gerighelm sword
-E 0 7531 0 3		*	a Gerighelm cityguard<around the neck>: a Gerighelm cloak
-E 0 7531 0 4		*	a Gerighelm cityguard<on the face>: a Gerighelm cloak
+E 0 7524 0 1		*	a Gerighelm cityguard <on the left finger>: Gerighelm guard ring
+E 0 7529 0 5		*	a Gerighelm cityguard <on the body>: a Gerighelm vest
+E 0 7535 0 16		*	a Gerighelm cityguard <wielded>: a Gerighelm sword
+E 0 7531 0 3		*	a Gerighelm cityguard <around the neck>: a Gerighelm cloak
+E 0 7531 0 4		*	a Gerighelm cityguard <on the face>: a Gerighelm cloak
 M 0 7592 1 7570 1	* a baker (The shop with lots of food)
 G 0 7500 0		*	a baker: an apple
 G 0 7501 0		*	a baker: an apple pie
 G 0 7502 0		*	a baker: a beet
 G 0 7503 0		*	a baker: a carrot
 M 0 7523 30 7571 1	* a troubadour (Merchant Way)
-E 0 7513 0 17		*	a troubadour<held in the hands>: a lute
+E 0 7513 0 17		*	a troubadour <held in the hands>: a lute
 M 0 7593 1 7572 1	* the blacksmith Vendy (Weapon shop)
 G 0 7519 0		*	the blacksmith Vendy: a junior guard vest
 G 0 7520 0		*	the blacksmith Vendy: a junior guard shield
@@ -6592,303 +6592,303 @@ P 0 7602 5 0 1	* a bag of marbles: a yellow marble
 P 0 7601 5 0 1	* a bag of marbles: a blue marble
 P 0 7600 5 0 1	* a bag of marbles: a green marble
 M 0 7553 3 7576 3	* a bodyguard (Magic Shop)
-E 0 7561 0 5		*	a bodyguard<on the body>: a uniform
-E 0 7562 0 16		*	a bodyguard<wielded>: a saber
+E 0 7561 0 5		*	a bodyguard <on the body>: a uniform
+E 0 7562 0 16		*	a bodyguard <wielded>: a saber
 M 0 7595 1 7578 1	* the pawn shop owner (The Pawn Shop)
 M 0 7524 4 7581 1	* an old biddy (West-Street)
-E 0 7523 0 16		*	an old biddy<wielded>: a sharp fingernail
+E 0 7523 0 16		*	an old biddy <wielded>: a sharp fingernail
 M 0 7525 4 7581 1	* an old coot (West-Street)
 M 0 7526 5 7581 1	* a little boy (West-Street)
 M 0 7527 5 7581 1	* a little girl (West-Street)
-E 0 7518 0 17		*	a little girl<held in the hands>: a doll
+E 0 7518 0 17		*	a little girl <held in the hands>: a doll
 M 0 7530 20 7582 2	* a Gerighelm cityguard (West-Street)
-E 0 7524 0 1		*	a Gerighelm cityguard<on the left finger>: Gerighelm guard ring
-E 0 7529 0 5		*	a Gerighelm cityguard<on the body>: a Gerighelm vest
-E 0 7535 0 16		*	a Gerighelm cityguard<wielded>: a Gerighelm sword
-E 0 7533 0 13		*	a Gerighelm cityguard<around the waist>: a Gerighelm belt
+E 0 7524 0 1		*	a Gerighelm cityguard <on the left finger>: Gerighelm guard ring
+E 0 7529 0 5		*	a Gerighelm cityguard <on the body>: a Gerighelm vest
+E 0 7535 0 16		*	a Gerighelm cityguard <wielded>: a Gerighelm sword
+E 0 7533 0 13		*	a Gerighelm cityguard <around the waist>: a Gerighelm belt
 M 0 7531 25 7582 2	* a Gerighelm cityguard (West-Street)
-E 0 7524 0 1		*	a Gerighelm cityguard<on the left finger>: Gerighelm guard ring
-E 0 7529 0 5		*	a Gerighelm cityguard<on the body>: a Gerighelm vest
-E 0 7535 0 16		*	a Gerighelm cityguard<wielded>: a Gerighelm sword
-E 0 7528 0 11		*	a Gerighelm cityguard<as a shield>: a Gerighelm shield
+E 0 7524 0 1		*	a Gerighelm cityguard <on the left finger>: Gerighelm guard ring
+E 0 7529 0 5		*	a Gerighelm cityguard <on the body>: a Gerighelm vest
+E 0 7535 0 16		*	a Gerighelm cityguard <wielded>: a Gerighelm sword
+E 0 7528 0 11		*	a Gerighelm cityguard <as a shield>: a Gerighelm shield
 M 0 7526 5 7582 1	* a little boy (West-Street)
-E 0 7516 0 16		*	a little boy<wielded>: a stick
+E 0 7516 0 16		*	a little boy <wielded>: a stick
 M 0 7527 5 7582 1	* a little girl (West-Street)
-E 0 7518 0 17		*	a little girl<held in the hands>: a doll
+E 0 7518 0 17		*	a little girl <held in the hands>: a doll
 M 0 7523 30 7582 1	* a troubadour (West-Street)
 G 0 7514 0		*	a troubadour: a harp
 M 0 7535 10 7590 1	* a Defender of Gerighelm (Temple Street)
-E 0 7537 0 6		*	a Defender of Gerighelm<over the head>: a defenders helm
-E 0 7538 0 16		*	a Defender of Gerighelm<wielded>: a defenders sword
-E 0 7650 0 10		*	a Defender of Gerighelm<on the arms>: a defenders sleeves
-E 0 7651 0 7		*	a Defender of Gerighelm<on the legs>: a defenders leggings
-E 0 7652 0 11		*	a Defender of Gerighelm<as a shield>: a defenders shield
-E 0 7653 0 1		*	a Defender of Gerighelm<on the left finger>: a defenders ring
-E 0 7654 0 5		*	a Defender of Gerighelm<on the body>: a defenders vest
-E 0 7655 0 12		*	a Defender of Gerighelm<about the shoulders>: a defenders cape
-E 0 7656 0 3		*	a Defender of Gerighelm<around the neck>: a defenders cloak
-E 0 7657 0 9		*	a Defender of Gerighelm<on the hands>: a defenders gloves
-E 0 7658 0 13		*	a Defender of Gerighelm<around the waist>: a defenders belt
-E 0 7659 0 14		*	a Defender of Gerighelm<on the left wrist>: a defenders bracer
-E 0 7660 0 8		*	a Defender of Gerighelm<on the feet>: a defenders pair of boots
+E 0 7537 0 6		*	a Defender of Gerighelm <over the head>: a defenders helm
+E 0 7538 0 16		*	a Defender of Gerighelm <wielded>: a defenders sword
+E 0 7650 0 10		*	a Defender of Gerighelm <on the arms>: a defenders sleeves
+E 0 7651 0 7		*	a Defender of Gerighelm <on the legs>: a defenders leggings
+E 0 7652 0 11		*	a Defender of Gerighelm <as a shield>: a defenders shield
+E 0 7653 0 1		*	a Defender of Gerighelm <on the left finger>: a defenders ring
+E 0 7654 0 5		*	a Defender of Gerighelm <on the body>: a defenders vest
+E 0 7655 0 12		*	a Defender of Gerighelm <about the shoulders>: a defenders cape
+E 0 7656 0 3		*	a Defender of Gerighelm <around the neck>: a defenders cloak
+E 0 7657 0 9		*	a Defender of Gerighelm <on the hands>: a defenders gloves
+E 0 7658 0 13		*	a Defender of Gerighelm <around the waist>: a defenders belt
+E 0 7659 0 14		*	a Defender of Gerighelm <on the left wrist>: a defenders bracer
+E 0 7660 0 8		*	a Defender of Gerighelm <on the feet>: a defenders pair of boots
 M 0 7535 10 7600 1	* a Defender of Gerighelm (The Dump)
-E 0 7537 0 6		*	a Defender of Gerighelm<over the head>: a defenders helm
-E 0 7538 0 16		*	a Defender of Gerighelm<wielded>: a defenders sword
-E 0 7650 0 10		*	a Defender of Gerighelm<on the arms>: a defenders sleeves
-E 0 7651 0 7		*	a Defender of Gerighelm<on the legs>: a defenders leggings
-E 0 7652 0 11		*	a Defender of Gerighelm<as a shield>: a defenders shield
-E 0 7653 0 1		*	a Defender of Gerighelm<on the left finger>: a defenders ring
-E 0 7654 0 5		*	a Defender of Gerighelm<on the body>: a defenders vest
-E 0 7655 0 12		*	a Defender of Gerighelm<about the shoulders>: a defenders cape
-E 0 7656 0 3		*	a Defender of Gerighelm<around the neck>: a defenders cloak
-E 0 7657 0 9		*	a Defender of Gerighelm<on the hands>: a defenders gloves
-E 0 7658 0 13		*	a Defender of Gerighelm<around the waist>: a defenders belt
-E 0 7659 0 14		*	a Defender of Gerighelm<on the left wrist>: a defenders bracer
-E 0 7660 0 8		*	a Defender of Gerighelm<on the feet>: a defenders pair of boots
+E 0 7537 0 6		*	a Defender of Gerighelm <over the head>: a defenders helm
+E 0 7538 0 16		*	a Defender of Gerighelm <wielded>: a defenders sword
+E 0 7650 0 10		*	a Defender of Gerighelm <on the arms>: a defenders sleeves
+E 0 7651 0 7		*	a Defender of Gerighelm <on the legs>: a defenders leggings
+E 0 7652 0 11		*	a Defender of Gerighelm <as a shield>: a defenders shield
+E 0 7653 0 1		*	a Defender of Gerighelm <on the left finger>: a defenders ring
+E 0 7654 0 5		*	a Defender of Gerighelm <on the body>: a defenders vest
+E 0 7655 0 12		*	a Defender of Gerighelm <about the shoulders>: a defenders cape
+E 0 7656 0 3		*	a Defender of Gerighelm <around the neck>: a defenders cloak
+E 0 7657 0 9		*	a Defender of Gerighelm <on the hands>: a defenders gloves
+E 0 7658 0 13		*	a Defender of Gerighelm <around the waist>: a defenders belt
+E 0 7659 0 14		*	a Defender of Gerighelm <on the left wrist>: a defenders bracer
+E 0 7660 0 8		*	a Defender of Gerighelm <on the feet>: a defenders pair of boots
 M 0 7609 1 7602 1	* the animal man (Ye Olde Pet Shope)
 M 0 7523 30 7603 1	* a troubadour (Merchant Way)
-E 0 7514 0 17		*	a troubadour<held in the hands>: a harp
+E 0 7514 0 17		*	a troubadour <held in the hands>: a harp
 M 0 7597 10 7604 1	* the merchant (Greghimles furniture store)
 G 0 7504 0		*	the merchant: a bottle of beer
 G 0 7505 0		*	the merchant: a magic water pitcher
 M 0 7532 15 7605 2	* a Gerighelm cityguard (Merchant Way)
-E 0 7524 0 1		*	a Gerighelm cityguard<on the left finger>: Gerighelm guard ring
-E 0 7529 0 5		*	a Gerighelm cityguard<on the body>: a Gerighelm vest
-E 0 7535 0 16		*	a Gerighelm cityguard<wielded>: a Gerighelm sword
-E 0 7527 0 7		*	a Gerighelm cityguard<on the legs>: a pair of Gerighelm guard leggings
-E 0 7536 0 8		*	a Gerighelm cityguard<on the feet>: a pair of Gerighelm boots
+E 0 7524 0 1		*	a Gerighelm cityguard <on the left finger>: Gerighelm guard ring
+E 0 7529 0 5		*	a Gerighelm cityguard <on the body>: a Gerighelm vest
+E 0 7535 0 16		*	a Gerighelm cityguard <wielded>: a Gerighelm sword
+E 0 7527 0 7		*	a Gerighelm cityguard <on the legs>: a pair of Gerighelm guard leggings
+E 0 7536 0 8		*	a Gerighelm cityguard <on the feet>: a pair of Gerighelm boots
 M 0 7523 30 7605 1	* a troubadour (Merchant Way)
-E 0 7513 0 17		*	a troubadour<held in the hands>: a lute
+E 0 7513 0 17		*	a troubadour <held in the hands>: a lute
 M 0 7597 10 7606 1	* the merchant (Crazy Himshlick's portable fountains)
 G 0 7504 0		*	the merchant: a bottle of beer
 G 0 7505 0		*	the merchant: a magic water pitcher
 M 0 7523 30 7607 1	* a troubadour (Merchant Way)
-E 0 7514 0 17		*	a troubadour<held in the hands>: a harp
+E 0 7514 0 17		*	a troubadour <held in the hands>: a harp
 M 0 7533 1 7608 1	* the ale-conner (Water bottles and Beer)
 M 0 7597 10 7608 1	* the merchant (Water bottles and Beer)
 G 0 7504 0		*	the merchant: a bottle of beer
 G 0 7505 0		*	the merchant: a magic water pitcher
 M 0 7523 30 7609 1	* a troubadour (Merchant Way)
-E 0 7513 0 17		*	a troubadour<held in the hands>: a lute
+E 0 7513 0 17		*	a troubadour <held in the hands>: a lute
 M 0 7610 1 7610 1	* the old witch (The Potions and Wands shop)
 M 0 7523 30 7611 1	* a troubadour (Bridge over the river)
-E 0 7514 0 17		*	a troubadour<held in the hands>: a harp
+E 0 7514 0 17		*	a troubadour <held in the hands>: a harp
 M 0 7523 30 7613 1	* a troubadour (Crowded market)
-E 0 7514 0 17		*	a troubadour<held in the hands>: a harp
+E 0 7514 0 17		*	a troubadour <held in the hands>: a harp
 M 0 7534 10 7614 1	* a Defender of Gerighelm (Crowded market)
-E 0 7538 0 16		*	a Defender of Gerighelm<wielded>: a defenders sword
-E 0 7654 0 5		*	a Defender of Gerighelm<on the body>: a defenders vest
-E 0 7537 0 6		*	a Defender of Gerighelm<over the head>: a defenders helm
-E 0 7650 0 10		*	a Defender of Gerighelm<on the arms>: a defenders sleeves
-E 0 7651 0 7		*	a Defender of Gerighelm<on the legs>: a defenders leggings
-E 0 7652 0 11		*	a Defender of Gerighelm<as a shield>: a defenders shield
-E 0 7653 0 1		*	a Defender of Gerighelm<on the left finger>: a defenders ring
-E 0 7655 0 12		*	a Defender of Gerighelm<about the shoulders>: a defenders cape
-E 0 7656 0 3		*	a Defender of Gerighelm<around the neck>: a defenders cloak
-E 0 7657 0 9		*	a Defender of Gerighelm<on the hands>: a defenders gloves
-E 0 7658 0 13		*	a Defender of Gerighelm<around the waist>: a defenders belt
-E 0 7659 0 14		*	a Defender of Gerighelm<on the left wrist>: a defenders bracer
-E 0 7660 0 8		*	a Defender of Gerighelm<on the feet>: a defenders pair of boots
+E 0 7538 0 16		*	a Defender of Gerighelm <wielded>: a defenders sword
+E 0 7654 0 5		*	a Defender of Gerighelm <on the body>: a defenders vest
+E 0 7537 0 6		*	a Defender of Gerighelm <over the head>: a defenders helm
+E 0 7650 0 10		*	a Defender of Gerighelm <on the arms>: a defenders sleeves
+E 0 7651 0 7		*	a Defender of Gerighelm <on the legs>: a defenders leggings
+E 0 7652 0 11		*	a Defender of Gerighelm <as a shield>: a defenders shield
+E 0 7653 0 1		*	a Defender of Gerighelm <on the left finger>: a defenders ring
+E 0 7655 0 12		*	a Defender of Gerighelm <about the shoulders>: a defenders cape
+E 0 7656 0 3		*	a Defender of Gerighelm <around the neck>: a defenders cloak
+E 0 7657 0 9		*	a Defender of Gerighelm <on the hands>: a defenders gloves
+E 0 7658 0 13		*	a Defender of Gerighelm <around the waist>: a defenders belt
+E 0 7659 0 14		*	a Defender of Gerighelm <on the left wrist>: a defenders bracer
+E 0 7660 0 8		*	a Defender of Gerighelm <on the feet>: a defenders pair of boots
 M 0 7523 30 7614 1	* a troubadour (Crowded market)
-E 0 7513 0 17		*	a troubadour<held in the hands>: a lute
+E 0 7513 0 17		*	a troubadour <held in the hands>: a lute
 M 0 7535 10 7614 1	* a Defender of Gerighelm (Crowded market)
-E 0 7537 0 6		*	a Defender of Gerighelm<over the head>: a defenders helm
-E 0 7538 0 16		*	a Defender of Gerighelm<wielded>: a defenders sword
-E 0 7650 0 10		*	a Defender of Gerighelm<on the arms>: a defenders sleeves
-E 0 7651 0 7		*	a Defender of Gerighelm<on the legs>: a defenders leggings
-E 0 7652 0 11		*	a Defender of Gerighelm<as a shield>: a defenders shield
-E 0 7653 0 1		*	a Defender of Gerighelm<on the left finger>: a defenders ring
-E 0 7654 0 5		*	a Defender of Gerighelm<on the body>: a defenders vest
-E 0 7655 0 12		*	a Defender of Gerighelm<about the shoulders>: a defenders cape
-E 0 7656 0 3		*	a Defender of Gerighelm<around the neck>: a defenders cloak
-E 0 7657 0 9		*	a Defender of Gerighelm<on the hands>: a defenders gloves
-E 0 7658 0 13		*	a Defender of Gerighelm<around the waist>: a defenders belt
-E 0 7659 0 14		*	a Defender of Gerighelm<on the left wrist>: a defenders bracer
-E 0 7660 0 8		*	a Defender of Gerighelm<on the feet>: a defenders pair of boots
+E 0 7537 0 6		*	a Defender of Gerighelm <over the head>: a defenders helm
+E 0 7538 0 16		*	a Defender of Gerighelm <wielded>: a defenders sword
+E 0 7650 0 10		*	a Defender of Gerighelm <on the arms>: a defenders sleeves
+E 0 7651 0 7		*	a Defender of Gerighelm <on the legs>: a defenders leggings
+E 0 7652 0 11		*	a Defender of Gerighelm <as a shield>: a defenders shield
+E 0 7653 0 1		*	a Defender of Gerighelm <on the left finger>: a defenders ring
+E 0 7654 0 5		*	a Defender of Gerighelm <on the body>: a defenders vest
+E 0 7655 0 12		*	a Defender of Gerighelm <about the shoulders>: a defenders cape
+E 0 7656 0 3		*	a Defender of Gerighelm <around the neck>: a defenders cloak
+E 0 7657 0 9		*	a Defender of Gerighelm <on the hands>: a defenders gloves
+E 0 7658 0 13		*	a Defender of Gerighelm <around the waist>: a defenders belt
+E 0 7659 0 14		*	a Defender of Gerighelm <on the left wrist>: a defenders bracer
+E 0 7660 0 8		*	a Defender of Gerighelm <on the feet>: a defenders pair of boots
 M 0 7522 5 7622 1	* a citizen of Gerighelm (Pair of paths)
-E 0 7515 0 16		*	a citizen of Gerighelm<wielded>: an umbrella
+E 0 7515 0 16		*	a citizen of Gerighelm <wielded>: an umbrella
 M 0 7521 5 7623 1	* a citizen of Gerighelm (House)
-E 0 7555 0 16		*	a citizen of Gerighelm<wielded>: a mace
+E 0 7555 0 16		*	a citizen of Gerighelm <wielded>: a mace
 M 0 7523 30 7639 1	* a troubadour (Crowded market)
-E 0 7514 0 17		*	a troubadour<held in the hands>: a harp
+E 0 7514 0 17		*	a troubadour <held in the hands>: a harp
 M 0 7523 30 7640 1	* a troubadour (Crowded market)
-E 0 7513 0 17		*	a troubadour<held in the hands>: a lute
+E 0 7513 0 17		*	a troubadour <held in the hands>: a lute
 M 0 7524 4 7641 1	* an old biddy (Crowded market)
-E 0 7523 0 16		*	an old biddy<wielded>: a sharp fingernail
+E 0 7523 0 16		*	an old biddy <wielded>: a sharp fingernail
 M 0 7525 4 7641 1	* an old coot (Crowded market)
 M 0 7526 5 7641 1	* a little boy (Crowded market)
-E 0 7516 0 16		*	a little boy<wielded>: a stick
+E 0 7516 0 16		*	a little boy <wielded>: a stick
 M 0 7527 5 7641 1	* a little girl (Crowded market)
-E 0 7518 0 17		*	a little girl<held in the hands>: a doll
+E 0 7518 0 17		*	a little girl <held in the hands>: a doll
 M 0 7523 30 7641 1	* a troubadour (Crowded market)
-E 0 7514 0 17		*	a troubadour<held in the hands>: a harp
+E 0 7514 0 17		*	a troubadour <held in the hands>: a harp
 M 0 7530 25 7641 3	* a Gerighelm cityguard (Crowded market)
-E 0 7526 0 6		*	a Gerighelm cityguard<over the head>: a pair of Gerighelm guard sleeves
-E 0 7535 0 16		*	a Gerighelm cityguard<wielded>: a Gerighelm sword
-E 0 7529 0 5		*	a Gerighelm cityguard<on the body>: a Gerighelm vest
-E 0 7524 0 1		*	a Gerighelm cityguard<on the left finger>: Gerighelm guard ring
+E 0 7526 0 6		*	a Gerighelm cityguard <over the head>: a pair of Gerighelm guard sleeves
+E 0 7535 0 16		*	a Gerighelm cityguard <wielded>: a Gerighelm sword
+E 0 7529 0 5		*	a Gerighelm cityguard <on the body>: a Gerighelm vest
+E 0 7524 0 1		*	a Gerighelm cityguard <on the left finger>: Gerighelm guard ring
 M 0 7523 30 7642 1	* a troubadour (Crowded market)
-E 0 7513 0 17		*	a troubadour<held in the hands>: a lute
+E 0 7513 0 17		*	a troubadour <held in the hands>: a lute
 M 0 7524 4 7643 1	* an old biddy (Crowded market)
 M 0 7525 4 7643 1	* an old coot (Crowded market)
 M 0 7526 5 7643 1	* a little boy (Crowded market)
-E 0 7516 0 16		*	a little boy<wielded>: a stick
+E 0 7516 0 16		*	a little boy <wielded>: a stick
 M 0 7527 5 7643 1	* a little girl (Crowded market)
 M 0 7523 30 7643 1	* a troubadour (Crowded market)
-E 0 7514 0 17		*	a troubadour<held in the hands>: a harp
+E 0 7514 0 17		*	a troubadour <held in the hands>: a harp
 M 0 7523 30 7644 1	* a troubadour (Crowded market)
-E 0 7513 0 17		*	a troubadour<held in the hands>: a lute
+E 0 7513 0 17		*	a troubadour <held in the hands>: a lute
 M 0 7523 30 7645 1	* a troubadour (Crowded market)
-E 0 7514 0 17		*	a troubadour<held in the hands>: a harp
+E 0 7514 0 17		*	a troubadour <held in the hands>: a harp
 M 0 7523 30 7646 1	* a troubadour (Crowded market)
-E 0 7513 0 17		*	a troubadour<held in the hands>: a lute
+E 0 7513 0 17		*	a troubadour <held in the hands>: a lute
 M 0 7523 30 7647 1	* a troubadour (On the bridge)
-E 0 7513 0 17		*	a troubadour<held in the hands>: a lute
+E 0 7513 0 17		*	a troubadour <held in the hands>: a lute
 M 0 7523 30 7649 1	* a troubadour (The market)
-E 0 7514 0 17		*	a troubadour<held in the hands>: a harp
+E 0 7514 0 17		*	a troubadour <held in the hands>: a harp
 M 0 7535 10 7654 1	* a Defender of Gerighelm (On the path)
-E 0 7537 0 6		*	a Defender of Gerighelm<over the head>: a defenders helm
-E 0 7538 0 16		*	a Defender of Gerighelm<wielded>: a defenders sword
-E 0 7650 0 10		*	a Defender of Gerighelm<on the arms>: a defenders sleeves
-E 0 7651 0 7		*	a Defender of Gerighelm<on the legs>: a defenders leggings
-E 0 7652 0 11		*	a Defender of Gerighelm<as a shield>: a defenders shield
-E 0 7653 0 1		*	a Defender of Gerighelm<on the left finger>: a defenders ring
-E 0 7654 0 5		*	a Defender of Gerighelm<on the body>: a defenders vest
-E 0 7655 0 12		*	a Defender of Gerighelm<about the shoulders>: a defenders cape
-E 0 7656 0 3		*	a Defender of Gerighelm<around the neck>: a defenders cloak
-E 0 7657 0 9		*	a Defender of Gerighelm<on the hands>: a defenders gloves
-E 0 7658 0 13		*	a Defender of Gerighelm<around the waist>: a defenders belt
-E 0 7659 0 14		*	a Defender of Gerighelm<on the left wrist>: a defenders bracer
-E 0 7660 0 8		*	a Defender of Gerighelm<on the feet>: a defenders pair of boots
+E 0 7537 0 6		*	a Defender of Gerighelm <over the head>: a defenders helm
+E 0 7538 0 16		*	a Defender of Gerighelm <wielded>: a defenders sword
+E 0 7650 0 10		*	a Defender of Gerighelm <on the arms>: a defenders sleeves
+E 0 7651 0 7		*	a Defender of Gerighelm <on the legs>: a defenders leggings
+E 0 7652 0 11		*	a Defender of Gerighelm <as a shield>: a defenders shield
+E 0 7653 0 1		*	a Defender of Gerighelm <on the left finger>: a defenders ring
+E 0 7654 0 5		*	a Defender of Gerighelm <on the body>: a defenders vest
+E 0 7655 0 12		*	a Defender of Gerighelm <about the shoulders>: a defenders cape
+E 0 7656 0 3		*	a Defender of Gerighelm <around the neck>: a defenders cloak
+E 0 7657 0 9		*	a Defender of Gerighelm <on the hands>: a defenders gloves
+E 0 7658 0 13		*	a Defender of Gerighelm <around the waist>: a defenders belt
+E 0 7659 0 14		*	a Defender of Gerighelm <on the left wrist>: a defenders bracer
+E 0 7660 0 8		*	a Defender of Gerighelm <on the feet>: a defenders pair of boots
 M 0 7524 4 7660 1	* an old biddy (Market)
-E 0 7523 0 16		*	an old biddy<wielded>: a sharp fingernail
+E 0 7523 0 16		*	an old biddy <wielded>: a sharp fingernail
 M 0 7525 4 7660 1	* an old coot (Market)
 M 0 7526 5 7660 1	* a little boy (Market)
-E 0 7516 0 16		*	a little boy<wielded>: a stick
+E 0 7516 0 16		*	a little boy <wielded>: a stick
 M 0 7527 5 7660 1	* a little girl (Market)
 M 0 7535 10 7662 1	* a Defender of Gerighelm (Market)
-E 0 7537 0 6		*	a Defender of Gerighelm<over the head>: a defenders helm
-E 0 7538 0 16		*	a Defender of Gerighelm<wielded>: a defenders sword
-E 0 7650 0 10		*	a Defender of Gerighelm<on the arms>: a defenders sleeves
-E 0 7651 0 7		*	a Defender of Gerighelm<on the legs>: a defenders leggings
-E 0 7652 0 11		*	a Defender of Gerighelm<as a shield>: a defenders shield
-E 0 7653 0 1		*	a Defender of Gerighelm<on the left finger>: a defenders ring
-E 0 7654 0 5		*	a Defender of Gerighelm<on the body>: a defenders vest
-E 0 7655 0 12		*	a Defender of Gerighelm<about the shoulders>: a defenders cape
-E 0 7656 0 3		*	a Defender of Gerighelm<around the neck>: a defenders cloak
-E 0 7657 0 9		*	a Defender of Gerighelm<on the hands>: a defenders gloves
-E 0 7658 0 13		*	a Defender of Gerighelm<around the waist>: a defenders belt
-E 0 7659 0 14		*	a Defender of Gerighelm<on the left wrist>: a defenders bracer
-E 0 7660 0 8		*	a Defender of Gerighelm<on the feet>: a defenders pair of boots
+E 0 7537 0 6		*	a Defender of Gerighelm <over the head>: a defenders helm
+E 0 7538 0 16		*	a Defender of Gerighelm <wielded>: a defenders sword
+E 0 7650 0 10		*	a Defender of Gerighelm <on the arms>: a defenders sleeves
+E 0 7651 0 7		*	a Defender of Gerighelm <on the legs>: a defenders leggings
+E 0 7652 0 11		*	a Defender of Gerighelm <as a shield>: a defenders shield
+E 0 7653 0 1		*	a Defender of Gerighelm <on the left finger>: a defenders ring
+E 0 7654 0 5		*	a Defender of Gerighelm <on the body>: a defenders vest
+E 0 7655 0 12		*	a Defender of Gerighelm <about the shoulders>: a defenders cape
+E 0 7656 0 3		*	a Defender of Gerighelm <around the neck>: a defenders cloak
+E 0 7657 0 9		*	a Defender of Gerighelm <on the hands>: a defenders gloves
+E 0 7658 0 13		*	a Defender of Gerighelm <around the waist>: a defenders belt
+E 0 7659 0 14		*	a Defender of Gerighelm <on the left wrist>: a defenders bracer
+E 0 7660 0 8		*	a Defender of Gerighelm <on the feet>: a defenders pair of boots
 M 0 7590 10 7664 1	* a servant (The palace)
 M 0 7536 10 7664 1	* a palace guard (The palace)
-E 0 7539 0 1		*	a palace guard<on the left finger>: a palace guard ring
-E 0 7540 0 6		*	a palace guard<over the head>: a palace guard helmet
-E 0 7541 0 10		*	a palace guard<on the arms>: a pair of palace guard sleeves
-E 0 7542 0 7		*	a palace guard<on the legs>: a pair of palace guard leggings
-E 0 7543 0 11		*	a palace guard<as a shield>: a palace guard shield
-E 0 7544 0 5		*	a palace guard<on the body>: a palace guard vest
-E 0 7545 0 12		*	a palace guard<about the shoulders>: a palace guard cape
-E 0 7546 0 3		*	a palace guard<around the neck>: a palace guard cloak
-E 0 7547 0 9		*	a palace guard<on the hands>: a pair of palace guard gloves
-E 0 7548 0 13		*	a palace guard<around the waist>: a palace guard belt
-E 0 7549 0 15		*	a palace guard<on the right wrist>: a palace guard bracer
-E 0 7550 0 16		*	a palace guard<wielded>: a palace guard's sword
-E 0 7551 0 8		*	a palace guard<on the feet>: the cooks hat
+E 0 7539 0 1		*	a palace guard <on the left finger>: a palace guard ring
+E 0 7540 0 6		*	a palace guard <over the head>: a palace guard helmet
+E 0 7541 0 10		*	a palace guard <on the arms>: a pair of palace guard sleeves
+E 0 7542 0 7		*	a palace guard <on the legs>: a pair of palace guard leggings
+E 0 7543 0 11		*	a palace guard <as a shield>: a palace guard shield
+E 0 7544 0 5		*	a palace guard <on the body>: a palace guard vest
+E 0 7545 0 12		*	a palace guard <about the shoulders>: a palace guard cape
+E 0 7546 0 3		*	a palace guard <around the neck>: a palace guard cloak
+E 0 7547 0 9		*	a palace guard <on the hands>: a pair of palace guard gloves
+E 0 7548 0 13		*	a palace guard <around the waist>: a palace guard belt
+E 0 7549 0 15		*	a palace guard <on the right wrist>: a palace guard bracer
+E 0 7550 0 16		*	a palace guard <wielded>: a palace guard's sword
+E 0 7551 0 8		*	a palace guard <on the feet>: the cooks hat
 M 0 7590 10 7665 1	* a servant (Inside the Palace)
 M 0 7535 10 7665 1	* a Defender of Gerighelm (Inside the Palace)
-E 0 7537 0 6		*	a Defender of Gerighelm<over the head>: a defenders helm
-E 0 7538 0 16		*	a Defender of Gerighelm<wielded>: a defenders sword
-E 0 7650 0 10		*	a Defender of Gerighelm<on the arms>: a defenders sleeves
-E 0 7651 0 7		*	a Defender of Gerighelm<on the legs>: a defenders leggings
-E 0 7652 0 11		*	a Defender of Gerighelm<as a shield>: a defenders shield
-E 0 7653 0 1		*	a Defender of Gerighelm<on the left finger>: a defenders ring
-E 0 7654 0 5		*	a Defender of Gerighelm<on the body>: a defenders vest
-E 0 7655 0 12		*	a Defender of Gerighelm<about the shoulders>: a defenders cape
-E 0 7656 0 3		*	a Defender of Gerighelm<around the neck>: a defenders cloak
-E 0 7657 0 9		*	a Defender of Gerighelm<on the hands>: a defenders gloves
-E 0 7658 0 13		*	a Defender of Gerighelm<around the waist>: a defenders belt
-E 0 7659 0 14		*	a Defender of Gerighelm<on the left wrist>: a defenders bracer
-E 0 7660 0 8		*	a Defender of Gerighelm<on the feet>: a defenders pair of boots
+E 0 7537 0 6		*	a Defender of Gerighelm <over the head>: a defenders helm
+E 0 7538 0 16		*	a Defender of Gerighelm <wielded>: a defenders sword
+E 0 7650 0 10		*	a Defender of Gerighelm <on the arms>: a defenders sleeves
+E 0 7651 0 7		*	a Defender of Gerighelm <on the legs>: a defenders leggings
+E 0 7652 0 11		*	a Defender of Gerighelm <as a shield>: a defenders shield
+E 0 7653 0 1		*	a Defender of Gerighelm <on the left finger>: a defenders ring
+E 0 7654 0 5		*	a Defender of Gerighelm <on the body>: a defenders vest
+E 0 7655 0 12		*	a Defender of Gerighelm <about the shoulders>: a defenders cape
+E 0 7656 0 3		*	a Defender of Gerighelm <around the neck>: a defenders cloak
+E 0 7657 0 9		*	a Defender of Gerighelm <on the hands>: a defenders gloves
+E 0 7658 0 13		*	a Defender of Gerighelm <around the waist>: a defenders belt
+E 0 7659 0 14		*	a Defender of Gerighelm <on the left wrist>: a defenders bracer
+E 0 7660 0 8		*	a Defender of Gerighelm <on the feet>: a defenders pair of boots
 M 0 7539 1 7666 1	* the palace mage (Treasury)
-E 0 7552 0 17		*	the palace mage<held in the hands>: a silver staff
-E 0 7553 0 16		*	the palace mage<wielded>: the dagger of stabbing
+E 0 7552 0 17		*	the palace mage <held in the hands>: a silver staff
+E 0 7553 0 16		*	the palace mage <wielded>: the dagger of stabbing
 M 0 7590 10 7668 1	* a servant (Inside the palace)
 M 0 7536 10 7668 1	* a palace guard (Inside the palace)
-E 0 7539 0 1		*	a palace guard<on the left finger>: a palace guard ring
-E 0 7540 0 6		*	a palace guard<over the head>: a palace guard helmet
-E 0 7541 0 10		*	a palace guard<on the arms>: a pair of palace guard sleeves
-E 0 7542 0 7		*	a palace guard<on the legs>: a pair of palace guard leggings
-E 0 7543 0 11		*	a palace guard<as a shield>: a palace guard shield
-E 0 7544 0 5		*	a palace guard<on the body>: a palace guard vest
-E 0 7545 0 12		*	a palace guard<about the shoulders>: a palace guard cape
-E 0 7546 0 3		*	a palace guard<around the neck>: a palace guard cloak
-E 0 7547 0 9		*	a palace guard<on the hands>: a pair of palace guard gloves
-E 0 7548 0 13		*	a palace guard<around the waist>: a palace guard belt
-E 0 7549 0 15		*	a palace guard<on the right wrist>: a palace guard bracer
-E 0 7550 0 16		*	a palace guard<wielded>: a palace guard's sword
-E 0 7551 0 8		*	a palace guard<on the feet>: the cooks hat
+E 0 7539 0 1		*	a palace guard <on the left finger>: a palace guard ring
+E 0 7540 0 6		*	a palace guard <over the head>: a palace guard helmet
+E 0 7541 0 10		*	a palace guard <on the arms>: a pair of palace guard sleeves
+E 0 7542 0 7		*	a palace guard <on the legs>: a pair of palace guard leggings
+E 0 7543 0 11		*	a palace guard <as a shield>: a palace guard shield
+E 0 7544 0 5		*	a palace guard <on the body>: a palace guard vest
+E 0 7545 0 12		*	a palace guard <about the shoulders>: a palace guard cape
+E 0 7546 0 3		*	a palace guard <around the neck>: a palace guard cloak
+E 0 7547 0 9		*	a palace guard <on the hands>: a pair of palace guard gloves
+E 0 7548 0 13		*	a palace guard <around the waist>: a palace guard belt
+E 0 7549 0 15		*	a palace guard <on the right wrist>: a palace guard bracer
+E 0 7550 0 16		*	a palace guard <wielded>: a palace guard's sword
+E 0 7551 0 8		*	a palace guard <on the feet>: the cooks hat
 M 0 7551 3 7670 1	* the palace gardener (Garden)
-E 0 7558 0 16		*	the palace gardener<wielded>: the hoe of destruction
+E 0 7558 0 16		*	the palace gardener <wielded>: the hoe of destruction
 M 0 7536 10 7670 1	* a palace guard (Garden)
-E 0 7539 0 1		*	a palace guard<on the left finger>: a palace guard ring
-E 0 7540 0 6		*	a palace guard<over the head>: a palace guard helmet
-E 0 7541 0 10		*	a palace guard<on the arms>: a pair of palace guard sleeves
-E 0 7542 0 7		*	a palace guard<on the legs>: a pair of palace guard leggings
-E 0 7543 0 11		*	a palace guard<as a shield>: a palace guard shield
-E 0 7544 0 5		*	a palace guard<on the body>: a palace guard vest
-E 0 7545 0 12		*	a palace guard<about the shoulders>: a palace guard cape
-E 0 7546 0 3		*	a palace guard<around the neck>: a palace guard cloak
-E 0 7547 0 9		*	a palace guard<on the hands>: a pair of palace guard gloves
-E 0 7548 0 13		*	a palace guard<around the waist>: a palace guard belt
-E 0 7549 0 15		*	a palace guard<on the right wrist>: a palace guard bracer
-E 0 7550 0 16		*	a palace guard<wielded>: a palace guard's sword
+E 0 7539 0 1		*	a palace guard <on the left finger>: a palace guard ring
+E 0 7540 0 6		*	a palace guard <over the head>: a palace guard helmet
+E 0 7541 0 10		*	a palace guard <on the arms>: a pair of palace guard sleeves
+E 0 7542 0 7		*	a palace guard <on the legs>: a pair of palace guard leggings
+E 0 7543 0 11		*	a palace guard <as a shield>: a palace guard shield
+E 0 7544 0 5		*	a palace guard <on the body>: a palace guard vest
+E 0 7545 0 12		*	a palace guard <about the shoulders>: a palace guard cape
+E 0 7546 0 3		*	a palace guard <around the neck>: a palace guard cloak
+E 0 7547 0 9		*	a palace guard <on the hands>: a pair of palace guard gloves
+E 0 7548 0 13		*	a palace guard <around the waist>: a palace guard belt
+E 0 7549 0 15		*	a palace guard <on the right wrist>: a palace guard bracer
+E 0 7550 0 16		*	a palace guard <wielded>: a palace guard's sword
 M 0 7550 1 7672 1	* the head of the guard (Great hall)
-E 0 7556 0 16		*	the head of the guard<wielded>: the sword of thunder
-E 0 7557 0 5		*	the head of the guard<on the body>: the vest of the titans
+E 0 7556 0 16		*	the head of the guard <wielded>: the sword of thunder
+E 0 7557 0 5		*	the head of the guard <on the body>: the vest of the titans
 M 0 7590 10 7672 1	* a servant (Great hall)
 M 0 7540 1 7673 1	* the palace priest (The Altar)
-E 0 7554 0 16		*	the palace priest<wielded>: a holyword
+E 0 7554 0 16		*	the palace priest <wielded>: a holyword
 M 0 7590 10 7674 1	* a servant (Servants Quarters)
 M 0 7590 10 7675 1	* a servant (Servants Quarters)
 M 0 7552 3 7676 3	* a bodyguard (Throne Room)
-E 0 7561 0 5		*	a bodyguard<on the body>: a uniform
-E 0 7560 0 16		*	a bodyguard<wielded>: a cutlass
+E 0 7561 0 5		*	a bodyguard <on the body>: a uniform
+E 0 7560 0 16		*	a bodyguard <wielded>: a cutlass
 M 0 7554 1 7676 1	* the Duke of Gerighelm (Throne Room)
-E 0 7563 0 16		*	the Duke of Gerighelm<wielded>: a two-handed sword
-E 0 7564 0 6		*	the Duke of Gerighelm<over the head>: the Dukes Helm
-E 0 7567 0 1		*	the Duke of Gerighelm<on the left finger>: a wedding ring
+E 0 7563 0 16		*	the Duke of Gerighelm <wielded>: a two-handed sword
+E 0 7564 0 6		*	the Duke of Gerighelm <over the head>: the Dukes Helm
+E 0 7567 0 1		*	the Duke of Gerighelm <on the left finger>: a wedding ring
 M 0 7555 1 7676 1	* the Duchess of Gerighelm (Throne Room)
-E 0 7565 0 6		*	the Duchess of Gerighelm<over the head>: the Duchesses Tiara
-E 0 7566 0 1		*	the Duchess of Gerighelm<on the left finger>: a wedding ring
+E 0 7565 0 6		*	the Duchess of Gerighelm <over the head>: the Duchesses Tiara
+E 0 7566 0 1		*	the Duchess of Gerighelm <on the left finger>: a wedding ring
 M 0 7536 10 7676 1	* a palace guard (Throne Room)
-E 0 7539 0 1		*	a palace guard<on the left finger>: a palace guard ring
-E 0 7540 0 6		*	a palace guard<over the head>: a palace guard helmet
-E 0 7541 0 10		*	a palace guard<on the arms>: a pair of palace guard sleeves
-E 0 7542 0 7		*	a palace guard<on the legs>: a pair of palace guard leggings
-E 0 7543 0 11		*	a palace guard<as a shield>: a palace guard shield
-E 0 7544 0 5		*	a palace guard<on the body>: a palace guard vest
-E 0 7545 0 12		*	a palace guard<about the shoulders>: a palace guard cape
-E 0 7546 0 3		*	a palace guard<around the neck>: a palace guard cloak
-E 0 7547 0 9		*	a palace guard<on the hands>: a pair of palace guard gloves
-E 0 7548 0 13		*	a palace guard<around the waist>: a palace guard belt
-E 0 7549 0 15		*	a palace guard<on the right wrist>: a palace guard bracer
-E 0 7550 0 16		*	a palace guard<wielded>: a palace guard's sword
+E 0 7539 0 1		*	a palace guard <on the left finger>: a palace guard ring
+E 0 7540 0 6		*	a palace guard <over the head>: a palace guard helmet
+E 0 7541 0 10		*	a palace guard <on the arms>: a pair of palace guard sleeves
+E 0 7542 0 7		*	a palace guard <on the legs>: a pair of palace guard leggings
+E 0 7543 0 11		*	a palace guard <as a shield>: a palace guard shield
+E 0 7544 0 5		*	a palace guard <on the body>: a palace guard vest
+E 0 7545 0 12		*	a palace guard <about the shoulders>: a palace guard cape
+E 0 7546 0 3		*	a palace guard <around the neck>: a palace guard cloak
+E 0 7547 0 9		*	a palace guard <on the hands>: a pair of palace guard gloves
+E 0 7548 0 13		*	a palace guard <around the waist>: a palace guard belt
+E 0 7549 0 15		*	a palace guard <on the right wrist>: a palace guard bracer
+E 0 7550 0 16		*	a palace guard <wielded>: a palace guard's sword
 M 0 7538 1 7680 1	* the cook (Beer cellar)
-E 0 7551 0 6		*	the cook<over the head>: the cooks hat
+E 0 7551 0 6		*	the cook <over the head>: the cooks hat
 M 0 7531 25 7681 2	* a Gerighelm cityguard (Barracks)
-E 0 7524 0 1		*	a Gerighelm cityguard<on the left finger>: Gerighelm guard ring
-E 0 7535 0 16		*	a Gerighelm cityguard<wielded>: a Gerighelm sword
-E 0 7529 0 5		*	a Gerighelm cityguard<on the body>: a Gerighelm vest
-E 0 7530 0 12		*	a Gerighelm cityguard<about the shoulders>: a Gerighelm guard cape
+E 0 7524 0 1		*	a Gerighelm cityguard <on the left finger>: Gerighelm guard ring
+E 0 7535 0 16		*	a Gerighelm cityguard <wielded>: a Gerighelm sword
+E 0 7529 0 5		*	a Gerighelm cityguard <on the body>: a Gerighelm vest
+E 0 7530 0 12		*	a Gerighelm cityguard <about the shoulders>: a Gerighelm guard cape
 M 0 7532 15 7681 2	* a Gerighelm cityguard (Barracks)
-E 0 7526 0 10		*	a Gerighelm cityguard<on the arms>: a pair of Gerighelm guard sleeves
-E 0 7535 0 16		*	a Gerighelm cityguard<wielded>: a Gerighelm sword
-E 0 7529 0 5		*	a Gerighelm cityguard<on the body>: a Gerighelm vest
-E 0 7524 0 1		*	a Gerighelm cityguard<on the left finger>: Gerighelm guard ring
+E 0 7526 0 10		*	a Gerighelm cityguard <on the arms>: a pair of Gerighelm guard sleeves
+E 0 7535 0 16		*	a Gerighelm cityguard <wielded>: a Gerighelm sword
+E 0 7529 0 5		*	a Gerighelm cityguard <on the body>: a Gerighelm vest
+E 0 7524 0 1		*	a Gerighelm cityguard <on the left finger>: Gerighelm guard ring
 M 0 7698 1 7698 1	* a hawk (Pet Shop Warehouse)
 M 0 7699 1 7699 1	* the Death (Sacrifice Room)
-E 0 7699 0 16		*	the Death<wielded>: the Death's Scythe
+E 0 7699 0 16		*	the Death <wielded>: the Death's Scythe
 S
 
 #SHOPS

@@ -2108,20 +2108,20 @@ S
 
 #RESETS
 M 0 22500 4 22504 1	* a Knight scout of Myth Drannor (On a rough dirt track through the forest)
-E 0 22501 0 5		*	a Knight scout of Myth Drannor<on the body>: a forest green tunic
+E 0 22501 0 5		*	a Knight scout of Myth Drannor <on the body>: a forest green tunic
 M 0 22502 5 22508 1	* a treant (On a rough dirt track through the forest)
 M 0 22500 4 22509 1	* a Knight scout of Myth Drannor (On a rough dirt track through the forest)
-E 0 22501 0 5		*	a Knight scout of Myth Drannor<on the body>: a forest green tunic
+E 0 22501 0 5		*	a Knight scout of Myth Drannor <on the body>: a forest green tunic
 M 0 22500 4 22515 1	* a Knight scout of Myth Drannor (On a rough dirt track through the forest)
-E 0 22501 0 5		*	a Knight scout of Myth Drannor<on the body>: a forest green tunic
+E 0 22501 0 5		*	a Knight scout of Myth Drannor <on the body>: a forest green tunic
 M 0 22504 3 22519 1	* an elven skeleton (Before some stone ruins)
-E 0 22500 0 16		*	an elven skeleton<wielded>: a rusted iron sword
+E 0 22500 0 16		*	an elven skeleton <wielded>: a rusted iron sword
 M 0 22500 4 22521 1	* a Knight scout of Myth Drannor (On a rough dirt track through the forest)
-E 0 22501 0 5		*	a Knight scout of Myth Drannor<on the body>: a forest green tunic
+E 0 22501 0 5		*	a Knight scout of Myth Drannor <on the body>: a forest green tunic
 M 0 22504 3 22523 1	* an elven skeleton (Before some stone ruins)
-E 0 22500 0 16		*	an elven skeleton<wielded>: a rusted iron sword
+E 0 22500 0 16		*	an elven skeleton <wielded>: a rusted iron sword
 M 0 22504 3 22524 1	* an elven skeleton (Before some stone ruins)
-E 0 22500 0 16		*	an elven skeleton<wielded>: a rusted iron sword
+E 0 22500 0 16		*	an elven skeleton <wielded>: a rusted iron sword
 M 0 22501 12 22525 2	* a giant spider (Within the Forest of Myth Drannor)
 M 0 22503 6 22525 2	* a darkened beast (Within the Forest of Myth Drannor)
 M 0 22501 12 22527 3	* a giant spider (Within the Forest of Myth Drannor)

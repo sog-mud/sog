@@ -3492,9 +3492,9 @@ S
 #RESETS
 O 0 6011 0 6006	* a mushroom (A small path in the dense forest)
 M 0 6000 1 6009 1	* John the Lumberjack (Outside a small cabin in the forest)
-E 0 6000 0 16		*	John the Lumberjack<wielded>: a lumber axe
-E 0 6001 0 5		*	John the Lumberjack<on the body>: a chequered shirt
-E 0 6002 0 8		*	John the Lumberjack<on the feet>: a pair of leather boots
+E 0 6000 0 16		*	John the Lumberjack <wielded>: a lumber axe
+E 0 6001 0 5		*	John the Lumberjack <on the body>: a chequered shirt
+E 0 6002 0 8		*	John the Lumberjack <on the feet>: a pair of leather boots
 O 0 6003 0 6010	* a fireplace (Inside the cabin)
 P 0 6006 1 0 1	* a fireplace: a small brass key
 O 0 6005 0 6010	* a wooden chest (Inside the cabin)
@@ -3511,7 +3511,7 @@ M 0 6002 1 6022 1	* the brown bear (Inside the cave)
 M 0 6004 1 6023 1	* the fallow deer (On a small, grassy field)
 O 0 6010 0 6023	* some blackberries (On a small, grassy field)
 M 0 6115 1 6100 1	* Shargugh (A narrow trail through the deep, dark forest)
-E 0 6114 0 1		*	Shargugh<on the left finger>: an iron ring
+E 0 6114 0 1		*	Shargugh <on the left finger>: an iron ring
 O 0 6102 0 6103	* a colossal tree (A narrow trail through the deep, dark forest)
 M 0 6102 4 6104 2	* the large, grey wolf (A small path in the deep, dark forest)
 O 0 6106 0 6104	* a toadstool (A small path in the deep, dark forest)
@@ -3538,7 +3538,7 @@ G 0 6110 0		*	the huge, green dragon: a yellow potion
 G 0 6112 0		*	the huge, green dragon: an iron crown
 G 0 6111 0		*	the huge, green dragon: a large round shield
 M 0 6116 1 6155 1	* the elder druid (The cultist temple.)
-E 0 6155 0 16		*	the elder druid<wielded>: the morning star
+E 0 6155 0 16		*	the elder druid <wielded>: the morning star
 M 0 6117 1 6157 1	* the guildmaster (Ranger Training Room)
 S
 

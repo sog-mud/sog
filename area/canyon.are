@@ -2323,64 +2323,64 @@ M 0 9201 3 9203 3	* the mountain climber (Mountainside Tombs)
 M 0 9238 1 9203 1	* the elixir vendor (Mountainside Tombs)
 G 0 9231 0		*	the elixir vendor: anti-cyclops elixir
 M 0 9202 1 9204 1	* the cyclops (A Blind Curve on the Mountain Path.)
-E 0 9214 0 7		*	the cyclops<on the legs>: some platinum leg bands
-E 0 9213 0 10		*	the cyclops<on the arms>: a platinum arm band
+E 0 9214 0 7		*	the cyclops <on the legs>: some platinum leg bands
+E 0 9213 0 10		*	the cyclops <on the arms>: a platinum arm band
 M 0 9205 12 9207 12	* a small elemental (Entrance to Elemental Canyon)
 M 0 9236 15 9207 15	* a little imp (Entrance to Elemental Canyon)
 M 0 9203 15 9208 15	* a tiny elemental (The Floor of the Canyon)
 M 0 9232 8 9208 8	* a rainbow warrior (The Floor of the Canyon)
 M 0 9204 1 9209 1	* the elemental guardian (Elemental Gateway)
-E 0 9211 0 3		*	the elemental guardian<around the neck>: an elemental amulet
-E 0 9212 0 14		*	the elemental guardian<on the left wrist>: an elemental bracelet
+E 0 9211 0 3		*	the elemental guardian <around the neck>: an elemental amulet
+E 0 9212 0 14		*	the elemental guardian <on the left wrist>: an elemental bracelet
 M 0 9205 12 9209 12	* a small elemental (Elemental Gateway)
 M 0 9207 6 9209 6	* a large elemental (Elemental Gateway)
 M 0 9232 8 9209 8	* a rainbow warrior (Elemental Gateway)
-E 0 9220 0 16		*	a rainbow warrior<wielded>: a stone club
+E 0 9220 0 16		*	a rainbow warrior <wielded>: a stone club
 M 0 9203 15 9210 15	* a tiny elemental (The Floor of the Canyon)
 M 0 9223 8 9210 8	* a particle (The Floor of the Canyon)
 M 0 9231 5 9211 5	* an elemental magician (The Floor of the Canyon)
-E 0 9215 0 17		*	an elemental magician<held in the hands>: elemental wand of fire
+E 0 9215 0 17		*	an elemental magician <held in the hands>: elemental wand of fire
 M 0 9206 9 9212 9	* a medium elemental (The Floor of the Canyon)
-E 0 9221 0 17		*	a medium elemental<held in the hands>: a lodestone
+E 0 9221 0 17		*	a medium elemental <held in the hands>: a lodestone
 M 0 9216 5 9212 5	* a small snowflake (The Floor of the Canyon)
 M 0 9222 8 9213 8	* an elemental mist (The Floor of the Canyon)
 M 0 9203 15 9215 15	* a tiny elemental (The Floor of the Canyon)
 M 0 9203 15 9215 15	* a tiny elemental (The Floor of the Canyon)
 M 0 9231 5 9216 5	* an elemental magician (The Floor of the Canyon)
-E 0 9215 0 17		*	an elemental magician<held in the hands>: elemental wand of fire
+E 0 9215 0 17		*	an elemental magician <held in the hands>: elemental wand of fire
 M 0 9203 15 9217 15	* a tiny elemental (The Floor of the Canyon)
 M 0 9203 15 9218 15	* a tiny elemental (The Floor of the Canyon)
 M 0 9205 15 9218 15	* a small elemental (The Floor of the Canyon)
 M 0 9207 6 9218 6	* a large elemental (The Floor of the Canyon)
 M 0 9207 6 9218 6	* a large elemental (The Floor of the Canyon)
-E 0 9223 0 17		*	a large elemental<held in the hands>: an energy scroll
+E 0 9223 0 17		*	a large elemental <held in the hands>: an energy scroll
 M 0 9233 7 9218 7	* an illusionist (The Floor of the Canyon)
 M 0 9203 15 9219 15	* a tiny elemental (The Floor of the Canyon)
-E 0 9225 0 17		*	a tiny elemental<held in the hands>: magic dust
+E 0 9225 0 17		*	a tiny elemental <held in the hands>: magic dust
 M 0 9236 15 9220 15	* a little imp (Dark Cave)
 M 0 9220 8 9220 8	* a lava beast (Dark Cave)
-E 0 9222 0 17		*	a lava beast<held in the hands>: a lava lamp
+E 0 9222 0 17		*	a lava beast <held in the hands>: a lava lamp
 M 0 9217 15 9221 15	* a small rock (Darker Caves)
 M 0 9220 8 9221 8	* a lava beast (Darker Caves)
 M 0 9223 8 9221 8	* a particle (Darker Caves)
 M 0 9205 12 9222 12	* a small elemental (Darker Caves)
-E 0 9224 0 17		*	a small elemental<held in the hands>: a water jug
+E 0 9224 0 17		*	a small elemental <held in the hands>: a water jug
 M 0 9217 15 9222 15	* a small rock (Darker Caves)
 M 0 9221 8 9222 8	* a mud monster (Darker Caves)
 M 0 9221 8 9222 8	* a mud monster (Darker Caves)
 M 0 9224 8 9222 8	* a dust cloud (Darker Caves)
-E 0 9225 0 5		*	a dust cloud<on the body>: magic dust
+E 0 9225 0 5		*	a dust cloud <on the body>: magic dust
 M 0 9217 15 9223 15	* a small rock (Darker Caves)
-E 0 9217 0 17		*	a small rock<held in the hands>: an elemental rod of earthquake
+E 0 9217 0 17		*	a small rock <held in the hands>: an elemental rod of earthquake
 M 0 9217 15 9224 15	* a small rock (Darker Caves)
 M 0 9206 9 9225 9	* a medium elemental (Darkest Caves)
-E 0 9219 0 17		*	a medium elemental<held in the hands>: elemental wand of lightning
+E 0 9219 0 17		*	a medium elemental <held in the hands>: elemental wand of lightning
 M 0 9217 15 9225 15	* a small rock (Darkest Caves)
 M 0 9216 5 9225 5	* a small snowflake (Darkest Caves)
 M 0 9217 15 9226 15	* a small rock (Darkest Caves)
 M 0 9208 1 9227 1	* the Earth Ruler (Earth Chamber)
-E 0 9201 0 1		*	the Earth Ruler<on the left finger>: the earth ring
-E 0 9202 0 5		*	the Earth Ruler<on the body>: a stoney breastplate
+E 0 9201 0 1		*	the Earth Ruler <on the left finger>: the earth ring
+E 0 9202 0 5		*	the Earth Ruler <on the body>: a stoney breastplate
 M 0 9217 15 9227 15	* a small rock (Earth Chamber)
 M 0 9217 15 9227 15	* a small rock (Earth Chamber)
 M 0 9224 8 9227 8	* a dust cloud (Earth Chamber)
@@ -2388,7 +2388,7 @@ M 0 9236 15 9228 15	* a little imp (By the River)
 M 0 9219 8 9228 8	* a small blob of acid (By the River)
 M 0 9219 8 9229 8	* a small blob of acid (In the River)
 M 0 9234 6 9230 6	* an alchemist (Elemental Bay)
-E 0 9218 0 16		*	an alchemist<wielded>: elemental wand of wind and air
+E 0 9218 0 16		*	an alchemist <wielded>: elemental wand of wind and air
 M 0 9214 15 9230 15	* a puddle (Elemental Bay)
 M 0 9214 15 9231 15	* a puddle (Elemental Bay)
 M 0 9221 8 9231 8	* a mud monster (Elemental Bay)
@@ -2398,42 +2398,42 @@ M 0 9216 5 9232 5	* a small snowflake (Elemental Bay)
 M 0 9216 5 9232 5	* a small snowflake (Elemental Bay)
 M 0 9222 8 9232 8	* an elemental mist (Elemental Bay)
 M 0 9214 15 9233 15	* a puddle (Elemental Bay)
-E 0 9216 0 17		*	a puddle<held in the hands>: an ice staff
+E 0 9216 0 17		*	a puddle <held in the hands>: an ice staff
 M 0 9205 12 9234 12	* a small elemental (Elemental Bay)
 M 0 9214 15 9234 15	* a puddle (Elemental Bay)
 M 0 9214 15 9235 15	* a puddle (Elemental Bay)
-E 0 9224 0 17		*	a puddle<held in the hands>: a water jug
+E 0 9224 0 17		*	a puddle <held in the hands>: a water jug
 M 0 9212 1 9236 1	* The Water Ruler (Water Chamber)
-E 0 9209 0 13		*	The Water Ruler<around the waist>: an icy girth
-E 0 9210 0 12		*	The Water Ruler<about the shoulders>: a waterfall cloak
+E 0 9209 0 13		*	The Water Ruler <around the waist>: an icy girth
+E 0 9210 0 12		*	The Water Ruler <about the shoulders>: a waterfall cloak
 M 0 9214 15 9236 15	* a puddle (Water Chamber)
 M 0 9214 15 9236 15	* a puddle (Water Chamber)
 M 0 9236 15 9237 15	* a little imp (A Fiery Pathway)
 M 0 9226 1 9238 1	* the Blue Flame (A Fiery Pathway)
-E 0 9226 0 16		*	the Blue Flame<wielded>: a flame lance
+E 0 9226 0 16		*	the Blue Flame <wielded>: a flame lance
 M 0 9227 1 9238 1	* the Magneto (A Fiery Pathway)
-E 0 9230 0 16		*	the Magneto<wielded>: the Shock Whip
+E 0 9230 0 16		*	the Magneto <wielded>: the Shock Whip
 M 0 9234 6 9238 6	* an alchemist (A Fiery Pathway)
-E 0 9217 0 16		*	an alchemist<wielded>: an elemental rod of earthquake
+E 0 9217 0 16		*	an alchemist <wielded>: an elemental rod of earthquake
 M 0 9219 8 9238 8	* a small blob of acid (A Fiery Pathway)
 M 0 9220 8 9238 8	* a lava beast (A Fiery Pathway)
 M 0 9207 6 9242 6	* a large elemental (The Burning Gardens)
 M 0 9228 1 9242 1	* the Ice Bandit (The Burning Gardens)
-E 0 9227 0 16		*	the Ice Bandit<wielded>: an icicle
+E 0 9227 0 16		*	the Ice Bandit <wielded>: an icicle
 M 0 9229 1 9242 1	* the Rock Monster (The Burning Gardens)
-E 0 9228 0 16		*	the Rock Monster<wielded>: the avalanche
+E 0 9228 0 16		*	the Rock Monster <wielded>: the avalanche
 M 0 9230 1 9242 1	* the Hurricane (The Burning Gardens)
-E 0 9229 0 16		*	the Hurricane<wielded>: the morning star
+E 0 9229 0 16		*	the Hurricane <wielded>: the morning star
 M 0 9215 15 9242 15	* a flame (The Burning Gardens)
 M 0 9215 15 9242 15	* a flame (The Burning Gardens)
-E 0 9215 0 17		*	a flame<held in the hands>: elemental wand of fire
+E 0 9215 0 17		*	a flame <held in the hands>: elemental wand of fire
 M 0 9215 15 9242 15	* a flame (The Burning Gardens)
 M 0 9220 8 9242 8	* a lava beast (The Burning Gardens)
 M 0 9209 1 9245 1	* the Fire Ruler (The Fire Chamber)
-E 0 9203 0 16		*	the Fire Ruler<wielded>: a fiery dagger
-E 0 9204 0 3		*	the Fire Ruler<around the neck>: a flame red cape
+E 0 9203 0 16		*	the Fire Ruler <wielded>: a fiery dagger
+E 0 9204 0 3		*	the Fire Ruler <around the neck>: a flame red cape
 M 0 9215 15 9245 15	* a flame (The Fire Chamber)
-E 0 9215 0 17		*	a flame<held in the hands>: elemental wand of fire
+E 0 9215 0 17		*	a flame <held in the hands>: elemental wand of fire
 M 0 9215 15 9245 15	* a flame (The Fire Chamber)
 M 0 9215 15 9245 15	* a flame (The Fire Chamber)
 M 0 9206 9 9246 9	* a medium elemental (Electric Pathway)
@@ -2447,13 +2447,13 @@ M 0 9235 2 9249 2	* a baby rainbow dragon (The Electric Playground)
 M 0 9218 15 9249 15	* a small spark (The Electric Playground)
 M 0 9205 12 9250 12	* a small elemental (The Electric Playground)
 M 0 9218 15 9250 15	* a small spark (The Electric Playground)
-E 0 9219 0 17		*	a small spark<held in the hands>: elemental wand of lightning
+E 0 9219 0 17		*	a small spark <held in the hands>: elemental wand of lightning
 M 0 9218 15 9251 15	* a small spark (Lightning Causeway)
 M 0 9211 1 9252 1	* The Lightning Ruler (Lightning Chamber)
-E 0 9207 0 16		*	The Lightning Ruler<wielded>: a sparking lightning sword
-E 0 9208 0 11		*	The Lightning Ruler<as a shield>: an electric shield
+E 0 9207 0 16		*	The Lightning Ruler <wielded>: a sparking lightning sword
+E 0 9208 0 11		*	The Lightning Ruler <as a shield>: an electric shield
 M 0 9218 15 9252 15	* a small spark (Lightning Chamber)
-E 0 9218 0 17		*	a small spark<held in the hands>: elemental wand of wind and air
+E 0 9218 0 17		*	a small spark <held in the hands>: elemental wand of wind and air
 M 0 9218 15 9252 15	* a small spark (Lightning Chamber)
 M 0 9233 8 9253 8	* an illusionist (Mesa West)
 M 0 9223 8 9253 8	* a particle (Mesa West)
@@ -2462,23 +2462,23 @@ M 0 9222 8 9254 8	* an elemental mist (Mesa East)
 M 0 9233 7 9255 7	* an illusionist (Floating in Air)
 M 0 9236 15 9255 15	* a little imp (Floating in Air)
 M 0 9225 15 9255 15	* an eddie (Floating in Air)
-E 0 9218 0 17		*	an eddie<held in the hands>: elemental wand of wind and air
+E 0 9218 0 17		*	an eddie <held in the hands>: elemental wand of wind and air
 M 0 9225 15 9255 15	* an eddie (Floating in Air)
-E 0 9225 0 17		*	an eddie<held in the hands>: magic dust
+E 0 9225 0 17		*	an eddie <held in the hands>: magic dust
 M 0 9222 8 9255 8	* an elemental mist (Floating in Air)
 M 0 9225 15 9256 15	* an eddie (Floating in Air)
 M 0 9235 2 9257 2	* a baby rainbow dragon (Floating in Air)
-E 0 9216 0 16		*	a baby rainbow dragon<wielded>: an ice staff
+E 0 9216 0 16		*	a baby rainbow dragon <wielded>: an ice staff
 M 0 9225 15 9257 15	* an eddie (Floating in Air)
 M 0 9224 8 9257 8	* a dust cloud (Floating in Air)
 M 0 9225 15 9258 15	* an eddie (Floating in Air)
 M 0 9225 15 9259 15	* an eddie (Windy Tunnel)
 M 0 9224 8 9259 8	* a dust cloud (Windy Tunnel)
 M 0 9210 1 9260 1	* The Air Ruler (Air Chamber)
-E 0 9205 0 8		*	The Air Ruler<on the feet>: the wind boots
-E 0 9206 0 6		*	The Air Ruler<over the head>: a hurricane helmet
+E 0 9205 0 8		*	The Air Ruler <on the feet>: the wind boots
+E 0 9206 0 6		*	The Air Ruler <over the head>: a hurricane helmet
 M 0 9207 6 9260 6	* a large elemental (Air Chamber)
-E 0 9220 0 16		*	a large elemental<wielded>: a stone club
+E 0 9220 0 16		*	a large elemental <wielded>: a stone club
 M 0 9225 15 9260 15	* an eddie (Air Chamber)
 M 0 9225 15 9260 15	* an eddie (Air Chamber)
 M 0 9239 1 9261 1	* The Combat Magician (The Combat Magician Chamber)

@@ -2700,11 +2700,11 @@ S
 
 #RESETS
 M 0 1502 3 1503 1	* a gnome man (A Road in the Village)
-E 0 1503 0 16		*	a gnome man<wielded>: a gnarled staff
+E 0 1503 0 16		*	a gnome man <wielded>: a gnarled staff
 M 0 1502 3 1505 1	* a gnome man (A Road in the Village)
-E 0 1503 0 16		*	a gnome man<wielded>: a gnarled staff
+E 0 1503 0 16		*	a gnome man <wielded>: a gnarled staff
 M 0 1502 3 1506 1	* a gnome man (A Road in the Village)
-E 0 1503 0 16		*	a gnome man<wielded>: a gnarled staff
+E 0 1503 0 16		*	a gnome man <wielded>: a gnarled staff
 M 0 1500 3 1509 1	* a gnome child (A Small Gnome House)
 G 0 1502 0		*	a gnome child: a toy boomerang
 M 0 1501 3 1509 1	* a gnome woman (A Small Gnome House)
@@ -2721,26 +2721,26 @@ M 0 1503 3 1514 1	* a gnome scientist (A Gnome Shop)
 G 0 1511 0		*	a gnome scientist: a wicker basket
 P 0 1512 12 0 1	* a wicker basket: some peanuts
 M 0 1503 3 1515 1	* a gnome scientist (A Gnome Shop)
-E 0 1514 0 16		*	a gnome scientist<wielded>: a skiff
+E 0 1514 0 16		*	a gnome scientist <wielded>: a skiff
 M 0 1504 6 1519 1	* a gnome guard (A Small Hut)
 G 0 1500 0		*	a gnome guard: a bloody key
 G 0 1506 0		*	a gnome guard: a bloody potion
-E 0 1507 0 3		*	a gnome guard<around the neck>: a bloody cloak
+E 0 1507 0 3		*	a gnome guard <around the neck>: a bloody cloak
 M 0 1508 2 1522 2	* a field mouse (The Field of Mice's Dreams)
 M 0 1508 2 1522 2	* a field mouse (The Field of Mice's Dreams)
 M 0 1507 1 1524 1	* a small troll (Darker Cave)
 M 0 1504 6 1527 2	* a gnome guard (The Iron Gateway)
-E 0 1504 0 16		*	a gnome guard<wielded>: a gnome sword
+E 0 1504 0 16		*	a gnome guard <wielded>: a gnome sword
 M 0 1504 6 1530 2	* a gnome guard (The Barracks)
-E 0 1504 0 16		*	a gnome guard<wielded>: a gnome sword
+E 0 1504 0 16		*	a gnome guard <wielded>: a gnome sword
 M 0 1504 6 1530 2	* a gnome guard (The Barracks)
-E 0 1504 0 16		*	a gnome guard<wielded>: a gnome sword
+E 0 1504 0 16		*	a gnome guard <wielded>: a gnome sword
 M 0 1504 6 1534 1	* a gnome guard (The Mess Hall)
-E 0 1504 0 16		*	a gnome guard<wielded>: a gnome sword
+E 0 1504 0 16		*	a gnome guard <wielded>: a gnome sword
 M 0 1509 3 1541 3	* a rat (Prison Cell)
-E 0 1505 0 11		*	a rat<as a shield>: a studded shield
+E 0 1505 0 11		*	a rat <as a shield>: a studded shield
 M 0 1510 3 1542 3	* a large rat (Prison Cell)
-E 0 1503 0 16		*	a large rat<wielded>: a gnarled staff
+E 0 1503 0 16		*	a large rat <wielded>: a gnarled staff
 M 0 1511 3 1543 3	* a giant rat (Prison Cell)
 M 0 1512 1 1545 1	* the troll (End of the Dark Hallway)
 G 0 1501 0		*	the troll: a dirty key
@@ -2769,42 +2769,42 @@ G 0 1516 0		*	the fire bat: a pile of coins
 O 0 1517 0 1557	* a pile of coins (The Altar)
 M 0 1505 1 1558 1	* the chief gnome (The Chief's House)
 G 0 1523 0		*	the chief gnome: a potion of life healing
-E 0 1508 0 1		*	the chief gnome<on the left finger>: a bat ring
-E 0 1509 0 3		*	the chief gnome<around the neck>: a bead necklace
-E 0 1510 0 16		*	the chief gnome<wielded>: an electrum sword
+E 0 1508 0 1		*	the chief gnome <on the left finger>: a bat ring
+E 0 1509 0 3		*	the chief gnome <around the neck>: a bead necklace
+E 0 1510 0 16		*	the chief gnome <wielded>: an electrum sword
 M 0 1520 6 1563 2	* a hobgoblin miner (Mine Shaft)
 M 0 1520 6 1565 2	* a hobgoblin miner (Mine Shaft)
 M 0 1518 5 1569 5	* the hobgoblin bodyguard (The Throne Room)
-E 0 1521 0 16		*	the hobgoblin bodyguard<wielded>: a large club
+E 0 1521 0 16		*	the hobgoblin bodyguard <wielded>: a large club
 M 0 1518 5 1569 5	* the hobgoblin bodyguard (The Throne Room)
-E 0 1521 0 16		*	the hobgoblin bodyguard<wielded>: a large club
+E 0 1521 0 16		*	the hobgoblin bodyguard <wielded>: a large club
 M 0 1518 5 1569 5	* the hobgoblin bodyguard (The Throne Room)
-E 0 1521 0 16		*	the hobgoblin bodyguard<wielded>: a large club
+E 0 1521 0 16		*	the hobgoblin bodyguard <wielded>: a large club
 M 0 1518 5 1569 5	* the hobgoblin bodyguard (The Throne Room)
-E 0 1521 0 16		*	the hobgoblin bodyguard<wielded>: a large club
+E 0 1521 0 16		*	the hobgoblin bodyguard <wielded>: a large club
 M 0 1518 5 1569 5	* the hobgoblin bodyguard (The Throne Room)
-E 0 1521 0 16		*	the hobgoblin bodyguard<wielded>: a large club
+E 0 1521 0 16		*	the hobgoblin bodyguard <wielded>: a large club
 M 0 1519 1 1569 1	* the king of the hobgoblins (The Throne Room)
-E 0 1520 0 5		*	the king of the hobgoblins<on the body>: heavy banded mail
+E 0 1520 0 5		*	the king of the hobgoblins <on the body>: heavy banded mail
 M 0 1521 1 1570 1	* the treasurer (The Treasury)
 O 0 1516 0 1570	* a pile of coins (The Treasury)
 O 0 1517 0 1570	* a pile of coins (The Treasury)
 M 0 1517 30 1571 10	* the hobgoblin soldier (Guarded Room)
-E 0 1524 0 16		*	the hobgoblin soldier<wielded>: a wooden club
+E 0 1524 0 16		*	the hobgoblin soldier <wielded>: a wooden club
 M 0 1517 30 1571 10	* the hobgoblin soldier (Guarded Room)
-E 0 1524 0 16		*	the hobgoblin soldier<wielded>: a wooden club
+E 0 1524 0 16		*	the hobgoblin soldier <wielded>: a wooden club
 M 0 1517 30 1571 10	* the hobgoblin soldier (Guarded Room)
-E 0 1524 0 16		*	the hobgoblin soldier<wielded>: a wooden club
+E 0 1524 0 16		*	the hobgoblin soldier <wielded>: a wooden club
 M 0 1517 30 1571 10	* the hobgoblin soldier (Guarded Room)
-E 0 1524 0 16		*	the hobgoblin soldier<wielded>: a wooden club
+E 0 1524 0 16		*	the hobgoblin soldier <wielded>: a wooden club
 M 0 1517 30 1572 10	* the hobgoblin soldier (Guarded Room)
-E 0 1524 0 16		*	the hobgoblin soldier<wielded>: a wooden club
+E 0 1524 0 16		*	the hobgoblin soldier <wielded>: a wooden club
 M 0 1517 30 1572 10	* the hobgoblin soldier (Guarded Room)
-E 0 1524 0 16		*	the hobgoblin soldier<wielded>: a wooden club
+E 0 1524 0 16		*	the hobgoblin soldier <wielded>: a wooden club
 M 0 1517 30 1572 10	* the hobgoblin soldier (Guarded Room)
-E 0 1524 0 16		*	the hobgoblin soldier<wielded>: a wooden club
+E 0 1524 0 16		*	the hobgoblin soldier <wielded>: a wooden club
 M 0 1517 30 1572 10	* the hobgoblin soldier (Guarded Room)
-E 0 1524 0 16		*	the hobgoblin soldier<wielded>: a wooden club
+E 0 1524 0 16		*	the hobgoblin soldier <wielded>: a wooden club
 O 0 1521 0 1573	* a large club (Hobgoblin Armory)
 M 0 1522 5 1577 1	* a gnome prisoner (A Jail Cell)
 M 0 1522 5 1578 1	* a gnome prisoner (The Jail Cell)

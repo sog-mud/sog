@@ -560,15 +560,15 @@ S
 
 #RESETS
 M 0 7900 1 7900 1	* the Grand Knight of paladins (Outside Redferne's residence)
-E 0 5221 0 16		*	the Grand Knight of paladins<wielded>: a two-handed sword
-E 0 7217 0 5		*	the Grand Knight of paladins<on the body>: a silvery breast plate
-E 0 7218 0 7		*	the Grand Knight of paladins<on the legs>: some silvery leg plates
-E 0 7219 0 9		*	the Grand Knight of paladins<on the hands>: a pair of silvery gloves
-E 0 7220 0 6		*	the Grand Knight of paladins<over the head>: a silvery helmet
-E 0 7221 0 11		*	the Grand Knight of paladins<as a shield>: the shield of the rose
-E 0 7223 0 10		*	the Grand Knight of paladins<on the arms>: some silvery arm plates
-E 0 7222 0 8		*	the Grand Knight of paladins<on the feet>: a pair of silvery boots
-E 0 7224 0 12		*	the Grand Knight of paladins<about the shoulders>: a white cloak
+E 0 5221 0 16		*	the Grand Knight of paladins <wielded>: a two-handed sword
+E 0 7217 0 5		*	the Grand Knight of paladins <on the body>: a silvery breast plate
+E 0 7218 0 7		*	the Grand Knight of paladins <on the legs>: some silvery leg plates
+E 0 7219 0 9		*	the Grand Knight of paladins <on the hands>: a pair of silvery gloves
+E 0 7220 0 6		*	the Grand Knight of paladins <over the head>: a silvery helmet
+E 0 7221 0 11		*	the Grand Knight of paladins <as a shield>: the shield of the rose
+E 0 7223 0 10		*	the Grand Knight of paladins <on the arms>: some silvery arm plates
+E 0 7222 0 8		*	the Grand Knight of paladins <on the feet>: a pair of silvery boots
+E 0 7224 0 12		*	the Grand Knight of paladins <about the shoulders>: a white cloak
 G 0 7911 0		*	the Grand Knight of paladins: a small brass key
 O 0 7909 0 7903	* a huge treasure (The Artifact room of Naris)
 M 0 7901 1 7907 1	* Paladin of Solamnia (The Larder)

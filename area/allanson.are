@@ -4734,33 +4734,33 @@ G 0 40200 0		*	the hen: the feather
 M 0 40201 1 40200 1	* the chicken (The hen-coop)
 O 0 40201 0 40201	* the hen-coop (The yard)
 M 0 40203 10 40203 1	* the housewife (In a house)
-E 0 40205 0 17		*	the housewife<held in the hands>: the broom
-E 0 40204 0 5		*	the housewife<on the body>: the apron
+E 0 40205 0 17		*	the housewife <held in the hands>: the broom
+E 0 40204 0 5		*	the housewife <on the body>: the apron
 G 0 40203 0		*	the housewife: the small brass key
 O 0 40202 0 40204	* the small chest (The bedroom)
 P 0 40211 5 0 1	* the small chest: the garnet bracelet
 M 0 40202 15 40205 2	* the citizen (Nemesis street)
 M 0 40221 10 40206 1	* the guard (Nemesis street)
-E 0 40252 0 16		*	the guard<wielded>: sword
-E 0 40251 0 11		*	the guard<as a shield>: the shield
-E 0 40250 0 5		*	the guard<on the body>: hauberk
+E 0 40252 0 16		*	the guard <wielded>: sword
+E 0 40251 0 11		*	the guard <as a shield>: the shield
+E 0 40250 0 5		*	the guard <on the body>: hauberk
 M 0 40203 10 40210 1	* the housewife (The kitchen)
-E 0 40204 0 5		*	the housewife<on the body>: the apron
-E 0 40206 0 17		*	the housewife<held in the hands>: the ladle
+E 0 40204 0 5		*	the housewife <on the body>: the apron
+E 0 40206 0 17		*	the housewife <held in the hands>: the ladle
 O 0 40207 0 40210	* the wood shelf (The kitchen)
 P 0 40208 1 0 10	* the wood shelf: the pepper-pot
 M 0 40202 15 40212 2	* the citizen (Nemesis street)
 M 0 40203 10 40215 1	* the housewife (The kitchen)
-E 0 40206 0 17		*	the housewife<held in the hands>: the ladle
-E 0 40204 0 5		*	the housewife<on the body>: the apron
+E 0 40206 0 17		*	the housewife <held in the hands>: the ladle
+E 0 40204 0 5		*	the housewife <on the body>: the apron
 M 0 40202 15 40216 1	* the citizen (Nemesis street)
 M 0 40221 10 40216 1	* the guard (Nemesis street)
-E 0 40252 0 16		*	the guard<wielded>: sword
-E 0 40251 0 11		*	the guard<as a shield>: the shield
-E 0 40250 0 5		*	the guard<on the body>: hauberk
+E 0 40252 0 16		*	the guard <wielded>: sword
+E 0 40251 0 11		*	the guard <as a shield>: the shield
+E 0 40250 0 5		*	the guard <on the body>: hauberk
 M 0 40224 10 40216 1	* a stray dog (Nemesis street)
 M 0 40203 10 40223 1	* the housewife (The bedroom)
-E 0 40204 0 5		*	the housewife<on the body>: the apron
+E 0 40204 0 5		*	the housewife <on the body>: the apron
 O 0 40209 0 40223	* the comfort bed (The bedroom)
 P 0 40210 20 0 1	* the comfort bed: the feather-bed
 M 0 40204 1 40224 1	* the bar owner (The bar)
@@ -4811,73 +4811,73 @@ R 0 40258 5	* The sewers: randomize
 R 0 40259 5	* The sewers: randomize
 M 0 40206 10 40259 1	* the rat (The sewers)
 M 0 40221 10 40260 1	* the guard (Cross-roads)
-E 0 40250 0 5		*	the guard<on the body>: hauberk
-E 0 40251 0 11		*	the guard<as a shield>: the shield
-E 0 40252 0 16		*	the guard<wielded>: sword
+E 0 40250 0 5		*	the guard <on the body>: hauberk
+E 0 40251 0 11		*	the guard <as a shield>: the shield
+E 0 40252 0 16		*	the guard <wielded>: sword
 M 0 40208 1 40262 1	* the gloomy gnome (The north gate)
-E 0 40216 0 17		*	the gloomy gnome<held in the hands>: an oak staff
-E 0 40215 0 12		*	the gloomy gnome<about the shoulders>: the robe with a hood
+E 0 40216 0 17		*	the gloomy gnome <held in the hands>: an oak staff
+E 0 40215 0 12		*	the gloomy gnome <about the shoulders>: the robe with a hood
 M 0 40209 4 40262 2	* the guard (The north gate)
-E 0 40218 0 16		*	the guard<wielded>: the guard's sword
-E 0 40217 0 5		*	the guard<on the body>: the light hauberk
+E 0 40218 0 16		*	the guard <wielded>: the guard's sword
+E 0 40217 0 5		*	the guard <on the body>: the light hauberk
 M 0 40202 15 40264 1	* the citizen (North avenue)
 M 0 40221 10 40264 1	* the guard (North avenue)
-E 0 40250 0 5		*	the guard<on the body>: hauberk
-E 0 40251 0 11		*	the guard<as a shield>: the shield
-E 0 40252 0 16		*	the guard<wielded>: sword
+E 0 40250 0 5		*	the guard <on the body>: hauberk
+E 0 40251 0 11		*	the guard <as a shield>: the shield
+E 0 40252 0 16		*	the guard <wielded>: sword
 O 0 40220 0 40265	* the figurine of salamander (The Square of Elements)
 M 0 40202 15 40267 1	* the citizen (North avenue)
 M 0 40221 10 40268 1	* the guard (North avenue)
-E 0 40252 0 16		*	the guard<wielded>: sword
-E 0 40251 0 11		*	the guard<as a shield>: the shield
-E 0 40250 0 5		*	the guard<on the body>: hauberk
+E 0 40252 0 16		*	the guard <wielded>: sword
+E 0 40251 0 11		*	the guard <as a shield>: the shield
+E 0 40250 0 5		*	the guard <on the body>: hauberk
 M 0 40202 15 40269 1	* the citizen (North avenue)
 O 0 40219 0 40270	* the bench (The park)
 O 0 40219 0 40271	* the bench (The park)
 O 0 40221 0 40272	* figurine of the undine (The Square of Elements)
 M 0 40221 10 40272 1	* the guard (The Square of Elements)
-E 0 40252 0 16		*	the guard<wielded>: sword
-E 0 40251 0 11		*	the guard<as a shield>: the shield
-E 0 40250 0 5		*	the guard<on the body>: hauberk
+E 0 40252 0 16		*	the guard <wielded>: sword
+E 0 40251 0 11		*	the guard <as a shield>: the shield
+E 0 40250 0 5		*	the guard <on the body>: hauberk
 O 0 40222 0 40273	* figurine of the teranim (The Square of Elements)
 M 0 40223 1 40273 1	* figure (The Square of Elements)
-E 0 40256 0 3		*	figure<around the neck>: the long dark cloak
+E 0 40256 0 3		*	figure <around the neck>: the long dark cloak
 O 0 40223 0 40274	* Figurine of The Silver Sylph (The Square of Elements)
 M 0 40202 15 40274 1	* the citizen (The Square of Elements)
 M 0 40221 10 40274 1	* the guard (The Square of Elements)
-E 0 40252 0 16		*	the guard<wielded>: sword
-E 0 40251 0 11		*	the guard<as a shield>: the shield
-E 0 40250 0 5		*	the guard<on the body>: hauberk
+E 0 40252 0 16		*	the guard <wielded>: sword
+E 0 40251 0 11		*	the guard <as a shield>: the shield
+E 0 40250 0 5		*	the guard <on the body>: hauberk
 M 0 40202 15 40275 1	* the citizen (The south avenue)
 M 0 40224 10 40275 1	* a stray dog (The south avenue)
 M 0 40221 10 40276 1	* the guard (South avenue)
-E 0 40250 0 5		*	the guard<on the body>: hauberk
-E 0 40251 0 11		*	the guard<as a shield>: the shield
-E 0 40252 0 16		*	the guard<wielded>: sword
+E 0 40250 0 5		*	the guard <on the body>: hauberk
+E 0 40251 0 11		*	the guard <as a shield>: the shield
+E 0 40252 0 16		*	the guard <wielded>: sword
 M 0 40202 15 40277 1	* the citizen (South avenue)
 M 0 40221 10 40278 1	* the guard (The cross-roads)
-E 0 40252 0 16		*	the guard<wielded>: sword
-E 0 40251 0 11		*	the guard<as a shield>: the shield
-E 0 40250 0 5		*	the guard<on the body>: hauberk
+E 0 40252 0 16		*	the guard <wielded>: sword
+E 0 40251 0 11		*	the guard <as a shield>: the shield
+E 0 40250 0 5		*	the guard <on the body>: hauberk
 M 0 40202 15 40279 1	* the citizen (South avenue)
 M 0 40221 10 40280 1	* the guard (South avenue)
-E 0 40250 0 5		*	the guard<on the body>: hauberk
-E 0 40251 0 11		*	the guard<as a shield>: the shield
-E 0 40252 0 16		*	the guard<wielded>: sword
+E 0 40250 0 5		*	the guard <on the body>: hauberk
+E 0 40251 0 11		*	the guard <as a shield>: the shield
+E 0 40252 0 16		*	the guard <wielded>: sword
 M 0 40202 15 40281 1	* the citizen (South avenue)
 M 0 40210 1 40282 1	* the young woman (Near The South Gate)
-E 0 40225 0 2		*	the young woman<on the right finger>: the emerald ring
-E 0 40224 0 5		*	the young woman<on the body>: the emerald cloak
+E 0 40225 0 2		*	the young woman <on the right finger>: the emerald ring
+E 0 40224 0 5		*	the young woman <on the body>: the emerald cloak
 M 0 40209 4 40283 2	* the guard (The South Gate)
-E 0 40218 0 16		*	the guard<wielded>: the guard's sword
-E 0 40217 0 5		*	the guard<on the body>: the light hauberk
+E 0 40218 0 16		*	the guard <wielded>: the guard's sword
+E 0 40217 0 5		*	the guard <on the body>: the light hauberk
 M 0 40224 10 40283 1	* a stray dog (The South Gate)
 M 0 40220 1 40287 1	* the clerk (The bank)
-E 0 40232 0 3		*	the clerk<around the neck>: the short hooded cape
-E 0 40233 0 8		*	the clerk<on the feet>: the leather boots
+E 0 40232 0 3		*	the clerk <around the neck>: the short hooded cape
+E 0 40233 0 8		*	the clerk <on the feet>: the leather boots
 M 0 40224 10 40289 1	* a stray dog (The trail to the sacred grove)
 M 0 40211 1 40292 1	* chemist (Chemist's shop)
-E 0 40245 0 5		*	chemist<on the body>: the white smock
+E 0 40245 0 5		*	chemist <on the body>: the white smock
 G 0 40244 0		*	chemist: the yellow potion
 G 0 40243 0		*	chemist: the blue-grey potion
 G 0 40242 0		*	chemist: green potion
@@ -4892,9 +4892,9 @@ O 0 40247 0 40297	* temple (The sacred grove)
 O 0 40248 0 40298	* a temple (The sacred grove)
 O 0 40249 0 40300	* the temple (The sacred grove)
 M 0 40222 1 40305 1	* owner (The tavern)
-E 0 40255 0 13		*	owner<around the waist>: belt
-E 0 40254 0 5		*	owner<on the body>: shirt
-E 0 40253 0 7		*	owner<on the legs>: leather trousers
+E 0 40255 0 13		*	owner <around the waist>: belt
+E 0 40254 0 5		*	owner <on the body>: shirt
+E 0 40253 0 7		*	owner <on the legs>: leather trousers
 S
 
 #SHOPS

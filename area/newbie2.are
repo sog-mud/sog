@@ -1463,47 +1463,47 @@ S
 
 #RESETS
 M 0 18602 3 18600 1	* the newbie monster (The Entrance To The Newbie Zone)
-E 0 18602 0 5		*	the newbie monster<on the body>: a bright green newbie vest
+E 0 18602 0 5		*	the newbie monster <on the body>: a bright green newbie vest
 M 0 18603 1 18602 1	* the baby dragon (The Dirty Hallway)
-E 0 18607 0 3		*	the baby dragon<around the neck>: a pet dragon collar
-E 0 18615 0 18		*	the baby dragon<floating nearby>: a baby dragon orb
+E 0 18607 0 3		*	the baby dragon <around the neck>: a pet dragon collar
+E 0 18615 0 18		*	the baby dragon <floating nearby>: a baby dragon orb
 M 0 18606 4 18602 1	* the creepy crawler (The Dirty Hallway)
 M 0 18614 1 18604 1	* the lost newbie (A Narrow Passage)
 M 0 18601 1 18605 1	* the pit beast (The Dark Pit)
-E 0 18604 0 12		*	the pit beast<about the shoulders>: a dark newbie cloak
+E 0 18604 0 12		*	the pit beast <about the shoulders>: a dark newbie cloak
 M 0 18604 1 18606 1	* the newbie guard (A Small Room)
-E 0 18605 0 1		*	the newbie guard<on the left finger>: a newbie signet ring
-E 0 18603 0 6		*	the newbie guard<over the head>: a bright newbie helm
+E 0 18605 0 1		*	the newbie guard <on the left finger>: a newbie signet ring
+E 0 18603 0 6		*	the newbie guard <over the head>: a bright newbie helm
 G 0 18608 0		*	the newbie guard: a wee little key
 M 0 18606 4 18606 1	* the creepy crawler (A Small Room)
 M 0 18602 3 18607 1	* the newbie monster (More Of The Hallway)
-E 0 18606 0 16		*	the newbie monster<wielded>: a shiny newbie dagger
+E 0 18606 0 16		*	the newbie monster <wielded>: a shiny newbie dagger
 M 0 18606 4 18609 1	* the creepy crawler (The End Of The Passage)
 M 0 18605 1 18612 1	* the newbie alchemist (The Alchemist's Room)
-E 0 18609 0 0		*	the newbie alchemist<as a light>: a brightly glowing jar
+E 0 18609 0 0		*	the newbie alchemist <as a light>: a brightly glowing jar
 G 0 18609 0		*	the newbie alchemist: a brightly glowing jar
 M 0 18607 5 18620 1	* the zombiefied newbie (A Turn In The Passage)
 M 0 18608 5 18621 1	* the quasit (A T-Intersection In The Passage)
 M 0 18607 5 18624 1	* the zombiefied newbie (Another Turn)
 M 0 18608 5 18627 1	* the quasit (A Crossing Of Corridors)
 M 0 18609 1 18629 1	* the massive minotaur (The Red Room)
-E 0 18610 0 6		*	the massive minotaur<over the head>: the horns of the minotaur
-E 0 18611 0 5		*	the massive minotaur<on the body>: the smelly hide of the minotaur
+E 0 18610 0 6		*	the massive minotaur <over the head>: the horns of the minotaur
+E 0 18611 0 5		*	the massive minotaur <on the body>: the smelly hide of the minotaur
 M 0 18607 5 18633 1	* the zombiefied newbie (Another Corner)
 M 0 18608 5 18636 1	* the quasit (A Branch To The South)
 M 0 18607 5 18637 1	* the zombiefied newbie (Yet Another Corner)
 M 0 18608 5 18638 1	* the quasit (A Large Room)
 M 0 18610 1 18639 1	* the dark spectre (A Large Room)
 M 0 18613 1 18640 1	* the talkative newbie (The Statue's Room)
-E 0 18602 0 5		*	the talkative newbie<on the body>: a bright green newbie vest
+E 0 18602 0 5		*	the talkative newbie <on the body>: a bright green newbie vest
 M 0 18612 1 18642 1	* the clueless newbie (The North Stairs)
 M 0 18615 1 18645 1	* the smart newbie (The Balcony)
-E 0 18613 0 10		*	the smart newbie<on the arms>: some cool newbie sleeves
-E 0 18612 0 7		*	the smart newbie<on the legs>: some cool newbie leggings
-E 0 18602 0 5		*	the smart newbie<on the body>: a bright green newbie vest
-E 0 18614 0 16		*	the smart newbie<wielded>: a glowing newbie mace
+E 0 18613 0 10		*	the smart newbie <on the arms>: some cool newbie sleeves
+E 0 18612 0 7		*	the smart newbie <on the legs>: some cool newbie leggings
+E 0 18602 0 5		*	the smart newbie <on the body>: a bright green newbie vest
+E 0 18614 0 16		*	the smart newbie <wielded>: a glowing newbie mace
 M 0 18611 1 18646 1	* the annoying newbie (A Bright Hallway)
-E 0 18606 0 16		*	the annoying newbie<wielded>: a shiny newbie dagger
+E 0 18606 0 16		*	the annoying newbie <wielded>: a shiny newbie dagger
 S
 
 #HELPS

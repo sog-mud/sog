@@ -1790,7 +1790,7 @@ P 0 11013 99 0 1	* a display case: a long sword
 P 0 11013 99 0 1	* a display case: a long sword
 M 0 11003 5 11030 1	* the green enfan (Weaponary)
 M 0 11011 3 11031 1	* the yellow enfan (A small foyer)
-E 0 11014 0 16		*	the yellow enfan<wielded>: a runed dagger
+E 0 11014 0 16		*	the yellow enfan <wielded>: a runed dagger
 G 0 11011 0		*	the yellow enfan: key chain
 M 0 11002 10 11032 1	* the grey enfan (The Main Hall)
 M 0 11005 3 11032 1	* the yellow enfan (The Main Hall)
@@ -1799,10 +1799,10 @@ M 0 11009 4 11033 2	* the green enfan (Cleric's Sanctum)
 M 0 11010 2 11033 1	* the purple enfan (Cleric's Sanctum)
 M 0 11011 3 11033 1	* the yellow enfan (Cleric's Sanctum)
 M 0 11006 1 11033 1	* the black enfan (Cleric's Sanctum)
-E 0 11003 0 8		*	the black enfan<on the feet>: a pair of strange boots
-E 0 11005 0 11		*	the black enfan<as a shield>: a metallic shield
-E 0 11004 0 16		*	the black enfan<wielded>: galactic claymore
-E 0 11009 0 15		*	the black enfan<on the right wrist>: an opal bracelet
+E 0 11003 0 8		*	the black enfan <on the feet>: a pair of strange boots
+E 0 11005 0 11		*	the black enfan <as a shield>: a metallic shield
+E 0 11004 0 16		*	the black enfan <wielded>: galactic claymore
+E 0 11009 0 15		*	the black enfan <on the right wrist>: an opal bracelet
 O 0 11010 0 11037	* a display case (Jewelery)
 P 0 11009 99 0 1	* a display case: an opal bracelet
 M 0 11001 10 11038 2	* the blue enfan (The City Square)

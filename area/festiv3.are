@@ -7338,34 +7338,34 @@ S
 M 0 36319 3 36300 1	* hedgehog (Path to the Festival Town)
 G 0 36315 0		*	hedgehog: apple
 M 0 36310 1 36301 1	* Mayor (Fountain)
-E 0 36342 0 5		*	Mayor<on the body>: festival suit
-E 0 36340 0 6		*	Mayor<over the head>: cowboy's hat
+E 0 36342 0 5		*	Mayor <on the body>: festival suit
+E 0 36340 0 6		*	Mayor <over the head>: cowboy's hat
 O 0 36367 0 36301	* marble fountain (Fountain)
 M 0 36364 1 36301 1	* a small girl (Fountain)
 M 0 36363 1 36301 1	* a  small boy (Fountain)
 M 0 36324 2 36302 1	* clown (The Lawn)
-E 0 36342 0 5		*	clown<on the body>: festival suit
-E 0 36374 0 8		*	clown<on the feet>: some stilts
-E 0 36414 0 6		*	clown<over the head>: clown mask
+E 0 36342 0 5		*	clown <on the body>: festival suit
+E 0 36374 0 8		*	clown <on the feet>: some stilts
+E 0 36414 0 6		*	clown <over the head>: clown mask
 M 0 36321 4 36302 1	* a small girl (The Lawn)
 M 0 36323 4 36302 1	* citizen (The Lawn)
-E 0 36342 0 5		*	citizen<on the body>: festival suit
+E 0 36342 0 5		*	citizen <on the body>: festival suit
 M 0 36324 2 36307 1	* clown (The Lawn)
-E 0 36342 0 5		*	clown<on the body>: festival suit
-E 0 36374 0 8		*	clown<on the feet>: some stilts
-E 0 36414 0 6		*	clown<over the head>: clown mask
+E 0 36342 0 5		*	clown <on the body>: festival suit
+E 0 36374 0 8		*	clown <on the feet>: some stilts
+E 0 36414 0 6		*	clown <over the head>: clown mask
 M 0 36323 3 36307 1	* citizen (The Lawn)
-E 0 36342 0 5		*	citizen<on the body>: festival suit
+E 0 36342 0 5		*	citizen <on the body>: festival suit
 M 0 36322 3 36310 1	* a citizen (Walkway)
-E 0 36342 0 5		*	a citizen<on the body>: festival suit
+E 0 36342 0 5		*	a citizen <on the body>: festival suit
 M 0 36327 1 36310 1	* Gate guard (Walkway)
-E 0 36368 0 5		*	Gate guard<on the body>: guard breast plate
-E 0 36371 0 16		*	Gate guard<wielded>: guard sword
-E 0 36369 0 11		*	Gate guard<as a shield>: guard shield
-E 0 36370 0 12		*	Gate guard<about the shoulders>: guard cape
+E 0 36368 0 5		*	Gate guard <on the body>: guard breast plate
+E 0 36371 0 16		*	Gate guard <wielded>: guard sword
+E 0 36369 0 11		*	Gate guard <as a shield>: guard shield
+E 0 36370 0 12		*	Gate guard <about the shoulders>: guard cape
 M 0 36329 0 36312 1	* pickpocket (Walkway)
-E 0 36342 0 5		*	pickpocket<on the body>: festival suit
-E 0 36338 0 17		*	pickpocket<held in the hands>: a match box
+E 0 36342 0 5		*	pickpocket <on the body>: festival suit
+E 0 36338 0 17		*	pickpocket <held in the hands>: a match box
 M 0 36326 1 36313 1	* vendor (Walkway)
 G 0 36418 0		*	vendor: great battle pill
 G 0 36416 0		*	vendor: healing pill
@@ -7377,10 +7377,10 @@ G 0 36337 0		*	vendor: a match
 G 0 36338 0		*	vendor: a match box
 G 0 36341 0		*	vendor: staff of strength
 M 0 36323 2 36318 1	* citizen (Walkway)
-E 0 36342 0 5		*	citizen<on the body>: festival suit
+E 0 36342 0 5		*	citizen <on the body>: festival suit
 M 0 36325 1 36318 1	* juggler (Walkway)
-E 0 36337 0 17		*	juggler<held in the hands>: a match
-E 0 36336 0 6		*	juggler<over the head>: some sun-glasses
+E 0 36337 0 17		*	juggler <held in the hands>: a match
+E 0 36336 0 6		*	juggler <over the head>: some sun-glasses
 G 0 36315 0		*	juggler: apple
 G 0 36315 0		*	juggler: apple
 G 0 36315 0		*	juggler: apple
@@ -7389,25 +7389,25 @@ M 0 36346 1 36321 1	* vendor (Walkway)
 G 0 36363 0		*	vendor: statue
 G 0 36361 0		*	vendor: Mayor's statue
 M 0 36325 2 36324 1	* juggler (Walkway)
-E 0 36342 0 5		*	juggler<on the body>: festival suit
-E 0 36347 0 16		*	juggler<wielded>: goose pen
+E 0 36342 0 5		*	juggler <on the body>: festival suit
+E 0 36347 0 16		*	juggler <wielded>: goose pen
 M 0 36329 1 36324 1	* pickpocket (Walkway)
-E 0 36342 0 5		*	pickpocket<on the body>: festival suit
+E 0 36342 0 5		*	pickpocket <on the body>: festival suit
 M 0 36347 1 36325 1	* vendor (Walkway)
 G 0 36315 0		*	vendor: apple
 G 0 36316 0		*	vendor: cookie
 M 0 36322 1 36327 1	* a citizen (Small Path)
-E 0 36342 0 5		*	a citizen<on the body>: festival suit
+E 0 36342 0 5		*	a citizen <on the body>: festival suit
 O 0 36437 0 36332	* entrance to the tower (Central Square)
 M 0 36350 10 36333 1	* tiny bird (Main Street)
 M 0 36327 3 36335 2	* Gate guard (The Gates)
-E 0 36368 0 5		*	Gate guard<on the body>: guard breast plate
-E 0 36369 0 11		*	Gate guard<as a shield>: guard shield
-E 0 36370 0 12		*	Gate guard<about the shoulders>: guard cape
-E 0 36371 0 16		*	Gate guard<wielded>: guard sword
+E 0 36368 0 5		*	Gate guard <on the body>: guard breast plate
+E 0 36369 0 11		*	Gate guard <as a shield>: guard shield
+E 0 36370 0 12		*	Gate guard <about the shoulders>: guard cape
+E 0 36371 0 16		*	Gate guard <wielded>: guard sword
 M 0 36350 10 36338 1	* tiny bird (Entrance to the Mayor's Residence)
 M 0 36344 5 36339 1	* servant (Entrance Hall)
-E 0 36345 0 5		*	servant<on the body>: dark gray robe
+E 0 36345 0 5		*	servant <on the body>: dark gray robe
 O 0 36377 0 36340	* bureau (Office)
 P 0 36376 1 0 1	* bureau: room key
 O 0 36375 0 36341	* safe (Dark Room)
@@ -7444,23 +7444,23 @@ G 0 36432 0		*	Mage: dried bat
 G 0 36431 0		*	Mage: toad tongue
 M 0 36328 2 36351 1	* hidden figure (Mage's House)
 M 0 36311 1 36353 1	* Clerk (Secretary's Office)
-E 0 36345 0 5		*	Clerk<on the body>: dark gray robe
-E 0 36346 0 9		*	Clerk<on the hands>: sleeves of accuracy
-E 0 36347 0 16		*	Clerk<wielded>: goose pen
+E 0 36345 0 5		*	Clerk <on the body>: dark gray robe
+E 0 36346 0 9		*	Clerk <on the hands>: sleeves of accuracy
+E 0 36347 0 16		*	Clerk <wielded>: goose pen
 G 0 36348 0		*	Clerk: witch-hunt dispatch
 M 0 36309 1 36355 1	* Mayor's Wife (Living Room)
-E 0 36339 0 6		*	Mayor's Wife<over the head>: a wig
-E 0 36342 0 5		*	Mayor's Wife<on the body>: festival suit
+E 0 36339 0 6		*	Mayor's Wife <over the head>: a wig
+E 0 36342 0 5		*	Mayor's Wife <on the body>: festival suit
 G 0 36316 0		*	Mayor's Wife: cookie
 O 0 36316 0 36355	* cookie (Living Room)
 O 0 36315 0 36355	* apple (Living Room)
 M 0 36344 4 36356 4	* servant (Dining Hall)
-E 0 36342 0 5		*	servant<on the body>: festival suit
+E 0 36342 0 5		*	servant <on the body>: festival suit
 M 0 36315 1 36357 1	* Librarian (Great Library)
-E 0 36346 0 9		*	Librarian<on the hands>: sleeves of accuracy
-E 0 36345 0 5		*	Librarian<on the body>: dark gray robe
-E 0 36349 0 17		*	Librarian<held in the hands>: witch-hunt rescript
-E 0 36317 0 16		*	Librarian<wielded>: bookmark
+E 0 36346 0 9		*	Librarian <on the hands>: sleeves of accuracy
+E 0 36345 0 5		*	Librarian <on the body>: dark gray robe
+E 0 36349 0 17		*	Librarian <held in the hands>: witch-hunt rescript
+E 0 36317 0 16		*	Librarian <wielded>: bookmark
 M 0 36314 1 36357 1	* Spider (Great Library)
 O 0 36385 0 36357	* bookshelf (Great Library)
 P 0 36386 1 0 1	* bookshelf: Book of Iluvatar
@@ -7480,166 +7480,166 @@ P 0 36401 1 0 1	* bookshelf: Book of Orrin
 O 0 36420 0 36357	* portrait (Great Library)
 O 0 36421 0 36358	* mirror (Lost in time)
 M 0 36300 1 36358 1	* Grandfather (Lost in time)
-E 0 36318 0 12		*	Grandfather<about the shoulders>: illusory cloak
-E 0 36319 0 16		*	Grandfather<wielded>: illusory longsword
+E 0 36318 0 12		*	Grandfather <about the shoulders>: illusory cloak
+E 0 36319 0 16		*	Grandfather <wielded>: illusory longsword
 O 0 36381 0 36359	* secret cell (Mayor's Office)
 P 0 36344 1 0 1	* secret cell: Grand Prize
 M 0 36312 1 36360 1	* Archivarius (Archives)
-E 0 36314 0 13		*	Archivarius<around the waist>: ink-pot
-E 0 36345 0 5		*	Archivarius<on the body>: dark gray robe
-E 0 36346 0 9		*	Archivarius<on the hands>: sleeves of accuracy
-E 0 36349 0 17		*	Archivarius<held in the hands>: witch-hunt rescript
+E 0 36314 0 13		*	Archivarius <around the waist>: ink-pot
+E 0 36345 0 5		*	Archivarius <on the body>: dark gray robe
+E 0 36346 0 9		*	Archivarius <on the hands>: sleeves of accuracy
+E 0 36349 0 17		*	Archivarius <held in the hands>: witch-hunt rescript
 G 0 36316 0		*	Archivarius: cookie
 G 0 36348 0		*	Archivarius: witch-hunt dispatch
 M 0 36313 1 36360 1	* Rodent (Archives)
 M 0 36301 1 36361 1	* green bowman (The edge of the Forest)
-E 0 36320 0 17		*	green bowman<held in the hands>: silver arrow
-E 0 36322 0 6		*	green bowman<over the head>: green hat
-E 0 36323 0 5		*	green bowman<on the body>: green vest
-E 0 36324 0 7		*	green bowman<on the legs>: leather leggings
-E 0 36325 0 8		*	green bowman<on the feet>: thin leather boots
-E 0 36326 0 16		*	green bowman<wielded>: longbow
-E 0 36321 0 1		*	green bowman<on the left finger>: bowman's ring
+E 0 36320 0 17		*	green bowman <held in the hands>: silver arrow
+E 0 36322 0 6		*	green bowman <over the head>: green hat
+E 0 36323 0 5		*	green bowman <on the body>: green vest
+E 0 36324 0 7		*	green bowman <on the legs>: leather leggings
+E 0 36325 0 8		*	green bowman <on the feet>: thin leather boots
+E 0 36326 0 16		*	green bowman <wielded>: longbow
+E 0 36321 0 1		*	green bowman <on the left finger>: bowman's ring
 M 0 36302 1 36361 1	* Acute Eye (The edge of the Forest)
-E 0 36327 0 6		*	Acute Eye<over the head>: headband
-E 0 36328 0 13		*	Acute Eye<around the waist>: snake belt
-E 0 36329 0 7		*	Acute Eye<on the legs>: scalp leggings
-E 0 36330 0 8		*	Acute Eye<on the feet>: some moccasins
-E 0 36300 0 15		*	Acute Eye<on the right wrist>: feathery bracer
-E 0 36301 0 16		*	Acute Eye<wielded>: tomahawk
-E 0 36300 0 14		*	Acute Eye<on the left wrist>: feathery bracer
+E 0 36327 0 6		*	Acute Eye <over the head>: headband
+E 0 36328 0 13		*	Acute Eye <around the waist>: snake belt
+E 0 36329 0 7		*	Acute Eye <on the legs>: scalp leggings
+E 0 36330 0 8		*	Acute Eye <on the feet>: some moccasins
+E 0 36300 0 15		*	Acute Eye <on the right wrist>: feathery bracer
+E 0 36301 0 16		*	Acute Eye <wielded>: tomahawk
+E 0 36300 0 14		*	Acute Eye <on the left wrist>: feathery bracer
 M 0 36303 1 36361 1	* Tumbu-Yumbu (The edge of the Forest)
-E 0 36302 0 4		*	Tumbu-Yumbu<on the face>: tooth necklace
-E 0 36303 0 7		*	Tumbu-Yumbu<on the legs>: short palm skirt
-E 0 36304 0 10		*	Tumbu-Yumbu<on the arms>: bracer of charisma
-E 0 36306 0 12		*	Tumbu-Yumbu<about the shoulders>: leo skin
-E 0 36307 0 16		*	Tumbu-Yumbu<wielded>: reet stick
-E 0 36305 0 11		*	Tumbu-Yumbu<as a shield>: ebony shield
+E 0 36302 0 4		*	Tumbu-Yumbu <on the face>: tooth necklace
+E 0 36303 0 7		*	Tumbu-Yumbu <on the legs>: short palm skirt
+E 0 36304 0 10		*	Tumbu-Yumbu <on the arms>: bracer of charisma
+E 0 36306 0 12		*	Tumbu-Yumbu <about the shoulders>: leo skin
+E 0 36307 0 16		*	Tumbu-Yumbu <wielded>: reet stick
+E 0 36305 0 11		*	Tumbu-Yumbu <as a shield>: ebony shield
 M 0 36304 1 36361 1	* Lee Huang Wang (The edge of the Forest)
-E 0 36308 0 6		*	Lee Huang Wang<over the head>: black casque
-E 0 36309 0 5		*	Lee Huang Wang<on the body>: black scale platemail
-E 0 36310 0 9		*	Lee Huang Wang<on the hands>: black dragon gauntlets
-E 0 36311 0 7		*	Lee Huang Wang<on the legs>: black dragon leg plates
-E 0 36312 0 16		*	Lee Huang Wang<wielded>: short bow
-E 0 36313 0 8		*	Lee Huang Wang<on the feet>: black dragon boots
-E 0 36321 0 1		*	Lee Huang Wang<on the left finger>: bowman's ring
+E 0 36308 0 6		*	Lee Huang Wang <over the head>: black casque
+E 0 36309 0 5		*	Lee Huang Wang <on the body>: black scale platemail
+E 0 36310 0 9		*	Lee Huang Wang <on the hands>: black dragon gauntlets
+E 0 36311 0 7		*	Lee Huang Wang <on the legs>: black dragon leg plates
+E 0 36312 0 16		*	Lee Huang Wang <wielded>: short bow
+E 0 36313 0 8		*	Lee Huang Wang <on the feet>: black dragon boots
+E 0 36321 0 1		*	Lee Huang Wang <on the left finger>: bowman's ring
 M 0 36319 2 36363 1	* hedgehog (Shooting Place)
-E 0 36373 0 9		*	hedgehog<on the hands>: hedgehog's gloves
+E 0 36373 0 9		*	hedgehog <on the hands>: hedgehog's gloves
 G 0 36315 0		*	hedgehog: apple
 M 0 36349 4 36367 4	* target (The edge of the Forest)
 M 0 36318 1 36368 1	* training mob (The edge of the Forest)
-E 0 36357 0 11		*	training mob<as a shield>: tournament shield
-E 0 36360 0 16		*	training mob<wielded>: tournament sword
+E 0 36357 0 11		*	training mob <as a shield>: tournament shield
+E 0 36360 0 16		*	training mob <wielded>: tournament sword
 M 0 36350 10 36368 1	* tiny bird (The edge of the Forest)
 M 0 36306 1 36369 1	* Monk (Strange Grove)
-E 0 36408 0 16		*	Monk<wielded>: Monk's club
-E 0 36409 0 17		*	Monk<held in the hands>: barrel of ale
-E 0 36438 0 5		*	Monk<on the body>: brown robe
+E 0 36408 0 16		*	Monk <wielded>: Monk's club
+E 0 36409 0 17		*	Monk <held in the hands>: barrel of ale
+E 0 36438 0 5		*	Monk <on the body>: brown robe
 M 0 36348 1 36369 1	* vendor (Strange Grove)
 G 0 36335 0		*	vendor: crumpled flask
 G 0 36409 0		*	vendor: barrel of ale
 M 0 36316 3 36370 1	* warrior on competition (Wasted Lawn)
-E 0 36350 0 2		*	warrior on competition<on the right finger>: tournament ring
-E 0 36351 0 4		*	warrior on competition<on the face>: tournament scarf
-E 0 36354 0 7		*	warrior on competition<on the legs>: tournament leg plates
-E 0 36355 0 8		*	warrior on competition<on the feet>: tournament plated boots
-E 0 36362 0 16		*	warrior on competition<wielded>: tournament mace
+E 0 36350 0 2		*	warrior on competition <on the right finger>: tournament ring
+E 0 36351 0 4		*	warrior on competition <on the face>: tournament scarf
+E 0 36354 0 7		*	warrior on competition <on the legs>: tournament leg plates
+E 0 36355 0 8		*	warrior on competition <on the feet>: tournament plated boots
+E 0 36362 0 16		*	warrior on competition <wielded>: tournament mace
 M 0 36316 2 36372 1	* warrior on competition (Wasted Lawn)
-E 0 36350 0 2		*	warrior on competition<on the right finger>: tournament ring
-E 0 36351 0 4		*	warrior on competition<on the face>: tournament scarf
-E 0 36352 0 6		*	warrior on competition<over the head>: tournament helm
-E 0 36353 0 5		*	warrior on competition<on the body>: tournament breast plate
-E 0 36360 0 16		*	warrior on competition<wielded>: tournament sword
+E 0 36350 0 2		*	warrior on competition <on the right finger>: tournament ring
+E 0 36351 0 4		*	warrior on competition <on the face>: tournament scarf
+E 0 36352 0 6		*	warrior on competition <over the head>: tournament helm
+E 0 36353 0 5		*	warrior on competition <on the body>: tournament breast plate
+E 0 36360 0 16		*	warrior on competition <wielded>: tournament sword
 M 0 36317 3 36373 1	* hooligan (Wasted Lawn)
-E 0 36338 0 17		*	hooligan<held in the hands>: a match box
-E 0 36342 0 5		*	hooligan<on the body>: festival suit
+E 0 36338 0 17		*	hooligan <held in the hands>: a match box
+E 0 36342 0 5		*	hooligan <on the body>: festival suit
 M 0 36316 4 36374 1	* warrior on competition (Wasted Lawn)
-E 0 36350 0 2		*	warrior on competition<on the right finger>: tournament ring
-E 0 36351 0 4		*	warrior on competition<on the face>: tournament scarf
-E 0 36357 0 11		*	warrior on competition<as a shield>: tournament shield
-E 0 36358 0 12		*	warrior on competition<about the shoulders>: tournament cloak
-E 0 36372 0 16		*	warrior on competition<wielded>: tournament axe
+E 0 36350 0 2		*	warrior on competition <on the right finger>: tournament ring
+E 0 36351 0 4		*	warrior on competition <on the face>: tournament scarf
+E 0 36357 0 11		*	warrior on competition <as a shield>: tournament shield
+E 0 36358 0 12		*	warrior on competition <about the shoulders>: tournament cloak
+E 0 36372 0 16		*	warrior on competition <wielded>: tournament axe
 M 0 36317 2 36375 1	* hooligan (Wasted Lawn)
-E 0 36337 0 17		*	hooligan<held in the hands>: a match
-E 0 36342 0 5		*	hooligan<on the body>: festival suit
+E 0 36337 0 17		*	hooligan <held in the hands>: a match
+E 0 36342 0 5		*	hooligan <on the body>: festival suit
 M 0 36316 4 36376 1	* warrior on competition (Wasted Lawn)
-E 0 36350 0 2		*	warrior on competition<on the right finger>: tournament ring
-E 0 36351 0 4		*	warrior on competition<on the face>: tournament scarf
-E 0 36356 0 10		*	warrior on competition<on the arms>: tournament arm plates
-E 0 36359 0 9		*	warrior on competition<on the hands>: tournament gauntlets
-E 0 36366 0 16		*	warrior on competition<wielded>: tournament morningstar
+E 0 36350 0 2		*	warrior on competition <on the right finger>: tournament ring
+E 0 36351 0 4		*	warrior on competition <on the face>: tournament scarf
+E 0 36356 0 10		*	warrior on competition <on the arms>: tournament arm plates
+E 0 36359 0 9		*	warrior on competition <on the hands>: tournament gauntlets
+E 0 36366 0 16		*	warrior on competition <wielded>: tournament morningstar
 M 0 36350 10 36376 1	* tiny bird (Wasted Lawn)
 M 0 36305 1 36378 1	* Old Veteran (Wasted Lawn)
-E 0 36331 0 18		*	Old Veteran<floating nearby>: {cspiritus vini{x
-E 0 36332 0 12		*	Old Veteran<about the shoulders>: dirty waistcoat
-E 0 36333 0 13		*	Old Veteran<around the waist>: shoulder belt
-E 0 36334 0 16		*	Old Veteran<wielded>: old veteran's sword
-E 0 36335 0 17		*	Old Veteran<held in the hands>: crumpled flask
+E 0 36331 0 18		*	Old Veteran <floating nearby>: {cspiritus vini{x
+E 0 36332 0 12		*	Old Veteran <about the shoulders>: dirty waistcoat
+E 0 36333 0 13		*	Old Veteran <around the waist>: shoulder belt
+E 0 36334 0 16		*	Old Veteran <wielded>: old veteran's sword
+E 0 36335 0 17		*	Old Veteran <held in the hands>: crumpled flask
 M 0 36340 1 36379 1	* Dark Chaos (Dark Hill)
-E 0 36415 0 0		*	Dark Chaos<as a light>: quartz crystall
-E 0 36413 0 12		*	Dark Chaos<about the shoulders>: dark cape
+E 0 36415 0 0		*	Dark Chaos <as a light>: quartz crystall
+E 0 36413 0 12		*	Dark Chaos <about the shoulders>: dark cape
 M 0 36343 3 36379 1	* gekko (Dark Hill)
 G 0 36316 0		*	gekko: cookie
 M 0 36339 1 36380 1	* Dark Neutrality (Deserted Lawn)
-E 0 36415 0 0		*	Dark Neutrality<as a light>: quartz crystall
-E 0 36413 0 12		*	Dark Neutrality<about the shoulders>: dark cape
+E 0 36415 0 0		*	Dark Neutrality <as a light>: quartz crystall
+E 0 36413 0 12		*	Dark Neutrality <about the shoulders>: dark cape
 M 0 36338 1 36381 1	* Dark Law (Deserted Lawn)
-E 0 36415 0 0		*	Dark Law<as a light>: quartz crystall
-E 0 36413 0 12		*	Dark Law<about the shoulders>: dark cape
+E 0 36415 0 0		*	Dark Law <as a light>: quartz crystall
+E 0 36413 0 12		*	Dark Law <about the shoulders>: dark cape
 M 0 36343 5 36382 1	* gekko (Deserted Lawn)
 G 0 36316 0		*	gekko: cookie
 M 0 36337 1 36382 1	* Grey Chaos (Deserted Lawn)
-E 0 36415 0 0		*	Grey Chaos<as a light>: quartz crystall
-E 0 36412 0 12		*	Grey Chaos<about the shoulders>: grey cape
+E 0 36415 0 0		*	Grey Chaos <as a light>: quartz crystall
+E 0 36412 0 12		*	Grey Chaos <about the shoulders>: grey cape
 M 0 36317 4 36382 1	* hooligan (Deserted Lawn)
-E 0 36337 0 17		*	hooligan<held in the hands>: a match
+E 0 36337 0 17		*	hooligan <held in the hands>: a match
 G 0 36338 0		*	hooligan: a match box
 M 0 36336 1 36383 1	* True Neutrality (Deserted Lawn)
-E 0 36415 0 0		*	True Neutrality<as a light>: quartz crystall
-E 0 36412 0 12		*	True Neutrality<about the shoulders>: grey cape
+E 0 36415 0 0		*	True Neutrality <as a light>: quartz crystall
+E 0 36412 0 12		*	True Neutrality <about the shoulders>: grey cape
 M 0 36335 1 36384 1	* Grey Law (Deserted Lawn)
-E 0 36415 0 0		*	Grey Law<as a light>: quartz crystall
-E 0 36412 0 12		*	Grey Law<about the shoulders>: grey cape
+E 0 36415 0 0		*	Grey Law <as a light>: quartz crystall
+E 0 36412 0 12		*	Grey Law <about the shoulders>: grey cape
 M 0 36334 1 36385 1	* White Chaos (Deserted Lawn)
-E 0 36415 0 0		*	White Chaos<as a light>: quartz crystall
-E 0 36411 0 12		*	White Chaos<about the shoulders>: white cape
+E 0 36415 0 0		*	White Chaos <as a light>: quartz crystall
+E 0 36411 0 12		*	White Chaos <about the shoulders>: white cape
 M 0 36333 1 36386 1	* White Neutrality (Deserted Lawn)
-E 0 36415 0 0		*	White Neutrality<as a light>: quartz crystall
-E 0 36411 0 12		*	White Neutrality<about the shoulders>: white cape
+E 0 36415 0 0		*	White Neutrality <as a light>: quartz crystall
+E 0 36411 0 12		*	White Neutrality <about the shoulders>: white cape
 M 0 36332 1 36387 1	* White Law (Lit Hill)
-E 0 36415 0 0		*	White Law<as a light>: quartz crystall
-E 0 36411 0 12		*	White Law<about the shoulders>: white cape
+E 0 36415 0 0		*	White Law <as a light>: quartz crystall
+E 0 36411 0 12		*	White Law <about the shoulders>: white cape
 M 0 36343 3 36387 1	* gekko (Lit Hill)
 M 0 36308 1 36388 1	* Mayor's son (Small Shrub)
-E 0 36337 0 17		*	Mayor's son<held in the hands>: a match
+E 0 36337 0 17		*	Mayor's son <held in the hands>: a match
 G 0 36338 0		*	Mayor's son: a match box
 O 0 36410 0 36388	* gap (Small Shrub)
 M 0 36341 1 36389 1	* Earthquaker (Rocky Mountain)
-E 0 36314 0 13		*	Earthquaker<around the waist>: ink-pot
-E 0 36323 0 5		*	Earthquaker<on the body>: green vest
-E 0 36341 0 17		*	Earthquaker<held in the hands>: staff of strength
+E 0 36314 0 13		*	Earthquaker <around the waist>: ink-pot
+E 0 36323 0 5		*	Earthquaker <on the body>: green vest
+E 0 36341 0 17		*	Earthquaker <held in the hands>: staff of strength
 G 0 36338 0		*	Earthquaker: a match box
 M 0 36319 10 36389 1	* hedgehog (Rocky Mountain)
-E 0 36373 0 9		*	hedgehog<on the hands>: hedgehog's gloves
+E 0 36373 0 9		*	hedgehog <on the hands>: hedgehog's gloves
 G 0 36315 0		*	hedgehog: apple
 G 0 36436 0		*	hedgehog: map of the Festival Town
 M 0 36343 5 36390 1	* gekko (Hills)
 M 0 36342 4 36390 1	* wimpy mage (Hills)
-E 0 36347 0 16		*	wimpy mage<wielded>: goose pen
+E 0 36347 0 16		*	wimpy mage <wielded>: goose pen
 G 0 36365 0		*	wimpy mage: magic pill
 M 0 36317 1 36390 1	* hooligan (Hills)
-E 0 36345 0 5		*	hooligan<on the body>: dark gray robe
+E 0 36345 0 5		*	hooligan <on the body>: dark gray robe
 M 0 36350 11 36391 1	* tiny bird (Hills)
 M 0 36342 5 36393 1	* wimpy mage (Hills)
 G 0 36364 0		*	wimpy mage: battle pill
 M 0 36323 11 36393 1	* citizen (Hills)
-E 0 36342 0 5		*	citizen<on the body>: festival suit
+E 0 36342 0 5		*	citizen <on the body>: festival suit
 M 0 36350 12 36394 1	* tiny bird (Hills)
 M 0 36342 2 36395 1	* wimpy mage (Hills)
-E 0 36337 0 17		*	wimpy mage<held in the hands>: a match
-E 0 36345 0 5		*	wimpy mage<on the body>: dark gray robe
+E 0 36337 0 17		*	wimpy mage <held in the hands>: a match
+E 0 36345 0 5		*	wimpy mage <on the body>: dark gray robe
 M 0 36342 3 36396 1	* wimpy mage (Hills)
-E 0 36342 0 5		*	wimpy mage<on the body>: festival suit
+E 0 36342 0 5		*	wimpy mage <on the body>: festival suit
 M 0 36350 10 36398 1	* tiny bird (Path to the Forest)
 M 0 36353 10 36398 2	* small insect (Path to the Forest)
 O 0 36379 0 36399	* oak (Deep in the Dark Forest)

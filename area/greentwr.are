@@ -783,26 +783,26 @@ M 0 26560 4 26564 1	* a spirit priest (In a corridor bathed in a green glow)
 M 0 26560 4 26566 1	* a spirit priest (In a corridor bathed in a green glow)
 O 0 26576 0 26571	* a glowing green fountain (In a room with a green fountain)
 M 0 26561 1 26572 1	* an undead elven novice (In a sparse room)
-E 0 26572 0 11		*	an undead elven novice<as a shield>: an opal shield
-E 0 26568 0 17		*	an undead elven novice<held in the hands>: a key
+E 0 26572 0 11		*	an undead elven novice <as a shield>: an opal shield
+E 0 26568 0 17		*	an undead elven novice <held in the hands>: a key
 M 0 26562 1 26573 1	* a lich cleric (In a meditation room)
-E 0 26574 0 6		*	a lich cleric<over the head>: a cap made from an elven skull
-E 0 26569 0 17		*	a lich cleric<held in the hands>: a key
+E 0 26574 0 6		*	a lich cleric <over the head>: a cap made from an elven skull
+E 0 26569 0 17		*	a lich cleric <held in the hands>: a key
 M 0 26563 1 26574 1	* the undead elven healer (In a room of healing)
-E 0 26567 0 3		*	the undead elven healer<around the neck>: the amulet of heaven
-E 0 26562 0 4		*	the undead elven healer<on the face>: an obsidian pendant
-E 0 26570 0 17		*	the undead elven healer<held in the hands>: a key
+E 0 26567 0 3		*	the undead elven healer <around the neck>: the amulet of heaven
+E 0 26562 0 4		*	the undead elven healer <on the face>: an obsidian pendant
+E 0 26570 0 17		*	the undead elven healer <held in the hands>: a key
 M 0 26564 1 26575 1	* the undead elven bishop (In the holy place)
-E 0 26566 0 14		*	the undead elven bishop<on the left wrist>: a green emerald bracer
-E 0 26571 0 17		*	the undead elven bishop<held in the hands>: a key
+E 0 26566 0 14		*	the undead elven bishop <on the left wrist>: a green emerald bracer
+E 0 26571 0 17		*	the undead elven bishop <held in the hands>: a key
 M 0 26565 2 26577 1	* a dark angel (In an unholy green light)
-E 0 26565 0 16		*	a dark angel<wielded>: a dark angel's flesh-cutter
+E 0 26565 0 16		*	a dark angel <wielded>: a dark angel's flesh-cutter
 M 0 26565 2 26578 1	* a dark angel (In an unholy green light)
-E 0 26565 0 16		*	a dark angel<wielded>: a dark angel's flesh-cutter
+E 0 26565 0 16		*	a dark angel <wielded>: a dark angel's flesh-cutter
 M 0 26567 1 26581 1	* the undead elven cardinal (Within the unholy fire)
-E 0 26560 0 17		*	the undead elven cardinal<held in the hands>: a green tinted seal
-E 0 26561 0 16		*	the undead elven cardinal<wielded>: the mace of disruption
-E 0 26564 0 6		*	the undead elven cardinal<over the head>: a green mitre
+E 0 26560 0 17		*	the undead elven cardinal <held in the hands>: a green tinted seal
+E 0 26561 0 16		*	the undead elven cardinal <wielded>: the mace of disruption
+E 0 26564 0 6		*	the undead elven cardinal <over the head>: a green mitre
 S
 
 #OLIMITS

@@ -978,8 +978,8 @@ M 0 8310 2 8305 1	* a large snake (An Oozing Bog)
 M 0 8314 6 8305 1	* a marsh wolf (An Oozing Bog)
 M 0 8302 6 8306 2	* a green troll (An Oozing Bog)
 M 0 8305 2 8306 2	* a gnoll (An Oozing Bog)
-E 0 8303 0 5		*	a gnoll<on the body>: a suit of chainmail
-E 0 8308 0 16		*	a gnoll<wielded>: a rusty claymore
+E 0 8303 0 5		*	a gnoll <on the body>: a suit of chainmail
+E 0 8308 0 16		*	a gnoll <wielded>: a rusty claymore
 M 0 8314 6 8306 1	* a marsh wolf (An Oozing Bog)
 M 0 8303 3 8307 1	* an ogre (Swamp Thing's Lair)
 M 0 8304 1 8307 1	* the Swamp Thing (Swamp Thing's Lair)
@@ -996,8 +996,8 @@ G 0 8301 0		*	a marsh giant: a long spear
 M 0 8306 2 8310 1	* a huge hairy beast (Gloomy Path Through the Marsh)
 M 0 8312 2 8310 1	* the Marsh Hag (Gloomy Path Through the Marsh)
 M 0 8313 1 8310 1	* a Death Slaad (Gloomy Path Through the Marsh)
-E 0 8306 0 16		*	a Death Slaad<wielded>: a huge, wicked-looking scythe
-E 0 8302 0 6		*	a Death Slaad<over the head>: a dark horned helmet
+E 0 8306 0 16		*	a Death Slaad <wielded>: a huge, wicked-looking scythe
+E 0 8302 0 6		*	a Death Slaad <over the head>: a dark horned helmet
 M 0 8309 2 8311 1	* the monstrous snake (Cloud of Darkness)
 M 0 8320 5 8311 1	* a marsh giant (Cloud of Darkness)
 G 0 8301 0		*	a marsh giant: a long spear
@@ -1012,7 +1012,7 @@ G 0 8301 0		*	a marsh giant: a long spear
 G 0 8307 0		*	a marsh giant: a murky green potion
 M 0 8320 5 8315 1	* a marsh giant (Northern Lake Side)
 G 0 8301 0		*	a marsh giant: a long spear
-E 0 8302 0 6		*	a marsh giant<over the head>: a dark horned helmet
+E 0 8302 0 6		*	a marsh giant <over the head>: a dark horned helmet
 M 0 8321 2 8318 2	* a gargoyle (Before the Great Gates)
 M 0 8321 2 8318 2	* a gargoyle (Before the Great Gates)
 S

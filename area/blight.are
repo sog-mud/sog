@@ -8795,12 +8795,12 @@ S
 
 #RESETS
 M 0 22902 3 22901 1	* The Myrddraal (Edge of the Blight)
-E 0 22908 0 16		*	The Myrddraal<wielded>: a black sword
-E 0 22909 0 12		*	The Myrddraal<about the shoulders>: an unmoving black cloak
-E 0 22910 0 5		*	The Myrddraal<on the body>: snake-like overlapping black plates
+E 0 22908 0 16		*	The Myrddraal <wielded>: a black sword
+E 0 22909 0 12		*	The Myrddraal <about the shoulders>: an unmoving black cloak
+E 0 22910 0 5		*	The Myrddraal <on the body>: snake-like overlapping black plates
 M 0 22901 6 22901 1	* The trolloc (Edge of the Blight)
 M 0 22901 6 22905 1	* The trolloc (The Blight)
-E 0 22901 0 16		*	The trolloc<wielded>: a huge curved blade
+E 0 22901 0 16		*	The trolloc <wielded>: a huge curved blade
 M 0 22910 20 22907 2	* The diseased creature (Entering the Blight)
 M 0 22908 1 22908 1	* The twisted tree (The Blight)
 M 0 22907 1 22909 1	* The creature (One of the Hundred Lakes)
@@ -8809,49 +8809,49 @@ P 0 22925 0 0 1	* encased in the lakes muck: a strange ward
 M 0 22910 20 22910 2	* The diseased creature (The Blight)
 M 0 22914 7 22912 1	* The spirit (Entering the Blight)
 M 0 22901 6 22916 1	* The trolloc (Edge of the Blight)
-E 0 22901 0 16		*	The trolloc<wielded>: a huge curved blade
+E 0 22901 0 16		*	The trolloc <wielded>: a huge curved blade
 M 0 22910 20 22920 2	* The diseased creature (The Blight)
 M 0 22910 20 22922 2	* The diseased creature (Entering the Blight)
 M 0 22916 1 22924 1	* The twisted tree (The Blight)
 M 0 22906 3 22928 1	* The trolloc (The Blight)
-E 0 22901 0 16		*	The trolloc<wielded>: a huge curved blade
+E 0 22901 0 16		*	The trolloc <wielded>: a huge curved blade
 M 0 22906 3 22928 1	* The trolloc (The Blight)
-E 0 22901 0 16		*	The trolloc<wielded>: a huge curved blade
+E 0 22901 0 16		*	The trolloc <wielded>: a huge curved blade
 M 0 22906 3 22928 1	* The trolloc (The Blight)
-E 0 22901 0 16		*	The trolloc<wielded>: a huge curved blade
+E 0 22901 0 16		*	The trolloc <wielded>: a huge curved blade
 M 0 22902 3 22933 1	* The Myrddraal (The Blight)
-E 0 22908 0 16		*	The Myrddraal<wielded>: a black sword
-E 0 22909 0 12		*	The Myrddraal<about the shoulders>: an unmoving black cloak
-E 0 22910 0 5		*	The Myrddraal<on the body>: snake-like overlapping black plates
+E 0 22908 0 16		*	The Myrddraal <wielded>: a black sword
+E 0 22909 0 12		*	The Myrddraal <about the shoulders>: an unmoving black cloak
+E 0 22910 0 5		*	The Myrddraal <on the body>: snake-like overlapping black plates
 M 0 22910 20 22933 2	* The diseased creature (The Blight)
 M 0 22905 1 22935 1	* The flock of ravens (The Blight)
-E 0 22913 0 17		*	The flock of ravens<held in the hands>: a shiny platinum key
+E 0 22913 0 17		*	The flock of ravens <held in the hands>: a shiny platinum key
 M 0 22904 3 22937 1	* The trolloc (Entering the Blight)
-E 0 22901 0 16		*	The trolloc<wielded>: a huge curved blade
+E 0 22901 0 16		*	The trolloc <wielded>: a huge curved blade
 M 0 22904 3 22937 1	* The trolloc (Entering the Blight)
-E 0 22901 0 16		*	The trolloc<wielded>: a huge curved blade
+E 0 22901 0 16		*	The trolloc <wielded>: a huge curved blade
 M 0 22904 3 22937 1	* The trolloc (Entering the Blight)
-E 0 22901 0 16		*	The trolloc<wielded>: a huge curved blade
+E 0 22901 0 16		*	The trolloc <wielded>: a huge curved blade
 M 0 22909 1 22939 1	* The draghkar (The Blight)
-E 0 22934 0 16		*	The draghkar<wielded>: a seductive smile
-E 0 22914 0 17		*	The draghkar<held in the hands>: a shiny golden key
+E 0 22934 0 16		*	The draghkar <wielded>: a seductive smile
+E 0 22914 0 17		*	The draghkar <held in the hands>: a shiny golden key
 M 0 22910 20 22942 2	* The diseased creature (Entering the Blight)
 M 0 22917 1 22943 1	* The twisted tree (The Blight)
 M 0 22910 20 22945 2	* The diseased creature (The Blight)
 M 0 22910 20 22947 2	* The diseased creature (Entering the Blight)
 M 0 22903 3 22951 1	* The trolloc (Edge of the Blight)
-E 0 22901 0 16		*	The trolloc<wielded>: a huge curved blade
+E 0 22901 0 16		*	The trolloc <wielded>: a huge curved blade
 M 0 22903 3 22951 1	* The trolloc (Edge of the Blight)
-E 0 22901 0 16		*	The trolloc<wielded>: a huge curved blade
+E 0 22901 0 16		*	The trolloc <wielded>: a huge curved blade
 M 0 22903 3 22951 1	* The trolloc (Edge of the Blight)
-E 0 22901 0 16		*	The trolloc<wielded>: a huge curved blade
+E 0 22901 0 16		*	The trolloc <wielded>: a huge curved blade
 M 0 22918 1 22954 1	* The twisted tree (The Blight)
 M 0 22910 20 22957 2	* The diseased creature (Entering the Blight)
 M 0 22910 20 22959 2	* The diseased creature (The Blight)
 M 0 22902 3 22960 1	* The Myrddraal (The Blight)
-E 0 22908 0 16		*	The Myrddraal<wielded>: a black sword
-E 0 22909 0 12		*	The Myrddraal<about the shoulders>: an unmoving black cloak
-E 0 22910 0 5		*	The Myrddraal<on the body>: snake-like overlapping black plates
+E 0 22908 0 16		*	The Myrddraal <wielded>: a black sword
+E 0 22909 0 12		*	The Myrddraal <about the shoulders>: an unmoving black cloak
+E 0 22910 0 5		*	The Myrddraal <on the body>: snake-like overlapping black plates
 M 0 22914 7 22962 1	* The spirit (The Hallway)
 M 0 22914 7 22964 1	* The spirit (The Hallway)
 M 0 22914 7 22973 1	* The spirit (The Hallway)
@@ -8862,13 +8862,13 @@ P 0 22903 0 0 1	* a skeleton: a heavy iron key
 P 0 22904 0 0 1	* a skeleton: an often used key
 M 0 22914 7 22992 1	* The spirit (The Hallway)
 M 0 22912 1 22996 1	* The Lord of the tower (The Lord's Quarters)
-E 0 22919 0 17		*	The Lord of the tower<held in the hands>: a small figurine
-E 0 22920 0 16		*	The Lord of the tower<wielded>: a Heron marked blade
-E 0 22921 0 6		*	The Lord of the tower<over the head>: a helm stylized into a golden crane
+E 0 22919 0 17		*	The Lord of the tower <held in the hands>: a small figurine
+E 0 22920 0 16		*	The Lord of the tower <wielded>: a Heron marked blade
+E 0 22921 0 6		*	The Lord of the tower <over the head>: a helm stylized into a golden crane
 M 0 22901 6 23000 1	* The trolloc (By the Shore)
 M 0 22911 2 23001 1	* The warder (In the Borderlands)
-E 0 22911 0 16		*	The warder<wielded>: a finely crafted sword
-E 0 22912 0 12		*	The warder<about the shoulders>: a cloak of shifting colors
+E 0 22911 0 16		*	The warder <wielded>: a finely crafted sword
+E 0 22912 0 12		*	The warder <about the shoulders>: a cloak of shifting colors
 M 0 22901 6 23001 1	* The trolloc (In the Borderlands)
 M 0 22901 6 23010 1	* The trolloc (In the Borderlands)
 O 0 22926 0 23015	* the spring (A Warded Glade)
@@ -8883,23 +8883,23 @@ P 0 22906 0 0 1	* a skeleton: a heavy iron key
 P 0 22907 0 0 1	* a skeleton: an often used key
 M 0 22915 4 23143 1	* The spirit (The Hallway)
 M 0 22913 1 23147 1	* The Lord of the tower (The Lord's Quarters)
-E 0 22922 0 5		*	The Lord of the tower<on the body>: a suit of Malkerian battle armor
-E 0 22923 0 16		*	The Lord of the tower<wielded>: a heartstone dagger
-E 0 22924 0 17		*	The Lord of the tower<held in the hands>: a Lord's sceptre
+E 0 22922 0 5		*	The Lord of the tower <on the body>: a suit of Malkerian battle armor
+E 0 22923 0 16		*	The Lord of the tower <wielded>: a heartstone dagger
+E 0 22924 0 17		*	The Lord of the tower <held in the hands>: a Lord's sceptre
 M 0 22915 4 23151 1	* The spirit (The Hallway)
 M 0 22922 3 23168 1	* The grolm (The Center)
 M 0 22922 3 23169 1	* The grolm (The Southern Yard)
 M 0 22921 1 23171 1	* The fox-like humanoid (The Eastern Yard)
-E 0 22935 0 16		*	The fox-like humanoid<wielded>: a wicked-looking knife
-E 0 22936 0 3		*	The fox-like humanoid<around the neck>: a foxheaded medallion
+E 0 22935 0 16		*	The fox-like humanoid <wielded>: a wicked-looking knife
+E 0 22936 0 3		*	The fox-like humanoid <around the neck>: a foxheaded medallion
 M 0 22920 1 23173 1	* The metallic orb (The Northern Yard)
 M 0 22919 1 23175 1	* The Sul'Dam (The Western Yard)
-E 0 22932 0 17		*	The Sul'Dam<held in the hands>: an A'dam
-E 0 22933 0 5		*	The Sul'Dam<on the body>: a plain dress panelled with lightning bolts
+E 0 22932 0 17		*	The Sul'Dam <held in the hands>: an A'dam
+E 0 22933 0 5		*	The Sul'Dam <on the body>: a plain dress panelled with lightning bolts
 M 0 22922 3 23176 1	* The grolm (The Southwest Corner)
 M 0 22911 2 23182 1	* The warder (Tarwin's Gap)
-E 0 22911 0 16		*	The warder<wielded>: a finely crafted sword
-E 0 22912 0 12		*	The warder<about the shoulders>: a cloak of shifting colors
+E 0 22911 0 16		*	The warder <wielded>: a finely crafted sword
+E 0 22912 0 12		*	The warder <about the shoulders>: a cloak of shifting colors
 S
 
 #OLIMITS

@@ -2332,8 +2332,8 @@ M 0 4501 8 4507 1	* the Timberwolf (Mountain Pass)
 M 0 4501 8 4510 1	* the Timberwolf (Icy Bend in the Road)
 M 0 4501 8 4514 1	* the Timberwolf (Bend in the Road.)
 M 0 4502 4 4516 1	* the Huge White Wolf (Base of the Cliff)
-E 0 4501 0 16		*	the Huge White Wolf<wielded>: a shadowblade
-E 0 4505 0 9		*	the Huge White Wolf<on the hands>: shadowgauntlets
+E 0 4501 0 16		*	the Huge White Wolf <wielded>: a shadowblade
+E 0 4505 0 9		*	the Huge White Wolf <on the hands>: shadowgauntlets
 G 0 4519 0		*	the Huge White Wolf: the key to SilverDale
 O 0 4514 0 4516	* a wooden stake (Base of the Cliff)
 O 0 4514 0 4516	* a wooden stake (Base of the Cliff)
@@ -2341,14 +2341,14 @@ O 0 4514 0 4516	* a wooden stake (Base of the Cliff)
 O 0 4514 0 4516	* a wooden stake (Base of the Cliff)
 M 0 4501 8 4518 1	* the Timberwolf (Approaching the Village Gate)
 M 0 4502 4 4518 1	* the Huge White Wolf (Approaching the Village Gate)
-E 0 4501 0 16		*	the Huge White Wolf<wielded>: a shadowblade
-E 0 4505 0 9		*	the Huge White Wolf<on the hands>: shadowgauntlets
+E 0 4501 0 16		*	the Huge White Wolf <wielded>: a shadowblade
+E 0 4505 0 9		*	the Huge White Wolf <on the hands>: shadowgauntlets
 G 0 4519 0		*	the Huge White Wolf: the key to SilverDale
 O 0 4515 0 4521	* a wooden keg (The Village Inn)
 O 0 4516 0 4521	* a coiled length of rope (The Village Inn)
 M 0 4502 4 4525 1	* the Huge White Wolf (A dirt road)
-E 0 4501 0 16		*	the Huge White Wolf<wielded>: a shadowblade
-E 0 4505 0 9		*	the Huge White Wolf<on the hands>: shadowgauntlets
+E 0 4501 0 16		*	the Huge White Wolf <wielded>: a shadowblade
+E 0 4505 0 9		*	the Huge White Wolf <on the hands>: shadowgauntlets
 M 0 4501 8 4527 1	* the Timberwolf (A dirt road)
 O 0 4517 0 4528	* a grapple (The Outfitters Shop)
 O 0 4521 0 4529	* a large wooden chest (The Assayers Office)
@@ -2363,13 +2363,13 @@ P 0 4513 99 0 1	* a large wooden chest: a silver longsword
 M 0 4501 8 4530 1	* the Timberwolf (A dirt road)
 M 0 4502 4 4533 1	* the Huge White Wolf (A dirt road)
 M 0 4504 6 4534 1	* the Vampire Orc-Shaman (The Smithy)
-E 0 4506 0 18		*	the Vampire Orc-Shaman<floating nearby>: a mageorb
+E 0 4506 0 18		*	the Vampire Orc-Shaman <floating nearby>: a mageorb
 M 0 4505 2 4534 2	* the Orc Bodyguard (The Smithy)
 M 0 4505 2 4534 2	* the Orc Bodyguard (The Smithy)
 O 0 4510 0 4534	* a large forge (The Smithy)
 M 0 4502 1 4535 1	* the Huge White Wolf (The Miners Barracks)
-E 0 4501 0 16		*	the Huge White Wolf<wielded>: a shadowblade
-E 0 4505 0 9		*	the Huge White Wolf<on the hands>: shadowgauntlets
+E 0 4501 0 16		*	the Huge White Wolf <wielded>: a shadowblade
+E 0 4505 0 9		*	the Huge White Wolf <on the hands>: shadowgauntlets
 G 0 4519 0		*	the Huge White Wolf: the key to SilverDale
 M 0 4502 1 4535 1	* the Huge White Wolf (The Miners Barracks)
 M 0 4503 13 4537 1	* the Huge Shadow Wolf (Inside the Black Forest)
@@ -2400,18 +2400,18 @@ M 0 4509 10 4584 10	* the giant rat (Reception Area)
 M 0 4509 10 4584 10	* the giant rat (Reception Area)
 M 0 4509 10 4584 10	* the giant rat (Reception Area)
 M 0 4508 2 4585 2	* a vampire mistress (Audience Chamber)
-E 0 4502 0 16		*	a vampire mistress<wielded>: a shadowspear
-E 0 4504 0 15		*	a vampire mistress<on the right wrist>: shadowbracer
-E 0 4504 0 14		*	a vampire mistress<on the left wrist>: shadowbracer
-E 0 4507 0 18		*	a vampire mistress<floating nearby>: a priestorb
+E 0 4502 0 16		*	a vampire mistress <wielded>: a shadowspear
+E 0 4504 0 15		*	a vampire mistress <on the right wrist>: shadowbracer
+E 0 4504 0 14		*	a vampire mistress <on the left wrist>: shadowbracer
+E 0 4507 0 18		*	a vampire mistress <floating nearby>: a priestorb
 M 0 4508 2 4585 2	* a vampire mistress (Audience Chamber)
-E 0 4503 0 16		*	a vampire mistress<wielded>: a shadowaxe
-E 0 4504 0 15		*	a vampire mistress<on the right wrist>: shadowbracer
-E 0 4504 0 14		*	a vampire mistress<on the left wrist>: shadowbracer
-E 0 4507 0 18		*	a vampire mistress<floating nearby>: a priestorb
+E 0 4503 0 16		*	a vampire mistress <wielded>: a shadowaxe
+E 0 4504 0 15		*	a vampire mistress <on the right wrist>: shadowbracer
+E 0 4504 0 14		*	a vampire mistress <on the left wrist>: shadowbracer
+E 0 4507 0 18		*	a vampire mistress <floating nearby>: a priestorb
 M 0 4510 1 4586 1	* Nosferatu (The Bedroom)
-E 0 4508 0 5		*	Nosferatu<on the body>: shadowmail
-E 0 4520 0 17		*	Nosferatu<held in the hands>: a big key
+E 0 4508 0 5		*	Nosferatu <on the body>: shadowmail
+E 0 4520 0 17		*	Nosferatu <held in the hands>: a big key
 S
 
 #$

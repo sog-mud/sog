@@ -1286,7 +1286,7 @@ M 0 8209 1 8215 1	* the elephant (The elephant cage)
 M 0 8206 3 8216 3	* a crocodile (The crocodile cage)
 M 0 8204 3 8217 3	* a dolphin (The dolphins cage)
 M 0 8211 1 8219 1	* the zoo assistant (The animal food store hut)
-E 0 8205 0 16		*	the zoo assistant<wielded>: a zoo dagger
+E 0 8205 0 16		*	the zoo assistant <wielded>: a zoo dagger
 M 0 8208 1 8220 1	* the baby dragon (The baby dragon cage)
 M 0 8205 1 8221 1	* the unicorn (the unicorn cage)
 M 0 8234 1 8232 1	* a father goat (The goat enclosure)

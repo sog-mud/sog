@@ -5595,18 +5595,18 @@ S
 
 #RESETS
 M 0 31024 1 31000 1	* Cuervo the headsman (The Temple of Anon)
-E 0 31030 0 6		*	Cuervo the headsman<over the head>: a Headsman's Black Face Mask
+E 0 31030 0 6		*	Cuervo the headsman <over the head>: a Headsman's Black Face Mask
 O 0 31029 0 31000	* a nasty guillotine (The Temple of Anon)
 O 0 31021 0 31000	* a city fountain (The Temple of Anon)
 M 0 31044 8 31000 1	* a City Guard (The Temple of Anon)
-E 0 31033 0 16		*	a City Guard<wielded>: an Ornate Longsword
-E 0 31034 0 5		*	a City Guard<on the body>: an Ornate Breastplate
-E 0 31035 0 14		*	a City Guard<on the left wrist>: an Ornate Bracer
-E 0 31035 0 15		*	a City Guard<on the right wrist>: an Ornate Bracer
-E 0 31036 0 3		*	a City Guard<around the neck>: a black cloak with gold trim
-E 0 31037 0 6		*	a City Guard<over the head>: an Ornate Helm
-E 0 31038 0 11		*	a City Guard<as a shield>: an Ornate Shield
-E 0 31039 0 17		*	a City Guard<held in the hands>: a Throwing Spear
+E 0 31033 0 16		*	a City Guard <wielded>: an Ornate Longsword
+E 0 31034 0 5		*	a City Guard <on the body>: an Ornate Breastplate
+E 0 31035 0 14		*	a City Guard <on the left wrist>: an Ornate Bracer
+E 0 31035 0 15		*	a City Guard <on the right wrist>: an Ornate Bracer
+E 0 31036 0 3		*	a City Guard <around the neck>: a black cloak with gold trim
+E 0 31037 0 6		*	a City Guard <over the head>: an Ornate Helm
+E 0 31038 0 11		*	a City Guard <as a shield>: an Ornate Shield
+E 0 31039 0 17		*	a City Guard <held in the hands>: a Throwing Spear
 M 0 31000 1 31001 1	* Gath the Healer (The Interior of the Temple)
 M 0 31043 6 31007 1	* a cat (Corner of Valiant Street and Glory Avenue)
 O 0 31021 0 31012	* a city fountain (Victory Parade West)
@@ -5614,23 +5614,23 @@ M 0 31039 3 31012 1	* a beggar (Victory Parade West)
 M 0 31035 3 31013 1	* a child (Victory Parade East)
 M 0 31034 3 31014 1	* a citizen (Approaching Gate at Victory Parade West)
 M 0 31046 5 31016 1	* a City Guard (Inside the Victory Parade West Gate)
-E 0 31033 0 16		*	a City Guard<wielded>: an Ornate Longsword
-E 0 31034 0 5		*	a City Guard<on the body>: an Ornate Breastplate
-E 0 31035 0 14		*	a City Guard<on the left wrist>: an Ornate Bracer
-E 0 31035 0 15		*	a City Guard<on the right wrist>: an Ornate Bracer
-E 0 31036 0 3		*	a City Guard<around the neck>: a black cloak with gold trim
-E 0 31037 0 6		*	a City Guard<over the head>: an Ornate Helm
-E 0 31038 0 11		*	a City Guard<as a shield>: an Ornate Shield
-E 0 31039 0 17		*	a City Guard<held in the hands>: a Throwing Spear
+E 0 31033 0 16		*	a City Guard <wielded>: an Ornate Longsword
+E 0 31034 0 5		*	a City Guard <on the body>: an Ornate Breastplate
+E 0 31035 0 14		*	a City Guard <on the left wrist>: an Ornate Bracer
+E 0 31035 0 15		*	a City Guard <on the right wrist>: an Ornate Bracer
+E 0 31036 0 3		*	a City Guard <around the neck>: a black cloak with gold trim
+E 0 31037 0 6		*	a City Guard <over the head>: an Ornate Helm
+E 0 31038 0 11		*	a City Guard <as a shield>: an Ornate Shield
+E 0 31039 0 17		*	a City Guard <held in the hands>: a Throwing Spear
 M 0 31054 8 31017 1	* a City Guard (Inside the Victory Parade East Gate)
-E 0 31033 0 16		*	a City Guard<wielded>: an Ornate Longsword
-E 0 31034 0 5		*	a City Guard<on the body>: an Ornate Breastplate
-E 0 31035 0 14		*	a City Guard<on the left wrist>: an Ornate Bracer
-E 0 31035 0 15		*	a City Guard<on the right wrist>: an Ornate Bracer
-E 0 31036 0 3		*	a City Guard<around the neck>: a black cloak with gold trim
-E 0 31037 0 6		*	a City Guard<over the head>: an Ornate Helm
-E 0 31038 0 11		*	a City Guard<as a shield>: an Ornate Shield
-E 0 31039 0 17		*	a City Guard<held in the hands>: a Throwing Spear
+E 0 31033 0 16		*	a City Guard <wielded>: an Ornate Longsword
+E 0 31034 0 5		*	a City Guard <on the body>: an Ornate Breastplate
+E 0 31035 0 14		*	a City Guard <on the left wrist>: an Ornate Bracer
+E 0 31035 0 15		*	a City Guard <on the right wrist>: an Ornate Bracer
+E 0 31036 0 3		*	a City Guard <around the neck>: a black cloak with gold trim
+E 0 31037 0 6		*	a City Guard <over the head>: an Ornate Helm
+E 0 31038 0 11		*	a City Guard <as a shield>: an Ornate Shield
+E 0 31039 0 17		*	a City Guard <held in the hands>: a Throwing Spear
 M 0 31001 1 31036 1	* the Dryad Guildmaster (The Guildmaster)
 M 0 31015 1 31037 1	* a Dryad Waiter (The Dryad Bar)
 G 0 31002 0		*	a Dryad Waiter: a Barrel of Argh's beer
@@ -5639,7 +5639,7 @@ G 0 31004 0		*	a Dryad Waiter: a Bottle of Marius (TM) ale
 G 0 31005 0		*	a Dryad Waiter: a Bottle of Rainman firebreather
 G 0 31006 0		*	a Dryad Waiter: a bottle of local specialty
 M 0 31032 1 31039 1	* the Castellan of Anon (The Castellan's Office)
-E 0 31031 0 16		*	the Castellan of Anon<wielded>: the Castellan's Longsword
+E 0 31031 0 16		*	the Castellan of Anon <wielded>: the Castellan's Longsword
 G 0 31001 0		*	the Castellan of Anon: a bronze key
 M 0 31002 1 31041 1	* Jolob the Blacksmith (The Smithy)
 M 0 31003 1 31043 1	* the Armorer (The Armory)
@@ -5654,14 +5654,14 @@ G 0 31014 0		*	the Weaponsmith: a Sturdy Mace
 G 0 31015 0		*	the Weaponsmith: a Dagger
 G 0 31016 0		*	the Weaponsmith: a Wickedly-Curved Scimitar
 M 0 31044 8 31046 1	* a City Guard (Corner of Liberty Lane and Justice Street)
-E 0 31033 0 16		*	a City Guard<wielded>: an Ornate Longsword
-E 0 31034 0 5		*	a City Guard<on the body>: an Ornate Breastplate
-E 0 31035 0 14		*	a City Guard<on the left wrist>: an Ornate Bracer
-E 0 31035 0 15		*	a City Guard<on the right wrist>: an Ornate Bracer
-E 0 31036 0 3		*	a City Guard<around the neck>: a black cloak with gold trim
-E 0 31037 0 6		*	a City Guard<over the head>: an Ornate Helm
-E 0 31038 0 11		*	a City Guard<as a shield>: an Ornate Shield
-E 0 31039 0 17		*	a City Guard<held in the hands>: a Throwing Spear
+E 0 31033 0 16		*	a City Guard <wielded>: an Ornate Longsword
+E 0 31034 0 5		*	a City Guard <on the body>: an Ornate Breastplate
+E 0 31035 0 14		*	a City Guard <on the left wrist>: an Ornate Bracer
+E 0 31035 0 15		*	a City Guard <on the right wrist>: an Ornate Bracer
+E 0 31036 0 3		*	a City Guard <around the neck>: a black cloak with gold trim
+E 0 31037 0 6		*	a City Guard <over the head>: an Ornate Helm
+E 0 31038 0 11		*	a City Guard <as a shield>: an Ornate Shield
+E 0 31039 0 17		*	a City Guard <held in the hands>: a Throwing Spear
 M 0 31005 1 31047 1	* the Mercenary Master (Mercenaries Unlimited)
 M 0 31047 1 31048 1	* Hobbit Mercenary (Merc Store)
 M 0 31048 1 31048 1	* Elven Mercenary (Merc Store)
@@ -5678,14 +5678,14 @@ G 0 31041 0		*	the Mage: a shimmering potion
 M 0 31041 8 31051 1	* a beastly fido (Corner of Honor Avenue and Justice Street)
 M 0 31007 1 31053 1	* Mitzak the Sage (The Sage's Residence)
 M 0 31045 8 31054 1	* a City Guard (Justice Street)
-E 0 31033 0 16		*	a City Guard<wielded>: an Ornate Longsword
-E 0 31034 0 5		*	a City Guard<on the body>: an Ornate Breastplate
-E 0 31035 0 14		*	a City Guard<on the left wrist>: an Ornate Bracer
-E 0 31035 0 15		*	a City Guard<on the right wrist>: an Ornate Bracer
-E 0 31036 0 3		*	a City Guard<around the neck>: a black cloak with gold trim
-E 0 31037 0 6		*	a City Guard<over the head>: an Ornate Helm
-E 0 31038 0 11		*	a City Guard<as a shield>: an Ornate Shield
-E 0 31039 0 17		*	a City Guard<held in the hands>: a Throwing Spear
+E 0 31033 0 16		*	a City Guard <wielded>: an Ornate Longsword
+E 0 31034 0 5		*	a City Guard <on the body>: an Ornate Breastplate
+E 0 31035 0 14		*	a City Guard <on the left wrist>: an Ornate Bracer
+E 0 31035 0 15		*	a City Guard <on the right wrist>: an Ornate Bracer
+E 0 31036 0 3		*	a City Guard <around the neck>: a black cloak with gold trim
+E 0 31037 0 6		*	a City Guard <over the head>: an Ornate Helm
+E 0 31038 0 11		*	a City Guard <as a shield>: an Ornate Shield
+E 0 31039 0 17		*	a City Guard <held in the hands>: a Throwing Spear
 M 0 31008 1 31055 1	* the Pet Shop Owner (The Pet Shop)
 M 0 31019 1 31056 1	* the mouse (Pet Store Storage)
 M 0 31020 1 31056 1	* the badger (Pet Store Storage)
@@ -5713,14 +5713,14 @@ G 0 31024 0		*	the Baker: a roll
 G 0 31025 0		*	the Baker: a sandwich
 G 0 31026 0		*	the Baker: a HUGE loaf of bread
 M 0 31044 8 31069 1	* a City Guard (The Corner of Stalwart Lane and Valiant Street)
-E 0 31033 0 16		*	a City Guard<wielded>: an Ornate Longsword
-E 0 31034 0 5		*	a City Guard<on the body>: an Ornate Breastplate
-E 0 31035 0 14		*	a City Guard<on the left wrist>: an Ornate Bracer
-E 0 31035 0 15		*	a City Guard<on the right wrist>: an Ornate Bracer
-E 0 31036 0 3		*	a City Guard<around the neck>: a black cloak with gold trim
-E 0 31037 0 6		*	a City Guard<over the head>: an Ornate Helm
-E 0 31038 0 11		*	a City Guard<as a shield>: an Ornate Shield
-E 0 31039 0 17		*	a City Guard<held in the hands>: a Throwing Spear
+E 0 31033 0 16		*	a City Guard <wielded>: an Ornate Longsword
+E 0 31034 0 5		*	a City Guard <on the body>: an Ornate Breastplate
+E 0 31035 0 14		*	a City Guard <on the left wrist>: an Ornate Bracer
+E 0 31035 0 15		*	a City Guard <on the right wrist>: an Ornate Bracer
+E 0 31036 0 3		*	a City Guard <around the neck>: a black cloak with gold trim
+E 0 31037 0 6		*	a City Guard <over the head>: an Ornate Helm
+E 0 31038 0 11		*	a City Guard <as a shield>: an Ornate Shield
+E 0 31039 0 17		*	a City Guard <held in the hands>: a Throwing Spear
 M 0 31012 1 31070 1	* the Bartender (The Bar)
 G 0 31002 0		*	the Bartender: a Barrel of Argh's beer
 G 0 31003 0		*	the Bartender: a bottle of Yaegar (TM) beer
@@ -5742,7 +5742,7 @@ G 0 31006 0		*	a Dwarven Waiter: a bottle of local specialty
 M 0 31025 1 31079 1	* Aod the dealer (Valiant Street)
 G 0 31028 0		*	Aod the dealer: a psychedelic potion
 M 0 31037 8 31080 1	* a footpad (Valiant Street)
-E 0 31032 0 16		*	a footpad<wielded>: a sap
+E 0 31032 0 16		*	a footpad <wielded>: a sap
 M 0 31042 6 31081 1	* a huge sewer rat (A Bend in Valiant Street)
 M 0 31040 2 31082 1	* a thief (Outside the Kender Guild)
 M 0 31014 1 31084 1	* the Kender Guildmaster (The Guildmaster)

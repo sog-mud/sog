@@ -681,53 +681,53 @@ S
 
 #RESETS
 M 0 6600 7 6602 1	* the dwarven youth (Day Care Center)
-E 0 6600 0 16		*	the dwarven youth<wielded>: a toy axe
+E 0 6600 0 16		*	the dwarven youth <wielded>: a toy axe
 M 0 6601 2 6602 1	* a teddy bear (Day Care Center)
 M 0 6606 2 6602 1	* the nanny (Day Care Center)
 G 0 6646 0		*	the nanny: an amber potion
 G 0 6644 0		*	the nanny: a juicy steak
-E 0 6621 0 12		*	the nanny<about the shoulders>: a linen robe
+E 0 6621 0 12		*	the nanny <about the shoulders>: a linen robe
 M 0 6600 7 6603 1	* the dwarven youth (Day Care Center)
-E 0 6600 0 16		*	the dwarven youth<wielded>: a toy axe
+E 0 6600 0 16		*	the dwarven youth <wielded>: a toy axe
 M 0 6600 7 6604 1	* the dwarven youth (Day Care Center)
-E 0 6600 0 16		*	the dwarven youth<wielded>: a toy axe
+E 0 6600 0 16		*	the dwarven youth <wielded>: a toy axe
 M 0 6602 2 6604 1	* a raggedy anne doll (Day Care Center)
 M 0 6606 2 6604 1	* the nanny (Day Care Center)
 G 0 6646 0		*	the nanny: an amber potion
-E 0 6622 0 16		*	the nanny<wielded>: a broom
+E 0 6622 0 16		*	the nanny <wielded>: a broom
 M 0 6600 7 6605 1	* the dwarven youth (Day Care Center)
-E 0 6600 0 16		*	the dwarven youth<wielded>: a toy axe
+E 0 6600 0 16		*	the dwarven youth <wielded>: a toy axe
 M 0 6602 2 6605 1	* a raggedy anne doll (Day Care Center)
 G 0 6645 0		*	a raggedy anne doll: a rotten steak
 M 0 6605 3 6605 1	* an old doll (Day Care Center)
-E 0 6601 0 1		*	an old doll<on the left finger>: a pink ice ring
+E 0 6601 0 1		*	an old doll <on the left finger>: a pink ice ring
 M 0 6605 3 6606 1	* an old doll (The Messy Bathroom)
 M 0 6601 2 6606 1	* a teddy bear (The Messy Bathroom)
 M 0 6600 7 6608 1	* the dwarven youth (The Playground)
-E 0 6600 0 16		*	the dwarven youth<wielded>: a toy axe
+E 0 6600 0 16		*	the dwarven youth <wielded>: a toy axe
 M 0 6603 4 6608 1	* a toy soldier (The Playground)
-E 0 6647 0 16		*	a toy soldier<wielded>: a toy gun
+E 0 6647 0 16		*	a toy soldier <wielded>: a toy gun
 M 0 6600 7 6609 1	* the dwarven youth (The Playground)
-E 0 6600 0 16		*	the dwarven youth<wielded>: a toy axe
+E 0 6600 0 16		*	the dwarven youth <wielded>: a toy axe
 M 0 6604 2 6609 1	* the ugly bear (The Playground)
 M 0 6603 3 6609 1	* a toy soldier (The Playground)
-E 0 6647 0 16		*	a toy soldier<wielded>: a toy gun
+E 0 6647 0 16		*	a toy soldier <wielded>: a toy gun
 M 0 6603 4 6609 1	* a toy soldier (The Playground)
-E 0 6647 0 16		*	a toy soldier<wielded>: a toy gun
+E 0 6647 0 16		*	a toy soldier <wielded>: a toy gun
 M 0 6600 7 6610 1	* the dwarven youth (The Playground)
-E 0 6600 0 16		*	the dwarven youth<wielded>: a toy axe
+E 0 6600 0 16		*	the dwarven youth <wielded>: a toy axe
 M 0 6603 4 6610 1	* a toy soldier (The Playground)
-E 0 6647 0 16		*	a toy soldier<wielded>: a toy gun
+E 0 6647 0 16		*	a toy soldier <wielded>: a toy gun
 M 0 6605 3 6610 1	* an old doll (The Playground)
 M 0 6604 2 6611 1	* the ugly bear (The Playground)
 M 0 6603 4 6611 1	* a toy soldier (The Playground)
-E 0 6647 0 16		*	a toy soldier<wielded>: a toy gun
+E 0 6647 0 16		*	a toy soldier <wielded>: a toy gun
 R 0 6613 4	* Mini-Maze: randomize
 R 0 6614 4	* Mini-Maze: randomize
 R 0 6615 4	* Mini-Maze: randomize
 R 0 6616 4	* Mini-Maze: randomize
 M 0 6607 1 6624 1	* the armed guard (End of the Mini-Maze)
-E 0 3023 0 16		*	the armed guard<wielded>: a club
+E 0 3023 0 16		*	the armed guard <wielded>: a club
 M 0 6608 1 6631 1	* the spoiled brat (The End?)
 S
 

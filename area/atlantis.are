@@ -2127,8 +2127,8 @@ S
 
 #RESETS
 M 0 35000 1 35000 1	* the Fisherman (Beside the sea...)
-E 0 35027 0 17		*	the Fisherman<held in the hands>: a fishing-rod
-E 0 35031 0 6		*	the Fisherman<over the head>: a red cape
+E 0 35027 0 17		*	the Fisherman <held in the hands>: a fishing-rod
+E 0 35031 0 6		*	the Fisherman <over the head>: a red cape
 M 0 35001 5 35001 1	* the Fish (The sea)
 M 0 35001 5 35003 1	* the Fish (The sea)
 M 0 35001 5 35004 1	* the Fish (The sea)
@@ -2140,113 +2140,113 @@ M 0 35001 5 35009 1	* the Fish (The sea)
 M 0 35005 1 35013 1	* the Shell (A Vortex)
 G 0 35000 0		*	the Shell: a metal key
 M 0 35010 2 35014 2	* the Atlantis Guard (Entrance to Atlantis)
-E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
-E 0 35021 0 6		*	the Atlantis Guard<over the head>: a shell helmet
-E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
-E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+E 0 35020 0 16		*	the Atlantis Guard <wielded>: a spear
+E 0 35021 0 6		*	the Atlantis Guard <over the head>: a shell helmet
+E 0 35023 0 11		*	the Atlantis Guard <as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard <as a light>: a ball of light
 G 0 35040 0		*	the Atlantis Guard: a black potion
 M 0 35010 2 35014 2	* the Atlantis Guard (Entrance to Atlantis)
-E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
-E 0 35021 0 6		*	the Atlantis Guard<over the head>: a shell helmet
-E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
-E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+E 0 35020 0 16		*	the Atlantis Guard <wielded>: a spear
+E 0 35021 0 6		*	the Atlantis Guard <over the head>: a shell helmet
+E 0 35023 0 11		*	the Atlantis Guard <as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard <as a light>: a ball of light
 G 0 35041 0		*	the Atlantis Guard: a black potion
 M 0 35009 12 35015 2	* the Atlantis Guard (Atlantis Street)
-E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
-E 0 35021 0 6		*	the Atlantis Guard<over the head>: a shell helmet
-E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
-E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+E 0 35020 0 16		*	the Atlantis Guard <wielded>: a spear
+E 0 35021 0 6		*	the Atlantis Guard <over the head>: a shell helmet
+E 0 35023 0 11		*	the Atlantis Guard <as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard <as a light>: a ball of light
 G 0 35041 0		*	the Atlantis Guard: a black potion
 M 0 35009 12 35015 2	* the Atlantis Guard (Atlantis Street)
-E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
-E 0 35021 0 6		*	the Atlantis Guard<over the head>: a shell helmet
-E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
-E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+E 0 35020 0 16		*	the Atlantis Guard <wielded>: a spear
+E 0 35021 0 6		*	the Atlantis Guard <over the head>: a shell helmet
+E 0 35023 0 11		*	the Atlantis Guard <as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard <as a light>: a ball of light
 G 0 35040 0		*	the Atlantis Guard: a black potion
 M 0 35009 12 35016 2	* the Atlantis Guard (Atlantis Square)
-E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
-E 0 35022 0 1		*	the Atlantis Guard<on the left finger>: a ring with a pearl
-E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
-E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+E 0 35020 0 16		*	the Atlantis Guard <wielded>: a spear
+E 0 35022 0 1		*	the Atlantis Guard <on the left finger>: a ring with a pearl
+E 0 35023 0 11		*	the Atlantis Guard <as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard <as a light>: a ball of light
 G 0 35040 0		*	the Atlantis Guard: a black potion
 M 0 35009 12 35016 2	* the Atlantis Guard (Atlantis Square)
-E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
-E 0 35022 0 1		*	the Atlantis Guard<on the left finger>: a ring with a pearl
-E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
-E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+E 0 35020 0 16		*	the Atlantis Guard <wielded>: a spear
+E 0 35022 0 1		*	the Atlantis Guard <on the left finger>: a ring with a pearl
+E 0 35023 0 11		*	the Atlantis Guard <as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard <as a light>: a ball of light
 G 0 35041 0		*	the Atlantis Guard: a black potion
 M 0 35009 12 35018 2	* the Atlantis Guard (The Gate of Neptunes Palace)
-E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
-E 0 35021 0 6		*	the Atlantis Guard<over the head>: a shell helmet
-E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
-E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+E 0 35020 0 16		*	the Atlantis Guard <wielded>: a spear
+E 0 35021 0 6		*	the Atlantis Guard <over the head>: a shell helmet
+E 0 35023 0 11		*	the Atlantis Guard <as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard <as a light>: a ball of light
 G 0 35041 0		*	the Atlantis Guard: a black potion
 M 0 35009 12 35018 2	* the Atlantis Guard (The Gate of Neptunes Palace)
-E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
-E 0 35021 0 6		*	the Atlantis Guard<over the head>: a shell helmet
-E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
-E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+E 0 35020 0 16		*	the Atlantis Guard <wielded>: a spear
+E 0 35021 0 6		*	the Atlantis Guard <over the head>: a shell helmet
+E 0 35023 0 11		*	the Atlantis Guard <as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard <as a light>: a ball of light
 G 0 35042 0		*	the Atlantis Guard: a black potion
 M 0 35003 1 35020 1	* King Neptune (Neptunes Throne)
-E 0 35001 0 16		*	King Neptune<wielded>: sword Sharkbite
-E 0 35004 0 11		*	King Neptune<as a shield>: shield Seaweed
-E 0 35005 0 6		*	King Neptune<over the head>: the Ice Crown
-E 0 35006 0 8		*	King Neptune<on the feet>: leather shoes
-E 0 35007 0 17		*	King Neptune<held in the hands>: staff of lightning
-E 0 35008 0 1		*	King Neptune<on the left finger>: the Ring of Wisdom
+E 0 35001 0 16		*	King Neptune <wielded>: sword Sharkbite
+E 0 35004 0 11		*	King Neptune <as a shield>: shield Seaweed
+E 0 35005 0 6		*	King Neptune <over the head>: the Ice Crown
+E 0 35006 0 8		*	King Neptune <on the feet>: leather shoes
+E 0 35007 0 17		*	King Neptune <held in the hands>: staff of lightning
+E 0 35008 0 1		*	King Neptune <on the left finger>: the Ring of Wisdom
 M 0 35004 2 35020 2	* the Mermaid (Neptunes Throne)
-E 0 35020 0 16		*	the Mermaid<wielded>: a spear
+E 0 35020 0 16		*	the Mermaid <wielded>: a spear
 M 0 35004 2 35020 2	* the Mermaid (Neptunes Throne)
-E 0 35020 0 16		*	the Mermaid<wielded>: a spear
+E 0 35020 0 16		*	the Mermaid <wielded>: a spear
 M 0 35015 1 35021 1	* Ed the Cook (The Kitchen)
 M 0 35006 1 35022 1	* the Treasurer (The Hall)
 G 0 35002 0		*	the Treasurer: a key with a diamond jewel
 O 0 35009 0 35023	* a pile of coins (The Treasure Room)
 M 0 35014 1 35026 1	* Princess Chelly (Neptunes Bedroom)
-E 0 35026 0 3		*	Princess Chelly<around the neck>: a necklace
+E 0 35026 0 3		*	Princess Chelly <around the neck>: a necklace
 M 0 35007 1 35027 1	* the Jailer (Entrance to the Jail)
 G 0 35003 0		*	the Jailer: a black key
 M 0 35011 1 35028 1	* the Prisoner (The Cell)
 M 0 35008 1 35029 1	* the General Guard (The Guard Office)
-E 0 35025 0 16		*	the General Guard<wielded>: a spear
+E 0 35025 0 16		*	the General Guard <wielded>: a spear
 M 0 35009 12 35030 2	* the Atlantis Guard (Martinus Street)
-E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
-E 0 35022 0 1		*	the Atlantis Guard<on the left finger>: a ring with a pearl
-E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
-E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+E 0 35020 0 16		*	the Atlantis Guard <wielded>: a spear
+E 0 35022 0 1		*	the Atlantis Guard <on the left finger>: a ring with a pearl
+E 0 35023 0 11		*	the Atlantis Guard <as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard <as a light>: a ball of light
 G 0 35042 0		*	the Atlantis Guard: a black potion
 M 0 35009 12 35030 2	* the Atlantis Guard (Martinus Street)
-E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
-E 0 35022 0 1		*	the Atlantis Guard<on the left finger>: a ring with a pearl
-E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
-E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+E 0 35020 0 16		*	the Atlantis Guard <wielded>: a spear
+E 0 35022 0 1		*	the Atlantis Guard <on the left finger>: a ring with a pearl
+E 0 35023 0 11		*	the Atlantis Guard <as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard <as a light>: a ball of light
 G 0 35040 0		*	the Atlantis Guard: a black potion
 M 0 35012 1 35031 1	* Martinus (The Temple of Atlantis)
 M 0 35009 12 35032 2	* the Atlantis Guard (Martinus Street)
-E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
-E 0 35022 0 1		*	the Atlantis Guard<on the left finger>: a ring with a pearl
-E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
-E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+E 0 35020 0 16		*	the Atlantis Guard <wielded>: a spear
+E 0 35022 0 1		*	the Atlantis Guard <on the left finger>: a ring with a pearl
+E 0 35023 0 11		*	the Atlantis Guard <as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard <as a light>: a ball of light
 G 0 35040 0		*	the Atlantis Guard: a black potion
 M 0 35009 12 35032 2	* the Atlantis Guard (Martinus Street)
-E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
-E 0 35022 0 1		*	the Atlantis Guard<on the left finger>: a ring with a pearl
-E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
-E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+E 0 35020 0 16		*	the Atlantis Guard <wielded>: a spear
+E 0 35022 0 1		*	the Atlantis Guard <on the left finger>: a ring with a pearl
+E 0 35023 0 11		*	the Atlantis Guard <as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard <as a light>: a ball of light
 G 0 35041 0		*	the Atlantis Guard: a black potion
 M 0 35024 1 35035 1	* the gardener (The Palace Garden)
-E 0 35029 0 16		*	the gardener<wielded>: a pitchfork
+E 0 35029 0 16		*	the gardener <wielded>: a pitchfork
 M 0 35009 12 35036 2	* the Atlantis Guard (The Potions Shop)
-E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
-E 0 35022 0 1		*	the Atlantis Guard<on the left finger>: a ring with a pearl
-E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
-E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+E 0 35020 0 16		*	the Atlantis Guard <wielded>: a spear
+E 0 35022 0 1		*	the Atlantis Guard <on the left finger>: a ring with a pearl
+E 0 35023 0 11		*	the Atlantis Guard <as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard <as a light>: a ball of light
 G 0 35041 0		*	the Atlantis Guard: a black potion
 M 0 35009 12 35036 2	* the Atlantis Guard (The Potions Shop)
-E 0 35020 0 16		*	the Atlantis Guard<wielded>: a spear
-E 0 35022 0 1		*	the Atlantis Guard<on the left finger>: a ring with a pearl
-E 0 35023 0 11		*	the Atlantis Guard<as a shield>: a ivory shield
-E 0 35024 0 0		*	the Atlantis Guard<as a light>: a ball of light
+E 0 35020 0 16		*	the Atlantis Guard <wielded>: a spear
+E 0 35022 0 1		*	the Atlantis Guard <on the left finger>: a ring with a pearl
+E 0 35023 0 11		*	the Atlantis Guard <as a shield>: a ivory shield
+E 0 35024 0 0		*	the Atlantis Guard <as a light>: a ball of light
 G 0 35042 0		*	the Atlantis Guard: a black potion
 M 0 35016 1 35036 1	* Sage Marid (The Potions Shop)
 G 0 35012 0		*	Sage Marid: the sage Potion
@@ -2259,23 +2259,23 @@ G 0 35016 0		*	Sophia: a sandwich
 G 0 35017 0		*	Sophia: a sausage
 G 0 35018 0		*	Sophia: a bottle of beer
 M 0 35018 1 35038 1	* Bruce the Fishman (The Fish Store)
-E 0 35028 0 16		*	Bruce the Fishman<wielded>: a pocket knife
+E 0 35028 0 16		*	Bruce the Fishman <wielded>: a pocket knife
 G 0 35030 0		*	Bruce the Fishman: a fish
 M 0 35022 3 35039 1	* a native of Atlantis (A House)
-E 0 35028 0 16		*	a native of Atlantis<wielded>: a pocket knife
+E 0 35028 0 16		*	a native of Atlantis <wielded>: a pocket knife
 M 0 35022 3 35040 1	* a native of Atlantis (A House)
-E 0 35028 0 16		*	a native of Atlantis<wielded>: a pocket knife
+E 0 35028 0 16		*	a native of Atlantis <wielded>: a pocket knife
 M 0 35022 3 35041 1	* a native of Atlantis (A House)
-E 0 35028 0 16		*	a native of Atlantis<wielded>: a pocket knife
+E 0 35028 0 16		*	a native of Atlantis <wielded>: a pocket knife
 M 0 35019 1 35043 1	* Samuel the woodcutter (The edge of the Wood)
-E 0 35019 0 16		*	Samuel the woodcutter<wielded>: Samuel's axe
+E 0 35019 0 16		*	Samuel the woodcutter <wielded>: Samuel's axe
 M 0 35020 3 35044 1	* the Bat (Deep Down)
 M 0 35021 3 35044 1	* the giant horrifying rat (Deep Down)
 M 0 35020 3 35045 1	* the Bat (Deep Down)
 M 0 35021 3 35046 1	* the giant horrifying rat (Deep Down)
 M 0 35020 3 35047 1	* the Bat (Deep Down)
 M 0 35013 1 35048 1	* the Dark Dragon (Deep Down)
-E 0 35010 0 16		*	the Dark Dragon<wielded>: a black claw
+E 0 35010 0 16		*	the Dark Dragon <wielded>: a black claw
 M 0 35021 3 35050 1	* the giant horrifying rat (Deep Down)
 S
 

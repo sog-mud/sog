@@ -4683,24 +4683,24 @@ O 0 1855 0 1837	* an old well (By the Well)
 O 0 1844 0 1838	* a violet (Northern Path in the Pine Wood)
 M 0 1806 1 1839 1	* the golden unicorn (In the Pine Wood)
 M 0 1824 1 1839 1	* the blue warlock (In the Pine Wood)
-E 0 1820 0 16		*	the blue warlock<wielded>: a blue-tinted leather whip
+E 0 1820 0 16		*	the blue warlock <wielded>: a blue-tinted leather whip
 M 0 1840 14 1839 1	* a fallow deer (In the Pine Wood)
 O 0 1844 0 1839	* a violet (In the Pine Wood)
 M 0 1811 7 1840 3	* a mushroom as tall as a giant's knee (By the Twisted Pines)
 M 0 1811 7 1840 3	* a mushroom as tall as a giant's knee (By the Twisted Pines)
 M 0 1811 7 1840 3	* a mushroom as tall as a giant's knee (By the Twisted Pines)
 M 0 1823 1 1840 1	* the green warlock (By the Twisted Pines)
-E 0 1819 0 14		*	the green warlock<on the left wrist>: a green wristband
+E 0 1819 0 14		*	the green warlock <on the left wrist>: a green wristband
 M 0 1825 1 1840 1	* the indigo warlock (By the Twisted Pines)
-E 0 1821 0 5		*	the indigo warlock<on the body>: an indigo tunic
+E 0 1821 0 5		*	the indigo warlock <on the body>: an indigo tunic
 M 0 1818 1 1841 1	* the indigo witch (By a High Cracked Wall)
-E 0 1814 0 12		*	the indigo witch<about the shoulders>: an indigo robe
+E 0 1814 0 12		*	the indigo witch <about the shoulders>: an indigo robe
 M 0 1820 1 1841 1	* the red warlock (By a High Cracked Wall)
-E 0 1816 0 17		*	the red warlock<held in the hands>: an oaken staff
+E 0 1816 0 17		*	the red warlock <held in the hands>: an oaken staff
 M 0 1811 7 1842 2	* a mushroom as tall as a giant's knee (By a Corner of the High Cracked Wall)
 M 0 1811 7 1842 2	* a mushroom as tall as a giant's knee (By a Corner of the High Cracked Wall)
 M 0 1816 1 1842 1	* the green witch (By a Corner of the High Cracked Wall)
-E 0 1812 0 1		*	the green witch<on the left finger>: Ring of the Witch
+E 0 1812 0 1		*	the green witch <on the left finger>: Ring of the Witch
 M 0 1830 27 1843 1	* a grey squirrel (By the Western Wall)
 M 0 1831 10 1843 1	* a tiny butterfly (By the Western Wall)
 M 0 1839 13 1843 1	* a small white bunny (By the Western Wall)
@@ -4708,8 +4708,8 @@ M 0 1835 11 1843 1	* a goldfinch (By the Western Wall)
 M 0 1801 7 1844 1	* a white unicorn (In the Birchwood)
 M 0 1803 1 1844 1	* a black panther (In the Birchwood)
 M 0 1804 1 1844 1	* a young girl with a lovely voice (In the Birchwood)
-E 0 1824 0 3		*	a young girl with a lovely voice<around the neck>: a golden filigree pendant
-E 0 1833 0 17		*	a young girl with a lovely voice<held in the hands>: a silver harp
+E 0 1824 0 3		*	a young girl with a lovely voice <around the neck>: a golden filigree pendant
+E 0 1833 0 17		*	a young girl with a lovely voice <held in the hands>: a silver harp
 O 0 1807 0 1844	* a rope swing (In the Birchwood)
 M 0 1830 27 1844 1	* a grey squirrel (In the Birchwood)
 M 0 1835 11 1844 1	* a goldfinch (In the Birchwood)
@@ -4737,12 +4737,12 @@ M 0 1840 14 1859 1	* a fallow deer (Twin Pines)
 M 0 1834 5 1859 1	* a blue bird (Twin Pines)
 M 0 1811 7 1860 1	* a mushroom as tall as a giant's knee (By the Rotted Stumps)
 M 0 1817 1 1860 1	* the blue witch (By the Rotted Stumps)
-E 0 1813 0 3		*	the blue witch<around the neck>: a blue amulet
+E 0 1813 0 3		*	the blue witch <around the neck>: a blue amulet
 M 0 1826 1 1861 1	* the violet warlock (On Unstable Ground)
-E 0 1822 0 7		*	the violet warlock<on the legs>: a pair of tight violet leggings
+E 0 1822 0 7		*	the violet warlock <on the legs>: a pair of tight violet leggings
 M 0 1811 7 1862 1	* a mushroom as tall as a giant's knee (By the Dark Eastern Wall)
 M 0 1819 1 1862 1	* the violet witch (By the Dark Eastern Wall)
-E 0 1815 0 12		*	the violet witch<about the shoulders>: a violet robe
+E 0 1815 0 12		*	the violet witch <about the shoulders>: a violet robe
 M 0 1830 27 1863 1	* a grey squirrel (By the Western Wall)
 M 0 1831 10 1863 1	* a tiny butterfly (By the Western Wall)
 M 0 1840 14 1864 1	* a fallow deer (By the Natural Spring)
@@ -4763,25 +4763,25 @@ M 0 1830 27 1868 1	* a grey squirrel (By the Southern Wall)
 M 0 1840 14 1868 1	* a fallow deer (By the Southern Wall)
 M 0 1834 5 1868 1	* a blue bird (By the Southern Wall)
 M 0 1822 1 1869 1	* the yellow warlock (By the Bent Pine)
-E 0 1818 0 16		*	the yellow warlock<wielded>: a golden eye sword
+E 0 1818 0 16		*	the yellow warlock <wielded>: a golden eye sword
 M 0 1830 27 1869 1	* a grey squirrel (By the Bent Pine)
 M 0 1840 14 1869 1	* a fallow deer (By the Bent Pine)
 M 0 1821 1 1871 1	* the orange warlock (By the Blackened Wall)
-E 0 1817 0 8		*	the orange warlock<on the feet>: a pair of orange boots
-E 0 1808 0 16		*	the orange warlock<wielded>: an ivory mace
+E 0 1817 0 8		*	the orange warlock <on the feet>: a pair of orange boots
+E 0 1808 0 16		*	the orange warlock <wielded>: an ivory mace
 M 0 1813 1 1872 1	* the red witch (Southeast Corner)
-E 0 1809 0 13		*	the red witch<around the waist>: a red belt
+E 0 1809 0 13		*	the red witch <around the waist>: a red belt
 M 0 1814 1 1872 1	* the orange witch (Southeast Corner)
-E 0 1810 0 12		*	the orange witch<about the shoulders>: an orange robe
+E 0 1810 0 12		*	the orange witch <about the shoulders>: an orange robe
 M 0 1815 1 1872 1	* the yellow witch (Southeast Corner)
-E 0 1811 0 16		*	the yellow witch<wielded>: a golden eye dagger
+E 0 1811 0 16		*	the yellow witch <wielded>: a golden eye dagger
 M 0 1802 7 1873 1	* a white unicorn (Southwestern Corner)
 M 0 1809 1 1873 1	* the chromatic unicorn (Southwestern Corner)
 M 0 1839 13 1873 1	* a small white bunny (Southwestern Corner)
 O 0 1852 0 1880	* a huge black pot (The Kitchen)
 P 0 1853 20 0 20	* a huge black pot: a bowl of rabbit stew
 M 0 1838 1 1881 1	* the black warlock (In a Bedroom)
-E 0 1851 0 12		*	the black warlock<about the shoulders>: the Robe of the Warlock
+E 0 1851 0 12		*	the black warlock <about the shoulders>: the Robe of the Warlock
 O 0 1854 0 1882	* a silver faucet (The Laboratory)
 M 0 1827 1 1890 1	* the ranger shopkeeper (Ranger Stop 'N' Shop)
 G 0 1805 0		*	the ranger shopkeeper: a wafer
@@ -4791,10 +4791,10 @@ G 0 1803 0		*	the ranger shopkeeper: a ranger's backpack
 G 0 1804 0		*	the ranger shopkeeper: a first aid kit
 G 0 1899 0		*	the ranger shopkeeper: Elven quiver
 M 0 1828 1 1891 1	* the ranger guildmaster (Ranger Training Room)
-E 0 1860 0 7		*	the ranger guildmaster<on the legs>: a pair of camouflage leggings
-E 0 1861 0 5		*	the ranger guildmaster<on the body>: a camouflage jacket
-E 0 1862 0 8		*	the ranger guildmaster<on the feet>: a pair of camouflage boots
-E 0 1863 0 6		*	the ranger guildmaster<over the head>: a camouflage cap
+E 0 1860 0 7		*	the ranger guildmaster <on the legs>: a pair of camouflage leggings
+E 0 1861 0 5		*	the ranger guildmaster <on the body>: a camouflage jacket
+E 0 1862 0 8		*	the ranger guildmaster <on the feet>: a pair of camouflage boots
+E 0 1863 0 6		*	the ranger guildmaster <over the head>: a camouflage cap
 M 0 1836 5 1892 1	* a red-eyed vireo (North of the Wall)
 M 0 1833 6 1893 1	* a bluebird (Winding Path)
 M 0 1832 11 1894 1	* a small cardinal (Winding Path)

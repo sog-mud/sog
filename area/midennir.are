@@ -1864,48 +1864,48 @@ S
 
 #RESETS
 M 0 3501 10 3506 2	* the goblin (The Miden'nir)
-E 0 3500 0 16		*	the goblin<wielded>: a goblin's short sword
-E 0 3074 0 7		*	the goblin<on the legs>: a long scale mail skirt
+E 0 3500 0 16		*	the goblin <wielded>: a goblin's short sword
+E 0 3074 0 7		*	the goblin <on the legs>: a long scale mail skirt
 M 0 3501 10 3509 2	* the goblin (The Miden'nir)
-E 0 3500 0 16		*	the goblin<wielded>: a goblin's short sword
-E 0 3072 0 5		*	the goblin<on the body>: a scale mail jerkin
+E 0 3500 0 16		*	the goblin <wielded>: a goblin's short sword
+E 0 3072 0 5		*	the goblin <on the body>: a scale mail jerkin
 M 0 3501 8 3512 2	* the goblin (The Miden'nir)
-E 0 3500 0 16		*	the goblin<wielded>: a goblin's short sword
-E 0 3045 0 5		*	the goblin<on the body>: a scale mail jacket
+E 0 3500 0 16		*	the goblin <wielded>: a goblin's short sword
+E 0 3045 0 5		*	the goblin <on the body>: a scale mail jacket
 M 0 3501 10 3512 2	* the goblin (The Miden'nir)
-E 0 3500 0 16		*	the goblin<wielded>: a goblin's short sword
-E 0 3502 0 6		*	the goblin<over the head>: a black horned helmet
-E 0 3075 0 8		*	the goblin<on the feet>: a pair of reinforced boots
+E 0 3500 0 16		*	the goblin <wielded>: a goblin's short sword
+E 0 3502 0 6		*	the goblin <over the head>: a black horned helmet
+E 0 3075 0 8		*	the goblin <on the feet>: a pair of reinforced boots
 M 0 3501 10 3513 2	* the goblin (The Miden'nir)
-E 0 3500 0 16		*	the goblin<wielded>: a goblin's short sword
-E 0 3077 0 10		*	the goblin<on the arms>: a pair of scale mail sleeves
+E 0 3500 0 16		*	the goblin <wielded>: a goblin's short sword
+E 0 3077 0 10		*	the goblin <on the arms>: a pair of scale mail sleeves
 M 0 3500 2 3521 2	* the wyvern (Carnage)
 M 0 3500 2 3521 2	* the wyvern (Carnage)
 M 0 3506 4 3551 2	* the goblin lieutenant (The Deep in the Forest of Miden'nir)
-E 0 3502 0 6		*	the goblin lieutenant<over the head>: a black horned helmet
-E 0 3500 0 16		*	the goblin lieutenant<wielded>: a goblin's short sword
-E 0 3072 0 5		*	the goblin lieutenant<on the body>: a scale mail jerkin
+E 0 3502 0 6		*	the goblin lieutenant <over the head>: a black horned helmet
+E 0 3500 0 16		*	the goblin lieutenant <wielded>: a goblin's short sword
+E 0 3072 0 5		*	the goblin lieutenant <on the body>: a scale mail jerkin
 M 0 3501 10 3556 2	* the goblin (The Goblin Headquarters)
-E 0 3500 0 16		*	the goblin<wielded>: a goblin's short sword
-E 0 3076 0 9		*	the goblin<on the hands>: a pair of reinforced gloves
+E 0 3500 0 16		*	the goblin <wielded>: a goblin's short sword
+E 0 3076 0 9		*	the goblin <on the hands>: a pair of reinforced gloves
 M 0 3506 4 3556 2	* the goblin lieutenant (The Goblin Headquarters)
-E 0 3500 0 16		*	the goblin lieutenant<wielded>: a goblin's short sword
-E 0 3502 0 6		*	the goblin lieutenant<over the head>: a black horned helmet
-E 0 3072 0 5		*	the goblin lieutenant<on the body>: a scale mail jerkin
+E 0 3500 0 16		*	the goblin lieutenant <wielded>: a goblin's short sword
+E 0 3502 0 6		*	the goblin lieutenant <over the head>: a black horned helmet
+E 0 3072 0 5		*	the goblin lieutenant <on the body>: a scale mail jerkin
 M 0 3507 1 3556 1	* the goblin leader (The Goblin Headquarters)
-E 0 3072 0 5		*	the goblin leader<on the body>: a scale mail jerkin
-E 0 3501 0 16		*	the goblin leader<wielded>: a long spear
-E 0 3502 0 6		*	the goblin leader<over the head>: a black horned helmet
+E 0 3072 0 5		*	the goblin leader <on the body>: a scale mail jerkin
+E 0 3501 0 16		*	the goblin leader <wielded>: a long spear
+E 0 3502 0 6		*	the goblin leader <over the head>: a black horned helmet
 M 0 3502 1 3575 1	* the small boy (The Ambush Point)
 M 0 3503 1 3576 1	* the Innkeeper (The Bar)
 M 0 3504 1 3577 1	* the bard (The Bard's Table)
-E 0 3505 0 16		*	the bard<wielded>: a rune-covered knife
+E 0 3505 0 16		*	the bard <wielded>: a rune-covered knife
 M 0 3505 4 3583 2	* the dark horseman (On the Trail of the Horsemen)
-E 0 3503 0 3		*	the dark horseman<around the neck>: a stained travelling cloak
-E 0 3022 0 16		*	the dark horseman<wielded>: a long sword
+E 0 3503 0 3		*	the dark horseman <around the neck>: a stained travelling cloak
+E 0 3022 0 16		*	the dark horseman <wielded>: a long sword
 M 0 3505 4 3584 2	* the dark horseman (A Dead End Trail)
-E 0 3504 0 14		*	the dark horseman<on the left wrist>: an enchanted leather bracer
-E 0 3022 0 16		*	the dark horseman<wielded>: a long sword
+E 0 3504 0 14		*	the dark horseman <on the left wrist>: an enchanted leather bracer
+E 0 3022 0 16		*	the dark horseman <wielded>: a long sword
 S
 
 #$

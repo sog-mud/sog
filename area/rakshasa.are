@@ -1936,78 +1936,78 @@ S
 
 #RESETS
 M 0 13902 10 13902 2	* a brown rakshasa (Guard Post Outside the Tower)
-E 0 13904 0 8		*	a brown rakshasa<on the feet>: a pair of brown rakshasa claws
+E 0 13904 0 8		*	a brown rakshasa <on the feet>: a pair of brown rakshasa claws
 M 0 13902 10 13902 2	* a brown rakshasa (Guard Post Outside the Tower)
-E 0 13904 0 8		*	a brown rakshasa<on the feet>: a pair of brown rakshasa claws
+E 0 13904 0 8		*	a brown rakshasa <on the feet>: a pair of brown rakshasa claws
 M 0 13902 10 13904 2	* a brown rakshasa (Guard Post Outside the Tower)
-E 0 13904 0 8		*	a brown rakshasa<on the feet>: a pair of brown rakshasa claws
+E 0 13904 0 8		*	a brown rakshasa <on the feet>: a pair of brown rakshasa claws
 M 0 13902 10 13904 2	* a brown rakshasa (Guard Post Outside the Tower)
-E 0 13904 0 8		*	a brown rakshasa<on the feet>: a pair of brown rakshasa claws
+E 0 13904 0 8		*	a brown rakshasa <on the feet>: a pair of brown rakshasa claws
 M 0 13902 10 13905 1	* a brown rakshasa (A Corridor in the Tower)
-E 0 13904 0 8		*	a brown rakshasa<on the feet>: a pair of brown rakshasa claws
+E 0 13904 0 8		*	a brown rakshasa <on the feet>: a pair of brown rakshasa claws
 M 0 13902 10 13906 1	* a brown rakshasa (Inside the Tower)
-E 0 13904 0 8		*	a brown rakshasa<on the feet>: a pair of brown rakshasa claws
+E 0 13904 0 8		*	a brown rakshasa <on the feet>: a pair of brown rakshasa claws
 M 0 13902 10 13908 1	* a brown rakshasa (Inside the Tower)
-E 0 13904 0 8		*	a brown rakshasa<on the feet>: a pair of brown rakshasa claws
+E 0 13904 0 8		*	a brown rakshasa <on the feet>: a pair of brown rakshasa claws
 M 0 13901 12 13910 1	* a red rakshasa (Barracks)
-E 0 13903 0 9		*	a red rakshasa<on the hands>: the claws of a red rakshasa
+E 0 13903 0 9		*	a red rakshasa <on the hands>: the claws of a red rakshasa
 M 0 13901 12 13911 1	* a red rakshasa (Barracks)
-E 0 13903 0 9		*	a red rakshasa<on the hands>: the claws of a red rakshasa
+E 0 13903 0 9		*	a red rakshasa <on the hands>: the claws of a red rakshasa
 M 0 13901 12 13912 1	* a red rakshasa (A Corridor in the Tower)
-E 0 13903 0 9		*	a red rakshasa<on the hands>: the claws of a red rakshasa
+E 0 13903 0 9		*	a red rakshasa <on the hands>: the claws of a red rakshasa
 M 0 13902 10 13912 1	* a brown rakshasa (A Corridor in the Tower)
-E 0 13904 0 8		*	a brown rakshasa<on the feet>: a pair of brown rakshasa claws
+E 0 13904 0 8		*	a brown rakshasa <on the feet>: a pair of brown rakshasa claws
 M 0 13902 10 13917 1	* a brown rakshasa (A Corridor in the Tower)
-E 0 13904 0 8		*	a brown rakshasa<on the feet>: a pair of brown rakshasa claws
+E 0 13904 0 8		*	a brown rakshasa <on the feet>: a pair of brown rakshasa claws
 M 0 13901 12 13920 1	* a red rakshasa (Barracks)
-E 0 13903 0 9		*	a red rakshasa<on the hands>: the claws of a red rakshasa
+E 0 13903 0 9		*	a red rakshasa <on the hands>: the claws of a red rakshasa
 M 0 13905 1 13921 1	* a two-headed rakshasa (Officer's Quarters)
-E 0 13912 0 3		*	a two-headed rakshasa<around the neck>: a blood-soaked collar
+E 0 13912 0 3		*	a two-headed rakshasa <around the neck>: a blood-soaked collar
 M 0 13901 12 13923 1	* a red rakshasa (Corridor in the Barracks)
-E 0 13903 0 9		*	a red rakshasa<on the hands>: the claws of a red rakshasa
+E 0 13903 0 9		*	a red rakshasa <on the hands>: the claws of a red rakshasa
 M 0 13903 1 13927 1	* the lich rakshasa (Atop the Tower of Carrion)
-E 0 13907 0 5		*	the lich rakshasa<on the body>: a coat of black rakshasa fur
-E 0 13905 0 17		*	the lich rakshasa<held in the hands>: a sceptre of gold
+E 0 13907 0 5		*	the lich rakshasa <on the body>: a coat of black rakshasa fur
+E 0 13905 0 17		*	the lich rakshasa <held in the hands>: a sceptre of gold
 M 0 13906 2 13927 2	* the zombie of a dark-elven warrior (Atop the Tower of Carrion)
 M 0 13906 2 13927 2	* the zombie of a dark-elven warrior (Atop the Tower of Carrion)
 M 0 13902 10 13930 1	* a brown rakshasa (A Corridor in the Tower)
-E 0 13904 0 8		*	a brown rakshasa<on the feet>: a pair of brown rakshasa claws
+E 0 13904 0 8		*	a brown rakshasa <on the feet>: a pair of brown rakshasa claws
 M 0 13901 12 13931 1	* a red rakshasa (Corridor in the Barracks)
-E 0 13903 0 9		*	a red rakshasa<on the hands>: the claws of a red rakshasa
+E 0 13903 0 9		*	a red rakshasa <on the hands>: the claws of a red rakshasa
 M 0 13901 12 13933 1	* a red rakshasa (Officer's Quarters)
-E 0 13903 0 9		*	a red rakshasa<on the hands>: the claws of a red rakshasa
+E 0 13903 0 9		*	a red rakshasa <on the hands>: the claws of a red rakshasa
 M 0 13901 12 13937 1	* a red rakshasa (A Corridor in the Tower)
-E 0 13903 0 9		*	a red rakshasa<on the hands>: the claws of a red rakshasa
+E 0 13903 0 9		*	a red rakshasa <on the hands>: the claws of a red rakshasa
 M 0 13901 12 13939 1	* a red rakshasa (Inside the Lich Temple)
-E 0 13903 0 9		*	a red rakshasa<on the hands>: the claws of a red rakshasa
+E 0 13903 0 9		*	a red rakshasa <on the hands>: the claws of a red rakshasa
 M 0 13901 12 13942 1	* a red rakshasa (A Corridor in the Tower)
-E 0 13903 0 9		*	a red rakshasa<on the hands>: the claws of a red rakshasa
+E 0 13903 0 9		*	a red rakshasa <on the hands>: the claws of a red rakshasa
 M 0 13901 12 13944 1	* a red rakshasa (Barracks)
-E 0 13903 0 9		*	a red rakshasa<on the hands>: the claws of a red rakshasa
+E 0 13903 0 9		*	a red rakshasa <on the hands>: the claws of a red rakshasa
 M 0 13900 5 13948 1	* a black rakshasa (A Corridor in the Tower)
-E 0 13902 0 16		*	a black rakshasa<wielded>: claws of a black rakshasa
+E 0 13902 0 16		*	a black rakshasa <wielded>: claws of a black rakshasa
 M 0 13901 12 13949 1	* a red rakshasa (A Corridor in the Tower)
-E 0 13903 0 9		*	a red rakshasa<on the hands>: the claws of a red rakshasa
+E 0 13903 0 9		*	a red rakshasa <on the hands>: the claws of a red rakshasa
 M 0 13900 5 13951 1	* a black rakshasa (Before the Throne room)
-E 0 13902 0 16		*	a black rakshasa<wielded>: claws of a black rakshasa
+E 0 13902 0 16		*	a black rakshasa <wielded>: claws of a black rakshasa
 M 0 13900 5 13953 1	* a black rakshasa (Entrance of the Throne Room)
-E 0 13902 0 16		*	a black rakshasa<wielded>: claws of a black rakshasa
+E 0 13902 0 16		*	a black rakshasa <wielded>: claws of a black rakshasa
 M 0 13904 1 13956 1	* Daedalus, the rakshasa prince (Prince's Chambers)
-E 0 13908 0 16		*	Daedalus, the rakshasa prince<wielded>: a dual-bladed axe named 'Beholderkin Slayer'
+E 0 13908 0 16		*	Daedalus, the rakshasa prince <wielded>: a dual-bladed axe named 'Beholderkin Slayer'
 G 0 13900 0		*	Daedalus, the rakshasa prince: a red tinted seal
-E 0 13920 0 11		*	Daedalus, the rakshasa prince<as a shield>: an emblem of rakshasa pride
-E 0 13914 0 1		*	Daedalus, the rakshasa prince<on the left finger>: a royal rakshasa signet ring
+E 0 13920 0 11		*	Daedalus, the rakshasa prince <as a shield>: an emblem of rakshasa pride
+E 0 13914 0 1		*	Daedalus, the rakshasa prince <on the left finger>: a royal rakshasa signet ring
 M 0 13900 5 13957 1	* a black rakshasa (West Alcove of the Throne Room)
-E 0 13902 0 16		*	a black rakshasa<wielded>: claws of a black rakshasa
+E 0 13902 0 16		*	a black rakshasa <wielded>: claws of a black rakshasa
 M 0 13900 5 13959 1	* a black rakshasa (West Alcove of the Throne Room)
-E 0 13902 0 16		*	a black rakshasa<wielded>: claws of a black rakshasa
+E 0 13902 0 16		*	a black rakshasa <wielded>: claws of a black rakshasa
 M 0 13908 1 13961 1	* a massive tiger (King's Treasure Chamber)
-E 0 13921 0 16		*	a massive tiger<wielded>: the claw of a massive tiger
+E 0 13921 0 16		*	a massive tiger <wielded>: the claw of a massive tiger
 M 0 13907 1 13962 1	* the rakshasa king (Before the King's Throne)
-E 0 13913 0 17		*	the rakshasa king<held in the hands>: a red ioun stone
-E 0 13916 0 6		*	the rakshasa king<over the head>: a crown of gold
-E 0 13914 0 1		*	the rakshasa king<on the left finger>: a royal rakshasa signet ring
-E 0 13917 0 3		*	the rakshasa king<around the neck>: a diamond studded necklace
+E 0 13913 0 17		*	the rakshasa king <held in the hands>: a red ioun stone
+E 0 13916 0 6		*	the rakshasa king <over the head>: a crown of gold
+E 0 13914 0 1		*	the rakshasa king <on the left finger>: a royal rakshasa signet ring
+E 0 13917 0 3		*	the rakshasa king <around the neck>: a diamond studded necklace
 S
 
 #OLIMITS

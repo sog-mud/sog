@@ -3681,26 +3681,26 @@ M 0 8100 2 8135 1	* a spectre (A Ruined House)
 M 0 8100 2 8136 1	* a spectre (A Ruined House)
 M 0 8112 8 8137 1	* an undead monster (An Intersection)
 M 0 8130 1 8139 1	* a cambion scout (A Junction)
-E 0 8103 0 16		*	a cambion scout<wielded>: the Sword of Kas
-E 0 8117 0 17		*	a cambion scout<held in the hands>: an Unholy Symbol
+E 0 8103 0 16		*	a cambion scout <wielded>: the Sword of Kas
+E 0 8117 0 17		*	a cambion scout <held in the hands>: an Unholy Symbol
 M 0 8128 3 8140 1	* a nightmare (Outside the Mayor's House)
 M 0 8128 3 8142 1	* a nightmare (A Room in the Mayor's Manse)
 M 0 8128 3 8143 1	* a nightmare (A Room in the Mayor's Manse)
 M 0 8129 1 8143 1	* a retriever (A Room in the Mayor's Manse)
 M 0 8127 1 8145 1	* a death knight (A Room in the Mayor's Manse)
-E 0 8112 0 16		*	a death knight<wielded>: (Diabolical) a Dark Sword
-E 0 8113 0 5		*	a death knight<on the body>: a Suit of Dark Armor
-E 0 8114 0 6		*	a death knight<over the head>: a Dark Helm
+E 0 8112 0 16		*	a death knight <wielded>: (Diabolical) a Dark Sword
+E 0 8113 0 5		*	a death knight <on the body>: a Suit of Dark Armor
+E 0 8114 0 6		*	a death knight <over the head>: a Dark Helm
 M 0 8115 1 8145 1	* a lurker above (A Room in the Mayor's Manse)
 M 0 8115 1 8146 1	* a lurker above (A Room in the Mayor's Manse)
 M 0 8115 1 8147 1	* a lurker above (The Stairway)
 M 0 8109 1 8150 1	* a crypt thing (A Room in the Mayor's Manse)
-E 0 8104 0 6		*	a crypt thing<over the head>: a circlet
+E 0 8104 0 6		*	a crypt thing <over the head>: a circlet
 M 0 8110 1 8151 1	* a greater demon (A Room in the Mayor's Manse)
 M 0 8119 1 8152 1	* the master (The Mayor's Study)
-E 0 8107 0 12		*	the master<about the shoulders>: robes of Flesh
-E 0 8108 0 16		*	the master<wielded>: a Rod of Bone
-E 0 8110 0 17		*	the master<held in the hands>: a Power Gem
+E 0 8107 0 12		*	the master <about the shoulders>: robes of Flesh
+E 0 8108 0 16		*	the master <wielded>: a Rod of Bone
+E 0 8110 0 17		*	the master <held in the hands>: a Power Gem
 G 0 8120 0		*	the master: a key
 M 0 8116 1 8153 1	* a succubus (A Bedroom)
 O 0 8115 0 8153	* a jar (A Bedroom)
@@ -3708,25 +3708,25 @@ P 0 8116 10 0 1	* a jar: some poison
 O 0 8106 0 8153	* a chest (A Bedroom)
 P 0 8105 10 0 1	* a chest: a treasure hoard
 M 0 8105 1 8154 1	* a lich (A Bedroom)
-E 0 8101 0 9		*	a lich<on the hands>: the Hand of Vecna
-E 0 8102 0 6		*	a lich<over the head>: the Eye of Vecna
+E 0 8101 0 9		*	a lich <on the hands>: the Hand of Vecna
+E 0 8102 0 6		*	a lich <over the head>: the Eye of Vecna
 M 0 8103 6 8155 1	* a ghost (A Murky Mist)
 M 0 8103 6 8156 1	* a ghost (A Murky Mist)
 M 0 8131 1 8158 1	* Orcus (Temporary Residence of a Demon)
-E 0 8100 0 17		*	Orcus<held in the hands>: the Rod of Orcus
+E 0 8100 0 17		*	Orcus <held in the hands>: the Rod of Orcus
 M 0 8103 6 8159 1	* a ghost (A Murky Mist)
 M 0 8103 6 8164 1	* a ghost (A Murky Mist)
 M 0 8133 2 8166 1	* a giant spider (Inside The Crypt)
 M 0 8123 2 8166 1	* green slime (Inside The Crypt)
 M 0 8123 2 8167 1	* green slime (The Crypt Proper)
 M 0 8104 2 8168 1	* a vampire (A Room In the Crypt)
-E 0 8111 0 12		*	a vampire<about the shoulders>: a black cloak
+E 0 8111 0 12		*	a vampire <about the shoulders>: a black cloak
 G 0 8121 0		*	a vampire: a jar of human blood
 M 0 8104 2 8169 1	* a vampire (A Room In the Crypt)
 G 0 8121 0		*	a vampire: a jar of human blood
-E 0 8111 0 12		*	a vampire<about the shoulders>: a black cloak
+E 0 8111 0 12		*	a vampire <about the shoulders>: a black cloak
 M 0 8134 1 8170 1	* a baron vampire (A Room In the Crypt)
-E 0 8111 0 12		*	a baron vampire<about the shoulders>: a black cloak
+E 0 8111 0 12		*	a baron vampire <about the shoulders>: a black cloak
 G 0 8121 0		*	a baron vampire: a jar of human blood
 M 0 8117 1 8174 1	* Xantharus (A Bolthole)
 G 0 8118 0		*	Xantharus: a holy Symbol

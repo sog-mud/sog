@@ -5727,41 +5727,41 @@ S
 
 #RESETS
 M 0 13702 8 13703 1	* a knight of Myth Drannor (In the ruins of the southern wall)
-E 0 13705 0 5		*	a knight of Myth Drannor<on the body>: a suit of field plate
-E 0 13706 0 9		*	a knight of Myth Drannor<on the hands>: a pair of leather gauntlets
-E 0 13704 0 16		*	a knight of Myth Drannor<wielded>: a smooth-bladed longsword
+E 0 13705 0 5		*	a knight of Myth Drannor <on the body>: a suit of field plate
+E 0 13706 0 9		*	a knight of Myth Drannor <on the hands>: a pair of leather gauntlets
+E 0 13704 0 16		*	a knight of Myth Drannor <wielded>: a smooth-bladed longsword
 M 0 13702 8 13706 1	* a knight of Myth Drannor (In the ruins of the eastern wall)
-E 0 13705 0 5		*	a knight of Myth Drannor<on the body>: a suit of field plate
-E 0 13706 0 9		*	a knight of Myth Drannor<on the hands>: a pair of leather gauntlets
-E 0 13704 0 16		*	a knight of Myth Drannor<wielded>: a smooth-bladed longsword
+E 0 13705 0 5		*	a knight of Myth Drannor <on the body>: a suit of field plate
+E 0 13706 0 9		*	a knight of Myth Drannor <on the hands>: a pair of leather gauntlets
+E 0 13704 0 16		*	a knight of Myth Drannor <wielded>: a smooth-bladed longsword
 O 0 13741 0 13707	* a broken axe (In the ruins of the eastern wall)
 M 0 13702 8 13709 1	* a knight of Myth Drannor (In the northeastern corner wall)
-E 0 13705 0 5		*	a knight of Myth Drannor<on the body>: a suit of field plate
-E 0 13706 0 9		*	a knight of Myth Drannor<on the hands>: a pair of leather gauntlets
-E 0 13704 0 16		*	a knight of Myth Drannor<wielded>: a smooth-bladed longsword
+E 0 13705 0 5		*	a knight of Myth Drannor <on the body>: a suit of field plate
+E 0 13706 0 9		*	a knight of Myth Drannor <on the hands>: a pair of leather gauntlets
+E 0 13704 0 16		*	a knight of Myth Drannor <wielded>: a smooth-bladed longsword
 M 0 13702 8 13713 1	* a knight of Myth Drannor (In the ruins of the northern wall)
-E 0 13705 0 5		*	a knight of Myth Drannor<on the body>: a suit of field plate
-E 0 13704 0 16		*	a knight of Myth Drannor<wielded>: a smooth-bladed longsword
-E 0 13706 0 9		*	a knight of Myth Drannor<on the hands>: a pair of leather gauntlets
+E 0 13705 0 5		*	a knight of Myth Drannor <on the body>: a suit of field plate
+E 0 13704 0 16		*	a knight of Myth Drannor <wielded>: a smooth-bladed longsword
+E 0 13706 0 9		*	a knight of Myth Drannor <on the hands>: a pair of leather gauntlets
 O 0 13740 0 13716	* a rusty sword (In the ruins of the western wall)
 M 0 13702 8 13717 1	* a knight of Myth Drannor (In the ruins of the western wall)
-E 0 13705 0 5		*	a knight of Myth Drannor<on the body>: a suit of field plate
-E 0 13704 0 16		*	a knight of Myth Drannor<wielded>: a smooth-bladed longsword
-E 0 13706 0 9		*	a knight of Myth Drannor<on the hands>: a pair of leather gauntlets
+E 0 13705 0 5		*	a knight of Myth Drannor <on the body>: a suit of field plate
+E 0 13704 0 16		*	a knight of Myth Drannor <wielded>: a smooth-bladed longsword
+E 0 13706 0 9		*	a knight of Myth Drannor <on the hands>: a pair of leather gauntlets
 O 0 13740 0 13720	* a rusty sword (In the ruins of the western wall)
 M 0 13702 8 13721 1	* a knight of Myth Drannor (In the southwest corner)
-E 0 13718 0 16		*	a knight of Myth Drannor<wielded>: a shiny steel mace
-E 0 13705 0 5		*	a knight of Myth Drannor<on the body>: a suit of field plate
-E 0 13706 0 9		*	a knight of Myth Drannor<on the hands>: a pair of leather gauntlets
+E 0 13718 0 16		*	a knight of Myth Drannor <wielded>: a shiny steel mace
+E 0 13705 0 5		*	a knight of Myth Drannor <on the body>: a suit of field plate
+E 0 13706 0 9		*	a knight of Myth Drannor <on the hands>: a pair of leather gauntlets
 O 0 13742 0 13726	* a rusty set of armor (On the remains of the battlement walls)
 M 0 13702 8 13726 1	* a knight of Myth Drannor (On the remains of the battlement walls)
-E 0 13718 0 16		*	a knight of Myth Drannor<wielded>: a shiny steel mace
-E 0 13705 0 5		*	a knight of Myth Drannor<on the body>: a suit of field plate
-E 0 13706 0 9		*	a knight of Myth Drannor<on the hands>: a pair of leather gauntlets
+E 0 13718 0 16		*	a knight of Myth Drannor <wielded>: a shiny steel mace
+E 0 13705 0 5		*	a knight of Myth Drannor <on the body>: a suit of field plate
+E 0 13706 0 9		*	a knight of Myth Drannor <on the hands>: a pair of leather gauntlets
 M 0 13702 8 13731 1	* a knight of Myth Drannor (On the remains of the battlement walls)
-E 0 13718 0 16		*	a knight of Myth Drannor<wielded>: a shiny steel mace
-E 0 13705 0 5		*	a knight of Myth Drannor<on the body>: a suit of field plate
-E 0 13706 0 9		*	a knight of Myth Drannor<on the hands>: a pair of leather gauntlets
+E 0 13718 0 16		*	a knight of Myth Drannor <wielded>: a shiny steel mace
+E 0 13705 0 5		*	a knight of Myth Drannor <on the body>: a suit of field plate
+E 0 13706 0 9		*	a knight of Myth Drannor <on the hands>: a pair of leather gauntlets
 M 0 13700 12 13733 1	* a spirit of Myth Drannor (On the remains of the battlement walls)
 O 0 13745 0 13738	* a skeleton (Swampy grounds amidst the ruins)
 M 0 13704 12 13738 1	* a man-eater trap (Swampy grounds amidst the ruins)
@@ -5770,8 +5770,8 @@ M 0 13700 12 13739 1	* a spirit of Myth Drannor (Swampy grounds amidst the ruins
 O 0 13740 0 13740	* a rusty sword (Swampy grounds amidst the ruins)
 M 0 13704 12 13741 1	* a man-eater trap (Swampy grounds amidst the ruins)
 M 0 13708 8 13741 1	* a lizardman (Swampy grounds amidst the ruins)
-E 0 13702 0 11		*	a lizardman<as a shield>: a large iron shield
-E 0 13703 0 5		*	a lizardman<on the body>: chainmail armor
+E 0 13702 0 11		*	a lizardman <as a shield>: a large iron shield
+E 0 13703 0 5		*	a lizardman <on the body>: chainmail armor
 M 0 13701 3 13742 1	* a horned cacodaemon (Swampy grounds amidst the ruins)
 M 0 13704 12 13742 1	* a man-eater trap (Swampy grounds amidst the ruins)
 O 0 13741 0 13743	* a broken axe (Swampy grounds amidst the ruins)
@@ -5784,17 +5784,17 @@ O 0 13745 0 13749	* a skeleton (Swampy grounds amidst the ruins)
 M 0 13700 12 13749 1	* a spirit of Myth Drannor (Swampy grounds amidst the ruins)
 M 0 13704 12 13749 1	* a man-eater trap (Swampy grounds amidst the ruins)
 M 0 13708 8 13749 1	* a lizardman (Swampy grounds amidst the ruins)
-E 0 13700 0 16		*	a lizardman<wielded>: a rusty spear
-E 0 13702 0 11		*	a lizardman<as a shield>: a large iron shield
-E 0 13703 0 5		*	a lizardman<on the body>: chainmail armor
+E 0 13700 0 16		*	a lizardman <wielded>: a rusty spear
+E 0 13702 0 11		*	a lizardman <as a shield>: a large iron shield
+E 0 13703 0 5		*	a lizardman <on the body>: chainmail armor
 M 0 13704 12 13751 1	* a man-eater trap (Swampy grounds amidst the ruins)
 M 0 13709 9 13752 1	* a shadow demon (Swampy grounds amidst the ruins)
 M 0 13700 12 13753 1	* a spirit of Myth Drannor (Swampy grounds amidst the ruins)
 M 0 13709 9 13754 1	* a shadow demon (Swampy grounds amidst the ruins)
 O 0 13741 0 13755	* a broken axe (Swampy grounds amidst the ruins)
 M 0 13708 8 13755 1	* a lizardman (Swampy grounds amidst the ruins)
-E 0 13701 0 16		*	a lizardman<wielded>: a rusty scimitar
-E 0 13702 0 11		*	a lizardman<as a shield>: a large iron shield
+E 0 13701 0 16		*	a lizardman <wielded>: a rusty scimitar
+E 0 13702 0 11		*	a lizardman <as a shield>: a large iron shield
 O 0 13740 0 13756	* a rusty sword (Swampy grounds amidst the ruins)
 O 0 13742 0 13756	* a rusty set of armor (Swampy grounds amidst the ruins)
 M 0 13704 12 13757 1	* a man-eater trap (Swampy grounds amidst the ruins)
@@ -5803,32 +5803,32 @@ O 0 13742 0 13762	* a rusty set of armor (Walking through the rubbled ruins)
 M 0 13703 1 13763 1	* a drow marauder (Walking through the rubbled ruins)
 M 0 13709 9 13763 1	* a shadow demon (Walking through the rubbled ruins)
 M 0 13711 1 13766 1	* a golem of blue stone (Before a tower of Blue tinged stone)
-E 0 13709 0 1		*	a golem of blue stone<on the left finger>: a ring of blue stained quartz
+E 0 13709 0 1		*	a golem of blue stone <on the left finger>: a ring of blue stained quartz
 M 0 13712 1 13767 1	* a golem of green stone (Before a tower of Green tinged stone)
-E 0 13708 0 1		*	a golem of green stone<on the left finger>: a ring of green stained quartz
+E 0 13708 0 1		*	a golem of green stone <on the left finger>: a ring of green stained quartz
 M 0 13706 1 13768 1	* a golem of red stone (Before a tower of Red tinged stone)
-E 0 13707 0 1		*	a golem of red stone<on the left finger>: a ring of red stained quartz
+E 0 13707 0 1		*	a golem of red stone <on the left finger>: a ring of red stained quartz
 M 0 13704 12 13770 1	* a man-eater trap (On a swampy part of the ruins)
 M 0 13709 9 13770 1	* a shadow demon (On a swampy part of the ruins)
 M 0 13708 8 13771 1	* a lizardman (On a swampy part of the ruins)
-E 0 13700 0 16		*	a lizardman<wielded>: a rusty spear
-E 0 13702 0 11		*	a lizardman<as a shield>: a large iron shield
+E 0 13700 0 16		*	a lizardman <wielded>: a rusty spear
+E 0 13702 0 11		*	a lizardman <as a shield>: a large iron shield
 M 0 13704 12 13772 1	* a man-eater trap (On a swampy part of the ruins)
 M 0 13708 8 13773 1	* a lizardman (On a swampy part of the ruins)
-E 0 13702 0 11		*	a lizardman<as a shield>: a large iron shield
-E 0 13703 0 5		*	a lizardman<on the body>: chainmail armor
+E 0 13702 0 11		*	a lizardman <as a shield>: a large iron shield
+E 0 13703 0 5		*	a lizardman <on the body>: chainmail armor
 M 0 13704 12 13774 1	* a man-eater trap (On a swampy part of the ruins)
 M 0 13708 8 13774 1	* a lizardman (On a swampy part of the ruins)
-E 0 13701 0 16		*	a lizardman<wielded>: a rusty scimitar
-E 0 13703 0 5		*	a lizardman<on the body>: chainmail armor
+E 0 13701 0 16		*	a lizardman <wielded>: a rusty scimitar
+E 0 13703 0 5		*	a lizardman <on the body>: chainmail armor
 O 0 13741 0 13775	* a broken axe (On a swampy part of the ruins)
 M 0 13704 12 13775 1	* a man-eater trap (On a swampy part of the ruins)
 M 0 13708 8 13776 1	* a lizardman (On a swampy part of the ruins)
-E 0 13703 0 5		*	a lizardman<on the body>: chainmail armor
-E 0 13701 0 16		*	a lizardman<wielded>: a rusty scimitar
+E 0 13703 0 5		*	a lizardman <on the body>: chainmail armor
+E 0 13701 0 16		*	a lizardman <wielded>: a rusty scimitar
 M 0 13708 8 13777 1	* a lizardman (On a swampy part of the ruins)
-E 0 13702 0 11		*	a lizardman<as a shield>: a large iron shield
-E 0 13703 0 5		*	a lizardman<on the body>: chainmail armor
+E 0 13702 0 11		*	a lizardman <as a shield>: a large iron shield
+E 0 13703 0 5		*	a lizardman <on the body>: chainmail armor
 M 0 13701 3 13780 1	* a horned cacodaemon (In the ruins of an ancient city)
 O 0 13745 0 13784	* a skeleton (In the ruins of an ancient city)
 M 0 13700 12 13784 1	* a spirit of Myth Drannor (In the ruins of an ancient city)
@@ -5840,15 +5840,15 @@ M 0 13719 3 13791 1	* a rock imp (In the ruins of an ancient city)
 M 0 13700 12 13794 1	* a spirit of Myth Drannor (In the ruins of an ancient city)
 M 0 13709 9 13794 1	* a shadow demon (In the ruins of an ancient city)
 M 0 13722 2 13794 1	* a stone giant (In the ruins of an ancient city)
-E 0 13727 0 16		*	a stone giant<wielded>: a stone club
-E 0 13728 0 12		*	a stone giant<about the shoulders>: a poncho from the skin of a stone giant
+E 0 13727 0 16		*	a stone giant <wielded>: a stone club
+E 0 13728 0 12		*	a stone giant <about the shoulders>: a poncho from the skin of a stone giant
 M 0 13721 1 13796 1	* a rock ogre (In the ruins of an ancient city)
-E 0 13727 0 16		*	a rock ogre<wielded>: a stone club
+E 0 13727 0 16		*	a rock ogre <wielded>: a stone club
 O 0 13741 0 13797	* a broken axe (In the ruins of an ancient city)
 M 0 13700 12 13797 1	* a spirit of Myth Drannor (In the ruins of an ancient city)
 M 0 13722 2 13799 1	* a stone giant (In the ruins of an ancient city)
-E 0 13727 0 16		*	a stone giant<wielded>: a stone club
-E 0 13728 0 12		*	a stone giant<about the shoulders>: a poncho from the skin of a stone giant
+E 0 13727 0 16		*	a stone giant <wielded>: a stone club
+E 0 13728 0 12		*	a stone giant <about the shoulders>: a poncho from the skin of a stone giant
 O 0 13740 0 13800	* a rusty sword (In the ruins of an ancient city)
 M 0 13700 12 13800 1	* a spirit of Myth Drannor (In the ruins of an ancient city)
 M 0 13701 3 13802 1	* a horned cacodaemon (In the ruins of an ancient city)
@@ -5859,35 +5859,35 @@ M 0 13709 9 13808 1	* a shadow demon (In the ruins of an ancient city)
 M 0 13700 12 13811 1	* a spirit of Myth Drannor (In the ruins of an ancient city)
 O 0 13741 0 13812	* a broken axe (Before a bloody signpost)
 M 0 13707 1 13818 1	* an ancient green dragon (The residence of an Ancient Green dragon)
-E 0 13730 0 8		*	an ancient green dragon<on the feet>: the rear claws of a green dragon
-E 0 13731 0 17		*	an ancient green dragon<held in the hands>: a green dragonorb
+E 0 13730 0 8		*	an ancient green dragon <on the feet>: the rear claws of a green dragon
+E 0 13731 0 17		*	an ancient green dragon <held in the hands>: a green dragonorb
 G 0 13738 0		*	an ancient green dragon: a flesh-cutter named 'Hydraslayer'
 M 0 13723 1 13822 1	* a paladin knight of Myth Drannor (In a quiet swampy part of the ruins)
-E 0 13732 0 16		*	a paladin knight of Myth Drannor<wielded>: the mace of shining light
-E 0 13733 0 17		*	a paladin knight of Myth Drannor<held in the hands>: a scroll of divine protection
-E 0 13734 0 6		*	a paladin knight of Myth Drannor<over the head>: the helm of brilliance
-E 0 13735 0 12		*	a paladin knight of Myth Drannor<about the shoulders>: the cape of white knights
+E 0 13732 0 16		*	a paladin knight of Myth Drannor <wielded>: the mace of shining light
+E 0 13733 0 17		*	a paladin knight of Myth Drannor <held in the hands>: a scroll of divine protection
+E 0 13734 0 6		*	a paladin knight of Myth Drannor <over the head>: the helm of brilliance
+E 0 13735 0 12		*	a paladin knight of Myth Drannor <about the shoulders>: the cape of white knights
 G 0 13749 0		*	a paladin knight of Myth Drannor: blessed silver bracer
 G 0 13736 0		*	a paladin knight of Myth Drannor: the black key
 M 0 13729 4 13823 1	* a hissing frog (In a quiet swampy part of the ruins)
 M 0 13713 1 13824 1	* a golem of black stone (Before the Black tinged tower in the swampy ruins)
-E 0 13710 0 1		*	a golem of black stone<on the left finger>: a ring of black stained quartz
+E 0 13710 0 1		*	a golem of black stone <on the left finger>: a ring of black stained quartz
 M 0 13716 1 13833 1	* the spectre of the elven First king (A cold dark room)
-E 0 13717 0 17		*	the spectre of the elven First king<held in the hands>: the rod of lordly might
-E 0 13716 0 6		*	the spectre of the elven First king<over the head>: a crown of frozen blood
-E 0 13720 0 1		*	the spectre of the elven First king<on the left finger>: a bracelet of frozen elf blood
+E 0 13717 0 17		*	the spectre of the elven First king <held in the hands>: the rod of lordly might
+E 0 13716 0 6		*	the spectre of the elven First king <over the head>: a crown of frozen blood
+E 0 13720 0 1		*	the spectre of the elven First king <on the left finger>: a bracelet of frozen elf blood
 M 0 13715 1 13836 1	* tyranthraxus (In a pitch black room)
-E 0 13714 0 16		*	tyranthraxus<wielded>: the sword of planes
-E 0 13715 0 3		*	tyranthraxus<around the neck>: the torque of restoration
+E 0 13714 0 16		*	tyranthraxus <wielded>: the sword of planes
+E 0 13715 0 3		*	tyranthraxus <around the neck>: the torque of restoration
 M 0 13717 1 13839 1	* a Fallen Angel (In a bare black room)
-E 0 13711 0 12		*	a Fallen Angel<about the shoulders>: the shredded wings of a fallen angel
-E 0 13723 0 1		*	a Fallen Angel<on the left finger>: Suffering
+E 0 13711 0 12		*	a Fallen Angel <about the shoulders>: the shredded wings of a fallen angel
+E 0 13723 0 1		*	a Fallen Angel <on the left finger>: Suffering
 M 0 13718 1 13842 1	* the Lord Bane (In the room of Binding Light)
-E 0 13712 0 6		*	the Lord Bane<over the head>: the horns of Bane
-E 0 13724 0 1		*	the Lord Bane<on the left finger>: Wrath
+E 0 13712 0 6		*	the Lord Bane <over the head>: the horns of Bane
+E 0 13724 0 1		*	the Lord Bane <on the left finger>: Wrath
 G 0 13713 0		*	the Lord Bane: a scroll of binding power
 G 0 13722 0		*	the Lord Bane: the skull of an ancient god
-E 0 13748 0 5		*	the Lord Bane<on the body>: full plate of ultimate
+E 0 13748 0 5		*	the Lord Bane <on the body>: full plate of ultimate
 M 0 13729 4 13844 1	* a hissing frog (On a dock in a bloody harbour)
 M 0 13719 3 13850 1	* a rock imp (In the northern ruins of the city)
 O 0 13747 0 13852	* a large boulder (In the northern ruins of the city)

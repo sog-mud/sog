@@ -1705,8 +1705,8 @@ M 0 309 10 318 4	* the cute rabbit (Grassy plains)
 O 0 301 0 319	* a small dusk of black gyvel (Grassy plains)
 O 0 304 0 323	* wild flowers (The steep foothills)
 M 0 300 1 323 1	* Aruncus the Druid (The steep foothills)
-E 0 308 0 16		*	Aruncus the Druid<wielded>: a druish staff
-E 0 307 0 3		*	Aruncus the Druid<around the neck>: a strange amulet
+E 0 308 0 16		*	Aruncus the Druid <wielded>: a druish staff
+E 0 307 0 3		*	Aruncus the Druid <around the neck>: a strange amulet
 G 0 312 0		*	Aruncus the Druid: a scroll titled 'jhyfrdow'
 G 0 302 0		*	Aruncus the Druid: a small dusk of poison ivy
 M 0 309 10 324 4	* the cute rabbit (The steep foothills)

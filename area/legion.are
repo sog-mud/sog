@@ -8436,39 +8436,39 @@ M 0 29760 50 29539 4	* one of Legion's finest (In a mist filled cavern)
 M 0 29762 2 29547 1	* A Legion cabal lord (In the left arm of the deep cut inverted cross)
 M 0 29762 2 29548 1	* A Legion cabal lord (In the right arm of the deep cut inverted cross)
 M 0 29761 1 29549 1	* a Lord of Judgement (At the head of a deeply cut inverted cross)
-E 0 29784 0 16		*	a Lord of Judgement<wielded>: the Hammer of Judgement
+E 0 29784 0 16		*	a Lord of Judgement <wielded>: the Hammer of Judgement
 G 0 29785 0		*	a Lord of Judgement: a flask of damnation
 G 0 29786 0		*	a Lord of Judgement: a flask of redemption
 M 0 29740 1 29557 1	* an ancient red dragon (On a blackened rocky platform)
-E 0 29788 0 3		*	an ancient red dragon<around the neck>: the red Dragonstar
+E 0 29788 0 3		*	an ancient red dragon <around the neck>: the red Dragonstar
 M 0 29741 1 29558 1	* an ancient black dragon (On a windy rock platform)
-E 0 29789 0 3		*	an ancient black dragon<around the neck>: the black Dragonstar
+E 0 29789 0 3		*	an ancient black dragon <around the neck>: the black Dragonstar
 M 0 29771 1 29579 1	* the prison keeper (The prison keeper's Room)
 G 0 29792 0		*	the prison keeper: a black key
-E 0 29803 0 16		*	the prison keeper<wielded>: a Firebrand sword
+E 0 29803 0 16		*	the prison keeper <wielded>: a Firebrand sword
 M 0 29768 1 29580 1	* an Arkham brother (In a small darkened cell)
-E 0 29798 0 6		*	an Arkham brother<over the head>: a plain abbott's cap
-E 0 29799 0 3		*	an Arkham brother<around the neck>: talisman of inner strength
+E 0 29798 0 6		*	an Arkham brother <over the head>: a plain abbott's cap
+E 0 29799 0 3		*	an Arkham brother <around the neck>: talisman of inner strength
 M 0 29766 1 29581 1	* an enslaved ethereal (In a small darkened cell)
-E 0 29805 0 12		*	an enslaved ethereal<about the shoulders>: a misty essence
+E 0 29805 0 12		*	an enslaved ethereal <about the shoulders>: a misty essence
 M 0 29765 1 29582 1	* a captured elf girl (In a small darkened cell)
-E 0 29793 0 13		*	a captured elf girl<around the waist>: a belt of interlinking rose thorns
-E 0 29794 0 5		*	a captured elf girl<on the body>: a white sacrificial gown
-E 0 29795 0 0		*	a captured elf girl<as a light>: a light called Harmony
+E 0 29793 0 13		*	a captured elf girl <around the waist>: a belt of interlinking rose thorns
+E 0 29794 0 5		*	a captured elf girl <on the body>: a white sacrificial gown
+E 0 29795 0 0		*	a captured elf girl <as a light>: a light called Harmony
 M 0 29770 1 29583 1	* a captured Arkham guard (In a small darkened cell)
-E 0 29802 0 16		*	a captured Arkham guard<wielded>: some heavy iron shackles
+E 0 29802 0 16		*	a captured Arkham guard <wielded>: some heavy iron shackles
 M 0 29767 1 29584 1	* a disgusting ghoul (In a small darkened cell)
 G 0 29796 0		*	a disgusting ghoul: a bit of half-chewed flesh
-E 0 29797 0 1		*	a disgusting ghoul<on the left finger>: a ring embedded with flesh
+E 0 29797 0 1		*	a disgusting ghoul <on the left finger>: a ring embedded with flesh
 M 0 29769 1 29585 1	* a crazed dwarf (In a small darkened cell)
-E 0 29801 0 8		*	a crazed dwarf<on the feet>: a pair of spiked boots
+E 0 29801 0 8		*	a crazed dwarf <on the feet>: a pair of spiked boots
 M 0 29735 1 29599 1	* a shadowlord (Death)
-E 0 29749 0 13		*	a shadowlord<around the waist>: a cloak of the Underworld
+E 0 29749 0 13		*	a shadowlord <around the waist>: a cloak of the Underworld
 M 0 29736 1 29599 1	* the Demogorgon (Death)
-E 0 29750 0 17		*	the Demogorgon<held in the hands>: the sceptre of the Dead
+E 0 29750 0 17		*	the Demogorgon <held in the hands>: the sceptre of the Dead
 M 0 29750 1 29703 1	* a Legion guard (The foyer of the darkened tower)
-E 0 29720 0 5		*	a Legion guard<on the body>: chainmail marked with the symbol of Legion
-E 0 29717 0 16		*	a Legion guard<wielded>: a black longsword
+E 0 29720 0 5		*	a Legion guard <on the body>: chainmail marked with the symbol of Legion
+E 0 29717 0 16		*	a Legion guard <wielded>: a black longsword
 M 0 29704 3 29716 1	* an apprentice necromancer (The apprentice necromancer room)
 M 0 29708 1 29716 1	* a lesser zombie (The apprentice necromancer room)
 M 0 29704 3 29717 1	* an apprentice necromancer (The apprentice necromancer room)
@@ -8480,48 +8480,48 @@ M 0 29705 3 29722 1	* an apprentice demonologist (In a room covered in symbols o
 M 0 29705 3 29723 1	* an apprentice demonologist (In a room covered in symbols of warding)
 M 0 29711 1 29723 1	* a demonic familiar (In a room covered in symbols of warding)
 M 0 29706 3 29725 1	* a half-moon nightwalker (A pitch-black room)
-E 0 29717 0 16		*	a half-moon nightwalker<wielded>: a black longsword
+E 0 29717 0 16		*	a half-moon nightwalker <wielded>: a black longsword
 M 0 29706 3 29726 1	* a half-moon nightwalker (A pitch-black room)
-E 0 29718 0 16		*	a half-moon nightwalker<wielded>: a black axe
+E 0 29718 0 16		*	a half-moon nightwalker <wielded>: a black axe
 M 0 29706 3 29727 1	* a half-moon nightwalker (A pitch-black room)
-E 0 29717 0 16		*	a half-moon nightwalker<wielded>: a black longsword
+E 0 29717 0 16		*	a half-moon nightwalker <wielded>: a black longsword
 M 0 29707 3 29728 1	* an apprentice anti-paladin (In a torture room)
-E 0 29717 0 16		*	an apprentice anti-paladin<wielded>: a black longsword
+E 0 29717 0 16		*	an apprentice anti-paladin <wielded>: a black longsword
 M 0 29707 3 29729 1	* an apprentice anti-paladin (In a torture room)
-E 0 29718 0 16		*	an apprentice anti-paladin<wielded>: a black axe
+E 0 29718 0 16		*	an apprentice anti-paladin <wielded>: a black axe
 M 0 29707 3 29730 1	* an apprentice anti-paladin (In a torture room)
-E 0 29717 0 16		*	an apprentice anti-paladin<wielded>: a black longsword
+E 0 29717 0 16		*	an apprentice anti-paladin <wielded>: a black longsword
 M 0 29712 1 29731 1	* a Legion instructor (In a torture room)
-E 0 29719 0 16		*	a Legion instructor<wielded>: a wicked whip
-E 0 29720 0 5		*	a Legion instructor<on the body>: chainmail marked with the symbol of Legion
+E 0 29719 0 16		*	a Legion instructor <wielded>: a wicked whip
+E 0 29720 0 5		*	a Legion instructor <on the body>: chainmail marked with the symbol of Legion
 G 0 29700 0		*	a Legion instructor: a black key
 M 0 29714 2 29734 1	* a draconian Legionaire (In a blood-soaked guard room)
 G 0 29701 0		*	a draconian Legionaire: a black key
 M 0 29749 1 29735 1	* a Legion guard (In a blood-soaked guard room)
-E 0 29720 0 5		*	a Legion guard<on the body>: chainmail marked with the symbol of Legion
-E 0 29717 0 16		*	a Legion guard<wielded>: a black longsword
+E 0 29720 0 5		*	a Legion guard <on the body>: chainmail marked with the symbol of Legion
+E 0 29717 0 16		*	a Legion guard <wielded>: a black longsword
 G 0 29701 0		*	a Legion guard: a black key
 M 0 29713 2 29737 1	* a Legion guard (In a blood-soaked guard room)
-E 0 29720 0 5		*	a Legion guard<on the body>: chainmail marked with the symbol of Legion
-E 0 29717 0 16		*	a Legion guard<wielded>: a black longsword
-E 0 29765 0 1		*	a Legion guard<on the left finger>: a razor-edged ring
+E 0 29720 0 5		*	a Legion guard <on the body>: chainmail marked with the symbol of Legion
+E 0 29717 0 16		*	a Legion guard <wielded>: a black longsword
+E 0 29765 0 1		*	a Legion guard <on the left finger>: a razor-edged ring
 G 0 29701 0		*	a Legion guard: a black key
 M 0 29714 2 29737 1	* a draconian Legionaire (In a blood-soaked guard room)
 G 0 29701 0		*	a draconian Legionaire: a black key
 M 0 29713 2 29738 1	* a Legion guard (In a blood-soaked guard room)
-E 0 29720 0 5		*	a Legion guard<on the body>: chainmail marked with the symbol of Legion
-E 0 29765 0 1		*	a Legion guard<on the left finger>: a razor-edged ring
-E 0 29717 0 16		*	a Legion guard<wielded>: a black longsword
+E 0 29720 0 5		*	a Legion guard <on the body>: chainmail marked with the symbol of Legion
+E 0 29765 0 1		*	a Legion guard <on the left finger>: a razor-edged ring
+E 0 29717 0 16		*	a Legion guard <wielded>: a black longsword
 G 0 29701 0		*	a Legion guard: a black key
 M 0 29715 6 29739 1	* a shadow (A room of blackest night)
 M 0 29715 6 29740 1	* a shadow (A room of blackest night)
 M 0 29717 1 29743 1	* a crescent-moon nightwalker (A room of blackest night)
-E 0 29721 0 16		*	a crescent-moon nightwalker<wielded>: a crescent-moon shaped scimitar
+E 0 29721 0 16		*	a crescent-moon nightwalker <wielded>: a crescent-moon shaped scimitar
 M 0 29715 6 29744 1	* a shadow (A room of blackest night)
 M 0 29715 6 29745 1	* a shadow (A room of blackest night)
 M 0 29715 6 29747 1	* a shadow (A room of blackest night)
 M 0 29722 1 29751 1	* the Blackheart guard (Before a door bathed in a blood red glow)
-E 0 29724 0 16		*	the Blackheart guard<wielded>: the Strife spear
+E 0 29724 0 16		*	the Blackheart guard <wielded>: the Strife spear
 O 0 29753 0 29752	* the corpse of an elf (NW corner of the undead roaming grounds)
 M 0 29720 15 29752 3	* a skeleton (NW corner of the undead roaming grounds)
 M 0 29718 18 29753 3	* a monster zombie (Northern undead roaming grounds)
@@ -8544,94 +8544,94 @@ M 0 29720 15 29762 3	* a skeleton (Southern end of the undead roaming grounds)
 O 0 29756 0 29767	* a skeleton of a decayed creature (The skeleton raising room)
 M 0 29716 1 29767 1	* a legion animator (The skeleton raising room)
 G 0 29704 0		*	a legion animator: a black key
-E 0 29726 0 16		*	a legion animator<wielded>: a bloodstone dagger
+E 0 29726 0 16		*	a legion animator <wielded>: a bloodstone dagger
 M 0 29718 18 29767 3	* a monster zombie (The skeleton raising room)
 M 0 29720 15 29767 3	* a skeleton (The skeleton raising room)
 O 0 29755 0 29768	* the corpse of a creature (A corpse filled room)
 M 0 29718 18 29768 3	* a monster zombie (A corpse filled room)
 M 0 29721 1 29768 1	* a Lich lord of Legion (A corpse filled room)
 G 0 29704 0		*	a Lich lord of Legion: a black key
-E 0 29722 0 17		*	a Lich lord of Legion<held in the hands>: a rune of death
-E 0 29723 0 5		*	a Lich lord of Legion<on the body>: some pitch-black robes
+E 0 29722 0 17		*	a Lich lord of Legion <held in the hands>: a rune of death
+E 0 29723 0 5		*	a Lich lord of Legion <on the body>: some pitch-black robes
 O 0 29767 0 29769	* the corpse of a young girl (In a room filled with knee-deep blood)
 M 0 29718 18 29769 3	* a monster zombie (In a room filled with knee-deep blood)
 M 0 29718 18 29769 3	* a monster zombie (In a room filled with knee-deep blood)
 M 0 29719 2 29769 1	* a mummy (In a room filled with knee-deep blood)
 M 0 29729 1 29782 1	* the shadow of a greater titan (Entrance to the Nightwalker's domain)
 M 0 29730 1 29785 1	* the Black knight of Legion (The anti-paladin's abattoir)
-E 0 29737 0 16		*	the Black knight of Legion<wielded>: a Demonslayer
-E 0 29738 0 6		*	the Black knight of Legion<over the head>: a helm with a single black horn
+E 0 29737 0 16		*	the Black knight of Legion <wielded>: a Demonslayer
+E 0 29738 0 6		*	the Black knight of Legion <over the head>: a helm with a single black horn
 M 0 29726 3 29788 1	* an evil incarnate (The anti-paladin's abattoir)
-E 0 29742 0 14		*	an evil incarnate<on the left wrist>: a pitch-black bracelet
-E 0 29731 0 16		*	an evil incarnate<wielded>: a butcher's blade
-E 0 29732 0 5		*	an evil incarnate<on the body>: a suit of Legion battle armor
+E 0 29742 0 14		*	an evil incarnate <on the left wrist>: a pitch-black bracelet
+E 0 29731 0 16		*	an evil incarnate <wielded>: a butcher's blade
+E 0 29732 0 5		*	an evil incarnate <on the body>: a suit of Legion battle armor
 M 0 29726 3 29789 1	* an evil incarnate (The anti-paladin's abattoir)
-E 0 29742 0 14		*	an evil incarnate<on the left wrist>: a pitch-black bracelet
-E 0 29731 0 16		*	an evil incarnate<wielded>: a butcher's blade
-E 0 29732 0 5		*	an evil incarnate<on the body>: a suit of Legion battle armor
+E 0 29742 0 14		*	an evil incarnate <on the left wrist>: a pitch-black bracelet
+E 0 29731 0 16		*	an evil incarnate <wielded>: a butcher's blade
+E 0 29732 0 5		*	an evil incarnate <on the body>: a suit of Legion battle armor
 M 0 29726 3 29792 1	* an evil incarnate (The anti-paladin's abattoir)
-E 0 29742 0 14		*	an evil incarnate<on the left wrist>: a pitch-black bracelet
-E 0 29731 0 16		*	an evil incarnate<wielded>: a butcher's blade
-E 0 29732 0 5		*	an evil incarnate<on the body>: a suit of Legion battle armor
+E 0 29742 0 14		*	an evil incarnate <on the left wrist>: a pitch-black bracelet
+E 0 29731 0 16		*	an evil incarnate <wielded>: a butcher's blade
+E 0 29732 0 5		*	an evil incarnate <on the body>: a suit of Legion battle armor
 M 0 29724 3 29793 1	* a Master demon summoner (The turret of Blood Summons)
-E 0 29742 0 14		*	a Master demon summoner<on the left wrist>: a pitch-black bracelet
-E 0 29725 0 1		*	a Master demon summoner<on the left finger>: a pitch-black ring
-E 0 29727 0 17		*	a Master demon summoner<held in the hands>: a hexagram-headed steel staff
+E 0 29742 0 14		*	a Master demon summoner <on the left wrist>: a pitch-black bracelet
+E 0 29725 0 1		*	a Master demon summoner <on the left finger>: a pitch-black ring
+E 0 29727 0 17		*	a Master demon summoner <held in the hands>: a hexagram-headed steel staff
 M 0 29747 1 29795 1	* a Master demon summoner (Beneath a small stairwell)
-E 0 29725 0 1		*	a Master demon summoner<on the left finger>: a pitch-black ring
-E 0 29742 0 14		*	a Master demon summoner<on the left wrist>: a pitch-black bracelet
-E 0 29727 0 17		*	a Master demon summoner<held in the hands>: a hexagram-headed steel staff
+E 0 29725 0 1		*	a Master demon summoner <on the left finger>: a pitch-black ring
+E 0 29742 0 14		*	a Master demon summoner <on the left wrist>: a pitch-black bracelet
+E 0 29727 0 17		*	a Master demon summoner <held in the hands>: a hexagram-headed steel staff
 M 0 29748 1 29797 1	* a Master demon summoner (The turret of Blood Summons)
-E 0 29742 0 14		*	a Master demon summoner<on the left wrist>: a pitch-black bracelet
-E 0 29725 0 1		*	a Master demon summoner<on the left finger>: a pitch-black ring
-E 0 29727 0 17		*	a Master demon summoner<held in the hands>: a hexagram-headed steel staff
+E 0 29742 0 14		*	a Master demon summoner <on the left wrist>: a pitch-black bracelet
+E 0 29725 0 1		*	a Master demon summoner <on the left finger>: a pitch-black ring
+E 0 29727 0 17		*	a Master demon summoner <held in the hands>: a hexagram-headed steel staff
 M 0 29728 1 29800 1	* Pazuzu (The turret of Blood Summons)
-E 0 29734 0 12		*	Pazuzu<about the shoulders>: wings of black demon feather
-E 0 29735 0 16		*	Pazuzu<wielded>: a massive claw etched with burnt sigils
+E 0 29734 0 12		*	Pazuzu <about the shoulders>: wings of black demon feather
+E 0 29735 0 16		*	Pazuzu <wielded>: a massive claw etched with burnt sigils
 M 0 29723 1 29802 1	* a Master necromancer (The room of unspeakable Creators)
-E 0 29725 0 1		*	a Master necromancer<on the left finger>: a pitch-black ring
-E 0 29723 0 5		*	a Master necromancer<on the body>: some pitch-black robes
-E 0 29764 0 6		*	a Master necromancer<over the head>: a grim reaper's cowl
+E 0 29725 0 1		*	a Master necromancer <on the left finger>: a pitch-black ring
+E 0 29723 0 5		*	a Master necromancer <on the body>: some pitch-black robes
+E 0 29764 0 6		*	a Master necromancer <over the head>: a grim reaper's cowl
 M 0 29727 1 29803 1	* Thuringwethil (The room of unspeakable Creators)
-E 0 29733 0 12		*	Thuringwethil<about the shoulders>: thuringwethil's cloak
+E 0 29733 0 12		*	Thuringwethil <about the shoulders>: thuringwethil's cloak
 M 0 29746 1 29806 1	* a Master necromancer (The room of unspeakable Creators)
-E 0 29725 0 1		*	a Master necromancer<on the left finger>: a pitch-black ring
-E 0 29723 0 5		*	a Master necromancer<on the body>: some pitch-black robes
-E 0 29764 0 6		*	a Master necromancer<over the head>: a grim reaper's cowl
+E 0 29725 0 1		*	a Master necromancer <on the left finger>: a pitch-black ring
+E 0 29723 0 5		*	a Master necromancer <on the body>: some pitch-black robes
+E 0 29764 0 6		*	a Master necromancer <over the head>: a grim reaper's cowl
 M 0 29745 1 29810 1	* a Master necromancer (Beneath a blood stained stairwell)
-E 0 29725 0 1		*	a Master necromancer<on the left finger>: a pitch-black ring
-E 0 29723 0 5		*	a Master necromancer<on the body>: some pitch-black robes
-E 0 29764 0 6		*	a Master necromancer<over the head>: a grim reaper's cowl
+E 0 29725 0 1		*	a Master necromancer <on the left finger>: a pitch-black ring
+E 0 29723 0 5		*	a Master necromancer <on the body>: some pitch-black robes
+E 0 29764 0 6		*	a Master necromancer <over the head>: a grim reaper's cowl
 M 0 29737 1 29815 1	* a vortex (Before a vortex of purest night)
 G 0 29729 0		*	a vortex: an eclipsed-moon signet ring
 M 0 29733 1 29819 1	* a Darkstar nightwalker (On the roof of a black turret)
-E 0 29745 0 13		*	a Darkstar nightwalker<around the waist>: a cloak of shadows
+E 0 29745 0 13		*	a Darkstar nightwalker <around the waist>: a cloak of shadows
 G 0 29746 0		*	a Darkstar nightwalker: a figurine of death
-E 0 29744 0 10		*	a Darkstar nightwalker<on the arms>: armguards of greater demon scale
+E 0 29744 0 10		*	a Darkstar nightwalker <on the arms>: armguards of greater demon scale
 M 0 29773 1 29824 1	* demogorgon summoner (In the centre of a massive pentegram)
 M 0 29732 1 29826 1	* a hooded demonologist (On a pentegram inscribed roof)
-E 0 29743 0 16		*	a hooded demonologist<wielded>: a sickle of carved human bone
+E 0 29743 0 16		*	a hooded demonologist <wielded>: a sickle of carved human bone
 G 0 29759 0		*	a hooded demonologist: a scroll of paper
-E 0 29806 0 17		*	a hooded demonologist<held in the hands>: the Libram of Infinite Conjuration
+E 0 29806 0 17		*	a hooded demonologist <held in the hands>: the Libram of Infinite Conjuration
 M 0 29734 1 29831 1	* a hooded anti-paladin (On the roof of a black turret)
-E 0 29720 0 5		*	a hooded anti-paladin<on the body>: chainmail marked with the symbol of Legion
-E 0 29747 0 16		*	a hooded anti-paladin<wielded>: a two-handed Unholy avenger
-E 0 29748 0 1		*	a hooded anti-paladin<on the left finger>: a razor-edged ring
+E 0 29720 0 5		*	a hooded anti-paladin <on the body>: chainmail marked with the symbol of Legion
+E 0 29747 0 16		*	a hooded anti-paladin <wielded>: a two-handed Unholy avenger
+E 0 29748 0 1		*	a hooded anti-paladin <on the left finger>: a razor-edged ring
 M 0 29738 1 29833 1	* a black titan from Malebolge (Centre of a black turret's roof)
-E 0 29751 0 16		*	a black titan from Malebolge<wielded>: a hammer shrouded in black flames
-E 0 29752 0 13		*	a black titan from Malebolge<around the waist>: a girdle of titanic strength
-E 0 29804 0 10		*	a black titan from Malebolge<on the arms>: blackened armbands
+E 0 29751 0 16		*	a black titan from Malebolge <wielded>: a hammer shrouded in black flames
+E 0 29752 0 13		*	a black titan from Malebolge <around the waist>: a girdle of titanic strength
+E 0 29804 0 10		*	a black titan from Malebolge <on the arms>: blackened armbands
 M 0 29731 1 29838 1	* a hooded necromancer (On the blood soaked roof of a black turret)
 G 0 29739 0		*	a hooded necromancer: a scroll of Ancient Necromancy
-E 0 29740 0 5		*	a hooded necromancer<on the body>: robes of undeath
-E 0 29741 0 16		*	a hooded necromancer<wielded>: the severed hand of a lich
-E 0 29760 0 17		*	a hooded necromancer<held in the hands>: a scroll of paper
-E 0 29769 0 6		*	a hooded necromancer<over the head>: the grim reaper's cowl
+E 0 29740 0 5		*	a hooded necromancer <on the body>: robes of undeath
+E 0 29741 0 16		*	a hooded necromancer <wielded>: the severed hand of a lich
+E 0 29760 0 17		*	a hooded necromancer <held in the hands>: a scroll of paper
+E 0 29769 0 6		*	a hooded necromancer <over the head>: the grim reaper's cowl
 O 0 29757 0 29842	* a pile of bodies (Centre of a blood soaked roof)
 M 0 29772 1 29842 1	* shadowlord summoner (Centre of a blood soaked roof)
 M 0 29700 7 29855 1	* an Arkham guard (On a muddy island battlefield)
-E 0 29705 0 16		*	an Arkham guard<wielded>: a guardian sword
-E 0 29706 0 5		*	an Arkham guard<on the body>: a suit of darkened platemail
+E 0 29705 0 16		*	an Arkham guard <wielded>: a guardian sword
+E 0 29706 0 5		*	an Arkham guard <on the body>: a suit of darkened platemail
 M 0 29752 7 29855 2	* an Arkham knight (On a muddy island battlefield)
 O 0 29780 0 29858	* a catapult (On a muddy island battlefield)
 O 0 29782 0 29858	* the corpse of an arkham knight (On a muddy island battlefield)
@@ -8641,54 +8641,54 @@ M 0 29752 7 29862 2	* an Arkham knight (On a muddy island battlefield)
 O 0 29780 0 29863	* a catapult (On a muddy island battlefield)
 M 0 29753 2 29863 1	* an Arkham artillerist (On a muddy island battlefield)
 M 0 29700 7 29865 1	* an Arkham guard (On a muddy island battlefield)
-E 0 29706 0 5		*	an Arkham guard<on the body>: a suit of darkened platemail
+E 0 29706 0 5		*	an Arkham guard <on the body>: a suit of darkened platemail
 M 0 29752 7 29865 2	* an Arkham knight (On a muddy island battlefield)
 O 0 29777 0 29866	* a wooden barricade (Beneath a wooden battlement)
 O 0 29777 0 29869	* a wooden barricade (Outside a blackened wall)
 O 0 29781 0 29869	* the corpse of an arkham guard (Outside a blackened wall)
 M 0 29700 7 29869 1	* an Arkham guard (Outside a blackened wall)
-E 0 29705 0 16		*	an Arkham guard<wielded>: a guardian sword
-E 0 29707 0 6		*	an Arkham guard<over the head>: a darkened helm
+E 0 29705 0 16		*	an Arkham guard <wielded>: a guardian sword
+E 0 29707 0 6		*	an Arkham guard <over the head>: a darkened helm
 M 0 29752 7 29872 2	* an Arkham knight (Outside a blackened wall)
 M 0 29752 7 29874 2	* an Arkham knight (Corner of the ruined walls)
 M 0 29700 7 29875 1	* an Arkham guard (In a muddy trench)
-E 0 29707 0 6		*	an Arkham guard<over the head>: a darkened helm
+E 0 29707 0 6		*	an Arkham guard <over the head>: a darkened helm
 O 0 29781 0 29877	* the corpse of an arkham guard (At the end of a muddy trench)
 M 0 29700 7 29877 1	* an Arkham guard (At the end of a muddy trench)
-E 0 29705 0 16		*	an Arkham guard<wielded>: a guardian sword
-E 0 29706 0 5		*	an Arkham guard<on the body>: a suit of darkened platemail
+E 0 29705 0 16		*	an Arkham guard <wielded>: a guardian sword
+E 0 29706 0 5		*	an Arkham guard <on the body>: a suit of darkened platemail
 M 0 29700 7 29879 1	* an Arkham guard (In a deep muddy trench)
-E 0 29706 0 5		*	an Arkham guard<on the body>: a suit of darkened platemail
-E 0 29707 0 6		*	an Arkham guard<over the head>: a darkened helm
+E 0 29706 0 5		*	an Arkham guard <on the body>: a suit of darkened platemail
+E 0 29707 0 6		*	an Arkham guard <over the head>: a darkened helm
 M 0 29739 1 29883 1	* an ancient gold dragon (In a dried out clearing)
-E 0 29770 0 17		*	an ancient gold dragon<held in the hands>: a gold dragon orb
-E 0 29771 0 6		*	an ancient gold dragon<over the head>: a helm stylized into a gold dragon skull
+E 0 29770 0 17		*	an ancient gold dragon <held in the hands>: a gold dragon orb
+E 0 29771 0 6		*	an ancient gold dragon <over the head>: a helm stylized into a gold dragon skull
 G 0 29772 0		*	an ancient gold dragon: a curved gold dragon scale
-E 0 29773 0 7		*	an ancient gold dragon<on the legs>: the leg scales of a gold dragon
+E 0 29773 0 7		*	an ancient gold dragon <on the legs>: the leg scales of a gold dragon
 M 0 29701 2 29885 1	* an Arkham ranger (On a small wooden watch-tower)
-E 0 29708 0 16		*	an Arkham ranger<wielded>: a guardian bow
-E 0 29709 0 5		*	an Arkham ranger<on the body>: a suit of green tinted battlemail
+E 0 29708 0 16		*	an Arkham ranger <wielded>: a guardian bow
+E 0 29709 0 5		*	an Arkham ranger <on the body>: a suit of green tinted battlemail
 M 0 29701 2 29886 1	* an Arkham ranger (On a small wooden watch-tower)
-E 0 29763 0 16		*	an Arkham ranger<wielded>: a guardian bow
-E 0 29710 0 8		*	an Arkham ranger<on the feet>: a pair of green boots
+E 0 29763 0 16		*	an Arkham ranger <wielded>: a guardian bow
+E 0 29710 0 8		*	an Arkham ranger <on the feet>: a pair of green boots
 M 0 29702 1 29888 1	* arkham crusader (In a muddy clearing)
-E 0 29711 0 9		*	arkham crusader<on the hands>: the gauntlets of striking
-E 0 29807 0 16		*	arkham crusader<wielded>: the axe named "Drow Cleaver"
+E 0 29711 0 9		*	arkham crusader <on the hands>: the gauntlets of striking
+E 0 29807 0 16		*	arkham crusader <wielded>: the axe named "Drow Cleaver"
 G 0 29712 0		*	arkham crusader: a guardian sword
-E 0 29713 0 11		*	arkham crusader<as a shield>: a darkened shield
-E 0 29706 0 5		*	arkham crusader<on the body>: a suit of darkened platemail
-E 0 29707 0 6		*	arkham crusader<over the head>: a darkened helm
+E 0 29713 0 11		*	arkham crusader <as a shield>: a darkened shield
+E 0 29706 0 5		*	arkham crusader <on the body>: a suit of darkened platemail
+E 0 29707 0 6		*	arkham crusader <over the head>: a darkened helm
 M 0 29752 7 29891 1	* an Arkham knight (On a wooden battlement)
 O 0 29783 0 29892	* a trebuchet (On a wooden battlement)
 M 0 29703 1 29892 1	* the Arkham commander (On a wooden battlement)
-E 0 29714 0 16		*	the Arkham commander<wielded>: a double-edged bastard sword
-E 0 29715 0 5		*	the Arkham commander<on the body>: a suit of darkened platemail
-E 0 29716 0 13		*	the Arkham commander<around the waist>: a wide darkened belt
-E 0 29707 0 6		*	the Arkham commander<over the head>: a darkened helm
+E 0 29714 0 16		*	the Arkham commander <wielded>: a double-edged bastard sword
+E 0 29715 0 5		*	the Arkham commander <on the body>: a suit of darkened platemail
+E 0 29716 0 13		*	the Arkham commander <around the waist>: a wide darkened belt
+E 0 29707 0 6		*	the Arkham commander <over the head>: a darkened helm
 M 0 29700 7 29893 1	* an Arkham guard (On a wooden battlement)
-E 0 29705 0 16		*	an Arkham guard<wielded>: a guardian sword
-E 0 29706 0 5		*	an Arkham guard<on the body>: a suit of darkened platemail
-E 0 29707 0 6		*	an Arkham guard<over the head>: a darkened helm
+E 0 29705 0 16		*	an Arkham guard <wielded>: a guardian sword
+E 0 29706 0 5		*	an Arkham guard <on the body>: a suit of darkened platemail
+E 0 29707 0 6		*	an Arkham guard <over the head>: a darkened helm
 S
 
 #OLIMITS

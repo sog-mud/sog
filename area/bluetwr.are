@@ -947,15 +947,15 @@ M 0 26131 4 26144 1	* a ghost with a blue aura (Standing within a blinding blue 
 M 0 26131 4 26146 1	* a ghost with a blue aura (Standing within a blinding blue light)
 M 0 26131 4 26148 1	* a ghost with a blue aura (Standing within a blinding blue light)
 M 0 26132 1 26153 1	* the elven lich archmage (Before the burning blue stairwell)
-E 0 26136 0 1		*	the elven lich archmage<on the left finger>: a ring of wizardry
-E 0 26135 0 16		*	the elven lich archmage<wielded>: (blue-green) a wand of spellfire
+E 0 26136 0 1		*	the elven lich archmage <on the left finger>: a ring of wizardry
+E 0 26135 0 16		*	the elven lich archmage <wielded>: (blue-green) a wand of spellfire
 M 0 26134 4 26154 1	* a satanic familiar (On a balcony wreathed in blue fire)
 G 0 26137 0		*	a satanic familiar: a blue key
-E 0 26133 0 3		*	a satanic familiar<around the neck>: a blue sapphire collar
+E 0 26133 0 3		*	a satanic familiar <around the neck>: a blue sapphire collar
 M 0 26133 1 26155 1	* the witch queen of Myth Drannor (The Witch Queen's Watch)
-E 0 26138 0 1		*	the witch queen of Myth Drannor<on the left finger>: a ring of wizardry
-E 0 26131 0 6		*	the witch queen of Myth Drannor<over the head>: a blue crystal tiara
-E 0 26132 0 16		*	the witch queen of Myth Drannor<wielded>: a blue-ice dagger
+E 0 26138 0 1		*	the witch queen of Myth Drannor <on the left finger>: a ring of wizardry
+E 0 26131 0 6		*	the witch queen of Myth Drannor <over the head>: a blue crystal tiara
+E 0 26132 0 16		*	the witch queen of Myth Drannor <wielded>: a blue-ice dagger
 G 0 26130 0		*	the witch queen of Myth Drannor: a blue tinted seal
 S
 

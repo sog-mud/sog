@@ -857,7 +857,7 @@ M 0 2905 9 2903 2	* a babau (A Lower Branch of Yggdrasil)
 M 0 2904 8 2906 2	* a chasme (A Lower Branch of Yggdrasil)
 M 0 2903 9 2907 2	* a dretch (The Roots of Yggdrasil)
 M 0 2907 1 2908 1	* Kostchtchie (The Roots of Yggdrasil)
-E 0 2901 0 16		*	Kostchtchie<wielded>: a huge hammer of cold iron
+E 0 2901 0 16		*	Kostchtchie <wielded>: a huge hammer of cold iron
 M 0 2912 6 2910 2	* a frost giant (The Roots of Yggdrasil)
 G 0 2909 0		*	a frost giant: a cast iron girth
 M 0 2908 8 2911 2	* a nabassu (A Lower Branch of Yggdrasil)
@@ -876,9 +876,9 @@ G 0 2904 0		*	a Shedu: a cloudy glass staff
 M 0 2910 1 2921 1	* a solar (An Upper Branch of Yggdrasil)
 G 0 2905 0		*	a solar: a set of sleeves of crystal
 M 0 2901 1 2922 1	* a planetar (An Upper Branch of Yggdrasil)
-E 0 2902 0 16		*	a planetar<wielded>: a holy bastard sword
+E 0 2902 0 16		*	a planetar <wielded>: a holy bastard sword
 M 0 2906 4 2923 2	* a yagnodemon (The Roots of Yggdrasil)
-E 0 2900 0 16		*	a yagnodemon<wielded>: a body-wrecker
+E 0 2900 0 16		*	a yagnodemon <wielded>: a body-wrecker
 S
 
 #$

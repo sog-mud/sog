@@ -8411,15 +8411,15 @@ S
 
 #RESETS
 M 0 36507 1 36501 1	* The angel with the fiery censer (At the corner of the world)
-E 0 36506 0 13		*	The angel with the fiery censer<around the waist>: A golden girdle
-E 0 36507 0 16		*	The angel with the fiery censer<wielded>: A golden sickle
+E 0 36506 0 13		*	The angel with the fiery censer <around the waist>: A golden girdle
+E 0 36507 0 16		*	The angel with the fiery censer <wielded>: A golden sickle
 G 0 36509 0		*	The angel with the fiery censer: A censer
 G 0 36508 0		*	The angel with the fiery censer: The prayers of saints
 M 0 36517 1 36506 1	* Balaam the teacher of Balac (MaGog)
 M 0 36516 1 36510 1	* Jezebel the prophetess (MaGog)
 M 0 36504 1 36514 1	* The angel of the waters (The corner of the world)
-E 0 36506 0 13		*	The angel of the waters<around the waist>: A golden girdle
-E 0 36507 0 16		*	The angel of the waters<wielded>: A golden sickle
+E 0 36506 0 13		*	The angel of the waters <around the waist>: A golden girdle
+E 0 36507 0 16		*	The angel of the waters <wielded>: A golden sickle
 G 0 36508 0		*	The angel of the waters: The prayers of saints
 M 0 36532 2 36518 1	* The mighty man (The plagued lands)
 M 0 36527 1 36521 1	* the whoremonger (MaGog)
@@ -8428,122 +8428,122 @@ O 0 36535 0 36522	* A fountain of blood (MaGog)
 M 0 36528 1 36523 1	* The murderer (MaGog)
 M 0 36518 1 36534 1	* Balac, disciple of Balaam (MaGog)
 M 0 36503 1 36539 1	* Babylon (The many waters)
-E 0 36505 0 17		*	Babylon<held in the hands>: The golden cup of Babylon
+E 0 36505 0 17		*	Babylon <held in the hands>: The golden cup of Babylon
 M 0 36535 2 36543 1	* The freeman (The plagued lands)
 M 0 36509 4 36552 1	* An army of heaven (Armageddon)
 M 0 36531 2 36557 1	* The rich man (The plagued lands)
 M 0 36508 4 36561 1	* The harvesting angel (Armageddon)
-E 0 36506 0 13		*	The harvesting angel<around the waist>: A golden girdle
-E 0 36507 0 16		*	The harvesting angel<wielded>: A golden sickle
+E 0 36506 0 13		*	The harvesting angel <around the waist>: A golden girdle
+E 0 36507 0 16		*	The harvesting angel <wielded>: A golden sickle
 G 0 36508 0		*	The harvesting angel: The prayers of saints
 M 0 36536 1 36561 1	* The chief captain (Armageddon)
 M 0 36535 2 36571 1	* The freeman (Wormwood)
 M 0 36523 4 36575 1	* The sealed one (Armageddon)
-E 0 36531 0 12		*	The sealed one<about the shoulders>: A white robe
-E 0 36532 0 6		*	The sealed one<over the head>: A seal
+E 0 36531 0 12		*	The sealed one <about the shoulders>: A white robe
+E 0 36532 0 6		*	The sealed one <over the head>: A seal
 M 0 36509 4 36576 1	* An army of heaven (Armageddon)
 M 0 36522 1 36578 1	* The word of God (Armageddon)
-E 0 36526 0 2		*	The word of God<on the right finger>: Hidden manna
-E 0 36527 0 17		*	The word of God<held in the hands>: A rod of iron
-E 0 36528 0 3		*	The word of God<around the neck>: White raiment
-E 0 36529 0 11		*	The word of God<as a shield>: A white stone
-E 0 36530 0 16		*	The word of God<wielded>: The sharp, two-edged sword of the mouth
+E 0 36526 0 2		*	The word of God <on the right finger>: Hidden manna
+E 0 36527 0 17		*	The word of God <held in the hands>: A rod of iron
+E 0 36528 0 3		*	The word of God <around the neck>: White raiment
+E 0 36529 0 11		*	The word of God <as a shield>: A white stone
+E 0 36530 0 16		*	The word of God <wielded>: The sharp, two-edged sword of the mouth
 M 0 36523 4 36579 1	* The sealed one (Armageddon)
-E 0 36531 0 12		*	The sealed one<about the shoulders>: A white robe
-E 0 36532 0 6		*	The sealed one<over the head>: A seal
+E 0 36531 0 12		*	The sealed one <about the shoulders>: A white robe
+E 0 36532 0 6		*	The sealed one <over the head>: A seal
 M 0 36519 3 36587 1	* The unclean spirit (The Euphrates)
 O 0 36534 0 36587	* A puddle of blood (The Euphrates)
 M 0 36512 1 36590 1	* The black horseman (The Euphrates)
-E 0 36515 0 5		*	The black horseman<on the body>: A breastplate of brimstone
-E 0 36516 0 17		*	The black horseman<held in the hands>: A pair of engraved balances
+E 0 36515 0 5		*	The black horseman <on the body>: A breastplate of brimstone
+E 0 36516 0 17		*	The black horseman <held in the hands>: A pair of engraved balances
 O 0 36534 0 36590	* A puddle of blood (The Euphrates)
 M 0 36534 2 36593 1	* The bondsman (Armageddon)
 M 0 36508 4 36595 1	* The harvesting angel (Armageddon)
-E 0 36506 0 13		*	The harvesting angel<around the waist>: A golden girdle
-E 0 36507 0 16		*	The harvesting angel<wielded>: A golden sickle
+E 0 36506 0 13		*	The harvesting angel <around the waist>: A golden girdle
+E 0 36507 0 16		*	The harvesting angel <wielded>: A golden sickle
 G 0 36508 0		*	The harvesting angel: The prayers of saints
 M 0 36533 2 36598 1	* the former king (The many waters)
 O 0 36534 0 36599	* A puddle of blood (The source of the Euphrates)
 M 0 36513 1 36600 1	* The pale horseman (The Euphrates)
-E 0 36517 0 12		*	The pale horseman<about the shoulders>: Death's cloak
-E 0 36518 0 16		*	The pale horseman<wielded>: The scythe of the Grim reaper
+E 0 36517 0 12		*	The pale horseman <about the shoulders>: Death's cloak
+E 0 36518 0 16		*	The pale horseman <wielded>: The scythe of the Grim reaper
 M 0 36521 1 36602 1	* The woman clothed with the sun (Wormwood)
-E 0 36521 0 10		*	The woman clothed with the sun<on the arms>: The wings of eagles
-E 0 36522 0 6		*	The woman clothed with the sun<over the head>: A crown with twelve stars
-E 0 36523 0 5		*	The woman clothed with the sun<on the body>: Clothing of the sun
-E 0 36524 0 7		*	The woman clothed with the sun<on the legs>: Clothing of the sun
-E 0 36525 0 8		*	The woman clothed with the sun<on the feet>: The moon under your feet
+E 0 36521 0 10		*	The woman clothed with the sun <on the arms>: The wings of eagles
+E 0 36522 0 6		*	The woman clothed with the sun <over the head>: A crown with twelve stars
+E 0 36523 0 5		*	The woman clothed with the sun <on the body>: Clothing of the sun
+E 0 36524 0 7		*	The woman clothed with the sun <on the legs>: Clothing of the sun
+E 0 36525 0 8		*	The woman clothed with the sun <on the feet>: The moon under your feet
 M 0 36519 3 36609 1	* The unclean spirit (The Euphrates)
 M 0 36510 1 36610 1	* the white horseman (The Euphrates)
-E 0 36510 0 6		*	the white horseman<over the head>: the white crown of the conquerer
-E 0 36511 0 16		*	the white horseman<wielded>: the white bow of the conquerer
-E 0 36512 0 5		*	the white horseman<on the body>: A breastplate of fire
+E 0 36510 0 6		*	the white horseman <over the head>: the white crown of the conquerer
+E 0 36511 0 16		*	the white horseman <wielded>: the white bow of the conquerer
+E 0 36512 0 5		*	the white horseman <on the body>: A breastplate of fire
 O 0 36534 0 36611	* A puddle of blood (The Euphrates)
 O 0 36533 0 36614	* The morning star (Wormwood)
 P 0 36501 1 0 1	* The morning star: the key of David
 M 0 36511 1 36621 1	* the red horseman (The Euphrates)
-E 0 36513 0 16		*	the red horseman<wielded>: The sword of war
-E 0 36514 0 5		*	the red horseman<on the body>: A breastplate of jacinth
+E 0 36513 0 16		*	the red horseman <wielded>: The sword of war
+E 0 36514 0 5		*	the red horseman <on the body>: A breastplate of jacinth
 M 0 36519 3 36622 1	* The unclean spirit (The Euphrates)
 O 0 36534 0 36622	* A puddle of blood (The Euphrates)
 M 0 36533 2 36627 1	* the former king (Wormwood)
 M 0 36523 4 36630 1	* The sealed one (Armageddon)
-E 0 36531 0 12		*	The sealed one<about the shoulders>: A white robe
-E 0 36532 0 6		*	The sealed one<over the head>: A seal
+E 0 36531 0 12		*	The sealed one <about the shoulders>: A white robe
+E 0 36532 0 6		*	The sealed one <over the head>: A seal
 M 0 36534 2 36630 1	* The bondsman (Armageddon)
 M 0 36509 4 36631 1	* An army of heaven (Armageddon)
 M 0 36531 2 36634 1	* The rich man (Armageddon)
 M 0 36508 4 36644 1	* The harvesting angel (Armageddon)
-E 0 36506 0 13		*	The harvesting angel<around the waist>: A golden girdle
-E 0 36507 0 16		*	The harvesting angel<wielded>: A golden sickle
+E 0 36506 0 13		*	The harvesting angel <around the waist>: A golden girdle
+E 0 36507 0 16		*	The harvesting angel <wielded>: A golden sickle
 G 0 36508 0		*	The harvesting angel: The prayers of saints
 M 0 36524 4 36645 1	* The marked one (Gog)
-E 0 36520 0 3		*	The marked one<around the neck>: The mark of the beast
+E 0 36520 0 3		*	The marked one <around the neck>: The mark of the beast
 M 0 36524 4 36649 1	* The marked one (Gog)
-E 0 36520 0 3		*	The marked one<around the neck>: The mark of the beast
+E 0 36520 0 3		*	The marked one <around the neck>: The mark of the beast
 M 0 36508 4 36651 1	* The harvesting angel (Armageddon)
-E 0 36506 0 13		*	The harvesting angel<around the waist>: A golden girdle
-E 0 36507 0 16		*	The harvesting angel<wielded>: A golden sickle
+E 0 36506 0 13		*	The harvesting angel <around the waist>: A golden girdle
+E 0 36507 0 16		*	The harvesting angel <wielded>: A golden sickle
 G 0 36508 0		*	The harvesting angel: The prayers of saints
 M 0 36532 2 36652 1	* The mighty man (The heavens)
 M 0 36530 1 36660 1	* the thief (Gog)
-E 0 36520 0 3		*	the thief<around the neck>: The mark of the beast
+E 0 36520 0 3		*	the thief <around the neck>: The mark of the beast
 M 0 36520 1 36661 1	* The false prophet (Gog)
-E 0 36520 0 3		*	The false prophet<around the neck>: The mark of the beast
+E 0 36520 0 3		*	The false prophet <around the neck>: The mark of the beast
 O 0 36535 0 36661	* A fountain of blood (Gog)
 M 0 36526 1 36662 1	* The idolator (Gog)
-E 0 36520 0 3		*	The idolator<around the neck>: The mark of the beast
+E 0 36520 0 3		*	The idolator <around the neck>: The mark of the beast
 M 0 36509 4 36664 1	* An army of heaven (Armageddon)
 M 0 36523 4 36665 1	* The sealed one (Armageddon)
-E 0 36531 0 12		*	The sealed one<about the shoulders>: A white robe
-E 0 36532 0 6		*	The sealed one<over the head>: A seal
+E 0 36531 0 12		*	The sealed one <about the shoulders>: A white robe
+E 0 36532 0 6		*	The sealed one <over the head>: A seal
 M 0 36505 1 36669 1	* The angel of the earth (The corner of the world)
-E 0 36506 0 13		*	The angel of the earth<around the waist>: A golden girdle
-E 0 36507 0 16		*	The angel of the earth<wielded>: A golden sickle
+E 0 36506 0 13		*	The angel of the earth <around the waist>: A golden girdle
+E 0 36507 0 16		*	The angel of the earth <wielded>: A golden sickle
 G 0 36508 0		*	The angel of the earth: The prayers of saints
 M 0 36524 4 36673 1	* The marked one (Gog)
-E 0 36520 0 3		*	The marked one<around the neck>: The mark of the beast
+E 0 36520 0 3		*	The marked one <around the neck>: The mark of the beast
 M 0 36525 1 36675 1	* The beast (The unholy shrine)
 M 0 36524 4 36677 1	* The marked one (Gog)
-E 0 36520 0 3		*	The marked one<around the neck>: The mark of the beast
+E 0 36520 0 3		*	The marked one <around the neck>: The mark of the beast
 M 0 36514 1 36680 1	* The archangel Michael (The heavens)
-E 0 36519 0 16		*	The archangel Michael<wielded>: The holy lance of archangel Michael
+E 0 36519 0 16		*	The archangel Michael <wielded>: The holy lance of archangel Michael
 M 0 36515 1 36680 1	* The dragon (The heavens)
 M 0 36506 1 36682 1	* The angel of the air (The corner of the world)
-E 0 36506 0 13		*	The angel of the air<around the waist>: A golden girdle
-E 0 36507 0 16		*	The angel of the air<wielded>: A golden sickle
+E 0 36506 0 13		*	The angel of the air <around the waist>: A golden girdle
+E 0 36507 0 16		*	The angel of the air <wielded>: A golden sickle
 G 0 36508 0		*	The angel of the air: The prayers of saints
 M 0 36501 3 36684 1	* the giant locust (The bottomless pit)
-E 0 36502 0 5		*	the giant locust<on the body>: An iron breastplate
-E 0 36503 0 16		*	the giant locust<wielded>: A locust stinger
+E 0 36502 0 5		*	the giant locust <on the body>: An iron breastplate
+E 0 36503 0 16		*	the giant locust <wielded>: A locust stinger
 M 0 36501 3 36686 1	* the giant locust (The bottomless pit)
-E 0 36502 0 5		*	the giant locust<on the body>: An iron breastplate
-E 0 36503 0 16		*	the giant locust<wielded>: A locust stinger
+E 0 36502 0 5		*	the giant locust <on the body>: An iron breastplate
+E 0 36503 0 16		*	the giant locust <wielded>: A locust stinger
 M 0 36501 3 36688 1	* the giant locust (The bottomless pit)
-E 0 36502 0 5		*	the giant locust<on the body>: An iron breastplate
-E 0 36503 0 16		*	the giant locust<wielded>: A locust stinger
+E 0 36502 0 5		*	the giant locust <on the body>: An iron breastplate
+E 0 36503 0 16		*	the giant locust <wielded>: A locust stinger
 M 0 36502 1 36690 1	* Abaddon (The bottomless pit)
-E 0 36504 0 5		*	Abaddon<on the body>: The chain of binding
+E 0 36504 0 5		*	Abaddon <on the body>: The chain of binding
 M 0 36543 1 36692 1	* the eagle creature (In the throne room)
 M 0 36540 1 36694 1	* the lion creature (In the throne room)
 M 0 36541 1 36695 1	* the ox creature (In the throne room)
@@ -8551,10 +8551,10 @@ M 0 36542 1 36696 1	* the creature with a human face (In the throne room)
 M 0 36538 1 36697 1	* The Lamb (In the throne room)
 O 0 36536 0 36698	* An emerald throne (At the throne)
 M 0 36537 1 36698 1	* He who sits at the throne (At the throne)
-E 0 36540 0 17		*	He who sits at the throne<held in the hands>: The book of life
+E 0 36540 0 17		*	He who sits at the throne <held in the hands>: The book of life
 O 0 36537 0 36699	* Four and twenty thrones (In the throne room)
 M 0 36539 1 36699 1	* four and twenty elders (In the throne room)
-E 0 36541 0 17		*	four and twenty elders<held in the hands>: A golden bowl of incense
+E 0 36541 0 17		*	four and twenty elders <held in the hands>: A golden bowl of incense
 S
 
 #OLIMITS

@@ -1700,13 +1700,13 @@ M 0 2200 12 2202 1	* the dragon hatchling (The Foyer)
 M 0 2200 12 2203 2	* the dragon hatchling (Hallway)
 M 0 2200 12 2203 2	* the dragon hatchling (Hallway)
 M 0 2201 7 2203 2	* the Draconian (Hallway)
-E 0 2200 0 16		*	the Draconian<wielded>: a jagged spear
+E 0 2200 0 16		*	the Draconian <wielded>: a jagged spear
 M 0 2201 7 2204 3	* the Draconian (Hallway)
-E 0 2200 0 16		*	the Draconian<wielded>: a jagged spear
+E 0 2200 0 16		*	the Draconian <wielded>: a jagged spear
 M 0 2201 7 2204 3	* the Draconian (Hallway)
-E 0 2200 0 16		*	the Draconian<wielded>: a jagged spear
+E 0 2200 0 16		*	the Draconian <wielded>: a jagged spear
 M 0 2201 7 2204 3	* the Draconian (Hallway)
-E 0 2200 0 16		*	the Draconian<wielded>: a jagged spear
+E 0 2200 0 16		*	the Draconian <wielded>: a jagged spear
 M 0 2200 12 2205 4	* the dragon hatchling (Nursery)
 M 0 2200 12 2205 4	* the dragon hatchling (Nursery)
 M 0 2200 12 2205 4	* the dragon hatchling (Nursery)
@@ -1718,42 +1718,42 @@ M 0 2226 1 2208 1	* a large hydra (Guardian's Room)
 G 0 2234 0		*	a large hydra: a grey key
 G 0 2243 0		*	a large hydra: a golden wand
 G 0 2223 0		*	a large hydra: a stone club
-E 0 2244 0 17		*	a large hydra<held in the hands>: a silver staff
+E 0 2244 0 17		*	a large hydra <held in the hands>: a silver staff
 M 0 2201 7 2210 2	* the Draconian (The Second Floor)
-E 0 2200 0 16		*	the Draconian<wielded>: a jagged spear
+E 0 2200 0 16		*	the Draconian <wielded>: a jagged spear
 M 0 2207 20 2210 5	* A bodyguard (The Second Floor)
-E 0 2286 0 16		*	A bodyguard<wielded>: a copper hammer
+E 0 2286 0 16		*	A bodyguard <wielded>: a copper hammer
 M 0 2207 20 2211 5	* A bodyguard (The Court)
-E 0 2286 0 16		*	A bodyguard<wielded>: a copper hammer
+E 0 2286 0 16		*	A bodyguard <wielded>: a copper hammer
 M 0 2207 20 2211 5	* A bodyguard (The Court)
-E 0 2260 0 16		*	A bodyguard<wielded>: a golden scimitar
+E 0 2260 0 16		*	A bodyguard <wielded>: a golden scimitar
 M 0 2206 5 2212 5	* a concubine (Hall O' Pleasure)
-E 0 2287 0 16		*	a concubine<wielded>: a silver dagger
+E 0 2287 0 16		*	a concubine <wielded>: a silver dagger
 M 0 2206 5 2212 5	* a concubine (Hall O' Pleasure)
 G 0 2233 0		*	a concubine: a white key
-E 0 2287 0 16		*	a concubine<wielded>: a silver dagger
+E 0 2287 0 16		*	a concubine <wielded>: a silver dagger
 M 0 2206 5 2212 5	* a concubine (Hall O' Pleasure)
 G 0 2240 0		*	a concubine: a black key
-E 0 2287 0 16		*	a concubine<wielded>: a silver dagger
+E 0 2287 0 16		*	a concubine <wielded>: a silver dagger
 M 0 2206 5 2212 5	* a concubine (Hall O' Pleasure)
-E 0 2287 0 16		*	a concubine<wielded>: a silver dagger
+E 0 2287 0 16		*	a concubine <wielded>: a silver dagger
 M 0 2203 1 2214 1	* a powerful mage (The Library)
-E 0 2223 0 12		*	a powerful mage<about the shoulders>: a stone club
-E 0 2250 0 17		*	a powerful mage<held in the hands>: a black staff
+E 0 2223 0 12		*	a powerful mage <about the shoulders>: a stone club
+E 0 2250 0 17		*	a powerful mage <held in the hands>: a black staff
 G 0 2251 0		*	a powerful mage: a cyan potion
-E 0 2261 0 3		*	a powerful mage<around the neck>: a diamond brooch
+E 0 2261 0 3		*	a powerful mage <around the neck>: a diamond brooch
 M 0 2242 5 2214 1	* the draconian fool (The Library)
 M 0 2204 1 2214 1	* the holy Draconian (The Library)
-E 0 2220 0 3		*	the holy Draconian<around the neck>: a holy symbol
-E 0 2211 0 14		*	the holy Draconian<on the left wrist>: a platinum bracelet.
-E 0 2210 0 13		*	the holy Draconian<around the waist>: a white silk belt
+E 0 2220 0 3		*	the holy Draconian <around the neck>: a holy symbol
+E 0 2211 0 14		*	the holy Draconian <on the left wrist>: a platinum bracelet.
+E 0 2210 0 13		*	the holy Draconian <around the waist>: a white silk belt
 G 0 2270 0		*	the holy Draconian: a runed scroll
 G 0 2252 0		*	the holy Draconian: a magenta potion
 M 0 2205 1 2216 1	* the Draconian King (The Court Ends)
-E 0 2222 0 16		*	the Draconian King<wielded>: an emerald sword
-E 0 2276 0 12		*	the Draconian King<about the shoulders>: a fur cloak
-E 0 2242 0 11		*	the Draconian King<as a shield>: a crested shield
-E 0 2254 0 9		*	the Draconian King<on the hands>: a pair of spiked gauntlets
+E 0 2222 0 16		*	the Draconian King <wielded>: an emerald sword
+E 0 2276 0 12		*	the Draconian King <about the shoulders>: a fur cloak
+E 0 2242 0 11		*	the Draconian King <as a shield>: a crested shield
+E 0 2254 0 9		*	the Draconian King <on the hands>: a pair of spiked gauntlets
 G 0 2232 0		*	the Draconian King: a ruby key
 M 0 2207 20 2216 5	* A bodyguard (The Court Ends)
 M 0 2207 20 2216 5	* A bodyguard (The Court Ends)
@@ -1761,9 +1761,9 @@ M 0 2207 20 2216 5	* A bodyguard (The Court Ends)
 M 0 2242 5 2216 4	* the draconian fool (The Court Ends)
 M 0 2242 5 2216 4	* the draconian fool (The Court Ends)
 M 0 2243 1 2217 1	* the Draconian Queen (bedroom)
-E 0 2203 0 14		*	the Draconian Queen<on the left wrist>: a dragon skin bracelet
-E 0 2204 0 13		*	the Draconian Queen<around the waist>: a black silk belt
-E 0 2201 0 16		*	the Draconian Queen<wielded>: a silver dagger
+E 0 2203 0 14		*	the Draconian Queen <on the left wrist>: a dragon skin bracelet
+E 0 2204 0 13		*	the Draconian Queen <around the waist>: a black silk belt
+E 0 2201 0 16		*	the Draconian Queen <wielded>: a silver dagger
 M 0 2227 5 2217 4	* A human slave (bedroom)
 M 0 2227 5 2217 4	* A human slave (bedroom)
 M 0 2241 2 2217 2	* the phase dragon (bedroom)
@@ -1772,21 +1772,21 @@ M 0 2240 8 2218 2	* a Draconian zombie (Entrance to the Crypt)
 M 0 2240 8 2219 2	* a Draconian zombie (Crypt)
 M 0 2240 8 2219 2	* a Draconian zombie (Crypt)
 M 0 2223 1 2220 1	* the Great White Dragon (The Lair)
-E 0 2246 0 5		*	the Great White Dragon<on the body>: scale mail
+E 0 2246 0 5		*	the Great White Dragon <on the body>: scale mail
 M 0 2222 1 2221 1	* the Great Black Dragon (A Lair)
-E 0 2280 0 7		*	the Great Black Dragon<on the legs>: a pair of dragon scale leggings
+E 0 2280 0 7		*	the Great Black Dragon <on the legs>: a pair of dragon scale leggings
 M 0 2202 1 2222 1	* the dragon master (The Crypt Ends)
-E 0 2202 0 16		*	the dragon master<wielded>: a dragon's tooth knife
-E 0 2281 0 10		*	the dragon master<on the arms>: a set of dragon scale sleeves
-E 0 2271 0 9		*	the dragon master<on the hands>: a pair of dragon skin gloves
+E 0 2202 0 16		*	the dragon master <wielded>: a dragon's tooth knife
+E 0 2281 0 10		*	the dragon master <on the arms>: a set of dragon scale sleeves
+E 0 2271 0 9		*	the dragon master <on the hands>: a pair of dragon skin gloves
 M 0 2221 1 2226 1	* the Great Red Dragon (Lair)
-E 0 2275 0 6		*	the Great Red Dragon<over the head>: a helm of dragon kind
-E 0 2245 0 17		*	the Great Red Dragon<held in the hands>: the staff of the dragon
+E 0 2275 0 6		*	the Great Red Dragon <over the head>: a helm of dragon kind
+E 0 2245 0 17		*	the Great Red Dragon <held in the hands>: the staff of the dragon
 G 0 2299 0		*	the Great Red Dragon: a tarnished gold key
 M 0 2225 1 2230 1	* the Ancient Green Dragon (THE Lair)
 G 0 2241 0		*	the Ancient Green Dragon: a platinum key
 G 0 2285 0		*	the Ancient Green Dragon: a dragon tailed whip
-E 0 2261 0 3		*	the Ancient Green Dragon<around the neck>: a diamond brooch
+E 0 2261 0 3		*	the Ancient Green Dragon <around the neck>: a diamond brooch
 M 0 2220 1 2231 1	* Tiamat (The End...)
 M 0 2240 8 2232 1	* a Draconian zombie (Stairwell)
 M 0 2240 8 2233 1	* a Draconian zombie (Wine cellar)

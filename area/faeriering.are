@@ -605,15 +605,15 @@ S
 M 0 29101 4 29102 1	* a giggling pixie (Entrance Hall)
 G 0 29101 0		*	a giggling pixie: a catchy little rhyme
 M 0 29105 1 29103 1	* Puck (Puck's Room)
-E 0 29109 0 7		*	Puck<on the legs>: a pair of dirty britches
-E 0 29111 0 4		*	Puck<on the face>: a dirty cloak
+E 0 29109 0 7		*	Puck <on the legs>: a pair of dirty britches
+E 0 29111 0 4		*	Puck <on the face>: a dirty cloak
 O 0 29108 0 29103	* a goblet of faerie wine (Puck's Room)
 M 0 29102 3 29104 1	* a fluttering nixie (Little People's Bar and Grill)
 G 0 29105 0		*	a fluttering nixie: a vial of bottled moonlight
 M 0 29101 4 29104 1	* a giggling pixie (Little People's Bar and Grill)
 G 0 29101 0		*	a giggling pixie: a catchy little rhyme
 M 0 29103 3 29104 1	* a dancing sprite (Little People's Bar and Grill)
-E 0 29103 0 13		*	a dancing sprite<around the waist>: a sprite belt
+E 0 29103 0 13		*	a dancing sprite <around the waist>: a sprite belt
 M 0 29109 1 29104 1	* Twinkletoes (Little People's Bar and Grill)
 G 0 29108 0		*	Twinkletoes: a goblet of faerie wine
 G 0 29114 0		*	Twinkletoes: delicious finger food
@@ -624,34 +624,34 @@ M 0 29108 2 29105 1	* a drunken faerie (Snooze Den)
 M 0 29108 2 29105 1	* a drunken faerie (Snooze Den)
 G 0 29108 0		*	a drunken faerie: a goblet of faerie wine
 M 0 29104 1 29106 1	* a stern brownie (Guarded Burrow)
-E 0 29104 0 14		*	a stern brownie<on the left wrist>: a brownie bracer
-E 0 29104 0 15		*	a stern brownie<on the right wrist>: a brownie bracer
+E 0 29104 0 14		*	a stern brownie <on the left wrist>: a brownie bracer
+E 0 29104 0 15		*	a stern brownie <on the right wrist>: a brownie bracer
 G 0 29110 0		*	a stern brownie: a sparkling key
 M 0 29104 4 29106 1	* a stern brownie (Guarded Burrow)
-E 0 29104 0 15		*	a stern brownie<on the right wrist>: a brownie bracer
-E 0 29104 0 14		*	a stern brownie<on the left wrist>: a brownie bracer
+E 0 29104 0 15		*	a stern brownie <on the right wrist>: a brownie bracer
+E 0 29104 0 14		*	a stern brownie <on the left wrist>: a brownie bracer
 G 0 29110 0		*	a stern brownie: a sparkling key
 M 0 29104 4 29106 1	* a stern brownie (Guarded Burrow)
-E 0 29104 0 14		*	a stern brownie<on the left wrist>: a brownie bracer
-E 0 29104 0 15		*	a stern brownie<on the right wrist>: a brownie bracer
+E 0 29104 0 14		*	a stern brownie <on the left wrist>: a brownie bracer
+E 0 29104 0 15		*	a stern brownie <on the right wrist>: a brownie bracer
 M 0 29101 4 29107 1	* a giggling pixie (Bowling Alley)
 G 0 29101 0		*	a giggling pixie: a catchy little rhyme
 M 0 29102 3 29107 1	* a fluttering nixie (Bowling Alley)
 G 0 29105 0		*	a fluttering nixie: a vial of bottled moonlight
 M 0 29103 3 29107 1	* a dancing sprite (Bowling Alley)
-E 0 29103 0 13		*	a dancing sprite<around the waist>: a sprite belt
+E 0 29103 0 13		*	a dancing sprite <around the waist>: a sprite belt
 M 0 29106 1 29108 1	* the Faerie Queen (Hall of the Faerie Queen)
-E 0 29102 0 0		*	the Faerie Queen<as a light>: a *twinkling* ball of light
-E 0 29106 0 5		*	the Faerie Queen<on the body>: a gossamer robe
-E 0 29107 0 16		*	the Faerie Queen<wielded>: a moonbeam
+E 0 29102 0 0		*	the Faerie Queen <as a light>: a *twinkling* ball of light
+E 0 29106 0 5		*	the Faerie Queen <on the body>: a gossamer robe
+E 0 29107 0 16		*	the Faerie Queen <wielded>: a moonbeam
 M 0 29101 4 29108 1	* a giggling pixie (Hall of the Faerie Queen)
 G 0 29101 0		*	a giggling pixie: a catchy little rhyme
 M 0 29102 3 29108 1	* a fluttering nixie (Hall of the Faerie Queen)
 G 0 29105 0		*	a fluttering nixie: a vial of bottled moonlight
 M 0 29103 3 29108 1	* a dancing sprite (Hall of the Faerie Queen)
-E 0 29103 0 13		*	a dancing sprite<around the waist>: a sprite belt
+E 0 29103 0 13		*	a dancing sprite <around the waist>: a sprite belt
 M 0 29104 3 29108 1	* a stern brownie (Hall of the Faerie Queen)
-E 0 29104 0 14		*	a stern brownie<on the left wrist>: a brownie bracer
+E 0 29104 0 14		*	a stern brownie <on the left wrist>: a brownie bracer
 S
 
 #SHOPS

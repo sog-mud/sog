@@ -2014,16 +2014,16 @@ M 0 1103 6 1108 6	* a toddler (Kid'n Keep)
 M 0 1103 6 1108 6	* a toddler (Kid'n Keep)
 M 0 1103 6 1108 6	* a toddler (Kid'n Keep)
 M 0 1110 8 1110 2	* a shiriff (Shiriff Post of the Eastern Shire)
-E 0 1116 0 16		*	a shiriff<wielded>: a shiriff's dagger
-E 0 616 0 5		*	a shiriff<on the body>: a leather vest
+E 0 1116 0 16		*	a shiriff <wielded>: a shiriff's dagger
+E 0 616 0 5		*	a shiriff <on the body>: a leather vest
 M 0 1110 8 1110 2	* a shiriff (Shiriff Post of the Eastern Shire)
-E 0 616 0 5		*	a shiriff<on the body>: a leather vest
+E 0 616 0 5		*	a shiriff <on the body>: a leather vest
 M 0 1111 4 1110 1	* a shiriff (Shiriff Post of the Eastern Shire)
-E 0 616 0 5		*	a shiriff<on the body>: a leather vest
+E 0 616 0 5		*	a shiriff <on the body>: a leather vest
 M 0 1112 1 1111 1	* the Thain (Thain's Office)
-E 0 1117 0 16		*	the Thain<wielded>: the Thain's club
-E 0 616 0 5		*	the Thain<on the body>: a leather vest
-E 0 1108 0 13		*	the Thain<around the waist>: the thain girth
+E 0 1117 0 16		*	the Thain <wielded>: the Thain's club
+E 0 616 0 5		*	the Thain <on the body>: a leather vest
+E 0 1108 0 13		*	the Thain <around the waist>: the thain girth
 M 0 1128 4 1114 1	* a country bumpkin (A smial)
 G 0 1103 0		*	a country bumpkin: a pipeweed bread
 M 0 1128 4 1115 1	* a country bumpkin (A smial)
@@ -2041,20 +2041,20 @@ M 0 1127 7 1116 3	* a chic urbanite (The Ivy Bush)
 M 0 1127 7 1116 3	* a chic urbanite (The Ivy Bush)
 M 0 1127 7 1116 3	* a chic urbanite (The Ivy Bush)
 M 0 1121 1 1117 1	* the battle master (Shiriff Training Grounds)
-E 0 1113 0 16		*	the battle master<wielded>: a bardiche
+E 0 1113 0 16		*	the battle master <wielded>: a bardiche
 M 0 1126 3 1117 3	* a trainee (Shiriff Training Grounds)
-E 0 1115 0 16		*	a trainee<wielded>: a wooden bardiche
+E 0 1115 0 16		*	a trainee <wielded>: a wooden bardiche
 M 0 1126 3 1117 3	* a trainee (Shiriff Training Grounds)
-E 0 1115 0 16		*	a trainee<wielded>: a wooden bardiche
+E 0 1115 0 16		*	a trainee <wielded>: a wooden bardiche
 M 0 1126 3 1117 3	* a trainee (Shiriff Training Grounds)
-E 0 1115 0 16		*	a trainee<wielded>: a wooden bardiche
+E 0 1115 0 16		*	a trainee <wielded>: a wooden bardiche
 M 0 1110 8 1119 2	* a shiriff (Shiriff Post of the Bridge)
-E 0 1116 0 16		*	a shiriff<wielded>: a shiriff's dagger
-E 0 616 0 5		*	a shiriff<on the body>: a leather vest
+E 0 1116 0 16		*	a shiriff <wielded>: a shiriff's dagger
+E 0 616 0 5		*	a shiriff <on the body>: a leather vest
 M 0 1110 8 1119 2	* a shiriff (Shiriff Post of the Bridge)
-E 0 616 0 5		*	a shiriff<on the body>: a leather vest
+E 0 616 0 5		*	a shiriff <on the body>: a leather vest
 M 0 1111 4 1119 1	* a shiriff (Shiriff Post of the Bridge)
-E 0 616 0 5		*	a shiriff<on the body>: a leather vest
+E 0 616 0 5		*	a shiriff <on the body>: a leather vest
 M 0 1119 1 1121 1	* the grocer (The Grocer's Delight)
 G 0 1103 0		*	the grocer: a pipeweed bread
 M 0 1115 6 1123 6	* the mill worker (Entrance to Watermill)
@@ -2069,8 +2069,8 @@ M 0 1122 9 1127 3	* a halfling youth (Northern end of grassy field)
 M 0 1122 9 1127 3	* a halfling youth (Northern end of grassy field)
 M 0 1125 1 1128 1	* a halfling beauty (A grassy field)
 M 0 1100 1 1128 1	* the Elven Wizard (A grassy field)
-E 0 1104 0 12		*	the Elven Wizard<about the shoulders>: a silvery cloak
-E 0 1100 0 0		*	the Elven Wizard<as a light>: the rainbow staff
+E 0 1104 0 12		*	the Elven Wizard <about the shoulders>: a silvery cloak
+E 0 1100 0 0		*	the Elven Wizard <as a light>: the rainbow staff
 M 0 1122 9 1129 3	* a halfling youth (Southern end of grassy field)
 M 0 1122 9 1129 3	* a halfling youth (Southern end of grassy field)
 M 0 1122 9 1129 3	* a halfling youth (Southern end of grassy field)
@@ -2078,15 +2078,15 @@ M 0 1122 9 1130 3	* a halfling youth (Western end of grassy field)
 M 0 1122 9 1130 3	* a halfling youth (Western end of grassy field)
 M 0 1122 9 1130 3	* a halfling youth (Western end of grassy field)
 M 0 1116 1 1136 1	* the elven warrior (Bedroom)
-E 0 1106 0 16		*	the elven warrior<wielded>: an elven spear
-E 0 622 0 6		*	the elven warrior<over the head>: a brass helm
+E 0 1106 0 16		*	the elven warrior <wielded>: an elven spear
+E 0 622 0 6		*	the elven warrior <over the head>: a brass helm
 M 0 1117 1 1136 1	* the dwarven prince (Bedroom)
-E 0 1107 0 16		*	the dwarven prince<wielded>: a mithril axe
-E 0 621 0 5		*	the dwarven prince<on the body>: brass plate
+E 0 1107 0 16		*	the dwarven prince <wielded>: a mithril axe
+E 0 621 0 5		*	the dwarven prince <on the body>: brass plate
 M 0 1101 1 1137 1	* the Keeper of the Ring (Pantry)
-E 0 1101 0 16		*	the Keeper of the Ring<wielded>: sting
-E 0 1105 0 1		*	the Keeper of the Ring<on the left finger>: the One Ring
-E 0 623 0 7		*	the Keeper of the Ring<on the legs>: brass leggings
+E 0 1101 0 16		*	the Keeper of the Ring <wielded>: sting
+E 0 1105 0 1		*	the Keeper of the Ring <on the left finger>: the One Ring
+E 0 623 0 7		*	the Keeper of the Ring <on the legs>: brass leggings
 M 0 1108 1 1138 1	* a bull (A grassy field)
 M 0 1106 5 1139 5	* a pig (Pig pen)
 M 0 1106 5 1139 5	* a pig (Pig pen)
@@ -2126,19 +2126,19 @@ M 0 1127 7 1144 4	* a chic urbanite (The Green Dragon)
 M 0 1127 7 1144 4	* a chic urbanite (The Green Dragon)
 M 0 1127 7 1144 4	* a chic urbanite (The Green Dragon)
 M 0 1110 8 1145 2	* a shiriff (Shiriff Post of Delving Lane)
-E 0 1116 0 16		*	a shiriff<wielded>: a shiriff's dagger
-E 0 616 0 5		*	a shiriff<on the body>: a leather vest
+E 0 1116 0 16		*	a shiriff <wielded>: a shiriff's dagger
+E 0 616 0 5		*	a shiriff <on the body>: a leather vest
 M 0 1110 8 1145 2	* a shiriff (Shiriff Post of Delving Lane)
-E 0 616 0 5		*	a shiriff<on the body>: a leather vest
+E 0 616 0 5		*	a shiriff <on the body>: a leather vest
 M 0 1111 4 1145 1	* a shiriff (Shiriff Post of Delving Lane)
-E 0 616 0 5		*	a shiriff<on the body>: a leather vest
+E 0 616 0 5		*	a shiriff <on the body>: a leather vest
 M 0 1110 8 1153 2	* a shiriff (Shiriff Post of the Lower Shire)
-E 0 1116 0 16		*	a shiriff<wielded>: a shiriff's dagger
-E 0 616 0 5		*	a shiriff<on the body>: a leather vest
+E 0 1116 0 16		*	a shiriff <wielded>: a shiriff's dagger
+E 0 616 0 5		*	a shiriff <on the body>: a leather vest
 M 0 1110 8 1153 2	* a shiriff (Shiriff Post of the Lower Shire)
-E 0 616 0 5		*	a shiriff<on the body>: a leather vest
+E 0 616 0 5		*	a shiriff <on the body>: a leather vest
 M 0 1111 4 1153 1	* a shiriff (Shiriff Post of the Lower Shire)
-E 0 616 0 5		*	a shiriff<on the body>: a leather vest
+E 0 616 0 5		*	a shiriff <on the body>: a leather vest
 M 0 1128 4 1154 1	* a country bumpkin (A halfling hole)
 M 0 1128 4 1155 1	* a country bumpkin (A halfling hole)
 M 0 1131 1 1157 1	* the receptionist (The Inn of the Green Dragon)

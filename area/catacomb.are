@@ -1978,13 +1978,13 @@ S
 #RESETS
 M 0 2003 2 2002 1	* a spelunker (North/south tunnel)
 M 0 2008 12 2003 1	* a templar (Weapon training area)
-E 0 2009 0 5		*	a templar<on the body>: a suit of chainmail
-E 0 2016 0 16		*	a templar<wielded>: a templar's sword
+E 0 2009 0 5		*	a templar <on the body>: a suit of chainmail
+E 0 2016 0 16		*	a templar <wielded>: a templar's sword
 M 0 2008 12 2004 1	* a templar (Prayer training area)
-E 0 2016 0 16		*	a templar<wielded>: a templar's sword
+E 0 2016 0 16		*	a templar <wielded>: a templar's sword
 M 0 2008 12 2005 1	* a templar (Junction of hallways)
 M 0 2008 12 2006 1	* a templar (Hallway)
-E 0 2009 0 5		*	a templar<on the body>: a suit of chainmail
+E 0 2009 0 5		*	a templar <on the body>: a suit of chainmail
 M 0 2002 8 2008 8	* a templar page (Pages' sleeping quarters)
 M 0 2002 8 2008 8	* a templar page (Pages' sleeping quarters)
 M 0 2002 8 2008 8	* a templar page (Pages' sleeping quarters)
@@ -1993,95 +1993,95 @@ M 0 2002 8 2008 8	* a templar page (Pages' sleeping quarters)
 M 0 2002 8 2009 8	* a templar page (Templar Knights sleeping quarters)
 M 0 2002 8 2009 8	* a templar page (Templar Knights sleeping quarters)
 M 0 2008 12 2009 3	* a templar (Templar Knights sleeping quarters)
-E 0 2009 0 5		*	a templar<on the body>: a suit of chainmail
+E 0 2009 0 5		*	a templar <on the body>: a suit of chainmail
 M 0 2008 12 2009 3	* a templar (Templar Knights sleeping quarters)
-E 0 2016 0 16		*	a templar<wielded>: a templar's sword
+E 0 2016 0 16		*	a templar <wielded>: a templar's sword
 M 0 2008 12 2009 3	* a templar (Templar Knights sleeping quarters)
-E 0 2009 0 5		*	a templar<on the body>: a suit of chainmail
+E 0 2009 0 5		*	a templar <on the body>: a suit of chainmail
 M 0 2002 8 2010 8	* a templar page (N/S hallway)
 M 0 2010 6 2015 1	* the templar officer (Mid-level leader's room)
-E 0 2016 0 16		*	the templar officer<wielded>: a templar's sword
-E 0 2009 0 5		*	the templar officer<on the body>: a suit of chainmail
+E 0 2016 0 16		*	the templar officer <wielded>: a templar's sword
+E 0 2009 0 5		*	the templar officer <on the body>: a suit of chainmail
 M 0 2008 12 2016 3	* a templar (Mess hall)
-E 0 2016 0 16		*	a templar<wielded>: a templar's sword
+E 0 2016 0 16		*	a templar <wielded>: a templar's sword
 M 0 2008 12 2016 3	* a templar (Mess hall)
-E 0 2009 0 5		*	a templar<on the body>: a suit of chainmail
+E 0 2009 0 5		*	a templar <on the body>: a suit of chainmail
 M 0 2008 12 2016 3	* a templar (Mess hall)
-E 0 2009 0 5		*	a templar<on the body>: a suit of chainmail
+E 0 2009 0 5		*	a templar <on the body>: a suit of chainmail
 M 0 2010 6 2016 2	* the templar officer (Mess hall)
-E 0 2016 0 16		*	the templar officer<wielded>: a templar's sword
-E 0 2009 0 5		*	the templar officer<on the body>: a suit of chainmail
+E 0 2016 0 16		*	the templar officer <wielded>: a templar's sword
+E 0 2009 0 5		*	the templar officer <on the body>: a suit of chainmail
 M 0 2010 6 2016 2	* the templar officer (Mess hall)
-E 0 2016 0 16		*	the templar officer<wielded>: a templar's sword
-E 0 2009 0 5		*	the templar officer<on the body>: a suit of chainmail
+E 0 2016 0 16		*	the templar officer <wielded>: a templar's sword
+E 0 2009 0 5		*	the templar officer <on the body>: a suit of chainmail
 M 0 2010 6 2016 2	* the templar officer (Mess hall)
-E 0 2016 0 16		*	the templar officer<wielded>: a templar's sword
-E 0 2009 0 5		*	the templar officer<on the body>: a suit of chainmail
+E 0 2016 0 16		*	the templar officer <wielded>: a templar's sword
+E 0 2009 0 5		*	the templar officer <on the body>: a suit of chainmail
 M 0 2010 6 2018 1	* the templar officer (High officer's room)
-E 0 2016 0 16		*	the templar officer<wielded>: a templar's sword
-E 0 2009 0 5		*	the templar officer<on the body>: a suit of chainmail
+E 0 2016 0 16		*	the templar officer <wielded>: a templar's sword
+E 0 2009 0 5		*	the templar officer <on the body>: a suit of chainmail
 M 0 2006 7 2019 1	* It (Mossy intersection)
 M 0 2008 12 2023 2	* a templar (Mess hall)
-E 0 2016 0 16		*	a templar<wielded>: a templar's sword
+E 0 2016 0 16		*	a templar <wielded>: a templar's sword
 M 0 2008 12 2023 2	* a templar (Mess hall)
 M 0 2010 6 2023 1	* the templar officer (Mess hall)
-E 0 2009 0 5		*	the templar officer<on the body>: a suit of chainmail
-E 0 2016 0 16		*	the templar officer<wielded>: a templar's sword
+E 0 2009 0 5		*	the templar officer <on the body>: a suit of chainmail
+E 0 2016 0 16		*	the templar officer <wielded>: a templar's sword
 M 0 2015 1 2025 1	* the grand templar (Grand Templar's room)
-E 0 2010 0 3		*	the grand templar<around the neck>: a white cape
-E 0 2001 0 0		*	the grand templar<as a light>: a glowing key
-E 0 2008 0 17		*	the grand templar<held in the hands>: a flask of holy water
+E 0 2010 0 3		*	the grand templar <around the neck>: a white cape
+E 0 2001 0 0		*	the grand templar <as a light>: a glowing key
+E 0 2008 0 17		*	the grand templar <held in the hands>: a flask of holy water
 M 0 2012 2 2026 2	* the shadow (Very dark passage)
-E 0 2014 0 12		*	the shadow<about the shoulders>: a shadow cloak
+E 0 2014 0 12		*	the shadow <about the shoulders>: a shadow cloak
 M 0 2006 7 2028 1	* It (The holy grove)
 M 0 2017 1 2030 1	* The DarkenBeast (Deep within the catacombs)
-E 0 2003 0 2		*	The DarkenBeast<on the right finger>: an onyx ring
-E 0 2002 0 5		*	The DarkenBeast<on the body>: a suit of granite platemail
-E 0 2006 0 17		*	The DarkenBeast<held in the hands>: a kingly crown
+E 0 2003 0 2		*	The DarkenBeast <on the right finger>: an onyx ring
+E 0 2002 0 5		*	The DarkenBeast <on the body>: a suit of granite platemail
+E 0 2006 0 17		*	The DarkenBeast <held in the hands>: a kingly crown
 O 0 2007 0 2032	* stone (The holy place)
 P 0 2005 1 0 1	* stone: the sword Excalibur
 M 0 2006 7 2033 1	* It (Misty passageway)
 M 0 2005 9 2033 1	* some mist (Misty passageway)
-E 0 2015 0 17		*	some mist<held in the hands>: a misty potion
+E 0 2015 0 17		*	some mist <held in the hands>: a misty potion
 M 0 2007 4 2035 1	* a skeleton (Entrance to the burial grounds)
-E 0 2009 0 5		*	a skeleton<on the body>: a suit of chainmail
+E 0 2009 0 5		*	a skeleton <on the body>: a suit of chainmail
 M 0 2006 7 2036 1	* It (The burial grounds)
 M 0 2007 4 2036 1	* a skeleton (The burial grounds)
 M 0 2011 4 2036 1	* zombie (The burial grounds)
 M 0 2007 4 2037 1	* a skeleton (The burial grounds)
-E 0 2009 0 5		*	a skeleton<on the body>: a suit of chainmail
+E 0 2009 0 5		*	a skeleton <on the body>: a suit of chainmail
 M 0 2011 4 2037 1	* zombie (The burial grounds)
 M 0 2007 4 2038 1	* a skeleton (The burial grounds)
 M 0 2006 7 2039 1	* It (New graves)
 M 0 2009 2 2039 2	* a mysterious wraith (New graves)
 M 0 2006 7 2040 1	* It (Misty cavern)
 M 0 2005 9 2040 2	* some mist (Misty cavern)
-E 0 2015 0 17		*	some mist<held in the hands>: a misty potion
+E 0 2015 0 17		*	some mist <held in the hands>: a misty potion
 M 0 2005 9 2040 2	* some mist (Misty cavern)
-E 0 2015 0 17		*	some mist<held in the hands>: a misty potion
+E 0 2015 0 17		*	some mist <held in the hands>: a misty potion
 M 0 2005 9 2041 2	* some mist (Misty cavern)
-E 0 2015 0 17		*	some mist<held in the hands>: a misty potion
+E 0 2015 0 17		*	some mist <held in the hands>: a misty potion
 M 0 2005 9 2041 2	* some mist (Misty cavern)
-E 0 2015 0 17		*	some mist<held in the hands>: a misty potion
+E 0 2015 0 17		*	some mist <held in the hands>: a misty potion
 M 0 2005 9 2042 1	* some mist (Mist cavern)
-E 0 2015 0 17		*	some mist<held in the hands>: a misty potion
+E 0 2015 0 17		*	some mist <held in the hands>: a misty potion
 M 0 2005 9 2043 3	* some mist (Waterfall of mist)
-E 0 2015 0 17		*	some mist<held in the hands>: a misty potion
+E 0 2015 0 17		*	some mist <held in the hands>: a misty potion
 M 0 2005 9 2043 3	* some mist (Waterfall of mist)
-E 0 2015 0 17		*	some mist<held in the hands>: a misty potion
+E 0 2015 0 17		*	some mist <held in the hands>: a misty potion
 M 0 2005 9 2043 3	* some mist (Waterfall of mist)
-E 0 2015 0 17		*	some mist<held in the hands>: a misty potion
+E 0 2015 0 17		*	some mist <held in the hands>: a misty potion
 M 0 2009 2 2047 2	* a mysterious wraith (Fresh graves)
 M 0 2011 4 2047 4	* zombie (Fresh graves)
 M 0 2006 7 2049 1	* It (Striped tunnel)
 M 0 2016 1 2050 1	* the prism dragon (Prism cave)
-E 0 2012 0 5		*	the prism dragon<on the body>: a dragonscale shield
-E 0 2013 0 17		*	the prism dragon<held in the hands>: a prism wand
+E 0 2012 0 5		*	the prism dragon <on the body>: a dragonscale shield
+E 0 2013 0 17		*	the prism dragon <held in the hands>: a prism wand
 M 0 2001 6 2052 3	* a bat (Basement)
 M 0 2001 6 2052 3	* a bat (Basement)
 M 0 2001 6 2052 3	* a bat (Basement)
 M 0 2013 1 2052 1	* The vampire (Basement)
-E 0 2004 0 16		*	The vampire<wielded>: the neutralizer
+E 0 2004 0 16		*	The vampire <wielded>: the neutralizer
 M 0 2001 6 2052 3	* a bat (Basement)
 M 0 2001 6 2052 3	* a bat (Basement)
 M 0 2001 6 2052 3	* a bat (Basement)
@@ -2091,7 +2091,7 @@ M 0 2011 4 2053 1	* zombie (Fresh graves)
 M 0 2004 4 2055 2	* a graverobber (Scene of ghastly horror)
 M 0 2004 4 2055 2	* a graverobber (Scene of ghastly horror)
 M 0 2014 1 2055 1	* the evil necromancer (Scene of ghastly horror)
-E 0 2011 0 11		*	the evil necromancer<as a shield>: the shield of defence
+E 0 2011 0 11		*	the evil necromancer <as a shield>: the shield of defence
 M 0 2003 2 2064 1	* a spelunker (Tunnel)
 S
 

@@ -1007,23 +1007,23 @@ S
 
 #RESETS
 M 0 8901 1 8901 1	* The Hierophant (The holy grove)
-E 0 8910 0 16		*	The Hierophant<wielded>: a wooden staff
-E 0 8911 0 5		*	The Hierophant<on the body>: a brown robe
+E 0 8910 0 16		*	The Hierophant <wielded>: a wooden staff
+E 0 8911 0 5		*	The Hierophant <on the body>: a brown robe
 G 0 8913 0		*	The Hierophant: some bluish herbs
 G 0 8915 0		*	The Hierophant: some blackish herbs
 M 0 8902 1 8902 1	* an elder druid (The holy grove)
-E 0 8910 0 16		*	an elder druid<wielded>: a wooden staff
+E 0 8910 0 16		*	an elder druid <wielded>: a wooden staff
 G 0 8914 0		*	an elder druid: some purplish herbs
 G 0 8916 0		*	an elder druid: some grayish herbs
 M 0 8907 4 8903 4	* a small bunny (A clearing in the woods)
 M 0 8907 4 8903 4	* a small bunny (A clearing in the woods)
 M 0 8903 1 8904 1	* an elder druidess (The holy grove)
-E 0 8910 0 16		*	an elder druidess<wielded>: a wooden staff
+E 0 8910 0 16		*	an elder druidess <wielded>: a wooden staff
 G 0 8919 0		*	an elder druidess: some pinkish herbs
 G 0 8917 0		*	an elder druidess: some reddish herbs
 M 0 8900 1 8905 1	* The Hierophant (The sacred glade)
-E 0 8910 0 16		*	The Hierophant<wielded>: a wooden staff
-E 0 8911 0 5		*	The Hierophant<on the body>: a brown robe
+E 0 8910 0 16		*	The Hierophant <wielded>: a wooden staff
+E 0 8911 0 5		*	The Hierophant <on the body>: a brown robe
 G 0 8919 0		*	The Hierophant: some pinkish herbs
 G 0 8918 0		*	The Hierophant: some orangish herbs
 M 0 8904 2 8905 2	* a doe (The sacred glade)

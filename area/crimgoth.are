@@ -1937,8 +1937,8 @@ S
 
 #RESETS
 M 0 12400 1 12400 1	* skeletal guardian (The Entrance to the Dungeon)
-E 0 12400 0 17		*	skeletal guardian<held in the hands>: an iron key
-E 0 12401 0 16		*	skeletal guardian<wielded>: a bone club
+E 0 12400 0 17		*	skeletal guardian <held in the hands>: an iron key
+E 0 12401 0 16		*	skeletal guardian <wielded>: a bone club
 S
 
 #OLIMITS

@@ -1247,13 +1247,13 @@ M 0 13410 1 13414 1	* the human automaton (The Room of the Automatons)
 M 0 13411 1 13414 1	* the human automaton (The Room of the Automatons)
 M 0 13412 1 13414 1	* the human automaton (The Room of the Automatons)
 M 0 13413 1 13415 1	* the torturer lich (Torture Chamber)
-E 0 13417 0 16		*	the torturer lich<wielded>: the torturer's whip
+E 0 13417 0 16		*	the torturer lich <wielded>: the torturer's whip
 O 0 13416 0 13415	* an iron maiden (Torture Chamber)
 M 0 13414 2 13416 2	* Ciquala's Undead Dragon (Entrance to Ciquala's Throne Room)
 M 0 13415 1 13417 1	* the lich Ciquala (Ciquala's Throne Room)
-E 0 13400 0 16		*	the lich Ciquala<wielded>: Ciquala's sword
-E 0 13401 0 12		*	the lich Ciquala<about the shoulders>: Ciquala's robe
-E 0 13402 0 17		*	the lich Ciquala<held in the hands>: ciquala's staff
+E 0 13400 0 16		*	the lich Ciquala <wielded>: Ciquala's sword
+E 0 13401 0 12		*	the lich Ciquala <about the shoulders>: Ciquala's robe
+E 0 13402 0 17		*	the lich Ciquala <held in the hands>: ciquala's staff
 G 0 13406 0		*	the lich Ciquala: a large key
 O 0 13418 0 13418	* a humongous pile of gold (Treasure Chamber of Ciquala)
 O 0 13419 0 13418	* a pile of gems (Treasure Chamber of Ciquala)

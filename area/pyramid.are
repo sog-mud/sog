@@ -2499,68 +2499,68 @@ M 0 8701 4 8703 2	* A hooded cobra snake (Climbing the Great Pyramid)
 M 0 8700 6 8705 1	* A horrible asp (Climbing the Great Pyramid)
 M 0 8702 3 8706 1	* A wily little mongoose (The Apex of the Great Pyramid)
 M 0 8703 6 8709 2	* A pyramid watcher (A Musty Chamber)
-E 0 8700 0 16		*	A pyramid watcher<wielded>: an egyptian mace
+E 0 8700 0 16		*	A pyramid watcher <wielded>: an egyptian mace
 M 0 8703 6 8709 2	* A pyramid watcher (A Musty Chamber)
-E 0 8701 0 12		*	A pyramid watcher<about the shoulders>: sand-colored robes
+E 0 8701 0 12		*	A pyramid watcher <about the shoulders>: sand-colored robes
 M 0 8709 1 8711 1	* The efreeti (The Chamber of the Efreet)
-E 0 8707 0 0		*	The efreeti<as a light>: a small hot ball of fire
+E 0 8707 0 0		*	The efreeti <as a light>: a small hot ball of fire
 M 0 8700 6 8713 2	* A horrible asp (A Tiny Crawlway)
 M 0 8702 3 8716 1	* A wily little mongoose (The Crawlway's End)
 O 0 8723 0 8719	* the diamond (A Rough Crevasse)
 M 0 8706 1 8723 1	* The magic carpet (The Vault of the Lamp)
 M 0 8711 1 8723 1	* The djinn (The Vault of the Lamp)
-E 0 8713 0 17		*	The djinn<held in the hands>: the lamp
+E 0 8713 0 17		*	The djinn <held in the hands>: the lamp
 M 0 8704 6 8725 1	* A tomb thief (A Looted Tomb)
-E 0 3351 0 16		*	A tomb thief<wielded>: a standard issue dagger
+E 0 3351 0 16		*	A tomb thief <wielded>: a standard issue dagger
 M 0 8707 4 8725 2	* A mummy (A Looted Tomb)
-E 0 8704 0 5		*	A mummy<on the body>: some cloth wrappings
+E 0 8704 0 5		*	A mummy <on the body>: some cloth wrappings
 G 0 8706 0		*	A mummy: a jar of formaldehyde
 M 0 8707 4 8725 2	* A mummy (A Looted Tomb)
-E 0 8704 0 5		*	A mummy<on the body>: some cloth wrappings
+E 0 8704 0 5		*	A mummy <on the body>: some cloth wrappings
 G 0 8705 0		*	A mummy: a bottle of embalming fluid
 M 0 8702 3 8726 1	* A wily little mongoose (A Demolished Tomb)
 M 0 8704 6 8726 1	* A tomb thief (A Demolished Tomb)
-E 0 3351 0 16		*	A tomb thief<wielded>: a standard issue dagger
+E 0 3351 0 16		*	A tomb thief <wielded>: a standard issue dagger
 O 0 8728 0 8729	* the lost ring of ra (A Stairway)
 M 0 8717 1 8732 1	* Ramses the Damned (The Tomb of Ramses)
 G 0 8719 0		*	Ramses the Damned: a pile of sand
 G 0 8720 0		*	Ramses the Damned: the curse of the mummy
 G 0 8721 0		*	Ramses the Damned: a small elixir
 G 0 8721 0		*	Ramses the Damned: a small elixir
-E 0 8722 0 6		*	Ramses the Damned<over the head>: a golden mask
+E 0 8722 0 6		*	Ramses the Damned <over the head>: a golden mask
 M 0 8704 6 8733 1	* A tomb thief (A Ransacked Tomb)
-E 0 3351 0 16		*	A tomb thief<wielded>: a standard issue dagger
+E 0 3351 0 16		*	A tomb thief <wielded>: a standard issue dagger
 M 0 8704 6 8734 1	* A tomb thief (A Tunnel)
-E 0 3351 0 16		*	A tomb thief<wielded>: a standard issue dagger
+E 0 3351 0 16		*	A tomb thief <wielded>: a standard issue dagger
 M 0 8704 6 8735 1	* A tomb thief (A Fork in the Tunnel)
-E 0 3351 0 16		*	A tomb thief<wielded>: a standard issue dagger
+E 0 3351 0 16		*	A tomb thief <wielded>: a standard issue dagger
 M 0 8703 6 8737 2	* A pyramid watcher (A Dank Chamber)
-E 0 8700 0 16		*	A pyramid watcher<wielded>: an egyptian mace
+E 0 8700 0 16		*	A pyramid watcher <wielded>: an egyptian mace
 M 0 8703 6 8737 2	* A pyramid watcher (A Dank Chamber)
-E 0 8701 0 12		*	A pyramid watcher<about the shoulders>: sand-colored robes
+E 0 8701 0 12		*	A pyramid watcher <about the shoulders>: sand-colored robes
 M 0 8707 4 8737 1	* A mummy (A Dank Chamber)
-E 0 8704 0 5		*	A mummy<on the body>: some cloth wrappings
+E 0 8704 0 5		*	A mummy <on the body>: some cloth wrappings
 M 0 8700 6 8740 1	* A horrible asp (A Smelly Chamber)
 M 0 8703 6 8740 2	* A pyramid watcher (A Smelly Chamber)
-E 0 8700 0 16		*	A pyramid watcher<wielded>: an egyptian mace
+E 0 8700 0 16		*	A pyramid watcher <wielded>: an egyptian mace
 M 0 8703 6 8740 2	* A pyramid watcher (A Smelly Chamber)
-E 0 8701 0 12		*	A pyramid watcher<about the shoulders>: sand-colored robes
+E 0 8701 0 12		*	A pyramid watcher <about the shoulders>: sand-colored robes
 M 0 8701 4 8741 2	* A hooded cobra snake (A Dust-Covered Hallway)
 M 0 8707 4 8741 1	* A mummy (A Dust-Covered Hallway)
-E 0 8704 0 5		*	A mummy<on the body>: some cloth wrappings
+E 0 8704 0 5		*	A mummy <on the body>: some cloth wrappings
 M 0 8704 6 8742 1	* A tomb thief (A Turn in the Hallway)
-E 0 3351 0 16		*	A tomb thief<wielded>: a standard issue dagger
+E 0 3351 0 16		*	A tomb thief <wielded>: a standard issue dagger
 M 0 8705 1 8743 1	* Ali Baba (A Dead End)
-E 0 8703 0 6		*	Ali Baba<over the head>: a dirty cloth turban
-E 0 8702 0 16		*	Ali Baba<wielded>: an obsidian dirk
+E 0 8703 0 6		*	Ali Baba <over the head>: a dirty cloth turban
+E 0 8702 0 16		*	Ali Baba <wielded>: an obsidian dirk
 O 0 8710 0 8745	* a mighty stone sarcophagus (The Tomb of the Pharoahs)
 P 0 8711 1 0 1	* a mighty stone sarcophagus: some ancient dust
 P 0 8712 1 0 1	* a mighty stone sarcophagus: a small emerald scarab
 M 0 8710 1 8745 1	* A caryatid (The Tomb of the Pharoahs)
-E 0 8708 0 16		*	A caryatid<wielded>: a stone scimitar
+E 0 8708 0 16		*	A caryatid <wielded>: a stone scimitar
 M 0 8718 1 8745 1	* A caryatid (The Tomb of the Pharoahs)
-E 0 8708 0 16		*	A caryatid<wielded>: a stone scimitar
-E 0 8709 0 17		*	A caryatid<held in the hands>: a stone key
+E 0 8708 0 16		*	A caryatid <wielded>: a stone scimitar
+E 0 8709 0 17		*	A caryatid <held in the hands>: a stone key
 M 0 8715 1 8747 1	* An androsphinx (A Sandstone Crypt)
 G 0 8716 0		*	An androsphinx: a lion's paw
 M 0 8712 3 8748 1	* A hieracosphinx (An Arched Hall)
@@ -2581,7 +2581,7 @@ M 0 8708 4 8756 1	* A sandman (A Swirling Sandstorm)
 R 0 8757 4	* A Swirling Sandstorm: randomize
 M 0 8708 4 8757 1	* A sandman (A Swirling Sandstorm)
 M 0 8716 1 8758 1	* The great sphinx (A Massive Sand Dune)
-E 0 8717 0 17		*	The great sphinx<held in the hands>: the answer
+E 0 8717 0 17		*	The great sphinx <held in the hands>: the answer
 O 0 8718 0 8759	* the treasure of the sphinx (Through the Hole in the Sand)
 O 0 8724 0 8759	* a blazing sun wand (Through the Hole in the Sand)
 O 0 8725 0 8759	* a sandy-colored ring (Through the Hole in the Sand)

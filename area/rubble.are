@@ -2507,11 +2507,11 @@ M 0 51202 6 51281 1	* demon (Тупик)
 M 0 51202 6 51282 1	* demon (Тупик)
 M 0 51202 6 51283 1	* demon (Тупик)
 M 0 51205 1 51284 1	* Light Priest (The Light Priest's room)
-E 0 51232 0 16		*	Light Priest<wielded>: {Wlight staff{x
-E 0 51231 0 12		*	Light Priest<about the shoulders>: {Wlight cloak{x
+E 0 51232 0 16		*	Light Priest <wielded>: {Wlight staff{x
+E 0 51231 0 12		*	Light Priest <about the shoulders>: {Wlight cloak{x
 M 0 51204 1 51285 1	* Dark Priest (The Dark Priest's room)
-E 0 51224 0 12		*	Dark Priest<about the shoulders>: {Ddark cloak{x
-E 0 51225 0 16		*	Dark Priest<wielded>: {Ddark staff{x
+E 0 51224 0 12		*	Dark Priest <about the shoulders>: {Ddark cloak{x
+E 0 51225 0 16		*	Dark Priest <wielded>: {Ddark staff{x
 O 0 51298 0 51299	* {Dtop secret{x ({GБлат-room{x)
 P 0 51297 -1 0 1	* {Dtop secret{x: {yдурман-трава{x
 P 0 51299 -1 0 1	* {Dtop secret{x: {Dарматура{x
@@ -2519,10 +2519,10 @@ O 0 51296 0 51299	* bar ({GБлат-room{x)
 P 0 51295 -1 0 1	* bar: {WAbsolut{x
 O 0 51294 0 51299	* койка ({GБлат-room{x)
 M 0 51299 1 51299 1	* {WKrol{x ({GБлат-room{x)
-E 0 51299 0 16		*	{WKrol{x<wielded>: {Dарматура{x
+E 0 51299 0 16		*	{WKrol{x <wielded>: {Dарматура{x
 O 0 51293 0 51299	* {C~кривое~ ~зеркало~{x ({GБлат-room{x)
 M 0 51298 1 51299 1	* the white rabbit ({GБлат-room{x)
-E 0 51023 0 5		*	the white rabbit<on the body>: {Yyellow{x leader's T-shirt
+E 0 51023 0 5		*	the white rabbit <on the body>: {Yyellow{x leader's T-shirt
 S
 
 #OLIMITS

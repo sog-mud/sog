@@ -5093,7 +5093,7 @@ S
 
 #RESETS
 M 0 17012 1 17171 1	* the shipwright (On the Beach)
-E 0 17014 0 16		*	the shipwright<wielded>: a wooden mallet
+E 0 17014 0 16		*	the shipwright <wielded>: a wooden mallet
 M 0 17011 2 17174 1	* the pirate guard (In the Jungle)
 O 0 17011 0 17175	* the banana tree (In the Jungle)
 P 0 17012 0 0 1	* the banana tree: a bunch of bananas
@@ -5101,7 +5101,7 @@ M 0 17011 2 17176 1	* the pirate guard (In the Jungle)
 O 0 17013 0 17177	* a wooden sign (At the Mouth of a Cave)
 M 0 17013 2 17180 1	* the jungle savage (In the Savage Camp)
 M 0 17014 1 17181 1	* Chief Unga-Bunga (In the Savage Camp)
-E 0 17015 0 12		*	Chief Unga-Bunga<about the shoulders>: a feather robe
+E 0 17015 0 12		*	Chief Unga-Bunga <about the shoulders>: a feather robe
 M 0 17013 2 17182 1	* the jungle savage (In the Savage Camp)
 M 0 17015 1 17185 1	* the sleepy pirate (At the Cave Entryway)
 M 0 17016 3 17186 1	* the drunken pirate (Inside the Cave)
@@ -5112,8 +5112,8 @@ M 0 17016 3 17188 1	* the drunken pirate (Inside the Cave)
 G 0 17016 0		*	the drunken pirate: a bottle of rum
 M 0 17020 1 17190 1	* a bond maiden (At the Throne of the Pirate Lord)
 M 0 17019 1 17190 1	* One-eye, the pirate lord (At the Throne of the Pirate Lord)
-E 0 17019 0 13		*	One-eye, the pirate lord<around the waist>: the girdle of might
-E 0 17020 0 9		*	One-eye, the pirate lord<on the hands>: gauntlets of accuracy
+E 0 17019 0 13		*	One-eye, the pirate lord <around the waist>: the girdle of might
+E 0 17020 0 9		*	One-eye, the pirate lord <on the hands>: gauntlets of accuracy
 M 0 17017 1 17192 1	* Princess Smallbody (Inside the Dark Prison)
 G 0 17017 0		*	Princess Smallbody: LAID!
 M 0 17018 1 17193 1	* the navigator (Atop the Mountain)
@@ -5130,21 +5130,21 @@ M 0 17024 1 17204 1	* the black crab (On a Black Sand Beach)
 M 0 17025 3 17206 1	* the lava worm (Climbing the Black Mountain)
 M 0 17025 3 17208 1	* the lava worm (Climbing the Black Mountain)
 M 0 17030 1 17210 1	* Pele, god of fire (The Crater)
-E 0 17025 0 10		*	Pele, god of fire<on the arms>: armbands of the Volcanoes
+E 0 17025 0 10		*	Pele, god of fire <on the arms>: armbands of the Volcanoes
 M 0 17022 1 17211 1	* the dock guard (In the Watery Cave)
-E 0 17023 0 16		*	the dock guard<wielded>: a cutlass
+E 0 17023 0 16		*	the dock guard <wielded>: a cutlass
 O 0 17023 0 17214	* a cutlass (In the Armory)
 O 0 17027 0 17214	* a javelin (In the Armory)
 M 0 17027 3 17215 1	* the snarling pirate (In the Pirates Cavern)
-E 0 17023 0 16		*	the snarling pirate<wielded>: a cutlass
+E 0 17023 0 16		*	the snarling pirate <wielded>: a cutlass
 M 0 17027 3 17217 1	* the snarling pirate (In the Pirates Cavern)
-E 0 17023 0 16		*	the snarling pirate<wielded>: a cutlass
+E 0 17023 0 16		*	the snarling pirate <wielded>: a cutlass
 M 0 17028 1 17218 1	* Redbeard (In the Hall of the Pirate Lord)
-E 0 17027 0 17		*	Redbeard<held in the hands>: a javelin
-E 0 17028 0 12		*	Redbeard<about the shoulders>: the cloak of looting
+E 0 17027 0 17		*	Redbeard <held in the hands>: a javelin
+E 0 17028 0 12		*	Redbeard <about the shoulders>: the cloak of looting
 G 0 17021 0		*	Redbeard: an iron key
 M 0 17027 3 17219 1	* the snarling pirate (The Barracks)
-E 0 17023 0 16		*	the snarling pirate<wielded>: a cutlass
+E 0 17023 0 16		*	the snarling pirate <wielded>: a cutlass
 M 0 17029 1 17220 1	* Lalila, the Elven Prince (A Dark Cave)
 O 0 17026 0 17220	* a huge bronze chest (A Dark Cave)
 P 0 17029 10 0 1	* a huge bronze chest: Ettin's blood
@@ -5157,7 +5157,7 @@ M 0 17038 1 17232 1	* the hammerhead shark (On the Seas Surrounding an Atoll)
 M 0 17039 2 17233 1	* the blue shark (On the Seas Surrounding an Atoll)
 M 0 17037 2 17235 1	* the mako shark (On the Seas Surrounding an Atoll)
 M 0 17034 1 17236 1	* Stiggs, the cabin boy (In the Quiet Lagoon)
-E 0 17037 0 0		*	Stiggs, the cabin boy<as a light>: a watchman's lantern
+E 0 17037 0 0		*	Stiggs, the cabin boy <as a light>: a watchman's lantern
 O 0 17036 0 17236	* an outrigger called 'Waverunner' (In the Quiet Lagoon)
 M 0 17033 3 17237 1	* the bandy legged pirate (In the Central Shack)
 M 0 17033 3 17238 1	* the bandy legged pirate (The Barracks)
@@ -5166,8 +5166,8 @@ O 0 17034 0 17239	* a padlocked chest (Inside the Barred Shack)
 P 0 17040 0 0 1	* a padlocked chest: doubloons and booty
 P 0 17033 0 0 1	* a padlocked chest: the nullifier orb
 M 0 17031 1 17240 1	* Mizzenmast (Inside the House on Stilts)
-E 0 17031 0 7		*	Mizzenmast<on the legs>: sharkskin pants
-E 0 17032 0 17		*	Mizzenmast<held in the hands>: a crossbow of poison
+E 0 17031 0 7		*	Mizzenmast <on the legs>: sharkskin pants
+E 0 17032 0 17		*	Mizzenmast <held in the hands>: a crossbow of poison
 G 0 17035 0		*	Mizzenmast: a metal key
 O 0 17039 0 17240	* a hemp hammock (Inside the House on Stilts)
 M 0 17040 1 17240 1	* Did I say coral? I meant clam (Inside the House on Stilts)
@@ -5182,7 +5182,7 @@ R 0 17245 6	* In the Air Beneath the Flying Mountain: randomize
 M 0 17042 3 17246 1	* the hawkman (In the Air Beneath the Flying Mountain)
 R 0 17246 4	* In the Air Beneath the Flying Mountain: randomize
 M 0 17043 1 17247 1	* the hawklord (In the Calm Air Beneath the Flying Mountain)
-E 0 17043 0 12		*	the hawklord<about the shoulders>: the vest of the Hawklord
+E 0 17043 0 12		*	the hawklord <about the shoulders>: the vest of the Hawklord
 P 0 17051 0 0 1	* the vest of the Hawklord: a throwing dagger
 P 0 17051 0 0 1	* the vest of the Hawklord: a throwing dagger
 P 0 17051 0 0 1	* the vest of the Hawklord: a throwing dagger
@@ -5209,8 +5209,8 @@ G 0 17041 0		*	the first mate: a golden hawk key
 M 0 17049 1 17269 1	* Mutton the chef (In the Vast Hall of the Pirate Lord)
 M 0 17048 1 17270 1	* Alindra of Dunkeldorf (In the Private Quarters of the Pirate Lord)
 M 0 17050 1 17270 1	* Lord Vulture (In the Private Quarters of the Pirate Lord)
-E 0 17049 0 10		*	Lord Vulture<on the arms>: Lord Vulture's wings
-E 0 17050 0 17		*	Lord Vulture<held in the hands>: the eye of the eagle
+E 0 17049 0 10		*	Lord Vulture <on the arms>: Lord Vulture's wings
+E 0 17050 0 17		*	Lord Vulture <held in the hands>: the eye of the eagle
 O 0 17046 0 17270	* an iron bound chest (In the Private Quarters of the Pirate Lord)
 P 0 17047 0 0 1	* an iron bound chest: a mountain of silver
 P 0 17048 0 0 1	* an iron bound chest: the everfull mug
@@ -5219,45 +5219,45 @@ M 0 17052 1 17274 1	* the great northern roc (Sailing the Sea of Ice)
 M 0 17053 1 17276 1	* the howling wolf pack (Sailing the Sea of Ice)
 M 0 17054 1 17278 1	* the towering cave bear (Inside the Iceberg)
 M 0 17066 3 17290 1	* the pirate in fur skins (In the Great Ice Cavern)
-E 0 17053 0 12		*	the pirate in fur skins<about the shoulders>: a fur skin cloak
-E 0 17054 0 5		*	the pirate in fur skins<on the body>: a fur skin vest
-E 0 17055 0 7		*	the pirate in fur skins<on the legs>: fur skin leggings
-E 0 17056 0 11		*	the pirate in fur skins<as a shield>: a spiked buckler
-E 0 17057 0 17		*	the pirate in fur skins<held in the hands>: an icicle
+E 0 17053 0 12		*	the pirate in fur skins <about the shoulders>: a fur skin cloak
+E 0 17054 0 5		*	the pirate in fur skins <on the body>: a fur skin vest
+E 0 17055 0 7		*	the pirate in fur skins <on the legs>: fur skin leggings
+E 0 17056 0 11		*	the pirate in fur skins <as a shield>: a spiked buckler
+E 0 17057 0 17		*	the pirate in fur skins <held in the hands>: an icicle
 M 0 17066 3 17293 1	* the pirate in fur skins (In the Great Ice Cavern)
-E 0 17053 0 12		*	the pirate in fur skins<about the shoulders>: a fur skin cloak
-E 0 17054 0 5		*	the pirate in fur skins<on the body>: a fur skin vest
-E 0 17055 0 7		*	the pirate in fur skins<on the legs>: fur skin leggings
-E 0 17056 0 11		*	the pirate in fur skins<as a shield>: a spiked buckler
-E 0 17057 0 17		*	the pirate in fur skins<held in the hands>: an icicle
+E 0 17053 0 12		*	the pirate in fur skins <about the shoulders>: a fur skin cloak
+E 0 17054 0 5		*	the pirate in fur skins <on the body>: a fur skin vest
+E 0 17055 0 7		*	the pirate in fur skins <on the legs>: fur skin leggings
+E 0 17056 0 11		*	the pirate in fur skins <as a shield>: a spiked buckler
+E 0 17057 0 17		*	the pirate in fur skins <held in the hands>: an icicle
 M 0 17070 1 17294 1	* the frozen captive (At the Bonfire in the Great Ice Cavern)
 O 0 17058 0 17294	* the melting pool (At the Bonfire in the Great Ice Cavern)
 O 0 17070 0 17294	* a roaring bonfire (At the Bonfire in the Great Ice Cavern)
 M 0 17067 1 17295 1	* the lurking guard (In the Great Ice Cavern)
-E 0 17053 0 12		*	the lurking guard<about the shoulders>: a fur skin cloak
-E 0 17054 0 5		*	the lurking guard<on the body>: a fur skin vest
-E 0 17055 0 7		*	the lurking guard<on the legs>: fur skin leggings
-E 0 17059 0 16		*	the lurking guard<wielded>: a garrote wire
+E 0 17053 0 12		*	the lurking guard <about the shoulders>: a fur skin cloak
+E 0 17054 0 5		*	the lurking guard <on the body>: a fur skin vest
+E 0 17055 0 7		*	the lurking guard <on the legs>: fur skin leggings
+E 0 17059 0 16		*	the lurking guard <wielded>: a garrote wire
 M 0 17068 1 17297 1	* the helmsman (In the Great Ice Cavern)
-E 0 17053 0 12		*	the helmsman<about the shoulders>: a fur skin cloak
-E 0 17054 0 5		*	the helmsman<on the body>: a fur skin vest
-E 0 17055 0 7		*	the helmsman<on the legs>: fur skin leggings
-E 0 17056 0 11		*	the helmsman<as a shield>: a spiked buckler
-E 0 17061 0 16		*	the helmsman<wielded>: a mighty two handed battle axe
-E 0 17060 0 17		*	the helmsman<held in the hands>: the ghost stone
+E 0 17053 0 12		*	the helmsman <about the shoulders>: a fur skin cloak
+E 0 17054 0 5		*	the helmsman <on the body>: a fur skin vest
+E 0 17055 0 7		*	the helmsman <on the legs>: fur skin leggings
+E 0 17056 0 11		*	the helmsman <as a shield>: a spiked buckler
+E 0 17061 0 16		*	the helmsman <wielded>: a mighty two handed battle axe
+E 0 17060 0 17		*	the helmsman <held in the hands>: the ghost stone
 M 0 17066 3 17298 1	* the pirate in fur skins (In the Great Ice Cavern)
-E 0 17053 0 12		*	the pirate in fur skins<about the shoulders>: a fur skin cloak
-E 0 17054 0 5		*	the pirate in fur skins<on the body>: a fur skin vest
-E 0 17055 0 7		*	the pirate in fur skins<on the legs>: fur skin leggings
-E 0 17056 0 11		*	the pirate in fur skins<as a shield>: a spiked buckler
-E 0 17057 0 17		*	the pirate in fur skins<held in the hands>: an icicle
+E 0 17053 0 12		*	the pirate in fur skins <about the shoulders>: a fur skin cloak
+E 0 17054 0 5		*	the pirate in fur skins <on the body>: a fur skin vest
+E 0 17055 0 7		*	the pirate in fur skins <on the legs>: fur skin leggings
+E 0 17056 0 11		*	the pirate in fur skins <as a shield>: a spiked buckler
+E 0 17057 0 17		*	the pirate in fur skins <held in the hands>: an icicle
 M 0 17069 1 17299 1	* Cutter, the 5th Pirate Lord (In the Ice Hall of the Pirate Lord)
-E 0 17053 0 12		*	Cutter, the 5th Pirate Lord<about the shoulders>: a fur skin cloak
-E 0 17062 0 5		*	Cutter, the 5th Pirate Lord<on the body>: frost armor
-E 0 17055 0 7		*	Cutter, the 5th Pirate Lord<on the legs>: fur skin leggings
-E 0 17056 0 11		*	Cutter, the 5th Pirate Lord<as a shield>: a spiked buckler
-E 0 17063 0 16		*	Cutter, the 5th Pirate Lord<wielded>: "Frostbite" sword of winter
-E 0 17060 0 17		*	Cutter, the 5th Pirate Lord<held in the hands>: the ghost stone
+E 0 17053 0 12		*	Cutter, the 5th Pirate Lord <about the shoulders>: a fur skin cloak
+E 0 17062 0 5		*	Cutter, the 5th Pirate Lord <on the body>: frost armor
+E 0 17055 0 7		*	Cutter, the 5th Pirate Lord <on the legs>: fur skin leggings
+E 0 17056 0 11		*	Cutter, the 5th Pirate Lord <as a shield>: a spiked buckler
+E 0 17063 0 16		*	Cutter, the 5th Pirate Lord <wielded>: "Frostbite" sword of winter
+E 0 17060 0 17		*	Cutter, the 5th Pirate Lord <held in the hands>: the ghost stone
 G 0 17068 0		*	Cutter, the 5th Pirate Lord: the evil eye
 O 0 17064 0 17299	* a bag of gold (In the Ice Hall of the Pirate Lord)
 O 0 17065 0 17299	* a bag of silver (In the Ice Hall of the Pirate Lord)

@@ -4654,201 +4654,201 @@ S
 
 #RESETS
 M 0 14741 8 14701 1	* a warg (The Plains of Mount Doom)
-E 0 14740 0 3		*	a warg<around the neck>: a spiked collar
+E 0 14740 0 3		*	a warg <around the neck>: a spiked collar
 M 0 14742 8 14704 1	* a bloodthirsty ghoul (The Plains of Mount Doom)
 M 0 14741 8 14707 1	* a warg (The Plains of Mount Doom)
-E 0 14740 0 3		*	a warg<around the neck>: a spiked collar
+E 0 14740 0 3		*	a warg <around the neck>: a spiked collar
 M 0 14732 8 14711 1	* a hill giant (The Foothills of Mount Doom)
-E 0 14743 0 16		*	a hill giant<wielded>: a wooden club
+E 0 14743 0 16		*	a hill giant <wielded>: a wooden club
 G 0 14742 0		*	a hill giant: a throwing rock
 M 0 14729 4 14718 1	* a hellhound (The Upper Slopes of Mount Doom)
-E 0 14740 0 3		*	a hellhound<around the neck>: a spiked collar
+E 0 14740 0 3		*	a hellhound <around the neck>: a spiked collar
 M 0 14742 8 14722 1	* a bloodthirsty ghoul (The Plains of Mount Doom)
 M 0 14732 8 14723 1	* a hill giant (The Foothills of Mount Doom)
-E 0 14743 0 16		*	a hill giant<wielded>: a wooden club
+E 0 14743 0 16		*	a hill giant <wielded>: a wooden club
 G 0 14742 0		*	a hill giant: a throwing rock
 M 0 14729 4 14724 1	* a hellhound (The Upper Slopes of Mount Doom)
-E 0 14740 0 3		*	a hellhound<around the neck>: a spiked collar
+E 0 14740 0 3		*	a hellhound <around the neck>: a spiked collar
 M 0 14729 4 14726 1	* a hellhound (The Upper Slopes of Mount Doom)
-E 0 14740 0 3		*	a hellhound<around the neck>: a spiked collar
+E 0 14740 0 3		*	a hellhound <around the neck>: a spiked collar
 M 0 14732 8 14727 1	* a hill giant (The Foothills of Mount Doom)
-E 0 14743 0 16		*	a hill giant<wielded>: a wooden club
+E 0 14743 0 16		*	a hill giant <wielded>: a wooden club
 G 0 14742 0		*	a hill giant: a throwing rock
 M 0 14742 8 14728 1	* a bloodthirsty ghoul (The Plains of Mount Doom)
 M 0 14730 2 14731 1	* a fire giant (The Upper Slopes of Mount Doom)
-E 0 14741 0 16		*	a fire giant<wielded>: a giant sword
+E 0 14741 0 16		*	a fire giant <wielded>: a giant sword
 G 0 14742 0		*	a fire giant: a throwing rock
 M 0 14729 4 14732 1	* a hellhound (The Upper Slopes of Mount Doom)
-E 0 14740 0 3		*	a hellhound<around the neck>: a spiked collar
+E 0 14740 0 3		*	a hellhound <around the neck>: a spiked collar
 M 0 14730 2 14733 1	* a fire giant (The Upper Slopes of Mount Doom)
-E 0 14741 0 16		*	a fire giant<wielded>: a giant sword
+E 0 14741 0 16		*	a fire giant <wielded>: a giant sword
 G 0 14742 0		*	a fire giant: a throwing rock
 M 0 14732 8 14739 1	* a hill giant (The Foothills of Mount Doom)
-E 0 14743 0 16		*	a hill giant<wielded>: a wooden club
+E 0 14743 0 16		*	a hill giant <wielded>: a wooden club
 G 0 14742 0		*	a hill giant: a throwing rock
 M 0 14741 8 14743 1	* a warg (The Plains of Mount Doom)
-E 0 14740 0 3		*	a warg<around the neck>: a spiked collar
+E 0 14740 0 3		*	a warg <around the neck>: a spiked collar
 M 0 14742 8 14746 1	* a bloodthirsty ghoul (The Plains of Mount Doom)
 M 0 14741 8 14749 1	* a warg (The Plains of Mount Doom)
-E 0 14740 0 3		*	a warg<around the neck>: a spiked collar
+E 0 14740 0 3		*	a warg <around the neck>: a spiked collar
 M 0 14720 8 14752 1	* a wretched slave (A Cell)
-E 0 14730 0 10		*	a wretched slave<on the arms>: a pair of manacles
-E 0 14744 0 3		*	a wretched slave<around the neck>: a slave collar
+E 0 14730 0 10		*	a wretched slave <on the arms>: a pair of manacles
+E 0 14744 0 3		*	a wretched slave <around the neck>: a slave collar
 M 0 14721 8 14753 1	* a wretched slave (A Cell)
-E 0 14730 0 10		*	a wretched slave<on the arms>: a pair of manacles
-E 0 14744 0 3		*	a wretched slave<around the neck>: a slave collar
+E 0 14730 0 10		*	a wretched slave <on the arms>: a pair of manacles
+E 0 14744 0 3		*	a wretched slave <around the neck>: a slave collar
 M 0 14720 8 14755 1	* a wretched slave (A Cell)
-E 0 14730 0 10		*	a wretched slave<on the arms>: a pair of manacles
-E 0 14744 0 3		*	a wretched slave<around the neck>: a slave collar
+E 0 14730 0 10		*	a wretched slave <on the arms>: a pair of manacles
+E 0 14744 0 3		*	a wretched slave <around the neck>: a slave collar
 M 0 14721 8 14756 1	* a wretched slave (A Cell)
-E 0 14730 0 10		*	a wretched slave<on the arms>: a pair of manacles
-E 0 14744 0 3		*	a wretched slave<around the neck>: a slave collar
+E 0 14730 0 10		*	a wretched slave <on the arms>: a pair of manacles
+E 0 14744 0 3		*	a wretched slave <around the neck>: a slave collar
 M 0 14718 1 14757 1	* a shedu (A Cell)
-E 0 14730 0 10		*	a shedu<on the arms>: a pair of manacles
-E 0 14744 0 3		*	a shedu<around the neck>: a slave collar
+E 0 14730 0 10		*	a shedu <on the arms>: a pair of manacles
+E 0 14744 0 3		*	a shedu <around the neck>: a slave collar
 M 0 14739 4 14760 1	* an assassin (Assassins' Quarters)
-E 0 14751 0 12		*	an assassin<about the shoulders>: black robes
-E 0 14752 0 17		*	an assassin<held in the hands>: a vial of poison
+E 0 14751 0 12		*	an assassin <about the shoulders>: black robes
+E 0 14752 0 17		*	an assassin <held in the hands>: a vial of poison
 M 0 14738 1 14761 1	* the chief assassin (The Chief Assassin's Quarters)
-E 0 14749 0 16		*	the chief assassin<wielded>: the black sword
-E 0 14750 0 20		*	the chief assassin<second wielded>: the blue sword
+E 0 14749 0 16		*	the chief assassin <wielded>: the black sword
+E 0 14750 0 20		*	the chief assassin <second wielded>: the blue sword
 M 0 14739 4 14762 1	* an assassin (Assassins' Quarters)
-E 0 14751 0 12		*	an assassin<about the shoulders>: black robes
-E 0 14752 0 17		*	an assassin<held in the hands>: a vial of poison
+E 0 14751 0 12		*	an assassin <about the shoulders>: black robes
+E 0 14752 0 17		*	an assassin <held in the hands>: a vial of poison
 M 0 14746 1 14765 1	* The keeper of the mutant pit (The Keeper's Chamber)
 M 0 14722 6 14766 1	* a mutant (The Mutant Pit)
 M 0 14710 8 14768 1	* a member of the blackguard (The Guard Common Room)
-E 0 14715 0 5		*	a member of the blackguard<on the body>: a suit of spiked plate mail
-E 0 14716 0 16		*	a member of the blackguard<wielded>: a huge morning star
-E 0 14717 0 6		*	a member of the blackguard<over the head>: a dark helm
+E 0 14715 0 5		*	a member of the blackguard <on the body>: a suit of spiked plate mail
+E 0 14716 0 16		*	a member of the blackguard <wielded>: a huge morning star
+E 0 14717 0 6		*	a member of the blackguard <over the head>: a dark helm
 G 0 14758 0		*	a member of the blackguard: a door key
 M 0 14710 8 14769 1	* a member of the blackguard (Guard Quarters)
-E 0 14715 0 5		*	a member of the blackguard<on the body>: a suit of spiked plate mail
-E 0 14716 0 16		*	a member of the blackguard<wielded>: a huge morning star
-E 0 14717 0 6		*	a member of the blackguard<over the head>: a dark helm
+E 0 14715 0 5		*	a member of the blackguard <on the body>: a suit of spiked plate mail
+E 0 14716 0 16		*	a member of the blackguard <wielded>: a huge morning star
+E 0 14717 0 6		*	a member of the blackguard <over the head>: a dark helm
 G 0 14758 0		*	a member of the blackguard: a door key
 M 0 14710 8 14770 1	* a member of the blackguard (Guard Quarters)
-E 0 14715 0 5		*	a member of the blackguard<on the body>: a suit of spiked plate mail
-E 0 14716 0 16		*	a member of the blackguard<wielded>: a huge morning star
-E 0 14717 0 6		*	a member of the blackguard<over the head>: a dark helm
+E 0 14715 0 5		*	a member of the blackguard <on the body>: a suit of spiked plate mail
+E 0 14716 0 16		*	a member of the blackguard <wielded>: a huge morning star
+E 0 14717 0 6		*	a member of the blackguard <over the head>: a dark helm
 G 0 14758 0		*	a member of the blackguard: a door key
 M 0 14736 2 14771 1	* a troll (Guest Quarters)
-E 0 14747 0 16		*	a troll<wielded>: a pole arm
-E 0 14748 0 5		*	a troll<on the body>: a suit of black chainmail
+E 0 14747 0 16		*	a troll <wielded>: a pole arm
+E 0 14748 0 5		*	a troll <on the body>: a suit of black chainmail
 M 0 14731 3 14773 1	* a frost giant (Guest Quarters)
-E 0 14741 0 16		*	a frost giant<wielded>: a giant sword
+E 0 14741 0 16		*	a frost giant <wielded>: a giant sword
 G 0 14742 0		*	a frost giant: a throwing rock
 M 0 14733 1 14774 1	* a cloud giant (Guest Quarters)
-E 0 14741 0 16		*	a cloud giant<wielded>: a giant sword
+E 0 14741 0 16		*	a cloud giant <wielded>: a giant sword
 G 0 14742 0		*	a cloud giant: a throwing rock
 M 0 14737 1 14775 1	* an ettin (Guest Quarters)
-E 0 14741 0 16		*	an ettin<wielded>: a giant sword
+E 0 14741 0 16		*	an ettin <wielded>: a giant sword
 G 0 14742 0		*	an ettin: a throwing rock
 M 0 14735 2 14776 1	* an ogre mage (Guest Quarters)
-E 0 14745 0 16		*	an ogre mage<wielded>: a glaive
+E 0 14745 0 16		*	an ogre mage <wielded>: a glaive
 G 0 14746 0		*	an ogre mage: a magical potion
 M 0 14740 1 14777 1	* a drow ambassador (Guest Quarters)
-E 0 14753 0 12		*	a drow ambassador<about the shoulders>: a drow cloak
-E 0 14754 0 8		*	a drow ambassador<on the feet>: a pair of drow boots
-E 0 14755 0 5		*	a drow ambassador<on the body>: a suit of drow chainmail
-E 0 14756 0 16		*	a drow ambassador<wielded>: a greater tentacle whip
-E 0 14757 0 6		*	a drow ambassador<over the head>: a tiara
+E 0 14753 0 12		*	a drow ambassador <about the shoulders>: a drow cloak
+E 0 14754 0 8		*	a drow ambassador <on the feet>: a pair of drow boots
+E 0 14755 0 5		*	a drow ambassador <on the body>: a suit of drow chainmail
+E 0 14756 0 16		*	a drow ambassador <wielded>: a greater tentacle whip
+E 0 14757 0 6		*	a drow ambassador <over the head>: a tiara
 M 0 14747 1 14778 1	* a naga princess (Guest Quarters)
 M 0 14704 1 14782 1	* axtraxes (The Quarters of the Archmage)
-E 0 14709 0 17		*	axtraxes<held in the hands>: a staff of power
-E 0 14710 0 12		*	axtraxes<about the shoulders>: robes of the archmage
+E 0 14709 0 17		*	axtraxes <held in the hands>: a staff of power
+E 0 14710 0 12		*	axtraxes <about the shoulders>: robes of the archmage
 G 0 14711 0		*	axtraxes: a vial of magic dust
 M 0 14716 1 14783 1	* a fire elemental (The Elemental Laboratories)
 G 0 14728 0		*	a fire elemental: a bronze brazier
 M 0 14726 1 14784 1	* an earth elemental (Western End of the Lab)
 G 0 14737 0		*	an earth elemental: a stone
 M 0 14709 3 14784 1	* an evil scientist mage (Western End of the Lab)
-E 0 14721 0 12		*	an evil scientist mage<about the shoulders>: the mage's robes
-E 0 14722 0 17		*	an evil scientist mage<held in the hands>: a magic wand
+E 0 14721 0 12		*	an evil scientist mage <about the shoulders>: the mage's robes
+E 0 14722 0 17		*	an evil scientist mage <held in the hands>: a magic wand
 G 0 14723 0		*	an evil scientist mage: an elixir of noxious chemicals
 M 0 14727 1 14785 1	* a water elemental (Northern End of The Lab)
 G 0 14738 0		*	a water elemental: a bowl
 M 0 14709 3 14785 1	* an evil scientist mage (Northern End of The Lab)
-E 0 14721 0 12		*	an evil scientist mage<about the shoulders>: the mage's robes
-E 0 14722 0 17		*	an evil scientist mage<held in the hands>: a magic wand
+E 0 14721 0 12		*	an evil scientist mage <about the shoulders>: the mage's robes
+E 0 14722 0 17		*	an evil scientist mage <held in the hands>: a magic wand
 G 0 14723 0		*	an evil scientist mage: an elixir of noxious chemicals
 M 0 14728 1 14786 1	* an air elemental (Eastern End of the Lab)
 G 0 14739 0		*	an air elemental: a censer
 M 0 14709 3 14786 1	* an evil scientist mage (Eastern End of the Lab)
-E 0 14721 0 12		*	an evil scientist mage<about the shoulders>: the mage's robes
-E 0 14722 0 17		*	an evil scientist mage<held in the hands>: a magic wand
+E 0 14721 0 12		*	an evil scientist mage <about the shoulders>: the mage's robes
+E 0 14722 0 17		*	an evil scientist mage <held in the hands>: a magic wand
 G 0 14723 0		*	an evil scientist mage: an elixir of noxious chemicals
 M 0 14744 1 14788 1	* an ancient lich (An Ancient Crypt)
 M 0 14708 4 14789 1	* an evil priest (The Unholy Temple)
-E 0 14718 0 16		*	an evil priest<wielded>: a sacrifical dagger
-E 0 14719 0 12		*	an evil priest<about the shoulders>: the priest's robes
-E 0 14720 0 6		*	an evil priest<over the head>: the priest's death mask
+E 0 14718 0 16		*	an evil priest <wielded>: a sacrifical dagger
+E 0 14719 0 12		*	an evil priest <about the shoulders>: the priest's robes
+E 0 14720 0 6		*	an evil priest <over the head>: the priest's death mask
 M 0 14705 1 14790 1	* an evil high priest (The Unholy Temple)
-E 0 14712 0 16		*	an evil high priest<wielded>: a sacrifical dagger
-E 0 14713 0 12		*	an evil high priest<about the shoulders>: the high priest's robes
-E 0 14714 0 6		*	an evil high priest<over the head>: the high priest's death mask
+E 0 14712 0 16		*	an evil high priest <wielded>: a sacrifical dagger
+E 0 14713 0 12		*	an evil high priest <about the shoulders>: the high priest's robes
+E 0 14714 0 6		*	an evil high priest <over the head>: the high priest's death mask
 M 0 14708 4 14790 1	* an evil priest (The Unholy Temple)
-E 0 14718 0 16		*	an evil priest<wielded>: a sacrifical dagger
-E 0 14719 0 12		*	an evil priest<about the shoulders>: the priest's robes
-E 0 14720 0 6		*	an evil priest<over the head>: the priest's death mask
+E 0 14718 0 16		*	an evil priest <wielded>: a sacrifical dagger
+E 0 14719 0 12		*	an evil priest <about the shoulders>: the priest's robes
+E 0 14720 0 6		*	an evil priest <over the head>: the priest's death mask
 M 0 14708 4 14791 1	* an evil priest (The Unholy Temple)
-E 0 14718 0 16		*	an evil priest<wielded>: a sacrifical dagger
-E 0 14719 0 12		*	an evil priest<about the shoulders>: the priest's robes
-E 0 14720 0 6		*	an evil priest<over the head>: the priest's death mask
+E 0 14718 0 16		*	an evil priest <wielded>: a sacrifical dagger
+E 0 14719 0 12		*	an evil priest <about the shoulders>: the priest's robes
+E 0 14720 0 6		*	an evil priest <over the head>: the priest's death mask
 M 0 14723 1 14792 1	* a twelve-headed hydra (The Hydra Lair)
 O 0 14733 0 14792	* a chest (The Hydra Lair)
 P 0 14734 1 0 1	* a chest: a great treasure
 M 0 14745 1 14793 1	* a stone golem (A Spiral Staircase)
 M 0 14702 1 14794 1	* an iron golem (A Landing)
-E 0 14706 0 9		*	an iron golem<on the hands>: the iron fist
+E 0 14706 0 9		*	an iron golem <on the hands>: the iron fist
 M 0 14719 1 14795 1	* an evil illithid (A Bedchamber)
-E 0 14731 0 12		*	an evil illithid<about the shoulders>: an illithid's robes
-E 0 14732 0 17		*	an evil illithid<held in the hands>: a gem
+E 0 14731 0 12		*	an evil illithid <about the shoulders>: an illithid's robes
+E 0 14732 0 17		*	an evil illithid <held in the hands>: a gem
 M 0 14725 1 14796 1	* a succubus (A Bedchamber)
-E 0 14736 0 12		*	a succubus<about the shoulders>: some expensive silk
+E 0 14736 0 12		*	a succubus <about the shoulders>: some expensive silk
 O 0 14735 0 14796	* a luxurious bed (A Bedchamber)
 M 0 14703 1 14797 1	* the demon prince Marmandes (A Hall)
-E 0 14707 0 16		*	the demon prince Marmandes<wielded>: a demon's barbed flail
+E 0 14707 0 16		*	the demon prince Marmandes <wielded>: a demon's barbed flail
 G 0 14708 0		*	the demon prince Marmandes: a flaming spear
 M 0 14743 1 14798 1	* a vampire (A Bedchamber)
-E 0 14736 0 12		*	a vampire<about the shoulders>: some expensive silk
+E 0 14736 0 12		*	a vampire <about the shoulders>: some expensive silk
 M 0 14701 2 14799 1	* a death knight (A Spiral Staircase)
-E 0 14704 0 16		*	a death knight<wielded>: a two-handed sword
-E 0 14705 0 6		*	a death knight<over the head>: a burnt helm
+E 0 14704 0 16		*	a death knight <wielded>: a two-handed sword
+E 0 14705 0 6		*	a death knight <over the head>: a burnt helm
 M 0 14700 1 14800 1	* the Lord Krothgar (The Throne Room)
-E 0 14700 0 5		*	the Lord Krothgar<on the body>: the armor of Lord Krothgar
-E 0 14701 0 16		*	the Lord Krothgar<wielded>: the sword of Lord Krothgar
-E 0 14702 0 11		*	the Lord Krothgar<as a shield>: the shield of Lord Krothgar
-E 0 14703 0 6		*	the Lord Krothgar<over the head>: the cursed helm of Lord Krothgar
+E 0 14700 0 5		*	the Lord Krothgar <on the body>: the armor of Lord Krothgar
+E 0 14701 0 16		*	the Lord Krothgar <wielded>: the sword of Lord Krothgar
+E 0 14702 0 11		*	the Lord Krothgar <as a shield>: the shield of Lord Krothgar
+E 0 14703 0 6		*	the Lord Krothgar <over the head>: the cursed helm of Lord Krothgar
 M 0 14706 4 14800 1	* an elite guard (The Throne Room)
-E 0 14715 0 5		*	an elite guard<on the body>: a suit of spiked plate mail
-E 0 14716 0 16		*	an elite guard<wielded>: a huge morning star
-E 0 14717 0 6		*	an elite guard<over the head>: a dark helm
+E 0 14715 0 5		*	an elite guard <on the body>: a suit of spiked plate mail
+E 0 14716 0 16		*	an elite guard <wielded>: a huge morning star
+E 0 14717 0 6		*	an elite guard <over the head>: a dark helm
 M 0 14712 1 14801 1	* a black dragon (Dragon Tower)
-E 0 14724 0 11		*	a black dragon<as a shield>: a dragon scale
-E 0 14725 0 16		*	a black dragon<wielded>: a dragon tooth
-E 0 14726 0 9		*	a black dragon<on the hands>: dragon claws
-E 0 14727 0 12		*	a black dragon<about the shoulders>: a dragon hide
+E 0 14724 0 11		*	a black dragon <as a shield>: a dragon scale
+E 0 14725 0 16		*	a black dragon <wielded>: a dragon tooth
+E 0 14726 0 9		*	a black dragon <on the hands>: dragon claws
+E 0 14727 0 12		*	a black dragon <about the shoulders>: a dragon hide
 M 0 14713 1 14802 1	* a white dragon (Dragon Tower)
-E 0 14724 0 11		*	a white dragon<as a shield>: a dragon scale
-E 0 14725 0 16		*	a white dragon<wielded>: a dragon tooth
-E 0 14726 0 9		*	a white dragon<on the hands>: dragon claws
-E 0 14727 0 12		*	a white dragon<about the shoulders>: a dragon hide
+E 0 14724 0 11		*	a white dragon <as a shield>: a dragon scale
+E 0 14725 0 16		*	a white dragon <wielded>: a dragon tooth
+E 0 14726 0 9		*	a white dragon <on the hands>: dragon claws
+E 0 14727 0 12		*	a white dragon <about the shoulders>: a dragon hide
 M 0 14714 1 14803 1	* a blue dragon (Dragon Tower)
-E 0 14724 0 11		*	a blue dragon<as a shield>: a dragon scale
-E 0 14725 0 16		*	a blue dragon<wielded>: a dragon tooth
-E 0 14726 0 9		*	a blue dragon<on the hands>: dragon claws
-E 0 14727 0 12		*	a blue dragon<about the shoulders>: a dragon hide
+E 0 14724 0 11		*	a blue dragon <as a shield>: a dragon scale
+E 0 14725 0 16		*	a blue dragon <wielded>: a dragon tooth
+E 0 14726 0 9		*	a blue dragon <on the hands>: dragon claws
+E 0 14727 0 12		*	a blue dragon <about the shoulders>: a dragon hide
 M 0 14715 1 14804 1	* a green dragon (Dragon Tower)
-E 0 14724 0 11		*	a green dragon<as a shield>: a dragon scale
-E 0 14725 0 16		*	a green dragon<wielded>: a dragon tooth
-E 0 14726 0 9		*	a green dragon<on the hands>: dragon claws
-E 0 14727 0 12		*	a green dragon<about the shoulders>: a dragon hide
+E 0 14724 0 11		*	a green dragon <as a shield>: a dragon scale
+E 0 14725 0 16		*	a green dragon <wielded>: a dragon tooth
+E 0 14726 0 9		*	a green dragon <on the hands>: dragon claws
+E 0 14727 0 12		*	a green dragon <about the shoulders>: a dragon hide
 M 0 14711 1 14805 1	* a red dragon (Dragon Tower)
-E 0 14724 0 11		*	a red dragon<as a shield>: a dragon scale
-E 0 14725 0 16		*	a red dragon<wielded>: a dragon tooth
-E 0 14726 0 9		*	a red dragon<on the hands>: dragon claws
-E 0 14727 0 12		*	a red dragon<about the shoulders>: a dragon hide
+E 0 14724 0 11		*	a red dragon <as a shield>: a dragon scale
+E 0 14725 0 16		*	a red dragon <wielded>: a dragon tooth
+E 0 14726 0 9		*	a red dragon <on the hands>: dragon claws
+E 0 14727 0 12		*	a red dragon <about the shoulders>: a dragon hide
 M 0 14707 4 14806 1	* a destrier (Stables)
 S
 

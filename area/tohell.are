@@ -5150,9 +5150,9 @@ S
 
 #RESETS
 M 0 10401 2 10405 2	* the Guardian of Hell (Gateway to Hell)
-E 0 10401 0 16		*	the Guardian of Hell<wielded>: a wicked-looking trident
+E 0 10401 0 16		*	the Guardian of Hell <wielded>: a wicked-looking trident
 M 0 10401 2 10405 2	* the Guardian of Hell (Gateway to Hell)
-E 0 10401 0 16		*	the Guardian of Hell<wielded>: a wicked-looking trident
+E 0 10401 0 16		*	the Guardian of Hell <wielded>: a wicked-looking trident
 M 0 10409 6 10406 2	* a damned soul (Hall of the Damned)
 M 0 10409 6 10408 2	* a damned soul (Hall of the Damned)
 M 0 10409 6 10410 2	* a damned soul (Hall of the Damned)
@@ -5166,9 +5166,9 @@ M 0 10408 1 10415 1	* a yummy vegetable pot pie (Gluttony)
 M 0 10402 1 10416 1	* the pile of gold coins (Greed)
 M 0 10405 1 10416 1	* the gold bar (Greed)
 M 0 10403 1 10417 1	* the male Dee (Bedroom.)
-E 0 10402 0 16		*	the male Dee<wielded>: a black leather whip
+E 0 10402 0 16		*	the male Dee <wielded>: a black leather whip
 M 0 10404 1 10417 1	* the female Dee (Bedroom.)
-E 0 10403 0 16		*	the female Dee<wielded>: a hickey maker
+E 0 10403 0 16		*	the female Dee <wielded>: a hickey maker
 M 0 10414 1 10419 1	* bloody severed arm (Room full of Body Parts.)
 M 0 10415 1 10419 1	* bloody severed foot (Room full of Body Parts.)
 M 0 10416 1 10419 1	* bloody severed nose (Room full of Body Parts.)
@@ -5176,72 +5176,72 @@ M 0 10417 1 10420 1	* the blood from the fountain (Fountain of Blood.)
 M 0 10418 4 10423 2	* the lost soul (Room of Lost Souls)
 M 0 10418 4 10424 2	* the lost soul (Room of Lost Souls)
 M 0 10419 1 10425 1	* the crispy critter (Pit of Fire)
-E 0 10408 0 16		*	the crispy critter<wielded>: a flaming claw
+E 0 10408 0 16		*	the crispy critter <wielded>: a flaming claw
 M 0 10413 2 10426 1	* skeletal warrior (Blackened Hallway)
-E 0 10406 0 5		*	skeletal warrior<on the body>: some rotting flesh
-E 0 10407 0 16		*	skeletal warrior<wielded>: the Vorpal Blade
+E 0 10406 0 5		*	skeletal warrior <on the body>: some rotting flesh
+E 0 10407 0 16		*	skeletal warrior <wielded>: the Vorpal Blade
 M 0 10413 2 10428 1	* skeletal warrior (Blood Room)
-E 0 10406 0 5		*	skeletal warrior<on the body>: some rotting flesh
-E 0 10407 0 16		*	skeletal warrior<wielded>: the Vorpal Blade
+E 0 10406 0 5		*	skeletal warrior <on the body>: some rotting flesh
+E 0 10407 0 16		*	skeletal warrior <wielded>: the Vorpal Blade
 M 0 10412 2 10429 1	* the living wall (Living Walls)
-E 0 10404 0 16		*	the living wall<wielded>: a black-hilted sword called "Farslayer"
+E 0 10404 0 16		*	the living wall <wielded>: a black-hilted sword called "Farslayer"
 M 0 10420 2 10430 2	* pile of bones (Skeleton Factory)
 M 0 10422 1 10433 1	* the prisoner Raiden (Cell)
 M 0 10425 3 10436 1	* demonguard (Stone Hall)
-E 0 10409 0 5		*	demonguard<on the body>: a demonskin
-E 0 10410 0 16		*	demonguard<wielded>: demon teeth
+E 0 10409 0 5		*	demonguard <on the body>: a demonskin
+E 0 10410 0 16		*	demonguard <wielded>: demon teeth
 M 0 10423 1 10437 1	* a prisoner in Hell (Cell)
 M 0 10425 3 10438 1	* demonguard (Stone Hall)
-E 0 10409 0 5		*	demonguard<on the body>: a demonskin
-E 0 10410 0 16		*	demonguard<wielded>: demon teeth
+E 0 10409 0 5		*	demonguard <on the body>: a demonskin
+E 0 10410 0 16		*	demonguard <wielded>: demon teeth
 M 0 10421 2 10440 1	* the manes (Cell)
-E 0 10444 0 16		*	the manes<wielded>: a manes' claws
+E 0 10444 0 16		*	the manes <wielded>: a manes' claws
 M 0 10425 3 10442 1	* demonguard (Stone Hall)
-E 0 10409 0 5		*	demonguard<on the body>: a demonskin
-E 0 10410 0 16		*	demonguard<wielded>: demon teeth
+E 0 10409 0 5		*	demonguard <on the body>: a demonskin
+E 0 10410 0 16		*	demonguard <wielded>: demon teeth
 M 0 10421 2 10445 1	* the manes (Cell)
-E 0 10444 0 16		*	the manes<wielded>: a manes' claws
+E 0 10444 0 16		*	the manes <wielded>: a manes' claws
 M 0 10424 1 10449 1	* a prisoner in Hell (Cell)
 M 0 10432 1 10454 1	* the hell hound (Hall of Fire)
-E 0 10417 0 16		*	the hell hound<wielded>: hell hound teeth
+E 0 10417 0 16		*	the hell hound <wielded>: hell hound teeth
 M 0 10427 3 10456 1	* male construction worker (Construction Area)
-E 0 10445 0 16		*	male construction worker<wielded>: a welding torch
+E 0 10445 0 16		*	male construction worker <wielded>: a welding torch
 M 0 10428 3 10456 1	* the female construction worker (Construction Area)
-E 0 10412 0 16		*	the female construction worker<wielded>: a rivet gun
+E 0 10412 0 16		*	the female construction worker <wielded>: a rivet gun
 M 0 10426 2 10460 1	* the burning fool (Fire Pits of Hades)
-E 0 10411 0 10		*	the burning fool<on the arms>: some burning flesh
+E 0 10411 0 10		*	the burning fool <on the arms>: some burning flesh
 M 0 10468 1 10460 1	* the Greater Fire Demon (Fire Pits of Hades)
-E 0 10415 0 16		*	the Greater Fire Demon<wielded>: a bloody black talon
+E 0 10415 0 16		*	the Greater Fire Demon <wielded>: a bloody black talon
 G 0 10416 0		*	the Greater Fire Demon: jar of blood
 M 0 10440 1 10462 1	* the Demonic Foreman (Foreman's Office)
 G 0 10422 0		*	the Demonic Foreman: the blueprint
 M 0 10428 3 10465 1	* the female construction worker (Construction Area)
-E 0 10413 0 16		*	the female construction worker<wielded>: a circular saw
+E 0 10413 0 16		*	the female construction worker <wielded>: a circular saw
 M 0 10427 3 10465 1	* male construction worker (Construction Area)
-E 0 10412 0 16		*	male construction worker<wielded>: a rivet gun
+E 0 10412 0 16		*	male construction worker <wielded>: a rivet gun
 M 0 10427 3 10467 1	* male construction worker (Construction Area)
-E 0 10445 0 16		*	male construction worker<wielded>: a welding torch
+E 0 10445 0 16		*	male construction worker <wielded>: a welding torch
 M 0 10428 3 10467 1	* the female construction worker (Construction Area)
-E 0 10412 0 16		*	the female construction worker<wielded>: a rivet gun
+E 0 10412 0 16		*	the female construction worker <wielded>: a rivet gun
 M 0 10431 1 10469 1	* the wall of fire (Wall of Fire)
 M 0 10426 2 10470 1	* the burning fool (Lake of Fire)
-E 0 10411 0 10		*	the burning fool<on the arms>: some burning flesh
+E 0 10411 0 10		*	the burning fool <on the arms>: some burning flesh
 M 0 10430 1 10470 1	* the fire devil (Lake of Fire)
-E 0 10414 0 16		*	the fire devil<wielded>: a box of matches
+E 0 10414 0 16		*	the fire devil <wielded>: a box of matches
 G 0 10449 0		*	the fire devil: a precious fire opal
 M 0 10435 1 10473 1	* the trapped soul (Ice Room)
 M 0 10469 2 10474 1	* side of frozen beef (Meat Locker)
 G 0 10421 0		*	side of frozen beef: some meat
 M 0 10436 2 10475 1	* the half frozen body (Meat Locker)
-E 0 10420 0 16		*	the half frozen body<wielded>: a large meat hook
+E 0 10420 0 16		*	the half frozen body <wielded>: a large meat hook
 M 0 10437 4 10476 1	* the killer penguin (Penguin Room)
 M 0 10437 4 10477 1	* the killer penguin (Penguin Room)
 M 0 10438 2 10478 1	* the I-scream worker (Ice Creamery)
 M 0 10439 1 10479 1	* the Ice Screamer (Ice Creamery)
 M 0 10434 1 10483 1	* the ice devil (Ice Room)
-E 0 10419 0 16		*	the ice devil<wielded>: an ice spear
+E 0 10419 0 16		*	the ice devil <wielded>: an ice spear
 M 0 10436 2 10484 1	* the half frozen body (Meat Locker)
-E 0 10420 0 16		*	the half frozen body<wielded>: a large meat hook
+E 0 10420 0 16		*	the half frozen body <wielded>: a large meat hook
 M 0 10469 2 10485 1	* side of frozen beef (Meat Locker)
 G 0 10421 0		*	side of frozen beef: some meat
 M 0 10437 4 10486 1	* the killer penguin (Penguin Room)
@@ -5251,32 +5251,32 @@ M 0 10443 3 10491 1	* records worker (Records Hall)
 M 0 10443 3 10492 1	* records worker (Records Hall)
 M 0 10443 3 10493 1	* records worker (Records Hall)
 M 0 10444 1 10494 1	* Santa Claus (Records Hall)
-E 0 10424 0 6		*	Santa Claus<over the head>: spectacles
+E 0 10424 0 6		*	Santa Claus <over the head>: spectacles
 M 0 10446 1 10495 1	* a bowl of blood (Small Altar)
 M 0 10445 1 10497 1	* High Priest of Hell (Office of the High Priest)
-E 0 10425 0 17		*	High Priest of Hell<held in the hands>: an unholy symbol
-E 0 10426 0 12		*	High Priest of Hell<about the shoulders>: unholy robes
+E 0 10425 0 17		*	High Priest of Hell <held in the hands>: an unholy symbol
+E 0 10426 0 12		*	High Priest of Hell <about the shoulders>: unholy robes
 G 0 10450 0		*	High Priest of Hell: a hellstone
 M 0 10442 2 10498 1	* office worker from Hell (Blackened Hall)
-E 0 10423 0 16		*	office worker from Hell<wielded>: an electric eraser
+E 0 10423 0 16		*	office worker from Hell <wielded>: an electric eraser
 M 0 10441 1 10500 1	* Secretary of Hell (Administration of Hell)
-E 0 10446 0 6		*	Secretary of Hell<over the head>: a blond wig
+E 0 10446 0 6		*	Secretary of Hell <over the head>: a blond wig
 M 0 10442 2 10506 1	* office worker from Hell (Blackened Hall)
-E 0 10423 0 16		*	office worker from Hell<wielded>: an electric eraser
+E 0 10423 0 16		*	office worker from Hell <wielded>: an electric eraser
 M 0 10447 6 10511 6	* jury member (Court Room)
 M 0 10449 1 10512 1	* Lawyer from Hell (Lawyers Office)
-E 0 10427 0 16		*	Lawyer from Hell<wielded>: the sharp teeth of a lawyer
+E 0 10427 0 16		*	Lawyer from Hell <wielded>: the sharp teeth of a lawyer
 M 0 10450 1 10513 1	* Complaints Officer (Office of Complaints)
 M 0 10451 1 10514 1	* bastard hiramoto (Pawn Shop)
 G 0 10428 0		*	bastard hiramoto: a golden ring
 G 0 10429 0		*	bastard hiramoto: an engagement ring
 G 0 10430 0		*	bastard hiramoto: a prenuptual agreement
 M 0 10452 3 10519 1	* maintenance worker (Maintenance Walkway)
-E 0 10431 0 16		*	maintenance worker<wielded>: an ionic torque wrench
-E 0 10447 0 5		*	maintenance worker<on the body>: a yellow jumpsuit
+E 0 10431 0 16		*	maintenance worker <wielded>: an ionic torque wrench
+E 0 10447 0 5		*	maintenance worker <on the body>: a yellow jumpsuit
 M 0 10452 3 10520 1	* maintenance worker (Maintenance Walkway)
-E 0 10431 0 16		*	maintenance worker<wielded>: an ionic torque wrench
-E 0 10447 0 5		*	maintenance worker<on the body>: a yellow jumpsuit
+E 0 10431 0 16		*	maintenance worker <wielded>: an ionic torque wrench
+E 0 10447 0 5		*	maintenance worker <on the body>: a yellow jumpsuit
 M 0 10448 1 10521 1	* Judge Whopper (Judge's Chambers)
 M 0 10453 5 10522 1	* weeds (Courtyard)
 M 0 10453 5 10522 1	* weeds (Courtyard)
@@ -5297,19 +5297,19 @@ M 0 10455 1 10526 1	* horse carcass (Inside Big Mouth's Stomach)
 M 0 10456 1 10526 1	* stomach dragon (Inside Big Mouth's Stomach)
 M 0 10457 1 10526 1	* rancid turkey leg (Inside Big Mouth's Stomach)
 M 0 10458 1 10528 1	* reactor specialist (Reactor Control Room)
-E 0 10440 0 17		*	reactor specialist<held in the hands>: a geiger counter
-E 0 10442 0 5		*	reactor specialist<on the body>: a black jumpsuit
+E 0 10440 0 17		*	reactor specialist <held in the hands>: a geiger counter
+E 0 10442 0 5		*	reactor specialist <on the body>: a black jumpsuit
 M 0 10459 1 10528 1	* reactor worker (Reactor Control Room)
-E 0 10441 0 16		*	reactor worker<wielded>: a photon-displacement matrix
-E 0 10442 0 5		*	reactor worker<on the body>: a black jumpsuit
+E 0 10441 0 16		*	reactor worker <wielded>: a photon-displacement matrix
+E 0 10442 0 5		*	reactor worker <on the body>: a black jumpsuit
 M 0 10452 3 10529 1	* maintenance worker (Maintenance Room)
-E 0 10431 0 16		*	maintenance worker<wielded>: an ionic torque wrench
-E 0 10447 0 5		*	maintenance worker<on the body>: a yellow jumpsuit
+E 0 10431 0 16		*	maintenance worker <wielded>: an ionic torque wrench
+E 0 10447 0 5		*	maintenance worker <on the body>: a yellow jumpsuit
 M 0 10470 2 10530 2	* guard dog (Break Room)
 M 0 10471 1 10531 1	* juicy steak (Hell's Kitchen)
 M 0 10461 1 10531 1	* devil's food cake (Hell's Kitchen)
 M 0 10462 1 10531 1	* mad cook (Hell's Kitchen)
-E 0 10448 0 16		*	mad cook<wielded>: a cleaver
+E 0 10448 0 16		*	mad cook <wielded>: a cleaver
 M 0 10453 5 10533 1	* weeds (Courtyard)
 M 0 10453 5 10535 1	* weeds (Hallway of The Mall from Hell)
 M 0 10463 5 10535 1	* frantic lady (Hallway of The Mall from Hell)
@@ -5317,7 +5317,7 @@ M 0 10463 5 10535 1	* frantic lady (Hallway of The Mall from Hell)
 M 0 10465 1 10537 1	* stray proton (Inside the Reactor Core)
 M 0 10466 2 10537 1	* radiation (Inside the Reactor Core)
 M 0 10464 1 10538 1	* nuclear technician (Reactor Room Floor)
-E 0 10442 0 5		*	nuclear technician<on the body>: a black jumpsuit
+E 0 10442 0 5		*	nuclear technician <on the body>: a black jumpsuit
 M 0 10466 2 10538 1	* radiation (Reactor Room Floor)
 M 0 10460 1 10539 1	* Homer Simpson (Secondary Control Room)
 M 0 10467 1 10540 1	* the Chief Engineer of Hell (Office of the Chief Engineer)

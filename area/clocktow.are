@@ -3537,179 +3537,179 @@ O 0 4944 0 4900	* exit from the tower (Entrance to the Tower)
 M 0 4908 4 4901 1	* One o'clock (At One o'clock)
 M 0 4909 4 4902 1	* Two o'clock (At Two o'clock)
 M 0 4910 4 4903 1	* Three o'clock (At Three o'clock)
-E 0 4916 0 5		*	Three o'clock<on the body>: "3" glowing breast plate
-E 0 4917 0 7		*	Three o'clock<on the legs>: "3" glowing leg plates
-E 0 4918 0 10		*	Three o'clock<on the arms>: "3" glowing arm plates
-E 0 4919 0 6		*	Three o'clock<over the head>: "3" glowing helmet
-E 0 4920 0 9		*	Three o'clock<on the hands>: "3" glowing gauntlets
-E 0 4921 0 8		*	Three o'clock<on the feet>: "3" glowing boots
-E 0 4940 0 16		*	Three o'clock<wielded>: clock dagger
+E 0 4916 0 5		*	Three o'clock <on the body>: "3" glowing breast plate
+E 0 4917 0 7		*	Three o'clock <on the legs>: "3" glowing leg plates
+E 0 4918 0 10		*	Three o'clock <on the arms>: "3" glowing arm plates
+E 0 4919 0 6		*	Three o'clock <over the head>: "3" glowing helmet
+E 0 4920 0 9		*	Three o'clock <on the hands>: "3" glowing gauntlets
+E 0 4921 0 8		*	Three o'clock <on the feet>: "3" glowing boots
+E 0 4940 0 16		*	Three o'clock <wielded>: clock dagger
 M 0 4911 4 4904 1	* Four o'clock (At Four o'clock)
 M 0 4912 4 4905 1	* Five o'clock (At Five o'clock)
 M 0 4913 4 4906 1	* Six o'clock (At Six o'clock)
-E 0 4922 0 5		*	Six o'clock<on the body>: "6" glowing breast plate
-E 0 4923 0 7		*	Six o'clock<on the legs>: "6" glowing leg plates
-E 0 4924 0 10		*	Six o'clock<on the arms>: "6" glowing arm plates
-E 0 4925 0 6		*	Six o'clock<over the head>: "6" glowing helmet
-E 0 4926 0 9		*	Six o'clock<on the hands>: "6" glowing gauntlets
-E 0 4927 0 8		*	Six o'clock<on the feet>: "6" glowing boots
-E 0 4941 0 16		*	Six o'clock<wielded>: clock sword
+E 0 4922 0 5		*	Six o'clock <on the body>: "6" glowing breast plate
+E 0 4923 0 7		*	Six o'clock <on the legs>: "6" glowing leg plates
+E 0 4924 0 10		*	Six o'clock <on the arms>: "6" glowing arm plates
+E 0 4925 0 6		*	Six o'clock <over the head>: "6" glowing helmet
+E 0 4926 0 9		*	Six o'clock <on the hands>: "6" glowing gauntlets
+E 0 4927 0 8		*	Six o'clock <on the feet>: "6" glowing boots
+E 0 4941 0 16		*	Six o'clock <wielded>: clock sword
 M 0 4914 4 4907 1	* Seven o'clock (At Seven o'clock)
 M 0 4915 4 4908 1	* Eight o'clock (At Eight o'clock)
 M 0 4916 4 4909 1	* Nine o'clock (At Nine o'clock)
-E 0 4928 0 5		*	Nine o'clock<on the body>: "9" glowing breast plate
-E 0 4929 0 7		*	Nine o'clock<on the legs>: "9" glowing leg plates
-E 0 4930 0 10		*	Nine o'clock<on the arms>: "9" glowing arm plates
-E 0 4931 0 6		*	Nine o'clock<over the head>: "9" glowing helmet
-E 0 4932 0 9		*	Nine o'clock<on the hands>: "9" glowing gauntlets
-E 0 4933 0 8		*	Nine o'clock<on the feet>: "9" glowing boots
-E 0 4942 0 16		*	Nine o'clock<wielded>: clock mace
+E 0 4928 0 5		*	Nine o'clock <on the body>: "9" glowing breast plate
+E 0 4929 0 7		*	Nine o'clock <on the legs>: "9" glowing leg plates
+E 0 4930 0 10		*	Nine o'clock <on the arms>: "9" glowing arm plates
+E 0 4931 0 6		*	Nine o'clock <over the head>: "9" glowing helmet
+E 0 4932 0 9		*	Nine o'clock <on the hands>: "9" glowing gauntlets
+E 0 4933 0 8		*	Nine o'clock <on the feet>: "9" glowing boots
+E 0 4942 0 16		*	Nine o'clock <wielded>: clock mace
 M 0 4917 4 4910 1	* Ten o'clock (At Ten o'clock)
 M 0 4918 4 4911 1	* Eleven o'clock (At Eleven o'clock)
 M 0 4904 1 4912 1	* Long Hand (At Twelve o'clock)
-E 0 4911 0 16		*	Long Hand<wielded>: long hand
+E 0 4911 0 16		*	Long Hand <wielded>: long hand
 M 0 4905 1 4912 1	* Short Hand (At Twelve o'clock)
-E 0 4910 0 16		*	Short Hand<wielded>: short hand
+E 0 4910 0 16		*	Short Hand <wielded>: short hand
 M 0 4919 4 4912 1	* Twelve o'clock (At Twelve o'clock)
-E 0 4934 0 5		*	Twelve o'clock<on the body>: "12" glowing breast plate
-E 0 4935 0 7		*	Twelve o'clock<on the legs>: "12" glowing leg plates
-E 0 4936 0 10		*	Twelve o'clock<on the arms>: "12" glowing arm plates
-E 0 4937 0 6		*	Twelve o'clock<over the head>: "12" glowing helmet
-E 0 4938 0 9		*	Twelve o'clock<on the hands>: "12" glowing gauntlets
-E 0 4939 0 8		*	Twelve o'clock<on the feet>: "12" glowing boots
-E 0 4943 0 16		*	Twelve o'clock<wielded>: clock lance
+E 0 4934 0 5		*	Twelve o'clock <on the body>: "12" glowing breast plate
+E 0 4935 0 7		*	Twelve o'clock <on the legs>: "12" glowing leg plates
+E 0 4936 0 10		*	Twelve o'clock <on the arms>: "12" glowing arm plates
+E 0 4937 0 6		*	Twelve o'clock <over the head>: "12" glowing helmet
+E 0 4938 0 9		*	Twelve o'clock <on the hands>: "12" glowing gauntlets
+E 0 4939 0 8		*	Twelve o'clock <on the feet>: "12" glowing boots
+E 0 4943 0 16		*	Twelve o'clock <wielded>: clock lance
 M 0 4908 4 4913 1	* One o'clock (At One o'clock)
 M 0 4909 4 4914 1	* Two o'clock (At Two o'clock)
 M 0 4910 4 4915 1	* Three o'clock (At Three o'clock)
-E 0 4916 0 5		*	Three o'clock<on the body>: "3" glowing breast plate
-E 0 4917 0 7		*	Three o'clock<on the legs>: "3" glowing leg plates
-E 0 4918 0 10		*	Three o'clock<on the arms>: "3" glowing arm plates
-E 0 4919 0 6		*	Three o'clock<over the head>: "3" glowing helmet
-E 0 4920 0 9		*	Three o'clock<on the hands>: "3" glowing gauntlets
-E 0 4921 0 8		*	Three o'clock<on the feet>: "3" glowing boots
-E 0 4940 0 16		*	Three o'clock<wielded>: clock dagger
+E 0 4916 0 5		*	Three o'clock <on the body>: "3" glowing breast plate
+E 0 4917 0 7		*	Three o'clock <on the legs>: "3" glowing leg plates
+E 0 4918 0 10		*	Three o'clock <on the arms>: "3" glowing arm plates
+E 0 4919 0 6		*	Three o'clock <over the head>: "3" glowing helmet
+E 0 4920 0 9		*	Three o'clock <on the hands>: "3" glowing gauntlets
+E 0 4921 0 8		*	Three o'clock <on the feet>: "3" glowing boots
+E 0 4940 0 16		*	Three o'clock <wielded>: clock dagger
 M 0 4911 4 4916 1	* Four o'clock (At Four o'clock)
 M 0 4912 4 4917 1	* Five o'clock (At Five o'clock)
 M 0 4913 4 4918 1	* Six o'clock (At Six o'clock)
-E 0 4922 0 5		*	Six o'clock<on the body>: "6" glowing breast plate
-E 0 4923 0 7		*	Six o'clock<on the legs>: "6" glowing leg plates
-E 0 4924 0 10		*	Six o'clock<on the arms>: "6" glowing arm plates
-E 0 4925 0 6		*	Six o'clock<over the head>: "6" glowing helmet
-E 0 4926 0 9		*	Six o'clock<on the hands>: "6" glowing gauntlets
-E 0 4927 0 8		*	Six o'clock<on the feet>: "6" glowing boots
-E 0 4941 0 16		*	Six o'clock<wielded>: clock sword
+E 0 4922 0 5		*	Six o'clock <on the body>: "6" glowing breast plate
+E 0 4923 0 7		*	Six o'clock <on the legs>: "6" glowing leg plates
+E 0 4924 0 10		*	Six o'clock <on the arms>: "6" glowing arm plates
+E 0 4925 0 6		*	Six o'clock <over the head>: "6" glowing helmet
+E 0 4926 0 9		*	Six o'clock <on the hands>: "6" glowing gauntlets
+E 0 4927 0 8		*	Six o'clock <on the feet>: "6" glowing boots
+E 0 4941 0 16		*	Six o'clock <wielded>: clock sword
 M 0 4914 4 4919 1	* Seven o'clock (At Seven o'clock)
 M 0 4915 4 4920 1	* Eight o'clock (At Eight o'clock)
 M 0 4916 4 4921 1	* Nine o'clock (At Nine o'clock)
-E 0 4928 0 5		*	Nine o'clock<on the body>: "9" glowing breast plate
-E 0 4929 0 7		*	Nine o'clock<on the legs>: "9" glowing leg plates
-E 0 4930 0 10		*	Nine o'clock<on the arms>: "9" glowing arm plates
-E 0 4931 0 6		*	Nine o'clock<over the head>: "9" glowing helmet
-E 0 4932 0 9		*	Nine o'clock<on the hands>: "9" glowing gauntlets
-E 0 4933 0 8		*	Nine o'clock<on the feet>: "9" glowing boots
-E 0 4942 0 16		*	Nine o'clock<wielded>: clock mace
+E 0 4928 0 5		*	Nine o'clock <on the body>: "9" glowing breast plate
+E 0 4929 0 7		*	Nine o'clock <on the legs>: "9" glowing leg plates
+E 0 4930 0 10		*	Nine o'clock <on the arms>: "9" glowing arm plates
+E 0 4931 0 6		*	Nine o'clock <over the head>: "9" glowing helmet
+E 0 4932 0 9		*	Nine o'clock <on the hands>: "9" glowing gauntlets
+E 0 4933 0 8		*	Nine o'clock <on the feet>: "9" glowing boots
+E 0 4942 0 16		*	Nine o'clock <wielded>: clock mace
 M 0 4917 4 4922 1	* Ten o'clock (At Ten o'clock)
 M 0 4918 4 4923 1	* Eleven o'clock (At Eleven o'clock)
 M 0 4930 1 4924 1	* Long Hand (At Twelve o'clock)
-E 0 4911 0 16		*	Long Hand<wielded>: long hand
+E 0 4911 0 16		*	Long Hand <wielded>: long hand
 M 0 4931 1 4924 1	* Short Hand (At Twelve o'clock)
-E 0 4910 0 16		*	Short Hand<wielded>: short hand
+E 0 4910 0 16		*	Short Hand <wielded>: short hand
 M 0 4919 4 4924 1	* Twelve o'clock (At Twelve o'clock)
-E 0 4934 0 5		*	Twelve o'clock<on the body>: "12" glowing breast plate
-E 0 4935 0 7		*	Twelve o'clock<on the legs>: "12" glowing leg plates
-E 0 4936 0 10		*	Twelve o'clock<on the arms>: "12" glowing arm plates
-E 0 4937 0 6		*	Twelve o'clock<over the head>: "12" glowing helmet
-E 0 4938 0 9		*	Twelve o'clock<on the hands>: "12" glowing gauntlets
-E 0 4939 0 8		*	Twelve o'clock<on the feet>: "12" glowing boots
-E 0 4943 0 16		*	Twelve o'clock<wielded>: clock lance
+E 0 4934 0 5		*	Twelve o'clock <on the body>: "12" glowing breast plate
+E 0 4935 0 7		*	Twelve o'clock <on the legs>: "12" glowing leg plates
+E 0 4936 0 10		*	Twelve o'clock <on the arms>: "12" glowing arm plates
+E 0 4937 0 6		*	Twelve o'clock <over the head>: "12" glowing helmet
+E 0 4938 0 9		*	Twelve o'clock <on the hands>: "12" glowing gauntlets
+E 0 4939 0 8		*	Twelve o'clock <on the feet>: "12" glowing boots
+E 0 4943 0 16		*	Twelve o'clock <wielded>: clock lance
 M 0 4908 4 4925 1	* One o'clock (At One o'clock)
 M 0 4909 4 4926 1	* Two o'clock (At Two o'clock)
 M 0 4910 4 4927 1	* Three o'clock (At Three o'clock)
-E 0 4916 0 5		*	Three o'clock<on the body>: "3" glowing breast plate
-E 0 4917 0 7		*	Three o'clock<on the legs>: "3" glowing leg plates
-E 0 4918 0 10		*	Three o'clock<on the arms>: "3" glowing arm plates
-E 0 4919 0 6		*	Three o'clock<over the head>: "3" glowing helmet
-E 0 4920 0 9		*	Three o'clock<on the hands>: "3" glowing gauntlets
-E 0 4921 0 8		*	Three o'clock<on the feet>: "3" glowing boots
-E 0 4940 0 16		*	Three o'clock<wielded>: clock dagger
+E 0 4916 0 5		*	Three o'clock <on the body>: "3" glowing breast plate
+E 0 4917 0 7		*	Three o'clock <on the legs>: "3" glowing leg plates
+E 0 4918 0 10		*	Three o'clock <on the arms>: "3" glowing arm plates
+E 0 4919 0 6		*	Three o'clock <over the head>: "3" glowing helmet
+E 0 4920 0 9		*	Three o'clock <on the hands>: "3" glowing gauntlets
+E 0 4921 0 8		*	Three o'clock <on the feet>: "3" glowing boots
+E 0 4940 0 16		*	Three o'clock <wielded>: clock dagger
 M 0 4911 4 4928 1	* Four o'clock (At Four o'clock)
 M 0 4912 4 4929 1	* Five o'clock (At Five o'clock)
 M 0 4913 4 4930 1	* Six o'clock (At Six o'clock)
-E 0 4922 0 5		*	Six o'clock<on the body>: "6" glowing breast plate
-E 0 4923 0 7		*	Six o'clock<on the legs>: "6" glowing leg plates
-E 0 4924 0 10		*	Six o'clock<on the arms>: "6" glowing arm plates
-E 0 4925 0 6		*	Six o'clock<over the head>: "6" glowing helmet
-E 0 4926 0 9		*	Six o'clock<on the hands>: "6" glowing gauntlets
-E 0 4927 0 8		*	Six o'clock<on the feet>: "6" glowing boots
-E 0 4941 0 16		*	Six o'clock<wielded>: clock sword
+E 0 4922 0 5		*	Six o'clock <on the body>: "6" glowing breast plate
+E 0 4923 0 7		*	Six o'clock <on the legs>: "6" glowing leg plates
+E 0 4924 0 10		*	Six o'clock <on the arms>: "6" glowing arm plates
+E 0 4925 0 6		*	Six o'clock <over the head>: "6" glowing helmet
+E 0 4926 0 9		*	Six o'clock <on the hands>: "6" glowing gauntlets
+E 0 4927 0 8		*	Six o'clock <on the feet>: "6" glowing boots
+E 0 4941 0 16		*	Six o'clock <wielded>: clock sword
 M 0 4914 4 4931 1	* Seven o'clock (At Seven o'clock)
 M 0 4915 4 4932 1	* Eight o'clock (At Eight o'clock)
 M 0 4916 4 4933 1	* Nine o'clock (At Nine o'clock)
-E 0 4928 0 5		*	Nine o'clock<on the body>: "9" glowing breast plate
-E 0 4929 0 7		*	Nine o'clock<on the legs>: "9" glowing leg plates
-E 0 4930 0 10		*	Nine o'clock<on the arms>: "9" glowing arm plates
-E 0 4931 0 6		*	Nine o'clock<over the head>: "9" glowing helmet
-E 0 4932 0 9		*	Nine o'clock<on the hands>: "9" glowing gauntlets
-E 0 4933 0 8		*	Nine o'clock<on the feet>: "9" glowing boots
-E 0 4942 0 16		*	Nine o'clock<wielded>: clock mace
+E 0 4928 0 5		*	Nine o'clock <on the body>: "9" glowing breast plate
+E 0 4929 0 7		*	Nine o'clock <on the legs>: "9" glowing leg plates
+E 0 4930 0 10		*	Nine o'clock <on the arms>: "9" glowing arm plates
+E 0 4931 0 6		*	Nine o'clock <over the head>: "9" glowing helmet
+E 0 4932 0 9		*	Nine o'clock <on the hands>: "9" glowing gauntlets
+E 0 4933 0 8		*	Nine o'clock <on the feet>: "9" glowing boots
+E 0 4942 0 16		*	Nine o'clock <wielded>: clock mace
 M 0 4917 4 4934 1	* Ten o'clock (At Ten o'clock)
 M 0 4918 4 4935 1	* Eleven o'clock (At Eleven o'clock)
 M 0 4932 1 4936 1	* Long Hand (At Twelve o'clock)
-E 0 4911 0 16		*	Long Hand<wielded>: long hand
+E 0 4911 0 16		*	Long Hand <wielded>: long hand
 M 0 4933 1 4936 1	* Short Hand (At Twelve o'clock)
-E 0 4910 0 16		*	Short Hand<wielded>: short hand
+E 0 4910 0 16		*	Short Hand <wielded>: short hand
 M 0 4919 4 4936 1	* Twelve o'clock (At Twelve o'clock)
-E 0 4934 0 5		*	Twelve o'clock<on the body>: "12" glowing breast plate
-E 0 4935 0 7		*	Twelve o'clock<on the legs>: "12" glowing leg plates
-E 0 4936 0 10		*	Twelve o'clock<on the arms>: "12" glowing arm plates
-E 0 4937 0 6		*	Twelve o'clock<over the head>: "12" glowing helmet
-E 0 4938 0 9		*	Twelve o'clock<on the hands>: "12" glowing gauntlets
-E 0 4939 0 8		*	Twelve o'clock<on the feet>: "12" glowing boots
-E 0 4943 0 16		*	Twelve o'clock<wielded>: clock lance
+E 0 4934 0 5		*	Twelve o'clock <on the body>: "12" glowing breast plate
+E 0 4935 0 7		*	Twelve o'clock <on the legs>: "12" glowing leg plates
+E 0 4936 0 10		*	Twelve o'clock <on the arms>: "12" glowing arm plates
+E 0 4937 0 6		*	Twelve o'clock <over the head>: "12" glowing helmet
+E 0 4938 0 9		*	Twelve o'clock <on the hands>: "12" glowing gauntlets
+E 0 4939 0 8		*	Twelve o'clock <on the feet>: "12" glowing boots
+E 0 4943 0 16		*	Twelve o'clock <wielded>: clock lance
 M 0 4908 4 4937 1	* One o'clock (At One o'clock)
 M 0 4909 4 4938 1	* Two o'clock (At Two o'clock)
 M 0 4910 4 4939 1	* Three o'clock (At Three o'clock)
-E 0 4916 0 5		*	Three o'clock<on the body>: "3" glowing breast plate
-E 0 4917 0 7		*	Three o'clock<on the legs>: "3" glowing leg plates
-E 0 4918 0 10		*	Three o'clock<on the arms>: "3" glowing arm plates
-E 0 4919 0 6		*	Three o'clock<over the head>: "3" glowing helmet
-E 0 4920 0 9		*	Three o'clock<on the hands>: "3" glowing gauntlets
-E 0 4921 0 8		*	Three o'clock<on the feet>: "3" glowing boots
-E 0 4940 0 16		*	Three o'clock<wielded>: clock dagger
+E 0 4916 0 5		*	Three o'clock <on the body>: "3" glowing breast plate
+E 0 4917 0 7		*	Three o'clock <on the legs>: "3" glowing leg plates
+E 0 4918 0 10		*	Three o'clock <on the arms>: "3" glowing arm plates
+E 0 4919 0 6		*	Three o'clock <over the head>: "3" glowing helmet
+E 0 4920 0 9		*	Three o'clock <on the hands>: "3" glowing gauntlets
+E 0 4921 0 8		*	Three o'clock <on the feet>: "3" glowing boots
+E 0 4940 0 16		*	Three o'clock <wielded>: clock dagger
 M 0 4911 4 4940 1	* Four o'clock (At Four o'clock)
 M 0 4912 4 4941 1	* Five o'clock (At Five o'clock)
 M 0 4913 4 4942 1	* Six o'clock (At Six o'clock)
-E 0 4922 0 5		*	Six o'clock<on the body>: "6" glowing breast plate
-E 0 4923 0 7		*	Six o'clock<on the legs>: "6" glowing leg plates
-E 0 4924 0 10		*	Six o'clock<on the arms>: "6" glowing arm plates
-E 0 4925 0 6		*	Six o'clock<over the head>: "6" glowing helmet
-E 0 4926 0 9		*	Six o'clock<on the hands>: "6" glowing gauntlets
-E 0 4927 0 8		*	Six o'clock<on the feet>: "6" glowing boots
-E 0 4941 0 16		*	Six o'clock<wielded>: clock sword
+E 0 4922 0 5		*	Six o'clock <on the body>: "6" glowing breast plate
+E 0 4923 0 7		*	Six o'clock <on the legs>: "6" glowing leg plates
+E 0 4924 0 10		*	Six o'clock <on the arms>: "6" glowing arm plates
+E 0 4925 0 6		*	Six o'clock <over the head>: "6" glowing helmet
+E 0 4926 0 9		*	Six o'clock <on the hands>: "6" glowing gauntlets
+E 0 4927 0 8		*	Six o'clock <on the feet>: "6" glowing boots
+E 0 4941 0 16		*	Six o'clock <wielded>: clock sword
 M 0 4914 4 4943 1	* Seven o'clock (At Seven o'clock)
 M 0 4915 4 4944 1	* Eight o'clock (At Eight o'clock)
 M 0 4916 4 4945 1	* Nine o'clock (At Nine o'clock)
-E 0 4928 0 5		*	Nine o'clock<on the body>: "9" glowing breast plate
-E 0 4929 0 7		*	Nine o'clock<on the legs>: "9" glowing leg plates
-E 0 4930 0 10		*	Nine o'clock<on the arms>: "9" glowing arm plates
-E 0 4931 0 6		*	Nine o'clock<over the head>: "9" glowing helmet
-E 0 4932 0 9		*	Nine o'clock<on the hands>: "9" glowing gauntlets
-E 0 4933 0 8		*	Nine o'clock<on the feet>: "9" glowing boots
-E 0 4942 0 16		*	Nine o'clock<wielded>: clock mace
+E 0 4928 0 5		*	Nine o'clock <on the body>: "9" glowing breast plate
+E 0 4929 0 7		*	Nine o'clock <on the legs>: "9" glowing leg plates
+E 0 4930 0 10		*	Nine o'clock <on the arms>: "9" glowing arm plates
+E 0 4931 0 6		*	Nine o'clock <over the head>: "9" glowing helmet
+E 0 4932 0 9		*	Nine o'clock <on the hands>: "9" glowing gauntlets
+E 0 4933 0 8		*	Nine o'clock <on the feet>: "9" glowing boots
+E 0 4942 0 16		*	Nine o'clock <wielded>: clock mace
 M 0 4917 4 4946 1	* Ten o'clock (At Ten o'clock)
 M 0 4918 4 4947 1	* Eleven o'clock (At Eleven o'clock)
 M 0 4934 1 4948 1	* Long Hand (At Twelve o'clock)
-E 0 4911 0 16		*	Long Hand<wielded>: long hand
+E 0 4911 0 16		*	Long Hand <wielded>: long hand
 M 0 4935 1 4948 1	* Short Hand (At Twelve o'clock)
-E 0 4910 0 16		*	Short Hand<wielded>: short hand
+E 0 4910 0 16		*	Short Hand <wielded>: short hand
 M 0 4919 4 4948 1	* Twelve o'clock (At Twelve o'clock)
-E 0 4934 0 5		*	Twelve o'clock<on the body>: "12" glowing breast plate
-E 0 4935 0 7		*	Twelve o'clock<on the legs>: "12" glowing leg plates
-E 0 4936 0 10		*	Twelve o'clock<on the arms>: "12" glowing arm plates
-E 0 4937 0 6		*	Twelve o'clock<over the head>: "12" glowing helmet
-E 0 4938 0 9		*	Twelve o'clock<on the hands>: "12" glowing gauntlets
-E 0 4939 0 8		*	Twelve o'clock<on the feet>: "12" glowing boots
-E 0 4943 0 16		*	Twelve o'clock<wielded>: clock lance
+E 0 4934 0 5		*	Twelve o'clock <on the body>: "12" glowing breast plate
+E 0 4935 0 7		*	Twelve o'clock <on the legs>: "12" glowing leg plates
+E 0 4936 0 10		*	Twelve o'clock <on the arms>: "12" glowing arm plates
+E 0 4937 0 6		*	Twelve o'clock <over the head>: "12" glowing helmet
+E 0 4938 0 9		*	Twelve o'clock <on the hands>: "12" glowing gauntlets
+E 0 4939 0 8		*	Twelve o'clock <on the feet>: "12" glowing boots
+E 0 4943 0 16		*	Twelve o'clock <wielded>: clock lance
 M 0 4922 15 4953 1	* Small gear (Clock-Work)
 M 0 4920 10 4953 1	* Large gear (Clock-Work)
 R 0 4953 5	* Clock-Work: randomize
@@ -3731,8 +3731,8 @@ R 0 4965 3	* Clock-Work: randomize
 M 0 4923 15 4966 2	* Tiny gear (Clock-Work)
 R 0 4966 3	* Clock-Work: randomize
 M 0 4901 1 4967 1	* Mechanic (Clock-Work)
-E 0 4902 0 16		*	Mechanic<wielded>: standart set of instruments
-E 0 4901 0 5		*	Mechanic<on the body>: robe of mechanic
+E 0 4902 0 16		*	Mechanic <wielded>: standart set of instruments
+E 0 4901 0 5		*	Mechanic <on the body>: robe of mechanic
 R 0 4967 3	* Clock-Work: randomize
 M 0 4922 15 4968 1	* Small gear (Clock-Work)
 M 0 4921 20 4968 2	* Medium gear (Clock-Work)
@@ -3743,7 +3743,7 @@ M 0 4922 15 4970 2	* Small gear (Clock-Work)
 M 0 4920 10 4971 1	* Large gear (Clock-Work)
 M 0 4923 15 4971 1	* Tiny gear (Clock-Work)
 M 0 4900 1 4972 1	* The Bell (Clock-Work)
-E 0 4900 0 5		*	The Bell<on the body>: bell breast plate
+E 0 4900 0 5		*	The Bell <on the body>: bell breast plate
 M 0 4923 15 4972 3	* Tiny gear (Clock-Work)
 M 0 4920 10 4973 1	* Large gear (Clock-Work)
 M 0 4922 20 4973 3	* Small gear (Clock-Work)
@@ -3759,42 +3759,42 @@ M 0 4921 15 4979 1	* Medium gear (Clock-Work)
 M 0 4920 10 4979 1	* Large gear (Clock-Work)
 R 0 4979 5	* Clock-Work: randomize
 M 0 4926 4 4980 2	* angry bat (Attic)
-E 0 4912 0 15		*	angry bat<on the right wrist>: bat's wing
-E 0 4912 0 14		*	angry bat<on the left wrist>: bat's wing
+E 0 4912 0 15		*	angry bat <on the right wrist>: bat's wing
+E 0 4912 0 14		*	angry bat <on the left wrist>: bat's wing
 M 0 4926 4 4981 2	* angry bat (Attic)
-E 0 4912 0 15		*	angry bat<on the right wrist>: bat's wing
-E 0 4912 0 14		*	angry bat<on the left wrist>: bat's wing
+E 0 4912 0 15		*	angry bat <on the right wrist>: bat's wing
+E 0 4912 0 14		*	angry bat <on the left wrist>: bat's wing
 M 0 4929 5 4982 1	* HUGE spider (Attic)
 M 0 4929 5 4983 1	* HUGE spider (Attic)
 O 0 4913 0 4983	* spider's web (Attic)
 M 0 4925 1 4984 1	* terrifying ghost (Garret)
 M 0 4907 1 4985 1	* Chimney-sweep (Center of the Roof)
-E 0 4906 0 6		*	Chimney-sweep<over the head>: black top hat of a chimney-sweep
-E 0 4907 0 5		*	Chimney-sweep<on the body>: black vest of a chimney-sweep
-E 0 4908 0 7		*	Chimney-sweep<on the legs>: black leggings of a chimney-sweep
-E 0 4909 0 17		*	Chimney-sweep<held in the hands>: black chimney broom
+E 0 4906 0 6		*	Chimney-sweep <over the head>: black top hat of a chimney-sweep
+E 0 4907 0 5		*	Chimney-sweep <on the body>: black vest of a chimney-sweep
+E 0 4908 0 7		*	Chimney-sweep <on the legs>: black leggings of a chimney-sweep
+E 0 4909 0 17		*	Chimney-sweep <held in the hands>: black chimney broom
 M 0 4924 10 4985 1	* tower pigeon (Center of the Roof)
 M 0 4924 10 4986 2	* tower pigeon (Tiled Roof)
-E 0 4914 0 6		*	tower pigeon<over the head>: pigeon skull
+E 0 4914 0 6		*	tower pigeon <over the head>: pigeon skull
 M 0 4924 10 4987 2	* tower pigeon (Tiled Roof)
-E 0 4914 0 6		*	tower pigeon<over the head>: pigeon skull
+E 0 4914 0 6		*	tower pigeon <over the head>: pigeon skull
 M 0 4924 10 4988 2	* tower pigeon (Tiled Roof)
-E 0 4914 0 6		*	tower pigeon<over the head>: pigeon skull
+E 0 4914 0 6		*	tower pigeon <over the head>: pigeon skull
 M 0 4924 10 4989 1	* tower pigeon (Tiled Roof)
-E 0 4914 0 6		*	tower pigeon<over the head>: pigeon skull
+E 0 4914 0 6		*	tower pigeon <over the head>: pigeon skull
 M 0 4906 1 4992 1	* Wearthercock (Atop the Spire)
 M 0 4927 5 4994 1	* wimpy rat (Spiral Staircase)
-E 0 4915 0 2		*	wimpy rat<on the right finger>: rat's talon
-E 0 4915 0 1		*	wimpy rat<on the left finger>: rat's talon
+E 0 4915 0 2		*	wimpy rat <on the right finger>: rat's talon
+E 0 4915 0 1		*	wimpy rat <on the left finger>: rat's talon
 M 0 4928 3 4995 1	* small spider (Spiral Staircase)
-E 0 4913 0 12		*	small spider<about the shoulders>: spider's web
+E 0 4913 0 12		*	small spider <about the shoulders>: spider's web
 M 0 4928 3 4997 1	* small spider (Spiral Staircase)
 M 0 4927 5 4997 2	* wimpy rat (Spiral Staircase)
 O 0 4903 0 4999	* carved box (Watchman's Shelter)
 P 0 4905 1 0 1	* carved box: bronze clock key
 O 0 4945 0 4999	* cabinet (Watchman's Shelter)
 M 0 4902 1 4999 1	* Watchman (Watchman's Shelter)
-E 0 4904 0 17		*	Watchman<held in the hands>: ivory key
+E 0 4904 0 17		*	Watchman <held in the hands>: ivory key
 S
 
 #OLIMITS

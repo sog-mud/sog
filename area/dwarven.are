@@ -1736,29 +1736,29 @@ M 0 6501 6 6502 2	* the dwarven worker (Path, middle of mountain)
 O 0 6507 0 6503	* long, black stick (Top of mountain)
 M 0 6501 6 6503 2	* the dwarven worker (Top of mountain)
 M 0 6500 10 6505 2	* the dwarven guard (Entrance to Mountain)
-E 0 6504 0 16		*	the dwarven guard<wielded>: a hammer
-E 0 6505 0 5		*	the dwarven guard<on the body>: dwarven plate mail
+E 0 6504 0 16		*	the dwarven guard <wielded>: a hammer
+E 0 6505 0 5		*	the dwarven guard <on the body>: dwarven plate mail
 G 0 6502 0		*	the dwarven guard: a deep green key
 M 0 6500 10 6505 2	* the dwarven guard (Entrance to Mountain)
-E 0 6504 0 16		*	the dwarven guard<wielded>: a hammer
-E 0 6505 0 5		*	the dwarven guard<on the body>: dwarven plate mail
+E 0 6504 0 16		*	the dwarven guard <wielded>: a hammer
+E 0 6505 0 5		*	the dwarven guard <on the body>: dwarven plate mail
 O 0 6507 0 6505	* long, black stick (Entrance to Mountain)
 M 0 6518 1 6505 1	* the dwarven worker (Entrance to Mountain)
 G 0 6521 0		*	the dwarven worker: a chunk of iron bars
 G 0 6522 0		*	the dwarven worker: a hammer
 M 0 6506 2 6508 2	* the giant (Narrow north-south path)
 M 0 6500 10 6509 2	* the dwarven guard (Door to Kingdom)
-E 0 6509 0 16		*	the dwarven guard<wielded>: a two-handed dwarven axe
-E 0 6510 0 6		*	the dwarven guard<over the head>: a dwarven helmet
-E 0 6511 0 1		*	the dwarven guard<on the left finger>: a dwarven golden ring
+E 0 6509 0 16		*	the dwarven guard <wielded>: a two-handed dwarven axe
+E 0 6510 0 6		*	the dwarven guard <over the head>: a dwarven helmet
+E 0 6511 0 1		*	the dwarven guard <on the left finger>: a dwarven golden ring
 M 0 6500 10 6509 2	* the dwarven guard (Door to Kingdom)
-E 0 6512 0 9		*	the dwarven guard<on the hands>: dwarven gloves
-E 0 6509 0 16		*	the dwarven guard<wielded>: a two-handed dwarven axe
-E 0 6505 0 5		*	the dwarven guard<on the body>: dwarven plate mail
+E 0 6512 0 9		*	the dwarven guard <on the hands>: dwarven gloves
+E 0 6509 0 16		*	the dwarven guard <wielded>: a two-handed dwarven axe
+E 0 6505 0 5		*	the dwarven guard <on the body>: dwarven plate mail
 M 0 6500 10 6512 2	* the dwarven guard (Door to Castle)
-E 0 6504 0 16		*	the dwarven guard<wielded>: a hammer
+E 0 6504 0 16		*	the dwarven guard <wielded>: a hammer
 M 0 6500 10 6512 2	* the dwarven guard (Door to Castle)
-E 0 6504 0 16		*	the dwarven guard<wielded>: a hammer
+E 0 6504 0 16		*	the dwarven guard <wielded>: a hammer
 O 0 6507 0 6513	* long, black stick (Inside the entrance)
 M 0 6505 2 6515 1	* the giant lizard (Turn in road)
 M 0 6503 1 6516 1	* the storekeeper (Hide & Tooth Shop)
@@ -1767,18 +1767,18 @@ G 0 6505 0		*	the storekeeper: dwarven plate mail
 G 0 6510 0		*	the storekeeper: a dwarven helmet
 G 0 6511 0		*	the storekeeper: a dwarven golden ring
 G 0 6512 0		*	the storekeeper: dwarven gloves
-E 0 6504 0 16		*	the storekeeper<wielded>: a hammer
+E 0 6504 0 16		*	the storekeeper <wielded>: a hammer
 M 0 6505 2 6520 1	* the giant lizard (Path next to barracks)
 M 0 6514 4 6521 4	* the barracks guard (Entrance to barracks)
-E 0 6509 0 16		*	the barracks guard<wielded>: a two-handed dwarven axe
+E 0 6509 0 16		*	the barracks guard <wielded>: a two-handed dwarven axe
 M 0 6514 4 6521 4	* the barracks guard (Entrance to barracks)
-E 0 6509 0 16		*	the barracks guard<wielded>: a two-handed dwarven axe
+E 0 6509 0 16		*	the barracks guard <wielded>: a two-handed dwarven axe
 M 0 6500 10 6521 2	* the dwarven guard (Entrance to barracks)
 M 0 6500 10 6521 2	* the dwarven guard (Entrance to barracks)
 M 0 6511 8 6523 6	* the dwarf (First Barrack room)
 M 0 6511 8 6523 6	* the dwarf (First Barrack room)
-E 0 6508 0 16		*	the dwarf<wielded>: dwarven club
-E 0 6514 0 17		*	the dwarf<held in the hands>: a castle key
+E 0 6508 0 16		*	the dwarf <wielded>: dwarven club
+E 0 6514 0 17		*	the dwarf <held in the hands>: a castle key
 M 0 6511 8 6523 6	* the dwarf (First Barrack room)
 M 0 6511 8 6523 6	* the dwarf (First Barrack room)
 M 0 6511 8 6524 6	* the dwarf (Back of Barracks)
@@ -1799,31 +1799,31 @@ O 0 6506 0 6534	* long, black stick (Hospital)
 M 0 6510 4 6534 4	* the dwarven peon (Hospital)
 M 0 6510 4 6534 4	* the dwarven peon (Hospital)
 M 0 6509 1 6534 1	* the dwarven doctor (Hospital)
-E 0 6506 0 17		*	the dwarven doctor<held in the hands>: long, black stick
+E 0 6506 0 17		*	the dwarven doctor <held in the hands>: long, black stick
 G 0 6519 0		*	the dwarven doctor: a box of birth control pills
 M 0 6504 1 6535 1	* the baker (Granite Head's Bakery)
 G 0 3000 0		*	the baker: a barrel of beer
 G 0 3003 0		*	the baker: a bottle of firebreather
 G 0 3009 0		*	the baker: a big pot pie
 G 0 3031 0		*	the baker: a hooded brass lantern
-E 0 6504 0 16		*	the baker<wielded>: a hammer
+E 0 6504 0 16		*	the baker <wielded>: a hammer
 M 0 6500 10 6540 2	* the dwarven guard (Dark path)
-E 0 6504 0 16		*	the dwarven guard<wielded>: a hammer
-E 0 6505 0 5		*	the dwarven guard<on the body>: dwarven plate mail
+E 0 6504 0 16		*	the dwarven guard <wielded>: a hammer
+E 0 6505 0 5		*	the dwarven guard <on the body>: dwarven plate mail
 G 0 6502 0		*	the dwarven guard: a deep green key
 M 0 6500 10 6540 2	* the dwarven guard (Dark path)
-E 0 6504 0 16		*	the dwarven guard<wielded>: a hammer
-E 0 6505 0 5		*	the dwarven guard<on the body>: dwarven plate mail
+E 0 6504 0 16		*	the dwarven guard <wielded>: a hammer
+E 0 6505 0 5		*	the dwarven guard <on the body>: dwarven plate mail
 O 0 6507 0 6540	* long, black stick (Dark path)
 M 0 6507 4 6542 2	* the dwarven miner (Inside the mine)
-E 0 6508 0 16		*	the dwarven miner<wielded>: dwarven club
+E 0 6508 0 16		*	the dwarven miner <wielded>: dwarven club
 M 0 6507 4 6543 3	* the dwarven miner (Path in the mine)
-E 0 6508 0 16		*	the dwarven miner<wielded>: dwarven club
+E 0 6508 0 16		*	the dwarven miner <wielded>: dwarven club
 M 0 6507 4 6543 3	* the dwarven miner (Path in the mine)
-E 0 6508 0 16		*	the dwarven miner<wielded>: dwarven club
+E 0 6508 0 16		*	the dwarven miner <wielded>: dwarven club
 M 0 6508 2 6543 2	* the dwarven mine leader (Path in the mine)
-E 0 6512 0 9		*	the dwarven mine leader<on the hands>: dwarven gloves
-E 0 6504 0 16		*	the dwarven mine leader<wielded>: a hammer
+E 0 6512 0 9		*	the dwarven mine leader <on the hands>: dwarven gloves
+E 0 6504 0 16		*	the dwarven mine leader <wielded>: a hammer
 O 0 6517 0 6545	* a chunk of coal (Coal Room)
 M 0 6517 2 6548 1	* the giant snake (Maze)
 M 0 6517 2 6549 1	* the giant snake (Maze)

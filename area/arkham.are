@@ -6937,106 +6937,106 @@ S
 
 #RESETS
 M 0 717 1 702 1	* an ugly rogue (The Wharf)
-E 0 715 0 16		*	an ugly rogue<wielded>: thief's dagger
+E 0 715 0 16		*	an ugly rogue <wielded>: thief's dagger
 M 0 705 11 703 1	* an Arkham Guard (The Wharf)
-E 0 702 0 5		*	an Arkham Guard<on the body>: darkened platemail
-E 0 701 0 6		*	an Arkham Guard<over the head>: darkened helm
-E 0 704 0 16		*	an Arkham Guard<wielded>: guardian sword
+E 0 702 0 5		*	an Arkham Guard <on the body>: darkened platemail
+E 0 701 0 6		*	an Arkham Guard <over the head>: darkened helm
+E 0 704 0 16		*	an Arkham Guard <wielded>: guardian sword
 M 0 729 3 703 1	* a pickpocket (The Wharf)
 M 0 753 3 703 1	* fisherman (The Wharf)
 M 0 718 1 704 1	* Spitfire (The Wharf)
-E 0 716 0 3		*	Spitfire<around the neck>: cloak of Nightwing
+E 0 716 0 3		*	Spitfire <around the neck>: cloak of Nightwing
 M 0 753 3 704 1	* fisherman (The Wharf)
 M 0 705 11 705 5	* an Arkham Guard (The End of the Wharf)
-E 0 702 0 5		*	an Arkham Guard<on the body>: darkened platemail
-E 0 701 0 6		*	an Arkham Guard<over the head>: darkened helm
-E 0 704 0 16		*	an Arkham Guard<wielded>: guardian sword
+E 0 702 0 5		*	an Arkham Guard <on the body>: darkened platemail
+E 0 701 0 6		*	an Arkham Guard <over the head>: darkened helm
+E 0 704 0 16		*	an Arkham Guard <wielded>: guardian sword
 M 0 705 11 705 5	* an Arkham Guard (The End of the Wharf)
-E 0 702 0 5		*	an Arkham Guard<on the body>: darkened platemail
-E 0 739 0 15		*	an Arkham Guard<on the right wrist>: darkened bracer
-E 0 704 0 16		*	an Arkham Guard<wielded>: guardian sword
+E 0 702 0 5		*	an Arkham Guard <on the body>: darkened platemail
+E 0 739 0 15		*	an Arkham Guard <on the right wrist>: darkened bracer
+E 0 704 0 16		*	an Arkham Guard <wielded>: guardian sword
 M 0 722 6 706 1	* a citizen of Arkham (Main Street)
 M 0 705 11 708 1	* an Arkham Guard (Main Street)
-E 0 702 0 5		*	an Arkham Guard<on the body>: darkened platemail
-E 0 739 0 15		*	an Arkham Guard<on the right wrist>: darkened bracer
-E 0 704 0 16		*	an Arkham Guard<wielded>: guardian sword
+E 0 702 0 5		*	an Arkham Guard <on the body>: darkened platemail
+E 0 739 0 15		*	an Arkham Guard <on the right wrist>: darkened bracer
+E 0 704 0 16		*	an Arkham Guard <wielded>: guardian sword
 M 0 706 1 709 1	* a street sweeper (Main Street)
-E 0 729 0 16		*	a street sweeper<wielded>: broom
+E 0 729 0 16		*	a street sweeper <wielded>: broom
 M 0 742 2 710 1	* a peasant (Main Street)
 M 0 702 1 711 1	* a doomsayer (Town Square)
 M 0 705 11 711 5	* an Arkham Guard (Town Square)
-E 0 702 0 5		*	an Arkham Guard<on the body>: darkened platemail
-E 0 703 0 7		*	an Arkham Guard<on the legs>: darkened leggings
-E 0 704 0 16		*	an Arkham Guard<wielded>: guardian sword
+E 0 702 0 5		*	an Arkham Guard <on the body>: darkened platemail
+E 0 703 0 7		*	an Arkham Guard <on the legs>: darkened leggings
+E 0 704 0 16		*	an Arkham Guard <wielded>: guardian sword
 M 0 722 6 711 3	* a citizen of Arkham (Town Square)
 M 0 744 3 711 1	* a pilgrim (Town Square)
-E 0 723 0 16		*	a pilgrim<wielded>: silver longsword
+E 0 723 0 16		*	a pilgrim <wielded>: silver longsword
 M 0 767 1 711 1	* a wandering merchant (Town Square)
 G 0 721 0		*	a wandering merchant: leather hotpants
 G 0 758 0		*	a wandering merchant: a rosary
 O 0 752 0 711	* a fountain (Town Square)
 M 0 731 2 713 2	* a peasant (Main Street)
 M 0 705 11 714 5	* an Arkham Guard (Main Street)
-E 0 702 0 5		*	an Arkham Guard<on the body>: darkened platemail
-E 0 703 0 7		*	an Arkham Guard<on the legs>: darkened leggings
-E 0 704 0 16		*	an Arkham Guard<wielded>: guardian sword
+E 0 702 0 5		*	an Arkham Guard <on the body>: darkened platemail
+E 0 703 0 7		*	an Arkham Guard <on the legs>: darkened leggings
+E 0 704 0 16		*	an Arkham Guard <wielded>: guardian sword
 M 0 709 3 717 1	* a student (Library)
 M 0 711 1 717 1	* a librarian (Library)
 G 0 821 0		*	a librarian: a scroll of protection
-E 0 732 0 17		*	a librarian<held in the hands>: necronomicon
+E 0 732 0 17		*	a librarian <held in the hands>: necronomicon
 M 0 722 6 719 3	* a citizen of Arkham (Dead End)
 M 0 729 3 721 1	* a pickpocket (Eldritch Lane)
 M 0 705 11 722 5	* an Arkham Guard (Eldritch Lane)
-E 0 702 0 5		*	an Arkham Guard<on the body>: darkened platemail
-E 0 701 0 6		*	an Arkham Guard<over the head>: darkened helm
-E 0 704 0 16		*	an Arkham Guard<wielded>: guardian sword
+E 0 702 0 5		*	an Arkham Guard <on the body>: darkened platemail
+E 0 701 0 6		*	an Arkham Guard <over the head>: darkened helm
+E 0 704 0 16		*	an Arkham Guard <wielded>: guardian sword
 M 0 725 1 722 1	* Jack (Eldritch Lane)
-E 0 719 0 16		*	Jack<wielded>: straight razor
+E 0 719 0 16		*	Jack <wielded>: straight razor
 M 0 729 3 722 1	* a pickpocket (Eldritch Lane)
 M 0 742 2 722 1	* a peasant (Eldritch Lane)
 M 0 705 11 723 5	* an Arkham Guard (Eldritch Lane)
-E 0 702 0 5		*	an Arkham Guard<on the body>: darkened platemail
-E 0 703 0 7		*	an Arkham Guard<on the legs>: darkened leggings
-E 0 704 0 16		*	an Arkham Guard<wielded>: guardian sword
+E 0 702 0 5		*	an Arkham Guard <on the body>: darkened platemail
+E 0 703 0 7		*	an Arkham Guard <on the legs>: darkened leggings
+E 0 704 0 16		*	an Arkham Guard <wielded>: guardian sword
 M 0 705 11 723 5	* an Arkham Guard (Eldritch Lane)
-E 0 702 0 5		*	an Arkham Guard<on the body>: darkened platemail
-E 0 738 0 11		*	an Arkham Guard<as a shield>: darkened shield
-E 0 704 0 16		*	an Arkham Guard<wielded>: guardian sword
+E 0 702 0 5		*	an Arkham Guard <on the body>: darkened platemail
+E 0 738 0 11		*	an Arkham Guard <as a shield>: darkened shield
+E 0 704 0 16		*	an Arkham Guard <wielded>: guardian sword
 M 0 727 1 723 1	* a slimy thief (Eldritch Lane)
-E 0 715 0 16		*	a slimy thief<wielded>: thief's dagger
-E 0 736 0 13		*	a slimy thief<around the waist>: thief's belt
+E 0 715 0 16		*	a slimy thief <wielded>: thief's dagger
+E 0 736 0 13		*	a slimy thief <around the waist>: thief's belt
 M 0 703 1 724 1	* a beggar (Eldritch Lane)
 M 0 722 6 724 3	* a citizen of Arkham (Eldritch Lane)
 M 0 730 1 724 1	* Sylvia (Eldritch Lane)
-E 0 721 0 7		*	Sylvia<on the legs>: leather hotpants
+E 0 721 0 7		*	Sylvia <on the legs>: leather hotpants
 M 0 731 2 725 1	* a peasant (Eldritch Lane)
 M 0 808 1 726 1	* the captain (Harbor)
 G 0 767 0		*	the captain: a raft
 G 0 766 0		*	the captain: a canoe
 M 0 705 11 727 5	* an Arkham Guard (Dragon Road)
-E 0 702 0 5		*	an Arkham Guard<on the body>: darkened platemail
-E 0 738 0 11		*	an Arkham Guard<as a shield>: darkened shield
-E 0 704 0 16		*	an Arkham Guard<wielded>: guardian sword
+E 0 702 0 5		*	an Arkham Guard <on the body>: darkened platemail
+E 0 738 0 11		*	an Arkham Guard <as a shield>: darkened shield
+E 0 704 0 16		*	an Arkham Guard <wielded>: guardian sword
 M 0 705 11 727 5	* an Arkham Guard (Dragon Road)
-E 0 702 0 5		*	an Arkham Guard<on the body>: darkened platemail
-E 0 738 0 11		*	an Arkham Guard<as a shield>: darkened shield
-E 0 704 0 16		*	an Arkham Guard<wielded>: guardian sword
+E 0 702 0 5		*	an Arkham Guard <on the body>: darkened platemail
+E 0 738 0 11		*	an Arkham Guard <as a shield>: darkened shield
+E 0 704 0 16		*	an Arkham Guard <wielded>: guardian sword
 M 0 705 11 731 5	* an Arkham Guard (Dragon Road)
-E 0 702 0 5		*	an Arkham Guard<on the body>: darkened platemail
-E 0 703 0 7		*	an Arkham Guard<on the legs>: darkened leggings
-E 0 704 0 16		*	an Arkham Guard<wielded>: guardian sword
+E 0 702 0 5		*	an Arkham Guard <on the body>: darkened platemail
+E 0 703 0 7		*	an Arkham Guard <on the legs>: darkened leggings
+E 0 704 0 16		*	an Arkham Guard <wielded>: guardian sword
 M 0 746 1 743 1	* an alleycat (Ipswich Row)
 M 0 722 6 744 3	* a citizen of Arkham (Ipswich Row)
 M 0 705 11 747 5	* an Arkham Guard (Ipswich Row)
-E 0 702 0 5		*	an Arkham Guard<on the body>: darkened platemail
-E 0 701 0 6		*	an Arkham Guard<over the head>: darkened helm
-E 0 704 0 16		*	an Arkham Guard<wielded>: guardian sword
+E 0 702 0 5		*	an Arkham Guard <on the body>: darkened platemail
+E 0 701 0 6		*	an Arkham Guard <over the head>: darkened helm
+E 0 704 0 16		*	an Arkham Guard <wielded>: guardian sword
 M 0 704 1 748 1	* Brother Jed (Arcanus Avenue)
 M 0 755 1 749 1	* a necromancer (Arcanus Avenue)
-E 0 743 0 6		*	a necromancer<over the head>: skull cap
+E 0 743 0 6		*	a necromancer <over the head>: skull cap
 O 0 751 0 751	* a blood-drained corpse (Warehouse)
 M 0 719 1 753 1	* A mapmaker (Chartmakers)
-E 0 717 0 16		*	A mapmaker<wielded>: compass
+E 0 717 0 16		*	A mapmaker <wielded>: compass
 G 0 3293 0		*	A mapmaker: <unknown>
 G 0 3294 0		*	A mapmaker: <unknown>
 G 0 3383 0		*	A mapmaker: a map of West Thera
@@ -7048,13 +7048,13 @@ G 0 760 0		*	Old Salty: a mug of ale
 G 0 768 0		*	Old Salty: a piece of salt fish
 M 0 814 1 756 1	* the guildguard (Abandoned Mansion)
 M 0 726 1 758 1	* Patch (Patch's Tavern)
-E 0 715 0 16		*	Patch<wielded>: thief's dagger
+E 0 715 0 16		*	Patch <wielded>: thief's dagger
 G 0 761 0		*	Patch: a shot of whiskey
 G 0 762 0		*	Patch: a shot of slime mold juice
 M 0 751 1 758 1	* Estelle (Patch's Tavern)
-E 0 720 0 16		*	Estelle<wielded>: thornblade
+E 0 720 0 16		*	Estelle <wielded>: thornblade
 M 0 728 1 759 1	* Juko the fence (Black Market)
-E 0 715 0 16		*	Juko the fence<wielded>: thief's dagger
+E 0 715 0 16		*	Juko the fence <wielded>: thief's dagger
 M 0 756 1 760 1	* a mercenary captain (Mercenary's Guild)
 M 0 757 1 761 1	* a mage (Mercenary's Quarters)
 M 0 758 1 761 1	* an elven archer (Mercenary's Quarters)
@@ -7064,23 +7064,23 @@ M 0 774 1 761 1	* a grey horse (Mercenary's Quarters)
 M 0 775 1 761 1	* a war camel (Mercenary's Quarters)
 M 0 760 1 763 1	* a stable-boy (Stables)
 M 0 735 4 765 1	* a monk (Cathedral of the Elder Gods)
-E 0 722 0 16		*	a monk<wielded>: silver flail
+E 0 722 0 16		*	a monk <wielded>: silver flail
 M 0 737 3 765 1	* a novice (Cathedral of the Elder Gods)
 M 0 737 3 765 1	* a novice (Cathedral of the Elder Gods)
 M 0 744 3 765 1	* a pilgrim (Cathedral of the Elder Gods)
-E 0 723 0 16		*	a pilgrim<wielded>: silver longsword
+E 0 723 0 16		*	a pilgrim <wielded>: silver longsword
 M 0 723 2 767 1	* a maid (House)
 M 0 875 1 768 1	* the healer (City Hall)
 M 0 712 1 768 1	* Gishka K'ahn, Captain of the Guard (City Hall)
-E 0 710 0 6		*	Gishka K'ahn, Captain of the Guard<over the head>: helm of Kazzal-Bak
-E 0 711 0 10		*	Gishka K'ahn, Captain of the Guard<on the arms>: bolted steel sleeves
-E 0 712 0 5		*	Gishka K'ahn, Captain of the Guard<on the body>: bolted steel plate
-E 0 713 0 15		*	Gishka K'ahn, Captain of the Guard<on the right wrist>: bolted steel bracer
-E 0 714 0 16		*	Gishka K'ahn, Captain of the Guard<wielded>: bastard sword
+E 0 710 0 6		*	Gishka K'ahn, Captain of the Guard <over the head>: helm of Kazzal-Bak
+E 0 711 0 10		*	Gishka K'ahn, Captain of the Guard <on the arms>: bolted steel sleeves
+E 0 712 0 5		*	Gishka K'ahn, Captain of the Guard <on the body>: bolted steel plate
+E 0 713 0 15		*	Gishka K'ahn, Captain of the Guard <on the right wrist>: bolted steel bracer
+E 0 714 0 16		*	Gishka K'ahn, Captain of the Guard <wielded>: bastard sword
 O 0 731 0 768	* wanted information poster (City Hall)
 O 0 800 0 768	* the donation pit (City Hall)
 M 0 724 1 769 1	* Candi (Candi's Confections)
-E 0 718 0 16		*	Candi<wielded>: cookie cutter
+E 0 718 0 16		*	Candi <wielded>: cookie cutter
 G 0 707 0		*	Candi: werewolf cookie
 G 0 708 0		*	Candi: truffle
 G 0 709 0		*	Candi: chocolate cake
@@ -7111,32 +7111,32 @@ M 0 722 6 775 3	* a citizen of Arkham (House)
 M 0 743 1 779 1	* a housewife (House)
 M 0 815 1 780 1	* the guildmaster (Laboratory)
 M 0 736 4 781 2	* a nun (Chapel)
-E 0 722 0 16		*	a nun<wielded>: silver flail
+E 0 722 0 16		*	a nun <wielded>: silver flail
 M 0 744 3 781 1	* a pilgrim (Chapel)
-E 0 723 0 16		*	a pilgrim<wielded>: silver longsword
+E 0 723 0 16		*	a pilgrim <wielded>: silver longsword
 M 0 736 4 783 2	* a nun (Cell)
-E 0 722 0 16		*	a nun<wielded>: silver flail
+E 0 722 0 16		*	a nun <wielded>: silver flail
 M 0 737 3 784 1	* a novice (Cell)
 M 0 735 4 785 2	* a monk (Cell)
-E 0 722 0 16		*	a monk<wielded>: silver flail
+E 0 722 0 16		*	a monk <wielded>: silver flail
 M 0 747 1 788 1	* a mummy (Sepulchure)
-E 0 725 0 17		*	a mummy<held in the hands>: golden ring
+E 0 725 0 17		*	a mummy <held in the hands>: golden ring
 M 0 735 4 789 2	* a monk (Dining Hall)
-E 0 722 0 16		*	a monk<wielded>: silver flail
+E 0 722 0 16		*	a monk <wielded>: silver flail
 M 0 735 4 790 2	* a monk (Kitchen)
-E 0 722 0 16		*	a monk<wielded>: silver flail
+E 0 722 0 16		*	a monk <wielded>: silver flail
 O 0 741 0 790	* loaf of bread (Kitchen)
 O 0 742 0 790	* wedge of cheese (Kitchen)
 M 0 734 1 791 1	* Alain Corbert, the abbot (Abbot's Chamber)
-E 0 705 0 6		*	Alain Corbert, the abbot<over the head>: abbot's cap
-E 0 706 0 16		*	Alain Corbert, the abbot<wielded>: silver mace
+E 0 705 0 6		*	Alain Corbert, the abbot <over the head>: abbot's cap
+E 0 706 0 16		*	Alain Corbert, the abbot <wielded>: silver mace
 O 0 730 0 791	* letter (Abbot's Chamber)
 O 0 733 0 792	* poem (Priest's Chamber)
 O 0 735 0 792	* bloodstained fork (Priest's Chamber)
 M 0 736 4 796 2	* a nun (Landing)
-E 0 722 0 16		*	a nun<wielded>: silver flail
+E 0 722 0 16		*	a nun <wielded>: silver flail
 M 0 736 4 796 2	* a nun (Landing)
-E 0 722 0 16		*	a nun<wielded>: silver flail
+E 0 722 0 16		*	a nun <wielded>: silver flail
 M 0 752 1 798 1	* Quasimodo (Bell Tower)
 M 0 709 3 799 1	* a student (Lecture Hall)
 M 0 720 1 800 1	* Deborah (Potter's Guild Store)
@@ -7146,14 +7146,14 @@ M 0 754 1 801 1	* the monster (Corridor)
 M 0 739 6 801 3	* a skeleton (Corridor)
 M 0 745 3 803 1	* a ghost (Corridor)
 M 0 738 1 804 1	* a mummy (Sepulchure)
-E 0 724 0 17		*	a mummy<held in the hands>: jar of nectar
+E 0 724 0 17		*	a mummy <held in the hands>: jar of nectar
 M 0 739 6 810 3	* a skeleton (Corridor)
 M 0 739 6 814 3	* a skeleton (Corridor)
 M 0 739 6 815 3	* a skeleton (Corridor)
 M 0 745 3 818 1	* a ghost (Corridor)
-E 0 728 0 1		*	a ghost<on the left finger>: ghost ring
+E 0 728 0 1		*	a ghost <on the left finger>: ghost ring
 M 0 748 1 823 1	* a mummy (Sepulchure)
-E 0 726 0 17		*	a mummy<held in the hands>: star amulet
+E 0 726 0 17		*	a mummy <held in the hands>: star amulet
 M 0 739 6 824 3	* a skeleton (Corridor)
 M 0 745 3 825 1	* a ghost (Corridor)
 M 0 740 4 829 2	* a cult member (Ritual Hall)
@@ -7161,11 +7161,11 @@ M 0 740 4 829 2	* a cult member (Ritual Hall)
 M 0 740 4 829 2	* a cult member (Ritual Hall)
 M 0 740 4 829 2	* a cult member (Ritual Hall)
 M 0 741 1 829 1	* High Priest (Ritual Hall)
-E 0 727 0 16		*	High Priest<wielded>: a sword named "Faith-Healer"
+E 0 727 0 16		*	High Priest <wielded>: a sword named "Faith-Healer"
 M 0 750 1 829 1	* Elder God (Ritual Hall)
 O 0 734 0 829	* vat of blood (Ritual Hall)
 M 0 749 1 830 1	* Cthulhu (Cthulhu's Lair)
-E 0 753 0 17		*	Cthulhu<held in the hands>: a Cthulhu-for-President button
+E 0 753 0 17		*	Cthulhu <held in the hands>: a Cthulhu-for-President button
 M 0 713 1 832 1	* a warden (Arkham Asylum)
 M 0 715 1 833 1	* a madman (Cell)
 M 0 714 1 834 1	* an inmate (Cell)
@@ -7190,16 +7190,16 @@ M 0 766 2 852 1	* a deer (The Tower)
 M 0 708 2 853 1	* a rabbit (A Trail)
 M 0 765 2 854 1	* an owl (A Trail)
 M 0 770 1 856 1	* a witch (A Clearing)
-E 0 757 0 6		*	a witch<over the head>: a pair of jewel-encrusted earrings
+E 0 757 0 6		*	a witch <over the head>: a pair of jewel-encrusted earrings
 M 0 771 1 857 1	* a wyrm (The Wyrm's Lair)
-E 0 763 0 16		*	a wyrm<wielded>: the two-handed sword named "Blasphemy"
+E 0 763 0 16		*	a wyrm <wielded>: the two-handed sword named "Blasphemy"
 M 0 708 2 858 1	* a rabbit (Forest Road)
 M 0 766 2 859 1	* a deer (A Ruined Village)
 M 0 764 2 860 1	* a crow (Main Street)
 M 0 816 1 862 1	* the guildguard (A House)
 M 0 806 1 871 1	* the guildguard (The Tower)
 M 0 769 1 872 1	* a wizard (Laboratory)
-E 0 756 0 12		*	a wizard<about the shoulders>: a silver cowl
+E 0 756 0 12		*	a wizard <about the shoulders>: a silver cowl
 M 0 807 1 872 1	* the guildmaster (Laboratory)
 M 0 800 1 875 1	* the guildguard (Pantry)
 M 0 801 1 876 1	* the guildmaster (Hideout)

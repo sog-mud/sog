@@ -4050,83 +4050,83 @@ S
 #RESETS
 M 0 5301 20 5300 1	* the pet lamia (The Grand Gate of Thalos)
 M 0 5321 2 5300 2	* an imperial cityguard (The Grand Gate of Thalos)
-E 0 5331 0 0		*	an imperial cityguard<as a light>: an imperial war banner
-E 0 5319 0 5		*	an imperial cityguard<on the body>: an imperial chest plate
-E 0 5322 0 6		*	an imperial cityguard<over the head>: an imperial helm
-E 0 5323 0 7		*	an imperial cityguard<on the legs>: a pair of imperial plate leggings
-E 0 5324 0 8		*	an imperial cityguard<on the feet>: a pair of imperial plate boots
-E 0 5325 0 9		*	an imperial cityguard<on the hands>: a pair of imperial plate gloves
-E 0 5320 0 11		*	an imperial cityguard<as a shield>: an imperial shield
-E 0 5318 0 16		*	an imperial cityguard<wielded>: an imperial mace
+E 0 5331 0 0		*	an imperial cityguard <as a light>: an imperial war banner
+E 0 5319 0 5		*	an imperial cityguard <on the body>: an imperial chest plate
+E 0 5322 0 6		*	an imperial cityguard <over the head>: an imperial helm
+E 0 5323 0 7		*	an imperial cityguard <on the legs>: a pair of imperial plate leggings
+E 0 5324 0 8		*	an imperial cityguard <on the feet>: a pair of imperial plate boots
+E 0 5325 0 9		*	an imperial cityguard <on the hands>: a pair of imperial plate gloves
+E 0 5320 0 11		*	an imperial cityguard <as a shield>: an imperial shield
+E 0 5318 0 16		*	an imperial cityguard <wielded>: an imperial mace
 M 0 5321 2 5300 2	* an imperial cityguard (The Grand Gate of Thalos)
-E 0 5331 0 0		*	an imperial cityguard<as a light>: an imperial war banner
-E 0 5319 0 5		*	an imperial cityguard<on the body>: an imperial chest plate
-E 0 5324 0 8		*	an imperial cityguard<on the feet>: a pair of imperial plate boots
-E 0 5325 0 9		*	an imperial cityguard<on the hands>: a pair of imperial plate gloves
-E 0 5326 0 10		*	an imperial cityguard<on the arms>: a pair of imperial plate sleeves
-E 0 5320 0 11		*	an imperial cityguard<as a shield>: an imperial shield
-E 0 5317 0 16		*	an imperial cityguard<wielded>: an imperial sword
+E 0 5331 0 0		*	an imperial cityguard <as a light>: an imperial war banner
+E 0 5319 0 5		*	an imperial cityguard <on the body>: an imperial chest plate
+E 0 5324 0 8		*	an imperial cityguard <on the feet>: a pair of imperial plate boots
+E 0 5325 0 9		*	an imperial cityguard <on the hands>: a pair of imperial plate gloves
+E 0 5326 0 10		*	an imperial cityguard <on the arms>: a pair of imperial plate sleeves
+E 0 5320 0 11		*	an imperial cityguard <as a shield>: an imperial shield
+E 0 5317 0 16		*	an imperial cityguard <wielded>: an imperial sword
 M 0 5303 11 5300 1	* an imperial cityguard (The Grand Gate of Thalos)
-E 0 5321 0 4		*	an imperial cityguard<on the face>: an imperial cloak
-E 0 5319 0 5		*	an imperial cityguard<on the body>: an imperial chest plate
-E 0 5327 0 12		*	an imperial cityguard<about the shoulders>: an imperial cape
-E 0 5329 0 14		*	an imperial cityguard<on the left wrist>: an imperial metal bracer
+E 0 5321 0 4		*	an imperial cityguard <on the face>: an imperial cloak
+E 0 5319 0 5		*	an imperial cityguard <on the body>: an imperial chest plate
+E 0 5327 0 12		*	an imperial cityguard <about the shoulders>: an imperial cape
+E 0 5329 0 14		*	an imperial cityguard <on the left wrist>: an imperial metal bracer
 M 0 5330 1 5300 1	* bard of Thalos (The Grand Gate of Thalos)
-E 0 5311 0 17		*	bard of Thalos<held in the hands>: a silver flute
-E 0 5318 0 16		*	bard of Thalos<wielded>: an imperial mace
+E 0 5311 0 17		*	bard of Thalos <held in the hands>: a silver flute
+E 0 5318 0 16		*	bard of Thalos <wielded>: an imperial mace
 M 0 5304 9 5302 1	* a female citizen of Thalos (Main Street)
 M 0 5301 20 5304 1	* the pet lamia (A Garden Path)
-E 0 5300 0 3		*	the pet lamia<around the neck>: a lamia collar
+E 0 5300 0 3		*	the pet lamia <around the neck>: a lamia collar
 M 0 5303 11 5304 1	* an imperial cityguard (A Garden Path)
-E 0 5321 0 4		*	an imperial cityguard<on the face>: an imperial cloak
-E 0 5319 0 5		*	an imperial cityguard<on the body>: an imperial chest plate
-E 0 5320 0 11		*	an imperial cityguard<as a shield>: an imperial shield
-E 0 5317 0 16		*	an imperial cityguard<wielded>: an imperial sword
+E 0 5321 0 4		*	an imperial cityguard <on the face>: an imperial cloak
+E 0 5319 0 5		*	an imperial cityguard <on the body>: an imperial chest plate
+E 0 5320 0 11		*	an imperial cityguard <as a shield>: an imperial shield
+E 0 5317 0 16		*	an imperial cityguard <wielded>: an imperial sword
 M 0 5302 9 5304 1	* a citizen of Thalos (A Garden Path)
 M 0 5301 20 5306 1	* the pet lamia (A Garden Path)
-E 0 5300 0 3		*	the pet lamia<around the neck>: a lamia collar
+E 0 5300 0 3		*	the pet lamia <around the neck>: a lamia collar
 M 0 5303 11 5307 1	* an imperial cityguard (The market place)
-E 0 5321 0 4		*	an imperial cityguard<on the face>: an imperial cloak
-E 0 5319 0 5		*	an imperial cityguard<on the body>: an imperial chest plate
-E 0 5328 0 13		*	an imperial cityguard<around the waist>: an imperial belt
-E 0 5329 0 14		*	an imperial cityguard<on the left wrist>: an imperial metal bracer
-E 0 5318 0 16		*	an imperial cityguard<wielded>: an imperial mace
+E 0 5321 0 4		*	an imperial cityguard <on the face>: an imperial cloak
+E 0 5319 0 5		*	an imperial cityguard <on the body>: an imperial chest plate
+E 0 5328 0 13		*	an imperial cityguard <around the waist>: an imperial belt
+E 0 5329 0 14		*	an imperial cityguard <on the left wrist>: an imperial metal bracer
+E 0 5318 0 16		*	an imperial cityguard <wielded>: an imperial mace
 M 0 5304 9 5307 1	* a female citizen of Thalos (The market place)
 M 0 5302 9 5308 1	* a citizen of Thalos (The market place)
 M 0 5301 20 5310 1	* the pet lamia (A Side Street)
-E 0 5300 0 3		*	the pet lamia<around the neck>: a lamia collar
+E 0 5300 0 3		*	the pet lamia <around the neck>: a lamia collar
 M 0 5304 9 5312 1	* a female citizen of Thalos (A side street)
 M 0 5303 11 5313 1	* an imperial cityguard (A side street)
-E 0 5330 0 1		*	an imperial cityguard<on the left finger>: an imperial city guard signet ring
-E 0 5321 0 4		*	an imperial cityguard<on the face>: an imperial cloak
-E 0 5319 0 5		*	an imperial cityguard<on the body>: an imperial chest plate
-E 0 5320 0 11		*	an imperial cityguard<as a shield>: an imperial shield
-E 0 5317 0 16		*	an imperial cityguard<wielded>: an imperial sword
+E 0 5330 0 1		*	an imperial cityguard <on the left finger>: an imperial city guard signet ring
+E 0 5321 0 4		*	an imperial cityguard <on the face>: an imperial cloak
+E 0 5319 0 5		*	an imperial cityguard <on the body>: an imperial chest plate
+E 0 5320 0 11		*	an imperial cityguard <as a shield>: an imperial shield
+E 0 5317 0 16		*	an imperial cityguard <wielded>: an imperial sword
 M 0 5301 20 5314 1	* the pet lamia (A side street)
-E 0 5300 0 3		*	the pet lamia<around the neck>: a lamia collar
+E 0 5300 0 3		*	the pet lamia <around the neck>: a lamia collar
 M 0 5303 11 5315 1	* an imperial cityguard (Under another grand watchtower)
-E 0 5321 0 4		*	an imperial cityguard<on the face>: an imperial cloak
-E 0 5319 0 5		*	an imperial cityguard<on the body>: an imperial chest plate
-E 0 5327 0 12		*	an imperial cityguard<about the shoulders>: an imperial cape
-E 0 5328 0 13		*	an imperial cityguard<around the waist>: an imperial belt
-E 0 5318 0 16		*	an imperial cityguard<wielded>: an imperial mace
+E 0 5321 0 4		*	an imperial cityguard <on the face>: an imperial cloak
+E 0 5319 0 5		*	an imperial cityguard <on the body>: an imperial chest plate
+E 0 5327 0 12		*	an imperial cityguard <about the shoulders>: an imperial cape
+E 0 5328 0 13		*	an imperial cityguard <around the waist>: an imperial belt
+E 0 5318 0 16		*	an imperial cityguard <wielded>: an imperial mace
 M 0 5301 20 5316 1	* the pet lamia (A back alley)
-E 0 5300 0 3		*	the pet lamia<around the neck>: a lamia collar
+E 0 5300 0 3		*	the pet lamia <around the neck>: a lamia collar
 M 0 5302 9 5316 1	* a citizen of Thalos (A back alley)
 M 0 5311 1 5317 1	* George the Butcher (The meat stand)
 G 0 5219 0		*	George the Butcher: a chunk of venison
-E 0 601 0 16		*	George the Butcher<wielded>: a meat cleaver
+E 0 601 0 16		*	George the Butcher <wielded>: a meat cleaver
 G 0 602 0		*	George the Butcher: a side of beef
 G 0 603 0		*	George the Butcher: a side of pork
 G 0 604 0		*	George the Butcher: a side of horse
 G 0 605 0		*	George the Butcher: a defeathered chicken
 M 0 5306 1 5319 1	* the fanatic priest (The guild house)
-E 0 5218 0 3		*	the fanatic priest<around the neck>: a demon-faced talisman
-E 0 5222 0 12		*	the fanatic priest<about the shoulders>: a black silk robe
-E 0 5252 0 16		*	the fanatic priest<wielded>: a long slim dagger
-E 0 5239 0 17		*	the fanatic priest<held in the hands>: a dull grey stone
+E 0 5218 0 3		*	the fanatic priest <around the neck>: a demon-faced talisman
+E 0 5222 0 12		*	the fanatic priest <about the shoulders>: a black silk robe
+E 0 5252 0 16		*	the fanatic priest <wielded>: a long slim dagger
+E 0 5239 0 17		*	the fanatic priest <held in the hands>: a dull grey stone
 M 0 5301 20 5320 1	* the pet lamia (The produce stand)
-E 0 5300 0 3		*	the pet lamia<around the neck>: a lamia collar
+E 0 5300 0 3		*	the pet lamia <around the neck>: a lamia collar
 M 0 5312 1 5320 1	* Farmer Betty (The produce stand)
 G 0 609 0		*	Farmer Betty: a head of cabbage
 G 0 610 0		*	Farmer Betty: a head of lettuce
@@ -4137,23 +4137,23 @@ M 0 5314 1 5321 1	* Ben the Smith (The smithy)
 G 0 601 0		*	Ben the Smith: a meat cleaver
 G 0 615 0		*	Ben the Smith: a pitchfork
 M 0 5301 20 5322 1	* the pet lamia (The tapestry stand)
-E 0 5300 0 3		*	the pet lamia<around the neck>: a lamia collar
+E 0 5300 0 3		*	the pet lamia <around the neck>: a lamia collar
 M 0 5303 11 5324 1	* an imperial cityguard (Under the watchtower)
-E 0 5321 0 4		*	an imperial cityguard<on the face>: an imperial cloak
-E 0 5319 0 5		*	an imperial cityguard<on the body>: an imperial chest plate
-E 0 5320 0 11		*	an imperial cityguard<as a shield>: an imperial shield
-E 0 5317 0 16		*	an imperial cityguard<wielded>: an imperial sword
+E 0 5321 0 4		*	an imperial cityguard <on the face>: an imperial cloak
+E 0 5319 0 5		*	an imperial cityguard <on the body>: an imperial chest plate
+E 0 5320 0 11		*	an imperial cityguard <as a shield>: an imperial shield
+E 0 5317 0 16		*	an imperial cityguard <wielded>: an imperial sword
 M 0 5301 20 5326 1	* the pet lamia (A simple clay dwelling)
-E 0 5300 0 3		*	the pet lamia<around the neck>: a lamia collar
+E 0 5300 0 3		*	the pet lamia <around the neck>: a lamia collar
 M 0 5304 9 5326 1	* a female citizen of Thalos (A simple clay dwelling)
 M 0 5302 9 5327 1	* a citizen of Thalos (A stone dwelling)
 M 0 5301 20 5328 1	* the pet lamia (A back alley)
-E 0 5300 0 3		*	the pet lamia<around the neck>: a lamia collar
+E 0 5300 0 3		*	the pet lamia <around the neck>: a lamia collar
 M 0 5313 1 5329 1	* Thaellor the dwarf (A busy shop)
 M 0 5329 2 5330 2	* bard of Thalos (The Tavern of the Sun)
-E 0 5309 0 17		*	bard of Thalos<held in the hands>: a mandolin
+E 0 5309 0 17		*	bard of Thalos <held in the hands>: a mandolin
 M 0 5329 2 5330 2	* bard of Thalos (The Tavern of the Sun)
-E 0 5310 0 17		*	bard of Thalos<held in the hands>: a golden harp
+E 0 5310 0 17		*	bard of Thalos <held in the hands>: a golden harp
 M 0 5310 1 5330 1	* Dan the Barkeep (The Tavern of the Sun)
 G 0 648 0		*	Dan the Barkeep: a shot of whiskey
 G 0 649 0		*	Dan the Barkeep: a quart of ale
@@ -4161,123 +4161,123 @@ G 0 650 0		*	Dan the Barkeep: a quart of port brew
 M 0 5304 9 5330 1	* a female citizen of Thalos (The Tavern of the Sun)
 M 0 5302 9 5330 1	* a citizen of Thalos (The Tavern of the Sun)
 M 0 5309 1 5331 1	* the mayor of Thalos (South wing of the city hall)
-E 0 5224 0 17		*	the mayor of Thalos<held in the hands>: an engraved ebony seal
+E 0 5224 0 17		*	the mayor of Thalos <held in the hands>: an engraved ebony seal
 O 0 5307 0 5331	* the curved desk (South wing of the city hall)
 P 0 5304 4 0 1	* the curved desk: a scroll of enchantment
 P 0 5305 4 0 1	* the curved desk: a bound scroll
 P 0 5231 9 0 1	* the curved desk: a scarlet and blue stone
 M 0 5303 11 5331 1	* an imperial cityguard (South wing of the city hall)
-E 0 5319 0 5		*	an imperial cityguard<on the body>: an imperial chest plate
-E 0 5327 0 12		*	an imperial cityguard<about the shoulders>: an imperial cape
-E 0 5328 0 13		*	an imperial cityguard<around the waist>: an imperial belt
-E 0 5329 0 14		*	an imperial cityguard<on the left wrist>: an imperial metal bracer
-E 0 5318 0 16		*	an imperial cityguard<wielded>: an imperial mace
+E 0 5319 0 5		*	an imperial cityguard <on the body>: an imperial chest plate
+E 0 5327 0 12		*	an imperial cityguard <about the shoulders>: an imperial cape
+E 0 5328 0 13		*	an imperial cityguard <around the waist>: an imperial belt
+E 0 5329 0 14		*	an imperial cityguard <on the left wrist>: an imperial metal bracer
+E 0 5318 0 16		*	an imperial cityguard <wielded>: an imperial mace
 M 0 5301 20 5332 1	* the pet lamia (The city hall)
-E 0 5300 0 3		*	the pet lamia<around the neck>: a lamia collar
+E 0 5300 0 3		*	the pet lamia <around the neck>: a lamia collar
 M 0 5304 9 5332 1	* a female citizen of Thalos (The city hall)
 O 0 5308 0 5333	* the glass cabinet (East wing of the city hall)
 P 0 3105 8 0 1	* the glass cabinet: a bronze bracer
 P 0 5214 8 0 1	* the glass cabinet: a smooth quartz ball
 P 0 5230 1 0 1	* the glass cabinet: a pale blue stone
 M 0 5301 20 5334 1	* the pet lamia (The private gardens and courtyard of Thalos)
-E 0 5300 0 3		*	the pet lamia<around the neck>: a lamia collar
+E 0 5300 0 3		*	the pet lamia <around the neck>: a lamia collar
 O 0 5306 0 5334	* a large beautiful fountain (The private gardens and courtyard of Thalos)
 M 0 5303 11 5334 1	* an imperial cityguard (The private gardens and courtyard of Thalos)
-E 0 5330 0 1		*	an imperial cityguard<on the left finger>: an imperial city guard signet ring
-E 0 5321 0 4		*	an imperial cityguard<on the face>: an imperial cloak
-E 0 5319 0 5		*	an imperial cityguard<on the body>: an imperial chest plate
-E 0 5320 0 11		*	an imperial cityguard<as a shield>: an imperial shield
-E 0 5317 0 16		*	an imperial cityguard<wielded>: an imperial sword
+E 0 5330 0 1		*	an imperial cityguard <on the left finger>: an imperial city guard signet ring
+E 0 5321 0 4		*	an imperial cityguard <on the face>: an imperial cloak
+E 0 5319 0 5		*	an imperial cityguard <on the body>: an imperial chest plate
+E 0 5320 0 11		*	an imperial cityguard <as a shield>: an imperial shield
+E 0 5317 0 16		*	an imperial cityguard <wielded>: an imperial sword
 M 0 5320 3 5335 3	* An imperial cityguard (A small guard house)
-E 0 5330 0 1		*	An imperial cityguard<on the left finger>: an imperial city guard signet ring
-E 0 5321 0 4		*	An imperial cityguard<on the face>: an imperial cloak
-E 0 5319 0 5		*	An imperial cityguard<on the body>: an imperial chest plate
-E 0 5327 0 12		*	An imperial cityguard<about the shoulders>: an imperial cape
-E 0 5328 0 13		*	An imperial cityguard<around the waist>: an imperial belt
-E 0 5317 0 16		*	An imperial cityguard<wielded>: an imperial sword
+E 0 5330 0 1		*	An imperial cityguard <on the left finger>: an imperial city guard signet ring
+E 0 5321 0 4		*	An imperial cityguard <on the face>: an imperial cloak
+E 0 5319 0 5		*	An imperial cityguard <on the body>: an imperial chest plate
+E 0 5327 0 12		*	An imperial cityguard <about the shoulders>: an imperial cape
+E 0 5328 0 13		*	An imperial cityguard <around the waist>: an imperial belt
+E 0 5317 0 16		*	An imperial cityguard <wielded>: an imperial sword
 M 0 5320 3 5335 3	* An imperial cityguard (A small guard house)
-E 0 5330 0 1		*	An imperial cityguard<on the left finger>: an imperial city guard signet ring
-E 0 5321 0 4		*	An imperial cityguard<on the face>: an imperial cloak
-E 0 5319 0 5		*	An imperial cityguard<on the body>: an imperial chest plate
-E 0 5327 0 12		*	An imperial cityguard<about the shoulders>: an imperial cape
-E 0 5329 0 14		*	An imperial cityguard<on the left wrist>: an imperial metal bracer
-E 0 5318 0 16		*	An imperial cityguard<wielded>: an imperial mace
+E 0 5330 0 1		*	An imperial cityguard <on the left finger>: an imperial city guard signet ring
+E 0 5321 0 4		*	An imperial cityguard <on the face>: an imperial cloak
+E 0 5319 0 5		*	An imperial cityguard <on the body>: an imperial chest plate
+E 0 5327 0 12		*	An imperial cityguard <about the shoulders>: an imperial cape
+E 0 5329 0 14		*	An imperial cityguard <on the left wrist>: an imperial metal bracer
+E 0 5318 0 16		*	An imperial cityguard <wielded>: an imperial mace
 M 0 5320 3 5335 3	* An imperial cityguard (A small guard house)
-E 0 5321 0 4		*	An imperial cityguard<on the face>: an imperial cloak
-E 0 5319 0 5		*	An imperial cityguard<on the body>: an imperial chest plate
-E 0 5327 0 12		*	An imperial cityguard<about the shoulders>: an imperial cape
-E 0 5328 0 13		*	An imperial cityguard<around the waist>: an imperial belt
-E 0 5329 0 14		*	An imperial cityguard<on the left wrist>: an imperial metal bracer
-E 0 5317 0 16		*	An imperial cityguard<wielded>: an imperial sword
+E 0 5321 0 4		*	An imperial cityguard <on the face>: an imperial cloak
+E 0 5319 0 5		*	An imperial cityguard <on the body>: an imperial chest plate
+E 0 5327 0 12		*	An imperial cityguard <about the shoulders>: an imperial cape
+E 0 5328 0 13		*	An imperial cityguard <around the waist>: an imperial belt
+E 0 5329 0 14		*	An imperial cityguard <on the left wrist>: an imperial metal bracer
+E 0 5317 0 16		*	An imperial cityguard <wielded>: an imperial sword
 M 0 5305 1 5336 1	* Gordon the Brave (An impressive house)
-E 0 5204 0 8		*	Gordon the Brave<on the feet>: a pair of mithril boots
-E 0 5203 0 10		*	Gordon the Brave<on the arms>: some mithril sleeves
-E 0 5205 0 7		*	Gordon the Brave<on the legs>: a set of mithril leggings
-E 0 5206 0 13		*	Gordon the Brave<around the waist>: a mithril girth
-E 0 5201 0 6		*	Gordon the Brave<over the head>: a mithril helm
-E 0 5202 0 9		*	Gordon the Brave<on the hands>: a pair of mithril gauntlets
-E 0 5301 0 5		*	Gordon the Brave<on the body>: a beautiful iron breast plate
-E 0 5332 0 16		*	Gordon the Brave<wielded>: a two-handed sword
-E 0 5226 0 17		*	Gordon the Brave<held in the hands>: an engraved ivory seal
+E 0 5204 0 8		*	Gordon the Brave <on the feet>: a pair of mithril boots
+E 0 5203 0 10		*	Gordon the Brave <on the arms>: some mithril sleeves
+E 0 5205 0 7		*	Gordon the Brave <on the legs>: a set of mithril leggings
+E 0 5206 0 13		*	Gordon the Brave <around the waist>: a mithril girth
+E 0 5201 0 6		*	Gordon the Brave <over the head>: a mithril helm
+E 0 5202 0 9		*	Gordon the Brave <on the hands>: a pair of mithril gauntlets
+E 0 5301 0 5		*	Gordon the Brave <on the body>: a beautiful iron breast plate
+E 0 5332 0 16		*	Gordon the Brave <wielded>: a two-handed sword
+E 0 5226 0 17		*	Gordon the Brave <held in the hands>: an engraved ivory seal
 M 0 5315 1 5337 1	* the librarian (A Public Library)
 M 0 5301 20 5338 1	* the pet lamia (The Library Addition)
-E 0 5300 0 3		*	the pet lamia<around the neck>: a lamia collar
+E 0 5300 0 3		*	the pet lamia <around the neck>: a lamia collar
 M 0 5317 1 5338 1	* an old wizard (The Library Addition)
 M 0 5302 9 5338 1	* a citizen of Thalos (The Library Addition)
 M 0 5301 20 5340 1	* the pet lamia (A back alley)
-E 0 5300 0 3		*	the pet lamia<around the neck>: a lamia collar
+E 0 5300 0 3		*	the pet lamia <around the neck>: a lamia collar
 M 0 5304 9 5340 1	* a female citizen of Thalos (A back alley)
 M 0 5303 11 5341 1	* an imperial cityguard (Under a watchtower)
-E 0 5321 0 4		*	an imperial cityguard<on the face>: an imperial cloak
-E 0 5319 0 5		*	an imperial cityguard<on the body>: an imperial chest plate
-E 0 5327 0 12		*	an imperial cityguard<about the shoulders>: an imperial cape
-E 0 5318 0 16		*	an imperial cityguard<wielded>: an imperial mace
+E 0 5321 0 4		*	an imperial cityguard <on the face>: an imperial cloak
+E 0 5319 0 5		*	an imperial cityguard <on the body>: an imperial chest plate
+E 0 5327 0 12		*	an imperial cityguard <about the shoulders>: an imperial cape
+E 0 5318 0 16		*	an imperial cityguard <wielded>: an imperial mace
 M 0 5319 2 5342 2	* a man (A bath house)
 M 0 5301 20 5344 1	* the pet lamia (A Resting Room)
-E 0 5300 0 3		*	the pet lamia<around the neck>: a lamia collar
+E 0 5300 0 3		*	the pet lamia <around the neck>: a lamia collar
 M 0 5318 4 5344 4	* a beautiful masseuse (A Resting Room)
 M 0 5302 9 5344 1	* a citizen of Thalos (A Resting Room)
 M 0 5304 9 5344 1	* a female citizen of Thalos (A Resting Room)
 M 0 5316 2 5345 2	* a young scholar (On the second floor of the library)
 M 0 5301 20 5346 1	* the pet lamia (The north-west watchtower)
-E 0 5300 0 3		*	the pet lamia<around the neck>: a lamia collar
+E 0 5300 0 3		*	the pet lamia <around the neck>: a lamia collar
 M 0 5308 8 5346 2	* the stone golem (The north-west watchtower)
-E 0 5221 0 16		*	the stone golem<wielded>: a two-handed sword
-E 0 5233 0 17		*	the stone golem<held in the hands>: a deep red stone
+E 0 5221 0 16		*	the stone golem <wielded>: a two-handed sword
+E 0 5233 0 17		*	the stone golem <held in the hands>: a deep red stone
 M 0 5308 8 5347 2	* the stone golem (The south-west watchtower)
-E 0 5221 0 16		*	the stone golem<wielded>: a two-handed sword
-E 0 5232 0 17		*	the stone golem<held in the hands>: an incandescent blue stone
+E 0 5221 0 16		*	the stone golem <wielded>: a two-handed sword
+E 0 5232 0 17		*	the stone golem <held in the hands>: an incandescent blue stone
 M 0 5301 20 5348 1	* the pet lamia (The north-east watchtower)
-E 0 5300 0 3		*	the pet lamia<around the neck>: a lamia collar
+E 0 5300 0 3		*	the pet lamia <around the neck>: a lamia collar
 M 0 5308 8 5348 2	* the stone golem (The north-east watchtower)
-E 0 5221 0 16		*	the stone golem<wielded>: a two-handed sword
-E 0 5235 0 17		*	the stone golem<held in the hands>: a pearly white stone
+E 0 5221 0 16		*	the stone golem <wielded>: a two-handed sword
+E 0 5235 0 17		*	the stone golem <held in the hands>: a pearly white stone
 M 0 5300 1 5350 1	* the baby beholder (The Temple of Thalos)
-E 0 5343 0 17		*	the baby beholder<held in the hands>: a clear stone
+E 0 5343 0 17		*	the baby beholder <held in the hands>: a clear stone
 M 0 5307 1 5350 1	* the priest of Thalos (The Temple of Thalos)
-E 0 5302 0 17		*	the priest of Thalos<held in the hands>: a green serpentine staff
-E 0 5303 0 3		*	the priest of Thalos<around the neck>: a dark green cloak
+E 0 5302 0 17		*	the priest of Thalos <held in the hands>: a green serpentine staff
+E 0 5303 0 3		*	the priest of Thalos <around the neck>: a dark green cloak
 M 0 5301 20 5350 1	* the pet lamia (The Temple of Thalos)
-E 0 5300 0 3		*	the pet lamia<around the neck>: a lamia collar
+E 0 5300 0 3		*	the pet lamia <around the neck>: a lamia collar
 M 0 5303 11 5350 1	* an imperial cityguard (The Temple of Thalos)
-E 0 5321 0 4		*	an imperial cityguard<on the face>: an imperial cloak
-E 0 5319 0 5		*	an imperial cityguard<on the body>: an imperial chest plate
-E 0 5320 0 11		*	an imperial cityguard<as a shield>: an imperial shield
-E 0 5317 0 16		*	an imperial cityguard<wielded>: an imperial sword
+E 0 5321 0 4		*	an imperial cityguard <on the face>: an imperial cloak
+E 0 5319 0 5		*	an imperial cityguard <on the body>: an imperial chest plate
+E 0 5320 0 11		*	an imperial cityguard <as a shield>: an imperial shield
+E 0 5317 0 16		*	an imperial cityguard <wielded>: an imperial sword
 M 0 5302 9 5350 1	* a citizen of Thalos (The Temple of Thalos)
 M 0 5301 20 5352 1	* the pet lamia (Under a watchtower)
-E 0 5300 0 3		*	the pet lamia<around the neck>: a lamia collar
+E 0 5300 0 3		*	the pet lamia <around the neck>: a lamia collar
 M 0 5303 11 5352 1	* an imperial cityguard (Under a watchtower)
-E 0 5330 0 1		*	an imperial cityguard<on the left finger>: an imperial city guard signet ring
-E 0 5319 0 5		*	an imperial cityguard<on the body>: an imperial chest plate
-E 0 5327 0 12		*	an imperial cityguard<about the shoulders>: an imperial cape
-E 0 5328 0 13		*	an imperial cityguard<around the waist>: an imperial belt
-E 0 5318 0 16		*	an imperial cityguard<wielded>: an imperial mace
+E 0 5330 0 1		*	an imperial cityguard <on the left finger>: an imperial city guard signet ring
+E 0 5319 0 5		*	an imperial cityguard <on the body>: an imperial chest plate
+E 0 5327 0 12		*	an imperial cityguard <about the shoulders>: an imperial cape
+E 0 5328 0 13		*	an imperial cityguard <around the waist>: an imperial belt
+E 0 5318 0 16		*	an imperial cityguard <wielded>: an imperial mace
 M 0 5301 20 5354 1	* the pet lamia (The south-east watchtower)
-E 0 5300 0 3		*	the pet lamia<around the neck>: a lamia collar
+E 0 5300 0 3		*	the pet lamia <around the neck>: a lamia collar
 M 0 5308 8 5354 2	* the stone golem (The south-east watchtower)
-E 0 5221 0 16		*	the stone golem<wielded>: a two-handed sword
-E 0 5237 0 17		*	the stone golem<held in the hands>: a lavender and green stone
+E 0 5221 0 16		*	the stone golem <wielded>: a two-handed sword
+E 0 5237 0 17		*	the stone golem <held in the hands>: a lavender and green stone
 M 0 5326 4 5356 2	* a harmless snake (A trail at the end of the dwarf forest)
 M 0 5323 3 5358 2	* a deer (The dwarf forest)
 M 0 5304 9 5361 1	* a female citizen of Thalos (The dwarf forest)
@@ -4300,22 +4300,22 @@ R 0 5376 6	* The Void: randomize
 R 0 5377 6	* The Void: randomize
 R 0 5378 5	* The Void: randomize
 M 0 5341 1 5379 1	* Questor (The Temple Of Midgaard)
-E 0 3005 0 16		*	Questor<wielded>: quest's sword
+E 0 3005 0 16		*	Questor <wielded>: quest's sword
 M 0 5332 2 5380 2	* the janitor (The Temple Square)
 O 0 3135 0 5380	* a fountain (The Temple Square)
 M 0 5331 1 5381 1	* the cityguard (Market Square)
-E 0 3365 0 0		*	the cityguard<as a light>: a war banner
-E 0 3364 0 1		*	the cityguard<on the left finger>: a city guard signet ring
-E 0 3350 0 16		*	the cityguard<wielded>: a standard issue sword
-E 0 3353 0 5		*	the cityguard<on the body>: a standard issue vest
-E 0 3355 0 4		*	the cityguard<on the face>: a standard issue cloak
+E 0 3365 0 0		*	the cityguard <as a light>: a war banner
+E 0 3364 0 1		*	the cityguard <on the left finger>: a city guard signet ring
+E 0 3350 0 16		*	the cityguard <wielded>: a standard issue sword
+E 0 3353 0 5		*	the cityguard <on the body>: a standard issue vest
+E 0 3355 0 4		*	the cityguard <on the face>: a standard issue cloak
 M 0 5333 3 5382 3	* the beastly fido (The Main Street)
 M 0 5334 1 5384 1	* the cityguard (Inside the East Gate of Midgaard)
-E 0 3365 0 0		*	the cityguard<as a light>: a war banner
-E 0 3364 0 1		*	the cityguard<on the left finger>: a city guard signet ring
-E 0 3350 0 16		*	the cityguard<wielded>: a standard issue sword
-E 0 3353 0 5		*	the cityguard<on the body>: a standard issue vest
-E 0 3354 0 11		*	the cityguard<as a shield>: a standard issue shield
+E 0 3365 0 0		*	the cityguard <as a light>: a war banner
+E 0 3364 0 1		*	the cityguard <on the left finger>: a city guard signet ring
+E 0 3350 0 16		*	the cityguard <wielded>: a standard issue sword
+E 0 3353 0 5		*	the cityguard <on the body>: a standard issue vest
+E 0 3354 0 11		*	the cityguard <as a shield>: a standard issue shield
 M 0 5342 1 5386 1	* the healer (By the Temple Altar)
 O 0 3010 0 5386	* the donation pit (By the Temple Altar)
 M 0 5336 1 5387 1	* the baker (The Bakery)
@@ -4324,14 +4324,14 @@ G 0 3011 0		*	the baker: bread
 G 0 3012 0		*	the baker: a cinnamon roll
 G 0 3013 0		*	the baker: a batch of Sara's cookies
 G 0 3014 0		*	the baker: a blueberry danish
-E 0 3022 0 16		*	the baker<wielded>: a long sword
+E 0 3022 0 16		*	the baker <wielded>: a long sword
 M 0 5337 1 5388 1	* the grocer (The General Store)
 G 0 3030 0		*	the grocer: a torch
 G 0 3031 0		*	the grocer: a hooded brass lantern
 G 0 3138 0		*	the grocer: a buffalo water skin
 G 0 3032 0		*	the grocer: a bag
 G 0 3033 0		*	the grocer: a box
-E 0 3022 0 16		*	the grocer<wielded>: a long sword
+E 0 3022 0 16		*	the grocer <wielded>: a long sword
 M 0 5338 1 5389 1	* the weaponsmith (The Weapon Shop)
 G 0 3020 0		*	the weaponsmith: a dagger
 G 0 3021 0		*	the weaponsmith: a small sword
@@ -4343,7 +4343,7 @@ G 0 3026 0		*	the weaponsmith: a battle axe
 G 0 3027 0		*	the weaponsmith: a spear
 G 0 3028 0		*	the weaponsmith: a wooden staff
 G 0 3029 0		*	the weaponsmith: a flail
-E 0 3022 0 16		*	the weaponsmith<wielded>: a long sword
+E 0 3022 0 16		*	the weaponsmith <wielded>: a long sword
 M 0 5339 1 5390 1	* the armourer (The Armoury)
 G 0 3072 0		*	the armourer: a scale mail jerkin
 G 0 3073 0		*	the armourer: a scale mail coif
@@ -4360,7 +4360,7 @@ G 0 3115 0		*	the armourer: a pair of chain mail sleeves
 G 0 3116 0		*	the armourer: a large metal shield
 G 0 3097 0		*	the armourer: a small metal shield
 G 0 3117 0		*	the armourer: a small wooden shield
-E 0 3022 0 16		*	the armourer<wielded>: a long sword
+E 0 3022 0 16		*	the armourer <wielded>: a long sword
 M 0 5335 1 5391 1	* the wizard (The Magic Shop)
 G 0 3040 0		*	the wizard: a scroll of identify
 G 0 3041 0		*	the wizard: a swirling potion of return

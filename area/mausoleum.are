@@ -1799,7 +1799,7 @@ O 0 4625 0 4609	* a coffin (The Kharzandra's coffin room)
 O 0 4603 0 4610	* a smelly humanoid corpse (The workroom of Kharzandra.)
 O 0 4610 0 4610	* a potion of healing (The workroom of Kharzandra.)
 M 0 4603 1 4610 1	* Kharzandra, the Dark-elf Vampire (The workroom of Kharzandra.)
-E 0 4622 0 16		*	Kharzandra, the Dark-elf Vampire<wielded>: the Shadow Dagger
+E 0 4622 0 16		*	Kharzandra, the Dark-elf Vampire <wielded>: the Shadow Dagger
 G 0 4623 0		*	Kharzandra, the Dark-elf Vampire: the Shadow Dagger
 G 0 4628 0		*	Kharzandra, the Dark-elf Vampire: a potion of divine protection
 G 0 4629 0		*	Kharzandra, the Dark-elf Vampire: the cloak of wizardry
@@ -1823,20 +1823,20 @@ M 0 4600 35 4612 9	* a disgusting, rotting Zombie (Central main area of the Maus
 G 0 4603 0		*	a disgusting, rotting Zombie: a smelly humanoid corpse
 O 0 4603 0 4614	* a smelly humanoid corpse (The workroom of Shadar Lunn)
 M 0 4604 1 4614 1	* the Vampire, Shadar Lunn (The workroom of Shadar Lunn)
-E 0 4604 0 8		*	the Vampire, Shadar Lunn<on the feet>: a pair of darkened boots
-E 0 4605 0 6		*	the Vampire, Shadar Lunn<over the head>: a darkened helmet
-E 0 4606 0 7		*	the Vampire, Shadar Lunn<on the legs>: a pair of darkened leggings
-E 0 4607 0 1		*	the Vampire, Shadar Lunn<on the left finger>: the Arkham signet ring
-E 0 4609 0 16		*	the Vampire, Shadar Lunn<wielded>: a guardian sword
+E 0 4604 0 8		*	the Vampire, Shadar Lunn <on the feet>: a pair of darkened boots
+E 0 4605 0 6		*	the Vampire, Shadar Lunn <over the head>: a darkened helmet
+E 0 4606 0 7		*	the Vampire, Shadar Lunn <on the legs>: a pair of darkened leggings
+E 0 4607 0 1		*	the Vampire, Shadar Lunn <on the left finger>: the Arkham signet ring
+E 0 4609 0 16		*	the Vampire, Shadar Lunn <wielded>: a guardian sword
 G 0 4608 0		*	the Vampire, Shadar Lunn: a darkened shield
 M 0 4611 1 4615 1	* the dark priest vampire (The dark priest's coffin room.)
-E 0 4626 0 16		*	the dark priest vampire<wielded>: the flaming sceptre of Chaos
-E 0 4602 0 3		*	the dark priest vampire<around the neck>: an unholy symbol of Lloth
+E 0 4626 0 16		*	the dark priest vampire <wielded>: the flaming sceptre of Chaos
+E 0 4602 0 3		*	the dark priest vampire <around the neck>: an unholy symbol of Lloth
 O 0 4625 0 4615	* a coffin (The dark priest's coffin room.)
 P 0 4611 0 0 1	* a coffin: a staff of wrath
 M 0 4602 2 4616 2	* a young vampire (The dark priest's workroom.)
-E 0 4601 0 16		*	a young vampire<wielded>: a Frostbrand sword
-E 0 4617 0 12		*	a young vampire<about the shoulders>: a rat-eaten poncho
+E 0 4601 0 16		*	a young vampire <wielded>: a Frostbrand sword
+E 0 4617 0 12		*	a young vampire <about the shoulders>: a rat-eaten poncho
 M 0 4600 35 4617 9	* a disgusting, rotting Zombie (Western check point)
 M 0 4601 40 4617 10	* the Ju-ju zombie (Western check point)
 G 0 4600 0		*	the Ju-ju zombie: a small black skeleton key
@@ -1864,11 +1864,11 @@ M 0 4600 35 4624 9	* a disgusting, rotting Zombie (Eastern main area of the Maus
 M 0 4605 12 4624 4	* a hungry ghoul (Eastern main area of the Mausoleum.)
 O 0 4618 0 4625	* a half-eaten corpse (Roaming ground for the Demon.)
 M 0 4602 2 4625 2	* a young vampire (Roaming ground for the Demon.)
-E 0 4601 0 16		*	a young vampire<wielded>: a Frostbrand sword
-E 0 4617 0 12		*	a young vampire<about the shoulders>: a rat-eaten poncho
+E 0 4601 0 16		*	a young vampire <wielded>: a Frostbrand sword
+E 0 4617 0 12		*	a young vampire <about the shoulders>: a rat-eaten poncho
 M 0 4609 1 4625 1	* the demon familiar (Roaming ground for the Demon.)
-E 0 4616 0 16		*	the demon familiar<wielded>: the flail of Pestilance
-E 0 4621 0 13		*	the demon familiar<around the waist>: an ulrician belt
+E 0 4616 0 16		*	the demon familiar <wielded>: the flail of Pestilance
+E 0 4621 0 13		*	the demon familiar <around the waist>: an ulrician belt
 M 0 4605 12 4626 4	* a hungry ghoul (A small room.)
 M 0 4601 40 4626 10	* the Ju-ju zombie (A small room.)
 G 0 4600 0		*	the Ju-ju zombie: a small black skeleton key
@@ -1890,7 +1890,7 @@ P 0 4640 0 0 1	* a coffin: a potion of healing
 O 0 4618 0 4635	* a half-eaten corpse (Lost in the graveyard fog.)
 O 0 4625 0 4636	* a coffin (A Rakshaka's lair.)
 M 0 4610 1 4636 1	* the great Dracolich (A Rakshaka's lair.)
-E 0 4624 0 16		*	the great Dracolich<wielded>: the Claw of great Dracolich
+E 0 4624 0 16		*	the great Dracolich <wielded>: the Claw of great Dracolich
 G 0 4614 0		*	the great Dracolich: a ring of fortitude
 O 0 4625 0 4637	* a coffin (A burnt room.)
 P 0 4640 0 0 1	* a coffin: a potion of healing

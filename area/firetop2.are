@@ -4118,8 +4118,8 @@ S
 
 #RESETS
 M 0 5735 2 5739 2	* an Orc sentry (A Guard Post)
-E 0 5735 0 8		*	an Orc sentry<on the feet>: a suit of leather armor
-E 0 5736 0 16		*	an Orc sentry<wielded>: a polearm
+E 0 5735 0 8		*	an Orc sentry <on the feet>: a suit of leather armor
+E 0 5736 0 16		*	an Orc sentry <wielded>: a polearm
 O 0 5737 0 5739	* a bottle of Orc grog (A Guard Post)
 M 0 5736 4 5741 1	* a sleeping Orc (Orc Sleeping Quarters)
 O 0 5738 0 5741	* an Orc's box (Orc Sleeping Quarters)
@@ -4129,16 +4129,16 @@ M 0 5737 1 5743 1	* a small snake (Guards' Quarters)
 G 0 5741 0		*	a small snake: a bronze-coloured key
 O 0 5748 0 5743	* a staw mattress (Guards' Quarters)
 M 0 5738 3 5745 3	* a drunken Orc (A Party)
-E 0 5735 0 8		*	a drunken Orc<on the feet>: a suit of leather armor
+E 0 5735 0 8		*	a drunken Orc <on the feet>: a suit of leather armor
 G 0 5737 0		*	a drunken Orc: a bottle of Orc grog
 O 0 5742 0 5745	* a small wooden box with crude hinges (A Party)
 P 0 5743 1 0 1	* a small wooden box with crude hinges: a small leather-bound book
 O 0 5748 0 5745	* a staw mattress (A Party)
 M 0 5742 1 5751 1	* A deranged prisoner (A Cell)
-E 0 5751 0 16		*	A deranged prisoner<wielded>: a chair leg
+E 0 5751 0 16		*	A deranged prisoner <wielded>: a chair leg
 O 0 5755 0 5753	* a shield (Armory)
 M 0 5743 2 5755 2	* a Goblin torturer (A Torture Chamber)
-E 0 5753 0 16		*	a Goblin torturer<wielded>: a wicked-looking knife
+E 0 5753 0 16		*	a Goblin torturer <wielded>: a wicked-looking knife
 G 0 5754 0		*	a Goblin torturer: a piece of sweet-smelling cheese
 O 0 5752 0 5755	* a torture rack (A Torture Chamber)
 O 0 5803 0 5757	* a wooden bench (A Bend in the Corridor)
@@ -4164,7 +4164,7 @@ M 0 5747 1 5773 1	* an old man who is a Wererat (A Ferryman and a Bridge)
 O 0 5804 0 5773	* a punt (A Ferryman and a Bridge)
 M 0 5749 2 5774 2	* a giant Bat (On the Banks of the River)
 M 0 5748 2 5775 2	* A lumbering Neanderthal (A Cave)
-E 0 5763 0 16		*	A lumbering Neanderthal<wielded>: a crude stone club
+E 0 5763 0 16		*	A lumbering Neanderthal <wielded>: a crude stone club
 M 0 5769 1 5776 1	* a crocodile (The River)
 O 0 5830 0 5777	* big box (The River)
 P 0 5766 1 0 1	* big box: a magnificent-looking sword
@@ -4178,9 +4178,9 @@ M 0 5770 1 5795 1	* a gas beast (A Gas Room!)
 O 0 5806 0 5795	* a gold key (A Gas Room!)
 M 0 5756 1 5797 1	* a giant Sandworm (A Rocky Beach)
 M 0 5739 1 5799 1	* an Orcish chieftain (The Chieftain's Quarters)
-E 0 5800 0 16		*	an Orcish chieftain<wielded>: a bullwhip
-E 0 5801 0 3		*	an Orcish chieftain<around the neck>: an Orcish cloak
-E 0 5802 0 13		*	an Orcish chieftain<around the waist>: a pouch belt
+E 0 5800 0 16		*	an Orcish chieftain <wielded>: a bullwhip
+E 0 5801 0 3		*	an Orcish chieftain <around the neck>: an Orcish cloak
+E 0 5802 0 13		*	an Orcish chieftain <around the waist>: a pouch belt
 M 0 5740 1 5799 1	* an orcish servant (The Chieftain's Quarters)
 O 0 5744 0 5799	* a sturdy chest (The Chieftain's Quarters)
 P 0 5745 -1 0 1	* a sturdy chest: a fair number of gold pieces
@@ -4193,14 +4193,14 @@ P 0 5750 -1 0 2	* a tattered leather case: a bow and a single silver arrow
 M 0 5768 5 5803 5	* a hand (Room of Hands and Stars)
 M 0 5760 1 5805 1	* a Guard Dog (Inside the Shipbuilder's Quarters)
 M 0 5761 1 5805 1	* a Werewolf (Inside the Shipbuilder's Quarters)
-E 0 5780 0 8		*	a Werewolf<on the feet>: a pair of unlaced boots
+E 0 5780 0 8		*	a Werewolf <on the feet>: a pair of unlaced boots
 G 0 5779 0		*	a Werewolf: a bunch of keys
 O 0 5782 0 5806	* a jar (Pantry)
 P 0 5781 -1 0 2	* a jar: some pickled eggs
 M 0 5759 4 5808 4	* a Zombie (A Zombie Room)
-E 0 5772 0 5		*	a Zombie<on the body>: a suit of leather armor
-E 0 5773 0 11		*	a Zombie<as a shield>: a wooden shield
-E 0 5774 0 16		*	a Zombie<wielded>: a steel sword
+E 0 5772 0 5		*	a Zombie <on the body>: a suit of leather armor
+E 0 5773 0 11		*	a Zombie <as a shield>: a wooden shield
+E 0 5774 0 16		*	a Zombie <wielded>: a steel sword
 O 0 5775 0 5808	* a silver crucifix (A Zombie Room)
 O 0 5776 0 5808	* a decaying corpse (A Zombie Room)
 O 0 5777 0 5808	* gold! (A Zombie Room)
@@ -4217,7 +4217,7 @@ O 0 5796 0 5822	* a solid iron-bound oak chest (Loot Room)
 P 0 5797 -1 0 1	* a solid iron-bound oak chest: loot!
 P 0 5798 -1 0 1	* a solid iron-bound oak chest: gold!
 M 0 5762 1 5823 1	* a Ghoul (A Creepy Room)
-E 0 5783 0 6		*	a Ghoul<over the head>: a pair of cheap earrings
+E 0 5783 0 6		*	a Ghoul <over the head>: a pair of cheap earrings
 G 0 5784 0		*	a Ghoul: a vial of liquid
 G 0 5785 0		*	a Ghoul: a badly-damaged sheet of parchment
 M 0 5764 4 5827 4	* a Dwarf (The Dwarf Room)
@@ -4231,8 +4231,8 @@ O 0 5790 0 5829	* a red clay bowl (A Minotaur Room)
 P 0 5791 -1 0 1	* a red clay bowl: some coins
 M 0 5766 1 5832 1	* an enormous Red Dragon (A Dragon Cave)
 M 0 5767 1 5834 1	* the Warlock of Firetop Mountain (The Warlock's Chambers)
-E 0 5794 0 12		*	the Warlock of Firetop Mountain<about the shoulders>: the Warlock's robes
-E 0 5795 0 16		*	the Warlock of Firetop Mountain<wielded>: the Warlock's sword
+E 0 5794 0 12		*	the Warlock of Firetop Mountain <about the shoulders>: the Warlock's robes
+E 0 5795 0 16		*	the Warlock of Firetop Mountain <wielded>: the Warlock's sword
 G 0 5799 0		*	the Warlock of Firetop Mountain: a red key
 O 0 5809 0 5834	* a glass cabinet (The Warlock's Chambers)
 P 0 5810 -1 0 1	* a glass cabinet: one of the Warlock's curios

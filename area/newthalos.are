@@ -8177,8 +8177,8 @@ M 0 9506 1 9502 1	* Brother John (The Dancing Daemon Inn)
 M 0 9507 1 9503 1	* a panhandler (The Medina)
 M 0 9508 1 9504 1	* a panhandler (The Medina)
 M 0 9539 1 9505 1	* Caramon (The Southern Market Square)
-E 0 9515 0 5		*	Caramon<on the body>: a suit of banded mail
-E 0 9600 0 16		*	Caramon<wielded>: the halberd
+E 0 9515 0 5		*	Caramon <on the body>: a suit of banded mail
+E 0 9600 0 16		*	Caramon <wielded>: the halberd
 M 0 9537 2 9506 2	* the tax collector (The Center of Market Square)
 G 0 9500 0		*	the tax collector: the palace key of New Thalos
 M 0 9540 1 9506 1	* Raistlin (The Center of Market Square)
@@ -8194,17 +8194,17 @@ M 0 9547 1 9511 1	* the dirt devil (Outside the Southern Gate of New Thalos)
 M 0 9549 1 9511 1	* the raggety dervish (Outside the Southern Gate of New Thalos)
 M 0 9548 1 9511 1	* the lamia (Outside the Southern Gate of New Thalos)
 M 0 9561 32 9512 2	* the sultan's guard (The Southern Bridge)
-E 0 9513 0 16		*	the sultan's guard<wielded>: a scimitar
-E 0 9519 0 5		*	the sultan's guard<on the body>: a suit of splintmail
-E 0 9521 0 11		*	the sultan's guard<as a shield>: a splinted shield
+E 0 9513 0 16		*	the sultan's guard <wielded>: a scimitar
+E 0 9519 0 5		*	the sultan's guard <on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultan's guard <as a shield>: a splinted shield
 M 0 9562 20 9513 5	* the sultans guard (Inside the South Gate of New Thalos)
-E 0 9513 0 16		*	the sultans guard<wielded>: a scimitar
-E 0 9519 0 5		*	the sultans guard<on the body>: a suit of splintmail
-E 0 9521 0 11		*	the sultans guard<as a shield>: a splinted shield
+E 0 9513 0 16		*	the sultans guard <wielded>: a scimitar
+E 0 9519 0 5		*	the sultans guard <on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultans guard <as a shield>: a splinted shield
 M 0 9562 20 9513 5	* the sultans guard (Inside the South Gate of New Thalos)
-E 0 9513 0 16		*	the sultans guard<wielded>: a scimitar
-E 0 9519 0 5		*	the sultans guard<on the body>: a suit of splintmail
-E 0 9521 0 11		*	the sultans guard<as a shield>: a splinted shield
+E 0 9513 0 16		*	the sultans guard <wielded>: a scimitar
+E 0 9519 0 5		*	the sultans guard <on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultans guard <as a shield>: a splinted shield
 M 0 9582 16 9514 2	* The Royal Guard (The Northwestern Market Square)
 M 0 9541 1 9515 1	* Curley GreenLeaf (The Northern Market Square)
 M 0 9538 1 9515 1	* Gord (The Northern Market Square)
@@ -8213,49 +8213,49 @@ M 0 9592 14 9517 4	* the bodyguard (The Eastern Market Square)
 M 0 9592 14 9517 4	* the bodyguard (The Eastern Market Square)
 M 0 9533 20 9517 1	* a nomad merchant (The Eastern Market Square)
 M 0 9561 32 9518 2	* the sultan's guard (Sultan's Walk)
-E 0 9519 0 5		*	the sultan's guard<on the body>: a suit of splintmail
-E 0 9521 0 11		*	the sultan's guard<as a shield>: a splinted shield
+E 0 9519 0 5		*	the sultan's guard <on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultan's guard <as a shield>: a splinted shield
 M 0 9561 32 9519 2	* the sultan's guard (Sultan's Walk)
-E 0 9513 0 16		*	the sultan's guard<wielded>: a scimitar
-E 0 9519 0 5		*	the sultan's guard<on the body>: a suit of splintmail
-E 0 9521 0 11		*	the sultan's guard<as a shield>: a splinted shield
+E 0 9513 0 16		*	the sultan's guard <wielded>: a scimitar
+E 0 9519 0 5		*	the sultan's guard <on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultan's guard <as a shield>: a splinted shield
 M 0 9561 32 9520 2	* the sultan's guard (Sultan's Walk)
-E 0 9513 0 16		*	the sultan's guard<wielded>: a scimitar
-E 0 9519 0 5		*	the sultan's guard<on the body>: a suit of splintmail
-E 0 9521 0 11		*	the sultan's guard<as a shield>: a splinted shield
+E 0 9513 0 16		*	the sultan's guard <wielded>: a scimitar
+E 0 9519 0 5		*	the sultan's guard <on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultan's guard <as a shield>: a splinted shield
 M 0 9562 20 9522 5	* the sultans guard (Inside the Northern Gate of New Thalos)
-E 0 9513 0 16		*	the sultans guard<wielded>: a scimitar
-E 0 9519 0 5		*	the sultans guard<on the body>: a suit of splintmail
-E 0 9521 0 11		*	the sultans guard<as a shield>: a splinted shield
+E 0 9513 0 16		*	the sultans guard <wielded>: a scimitar
+E 0 9519 0 5		*	the sultans guard <on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultans guard <as a shield>: a splinted shield
 M 0 9562 20 9522 5	* the sultans guard (Inside the Northern Gate of New Thalos)
-E 0 9513 0 16		*	the sultans guard<wielded>: a scimitar
-E 0 9519 0 5		*	the sultans guard<on the body>: a suit of splintmail
-E 0 9521 0 11		*	the sultans guard<as a shield>: a splinted shield
+E 0 9513 0 16		*	the sultans guard <wielded>: a scimitar
+E 0 9519 0 5		*	the sultans guard <on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultans guard <as a shield>: a splinted shield
 M 0 9562 20 9523 5	* the sultans guard (Inside the West Gate of New Thalos)
-E 0 9513 0 16		*	the sultans guard<wielded>: a scimitar
-E 0 9519 0 5		*	the sultans guard<on the body>: a suit of splintmail
-E 0 9521 0 11		*	the sultans guard<as a shield>: a splinted shield
+E 0 9513 0 16		*	the sultans guard <wielded>: a scimitar
+E 0 9519 0 5		*	the sultans guard <on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultans guard <as a shield>: a splinted shield
 M 0 9562 20 9523 5	* the sultans guard (Inside the West Gate of New Thalos)
-E 0 9513 0 16		*	the sultans guard<wielded>: a scimitar
-E 0 9519 0 5		*	the sultans guard<on the body>: a suit of splintmail
-E 0 9521 0 11		*	the sultans guard<as a shield>: a splinted shield
+E 0 9513 0 16		*	the sultans guard <wielded>: a scimitar
+E 0 9519 0 5		*	the sultans guard <on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultans guard <as a shield>: a splinted shield
 M 0 9542 22 9524 4	* the wandering prophet (West Main Street)
 M 0 9520 2 9525 2	* a construction worker (West Main Street)
-E 0 9586 0 16		*	a construction worker<wielded>: a sledge hammer
+E 0 9586 0 16		*	a construction worker <wielded>: a sledge hammer
 M 0 9520 2 9525 2	* a construction worker (West Main Street)
-E 0 9586 0 16		*	a construction worker<wielded>: a sledge hammer
+E 0 9586 0 16		*	a construction worker <wielded>: a sledge hammer
 M 0 9519 1 9525 1	* the foreman (West Main Street)
-E 0 9585 0 16		*	the foreman<wielded>: a fountain pen
+E 0 9585 0 16		*	the foreman <wielded>: a fountain pen
 M 0 9568 15 9527 8	* a tourist (East Main Street)
 M 0 9568 15 9528 8	* a tourist (East Main Street)
 M 0 9544 20 9529 2	* the vulture (East Main Street)
 M 0 9544 20 9530 2	* the vulture (East Main Street)
 M 0 9562 20 9531 5	* the sultans guard (Inside the Eastern Gate of New Thalos)
-E 0 9519 0 5		*	the sultans guard<on the body>: a suit of splintmail
-E 0 9521 0 11		*	the sultans guard<as a shield>: a splinted shield
+E 0 9519 0 5		*	the sultans guard <on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultans guard <as a shield>: a splinted shield
 M 0 9562 20 9531 5	* the sultans guard (Inside the Eastern Gate of New Thalos)
-E 0 9519 0 5		*	the sultans guard<on the body>: a suit of splintmail
-E 0 9521 0 11		*	the sultans guard<as a shield>: a splinted shield
+E 0 9519 0 5		*	the sultans guard <on the body>: a suit of splintmail
+E 0 9521 0 11		*	the sultans guard <as a shield>: a splinted shield
 M 0 9518 1 9532 1	* Cassandra (Cassandra's Catch of the Day)
 G 0 9564 0		*	Cassandra: a salted herring
 G 0 9565 0		*	Cassandra: a mussel
@@ -8276,9 +8276,9 @@ M 0 9582 16 9550 2	* The Royal Guard (The Casbah)
 M 0 9582 16 9552 2	* The Royal Guard (The Casbah)
 M 0 9544 20 9553 2	* the vulture (The Casbah)
 M 0 9545 2 9555 2	* the old man (Kali Row)
-E 0 9590 0 16		*	the old man<wielded>: a chessboard
+E 0 9590 0 16		*	the old man <wielded>: a chessboard
 M 0 9545 2 9555 2	* the old man (Kali Row)
-E 0 9590 0 16		*	the old man<wielded>: a chessboard
+E 0 9590 0 16		*	the old man <wielded>: a chessboard
 M 0 9544 20 9563 1	* the vulture (Guildsman's Row)
 M 0 9543 13 9565 1	* the alley cat (Alley)
 M 0 9530 1 9566 1	* Mustafah (Alley)
@@ -8313,7 +8313,7 @@ M 0 9542 22 9613 6	* the wandering prophet (The Temple Gates)
 M 0 9543 13 9614 3	* the alley cat (Ahkeem's Stuff)
 M 0 9542 22 9614 3	* the wandering prophet (Ahkeem's Stuff)
 M 0 9513 1 9614 1	* Ahkeem the tailor (Ahkeem's Stuff)
-E 0 9583 0 16		*	Ahkeem the tailor<wielded>: a pair of sewing shears
+E 0 9583 0 16		*	Ahkeem the tailor <wielded>: a pair of sewing shears
 G 0 9555 0		*	Ahkeem the tailor: a silk jacket
 G 0 9554 0		*	Ahkeem the tailor: a sash
 G 0 9553 0		*	Ahkeem the tailor: a pair of sandles
@@ -8337,7 +8337,7 @@ M 0 9527 1 9616 1	* the statue of Furey (The Museum of the Greater Gods)
 M 0 9525 1 9616 1	* the statue of Satin (The Museum of the Greater Gods)
 M 0 9544 20 9622 2	* the vulture (The Butchary)
 M 0 9515 1 9622 1	* Butch the meatcutter (The Butchary)
-E 0 9584 0 16		*	Butch the meatcutter<wielded>: a meat cleaver
+E 0 9584 0 16		*	Butch the meatcutter <wielded>: a meat cleaver
 G 0 9563 0		*	Butch the meatcutter: a whole chicken
 G 0 9562 0		*	Butch the meatcutter: a side of beef
 G 0 9561 0		*	Butch the meatcutter: a leg of lamb
@@ -8384,7 +8384,7 @@ G 0 9541 0		*	the baker: a bread
 G 0 9540 0		*	the baker: a hunk of cheese
 M 0 9533 20 9636 2	* a nomad merchant (Igor's Implements of Destruction)
 M 0 9517 1 9636 1	* Igor the weaponsmith (Igor's Implements of Destruction)
-E 0 9591 0 17		*	Igor the weaponsmith<held in the hands>: a sesame seed
+E 0 9591 0 17		*	Igor the weaponsmith <held in the hands>: a sesame seed
 G 0 9514 0		*	Igor the weaponsmith: a rapier
 G 0 9513 0		*	Igor the weaponsmith: a scimitar
 G 0 9512 0		*	Igor the weaponsmith: a two-handed bastard sword
@@ -8466,7 +8466,7 @@ M 0 9550 1 9689 1	* The Sultan (Throne Room)
 M 0 9552 1 9691 1	* the jailer (Jailer's Room)
 G 0 9593 0		*	the jailer: the jail key
 M 0 9587 1 9696 1	* the wolverine (Secret Cell)
-E 0 9599 0 16		*	the wolverine<wielded>: the wolverine claw
+E 0 9599 0 16		*	the wolverine <wielded>: the wolverine claw
 M 0 9575 1 9697 1	* the chimera (Cell)
 M 0 9574 1 9698 1	* the behir (Cell)
 M 0 9572 5 9699 5	* the death dog (Cell)

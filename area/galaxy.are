@@ -2173,9 +2173,9 @@ M 0 9301 3 9313 1	* a poor mudder (Along the Milky Way)
 M 0 9305 4 9313 1	* a red supergiant (Along the Milky Way)
 M 0 9306 3 9314 1	* a white dwarf (At the End of the Milky Way)
 M 0 9304 4 9317 2	* a speedy comet (A Small Clearing)
-E 0 9301 0 16		*	a speedy comet<wielded>: a comet's tail
+E 0 9301 0 16		*	a speedy comet <wielded>: a comet's tail
 M 0 9304 4 9317 2	* a speedy comet (A Small Clearing)
-E 0 9301 0 16		*	a speedy comet<wielded>: a comet's tail
+E 0 9301 0 16		*	a speedy comet <wielded>: a comet's tail
 M 0 9310 1 9317 1	* the wild Pegasus (A Small Clearing)
 M 0 9303 5 9318 1	* a young nebula (An Edge of the Galaxy)
 M 0 9302 9 9321 4	* a beautiful star (The Star Cluster)
@@ -2185,9 +2185,9 @@ M 0 9302 9 9321 4	* a beautiful star (The Star Cluster)
 M 0 9301 3 9322 1	* a poor mudder (Another Edge of the Galaxy)
 M 0 9303 5 9322 1	* a young nebula (Another Edge of the Galaxy)
 M 0 9304 4 9322 2	* a speedy comet (Another Edge of the Galaxy)
-E 0 9301 0 16		*	a speedy comet<wielded>: a comet's tail
+E 0 9301 0 16		*	a speedy comet <wielded>: a comet's tail
 M 0 9304 4 9322 2	* a speedy comet (Another Edge of the Galaxy)
-E 0 9301 0 16		*	a speedy comet<wielded>: a comet's tail
+E 0 9301 0 16		*	a speedy comet <wielded>: a comet's tail
 M 0 9306 3 9322 1	* a white dwarf (Another Edge of the Galaxy)
 M 0 9301 3 9323 1	* a poor mudder (Corner of the Galaxy)
 M 0 9312 7 9326 7	* the Pleiades (The Homes of the Pleiades)
@@ -2198,43 +2198,43 @@ M 0 9312 7 9326 7	* the Pleiades (The Homes of the Pleiades)
 M 0 9312 7 9326 7	* the Pleiades (The Homes of the Pleiades)
 M 0 9312 7 9326 7	* the Pleiades (The Homes of the Pleiades)
 M 0 9311 1 9328 1	* Orion the hunter (Orion's Hunting Lodge)
-E 0 9304 0 13		*	Orion the hunter<around the waist>: the Titanic Belt of Orion
+E 0 9304 0 13		*	Orion the hunter <around the waist>: the Titanic Belt of Orion
 M 0 9308 1 9330 1	* poor Andromeda (The Offering Chamber)
-E 0 9328 0 17		*	poor Andromeda<held in the hands>: chains of Andromeda
+E 0 9328 0 17		*	poor Andromeda <held in the hands>: chains of Andromeda
 M 0 9309 1 9332 1	* the mighty Hercules (Hercules' Mighty Throne)
-E 0 9302 0 10		*	the mighty Hercules<on the arms>: the Titanic Arm plates of Hercules
+E 0 9302 0 10		*	the mighty Hercules <on the arms>: the Titanic Arm plates of Hercules
 M 0 9302 9 9333 1	* a beautiful star (Eastern Side of the Temple)
 M 0 9315 1 9342 1	* Aries (On a Hill)
 G 0 9324 0		*	Aries: a spring shoot
-E 0 9306 0 3		*	Aries<around the neck>: the Titanic Fleece of Aries
+E 0 9306 0 3		*	Aries <around the neck>: the Titanic Fleece of Aries
 M 0 9316 1 9343 1	* Taurus (Inside a Spanish Bull-Ring)
-E 0 9307 0 8		*	Taurus<on the feet>: the Titanic Hoof of Taurus
+E 0 9307 0 8		*	Taurus <on the feet>: the Titanic Hoof of Taurus
 M 0 9317 1 9344 1	* Gemini (Inside a study)
-E 0 9308 0 6		*	Gemini<over the head>: the Titanic Mask of Gemini
+E 0 9308 0 6		*	Gemini <over the head>: the Titanic Mask of Gemini
 M 0 9318 1 9344 1	* Gemini (Inside a study)
 M 0 9319 1 9345 1	* Cancer (Along the seashore)
 G 0 9325 0		*	Cancer: a summer flower
-E 0 9309 0 5		*	Cancer<on the body>: the Titanic Shell of Cancer
+E 0 9309 0 5		*	Cancer <on the body>: the Titanic Shell of Cancer
 M 0 9320 1 9346 1	* Leo (Within the Deep Jungle)
-E 0 9310 0 12		*	Leo<about the shoulders>: the Titanic Skin of Leo
+E 0 9310 0 12		*	Leo <about the shoulders>: the Titanic Skin of Leo
 M 0 9321 1 9347 1	* Virgo (Inside a Luxurious Bedroom)
-E 0 9311 0 14		*	Virgo<on the left wrist>: the Titanic Bracelet of Virgo
+E 0 9311 0 14		*	Virgo <on the left wrist>: the Titanic Bracelet of Virgo
 M 0 9322 1 9348 1	* Libra (The Supreme Court)
 G 0 9326 0		*	Libra: an autumn leaf
 G 0 9312 0		*	Libra: the Titanic Scale of Libra
-E 0 9313 0 11		*	Libra<as a shield>: the Titanic Scale of Libra
+E 0 9313 0 11		*	Libra <as a shield>: the Titanic Scale of Libra
 M 0 9323 1 9349 1	* Scorpio (In the Dry Desert)
-E 0 9314 0 16		*	Scorpio<wielded>: the Sting of Scorpio
+E 0 9314 0 16		*	Scorpio <wielded>: the Sting of Scorpio
 M 0 9324 1 9350 1	* Sagittarius (In the Woods)
-E 0 9315 0 17		*	Sagittarius<held in the hands>: the Arrow of Sagittarius
-E 0 9316 0 16		*	Sagittarius<wielded>: the Titanic Bow of Sagittarius
+E 0 9315 0 17		*	Sagittarius <held in the hands>: the Arrow of Sagittarius
+E 0 9316 0 16		*	Sagittarius <wielded>: the Titanic Bow of Sagittarius
 M 0 9325 1 9351 1	* Capricorn (On a Mountain Peak)
 G 0 9327 0		*	Capricorn: a winter branch
-E 0 9317 0 9		*	Capricorn<on the hands>: the Titanic Horns of Capricorn
+E 0 9317 0 9		*	Capricorn <on the hands>: the Titanic Horns of Capricorn
 M 0 9326 1 9352 1	* Aquarius (Inside a Waterfall)
-E 0 9318 0 17		*	Aquarius<held in the hands>: the Ancient Vessel of Aquarius
+E 0 9318 0 17		*	Aquarius <held in the hands>: the Ancient Vessel of Aquarius
 M 0 9327 1 9353 1	* Pisces the mermaid (Inside a Gigantic Clam)
-E 0 9319 0 7		*	Pisces the mermaid<on the legs>: the Titanic Tail of Pisces
+E 0 9319 0 7		*	Pisces the mermaid <on the legs>: the Titanic Tail of Pisces
 M 0 9328 1 9353 1	* Pisces the fish (Inside a Gigantic Clam)
 M 0 9302 9 9355 1	* a beautiful star (On the Draco)
 M 0 9314 2 9358 1	* a baby draco (Near the Legs of Draco)
@@ -2242,13 +2242,13 @@ M 0 9314 2 9360 1	* a baby draco (Between the Wings of Draco)
 M 0 9313 1 9363 1	* the Head of Draco (Approaching the Head of Draco)
 G 0 9305 0		*	the Head of Draco: an ugly skull of Draco
 M 0 9330 1 9365 1	* Cassiopeia the Queen (Cassiopeia's Throne)
-E 0 9320 0 1		*	Cassiopeia the Queen<on the left finger>: the Ring of Dignity
+E 0 9320 0 1		*	Cassiopeia the Queen <on the left finger>: the Ring of Dignity
 M 0 9331 1 9367 1	* Cepheus the King (Cepheus' Throne)
-E 0 9321 0 0		*	Cepheus the King<as a light>: the Sceptre of Might
+E 0 9321 0 0		*	Cepheus the King <as a light>: the Sceptre of Might
 M 0 9329 1 9370 1	* Ursa Major the bear (End of the Dipper)
 M 0 9332 1 9371 1	* Polaris, the polar star (The Polar Star)
-E 0 9322 0 2		*	Polaris, the polar star<on the right finger>: the ring of the universe
-E 0 9323 0 16		*	Polaris, the polar star<wielded>: the Great Dipper of the Skies
+E 0 9322 0 2		*	Polaris, the polar star <on the right finger>: the ring of the universe
+E 0 9323 0 16		*	Polaris, the polar star <wielded>: the Great Dipper of the Skies
 S
 
 #OLIMITS

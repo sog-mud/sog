@@ -2374,57 +2374,57 @@ S
 
 #RESETS
 M 0 15409 12 15401 12	* the minor thug (A dark passage)
-E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
+E 0 15419 0 16		*	the minor thug <wielded>: a heavy iron club
 M 0 15409 12 15401 12	* the minor thug (A dark passage)
-E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
+E 0 15419 0 16		*	the minor thug <wielded>: a heavy iron club
 M 0 15410 10 15402 4	* the minor thief (A dark passage)
-E 0 15423 0 16		*	the minor thief<wielded>: a rusty blade
+E 0 15423 0 16		*	the minor thief <wielded>: a rusty blade
 M 0 15410 10 15402 4	* the minor thief (A dark passage)
-E 0 15423 0 16		*	the minor thief<wielded>: a rusty blade
+E 0 15423 0 16		*	the minor thief <wielded>: a rusty blade
 M 0 15409 12 15403 12	* the minor thug (Sleeping Quarters)
-E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
+E 0 15419 0 16		*	the minor thug <wielded>: a heavy iron club
 M 0 15409 12 15403 12	* the minor thug (Sleeping Quarters)
-E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
+E 0 15419 0 16		*	the minor thug <wielded>: a heavy iron club
 M 0 15403 1 15404 1	* Golorth, the thug captain (A bright passage)
 G 0 15424 0		*	Golorth, the thug captain: a plain iron key
-E 0 15414 0 5		*	Golorth, the thug captain<on the body>: Silver plate
-E 0 15415 0 16		*	Golorth, the thug captain<wielded>: a massive bastard sword
+E 0 15414 0 5		*	Golorth, the thug captain <on the body>: Silver plate
+E 0 15415 0 16		*	Golorth, the thug captain <wielded>: a massive bastard sword
 M 0 15411 6 15405 2	* the thief (At the end of the passage)
-E 0 15405 0 12		*	the thief<about the shoulders>: a grey cloak
-E 0 15406 0 16		*	the thief<wielded>: a glass knife
+E 0 15405 0 12		*	the thief <about the shoulders>: a grey cloak
+E 0 15406 0 16		*	the thief <wielded>: a glass knife
 M 0 15409 12 15406 12	* the minor thug (Sleeping quarters)
-E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
+E 0 15419 0 16		*	the minor thug <wielded>: a heavy iron club
 M 0 15409 12 15406 12	* the minor thug (Sleeping quarters)
-E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
+E 0 15419 0 16		*	the minor thug <wielded>: a heavy iron club
 M 0 15409 12 15406 12	* the minor thug (Sleeping quarters)
-E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
+E 0 15419 0 16		*	the minor thug <wielded>: a heavy iron club
 M 0 15409 12 15406 12	* the minor thug (Sleeping quarters)
-E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
+E 0 15419 0 16		*	the minor thug <wielded>: a heavy iron club
 M 0 15410 10 15408 4	* the minor thief (The dark passage continues)
-E 0 15423 0 16		*	the minor thief<wielded>: a rusty blade
+E 0 15423 0 16		*	the minor thief <wielded>: a rusty blade
 M 0 15410 10 15408 4	* the minor thief (The dark passage continues)
-E 0 15423 0 16		*	the minor thief<wielded>: a rusty blade
+E 0 15423 0 16		*	the minor thief <wielded>: a rusty blade
 M 0 15409 12 15410 12	* the minor thug (A bend in the passage)
-E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
+E 0 15419 0 16		*	the minor thug <wielded>: a heavy iron club
 M 0 15409 12 15410 12	* the minor thug (A bend in the passage)
-E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
+E 0 15419 0 16		*	the minor thug <wielded>: a heavy iron club
 M 0 15411 6 15412 2	* the thief (A choked passage)
-E 0 15405 0 12		*	the thief<about the shoulders>: a grey cloak
-E 0 15406 0 16		*	the thief<wielded>: a glass knife
+E 0 15405 0 12		*	the thief <about the shoulders>: a grey cloak
+E 0 15406 0 16		*	the thief <wielded>: a glass knife
 M 0 15411 6 15412 2	* the thief (A choked passage)
-E 0 15405 0 12		*	the thief<about the shoulders>: a grey cloak
-E 0 15406 0 16		*	the thief<wielded>: a glass knife
+E 0 15405 0 12		*	the thief <about the shoulders>: a grey cloak
+E 0 15406 0 16		*	the thief <wielded>: a glass knife
 M 0 15410 10 15413 4	* the minor thief (The end of the passage)
-E 0 15423 0 16		*	the minor thief<wielded>: a rusty blade
+E 0 15423 0 16		*	the minor thief <wielded>: a rusty blade
 M 0 15410 10 15413 4	* the minor thief (The end of the passage)
-E 0 15423 0 16		*	the minor thief<wielded>: a rusty blade
+E 0 15423 0 16		*	the minor thief <wielded>: a rusty blade
 M 0 15409 12 15414 12	* the minor thug (Meeting hall)
-E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
+E 0 15419 0 16		*	the minor thug <wielded>: a heavy iron club
 M 0 15409 12 15414 12	* the minor thug (Meeting hall)
-E 0 15419 0 16		*	the minor thug<wielded>: a heavy iron club
+E 0 15419 0 16		*	the minor thug <wielded>: a heavy iron club
 M 0 15411 6 15414 2	* the thief (Meeting hall)
-E 0 15405 0 12		*	the thief<about the shoulders>: a grey cloak
-E 0 15406 0 16		*	the thief<wielded>: a glass knife
+E 0 15405 0 12		*	the thief <about the shoulders>: a grey cloak
+E 0 15406 0 16		*	the thief <wielded>: a glass knife
 M 0 15415 1 15415 1	* the wretched prisoner (Store room)
 M 0 15413 8 15417 4	* the shade guardian (On the ladder)
 M 0 15413 8 15417 4	* the shade guardian (On the ladder)
@@ -2435,117 +2435,117 @@ M 0 15413 8 15422 4	* the shade guardian (A landing)
 M 0 15413 8 15423 4	* the shade guardian (A small crevice)
 M 0 15413 8 15423 4	* the shade guardian (A small crevice)
 M 0 15412 4 15424 2	* the master thief (Still another landing)
-E 0 15405 0 12		*	the master thief<about the shoulders>: a grey cloak
-E 0 15407 0 16		*	the master thief<wielded>: a glass knife
+E 0 15405 0 12		*	the master thief <about the shoulders>: a grey cloak
+E 0 15407 0 16		*	the master thief <wielded>: a glass knife
 M 0 15412 4 15426 2	* the master thief (A turning in the corridor)
-E 0 15405 0 12		*	the master thief<about the shoulders>: a grey cloak
-E 0 15407 0 16		*	the master thief<wielded>: a glass knife
+E 0 15405 0 12		*	the master thief <about the shoulders>: a grey cloak
+E 0 15407 0 16		*	the master thief <wielded>: a glass knife
 M 0 15414 4 15428 2	* the deadly assasin (A small room)
-E 0 15404 0 16		*	the deadly assasin<wielded>: bone dagger
-E 0 15405 0 12		*	the deadly assasin<about the shoulders>: a grey cloak
+E 0 15404 0 16		*	the deadly assasin <wielded>: bone dagger
+E 0 15405 0 12		*	the deadly assasin <about the shoulders>: a grey cloak
 M 0 15414 4 15429 2	* the deadly assasin (A room leading up)
 G 0 15425 0		*	the deadly assasin: a black iron key
-E 0 15404 0 16		*	the deadly assasin<wielded>: bone dagger
-E 0 15405 0 12		*	the deadly assasin<about the shoulders>: a grey cloak
+E 0 15404 0 16		*	the deadly assasin <wielded>: bone dagger
+E 0 15405 0 12		*	the deadly assasin <about the shoulders>: a grey cloak
 M 0 15402 1 15431 1	* the Hand (The resting place)
-E 0 15412 0 3		*	the Hand<around the neck>: a dark black cloak
-E 0 15413 0 16		*	the Hand<wielded>: a fire blade
+E 0 15412 0 3		*	the Hand <around the neck>: a dark black cloak
+E 0 15413 0 16		*	the Hand <wielded>: a fire blade
 M 0 15408 1 15438 1	* the obsidian golem (Corridor end)
 M 0 15407 1 15439 1	* Darathorn's mother (The grand bedroom)
-E 0 15401 0 0		*	Darathorn's mother<as a light>: the power stone
-E 0 15408 0 12		*	Darathorn's mother<about the shoulders>: a red robe
-E 0 15409 0 16		*	Darathorn's mother<wielded>: a sapphire staff
+E 0 15401 0 0		*	Darathorn's mother <as a light>: the power stone
+E 0 15408 0 12		*	Darathorn's mother <about the shoulders>: a red robe
+E 0 15409 0 16		*	Darathorn's mother <wielded>: a sapphire staff
 M 0 15412 4 15441 2	* the master thief (A well lit corridor)
-E 0 15405 0 12		*	the master thief<about the shoulders>: a grey cloak
-E 0 15407 0 16		*	the master thief<wielded>: a glass knife
+E 0 15405 0 12		*	the master thief <about the shoulders>: a grey cloak
+E 0 15407 0 16		*	the master thief <wielded>: a glass knife
 M 0 15416 8 15443 2	* the silent servant (A well lit corridor)
 M 0 15412 4 15444 2	* the master thief (A turn in the corridor)
-E 0 15405 0 12		*	the master thief<about the shoulders>: a grey cloak
-E 0 15407 0 16		*	the master thief<wielded>: a glass knife
+E 0 15405 0 12		*	the master thief <about the shoulders>: a grey cloak
+E 0 15407 0 16		*	the master thief <wielded>: a glass knife
 M 0 15401 8 15446 4	* the trusted henchman (The Red corridor)
-E 0 15410 0 14		*	the trusted henchman<on the left wrist>: a iron bracer
-E 0 15411 0 16		*	the trusted henchman<wielded>: a wicked battle axe
+E 0 15410 0 14		*	the trusted henchman <on the left wrist>: a iron bracer
+E 0 15411 0 16		*	the trusted henchman <wielded>: a wicked battle axe
 M 0 15401 8 15446 4	* the trusted henchman (The Red corridor)
-E 0 15410 0 14		*	the trusted henchman<on the left wrist>: a iron bracer
-E 0 15411 0 16		*	the trusted henchman<wielded>: a wicked battle axe
+E 0 15410 0 14		*	the trusted henchman <on the left wrist>: a iron bracer
+E 0 15411 0 16		*	the trusted henchman <wielded>: a wicked battle axe
 M 0 15416 8 15447 2	* the silent servant (The red corridor)
 M 0 15401 8 15448 4	* the trusted henchman (An intersection)
-E 0 15410 0 14		*	the trusted henchman<on the left wrist>: a iron bracer
-E 0 15411 0 16		*	the trusted henchman<wielded>: a wicked battle axe
+E 0 15410 0 14		*	the trusted henchman <on the left wrist>: a iron bracer
+E 0 15411 0 16		*	the trusted henchman <wielded>: a wicked battle axe
 M 0 15401 8 15448 4	* the trusted henchman (An intersection)
-E 0 15410 0 14		*	the trusted henchman<on the left wrist>: a iron bracer
-E 0 15411 0 16		*	the trusted henchman<wielded>: a wicked battle axe
+E 0 15410 0 14		*	the trusted henchman <on the left wrist>: a iron bracer
+E 0 15411 0 16		*	the trusted henchman <wielded>: a wicked battle axe
 M 0 15414 4 15449 2	* the deadly assasin (A dark bend)
-E 0 15404 0 16		*	the deadly assasin<wielded>: bone dagger
-E 0 15405 0 12		*	the deadly assasin<about the shoulders>: a grey cloak
+E 0 15404 0 16		*	the deadly assasin <wielded>: bone dagger
+E 0 15405 0 12		*	the deadly assasin <about the shoulders>: a grey cloak
 M 0 15404 1 15451 1	* Alengrot, the evil cleric (Alengrot's Chamber)
-E 0 15416 0 6		*	Alengrot, the evil cleric<over the head>: a green skull cap
-E 0 15417 0 16		*	Alengrot, the evil cleric<wielded>: a green demon claw
+E 0 15416 0 6		*	Alengrot, the evil cleric <over the head>: a green skull cap
+E 0 15417 0 16		*	Alengrot, the evil cleric <wielded>: a green demon claw
 M 0 15414 4 15452 2	* the deadly assasin (A old storeroom)
-E 0 15404 0 16		*	the deadly assasin<wielded>: bone dagger
-E 0 15405 0 12		*	the deadly assasin<about the shoulders>: a grey cloak
+E 0 15404 0 16		*	the deadly assasin <wielded>: bone dagger
+E 0 15405 0 12		*	the deadly assasin <about the shoulders>: a grey cloak
 M 0 15401 8 15453 4	* the trusted henchman (The red corridor)
-E 0 15410 0 14		*	the trusted henchman<on the left wrist>: a iron bracer
-E 0 15411 0 16		*	the trusted henchman<wielded>: a wicked battle axe
+E 0 15410 0 14		*	the trusted henchman <on the left wrist>: a iron bracer
+E 0 15411 0 16		*	the trusted henchman <wielded>: a wicked battle axe
 M 0 15401 8 15453 4	* the trusted henchman (The red corridor)
-E 0 15410 0 14		*	the trusted henchman<on the left wrist>: a iron bracer
-E 0 15411 0 16		*	the trusted henchman<wielded>: a wicked battle axe
+E 0 15410 0 14		*	the trusted henchman <on the left wrist>: a iron bracer
+E 0 15411 0 16		*	the trusted henchman <wielded>: a wicked battle axe
 M 0 15416 8 15454 2	* the silent servant (The red corridor)
 M 0 15401 8 15455 4	* the trusted henchman (End of the red corridor)
-E 0 15410 0 14		*	the trusted henchman<on the left wrist>: a iron bracer
-E 0 15411 0 16		*	the trusted henchman<wielded>: a wicked battle axe
+E 0 15410 0 14		*	the trusted henchman <on the left wrist>: a iron bracer
+E 0 15411 0 16		*	the trusted henchman <wielded>: a wicked battle axe
 M 0 15401 8 15455 4	* the trusted henchman (End of the red corridor)
-E 0 15410 0 14		*	the trusted henchman<on the left wrist>: a iron bracer
-E 0 15411 0 16		*	the trusted henchman<wielded>: a wicked battle axe
+E 0 15410 0 14		*	the trusted henchman <on the left wrist>: a iron bracer
+E 0 15411 0 16		*	the trusted henchman <wielded>: a wicked battle axe
 M 0 15416 8 15456 2	* the silent servant (The southwest corner of the great hall)
 M 0 15417 1 15457 1	* the barbarian warrior (The west side of the great hall)
 M 0 15416 8 15458 2	* the silent servant (The northwest corner of the great hall)
 M 0 15405 9 15459 4	* the masked thug (The north end of the great hall)
-E 0 15421 0 16		*	the masked thug<wielded>: an adamantite small sword
-E 0 15420 0 6		*	the masked thug<over the head>: a black mask
-E 0 15422 0 11		*	the masked thug<as a shield>: the crow shield
+E 0 15421 0 16		*	the masked thug <wielded>: an adamantite small sword
+E 0 15420 0 6		*	the masked thug <over the head>: a black mask
+E 0 15422 0 11		*	the masked thug <as a shield>: the crow shield
 M 0 15405 9 15459 4	* the masked thug (The north end of the great hall)
-E 0 15421 0 16		*	the masked thug<wielded>: an adamantite small sword
-E 0 15420 0 6		*	the masked thug<over the head>: a black mask
-E 0 15422 0 11		*	the masked thug<as a shield>: the crow shield
+E 0 15421 0 16		*	the masked thug <wielded>: an adamantite small sword
+E 0 15420 0 6		*	the masked thug <over the head>: a black mask
+E 0 15422 0 11		*	the masked thug <as a shield>: the crow shield
 M 0 15405 9 15460 4	* the masked thug (Centre of the great hall)
-E 0 15421 0 16		*	the masked thug<wielded>: an adamantite small sword
-E 0 15420 0 6		*	the masked thug<over the head>: a black mask
-E 0 15422 0 11		*	the masked thug<as a shield>: the crow shield
+E 0 15421 0 16		*	the masked thug <wielded>: an adamantite small sword
+E 0 15420 0 6		*	the masked thug <over the head>: a black mask
+E 0 15422 0 11		*	the masked thug <as a shield>: the crow shield
 M 0 15405 9 15460 4	* the masked thug (Centre of the great hall)
-E 0 15421 0 16		*	the masked thug<wielded>: an adamantite small sword
-E 0 15420 0 6		*	the masked thug<over the head>: a black mask
-E 0 15422 0 11		*	the masked thug<as a shield>: the crow shield
+E 0 15421 0 16		*	the masked thug <wielded>: an adamantite small sword
+E 0 15420 0 6		*	the masked thug <over the head>: a black mask
+E 0 15422 0 11		*	the masked thug <as a shield>: the crow shield
 M 0 15405 9 15461 4	* the masked thug (The south end of the great hall)
-E 0 15421 0 16		*	the masked thug<wielded>: an adamantite small sword
-E 0 15420 0 6		*	the masked thug<over the head>: a black mask
-E 0 15422 0 11		*	the masked thug<as a shield>: the crow shield
+E 0 15421 0 16		*	the masked thug <wielded>: an adamantite small sword
+E 0 15420 0 6		*	the masked thug <over the head>: a black mask
+E 0 15422 0 11		*	the masked thug <as a shield>: the crow shield
 M 0 15405 9 15461 4	* the masked thug (The south end of the great hall)
-E 0 15421 0 16		*	the masked thug<wielded>: an adamantite small sword
-E 0 15420 0 6		*	the masked thug<over the head>: a black mask
-E 0 15422 0 11		*	the masked thug<as a shield>: the crow shield
+E 0 15421 0 16		*	the masked thug <wielded>: an adamantite small sword
+E 0 15420 0 6		*	the masked thug <over the head>: a black mask
+E 0 15422 0 11		*	the masked thug <as a shield>: the crow shield
 M 0 15416 8 15462 2	* the silent servant (The southeast corner of the great hall)
 M 0 15416 8 15466 2	* the silent servant (The robe room)
 M 0 15405 9 15469 4	* the masked thug (The outer chamber)
-E 0 15421 0 16		*	the masked thug<wielded>: an adamantite small sword
-E 0 15420 0 6		*	the masked thug<over the head>: a black mask
-E 0 15422 0 11		*	the masked thug<as a shield>: the crow shield
+E 0 15421 0 16		*	the masked thug <wielded>: an adamantite small sword
+E 0 15420 0 6		*	the masked thug <over the head>: a black mask
+E 0 15422 0 11		*	the masked thug <as a shield>: the crow shield
 M 0 15405 9 15469 4	* the masked thug (The outer chamber)
-E 0 15421 0 16		*	the masked thug<wielded>: an adamantite small sword
-E 0 15420 0 6		*	the masked thug<over the head>: a black mask
-E 0 15422 0 11		*	the masked thug<as a shield>: the crow shield
+E 0 15421 0 16		*	the masked thug <wielded>: an adamantite small sword
+E 0 15420 0 6		*	the masked thug <over the head>: a black mask
+E 0 15422 0 11		*	the masked thug <as a shield>: the crow shield
 M 0 15405 9 15469 4	* the masked thug (The outer chamber)
-E 0 15421 0 16		*	the masked thug<wielded>: an adamantite small sword
-E 0 15420 0 6		*	the masked thug<over the head>: a black mask
-E 0 15422 0 11		*	the masked thug<as a shield>: the crow shield
+E 0 15421 0 16		*	the masked thug <wielded>: an adamantite small sword
+E 0 15420 0 6		*	the masked thug <over the head>: a black mask
+E 0 15422 0 11		*	the masked thug <as a shield>: the crow shield
 M 0 15400 1 15470 4	* the Arch-Villan Darathorn (Darathorn's bedroom)
-E 0 15400 0 16		*	the Arch-Villan Darathorn<wielded>: the Seeker
-E 0 15402 0 17		*	the Arch-Villan Darathorn<held in the hands>: the warrior's blessing
-E 0 15403 0 8		*	the Arch-Villan Darathorn<on the feet>: the Boots of the Wind
+E 0 15400 0 16		*	the Arch-Villan Darathorn <wielded>: the Seeker
+E 0 15402 0 17		*	the Arch-Villan Darathorn <held in the hands>: the warrior's blessing
+E 0 15403 0 8		*	the Arch-Villan Darathorn <on the feet>: the Boots of the Wind
 M 0 15416 8 15470 2	* the silent servant (Darathorn's bedroom)
 M 0 15418 1 15476 1	* the kadrdw'ws (A dead end)
 M 0 15406 1 15477 4	* Tolorian, Darathorn's advisor (Tolorian's Laboritory)
-E 0 15418 0 17		*	Tolorian, Darathorn's advisor<held in the hands>: a purple wand
+E 0 15418 0 17		*	Tolorian, Darathorn's advisor <held in the hands>: a purple wand
 S
 
 #OLIMITS

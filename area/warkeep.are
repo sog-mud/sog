@@ -1702,121 +1702,121 @@ S
 
 #RESETS
 M 0 15709 12 15701 1	* a keep guard (Before the Keep)
-E 0 15716 0 5		*	a keep guard<on the body>: a suit of bronze plate
-E 0 15717 0 11		*	a keep guard<as a shield>: a bronze shield
-E 0 15718 0 6		*	a keep guard<over the head>: a bronze helm
-E 0 15719 0 16		*	a keep guard<wielded>: a bronze sword
+E 0 15716 0 5		*	a keep guard <on the body>: a suit of bronze plate
+E 0 15717 0 11		*	a keep guard <as a shield>: a bronze shield
+E 0 15718 0 6		*	a keep guard <over the head>: a bronze helm
+E 0 15719 0 16		*	a keep guard <wielded>: a bronze sword
 M 0 15709 12 15702 1	* a keep guard (A Guard Tower)
-E 0 15716 0 5		*	a keep guard<on the body>: a suit of bronze plate
-E 0 15717 0 11		*	a keep guard<as a shield>: a bronze shield
-E 0 15718 0 6		*	a keep guard<over the head>: a bronze helm
-E 0 15719 0 16		*	a keep guard<wielded>: a bronze sword
+E 0 15716 0 5		*	a keep guard <on the body>: a suit of bronze plate
+E 0 15717 0 11		*	a keep guard <as a shield>: a bronze shield
+E 0 15718 0 6		*	a keep guard <over the head>: a bronze helm
+E 0 15719 0 16		*	a keep guard <wielded>: a bronze sword
 O 0 15741 0 15703	* a black flag (The Roof of the Tower)
 M 0 15709 12 15703 1	* a keep guard (The Roof of the Tower)
-E 0 15716 0 5		*	a keep guard<on the body>: a suit of bronze plate
-E 0 15717 0 11		*	a keep guard<as a shield>: a bronze shield
-E 0 15718 0 6		*	a keep guard<over the head>: a bronze helm
-E 0 15719 0 16		*	a keep guard<wielded>: a bronze sword
+E 0 15716 0 5		*	a keep guard <on the body>: a suit of bronze plate
+E 0 15717 0 11		*	a keep guard <as a shield>: a bronze shield
+E 0 15718 0 6		*	a keep guard <over the head>: a bronze helm
+E 0 15719 0 16		*	a keep guard <wielded>: a bronze sword
 M 0 15709 12 15704 1	* a keep guard (Inside the Keep)
-E 0 15716 0 5		*	a keep guard<on the body>: a suit of bronze plate
-E 0 15717 0 11		*	a keep guard<as a shield>: a bronze shield
-E 0 15718 0 6		*	a keep guard<over the head>: a bronze helm
-E 0 15719 0 16		*	a keep guard<wielded>: a bronze sword
+E 0 15716 0 5		*	a keep guard <on the body>: a suit of bronze plate
+E 0 15717 0 11		*	a keep guard <as a shield>: a bronze shield
+E 0 15718 0 6		*	a keep guard <over the head>: a bronze helm
+E 0 15719 0 16		*	a keep guard <wielded>: a bronze sword
 O 0 15738 0 15707	* a gallows (The Inner Courtyard)
 M 0 15708 12 15708 1	* a zombie servant (The Inner Courtyard)
 O 0 15739 0 15709	* the stocks (The Inner Courtyard)
 M 0 15708 12 15709 1	* a zombie servant (The Inner Courtyard)
 M 0 15705 8 15710 1	* a troll guard (The Inner Courtyard)
-E 0 15713 0 16		*	a troll guard<wielded>: a spiked club
-E 0 15714 0 5		*	a troll guard<on the body>: a leather hauberk
+E 0 15713 0 16		*	a troll guard <wielded>: a spiked club
+E 0 15714 0 5		*	a troll guard <on the body>: a leather hauberk
 O 0 15740 0 15711	* a pot of boiling oil (The Inner Courtyard)
 O 0 15740 0 15712	* a pot of boiling oil (The Inner Courtyard)
 M 0 15720 1 15713 1	* an otyugh (The Garbage Pit)
 O 0 15736 0 15713	* a huge pile of rubbish (The Garbage Pit)
 M 0 15713 4 15714 1	* a hungry crocodile (The Crocodile Pit)
 M 0 15705 8 15716 1	* a troll guard (Guard Room)
-E 0 15713 0 16		*	a troll guard<wielded>: a spiked club
-E 0 15714 0 5		*	a troll guard<on the body>: a leather hauberk
+E 0 15713 0 16		*	a troll guard <wielded>: a spiked club
+E 0 15714 0 5		*	a troll guard <on the body>: a leather hauberk
 M 0 15705 8 15717 1	* a troll guard (Guard Room)
-E 0 15713 0 16		*	a troll guard<wielded>: a spiked club
-E 0 15714 0 5		*	a troll guard<on the body>: a leather hauberk
+E 0 15713 0 16		*	a troll guard <wielded>: a spiked club
+E 0 15714 0 5		*	a troll guard <on the body>: a leather hauberk
 M 0 15708 12 15718 1	* a zombie servant (A Stairwell)
 M 0 15708 12 15719 1	* a zombie servant (A Stairwell)
 M 0 15715 4 15721 1	* an assassin (Assassins' Quarters)
-E 0 15725 0 12		*	an assassin<about the shoulders>: the robes of an assassin
-E 0 15726 0 16		*	an assassin<wielded>: a throwing dagger
+E 0 15725 0 12		*	an assassin <about the shoulders>: the robes of an assassin
+E 0 15726 0 16		*	an assassin <wielded>: a throwing dagger
 M 0 15710 1 15722 1	* an apprentice mage (Apprentice Quarters)
-E 0 15720 0 12		*	an apprentice mage<about the shoulders>: some green robes
-E 0 15721 0 16		*	an apprentice mage<wielded>: a wooden staff
-E 0 15722 0 17		*	an apprentice mage<held in the hands>: a spellbook
+E 0 15720 0 12		*	an apprentice mage <about the shoulders>: some green robes
+E 0 15721 0 16		*	an apprentice mage <wielded>: a wooden staff
+E 0 15722 0 17		*	an apprentice mage <held in the hands>: a spellbook
 M 0 15706 1 15723 1	* a flesh golem (Antechamber)
 O 0 15737 0 15723	* a torturer's rack (Antechamber)
 M 0 15708 12 15723 1	* a zombie servant (Antechamber)
 M 0 15700 1 15724 1	* the warlock Baragar (Baragar's Chambers)
-E 0 15700 0 12		*	the warlock Baragar<about the shoulders>: some black robes
-E 0 15701 0 17		*	the warlock Baragar<held in the hands>: a bone staff
-E 0 15702 0 16		*	the warlock Baragar<wielded>: a bone sword
-E 0 15703 0 6		*	the warlock Baragar<over the head>: a bronze helm
+E 0 15700 0 12		*	the warlock Baragar <about the shoulders>: some black robes
+E 0 15701 0 17		*	the warlock Baragar <held in the hands>: a bone staff
+E 0 15702 0 16		*	the warlock Baragar <wielded>: a bone sword
+E 0 15703 0 6		*	the warlock Baragar <over the head>: a bronze helm
 M 0 15704 1 15724 1	* a hawk familiar (Baragar's Chambers)
 M 0 15701 1 15725 1	* the witch Alara (Alara's Chamber)
-E 0 15704 0 5		*	the witch Alara<on the body>: a leather bandolier
+E 0 15704 0 5		*	the witch Alara <on the body>: a leather bandolier
 P 0 15705 1 0 1	* a leather bandolier: a green potion
 P 0 15706 1 0 1	* a leather bandolier: a red potion
 P 0 15707 1 0 1	* a leather bandolier: a lightning scroll
 P 0 15708 1 0 1	* a leather bandolier: a fire scroll
 P 0 15709 1 0 1	* a leather bandolier: a wand
-E 0 15710 0 16		*	the witch Alara<wielded>: a dagger
-E 0 15711 0 17		*	the witch Alara<held in the hands>: a garthalanium staff
+E 0 15710 0 16		*	the witch Alara <wielded>: a dagger
+E 0 15711 0 17		*	the witch Alara <held in the hands>: a garthalanium staff
 M 0 15703 1 15725 1	* a cat familiar (Alara's Chamber)
 M 0 15708 12 15726 1	* a zombie servant (A Stairwell)
 M 0 15716 1 15726 1	* the assassin Dagar (A Stairwell)
-E 0 15727 0 16		*	the assassin Dagar<wielded>: a steel sword
-E 0 15728 0 1		*	the assassin Dagar<on the left finger>: a magic ring
-E 0 15728 0 2		*	the assassin Dagar<on the right finger>: a magic ring
-E 0 15729 0 8		*	the assassin Dagar<on the feet>: elven boots
-E 0 15730 0 3		*	the assassin Dagar<around the neck>: a green elven cloak
+E 0 15727 0 16		*	the assassin Dagar <wielded>: a steel sword
+E 0 15728 0 1		*	the assassin Dagar <on the left finger>: a magic ring
+E 0 15728 0 2		*	the assassin Dagar <on the right finger>: a magic ring
+E 0 15729 0 8		*	the assassin Dagar <on the feet>: elven boots
+E 0 15730 0 3		*	the assassin Dagar <around the neck>: a green elven cloak
 M 0 15712 1 15729 1	* a mimic (A Treasure Room)
 O 0 15723 0 15729	* a deep pit (A Treasure Room)
 O 0 15723 0 15729	* a deep pit (A Treasure Room)
 M 0 15702 1 15730 1	* a demon (A Summoning Room)
 O 0 15712 0 15730	* a pentagram (A Summoning Room)
 M 0 15717 10 15732 1	* a gnoll slave (The Entryway to the Mines)
-E 0 15731 0 16		*	a gnoll slave<wielded>: a pick
-E 0 15742 0 7		*	a gnoll slave<on the legs>: a set of leg irons
+E 0 15731 0 16		*	a gnoll slave <wielded>: a pick
+E 0 15742 0 7		*	a gnoll slave <on the legs>: a set of leg irons
 O 0 15733 0 15732	* a pile of rubble (The Entryway to the Mines)
 M 0 15707 1 15734 1	* a fire drake (A Fiery Cavern)
-E 0 15715 0 12		*	a fire drake<about the shoulders>: a fire drake hide
+E 0 15715 0 12		*	a fire drake <about the shoulders>: a fire drake hide
 M 0 15711 1 15735 1	* a grell (A Lab)
 O 0 15741 0 15736	* a black flag (The Roof of the Inner Keep)
 M 0 15717 10 15737 1	* a gnoll slave (The Mines)
-E 0 15732 0 16		*	a gnoll slave<wielded>: a shovel
-E 0 15742 0 7		*	a gnoll slave<on the legs>: a set of leg irons
+E 0 15732 0 16		*	a gnoll slave <wielded>: a shovel
+E 0 15742 0 7		*	a gnoll slave <on the legs>: a set of leg irons
 O 0 15733 0 15737	* a pile of rubble (The Mines)
 M 0 15717 10 15738 1	* a gnoll slave (The Mines)
-E 0 15731 0 16		*	a gnoll slave<wielded>: a pick
-E 0 15742 0 7		*	a gnoll slave<on the legs>: a set of leg irons
+E 0 15731 0 16		*	a gnoll slave <wielded>: a pick
+E 0 15742 0 7		*	a gnoll slave <on the legs>: a set of leg irons
 O 0 15733 0 15738	* a pile of rubble (The Mines)
 M 0 15718 4 15738 1	* an ogre slave (The Mines)
-E 0 15732 0 16		*	an ogre slave<wielded>: a shovel
-E 0 15742 0 7		*	an ogre slave<on the legs>: a set of leg irons
+E 0 15732 0 16		*	an ogre slave <wielded>: a shovel
+E 0 15742 0 7		*	an ogre slave <on the legs>: a set of leg irons
 M 0 15717 10 15739 1	* a gnoll slave (The Mines)
-E 0 15732 0 16		*	a gnoll slave<wielded>: a shovel
-E 0 15742 0 7		*	a gnoll slave<on the legs>: a set of leg irons
+E 0 15732 0 16		*	a gnoll slave <wielded>: a shovel
+E 0 15742 0 7		*	a gnoll slave <on the legs>: a set of leg irons
 O 0 15733 0 15739	* a pile of rubble (The Mines)
 M 0 15719 1 15739 1	* a flind slave master (The Mines)
 G 0 15734 0		*	a flind slave master: a whip
-E 0 15735 0 17		*	a flind slave master<held in the hands>: a flind bar
+E 0 15735 0 17		*	a flind slave master <held in the hands>: a flind bar
 M 0 15717 10 15740 1	* a gnoll slave (The Mines)
-E 0 15731 0 16		*	a gnoll slave<wielded>: a pick
-E 0 15742 0 7		*	a gnoll slave<on the legs>: a set of leg irons
+E 0 15731 0 16		*	a gnoll slave <wielded>: a pick
+E 0 15742 0 7		*	a gnoll slave <on the legs>: a set of leg irons
 O 0 15733 0 15740	* a pile of rubble (The Mines)
 M 0 15718 4 15740 1	* an ogre slave (The Mines)
-E 0 15731 0 16		*	an ogre slave<wielded>: a pick
-E 0 15742 0 7		*	an ogre slave<on the legs>: a set of leg irons
+E 0 15731 0 16		*	an ogre slave <wielded>: a pick
+E 0 15742 0 7		*	an ogre slave <on the legs>: a set of leg irons
 M 0 15714 6 15741 1	* a savage war dog (The Dog Pits)
-E 0 15724 0 3		*	a savage war dog<around the neck>: a spiked collar
+E 0 15724 0 3		*	a savage war dog <around the neck>: a spiked collar
 M 0 15714 6 15742 1	* a savage war dog (The Dog Pits)
-E 0 15724 0 3		*	a savage war dog<around the neck>: a spiked collar
+E 0 15724 0 3		*	a savage war dog <around the neck>: a spiked collar
 S
 
 #HELPS

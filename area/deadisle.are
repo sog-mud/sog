@@ -4403,54 +4403,54 @@ S
 #RESETS
 O 0 22328 0 22301	* a huge stone (The Isle of the Lost Souls)
 O 0 22329 0 22301	* a corpse (The Isle of the Lost Souls)
-E 0 22300 0 17		*	<unknown><held in the hands>: key of the crypts
+E 0 22300 0 17		*	<unknown> <held in the hands>: key of the crypts
 O 0 22330 0 22302	*  (The Entrance to the Dungeon)
 O 0 22331 0 22302	* a parchment (The Entrance to the Dungeon)
 M 0 22300 1 22302 1	* the Manticore (The Entrance to the Dungeon)
 M 0 22303 12 22303 1	* the Shade (A Crypt)
-E 0 22309 0 13		*	the Shade<around the waist>: a black belt of the 5 flowers
-E 0 22310 0 3		*	the Shade<around the neck>: a midnight cloak
-E 0 22311 0 17		*	the Shade<held in the hands>: the key of ringwraiths
-E 0 22308 0 15		*	the Shade<on the right wrist>: a bracer of defence
+E 0 22309 0 13		*	the Shade <around the waist>: a black belt of the 5 flowers
+E 0 22310 0 3		*	the Shade <around the neck>: a midnight cloak
+E 0 22311 0 17		*	the Shade <held in the hands>: the key of ringwraiths
+E 0 22308 0 15		*	the Shade <on the right wrist>: a bracer of defence
 M 0 22303 12 22304 1	* the Shade (A Crypt)
-E 0 22309 0 13		*	the Shade<around the waist>: a black belt of the 5 flowers
-E 0 22310 0 3		*	the Shade<around the neck>: a midnight cloak
-E 0 22311 0 17		*	the Shade<held in the hands>: the key of ringwraiths
-E 0 22308 0 15		*	the Shade<on the right wrist>: a bracer of defence
+E 0 22309 0 13		*	the Shade <around the waist>: a black belt of the 5 flowers
+E 0 22310 0 3		*	the Shade <around the neck>: a midnight cloak
+E 0 22311 0 17		*	the Shade <held in the hands>: the key of ringwraiths
+E 0 22308 0 15		*	the Shade <on the right wrist>: a bracer of defence
 M 0 22303 12 22305 1	* the Shade (A Crypt)
-E 0 22309 0 13		*	the Shade<around the waist>: a black belt of the 5 flowers
-E 0 22310 0 3		*	the Shade<around the neck>: a midnight cloak
-E 0 22311 0 17		*	the Shade<held in the hands>: the key of ringwraiths
-E 0 22308 0 15		*	the Shade<on the right wrist>: a bracer of defence
+E 0 22309 0 13		*	the Shade <around the waist>: a black belt of the 5 flowers
+E 0 22310 0 3		*	the Shade <around the neck>: a midnight cloak
+E 0 22311 0 17		*	the Shade <held in the hands>: the key of ringwraiths
+E 0 22308 0 15		*	the Shade <on the right wrist>: a bracer of defence
 M 0 22304 1 22306 1	* Faegwath the Undead Sorceror (The Hall of Crypts)
-E 0 22313 0 5		*	Faegwath the Undead Sorceror<on the body>: a black gown of Death
-E 0 22314 0 2		*	Faegwath the Undead Sorceror<on the right finger>: a ring of demons
-E 0 22319 0 16		*	Faegwath the Undead Sorceror<wielded>: the staff of Death
-E 0 22320 0 17		*	Faegwath the Undead Sorceror<held in the hands>: a key of the Gorrors
+E 0 22313 0 5		*	Faegwath the Undead Sorceror <on the body>: a black gown of Death
+E 0 22314 0 2		*	Faegwath the Undead Sorceror <on the right finger>: a ring of demons
+E 0 22319 0 16		*	Faegwath the Undead Sorceror <wielded>: the staff of Death
+E 0 22320 0 17		*	Faegwath the Undead Sorceror <held in the hands>: a key of the Gorrors
 M 0 22303 12 22307 1	* the Shade (A Crypt)
-E 0 22309 0 13		*	the Shade<around the waist>: a black belt of the 5 flowers
-E 0 22310 0 3		*	the Shade<around the neck>: a midnight cloak
-E 0 22311 0 17		*	the Shade<held in the hands>: the key of ringwraiths
-E 0 22308 0 15		*	the Shade<on the right wrist>: a bracer of defence
+E 0 22309 0 13		*	the Shade <around the waist>: a black belt of the 5 flowers
+E 0 22310 0 3		*	the Shade <around the neck>: a midnight cloak
+E 0 22311 0 17		*	the Shade <held in the hands>: the key of ringwraiths
+E 0 22308 0 15		*	the Shade <on the right wrist>: a bracer of defence
 M 0 22303 12 22308 1	* the Shade (A Crypt)
-E 0 22309 0 13		*	the Shade<around the waist>: a black belt of the 5 flowers
-E 0 22310 0 3		*	the Shade<around the neck>: a midnight cloak
-E 0 22311 0 17		*	the Shade<held in the hands>: the key of ringwraiths
-E 0 22308 0 15		*	the Shade<on the right wrist>: a bracer of defence
+E 0 22309 0 13		*	the Shade <around the waist>: a black belt of the 5 flowers
+E 0 22310 0 3		*	the Shade <around the neck>: a midnight cloak
+E 0 22311 0 17		*	the Shade <held in the hands>: the key of ringwraiths
+E 0 22308 0 15		*	the Shade <on the right wrist>: a bracer of defence
 M 0 22303 12 22309 1	* the Shade (A Crypt)
-E 0 22309 0 13		*	the Shade<around the waist>: a black belt of the 5 flowers
-E 0 22310 0 3		*	the Shade<around the neck>: a midnight cloak
-E 0 22311 0 17		*	the Shade<held in the hands>: the key of ringwraiths
-E 0 22308 0 15		*	the Shade<on the right wrist>: a bracer of defence
+E 0 22309 0 13		*	the Shade <around the waist>: a black belt of the 5 flowers
+E 0 22310 0 3		*	the Shade <around the neck>: a midnight cloak
+E 0 22311 0 17		*	the Shade <held in the hands>: the key of ringwraiths
+E 0 22308 0 15		*	the Shade <on the right wrist>: a bracer of defence
 M 0 22302 1 22310 1	* Cantoras the Skeletal Lord (A Crypt)
-E 0 22301 0 16		*	Cantoras the Skeletal Lord<wielded>: the Bushido blade
-E 0 22302 0 6		*	Cantoras the Skeletal Lord<over the head>: the Kabuto
-E 0 22304 0 7		*	Cantoras the Skeletal Lord<on the legs>: the Hi-Kane-Do battle leggings
-E 0 22303 0 5		*	Cantoras the Skeletal Lord<on the body>: the Hi-Kane-Do battle gown
-E 0 22305 0 10		*	Cantoras the Skeletal Lord<on the arms>: the Hi-Kane-Do battle sleeves
-E 0 22306 0 9		*	Cantoras the Skeletal Lord<on the hands>: the Hi-Kane-Do battle gloves
-E 0 22307 0 8		*	Cantoras the Skeletal Lord<on the feet>: the Hi-Kane-Do battle boots
-E 0 22321 0 11		*	Cantoras the Skeletal Lord<as a shield>: the Shield of Deflection
+E 0 22301 0 16		*	Cantoras the Skeletal Lord <wielded>: the Bushido blade
+E 0 22302 0 6		*	Cantoras the Skeletal Lord <over the head>: the Kabuto
+E 0 22304 0 7		*	Cantoras the Skeletal Lord <on the legs>: the Hi-Kane-Do battle leggings
+E 0 22303 0 5		*	Cantoras the Skeletal Lord <on the body>: the Hi-Kane-Do battle gown
+E 0 22305 0 10		*	Cantoras the Skeletal Lord <on the arms>: the Hi-Kane-Do battle sleeves
+E 0 22306 0 9		*	Cantoras the Skeletal Lord <on the hands>: the Hi-Kane-Do battle gloves
+E 0 22307 0 8		*	Cantoras the Skeletal Lord <on the feet>: the Hi-Kane-Do battle boots
+E 0 22321 0 11		*	Cantoras the Skeletal Lord <as a shield>: the Shield of Deflection
 M 0 22301 12 22311 2	* Green Glutton Ghost (The End of Passage)
 G 0 22352 0		*	Green Glutton Ghost: a huge piece of beef
 M 0 22301 12 22312 2	* Green Glutton Ghost (A Narrow Passage)
@@ -4468,39 +4468,39 @@ O 0 22315 0 22318	* the tomb (A Crypt)
 P 0 22317 100 0 1	* the tomb: the Ankh of Death
 P 0 22316 8 0 1	* the tomb: the Wheel of Pa-Ra-Voz
 M 0 22305 1 22318 1	* Chu-gun the Guard of Pa-Ra-Voz (A Crypt)
-E 0 22318 0 16		*	Chu-gun the Guard of Pa-Ra-Voz<wielded>: the Axel of Pa-Ra-Voz
+E 0 22318 0 16		*	Chu-gun the Guard of Pa-Ra-Voz <wielded>: the Axel of Pa-Ra-Voz
 M 0 22303 12 22319 1	* the Shade (A Crypt)
-E 0 22309 0 13		*	the Shade<around the waist>: a black belt of the 5 flowers
-E 0 22310 0 3		*	the Shade<around the neck>: a midnight cloak
-E 0 22311 0 17		*	the Shade<held in the hands>: the key of ringwraiths
-E 0 22308 0 15		*	the Shade<on the right wrist>: a bracer of defence
+E 0 22309 0 13		*	the Shade <around the waist>: a black belt of the 5 flowers
+E 0 22310 0 3		*	the Shade <around the neck>: a midnight cloak
+E 0 22311 0 17		*	the Shade <held in the hands>: the key of ringwraiths
+E 0 22308 0 15		*	the Shade <on the right wrist>: a bracer of defence
 M 0 22303 12 22320 1	* the Shade (A Crypt)
-E 0 22309 0 13		*	the Shade<around the waist>: a black belt of the 5 flowers
-E 0 22310 0 3		*	the Shade<around the neck>: a midnight cloak
-E 0 22311 0 17		*	the Shade<held in the hands>: the key of ringwraiths
-E 0 22308 0 15		*	the Shade<on the right wrist>: a bracer of defence
+E 0 22309 0 13		*	the Shade <around the waist>: a black belt of the 5 flowers
+E 0 22310 0 3		*	the Shade <around the neck>: a midnight cloak
+E 0 22311 0 17		*	the Shade <held in the hands>: the key of ringwraiths
+E 0 22308 0 15		*	the Shade <on the right wrist>: a bracer of defence
 M 0 22303 12 22321 1	* the Shade (A Crypt)
-E 0 22309 0 13		*	the Shade<around the waist>: a black belt of the 5 flowers
-E 0 22310 0 3		*	the Shade<around the neck>: a midnight cloak
-E 0 22311 0 17		*	the Shade<held in the hands>: the key of ringwraiths
-E 0 22308 0 15		*	the Shade<on the right wrist>: a bracer of defence
+E 0 22309 0 13		*	the Shade <around the waist>: a black belt of the 5 flowers
+E 0 22310 0 3		*	the Shade <around the neck>: a midnight cloak
+E 0 22311 0 17		*	the Shade <held in the hands>: the key of ringwraiths
+E 0 22308 0 15		*	the Shade <on the right wrist>: a bracer of defence
 O 0 22330 0 22322	*  (The Hall of the Crypts)
 M 0 22303 12 22323 1	* the Shade (A Crypt)
-E 0 22309 0 13		*	the Shade<around the waist>: a black belt of the 5 flowers
-E 0 22310 0 3		*	the Shade<around the neck>: a midnight cloak
-E 0 22311 0 17		*	the Shade<held in the hands>: the key of ringwraiths
-E 0 22308 0 15		*	the Shade<on the right wrist>: a bracer of defence
+E 0 22309 0 13		*	the Shade <around the waist>: a black belt of the 5 flowers
+E 0 22310 0 3		*	the Shade <around the neck>: a midnight cloak
+E 0 22311 0 17		*	the Shade <held in the hands>: the key of ringwraiths
+E 0 22308 0 15		*	the Shade <on the right wrist>: a bracer of defence
 M 0 22303 12 22324 1	* the Shade (A Crypt)
-E 0 22309 0 13		*	the Shade<around the waist>: a black belt of the 5 flowers
-E 0 22310 0 3		*	the Shade<around the neck>: a midnight cloak
-E 0 22311 0 17		*	the Shade<held in the hands>: the key of ringwraiths
-E 0 22308 0 15		*	the Shade<on the right wrist>: a bracer of defence
+E 0 22309 0 13		*	the Shade <around the waist>: a black belt of the 5 flowers
+E 0 22310 0 3		*	the Shade <around the neck>: a midnight cloak
+E 0 22311 0 17		*	the Shade <held in the hands>: the key of ringwraiths
+E 0 22308 0 15		*	the Shade <on the right wrist>: a bracer of defence
 M 0 22303 12 22325 1	* the Shade (A Crypt)
 G 0 22308 0		*	the Shade: a bracer of defence
-E 0 22309 0 13		*	the Shade<around the waist>: a black belt of the 5 flowers
-E 0 22310 0 3		*	the Shade<around the neck>: a midnight cloak
-E 0 22311 0 17		*	the Shade<held in the hands>: the key of ringwraiths
-E 0 22308 0 15		*	the Shade<on the right wrist>: a bracer of defence
+E 0 22309 0 13		*	the Shade <around the waist>: a black belt of the 5 flowers
+E 0 22310 0 3		*	the Shade <around the neck>: a midnight cloak
+E 0 22311 0 17		*	the Shade <held in the hands>: the key of ringwraiths
+E 0 22308 0 15		*	the Shade <on the right wrist>: a bracer of defence
 M 0 22312 1 22327 1	* Hoarmurath of Dir (The northern hallway)
 M 0 22313 1 22329 1	* Khamul the Easterling (The northern hallway)
 M 0 22314 1 22331 1	* Murazor, the Witch-King of Angmar (The northern hallway)
@@ -4511,7 +4511,7 @@ M 0 22308 1 22350 1	* Alhorahil the Blind (The southern hallway)
 M 0 22307 1 22352 1	* Uvatha the Horseman (The southern hallway)
 M 0 22306 1 22354 1	* Adunaphel the Quiet (The southern hallway)
 M 0 22315 1 22357 1	* Omarax the Eye tyrant (A Cage)
-E 0 22323 0 17		*	Omarax the Eye tyrant<held in the hands>: the key of the beast
+E 0 22323 0 17		*	Omarax the Eye tyrant <held in the hands>: the key of the beast
 O 0 22322 0 22357	* the chest of the beast (A Cage)
 P 0 22342 1 0 1	* the chest of the beast: the lance named "Osondir"
 P 0 22343 10 0 1	* the chest of the beast: an ebony helmet
@@ -4519,7 +4519,7 @@ O 0 22325 0 22358	* the chest of the beast (A Cage)
 P 0 22344 10 0 1	* the chest of the beast: a set of ebony leggings
 P 0 22326 1 0 1	* the chest of the beast: the Great Axe named "Barukkheled"
 M 0 22316 1 22358 1	* Tselakus, the Dreadlord (A Cage)
-E 0 22324 0 17		*	Tselakus, the Dreadlord<held in the hands>: the key of the beast
+E 0 22324 0 17		*	Tselakus, the Dreadlord <held in the hands>: the key of the beast
 M 0 22325 8 22361 1	* the Colbran (The underworld sea)
 M 0 22326 8 22361 1	* the Gelatinous cube (The underworld sea)
 M 0 22322 8 22362 1	* the Dread (The underworld sea)
@@ -4537,7 +4537,7 @@ M 0 22324 8 22367 1	* the Balck River (The underworld sea)
 M 0 22322 8 22368 1	* the Dread (The underworld sea)
 M 0 22323 8 22368 1	* Nightwing (The underworld sea)
 M 0 22321 1 22369 1	* Baphomet the Minotaur Lord (A Cage)
-E 0 22338 0 17		*	Baphomet the Minotaur Lord<held in the hands>: the key of the beast
+E 0 22338 0 17		*	Baphomet the Minotaur Lord <held in the hands>: the key of the beast
 O 0 22339 0 22369	* a chest (A Cage)
 P 0 22340 1 0 1	* a chest: the mace named "Taratol"
 P 0 22341 10 0 1	* a chest: an ebony breastplate
@@ -4546,7 +4546,7 @@ M 0 22324 8 22371 1	* the Balck River (The underworld sea)
 M 0 22325 8 22372 1	* the Colbran (The underworld sea)
 M 0 22324 8 22372 1	* the Balck River (The underworld sea)
 M 0 22318 1 22373 1	* Gothmog, the High Captain of Balrogs (The Entrance to the Hall of Gorrors)
-E 0 22327 0 16		*	Gothmog, the High Captain of Balrogs<wielded>: a Flame Whip
+E 0 22327 0 16		*	Gothmog, the High Captain of Balrogs <wielded>: a Flame Whip
 M 0 22325 8 22374 1	* the Colbran (The underworld sea)
 M 0 22324 8 22374 1	* the Balck River (The underworld sea)
 M 0 22326 8 22375 1	* the Gelatinous cube (The underworld sea)
@@ -4555,7 +4555,7 @@ M 0 22317 1 22377 1	* Muar, the Balrog (A Cage)
 O 0 22333 0 22377	* a chest (A Cage)
 P 0 22346 10 0 1	* a chest: a set of ebony sleeves
 P 0 22345 1 0 1	* a chest: the staff named "Nar-i-vagil"
-E 0 22332 0 17		*	Muar, the Balrog<held in the hands>: the key of the beast
+E 0 22332 0 17		*	Muar, the Balrog <held in the hands>: the key of the beast
 M 0 22322 8 22378 1	* the Dread (The underworld sea)
 M 0 22323 8 22378 1	* Nightwing (The underworld sea)
 M 0 22325 8 22379 1	* the Colbran (The underworld sea)
@@ -4573,7 +4573,7 @@ M 0 22323 8 22384 1	* Nightwing (The underworld sea)
 M 0 22325 8 22385 1	* the Colbran (The underworld sea)
 M 0 22326 8 22385 1	* the Gelatinous cube (The underworld sea)
 M 0 22320 1 22388 1	* Uriel, Demon of Fire (A Cage)
-E 0 22336 0 17		*	Uriel, Demon of Fire<held in the hands>: the key of the beast
+E 0 22336 0 17		*	Uriel, Demon of Fire <held in the hands>: the key of the beast
 O 0 22337 0 22388	* a chest (A Cage)
 P 0 22349 1 0 1	* a chest: the whip named "Careth Asdriag"
 P 0 22350 10 0 1	* a chest: a pair of ebony gloves
@@ -4581,342 +4581,342 @@ M 0 22319 1 22389 1	* Vecna, the Emperor Lich (A Cage)
 O 0 22335 0 22389	* a chest (A Cage)
 P 0 22348 10 0 1	* a chest: a pair of ebony boots
 P 0 22347 1 0 1	* a chest: the flail named "Thunderfist"
-E 0 22334 0 17		*	Vecna, the Emperor Lich<held in the hands>: the key of the beast
+E 0 22334 0 17		*	Vecna, the Emperor Lich <held in the hands>: the key of the beast
 M 0 22327 1 22391 1	* Itangast, the Fire Drake (The Gate before Treasure Keep)
-E 0 22351 0 17		*	Itangast, the Fire Drake<held in the hands>: the key of treasure keep
+E 0 22351 0 17		*	Itangast, the Fire Drake <held in the hands>: the key of treasure keep
 O 0 22361 0 22392	* chest (The North-West Coner of Treasure Keep)
 M 0 22330 42 22392 2	* the undead guard (The North-West Coner of Treasure Keep)
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
 O 0 22380 0 22393	* a pile of coins (The North Wall of Treasure Keep)
 M 0 22330 42 22393 2	* the undead guard (The North Wall of Treasure Keep)
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
 O 0 22362 0 22394	* chest (The North Wall of Treasure Keep)
 O 0 22380 0 22394	* a pile of coins (The North Wall of Treasure Keep)
 M 0 22330 42 22394 2	* the undead guard (The North Wall of Treasure Keep)
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
 O 0 22380 0 22395	* a pile of coins (The North Wall of Treasure Keep)
 M 0 22330 42 22395 2	* the undead guard (The North Wall of Treasure Keep)
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
 O 0 22363 0 22396	* chest (The North-East Corner of Treasure Keep)
 O 0 22380 0 22396	* a pile of coins (The North-East Corner of Treasure Keep)
 M 0 22330 42 22396 2	* the undead guard (The North-East Corner of Treasure Keep)
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
 O 0 22380 0 22397	* a pile of coins (The West Wall of Treasure Keep)
 M 0 22330 42 22397 2	* the undead guard (The West Wall of Treasure Keep)
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
 O 0 22380 0 22398	* a pile of coins (The Treasure Keep)
 M 0 22330 42 22398 1	* the undead guard (The Treasure Keep)
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
 M 0 22329 8 22398 1	* the high guard (The Treasure Keep)
-E 0 22356 0 17		*	the high guard<held in the hands>: the bone key
-E 0 22369 0 6		*	the high guard<over the head>: a silver helm
-E 0 22370 0 5		*	the high guard<on the body>: a silver vest
-E 0 22371 0 8		*	the high guard<on the feet>: a silver boots
-E 0 22372 0 10		*	the high guard<on the arms>: a silver sleeves
-E 0 22373 0 9		*	the high guard<on the hands>: a pair of silver gloves
-E 0 22374 0 7		*	the high guard<on the legs>: a set of silver leggings
-E 0 22375 0 11		*	the high guard<as a shield>: a silver shield
-E 0 22376 0 16		*	the high guard<wielded>: a small silver dagger named "Backstabber"
+E 0 22356 0 17		*	the high guard <held in the hands>: the bone key
+E 0 22369 0 6		*	the high guard <over the head>: a silver helm
+E 0 22370 0 5		*	the high guard <on the body>: a silver vest
+E 0 22371 0 8		*	the high guard <on the feet>: a silver boots
+E 0 22372 0 10		*	the high guard <on the arms>: a silver sleeves
+E 0 22373 0 9		*	the high guard <on the hands>: a pair of silver gloves
+E 0 22374 0 7		*	the high guard <on the legs>: a set of silver leggings
+E 0 22375 0 11		*	the high guard <as a shield>: a silver shield
+E 0 22376 0 16		*	the high guard <wielded>: a small silver dagger named "Backstabber"
 O 0 22380 0 22399	* a pile of coins (The Treasure Keep)
 M 0 22330 42 22399 1	* the undead guard (The Treasure Keep)
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
 M 0 22329 8 22399 1	* the high guard (The Treasure Keep)
-E 0 22357 0 17		*	the high guard<held in the hands>: the bone key
-E 0 22369 0 6		*	the high guard<over the head>: a silver helm
-E 0 22370 0 5		*	the high guard<on the body>: a silver vest
-E 0 22371 0 8		*	the high guard<on the feet>: a silver boots
-E 0 22372 0 10		*	the high guard<on the arms>: a silver sleeves
-E 0 22373 0 9		*	the high guard<on the hands>: a pair of silver gloves
-E 0 22374 0 7		*	the high guard<on the legs>: a set of silver leggings
-E 0 22375 0 11		*	the high guard<as a shield>: a silver shield
-E 0 22379 0 16		*	the high guard<wielded>: a small silver flail named "Death Bringer"
+E 0 22357 0 17		*	the high guard <held in the hands>: the bone key
+E 0 22369 0 6		*	the high guard <over the head>: a silver helm
+E 0 22370 0 5		*	the high guard <on the body>: a silver vest
+E 0 22371 0 8		*	the high guard <on the feet>: a silver boots
+E 0 22372 0 10		*	the high guard <on the arms>: a silver sleeves
+E 0 22373 0 9		*	the high guard <on the hands>: a pair of silver gloves
+E 0 22374 0 7		*	the high guard <on the legs>: a set of silver leggings
+E 0 22375 0 11		*	the high guard <as a shield>: a silver shield
+E 0 22379 0 16		*	the high guard <wielded>: a small silver flail named "Death Bringer"
 O 0 22380 0 22400	* a pile of coins (The Treasure Keep)
 M 0 22330 42 22400 1	* the undead guard (The Treasure Keep)
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
 M 0 22329 8 22400 1	* the high guard (The Treasure Keep)
-E 0 22355 0 17		*	the high guard<held in the hands>: the bone key
-E 0 22369 0 6		*	the high guard<over the head>: a silver helm
-E 0 22370 0 5		*	the high guard<on the body>: a silver vest
-E 0 22371 0 8		*	the high guard<on the feet>: a silver boots
-E 0 22372 0 10		*	the high guard<on the arms>: a silver sleeves
-E 0 22373 0 9		*	the high guard<on the hands>: a pair of silver gloves
-E 0 22374 0 7		*	the high guard<on the legs>: a set of silver leggings
-E 0 22375 0 11		*	the high guard<as a shield>: a silver shield
-E 0 22377 0 16		*	the high guard<wielded>: a small silver mace named "Skullcrasher"
+E 0 22355 0 17		*	the high guard <held in the hands>: the bone key
+E 0 22369 0 6		*	the high guard <over the head>: a silver helm
+E 0 22370 0 5		*	the high guard <on the body>: a silver vest
+E 0 22371 0 8		*	the high guard <on the feet>: a silver boots
+E 0 22372 0 10		*	the high guard <on the arms>: a silver sleeves
+E 0 22373 0 9		*	the high guard <on the hands>: a pair of silver gloves
+E 0 22374 0 7		*	the high guard <on the legs>: a set of silver leggings
+E 0 22375 0 11		*	the high guard <as a shield>: a silver shield
+E 0 22377 0 16		*	the high guard <wielded>: a small silver mace named "Skullcrasher"
 O 0 22380 0 22401	* a pile of coins (The East Wall of Treasure Keep)
 M 0 22330 42 22401 2	* the undead guard (The East Wall of Treasure Keep)
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
 O 0 22364 0 22402	* chest (The West Wall of Treasure Keep)
 O 0 22380 0 22402	* a pile of coins (The West Wall of Treasure Keep)
 M 0 22330 42 22402 2	* the undead guard (The West Wall of Treasure Keep)
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
 O 0 22380 0 22403	* a pile of coins (The Treasure Keep)
 M 0 22330 42 22403 1	* the undead guard (The Treasure Keep)
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
 M 0 22329 8 22403 1	* the high guard (The Treasure Keep)
-E 0 22369 0 6		*	the high guard<over the head>: a silver helm
-E 0 22370 0 5		*	the high guard<on the body>: a silver vest
-E 0 22371 0 8		*	the high guard<on the feet>: a silver boots
-E 0 22372 0 10		*	the high guard<on the arms>: a silver sleeves
-E 0 22373 0 9		*	the high guard<on the hands>: a pair of silver gloves
-E 0 22374 0 7		*	the high guard<on the legs>: a set of silver leggings
-E 0 22375 0 11		*	the high guard<as a shield>: a silver shield
-E 0 22378 0 16		*	the high guard<wielded>: a small silver axe named "Meat Cleaver"
-E 0 22360 0 17		*	the high guard<held in the hands>: the bone key
+E 0 22369 0 6		*	the high guard <over the head>: a silver helm
+E 0 22370 0 5		*	the high guard <on the body>: a silver vest
+E 0 22371 0 8		*	the high guard <on the feet>: a silver boots
+E 0 22372 0 10		*	the high guard <on the arms>: a silver sleeves
+E 0 22373 0 9		*	the high guard <on the hands>: a pair of silver gloves
+E 0 22374 0 7		*	the high guard <on the legs>: a set of silver leggings
+E 0 22375 0 11		*	the high guard <as a shield>: a silver shield
+E 0 22378 0 16		*	the high guard <wielded>: a small silver axe named "Meat Cleaver"
+E 0 22360 0 17		*	the high guard <held in the hands>: the bone key
 M 0 22330 42 22404 2	* the undead guard (The Entrance to Treasure Keep)
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
 O 0 22380 0 22405	* a pile of coins (The Treasure Keep)
 M 0 22330 42 22405 1	* the undead guard (The Treasure Keep)
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
 M 0 22329 8 22405 1	* the high guard (The Treasure Keep)
-E 0 22358 0 17		*	the high guard<held in the hands>: the bony key
-E 0 22369 0 6		*	the high guard<over the head>: a silver helm
-E 0 22370 0 5		*	the high guard<on the body>: a silver vest
-E 0 22371 0 8		*	the high guard<on the feet>: a silver boots
-E 0 22372 0 10		*	the high guard<on the arms>: a silver sleeves
-E 0 22373 0 9		*	the high guard<on the hands>: a pair of silver gloves
-E 0 22374 0 7		*	the high guard<on the legs>: a set of silver leggings
-E 0 22375 0 11		*	the high guard<as a shield>: a silver shield
-E 0 22378 0 16		*	the high guard<wielded>: a small silver axe named "Meat Cleaver"
+E 0 22358 0 17		*	the high guard <held in the hands>: the bony key
+E 0 22369 0 6		*	the high guard <over the head>: a silver helm
+E 0 22370 0 5		*	the high guard <on the body>: a silver vest
+E 0 22371 0 8		*	the high guard <on the feet>: a silver boots
+E 0 22372 0 10		*	the high guard <on the arms>: a silver sleeves
+E 0 22373 0 9		*	the high guard <on the hands>: a pair of silver gloves
+E 0 22374 0 7		*	the high guard <on the legs>: a set of silver leggings
+E 0 22375 0 11		*	the high guard <as a shield>: a silver shield
+E 0 22378 0 16		*	the high guard <wielded>: a small silver axe named "Meat Cleaver"
 O 0 22365 0 22406	* chest (The East Wall of Treasure Keep)
 O 0 22380 0 22406	* a pile of coins (The East Wall of Treasure Keep)
 M 0 22330 42 22406 2	* the undead guard (The East Wall of Treasure Keep)
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
 O 0 22380 0 22407	* a pile of coins (The West Wall of Treasure Keep)
 M 0 22330 42 22407 2	* the undead guard (The West Wall of Treasure Keep)
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
 O 0 22380 0 22408	* a pile of coins (The Treasure Keep)
 M 0 22330 42 22408 1	* the undead guard (The Treasure Keep)
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
 M 0 22329 8 22408 1	* the high guard (The Treasure Keep)
-E 0 22353 0 17		*	the high guard<held in the hands>: the bone key
-E 0 22369 0 6		*	the high guard<over the head>: a silver helm
-E 0 22370 0 5		*	the high guard<on the body>: a silver vest
-E 0 22371 0 8		*	the high guard<on the feet>: a silver boots
-E 0 22372 0 10		*	the high guard<on the arms>: a silver sleeves
-E 0 22373 0 9		*	the high guard<on the hands>: a pair of silver gloves
-E 0 22374 0 7		*	the high guard<on the legs>: a set of silver leggings
-E 0 22375 0 11		*	the high guard<as a shield>: a silver shield
-E 0 22377 0 16		*	the high guard<wielded>: a small silver mace named "Skullcrasher"
+E 0 22353 0 17		*	the high guard <held in the hands>: the bone key
+E 0 22369 0 6		*	the high guard <over the head>: a silver helm
+E 0 22370 0 5		*	the high guard <on the body>: a silver vest
+E 0 22371 0 8		*	the high guard <on the feet>: a silver boots
+E 0 22372 0 10		*	the high guard <on the arms>: a silver sleeves
+E 0 22373 0 9		*	the high guard <on the hands>: a pair of silver gloves
+E 0 22374 0 7		*	the high guard <on the legs>: a set of silver leggings
+E 0 22375 0 11		*	the high guard <as a shield>: a silver shield
+E 0 22377 0 16		*	the high guard <wielded>: a small silver mace named "Skullcrasher"
 O 0 22380 0 22409	* a pile of coins (The Treasure Keep)
 M 0 22330 42 22409 1	* the undead guard (The Treasure Keep)
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
 M 0 22329 8 22409 1	* the high guard (The Treasure Keep)
-E 0 22359 0 17		*	the high guard<held in the hands>: the bone key
-E 0 22369 0 6		*	the high guard<over the head>: a silver helm
-E 0 22370 0 5		*	the high guard<on the body>: a silver vest
-E 0 22371 0 8		*	the high guard<on the feet>: a silver boots
-E 0 22372 0 10		*	the high guard<on the arms>: a silver sleeves
-E 0 22373 0 9		*	the high guard<on the hands>: a pair of silver gloves
-E 0 22374 0 7		*	the high guard<on the legs>: a set of silver leggings
-E 0 22375 0 11		*	the high guard<as a shield>: a silver shield
-E 0 22379 0 16		*	the high guard<wielded>: a small silver flail named "Death Bringer"
+E 0 22359 0 17		*	the high guard <held in the hands>: the bone key
+E 0 22369 0 6		*	the high guard <over the head>: a silver helm
+E 0 22370 0 5		*	the high guard <on the body>: a silver vest
+E 0 22371 0 8		*	the high guard <on the feet>: a silver boots
+E 0 22372 0 10		*	the high guard <on the arms>: a silver sleeves
+E 0 22373 0 9		*	the high guard <on the hands>: a pair of silver gloves
+E 0 22374 0 7		*	the high guard <on the legs>: a set of silver leggings
+E 0 22375 0 11		*	the high guard <as a shield>: a silver shield
+E 0 22379 0 16		*	the high guard <wielded>: a small silver flail named "Death Bringer"
 O 0 22380 0 22410	* a pile of coins (The Treasure Keep)
 M 0 22330 42 22410 1	* the undead guard (The Treasure Keep)
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
 M 0 22329 8 22410 1	* the high guard (The Treasure Keep)
-E 0 22354 0 17		*	the high guard<held in the hands>: the bone key
-E 0 22369 0 6		*	the high guard<over the head>: a silver helm
-E 0 22370 0 5		*	the high guard<on the body>: a silver vest
-E 0 22371 0 8		*	the high guard<on the feet>: a silver boots
-E 0 22372 0 10		*	the high guard<on the arms>: a silver sleeves
-E 0 22373 0 9		*	the high guard<on the hands>: a pair of silver gloves
-E 0 22374 0 7		*	the high guard<on the legs>: a set of silver leggings
-E 0 22375 0 11		*	the high guard<as a shield>: a silver shield
-E 0 22376 0 16		*	the high guard<wielded>: a small silver dagger named "Backstabber"
+E 0 22354 0 17		*	the high guard <held in the hands>: the bone key
+E 0 22369 0 6		*	the high guard <over the head>: a silver helm
+E 0 22370 0 5		*	the high guard <on the body>: a silver vest
+E 0 22371 0 8		*	the high guard <on the feet>: a silver boots
+E 0 22372 0 10		*	the high guard <on the arms>: a silver sleeves
+E 0 22373 0 9		*	the high guard <on the hands>: a pair of silver gloves
+E 0 22374 0 7		*	the high guard <on the legs>: a set of silver leggings
+E 0 22375 0 11		*	the high guard <as a shield>: a silver shield
+E 0 22376 0 16		*	the high guard <wielded>: a small silver dagger named "Backstabber"
 O 0 22380 0 22411	* a pile of coins (The East Wall of Treasure Keep)
 M 0 22330 42 22411 2	* the undead guard (The East Wall of Treasure Keep)
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
 O 0 22380 0 22412	* a pile of coins (The South-West Corner  of Treasure Keep)
 O 0 22366 0 22412	* chest (The South-West Corner  of Treasure Keep)
 M 0 22330 42 22412 2	* the undead guard (The South-West Corner  of Treasure Keep)
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
 O 0 22380 0 22413	* a pile of coins (The South Wall of Treasure Keep)
 M 0 22330 42 22413 2	* the undead guard (The South Wall of Treasure Keep)
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
 O 0 22380 0 22414	* a pile of coins (The South Wall of Treasure Keep)
 O 0 22367 0 22414	* chest (The South Wall of Treasure Keep)
 M 0 22330 42 22414 2	* the undead guard (The South Wall of Treasure Keep)
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
 O 0 22380 0 22415	* a pile of coins (The South Wall of Treasure Keep)
 M 0 22330 42 22415 2	* the undead guard (The South Wall of Treasure Keep)
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
-E 0 22382 0 5		*	the undead guard<on the body>: an ancient chainmail
-E 0 22383 0 8		*	the undead guard<on the feet>: a pair of ancient boots
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
+E 0 22382 0 5		*	the undead guard <on the body>: an ancient chainmail
+E 0 22383 0 8		*	the undead guard <on the feet>: a pair of ancient boots
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
 O 0 22380 0 22416	* a pile of coins (The South-East Corner of Treasure Keep)
 O 0 22368 0 22416	* chest (The South-East Corner of Treasure Keep)
 M 0 22330 42 22416 2	* the undead guard (The South-East Corner of Treasure Keep)
-E 0 22384 0 10		*	the undead guard<on the arms>: a set of ancient sleeves
-E 0 22385 0 9		*	the undead guard<on the hands>: a pair of ancient gloves
-E 0 22386 0 7		*	the undead guard<on the legs>: a set of ancient leggings
-E 0 22387 0 16		*	the undead guard<wielded>: an ancient sword
-E 0 22388 0 11		*	the undead guard<as a shield>: an ancient shield
-E 0 22381 0 6		*	the undead guard<over the head>: an ancient helmet
+E 0 22384 0 10		*	the undead guard <on the arms>: a set of ancient sleeves
+E 0 22385 0 9		*	the undead guard <on the hands>: a pair of ancient gloves
+E 0 22386 0 7		*	the undead guard <on the legs>: a set of ancient leggings
+E 0 22387 0 16		*	the undead guard <wielded>: an ancient sword
+E 0 22388 0 11		*	the undead guard <as a shield>: an ancient shield
+E 0 22381 0 6		*	the undead guard <over the head>: an ancient helmet
 S
 
 #OLIMITS

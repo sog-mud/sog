@@ -1649,16 +1649,16 @@ M 0 26203 16 26232 4	* a greater troll (A bloody part of the Dead Forest)
 M 0 26203 16 26234 4	* a greater troll (A bloody part of the Dead Forest)
 M 0 26203 16 26235 4	* a greater troll (A bloody part of the Dead Forest)
 M 0 26203 16 26235 4	* a greater troll (A bloody part of the Dead Forest)
-E 0 26200 0 16		*	a greater troll<wielded>: a Troll-sword
+E 0 26200 0 16		*	a greater troll <wielded>: a Troll-sword
 M 0 26203 16 26235 4	* a greater troll (A bloody part of the Dead Forest)
 M 0 26203 16 26236 4	* a greater troll (A bloody part of the Dead Forest)
 M 0 26203 16 26237 4	* a greater troll (A bloody part of the Dead Forest)
 M 0 26203 16 26238 4	* a greater troll (A bloody part of the Dead Forest)
-E 0 26201 0 12		*	a greater troll<about the shoulders>: a robe of toughened troll-skin
+E 0 26201 0 12		*	a greater troll <about the shoulders>: a robe of toughened troll-skin
 M 0 26203 16 26239 4	* a greater troll (A bloody part of the Dead Forest)
 M 0 26203 16 26240 4	* a greater troll (A Bloody corner of the Dead Forest)
 M 0 26203 16 26241 4	* a greater troll (A bloody part of the Dead Forest)
-E 0 26201 0 12		*	a greater troll<about the shoulders>: a robe of toughened troll-skin
+E 0 26201 0 12		*	a greater troll <about the shoulders>: a robe of toughened troll-skin
 M 0 26203 16 26242 4	* a greater troll (A bloody part of the Dead Forest)
 M 0 26203 16 26243 4	* a greater troll (A bloody part of the Dead Forest)
 M 0 26203 16 26244 4	* a greater troll (A bloody part of the Dead Forest)
@@ -1669,14 +1669,14 @@ M 0 26204 8 26256 3	* a lesser forest naga (Within a Dark Clearing)
 M 0 26204 8 26257 3	* a lesser forest naga (Within a Dark Clearing)
 M 0 26204 8 26258 3	* a lesser forest naga (Within a Dark Clearing)
 M 0 26205 2 26258 1	* an anti-ranger scout (Within a Dark Clearing)
-E 0 26202 0 16		*	an anti-ranger scout<wielded>: a sword named 'Troll-slayer'
-E 0 26203 0 20		*	an anti-ranger scout<second wielded>: a dagger named 'naga-slayer'
+E 0 26202 0 16		*	an anti-ranger scout <wielded>: a sword named 'Troll-slayer'
+E 0 26203 0 20		*	an anti-ranger scout <second wielded>: a dagger named 'naga-slayer'
 M 0 26204 8 26259 3	* a lesser forest naga (Within a Dark Clearing)
 M 0 26204 8 26262 3	* a lesser forest naga (Within a Dark Clearing)
 M 0 26204 8 26263 3	* a lesser forest naga (Within a Dark Clearing)
 M 0 26205 2 26264 1	* an anti-ranger scout (Within a Dark Clearing)
-E 0 26202 0 16		*	an anti-ranger scout<wielded>: a sword named 'Troll-slayer'
-E 0 26203 0 20		*	an anti-ranger scout<second wielded>: a dagger named 'naga-slayer'
+E 0 26202 0 16		*	an anti-ranger scout <wielded>: a sword named 'Troll-slayer'
+E 0 26203 0 20		*	an anti-ranger scout <second wielded>: a dagger named 'naga-slayer'
 S
 
 #OLIMITS

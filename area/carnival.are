@@ -2519,30 +2519,30 @@ S
 
 #RESETS
 M 0 27419 1 27424 1	* the Lich Samurai (The Swordmaster's Tent)
-E 0 27423 0 16		*	the Lich Samurai<wielded>: a Hell-forged scimitar
-E 0 27424 0 13		*	the Lich Samurai<around the waist>: a Samurai black belt
-E 0 27422 0 20		*	the Lich Samurai<second wielded>: the Silver-scimitar
+E 0 27423 0 16		*	the Lich Samurai <wielded>: a Hell-forged scimitar
+E 0 27424 0 13		*	the Lich Samurai <around the waist>: a Samurai black belt
+E 0 27422 0 20		*	the Lich Samurai <second wielded>: the Silver-scimitar
 M 0 27425 1 27425 1	* a nail-impaled man (In a Clearing of Nails)
-E 0 27411 0 16		*	a nail-impaled man<wielded>: a blood-encrusted iron nail
+E 0 27411 0 16		*	a nail-impaled man <wielded>: a blood-encrusted iron nail
 M 0 27412 1 27426 1	* the Lich Gypsy (The Gypsy's Stall)
-E 0 27408 0 5		*	the Lich Gypsy<on the body>: a robe of silver-stars
+E 0 27408 0 5		*	the Lich Gypsy <on the body>: a robe of silver-stars
 M 0 27410 1 27427 1	* a chimera (Inside the Cage of Freaks)
-E 0 27418 0 12		*	a chimera<about the shoulders>: a strange girdle
+E 0 27418 0 12		*	a chimera <about the shoulders>: a strange girdle
 M 0 27422 1 27429 1	* the Lich Soothsayer (In a Star covered Tent)
-E 0 27417 0 1		*	the Lich Soothsayer<on the left finger>: the ring of Blight
+E 0 27417 0 1		*	the Lich Soothsayer <on the left finger>: the ring of Blight
 M 0 27418 2 27430 1	* a Blood-brother Monk (In a Blood-stained Stall)
-E 0 27409 0 8		*	a Blood-brother Monk<on the feet>: a pair of toe-spikes
-E 0 27410 0 9		*	a Blood-brother Monk<on the hands>: a set of finger-spikes
+E 0 27409 0 8		*	a Blood-brother Monk <on the feet>: a pair of toe-spikes
+E 0 27410 0 9		*	a Blood-brother Monk <on the hands>: a set of finger-spikes
 M 0 27426 2 27430 1	* a Blood-brother Monk (In a Blood-stained Stall)
-E 0 27421 0 9		*	a Blood-brother Monk<on the hands>: some gloves of striking
-E 0 27420 0 12		*	a Blood-brother Monk<about the shoulders>: a brown robe
+E 0 27421 0 9		*	a Blood-brother Monk <on the hands>: some gloves of striking
+E 0 27420 0 12		*	a Blood-brother Monk <about the shoulders>: a brown robe
 M 0 27417 1 27431 1	* the Teller of Ill-fortune (The Tent of Ill-fortune)
-E 0 27419 0 6		*	the Teller of Ill-fortune<over the head>: a pumpkin-head mask
+E 0 27419 0 6		*	the Teller of Ill-fortune <over the head>: a pumpkin-head mask
 M 0 27416 1 27432 1	* the witch Gullveig (A Gold-lined Tent)
-E 0 27412 0 6		*	the witch Gullveig<over the head>: the golden hood of Gullveig
-E 0 27416 0 14		*	the witch Gullveig<on the left wrist>: a bracelet inscribed with the Fifth Sin
+E 0 27412 0 6		*	the witch Gullveig <over the head>: the golden hood of Gullveig
+E 0 27416 0 14		*	the witch Gullveig <on the left wrist>: a bracelet inscribed with the Fifth Sin
 M 0 27400 1 27457 1	* the Witch Baba-Yaga (Inside Baba-Yaga's Hut)
-E 0 27401 0 16		*	the Witch Baba-Yaga<wielded>: Baba-yaga's broom
+E 0 27401 0 16		*	the Witch Baba-Yaga <wielded>: Baba-yaga's broom
 R 0 27467 3	* Lost in the Misty Ring: randomize
 M 0 27409 5 27468 2	* a giant wolf-spider (Lost in the Misty Ring)
 R 0 27468 3	* Lost in the Misty Ring: randomize
@@ -2558,16 +2558,16 @@ R 0 27474 3	* Lost in the Misty Ring: randomize
 M 0 27409 5 27475 2	* a giant wolf-spider (Lost in the Misty Ring)
 R 0 27475 3	* Lost in the Misty Ring: randomize
 M 0 27404 1 27476 1	* the vampire knife-thrower (Before the Turning Wheel)
-E 0 27403 0 16		*	the vampire knife-thrower<wielded>: a barbed throwing-knife
+E 0 27403 0 16		*	the vampire knife-thrower <wielded>: a barbed throwing-knife
 M 0 27405 1 27476 1	* a slashed girl (Before the Turning Wheel)
 R 0 27476 3	* Before the Turning Wheel: randomize
 M 0 27401 1 27477 1	* a burning clown (In the Clown Corner)
 M 0 27402 1 27477 1	* a frozen clown (In the Clown Corner)
 R 0 27477 3	* In the Clown Corner: randomize
 M 0 27406 1 27478 1	* the Ring-Master (In the Burning Pentegram)
-E 0 27405 0 13		*	the Ring-Master<around the waist>: a belt of entwined barbed wire
-E 0 27406 0 14		*	the Ring-Master<on the left wrist>: the Ringmaster's Bracelet
-E 0 27407 0 16		*	the Ring-Master<wielded>: the Ringmaster's whip
+E 0 27405 0 13		*	the Ring-Master <around the waist>: a belt of entwined barbed wire
+E 0 27406 0 14		*	the Ring-Master <on the left wrist>: the Ringmaster's Bracelet
+E 0 27407 0 16		*	the Ring-Master <wielded>: the Ringmaster's whip
 M 0 27407 1 27478 1	* a sacrificial man (In the Burning Pentegram)
 R 0 27478 3	* In the Burning Pentegram: randomize
 S

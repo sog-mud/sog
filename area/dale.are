@@ -4277,56 +4277,56 @@ M 0 13519 2 13506 1	* a rabbit (On a woodland trail)
 M 0 13518 3 13508 1	* a deer (On a woodland trail)
 O 0 13500 0 13517	* a signpost (A path in the woodlands)
 M 0 13502 6 13518 1	* a dale watchman (At the entrance to Greenleaf dale)
-E 0 13511 0 16		*	a dale watchman<wielded>: a steel longsword
-E 0 13554 0 1		*	a dale watchman<on the left finger>: a smooth-steel ring
+E 0 13511 0 16		*	a dale watchman <wielded>: a steel longsword
+E 0 13554 0 1		*	a dale watchman <on the left finger>: a smooth-steel ring
 O 0 13503 0 13520	* a well (At a common square in the township)
 M 0 13501 14 13520 1	* a dale guard (At a common square in the township)
-E 0 13511 0 16		*	a dale guard<wielded>: a steel longsword
+E 0 13511 0 16		*	a dale guard <wielded>: a steel longsword
 M 0 13502 6 13520 1	* a dale watchman (At a common square in the township)
-E 0 13511 0 16		*	a dale watchman<wielded>: a steel longsword
-E 0 13554 0 1		*	a dale watchman<on the left finger>: a smooth-steel ring
+E 0 13511 0 16		*	a dale watchman <wielded>: a steel longsword
+E 0 13554 0 1		*	a dale watchman <on the left finger>: a smooth-steel ring
 M 0 13501 14 13522 1	* a dale guard (A pathway through the township)
-E 0 13511 0 16		*	a dale guard<wielded>: a steel longsword
+E 0 13511 0 16		*	a dale guard <wielded>: a steel longsword
 M 0 13502 6 13523 1	* a dale watchman (A pathway through the township)
-E 0 13511 0 16		*	a dale watchman<wielded>: a steel longsword
-E 0 13554 0 1		*	a dale watchman<on the left finger>: a smooth-steel ring
+E 0 13511 0 16		*	a dale watchman <wielded>: a steel longsword
+E 0 13554 0 1		*	a dale watchman <on the left finger>: a smooth-steel ring
 O 0 13501 0 13530	* a signpost (A pathway through the township)
 O 0 13527 0 13530	* a farmer's cart (A pathway through the township)
 M 0 13501 14 13530 1	* a dale guard (A pathway through the township)
-E 0 13511 0 16		*	a dale guard<wielded>: a steel longsword
+E 0 13511 0 16		*	a dale guard <wielded>: a steel longsword
 M 0 13516 1 13530 1	* a cart owner (A pathway through the township)
 M 0 13522 1 13530 1	* a horse (A pathway through the township)
 M 0 13501 14 13531 1	* a dale guard (Within the main township)
-E 0 13511 0 16		*	a dale guard<wielded>: a steel longsword
+E 0 13511 0 16		*	a dale guard <wielded>: a steel longsword
 M 0 13501 14 13532 1	* a dale guard (NW corner of the Dale market)
-E 0 13511 0 16		*	a dale guard<wielded>: a steel longsword
+E 0 13511 0 16		*	a dale guard <wielded>: a steel longsword
 M 0 13503 6 13532 1	* a dale woman (NW corner of the Dale market)
 M 0 13501 14 13533 1	* a dale guard (Northern end of the Dale Market)
-E 0 13511 0 16		*	a dale guard<wielded>: a steel longsword
+E 0 13511 0 16		*	a dale guard <wielded>: a steel longsword
 M 0 13503 6 13533 1	* a dale woman (Northern end of the Dale Market)
 M 0 13504 6 13533 1	* a dale man (Northern end of the Dale Market)
 M 0 13504 6 13534 1	* a dale man (NE corner of the Dale market)
 O 0 13504 0 13536	* fountain (Centre of the Dale market)
 M 0 13501 14 13536 1	* a dale guard (Centre of the Dale market)
-E 0 13511 0 16		*	a dale guard<wielded>: a steel longsword
+E 0 13511 0 16		*	a dale guard <wielded>: a steel longsword
 M 0 13504 6 13536 1	* a dale man (Centre of the Dale market)
 M 0 13505 1 13536 1	* the town minstrel (Centre of the Dale market)
 M 0 13501 14 13538 1	* a dale guard (SW corner of the Dale market)
-E 0 13511 0 16		*	a dale guard<wielded>: a steel longsword
+E 0 13511 0 16		*	a dale guard <wielded>: a steel longsword
 M 0 13501 14 13539 1	* a dale guard (Southern end of the Dale market)
-E 0 13511 0 16		*	a dale guard<wielded>: a steel longsword
+E 0 13511 0 16		*	a dale guard <wielded>: a steel longsword
 M 0 13502 6 13539 1	* a dale watchman (Southern end of the Dale market)
-E 0 13511 0 16		*	a dale watchman<wielded>: a steel longsword
-E 0 13554 0 1		*	a dale watchman<on the left finger>: a smooth-steel ring
+E 0 13511 0 16		*	a dale watchman <wielded>: a steel longsword
+E 0 13554 0 1		*	a dale watchman <on the left finger>: a smooth-steel ring
 M 0 13504 6 13539 1	* a dale man (Southern end of the Dale market)
 M 0 13503 6 13540 1	* a dale woman (SE corner of the Dale market)
 M 0 13501 14 13541 1	* a dale guard (On a pathway amidst the Dale community)
-E 0 13511 0 16		*	a dale guard<wielded>: a steel longsword
+E 0 13511 0 16		*	a dale guard <wielded>: a steel longsword
 M 0 13501 14 13543 1	* a dale guard (On a pathway amidst the Dale community)
-E 0 13511 0 16		*	a dale guard<wielded>: a steel longsword
+E 0 13511 0 16		*	a dale guard <wielded>: a steel longsword
 M 0 13502 6 13544 1	* a dale watchman (End of the township)
-E 0 13511 0 16		*	a dale watchman<wielded>: a steel longsword
-E 0 13554 0 1		*	a dale watchman<on the left finger>: a smooth-steel ring
+E 0 13511 0 16		*	a dale watchman <wielded>: a steel longsword
+E 0 13554 0 1		*	a dale watchman <on the left finger>: a smooth-steel ring
 M 0 13526 1 13548 1	* the dale cleric (The altar room)
 M 0 13514 3 13549 1	* a barmaid (The Green Fletcher's Tavern)
 M 0 13515 5 13549 2	* a town drunk (The Green Fletcher's Tavern)
@@ -4372,18 +4372,18 @@ M 0 13525 4 13562 1	* a young girl (A small house)
 M 0 13508 3 13563 1	* a local woman (A small house)
 M 0 13525 4 13563 1	* a young girl (A small house)
 M 0 13533 1 13564 1	* Jason the captain of the guard (The guard headquarters)
-E 0 13558 0 11		*	Jason the captain of the guard<as a shield>: a reinforced steel buckler
-E 0 13560 0 16		*	Jason the captain of the guard<wielded>: an ivory-hilted steel longsword
+E 0 13558 0 11		*	Jason the captain of the guard <as a shield>: a reinforced steel buckler
+E 0 13560 0 16		*	Jason the captain of the guard <wielded>: an ivory-hilted steel longsword
 M 0 13523 1 13565 1	* the lord templar (The Lord Templar's Room)
-E 0 13529 0 16		*	the lord templar<wielded>: a fine steel longsword
-E 0 13530 0 11		*	the lord templar<as a shield>: a mithril-lined steel shield
-E 0 13531 0 10		*	the lord templar<on the arms>: A set of fine steel sleeves
+E 0 13529 0 16		*	the lord templar <wielded>: a fine steel longsword
+E 0 13530 0 11		*	the lord templar <as a shield>: a mithril-lined steel shield
+E 0 13531 0 10		*	the lord templar <on the arms>: A set of fine steel sleeves
 M 0 13527 1 13570 1	* the dale lord (The Lord's Private Study)
-E 0 13555 0 12		*	the dale lord<about the shoulders>: a cape of pure white cloth
-E 0 13556 0 13		*	the dale lord<around the waist>: a silver-studded belt buckle
+E 0 13555 0 12		*	the dale lord <about the shoulders>: a cape of pure white cloth
+E 0 13556 0 13		*	the dale lord <around the waist>: a silver-studded belt buckle
 G 0 13561 0		*	the dale lord: golden encrused bracelet
 M 0 13501 14 13571 1	* a dale guard (A pathway through the township)
-E 0 13511 0 16		*	a dale guard<wielded>: a steel longsword
+E 0 13511 0 16		*	a dale guard <wielded>: a steel longsword
 M 0 13506 6 13576 1	* a local man (A small house)
 M 0 13524 4 13577 1	* a young boy (A small house)
 M 0 13506 6 13578 1	* a local man (A small house)
@@ -4415,8 +4415,8 @@ M 0 13517 6 13615 1	* a dale fisherman (On the edge of the fishing lake)
 M 0 13517 6 13616 1	* a dale fisherman (On the edge of the fishing lake)
 M 0 13517 6 13616 1	* a dale fisherman (On the edge of the fishing lake)
 M 0 13502 8 13617 1	* a dale watchman (In a small outpost)
-E 0 13511 0 16		*	a dale watchman<wielded>: a steel longsword
-E 0 13554 0 1		*	a dale watchman<on the left finger>: a smooth-steel ring
+E 0 13511 0 16		*	a dale watchman <wielded>: a steel longsword
+E 0 13554 0 1		*	a dale watchman <on the left finger>: a smooth-steel ring
 M 0 13517 6 13623 1	* a dale fisherman (On the edge of the fishing lake)
 M 0 13506 6 13624 1	* a local man (A small house)
 M 0 13508 3 13625 1	* a local woman (A small house)
@@ -4433,8 +4433,8 @@ M 0 13514 3 13628 1	* a barmaid (Within the Dale inn)
 M 0 13514 3 13628 1	* a barmaid (Within the Dale inn)
 M 0 13515 5 13628 3	* a town drunk (Within the Dale inn)
 M 0 13500 1 13648 1	* elminster (Darokin's Observation room)
-E 0 13517 0 5		*	elminster<on the body>: robes of the archmagi
-E 0 13516 0 6		*	elminster<over the head>: a hat covered in arcane symbols
+E 0 13517 0 5		*	elminster <on the body>: robes of the archmagi
+E 0 13516 0 6		*	elminster <over the head>: a hat covered in arcane symbols
 S
 
 #SHOPS

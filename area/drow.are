@@ -1589,62 +1589,62 @@ S
 
 #RESETS
 M 0 5106 2 5101 1	* The weapons master (City street)
-E 0 5105 0 16		*	The weapons master<wielded>: a black longsword
+E 0 5105 0 16		*	The weapons master <wielded>: a black longsword
 M 0 5102 4 5104 1	* the drow warrior noble (3rd House)
-E 0 5101 0 16		*	the drow warrior noble<wielded>: a noble's longsword
+E 0 5101 0 16		*	the drow warrior noble <wielded>: a noble's longsword
 M 0 5103 4 5104 1	* the drow mage noble (3rd House)
-E 0 5102 0 16		*	the drow mage noble<wielded>: a snake headed whip
+E 0 5102 0 16		*	the drow mage noble <wielded>: a snake headed whip
 M 0 5104 4 5104 1	* the drow priestess (3rd House)
-E 0 5103 0 16		*	the drow priestess<wielded>: a snake headed whip
+E 0 5103 0 16		*	the drow priestess <wielded>: a snake headed whip
 M 0 5107 3 5105 1	* the matron mother (Throne Room)
-E 0 5104 0 16		*	the matron mother<wielded>: a snake headed whip
-E 0 5111 0 6		*	the matron mother<over the head>: a small helmet
+E 0 5104 0 16		*	the matron mother <wielded>: a snake headed whip
+E 0 5111 0 6		*	the matron mother <over the head>: a small helmet
 M 0 5102 4 5108 1	* the drow warrior noble (2nd House)
-E 0 5101 0 16		*	the drow warrior noble<wielded>: a noble's longsword
+E 0 5101 0 16		*	the drow warrior noble <wielded>: a noble's longsword
 M 0 5103 4 5108 1	* the drow mage noble (2nd House)
-E 0 5102 0 16		*	the drow mage noble<wielded>: a snake headed whip
+E 0 5102 0 16		*	the drow mage noble <wielded>: a snake headed whip
 M 0 5104 4 5108 1	* the drow priestess (2nd House)
-E 0 5103 0 16		*	the drow priestess<wielded>: a snake headed whip
+E 0 5103 0 16		*	the drow priestess <wielded>: a snake headed whip
 M 0 5107 3 5109 1	* the matron mother (Throne Room)
-E 0 5104 0 16		*	the matron mother<wielded>: a snake headed whip
-E 0 5108 0 10		*	the matron mother<on the arms>: an iron bracer
+E 0 5104 0 16		*	the matron mother <wielded>: a snake headed whip
+E 0 5108 0 10		*	the matron mother <on the arms>: an iron bracer
 M 0 5102 4 5111 1	* the drow warrior noble (1st House)
-E 0 5101 0 16		*	the drow warrior noble<wielded>: a noble's longsword
+E 0 5101 0 16		*	the drow warrior noble <wielded>: a noble's longsword
 M 0 5103 4 5111 1	* the drow mage noble (1st House)
-E 0 5102 0 16		*	the drow mage noble<wielded>: a snake headed whip
+E 0 5102 0 16		*	the drow mage noble <wielded>: a snake headed whip
 M 0 5104 4 5111 1	* the drow priestess (1st House)
-E 0 5103 0 16		*	the drow priestess<wielded>: a snake headed whip
+E 0 5103 0 16		*	the drow priestess <wielded>: a snake headed whip
 M 0 5108 1 5113 1	* the matron mother (Main Chamber)
-E 0 5115 0 16		*	the matron mother<wielded>: two Snake Headed whip
-E 0 5112 0 1		*	the matron mother<on the left finger>: a small ruby ring
+E 0 5115 0 16		*	the matron mother <wielded>: two Snake Headed whip
+E 0 5112 0 1		*	the matron mother <on the left finger>: a small ruby ring
 M 0 5105 3 5116 1	* The drow master (Cleric Academy)
-E 0 5104 0 16		*	The drow master<wielded>: a snake headed whip
-E 0 5110 0 17		*	The drow master<held in the hands>: a silvery blue wand
+E 0 5104 0 16		*	The drow master <wielded>: a snake headed whip
+E 0 5110 0 17		*	The drow master <held in the hands>: a silvery blue wand
 M 0 5101 10 5118 5	* the drow commoner (Warrior's Academy)
-E 0 5100 0 16		*	the drow commoner<wielded>: a commoner's longsword
+E 0 5100 0 16		*	the drow commoner <wielded>: a commoner's longsword
 M 0 5105 3 5118 1	* The drow master (Warrior's Academy)
-E 0 5105 0 16		*	The drow master<wielded>: a black longsword
-E 0 5110 0 17		*	The drow master<held in the hands>: a silvery blue wand
+E 0 5105 0 16		*	The drow master <wielded>: a black longsword
+E 0 5110 0 17		*	The drow master <held in the hands>: a silvery blue wand
 M 0 5105 3 5120 1	* The drow master (Mage's Academy)
-E 0 5104 0 16		*	The drow master<wielded>: a snake headed whip
-E 0 5110 0 17		*	The drow master<held in the hands>: a silvery blue wand
+E 0 5104 0 16		*	The drow master <wielded>: a snake headed whip
+E 0 5110 0 17		*	The drow master <held in the hands>: a silvery blue wand
 M 0 5100 15 5122 15	* the goblin slave (Slave Chamber)
 M 0 5102 4 5124 1	* the drow warrior noble (4th house)
-E 0 5101 0 16		*	the drow warrior noble<wielded>: a noble's longsword
+E 0 5101 0 16		*	the drow warrior noble <wielded>: a noble's longsword
 M 0 5103 4 5124 1	* the drow mage noble (4th house)
-E 0 5102 0 16		*	the drow mage noble<wielded>: a snake headed whip
+E 0 5102 0 16		*	the drow mage noble <wielded>: a snake headed whip
 M 0 5104 4 5124 1	* the drow priestess (4th house)
-E 0 5103 0 16		*	the drow priestess<wielded>: a snake headed whip
+E 0 5103 0 16		*	the drow priestess <wielded>: a snake headed whip
 M 0 5107 3 5125 1	* the matron mother (Throne Room)
-E 0 5104 0 16		*	the matron mother<wielded>: a snake headed whip
+E 0 5104 0 16		*	the matron mother <wielded>: a snake headed whip
 G 0 5114 0		*	the matron mother: a small bright green hat
 M 0 5101 10 5133 5	* the drow commoner (Warrior's Barracks)
-E 0 5100 0 16		*	the drow commoner<wielded>: a commoner's longsword
+E 0 5100 0 16		*	the drow commoner <wielded>: a commoner's longsword
 M 0 5109 1 5148 1	* the yochlol (Dais)
-E 0 5113 0 16		*	the yochlol<wielded>: a spider shaped dagger
+E 0 5113 0 16		*	the yochlol <wielded>: a spider shaped dagger
 M 0 5106 2 5150 1	* The weapons master (Weaponsmaster's Chamber)
-E 0 5105 0 16		*	The weapons master<wielded>: a black longsword
-E 0 5109 0 9		*	The weapons master<on the hands>: a pair of gauntlets
+E 0 5105 0 16		*	The weapons master <wielded>: a black longsword
+E 0 5109 0 9		*	The weapons master <on the hands>: a pair of gauntlets
 S
 
 #OLIMITS

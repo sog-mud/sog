@@ -8316,7 +8316,7 @@ S
 M 0 23226 10 23216 1	* a zombie of a damned man (In a collapsed building)
 G 0 23270 0		*	a zombie of a damned man: bits of decaying flesh
 M 0 23232 1 23217 1	* an anti-christ (At an accursed common square in a misty town.)
-E 0 23294 0 6		*	an anti-christ<over the head>: a crown of thorns
+E 0 23294 0 6		*	an anti-christ <over the head>: a crown of thorns
 O 0 23239 0 23217	* a dried cracked well (At an accursed common square in a misty town.)
 M 0 23226 10 23219 1	* a zombie of a damned man (In a burnt out house)
 G 0 23270 0		*	a zombie of a damned man: bits of decaying flesh
@@ -8332,23 +8332,23 @@ G 0 23270 0		*	a zombie of a damned man: bits of decaying flesh
 M 0 23226 10 23228 1	* a zombie of a damned man (Inside a badly kept building)
 G 0 23270 0		*	a zombie of a damned man: bits of decaying flesh
 M 0 23239 4 23238 1	* the zombie of a town fisherman (On a pier over a black lake)
-E 0 23253 0 16		*	the zombie of a town fisherman<wielded>: a corroded fishing line
+E 0 23253 0 16		*	the zombie of a town fisherman <wielded>: a corroded fishing line
 M 0 23239 4 23239 1	* the zombie of a town fisherman (On a pier over a black lake)
-E 0 23253 0 16		*	the zombie of a town fisherman<wielded>: a corroded fishing line
+E 0 23253 0 16		*	the zombie of a town fisherman <wielded>: a corroded fishing line
 M 0 23239 4 23239 1	* the zombie of a town fisherman (On a pier over a black lake)
-E 0 23253 0 16		*	the zombie of a town fisherman<wielded>: a corroded fishing line
+E 0 23253 0 16		*	the zombie of a town fisherman <wielded>: a corroded fishing line
 O 0 23271 0 23239	* a rotted old boat (On a pier over a black lake)
 M 0 23239 4 23240 1	* the zombie of a town fisherman (On a pier over a black lake)
-E 0 23253 0 16		*	the zombie of a town fisherman<wielded>: a corroded fishing line
+E 0 23253 0 16		*	the zombie of a town fisherman <wielded>: a corroded fishing line
 M 0 23235 1 23247 1	* an old black dragon (The black dragon's wading pool)
-E 0 23295 0 5		*	an old black dragon<on the body>: acid-etched dragonscale
+E 0 23295 0 5		*	an old black dragon <on the body>: acid-etched dragonscale
 M 0 23226 10 23248 1	* a zombie of a damned man (A burnt out reception room)
 G 0 23270 0		*	a zombie of a damned man: bits of decaying flesh
 M 0 23226 10 23248 1	* a zombie of a damned man (A burnt out reception room)
 G 0 23270 0		*	a zombie of a damned man: bits of decaying flesh
 M 0 23228 1 23250 1	* a myrddraal captain (In a collapsed room)
-E 0 23267 0 12		*	a myrddraal captain<about the shoulders>: an unmoving black cloak
-E 0 23268 0 5		*	a myrddraal captain<on the body>: overlapping demonplate
+E 0 23267 0 12		*	a myrddraal captain <about the shoulders>: an unmoving black cloak
+E 0 23268 0 5		*	a myrddraal captain <on the body>: overlapping demonplate
 M 0 23226 10 23252 1	* a zombie of a damned man (In a gutted hallway)
 G 0 23270 0		*	a zombie of a damned man: bits of decaying flesh
 M 0 23227 1 23270 1	* the long dead mayor (The mayor's office)
@@ -8358,7 +8358,7 @@ O 0 23272 0 23270	* an old wooden desk (The mayor's office)
 P 0 23273 -1 0 1	* an old wooden desk: an old worn scroll
 P 0 23274 -1 0 1	* an old wooden desk: a silver cross
 M 0 23225 1 23271 1	* the lich of a damned man (A collapsed workroom)
-E 0 23235 0 1		*	the lich of a damned man<on the left finger>: a ring of necromancy
+E 0 23235 0 1		*	the lich of a damned man <on the left finger>: a ring of necromancy
 G 0 23269 0		*	the lich of a damned man: a key
 O 0 23254 0 23271	* a dull black cabinet (A collapsed workroom)
 P 0 23255 -1 0 1	* a dull black cabinet: a blue potion
@@ -8374,7 +8374,7 @@ R 0 23283 1	* An snowbound mountainside: randomize
 R 0 23284 3	* An snowbound mountainside: randomize
 R 0 23285 3	* An snowbound mountainside: randomize
 M 0 23238 1 23286 1	* the white dragon (The lair of the white dragon)
-E 0 23308 0 16		*	the white dragon<wielded>: an ice-encrusted claw
+E 0 23308 0 16		*	the white dragon <wielded>: an ice-encrusted claw
 M 0 23240 9 23290 1	* a black sheep (Lost in a misty field)
 M 0 23240 9 23290 1	* a black sheep (Lost in a misty field)
 M 0 23240 9 23290 1	* a black sheep (Lost in a misty field)
@@ -8402,7 +8402,7 @@ M 0 23218 11 23317 1	* a weeping zombie (A pitch-black tunnel)
 M 0 23218 11 23318 1	* a weeping zombie (A pitch-black tunnel)
 M 0 23218 11 23321 1	* a weeping zombie (A pitch-black tunnel)
 M 0 23219 1 23322 1	* a ghoul (A small underground pool)
-E 0 23236 0 3		*	a ghoul<around the neck>: a bone collar
+E 0 23236 0 3		*	a ghoul <around the neck>: a bone collar
 M 0 23218 11 23340 1	* a weeping zombie (A pitch-black tunnel)
 M 0 23220 3 23343 1	* a ghoul (A pitch-black tunnel)
 M 0 23220 3 23347 1	* a ghoul (A pitch-black tunnel)
@@ -8424,46 +8424,46 @@ M 0 23216 6 23392 1	* a christian devil (In a courtyard)
 G 0 23279 0		*	a christian devil: a symbol of the dead
 M 0 23203 1 23394 1	* a christian devil (Southern end of a courtyard)
 M 0 23201 4 23397 1	* a devil nightwatcher (Top of the northwest battlement tower)
-E 0 23202 0 0		*	a devil nightwatcher<as a light>: a banner of Nightfall
+E 0 23202 0 0		*	a devil nightwatcher <as a light>: a banner of Nightfall
 G 0 23279 0		*	a devil nightwatcher: a symbol of the dead
 M 0 23200 10 23398 1	* a skeletal warrior (On the northern battlements)
-E 0 23200 0 16		*	a skeletal warrior<wielded>: an iron longsword
+E 0 23200 0 16		*	a skeletal warrior <wielded>: an iron longsword
 M 0 23200 10 23400 1	* a skeletal warrior (On the northern battlements)
-E 0 23200 0 16		*	a skeletal warrior<wielded>: an iron longsword
+E 0 23200 0 16		*	a skeletal warrior <wielded>: an iron longsword
 M 0 23201 4 23402 1	* a devil nightwatcher (Top of the northeast battlement tower)
-E 0 23202 0 0		*	a devil nightwatcher<as a light>: a banner of Nightfall
+E 0 23202 0 0		*	a devil nightwatcher <as a light>: a banner of Nightfall
 G 0 23279 0		*	a devil nightwatcher: a symbol of the dead
 M 0 23200 10 23405 1	* a skeletal warrior (On the western battlements)
-E 0 23200 0 16		*	a skeletal warrior<wielded>: an iron longsword
+E 0 23200 0 16		*	a skeletal warrior <wielded>: an iron longsword
 M 0 23200 10 23406 1	* a skeletal warrior (On the eastern battlements)
-E 0 23200 0 16		*	a skeletal warrior<wielded>: an iron longsword
+E 0 23200 0 16		*	a skeletal warrior <wielded>: an iron longsword
 M 0 23200 10 23410 1	* a skeletal warrior (On the eastern battlements)
-E 0 23200 0 16		*	a skeletal warrior<wielded>: an iron longsword
+E 0 23200 0 16		*	a skeletal warrior <wielded>: an iron longsword
 M 0 23200 10 23411 1	* a skeletal warrior (On the western battlements)
-E 0 23201 0 16		*	a skeletal warrior<wielded>: an iron spear
+E 0 23201 0 16		*	a skeletal warrior <wielded>: an iron spear
 M 0 23200 10 23413 1	* a skeletal warrior (On the southwestern battlements)
-E 0 23201 0 16		*	a skeletal warrior<wielded>: an iron spear
+E 0 23201 0 16		*	a skeletal warrior <wielded>: an iron spear
 M 0 23200 10 23415 1	* a skeletal warrior (On the southern battlements)
-E 0 23201 0 16		*	a skeletal warrior<wielded>: an iron spear
+E 0 23201 0 16		*	a skeletal warrior <wielded>: an iron spear
 M 0 23200 10 23417 1	* a skeletal warrior (On the southeastern battlements)
-E 0 23201 0 16		*	a skeletal warrior<wielded>: an iron spear
+E 0 23201 0 16		*	a skeletal warrior <wielded>: an iron spear
 M 0 23201 4 23418 1	* a devil nightwatcher (Top of the southwest battlement tower)
-E 0 23202 0 0		*	a devil nightwatcher<as a light>: a banner of Nightfall
+E 0 23202 0 0		*	a devil nightwatcher <as a light>: a banner of Nightfall
 G 0 23279 0		*	a devil nightwatcher: a symbol of the dead
 M 0 23201 4 23419 1	* a devil nightwatcher (Top of the southeast battlement tower)
-E 0 23202 0 0		*	a devil nightwatcher<as a light>: a banner of Nightfall
+E 0 23202 0 0		*	a devil nightwatcher <as a light>: a banner of Nightfall
 G 0 23279 0		*	a devil nightwatcher: a symbol of the dead
 M 0 23212 1 23421 1	* a torn up man (A small alcove in the torture chambers)
-E 0 23204 0 3		*	a torn up man<around the neck>: a collar of enslavement
+E 0 23204 0 3		*	a torn up man <around the neck>: a collar of enslavement
 M 0 23243 6 23422 1	* a malefic imp (The torture chambers)
 M 0 23216 5 23424 1	* a christian devil (The torture chambers)
 G 0 23279 0		*	a christian devil: a symbol of the dead
 M 0 23243 6 23424 1	* a malefic imp (The torture chambers)
 M 0 23202 1 23425 1	* a sobbing elf girl (A small alcove in the torture chambers)
-E 0 23204 0 3		*	a sobbing elf girl<around the neck>: a collar of enslavement
+E 0 23204 0 3		*	a sobbing elf girl <around the neck>: a collar of enslavement
 G 0 23203 0		*	a sobbing elf girl: some condensed elven blood
 M 0 23213 1 23426 1	* a sliced up gnome (A small alcove in the torture chambers)
-E 0 23204 0 3		*	a sliced up gnome<around the neck>: a collar of enslavement
+E 0 23204 0 3		*	a sliced up gnome <around the neck>: a collar of enslavement
 M 0 23216 5 23427 1	* a christian devil (The torture chambers)
 G 0 23279 0		*	a christian devil: a symbol of the dead
 M 0 23203 5 23428 1	* a christian devil (The torture chambers)
@@ -8471,13 +8471,13 @@ G 0 23279 0		*	a christian devil: a symbol of the dead
 M 0 23243 6 23428 1	* a malefic imp (The torture chambers)
 M 0 23243 6 23430 1	* a malefic imp (A small alcove in the torture chambers)
 M 0 23214 1 23431 1	* a burning giant (A small alcove in the torture chambers)
-E 0 23204 0 3		*	a burning giant<around the neck>: a collar of enslavement
+E 0 23204 0 3		*	a burning giant <around the neck>: a collar of enslavement
 M 0 23243 6 23431 1	* a malefic imp (A small alcove in the torture chambers)
 M 0 23243 6 23433 1	* a malefic imp (The torture chambers)
 M 0 23215 1 23435 1	* a crushed girl (A small alcove in the torture chambers)
-E 0 23204 0 3		*	a crushed girl<around the neck>: a collar of enslavement
+E 0 23204 0 3		*	a crushed girl <around the neck>: a collar of enslavement
 M 0 23208 1 23436 1	* a wicked man (A blood soaked workroom)
-E 0 23220 0 9		*	a wicked man<on the hands>: some razor-edged gloves
+E 0 23220 0 9		*	a wicked man <on the hands>: some razor-edged gloves
 G 0 23238 0		*	a wicked man: a bone key
 O 0 23240 0 23436	* a bloody barrel (A blood soaked workroom)
 P 0 23241 -1 0 1	* a bloody barrel: a torn off arm
@@ -8493,174 +8493,174 @@ P 0 23249 -1 0 1	* a large box: a torn out heart
 P 0 23250 -1 0 1	* a large box: a severed head of a man
 P 0 23251 -1 0 1	* a large box: a bit of unidentifiable flesh
 M 0 23204 1 23444 1	* the demilich, Nel' Shadan (In a bare room)
-E 0 23206 0 6		*	the demilich, Nel' Shadan<over the head>: the circlet of Nel'Shadan
+E 0 23206 0 6		*	the demilich, Nel' Shadan <over the head>: the circlet of Nel'Shadan
 G 0 23205 0		*	the demilich, Nel' Shadan: the eternal glow of a demilich eye
 M 0 23206 1 23446 1	* a lich priestess (In a desecrated room)
-E 0 23210 0 16		*	a lich priestess<wielded>: a mace made from the head of a screaming demon
-E 0 23211 0 10		*	a lich priestess<on the arms>: some tattered bits of flesh
-E 0 23212 0 3		*	a lich priestess<around the neck>: a sapphire collar
+E 0 23210 0 16		*	a lich priestess <wielded>: a mace made from the head of a screaming demon
+E 0 23211 0 10		*	a lich priestess <on the arms>: some tattered bits of flesh
+E 0 23212 0 3		*	a lich priestess <around the neck>: a sapphire collar
 M 0 23205 1 23447 1	* a nosferatu vampire (In a dark room)
-E 0 23207 0 16		*	a nosferatu vampire<wielded>: a runed scimitar
-E 0 23208 0 15		*	a nosferatu vampire<on the right wrist>: a band of dark crystal
-E 0 23209 0 1		*	a nosferatu vampire<on the left finger>: a ring of green ruby
+E 0 23207 0 16		*	a nosferatu vampire <wielded>: a runed scimitar
+E 0 23208 0 15		*	a nosferatu vampire <on the right wrist>: a band of dark crystal
+E 0 23209 0 1		*	a nosferatu vampire <on the left finger>: a ring of green ruby
 M 0 23237 1 23452 1	* a balron (In a burnt out room)
-E 0 23303 0 16		*	a balron<wielded>: a fire-wreathed whip
-E 0 23304 0 8		*	a balron<on the feet>: some demon claws
+E 0 23303 0 16		*	a balron <wielded>: a fire-wreathed whip
+E 0 23304 0 8		*	a balron <on the feet>: some demon claws
 M 0 23236 1 23455 1	* a drow grand master of assassins (In a well well furnished room)
-E 0 23305 0 6		*	a drow grand master of assassins<over the head>: a drow assassin's mask
-E 0 23306 0 16		*	a drow grand master of assassins<wielded>: an ice-cold dagger
-E 0 23307 0 11		*	a drow grand master of assassins<as a shield>: a drow master's wakizashi
+E 0 23305 0 6		*	a drow grand master of assassins <over the head>: a drow assassin's mask
+E 0 23306 0 16		*	a drow grand master of assassins <wielded>: an ice-cold dagger
+E 0 23307 0 11		*	a drow grand master of assassins <as a shield>: a drow master's wakizashi
 M 0 23234 1 23457 1	* the warrior lich weaponmaster (In a bare room)
-E 0 23297 0 5		*	the warrior lich weaponmaster<on the body>: arborian chainmail
-E 0 23298 0 9		*	the warrior lich weaponmaster<on the hands>: arborian gauntlets
-E 0 23299 0 7		*	the warrior lich weaponmaster<on the legs>: arborian leggings
-E 0 23301 0 15		*	the warrior lich weaponmaster<on the right wrist>: a wide copper bracelet
-E 0 23302 0 16		*	the warrior lich weaponmaster<wielded>: a razor-sharp ragonin
+E 0 23297 0 5		*	the warrior lich weaponmaster <on the body>: arborian chainmail
+E 0 23298 0 9		*	the warrior lich weaponmaster <on the hands>: arborian gauntlets
+E 0 23299 0 7		*	the warrior lich weaponmaster <on the legs>: arborian leggings
+E 0 23301 0 15		*	the warrior lich weaponmaster <on the right wrist>: a wide copper bracelet
+E 0 23302 0 16		*	the warrior lich weaponmaster <wielded>: a razor-sharp ragonin
 O 0 23231 0 23457	* corpse (In a bare room)
 M 0 23207 1 23463 1	* the Last paladin (On a small landing)
-E 0 23213 0 3		*	the Last paladin<around the neck>: a pendant engraved with the word 'Eternity'
-E 0 23214 0 6		*	the Last paladin<over the head>: an elysium battle helm
-E 0 23215 0 5		*	the Last paladin<on the body>: a suit of elysium battle armor
-E 0 23216 0 10		*	the Last paladin<on the arms>: a pair of elysium arm guards
-E 0 23217 0 7		*	the Last paladin<on the legs>: a pair of elysium leggings
-E 0 23218 0 14		*	the Last paladin<on the left wrist>: a bracelet carved from gold dragon tears
-E 0 23219 0 16		*	the Last paladin<wielded>: a bastard sword named 'Forever'
+E 0 23213 0 3		*	the Last paladin <around the neck>: a pendant engraved with the word 'Eternity'
+E 0 23214 0 6		*	the Last paladin <over the head>: an elysium battle helm
+E 0 23215 0 5		*	the Last paladin <on the body>: a suit of elysium battle armor
+E 0 23216 0 10		*	the Last paladin <on the arms>: a pair of elysium arm guards
+E 0 23217 0 7		*	the Last paladin <on the legs>: a pair of elysium leggings
+E 0 23218 0 14		*	the Last paladin <on the left wrist>: a bracelet carved from gold dragon tears
+E 0 23219 0 16		*	the Last paladin <wielded>: a bastard sword named 'Forever'
 M 0 23211 1 23465 1	* the ancient dracolich (A broad open platform)
 G 0 23227 0		*	the ancient dracolich: an ancient dracolich claw
 G 0 23228 0		*	the ancient dracolich: the spine of a dracolich
 M 0 23209 1 23467 1	* the deathknight, Karanth Merak (Antechamber to the shadowlord's room)
-E 0 23221 0 16		*	the deathknight, Karanth Merak<wielded>: a longsword forged from the souls of heaven's outcasts
-E 0 23222 0 5		*	the deathknight, Karanth Merak<on the body>: platemail bearing the mark of an outcast knight
-E 0 23229 0 11		*	the deathknight, Karanth Merak<as a shield>: the shield of eternal night
-E 0 23296 0 1		*	the deathknight, Karanth Merak<on the left finger>: a ring of service
+E 0 23221 0 16		*	the deathknight, Karanth Merak <wielded>: a longsword forged from the souls of heaven's outcasts
+E 0 23222 0 5		*	the deathknight, Karanth Merak <on the body>: platemail bearing the mark of an outcast knight
+E 0 23229 0 11		*	the deathknight, Karanth Merak <as a shield>: the shield of eternal night
+E 0 23296 0 1		*	the deathknight, Karanth Merak <on the left finger>: a ring of service
 G 0 23279 0		*	the deathknight, Karanth Merak: a symbol of the dead
 M 0 23210 1 23468 1	* the Shadowlord (Inside the shadowlord's room)
-E 0 23223 0 1		*	the Shadowlord<on the left finger>: a shadowlord's signet ring
-E 0 23224 0 3		*	the Shadowlord<around the neck>: a shadowlord's insignia
-E 0 23225 0 5		*	the Shadowlord<on the body>: a Forsaken shadow
-E 0 23226 0 17		*	the Shadowlord<held in the hands>: a page from the necronomican
+E 0 23223 0 1		*	the Shadowlord <on the left finger>: a shadowlord's signet ring
+E 0 23224 0 3		*	the Shadowlord <around the neck>: a shadowlord's insignia
+E 0 23225 0 5		*	the Shadowlord <on the body>: a Forsaken shadow
+E 0 23226 0 17		*	the Shadowlord <held in the hands>: a page from the necronomican
 G 0 23279 0		*	the Shadowlord: a symbol of the dead
 M 0 23200 10 23469 1	* a skeletal warrior (On the northwestern battlements)
-E 0 23201 0 16		*	a skeletal warrior<wielded>: an iron spear
+E 0 23201 0 16		*	a skeletal warrior <wielded>: an iron spear
 M 0 23222 12 23470 1	* a dwarven warrior (A blocked passage way)
-E 0 23262 0 16		*	a dwarven warrior<wielded>: a dwaven warhammer
-E 0 23264 0 7		*	a dwarven warrior<on the legs>: some well-forged leggings
-E 0 23265 0 6		*	a dwarven warrior<over the head>: a heavy helm
-E 0 23266 0 5		*	a dwarven warrior<on the body>: a suit of dwarf-made plate
-E 0 23280 0 9		*	a dwarven warrior<on the hands>: a pair of spiked gauntlets
-E 0 23281 0 3		*	a dwarven warrior<around the neck>: a fur cloak
+E 0 23262 0 16		*	a dwarven warrior <wielded>: a dwaven warhammer
+E 0 23264 0 7		*	a dwarven warrior <on the legs>: some well-forged leggings
+E 0 23265 0 6		*	a dwarven warrior <over the head>: a heavy helm
+E 0 23266 0 5		*	a dwarven warrior <on the body>: a suit of dwarf-made plate
+E 0 23280 0 9		*	a dwarven warrior <on the hands>: a pair of spiked gauntlets
+E 0 23281 0 3		*	a dwarven warrior <around the neck>: a fur cloak
 M 0 23222 12 23471 1	* a dwarven warrior (In a dimly lit room)
-E 0 23262 0 16		*	a dwarven warrior<wielded>: a dwaven warhammer
-E 0 23264 0 7		*	a dwarven warrior<on the legs>: some well-forged leggings
-E 0 23265 0 6		*	a dwarven warrior<over the head>: a heavy helm
-E 0 23266 0 5		*	a dwarven warrior<on the body>: a suit of dwarf-made plate
-E 0 23280 0 9		*	a dwarven warrior<on the hands>: a pair of spiked gauntlets
-E 0 23281 0 3		*	a dwarven warrior<around the neck>: a fur cloak
+E 0 23262 0 16		*	a dwarven warrior <wielded>: a dwaven warhammer
+E 0 23264 0 7		*	a dwarven warrior <on the legs>: some well-forged leggings
+E 0 23265 0 6		*	a dwarven warrior <over the head>: a heavy helm
+E 0 23266 0 5		*	a dwarven warrior <on the body>: a suit of dwarf-made plate
+E 0 23280 0 9		*	a dwarven warrior <on the hands>: a pair of spiked gauntlets
+E 0 23281 0 3		*	a dwarven warrior <around the neck>: a fur cloak
 M 0 23222 12 23472 1	* a dwarven warrior (In a dimly lit tunnel)
-E 0 23262 0 16		*	a dwarven warrior<wielded>: a dwaven warhammer
-E 0 23264 0 7		*	a dwarven warrior<on the legs>: some well-forged leggings
-E 0 23265 0 6		*	a dwarven warrior<over the head>: a heavy helm
-E 0 23266 0 5		*	a dwarven warrior<on the body>: a suit of dwarf-made plate
-E 0 23280 0 9		*	a dwarven warrior<on the hands>: a pair of spiked gauntlets
-E 0 23281 0 3		*	a dwarven warrior<around the neck>: a fur cloak
+E 0 23262 0 16		*	a dwarven warrior <wielded>: a dwaven warhammer
+E 0 23264 0 7		*	a dwarven warrior <on the legs>: some well-forged leggings
+E 0 23265 0 6		*	a dwarven warrior <over the head>: a heavy helm
+E 0 23266 0 5		*	a dwarven warrior <on the body>: a suit of dwarf-made plate
+E 0 23280 0 9		*	a dwarven warrior <on the hands>: a pair of spiked gauntlets
+E 0 23281 0 3		*	a dwarven warrior <around the neck>: a fur cloak
 M 0 23222 12 23473 1	* a dwarven warrior (In a dimly lit room)
-E 0 23262 0 16		*	a dwarven warrior<wielded>: a dwaven warhammer
-E 0 23264 0 7		*	a dwarven warrior<on the legs>: some well-forged leggings
-E 0 23265 0 6		*	a dwarven warrior<over the head>: a heavy helm
-E 0 23266 0 5		*	a dwarven warrior<on the body>: a suit of dwarf-made plate
-E 0 23280 0 9		*	a dwarven warrior<on the hands>: a pair of spiked gauntlets
-E 0 23281 0 3		*	a dwarven warrior<around the neck>: a fur cloak
+E 0 23262 0 16		*	a dwarven warrior <wielded>: a dwaven warhammer
+E 0 23264 0 7		*	a dwarven warrior <on the legs>: some well-forged leggings
+E 0 23265 0 6		*	a dwarven warrior <over the head>: a heavy helm
+E 0 23266 0 5		*	a dwarven warrior <on the body>: a suit of dwarf-made plate
+E 0 23280 0 9		*	a dwarven warrior <on the hands>: a pair of spiked gauntlets
+E 0 23281 0 3		*	a dwarven warrior <around the neck>: a fur cloak
 M 0 23223 1 23473 1	* a dwarven cleric (In a dimly lit room)
-E 0 23283 0 16		*	a dwarven cleric<wielded>: a dwaven warhammer
-E 0 23284 0 7		*	a dwarven cleric<on the legs>: some well-forged leggings
-E 0 23285 0 6		*	a dwarven cleric<over the head>: a steel spiked helm
-E 0 23286 0 5		*	a dwarven cleric<on the body>: a suit of dwarf-made plate
+E 0 23283 0 16		*	a dwarven cleric <wielded>: a dwaven warhammer
+E 0 23284 0 7		*	a dwarven cleric <on the legs>: some well-forged leggings
+E 0 23285 0 6		*	a dwarven cleric <over the head>: a steel spiked helm
+E 0 23286 0 5		*	a dwarven cleric <on the body>: a suit of dwarf-made plate
 O 0 23278 0 23473	* a barrel of ale (In a dimly lit room)
 M 0 23222 12 23474 1	* a dwarven warrior (In a dimly lit tunnel)
-E 0 23263 0 16		*	a dwarven warrior<wielded>: a dwaven battleaxe
-E 0 23264 0 7		*	a dwarven warrior<on the legs>: some well-forged leggings
-E 0 23265 0 6		*	a dwarven warrior<over the head>: a heavy helm
-E 0 23266 0 5		*	a dwarven warrior<on the body>: a suit of dwarf-made plate
-E 0 23280 0 9		*	a dwarven warrior<on the hands>: a pair of spiked gauntlets
-E 0 23281 0 3		*	a dwarven warrior<around the neck>: a fur cloak
+E 0 23263 0 16		*	a dwarven warrior <wielded>: a dwaven battleaxe
+E 0 23264 0 7		*	a dwarven warrior <on the legs>: some well-forged leggings
+E 0 23265 0 6		*	a dwarven warrior <over the head>: a heavy helm
+E 0 23266 0 5		*	a dwarven warrior <on the body>: a suit of dwarf-made plate
+E 0 23280 0 9		*	a dwarven warrior <on the hands>: a pair of spiked gauntlets
+E 0 23281 0 3		*	a dwarven warrior <around the neck>: a fur cloak
 M 0 23222 12 23474 1	* a dwarven warrior (In a dimly lit tunnel)
-E 0 23263 0 16		*	a dwarven warrior<wielded>: a dwaven battleaxe
-E 0 23264 0 7		*	a dwarven warrior<on the legs>: some well-forged leggings
-E 0 23265 0 6		*	a dwarven warrior<over the head>: a heavy helm
-E 0 23266 0 5		*	a dwarven warrior<on the body>: a suit of dwarf-made plate
-E 0 23280 0 9		*	a dwarven warrior<on the hands>: a pair of spiked gauntlets
-E 0 23281 0 3		*	a dwarven warrior<around the neck>: a fur cloak
+E 0 23263 0 16		*	a dwarven warrior <wielded>: a dwaven battleaxe
+E 0 23264 0 7		*	a dwarven warrior <on the legs>: some well-forged leggings
+E 0 23265 0 6		*	a dwarven warrior <over the head>: a heavy helm
+E 0 23266 0 5		*	a dwarven warrior <on the body>: a suit of dwarf-made plate
+E 0 23280 0 9		*	a dwarven warrior <on the hands>: a pair of spiked gauntlets
+E 0 23281 0 3		*	a dwarven warrior <around the neck>: a fur cloak
 M 0 23222 12 23475 1	* a dwarven warrior (The captains room)
-E 0 23263 0 16		*	a dwarven warrior<wielded>: a dwaven battleaxe
-E 0 23264 0 7		*	a dwarven warrior<on the legs>: some well-forged leggings
-E 0 23265 0 6		*	a dwarven warrior<over the head>: a heavy helm
-E 0 23266 0 5		*	a dwarven warrior<on the body>: a suit of dwarf-made plate
-E 0 23280 0 9		*	a dwarven warrior<on the hands>: a pair of spiked gauntlets
-E 0 23281 0 3		*	a dwarven warrior<around the neck>: a fur cloak
+E 0 23263 0 16		*	a dwarven warrior <wielded>: a dwaven battleaxe
+E 0 23264 0 7		*	a dwarven warrior <on the legs>: some well-forged leggings
+E 0 23265 0 6		*	a dwarven warrior <over the head>: a heavy helm
+E 0 23266 0 5		*	a dwarven warrior <on the body>: a suit of dwarf-made plate
+E 0 23280 0 9		*	a dwarven warrior <on the hands>: a pair of spiked gauntlets
+E 0 23281 0 3		*	a dwarven warrior <around the neck>: a fur cloak
 M 0 23222 12 23475 1	* a dwarven warrior (The captains room)
-E 0 23263 0 16		*	a dwarven warrior<wielded>: a dwaven battleaxe
-E 0 23264 0 7		*	a dwarven warrior<on the legs>: some well-forged leggings
-E 0 23265 0 6		*	a dwarven warrior<over the head>: a heavy helm
-E 0 23266 0 5		*	a dwarven warrior<on the body>: a suit of dwarf-made plate
-E 0 23280 0 9		*	a dwarven warrior<on the hands>: a pair of spiked gauntlets
-E 0 23281 0 3		*	a dwarven warrior<around the neck>: a fur cloak
+E 0 23263 0 16		*	a dwarven warrior <wielded>: a dwaven battleaxe
+E 0 23264 0 7		*	a dwarven warrior <on the legs>: some well-forged leggings
+E 0 23265 0 6		*	a dwarven warrior <over the head>: a heavy helm
+E 0 23266 0 5		*	a dwarven warrior <on the body>: a suit of dwarf-made plate
+E 0 23280 0 9		*	a dwarven warrior <on the hands>: a pair of spiked gauntlets
+E 0 23281 0 3		*	a dwarven warrior <around the neck>: a fur cloak
 M 0 23222 12 23475 1	* a dwarven warrior (The captains room)
-E 0 23263 0 16		*	a dwarven warrior<wielded>: a dwaven battleaxe
-E 0 23264 0 7		*	a dwarven warrior<on the legs>: some well-forged leggings
-E 0 23265 0 6		*	a dwarven warrior<over the head>: a heavy helm
-E 0 23266 0 5		*	a dwarven warrior<on the body>: a suit of dwarf-made plate
-E 0 23280 0 9		*	a dwarven warrior<on the hands>: a pair of spiked gauntlets
-E 0 23281 0 3		*	a dwarven warrior<around the neck>: a fur cloak
+E 0 23263 0 16		*	a dwarven warrior <wielded>: a dwaven battleaxe
+E 0 23264 0 7		*	a dwarven warrior <on the legs>: some well-forged leggings
+E 0 23265 0 6		*	a dwarven warrior <over the head>: a heavy helm
+E 0 23266 0 5		*	a dwarven warrior <on the body>: a suit of dwarf-made plate
+E 0 23280 0 9		*	a dwarven warrior <on the hands>: a pair of spiked gauntlets
+E 0 23281 0 3		*	a dwarven warrior <around the neck>: a fur cloak
 M 0 23224 1 23475 1	* a dwarven captain (The captains room)
-E 0 23283 0 16		*	a dwarven captain<wielded>: a dwaven warhammer
-E 0 23284 0 7		*	a dwarven captain<on the legs>: some well-forged leggings
-E 0 23285 0 6		*	a dwarven captain<over the head>: a steel spiked helm
-E 0 23286 0 5		*	a dwarven captain<on the body>: a suit of dwarf-made plate
-E 0 23280 0 9		*	a dwarven captain<on the hands>: a pair of spiked gauntlets
-E 0 23281 0 3		*	a dwarven captain<around the neck>: a fur cloak
+E 0 23283 0 16		*	a dwarven captain <wielded>: a dwaven warhammer
+E 0 23284 0 7		*	a dwarven captain <on the legs>: some well-forged leggings
+E 0 23285 0 6		*	a dwarven captain <over the head>: a steel spiked helm
+E 0 23286 0 5		*	a dwarven captain <on the body>: a suit of dwarf-made plate
+E 0 23280 0 9		*	a dwarven captain <on the hands>: a pair of spiked gauntlets
+E 0 23281 0 3		*	a dwarven captain <around the neck>: a fur cloak
 O 0 23278 0 23475	* a barrel of ale (The captains room)
 O 0 23278 0 23475	* a barrel of ale (The captains room)
 M 0 23222 12 23476 1	* a dwarven warrior (A store room)
-E 0 23263 0 16		*	a dwarven warrior<wielded>: a dwaven battleaxe
-E 0 23264 0 7		*	a dwarven warrior<on the legs>: some well-forged leggings
-E 0 23265 0 6		*	a dwarven warrior<over the head>: a heavy helm
-E 0 23266 0 5		*	a dwarven warrior<on the body>: a suit of dwarf-made plate
-E 0 23280 0 9		*	a dwarven warrior<on the hands>: a pair of spiked gauntlets
-E 0 23281 0 3		*	a dwarven warrior<around the neck>: a fur cloak
+E 0 23263 0 16		*	a dwarven warrior <wielded>: a dwaven battleaxe
+E 0 23264 0 7		*	a dwarven warrior <on the legs>: some well-forged leggings
+E 0 23265 0 6		*	a dwarven warrior <over the head>: a heavy helm
+E 0 23266 0 5		*	a dwarven warrior <on the body>: a suit of dwarf-made plate
+E 0 23280 0 9		*	a dwarven warrior <on the hands>: a pair of spiked gauntlets
+E 0 23281 0 3		*	a dwarven warrior <around the neck>: a fur cloak
 O 0 23257 0 23476	* a large crate (A store room)
 P 0 23259 -1 0 1	* a large crate: pieces of a war machine
 M 0 23222 12 23477 1	* a dwarven warrior (A store room)
-E 0 23263 0 16		*	a dwarven warrior<wielded>: a dwaven battleaxe
-E 0 23264 0 7		*	a dwarven warrior<on the legs>: some well-forged leggings
-E 0 23265 0 6		*	a dwarven warrior<over the head>: a heavy helm
-E 0 23266 0 5		*	a dwarven warrior<on the body>: a suit of dwarf-made plate
-E 0 23280 0 9		*	a dwarven warrior<on the hands>: a pair of spiked gauntlets
-E 0 23281 0 3		*	a dwarven warrior<around the neck>: a fur cloak
+E 0 23263 0 16		*	a dwarven warrior <wielded>: a dwaven battleaxe
+E 0 23264 0 7		*	a dwarven warrior <on the legs>: some well-forged leggings
+E 0 23265 0 6		*	a dwarven warrior <over the head>: a heavy helm
+E 0 23266 0 5		*	a dwarven warrior <on the body>: a suit of dwarf-made plate
+E 0 23280 0 9		*	a dwarven warrior <on the hands>: a pair of spiked gauntlets
+E 0 23281 0 3		*	a dwarven warrior <around the neck>: a fur cloak
 M 0 23222 12 23477 1	* a dwarven warrior (A store room)
-E 0 23263 0 16		*	a dwarven warrior<wielded>: a dwaven battleaxe
-E 0 23264 0 7		*	a dwarven warrior<on the legs>: some well-forged leggings
-E 0 23265 0 6		*	a dwarven warrior<over the head>: a heavy helm
-E 0 23266 0 5		*	a dwarven warrior<on the body>: a suit of dwarf-made plate
-E 0 23280 0 9		*	a dwarven warrior<on the hands>: a pair of spiked gauntlets
-E 0 23281 0 3		*	a dwarven warrior<around the neck>: a fur cloak
+E 0 23263 0 16		*	a dwarven warrior <wielded>: a dwaven battleaxe
+E 0 23264 0 7		*	a dwarven warrior <on the legs>: some well-forged leggings
+E 0 23265 0 6		*	a dwarven warrior <over the head>: a heavy helm
+E 0 23266 0 5		*	a dwarven warrior <on the body>: a suit of dwarf-made plate
+E 0 23280 0 9		*	a dwarven warrior <on the hands>: a pair of spiked gauntlets
+E 0 23281 0 3		*	a dwarven warrior <around the neck>: a fur cloak
 O 0 23258 0 23477	* a large box (A store room)
 P 0 23260 -1 0 1	* a large box: dwarven forging material
 P 0 23261 -1 0 1	* a large box: some tools of dwarven make
 M 0 23229 1 23478 1	* the elven ranger, Leyara (At a small campfire in the tunnels)
-E 0 23287 0 13		*	the elven ranger, Leyara<around the waist>: a green sash
-E 0 23288 0 16		*	the elven ranger, Leyara<wielded>: a longbow strung with unicorn hair
+E 0 23287 0 13		*	the elven ranger, Leyara <around the waist>: a green sash
+E 0 23288 0 16		*	the elven ranger, Leyara <wielded>: a longbow strung with unicorn hair
 M 0 23230 1 23478 1	* Belador the dwarf cavalier (At a small campfire in the tunnels)
-E 0 23289 0 11		*	Belador the dwarf cavalier<as a shield>: a cavalier shield
-E 0 23290 0 16		*	Belador the dwarf cavalier<wielded>: an mithril-laced adamantite hammer
+E 0 23289 0 11		*	Belador the dwarf cavalier <as a shield>: a cavalier shield
+E 0 23290 0 16		*	Belador the dwarf cavalier <wielded>: an mithril-laced adamantite hammer
 M 0 23231 1 23478 1	* Jarid the archmagi (At a small campfire in the tunnels)
-E 0 23291 0 17		*	Jarid the archmagi<held in the hands>: a blue orb
-E 0 23292 0 1		*	Jarid the archmagi<on the left finger>: a peacekeeper signet ring
+E 0 23291 0 17		*	Jarid the archmagi <held in the hands>: a blue orb
+E 0 23292 0 1		*	Jarid the archmagi <on the left finger>: a peacekeeper signet ring
 R 0 23479 3	* Lost in a misty field: randomize
 R 0 23480 3	* Lost in a misty field: randomize
 M 0 23241 1 23483 1	* a hellhound (In a backyard of a farmhouse)
-E 0 23309 0 3		*	a hellhound<around the neck>: a black spiked collar
+E 0 23309 0 3		*	a hellhound <around the neck>: a black spiked collar
 M 0 23242 1 23484 1	* the zombie of a town shephard (In the shephard's room)
-E 0 23310 0 16		*	the zombie of a town shephard<wielded>: a shephard's staff
+E 0 23310 0 16		*	the zombie of a town shephard <wielded>: a shephard's staff
 S
 
 #OLIMITS

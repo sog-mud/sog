@@ -3040,27 +3040,27 @@ S
 
 #RESETS
 M 0 7801 6 7805 1	* a valley elf (The Entrance to the Valley of the Elves)
-E 0 7802 0 16		*	a valley elf<wielded>: an elven longsword
+E 0 7802 0 16		*	a valley elf <wielded>: an elven longsword
 M 0 7800 6 7806 1	* a cooshee (The Edge of the Valley)
 M 0 7800 6 7807 1	* a cooshee (The Edge of the Valley)
 M 0 7802 6 7811 1	* a valley elf (The Valley of the Elves)
-E 0 7802 0 16		*	a valley elf<wielded>: an elven longsword
+E 0 7802 0 16		*	a valley elf <wielded>: an elven longsword
 M 0 7814 3 7815 1	* an antelope (The Valley of the Elves)
 M 0 7801 6 7816 1	* a valley elf (The Valley of the Elves)
-E 0 7802 0 16		*	a valley elf<wielded>: an elven longsword
+E 0 7802 0 16		*	a valley elf <wielded>: an elven longsword
 M 0 7801 6 7818 1	* a valley elf (The Edge of the Valley)
-E 0 7802 0 16		*	a valley elf<wielded>: an elven longsword
+E 0 7802 0 16		*	a valley elf <wielded>: an elven longsword
 M 0 7813 3 7818 1	* a wolf (The Edge of the Valley)
 M 0 7801 6 7820 1	* a valley elf (The Valley of the Elves)
-E 0 7802 0 16		*	a valley elf<wielded>: an elven longsword
+E 0 7802 0 16		*	a valley elf <wielded>: an elven longsword
 M 0 7802 6 7820 1	* a valley elf (The Valley of the Elves)
-E 0 7802 0 16		*	a valley elf<wielded>: an elven longsword
+E 0 7802 0 16		*	a valley elf <wielded>: an elven longsword
 M 0 7800 6 7823 1	* a cooshee (The Edge of the Valley)
 M 0 7814 3 7825 1	* an antelope (The Edge of the Valley)
 M 0 7805 5 7827 1	* a valley elf scout (Along the Trail)
-E 0 7801 0 8		*	a valley elf scout<on the feet>: elven boots
-E 0 7802 0 16		*	a valley elf scout<wielded>: an elven longsword
-E 0 7803 0 3		*	a valley elf scout<around the neck>: a brown cloak
+E 0 7801 0 8		*	a valley elf scout <on the feet>: elven boots
+E 0 7802 0 16		*	a valley elf scout <wielded>: an elven longsword
+E 0 7803 0 3		*	a valley elf scout <around the neck>: a brown cloak
 M 0 7813 3 7830 1	* a wolf (A Trail in the Valley)
 M 0 7800 6 7833 1	* a cooshee (A Trail in the Valley)
 M 0 7806 5 7835 1	* a valley elf (The Kitchen)
@@ -3068,20 +3068,20 @@ M 0 7800 6 7837 1	* a cooshee (A Trail in the Valley)
 M 0 7806 5 7838 1	* a valley elf (The Living Room)
 M 0 7806 5 7839 1	* a valley elf (The Storage Room)
 M 0 7802 6 7842 1	* a valley elf (A Trail in the Valley)
-E 0 7802 0 16		*	a valley elf<wielded>: an elven longsword
+E 0 7802 0 16		*	a valley elf <wielded>: an elven longsword
 M 0 7805 5 7842 1	* a valley elf scout (A Trail in the Valley)
-E 0 7801 0 8		*	a valley elf scout<on the feet>: elven boots
-E 0 7802 0 16		*	a valley elf scout<wielded>: an elven longsword
-E 0 7803 0 3		*	a valley elf scout<around the neck>: a brown cloak
+E 0 7801 0 8		*	a valley elf scout <on the feet>: elven boots
+E 0 7802 0 16		*	a valley elf scout <wielded>: an elven longsword
+E 0 7803 0 3		*	a valley elf scout <around the neck>: a brown cloak
 M 0 7801 6 7844 1	* a valley elf (A Trail in the Valley)
-E 0 7802 0 16		*	a valley elf<wielded>: an elven longsword
+E 0 7802 0 16		*	a valley elf <wielded>: an elven longsword
 M 0 7807 1 7845 1	* a valley elf elder (The Elders' Room)
 G 0 7804 0		*	a valley elf elder: a key
-E 0 7806 0 1		*	a valley elf elder<on the left finger>: a gold ring
-E 0 7825 0 16		*	a valley elf elder<wielded>: a quarterstaff
+E 0 7806 0 1		*	a valley elf elder <on the left finger>: a gold ring
+E 0 7825 0 16		*	a valley elf elder <wielded>: a quarterstaff
 M 0 7808 1 7845 1	* a valley elf elder (The Elders' Room)
-E 0 7806 0 1		*	a valley elf elder<on the left finger>: a gold ring
-E 0 7825 0 16		*	a valley elf elder<wielded>: a quarterstaff
+E 0 7806 0 1		*	a valley elf elder <on the left finger>: a gold ring
+E 0 7825 0 16		*	a valley elf elder <wielded>: a quarterstaff
 O 0 7809 0 7846	* a potion (The Storage Room)
 O 0 7823 0 7846	* a scroll (The Storage Room)
 O 0 7820 0 7846	* a scroll (The Storage Room)
@@ -3091,74 +3091,74 @@ O 0 7816 0 7846	* a potion (The Storage Room)
 O 0 7819 0 7846	* a scroll (The Storage Room)
 M 0 7806 5 7847 2	* a valley elf (The Sleeping Quarters)
 M 0 7803 4 7848 1	* a valley elf sentry (Study)
-E 0 7800 0 5		*	a valley elf sentry<on the body>: elven chainmail
-E 0 7801 0 8		*	a valley elf sentry<on the feet>: elven boots
-E 0 7802 0 16		*	a valley elf sentry<wielded>: an elven longsword
-E 0 7803 0 3		*	a valley elf sentry<around the neck>: a brown cloak
+E 0 7800 0 5		*	a valley elf sentry <on the body>: elven chainmail
+E 0 7801 0 8		*	a valley elf sentry <on the feet>: elven boots
+E 0 7802 0 16		*	a valley elf sentry <wielded>: an elven longsword
+E 0 7803 0 3		*	a valley elf sentry <around the neck>: a brown cloak
 M 0 7804 4 7848 1	* a valley elf sentry (Study)
-E 0 7800 0 5		*	a valley elf sentry<on the body>: elven chainmail
-E 0 7801 0 8		*	a valley elf sentry<on the feet>: elven boots
-E 0 7802 0 16		*	a valley elf sentry<wielded>: an elven longsword
-E 0 7803 0 3		*	a valley elf sentry<around the neck>: a brown cloak
+E 0 7800 0 5		*	a valley elf sentry <on the body>: elven chainmail
+E 0 7801 0 8		*	a valley elf sentry <on the feet>: elven boots
+E 0 7802 0 16		*	a valley elf sentry <wielded>: an elven longsword
+E 0 7803 0 3		*	a valley elf sentry <around the neck>: a brown cloak
 M 0 7804 4 7850 1	* a valley elf sentry (Along a Windy Trail on the Rim of the Valley)
-E 0 7800 0 5		*	a valley elf sentry<on the body>: elven chainmail
-E 0 7801 0 8		*	a valley elf sentry<on the feet>: elven boots
-E 0 7802 0 16		*	a valley elf sentry<wielded>: an elven longsword
-E 0 7803 0 3		*	a valley elf sentry<around the neck>: a brown cloak
+E 0 7800 0 5		*	a valley elf sentry <on the body>: elven chainmail
+E 0 7801 0 8		*	a valley elf sentry <on the feet>: elven boots
+E 0 7802 0 16		*	a valley elf sentry <wielded>: an elven longsword
+E 0 7803 0 3		*	a valley elf sentry <around the neck>: a brown cloak
 M 0 7805 5 7852 1	* a valley elf scout (Along a Windy Trail on the Rim of the Valley)
-E 0 7801 0 8		*	a valley elf scout<on the feet>: elven boots
-E 0 7802 0 16		*	a valley elf scout<wielded>: an elven longsword
-E 0 7803 0 3		*	a valley elf scout<around the neck>: a brown cloak
+E 0 7801 0 8		*	a valley elf scout <on the feet>: elven boots
+E 0 7802 0 16		*	a valley elf scout <wielded>: an elven longsword
+E 0 7803 0 3		*	a valley elf scout <around the neck>: a brown cloak
 M 0 7814 3 7852 1	* an antelope (Along a Windy Trail on the Rim of the Valley)
 M 0 7803 1 7853 1	* a valley elf sentry (Along a Windy Trail on the Rim of the Valley)
-E 0 7800 0 5		*	a valley elf sentry<on the body>: elven chainmail
-E 0 7801 0 8		*	a valley elf sentry<on the feet>: elven boots
-E 0 7802 0 16		*	a valley elf sentry<wielded>: an elven longsword
-E 0 7803 0 3		*	a valley elf sentry<around the neck>: a brown cloak
+E 0 7800 0 5		*	a valley elf sentry <on the body>: elven chainmail
+E 0 7801 0 8		*	a valley elf sentry <on the feet>: elven boots
+E 0 7802 0 16		*	a valley elf sentry <wielded>: an elven longsword
+E 0 7803 0 3		*	a valley elf sentry <around the neck>: a brown cloak
 M 0 7802 6 7854 1	* a valley elf (Along a Windy Trail on the Rim of the Valley)
-E 0 7802 0 16		*	a valley elf<wielded>: an elven longsword
+E 0 7802 0 16		*	a valley elf <wielded>: an elven longsword
 M 0 7804 4 7856 1	* a valley elf sentry (Along a Windy Trail on the Rim of the Valley)
-E 0 7800 0 5		*	a valley elf sentry<on the body>: elven chainmail
-E 0 7801 0 8		*	a valley elf sentry<on the feet>: elven boots
-E 0 7802 0 16		*	a valley elf sentry<wielded>: an elven longsword
-E 0 7803 0 3		*	a valley elf sentry<around the neck>: a brown cloak
+E 0 7800 0 5		*	a valley elf sentry <on the body>: elven chainmail
+E 0 7801 0 8		*	a valley elf sentry <on the feet>: elven boots
+E 0 7802 0 16		*	a valley elf sentry <wielded>: an elven longsword
+E 0 7803 0 3		*	a valley elf sentry <around the neck>: a brown cloak
 M 0 7803 4 7860 1	* a valley elf sentry (Along a Windy Trail on the Rim of the Valley)
-E 0 7800 0 5		*	a valley elf sentry<on the body>: elven chainmail
-E 0 7801 0 8		*	a valley elf sentry<on the feet>: elven boots
-E 0 7802 0 16		*	a valley elf sentry<wielded>: an elven longsword
-E 0 7803 0 3		*	a valley elf sentry<around the neck>: a brown cloak
+E 0 7800 0 5		*	a valley elf sentry <on the body>: elven chainmail
+E 0 7801 0 8		*	a valley elf sentry <on the feet>: elven boots
+E 0 7802 0 16		*	a valley elf sentry <wielded>: an elven longsword
+E 0 7803 0 3		*	a valley elf sentry <around the neck>: a brown cloak
 M 0 7813 3 7860 1	* a wolf (Along a Windy Trail on the Rim of the Valley)
 M 0 7805 5 7862 1	* a valley elf scout (Along a Windy Trail on the Rim of the Valley)
-E 0 7801 0 8		*	a valley elf scout<on the feet>: elven boots
-E 0 7802 0 16		*	a valley elf scout<wielded>: an elven longsword
-E 0 7803 0 3		*	a valley elf scout<around the neck>: a brown cloak
+E 0 7801 0 8		*	a valley elf scout <on the feet>: elven boots
+E 0 7802 0 16		*	a valley elf scout <wielded>: an elven longsword
+E 0 7803 0 3		*	a valley elf scout <around the neck>: a brown cloak
 M 0 7804 4 7863 1	* a valley elf sentry (Along a Windy Trail on the Rim of the Valley)
-E 0 7800 0 5		*	a valley elf sentry<on the body>: elven chainmail
-E 0 7801 0 8		*	a valley elf sentry<on the feet>: elven boots
-E 0 7802 0 16		*	a valley elf sentry<wielded>: an elven longsword
-E 0 7803 0 3		*	a valley elf sentry<around the neck>: a brown cloak
+E 0 7800 0 5		*	a valley elf sentry <on the body>: elven chainmail
+E 0 7801 0 8		*	a valley elf sentry <on the feet>: elven boots
+E 0 7802 0 16		*	a valley elf sentry <wielded>: an elven longsword
+E 0 7803 0 3		*	a valley elf sentry <around the neck>: a brown cloak
 M 0 7802 6 7865 1	* a valley elf (Along a Windy Trail on the Rim of the Valley)
-E 0 7802 0 16		*	a valley elf<wielded>: an elven longsword
+E 0 7802 0 16		*	a valley elf <wielded>: an elven longsword
 M 0 7803 4 7866 1	* a valley elf sentry (Along a Windy Trail on the Rim of the Valley)
-E 0 7800 0 5		*	a valley elf sentry<on the body>: elven chainmail
-E 0 7801 0 8		*	a valley elf sentry<on the feet>: elven boots
-E 0 7802 0 16		*	a valley elf sentry<wielded>: an elven longsword
-E 0 7803 0 3		*	a valley elf sentry<around the neck>: a brown cloak
+E 0 7800 0 5		*	a valley elf sentry <on the body>: elven chainmail
+E 0 7801 0 8		*	a valley elf sentry <on the feet>: elven boots
+E 0 7802 0 16		*	a valley elf sentry <wielded>: an elven longsword
+E 0 7803 0 3		*	a valley elf sentry <around the neck>: a brown cloak
 M 0 7802 6 7868 1	* a valley elf (A Bend in the Trail)
-E 0 7802 0 16		*	a valley elf<wielded>: an elven longsword
+E 0 7802 0 16		*	a valley elf <wielded>: an elven longsword
 M 0 7800 6 7873 1	* a cooshee (The Small Valley)
 M 0 7805 5 7876 1	* a valley elf scout (The Small Valley)
-E 0 7801 0 8		*	a valley elf scout<on the feet>: elven boots
-E 0 7802 0 16		*	a valley elf scout<wielded>: an elven longsword
-E 0 7803 0 3		*	a valley elf scout<around the neck>: a brown cloak
+E 0 7801 0 8		*	a valley elf scout <on the feet>: elven boots
+E 0 7802 0 16		*	a valley elf scout <wielded>: an elven longsword
+E 0 7803 0 3		*	a valley elf scout <around the neck>: a brown cloak
 M 0 7801 6 7877 1	* a valley elf (The Small Valley)
-E 0 7802 0 16		*	a valley elf<wielded>: an elven longsword
+E 0 7802 0 16		*	a valley elf <wielded>: an elven longsword
 M 0 7810 1 7878 1	* an old hermit (Inside the Small Shack)
 M 0 7809 1 7880 1	* the pyrohydra (The Den of the Pyrohydra)
 G 0 7805 0		*	the pyrohydra: a key
 M 0 7811 1 7881 1	* Talemon (The Workroom)
-E 0 7806 0 1		*	Talemon<on the left finger>: a gold ring
-E 0 7807 0 16		*	Talemon<wielded>: a quarterstaff
+E 0 7806 0 1		*	Talemon <on the left finger>: a gold ring
+E 0 7807 0 16		*	Talemon <wielded>: a quarterstaff
 O 0 7808 0 7882	* a potion (The Storage Room)
 O 0 7822 0 7882	* a scroll (The Storage Room)
 O 0 7821 0 7882	* a scroll (The Storage Room)

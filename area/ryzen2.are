@@ -1574,13 +1574,13 @@ S
 #RESETS
 M 0 22002 10 22001 1	* A Wandering Ghost (A Darkened Tunnel)
 M 0 22013 1 22002 1	* A Well Armed Knight (A Darkened Tunnel)
-E 0 22003 0 5		*	A Well Armed Knight<on the body>: an ornate breast plate
-E 0 22011 0 16		*	A Well Armed Knight<wielded>: a silver longsword
+E 0 22003 0 5		*	A Well Armed Knight <on the body>: an ornate breast plate
+E 0 22011 0 16		*	A Well Armed Knight <wielded>: a silver longsword
 M 0 22007 5 22003 1	* a nupperibo (A Bend in the Tunnel)
 M 0 22002 10 22004 1	* A Wandering Ghost (A Bend in the Tunnel)
 M 0 22007 5 22004 1	* a nupperibo (A Bend in the Tunnel)
 M 0 22014 1 22006 1	* A Halfling Thief (A Darkened Tunnel)
-E 0 22005 0 14		*	A Halfling Thief<on the left wrist>: a concealable wrist sheath
+E 0 22005 0 14		*	A Halfling Thief <on the left wrist>: a concealable wrist sheath
 M 0 22002 10 22007 1	* A Wandering Ghost (A Darkened Tunnel)
 M 0 22007 5 22008 1	* a nupperibo (A Darkened Tunnel)
 M 0 22006 5 22009 1	* a lemure (A Darkened Tunnel)
@@ -1594,21 +1594,21 @@ M 0 22002 10 22017 1	* A Wandering Ghost (A Darkened Tunnel)
 M 0 22005 5 22018 1	* a ghoul (A Branch in the Tunnel)
 M 0 22002 10 22020 1	* A Wandering Ghost (A Darkened Tunnel)
 M 0 22015 1 22020 1	* A Powerful Enchantress (A Darkened Tunnel)
-E 0 22004 0 1		*	A Powerful Enchantress<on the left finger>: ring of magic
+E 0 22004 0 1		*	A Powerful Enchantress <on the left finger>: ring of magic
 M 0 22006 5 22021 1	* a lemure (A Darkened Tunnel)
 M 0 22005 5 22022 1	* a ghoul (A Darkened Tunnel)
 M 0 22003 2 22023 1	* a Wicked Wraith (A Bend in the Tunnel)
 M 0 22002 10 22024 1	* A Wandering Ghost (A Darkened Tunnel)
 M 0 22012 1 22029 1	* a Holy Cleric (The Bottom of the Stairs)
-E 0 22002 0 7		*	a Holy Cleric<on the legs>: leggings of speed
+E 0 22002 0 7		*	a Holy Cleric <on the legs>: leggings of speed
 G 0 22010 0		*	a Holy Cleric: a vial of holy water
 M 0 22011 1 22031 1	* an Undead Beast (A Dead End)
-E 0 22008 0 3		*	an Undead Beast<around the neck>: a bloody collar
+E 0 22008 0 3		*	an Undead Beast <around the neck>: a bloody collar
 M 0 22005 5 22032 1	* a ghoul (A Pitch Black Tunnel)
 M 0 22002 10 22033 1	* A Wandering Ghost (A Pitch Black Tunnel)
 M 0 22005 5 22034 1	* a ghoul (A Pitch Black Tunnel)
 M 0 22009 1 22035 1	* the ghoul lord (The Ghoul Lord's Den)
-E 0 22007 0 17		*	the ghoul lord<held in the hands>: the Rod of Rulership
+E 0 22007 0 17		*	the ghoul lord <held in the hands>: the Rod of Rulership
 M 0 22004 3 22036 1	* a spectre (A Pitch Black Tunnel)
 M 0 22010 1 22038 1	* A Deep Dragon (The Dragon's Lair)
 G 0 22000 0		*	A Deep Dragon: girdle of giant strength
@@ -1617,17 +1617,17 @@ M 0 22003 2 22040 1	* a Wicked Wraith (A Darkened Tunnel)
 M 0 22006 5 22040 1	* a lemure (A Darkened Tunnel)
 M 0 22002 10 22041 1	* A Wandering Ghost (The End of the Tunnel)
 M 0 22008 5 22041 1	* a Spinagon (The End of the Tunnel)
-E 0 22006 0 16		*	a Spinagon<wielded>: a Spinagon's spear
+E 0 22006 0 16		*	a Spinagon <wielded>: a Spinagon's spear
 M 0 22006 5 22043 1	* a lemure (A Long Cavern)
 M 0 22008 5 22043 1	* a Spinagon (A Long Cavern)
-E 0 22006 0 16		*	a Spinagon<wielded>: a Spinagon's spear
+E 0 22006 0 16		*	a Spinagon <wielded>: a Spinagon's spear
 M 0 22008 5 22045 1	* a Spinagon (A Dimly Lit Tunnel)
-E 0 22006 0 16		*	a Spinagon<wielded>: a Spinagon's spear
+E 0 22006 0 16		*	a Spinagon <wielded>: a Spinagon's spear
 M 0 22002 10 22046 1	* A Wandering Ghost (A Dimly Lit Tunnel)
 M 0 22008 5 22047 1	* a Spinagon (A Bend in the Tunnel)
-E 0 22006 0 16		*	a Spinagon<wielded>: a Spinagon's spear
+E 0 22006 0 16		*	a Spinagon <wielded>: a Spinagon's spear
 M 0 22008 5 22049 1	* a Spinagon (The End of The Caverns)
-E 0 22006 0 16		*	a Spinagon<wielded>: a Spinagon's spear
+E 0 22006 0 16		*	a Spinagon <wielded>: a Spinagon's spear
 S
 
 #OLIMITS

@@ -302,7 +302,7 @@ S
 #RESETS
 M 0 5501 5 5550 3	* the citizen (Village street)
 M 0 5501 5 5552 3	* the citizen (Village square)
-E 0 5501 0 16		*	the citizen<wielded>: a dagger
+E 0 5501 0 16		*	the citizen <wielded>: a dagger
 M 0 5502 5 5553 3	* the citizen (The small alley)
 M 0 5503 1 5555 1	* Luxan (Luxan's mixed shop)
 G 0 5502 0		*	Luxan: wild flowers

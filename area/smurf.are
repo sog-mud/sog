@@ -1116,11 +1116,11 @@ G 0 100 0		*	a smurf: a bunch of smurfberries
 M 0 102 3 118 1	* a smurf (Smurfberry Patch)
 G 0 100 0		*	a smurf: a bunch of smurfberries
 M 0 103 1 119 1	* Brainy Smurf (Brainy Smurf's Home)
-E 0 101 0 6		*	Brainy Smurf<over the head>: a pair of glasses
+E 0 101 0 6		*	Brainy Smurf <over the head>: a pair of glasses
 M 0 104 1 120 1	* Handy Smurf (Handy Smurf's Home)
-E 0 103 0 16		*	Handy Smurf<wielded>: a small axe
+E 0 103 0 16		*	Handy Smurf <wielded>: a small axe
 M 0 106 1 121 1	* Hefty Smurf (Hefty Smurf's Home)
-E 0 103 0 16		*	Hefty Smurf<wielded>: a small axe
+E 0 103 0 16		*	Hefty Smurf <wielded>: a small axe
 M 0 105 1 122 1	* Sleepy Smurf (Sleepy Smurf's Home)
 M 0 107 1 123 1	* Grumpy Smurf (Grumpy Smurf's Home)
 M 0 108 1 124 1	* Jokey Smurf (Jokey Smurf's Home)
@@ -1128,10 +1128,10 @@ M 0 110 1 125 1	* Papa Smurf (Papa Smurf's Home)
 G 0 105 0		*	Papa Smurf: a pink potion
 G 0 109 0		*	Papa Smurf: a small key
 M 0 111 1 128 1	* Gargamel (Gargamel's Castle)
-E 0 106 0 17		*	Gargamel<held in the hands>: a small wand
+E 0 106 0 17		*	Gargamel <held in the hands>: a small wand
 M 0 112 1 128 1	* Azreal (Gargamel's Castle)
 M 0 109 1 129 1	* Smurfette (Smurfette's House)
-E 0 104 0 3		*	Smurfette<around the neck>: a small necklace
+E 0 104 0 3		*	Smurfette <around the neck>: a small necklace
 G 0 107 0		*	Smurfette: a tiny key
 S
 

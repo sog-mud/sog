@@ -2539,59 +2539,59 @@ O 0 9901 0 9902	* a sign (On the river)
 M 0 9906 10 9928 1	* the Male Goblin (Dead grass hut)
 M 0 9907 12 9928 1	* the Female Goblin (Dead grass hut)
 M 0 9903 3 9929 1	* the Deranged Elf (A blue hut)
-E 0 9908 0 1		*	the Deranged Elf<on the left finger>: an Elven Ring
+E 0 9908 0 1		*	the Deranged Elf <on the left finger>: an Elven Ring
 M 0 9910 15 9932 1	* the Goblin Warrior (Village path)
 M 0 9908 10 9933 1	* the Goblin Guard (Crushed grass)
 M 0 9905 15 9935 1	* the Goblin child (Stick hut)
 M 0 9906 10 9938 1	* the Male Goblin (Grass hut with window)
-E 0 9913 0 5		*	the Male Goblin<on the body>: a loincloth
+E 0 9913 0 5		*	the Male Goblin <on the body>: a loincloth
 M 0 9907 12 9938 1	* the Female Goblin (Grass hut with window)
-E 0 9913 0 5		*	the Female Goblin<on the body>: a loincloth
-E 0 9914 0 14		*	the Female Goblin<on the left wrist>: a pair of Goblin Bangles
+E 0 9913 0 5		*	the Female Goblin <on the body>: a loincloth
+E 0 9914 0 14		*	the Female Goblin <on the left wrist>: a pair of Goblin Bangles
 M 0 9905 15 9942 1	* the Goblin child (Bloody hut)
 M 0 9905 15 9945 1	* the Goblin child (Grass hut)
 M 0 9910 15 9946 1	* the Goblin Warrior (Southern path)
 M 0 9904 3 9950 1	* the Confused Human (Grass hut)
-E 0 9912 0 17		*	the Confused Human<held in the hands>: a Childs toy
+E 0 9912 0 17		*	the Confused Human <held in the hands>: a Childs toy
 M 0 9909 5 9950 1	* the Goblin Shaman (Grass hut)
 M 0 9906 10 9953 1	* the Male Goblin (Goblin hut)
-E 0 9913 0 5		*	the Male Goblin<on the body>: a loincloth
+E 0 9913 0 5		*	the Male Goblin <on the body>: a loincloth
 M 0 9907 12 9953 1	* the Female Goblin (Goblin hut)
-E 0 9913 0 5		*	the Female Goblin<on the body>: a loincloth
-E 0 9914 0 14		*	the Female Goblin<on the left wrist>: a pair of Goblin Bangles
+E 0 9913 0 5		*	the Female Goblin <on the body>: a loincloth
+E 0 9914 0 14		*	the Female Goblin <on the left wrist>: a pair of Goblin Bangles
 M 0 9902 3 9959 1	* the Eyeless Dwarf (Village path)
-E 0 9906 0 3		*	the Eyeless Dwarf<around the neck>: a Necklace
+E 0 9906 0 3		*	the Eyeless Dwarf <around the neck>: a Necklace
 M 0 9908 10 9959 1	* the Goblin Guard (Village path)
 M 0 9908 10 9961 1	* the Goblin Guard (Dirt path)
 M 0 9910 15 9964 1	* the Goblin Warrior (Dirty grass path)
 M 0 9904 3 9965 1	* the Confused Human (Large wood hut)
-E 0 9910 0 17		*	the Confused Human<held in the hands>: a Childs toy
+E 0 9910 0 17		*	the Confused Human <held in the hands>: a Childs toy
 M 0 9909 5 9965 1	* the Goblin Shaman (Large wood hut)
 M 0 9906 10 9968 1	* the Male Goblin (Grass hut)
 M 0 9907 12 9968 1	* the Female Goblin (Grass hut)
 M 0 9906 10 9971 1	* the Male Goblin (Silky grass hut)
-E 0 9913 0 5		*	the Male Goblin<on the body>: a loincloth
+E 0 9913 0 5		*	the Male Goblin <on the body>: a loincloth
 M 0 9907 12 9971 1	* the Female Goblin (Silky grass hut)
-E 0 9913 0 5		*	the Female Goblin<on the body>: a loincloth
-E 0 9914 0 14		*	the Female Goblin<on the left wrist>: a pair of Goblin Bangles
+E 0 9913 0 5		*	the Female Goblin <on the body>: a loincloth
+E 0 9914 0 14		*	the Female Goblin <on the left wrist>: a pair of Goblin Bangles
 M 0 9910 15 9974 1	* the Goblin Warrior (Kneehigh grass)
 M 0 9903 3 9976 1	* the Deranged Elf (Stick hut)
-E 0 9909 0 1		*	the Deranged Elf<on the left finger>: an Elven Ring
+E 0 9909 0 1		*	the Deranged Elf <on the left finger>: an Elven Ring
 M 0 9905 15 9976 1	* the Goblin child (Stick hut)
 M 0 9902 3 9977 2	* the Eyeless Dwarf (Northern path)
-E 0 9905 0 3		*	the Eyeless Dwarf<around the neck>: a Necklace
+E 0 9905 0 3		*	the Eyeless Dwarf <around the neck>: a Necklace
 M 0 9905 15 9979 1	* the Goblin child (Grass hut)
 M 0 9905 15 9981 1	* the Goblin child (Grass hut)
 M 0 9905 15 9983 1	* the Goblin child (Small hut)
 M 0 9909 5 9987 1	* the Goblin Shaman (Grass shack)
 M 0 9910 15 9988 1	* the Goblin Warrior (Tiny path)
 M 0 9904 3 9989 1	* the Confused Human (Grass shack)
-E 0 9911 0 17		*	the Confused Human<held in the hands>: a Childs toy
+E 0 9911 0 17		*	the Confused Human <held in the hands>: a Childs toy
 M 0 9903 3 9991 1	* the Deranged Elf (Wooden hut)
-E 0 9907 0 1		*	the Deranged Elf<on the left finger>: an Elven Ring
+E 0 9907 0 1		*	the Deranged Elf <on the left finger>: an Elven Ring
 M 0 9908 10 9996 1	* the Goblin Guard (Before the cave)
 M 0 9902 3 9997 2	* the Eyeless Dwarf (Grass hut)
-E 0 9904 0 3		*	the Eyeless Dwarf<around the neck>: a Necklace
+E 0 9904 0 3		*	the Eyeless Dwarf <around the neck>: a Necklace
 M 0 9909 5 9998 1	* the Goblin Shaman (Grass hut)
 S
 

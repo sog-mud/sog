@@ -934,7 +934,7 @@ tattoo of Lirail, Goddess of Order and Protection~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 m obj_fight @ 100~
 switch (number_bits(5)) {
@@ -959,7 +959,7 @@ tattoo of Amtinor, God of Woodlands~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 m obj_fight @ 100~
 switch (number_bits(5)) {
@@ -997,7 +997,7 @@ tattoo of Aulin, Goddess of Knowlegde~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 m obj_fight @ 100~
 switch (number_bits(4)) {
@@ -1021,7 +1021,7 @@ tattoo of Dakkorn, God of Justice~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 m obj_fight @ 100~
 switch (number_bits(5)) {
@@ -1048,7 +1048,7 @@ tattoo of Ulwark, God of Dreams and Ambitions~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 m obj_fight @ 100~
 switch (number_bits(5)) {
@@ -1073,7 +1073,7 @@ tattoo of Moarith, Goddess of Slaughter~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 m obj_fight @ 100~
 switch (number_bits(5)) {
@@ -1094,7 +1094,7 @@ tattoo of Ilissa, Goddess of Tyranny~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 m obj_fight @ 100~
 switch (number_bits(5)) {
@@ -1113,7 +1113,7 @@ tattoo of Hathir, God of Death~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 m obj_fight @ 100~
 switch (number_bits(6)) {
@@ -1134,7 +1134,7 @@ tattoo of Throrgrim, God of Retribution~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 m obj_fight @ 100~
 switch (number_bits(5)) {
@@ -1160,7 +1160,7 @@ tattoo of Irian, Goddess of True Chaos~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 m obj_fight @ 100~
 switch (number_bits(5)) {
@@ -1191,7 +1191,7 @@ tattoo of Stivrosh, God of War~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 m obj_fight @ 100~
 switch (number_bits(4)) {
@@ -1233,7 +1233,7 @@ tattoo of Gwinnerai, Goddess of Honor~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 m obj_fight @ 100~
 switch (number_bits(4)) {
@@ -1254,7 +1254,7 @@ tattoo of Trussk, God of Desease and Suffering~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 m obj_fight @ 100~
 int level = actor->level + 3;
@@ -1301,7 +1301,7 @@ tattoo of Lessa, Goddess of Magic~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 m obj_fight @ 100~
 switch (number_bits(5)) {
@@ -1331,7 +1331,7 @@ tattoo of Vilirna, Goddess of Life~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 m obj_fight @ 100~
 switch (number_bits(5)) {
@@ -1357,7 +1357,7 @@ tattoo of Calamir, God of Delusion~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 m obj_fight @ 100~
 switch (number_bits(5)) {
@@ -1382,7 +1382,7 @@ tattoo of Cariel, Goddess of Revival~
 A tattoo flying in the air.~
 energy~
 tattoo AUY C AR
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 m obj_fight @ 100~
 switch (number_bits(5)) {
@@ -1553,7 +1553,7 @@ quest staff of kio~
 A quest obj flying in the air.~
 energy~
 treasure AY BCI A
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 m obj_get obj_get_quest_obj 100~
 E
@@ -1567,7 +1567,7 @@ quest staff of conrad~
 A quest obj flying in the air.~
 energy~
 treasure AY BCI A
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 m obj_get obj_get_quest_obj 100~
 E
@@ -1581,7 +1581,7 @@ quest staff of powerman~
 A quest obj flying in the air.~
 energy~
 treasure AY BCI A
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 m obj_get obj_get_quest_obj 100~
 E
@@ -1595,7 +1595,7 @@ quest staff of mandrake~
 A quest obj flying in the air.~
 energy~
 treasure AY BCI A
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 m obj_get obj_get_quest_obj 100~
 E
@@ -1674,7 +1674,7 @@ kassandra камушек камень~
 @eng A mystical green stone is here, flying in the air.@rus Мистический зеленый камушек (stone) привлек твое внимание.~
 stone~
 treasure AUY C AO
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 0 0 0 P
 g @rus female~
 #90

@@ -1677,24 +1677,24 @@ M 0 35471 20 35472 2	* an air sprite (A small clearing)
 M 0 35471 20 35474 1	* an air sprite (A junction in the forest path)
 M 0 35469 1 35475 1	* an ancient oak (A path through the forest)
 M 0 35477 1 35477 1	* a guardian tree (A path through the forest)
-E 0 35482 0 5		*	a guardian tree<on the body>: {ya wooden bark{x
+E 0 35482 0 5		*	a guardian tree <on the body>: {ya wooden bark{x
 M 0 35471 20 35478 1	* an air sprite (An intersection in the path)
 M 0 35472 1 35483 1	* a demonic quasit imp (Inside a damp cave)
 M 0 35471 20 35485 1	* an air sprite (A grassy beach)
 M 0 35473 20 35490 2	* a water pixie (On a small pond)
 G 0 35474 0		*	a water pixie: a beaker of plentiful potions
-E 0 35478 0 1		*	a water pixie<on the left finger>: {ca hoop of flowing water{x
+E 0 35478 0 1		*	a water pixie <on the left finger>: {ca hoop of flowing water{x
 O 0 35476 0 35490	* waters smooth as crystal (On a small pond)
 O 0 35476 0 35491	* waters smooth as crystal (On a small pond)
 M 0 35470 1 35494 1	* a forest bear (The bear's sleeping area)
-E 0 35480 0 16		*	a forest bear<wielded>: {Wthe claw of a forest bear{x
+E 0 35480 0 16		*	a forest bear <wielded>: {Wthe claw of a forest bear{x
 O 0 35476 0 35496	* waters smooth as crystal (On a small pond)
 O 0 35476 0 35497	* waters smooth as crystal (On a small pond)
 M 0 35473 20 35497 2	* a water pixie (On a small pond)
 G 0 35474 0		*	a water pixie: a beaker of plentiful potions
-E 0 35478 0 2		*	a water pixie<on the right finger>: {ca hoop of flowing water{x
+E 0 35478 0 2		*	a water pixie <on the right finger>: {ca hoop of flowing water{x
 M 0 35474 1 35498 1	* an air sprite (The crystaline grove)
-E 0 35479 0 10		*	an air sprite<on the arms>: {Wa crystal pixie wings{x
+E 0 35479 0 10		*	an air sprite <on the arms>: {Wa crystal pixie wings{x
 M 0 35471 20 35499 2	* an air sprite (A bend in the path)
 S
 
