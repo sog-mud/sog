@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.16 2000-10-10 15:04:10 fjoe Exp $
+ * $Id: updfun.c,v 1.17 2000-10-10 15:28:10 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -801,14 +801,17 @@ obj_update_cb(void *vo, va_list ap)
 		;
 
 	/*
-	 * skip objects if owner is !IS_NPC and
-	 * has not finished login or is in lost-link
+	 * skip objects if owner has not finished login
+	 *
+	 * close_descriptor removes chars from char_list
+	 * if char is not in CON_PLAYING state so such players
+	 * are not lost-link characters (char can not become lost-link
+	 * char if he has not finished login)
 	 */
-	if (t_obj->carried_by != NULL && !IS_NPC(t_obj->carried_by)) {
-		if (t_obj->carried_by->desc == NULL
-		||  t_obj->carried_by->desc->connected != CON_PLAYING)
-			return NULL;
-	}
+	if (t_obj->carried_by != NULL
+	&&  t_obj->carried_by->desc != NULL
+	&&  t_obj->carried_by->desc->connected != CON_PLAYING)
+		return NULL;
 
 	update_obj_affects(obj);
 
