@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.23 2000-07-27 09:30:30 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.24 2000-10-13 09:39:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2885,6 +2885,11 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 		buf_free(output);
 		return;
 	}
+
+	if (!IS_AWAKE(ch)) {
+		char_puts("In your dreams, or what?\n", ch);
+		return;
+	}	
 
 	if ((cl = class_lookup(ch->class)) == NULL) {
 		log("do_practice: %s: class %d: unknown",
