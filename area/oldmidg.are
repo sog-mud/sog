@@ -885,28 +885,6 @@ r pierce 50
 r fire -33
 r cold 50
 r charm -33
-#5499
-guard janitor vampire~
-janitor~
-@eng Huge ugly man grins to you.@rus Огромный отвратительный человек злобно ухмыляется тебе. ~
-@eng Big nasty vampire-like creature strolls the streets, looking for its victims.
-He seems to be a guard in this city. But whom does he consider invaders of
-this god-cursed city? Maybe YOU?
-~
-human~
-CGHJLT 0 Oc 0 M -5000 0
-50 200 1d10+5000 1d1+2000 4d7+150 'pound'
--30 -30 -30 -5
-ACEFIQ
-stand stand male 0
-I 0 gargantuan unknown
-r bash 33
-r pierce 33
-r slash 33
-r lightning -50
-r negative 999
-r holy -50
-r charm 999
 #0
 
 #OBJECTS
@@ -4262,7 +4240,6 @@ M 5333 spec_fido	* the beastly fido
 M 5334 spec_guard	* the cityguard
 M 5342 spec_cast_adept	* the healer
 M 5345 spec_cast_adept	* the templeman
-M 5499 spec_cast_undead	* janitor
 S
 
 #RESETS
@@ -4527,7 +4504,6 @@ E 0 3364 0 1		*	the cityguard<on the left finger>: a city guard signet ring
 E 0 3350 0 16		*	the cityguard<wielded>: a standard issue sword
 E 0 3353 0 5		*	the cityguard<on the body>: a standard issue vest
 E 0 3355 0 4		*	the cityguard<on the face>: a standard issue cloak
-M 0 5499 1 5381 1	* janitor (Market Square)
 M 0 5333 3 5382 3	* the beastly fido (The Main Street)
 M 0 5334 1 5384 1	* the cityguard (Inside the East Gate of Midgaard)
 E 0 3365 0 0		*	the cityguard<as a light>: a war banner

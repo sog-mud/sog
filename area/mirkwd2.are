@@ -9,14 +9,21 @@ End
 
 #MOBILES
 #8800
-sylvan elf scout~
-a sylvan elf scout~
-A Sylvan Elf scout is offended at your intrusion!~
-The Sylvan Elves are a good people, but centuries of subjection to the
+sylvan elf scout лесной эльф разведчик~
+@eng a sylvan elf scout@rus ~~лесной~~ ~~эльф~~-~~разведчик~~~
+@eng A Sylvan Elf scout is offended at your intrusion!@rus Лесному эльфу-разведчику (scout) не нравится твое присутствие!~
+@eng The Sylvan Elves are a good people, but centuries of subjection to the
 violences and prejudices of other races have made them wary and very
 hostile toward outsiders. However, if you're tough enough, perhaps he'll
 back down. As natives of Mirkwood, they are virtually imposssible to see
 if they don't want to be seen.
+@rus . Лесные Эльфы  -  по натуре добрый народ.  Но они веками страдали
+от жестокости и предрассудков других рас, став в результате крайне
+осторожными и враждебными ко всем чужакам.  Однако если ты  доста-
+точно $gn{силен}, то возможно, они тебя и не тронут.  Будучи корен-
+ными жителями Лихолесья, лесные эльфы научились так хорошо прятать-
+ся, что их практически невозможно заметить,  если они сами того не
+желают.
 ~
 elf~
 BCFGJ 0 0 B B 400 0
@@ -28,17 +35,20 @@ stand sit male 103
 r slash -50
 r fire -50
 r cold 999
-r negative 10
 r holy 999
 r charm 999
 #8801
-sylvan elf warrior~
-a sylvan elf warrior~
-A Sylvan Elf warrior lunges at you with his sword!~
-The Sylvan Elves are a good people, but centuries of subjection to the
+sylvan elf warrior лесной эльф воин~
+@eng a sylvan elf warrior@rus ~~лесной~~ ~~эльф~~-~~воин~~~
+@eng A Sylvan Elf warrior lunges at you with his sword!@rus Лесной эльф-воин (warrior) хочет проткнуть тебя своим мечом!~
+@eng The Sylvan Elves are a good people, but centuries of subjection to the
 violences and prejudices of other races have made them wary and very
 hostile toward outsiders. However, if you're tough enough, perhaps he'll
 back down.
+@rus . Лесные Эльфы  -  по натуре добрый народ.  Но они веками страдали
+от жестокости и предрассудков других рас, став в результате крайне
+осторожными и враждебными ко всем чужакам.  Однако если ты  доста-
+точно $gn{силен}, то возможно, они тебя и не тронут.
 ~
 elf~
 BCFGJ 0 0 0 0 400 0
@@ -50,16 +60,18 @@ rest stand male 150
 r bash -50
 r pierce -50
 r slash -50
-r negative 10
 r charm 999
 #8802
-orc scout~
-an orc scout~
-An Orcish scout screams and attacks!~
-These foul creatures have been sent in advance by Orcish forces to scout
+orc scout орк разведчик~
+@eng an orc scout@rus ~~орк~~-~~разведчик~~~
+@eng An Orcish scout screams and attacks!@rus Орк-разведчик (scout) с криком нападает!~
+@eng These foul creatures have been sent in advance by Orcish forces to scout
 out the defenses of Mirkwood. So far, their attempts have resulted only
 in their own demise, but eventually the Elves will be worn down by the
 sheer weight of numbers of the immense Orcish hordes.
+@rus Эти мерзкие создания посланы впереди армии орков, чтобы разведать защиту
+Лихолесья. До сих пор все их попытки кончались неудачей, но в конце кон-
+цов эльфы будут смяты численным превосходством орочьих орд.
 ~
 orc~
 BCFGHJ 0 0 0 0 -400 0
@@ -68,31 +80,34 @@ BCFGHJ 0 0 0 0 -400 0
 CDF
 stand stand male 211
 0 0 medium unknown
-r bash -55
-r pierce -55
-r slash -55
+r bash -5
+r pierce -5
+r slash -5
 r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r poison -65
-r negative -65
+r poison -15
+r negative -15
 r holy -35
 r energy -50
 r mental -50
 r disease -15
-r light 15
+r light -35
 r harm -50
 r charm 33
 r sound -50
 #8803
-orc warrior~
-an orc warrior~
-An Orcish warrior screams and attacks!~
-These fell minions of Sauron have been sent in an attempt to subjugate
+orc warrior орк воин~
+@eng an orc warrior@rus ~~орк~~-~~воин~~~
+@eng An Orcish warrior screams and attacks!@rus Орк-воин (warrior) атакует с боевым кличем!~
+@eng These fell minions of Sauron have been sent in an attempt to subjugate
 Mirkwood. So far, their attempts have resulted only in their own demise,
 but eventually the Elves will be worn down by the sheer weight of numbers 
 of the immense Orcish hordes.
+@rus Эти гнусные подданные Саурона посланы, чтобы уничтожить эльфов, живущих в
+Лихолесье. До сих пор все их попытки кончались неудачей, но в конце кон-
+цов эльфы будут смяты численным превосходством орочьих орд.
 ~
 orc~
 CFGJ 0 0 0 0 -400 0
@@ -101,29 +116,28 @@ CFGJ 0 0 0 0 -400 0
 EIN
 stand stand male 0
 0 0 medium unknown
-r bash -5
-r pierce -5
-r slash -5
 r fire -50
 r cold -50
 r lightning -50
 r acid -50
-r poison -65
-r negative -65
+r poison -15
+r negative -15
 r holy -35
 r energy -50
 r mental -50
 r disease -15
-r light 15
+r light -35
 r harm -50
 r charm 33
 r sound -50
 #8804
-guard~
-a wood elf guard~
-A Wood Elf guard angrily accosts you.~
-This angry guard is incensed at your trespass in the hall of his king, and
+guard elf эльф стражник~
+@eng a wood elf guard@rus ~~эльф~~-~~стражник~~~
+@eng A Wood Elf guard angrily accosts you.@rus Эльфу-стражнику (guard) не нравится твое присутствие.~
+@eng This angry guard is incensed at your trespass in the hall of his king, and
 will attempt to forcibly eject you.
+@rus Этот стражник явно рассержен твоим вторжением в покои его короля. Он
+не преминет вышвырнуть тебя вон.
 ~
 elf~
 FGJQT 0 0 0 0 400 8807
@@ -134,17 +148,20 @@ stand stand male 50
 0 0 small unknown
 r fire 999
 r poison 999
-r negative 10
 r holy 999
 r charm 999
 #8805
-chief guard~
-the chief of the guard~
-A Wood Elf chief of the guard lunges at you with his sword!~
-The Wood Elves are a good people, but centuries of subjection to the
+chief guard elf эльф капитан стражи~
+@eng the chief of the guard@rus ~~капитан~~ стражи~
+@eng A Wood Elf chief of the guard lunges at you with his sword!@rus Капитан эльфийской стражи (chief) внезапно втыкает в тебя меч!~
+@eng The Wood Elves are a good people, but centuries of subjection to the
 violences and prejudices of other races have made them wary and very
 hostile toward outsiders. However, if you're tough enough, perhaps he'll
 back down.
+@rus . Лесные Эльфы  -  по натуре добрый народ.  Но они веками страдали
+от жестокости и предрассудков других рас, став в результате крайне
+осторожными и враждебными ко всем чужакам.  Однако если ты  доста-
+точно $gn{силен}, то возможно, они тебя и не тронут.
 ~
 elf~
 BCFGQ 0 0 0 0 400 0
@@ -158,21 +175,23 @@ r cold 33
 r lightning 33
 r acid 33
 r poison 999
-r negative 43
+r negative 10
 r holy 999
 r energy 33
 r mental 33
 r disease 33
 r light 33
 r harm 33
-r charm -33
 r sound 33
 #8806
-galion butler~
-Galion the butler~
-A Wood Elf butler glares at you accusingly.~
-Galion has a tremenous fondness for Dorwinion Wine, and he is now well and
+galion butler elf гэлион дворецкий~
+@eng Galion the butler@rus ~~дворецкий~~ ~~Гэлион~~~
+@eng A Wood Elf butler glares at you accusingly.@rus Дворецкий Гэлион (galion) обвиняюще смотрит на тебя.~
+@eng Galion has a tremenous fondness for Dorwinion Wine, and he is now well and
 truly inebriated. However that does not mean he won't react to your intrusion.
+@rus Гэлион - большой любитель Дорвинианских вин. В настоящий момент он, как
+обычно, пьян в стельку,  но это  не помешает  ему отреагировать на твое
+бесцеремонное вторжение.
 ~
 elf~
 BCFGJ 0 0 0 0 400 0
@@ -181,14 +200,15 @@ BCFGJ 0 0 0 0 400 0
 KN
 stand stand male 0
 0 0 medium unknown
-r negative 10
 r charm 999
 #8807
-thranduil king~
-Thranduil, king of the Wood Elves~
-Thranduil, King of the Wood Elves, eyes you suspiciously.~
-While not immune to the prejudices of his brethren, Thranduil is a trifle
+thranduil king elf трандуил король эльфов~
+@eng Thranduil, king of the Wood Elves@rus ~~Трандуил~~, ~~король~~ Эльфов~
+@eng Thranduil, King of the Wood Elves, eyes you suspiciously.@rus Трандуил, король Лесных Эльфов (thranduil) смотрит на тебя с подозрением.~
+@eng While not immune to the prejudices of his brethren, Thranduil is a trifle
 wiser (and more civilized) and he will not attack without provocation.
+@rus Трандуил значительно мудрее и цивилизованнее своих подданных, поэтому он
+не нападет на тебя, если его не провоцировать.
 ~
 elf~
 BGR 0 H 0 0 500 0
@@ -200,14 +220,14 @@ sit sit male 0
 r bash 33
 r pierce 33
 r slash 33
-r negative 10
-r charm -33
 #8808
-wood elf male~
-a male wood elf~
-A male Wood Elf glares angrily at you.~
-This person won't attack you like the guards will, but that doesn't mean
+wood elf male лесной эльф~
+@eng a male wood elf@rus ~~лесной~~ ~~эльф~~~
+@eng A male Wood Elf glares angrily at you.@rus Лесной эльф (male) смотрит на тебя с затаенной злобой.~
+@eng This person won't attack you like the guards will, but that doesn't mean
 he likes you any more than they do...
+@rus То, что этот эльф не нападает на тебя, как стражники, вовсе не означает,
+что ты ему нравишься больше, чем им...
 ~
 elf~
 CGQ 0 0 0 0 400 0
@@ -219,11 +239,13 @@ stand stand male 0
 r negative 10
 r charm -33
 #8809
-wood elf female~
-a female wood elf~
-A female Wood Elf glares angrily at you.~
-This person won't attack you like the guards will, but that doesn't mean
-ahe likes you any more than they do...
+wood elf female лесная эльфийка~
+@eng a female wood elf@rus ~~лесная~~ ~~эльфийка~~~
+@eng A female Wood Elf glares angrily at you.@rus Лесная эльфийка (female) недоверчиво поглядывает на тебя.~
+@eng This person won't attack you like the guards will, but that doesn't mean
+he likes you any more than they do...
+@rus То, что эта прекрасная эльфийка не нападает на тебя, как стражники,
+вовсе не означает, что ты ей нравишься больше, чем им...
 ~
 elf~
 CGQ 0 0 0 0 400 0
@@ -235,10 +257,13 @@ stand stand female 0
 r negative 10
 r charm -33
 #8810
-turnkey elf~
-the turnkey~
-The turnkey sleeps here.~
-This surly fellow is almost always passed out from copious alcohol consumption.
+turnkey elf эльф лентяй~
+@eng the turnkey@rus ~~эльф~~-~~лентяй~~~
+@eng The turnkey sleeps here.@rus Ленивый эльф (turnkey) напился и спит.~
+@eng This surly fellow is almost always passed out from copious alcohol
+consumption.
+@rus Этот неприятный товарищ практически все время находится в состоянии
+глубокого сна после обильных возлияний.
 ~
 elf~
 BCG 0 0 0 0 0 0
@@ -250,12 +275,14 @@ sleep sleep male 20
 r negative 10
 r charm -33
 #8811
-thorin oakenshield~
-Thorin Oakenshield~
-Thorin Oakenshield politely bows before you.~
-This Dwarf is descended from noble blood. He and his fellows were waylaid
+thorin oakenshield торин дубощит~
+@eng Thorin Oakenshield@rus ~~Торин~~ ~~Дубощит~~~
+@eng Thorin Oakenshield politely bows before you.@rus Торин Дубощит (thorin) вежливо кланяется тебе.~
+@eng This Dwarf is descended from noble blood. He and his fellows were waylaid
 by the Wood Elves while journeying to avenge their brethren against the
 dragon Smaug.
+@rus В этом дварфе течет благородная кровь. Лесные Эльфы подстерегли его и его
+товарищей когда они шли, чтобы отомстить дракону Смогу за убитых родичей.
 ~
 elf~
 CGQ 0 O 0 0 500 0
@@ -265,178 +292,174 @@ IKNR
 stand stand male 40
 0 0 medium unknown
 r cold 33
-r negative 10
 r holy 33
-r charm -33
 #0
 
 #OBJECTS
 #8800
-pool~
-a pool~
-A pool of crystal-clear water fills this clearing.~
+pool пруд~
+@eng a pool@rus пруд~
+@eng A pool of crystal-clear water fills this clearing.@rus В центре поляны ты видишь пруд (pool) с кристально чистой водой.~
 air~
 fountain 0 0 0
 10000 10000 'water' 0 0
 0 0 0 P
 E
-pool~
-It looks tasty. Have a drink!
+pool пруд~
+@eng It looks tasty. Have a drink!
+@rus Вода наверняка чистая и вкусная. Утоли свою жажду, не дай себе засохнуть!
 ~
-g @rus none~
 #8801
-sword~
-an elvish sword~
-A beautiful sword has been left here.~
+sword elvish elven меч эльфийский~
+@eng an elvish sword@rus ~~эльфийский~~ ~~меч~~~
+@eng A beautiful sword has been left here.@rus Кто-то бросил тут прекрасный меч (sword).~
 adamantite~
 weapon G 0 AN
 sword 1 5 'slash' 0
 5 30 500 G
 a '' to_object 5 -1 2 18 0
-g @rus none~
 #8802
-cloak~
-a plain elven cloak~
-A plain, but practical, Elven cloak lies here.~
+cloak elven plain простой эльфийский плащ~
+@eng a plain elven cloak@rus ~~простой~~ ~~эльфийский~~ ~~плащ~~~
+@eng A plain, but practical, Elven cloak lies here.@rus Простой, но практичный эльфийский плащ (cloak) лежит тут.~
 cloth~
 armor G 0 AC
 3 3 3 0 1
 5 40 200 G
 a '' to_object 5 -1 5 13 0
 a '' to_object 5 -1 -2 17 0
-g @rus none~
 #8803
-boots~
-a pair of plain elven boots~
-A plain, but practical, pair of Elven boots.~
+boots elven plain простые эльфийские ботинки~
+@eng a pair of plain elven boots@rus ~~пара~~ эльфийских ботинок~
+@eng A plain, but practical, pair of Elven boots.@rus Пара простых, но практичных эльфийских ботинок (boots).~
 leather~
 armor G 0 AG
 3 4 4 0 2
 5 30 400 G
 a '' to_object 5 -1 1 2 0
 a '' to_object 5 -1 50 14 0
-g @rus none~
 #8804
-water flask~
-a water flask~
-An Elven water flask. It is rumored that they can provide water for days.~
+water flask elven эльфийская фляга~
+@eng a water flask@rus ~~эльфийская~~ ~~фляга~~~
+@eng An Elven water flask. It is rumored that they can provide water for days.@rus По слухам, воды из этой фляги (flask) хватит на много дней.~
 porcelain~
 drink 0 0 A
 10 10 'water' 0 0
 0 15 50 G
-g @rus none~
 #8805
-shield~
-a spiked metal shield~
-An Orcish spiked metal shield has been left here.~
+shield orcish spiked орочий щит~
+@eng a spiked metal shield@rus ~~шипастый~~ ~~металлический~~ ~~щит~~~
+@eng An Orcish spiked metal shield has been left here.@rus Ты видишь шипастый металлический щит орков (shield).~
 steel~
 armor 0 0 AJ
 3 4 4 0 3
 5 40 400 G
-g @rus none~
 #8806
-scimitar~
-an orcish scimitar~
-An Orcish scimitar has been left here.~
+scimitar orcish орочий палаш~
+@eng an orcish scimitar@rus ~~орочий~~ ~~палаш~~~
+@eng An Orcish scimitar has been left here.@rus Орочий палаш (scimitar) валяется тут.~
 iron~
 weapon G 0 AN
 sword 1 6 'cleave' 0
 5 120 450 G
 a '' to_object 5 -1 1 1 0
 a '' to_object 5 -1 1 19 0
-g @rus none~
 #8807
-helm~
-an ugly spiked helm~
-An ugly Orcish spiked helm has been left here.~
+helm ugly spiked orcish уродливый орочий шлем~
+@eng an ugly spiked helm@rus ~~уродливый~~ ~~шипастый~~ ~~шлем~~~
+@eng An ugly Orcish spiked helm has been left here.@rus Ты видишь уродливый орочий шлем (helm).~
 bronze~
 armor G 0 AE
 4 3 3 0 2
 5 140 200 G
 a '' to_object 5 -1 -5 17 0
-g @rus none~
 #8808
-flask wine~
-a flask of Dorwinion wine~
-A half-drunk flask of fine Dorwinion wine lies here.~
+flask wine фляга вино~
+@eng a flask of Dorwinion wine@rus ~~фляга~~ Дорвинионского вина~
+@eng A half-drunk flask of fine Dorwinion wine lies here.@rus Полупустая фляга (flask) с хорошим Дорвинионским вином.~
 porcelain~
 drink 0 0 A
 10 5 'red wine' 0 0
 5 60 150 G
-g @rus none~
 #8809
-barrel wine~
-a barrel of Dorwinion wine~
-A barrel of Dorwinion wine is here.~
+barrel wine бочонок вино~
+@eng a barrel of Dorwinion wine@rus ~~бочка~~ Дорвинионского вина~
+@eng A barrel of Dorwinion wine is here.@rus Ты видишь бочку (barrel) Дорвинионского вина.~
 wood~
 drink 0 0 A
 50 50 'water' 0 0
 0 100 300 G
-g @rus none~
 #8810
-barrel~
-an empty barrel~
-This empty barrel would make a fine boat.~
+barrel empty пустой бочонок~
+@eng an empty barrel@rus ~~пустой~~ ~~бочонок~~~
+@eng This empty barrel would make a fine boat.@rus Из этого пустого бочонка (barrel) выйдет неплохая лодка.~
 wood~
 drink 0 0 A
 100 0 'water' 0 0
 1 140 200 G
-g @rus none~
 #8811
-sword~
-@eng a fine elven sword@rus ~~славный~~ ~~эльфийский~~ ~~меч~~~
-@eng A fine Elven sword glimmers softly here.@rus Эльфийский меч (sword) светится мягким светом.~
+sword fine elven хороший эльфийский меч~
+@eng a fine elven sword@rus ~~хороший~~ ~~эльфийский~~ ~~меч~~~
+@eng A fine Elven sword glimmers softly here.@rus Хороший эльфийский меч (sword) мягко светится.~
 metal~
-weapon AKL 0 AN
-sword 12 2 'cleave' DF
+weapon AL 0 AN
+sword 2 12 'cleave' DF
 14 45 600 G
 a '' to_object 14 -1 1 2 0
 a '' to_object 14 -1 2 18 0
 a '' to_object 14 -1 3 19 0
-g @rus male~
 #8812
-key~
-a key~
-A key to a cell door is here.~
+key cell door ключ камеры~
+@eng a cell door key@rus ключ от камеры~
+@eng A key to a cell door is here.@rus Ключ от камеры (key) лежит тут.~
 iron~
 key 0 0 AO
 0 0 0 0 0
 0 10 0 G
-g @rus none~
 #8813
-key~
-a key~
-A key to a cave door is here.~
+key cave door ключ пещеры~
+@eng a cave door key@rus ключ от пещеры~
+@eng A key to a cave door is here.@rus Ключ от пещеры (key) лежит тут.~
 iron~
 key 0 0 AO
 0 0 0 0 0
 0 10 0 G
-g @rus none~
 #0
 
 #ROOMS
 #8800
-Entrance to Mirkwood~
-You have entered the quasi-magical Elven forest of Mirkwood, populated by
+@eng Entrance to Mirkwood@rus На опушке Лихолесья~
+@eng You have entered the quasi-magical Elven forest of Mirkwood, populated by
 Sylvan Elves and their mysterious allies. Strangers are frowned upon here,
 so be on your guard. It is rumored that many different races of Elves actually 
 inhabit this forest, in various parts and sometimes they are carefully hidden, 
 away from the prying eyes of strangers.
 There is a sign tacked to a tree nearby.
      There is a small (Glowing) (Huming) tablet.
+@rus Ты стоишь на опушке волшебного леса Лихолесья, населенного Лесными Эльфами
+и их таинственными союзниками.  Чужаков тут не жалуют,  поэтому тебе  надо 
+быть $gn{внимателен} и осторожен. По слухам, лес населяют множество эльфий-
+ских рас. Обычно они тщательно прячутся от любопытных глаз чужаков.
+К ближайшему дереву прикреплен знак (sign).
+     Ты видишь небольшую (Пылает) (Гудит) табличку (tablet).
 ~
 0 C forest
 E
-sign~
-This area serves as a connector for many areas with an Elven or Faerie flavour,
+sign знак~
+@eng This area serves as a connector for many areas with an Elven or Faerie flavour,
 favored areas of the Immortal Yaegar. Tread carefully, and remember to keep 
 track of where you have been.
 
 --Yaegar
+@rus Эта ария служит соединителем для многих других арий, относящихся к Эльфам
+и Феям, любимых арий иммортала Yaegar'a. Соблюдайте осторожность и запоми-
+найте места где вы уже побывали.
+
+--Yaegar
 ~
 E
-small tablet~
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+small tablet небольшая табличка~
+@eng ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 +                                                                  +
 +            This area has been converted and adapted by           +
 +                             Roland                               +
@@ -451,6 +474,22 @@ small tablet~
 +                   checked and beta tested by                     +
 +                             Quartz                               +
 +                                                          july'96 +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+@rus ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++                                                                  +
++               Ария преобразована и адаптирована                 +
++                           Roland'ом                              +
++                                                                  +
++                               &                                  +
++                                                                  +
++      модифицирована, отлажена(?:), улучшена и сбалансирована     +
++                           jaceks'oм                              +
++                                                                  +
++                               &                                  +
++                                                                  +
++                   проверена и протестирована                     +
++                          Quartz'ем                               +
++                                                          Июль'96 +
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ~
 D0
@@ -473,11 +512,15 @@ D2
 Z -1 8855
 S
 #8801
-The Path Through Mirkwood~
-You are advancing along a narrow path that runs deep into the forest of
+@eng The Path Through Mirkwood@rus Тропа в Лихолесье~
+@eng You are advancing along a narrow path that runs deep into the forest of
 Mirkwood. Giant, ancient trees tower over you to either side, and sweet
 songbirds sing in their lofty branches. However, despite this serene scene,
 you can't shake the feeling that you're being watched.
+@rus Ты идешь по узкой тропинке, которая уводит тебя вглубь Лихолесья. Древние
+деревья-гиганты  высятся по  обеим сторонам тропы,  и певчие птицы сладко
+поют высоко в их ветвях.  Но несмотря на эту мирную картину,  тебя не по-
+кидает ощущение, что за тобой внимательно следят чьи-то глаза.
 ~
 0 0 forest
 D0
@@ -494,11 +537,15 @@ D2
 Z -1 8800
 S
 #8802
-The Path Through Mirkwood~
-You are advancing along a narrow path that runs deep into the forest of
+@eng The Path Through Mirkwood@rus Тропа в Лихолесье~
+@eng You are advancing along a narrow path that runs deep into the forest of
 Mirkwood. Giant, ancient trees tower over you to either side, and sweet
 songbirds sing in their lofty branches. However, despite this serene scene,
 you can't shake the feeling that you're being watched.
+@rus Ты идешь по узкой тропинке, которая уводит тебя вглубь Лихолесья. Древние
+деревья-гиганты  высятся по  обеим сторонам тропы,  и певчие птицы сладко
+поют высоко в их ветвях.  Но несмотря на эту мирную картину,  тебя не по-
+кидает ощущение, что за тобой внимательно следят чьи-то глаза.
 ~
 0 0 forest
 D0
@@ -515,10 +562,13 @@ D2
 Z -1 8801
 S
 #8803
-A Fork in the Path~
-You have reached a point where the path branches, with paths running to the
+@eng A Fork in the Path@rus Развилка тропы~
+@eng You have reached a point where the path branches, with paths running to the
 east and west. A wild animal suddenly howls angrily some distance away, and
 you involuntarily jump.
+@rus Ты $gn{достиг} точки, где тропа разветвляется. Ответвления ведут на запад и 
+восток. Какой-то хищник внезапно оглашает рычанием лес, и ты непроизвольно
+подпрыгиваешь от неожиданности.
 ~
 0 0 forest
 D1
@@ -541,11 +591,15 @@ D3
 Z -1 8820
 S
 #8804
-A Broad Path~
-This branch of the path widens out after a short distance, and you notice
+@eng A Broad Path@rus Широкая тропа~
+@eng This branch of the path widens out after a short distance, and you notice
 signs of heavy use, evidently by non-Elves, as Elves do not leave footprints.
 The trees are thinner and smaller in this part of the forest, giving the
 impression that it has been recently cleared.
+@rus Эта тропинка через некоторое время расширяется. Ты замечаешь, что она явно
+усиленно используется, причем не эльфами, поскольку эльфы не оставляют сле-
+дов на земле. Деревья в этой части леса ниже и тоньше. Создается впечатле-
+ние, что лес здесь недавно вырубали.
 ~
 0 0 forest
 D1
@@ -562,10 +616,13 @@ D3
 Z -1 8803
 S
 #8805
-Another Junction~
-The path once again divides, this time into northern and southern branches.
+@eng Another Junction@rus Еще одна развилка~
+@eng The path once again divides, this time into northern and southern branches.
 To the north an impressive-looking citadel looms over the treetops, while
 to the south the trail becomes significantly narrower, and overgrown.
+@rus Здесь тропинка еще раз разветвляется. Дальше можно идти на север и на юг.
+На севере впечатляющая цитадель возвышается над деревьями. Тропинка, веду-
+щая на юг, практически теряется в зарослях.
 ~
 0 0 forest
 D0
@@ -588,10 +645,13 @@ D3
 Z -1 8804
 S
 #8806
-A Bend in the Road~
-The northern road bends to the east at this point, allowing you to gaze
+@eng A Bend in the Road@rus Поворот дороги~
+@eng The northern road bends to the east at this point, allowing you to gaze
 upon a wondrous Elven Fortress. Although you are more than a mile away,
 it still looms large ahead of you.
+@rus Северная дорога здесь поворачивает на восток, открывая твоему восторженному
+взору чудесную крепость эльфов. И хотя до крепости еще больше мили, она ка-
+жется огромной даже отсюда.
 ~
 0 0 forest
 D1
@@ -608,10 +668,12 @@ D2
 Z -1 8805
 S
 #8807
-Plains~
-The road opens onto an area cleared of trees here, a broad plain dotted with
+@eng Plains@rus Равнина~
+@eng The road opens onto an area cleared of trees here, a broad plain dotted with
 the occasional hedge or distant farmhouse. There is a marked path running
 due east toward the west gate of the distant fortress.
+@rus Тропа выводит тебя на широкую равнину, на которой изредка попадаются кусты
+и фермы. Четко различимая дорога ведет на восток к воротам крепости.
 ~
 0 0 field
 D3
@@ -622,10 +684,13 @@ D3
 Z -1 8806
 S
 #8808
-The Southern Trail~
-Progress along this narrow, overgrown path is next to impossible, and you
+@eng The Southern Trail@rus Южная тропа~
+@eng Progress along this narrow, overgrown path is next to impossible, and you
 find yourself having to stop several times for a rest. There doesn't seem to
 be any quick end to it either.
+@rus Продвигаться по этой узкой, заросшей тропинке практически невозможно, и
+тебе приходится постоянно отдыхать. Причем конца этим мучениям пока не пред-
+видится.
 ~
 0 0 forest
 D0
@@ -642,11 +707,16 @@ D2
 Z -1 8809
 S
 #8809
-The Southern Trail~
-Progress along this narrow, overgrown path is next to impossible, and you
+@eng The Southern Trail@rus Южная тропа~
+@eng Progress along this narrow, overgrown path is next to impossible, and you
 find yourself having to stop several times for a rest. There doesn't seem to
 be any quick end to it either.
 You spy a rope ladder ascending to a platform in a nearby tree.
+@rus Продвигаться по этой узкой, заросшей тропинке практически невозможно, и
+тебе приходится постоянно отдыхать. Причем конца этим мучениям пока не пред-
+видится.
+Вдруг ты $gn{заметил} веревочную лестницу, по которой можно подняться платформу,
+расположенную на ближайшем дереве.
 ~
 0 0 forest
 D0
@@ -669,11 +739,16 @@ D4
 Z -1 8810
 S
 #8810
-A Guard Post~
-You have stumbled into a Sylvan Elf guard post, from which they carefully
+@eng A Guard Post@rus Пост Охраны~
+@eng You have stumbled into a Sylvan Elf guard post, from which they carefully
 watch out for intruding Orcs or Goblins. They dislike strangers in general,
 and detest interlopers into their personal areas even more. Expect a violent
 reception if there is a guard present...
+@rus Похоже, ты $gn{наткнулся} на пост охраны лесных эльфов, откуда последние наблю-
+дают за передвижениями орков и гоблинов.  Лесные эльфы вообще не любят чу-
+жаков, а тем более тех,  кто вторгается в места их обитания.  Поэтому тебя
+ожидает неласковый прием в том случае, если стража находится на своих мес-
+тах.
 ~
 0 0 forest
 D5
@@ -684,12 +759,16 @@ D5
 Z -1 8809
 S
 #8811
-The Southern Trail~
-Progress along this narrow, overgrown path is next to impossible, and you
+@eng The Southern Trail@rus Южная тропа~
+@eng Progress along this narrow, overgrown path is next to impossible, and you
 find yourself having to stop several times for a rest. There doesn't seem to
 be any quick end to it either.
 At this point you may follow a side trail which runs to the east. It seems
 to be a little less overgrown.
+@rus Продвигаться по этой узкой, заросшей тропинке практически невозможно, и
+тебе приходится постоянно отдыхать. Причем конца этим мучениям пока не пред-
+видится.
+Отсюда ты также можешь направиться на восток по более доступной тропинке.
 ~
 0 0 forest
 D0
@@ -712,9 +791,11 @@ D2
 Z -1 8812
 S
 #8812
-A Dead End~
-WHAT? After all that exertion, the path ends at a DEAD END??? Ah well, I
+@eng A Dead End@rus Тупик~
+@eng WHAT? After all that exertion, the path ends at a DEAD END??? Ah well, I
 guess you had better turn back...
+@rus ЧТО????? После всех твоих мучений тропа привела в ТУПИК???? Ну что ж,
+похоже, что тебе придется повернуть назад...
 ~
 0 0 forest
 D0
@@ -725,10 +806,13 @@ D0
 Z -1 8811
 S
 #8813
-The Eastern Path~
-This path is certainly less overgrown than the north-south one. You actually
+@eng The Eastern Path@rus Восточная тропа~
+@eng This path is certainly less overgrown than the north-south one. You actually
 find yourself able to move relatively quickly through the forest, stopping
 only occasionally to hack away an overhanging branch or vine.
+@rus Это тропинка явно используется чаще, чем та, что идет на юг. По ней можно
+двигаться относительно быстро,  только изредка останавливаясь, чтобы сру-
+бить низко нависшую ветку.
 ~
 0 0 forest
 D1
@@ -745,10 +829,13 @@ D3
 Z -1 8811
 S
 #8814
-The Eastern Path~
-This path is certainly less overgrown than the north-south one. You actually
+@eng The Eastern Path@rus Восточная тропа~
+@eng This path is certainly less overgrown than the north-south one. You actually
 find yourself able to move relatively quickly through the forest, stopping
 only occasionally to hack away an overhanging branch or vine.
+@rus Это тропинка явно используется чаще, чем та, что идет на юг. По ней можно
+двигаться относительно быстро,  только изредка останавливаясь, чтобы сру-
+бить низко нависшую ветку.
 ~
 0 0 forest
 D1
@@ -765,8 +852,9 @@ D3
 Z -1 8813
 S
 #8815
-A Bend in the Path~
-You have reached a point where the path bends to the north.
+@eng A Bend in the Path@rus Поворот тропинки~
+@eng You have reached a point where the path bends to the north.
+@rus Ты $gn{достиг} места, где тропа поворачивает на север.
 ~
 0 0 forest
 D0
@@ -783,10 +871,13 @@ D3
 Z -1 8814
 S
 #8816
-The Northern Path~
-The path here is fairly clear and free of vegetation. It actually looks
+@eng The Northern Path@rus Северная тропа~
+@eng The path here is fairly clear and free of vegetation. It actually looks
 fairly well-maintained. You think you can hear a distant singing to the
 north.
+@rus Тропинка здесь старательно очищена от растений. Похоже, кто-то заботится
+о том, чтобы поддерживать ее в этом состоянии. Ты слышишь что-то похожее
+на отдаленное пение, доносящееся с севера.
 ~
 0 0 forest
 D0
@@ -803,11 +894,15 @@ D2
 Z -1 8815
 S
 #8817
-The Northern Path~
-The path here is fairly clear and free of vegetation. It actually looks
+@eng The Northern Path@rus Северная тропа~
+@eng The path here is fairly clear and free of vegetation. It actually looks
 fairly well-maintained. You think you can hear a distant singing to the
 north.
 Another path runs to the east of here.
+@rus Тропинка здесь старательно очищена от растений. Похоже, кто-то заботится
+о том, чтобы поддерживать ее в этом состоянии. Ты слышишь что-то похожее
+на отдаленное пение, доносящееся с севера.
+Другая тропа ведет отсюда на восток.
 ~
 0 0 forest
 D0
@@ -830,9 +925,11 @@ D2
 Z -1 8816
 S
 #8818
-The End of the Path~
-The path ends here in a small clearing with a small shallow pool of crystal
+@eng The End of the Path@rus Конец тропы~
+@eng The path ends here in a small clearing with a small shallow pool of crystal
 clear water. You feel strangely at ease here.
+@rus Тропинка заканчивается у небольшой поляны с прудом, наполненным кристально
+чистой водой. Ты чувствуешь себя свободно и непринужденно тут.
 ~
 0 0 forest
 D3
@@ -843,11 +940,15 @@ D3
 Z -1 8817
 S
 #8819
-Approaching the Holy Grove~
-The singing is clearly audible here, and it is coming from a well-tended
+@eng Approaching the Holy Grove@rus Приближаясь к Священной Роще~
+@eng The singing is clearly audible here, and it is coming from a well-tended
 grove to the east. Dimly visible are all manner of man and beast, and
 although they would usually feed upon each other, they all seem to be at
 peace.
+@rus Здесь пение слышно гораздо отчетливее. Оно исходит из ухоженной рощицы
+на востоке.  Смутно угадываются  очертания людей и множества различных
+животных. И хотя многие из них являются смертельными врагами,  похоже,
+что здесь между ними царит мир.
 ~
 0 0 forest
 D2
@@ -864,10 +965,13 @@ D5
 Z -1 8904
 S
 #8820
-The Western Path~
-This path is rather overgrown but it is still easily navigable. You fancy
+@eng The Western Path@rus Западная тропа~
+@eng This path is rather overgrown but it is still easily navigable. You fancy
 you can see a rope ladder ascending into the brances of a tall oak near the
 eastern side of the road.
+@rus Эта тропа тоже порядком заросла, но двигаться по ней все же относительно
+легко.  Внезапно ты  замечаешь веревочную лестницу,  исчезающую высоко в
+ветвях высокого дуба, растущего у восточного края дороги.
 ~
 0 0 forest
 D1
@@ -890,11 +994,16 @@ D4
 Z -1 8821
 S
 #8821
-A Guard Post~
-You have stumbled into a Sylvan Elf guard post, from which they carefully
+@eng A Guard Post@rus Пост охраны~
+@eng You have stumbled into a Sylvan Elf guard post, from which they carefully
 watch out for intruding Orcs or Goblins. They dislike strangers in general,
 and detest interlopers into their personal areas even more. Expect a violent
 reception if there is a guard present...
+@rus Похоже, ты $gn{наткнулся} на пост охраны лесных эльфов, откуда последние наблю-
+дают за передвижениями орков и гоблинов.  Лесные эльфы вообще не любят чу-
+жаков, а тем более тех,  кто вторгается в места их обитания.  Поэтому тебя
+ожидает неласковый прием в том случае, если стража находится на своих мес-
+тах.
 ~
 0 0 forest
 D5
@@ -905,8 +1014,9 @@ D5
 Z -1 8820
 S
 #8822
-A Bend to the North~
-The path bends to the north here, running for some distance toward a stream.
+@eng A Bend to the North@rus Северный поворот~
+@eng The path bends to the north here, running for some distance toward a stream.
+@rus Тропа тут сворачивает на север и через некоторое время упирается в ручей.
 ~
 0 0 forest
 D0
@@ -923,9 +1033,12 @@ D1
 Z -1 8820
 S
 #8823
-A Northern Path~
-This path is fairly even and well-used, so going is not as rough as the
+@eng A Northern Path@rus Северная тропа~
+@eng This path is fairly even and well-used, so going is not as rough as the
 previous paths. There is a wide stream dead ahead.
+@rus Эта тропинка используется довольно часто, если судить по ее внешнему виду.
+Поэтому идти по ней заметно легче, чем по всем предыдущим.  Прямо впереди
+виден широкий ручей.
 ~
 0 0 forest
 D0
@@ -942,9 +1055,12 @@ D2
 Z -1 8822
 S
 #8824
-A Stream~
-This stream is too wide and deep to wade across. You'll need a boat or a
+@eng A Stream@rus Ручей~
+@eng This stream is too wide and deep to wade across. You'll need a boat or a
 spell. Mind you, you could always whip out your rod and start angling :)
+@rus Этот ручей слишком широкий и глубокий, чтобы перейти его вброд. Тебе пона-
+добится лодка или заклинание полета. Ну или, если есть такое желание,  зай-
+мись тут рыбалкой :)
 ~
 0 0 swim
 D0
@@ -967,10 +1083,14 @@ D2
 Z -1 8823
 S
 #8825
-A Northern Path~
-This path is fairly even and well-used, so going is not as rough as the
+@eng A Northern Path@rus Северная тропа~
+@eng This path is fairly even and well-used, so going is not as rough as the
 previous paths. There is a wide stream to the south.
 A broad, tree-lined path runs to the east.
+@rus Эта тропинка используется довольно часто, если судить по ее внешнему виду.
+Поэтому идти по ней заметно легче, чем по всем предыдущим.  Прямо впереди
+виден широкий ручей.
+Широкая аллея, усаженная по сторонам деревьями, ведет на восток.
 ~
 0 C forest
 D0
@@ -993,9 +1113,11 @@ D2
 Z -1 8824
 S
 #8826
-A Junction~
-You have reached a point where you can proceed either north or west. Your
+@eng A Junction@rus Перекресток~
+@eng You have reached a point where you can proceed either north or west. Your
 choice. You still have the feeling you're being watched...
+@rus С этого места ты можешь по желанию отправиться на север или на запад. Ощу-
+щение постоянного скрытого наблюдения не покидает тебя.
 ~
 0 0 forest
 D0
@@ -1018,9 +1140,11 @@ D3
 Z -1 8827
 S
 #8827
-The Western Path~
-The path you are on here runs down a gently sloping hill, to the base of a
+@eng The Western Path@rus Западная тропа~
+@eng The path you are on here runs down a gently sloping hill, to the base of a
 beautiful valley below.
+@rus Тропинка, по которой ты путешествуешь, изящно сбегает вниз по склону холма
+ко входу в прекрасную аллею внизу.
 ~
 0 0 hills
 D1
@@ -1037,9 +1161,11 @@ D5
 Z -1 8828
 S
 #8828
-The Hill~
-The path you are on here runs down a gently sloping hill, to the base of a
+@eng The Hill@rus Холм~
+@eng The path you are on here runs down a gently sloping hill, to the base of a
 beautiful valley below.
+@rus Тропинка, по которой ты путешествуешь, изящно сбегает вниз по склону холма
+ко входу в прекрасную аллею внизу.
 ~
 0 0 hills
 D4
@@ -1056,9 +1182,10 @@ D5
 Z -1 8829
 S
 #8829
-The Base of the Hill~
-You can proceed east toward the valley from here, or return to the summit
+@eng The Base of the Hill@rus Подножие холма~
+@eng You can proceed east toward the valley from here, or return to the summit
 above.
+@rus Ты можешь пойти к аллее на востоке или вернуться назад на холм.
 ~
 0 0 hills
 D1
@@ -1075,9 +1202,12 @@ D4
 Z -1 8828
 S
 #8830
-A Northern Path~
-This path is fairly even and well-used, so going is not as rough as the
+@eng A Northern Path@rus Северная тропа~
+@eng This path is fairly even and well-used, so going is not as rough as the
 previous paths. There is a narrow path to the east.
+@rus Эта тропинка используется довольно часто, если судить по ее внешнему виду.
+Поэтому идти по ней заметно легче, чем по всем предыдущим.  На восток
+ответвляется другая тропа.
 ~
 0 0 forest
 D0
@@ -1100,9 +1230,11 @@ D2
 Z -1 8826
 S
 #8831
-A Narrow Path~
-You are walking along a narrow path that runs from the major northern path
+@eng A Narrow Path@rus Узкая тропа~
+@eng You are walking along a narrow path that runs from the major northern path
 through Mirkwood. Up ahead the path ends in a dead end.
+@rus Ты идешь по узкой тропинке, которая берет свое начало на северной тропе
+Лихолесья. К северу отсюда тропинка кончается тупиком.
 ~
 0 0 forest
 D3
@@ -1113,9 +1245,11 @@ D3
 Z -1 8830
 S
 #8832
-A Northern Path~
-This path is fairly even and well-used, so going is not as rough as the
+@eng A Northern Path@rus Северная тропа~
+@eng This path is fairly even and well-used, so going is not as rough as the
 previous paths.
+@rus Эта тропинка используется довольно часто, если судить по ее внешнему виду.
+Поэтому идти по ней заметно легче, чем по всем предыдущим.
 ~
 0 0 forest
 D0
@@ -1132,9 +1266,12 @@ D2
 Z -1 8830
 S
 #8833
-A Northern Path~
-This path is fairly even and well-used, so going is not as rough as the
+@eng A Northern Path@rus Северная тропа~
+@eng This path is fairly even and well-used, so going is not as rough as the
 previous paths. There is a broad junction to the north.
+@rus Эта тропинка используется довольно часто, если судить по ее внешнему виду.
+Поэтому идти по ней заметно легче, чем по всем предыдущим. На севере нахо-
+дится широкая развилка.
 ~
 0 0 forest
 D0
@@ -1151,10 +1288,13 @@ D2
 Z -1 8832
 S
 #8834
-A Broad Junction~
-You have come to another junction in the forest. The path to the east runs
+@eng A Broad Junction@rus Широкая развилка~
+@eng You have come to another junction in the forest. The path to the east runs
 through some handsome aspen and pine, but the northern passage is lined by
 sickly-looking, dying trees of unidentifiable type.
+@rus Ты подошел к очередной развилке тропинки. На востоке тропа змеится между
+живописными осинами и соснами, тогда как северный путь окружен мрачными,
+умирающими деревьями непонятного вида.
 ~
 0 0 forest
 D0
@@ -1177,11 +1317,15 @@ D2
 Z -1 8833
 S
 #8835
-An Evil Section of the Forest~
-There is a palpable evil in this area that causes you to shiver as you pass
+@eng An Evil Section of the Forest@rus Мертвый лес~
+@eng There is a palpable evil in this area that causes you to shiver as you pass
 by the blighted vegetation that lines this twisted gray path. The sky can
 no longer be seen overhead- instead a canopy of decaying leaves and rotten
 branches obscures your view.
+@rus Физически ощутимое зло, которым наполнена эта часть леса, давит на тебя
+и вызывает невольную дрожь. Засохшие деревья, окружающие эту серую тропу
+тоже не вселяют бодрости. Небо закрыто сплошным навесом из гниющих вет-
+вей и листьев.
 ~
 0 0 forest
 D0
@@ -1198,11 +1342,15 @@ D2
 Z -1 8834
 S
 #8836
-An Evil Section of the Forest~
-There is a palpable eveil in this area that causes you to shiver as you pass
+@eng An Evil Section of the Forest@rus Мертвый лес~
+@eng There is a palpable evil in this area that causes you to shiver as you pass
 by the blighted vegetation that lines this twisted gray path. The sky can
 no longer be seen overhead- instead a canopy of decaying leaves and rotten
 branches obscures your view.
+@rus Физически ощутимое зло, которым наполнена эта часть леса, давит на тебя
+и вызывает невольную дрожь. Засохшие деревья, окружающие эту серую тропу
+тоже не вселяют бодрости. Небо закрыто сплошным навесом из гниющих вет-
+вей и листьев.
 ~
 0 0 forest
 D2
@@ -1219,12 +1367,17 @@ D3
 Z -1 8837
 S
 #8837
-An Evil Section of the Forest~
-There is a palpable eveil in this area that causes you to shiver as you pass
+@eng An Evil Section of the Forest@rus Мертвый лес~
+@eng There is a palpable eveil in this area that causes you to shiver as you pass
 by the blighted vegetation that lines this twisted gray path. The sky can
 no longer be seen overhead- instead a canopy of decaying leaves and rotten
 branches obscures your view.
 The dying screams of some animal can be heard.
+@rus Физически ощутимое зло, которым наполнена эта часть леса, давит на тебя
+и вызывает невольную дрожь. Засохшие деревья, окружающие эту серую тропу
+тоже не вселяют бодрости. Небо закрыто сплошным навесом из гниющих вет-
+вей и листьев.
+Становятся слышны предсмертные вопли какого-то животного.
 ~
 0 0 forest
 D1
@@ -1241,14 +1394,21 @@ D3
 Z -1 8838
 S
 #8838
-An Evil Section of the Forest~
-There is a palpable eveil in this area that causes you to shiver as you pass
+@eng An Evil Section of the Forest@rus Мертвый лес~
+@eng There is a palpable eveil in this area that causes you to shiver as you pass
 by the blighted vegetation that lines this twisted gray path. The sky can
 no longer be seen overhead- instead a canopy of decaying leaves and rotten
 branches obscures your view.
 Maggots crawl from a decaying Elven corpse hanging from an overhead branch.
 The stench is unbearable.
 To the north you see a shadowy area of the forest.
+@rus Физически ощутимое зло, которым наполнена эта часть леса, давит на тебя
+и вызывает невольную дрожь. Засохшие деревья, окружающие эту серую тропу
+тоже не вселяют бодрости. Небо закрыто сплошным навесом из гниющих вет-
+вей и листьев.
+Черви ползают по гниющему трупу эльфа, подвешенного к ветви дерева.
+Вонь тут просто невыносима.
+Лес на севере погружен в глубокую тень.
 ~
 0 0 forest
 D0
@@ -1271,13 +1431,18 @@ D3
 Z -1 8839
 S
 #8839
-An Evil Section of the Forest~
-There is a palpable eveil in this area that causes you to shiver as you pass
-by the blighted vegetation that lines this twisted gray path. The sky can
+@eng An Evil Section of the Forest@rus Мертвый лес~
+@eng There is a palpable eveil in this area that causes you to shiver as you pass
+by the blighted vegetation that lines this twisted gray path.  The sky can
 no longer be seen overhead- instead a canopy of decaying leaves and rotten
 branches obscures your view.
 At this point the twisting turning path runs sharply downward toward a large
 gash in the side of a grey cliff face.
+@rus Физически ощутимое зло, которым наполнена эта часть леса, давит на тебя
+и вызывает невольную дрожь. Засохшие деревья, окружающие эту серую тропу
+тоже не вселяют бодрости. Небо закрыто сплошным навесом из гниющих вет-
+вей и листьев.
+Тут тропа круто сбегает вниз прямо к большому отверстию в серой стене скалы.
 ~
 0 0 forest
 D1
@@ -1294,9 +1459,11 @@ D2
 Z -1 8840
 S
 #8840
-The Cliff Face~
-You are standing before the gash in the cliff-face now, wondering whether
+@eng The Cliff Face@rus Перед скалой~
+@eng You are standing before the gash in the cliff-face now, wondering whether
 you should continue into the inky darkness beyond...
+@rus Теперь ты стоишь перед отверстием в скале, думая, стоит ли тебе идти
+дальше в эту чернильную тьму.
 ~
 0 0 hills
 D0
@@ -1307,8 +1474,9 @@ D0
 Z -1 8839
 S
 #8841
-A Bend in the Path~
-You reach a bend in the path, where you can head north or west.
+@eng A Bend in the Path@rus Поворот тропы~
+@eng You reach a bend in the path, where you can head north or west.
+@rus Ты $gn{дошел} до поворота тропы. Теперь можешь идти на север или на запад.
 ~
 0 0 forest
 D0
@@ -1325,8 +1493,9 @@ D3
 Z -1 8834
 S
 #8842
-A Bend in the Path~
-You reach a bend in the path, where you can head south or east.
+@eng A Bend in the Path@rus Поворот тропы~
+@eng You reach a bend in the path, where you can head south or east.
+@rus Ты $gn{дошел} до поворота тропы. Теперь можешь идти на юг или на восток.
 ~
 0 0 forest
 D1
@@ -1343,10 +1512,13 @@ D2
 Z -1 8841
 S
 #8843
-A Junction~
-The path once again divides, this time into northern and southern branches.
+@eng A Junction@rus Развилка~
+@eng The path once again divides, this time into northern and southern branches.
 To the north lies another bend in the trail, while to the south the trail
 becomes significantly narrower, and overgrown.
+@rus Здесь тропинка еще раз разветвляется. Дальше можно идти на север и на юг.
+На севере находится еще один поворот.  Тропинка,  ведущая на юг,  практически 
+теряется в густых зарослях.
 ~
 0 0 forest
 D0
@@ -1369,9 +1541,11 @@ D3
 Z -1 8842
 S
 #8844
-A Dead End~
-The passage ends in a dead end, but you see a small rope ladder hanging down
+@eng A Dead End@rus Тупик~
+@eng The passage ends in a dead end, but you see a small rope ladder hanging down
 from a nearby oak tree, disappearing in its bushy branches above.
+@rus Проход приводит тебя в тупик, но тут ты замечаешь небольшую веревочную 
+лестницу, свисающую с ближайшего дуба и пропадающую в ветвях наверху.
 ~
 0 0 forest
 D0
@@ -1388,10 +1562,12 @@ D4
 Z -1 8846
 S
 #8845
-A Bend in the Path~
-Here, the path bends sharply to the east, heading toward an area of the
+@eng A Bend in the Path@rus Поворот тропы~
+@eng Here, the path bends sharply to the east, heading toward an area of the
 forest that is very different from the previous section. A second path
 runs to the north.
+@rus Тропа резко поворачивает на восток и ведет к совершенно отличной от
+предыдущей части леса. Кроме того, можно идти на север.
 ~
 0 0 forest
 D0
@@ -1414,11 +1590,16 @@ D2
 Z -1 8843
 S
 #8846
-A Guard Post~
-You have stumbled into a Sylvan Elf guard post, from which they carefully
+@eng A Guard Post@rus Пост охраны~
+@eng You have stumbled into a Sylvan Elf guard post, from which they carefully
 watch out for intruding Orcs or Goblins. They dislike strangers in general,
 and detest interlopers into their personal areas even more. Expect a violent
 reception if there is a guard present...
+@rus Похоже, ты $gn{наткнулся} на пост охраны лесных эльфов, откуда последние наблю-
+дают за передвижениями орков и гоблинов.  Лесные эльфы вообще не любят чу-
+жаков, а тем более тех,  кто вторгается в места их обитания.  Поэтому тебя
+ожидает неласковый прием в том случае, если стража находится на своих мес-
+тах.
 ~
 0 0 forest
 D5
@@ -1429,10 +1610,13 @@ D5
 Z -1 8844
 S
 #8847
-A T-Junction~
-You have come out of Mirkwood onto a rather dusty trail. At this point you
+@eng A T-Junction@rus Т-образный перекресток~
+@eng You have come out of Mirkwood onto a rather dusty trail. At this point you
 may proceed east toward some well-cultivated fields, or south and west back
 into the forest.
+@rus Здесь тропинка выходит из леса. Ты можешь идти на восток, где виднеются
+заботливо обрабатываемые поля, или вернуться назад в лес,  идя на запад
+или юг.
 ~
 0 0 field
 D1
@@ -1455,9 +1639,11 @@ D3
 Z -1 8845
 S
 #8848
-Cultivated Field~
-This field borders on a neatly-tended area with several small farmhouses and
+@eng Cultivated Field@rus Обработанное поле~
+@eng This field borders on a neatly-tended area with several small farmhouses and
 a small watch-tower near a wide stream.
+@rus Это поле граничит с ухоженной площадкой, на которой находится несколько
+маленьких сельских домов и небольшая сторожевая вышка на берегу ручья.
 ~
 0 0 field
 D3
@@ -1468,10 +1654,13 @@ D3
 Z -1 8847
 S
 #8849
-A Desolate Section of the Forest~
-You have entered a rather forlorn section of the forest, littered with dead
+@eng A Desolate Section of the Forest@rus Умирающий лес~
+@eng You have entered a rather forlorn section of the forest, littered with dead
 and dying trees, plus the occasional corpse. Howls and cries of pain sound
 far off to the south.
+@rus Ты идешь по лесу, состоящему в основном из мертвых или умирающих деревьев,
+и нескольких трупов там и сям. Дикие завывания и крики боли доносятся сюда
+с юга.
 ~
 0 0 forest
 D0
@@ -1488,10 +1677,13 @@ D1
 Z -1 8850
 S
 #8850
-A Desolate Section of the Forest~
-You have entered a rather forlorn section of the forest, littered with dead
+@eng A Desolate Section of the Forest@rus Умирающий лес~
+@eng You have entered a rather forlorn section of the forest, littered with dead
 and dying trees, plus the occasional corpse. Howls and cries of pain sound
 far off to the south.
+@rus Ты идешь по лесу, состоящему в основном из мертвых или умирающих деревьев,
+и нескольких трупов там и сям. Дикие завывания и крики боли доносятся сюда
+с юга.
 ~
 0 0 forest
 D2
@@ -1508,11 +1700,14 @@ D3
 Z -1 8849
 S
 #8851
-A Desolate Section of the Forest~
-You have entered a rather forlorn section of the forest, littered with dead
+@eng A Desolate Section of the Forest@rus Умирающий лес~
+@eng You have entered a rather forlorn section of the forest, littered with dead
 and dying trees, plus the occasional corpse. Howls and cries of pain sound
 far off to the south.
 To the south is a particularly dark patch of forest.
+@rus Ты идешь по лесу, состоящему в основном из мертвых или умирающих деревьев,
+и нескольких трупов там и сям. Дикие завывания и крики боли доносятся сюда
+с юга.
 ~
 0 0 forest
 D0
@@ -1529,9 +1724,11 @@ D3
 Z -1 8852
 S
 #8852
-The Path to Firetop Mountain~
-The path runs past the rubble and up into the foothills of an immense
+@eng The Path to Firetop Mountain@rus Дорога к Огненной Горе~
+@eng The path runs past the rubble and up into the foothills of an immense
 mountain range. far in the distance looms Firetop Mountain.
+@rus Дорога идет по щебню к подножию огромной горной гряды. В некотором
+отдалении возвышается Огненная Гора.
 ~
 0 0 hills
 D0
@@ -1548,9 +1745,11 @@ D1
 Z -1 8851
 S
 #8853
-The Path Continues~
-You continue for what seems like an eternity, drawing slowly closer to the
+@eng The Path Continues@rus Продолжение дороги~
+@eng You continue for what seems like an eternity, drawing slowly closer to the
 distant peak.
+@rus Тебе кажется, что ты уже целую вечность идешь по этой дороге к медленно
+вырастающему вдали горному пику.
 ~
 0 0 hills
 D0
@@ -1567,13 +1766,16 @@ D2
 Z -1 8852
 S
 #8854
-The Path Continues~
-You continue for what seems like an eternity, drawing slowly closer to the
+@eng The Path Continues@rus Продолжение дороги~
+@eng You continue for what seems like an eternity, drawing slowly closer to the
 distant peak.
+@rus Тебе кажется, что ты уже целую вечность идешь по этой дороге к медленно
+вырастающему вдали горному пику.
 ~
 0 0 hills
 D0
-It is entrance to Firetop Mountain 
+@eng It is entrance to Firetop Mountain.
+@rus На подходе к Огненной горе.
 ~
 ~
 ~
@@ -1587,9 +1789,11 @@ D2
 Z -1 8853
 S
 #8855
-Approaching Mirkwood~
-The forest begins to surround you as you step into its depths. The path
+@eng Approaching Mirkwood@rus Приближаясь к Лихолесью~
+@eng The forest begins to surround you as you step into its depths. The path
 abruptly turns to the north and you continue.
+@rus Лес мгновенно смыкается вокруг тебя, как только ты делаешь несколько шагов
+вглубь него. Тропа внезапно поворачивает на север.
 ~
 0 0 forest
 D0
@@ -1606,11 +1810,15 @@ D4
 Z -1 338
 S
 #8856
-A Broad Tree-Lined Path~
-This path runs for some distance toward a huge cave, entrance to which is
+@eng A Broad Tree-Lined Path@rus Широкая аллея~
+@eng This path runs for some distance toward a huge cave, entrance to which is
 restricted by a massive, handsome door that glows with magic. Magnificent
 oaks tower high to either side, and everywhere there is light and beauty.
 However, intruders are frowned upon here, so be on your guard.
+@rus Этот путь ведет тебя к огромной пещере, вход в которую наглухо закрыт
+массивной дверью, излучающей магию. Великолепные дубы возвышаются  по
+обеим сторонам дороги, ты чувствуешь себя легко и прекрасно.
+Однако чужаков тут не любят, поэтому будь наготове.
 ~
 0 0 forest
 D1
@@ -1627,12 +1835,17 @@ D3
 Z -1 8825
 S
 #8857
-A Broad Tree-Lined Path~
-This path runs for some distance toward a huge cave, entrance to which is
+@eng A Broad Tree-Lined Path@rus Широкая аллея~
+@eng This path runs for some distance toward a huge cave, entrance to which is
 restricted by a massive, handsome door that glows with magic. Magnificent
 oaks tower high to either side, and everywhere there is light and beauty.
 However, intruders are frowned upon here, so be on your guard.
 The entrance is directly before you.
+@rus Этот путь ведет тебя к огромной пещере, вход в которую наглухо закрыт
+массивной дверью, излучающей магию. Великолепные дубы возвышаются  по
+обеим сторонам дороги, ты чувствуешь себя легко и прекрасно.
+Однако чужаков тут не любят, поэтому будь наготове.
+Вход в пещеру находится прямо перед тобой.
 ~
 0 0 forest
 D1
@@ -1649,11 +1862,15 @@ D3
 Z -1 8856
 S
 #8858
-Inside the Cave~
-You are in the castle of the Wood Elven King Thranduil. The corridor here
+@eng Inside the Cave@rus В пещере~
+@eng You are in the castle of the Wood Elven King Thranduil. The corridor here
 is usually deserted. It would be advisable to keep a low profile, as the
 natives are hostile...
 The enchantments here prohibit spellcasting of any form.
+@rus Ты находишься в замке Трандуила, короля Лесных Эльфов. Несмотря на то,
+что коридоры тут обычно пустынны, тебе стоит соблюдать тишину, так как
+обитатели замка настроены враждебно...
+Могучие заклинания этого места не позволяют использовать тут какую-либо магию.
 ~
 0 D inside
 D0
@@ -1676,10 +1893,13 @@ D3
 ABCZ 8813 8857
 S
 #8859
-Inside the Cave~
-You are in the castle of the Wood Elven King Thranduil. The corridor here
+@eng Inside the Cave@rus В пещере~
+@eng You are in the castle of the Wood Elven King Thranduil. The corridor here
 is usually deserted. It would be advisable to keep a low profile, as the
 natives are hostile...
+@rus Ты находишься в замке Трандуила, короля Лесных Эльфов. Несмотря на то,
+что коридоры тут обычно пустынны, тебе стоит соблюдать тишину, так как
+обитатели замка настроены враждебно...
 ~
 0 D inside
 D1
@@ -1696,9 +1916,11 @@ D2
 Z -1 8858
 S
 #8860
-A Guard Room~
-You have stumbled into the guard room! The guards will definitely not
+@eng A Guard Room@rus Комната стражи~
+@eng You have stumbled into the guard room! The guards will definitely not
 be happy to see you. You fancy you can hear muffled cries for help.
+@rus Опа! Похоже ты ворвался в комнату стражи! И стражники почему-то тебе не
+рады. Ты слышишь, как кто-то зовет подмогу.
 ~
 0 D inside
 D0
@@ -1721,11 +1943,14 @@ D3
 ABZ 0 8859
 S
 #8861
-Storage Room~
-In this room the Elves store their foodstuffs and beloved Dorwinion Wine.
+@eng Storage Room@rus Кладовая~
+@eng In this room the Elves store their foodstuffs and beloved Dorwinion Wine.
 A trapdoor in the floor allows access to the river, and it is through here
 that the Elves deposit their empty barrels, so that the river may carry
 them down to Lake Town.
+@rus В этом помещении эльфы хранят продукты и запасы всенародно любимого дорвини-
+онского вина. Через люк в полу можно попасть прямо в реку. Эльфы сбрасывают
+сюда пустые винные бочонки, которые затем рекой уносятся в Озерный Город.
 ~
 0 D inside
 D3
@@ -1742,9 +1967,10 @@ D5
 ABZ 0 8862
 S
 #8862
-The River~
-You are floating along a river that will carry you back through the forest,
+@eng The River@rus Река~
+@eng You are floating along a river that will carry you back through the forest,
 and eventually to Lake Town.
+@rus Ты плывешь по реке, которая несет тебя через лес к Озерному Городу.
 ~
 0 C noswim
 D2
@@ -1761,9 +1987,10 @@ D4
 ABZ 0 8861
 S
 #8863
-The River~
-You are floating along a river that will carry you back through the forest,
+@eng The River@rus Река~
+@eng You are floating along a river that will carry you back through the forest,
 and eventually to Lake Town.
+@rus Ты плывешь по реке, которая несет тебя через лес к Озерному Городу.
 ~
 0 C noswim
 D0
@@ -1780,10 +2007,13 @@ D2
 Z -1 8866
 S
 #8864
-Inside the Cave~
-You are in the castle of the Wood Elven King Thranduil. The corridor here
+@eng Inside the Cave@rus В пещере~
+@eng You are in the castle of the Wood Elven King Thranduil. The corridor here
 is usually deserted. It would be advisable to keep a low profile, as the
 natives are hostile...
+@rus Ты находишься в замке Трандуила, короля Лесных Эльфов. Несмотря на то,
+что коридоры тут обычно пустынны, тебе стоит соблюдать тишину, так как
+обитатели замка настроены враждебно...
 ~
 0 D inside
 D0
@@ -1800,10 +2030,14 @@ D1
 ABZ 0 8865
 S
 #8865
-The Throne Room of Thrandul~
-Now you've blown it. You've gone and stumbled into the King's Throne Room.
+@eng The Throne Room of Thranduil@rus Тронный зал короля Трандуила~
+@eng Now you've blown it. You've gone and stumbled into the King's Throne Room.
 He is seated upon an intricately-carved wooden throne at the end of the hall.
 Dour guards glare at you on all sides.
+@rus Кажется, ты $gn{попал}.  В тронный зал короля эльфов - Трандуила. И тут ты
+внезапно обнаруживаешь на себе суровые взгляды стражников, окруживших тебя 
+со всех сторон.  Сам король сидит на деревянном троне, украшенном искусной 
+резьбой.
 ~
 0 D inside
 D3
@@ -1814,9 +2048,10 @@ D3
 ABZ 0 8864
 S
 #8866
-The River~
-You are floating along a river that will carry you back through the forest,
+@eng The River@rus Река~
+@eng You are floating along a river that will carry you back through the forest,
 and eventually to Lake Town.
+@rus Ты плывешь по реке, которая несет тебя через лес к Озерному Городу.
 ~
 0 C noswim
 D0
@@ -1833,9 +2068,11 @@ D3
 Z -1 8824
 S
 #8867
-A Cell~
-This damp cell is small and cramped, and offers little comfort to its
+@eng A Cell@rus Камера~
+@eng This damp cell is small and cramped, and offers little comfort to its
 single inhabitant.
+@rus Эта сырая и тесная одиночная камера не может похвастаться наличием хоть
+какого-то комфорта.
 ~
 0 AD inside
 D2
@@ -1846,9 +2083,10 @@ D2
 ABCZ 0 8860
 S
 #8868
-A Northern Path~
-This path runs more or less directly north toward a rather old-looking
+@eng A Northern Path@rus Северная тропа~
+@eng This path runs more or less directly north toward a rather old-looking
 section of the woods.
+@rus Эта тропинка более или менее прямо ведет на север к древней части леса.
 ~
 0 0 forest
 D0
@@ -1865,9 +2103,11 @@ D2
 Z -1 8845
 S
 #8869
-A Northern Path~
-You are progressing along a long, straight northern path. Up ahead, you can
+@eng A Northern Path@rus Северная тропа~
+@eng You are progressing along a long, straight northern path. Up ahead, you can
 see some sort of clearing.
+@rus Ты идешь по длинному прямому пути, ведущему на север. Впереди видна
+какая-то поляна.
 ~
 0 0 forest
 D0
@@ -1923,10 +2163,10 @@ E 0 8801 0 16		*	a wood elf guard<wielded>: an elvish sword
 E 0 8802 0 12		*	a wood elf guard<about the shoulders>: a plain elven cloak
 E 0 8803 0 8		*	a wood elf guard<on the feet>: a pair of plain elven boots
 G 0 8804 0		*	a wood elf guard: a water flask
-G 0 8813 0		*	a wood elf guard: a key
+G 0 8813 0		*	a wood elf guard: a cave door key
 M 0 8808 2 8859 1	* a male wood elf (Inside the Cave)
 M 0 8810 1 8860 1	* the turnkey (A Guard Room)
-G 0 8812 0		*	the turnkey: a key
+G 0 8812 0		*	the turnkey: a cell door key
 G 0 8808 0		*	the turnkey: a flask of Dorwinion wine
 M 0 8805 1 8861 1	* the chief of the guard (Storage Room)
 G 0 8808 0		*	the chief of the guard: a flask of Dorwinion wine
@@ -1938,18 +2178,14 @@ G 0 8804 0		*	Galion the butler: a water flask
 O 0 8809 0 8861	* a barrel of Dorwinion wine (Storage Room)
 O 0 8810 0 8861	* an empty barrel (Storage Room)
 M 0 8809 2 8864 1	* a female wood elf (Inside the Cave)
-M 0 8807 1 8865 1	* Thranduil, king of the Wood Elves (The Throne Room of Thrandul)
+M 0 8807 1 8865 1	* Thranduil, king of the Wood Elves (The Throne Room of Thranduil)
 E 0 8811 0 16		*	Thranduil, king of the Wood Elves<wielded>: a fine elven sword
-M 0 8804 4 8865 2	* a wood elf guard (The Throne Room of Thrandul)
+M 0 8804 4 8865 2	* a wood elf guard (The Throne Room of Thranduil)
 E 0 8801 0 16		*	a wood elf guard<wielded>: an elvish sword
 E 0 8802 0 12		*	a wood elf guard<about the shoulders>: a plain elven cloak
 E 0 8803 0 8		*	a wood elf guard<on the feet>: a pair of plain elven boots
 G 0 8804 0		*	a wood elf guard: a water flask
 M 0 8811 1 8867 1	* Thorin Oakenshield (A Cell)
-S
-
-#OLIMITS
-O 8811 2	* a fine elven sword
 S
 
 #HELPS

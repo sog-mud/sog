@@ -388,11 +388,11 @@ threatening, it seems as though it would be dangerous if provoked.
 выглядит угрожающим, но ты инкстинктивно чувствуешь, что
 он может быть опасен, если его спровоцировать.
 ~
-human~
+horse~
 CZ 0 NT A AB 0 0
 14 0 2d10+190 7d9+100 1d12+3 'none'
 -1 -1 -1 8
-EFNU
+ENU
 stand stand none 40
 0 0 medium unknown
 g @eng none@rus male~
@@ -853,10 +853,13 @@ D5
 Z -1 902
 S
 #904
-Entrance~
-You are at the entrance to a huge city.  As you look around, you realize
+@eng Entrance@rus На окраине города~
+@eng You are at the entrance to a huge city.  As you look around, you realize
 that the inhabitants of this city must be very wealthy indeed - you have never
 seen a city with such beautiful buildings.
+@rus Ты находишься на окраине огроиного города. Оглядываясь вокруг, ты
+понимаешь, что должно быть, местные жители очень богаты -- никогда
+раньше ты не $gn{видел} столь прекрасных строений.
 ~
 0 0 city
 D0
@@ -874,13 +877,17 @@ Z -1 903
 S
 #905
 @eng Zeus Street@rus Проспект Зевса~
-You are walking down a huge street.  You notice that there are not many
+@eng You are walking down a huge street.  You notice that there are not many
 people in this town.  On a corner, you see a sign marked 'Zeus Street'.
 To the west, you see a small store.
+@rus Ты идешь по широченной улице. И замечаешь, что в этом городе живет не
+слишком много жителей. На углу висит вывеска, на которой начертано:
+"Проспект Зевса". На западе ты видишь небольшой магазин.
 ~
 0 0 city
 D0
-The street continues.
+@eng The street continues.
+@rus Дорога идет дальше.
 ~
 ~
 ~
@@ -901,9 +908,12 @@ Z -1 924
 S
 #906
 @eng Zeus Street@rus Проспект Зевса~
-You are walking down what appears to be the main street of this city.
+@eng You are walking down what appears to be the main street of this city.
 You see large residences to the east and west, while the street continues
 to the north and south.
+@rus Ты идешь по улице, которая является центральной для этого города.
+Огромные резиденции высятся на западе и на востоке от тебя, а сама
+улица продолжается дальше на север и на юг.
 ~
 0 0 city
 D0
@@ -1227,8 +1237,10 @@ Z -1 916
 S
 #918
 @eng Dungeon@rus Темница~
-You are in Zeus's Dungeon.  You wonder what creatures are so terrible that
+@eng You are in Zeus's Dungeon.  You wonder what creatures are so terrible that
 even mighty Zeus fears them enough to imprison them.
+@rus Это темница Зевса. Ты замечаешь созданий, которые столь ужасны, что
+даже великий и могучий Зевс боится их выпустить.
 ~
 0 AD city
 D0
@@ -1246,8 +1258,11 @@ Z -1 910
 S
 #919
 @eng Dungeon@rus Темница~
-You are in Zeus's Dungeon.  There are cells to the north, west, and east. 
+@eng You are in Zeus's Dungeon.  There are cells to the north, west, and east. 
 From the east and west, you hear guttural noises.  From the north, nothing ...
+@rus Ты идешь по темнице Зевса. На севере, востоке и западе видны двери,
+ведущие в камеры. Из камер на востоке и западе доносятся гортанные 
+звуки. А вот из темницы на севере -- ничего.
 ~
 0 AD city
 D0
@@ -1343,9 +1358,12 @@ D5
 Z -1 29500
 S
 #924
-Bakery~
-You are in the small store which supplies the residents of this town with
+@eng Bakery@rus Булочная~
+@eng You are in the small store which supplies the residents of this town with
 their food.  It smells wonderful in here!
+@rus Как вкусно и апетитно здесь пахнет! Ты сейчас находишься в маленьком
+магазинчике, снабжающем свежими продуктами резиденции, расположенные в 
+городе.
 ~
 0 D city
 D1
@@ -1357,8 +1375,10 @@ Z -1 905
 S
 #925
 @eng Residence@rus Резиденция~
-You are in the residence of one of the inhabitants of this town.  She
+@eng You are in the residence of one of the inhabitants of this town.  She
 looks vaguely familiar, but you can't place her name ...
+@rus Ты находишься в резиденции одного из жителей этого города. Она тебе
+смутно знакома, но почему-то ты никак не можешь вспомнить ее имя.
 ~
 0 D city
 D3
@@ -1369,9 +1389,11 @@ D3
 Z -1 906
 S
 #926
-Residence~
-You are in the residence of one of the inhabitants of this town.  He looks
+@eng Residence@rus Резиденция~
+@eng You are in the residence of one of the inhabitants of this town.  He looks
 vaguely familiar, but you can't place his name ...
+@rus Ты находишься в резиденции одного из жителей этого города. Он тебе
+смутно знаком, но почему-то ты никак не можешь вспомнить его имя.
 ~
 0 D city
 D1
@@ -1382,9 +1404,11 @@ D1
 Z -1 906
 S
 #927
-Mystic Shop~
-You are in the store which provides the citizens here with whichever
+@eng Mystic Shop@rus Магазин волшебных вещей~
+@eng You are in the store which provides the citizens here with whichever
 arcane objects they may need.
+@rus Ты в магазинчике, снабжающем местных жителей различными магическими
+вещами, любыми, какие только могут им понадобиться.
 ~
 0 D city
 D1

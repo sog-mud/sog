@@ -15,8 +15,8 @@ dog cooshee собака куши~
 @eng A beast is the size of the largest common dog.  It has a greenish coat with
 brown spots.  Its shape, along with its colors, make this cooshee almost
 undetectable as it moves.
-@rus Это существо размером с обыкновенную большую собаку. У нее зеленоватая
-шкура с коричневыми пятнами. Ее форма вкупе с раскраской, делает этого
+@rus Это существо размером с обыкновенную большую собаку. У него зеленоватая
+шкура с коричневыми пятнами. Его форма вкупе с раскраской, делает этого
 куши совсем незаметным.
 ~
 dog~
@@ -29,7 +29,7 @@ stand stand none 0
 g @eng none@rus male~
 #7801
 elf valley эльф долинный~
-@eng a valley elf@rus ~~долинный~~ ~~эльф~~~
+@eng a valley elf@rus ~~эльф~~ из долины~
 @eng A valley elf wanders here, cautious of your intrusion.@rus Долинный эльф (elf) ходит вокруг, внимательно следя за твоими действиями.~
 @eng This elf is almost as tall as you are, but much slimmer and agile.  You see
 hatred in his eyes, and you try to avoid his stare.  His tense body looks ready
@@ -51,7 +51,7 @@ r negative 10
 r charm -33
 #7802
 elf valley эльфийка долинная~
-@eng a valley elf@rus ~~долинная~~ ~~эльфийка~~~
+@eng a valley elf@rus ~~эльфийка~~ из долины~
 @eng A female valley elf wanders here, skirting between the tall grasses.@rus Эльфийка (elf) бродит здесь, лавируя среди высокой травы.~
 @eng This elf is almost as tall as you are, but much slimmer and more agile.
 She glares at you, then quickly disappears before you see more of her.
@@ -69,7 +69,7 @@ stand stand female 0
 r negative 10
 r charm -33
 #7803
-elf sentry valley эльф часовой~
+sentry valley эльф часовой elf~
 @eng a valley elf sentry@rus часовой~
 @eng A valley elf sentry stands here, then noticing you, attacks quickly!@rus Эльф-часовой (elf) стоит здесь и, заметив тебя, немедленно атакует!~
 @eng This elf is almost as tall as you are, but much slimmer and more agile.
@@ -87,7 +87,7 @@ stand stand male 0
 r negative 10
 r charm -33
 #7804
-elf sentry valley эльфийка часовая~
+sentry valley эльфийка часовая elf~
 @eng a valley elf sentry@rus часовая~
 @eng A valley elf sentry stands here, then noticing you, attacks quickly!@rus Эльфийка-часовая (elf) стоит здесь и, заметив тебя, немедленно атакует!~
 @eng This elf is almost as tall as you are, but much slimmer and more agile.
@@ -105,10 +105,12 @@ stand stand female 0
 r negative 10
 r charm -33
 #7805
-elf scout valley~
-a valley elf scout~
-A valley elf scout wanders the valley, searching for intruders like you!~
-The elf notices your intrusion and attacks with determination.
+scout valley elf эльф разведчик~
+@eng a valley elf scout@rus разведчик~
+@eng A valley elf scout wanders the valley, searching for intruders like you!@rus Разведчик-эльф (scout) из числа живущих в долине занят поиском следов любого вторжения.~
+@eng The elf notices your intrusion and attacks with determination.
+@rus Эльф заметил твое вторжение на территорию долины и решительно
+атаковал.
 ~
 elf~
 CFG 0 0 0 0 0 0
@@ -120,11 +122,13 @@ stand stand male 0
 r negative 10
 r charm -33
 #7806
-elf valley~
-a valley elf~
-A valley elf is here, doing her duties.~
-She is currently doing some menial chores, and ignores your intrusion except
+elf valley эльф долинный эльфийка~
+@eng a valley elf@rus ~~эльфийка~~ из долины~
+@eng A valley elf is here, doing her duties.@rus Эльфийка (elf), живущая в долине, занята своим обычным делом.~
+@eng She is currently doing some menial chores, and ignores your intrusion except
 when you are in her way.
+@rus Она очень занята, выполняя различную грязную работу, и не совсем не
+замечает тебя до тех пор, пока ты не оказываешься на ее пути.
 ~
 elf~
 GH 0 0 0 0 0 0
@@ -136,12 +140,14 @@ stand stand female 0
 r negative 10
 r charm -33
 #7807
-elf elder valley~
-a valley elf elder~
-A valley elf elder is here, studying.  He notices you.
-A valley elf elder shouts 'You have intruded wrongly.  Be prepared to die!'~
-This elf looks quite old, probably twenty or more times your age.  He looks
+elder valley elf старейшина эльф~
+@eng a valley elf elder@rus старейшина~
+@eng A valley elf elder is here, studying.  He notices you.
+A valley elf elder shouts 'You have intruded wrongly.  Be prepared to die!'@rus Старейшина (elder), обучающий молодежь, здесь. Он заметил тебя и воскликнул:" Тебе не надо было сюда соваться, будь теперь $gn{готов} умереть!"~
+@eng This elf looks quite old, probably twenty or more times your age.  He looks
 quite potent, though.
+@rus Этот эльф выглядит очень старым. Наверное он раз в двадцать старше тебя.
+Но в нем видно могущество и сила, тем не менее.
 ~
 elf~
 BCFQ 0 HN 0 0 0 0
@@ -153,12 +159,14 @@ stand stand male 0
 r negative 10
 r charm -33
 #7808
-elf elder valley~
-a valley elf elder~
-A valley elf elder is here, studying.  She notices you.
-A valley elf elder says 'Your arrogance will be your end, human.'~
-This elf looks quite old, probably twenty or more times your age.  She looks
+elder valley elf старейшина эльф~
+@eng a valley elf elder@rus ~~старейшина~~ долины~
+@eng A valley elf elder is here, studying.  She notices you.
+A valley elf elder says 'Your arrogance will be your end, human.'@rus Старейшина (elder), обучающий молодежь, здесь. Она заметила тебя и воскликнула:" Твое высокомерие приведет тебя к твоему концу, человек."~
+@eng This elf looks quite old, probably twenty or more times your age.  She looks
 quite potent, though.
+@rus Эта эльфийка выглядит очень старой. Наверное она раз в двадцать старше тебя.
+Но в ней видно могущество и сила, тем не менее.
 ~
 elf~
 BCFR 0 N 0 0 0 0
@@ -179,7 +187,7 @@ regular dragon, too.  It doesn't look happy.
 голов у него значительно больше, чем обычно имеет дракон. Оно совсем
 не выглядит осчастливленным твоим вторжением.
 ~
-human~
+hydra~
 BF 0 0 0 H 0 0
 20 0 3d9+333 10d9+100 2d8+5 'none'
 -4 -4 -4 7
@@ -202,10 +210,12 @@ EFNU
 stand stand male 0
 0 0 medium unknown
 #7811
-talemon wizard mage~
-Talemon~
-An old mage busies himself with some chemicals.~
-Talemon looks harmless, but the fireballs he throws at you don't.
+talemon wizard mage талемон колдун маг~
+@eng Talemon@rus колдун~
+@eng An old mage busies himself with some chemicals.@rus Старый маг (mage) возится с какими-то реактивами.~
+@eng Talemon looks harmless, but the fireballs he throws at you don't.
+@rus Талемон выглядит довольно безобидным, чего нельзя сказать о выпускаемых
+им огненных шарах.
 ~
 human~
 BCFR 0 0 0 0 0 0
@@ -215,11 +225,13 @@ FU
 stand stand male 50
 0 0 medium unknown
 #7812
-guardian daemon~
-the guardian daemon~
-A huge guardian daemon is here, watching the treasure.~
-This daemon is unhappy with its summoned job, and is willing to take out it's
+guardian daemon демон охранник~
+@eng the guardian daemon@rus ~~демон~~-~~охранник~~~
+@eng A huge guardian daemon is here, watching the treasure.@rus Огромный демон (daemon) охраняет сокровища.~
+@eng This daemon is unhappy with its summoned job, and is willing to take out it's
 anger at you!
+@rus Этот демон совсем не рад той работенке, ради которой его призвали из
+потустороннего мира. И, кажется, сейчас он выместит свою злость на тебе!
 ~
 human~
 BF 0 0 0 0 -500 0
@@ -228,6 +240,7 @@ BF 0 0 0 0 -500 0
 EFNU
 stand stand none 0
 0 0 medium unknown
+g @eng none@rus male~
 #7813
 wolf волк~
 @eng a wolf@rus волк~
@@ -332,15 +345,15 @@ jewelry G 0 AB
 a '' to_object 5 -1 10 12 0
 g @rus none~
 #7807
-quarterstaff staff two-handed~
-a quarterstaff~
-A quarterstaff is on the floor.~
+quarterstaff staff two-handed посох~
+@eng a quarterstaff@rus ~~небольшой~~ ~~посох~~~
+@eng A quarterstaff is on the floor.@rus Небольшой посох (staff) лежит здесь.~
 wood~
 weapon G 0 AN
 staff 5 5 'pound' F
 21 50 670 P
 a '' to_object 21 -1 2 19 0
-g @rus none~
+g @rus male~
 #7808
 potion зелье~
 @eng a potion@rus зелье~
@@ -439,7 +452,7 @@ vellum~
 scroll G 0 A
 16 'detect hidden' '' '' ''
 8 10 1090 P
-g @rus none~
+g @rus male~
 #7819
 scroll свиток~
 @eng a scroll@rus свиток~
@@ -486,15 +499,15 @@ scroll G 0 A
 11 10 1360 P
 g @rus male~
 #7825
-quarterstaff staff two-handed~
-a quarterstaff~
-A quarterstaff is on the floor.~
+quarterstaff staff two-handed посох~
+@eng a quarterstaff@rus ~~небольшой~~ ~~посох~~~
+@eng A quarterstaff is on the floor.@rus Небольшой посох (staff) лежит здесь.~
 wood~
 weapon G 0 AN
 staff 3 7 'pound' F
 14 50 310 P
 a '' to_object 14 -1 1 19 0
-g @rus none~
+g @rus male~
 #0
 
 #ROOMS
@@ -511,14 +524,16 @@ Ofcol, while this path leads north.
 ~
 0 0 field
 D0
-The path continues north.
+@eng The path continues north.
+@rus Дорога ведет дальше на север.
 ~
 ~
 ~
 ~
 Z 0 7801
 D2
-You see the Plains of Ofcol.
+@eng You see the Plains of Ofcol.
+@rus Ты видишь бескрайние равнины Офкола.
 ~
 ~
 ~
@@ -543,28 +558,32 @@ side paths can be seen, probably deer trails by the width of them.
 ~
 0 0 field
 D0
-You see the overlook.
+@eng You see the overlook.
+@rus Ты видишь площадку над долиной.
 ~
 ~
 ~
 ~
 Z 0 7804
 D1
-You see the small trail.
+@eng You see the small trail.
+@rus Ты видишь маленькую тропинку.
 ~
 ~
 ~
 ~
 Z 0 7803
 D2
-You see the path back toward Ofcol.
+@eng You see the path back toward Ofcol.
+@rus Ты видишь дорогу, ведущую к Офколу.
 ~
 ~
 ~
 ~
 Z 0 7800
 D3
-You see the small trail.
+@eng You see the small trail.
+@rus Ты видишь маленькую тропинку.
 ~
 ~
 ~
@@ -579,14 +598,16 @@ S
 ~
 0 0 field
 D0
-The trail continues north.
+@eng The trail continues north.
+@rus Тропинка ведет дальше на север.
 ~
 ~
 ~
 ~
 Z 0 7867
 D1
-The main path is to the east.
+@eng The main path is to the east.
+@rus Основной путь лежит на востоке.
 ~
 ~
 ~
@@ -601,14 +622,16 @@ S
 ~
 0 0 field
 D0
-The trail continues north.
+@eng The trail continues north.
+@rus Тропинка ведет дальше на север.
 ~
 ~
 ~
 ~
 Z 0 7849
 D3
-The main path is to the west.
+@eng The main path is to the west.
+@rus Основная дорога лежит на западе.
 ~
 ~
 ~
@@ -627,14 +650,16 @@ dotting the landscape.  To the south is the trail back toward Ofcol.
 ~
 0 0 field
 D2
-You see the path back toward Ofcol.
+@eng You see the path back toward Ofcol.
+@rus Ты видишь дорогу, ведущую назад в Офкол. 
 ~
 ~
 ~
 ~
 Z 0 7801
 D5
-You see the entrance to the valley.
+@eng You see the entrance to the valley.
+@rus Ты видишь вход в долину эльфов.
 ~
 ~
 ~
@@ -652,28 +677,32 @@ the north, while enlarging toward the east and west.
 ~
 0 0 field
 D0
-The valley continues north.
+@eng The valley continues north.
+@rus Долина простирается дальше на север.
 ~
 ~
 ~
 ~
 Z 0 7810
 D1
-The valley continues east.
+@eng The valley continues east.
+@rus Долина простирается дальше на восток.
 ~
 ~
 ~
 ~
 Z 0 7807
 D3
-The valley continues west.
+@eng The valley continues west.
+@rus Долина простирается дальше на запад.
 ~
 ~
 ~
 ~
 Z 0 7806
 D4
-The overlook is above you.
+@eng The overlook is above you.
+@rus Над тобой виднеется небольшая площадка, откуда открывается прекрасный вид.
 ~
 ~
 ~
@@ -690,14 +719,16 @@ east.
 ~
 0 0 field
 D0
-The valley continues north.
+@eng The valley continues north.
+@rus Долина простирается дальше на север.
 ~
 ~
 ~
 ~
 Z 0 7809
 D1
-The entrance to the valley is to the east.
+@eng The entrance to the valley is to the east.
+@rus Вход в долину виден на востоке.
 ~
 ~
 ~
@@ -714,14 +745,16 @@ west.
 ~
 0 0 field
 D0
-The valley continues north.
+@eng The valley continues north.
+@rus Долина простирается дальше на север.
 ~
 ~
 ~
 ~
 Z 0 7811
 D3
-The entrance to the valley is to the west.
+@eng The entrance to the valley is to the west.
+@rus Вход в долину виден на западе.
 ~
 ~
 ~
@@ -738,14 +771,16 @@ east.
 ~
 0 0 field
 D0
-The valley continues north.
+@eng The valley continues north.
+@rus Долина простирается дальше на север.
 ~
 ~
 ~
 ~
 Z 0 7813
 D1
-The valley continues east.
+@eng The valley continues east.
+@rus Долина простирается дальше на восток.
 ~
 ~
 ~
@@ -760,28 +795,32 @@ S
 ~
 0 0 field
 D0
-The valley continues north.
+@eng The valley continues north.
+@rus Долина простирается дальше на север.
 ~
 ~
 ~
 ~
 Z 0 7814
 D1
-The valley continues east.
+@eng The valley continues east.
+@rus Долина простирается дальше на восток.
 ~
 ~
 ~
 ~
 Z 0 7810
 D2
-The valley continues south.
+@eng The valley continues south.
+@rus Долина простирается дальше на юг.
 ~
 ~
 ~
 ~
 Z 0 7806
 D3
-The valley continues west.
+@eng The valley continues west.
+@rus Долина простирается дальше на запад.
 ~
 ~
 ~
@@ -797,28 +836,32 @@ The entrance to the valley is towards the south.
 ~
 0 0 field
 D0
-The valley continues north.
+@eng The valley continues north.
+@rus Долина простирается дальше на север.
 ~
 ~
 ~
 ~
 Z 0 7815
 D1
-The valley continues east.
+@eng The valley continues east.
+@rus Долина простирается дальше на восток.
 ~
 ~
 ~
 ~
 Z 0 7811
 D2
-You see the entrance to the valley.
+@eng You see the entrance to the valley.
+@rus Там находится вход в долину.
 ~
 ~
 ~
 ~
 Z 0 7805
 D3
-The valley continues west.
+@eng The valley continues west.
+@rus Долина простирается дальше на запад.
 ~
 ~
 ~
@@ -833,28 +876,32 @@ S
 ~
 0 0 field
 D0
-The valley continues north.
+@eng The valley continues north.
+@rus Долина простирается дальше на север.
 ~
 ~
 ~
 ~
 Z 0 7816
 D1
-The valley continues east.
+@eng The valley continues east.
+@rus Долина простирается дальше на восток.
 ~
 ~
 ~
 ~
 Z 0 7812
 D2
-The valley continues south.
+@eng The valley continues south.
+@rus Долина простирается дальше на юг.
 ~
 ~
 ~
 ~
 Z 0 7807
 D3
-The valley continues west.
+@eng The valley continues west.
+@rus Долина простирается дальше на запад.
 ~
 ~
 ~
@@ -871,14 +918,16 @@ west.
 ~
 0 0 field
 D0
-The valley continues north.
+@eng The valley continues north.
+@rus Долина простирается дальше на север.
 ~
 ~
 ~
 ~
 Z 0 7817
 D3
-The valley continues west.
+@eng The valley continues west.
+@rus Долина простирается дальше на запад.
 ~
 ~
 ~
@@ -895,28 +944,32 @@ south, and east.
 ~
 0 0 field
 D0
-The valley continues north.
+@eng The valley continues north.
+@rus Долина простирается дальше на север.
 ~
 ~
 ~
 ~
 Z 0 7818
 D1
-The valley continues east.
+@eng The valley continues east.
+@rus Долина простирается дальше на восток.
 ~
 ~
 ~
 ~
 Z 0 7814
 D2
-The valley continues south.
+@eng The valley continues south.
+@rus Долина простирается дальше на юг.
 ~
 ~
 ~
 ~
 Z 0 7808
 D4
-The steep trail leads up.
+@eng The steep trail leads up.
+@rus крутая тропа ведет наверх.
 ~
 ~
 ~
@@ -931,28 +984,32 @@ S
 ~
 0 0 field
 D0
-The valley continues north.
+@eng The valley continues north.
+@rus Долина простирается дальше на север.
 ~
 ~
 ~
 ~
 Z 0 7819
 D1
-The valley continues east.
+@eng The valley continues east.
+@rus Долина простирается дальше на восток.
 ~
 ~
 ~
 ~
 Z 0 7815
 D2
-The valley continues south.
+@eng The valley continues south.
+@rus Долина простирается дальше на юг.
 ~
 ~
 ~
 ~
 Z 0 7809
 D3
-The valley continues west.
+@eng The valley continues west.
+@rus Долина простирается дальше на запад.
 ~
 ~
 ~
@@ -967,28 +1024,32 @@ S
 ~
 0 0 field
 D0
-The valley continues north.
+@eng The valley continues north.
+@rus Долина простирается дальше на север.
 ~
 ~
 ~
 ~
 Z 0 7820
 D1
-The valley continues east.
+@eng The valley continues east.
+@rus Долина простирается дальше на восток.
 ~
 ~
 ~
 ~
 Z 0 7816
 D2
-The valley continues south.
+@eng The valley continues south.
+@rus Долина простирается дальше на юг.
 ~
 ~
 ~
 ~
 Z 0 7810
 D3
-The valley continues west.
+@eng The valley continues west.
+@rus Долина простирается дальше на запад.
 ~
 ~
 ~
@@ -1003,28 +1064,32 @@ S
 ~
 0 0 field
 D0
-The valley continues north.
+@eng The valley continues north.
+@rus Долина простирается дальше на север.
 ~
 ~
 ~
 ~
 Z 0 7821
 D1
-The valley continues east.
+@eng The valley continues east.
+@rus Долина простирается дальше на восток.
 ~
 ~
 ~
 ~
 Z 0 7817
 D2
-The valley continues south.
+@eng The valley continues south.
+@rus Долина простирается дальше на юг.
 ~
 ~
 ~
 ~
 Z 0 7811
 D3
-The valley continues west.
+@eng The valley continues west.
+@rus Долина простирается дальше на запад.
 ~
 ~
 ~
@@ -1041,28 +1106,32 @@ south, and west.
 ~
 0 0 field
 D0
-The valley continues north.
+@eng The valley continues north.
+@rus Долина простирается дальше на север.
 ~
 ~
 ~
 ~
 Z 0 7822
 D2
-The valley continues south.
+@eng The valley continues south.
+@rus Долина простирается дальше на юг.
 ~
 ~
 ~
 ~
 Z 0 7812
 D3
-The valley continues west.
+@eng The valley continues west.
+@rus Долина простирается дальше на запад.
 ~
 ~
 ~
 ~
 Z 0 7816
 D4
-The steep trail leads up.
+@eng The steep trail leads up.
+@rus Крутая тропинка ведет наверх.
 ~
 ~
 ~
@@ -1079,14 +1148,16 @@ east.
 ~
 0 0 field
 D1
-The valley continues east.
+@eng The valley continues east.
+@rus Долина простирается дальше на восток.
 ~
 ~
 ~
 ~
 Z 0 7819
 D2
-The valley continues south.
+@eng The valley continues south.
+@rus Долина простирается дальше на юг.
 ~
 ~
 ~
@@ -1101,28 +1172,32 @@ S
 ~
 0 0 field
 D0
-The valley continues north.
+@eng The valley continues north.
+@rus Долина простирается дальше на север.
 ~
 ~
 ~
 ~
 Z 0 7823
 D1
-The valley continues east.
+@eng The valley continues east.
+@rus Долина простирается дальше на восток.
 ~
 ~
 ~
 ~
 Z 0 7820
 D2
-The valley continues south.
+@eng The valley continues south.
+@rus Долина простирается дальше на юг.
 ~
 ~
 ~
 ~
 Z 0 7814
 D3
-The valley continues west.
+@eng The valley continues west.
+@rus Долина простирается дальше на запад.
 ~
 ~
 ~
@@ -1137,28 +1212,32 @@ S
 ~
 0 0 field
 D0
-The valley continues north.
+@eng The valley continues north.
+@rus Долина простирается дальше на север.
 ~
 ~
 ~
 ~
 Z 0 7824
 D1
-The valley continues east.
+@eng The valley continues east.
+@rus Долина простирается дальше на восток.
 ~
 ~
 ~
 ~
 Z 0 7821
 D2
-The valley continues south.
+@eng The valley continues south.
+@rus Долина простирается дальше на юг.
 ~
 ~
 ~
 ~
 Z 0 7815
 D3
-The valley continues west.
+@eng The valley continues west.
+@rus Долина простирается дальше на запад.
 ~
 ~
 ~
@@ -1173,28 +1252,32 @@ S
 ~
 0 0 field
 D0
-The valley continues north.
+@eng The valley continues north.
+@rus Долина простирается дальше на север.
 ~
 ~
 ~
 ~
 Z 0 7825
 D1
-The valley continues east.
+@eng The valley continues east.
+@rus Долина простирается дальше на восток.
 ~
 ~
 ~
 ~
 Z 0 7822
 D2
-The valley continues south.
+@eng The valley continues south.
+@rus Долина простирается дальше на юг.
 ~
 ~
 ~
 ~
 Z 0 7816
 D3
-The valley continues west.
+@eng The valley continues west.
+@rus Долина простирается дальше на запад.
 ~
 ~
 ~
@@ -1210,14 +1293,16 @@ trail circling the entire valley.  The valley continues south and west.
 ~
 0 0 field
 D2
-The valley continues south.
+@eng The valley continues south.
+@rus Долина простирается дальше на юг.
 ~
 ~
 ~
 ~
 Z 0 7817
 D3
-The valley continues west.
+@eng The valley continues west.
+@rus Долина простирается дальше на запад.
 ~
 ~
 ~
@@ -1234,14 +1319,16 @@ east.
 ~
 0 0 field
 D1
-The valley continues east.
+@eng The valley continues east.
+@rus Долина простирается дальше на восток.
 ~
 ~
 ~
 ~
 Z 0 7824
 D2
-The valley continues south
+@eng The valley continues south.
+@rus Долина простирается дальше на юг.
 ~
 ~
 ~
@@ -1258,28 +1345,32 @@ To the north, a small, narrow trail leads away from the valley.
 ~
 0 0 field
 D0
-A small trail leads away from the valley.
+@eng A small trail leads away from the valley.
+@rus Небольшая тропка уводит прочь от долины.
 ~
 ~
 ~
 ~
 Z 0 7826
 D1
-The valley continues east.
+@eng The valley continues east.
+@rus Долина простирается дальше на восток.
 ~
 ~
 ~
 ~
 Z 0 7825
 D2
-The valley continues south.
+@eng The valley continues south.
+@rus Долина простирается дальше на юг.
 ~
 ~
 ~
 ~
 Z 0 7820
 D3
-The valley continues west.
+@eng The valley continues west.
+@rus Долина простирается дальше на запад.
 ~
 ~
 ~
@@ -1295,14 +1386,16 @@ trail circling the entire valley.  The valley continues south and west.
 ~
 0 0 field
 D2
-The valley continues south.
+@eng The valley continues south.
+@rus Долина простирается дальше на юг.
 ~
 ~
 ~
 ~
 Z 0 7821
 D3
-The valley continues west.
+@eng The valley continues west.
+@rus Долина простирается дальше на запад.
 ~
 ~
 ~
@@ -1318,21 +1411,24 @@ trail leads north and south.  A rope ladder leads up to a rope bridge.
 ~
 0 0 field
 D0
-The trail continues north.
+@eng The trail continues north.
+@rus Тропинка ведет на север дальше и дальше.
 ~
 ~
 ~
 ~
 Z 0 7827
 D2
-The trail leads back to the valley.
+@eng The trail leads back to the valley.
+@rus Тропинка ведет назад в долину.
 ~
 ~
 ~
 ~
 Z 0 7824
 D4
-You see the rope bridge above you.
+@eng You see the rope bridge above you.
+@rus Ты видишь прямо над собой веревочный мост.
 ~
 ~
 ~
@@ -1349,28 +1445,32 @@ You see the the field beyond the north trail.
 ~
 0 0 field
 D0
-The Path of Arcadia.
+@eng The Path of Arcadia.
+@rus Тропа ведет дальше, в Аркадию.
 ~
 ~
 ~
 ~
 Z 0 12018
 D1
-The trail continues east.
+@eng The trail continues east.
+@rus Тропинка продолжается дальше на восток.
 ~
 ~
 ~
 ~
 Z 0 7828
 D2
-The trail continues south back toward the valley.
+@eng The trail continues south back toward the valley.
+@rus Тропинка на юг ведет обратно в долину.
 ~
 ~
 ~
 ~
 Z 0 7826
 D3
-The trail continues west.
+@eng The trail continues west.
+@rus Тропинка ведет дальше на запад.
 ~
 ~
 ~
@@ -1386,14 +1486,16 @@ keep this trail narrow.  The trail continues north and back west.
 ~
 0 0 field
 D0
-You see a small valley north.
+@eng You see a small valley north.
+@rus На севере ты видишь маленькую долину.
 ~
 ~
 ~
 ~
 Z 0 7829
 D3
-The trail goes back to the west.
+@eng The trail goes back to the west.
+@rus Тропинка уводит за запад.
 ~
 ~
 ~
@@ -1411,28 +1513,32 @@ west and east paths surround this building.
 ~
 0 0 field
 D0
-You see the building.
+@eng You see the building.
+@rus Ты видишь здание.	
 ~
 door~
 ~
 ~
 ABZ -1 7834
 D1
-You see the trail around the building.
+@eng You see the trail around the building.
+@rus Ты видишь тропинку, ведущую вокруг строения.
 ~
 ~
 ~
 ~
 Z 0 7831
 D2
-You see the trail leading away from this valley.
+@eng You see the trail leading away from this valley.
+@rus Ты видишь тропинку, уводящую прочь из этой долины.
 ~
 ~
 ~
 ~
 Z 0 7828
 D3
-You see the trail around the building.
+@eng You see the trail around the building.
+@rus Ты видишь тропинку, ведущую вокруг строения.
 ~
 ~
 ~
@@ -1448,14 +1554,16 @@ east.  To the north-east is a building.
 ~
 0 0 field
 D0
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь убегающую вдаль тропинку.
 ~
 ~
 ~
 ~
 Z 0 7832
 D1
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь убегающую вдаль тропинку.
 ~
 ~
 ~
@@ -1471,14 +1579,16 @@ east.  To the north is a building.
 ~
 0 0 field
 D1
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь убегающую вдаль тропинку.
 ~
 ~
 ~
 ~
 Z 0 7833
 D3
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь убегающую вдаль тропинку.
 ~
 ~
 ~
@@ -1494,14 +1604,16 @@ south.  To the east is a building.
 ~
 0 0 field
 D0
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь убегающую вдаль тропинку.
 ~
 ~
 ~
 ~
 Z 0 7837
 D2
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь убегающую вдаль тропинку.
 ~
 ~
 ~
@@ -1517,14 +1629,16 @@ west.  To the north-west is a building.
 ~
 0 0 field
 D0
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь убегающую вдаль тропинку.
 ~
 ~
 ~
 ~
 Z 0 7836
 D3
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь убегающую вдаль тропинку.
 ~
 ~
 ~
@@ -1541,21 +1655,24 @@ and the east, and the exit is to the south.
 ~
 0 D inside
 D0
-The building continues to the north.
+@eng The building continues to the north.
+@rus Строение продолжается на север.
 ~
 ~
 ~
 ~
 Z 0 7838
 D1
-The building continues to the east.
+@eng The building continues to the east.
+@rus Строение продолжается на восток.
 ~
 ~
 ~
 ~
 Z 0 7835
 D2
-The exit is to the south.
+@eng The exit is to the south.
+@rus На юге ты видишь выход отсюда.
 ~
 door~
 ~
@@ -1576,14 +1693,16 @@ to the north and one to the west.
 ~
 0 D inside
 D0
-The building continues to the north.
+@eng The building continues to the north.
+@rus Строение продолжается на север.
 ~
 ~
 ~
 ~
 Z 0 7839
 D3
-The building continues to the west.
+@eng The building continues to the west.
+@rus Строение тянется на запад.
 ~
 ~
 ~
@@ -1599,14 +1718,16 @@ south.  To the west is a building.
 ~
 0 0 field
 D0
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь убегающую вдаль тропинку.
 ~
 ~
 ~
 ~
 Z 0 7840
 D2
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь убегающую вдаль тропинку.
 ~
 ~
 ~
@@ -1622,14 +1743,16 @@ south.  To the east is a building.
 ~
 0 0 field
 D0
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь убегающую вдаль тропинку.
 ~
 ~
 ~
 ~
 Z 0 7841
 D2
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь убегающую вдаль тропинку.
 ~
 ~
 ~
@@ -1647,14 +1770,16 @@ valley, with its wild flowers and tall, green grasses.
 ~
 0 D inside
 D1
-The building continues to the east.
+@eng The building continues to the east.
+@rus Строение тянется на восток.
 ~
 ~
 ~
 ~
 Z 0 7839
 D2
-The entrance is to the south.
+@eng The entrance is to the south.
+@rus Ты видишь лежащий на юге вход.
 ~
 ~
 ~
@@ -1674,21 +1799,24 @@ use here.  A staircase leads up.
 ~
 0 D inside
 D2
-The building continues to the south.
+@eng The building continues to the south.
+@rus Строение тянется на юг.
 ~
 ~
 ~
 ~
 Z 0 7835
 D3
-The building continues to the west.
+@eng The building continues to the west.
+@rus Строение тянется на запад.
 ~
 ~
 ~
 ~
 Z 0 7838
 D4
-You see the second floor.
+@eng You see the second floor.
+@rus Ты видишь второй этаж.
 ~
 ~
 ~
@@ -1704,14 +1832,16 @@ south.  To the west is a building.
 ~
 0 0 field
 D0
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь убегающую вдаль тропинку.
 ~
 ~
 ~
 ~
 Z 0 7844
 D2
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь убегающую вдаль тропинку.
 ~
 ~
 ~
@@ -1727,14 +1857,16 @@ east.  To the south-east is a building.
 ~
 0 0 field
 D1
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь убегающую вдаль тропинку.
 ~
 ~
 ~
 ~
 Z 0 7842
 D2
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь убегающую вдаль тропинку.
 ~
 ~
 ~
@@ -1750,14 +1882,16 @@ east.  To the south is a building.
 ~
 0 0 field
 D1
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь убегающую вдаль тропинку.
 ~
 ~
 ~
 ~
 Z 0 7843
 D3
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь убегающую вдаль тропинку.
 ~
 ~
 ~
@@ -1773,14 +1907,16 @@ east.  To the south is a building.
 ~
 0 0 field
 D1
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь убегающую вдаль тропинку.
 ~
 ~
 ~
 ~
 Z 0 7844
 D3
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь убегающую вдаль тропинку.
 ~
 ~
 ~
@@ -1796,14 +1932,16 @@ west.  To the south-west is a building.
 ~
 0 0 field
 D2
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь убегающую вдаль тропинку.
 ~
 ~
 ~
 ~
 Z 0 7840
 D3
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь убегающую вдаль тропинку.
 ~
 ~
 ~
@@ -1822,14 +1960,16 @@ smooth spheric object in the center of the room.
 ~
 0 D inside
 D0
-You see another room.
+@eng You see another room.
+@rus Ты видишь еще одну комнату.
 ~
 door~
 ~
 ~
 ABZ -1 7847
 D1
-You see another room.
+@eng You see another room.
+@rus Ты видишь еще одну комнату.
 ~
 door~
 ~
@@ -1844,14 +1984,16 @@ S
 ~
 0 D inside
 D0
-You see another room.
+@eng You see another room.
+@rus Ты видишь еще одну комнату.
 ~
 door~
 ~
 ~
 ABCZ 7804 7848
 D3
-You see another room.
+@eng You see another room.
+@rus Ты видишь еще одну комнату.
 ~
 door~
 ~
@@ -1870,14 +2012,16 @@ line the shelves, but nothing of interest is here.
 ~
 0 D inside
 D1
-You see another room.
+@eng You see another room.
+@rus Ты видишь еще одну комнату.
 ~
 door~
 ~
 ~
 ABZ -1 7848
 D2
-You see another room.
+@eng You see another room.
+@rus Ты видишь еще одну комнату.
 ~
 door~
 ~
@@ -1897,21 +2041,24 @@ first floor.
 ~
 0 D inside
 D2
-You see another room.
+@eng You see another room.
+@rus Ты видишь еще одну комнату.
 ~
 door~
 ~
 ~
 ABCZ 7804 7846
 D3
-You see another room.
+@eng You see another room.
+@rus Ты видишь еще одну комнату.
 ~
 door~
 ~
 ~
 ABZ -1 7847
 D5
-You see the first floor.
+@eng You see the first floor.
+@rus Ты видишь первый этаж.
 ~
 ~
 ~
@@ -1939,7 +2086,8 @@ D2
 ~
 Z 0 7803
 D5
-The trail down doesn't look safe to travel on at all.
+@eng The trail down doesn't look safe to travel on at all.
+@rus Тропинка, ведущая вниз, не выглядит достаточно безопасной, чтобы по ней путешествовать.
 ~
 ~
 ~
@@ -1967,7 +2115,8 @@ D3
 ~
 Z 0 7849
 D5
-The trail down doesn't look safe to travel on at all.
+@eng The trail down doesn't look safe to travel on at all.
+@rus Тропинка, ведущая вниз, не выглядит достаточно безопасной, чтобы по ней путешествовать.
 ~
 ~
 ~
@@ -1995,7 +2144,8 @@ D2
 ~
 Z 0 7850
 D5
-The trail down doesn't look safe to travel on at all.
+@eng The trail down doesn't look safe to travel on at all.
+@rus Тропинка, ведущая вниз, не выглядит достаточно безопасной, чтобы по ней путешествовать.
 ~
 ~
 ~
@@ -2023,7 +2173,8 @@ D3
 ~
 Z 0 7851
 D5
-The trail down doesn't look safe to travel on at all.
+@eng The trail down doesn't look safe to travel on at all.
+@rus Тропинка, ведущая вниз, не выглядит достаточно безопасной, чтобы по ней путешествовать.
 ~
 ~
 ~
@@ -2053,7 +2204,8 @@ D2
 ~
 Z 0 7852
 D5
-The trail down looks safe.
+@eng The trail down looks safe.
+@rus Тропинка, уходящая вниз, выглядит безопасной и удобной.
 ~
 ~
 ~
@@ -2081,7 +2233,8 @@ D3
 ~
 Z 0 7855
 D5
-The trail down doesn't look safe to travel on at all.
+@eng The trail down doesn't look safe to travel on at all.
+@rus Тропинка, ведущая вниз, не выглядит достаточно безопасной, чтобы по ней путешествовать.
 ~
 ~
 ~
@@ -2109,7 +2262,8 @@ D1
 ~
 Z 0 7854
 D5
-The trail down doesn't look safe to travel on at all.
+@eng The trail down doesn't look safe to travel on at all.
+@rus Тропинка, ведущая вниз, не выглядит достаточно безопасной, чтобы по ней путешествовать.
 ~
 ~
 ~
@@ -2137,7 +2291,8 @@ D3
 ~
 Z 0 7857
 D5
-The trail down doesn't look safe to travel on at all.
+@eng The trail down doesn't look safe to travel on at all.
+@rus Тропинка, ведущая вниз, не выглядит достаточно безопасной, чтобы по ней путешествовать.
 ~
 ~
 ~
@@ -2159,14 +2314,15 @@ D1
 ~
 Z 0 7856
 D3
-You see a rope bridge
+@eng You see a rope bridge
 ~
 ~
 ~
 ~
 Z 0 7858
 D5
-The trail down doesn't look safe to travel on at all.
+@eng The trail down doesn't look safe to travel on at all.
+@rus Тропинка, ведущая вниз, не выглядит достаточно безопасной, чтобы по ней путешествовать.
 ~
 ~
 ~
@@ -2201,7 +2357,8 @@ D3
 ~
 Z 0 7859
 D5
-You see the trail.
+@eng You see the trail.
+@rus Ты видишь убегающую вдаль тропинку.
 ~
 ~
 ~
@@ -2217,7 +2374,8 @@ you can see the valley, filled with wild flowers and tall, green grasses.
 ~
 0 0 field
 D1
-You see a rope bridge.
+@eng You see a rope bridge.
+@rus Ты видишь веревочный мост.
 ~
 ~
 ~
@@ -2230,7 +2388,8 @@ D3
 ~
 Z 0 7860
 D5
-The trail down doesn't look safe to travel on at all.
+@eng The trail down doesn't look safe to travel on at all.
+@rus Тропинка, ведущая вниз, не выглядит достаточно безопасной, чтобы по ней путешествовать.
 ~
 ~
 ~
@@ -2264,7 +2423,8 @@ D3
 ~
 Z 0 8800
 D5
-The trail down doesn't look safe to travel on at all.
+@eng The trail down doesn't look safe to travel on at all.
+@rus Тропинка, ведущая вниз, не выглядит достаточно безопасной, чтобы по ней путешествовать.
 ~
 ~
 ~
@@ -2292,7 +2452,8 @@ D3
 ~
 Z 0 7862
 D5
-The trail down doesn't look safe to travel on at all.
+@eng The trail down doesn't look safe to travel on at all.
+@rus Тропинка, ведущая вниз, не выглядит достаточно безопасной, чтобы по ней путешествовать.
 ~
 ~
 ~
@@ -2320,7 +2481,8 @@ D2
 ~
 Z 0 7863
 D5
-The trail down doesn't look safe to travel on at all.
+@eng The trail down doesn't look safe to travel on at all.
+@rus Тропинка, ведущая вниз, не выглядит достаточно безопасной, чтобы по ней путешествовать.
 ~
 ~
 ~
@@ -2350,7 +2512,8 @@ D2
 ~
 Z 0 7864
 D5
-The trail down looks safe.
+@eng The trail down looks safe.
+@rus Тропинка, уходящая вниз, выглядит безопасной и удобной.
 ~
 ~
 ~
@@ -2378,7 +2541,8 @@ D1
 ~
 Z 0 7865
 D5
-The trail down doesn't look safe to travel on at all.
+@eng The trail down doesn't look safe to travel on at all.
+@rus Тропинка, ведущая вниз, не выглядит достаточно безопасной, чтобы по ней путешествовать.
 ~
 ~
 ~
@@ -2406,7 +2570,8 @@ D3
 ~
 Z 0 7864
 D5
-The trail down doesn't look safe to travel on at all.
+@eng The trail down doesn't look safe to travel on at all.
+@rus Тропинка, ведущая вниз, не выглядит достаточно безопасной, чтобы по ней путешествовать.
 ~
 ~
 ~
@@ -2434,7 +2599,8 @@ D1
 ~
 Z 0 7867
 D5
-The trail down doesn't look safe to travel on at all.
+@eng The trail down doesn't look safe to travel on at all.
+@rus Тропинка, ведущая вниз, не выглядит достаточно безопасной, чтобы по ней путешествовать.
 ~
 ~
 ~
@@ -2462,7 +2628,8 @@ D3
 ~
 Z 0 7866
 D5
-The trail down doesn't look safe to travel on at all.
+@eng The trail down doesn't look safe to travel on at all.
+@rus Тропинка, ведущая вниз, не выглядит достаточно безопасной, чтобы по ней путешествовать.
 ~
 ~
 ~
@@ -2478,14 +2645,16 @@ around you make this trail quite narrow.
 ~
 0 0 field
 D0
-The trail continues north.
+@eng The trail continues north.
+@rus Тропинка ведет дальше на север.
 ~
 ~
 ~
 ~
 Z 0 7869
 D1
-The trail continues east.
+@eng The trail continues east.
+@rus Тропинка уводит на восток.
 ~
 ~
 ~
@@ -2503,14 +2672,16 @@ smaller valley, with looks like a small shack in the center of it.
 ~
 0 0 field
 D2
-The trail continues south.
+@eng The trail continues south.
+@rus Тропинка уводит на юг.
 ~
 ~
 ~
 ~
 Z 0 7868
 D3
-The entrance to the small valley is to the west.
+@eng The entrance to the small valley is to the west.
+@rus Вход в небольшую долину виден на западе.
 ~
 ~
 ~
@@ -2528,28 +2699,32 @@ the east, and the entrance to the shack is to the west.
 ~
 0 0 field
 D0
-The valley continues to the north.
+@eng The valley continues to the north.
+@rus Долина продолжается на север.
 ~
 ~
 ~
 ~
 Z 0 7871
 D1
-The exit from this small valley is to the east.
+@eng The exit from this small valley is to the east.
+@rus Выход из этой маленькой долины находится на востоке.
 ~
 ~
 ~
 ~
 Z 0 7869
 D2
-The valley continues to the south.
+@eng The valley continues to the south.
+@rus Долина продолжается на юг.
 ~
 ~
 ~
 ~
 Z 0 7872
 D3
-You see the small shack.
+@eng You see the small shack.
+@rus Ты видишь маленькую хижину.
 ~
 door~
 ~
@@ -2567,14 +2742,16 @@ shack.
 ~
 0 0 field
 D2
-The valley continues to the south.
+@eng The valley continues to the south.
+@rus Долина продолжается на юг.
 ~
 ~
 ~
 ~
 Z 0 7870
 D3
-The valley continues to the west.
+@eng The valley continues to the west.
+@rus Долина тянется на запад.
 ~
 ~
 ~
@@ -2592,14 +2769,16 @@ shack.
 ~
 0 0 field
 D0
-The valley continues to the north.
+@eng The valley continues to the north.
+@rus Долина продолжается на север.
 ~
 ~
 ~
 ~
 Z 0 7870
 D3
-The valley continues to the west.
+@eng The valley continues to the west.
+@rus Долина тянется на запад.
 ~
 ~
 ~
@@ -2616,14 +2795,16 @@ if some magic was used to help them grow.  To the south is a small shack.
 ~
 0 0 field
 D1
-The valley continues to the east.
+@eng The valley continues to the east.
+@rus Долина тянется на восток.
 ~
 ~
 ~
 ~
 Z 0 7871
 D3
-The valley continues to the west.
+@eng The valley continues to the west.
+@rus Долина тянется на запад.
 ~
 ~
 ~
@@ -2641,14 +2822,16 @@ shack.
 ~
 0 0 field
 D1
-The valley continues to the east.
+@eng The valley continues to the east.
+@rus Долина тянется на восток.
 ~
 ~
 ~
 ~
 Z 0 7873
 D2
-The valley continues to the south.
+@eng The valley continues to the south.
+@rus Долина продолжается на юг.
 ~
 ~
 ~
@@ -2665,14 +2848,16 @@ if some magic was used to help them grow.  To the east is a small shack.
 ~
 0 0 field
 D0
-The valley continues to the north.
+@eng The valley continues to the north.
+@rus Долина продолжается на север.
 ~
 ~
 ~
 ~
 Z 0 7874
 D2
-The valley continues to the south.
+@eng The valley continues to the south.
+@rus Долина продолжается на юг.
 ~
 ~
 ~
@@ -2690,14 +2875,16 @@ shack.
 ~
 0 0 field
 D0
-The valley continues to the north.
+@eng The valley continues to the north.
+@rus Долина продолжается на север.
 ~
 ~
 ~
 ~
 Z 0 7875
 D1
-The valley continues to the east.
+@eng The valley continues to the east.
+@rus Долина тянется на восток.
 ~
 ~
 ~
@@ -2714,14 +2901,16 @@ if some magic was used to help them grow.  To the north is a small shack.
 ~
 0 0 field
 D1
-The valley continues to the east.
+@eng The valley continues to the east.
+@rus Долина тянется на восток.
 ~
 ~
 ~
 ~
 Z 0 7872
 D3
-The valley continues to the west.
+@eng The valley continues to the west.
+@rus Долина тянется на запад.
 ~
 ~
 ~
@@ -2738,18 +2927,20 @@ cooking over it.  You see nothing valuable.
 ~
 0 D inside
 D1
-You see the valley outside.
+@eng You see the valley outside.
+@rus Снаружи ты видишь долину.
 ~
-door~
+door дверь~
 ~
 ~
 ABZ -1 7870
 D5
-You see a trap door!
+@eng You see a trap door!
+@rus Ты видишь потайную дверь!
 ~
-trap door~
-the trap~
-~
+trap door потайная дверь~
+@eng the trap door@rus ~~потайная~~ ~~дверь~~~
+@rus female~
 ABZ -1 7879
 S
 #7879
@@ -2761,18 +2952,20 @@ quite warm down here.
 ~
 0 AD inside
 D2
-The room looks reddish down there.
+@eng The room looks reddish down there.
+@rus Комната внизу залита каким-то красноватым светом.
 ~
 ~
 ~
 ~
 Z 0 7880
 D4
-Back to known territory!
+@eng Back to known territory!
+@rus Вернись лучше назад, в известные тебе места.
 ~
-trap door~
-the trap~
-~
+trap door потайная дверь~
+@eng the trap door@rus ~~потайная~~ ~~дверь~~~
+@rus female~
 ABZ -1 7878
 S
 #7880
@@ -2784,23 +2977,26 @@ room is filled with a smell close to that of burning tar.
 ~
 0 AD inside
 D0
-You see the relative safety to the north.
+@eng You see the relative safety to the north.
+@rus На севере ты видишь безопасное место.
 ~
 ~
 ~
 ~
 Z 0 7879
 D1
-You see breaks in the charred rock to the east.
+@eng You see breaks in the charred rock to the east.
+@rus Ты видишь трещины в обугленной скале на востоке.
 ~
-secret~
-@eng the secret@rus секретная дверь~
+secret секретная дверь~
+@eng the secret door@rus ~~секретная~~ ~~дверь~~~
 @rus female~
 ABCZ 7805 7882
 D3
-You see a door to the west.
+@eng You see a door to the west.
+@rus Ты видишь дверь на западе.
 ~
-door~
+door дверь~
 ~
 ~
 ABCZ 7805 7881
@@ -2819,7 +3015,7 @@ a magical aura.
 0 D inside
 D1
 ~
-door~
+door дверь~
 ~
 ~
 ABCZ 7805 7880
@@ -2834,8 +3030,8 @@ whole room radiates with a magical aura.
 0 D inside
 D3
 ~
-secret door~
-@eng the secret@rus секретная дверь~
+secret doori секретная дверь~
+@eng the secret door@rus ~~секретная~~ ~~дверь~~~
 @rus female~
 ABCZ 7805 7880
 S
