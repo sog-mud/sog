@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.8 2000-03-27 22:13:06 avn Exp $
+ * $Id: comm.c,v 1.200.2.9 2000-03-28 06:30:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1054,6 +1054,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 void read_from_buffer(DESCRIPTOR_DATA *d)
 {
 	int i, j, k;
+	bool repeat;
 
 	/*
 	 * Hold horses if pending command already.
@@ -1103,8 +1104,9 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 	/*
 	 * Deal with bozos with #repeat 1000 ...
 	 */
-	if (k > 1 || d->incomm[0] == '!') {
-		if (d->incomm[0] != '!' && strcmp(d->incomm, d->inlast))
+	repeat = !str_cmp(d->incomm, "!");
+	if (k > 1 || repeat) {
+		if (!repeat && strcmp(d->incomm, d->inlast))
 			d->repeat = 0;
 		else {
 			CHAR_DATA *ch = d->original ? d->original :
@@ -1144,7 +1146,7 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 	/*
 	 * Do '!' substitution.
 	 */
-	if (d->incomm[0] == '!')
+	if (repeat)
 		strnzcpy(d->incomm, sizeof(d->incomm), d->inlast);
 	else
 		strnzcpy(d->inlast, sizeof(d->inlast), d->incomm);
@@ -1498,7 +1500,7 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 
 		case 'W':
 			if (ch->invis_level) {
-				snprintf(buf2, sizeof(buf2), "%d",
+				snprintf(buf2, sizeof(buf2), "Wizi %d ",
 					 ch->invis_level);
 				i = buf2;
 			} else
@@ -1506,6 +1508,25 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 			break;
 
 		case 'I':
+			if (ch->incog_level) {
+				snprintf(buf2, sizeof(buf2), "Incog %d ",
+					 ch->incog_level);
+				i = buf2;
+			}
+			else
+				i = "";
+			break;
+
+		case 'w':
+			if (ch->invis_level) {
+				snprintf(buf2, sizeof(buf2), "%d",
+					 ch->invis_level);
+				i = buf2;
+			} else
+				i = "";
+			break;
+
+		case 'i':
 			if (ch->incog_level) {
 				snprintf(buf2, sizeof(buf2), "%d",
 					 ch->incog_level);

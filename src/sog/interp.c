@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.164.2.1 1999-12-14 11:23:21 fjoe Exp $
+ * $Id: interp.c,v 1.164.2.2 2000-03-28 06:30:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -551,6 +551,11 @@ void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 			argument = buf;
 			break;
 		}
+	}
+
+	if (argument[0] == '!') {
+		interpret(d->character, argument+1);
+		return;
 	}
 
 	if (olc_interpret == NULL || !olc_interpret(d, argument))
