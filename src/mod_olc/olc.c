@@ -1,5 +1,5 @@
 /*
- * $Id: olc.c,v 1.16 1998-09-10 22:08:00 fjoe Exp $
+ * $Id: olc.c,v 1.17 1998-09-10 23:05:55 fjoe Exp $
  */
 
 /***************************************************************************
@@ -265,7 +265,7 @@ bool olced_ed(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 	argument = one_argument(argument, lang);
 
 	if (command[0] == '\0' || keyword[0] == '\0') {
-		do_help(ch, "'OLC ED'");
+		do_help(ch, "'OLC EXTRA DESCRIPTION'");
 		return FALSE;
 	}
 
@@ -277,7 +277,7 @@ bool olced_ed(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 
 		if (!mlstr_append(ch, &ed->description, lang)) {
 			ed_free(ed);
-			do_help(ch, "'OLC ED'");
+			do_help(ch, "'OLC EXTRA DESCRIPTION'");
 			return FALSE;
 		}
 
@@ -293,7 +293,7 @@ bool olced_ed(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 		}
 
 		if (!mlstr_append(ch, &ed->description, lang)) {
-			do_help(ch, "'OLC ED'");
+			do_help(ch, "'OLC EXTRA DESCRIPTION'");
 			return FALSE;
 		}
 		return TRUE;
@@ -337,7 +337,7 @@ bool olced_ed(CHAR_DATA *ch, const char* argument, ED_DATA **ped)
 		return TRUE;
 	}
 
-	do_help(ch, "'OLC ED'");
+	do_help(ch, "'OLC EXTRA DESCRIPTION'");
 	return FALSE;
 }
 

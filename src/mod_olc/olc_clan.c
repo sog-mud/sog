@@ -1,5 +1,5 @@
 /*
- * $Id: olc_clan.c,v 1.2 1998-09-10 22:08:01 fjoe Exp $
+ * $Id: olc_clan.c,v 1.3 1998-09-10 23:05:55 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -61,7 +61,7 @@ OLC_FUN(cedit_create)
 	}
 
 	if (argument[0] == '\0') {
-		do_help(ch, "'OLC OLC_FUN'");
+		do_help(ch, "'OLC CREATE'");
 		return FALSE;
 	}
 
@@ -205,7 +205,7 @@ OLC_FUN(cedit_skadd)
 		   one_argument(argument, arg2);
 
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
-		do_help(ch, "'OLC SKADD'");
+		do_help(ch, "'OLC CLAN SKADD'");
 		return FALSE;
 	}
 
