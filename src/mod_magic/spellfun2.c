@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.60 1998-11-30 08:40:59 kostik Exp $
+ * $Id: spellfun2.c,v 1.61 1998-11-30 11:23:41 kostik Exp $
  */
 
 /***************************************************************************
@@ -1392,65 +1392,75 @@ void spell_brew(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	potion->value[0] = level;
 
-	if (obj->pIndexData->item_type == ITEM_TRASH)
-	  {
-	if (number_percent() < 20)
-	  spell = sn_lookup("fireball");
-	else if (number_percent() < 40)
-	  spell = sn_lookup("cure poison");
-	else if (number_percent() < 60)
-	  spell = sn_lookup("cure blind");
-	else if (number_percent() < 80)
-	  spell = sn_lookup("cure disease");
-	else
-	  spell = sn_lookup("word of recall");
-	  }
-	else if (obj->pIndexData->item_type == ITEM_TREASURE)
-	  {
-	switch(number_bits(3)) {
-	case 0:
-	  spell = sn_lookup("cure critical");
-	  break;
-	case 1:
-	  spell = sn_lookup("haste");
-	  break;
-	case 2:
-	  spell = gsn_frenzy;
-	  break;
-	case 3:
-	  spell = sn_lookup("create spring");
-	  break;
-	case 4:
-	  spell = sn_lookup("holy word");
-	  break;
-	case 5:
-	  spell = sn_lookup("invis");
-	  break;
-	case 6:
-	  spell = sn_lookup("cure light");
-	  break;
-	case 7:
-	  spell = sn_lookup("cure serious");
-	  break;
-	  
-	}
-	  }
-	else
-	  {
-	if (number_percent() < 20)
-	  spell = sn_lookup("detect magic");
-	else if (number_percent() < 40)
-	  spell = sn_lookup("detect invis");
-	else if (number_percent() < 65)
-	  spell = sn_lookup("pass door");
-	else if (number_percent() < 70)
-	  spell = sn_lookup("detect hidden");
-	else if (number_percent() < 75)
-	  spell = sn_lookup("improved detect");
-	else 
-	  spell = sn_lookup("acute vision");
-	  }
-
+	switch (obj->pIndexData->item_type) {
+	 case ITEM_TRASH:
+		if (number_percent() < 20)
+	  		spell = sn_lookup("fireball");
+		else if (number_percent() < 40)
+	  		spell = sn_lookup("cure poison");
+		else if (number_percent() < 60)
+	  		spell = sn_lookup("cure blind");
+		else if (number_percent() < 80)
+	  		spell = sn_lookup("cure disease");
+		else
+	  		spell = sn_lookup("word of recall");
+		break;
+	case ITEM_TREASURE:
+		switch(number_bits(3)) {
+		case 0:
+	  		spell = sn_lookup("cure critical");
+	  		break;
+		case 1:
+	  		spell = sn_lookup("haste");
+	  		break;
+		case 2:
+	  		spell = gsn_frenzy;
+	  		break;
+		case 3:
+	  		spell = sn_lookup("create spring");
+	  		break;
+		case 4:
+	  		spell = sn_lookup("holy word");
+	  		break;
+		case 5:
+	  		spell = sn_lookup("invis");
+	  		break;
+		case 6:
+	  		spell = sn_lookup("cure light");
+	  		break;
+		case 7:
+	  		spell = sn_lookup("cure serious");
+	  		break;
+		};
+		break;
+	case ITEM_KEY:
+	switch (number_bits(3)) {
+		case 0:
+	  		spell = sn_lookup("detect magic");
+	 		break;
+		case 1:
+	  		spell = sn_lookup("detect invis");
+	  		break;
+		case 2:
+	  		spell = sn_lookup("pass door");
+	  		break;
+		case 3:
+	  		spell = sn_lookup("detect hidden");
+	  		break;
+		case 4:
+	  		spell = sn_lookup("improved detect");
+	  		break;
+		case 5:
+	  		spell = sn_lookup("acute vision");
+	  		break;
+		case 6:
+	  		spell = sn_lookup("detect good");
+	  		break;
+		case 7:
+	  		spell = sn_lookup("detect evil");
+			break;
+	  };
+	};
 	potion->value[1] = spell;
 	extract_obj(obj);
 	act("You brew $p from your resources!", ch, potion, NULL, TO_CHAR);
