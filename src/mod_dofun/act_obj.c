@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.277 2002-03-20 19:39:33 fjoe Exp $
+ * $Id: act_obj.c,v 1.278 2002-10-10 13:32:49 kostik Exp $
  */
 
 /***************************************************************************
@@ -66,6 +66,7 @@ DECLARE_DO_FUN(do_wear);
 DECLARE_DO_FUN(do_remove);
 DECLARE_DO_FUN(do_sacrifice);
 DECLARE_DO_FUN(do_quaff);
+DECLARE_DO_FUN(do_dip);
 DECLARE_DO_FUN(do_recite);
 DECLARE_DO_FUN(do_brandish);
 DECLARE_DO_FUN(do_zap);
@@ -1436,6 +1437,89 @@ DO_FUN(do_quaff, ch, argument)
 	}
 
 	quaff_obj(ch, obj);
+}
+
+#define CAN_TARGET_OBJ(target) (((target) == TAR_OBJ_INV) || \
+    ((target) == TAR_OBJ_CHAR_DEF) || ((target) == TAR_OBJ_CHAR_OFF))
+
+static bool
+dip(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *potion, int num)
+{
+	skill_t *spell;
+	int target;
+
+	if (((spell = skill_lookup(potion->value[num].s)) == NULL)
+	|| (spell->skill_type != ST_PRAYER && spell->skill_type != ST_SPELL))
+		return FALSE;
+
+	target = spell->target;
+
+	if (!CAN_TARGET_OBJ(target))
+		return FALSE;
+
+	obj_cast_spell(potion->value[num].s, INT(potion->value[0]), ch, obj);
+
+	return TRUE;
+}
+
+DO_FUN(do_dip, ch, argument)
+{
+	char arg1[MAX_INPUT_LENGTH];
+	char arg2[MAX_INPUT_LENGTH];
+	OBJ_DATA *obj;
+	OBJ_DATA *potion;
+	OBJ_DATA *vial;
+	bool success = FALSE;
+	int i;
+
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
+	if (!str_cmp(arg2, "into"))
+		one_argument(argument, arg2, sizeof(arg2));
+
+	if (IS_NULLSTR(arg1)) {
+		act_char("Dip what?", ch);
+		return;
+	}
+
+	if (IS_NULLSTR(arg2)) {
+		act_char("Dip into which potion?", ch);
+		return;
+	}
+
+	if ((potion = get_obj_carry(ch, ch, arg2)) == NULL) {
+		act_char("You do not have that potion.", ch);
+		return;
+	}
+
+	if (potion->item_type != ITEM_POTION) {
+		act("$p is not a potion.", ch, potion, NULL, TO_CHAR);
+		return;
+	}
+
+	if ((obj = get_obj_carry(ch, ch, arg1)) == NULL) {
+		act_char("You do not have that object.", ch);
+		return;
+	}
+
+	act("$n dips $p into $P.", ch, obj, potion, TO_ROOM);
+	act_puts("You dip $p into $P.", ch, obj, potion, TO_CHAR, POS_DEAD);
+
+	for (i = 1; i < 5; i++) {
+		success = dip(ch, obj, potion, i) || success;
+		if (IS_EXTRACTED(ch))
+			return;
+	}
+
+	if (!success) {
+		act("$p is wasted.", ch, potion, NULL, TO_ALL);
+	}
+
+	if ((vial = create_obj(OBJ_VNUM_POTION_VIAL, 0)) != NULL) {
+		vial->label = str_qdup(obj->label);
+		obj_to_char(vial, ch);
+	}
+	extract_obj(potion, 0);
 }
 
 DO_FUN(do_recite, ch, argument)

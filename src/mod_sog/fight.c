@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.354 2002-09-17 19:08:11 tatyana Exp $
+ * $Id: fight.c,v 1.355 2002-10-10 13:32:58 kostik Exp $
  */
 
 /***************************************************************************
@@ -2823,7 +2823,6 @@ xpc_compute(CHAR_DATA *ch, CHAR_DATA *victim, xpc_t *xpc)
 
 	if (!IS_NPC(victim) || victim == ch)
 		return;
-
 	xpc->multiplier = victim->pMobIndex->xp_multiplier;
 	xpc->divisor = 100;
 
@@ -2905,6 +2904,7 @@ group_gain(CHAR_DATA *ch, xpc_t *xpc)
  *
  * gch is assumed to be !IS_NPC
  */
+
 static int
 xp_compute(CHAR_DATA *gch, xpc_t *xpc)
 {
@@ -2913,15 +2913,16 @@ xp_compute(CHAR_DATA *gch, xpc_t *xpc)
 	int64_t xp;
 	int base_exp;
 	int neg_cha = 0, pos_cha = 0;
+	int lev_diff = pc_level - xpc->v_level - UMIN(0, 5 - pc_level);
 
 	base_exp = (pc_level + 1) * pc_level;
 
-	if (pc_level > xpc->v_level) {
-		base_exp >>= pc_level - xpc->v_level;
-	} else if ((xpc->v_level - pc_level) < 5) {
-		base_exp *= (xpc->v_level - pc_level + 1);
+	if (lev_diff > 0) {
+		base_exp >>= lev_diff;
+	} else if (lev_diff < -5) {
+		base_exp *= (1 - lev_diff);
 	} else {
-		base_exp *= (19 + xpc->v_level - pc_level) / 4;
+		base_exp *= (19 - lev_diff) / 4;
 	}
 
 	if ((IS_EVIL(gch) && IS_GOOD_ALIGN(xpc->v_align))
@@ -2934,7 +2935,6 @@ xp_compute(CHAR_DATA *gch, xpc_t *xpc)
 	else
 		xp = base_exp;
 
-	/* more exp at the low levels - NO! */
 
 	xp = xp * xpc->multiplier / UMAX(1, xpc->divisor);
 

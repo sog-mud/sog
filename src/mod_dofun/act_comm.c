@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.265 2002-01-10 14:02:47 tatyana Exp $
+ * $Id: act_comm.c,v 1.266 2002-10-10 13:32:49 kostik Exp $
  */
 
 /***************************************************************************
@@ -853,7 +853,6 @@ DO_FUN(do_save, ch, argument)
 {
 	if (IS_NPC(ch))
 		return;
-
 	if (ch->level < 2) {
 		act_char("You must be at least level 2 for saving.", ch);
 		return;
