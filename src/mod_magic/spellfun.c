@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.47 2003-10-01 14:09:04 tatyana Exp $
+ * $Id: spellfun.c,v 1.181.2.48 2004-02-04 22:06:21 sg Exp $
  */
 
 /***************************************************************************
@@ -4695,7 +4695,7 @@ void spell_astral_walk(int sn, int level, CHAR_DATA *ch, void *vo)
 	if (pet && !IS_AFFECTED(pet, AFF_SLEEP)) {
 		if (pet->position != POS_STANDING)
 			dofun("stand", pet, str_empty);
-		astral_walk(ch, victim);
+		astral_walk(pet, victim);
 	}
 }
 
