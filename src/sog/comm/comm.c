@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.166 1999-03-22 09:52:23 fjoe Exp $
+ * $Id: comm.c,v 1.167 1999-04-01 11:00:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,7 +45,7 @@
 
 /*
  * This file contains all of the OS-dependent stuff:
- *   startup, signals, BSD sockets for tcp/ip, i/o, timing.
+ *   startup, BSD sockets for tcp/ip, i/o, timing.
  *
  * The data flow for input is:
  *    Game_loop ---> Read_from_descriptor ---> Read
@@ -102,31 +102,7 @@
 DESCRIPTOR_DATA	*	new_descriptor	(void);
 void			free_descriptor	(DESCRIPTOR_DATA *d);
 
-/*
- * Malloc debugging stuff.
- */
-#if defined(MALLOC_DEBUG)
-#include <malloc.h>
-extern	int	malloc_debug	(int );
-extern	int	malloc_verify	(void);
-#endif
-
 bool class_ok(CHAR_DATA *ch , int class);
-
-/*
- * Signal handling.
- * Apollo has a problem with __attribute(atomic) in signal.h,
- *   I dance around it.
- */
-#if defined(apollo)
-#define __attribute(x)
-#endif
-
-#include <signal.h>
-
-#if defined(apollo)
-#undef __attribute
-#endif
 
 struct codepage {
 	char* name;
