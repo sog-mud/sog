@@ -31,7 +31,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: roulette.c,v 1.1.2.2 2004-06-21 08:54:35 sg Exp $
+ * $Id: roulette.c,v 1.1.2.3 2004-07-29 06:51:30 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -43,7 +43,7 @@
 void
 roulette_update(void)
 {
-	stake_t *list;
+	stake_t *list, *list_next;
 	int i;
 	CHAR_DATA *vch;
 
@@ -74,9 +74,11 @@ roulette_update(void)
 		}
 	} end_foreach(vch);
 
-	for (list = stake_list; list; list = list->next) {
+	for (list = stake_list; list; list = list_next) {
+		list_next = list->next;
 		if (list->number == i)
 			give_winnings(list->ch, list->stake, list->rating);
+		stake_free(list);
 	}
 
 	stake_list = NULL;

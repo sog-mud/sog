@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.64.2.14 2003-09-30 01:25:27 fjoe Exp $
+ * $Id: recycle.c,v 1.64.2.15 2004-07-29 06:51:30 tatyana Exp $
  */
 
 /***************************************************************************
@@ -51,6 +51,7 @@
 #include "db.h"
 #include "bm.h"
 #include "imc.h"
+#include "games.h"
 
 /*
  * Globals
@@ -836,5 +837,14 @@ bmitem_free(bmitem_t *item)
 		return;
 	free_string(item->seller);
 	free_string(item->buyer);
+	free(item);
+}
+
+void
+stake_free(stake_t *item)
+{
+	if (!item)
+		return;
+
 	free(item);
 }

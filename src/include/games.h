@@ -32,7 +32,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: games.h,v 1.1.2.1 2004-06-10 09:20:15 tatyana Exp $
+ * $Id: games.h,v 1.1.2.2 2004-07-29 06:51:30 tatyana Exp $
  */
 
 typedef struct stake_t stake_t;
@@ -50,6 +50,7 @@ stake_t *stake_list;
 CHAR_DATA *croupier_lookup(CHAR_DATA *ch);
 void give_winnings(CHAR_DATA *ch, int stake, int rating);
 void roulette_update(void);
+void stake_free(stake_t *item);
 
 #define CROUPIER_SAYS(croupier, ch)				\
 	act("$n says:", croupier, NULL, ch, TO_ALL);
