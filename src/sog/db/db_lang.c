@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.14 1999-04-16 15:52:23 fjoe Exp $
+ * $Id: db_lang.c,v 1.15 1999-06-03 10:24:06 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -219,6 +219,12 @@ load_rules(FILE *fp, rulecl_t *rcl, rule_t* (*rule_add)(rulecl_t*, rule_t*))
 			if (!str_cmp(word, "Form")) {
 				int fnum = fread_number(fp);
 				const char *fstring = fread_string(fp);
+
+				if (fnum < 0) {
+					db_error("load_rules", "%d: Negative form number", fnum);
+					break;
+				}
+
 				vform_add(r.f, fnum, fstring);
 				free_string(fstring);
 				fMatch = TRUE;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.h,v 1.11 1999-04-16 15:52:24 fjoe Exp $
+ * $Id: lang.h,v 1.12 1999-06-03 10:24:06 fjoe Exp $
  */
 
 #ifndef _LANG_H_
@@ -49,8 +49,8 @@ vform_t *vform_new	(void);
 vform_t *vform_dup	(vform_t *f);
 void	vform_free	(vform_t *f);
 
-void	vform_add	(vform_t *f, int fnum, const char *s);
-void	vform_del	(vform_t *f, int fnum);
+void	vform_add	(vform_t *f, size_t fnum, const char *s);
+void	vform_del	(vform_t *f, size_t fnum);
 
 /*
  * rule_t: rules can be of two types

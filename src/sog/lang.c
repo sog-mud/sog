@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.12 1999-05-26 06:47:58 fjoe Exp $
+ * $Id: lang.c,v 1.13 1999-06-03 10:24:06 fjoe Exp $
  */
 
 #include <string.h>
@@ -187,7 +187,7 @@ void vform_free(vform_t *f)
 	free(f);
 }
 
-void vform_add(vform_t *f, int fnum, const char *s)
+void vform_add(vform_t *f, size_t fnum, const char *s)
 {
 	const char **p = varr_touch(&f->v, fnum);
 	if (*p)
@@ -195,9 +195,12 @@ void vform_add(vform_t *f, int fnum, const char *s)
 	*p = str_dup(s);
 }
 
-void vform_del(vform_t *f, int fnum)
+void vform_del(vform_t *f, size_t fnum)
 {
 	const char **p = varr_get(&f->v, fnum);
+	if (p == NULL)
+		return;
+
 	if (*p)
 		free_string(*p);
 	*p = NULL;

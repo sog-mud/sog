@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.57 1999-05-22 15:50:54 fjoe Exp $
+ * $Id: olc.c,v 1.58 1999-06-03 10:24:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -667,14 +667,17 @@ bool olced_vform_add(CHAR_DATA *ch, const char *argument,
 		     olc_cmd_t *cmd, rule_t *r)
 {
 	char arg[MAX_STRING_LENGTH];
+	int fnum;
 
 	argument = one_argument(argument, arg, sizeof(arg));
-	if (argument[0] == '\0' || !is_number(arg)) {
+	if (argument[0] == '\0'
+	||  !is_number(arg)
+	||  (fnum = atoi(arg)) < 0) {
 		do_help(ch, "'OLC VFORM'");
 		return FALSE;
 	}
 
-	vform_add(r->f, atoi(arg), argument);
+	vform_add(r->f, fnum, argument);
 	char_puts("Form added.\n", ch);
 	return TRUE;
 }
@@ -683,14 +686,15 @@ bool olced_vform_del(CHAR_DATA *ch, const char *argument,
 		     olc_cmd_t *cmd, rule_t *r)
 {
 	char arg[MAX_STRING_LENGTH];
+	int fnum;
 
 	argument = one_argument(argument, arg, sizeof(arg));
-	if (!is_number(arg)) {
+	if (!is_number(arg) || (fnum = atoi(arg)) < 0) {
 		do_help(ch, "'OLC FORM'");
 		return FALSE;
 	}
 
-	vform_del(r->f, atoi(arg));
+	vform_del(r->f, fnum);
 	char_puts("Form deleted.\n", ch);
 	return TRUE;
 }
