@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.60 1998-06-03 20:44:03 fjoe Exp $
+ * $Id: act_info.c,v 1.61 1998-06-06 01:44:58 efdi Exp $
  */
 
 /***************************************************************************
@@ -311,7 +311,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	if (!IS_NPC(ch) && IS_NPC(victim) && ch->pcdata->questmob > 0
 	&&  victim->hunter == ch)
-		strcat(buf, "{R[TARGET]{x ");
+		strcat(buf, msg(INFO_TARGET, ch));
 
 /*
 	sprintf(message,"(%s) ",race_table[RACE(victim)].name);
@@ -321,28 +321,34 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	if (IS_SET(ch->comm, COMM_LONG)) {
 		if (IS_AFFECTED(victim, AFF_INVISIBLE))
-			strcat(buf, "({yInvis{x) ");
-		if (IS_AFFECTED(victim, AFF_HIDE)) strcat(buf, "({DHidden{x) ");
-		if (IS_AFFECTED(victim, AFF_CHARM)) strcat(buf, "({mCharmed{x) ");
-		if (IS_AFFECTED(victim, AFF_PASS_DOOR)) strcat(buf, "({cTranslucent{x) ");
-		if (IS_AFFECTED(victim, AFF_FAERIE_FIRE)) strcat(buf, "({MPink Aura{x) ");
+			strcat(buf, msg(INFO_INVIS, ch));
+		if (IS_AFFECTED(victim, AFF_HIDE)) 
+			strcat(buf, msg(INFO_HIDDEN, ch));
+		if (IS_AFFECTED(victim, AFF_CHARM)) 
+			strcat(buf, msg(INFO_CHARMED, ch));
+		if (IS_AFFECTED(victim, AFF_PASS_DOOR)) 
+			strcat(buf, msg(INFO_TRANSLUCENT, ch));
+		if (IS_AFFECTED(victim, AFF_FAERIE_FIRE)) 
+			strcat(buf, msg(INFO_PINK_AURA, ch));
 		if (IS_NPC(victim) && IS_SET(victim->act,ACT_UNDEAD)
 		&&  CAN_DETECT(ch, DETECT_UNDEAD))
-			strcat(buf, "({DUndead{x) ");
+			strcat(buf, msg(INFO_UNDEAD, ch));
 		if (RIDDEN(victim))
-			strcat(buf, "({GRidden{x) ");
+			strcat(buf, msg(INFO_RIDDEN, ch));
 		if (IS_AFFECTED(victim,AFF_IMP_INVIS))
-			strcat(buf, "({bImproved{x) "  );
+			strcat(buf, msg(INFO_IMPROVED, ch));
 		if (IS_EVIL(victim) && CAN_DETECT(ch, DETECT_EVIL))
-			strcat(buf, "({RRed Aura{x) ");
+			strcat(buf, msg(INFO_RED_AURA, ch));
 		if (IS_GOOD(victim) && CAN_DETECT(ch, DETECT_GOOD))
-			strcat(buf, "({YGolden Aura{x) ");
+			strcat(buf, msg(INFO_GOLDEN_AURA, ch));
 		if (IS_AFFECTED(victim, AFF_SANCTUARY))
-			strcat(buf, "({WWhite Aura{x) ");
-		if (IS_AFFECTED(victim, AFF_FADE)) strcat(buf, "({yFade{x) ");
+			strcat(buf, msg(INFO_WHITE_AURA, ch));
+		if (IS_AFFECTED(victim, AFF_FADE)) 
+			strcat(buf, msg(INFO_FADE, ch));
 		if (!IS_NPC(victim) && IS_SET(victim->act, PLR_WANTED))
-			strcat(buf, "({RWanted{x) ");
-		if (IS_AFFECTED(victim, AFF_CAMOUFLAGE)) strcat(buf, "({gCamf{x) ");
+			strcat(buf, msg(INFO_WANTED, ch));
+		if (IS_AFFECTED(victim, AFF_CAMOUFLAGE)) 
+			strcat(buf, msg(INFO_CAMF, ch));
 	}
 	else {
 		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{R.{g.{x] ";
@@ -407,19 +413,19 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	switch (victim->position) {
 	case POS_DEAD:
-		strcat(buf, " is DEAD!!");
+		strcat(buf, vmsg(INFO_IS_DEAD, ch, victim));
 		break;
 
 	case POS_MORTAL:
-		strcat(buf, " is mortally wounded.");
+		strcat(buf, vmsg(INFO_IS_MORTALLY_WOUNDED, ch, victim));
 		break;
 
 	case POS_INCAP:
-		strcat(buf, " is incapacitated.");
+		strcat(buf, vmsg(INFO_IS_INCAPACITATED, ch, victim));
 		break;
 
 	case POS_STUNNED:
-		strcat(buf, " is lying here stunned.");
+		strcat(buf, vmsg(INFO_IS_LYING_HERE_STUNNED, ch, victim));
 		break;
 
 	case POS_SLEEPING:
@@ -523,24 +529,27 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	if (can_see(victim, ch)) {
 		if (ch == victim)
-			act("$n looks at $mself.",ch,NULL,NULL,TO_ROOM);
+			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+					INFO_N_LOOKS_AT_SELF);
 		else {
-			act("$n looks at you.", ch, NULL, victim, TO_VICT  );
-			act("$n looks at $N.",	ch, NULL, victim, TO_NOTVICT);
+			act_nprintf(ch, NULL, victim, TO_VICT, POS_RESTING,
+					INFO_N_LOOKS_AT_YOU);
+			act_nprintf(ch, NULL, victim, TO_NOTVICT, POS_RESTING,
+					INFO_N_LOOKS_AT_N);
 		}
 	}
 
 	if (vict->description[0] != '\0')
 		send_to_char(vict->description, ch);
 	else
-		act("You see nothing special about $M.", ch, NULL, victim,
-		    TO_CHAR);
+		act_nprintf(ch, NULL, victim, TO_CHAR, POS_DEAD,
+				INFO_SEE_NOTHING_SPECIAL);
 
 	if (MOUNTED(victim))
-		char_printf(ch, "%s is riding %s.\n\r",
+		char_printf(ch, msg(INFO_IS_RIDING_S, ch),
 			    PERS(victim,ch), PERS(MOUNTED(victim),ch));
 	if (RIDDEN(victim))
-		char_printf(ch, "%s is being ridden by %s.\n\r",
+		char_printf(ch, vmsg(INFO_IS_RIDDEN_BY_S, ch, victim),
 			    PERS(victim,ch), PERS(RIDDEN(victim),ch));
 
 	if (victim->max_hit > 0)
