@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.121 1999-09-08 10:40:00 fjoe Exp $
+ * $Id: quest.c,v 1.122 1999-09-14 17:42:40 avn Exp $
  */
 
 #include <sys/types.h>
@@ -599,6 +599,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		||  IS_SET(victim->pMobIndex->imm_flags, IMM_SUMMON)
 		||  questor->pMobIndex == victim->pMobIndex
 		||  victim->in_room == NULL
+		||  victim->in_room->sector_type == SECT_UNDERWATER
 		||  (IS_SET(victim->pMobIndex->act, ACT_SENTINEL) &&
 		     IS_SET(victim->in_room->room_flags,
 			    ROOM_PRIVATE | ROOM_SOLITARY))

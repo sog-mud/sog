@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.152 1999-09-14 03:10:57 avn Exp $
+ * $Id: update.c,v 1.153 1999-09-14 17:42:40 avn Exp $
  */
 
 /***************************************************************************
@@ -659,7 +659,7 @@ void mobile_update(void)
 			bust_prompt = TRUE;
 		}
 
-		if (ch->in_room->sector_type == SECT_UNDERWATER
+		if (ch->in_room && ch->in_room->sector_type == SECT_UNDERWATER
 		&& !IS_AFFECTED(ch, AFF_WATER_BREATHING)
 		&& !IS_IMMORTAL(ch)) {
 			act("$n gasps for fresh air, but inhales water.",

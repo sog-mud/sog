@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.201 1999-09-14 03:10:49 avn Exp $
+ * $Id: act_move.c,v 1.202 1999-09-14 17:42:39 avn Exp $
  */
 
 /***************************************************************************
@@ -3467,6 +3467,46 @@ void do_forest(CHAR_DATA* ch, const char* argument)
 	}
 
 	affect_to_char(ch, &af);
+}
+
+void do_breathhold(CHAR_DATA *ch, const char *argument)
+{
+	AFFECT_DATA af;
+	int sn;
+
+	sn = sn_lookup("hold breath");
+
+	if (get_skill(ch, sn) == 0) {
+		char_puts("Huh?\n", ch);
+		return;
+	}
+
+	if (is_affected(ch, sn)) {
+		char_puts("You're already holding your breath.\n", ch);
+		return;
+	}
+
+	if (ch->in_room && ch->in_room->sector_type == SECT_UNDERWATER) {
+		char_puts("Under water?\n", ch);
+		return;
+	}
+	if (number_percent() < get_skill(ch, sn)) {
+		af.bitvector	= AFF_WATER_BREATHING | AFF_SWIM;
+		char_puts("You prepare yourself for swimming.\n", ch);
+		check_improve(ch, sn, TRUE, 1);
+	}
+	else {
+		af.bitvector	= 0;
+		char_puts("You took a deep breath but fail to concentrate.\n", ch);
+		check_improve(ch, sn, FALSE, 1);
+	}
+	af.where	= TO_AFFECTS;
+	af.type		= sn_lookup("hold breath");
+	af.level	= LEVEL(ch); 
+	af.duration	= LEVEL(ch) / 46;
+	af.location	= APPLY_NONE;
+	af.modifier	= 0;
+	affect_to_char(ch, &af); 
 }
 
 /*
