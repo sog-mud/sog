@@ -30,6 +30,14 @@ r wood 100
 r silver 100
 r weapon 100
 r magic 100
+m mob_look @ ~
+static int $n[avatara_look_count];
+ 
+$n[avatara_look_count]++;
+act("You looked at me $j $qj{times}.",
+    $n, $n[avatara_look_count], NULL, TO_CHAR, POS_DEAD);
+return 0;
+~
 #15001
 prisoner karabas~
 @eng the prisoner@rus узник~
