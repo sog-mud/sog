@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: checktrans.pl,v 1.12 2001-08-30 18:37:54 fjoe Exp $
+# $Id: checktrans.pl,v 1.13 2001-12-10 21:42:03 fjoe Exp $
 #
 # Usage: checktrans.pl [-u] [-d] [-F] files...
 # Options:
@@ -103,7 +103,7 @@ sub process_file
 
 		# skip some specific strings
 		next if (/(KEY|aff_fwrite_list|glob_lookup|str_printf|yyerror)\("/);
-		next if (/(IS_TOKEN|db_set_arg|do_help|fwrite_string|fprintf|fwrite_word|is_name|mlstr_dump|mlstr_fwrite|log|str_cmp|str_cscmp|str_prefix|strcmp)\([&a-zA-Z_][a-zA-Z0-9_+->()]*, "/);
+		next if (/(IS_TOKEN|CHECK_VAR|db_set_arg|do_help|fwrite_string|fprintf|fwrite_word|is_name|mlstr_dump|mlstr_fwrite|log|str_cmp|str_cscmp|str_prefix|strcmp)\([&a-zA-Z_][a-zA-Z0-9_+->()]*, "/);
 		next if (/dofun\("help", [a-zA-Z_][a-zA-Z0-9_]*, "/);
 		next if (m|// notrans$|);
 
