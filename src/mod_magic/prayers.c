@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.53 2003-10-10 16:14:43 fjoe Exp $
+ * $Id: prayers.c,v 1.54 2004-02-19 15:19:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1283,8 +1283,7 @@ SPELL_FUN(prayer_holy_hammer, sn, level, ch, vo)
 	affect_to_obj(hammer, paf);
 	aff_free(paf);
 
-	obj_to_char(hammer, ch);
-
+	obj_to_char_check(hammer, ch);
 	act ("You create a Holy Hammer.", ch, NULL, NULL, TO_CHAR);
 	act ("$n creates a Holy Hammer.", ch, NULL, NULL, TO_ROOM);
 }

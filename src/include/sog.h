@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.52 2004-02-19 13:31:40 fjoe Exp $
+ * $Id: sog.h,v 1.53 2004-02-19 15:19:28 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -43,6 +43,8 @@ DECLARE_PROC1(obj_from_char,
 	      ARG(OBJ_DATA), obj)
 
 DECLARE_PROC2(obj_to_char,
+	      ARG(OBJ_DATA), obj, ARG(CHAR_DATA), ch)
+DECLARE_PROC2(obj_to_char_check,
 	      ARG(OBJ_DATA), obj, ARG(CHAR_DATA), ch)
 DECLARE_PROC2(obj_to_room,
 	      ARG(OBJ_DATA), obj, ARG(ROOM_INDEX_DATA), pRoomIndex)

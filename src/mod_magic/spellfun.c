@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.317 2004-02-12 22:01:09 sg Exp $
+ * $Id: spellfun.c,v 1.318 2004-02-19 15:19:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -657,7 +657,7 @@ SPELL_FUN(spell_create_rose, sn, level, ch, vo)
 
 	act("$n has created $p.", ch, rose, NULL, TO_ROOM);
 	act("You create $p.", ch, rose, NULL, TO_CHAR);
-	obj_to_char(rose, ch);
+	obj_to_char_check(rose, ch);
 }
 
 SPELL_FUN(spell_detect_hidden, sn, level, ch, vo)
@@ -3234,7 +3234,7 @@ SPELL_FUN(spell_ranger_staff, sn, level, ch, vo)
 	staff->timer = level;
 	staff->level = ch->level;
 
-	obj_to_char(staff, ch);
+	obj_to_char_check(staff, ch);
 }
 
 SPELL_FUN(spell_transform, sn, level, ch, vo)
@@ -3486,7 +3486,6 @@ SPELL_FUN(spell_shield_of_ruler, sn, level, ch, vo)
 	shield->level = ch->level;
 	shield->timer = level;
 	shield->cost  = 0;
-	obj_to_char(shield, ch);
 
 	paf = aff_new(TO_OBJECT, sn);
 	paf->level	= level;
@@ -3508,6 +3507,7 @@ SPELL_FUN(spell_shield_of_ruler, sn, level, ch, vo)
 	affect_to_obj(shield, paf);
 	aff_free(paf);
 
+	obj_to_char_check(shield, ch);
 	act("You create $p!", ch, shield, NULL, TO_CHAR);
 	act("$n creates $p!", ch, shield, NULL, TO_ROOM);
 }
@@ -3983,7 +3983,7 @@ SPELL_FUN(spell_chaos_blade, sn, level, ch, vo)
 	affect_to_obj(blade, paf);
 	aff_free(paf);
 
-	obj_to_char(blade, ch);
+	obj_to_char_check(blade, ch);
 }
 
 SPELL_FUN(spell_stalker, sn, level, ch, vo)
@@ -4272,7 +4272,7 @@ SPELL_FUN(spell_brew, sn, level, ch, vo)
 	extract_obj(obj, 0);
 	act("You brew $p from your resources!", ch, potion, NULL, TO_CHAR);
 	act("$n brews $p from $s resources!", ch, potion, NULL, TO_ROOM);
-	obj_to_char(potion, ch);
+	obj_to_char_check(potion, ch);
 
 	extract_obj(vial, 0);
 }
@@ -4340,7 +4340,6 @@ SPELL_FUN(spell_shadowlife, sn, level, ch, vo)
 SPELL_FUN(spell_ruler_badge, sn, level, ch, vo)
 {
 	OBJ_DATA *badge;
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	OBJ_DATA *obj_next;
 	AFFECT_DATA *paf;
 
@@ -4388,7 +4387,7 @@ SPELL_FUN(spell_ruler_badge, sn, level, ch, vo)
 	act("You wear $p!",ch, NULL, NULL, TO_CHAR);
 	act("$n wears $s $p!", ch, NULL, NULL, TO_ROOM);
 
-	obj_to_char(badge, victim);
+	obj_to_char_check(badge, ch);
 	equip_char(ch, badge, WEAR_NECK);
 }
 
@@ -4687,8 +4686,7 @@ SPELL_FUN(spell_dragon_plate, sn, level, ch, vo)
 	affect_to_obj(plate, paf);
 	aff_free(paf);
 
-	obj_to_char(plate, ch);
-
+	obj_to_char_check(plate, ch);
 	act("You create $p!", ch, plate, NULL, TO_CHAR);
 	act("$n creates $p!", ch, plate, NULL, TO_ROOM);
 }
@@ -4819,7 +4817,7 @@ SPELL_FUN(spell_dragon_weapon, sn, level, ch, vo)
 		SET_OBJ_STAT(sword, ITEM_ANTI_GOOD | ITEM_ANTI_EVIL);
 	else if (IS_EVIL(ch))
 		SET_OBJ_STAT(sword, ITEM_ANTI_NEUTRAL | ITEM_ANTI_GOOD);
-	obj_to_char(sword, ch);
+	obj_to_char_check(sword, ch);
 
 	act("You create $p!", ch, sword, NULL, TO_CHAR);
 	act("$n creates $p!", ch, sword, NULL, TO_ROOM);
@@ -5636,7 +5634,7 @@ SPELL_FUN(spell_eyed_sword, sn, level, ch, vo)
 	eyed->ed = ed_new2(eyed->pObjIndex->ed, ch->name);
 	INT(eyed->value[2]) = (ch->level / 10) + 3;
 	eyed->cost = 0;
-	obj_to_char(eyed, ch);
+	obj_to_char_check(eyed, ch);
 	act_char("You create YOUR sword with your name.", ch);
 /*
 	act_char("Don't forget that you won't be able to create this weapon anymore.", ch);
@@ -5782,7 +5780,7 @@ SPELL_FUN(spell_magic_jar, sn, level, ch, vo)
 	fire->cost = 0;
 
 	extract_obj(vial, 0);
-	obj_to_char(fire, ch);
+	obj_to_char_check(fire, ch);
 	SET_BIT(PC(victim)->plr_flags, PLR_NOEXP);
 
 	act_puts("You catch $N's spirit into your vial.",
@@ -5936,7 +5934,7 @@ SPELL_FUN(spell_fire_shield, sn, level, ch, vo)
 		SET_OBJ_STAT(fire, ITEM_ANTI_GOOD | ITEM_ANTI_EVIL);
 	else if (IS_EVIL(ch))
 		SET_OBJ_STAT(fire, ITEM_ANTI_NEUTRAL | ITEM_ANTI_GOOD);
-	obj_to_char(fire, ch);
+	obj_to_char_check(fire, ch);
 	act("You create $p.", ch, fire, NULL, TO_CHAR);
 }
 
@@ -5961,7 +5959,7 @@ SPELL_FUN(spell_cold_shield, sn, level, ch, vo)
 		SET_OBJ_STAT(cold, ITEM_ANTI_GOOD | ITEM_ANTI_EVIL);
 	else if (IS_EVIL(ch))
 		SET_OBJ_STAT(cold, ITEM_ANTI_NEUTRAL | ITEM_ANTI_GOOD);
-	obj_to_char(cold, ch);
+	obj_to_char_check(cold, ch);
 	act("You create $p.", ch, cold, NULL, TO_CHAR);
 }
 

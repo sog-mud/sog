@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.439 2004-02-19 13:31:41 fjoe Exp $
+ * $Id: act_info.c,v 1.440 2004-02-19 15:19:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3836,7 +3836,7 @@ DO_FUN(do_make_arrow, ch, argument)
 		affect_to_obj(arrow, paf);
 		aff_free(paf);
 
-		obj_to_char(arrow, ch);
+		obj_to_char_check(arrow, ch);
 		act_puts("You successfully make $p.",
 			 ch, arrow, NULL, TO_CHAR, POS_DEAD);
 	}
@@ -3898,7 +3898,7 @@ DO_FUN(do_make_bow, ch, argument)
 	affect_to_obj(bow, paf);
 	aff_free(paf);
 
-	obj_to_char(bow, ch);
+	obj_to_char_check(bow, ch);
 	act_puts("You successfully make $p.", ch, bow, NULL, TO_CHAR, POS_DEAD);
 }
 

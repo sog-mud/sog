@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.383 2004-02-19 13:31:43 fjoe Exp $
+ * $Id: handler.c,v 1.384 2004-02-19 15:19:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -210,6 +210,19 @@ obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch)
 
 	ch->carry_number	+= get_obj_number(obj);
 	ch->carry_weight	+= get_obj_weight(obj);
+}
+
+/*
+ * Give an obj to a char, checking can_carry_w and can_carry_n.
+ */
+void
+obj_to_char_check(OBJ_DATA *obj, CHAR_DATA *ch)
+{
+	if (!can_carry_more_n(ch, get_obj_number(obj))
+	||  !can_carry_more_w(ch, get_obj_weight(obj)))
+		obj_to_room(obj, ch->in_room);
+	else
+		obj_to_char(obj, ch);
 }
 
 /*

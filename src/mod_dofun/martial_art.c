@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.226 2003-10-10 16:14:28 fjoe Exp $
+ * $Id: martial_art.c,v 1.227 2004-02-19 15:19:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3102,7 +3102,7 @@ DO_FUN(do_trophy, ch, argument)
 			INT(trophy->value[2]) = LEVEL(ch);
 			INT(trophy->value[3]) = LEVEL(ch);
 
-			obj_to_char(trophy, ch);
+			obj_to_char_check(trophy, ch);
 			check_improve(ch, "trophy", TRUE, 1);
 
 			act("You make a poncho from $p!",
@@ -4011,7 +4011,7 @@ DO_FUN(do_katana, ch, argument)
 		INT(katana->value[2]) = ch->level / 10;
 		katana->ed = ed_new2(katana->pObjIndex->ed, ch->name);
 
-		obj_to_char(katana, ch);
+		obj_to_char_check(katana, ch);
 		check_improve(ch, "katana", TRUE, 1);
 
 		act("You make a katana from $p!",ch,part,NULL,TO_CHAR);
