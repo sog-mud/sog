@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.21 1999-02-17 18:58:01 fjoe Exp $
+ * $Id: const.h,v 1.22 1999-02-18 11:22:03 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -63,32 +63,23 @@
 
 #define TMP_FILE	"romtmp"
 
+#define TMP_PATH	"tmp"
+#define PLAYER_PATH	"player"
+#define GODS_PATH	"gods"
+#define NOTES_PATH	"notes"
+#define MSGDB_PATH	"msgdb"
+#define ETC_PATH	"etc"
+#define CLASSES_PATH	"classes"
+#define CLANS_PATH	"clans"
+#define AREA_PATH	"area"
+#define LANG_PATH	"lang"
+
 #if defined (WIN32)
 #	define NULL_FILE	"NUL"	/* To reserve one stream */
-#	define TMP_PATH		"tmp"
-#	define PLAYER_PATH	"player"
-#	define GODS_PATH	"gods"
-#	define NOTES_PATH	"notes"
-#	define MSGDB_PATH	"msgdb"
-#	define ETC_PATH		"etc"
-#	define CLASSES_PATH	"classes"
-#	define CLANS_PATH	"clans"
 #	define PLISTS_PATH	CLANS_PATH"\\plists"
-#	define AREA_PATH	"area"
-#	define LANG_PATH	"lang"
 #else
 #	define NULL_FILE	"/dev/null"	/* To reserve one stream */
-#	define TMP_PATH		"tmp"
-#	define PLAYER_PATH	"player"
-#	define GODS_PATH	"gods"
-#	define NOTES_PATH	"notes"
-#	define MSGDB_PATH	"msgdb"
-#	define ETC_PATH		"etc"
-#	define CLASSES_PATH	"classes"
-#	define CLANS_PATH	"clans"
 #	define PLISTS_PATH	CLANS_PATH"/plists"
-#	define AREA_PATH	"area"
-#	define LANG_PATH	"lang"
 #endif
 
 #define SKILLS_CONF	"skills.conf"	/* skills */
@@ -109,7 +100,7 @@
 #define PENALTY_FILE	"penal.not"
 #define NEWS_FILE	"news.not"
 #define CHANGES_FILE	"chang.not"
-#define SHUTDOWN_FILE	"shutdown.txt"	/* For 'shutdown'*/
+#define SHUTDOWN_FILE	"shutdown"	/* For 'shutdown'*/
 #define BAN_FILE	"ban.txt"
 #define MAXON_FILE	"maxon.txt"
 #define AREASTAT_FILE	"areastat.txt"

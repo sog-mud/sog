@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.137 1999-02-18 10:04:51 fjoe Exp $
+ * $Id: fight.c,v 1.138 1999-02-18 11:22:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2374,40 +2374,40 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,
 		vp = "{y=== OBLITERATES ==={x";
 	}
 	else if (dam <= 325) {
-		vs = "{y==== ATOMIZE ===={x";
-		vp = "{y==== ATOMIZES ===={x";
+		vs = "{y=== ATOMIZE ==={x";
+		vp = "{y=== ATOMIZES ==={x";
 	}
 	else if (dam <= 400) {
-		vs = "{R<*> <*> ANNIHILATE <*> <*>{x";
-		vp = "{R<*> <*> ANNIHILATES <*> <*>{x";
+		vs = "{R>>> ANNIHILATE <<<{x";
+		vp = "{R>>> ANNIHILATES <<<{x";
 	}
 	else if (dam <= 500) {
-		vs = "{R<*>!<*> ERADICATE <*>!<*>{x";
-		vp = "{R<*>!<*> ERADICATES <*>!<*>{x";
+		vs = "{R>>> ERADICATE <<<{x";
+		vp = "{R>>> ERADICATES <<<{x";
 	}
 	else if (dam <= 650) {
-		vs = "{R<*><*><*> ELECTRONIZE <*><*><*>{x";
-		vp = "{R<*><*><*> ELECTRONIZES <*><*><*>{x";
+		vs = "{R-==> ELECTRONIZE <==-{x";
+		vp = "{R-==> ELECTRONIZES <==-{x";
 	}
 	else if (dam <= 800) {
-		vs = "{R(<*>)!(<*>) SKELETONIZE (<*>)!(<*>){x";
-		vp = "{R(<*>)!(<*>) SKELETONIZES (<*>)!(<*>){x";
+		vs = "{R-==> SKELETONIZE <==-{x";
+		vp = "{R-==> SKELETONIZES <==-{x";
 	}
 	else if (dam <= 1000) {
-		vs = "{R(*)!(*)!(*) NUKE (*)!(*)!(*){x";
-		vp = "{R(*)!(*)!(*) NUKES (*)!(*)!(*){x";
+		vs = "{R### NUKE ###{x";
+		vp = "{R### NUKES ###{x";
 	}
 	else if (dam <= 1250) {
-		vs = "{R(*)!<*>!(*) TERMINATE (*)!<*>!(*){x";
-		vp = "{R(*)!<*>!(*) TERMINATES (*)!<*>!(*){x";
+		vs = "{R### TERMINATE ###{x";
+		vp = "{R### TERMINATES ###{x";
 	}
 	else if (dam <= 1500) {
-		vs = "{R<*>!(*)!<*>> TEAR UP <<*)!(*)!<*>{x";
-		vp = "{R<*>!(*)!<*>> TEARS UP <<*)!(*)!<*>{x";
+		vs = "{R[*] TEAR UP [*]{x";
+		vp = "{R[*] TEARS UP [*]{x";
 	}
 	else {
-		vs = "{*{R=<*) (*>= ! POWER HIT ! =<*) (*>={x";
-		vp = "{*{R=<*) (*>= ! POWER HITS ! =<*) (*>={x";
+		vs = "{*{R[*] POWER HIT [*]{x";
+		vp = "{*{R[*] POWER HITS [*]{x";
 	}
 
 	if (dt == TYPE_HIT || dt == TYPE_HUNGER) {

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.120 1999-02-17 18:58:01 fjoe Exp $
+ * $Id: act_wiz.c,v 1.121 1999-02-18 11:22:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,6 +45,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <errno.h>
 #if !defined (WIN32)
 #include <unistd.h>
 #endif
@@ -1717,11 +1718,57 @@ void do_shutdow(CHAR_DATA *ch, const char *argument)
 
 void do_shutdown(CHAR_DATA *ch, const char *argument)
 {
-	char buf[MAX_STRING_LENGTH];
+	bool active;
+	char arg[MAX_INPUT_LENGTH];
 
-	snprintf(buf, sizeof(buf), "Shutdown by %s.", ch->name);
-	append_file(ch, SHUTDOWN_FILE, buf);
-	log(buf);
+	one_argument(argument, arg, sizeof(arg));
+	if (arg[0] == '\0') {
+		do_help(ch, "SHUTDOWN");
+		return;
+	}
+
+	active = dfexist(TMP_PATH, SHUTDOWN_FILE);
+		
+	if (!str_prefix(arg, "status")) {
+		char_printf(ch, "Shutdown status: %s\n",
+			    active ? "active" : "inactive");
+		return;
+	}
+
+	if (!str_prefix(arg, "activate")) {
+		if (!active) {
+			FILE *fp = dfopen(TMP_PATH, SHUTDOWN_FILE, "w");
+			if (!fp) {
+				char_printf(ch, "Error: %s.\n",
+					    strerror(errno));
+				return;
+			}
+			fclose(fp);
+			wiznet("$N has activated shutdown", ch, NULL, 0, 0, 0);
+			char_puts("Shutdown activated.\n", ch);
+		}
+		else
+			char_puts("Shutdown already activated.\n", ch);
+		return;
+	}
+
+	if (!str_prefix(arg, "deactivate") || !str_prefix(arg, "cancel")) {
+		if (!active)
+			char_puts("Shutdown already inactive.\n", ch);
+		else {
+			if (dunlink(TMP_PATH, SHUTDOWN_FILE) < 0) {
+				char_printf(ch, "Error: %s.\n",
+					    strerror(errno));
+				return;
+			}
+			wiznet("$N has deactivated shutdown",
+				ch, NULL, 0, 0, 0);
+			char_puts("Shutdown deactivated.\n", ch);
+		}
+		return;
+	}
+
+	do_shutdown(ch, str_empty);
 }
 
 void do_protect(CHAR_DATA *ch, const char *argument)
