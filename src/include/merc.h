@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.19 2001-11-26 13:57:53 kostik Exp $
+ * $Id: merc.h,v 1.234.2.20 2001-12-03 15:44:30 kostik Exp $
  */
 
 /***************************************************************************
@@ -1210,7 +1210,7 @@ enum {
 			REMOVE_BIT(PC(ch)->plr_flags, PLR_PUMPED);	\
 	}
 
-#define IS_VAMPIRE(ch)	(get_skill(ch, gsn_vampire) == 100)
+#define IS_VAMPIRE(ch)	(get_skill(ch, gsn_vampire))
 
 /* RT comm flags -- may be used on both mobs and chars */
 #define COMM_QUIET		(A)
