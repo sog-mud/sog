@@ -1,8 +1,14 @@
-#AREA
-redferne.are~
-Redferne's~
-{20 30} Diku    Redferne's Residence~
-7900 7999
+#AREADATA
+Name Redferne's~
+Builders None~
+VNUMs 7900 7999
+Credits Diku~
+Security 9
+LevelRange 20 30
+End
+
+
+
 #MOBILES
 #7900
 oldstyle grand knight paladin~
@@ -19,14 +25,13 @@ AGKQe DH 1000 0
 -9 -9 -9 4
 EIKU AB 0 0
 stand stand male 0
-0 0 medium 0
-
+0 0 medium unknown
 #7901
 paladin solamnia~
 Paladin of Solamnia~
 A retired paladin of solamnia, is wasting his time with resting.
 ~
-   After so many years fight against anti-paladins he has retired and
+After so many years fight against anti-paladins he has retired and
 responsible for the stone kassandra.
 ~
 human~
@@ -35,9 +40,12 @@ AHSe DEPZ 1000 2402
 -41 -41 -41 0
 FHKN 0 0 D
 stand stand male 1499
-0 0 small 0
-
+0 0 small unknown
+M GIVE 7901 2438~
+M GREET 7900 100~
 #0
+
+
 
 #OBJECTS
 #7909
@@ -46,15 +54,15 @@ a huge treasure~
 A huge treasure is lying here, looking very valuable.~
 silver gold~
 money 0 A
--100 0 0 0 0
+CDEHIJKLMNOPQRSTUVWXYZabcdef 0 0 0 0
 0 0 0 P
-E
-writing letters~
-It reads: "Hi Conan.  No more coins from here, pal. :) Signed, Redferne".
-~
 E
 treasure~
 Looks like a LOT of coins.  One of them has writing on it.
+~
+E
+writing letters~
+It reads: "Hi Conan.  No more coins from here, pal. :) Signed, Redferne".
 ~
 #7910
 chest~
@@ -75,13 +83,15 @@ a small brass key~
 A small brass key lies here.~
 brass~
 key 0 A
-7910 0 0 0 0
+BCFGHJKLM 0 0 0 0
 0 10 0 P
 E
 key~
 It is a small, simple brass key with no inscriptions or marks of any kind.
 ~
 #0
+
+
 
 #ROOMS
 #7900
@@ -122,6 +132,16 @@ looking iron-wrought door. It looks like this is the only exit from
 this magnificent old house. To the west you can see a large ashen door.
 ~
 0 CDJ 0
+E
+runes~
+These runes are utterly strange to you, but you are in luck today: Under
+the runes you can just make out a sentence in Common. It goes : " Stay out,
+if you treasure your life. That is if you are mortal.".
+~
+E
+letters~
+They read "LIBRARY".
+~
 D0
 The hallway continues that way. You can see more doorways under the
 wooden staircase in that direction.
@@ -154,16 +174,6 @@ It ends in what seems like a large bedroom up there.
 ~
 ~
 0 -1 7909
-E
-letters~
-They read "LIBRARY".
-~
-E
-runes~
-These runes are utterly strange to you, but you are in luck today: Under
-the runes you can just make out a sentence in Common. It goes : " Stay out,
-if you treasure your life. That is if you are mortal.".
-~
 S
 #7902
 Redferne's Library~
@@ -177,34 +187,12 @@ east there is a great old ashen door. A large glass window is set in the
 west wall.
 ~
 0 CDJ 0
-D1
-You can see an old ashen door, painted in a peculiar yellow colour.
-~
-door ash ashen east~
-2 -1 7901
 E
-river~
-You see a large and winding river cut through the landscape, starting at an
-enormous inland lake, it seeps through Midgaard and finally ends up in the
-Grand Sea on the West-coast of the land.
-~
-E
-out outside beyond~
-The clouds muster and form the ground on which this entire building is set.
-Through the thinnest of the clouds you can just make out MIDGAARD with all
-it's magnificent activity.
-~
-E
-window glass~
-These windows are really BIG! They reach from about 20 inches above the
-floor to approximately 10 inches under the ceiling. If you try and
-"look out", you might see what might lie beyond these windows.
-~
-E
-chairs leather arm-chairs~
-These two chair are exactly alike one another. They look incredibly
-comfortable. They're both made from old leather, and yet they seem so worn
-that they can be nothing but a perfect place for a long needed rest.
+globe world map~
+You see a large world map stretch out on the enormous globe. It has towns
+drawn in every spot available for such. In the middle of the map you can
+spot a large town with the name 'MIDGAARD' written over it. The rest is
+mountains, woods, plains and water.
 ~
 E
 midgaard town city~
@@ -214,12 +202,34 @@ see a thin trail lead to a large castle. Finally you notice a rather large
 river pour in from the east and go through Midgaard in the middle.
 ~
 E
-globe world map~
-You see a large world map stretch out on the enormous globe. It has towns
-drawn in every spot available for such. In the middle of the map you can
-spot a large town with the name 'MIDGAARD' written over it. The rest is
-mountains, woods, plains and water.
+chairs leather arm-chairs~
+These two chair are exactly alike one another. They look incredibly
+comfortable. They're both made from old leather, and yet they seem so worn
+that they can be nothing but a perfect place for a long needed rest.
 ~
+E
+window glass~
+These windows are really BIG! They reach from about 20 inches above the
+floor to approximately 10 inches under the ceiling. If you try and
+"look out", you might see what might lie beyond these windows.
+~
+E
+out outside beyond~
+The clouds muster and form the ground on which this entire building is set.
+Through the thinnest of the clouds you can just make out MIDGAARD with all
+it's magnificent activity.
+~
+E
+river~
+You see a large and winding river cut through the landscape, starting at an
+enormous inland lake, it seeps through Midgaard and finally ends up in the
+Grand Sea on the West-coast of the land.
+~
+D1
+You can see an old ashen door, painted in a peculiar yellow colour.
+~
+door ash ashen east~
+2 -1 7901
 S
 #7903
 The Artifact room of Naris~
@@ -229,11 +239,6 @@ no furniture here what-so-ever. The only way out seems to be west, through
 the low steel door.
 ~
 0 CDJ 0
-D3
-You see only the back of a safe's steel door.
-~
-~
-0 -1 -1
 S
 #7904
 The Northern end of the hall~
@@ -276,16 +281,16 @@ picture is one of a Prince in shiny armour. By one of the walls there is an
 old arm-chair. The only exit is through the aspenwood door to the east.
 ~
 0 CDJ 0
+E
+chair arm-chair~
+This is truly a wonderful relic of the past. In it is a large cushion.
+~
 D1
 The door seems to be a very HEAVY door, carved completely from the trunk of
 an Aspen tree.
 ~
 asp aspen door heavy~
 2 -1 7904
-E
-chair arm-chair~
-This is truly a wonderful relic of the past. In it is a large cushion.
-~
 S
 #7906
 The Kitchen of Naris~
@@ -354,10 +359,6 @@ The Treasure room~
 This place is gloomy.  The only visible exit is west, through the oak door.
 ~
 0 CDJ 0
-D1
-~
-safe steel~
-0 -1 -1
 D3
 You see a tall oak door.
 ~
@@ -397,12 +398,6 @@ God.
 ~
 doors~
 2 -1 7911
-D5
-You see the ground on which this castle is set. Funnily it seems to you that
-it's no more than clouds.
-~
-~
-0 -1 -1
 S
 #7913
 The Monster Pen~
@@ -476,55 +471,93 @@ D5
 0 -1 7916
 S
 #0
-#RESETS
-D 0 7900   0    1	* Outside Redferne's residence north
-D 0 7901   2    1	* The Southern end of the hall south
-D 0 7902   1    1	* Redferne's Library east
-D 0 7901   3    1	* The Southern end of the hall west
-D 0 7901   1    1	* The Southern end of the hall east
-D 0 7910   3    1	* The Treasure room west
-D 0 7904   1    1	* The Northern end of the hall east
-D 0 7913   3    1	* The Monster Pen west
-D 0 7911   2    1	* Redferne's Bedroom south
-D 0 7912   0    1	* The Balcony of Redferne's Residence north
-D 0 7904   3    1	* The Northern end of the hall west
-D 0 7905   1    1	* The Sitting room of Naris east
-D 0 7906   1    1	* The Kitchen of Naris east
-D 0 7908   3    1	* The Fridge west
-D 0 7906   0    1	* The Kitchen of Naris north
-D 0 7907   2    1	* The Larder south
-M 0 7900   1 7900  1	* the Grand Knight of paladins
-E 1 5221  99   16	*   a red dragon claw
-E 1 7217  99    5	*   a silvery breast plate
-E 1 7218  99    7	*   some silvery leg plates
-E 1 7219  99    9	*   a pair of silvery gloves
-E 1 7220  99    6	*   a silvery helmet
-E 1 7221  99   11	*   the shield of the rose
-E 1 7223  99   10	*   some silvery arm plates
-E 1 7222  99    8	*   a pair of silvery boots
-E 1 7224  99   12	*   a white cloak
-G 1 7911  99     	*   a small brass key
-M 0 7901  1  7907  1	* paladin solamnia
-O 0 6013  10 7908	* the barrel
-O 0 7910   1 7910	* a wooden chest
-P 1 7298   1 7910  1	*   a huge treasure
-P 1 7208   6 7910  1	*   a small stick
-O 0 7909  10 7903	* a huge treasure
+
+
+
+#SPECIALS
+M 7900 spec_cast_cleric	* the Grand Knight of paladins
+M 7901 spec_breath_any	* Paladin of Solamnia
 S
+
+
+
+#RESETS
+D 0 7900 0 1	* Outside Redferne's residence: door to the north: closed
+D 0 7901 1 1	* The Southern end of the hall: door to the east: closed
+D 0 7901 2 1	* The Southern end of the hall: door to the south: closed
+D 0 7901 3 1	* The Southern end of the hall: door to the west: closed
+D 0 7902 1 1	* Redferne's Library: door to the east: closed
+D 0 7904 1 1	* The Northern end of the hall: door to the east: closed
+D 0 7904 3 1	* The Northern end of the hall: door to the west: closed
+D 0 7905 1 1	* The Sitting room of Naris: door to the east: closed
+D 0 7906 0 1	* The Kitchen of Naris: door to the north: closed
+D 0 7906 1 1	* The Kitchen of Naris: door to the east: closed
+D 0 7907 2 1	* The Larder: door to the south: closed
+D 0 7908 3 1	* The Fridge: door to the west: closed
+D 0 7910 3 1	* The Treasure room: door to the west: closed
+D 0 7911 2 1	* Redferne's Bedroom: door to the south: closed
+D 0 7912 0 1	* The Balcony of Redferne's Residence: door to the north: closed
+D 0 7913 3 1	* The Monster Pen: door to the west: closed
+M 0 7900 1 7900 1	* the Grand Knight of paladins (Outside Redferne's residence)
+E 0 5221 0 16		*	A two-handed sword: wielded
+E 0 7217 0 5		*	A silvery breast plate: on the body
+E 0 7218 0 7		*	Some silvery leg plates: on the legs
+E 0 7219 0 9		*	A pair of silvery gloves: on the hands
+E 0 7220 0 6		*	A silvery helmet: over the head
+E 0 7221 0 11		*	The shield of the rose: as a shield
+E 0 7223 0 10		*	Some silvery arm plates: on the arms
+E 0 7222 0 8		*	A pair of silvery boots: on the feet
+E 0 7224 0 12		*	A white cloak: about the shoulders
+G 0 7911 0		*	A small brass key
+O 0 7909 0 7903		* A huge treasure (The Artifact room of Naris)
+M 0 7901 1 7907 1	* Paladin of Solamnia (The Larder)
+O 0 6013 0 7908		* The barrel (The Fridge)
+O 0 7910 0 7910		* A wooden chest (The Treasure room)
+P 0 7298 1 7910 1	* A wooden chest: A wooden chest
+P 0 7208 6 7910 1	* A wooden chest: A wooden chest
+S
+
+
+
 #SHOPS
 0
-#SPECIALS
-M 7900 spec_cast_cleric    	* the Grand Knight of paladins
-M 7901 spec_breath_any		* the solamnia
+
+
+
+#OLIMITS
 S
 
-#OMPROGS
-M 7901 greet_prog greet_prog_solamnia
-M 7901 give_prog give_prog_solamnia
-S
+
+
+#MOBPROGS
+#7900
+if isvisible $n
+if carries $n 2438
+say I think you bring something for me...
+smile
+endif
+endif
+~
+#7901
+if isvisible $n
+say Here is your reward!
+mob oload 89
+give kassandra $n
+say This stone has some special powers, use it well.
+endif
+mob purge $o
+~
+#0
 
 #PRACTICERS
-M 7900 group_curative		* grand knight of paladin
+M 7900 group_curative	* the Grand Knight of paladins
 S
+
+
+
+#OMPROGS
+S
+
+
 
 #$

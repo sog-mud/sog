@@ -1,8 +1,13 @@
-#AREA
-dragon2.are~
-Dragon Spyre~
-{30 65} Anon    DragonSpyre~
-2400 2499
+#AREADATA
+Name Dragon Spyre~
+Builders None~
+VNUMs 2400 2501
+Credits Anon~
+Security 9
+LevelRange 30 65
+End
+
+
 
 #MOBILES
 #2400
@@ -20,7 +25,7 @@ ABFGHTZ DFHZ 350 0
 -13 -13 -13 -2
 CFM AB 0 I
 stand stand male 4999
-0 0 huge 0
+0 0 huge unknown
 #2401
 White Dragon~
 The White Dragon~
@@ -31,11 +36,11 @@ for the Ice Dragon to devour you.
 ~
 white dragon~
 ABFGHT DFHZ -350 0
-40 0 15d10+1850 5d5+1000 4d8+13 charge 
+40 0 15d10+1850 5d5+1000 4d8+13 charge
 -13 -13 -13 -2
 CFM AB 0 I
 stand stand male 4999
-0 0 huge 0
+0 0 huge unknown
 #2402
 Pixie~
 A Pixie~
@@ -50,22 +55,7 @@ AFGH 0 -360 0
 -12 -12 -12 0
 FHKN AB 0 D
 stand stand male 1499
-0 0 small 0
-#2414
-Pixie~
-A Pixie~
-A small Pixie flits about the room.
-~
-This winged creature is the epitome of mischief. He loves to pick on travelers,
-and guess what....   It's your turn :).
-~
-elf~
-AFGH 0 -360 0
-33 0 10d10+1100 15d5+25 6d4+10 punch
--10 -10 -10 0
-FHKN AB 0 D
-stand stand male 1499
-0 0 small 0
+0 0 small unknown
 #2403
 Time Dragon Spirit~
 The Spirit of the Time Dragon~
@@ -78,9 +68,9 @@ dragon~
 ABFGT DFHU 0 0
 55 0 50d10+5500 20d12+100 10d4+23 charge
 -25 -25 -25 -7
-CFM AB 0 I
+CFM AB 0 0
 stand stand male 6499
-0 0 huge 0
+0 0 huge unknown
 #2404
 Ice Dragon Spirit~
 The Spirit of the Ice Dragon~
@@ -93,9 +83,9 @@ dragon~
 ABFGT DFHU 0 0
 55 0 50d10+5500 20d12+100 10d4+23 charge
 -25 -25 -25 -7
-CFM AB 0 I
+CFM AB 0 0
 stand stand male 6999
-0 0 huge 0
+0 0 huge unknown
 #2405
 Pixie King~
 The Pixie King~
@@ -111,7 +101,7 @@ ABFG DF 1000 0
 -16 -16 -16 -3
 EN AB 0 D
 stand stand male 2499
-0 0 small 0
+0 0 small unknown
 #2406
 gate keeper gatekeeper~
 The GateKeeper~
@@ -127,7 +117,7 @@ ABFGT DF 0 0
 -15 -15 -15 2
 EFHIKN AB 0 D
 stand stand male 2799
-0 0 small 0
+0 0 small unknown
 #2407
 eternity dragon~
 The Eternity Dragon~
@@ -144,10 +134,9 @@ dragon~
 AT BDFHU 0 0
 65 0 50d15+8250 52d12+100 11d5+35 charge
 -37 -37 -37 -20
-CFM 0 0 I
+CFM 0 0 0
 stand stand male 14999
-0 0 huge 0
-
+0 0 huge unknown
 #2408
 pixie guard~
 A Pixie Guard~
@@ -163,7 +152,7 @@ ABGMT 0 1000 2405
 -13 -13 -13 0
 EIN 0 0 D
 stand stand male 1799
-0 0 small 0
+0 0 small unknown
 #2409
 mage pixie master~
 The Master Pixie Mage~
@@ -180,7 +169,7 @@ ACGHR DH -500 0
 -27 -27 -27 -10
 FHN 0 0 D
 stand stand male 4499
-0 0 small 0
+0 0 small unknown
 #2410
 pixie guard~
 A Pixie Guard~
@@ -196,7 +185,7 @@ ABGMT 0 1000 2405
 -13 -13 -13 0
 E 0 0 CD
 stand stand female 1899
-0 0 small 0
+0 0 small unknown
 #2411
 Pixie~
 A Pixie~
@@ -206,18 +195,18 @@ This winged creature is the epitome of mischief. He loves to pick on
 travelers, and guess what.... It's your turn :).
 ~
 elf~
-AHS DEPQZ -500 0
+AHS DEQZ -500 0
 36 0 10d30+1400 100d10+100 3d10+11 pound
 -11 -11 -11 0
 FHKN 0 0 D
 stand stand male 1499
-0 0 small 0
+0 0 small unknown
 #2412
 Keeper~
 A Keeper~
 A Keeper is waiting and guarding the leader of dragons.
 ~
-    He is a well-trained guard. He was trained with the knights of Muddy
+He is a well-trained guard. He was trained with the knights of Muddy
 for many years and in working for three years in midgaard he retired. And
 found this job.
 ~
@@ -227,13 +216,16 @@ ABHS DEHPZ -500 2402
 -81 -81 -81 -30
 FHKN 0 0 D
 stand stand male 1499
-0 0 medium 0
+0 0 medium unknown
+M GREET 2402 100~
+M GIVE 2400 90~
+M GIVE 2401 all~
 #2413
 Fireflash~
 Fireflash~
-The over lord of dragons is here , resting.
+The over lord of dragons is here, resting.
 ~
-	He is , the old dragon, resting and getting off tired of years.
+He is, the old dragon, resting and getting off tired of years.
 ~
 gold dragon~
 AHS DEPZ 1000 2402
@@ -241,12 +233,30 @@ AHS DEPZ 1000 2402
 -75 -75 -75 -30
 FHKN 0 0 D
 stand stand male 1499
-0 0 small 0
-
+0 0 small unknown
+M GREET 2405 100~
+M GIVE 2404 91~
+M GIVE 2403 all~
+#2414
+Pixie~
+A Pixie~
+A small Pixie flits about the room.
+~
+This winged creature is the epitome of mischief. He loves to pick on travelers,
+and guess what....   It's your turn :).
+~
+elf~
+AFGH 0 -360 0
+33 0 10d10+1100 15d5+25 6d4+10 punch
+-10 -10 -10 0
+FHKN AB 0 D
+stand stand male 1499
+0 0 small unknown
 #0
 
-#OBJECTS
 
+
+#OBJECTS
 #2400
 sword~
 a tiny sword~
@@ -256,9 +266,9 @@ weapon AGL AN
 sword 4 8 slice 0
 36 20 2700 G
 A
-19 2
-A
 14 30
+A
+19 2
 E
 pixie~
 This elegant sword appears to have served its previous owner very well, but
@@ -283,7 +293,7 @@ a door key~
 There is a door key sitting here.~
 steel~
 key M AO
-0 0 0 0 0 
+0 0 0 0 0
 0 10 0 G
 E
 key door~
@@ -333,14 +343,14 @@ a white dragon scale pendant~
 Upon the ground lies a solid white pendant, it issues forth an aura of cold.~
 silver~
 armor AGI AC
-18 18 18 9 0
+BE BE BE AD 0
 40 120 3500 G
 A
-19 1
+24 -10
 A
 18 5
 A
-24 -10
+19 1
 E
 white pendant dragon scale~
 This pendant appears to be very ancient.  It is solid white, with a blue 
@@ -353,14 +363,14 @@ Upon the ground lies a solid copper pendant, as you reach for it, time seems
 to slow.~
 bone~
 armor AGI AC
-18 18 18 9 0
+BE BE BE AD 0
 40 120 3500 G
 A
-19 2
+24 -10
 A
 18 5
 A
-24 -10
+19 2
 E
 copper pendant dragon scale~
 The pendant you now own appears to be very new, in fact it looks freshly
@@ -374,14 +384,14 @@ A pair of translucent wings lie upon the ground, their is an eerie glow about
 them.~
 fire~
 light AG A
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 48 60 7500 G
 A
-14 125
+12 100
 A
 13 125
 A
-12 100
+14 125
 E
 pixie wings~
 Just what they are called.  You feel sorry for the pixie who used to own these.
@@ -392,8 +402,8 @@ the pendant of eternity~
 A small pendant is here on the ground, you almost ignore it, til it calls out 
 your name.~
 energy~
-armor AGIF AC
-20 20 20 9 0
+armor AFGI AC
+CE CE CE AD 0
 51 1 31970 G
 F
 A 17 -60 U
@@ -408,12 +418,12 @@ a white dragonscale breast plate~
 A shimmering white breast plate lies here, it is cold to the touch.~
 steel~
 armor GJ AD
-16 16 16 7 0
+E E E ABC 0
 40 190 6430 G
 A
-24 -10
-A
 9 5
+A
+24 -10
 E
 white dragon scale breast plate~
 This is a very quickly strewn together breast plate.  It looks like it was
@@ -425,14 +435,14 @@ a copper dragonscale breast plate~
 An elegant copper breast plate lies here, it looks very new.~
 bone~
 armor GK AD
-18 18 18 8 0
+BE BE BE D 0
 40 200 6230 G
 A
-9 2
+17 -10
 A
 18 5
 A
-17 -10
+9 2
 E
 copper dragon scale breast plate~
 This is a very hastely strewn together breast plate.  It looks like it was
@@ -469,9 +479,9 @@ weapon AL AN
 mace 5 7 pound D
 35 20 1700 G
 A
-18 3
-A
 19 3
+A
+18 3
 E
 pixie stick~
 This is a Pixie Stick.  While you may be used to eating these "sugar sticks",
@@ -482,12 +492,12 @@ a Pixie breast plate~
 There is a very small piece of metal lying here.~
 steel~
 armor A AD
-15 15 15 7 0
+ABCD ABCD ABCD ABC 0
 37 30 2230 G
 A
-1 -1
-A
 17 -7
+A
+1 -1
 E
 plate pixie breast~
 This is a piece of Pixie armor.  It looks very well crafted, but has an odd
@@ -498,12 +508,12 @@ a pair of Pixie greaves~
 A pair of very small metallic pants lie here.~
 steel~
 armor AG AF
-15 15 15 7 0
+ABCD ABCD ABCD ABC 0
 32 14 1900 G
 A
-5 -1
-A
 3 4
+A
+5 -1
 E
 pixie greaves~
 These are VERY small pants....although they do seem fairly stretchy.....
@@ -514,14 +524,14 @@ a pair of Pixie armplates~
 A pair of small metal sleeves lie here, glowing.~
 steel~
 armor AG AI
-16 16 16 7 0
+E E E ABC 0
 35 19 2077 G
 A
-17 -30
+19 2
 A
 2 3
 A
-19 2
+17 -30
 E
 pixie arm plates~
 These arm plates would be a tad bit to small for you.....IF YOU WERE A
@@ -532,12 +542,12 @@ a wisp of DragonFyre~
 There is a nice flame sitting here.~
 fire~
 light AL A
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 38 20 2300 G
 A
-19 3
-A
 18 3
+A
+19 3
 E
 flame wisp dragon fyre fire~
 You aren't quite sure how it is, but the DragonFyre is existing without its
@@ -548,14 +558,14 @@ a white dragon scale helm~
 A white dragon scale helm with a plume of dragon mane lies here.~
 steel~
 armor AGJ AE
-16 16 16 8 0
+E E E D 0
 38 230 2460 G
 A
-1 3
+4 2
 A
 2 -1
 A
-4 2
+1 3
 E
 helm dragon~
 This helm appears to have been created from the scales of a freshly dead dragon.
@@ -566,14 +576,14 @@ a copper dragon scale helm~
 A copper helm made from the scales of a dragon is here.~
 bone~
 armor AGK AE
-16 16 16 9 0
+E E E AD 0
 38 250 2960 G
 A
-5 2
+4 2
 A
 2 -1
 A
-4 2
+5 2
 E
 helm dragon~
 This helm appears to be made from the scales of a recently dead dragon.
@@ -585,17 +595,17 @@ staff magius~
 the Staff of the Magius~
 A gnarled wooden shaft lies here, pulsing slightly.~
 wood~
-weapon ABCGFHM AN
+weapon ABCFGHM AN
 staff 5 11 pound D
 52 400 45780 G
 A
-13 -50
-A
-12 250
+19 6
 A
 18 6
 A
-19 6
+12 250
+A
+13 -50
 E
 staff magius~
 This is the Staff of the Magius.  Rumored to bring untold mystical 
@@ -611,9 +621,9 @@ weapon AGL AN
 dagger 4 8 stab 0
 33 5 647 G
 A
-19 4
-A
 14 20
+A
+19 4
 #2423
 diamond gem~
 a large diamond~
@@ -684,7 +694,7 @@ scarlet ribbon~
 A scarlet ribbon is lying here, it is hot to touch.~
 fire~
 armor AG AQ
-18 18 18 7 0
+BE BE BE ABC 0
 45 20 4717 G
 A
 17 -30
@@ -694,7 +704,7 @@ rabbit's foot~
 Magic rabbit's foot is floating here.~
 meat~
 armor AG AQ
-11 11 11 5 0
+ABD ABD ABD AC 0
 33 20 617 G
 A
 17 -20
@@ -704,7 +714,7 @@ a Pixie shield~
 Very small shield lies here on the ground.~
 steel~
 armor A AJ
-10 10 10 6 0
+BD BD BD BC 0
 30 30 981 G
 #2434
 old dragon captain key~
@@ -720,7 +730,7 @@ an old seal~
 A small, engraved treasure seal is here.~
 stone~
 key 0 A
-30 0 0 0 0
+BCDE 0 0 0 0
 0 20 0 P
 #2436
 box~
@@ -736,7 +746,7 @@ abridged papers~
 A unknown old part of a book is here.~
 paper~
 map 0 A
-1 0 0 0 0
+A 0 0 0 0
 0 10 500 P
 E
 paper papers~
@@ -753,9 +763,11 @@ an old key carved on 'xxx'~
 A small unknown key that resulted in old treasures, is here.~
 stone~
 key 0 A
-30 0 0 0 0
+BCDE 0 0 0 0
 0 20 0 P
 #0
+
+
 
 #ROOMS
 #2400
@@ -768,16 +780,6 @@ through is now impassible.  You are here whether you like it or not....
      There is a small (Glowing) (Humming) tablet.
 ~
 0 C 3
-D1
-An Ancient Path through the dense forest
-~
-~
-0 0 2401
-D5
-The ancient path
-~
-~
-0 -1 332
 E
 tablet small~
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -788,6 +790,16 @@ tablet small~
 +                                                                    +
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ~
+D1
+An Ancient Path through the dense forest
+~
+~
+0 0 2401
+D5
+The ancient path
+~
+~
+0 -1 332
 S
 #2401
 An Ancient Path through the dense forest~
@@ -952,7 +964,7 @@ with many differing shades of red or brown, with a few frost particles
 glittering on one of the walls.  Even with the cloth, the smell of the dragons
 is almost unbearable.
 ~
-24 8 0
+0 D 0
 D1
 Walking through DragonSpyre
 ~
@@ -1021,7 +1033,6 @@ Walking through DragonSpyre
 ~
 0 0 2411
 S
-
 #2413
 Walking through DragonSpyre~
 Within the realm of the DragonSpyres, everything seems different.  The walls
@@ -1041,7 +1052,6 @@ Walking through DragonSpyre
 ~
 0 0 2412
 S
-
 #2414
 Walking through DragonSpyre~
 Within the realm of the DragonSpyres, everything seems different.  The walls
@@ -1256,7 +1266,6 @@ Walking through DragonSpyre
 ~
 0 0 2423
 S
-
 #2425
 Walking through DragonSpyre~
 You have reached a fork in the path through DragonSpyre.  You can't be sure
@@ -1479,7 +1488,6 @@ Walking through DragonSpyre
 ~
 0 0 2434
 S
-
 #2436
 Walking through DragonSpyre~
 The ground is damp here, and the air is so thick that it is almost hard to
@@ -1663,7 +1671,6 @@ Walking through DragonSpyre
 ~
 0 0 2444
 S
-
 #2446
 Walking through DragonSpyre~
 You have made it passed the white dragon, the first of your challenges.
@@ -1749,7 +1756,6 @@ Treasure Room
 ~
 0 0 2448
 S
-
 #2450
 Treasure Room~
 All alround the horde of the white dragon glimmers.  It appears that he
@@ -1765,7 +1771,6 @@ Walking through DragonSpyre
 door~
 2 2401 2449
 S
-
 #2451
 Walking through DragonSpyre~
 You have made it past the white dragon, the first of your challenges.
@@ -1926,7 +1931,6 @@ Walking through DragonSpyre
 ~
 0 0 2459
 S
-
 #2459
 Walking through DragonSpyre~
 The hallway here is a radical change from where you just where.  Here,
@@ -2555,7 +2559,6 @@ Pixie King's Bedroom
 door~
 2 2405 2490
 S
-
 #2490
 Pixie King's Bedroom~
 You have entered into the private quarters of the Pixie King.
@@ -2570,7 +2573,6 @@ Walking through DragonSpyre
 door~
 2 2405 2489
 S
-
 #2491
 Walking through DragonSpyre~
 The hallway here is a radical change from where you just where.  Here,
@@ -2591,7 +2593,6 @@ Walking through DragonSpyre
 ~
 0 0 2485
 S
-
 #2492
 Walking through DragonSpyre~
 The hallway here is a radical change from where you just where.  Here,
@@ -2612,7 +2613,6 @@ Walking through DragonSpyre
 ~
 0 0 2491
 S
-
 #2493
 Walking through DragonSpyre~
 The hallway here is a radical change from where you just where.  Here,
@@ -2633,7 +2633,6 @@ Walking through DragonSpyre
 ~
 0 0 2492
 S
-
 #2494
 Throne room of the Pixie King~
 The throne room is remarkably well kempt considering the anarchy
@@ -2649,7 +2648,6 @@ Walking through DragonSpyre
 door~
 2 -1 2493
 S
-
 #2495
 Walking through DragonSpyre~
 The hallway here is a radical change from where you just where.  Here,
@@ -2736,7 +2734,7 @@ You have come to the end of the hallway.  As you enter the room,
 you hear a slight rumbling coming from the eastern wall.  You look,
 and see that the wall has opened to reveal a safe passage to the
 beginning of the cavern.  There is also an exit to the north.
-~     
+~
 0 0 5
 D0
 Approaching the end of the Hallway
@@ -2757,16 +2755,16 @@ then the muscle from the bone.  You have never experienced this much
 pain in your entire life.
 ~
 0 ACD 0
-D1
-dragonspyre.
-~
-~
-0 -1 2441
 D0
 old dragon's office
 ~
 door~
 4 2434 2501
+D1
+dragonspyre.
+~
+~
+0 -1 2441
 S
 #2501
 Before the office of retired dragon~
@@ -2782,219 +2780,281 @@ old dragon's office
 door~
 0 -1 2500
 S
-
 #0
-           
-#RESETS
-*
-* this area was converted to ROM format by jaceks, july 1996
-* and also after him by Ibrahim Canpunar , october 1996   
-* mobs and object was enhanced
-* new mob, many new object and section SPECIALS added
-* few rooms was modified
-* section RESETS enhanced and revised
-*
-M 0 2412 1 2500 1	* keeper 
-E 1 2434 30 17		* key to keeper
-M 0 2413 1 2501 1	* fireflash
-E 1 2435 30 17		* key to fireflash
-O 0 2436   1 2501	* the box
-P 1 2437   4 2436  100	* papers
-D 0 2500 0 2
 
-*
-M 0 2400 1 2473 1    * copper dragon
-E 1 2404 30 17         * a small copper key shaped like a claw
-E 1 2411 30 5          * a copper dragonscale breast plate
-E 1 2420 30 6          * a copper dragon scale helm
-E 1 2418 30 0          * a wisp of DragonFyre
-E 1 2407 30 3          * a copper dragon scale pendant
-G 1 2429 -1            * a black pearl
-*
-M 0 2401 1 2432 1    * white dragon
-E 1 2401 30 17         * a small white key shaped like a claw
-E 1 2410 30 5          * a white dragonscale breast platea white
-E 1 2419 30 6          * a white dragon scale helm
-E 1 2418 30 0          * a wisp of DragonFyre
-E 1 2406 30 3          * a white dragon scale pendant
-G 1 2430 -1            * a blue pearl
-*
-M 0 2402 30 2412 1   * pixie
-E 1 2400 30 16         * a very tiny sword
-G 1 2428 -1            * piece of neutronium
-M 0 2402 30 2416 1   * pixie
-E 1 2400 30 16         * a very tiny sword
-M 0 2402 30 2416 1   * pixie
-E 1 2400 30 16         * a very tiny sword
-M 0 2402 30 2420 1   * pixie
-E 1 2400 30 16         * a very tiny sword
-M 0 2402 30 2420 1   * pixie
-E 1 2400 30 16         * a very tiny sword
-M 0 2414 12 2410 1   * pixie
-M 0 2414 12 2412 1   * pixie
-M 0 2414 12 2415 1   * pixie
-M 0 2414 12 2417 4   * pixie
-M 0 2414 12 2419 1   * pixie
-M 0 2414 12 2420 1   * pixie
-M 0 2414 12 2421 1   * pixie
-M 0 2414 12 2422 1   * pixie
-M 0 2414 12 2424 1   * pixie
-M 0 2414 12 2425 6   * pixie
-M 0 2414 12 2427 1   * pixie
-M 0 2414 12 2429 1   * pixie
-M 0 2402 30 2420 1   * pixie
-E 1 2400 30 16         * a very tiny sword
-G 1 2428 -1            * piece of neutronium
-M 0 2402 30 2424 1   * pixie
-E 1 2400 30 16         * a very tiny sword
-G 1 2428 -1            * piece of neutronium
-M 0 2402 30 2428 1   * pixie
-E 1 2400 30 16         * a very tiny sword
-G 1 2428 -1            * piece of neutronium
-M 0 2402 30 2434 1   * pixie
-E 1 2400 30 16         * a very tiny sword
-G 1 2428 -1            * piece of neutronium
-M 0 2402 30 2438 1   * pixie
-E 1 2400 30 16         * a very tiny sword
-G 1 2428 -1            * piece of neutronium
-M 0 2402 30 2440 1   * pixie
-E 1 2400 30 16         * a very tiny sword
-G 1 2428 -1            * piece of neutronium
-M 0 2402 30 2450 1   * pixie
-E 1 2400 30 16         * a very tiny sword
-G 1 2428 -1            * piece of neutronium
-M 0 2402 30 2460 1   * pixie
-E 1 2400 30 16         * a very tiny sword
-G 1 2428 -1            * piece of neutronium
-M 0 2402 30 2470 1   * pixie
-E 1 2400 30 16         * a very tiny sword
-G 1 2428 -1            * piece of neutronium
-*
-M 0 2403 1 2478 1     * time dragon
-G 1 2424 -1            * a red ruby
-*
-M 0 2404 1 2450 1     * dragon spirit
-G 1 2425 -1            * a flaming quartz
-*
-M 0 2405 1 2494 1     * pixie king
-E 1 2405 1 17           * a very small key the Pixie King's bedroom
-G 1 2426 -1             * bar of platinum
-*
-M 0 2406 1 2465 1     * gatekeeper
-E 1 2403 1 17           * the gatekeeper's key
-*
-M 0 2407 1 2499 1     * eternity dragon
-E 1 2409 30 3           * the pendant of eternity
-G 1 2423 -1             * a large diamond
-*
-M 0 2408 2 2494 1     * pixie guard, he
-E 1 2416 30 7           * a pair of Pixie greaves
-E 1 2417 30 10          * a pair of Pixie armplates
-E 1 2414 30 16          * a Pixie Stick
-E 1 2433 30 11          * a Pixie shield
-E 1 2432 30 18          * a rabbit's foot
-*
-M 0 2408 2 2414 1     * pixie guard, he
-E 1 2415 30 5           * a Pixie breast plate
-E 1 2416 30 7           * a pair of Pixie greaves
-E 1 2417 30 10          * a pair of Pixie armplates
-E 1 2414 30 16          * a Pixie Stick
-*
-M 0 2409 1 2490 1     * pixi mage master
-E 1 2421 30 16          * the Staff of the Magius
-E 1 2408 30 0           * a pair of pixie wings
-E 1 2431 30 18          * a scarlet ribbon
-*
-M 0 2410 2 2494 1     * pixie guard, she
-E 1 2415 30 5           * a Pixie breast plate
-E 1 2416 30 7           * a pair of Pixie greaves
-E 1 2417 30 10          * a pair of Pixie armplates
-E 1 2414 30 16          * a Pixie Stick
-E 1 2433 30 11          * a Pixie shield
-E 1 2432 30 18          * a rabbit's foot
-*
-M 0 2410 2 2414 1     * pixie guard, she
-E 1 2415 30 5           * a Pixie breast plate
-E 1 2416 30 7           * a pair of Pixie greaves
-E 1 2417 30 10          * a pair of Pixie armplates
-E 1 2414 30 16          * a Pixie Stick
-E 1 2433 30 11          * a Pixie shield
-E 1 2432 30 18          * a rabbit's foot
-*
-M 0 2411 11 2414 1    * pixie (hidden one)
-E 1 2422 30 16          * a pixie dagger
-G 1 2427 -1             * piece of duranium
-M 0 2411 11 2418 1    * pixie (hidden one)
-E 1 2422 30 16          * a pixie dagger
-G 1 2427 -1             * piece of duranium
-M 0 2411 11 2422 1    * pixie (hidden one)
-E 1 2422 30 16          * a pixie dagger
-G 1 2427 -1             * piece of duranium
-M 0 2411 11 2426 1    * pixie (hidden one)
-E 1 2422 30 16          * a pixie dagger
-G 1 2427 -1             * piece of duranium
-M 0 2411 11 2430 1    * pixie (hidden one)
-E 1 2422 30 16          * a pixie dagger
-G 1 2427 -1             * piece of duranium
-M 0 2411 11 2436 1    * pixie (hidden one)
-E 1 2422 30 16          * a pixie dagger
-G 1 2427 -1             * piece of duranium
-M 0 2411 11 2444 1    * pixie (hidden one)
-E 1 2422 30 16          * a pixie dagger
-G 1 2427 -1             * piece of duranium
-M 0 2411 11 2455 1    * pixie (hidden one)
-E 1 2422 30 16          * a pixie dagger
-G 1 2427 -1             * piece of duranium
-M 0 2411 11 2465 1    * pixie (hidden one)
-E 1 2422 30 16          * a pixie dagger
-G 1 2427 -1             * piece of duranium
-M 0 2411 11 2480 1    * pixie (hidden one)
-E 1 2422 30 16          * a pixie dagger
-G 1 2427 -1             * piece of duranium
-*
-O 0 2412 4 2413 1     * corpse
-O 0 2412 4 2442 1
-O 0 2412 4 2447 1
-O 0 2412 4 2467 1
-*
-D 0 2441 0 2
-D 0 2443 2 2
-D 0 2432 1 2
-D 0 2444 3 2
-D 0 2449 1 2
-D 0 2450 3 2
-D 0 2437 1 2
-D 0 2438 3 2
-D 0 2465 2 2
-D 0 2466 0 2
-D 0 2470 3 2
-D 0 2474 1 2
-D 0 2477 2 2
-D 0 2478 0 2
-D 0 2483 0 2
-D 0 2493 1 1
-D 0 2494 3 1
-D 0 2489 3 2
-D 0 2490 1 2
-S
+
 
 #SPECIALS
-M 2402 spec_thief        * pixie
-M 2405 spec_cast_cleric  * pixie king
-M 2409 spec_cast_mage    * pixi mage master
-M 2411 spec_thief        * pixie
-M 2400 spec_breath_any	 *
-M 2401 spec_breath_any   *
-M 2403 spec_breath_any   *
-M 2407 spec_breath_any   *
-M 2413 spec_breath_any	 * fireflash
-M 2412 spec_cast_mage	 * keeper of fireflash
+M 2400 spec_breath_any	* The Copper Dragon
+M 2401 spec_breath_any	* The White Dragon
+M 2402 spec_thief	* A Pixie
+M 2403 spec_breath_any	* The Spirit of the Time Dragon
+M 2405 spec_cast_cleric	* The Pixie King
+M 2407 spec_breath_any	* The Eternity Dragon
+M 2409 spec_cast_mage	* The Master Pixie Mage
+M 2411 spec_thief	* A Pixie
+M 2412 spec_cast_mage	* A Keeper
+M 2413 spec_breath_any	* Fireflash
 S
 
-#OMPROGS
-M 2412 give_prog give_prog_keeper
-M 2412 greet_prog greet_prog_keeper
-M 2413 greet_prog greet_prog_fireflash
-M 2413 give_prog give_prog_fireflash
+
+
+#RESETS
+D 0 2432 1 2	* The Lair of the White Dragon: door to the east: closed and locked
+D 0 2437 1 2	* Walking through DragonSpyre: door to the east: closed and locked
+D 0 2438 3 2	* Walking through DragonSpyre: door to the west: closed and locked
+D 0 2441 0 2	* Walking through DragonSpyre: door to the north: closed and locked
+D 0 2443 2 2	* Walking through DragonSpyre: door to the south: closed and locked
+D 0 2444 3 2	* Walking through DragonSpyre: door to the west: closed and locked
+D 0 2449 1 2	* Walking through DragonSpyre: door to the east: closed and locked
+D 0 2450 3 2	* Treasure Room: door to the west: closed and locked
+D 0 2465 2 2	* Walking through DragonSpyre: door to the south: closed and locked
+D 0 2466 0 2	* Walking through DragonSpyre: door to the north: closed and locked
+D 0 2470 3 2	* Walking through DragonSpyre: door to the west: closed and locked
+D 0 2474 1 2	* Walking through DragonSpyre: door to the east: closed and locked
+D 0 2477 2 2	* Walking through DragonSpyre: door to the south: closed and locked
+D 0 2478 0 2	* Treasure Room: door to the north: closed and locked
+D 0 2483 0 2	* Walking through DragonSpyre: door to the north: closed and locked
+D 0 2489 3 2	* Walking through DragonSpyre: door to the west: closed and locked
+D 0 2490 1 2	* Pixie King's Bedroom: door to the east: closed and locked
+D 0 2493 1 1	* Walking through DragonSpyre: door to the east: closed
+D 0 2494 3 1	* Throne room of the Pixie King: door to the west: closed
+D 0 2500 0 2	* Before the office of retired dragon: door to the north: closed and locked
+M 0 2414 12 2410 1	* A Pixie (Walking through DragonSpyre)
+M 0 2402 30 2412 1	* A Pixie (Walking through DragonSpyre)
+E 0 2400 0 16		*	A tiny sword: wielded
+G 0 2428 0		*	A piece of neutronium
+M 0 2414 12 2412 1	* A Pixie (Walking through DragonSpyre)
+O 0 2412 0 2413		* A corpse (Walking through DragonSpyre)
+M 0 2408 2 2414 1	* A Pixie Guard (Walking through DragonSpyre)
+E 0 2415 0 5		*	A pixie breast plate: on the body
+E 0 2416 0 7		*	A pair of pixie greaves: on the legs
+E 0 2417 0 10		*	A pair of pixie armplates: on the arms
+E 0 2414 0 16		*	A pixie stick: wielded
+M 0 2410 2 2414 1	* A Pixie Guard (Walking through DragonSpyre)
+E 0 2415 0 5		*	A pixie breast plate: on the body
+E 0 2416 0 7		*	A pair of pixie greaves: on the legs
+E 0 2417 0 10		*	A pair of pixie armplates: on the arms
+E 0 2414 0 16		*	A pixie stick: wielded
+E 0 2433 0 11		*	A pixie shield: as a shield
+E 0 2432 0 18		*	Rabbit's foot: floating nearby
+M 0 2411 11 2414 1	* A Pixie (Walking through DragonSpyre)
+E 0 2422 0 16		*	A pixie dagger: wielded
+G 0 2427 0		*	A piece of duranium
+M 0 2414 12 2415 1	* A Pixie (Walking through DragonSpyre)
+M 0 2402 30 2416 1	* A Pixie (Walking through DragonSpyre)
+E 0 2400 0 16		*	A tiny sword: wielded
+M 0 2402 30 2416 1	* A Pixie (Walking through DragonSpyre)
+E 0 2400 0 16		*	A tiny sword: wielded
+M 0 2414 12 2417 4	* A Pixie (Walking through DragonSpyre)
+M 0 2411 11 2418 1	* A Pixie (Walking through DragonSpyre)
+E 0 2422 0 16		*	A pixie dagger: wielded
+G 0 2427 0		*	A piece of duranium
+M 0 2414 12 2419 1	* A Pixie (Walking through DragonSpyre)
+M 0 2402 30 2420 1	* A Pixie (Walking through DragonSpyre)
+E 0 2400 0 16		*	A tiny sword: wielded
+M 0 2402 30 2420 1	* A Pixie (Walking through DragonSpyre)
+E 0 2400 0 16		*	A tiny sword: wielded
+M 0 2414 12 2420 1	* A Pixie (Walking through DragonSpyre)
+M 0 2402 30 2420 1	* A Pixie (Walking through DragonSpyre)
+E 0 2400 0 16		*	A tiny sword: wielded
+G 0 2428 0		*	A piece of neutronium
+M 0 2414 12 2421 1	* A Pixie (Walking through DragonSpyre)
+M 0 2414 12 2422 1	* A Pixie (Walking through DragonSpyre)
+M 0 2411 11 2422 1	* A Pixie (Walking through DragonSpyre)
+E 0 2422 0 16		*	A pixie dagger: wielded
+G 0 2427 0		*	A piece of duranium
+M 0 2414 12 2424 1	* A Pixie (Walking through DragonSpyre)
+M 0 2402 30 2424 1	* A Pixie (Walking through DragonSpyre)
+E 0 2400 0 16		*	A tiny sword: wielded
+G 0 2428 0		*	A piece of neutronium
+M 0 2414 12 2425 6	* A Pixie (Walking through DragonSpyre)
+M 0 2411 11 2426 1	* A Pixie (Walking through DragonSpyre)
+E 0 2422 0 16		*	A pixie dagger: wielded
+G 0 2427 0		*	A piece of duranium
+M 0 2414 12 2427 1	* A Pixie (Walking through DragonSpyre)
+M 0 2402 30 2428 1	* A Pixie (Walking through DragonSpyre)
+E 0 2400 0 16		*	A tiny sword: wielded
+G 0 2428 0		*	A piece of neutronium
+M 0 2414 12 2429 1	* A Pixie (Walking through DragonSpyre)
+M 0 2411 11 2430 1	* A Pixie (Walking through DragonSpyre)
+E 0 2422 0 16		*	A pixie dagger: wielded
+G 0 2427 0		*	A piece of duranium
+M 0 2401 1 2432 1	* The White Dragon (The Lair of the White Dragon)
+E 0 2401 0 17		*	A small white key shaped like a claw: held in the hands
+E 0 2410 0 5		*	A white dragonscale breast plate: on the body
+E 0 2419 0 6		*	A white dragon scale helm: over the head
+E 0 2418 0 0		*	A wisp of dragonfyre: as a light
+E 0 2406 0 3		*	A white dragon scale pendant: around the neck (1)
+G 0 2430 0		*	A blue pearl
+M 0 2402 30 2434 1	* A Pixie (Walking through DragonSpyre)
+E 0 2400 0 16		*	A tiny sword: wielded
+G 0 2428 0		*	A piece of neutronium
+M 0 2411 11 2436 1	* A Pixie (Walking through DragonSpyre)
+E 0 2422 0 16		*	A pixie dagger: wielded
+G 0 2427 0		*	A piece of duranium
+M 0 2402 30 2438 1	* A Pixie (Walking through DragonSpyre)
+E 0 2400 0 16		*	A tiny sword: wielded
+G 0 2428 0		*	A piece of neutronium
+M 0 2402 30 2440 1	* A Pixie (Walking through DragonSpyre)
+E 0 2400 0 16		*	A tiny sword: wielded
+G 0 2428 0		*	A piece of neutronium
+O 0 2412 0 2442		* A corpse (Walking through DragonSpyre)
+M 0 2411 11 2444 1	* A Pixie (Walking through DragonSpyre)
+E 0 2422 0 16		*	A pixie dagger: wielded
+G 0 2427 0		*	A piece of duranium
+O 0 2412 0 2447		* A corpse (Walking through DragonSpyre)
+M 0 2402 30 2450 1	* A Pixie (Treasure Room)
+E 0 2400 0 16		*	A tiny sword: wielded
+G 0 2428 0		*	A piece of neutronium
+M 0 2404 1 2450 1	* The Spirit of the Ice Dragon (Treasure Room)
+G 0 2425 0		*	A flaming quartz
+M 0 2411 11 2455 1	* A Pixie (Walking through DragonSpyre)
+E 0 2422 0 16		*	A pixie dagger: wielded
+G 0 2427 0		*	A piece of duranium
+M 0 2402 30 2460 1	* A Pixie (Walking through DragonSpyre)
+E 0 2400 0 16		*	A tiny sword: wielded
+G 0 2428 0		*	A piece of neutronium
+M 0 2406 1 2465 1	* The GateKeeper (Walking through DragonSpyre)
+E 0 2403 0 17		*	The gatekeeper's key: held in the hands
+M 0 2411 11 2465 1	* A Pixie (Walking through DragonSpyre)
+E 0 2422 0 16		*	A pixie dagger: wielded
+G 0 2427 0		*	A piece of duranium
+O 0 2412 0 2467		* A corpse (Walking through DragonSpyre)
+M 0 2402 30 2470 1	* A Pixie (Walking through DragonSpyre)
+E 0 2400 0 16		*	A tiny sword: wielded
+G 0 2428 0		*	A piece of neutronium
+M 0 2400 1 2473 1	* The Copper Dragon (Lair of the Copper Dragon)
+E 0 2404 0 17		*	A small copper key shaped like a claw: held in the hands
+E 0 2411 0 5		*	A copper dragonscale breast plate: on the body
+E 0 2420 0 6		*	A copper dragon scale helm: over the head
+E 0 2418 0 0		*	A wisp of dragonfyre: as a light
+E 0 2407 0 3		*	A copper dragon scale pendant: around the neck (1)
+G 0 2429 0		*	A black pearl
+M 0 2403 1 2478 1	* The Spirit of the Time Dragon (Treasure Room)
+G 0 2424 0		*	A red ruby
+M 0 2411 11 2480 1	* A Pixie (Walking through DragonSpyre)
+E 0 2422 0 16		*	A pixie dagger: wielded
+G 0 2427 0		*	A piece of duranium
+M 0 2409 1 2490 1	* The Master Pixie Mage (Pixie King's Bedroom)
+E 0 2421 0 16		*	The staff of the magius: wielded
+E 0 2408 0 0		*	A pair of pixie wings: as a light
+E 0 2431 0 18		*	Scarlet ribbon: floating nearby
+M 0 2405 1 2494 1	* The Pixie King (Throne room of the Pixie King)
+E 0 2405 0 17		*	A very small key: held in the hands
+G 0 2426 0		*	A bar of platinum
+M 0 2408 2 2494 1	* A Pixie Guard (Throne room of the Pixie King)
+E 0 2416 0 7		*	A pair of pixie greaves: on the legs
+E 0 2417 0 10		*	A pair of pixie armplates: on the arms
+E 0 2414 0 16		*	A pixie stick: wielded
+E 0 2433 0 11		*	A pixie shield: as a shield
+E 0 2432 0 18		*	Rabbit's foot: floating nearby
+M 0 2410 2 2494 1	* A Pixie Guard (Throne room of the Pixie King)
+E 0 2415 0 5		*	A pixie breast plate: on the body
+E 0 2416 0 7		*	A pair of pixie greaves: on the legs
+E 0 2417 0 10		*	A pair of pixie armplates: on the arms
+E 0 2414 0 16		*	A pixie stick: wielded
+E 0 2433 0 11		*	A pixie shield: as a shield
+E 0 2432 0 18		*	Rabbit's foot: floating nearby
+M 0 2407 1 2499 1	* The Eternity Dragon (The End of the Hallway)
+E 0 2409 0 3		*	The pendant of eternity: around the neck (1)
+G 0 2423 0		*	A large diamond
+M 0 2412 1 2500 1	* A Keeper (Before the office of retired dragon)
+E 0 2434 0 17		*	A small white finger: held in the hands
+M 0 2413 1 2501 1	* Fireflash (Before the office of retired dragon)
+E 0 2435 0 17		*	An old seal: held in the hands
+O 0 2436 0 2501		* Box (Before the office of retired dragon)
+P 0 2437 4 2436 100	* Box: Box
 S
+
+
+
+#SHOPS
+0
+
+
+
+#OLIMITS
+S
+
+
+
+#MOBPROGS
+#2400
+say Finally, the dress I sent for!
+, tucks the dress away under her desk.
+mob purge $o
+if carries $n 91
+say I suppose you'll want to see the FireFlash right now.
+say Be careful, he's been in a nasty mood.
+unlock door
+open door
+else
+say It doesn't look like you have any business with the FireFlash.
+say I suggest you leave and find something before coming here again.
+endif
+~
+#2401
+say Why do I need this?
+give $o $n
+~
+#2402
+if isvisible $n
+say What business do you have here? Is it that dress I ordered?
+endif
+~
+#2403
+if isvisible $n
+say How interesting!.. what's it for?
+giggle
+give $o $n
+else
+say Who is here?
+, looks around.
+endif
+~
+#2404
+if isvisible $n
+say What a wonderful rug! Let's see... where shall I put it?
+, starts wandering about the room, mumbling to himself.
+, sticks his hands in his pockets.
+mob oload 2438
+say What is it? A key? Here, you can have it.
+give xxx $n
+, absently pushes the rug under a chair.
+mob purge $o
+else
+say Huh, who is here?
+, looks around.
+mob purge $o
+endif
+~
+#2405
+if isvisible $n
+if carries $n 91
+else
+say I don't see that worthless rug anywhere near me.
+say Don't you give it to that silly Green sister from Tear?
+unlock box
+open box
+get papers box
+say These papers might help you.
+give papers $n
+close box
+lock box
+endif
+endif
+~
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
 #$

@@ -1,8 +1,13 @@
-#AREA
-immort.are~
-Valhalla~
-{91 100} ROM    Immortal Zone~
-1200 1299
+#AREADATA
+Name Valhalla~
+Builders None~
+VNUMs 1200 1299
+Credits ROM~
+Security 9
+LevelRange 91 100
+End
+
+
 
 #MOBILES
 #1200
@@ -21,18 +26,19 @@ ABKTVe CDFJZ 1000 0
 -20 -20 -20 -10
 ACDEFHIKLNOT ABP CD 0
 stand stand male 0
-0 0 large 0
+0 0 large unknown
 #0
 
-#OBJECTS
 
+
+#OBJECTS
 #1200
 nobody coffin~
 Nobody's coffin~
 A strange black coffin lies here.~
 wood~
 furniture CEJRY A
-100 100 L 100 100
+CFG CFG L CFG CFG
 5 500 5000000 P
 E
 coffin~
@@ -40,6 +46,8 @@ On the top of this coffin you can see a sign. The sign reads:
 			"Here lies Nobody."
 ~
 #0
+
+
 
 #ROOMS
 #1200
@@ -175,91 +183,16 @@ from one angle, or the wine-dark sea from another.
 ~
 0 DJNP 4
 E
-rose rose-brambled balcony railing~
-Climbing white roses have swarmed over the original marble to obscure
-it almost completely.  The air is sweet not with roses, though,
-but with Satin's sandalwood perfume.
-~
-E
-rosewood chair~
-It looks comfortable, and the cushions are ivory velvet.
-~
-E
-stark black mountains wine wine-dark dark sea~
-The ocean is constantly smashing up against the cliffs and rending
-huge slabs from it.  The beach is scarcely a beach at all, more a
-collection of rough flakes varying in size from a small car to a
-small fist.  As the water comes up over the rocks and ebbs back
-down, it filters through the spaces and makes an unnerving rattling
-sound.
-~
-E
-print out print-out creased well poem~
-This page has been read over so many times that you can barely discern
-the words, and in fact with much poring only the following becomes
-clear:
-        'I know that I am studly - Heck, I'm sexy, cute and cuddly
-         And I know that I'm extremely modest too.'
-~
-E
-yeats~
-The page it is flipped open to reads:
-
-A sudden blow: the great wings beating still
-Above the staggering girl, her thighs carressed
-By the dark webs, her nape caught in his bill,
-he holds her helpless breast upon his breast.
-How can those terrified vague fingers push
-The feathered glory from her loosening thighs?
-And how can body, laid in that white rush,
-But feel that strange heart beating where it lies?
-A shudder in the loins engenders there
-The broken wall, the burning roof and tower
-And Agammemnon dead.  Being so caught up,
-So mastered by this brute blood of the air,
-Did she put on his knowledge with his power
-Before his indifferent beak could let her drop?
-~
-E
-chandler~
-She has just started the Lady in the Lake:
-
-Gillerain Regal, the Champagne of Perfumes.  It was definitely
-the stuff to get.  One drop of that in the hollow of your
-throat and the matched pink pearls started falling off you like
-summer rain.
-~
-E
-barrie~
-A copy of Peter Pan is opened near the end:
-
-What sort of form was Hook showing?  Misguided man though he
-was, we may be glad, without sympathising with him, that in
-the end he stayed true to the traditions of his race.  The
-other boys were flying about him now, flouting, scornful; and
-as he staggered about the deck striking at them impotently, his
-mind was no longer with them; it was slouching in the playing
-fields of long ago, or being sent up for good, or watching
-the wall-game from a famous wall.  And his shoes were right,
-and his waistcoat was right, and his tie was right, and his
-socks were right.
-
-James Hook, thou not wholly unheroic figure, farewell.
-~
-E
-tennyson~
-.       "My mariners
-         Souls that have toiled, and wrought, and thought with me -
-         The ever with a frolic welcome took
-         The thunder and the sunshine, and opposed
-         Free hearts, free foreheads - you and I are old;
-         Old age hath yet his honour and the toil
-         Death closes all; but something ere the end,
-         Some work of noble note, may yet be done,
-         Not unbecoming of men that strove with the gods.
-         The lights begin to twinkle from the rocks;
-         The long day wanes; the slow moon climbs; the deep
-         Moans round with many voices."
+dusty leather bound leather-bound Donne~
+.       `Cruel and sudden, hast thou since
+        Purpled thy nail in blood of innocence?
+        Wherein could this flea guilty be,
+        Except in the drop it sucked from thee?
+        Yet thou trimph'st and say'st that thou
+        Find'st not thyself, nor me the weaker now;
+          'Tis true, then learn how false fears be:
+          Just so much honour when thou yield'st to me
+          Will waste as this flea's death took life from thee.'
 ~
 E
 battered paperback de Laclos~
@@ -285,16 +218,91 @@ battered paperback de Laclos~
         It is not my fault.
 ~
 E
-dusty leather bound leather-bound Donne~
-.       `Cruel and sudden, hast thou since
-        Purpled thy nail in blood of innocence?
-        Wherein could this flea guilty be,
-        Except in the drop it sucked from thee?
-        Yet thou trimph'st and say'st that thou
-        Find'st not thyself, nor me the weaker now;
-          'Tis true, then learn how false fears be:
-          Just so much honour when thou yield'st to me
-          Will waste as this flea's death took life from thee.'
+tennyson~
+.       "My mariners
+         Souls that have toiled, and wrought, and thought with me -
+         The ever with a frolic welcome took
+         The thunder and the sunshine, and opposed
+         Free hearts, free foreheads - you and I are old;
+         Old age hath yet his honour and the toil
+         Death closes all; but something ere the end,
+         Some work of noble note, may yet be done,
+         Not unbecoming of men that strove with the gods.
+         The lights begin to twinkle from the rocks;
+         The long day wanes; the slow moon climbs; the deep
+         Moans round with many voices."
+~
+E
+barrie~
+A copy of Peter Pan is opened near the end:
+
+What sort of form was Hook showing?  Misguided man though he
+was, we may be glad, without sympathising with him, that in
+the end he stayed true to the traditions of his race.  The
+other boys were flying about him now, flouting, scornful; and
+as he staggered about the deck striking at them impotently, his
+mind was no longer with them; it was slouching in the playing
+fields of long ago, or being sent up for good, or watching
+the wall-game from a famous wall.  And his shoes were right,
+and his waistcoat was right, and his tie was right, and his
+socks were right.
+
+James Hook, thou not wholly unheroic figure, farewell.
+~
+E
+chandler~
+She has just started the Lady in the Lake:
+
+Gillerain Regal, the Champagne of Perfumes.  It was definitely
+the stuff to get.  One drop of that in the hollow of your
+throat and the matched pink pearls started falling off you like
+summer rain.
+~
+E
+yeats~
+The page it is flipped open to reads:
+
+A sudden blow: the great wings beating still
+Above the staggering girl, her thighs carressed
+By the dark webs, her nape caught in his bill,
+he holds her helpless breast upon his breast.
+How can those terrified vague fingers push
+The feathered glory from her loosening thighs?
+And how can body, laid in that white rush,
+But feel that strange heart beating where it lies?
+A shudder in the loins engenders there
+The broken wall, the burning roof and tower
+And Agammemnon dead.  Being so caught up,
+So mastered by this brute blood of the air,
+Did she put on his knowledge with his power
+Before his indifferent beak could let her drop?
+~
+E
+print out print-out creased well poem~
+This page has been read over so many times that you can barely discern
+the words, and in fact with much poring only the following becomes
+clear:
+        'I know that I am studly - Heck, I'm sexy, cute and cuddly
+         And I know that I'm extremely modest too.'
+~
+E
+stark black mountains wine wine-dark dark sea~
+The ocean is constantly smashing up against the cliffs and rending
+huge slabs from it.  The beach is scarcely a beach at all, more a
+collection of rough flakes varying in size from a small car to a
+small fist.  As the water comes up over the rocks and ebbs back
+down, it filters through the spaces and makes an unnerving rattling
+sound.
+~
+E
+rosewood chair~
+It looks comfortable, and the cushions are ivory velvet.
+~
+E
+rose rose-brambled balcony railing~
+Climbing white roses have swarmed over the original marble to obscure
+it almost completely.  The air is sweet not with roses, though,
+but with Satin's sandalwood perfume.
 ~
 D2
 Valhalla is to the south.
@@ -330,20 +338,20 @@ barred to the south, to discourage idle visitors, and Alander's quarters
 are east.
 ~
 0 DK 0
-D2
-Valhalla is to the south.
+E
+clutter mess~
+You notice Jimmy Hoffa's ring.
 ~
-door~
-1 -1 1203
 E
 tools scrolls braziers components~
 It's all worth a fortune, but you'd better not touch it.  Alander keeps
 inventory and holds grudges.
 ~
-E
-clutter mess~
-You notice Jimmy Hoffa's ring.
+D2
+Valhalla is to the south.
 ~
+door~
+1 -1 1203
 S
 #1210
 Office~
@@ -355,17 +363,11 @@ the east wall is a bookshelf, that is crammed full.  In the northwest
 corner, you notice a statue.
 ~
 0 DJP 0
-D0
-Valhalla is to the north
-~
-door~
-1 -1 1217
 E
-desk~
-This desk is much larger than anyone could possibly need.  At one end you 
-notice a large, disorderly mass of papers; it must be all his immortal
-paperwork.  At the other end is a magnificent wooden inlaid board with
-handcrafted ebony and hardwood pieces.
+bookshelf~
+This is the most amazing collection of chess books you have ever seen.
+Everything from Damiano's manuscripts, to a complete collection of the
+Encyclopedia of Chess Openings, to the latest Imformants are all here.
 ~
 E
 statue~
@@ -374,11 +376,17 @@ creative, if not eccentric, players of all time.  The inscription on the
 base reads, "I like the moment when I crush a man's ego."
 ~
 E
-bookshelf~
-This is the most amazing collection of chess books you have ever seen.
-Everything from Damiano's manuscripts, to a complete collection of the
-Encyclopedia of Chess Openings, to the latest Imformants are all here.
+desk~
+This desk is much larger than anyone could possibly need.  At one end you 
+notice a large, disorderly mass of papers; it must be all his immortal
+paperwork.  At the other end is a magnificent wooden inlaid board with
+handcrafted ebony and hardwood pieces.
 ~
+D0
+Valhalla is to the north
+~
+door~
+1 -1 1217
 S
 #1211
 Arena of Judgement~
@@ -390,17 +398,17 @@ pit-like field of trampled bloodstained grass, and is guarded by high walls
 of veinous marble.  A bloodstone seat awaits the true paragon of Romanity.
 ~
 0 DJP 0
-D2
-Valhalla is to the south.
-~
-door~
-1 -1 1218
 E
 statue~
 A statue of Pontius Pilate is here.  On it's face is the expression of some
 age old contemplation.  Standing at the statues bronzy feet is a Blood red
 shield that glimmers like a pool of blood.
 ~
+D2
+Valhalla is to the south.
+~
+door~
+1 -1 1218
 S
 #1212
 The Realm of the Dead~
@@ -409,6 +417,16 @@ can see in all directions.  Rough winds plunging from the dark, starless sky
 tear savagely at your fragile body.
 ~
 0 DN 0
+E
+floor~
+The stone floor is the same shade of grey as the sky and is completely plain
+and unscratched.  It is probably too hard for anything to leave as much as a
+scratch on it.
+~
+E
+sky wind winds~
+Cold winds plunge ceaselessly at you from the dark, cloudless sky.
+~
 D0
 The hard floor seems to go on forever.
 ~
@@ -429,16 +447,6 @@ The hard floor seems to go on forever.
 ~
 ~
 0 -1 1212
-E
-sky wind winds~
-Cold winds plunge ceaselessly at you from the dark, cloudless sky.
-~
-E
-floor~
-The stone floor is the same shade of grey as the sky and is completely plain
-and unscratched.  It is probably too hard for anything to leave as much as a
-scratch on it.
-~
 S
 #1213
 Asgard~
@@ -568,6 +576,11 @@ west, and there are doors to the north and south of you.  There is some
 sort of exit above you, but you do not know where it leads...
 ~
 0 P 0
+E
+statue odin~
+The statue of Odin has been exquisitely crafted.  It is of white marble
+with black and gold veins.  It looks to be of magical origin.
+~
 D0
 Pontius' room is north of here.
 ~
@@ -593,11 +606,6 @@ If you want to know what is up there you shall have to go up and see...
 ~
 ~
 0 -1 2
-E
-statue odin~
-The statue of Odin has been exquisitely crafted.  It is of white marble
-with black and gold veins.  It looks to be of magical origin.
-~
 S
 #1219
 Valhalla~
@@ -640,6 +648,11 @@ around your feet.  The view from here is incredible.  It is little wonder
 that the heavens were saved for the gods personal pleasures.
 ~
 0 0 1
+E
+clouds~
+The clouds are beautiful.  There are shades of gray, pink and purple swirled
+into the blue sky.
+~
 D4
 The Rainbow Bridge continues upwards into the heavens.
 ~
@@ -650,11 +663,6 @@ The Rainbow Bridge disappears down into the clouds.
 ~
 ~
 0 -1 1215
-E
-clouds~
-The clouds are beautiful.  There are shades of gray, pink and purple swirled
-into the blue sky.
-~
 S
 #1221
 The End of the Rainbow Bridge~
@@ -674,32 +682,61 @@ Bifrost, the Rainbow Bridge leads down to the Temple of Midgaard.
 ~
 0 -1 1220
 S
+#1250
+~
+~
+0 0 0
+S
 #0
 
-#RESETS
-M 0 1200   1 1221  1	* Heimdall
-D 0 1204   0    1	* Priscilla's Pleasure Palace  north
-D 0 1218   2    1	* Valhalla south
-D 0 1207   2    1	* The Satin Memorial Reading Room south
-D 0 1217   0    1	* Valhalla north
-D 0 1208   0    1	* A Sea Cave north
-D 0 1203   2    1	* Valhalla south
-D 0 1209   2    1	* The Archmage's Workroom south
-D 0 1203   0    1	* Valhalla north
-D 0 1210   0    1	* Office north
-D 0 1217   2    1	* Valhalla south
-D 0 1211   2    1	* Arena of Judgement south
-D 0 1218   0    1	* Valhalla north
-S
 
-#SHOPS
-0
 
 #SPECIALS
 S
 
-#PRACTICERS
-M 1200 group_fightmaster	* heimdall
-M 1200 group_defensive		* heimdall
+
+
+#RESETS
+D 0 1203 0 1	* Valhalla: door to the north: closed
+D 0 1203 2 1	* Valhalla: door to the south: closed
+D 0 1204 0 1	* Priscilla's Pleasure Palace : door to the north: closed
+D 0 1207 2 1	* The Satin Memorial Reading Room: door to the south: closed
+D 0 1208 0 1	* A Sea Cave: door to the north: closed
+D 0 1209 2 1	* The Archmage's Workroom: door to the south: closed
+D 0 1210 0 1	* Office: door to the north: closed
+D 0 1211 2 1	* Arena of Judgement: door to the south: closed
+D 0 1217 0 1	* Valhalla: door to the north: closed
+D 0 1217 2 1	* Valhalla: door to the south: closed
+D 0 1218 0 1	* Valhalla: door to the north: closed
+D 0 1218 2 1	* Valhalla: door to the south: closed
+M 0 1200 1 1221 1	* Heimdall (The End of the Rainbow Bridge)
 S
+
+
+
+#SHOPS
+0
+
+
+
+#OLIMITS
+S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+M 1200 group_fightmaster	* Heimdall
+M 1200 group_defensive	* Heimdall
+S
+
+
+
+#OMPROGS
+S
+
+
+
 #$

@@ -1,11 +1,14 @@
-#AREA
-mirror.are~
-Old Midgaard~
-{ 1 30} Kahn    Old Thalos~
-5300 5399
+#AREADATA
+Name Old Midgaard~
+Builders None~
+VNUMs 5300 5399
+Credits Kahn~
+Security 9
+LevelRange 1 30
+Flags A
+End
 
-#FLAG
-A
+
 
 #MOBILES
 #5300
@@ -23,7 +26,7 @@ ABCHR D 500 0
 6 6 6 8
 FU 0 0 0
 stand stand none 11
-0 0 medium 0
+0 0 medium unknown
 #5301
 oldstyle lamia pet~
 the pet lamia~
@@ -38,7 +41,7 @@ ACH 0 500 0
 6 6 6 9
 EFNU 0 0 0
 stand stand female 2
-0 0 medium 0
+0 0 medium unknown
 #5302
 oldstyle citizen man~
 a citizen of Thalos~
@@ -53,7 +56,7 @@ AGH 0 500 0
 5 5 5 9
 EFNU 0 0 0
 stand stand male 5
-0 0 medium 0
+0 0 medium unknown
 #5303
 oldstyle guard imperial cityguard~
 an imperial cityguard~
@@ -68,7 +71,7 @@ ACGT H 1000 0
 -3 -3 -3 7
 CDEIKLU 0 0 0
 stand stand male 75
-0 0 medium 0
+0 0 medium unknown
 #5304
 oldstyle citizen woman female~
 a female citizen of Thalos~
@@ -84,7 +87,7 @@ AGH 0 500 0
 5 5 5 9
 EFNU 0 0 0
 stand stand female 5
-0 0 medium 0
+0 0 medium unknown
 #5305
 oldstyle gordon defender~
 Gordon the Brave~
@@ -101,7 +104,7 @@ AT H 1000 0
 -11 -11 -11 5
 CDEIKLU 0 0 0
 stand stand male 500
-0 0 medium 0
+0 0 medium unknown
 #5306
 oldstyle priest~
 the fanatic priest~
@@ -118,7 +121,7 @@ ABHQ 0 -500 0
 1 1 1 7
 EIKU 0 0 0
 stand stand male 5
-0 0 medium 0
+0 0 medium unknown
 #5307
 oldstyle priest~
 the priest of Thalos~
@@ -133,7 +136,7 @@ ABQ H 1000 0
 -4 -4 -4 6
 EIKU 0 0 0
 stand stand male 5
-0 0 medium 0
+0 0 medium unknown
 #5308
 oldstyle golem stone~
 the stone golem~
@@ -148,7 +151,7 @@ AB N 1000 0
 -9 -9 -9 6
 EFNU 0 0 0
 stand stand none 212
-0 0 medium 0
+0 0 medium unknown
 #5309
 oldstyle mayor~
 the mayor of Thalos~
@@ -163,7 +166,7 @@ AB 0 800 0
 -4 -4 -4 7
 EFNU 0 0 0
 stand stand female 50
-0 0 medium 0
+0 0 medium unknown
 #5310
 oldstyle dan barkeep~
 Dan the Barkeep~
@@ -177,7 +180,7 @@ AB 0 600 0
 -19 -19 -19 -6
 EFNU 0 0 0
 stand stand male 50
-0 0 medium 0
+0 0 medium unknown
 #5311
 oldstyle george butcher~
 George the Butcher~
@@ -192,7 +195,7 @@ AB 0 600 0
 -19 -19 -19 -6
 EFNU 0 0 0
 stand stand male 50
-0 0 medium 0
+0 0 medium unknown
 #5312
 oldstyle farmer betty~
 Farmer Betty~
@@ -206,7 +209,7 @@ AB 0 650 0
 -19 -19 -19 -6
 EFNU 0 0 0
 stand stand female 50
-0 0 medium 0
+0 0 medium unknown
 #5313
 oldstyle thaellor dwarf~
 Thaellor the dwarf~
@@ -221,7 +224,7 @@ AB 0 550 0
 -19 -19 -19 -6
 EFNU 0 0 0
 stand stand female 50
-0 0 medium 0
+0 0 medium unknown
 #5314
 oldstyle ben smith~
 Ben the Smith~
@@ -235,7 +238,7 @@ AB 0 600 0
 -19 -19 -19 -6
 EFNU 0 0 0
 stand stand male 50
-0 0 medium 0
+0 0 medium unknown
 #5315
 oldstyle librarian~
 the librarian~
@@ -249,7 +252,7 @@ ABH 0 500 0
 3 3 3 9
 EFNU 0 0 0
 stand stand female 0
-0 0 medium 0
+0 0 medium unknown
 #5316
 oldstyle scholar boy~
 a young scholar~
@@ -263,7 +266,7 @@ ABH 0 500 0
 4 4 4 9
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #5317
 oldstyle wizard~
 an old wizard~
@@ -277,7 +280,7 @@ ABR D 550 0
 -19 -19 -19 -1
 FU 0 0 0
 stand stand male 50
-0 0 medium 0
+0 0 medium unknown
 #5318
 oldstyle masseuse woman~
 a beautiful masseuse~
@@ -293,7 +296,7 @@ ABH 0 700 0
 6 6 6 9
 EFNU 0 0 0
 stand stand female 2
-0 0 medium 0
+0 0 medium unknown
 #5319
 oldstyle bather man~
 a man~
@@ -308,7 +311,7 @@ ABH 0 650 0
 5 5 5 9
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #5320
 oldstyle guard imperial cityguard~
 An imperial cityguard~
@@ -324,7 +327,7 @@ ABCGT H 1000 0
 -3 -3 -3 7
 CDEIKLU 0 0 0
 stand stand male 75
-0 0 medium 0
+0 0 medium unknown
 #5321
 oldstyle guard cityguard~
 an imperial cityguard~
@@ -339,7 +342,7 @@ ABCGT H 1000 0
 -3 -3 -3 7
 CDEIKLU 0 0 0
 stand stand male 75
-0 0 medium 0
+0 0 medium unknown
 #5322
 oldstyle doe~
 a doe~
@@ -354,7 +357,7 @@ AGH 0 0 0
 5 5 5 9
 EFNU 0 0 0
 stand stand female 0
-0 0 medium 0
+0 0 medium unknown
 #5323
 oldstyle deer~
 a deer~
@@ -369,7 +372,7 @@ AGH 0 0 0
 4 4 4 9
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #5324
 oldstyle stag deer~
 a stag~
@@ -383,7 +386,7 @@ AFGH 0 0 0
 3 3 3 9
 EFNU 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #5325
 oldstyle bunny rabbit~
 a small bunny~
@@ -397,7 +400,7 @@ AGH 0 0 0
 8 8 8 10
 EFNU 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #5326
 oldstyle snake~
 a harmless snake~
@@ -411,7 +414,7 @@ AFGH P 0 0
 6 6 6 9
 EFNR 0 0 0
 stand stand none 0
-0 0 medium 0
+0 0 medium unknown
 #5327
 oldstyle druid~
 a druid~
@@ -425,7 +428,7 @@ AGHQ DN 1000 0
 1 1 1 7
 EIKU 0 0 0
 stand stand male 2
-0 0 medium 0
+0 0 medium unknown
 #5328
 oldstyle druidess~
 a druidess~
@@ -439,7 +442,7 @@ AGHQ DN 1000 0
 1 1 1 7
 EIKU 0 0 0
 stand stand female 2
-0 0 medium 0
+0 0 medium unknown
 #5329
 oldstyle musician bard~
 bard of Thalos~
@@ -453,7 +456,7 @@ ABC 0 450 0
 3 3 3 9
 EFNU 0 0 0
 stand stand male 5
-0 0 medium 0
+0 0 medium unknown
 #5330
 oldstyle musician bard~
 bard of Thalos~
@@ -467,7 +470,7 @@ AC 0 550 0
 2 2 2 8
 EFNU 0 0 0
 stand stand male 7
-0 0 medium 0
+0 0 medium unknown
 #5331
 oldstyle cityguard guard~
 the cityguard~
@@ -481,7 +484,7 @@ ACGT 0 1000 0
 -2 -2 -2 7
 CDEIKLU 0 0 0
 stand stand male 25
-0 0 medium 0
+0 0 medium unknown
 #5332
 oldstyle janitor~
 the janitor~
@@ -494,7 +497,7 @@ A 0 900 0
 9 9 9 10
 EFNU 0 0 0
 stand stand male 1
-0 0 medium 0
+0 0 medium unknown
 #5333
 oldstyle fido dog~
 the beastly fido~
@@ -509,7 +512,7 @@ AFH 0 -200 0
 10 10 10 10
 EN 0 0 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #5334
 oldstyle cityguard guard~
 the cityguard~
@@ -523,7 +526,7 @@ ABGT 0 1000 0
 -2 -2 -2 7
 CDEIKLU 0 0 0
 stand stand male 25
-0 0 medium 0
+0 0 medium unknown
 #5335
 wizard~
 the wizard~
@@ -539,7 +542,7 @@ ABVe DH 900 0
 -35 -35 -35 -15
 AF ABC D 0
 stand stand male 15000
-0 0 medium 0
+0 0 medium unknown
 #5336
 baker~
 the baker~
@@ -554,7 +557,7 @@ ABVe H 900 0
 -55 -55 -55 -35
 CDF AB CD 0
 stand stand male 500
-0 0 medium 0
+0 0 medium unknown
 #5337
 grocer~
 the grocer~
@@ -568,7 +571,7 @@ ABVe H 900 0
 -55 -55 -55 -15
 EFJ AB CD 0
 stand stand male 1300
-0 0 medium 0
+0 0 medium unknown
 #5338
 weaponsmith~
 the weaponsmith~
@@ -577,12 +580,12 @@ A weaponsmith.
 A young weaponsmith, who still has lots to learn.
 ~
 human~
-ABTVe Hh 900 0
+ABTVe H 900 0
 86 15 25d10+25000 1d1+999 6d8+20 punch
 -50 -50 -50 -25
 CEIK AB CD 0
 stand stand male 25000
-0 0 medium 0
+0 0 medium unknown
 #5339
 armourer armorer~
 the armourer~
@@ -597,7 +600,7 @@ ABVe 0 900 0
 -55 -55 -55 -15
 CEFJKN AB CD 0
 stand stand male 25000
-0 0 medium 0
+0 0 medium unknown
 #5340
 jeweller~
 the jeweller~
@@ -611,7 +614,7 @@ ABVe HV 900 0
 -55 -55 -55 -50
 AF AB CD 0
 stand stand male 58000
-0 0 huge 0
+0 0 huge unknown
 #5341
 Questor~
 Qeustor~
@@ -622,12 +625,12 @@ He knows all the zones of realms of Muddy. It would be a Bad Thing to
 commit a crime in his presence. 
 ~
 giant~
-ABTVe CDFJVZ 1000 3000
+ABTVXe CDFJVZ 1000 3000
 85 30 1d1+27999 1d1+1499 5d14+40 crush
 -50 -50 -50 -50
 ACDEFHIKLNOT ABP CD 0
 stand stand male 0
-0 0 huge 0
+0 0 huge unknown
 #5342
 healer~
 the healer~
@@ -642,7 +645,7 @@ ABQVae DFH 1000 0
 -45 -45 -45 -15
 FHIK ABC D 0
 stand stand male 5000
-0 0 huge 0
+0 0 huge unknown
 #5343
 guildmaster master~
 the guildmaster~
@@ -658,7 +661,7 @@ ABKRVe DEFZ 1000 0
 -65 -65 -65 -35
 FG ABD C 0
 stand stand female 0
-0 0 medium 0
+0 0 medium unknown
 #5344
 guildmaster master~
 the guildmaster~
@@ -673,7 +676,7 @@ ABKQVe CDEFHZ 1000 0
 -65 -65 -65 -35
 EFHIK ABD C 0
 stand stand male 0
-0 0 medium 0
+0 0 medium unknown
 #5345
 templeman~
 the templeman~
@@ -688,9 +691,30 @@ ABQVe DFH 1000 0
 -65 -65 -65 -15
 FHIK ABC D 0
 stand stand male 5000
-0 0 huge 0
-
+0 0 huge unknown
+M GREET 3000 100~
+M SPEECH 3001 religion~
+M SPEECH 3002 atum-ra~
+M SPEECH 3003 zeus~
+M SPEECH 3004 siebele~
+M SPEECH 3005 shamash~
+M SPEECH 3006 ahuramazda~
+M SPEECH 3007 ehrumen~
+M SPEECH 3008 deimos~
+M SPEECH 3009 phobos~
+M SPEECH 3010 odin~
+M SPEECH 3011 teshub~
+M SPEECH 3012 ares~
+M SPEECH 3013 goktengri~
+M SPEECH 3014 hera~
+M SPEECH 3015 venus~
+M SPEECH 3016 seth~
+M SPEECH 3017 enki~
+M SPEECH 3018 eros~
 #0
+
+
+
 #OBJECTS
 #5300
 collar~
@@ -698,7 +722,7 @@ a lamia collar~
 A lamia collar is on the ground.~
 skin~
 armor 0 AC
-3 3 3 0 0
+AB AB AB 0 0
 3 50 310 P
 #5301
 breast plate iron~
@@ -706,7 +730,7 @@ a beautiful iron breast plate~
 A beautiful iron breast plate lies here.~
 iron~
 armor 0 AD
-7 7 7 0 0
+ABC ABC ABC 0 0
 20 450 3200 P
 A
 18 1
@@ -852,9 +876,9 @@ weapon G AN
 sword 3 6 slash 0
 14 50 1420 P
 A
-19 2
-A
 18 2
+A
+19 2
 E
 sword~
 You see a sword of great craftsmanship.  Imprinted on the side is:
@@ -869,9 +893,9 @@ weapon G AN
 mace 3 7 pound 0
 15 50 1180 P
 A
-19 2
-A
 18 1
+A
+19 2
 E
 mace~
 You see a mace of great craftsmanship.  Imprinted on the side is:
@@ -883,7 +907,7 @@ an imperial chest plate~
 You see an imperial chest plate here.~
 mithril~
 armor 0 AD
-5 5 5 0 0
+AC AC AC 0 0
 10 50 1450 P
 E
 chest plate~
@@ -896,7 +920,7 @@ an imperial shield~
 You see an imperial shield here.~
 mithril~
 armor 0 AJ
-5 5 5 2 0
+AC AC AC B 0
 10 100 1190 P
 E
 shield~
@@ -909,7 +933,7 @@ an imperial cloak~
 You see an imperial cloak here.~
 cloth~
 armor 0 AC
-5 5 5 0 0
+AC AC AC 0 0
 10 50 730 P
 E
 cloak~
@@ -922,7 +946,7 @@ an imperial helm~
 You see an imperial helm here.~
 mithril~
 armor 0 AE
-5 5 5 0 0
+AC AC AC 0 0
 10 50 730 P
 E
 helm~
@@ -935,7 +959,7 @@ a pair of imperial plate leggings~
 You see a pair of imperial plate leggings here.~
 mithril~
 armor 0 AF
-5 5 5 0 0
+AC AC AC 0 0
 10 50 730 P
 E
 plate leggings~
@@ -948,7 +972,7 @@ a pair of imperial plate boots~
 You see a pair of imperial plate boots here.~
 mithril~
 armor 0 AG
-5 5 5 0 0
+AC AC AC 0 0
 10 50 730 P
 E
 plate boots~
@@ -961,7 +985,7 @@ a pair of imperial plate gloves~
 You see a pair of imperial plate gloves here.~
 mithril~
 armor 0 AH
-5 5 5 0 0
+AC AC AC 0 0
 10 50 730 P
 E
 plate gloves~
@@ -974,7 +998,7 @@ a pair of imperial plate sleeves~
 You see a pair of imperial plate sleeves here.~
 mithril~
 armor 0 AI
-5 5 5 0 0
+AC AC AC 0 0
 10 50 730 P
 E
 plate sleeves~
@@ -987,7 +1011,7 @@ an imperial cape~
 You see an imperial cape here.~
 silk~
 armor 0 AK
-5 5 5 0 0
+AC AC AC 0 0
 10 50 730 P
 E
 cape~
@@ -1000,7 +1024,7 @@ an imperial belt~
 You see an imperial belt here.~
 cloth~
 armor 0 AL
-5 5 5 0 0
+AC AC AC 0 0
 10 50 730 P
 E
 belt~
@@ -1013,7 +1037,7 @@ an imperial metal bracer~
 You see an imperial metal bracer here.~
 mithril~
 armor 0 AM
-3 5 5 0 0
+AB AC AC 0 0
 5 50 550 P
 E
 metal bracer~
@@ -1029,21 +1053,21 @@ jewelry G AB
 0 0 0 0 0
 16 10 1280 P
 A
-20 -1
-A
 17 -4
+A
+20 -1
 #5331
 imperial banner~
 an imperial war banner~
 An imperial war banner is on the floor here.~
 wood~
 light AG A
-0 0 -1 0 0
+0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
 20 10 1440 P
 A
-17 -2
-A
 20 -2
+A
+17 -2
 E
 banner~
 This is the official Merc war banner to see you through the darkest realm!
@@ -1057,16 +1081,16 @@ weapon GK AN
 sword 5 7 cleave DF
 34 240 4400 P
 A
-19 4
-A
 18 2
+A
+19 4
 #5333
 map old midgaard~
 a map of the old midgaard~
 A rolled up map is here.~
 paper~
 map 0 A
-1 0 0 0 0
+A 0 0 0 0
 0 10 500 P
 E
 map old~
@@ -1092,6 +1116,8 @@ map old~
 ~
 #0
 
+
+
 #ROOMS
 #5300
 The Grand Gate of Thalos~
@@ -1102,6 +1128,12 @@ the city is teeming with activity!  There is a small gold plaque on mounted
 on the archway.
 ~
 0 0 1
+E
+plaque sign~
+This zone has been heavily modified by Kahn and Hatchet of MERC Industries
+and integrated by Kahn of MERC Industries.
+copyright 1993
+~
 D1
 You are saddened at the thought of leaving this beautiful place.
 ~
@@ -1113,12 +1145,6 @@ beasts walking hand in hand with people.
 ~
 ~
 0 0 5301
-E
-plaque sign~
-This zone has been heavily modified by Kahn and Hatchet of MERC Industries
-and integrated by Kahn of MERC Industries.
-copyright 1993
-~
 S
 #5301
 Main Street~
@@ -2351,7 +2377,7 @@ D2
 D3
 ~
 The Path to the Keep
-~
+~
 0 0 15700
 D5
 ~
@@ -2498,6 +2524,14 @@ burdens have been lifted from Your shoulders. To the south, You glimpse an open
 area through the trees, while paths lead away north and west.
 ~
 0 0 3
+E
+foundation~
+The foundation looks like it is for a sprawling, two-story affair with three
+wings.  On the ground is some building material, marble would do, if marble
+changed color slowly, continuously, through the entire spectrum.  There are
+also large panes of glass stacked over near one of the corners of the
+foundation.
+~
 D0
 The path wind its way through the tall trees, disappearing out of sight.
 ~
@@ -2515,14 +2549,6 @@ The path wind its way through the tall trees, disappearing out of sight.
 ~
 ~
 0 -1 5370
-E
-foundation~
-The foundation looks like it is for a sprawling, two-story affair with three
-wings.  On the ground is some building material, marble would do, if marble
-changed color slowly, continuously, through the entire spectrum.  There are
-also large panes of glass stacked over near one of the corners of the
-foundation.
-~
 S
 #5372
 The holy grove~
@@ -2533,6 +2559,14 @@ you feel an inexplicable happiness, as if the world's troubles no longer
 really matter to you.
 ~
 0 0 3
+E
+foundation construction~
+The foundation looks like it is for a sprawling, two-story affair with three
+wings.  On the ground is some building material, marble would do, if marble
+changed color slowly, continuously, through the entire spectrum.  There are
+also large panes of glass stacked over near one of the corners of the
+foundation.
+~
 D0
 The path leading north is soon lost out of sight amongst the ancient oaks and
 poplars.
@@ -2547,14 +2581,6 @@ colours.
 ~
 ~
 0 -1 5373
-E
-foundation construction~
-The foundation looks like it is for a sprawling, two-story affair with three
-wings.  On the ground is some building material, marble would do, if marble
-changed color slowly, continuously, through the entire spectrum.  There are
-also large panes of glass stacked over near one of the corners of the
-foundation.
-~
 S
 #5373
 The sunny field~
@@ -2567,6 +2593,14 @@ could spend the rest of your life here, lying on your back and looking at the
 patterns of the clouds as they gently drift across the sky.
 ~
 0 D 2
+E
+dome construction structure east e~
+The foundation looks like it is for a sprawling, two-story affair with three
+wings.  On the ground is some building material, marble would do, if marble
+changed color slowly, continuously, through the entire spectrum.  There are
+also large panes of glass stacked over near one of the corners of the
+foundation.
+~
 D0
 There is a path leading north towards the sacred glade.
 ~
@@ -2577,14 +2611,6 @@ There is a small path leading into the woods to the west.
 ~
 ~
 0 -1 5372
-E
-dome construction structure east e~
-The foundation looks like it is for a sprawling, two-story affair with three
-wings.  On the ground is some building material, marble would do, if marble
-changed color slowly, continuously, through the entire spectrum.  There are
-also large panes of glass stacked over near one of the corners of the
-foundation.
-~
 S
 #5374
 The croquet lawn~
@@ -2595,11 +2621,6 @@ dome covering construction to the south. This place enjoys a perpetual cool,
 sunny summers after-noon.
 ~
 0 C 2
-D0
-To the north, the winding stone path leads into the holy grove.
-~
-~
-0 -1 5371
 E
 dome construction south s~
 The foundation looks like it is for a sprawling, two-story affair with three
@@ -2608,6 +2629,11 @@ changed color slowly, continuously, through the entire spectrum.  There are
 also large panes of glass stacked over near one of the corners of the
 foundation.
 ~
+D0
+To the north, the winding stone path leads into the holy grove.
+~
+~
+0 -1 5371
 S
 #5375
 The Void~
@@ -2619,11 +2645,11 @@ rainbow then back to its normal state.  In the middle of this room is
 a ladder standing vertical.
 ~
 0 0 3
-D1
+D4
 You see stars.
 ~
 ~
-0 0 5378
+0 0 5376
 D2
 You see a fuzzy portal of some sort and a little green.
 ~
@@ -2634,11 +2660,11 @@ You see stars.
 ~
 ~
 0 0 5378
-D4
+D1
 You see stars.
 ~
 ~
-0 0 5376
+0 0 5378
 D5
 You see stars.
 ~
@@ -2654,21 +2680,11 @@ either.  Occasionally, the starry 'sky' fades into a fuzzy, yet bright,
 rainbow then back to its normal state.
 ~
 0 0 3
-D0
+D5
 You see stars.
 ~
 ~
-0 0 5377
-D1
-You see stars.
-~
-~
-0 0 5376
-D2
-You see stars.
-~
-~
-0 0 5377
+0 0 5375
 D3
 You see stars.
 ~
@@ -2679,11 +2695,21 @@ You see stars.
 ~
 ~
 0 0 5375
-D5
+D2
 You see stars.
 ~
 ~
-0 0 5375
+0 0 5377
+D0
+You see stars.
+~
+~
+0 0 5377
+D1
+You see stars.
+~
+~
+0 0 5376
 S
 #5377
 The Void~
@@ -2699,7 +2725,17 @@ You see stars.
 ~
 ~
 0 0 5376
-D1
+D5
+You see stars.
+~
+~
+0 0 5378
+D4
+You see stars.
+~
+~
+0 0 5378
+D3
 You see stars.
 ~
 ~
@@ -2709,21 +2745,11 @@ You see stars.
 ~
 ~
 0 0 5376
-D3
+D1
 You see stars.
 ~
 ~
 0 0 5377
-D4
-You see stars.
-~
-~
-0 0 5378
-D5
-You see stars.
-~
-~
-0 0 5378
 S
 #5378
 The Void~
@@ -2745,16 +2771,16 @@ You see a fuzzy portal of some sort and a little green.
 ~
 ~
 0 0 8903
-D3
-You see stars.
-~
-~
-0 0 5375
 D4
 You see stars.
 ~
 ~
 0 0 5377
+D3
+You see stars.
+~
+~
+0 0 5375
 D5
 You see stars.
 ~
@@ -2772,6 +2798,12 @@ mound upon which the temple is built and ends on the temple square below.
    You notice that this building is quite new.  A small plaque is on this wall.
 ~
 0 CDK 0
+E
+plaque~
+This entire world has been integrated, modified, debugged, and enhanced by
+Hatchet, Kahn, and Furey of MERC Industries to be run by any MERC Mud.
+1992 December 17
+~
 D0
 At the northern end of the temple hall is a statue and a huge altar.
 ~
@@ -2787,12 +2819,6 @@ You see the newbie zone.
 ~
 ~
 0 -1 18600
-E
-plaque~
-This entire world has been integrated, modified, debugged, and enhanced by
-Hatchet, Kahn, and Furey of MERC Industries to be run by any MERC Mud.
-1992 December 17
-~
 S
 #5380
 The Temple Square~
@@ -2821,6 +2847,11 @@ the square.  Roads lead to the north and east, north to the temple square,
 east is the main street.
 ~
 0 0 1
+E
+statue~
+What you see is an uncompleted statue of what you think is the Midgaard
+mascot.
+~
 D0
 You see the temple square.
 ~
@@ -2836,11 +2867,6 @@ You see the main street.
 ~
 ~
 0 -1 5398
-E
-statue~
-What you see is an uncompleted statue of what you think is the Midgaard
-mascot.
-~
 S
 #5382
 The Main Street~
@@ -2903,6 +2929,27 @@ city wall and connected with a footbridge across the heavy wooden gate.
 Main Street leads west from here.
 ~
 0 0 1
+E
+bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
+~
+E
+gate~
+It is a set of very big double doors made from hard wood.  They have been
+reinforced with large iron bands to make them even more sturdy.  One of the
+doors is equipped with a very big lock.
+~
+E
+tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
+~
+E
+wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
 D1
 You see the city gate.
 ~
@@ -2912,27 +2959,6 @@ D3
 You see Main Street.~
 ~
 0 -1 5383
-E
-wall~
-It is built from large grey rocks that have been fastened to each other with
-some kind of mortar.  It is far too high to climb.
-~
-E
-tower towers~
-Both of the towers are built from large grey rocks that have been fastened to
-each other with some kind of mortar, just like the city wall.
-~
-E
-gate~
-It is a set of very big double doors made from hard wood.  They have been
-reinforced with large iron bands to make them even more sturdy.  One of the
-doors is equipped with a very big lock.
-~
-E
-bridge footbridge~
-It is too high up to reach but it looks as if one easily could walk across it
-from one tower to the other.
-~
 S
 #5385
 Outside the East Gate of Midgaard~
@@ -2941,6 +2967,27 @@ connected with a footbridge across the heavy wooden gate.  To the east the
 plains stretch out in the distance.
 ~
 0 0 1
+E
+bridge footbridge~
+It is too high up to reach but it looks as if one easily could walk across it
+from one tower to the other.
+~
+E
+gate~
+It is a set of very big double doors made from hard wood.  They have been
+reinforced with large iron bands to make them even more sturdy.  One of the
+doors is equipped with a very big lock.
+~
+E
+tower towers~
+Both of the towers are built from large grey rocks that have been fastened to
+each other with some kind of mortar, just like the city wall.
+~
+E
+wall~
+It is built from large grey rocks that have been fastened to each other with
+some kind of mortar.  It is far too high to climb.
+~
 D1
 You see the plains.~
 ~
@@ -2950,27 +2997,6 @@ You see the city gate.
 ~
 gate~
 1 3133 5384
-E
-wall~
-It is built from large grey rocks that have been fastened to each other with
-some kind of mortar.  It is far too high to climb.
-~
-E
-tower towers~
-Both of the towers are built from large grey rocks that have been fastened to
-each other with some kind of mortar, just like the city wall.
-~
-E
-gate~
-It is a set of very big double doors made from hard wood.  They have been
-reinforced with large iron bands to make them even more sturdy.  One of the
-doors is equipped with a very big lock.
-~
-E
-bridge footbridge~
-It is too high up to reach but it looks as if one easily could walk across it
-from one tower to the other.
-~
 S
 #5386
 By the Temple Altar~
@@ -2979,6 +3005,18 @@ A huge altar made from white polished marble is standing in front of you and
 behind it is a ten foot tall sitting statue of Odin, the King of the Gods.
 ~
 0 DKN 0
+E
+altar~
+Even though the altar is more than ten feet long it appears to be made from a
+single block of white virgin marble.
+~
+E
+statue odin king god~
+The statue represents the one-eyed Odin sitting on a his throne.  He has
+long, grey hair and beard and a strict look on his face.  On top of the
+throne, just above his shoulders, his two ravens Hugin and Munin are sitting
+and at his feet are his wolves Gere and Freke.
+~
 D0
 ~
 ~
@@ -2988,18 +3026,6 @@ You see the southern end of the temple.
 ~
 ~
 0 -1 5379
-E
-statue odin king god~
-The statue represents the one-eyed Odin sitting on a his throne.  He has
-long, grey hair and beard and a strict look on his face.  On top of the
-throne, just above his shoulders, his two ravens Hugin and Munin are sitting
-and at his feet are his wolves Gere and Freke.
-~
-E
-altar~
-Even though the altar is more than ten feet long it appears to be made from a
-single block of white virgin marble.
-~
 S
 #5387
 The Bakery~
@@ -3009,19 +3035,6 @@ on the shelves, and seem to be of the finest quality.
 A small sign is on the counter.
 ~
 0 S 0
-D2
-You see the main street.
-~
-~
-0 -1 5382
-E
-sign~
-Free instructions provided by the store:
-
-   Buy  - Will buy you some bread or pastry.
-   List - The baker will kindly tell you the price and sort of the bread in
-          his bakery.
-~
 E
 danish pastry~
 You see that this is truly delicious pastry.  Must be made by a Dane from
@@ -3032,6 +3045,19 @@ Iceland, Estonia etc. etc.
 and your soul sing.
 
 ~
+E
+sign~
+Free instructions provided by the store:
+
+   Buy  - Will buy you some bread or pastry.
+   List - The baker will kindly tell you the price and sort of the bread in
+          his bakery.
+~
+D2
+You see the main street.
+~
+~
+0 -1 5382
 S
 #5388
 The General Store~
@@ -3040,11 +3066,6 @@ behind the counter, safely out of your reach.
 A small note hangs on the wall.
 ~
 0 D 0
-D0
-You see the High Road .
-~
-~
-0 -1 5382
 E
 note~
 The note reads:
@@ -3055,17 +3076,17 @@ The note reads:
           pay for your item.
   Sell  - Sell an item.
 ~
+D0
+You see the High Road .
+~
+~
+0 -1 5382
 S
 #5389
 The Weapon Shop~
 You are inside the weapon shop.  There is a small note on the counter.
 ~
 0 D 0
-D2
-You see the main street.
-~
-~
-0 -1 5383
 E
 note~
 The note reads:
@@ -3076,6 +3097,11 @@ The note reads:
           pay for your item.
   Sell  - Sell an item.
 ~
+D2
+You see the main street.
+~
+~
+0 -1 5383
 S
 #5390
 The Armoury~
@@ -3084,11 +3110,6 @@ see helmets, shields and chain mails.  To the north is the main street.
 On the wall is a small note.
 ~
 0 D 0
-D0
-You see the main street.
-~
-~
-0 -1 5383
 E
 note~
 You can use these commands for trading:
@@ -3101,6 +3122,11 @@ You can use these commands for trading:
         WE DON'T GIVE CREDIT; WE DON'T EXPECT TO RECEIVE CREDIT!
                              NO HAGGLING
 ~
+D0
+You see the main street.
+~
+~
+0 -1 5383
 S
 #5391
 The Magic Shop~
@@ -3110,24 +3136,24 @@ numerous shelves crammed with jars, bottles, books and scrolls of all
 sorts and sizes.
 ~
 0 D 0
-D2
-You see the main street.
-~
-~
-0 -1 5398
 E
-scrolls~
-Each scroll is stored in a leather tube that protects it from moist.
+jars bottles~
+Some of them are transparent enabling you to see that some contain colored
+powders while others contain body parts of various animals.
 ~
 E
 books~
 Most of them appear to be very old and dusty.
 ~
 E
-jars bottles~
-Some of them are transparent enabling you to see that some contain colored
-powders while others contain body parts of various animals.
+scrolls~
+Each scroll is stored in a leather tube that protects it from moist.
 ~
+D2
+You see the main street.
+~
+~
+0 -1 5398
 S
 #5392
 The Jeweller's Shop~
@@ -3137,11 +3163,15 @@ surface of the big mahogany desk that stands in the centre of the room.
 A small sign with golden letters stands on the desk.
 ~
 0 D 0
-D0
-You see Main Street.
+E
+oil lamps~
+They are made from polished gold and looks as if they are securely fastened
+to the smooth stone walls.
 ~
+E
+desk~
+Your face is reflected in its surface.
 ~
-0 -1 5398
 E
 sign~
 The golden letters say :-
@@ -3151,19 +3181,15 @@ The golden letters say :-
         'sell <item>' to sell an item and
         'value <item>' to make the jeweller evaluate an item.
 ~
-E
-desk~
-Your face is reflected in its surface.
+D0
+You see Main Street.
 ~
-E
-oil lamps~
-They are made from polished gold and looks as if they are securely fastened
-to the smooth stone walls.
 ~
+0 -1 5398
 S
 #5393
 Necromancer's Bar~
-    The bar of vampires smell very bad. But the mystic air relaxes you.
+The bar of vampires smell very bad. But the mystic air relaxes you.
 ~
 0 CDSX 0
 D1
@@ -3186,7 +3212,7 @@ and even weirder symbols, and a blackboard in a dark corner has only been
 partially cleaned, some painful-looking letters faintly visible.  A well in
 the middle of the floor leads down into darkness.  Vile smells waft from the
 depths.
-~    
+~
 0 CDSX 0
 D3
 You see the bar.
@@ -3202,7 +3228,7 @@ impossible to climb back up.
 S
 #5395
 Vampires Bar~
-    The bar of vampires smell very bad. But the mystic air relaxes you.
+The bar of vampires smell very bad. But the mystic air relaxes you.
 ~
 0 CDSX 0
 D0
@@ -3235,30 +3261,30 @@ To the east you see the bar..
 S
 #5397
 Room of Templeman~
-	You see thousands of books standing near the templeman. He looks 
+You see thousands of books standing near the templeman. He looks 
 at you, wandering why you are here. But he now that every believer must 
 know him as well as its religion.The room is full of mist. You start 
 praying with the templeman.
 	Try to talk with templeman about religion.
 ~
 0 DS 0
-H 100 M 150
 D2
 By the temple altar.
 ~
 ~
 0 -1 5386
+M 150 H 100
 S
 #5398
 The Main Street~
-  You are on Main Street crossing through this booming town. The market
+You are on Main Street crossing through this booming town. The market
 square is at east. To the west no roads.
 ~
 0 DS 0
 D0
 ~
 ~
-0 -1  5391
+0 -1 5391
 D1
 ~
 ~
@@ -3274,14 +3300,14 @@ D3
 S
 #5399
 The Main Street~
-  You are on Main Street crossing through this booming town. The market
+You are on Main Street crossing through this booming town. The market
 square is at east. To the west no roads.
 ~
 0 DS 0
 D0
 ~
 ~
-0 -1  5393
+0 -1 5393
 D1
 ~
 ~
@@ -3291,385 +3317,403 @@ D2
 ~
 0 -1 5395
 S
-
 #0
 
-#RESETS
-M 0 5306   1 5319  1	* the fanatic priest
-E 1 5218   8    3	*   a demon-faced talisman
-E 1 5222   8   12	*   a black silk robe
-E 1 5252  -1   16	*   a long slim dagger
-E 1 5239   1   17	*   a dull grey stone
-M 0 5305   1 5336  1	* Gordon the Brave
-E 1 5204   8    8	*   a pair of mithril boots
-E 1 5203   8   10	*   some mithril sleeves
-E 1 5205   8    7	*   a set of mithril leggings
-E 1 5206   8   13	*   a mithril girth
-E 1 5201   8    6	*   a mithril helm
-E 1 5202   8    9	*   a pair of mithril gauntlets
-E 1 5301   8    5	*   a beautiful iron breast plate
-E 1 5332  -1   16	*   a two-handed sword
-E 1 5226  12   17	*   an engraved ivory seal
-M 0 5300   1 5350  1	* the baby beholder
-E 1 5243   1   17	*   a clear stone
-M 0 5307   1 5350  1	* the priest of Thalos
-E 1 5302   8   17	*   a green serpentine staff
-E 1 5223  10    3	*   a dark green cloak
-M 0 5301  20 5300  1	* the pet lamia
-E 1 5300  -1    3	*   a lamia collar
-M 0 5301  20 5304  1	* the pet lamia
-E 1 5300  -1    3	*   a lamia collar
-M 0 5301  20 5306  1	* the pet lamia
-E 1 5300  -1    3	*   a lamia collar
-M 0 5301  20 5310  1	* the pet lamia
-E 1 5300  -1    3	*   a lamia collar
-M 0 5301  20 5314  1	* the pet lamia
-E 1 5300  -1    3	*   a lamia collar
-M 0 5301  20 5316  1	* the pet lamia
-E 1 5300  -1    3	*   a lamia collar
-M 0 5301  20 5320  1	* the pet lamia
-E 1 5300  -1    3	*   a lamia collar
-M 0 5301  20 5322  1	* the pet lamia
-E 1 5300  -1    3	*   a lamia collar
-M 0 5301  20 5326  1	* the pet lamia
-E 1 5300  -1    3	*   a lamia collar
-M 0 5301  20 5328  1	* the pet lamia
-E 1 5300  -1    3	*   a lamia collar
-M 0 5301  20 5332  1	* the pet lamia
-E 1 5300  -1    3	*   a lamia collar
-M 0 5301  20 5334  1	* the pet lamia
-E 1 5300  -1    3	*   a lamia collar
-M 0 5301  20 5338  1	* the pet lamia
-E 1 5300  -1    3	*   a lamia collar
-M 0 5301  20 5340  1	* the pet lamia
-E 1 5300  -1    3	*   a lamia collar
-M 0 5301  20 5344  1	* the pet lamia
-E 1 5300  -1    3	*   a lamia collar
-M 0 5301  20 5346  1	* the pet lamia
-E 1 5300  -1    3	*   a lamia collar
-M 0 5301  20 5348  1	* the pet lamia
-E 1 5300  -1    3	*   a lamia collar
-M 0 5301  20 5350  1	* the pet lamia
-E 1 5300  -1    3	*   a lamia collar
-M 0 5301  20 5352  1	* the pet lamia
-E 1 5300  -1    3	*   a lamia collar
-M 0 5301  20 5354  1	* the pet lamia
-E 1 5300  -1    3	*   a lamia collar
-O 0 5306   1 5334	* a large beautiful fountain
-M 0 5330   1 5300  1	* bard of Thalos
-E 1 5311   3   17	*   a silver flute
-M 0 5329   2 5330  2	* bard of Thalos
-E 1 5309   3   17	*   a mandolin
-M 0 5329   2 5330  2	* bard of Thalos
-E 1 5310   3   17	*   a golden harp
-M 0 5316   2 5345  2	* a young scholar
-M 0 5315   1 5337  1	* the librarian
-M 0 5319   2 5342  2	* a man
-M 0 5318   4 5344  4	* a beautiful masseuse
-M 0 5308   8 5347  2	* the stone golem
-E 1 5221  -1   16	*   a two-handed sword
-E 1 5232   1   17	*   an incandescent blue stone
-M 0 5308   8 5346  2	* the stone golem
-E 1 5221  -1   16	*   a two-handed sword
-E 1 5233   1   17	*   a deep red stone
-M 0 5308   8 5348  2	* the stone golem
-E 1 5221  -1   16	*   a two-handed sword
-E 1 5235   1   17	*   a pearly white stone
-M 0 5308   8 5354  2	* the stone golem
-E 1 5221  -1   16	*   a two-handed sword
-E 1 5237   1   17	*   a lavender and green stone
-M 0 5311   1 5317  1	* George the Butcher
-G 1 5219  -1     	*   a chunk of venison
-E 1  601  -1   16	*   a meat cleaver
-G 1  602  -1     	*   a side of beef
-G 1  603  -1     	*   a side of pork
-G 1  604  -1     	*   a side of horse
-G 1  605  -1     	*   a defeathered chicken
-M 0 5312   1 5320  1	* Farmer Betty
-G 1  609  -1     	*   a head of cabbage
-G 1  610  -1     	*   a head of lettuce
-G 1  611  -1     	*   a bottle of milk
-G 1  612  -1     	*   an apple
-G 1  613  -1     	*   an ear of corn
-M 0 5313   1 5329  1	* Thaellor the dwarf
-M 0 5310   1 5330  1	* Dan the Barkeep
-G 1  648  -1     	*   a shot of whiskey
-G 1  649  -1     	*   a quart of ale
-G 1  650  -1     	*   a quart of port brew
-M 0 5314   1 5321  1	* Ben the Smith
-G 1  601  -1     	*   a meat cleaver
-G 1  615  -1     	*   a pitchfork
-M 0 5317   1 5338  1	* an old wizard
-M 0 5309   1 5331  1	* the mayor of Thalos
-E 1 5224   9   17	*   an engraved ebony seal
-O 0 5307   1 5331	* the curved desk
-P 1 5304   4 5307  1	*   a scroll of enchantment
-P 1 5305   4 5307  1	*   a bound scroll
-P 1 5231   9 5307  1	*   a scarlet and blue stone
-O 0 5308   1 5333	* the glass cabinet
-P 1 3105   8 5308  1	*   a bronze bracer
-P 1 5214   8 5308  1	*   a smooth quartz ball
-P 1 5230   1 5308  1	*   a pale blue stone
-M 0 5320   3 5335  3	* An imperial cityguard
-E 1 5330  10    1	*   an imperial city guard signet ring
-E 1 5321  10    4	*   an imperial cloak
-E 1 5319  10    5	*   an imperial chest plate
-E 1 5327  10   12	*   an imperial cape
-E 1 5328  10   13	*   an imperial belt
-E 1 5317  -1   16	*   an imperial sword
-M 0 5320   3 5335  3	* An imperial cityguard
-E 1 5330  10    1	*   an imperial city guard signet ring
-E 1 5321  10    4	*   an imperial cloak
-E 1 5319  10    5	*   an imperial chest plate
-E 1 5327  10   12	*   an imperial cape
-E 1 5329  10   14	*   an imperial metal bracer
-E 1 5318  -1   16	*   an imperial mace
-M 0 5320   3 5335  3	* An imperial cityguard
-E 1 5321  10    4	*   an imperial cloak
-E 1 5319  10    5	*   an imperial chest plate
-E 1 5327  10   12	*   an imperial cape
-E 1 5328  10   13	*   an imperial belt
-E 1 5329  10   14	*   an imperial metal bracer
-E 1 5317  -1   16	*   an imperial sword
-M 0 5321   2 5300  2	* an imperial cityguard
-E 1 5331  10    0	*   an imperial war banner
-E 1 5319  10    5	*   an imperial chest plate
-E 1 5322  10    6	*   an imperial helm
-E 1 5323  10    7	*   a pair of imperial plate leggings
-E 1 5324  10    8	*   a pair of imperial plate boots
-E 1 5325  10    9	*   a pair of imperial plate gloves
-E 1 5320  10   11	*   an imperial shield
-E 1 5318  -1   16	*   an imperial mace
-M 0 5321   2 5300  2	* an imperial cityguard
-E 1 5331  10    0	*   an imperial war banner
-E 1 5319  10    5	*   an imperial chest plate
-E 1 5324  10    8	*   a pair of imperial plate boots
-E 1 5325  10    9	*   a pair of imperial plate gloves
-E 1 5326  10   10	*   a pair of imperial plate sleeves
-E 1 5320  10   11	*   an imperial shield
-E 1 5317  -1   16	*   an imperial sword
-M 0 5303  11 5300  1	* an imperial cityguard
-E 1 5321  10    4	*   an imperial cloak
-E 1 5319  10    5	*   an imperial chest plate
-E 1 5327  10   12	*   an imperial cape
-E 1 5329  10   14	*   an imperial metal bracer
-E 1 5318  -1   16	*   an imperial mace
-M 0 5303  11 5304  1	* an imperial cityguard
-E 1 5321  10    4	*   an imperial cloak
-E 1 5319  10    5	*   an imperial chest plate
-E 1 5320  10   11	*   an imperial shield
-E 1 5317  -1   16	*   an imperial sword
-M 0 5303  11 5307  1	* an imperial cityguard
-E 1 5321  10    4	*   an imperial cloak
-E 1 5319  10    5	*   an imperial chest plate
-E 1 5328  10   13	*   an imperial belt
-E 1 5329  10   14	*   an imperial metal bracer
-E 1 5318  -1   16	*   an imperial mace
-M 0 5303  11 5313  1	* an imperial cityguard
-E 1 5330  10    1	*   an imperial city guard signet ring
-E 1 5321  10    4	*   an imperial cloak
-E 1 5319  10    5	*   an imperial chest plate
-E 1 5320  10   11	*   an imperial shield
-E 1 5317  -1   16	*   an imperial sword
-M 0 5303  11 5315  1	* an imperial cityguard
-E 1 5321  10    4	*   an imperial cloak
-E 1 5319  10    5	*   an imperial chest plate
-E 1 5327  10   12	*   an imperial cape
-E 1 5328  10   13	*   an imperial belt
-E 1 5318  -1   16	*   an imperial mace
-M 0 5303  11 5324  1	* an imperial cityguard
-E 1 5321  10    4	*   an imperial cloak
-E 1 5319  10    5	*   an imperial chest plate
-E 1 5320  10   11	*   an imperial shield
-E 1 5317  -1   16	*   an imperial sword
-M 0 5303  11 5331  1	* an imperial cityguard
-E 1 5319  10    5	*   an imperial chest plate
-E 1 5327  10   12	*   an imperial cape
-E 1 5328  10   13	*   an imperial belt
-E 1 5329  10   14	*   an imperial metal bracer
-E 1 5318  -1   16	*   an imperial mace
-M 0 5303  11 5334  1	* an imperial cityguard
-E 1 5330  10    1	*   an imperial city guard signet ring
-E 1 5321  10    4	*   an imperial cloak
-E 1 5319  10    5	*   an imperial chest plate
-E 1 5320  10   11	*   an imperial shield
-E 1 5317  -1   16	*   an imperial sword
-M 0 5303  11 5341  1	* an imperial cityguard
-E 1 5321  10    4	*   an imperial cloak
-E 1 5319  10    5	*   an imperial chest plate
-E 1 5327  10   12	*   an imperial cape
-E 1 5318  -1   16	*   an imperial mace
-M 0 5303  11 5350  1	* an imperial cityguard
-E 1 5321  10    4	*   an imperial cloak
-E 1 5319  10    5	*   an imperial chest plate
-E 1 5320  10   11	*   an imperial shield
-E 1 5317  -1   16	*   an imperial sword
-M 0 5303  11 5352  1	* an imperial cityguard
-E 1 5330  10    1	*   an imperial city guard signet ring
-E 1 5319  10    5	*   an imperial chest plate
-E 1 5327  10   12	*   an imperial cape
-E 1 5328  10   13	*   an imperial belt
-E 1 5318  -1   16	*   an imperial mace
-M 0 5304   9 5302  1	* a female citizen of Thalos
-M 0 5302   9 5304  1	* a citizen of Thalos
-M 0 5304   9 5307  1	* a female citizen of Thalos
-M 0 5302   9 5308  1	* a citizen of Thalos
-M 0 5304   9 5312  1	* a female citizen of Thalos
-M 0 5302   9 5316  1	* a citizen of Thalos
-M 0 5304   9 5326  1	* a female citizen of Thalos
-M 0 5302   9 5327  1	* a citizen of Thalos
-M 0 5304   9 5330  1	* a female citizen of Thalos
-M 0 5302   9 5330  1	* a citizen of Thalos
-M 0 5304   9 5332  1	* a female citizen of Thalos
-M 0 5302   9 5338  1	* a citizen of Thalos
-M 0 5304   9 5340  1	* a female citizen of Thalos
-M 0 5302   9 5344  1	* a citizen of Thalos
-M 0 5304   9 5344  1	* a female citizen of Thalos
-M 0 5302   9 5350  1	* a citizen of Thalos
-M 0 5304   9 5361  1	* a female citizen of Thalos
-M 0 5302   9 5367  9	* a citizen of Thalos
-R 0 5375   5     	* The Void
-R 0 5376   6     	* The Void
-R 0 5377   6     	* The Void
-R 0 5378   5     	* The Void
-M 0 5327   2 5368  1	* a druid
-G 1 5313  -1     	*   some bluish herbs
-M 0 5327   2 5371  1	* a druid
-G 1 5315  -1     	*   some grayish herbs
-M 0 5328   2 5374  1	* a druidess
-G 1 5314  -1     	*   some purplish herbs
-M 0 5328   2 5372  1	* a druidess
-G 1 5316  -1     	*   some orangish herbs
-M 0 5322   2 5367  2	* a doe
-M 0 5323   3 5370  2	* a deer
-M 0 5324   1 5369  1	* a stag
-M 0 5325   3 5373  3	* a small bunny
-M 0 5326   4 5372  2	* a harmless snake
-M 0 5334   1 5384  1	* the cityguard
-E 1 3365  10    0	*   a war banner
-E 1 3364  10    1	*   a city guard signet ring
-E 1 3350  -1   16	*   a standard issue sword
-E 1 3353  10    5	*   a standard issue vest
-E 1 3354  10   11	*   a standard issue shield
-M 0 5331   1 5381  1	* the cityguard
-E 1 3365  10    0	*   a war banner
-E 1 3364  10    1	*   a city guard signet ring
-E 1 3350  -1   16	*   a standard issue sword
-E 1 3353  10    5	*   a standard issue vest
-E 1 3355  10    4	*   a standard issue cloak
-M 0 5332   2 5380  2	* the janitor
-M 0 5333   3 5382  3	* the beastly fido
-M 0 5323   3 5358  2	* a deer
-M 0 5326   4 5356  2	* a harmless snake
-M 0 5345   1 5397  1    * Templeman
-M 0 5342   1 5386  1    * Healer
-M 0 5341   1 5379  1    * Hassan
-E 1 3005   1   16       *   Hassan's scimitar                       
-O 0 3010   1 5386	* the donation pit
-M 0 5335   1 5391  1	* the wizard
-G 1 3040  -1     	*   a scroll of identify
-G 1 3041  -1		*   a yellow potion of see invisible
-G 1 3039  -1     	*   a scroll of cancellation
-G 1 3042  -1     	*   a scroll of recall
-G 1 3043  -1     	*   a ring of protection
-G 1 3044  -1     	*   a wand of magic missiles
-M 0 5338   1 5389  1	* the weaponsmith
-G 1 3020  -1     	*   a dagger
-G 1 3021  -1     	*   a small sword
-G 1 3022  -1     	*   a long sword
-G 1 3023  -1     	*   a club
-G 1 3024  -1     	*   a mace
-G 1 3025  -1     	*   a hand axe
-G 1 3026  -1     	*   a battle axe
-G 1 3027  -1     	*   a spear
-G 1 3028  -1     	*   a wooden staff
-G 1 3029  -1     	*   a flail
-E 1 3022  -1   16	*   a long sword
-M 0 5339   1 5390  1	* the armourer
-G 1 3072  -1     	*   a scale mail jerkin
-G 1 3073  -1     	*   a scale mail coif
-G 1 3074  -1     	*   a long scale mail skirt
-G 1 3075  -1     	*   a pair of reinforced boots
-G 1 3076  -1     	*   a pair of reinforced gloves
-G 1 3077  -1     	*   a pair of scale mail sleeves
-G 1 3110  -1     	*   a chain mail shirt
-G 1 3111  -1     	*   a chain mail coif
-G 1 3112  -1     	*   a long chain mail skirt
-G 1 3113  -1     	*   a pair of iron-bound boots
-G 1 3114  -1     	*   a pair of chain mail gauntlets
-G 1 3115  -1     	*   a pair of chain mail sleeves
-G 1 3116  -1     	*   a large metal shield
-G 1 3097  -1     	*   a small metal shield
-G 1 3117  -1     	*   a small wooden shield
-E 1 3022  -1   16	*   a long sword
-M 0 5337   1 5388  1	* the grocer
-G 1 3030  -1     	*   a torch
-G 1 3031  -1     	*   a hooded brass lantern
-G 1 3138  -1     	*   a buffalo water skin
-G 1 3032  -1     	*   a bag
-G 1 3033  -1     	*   a box
-E 1 3022 900   16	*   a long sword
-M 0 5336   1 5387  1	* the baker
-G 1 3009  -1     	*   a big pot pie
-G 1 3011  -1     	*   a bread
-G 1 3012  -1     	*   a cinnamon roll
-G 1 3013  -1     	*   a batch of Sara's cookies
-G 1 3014  -1     	*   a blueberry danish
-E 1 3022 100   16	*   a long sword
-M 0 5340   1 5392  1	* the jeweller
-G 1 3378  -1     	*   an opal
-G 1 3377  -1     	*   a diamond
-G 1 3376  -1     	*   a ruby
-G 1 3375  -1     	*   an emerald
-G 1 3374  -1     	*   a garnet
-G 1 3373  -1     	*   a small pearl
-M 0 5343   1 5394  1	* the guildmaster (Necromancer)
-M 0 5344   1 5396  1	* the guildmaster (Vampire)
-O 0 3135   2 5380	* a fountain
-D 0 5365   5  1
-*D 0 5365   0  2
-S
 
-#SHOPS
-5310  0  0  0  0  0 	 120  90 	 0 23 	* Dan the Barkeep
-5311  5 17 19  0  0 	 110  90 	 6 20 	* George the Butcher
-5312 19  0  0  0  0 	 110  90 	 7 19 	* Farmer Betty
-5313  5  9  0  0  0 	 130  70 	 5 21 	* Thaellor the dwarf
-5314  1  8 12 13 22 	 135  65 	 8 18 	* Ben the Smith
-5317  2  3  4 10  0 	 120  50 	 9 17 	* an old wizard
-5335  2  3  4 10  0 	 105  15 	 0 23 	* the wizard
-5336  0  0  0  0  0 	 110 100 	 0 23 	* the baker
-5337  1  8 13 15 19 	 150  40 	 0 23 	* the grocer
-5338  5  6  7  0  0 	 120  40 	 0 23 	* the weaponsmith
-5339  9  0  0  0  0 	 100  50 	 0 23 	* the armourer
-5340  8 30 32 33  0 	 110 100 	 0 23 	* the jeweller
-
-0
 
 #SPECIALS
-M 5300 spec_cast_mage      	* the baby beholder
-M 5303 spec_guard          	* an imperial cityguard
-M 5305 spec_guard          	* Gordon the Brave
-M 5306 spec_cast_cleric    	* the fanatic priest
-M 5307 spec_cast_cleric    	* the priest of Thalos
-M 5317 spec_cast_mage      	* an old wizard
-M 5320 spec_guard          	* An imperial cityguard
-M 5321 spec_guard          	* an imperial cityguard
-M 5327 spec_cast_cleric    	* a druid
-M 5328 spec_cast_cleric    	* a druidess
-M 5331 spec_guard          	* the cityguard
-M 5332 spec_janitor        	* the janitor
-M 5333 spec_fido           	* the beastly fido
-M 5334 spec_guard          	* the cityguard
-M 5338 spec_repairman		* weaponsmith
-M 5339 spec_repairman		* armourer
-M 5345 spec_cast_adept 		* templeman
-M 5342 spec_cast_adept		* templeman
+M 5300 spec_cast_mage	* the baby beholder
+M 5303 spec_guard	* an imperial cityguard
+M 5305 spec_guard	* Gordon the Brave
+M 5306 spec_cast_cleric	* the fanatic priest
+M 5307 spec_cast_cleric	* the priest of Thalos
+M 5317 spec_cast_mage	* an old wizard
+M 5320 spec_guard	* An imperial cityguard
+M 5321 spec_guard	* an imperial cityguard
+M 5327 spec_cast_cleric	* a druid
+M 5328 spec_cast_cleric	* a druidess
+M 5331 spec_guard	* the cityguard
+M 5332 spec_janitor	* the janitor
+M 5333 spec_fido	* the beastly fido
+M 5334 spec_guard	* the cityguard
+M 5338 spec_repairman	* the weaponsmith
+M 5339 spec_repairman	* the armourer
+M 5342 spec_cast_adept	* the healer
+M 5345 spec_cast_adept	* the templeman
 S
 
-#OMPROGS
-M 5345 speech_prog speech_prog_templeman
-M 5345 greet_prog greet_prog_templeman
+
+
+#RESETS
+D 0 5365 5 1	* The Plains: door to the down: closed
+M 0 5301 20 5300 1	* the pet lamia (The Grand Gate of Thalos)
+E 0 5300 0 3		*	A lamia collar: around the neck (1)
+M 0 5330 1 5300 1	* bard of Thalos (The Grand Gate of Thalos)
+E 0 5311 0 17		*	A silver flute: held in the hands
+M 0 5321 2 5300 2	* an imperial cityguard (The Grand Gate of Thalos)
+E 0 5331 0 0		*	An imperial war banner: as a light
+E 0 5319 0 5		*	An imperial chest plate: on the body
+E 0 5322 0 6		*	An imperial helm: over the head
+E 0 5323 0 7		*	A pair of imperial plate leggings: on the legs
+E 0 5324 0 8		*	A pair of imperial plate boots: on the feet
+E 0 5325 0 9		*	A pair of imperial plate gloves: on the hands
+E 0 5320 0 11		*	An imperial shield: as a shield
+E 0 5318 0 16		*	An imperial mace: wielded
+M 0 5321 2 5300 2	* an imperial cityguard (The Grand Gate of Thalos)
+E 0 5331 0 0		*	An imperial war banner: as a light
+E 0 5319 0 5		*	An imperial chest plate: on the body
+E 0 5324 0 8		*	A pair of imperial plate boots: on the feet
+E 0 5325 0 9		*	A pair of imperial plate gloves: on the hands
+E 0 5326 0 10		*	A pair of imperial plate sleeves: on the arms
+E 0 5320 0 11		*	An imperial shield: as a shield
+E 0 5317 0 16		*	An imperial sword: wielded
+M 0 5303 11 5300 1	* an imperial cityguard (The Grand Gate of Thalos)
+E 0 5321 0 4		*	An imperial cloak: around the neck (2)
+E 0 5319 0 5		*	An imperial chest plate: on the body
+E 0 5327 0 12		*	An imperial cape: about the shoulders
+E 0 5329 0 14		*	An imperial metal bracer: on the left wrist
+E 0 5318 0 16		*	An imperial mace: wielded
+M 0 5304 9 5302 1	* a female citizen of Thalos (Main Street)
+M 0 5301 20 5304 1	* the pet lamia (A Garden Path)
+E 0 5300 0 3		*	A lamia collar: around the neck (1)
+M 0 5303 11 5304 1	* an imperial cityguard (A Garden Path)
+E 0 5321 0 4		*	An imperial cloak: around the neck (2)
+E 0 5319 0 5		*	An imperial chest plate: on the body
+E 0 5320 0 11		*	An imperial shield: as a shield
+E 0 5317 0 16		*	An imperial sword: wielded
+M 0 5302 9 5304 1	* a citizen of Thalos (A Garden Path)
+M 0 5301 20 5306 1	* the pet lamia (A Garden Path)
+E 0 5300 0 3		*	A lamia collar: around the neck (1)
+M 0 5303 11 5307 1	* an imperial cityguard (The market place)
+E 0 5321 0 4		*	An imperial cloak: around the neck (2)
+E 0 5319 0 5		*	An imperial chest plate: on the body
+E 0 5328 0 13		*	An imperial belt: around the waist
+E 0 5329 0 14		*	An imperial metal bracer: on the left wrist
+E 0 5318 0 16		*	An imperial mace: wielded
+M 0 5304 9 5307 1	* a female citizen of Thalos (The market place)
+M 0 5302 9 5308 1	* a citizen of Thalos (The market place)
+M 0 5301 20 5310 1	* the pet lamia (A Side Street)
+E 0 5300 0 3		*	A lamia collar: around the neck (1)
+M 0 5304 9 5312 1	* a female citizen of Thalos (A side street)
+M 0 5303 11 5313 1	* an imperial cityguard (A side street)
+E 0 5330 0 1		*	An imperial city guard signet ring: on the left finger
+E 0 5321 0 4		*	An imperial cloak: around the neck (2)
+E 0 5319 0 5		*	An imperial chest plate: on the body
+E 0 5320 0 11		*	An imperial shield: as a shield
+E 0 5317 0 16		*	An imperial sword: wielded
+M 0 5301 20 5314 1	* the pet lamia (A side street)
+E 0 5300 0 3		*	A lamia collar: around the neck (1)
+M 0 5303 11 5315 1	* an imperial cityguard (Under another grand watchtower)
+E 0 5321 0 4		*	An imperial cloak: around the neck (2)
+E 0 5319 0 5		*	An imperial chest plate: on the body
+E 0 5327 0 12		*	An imperial cape: about the shoulders
+E 0 5328 0 13		*	An imperial belt: around the waist
+E 0 5318 0 16		*	An imperial mace: wielded
+M 0 5301 20 5316 1	* the pet lamia (A back alley)
+E 0 5300 0 3		*	A lamia collar: around the neck (1)
+M 0 5302 9 5316 1	* a citizen of Thalos (A back alley)
+M 0 5311 1 5317 1	* George the Butcher (The meat stand)
+G 0 5219 0		*	A chunk of venison
+E 0 601 0 16		*	A meat cleaver: wielded
+G 0 602 0		*	A side of beef
+G 0 603 0		*	A side of pork
+G 0 604 0		*	A side of horse
+G 0 605 0		*	A defeathered chicken
+M 0 5306 1 5319 1	* the fanatic priest (The guild house)
+E 0 5218 0 3		*	A demon-faced talisman: around the neck (1)
+E 0 5222 0 12		*	A black silk robe: about the shoulders
+E 0 5252 0 16		*	A long slim dagger: wielded
+E 0 5239 0 17		*	A dull grey stone: held in the hands
+M 0 5301 20 5320 1	* the pet lamia (The produce stand)
+E 0 5300 0 3		*	A lamia collar: around the neck (1)
+M 0 5312 1 5320 1	* Farmer Betty (The produce stand)
+G 0 609 0		*	A head of cabbage
+G 0 610 0		*	A head of lettuce
+G 0 611 0		*	A bottle of milk
+G 0 612 0		*	An apple
+G 0 613 0		*	An ear of corn
+M 0 5314 1 5321 1	* Ben the Smith (The smithy)
+G 0 601 0		*	A meat cleaver
+G 0 615 0		*	A pitchfork
+M 0 5301 20 5322 1	* the pet lamia (The tapestry stand)
+E 0 5300 0 3		*	A lamia collar: around the neck (1)
+M 0 5303 11 5324 1	* an imperial cityguard (Under the watchtower)
+E 0 5321 0 4		*	An imperial cloak: around the neck (2)
+E 0 5319 0 5		*	An imperial chest plate: on the body
+E 0 5320 0 11		*	An imperial shield: as a shield
+E 0 5317 0 16		*	An imperial sword: wielded
+M 0 5301 20 5326 1	* the pet lamia (A simple clay dwelling)
+E 0 5300 0 3		*	A lamia collar: around the neck (1)
+M 0 5304 9 5326 1	* a female citizen of Thalos (A simple clay dwelling)
+M 0 5302 9 5327 1	* a citizen of Thalos (A stone dwelling)
+M 0 5301 20 5328 1	* the pet lamia (A back alley)
+E 0 5300 0 3		*	A lamia collar: around the neck (1)
+M 0 5313 1 5329 1	* Thaellor the dwarf (A busy shop)
+M 0 5329 2 5330 2	* bard of Thalos (The Tavern of the Sun)
+E 0 5309 0 17		*	A mandolin: held in the hands
+M 0 5329 2 5330 2	* bard of Thalos (The Tavern of the Sun)
+E 0 5310 0 17		*	A golden harp: held in the hands
+M 0 5310 1 5330 1	* Dan the Barkeep (The Tavern of the Sun)
+G 0 648 0		*	A shot of whiskey
+G 0 649 0		*	A quart of ale
+G 0 650 0		*	A quart of port brew
+M 0 5304 9 5330 1	* a female citizen of Thalos (The Tavern of the Sun)
+M 0 5302 9 5330 1	* a citizen of Thalos (The Tavern of the Sun)
+M 0 5309 1 5331 1	* the mayor of Thalos (South wing of the city hall)
+E 0 5224 0 17		*	An engraved ebony seal: held in the hands
+O 0 5307 0 5331		* The curved desk (South wing of the city hall)
+P 0 5304 4 5307 1	* The curved desk: The curved desk
+P 0 5305 4 5307 1	* The curved desk: The curved desk
+P 0 5231 9 5307 1	* The curved desk: The curved desk
+M 0 5303 11 5331 1	* an imperial cityguard (South wing of the city hall)
+E 0 5319 0 5		*	An imperial chest plate: on the body
+E 0 5327 0 12		*	An imperial cape: about the shoulders
+E 0 5328 0 13		*	An imperial belt: around the waist
+E 0 5329 0 14		*	An imperial metal bracer: on the left wrist
+E 0 5318 0 16		*	An imperial mace: wielded
+M 0 5301 20 5332 1	* the pet lamia (The city hall)
+E 0 5300 0 3		*	A lamia collar: around the neck (1)
+M 0 5304 9 5332 1	* a female citizen of Thalos (The city hall)
+O 0 5308 0 5333		* The glass cabinet (East wing of the city hall)
+P 0 3105 8 5308 1	* The glass cabinet: The glass cabinet
+P 0 5214 8 5308 1	* The glass cabinet: The glass cabinet
+P 0 5230 1 5308 1	* The glass cabinet: The glass cabinet
+M 0 5301 20 5334 1	* the pet lamia (The private gardens and courtyard of Thalos)
+E 0 5300 0 3		*	A lamia collar: around the neck (1)
+O 0 5306 0 5334		* A large beautiful fountain (The private gardens and courtyard of Thalos)
+M 0 5303 11 5334 1	* an imperial cityguard (The private gardens and courtyard of Thalos)
+E 0 5330 0 1		*	An imperial city guard signet ring: on the left finger
+E 0 5321 0 4		*	An imperial cloak: around the neck (2)
+E 0 5319 0 5		*	An imperial chest plate: on the body
+E 0 5320 0 11		*	An imperial shield: as a shield
+E 0 5317 0 16		*	An imperial sword: wielded
+M 0 5320 3 5335 3	* An imperial cityguard (A small guard house)
+E 0 5330 0 1		*	An imperial city guard signet ring: on the left finger
+E 0 5321 0 4		*	An imperial cloak: around the neck (2)
+E 0 5319 0 5		*	An imperial chest plate: on the body
+E 0 5327 0 12		*	An imperial cape: about the shoulders
+E 0 5328 0 13		*	An imperial belt: around the waist
+E 0 5317 0 16		*	An imperial sword: wielded
+M 0 5320 3 5335 3	* An imperial cityguard (A small guard house)
+E 0 5330 0 1		*	An imperial city guard signet ring: on the left finger
+E 0 5321 0 4		*	An imperial cloak: around the neck (2)
+E 0 5319 0 5		*	An imperial chest plate: on the body
+E 0 5327 0 12		*	An imperial cape: about the shoulders
+E 0 5329 0 14		*	An imperial metal bracer: on the left wrist
+E 0 5318 0 16		*	An imperial mace: wielded
+M 0 5320 3 5335 3	* An imperial cityguard (A small guard house)
+E 0 5321 0 4		*	An imperial cloak: around the neck (2)
+E 0 5319 0 5		*	An imperial chest plate: on the body
+E 0 5327 0 12		*	An imperial cape: about the shoulders
+E 0 5328 0 13		*	An imperial belt: around the waist
+E 0 5329 0 14		*	An imperial metal bracer: on the left wrist
+E 0 5317 0 16		*	An imperial sword: wielded
+M 0 5305 1 5336 1	* Gordon the Brave (An impressive house)
+E 0 5204 0 8		*	A pair of mithril boots: on the feet
+E 0 5203 0 10		*	Some mithril sleeves: on the arms
+E 0 5205 0 7		*	A set of mithril leggings: on the legs
+E 0 5206 0 13		*	A mithril girth: around the waist
+E 0 5201 0 6		*	A mithril helm: over the head
+E 0 5202 0 9		*	A pair of mithril gauntlets: on the hands
+E 0 5301 0 5		*	A beautiful iron breast plate: on the body
+E 0 5332 0 16		*	A two-handed sword: wielded
+E 0 5226 0 17		*	An engraved ivory seal: held in the hands
+M 0 5315 1 5337 1	* the librarian (A Public Library)
+M 0 5301 20 5338 1	* the pet lamia (The Library Addition)
+E 0 5300 0 3		*	A lamia collar: around the neck (1)
+M 0 5317 1 5338 1	* an old wizard (The Library Addition)
+M 0 5302 9 5338 1	* a citizen of Thalos (The Library Addition)
+M 0 5301 20 5340 1	* the pet lamia (A back alley)
+E 0 5300 0 3		*	A lamia collar: around the neck (1)
+M 0 5304 9 5340 1	* a female citizen of Thalos (A back alley)
+M 0 5303 11 5341 1	* an imperial cityguard (Under a watchtower)
+E 0 5321 0 4		*	An imperial cloak: around the neck (2)
+E 0 5319 0 5		*	An imperial chest plate: on the body
+E 0 5327 0 12		*	An imperial cape: about the shoulders
+E 0 5318 0 16		*	An imperial mace: wielded
+M 0 5319 2 5342 2	* a man (A bath house)
+M 0 5301 20 5344 1	* the pet lamia (A Resting Room)
+E 0 5300 0 3		*	A lamia collar: around the neck (1)
+M 0 5318 4 5344 4	* a beautiful masseuse (A Resting Room)
+M 0 5302 9 5344 1	* a citizen of Thalos (A Resting Room)
+M 0 5304 9 5344 1	* a female citizen of Thalos (A Resting Room)
+M 0 5316 2 5345 2	* a young scholar (On the second floor of the library)
+M 0 5301 20 5346 1	* the pet lamia (The north-west watchtower)
+E 0 5300 0 3		*	A lamia collar: around the neck (1)
+M 0 5308 8 5346 2	* the stone golem (The north-west watchtower)
+E 0 5221 0 16		*	A two-handed sword: wielded
+E 0 5233 0 17		*	A deep red stone: held in the hands
+M 0 5308 8 5347 2	* the stone golem (The south-west watchtower)
+E 0 5221 0 16		*	A two-handed sword: wielded
+E 0 5232 0 17		*	An incandescent blue stone: held in the hands
+M 0 5301 20 5348 1	* the pet lamia (The north-east watchtower)
+E 0 5300 0 3		*	A lamia collar: around the neck (1)
+M 0 5308 8 5348 2	* the stone golem (The north-east watchtower)
+E 0 5221 0 16		*	A two-handed sword: wielded
+E 0 5235 0 17		*	A pearly white stone: held in the hands
+M 0 5300 1 5350 1	* the baby beholder (The Temple of Thalos)
+E 0 5243 0 17		*	A clear stone: held in the hands
+M 0 5307 1 5350 1	* the priest of Thalos (The Temple of Thalos)
+E 0 5302 0 17		*	A green serpentine staff: held in the hands
+E 0 5223 0 3		*	A dark green cloak: around the neck (1)
+M 0 5301 20 5350 1	* the pet lamia (The Temple of Thalos)
+E 0 5300 0 3		*	A lamia collar: around the neck (1)
+M 0 5303 11 5350 1	* an imperial cityguard (The Temple of Thalos)
+E 0 5321 0 4		*	An imperial cloak: around the neck (2)
+E 0 5319 0 5		*	An imperial chest plate: on the body
+E 0 5320 0 11		*	An imperial shield: as a shield
+E 0 5317 0 16		*	An imperial sword: wielded
+M 0 5302 9 5350 1	* a citizen of Thalos (The Temple of Thalos)
+M 0 5301 20 5352 1	* the pet lamia (Under a watchtower)
+E 0 5300 0 3		*	A lamia collar: around the neck (1)
+M 0 5303 11 5352 1	* an imperial cityguard (Under a watchtower)
+E 0 5330 0 1		*	An imperial city guard signet ring: on the left finger
+E 0 5319 0 5		*	An imperial chest plate: on the body
+E 0 5327 0 12		*	An imperial cape: about the shoulders
+E 0 5328 0 13		*	An imperial belt: around the waist
+E 0 5318 0 16		*	An imperial mace: wielded
+M 0 5301 20 5354 1	* the pet lamia (The south-east watchtower)
+E 0 5300 0 3		*	A lamia collar: around the neck (1)
+M 0 5308 8 5354 2	* the stone golem (The south-east watchtower)
+E 0 5221 0 16		*	A two-handed sword: wielded
+E 0 5237 0 17		*	A lavender and green stone: held in the hands
+M 0 5326 4 5356 2	* a harmless snake (A trail at the end of the dwarf forest)
+M 0 5323 3 5358 2	* a deer (The dwarf forest)
+M 0 5304 9 5361 1	* a female citizen of Thalos (The dwarf forest)
+M 0 5302 9 5367 9	* a citizen of Thalos (The holy grove)
+M 0 5322 2 5367 2	* a doe (The holy grove)
+M 0 5327 2 5368 1	* a druid (A clearing in the woods)
+G 0 5313 0		*	Some bluish herbs
+M 0 5324 1 5369 1	* a stag (The holy grove)
+M 0 5323 3 5370 2	* a deer (The sacred glade)
+M 0 5327 2 5371 1	* a druid (The holy grove)
+G 0 5315 0		*	Some grayish herbs
+M 0 5328 2 5372 1	* a druidess (The holy grove)
+G 0 5316 0		*	Some orangish herbs
+M 0 5326 4 5372 2	* a harmless snake (The holy grove)
+M 0 5325 3 5373 3	* a small bunny (The sunny field)
+M 0 5328 2 5374 1	* a druidess (The croquet lawn)
+G 0 5314 0		*	Some purplish herbs
+R 0 5375 5	* The Void: randomize
+R 0 5376 6	* The Void: randomize
+R 0 5377 6	* The Void: randomize
+R 0 5378 5	* The Void: randomize
+M 0 5341 1 5379 1	* Qeustor (The Temple Of Midgaard)
+E 0 3005 0 16		*	Quest's sword: wielded
+M 0 5332 2 5380 2	* the janitor (The Temple Square)
+O 0 3135 0 5380		* A fountain (The Temple Square)
+M 0 5331 1 5381 1	* the cityguard (Market Square)
+E 0 3365 0 0		*	A war banner: as a light
+E 0 3364 0 1		*	A city guard signet ring: on the left finger
+E 0 3350 0 16		*	A standard issue sword: wielded
+E 0 3353 0 5		*	A standard issue vest: on the body
+E 0 3355 0 4		*	A standard issue cloak: around the neck (2)
+M 0 5333 3 5382 3	* the beastly fido (The Main Street)
+M 0 5334 1 5384 1	* the cityguard (Inside the East Gate of Midgaard)
+E 0 3365 0 0		*	A war banner: as a light
+E 0 3364 0 1		*	A city guard signet ring: on the left finger
+E 0 3350 0 16		*	A standard issue sword: wielded
+E 0 3353 0 5		*	A standard issue vest: on the body
+E 0 3354 0 11		*	A standard issue shield: as a shield
+M 0 5342 1 5386 1	* the healer (By the Temple Altar)
+O 0 3010 0 5386		* The donation pit (By the Temple Altar)
+M 0 5336 1 5387 1	* the baker (The Bakery)
+G 0 3009 0		*	A big pot pie
+G 0 3011 0		*	A bread
+G 0 3012 0		*	A cinnamon roll
+G 0 3013 0		*	A batch of sara's cookies
+G 0 3014 0		*	A blueberry danish
+E 0 3022 0 16		*	A long sword: wielded
+M 0 5337 1 5388 1	* the grocer (The General Store)
+G 0 3030 0		*	A torch
+G 0 3031 0		*	A hooded brass lantern
+G 0 3138 0		*	A buffalo water skin
+G 0 3032 0		*	A bag
+G 0 3033 0		*	A box
+E 0 3022 0 16		*	A long sword: wielded
+M 0 5338 1 5389 1	* the weaponsmith (The Weapon Shop)
+G 0 3020 0		*	A dagger
+G 0 3021 0		*	A small sword
+G 0 3022 0		*	A long sword
+G 0 3023 0		*	A club
+G 0 3024 0		*	A mace
+G 0 3025 0		*	A hand axe
+G 0 3026 0		*	A battle axe
+G 0 3027 0		*	A spear
+G 0 3028 0		*	A wooden staff
+G 0 3029 0		*	A flail
+E 0 3022 0 16		*	A long sword: wielded
+M 0 5339 1 5390 1	* the armourer (The Armoury)
+G 0 3072 0		*	A scale mail jerkin
+G 0 3073 0		*	A scale mail coif
+G 0 3074 0		*	A long scale mail skirt
+G 0 3075 0		*	A pair of reinforced boots
+G 0 3076 0		*	A pair of reinforced gloves
+G 0 3077 0		*	A pair of scale mail sleeves
+G 0 3110 0		*	A chain mail shirt
+G 0 3111 0		*	A chain mail coif
+G 0 3112 0		*	A long chain mail skirt
+G 0 3113 0		*	A pair of iron-bound boots
+G 0 3114 0		*	A pair of chain mail gauntlets
+G 0 3115 0		*	A pair of chain mail sleeves
+G 0 3116 0		*	A large metal shield
+G 0 3097 0		*	A small metal shield
+G 0 3117 0		*	A small wooden shield
+E 0 3022 0 16		*	A long sword: wielded
+M 0 5335 1 5391 1	* the wizard (The Magic Shop)
+G 0 3040 0		*	A scroll of identify
+G 0 3041 0		*	A swirling potion of return
+G 0 3039 0		*	A scroll of cancellation
+G 0 3042 0		*	A scroll of recall
+G 0 3043 0		*	A ring of protection
+G 0 3044 0		*	A wand of magic missiles
+M 0 5340 1 5392 1	* the jeweller (The Jeweller's Shop)
+G 0 3378 0		*	An opal
+G 0 3377 0		*	A diamond
+G 0 3376 0		*	A ruby
+G 0 3375 0		*	An emerald
+G 0 3374 0		*	A garnet
+G 0 3373 0		*	A small pearl
+M 0 5343 1 5394 1	* the guildmaster (Necromancer's laboratory)
+M 0 5344 1 5396 1	* the guildmaster (Vampire's laboratory)
+M 0 5345 1 5397 1	* the templeman (Room of Templeman)
 S
+
+
+
+#SHOPS
+5310 0 0 0 0 0 120 90 0 23
+5311 5 17 19 0 0 110 90 6 20
+5312 19 0 0 0 0 110 90 7 19
+5313 5 9 0 0 0 130 70 5 21
+5314 1 8 12 13 22 135 65 8 18
+5317 2 3 4 10 0 120 50 9 17
+5335 2 3 4 10 0 105 15 0 23
+5336 0 0 0 0 0 110 100 0 23
+5337 1 8 13 15 19 150 40 0 23
+5338 5 6 7 0 0 120 40 0 23
+5339 9 0 0 0 0 100 50 0 23
+5340 8 30 32 33 0 110 100 0 23
+0
+
+
+
+#OLIMITS
+S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
 
 #$
