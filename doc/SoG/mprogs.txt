@@ -1,5 +1,5 @@
 #
-# $Id: mprogs.txt,v 1.25 2004-02-12 22:01:08 sg Exp $
+# $Id: mprogs.txt,v 1.26 2004-02-13 14:56:54 fjoe Exp $
 #
 
 MPC code style
@@ -21,12 +21,13 @@ MPC types and classes
 
 int	-- integer
 string	-- a string
-Char	-- character or mobile (CHAR_DATA)
-Obj	-- object (OBJ_DATA)
-Room	-- Room (ROOM_INDEX_DATA)
+Char	-- a character or mobile (CHAR_DATA)
+Obj	-- an object (OBJ_DATA)
+Room	-- a room (ROOM_INDEX_DATA)
+Affect	-- an affect (AFFECT_DATA)
 
 'int' and 'string' are basic types and do not have properties
-'Char', 'Obj' and 'Room' properties are listed below:
+'Char', 'Obj', 'Room' and 'Affect' properties are listed below:
 
 class Char {
 	mutable int gold;	// количество золотых монет
@@ -89,6 +90,17 @@ class Obj {
 class Room {
 	int sector_type;	// тип сектора (SECTOR_XXX)
 	int vnum;		// vnum
+};
+
+class Affect {
+	int where;		// тип (к чему применяется)
+	string type;
+	mutable int level;	// уровень
+	mutable int duration;	// длительность
+	mutable int location;
+	mutable int str_location;
+	mutable int bitvector;
+	Char owner;		// владелец
 };
 
 Properties are read-only by default. 'mutable' properties can be changed.
@@ -309,16 +321,23 @@ act_yell(Char ch, string msg, any arg, string format)
   чаром ch выкрикивается сообщение msg, в котором могут быть использованы
   различные параметры ($N, $T etc)
 
-affect_char(Char ch, int where, string sn, int level, int duration,
-            int loc, int mod, int bits)
-  вешается на чара ch указанный аффект sn с задаваемыми характеристиками
-  (уровень level, длительность duration, ...)
+aff_new(int where, string sn)
+  создается аффект указанного типа
 
-affect_strip(Char ch, string aff)
-  снимается аффект aff с чара ch
+affect_strip(Char ch, string sn)
+  снимается аффект типа sn с чара ch
 
-affect_strip_obj(Obj p, string aff)
-  снимается аффект aff с объекта p
+affect_strip_obj(Obj p, string sn)
+  снимается аффект типа sn с объекта p
+
+affect_to_char(Char ch, Affect aff)
+  вешается аффект на указанного чара
+
+affect_to_obj(Obj obj, Affect aff)
+  вешается аффект на указанный объект
+
+affect_to_room(Room room, Affect aff)
+  вешается аффект на указанную комнату
 
 int calc_spell_damage(Char ch, int level, string sn);
   считается дамадж, который должен нанестись умением sn ("acid blast")
