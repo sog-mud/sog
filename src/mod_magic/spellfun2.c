@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.113 1999-06-10 18:18:58 fjoe Exp $
+ * $Id: spellfun2.c,v 1.114 1999-06-16 11:10:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2565,6 +2565,7 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo, int target)
 		}
 
 		undead_idx = get_mob_index(MOB_VNUM_UNDEAD);
+		mlstr_init(&ml, NULL);
 		mlstr_cpy(&ml, &obj->owner);
 
 		/*
