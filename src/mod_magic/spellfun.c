@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.195 1999-12-11 15:31:24 fjoe Exp $
+ * $Id: spellfun.c,v 1.196 1999-12-14 05:25:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2487,7 +2487,7 @@ void spell_invisibility(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act("$n fades out of existence.", victim, NULL, NULL, TO_ROOM);
 	char_puts("You fade out of existence.\n", victim);
 
-	af.where	= TO_AFFECTS;
+	af.where	= TO_INVIS;
 	af.type		= sn;
 	af.level	= level;
 	af.duration	= (level / 8 + 10);
