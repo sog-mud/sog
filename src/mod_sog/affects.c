@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.81 2002-11-30 20:31:19 fjoe Exp $
+ * $Id: affects.c,v 1.82 2003-04-17 18:28:33 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1155,7 +1155,7 @@ reset_affects(CHAR_DATA *ch)
 static void
 calc_affect_bonus(AFFECT_DATA *paf, int *hi, int *lo)
 {
-	for (; paf != NULL; paf++) {
+	for (; paf != NULL; paf = paf->next) {
 		if (IS_APPLY_AFFECT(paf)) {
 			switch (INT(paf->location)) {
 			case APPLY_HIT:
