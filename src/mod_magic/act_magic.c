@@ -23,12 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.25 2000-03-10 11:44:56 kostik Exp $
+ * $Id: act_magic.c,v 1.26 2000-06-01 17:57:44 fjoe Exp $
  */
 
 #include <stdio.h>
 #include "merc.h"
+
 #include "fight.h"
+#include "_magic.h"
 
 static int allowed_other(CHAR_DATA *ch, skill_t *sk);
 
@@ -744,7 +746,6 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 		}
 	}
 	
-
 	WAIT_STATE(ch, prayer->beats);
 
 	if ((cha = get_curr_stat(ch, STAT_CHA)) < 14) {

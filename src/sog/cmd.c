@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.13 2000-04-16 09:21:53 fjoe Exp $
+ * $Id: cmd.c,v 1.14 2000-06-01 17:57:53 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -48,7 +48,7 @@ cmd_init(cmd_t *cmd)
 	cmd->min_level = 0;
 	cmd->cmd_log = LOG_NORMAL;
 	cmd->cmd_flags = 0;
-	cmd->cmd_class = CC_ORDINARY;
+	cmd->cmd_mod = MOD_DOFUN;
 	cmd->do_fun = NULL;
 }
 
@@ -64,11 +64,11 @@ cmd_load_cb(void *p, va_list ap)
 {
 	cmd_t *cmd = (cmd_t *) p;
 
-	int cmd_class = va_arg(ap, int);
+	int cmd_mod = va_arg(ap, int);
 	module_t *m = va_arg(ap, module_t*);
 
-	if (cmd_class < 0
-	||  cmd_class == cmd->cmd_class) {
+	if (cmd_mod < 0
+	||  cmd_mod == cmd->cmd_mod) {
 		cmd->do_fun = dlsym(m->dlh, cmd->dofun_name);
 		if (cmd->do_fun == NULL)
 			log(LOG_INFO, "cmd_load: %s", dlerror());
@@ -82,10 +82,10 @@ cmd_unload_cb(void *p, va_list ap)
 {
 	cmd_t *cmd = (cmd_t *) p;
 
-	int cmd_class = va_arg(ap, int);
+	int cmd_mod = va_arg(ap, int);
 
-	if (cmd_class < 0
-	||  cmd_class == cmd->cmd_class)
+	if (cmd_mod < 0
+	||  cmd_mod == cmd->cmd_mod)
 		cmd->do_fun = NULL;
 
 	return NULL;

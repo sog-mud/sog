@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.254 2000-05-24 21:13:10 fjoe Exp $
+ * $Id: handler.c,v 1.255 2000-06-01 17:57:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,13 +47,16 @@
 #include <time.h>
 #include "merc.h"
 #include "obj_prog.h"
-#include "fight.h"
 #include "quest.h"
 #include "chquest.h"
 #include "db.h"
 #include "lang.h"
 #include "mob_prog.h"
 #include "auction.h"
+
+#include "fight.h"
+#include "magic.h"
+#include "update.h"
 
 /*
  * Room record:
@@ -2112,82 +2115,6 @@ void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, int flags)
 			buf_add(output, ".\n");
 		}
 	}
-}
-
-/*
- * Compute a saving throw.
- * Negative apply's make saving throw better.
- */
-bool saves_spell(int level, CHAR_DATA *victim, int dam_type)
-{
-	class_t *vcl;
-	int save;
-
-	save = (LEVEL(victim) - level) * 4 - victim->saving_throw;
-
-	if (IS_NPC(victim))
-		save += 40;
-
-	if (IS_AFFECTED(victim, AFF_BERSERK))
-		save += victim->level / 5;
-
-	if (dam_type == DAM_MENTAL) {
-		save += get_curr_stat(victim, STAT_WIS) - 18;
-		save += get_curr_stat(victim, STAT_INT) - 18;
-	}
-	
-	if (get_resist(victim, dam_type) == 100)
-		return TRUE;
-
-	save += get_resist(victim, dam_type) / 7;
-
-	if (!IS_NPC(victim) && (vcl = class_lookup(victim->class))
-	&&  IS_SET(vcl->class_flags, CLASS_MAGIC))
-		save = 9 * save / 10;
-	save = URANGE(5, save, 95);
-	return number_percent() < save;
-}
-
-/* RT configuration smashed */
-
-bool saves_dispel(int dis_level, int spell_level, int duration)
-{
-	int save;
-	
-	  /* impossible to dispel permanent effects */
-	if (duration == -2) return 1;
-	if (duration == -1) spell_level += 5;
-
-	save = 50 + (spell_level - dis_level) * 5;
-	save = URANGE(5, save, 95);
-	return number_percent() < save;
-}
-
-/* co-routine for dispel magic and cancellation */
-
-bool check_dispel(int dis_level, CHAR_DATA *victim, const char *sn)
-{
-	AFFECT_DATA *af;
-
-	if (is_affected(victim, sn)) {
-	    for (af = victim->affected; af != NULL; af = af->next) {
-	        if (IS_SKILL(af->type, sn)) {
-	            if (!saves_dispel(dis_level,af->level,af->duration)) {
-			skill_t *sk;
-
-	                affect_strip(victim, sn);
-			if ((sk = skill_lookup(sn)) != NULL
-			&&  !mlstr_null(&sk->msg_off)) {
-				act_mlputs(&sk->msg_off, victim, NULL, NULL,
-					   TO_CHAR, POS_DEAD);
-			}
-			return TRUE;
-		    } else
-			af->level--;
-	        }
-	    }
-	}
-	return FALSE;
 }
 
 bool check_blind_raw(CHAR_DATA *ch)
@@ -4612,4 +4539,3 @@ int get_resist(CHAR_DATA *ch, int dam_class)
 
 	return IS_IMMORTAL(ch)? 100 : 0;
 }
-

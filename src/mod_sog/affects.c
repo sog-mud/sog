@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.40 2000-04-10 14:17:03 fjoe Exp $
+ * $Id: affects.c,v 1.41 2000-06-01 17:57:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,8 +50,8 @@ AFFECT_DATA *aff_new(void)
 	AFFECT_DATA *paf;
 
 	top_affect++;
-	paf = calloc(1, sizeof(AFFECT_DATA));
-	paf->owner = NULL;
+	paf = mem_alloc(MT_AFFECT, sizeof(*paf));
+	memset(paf, 0, sizeof(*paf));
 	return paf;
 }
 
@@ -86,7 +86,7 @@ void aff_free(AFFECT_DATA *af)
 		break;
 	}
 	free_string(af->type);
-	free(af);
+	mem_free(af);
 	top_affect--;
 }
 

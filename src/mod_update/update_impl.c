@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1999 SoG Development Team
+ * Copyright (c) 1999, 2000 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,68 +23,81 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_magic.c,v 1.9 2000-06-01 17:57:44 fjoe Exp $
+ * $Id: update_impl.c,v 1.1 2000-06-01 17:57:50 fjoe Exp $
  */
 
+#include <stdlib.h>
 #include <stdarg.h>
 #include <stdio.h>
-#include <dlfcn.h>
 
-#include "typedef.h"
-#include "varr.h"
-#include "hash.h"
-#include "mlstring.h"
-#include "skills.h"
-#include "log.h"
-#include "memalloc.h"
-#include "cmd.h"
+#include "merc.h"
 
-#include "module.h"
-#define MODULE_INIT MOD_MAGIC
-#include "magic.h"
+#define MODULE_INIT MOD_UPDATE
+#include "_update.h"
 
-static void *load_cb(void *p, va_list ap);
-static void *unload_cb(void *p, va_list ap);
+hash_t uhandlers;
 
-int _module_load(module_t* m)
+void
+uhandler_init(uhandler_t *hdlr)
 {
-	varr_foreach(&commands, cmd_load_cb, MOD_MAGIC, m);
-	hash_foreach(&skills, load_cb, m);
-	dynafun_tab_register(__mod_tab(MOD_MAGIC), m);
-	return 0;
+	hdlr->name = str_empty;
+	hdlr->fun_name = str_empty;
+	hdlr->notify = str_empty;
+	hdlr->ticks = 0;
+	hdlr->iter = NULL;
+	hdlr->mod = MOD_UPDATE;
+	hdlr->cnt = 0;
+	hdlr->fun = NULL;
 }
 
-int _module_unload(module_t *m)
+uhandler_t *
+uhandler_cpy(uhandler_t *dst, uhandler_t *src)
 {
-	dynafun_tab_unregister(__mod_tab(MOD_MAGIC));
-	hash_foreach(&skills, unload_cb, NULL);
-	varr_foreach(&commands, cmd_unload_cb, MOD_MAGIC);
-	return 0;
+	dst->name = str_qdup(src->name);
+	dst->fun_name = str_qdup(src->fun_name);
+	dst->notify = str_qdup(src->notify);
+	dst->ticks = src->ticks;
+	dst->iter = src->iter;
+	dst->mod = src->mod;
+	dst->cnt = src->cnt;
+	dst->fun = src->fun;
+	return dst;
 }
 
-static void *
-load_cb(void *p, va_list ap)
+void
+uhandler_destroy(uhandler_t *hdlr)
 {
-	skill_t *sk = (skill_t*) p;
+	free_string(hdlr->name);
+	free_string(hdlr->fun_name);
+	free_string(hdlr->notify);
+}
 
-	module_t *m = va_arg(ap, module_t *);
+void
+update_register(module_t *m)
+{
+	dynafun_tab_register(__mod_tab(MOD_UPDATE), m);
+}
 
-	if (sk->skill_type == ST_SPELL
-	||  sk->skill_type == ST_PRAYER) {
-		sk->fun = dlsym(m->dlh, sk->fun_name);
-		if (sk->fun == NULL) 
-			log(LOG_INFO, "_module_load(spellfun): %s", dlerror());
+void
+update_unregister()
+{
+	dynafun_tab_unregister(__mod_tab(MOD_UPDATE));
+}
+
+void
+uhandler_update(uhandler_t *hdlr)
+{
+        if (hdlr->fun == NULL) {
+		log(LOG_INFO, "update_check: %s: NULL update fun",
+		    hdlr->name);
+		return;
 	}
-	return NULL;
-}
 
-static void *
-unload_cb(void *p, va_list ap)
-{
-	skill_t *sk = (skill_t*) p;
+	if (hdlr->iter == NULL)
+		((update_fun_t) hdlr->fun)();
+	else
+		vo_foreach(NULL, hdlr->iter, hdlr->fun);
 
-	if (sk->skill_type == ST_SPELL
-	||  sk->skill_type == ST_PRAYER)
-		sk->fun = NULL;
-	return NULL;
+	if (!IS_NULLSTR(hdlr->notify))
+		wiznet(hdlr->notify, NULL, NULL, WIZ_TICKS, 0, 0);
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_clan.c,v 1.29 2000-02-10 14:08:59 fjoe Exp $
+ * $Id: db_clan.c,v 1.30 2000-06-01 17:58:02 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -69,7 +69,6 @@ static hashdata_t h_clans =
 
 DBINIT_FUN(init_clans)
 {
-	
 	if (DBDATA_VALID(dbdata))
 		db_set_arg(dbdata, "PLISTS", NULL);
 	else

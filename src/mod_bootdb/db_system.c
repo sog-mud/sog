@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.12 2000-02-20 10:36:42 avn Exp $
+ * $Id: db_system.c,v 1.13 2000-06-01 17:58:02 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -65,8 +65,6 @@ static varrdata_t v_control_sockets = { sizeof(int), 2 };
 static varrdata_t v_info_sockets = { sizeof(int), 2 };
 static varrdata_t v_info_trusted = { sizeof(struct in_addr), 2 };
 static varrdata_t v_modules = { sizeof(module_t), 2 };
-static varrdata_t v_updates = { sizeof(update_info_t), 4,
-			(e_init_t) update_init, (e_destroy_t) update_destroy };
 
 DBINIT_FUN(init_system)
 {
@@ -75,7 +73,6 @@ DBINIT_FUN(init_system)
 		varr_init(&info_sockets, &v_info_sockets);
 		varr_init(&info_trusted, &v_info_trusted);
 		varr_init(&modules, &v_modules);
-		varr_init(&updates, &v_updates);
 	}
 }
 
@@ -101,6 +98,7 @@ DBLOAD_FUN(load_system)
 			if (IS_TOKEN(fp, "Module")) {
 				module_t *m = varr_enew(&modules);
 				m->name = fread_string(fp);
+				m->mod_id = flag_value(module_names, m->name);
 				m->file_name = str_printf("%s%c%s.so.%d",
 			 		MODULES_PATH, PATH_SEPARATOR,
 					m->name, ABI_VERSION);
@@ -110,23 +108,6 @@ DBLOAD_FUN(load_system)
 		case 'O':
 			KEY("Options", mud_options,
 			    fread_fstring(options_table, fp));
-			break;
-		case 'U':
-			if (IS_TOKEN(fp, "Update")) {
-				update_info_t *ui = varr_enew(&updates);
-				ui->name = fread_string(fp);
-				ui->max = fread_number(fp);
-				ui->cnt = number_range(1, ui->max);
-				switch (fread_number(fp)) {
-					default: ui->iter = NULL; break;
-					case 1 : ui->iter = &iter_char_world; break;
-					case 2 : ui->iter = &iter_npc_world; break;
-					case 3 : ui->iter = &iter_obj_world; break;
-				}
-				ui->fun_name = fread_string(fp);
-				ui->notify = fread_string(fp);
-				fMatch = TRUE;
-			}
 			break;
 		}
 

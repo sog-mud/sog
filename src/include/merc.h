@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.303 2000-06-01 09:36:46 fjoe Exp $
+ * $Id: merc.h,v 1.304 2000-06-01 17:57:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -127,12 +127,12 @@ enum {
 #include "tables.h"
 #include "comm.h"
 #include "comm_act.h"
-#include "memalloc.h"
 #include "hometown.h"
 
 /* utils */
 #include "log.h"
 #include "util.h"
+#include "memalloc.h"
 
 #include "race.h"
 #include "affect.h"
@@ -145,7 +145,6 @@ enum {
 #include "liquid.h"
 #include "forms.h"
 #include "vo_iter.h"
-#include "update.h"
 
 #define PFILE_VERSION	12
 #define AREA_VERSION	4
@@ -2079,19 +2078,6 @@ void	transfer_char(CHAR_DATA *ch, CHAR_DATA *vch,
 void	look_at(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
 
 void	recall(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
-
-bool	saves_spell	(int level, CHAR_DATA *victim, int dam_class);
-bool	check_dispel	(int dis_level, CHAR_DATA *victim, const char *sn);
-bool	saves_dispel	(int dis_level, int spell_level, int duration);
-
-extern const char *target_name;
-
-bool	spellbane	(CHAR_DATA *bch, CHAR_DATA *ch,
-			 int bane_chance, int bane_damage);
-bool	check_trust	(CHAR_DATA *ch, CHAR_DATA *victim);
-void	obj_cast_spell	(const char *sn, int level, CHAR_DATA *ch, void *vo);
-void	spellfun_call	(const char *sn_fun,
-			 const char *sn, int level, CHAR_DATA *ch, void *vo);
 
 bool remove_obj (CHAR_DATA * ch, int iWear, bool fReplace);
 void wear_obj   (CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace);

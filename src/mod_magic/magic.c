@@ -23,75 +23,20 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.21 2000-03-29 14:33:27 fjoe Exp $
+ * $Id: magic.c,v 1.22 2000-06-01 17:57:44 fjoe Exp $
  */
 
 #include <stdio.h>
 #include "merc.h"
+
 #include "fight.h"
-
-/*
- * The kludgy global is for spells who want more stuff from command line.
- */
-const char *target_name;
-
-/*
- * spellbane - check if 'bch' deflects the spell of 'ch'
- */
-bool spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage)
-{
-	if (IS_IMMORTAL(bch) || IS_IMMORTAL(ch))
-		return FALSE;
-
-	if (has_spec(bch, "clan_battleragers")
-	&&  number_percent() < bane_chance) {
-		if (ch == bch) {
-	        	act_puts("Your spellbane deflects the spell!",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			act("$n's spellbane deflects the spell!",
-			    ch, NULL, NULL, TO_ROOM);
-			damage(ch, ch, bane_damage, "spellbane",
-			       DAM_NEGATIVE, DAMF_SHOW);
-		} else {
-			check_improve(bch, "spellbane", TRUE, 8);
-			act_puts("$N deflects your spell!",
-				 ch, NULL, bch, TO_CHAR, POS_DEAD);
-			act("You deflect $n's spell!",
-			    ch, NULL, bch, TO_VICT);
-			act("$N deflects $n's spell!",
-			    ch, NULL, bch, TO_NOTVICT);
-			if (!is_safe(bch, ch) && !is_safe(ch, bch)) {
-				damage(bch, ch, bane_damage, "spellbane",
-				       DAM_NEGATIVE, DAMF_SHOW);
-			}
-	        }
-	        return TRUE;
-	}
-
-	return FALSE;
-}
-
-bool check_trust(CHAR_DATA *ch, CHAR_DATA *victim)
-{
-	if (ch == victim)
-		return TRUE;
-
-	if (IS_NPC(victim))
-		return is_same_group(ch, victim);
-
-	if (IS_SET(PC(victim)->trust, TRUST_ALL)) 
-		return TRUE;
-
-	return (IS_SET(PC(victim)->trust, TRUST_GROUP) &&
-		is_same_group(ch, victim))
-	    || (!IS_NULLSTR(ch->clan) && IS_SET(PC(victim)->trust, TRUST_CLAN) &&
-		IS_CLAN(ch->clan, victim->clan));
-}
+#include "_magic.h"
 
 /*
  * Cast spells at targets using a magical object.
  */
-void obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
+void *
+obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	skill_t *spell;
 	CHAR_DATA *bch = NULL;
@@ -104,13 +49,13 @@ void obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	||  (spell->skill_type != ST_SPELL &&
 	     spell->skill_type != ST_PRAYER)
 	||  spell->fun == NULL)
-		return;
+		return NULL;
 
 	switch (spell->target) {
 	default:
 		log(LOG_ERROR, "obj_cast_spell: %s: bad target %d",
 		    gmlstr_mval(&spell->sk_name), spell->target);
-		return;
+		return NULL;
 
 	case TAR_IGNORE:
 		vo = NULL;
@@ -124,7 +69,7 @@ void obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		/* mem_is handles NULL vo properly (returns FALSE) */
 		if (!mem_is(vo, MT_CHAR)) {
 			char_puts("You can't do that.\n", ch);
-			return;
+			return NULL;
 		}
 
 		bch = vo;
@@ -139,7 +84,7 @@ void obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		/* mem_is handles NULL vo properly (returns FALSE) */
 		if (!mem_is(vo, MT_CHAR)) {
 			char_puts("You can't do that.\n", ch);
-			return;
+			return NULL;
 		}
 		bch = vo;
 		bane_damage = 10*bch->level;
@@ -149,7 +94,7 @@ void obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		/* mem_is handles NULL vo properly (returns FALSE) */
 		if (!mem_is(vo, MT_OBJ)) {
 			char_puts("You can't do that.\n", ch);
-			return;
+			return NULL;
 		}
 		bch = ch;
 		bane_damage = 3*bch->level;
@@ -161,7 +106,7 @@ void obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 				vo = ch->fighting;
 			else {
 				char_puts("You can't do that.\n", ch);
-				return;
+				return NULL;
 			}
 		}
 
@@ -171,7 +116,7 @@ void obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			bane_damage = 3*bch->level;
 		} else if (!mem_is(vo, MT_OBJ)) {
 			char_puts("You can't do that.\n", ch);
-			return;
+			return NULL;
 		}
 		break;
 
@@ -185,7 +130,7 @@ void obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			bane_damage = 3*bch->level;
 		} else if (!mem_is(vo, MT_OBJ)) {
 			char_puts("You can't do that.\n", ch);
-			return;
+			return NULL;
 		}
 		break;
 	}
@@ -200,7 +145,7 @@ void obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			&&  !check_trust(ch, victim)) {
 				char_puts("They do not trust you enough "
 					  "for this spell.\n", ch);
-				return;
+				return NULL;
 			}
 			break;
 
@@ -214,7 +159,7 @@ void obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 				if (is_safe(ch, victim)) {
 					char_puts("Something isn't right...\n",
 						  ch);
-					return;
+					return NULL;
 				}
 			}
 			break;
@@ -222,7 +167,7 @@ void obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (bch && spellbane(bch, ch, bane_chance, bane_damage))
-		return;
+		return NULL;
 
 	target_name = str_empty;
 	spell->fun(sn, level, ch, vo);
@@ -237,6 +182,8 @@ void obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		if (victim->fighting == NULL)
 			multi_hit(victim, ch, NULL);
 	}
+
+	return NULL;
 }
 
 /*
@@ -244,36 +191,103 @@ void obj_cast_spell(const char *sn, int level, CHAR_DATA *ch, void *vo)
  *		    args (sn, level, ch, vo)
  *		    If `sn' is NULL it will be the same as `sn_fun'
  */
-void spellfun_call(const char *sn_fun, const char *sn, int level,
-		   CHAR_DATA *ch, void *vo)
+void *
+spellfun_call(const char *sn_fun, const char *sn, int level,
+	      CHAR_DATA *ch, void *vo)
 {
 	skill_t *sk;
 
 	if ((sk = skill_lookup(sn_fun)) == NULL) {
 		log(LOG_ERROR, "spellfun_call: %s (name): unknown or reserved spell",
 		    sn_fun);
-		return;
+		return NULL;
 	}
 
 	if (sn == NULL)
 		sn = sn_fun;
 	else if (skill_lookup(sn) == NULL) {
 		log(LOG_ERROR, "spellfun_call: %s (sn): unknown or reserved spell", sn);
-		return;
+		return NULL;
 	}
 
 	if (sk->skill_type != ST_SPELL
 	&&  sk->skill_type != ST_PRAYER) {
 		log(LOG_ERROR, "spellfun_call: %s: not a spell or prayer",
 		    gmlstr_mval(&sk->sk_name));
-		return;
+		return NULL;
 	}
 
 	if (sk->fun == NULL) {
 		log(LOG_ERROR, "spellfun_call: %s: NULL skill function",
 		    gmlstr_mval(&sk->sk_name));
-		return;
+		return NULL;
 	}
 
 	sk->fun(sn, level, ch, vo);
+
+	return NULL;
+}
+
+/*
+ * Compute a saving throw.
+ * Negative apply's make saving throw better.
+ */
+bool
+saves_spell(int level, CHAR_DATA *victim, int dam_type)
+{
+	class_t *vcl;
+	int save;
+
+	save = (LEVEL(victim) - level) * 4 - victim->saving_throw;
+
+	if (IS_NPC(victim))
+		save += 40;
+
+	if (IS_AFFECTED(victim, AFF_BERSERK))
+		save += victim->level / 5;
+
+	if (dam_type == DAM_MENTAL) {
+		save += get_curr_stat(victim, STAT_WIS) - 18;
+		save += get_curr_stat(victim, STAT_INT) - 18;
+	}
+	
+	if (get_resist(victim, dam_type) == 100)
+		return TRUE;
+
+	save += get_resist(victim, dam_type) / 7;
+
+	if (!IS_NPC(victim) && (vcl = class_lookup(victim->class))
+	&&  IS_SET(vcl->class_flags, CLASS_MAGIC))
+		save = 9 * save / 10;
+	save = URANGE(5, save, 95);
+	return number_percent() < save;
+}
+
+/*
+ * co-routine for spell_dispel_magic spell_cancellation and do_herbs
+ */
+bool
+check_dispel(int dis_level, CHAR_DATA *victim, const char *sn)
+{
+	AFFECT_DATA *af;
+
+	if (is_affected(victim, sn)) {
+	    for (af = victim->affected; af != NULL; af = af->next) {
+	        if (IS_SKILL(af->type, sn)) {
+	            if (!saves_dispel(dis_level,af->level,af->duration)) {
+			skill_t *sk;
+
+	                affect_strip(victim, sn);
+			if ((sk = skill_lookup(sn)) != NULL
+			&&  !mlstr_null(&sk->msg_off)) {
+				act_mlputs(&sk->msg_off, victim, NULL, NULL,
+					   TO_CHAR, POS_DEAD);
+			}
+			return TRUE;
+		    } else
+			af->level--;
+	        }
+	    }
+	}
+	return FALSE;
 }

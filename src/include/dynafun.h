@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.h,v 1.2 2000-06-01 09:36:46 fjoe Exp $
+ * $Id: dynafun.h,v 1.3 2000-06-01 17:57:24 fjoe Exp $
  */
 
 #ifndef _DYNAFUN_H_
@@ -50,11 +50,5 @@ void	init_dynafuns(void);
 void *	dynafun_call(cchar_t, int nargs, ...);
 void	dynafun_tab_register(dynafun_data_t *, module_t *m);
 void	dynafun_tab_unregister(dynafun_data_t *);
-
-/*
- * all the dynafun modules in system
- */
-#define MOD_FIGHT	1
-#define MOD_EFFECTS	2
 
 #endif

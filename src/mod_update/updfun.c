@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.7 2000-04-06 05:40:56 fjoe Exp $
+ * $Id: updfun.c,v 1.8 2000-06-01 17:57:51 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -33,11 +33,13 @@
 #include "merc.h"
 #include "db.h"
 #include "chquest.h"
-#include "quest.h"
 #include "auction.h"
-#include "fight.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
+
+#include "quest.h"
+#include "fight.h"
+#include "_update.h"
 
 /* locals */
 static void	*check_assist_cb(void *vo, va_list ap);
@@ -54,125 +56,10 @@ static bool	update_drinkcon(OBJ_DATA *obj);
 static inline void contents_to_obj(OBJ_DATA *obj, OBJ_DATA *to_obj);
 static inline void save_corpse_contents(OBJ_DATA *corpse);
 static void	*find_aggr_cb(void *vo, va_list ap);
-static void	*bloodthirst_cb(void *vo, va_list ap);
 static void	*raff_update_cb(void *vo, va_list ap);
 static void	*put_back_cb(void *p, va_list ap);
 static void	*clan_item_update_cb(void *p, va_list ap);
 static void	print_resetmsg(AREA_DATA *pArea);
-
-void gain_cond(CHAR_DATA *ch, int iCond, int value)
-{
-	int condition;
-	int damage_hunger;
-
-	if (value == 0 || IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
-		return;
-
-	if (IS_VAMPIRE(ch)
-	&&  (iCond == COND_THIRST ||
-	     iCond == COND_FULL ||
-	     iCond == COND_HUNGER))
-		return;
-
-	condition = PC(ch)->condition[iCond];
-
-	PC(ch)->condition[iCond] = URANGE(-6, condition + value, 96);
-
-	if (iCond == COND_FULL && (PC(ch)->condition[COND_FULL] < 0))
-		PC(ch)->condition[COND_FULL] = 0;
-
-	if ((iCond == COND_DRUNK) && (PC(ch)->condition[COND_DRUNK] < 1)) 
-		PC(ch)->condition[COND_DRUNK] = 0;
-
-	if (PC(ch)->condition[iCond] < 1
-	&&  PC(ch)->condition[iCond] > -6) {
-		switch (iCond) {
-		case COND_HUNGER:
-			char_puts("You are hungry.\n",  ch);
-			break;
-
-		case COND_THIRST:
-			char_puts("You are thirsty.\n", ch);
-			break;
-	 
-		case COND_DRUNK:
-			if (condition != 0)
-				char_puts("You are sober.\n", ch);
-			break;
-
-		case COND_BLOODLUST:
-			if (condition != 0)
-				char_puts("You are hungry for blood.\n",
-					     ch);
-			break;
-
-		case COND_DESIRE:
-			if (condition != 0)
-				char_puts("You have missed your home.\n",
-					     ch);
-			break;
-		}
-	}
-
-	if (PC(ch)->condition[iCond] == -6 && ch->level >= LEVEL_PK) {
-		switch (iCond) {
-		case COND_HUNGER:
-			char_puts("You are starving!\n",  ch);
-			act("$n is starving!",  ch, NULL, NULL, TO_ROOM);
-			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
-			if (!damage_hunger)
-				damage_hunger = 1;
-			damage(ch, ch, damage_hunger, NULL,
-			       DAM_NONE, DAMF_SHOW | DAMF_HUNGER);
-			if (ch->position == POS_SLEEPING) 
-				return;       
-			break;
-
-		case COND_THIRST:
-			char_puts("You are dying of thrist!\n", ch);
-			act("$n is dying of thirst!", ch, NULL, NULL, TO_ROOM);
-			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
-			if (!damage_hunger)
-				damage_hunger = 1;
-			damage(ch, ch, damage_hunger, NULL,
-				DAM_NONE, DAMF_SHOW | DAMF_THIRST);
-			if (ch->position == POS_SLEEPING) 
-				return;       
-			break;
-
-		case COND_BLOODLUST:
-			char_puts("You are suffering from thrist of blood!\n",
-				  ch);
-			act("$n is suffering from thirst of blood!",
-			    ch, NULL, NULL, TO_ROOM);
-			if (ch->in_room && ch->in_room->people
-			&&  ch->fighting == NULL) {
-				if (!IS_AWAKE(ch))
-					dofun("stand", ch, str_empty);
-				vo_foreach(ch->in_room, &iter_char_room,
-					   bloodthirst_cb, ch);
-				if (ch->fighting != NULL)
-					break;
-			}
-
-			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
-			if (!damage_hunger)
-				damage_hunger = 1;
-			damage(ch, ch, damage_hunger, NULL,
-				DAM_NONE, DAMF_SHOW | DAMF_THIRST);
-			if (ch->position == POS_SLEEPING) 
-				return;       		
-			break;
-
-		case COND_DESIRE:
-			char_puts("You want to go your home!\n", ch);
-			act("$n desires for $s home!", ch, NULL, NULL, TO_ROOM);
-			if (ch->position >= POS_STANDING) 
-				move_char(ch, number_door(), FALSE);
-			break;
-		}
-	}
-}
 
 void *
 violence_update_cb(void *vo, va_list ap)
@@ -1031,7 +918,7 @@ light_update(void)
 			update_pos(ch);
 
 		if (number_percent() < 10)
-			gain_cond(ch, COND_DRUNK,  -1);
+			gain_condition(ch, COND_DRUNK,  -1);
 	}
 }
 
@@ -2013,29 +1900,6 @@ find_aggr_cb(void *vo, va_list ap)
 }
 
 static void *
-bloodthirst_cb(void *vo, va_list ap)
-{
-	CHAR_DATA *vch = (CHAR_DATA *) vo;
-	CHAR_DATA *ch;
-
-	if (IS_IMMORTAL(vch))
-		return NULL;
-
-	ch = va_arg(ap, CHAR_DATA *);
-	if (ch != vch
-	&&  can_see(ch, vch)
-	&&  !is_safe_nomessage(ch, vch)) {
-		dofun("yell", ch, "BLOOD! I NEED BLOOD!");
-		dofun("murder", ch, vch->name);
-		if (IS_EXTRACTED(ch)
-		||  ch->fighting != NULL)
-			return vch;
-	}
-
-	return NULL;
-}
-
-static void *
 raff_update_cb(void *vo, va_list ap)
 {
 	ROOM_INDEX_DATA *room = va_arg(ap, ROOM_INDEX_DATA *);
@@ -2116,3 +1980,27 @@ print_resetmsg(AREA_DATA *pArea)
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 	}
 }
+
+void *
+bloodthirst_cb(void *vo, va_list ap)
+{
+	CHAR_DATA *vch = (CHAR_DATA *) vo;
+	CHAR_DATA *ch;
+
+	if (IS_IMMORTAL(vch))
+		return NULL;
+
+	ch = va_arg(ap, CHAR_DATA *);
+	if (ch != vch
+	&&  can_see(ch, vch)
+	&&  !is_safe_nomessage(ch, vch)) {
+		dofun("yell", ch, "BLOOD! I NEED BLOOD!");
+		dofun("murder", ch, vch->name);
+		if (IS_EXTRACTED(ch)
+		||  ch->fighting != NULL)
+			return vch;
+	}
+
+	return NULL;
+}
+

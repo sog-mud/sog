@@ -1,9 +1,10 @@
 #
-# $Id: Makefile,v 1.1 2000-02-20 10:26:20 avn Exp $
+# $Id: Makefile,v 1.2 2000-06-01 17:57:50 fjoe Exp $
 #
 
-MODULE = update
-CFILES = updload.c updfun.c
+MODULE=		update
+MODULE_ID=	MOD_UPDATE
+CFILES=		init_update.c update.c _update.c act_update.c updfun.c
 
 .include "../Makefile.module"
 

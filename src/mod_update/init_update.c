@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_update.c,v 1.2 2000-02-28 18:21:54 avn Exp $
+ * $Id: init_update.c,v 1.3 2000-06-01 17:57:50 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -32,19 +32,107 @@
 
 #include "merc.h"
 #include "module.h"
+#include "db.h"
 
-extern void (*gain_cond)(CHAR_DATA*, int, int);
+#include "_update.h"
+
+static hashdata_t h_uhandlers = {
+	sizeof(uhandler_t), 4,
+	(e_init_t) uhandler_init,
+	(e_destroy_t) uhandler_destroy,
+	(e_cpy_t) uhandler_cpy,
+
+	STRKEY_HASH_SIZE,
+	k_hash_str,
+	ke_cmp_str
+};
+
+DECLARE_DBLOAD_FUN(load_uhandler);
+
+DBFUN dbfun_uhandlers[] =
+{
+	{ "UHANDLER",	load_uhandler	},
+	{ NULL }
+};
+
+DBDATA db_uhandlers = { dbfun_uhandlers };
 
 int _module_load(module_t *m)
 {
-	varr_foreach(&updates, update_load_cb, m);
-	gain_cond = dlsym(m->dlh, "gain_cond");
+	hash_init(&uhandlers, &h_uhandlers);
+	db_load_file(&db_uhandlers, ETC_PATH, UHANDLERS_CONF);
+
+	varr_foreach(&commands, cmd_load_cb, MOD_UPDATE, m);
+	uhandler_load(m->name);
+	update_register(m);
 	return 0;
 }
 
 int _module_unload(module_t *m)
 {
-	varr_foreach(&updates, update_unload_cb);
-	gain_cond = NULL;
+	update_unregister();
+	uhandler_unload(m->name);
+	varr_foreach(&commands, cmd_unload_cb, MOD_UPDATE, m);
+	hash_destroy(&uhandlers);
 	return 0;
 }
+
+DBLOAD_FUN(load_uhandler)
+{
+	uhandler_t hdlr;
+
+	uhandler_init(&hdlr);
+
+	for (;;) {
+		bool fMatch = FALSE;
+
+		fread_keyword(fp);
+		switch (rfile_tokfl(fp)) {
+		case 'E':
+			if (IS_TOKEN(fp, "End")) {
+				hdlr.cnt = number_range(1, hdlr.ticks);
+				if (IS_NULLSTR(hdlr.name))
+					log(LOG_ERROR, "load_uhandler: name undefined");
+				else if (IS_NULLSTR(hdlr.fun_name))
+					log(LOG_ERROR, "load_uhandler: fun name undefined");
+				else if (!hdlr.ticks)
+					log(LOG_ERROR, "load_uhandler: ticks undefined");
+				else if (!hash_insert(&uhandlers, hdlr.name, &hdlr))
+					log(LOG_ERROR, "load_uhandler: %s: duplicate uhandler name", hdlr.name);
+				uhandler_destroy(&hdlr);
+				return;
+			}
+			break;
+
+		case 'F':
+			SKEY("Fun", hdlr.fun_name, fread_string(fp));
+			break;
+
+		case 'I':
+			KEY("Iterator", hdlr.iter,
+			    (vo_iter_t *) fread_fword(iterator_names, fp));
+			break;
+
+		case 'M':
+			KEY("Module", hdlr.mod,
+			    fread_fstring(module_names, fp));
+			break;
+
+		case 'N':
+			SKEY("Name", hdlr.name, fread_string(fp));
+			SKEY("Notify", hdlr.notify, fread_string(fp));
+			break;
+
+		case 'T':
+			KEY("Ticks", hdlr.ticks, fread_number(fp));
+			break;
+		}
+
+		if (!fMatch) {
+			log(LOG_ERROR, "load_uhandler: %s: Unknown keyword",
+			    rfile_tok(fp));
+			fread_to_eol(fp);
+		}
+	}
+}
+

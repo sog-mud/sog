@@ -23,11 +23,12 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_cmd.c,v 1.10 2000-04-03 08:54:08 fjoe Exp $
+ * $Id: olc_cmd.c,v 1.11 2000-06-01 17:57:49 fjoe Exp $
  */
 
 #include "olc.h"
 #include "socials.h"
+#include "module.h"
 
 #define EDIT_CMD(ch, cmd)	(cmd = (cmd_t*) ch->desc->pEdit)
 
@@ -44,7 +45,7 @@ DECLARE_OLC_FUN(cmded_minlevel		);
 DECLARE_OLC_FUN(cmded_dofun		);
 DECLARE_OLC_FUN(cmded_flags		);
 DECLARE_OLC_FUN(cmded_log		);
-DECLARE_OLC_FUN(cmded_class		);
+DECLARE_OLC_FUN(cmded_module		);
 DECLARE_OLC_FUN(cmded_move		);
 DECLARE_OLC_FUN(cmded_delete		);
 
@@ -65,7 +66,7 @@ olc_cmd_t olc_cmds_cmd[] =
 	{ "dofun",	cmded_dofun,	validate_funname				},
 	{ "flags",	cmded_flags,	NULL,		cmd_flags	},
 	{ "log",	cmded_log,	NULL,		cmd_logtypes	},
-	{ "class",	cmded_class,	NULL,		cmd_classes	},
+	{ "module",	cmded_module,	NULL,		module_names	},
 	{ "move",	cmded_move					},
 
 	{ "delete_cm",	olced_spell_out					},
@@ -198,8 +199,8 @@ OLC_FUN(cmded_show)
 		buf_printf(output, "Log        [%s]\n",
 			flag_string(cmd_logtypes, cmnd->cmd_log));
 	if (cmnd->cmd_log)
-		buf_printf(output, "Class      [%s]\n",
-			flag_string(cmd_classes, cmnd->cmd_class));
+		buf_printf(output, "Module     [%s]\n",
+			flag_string(module_names, cmnd->cmd_mod));
 	if (cmnd->cmd_flags)
 		buf_printf(output, "Flags      [%s]\n",
 			flag_string(cmd_flags, cmnd->cmd_flags));
@@ -277,11 +278,11 @@ OLC_FUN(cmded_log)
 	return olced_flag(ch, argument, cmd, &cmnd->cmd_log);
 }
 
-OLC_FUN(cmded_class)
+OLC_FUN(cmded_module)
 {
 	cmd_t *cmnd;
 	EDIT_CMD(ch, cmnd);
-	return olced_flag(ch, argument, cmd, &cmnd->cmd_class);
+	return olced_flag(ch, argument, cmd, &cmnd->cmd_mod);
 }
 
 OLC_FUN(cmded_minlevel)
@@ -319,7 +320,7 @@ OLC_FUN(cmded_move)
 	ncmnd.name		= str_qdup(cmnd->name);
 	ncmnd.dofun_name	= str_qdup(cmnd->dofun_name);
 	ncmnd.do_fun		= cmnd->do_fun;
-	ncmnd.cmd_class		= cmnd->cmd_class;
+	ncmnd.cmd_mod		= cmnd->cmd_mod;
 	ncmnd.cmd_log		= cmnd->cmd_log;
 	ncmnd.cmd_flags		= cmnd->cmd_flags;
 	ncmnd.min_pos		= cmnd->min_pos;
@@ -331,7 +332,7 @@ OLC_FUN(cmded_move)
 	cmnd->name		= ncmnd.name;
 	cmnd->dofun_name	= ncmnd.dofun_name;
 	cmnd->do_fun		= ncmnd.do_fun;
-	cmnd->cmd_class		= ncmnd.cmd_class;
+	cmnd->cmd_mod		= ncmnd.cmd_mod;
 	cmnd->cmd_log		= ncmnd.cmd_log;
 	cmnd->cmd_flags		= ncmnd.cmd_flags;
 	cmnd->min_pos		= ncmnd.min_pos;
@@ -398,9 +399,9 @@ static void *save_cmd_cb(void *p, va_list ap)
 		fprintf(fp, "flags %s~\n",
 			flag_string(cmd_flags, cmnd->cmd_flags));
 
-	if (cmnd->cmd_class != CC_ORDINARY)
-		fprintf(fp, "class %s\n",
-			flag_string(cmd_classes, cmnd->cmd_class));
+	if (cmnd->cmd_mod != MOD_DOFUN)
+		fprintf(fp, "module %s\n",
+			flag_string(module_names, cmnd->cmd_mod));
 
 	fprintf(fp, "end\n\n");
 

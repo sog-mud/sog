@@ -1,11 +1,11 @@
 #CLAN
 Name Battleragers~
+SkillSpec 'clan_battleragers'
 Recall 95405
 Item 95401
 Mark 95408
 Altar 95408
 Flags hidden~
-SkillSpec clan_battleragers
 End
 
 #$

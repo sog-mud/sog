@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1999 SoG Development Team
+ * Copyright (c) 1999, 2000 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,26 +23,48 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dofun.c,v 1.8 2000-06-01 17:57:33 fjoe Exp $
+ * $Id: update_impl.h,v 1.1 2000-06-01 17:57:50 fjoe Exp $
  */
 
-#include <stdarg.h>
-#include <stdio.h>
+#ifndef __UPDATE_H_
+#define __UPDATE_H_
 
-#include "typedef.h"
-#include "varr.h"
+#include "update.h"
 
-#include "module.h"
-#include "cmd.h"
+extern hash_t	uhandlers;
 
-int _module_load(module_t *m)
-{
-	varr_foreach(&commands, cmd_load_cb, MOD_DOFUN, m);
-	return 0;
-}
+typedef void (*update_fun_t)(void);
 
-int _module_unload(module_t *m)
-{
-	varr_foreach(&commands, cmd_unload_cb, MOD_DOFUN);
-	return 0;
-}
+typedef struct uhandler_t uhandler_t;
+struct uhandler_t {
+	const char *name;	/* update handler name */
+	const char *fun_name;	/* update handler function name */
+
+	const char *notify;	/* update handler notification message */
+				/* (printed to wiznet when handler */
+				/*  is triggered) */
+
+	int ticks;		/* ticks between uhandlers */
+	vo_iter_t *iter;	/* update handler iterator */
+	int mod;		/* module where update handler */
+				/* implementation resides */
+
+	int cnt;		/* current tick counter */
+	void *fun;		/* update handler function */
+};
+
+#define uhandler_lookup(ln)	((uhandler_t*) strkey_lookup(&uhandlers, (ln)))
+#define uhandler_search(ln)	((uhandler_t*) mlstrkey_search(&uhandlers, (ln)))
+
+void		uhandler_init(uhandler_t *hdlr);
+void		uhandler_destroy(uhandler_t *hdlr);
+uhandler_t *	uhandler_cpy(uhandler_t *dest, uhandler_t *src);
+
+void		update_register(module_t *m);
+void		update_unregister(void);
+
+void		uhandler_update(uhandler_t *hdlr);
+
+void *		bloodthirst_cb(void *vo, va_list ap);
+
+#endif

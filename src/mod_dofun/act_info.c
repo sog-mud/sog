@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.342 2000-04-18 08:33:08 fjoe Exp $
+ * $Id: act_info.c,v 1.343 2000-06-01 17:57:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,10 +56,13 @@
 #include "db.h"
 #include "quest.h"
 #include "obj_prog.h"
-#include "fight.h"
 #include "socials.h"
 #include "rating.h"
 #include "string_edit.h"
+
+#include "fight.h"
+#include "magic.h"
+#include "update.h"
 
 #if defined(SUNOS) || defined(SVR4) || defined(LINUX)
 #	include <crypt.h>

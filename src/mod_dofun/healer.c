@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: healer.c,v 1.40 2000-02-20 10:13:04 avn Exp $
+ * $Id: healer.c,v 1.41 2000-06-01 17:57:34 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -32,6 +32,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include "merc.h"
+
+#include "magic.h"
+#include "update.h"
 
 typedef struct {
 	char * const	keyword;

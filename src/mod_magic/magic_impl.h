@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1999 SoG Development Team
+ * Copyright (c) 1999, 2000 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,26 +23,19 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dofun.c,v 1.8 2000-06-01 17:57:33 fjoe Exp $
+ * $Id: magic_impl.h,v 1.1 2000-06-01 17:57:44 fjoe Exp $
  */
 
-#include <stdarg.h>
-#include <stdio.h>
+#ifndef __MAGIC_H_
+#define __MAGIC_H_
 
-#include "typedef.h"
-#include "varr.h"
+#include "magic.h"
 
-#include "module.h"
-#include "cmd.h"
+extern const char *target_name;
 
-int _module_load(module_t *m)
-{
-	varr_foreach(&commands, cmd_load_cb, MOD_DOFUN, m);
-	return 0;
-}
+bool	check_trust	(CHAR_DATA *ch, CHAR_DATA *victim);
+bool	spellbane	(CHAR_DATA *bch, CHAR_DATA *ch,
+			 int bane_chance, int bane_damage);
+bool	saves_dispel	(int dis_level, int spell_level, int duration);
 
-int _module_unload(module_t *m)
-{
-	varr_foreach(&commands, cmd_unload_cb, MOD_DOFUN);
-	return 0;
-}
+#endif

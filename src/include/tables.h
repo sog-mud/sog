@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: tables.h,v 1.33 2000-03-29 14:50:10 kostik Exp $
+ * $Id: tables.h,v 1.34 2000-06-01 17:57:26 fjoe Exp $
  */
 
 #ifndef _TABLES_H_
@@ -90,7 +90,7 @@ extern flaginfo_t	ban_actions[];
 extern flaginfo_t	ban_classes[];
 extern flaginfo_t	cmd_flags[];
 extern flaginfo_t	cmd_logtypes[];
-extern flaginfo_t	cmd_classes[];
+extern flaginfo_t	module_names[];
 extern flaginfo_t	level_table[];
 extern flaginfo_t	desc_con_table[];
 extern flaginfo_t	events_classes[];
@@ -105,6 +105,7 @@ extern flaginfo_t	www_flags_table[];
 extern flaginfo_t	clan_status_table[];
 extern flaginfo_t	book_class[];
 extern flaginfo_t	fail_effects[];
+extern flaginfo_t	iterator_names[];
 
 #endif
 

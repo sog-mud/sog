@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.240 2000-04-20 12:17:25 fjoe Exp $
+ * $Id: act_wiz.c,v 1.241 2000-06-01 17:57:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -245,21 +245,6 @@ void do_wiznet(CHAR_DATA *ch, const char *argument)
 	else
 		char_printf(ch, "You will now see %s on wiznet.\n",
 			    wiznet_table[flag].name);
-}
-
-void do_tick(CHAR_DATA *ch, const char *argument)
-{
-	char arg[MAX_INPUT_LENGTH];
-	
-	one_argument(argument, arg, sizeof(arg));
-	if (arg[0] == '\0')  {
-		do_help(ch,"'WIZ TICK'");
-		return;
-	}
-
-	if (update_one(arg))
-		return;
-	do_tick(ch, str_empty);
 }
 
 void do_nonote(CHAR_DATA *ch, const char *argument)
@@ -4682,60 +4667,3 @@ void do_mpstat(CHAR_DATA *ch, const char *argument)
 			mptrig->phrase);
 	}
 }
-
-void *
-update_print_cb(void *p, va_list ap)
-{
-	update_info_t *ui = (update_info_t *) p;
-	BUFFER *buf = va_arg(ap, BUFFER *);
-
-	buf_printf(buf, "[%9s] %5d %5d %s\n",
-			ui->name, ui->max, ui->cnt, ui->fun_name);
-	return NULL;
-}
-
-void *
-update_set_cb(void *p, va_list ap)
-{
-	update_info_t *ui = (update_info_t *) p;
-	const char *s = va_arg(ap, const char *);
-	int value = va_arg(ap, int);
-
-	if (str_cmp(s, ui->name))
-		return NULL;
-
-	ui->max = value;
-	return ui;
-}
-
-void do_settick(CHAR_DATA *ch, const char *argument)
-{
-	char arg[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
-	int val;
-
-	argument = one_argument(argument, arg, sizeof(arg));
-
-	if (arg[0] == '\0') {
-		BUFFER *buf;
-
-		buf = buf_new(-1);
-		buf_add(buf, "    Name     Max   Cur     Function\n");
-		buf_add(buf, "----------- ----- ----- ---------------\n");
-		varr_foreach(&updates, update_print_cb, buf);
-		page_to_char(buf_string(buf), ch);
-		buf_free(buf);
-		return;
-	}
-
-	one_argument(argument, arg2, sizeof(arg2));
-	val = atoi(arg2);
-	if (!val) {
-		char_puts("Non-zero, please.\n", ch);
-		return;
-	}
-	if (!varr_foreach(&updates, update_set_cb, arg, val)) {
-		dofun("help", ch, "'WIZ SETTICK'");
-	}
-
-}
-

@@ -23,36 +23,32 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.h,v 1.2 2000-02-28 18:21:54 avn Exp $
+ * $Id: update.h,v 1.3 2000-06-01 17:57:26 fjoe Exp $
  */
 
 #ifndef _UPDATE_H_
 #define _UPDATE_H_
 
-typedef void (*update_fun)(void);
+#undef MODULE_NAME
+#define MODULE_NAME MOD_UPDATE
+#include "dynafun_decl.h"
 
-typedef struct update_info_t {
-	int cnt;
-	int max;
-	const char *name;
-	const char *notify;
-	const char *fun_name;
-	void *fun;
-	vo_iter_t *iter;
-} update_info_t;
+__MODULE_START_DECL(MOD_UPDATE)
 
-void	update_init(update_info_t *ui);
-void	update_destroy(update_info_t *ui);
-void	*update_load_cb(void *p, va_list ap);
-void	*update_unload_cb(void *p, va_list ap);
+DECLARE_FUN1(void, uhandler_load,
+	     cchar_t, mod_name)
+DECLARE_FUN1(void, uhandler_unload,
+	     cchar_t, mod_name)
+DECLARE_FUN0(void, update_handler)
+DECLARE_FUN1(int, get_pulse,
+	     cchar_t, hdlr_name)
+DECLARE_FUN1(void, update_one,
+	     cchar_t, hdlr_name)
+DECLARE_FUN1(void, update_reset,
+	     cchar_t, hdlr_name)
+DECLARE_FUN3(void, gain_condition,
+	     CHAR_DATA, ch, int, iCond, int, value)
 
-void	update_handler	(void);
-void	*update_one(const char *what);
-void	update_reset(const char *what);
-int	get_pulse(const char *what);
-
-extern varr	updates;
-
-void gain_condition(CHAR_DATA *ch, int iCond, int value);
+__MODULE_END_DECL
 
 #endif

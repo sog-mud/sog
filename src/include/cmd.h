@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.h,v 1.11 1999-12-18 11:01:39 fjoe Exp $
+ * $Id: cmd.h,v 1.12 2000-06-01 17:57:24 fjoe Exp $
  */
 
 #ifndef _CMD_H_
@@ -47,26 +47,17 @@
 #define CMD_FROZEN_OK	(F)
 
 /*
- * cmd classes
- */
-enum {
-	CC_ORDINARY,
-	CC_CORE,
-	CC_OLC
-};
-
-/*
  * Structure for a command in the command lookup table.
  */
 struct cmd_t
 {
-	const char * 	name;
-	const char *	dofun_name;
-	int		min_pos;
-	int		min_level;
-	int		cmd_log;
-	int		cmd_flags;
-	int		cmd_class;
+	const char * 	name;		/* cmd name */
+	const char *	dofun_name;	/* name of do_function */
+	int		min_pos;	/* min position for cmd */
+	int		min_level;	/* min level for cmd */
+	int		cmd_log;	/* cmd logging type */
+	int		cmd_flags;	/* cmd flags */
+	int		cmd_mod;	/* module where cmd is implemented */
 	DO_FUN *	do_fun;
 };
 

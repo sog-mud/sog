@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1999 SoG Development Team
+ * Copyright (c) 1999, 2000 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,26 +23,29 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dofun.c,v 1.8 2000-06-01 17:57:33 fjoe Exp $
+ * $Id: magic.h,v 1.1 2000-06-01 17:57:25 fjoe Exp $
  */
 
-#include <stdarg.h>
-#include <stdio.h>
+#ifndef _MAGIC_H_
+#define _MAGIC_H_
 
-#include "typedef.h"
-#include "varr.h"
+#undef MODULE_NAME
+#define MODULE_NAME MOD_MAGIC
+#include "dynafun_decl.h"
 
-#include "module.h"
-#include "cmd.h"
+__MODULE_START_DECL(MOD_MAGIC)
 
-int _module_load(module_t *m)
-{
-	varr_foreach(&commands, cmd_load_cb, MOD_DOFUN, m);
-	return 0;
-}
+DECLARE_FUN4(void, obj_cast_spell,
+	     cchar_t, sn, int, level, CHAR_DATA, ch, void, vo)
+DECLARE_FUN5(void, spellfun_call,
+	     cchar_t, sn_fun, cchar_t, sn, int, level, CHAR_DATA, ch, void, vo)
+DECLARE_FUN3(bool, saves_spell,
+	     int, level, CHAR_DATA, victim, int, dam_class)
+DECLARE_FUN3(bool, check_dispel,
+	     int, dis_level, CHAR_DATA, victim, cchar_t, sn)
 
-int _module_unload(module_t *m)
-{
-	varr_foreach(&commands, cmd_unload_cb, MOD_DOFUN);
-	return 0;
-}
+__MODULE_END_DECL
+
+#undef MODULE_NAME
+
+#endif

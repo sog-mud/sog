@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.69 2000-04-16 09:21:56 fjoe Exp $
+ * $Id: special.c,v 1.70 2000-06-01 17:57:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,7 +46,9 @@
 #include <string.h>
 #include <time.h>
 #include "merc.h"
+
 #include "fight.h"
+#include "magic.h"
 
 /*
  * The following special functions are available for mobiles.

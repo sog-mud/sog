@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.227 2000-04-16 09:21:59 fjoe Exp $
+ * $Id: comm.c,v 1.228 2000-06-01 17:57:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -87,7 +87,6 @@
 #endif
 
 #include "merc.h"
-#include "quest.h"
 #include "ban.h"
 #include "charset.h"
 #include "resolver.h"
@@ -96,6 +95,9 @@
 #include "lang.h"
 #include "db.h"
 #include "string_edit.h"
+
+#include "quest.h"
+#include "update.h"
 
 bool class_ok(CHAR_DATA *ch , class_t *cl);
 

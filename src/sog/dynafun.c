@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun.c,v 1.1 2000-05-24 21:17:49 fjoe Exp $
+ * $Id: dynafun.c,v 1.2 2000-06-01 17:57:53 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -144,9 +144,15 @@ dynafun_call(cchar_t name, int nargs, ...)
 			continue;
 			/* NOTREACHED */
 
+		case MT_VA_LIST:
+			*(va_list *) args_ap = va_arg(ap, va_list);
+			arg = (void *) va_arg(args_ap, va_list);
+			continue;
+			/* NOTREACHED */
+
 		case MT_INT:
 			*(int *) args_ap = va_arg(ap, int);
-			arg = (void*) va_arg(args_ap, int);
+			arg = (void *) va_arg(args_ap, int);
 			continue;
 			/* NOTREACHED */
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.c,v 1.189 2000-03-02 17:14:12 avn Exp $
+ * $Id: update.c,v 1.190 2000-06-01 17:57:51 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -33,153 +33,234 @@
 #include "merc.h"
 #include "module.h"
 
-varr updates;
-void (*gain_cond)(CHAR_DATA *ch, int iCond, int value);
+#include "fight.h"
+#include "_update.h"
 
-void
-inline gain_condition(CHAR_DATA *ch, int iCond, int value)
-{
-	if (gain_cond)
-		gain_cond(ch, iCond, value);
-}
-
-void
-update_init(update_info_t *ui)
-{
-	ui->name = str_empty;
-	ui->cnt = 0;
-	ui->max = 0;
-	ui->fun_name = str_empty;
-	ui->fun = NULL;
-	ui->iter = NULL;
-}
-
-void
-update_destroy(update_info_t *ui)
-{
-	free_string(ui->name);
-	free_string(ui->fun_name);
-	ui->fun = NULL;
-}
+static void *uhandler_load_cb(void *p, va_list ap);
+static void *uhandler_unload_cb(void *p, va_list ap);
+static void *uhandler_tick_cb(void *p, va_list ap);
 
 void *
-update_load_cb(void *p, va_list ap)
+uhandler_load(const char *mod_name)
 {
-	update_info_t *ui = (update_info_t *) p;
-	module_t *m = va_arg(ap, module_t*);
-
-	ui->fun = dlsym(m->dlh, ui->fun_name);
-
-	if (ui->fun == NULL)
-		log(LOG_ERROR, "update_load: %s", dlerror());
-
+	module_t *m = mod_lookup(mod_name);
+	if (!m)
+		return NULL;
+	hash_foreach(&uhandlers, uhandler_load_cb, m, m->mod_id);
 	return NULL;
 }
 
 void *
-update_unload_cb(void *p, va_list ap)
+uhandler_unload(const char *mod_name)
 {
-	update_info_t *ui = (update_info_t *) p;
-
-	ui->fun = NULL;
-	return NULL;
-}
-
-
-void *
-update_check_cb(void *p, va_list ap)
-{
-	update_info_t *ui = (update_info_t *) p;
-
-	if (ui->fun == NULL) {
-		log(LOG_ERROR, "update_check: NULL update fun for '%s'", ui->name);
+	module_t *m = mod_lookup(mod_name);
+	if (!m)
 		return NULL;
-	}
-
-	if (--ui->cnt == 0) {
-		ui->cnt = ui->max;
-
-		if (ui->iter == NULL)
-			((update_fun)ui->fun)();
-		else
-			vo_foreach(NULL, ui->iter, ui->fun);
-
-		if (!IS_NULLSTR(ui->notify))
-			wiznet(ui->notify, NULL, NULL, WIZ_TICKS, 0, 0);
-	}
+	hash_foreach(&uhandlers, uhandler_unload_cb, m->mod_id);
 	return NULL;
 }
 
 void *
-update_find_cb(void *p, va_list ap)
+update_handler(void)
 {
-	update_info_t *ui = (update_info_t *) p;
-	const char *s = va_arg(ap, const char *);
-
-	if (s != NULL && str_cmp(s, ui->name))
-		return NULL;
-
-	if (ui->fun == NULL) {
-		log(LOG_INFO, "update_check: NULL update fun for '%s'", s);
-		return NULL;
-	}
-
-	if (ui->iter == NULL)
-		((update_fun)ui->fun)();
-	else
-		vo_foreach(NULL, ui->iter, ui->fun);
-
-	if (!IS_NULLSTR(ui->notify))
-		wiznet(ui->notify, NULL, NULL, WIZ_TICKS, 0, 0);
-	return ui;
+	log(LOG_INFO, "update_handler");
+	hash_foreach(&uhandlers, uhandler_tick_cb);
+	return NULL;
 }
 
 void *
-update_reset_cb(void *p, va_list ap)
+update_one(const char *hdlr_name)
 {
-	update_info_t *ui = (update_info_t *) p;
-	const char *s = va_arg(ap, const char *);
-
-	if (s != NULL && str_cmp(s, ui->name))
+	uhandler_t *hdlr = uhandler_search(hdlr_name);
+	if (!hdlr)
 		return NULL;
-
-	ui->cnt = ui->max;
-	return ui;
+	uhandler_update(hdlr);
+	return hdlr;
 }
 
 void *
-update_get_cb(void *p, va_list ap)
+update_reset(const char *hdlr_name)
 {
-	update_info_t *ui = (update_info_t *) p;
-	const char *s = va_arg(ap, const char *);
-
-	if (s != NULL && str_cmp(s, ui->name))
+	uhandler_t *hdlr = uhandler_lookup(hdlr_name);
+	if (!hdlr)
 		return NULL;
-
-	return &(ui->max);
+	hdlr->cnt = hdlr->ticks;
+	return NULL;
 }
 
-void update_handler(void)
+int
+get_pulse(const char *hdlr_name)
 {
-	varr_foreach(&updates, update_check_cb);
-}
+	uhandler_t *hdlr = uhandler_lookup(hdlr_name);
 
-void *update_one(const char *what)
-{
-	return varr_foreach(&updates, update_find_cb, what);
-}
-
-void update_reset(const char *what)
-{
-	varr_foreach(&updates, update_reset_cb, what);
-}
-
-int get_pulse(const char *what)
-{
-	void *rv = varr_foreach(&updates, update_get_cb, what);
-	if (!rv) {
-		log(LOG_ERROR, "get_pulse: unknown pulse type '%s'", what);
+	if (!hdlr) {
+		log(LOG_ERROR, "get_pulse: %s: unknown update handler",
+		    hdlr_name);
 		return 0;
 	}
-	return *((int*)rv);
+
+	return hdlr->ticks;
 }
+
+void *
+gain_condition(CHAR_DATA *ch, int iCond, int value)
+{
+	int condition;
+	int damage_hunger;
+
+	if (value == 0 || IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
+		return NULL;
+
+	if (IS_VAMPIRE(ch)
+	&&  (iCond == COND_THIRST ||
+	     iCond == COND_FULL ||
+	     iCond == COND_HUNGER))
+		return NULL;
+
+	condition = PC(ch)->condition[iCond];
+
+	PC(ch)->condition[iCond] = URANGE(-6, condition + value, 96);
+
+	if (iCond == COND_FULL && (PC(ch)->condition[COND_FULL] < 0))
+		PC(ch)->condition[COND_FULL] = 0;
+
+	if ((iCond == COND_DRUNK) && (PC(ch)->condition[COND_DRUNK] < 1)) 
+		PC(ch)->condition[COND_DRUNK] = 0;
+
+	if (PC(ch)->condition[iCond] < 1
+	&&  PC(ch)->condition[iCond] > -6) {
+		switch (iCond) {
+		case COND_HUNGER:
+			char_puts("You are hungry.\n",  ch);
+			break;
+
+		case COND_THIRST:
+			char_puts("You are thirsty.\n", ch);
+			break;
+	 
+		case COND_DRUNK:
+			if (condition != 0)
+				char_puts("You are sober.\n", ch);
+			break;
+
+		case COND_BLOODLUST:
+			if (condition != 0)
+				char_puts("You are hungry for blood.\n",
+					     ch);
+			break;
+
+		case COND_DESIRE:
+			if (condition != 0)
+				char_puts("You have missed your home.\n",
+					     ch);
+			break;
+		}
+	}
+
+	if (PC(ch)->condition[iCond] == -6 && ch->level >= LEVEL_PK) {
+		switch (iCond) {
+		case COND_HUNGER:
+			char_puts("You are starving!\n",  ch);
+			act("$n is starving!",  ch, NULL, NULL, TO_ROOM);
+			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
+			if (!damage_hunger)
+				damage_hunger = 1;
+			damage(ch, ch, damage_hunger, NULL,
+			       DAM_NONE, DAMF_SHOW | DAMF_HUNGER);
+			if (ch->position == POS_SLEEPING) 
+				return NULL; 
+			break;
+
+		case COND_THIRST:
+			char_puts("You are dying of thrist!\n", ch);
+			act("$n is dying of thirst!", ch, NULL, NULL, TO_ROOM);
+			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
+			if (!damage_hunger)
+				damage_hunger = 1;
+			damage(ch, ch, damage_hunger, NULL,
+				DAM_NONE, DAMF_SHOW | DAMF_THIRST);
+			if (ch->position == POS_SLEEPING) 
+				return NULL; 
+			break;
+
+		case COND_BLOODLUST:
+			char_puts("You are suffering from thrist of blood!\n",
+				  ch);
+			act("$n is suffering from thirst of blood!",
+			    ch, NULL, NULL, TO_ROOM);
+			if (ch->in_room && ch->in_room->people
+			&&  ch->fighting == NULL) {
+				if (!IS_AWAKE(ch))
+					dofun("stand", ch, str_empty);
+				vo_foreach(ch->in_room, &iter_char_room,
+					   bloodthirst_cb, ch);
+				if (ch->fighting != NULL)
+					break;
+			}
+
+			damage_hunger = ch->max_hit * number_range(2, 4) / 100;
+			if (!damage_hunger)
+				damage_hunger = 1;
+			damage(ch, ch, damage_hunger, NULL,
+				DAM_NONE, DAMF_SHOW | DAMF_THIRST);
+			if (ch->position == POS_SLEEPING) 
+				return NULL; 
+			break;
+
+		case COND_DESIRE:
+			char_puts("You want to go your home!\n", ch);
+			act("$n desires for $s home!", ch, NULL, NULL, TO_ROOM);
+			if (ch->position >= POS_STANDING) 
+				move_char(ch, number_door(), FALSE);
+			break;
+		}
+	}
+
+	return NULL;
+}
+
+/*--------------------------------------------------------------------
+ * static functions
+ */
+
+static void *
+uhandler_load_cb(void *p, va_list ap)
+{
+	uhandler_t *hdlr = (uhandler_t *) p;
+	module_t *m = va_arg(ap, module_t*);
+	int mod = va_arg(ap, int);
+
+	if (mod == hdlr->mod) {
+		hdlr->fun = dlsym(m->dlh, hdlr->fun_name);
+		if (hdlr->fun == NULL)
+			log(LOG_ERROR, "update_load: %s", dlerror());
+	}
+
+	return NULL;
+}
+
+static void *
+uhandler_unload_cb(void *p, va_list ap)
+{
+	uhandler_t *hdlr = (uhandler_t *) p;
+	int mod = va_arg(ap, int);
+
+	if (mod == hdlr->mod)
+		hdlr->fun = NULL;
+
+	return NULL;
+}
+
+static void *
+uhandler_tick_cb(void *p, va_list ap)
+{
+	uhandler_t *hdlr = (uhandler_t *) p;
+
+	if (--hdlr->cnt == 0) {
+		hdlr->cnt = hdlr->ticks;
+		uhandler_update(hdlr);
+	}
+
+	return NULL;
+}
+

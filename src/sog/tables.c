@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.140 2000-04-03 14:24:28 fjoe Exp $
+ * $Id: tables.c,v 1.141 2000-06-01 17:57:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,6 +47,8 @@
 #include "lang.h"
 #include "ban.h"
 #include "note.h"
+#include "module_decl.h"
+#include "vo_iter.h"
 
 /*
  * first element of each flaginfo_t[] table describes type of values
@@ -1190,13 +1192,18 @@ flaginfo_t cmd_logtypes[] =
 	{ NULL }
 };
 
-flaginfo_t cmd_classes[] =
+flaginfo_t module_names[] =
 {
 	{ "",			TABLE_INTVAL			},
 
-	{ "ordinary",		CC_ORDINARY,		TRUE	},
-	{ "core",		CC_CORE,		TRUE	},
-	{ "olc",		CC_OLC,			TRUE	},
+	{ "core",		MOD_CORE,		TRUE	},
+	{ "dofun",		MOD_DOFUN,		TRUE	},
+	{ "effects",		MOD_EFFECTS,		TRUE	},
+	{ "fight",		MOD_FIGHT,		TRUE	},
+	{ "magic",		MOD_MAGIC,		TRUE	},
+	{ "olc",		MOD_OLC,		TRUE	},
+	{ "quest",		MOD_QUEST,		TRUE	},
+	{ "update",		MOD_UPDATE,		TRUE	},
 
 	{ NULL }
 };
@@ -1459,6 +1466,21 @@ flaginfo_t fail_effects[] =
 	{ "hallucination",	FAIL_HALLUCINATION,		TRUE	},
 
 	{ NULL}
+};
+
+flaginfo_t iterator_names[] =
+{
+	{ "",			TABLE_INTVAL				},
+
+	{ "char_world",		(flag_t) &iter_char_world,	TRUE	},
+	{ "npc_world",		(flag_t) &iter_npc_world,	TRUE	},
+	{ "char_room",		(flag_t) &iter_char_room,	TRUE	},
+	{ "obj_world",		(flag_t) &iter_obj_world,	TRUE	},
+	{ "obj_room",		(flag_t) &iter_obj_room,	TRUE	},
+	{ "obj_char",		(flag_t) &iter_obj_char,	TRUE	},
+	{ "obj_obj",		(flag_t) &iter_obj_obj,		TRUE	},
+
+	{ NULL }
 };
 
 /*

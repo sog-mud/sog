@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.216 2000-06-01 09:36:57 fjoe Exp $
+ * $Id: spellfun.c,v 1.217 2000-06-01 17:57:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,9 +46,11 @@
 #include <string.h>
 #include <time.h>
 #include "merc.h"
+
 #include "chquest.h"
 #include "fight.h"
 #include "effects.h"
+#include "_magic.h"
 
 void spell_acid_blast(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {

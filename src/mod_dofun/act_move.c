@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.237 2000-06-01 09:36:48 fjoe Exp $
+ * $Id: act_move.c,v 1.238 2000-06-01 17:57:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,9 +47,11 @@
 #include "merc.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
-#include "fight.h"
 #include "db.h"
+
 #include "effects.h"
+#include "fight.h"
+#include "magic.h"
 
 DECLARE_DO_FUN(do_look		);
 DECLARE_DO_FUN(do_yell		);

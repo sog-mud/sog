@@ -23,15 +23,16 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.16 2000-05-17 03:11:28 avn Exp $
+ * $Id: eventfun.c,v 1.17 2000-06-01 17:57:40 fjoe Exp $
  */
 
 
 #include <sys/time.h>
 #include <stdio.h>
-
 #include "merc.h"
+
 #include "fight.h"
+#include "magic.h"
 
 void show_owner(CHAR_DATA *ch, AFFECT_DATA *af)
 {

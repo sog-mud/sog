@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.73 2000-04-16 09:21:35 fjoe Exp $
+ * $Id: db.h,v 1.74 2000-06-01 17:57:24 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -239,6 +239,7 @@ extern const char DAMTYPE_CONF	[];
 extern const char MATERIALS_CONF[];
 extern const char LIQUIDS_CONF	[];
 extern const char CC_EXPR_CONF	[];
+extern const char UHANDLERS_CONF[];
 
 extern const char MSGDB_FILE	[];
 extern const char TIPS_FILE	[];

@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1999 SoG Development Team
+ * Copyright (c) 1999, 2000 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,26 +23,24 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dofun.c,v 1.8 2000-06-01 17:57:33 fjoe Exp $
+ * $Id: module_decl.h,v 1.1 2000-06-01 17:57:26 fjoe Exp $
  */
 
-#include <stdarg.h>
-#include <stdio.h>
+#ifndef _MODULE_DECL_H_
+#define _MODULE_DECL_H_
 
-#include "typedef.h"
-#include "varr.h"
+/*
+ * all the modules in system
+ * (MOD_XXX constants should not be 0)
+ * do not use `enum' here (dynafun stuff depends on that MOD_XXX are define's)
+ */
+#define MOD_CORE	1
+#define MOD_DOFUN	2
+#define MOD_EFFECTS	3
+#define MOD_FIGHT	4
+#define MOD_MAGIC	5
+#define MOD_OLC		6
+#define MOD_QUEST	7
+#define MOD_UPDATE	8
 
-#include "module.h"
-#include "cmd.h"
-
-int _module_load(module_t *m)
-{
-	varr_foreach(&commands, cmd_load_cb, MOD_DOFUN, m);
-	return 0;
-}
-
-int _module_unload(module_t *m)
-{
-	varr_foreach(&commands, cmd_unload_cb, MOD_DOFUN);
-	return 0;
-}
+#endif

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.208 2000-05-30 14:40:56 fjoe Exp $
+ * $Id: act_comm.c,v 1.209 2000-06-01 17:57:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -57,6 +57,8 @@
 #include "auction.h"
 #include "lang.h"
 #include "note.h"
+
+#include "update.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_replay	);

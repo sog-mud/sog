@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.32 2000-06-01 09:37:00 fjoe Exp $
+# $Id: Makefile,v 1.33 2000-06-01 17:57:53 fjoe Exp $
 #
 
 MODULE_NAME = sog
@@ -16,12 +16,12 @@ DB_CFILES = db/db.c db/db_area.c db/db_cc_expr.c db/db_clan.c\
 
 CFILES = auction.c affect.c buffer.c cc_expr.c chquest.c clan.c class.c cmd.c\
 	 damtype.c dynafun.c flag.c forms.c handler.c hash.c help.c\
-	 hometown.c interp.c lang.c liquid.c log.c magic.c material.c\
+	 hometown.c interp.c lang.c liquid.c log.c material.c\
 	 memalloc.c mlstring.c mob_cmds.c mob_prog.c module.c\
 	 namelist.c note.c obj_prog.c objval.c quest.c race.c\
 	 rating.c recycle.c rfile.c save.c skills.c\
 	 socials.c spec.c special.c str.c string_edit.c strkey_hash.c\
-	 tables.c update.c util.c varr.c vo_iter.c\
+	 tables.c util.c varr.c vo_iter.c\
 	 $(COMM_CFILES) $(DB_CFILES) $(COMPAT_CFILES)
 
 OFILES_ADD = cc_parse.o cc_lex.o

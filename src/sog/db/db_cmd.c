@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_cmd.c,v 1.7 2000-02-10 14:08:59 fjoe Exp $
+ * $Id: db_cmd.c,v 1.8 2000-06-01 17:58:02 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -64,10 +64,6 @@ DBLOAD_FUN(load_cmd)
 
 		fread_keyword(fp);
 		switch(rfile_tokfl(fp)) {
-		case 'C':
-			KEY("class", cmd->cmd_class,
-			    fread_fword(cmd_classes, fp));
-			break;
 		case 'D':
 			SKEY("dofun", cmd->dofun_name, fread_string(fp));
 			break;
@@ -93,6 +89,8 @@ DBLOAD_FUN(load_cmd)
 			    fread_fword(position_table, fp));
 			KEY("min_level", cmd->min_level,
 			    fread_fword(level_table, fp));
+			KEY("module", cmd->cmd_mod,
+			    fread_fword(module_names, fp));
 			break;
 		case 'N':
 			SKEY("name", cmd->name, fread_string(fp));

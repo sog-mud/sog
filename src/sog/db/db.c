@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.223 2000-05-24 21:13:13 fjoe Exp $
+ * $Id: db.c,v 1.224 2000-06-01 17:58:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -68,6 +68,8 @@
 #include "ban.h"
 #include "rfile.h"
 #include "dynafun.h"
+
+#include "update.h"
 
 #if defined(BSD44)
 #	include <fnmatch.h>
@@ -144,6 +146,8 @@ const char MATERIALS_CONF	[] = "materials.conf";	/* materials */
 const char LIQUIDS_CONF		[] = "liquids.conf";	/* liquids */
 const char FORMS_CONF		[] = "forms.conf";	/* shapeforms */
 const char CC_EXPR_CONF		[] = "cc_expr.conf";	/* cc_exprs */
+const char UHANDLERS_CONF	[] = "uhandlers.conf";	/* update handlers */
+
 const char GLOB_GMLSTR_FILE	[] = "glob_gmlstr";	/* global gmlstrs */
 const char MSGDB_FILE		[] = "msgdb";		/* msgdb */
 const char TIPS_FILE		[] = "tips";		/* tips */
@@ -437,36 +441,6 @@ void boot_db(void)
 	 */
 	init_mm();
 
-	/*
-	 * Set time and weather.
-	 */
-
-	lhour	= (current_time - 650336715) / (get_pulse("char") / PULSE_PER_SCD);
-	time_info.hour	= lhour  % 24;
-	lday		= lhour  / 24;
-	time_info.day	= lday   % 35;
-	lmonth		= lday   / 35;
-	time_info.month	= lmonth % 17;
-	time_info.year	= lmonth / 17;
-
-	     if (time_info.hour <  5) weather_info.sunlight = SUN_DARK;
-	else if (time_info.hour <  6) weather_info.sunlight = SUN_RISE;
-	else if (time_info.hour < 19) weather_info.sunlight = SUN_LIGHT;
-	else if (time_info.hour < 20) weather_info.sunlight = SUN_SET;
-	else                          weather_info.sunlight = SUN_DARK;
-
-	weather_info.change	= 0;
-	weather_info.mmhg	= 960;
-	if (time_info.month >= 7 && time_info.month <= 12)
-		weather_info.mmhg += number_range(1, 50);
-	else
-		weather_info.mmhg += number_range(1, 80);
-
-	     if (weather_info.mmhg <=  980) weather_info.sky = SKY_LIGHTNING;
-	else if (weather_info.mmhg <= 1000) weather_info.sky = SKY_RAINING;
-	else if (weather_info.mmhg <= 1020) weather_info.sky = SKY_CLOUDY;
-	else                                weather_info.sky = SKY_CLOUDLESS;
-
 	init_dynafuns();
 
 	db_load_list(&db_langs, LANG_PATH, LANG_LIST);
@@ -497,6 +471,36 @@ void boot_db(void)
 		if (mod_load(VARR_GET(&modules, i)) < 0)
 			exit(1);
 	}
+
+	/*
+	 * Set time and weather.
+	 */
+
+	lhour	= (current_time - 650336715) / (get_pulse("char") / PULSE_PER_SCD);
+	time_info.hour	= lhour  % 24;
+	lday		= lhour  / 24;
+	time_info.day	= lday   % 35;
+	lmonth		= lday   / 35;
+	time_info.month	= lmonth % 17;
+	time_info.year	= lmonth / 17;
+
+	     if (time_info.hour <  5) weather_info.sunlight = SUN_DARK;
+	else if (time_info.hour <  6) weather_info.sunlight = SUN_RISE;
+	else if (time_info.hour < 19) weather_info.sunlight = SUN_LIGHT;
+	else if (time_info.hour < 20) weather_info.sunlight = SUN_SET;
+	else                          weather_info.sunlight = SUN_DARK;
+
+	weather_info.change	= 0;
+	weather_info.mmhg	= 960;
+	if (time_info.month >= 7 && time_info.month <= 12)
+		weather_info.mmhg += number_range(1, 50);
+	else
+		weather_info.mmhg += number_range(1, 80);
+
+	     if (weather_info.mmhg <=  980) weather_info.sky = SKY_LIGHTNING;
+	else if (weather_info.mmhg <= 1000) weather_info.sky = SKY_RAINING;
+	else if (weather_info.mmhg <= 1020) weather_info.sky = SKY_CLOUDY;
+	else                                weather_info.sky = SKY_CLOUDLESS;
 
 	/*
 	 * Fix up exits.

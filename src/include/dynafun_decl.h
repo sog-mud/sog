@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dynafun_decl.h,v 1.1 2000-06-01 09:36:46 fjoe Exp $
+ * $Id: dynafun_decl.h,v 1.2 2000-06-01 17:57:24 fjoe Exp $
  */
 
 /* no #ifdef _XXX_H_/#define _XXX_H_/#endif */
@@ -33,6 +33,7 @@
  *
  * main dynafun module header should use this header in the following way:
  *
+ *	#undef MODULE_NAME
  *	#define MODULE_NAME MOD_XXX
  *	#include "dynafun_decl.h"
  *
@@ -41,9 +42,7 @@
  *	...
  *	__MODULE_END_DECL
  *
- *	#undef MODULE_NAME
- *
- * MOD_XXX should be defined in "dynafun.h"
+ * MOD_XXX should be defined in "module_decl.h"
  * do not use ';' after DECLARE_FUNX(...) "declarations"
  *
  * additionally module implementation .c file (where dynafuns are
@@ -56,6 +55,7 @@
  */
 
 #include "dynafun.h"
+#include "module_decl.h"
 
 #undef __tag
 #define __tag(name) name##_tag
@@ -86,6 +86,9 @@
 #	undef cchar_t_tag
 #	define cchar_t_tag MT_STR
 
+#	undef va_list_tag
+#	define va_list_tag MT_VA_LIST
+
 #	undef CHAR_DATA_TAG
 #	define CHAR_DATA_tag MT_CHAR
 
@@ -115,6 +118,9 @@
 #	undef cchar_t_tag
 #	define cchar_t_tag cchar_t
 
+#	undef va_list_tag
+#	define va_list_tag va_list
+
 #	undef CHAR_DATA_TAG
 #	define CHAR_DATA_tag CHAR_DATA *
 
@@ -131,6 +137,12 @@
 /*
  * module init declarations
  */
+
+#	undef DECLARE_FUN0
+#	define DECLARE_FUN0(ret, name)	\
+	{ \
+	  #name, __tag(ret), 0 \
+	},
 
 #	undef DECLARE_FUN1
 #	define DECLARE_FUN1(ret, name, a1, n1)	\
@@ -180,6 +192,10 @@
  * module implementation declarations
  */
 
+#	undef DECLARE_FUN0
+#	define DECLARE_FUN0(ret, name)	\
+	__tag(ret) name(void);
+
 #	undef DECLARE_FUN1
 #	define DECLARE_FUN1(ret, name, a1, n1)	\
 	__tag(ret) name(__tag(a1));
@@ -209,6 +225,16 @@
 /*
  * common declarations
  */
+
+#	undef DECLARE_FUN0
+#	define DECLARE_FUN0(ret, name)					\
+		static inline __tag(ret)				\
+		name(void)						\
+		{							\
+			__tag(ret) rv;					\
+			rv = (__tag(ret)) dynafun_call(#name, 0);	\
+			return rv;					\
+		}
 
 #	undef DECLARE_FUN1
 #	define DECLARE_FUN1(ret, name, a1, n1)				\
