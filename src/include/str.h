@@ -23,23 +23,30 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.h,v 1.10 1998-10-06 13:18:32 fjoe Exp $
+ * $Id: str.h,v 1.1 1998-10-06 13:18:31 fjoe Exp $
  */
 
-#ifndef _UTIL_H_
-#define _UTIL_H_
+#ifndef _STR_H_
+#define _STR_H_
 
-void	doprintf(DO_FUN*, CHAR_DATA*, const char *fmt, ...);
+const char *	str_dup		(const char *str);
+const char *	str_add		(const char *str,...);
+void		free_string	(const char *str);
+const char *	str_printf	(const char *format,...);
 
-FILE *	dfopen(const char *dir, const char *file, const char *mode);
-int	dunlink(const char *dir, const char *file);
-int	d2rename(const char *dir1, const char *file1,
-		 const char *dir2, const char *file2);
+extern char	str_empty[1];
+	
+char *	strnzcpy(char *dest, const char *src, size_t);
+char *	strnzcat(char *dest, const char *src, size_t);
+char *	strnzncat(char *dest, const char *src, size_t len, size_t count);
+char *	strlwr(const char *s);
 
-int cmpint(const void *p1, const void *p2);
-int cmpstrp(const void *p1, const void *p2);
+int	str_cmp		(const char *astr, const char *bstr);
+int	str_ncmp	(const char *astr, const char *bstr, size_t len);
+bool	str_prefix	(const char *astr, const char *bstr);
+bool	str_infix	(const char *astr, const char *bstr);
+bool	str_suffix	(const char *astr, const char *bstr);
 
-size_t		cstrlen		(const char* cstr);
-const char*	cstrfirst	(const char *cstr);
+int hashstr(const char *s, int maxn, int hashs);
 
 #endif

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.75 1998-09-29 01:06:38 fjoe Exp $
+ * $Id: fight.c,v 1.76 1998-10-06 13:18:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -307,7 +307,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 			 ch, NULL, victim, TO_VICT, POS_FIGHTING);
 		act_puts("$n seems to be stunned.",
 			 ch, NULL, victim, TO_NOTVICT, POS_FIGHTING);
-		affect_strip(ch, gsn_power_word_stun);
+		affect_bit_strip(ch, TO_AFFECTS, AFF_STUN);
 		SET_BIT(ch->affected_by, AFF_WEAK_STUN);
 		return;
 	}
@@ -855,7 +855,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, bool secondary)
 				(ch->level/14) * dam + ch->level;
 	else if (dt == gsn_circle)
 		dam = (ch->level/40 + 1) * dam + ch->level;
-	else if (dt == gsn_vampiric_bite && IS_VAMPIRE(ch))
+	else if (dt == gsn_vampiric_bite && is_affected(ch, gsn_vampire))
 		dam = (ch->level/20 + 1) * dam + ch->level;
 	else if (dt == gsn_cleave && wield != NULL) {
 		if (number_percent() <
@@ -1189,13 +1189,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	/*
 	 * No one in combat can sneak, hide, or be invis or camoed.
 	 */
-	if (IS_SET(ch->affected_by, AFF_HIDE)
-	||  IS_SET(ch->affected_by, AFF_INVISIBLE)
-	||  IS_SET(ch->affected_by, AFF_SNEAK)
-	||  IS_SET(ch->affected_by, AFF_FADE)
-	||  IS_SET(ch->affected_by, AFF_CAMOUFLAGE)
-	||  IS_SET(ch->affected_by, AFF_IMP))
-		do_visible(ch, str_empty);
+	do_visible(ch, str_empty);
 
 	/*
 	 * Damage modifiers.
@@ -1531,7 +1525,7 @@ bool check_blink(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	int chance;
 
-	if (!IS_BLINK_ON(victim))
+	if (!IS_SET(victim->act, PLR_BLINK))
 		return FALSE;
 
 	if (IS_NPC(victim))
@@ -1699,7 +1693,7 @@ void set_fighting(CHAR_DATA *ch, CHAR_DATA *victim)
 	}
 
 	if (IS_AFFECTED(ch, AFF_SLEEP))
-		affect_strip(ch, gsn_sleep);
+		affect_bit_strip(ch, TO_AFFECTS, AFF_SLEEP);
 
 	ch->fighting = victim;
 	ch->position = POS_FIGHTING;
@@ -1880,7 +1874,7 @@ void death_cry_org(CHAR_DATA *ch, int part)
 
 	if (vnum != 0) {
 		OBJ_DATA *obj;
-		char *name;
+		const char *name;
 
 		/* XXX */
 		name		= IS_NPC(ch) ? mlstr_mval(ch->short_descr) :

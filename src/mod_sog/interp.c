@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.76 1998-10-03 07:25:03 kostik Exp $
+ * $Id: interp.c,v 1.77 1998-10-06 13:18:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -472,6 +472,7 @@ const	struct	cmd_type	cmd_table	[] =
 
 
     { "msgstat",	do_msgstat,	POS_DEAD,	IM,  LOG_NEVER,  1, 0 },
+    { "strstat",	do_strstat,	POS_DEAD,	IM,  LOG_NEVER,  1, 0 },
 
     /*
      * OLC
@@ -620,10 +621,9 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 				    MSG_N_STEPS_OUT_OF_SHADOWS);
         	}
 
-		if (IS_AFFECTED(ch, AFF_IMP) && !IS_NPC(ch)
+		if (IS_AFFECTED(ch, AFF_IMP_INVIS) && !IS_NPC(ch)
 		&& (cmd_table[cmd].position == POS_FIGHTING)) {
-			affect_strip(ch, gsn_improved_invis);
-			REMOVE_BIT(ch->affected_by, AFF_IMP);
+			affect_bit_strip(ch, TO_AFFECTS, AFF_IMP_INVIS);
 			char_puts("You fade into existence.", ch);
 			act("$n fades into existence.",
 			    ch, NULL, NULL, TO_ROOM);
@@ -778,10 +778,9 @@ bool check_social(CHAR_DATA *ch, char *command, const char *argument)
 			  POS_RESTING); 
 	}
 
-	if (IS_AFFECTED(ch, AFF_IMP) && !IS_NPC(ch)
+	if (IS_AFFECTED(ch, AFF_IMP_INVIS) && !IS_NPC(ch)
 	&& (cmd_table[cmd].position == POS_FIGHTING)) {
-		affect_strip(ch, gsn_improved_invis);
-		REMOVE_BIT(ch->affected_by, AFF_IMP);
+		affect_bit_strip(ch, TO_AFFECTS, AFF_IMP_INVIS);
 		char_puts("You fade into existence.\n\r", ch);
 		act_puts("$n fades into existence.\n\r", ch, NULL, NULL, TO_ROOM,
 			  POS_RESTING);

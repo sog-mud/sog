@@ -23,14 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rating.h,v 1.3 1998-09-17 15:51:22 fjoe Exp $
+ * $Id: rating.h,v 1.4 1998-10-06 13:18:30 fjoe Exp $
  */
 
 #ifndef _RATING_H_
 #define _RATING_H_
 
 void	rating_update(CHAR_DATA* ch, CHAR_DATA* victim);
-void	rating_add(char* name, int pc_killed);
+void	rating_add(const char* name, int pc_killed);
 void	do_rating(CHAR_DATA* ch, const char *argument);
 
 #endif

@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.29 1998-10-02 08:13:51 fjoe Exp $
+ * $Id: note.c,v 1.30 1998-10-06 13:18:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -66,11 +66,11 @@ struct note_data
 	NOTE_DATA *	next;
 	bool		valid;
 	int		type;
-	char *		sender;
-	char *		date;
-	char *		to_list;
-	char *		subject;
-	char *		text;
+	const char *	sender;
+	const char *	date;
+	const char *	to_list;
+	const char *	subject;
+	const char *	text;
 	time_t		date_stamp;
 };
 

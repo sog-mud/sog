@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.85 1998-10-02 04:48:26 fjoe Exp $
+ * $Id: merc.h,v 1.86 1998-10-06 13:18:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,6 +56,7 @@
 /* basic types */
 #include "namedp.h"
 #include "buffer.h"
+#include "str.h"
 #include "mlstring.h"
 #include "varr.h"
 #include "flag.h"
@@ -149,7 +150,7 @@ struct descriptor_data
 	CHAR_DATA * 		character;
 	CHAR_DATA *	 	original;
 	bool			valid;
-	char *			host;
+	const char *		host;
 	int			descriptor;
 	int			connected;
 	int 			wait_for_se;
@@ -161,12 +162,12 @@ struct descriptor_data
 	char *			outbuf;
 	int 			outsize;
 	int 			outtop;
-	char *			showstr_head;
-	char *			showstr_point;
+	const char *		showstr_head;
+	const char *		showstr_point;
 	struct codepage*	codepage;
 	const char *		editor;		/* editor id (OLC) */
 	void *             	pEdit;		/* edited obj (OLC) */
-	char **			pString;	/* edited string (string_edit) */
+	const char **		pString;	/* edited string (string_edit) */
 };
 
 /*
@@ -211,7 +212,7 @@ struct help_data
 	AREA_DATA *	area;
 
 	int		level;
-	char * 		keyword;
+	const char * 	keyword;
 	mlstring *	text;
 };
 	
@@ -705,14 +706,14 @@ struct kill_data
 #define AFF_SLOW		(dd)
 #define AFF_CAMOUFLAGE		(ee)
 
-#define AFF_IMP			(ff)	/* improved invis */
+#define AFF_IMP_INVIS			(ff)	/* improved invis */
 #define AFF_FADE		(gg)
 #define AFF_SCREAM		(hh)
 #define AFF_BLOODTHIRST 	(ii)
 #define AFF_STUN		(jj)
 #define AFF_WEAK_STUN		(kk)
 
-#define AFF_DETECT_IMP		(ll)	/* detect improved invis */
+#define AFF_DETECT_IMP_INVIS		(ll)	/* detect improved invis */
 #define AFF_DETECT_FADE		(mm)
 #define AFF_DETECT_UNDEAD	(nn)
 #define AFF_DETECT_FEAR		(oo)
@@ -981,7 +982,7 @@ enum {
 #define ROOM_SAFE		(K)
 #define ROOM_SOLITARY		(L)
 #define ROOM_PET_SHOP		(M)
-#define ROOM_NO_RECALL		(N)
+#define ROOM_NORECALL		(N)
 #define ROOM_IMP_ONLY		(O)
 #define ROOM_GODS_ONLY		(P)
 #define ROOM_HEROES_ONLY	(Q)
@@ -989,7 +990,7 @@ enum {
 #define ROOM_LAW		(S)
 #define ROOM_NOWHERE		(T)
 #define ROOM_BANK		(U)
-#define ROOM_NO_MAGIC		(W)
+#define ROOM_NOMAGIC		(W)
 #define ROOM_NOSUMMON		(X)
 #define ROOM_BATTLE_ARENA	(Z)
 #define ROOM_REGISTRY		(bb)
@@ -1116,7 +1117,6 @@ enum {
 #define PLR_NOTITLE		(K)
 /* RT personal flags */
 #define PLR_NOEXP		(L)
-#define PLR_CHANGED_AFF 	(M)
 #define PLR_HOLYLIGHT		(N)
 #define PLR_CANLOOT		(P)
 #define PLR_NOSUMMON		(Q)
@@ -1134,11 +1134,7 @@ enum {
 #define PLR_BLINK		(ee)
 #define PLR_NEW			(ff)
 
-#define IS_VAMPIRE(ch)	(is_affected(ch, gsn_vampire))
 #define IS_HARA_KIRI(ch) (IS_SET((ch)->act , PLR_HARA_KIRI))
-#define CANT_CHANGE_TITLE(ch) (IS_SET(ch->act, PLR_NOTITLE))
-#define IS_BLINK_ON(ch) (IS_SET((ch)->act , PLR_BLINK))
-#define CANT_GAIN_EXP(ch) (IS_SET((ch)->act , PLR_NOEXP))
 
 /*
 #define IS_PUMPED(ch) ((ch)->last_fight_time != -1 && \
@@ -1241,7 +1237,7 @@ struct mob_index_data
 	bool			new_format;
 	int			count;
 	int			killed;
-	char *			name;
+	const char *		name;
 	mlstring *		short_descr;
 	mlstring *		long_descr;
 	mlstring *		description;
@@ -1267,7 +1263,7 @@ struct mob_index_data
 	flag_t			form;
 	flag_t			parts;
 	flag_t			size;
-	char *			material;
+	const char *		material;
 	flag_t			practicer;
 	int			clan;
 };
@@ -1303,14 +1299,14 @@ struct char_data
 	AREA_DATA * 		zone;
 	PC_DATA *		pcdata;
 	bool			valid;
-	char *			name;
+	const char *		name;
 	int			id;
 	int			version;
 	mlstring *		short_descr;
 	mlstring *		long_descr;
 	mlstring *		description;
-	char *			prompt;
-	char *			prefix;
+	const char *		prompt;
+	const char *		prefix;
 	int			group;
 	sflag_t			sex;
 	int			class;
@@ -1363,7 +1359,7 @@ struct char_data
 	sflag_t			form;
 	sflag_t			parts;
 	sflag_t			size;
-	char *			material;
+	const char *		material;
 	/* mobile stuff */
 	sflag_t			off_flags;
 	int			damage[3];
@@ -1373,7 +1369,7 @@ struct char_data
 	int			mprog_delay;
 	int 			status;
 	bool			extracted;
-	char *			in_mind;
+	const char *		in_mind;
 	int	 		religion;
 	CHAR_DATA *		hunting;	/* hunt data */
 	int 			endur;
@@ -1391,11 +1387,11 @@ struct pc_data
 {
 	PC_DATA *		next;
 	BUFFER *		buffer;
-	char *			pwd;
-	char *			bamfin;
-	char *			bamfout;
-	char *			title;
-	char *			twitlist;
+	const char *		pwd;
+	const char *		bamfin;
+	const char *		bamfout;
+	const char *		title;
+	const char *		twitlist;
 	time_t			last_note;
 	time_t			last_idea;
 	time_t			last_penalty;
@@ -1409,8 +1405,8 @@ struct pc_data
 	int			condition	[MAX_COND];
 	varr			learned;
 	int			points;
-	char *			alias[MAX_ALIAS];
-	char *			alias_sub[MAX_ALIAS];
+	const char *		alias[MAX_ALIAS];
+	const char *		alias_sub[MAX_ALIAS];
 	int 			security;	/* OLC */ /* Builder security */
 	int			bank_s;
 	int			bank_g;
@@ -1458,7 +1454,7 @@ struct ed_data
 {
 	ED_DATA *	next;		/* Next in list 	    */
 	bool		valid;
-	char *		keyword;	/* Keyword in look/examine  */
+	const char *	keyword;	/* Keyword in look/examine  */
 	mlstring *	description;	/* What to see		    */
 };
 
@@ -1488,12 +1484,12 @@ struct obj_index_data
 	ED_DATA *		ed;
 	AFFECT_DATA *		affected;
 	bool			new_format;
-	char *			name;
+	const char *		name;
 	mlstring *		short_descr;
 	mlstring *		description;
 	int			vnum;
 	int			reset_num;
-	char *			material;
+	const char *		material;
 	flag_t			item_type;
 	flag_t			extra_flags;
 	flag_t			wear_flags;
@@ -1525,7 +1521,7 @@ struct obj_data
 	ROOM_INDEX_DATA *	in_room;
 	bool			valid;
 	bool			enchanted;
-	char *			name;
+	const char *		name;
 	mlstring *		short_descr;
 	mlstring *		description;
 	sflag_t			item_type;
@@ -1536,11 +1532,11 @@ struct obj_data
 	int 			cost;
 	int			level;
 	int			condition;
-	char *			material;
+	const char *		material;
 	int			timer;
 	int 			value	[5];
 	int 			progtypes;
-	char *			from;
+	const char *		from;
 	int 			altar;
 	int 			pit;
 	bool			extracted;
@@ -1559,7 +1555,7 @@ struct exit_data
 	} u1;
 	sflag_t		exit_info;
 	int		key;
-	char *		keyword;
+	const char *	keyword;
 	mlstring *	description;
 	EXIT_DATA *	next;		/* OLC */
 	sflag_t		rs_flags;	/* OLC */
@@ -1602,9 +1598,9 @@ struct area_data
 	RESET_DATA *	reset_last;
 	HELP_DATA *	help_first;
 	HELP_DATA *	help_last;
-	char *		file_name;
-	char *		name;
-	char *		credits;
+	const char *	file_name;
+	const char *	name;
+	const char *	credits;
 	int		age;
 	int		nplayer;
 	int		min_level;
@@ -1612,7 +1608,7 @@ struct area_data
 	int		min_vnum;
 	int		max_vnum;
 	bool		empty;
-	char *		builders;	/* OLC */ /* Listing of */
+	const char *	builders;	/* OLC */ /* Listing of */
 	int		vnum;		/* OLC */ /* Area vnum  */
 	flag_t		flags;		/* OLC */
 	int		security;	/* OLC */ /* Value 1-9  */
@@ -1622,7 +1618,7 @@ struct area_data
 
 struct room_history_data
 {
-	char *name;
+	const char *name;
 	int went;
 	ROOM_HISTORY_DATA *next;
 	ROOM_HISTORY_DATA *prev;
@@ -1644,7 +1640,7 @@ struct room_index_data
 	RESET_DATA *		reset_last;	/* OLC */
 	mlstring *		name;
 	mlstring *		description;
-	char *			owner;
+	const char *		owner;
 	int 			clan;
 	int			vnum;
 	flag_t			room_flags;
@@ -1683,7 +1679,7 @@ struct room_index_data
 struct mptrig
 {
 	int		type;
-	char *		phrase;
+	const char *	phrase;
 	sflag_t		flags;
 	int		vnum;		/* mob prog code vnum */
 	MPTRIG * 	next;
@@ -1693,7 +1689,7 @@ struct mptrig
 struct mpcode
 {
 	int		vnum;
-	char *		code;
+	const char *	code;
 	MPCODE *	next;
 };
 
@@ -1831,8 +1827,8 @@ enum {
  */
 struct social_type
 {
-	char *	name;
-	char *	val[SOC_MAX];
+	const char *	name;
+	const char *	val[SOC_MAX];
 };
 
 /*
@@ -1911,9 +1907,6 @@ void hunt_victim(CHAR_DATA *ch);
 int find_path(int in_room_vnum, int out_room_vnum, CHAR_DATA *ch, 
 	       int depth, int in_zone);
 
-/* ban.c */
-bool	check_ban	(char *site, int type);
-
 /* effect.c */
 void	acid_effect	(void *vo, int level, int dam, int target);
 void	cold_effect	(void *vo, int level, int dam, int target);
@@ -1925,7 +1918,7 @@ void	scream_effect	(void *vo, int level, int dam, int target);
 
 /* handler.c */
 AD	*affect_find (AFFECT_DATA *paf, int sn);
-void	affect_check	(CHAR_DATA *ch, int where, int vector);
+void	affect_check	(CHAR_DATA *ch, int where, flag_t vector);
 int	count_users	(OBJ_DATA *obj);
 void	deduct_cost	(CHAR_DATA *ch, int cost);
 void	affect_enchant	(OBJ_DATA *obj);
@@ -1945,13 +1938,16 @@ bool	is_name 	(const char *str, const char *namelist);
 bool	is_name_raw	(const char *str, const char *namelist,
 			 int (*cmpfun)(const char*, const char*));
 void	name_toggle	(CHAR_DATA *ch, const char *name,
-			 const char *editor_name, char **namelist);
+			 const char *editor_name, const char **namelist);
 void	affect_to_char	(CHAR_DATA *ch, AFFECT_DATA *paf);
 void	affect_to_obj	(OBJ_DATA *obj, AFFECT_DATA *paf);
 void	affect_remove	(CHAR_DATA *ch, AFFECT_DATA *paf);
 void	affect_remove_obj (OBJ_DATA *obj, AFFECT_DATA *paf);
 void	affect_strip	(CHAR_DATA *ch, int sn);
+void	affect_bit_strip(CHAR_DATA *ch, int where, flag_t bits);
 bool	is_affected	(CHAR_DATA *ch, int sn);
+bool	is_bit_affected	(CHAR_DATA *ch, int where, flag_t bits);
+int	has_obj_affect	(CHAR_DATA *ch, int vector);
 void	affect_to_room	(ROOM_INDEX_DATA *room, AFFECT_DATA *paf);
 void	affect_remove_room	(ROOM_INDEX_DATA *room, AFFECT_DATA *paf);
 void	affect_strip_room	(ROOM_INDEX_DATA *ch, int sn);
@@ -2002,12 +1998,11 @@ bool	can_see 	(CHAR_DATA *ch, CHAR_DATA *victim);
 bool	can_see_obj	(CHAR_DATA *ch, OBJ_DATA *obj);
 bool	can_see_room	(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex);
 bool	can_drop_obj	(CHAR_DATA *ch, OBJ_DATA *obj);
-void	room_record	(char *name, ROOM_INDEX_DATA *room,int door);
-int	affect_check_obj	(CHAR_DATA *ch, int vector);
+void	room_record	(const char *name, ROOM_INDEX_DATA *room,int door);
 bool	is_safe_rspell	(int level, CHAR_DATA *victim);
 int	count_charmed	(CHAR_DATA *ch);
-void	add_mind	(CHAR_DATA *ch, char *str);
-void	remove_mind	(CHAR_DATA *ch, char *str);
+void	add_mind	(CHAR_DATA *ch, const char *str);
+void	remove_mind	(CHAR_DATA *ch, const char *str);
 void	back_home	(CHAR_DATA *ch);
 CHAR_DATA*	find_char	(CHAR_DATA *ch, const char *argument, int door, int range);
 CHAR_DATA*	get_char_spell	(CHAR_DATA *ch, const char *argument, int *door, int range);
@@ -2037,7 +2032,7 @@ int	mult_argument	(const char *argument, char *arg);
 const char *	one_argument	(const char *argument, char *arg_first);
 const char *	first_arg	(const char *argument, char *arg_first,
 				 bool fCase);
-char* PERS(CHAR_DATA *ch, CHAR_DATA *looker);
+const char* PERS(CHAR_DATA *ch, CHAR_DATA *looker);
 
 /* save.c */
 void	save_char_obj	(CHAR_DATA *ch, bool reboot);
@@ -2072,7 +2067,7 @@ void		free_mob_index		(MOB_INDEX_DATA *pMob);
 void		show_liqlist		(CHAR_DATA *ch);
 void		show_damlist		(CHAR_DATA *ch);
 
-MPTRIG *	mptrig_new              (int type, char *phrase, int vnum);
+MPTRIG *	mptrig_new              (int type, const char *phrase, int vnum);
 void		mptrig_add		(MOB_INDEX_DATA *mob, MPTRIG *mptrig);
 void            mptrig_free		(MPTRIG *mptrig);
 
@@ -2107,8 +2102,6 @@ extern AREA_DATA *	area_current;
 extern HELP_DATA *	help_first;
 extern SHOP_DATA *	shop_last;
 
-extern char	str_empty[1];
-	
 void	reset_area      (AREA_DATA * pArea);		/* OLC */
 void	reset_room	(ROOM_INDEX_DATA *pRoom);	/* OLC */
 
@@ -2127,13 +2120,7 @@ MOB_INDEX_DATA *	get_mob_index	(int vnum);
 OBJ_INDEX_DATA *	get_obj_index	(int vnum);
 ROOM_INDEX_DATA *	get_room_index	(int vnum);
 flag_t	flag_convert	(char letter);
-void *	alloc_mem	(int sMem);
 void *	alloc_perm	(int sMem);
-void	free_mem	(void *pMem, int sMem);
-char *	str_dup		(const char *str);
-char *	str_add		(const char *str,...);
-void	free_string	(char *str);
-char *	str_printf	(const char *format,...);
 int	number_fuzzy	(int number);
 int	number_range	(int from, int to);
 int	number_percent	(void);
@@ -2142,7 +2129,7 @@ int	number_bits	(int width);
 long     number_mm      (void);
 int	dice		(int number, int size);
 int	interpolate	(int level, int value_00, int value_32);
-void	smash_tilde	(char *str);
+char *	smash_tilde	(const char *str);
 char *	capitalize	(const char *str);
 void	append_file	(CHAR_DATA *ch, const char *file, const char *str);
 void	tail_chain	(void);

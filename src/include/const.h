@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.5 1998-10-02 04:48:25 fjoe Exp $
+ * $Id: const.h,v 1.6 1998-10-06 13:18:25 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -58,9 +58,10 @@
 #define LANG_CONF	"lang.conf"	/* lang definitions */
 #define MSG_FILE	"msgdb.txt"	/* msg db */
 
-#define CLASS_LIST	"class.lst"	/* list of classes */
-#define CLAN_LIST	"clan.lst"	/* list of clans */
 #define AREA_LIST	"area.lst"	/* list of areas */
+#define CLAN_LIST	"clan.lst"	/* list of clans */
+#define CLASS_LIST	"class.lst"	/* list of classes */
+#define LANG_LIST	"lang.lst"	/* list of languages */
 
 #define BUG_FILE	"bugs.txt"	/* For 'bug' and bug()*/
 #define TYPO_FILE	"typos.txt"	/* For 'typo'*/
@@ -81,6 +82,7 @@
 #define MAX_KEY_HASH		1024
 #define MAX_WORD_HASH		128
 #define MAX_MSG_HASH		128
+#define MAX_STRING_HASH		16384
 
 #define MAX_STRING_LENGTH	(4096+512)
 #define MAX_INPUT_LENGTH	1024
@@ -106,6 +108,7 @@
 #define MAX_DIR			6	/* number of exits */
 #define MAX_ALIAS		50	/* number of aliases char can have */
 #define MAX_LEVEL		100
+#define RATING_TABLE_SIZE	20	/* rating table size */
 
 #define LEVEL_HERO		(MAX_LEVEL - 9)
 #define LEVEL_IMMORTAL		(MAX_LEVEL - 8)
@@ -250,7 +253,7 @@
 #define OBJ_VNUM_RULER_SHIELD3		73
 #define OBJ_VNUM_RULER_SHIELD4		74
 
-#define OBJ_VNUM_CHAOS_BLADE		87
+#define OBJ_VNUM_CHAOS_BLADE		97
 
 #define OBJ_VNUM_DRAGONDAGGER		80
 #define OBJ_VNUM_DRAGONMACE		81

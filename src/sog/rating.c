@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rating.c,v 1.11 1998-09-24 14:07:41 fjoe Exp $
+ * $Id: rating.c,v 1.12 1998-10-06 13:18:30 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -33,11 +33,10 @@
 #include "rating.h"
 
 struct rating_data {
-	char *name;
+	const char *name;
 	int pc_killed;
 };
 
-#define RATING_TABLE_SIZE 20
 struct rating_data rating_table[RATING_TABLE_SIZE];
 
 /*
@@ -57,7 +56,7 @@ void rating_update(CHAR_DATA *ch, CHAR_DATA *victim)
 /*
  * rating_add - add (or replace) `name/pc_killed' to (in) rating_table
  */
-void rating_add(char* name, int pc_killed)
+void rating_add(const char* name, int pc_killed)
 {
 	int i;
 	struct rating_data *p = rating_table;

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.66 1998-10-02 08:13:51 fjoe Exp $
+ * $Id: update.c,v 1.67 1998-10-06 13:18:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1000,6 +1000,7 @@ void char_update(void)
 	for (ch = char_list; ch != NULL; ch = ch_next) {
 		AFFECT_DATA *paf;
 		AFFECT_DATA *paf_next;
+		flag_t strip = AFF_FLYING;
 
 		ch_next = ch->next;
 
@@ -1020,24 +1021,20 @@ void char_update(void)
 			affect_strip(ch, gsn_caltrops);
 
 		/* Remove vampire effect when morning. */
-		if (IS_VAMPIRE(ch) && (weather_info.sunlight == SUN_LIGHT 
-				      || weather_info.sunlight == SUN_RISE))
+		if (is_affected(ch, gsn_vampire)
+		&&  (weather_info.sunlight == SUN_LIGHT ||
+		     weather_info.sunlight == SUN_RISE))
 			do_human(ch, str_empty);
 
-		/* Reset sneak for vampire */
-		if (!(ch->fighting) && !IS_AFFECTED(ch,AFF_SNEAK) 
-		&& IS_VAMPIRE(ch) && !MOUNTED(ch)) {
-			char_puts("You begin to sneak again.\n\r", ch);
-			SET_BIT(ch->affected_by, AFF_SNEAK);
-		}
-
-		if (!(ch->fighting) && !IS_AFFECTED(ch, AFF_SNEAK) 
-		&& (race_table[RACE(ch)].aff & AFF_SNEAK) && !MOUNTED(ch))
-			char_puts("You begin to sneak again.\n\r", ch);
-
-		if (!(ch->fighting) && !IS_AFFECTED(ch, AFF_HIDE) 
+		if (!ch->fighting && !IS_AFFECTED(ch, AFF_HIDE) 
 		&& (race_table[RACE(ch)].aff & AFF_HIDE) && !MOUNTED(ch))
 			char_puts("You step back into the shadows.\n\r", ch);
+
+		if (MOUNTED(ch))
+			strip |= AFF_SNEAK | AFF_HIDE | AFF_INVISIBLE |
+				 AFF_IMP_INVIS | AFF_FADE | AFF_CAMOUFLAGE;
+
+		SET_BIT(ch->affected_by, race_table[RACE(ch)].aff & ~strip);
 
 		if (!IS_NPC(ch) && is_affected(ch, gsn_thumbling)) {
 			if (dice(5, 6) > get_curr_stat(ch, STAT_DEX)) {
@@ -1046,14 +1043,6 @@ void char_update(void)
 				affect_strip(ch, gsn_thumbling);
 			}
 		}
-
-		SET_BIT(ch->affected_by, race_table[RACE(ch)].aff);
-
-		if (!IS_NPC(ch) && IS_SET(ch->act, PLR_CHANGED_AFF))
-			REMOVE_BIT(ch->affected_by, AFF_FLYING);
-
-		if (MOUNTED(ch))
-			REMOVE_BIT(ch->affected_by, (C | D | P | Q));
 
 		if (ch->timer > 20 && !IS_NPC(ch))
 	        	ch_quit = ch;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.97 1998-10-02 08:13:51 fjoe Exp $
+ * $Id: act_move.c,v 1.98 1998-10-06 13:18:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1222,8 +1222,6 @@ void do_stand(CHAR_DATA *ch, const char *argument)
 		char_puts("You are already fighting!\n\r", ch);
 		break;
 	}
-
-	return;
 }
 
 void do_rest(CHAR_DATA *ch, const char *argument)
@@ -1750,47 +1748,30 @@ void do_camouflage(CHAR_DATA *ch, const char *argument)
  */
 void do_visible(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_SET(ch->affected_by, AFF_HIDE)) {
+	if (IS_SET(ch->affected_by, AFF_HIDE | AFF_FADE)) {
 		char_nputs(MSG_YOU_STEP_OUT_SHADOWS, ch);
-		REMOVE_BIT(ch->affected_by, AFF_HIDE);
+		REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
 		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MSG_N_STEPS_OUT_OF_SHADOWS);
 	}
-	if (IS_SET(ch->affected_by, AFF_FADE)) {
-		char_nputs(MSG_YOU_STEP_OUT_SHADOWS, ch);
-		REMOVE_BIT(ch->affected_by, AFF_FADE);
-		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-				MSG_N_STEPS_OUT_OF_SHADOWS);
-	}
+
 	if (IS_SET(ch->affected_by, AFF_CAMOUFLAGE)) {
 		char_nputs(MSG_YOU_STEP_OUT_COVER, ch);
 		REMOVE_BIT(ch->affected_by,AFF_CAMOUFLAGE);
 		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
 				MSG_N_STEPS_OUT_COVER);
 	}
-	if (IS_SET(ch->affected_by, AFF_INVISIBLE)) {
+
+	if (IS_SET(ch->affected_by, AFF_INVISIBLE | AFF_IMP_INVIS)) {
 		char_puts("You fade into existence.\n\r", ch);
-		affect_strip(ch, gsn_invisibility);
-		affect_strip(ch, gsn_mass_invis);
-		REMOVE_BIT(ch->affected_by, AFF_INVISIBLE);
-		act("$n fades into existence.", ch, NULL, NULL, TO_ROOM);
-	}
-	if (IS_SET(ch->affected_by, AFF_IMP)) {
-		char_puts("You fade into existence.\n\r", ch);
-		affect_strip(ch, gsn_invisibility);
-		affect_strip(ch, gsn_improved_invis);
-		REMOVE_BIT(ch->affected_by, AFF_IMP);
+		affect_bit_strip(ch, TO_AFFECTS, AFF_INVISIBLE | AFF_IMP_INVIS);
 		act("$n fades into existence.", ch, NULL, NULL, TO_ROOM);
 	}
 
-	if (IS_SET(ch->affected_by, AFF_SNEAK) 
-	    && !IS_NPC(ch) && !IS_SET(race_table[RACE(ch)].aff,AFF_SNEAK)) {
+	if (is_bit_affected(ch, TO_AFFECTS, AFF_SNEAK)) {
 		char_puts("You trample around loudly again.\n\r", ch);
-		affect_strip(ch, gsn_sneak);
-		REMOVE_BIT(ch->affected_by, AFF_SNEAK);
+		affect_bit_strip(ch, TO_AFFECTS, AFF_SNEAK);
 	}
-
-	affect_strip(ch, gsn_mass_invis);
 }
 
 void do_recall(CHAR_DATA *ch, const char *argument)
@@ -1833,7 +1814,7 @@ void do_recall(CHAR_DATA *ch, const char *argument)
 	if (ch->in_room == location)
 		return;
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_NO_RECALL)
+	if (IS_SET(ch->in_room->room_flags, ROOM_NORECALL)
 	||  IS_AFFECTED(ch, AFF_CURSE) 
 	||  IS_RAFFECTED(ch->in_room, RAFF_CURSE)) {
 		char_puts("The gods have forsaken you.\n\r", ch);
@@ -2016,7 +1997,7 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	int level, duration;
 	int chance;
  
-	if (IS_VAMPIRE(ch)) {
+	if (is_affected(ch, gsn_vampire)) {
 		char_puts("But you are already vampire. Kill them! Kill them!\n\r", ch);
 		return;
 	}
@@ -2044,6 +2025,13 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	af.level     = level;
 	af.duration  = duration;
 
+/* negative immunity */
+	af.where = TO_IMMUNE;
+	af.location = APPLY_NONE;
+	af.modifier = 0;
+	af.bitvector = IMM_NEGATIVE;
+	affect_to_char(ch, &af);
+
 /* haste */
 	af.where     = TO_AFFECTS;
 	af.location  = APPLY_DEX;
@@ -2052,17 +2040,14 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	affect_to_char(ch, &af);
 
 /* giant strength + infrared */
-	af.where     = TO_AFFECTS;
 	af.location  = APPLY_STR;
 	af.modifier  = 1 + (level / 20);
-	af.bitvector = AFF_INFRARED;
+	af.bitvector = 0;
 	affect_to_char(ch, &af);
 
 /* size */
-	af.where     = TO_AFFECTS;
 	af.location  = APPLY_SIZE;
 	af.modifier  = 1 + (level / 50);
-	af.bitvector = AFF_SNEAK;
 	affect_to_char(ch, &af);
 
 /* damroll */
@@ -2072,19 +2057,15 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 	af.bitvector = AFF_BERSERK;
 	affect_to_char(ch, &af);
 
-/* negative immunity */
-	af.where = TO_IMMUNE;
-	af.location = APPLY_NONE;
-	af.modifier = 0;
-	af.bitvector = IMM_NEGATIVE;
-	affect_to_char(ch, &af);
-
-/* flying */
+/* flying, infrared */
 	af.where     = TO_AFFECTS;
 	af.location  = 0;
 	af.modifier  = 0;
-	af.bitvector = AFF_FLYING;
+	af.bitvector = AFF_FLYING | AFF_INFRARED;
 	affect_to_char(ch, &af);
+
+/* sneak will not be altered by 'vis' or 'faerie fog' */
+	SET_BIT(ch->affected_by, AFF_SNEAK);
 
 	char_puts("You feel yourself getting greater and greater.\n\r", ch);
 	act("You cannot recognize $n anymore.", ch, NULL, NULL, TO_ROOM);
@@ -2103,7 +2084,7 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!IS_VAMPIRE(ch)) {
+	if (!is_affected(ch, gsn_vampire)) {
 		char_puts("You must transform vampire before biting.\n\r", ch);
 		return;
 	}
@@ -2359,7 +2340,7 @@ void do_vanish(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, SKILL(sn)->beats);
 
 	if (ch->in_room == NULL
-	||  IS_SET(ch->in_room->room_flags, ROOM_NO_RECALL)) {
+	||  IS_SET(ch->in_room->room_flags, ROOM_NORECALL)) {
 		char_puts("You failed.\n\r", ch);
 		return;
 	}
@@ -2427,7 +2408,7 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!IS_VAMPIRE(ch)) {
+	if (!is_affected(ch, gsn_vampire)) {
 		char_puts("Let it be.\n\r", ch);
 		return;
 	}
@@ -2500,17 +2481,15 @@ void do_fly(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (IS_AFFECTED(ch,AFF_FLYING)) {		       
+		if (IS_AFFECTED(ch, AFF_FLYING)) {		       
 			char_puts("You are already flying.\n\r", ch); 
 			return;
 		}
 
-		if (is_affected(ch, gsn_fly) 
-		||  is_affected(ch, gsn_vampire)
+		if (is_bit_affected(ch, TO_AFFECTS, AFF_FLYING)
 		||  (race_table[RACE(ch)].aff & AFF_FLYING) 
-		||  affect_check_obj(ch, AFF_FLYING)) {
-			SET_BIT(ch->affected_by,AFF_FLYING);
-			REMOVE_BIT(ch->act,PLR_CHANGED_AFF);
+		||  has_obj_affect(ch, AFF_FLYING)) {
+			SET_BIT(ch->affected_by, AFF_FLYING);
 			char_puts("You start to fly.\n\r", ch);
 		}
 		else {
@@ -2520,8 +2499,7 @@ void do_fly(CHAR_DATA *ch, const char *argument)
 	}
 	else if (!str_cmp(arg,"down")) {
 		if (IS_AFFECTED(ch,AFF_FLYING)) {
-			REMOVE_BIT(ch->affected_by,AFF_FLYING);
-			SET_BIT(ch->act,PLR_CHANGED_AFF);
+			REMOVE_BIT(ch->affected_by, AFF_FLYING);
 			char_puts("You slowly touch the ground.\n\r", ch);
 		}
 		else {		       
@@ -2702,7 +2680,7 @@ void do_crecall(CHAR_DATA *ch, const char *argument)
 	if (ch->in_room == location)
 		return;
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_NO_RECALL)
+	if (IS_SET(ch->in_room->room_flags, ROOM_NORECALL)
 	||  IS_AFFECTED(ch, AFF_CURSE) 
 	||  IS_RAFFECTED(ch->in_room, RAFF_CURSE)) {
 		char_puts("The gods have forsaken you.\n\r", ch);
@@ -2999,11 +2977,8 @@ void do_mount(CHAR_DATA *ch, const char *argument)
 	mount->mount = ch;
 	mount->riding = TRUE;
   
-	/* No sneaky people on mounts */
-	affect_strip(ch, gsn_sneak);
-	REMOVE_BIT(ch->affected_by, AFF_HIDE);
-	affect_strip(ch, gsn_fade);
-	affect_strip(ch, gsn_improved_invis);
+	affect_bit_strip(ch, TO_AFFECTS, AFF_INVISIBLE | AFF_IMP_INVIS | AFF_SNEAK);
+	REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE | AFF_CAMOUFLAGE);
 }
 
 void do_dismount(CHAR_DATA *ch, const char *argument)
@@ -3329,7 +3304,7 @@ void do_human(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 	 
-	if (!IS_VAMPIRE(ch)) {
+	if (!is_affected(ch, gsn_vampire)) {
 		char_puts("You are already a human.\n\r", ch);
 		return;
 	}
@@ -3480,7 +3455,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 
 	if (!IS_TRUSTED(ch,ANGEL) && !IS_SET(portal->value[2],GATE_NOCURSE)
 	&&  (IS_AFFECTED(ch,AFF_CURSE) 
-	||  IS_SET(old_room->room_flags,ROOM_NO_RECALL) 
+	||  IS_SET(old_room->room_flags,ROOM_NORECALL) 
 	||  IS_RAFFECTED(old_room,RAFF_CURSE))) {
 		char_puts("Something prevents you from leaving...\n\r",ch);
 		return;

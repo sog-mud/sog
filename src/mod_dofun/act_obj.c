@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.73 1998-10-02 04:48:24 fjoe Exp $
+ * $Id: act_obj.c,v 1.74 1998-10-06 13:18:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -620,7 +620,7 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 			act("$n drops $p.", ch, obj, NULL, TO_ROOM);
 		act_puts("You drop $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 		if (obj->pIndexData->vnum == OBJ_VNUM_POTION_VIAL &&
-		    number_percent() < 40)
+		    number_percent() < 51)
 			if (!IS_SET(ch->in_room->sector_type, SECT_FOREST) &&
 			    !IS_SET(ch->in_room->sector_type, SECT_DESERT) &&
 			    !IS_SET(ch->in_room->sector_type, SECT_AIR) &&
@@ -2159,8 +2159,9 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 		return;
 	
 	WAIT_STATE(ch, SKILL(sn)->beats);
-	percent = number_percent() + (IS_AWAKE(victim) ? 10 : -50);
-	percent += can_see(victim, ch) ? -10 : 0;
+	percent = number_percent() +
+		  (IS_AWAKE(victim) ? 10 : -50) +
+		  (!can_see(victim, ch) ? -10 : 0);
 
 	if ((!IS_NPC(ch) && percent > get_skill(ch, sn))
 	||  IS_SET(victim->imm_flags, IMM_STEAL)

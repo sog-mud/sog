@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.57 1998-10-03 07:25:04 kostik Exp $
+ * $Id: spellfun.c,v 1.58 1998-10-06 13:18:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -126,7 +126,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	spell = SKILL(sn);
 
 	if (ch->class == CLASS_VAMPIRE
-	&&  !IS_VAMPIRE(ch) && !IS_SET(spell->flags, SKILL_CLAN)) {
+	&&  !is_affected(ch, gsn_vampire)
+	&&  !IS_SET(spell->flags, SKILL_CLAN)) {
 		char_puts("You must transform to vampire before casting!\n\r",
 			  ch);
 		return;
@@ -142,7 +143,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_NO_MAGIC)) {
+	if (IS_SET(ch->in_room->room_flags, ROOM_NOMAGIC)) {
 		char_puts("Your spell fizzles out and fails.\n\r", ch);
 		act("$n's spell fizzles out and fails.",
 		    ch, NULL, NULL, TO_ROOM);
@@ -1463,7 +1464,7 @@ void spell_create_water(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		obj->value[1] += water;
 
 		if (!is_name("water", obj->name)) {
-			char *p = obj->name;
+			const char *p = obj->name;
 			obj->name = str_add(obj->name, " water", NULL);
 			free_string(p);
 		}
@@ -2748,28 +2749,18 @@ void spell_faerie_fog(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	act("$n conjures a cloud of purple smoke.", ch, NULL, NULL, TO_ROOM);
 	char_puts("You conjure a cloud of purple smoke.\n\r", ch);
 
-	for (ich = ch->in_room->people; ich != NULL; ich = ich->next_in_room)
-	{
+	for (ich = ch->in_room->people; ich != NULL; ich = ich->next_in_room) {
 		if (ich->invis_level > 0)
-		    continue;
+			continue;
 
-		if (ich == ch || saves_spell(level, ich,DAM_OTHER))
-		    continue;
+		if (ich == ch || saves_spell(level, ich, DAM_OTHER))
+			continue;
 
-		affect_strip (ich, gsn_invisibility			);
-		affect_strip (ich, gsn_mass_invis		);
-		affect_strip (ich, gsn_improved_invis		);
-		REMOVE_BIT   (ich->affected_by, AFF_HIDE	);
-		REMOVE_BIT   (ich->affected_by, AFF_FADE	);
-		REMOVE_BIT   (ich->affected_by, AFF_INVISIBLE	);
-		REMOVE_BIT   (ich->affected_by, AFF_IMP	);	
+		affect_bit_strip(ich, TO_AFFECTS, AFF_INVISIBLE | AFF_IMP_INVIS);
+		REMOVE_BIT(ich->affected_by, AFF_HIDE | AFF_FADE | AFF_CAMOUFLAGE);
 
-	    /* An elf sneaks eternally */
-	    if (IS_NPC(ich) || !IS_SET(race_table[RACE(ich)].aff,AFF_SNEAK))
-	      {
-	        affect_strip (ich, gsn_sneak                      );
-	        REMOVE_BIT   (ich->affected_by, AFF_SNEAK );
-	      }
+		if (is_bit_affected(ch, TO_AFFECTS, AFF_SNEAK))
+			affect_bit_strip(ich, TO_AFFECTS, AFF_SNEAK);
 
 		act("$n is revealed!", ich, NULL, NULL, TO_ROOM);
 		char_puts("You are revealed!\n\r", ich);
@@ -4129,8 +4120,8 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	||  IS_SET(victim->in_room->room_flags, ROOM_SAFE)
 	||  room_is_private(ch->in_room)
 	||  IS_SET(victim->in_room->room_flags, ROOM_NOSUMMON)
-	||  IS_SET(ch->in_room->room_flags, ROOM_NO_RECALL)
-	||  IS_SET(victim->in_room->room_flags, ROOM_NO_RECALL)
+	||  IS_SET(ch->in_room->room_flags, ROOM_NORECALL)
+	||  IS_SET(victim->in_room->room_flags, ROOM_NORECALL)
 	||  (victim->in_room->exit[0] == NULL &&
 	     victim->in_room->exit[1] == NULL &&
 	     victim->in_room->exit[2] == NULL &&
@@ -4179,7 +4170,7 @@ void spell_teleport(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	ROOM_INDEX_DATA *pRoomIndex;
 
 	if (victim->in_room == NULL
-	||  IS_SET(victim->in_room->room_flags, ROOM_NO_RECALL)
+	||  IS_SET(victim->in_room->room_flags, ROOM_NORECALL)
 	||  (victim != ch && IS_SET(victim->imm_flags,IMM_SUMMON))
 	||  (!IS_NPC(ch) && victim->fighting != NULL)
 	||  (victim != ch
@@ -4314,7 +4305,7 @@ void spell_word_of_recall(int sn, int level, CHAR_DATA *ch,void *vo,int target)
 		return;
 	  }
 
-	if (IS_SET(victim->in_room->room_flags,ROOM_NO_RECALL) ||
+	if (IS_SET(victim->in_room->room_flags,ROOM_NORECALL) ||
 		IS_AFFECTED(victim,AFF_CURSE) ||
 		IS_RAFFECTED(victim->in_room,RAFF_CURSE))
 	{
@@ -4905,16 +4896,16 @@ void spell_hand_of_undead(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
 
-	if (saves_spell(level, victim,DAM_NEGATIVE)) {
+	if (saves_spell(level, victim, DAM_NEGATIVE)) {
 		char_puts("You feel a momentary chill.\n\r",victim);
 		return;
 	}
 
-	if ((IS_NPC(victim) && IS_SET(victim->act,ACT_UNDEAD)) 
-	|| IS_VAMPIRE(victim)) {
+	if (IS_NPC(victim) && IS_SET(victim->act, ACT_UNDEAD)) {
 		 char_puts("Your victim is unaffected by hand of undead.\n\r",ch);
 		 return;
 	}
+
 	if (victim->level <= 2)
 		dam		 = ch->hit + 1;
 	else {
@@ -4977,7 +4968,7 @@ void spell_mist_walk(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
-	||  !IS_VAMPIRE(ch)
+	||  !is_affected(ch, gsn_vampire)
 	||  victim->level >= level - 5
 	||  saves_spell(level, victim, DAM_OTHER)
 	||  !can_gate(ch, victim)) {

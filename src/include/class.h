@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.5 1998-10-02 04:48:25 fjoe Exp $
+ * $Id: class.h,v 1.6 1998-10-06 13:18:25 fjoe Exp $
  */
 
 #ifndef _CLASS_H_
@@ -39,24 +39,24 @@ struct class_skill {
 };
 
 struct class_data {
-	char *	name;			/* full name */
-	char *	file_name;		/* filename */
-	char	who_name[4];		/* three-letter name for 'who' */
-	int	attr_prime;		/* primary stat */
-	int	weapon;			/* school weapon vnum */
-	varr *	guild;			/* guild room list */
-	int	skill_adept;		/* max skill % */
-	int	thac0_00;		/* thac0 for level 0 */
-	int	thac0_32;		/* thac0 for level 32 */
-	int	hp_rate;		/* hp rate (when gaining level) */
-	int	mana_rate;		/* mana rate (when gaining level */
-	sflag_t	flags;			/* class flags */
-	int	points;			/* cost in exp */
-	int	stats[MAX_STATS];	/* stat modifiers */
-	int	align;			/* alignment restrictions */
-	varr	skills;			/* varr of class skills */
-	char *	titles[MAX_LEVEL+1][2];	/* titles for each levels and sexes */
-	varr	poses;			/* varr of class poses */
+	const char *	name;			/* full name */
+	const char *	file_name;		/* filename */
+	char		who_name[4];		/* three-letter name for 'who' */
+	int		attr_prime;		/* primary stat */
+	int		weapon;			/* school weapon vnum */
+	varr *		guild;			/* guild room list */
+	int		skill_adept;		/* max skill % */
+	int		thac0_00;		/* thac0 for level 0 */
+	int		thac0_32;		/* thac0 for level 32 */
+	int		hp_rate;		/* hp rate (when gaining level) */
+	int		mana_rate;		/* mana rate (when gaining level */
+	sflag_t		flags;			/* class flags */
+	int		points;			/* cost in exp */
+	int		stats[MAX_STATS];	/* stat modifiers */
+	int		align;			/* alignment restrictions */
+	varr		skills;			/* varr of class skills */
+	const char *	titles[MAX_LEVEL+1][2];	/* titles */
+	varr		poses;			/* varr of class poses */
 };
 
 struct pose_data {
@@ -76,11 +76,11 @@ extern varr classes;
 
 CLASS_DATA *	class_new(void);
 void		class_free(CLASS_DATA*);
-char *		class_name(int);
-char *		class_who_name(int);
+const char *	class_name(int);
+const char *	class_who_name(int);
 
 int		cln_lookup(const char *name);
-char *		title_lookup(CHAR_DATA *ch);
+const char *	title_lookup(CHAR_DATA *ch);
 
 #endif
 

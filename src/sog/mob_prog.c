@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.31 1998-09-22 18:07:17 fjoe Exp $
+ * $Id: mob_prog.c,v 1.32 1998-10-06 13:18:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1115,20 +1115,16 @@ void mp_act_trigger(const char *argument, CHAR_DATA *mob, CHAR_DATA *ch,
 		    const void *arg1, const void *arg2, int type)
 {
 	MPTRIG *mptrig;
-	char *lowered;
-
-	lowered = str_dup(argument);
-	strlwr(lowered);
+	char *l = strlwr(argument);
 
 	for (mptrig = mob->pIndexData->mptrig_list; mptrig; mptrig = mptrig->next) {
  		if (mptrig->type == type 
 		&&  strstr(IS_SET(mptrig->flags, TRIG_CASEDEP) ?
-		    argument : lowered, mptrig->phrase)) {
+		    argument : l, mptrig->phrase)) {
 			program_flow(mptrig->vnum, mob, ch, arg1, arg2);
 			break;
 		}
 	}
-	free(lowered);
 }
 
 /*

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.22 1998-09-24 14:07:40 fjoe Exp $
+ * $Id: interp.h,v 1.23 1998-10-06 13:18:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -346,6 +346,7 @@ DECLARE_DO_FUN(do_spells	);
 DECLARE_DO_FUN(do_split		);
 DECLARE_DO_FUN(do_stand		);
 DECLARE_DO_FUN(do_stat		);
+DECLARE_DO_FUN(do_strstat	);
 DECLARE_DO_FUN(do_limited	);
 DECLARE_DO_FUN(do_steal		);
 DECLARE_DO_FUN(do_story		);

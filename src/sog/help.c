@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: help.c,v 1.5 1998-09-22 18:07:15 fjoe Exp $
+ * $Id: help.c,v 1.6 1998-10-06 13:18:26 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -127,7 +127,7 @@ void help_show(CHAR_DATA *ch, BUFFER *output, const char *keyword)
 	}
 
 	if (!topic_list) {
-		char *text;
+		const char *text;
 
 		if (pFirst->level > -2
 		&&  str_cmp(pFirst->keyword, "imotd"))

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.24 1998-10-02 04:48:27 fjoe Exp $
+ * $Id: recycle.c,v 1.25 1998-10-06 13:18:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -361,9 +361,9 @@ long get_mob_id(void)
 /* stuff for recycling mobprograms */
 MPTRIG *mptrig_free_list;
  
-MPTRIG *mptrig_new(int type, char *phrase, int vnum)
+MPTRIG *mptrig_new(int type, const char *phrase, int vnum)
 {
-	char *p;
+	const char *p;
 	MPTRIG *mptrig;
 
 	if (mptrig_free_list == NULL)

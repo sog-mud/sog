@@ -1,5 +1,5 @@
 /*
- * $Id: raffect.c,v 1.13 1998-09-29 01:06:40 fjoe Exp $
+ * $Id: raffect.c,v 1.14 1998-10-06 13:18:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -312,10 +312,6 @@ bool is_safe_rspell_nom(int level, CHAR_DATA *victim)
 	if (victim->level < 5 && !IS_NPC(victim))
 		return TRUE;
 
-	if (!IS_NPC(victim) && IS_SET(victim->act, PLR_GHOST))
-		return TRUE;
-
-
 	if (!IS_NPC(victim)
 	&&  ((level >= victim->level + 5) || (victim->level >= level + 5)))
 		return TRUE;
@@ -414,12 +410,10 @@ void raffect_to_char(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
 		}
    }
 
-  if (IS_ROOM_AFFECTED(room, RAFF_SLOW)
-		|| IS_ROOM_AFFECTED(room, RAFF_SLEEP))
-	 char_puts("There is some mist flowing in the air.\n\r",ch);
-
-  return;
- }
+	if (IS_ROOM_AFFECTED(room, RAFF_SLOW)
+	||  IS_ROOM_AFFECTED(room, RAFF_SLEEP))
+		char_puts("There is some mist flowing in the air.\n\r",ch);
+}
 
 void raffect_back_char(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
 {

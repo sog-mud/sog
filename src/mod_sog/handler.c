@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.63 1998-10-03 07:25:03 kostik Exp $
+ * $Id: handler.c,v 1.64 1998-10-06 13:18:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -43,6 +43,7 @@
 #include <sys/types.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include <time.h>
 #include "merc.h"
 #include "hometown.h"
@@ -108,7 +109,7 @@ bool is_friend(CHAR_DATA *ch,CHAR_DATA *victim)
  * Else use the oldest one.
  */
 
-void room_record(char *name,ROOM_INDEX_DATA *room,int door)
+void room_record(const char *name,ROOM_INDEX_DATA *room,int door)
 {
   ROOM_HISTORY_DATA *rec;
   int i;
@@ -117,7 +118,7 @@ void room_record(char *name,ROOM_INDEX_DATA *room,int door)
 	   i++,rec = rec->next);
 
   if (i < 5) {
-	rec = alloc_perm(sizeof(ROOM_HISTORY_DATA)); 
+	rec = calloc(1, sizeof(*rec)); 
 	rec->next = room->history;
 	if (rec->next != NULL)
 	  rec->next->prev = rec; 
@@ -655,7 +656,7 @@ void cat_name(char *buf, const char *name, size_t len)
 }
 
 void name_toggle(CHAR_DATA *ch, const char *name,
-		 const char *editor_name, char **nl)
+		 const char *editor_name, const char **nl)
 {
 	bool found;
 	const char *p;
@@ -828,8 +829,9 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 
 			if (fAdd) {
 				from = ORG_RACE(ch);
-				to = RACE(ch) = paf->modifier < MAX_PC_RACE ?
-						paf->modifier : 1;	    
+				to = RACE(ch) = paf->modifier > 0 &&
+						paf->modifier < MAX_PC_RACE ?
+							paf->modifier : 1;	    
 			}
 			else {
 				from = RACE(ch);
@@ -839,12 +841,20 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 				
 			REMOVE_BIT(ch->affected_by, race_table[from].aff);
 			SET_BIT(ch->affected_by, race_table[to].aff);
+			affect_check(ch, TO_AFFECTS, race_table[from].aff);
+
 			REMOVE_BIT(ch->imm_flags, race_table[from].imm);
 			SET_BIT(ch->imm_flags, race_table[to].imm);
+			affect_check(ch, TO_IMMUNE, race_table[from].imm);
+
 			REMOVE_BIT(ch->res_flags, race_table[from].res);
 			SET_BIT(ch->res_flags, race_table[to].res);
+			affect_check(ch, TO_RESIST, race_table[from].res);
+
 			REMOVE_BIT(ch->vuln_flags, race_table[from].vuln);
 			SET_BIT(ch->vuln_flags, race_table[to].vuln);
+			affect_check(ch, TO_VULN, race_table[from].vuln);
+
 			ch->form = race_table[to].form;
 			ch->parts = race_table[to].parts;
 		}
@@ -894,28 +904,29 @@ AFFECT_DATA  *affect_find(AFFECT_DATA *paf, int sn)
 }
 
 void affect_check_list(CHAR_DATA *ch, AFFECT_DATA *paf,
-		       int where, int vector)
+		       int where, flag_t vector)
 {
 	for (; paf; paf = paf->next)
-		if (paf->where == where && paf->bitvector == vector)
-			switch (where) {
+		if ((where < 0 || paf->where == where)
+		&&  (paf->bitvector & vector))
+			switch (paf->where) {
 			case TO_AFFECTS:
-				SET_BIT(ch->affected_by, vector);
+				SET_BIT(ch->affected_by, paf->bitvector);
 				break;
 			case TO_IMMUNE:
-				SET_BIT(ch->imm_flags, vector);   
+				SET_BIT(ch->imm_flags, paf->bitvector);   
 				break;
 			case TO_RESIST:
-				SET_BIT(ch->res_flags, vector);
+				SET_BIT(ch->res_flags, paf->bitvector);
 				break;
 			case TO_VULN:
-				SET_BIT(ch->vuln_flags, vector);
+				SET_BIT(ch->vuln_flags, paf->bitvector);
 				break;
 			}
 }
 
 /* fix object affects when removing one */
-void affect_check(CHAR_DATA *ch, int where, int vector)
+void affect_check(CHAR_DATA *ch, int where, flag_t vector)
 {
 	OBJ_DATA *obj;
 
@@ -995,33 +1006,25 @@ void affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 	vector = paf->bitvector;
 
 	if (paf == ch->affected)
-	{
 		ch->affected	= paf->next;
-	}
-	else
-	{
+	else {
 		AFFECT_DATA *prev;
 
-		for (prev = ch->affected; prev != NULL; prev = prev->next)
-		{
-		    if (prev->next == paf)
-		    {
-			prev->next = paf->next;
-			break;
-		    }
+		for (prev = ch->affected; prev; prev = prev->next) {
+			if (prev->next == paf) {
+				prev->next = paf->next;
+				break;
+			}
 		}
 
-		if (prev == NULL)
-		{
-		    bug("Affect_remove: cannot find paf.", 0);
-		    return;
+		if (prev == NULL) {
+			bug("Affect_remove: cannot find paf.", 0);
+			return;
 		}
 	}
 
 	free_affect(paf);
-
-	affect_check(ch,where,vector);
-	return;
+	affect_check(ch, where, vector);
 }
 
 void affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
@@ -1077,8 +1080,6 @@ void affect_remove_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 		affect_check(obj->carried_by,where,vector);
 }
 
-
-
 /*
  * Strip all affects of a given sn.
  */
@@ -1087,17 +1088,27 @@ void affect_strip(CHAR_DATA *ch, int sn)
 	AFFECT_DATA *paf;
 	AFFECT_DATA *paf_next;
 
-	for (paf = ch->affected; paf != NULL; paf = paf_next)
-	{
+	for (paf = ch->affected; paf; paf = paf_next) {
 		paf_next = paf->next;
 		if (paf->type == sn)
-		    affect_remove(ch, paf);
+			affect_remove(ch, paf);
 	}
-
-	return;
 }
 
+/*
+ * strip all affects which affect given bitvector
+ */
+void affect_bit_strip(CHAR_DATA *ch, int where, flag_t bits)
+{
+	AFFECT_DATA *paf;
+	AFFECT_DATA *paf_next;
 
+	for (paf = ch->affected; paf; paf = paf_next) {
+		paf_next = paf->next;
+		if (paf->where == where && (paf->bitvector & bits))
+			affect_remove(ch, paf);
+	}
+}
 
 /*
  * Return true if a char is affected by a spell.
@@ -1106,16 +1117,47 @@ bool is_affected(CHAR_DATA *ch, int sn)
 {
 	AFFECT_DATA *paf;
 
-	for (paf = ch->affected; paf != NULL; paf = paf->next)
-	{
+	for (paf = ch->affected; paf; paf = paf->next)
 		if (paf->type == sn)
-		    return TRUE;
-	}
+			return TRUE;
 
 	return FALSE;
 }
 
+bool is_bit_affected(CHAR_DATA *ch, int where, flag_t bits)
+{
+	AFFECT_DATA *paf;
 
+	for (paf = ch->affected; paf; paf = paf->next)
+		if (paf->where == where && (paf->bitvector & bits))
+			return TRUE;
+
+	return FALSE;
+}
+
+bool has_obj_affect(CHAR_DATA *ch, int vector)
+{
+	OBJ_DATA *obj;
+
+	for (obj = ch->carrying; obj; obj = obj->next_content) {
+		AFFECT_DATA *paf;
+
+		if (obj->wear_loc == -1 || obj->wear_loc == WEAR_STUCK_IN)
+			continue;
+
+		for (paf = obj->affected; paf; paf = paf->next)
+	        	if (paf->bitvector & vector)
+				return TRUE;
+
+		if (obj->enchanted)
+			continue;
+
+		for (paf = obj->pIndexData->affected; paf; paf = paf->next)
+			if (paf->bitvector & vector)
+				return TRUE;
+	}
+	return FALSE;
+}
 
 /*
  * Add or enhance an affect.
@@ -1141,8 +1183,6 @@ void affect_join(CHAR_DATA *ch, AFFECT_DATA *paf)
 	affect_to_char(ch, paf);
 	return;
 }
-
-
 
 /*
  * Move a char out of a room.
@@ -1207,8 +1247,6 @@ void char_from_room(CHAR_DATA *ch)
 
 	return;
 }
-
-
 
 /*
  * Move a char into a room.
@@ -1351,7 +1389,7 @@ void obj_from_char(OBJ_DATA *obj)
 /* XXX */
 	if (!IS_NPC(ch)) {
 		int vnum = obj->pIndexData->vnum;
-		char *p = mlstr_mval(obj->short_descr);
+		const char *p = mlstr_mval(obj->short_descr);
 
 		if (p && strstr(p, ch->name)
 		&&  get_wear_level(ch, obj) < obj->level
@@ -1887,26 +1925,27 @@ CHAR_DATA *get_char_room(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *rch;
 	int number;
 	int count;
-	int ugly;
+	bool ugly = FALSE;
 
 	if (IS_NULLSTR(argument))
 		return NULL;
 
 	number = number_argument(argument, arg);
 	count  = 0;
-	ugly   = 0;
+
 	if (!str_cmp(arg, "self"))
 		return ch;
-	if (!str_cmp(arg, "ugly"))
-		ugly = 1;
 
-	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room)
-	{
+	if (!str_cmp(arg, "ugly"))
+		ugly = TRUE;
+
+	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room) {
 		if (!can_see(ch, rch))
 		    continue;
 
-		if (ugly && (count + 1) == number && IS_VAMPIRE(rch))
-		   return rch;
+		if (ugly && (count + 1) == number
+		&&  is_affected(rch, gsn_vampire))
+			return rch;
 
 		if (!is_name(arg, rch->name))
 			continue;
@@ -1918,8 +1957,6 @@ CHAR_DATA *get_char_room(CHAR_DATA *ch, const char *argument)
 	return NULL;
 }
 
-
-
 /*
  * Find a char in the room.
  * Chronos uses in act_move.c
@@ -1928,23 +1965,23 @@ CHAR_DATA *get_char_room2(CHAR_DATA *ch, ROOM_INDEX_DATA *room, const char *argu
 {
 	CHAR_DATA *rch;
 	int count;
-	int ugly;
+	bool ugly = FALSE;
 
 	if (IS_NULLSTR(argument))
 		return NULL;
 
 	if (room == NULL) return NULL;
 	count  = 0;
-	ugly   = 0;
 
 	if (!str_cmp(argument, "ugly"))
-		ugly = 1;
+		ugly = TRUE;
 
 	for (rch = room->people; rch != NULL; rch = rch->next_in_room) {
 		if (!can_see(ch, rch))
 		    continue;
 
-		if (ugly && (count + 1) == *number && IS_VAMPIRE(rch))
+		if (ugly && (count + 1) == *number
+		&&  is_affected(rch, gsn_vampire))
 		   return rch;
 
 		if (!is_name(argument, rch->name))
@@ -2304,7 +2341,7 @@ bool room_is_dark(CHAR_DATA *ch)
 	if (!IS_NPC(ch) && IS_SET(ch->act, PLR_HOLYLIGHT))
 		return FALSE;
 
-	if (IS_VAMPIRE (ch)) 
+	if (is_affected(ch, gsn_vampire))
 		return FALSE;
 		
 	if (pRoomIndex->light > 0)
@@ -2440,8 +2477,8 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	&&   !IS_AFFECTED(ch, AFF_DETECT_INVIS))
 		return FALSE;
 
-	if (IS_AFFECTED(victim, AFF_IMP)
-	&&   !IS_AFFECTED(ch, AFF_DETECT_IMP))
+	if (IS_AFFECTED(victim, AFF_IMP_INVIS)
+	&&   !IS_AFFECTED(ch, AFF_DETECT_IMP_INVIS))
 		return FALSE;
 
 /*
@@ -2531,54 +2568,26 @@ bool isn_dark_safe(CHAR_DATA *ch)
 	OBJ_DATA *light;
 	int light_exist;
 
-	if (!IS_VAMPIRE(ch))  return 0;
+	if (!is_affected(ch, gsn_vampire))
+		return FALSE;
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_DARK))
-		return 0;
+		return FALSE;
 
 	if (weather_info.sunlight == SUN_LIGHT
-	||   weather_info.sunlight == SUN_RISE)
-		return 2;
+	||  weather_info.sunlight == SUN_RISE)
+		return TRUE;
 
-	light_exist = 0;
-	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room)
-	{
-		if ((light = get_eq_char(rch,WEAR_LIGHT)) != NULL
-		      && IS_OBJ_STAT(light,ITEM_MAGIC))
-		 {
-		  light_exist = 1;
-		  break;
-		 }
+	light_exist = FALSE;
+	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room) {
+		if ((light = get_eq_char(rch, WEAR_LIGHT))
+		&&  IS_OBJ_STAT(light, ITEM_MAGIC)) {
+			light_exist = TRUE;
+			break;
+		}
 	}
 
 	return light_exist;
-}
-
-int affect_check_obj(CHAR_DATA *ch,int vector)
-{
-	AFFECT_DATA *paf;
-	OBJ_DATA *obj;
-
-	if (vector == 0) 	return 0;
-
-	for (obj = ch->carrying; obj != NULL; obj = obj->next_content)
-	{
-		if (obj->wear_loc == -1 || obj->wear_loc == WEAR_STUCK_IN)
-		    continue;
-
-	    for (paf = obj->affected; paf != NULL; paf = paf->next)
-		    {
-	        if (paf->bitvector == vector)
-	            return 1;
-	        }
-
-	    for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
-		    {
-	        if (paf->bitvector == vector)
-			return 1;
-	        }
-	}
-  return 0;
 }
 
 int count_charmed(CHAR_DATA *ch)	
@@ -2604,7 +2613,7 @@ int count_charmed(CHAR_DATA *ch)
  * add_mind - remember 'str' in mind buffer of 'ch'
  *	      remember the place to return in mind buffer
  */
-void add_mind(CHAR_DATA *ch, char *str)
+void add_mind(CHAR_DATA *ch, const char *str)
 {
 	if (!IS_NPC(ch) || ch->in_room == NULL)
 		return;
@@ -2617,7 +2626,7 @@ void add_mind(CHAR_DATA *ch, char *str)
 	}
 
 	if (!is_name(str, ch->in_mind)) {
-		char *p = ch->in_mind;
+		const char *p = ch->in_mind;
 		ch->in_mind = str_add(ch->in_mind, " ", str, NULL);
 		free_string(p);
 	}
@@ -2627,7 +2636,7 @@ void add_mind(CHAR_DATA *ch, char *str)
  * remove_mind - remove 'str' from mind buffer of 'ch'
  *		 if it was the last revenge - return home
  */
-void remove_mind(CHAR_DATA *ch, char *str)
+void remove_mind(CHAR_DATA *ch, const char *str)
 {
 	char buf[MAX_STRING_LENGTH];
 	char buff[MAX_STRING_LENGTH];
@@ -2857,8 +2866,8 @@ bool can_gate(CHAR_DATA *ch, CHAR_DATA *victim)
 	||  IS_SET(ch->in_room->room_flags, ROOM_SAFE)
 	||  IS_SET(victim->in_room->room_flags, ROOM_SAFE)
 	||  room_is_private(victim->in_room)
-	||  IS_SET(ch->in_room->room_flags, ROOM_NO_RECALL)
-	||  IS_SET(victim->in_room->room_flags, ROOM_NO_RECALL))
+	||  IS_SET(ch->in_room->room_flags, ROOM_NORECALL)
+	||  IS_SET(victim->in_room->room_flags, ROOM_NORECALL))
 		return FALSE;
 
 	if (IS_NPC(victim)) {
@@ -2876,12 +2885,12 @@ bool can_gate(CHAR_DATA *ch, CHAR_DATA *victim)
 	return TRUE;
 }
 
-char *PERS(CHAR_DATA *ch, CHAR_DATA *looker)
+const char *PERS(CHAR_DATA *ch, CHAR_DATA *looker)
 {
 	if (can_see(looker, ch)) {
 		if (IS_NPC(ch))
 			return mlstr_cval(ch->short_descr, looker);
-		else if (IS_VAMPIRE(ch) && !IS_IMMORTAL(looker))
+		else if (is_affected(ch, gsn_vampire) && !IS_IMMORTAL(looker))
 			return "an ugly creature";
 		return ch->name;
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: namedp.c,v 1.2 1998-09-17 15:51:21 fjoe Exp $
+ * $Id: namedp.c,v 1.3 1998-10-06 13:18:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,7 +31,7 @@
 #include "typedef.h"
 #include "const.h"
 #include "namedp.h"
-#include "util.h"
+#include "str.h"
 
 NAMEDP *namedp_lookup(NAMEDP *table, const char *name)
 {

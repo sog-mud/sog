@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.39 1998-09-24 14:07:40 fjoe Exp $
+ * $Id: martial_art.c,v 1.40 1998-10-06 13:18:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -78,7 +78,7 @@ void disarm(CHAR_DATA *ch, CHAR_DATA *victim ,int disarm_second)
 		}
 	}
 
-	if (IS_OBJ_STAT(obj,ITEM_NOREMOVE)) {
+	if (IS_OBJ_STAT(obj, ITEM_NOREMOVE)) {
 		act("$S weapon won't budge!", ch, NULL, victim, TO_CHAR);
 		act("$n tries to disarm you, but your weapon won't budge!",
 		    ch, NULL, victim, TO_VICT);
@@ -366,7 +366,7 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 
 	one_argument(argument,arg);
 
-	if ((chance = get_skill(ch,gsn_dirt)) == 0) {
+	if ((chance = get_skill(ch, gsn_dirt)) == 0) {
 		char_puts("You get your feet dirty.\n\r", ch);
 		return;
 	}
@@ -378,12 +378,12 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 	}
-	else if ((victim = get_char_room(ch,arg)) == NULL) {
+	else if ((victim = get_char_room(ch, arg)) == NULL) {
 		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
 
-	if (IS_AFFECTED(ch,AFF_FLYING)) {
+	if (IS_AFFECTED(ch, AFF_FLYING)) {
 		 char_puts("While flying?\n\r", ch);
 		 return;
 	}
@@ -403,19 +403,19 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_AFFECTED(ch,AFF_CHARM) && ch->master == victim) {
+	if (IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim) {
 		act("But $N is such a good friend!", ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
-	if (is_safe(ch,victim))
+	if (is_safe(ch, victim))
 		return;
 
 	/* modifiers */
 
 	/* dexterity */
-	chance += get_curr_stat(ch,STAT_DEX);
-	chance -= 2 * get_curr_stat(victim,STAT_DEX);
+	chance += get_curr_stat(ch, STAT_DEX);
+	chance -= 2 * get_curr_stat(victim, STAT_DEX);
 
 	/* speed  */
 	if (IS_SET(ch->off_flags, OFF_FAST) || IS_AFFECTED(ch, AFF_HASTE))
@@ -1946,7 +1946,7 @@ void do_truesight(CHAR_DATA *ch, const char *argument)
 		af.bitvector = AFF_DETECT_INVIS;
 		affect_to_char(ch, &af);
 
-		af.bitvector = AFF_DETECT_IMP;
+		af.bitvector = AFF_DETECT_IMP_INVIS;
 		affect_to_char(ch,&af);
 
 		af.bitvector = AFF_ACUTE_VISION;

@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.17 1998-09-24 14:07:42 fjoe Exp $
+ * $Id: string_edit.c,v 1.18 1998-10-06 13:18:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -23,44 +23,32 @@
 
 #include "merc.h"
 
-char *string_linedel(char *, int);
-char *string_lineadd(char *, char *, int);
-char *numlines(char *);
+const char *string_linedel(const char *, int);
+const char *string_lineadd(const char *, char *, int);
+char *numlines(const char *);
 
 /*****************************************************************************
  Name:		string_edit
  Purpose:	Clears string and puts player into editing mode.
  Called by:	none
  ****************************************************************************/
-void string_edit(CHAR_DATA *ch, char **pString)
+void string_edit(CHAR_DATA *ch, const char **pString)
 {
-    char_puts("-========- Entering EDIT Mode -=========-\n\r", ch);
-    char_puts("    Type :h on a new line for help\n\r", ch);
-    char_puts(" Terminate with a ~ or @ on a blank line.\n\r", ch);
-    char_puts("-=======================================-\n\r", ch);
-
-    if (*pString == NULL)
-    {
-        *pString = str_dup(str_empty);
-    }
-    else
-    {
-        **pString = '\0';
-    }
-
-    ch->desc->pString = pString;
-
-    return;
+	char_puts("-========- Entering EDIT Mode -=========-\n\r"
+		  "    Type :h on a new line for help\n\r"
+		  " Terminate with a ~ or @ on a blank line.\n\r"
+		  "-=======================================-\n\r", ch);
+	free_string(*pString);
+	*pString = str_empty;
+	ch->desc->pString = pString;
 }
-
-
 
 /*****************************************************************************
  Name:		string_append
  Purpose:	Puts player into append mode for given string.
  Called by:	(many)olc_act.c
  ****************************************************************************/
-void string_append(CHAR_DATA *ch, char **pString)
+void string_append(CHAR_DATA *ch, const char **pString)
 {
     char_puts("-=======- Entering APPEND Mode -========-\n\r", ch);
     char_puts("    Type :h on a new line for help\n\r", ch);
@@ -87,7 +75,7 @@ void string_append(CHAR_DATA *ch, char **pString)
  Purpose:	Substitutes one string for another.
  Called by:	string_add(string.c) (aedit_builder)olc_act.c.
  ****************************************************************************/
-char * string_replace(char * orig, char * old, char * new)
+const char * string_replace(const char * orig, char * old, char * new)
 {
     char xbuf[MAX_STRING_LENGTH];
     int i;
@@ -115,7 +103,7 @@ char * string_replace(char * orig, char * old, char * new)
  ****************************************************************************/
 void string_add(CHAR_DATA *ch, const char *argument)
 {
-	char *p;
+	const char *p;
 
     /*
      * Thanks to James Seng
@@ -260,11 +248,11 @@ void string_add(CHAR_DATA *ch, const char *argument)
  Purpose:	Special string formating and word-wrapping.
  Called by:	string_add(string.c) (many)olc_act.c
  ****************************************************************************/
-char *format_string(char *oldstring /*, bool fSpace */)
+const char *format_string(const char *oldstring /*, bool fSpace */)
 {
   char xbuf[MAX_STRING_LENGTH];
   char xbuf2[MAX_STRING_LENGTH];
-  char *rdesc;
+  const char *rdesc;
   int i=0;
   bool cap=TRUE;
   
@@ -383,8 +371,7 @@ char *format_string(char *oldstring /*, bool fSpace */)
     }
     if (i)
     {
-      *(rdesc+i)=0;
-      strcat(xbuf,rdesc);
+      strnzncat(xbuf,rdesc, sizeof(xbuf), i);
       strcat(xbuf,"\n\r");
       rdesc += i+1;
       while (*rdesc == ' ') rdesc++;
@@ -392,8 +379,7 @@ char *format_string(char *oldstring /*, bool fSpace */)
     else
     {
       bug ("No spaces", 0);
-      *(rdesc+75)=0;
-      strcat(xbuf,rdesc);
+      strnzncat(xbuf,rdesc, sizeof(xbuf), 75);
       strcat(xbuf,"-\n\r");
       rdesc += 76;
     }
@@ -402,8 +388,7 @@ char *format_string(char *oldstring /*, bool fSpace */)
                         *(rdesc+i)=='\n'||
                         *(rdesc+i)=='\r'))
     i--;
-  *(rdesc+i+1)=0;
-  strcat(xbuf,rdesc);
+  strnzncat(xbuf,rdesc, sizeof(xbuf), i+1);
   if (xbuf[strlen(xbuf)-2] != '\n')
     strcat(xbuf,"\n\r");
 
@@ -411,72 +396,9 @@ char *format_string(char *oldstring /*, bool fSpace */)
   return(str_dup(xbuf));
 }
 
-
-
-/*
- * Used in olc_act.c for aedit_builders.
- */
-char * string_unpad(char * argument)
+const char *string_linedel(const char *string, int line)
 {
-    char buf[MAX_STRING_LENGTH];
-    char *s;
-
-    s = argument;
-
-    while (*s == ' ')
-        s++;
-
-    strcpy(buf, s);
-    s = buf;
-
-    if (*s != '\0')
-    {
-        while (*s != '\0')
-            s++;
-        s--;
-
-        while(*s == ' ')
-            s--;
-        s++;
-        *s = '\0';
-    }
-
-    free_string(argument);
-    return str_dup(buf);
-}
-
-
-
-/*
- * Same as capitalize but changes the pointer's data.
- * Used in olc_act.c in aedit_builder.
- */
-char * string_proper(char * argument)
-{
-    char *s;
-
-    s = argument;
-
-    while (*s != '\0')
-    {
-        if (*s != ' ')
-        {
-            *s = UPPER(*s);
-            while (*s != ' ' && *s != '\0')
-                s++;
-        }
-        else
-        {
-            s++;
-        }
-    }
-
-    return argument;
-}
-
-char *string_linedel(char *string, int line)
-{
-	char *strtmp = string;
+	const char *strtmp = string;
 	char buf[MAX_STRING_LENGTH];
 	int cnt = 1, tmp = 0;
 
@@ -507,9 +429,9 @@ char *string_linedel(char *string, int line)
 	return str_dup(buf);
 }
 
-char *string_lineadd(char *string, char *newstr, int line)
+const char *string_lineadd(const char *string, char *newstr, int line)
 {
-	char *strtmp = string;
+	const char *strtmp = string;
 	int cnt = 1, tmp = 0;
 	bool done = FALSE;
 	char buf[MAX_STRING_LENGTH];
@@ -551,7 +473,7 @@ char *string_lineadd(char *string, char *newstr, int line)
 }
 
 /* buf queda con la linea sin \n\r */
-char *getline(char *str, char *buf)
+const char *getline(const char *str, char *buf)
 {
 	int tmp = 0;
 	bool found = FALSE;
@@ -580,7 +502,7 @@ char *getline(char *str, char *buf)
 	return str;
 }
 
-char *numlines(char *string)
+char *numlines(const char *string)
 {
 	int cnt = 1;
 	static char buf[MAX_STRING_LENGTH*2];

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.62 1998-10-02 04:48:27 fjoe Exp $
+ * $Id: save.c,v 1.63 1998-10-06 13:18:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -531,7 +531,6 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 		fwrite_obj(ch, obj->contains, fp, iNest + 1);
 }
 
-
 /*
  * Load a char and inventory into a new ch structure.
  */
@@ -545,8 +544,7 @@ void load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 
 	d->character = ch;
 	ch->desc = d;
-	ch->name = str_dup(name);
-	ch->name[0] = UPPER(ch->name[0]);
+	ch->name = str_dup(capitalize(name));
 	ch->id = get_pc_id();
 	ch->race = race_lookup("human");
 	ch->act = PLR_NOSUMMON;
@@ -579,8 +577,8 @@ void load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 
 		found = TRUE;
 		for (;;) {
-			char            letter;
-			char           *word;
+			char	letter;
+			char *	word;
 			letter = fread_letter(fp);
 			if (letter == '*') {
 				fread_to_eol(fp);
@@ -591,9 +589,9 @@ void load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 				break;
 			}
 			word = fread_word(fp);
-			if (!str_cmp(word, "PLAYER")) {
+			if (!str_cmp(word, "PLAYER"))
 				fread_char(ch, fp);
-			} else if (!str_cmp(word, "OBJECT"))
+			else if (!str_cmp(word, "OBJECT"))
 				fread_obj(ch, fp);
 			else if (!str_cmp(word, "O"))
 				fread_obj(ch, fp);
@@ -629,11 +627,12 @@ void load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 		ch->vuln_flags = ch->vuln_flags | race_table[RACE(ch)].vuln;
 		ch->form = race_table[RACE(ch)].form;
 		ch->parts = race_table[RACE(ch)].parts;
-	}
+		affect_check(ch, -1, -1);
 
-	if (ch->pcdata->condition[COND_BLOODLUST] < 48
-	    && ch->class != CLASS_VAMPIRE)
-		ch->pcdata->condition[COND_BLOODLUST] = 48;
+		if (ch->pcdata->condition[COND_BLOODLUST] < 48
+		&&  ch->class != CLASS_VAMPIRE)
+			ch->pcdata->condition[COND_BLOODLUST] = 48;
+	}
 
 	if (!found)
 		ch->act |= PLR_NEW;
@@ -668,8 +667,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 		case 'A':
 			KEY("Act", ch->act, fread_flags(fp) &
 					    ~(PLR_GHOST | PLR_CONFIRM_DELETE |
-					      PLR_NOEXP | PLR_CHANGED_AFF |
-					      PLR_NEW));
+					      PLR_NOEXP | PLR_NEW));
 			KEY("AffectedBy", ch->affected_by, fread_flags(fp));
 			KEY("AfBy", ch->affected_by, fread_flags(fp) &
 						     ~AFF_CHARM);
@@ -961,7 +959,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("Relig", ch->religion, fread_number(fp));
 
 			if (!str_cmp(word, "Race")) {
-				char *race = fread_string(fp);
+				const char *race = fread_string(fp);
 				RACE(ch) = race_lookup(race);
 				free_string(race);
 				ORG_RACE(ch) = RACE(ch);
@@ -1012,7 +1010,7 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 			KEY("Tru", ch->trust, fread_number(fp));
 			SKEY("Twitlist", ch->pcdata->twitlist);
 			if (!str_cmp(word, "Title") || !str_cmp(word, "Titl")) {
-				char           *p = fread_string(fp);
+				const char *p = fread_string(fp);
 				set_title(ch, p);
 				free_string(p);
 				fMatch = TRUE;
@@ -1217,7 +1215,7 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 
 		case 'R':
 			if (!str_cmp(word, "Race")) {
-				char *race = fread_string(fp);
+				const char *race = fread_string(fp);
 				RACE(pet) = race_lookup(race);
 				free_string(race);
 				ORG_RACE(pet) = RACE(pet);

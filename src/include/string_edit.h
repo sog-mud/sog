@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.h,v 1.3 1998-09-17 15:51:23 fjoe Exp $
+ * $Id: string_edit.h,v 1.4 1998-10-06 13:18:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -17,13 +17,10 @@
 #ifndef _STRING_EDIT_H_
 #define _STRING_EDIT_H_
 
-void	string_edit	(CHAR_DATA *ch, char **pString);
-void    string_append   (CHAR_DATA *ch, char **pString);
-char *	string_replace	(char * orig, char * old, char * new);
-void    string_add      (CHAR_DATA *ch, const char *argument);
-char *  format_string   (char *oldstring /*, bool fSpace */);
-const char *  first_arg (const char *argument, char *arg_first, bool fCase);
-char *	string_unpad	(char * argument);
-char *	string_proper	(char * argument);
+void		string_edit	(CHAR_DATA *ch, const char **pString);
+void		string_append   (CHAR_DATA *ch, const char **pString);
+const char *	string_replace	(const char * orig, char * old, char * new);
+void		string_add      (CHAR_DATA *ch, const char *argument);
+const char *	format_string   (const char *oldstring /*, bool fSpace */);
 
 #endif

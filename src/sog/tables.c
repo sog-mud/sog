@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.9 1998-10-02 04:48:27 fjoe Exp $
+ * $Id: tables.c,v 1.10 1998-10-06 13:18:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -127,7 +127,6 @@ FLAG plr_flags[] =
 	{ "ghost",		PLR_GHOST,		FALSE	},
 	{ "notitle",		PLR_NOTITLE,		FALSE	},
 	{ "noexp",		PLR_NOEXP,		FALSE	},
-	{ "changed_aff",	PLR_CHANGED_AFF,	FALSE	},
 	{ "hara_kiri",		PLR_HARA_KIRI,		FALSE	},
 	{ "blink",		PLR_BLINK,		FALSE	},
 	{ NULL }
@@ -166,13 +165,13 @@ FLAG affect_flags[] =
 	{ "regeneration",	AFF_REGENERATION,	TRUE	},
 	{ "slow",		AFF_SLOW,		TRUE	},
 	{ "camouflage",		AFF_CAMOUFLAGE,		TRUE	},
-	{ "imp",		AFF_IMP,		TRUE	},
+	{ "imp_invis",		AFF_IMP_INVIS,		TRUE	},
 	{ "fade",		AFF_FADE,		TRUE	},
 	{ "scream",		AFF_SCREAM,		TRUE	},
 	{ "bloodthirst",	AFF_BLOODTHIRST,	TRUE	},
 	{ "stun",		AFF_STUN,		TRUE	},
 	{ "weak_stun",		AFF_WEAK_STUN,		TRUE	},
-	{ "detect_imp",		AFF_DETECT_IMP,		TRUE	},
+	{ "detect_imp_invis",	AFF_DETECT_IMP_INVIS,		TRUE	},
 	{ "detect_fade",	AFF_DETECT_FADE,	TRUE	},
 	{ "detect_undead",	AFF_DETECT_UNDEAD,	TRUE	},
 	{ "detect_fear",	AFF_DETECT_FEAR,	TRUE	},
@@ -381,13 +380,13 @@ FLAG door_resets[] =
 FLAG room_flags[] =
 {
 	{ "dark",		ROOM_DARK,		TRUE	},
-	{ "no_mob",		ROOM_NOMOB,		TRUE	},
+	{ "nomob",		ROOM_NOMOB,		TRUE	},
 	{ "indoors",		ROOM_INDOORS,		TRUE	},
 	{ "private",		ROOM_PRIVATE,		TRUE    },
 	{ "safe",		ROOM_SAFE,		TRUE	},
 	{ "solitary",		ROOM_SOLITARY,		TRUE	},
 	{ "pet_shop",		ROOM_PET_SHOP,		TRUE	},
-	{ "no_recall",		ROOM_NO_RECALL,		TRUE	},
+	{ "norecall",		ROOM_NORECALL,		TRUE	},
 	{ "imp_only",		ROOM_IMP_ONLY,		TRUE    },
 	{ "gods_only",	        ROOM_GODS_ONLY,		TRUE    },
 	{ "heroes_only"	,	ROOM_HEROES_ONLY,	TRUE	},
@@ -395,6 +394,7 @@ FLAG room_flags[] =
 	{ "law",		ROOM_LAW,		TRUE	},
 	{ "nowhere",		ROOM_NOWHERE,		TRUE	},
 	{ "bank",		ROOM_BANK,		TRUE	},
+	{ "nomagic",		ROOM_NOMAGIC,		TRUE	},
 	{ "nosummon",		ROOM_NOSUMMON,		TRUE	},
 	{ "battle_arena",	ROOM_BATTLE_ARENA,	TRUE	},
 	{ "registry",		ROOM_REGISTRY,		TRUE	},

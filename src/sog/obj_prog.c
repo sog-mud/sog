@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.33 1998-10-02 04:48:26 fjoe Exp $
+ * $Id: obj_prog.c,v 1.34 1998-10-06 13:18:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -611,7 +611,7 @@ int fight_prog_tattoo_zeus(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(4)) {
+	switch(number_bits(5)) {
 	case 0:
 	case 1:
 	case 2:
@@ -718,7 +718,7 @@ int fight_prog_tattoo_venus(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(4)) {
+	switch(number_bits(5)) {
 	case 0:
 	case 1:
 	case 2:
@@ -802,7 +802,7 @@ int fight_prog_tattoo_mars(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(4)) {
+	switch(number_bits(5)) {
 	case 0:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
 		obj_cast_spell(gsn_blindness, ch->level, ch, ch->fighting, obj);
@@ -833,7 +833,7 @@ int fight_prog_tattoo_athena(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 		return 0;
 
 	if (number_percent() < 50) {
-		switch(number_bits(4)) {
+		switch(number_bits(2)) {
 		case 0:
 			if (IS_AFFECTED(ch,AFF_BERSERK)
 			||  is_affected(ch,gsn_berserk)
@@ -898,7 +898,7 @@ int fight_prog_tattoo_hera(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	if (get_eq_char(ch, WEAR_TATTOO) != obj)
 		return 0;
 
-	switch(number_bits(4)) {
+	switch(number_bits(5)) {
 	case 0:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
 		obj_cast_spell(gsn_plague, ch->level, ch, ch->fighting, obj);
@@ -935,6 +935,35 @@ int fight_prog_tattoo_deimos(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
 		obj_cast_spell(gsn_web, ch->level, ch, ch->fighting,
 			       obj);
+		break;
+	}
+	return 0;
+}
+
+int fight_prog_tattoo_prometheus(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
+{
+	if (get_eq_char(ch, WEAR_TATTOO) == obj)
+	switch(number_bits(4)) {
+	case 0:
+		act_puts("The tattoo on your shoulder glows blue.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		obj_cast_spell(gsn_cure_critical, ch->level, ch, ch, obj);
+		break;
+	case 1:
+	case 2:
+		act_puts("The tattoo on your shoulder glows red.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+
+		if (IS_EVIL(ch->fighting))
+			spell_dispel_evil(gsn_dispel_evil, ch->level * 12 / 10,
+					  ch, ch->fighting,TARGET_CHAR);
+		else if (IS_GOOD(ch->fighting))
+			spell_dispel_good(gsn_dispel_good, ch->level * 12 / 10,
+					  ch, ch->fighting,TARGET_CHAR);
+		else 
+			spell_lightning_bolt(sn_lookup("lightning bolt"),
+					     ch->level * 12 / 10, ch,
+					     ch->fighting, TARGET_CHAR);
 		break;
 	}
 	return 0;
@@ -1037,31 +1066,6 @@ int fight_prog_snake(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 	}
 	return 0;
 }
-
-int fight_prog_tattoo_prometheus(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
-{
-	if (get_eq_char(ch, WEAR_TATTOO) == obj)
-	switch(number_bits(5)) {
-	case 0:
-	  act_puts("The tattoo on your shoulder glows blue.",
-			   ch,NULL,NULL,TO_CHAR,POS_DEAD);
-	  obj_cast_spell(gsn_cure_critical, ch->level, ch, ch, obj);
-	  break;
-	case 1:
-	case 2:
-	  act_puts("The tattoo on your shoulder glows red.",
-			   ch,NULL,NULL,TO_CHAR,POS_DEAD);
-	  if (IS_EVIL(ch->fighting))
-	  spell_dispel_evil(gsn_dispel_evil,1.2* ch->level, ch, ch->fighting,TARGET_CHAR);
-	  else if (IS_GOOD(ch->fighting))
-	  spell_dispel_good(gsn_dispel_good,1.2* ch->level, ch, ch->fighting,TARGET_CHAR);
-	  else 
-	  spell_lightning_bolt(64, 1.2 * ch->level, ch, ch->fighting, TARGET_CHAR);
-	  break;
-	}
-	return 0;
-}
-
 
 int fight_prog_shockwave(OBJ_DATA *obj, CHAR_DATA *ch, void *arg)
 {

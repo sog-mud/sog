@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.43 1998-10-02 04:48:26 fjoe Exp $
+ * $Id: spellfun2.c,v 1.44 1998-10-06 13:18:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -453,7 +453,7 @@ void spell_vanish(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
 	if (victim->in_room == NULL
-	  ||   IS_SET(victim->in_room->room_flags, ROOM_NO_RECALL))
+	  ||   IS_SET(victim->in_room->room_flags, ROOM_NORECALL))
 	{
 	  char_puts("You failed.\n\r", ch);
 	  return;
@@ -1442,7 +1442,7 @@ void spell_stalker(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	stalker->armor[3] = interpolate(stalker->level,100,0);
 	stalker->gold = 0;
 	stalker->invis_level = LEVEL_HERO;
-	stalker->affected_by |= (AFF_DETECT_IMP | AFF_DETECT_FADE | AFF_DETECT_EVIL |
+	stalker->affected_by |= (AFF_DETECT_IMP_INVIS | AFF_DETECT_FADE | AFF_DETECT_EVIL |
 				 AFF_DETECT_INVIS | AFF_DETECT_MAGIC | AFF_DETECT_HIDDEN |
 				 AFF_DETECT_GOOD | AFF_DARK_VISION);
 	
@@ -2199,7 +2199,7 @@ void spell_disperse(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	  vch_next = vch->next_in_room;
 
 	  if (vch->in_room != NULL
-	  &&   !IS_SET(vch->in_room->room_flags, ROOM_NO_RECALL)
+	  &&   !IS_SET(vch->in_room->room_flags, ROOM_NORECALL)
 	  &&   !IS_IMMORTAL(vch)
 	  && ((IS_NPC(vch) && !IS_SET(vch->act, ACT_AGGRESSIVE)) ||
 /*      (!IS_NPC(vch) && vch->level > PK_MIN_LEVEL && (vch->level < level || */
@@ -2212,7 +2212,7 @@ void spell_disperse(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	  	if (pRoomIndex != NULL
 	        &&  can_see_room(ch, pRoomIndex)
 	    	&&  !room_is_private(pRoomIndex)
-		&&  !IS_SET(pRoomIndex->room_flags, ROOM_NO_RECALL)
+		&&  !IS_SET(pRoomIndex->room_flags, ROOM_NORECALL)
 		&&  guild_check(vch, pRoomIndex) >= 0)
 	  		break;
 	  }
@@ -2301,33 +2301,30 @@ void spell_dragons_breath(int sn,int level,CHAR_DATA *ch, void *vo,int target)
 	int dam,hp_dam,dice_dam;
 	int hpch;
 
-	act("You call the dragon lord to help you.",ch,NULL,NULL,TO_CHAR);
-	act("$n start to breath like a dragon.",ch,NULL,victim,TO_NOTVICT);
-	act("$n breath disturbs you!",ch,NULL,victim,TO_VICT);
-	act("You breath the breath of lord of Dragons.",ch,NULL,NULL,TO_CHAR);
+	act("You call the dragon lord to help you.", ch, NULL, NULL, TO_CHAR);
+	act("$n start to breath like a dragon.", ch, NULL, victim, TO_NOTVICT);
+	act("$n breath disturbs you!", ch, NULL, victim, TO_VICT);
+	act("You breath the breath of lord of Dragons.", ch, NULL, NULL, TO_CHAR);
 
 	hpch = UMAX(10, ch->hit);
-	hp_dam  = number_range(hpch/9+1, hpch/5);
+	hp_dam = number_range(hpch/9+1, hpch/5);
 	dice_dam = dice(level,20);
 
 	dam = UMAX(hp_dam + dice_dam / 5, dice_dam + hp_dam / 5);
 	
-switch(dice(1,5))
- {
-	 case 1:
-	fire_effect(victim->in_room,level,dam/2,TARGET_ROOM);
+	switch(dice(1, 5)) {
+	case 1:
+		fire_effect(victim->in_room, level, dam/2, TARGET_ROOM);
 
-	for (vch = victim->in_room->people; vch != NULL; vch = vch_next)
-	{
-	vch_next = vch->next_in_room;
+		for (vch = victim->in_room->people; vch; vch = vch_next) {
+			vch_next = vch->next_in_room;
 
-	if (is_safe_spell(ch,vch,TRUE)
-	||  (IS_NPC(vch) && IS_NPC(ch)
-	&&   (ch->fighting != vch || vch->fighting != ch)))
-	    continue;
+		if (is_safe_spell(ch, vch, TRUE)
+		||  (IS_NPC(vch) && IS_NPC(ch) &&
+		     (ch->fighting != vch || vch->fighting != ch)))
+			continue;
 
-	if (vch == victim) /* full damage */
-	{
+	if (vch == victim) { /* full damage */
 	    if (saves_spell(level,vch,DAM_FIRE))
 	    {
 		fire_effect(vch,level/2,dam/4,TARGET_CHAR);
@@ -2354,29 +2351,28 @@ switch(dice(1,5))
 	}
 	}
 	break;
+
 	case 2:
-	if (saves_spell(level,victim,DAM_ACID))
-	{
-	acid_effect(victim,level/2,dam/4,TARGET_CHAR);
-	damage(ch,victim,dam/2,sn,DAM_ACID,TRUE);
-	}
-	else
-	{
-	acid_effect(victim,level,dam,TARGET_CHAR);
-	damage(ch,victim,dam,sn,DAM_ACID,TRUE);
-	}
-	break;
+		if (saves_spell(level,victim,DAM_ACID)) {
+			acid_effect(victim, level/2, dam/4, TARGET_CHAR);
+			damage(ch, victim, dam/2, sn, DAM_ACID,TRUE);
+		}
+		else {
+			acid_effect(victim, level, dam, TARGET_CHAR);
+			damage(ch, victim, dam, sn, DAM_ACID,TRUE);
+		}
+		break;
+
 	case 3:
-	cold_effect(victim->in_room,level,dam/2,TARGET_ROOM); 
+		cold_effect(victim->in_room, level, dam/2, TARGET_ROOM); 
 
-	for (vch = victim->in_room->people; vch != NULL; vch = vch_next)
-	{
-	vch_next = vch->next_in_room;
+		for (vch = victim->in_room->people; vch; vch = vch_next) {
+			vch_next = vch->next_in_room;
 
-	if (is_safe_spell(ch,vch,TRUE)
-	||  (IS_NPC(vch) && IS_NPC(ch) 
-	&&   (ch->fighting != vch || vch->fighting != ch)))
-	    continue;
+		if (is_safe_spell(ch, vch, TRUE)
+		||  (IS_NPC(vch) && IS_NPC(ch) &&
+		     (ch->fighting != vch || vch->fighting != ch)))
+			continue;
 
 	if (vch == victim) /* full damage */
 	{
@@ -2407,9 +2403,9 @@ switch(dice(1,5))
 	}
 	break;
 	case 4:
-	poison_effect(ch->in_room,level,dam,TARGET_ROOM);
+		poison_effect(ch->in_room, level, dam, TARGET_ROOM);
 
-	for (vch = ch->in_room->people; vch != NULL; vch = vch_next) {
+	for (vch = ch->in_room->people; vch; vch = vch_next) {
 	vch_next = vch->next_in_room;
 
 	if (is_safe_spell(ch,vch,TRUE)
@@ -2430,17 +2426,15 @@ switch(dice(1,5))
 	}
 	break;
 	case 5:
-	if (saves_spell(level,victim,DAM_LIGHTNING))
-	{
-	shock_effect(victim,level/2,dam/4,TARGET_CHAR);
-	damage(ch,victim,dam/2,sn,DAM_LIGHTNING,TRUE);
-	}
-	else
-	{
-	shock_effect(victim,level,dam,TARGET_CHAR);
-	damage(ch,victim,dam,sn,DAM_LIGHTNING,TRUE); 
-	}
-	break;
+		if (saves_spell(level, victim, DAM_LIGHTNING)) {
+			shock_effect(victim, level/2, dam/4, TARGET_CHAR);
+			damage(ch, victim, dam/2, sn, DAM_LIGHTNING, TRUE);
+		}
+		else {
+			shock_effect(victim, level, dam, TARGET_CHAR);
+			damage(ch, victim, dam, sn, DAM_LIGHTNING, TRUE); 
+		}
+		break;
 	}
 }
 
@@ -2548,7 +2542,7 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 	CHAR_DATA *undead;
 	OBJ_DATA *obj,*obj2,*next;
 	AFFECT_DATA af;
-	char *p;
+	const char *p;
 	int i;
 
 	/* deal with the object case first */
@@ -3834,7 +3828,7 @@ void spell_improved_invis(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (IS_AFFECTED(victim, AFF_IMP))
+	if (IS_AFFECTED(victim, AFF_IMP_INVIS))
 	return;
 
 	act("$n fades out of existence.", victim, NULL, NULL, TO_ROOM);
@@ -3845,7 +3839,7 @@ void spell_improved_invis(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	af.duration  = level / 10 ;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
-	af.bitvector = AFF_IMP;
+	af.bitvector = AFF_IMP_INVIS;
 	affect_to_char(victim, &af);
 	char_puts("You fade out of existence.\n\r", victim);
 	return;
@@ -3858,7 +3852,7 @@ void spell_improved_detect(int sn, int level, CHAR_DATA *ch, void *vo,int target
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (IS_AFFECTED(victim, AFF_DETECT_IMP))
+	if (IS_AFFECTED(victim, AFF_DETECT_IMP_INVIS))
 	{
 	if (victim == ch)
 	  char_puts("You can already see improved invisible.\n\r",ch);
@@ -3873,7 +3867,7 @@ void spell_improved_detect(int sn, int level, CHAR_DATA *ch, void *vo,int target
 	af.duration  = level / 3;
 	af.modifier  = 0;
 	af.location  = APPLY_NONE;
-	af.bitvector = AFF_DETECT_IMP;
+	af.bitvector = AFF_DETECT_IMP_INVIS;
 	affect_to_char(victim, &af);
 	char_puts("Your eyes tingle.\n\r", victim);
 	if (ch != victim)
@@ -4631,12 +4625,10 @@ void spell_polymorph(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	affect_to_char(ch, &af);
 
 	act("$n polymorphes $mself to $t.", 
-		ch, race_table[race].name, NULL,TO_ROOM);
-	act("You polymorph yourself to $t.\n\r", 
-		ch, race_table[race].name, NULL,TO_CHAR);
-	return;
+		ch, race_table[race].name, NULL, TO_ROOM);
+	act("You polymorph yourself to $t.", 
+		ch, race_table[race].name, NULL, TO_CHAR);
 }
-
 
 void spell_plant_form(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
@@ -4647,7 +4639,7 @@ void spell_plant_form(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	||   IS_SET(ch->in_room->room_flags, ROOM_SOLITARY)
 	||   (ch->in_room->sector_type != SECT_FOREST
 		  &&   ch->in_room->sector_type != SECT_FIELD)
-	||   IS_SET(ch->in_room->room_flags, ROOM_NO_RECALL))
+	||   IS_SET(ch->in_room->room_flags, ROOM_NORECALL))
 	{
 	 char_puts("Not here.\n\r",ch);
 	 return;

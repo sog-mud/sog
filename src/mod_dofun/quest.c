@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.72 1998-09-29 01:06:40 fjoe Exp $
+ * $Id: quest.c,v 1.73 1998-10-06 13:18:30 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -269,7 +269,7 @@ void qtrouble_set(CHAR_DATA *ch, int vnum, int count)
 	if ((qt = qtrouble_lookup(ch, vnum)) != NULL)
 		qt->count = count;
 	else {
-		qt = alloc_mem(sizeof(*qt));
+		qt = malloc(sizeof(*qt));
 		qt->vnum = vnum;
 		qt->count = count;
 		qt->next = ch->pcdata->qtrouble;
@@ -769,7 +769,7 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 	}
 
 	if (qt == NULL) {
-		qt = alloc_mem(sizeof(*qt));
+		qt = malloc(sizeof(*qt));
 		qt->vnum = item_vnum;
 		qt->count = 0;
 		qt->next = ch->pcdata->qtrouble;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.3 1998-10-02 04:48:25 fjoe Exp $
+ * $Id: class.c,v 1.4 1998-10-06 13:18:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -81,7 +81,7 @@ int guild_check(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 	return -1;
 }
 
-char *class_name(int vnum)
+const char *class_name(int vnum)
 {
 	CLASS_DATA *cl;
 
@@ -90,7 +90,7 @@ char *class_name(int vnum)
 	return cl->name;
 }
 
-char *class_who_name(int vnum)
+const char *class_who_name(int vnum)
 {
 	CLASS_DATA *cl;
 
@@ -165,7 +165,7 @@ bool clan_ok(CHAR_DATA *ch, int sn)
 	return TRUE;
 }
 
-char *title_lookup(CHAR_DATA *ch)
+const char *title_lookup(CHAR_DATA *ch)
 {
 	CLASS_DATA *class;
 

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.29 1998-10-02 04:48:27 fjoe Exp $
+ * $Id: skills.c,v 1.30 1998-10-06 13:18:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -581,7 +581,7 @@ void do_teach(CHAR_DATA *ch, const char *argument)
 	char_puts("Now, you can teach youngsters your 100% skills.\n\r",ch);
 }
 
-char *skill_name(int sn)
+const char *skill_name(int sn)
 {
 	SKILL_DATA *sk = varr_get(&skills, sn);
 	if (sk)
@@ -795,7 +795,7 @@ void say_spell(CHAR_DATA *ch, int sn)
 {
 	char buf  [MAX_STRING_LENGTH];
 	CHAR_DATA *rch;
-	char *pName;
+	const char *pName;
 	int iSyl;
 	int length;
 	int skill;

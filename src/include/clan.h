@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.h,v 1.4 1998-10-02 08:13:51 fjoe Exp $
+ * $Id: clan.h,v 1.5 1998-10-06 13:18:25 fjoe Exp $
  */
 
 #ifndef _CLAN_H_
@@ -54,12 +54,12 @@
  */
 struct clan_data
 {
-	char *		name;		/* clan name */
-	char *		file_name;	/* file name */
+	const char *	name;		/* clan name */
+	const char *	file_name;	/* file name */
 
 	int	 	recall_vnum;	/* recall room vnum */
-	char *		msg_prays;	/* what to print in clanrecall */
-	char *		msg_vanishes;
+	const char *	msg_prays;	/* what to print in clanrecall */
+	const char *	msg_vanishes;
 
 	varr		skills;		/* clan skills */
 

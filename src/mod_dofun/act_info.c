@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.136 1998-10-02 04:48:23 fjoe Exp $
+ * $Id: act_info.c,v 1.137 1998-10-06 13:18:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -118,7 +118,7 @@ void	show_affects		(CHAR_DATA *ch, BUFFER *output);
 char *obj_name(OBJ_DATA *obj, CHAR_DATA *ch)
 {
 	static char buf[MAX_STRING_LENGTH];
-	char *name;
+	const char *name;
 	char engname[MAX_STRING_LENGTH];
 
 	name = mlstr_cval(obj->short_descr, ch);
@@ -213,7 +213,7 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 		       bool fShort, bool fShowNothing)
 {
 	BUFFER *output;
-	char **prgpstrShow;
+	const char **prgpstrShow;
 	int *prgnShow;
 	char *pstrShow;
 	OBJ_DATA *obj;
@@ -233,8 +233,8 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 	count = 0;
 	for (obj = list; obj != NULL; obj = obj->next_content)
 		count++;
-	prgpstrShow = alloc_mem(count * sizeof(char *));
-	prgnShow    = alloc_mem(count * sizeof(int)  );
+	prgpstrShow = malloc(count * sizeof(char *));
+	prgnShow    = malloc(count * sizeof(int)  );
 	nShow	= 0;
 
 	/*
@@ -306,8 +306,8 @@ void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 	 * Clean up.
 	 */
 	buf_free(output);
-	free_mem(prgpstrShow, count * sizeof(char *));
-	free_mem(prgnShow,    count * sizeof(int)  );
+	free(prgpstrShow);
+	free(prgnShow);
 }
 
 #define FLAG_SET(pos, c, exp) (FLAGS[pos] = (exp) ? (flags = TRUE, c) : '.')
@@ -347,7 +347,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			buf_add(output, MSG("({DUndead{x) ", ch->lang));
 		if (RIDDEN(victim))
 			buf_add(output, MSG("({GRidden{x) ", ch->lang));
-		if (IS_AFFECTED(victim,AFF_IMP))
+		if (IS_AFFECTED(victim,AFF_IMP_INVIS))
 			buf_add(output, MSG("({bImproved{x) ", ch->lang));
 		if (IS_EVIL(victim) && IS_AFFECTED(ch, AFF_DETECT_EVIL))
 			buf_add(output, MSG("({RRed Aura{x) ", ch->lang));
@@ -373,7 +373,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 				  IS_SET(victim->act, ACT_UNDEAD) &&
 				  IS_AFFECTED(ch, AFF_DETECT_UNDEAD));
 		FLAG_SET(23, 'R', RIDDEN(victim));
-		FLAG_SET(26, 'I', IS_AFFECTED(victim, AFF_IMP));
+		FLAG_SET(26, 'I', IS_AFFECTED(victim, AFF_IMP_INVIS));
 		FLAG_SET(29, 'E', IS_EVIL(victim) &&
 				  IS_AFFECTED(ch, AFF_DETECT_EVIL));
 		FLAG_SET(32, 'G', IS_GOOD(victim) &&
@@ -392,7 +392,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		buf_add(output, "[{DIncog{x] ");
 
 	if (IS_NPC(victim) && victim->position == victim->start_pos) {
-		char *p = mlstr_cval(victim->long_descr, ch);
+		const char *p = mlstr_cval(victim->long_descr, ch);
 		if (IS_NULLSTR(p)) {	/* for the hell of "It" (#2006) :) */
 			buf_free(output);
 			return;
@@ -564,7 +564,7 @@ void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 	int percent;
 	bool found;
 	char *msg;
-	char *desc;
+	const char *desc;
 
 	if (can_see(victim, ch)) {
 		if (ch == victim)
@@ -989,7 +989,7 @@ void do_show(CHAR_DATA *ch, const char *argument)
 
 void do_prompt(CHAR_DATA *ch, const char *argument)
 {
-	char *prompt;
+	const char *prompt;
 
 	if (argument[0] == '\0') {
 		if (IS_SET(ch->comm,COMM_PROMPT)) {
@@ -1173,8 +1173,8 @@ void do_look(CHAR_DATA *ch, const char *argument)
 		/* 'look' or 'look auto' */
 
 	    if (!room_is_dark(ch)) {
-		char *name;
-		char *engname;
+		const char *name;
+		const char *engname;
 
 		name = mlstr_cval(ch->in_room->name, ch);
 		engname = mlstr_mval(ch->in_room->name);
@@ -1812,7 +1812,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		if (d->connected != CON_PLAYING || !can_see(ch, d->character))
 				continue;
 
-		if (IS_VAMPIRE(d->character) && !IS_IMMORTAL(ch)
+		if (is_affected(d->character, gsn_vampire) && !IS_IMMORTAL(ch)
 		&&  ch != d->character)
 			continue;
 
@@ -1867,9 +1867,9 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 				continue;
 
 		if (d->connected != CON_PLAYING
-		||  (IS_VAMPIRE(d->character)
-		     && !IS_IMMORTAL(ch) && (ch != d->character)))
-				continue;
+		||  (is_affected(d->character, gsn_vampire) &&
+		     !IS_IMMORTAL(ch) && (ch != d->character)))
+			continue;
 
 		wch = (d->original != NULL) ? d->original : d->character;
 
@@ -2184,7 +2184,7 @@ void do_title(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(ch))
 		return;
 
-	if (CANT_CHANGE_TITLE(ch)) {
+	if (IS_SET(ch->act, PLR_NOTITLE)) {
 		char_puts("You can't change your title.\n\r", ch);
 		return;
 	}

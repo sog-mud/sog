@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.h,v 1.11 1998-09-29 01:06:39 fjoe Exp $
+ * $Id: mlstring.h,v 1.12 1998-10-06 13:18:29 fjoe Exp $
  */
 
 #ifndef _MLSTRING_H_
@@ -38,13 +38,13 @@ mlstring *	mlstr_dup	(mlstring *ml);
 mlstring *	mlstr_printf	(mlstring *ml, ...);
 
 int		mlstr_nlang	(const mlstring *ml);
-char *		mlstr_val	(const mlstring *ml, int lang);
+const char *	mlstr_val	(const mlstring *ml, int lang);
 #define		mlstr_mval(ml)		mlstr_val(ml, 0)
 #define		mlstr_cval(ml, ch)	mlstr_val(ml, ch->lang)
 bool		mlstr_null	(const mlstring *ml);
 int		mlstr_cmp	(const mlstring *ml1, const mlstring *ml2);
 
-char** mlstr_convert(mlstring **mlp, int newlang);
+const char**	mlstr_convert	(mlstring **mlp, int newlang);
 
 bool		mlstr_append	(CHAR_DATA *ch, mlstring **mlp,
 				 const char *arg);

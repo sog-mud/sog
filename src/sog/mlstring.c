@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.c,v 1.20 1998-10-02 04:48:26 fjoe Exp $
+ * $Id: mlstring.c,v 1.21 1998-10-06 13:18:29 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -49,18 +49,20 @@
  */
 struct mlstring {
 	union {
-		char* str;
-		char** lstr;
+		const char* str;
+		const char** lstr;
 	} u;
 	int nlang;
 	int ref;
 };
 
-static void smash_a(char *s);
+static const char* smash_a(const char *s, int len);
 static char* fix_mlstring(const char* s);
 static mlstring *mlstr_split(mlstring *ml);
 
 int mlstr_count;
+int mlstr_real_count;
+
 mlstring mlstr_empty;
 
 mlstring *mlstr_new(const char *name)
@@ -69,14 +71,14 @@ mlstring *mlstr_new(const char *name)
 	res->u.str = str_dup(name);
 	res->nlang = 0;
 	res->ref = 1;
-	mlstr_count++;
+	mlstr_real_count++;
 	return res;
 }
 
 mlstring *mlstr_fread(FILE *fp)
 {
-	char *p;
-	char *s;
+	const char *p;
+	const char *s;
 	int lang;
 	mlstring *res;
 
@@ -84,10 +86,11 @@ mlstring *mlstr_fread(FILE *fp)
 	if (IS_NULLSTR(p))
 		return &mlstr_empty;
 
+	mlstr_count++;
 	res = mlstr_new(NULL);
 	if (*p != '@' || *(p+1) == '@') {
-		smash_a(p);
-		res->u.str = p;
+		res->u.str = smash_a(p, -1);
+		free_string(p);
 		return res;
 	}
 
@@ -95,8 +98,8 @@ mlstring *mlstr_fread(FILE *fp)
 	res->nlang = langs.nused;
 
 	s = p+1;
-	while (*s) {
-		char *q;
+	for (;;) {
+		const char *q;
 
 		/* s points at lang id */
 		q = strchr(s, ' ');
@@ -104,32 +107,28 @@ mlstring *mlstr_fread(FILE *fp)
 			db_error("mlstr_fread", "no ` ' after `@' found");
 			return res;
 		}
-		*q++ = '\0';
 
-		lang = lang_lookup(s);
+		if ((lang = lang_nlookup(s, q-s)) < 0) {
+			db_error("mlstr_fread", "%s: unknown language", s);
+			return res;
+		}
+
 		if (res->u.lstr[lang] != NULL) {
 			db_error("mlstr_fread", "lang %s: redefined", s);
 			return res;
 		}
 
-		/* q points at msg */
-
 		/* find next '@', skip "@@" */
-		s = q;
-		while (TRUE) {
-			s = strchr(s, '@');
-			if (s == NULL) {
-				s = strchr(q, '\0');
+		for (s = ++q; (s = strchr(s, '@'));) {
+			if (*(s+1) != '@')
 				break;
-			}
-			if (*(s+1) != '@') {
-				*s++ = '\0';
-				break;
-			}
 			s += 2;
 		}
-		smash_a(q);
-		res->u.lstr[lang] = str_dup(q);
+		if (s == NULL)
+			s = strchr(q, '\0');
+		res->u.lstr[lang] = smash_a(q, s-q);
+		if (!*s++)
+			break;
 	}
 
 	free_string(p);
@@ -154,7 +153,7 @@ void mlstr_fwrite(FILE *fp, const char* name, const mlstring *ml)
 	}
 
 	for (lang = 0; lang < ml->nlang && lang < langs.nused; lang++) {
-		char* p = ml->u.lstr[lang];
+		const char* p = ml->u.lstr[lang];
 		LANG_DATA *l;
 
 		if (IS_NULLSTR(p))
@@ -168,7 +167,11 @@ void mlstr_fwrite(FILE *fp, const char* name, const mlstring *ml)
 
 void mlstr_free(mlstring *ml)
 {
-	if (ml == NULL || ml == &mlstr_empty || ml->ref < 1 || --ml->ref)
+	if (ml == NULL || ml == &mlstr_empty)
+		return;
+
+	mlstr_count--;
+	if (ml->ref < 1 || --ml->ref)
 		return;
 
 	if (ml->nlang == 0)
@@ -181,13 +184,14 @@ void mlstr_free(mlstring *ml)
 		free(ml->u.lstr);
 	}
 	free(ml);
-	mlstr_count--;
+	mlstr_real_count--;
 }
 
 mlstring *mlstr_dup(mlstring *ml)
 {
 	if (ml == NULL)
 		return NULL;
+	mlstr_count++;
 	if (ml != &mlstr_empty)
 		ml->ref++;
 	return ml;
@@ -202,6 +206,7 @@ mlstring *mlstr_printf(mlstring *ml,...)
 	if (ml == NULL)
 		return NULL;
 
+	mlstr_count++;
 	res = mlstr_new(NULL);
 	res->nlang = ml->nlang;
 
@@ -229,32 +234,33 @@ int mlstr_nlang(const mlstring *ml)
 	return ml->nlang;
 }
 
-char * mlstr_val(const mlstring *ml, int lang)
+const char * mlstr_val(const mlstring *ml, int lang)
 {
-	char *p;
-	LANG_DATA *l;
-
 	if (ml == NULL)
 		return str_empty;
 
 	if (ml->nlang == 0)
 		return ml->u.str;
 
-	if ((l = varr_get(&langs, lang)) == NULL)
-		return str_empty;
+	if (lang >= ml->nlang
+	||  lang < 0
+	||  IS_NULLSTR(ml->u.lstr[lang])) {
+		LANG_DATA *l;
 
-	if (lang >= ml->nlang || lang < 0)
-		lang = l->slang_of;
+		if ((l = varr_get(&langs, lang))
+		&&  l->slang_of >= 0
+		&&  l->slang_of < ml->nlang)
+			lang = l->slang_of;
+		else
+			lang = 0;
+	}
 
-	p = ml->u.lstr[lang];
-	if (IS_NULLSTR(p))
-		p = ml->u.lstr[0];
-	return p;
+	return ml->u.lstr[lang];
 }
 
 bool mlstr_null(const mlstring *ml)
 {
-	char *mval = mlstr_mval(ml);
+	const char *mval = mlstr_mval(ml);
 	return (mval == NULL) || (*mval == '\0');
 }
 
@@ -286,9 +292,9 @@ int mlstr_cmp(const mlstring *ml1, const mlstring *ml2)
 	return 0;
 }
 
-char** mlstr_convert(mlstring **mlp, int newlang)
+const char** mlstr_convert(mlstring **mlp, int newlang)
 {
-	char *old;
+	const char *old;
 	int lang;
 
 	*mlp = mlstr_split(*mlp);
@@ -348,7 +354,7 @@ bool mlstr_edit(mlstring **mlp, const char *argument)
 {
 	char arg[MAX_STRING_LENGTH];
 	int lang;
-	char **p;
+	const char **p;
 
 	argument = one_argument(argument, arg);
 	lang = lang_lookup(arg);
@@ -362,14 +368,13 @@ bool mlstr_edit(mlstring **mlp, const char *argument)
 }
 
 /*
- * The same as mlstr_edit, but '\n' is appended and first symbol
- * is uppercased
+ * The same as mlstr_edit, but '\n' is appended.
  */
 bool mlstr_editnl(mlstring **mlp, const char *argument)
 {
 	char arg[MAX_STRING_LENGTH];
 	int lang;
-	char **p;
+	const char **p;
 
 	argument = one_argument(argument, arg);
 	lang = lang_lookup(arg);
@@ -379,7 +384,6 @@ bool mlstr_editnl(mlstring **mlp, const char *argument)
 	p = mlstr_convert(mlp, lang);
 	free_string(*p);
 	*p = str_add(argument, "\n\r", NULL);
-	**p = UPPER(**p);
 	return TRUE;
 }
 
@@ -418,14 +422,21 @@ void mlstr_dump(BUFFER *buf, const char *name, const mlstring *ml)
 	}
 }
 
-static void smash_a(char *s)
+static const char *smash_a(const char *s, int len)
 {
-	while ((s = strchr(s, '@')) != NULL) {
-		strcpy(s, s+1);
-		if (*s == '\0')
-			break;
-		s++;
+	char buf[MAX_STRING_LENGTH];
+	char *p = buf;
+
+	if (len < 0 || len > sizeof(buf)-1)
+		len = sizeof(buf)-1;
+
+	while (p-buf < len && *s) {
+		if (*s == '@' && *(s+1) == '@')
+			s++;
+		*p++ = *s++;
 	}
+	*p = '\0';
+	return str_dup(buf);
 }
 
 static char *fix_mlstring(const char *s)

@@ -1,5 +1,5 @@
 /*
- * $Id: auction.c,v 1.16 1998-09-29 09:22:12 fjoe Exp $
+ * $Id: auction.c,v 1.17 1998-10-06 13:18:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -185,7 +185,7 @@ void auction_give_obj(CHAR_DATA* victim, OBJ_DATA *obj)
 {
 	act("The auctioneer appears before you in a puff of smoke "
 	    "and hands you $p.", victim, obj, NULL, TO_CHAR);
-	act("The auctioneer appears before $n and hands $m $p",
+	act("The auctioneer appears before $n and hands $m $p.",
 	    victim, obj, NULL, TO_ROOM);
 
 	if (victim->carry_weight + get_obj_weight(obj) >
@@ -252,7 +252,7 @@ void auction_update (void)
 		}
 	        else { /* not sold */
 			/* XXX */
-	        	talk_auction("No bets received for %s",
+	        	talk_auction("No bets received for %s.",
 				     mlstr_mval(auction.item->short_descr));
 			talk_auction("object has been removed from auction.");
 			auction_give_obj(auction.seller, auction.item);
@@ -269,12 +269,12 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	char arg1[MAX_INPUT_LENGTH];
 	char starting[MAX_INPUT_LENGTH];
 
-	argument = one_argument (argument, arg1);
+	argument = one_argument(argument, arg1);
 
 	if (IS_NPC(ch))    /* NPC can't auction cos the can be extracted ! */
 		return;
 
-	if (IS_SET(ch->comm,COMM_NOAUCTION)) {
+	if (IS_SET(ch->comm, COMM_NOAUCTION)) {
 		if (!str_cmp(arg1, "on")) {
 			char_puts("Auction channel is now ON.\n\r",ch);
 			REMOVE_BIT(ch->comm,COMM_NOAUCTION);
@@ -307,13 +307,13 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-	if (!str_cmp(arg1,"off")) {
+	if (!str_cmp(arg1, "off")) {
 		char_puts("Auction channel is now OFF.\n\r",ch);
 		SET_BIT(ch->comm,COMM_NOAUCTION);
 		return;
 	}
 
-	if (IS_IMMORTAL(ch) && !str_cmp(arg1,"stop"))
+	if (IS_IMMORTAL(ch) && !str_cmp(arg1, "stop"))
 		if (auction.item == NULL) {
 			char_puts("There is no auction going on "
 				  "you can stop.\n\r",ch);

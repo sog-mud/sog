@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.68 1998-10-02 08:13:51 fjoe Exp $
+ * $Id: act_wiz.c,v 1.69 1998-10-06 13:18:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -407,7 +407,7 @@ void do_nochannels(CHAR_DATA *ch, const char *argument)
 void do_smote(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *vch;
-	char *letter,*name;
+	const char *letter, *name;
 	char last[MAX_INPUT_LENGTH], temp[MAX_STRING_LENGTH];
 	int matches = 0;
 
@@ -3002,8 +3002,8 @@ void do_sockets(CHAR_DATA *ch, const char *argument)
 	one_argument(argument,arg);
 	for (d = descriptor_list; d != NULL; d = d->next)
 		if (d->character != NULL && can_see(ch, d->character) 
-		&& (arg[0] == '\0' || is_name(arg,d->character->name)
-		    || (d->original && is_name(arg,d->original->name)))) {
+		&& (arg[0] == '\0' || is_name(arg, d->character->name)
+		    || (d->original && is_name(arg, d->original->name)))) {
 		    count++;
 		    sprintf(buf + strlen(buf), "[%3d %2d] %s@%s\n\r",
 			d->descriptor,
@@ -3259,41 +3259,28 @@ void do_holylight(CHAR_DATA *ch, const char *argument)
 
 /* prefix command: it will put the string typed on each line typed */
 
-void do_prefi (CHAR_DATA *ch, const char *argument)
+DO_FUN(do_prefi)
 {
-	char_puts("You cannot abbreviate the prefix command.\r\n",ch);
-	return;
+	char_puts("You cannot abbreviate the prefix command.\r\n", ch);
 }
 
-void do_prefix (CHAR_DATA *ch, const char *argument)
+DO_FUN(do_prefix)
 {
-	char buf[MAX_INPUT_LENGTH];
-
-	if (argument[0] == '\0')
-	{
-		if (ch->prefix[0] == '\0')
-		{
-		    char_puts("You have no prefix to clear.\r\n",ch);
-		    return;
+	if (argument[0] == '\0') {
+		if (ch->prefix[0] == '\0') {
+			char_puts("You have no prefix to clear.\r\n",ch);
+			return;
 		}
 
 		char_puts("Prefix removed.\r\n",ch);
 		free_string(ch->prefix);
-		ch->prefix = str_dup(str_empty);
+		ch->prefix = str_empty;
 		return;
 	}
 
-	if (ch->prefix[0] != '\0')
-	{
-		sprintf(buf,"Prefix changed to %s.\r\n",argument);
-		free_string(ch->prefix);
-	}
-	else
-	{
-		sprintf(buf,"Prefix set to %s.\r\n",argument);
-	}
-
+	free_string(ch->prefix);
 	ch->prefix = str_dup(argument);
+	char_printf(ch, "Prefix set to '%s'.\r\n", argument);
 }
 
 void advance(CHAR_DATA *victim, int level)
@@ -4365,3 +4352,12 @@ DO_FUN(do_msgstat)
 	buf_free(output);
 }
 
+extern int str_count;
+extern int str_real_count; /* XXX */
+
+DO_FUN(do_strstat)
+{
+	char_printf(ch, "Strings: %d\n\r"
+			"Allocated: %d\n\r",
+		    str_count, str_real_count);
+}

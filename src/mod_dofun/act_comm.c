@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.90 1998-10-02 04:48:23 fjoe Exp $
+ * $Id: act_comm.c,v 1.91 1998-10-06 13:18:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -619,7 +619,7 @@ void do_emote(CHAR_DATA *ch, const char *argument)
 void do_pmote(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *vch;
-	char *letter,*name;
+	const char *letter,*name;
 	char last[MAX_INPUT_LENGTH], temp[MAX_STRING_LENGTH];
 	int matches = 0;
 
@@ -1009,7 +1009,7 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 		return;
 	}
 
-	if (CANT_GAIN_EXP(ch)) {
+	if (IS_SET(ch->act, PLR_NOEXP)) {
 		char_puts("You don't want to lose your spirit.\n\r", ch);
 		return;
 	}
@@ -1191,8 +1191,6 @@ void add_follower(CHAR_DATA *ch, CHAR_DATA *master)
 		 TO_CHAR, POS_RESTING);
 }
 
-
-
 void stop_follower(CHAR_DATA *ch)
 {
 	if (ch->master == NULL) {
@@ -1202,7 +1200,7 @@ void stop_follower(CHAR_DATA *ch)
 
 	if (IS_AFFECTED(ch, AFF_CHARM)) {
 		REMOVE_BIT(ch->affected_by, AFF_CHARM);
-		affect_strip(ch, gsn_charm_person);
+		affect_bit_strip(ch, TO_AFFECTS, AFF_CHARM);
 	}
 
 	if (can_see(ch->master, ch) && ch->in_room != NULL) {
@@ -1395,7 +1393,6 @@ bool proper_order(CHAR_DATA *ch, const char *argument)
 	return TRUE;
 }
 
-
 CHAR_DATA* leader_lookup(CHAR_DATA* ch)
 {
 	CHAR_DATA* res;
@@ -1403,8 +1400,6 @@ CHAR_DATA* leader_lookup(CHAR_DATA* ch)
 		;
 	return res;
 }
-
-
 
 void do_group(CHAR_DATA *ch, const char *argument)
 {
