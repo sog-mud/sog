@@ -1,5 +1,5 @@
 /*
- * $Id: lookup.c,v 1.18 1999-10-06 09:56:07 fjoe Exp $
+ * $Id: lookup.c,v 1.19 1999-10-18 18:08:10 avn Exp $
  */
 
 /***************************************************************************
@@ -45,12 +45,6 @@
 #include <time.h>
 #include "merc.h"
 #include "db.h"
-
-/* returns material number */
-int material_lookup(const char *name)
-{
-	return 0;
-}
 
 int liq_lookup(const char *name)
 {

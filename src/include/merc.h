@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.238 1999-10-17 08:55:43 fjoe Exp $
+ * $Id: merc.h,v 1.239 1999-10-18 18:08:03 avn Exp $
  */
 
 /***************************************************************************
@@ -97,6 +97,7 @@
 #include "skills.h"
 #include "religion.h"
 #include "damtype.h"
+#include "material.h"
 
 /*
  * configuration parameters
@@ -1908,9 +1909,7 @@ const char *get_stat_alias(CHAR_DATA *ch, int stat);
 int	count_users	(OBJ_DATA *obj);
 void	deduct_cost	(CHAR_DATA *ch, uint cost);
 int	check_immune	(CHAR_DATA *ch, int dam_class);
-bool	check_material	(OBJ_DATA *obj, char *material);
 int	check_exit	(const char *arg);
-bool	is_metal	(OBJ_DATA *obj);
 
 int	get_hours	(CHAR_DATA *ch);
 int	get_age 	(CHAR_DATA *ch);
@@ -1981,6 +1980,12 @@ bool	can_see_room	(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex);
 bool	can_drop_obj	(CHAR_DATA *ch, OBJ_DATA *obj);
 void	room_record	(const char *name, ROOM_INDEX_DATA *room,int door);
 int	count_charmed	(CHAR_DATA *ch);
+void	damage_to_obj	(CHAR_DATA *ch, OBJ_DATA *wield, OBJ_DATA *worn,
+			int damage);
+bool	make_eq_damage	(CHAR_DATA *ch, CHAR_DATA *victim,
+			int loc_wield, int loc_destroy);
+bool	random_eq_damage(CHAR_DATA *ch, CHAR_DATA *victim,
+			int loc_wield);
 
 /*
  * the followind three functions assume IS_NPC(ch)
@@ -2194,9 +2199,6 @@ int	find_door	(CHAR_DATA *ch, char *arg);
 bool can_loot		(CHAR_DATA *ch, OBJ_DATA *obj);
 void get_obj		(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
 			 const char *msg_others);
-int floating_time	(OBJ_DATA *obj);
-bool may_float		(OBJ_DATA *obj);
-bool cant_float 	(OBJ_DATA *obj);
 void wear_obj		(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace);
 void quaff_obj		(CHAR_DATA *ch, OBJ_DATA *obj);
 void set_title		(CHAR_DATA *ch, const char *argument);

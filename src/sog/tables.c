@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.93 1999-10-17 08:55:50 fjoe Exp $
+ * $Id: tables.c,v 1.94 1999-10-18 18:08:10 avn Exp $
  */
 
 /***************************************************************************
@@ -1060,6 +1060,20 @@ flag_t stat_names[] =
 	{ "wis",		STAT_WIS,		TRUE	},
 	{ "con",		STAT_CON,		TRUE	},
 	{ "cha",		STAT_CHA,		TRUE	},
+
+	{ NULL }
+};
+
+flag_t material_flags[] =
+{
+	{ "",			TABLE_BITVAL			},
+
+	{ "indestruct",		MATERIAL_INDESTRUCT,	TRUE	},
+	{ "metal",		MATERIAL_METAL,		TRUE	},
+	{ "edible",		MATERIAL_EDIBLE,	TRUE	},
+	{ "susc_heat",		MATERIAL_SUSC_HEAT,	TRUE	},
+	{ "susc_cold",		MATERIAL_SUSC_COLD,	TRUE	},
+	{ "fragile",		MATERIAL_FRAGILE,	TRUE	},
 
 	{ NULL }
 };

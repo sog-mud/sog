@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.19 1999-10-12 13:56:20 avn Exp $
+ * $Id: effects.c,v 1.20 1999-10-18 18:08:07 avn Exp $
  */
 
 /***************************************************************************
@@ -373,7 +373,6 @@ void fire_effect(void *vo, int level, int dam, int target)
 	char *msg;
 
     	if (IS_OBJ_STAT(obj,ITEM_BURN_PROOF)
-        ||  IS_OBJ_STAT(obj,ITEM_NOPURGE)
 	||  number_range(0,4) == 0)
             return;
  
@@ -388,73 +387,65 @@ void fire_effect(void *vo, int level, int dam, int target)
             chance -= 5;
         chance -= obj->level * 2;
 
-        if  ( check_material( obj, "ice" ) )  {
-          chance += 30;
-          msg = "$p melts and evaporates!";
-        }
-        else
-        switch ( obj->pObjIndex->item_type )
-        {
-        default:             
-	    return;
-        case ITEM_CONTAINER:
-            msg = "$p ignites and burns!";
-            break;
-        case ITEM_POTION:
-            chance += 25;
-            msg = "$p bubbles and boils!";
-            break;
-        case ITEM_SCROLL:
-            chance += 50;
-            msg = "$p crackles and burns!";
-            break;
-        case ITEM_STAFF:
-            chance += 10;
-            msg = "$p smokes and chars!";
-            break;
-        case ITEM_WAND:
-            msg = "$p sparks and sputters!";
-            break;
-        case ITEM_FOOD:
-            msg = "$p blackens and crisps!";
-            break;
-        case ITEM_PILL:
-            msg = "$p melts and drips!";
-            break;
-        }
+	if  (material_is(obj, MATERIAL_SUSC_HEAT)) {
+		chance += 30;
+		msg = "$p melts and evaporates!";
+	} else
+	switch (obj->pObjIndex->item_type) {
+	default:             
+		return;
+	case ITEM_CONTAINER:
+		msg = "$p ignites and burns!";
+		break;
+	case ITEM_POTION:
+		chance += 25;
+		msg = "$p bubbles and boils!";
+		break;
+	case ITEM_SCROLL:
+		chance += 50;
+		msg = "$p crackles and burns!";
+		break;
+	case ITEM_STAFF:
+		chance += 10;
+		msg = "$p smokes and chars!";
+		break;
+	case ITEM_WAND:
+		msg = "$p sparks and sputters!";
+		break;
+	case ITEM_FOOD:
+		msg = "$p blackens and crisps!";
+		break;
+	case ITEM_PILL:
+		msg = "$p melts and drips!";
+		break;
+	}
 
-        chance = URANGE(5,chance,95);
+	chance = URANGE(5,chance,95);
 
-        if (number_percent() > chance)
-            return;
- 
+	if (number_percent() > chance)
+		return;
+
 	if (obj->carried_by != NULL)
-            act( msg, obj->carried_by, obj, NULL, TO_ALL );
+		act( msg, obj->carried_by, obj, NULL, TO_ALL );
 	else if (obj->in_room != NULL && obj->in_room->people != NULL)
-	    act(msg,obj->in_room->people,obj,NULL,TO_ALL);
+		act(msg,obj->in_room->people,obj,NULL,TO_ALL);
 
-        if (obj->contains)
-        {
-            /* dump the contents */
- 
-            for (t_obj = obj->contains; t_obj != NULL; t_obj = n_obj)
-            {
-                n_obj = t_obj->next_content;
-                obj_from_obj(t_obj);
-		if (obj->in_room != NULL)
-                    obj_to_room(t_obj,obj->in_room);
-		else if (obj->carried_by != NULL)
-		    obj_to_room(t_obj,obj->carried_by->in_room);
-		else
-		{
-		    extract_obj(t_obj, 0);
-		    continue;
+	if (obj->contains)
+		for (t_obj = obj->contains; t_obj != NULL; t_obj = n_obj) {
+			n_obj = t_obj->next_content;
+			obj_from_obj(t_obj);
+			if (obj->in_room != NULL)
+				obj_to_room(t_obj,obj->in_room);
+			else if (obj->carried_by != NULL)
+				obj_to_room(t_obj,obj->carried_by->in_room);
+			else {
+				extract_obj(t_obj, 0);
+				continue;
+			}
+			fire_effect(t_obj,level/2,dam/2,TARGET_OBJ);
 		}
-		fire_effect(t_obj,level/2,dam/2,TARGET_OBJ);
-            }
-        }
- 
-        extract_obj(obj, 0);
+
+	extract_obj(obj, 0);
 	return;
     }
 }
@@ -888,7 +879,6 @@ void scream_effect(void *vo, int level, int dam, int target)
 	char *msg;
 
     	if (IS_OBJ_STAT(obj,ITEM_BURN_PROOF)
-        ||  IS_OBJ_STAT(obj,ITEM_NOPURGE)
 	||  number_range(0,4) == 0)
             return;
  
@@ -903,13 +893,7 @@ void scream_effect(void *vo, int level, int dam, int target)
             chance -= 5;
         chance -= obj->level * 2;
 
-        if  ( check_material( obj, "ice" ) )  
-	{
-          chance += 30;
-          msg = "$p breaks and evaporates!";
-        }
-        else
-	if ( check_material ( obj, "glass" ) )
+        if  (material_is(obj, MATERIAL_FRAGILE))  
 	{
 	 chance += 30;
 	 msg = "$p breaks into tiny small pieces.";

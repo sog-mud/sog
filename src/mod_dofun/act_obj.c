@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.168 1999-10-12 13:56:12 avn Exp $
+ * $Id: act_obj.c,v 1.169 1999-10-18 18:07:59 avn Exp $
  */
 
 /***************************************************************************
@@ -3642,7 +3642,7 @@ static void drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 
 	oprog_call(OPROG_DROP, obj, ch, NULL);
 
-	if (!may_float(obj) && cant_float(obj) && IS_WATER(ch->in_room)) {
+	if (!floating_time(obj) && IS_WATER(ch->in_room)) {
 		act("$p sinks down the water.", ch, obj, NULL,
 		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
 		act("$p sinks down the water.", ch, obj, NULL, TO_CHAR);

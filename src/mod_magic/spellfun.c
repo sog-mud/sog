@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.184 1999-10-17 08:55:53 fjoe Exp $
+ * $Id: spellfun.c,v 1.185 1999-10-18 18:08:13 avn Exp $
  */
 
 /***************************************************************************
@@ -2218,7 +2218,7 @@ void spell_heat_metal(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		    obj_next = obj_lose->next_content;
 		    if (number_range(1,2 * level) > obj_lose->level
 		    &&   !saves_spell(level,victim,DAM_FIRE)
-		    &&   is_metal(obj_lose)
+		    &&   material_is(obj_lose, MATERIAL_METAL)
 		    &&   !IS_OBJ_STAT(obj_lose,ITEM_BURN_PROOF))
 		    {
 			switch (obj_lose->pObjIndex->item_type)

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.160 1999-10-17 08:55:51 fjoe Exp $
+ * $Id: update.c,v 1.161 1999-10-18 18:08:10 avn Exp $
  */
 
 /***************************************************************************
@@ -1325,7 +1325,7 @@ void update_obj_affects(OBJ_DATA *obj)
 	}
 }
 
-bool update_ice_obj(OBJ_DATA *obj)
+bool update_melt_obj(OBJ_DATA *obj)
 {
 	if (obj->carried_by != NULL
 	&&  obj->carried_by->in_room->sector_type == SECT_DESERT
@@ -1346,7 +1346,7 @@ bool update_ice_obj(OBJ_DATA *obj)
 	return FALSE;
 }
 
-bool update_glass_obj(OBJ_DATA *obj)
+bool update_potion(OBJ_DATA *obj)
 {
 	if (obj->carried_by
 	&&  obj->carried_by->in_room->sector_type == SECT_DESERT
@@ -1360,10 +1360,30 @@ bool update_glass_obj(OBJ_DATA *obj)
 	&&  obj->in_room->sector_type == SECT_DESERT
 	&&  number_percent() < 30) {
 		act("$p evaporates by the extream heat.", obj->in_room->people,
-		    obj, NULL, TO_ROOM);
-		act("$p evaporates by the extream heat.", obj->in_room->people,
-		    obj, NULL, TO_CHAR);
+		    obj, NULL, TO_ALL);
 		extract_obj(obj, 0);
+		return TRUE;
+	}
+	return FALSE;
+}
+
+bool update_drinkcon(OBJ_DATA *obj)
+{
+	if (obj->carried_by
+	&&  obj->carried_by->in_room->sector_type == SECT_DESERT
+	&&  !IS_NPC(obj->carried_by)
+	&&  number_percent() < 20)  {
+		act("Liquid in $p evaporates.",
+			obj->carried_by, obj, NULL, TO_CHAR);
+		INT_VAL(obj->value[1]) = 0;
+		return TRUE;
+	}
+	if (obj->in_room
+	&&  obj->in_room->sector_type == SECT_DESERT
+	&&  number_percent() < 30) {
+		act("$p evaporates by the extream heat.", obj->in_room->people,
+		    obj, NULL, TO_ALL);
+		INT_VAL(obj->value[1]) = 0;
 		return TRUE;
 	}
 	return FALSE;
@@ -1468,13 +1488,16 @@ void update_one_obj(OBJ_DATA *obj)
 	     t_obj->carried_by->in_room->area->nplayer > 0))
 		oprog_call(OPROG_AREA, obj, NULL, NULL);
 
-	if (check_material(obj, "ice") 
-	&&  update_ice_obj(obj))
+	if (material_is(obj, MATERIAL_SUSC_HEAT) 
+	&&  update_melt_obj(obj))
 		return;
 
-	if (check_material(obj, "glass")
-	&&  obj->pObjIndex->item_type == ITEM_POTION
-	&&  update_glass_obj(obj))
+	if (obj->pObjIndex->item_type == ITEM_POTION
+	&& update_potion(obj))
+		return;
+
+	if (obj->pObjIndex->item_type == ITEM_DRINK_CON
+	&& update_drinkcon(obj))
 		return;
 
 	if (obj->condition > -1 && (obj->timer <= 0 || --obj->timer > 0))

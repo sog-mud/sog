@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.207 1999-10-17 08:55:46 fjoe Exp $
+ * $Id: fight.c,v 1.208 1999-10-18 18:08:07 avn Exp $
  */
 
 /***************************************************************************
@@ -81,9 +81,6 @@ void	mob_hit 		(CHAR_DATA *ch, CHAR_DATA *victim,
 void	disarm			(CHAR_DATA *ch, CHAR_DATA *victim,
 				 int disarm_second);
 int	critical_strike		(CHAR_DATA *ch, CHAR_DATA *victim, int dam);
-void	check_eq_damage		(CHAR_DATA *ch, CHAR_DATA *victim, int loc);
-void	check_shield_damage	(CHAR_DATA *ch, CHAR_DATA *victim, int loc);
-void	check_weapon_damage	(CHAR_DATA *ch, CHAR_DATA *victim, int loc);
 int 	check_forest		(CHAR_DATA *ch);
 
 #define FOREST_ATTACK 1
@@ -1354,8 +1351,9 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	if (dam == 0)
 		return FALSE;
 
-	if (IS_SET(dam_flags, DAMF_HIT) && ch != victim)
-		check_eq_damage(ch, victim, loc);
+	if (IS_SET(dam_flags, DAMF_HIT) && ch != victim
+	&& number_percent() < 5)
+		random_eq_damage(ch, victim, loc);
 
 	/*
 	 * Hurt the victim.
@@ -1675,7 +1673,9 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	act("You parry $n's attack.", ch, NULL, victim, TO_VICT | ACT_VERBOSE);
 	act("$N parries your attack.", ch, NULL, victim, TO_CHAR | ACT_VERBOSE);
 
-	check_weapon_damage(ch, victim, loc);
+	if (number_percent() < 8 
+	&& make_eq_damage(ch, victim, loc, WEAR_WIELD))
+		return FALSE;
 
 	if (number_percent() > chance) {
 		/* size and weight */
@@ -1784,7 +1784,6 @@ bool check_block(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	if (MOUNTED(victim))
 		chance *= 1.2;
 
-
 	if (number_percent() >= chance + LEVEL(victim) - LEVEL(ch))
 		return FALSE;
 
@@ -1792,8 +1791,10 @@ bool check_block(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	    ch, NULL, victim, TO_VICT | ACT_VERBOSE);
 	act("$N deflects your attack with $S shield.",
 	    ch, NULL, victim, TO_CHAR | ACT_VERBOSE);
-	check_shield_damage(ch, victim, loc);
 	check_improve(victim, "shield block", TRUE, 6);
+	if (number_percent() < 8
+	&& make_eq_damage(ch, victim, loc, WEAR_SHIELD))
+		return FALSE;
 	return TRUE;
 }
 

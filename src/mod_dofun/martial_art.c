@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.117 1999-10-17 08:55:41 fjoe Exp $
+ * $Id: martial_art.c,v 1.118 1999-10-18 18:08:02 avn Exp $
  */
 
 /***************************************************************************
@@ -2818,8 +2818,7 @@ void do_shield(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (check_material(shield," platinum")
-	||  shield->pObjIndex->limit != -1)
+	if (material_is(shield, MATERIAL_INDESTRUCT))
 		return;
 
 	if (WEAPON_IS(axe, WEAPON_AXE))
@@ -2901,7 +2900,7 @@ void do_weapon(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (check_material(wield,"platinum") || wield->pObjIndex->limit != -1)
+	if (material_is(wield, MATERIAL_INDESTRUCT))
 		return;
 
 	if (WEAPON_IS(axe, WEAPON_AXE))

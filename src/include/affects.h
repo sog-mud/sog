@@ -1,5 +1,5 @@
 /*
- * $Id: affects.h,v 1.2 1999-10-12 13:56:16 avn Exp $
+ * $Id: affects.h,v 1.3 1999-10-18 18:08:03 avn Exp $
  */
 
 /***************************************************************************
@@ -80,6 +80,7 @@ struct where_t
 
 where_t *where_lookup(flag32_t where);
 
+void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd);
 AFFECT_DATA	*affect_find (AFFECT_DATA *paf, const char *sn);
 void	affect_check	(CHAR_DATA *ch, int where, flag64_t vector);
 void	affect_enchant	(OBJ_DATA *obj);
@@ -100,6 +101,7 @@ void	affect_to_room		(ROOM_INDEX_DATA *room, AFFECT_DATA *paf);
 void	affect_remove_room	(ROOM_INDEX_DATA *room, AFFECT_DATA *paf);
 void	affect_strip_room	(ROOM_INDEX_DATA *ch, const char *sn);
 bool	is_affected_room	(ROOM_INDEX_DATA *ch, const char *sn);
+void	strip_raff_owner(CHAR_DATA *ch);
 
 /* format_obj_affects flags */
 #define FOA_F_NODURATION	(A)	/* do not show duration		*/

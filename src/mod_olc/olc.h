@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.47 1999-10-17 08:55:44 fjoe Exp $
+ * $Id: olc.h,v 1.48 1999-10-18 18:08:06 avn Exp $
  */
 
 /***************************************************************************
@@ -82,6 +82,7 @@ extern const char ED_CMD	[];
 extern const char ED_SKILL	[];
 extern const char ED_RACE	[];
 extern const char ED_CLASS	[];
+extern const char ED_MATERIAL	[];
 
 struct olc_cmd_t
 {
@@ -111,6 +112,7 @@ extern olc_cmd_t	olc_cmds_cmd[];
 extern olc_cmd_t	olc_cmds_skill[];
 extern olc_cmd_t	olc_cmds_race[];
 extern olc_cmd_t	olc_cmds_class[];
+extern olc_cmd_t	olc_cmds_mat[];
 
 bool olced_obj_busy(CHAR_DATA *ch);
 bool olced_busy(CHAR_DATA *ch, const char *id, void *edit, void *edit2);
@@ -184,6 +186,7 @@ void		olc_printf	(CHAR_DATA *ch, const char *format, ...);
 #define SECURITY_MSGDB		3
 #define SECURITY_RACE		4
 #define SECURITY_CLASS		9
+#define SECURITY_MATERIAL	2
 
 #endif
 

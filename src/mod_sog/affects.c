@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.3 1999-10-17 08:55:46 fjoe Exp $
+ * $Id: affects.c,v 1.4 1999-10-18 18:08:06 avn Exp $
  */
 
 /***************************************************************************
@@ -734,6 +734,21 @@ bool is_affected_room(ROOM_INDEX_DATA *room, const char *sn)
 	}
 
 	return FALSE;
+}
+
+void strip_raff_owner(CHAR_DATA *ch)
+{
+	ROOM_INDEX_DATA *room, *room_next;
+	AFFECT_DATA *af, *af_next;
+
+	for (room = top_affected_room; room; room = room_next) {
+		room_next = room->aff_next;
+
+		for (af = room->affected; af; af = af_next) {
+			af_next = af->next;
+			if (af->owner == ch) affect_remove_room(room, af);
+		}
+	}
 }
 /*----------------------------------------------------------------------------
  * show affects stuff

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.10 1999-10-17 08:55:45 fjoe Exp $
+ * $Id: olc_race.c,v 1.11 1999-10-18 18:08:06 avn Exp $
  */
 
 #include "olc.h"
@@ -133,7 +133,7 @@ OLC_FUN(raceed_create)
 	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_RACE) {
-		char_puts("RaceEd: Insufficient security for creating races\n",
+		char_puts("RaceEd: Insufficient security for creating races.\n",
 			  ch);
 		return FALSE;
 	}

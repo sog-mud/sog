@@ -9,15 +9,12 @@ Some notes for coders
 		strcpy, strcat, strncat, *sprintf
 	Use strnzcpy, strnzncpy, strnzcat, strnzncat and *snprintf instead.
 
-
 	Formatting style is fully described in 'man 9 style' (FreeBSD).
-
 
 	SoG-specific data types should be named as xxx_t.
 
 	E.g.:
 		typedef struct module_t module_t;
-
 
 	Data types initializing functions must be named as (for type `xxx')
 
@@ -88,7 +85,7 @@ varr
 		size_t nsize;			/* size of elem */
 		size_t nstep;			/* allocation step */
 
-		void *p;
+		void *p;			/* first element */
 
 		size_t nused;			/* elems used */
 		size_t nalloc;  	        /* elems allocated */
@@ -139,8 +136,8 @@ varr_touch(varr *v, size_t i);
 	`i' then `v' will be extended accordingly.
 
 
-			PART X-1. TEXT OUTPUT.
-			----------------------
+			PART IX-1. TEXT OUTPUT.
+			-----------------------
 
 	Please note that proper translation can be made only if you
 	are using act-like functions (functions that accept act-style format)
@@ -198,56 +195,182 @@ page_to_char(const char *txt, CHAR_DATA *ch);
 	buf_free(buf);
 
 
-act-like functions
-------------------
+			PART IX-2. Text buffers
+			-----------------------
 
-void    act_puts3(const char *format, CHAR_DATA *ch,
-		  const void *arg1, const void *arg2, const void *arg3,
-		  int act_flags, int min_pos);
-#define act(format, ch, arg1, arg2, type) \
-		act_puts((format), (ch), (arg1), (arg2), (type), POS_RESTING)
-#define act_puts(format, ch, arg1, arg2, type, min_pos)		\
-		act_puts3((format), (ch), (arg1), (arg2), NULL,	\
-			  (type), (min_pos))
+	Using buffers is a way to write text which will be sent to character
+	in a large string and then send it (split to pages if needed).
 
-/* the following 5 act target flags are exclusive */
-#define TO_ROOM		(A)
-#define TO_NOTVICT	(B)
-#define TO_VICT		(C)
-#define TO_CHAR		(D)
-#define TO_ALL		(E)
+	Special type (BUFFER) is designed for this purpose.
 
-#define ACT_TOBUF	(F)	/* append to replay buffer if link-dead */
-#define ACT_NOTRIG	(G)	/* do not pull act triggers */
-#define ACT_NOTWIT	(H)	/* do not perform twit list checking */
-#define ACT_NOTRANS	(I)	/* do not perform $t, $T, $u and $U transl. */
-#define ACT_NODEAF	(J)	/* skip is_affected(to, gsn_deafen) chars   */
-#define ACT_STRANS	(K)	/* do $t and $T slang translation (from ch) */
-#define ACT_NOMORTAL	(L)	/* skip mortals */
-#define ACT_VERBOSE	(M)	/* skip if (!IS_SET(ch->comm, COMM_VERBOSE)) */
-#define ACT_NOLF	(N)	/* do not append lf */
-#define ACT_NOUCASE	(O)	/* do not uppercase first letter */
-#define ACT_FORMSH	(P)	/* call format_short for short descrs */
-#define ACT_NOFIXSH	(Q)	/* do not fix char/obj short descrs */
-#define ACT_NOFIXTEXT	(R)	/* do not call fix_short for text args */
-#define ACT_SPEECH(ch)	(ACT_NODEAF | ACT_STRANS | ACT_NOFIXTEXT |	\
+	typedef struct buf_data BUFFER;
+	struct buf_data {
+		BUFFER *	next;   /* next in list */
+		int		lang;	/* buffer language */
+		int		state;	/* error state of the buffer */
+		int		size;	/* buffer size in bytes */
+		char *		string; /* buffer's string */
+	};
+
+BUFFER *
+buf_new(int lang);
+
+	`buf_new' creates new buffer of given language `lang'. Language can be
+	set to -1 for not language-specific buffer. If a language is specified,
+	buffered messages will be translated.
+
+
+void
+buf_free(BUFFER *buffer);
+
+	`buf_free' frees the memory allocated for specified buffer.
+
+
+bool
+buf_add(BUFFER *buffer, const char *string);
+
+	`buf_add' appendds specified string at the end of buffer. Returns
+	TRUE on success or FALSE on buffer overflow.
+
+
+bool
+buf_printf(BUFFER *buffer, const char *format, ...);
+
+	`buf_printf' performs standard printf-style format translation and
+	appends resulting string at the end of buffer. Return value is the
+	same as from `buf_add'.
+
+
+bool
+buf_act(BUFFER *buffer, const char *format, CHAR_DATA *ch,
+		     const void *arg1, const void *arg2, const void *arg3,
+		     int act_flags);
+
+	`buf_act' performs act() routine and appends its output to buffer.
+	See TEXT OUTPUT, act() for information on format specifiers.
+
+
+void
+buf_clear(BUFFER *buffer);
+
+	`buf_clear' resets buffer contents.
+
+
+char *
+buf_string(BUFFER *buffer);
+
+	`buf_string' returns the string that has been formed in buffer.
+
+
+			PART IX-3. act-like functions
+			-----------------------------
+
+void
+act_puts3(const char *format, CHAR_DATA *ch,
+	  const void *arg1, const void *arg2, const void *arg3,
+	  int act_flags, int min_pos);
+
+	`act_puts3' is most versatile of these functions. It takes 3 arguments
+	and has the widest choice of format specifiers. They are:
+
+	ch	arg1	arg2	arg3	meaning
+	----------------------------------------------------
+	$n	$i	$N	$I	character's name
+	$e	--	$E	--	pronoun for character (he, she, it)
+	$m	--	$M	--	pronoun for character (him, her, it)
+	$s	--	$S	--	pronoun for character (his, her, its)
+	--	--	$d	--	door name
+	--	$j	--	$J	number
+	--	$p	$P	--	object name
+	--	$r	--	$R	room name
+	--	$t,$u	$T	$U	plain text message
+
+	Substitutions for these specifiers can be changed using given modifiers:
+
+	$c - $cn{...} - case number ``n''
+	$f - $fnn{...} - misc formatting
+	$F - $Fnn{...} - ------//-------
+		$fnn formats string with "%snn" format
+		$Fnn formats string with "%snn.nn" format
+	$g - $gx{...} - gender form depending on sex/gender of $x,
+		where x is one of [dnNiIpPtTuU]
+		E.g.: 
+		$gn{...} - gender form depends on ch's sex
+		$go{...} - gender form depends on sex of character message
+			is sent to
+	$l - $lu{...} - uppercase first letter
+	$q - $qx{...} - numeric form depending on $x quantity, 
+		x is one of [jJ]. E.g.:
+		$qj{...} - choose form for number $j
+
+	To prevent translation of `$' and `{' characters, they should be
+	escaped like `$$' and `${' respectively.
+
+	`act_flags' is bitwise OR of some of the following flags:
+	one from target flags (it defines who should receive this message)
+	TO_ROOM		- all characters in the same room as `$n', except
+			  `$n' itself
+	TO_NOTVICT	- all characters in the same room as `$n', except
+			  `$n' and `$N'
+	TO_VICT		- `$N' only
+	TO_CHAR		- `$n' only
+	TO_ALL		- all characters in the same room as `$n'
+
+	and any from
+	ACT_TOBUF	- append to replay buffer if receiver is link-dead
+	ACT_NOTRIG	- do not pull act triggers
+	ACT_NOTWIT	- do not perform twit list checking
+	ACT_NOTRANS	- do not perform $t, $T, $u and $U transl.
+	ACT_NODEAF	- skip chars deafened chars
+	ACT_STRANS	- do $t and $T slang translation (from ch)
+	ACT_NOMORTAL	- skip mortals
+	ACT_VERBOSE	- skip if (!IS_SET(ch->comm, COMM_VERBOSE))
+	ACT_NOLF	- do not append LF
+	ACT_NOUCASE	- do not uppercase first letter
+	ACT_FORMSH	- call format_short for short descrs
+	ACT_NOFIXSH	- do not fix char/obj short descrs
+	ACT_NOFIXTEXT	- do not call fix_short() for text args
+
+	A macro has been defined, to match flags of ch's speech:
+	ACT_SPEECH(ch)	(ACT_NODEAF | ACT_STRANS | ACT_NOFIXTEXT |	\
 		  	 (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM) ?	\
 				ACT_NOTRANS : 0))
 
-/*
- * ->to must not be NULL for all char/obj formatting or if ACT_STRANS is set
- * other formatting functions use opt->to_lang/opt->to_sex instead
- */
 
-typedef struct actopt_t {
-	int to_lang;
-	int to_sex;
-	int act_flags;
-} actopt_t;
+void
+act_puts(format, ch, arg1, arg2, type, min_pos)
 
-void	act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
-		const void *arg1, const void *arg2, const void *arg3,
-		actopt_t *opt, char *buf, size_t buf_len);
+	`act_puts' is two-argument macro for `act_puts3'. Call it when you
+	don't need arg3.
+
+
+void
+act(format, ch, arg1, arg2, type)
+
+	`act' is most commonly used macro for `act_puts3'. It has two arguments
+	and targets only active (standing/fighting/resting) characters.
+
+
+void
+act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
+	const void *arg1, const void *arg2, const void *arg3,
+	actopt_t *opt, char *buf, size_t buf_len);
+
+	Lowest level of all act-like functions. `act_buf' sends its output
+	to buffer, `act_opt' contains additional information about person
+	who will receive this message (interface language and sex).
+
+	typedef struct actopt_t {
+		int to_lang;
+		int to_sex;
+		int act_flags;
+	} actopt_t;
+
+	`to' must not be NULL for all char/obj formatting or if ACT_STRANS is
+	set. Other formatting functions use opt->to_lang/opt->to_sex instead
+
+
+
 /*
  * formatting stuff
  */
@@ -271,6 +394,8 @@ void	act_yell(CHAR_DATA *ch, const char *text, const void *arg,
 		 const char *format);
 void	act_clan(CHAR_DATA *ch, const char *text, const void *arg);
 void	act_say(CHAR_DATA *ch, const char *text, const void *arg);
+
+
 
 			PART X. MODULES
 			---------------
@@ -296,3 +421,245 @@ void	act_say(CHAR_DATA *ch, const char *text, const void *arg);
 	ABI_VERSION should be bumped (e.g.: increased by 1) and appropriate
 	modules should be rebuilt (don't forget to use `make depend'
 	to maintain proper dependencies for make).
+
+
+
+			PART XI. MODULES DESCRIPTIONS
+			-----------------------------
+
+core
+====
+	This module contains MUD vital command code (REBOOT, SHUTDOWN, MODULES).
+	This is the only module that cannot be reloaded.
+
+	Function type:
+	void do_foo(CHAR_DATA *ch, const char *argument);
+
+	Source file:
+	* core.c	- module service and core command code
+
+	Module functions are called via:
+	dofun(const char *name, CHAR_DATA *ch, const char *format, ...)
+
+dofun
+=====
+	This module contains code for normal commands.
+
+	Function type:
+	void do_foo(CHAR_DATA *ch, const char *argument);
+
+	Source files:
+	* act_comm.c	- communication commands
+	* act_info.c	- information commands
+	* act_move.c	- character movement commands
+	* act_obj.c	- object handling commands
+	* act_wiz.c	- immortal commands
+	* cast.c	- `cast' dofun
+	* dofun.c	- module service
+	* healer.c	- healer actions
+	* hunt.c	- hunting commands
+	* martial_art.c	- martial art commands
+	* note.c	- note reading/writing commands
+	* quest.c	- questor actions
+
+	Module functions are called via:
+	dofun(const char *name, CHAR_DATA *ch, const char *format, ...)
+
+events
+======
+	This module contains event functions for affect handling.
+
+	Function type:
+	void event_foo(CHAR_DATA *ch, AFFECT_DATA *af);
+
+	Source files:
+	* events.c	- module service
+	* eventfun.c	- miscellaneous event functions
+
+	Module functions are called via:
+	check_event_fun(CHAR_DATA *ch, AFFECT_DATA *paf, flag32_t event)
+	check_one_event(CHAR_DATA *ch, AFFECT_DATA *paf, flag32_t event)
+
+
+olc
+===
+	This module contains routines for online creation.
+
+	Function type for commands:
+	void do_foo(CHAR_DATA *ch, const char *argument);
+
+	Function type for OLC subcommand functions:
+	bool fooed_bar(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd);
+
+	Function type for validators:
+	bool validate_foo(CHAR_DATA *ch, const void *arg)
+
+	Function type for OLC editors:
+	bool olced_foo(CHAR_DATA *ch, const char *argument,
+		       olc_cmd_t *cmd, foo_t *data);
+
+	Source files:
+	* olc.c		- module services and common routines
+	* olc.h		- common declaractions
+	* olc_*.h	- OLC for miscellaneous structures
+
+	Module functions are called via:
+	dofun(const char *name, CHAR_DATA *ch, const char *format, ...)
+
+spellfun
+========
+	This module contains spell functions.
+
+	Function type:
+	void spell_foo(const char *sn, int level, CHAR_DATA *ch, void *vo)
+
+	Source files:
+	* spellfun.c	- module services
+	* magic.c	- spell functions
+	* magic2.c	- spell functions
+
+	Module functions are called via:
+	spellfun_call(const char *name, int level, CHAR_DATA *ch, void *vo)
+	spellfun_call2(const char *name, const char *sn, int level,
+		       CHAR_DATA *ch, void *vo)
+
+
+			PART XII. On-Line Creation
+			--------------------------
+
+
+	To add your OLC editor you should add the following `to olc.c' and
+	`olc.h'.
+
+To `olc.c'
+==========
+	const char *ED_FOO="foo"
+		string to indicate editor type (to type-cast PC(ch)->pEdit)
+
+	add a line in olced_table:
+	{ ED_FOO , "FooEd" , olc_cmds_foo }
+		string defining editor name ("FooEd") and its subcommand table
+		(olc_cmds_foo)
+
+To `olc.h'
+==========
+	`extern' declarations for `ED_FOO' and `olc_cmds_foo'.
+
+	touch_foo(foo_t *foo)
+		function to set `changed' bit for given structure
+
+	#define SECURITY_FOO
+		you may specify a security level to edit `foo_t' structure and
+		use this definition.
+
+
+
+	Every OLC editor should contain the following items:
+
+Table for an OLC commands
+=========================
+	{ subcommand name, subcommand function, argument1 }
+
+	`argument' is pointer to flag table if OLC subcommand sets flags,
+	pointer to validator function for this structure field if needed,
+	or NULL otherwise.
+
+	Every OLC table should contain first six entries, in given order:
+	fooed_create, fooed_edit, fooed_save, fooed_touch, fooed_show,
+	fooed_list. Place your own functions after these entries. Don't forget
+	to place entry for `show_commands' function, this will enable character
+	to see list of available commands. Usually, it is placed at the end of
+	the table.
+
+OLC subcommand functions
+========================
+	For every subcommand declared in table there should be a function.
+	It does not need to change some fields in structure, but these
+	subcommands will be available only if character is in the appropriate
+	OLC editor. These functions should return TRUE if structure was changed
+	and needs to be saved and FALSE otherwise. These functions are named
+	like `(edit_type)ed_(edit_field)', e.g.: raceed_name for a function
+	that changes name of a race.
+
+OLC editors
+===========
+	Although there are many editors provided in olc.c you may need to write
+	your own. It should return TRUE if the value was changed and FALSE
+	otherwise. Its name should be like `olced_(type)', e.g.: olced_exit
+	for an exit_data editor.
+
+	You can receive additional data via (void *)cmd->arg1 pointer. It may
+	point to a validator (then you should call validator function before
+	changing a value), flag table (for flag setting routines) or any other
+	pointer. Just remember of its meaning when add lines to OLC table.
+
+Validators
+==========
+	When you need the value changed by standard OLC editor to be verified
+	for falling in range or for some another criteria, you can write a
+	validator function and specify it in OLC table. Validator should return
+	TRUE on value approval or FALSE on denial.
+
+
+	There are standard OLC editort and validators declared in olc.h
+
+OLC editors
+===========
+	All these functions have the same syntax:
+	bool olced_foo(CHAR_DATA *ch, const char *argument,
+		       olc_cmd_t *cmd, foo_t *foo);
+
+	`ch' is the character who is using this editor (to send messages to)
+	`argument' is a text string to pass to editor
+	`cmd' is a pointer to OLC table structure (to access validators and
+		command name
+	`foo' is a pointer to edited data
+
+	So, hereafter only `foo_t *' is specified in parenthesis.
+
+					`cmd->arg1'
+	Function name			meaning		Notes
+	=============			==========	=======================
+	olced_spell_out(void*)		--		Does nothing
+	olced_number(int*)		validator	changes integer
+	olced_name(const char**)	validator	toggles name(s)
+	olced_str(const char**)		validator	changes string
+	olced_str_text(const char**)	--		invokes string editor
+	olced_mlstr(mlstring*)		--		changes part of mlstring
+	olced_mlstrnl(mlstring*)	--		the same, appendds `\n'
+	olced_mlstr_text(mlstring*)	--		invokes string editor
+	olced_exd(ED_DATA**)		--		edits extra description
+	olced_flag64(flag64_t*)		flag table	toggles flag(s)
+	olced_flag32(flag32_t*)		flag table	toggles flag(s)
+	olced_dice(int*)		--		sets dice
+	olced_clan(int*)		--		sets clan number
+	olced_rulecl(lang_t*)		--		sets language options
+	olced_vform_add(rule_t*)	--		adds word form
+	olced_vform_del(rule_t*)	--		deletes word form
+	olced_exit(int door)		--		defined in olc_room.c
+
+Validators
+==========
+	All validators should return TRUE if `argument' is appropriate change.
+
+	Function name		Return true if			Defined in
+	=============		==============			===========
+	validate_filename	filename is legal		olc.c
+	validate_room_vnum	room exists			olc.c
+	validate_skill_spec	spec exists			olc.c
+	validate_security	`ch' has right to edit area	olc_area.c
+	validate_minvnum	minimal area vnum is ok		olc_area.c
+	validate_maxvnum	maximal area vnum is ok		olc_area.c
+	validate_move		area move is legal(performs it)	olc_area.c
+	validate_name		clan name is ok			olc_clan.c
+	validate_name		class name is ok		olc_class.c
+	validate_whoname	class short name is ok		olc_class.c
+	validate_langname	language name is ok		olc_lang.c
+	validate_fvnum		female clone of mobile exists	olc_mob.c
+	validate_condition	obj condition is 0..100		olc_obj.c
+	validate_name		race name is ok			olc_race.c
+	validate_whoname	race short name is ok		olc_race.c
+	validate_haspcdata	race has pcdata defined		olc_race.c
+	validate_name		social has unique name		olc_social.c
+
+

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.61 1999-10-17 08:55:53 fjoe Exp $
+ * $Id: db_area.c,v 1.62 1999-10-18 18:08:13 avn Exp $
  */
 
 /***************************************************************************
@@ -575,12 +575,6 @@ DBLOAD_FUN(load_old_obj)
 				TOUCH_AREA(area_current);
 			}
 
-			if (WEAPON_IS(pObjIndex, WEAPON_SPEAR)
-			&&  !IS_WEAPON_STAT(pObjIndex, WEAPON_THROW)) {
-				SET_BIT(INT_VAL(pObjIndex->value[4]),
-					WEAPON_THROW);
-				TOUCH_AREA(area_current);
-			}
 			STR_VAL_ASSIGN(pObjIndex->value[3],
 				damtype_slot_lookup(pObjIndex->value[3].i));
 			break;
@@ -1371,6 +1365,15 @@ DBLOAD_FUN(load_objects)
 
 	free_string(pObjIndex->material);
         pObjIndex->material		= fread_string(fp);
+
+	if (IS_NULLSTR(pObjIndex->material)) {
+		free_string(pObjIndex->material);
+		pObjIndex->material = str_dup("unknown");
+	}
+
+	if (!material_lookup(pObjIndex->material))
+		log("Obj %d: unknown material '%s'", vnum, pObjIndex->material);
+
 	pObjIndex->oprogs		= NULL;
 
 	pObjIndex->item_type		= fread_fword(item_types, fp);
@@ -1478,13 +1481,6 @@ DBLOAD_FUN(load_objects)
             }
         }
  
-	if (pObjIndex->item_type == ITEM_WEAPON
-	&&  WEAPON_IS(pObjIndex, WEAPON_SPEAR)
-	&&  !IS_WEAPON_STAT(pObjIndex, WEAPON_THROW)) {
-		SET_BIT(INT_VAL(pObjIndex->value[4]), WEAPON_THROW);
-		TOUCH_AREA(area_current);
-	}
-
         iHash                   = vnum % MAX_KEY_HASH;
         pObjIndex->next         = obj_index_hash[iHash];
         obj_index_hash[iHash]   = pObjIndex;
