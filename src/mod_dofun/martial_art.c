@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.58 1998-12-09 12:12:45 fjoe Exp $
+ * $Id: martial_art.c,v 1.59 1998-12-14 09:47:12 kostik Exp $
  */
 
 /***************************************************************************
@@ -50,6 +50,7 @@
 #	include <stdarg.h>
 #	include "compat/compat.h"
 #endif
+#define CHECK_YELL !IS_NPC(ch) && !IS_NPC(victim) && victim->position>POS_STUNNED && !fighting
 
 void	one_hit		(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc); 
 void	set_fighting	(CHAR_DATA *ch, CHAR_DATA *victim);
@@ -204,12 +205,16 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	int chance, wait;
+	bool fighting;
 	int damage_bash;
 
 	if (MOUNTED(ch)) {
 		char_puts("You can't bash while riding!\n", ch);
 		return;
 	}
+	
+	if (ch->fighting == NULL)  fighting=FALSE;
+		else fighting=TRUE;
 
 	argument = one_argument(argument,arg);
  
@@ -340,19 +345,24 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 		ch->position = POS_RESTING;
 		WAIT_STATE(ch, SKILL(gsn_bash)->beats * 3/2); 
 	}
+	if (CHECK_YELL) 
+		doprintf(do_yell,victim,"Help! %s is bashing me!", PERS(ch,victim));
+		
 }
 
 void do_dirt(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
+	bool fighting;
 	int chance;
 
 	if (MOUNTED(ch)) {
 		char_puts("You can't dirt while riding!\n", ch);
 		return;
 	}
-
+	if(ch->fighting!=NULL) fighting=TRUE;
+		else fighting=FALSE;
 	one_argument(argument,arg);
 
 	if ((chance = get_skill(ch, gsn_dirt)) == 0) {
@@ -465,12 +475,15 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 		damage(ch, victim, 0, gsn_dirt, DAM_NONE, TRUE);
 		check_improve(ch, gsn_dirt, FALSE, 2);
 	}
+	if (CHECK_YELL)
+		doprintf(do_yell,victim,"Help! %s just kicked dirt into my eyes!", PERS(ch,victim));
 }
 
 void do_trip(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
+	bool fighting;
 	int chance;
 
 	if (MOUNTED(ch)) {
@@ -484,7 +497,8 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 		char_puts("Tripping? What's that?\n", ch);
 		return;
 	}
-
+	if(ch->fighting!=NULL) fighting=TRUE;
+		else fighting=FALSE;
 	if (arg[0] == '\0') {
 		victim = ch->fighting;
 		if (victim == NULL) {
@@ -572,7 +586,9 @@ void do_trip(CHAR_DATA *ch, const char *argument)
 		damage(ch, victim, 0, gsn_trip, DAM_BASH, TRUE);
 		WAIT_STATE(ch, SKILL(gsn_trip)->beats*2/3);
 		check_improve(ch, gsn_trip, FALSE, 1);
-	} 
+	}
+	if (CHECK_YELL)
+		doprintf(do_yell,victim,"Help! %s just tripped me!",PERS(ch,victim));
 }
 
 bool backstab_ok(CHAR_DATA *ch, CHAR_DATA *victim)
@@ -622,6 +638,8 @@ void backstab(CHAR_DATA *ch, CHAR_DATA *victim, int chance)
 		check_improve(ch, gsn_backstab, FALSE, 1);
 		damage(ch, victim, 0, gsn_backstab, DAM_NONE, TRUE);
 	}
+	if (!IS_NPC(victim) && victim->position==POS_FIGHTING) 
+		doprintf(do_yell,victim,"Die, %s! You are backstabbing scum!",PERS(ch,victim));
 }
 
 void do_backstab(CHAR_DATA *ch, const char *argument)
@@ -749,6 +767,8 @@ void do_cleave(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_cleave, FALSE, 1);
 		damage(ch, victim, 0, gsn_cleave, DAM_NONE, TRUE);
 	}
+	if (!IS_NPC(victim) && victim->position==POS_FIGHTING)
+		doprintf(do_yell,victim,"Die, %s, you butchering fool!",PERS(ch,victim));
 }
 
 void do_ambush(CHAR_DATA *ch, const char *argument)
@@ -804,6 +824,8 @@ void do_ambush(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_ambush, FALSE, 1);
 		damage(ch, victim, 0, gsn_ambush, DAM_NONE, TRUE);
 	}
+	if (!IS_NPC(victim) && victim->position==POS_FIGHTING)
+		doprintf(do_yell,victim,"Help! I've been ambushed by %s!",PERS(ch,victim));
 }
 
 void do_rescue(CHAR_DATA *ch, const char *argument)
@@ -1298,6 +1320,8 @@ void do_assassinate(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_assassinate, FALSE, 1);
 		damage(ch, victim, 0, gsn_assassinate, DAM_NONE, TRUE);
 	}
+	if (!IS_NPC(victim) && victim->position==POS_FIGHTING) 
+		doprintf(do_yell,victim,"Help! %s tries to assasinate me!",PERS(ch,victim));
 }
 
 void do_caltrops(CHAR_DATA *ch, const char *argument)

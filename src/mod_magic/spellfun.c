@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.91 1998-12-14 04:26:06 fjoe Exp $
+ * $Id: spellfun.c,v 1.92 1998-12-14 09:47:11 kostik Exp $
  */
 
 /***************************************************************************
@@ -228,7 +228,10 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 		if (is_safe(ch, victim))
 			return;
-
+		if (!IS_NPC(ch) && victim != ch &&
+			ch->fighting != victim && victim->fighting != ch &&
+			(IS_SET(victim->affected_by,AFF_CHARM) || !IS_NPC(victim))) 
+		doprintf(do_yell,victim,"Die, %s, you sorcerous dog!",PERS(ch,victim));
 		vo = (void *) victim;
 		target = TARGET_CHAR;
 		bane_chance = 2*get_skill(victim, gsn_spellbane)/3;
