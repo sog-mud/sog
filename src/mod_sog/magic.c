@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.42 2004-02-11 22:25:30 sg Exp $
+ * $Id: magic.c,v 1.43 2004-06-09 14:49:24 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -1015,7 +1015,7 @@ cast_spell(CHAR_DATA *ch, cpdata_t *cp, sptarget_t *spt)
 		&&  victim != NULL
 		&&  is_sn_affected(victim, "blur")
 		&&  !HAS_DETECT(ch, ID_TRUESEEING)
-		&&  (number_percent() < 50)) {
+		&&  (number_percent() < 30)) {
 			act("You failed to focus your spell properly.",
 				ch, NULL, NULL, TO_CHAR);
 			act("$n fails to focus $s spell properly.",

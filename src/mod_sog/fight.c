@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.372 2004-05-24 18:34:52 tatyana Exp $
+ * $Id: fight.c,v 1.373 2004-06-09 14:49:24 tatyana Exp $
  */
 
 /***************************************************************************
@@ -303,7 +303,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 
 	if (is_sn_affected(victim, "blur")
 	&&  !HAS_DETECT(ch, ID_TRUESEEING)
-	&&  (number_percent() < 50)) {
+	&&  (number_percent() < 30)) {
 		act("You failed to detect true $N's position.",
 			ch, NULL, victim, TO_CHAR);
 		damage2(ch, victim, 0, dt, dam_class, dam_flags);
