@@ -1,8 +1,12 @@
-#AREA	
-isles.are~
-Isles~
-{40 90} Lok     Isles of Pirate Lords~
-17000 17300
+#AREADATA
+Name Isles~
+Builders None~
+VNUMs 17000 17300
+Credits Lok~
+Security 9
+LevelRange 40 90
+End
+
 
 
 #MOBILES
@@ -19,7 +23,7 @@ AFGT 0 300 0
 -16 -16 -16 2
 CDEIKTU 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17012
 shipwright pirate~
 the shipwright~
@@ -33,7 +37,7 @@ ABG 0 1000 0
 -71 -71 -71 -37
 CEFIK 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17013
 savage jungle~
 the jungle savage~
@@ -47,7 +51,7 @@ AFGT 0 0 0
 -13 -13 -13 3
 0 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17014
 chieftain chief savage~
 Chief Unga-Bunga~
@@ -63,7 +67,7 @@ ABFGT 0 1000 0
 -16 -16 -16 2
 0 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17015
 pirate sleeping~
 the sleepy pirate~
@@ -77,7 +81,7 @@ AG 0 1000 0
 -13 -13 -13 3
 EFIU 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17016
 pirate drunken~
 the drunken pirate~
@@ -91,7 +95,7 @@ AG 0 300 0
 -14 -14 -14 3
 EFIU 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17017
 princess smallbody woman~
 Princess Smallbody~
@@ -108,7 +112,7 @@ ABG 0 500 0
 -13 -13 -13 3
 EIKU 0 0 0
 stand stand female 1000
-0 0 medium 0
+0 0 medium unknown
 #17018
 navigator man~
 the navigator~
@@ -124,7 +128,7 @@ ABG 0 200 0
 -18 -18 -18 1
 EIKU 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17019
 one-eye man pirate lord~
 One-eye, the pirate lord~
@@ -141,7 +145,7 @@ ABFGT 0 500 0
 -20 -20 -20 0
 EIKU 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17020
 maiden bond~
 a bond maiden~
@@ -153,11 +157,11 @@ or her ransom paid.
 ~
 human~
 ABG 0 200 0
-30 0 6d12+853 5d5+1000 4d6+8 slap     
+30 0 6d12+853 5d5+1000 4d6+8 slap
 -9 -9 -9 3
 EIKU 0 0 0
 stand stand female 1000
-0 0 medium 0
+0 0 medium unknown
 #17021
 kracken~
 the kracken~
@@ -174,7 +178,7 @@ ACF E 1000 0
 -20 -20 -20 0
 KU 0 0 0
 stand stand female 1000
-0 0 medium 0
+0 0 medium unknown
 #17022
 guard dock~
 the dock guard~
@@ -189,7 +193,7 @@ ABGT 0 100 0
 -24 -24 -24 -1
 QT 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17023
 snake black~
 the black snake~
@@ -201,9 +205,9 @@ snake~
 A Q 0 0
 54 0 50d10+5250 5d5+5000 7d6+22 bite
 -24 -24 -24 -1
-FH L 0 I
+FH L 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #17024
 crab black~
 the black crab~
@@ -219,7 +223,7 @@ A P 0 0
 -20 -20 -20 0
 0 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #17025
 worm lava~
 the lava worm~
@@ -237,7 +241,7 @@ A U 100 0
 -26 -26 -26 -2
 U 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #17026
 lizard lava~
 the lava lizard~
@@ -256,7 +260,7 @@ A 0 0 0
 -24 -24 -24 -1
 U 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #17027
 pirate snarling~
 the snarling pirate~
@@ -271,7 +275,7 @@ AF 0 200 0
 -26 -26 -26 -2
 0 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17028
 redbeard pirate~
 Redbeard~
@@ -287,7 +291,7 @@ AB D 400 0
 -30 -30 -30 -3
 0 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17029
 lalila elf prince~
 Lalila, the Elven Prince~
@@ -304,7 +308,7 @@ ABT 0 1000 0
 -26 -26 -26 -2
 S 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17030
 pele god fire~
 Pele, god of fire~
@@ -320,7 +324,7 @@ ABT DFHJ 0 0
 -34 -34 -34 -4
 CEFIK H 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #17031
 mizzenmast pirate lord~
 Mizzenmast~
@@ -334,11 +338,11 @@ to others, and leaves all the major thinking to Shifty.
 ~
 human~
 AB 0 800 0
-70 0 50d10+9750	5d5+5000 8d10+40 pound
+70 0 50d10+9750 5d5+5000 8d10+40 pound
 -40 -40 -40 -6
 CEFIK 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17032
 shifty trader man~
 Shifty the trader~
@@ -355,7 +359,7 @@ AB 0 500 0
 -71 -71 -71 -37
 CEFIK 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17033
 pirate bandy legged~
 the bandy legged pirate~
@@ -366,11 +370,11 @@ cloth jerkin and leggings, and swings his cutlass with years of experience.
 ~
 human~
 AF 0 200 0
-66 0 50d10+8500	5d5+5000 7d9+36 pound
+66 0 50d10+8500 5d5+5000 7d9+36 pound
 -36 -36 -36 -5
 CEFIK 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17034
 stiggs cabin boy~
 Stiggs, the cabin boy~
@@ -386,7 +390,7 @@ AB 0 100 0
 -34 -34 -34 -4
 CEFIK 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17035
 shark tiger~
 the tiger shark~
@@ -397,11 +401,11 @@ would make a fine trophy.
 ~
 human~
 AF 0 0 0
-68 0 50d10+9000	5d5+5000 7d10+38 bite
+68 0 50d10+9000 5d5+5000 7d10+38 bite
 -38 -38 -38 -6
 EF 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #17036
 shark white great~
 the great white shark~
@@ -413,11 +417,11 @@ great expanse of water.
 ~
 human~
 AF 0 0 0
-70 0 50d10+9750	5d5+5000 8d10+40 bite
+70 0 50d10+9750 5d5+5000 8d10+40 bite
 -40 -40 -40 -6
 EF 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #17037
 shark mako~
 the mako shark~
@@ -433,7 +437,7 @@ AF 0 0 0
 -30 -30 -30 -3
 EF 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #17038
 shark hammerhead~
 the hammerhead shark~
@@ -444,11 +448,11 @@ to your presence.
 ~
 human~
 A 0 0 0
-66 0 50d10+8500	5d5+5000 7d9+36 bite
+66 0 50d10+8500 5d5+5000 7d9+36 bite
 -36 -36 -36 -5
 EF 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #17039
 shark blue~
 the blue shark~
@@ -464,7 +468,7 @@ A 0 0 0
 -32 -32 -32 -4
 EF 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #17040
 clam giant~
 Did I say coral? I meant clam~
@@ -475,11 +479,11 @@ sea. I wonder what's inside?
 ~
 giant~
 AB Q 0 0
-70 0 50d10+9750	5d5+5000 8d10+40 pound
+70 0 50d10+9750 5d5+5000 8d10+40 pound
 -40 -40 -40 -6
 EF 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #17041
 hawkwoman hawk woman~
 the hawkwoman~
@@ -491,12 +495,12 @@ the talons of the hawkpeople, gloves with spikes protruding from the
 fingers.
 ~
 song bird~
-A T 0 0
-70 0 50d10+9750	5d5+5000 8d10+40 claw
+A 0 0 0
+70 0 50d10+9750 5d5+5000 8d10+40 claw
 -40 -40 -40 -6
-EFI 0 0 0
+EI 0 0 0
 stand stand female 1000
-0 0 medium 0
+0 0 medium unknown
 #17042
 hawkman hawk man~
 the hawkman~
@@ -508,12 +512,12 @@ a glove fitted with spikes on the fingers. Huge grey wings grow from his
 back, which when extended span 12' from tip to tip.
 ~
 song bird~
-AF T 0 0
+AF 0 0 0
 72 0 50d10+10250 5d5+5000 8d11+42 claw
 -42 -42 -42 -7
-EFI 0 0 0
+EI 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17043
 hawklord hawk lord man~
 the hawklord~
@@ -525,12 +529,12 @@ from their land by Lord Vulture. He warns you of the terrible Terra-kan,
 a land roving birdlike creature which roams the surface of the island.
 ~
 song bird~
-A JT 100 0
+A J 100 0
 74 0 50d10+10700 5d5+5000 9d10+44 claw
 -44 -44 -44 -8
-EFI 0 0 0
+EI 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17044
 terra-kan bird terra kan~
 the terra-kan~
@@ -545,9 +549,9 @@ song bird~
 A F 0 0
 76 0 50d10+11500 5d5+5000 10d10+46 claw
 -46 -46 -46 -9
-EFI 0 0 0
+EI 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #17045
 pirate gambling~
 the gambling pirate~
@@ -564,7 +568,7 @@ A 0 200 0
 -44 -44 -44 -8
 EFIJ 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17046
 mate first pirate~
 the first mate~
@@ -583,7 +587,7 @@ AF 0 500 0
 -46 -46 -46 -9
 EFIJ 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17047
 pirate elite~
 the elite pirate~
@@ -599,7 +603,7 @@ AF DF 400 0
 -46 -46 -46 -9
 EFIJ 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17048
 alindra slave woman~
 Alindra of Dunkeldorf~
@@ -612,11 +616,11 @@ with Vulture, in spite of his villainy.
 ~
 human~
 AB 0 300 0
-70 0 50d10+9750	5d5+5000 8d10+40 slap
+70 0 50d10+9750 5d5+5000 8d10+40 slap
 -40 -40 -40 -6
 EFIJ 0 0 0
 stand stand female 1000
-0 0 medium 0
+0 0 medium unknown
 #17049
 mutton chef pirate~
 Mutton the chef~
@@ -632,7 +636,7 @@ AB V 0 0
 -44 -44 -44 -8
 EFIJ 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17050
 vulture lord~
 Lord Vulture~
@@ -651,7 +655,7 @@ AB B 1000 0
 -50 -50 -50 -13
 EFIJ 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17051
 orca~
 the orca~
@@ -666,7 +670,7 @@ ABF 0 0 0
 -50 -50 -50 -13
 EF 0 0 0
 stand stand female 1000
-0 0 medium 0
+0 0 medium unknown
 #17052
 roc great northern bird~
 the great northern roc~
@@ -677,12 +681,12 @@ with an unnatural sanctuary spell. Its plumage matches the
 landscape, making it look like a snow hill when it lands.
 ~
 song bird~
-AB T 0 0
+AB 0 0 0
 80 0 50d10+13500 5d5+5000 13d9+50 claw
 -50 -50 -50 -13
-F 0 0 0
+0 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17053
 pack howling wolf~
 the howling wolf pack~
@@ -695,9 +699,9 @@ wolf~
 ABF 0 0 0
 82 0 50d10+14500 5d5+5000 10d12+52 bite
 -52 -52 -52 -15
-EFH 0 0 0
+E 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #17054
 bear cave~
 the towering cave bear~
@@ -711,9 +715,9 @@ bear~
 AB 0 0 0
 82 0 50d10+14500 5d5+5000 10d12+52 claw
 -52 -52 -52 -15
-CDEF 0 0 0
+CF 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17066
 pirate~
 the pirate in fur skins~
@@ -725,9 +729,9 @@ human~
 AT 0 400 0
 84 0 50d10+15500 5d5+5000 9d14+54 pound
 -54 -54 -54 -18
-CDEFI0 0 0 0
+DEGKL 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #17067
 guard pirate~
 the lurking guard~
@@ -742,7 +746,7 @@ AFT DFQ 500 0
 -50 -50 -50 -13
 EIJKTU 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #17068
 pirate~
 the helmsman~
@@ -758,7 +762,7 @@ AT 0 600 0
 -58 -58 -58 -24
 EFIK 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17069
 pirate~
 Cutter, the 5th Pirate Lord~
@@ -777,7 +781,7 @@ ABT H 1000 0
 -60 -60 -60 -27
 CDEFIJK 0 0 0
 stand stand male 1000
-0 0 medium 0
+0 0 medium unknown
 #17070
 prisoner~
 the frozen captive~
@@ -803,8 +807,9 @@ ABT 0 1000 0
 -50 -50 -50 -13
 CEFIJK 0 0 0
 stand stand none 1000
-0 0 medium 0
+0 0 medium unknown
 #0
+
 
 
 #OBJECTS
@@ -828,7 +833,7 @@ A ripe bunch of bananas is here- where is the monkey?
 ~
 food~
 food 0 A
-5 5 0 0 0 
+AC AC 0 0 0
 0 2 10 P
 #17013
 sign warning~
@@ -837,7 +842,7 @@ A wooden sign is nailed in the ground here.
 ~
 wood~
 trash 0 0
-0 0 0 0 0 
+0 0 0 0 0
 0 0 0 P
 E
 sign wooden~
@@ -854,7 +859,7 @@ A wooden mallet is here.
 ~
 wood~
 weapon 0 AN
-exotic 8 10 crush 0 
+exotic 8 10 crush 0
 90 10 7000 P
 A
 18 -1
@@ -872,7 +877,7 @@ A robe maid of brilliant tropical bird plumage is here.
 ~
 unknown~
 armor 0 AK
-15 15 15 7 0 
+ABCD ABCD ABCD ABC 0
 46 8 1000 P
 E
 robe feather~
@@ -894,7 +899,7 @@ Are you going to get lucky?
 ~
 gold~
 money 0 A
-1000 0 0 0 0 
+DFGHIJ 0 0 0 0
 0 3 0 P
 #17018
 sextant~
@@ -903,7 +908,7 @@ A beautiful gilded sextant lies here.
 ~
 vellum~
 scroll 0 AO
-25 'locate object' '' '' '' 
+25 'locate object' '' '' ''
 20 1 3100 P
 E
 sextant~
@@ -918,7 +923,7 @@ A well crafted weapons belt is lying here.
 ~
 mithril~
 armor G AL
-17 16 16 8 0 
+AE E E D 0
 50 5 1000 P
 A
 5 4
@@ -941,7 +946,7 @@ A pair of gauntlets with arrows on them lies here.
 ~
 leather~
 armor G AH
-17 16 16 10 0 
+AE E E BD 0
 50 2 1000 P
 A
 18 15
@@ -957,7 +962,7 @@ An iron key is here.
 ~
 iron~
 key 0 AO
-0 0 0 0 0 
+0 0 0 0 0
 0 1 0 P
 #17022
 pool lava~
@@ -966,7 +971,7 @@ A pool of lava is bubbling here.
 ~
 unknown~
 trash AQ A
-0 0 0 0 0 
+0 0 0 0 0
 0 0 0 P
 E
 lava pool~
@@ -979,7 +984,7 @@ An arm-length curved sword is here.
 ~
 steel~
 weapon 0 AN
-sword 7 8 slash 0 
+sword 7 8 slash 0
 54 6 3000 P
 A
 18 5
@@ -992,7 +997,7 @@ A large eyeball of some sea creature is rotting on the ground.
 ~
 flesh~
 staff CEJ AO
-25 10 10 'detect invis' 0 
+25 10 10 'detect invis' 0
 25 1 1000 P
 E
 eye eyeball~
@@ -1007,7 +1012,7 @@ Armbands made of fire are smoldering on the ground.
 ~
 fire~
 armor AGQ AI
-25 25 25 25 0
+ADE ADE ADE ADE 0
 64 5 1000 P
 A
 13 100
@@ -1031,7 +1036,7 @@ A well balanced javelin is here.
 ~
 unknown~
 armor 0 AO
-20 20 20 10 0 
+CE CE CE BD 0
 60 3 1000 P
 A
 18 7
@@ -1042,7 +1047,7 @@ You see a suspicious looking cloak here. Hmmm.
 ~
 cloth~
 armor FG AK
-20 20 20 10 0
+CE CE CE BD 0
 60 4 2000 P
 A
 2 3
@@ -1061,7 +1066,7 @@ A jar of blood is here
 ~
 glass~
 potion FG A
-30 'sanctuary' 'stone skin' 'shield' 'armor' 
+30 'sanctuary' 'stone skin' 'shield' 'armor'
 20 3 4000 P
 #17030
 hoard pirate pirate's~
@@ -1070,7 +1075,7 @@ You see a big old fucking pile o' loot!
 ~
 gold~
 money 0 A
-100000 0 0 0 0 
+FHJKPQ 0 0 0 0
 0 30 0 P
 #17031
 pants sharkskin~
@@ -1079,7 +1084,7 @@ A pair of pants cut from the skin of a fish lie here.
 ~
 snakeskin~
 armor G AF
-23 24 23 20 0
+ABCE DE ABCE CE 0
 70 4 7000 P
 A
 17 -20
@@ -1099,7 +1104,7 @@ You see a nasty looking hand crossbow with black gummed quarrels here.
 ~
 wood~
 wand 0 AO
-35 30 30 'poison' 0 
+35 30 30 'poison' 0
 25 5 900 P
 E
 crossbow~
@@ -1114,7 +1119,7 @@ A round sphere on the ground is swallowing all the light around it.
 ~
 glass~
 wand C AO
-40 20 20 'dispel nagic' 0 
+40 20 20 '' 0
 30 3 1000 P
 E
 orb nullifier~
@@ -1128,7 +1133,7 @@ A heavy padlocked chest is here.
 ~
 iron~
 container 0 0
-200 0 0 50 100 
+200 0 0 50 100
 0 0 0 P
 E
 chest~
@@ -1142,7 +1147,7 @@ A metal key lies here.
 ~
 metal~
 key 0 A
-0 0 0 0 0 
+0 0 0 0 0
 0 1 0 P
 E
 key metal~
@@ -1155,7 +1160,7 @@ An outrigger canoe with a sky blue sail is here, provisioned for adventure.
 ~
 wood~
 boat T 0
-1500 0 0 0 0 
+CDEGHIK 0 0 0 0
 20 30 1000 P
 #17037
 lantern watchman's watchman watchamans~
@@ -1180,7 +1185,7 @@ A giant pearl lies forgotten in the sand.
 ~
 diamond~
 treasure 0 A
-20000 0 0 0 0
+FJKLO 0 0 0 0
 10 1 0 P
 E
 pearl giant~
@@ -1207,7 +1212,7 @@ You see a trove of doubloons and booty!
 ~
 gold~
 money 0 A
-100000 0 0 0 0 
+FHJKPQ 0 0 0 0
 0 30 0 P
 #17041
 key golden hawk~
@@ -1216,7 +1221,7 @@ A golden hawk key lies here.
 ~
 gold~
 key 0 A
-0 0 0 0 0 
+0 0 0 0 0
 1 0 0 P
 E
 key golden hawk~
@@ -1230,7 +1235,7 @@ A stone is here, floating in mid-air!
 ~
 stone~
 map GP AO
-0 0 0 0 0 
+0 0 0 0 0
 10 3 0 P
 E
 stone floating~
@@ -1243,7 +1248,7 @@ A vest made of a bright blue fine chain mesh hovers here.
 ~
 unknown~
 container GP AK
-100 0 0 10 75 
+100 0 0 10 75
 74 5 1000 P
 A
 18 5
@@ -1263,7 +1268,7 @@ A winch with a long rope ladder is here.
 ~
 wood~
 furniture 0 0
-0 0 0 0 0 
+0 0 0 0 0
 0 0 0 P
 E
 winch~
@@ -1277,7 +1282,7 @@ A raw gizzard is on the ground, being consumed by ants.
 ~
 food~
 pill 0 A
-35 'heal' '' '' '' 
+35 'heal' '' '' ''
 25 2 0 P
 #17046
 chest iron bound~
@@ -1286,7 +1291,7 @@ A massive iron bound chest is here.
 ~
 iron~
 container 0 0
-501 0 0 100 100 
+501 0 0 100 100
 0 0 0 P
 E
 chest iron~
@@ -1300,7 +1305,7 @@ A mountain of silver is here. Take it and be rich!
 ~
 silver~
 money 0 A
-100000 0 0 0 0 
+FHJKPQ 0 0 0 0
 0 500 0 P
 E
 silver mountain~
@@ -1313,7 +1318,7 @@ A bottomless glass of ale is here, waiting to slake your thirst.
 ~
 glass~
 drink G AO
-100 100 'ale' 0 0 
+100 100 'ale' 0 0
 1 5 0 P
 E
 mug everfull~
@@ -1327,7 +1332,7 @@ Wings from an ENORMOUS black bird lie well preserved on the ground.
 ~
 unknown~
 armor FG AI
-26 26 26 20 0 
+BDE BDE BDE CE 0
 80 50 10000 P
 A
 1 3
@@ -1347,7 +1352,7 @@ You see a smooth amber stone with a single black spot lying on the ground.
 ~
 food~
 staff G AO
-40 40 40 'infravision' 0 
+40 40 40 'infravision' 0
 40 1 10 P
 E
 eye~
@@ -1361,7 +1366,7 @@ A well balanced blue metal throwing dagger is here.
 ~
 metal~
 weapon GQ AN
-dagger 5 10 pierce 0 
+dagger 5 10 pierce 0
 50 2 1000 P
 A
 18 8
@@ -1378,7 +1383,7 @@ A foaming mug of grog is here, ready to take the chill off..
 ~
 unknown~
 potion G AO
-40 'refresh' 'harm' 'remove curse' '' 
+40 'refresh' 'harm' 'remove curse' ''
 30 3 1000 P
 #17053
 cloak fur skin~
@@ -1387,8 +1392,8 @@ A white fur skin cloak is here.
 ~
 fur~
 armor 0 AK
-26 26 26 20 0 
-80 7 2000 p
+BDE BDE BDE CE 0
+80 7 2000 P
 #17054
 vest fur skin~
 a fur skin vest~
@@ -1396,7 +1401,7 @@ A white fur skin vest is here.
 ~
 fur~
 armor 0 AD
-26 26 26 20 0 
+BDE BDE BDE CE 0
 80 5 5000 P
 #17055
 leggings fur skin~
@@ -1405,7 +1410,7 @@ Some white fur skin leggings are here.
 ~
 fur~
 armor 0 AF
-25 27 27 20 0
+ADE ABDE ABDE CE 0
 80 8 5000 P
 #17056
 buckler spiked~
@@ -1414,7 +1419,7 @@ A spiked buckler is here.
 ~
 unknown~
 armor 0 AJ
-27 25 26 18 0 
+ABDE ADE BDE BE 0
 80 1 3000 P
 A
 17 -10
@@ -1427,7 +1432,7 @@ An icicle lies on the floor, melting.
 ~
 ice~
 wand G AO
-40 5 5 'frost breath' 0 
+40 5 5 'frost breath' 0
 70 2 1000 P
 #17058
 pool melting~
@@ -1436,7 +1441,7 @@ A pool of melting ice and frigid water is here.
 ~
 ice~
 fountain 0 0
-1000 1000 0 0 0
+1000 1000 'water' 0 0
 0 0 0 P
 #17059
 garrote wire~
@@ -1445,7 +1450,7 @@ A long piece of wire lies on the ground.
 ~
 metal~
 weapon 0 AN
-exotic 10 9 grep 0 
+exotic 10 9 grep 0
 80 1 1000 P
 #17060
 stone ghost~
@@ -1454,7 +1459,7 @@ the ghost stone~
 ~
 stone~
 wand G AN
-40 5 5 'pass door' 0 
+40 5 5 'pass door' 0
 40 1 1000 P
 #17061
 battle axe two handed~
@@ -1463,7 +1468,7 @@ A mighty two handed battle axe lies neglected in the dirt.
 ~
 steel~
 weapon 0 AN
-axe 11 11 chop DEF 
+axe 11 11 chop DEF
 88 45 9000 P
 A
 19 10
@@ -1474,7 +1479,7 @@ A suit of armor fashioned from ice lies melting on the ground.
 ~
 ice~
 armor FG AD
-32 31 31 24 0 
+F ABCDE ABCDE DE 0
 90 50 1000 P
 A
 1 -3
@@ -1500,7 +1505,7 @@ A long bastard sword made of ice lies here melting.
 ~
 ice~
 weapon DFL AN
-sword 10 13 bite 0 
+sword 10 13 bite 0
 90 30 0 P
 A
 1 -2
@@ -1525,7 +1530,7 @@ A heavy bulging bag of gold lies here.
 ~
 leather~
 money 0 A
-50000 0 0 0 0 
+EGIJOP 0 0 0 0
 0 30 0 P
 #17065
 bag silver~
@@ -1534,7 +1539,7 @@ A heavy bulging bag of silver lies here.
 ~
 leather~
 money 0 A
-25000 0 0 0 0 
+DFHINO 0 0 0 0
 0 30 0 P
 #17066
 bag gems~
@@ -1543,7 +1548,7 @@ A heavy bulging bag of gems lies here.
 ~
 leather~
 money 0 A
-75000 0 0 0 0 
+DEFGHKNQ 0 0 0 0
 0 30 0 P
 #17067
 bag jewelry~
@@ -1552,7 +1557,7 @@ A heavy bulging bag of jewelry lies here.
 ~
 leather~
 money 0 A
-100000 0 0 0 0 
+FHJKPQ 0 0 0 0
 0 30 0 P
 #17068
 eye evil~
@@ -1561,7 +1566,7 @@ A bloody eye lies here.
 ~
 unknown~
 wand EG AO
-45 15 15 'sleep' 0 
+45 15 15 'sleep' 0
 40 1 1000 P
 #17069
 map hell's reef~
@@ -1583,9 +1588,10 @@ A roaring bonfire blazes brightly here.
 ~
 unknown~
 trash ABQ 0
-0 0 0 0 0 
+0 0 0 0 0
 0 0 0 P
 #0
+
 
 
 #ROOMS
@@ -1596,6 +1602,17 @@ towards the jungle, where a small hut is located. A dense tropical
 jungle surrounds you.
 ~
 0 0 2
+E
+hut~
+You look inside the hut. It contains the hammers, saws, brushes, 
+pots of pitch, rope, and other carpentry tools.
+~
+E
+ships~
+The ships look like they have been beached for a few days. There is 
+a rope winch system whereby they have been hoisted up the beach. Roller
+logs are piled near the winch for future use.
+~
 D0
 The jungle~
 ~
@@ -1608,17 +1625,6 @@ D3
 The jungle~
 ~
 0 -1 17172
-E
-hut~
-You look inside the hut. It contains the hammers, saws, brushes, 
-pots of pitch, rope, and other carpentry tools.
-~
-E
-ships~
-The ships look like they have been beached for a few days. There is 
-a rope winch system whereby they have been hoisted up the beach. Roller
-logs are piled near the winch for future use.
-~
 S
 #17172
 In the Jungle~
@@ -1627,6 +1633,12 @@ with a palm canopy. Around you are stumps and piles of delimbed trees.
 A small path winds into the jungle.
 ~
 0 0 3
+E
+stumps piles trees delimbed~
+After examining the stumps and piles of lumber, you conclude that
+fairly recently there was a large cutting of lumber. Mostly hardwoods
+are gone.
+~
 D0
 The jungle~
 ~
@@ -1635,12 +1647,6 @@ D1
 The beach~
 ~
 0 -1 17171
-E
-stumps piles trees delimbed~
-After examining the stumps and piles of lumber, you conclude that
-fairly recently there was a large cutting of lumber. Mostly hardwoods
-are gone.
-~
 S
 #17173
 In the Jungle~
@@ -1649,6 +1655,12 @@ The green ocean crashes on the rocks far below. Around you some of the
 trees have buckets on them. A path leads back into the jungle.
 ~
 0 0 3
+E
+buckets trees~
+You look in the buckets. Sap flows from a spout which has been hammered
+deep into the tree. The sap which is in the bucket is black and very 
+sticky. You think it might make a good pitch for an ocean going vessel.
+~
 D1
 The jungle~
 ~
@@ -1656,13 +1668,7 @@ The jungle~
 D5
 ~
 ~
-0 -1  17183
-E
-buckets trees~
-You look in the buckets. Sap flows from a spout which has been hammered
-deep into the tree. The sap which is in the bucket is black and very 
-sticky. You think it might make a good pitch for an ocean going vessel.
-~
+0 -1 17183
 S
 #17174
 In the Jungle~
@@ -1690,6 +1696,11 @@ You are following a dirt path though a dense tropical jungle. Around you
 fruit is plentiful. A parrot above you caws as you stop.
 ~
 0 0 3
+E
+parrot bird~
+You stop and listen to the parrot. It says '*caw* Come along little
+princess *caw*, we have a nice little brig for ya *caw*'
+~
 D0
 The jungle~
 ~
@@ -1702,11 +1713,6 @@ D3
 The jungle~
 ~
 0 -1 17174
-E
-parrot bird~
-You stop and listen to the parrot. It says '*caw* Come along little
-princess *caw*, we have a nice little brig for ya *caw*'
-~
 S
 #17176
 In the Jungle~
@@ -1715,6 +1721,11 @@ think about what lives in the thorn thicket to the east. The trail
 stretches north and south.
 ~
 0 0 3
+E
+thorn thicket~
+You notice on closer inspection that the thorn thicket is nothing
+more than a barricade of thorns, cleverly camouflaged.
+~
 D0
 The jungle~
 ~
@@ -1727,18 +1738,18 @@ D2
 The jungle~
 ~
 0 -1 17175
-E
-thorn thicket~
-You notice on closer inspection that the thorn thicket is nothing
-more than a barricade of thorns, cleverly camouflaged.
-~
 S
 #17177
 At the Mouth of a Cave~
 You have followed a trail to a mountain. Above you there is
 a mouth of a cave.
 ~
-0 4 3
+0 C 3
+E
+cave~
+You stare intently at the cave for a while. There is smoke coming out 
+of a hole in the rock above the cave, indicating inhabitation.
+~
 D3
 The jungle~
 barricade thorn thicket~
@@ -1747,18 +1758,18 @@ D4
 The cave~
 ~
 0 -1 17183
-E
-cave~
-You stare intently at the cave for a while. There is smoke coming out 
-of a hole in the rock above the cave, indicating inhabitation.
-~
 S
 #17178
 In the Jungle~
 You are on a trail in a dense jungle, in front of a stake with a skull
 attached to it. The path continues along the trail.
 ~
-0 4 3
+0 C 3
+E
+stake skull~
+The skull upon closer inspection, is too small for a man, and has
+the sloping brow ridge of a monkey.
+~
 D2
 The jungle~
 ~
@@ -1767,11 +1778,6 @@ D3
 The jungle~
 ~
 0 -1 17179
-E
-stake skull~
-The skull upon closer inspection, is too small for a man, and has
-the sloping brow ridge of a monkey.
-~
 S
 #17179
 In the Savage Camp~
@@ -1780,6 +1786,10 @@ are erected in a circular clearing. There is a central fire, upon which some
 animal is being roasted.
 ~
 0 0 3
+E
+animal fire~
+There is a monkey roasting on the fire.
+~
 D1
 The Jungle~
 ~
@@ -1792,10 +1802,6 @@ D3
 The savage camp~
 ~
 0 -1 17182
-E
-animal fire~
-There is a monkey roasting on the fire.
-~
 S
 #17180
 In the Savage Camp~
@@ -1804,6 +1810,10 @@ are erected in a circular clearing. A tree is being hollowed out for a canoe
 with fire and shell axes.
 ~
 0 0 3
+E
+canoe tree~
+The canoe has a long way to go.
+~
 D0
 The savage camp~
 ~
@@ -1812,10 +1822,6 @@ D3
 The savage camp~
 ~
 0 -1 17181
-E
-canoe tree~
-The canoe has a long way to go.
-~
 S
 #17181
 In the Savage Camp~
@@ -1823,6 +1829,10 @@ You have blundered into the camp of several savages. Rude huts and lean-to's
 are erected in a circular clearing. Fish is being dried over a smoky pit.
 ~
 0 0 3
+E
+smoky pit fish~
+The fish looks like its tarpon.
+~
 D0
 The savage camp~
 ~
@@ -1831,10 +1841,6 @@ D1
 The savage camp~
 ~
 0 -1 17180
-E
-smoky pit fish~
-The fish looks like its tarpon.
-~
 S
 #17182
 In the Savage Camp~
@@ -1842,6 +1848,10 @@ You have blundered into the camp of several savages. Rude huts and lean-to's
 are erected in a circular clearing. Women are fashioning baskets here.
 ~
 0 0 4
+E
+women baskets~
+Several fat, toothless, naked women are twisting palm fronds into baskets.
+~
 D1
 The savage camp~
 ~
@@ -1850,10 +1860,6 @@ D2
 The savage camp~
 ~
 0 -1 17181
-E
-women baskets~
-Several fat, toothless, naked women are twisting palm fronds into baskets.
-~
 S
 #17183
 At the Cave Entryway~
@@ -1922,7 +1928,7 @@ You are inside the pirates cave. Around you the riches of many a raid
 lie piled in heaps. Drunken pirates cavort and sing bawdy songs. Torches
 cast menacing shadows on the ceiling.
 ~
-0 8 0
+0 D 0
 D1
 Inside the cave~
 ~
@@ -1942,7 +1948,7 @@ You are inside the pirates cave. Around you the riches of many a raid
 lie piled in heaps. Drunken pirates cavort and sing bawdy songs. A huge
 sunken fire pit roars here.
 ~
-0 8 0
+0 D 0
 D0
 Inside the cave~
 ~
@@ -1966,7 +1972,7 @@ You are inside the pirates cave. Around you the riches of many a raid
 lie piled in heaps. Drunken pirates cavort and sing bawdy songs. Torches
 cast menacing shadows on the ceiling.
 ~
-0 8 0
+0 D 0
 D0
 Inside the cave~
 ~
@@ -1986,7 +1992,7 @@ You are inside the pirates cave. Around you the riches of many a raid
 lie piled in heaps. Drunken pirates cavort and sing bawdy songs. Torches
 cast menacing shadows on the ceiling.
 ~
-0 8 0
+0 D 0
 D2
 Inside the cave~
 ~
@@ -2003,7 +2009,11 @@ at the feet of the throne to serve the every whim of their lord. The
 throne rests on a beautiful oriental carpet. Behind the throne, iron rungs
 go upward into a shaft above.
 ~
-0 8 0
+0 D 0
+E
+carpet oriental~
+As you examine the carpet, you discover a secret trap door!
+~
 D0
 Inside the cave~
 ~
@@ -2024,10 +2034,6 @@ D5
 Into the dark hole~
 carpet oriental rug secret trap door~
 1 0 17192
-E
-carpet oriental~
-As you examine the carpet, you discover a secret trap door!
-~
 S
 #17191
 Inside the Cave~
@@ -2035,7 +2041,7 @@ You are inside the pirates cave. Around you the riches of many a raid
 lie piled in heaps. Drunken pirates cavort and sing bawdy songs. Torches
 cast menacing shadows on the ceiling.
 ~
-0 8 0
+0 D 0
 D0
 Inside the cave~
 ~
@@ -2055,7 +2061,7 @@ You stand ankle deep in festering refuse. The sludge reeks and stains
 the walls. In the corner an attempt has been made to make a pallet high
 enough to stay out of the sewage.
 ~
-0 1|8 0
+0 AD 0
 D4
 Out of the hole~
 trapdoor trap door rug oriental carpet~
@@ -2082,15 +2088,19 @@ To the south of you the cove enters a dark cave in the looming black
 mountain. The water is so clear, you can see the bottom.
 ~
 0 0 7
-D2
-Into the cave~
-~
-0 -1 17211
 E
 bottom~
 Peering deep into the water, you see orange, red and yellow sea urchins
 on the bottom.
 ~
+D0
+~
+~
+0 0 17235
+D2
+Into the cave~
+~
+0 -1 17211
 S
 #17195
 On a Black Sand Beach~
@@ -2136,6 +2146,13 @@ gas bursts from vents around you. From this vantage you have a commanding
 view of the seas and black sand beach.
 ~
 0 0 5
+E
+seas view~
+Off in the distance you watch a pirate ship board a merchant galley.
+The fighting is fast and furious, but soon over. The pirates leave 
+trundling their prize aboard, and leave the galley to sink in flaming
+ruin.
+~
 D0
 The beach~
 ~
@@ -2152,13 +2169,6 @@ D3
 The beach~
 ~
 0 -1 17203
-E
-seas view~
-Off in the distance you watch a pirate ship board a merchant galley.
-The fighting is fast and furious, but soon over. The pirates leave 
-trundling their prize aboard, and leave the galley to sink in flaming
-ruin.
-~
 S
 #17198
 Climbing the Black Mountain~
@@ -2212,6 +2222,10 @@ down into the sea, being careful to avoid the gas vents and hot lava.
 There are plenty of exits into the mountain, but none of them look safe.
 ~
 0 0 2
+E
+exits~
+You look into one of the fissures, and watch two lava worms mating.
+~
 D1
 The lava flows~
 ~
@@ -2220,10 +2234,6 @@ D2
 Up the mountain~
 ~
 0 -1 17199
-E
-exits~
-You look into one of the fissures, and watch two lava worms mating.
-~
 S
 #17201
 Walking the Lava Flows~
@@ -2234,6 +2244,10 @@ At the waters edge the red hot lava boils the surrounding ocean in a
 deafening roar.
 ~
 0 0 2
+D1
+~
+~
+0 0 17247
 D2
 The lava flows~
 ~
@@ -2250,6 +2264,11 @@ down into the sea, being careful to avoid the gas vents and hot lava.
 There are plenty of exits into the mountain, but none of them look safe.
 ~
 0 0 2
+E
+vents~
+You stand for a while and watch a gas vent. Gas seems to steadily emit
+in a low hiss, and occasionally bursts out in a deadly jet.
+~
 D0
 The lava flows~
 ~
@@ -2258,11 +2277,6 @@ D3
 Up the mountain~
 ~
 0 -1 17199
-E
-vents~
-You stand for a while and watch a gas vent. Gas seems to steadily emit
-in a low hiss, and occasionally bursts out in a deadly jet.
-~
 S
 #17203
 On a Black Sand Beach~
@@ -2425,7 +2439,7 @@ Up the southern path~
 D5
 Down a shaft~
 hatch~
-1 0 17218
+0 0 17218
 S
 #17211
 In the Watery Cave~
@@ -2435,6 +2449,11 @@ are two triremes, showing the scars of many a battle. A stone staircase
 winds upwards into the mountain.
 ~
 0 0 7
+E
+trireme triremes~
+The vessels are well guarded by a force of some 30 odd men. You think
+better of it, and leave well enough alone.
+~
 D0
 The cove~
 ~
@@ -2443,11 +2462,6 @@ D4
 Up the stairs~
 ~
 0 -1 17212
-E
-trireme triremes~
-The vessels are well guarded by a force of some 30 odd men. You think
-better of it, and leave well enough alone.
-~
 S
 #17212
 In the Pirates Cavern~
@@ -2457,7 +2471,7 @@ air circulates to you from the south. From below you can hear the sounds of
 water. The natural passage seems to have been widened with mining tools, and
 braced with wooden timbers.
 ~
-0 8 0
+0 D 0
 D1
 Caverns~
 ~
@@ -2482,16 +2496,16 @@ goods have been racked and stacked in orderly rows. All of the boxes bear
 the stamp of different owners, never having reached their intended 
 destinations.
 ~
-0 8 0
-D3
-Caverns~
-~
-0 -1 17212
+0 D 0
 E
 stamps boxes crates stamp box crate~
 You read the dwarven markings of one box. It reads 'Deliver to
 Thraxton of Urnst'. You pry it open and find a small barrel of beer.
 ~
+D3
+Caverns~
+~
+0 -1 17212
 S
 #17214
 In the Armory~
@@ -2500,7 +2514,7 @@ the like have been stored for future use. Most of the weapons seem to be
 
 of poor quality, except for a few which stand out.
 ~
-0 8 2
+0 D 2
 D1
 Caverns~
 gate~
@@ -2514,7 +2528,13 @@ air circulates to you from the south. The natural passage seems to have
 been widened with mining tools, and braced with wooden timbers. There is
 a painting on the wall.
 ~
-0 8 0
+0 D 0
+E
+painting wall~
+The painting is of a never ending forest of old hardwoods. Elves climb
+the limbs, and swing from long rope platforms from tree to tree. The
+painting is titled 'Ellnallhalla by Lalila'
+~
 D0
 Caverns~
 ~
@@ -2523,12 +2543,6 @@ D2
 Caverns~
 ~
 0 -1 17216
-E
-painting wall~
-The painting is of a never ending forest of old hardwoods. Elves climb
-the limbs, and swing from long rope platforms from tree to tree. The
-painting is titled 'Ellnallhalla by Lalila'
-~
 S
 #17216
 In the Pirates Cavern~
@@ -2537,7 +2551,7 @@ bear torch sconces, which light everything in a flickering orange glow. Warm
 air circulates to you from the east. The natural passage seems to have 
 been widened with mining tools, and braced with wooden timbers.
 ~
-0 8 0
+0 D 0
 D0
 Caverns~
 ~
@@ -2555,7 +2569,7 @@ air circulates to you from the south. The natural passage seems to have been
 widened with mining tools, and braced with wooden timbers. To the south you
 hear the sounds of laughter.
 ~
-0 8 0
+0 D 0
 D2
 Caverns~
 ~
@@ -2574,7 +2588,11 @@ area, and to the west is an iron gate. Stairs wind upwards into a shaft
 from which hot air emanates. It is up these stairs that most of the pirates
 scurry when you enter the room.
 ~
-0 8 0
+0 D 0
+D0
+~
+~
+0 0 17217
 D1
 The barracks~
 ~
@@ -2595,7 +2613,7 @@ Each bed is numbered by a charcoal mark. The beds are neat. At the foot of
 each bed is a trunk, also numbered, matching the bed. The bedding looks 
 fresh and free of insects.
 ~
-0 8 0
+0 D 0
 D3
 The hall~
 ~
@@ -2607,23 +2625,31 @@ You stand in a dimly lit dark cave. There is a cot in the corner, and
 a trunk on the floor. The room is very hot, oppressively so. The walls 
 bear strange scratches.
 ~
-0 1|8 0
-D1
-The hall~
-gate~
-1 17021 17218
+0 AD 0
 E
 walls wall scratches scratch~
 The scratches upon closer examination under a light, actually are a sketch
 of an old growth forest.
 ~
+D1
+The hall~
+gate~
+1 17021 17218
 S
 #17221
 On the Seas Surrounding an Atoll~
 You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing.
 ~
-0 131072 7
+0 R 7
+E
+atoll~
+You shimmy up your mast and look at the atoll. The atoll is a circular
+island with a quiet lagoon in the middle. The only way into the central
+lagoon appears to be via the north end of the atoll. In the lagoon, you
+can easily recognize the masts of several docked ships, and you see
+houses on stilts.
+~
 D1
 On the black sand beach~
 ~
@@ -2632,6 +2658,14 @@ D2
 Sailing around the atoll~
 ~
 0 -1 17222
+S
+#17222
+On the Seas Surrounding an Atoll~
+You have sailed into seas surrounding a rocky atoll. The surf crashes
+on the sharp jagged rocks, preventing a landing. Sharks abound in these
+waters.
+~
+0 S 7
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2640,14 +2674,6 @@ lagoon appears to be via the north end of the atoll. In the lagoon, you
 can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
-S
-#17222
-On the Seas Surrounding an Atoll~
-You have sailed into seas surrounding a rocky atoll. The surf crashes
-on the sharp jagged rocks, preventing a landing. Sharks abound in these
-waters.
-~
-0 262144 7
 D0
 Sailing around the atoll~
 ~
@@ -2656,6 +2682,14 @@ D3
 Sailing around the atoll~
 ~
 0 -1 17223
+S
+#17223
+On the Seas Surrounding an Atoll~
+You have sailed into seas surrounding a rocky atoll. The surf crashes
+on the sharp jagged rocks, preventing a landing. You think you see the
+glint of gold on the rocks, but when you blink, its gone.
+~
+0 S 7
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2664,14 +2698,6 @@ lagoon appears to be via the north end of the atoll. In the lagoon, you
 can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
-S
-#17223
-On the Seas Surrounding an Atoll~
-You have sailed into seas surrounding a rocky atoll. The surf crashes
-on the sharp jagged rocks, preventing a landing. You think you see the
-glint of gold on the rocks, but when you blink, its gone.
-~
-0 262144 7
 D1
 Sailing around the atoll~
 ~
@@ -2680,6 +2706,14 @@ D3
 Sailing around the atoll~
 ~
 0 -1 17224
+S
+#17224
+On the Seas Surrounding an Atoll~
+You have sailed into seas surrounding a rocky atoll. The surf crashes
+on the sharp jagged rocks, preventing a landing. Large single clawed
+crabs cover the rocks.
+~
+0 P 7
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2688,14 +2722,6 @@ lagoon appears to be via the north end of the atoll. In the lagoon, you
 can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
-S
-#17224
-On the Seas Surrounding an Atoll~
-You have sailed into seas surrounding a rocky atoll. The surf crashes
-on the sharp jagged rocks, preventing a landing. Large single clawed
-crabs cover the rocks.
-~
-0 32768 7
 D0
 Sailing around the atoll~
 ~
@@ -2704,6 +2730,14 @@ D1
 Sailing around the atoll~
 ~
 0 -1 17223
+S
+#17225
+On the Seas Surrounding an Atoll~
+You have sailed into seas surrounding a rocky atoll. The surf crashes
+on the sharp jagged rocks, preventing a landing. You trail your toe along
+in the water and feel a westerly current.
+~
+0 S 7
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2712,14 +2746,6 @@ lagoon appears to be via the north end of the atoll. In the lagoon, you
 can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
-S
-#17225
-On the Seas Surrounding an Atoll~
-You have sailed into seas surrounding a rocky atoll. The surf crashes
-on the sharp jagged rocks, preventing a landing. You trail your toe along
-in the water and feel a westerly current.
-~
-0 262144 7
 D2
 Sailing around the atoll~
 ~
@@ -2728,6 +2754,14 @@ D3
 Sailing around the atoll~
 ~
 0 -1 17226
+S
+#17226
+On the Seas Surrounding an Atoll~
+You have sailed into seas surrounding a rocky atoll. The surf crashes
+on the sharp jagged rocks, preventing a landing. There on the rocks is
+what remains of a shattered galley.
+~
+0 P 7
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2736,14 +2770,6 @@ lagoon appears to be via the north end of the atoll. In the lagoon, you
 can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
-S
-#17226
-On the Seas Surrounding an Atoll~
-You have sailed into seas surrounding a rocky atoll. The surf crashes
-on the sharp jagged rocks, preventing a landing. There on the rocks is
-what remains of a shattered galley.
-~
-0 32768 7
 D0
 Sailing around the atoll~
 ~
@@ -2752,6 +2778,14 @@ D1
 Sailing around the atoll~
 ~
 0 -1 17225
+S
+#17227
+On the Seas Surrounding an Atoll~
+You have sailed into seas surrounding a rocky atoll. The surf crashes
+on the sharp jagged rocks, preventing a landing. You watch the gulls
+peck apart some jelly creature on the rocks.
+~
+0 P 7
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2760,14 +2794,6 @@ lagoon appears to be via the north end of the atoll. In the lagoon, you
 can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
-S
-#17227
-On the Seas Surrounding an Atoll~
-You have sailed into seas surrounding a rocky atoll. The surf crashes
-on the sharp jagged rocks, preventing a landing. You watch the gulls
-peck apart some jelly creature on the rocks.
-~
-0 32768 7
 D0
 Sailing around the atoll~
 ~
@@ -2776,6 +2802,14 @@ D2
 Sailing around the atoll~
 ~
 0 -1 17226
+S
+#17228
+On the Seas Surrounding an Atoll~
+You have sailed into seas surrounding a rocky atoll. The surf crashes
+on the sharp jagged rocks, preventing a landing. Here the waves are 
+choppy and you taste the salt spray on your lips.
+~
+0 Q 7
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2784,14 +2818,6 @@ lagoon appears to be via the north end of the atoll. In the lagoon, you
 can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
-S
-#17228
-On the Seas Surrounding an Atoll~
-You have sailed into seas surrounding a rocky atoll. The surf crashes
-on the sharp jagged rocks, preventing a landing. Here the waves are 
-choppy and you taste the salt spray on your lips.
-~
-0 65536 7
 D1
 Sailing around the atoll~
 ~
@@ -2800,14 +2826,6 @@ D2
 Sailing around the atoll~
 ~
 0 -1 17227
-E
-atoll~
-You shimmy up your mast and look at the atoll. The atoll is a circular
-island with a quiet lagoon in the middle. The only way into the central
-lagoon appears to be via the north end of the atoll. In the lagoon, you
-can easily recognize the masts of several docked ships, and you see
-houses on stilts.
-~
 S
 #17229
 On the Seas Surrounding an Atoll~
@@ -2815,15 +2833,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. Refuse floats in the
 water, drifting alongside the boat.
 ~
-0 32768 7
-D0
-Sailing around the atoll~
-~
-0 -1 17230
-D3
-Sailing around the atoll~
-~
-0 -1 17228
+0 P 7
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2839,6 +2849,14 @@ you open it up to find an old weathered parchment, only a fragment of which
 you can read. It says '......and it is rumored she went down fully laden on
 thunder reef....'
 ~
+D0
+Sailing around the atoll~
+~
+0 -1 17230
+D3
+Sailing around the atoll~
+~
+0 -1 17228
 S
 #17230
 On the Seas Surrounding an Atoll~
@@ -2846,15 +2864,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. You get the feeling you
 have been here before.
 ~
-0 65536 7
-D1
-The lagoon entrance~
-~
-0 -1 17231
-D2
-Sailing around the atoll~
-~
-0 -1 17229
+0 Q 7
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2863,6 +2873,14 @@ lagoon appears to be via the north end of the atoll. In the lagoon, you
 can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
+D1
+The lagoon entrance~
+~
+0 -1 17231
+D2
+Sailing around the atoll~
+~
+0 -1 17229
 S
 #17231
 At the Lagoon Entrance~
@@ -2870,7 +2888,15 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. The lagoon opens up to
 the south, and a mild current pulls you that way.
 ~
-0 65536 7
+0 Q 7
+E
+atoll~
+You shimmy up your mast and look at the atoll. The atoll is a circular
+island with a quiet lagoon in the middle. The only way into the central
+lagoon appears to be via the north end of the atoll. In the lagoon, you
+can easily recognize the masts of several docked ships, and you see
+houses on stilts.
+~
 D1
 Sailing around the atoll~
 ~
@@ -2883,6 +2909,14 @@ D3
 Sailing around the atoll~
 ~
 0 -1 17230
+S
+#17232
+On the Seas Surrounding an Atoll~
+You have sailed into seas surrounding a rocky atoll. The surf crashes
+on the sharp jagged rocks, preventing a landing. What was that sailing
+song anyway?
+~
+0 R 7
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2891,14 +2925,6 @@ lagoon appears to be via the north end of the atoll. In the lagoon, you
 can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
-S
-#17232
-On the Seas Surrounding an Atoll~
-You have sailed into seas surrounding a rocky atoll. The surf crashes
-on the sharp jagged rocks, preventing a landing. What was that sailing
-song anyway?
-~
-0 131072 7
 D2
 Sailing around the atoll~
 ~
@@ -2907,6 +2933,14 @@ D3
 Sailing around the atoll~
 ~
 0 -1 17231
+S
+#17233
+On the Seas Surrounding an Atoll~
+You have sailed into seas surrounding a rocky atoll. The surf crashes
+on the sharp jagged rocks, preventing a landing. There, crawling over
+the rotting carcass of a human, is a dis-Z, a rare offensive scavenger.
+~
+0 Q 7
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2915,14 +2949,6 @@ lagoon appears to be via the north end of the atoll. In the lagoon, you
 can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
-S
-#17233
-On the Seas Surrounding an Atoll~
-You have sailed into seas surrounding a rocky atoll. The surf crashes
-on the sharp jagged rocks, preventing a landing. There, crawling over
-the rotting carcass of a human, is a dis-Z, a rare offensive scavenger.
-~
-0 65536 7
 D0
 Sailing around the atoll~
 ~
@@ -2931,6 +2957,14 @@ D1
 Sailing around the atoll~
 ~
 0 -1 17234
+S
+#17234
+On the Seas Surrounding an Atoll~
+You have sailed into seas surrounding a rocky atoll. The surf crashes
+on the sharp jagged rocks, preventing a landing. All of this salt water
+is making you thirsty.
+~
+0 R 7
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2939,14 +2973,6 @@ lagoon appears to be via the north end of the atoll. In the lagoon, you
 can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
-S
-#17234
-On the Seas Surrounding an Atoll~
-You have sailed into seas surrounding a rocky atoll. The surf crashes
-on the sharp jagged rocks, preventing a landing. All of this salt water
-is making you thirsty.
-~
-0 131072 7
 D2
 Sailing around the atoll~
 ~
@@ -2955,14 +2981,6 @@ D3
 Sailing around the atoll~
 ~
 0 -1 17233
-E
-atoll~
-You shimmy up your mast and look at the atoll. The atoll is a circular
-island with a quiet lagoon in the middle. The only way into the central
-lagoon appears to be via the north end of the atoll. In the lagoon, you
-can easily recognize the masts of several docked ships, and you see
-houses on stilts.
-~
 S
 #17235
 On the Seas Surrounding an Atoll~
@@ -2970,11 +2988,7 @@ You have sailed into seas surrounding a rocky atoll. The surf crashes
 on the sharp jagged rocks, preventing a landing. For some reason the 
 fish are milling around here.
 ~
-0 131072 7
-D0
-Sailing around the atoll~
-~
-0 -1 17234
+0 0 7
 E
 atoll~
 You shimmy up your mast and look at the atoll. The atoll is a circular
@@ -2983,6 +2997,14 @@ lagoon appears to be via the north end of the atoll. In the lagoon, you
 can easily recognize the masts of several docked ships, and you see
 houses on stilts.
 ~
+D0
+Sailing around the atoll~
+~
+0 -1 17234
+D2
+~
+~
+0 0 17194
 S
 #17236
 In the Quiet Lagoon~
@@ -2992,7 +3014,7 @@ pile sunk deep into the lagoon, and rope bridges connect all into
 a makeshift wharf. To the south are several huts on stilts, connected
 by rope bridges. The waters are calm enough to swim in here.
 ~
-0 131072 6
+0 R 6
 D0
 Out of the lagoon~
 ~
@@ -3019,7 +3041,7 @@ The docks~
 D1
 The barracks~
 ~
-1 -1 17238
+0 -1 17238
 D2
 The house on stilts~
 ~
@@ -3062,15 +3084,15 @@ of his various raids. Here a sword. There a skirt. From the ceiling, a flag.
 Hides of many different animals are nailed to the walls and floor. Maps
 lie in rolls in an open chest. A low bunk is set against the far wall.
 ~
-0 8 0
-D0
-The central shack~
-~
-1 -1 17237
+0 D 0
 E
 flag~
 The flag is that of Antharia.
 ~
+D0
+The central shack~
+~
+1 -1 17237
 S
 #17241
 In the Air Beneath the Flying Mountain~
@@ -3078,11 +3100,11 @@ You soar in the turbulent air beneath the flying mountain. Wind
 whips and whistles in fierce blasting gusts sending you in all 
 directions.
 ~
-0 32768 9
-D0
+0 P 9
+D3
 In the air~
 ~
-0 -1 17244
+0 -1 17243
 D1
 In the air~
 ~
@@ -3091,10 +3113,10 @@ D2
 In the air~
 ~
 0 -1 17244
-D3
+D0
 In the air~
 ~
-0 -1 17243
+0 -1 17244
 D4
 In the air~
 ~
@@ -3110,8 +3132,24 @@ You soar in the turbulent air beneath the flying mountain. Wind
 whips and whistles in fierce blasting gusts sending you in all 
 directions.
 ~
-0 65536 9
+0 Q 9
+D3
+In the air~
+~
+0 -1 17241
 D0
+In the air~
+~
+0 -1 17245
+D5
+In the air~
+~
+0 -1 17244
+D4
+In the air~
+~
+0 -1 17246
+D2
 In the air~
 ~
 0 -1 17245
@@ -3119,22 +3157,6 @@ D1
 In the air~
 ~
 0 -1 17243
-D2
-In the air~
-~
-0 -1 17245
-D3
-In the air~
-~
-0 -1 17241
-D4
-In the air~
-~
-0 -1 17246
-D5
-In the air~
-~
-0 -1 17244
 S
 #17243
 In the Air Beneath the Flying Mountain~
@@ -3142,15 +3164,23 @@ You soar in the turbulent air beneath the flying mountain. Wind
 whips and whistles in fierce blasting gusts sending you in all 
 directions.
 ~
-0 524288 9
-D0
-In the air~
-~
-0 -1 17246
+0 T 9
 D1
 In the air~
 ~
 0 -1 17241
+D5
+In the air~
+~
+0 -1 17245
+D4
+In the air~
+~
+0 -1 17244
+D0
+In the air~
+~
+0 -1 17246
 D2
 In the air~
 ~
@@ -3159,14 +3189,6 @@ D3
 In the air~
 ~
 0 -1 17242
-D4
-In the air~
-~
-0 -1 17244
-D5
-In the air~
-~
-0 -1 17245
 S
 #17244
 In the Air Beneath the Flying Mountain~
@@ -3174,8 +3196,16 @@ You soar in the turbulent air beneath the flying mountain. Wind
 whips and whistles in fierce blasting gusts sending you in all 
 directions.
 ~
-0 131072 9
+0 R 9
+D3
+In the air~
+~
+0 -1 17246
 D0
+In the air~
+~
+0 -1 17241
+D2
 In the air~
 ~
 0 -1 17241
@@ -3183,14 +3213,6 @@ D1
 In the air~
 ~
 0 -1 17245
-D2
-In the air~
-~
-0 -1 17241
-D3
-In the air~
-~
-0 -1 17246
 D4
 In the air~
 ~
@@ -3206,8 +3228,20 @@ You soar in the turbulent air beneath the flying mountain. Wind
 whips and whistles in fierce blasting gusts sending you in all 
 directions.
 ~
-0 262144 9
+0 S 9
+D5
+In the air~
+~
+0 -1 17241
+D4
+In the air~
+~
+0 -1 17243
 D0
+In the air~
+~
+0 -1 17242
+D2
 In the air~
 ~
 0 -1 17242
@@ -3215,22 +3249,10 @@ D1
 In the air~
 ~
 0 -1 17246
-D2
-In the air~
-~
-0 -1 17242
 D3
 In the air~
 ~
 0 -1 17244
-D4
-In the air~
-~
-0 -1 17243
-D5
-In the air~
-~
-0 -1 17241
 S
 #17246
 In the Air Beneath the Flying Mountain~
@@ -3238,8 +3260,8 @@ You soar in the turbulent air beneath the flying mountain. Wind
 whips and whistles in fierce blasting gusts sending you in all 
 directions.
 ~
-0 1048576 9
-D0
+0 U 9
+D2
 In the air~
 ~
 0 -1 17243
@@ -3247,14 +3269,14 @@ D1
 In the air~
 ~
 0 -1 17244
-D2
-In the air~
-~
-0 -1 17243
 D3
 In the air~
 ~
 0 -1 17245
+D0
+In the air~
+~
+0 -1 17243
 D4
 In the calm air~
 ~
@@ -3280,6 +3302,10 @@ D1
 In the calm air~
 ~
 0 -1 17250
+D3
+~
+~
+0 0 17201
 D5
 In the turbulent air~
 ~
@@ -3292,14 +3318,6 @@ Below you through the turbulent winds lies the sea. You notice a
 strange inscription on the rock.
 ~
 0 0 9
-D1
-In the calm air~
-~
-0 -1 17249
-D2
-In the calm air~
-~
-0 -1 17247
 E
 inscription strange rock~
 Carved into the rock in wizard runes is the following:
@@ -3317,6 +3335,14 @@ I have used this discovery to create several floating trinkets
 which impart the ability of flying to the recipient. Beware
 for I know not how long this enchantment will last. - MERLIN'
 ~
+D1
+In the calm air~
+~
+0 -1 17249
+D2
+In the calm air~
+~
+0 -1 17247
 S
 #17249
 In the Calm Air Beneath the Flying Mountain~
@@ -3370,7 +3396,7 @@ On the flying island~
 D2
 Taking the winch all the way down to the sea~
 winch ladder rope~
-1 -1 6118
+0 -1 6118
 D5
 ~
 ~
@@ -3524,6 +3550,11 @@ bar. Fortunately for you a long slender bar has been left lying on the
 ground next to you.
 ~
 0 0 4
+E
+keep hold~
+The keep is a simple block design, with four walls and iron barred windows.
+Above you is a second floor.
+~
 D2
 Inside the keep~
 door~
@@ -3532,11 +3563,6 @@ D5
 Down the ramp~
 ~
 0 -1 17256
-E
-keep hold~
-The keep is a simple block design, with four walls and iron barred windows.
-Above you is a second floor.
-~
 S
 #17260
 Inside the Hold of the Pirate Lord~
@@ -3544,7 +3570,7 @@ You are in a long hallway inside the hold. Granite walls rise up around you.
 Torches flicker and gutter in iron holders. Several doors line the hall. Far
 to your south is a massive double door. To your north is the keep entrance.
 ~
-0 8 0
+0 D 0
 D0
 Outside the keep~
 door~
@@ -3570,7 +3596,7 @@ a pit in the room center, and the smoke winds its way upward and out
 a high iron barred window. Near the window is a platform from which
 an archer could stand and fire.
 ~
-0 8 0
+0 D 0
 D3
 A door~
 door~
@@ -3584,7 +3610,7 @@ a pit in the room center, and the smoke winds its way upward and out
 a high iron barred window. Near the window is a platform from which
 an archer could stand and fire.
 ~
-0 8 0
+0 D 0
 D1
 A door~
 door~
@@ -3596,7 +3622,7 @@ You are in a long hallway inside the hold. Granite walls rise up around you.
 Torches flicker and gutter in iron holders. Several doors line the hall. To
 your south is a massive double door. To your north is the keep entrance.
 ~
-0 8 0
+0 D 0
 D0
 Up the hall~
 ~
@@ -3622,7 +3648,7 @@ a pit in the room center, and the smoke winds its way upward and out
 a high iron barred window. Near the window is a platform from which
 an archer could stand and fire.
 ~
-0 8 0
+0 D 0
 D3
 A door~
 door~
@@ -3636,7 +3662,7 @@ a pit in the room center, and the smoke winds its way upward and out
 a high iron barred window. Near the window is a platform from which
 an archer could stand and fire.
 ~
-0 8 0
+0 D 0
 D1
 A door~
 door~
@@ -3649,7 +3675,7 @@ Torches flicker and gutter in iron holders. Several doors line the hall. Far
 to your north is the keep entrance. Immediately south is a large pair of 
 doors.
 ~
-0 8 0
+0 D 0
 D0
 Up the hall~
 ~
@@ -3675,11 +3701,7 @@ a pit in the room center, and the smoke winds its way upward and out
 a high iron barred window. Near the window is a platform from which
 an archer could stand and fire.
 ~
-0 8 0
-D1
-~
-~
-1 -1 -1
+0 D 0
 D3
 A door~
 door~
@@ -3693,11 +3715,11 @@ a pit in the room center, and the smoke winds its way upward and out
 a high iron barred window. Near the window is a platform from which
 an archer could stand and fire.
 ~
-0 8 0
+0 D 0
 D1
 A door~
 door~
-1 -1 17266
+0 -1 17266
 S
 #17269
 In the Vast Hall of the Pirate Lord~
@@ -3708,7 +3730,7 @@ ends with bonfires. The south end is an elevated dias with a table and
 a long couch upon which lies several beautiful slaves. A stone staircase 
 is accessible through the south end of the hall.
 ~
-0 8 0
+0 D 0
 D0
 Into the hallway~
 door double~
@@ -3726,7 +3748,7 @@ fires blaze. To the south is the canopied bed of the Lord, and here
 at the northern end, is the screened off section of his female slaves.
 Articles of conquest fill the room, and the floor is of polished stone.
 ~
-0 8 0
+0 D 0
 D5
 Down the stairs~
 ~
@@ -3739,7 +3761,7 @@ ice pressing in on all sides. Far to your east is a huge iceberg.
 The wind whips along unhindered across the flat ice, chilling you 
 to the core.
 ~
-0 131072 7
+0 R 7
 D0
 The sea of ice~
 ~
@@ -3756,7 +3778,7 @@ ice pressing in on all sides. Large footprints lead off towards a
 snowbank. The wind whips along unhindered across the flat ice, 
 chilling you to the core.
 ~
-0 131072 7
+0 R 7
 D1
 The sea of ice~
 ~
@@ -3773,7 +3795,7 @@ ice pressing in on all sides. Far to your south is a huge iceberg.
 The wind whips along unhindered across the flat ice, chilling you 
 to the core.
 ~
-0 262144 7
+0 S 7
 D1
 The sea of ice~
 ~
@@ -3790,7 +3812,7 @@ ice pressing in on all sides. White seals lie in droves on the shore.
 The wind whips along unhindered across the flat ice, chilling you 
 to the core.
 ~
-0 262144 7
+0 S 7
 D2
 The sea of ice~
 ~
@@ -3807,7 +3829,7 @@ ice pressing in on all sides. Far to your west is a huge iceberg.
 The wind whips along unhindered across the flat ice, chilling you 
 to the core.
 ~
-0 32768 7
+0 P 7
 D0
 The sea of ice~
 ~
@@ -3824,7 +3846,7 @@ ice pressing in on all sides. The iceberg looms closer with each day.
 The wind whips along unhindered across the flat ice, chilling you 
 to the core.
 ~
-0 32768 7
+0 P 7
 D0
 The sea of ice~
 ~
@@ -3841,7 +3863,7 @@ to a very large iceberg. Ice shears in sheets from the iceberg to crash
 with a thunderous roar into the frosty sea. You think you can make out 
 a dark watery cave leading into the iceberg.
 ~
-0 65536 7
+0 Q 7
 D0
 Into the cave~
 ~
@@ -3860,7 +3882,7 @@ anchored at bay. You anchor and hop down onto the hard packed ice,
 following a trail of footprints to a dead end passage. Puzzled, you get on
 your hands and knees, and feel the outline of an ice trap door beneath you.
 ~
-0 131072 7
+0 R 7
 D2
 The sea of ice~
 ~
@@ -3876,7 +3898,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 1|8|262144 0
+0 ADS 0
 D3
 The icy shoot~
 ~
@@ -3888,7 +3910,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 1|8|131072 0
+0 ADR 0
 D2
 The icy shoot~
 ~
@@ -3900,7 +3922,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 1|8|65536 0
+0 ADQ 0
 D1
 The icy shoot~
 ~
@@ -3912,7 +3934,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 1|8|32|128|256|4096|32768|65536 0
+0 ADFHIMPQ 0
 D5
 The icy shoot~
 ~
@@ -3924,7 +3946,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 1|8|131072 0
+0 ADR 0
 D2
 The icy shoot~
 ~
@@ -3936,7 +3958,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 1|8|65536 0
+0 ADQ 0
 D1
 The icy shoot~
 ~
@@ -3948,7 +3970,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 1|8|32768 0
+0 ADP 0
 D0
 The icy shoot~
 ~
@@ -3960,7 +3982,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 1|8|1048576 0
+0 ADU 0
 D5
 The icy shoot~
 ~
@@ -3972,7 +3994,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 1|8|131072 0
+0 ADR 0
 D2
 The icy shoot~
 ~
@@ -3984,7 +4006,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 1|8|65536 0
+0 ADQ 0
 D1
 The icy shoot~
 ~
@@ -3996,7 +4018,7 @@ WHEEEEEEEEE! You are sliding head over heels down an icy shoot, which winds
 downward in a counterclockwise spiral. There is no stopping and no turning 
 around.
 ~
-0 1|8|32768 0
+0 ADP 0
 D0
 The icy shoot~
 ~
@@ -4008,7 +4030,7 @@ You stand in a huge ice cavern, the ceiling is some 80' above you. In the
 center of the cavern, a bonfire roars, making the stalactites and stalagmites 
 leap and lurch as if the entire cavern were a demons mouth laughing at you.
 ~
-0 8 3
+0 D 3
 D0
 In the great ice cavern~
 ~
@@ -4024,7 +4046,7 @@ You stand in a huge ice cavern, the ceiling is some 80' above you. In the
 center of the cavern, a bonfire roars, making the stalactites and stalagmites 
 leap and lurch as if the entire cavern were a demons mouth laughing at you.
 ~
-0 8 3
+0 D 3
 D0
 In the great ice cavern~
 ~
@@ -4044,7 +4066,7 @@ You stand in a huge ice cavern, the ceiling is some 80' above you. In the
 center of the cavern, a bonfire roars, making the stalactites and stalagmites 
 leap and lurch as if the entire cavern were a demons mouth laughing at you.
 ~
-0 8 3
+0 D 3
 D1
 In the great ice cavern~
 ~
@@ -4060,7 +4082,7 @@ You stand in a huge ice cavern, the ceiling is some 80' above you. In the
 center of the cavern, a bonfire roars, making the stalactites and stalagmites 
 leap and lurch as if the entire cavern were a demons mouth laughing at you.
 ~
-0 8 3
+0 D 3
 D1
 In the great ice cavern~
 ~
@@ -4083,7 +4105,7 @@ about the fire, and primitive shelving has been carved into the surrounding
 stalagmites. The heat from the fire is so great that it has melted the ice into
 a pool of water.
 ~
-0 8 3
+0 D 3
 D0
 In the great ice cavern~
 ~
@@ -4107,7 +4129,7 @@ You stand in a huge ice cavern, the ceiling is some 80' above you. In the
 center of the cavern, a bonfire roars, making the stalactites and stalagmites 
 leap and lurch as if the entire cavern were a demons mouth laughing at you.
 ~
-0 8 3
+0 D 3
 D0
 In the great ice cavern~
 ~
@@ -4127,7 +4149,7 @@ You stand in a huge ice cavern, the ceiling is some 80' above you. In the
 center of the cavern, a bonfire roars, making the stalactites and stalagmites 
 leap and lurch as if the entire cavern were a demons mouth laughing at you.
 ~
-0 8 3
+0 D 3
 D2
 In the great ice cavern~
 ~
@@ -4143,7 +4165,7 @@ Here a long wooden table and benches has been placed to serve as the dining
 are for the men. Food is stored in hollowed stalagmites. Two smaller fires 
 blaze on either side of the bench.
 ~
-0 8 3
+0 D 3
 D0
 In the great ice cavern~
 ~
@@ -4167,7 +4189,11 @@ You stand in a huge ice cavern, the ceiling is some 80' above you. In the
 center of the cavern, a bonfire roars, making the stalactites and stalagmites 
 leap and lurch as if the entire cavern were a demons mouth laughing at you.
 ~
-0 8 3
+0 D 3
+E
+runes wall~
+Thraxton was here.
+~
 D0
 In the great ice cavern~
 ~
@@ -4176,10 +4202,6 @@ D3
 In the great ice cavern~
 ~
 0 -1 17295
-E
-runes wall~
-Thraxton was here.
-~
 S
 #17299
 In the Ice Hall of the Pirate Lord~
@@ -4190,7 +4212,11 @@ on the western half. Two fires are lit here, well illuminating the room.
 Carpeting covers the floor shorn of its stalagmites. Your spells flicker and 
 dim here. A rope ladder leads up.
 ~
-0 8|128|8192 2
+0 DHN 2
+E
+ladder rope~
+You will kick yourself when you climb this ladder.
+~
 D1
 Inside the iceberg~
 ~
@@ -4199,277 +4225,260 @@ D3
 A thin sheet of ice~
 ice~
 2 -1 17297
-E
-ladder rope~
-You will kick yourself when you climb this ladder.
-~
 S
 #0
 
 
-#RESETS
-*
-* First Isle, Jungle Island
-*
-O 1 17011 0 17175   *           Banana tree
-P 1 17012 0 17011 1  *           Put bananas in tree
-M 1 17012 1 17171 1  *           Shipwright  
-E 1 17014 0 16       *     Wooden Mallet 
-M 1 17011 2 17174 1   *          Pirate guards 
-M 1 17011 2 17176 1
-M 1 17013 2 17180 1    *         Jungle savage 
-M 1 17013 2 17182 1
-M 1 17014 1 17181 1    *         Savage chief 
-E 1 17015 0 12        *    Feather robe 
-O 1 17013 0 17177 1    *         Warning sign 
-D 1 17176 1 1         *    ; In the Jungle Close East
-D 1 17177 3 1         *    ; At the Mouth of a Cave Close West
-* Pirate cave
-M 1 17015 1 17185 1     *          Sleeping pirate 
-M 1 17016 3 17186 1     *          Drunken pirate 
-G 1 17016 0            *       A bottle of rum
-M 1 17016 3 17187 1     *          Drunken pirate
-G 1 17016 0            *       A bottle of rum
-M 1 17016 3 17188 1     *          Drunken pirate
-G 1 17016 0            *       A bottle of rum
-M 1 17020 1 17190 1     *          Bond maiden in throne
-M 1 17019 1 17190 1     *          One-eye in throne
-E 1 17019 0 13         *      Wears girdle of might
-E 1 17020 0 9          *      Wears gauntlets of acc.
-M 1 17017 1 17192 1     *          Princess smallberry in dung.
-G 1 17017 0            *       Makes her ready and willing
-M 1 17018 1 17193 1     *          Navigator atop mtn
-G 1 17018 0            *       Gives navigator his sextant
-D 1 17190 5 1          *   ; At the Throne of the Pirate Lord Close Down
-D 1 17192 4 1          *   ; Inside the Dark Prison Close Up
-*
-* 2nd Isle, FIRE ISLAND
-*
-M 1 17021 1 17194 1     *        Kracken
-G 1 17024 0            *      Kracken's eye
-M 1 17022 1 17211 1     *        Dock guard
-E 1 17023 0 16         *   Cutlass
-M 1 17023 1 17196 1     *        Black snake
-M 1 17024 1 17204 1     *        Black crab
-M 1 17025 3 17198 1     *        Lava worms
-M 1 17025 3 17206 1
-M 1 17025 3 17208 1
-M 1 17026 2 17200 1     *        Lava lizards
-M 1 17026 2 17202 1
-M 1 17027 3 17215 1       *       Snarling pirates
-E 1 17023 0 16          *  Cutlass
-M 1 17027 3 17217 1      *       Snarling pirates
-E 1 17023 0 16          *  Cutlass
-M 1 17027 3 17219 1      *       Snarling pirates
-E 1 17023 0 16          *  Cutlass
-M 1 17028 1 17218 1      *       Redbeard
-E 1 17027 0 17          *  Javelin
-E 1 17028 0 12          *  Cloak of Looting
-G 1 17021 0             *     Give redbeard the key
-M 1 17029 1 17220 1      *       Lalila
-M 1 17030 1 17210 1      *       Pele
-E 1 17025 0 10          *  Armbands of the Volcanoes
-O 1 17026 0 17220       *       Loads invisible chest in prisoner area
-P 1 17030 0 17026 1      *       Puts hoard in chest
-P 1 17029 0 17026 1      *       Puts ettins blood in chest
-O 1 17022 0 17201       *       Loads in a lava pool
-O 1 17022 0 17202       *       "
-O 1 17023 0 17214       *       Loads a cutlass into armory
-O 1 17027 0 17214       *       Loads a javelin into armory
-D 1 17214 1 2           *  ; In the Armory Lock East
-D 1 17212 3 2           *  ; In the Pirates Cavern Lock West
-D 1 17220 1 2           *  ; A Dark Cave Lock East
-D 1 17218 3 2           *  ; In the Hall of the Pirate Lord Lock West
-*
-* 3rd Isle, the Atoll
-*
-M 1 17031 1 17240 1      *       Mizzenmast
-E 1 17031 0 7           *     Sharkskin pants
-E 1 17032 0 17          *  Crossbow of poison
-G 1 17035 0             *     Metal key
-O 1 17039 0 17240       *       hammock
-M 1 17032 1 17239 1      *       Shifty in cargo area
-O 1 17034 0 17239       *       Padlocked chest in cargo
-P 1 17040 0 17034 1      *       Put doubloons in chest
-M 1 17033 3 17238 1      *       Pirates in barracks
-M 1 17033 3 17237 1      *       Pirates in central room
-M 1 17034 1 17236 1      *       Stiggs on docks
-E 1 17037 0 0           *     Equip him with watch lantern
-O 1 17036 0 17236       *       Put waverunner at docks
-M 1 17037 2 17222 1      *       Mako
-M 1 17037 2 17235 1
-M 1 17039 2 17224 1       *       Blue sharks
-M 1 17039 2 17233 1
-M 1 17036 1 17231 1     *        Great white
-M 1 17035 1 17229 1     *        Tiger shark
-M 1 17038 1 17232 1     *        Hammerhead
-P 1 17033 0 17034 1     *        Put nullifier orb in chest
-M 1 17040 1 17240 1     *        Giant clam
-G 1 17038 0            *      pearl
-D 1 17240 0 1          *   ; Inside the House on Stilts Close North
-D 1 17237 2 1          *   ; In the Central Shack Close South
-D 1 17237 3 1          *   ; In the Central Shack Close West
-D 1 17239 1 1          *   ; Inside the Barred Shack Close East
-*
-* 4th Isle, The Flying Mountain
-*
-M 1 17041 1 17241 1     *          Hawkwoman
-M 1 17042 3 17242 1     *          Hawkmen
-M 1 17042 3 17246 1
-M 1 17042 3 17248 1
-M 1 17043 1 17247 1      *         The Hawklord
-E 1 17043 0 12          *     Wears his vest
-P 1 17051 0 17043 1      *         Throwing dagger on vest
-P 1 17051 0 17043 1
-P 1 17051 0 17043 1
-O 1 17044 0 17251       *         Winch at edge of isle
-O 1 17042 0 17248       *         Floating stone 
-M 1 17044 4 17253 1      *         Terra-kan
-G 1 17045 0             *      Gives it gizzard
-M 1 17044 4 17254 1      *         Terra-kan
-G 1 17045 0             *      Gives it gizzard
-M 1 17044 4 17255 1      *         Terra-kan
-G 1 17045 0             *      Gives it gizzard
-M 1 17044 4 17258 1      *         Terra-kan
-G 1 17045 0             *      Gives it gizzard
-M 1 17045 6 17261 1      *         Gambling pirates  
-M 1 17045 6 17261 1      *         Gambling pirates  
-M 1 17045 6 17265 1     *         Gambling pirates  
-M 1 17045 6 17265 1      *         Gambling pirates  
-M 1 17045 6 17267 1      *         Gambling pirates  
-M 1 17045 6 17267 1      *         Gambling pirates  
-M 1 17046 1 17268 1      *         1st Mate
-G 1 17041 0             *      The hawk key
-M 1 17047 1 17266 1      *         The elite pirate 
-M 1 17048 1 17270 1      *         Alindra of Dunkeldorf
-M 1 17049 1 17269 1      *         Mutton the chef
-M 1 17050 1 17270 1      *         Lord Vulture
-E 1 17049 0 10          *     His wings
-E 1 17050 0 17          *     The eye of the eagle
-O 1 17046 0 17270       *         Loads chest in Vultures chamber
-P 1 17047 0 17046 1      *         Puts mountain of silver in chest
-P 1 17048 0 17046 1      *         Puts mug in chest
-R 1 17241 4             *      Randomize the air zone
-R 1 17242 6
-R 1 17243 6
-R 1 17244 6
-R 1 17245 6
-R 1 17246 4
-D 1 17259 2 1          *   ; At the Gates to the Keep Close South
-D 1 17260 0 1          *   ; Inside the Hold of the Pirate Lord Close North
-D 1 17260 1 1          *   ; Inside the Hold of the Pirate Lord Close East
-D 1 17260 3 1          *   ; Inside the Hold of the Pirate Lord Close West
-D 1 17261 3 1          *   ; A Room in the Hold Close West
-D 1 17262 1 1          *   ; A Room in the Hold Close East
-D 1 17263 1 1          *   ; Inside the Hold of the Pirate Lord Close East
-D 1 17263 3 1          *   ; Inside the Hold of the Pirate Lord Close West
-D 1 17264 3 1          *   ; A Room in the Hold Close West
-D 1 17265 1 1          *   ; A Room in the Hold Close East
-D 1 17266 1 1          *   ; Inside the Hold of the Pirate Lord Close East
-D 1 17266 2 2          *   ; Inside the Hold of the Pirate Lord Lock South
-D 1 17266 3 1          *   ; Inside the Hold of the Pirate Lord Close West
-D 1 17267 3 1          *   ; A Room in the Hold Close West
-D 1 17267 1 1          *   ; A Room in the Hold Close East
-D 1 17269 0 2          *   ; In the Vast Hall of the Pirate Lord Lock North
-*
-* 5th isle, The iceberg: aside- I have intentionally given
-* most mobs in this area vague handles to avoid tp players
-*
-M 1 17051 1 17272 1      *             orca
-M 1 17052 1 17274 1      *             roc
-M 1 17053 1 17276 1      *             pack
-M 1 17054 1 17278 1      *             bear
-*M 1 17055 1 17279 1      *             ice shoot encounter
-*M 1 17056 1 17280 1     *             ice shoot encounter
-*M 1 17057 1 17281 1      *             ice shoot encounter
-*M 1 17058 1 17282 1      *         ice shoot encounter
-*M 1 17059 1 17283 1      *             ice shoot encounter
-*M 1 17060 1 17284 1      *             ice shoot encounter
-*M 1 17061 1 17285 1      *             ice shoot encounter
-*M 1 17062 1 17286 1      *             ice shoot encounter
-*M 1 17063 1 17287 1      *             ice shoot encounter
-*M 1 17064 1 17288 1      *             ice shoot encounter
-*M 1 17065 1 17289 1     *             ice shoot encounter
-M 1 17066 3 17290 1      *             Pirate in fur skins
-E 1 17053 0 12		*	cloak
-E 1 17054 0 5 		*vest
-E 1 17055 0 7 		*legs
-E 1 17056 0 11		*	spiked buckler
-E 1 17057 0 17	*		icicle
-M 1 17066 3 17293 1       *             Pirate in fur skins
-E 1 17053 0 12		*	cloak
-E 1 17054 0 5 		*vest
-E 1 17055 0 7 		*legs
-E 1 17056 0 11		*	spiked buckler
-E 1 17057 0 17	*		icicle
-M 1 17066 3 17298 1       *             Pirate in fur skins
-E 1 17053 0 12		*		cloak
-E 1 17054 0 5 		*vest
-E 1 17055 0 7 		*legs
-E 1 17056 0 11		*	spiked buckler
-E 1 17057 0 17		*	icicle
-M 1 17067 1 17295 1      *             Lurking guard
-E 1 17053 0 12		*		cloak
-E 1 17054 0 5 		*vest
-E 1 17055 0 7 		*legs
-E 1 17059 0 16		*	garotte
-M 1 17068 1 17297 1      *             Helmsman
-E 1 17053 0 12		*		cloak
-E 1 17054 0 5 		*vest
-E 1 17055 0 7 		*legs
-E 1 17056 0 11		*	spiked buckler
-E 1 17061 0 16		*		battle axe
-E 1 17060 0 17		*	Ghost stone
-M 1 17070 1 17294 1      *             Frozen captive
-O 1 17058 0 17294     *Melting pool
-O 1 17070 0 17294     *A roaring bonfire
-M 1 17069 1 17299 1     *              Cutter the 5th Pirate Lord
-E 1 17053 0 12	*		cloak
-E 1 17062 0 5 		*frost armor
-E 1 17055 0 7 		*legs
-E 1 17056 0 11		*	spiked buckler
-E 1 17063 0 16		*		Frostbite
-E 1 17060 0 17		*		Ghost stone
-G 1 17068 0   		*The evil eye
-O 1 17064 0 17299     *Bag of gold
-O 1 17065 0 17299     *Bag of silver
-O 1 17066 0 17299     *Bag of gems
-O 1 17067 0 17299     *Bag of jewelry
-O 1 17069 0 17299     *Map to hells reef
-D 1 17278 5 1          *      ; Inside the Iceberg Close Down
-D 1 17297 1 2          *      ; In the Great Ice Cavern Lock East
-D 1 17299 3 2	       *; In the Ice Hall of the Pirate Lord Lock West
+
+#SPECIALS
+M 17024 spec_fido	* the black crab
+M 17025 spec_breath_fire	* the lava worm
+M 17030 spec_breath_fire	* Pele, god of fire
+M 17035 spec_fido	* the tiger shark
+M 17036 spec_fido	* the great white shark
+M 17037 spec_fido	* the mako shark
+M 17038 spec_fido	* the hammerhead shark
+M 17039 spec_fido	* the blue shark
+M 17050 spec_cast_mage	* Lord Vulture
 S
+
+
+
+#RESETS
+D 0 17176 1 1	* In the Jungle: door to the east: closed
+D 0 17177 3 1	* At the Mouth of a Cave: door to the west: closed
+D 0 17190 5 1	* At the Throne of the Pirate Lord: door to the down: closed
+D 0 17192 4 1	* Inside the Dark Prison: door to the up: closed
+D 0 17212 3 2	* In the Pirates Cavern: door to the west: closed and locked
+D 0 17214 1 2	* In the Armory: door to the east: closed and locked
+D 0 17218 3 2	* In the Hall of the Pirate Lord: door to the west: closed and locked
+D 0 17220 1 2	* A Dark Cave: door to the east: closed and locked
+D 0 17237 2 1	* In the Central Shack: door to the south: closed
+D 0 17237 3 1	* In the Central Shack: door to the west: closed
+D 0 17239 1 1	* Inside the Barred Shack: door to the east: closed
+D 0 17240 0 1	* Inside the House on Stilts: door to the north: closed
+D 0 17259 2 1	* At the Gates to the Keep: door to the south: closed
+D 0 17260 0 1	* Inside the Hold of the Pirate Lord: door to the north: closed
+D 0 17260 1 1	* Inside the Hold of the Pirate Lord: door to the east: closed
+D 0 17260 3 1	* Inside the Hold of the Pirate Lord: door to the west: closed
+D 0 17261 3 1	* A Room in the Hold: door to the west: closed
+D 0 17262 1 1	* A Room in the Hold: door to the east: closed
+D 0 17263 1 1	* Inside the Hold of the Pirate Lord: door to the east: closed
+D 0 17263 3 1	* Inside the Hold of the Pirate Lord: door to the west: closed
+D 0 17264 3 1	* A Room in the Hold: door to the west: closed
+D 0 17265 1 1	* A Room in the Hold: door to the east: closed
+D 0 17266 1 1	* Inside the Hold of the Pirate Lord: door to the east: closed
+D 0 17266 2 2	* Inside the Hold of the Pirate Lord: door to the south: closed and locked
+D 0 17266 3 1	* Inside the Hold of the Pirate Lord: door to the west: closed
+D 0 17267 3 1	* A Room in the Hold: door to the west: closed
+D 0 17269 0 2	* In the Vast Hall of the Pirate Lord: door to the north: closed and locked
+D 0 17278 5 1	* Inside the Iceberg: door to the down: closed
+D 0 17297 1 2	* In the Great Ice Cavern: door to the east: closed and locked
+D 0 17299 3 2	* In the Ice Hall of the Pirate Lord: door to the west: closed and locked
+M 0 17012 1 17171 1	* the shipwright (On the Beach)
+E 0 17014 0 16		*	a wooden mallet: wielded
+M 0 17011 2 17174 1	* the pirate guard (In the Jungle)
+O 0 17011 0 17175		* the banana tree (In the Jungle)
+P 0 17012 0 17011 1	* the banana tree: a bunch of bananas
+M 0 17011 2 17176 1	* the pirate guard (In the Jungle)
+O 0 17013 0 17177		* a wooden sign (At the Mouth of a Cave)
+M 0 17013 2 17180 1	* the jungle savage (In the Savage Camp)
+M 0 17014 1 17181 1	* Chief Unga-Bunga (In the Savage Camp)
+E 0 17015 0 12		*	a feather robe: about the shoulders
+M 0 17013 2 17182 1	* the jungle savage (In the Savage Camp)
+M 0 17015 1 17185 1	* the sleepy pirate (At the Cave Entryway)
+M 0 17016 3 17186 1	* the drunken pirate (Inside the Cave)
+G 0 17016 0		*	a bottle of rum
+M 0 17016 3 17187 1	* the drunken pirate (Inside the Cave)
+G 0 17016 0		*	a bottle of rum
+M 0 17016 3 17188 1	* the drunken pirate (Inside the Cave)
+G 0 17016 0		*	a bottle of rum
+M 0 17020 1 17190 1	* a bond maiden (At the Throne of the Pirate Lord)
+M 0 17019 1 17190 1	* One-eye, the pirate lord (At the Throne of the Pirate Lord)
+E 0 17019 0 13		*	the girdle of might: around the waist
+E 0 17020 0 9		*	gauntlets of accuracy: on the hands
+M 0 17017 1 17192 1	* Princess Smallbody (Inside the Dark Prison)
+G 0 17017 0		*	LAID!
+M 0 17018 1 17193 1	* the navigator (Atop the Mountain)
+G 0 17018 0		*	a sextant
+M 0 17021 1 17194 1	* the kracken (In a Quiet Cove)
+G 0 17024 0		*	the kracken's eye
+M 0 17023 1 17196 1	* the black snake (On a Black Sand Beach)
+M 0 17025 3 17198 1	* the lava worm (Climbing the Black Mountain)
+M 0 17026 2 17200 1	* the lava lizard (Walking the Lava Flows)
+O 0 17022 0 17201		* a lava pool (Walking the Lava Flows)
+M 0 17026 2 17202 1	* the lava lizard (Walking the Lava Flows)
+O 0 17022 0 17202		* a lava pool (Walking the Lava Flows)
+M 0 17024 1 17204 1	* the black crab (On a Black Sand Beach)
+M 0 17025 3 17206 1	* the lava worm (Climbing the Black Mountain)
+M 0 17025 3 17208 1	* the lava worm (Climbing the Black Mountain)
+M 0 17030 1 17210 1	* Pele, god of fire (The Crater)
+E 0 17025 0 10		*	armbands of the Volcanoes: on the arms
+M 0 17022 1 17211 1	* the dock guard (In the Watery Cave)
+E 0 17023 0 16		*	a cutlass: wielded
+O 0 17023 0 17214		* a cutlass (In the Armory)
+O 0 17027 0 17214		* a javelin (In the Armory)
+M 0 17027 3 17215 1	* the snarling pirate (In the Pirates Cavern)
+E 0 17023 0 16		*	a cutlass: wielded
+M 0 17027 3 17217 1	* the snarling pirate (In the Pirates Cavern)
+E 0 17023 0 16		*	a cutlass: wielded
+M 0 17028 1 17218 1	* Redbeard (In the Hall of the Pirate Lord)
+E 0 17027 0 17		*	a javelin: held in the hands
+E 0 17028 0 12		*	the cloak of looting: about the shoulders
+G 0 17021 0		*	an iron key
+M 0 17027 3 17219 1	* the snarling pirate (The Barracks)
+E 0 17023 0 16		*	a cutlass: wielded
+M 0 17029 1 17220 1	* Lalila, the Elven Prince (A Dark Cave)
+O 0 17026 0 17220		* a huge bronze chest (A Dark Cave)
+P 0 17030 0 17026 1	* a huge bronze chest: the pirate's hoard
+P 0 17029 0 17026 1	* a huge bronze chest: Ettin's blood
+M 0 17037 2 17222 1	* the mako shark (On the Seas Surrounding an Atoll)
+M 0 17039 2 17224 1	* the blue shark (On the Seas Surrounding an Atoll)
+M 0 17035 1 17229 1	* the tiger shark (On the Seas Surrounding an Atoll)
+M 0 17036 1 17231 1	* the great white shark (At the Lagoon Entrance)
+M 0 17038 1 17232 1	* the hammerhead shark (On the Seas Surrounding an Atoll)
+M 0 17039 2 17233 1	* the blue shark (On the Seas Surrounding an Atoll)
+M 0 17037 2 17235 1	* the mako shark (On the Seas Surrounding an Atoll)
+M 0 17034 1 17236 1	* Stiggs, the cabin boy (In the Quiet Lagoon)
+E 0 17037 0 0		*	a watchman's lantern: as a light
+O 0 17036 0 17236		* an outrigger called 'Waverunner' (In the Quiet Lagoon)
+P 0 17033 0 17034 1	* a padlocked chest: the nullifier orb
+M 0 17033 3 17237 1	* the bandy legged pirate (In the Central Shack)
+M 0 17033 3 17238 1	* the bandy legged pirate (The Barracks)
+M 0 17032 1 17239 1	* Shifty the trader (Inside the Barred Shack)
+O 0 17034 0 17239		* a padlocked chest (Inside the Barred Shack)
+P 0 17040 0 17034 1	* a padlocked chest: doubloons and booty
+M 0 17031 1 17240 1	* Mizzenmast (Inside the House on Stilts)
+E 0 17031 0 7		*	sharkskin pants: on the legs
+E 0 17032 0 17		*	a crossbow of poison: held in the hands
+G 0 17035 0		*	a metal key
+O 0 17039 0 17240		* a hemp hammock (Inside the House on Stilts)
+M 0 17040 1 17240 1	* Did I say coral? I meant clam (Inside the House on Stilts)
+G 0 17038 0		*	a giant pearl
+M 0 17041 1 17241 1	* the hawkwoman (In the Air Beneath the Flying Mountain)
+R 0 17241 4	* In the Air Beneath the Flying Mountain: randomize
+M 0 17042 3 17242 1	* the hawkman (In the Air Beneath the Flying Mountain)
+R 0 17242 6	* In the Air Beneath the Flying Mountain: randomize
+R 0 17243 6	* In the Air Beneath the Flying Mountain: randomize
+R 0 17244 6	* In the Air Beneath the Flying Mountain: randomize
+R 0 17245 6	* In the Air Beneath the Flying Mountain: randomize
+M 0 17042 3 17246 1	* the hawkman (In the Air Beneath the Flying Mountain)
+R 0 17246 4	* In the Air Beneath the Flying Mountain: randomize
+M 0 17043 1 17247 1	* the hawklord (In the Calm Air Beneath the Flying Mountain)
+E 0 17043 0 12		*	the vest of the Hawklord: about the shoulders
+P 0 17051 0 17043 1	* the vest of the Hawklord: a throwing dagger
+P 0 17051 0 17043 1	* the vest of the Hawklord: a throwing dagger
+P 0 17051 0 17043 1	* the vest of the Hawklord: a throwing dagger
+M 0 17042 3 17248 1	* the hawkman (In the Calm Air Beneath the Flying Mountain)
+O 0 17042 0 17248		* a floating stone (In the Calm Air Beneath the Flying Mountain)
+O 0 17044 0 17251		* a winch ladder (On the Flying Mountain)
+M 0 17044 4 17253 1	* the terra-kan (On the Flying Mountain)
+G 0 17045 0		*	a gizzard
+M 0 17044 4 17254 1	* the terra-kan (On the Flying Mountain)
+G 0 17045 0		*	a gizzard
+M 0 17044 4 17255 1	* the terra-kan (On the Flying Mountain)
+G 0 17045 0		*	a gizzard
+M 0 17044 4 17258 1	* the terra-kan (On the Flying Mountain)
+G 0 17045 0		*	a gizzard
+M 0 17045 6 17261 1	* the gambling pirate (A Room in the Hold)
+M 0 17045 6 17261 1	* the gambling pirate (A Room in the Hold)
+M 0 17045 6 17265 1	* the gambling pirate (A Room in the Hold)
+M 0 17045 6 17265 1	* the gambling pirate (A Room in the Hold)
+M 0 17047 1 17266 1	* the elite pirate (Inside the Hold of the Pirate Lord)
+M 0 17045 6 17267 1	* the gambling pirate (A Room in the Hold)
+M 0 17045 6 17267 1	* the gambling pirate (A Room in the Hold)
+M 0 17046 1 17268 1	* the first mate (A Room in the Hold)
+G 0 17041 0		*	a golden hawk key
+M 0 17049 1 17269 1	* Mutton the chef (In the Vast Hall of the Pirate Lord)
+M 0 17048 1 17270 1	* Alindra of Dunkeldorf (In the Private Quarters of the Pirate Lord)
+M 0 17050 1 17270 1	* Lord Vulture (In the Private Quarters of the Pirate Lord)
+E 0 17049 0 10		*	Lord Vulture's wings: on the arms
+E 0 17050 0 17		*	the eye of the eagle: held in the hands
+O 0 17046 0 17270		* an iron bound chest (In the Private Quarters of the Pirate Lord)
+P 0 17047 0 17046 1	* an iron bound chest: a mountain of silver
+P 0 17048 0 17046 1	* an iron bound chest: the everfull mug
+M 0 17051 1 17272 1	* the orca (Sailing the Sea of Ice)
+M 0 17052 1 17274 1	* the great northern roc (Sailing the Sea of Ice)
+M 0 17053 1 17276 1	* the howling wolf pack (Sailing the Sea of Ice)
+M 0 17054 1 17278 1	* the towering cave bear (Inside the Iceberg)
+M 0 17066 3 17290 1	* the pirate in fur skins (In the Great Ice Cavern)
+E 0 17053 0 12		*	a fur skin cloak: about the shoulders
+E 0 17054 0 5		*	a fur skin vest: on the body
+E 0 17055 0 7		*	fur skin leggings: on the legs
+E 0 17056 0 11		*	a spiked buckler: as a shield
+E 0 17057 0 17		*	an icicle: held in the hands
+M 0 17066 3 17293 1	* the pirate in fur skins (In the Great Ice Cavern)
+E 0 17053 0 12		*	a fur skin cloak: about the shoulders
+E 0 17054 0 5		*	a fur skin vest: on the body
+E 0 17055 0 7		*	fur skin leggings: on the legs
+E 0 17056 0 11		*	a spiked buckler: as a shield
+E 0 17057 0 17		*	an icicle: held in the hands
+M 0 17070 1 17294 1	* the frozen captive (At the Bonfire in the Great Ice Cavern)
+O 0 17058 0 17294		* the melting pool (At the Bonfire in the Great Ice Cavern)
+O 0 17070 0 17294		* a roaring bonfire (At the Bonfire in the Great Ice Cavern)
+M 0 17067 1 17295 1	* the lurking guard (In the Great Ice Cavern)
+E 0 17053 0 12		*	a fur skin cloak: about the shoulders
+E 0 17054 0 5		*	a fur skin vest: on the body
+E 0 17055 0 7		*	fur skin leggings: on the legs
+E 0 17059 0 16		*	a garrote wire: wielded
+M 0 17068 1 17297 1	* the helmsman (In the Great Ice Cavern)
+E 0 17053 0 12		*	a fur skin cloak: about the shoulders
+E 0 17054 0 5		*	a fur skin vest: on the body
+E 0 17055 0 7		*	fur skin leggings: on the legs
+E 0 17056 0 11		*	a spiked buckler: as a shield
+E 0 17061 0 16		*	a mighty two handed battle axe: wielded
+E 0 17060 0 17		*	the ghost stone: held in the hands
+M 0 17066 3 17298 1	* the pirate in fur skins (In the Great Ice Cavern)
+E 0 17053 0 12		*	a fur skin cloak: about the shoulders
+E 0 17054 0 5		*	a fur skin vest: on the body
+E 0 17055 0 7		*	fur skin leggings: on the legs
+E 0 17056 0 11		*	a spiked buckler: as a shield
+E 0 17057 0 17		*	an icicle: held in the hands
+M 0 17069 1 17299 1	* Cutter, the 5th Pirate Lord (In the Ice Hall of the Pirate Lord)
+E 0 17053 0 12		*	a fur skin cloak: about the shoulders
+E 0 17062 0 5		*	frost armor: on the body
+E 0 17055 0 7		*	fur skin leggings: on the legs
+E 0 17056 0 11		*	a spiked buckler: as a shield
+E 0 17063 0 16		*	"Frostbite" sword of winter: wielded
+E 0 17060 0 17		*	the ghost stone: held in the hands
+G 0 17068 0		*	the evil eye
+O 0 17064 0 17299		* a bag of gold (In the Ice Hall of the Pirate Lord)
+O 0 17065 0 17299		* a bag of silver (In the Ice Hall of the Pirate Lord)
+O 0 17066 0 17299		* a bag of gems (In the Ice Hall of the Pirate Lord)
+O 0 17067 0 17299		* a bag of jewelry (In the Ice Hall of the Pirate Lord)
+O 0 17069 0 17299		* a map to Hell's Reef (In the Ice Hall of the Pirate Lord)
+S
+
 
 
 #SHOPS
-17012 13 22 0 0 0 125 75 0 23   *       Shipwright buys boats
-17032 8 0 0 0 0 125 75 0 23     *         Shifty buys treasure
+17012 13 22 0 0 0 125 75 0 23
+17032 8 0 0 0 0 125 75 0 23
 0
 
 
-#SPECIALS
-M  17024 spec_fido             *Crab eats corpses
-M  17025 spec_breath_fire      *Lava worm
-M  17030 spec_breath_fire      *Pele, god of fire
-M  17035 spec_fido             *All sharks eat corpses
-M  17036 spec_fido             *All sharks eat corpses
-M  17037 spec_fido             *All sharks eat corpses
-M  17038 spec_fido             *All sharks eat corpses
-M  17039 spec_fido             *All sharks eat corpses
-M  17050 spec_cast_mage        *Lord Vulture dabbles in magic
-S
 
 #OLIMITS
-O 17019 1 * girdle might
-O 17025 1 * armbands volcanoes
+O 17019 1	* the girdle of might
+O 17025 1	* armbands of the Volcanoes
 S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
 
 #OMPROGS
-O 17025 fight_prog fight_prog_armbands
-O 17025 wear_prog wear_prog_armbands
-O 17025 remove_prog remove_prog_armbands
+O 17025 wear_prog wear_prog_armbands	* `armbands of the Volcanoes'
+O 17025 remove_prog remove_prog_armbands	* `armbands of the Volcanoes'
+O 17025 fight_prog fight_prog_armbands	* `armbands of the Volcanoes'
 S
 
-#$
 
+
+#$
