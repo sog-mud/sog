@@ -1,5 +1,5 @@
 /*
- * $Id: auction.c,v 1.31 1999-05-23 18:07:13 fjoe Exp $
+ * $Id: auction.c,v 1.32 1999-05-24 07:58:41 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -417,7 +417,8 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (obj->timer > 0) {
+	if (!IS_SET(obj->pIndexData->extra_flags, ITEM_CHQUEST)
+	&&  obj->timer > 0) {
 		char_puts("You cannot auction decaying objects.\n", ch);
 		return;
 	}
