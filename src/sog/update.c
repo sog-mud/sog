@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.25 2000-07-27 09:30:39 fjoe Exp $
+ * $Id: update.c,v 1.157.2.26 2000-08-21 07:48:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1118,7 +1118,7 @@ void char_update(void)
 		}
 
 		/* reset path find */
-		if (!IS_NPC(ch) && (chance = get_skill(ch, gsn_path_find))) {
+		if ((chance = get_skill(ch, gsn_path_find)) != 0) {
 			if (number_percent() < chance) {
 				ch->endur += chance / 2;
 				check_improve(ch, gsn_path_find, TRUE, 8);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.12 2000-08-11 10:05:20 cs Exp $
+ * $Id: act_obj.c,v 1.165.2.13 2000-08-21 07:48:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1681,7 +1681,7 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 		  (IS_AWAKE(victim) ? 10 : -50) +
 		  (!can_see(victim, ch) ? -10 : 0);
 
-	if ((!IS_NPC(ch) && percent > get_skill(ch, sn))
+	if (percent > get_skill(ch, sn)
 	||  IS_SET(victim->imm_flags, IMM_STEAL)
 	||  IS_IMMORTAL(victim)
 	||  (victim->in_room &&

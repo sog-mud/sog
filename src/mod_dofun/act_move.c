@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.202.2.11 2000-06-21 10:35:55 fjoe Exp $
+ * $Id: act_move.c,v 1.202.2.12 2000-08-21 07:48:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2264,7 +2264,7 @@ void do_push(CHAR_DATA *ch, const char *argument)
 
 	if (victim->position == POS_FIGHTING
 	||  (IS_NPC(victim) && IS_SET(victim->pMobIndex->act, ACT_NOTRACK))
-	||  (!IS_NPC(ch) && percent > get_skill(ch, sn))
+	||  percent > get_skill(ch, sn)
 	||  pexit == NULL
 	||  pexit->to_room.r == NULL
 	||  pexit->to_room.r->area != ch->in_room->area) {
@@ -2818,8 +2818,7 @@ void do_charge(CHAR_DATA *ch, const char *argument)
 
 	char arg1[512], arg2[512];
 
-
-	if (IS_NPC(ch) || !(chance = get_skill(ch, gsn_charge))) {
+	if ((chance = get_skill(ch, gsn_charge)) == 0) {
 		char_puts("Huh?\n", ch);
 		return;
 	}
@@ -2922,7 +2921,7 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 	int chance, direction;
 	int range = (LEVEL(ch) / 10) + 1;
 	
-	if (IS_NPC(ch) || (chance = get_skill(ch, gsn_bow)) == 0) {
+	if ((chance = get_skill(ch, gsn_bow)) == 0) {
 		char_puts("You don't know how to shoot.\n",ch);
 		return;
 	}
@@ -3046,7 +3045,7 @@ void do_throw_weapon(CHAR_DATA *ch, const char *argument)
 	int chance, chance2, direction, sn;
 	int range = (LEVEL(ch) / 10) + 1;
 
-	if (IS_NPC(ch) || (chance = get_skill(ch, gsn_throw_weapon)) == 0) {
+	if ((chance = get_skill(ch, gsn_throw_weapon)) == 0) {
 		char_puts("You don't know how to use throwing weapons.\n",ch);
 		return;
 	}
@@ -3386,7 +3385,7 @@ void do_thumbling(CHAR_DATA *ch, const char *argument)
 	bool attack;
 	AFFECT_DATA af;
 
-	if (IS_NPC(ch) || (chance = get_skill(ch, gsn_thumbling)) == 0) {
+	if ((chance = get_skill(ch, gsn_thumbling)) == 0) {
 		char_puts("You don't know how to do that.\n", ch);
 		return;
 	}
@@ -3459,7 +3458,7 @@ void do_forest(CHAR_DATA* ch, const char* argument)
 	AFFECT_DATA af;
 	bool attack;
 
-	if (IS_NPC(ch) || !get_skill(ch, gsn_forest_fighting)) {
+	if (!get_skill(ch, gsn_forest_fighting)) {
 		char_puts("Huh?\n", ch);
 		return;
 	}
