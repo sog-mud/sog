@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.29 1998-06-02 15:26:14 fjoe Exp $
+# $Id: english.lang,v 1.30 1998-06-02 16:16:40 fjoe Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -81,7 +81,7 @@ UPDATE_WEATHER_THE_CLOUDS_DISAPPEAR "The clouds disappear.\n\r"
 UPDATE_WEATHER_LIGHTNING_FLASHES 	"Lightning flashes in the sky.\n\r"
 UPDATE_WEATHER_THE_RAIN_STOPPED 	"The rain stopped.\n\r"
 UPDATE_WEATHER_LIGHTNING_STOPPED 	"The lightning has stopped.\n\r"
-QUEST_QUESTOR_TELLS_YOU 	"{W%s{x tells you '{G%s{x'\n\r"
+QUEST_QUESTOR_TELLS_YOU 	"%s tells you '{G%s{x'\n\r"
 QUEST_YOU_HAVE_D_MINUTES     "You have {W%d{G minutes to complete this quest."
 QUEST_MAY_THE_GODS_GO 	"May the gods go with you!"
 COMM_ORDERS_YOU_TO 	"$n orders you to '%s', you do."
@@ -507,7 +507,7 @@ SPECIAL_DO_I_KNOW_YOU	"{Wthe cityguard{x says '{GDo i know you?{x'"
 SPECIAL_DONT_REMEMBER_YOU	"{Wthe cityguard{x says '{GI don't remember you. Go away!{x'"
 SPECIAL_OK_MY_DEAR	"{Wthe cityguard{x says '{GOk, my dear. I have just remembered{x.'"
 UPDATE_CALMING_DOWN	"You're slowly calming down.\n\r"
-COMM_N_SAYS	"{W$n{x says '{G$t{x'"
+COMM_N_SAYS	"$n says '{G$t{x'"
 COMM_YOU_SAY	"You say '{G$T{x'"
 QUEST_INFO_LOCATION	"That location is in general area of {W%s{x for {W%s{x.\n\r"
 MOVE_CANT_PRAY_NOW	"You can't pray now.\n\r"
