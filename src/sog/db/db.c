@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.193 1999-12-11 15:31:22 fjoe Exp $
+ * $Id: db.c,v 1.194 1999-12-14 11:08:43 sog Exp $
  */
 
 /***************************************************************************
@@ -1967,7 +1967,7 @@ void move_pfiles(int minvnum, int maxvnum, int delta)
 }
 
 #define NBUF 5
-#define NBITS 52
+#define NBITS 32
 
 char *format_flags(flag_t flags)
 {
@@ -1977,14 +1977,15 @@ char *format_flags(flag_t flags)
 
 	cnt = (cnt + 1) % NBUF;
 
-	for (count = 0; count < NBITS;  count++)
-		if (IS_SET(flags, (flag_t) 1 << count)) {
+	for (count = 0; count < NBITS;  count++) {
+		if (IS_SET(flags, 1 << count)) {
 	        	if (count < 26)
 	        		buf[cnt][pos] = 'A' + count;
 	        	else
 				buf[cnt][pos] = 'a' + (count - 26);
 			pos++;
 		}
+	}
 
 	if (pos == 0) 
 		buf[cnt][pos++] = '0';

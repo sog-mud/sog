@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.75 1999-12-12 20:43:08 avn Exp $
+ * $Id: db_area.c,v 1.76 1999-12-14 11:08:44 sog Exp $
  */
 
 /***************************************************************************
@@ -124,8 +124,8 @@ subst_flag(flag_subst_t *fs, int64_t from)
 {
 	flag_t rv = 0;
 
-	while (fs->from != -1) {
-		if (IS_SET(from, fs->from) && fs->to != -1)
+	while (fs->from) {
+		if (IS_SET(from, fs->from))
 			rv |= fs->to;
 		fs++;
 	}
@@ -875,7 +875,7 @@ flag_subst_t v0_subst_act[] =
 	{ V0_ACT_FAMILIAR,	ACT_FAMILIAR		},
 	{ V0_ACT_IMMSTEAL,	ACT_IMMSTEAL		},
 	{ V0_ACT_IMMSUMMON,	ACT_IMMSUMMON		},
-	{ -1 }
+	{ 0 }
 };
 
 #define V0_ACT_CHANGER		(dd)
@@ -899,7 +899,7 @@ flag_subst_t v0_subst_mob[] =
 	{ V0_ACT_SAGE,		MOB_SAGE			},
 	{ V0_ACT_HEALER,	MOB_HEALER			},
 	{ V0_ACT_CLAN_GUARD,	MOB_CLAN_GUARD			},
-	{ -1 }
+	{ 0 }
 };
 
 #define V0_AFF_SCREAM			(hh)
@@ -943,7 +943,7 @@ flag_subst_t v0_subst_aff[] =
 	{ V0_AFF_QUESTTARGET,	AFF_QUESTTARGET		},
 	{ V0_AFF_TURNED,	AFF_TURNED		},
 
-	{ -1 }
+	{ 0 }
 };
 
 #define V0_AFF_INVIS			(B)
@@ -963,7 +963,7 @@ flag_subst_t v0_subst_invis[] =
 	{ V0_AFF_IMP_INVIS,	ID_IMP_INVIS	},
 	{ V0_AFF_FADE,		ID_FADE		},
 	{ V0_AFF_BLEND,		ID_BLEND	},
-	{ -1 }
+	{ 0 }
 };
 
 #define V0_AFF_DETECT_EVIL		(C)
@@ -993,7 +993,7 @@ flag_subst_t v0_subst_detect[] =
 	{ V0_AFF_DETECT_LIFE,		ID_LIFE		},
 	{ V0_AFF_ACUTE_VISION,		ID_CAMOUFLAGE	},
 	{ V0_AFF_AWARENESS,		ID_BLEND	},
-	{ -1 }
+	{ 0 }
 };
 
 /*
@@ -1310,7 +1310,7 @@ flag_subst_t v0_subst_stat[] =
 	{ ITEM_MELT_DROP,	ITEM_MELT_DROP		},
 	{ ITEM_BURN_PROOF,	ITEM_BURN_PROOF		},
 	{ ITEM_NOT_EDIBLE,	ITEM_NOT_EDIBLE		},
-	{ -1 }
+	{ 0 }
 };
 
 #define V0_ITEM_NOPURGE		(O)
@@ -1340,7 +1340,7 @@ flag_subst_t v0_subst_obj[] =
 	{ V0_ITEM_QUIT_DROP,	ITEM_QUIT_DROP		},
 	{ V0_ITEM_PIT,		ITEM_PIT		},
 	{ V0_ITEM_CHQUEST,	ITEM_CHQUEST		},
-	{ -1 }
+	{ 0 }
 };
 
 /*

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rwfile.c,v 1.5 1999-12-11 15:31:19 fjoe Exp $
+ * $Id: rwfile.c,v 1.6 1999-12-14 11:08:12 sog Exp $
  */
 
 static char str_end[] = "End";
@@ -446,24 +446,19 @@ int fread_number(rfile_t *fp)
 	return number;
 }
 
-static flag_t
-flag_convert(char letter)
+static int64_t
+flag_convert(int letter, int low_end)
 {
-	flag_t bitsum = 0;
-	char i;
+	int64_t rv;
 
-	if ('A' <= letter && letter <= 'Z') {
-		bitsum = A;
-		for (i = letter; i > 'A'; i--)
-			bitsum <<= 1;
-	}
-	else if ('a' <= letter && letter <= 'z') {
-		bitsum = aa;
-		for (i = letter; i > 'a'; i--)
-			bitsum <<= 1;
-	}
+	if ('A' <= letter && letter <= 'Z') 
+		rv = (A) << (letter - 'A');
+	else if ('a' <= letter && letter <= low_end)
+		rv = (int64_t) (aa) << (letter - 'a');
+	else
+		rv = 0;
 
-	return bitsum;
+	return rv;
 }
 
 int64_t fread_flagsxx(rfile_t *fp, int low_end)
@@ -480,8 +475,8 @@ int64_t fread_flagsxx(rfile_t *fp, int low_end)
 	number = 0;
 
 	if (!isdigit(c)) {
-		while (('A' <= c && c <= 'Z') || ('a' <= c && c <= low_end)) {
-			number += flag_convert(c);
+		while (('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z')) {
+			number += flag_convert(c, low_end);
 			c = xgetc(fp);
 		}
 	}
@@ -504,7 +499,7 @@ int64_t fread_flagsxx(rfile_t *fp, int low_end)
 
 flag_t fread_flags(rfile_t *fp)
 {
-	return fread_flagsxx(fp, 'z');
+	return fread_flagsxx(fp, 'e');
 }
 
 int64_t fread_flags64(rfile_t *fp)
