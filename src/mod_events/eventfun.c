@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.38 2001-09-26 12:44:24 kostik Exp $
+ * $Id: eventfun.c,v 1.39 2001-10-21 22:13:22 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -305,7 +305,7 @@ EVENT_FUN(event_updatechar_plague, ch, af)
 	damage(ch, ch, dam, "plague", DAM_DISEASE, DAMF_NONE);
 	if (number_range(1, 100) < 70) {
 		damage(ch, ch, UMAX(ch->max_hit/20, 50),
-		       "plague", DAM_DISEASE, DAMF_SHOW);
+		       "plague", DAM_DISEASE, DAMF_NONE);
 	}
 }
 
@@ -315,7 +315,7 @@ EVENT_FUN(event_updatechar_poison, ch, af)
 
 	act("$n shivers and suffers.", ch, NULL, NULL, TO_ROOM);
 	act_char("You shiver and suffer.", ch);
-	damage(ch, ch, af->level/10 + 1, "poison", DAM_POISON, DAMF_SHOW);
+	damage(ch, ch, af->level/10 + 1, "poison", DAM_POISON, DAMF_NONE);
 }
 
 EVENT_FUN(event_updatefast_entangle, ch, af)
@@ -337,20 +337,20 @@ EVENT_FUN(event_updatefast_entangle, ch, af)
 
 	if (INT(paf->location) == APPLY_NONE) { /* ch case */
 		OBJ_DATA * weapon = get_eq_char(ch, WEAR_SECOND_WIELD);
-		if (!weapon || 
-		!(WEAPON_IS(weapon, WEAPON_WHIP) 
-		|| WEAPON_IS(weapon, WEAPON_FLAIL))) {
-			if (is_sn_affected(paf->owner, "entanglement")) 
+		if (!weapon
+		||  !(WEAPON_IS(weapon, WEAPON_WHIP) ||
+		      WEAPON_IS(weapon, WEAPON_FLAIL))) {
+			if (is_sn_affected(paf->owner, "entanglement"))
 				affect_strip(paf->owner, "entanglement");
 			affect_strip(ch, "entanglement");
 		}
 	}
-		
+
 	if (INT(paf->location) == APPLY_DEX) {	/* victim case */
 		if (number_percent() < get_curr_stat(ch, STAT_DEX)) {
 			act("You manage to get free.", ch, NULL, NULL, TO_CHAR);
 			act("$n manages to get free.", ch, NULL, NULL, TO_ROOM);
-			if (is_sn_affected(paf->owner, "entanglement")) 
+			if (is_sn_affected(paf->owner, "entanglement"))
 				affect_strip(paf->owner, "entanglement");
 			affect_strip(ch, "entanglement");
 		}
@@ -363,8 +363,8 @@ EVENT_FUN(event_updatechar_crippled_hands, ch, af)
 	|| get_eq_char(ch, WEAR_SECOND_WIELD)
 	|| get_eq_char(ch, WEAR_HOLD)) {
 		act_char("The pain pulses in your crippled hands.", ch);
-		damage(ch, ch, ch->level/2, "crippled hands", DAM_HARM,
-		    DAMF_SHOW);
+		damage(ch, ch, ch->level/2, "crippled hands",
+		       DAM_HARM, DAMF_NONE);
 	}
 }
 
@@ -441,7 +441,7 @@ EVENT_FUN(event_timeoutchar_bonedragon, ch, af)
 	        add_follower(drag, chm);
 	        drag->leader = chm;
 	        PC(chm)->pet = drag;
-	} 
+	}
 	else
 		act("But you already have a pet.", chm, NULL, NULL, TO_CHAR);
 

@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.20 2001-09-17 18:42:27 fjoe Exp $
+ * $Id: prayers.c,v 1.21 2001-10-21 22:13:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -649,7 +649,7 @@ turn_cb(void *vo, va_list ap)
 
 	dam = dam * align * align / 1000000;
 	damage(ch, vch, dam, sn, DAM_HOLY, DAMF_SHOW);
-	if (!IS_EXTRACTED(vch))
+	if (!IS_EXTRACTED(vch) && !IS_CLAN_GUARD(vch))
 		dofun("flee", vch, str_empty);
 	return NULL;
 }

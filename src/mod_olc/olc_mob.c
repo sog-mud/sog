@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.87 2001-09-15 17:12:48 fjoe Exp $
+ * $Id: olc_mob.c,v 1.88 2001-10-21 22:13:25 fjoe Exp $
  */
 
 #include "olc.h"
@@ -318,7 +318,7 @@ OLC_FUN(mobed_show)
 	buf_printf(buf, BUF_END, "Detect:      [%s]\n",
 		flag_string(id_flags, pMob->has_detect));
 
-	buf_printf(buf, BUF_END, "Armor:       [pierce: %d  bash: %d  slash: %d  magic: %d]\n",
+	buf_printf(buf, BUF_END, "Armor:       [pierce: %d  bash: %d  slash: %d  exotic: %d]\n",
 		pMob->ac[AC_PIERCE], pMob->ac[AC_BASH],
 		pMob->ac[AC_SLASH], pMob->ac[AC_EXOTIC]);
 

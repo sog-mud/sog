@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.334 2001-09-26 14:46:36 kostik Exp $
+ * $Id: fight.c,v 1.335 2001-10-21 22:13:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1203,26 +1203,20 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 
 	update_pos(victim);
 
-	switch(victim->position) {
+	switch (victim->position) {
 	case POS_MORTAL:
-		if (IS_SET(dam_flags, DAMF_HUNGER | DAMF_THIRST))
-			break;
 		act("$n is mortally wounded, and will die soon, if not aided.",
 		    victim, NULL, NULL, TO_ROOM);
 		act_char("You are mortally wounded, and will die soon, if not aided.", victim);
 		break;
 
 	case POS_INCAP:
-		if (IS_SET(dam_flags, DAMF_HUNGER | DAMF_THIRST))
-			break;
 		act("$n is incapacitated and will slowly die, if not aided.",
 		    victim, NULL, NULL, TO_ROOM);
 		act_char("You are incapacitated and will slowly die, if not aided.", victim);
 		break;
 
 	case POS_STUNNED:
-		if (IS_SET(dam_flags, DAMF_HUNGER | DAMF_THIRST))
-			break;
 		act("$n is stunned, but will probably recover.",
 		    victim, NULL, NULL, TO_ROOM);
 		act_char("You are stunned, but will probably recover.", victim);
@@ -3127,13 +3121,13 @@ dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 	gmlstr_t *dam_noun = NULL;
 	int act_flags = (dam == 0 ? ACT_VERBOSE : 0);
 
-	dam_alias(dam, &vs, &vp);
-	if (ch != victim
-	&&  IS_SET(dam_flags, DAMF_LIGHT_V | DAMF_HUNGER | DAMF_THIRST)) {
-		log(LOG_BUG, "dam_message: ch != victim, damf=%d", dam_flags);
-		msg_char = NULL;
-		msg_notvict = NULL;
+	if (IS_SET(dam_flags, DAMF_HUNGER | DAMF_THIRST | DAMF_LIGHT_V)) {
+		log(LOG_BUG, "dam_message: damf=%x (DAMF_HUNGER, DAMF_THIRST or DAMF_LIGHT_V set)",
+		    dam_flags);
+		return;
 	}
+
+	dam_alias(dam, &vs, &vp);
 
 	if (IS_SET(dam_flags, DAMF_TRAP_ROOM)) {
 		if (ch == victim) {
@@ -3146,24 +3140,11 @@ dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 			msg_char = "Your trap at room $u $N!";
 			msg_vict = "$n's trap at room $u you.";
 		}
-	} else if (IS_SET(dam_flags, DAMF_LIGHT_V)) {
-		vs = vp;
-		msg_notvict = "The light in room $u $n!";
-		msg_char = "The light in room $u you!";
-	} else if (IS_SET(dam_flags, DAMF_HUNGER)) {
-		vs = vp;
-		msg_notvict = "$n's hunger $u $mself!";
-		msg_char = "Your hunger $u yourself!";
-	} else if (IS_SET(dam_flags, DAMF_THIRST)) {
-		vs = vp;
-		msg_notvict = "$n's thirst $u $mself!";
-		msg_char = "Your thirst $u yourself!";
 	} else if (IS_SET(dam_flags, DAMF_HIT) && dam_class == DAM_NONE) {
 		if (ch == victim) {
 			msg_notvict = "$n $u $mself!";
 			msg_char = "You $u yourself!";
-		}
-		else {
+		} else {
 			msg_notvict = "$n $u $N.";
 			msg_char = "You $u $N.";
 			msg_vict = "$n $u you.";
@@ -3193,7 +3174,7 @@ dam_message(CHAR_DATA *ch, CHAR_DATA *victim, int dam,
 			vs = vp;
 
 			if (ch == victim) {
-				msg_notvict = "$n's $V $u $m.";
+				msg_notvict = "$n's $V $u $gn{him}.";
 				msg_char = "Your $V $u you.";
 			} else {
 				msg_notvict = "$n's $V $u $N.";

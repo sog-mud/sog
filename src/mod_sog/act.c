@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.90 2001-09-23 16:24:20 fjoe Exp $
+ * $Id: act.c,v 1.91 2001-10-21 22:13:26 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -1192,7 +1192,7 @@ act_say(CHAR_DATA *ch, const char *text, const void *arg)
 }
 
 void
-act_asound(ROOM_INDEX_DATA *room, const char *text, const void *arg)
+act_around(ROOM_INDEX_DATA *room, const char *text, const void *arg)
 {
 	int door;
 

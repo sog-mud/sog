@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.271 2001-09-24 13:13:40 kostik Exp $
+ * $Id: spellfun.c,v 1.272 2001-10-21 22:13:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3209,7 +3209,8 @@ SPELL_FUN(spell_disintegrate, sn, level, ch, vo)
 	if (saves_spell(level+9, victim, DAM_ENERGY)
 	||  dice_wlb(1, 3, victim, NULL) == 1
 	||  IS_IMMORTAL(victim)
-	||  IS_CLAN_GUARD(victim)) {
+	||  IS_CLAN_GUARD(victim)
+	||  IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)) {
 		dam = dice(level, 20) ;
 		damage(ch, victim, dam, sn, DAM_ENERGY, DAMF_SHOW);
 		return;
@@ -3223,8 +3224,7 @@ SPELL_FUN(spell_disintegrate, sn, level, ch, vo)
 	      ch, NULL, victim, TO_CHAR, POS_RESTING);
 	act_char("You die..", victim);
 
-	act("$N does not exist anymore!\n", ch, NULL, victim, TO_CHAR);
-	act("$N does not exist anymore!\n", ch, NULL, victim, TO_ROOM);
+	act("$N does not exist anymore!\n", ch, NULL, victim, TO_ALL);
 
 	act_char("You turn into an invincible ghost for a few minutes.", victim);
 	act_char("As long as you don't attack anything.", victim);
@@ -3449,8 +3449,14 @@ SPELL_FUN(spell_demon_summon, sn, level, ch, vo)
 		return;
 	}
 
+	if (IS_SET(ch->in_room->room_flags,
+		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+	        act_char("You can't summon a demon here.", ch);
+		return;
+	}
+
 	act_char("You attempt to summon a demon.", ch);
-	act("$n attempts to summon a demon.",ch,NULL,NULL,TO_ROOM);
+	act("$n attempts to summon a demon.", ch, NULL, NULL, TO_ROOM);
 
 	for (gch = npc_list; gch; gch = gch->next) {
 		if (IS_AFFECTED(gch, AFF_CHARM)
@@ -3481,7 +3487,7 @@ SPELL_FUN(spell_demon_summon, sn, level, ch, vo)
 	demon->damroll = number_range(level/8, level/6);
 
 	act_char("A demon arrives from the underworld!", ch);
-	act("A demon arrives from the underworld!",ch,NULL,NULL,TO_ROOM);
+	act("A demon arrives from the underworld!", ch, NULL, NULL, TO_ROOM);
 
 	paf = aff_new(TO_AFFECTS, sn);
 	paf->level              = level;
@@ -3643,6 +3649,18 @@ SPELL_FUN(spell_guard_call, sn, level, ch, vo)
 		return;
 	}
 
+	if (IS_SET(ch->in_room->room_flags,
+		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)
+	||  (ch->in_room->exit[0] == NULL &&
+	     ch->in_room->exit[1] == NULL &&
+	     ch->in_room->exit[2] == NULL &&
+	     ch->in_room->exit[3] == NULL &&
+	     ch->in_room->exit[4] == NULL &&
+	     ch->in_room->exit[5] == NULL)) {
+	        act_char("You can't call guards here.", ch);
+		return;
+	}
+
 	dofun("yell", ch, "Guards! Guards!");
 
 	for (gch = npc_list; gch; gch = gch->next) {
@@ -3706,9 +3724,15 @@ SPELL_FUN(spell_nightwalker, sn, level, ch, vo)
 	AFFECT_DATA *paf;
 	int i;
 
-	if (is_sn_affected(ch,sn)) {
+	if (is_sn_affected(ch, sn)) {
 		act_puts("You feel too weak to summon a Nightwalker now.",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
+	}
+
+	if (IS_SET(ch->in_room->room_flags,
+		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+	        act_char("You can't summon a Nightwalker here.", ch);
 		return;
 	}
 
@@ -4821,6 +4845,12 @@ SPELL_FUN(spell_squire, sn, level, ch, vo)
 		return;
 	}
 
+	if (IS_SET(ch->in_room->room_flags,
+		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+	        act_char("You can't summon a squire here.", ch);
+		return;
+	}
+
 	act_char("You attempt to summon a squire.", ch);
 	act("$n attempts to summon a squire.", ch, NULL, NULL, TO_ROOM);
 
@@ -4856,7 +4886,7 @@ SPELL_FUN(spell_squire, sn, level, ch, vo)
 	squire->damroll = number_range(level/10, level/8);
 
 	act_char("A squire arrives from nowhere!", ch);
-	act("A squire arrives from nowhere!",ch,NULL,NULL,TO_ROOM);
+	act("A squire arrives from nowhere!", ch, NULL, NULL, TO_ROOM);
 
 	paf = aff_new(TO_AFFECTS, sn);
 	paf->type		= sn;
@@ -5335,8 +5365,7 @@ SPELL_FUN(spell_animate_dead, sn, level, ch, vo)
 		if (count_charmed(ch))
 			return;
 
-		if (ch->in_room != NULL
-		&&  IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
+		if (IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
 			act_char("You can't animate deads here.", ch);
 			return;
 		}
@@ -5787,8 +5816,7 @@ SPELL_FUN(spell_lion_help, sn, level, ch, vo)
 		return;
 	}
 
-	if (ch->in_room == NULL
-	&&  IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
+	if (IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
 		act_char("No lions can hear you.", ch);
 		return;
 	}
@@ -6230,6 +6258,22 @@ SPELL_FUN(spell_wolf, sn, level, ch, vo)
 	AFFECT_DATA *paf;
 	int i;
 
+        if (IS_SET(ch->in_room->room_flags,
+		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)
+	||  (ch->in_room->exit[0] == NULL &&
+	     ch->in_room->exit[1] == NULL &&
+	     ch->in_room->exit[2] == NULL &&
+	     ch->in_room->exit[3] == NULL &&
+	     ch->in_room->exit[4] == NULL &&
+	     ch->in_room->exit[5] == NULL)
+	||  (ch->in_room->sector_type != SECT_FIELD &&
+	     ch->in_room->sector_type != SECT_FOREST &&
+	     ch->in_room->sector_type != SECT_MOUNTAIN &&
+	     ch->in_room->sector_type != SECT_HILLS)) {
+	        act_char("You can't summon a wolf here.", ch);
+		return;
+	}
+
 	if (is_sn_affected(ch, sn)) {
 		act_char("You lack the power to summon another wolf right now.",
 			 ch);
@@ -6237,7 +6281,7 @@ SPELL_FUN(spell_wolf, sn, level, ch, vo)
 	}
 
 	act_char("You attempt to summon a wolf.", ch);
-	act("$n attempts to summon a wolf.",ch,NULL,NULL,TO_ROOM);
+	act("$n attempts to summon a wolf.", ch, NULL, NULL, TO_ROOM);
 
 	for (gch = npc_list; gch; gch = gch->next) {
 		if (IS_AFFECTED(gch, AFF_CHARM)
@@ -6278,7 +6322,7 @@ SPELL_FUN(spell_wolf, sn, level, ch, vo)
 	aff_free(paf);
 
 	demon->master = demon->leader = ch;
-	char_to_room(demon,ch->in_room);
+	char_to_room(demon, ch->in_room);
 }
 
 SPELL_FUN(spell_vampiric_blast, sn, level, ch, vo)
@@ -6452,6 +6496,12 @@ SPELL_FUN(spell_flesh_golem, sn, level, ch, vo)
 		return;
 	}
 
+        if (IS_SET(ch->in_room->room_flags,
+		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+	        act_char("You can't create a flesh golem here.", ch);
+		return;
+	}
+
 	act_char("You attempt to create a flesh golem.", ch);
 	act("$n attempts to create a flesh golem.", ch, NULL, NULL, TO_ROOM);
 
@@ -6513,6 +6563,12 @@ SPELL_FUN(spell_stone_golem, sn, level, ch, vo)
 
 	if (is_sn_affected(ch, sn)) {
 		act_char("You lack the power to create another golem right now.", ch);
+		return;
+	}
+
+	if (IS_SET(ch->in_room->room_flags,
+		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+	        act_char("You can't create a stone golem here.", ch);
 		return;
 	}
 
@@ -6580,6 +6636,12 @@ SPELL_FUN(spell_iron_golem, sn, level, ch, vo)
 		return;
 	}
 
+	if (IS_SET(ch->in_room->room_flags,
+		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+	        act_char("You can't create a iron golem here.", ch);
+		return;
+	}
+
 	act_char("You attempt to create an iron golem.", ch);
 	act("$n attempts to create an iron golem.", ch, NULL, NULL, TO_ROOM);
 
@@ -6639,6 +6701,12 @@ SPELL_FUN(spell_adamantite_golem, sn, level, ch, vo)
 
 	if (is_sn_affected(ch, sn)) {
 		act_char("You lack the power to create another golem right now.", ch);
+		return;
+	}
+
+        if (IS_SET(ch->in_room->room_flags,
+		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+	        act_char("You can't create a adamantite golem here.", ch);
 		return;
 	}
 
@@ -7077,6 +7145,12 @@ SPELL_FUN(spell_summon_shadow, sn, level, ch, vo)
 		return;
 	}
 
+        if (IS_SET(ch->in_room->room_flags,
+		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+	        act_char("You can't summon a shadow here.", ch);
+		return;
+	}
+
 	act_char("You attempt to summon a shadow.", ch);
 	act("$n attempts to summon a shadow.",ch,NULL,NULL,TO_ROOM);
 
@@ -7499,6 +7573,18 @@ SPELL_FUN(spell_find_familiar, sn, level, ch, vo)
 	int vnum;
 	bool new=TRUE;
 	chance = number_percent();
+
+	if (IS_SET(ch->in_room->room_flags,
+		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)
+	||  (ch->in_room->exit[0] == NULL &&
+	     ch->in_room->exit[1] == NULL &&
+	     ch->in_room->exit[2] == NULL &&
+	     ch->in_room->exit[3] == NULL &&
+	     ch->in_room->exit[4] == NULL &&
+	     ch->in_room->exit[5] == NULL)) {
+	        act_char("You can't find a familiar.", ch);
+		return;
+	}
 
 	if (chance < 60)
 		vnum = MOB_VNUM_BLACK_CAT;

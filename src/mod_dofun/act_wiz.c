@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.304 2001-09-17 18:42:24 fjoe Exp $
+ * $Id: act_wiz.c,v 1.305 2001-10-21 22:13:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4153,7 +4153,7 @@ DO_FUN(do_noaffect, ch, argument)
 cleanup:
 	if (altered)
 		char_save(victim, loaded ? SAVE_F_PSCAN : 0);
-	if (loaded) 
+	if (loaded)
 		char_nuke(victim);
 }
 
@@ -4172,7 +4172,7 @@ DO_FUN(do_affrooms, ch, argument)
 	for (room = x_room_list; room != NULL; room = room->x_next) {
 		for (af = room->affected; af; af = af->next) {
 			if (!count)
-				buf_append(buf, "Affected rooms:\n"); // notrans
+				buf_append(buf, "Affected rooms:\n");
 			count++;
 			buf_printf(buf, BUF_END,
 				    "%d) [Vnum: %5d] "		// notrans

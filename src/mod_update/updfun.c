@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.48 2001-09-16 18:14:27 fjoe Exp $
+ * $Id: updfun.c,v 1.49 2001-10-21 22:13:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -969,8 +969,7 @@ UPDATE_FUN(light_update)
 			act_char("Sun light disturbs you.", ch);
 
 		dam_light = 1 + (ch->max_hit * 4)/ 100;
-		damage(ch, ch, dam_light, NULL, DAM_LIGHT,
-			DAMF_SHOW | DAMF_LIGHT_V);
+		damage(ch, ch, dam_light, NULL, DAM_LIGHT, DAMF_LIGHT_V);
 
 		if (ch->position == POS_STUNNED)
 			update_pos(ch);

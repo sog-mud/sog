@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.269 2001-10-21 21:33:53 fjoe Exp $
+ * $Id: act_obj.c,v 1.270 2001-10-21 22:13:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2945,7 +2945,7 @@ DO_FUN(do_withdraw, ch, argument)
 	}
 
 	fee = UMAX(1, amount * (silver ? 10 : 2) / 100);
-	
+
 	if ((carry_w = can_carry_w(ch)) >= 0
 	&&  get_carry_weight(ch) +
 	    COINS_WEIGHT(!silver, amount - fee) > carry_w) {
@@ -3017,7 +3017,7 @@ DO_FUN(do_deposit, ch, argument)
 	if (silver) {
 		PC(ch)->bank_s += amount;
 		ch->silver -= amount;
-		if (amount == 1) 
+		if (amount == 1)
 			act_char("Oh $gn{boy}! One silver coin!", ch);
 		else {
 			act_puts("$j $qj{silver coins} deposited. Come again soon!",
@@ -3153,7 +3153,7 @@ DO_FUN(do_label, ch, argument)
 	OBJ_DATA *obj;
 	char obj_name[MAX_INPUT_LENGTH];
 	char label[MAX_INPUT_LENGTH];
-	
+
 	if (IS_NPC(ch))
 		return;
 
@@ -3530,10 +3530,10 @@ static uint get_cost(CHAR_DATA *keeper, OBJ_DATA *obj, bool fBuy)
 					       &obj2->short_descr))
 					return 0;
 /*
-	 	    if (IS_OBJ_STAT(obj2,ITEM_INVENTORY))
+		    if (IS_OBJ_STAT(obj2,ITEM_INVENTORY))
 				cost /= 2;
 		    else
-		              	cost = cost * 3 / 4;
+				cost = cost * 3 / 4;
 */
 			}
 	}

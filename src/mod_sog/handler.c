@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.337 2001-10-21 21:34:03 fjoe Exp $
+ * $Id: handler.c,v 1.338 2001-10-21 22:13:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2879,7 +2879,7 @@ wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 	if (IS_NPC(ch)
 	&&  (!IS_SET(ch->form, FORM_BIPED) ||
 	     !IS_SET(ch->form, FORM_SENTIENT))) {
-		act("WEAR ?", ch, NULL, NULL, TO_CHAR);
+		act("WEAR?", ch, NULL, NULL, TO_CHAR);
 		return FALSE;
 	}
 
