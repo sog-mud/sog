@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.35 1998-07-03 15:18:41 fjoe Exp $
+ * $Id: interp.c,v 1.36 1998-07-03 16:35:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -789,8 +789,8 @@ bool check_social( CHAR_DATA *ch, char *command, char *argument )
 		return TRUE;
 	}
 
-	if ((victim = get_char_world(ch, arg)) == NULL
-	||  (IS_NPC(victim) && victim->in_room != ch->in_room)) {
+	if (((victim = get_char_room(ch, arg)) == NULL)
+	&&  ((victim = get_char_world(ch, arg)) == NULL || IS_NPC(victim))) {
 		char_nputs(THEY_ARENT_HERE, ch);
 		return TRUE;
 	}
