@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.106 1998-11-23 06:38:02 fjoe Exp $
+ * $Id: fight.c,v 1.107 1998-12-01 06:02:58 kostik Exp $
  */
 
 /***************************************************************************
@@ -1383,6 +1383,8 @@ bool cant_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 	 */
 	if (!IS_NPC(victim)) {
 		if (IS_SET(victim->act, PLR_GHOST))
+			return TRUE;
+		if (!IS_NPC(ch) && IS_SET(ch->act, PLR_GHOST))
 			return TRUE;
 	}
 	else if (victim->extracted)

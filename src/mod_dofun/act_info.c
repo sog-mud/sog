@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.170 1998-11-27 07:23:37 kostik Exp $
+ * $Id: act_info.c,v 1.171 1998-12-01 06:02:57 kostik Exp $
  */
 
 /***************************************************************************
@@ -2670,8 +2670,8 @@ void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 	if (number_percent() > chance) {
 		char_puts("You peer intently at the shadows "
 			     "but they are unrevealing.\n\r", ch);
-		return;
 		check_improve(ch, sn, FALSE, 1);
+		return;
 	}
 
 	af.where     = TO_AFFECTS;
