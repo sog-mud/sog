@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skills.c,v 1.10 1999-06-10 14:33:35 fjoe Exp $
+ * $Id: db_skills.c,v 1.11 1999-06-22 12:37:23 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -69,6 +69,7 @@ DBLOAD_FUN(load_skill)
 		case 'F':
 			KEY("Flags", skill->skill_flags,
 			    fread_fstring(skill_flags, fp));
+			SKEY("Fun", skill->fun_name);
 			break;
 		case 'G':
 			KEY("Group", skill->group,
@@ -93,11 +94,12 @@ DBLOAD_FUN(load_skill)
 			break;
 		case 'S':
 			KEY("Slot", skill->slot, fread_number(fp));
-			KEY("SpellFun", skill->spell_fun,
-			    fread_namedp(spellfn_table, fp));
+			KEY("SpellFun", skill->fun_name, /* XXX */
+			    str_dup(fread_word(fp)));
 			break;
 		case 'T':
-			KEY("Type", word, fread_word(fp));	/* just skip */
+			KEY("Type", skill->skill_type,
+			    fread_fword(skill_types, fp));
 			KEY("Target", skill->target,
 			    fread_fword(skill_targets, fp));
 			break;

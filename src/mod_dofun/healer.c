@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.22 1999-05-22 16:21:05 avn Exp $
+ * $Id: healer.c,v 1.23 1999-06-22 12:37:18 fjoe Exp $
  */
 
 /*-
@@ -71,8 +71,8 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     char arg[MAX_INPUT_LENGTH];
     int sn;
     int cost;
-    SPELL_FUN *spell;
     heal_t *h;
+    skill_t *sk;
 
     /* check for healer */
 	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
@@ -135,13 +135,17 @@ void do_heal(CHAR_DATA *ch, const char *argument)
 	return;
     }
 
-    spell = (SKILL(sn))->spell_fun;
-    if (!spell) {
-	bug("do_heal: no spell fun for skill", 0);
-	return;
-    }
+	sk = SKILL(sn);
+	if (sk->skill_type != ST_SPELL) {
+		bug("do_heal: skill is not a spell", 0);
+		return;
+	}
 
-    say_spell(mob, sn);
-    spell(sn, (h->level)?(h->level):(mob->level),
-	mob, ch, TARGET_CHAR);
+	if (sk->fun == NULL) {
+		bug("do_heal: no spell fun for skill", 0);
+		return;
+	}
+
+	say_spell(mob, sn);
+	sk->fun(sn, h->level ? h->level : mob->level, mob, ch);
 }

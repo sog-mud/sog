@@ -1,5 +1,5 @@
 /*
- * $Id: log.c,v 1.14 1999-06-10 11:47:29 fjoe Exp $
+ * $Id: log.c,v 1.15 1999-06-22 12:37:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -86,17 +86,18 @@ void log(const char *format, ...)
 #endif
 }
 
-
 /*
  * Reports a bug.
  */
-void bug(const char *str, int param)
+void bug(const char *str, ...)
 {
 	char buf[MAX_STRING_LENGTH];
-	char buf2[MAX_STRING_LENGTH];
+	va_list ap;
 
-	snprintf(buf2, sizeof(buf2), str, param);
-	snprintf(buf, sizeof(buf), "[*****] BUG: %s", buf2);
-	log(buf);
+	va_start(ap, str);
+	vsnprintf(buf, sizeof(buf), str, ap);
+	va_end(ap);
+
+	log("[*****] BUG: %s", buf);
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.49 1999-06-17 19:28:04 fjoe Exp $
+ * $Id: special.c,v 1.50 1999-06-22 12:37:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -440,49 +440,42 @@ bool spec_cast_adept(CHAR_DATA *ch)
 	switch (number_bits(4)) {
 	case 0:
 		act("$n utters the words, '$t'.", ch, "abrazak", NULL, TO_ROOM);
-		spell_armor(sn_lookup("armor"), ch->level, ch, victim,
-			    TARGET_CHAR);
+		spellfun_call("armor", ch->level, ch, victim);
 		return TRUE;
 
 	case 1:
 		act("$n utters the words, '$t'.", ch, "fido", NULL, TO_ROOM);
-		spell_bless(sn_lookup("bless"), ch->level, ch, victim,
-			    TARGET_CHAR);
+		spellfun_call("bless", ch->level, ch, victim);
 		return TRUE;
 
 	case 2:
 		act("$n utters the words, '$t'.",
 		    ch, "judicandus noselacri", NULL, TO_ROOM);
-		spell_cure_blindness(sn_lookup("cure blindness"),
-				     ch->level, ch, victim, TARGET_CHAR);
+		spellfun_call("cure blindness", ch->level, ch, victim);
 		return TRUE;
 
 	case 3:
 		act("$n utters the words, '$t'.",
 		    ch, "judicandus dies", NULL, TO_ROOM);
-		spell_cure_light(sn_lookup("cure light"),
-				 ch->level, ch, victim,TARGET_CHAR);
+		spellfun_call("cure light", ch->level, ch, victim);
 		return TRUE;
 
 	case 4:
 		act("$n utters the words, '$t'.",
 		    ch, "judicandus sausabru", NULL, TO_ROOM);
-		spell_cure_poison(sn_lookup("cure poison"),
-				  ch->level, ch, victim, TARGET_CHAR);
+		spellfun_call("cure poison", ch->level, ch, victim);
 	return TRUE;
 
 	case 5:
 		act("$n utters the words, '$t'.",
 		    ch, "candusima", NULL, TO_ROOM);
-		spell_refresh(sn_lookup("refresh"),
-			      ch->level, ch, victim, TARGET_CHAR);
+		spellfun_call("refresh", ch->level, ch, victim);
 		return TRUE;
 
 	case 6:
 		act("$n utters the words, '$t'.",
 		    ch, "judicandus eugzagz", NULL, TO_ROOM);
-		spell_cure_disease(sn_lookup("cure disease"),
-				   ch->level, ch, victim, TARGET_CHAR);
+		spellfun_call("cure disease", ch->level, ch, victim);
 	}
 
 	return FALSE;
@@ -877,7 +870,7 @@ bool spec_poison(CHAR_DATA *ch)
 	act_puts("You bite $N!", ch, NULL, victim, TO_CHAR, POS_DEAD);
 	act("$n bites $N!", ch, NULL, victim, TO_NOTVICT);
 	act_puts("$n bites you!", ch, NULL, victim, TO_VICT, POS_DEAD);
-	spell_poison(gsn_poison, ch->level, ch, victim,TARGET_CHAR);
+	spellfun_call("poison", ch->level, ch, victim);
 	return TRUE;
 }
 
@@ -944,42 +937,36 @@ bool spec_cast_clan(CHAR_DATA *ch)
 	switch (number_bits(4)) {
 	case 0:
 		act("$n utters the words, '$t'.", ch, "abracal", NULL, TO_ROOM);
-		spell_armor(sn_lookup("armor"),
-			    ch->level, ch, victim, TARGET_CHAR);
+		spellfun_call("armor", ch->level, ch, victim);
 		return TRUE;
 
 	case 1:
 		act("$n utters the words, '$t'.", ch, "balc", NULL, TO_ROOM);
-		spell_bless(sn_lookup("bless"),
-			    ch->level, ch, victim, TARGET_CHAR);
+		spellfun_call("bless", ch->level, ch, victim);
 		return TRUE;
 
 	case 2:
 		act("$n utters the words, '$t'.",
 		    ch, "judicandus noselacba", NULL, TO_ROOM);
-		spell_cure_blindness(sn_lookup("cure blindness"),
-				     ch->level, ch, victim, TARGET_CHAR);
+		spellfun_call("cure blindness", ch->level, ch, victim);
 		return TRUE;
 
 	case 3:
 		act("$n utters the words, '$t'.",
 		    ch, "judicandus bacla", NULL, TO_ROOM);
-		spell_cure_light(sn_lookup("cure light"),
-				 ch->level, ch, victim, TARGET_CHAR);
+		spellfun_call("cure light", ch->level, ch, victim);
 		return TRUE;
 
 	case 4:
 		act("$n utters the words, '$t'.",
 		    ch, "judicandus sausabcla", NULL, TO_ROOM);
-		spell_cure_poison(sn_lookup("cure poison"),
-				  ch->level, ch, victim, TARGET_CHAR);
+		spellfun_call("cure poison", ch->level, ch, victim);
 		return TRUE;
 
 	case 5:
 		act("$n utters the words, '$t'.",
 		    ch, "candabala", NULL, TO_ROOM);
-		spell_refresh(sn_lookup("refresh"),
-			      ch->level, ch, victim, TARGET_CHAR);
+		spellfun_call("refresh", ch->level, ch, victim);
 		return TRUE;
 	}
 

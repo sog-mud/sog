@@ -1,5 +1,5 @@
 /*
- * $Id: auction.c,v 1.41 1999-06-22 04:22:48 fjoe Exp $
+ * $Id: auction.c,v 1.42 1999-06-22 12:37:17 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -289,7 +289,7 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		if (auction.item != NULL) {
 			/* show item data here */
 			if (IS_IMMORTAL(ch)) {
-				act_puts("Sold by: $i, Last bet by: $N.", 
+				act_puts("Sold by: $i. Last bet by: $N.", 
 					 ch, auction.seller, auction.buyer,
 					 TO_CHAR, POS_DEAD);
 			}
@@ -304,10 +304,10 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 					 (const void*) auction.starting, NULL,
 					 TO_CHAR, POS_DEAD);
 				act_puts("No bets on this item have been "
-					 "received", ch, NULL, NULL,
+					 "received.", ch, NULL, NULL,
 					 TO_CHAR, POS_DEAD);
 			}
-			spell_identify(0, 0, ch, auction.item, 0);
+			spellfun_call("identify", 0, ch, auction.item);
 			return;
 		}
 		else {	

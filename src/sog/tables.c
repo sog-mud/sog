@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.72 1999-06-18 04:57:12 kostik Exp $
+ * $Id: tables.c,v 1.73 1999-06-22 12:37:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1070,6 +1070,16 @@ flag_t skill_flags[] =
 	{ "range",		SKILL_RANGE,		TRUE	},
 	{ "area_attack",	SKILL_AREA_ATTACK,	TRUE	},
 	{ "questionable",	SKILL_QUESTIONABLE,	TRUE	},
+
+	{ NULL }
+};
+
+flag_t skill_types[] =
+{
+	{ "",			TABLE_INTVAL,			},
+
+	{ "skill",		ST_SKILL,		TRUE	},
+	{ "spell",		ST_SPELL,		TRUE	},
 
 	{ NULL }
 };

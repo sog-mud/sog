@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.49 1999-06-10 18:19:06 fjoe Exp $
+ * $Id: olc_obj.c,v 1.50 1999-06-22 12:37:23 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -1431,7 +1431,8 @@ static void show_spells(BUFFER *output, int tar)
 	for (sn = 0; sn < skills.nused; sn++) {
 		skill_t *sk = SKILL(sn);
 
-		if (!str_cmp(sk->name, "reserved") || sk->spell_fun == NULL)
+		if (!str_cmp(sk->name, "reserved")
+		||  sk->skill_type != ST_SPELL)
 			continue;
 
 		if (tar == -1 || sk->target == tar) {

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.209 1999-06-21 20:39:50 avn Exp $
+ * $Id: merc.h,v 1.210 1999-06-22 12:37:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -78,6 +78,7 @@
 #include "tables.h"
 #include "comm/comm.h"
 #include "comm/comm_act.h"
+#include "db/memalloc.h"
 #include "db/gsn.h"
 #include "db/spellfn.h"
 #include "db/msg.h"
@@ -1929,6 +1930,7 @@ void	deduct_cost	(CHAR_DATA *ch, uint cost);
 void	affect_enchant	(OBJ_DATA *obj);
 int	check_immune	(CHAR_DATA *ch, int dam_type);
 bool	check_material	(OBJ_DATA *obj, char *material);
+int	check_exit	(const char *arg);
 bool	is_metal	(OBJ_DATA *obj);
 int	get_age 	(CHAR_DATA *ch);
 int	get_curr_stat	(CHAR_DATA *ch, int stat);
@@ -2047,9 +2049,13 @@ int	get_wear_level(CHAR_DATA *ch, OBJ_DATA *obj);
 
 bool	saves_spell	(int level, CHAR_DATA *victim, int dam_type);
 bool	check_dispel	(int dis_level, CHAR_DATA *victim, int sn);
-void	obj_cast_spell	(int sn, int level, CHAR_DATA *ch, CHAR_DATA *victim,
-			 OBJ_DATA *obj);
 bool	saves_dispel	(int dis_level, int spell_level, int duration);
+
+extern const char *target_name;
+
+void	obj_cast_spell	(int sn, int level, CHAR_DATA *ch, void *vo);
+void	spellfun_call	(const char *name, int level, CHAR_DATA *ch, void *vo);
+void	spellfun_call2	(const char *name, int sn, int level, CHAR_DATA *ch, void *vo);
 
 bool remove_obj (CHAR_DATA * ch, int iWear, bool fReplace);
 void wear_obj   (CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace);
@@ -2231,6 +2237,7 @@ void	do_who_raw	(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output);
 void move_char(CHAR_DATA *ch, int door, bool follow);
 char *find_way(CHAR_DATA *ch, ROOM_INDEX_DATA *rstart, ROOM_INDEX_DATA *rend);
 bool guild_ok(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
+int	find_door	(CHAR_DATA *ch, char *arg);
 
 /* act_obj.h */
 bool can_loot		(CHAR_DATA *ch, OBJ_DATA *obj);

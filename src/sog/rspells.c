@@ -1,5 +1,5 @@
 /*
- * $Id: rspells.c,v 1.4 1999-06-21 20:11:17 avn Exp $
+ * $Id: rspells.c,v 1.5 1999-06-22 12:37:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -178,32 +178,28 @@ EVENT_FUN(event_update_plague)
 {
 	if (raf->level < 1) raf->level = 2;
 	if (is_safe_rspell(raf, ch)) return;
-	spell_plague(gsn_plague, raf->level - 1, raf->owner,
-			ch, TAR_CHAR_OFFENSIVE);
+	spellfun_call("plague", raf->level - 1, raf->owner, ch);
 }
 
 EVENT_FUN(event_update_poison)
 {
 	if (raf->level < 1) raf->level = 2;
 	if (!is_safe_rspell(raf, ch))
-		spell_poison(gsn_poison, raf->level - 1, raf->owner,
-			ch, TAR_CHAR_OFFENSIVE);
+		spellfun_call("poison", raf->level - 1, raf->owner, ch);
 }
 
 EVENT_FUN(event_update_slow)
 {
 	if (raf->level < 1) raf->level = 2;
 	if (!is_safe_rspell(raf, ch))
-		spell_slow(gsn_slow, raf->level - 1, raf->owner,
-			ch, TAR_CHAR_OFFENSIVE);
+		spellfun_call("slow", raf->level - 1, raf->owner, ch);
 }
 
 EVENT_FUN(event_update_sleep)
 {
 	if (raf->level < 1) raf->level = 2;
 	if (!is_safe_rspell(raf, ch))
-		spell_sleep(gsn_sleep, raf->level - 1, raf->owner,
-			ch, TAR_CHAR_OFFENSIVE);
+		spellfun_call("sleep", raf->level - 1, raf->owner, ch);
 }
 
 EVENT_FUN(event_update_espirit)

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.100 1999-06-18 11:17:16 fjoe Exp $
+ * $Id: martial_art.c,v 1.101 1999-06-22 12:37:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3340,7 +3340,7 @@ void do_poison_smoke(CHAR_DATA *ch, const char *argument)
 			continue;
 		attack = (ch->fighting != vch);
 
-		spell_poison(gsn_poison, LEVEL(ch), ch, vch, TARGET_CHAR);
+		spellfun_call("poison", LEVEL(ch), ch, vch);
 		if (vch != ch) {
 			if (attack) 
 				yell(vch, ch, "$I tries to poison me!");
@@ -3393,7 +3393,7 @@ void do_blindness_dust(CHAR_DATA *ch, const char *argument)
 			if (is_safe_spell(ch, vch, TRUE)) 
 				continue;
 
-			spell_blindness(gsn_blindness, LEVEL(ch), ch, vch, TARGET_CHAR);
+			spellfun_call("blindness", LEVEL(ch), ch, vch);
 			if (attack)
 				yell(vch, ch, "Help! $I just threw dust into my eyes!");
 			if (vch != ch)
@@ -3410,7 +3410,7 @@ void do_blindness_dust(CHAR_DATA *ch, const char *argument)
 		act("You throw some dust into $N's eyes.", ch, NULL, vch, TO_CHAR);
 		act("$n throws some dust into $N's eyes.", ch, NULL, vch, TO_ROOM);
 		act("$n throws some dust into your eyes.", ch, NULL, vch, TO_VICT);
-		spell_blindness(gsn_blindness, LEVEL(ch), ch, vch, TARGET_CHAR);
+		spellfun_call("blindness", LEVEL(ch), ch, vch);
 		if (vch != ch)
 			multi_hit(vch, ch, TYPE_UNDEFINED);
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.163 1999-06-21 20:11:14 avn Exp $
+ * $Id: handler.c,v 1.164 1999-06-22 12:37:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1992,7 +1992,7 @@ CHAR_DATA *find_char(CHAR_DATA *ch, const char *argument, int door, int range)
 	return NULL;
 }
 
-int check_exit(char *arg)
+int check_exit(const char *arg)
 {
 	int door = -1;
 

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.67 1999-06-17 19:28:04 fjoe Exp $
+ * $Id: skills.c,v 1.68 1999-06-22 12:37:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -143,7 +143,7 @@ void do_spells(CHAR_DATA *ch, const char *argument)
 
 		if (ps->percent == 0
 		||  (sk = skill_lookup(ps->sn)) == NULL
-		||  sk->spell_fun == NULL)
+		||  sk->skill_type != ST_SPELL)
 			continue;
 
 		found = TRUE;
@@ -213,7 +213,7 @@ void do_skills(CHAR_DATA *ch, const char *argument)
 
 		if (ps->percent == 0
 		||  (sk = skill_lookup(ps->sn)) == NULL
-		||  sk->spell_fun)
+		||  sk->skill_type != ST_SKILL)
 			continue;
 
 		found = TRUE;
@@ -659,7 +659,7 @@ int get_skill(CHAR_DATA *ch, int sn)
 		flag64_t off = ch->pIndexData->off_flags;
 
 		/* mobiles */
-		if (sk->spell_fun)
+		if (sk->skill_type == ST_SPELL)
 			skill = 40 + 2 * ch->level;
 		else if (sn == gsn_track)
 			skill = 100;
@@ -725,7 +725,7 @@ int get_skill(CHAR_DATA *ch, int sn)
 	}
 
 	if (ch->daze > 0) {
-		if (sk->spell_fun)
+		if (sk->skill_type == ST_SPELL)
 			skill /= 2;
 		else
 			skill = 2 * skill / 3;
@@ -742,8 +742,7 @@ int get_skill(CHAR_DATA *ch, int sn)
 		class_t *cl;
 		cskill_t *csk;
 
-		if (sk->spell_fun == NULL
-		&&  (cl = class_lookup(ch->class)) != NULL
+		if ((cl = class_lookup(ch->class)) != NULL
 		&&  (csk = cskill_lookup(cl, sn)) != NULL)
 			skill += csk->mod;
 		skill = UMAX(1, skill);

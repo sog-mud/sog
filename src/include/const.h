@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.36 1999-05-27 09:52:41 kostik Exp $
+ * $Id: const.h,v 1.37 1999-06-22 12:37:17 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -65,6 +65,7 @@ extern const char RACES_PATH	[];
 extern const char AREA_PATH	[];
 extern const char LANG_PATH	[];
 extern const char PLISTS_PATH	[];
+extern const char DL_PATH	[];
 
 extern const char TMP_FILE	[];
 extern const char NULL_FILE	[];

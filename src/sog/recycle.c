@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.54 1999-06-10 23:39:53 fjoe Exp $
+ * $Id: recycle.c,v 1.55 1999-06-22 12:37:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -48,7 +48,6 @@
 #include <stdlib.h>
 #include "merc.h"
 #include "db/db.h"
-#include "db/memalloc.h"
 
 /*
  * Globals

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.156 1999-06-17 19:28:05 fjoe Exp $
+ * $Id: db.c,v 1.157 1999-06-22 12:37:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -65,6 +65,7 @@
 #include "db.h"
 #include "db/lang.h"
 #include "olc/olc.h"
+#include "dl.h"
 
 #ifdef SUNOS
 #	include "compat.h"
@@ -108,6 +109,7 @@ const char CLASSES_PATH		[] = "classes";
 const char CLANS_PATH		[] = "clans";
 const char AREA_PATH		[] = "area";
 const char LANG_PATH		[] = "lang";
+const char DL_PATH		[] = "lib";
 
 #if defined (WIN32)
 const char PLISTS_PATH		[] = "clans\\plists";
@@ -339,6 +341,7 @@ void boot_db_system(void)
 void boot_db(void)
 {
 	long lhour, lday, lmonth;
+	dl_t *dlt;
 
 #ifdef __FreeBSD__
 	extern char* malloc_options;
@@ -388,9 +391,16 @@ void boot_db(void)
 	db_load_list(&db_langs, LANG_PATH, LANG_LIST);
 	db_load_file(&db_msg, ETC_PATH, MSGDB_CONF);
 	db_load_file(&db_socials, ETC_PATH, SOCIALS_CONF);
+
 	db_load_file(&db_skills, ETC_PATH, SKILLS_CONF);
 	namedp_check(gsn_table);
-	namedp_check(spellfn_table);
+	dlt = dl_lookup("spellfun");
+	if (dlt == NULL) {
+		db_error("boot_db", "spellfun: unknown library");
+		exit(1);
+	}
+	dl_load(dlt);
+
 	db_load_list(&db_races, RACES_PATH, RACE_LIST);
 	db_load_list(&db_classes, CLASSES_PATH, CLASS_LIST);
 	db_load_list(&db_clans, CLANS_PATH, CLAN_LIST);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.14 1999-06-10 14:33:32 fjoe Exp $
+ * $Id: skills.h,v 1.15 1999-06-22 12:37:21 fjoe Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -38,9 +38,13 @@
 #define SKILL_AREA_ATTACK	(C)
 #define SKILL_QUESTIONABLE	(D)
 
+#define ST_SKILL	0
+#define ST_SPELL	1
+
 struct skill_t {
 	const char *	name;			/* skill name */
-	SPELL_FUN *	spell_fun;		/* spell function */
+	const char *	fun_name;		/* skill function name */
+	SPELL_FUN *	fun;			/* skill function */
 	flag32_t	target;			/* legal target */
 	flag32_t	minimum_position;	/* position for caster */
 	int *		pgsn;			/* pointer to gsn */
@@ -53,6 +57,7 @@ struct skill_t {
 	flag32_t	skill_flags;		/* skill flags */
 	const char *	restrict_race;		/* race restrictions */
 	flag32_t	group;			/* skill group */
+	flag32_t	skill_type;		/* skill type */
 };
 
 extern varr skills;

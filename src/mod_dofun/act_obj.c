@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.153 1999-06-21 20:11:12 avn Exp $
+ * $Id: act_obj.c,v 1.154 1999-06-22 12:37:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1437,10 +1437,10 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 		break;
 
 	case ITEM_PILL:
-		obj_cast_spell(obj->value[1], obj->value[0], ch, ch, NULL);
-		obj_cast_spell(obj->value[2], obj->value[0], ch, ch, NULL);
-		obj_cast_spell(obj->value[3], obj->value[0], ch, ch, NULL);
-		obj_cast_spell(obj->value[4], obj->value[0], ch, ch, NULL);
+		obj_cast_spell(obj->value[1], obj->value[0], ch, ch);
+		obj_cast_spell(obj->value[2], obj->value[0], ch, ch);
+		obj_cast_spell(obj->value[3], obj->value[0], ch, ch);
+		obj_cast_spell(obj->value[4], obj->value[0], ch, ch);
 		break;
 	}
 
@@ -2016,10 +2016,10 @@ void quaff_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	act("$n quaffs $p.", ch, obj, NULL, TO_ROOM);
 	act_puts("You quaff $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 
-	obj_cast_spell(obj->value[1], obj->value[0], ch, ch, NULL);
-	obj_cast_spell(obj->value[2], obj->value[0], ch, ch, NULL);
-	obj_cast_spell(obj->value[3], obj->value[0], ch, ch, NULL);
-	obj_cast_spell(obj->value[4], obj->value[0], ch, ch, NULL);
+	obj_cast_spell(obj->value[1], obj->value[0], ch, ch);
+	obj_cast_spell(obj->value[2], obj->value[0], ch, ch);
+	obj_cast_spell(obj->value[3], obj->value[0], ch, ch);
+	obj_cast_spell(obj->value[4], obj->value[0], ch, ch);
 
 	if (IS_PUMPED(ch) || ch->fighting != NULL)
 		WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
@@ -2063,12 +2063,11 @@ void do_quaff(CHAR_DATA * ch, const char *argument)
 
 void do_recite(CHAR_DATA * ch, const char *argument)
 {
-	char            arg1[MAX_INPUT_LENGTH];
-	char            arg2[MAX_INPUT_LENGTH];
-	CHAR_DATA      *victim;
-	OBJ_DATA       *scroll;
-	OBJ_DATA       *obj;
-	int		sn;
+	char arg1[MAX_INPUT_LENGTH];
+	char arg2[MAX_INPUT_LENGTH];
+	void *vo;
+	OBJ_DATA *scroll;
+	int sn;
 
 	if (HAS_SKILL(ch, gsn_spellbane)) {
 		char_puts ("RECITE? You are Battle Rager!\n", ch);
@@ -2094,11 +2093,10 @@ void do_recite(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	obj = NULL;
 	if (arg2[0] == '\0')
-		victim = ch;
-	else if ((victim = get_char_room(ch, arg2)) == NULL
-	&&       (obj = get_obj_here(ch, arg2)) == NULL) {
+		vo = ch;
+	else if ((vo = get_char_room(ch, arg2)) == NULL
+	&&       (vo = get_obj_here(ch, arg2)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		char_puts("You can't find it.\n", ch);
 		return;
@@ -2112,14 +2110,10 @@ void do_recite(CHAR_DATA * ch, const char *argument)
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		check_improve(ch, sn, FALSE, 2);
 	} else {
-		obj_cast_spell(scroll->value[1], scroll->value[0],
-			       ch, victim, obj);
-		obj_cast_spell(scroll->value[2], scroll->value[0],
-			       ch, victim, obj);
-		obj_cast_spell(scroll->value[3], scroll->value[0],
-			       ch, victim, obj);
-		obj_cast_spell(scroll->value[4], scroll->value[0],
-			       ch, victim, obj);
+		obj_cast_spell(scroll->value[1], scroll->value[0], ch, vo);
+		obj_cast_spell(scroll->value[2], scroll->value[0], ch, vo);
+		obj_cast_spell(scroll->value[3], scroll->value[0], ch, vo);
+		obj_cast_spell(scroll->value[4], scroll->value[0], ch, vo);
 		check_improve(ch, sn, TRUE, 2);
 
 		if (IS_PUMPED(ch) || ch->fighting != NULL)
@@ -2153,7 +2147,6 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 	}
 
 	if ((sk = skill_lookup(staff->value[3])) == NULL
-	||  sk->spell_fun == NULL
 	||  (sn = sn_lookup("staves")) < 0)
 		return;
 
@@ -2203,7 +2196,7 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 				}
 
 				obj_cast_spell(staff->value[3],
-					       staff->value[0], ch, vch, NULL);
+					       staff->value[0], ch, vch);
 				if (IS_SET(spell->skill_flags, SKILL_AREA_ATTACK))
 					break;
 			}
@@ -2222,11 +2215,10 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 
 void do_zap(CHAR_DATA * ch, const char *argument)
 {
-	char            arg[MAX_INPUT_LENGTH];
-	CHAR_DATA      *victim;
-	OBJ_DATA       *wand;
-	OBJ_DATA       *obj;
-	int		sn;
+	char arg[MAX_INPUT_LENGTH];
+	OBJ_DATA *wand;
+	void *vo;
+	int sn;
 	
 	if (HAS_SKILL(ch, gsn_spellbane)) {
 		char_puts("You'd destroy magic, not use it!\n",ch);
@@ -2246,45 +2238,42 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 	if ((sn = sn_lookup("wands")) < 0)
 		return;
 
-	obj = NULL;
 	if (arg[0] == '\0') {
 		if (ch->fighting && ch->fighting->in_room == ch->in_room)
-			victim = ch->fighting;
+			vo = ch->fighting;
 		else {
 			char_puts("Zap whom or what?\n", ch);
 			return;
 		}
 	}
-	else {
-		if ((victim = get_char_room(ch, arg)) == NULL
-		    && (obj = get_obj_here(ch, arg)) == NULL) {
-			WAIT_STATE(ch, MISSING_TARGET_DELAY);
-			char_puts("You can't find it.\n", ch);
-			return;
-		}
+	else if ((vo = get_char_room(ch, arg)) == NULL
+	&&       (vo = get_obj_here(ch, arg)) == NULL) {
+		WAIT_STATE(ch, MISSING_TARGET_DELAY);
+		char_puts("You can't find it.\n", ch);
+		return;
 	}
 
 	WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 
 	if (wand->value[2] > 0) {
-		if (victim != NULL) {
-			if (victim == ch) {
+		if (mem_is(vo, MT_CHAR)) {
+			if (vo == ch) {
 				act("$n zaps $mself with $p.",
-				    ch, wand, victim, TO_ROOM);
+				    ch, wand, vo, TO_ROOM);
 				act("You zap yourself with $p.",
-				    ch, wand, victim, TO_CHAR);
+				    ch, wand, vo, TO_CHAR);
 			}
 			else {
 				act("$n zaps $N with $p.",
-				    ch, wand, victim, TO_NOTVICT);
+				    ch, wand, vo, TO_NOTVICT);
 				act("$n zaps you with $p.",
-				    ch, wand, victim, TO_VICT);
+				    ch, wand, vo, TO_VICT);
 				act("You zap $N with $p.",
-				    ch, wand, victim, TO_CHAR);
+				    ch, wand, vo, TO_CHAR);
 			}
 		} else {
-			act("$n zaps $P with $p.", ch, wand, obj, TO_ROOM);
-			act("You zap $P with $p.", ch, wand, obj, TO_CHAR);
+			act("$n zaps $P with $p.", ch, wand, vo, TO_ROOM);
+			act("You zap $P with $p.", ch, wand, vo, TO_CHAR);
 		}
 
 		if (ch->level + 5 < wand->level
@@ -2295,8 +2284,7 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 			    ch, wand, NULL, TO_ROOM);
 			check_improve(ch, sn, FALSE, 2);
 		} else {
-			obj_cast_spell(wand->value[3], wand->value[0],
-				       ch, victim, obj);
+			obj_cast_spell(wand->value[3], wand->value[0], ch, vo);
 			check_improve(ch, sn, TRUE, 2);
 		}
 	}
@@ -3858,7 +3846,7 @@ void do_enchant(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 	ch->mana -= 100;
-	spell_enchant_weapon(24, ch->level, ch, obj, TARGET_OBJ);
+	spellfun_call("enchant weapon", ch->level, ch, obj);
 	check_improve(ch, sn, TRUE, 2);
 }
 
