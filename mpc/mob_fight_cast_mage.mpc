@@ -1,0 +1,153 @@
+/*
+ * $Id: mob_fight_cast_mage.mpc,v 1.1 2001-09-14 16:48:21 fjoe Exp $
+ */
+
+if (number_bits(2) != 0)
+        return 0;
+ 
+char victim = get_random_fighting($n);
+if (victim == NULL)
+        return 0;
+ 
+string spell;
+ 
+if (char_level($n) >= 20) {
+        switch (number_bits(4)) {
+        case 0:
+               spell = "blindness";
+               break;
+        case 1:
+               spell = "chill touch";
+               break;
+        case 2:
+               spell = "weaken";
+               break;
+        case 3:
+               spell = "teleport";
+               break;
+        case 4:
+               spell = "colour spray";
+               break;
+        case 5:
+        case 6:
+               spell = "energy drain";
+               break;
+        case 7:
+        case 8:
+        case 9:
+               spell = "fireball";
+               break;
+        case 10:
+               spell = "plague";
+               break;
+        default:
+               spell = "acid blast";
+               break;
+        }
+} else if (char_level($n) >= 15) {
+        switch (dice(1, 10)) {
+        case 1:
+               spell = "blindness";
+               break;
+        case 2:
+               spell = "chill touch";
+               break;
+        case 3:
+               spell = "weaken";
+               break;
+        case 4:
+               spell = "teleport";
+               break;
+        case 5:
+               spell = "colour spray";
+               break;
+        case 6:
+        case 7:
+               spell = "energy drain";
+               break;
+        case 8:
+        case 9:
+        case 10:
+               spell = "fireball";
+               break;
+        }
+} else if (char_level($n) >= 13) {
+        switch (dice(1, 7)) {
+        case 1:
+               spell = "blindness";
+               break;
+        case 2:
+               spell = "chill touch";
+               break;
+        case 3:
+               spell = "weaken";
+               break;
+        case 4:
+               spell = "teleport";
+               break;
+        case 5:
+               spell = "colour spray";
+               break;
+        case 6:
+        case 7:
+               spell = "energy drain";
+               break;
+        }
+} else if (char_level($n) >= 11) {
+        switch (dice(1, 5)) {
+        case 1:
+               spell = "blindness";
+               break;
+        case 2:
+               spell = "chill touch";
+               break;
+        case 3:
+               spell = "weaken";
+               break;
+        case 4:
+               spell = "teleport";
+               break;
+        case 5:
+               spell = "colour spray";
+               break;
+         }
+} else if (char_level($n) >= 8) {
+        switch (dice(1, 4)) {
+        case 1:
+               spell = "blindness";
+               break;
+        case 2:
+               spell = "chill touch";
+               break;
+        case 3:
+               spell = "weaken";
+               break;
+        case 4:
+               spell = "teleport";
+               break;
+         }
+} else if (char_level($n) >= 7) {
+        switch (dice(1, 3)) {
+        case 1:
+               spell = "blindness";
+               break;
+        case 2:
+               spell = "chill touch";
+               break;
+        case 3:
+               spell = "weaken";
+               break;
+        }
+} else if (char_level($n) >= 3) {
+        switch (dice(1, 2)) {
+        case 1:
+               spell = "blindness";
+               break;
+        case 2:
+               spell = "chill touch";
+               break;
+         }
+} else
+        spell = "blindness";
+cast_char(spell, $n, victim);
+return 0;

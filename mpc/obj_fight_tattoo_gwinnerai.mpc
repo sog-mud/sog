@@ -1,0 +1,14 @@
+/*
+ * $Id: obj_fight_tattoo_gwinnerai.mpc,v 1.1 2001-09-14 16:48:23 fjoe Exp $
+ */
+
+switch (number_bits(4)) {
+case 0:
+case 1:
+       act("The tattoo on your shoulder glows {Wwhite{x.",
+           $n, NULL, NULL, TO_CHAR);
+       dofun("say", $n, "My honour is my life.");
+       one_hit($n, char_fighting($n), NULL, WEAR_WIELD);
+       break;
+}
+return 0;

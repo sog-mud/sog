@@ -1,0 +1,18 @@
+/*
+ * $Id: obj_speech_kassandra_matandra.mpc,v 1.1 2001-09-14 16:48:17 fjoe Exp $
+ */
+
+char victim = char_fighting($n);
+
+if (get_eq_char($n, WEAR_HOLD) != $p
+||  victim == NULL)
+        return 0;
+ 
+act("A blast of energy bursts from your hand towards $N!",
+    $n, NULL, victim, TO_CHAR);
+act("A blast of energy bursts from $n's hand towards you!",
+    $n, NULL, victim, TO_VICT);
+act("A blast of energy bursts from $n's hand toward $N!",
+    $n, NULL, victim, TO_NOTVICT);
+spellfun_call("matandra", NULL, char_level($n), $n, victim);
+return 0;

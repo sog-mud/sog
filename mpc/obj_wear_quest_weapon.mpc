@@ -1,0 +1,24 @@
+/*
+ * $Id: obj_wear_quest_weapon.mpc,v 1.1 2001-09-14 16:48:19 fjoe Exp $
+ */
+
+if (!is_owner($n, $p)) {
+        act("You are zapped by $p and drop it.", $n, $p, NULL, TO_CHAR);
+        obj_to_room($p, char_room($n));
+        return 1;
+}
+ 
+int level = char_level($n);
+int dice_type;
+if (level <= 20)
+        dice_type = 3;
+else if (level <= 30)
+        dice_type = 4;
+else if (level <= 40)
+        dice_type = 5;
+else
+        dice_type = 6;
+set_weapon_dice_type($p, dice_type);
+set_obj_level($p, level);
+act("Your $p starts glowing.", $n, $p, NULL, TO_CHAR);
+return 0;

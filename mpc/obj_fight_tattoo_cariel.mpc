@@ -1,0 +1,18 @@
+/*
+ * $Id: obj_fight_tattoo_cariel.mpc,v 1.1 2001-09-14 16:48:20 fjoe Exp $
+ */
+
+switch (number_bits(5)) {
+case 0:
+case 1:
+       act("The tattoo on your shoulder glows {Cblue{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("cure critical wounds", NULL, char_level($n), $n, $n);
+       break;
+case 2:
+       act("The tattoo on your shoulder glows {Cblue{x.",
+           $n, NULL, NULL, TO_CHAR);
+       spellfun_call("heal", NULL, char_level($n), $n, $n);
+       break;
+}
+return 0;

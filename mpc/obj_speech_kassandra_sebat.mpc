@@ -1,0 +1,9 @@
+/*
+ * $Id: obj_speech_kassandra_sebat.mpc,v 1.1 2001-09-14 16:48:17 fjoe Exp $
+ */
+
+if (get_eq_char($n, WEAR_HOLD) != $p)
+        return 0;
+ 
+spellfun_call("sebat", NULL, char_level($n), $n, $n);
+return 0;

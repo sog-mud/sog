@@ -1,0 +1,12 @@
+/*
+ * $Id: obj_sac_excalibur.mpc,v 1.1 2001-09-14 16:48:16 fjoe Exp $
+ */
+
+act("The gods are infuriated!", $n, NULL, NULL, TO_ALL);
+int hit = char_hit($n);
+damage($n, $n,
+       hit - 1 > 1000 ? 1000 : hit - 1,
+       NULL, DAM_HOLY, DAMF_SHOW | DAMF_HIT);
+set_char_gold($n, 0);
+set_char_silver($n, 0);
+return 1;

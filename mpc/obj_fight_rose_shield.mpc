@@ -1,0 +1,18 @@
+/*
+ * $Id: obj_fight_rose_shield.mpc,v 1.1 2001-09-14 16:48:18 fjoe Exp $
+ */
+
+room r = char_room($n);
+char victim = char_fighting($n);
+ 
+if (room_sector(r) != SECT_FIELD 
+&&  room_sector(r) != SECT_FOREST
+&&  room_sector(r) != SECT_MOUNTAIN
+&&  room_sector(r) != SECT_HILLS)
+        return 0;
+ 
+act("The leaves of your $p grows suddently.", $n, $p, NULL, TO_CHAR);
+act("The leaves of $n's $p surrounds you!", $n, $p, victim, TO_VICT);
+act("The leaves of $n's $p grows suddently.", $n, $p, NULL, TO_NOTVICT);
+spellfun_call("slow", NULL, char_level($n), $n, victim);
+return 0;

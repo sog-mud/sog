@@ -1,0 +1,13 @@
+/*
+ * $Id: mob_fight_cast_judge.mpc,v 1.1 2001-09-14 16:48:24 fjoe Exp $
+ */
+
+if (number_bits(2) != 0)
+        return 0;
+
+char victim = get_random_fighting($n);
+if (victim == NULL)
+        return 0;
+
+cast_char("high explosive", $n, victim);
+return 0;
