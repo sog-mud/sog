@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.75 1998-10-14 11:04:51 fjoe Exp $
+ * $Id: act_wiz.c,v 1.76 1998-10-17 09:43:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4338,3 +4338,8 @@ DO_FUN(do_strstat)
 			"Allocated: %d\n\r",
 		    str_count, str_real_count);
 }
+
+DO_FUN(do_grant)
+{
+}
+

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.34 1998-10-12 08:47:45 fjoe Exp $
+ * $Id: mob_prog.c,v 1.35 1998-10-17 09:44:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -114,7 +114,9 @@ enum {
 	CHK_WIS,
 	CHK_DEX,
 	CHK_CON,
-	CHK_CHA
+	CHK_CHA,
+	CHK_WAIT,
+	CHK_SAMECLAN,
 };
 
 /*
@@ -200,7 +202,8 @@ const char * fn_keyword[] =
     "dex",
     "con",
     "cha",
-    "candetect",
+    "wait",
+    "sameclan",
 
     "\n"		/* Table terminator */
 };
@@ -545,6 +548,10 @@ int cmd_eval(int vnum, const char *line, int check,
 	    return(lval_char != NULL && mob->mprog_target == lval_char);
 	case CHK_ISGHOST:
 		return (lval_char && IS_SET(lval_char->act, PLR_GHOST));
+	case CHK_WAIT:
+		return (lval_char && lval_char->wait);
+	case CHK_SAMECLAN:
+		return (lval_char && lval_char->clan == mob->clan);
 	default:;
      }
 

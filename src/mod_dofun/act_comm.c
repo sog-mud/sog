@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.98 1998-10-14 12:37:09 fjoe Exp $
+ * $Id: act_comm.c,v 1.99 1998-10-17 09:43:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1385,7 +1385,7 @@ bool proper_order(CHAR_DATA *ch, const char *argument)
 
 	trust = get_trust(ch);
 
-	for (cmd_num = 0; cmd_table[cmd_num].name[0] != '\0'; cmd_num++)
+	for (cmd_num = 0; cmd_table[cmd_num].name; cmd_num++)
 		if (command[0] == cmd_table[cmd_num].name[0]
 		&& !str_prefix(command, cmd_table[cmd_num].name)
 		&& cmd_table[cmd_num].level <= trust) {

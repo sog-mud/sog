@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.25 1998-10-11 17:42:05 fjoe Exp $
+ * $Id: interp.h,v 1.26 1998-10-17 09:44:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,8 +58,6 @@
 #define IM	LEVEL_IMMORTAL 	/* angel */
 #define HE	LEVEL_HERO	/* hero */
 
-#define COM_INGORE	1
-
 /*
  * Structure for a command in the command lookup table.
  */
@@ -70,8 +68,7 @@ struct	cmd_type
 	int		position;
 	int		level;
 	int		log;
-	int		show;
-	int		extra;
+	int		flags;
 };
 
 /* the command table itself */

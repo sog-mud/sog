@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.69 1998-10-13 12:38:06 fjoe Exp $
+ * $Id: spellfun.c,v 1.70 1998-10-17 09:44:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -70,7 +70,6 @@ const char *target_name;
 void do_cast(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
-	char arg2[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	OBJ_DATA *obj;
 	void *vo;
@@ -99,15 +98,15 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	}
 
 	target_name = one_argument(argument, arg1);
-	one_argument(target_name, arg2);
-
 	if (arg1[0] == '\0') {
 		char_puts("Cast which what where?\n\r", ch);
 		return;
 	}
 
 	if (IS_NPC(ch)) {
-		if (ch->wait) {
+		if (!str_cmp(arg1, "nowait"))
+			target_name = one_argument(argument, arg1);
+		else if (ch->wait) {
 			log_printf("%s: wait state %d", ch->name, ch->wait);
 			return;
 		}
@@ -187,7 +186,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		break;
 
 	case TAR_CHAR_OFFENSIVE:
-		if (arg2[0] == '\0') {
+		if (target_name[0] == '\0') {
 			if ((victim = ch->fighting) == NULL) {
 				char_puts("Cast the spell on whom?\n\r", ch);
 				return;
@@ -247,8 +246,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		break;
 
 	case TAR_CHAR_DEFENSIVE:
-		if (arg2[0] == '\0')
-		    victim = ch;
+		if (target_name[0] == '\0')
+			victim = ch;
 		else {
 			if ((victim = get_char_room(ch, target_name)) == NULL) {
 				char_puts("They aren't here.\n\r", ch);
@@ -276,10 +275,10 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		break;
 
 	case TAR_CHAR_SELF:
-		if (arg2[0] != '\0' && !is_name(target_name, ch->name))
-		{
-		    char_puts("You cannot cast this spell on another.\n\r", ch);
-		    return;
+		if (target_name[0] != '\0' && !is_name(target_name, ch->name)) {
+			char_puts("You cannot cast this spell on another.\n\r",
+				  ch);
+			return;
 		}
 
 		vo = (void *) ch;
@@ -296,16 +295,15 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		break;
 
 	case TAR_OBJ_INV:
-		if (arg2[0] == '\0')
-		{
-		    char_puts("What should the spell be cast upon?\n\r", ch);
-		    return;
+		if (target_name[0] == '\0') {
+			char_puts("What should the spell be cast upon?\n\r",
+				  ch);
+			return;
 		}
 
-		if ((obj = get_obj_carry(ch, target_name)) == NULL)
-		{
-		    char_puts("You are not carrying that.\n\r", ch);
-		    return;
+		if ((obj = get_obj_carry(ch, target_name)) == NULL) {
+			char_puts("You are not carrying that.\n\r", ch);
+			return;
 		}
 
 		vo = (void *) obj;
@@ -320,20 +318,16 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		break;
 
 	case TAR_OBJ_CHAR_OFF:
-		if (arg2[0] == '\0')
-		{
-		    if ((victim = ch->fighting) == NULL)
-		    {
-			char_puts("Cast the spell on whom or what?\n\r",ch);
-			return;
-		    }
-
-		    target = TARGET_CHAR;
+		if (target_name[0] == '\0') {
+			if ((victim = ch->fighting) == NULL) {
+				char_puts("Cast the spell on whom or what?\n\r",
+				ch);
+				return;
+			}
+			target = TARGET_CHAR;
 		}
-		else if ((victim = get_char_room(ch,target_name)) != NULL)
-		{
-		    target = TARGET_CHAR;
-		}
+		else if ((victim = get_char_room(ch,target_name)))
+			target = TARGET_CHAR;
 
 		if (target == TARGET_CHAR) /* check the sanity of the attack */
 		{
@@ -363,7 +357,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		break;
 
 	case TAR_OBJ_CHAR_DEF:
-		if (arg2[0] == '\0')
+		if (target_name[0] == '\0')
 		{
 		    vo = (void *) ch;
 		    target = TARGET_CHAR;

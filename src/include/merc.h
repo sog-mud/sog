@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.101 1998-10-14 18:10:18 fjoe Exp $
+ * $Id: merc.h,v 1.102 1998-10-17 09:44:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -73,9 +73,10 @@
 #include "skills.h"
 #include "religion.h"
 
-#define	CMD_KEEP_HIDE	A
-#define CMD_NOORDER	B
-#define CMD_CHARMED_OK	C
+#define	CMD_KEEP_HIDE	(A)
+#define CMD_NOORDER	(B)
+#define CMD_CHARMED_OK	(C)
+#define CMD_HIDDEN	(D)
 
 struct ethos_type {
 	char *name;
