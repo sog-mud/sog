@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.369 2004-03-03 13:08:22 tatyana Exp $
+ * $Id: fight.c,v 1.370 2004-03-03 13:52:01 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3455,6 +3455,20 @@ damage2(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 		}
 		dam -= dam / 4;
 	}
+
+	if (is_sn_affected(victim, "ice sphere")) {
+		int dam_ice;
+		dam_ice = dam * (2 * get_skill(victim, "ice sphere") - 100) / 300;
+		if (dam_ice > 0) {
+			act("{C$n is frozen by $N's ice sphere.{x",
+			    ch, NULL, victim, TO_ROOM | ACT_VERBOSE);
+			act("{C$N's ice sphere freezes your flesh.{x",
+			    ch, NULL, victim, TO_CHAR | ACT_VERBOSE);
+			damage(victim, ch, dam_ice, "ice sphere", DAM_F_NONE);
+		}
+		dam -= dam / 4;
+	}
+
 
 	if (is_sn_affected(victim, "golden aura")) {
 		if (IS_GOOD(ch)) /* Goodies shouldn't fight each other */

@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.68 2004-03-03 12:43:51 tatyana Exp $
+ * $Id: prayers.c,v 1.69 2004-03-03 13:52:00 tatyana Exp $
  */
 
 /***************************************************************************
@@ -158,6 +158,7 @@ DECLARE_SPELL_FUN(prayer_spear_of_death);
 DECLARE_SPELL_FUN(prayer_sleep_of_grave);
 DECLARE_SPELL_FUN(prayer_wind_blow);
 DECLARE_SPELL_FUN(prayer_tornado);
+DECLARE_SPELL_FUN(prayer_ice_sphere);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -2660,6 +2661,8 @@ static struct mutually_exclusive_spells mx_sancs[] = {
 		"Hot fire sphere around $N protects $gN{him} well enough."},
 	{ "death ward",		"Death ward already protects you.",
 		"Death ward already protects $N."},
+	{ "ice sphere",		"But sparkling ice sphere already protects you well.",
+		"Sparkling ice sphere around $N protects $gN{him} well enought."},
 	{ NULL,	NULL, NULL }
 };
 
@@ -3833,4 +3836,31 @@ SPELL_FUN(prayer_tornado, sn, level, ch, vo)
 		      "Tornado picks up you!",
 		      "Tornado appears from nowhere and drops $n to the ground.");
 
+}
+SPELL_FUN(prayer_ice_sphere, sn, level, ch, vo)
+{
+        AFFECT_DATA *paf;
+
+        if (is_sn_affected(ch, sn)) {
+                act_puts("Ice sphere already surrounds you.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
+        };
+
+	if (!can_cast_sanctuary(ch, ch))
+		return;
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->type      = sn;
+	paf->level     = level;
+	paf->duration  = UMAX (2, level/4);
+	paf->modifier  = 0;
+	paf->bitvector = 0;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
+	act("Water freezes around you forming sparkling ice sphere.",
+	    ch, NULL, NULL, TO_CHAR);
+	act("Water freezes around $n forming sparkling ice sphere.",
+	    ch, NULL, NULL, TO_ROOM);
 }
