@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.66 1999-06-17 05:46:42 fjoe Exp $
+ * $Id: skills.c,v 1.67 1999-06-17 19:28:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -338,11 +338,11 @@ void check_improve(CHAR_DATA *ch, int sn, bool success, int multiplier)
 				ps->percent = 100;
 			gain_exp(ch, 2 * rating);
 			if (ps->percent == 100) {
-				act_puts("{gYou learn from your mistakes and you manage to master {W%s{g!{x",
+				act_puts("{gYou learn from your mistakes and you manage to master {W$t{g!{x",
 					 ch, skill_name(sn), NULL,
 					 TO_CHAR, POS_DEAD);
 			} else {
-				act_puts("{gYou learn from your mistakes and your {W%s{g skill improves!{x",
+				act_puts("{gYou learn from your mistakes and your {W$t{g skill improves!{x",
 					 ch, skill_name(sn), NULL,
 					 TO_CHAR, POS_DEAD);
 			}

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.204 1999-06-17 12:41:14 avn Exp $
+ * $Id: merc.h,v 1.205 1999-06-17 19:28:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -478,6 +478,7 @@ where_t *where_lookup(flag32_t where);
 #define ACT_CLAN_GUARD		(ff)
 #define ACT_SUMMONED		(gg)		/* summoned (golem etc.)*/
 #define ACT_SAGE		(hh)		/* sage (Otho etc.)	*/
+#define ACT_REPAIRMAN		(ii)
 
 /* damage classes */
 #define DAM_NONE		0
@@ -1303,7 +1304,6 @@ struct char_data
 	CHAR_DATA *		mprog_target;
 	CHAR_DATA *	 	guarding;
 	CHAR_DATA * 		guarded_by;
-	SPEC_FUN *		spec_fun;
 	MOB_INDEX_DATA *	pIndexData;
 	DESCRIPTOR_DATA *	desc;
 	AFFECT_DATA *		affected;
@@ -1799,8 +1799,12 @@ void SET_ORG_RACE(CHAR_DATA *ch, int race);
 				 1 : UMAX((ch)->wait, (npulse)))
 #define RESET_WAIT_STATE(ch)	((ch)->wait = 1)
 #define DAZE_STATE(ch, npulse)	((ch)->daze = UMAX((ch)->daze, (npulse)))
-#define get_carry_weight(ch)	((ch)->carry_weight + (ch)->silver/10 +  \
-						      (ch)->gold * 2 / 5)
+
+#define COINS_WEIGHT(gold, silver) ((silver) / 10 + (gold) * 2 / 5)
+#define get_carry_weight(ch)	((ch)->carry_weight +			\
+				 COINS_WEIGHT((ch)->silver, (ch)->gold))
+#define MONEY_WEIGHT(obj)	COINS_WEIGHT(obj->value[0], obj->value[1])
+
 #define HAS_TRIGGER(ch,trig)	(IS_SET((ch)->pIndexData->mptrig_types,(trig)))
 #define IS_SWITCHED( ch )       (ch->desc && ch->desc->original)
 #define IS_BUILDER(ch, Area)	(!IS_NPC(ch) && !IS_SWITCHED(ch) &&	\
@@ -2227,7 +2231,8 @@ bool guild_ok(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
 
 /* act_obj.h */
 bool can_loot		(CHAR_DATA *ch, OBJ_DATA *obj);
-void get_obj		(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container);
+void get_obj		(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
+			 const char *msg_others);
 int floating_time	(OBJ_DATA *obj);
 bool may_float		(OBJ_DATA *obj);
 bool cant_float 	(OBJ_DATA *obj);

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.96 1999-06-17 05:46:41 fjoe Exp $
+ * $Id: martial_art.c,v 1.97 1999-06-17 19:28:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -109,7 +109,7 @@ void disarm(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 		if (IS_NPC(victim)
 		&&  victim->wait == 0
 		&&  can_see_obj(victim,obj))
-			get_obj(victim, obj, NULL);
+			get_obj(victim, obj, NULL, NULL);
 	}
 
 	if ((obj2 = get_eq_char(victim, WEAR_SECOND_WIELD)) != NULL) {

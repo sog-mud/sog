@@ -1,5 +1,5 @@
 /*
- * $Id: auction_impl.c,v 1.38 1999-06-10 22:29:49 fjoe Exp $
+ * $Id: auction_impl.c,v 1.39 1999-06-17 19:28:02 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -179,6 +179,7 @@ int parsebet (const int currentbet, const char *argument)
 
 void auction_give_obj(CHAR_DATA* victim)
 {
+	int carry_w, carry_n;
 	OBJ_DATA *obj = auction.item;
 
 	act("The auctioneer appears before you in a puff of smoke\n"
@@ -186,16 +187,23 @@ void auction_give_obj(CHAR_DATA* victim)
 	act("The auctioneer appears before $n and hands $m $p.",
 	    victim, obj, NULL, TO_ROOM);
 
-	if (victim->carry_weight + get_obj_weight(obj) >
-	    can_carry_w(victim)) {
+	if ((carry_w = can_carry_w(victim)) >= 0
+	&&  victim->carry_weight + get_obj_weight(obj) > carry_w) {
 		act("$p is too heavy for you to carry.",
 		    victim, obj, NULL, TO_CHAR);
 		act("$n is carrying too much to carry $p and $e drops it.",
 		    victim, obj, NULL, TO_ROOM);
 		obj_to_room (obj, victim->in_room);
-	}
-	else
+	} else if ((carry_n = can_carry_n(victim)) >= 0
+	       &&  victim->carry_number + get_obj_number(obj) > carry_n) {
+		act("You can't carry that many items and you drop $p.",
+		    victim, obj, NULL, TO_CHAR);
+		act("$n is carrying too many items and $e drops $p.",
+		    victim, obj, NULL, TO_ROOM);
+		obj_to_room (obj, victim->in_room);
+	} else {
 		obj_to_char (obj, victim);
+	}
 	auction.item = NULL;
 }
 

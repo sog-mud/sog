@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.155 1999-06-10 23:39:53 fjoe Exp $
+ * $Id: db.c,v 1.156 1999-06-17 19:28:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -963,7 +963,6 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 	mlstr_cpy(&mob->short_descr, &pMobIndex->short_descr);
 	mlstr_cpy(&mob->long_descr, &pMobIndex->long_descr);
 	mlstr_cpy(&mob->description, &pMobIndex->description);
-	mob->spec_fun	= pMobIndex->spec_fun;
 	mob->class	= 0;
 
 	if (pMobIndex->wealth) {
@@ -1188,7 +1187,6 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->dam_type		= parent->dam_type;
 	clone->start_pos	= parent->start_pos;
 	clone->default_pos	= parent->default_pos;
-	clone->spec_fun		= parent->spec_fun;
 	clone->hunting		= NULL;
 	clone->clan		= parent->clan;
 

@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.48 1999-06-17 05:46:42 fjoe Exp $
+ * $Id: special.c,v 1.49 1999-06-17 19:28:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -318,7 +318,8 @@ bool spec_patrolman(CHAR_DATA *ch)
 	}
 
 	if (victim == NULL
-	||  (IS_NPC(victim) && victim->spec_fun == ch->spec_fun))
+	||  (IS_NPC(victim) &&
+	     victim->pIndexData->spec_fun == ch->pIndexData->spec_fun))
 		return FALSE;
 
 	if (((obj = get_eq_char(ch,WEAR_NECK_1)) != NULL &&
@@ -741,7 +742,7 @@ bool spec_janitor(CHAR_DATA *ch)
 	OBJ_DATA *trash_next;
 
 	if (!IS_AWAKE(ch))
-	return FALSE;
+		return FALSE;
 
 	for (trash = ch->in_room->contents; trash != NULL; trash = trash_next) {
 		trash_next = trash->next_content;
@@ -751,9 +752,7 @@ bool spec_janitor(CHAR_DATA *ch)
 		if (trash->pIndexData->item_type == ITEM_DRINK_CON
 		||  trash->pIndexData->item_type == ITEM_TRASH
 		||  trash->cost < 10) {
-			act("$n picks up some trash.", ch, NULL, NULL, TO_ROOM);
-			obj_from_room(trash);
-			obj_to_char(trash, ch);
+			get_obj(ch, trash, NULL, "$n picks up some trash.");
 			return TRUE;
 		}
 	}

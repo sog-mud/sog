@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.140 1999-06-17 05:46:42 fjoe Exp $
+ * $Id: update.c,v 1.141 1999-06-17 19:28:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -642,8 +642,8 @@ void mobile_update(void)
 			continue;
 
 		/* Examine call for special procedure */
-		if (ch->spec_fun != 0) {
-			if ((*ch->spec_fun) (ch))
+		if (ch->pIndexData->spec_fun != 0) {
+			if (ch->pIndexData->spec_fun(ch))
 				continue;
 		}
 
@@ -773,7 +773,7 @@ void mobile_update(void)
 			}
 
 			if (obj_best)
-				get_obj(ch, obj_best, NULL);
+				get_obj(ch, obj_best, NULL, NULL);
 		}
 
 /* Wander */

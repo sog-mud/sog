@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.150 1999-06-17 05:46:38 fjoe Exp $
+ * $Id: act_obj.c,v 1.151 1999-06-17 19:28:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -87,11 +87,13 @@ bool can_loot(CHAR_DATA * ch, OBJ_DATA * obj)
 	return TRUE;
 }
 
-void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
+void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container,
+	     const char *msg_others)
 {
 	/* variables for AUTOSPLIT */
 	CHAR_DATA      *gch;
 	int             members;
+	int		carry_w, carry_n;
 
 	if (!CAN_WEAR(obj, ITEM_TAKE)
 	||  (obj->pIndexData->item_type == ITEM_CORPSE_PC &&
@@ -115,13 +117,15 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 		}
 	}
 
-	if (ch->carry_number + get_obj_number(obj) > can_carry_n(ch)) {
+	if ((carry_n = can_carry_n(ch)) >= 0
+	&&  ch->carry_number + get_obj_number(obj) > carry_n) {
 		act_puts("$P: you can't carry that many items.",
 			 ch, NULL, obj, TO_CHAR, POS_DEAD);
 		return;
 	}
 
-	if (get_carry_weight(ch) + get_obj_weight(obj) > can_carry_w(ch)) {
+	if ((carry_w = can_carry_w(ch)) >= 0
+	&&  get_carry_weight(ch) + get_obj_weight(obj) > carry_w) {
 		act_puts("$P: you can't carry that much weight.",
 			 ch, NULL, obj, TO_CHAR, POS_DEAD);
 		return;
@@ -138,8 +142,8 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 	}
 
 	if (obj->pIndexData->item_type == ITEM_MONEY) {
-		if (get_carry_weight(ch) + obj->value[0] / 10
-		    + obj->value[1] * 2 / 5 > can_carry_w(ch)) {
+		if (carry_w >= 0
+		&&  get_carry_weight(ch) + MONEY_WEIGHT(obj) > carry_w) {
 			act_puts("$d: you can't carry that much weight.",
 				 ch, NULL, obj->name, TO_CHAR, POS_DEAD);
 			return;
@@ -154,14 +158,16 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 
 		act_puts("You get $p from $P.",
 			 ch, obj, container, TO_CHAR, POS_DEAD);
-		act("$n gets $p from $P.", ch, obj, container,
+		act(msg_others == NULL ? "$n gets $p from $P." : msg_others,
+		    ch, obj, container,
 		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
 
 		obj_from_obj(obj);
 	}
 	else {
 		act_puts("You get $p.", ch, obj, container, TO_CHAR, POS_DEAD);
-		act("$n gets $p.", ch, obj, container,
+		act(msg_others == NULL ? "$n gets $p." : msg_others,
+		    ch, obj, container,
 		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
 
 		obj_from_room(obj);
@@ -199,6 +205,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *obj, *obj_next;
 	OBJ_DATA       *container;
 	bool            found;
+
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
 
@@ -220,7 +227,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 				return;
 			}
 
-			get_obj(ch, obj, NULL);
+			get_obj(ch, obj, NULL, NULL);
 		} else {
 			/* 'get all' or 'get all.obj' */
 			found = FALSE;
@@ -230,7 +237,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 				if ((arg1[3] == '\0' || is_name(arg1+4, obj->name))
 				&& can_see_obj(ch, obj)) {
 					found = TRUE;
-					get_obj(ch, obj, NULL);
+					get_obj(ch, obj, NULL, NULL);
 				}
 			}
 
@@ -245,6 +252,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 		}
 		return;
 	}
+
 	/* 'get ... container' */
 	if (!str_cmp(arg2, "all") || !str_prefix("all.", arg2)) {
 		char_puts("You can't do that.\n", ch);
@@ -255,6 +263,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 			 ch, NULL, arg2, TO_CHAR, POS_DEAD);
 		return;
 	}
+
 	switch (container->pIndexData->item_type) {
 	default:
 		char_puts("That is not a container.\n", ch);
@@ -284,7 +293,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 				 ch, NULL, arg2, TO_CHAR, POS_DEAD);
 			return;
 		}
-		get_obj(ch, obj, container);
+		get_obj(ch, obj, container, NULL);
 	} else {
 		/* 'get all container' or 'get all.obj container' */
 		found = FALSE;
@@ -301,7 +310,7 @@ void do_get(CHAR_DATA * ch, const char *argument)
 						 POS_DEAD);
 					return;
 				}
-				get_obj(ch, obj, container);
+				get_obj(ch, obj, container, NULL);
 			}
 		}
 
@@ -660,6 +669,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 	char            arg[MAX_INPUT_LENGTH];
 	CHAR_DATA      *victim;
 	OBJ_DATA       *obj;
+	int carry_w, carry_n;
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -804,13 +814,16 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (victim->carry_number + get_obj_number(obj) > can_carry_n(victim)) {
+	if ((carry_n = can_carry_n(victim)) >= 0
+	&&  victim->carry_number + get_obj_number(obj) > carry_n) {
 		act("$N has $S hands full.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
-	if (get_carry_weight(victim) + get_obj_weight(obj) > can_carry_w(victim)) {
-		act("$N can't carry that much weight.", ch, NULL, victim, TO_CHAR);
+	if ((carry_w = can_carry_w(victim)) >= 0
+	&&  get_carry_weight(victim) + get_obj_weight(obj) > carry_w) {
+		act("$N can't carry that much weight.",
+		    ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
@@ -2287,6 +2300,7 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *obj_inve;
 	int             percent;
 	int		sn;
+	int		carry_n, carry_w;
 	
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
@@ -2298,7 +2312,7 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 
 	if (IS_NPC(ch) && IS_SET(ch->affected_by, AFF_CHARM)
 	    && (ch->master != NULL)) {
-		char_puts("You are to dazed to steal anything.\n", ch);
+		char_puts("You are too dazed to steal anything.\n", ch);
 		return;
 	}
 
@@ -2420,14 +2434,19 @@ void do_steal(CHAR_DATA * ch, const char *argument)
 		char_puts("You can't pry it away.\n", ch);
 		return;
 	}
-	if (ch->carry_number + get_obj_number(obj) > can_carry_n(ch)) {
+
+	if ((carry_n = can_carry_n(ch)) >= 0
+	&&  ch->carry_number + get_obj_number(obj) > carry_n) {
 		char_puts("You have your hands full.\n", ch);
 		return;
 	}
-	if (ch->carry_weight + get_obj_weight(obj) > can_carry_w(ch)) {
+
+	if ((carry_w = can_carry_w(ch)) >= 0
+	&&  ch->carry_weight + get_obj_weight(obj) > carry_w) {
 		char_puts("You can't carry that much weight.\n", ch);
 		return;
 	}
+
 	if (!IS_SET(obj->extra_flags, ITEM_INVENTORY)) {
 		obj_from_char(obj);
 		obj_to_char(obj, ch);
@@ -2718,6 +2737,7 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 	OBJ_DATA       *obj, *t_obj;
 	char            arg[MAX_INPUT_LENGTH];
 	uint		number, count = 1;
+	int		carry_w, carry_n;
 
 	if ((keeper = find_keeper(ch)) == NULL)
 		return;
@@ -2778,14 +2798,19 @@ void do_buy(CHAR_DATA * ch, const char *argument)
 		ch->reply = keeper;
 		return;
 	}
-	if (ch->carry_number + number * get_obj_number(obj) > can_carry_n(ch)) {
+
+	if ((carry_n = can_carry_n(ch)) >= 0
+	&&  ch->carry_number + number * get_obj_number(obj) > carry_n) {
 		char_puts("You can't carry that many items.\n", ch);
 		return;
 	}
-	if (ch->carry_weight + number * get_obj_weight(obj) > can_carry_w(ch)) {
+
+	if ((carry_w = can_carry_w(ch)) >= 0
+	&&  ch->carry_weight + number * get_obj_weight(obj) > carry_w) {
 		char_puts("You can't carry that much weight.\n", ch);
 		return;
 	}
+
 	/* haggle */
 	roll = number_percent();
 	if (!IS_OBJ_STAT(obj, ITEM_SELL_EXTRACT)
@@ -3569,6 +3594,7 @@ void do_withdraw(CHAR_DATA * ch, const char *argument)
 	int	fee;
 	bool	silver = FALSE;
 	char	arg[MAX_INPUT_LENGTH];
+	int carry_w;
 
 	if (IS_NPC(ch)) {
 		char_puts("You don't have a bank account.\n", ch);
@@ -3608,8 +3634,9 @@ void do_withdraw(CHAR_DATA * ch, const char *argument)
 
 	fee = UMAX(1, amount * (silver ? 10 : 2) / 100);
 	
-	if (get_carry_weight(ch) + (amount - fee) * (silver ? 4 : 1) / 10 >
-							can_carry_w(ch)) {
+	if ((carry_w = can_carry_w(ch)) >= 0
+	&&  get_carry_weight(ch) + (amount - fee) * (silver ? 4 : 1) / 10 >
+							carry_w) {
 		char_puts("You can't carry that weight.\n", ch);
 		return;
 	}

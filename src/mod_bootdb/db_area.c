@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.51 1999-06-10 23:39:53 fjoe Exp $
+ * $Id: db_area.c,v 1.52 1999-06-17 19:28:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -984,7 +984,7 @@ DBLOAD_FUN(load_specials)
 		case 'M':
 		    pMobIndex		= get_mob_index	(fread_number (fp));
 		    pMobIndex->spec_fun	= spec_lookup	(fread_word   (fp));
-		    if (pMobIndex->spec_fun == 0) {
+		    if (pMobIndex->spec_fun == NULL) {
 			db_error("load_specials", "'M': vnum %d.",
 				 pMobIndex->vnum);
 			return;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.248 1999-06-17 05:46:37 fjoe Exp $
+ * $Id: act_info.c,v 1.249 1999-06-17 19:27:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2426,6 +2426,7 @@ void do_request(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	OBJ_DATA  *obj;
 	AFFECT_DATA af;
+	int carry_w, carry_n;
 
 	if (is_affected(ch, gsn_reserved)) {
 		char_puts("Wait for a while to request again.\n", ch);
@@ -2495,12 +2496,14 @@ void do_request(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->carry_number + get_obj_number(obj) > can_carry_n(ch)) {
+	if ((carry_n = can_carry_n(ch)) >= 0
+	&&  ch->carry_number + get_obj_number(obj) > carry_n) {
 		char_puts("Your hands are full.\n", ch);
 		return;
 	}
 
-	if (ch->carry_weight + get_obj_weight(obj) > can_carry_w(ch)) {
+	if ((carry_w = can_carry_w(ch)) >= 0
+	&&  ch->carry_weight + get_obj_weight(obj) > carry_w) {
 		char_puts("You can't carry that much weight.\n", ch);
 		return;
 	}
@@ -3609,6 +3612,7 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *victim;
 	OBJ_DATA  *obj;
 	int chance;
+	int carry_w, carry_n;
 
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
@@ -3662,7 +3666,6 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-
 	if (obj->wear_loc != WEAR_NONE)
 		unequip_char(victim, obj);
 
@@ -3672,12 +3675,14 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->carry_number + get_obj_number(obj) > can_carry_n(ch)) {
+	if ((carry_n = can_carry_n(ch)) >= 0
+	&&  ch->carry_number + get_obj_number(obj) > carry_n) {
 		char_puts("Your hands are full.\n", ch);
 		return;
 	}
 
-	if (ch->carry_weight + get_obj_weight(obj) > can_carry_w(ch)) {
+	if ((carry_w = can_carry_w(ch)) >= 0
+	&&  ch->carry_weight + get_obj_weight(obj) > carry_w) {
 		char_puts("You can't carry that much weight.\n", ch);
 		return;
 	}

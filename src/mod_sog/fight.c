@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.180 1999-06-17 05:56:35 fjoe Exp $
+ * $Id: fight.c,v 1.181 1999-06-17 19:28:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -122,7 +122,7 @@ void get_gold_corpse(CHAR_DATA *ch, OBJ_DATA *corpse)
 	for (tmp = corpse->contains; tmp; tmp = tmp_next) {
 		tmp_next = tmp->next_content;
 		if (tmp->pIndexData->item_type == ITEM_MONEY)
-			get_obj(ch, tmp, corpse);
+			get_obj(ch, tmp, corpse, NULL);
 	}
 }
 

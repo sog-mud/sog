@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.156 1999-06-17 05:46:38 fjoe Exp $
+ * $Id: act_wiz.c,v 1.157 1999-06-17 19:28:01 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1428,9 +1428,9 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(victim))
 		mlstr_dump(output, "Long description: ", &victim->long_descr);
 
-	if (IS_NPC(victim) && victim->spec_fun != 0)
+	if (IS_NPC(victim) && victim->pIndexData->spec_fun != 0)
 		buf_printf(output, "Mobile has special procedure %s.\n",
-			   spec_name(victim->spec_fun));
+			   spec_name(victim->pIndexData->spec_fun));
 
 	for (paf = victim->affected; paf != NULL; paf = paf->next) {
 	    buf_printf(output, "Spell: '{c%s{x' ", skill_name(paf->type));

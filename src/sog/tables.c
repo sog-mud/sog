@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.69 1999-06-17 12:41:14 avn Exp $
+ * $Id: tables.c,v 1.70 1999-06-17 19:28:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -117,6 +117,7 @@ flag_t act_flags[] =
 	{ "clan_guard",		ACT_CLAN_GUARD,		TRUE	},
 	{ "summoned",		ACT_SUMMONED,		TRUE	},
 	{ "sage",		ACT_SAGE,		TRUE	},
+	{ "repairman",		ACT_REPAIRMAN,		TRUE	},
 
 	{ NULL }
 };

@@ -1,5 +1,5 @@
 /*
- * $Id: repair.c,v 1.21 1999-06-17 05:46:41 fjoe Exp $
+ * $Id: repair.c,v 1.22 1999-06-17 19:28:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -84,6 +84,8 @@ void damage_to_obj(CHAR_DATA *ch, OBJ_DATA *wield, OBJ_DATA *worn, int damage)
 	}
 }
 
+DECLARE_SPEC_FUN(spec_repairman);
+
 void do_repair(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *mob;
@@ -91,17 +93,14 @@ void do_repair(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *obj;
 	int cost;
 
-	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
-	{
-	    if (!IS_NPC(mob)) continue;
-	if (mob->spec_fun == spec_lookup("spec_repairman"))
-	        break;
+	for (mob = ch->in_room->people; mob; mob = mob->next_in_room) {
+		if (IS_NPC(mob) && IS_SET(mob->pIndexData->act, ACT_REPAIRMAN))
+			break;
 	}
  
-	if (mob == NULL)
-	{
-	    char_puts("You can't do that here.\n", ch);
-	    return;
+	if (mob == NULL) {
+		char_puts("You can't do that here.\n", ch);
+		return;
 	}
 
 	one_argument(argument, arg, sizeof(arg));
@@ -159,11 +158,9 @@ void do_estimate(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	int cost;
 	
-	for (mob = ch->in_room->people; mob; mob = mob->next_in_room)
-	{
-	    if (!IS_NPC(mob)) continue;
-	if (mob->spec_fun == spec_lookup("spec_repairman"))
-	        break;
+	for (mob = ch->in_room->people; mob; mob = mob->next_in_room) {
+		if (IS_NPC(mob) && IS_SET(mob->pIndexData->act, ACT_REPAIRMAN))
+			break;
 	}
  
 	if (mob == NULL)

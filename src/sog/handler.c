@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.160 1999-06-17 05:46:39 fjoe Exp $
+ * $Id: handler.c,v 1.161 1999-06-17 19:28:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -372,16 +372,22 @@ int age_to_num(int age)
 	return  age * 72000;
 }
 
+DECLARE_SPEC_FUN(spec_janitor);
+
 /*
  * Retrieve a character's carry capacity.
  */
 int can_carry_n(CHAR_DATA *ch)
 {
 	if (IS_IMMORTAL(ch))
-		return 1000;
+		return -1;
 
-	if (IS_NPC(ch) && IS_SET(ch->pIndexData->act, ACT_PET))
-		return 0;
+	if (IS_NPC(ch)) {
+		if (IS_SET(ch->pIndexData->act, ACT_PET))
+			return 0;
+		if (ch->pIndexData->spec_fun == spec_janitor)
+			return -1;
+	}
 
 	return MAX_WEAR + get_curr_stat(ch,STAT_DEX) - 10 + ch->size;
 }
@@ -392,10 +398,14 @@ int can_carry_n(CHAR_DATA *ch)
 int can_carry_w(CHAR_DATA *ch)
 {
 	if (IS_IMMORTAL(ch))
-		return 10000000;
+		return -1;
 
-	if (IS_NPC(ch) && IS_SET(ch->pIndexData->act, ACT_PET))
-		return 0;
+	if (IS_NPC(ch)) {
+		if (IS_SET(ch->pIndexData->act, ACT_PET))
+			return 0;
+		if (ch->pIndexData->spec_fun == spec_janitor)
+			return -1;
+	}
 
 	return str_app[get_curr_stat(ch,STAT_STR)].carry * 10 + ch->level * 25;
 }
