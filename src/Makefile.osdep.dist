@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.osdep.dist,v 1.14 2003-09-08 15:42:50 fjoe Exp $
+# $Id: Makefile.osdep.dist,v 1.15 2003-09-19 13:38:33 fjoe Exp $
 #
 
 #
@@ -12,6 +12,7 @@ BINGRP!=	id -gn
 # for FreeBSD
 #CFLAGS+=	-DBSD44
 #LDADD+=		-lcrypt
+#COMPAT_SRCS=	${DLMALLOC_SRCS}
 
 #
 # for Linux
