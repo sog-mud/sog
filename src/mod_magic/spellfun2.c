@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.199 2000-11-17 17:14:19 avn Exp $
+ * $Id: spellfun2.c,v 1.200 2000-11-17 19:19:48 avn Exp $
  */
 
 /***************************************************************************
@@ -2619,6 +2619,12 @@ void spell_bone_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
+	if (is_affected(ch, sn)) {
+		act("You are still tired from growing previous one.",
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
+
 	coc = create_mob(get_mob_index(MOB_VNUM_COCOON), 0);
 
 	for (i = 0; i < MAX_STAT; i++)
@@ -2638,14 +2644,17 @@ void spell_bone_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	coc->master = ch;
 
 	af.where	= TO_AFFECTS;
-	af.type		= "bone dragon";
+	af.type		= sn;
 	af.level	= 0;
-	af.duration	= level / 3;
+	af.duration	= 2 * level / 3;
 	af.modifier	= 0;
 	af.bitvector	= 0;
 	INT(af.location)= APPLY_NONE;
 	af.owner	= NULL;
 	affect_to_char(coc, &af);
+
+	af.duration	= 100;
+	affect_to_char(ch, &af);
 
 	char_to_room(coc,ch->in_room);
 

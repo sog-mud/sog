@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.21 2000-11-17 17:14:19 avn Exp $
+ * $Id: eventfun.c,v 1.22 2000-11-17 19:19:48 avn Exp $
  */
 
 
@@ -332,7 +332,16 @@ EVENT_FUN(event_updatechar_crippled_hands)
 
 EVENT_FUN(event_updatechar_bonedragon)
 {
-	if (af->duration < 3 && ch->master)
+	if (!IS_NPC(ch)
+	|| !ch->master
+	|| ch->pMobIndex->vnum != MOB_VNUM_COCOON)
+		return;
+
+	if (af->modifier > 0 && --af->modifier == 0)
+		act("You feel it is time to feed your dragon.",
+			ch->master, NULL, NULL, TO_CHAR);
+
+	if (af->duration < 3)
 		act("You feel your dragon is about to hatch.",
 			ch->master, NULL, NULL, TO_CHAR);
 }
@@ -342,7 +351,16 @@ EVENT_FUN(event_timeoutchar_bonedragon)
 	CHAR_DATA *chm, *drag;
 	int i, dlev;
 
-	if (!IS_NPC(ch)	|| ch->pMobIndex->vnum != MOB_VNUM_COCOON)
+	if (!IS_NPC(ch))
+		return;
+
+	if (ch->pMobIndex->vnum == MOB_VNUM_BONE_DRAGON && ch->leader) {
+		act("You feel it is time to feed your dragon.",
+			ch->leader, NULL, NULL, TO_CHAR);
+		return;
+	}
+
+	if (ch->pMobIndex->vnum != MOB_VNUM_COCOON)
 		return;
 
 	if ((chm = ch->master) == NULL || chm->in_room != ch->in_room) {
@@ -352,7 +370,7 @@ EVENT_FUN(event_timeoutchar_bonedragon)
 		return;
 	}
 
-	dlev = chm->level * 2 / 3 + af->level / 14;
+	dlev = UMIN(chm->level + 10, chm->level * 2 / 3 + af->level / 14);
 
 	act("Cocoon explodes and nasty dracolich emerges!",
 	    ch, NULL, NULL, TO_ALL);
@@ -384,7 +402,7 @@ EVENT_FUN(event_timeoutchar_bonedragon)
 	        PC(chm)->pet = drag;
 	} 
 	else
-		act("But you already have a pet.", ch, NULL, NULL, TO_CHAR);
+		act("But you already have a pet.", chm, NULL, NULL, TO_CHAR);
 
 	char_to_room(drag, ch->in_room);
 	extract_char(ch, 0);

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.172 2000-11-17 17:14:20 avn Exp $
+ * $Id: save.c,v 1.173 2000-11-17 19:19:48 avn Exp $
  */
 
 /***************************************************************************
@@ -449,10 +449,19 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp, int flags)
 	fprintf(fp, "Pos %d\n", pet->position = POS_FIGHTING ? POS_STANDING : pet->position);
 	if (pet->alignment != pet->pMobIndex->alignment)
 		fprintf(fp, "Alig %d\n", pet->alignment);
+	if (pet->damroll != pet->pMobIndex->damage[DICE_BONUS])
+		fprintf(fp, "Damr %d\n", pet->damroll);
+	if (NPC(pet)->dam.dice_number != pet->pMobIndex->damage[DICE_NUMBER] ||
+	    NPC(pet)->dam.dice_type != pet->pMobIndex->damage[DICE_TYPE])
+		fprintf(fp, "Damd %d %d\n",
+			NPC(pet)->dam.dice_number,
+			NPC(pet)->dam.dice_type);
 	fprintf(fp, "Attr %d %d %d %d %d %d\n",
 		pet->perm_stat[STAT_STR], pet->perm_stat[STAT_INT],
 		pet->perm_stat[STAT_WIS], pet->perm_stat[STAT_DEX],
 		pet->perm_stat[STAT_CON], pet->perm_stat[STAT_CHA]);
+	fprintf(fp, "AC %d %d %d %d\n",
+		pet->armor[0], pet->armor[1], pet->armor[2], pet->armor[3]);
 
 	aff_fwrite_list("Affc", pet->affected, fp);
 	fprintf(fp, "End\n\n");
@@ -985,6 +994,15 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 		case 'A':
 			KEY("Alig", pet->alignment, fread_number(fp));
 
+			if (IS_TOKEN(fp, "AC")) {
+				int i;
+
+				for (i = 0; i < 4; i++)
+					pet->armor[i] = fread_number(fp);
+				fMatch = TRUE;
+				break;
+			}
+
 			if (IS_TOKEN(fp, "Affc")) {
 				AFFECT_DATA *paf = aff_fread(fp);
 				if (PC(ch)->version < 12
@@ -1026,6 +1044,17 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 
 		case 'D':
 			MLSKEY("Desc", pet->description);
+			if (IS_TOKEN(fp, "Damr")) {
+				pet->damroll = fread_number(fp);
+				fMatch = TRUE;
+				break;
+			}
+			if (IS_TOKEN(fp, "Damd")) {
+				NPC(pet)->dam.dice_number = fread_number(fp);
+				NPC(pet)->dam.dice_type = fread_number(fp);
+				fMatch = TRUE;
+				break;
+			}
 			break;
 
 		case 'E':

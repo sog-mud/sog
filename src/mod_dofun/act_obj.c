@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.225 2000-11-17 17:14:18 avn Exp $
+ * $Id: act_obj.c,v 1.226 2000-11-17 19:19:47 avn Exp $
  */
 
 /***************************************************************************
@@ -759,12 +759,6 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_affected(ch, "bone dragon")) {
-		act("Your pet might get too fat and clumsy.", 
-		    ch, NULL, NULL, TO_CHAR);
-		return;
-	}
-
 	for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {
 		if (vch->master == ch && IS_NPC(vch)
 		&&  (vch->pMobIndex->vnum == MOB_VNUM_COCOON ||
@@ -797,6 +791,11 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 		if (vch->position == POS_FIGHTING) {
 			do_say(vch, "Tasty. But let's finish that fight "
 				    "before meal!");
+			return;
+		}
+		if (is_affected(vch, "bone dragon")) {
+			act("Your pet might get too fat and clumsy",
+				ch, NULL, NULL, TO_CHAR);
 			return;
 		}
 
@@ -853,11 +852,6 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 
 		affect_to_char(vch, &af);
 
-		af.where	= TO_AFFECTS;
-		af.bitvector	= 0;
-		INT(af.location)= APPLY_NONE;
-		af.duration	= 3;
-		affect_to_char(ch, &af);
 		extract_obj(obj, 0);
 		return;
 	}
@@ -867,24 +861,22 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 			break;
 
 	if (!paf) {
-		log(LOG_BUG, "do_feed: bone dragon w/o affect");
+		log(LOG_BUG, "do_feed: bone dragon cocoon w/o affect");
+		return;
+	}
+
+	if (paf->modifier > 0) {
+		act("Your pet might get too fat and clumsy.",
+			ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
 	paf->level += obj->level;
+	paf->modifier = 3;
 
 	act("Cocoon opens, devours $P and then closes again.",
 	    vch, NULL,obj,TO_ROOM);
 
-	af.where	= TO_AFFECTS;
-	af.type		= "bone dragon";
-	af.level	= ch->level;
-	af.duration	= 2;
-	af.modifier	= 0;
-	af.bitvector	= 0;
-	INT(af.location)= APPLY_NONE;
-	af.owner	= NULL;
-	affect_to_char(ch, &af);
 	extract_obj(obj, 0);
 }
 
