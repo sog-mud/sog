@@ -133,9 +133,7 @@ Get back to questor before your time runs out!
 @eng You can't find it.
 @rus Ты не можешь найти этого.
 ~
-@eng The clouds disappear.
-@rus Небо прояснилось.
-~
+@eng The clouds disappear.@rus Небо прояснилось.~
 @eng $n wakes and sits on $p.@rus $n просыпается и садится на $p.~
 @eng $n picks up some trash.@rus $n подбирает мусор.~
 @eng $n fades into existence.@rus $n появляется словно ниоткуда.~
@@ -196,9 +194,7 @@ Get back to questor before your time runs out!
 @eng {Rfighting{x@rus {Rсражаешься{x~
 @eng You slam into $d, and try to break $d!@rus Ты с разбегу ударяешься в $d!~
 @eng You feel quite confident with $p.@rus Ты чувствуешь себя уверенно с $p.~
-@eng The day has begun.
-@rus Начинается новый день.
-~
+@eng The day has begun.@rus Начинается новый день.~
 @eng Recall is for only levels below 10.
 @rus Реколл только для тех, кто меньше 10 левела.
 ~
@@ -496,9 +492,7 @@ Get back to questor before your time runs out!
 @eng This beast is already ridden.
 @rus Этот зверь уже оседлан.
 ~
-@eng The sun rises in the east.
-@rus Восток озарился светом восходящего солнца.
-~
+@eng The sun rises in the east.@rus Восток озарился светом восходящего солнца.~
 @eng $p feels like a part of you!@rus $p выглядит частью тебя!~
 @eng $n stupidly tries to push $N while webbed.@rus $n, как дурак, пытается толкнуть $N, болтаясь в паутине.~
 @eng scatter on the dirt.~
@@ -556,9 +550,7 @@ Get back to questor before your time runs out!
 @eng Open what?
 @rus Открыть что?
 ~
-@eng It starts to rain.
-@rus Начинается дождь.
-~
+@eng It starts to rain.@rus Начинается дождь.~
 @eng $n eats $p.@rus $n ест $p.~
 @eng You wear $p around your left wrist.@rus Ты надеваешь $p на левое запястье.~
 @eng $n wakes you.@rus $n будит тебя.~
@@ -714,9 +706,7 @@ Get back to questor before your time runs out!
 @eng Wow. One gold coin.
 @rus Ух ты. Целый золотой.
 ~
-@eng The night has begun.
-@rus Сгустились сумерки и наступила ночь.
-~
+@eng The night has begun.@rus Сгустились сумерки и наступила ночь.~
 @eng Examine what?
 @rus Проверить что?
 ~
@@ -744,9 +734,7 @@ You peek at the inventory:
 ~
 @eng You wear $p around your right wrist.@rus Ты надеваешь $p на правое запястье.~
 @eng You get $p from $P.@rus Ты достаешь $p из $P.~
-@eng The lightning has stopped.
-@rus Гроза кончилась.
-~
+@eng The lightning has stopped.@rus Гроза кончилась.~
 @eng ({DUndead{x) @rus ({DВосставший{x) ~
 @eng $p holds:@rus $p содержит:~
 @eng $n wears $p on $s feet.@rus $n обувается в $p.~
@@ -922,9 +910,7 @@ Use 'desc edit' to edit your description.
 @eng You aren't allowed in there.
 @rus Тебе туда нельзя.
 ~
-@eng Lightning flashes in the sky.
-@rus Молния озарила небо.
-~
+@eng Lightning flashes in the sky.@rus Молния озарила небо.~
 @eng ({RRed Aura{x) @rus ({RКрасная Аура{x) ~
 @eng You aren't mounted.
 @rus Ты сейчас не верхом.
@@ -954,9 +940,7 @@ Use 'desc edit' to edit your description.
 @eng This scroll is too complex for you to comprehend.
 @rus Этот свиток слишком сложен для твоего понимания.
 ~
-@eng The rain stopped.
-@rus Дождь прекратился.
-~
+@eng The rain stopped.@rus Дождь прекратился.~
 @eng excellent@rus идеальное~
 @eng average@rus среднее~
 @eng You wear $p on your hands.@rus Ты надеваешь $p на руки.~
@@ -1303,9 +1287,7 @@ Players found: %d. Most so far today: %d.
 @eng You can't escape while being ridden.
 @rus Ты не можешь убегать оседланным.
 ~
-@eng The sun slowly disappears in the west.
-@rus Солнце медленно опустилось за горизонт.
-~
+@eng The sun slowly disappears in the west.@rus Солнце медленно опустилось за горизонт.~
 @eng No lines left to remove.
 @rus Больше нечего удалять.
 ~
@@ -1378,9 +1360,7 @@ Players found: %d. Most so far today: %d.
 @eng You are STUNNED to do that.
 @rus Ты оглушен и не можешь этого сделать.
 ~
-@eng The sky is getting cloudy.
-@rus Небо затянулось тучами.
-~
+@eng The sky is getting cloudy.@rus Небо затянулось тучами.~
 @eng Drop what?
 @rus Бросить что?
 ~
