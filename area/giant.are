@@ -1168,7 +1168,7 @@ Z 0 13030
 D1
 ~
 gold door
-~
+~
 ABZ 0 13078
 D2
 ~
@@ -1177,7 +1177,7 @@ Z 0 13032
 D3
 ~
 dark door
-~
+~
 ABZ 0 13077
 S
 #13032
@@ -1210,7 +1210,7 @@ Z 0 13032
 D1
 ~
 wooden door
-~
+~
 ABZ 0 13075
 D2
 ~
@@ -1219,7 +1219,7 @@ Z 0 13034
 D3
 ~
 ivory door
-~
+~
 ABZ 0 13076
 S
 #13034
@@ -1252,7 +1252,7 @@ Z 0 13034
 D1
 ~
 iron door
-~
+~
 ABZ 0 13073
 D2
 ~
@@ -1261,7 +1261,7 @@ Z 0 13036
 D3
 ~
 black door
-~
+~
 ABZ 0 13074
 S
 #13036
@@ -1642,12 +1642,12 @@ cell doors.
 D0
 ~
 cell door
-~
+~
 ABZ 0 13058
 D1
 ~
 cell door
-~
+~
 ABZ 0 13059
 D2
 ~
@@ -1667,7 +1667,7 @@ thievery, or prisoner of war, your cell is the same. Small and Cold.
 D2
 ~
 cell door
-~
+~
 ABZ 0 13057
 S
 #13059
@@ -1679,7 +1679,7 @@ thievery, or prisoner of war, your cell is the same. Small and Cold.
 D3
 ~
 cell door
-~
+~
 ABZ 0 13057
 S
 #13060
@@ -1691,7 +1691,7 @@ thievery, or prisoner of war, your cell is the same. Small and Cold.
 D3
 ~
 cell door
-~
+~
 ABZ 0 13061
 S
 #13061
@@ -1708,12 +1708,12 @@ Z 0 13057
 D1
 ~
 cell door
-~
+~
 ABZ 0 13060
 D2
 ~
 cell door
-~
+~
 ABZ 0 13064
 D3
 ~
@@ -1773,7 +1773,7 @@ thievery, or prisoner of war, your cell is the same. Small and Cold.
 D0
 ~
 cell door
-~
+~
 Z 0 13061
 S
 #13065
@@ -1785,7 +1785,7 @@ thievery, or prisoner of war, your cell is the same. Small and Cold.
 D0
 ~
 cell door
-~
+~
 ABZ 0 13067
 S
 #13066
@@ -1827,12 +1827,12 @@ Z 0 13066
 D2
 ~
 cell door
-~
+~
 ABZ 0 13065
 D3
 ~
 cell door
-~
+~
 ABZ 0 13068
 S
 #13068
@@ -1844,7 +1844,7 @@ thievery, or prisoner of war, your cell is the same. Small and Cold.
 D1
 ~
 cell door
-~
+~
 ABZ 0 13067
 S
 #13069
@@ -1856,7 +1856,7 @@ thievery, or prisoner of war, your cell is the same. Small and Cold.
 D1
 ~
 cell door
-~
+~
 ABZ 0 13070
 S
 #13070
@@ -1870,7 +1870,7 @@ north and west.
 D0
 ~
 cell door
-~
+~
 ABZ 0 13072
 D1
 ~
@@ -1883,7 +1883,7 @@ Z 0 13067
 D3
 ~
 cell door
-~
+~
 ABZ 0 13069
 S
 #13071
@@ -1915,7 +1915,7 @@ thievery, or prisoner of war, your cell is the same. Small and Cold.
 D2
 ~
 cell door
-~
+~
 ABZ 0 13070
 S
 #13073

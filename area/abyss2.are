@@ -1672,7 +1672,7 @@ Z -1 25032
 D3
 ~
 door ruined
-~
+~
 Z 25050 25034
 S
 #25034
@@ -1992,7 +1992,7 @@ through which you can see a path along a vast mountain range.
 D0
 ~
 door
-~
+~
 ABCFZ 25056 25050
 S
 #25052
@@ -2064,8 +2064,8 @@ Z -1 25056
 D3
 ~
 double door
-doors
-~
+doors
+~
 ABZ 25053 25054
 S
 #25056
@@ -2291,7 +2291,7 @@ The altar seems to glow with a sort of inner light....
 D0
 ~
 door ajar
-~
+~
 Z -1 25082
 D1
 ~
@@ -2304,7 +2304,7 @@ Z -1 25086
 D3
 ~
 door
-~
+~
 Z -1 25080
 D5
 ~
