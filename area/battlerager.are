@@ -10,13 +10,15 @@ End
 #MOBILES
 #95400
 Powerman~
-the Powerman~
-The Powerman of martial arts is here.
+@eng the Powerman@rus Богатырь~
+@eng The Powerman of martial arts is here.
+@rus Мастер (Powerman) боевых искусств стоит здесь.
 ~
-This old giant warrior has spent all his time on martial arts. He 
+@eng This old giant warrior has spent all his time on martial arts. He 
 never believed the power of magic. He never used potions, wands or 
 staffs. Even he had never used a magical item. Those shows how he
 hates magic.
+@rus Этот гигантский воин потратил всю свою жизнь на военные искусства. Он не верит в силу магии. Он никогда не использует жезлы, посохи и другие магические предметы. Он очень сильно ненавидит магию.
 ~
 giant~
 ABJKTVef DFlmt 0 0
@@ -29,11 +31,13 @@ M grall 95400 100~
 C BattleRager~
 #95401
 Gordall~
-Gordall~
-Gordall the weaponsmith is here to sell his fine works.
+@eng Gordall@rus Гордалл~
+@eng Gordall the weaponsmith is here to sell his fine works.
+@rus Оружейник Гордалл (Gordall) продает здесь великолепное оружие.
 ~
-After spending all his years as a weaponsmaster, Gordall sells his
+@eng After spending all his years as a weaponsmaster, Gordall sells his
 proficiencies on his weapons.
+@rus Проработав всю свою жизнь оружейных дел мастером, Гордалл продает сделанное им оружие.
 ~
 human~
 ABTVe DFHVe 800 0
@@ -44,12 +48,14 @@ stand stand male 0
 0 0 medium unknown
 #95402
 wiseman~
-A Wiseman~
-A wiseman is here taking care of the young battleragers.
+@eng A Wiseman@rus Мудрец~
+@eng A wiseman is here taking care of the young battleragers.
+@rus Мудрец (Wiseman) стоит здесь и заботится о юных членах клана.
 ~
-Although he never attempted to learn magic, the wiseman can heal
+@eng Although he never attempted to learn magic, the wiseman can heal
 haters of magic by his beneficial herbs. If you need help just 
 	say 'aid me wiseman'
+@rus Хотя мудрец никогда и не изучал магию, он может вылечить ненавидящих ее при помощи лечебных трав. Если вым нужна помощь, скажите "Вылечи меня мудрец".
 ~
 human~
 ABQVae DFH 1000 0
@@ -58,17 +64,19 @@ ABQVae DFH 1000 0
 FHIK ABC D 0
 stand stand male 5000
 0 0 medium unknown
+C BattleRager~
 #0
 
 #OBJECTS
 #95400
 key~
-a bone key~
-A key, made of bone, is lying on the ground.~
+@eng a bone key@rus костяной ключ~
+@eng A key, made of bone, is lying on the ground.@rus Ключ (key), сделанный из кости, лежит на земле.~
 bone~
 key ORYf AO
 0 0 0 0 0
 40 4 0 P
+G none
 #95401
 skull~
 @eng Skull of mage@rus Череп мага~
@@ -77,14 +85,16 @@ bone~
 treasure ORe AO
 0 0 0 0 0
 0 1 100000 P
+G none
 #95402
 white throne~
-A white throne~
-A large white throne made from bones is standing in front of the wall here.~
+@eng A white throne@rus белый трон~
+@eng A large white throne made from bones is standing in front of the wall here.@rus Большой белый трон (throne), сделанный из костей, стои возле стены.~
 bone~
 container ORY P
 10 ABCD 95400 15 100
 60 1 20 P
+G none
 #95403
 pit~
 the pit for donations~
@@ -97,6 +107,7 @@ E
 pit~
 This pit is for battleragers, in order to donate themselves.
 ~
+G none
 #95404
 water fall waterfall~
 Waterfall~
@@ -106,30 +117,34 @@ water~
 portal AO 0
 0 0 B 5281 0
 0 0 0 P
+G none
 #95405
 dagger fine gordall~
-a fine dagger~
-A fine dagger lies upon the ground.~
+@eng a fine dagger@rus изящный кинжал~
+@eng A fine dagger lies upon the ground.@rus Изящный кинжал (dagger) лежит на земле.~
 adamantite~
 weapon 0 AN
 dagger 4 7 pierce DE
 32 450 5600 P
+G none
 #95406
 sword fine gordall~
-a fine sword~
-A fine sword lies upon the ground.~
+@eng a fine sword@rus изящный меч~
+@eng A fine sword lies upon the ground.@rus Изящный меч (sword) лежит на земле.~
 adamantite~
 weapon 0 AN
 sword 5 6 slash DE
 33 450 5600 P
+G none
 #95407
 axe fine gordall~
-a fine two-handed axe~
-A fine two-handed axe lies upon the ground.~
+@eng a fine two-handed axe@rus изящный двуручный топор~
+@eng A fine two-handed axe lies upon the ground.@rus Изящный двуручный топор (axe) лежит на земле.~
 adamantite~
 weapon 0 AN
 axe 6 6 cleave DF
 36 450 5600 P
+G none
 #0
 
 #ROOMS
@@ -278,10 +293,12 @@ Z -1 95405
 S
 #95408
 @eng The Shrine of Battleragers@rus Святыня клана Battlerager~
-You are in front of a large white throne made from bones. There are
+@eng You are in front of a large white throne made from bones. There are
 shelves line the walls, upon them there are many jars inside of which are
 blood and heads of magicians. 
   A stone tabled placed on the wall, here.
+@rus Перед вами находится большой белый трон, сделанный из костей. Вдоль стен тянутся полки на которых стоят кувшины, наполненные кровью и головами магов.
+На стене висит каменная табличка.
 ~
 0 KWX city
 E

@@ -37,6 +37,19 @@ AB JP 0 0
 0 0 B Z
 stand stand none 0
 0 0 medium unknown
+#36105
+no name ruhanor ruhabor rumak~
+Rumak~
+Rumak is here, aiding criminals.
+~
+~
+minotaur~
+Qa HV -1000 0
+30 10 1d1+20000 20d100+25000 5d5+18 punch
+0 0 0 0
+0 0 0 0
+stand stand male 0
+0 0 small unknown
 #0
 
 #OBJECTS

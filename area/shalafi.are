@@ -48,6 +48,7 @@ ABQVae DFH 1000 0
 FHIK ABC D 0
 stand stand male 1000
 0 0 medium unknown
+C Shalafi~
 #95302
 fiery red demon~
 a fiery demon~
@@ -78,6 +79,7 @@ ivory~
 container AORY P
 10 ABCD 95302 15 100
 60 1 20 P
+G none
 #95301
 orb~
 Orb of Magic~
@@ -86,6 +88,7 @@ ebony~
 treasure AGRe A
 0 0 0 0 0
 0 1 100000 P
+G none
 #95302
 key~
 a spider shaped key~
@@ -94,6 +97,7 @@ steel~
 key ORYf AO
 0 0 0 0 0
 40 4 0 P
+G none
 #95303
 white object portal~
 @eng Magical White Portal@rus Белый магический портал~
@@ -103,6 +107,7 @@ energy~
 portal AO 0
 0 0 D 9209 0
 0 0 0 P
+G none
 #95304
 black object portal~
 @eng Magical Black Portal@rus Черный магический портал~
@@ -112,6 +117,7 @@ energy~
 portal AO 0
 0 0 E 0 0
 0 0 0 P
+G none
 #95305
 sofa~
 @eng sofa of meditation@rus Софа для медитации~
@@ -120,6 +126,7 @@ unknown~
 furniture GRT P
 BD 0 HK DGH DGH
 0 0 0 P
+G none
 #0
 
 #ROOMS

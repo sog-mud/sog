@@ -26,6 +26,7 @@
 ~
 @eng  is resting on %s.@rus  отдыхает на %s.~
 @eng the most so far today@rus это максимум на сегодня~
+@eng gold coins@rus золотые монеты~
 @eng You hold $p in your hand.@rus Ты берешь $p в руку.~
 @eng Time left for current quest: {W%d{x.
 @rus У тебя осталось {W%d{x мин. на выполнение текущего задания.
@@ -225,6 +226,7 @@ Use 'desc edit' to edit your description.
 @rus Ты пытаешься замаскироваться.
 ~
 @eng ({yFade{x) @rus ({yБлекло{x) ~
+@eng silver coins@rus серебряные монеты~
 @eng There are %d silver coins in the pile.
 @rus В этой куче %d серебрянных монет.
 ~
@@ -661,7 +663,6 @@ You peek at the inventory:
 @eng This unworthy container won't hold $p.@rus В этот дурацкий контейнер не влезает $p.~
 @eng Come back later.@rus Приходи попозже~
 @eng $n bites you!@rus $n кусает тебя!~
-@eng Your sacrifice reveals $p.@rus На жертвенном костре осталось $p.~
 @eng You lock $p.@rus Ты замыкаешь $p.~
 @eng That beast is too powerful for you to ride.@rus Этот зверь слишком сильный для того, чтобы ездить на нем верхом.~
 @eng $n prays upper lord for transportation!@rus $n молит всевышнего о переносе!~
@@ -1020,7 +1021,6 @@ Get back to questor before your time runs out!
 @eng You wake and sit on $p.@rus Ты просыпаешься и садишься на $p.~
 @eng You put $p in $P.@rus Ты кладешь $p в $P.~
 @eng I do not have that item, {W%s{z.@rus У меня этого нет, {W%s{z.~
-@eng $p is revealed by $n's sacrifice.@rus $p осталось на жертвенном костре $n.~
 @eng $d: you can't carry that many items.@rus $d: ты не можешь унести так много вещей.~
 @eng  is standing here.@rus  стоит здесь.~
 @eng ({bImproved{x) @rus ({bУл. Невидимость{x) ~

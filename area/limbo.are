@@ -120,7 +120,7 @@ This noble squire is serving his apprenticeship in the ways of honor
 and chivalry under his master.
 ~
 human~
-ATc FHJNVf 1000 0
+ATc FHJNSVf 1000 0
 20 3 16d15+160 1d1+149 3d10+12 slash
 0 0 0 0
 EN 0 AB M
@@ -291,34 +291,34 @@ stand stand male 100000
 #1
 coin silver gcash монета серебряная монетка серебряный~
 @eng a silver coin@rus ~~серебряная~~ ~~монетка~~~
-@eng One miserable silver coin.@rus Одна маленькая серебряная монетка.~
+@eng One miserable silver coin.@rus Маленькая серебряная монетка (coin).~
 silver~
 money 0 A
 0 1 0 0 0
 0 10 0 P
 G none
 #2
-coin gold gcash золотая золотой монета~
+gold gcash золотая золотой монета coin~
 @eng a gold coin@rus ~~золотая~~ ~~монета~~~
-@eng One valuable gold coin.@rus Одна ценная золотая монета.~
+@eng One valuable gold coin.@rus Ценная золотая монета (gold).~
 gold~
 money 0 A
-1 1 0 0 0
+1 0 0 0 0
 0 10 0 P
 G none
 #3
-coins gold gcash~
-%d gold coins~
-@eng A pile of gold coins.@rus Несколько золотых монет.~
+gold gcash coins золотые монеты золотой~
+@eng %d %s@rus %d ~~%s~~~
+@eng A pile of gold coins.@rus Несколько золотых монет (gold).~
 gold~
 money 0 A
 0 0 0 0 0
 0 10 0 P
 G none
 #4
-coins silver gcash~
-%d silver coins~
-@eng A pile of silver coins.@rus Несколько серебряных монет.~
+coins silver gcash серебряные монеты серебряный~
+@eng %d %s@rus %d ~~%s~~~
+@eng A pile of silver coins.@rus Несколько серебряных монет (coins).~
 silver~
 money 0 A
 0 0 0 0 0
@@ -326,8 +326,8 @@ money 0 A
 G none
 #5
 coins silver gold gcash~
-%d silver coins and %d gold coins~
-@eng A pile of coins.@rus Кучка монет.~
+@eng %d %s and %d %s@rus %d ~~%s~~ и %d ~~%s~~~
+@eng A pile of coins.@rus Кучка монет (coins).~
 gold~
 money 0 A
 0 0 0 0 0

@@ -23,6 +23,7 @@ ABQVae DFH 1000 0
 FHIK ABC D 0
 stand stand male 1000
 0 0 medium unknown
+C Knight~
 #95201
 knight protector guard~
 the protector~
@@ -108,6 +109,7 @@ gold~
 key ORYf AO
 0 0 0 0 0
 40 4 0 P
+G none
 #95201
 altar~
 the altar~
@@ -116,6 +118,7 @@ gold~
 container ORY P
 10 ABCD 95200 15 100
 60 1 20 P
+G none
 #95202
 large medal honor~
 Large medal of honor~
@@ -124,6 +127,7 @@ gold~
 treasure ORe AO
 0 0 0 0 0
 0 1 100000 P
+G none
 #0
 
 #ROOMS

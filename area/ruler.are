@@ -46,6 +46,7 @@ ABWa DFHJVZ 0 0
 CEFNU AB C S
 stand stand male 0
 0 0 medium unknown
+C Ruler~
 #0
 
 #OBJECTS
@@ -57,6 +58,7 @@ ivory~
 container ORY P
 10 ABCD 95102 15 100
 60 1 20 P
+G none
 #95101
 law laws book~
 @eng the book of laws@rus Кодекс~
@@ -65,6 +67,7 @@ paper~
 treasure ORe AO
 0 0 0 0 0
 0 1 100000 P
+G none
 #95102
 roll paper rolled~
 @eng a rolled paper@rus бумажный свиток~
@@ -78,6 +81,7 @@ paper~
 @eng There are some secret codes written here, in order to open something.
 @rus Секретные коды, написанные здесь, несомненно открывают что-то.
 ~
+G none
 #95103
 sofa silk~
 @eng a silk sofa@rus обитый шелком диван~
@@ -87,6 +91,7 @@ silk~
 furniture 0 0
 AB DFGHIJ BHKN BCEH BCEH
 20 400 100000 P
+G none
 #0
 
 #ROOMS

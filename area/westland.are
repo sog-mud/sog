@@ -53,7 +53,8 @@ c L huge unknown
 #10003
 gar long tail гар длиннохвостый~
 @eng a long-tailed gar@rus длиннохвостый гар~
-@eng Длиннохвостый гар (gar) подкрадывается к тебе из-за деревьев.
+@eng A long-tailed Gar stalks you deep in the woods. 
+@rus Длиннохвостый гар (gar) подкрадывается к тебе из-за деревьев.
 ~
 @eng You see a giant flesh-eating beast that hunts by the sense of
 smell. Your blood must be sweet because it has spotted you and is
@@ -88,10 +89,10 @@ BCEFKO EJL J KM
 stand stand male 300
 0 0 tiny unknown
 #10005
-quad assassin квод один~
-@eng a quad assassin@rus один из квода~
+quad assassin квод наемник~
+@eng a quad assassin@rus наемник из квода~
 @eng A member of the quad assassins is here.
-@rus Один из квода (assasin) стоит перед тобой, не давая пройти.
+@rus Наемник (assasin), один из квода, стоит перед тобой, не давая пройти.
 ~
 @eng You see a dangerous man wearing heavy armor and weapons. He seems
 to be an assassin-type man with one thought in mind. KILL KILL
@@ -107,10 +108,10 @@ BCDEFGHIKNV AH BL J
 stand stand male 300
 0 0 large unknown
 #10006
-quad assassin квод один~
-@eng a quad assassin@rus один из квода~
+quad assassin квод наемник~
+@eng a quad assassin@rus наемник из квода~
 @eng A member off the quad assassins is here.
-@rus один из квода (assasin) стоит перед тобой, не давая пройти.
+@rus Наемник (assasin), один из квода, стоит перед тобой, не давая пройти.
 ~
 @eng Toy see a dangerous man wearing heavy armor and weapons. He seems
 to be an assassin-type man with one thought in mind. KILL KILL
@@ -161,13 +162,17 @@ BCDEFGHIK AI 0 0
 stand stand male 300
 0 0 medium unknown
 #10009
-little boy~
-a little boy~
-There is a little boy playing in the sand.
+little boy мальчик маленький~
+@eng a little boy@rus маленький мальчик~
+@eng There is a little boy playing in the sand.
+@rus Маленький мальчик (boy) играется в песке.
 ~
-You see a little boy building sand-castles in the sand. The sand
+@eng You see a little boy building sand-castles in the sand. The sand
 is perfect for his castles and you feel like you want to join
 him.
+@rus Ты видишь перед собой совсем маленького мальчика, который увлеченно строит
+песочный замок. Он делает это так увлеченно и захватывающе, что и тебе 
+хочется присоединиться к нему.
 ~
 human~
 ABT Nb 1000 0
@@ -177,15 +182,20 @@ BCDEFGHIK AI 0 0
 stand stand male 300
 0 0 small unknown
 #10010
-heart hound~
+heart hound гончая сердца~
 @eng a heart hound@rus гончая сердца~
-There is a deadly heart hound drooling all over himself.
+@eng There is a deadly heart hound drooling all over himself.
+@rus Гончая сердца (hound) осматривается вокруг.
 ~
-This is on of the most deadly beast whom have escaped from the
+@eng This is on of the most deadly beast whom have escaped from the
 boundary. You better watch out, you know not what type of powers
 he has at his use. This beast is very deadly. They call them
 heart hounds since when they attack they lunge at your heart.
 Others say they can hear your heart beating.
+@rus Беспощадное чудовище, пришедшее из мира смерти, чтобы нести разрушение и
+сееять смерть в этом мире. Неясно, что оно может и есть ли предел его 
+способностям -- и от этого вдвойне страшно. Говорят, они охотятся, 
+ориентируясь на стук сердца жертвы.
 ~
 unique~
 AFGT UVZb -1000 0
@@ -195,15 +205,21 @@ BCDEFGHIKNO 0 0 0
 stand stand male 300
 0 0 huge unknown
 #10011
-speaker~
-a speaker~
-There is a speaker giving a speech to the crowd of listeners.
+speaker оратор~
+@eng a speaker@rus оратор~
+@eng There is a speaker giving a speech to the crowd of listeners.
+@rus Оратор (speaker) собрал вокруг себя кружок единомышленников.
 ~
-He is a tall man who appears to have a great athority over the
+@eng He is a tall man who appears to have a great athority over the
 villagers. He is giving a great speach about fire and the deadly
 losses of it. He is wearing white pants and shirt. He doesn't
 look like an evil person. He speech seems to bore you and you
 want to get on your way.
+@rus Высокий мужчина выступает перед собравшимися. По его уверенности в себе 
+можно заключить, что он пользуется большим авторитетом в этом городке. Одет
+он в белые брюки и рубашку, без всякого намека на претензии. В его взгляде
+виден искренний интерес к нуждам собравшихся. Ты слышишь, как он рассуждает
+о вреде, наносимом пожарами и о людях, ежегодно погибающих в них.
 ~
 human~
 AFGT UVZb 1000 0
@@ -213,13 +229,17 @@ BCDEFGHIKNO A 0 0
 stand stand male 300
 0 0 medium unknown
 #10012
-happy villager~
-a happy villager~
-There is a really happy villager here.
+happy villager селянин счастливый~
+@eng a happy villager@rus счастливый селянин~
+@eng There is a really happy villager here.
+@rus Селянин (villager) улыбается, глядя в твою сторону.
 ~
-As you pass by this villager he says "Hello" and gives you a big
+@eng As you pass by this villager he says "Hello" and gives you a big
 kiss. you beging to wonder if he is drunk or just plain out of
 his mind! 
+@rus Действительно счастливый человек. При твоем приближении он весело крикнул
+тебе привет и одарил горячим поцелуем. Это было столь странным для тебя, 
+что тебя посетила мысль о том, уж не пьян ли он и все ли с ним в порядке.
 ~
 human~
 AFGT UVZb 1000 0
@@ -229,14 +249,18 @@ BCDEFGHIKN A 0 0
 stand stand male 300
 0 0 medium unknown
 #10013
-healer~
-a healer~
-The town healer is here.
+healer доктор~
+@eng a healer@rus доктор~
+@eng The town healer is here.
+@rus Городской доктор (healer) задремал в ожидании посетителей.
 ~
-She is a tall women who seems to enjoy healing people. She has
+@eng She is a tall women who seems to enjoy healing people. She has
 beautiful long hair and is wearing a white dress that reaches
 down to the floor. Her head is held up high and she has a nice
 smile on her face.
+@rus Высокая стройная женщина с прекрасными длинными волосами, одетая в белое
+платье, нисподающее до земли мягкими складками. На ее лице играет улыбка
+и ты начинаешь улыбаться вместе с ней.
 ~
 human~
 ABQ FH 1000 0
@@ -246,14 +270,18 @@ KN ABINS BPQR 0
 stand stand female 0
 0 0 medium unknown
 #10014
-boundary warden~
-a boundary warden~
-A strong, powerful boundary warden is here.
+boundary warden страж границы~
+@eng a boundary warden@rus страж границы~
+@eng A strong, powerful boundary warden is here.
+@rus Мрачный страж (warden) занят своим нелегким делом.
 ~
-You see one of the toughest, strongest, and tallest man you have
+@eng You see one of the toughest, strongest, and tallest man you have
 ever seen. He is about 7'6 inches and is 8 times your wieght. He
 is clad with weapons and armor and looks prepared for battle. It
 is a good thing that he has a friendly character.
+@rus Ты первый раз видишь человека такого могучего телосложения. Он просто склад
+всяческого оружия и, сразу видно, всегда готов к битве. Но в остальном
+обычный человек, добрый и дружелюбный.
 ~
 human~
 AGT DFHJUVb 1000 0
@@ -263,14 +291,18 @@ BCDEFGHIJKN ABE BH C
 stand stand male 300
 0 0 large unknown
 #10015
-thief~
-a thief~
-A small thief is here trying to steal your money.
+thief воришка~
+@eng a thief@rus воришка~
+@eng A small thief is here trying to steal your money.
+@rus Маленький воришка (thief) пытается срезать у тебя кошелек.
 ~
-You see a little thief that is all dressed in black ready to
+@eng You see a little thief that is all dressed in black ready to
 steal your money when your not looking. He is wearing black pants
 and boots and is barely noticable in the shadows of the
 buildings.
+@rus Маленький невзрачный человек, одетый во все черное, чтобы слиться с тенью.
+В его глазах горит нешуточная жажда наживы и он только и ждет, чтобы 
+ограбить неосторожного путника.
 ~
 human~
 ACT CDGPQVd -902 0
@@ -280,14 +312,18 @@ BCDEFGHIJKN 0 0 0
 stand stand male 300
 0 0 small unknown
 #10016
-beggar~
-a beggar~
-There is a ugly little beggar asking for your money here.
+beggar попрошайка~
+@eng a beggar@rus попрошайка~
+@eng There is a ugly little beggar asking for your money here.
+@rus Оборванный уличный попрошайка (beggar) дергает тебя за рукав, выпрашивая пару монет.
 ~
-*sigh* If there aren't thieves steeling your money there are
+@eng *sigh* If there aren't thieves steeling your money there are
 beggars asking for it. You feel sorry for the poor little fellow.
 It is a shame that it will be soon winter and that he has no
 place to live. OH WELL, life goes on.
+@rus Грязный оборванный попрошайка пытается вытянуть из тебя последние монетки.
+Его жалкий вид вызывает чувство растерянности и вины. Как можно было до 
+такого дойти? До чего же все-таки может человек докатиться.
 ~
 human~
 ABCH DVb 100 0
@@ -297,16 +333,20 @@ BCDEFGHIJKN AB 0 0
 stand stand male 300
 0 0 medium unknown
 #10017
-bone woman~
-The Bone Woman~
-A interesting woman is here fooling around with some bones.
+bone woman женщина эди~
+@eng The Bone Woman@rus Эди~
+@eng A interesting woman is here fooling around with some bones.
+@rus Странная женщина (woman) стоит неподалеку от тебя.
 ~
-This womans' eyes are very white. You wonder if she can see you.
+@eng This womans' eyes are very white. You wonder if she can see you.
 When you enter the room she welcomes you and asks you to stay for
 a visit. There is a bone necklace around her neck. When you see
 it, in your mind you hear; "I must have that necklace!" The woman
 will not give it to you so I guess you're going to have to fight
 her for it!
+@rus Глаза этой женщины необычайно белые, каких не увидишь у обыкновенного
+человека. Видимо, она слепая, но это не мешает ей ощущать твое присутствие
+и следить за передвежениями. На шее у нее необычное костяное ожерелье.
 ~
 human~
 ABR CDEFJTV 1000 0
@@ -316,15 +356,20 @@ CDEFIKN IP E JK
 stand stand female 11300
 0 0 medium unknown
 #10018
-gripper~
-A nasty gripper~
-There is a nasty, little gripper waiting to attack you.
+gripper хватало~
+@eng a nasty gripper@rus хватало~
+@eng There is a nasty, little gripper waiting to attack you.
+@rus Хватало (gripper) поджидает удобного момента, чтобы напасть на тебя.
 ~
-You see an armor covered gripper with sharp long teeth.  He looks
+@eng You see an armor covered gripper with sharp long teeth.  He looks
 really hungry so if I were you I would keep away from this beast.
 He is a deadly under ground beast that will fix himself upon you
 and suck your blood until you are dead. Better watch out for this
 guy even though he is slower than a turtle.
+@rus Страшная тварь, у которой вся спина покрыта броней, а брюхо сплошь утыкано
+шипами. У нее жутко много ног, каждая из которых заканчивается острым    
+длинным когтем. Ее рот полон отвратительных зубов. И она так и наровит
+вцепиться тебе в ногу.
 ~
 human~
 ACGT JV -986 0
@@ -334,13 +379,17 @@ CDEFIKN IP E J
 stand stand male 300
 0 0 medium unknown
 #10019
-shadow thing~
-The SCaRy Shadow THinG~
-Here is a real SCaRy Shadow THinG that is ready to kill you.
+shadow thing тень странная~
+@eng The SCaRy Shadow THinG@rus странная тень~
+@eng Here is a real SCaRy Shadow THinG that is ready to kill you.
+@rus Странная тень (shadow) уже приготовилась напасть на тебя.
 ~
-This is a very scary ghost that will kill you with one touch. He
+@eng This is a very scary ghost that will kill you with one touch. He
 was sent by Panis Rahl, Darkens father in that last war. He is
 very dangerous so I would keep my distance if I were you.
+@rus Жуткое привидение, чье единственное прикосновение будет для тебя смертельным.
+Ты вспоминаешь, что таких чудовищ использовал Паниз Рал в последней войне.
+Лучше будет держаться подальше от этого опасного существа.
 ~
 human~
 ABCGT JV -1000 0
@@ -350,15 +399,19 @@ CDEFIKN IP F JK
 stand stand none 300
 0 0 medium unknown
 #10020
-spirit king~
-The Spirit King~
-Here stands the great spirit king, blocking you passage.
+spirit king призрачный король~
+@eng the spirit king@rus призрачный король~
+@eng Here stands the great spirit king, blocking you passage.
+@rus Призрак (spirit) загородил тебе дорогу.
 ~
-This ghostly king has increadable powers and will not allow you
+@eng This ghostly king has increadable powers and will not allow you
 to pass. He must have been sent by Darken Rahl himself. You
 should go back the other way, since this king will not allow you
 to exit the Narrows through this direction. He is the master of
 the underworld and will not stop at anything to let you pass.
+@rus Этот призрак очень силен и решительно настроен никуда тебя не пустить.
+Он послал самим Даркеном Ралом. Так что, придется вернуться назад и поискать
+другой путь, раз нельзя пройти этой дорогой.
 ~
 human~
 ABCGT HJV -1000 0
@@ -368,15 +421,19 @@ CDEFIKN IP 0 JK
 stand stand male 300
 0 0 medium unknown
 #10021
-great red dragon~
-The Great Red Dragon~
-You see a giant dragon that Darken Rahl uses to fly around.
+great red dragon дракон красный~
+@eng The Great Red Dragon@rus красный дракон~
+@eng You see a giant dragon that Darken Rahl uses to fly around.
+@rus Большой красный дракон (dragon) лежит в стороне от дороги.
 ~
-This great dragon has massive talons and giant wings. It would be
+@eng This great dragon has massive talons and giant wings. It would be
 bad to get on its evil side for it is far, far bigger then other
 dragons. The dragon is clad in heavy scales that cover every
 ounce of his body. He looks far tougher than any monster you have
 or will ever see.
+@rus Очень крупный дракон с массивными когтями и огроиными крыльями. Он выглядит 
+очень могучим, но также голодным и злобным. Это самое большое из виденных
+тобой живых существ.
 ~
 dragon~
 ABCGT GH -1000 0
@@ -386,12 +443,14 @@ BCEFIKN IP IJK JK
 stand stand female 300
 c L giant unknown
 #10022
-shadow people~
-An evil shadow person~
-An evil shadow person is here.
+shadow people призрак~
+@eng An evil shadow person@rus призрак~
+@eng An evil shadow person is here.
+@rus Призрак (shadow) смотрит на тебя, ожидая твоих действий.
 ~
-You see a dark form that has no features. He is sent by Darken
+@eng You see a dark form that has no features. He is sent by Darken
 Rahl to stop you. Beware, his touch is poison. 
+@rus Темная фигура с размытыми очертаниями, излучающая могильный холод.
 ~
 human~
 ACGT GJ -1000 0
@@ -401,13 +460,16 @@ CDFIKN IP 0 JK
 stand stand male 300
 0 0 medium unknown
 #10023
-bar tender~
-The bar tender~
-A fat little bar tender is here serving drinks.
+bar tender бармен человечек толстый маленький~
+@eng The bar tender@rus бармен~
+@eng A fat little bar tender is here serving drinks.
+@rus Толстый маленький человечек (bar tender) суетится вокруг.
 ~
-He is a short guy with a long beard. He seems quite stupid
+@eng He is a short guy with a long beard. He seems quite stupid
 though, his shoes are on the wrong feet. He is wearing torn pants
 and looks to be quite poor, yet he runs this bar.
+@rus Маленький коротышка с длинной бородой. Двольно рассеянный, если судить по 
+тому что он перепутал левый и правый ботинки. 
 ~
 human~
 ABCGTe GJ 1000 0
@@ -417,12 +479,15 @@ BCDEFIN IP 0 JK
 stand stand male 300
 0 0 medium unknown
 #10024
-drunken villager~
-A drunken villager~
-There is a drunken villager here, drinking beer.
+drunken villager сельский пьяница~
+@eng A drunken villager@rus сельский пьяница~
+@eng There is a drunken villager here, drinking beer.
+@rus Сельский пьяница (villager) потягивает свой эль.
 ~
-He is a short guy with ale stains on his shirt. He makes you want
+@eng He is a short guy with ale stains on his shirt. He makes you want
 to vomit.
+@rus Коротышка в забрызганной элем рубахе. Тебе становиться противно при одном
+взгляде на него.
 ~
 human~
 ABCGT GJ 102 0
@@ -432,13 +497,15 @@ CDEFIKN IP 0 K
 stand stand male 300
 0 0 medium unknown
 #10025
-dark thief~
-A little thief~
-There is a theif looking for something to steal here.
+dark thief воришка маленький~
+@eng a little thief@rus маленький воришка~
+@eng There is a theif looking for something to steal here.
+@rus Воришка (thief) оглядывается вокруг с поисках чего-нибудь, что плохо лежит.
 ~
-He is a darkly clad thief with a wicked intent. He rests in the
+@eng He is a darkly clad thief with a wicked intent. He rests in the
 darkness of the night waiting to prance upon a poor soul like
 you.
+@rus Маленький человек, одетый во все черное. Он практически сливается с темнотой.
 ~
 human~
 ACGT GJ -1000 0
@@ -448,7 +515,7 @@ CDEFKN IP D 0
 stand stand male 300
 0 0 medium unknown
 #10026
-snake~
+snake желтая змейка~
 A yellow snake~
 There is a little yellow snake swimming in the pool of water.
 ~
@@ -1886,10 +1953,10 @@ S
 
 #SPECIALS
 M 10017 spec_cast_cleric	* The Bone Woman
-M 10020 spec_cast_mage	* The Spirit King
+M 10020 spec_cast_mage	* the spirit king
 M 10021 spec_breath_fire	* The Great Red Dragon
 M 10024 spec_breath_any	* A drunken villager
-M 10025 spec_thief	* A little thief
+M 10025 spec_thief	* a little thief
 M 10031 spec_cast_undead	* The Evil Darken Rahl
 S
 
@@ -1944,7 +2011,7 @@ G 0 10020 0		*	a Boundary Warden Flail
 G 0 10021 0		*	a Boundary Warden Mace
 G 0 10022 0		*	a Boundary Warden Dagger
 G 0 10019 0		*	a Boundary Warden Sword
-M 0 10025 1 10022 1	* A little thief (The Road Along the Village.)
+M 0 10025 1 10022 1	* a little thief (The Road Along the Village.)
 G 0 10014 0		*	a Dark Robe
 E 0 10005 0 8		*	A Pair of Black Boots: on the feet
 M 0 10028 1 10022 1	* A dopey little cat (The Road Along the Village.)
@@ -1963,14 +2030,14 @@ M 0 10006 4 10025 1	* a quad assassin (The Path to the Bone Woman's Shack.)
 M 0 10006 4 10025 1	* a quad assassin (The Path to the Bone Woman's Shack.)
 M 0 10017 1 10026 1	* The Bone Woman (The Bone Woman's Shack.)
 E 0 10002 0 4		*	The Bone Woman's Necklace.: around the neck (2)
-M 0 10018 3 10028 1	* A nasty gripper (The Path Through The Narrows.)
+M 0 10018 3 10028 1	* a nasty gripper (The Path Through The Narrows.)
 G 0 10003 0		*	Some grippers teeth
-M 0 10018 3 10028 1	* A nasty gripper (The Path Through The Narrows.)
-M 0 10018 3 10029 1	* A nasty gripper (The Center of the Narrows.)
+M 0 10018 3 10028 1	* a nasty gripper (The Path Through The Narrows.)
+M 0 10018 3 10029 1	* a nasty gripper (The Center of the Narrows.)
 M 0 10019 2 10029 1	* The SCaRy Shadow THinG (The Center of the Narrows.)
 M 0 10030 2 10029 1	* A Devoter of Darken Rahl (The Center of the Narrows.)
 M 0 10019 2 10030 1	* The SCaRy Shadow THinG (Near The End of the Narrows.)
-M 0 10020 1 10031 1	* The Spirit King (The End of The Narrows.)
+M 0 10020 1 10031 1	* the spirit king (The End of The Narrows.)
 M 0 10022 4 10032 1	* An evil shadow person (The Azrith Plains.)
 M 0 10027 2 10032 1	* An underworld beast (The Azrith Plains.)
 G 0 10018 0		*	a BIG piece of cake!

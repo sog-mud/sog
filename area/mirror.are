@@ -731,9 +731,12 @@ janitor~
 @eng Huge ugly man grins to you.
 @rus Огромный отвратительный человек злобно ухмыляется тебе. 
 ~
+@eng Big nasty vampire-like creature strolls the streets, looking for its victims.
+He seems to be a guard in this city. But whom does he consider invaders of
+this god-cursed city? Maybe YOU?
 ~
 human~
-CHLOT GOZclu -5000 0
+ACHLOT GOZclu -5000 0
 50 200 1d10+5000 1d1+2000 4d7+150 pound
 -30 -30 -30 -5
 ACEFIQ ABM DE JNY

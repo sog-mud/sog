@@ -39,6 +39,7 @@ ABQVae DFH 0 0
 FHIK ABC D 0
 stand stand male 1000
 0 0 medium unknown
+C Hunter~
 #95702
 keeper guardian hunter~
 the guardian~
@@ -67,6 +68,7 @@ golden~
 container CEORY P
 10 ABCD 95702 15 100
 60 1 20 P
+G none
 #95701
 golden tattoo~
 the golden tattoo~
@@ -76,6 +78,7 @@ golden~
 treasure CEORTe AO
 0 0 0 0 0
 0 1 10000 P
+G none
 #95702
 gray bone~
 a gray bone~
@@ -85,6 +88,7 @@ bone~
 key CEORYf A
 0 0 0 0 0
 40 4 0 P
+G none
 #0
 
 #ROOMS
