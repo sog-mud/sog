@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: checktrans.pl,v 1.5 2001-01-18 22:19:15 fjoe Exp $
+# $Id: checktrans.pl,v 1.6 2001-01-18 22:33:19 fjoe Exp $
 #
 # Usage: checktrans.pl [-u] [-d] files...
 # Options:
@@ -80,6 +80,8 @@ sub process_file
 		next if (m|// notrans$|);
 
 		my $seen_escape = 0;	# seen escape character ('\\')
+		my $seen_quote = 0;	# seen quote character ('\'')
+
 		my $i = 0;
 		@line = split //;
 		PARSE_LINE: while ($i <= $#line) {
@@ -130,7 +132,7 @@ sub process_file
 				# append character to current string
 				push @string, $line[$i];
 				next PARSE_LINE;
-			} elsif ($line[$i] eq '"' && !$seen_escape) {
+			} elsif ($line[$i] eq '"' && !$seen_escape && !$seen_quote) {
 				if (!$seen_eos) {
 					#
 					# is not continuation
@@ -155,6 +157,7 @@ sub process_file
 				$seen_eos = 0;
 			}
 		} continue {
+			$seen_quote = ($line[$i] eq '\'');
 			$seen_escape = ($line[$i++] eq '\\') && !$seen_escape;
 		}
 	} continue {
