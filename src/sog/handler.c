@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.32 1998-07-07 10:31:01 fjoe Exp $
+ * $Id: handler.c,v 1.33 1998-07-08 09:57:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3440,7 +3440,7 @@ bool in_PK(CHAR_DATA *ch, CHAR_DATA *victim)
 }
 
 
-bool can_gate_to(CHAR_DATA *ch, CHAR_DATA *victim)
+bool can_gate(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	if (victim == ch
 	||  victim->in_room == NULL
@@ -3449,16 +3449,21 @@ bool can_gate_to(CHAR_DATA *ch, CHAR_DATA *victim)
 	||  IS_SET(victim->in_room->room_flags, ROOM_SAFE)
 	||  room_is_private(victim->in_room)
 	||  IS_SET(ch->in_room->room_flags, ROOM_NOSUMMON)
-	||  IS_SET(victim->in_room->room_flags, ROOM_NOSUMMON)
-	||  (IS_SET(ch->in_room->room_flags, ROOM_NO_MOB) && IS_NPC(victim))
-	||  (!IS_NPC(victim) && IS_IMMORTAL(victim))
-	||  (IS_NPC(victim) && is_safe_nomessage(ch, victim) &&
-	     IS_SET(victim->imm_flags, IMM_SUMMON))
-	||  (!IS_NPC(victim) && is_safe_nomessage(ch, victim) &&
-	     IS_SET(victim->act, PLR_NOSUMMON))
-	||  (!IS_NPC(victim) && ch->in_room->area != victim->in_room->area)
-	||  guild_check(ch, victim->in_room) < 0)
+	||  IS_SET(victim->in_room->room_flags, ROOM_NOSUMMON))
 		return FALSE;
+
+	if (IS_NPC(victim)) {
+		if (IS_SET(victim->imm_flags, IMM_SUMMON))
+			return FALSE;
+	}
+	else {
+		if ((in_PK(ch, victim) && IS_SET(victim->act, PLR_NOSUMMON))
+		||  victim->level >= LEVEL_HERO		/* not trust (!) */
+		||  ch->in_room->area != victim->in_room->area
+		||  guild_check(ch, victim->in_room) < 0)
+			return FALSE;
+	}
+
 	return TRUE;
 }
 

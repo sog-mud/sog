@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.38 1998-07-03 15:18:47 fjoe Exp $
+ * $Id: update.c,v 1.39 1998-07-08 09:57:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -776,7 +776,7 @@ void mobile_update(void)
 		&&  (pexit = ch->in_room->exit[door]) != NULL
 		&&   pexit->u1.to_room != NULL
 		&&   !IS_SET(pexit->exit_info, EX_CLOSED)
-		&&   !IS_SET(pexit->u1.to_room->room_flags, ROOM_NO_MOB)
+		&&   !IS_SET(pexit->u1.to_room->room_flags, ROOM_NOMOB)
 		&&  (!IS_SET(ch->act, ACT_STAY_AREA)
 		||   pexit->u1.to_room->area == ch->in_room->area) 
 		&&  (!IS_SET(ch->act, ACT_AGGRESSIVE)
@@ -1396,86 +1396,76 @@ void obj_update(void)
 	AFFECT_DATA *paf, *paf_next;
 	static int pit_count = 1;
 
-	for (obj = object_list; obj != NULL; obj = obj_next)
-	{
-	CHAR_DATA *rch;
-	char *message;
+	for (obj = object_list; obj != NULL; obj = obj_next) {
+		CHAR_DATA *rch;
+		char *message;
 
-	obj_next = obj->next;
+		obj_next = obj->next;
 
-	/* go through affects and decrement */
-	    for (paf = obj->affected; paf != NULL; paf = paf_next)
-	    {
-	        paf_next    = paf->next;
-	        if (paf->duration > 0)
-	        {
-	            paf->duration--;
-	            if (number_range(0,4) == 0 && paf->level > 0)
-	              paf->level--;  /* spell strength fades with time */
-	        }
-	        else if (paf->duration < 0)
-	            ;
-	        else
-	        {
-	            if (paf_next == NULL
-	            ||   paf_next->type != paf->type
-	            ||   paf_next->duration > 0)
-	            {
-	                if (paf->type > 0 && skill_table[paf->type].msg_obj)
-	                {
-			if (obj->carried_by != NULL)
-			{
-			    rch = obj->carried_by;
-			    act(skill_table[paf->type].msg_obj,
-				rch,obj,NULL,TO_CHAR);
-			}
-			if (obj->in_room != NULL 
-			&& obj->in_room->people != NULL)
-			{
-			    rch = obj->in_room->people;
-			    act(skill_table[paf->type].msg_obj,
-				rch,obj,NULL,TO_ALL);
-			}
-	                }
-	            }
+		/* go through affects and decrement */
+		for (paf = obj->affected; paf != NULL; paf = paf_next) {
+			paf_next    = paf->next;
+			if (paf->duration > 0) {
+	        		paf->duration--;
+				/* spell strength fades with time */
+	        		if (number_range(0,4) == 0 && paf->level > 0)
+					paf->level--;
 
-	            affect_remove_obj(obj, paf);
-	        }
-	    }
+	        	}
+	        	else if (paf->duration < 0)
+				;
+			else {
+				if (paf_next == NULL
+				||  paf_next->type != paf->type
+				||  paf_next->duration > 0) {
+	                		if (paf->type > 0
+					&&  skill_table[paf->type].msg_obj) {
+						if (obj->carried_by != NULL) {
+							rch = obj->carried_by;
+							act(skill_table[paf->type].msg_obj, rch,obj,NULL,TO_CHAR);
+						}
+
+						if (obj->in_room != NULL 
+						&& obj->in_room->people != NULL) {
+							rch = obj->in_room->people;
+							act(skill_table[paf->type].msg_obj, rch,obj,NULL,TO_ALL);
+						}
+	                		}
+	            		}
+
+				affect_remove_obj(obj, paf);
+	        	}
+		}
 
 
 		for(t_obj = obj; t_obj->in_obj; t_obj = t_obj->in_obj);
 			if ((t_obj->in_room != NULL &&
 			     t_obj->in_room->area->nplayer > 0)
-	        	||  (t_obj->carried_by &&
+		        ||  (t_obj->carried_by &&
 	        	     t_obj->carried_by->in_room &&
-	        	     t_obj->carried_by->in_room->area->nplayer > 0))
-	        		oprog_call(OPROG_AREA, obj, NULL, NULL);
+			     t_obj->carried_by->in_room->area->nplayer > 0))
+				oprog_call(OPROG_AREA, obj, NULL, NULL);
 
-	    if (check_material(obj, "ice"))  
-	      {
-	   if (obj->carried_by != NULL)  
-	         {
-	      if (obj->carried_by->in_room->sector_type == SECT_DESERT)
-	      if (number_percent() < 40)  
-	          {
-		act("The extreme heat melts $p.", obj->carried_by, obj, NULL, TO_CHAR);
-		extract_obj(obj);
-		continue;
-	      }
-	  }
-	  else if (obj->in_room != NULL)
-	    if (obj->in_room->sector_type == SECT_DESERT)
-	      if (number_percent() < 50)  {
-		if (obj->in_room->people != NULL)  
-	            {
-		  act("The extreme heat melts $p.", obj->in_room->people, obj, NULL, TO_ROOM);
-		  act("The extreme heat melts $p.", obj->in_room->people, obj, NULL, TO_CHAR);
-	        }
-		extract_obj(obj);
-		continue;
-	      }
-	}
+		if (check_material(obj, "ice")) {
+			if (obj->carried_by != NULL) {
+				if (obj->carried_by->in_room->sector_type == SECT_DESERT)
+				if (number_percent() < 40) {
+					act("The extreme heat melts $p.", obj->carried_by, obj, NULL, TO_CHAR);
+					extract_obj(obj);
+					continue;
+				}
+			}
+			else if (obj->in_room != NULL)
+				if (obj->in_room->sector_type == SECT_DESERT)
+					if (number_percent() < 50)  {
+						if (obj->in_room->people != NULL) {
+							act("The extreme heat melts $p.", obj->in_room->people, obj, NULL, TO_ROOM);
+							act("The extreme heat melts $p.", obj->in_room->people, obj, NULL, TO_CHAR);
+						}
+					extract_obj(obj);
+					continue;
+				}
+			}
 
 	    if (!check_material(obj, "glass") && obj->item_type==ITEM_POTION)  {
 	  if (obj->carried_by != NULL)  {
@@ -1597,10 +1587,8 @@ void obj_update(void)
 	    }
 	}
 
-	extract_obj(obj);
+		extract_obj(obj);
 	}
-
-	return;
 }
 
 

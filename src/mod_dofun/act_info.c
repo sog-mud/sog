@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.87 1998-07-04 11:28:19 fjoe Exp $
+ * $Id: act_info.c,v 1.88 1998-07-08 09:57:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2888,7 +2888,7 @@ void do_bear_call(CHAR_DATA *ch, char *argument)
 	}
 
 	if (ch->in_room != NULL
-	&&  IS_SET(ch->in_room->room_flags, ROOM_NO_MOB)) {
+	&&  IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
 		send_to_char("No bears listen you.\n\r", ch);
 		return;
 	}
@@ -3485,7 +3485,7 @@ void do_lion_call(CHAR_DATA *ch, char *argument)
 	}
 
 	if (ch->in_room != NULL
-	&& IS_SET(ch->in_room->room_flags, ROOM_NO_MOB)) {
+	&& IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
 		send_to_char("No lions can listen you.\n\r", ch);
 		return;
 	}

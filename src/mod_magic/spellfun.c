@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.22 1998-07-07 10:31:01 fjoe Exp $
+ * $Id: spellfun.c,v 1.23 1998-07-08 09:57:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -57,13 +57,8 @@
 #include "log.h"
 #include "buffer.h"
 #include "lookup.h"
-
-/* command procedures needed */
-DECLARE_DO_FUN(do_look		);
-DECLARE_DO_FUN(do_yell		);
-DECLARE_DO_FUN(do_say		);
-DECLARE_DO_FUN(do_murder	);
-DECLARE_DO_FUN(do_kill		);
+#include "interp.h"
+#include "act_move.h"
 
 /*
  * Local functions.
@@ -3242,8 +3237,8 @@ void spell_gate(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
 	||  victim->level >= level + 3
-	||  saves_spell(ch->level, victim, DAM_OTHER)
-	||  !can_gate_to(ch, victim)) {
+	||  saves_spell(level, victim, DAM_OTHER)
+	||  !can_gate(ch, victim)) {
 		send_to_char("You failed.\n\r", ch);
 		return;
 	}
@@ -3262,13 +3257,16 @@ void spell_gate(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	do_look(ch, "auto");
 
 	if (gate_pet) {
+		if (ch->pet->position != POS_STANDING)
+			do_stand(ch->pet, "");
+
 		act("$n steps through a gate and vanishes.",
 			ch->pet, NULL, NULL, TO_ROOM);
 		char_puts("You step through a gate and vanish.\n\r", ch->pet);
 		char_from_room(ch->pet);
 		char_to_room(ch->pet, victim->in_room);
 		act("$n has arrived through a gate.",
-			ch->pet, NULL, NULL, TO_ROOM);
+		    ch->pet, NULL, NULL, TO_ROOM);
 		do_look(ch->pet, "auto");
 	}
 }
@@ -4713,25 +4711,50 @@ void spell_stone_skin(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 }
 
 
-
 void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
+	bool failed = FALSE;
 	CHAR_DATA *victim;
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
-	||  victim->in_room == NULL
+	||  victim->in_room == NULL) {
+		send_to_char("You failed.\n\r", ch);
+		return;
+	}
+
+	if (victim == ch
 	||  victim->level >= level + 3
-	||  (IS_NPC(victim) && IS_SET(victim->act, ACT_AGGRESSIVE))
 	||  victim->fighting != NULL
-	||  (IS_NPC(victim) && victim->pIndexData->pShop != NULL)
-	||  saves_spell(ch->level, victim, DAM_OTHER)
-	||  !can_gate_to(victim, ch) 
+	||  !can_see_room(ch, victim->in_room)
+	||  IS_SET(ch->in_room->room_flags, ROOM_SAFE)
+	||  IS_SET(victim->in_room->room_flags, ROOM_SAFE)
+	||  room_is_private(ch->in_room)
+	||  IS_SET(ch->in_room->room_flags, ROOM_NOSUMMON)
+	||  IS_SET(victim->in_room->room_flags, ROOM_NOSUMMON)
 	||  (victim->in_room->exit[0] == NULL &&
 	     victim->in_room->exit[1] == NULL &&
 	     victim->in_room->exit[2] == NULL &&
 	     victim->in_room->exit[3] == NULL &&
 	     victim->in_room->exit[4] == NULL &&
-	     victim->in_room->exit[5] == NULL)) {
+	     victim->in_room->exit[5] == NULL))
+		failed = TRUE;
+	else if (IS_NPC(victim)) {
+		if (victim->pIndexData->pShop != NULL
+		||  saves_spell(level, victim, DAM_OTHER)
+		||  IS_SET(victim->act, ACT_AGGRESSIVE)
+		||  IS_SET(victim->imm_flags, IMM_SUMMON)
+		||  IS_SET(ch->in_room->room_flags, ROOM_NOMOB))
+			failed = TRUE;
+	}
+	else {
+		if (victim->level >= LEVEL_HERO
+		||  (in_PK(ch, victim) && IS_SET(victim->act, PLR_NOSUMMON))
+		||  ch->in_room->area != victim->in_room->area
+		||  guild_check(ch, victim->in_room) < 0)
+			failed = TRUE;
+	}
+
+	if (failed) {
 		send_to_char("You failed.\n\r", ch);
 		return;
 	}
@@ -5509,12 +5532,11 @@ void spell_astral_walk(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 {
 	CHAR_DATA *victim;
 	bool gate_pet;
-	char buf[512];
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
 	||  victim->level >= level + 3
-	||  saves_spell(ch->level, victim, DAM_OTHER)
-	||  !can_gate_to(ch, victim)) {
+	||  saves_spell(level, victim, DAM_OTHER)
+	||  !can_gate(ch, victim)) {
 		send_to_char("You failed.\n\r", ch);
 		return;
 	}
@@ -5535,7 +5557,7 @@ void spell_astral_walk(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if (gate_pet) {
 		act("$n disappears in a flash of light!",ch->pet,NULL,NULL,TO_ROOM);
-		send_to_char(buf,ch->pet);
+		char_printf(ch->pet, "You travel via astral planes and go to %s.\n\r",victim->name);
 		char_from_room(ch->pet);
 		char_to_room(ch->pet,victim->in_room);
 		act("$n appears in a flash of light!",ch->pet,NULL,NULL,TO_ROOM);
@@ -5553,8 +5575,8 @@ void spell_mist_walk(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	if ((victim = get_char_world(ch, target_name)) == NULL
 	||  !IS_VAMPIRE(ch)
 	||  victim->level >= level - 5
-	||  saves_spell(ch->level, victim, DAM_OTHER)
-	||  !can_gate_to(ch, victim)) {
+	||  saves_spell(level, victim, DAM_OTHER)
+	||  !can_gate(ch, victim)) {
 		send_to_char("You failed.\n\r", ch);
 		return;
 	}
@@ -5583,8 +5605,8 @@ void spell_solar_flight(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
 	||  victim->level >= level + 1
-	||  saves_spell(ch->level, victim, DAM_OTHER)
-	||  !can_gate_to(ch, victim)) {
+	||  saves_spell(level, victim, DAM_OTHER)
+	||  !can_gate(ch, victim)) {
 		send_to_char("You failed.\n\r", ch);
 		return;
 	}
@@ -5610,8 +5632,8 @@ void spell_helical_flow(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
 	||  victim->level >= level + 3
-	||  saves_spell(ch->level, victim, DAM_OTHER)
-	||  !can_gate_to(ch, victim)) {
+	||  saves_spell(level, victim, DAM_OTHER)
+	||  !can_gate(ch, victim)) {
 		send_to_char("You failed.\n\r", ch);
 		return;
 	}
@@ -5640,13 +5662,12 @@ void spell_corruption(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		 return;
 		}
 
-	if (saves_spell(level,victim,DAM_NEGATIVE) ||
-		(IS_NPC(victim) && IS_SET(victim->act,ACT_UNDEAD)))
-	{
+	if (saves_spell(level,victim,DAM_NEGATIVE)
+	||  (IS_NPC(victim) && IS_SET(victim->act,ACT_UNDEAD))) {
 		if (ch == victim)
-		  send_to_char("You feel momentarily ill, but it passes.\n\r",ch);
+			send_to_char("You feel momentarily ill, but it passes.\n\r",ch);
 		else
-		  act("$N seems to be unaffected.",ch,NULL,victim,TO_CHAR);
+			act("$N seems to be unaffected.",ch,NULL,victim,TO_CHAR);
 		return;
 	}
 

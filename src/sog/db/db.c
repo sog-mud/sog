@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.34 1998-07-06 07:32:54 fjoe Exp $
+ * $Id: db.c,v 1.35 1998-07-08 09:57:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1699,7 +1699,7 @@ void fix_exits(void)
 			}
 		    }
 		    if (!fexit)
-			SET_BIT(pRoomIndex->room_flags,ROOM_NO_MOB);
+			SET_BIT(pRoomIndex->room_flags,ROOM_NOMOB);
 		}
 	}
 

@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.43 1998-07-06 07:32:55 fjoe Exp $
+ * $Id: merc.h,v 1.44 1998-07-08 09:57:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1459,7 +1459,7 @@ enum {
  * Used in #ROOMS.
  */
 #define ROOM_DARK		(A)
-#define ROOM_NO_MOB		(C)
+#define ROOM_NOMOB		(C)
 #define ROOM_INDOORS		(D)
 #define ROOM_PRIVATE		(J)
 #define ROOM_SAFE		(K)
@@ -2937,7 +2937,7 @@ CHAR_DATA*	find_char	(CHAR_DATA *ch, char *argument, int door, int range);
 CHAR_DATA*	get_char_spell	(CHAR_DATA *ch, char *argument, int *door, int range);
 void	path_to_track	(CHAR_DATA *ch, CHAR_DATA *victim, int door);
 bool	in_PK(CHAR_DATA *ch, CHAR_DATA *victim);
-bool	can_gate_to(CHAR_DATA *ch, CHAR_DATA *victim);
+bool	can_gate(CHAR_DATA *ch, CHAR_DATA *victim);
 
 /* interp.c */
 void	interpret	(CHAR_DATA *ch, char *argument);

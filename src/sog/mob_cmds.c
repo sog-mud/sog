@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.3 1998-07-03 15:18:42 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.4 1998-07-08 09:57:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1270,7 +1270,7 @@ void do_mpflee(CHAR_DATA *ch, char *argument)
         ||   pexit->u1.to_room == NULL
         ||   IS_SET(pexit->exit_info, EX_CLOSED)
         || (IS_NPC(ch)
-        &&   IS_SET(pexit->u1.to_room->room_flags, ROOM_NO_MOB)))
+        &&   IS_SET(pexit->u1.to_room->room_flags, ROOM_NOMOB)))
             continue;
 
         move_char(ch, door, FALSE);

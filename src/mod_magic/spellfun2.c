@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.20 1998-07-07 10:31:02 fjoe Exp $
+ * $Id: spellfun2.c,v 1.21 1998-07-08 09:57:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -104,23 +104,12 @@ void spell_portal(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 	CHAR_DATA *victim;
 	OBJ_DATA *portal, *stone;
 
-	    if ((victim = get_char_world(ch, target_name)) == NULL
-	||   victim == ch
-	||   victim->in_room == NULL
-	||   !can_see_room(ch,victim->in_room)
-	||   IS_SET(victim->in_room->room_flags, ROOM_SAFE)
-	||   IS_SET(victim->in_room->room_flags, ROOM_PRIVATE)
-	||   IS_SET(victim->in_room->room_flags, ROOM_SOLITARY)
-	||   IS_SET(victim->in_room->room_flags, ROOM_NOSUMMON)
-	||   IS_SET(ch->in_room->room_flags, ROOM_NOSUMMON)
-	||   IS_SET(ch->in_room->room_flags, ROOM_NO_RECALL)
-	||   victim->level >= level + 3
-	||   (!IS_NPC(victim) && victim->level >= LEVEL_HERO)  /* NOT trust */
-	||   (IS_NPC(victim) && is_safe_nomessage(ch, victim) && IS_SET(victim->imm_flags,IMM_SUMMON))
-	||   (IS_NPC(victim) && saves_spell(level, victim,DAM_NONE)))
-	{
-	    send_to_char("You failed.\n\r", ch);
-	    return;
+	if ((victim = get_char_world(ch, target_name)) == NULL
+	||  victim->level >= level + 3
+	||  saves_spell(level, victim, DAM_NONE)
+	||  !can_gate(ch, victim)) {
+		send_to_char("You failed.\n\r", ch);
+		return;
 	}   
 
 	stone = get_eq_char(ch,WEAR_HOLD);
@@ -156,37 +145,28 @@ void spell_nexus(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	from_room = ch->in_room;
  
-	    if ((victim = get_char_world(ch, target_name)) == NULL
-	||   victim == ch
-	||   (to_room = victim->in_room) == NULL
-	||   !can_see_room(ch,to_room) || !can_see_room(ch,from_room)
-	||   IS_SET(to_room->room_flags, ROOM_SAFE)
-	||	 IS_SET(from_room->room_flags,ROOM_SAFE)
-	||   IS_SET(to_room->room_flags, ROOM_PRIVATE)
-	||   IS_SET(to_room->room_flags, ROOM_SOLITARY)
-	||   IS_SET(to_room->room_flags, ROOM_NOSUMMON)
-	||   victim->level >= level + 3
-	||   (!IS_NPC(victim) && victim->level >= LEVEL_HERO)  /* NOT trust */
-	||   (IS_NPC(victim) && is_safe_nomessage(ch, victim) && IS_SET(victim->imm_flags,IMM_SUMMON))
-	||   (IS_NPC(victim) && saves_spell(level, victim,DAM_NONE)))
-	{
-	    send_to_char("You failed.\n\r", ch);
-	    return;
+	if ((victim = get_char_world(ch, target_name)) == NULL
+	||  victim->level >= level + 3
+	||  !can_see_room(ch, from_room)
+	||  saves_spell(level, victim, DAM_NONE)
+	||  !can_gate(ch, victim)) {
+		send_to_char("You failed.\n\r", ch);
+		return;
 	}   
  
+	to_room = victim->in_room;
+
 	stone = get_eq_char(ch,WEAR_HOLD);
 	if (!IS_IMMORTAL(ch)
-	&&  (stone == NULL || stone->item_type != ITEM_WARP_STONE))
-	{
-	    send_to_char("You lack the proper component for this spell.\n\r",ch);
-	    return;
+	&&  (stone == NULL || stone->item_type != ITEM_WARP_STONE)) {
+		send_to_char("You lack the proper component for this spell.\n\r",ch);
+		return;
 	}
  
-	if (stone != NULL && stone->item_type == ITEM_WARP_STONE)
-	{
-	    act("You draw upon the power of $p.",ch,stone,NULL,TO_CHAR);
-	    act("It flares brightly and vanishes!",ch,stone,NULL,TO_CHAR);
-	    extract_obj(stone);
+	if (stone != NULL && stone->item_type == ITEM_WARP_STONE) {
+		act("You draw upon the power of $p.",ch,stone,NULL,TO_CHAR);
+		act("It flares brightly and vanishes!",ch,stone,NULL,TO_CHAR);
+		extract_obj(stone);
 	}
 
 	/* portal one */ 
@@ -201,7 +181,7 @@ void spell_nexus(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	/* no second portal if rooms are the same */
 	if (to_room == from_room)
-	return;
+		return;
 
 	/* portal two */
 	portal = create_object(get_obj_index(OBJ_VNUM_PORTAL),0);
@@ -210,10 +190,9 @@ void spell_nexus(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	obj_to_room(portal,to_room);
 
-	if (to_room->people != NULL)
-	{
-	act("$p rises up from the ground.",to_room->people,portal,NULL,TO_ROOM);
-	act("$p rises up from the ground.",to_room->people,portal,NULL,TO_CHAR);
+	if (to_room->people != NULL) {
+		act("$p rises up from the ground.",to_room->people,portal,NULL,TO_ROOM);
+		act("$p rises up from the ground.",to_room->people,portal,NULL,TO_CHAR);
 	}
 }
 
@@ -1584,8 +1563,8 @@ void spell_tesseract(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	bool gate_pet;
 
 	if ((victim = get_char_world(ch,target_name)) == NULL
-	||  saves_spell(ch->level, victim, DAM_OTHER)
-	||  !can_gate_to(ch, victim)) {
+	||  saves_spell(level, victim, DAM_OTHER)
+	||  !can_gate(ch, victim)) {
 		send_to_char("You failed.\n\r", ch);
 		return;
 	}
@@ -1597,9 +1576,7 @@ void spell_tesseract(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	for (wch = ch->in_room->people; wch != NULL; wch = wch_next) {
 		wch_next = wch->next_in_room;
-		if (is_same_group(wch, ch)
-		&&  wch != ch
-		&&  can_gate_to(wch, victim)) {
+		if (wch != ch && is_same_group(wch, ch)) {
 			act("$n utters some strange words and, "
 			    "with a sickening lurch, you feel time\n\r"
 			    "and space shift around you",
@@ -1626,7 +1603,7 @@ void spell_tesseract(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		send_to_char("You feel time and space shift around you.\n\r",
 			ch->pet);
 		char_from_room(ch->pet);
-		char_to_room(ch->pet,victim->in_room);
+		char_to_room(ch->pet, victim->in_room);
 		act("$n arrives suddenly.", ch->pet, NULL, NULL, TO_ROOM);
 		do_look(ch->pet,"auto");
 	}
@@ -2797,7 +2774,7 @@ void spell_animate_dead(int sn,int level, CHAR_DATA *ch, void *vo,int target)
 			return;
 
 		if (ch->in_room != NULL 
-		&& IS_SET(ch->in_room->room_flags, ROOM_NO_MOB)) {
+		&& IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
 			send_to_char("You can't animate deads here.\n\r", ch);
 			return;
 		}
@@ -3342,7 +3319,7 @@ void spell_lion_help (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	  return;
 	}
 
-	if (ch->in_room != NULL && IS_SET(ch->in_room->room_flags, ROOM_NO_MOB))
+	if (ch->in_room != NULL && IS_SET(ch->in_room->room_flags, ROOM_NOMOB))
 	{
 	 send_to_char("No lions can listen you.\n\r", ch);
 	 return;
@@ -3533,7 +3510,7 @@ void turn_spell (int sn, int level, CHAR_DATA *ch, void *vo , int target)
 	||   pexit->u1.to_room == NULL
 	||   IS_SET(pexit->exit_info, EX_CLOSED)
 	|| (IS_NPC(ch)
-	&&   IS_SET(pexit->u1.to_room->room_flags, ROOM_NO_MOB)))
+	&&   IS_SET(pexit->u1.to_room->room_flags, ROOM_NOMOB)))
 	    continue;
 
 	move_char(victim, door, FALSE);
