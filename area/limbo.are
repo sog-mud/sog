@@ -471,7 +471,7 @@ sword hero~
 the %s Sword of %s~
 An enormous, huge SWORD lies here, filling the room with its power.~
 energy~
-weapon AGIOY AP
+weapon AGIOYc AP
 sword 10 4 slash D
 21 100 100000 G
 #32
@@ -479,7 +479,7 @@ dagger hero~
 the %s Dagger of %s~
 An enormous, huge DAGGER lies here, filling the room with its power.~
 energy~
-weapon AGIOY AP
+weapon AGIOYc AP
 dagger 10 4 pierce D
 21 100 100000 G
 A
@@ -505,7 +505,7 @@ mace hero~
 the %s Mace of %s~
 An enormous, huge MACE lies here, filling the room with its power.~
 energy~
-weapon AGIOY AP
+weapon AGIOYc AP
 mace 10 4 pound D
 21 100 100000 G
 A
@@ -954,7 +954,7 @@ girth hero~
 the %s Girth of %s~
 An enormous, huge GIRTH lies here, filling the room with its power.~
 energy~
-armor AGIOY ALP
+armor AGIOYc ALP
 12 12 12 9 2
 21 30 100000 G
 A
@@ -986,7 +986,7 @@ ring hero~
 the %s Ring of %s~
 An enormous, RING lies here, filling the room with its power.~
 energy~
-weapon AGIOY ABP
+weapon AGIOYc ABP
 exotic 0 0 none 0
 21 30 100000 G
 A
@@ -1008,7 +1008,7 @@ weapon hero~
 the %s Weapon of %s~
 An enormous, huge WEAPON lies here, filling the room with its power.~
 energy~
-weapon AGIOY ANP
+weapon AGIOYc ANP
 exotic 10 4 slash D
 21 100 100000 G
 A
