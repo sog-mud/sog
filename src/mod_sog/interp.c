@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.121 1999-02-18 12:01:09 kostik Exp $
+ * $Id: interp.c,v 1.122 1999-02-21 20:24:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -236,8 +236,8 @@ CMD_DATA cmd_table[] =
     { "password",	do_password,	POS_DEAD,	 0,  LOG_NEVER, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER },
     { "prompt",		do_prompt,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER },
     { "quest",          do_quest,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_NOORDER },
-    { "qui",		do_qui,		POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER },
-    { "quit",		do_quit,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_NOORDER },
+    { "qui",		do_qui,		POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER | CMD_FROZEN_OK },
+    { "quit",		do_quit,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_NOORDER | CMD_FROZEN_OK },
     { "quiet",		do_quiet,	POS_SLEEPING, 	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER },
     { "scroll",		do_scroll,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER },
     { "title",		do_title,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK | CMD_NOORDER },
