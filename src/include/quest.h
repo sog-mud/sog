@@ -2,7 +2,7 @@
 #define _QUEST_H_
 
 /*
- * $Id: quest.h,v 1.5 1998-06-16 16:56:48 fjoe Exp $
+ * $Id: quest.h,v 1.6 1998-06-17 04:54:27 fjoe Exp $
  */
 
 /*
@@ -20,6 +20,7 @@ struct qtrouble_data {
 
 #define IS_ON_QUEST(ch)	(ch->pcdata->questtime > 0)
 
+void quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim);
 void quest_cancel(CHAR_DATA *ch);
 void quest_update(void);
 

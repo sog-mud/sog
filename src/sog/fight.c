@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.36 1998-06-16 16:56:47 fjoe Exp $
+ * $Id: fight.c,v 1.37 1998-06-17 04:54:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1297,31 +1297,6 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	if (victim->position == POS_DEAD)
 		return FALSE;
 
-	/*
-	 * Stop up any residual loopholes.
-	 */
-	if (dam > 1000 && !IS_IMMORTAL(ch)) {
-		char buf[MAX_STRING_LENGTH];
-		sprintf(buf,"%s:Damage more than 1000 points :%d",ch->name,dam);
-		bug(buf,0);
-		if (IS_NPC(ch) && !IS_NPC(ch)) dam = 1000;
-
-/*
- *	For a 100-leveled MUD?....
-
-		dam = 1000;
-		if (!IS_IMMORTAL(ch))
-		{
-		    OBJ_DATA *obj;
-		    obj = get_eq_char(ch, WEAR_WIELD);
-		    send_to_char("You really shouldn't cheat.\n\r",ch);
-		    if (obj)
-		      extract_obj(obj);
-		}
-*/
-	}
-
-
 	if (victim != ch) {
 		/*
 		 * Certain attacks are forbidden.
@@ -2160,6 +2135,8 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 	stop_fighting(victim, TRUE);
 	rating_update(ch, victim);
 
+	quest_handle_death(ch, victim);
+
   for (obj = victim->carrying;obj != NULL;obj = obj_next)
 	{
 	  obj_next = obj->next_content;
@@ -2245,8 +2222,8 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 
 void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 {
-	CHAR_DATA *gch;
 	CHAR_DATA *lch;
+	CHAR_DATA *gch;
 	int xp;
 	int members;
 	int group_levels;
@@ -2254,28 +2231,6 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (victim == ch
 	||  (IS_NPC(victim) && victim->pIndexData->vnum < 100))
 		return;
-
-/* quest */
-	if (IS_GOLEM(ch) && ch->master != NULL
-	&&  ch->master->class == CLASS_NECROMANCER)
-		gch = ch->master;
-	else
-		gch = ch;
-
-	if (victim->hunter != NULL)
-		if (victim->hunter == gch) {
-			char_nputs(ALMOST_COMPLETE_QUEST, gch);
-			char_nputs(RETURN_TO_QUESTER, gch);
-			gch->pcdata->questmob = -1;
-		}
-		else {
-			char_nputs(YOU_COMPLETED_SOMEONES_QUEST, gch);
-			char_nputs(SOMEONE_COMPLETED_YOUR_QUEST,
-				   victim->hunter);
-			quest_cancel(victim->hunter);
-		}
-
-/* end quest */
 
 	if (!IS_NPC(victim))
 		return;

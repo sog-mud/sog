@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.33 1998-06-16 16:56:47 fjoe Exp $
+ * $Id: quest.c,v 1.34 1998-06-17 04:54:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -78,7 +78,9 @@
 #	include "compat.h"
 #endif
 
-/* quest items */
+/*
+ * quest items
+ */
 #define QUEST_VNUM_GIRTH	94
 #define QUEST_VNUM_RING		95
 #define QUEST_VNUM_WEAPON	96
@@ -171,7 +173,9 @@ QCMD_DATA qcmd_table[] = {
 	{ NULL}
 };
 
-/* The main quest function */
+/*
+ * The main quest function
+ */
 void do_quest(CHAR_DATA *ch, char *argument)
 {
 	char cmd[MAX_INPUT_LENGTH];
@@ -195,6 +199,29 @@ void do_quest(CHAR_DATA *ch, char *argument)
 }
 
 
+void quest_handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
+{
+	if (IS_GOLEM(ch) && ch->master != NULL
+	&&  ch->master->class == CLASS_NECROMANCER)
+		ch = ch->master;
+
+	if (victim->hunter != NULL)
+		if (victim->hunter == ch) {
+			char_nputs(ALMOST_COMPLETE_QUEST, ch);
+			char_nputs(RETURN_TO_QUESTER, ch);
+			ch->pcdata->questmob = -1;
+		}
+		else {
+			char_nputs(YOU_COMPLETED_SOMEONES_QUEST, ch);
+
+			ch = victim->hunter;
+			char_nputs(SOMEONE_COMPLETED_YOUR_QUEST, ch);
+			quest_cancel(ch);
+			ch->pcdata->questtime = -number_range(5, 10);
+		}
+}
+
+
 void quest_cancel(CHAR_DATA *ch)
 {
 	CHAR_DATA *fch;
@@ -204,7 +231,9 @@ void quest_cancel(CHAR_DATA *ch)
 	ch->pcdata->questobj = 0;
 	ch->pcdata->questroom = NULL;
 
-	/* remove mob->hunter */
+	/*
+	 * remove mob->hunter
+	 */
 	for (fch = char_list; fch; fch = fch->next)
 		if (fch->hunter == ch) {
 			fch->hunter = 0;
@@ -213,7 +242,9 @@ void quest_cancel(CHAR_DATA *ch)
 }
 
 
-/* Called from update_handler() by pulse_area */
+/*
+ * Called from update_handler() by pulse_area
+ */
 void quest_update(void)
 {
 	CHAR_DATA *ch, *ch_next;
@@ -260,7 +291,9 @@ void qtrouble_set(CHAR_DATA *ch, int vnum, int count)
 }
 
 
-/* local functions */
+/*
+ * local functions
+ */
 
 static void quest_tell(CHAR_DATA *ch, CHAR_DATA *questor, const char *fmt, ...)
 {
@@ -315,7 +348,9 @@ static QTROUBLE_DATA *qtrouble_lookup(CHAR_DATA *ch, int vnum)
 }
 
 
-/* quest do functions */
+/*
+ * quest do functions
+ */
 
 static void quest_points(CHAR_DATA *ch, char* arg)
 {
@@ -512,7 +547,9 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		||  IS_SET(victim->pIndexData->act, ACT_IS_HEALER)
 		||  IS_SET(victim->pIndexData->act, ACT_NOTRACK)
 		||  IS_SET(victim->pIndexData->imm_flags, IMM_SUMMON)
-		||  questor->pIndexData == victim->pIndexData)
+		||  questor->pIndexData == victim->pIndexData
+		||  (IS_SET(victim->pIndexData->act, ACT_SENTINEL) &&
+		     IS_SET(victim->in_room->room_flags, ROOM_SAFE)))
 			continue;
 		mobs[mob_count++] = victim;
 		if (mob_count >= MAX_QMOB_COUNT)
@@ -715,7 +752,7 @@ static void quest_complete(CHAR_DATA *ch, char *arg)
 	}
 
 	quest_cancel(ch);
-	ch->pcdata->questtime = -5;
+	ch->pcdata->questtime = -number_range(5, 10);
 }
 
 
@@ -742,7 +779,9 @@ static void quest_trouble(CHAR_DATA *ch, char *arg)
 }
 
 
-/* quest buy functions */
+/*
+ * quest buy functions
+ */
 
 static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 			    int item_vnum, int count_max)
@@ -768,7 +807,39 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 			return FALSE;
 		}
 	}
-		 
+
+	/* update quest trouble data */
+
+	if (qt != NULL && count_max) {
+		/* `quest trouble' */
+		for (obj = object_list; obj != NULL; obj = obj_next) {
+			obj_next = obj->next;
+			if (obj->pIndexData->vnum == item_vnum 
+			&&  strstr(obj->short_descr, ch->name)) {
+				extract_obj(obj);
+				break;
+			}
+		}
+
+		quest_tell(ch, questor,
+			   msg(QUEST_THIS_IS_THE_NTH_TIME, ch), qt->count);
+		if (qt->count == count_max) 
+			quest_tell(ch, questor, msg(QUEST_WONT_GIVE_AGAIN, ch));
+	}
+
+	if (qt == NULL) {
+		qt = alloc_mem(sizeof(*qt));
+		qt->vnum = item_vnum;
+		qt->count = 0;
+		qt->next = ch->pcdata->qtrouble;
+		ch->pcdata->qtrouble = qt;
+	}
+
+
+	if (count_max)
+		qt->count++;
+	else
+		qt->count = 1;
 
 	/* ok, give him requested item */
 
@@ -785,35 +856,6 @@ static bool quest_give_item(CHAR_DATA *ch, CHAR_DATA *questor,
 	act_nprintf(ch, obj, questor, TO_ROOM, POS_RESTING, 
 		    QUEST_GIVES_P_TO_N);
 	act_nprintf(ch, obj, questor, TO_CHAR, POS_DEAD, QUEST_GIVES_YOU_P);
-
-
-	/* update quest trouble data */
-
-	if (qt != NULL && count_max) {
-		for (obj = object_list; obj != NULL; obj = obj_next) {
-			obj_next = obj->next;
-			if (obj->pIndexData->vnum == item_vnum 
-			&&  strstr(obj->short_descr, ch->name)) {
-				extract_obj(obj);
-				break;
-			}
-		}
-
-		quest_tell(ch, questor,
-			   msg(QUEST_THIS_IS_THE_NTH_TIME, ch), qt->count);
-		if (qt->count == count_max) 
-			quest_tell(ch, questor, msg(QUEST_WONT_GIVE_AGAIN, ch));
-
-		qt->count++;
-	}
-
-	if (qt == NULL) {
-		qt = alloc_mem(sizeof(*qt));
-		qt->vnum = item_vnum;
-		qt->count = 1;
-		qt->next = ch->pcdata->qtrouble;
-		ch->pcdata->qtrouble = qt;
-	}
 
 	return TRUE;
 }

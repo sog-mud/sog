@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.9 1998-06-12 14:26:00 fjoe Exp $
+ * $Id: obj_prog.c,v 1.10 1998-06-17 04:54:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1843,7 +1843,7 @@ void remove_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch)
 void wear_prog_quest_weapon(OBJ_DATA *obj, CHAR_DATA *ch)
 {
 	if (strstr(obj->short_descr, ch->name) != NULL)  {
-		send_to_char("Your weapon starts glowing.",ch);
+		send_to_char("Your weapon starts glowing.\n\r",ch);
 		     if (ch->level > 20 && ch->level <= 30) obj->value[2] = 4;
 		else if (ch->level > 30 && ch->level <= 40) obj->value[2] = 5;
 		else if (ch->level > 40 && ch->level <= 50) obj->value[2] = 6;

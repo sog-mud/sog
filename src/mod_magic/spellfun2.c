@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.13 1998-06-16 18:43:19 efdi Exp $
+ * $Id: spellfun2.c,v 1.14 1998-06-17 04:54:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,6 +45,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+
 #include "merc.h"
 #include "magic.h"
 #include "recycle.h"
@@ -53,6 +54,7 @@
 #include "hometown.h"
 #include "act_comm.h"
 #include "fight.h"
+#include "quest.h"
 #include "rating.h"
 #include "util.h"
 
@@ -244,6 +246,8 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	send_to_char("You turn into an invincible ghost for a few minutes.\n\r",
 	             victim);
 	send_to_char("As long as you don't attack anything.\n\r", victim);
+
+	quest_handle_death(ch, victim);
 
 	/*  disintegrate the objects... */
 	tattoo = get_eq_char(victim, WEAR_TATTOO); /* keep tattoos for later */
