@@ -2,7 +2,7 @@
 #define _BUFFER_H_
 
 /*
- * $Id: buffer.h,v 1.3 1998-09-01 18:29:16 fjoe Exp $
+ * $Id: buffer.h,v 1.4 1998-09-01 18:37:57 fjoe Exp $
  */
 
 BUFFER *	buf_new		(int size);

@@ -1,5 +1,5 @@
 /*
- * $Id: resource.c,v 1.32 1998-09-01 18:29:20 fjoe Exp $
+ * $Id: resource.c,v 1.33 1998-09-01 18:38:02 fjoe Exp $
  */
 
 #include <limits.h>

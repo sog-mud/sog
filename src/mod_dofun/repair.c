@@ -1,5 +1,5 @@
 /*
- * $Id: repair.c,v 1.5 1998-09-01 18:29:20 fjoe Exp $
+ * $Id: repair.c,v 1.6 1998-09-01 18:38:01 fjoe Exp $
  */
 
 #include <stdio.h>

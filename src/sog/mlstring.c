@@ -1,5 +1,5 @@
 /*
- * $Id: mlstring.c,v 1.14 1998-09-01 18:29:19 fjoe Exp $
+ * $Id: mlstring.c,v 1.15 1998-09-01 18:38:01 fjoe Exp $
  */
 
 #include <stdarg.h>

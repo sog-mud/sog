@@ -1,5 +1,5 @@
 /*
- * $Id: log.c,v 1.4 1998-09-01 18:29:17 fjoe Exp $
+ * $Id: log.c,v 1.5 1998-09-01 18:38:00 fjoe Exp $
  */
 
 #include <stdarg.h>

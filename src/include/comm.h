@@ -2,7 +2,7 @@
 #define _COMM_H_
 
 /*
- * $Id: comm.h,v 1.11 1998-09-01 18:29:16 fjoe Exp $
+ * $Id: comm.h,v 1.12 1998-09-01 18:37:57 fjoe Exp $
  */
 
 void	show_string	(struct descriptor_data *d, char *input);

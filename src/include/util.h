@@ -2,7 +2,7 @@
 #define _UTIL_H_
 
 /*
- * $Id: util.h,v 1.4 1998-09-01 18:29:20 fjoe Exp $
+ * $Id: util.h,v 1.5 1998-09-01 18:38:02 fjoe Exp $
  */
 
 void	doprintf(DO_FUN*, CHAR_DATA*, const char *fmt, ...);

@@ -1,5 +1,5 @@
 /*
- * $Id: olc_room.c,v 1.3 1998-09-01 18:29:26 fjoe Exp $
+ * $Id: olc_room.c,v 1.4 1998-09-01 18:38:09 fjoe Exp $
  */
 
 #include <stdio.h>

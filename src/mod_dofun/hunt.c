@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.7 1998-09-01 18:29:17 fjoe Exp $
+ * $Id: hunt.c,v 1.8 1998-09-01 18:38:00 fjoe Exp $
  */
 
 #include <stdio.h>

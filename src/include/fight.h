@@ -2,7 +2,7 @@
 #define _FIGHT_H_
 
 /*
- * $Id: fight.h,v 1.4 1998-09-01 18:29:17 fjoe Exp $
+ * $Id: fight.h,v 1.5 1998-09-01 18:37:57 fjoe Exp $
  */
 
 void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part);

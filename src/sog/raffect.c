@@ -1,5 +1,5 @@
 /*
- * $Id: raffect.c,v 1.7 1998-09-01 18:29:20 fjoe Exp $
+ * $Id: raffect.c,v 1.8 1998-09-01 18:38:01 fjoe Exp $
  */
 
 #include <sys/time.h>
