@@ -1205,12 +1205,16 @@ send chills down your spine.
 D0
 ~
 ~
-Z -1 32001
+ABZ -1 32001
 D1
 Prison of midgaard
 ~
 ~
 Z -1 3100
+D2
+~
+~
+Z 0 35000
 S
 #32001
 The Prison of Midgaard~
@@ -1234,7 +1238,7 @@ ABCFZ 32000 32002
 D2
 ~
 ~
-Z -1 32000
+ABZ -1 32000
 S
 #32002
 A Bright Intersection~
@@ -2682,7 +2686,9 @@ S
 
 
 #RESETS
+D 0 32000 0 1	* Entrance to the Prison: door to the north: closed
 D 0 32001 0 2	* The Prison of Midgaard: door to the north: closed and locked
+D 0 32001 2 1	* The Prison of Midgaard: door to the south: closed
 D 0 32008 4 1	* A long hallway: door to the up: closed
 D 0 32016 2 1	* A broom closet: door to the south: closed
 D 0 32041 3 2	* Guard Room: door to the west: closed and locked

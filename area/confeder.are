@@ -145,7 +145,7 @@ S
 D0
 ~
 ~
-Z 0 33002
+DZ 0 33002
 D2
 ~
 ~
@@ -169,7 +169,7 @@ Z 0 33003
 D2
 ~
 ~
-Z 0 33001
+DZ 0 33001
 S
 #33003
 @eng Rest Room of Confederacy@rus Комната Отдыха Серой Лиги~
@@ -220,6 +220,11 @@ S
 
 #MOBPROGS
 #33000
+if isimmort $n 
+bow $n
+say Welcome, $n!
+end
+endif
 if isghost $n
 mob transfer $n 33000
 end
@@ -233,7 +238,6 @@ yell Die, $n, you dirty bitch!!!
 endif
 mob kill $n
 endif
- 
 ~
 #0
 

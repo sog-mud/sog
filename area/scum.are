@@ -1,0 +1,157 @@
+#AREADATA
+Name Scum~
+Builders None~
+VNUMs 40000 40100
+Credits (null)~
+Security 5
+LevelRange 0 0
+End
+
+
+
+#MOBILES
+#40000
+mummy~
+@eng Royal Mummy@rus Королевская мумия~
+@eng Royal Mummy
+@rus Королевская мумия тянет к тебе свои высохшие руки
+~
+~
+undead~
+ABORTe HNOVZae -1000 0
+91 100 1d1+25000 1d1+4000 1d1+200 bite
+-10 -10 -10 -10
+ACEFJKLNOQSU AB 0 0
+stand stand male 0
+I 0 large unknown
+F aff J
+F det CG
+F imm LQR
+F res MO
+#40001
+zombie~
+@eng Large Zombie@rus Огромный живой труп~
+@eng Large Zombie
+@rus Полуразложившийся живой труп дыхнул на тебя гнилью
+~
+~
+zombie~
+ABORTe CDFHNOVZae -1000 0
+91 100 1d1+25000 1d1+4000 1d1+200 bite
+-10 -10 -10 -10
+ACDEIJKLO A 0 0
+stand stand female 0
+I 0 large unknown
+F aff d
+F imm BL
+F res I
+#0
+
+
+
+#OBJECTS
+#40000
+child~
+@eng corpse of child@rus тела младенца~
+@eng Bloody corpse of child here.@rus Окровавленное тело только что убитого младенца брошено здесь.~
+unknown~
+fountain R P
+0 0 'blood' 0 0
+0 0 0 P
+#0
+
+
+
+#ROOMS
+#40000
+@eng {DGrave{x@rus {DМогила{x~
+@eng @rus {DТы очутился в месте которое одним только названием навевает  на тебя
+ужас и леденит кровь.  В нос  тебе  ударил запах гнили,  странные тени
+окружили тебя.  Ты чувствуешь  как ее величество  смерть  прикоснулась
+к твоей душе своими ледяными пальцами. Задумайся пока не поздно, может
+стоить бежать отсюда без оглядки и навсегда забыть сюда дорогу?{x
+~
+0 AC 0
+D4
+~
+~
+Z 0 3603
+D5
+~
+~
+Z 0 40001
+S
+#40001
+@eng {DDirty vault{x@rus {DГрязное подземелье{x~
+@eng @rus {DСкорее всего, большей ошибки в своей жизни ты не совершал, чем решив
+спуститься сюда. Со стен капает какая-то слизь. Горы разложившихся тел
+по  всюду. Видимо  все они были на столько же глупы как ты, что пришли
+сюда. Ага! А вот и палачи! Сегодня явно неблагополучный для тебя день.{x
+~
+0 A 0
+D0
+~
+~
+Z 0 40002
+D4
+~
+~
+Z 0 40000
+S
+#40002
+@eng {DDark cave{x@rus {DТемная пещера{x~
+@eng @rus {DТы попал в пещеру, являющуюся  скоплением  всевозможной нечести. Именно
+здесь темные маги устраивают свои жуткие оргии. Воздух буквально пропитан
+колдовством. Кругом валяются окровавленные, полуобъеденные тела - остатки
+недавнего пиршества. Из воздуха постоянно  появляются и исчезают странные
+существа имя которым может быть только одно - НЕЧИСТЬ!{x
+~
+0 A 0
+D2
+~
+~
+Z 0 40001
+S
+#0
+
+
+
+#SPECIALS
+M 40000 spec_breath_lightning	* Royal Mummy
+M 40001 spec_breath_lightning	* Large Zombie
+S
+
+
+
+#RESETS
+M 0 40000 1 40001 1	* Royal Mummy ({DDirty vault{x)
+M 0 40001 1 40001 1	* Large Zombie ({DDirty vault{x)
+O 0 40000 0 40002		* corpse of child ({DDark cave{x)
+S
+
+
+
+#SHOPS
+0
+
+
+
+#OLIMITS
+S
+
+
+
+#MOBPROGS
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
+#$
