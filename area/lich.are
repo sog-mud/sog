@@ -290,45 +290,45 @@ A
 4 1
 g @eng none@rus male~
 #29357
-ancient longsword sword~
-an Ancient Longsword~
-An old longsword floats here, glowing slightly.~
+ancient longsword sword древний старый меч~
+@eng an Ancient Longsword@rus ~~древний~~ ~~меч~~~
+@eng An old longsword floats here, glowing slightly.@rus Древний меч (sword) висит в воздухе, окутанный слабым сиянием.~
 adamantite~
 weapon AG 0 AN
-sword 10 8 'slash' DH
-70 12 2500 P
+sword 5 9 'slash' DH
+40 12 2500 P
 A
 19 3
 A
 18 3
-g none~
+g @eng none@rus male~
 #29358
-black scale dragon~
-a black dragon scale~
-A black dragon scale that's been torn from one of the beasts.~
-adamantite~
-armor 0 0 AJ
-21 22 21 10 0
-65 30 1200 P
+scale black dragon чешуя дракон черная~
+@eng a black dragon scale@rus ~~чешуя~~ черного дракона~
+@eng A black dragon scale that's been torn from one of the beasts.@rus Огромная чешуйка (scale) черного дракона была вырвана у одного из чудовищ.~
+dragonscale~
+armor G 0 AJ
+11 11 11 8 0
+40 30 1200 P
 A
-18 3
+13 15
 A
-19 5
+19 3
 A
-13 25
+18 2
 A
 1 2
 A
 3 -2
-g none~
+g @eng none@rus female~
 #29359
-hell sword wraith~
-the Hell's Wraith~
-This sword was supposedly forged in the depths of Hell. It's wavy blade makes it appear much like a large kris. It is a bit unwieldly at first but the damage it inflicts is unbelievable.~
+sword hell wraith меч призрак ада~
+@eng the Hell's Wraith@rus ~~Призрак~~ Ада~
+@eng A huge sword with wavy blade glows with evil power.@rus Огромный меч (sword) с волнистым лезвием излучает магическую силу.~
 adamantite~
 weapon ABEGM 0 AN
-exotic 10 8 'bite' CE
-73 10 5000 P
+exotic 10 6 'bite' CE
+45 10 5000 P
 A
 2 1
 A
@@ -341,28 +341,36 @@ A
 4 -1
 A
 3 -1
-g none~
+E
+sword hell wraith меч призрак ада~
+@eng This sword was supposedly forged in the depths of Hell. It's wavy
+blade makes it appear much like a large kris. It is a bit unwieldly
+at first but the damage it inflicts is unbelievable.
+@rus Не иначе, это оружие было выковано в пучинах Ада. Может, оно и
+не так удобно, как другие мечи, но его сила неоспорима.
+~
+g @eng none@rus male~
 #29360
-robes sorceror~
-sorceror's robes~
-Long black robes covered in moons and stars.~
-unknown~
+robes sorceror black черная мантия волшебника~
+@eng sorceror's robes@rus ~~мантия~~ волшебника~
+@eng Long black robes covered in moons and stars.@rus Длинная черная мантия (robes) с изображениями лун и звезд лежит здесь.~
+etherealness~
 armor G 0 AK
-24 24 24 11 0
-72 10 3000 P
+12 12 12 7 0
+45 10 3000 P
 A
-3 3
+3 2
 A
-12 150
-g none~
+12 75
+g @eng none@rus female~
 #29361
-infinity scroll~
-the Infinity Scroll~
-The old scroll rumored to have answers to all questions. (Unfortunately you just killed the last thing in existance that could read it.)~
-silver~
+infinity scroll свиток бесконечности~
+@eng the Infinity Scroll@rus ~~свиток~~ Бесконечности~
+@eng A scroll lies here, surrounded in a faint glow.@rus Свиток (scroll) пергамента лежит здесь, слабо светясь.~
+parchment~
 armor ABG 0 AO
-23 23 24 11 0
-74 4 7500 P
+12 12 12 7 0
+45 4 7500 P
 A
 18 2
 A
@@ -379,116 +387,123 @@ A
 13 50
 A
 12 50
-g none~
+E
+infinity scroll свиток бесконечности~
+@eng This old scroll is rumored answer all questions.. Unfortunately,
+the last person who could read it is already dead.
+@rus Согласно легенде, в этот свитке содержатся ответы на все вопросы..
+К сожалению, последний, кто мог его прочитать, уже мертв.
+~
+g @eng none@rus male~
 #29362
-silvery potion~
-a silvery potion~
-A silvery potion has been left in the desk.~
+silvery potion зелье серебристое~
+@eng a silvery potion@rus ~~серебристое~~ ~~зелье~~~
+@eng A silvery potion has been left in the desk.@rus Пузырек с серебристым зельем (potion) кем-то оставлен на столе.~
 glass~
 potion AG 0 AO
-40 'invisibility' 'detect invis' 'detect magic' ''
-40 2 1000 P
-g none~
+25 'invisibility' 'detect invis' 'detect magic' ''
+25 2 1000 P
+g @eng none@rus neutral~
 #29363
-key golden~
-a golden key~
-A golden key lies here in the book.~
+key golden золотой ключ~
+@eng a golden key@rus ~~золотой~~ ~~ключ~~~
+@eng A golden key lies here in the book.@rus Золотой ключ (key) лежит меж страниц книги.~
 gold~
 key 0 0 A
 0 0 0 0 0
-40 1 0 P
-g none~
+25 1 0 P
+g @eng none@rus male~
 #29364
-boots water walking waterwalking~
-boots of waterwalking~
-Some old leather boots with fish painted on them rest here in the closet.~
-mithril~
+boots water walking waterwalking ботинки хождения воде~
+@eng boots of waterwalking@rus ~~ботинки~~ хождения по воде~
+@eng Some old leather boots with fish painted on them rest here in the closet.@rus Старые кожаные ботинки (boots) с изображением рыбы лежат тут.~
+leather~
 boat G 0 AG
 0 0 0 0 0
 20 5 1000 P
 A
 2 1
-g none~
+g @eng none@rus plural~
 #29365
-thieve's tunic~
-a Thieve's Tunic~
-A black shirt with many pockets.~
-adamantite~
-armor G 0 AD
-13 13 12 5 0
-40 15 900 P
+thieve's tunic туника вора рубашка shirt~
+@eng a Thieve's Tunic@rus ~~туника~~ вора~
+@eng A black shirt with many pockets.@rus Черная рубашка (tunic) со множеством карманов лежит тут.~
+cloth~
+container G 0 AD
+120 0 0 10 25
+25 15 900 P
 A
 18 3
 A
 2 3
-g none~
+g @eng none@rus female~
 #29366
-paper blank~
-a blank piece of paper~
-A deteriorating piece of blank paper rests here on a shelf.~
+paper бумаги обрывок чистый piece blank~
+@eng a blank piece of paper@rus ~~чистый~~ обрывок бумаги~
+@eng A deteriorating piece of blank paper rests here on a shelf.@rus Испорченный обрывок бумаги (paper) лежит на полке.~
 paper~
-gem 0 0 AO
-0 0 0 0 AB
-35 1 2000 P
-g none~
+trash 0 0 AO
+0 0 0 0 0
+20 1 2000 P
+g @eng none@rus male~
 #29367
-chair wooden~
-@eng a large wooden chair@rus большое деревянное кресло~
-@eng A large wooden chair sits here at the head of the table@rus Большое деревянное кресло стоит во главе стола.~
+chair wooden стул деревянный~
+@eng a large wooden chair@rus ~~большой~~ ~~деревянный~~ ~~стул~~~
+@eng A large wooden chair sits here at the head of the table@rus Большой деревянный стул (chair) стоит во главе стола.~
 wood~
-furniture 0 0 0
+furniture 0 B 0
 0 0 D 0 0
 30 50 0 P
-g none~
+g @eng none@rus male~
 #29368
-table dining~
-a huge dining table~
-A huge dining table~
+table dining обеденный стол~
+@eng a huge dining table@rus ~~огромный~~ ~~обеденный~~ ~~стол~~~
+@eng A huge dining table@rus Огромный обеденный стол стоит тут.~
 wood~
-furniture 0 0 0
+furniture 0 B 0
 0 0 0 0 0
 30 100 0 P
-g none~
+g @eng none@rus male~
 #29369
-book shelf bookshelf~
-an old wooden bookshelf~
-An old wooden bookshelf lining the eastern wall~
+book shelf bookshelf полка книжная деревянная~
+@eng an old wooden bookshelf@rus ~~старая~~ ~~книжная~~ ~~полка~~~
+@eng An old wooden bookshelf lining the eastern wall@rus Деревянная полка для книг (bookshelf) тянется вдоль восточной стены.~
 wood~
-container 0 0 0
+container 0 B 0
 10 0 0 0 75
-40 200 0 P
-g none~
+25 200 0 P
+g @eng none@rus female~
 #29370
-desk mahogany~
-a large mahogany desk~
-A large mahogany desk rests against the western wall~
-wood~
-container 0 0 0
-999 0 22001 499 75
+desk mahogany стол красного дерева~
+@eng a large mahogany desk@rus ~~большой~~ ~~стол~~ красного дерева~
+@eng A large mahogany desk rests against the western wall@rus Большой стол (desk) красного дерева стоит у западной стены.~
+mahogany~
+container 0 B 0
+999 ACD 22001 499 75
 40 150 0 P
-g none~
+g @eng none@rus male~
 #29371
-closet~
-a closet carved into the wall~
-A large closet, carved into the wall.~
-stone~
-container 0 0 0
-999 0 29363 499 75
+closet стенной шкаф~
+@eng a closet carved into the wall@rus ~~стенной~~ ~~шкаф~~~
+@eng A large closet, carved into the wall.@rus Ты видишь врезанный в стену шкаф (closet).~
+metal~
+container 0 B 0
+999 ACD 29363 499 75
 40 999 0 P
-g none~
+g @eng none@rus male~
 #29372
-grimoire~
-a powerful grimoire~
-An ancient and powerful grimoire beckons for you to open it~
+grimoire фолиант старинный powerful~
+@eng a powerful grimoire@rus ~~старинный~~ ~~фолиант~~ на подставке~
+@eng An ancient and powerful grimoire beckons for you to open it.@rus Старинный фолиант (grimoire) на деревянной подставке стоит тут. Он закрыт.~
 leather~
-container AG 0 0
+container AG B 0
 100 0 0 50 75
 40 50 0 P
-g none~
+g @eng none@rus male~
 #29373
 cross obsidian~
-@eng a large obsidian cross@rus огромный обсидиановый крест~
-@eng A large obsidian cross@rus Огромный обсидиановый крест стоит у дороги.~
+@eng a large obsidian cross@rus ~~огромный~~ ~~обсидиановый~~ ~~крест~~~
+@eng A large obsidian cross is here.@rus Огромный обсидиановый крест (cross) стоит у дороги.~
 stone~
 furniture 0 B A
 0 0 0 0 0
@@ -516,7 +531,7 @@ mobs.  However, as this area is the only way to get to a few others, the
 mobs do NOT detect invis, so as long as you are invis you should be able to
 get where you want to go, Alive.  ===> RYZEN <=== 
 ~
-g male~
+g @eng neutral@rus male~
 #0
 
 #ROOMS
@@ -1180,16 +1195,16 @@ M 0 29350 4 29360 1	* A Death Knight (Lich's Study)
 E 0 29350 0 16		*	an old black mace: wielded
 O 0 29370 0 29360	* a large mahogany desk (Lich's Study)
 O 0 29371 0 29360	* a closet carved into the wall (Lich's Study)
-P 0 29361 0 29370 1	* a large mahogany desk: the Infinity Scroll
-P 0 29362 0 29370 1	* a large mahogany desk: a silvery potion
-P 0 29363 0 29372 1	* a powerful grimoire: a golden key
-P 0 29364 0 29371 1	* a closet carved into the wall: boots of waterwalking
-P 0 29365 0 29371 1	* a closet carved into the wall: a Thieve's Tunic
-P 0 29366 0 29369 1	* an old wooden bookshelf: a blank piece of paper
+P 0 29361 1 29370 1	* a large mahogany desk: the Infinity Scroll
+P 0 29362 1 29370 1	* a large mahogany desk: a silvery potion
+P 0 29364 1 29371 1	* a closet carved into the wall: boots of waterwalking
+P 0 29365 1 29371 1	* a closet carved into the wall: a Thieve's Tunic
 O 0 29372 0 29361	* a powerful grimoire (The Library)
+P 0 29363 1 29372 1	* a powerful grimoire: a golden key
 M 0 29350 4 29362 1	* A Death Knight (The Library)
 E 0 29350 0 16		*	an old black mace: wielded
 O 0 29369 0 29362	* an old wooden bookshelf (The Library)
+P 0 29366 1 29369 1	* an old wooden bookshelf: a blank piece of paper
 M 0 29353 1 29363 1	* A Major Demon (A Summoning Room)
 E 0 29356 0 3		*	the Amulet of the Night: around the neck (1)
 M 0 29351 1 29364 1	* The Inquisitor (The Torture Chamber)
@@ -1211,6 +1226,7 @@ E 0 29350 0 16		*	an old black mace: wielded
 S
 
 #OLIMITS
+O 29357 9	* an Ancient Longsword
 O 29373 1	* a large obsidian cross
 S
 

@@ -668,6 +668,61 @@ stand stand female 100000
 r negative 100
 r disease 100
 r poison 100
+#22329
+guard high zombie~
+the high guard~
+A high guard of treasure keep looks at you.
+~
+A tall guard that is dressed in a silver armor looks at you.
+He says: "What are you looking for? You aren't able to
+get anything from here."  Guard shows to you a group
+of patrolmens. He continues: "They will eliminate you. So it will
+be better if you leave this place."
+~
+undead~
+BORT 0 V G CDG -1000 0
+60 50 100d8+7000 100d2+1000 10d7+40 'none'
+-55 -55 -55 -55
+AFGHKP
+stand stand random 1000
+0 0 large unknown
+r pierce 20
+r slash -10
+r fire -30
+r cold 100
+r lightning 60
+r acid 90
+r negative 100
+r energy 50
+r mental 100
+r sound 50
+r harm -50
+#22330
+guard undead~
+the undead guard~
+A undead guard stays here.
+~
+You seean ancient guard. He wears very old armor.
+Also you feel that he isn't a living creature.
+~
+undead~
+BORT 0 Vc G CD -1000 0
+55 45 100d5+4000 100d1+500 20d2+35 'wrath'
+-45 -45 -45 -45
+FGHJKP
+stand stand none 500
+0 0 large unknown
+r pierce 20
+r slash -10
+r fire -30
+r cold 100
+r lightning 60
+r acid 80
+r negative 100
+r mental 100
+r sound 50
+r charm 1000
+r harm -50
 #22399
 as~
 as~
@@ -1582,6 +1637,51 @@ container Y B 0
 1000 ABCD 22355 1000 0
 45 0 0 P
 g none~
+#22364
+chest~
+chest~
+A huge wooden chest lies here.~
+wood~
+container Y B 0
+1000 ABCD 22356 1000 0
+45 1000 0 P
+g none~
+#22365
+chest~
+chest~
+A huge wooden chest lies here.~
+wood~
+container Y B 0
+1000 ABCD 22357 1000 0
+45 1000 0 P
+g none~
+#22366
+chest~
+chest~
+A huge wooden chest lies here.~
+wood~
+container Y B 0
+1000 ABCD 22358 1000 0
+45 1000 0 P
+g none~
+#22367
+chest~
+chest~
+A huge wooden chest lies here.~
+wood~
+container Y B 0
+1000 ABCD 22359 1000 0
+45 1000 0 P
+g none~
+#22368
+chest~
+chest~
+A huge wooden chest lies here.~
+wood~
+container Y B 0
+1000 ABCD 22360 1000 0
+45 1000 0 P
+g none~
 #22399
 battleaxe dagger sword~
 battlaxe ~
@@ -2319,6 +2419,12 @@ D3
 ~
 ~
 Z 0 22332
+D5
+~
+~
+~
+~
+ABCFGIZ 22320 22373
 S
 #22334
 A corridor~
@@ -4361,6 +4467,7 @@ M 22325 spec_cast_mage	* the Colbran
 M 22326 spec_cast_mage	* the Gelatinous cube
 M 22327 spec_breath_fire	* Itangast, the Fire Drake
 M 22328 spec_cast_mage	* Tiamat, Celestial Dragon of Evil
+M 22329 spec_cast_mage	* the high guard
 S
 
 #RESETS
@@ -4395,6 +4502,7 @@ D 0 22322 4 2	* The Hall of the Crypts: door to the up: closed and locked
 D 0 22323 0 1	* A Crypt: door to the north: closed
 D 0 22324 0 1	* A Crypt: door to the north: closed
 D 0 22325 0 1	* A Crypt: door to the north: closed
+D 0 22333 5 2	* The Guards Quarters: door to the down: closed and locked
 D 0 22356 4 2	* The entrance to the Hall of Ringwraiths: door to the up: closed and locked
 D 0 22357 2 1	* A Cage: door to the south: closed
 D 0 22358 2 1	* A Cage: door to the south: closed
@@ -4596,6 +4704,27 @@ E 0 22351 0 17		*	the key of treasure keep: held in the hands
 O 0 22361 0 22392	* chest (The North-West Coner of Treasure Keep)
 O 0 22362 0 22394	* chest (The North Wall of Treasure Keep)
 O 0 22363 0 22396	* chest (The North-East Corner of Treasure Keep)
+M 0 22329 8 22398 1	* the high guard (The Treasure Keep)
+G 0 22356 0		*	the bone key
+M 0 22329 8 22399 1	* the high guard (The Treasure Keep)
+E 0 22357 0 17		*	the bone key: held in the hands
+M 0 22329 8 22400 1	* the high guard (The Treasure Keep)
+E 0 22355 0 17		*	the bone key: held in the hands
+O 0 22364 0 22402	* chest (The West Wall of Treasure Keep)
+M 0 22329 8 22403 1	* the high guard (The Treasure Keep)
+E 0 22360 0 17		*	the bone key: held in the hands
+M 0 22329 8 22405 1	* the high guard (The Treasure Keep)
+E 0 22358 0 17		*	the bony key: held in the hands
+O 0 22365 0 22406	* chest (The East Wall of Treasure Keep)
+M 0 22329 8 22408 1	* the high guard (The Treasure Keep)
+E 0 22353 0 17		*	the bone key: held in the hands
+M 0 22329 8 22409 1	* the high guard (The Treasure Keep)
+E 0 22359 0 17		*	the bone key: held in the hands
+M 0 22329 8 22410 1	* the high guard (The Treasure Keep)
+E 0 22354 0 17		*	the bone key: held in the hands
+O 0 22366 0 22412	* chest (The South-West Corner  of Treasure Keep)
+O 0 22367 0 22414	* chest (The South Wall of Treasure Keep)
+O 0 22368 0 22416	* chest (The South-East Corner of Treasure Keep)
 S
 
 #OLIMITS

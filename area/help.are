@@ -4121,6 +4121,8 @@ their original meaning.
                      list of flags
 {cname{x <name>        - toggle names of the exit, enter {cnone{x as
                      a name to clear list
+{cshort{x              - set short description for exit
+{cgender{x             - set gender for exit
 {cdelete{x             - deletes an exit
 {clink{x <vnum>        - make two-way link
 {croom{x <vnum>        - make one-way link

@@ -28,9 +28,10 @@ CDEKOT
 stand stand male 25
 0 0 huge unknown
 #13001
-giant thiulor spy~
-Thiulor the Spy~
-A strange giant peers at you while sneaking through the castle.
+giant thiulor spy гигант тиулор шпион~
+@eng Thiulor the Spy@rus ~~местный~~ ~~шпион~~ ~~Тиулор~~~
+@eng A strange giant peers at you while sneaking through the castle.
+@rus На тебя пялится крадущийся по замку странный гигант.
 ~
 Strange indeed, this giant seems to be adept at what was thought impossible
 of the giants. Stealth and Guile. He is a spy for the Lord of the Giants, 
@@ -43,6 +44,7 @@ CHS 0 HU G AB 0 0
 CDEFHJKN
 stand stand male 0
 0 0 huge unknown
+r poison 33
 #13002
 giant lord~
 the Lord of the Giants~
@@ -134,8 +136,8 @@ FK
 stand stand male 500
 0 0 medium unknown
 #13007
-male giant~
-the male giant~
+male giant гигант мужчина~
+@eng the male giant@rus ~~гигант~~ ~~мужчина~~~
 A male giant is standing here, admiring the castle.
 ~
 He looks in admiration of everything he sees. The wealth of the giants here
@@ -793,7 +795,7 @@ south.
 @rus Фойе этого замка просто огромно по сравнению со всеми фойе, которые ты видел
 до сих пор. Судя по тем редчайшим скульптурам и картинам, которых в комнате
 очень много, сокровищница замка просто забита золотом. На север и восток идут
-два широких корридора, а на юге находятся ворота замка.
+два широких коридора, а на юге находятся ворота замка.
 ~
 0 D city
 D1
@@ -816,7 +818,7 @@ D3
 Z 0 13005
 S
 #13005
-A hallway in the castle~
+@eng A hallway in the castle@rus Широкий коридор~
 The hallway is glittering with adamantite and various paintings from 
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. To the east you see the foyer of the castle and to 
@@ -950,7 +952,7 @@ D4
 Z 0 13017
 S
 #13011
-A hallway in the castle~
+@eng A hallway in the castle@rus Широкий коридор~
 The hallway is glittering with adamantite and various paintings from
 around the world. Torches line the walls making your shadow seem to have
 a life of it's own. To the west is the foyer and to the east the hall 
