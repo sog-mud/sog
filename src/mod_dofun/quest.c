@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.84 1998-12-17 21:05:43 fjoe Exp $
+ * $Id: quest.c,v 1.85 1998-12-19 12:26:26 kostik Exp $
  */
 
 #include <sys/types.h>
@@ -526,7 +526,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		||  victim->in_room == NULL
 		||  (IS_SET(victim->pIndexData->act, ACT_SENTINEL) &&
 		     IS_SET(victim->in_room->room_flags,
-			    ROOM_SAFE | ROOM_PRIVATE | ROOM_SOLITARY))
+			    ROOM_PRIVATE | ROOM_SOLITARY))
 		||  IS_SET(victim->in_room->area->flags,
 			   AREA_HOMETOWN | AREA_UNDER_CONSTRUCTION |
 			   AREA_NOQUEST))

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.123 1998-12-19 10:16:41 kostik Exp $
+ * $Id: act_move.c,v 1.124 1998-12-19 12:26:25 kostik Exp $
  */
 
 /***************************************************************************
@@ -223,14 +223,14 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 			char_puts("You aren't allowed there.\n", ch);
 			return;
 		}
-
+#ifdef 0
 		if (!IS_IMMORTAL(ch) && IS_PUMPED(ch)
 		&&  IS_SET(to_room->room_flags, ROOM_SAFE)) {
 			act_puts("You feel too bloody to go in there now.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			return;
 		}
-
+#endif
 		if (in_room->sector_type == SECT_AIR
 		||  to_room->sector_type == SECT_AIR) {
 			if (MOUNTED(ch)) {
@@ -3423,7 +3423,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_NPC(ch) && IS_SET(ch->pIndexData->act, ACT_AGGRESSIVE)
-	&&  IS_SET(location->room_flags, ROOM_LAW | ROOM_SAFE)) {
+	&&  IS_SET(location->room_flags, ROOM_LAW)) {
 	        char_puts("Something prevents you from leaving...\n",ch);
 	        return;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.111 1998-12-17 21:05:40 fjoe Exp $
+ * $Id: fight.c,v 1.112 1998-12-19 12:26:25 kostik Exp $
  */
 
 /***************************************************************************
@@ -1411,14 +1411,14 @@ bool cant_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 	||  ch == victim
 	||  IS_IMMORTAL(ch))
 		return FALSE;
-
+#ifdef 0
 	/* handle ROOM_SAFE flags */
 	if ((victim->in_room != NULL &&
 	     IS_SET(victim->in_room->room_flags, ROOM_SAFE))
 	||  (ch->in_room != NULL &&
 	     IS_SET(ch->in_room->room_flags, ROOM_SAFE)))
 		return TRUE;
-
+#endif
 	/* link dead players whose adrenalin is not gushing are safe */
 	if (!IS_NPC(victim) && !IS_PUMPED(victim) && victim->desc == NULL)
 		return TRUE;
