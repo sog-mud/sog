@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.18 1998-05-20 21:21:48 efdi Exp $
+ * $Id: merc.h,v 1.19 1998-05-24 11:11:35 efdi Exp $
  */
 
 /***************************************************************************
@@ -2113,6 +2113,7 @@ struct	pc_data
     sh_int		questobj;	/* quest */
     sh_int		questmob;	/* quest */
     sh_int		race;	/* orginal race for polymorph */
+    sh_int		adr_stops_shown;
 };
 
 

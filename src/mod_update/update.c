@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.16 1998-05-18 12:56:33 efdi Exp $
+ * $Id: update.c,v 1.17 1998-05-24 11:11:35 efdi Exp $
  */
 
 /***************************************************************************
@@ -561,6 +561,17 @@ void mobile_update(void)
 
 	/* Examine all mobs. */
 	for (ch = char_list; ch != NULL; ch = ch->next) {
+		/* show adrenalin stops gushing status */
+		if (!IS_NPC(ch))
+			if (current_time - ch->last_fight_time 
+					< FIGHT_DELAY_TIME)
+				ch->pcdata->adr_stops_shown = 0;
+			else if (!ch->pcdata->adr_stops_shown) {
+				ch->pcdata->adr_stops_shown = 1;
+				send_to_char("You're slowly calming down.\n\r",
+						 ch);
+			}
+
 		if (IS_AFFECTED(ch, AFF_REGENERATION) && ch->in_room != NULL) {
 			ch->hit = UMIN(ch->hit + ch->level / 10, ch->max_hit);
 			if (RACE(ch) == 18 /* troll */)

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.17 1998-05-20 21:40:22 efdi Exp $
+ * $Id: save.c,v 1.18 1998-05-24 11:11:35 efdi Exp $
  */
 
 /***************************************************************************
@@ -677,6 +677,7 @@ bool load_char_obj( DESCRIPTOR_DATA *d, char *name )
     ch->pcdata->condition[COND_HUNGER]	= 48;
     ch->pcdata->condition[COND_BLOODLUST]	= 48;
     ch->pcdata->condition[COND_DESIRE]	= 48;
+    ch->pcdata->adr_stops_shown		= 1;
 
     ch->hunter = NULL;
     ch->i_lang = 0;
