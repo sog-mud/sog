@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.32 2000-03-03 04:09:10 avn Exp $
+ * $Id: olc_race.c,v 1.33 2000-03-27 23:53:52 avn Exp $
  */
 
 #include "olc.h"
@@ -123,6 +123,7 @@ olc_cmd_t olc_cmds_race[] =
 };
 
 static void * save_race_cb(void *p, va_list ap);
+static void * print_race_cb(void *p, va_list ap);
 
 OLC_FUN(raceed_create)
 {
@@ -351,7 +352,7 @@ OLC_FUN(raceed_show)
 OLC_FUN(raceed_list)
 {
 	BUFFER	*buffer = buf_new(-1);
-	strkey_printall(&races, buffer);
+	hash_printall(&races, buffer, print_race_cb);
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);
 	return FALSE;
@@ -908,4 +909,16 @@ save_race_cb(void *p, va_list ap)
 	olc_printf(ch, "    %s (%s)", r->name, filename);
 	*pfound = TRUE;
 	return NULL;
+}
+
+void *
+print_race_cb(void *p, va_list ap)
+{
+	static buf[256];
+        varr *v = va_arg(ap, varr *);
+        const char **q = varr_enew(v);
+	snprintf(buf, sizeof(buf), "%s%s",
+		((race_t *)p)->race_pcdata ? "*" : " ", *(const char **)p );
+        *q = str_dup(buf);
+        return NULL;
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.222 2000-03-05 17:14:50 avn Exp $
+ * $Id: comm.c,v 1.223 2000-03-27 23:53:56 avn Exp $
  */
 
 /***************************************************************************
@@ -1384,6 +1384,17 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 				i = "None";
 			break;
 
+		case 'T':
+			if (ch->fighting && (victim = ch->fighting->fighting)) {
+				if (ch == victim || can_see(ch, victim)) {
+					percent_hp(victim, buf2);
+					i = buf2;
+				} else
+					i = "???";
+			} else
+				i = "None";
+			break;
+
 		case 'h':
 			snprintf(buf2, sizeof(buf2), "%d", ch->hit);
 			i = buf2;
@@ -1476,14 +1487,14 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 		case 'E':
 			i = OLCED(ch) ? OLCED(ch)->name : str_empty;
 			if (!IS_NULLSTR(i)) {
-				snprintf(buf2, sizeof(buf2), "%s ", i);
+				snprintf(buf2, sizeof(buf2), "%s", i);
 				i = buf2;
 			}
 			break;
 
 		case 'W':
 			if (ch->invis_level) {
-				snprintf(buf2, sizeof(buf2), "Wizi %d ",
+				snprintf(buf2, sizeof(buf2), "%d",
 					 ch->invis_level);
 				i = buf2;
 			} else
@@ -1492,7 +1503,7 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 
 		case 'I':
 			if (ch->incog_level) {
-				snprintf(buf2, sizeof(buf2), "Incog %d ",
+				snprintf(buf2, sizeof(buf2), "%d",
 					 ch->incog_level);
 				i = buf2;
 			} else
