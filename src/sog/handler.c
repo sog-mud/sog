@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.58 2002-09-02 17:04:41 tatyana Exp $
+ * $Id: handler.c,v 1.182.2.59 2002-09-09 14:01:12 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3326,7 +3326,7 @@ bool pc_name_ok(const char *name)
 	if (is_name(name, "chronos all auto immortals self someone something "
 			  "the you demise balance circle loner honor none clan "
 			  "aulin lirail dakkorn amtinor cariel ulwark vilirna "
-			  "calamir trorgrim gwinnerai irian stivrosh moarith "
+			  "calamir throrgrim gwinnerai irian stivrosh moarith "
 			  "lessa trussk hathir ilissa sog"))
 		return FALSE;
 	

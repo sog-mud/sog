@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.62 2002-08-30 13:26:44 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.63 2002-09-09 14:01:04 tatyana Exp $
  */
 
 /***************************************************************************
@@ -4349,7 +4349,11 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	
 	case POS_RESTING:
 		if (victim->on == NULL) {
-			msg = "$N {xis resting here.";
+			if  (!IS_NPC(ch)
+			&&   IS_SET(PC(ch)->plr_flags, PLR_FISHING))
+				msg = "$N {xis resting here, fishing.";
+			else
+				msg = "$N {xis resting here.";
 			break;
 		}
 
@@ -4361,13 +4365,17 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		else
 			msg = "$N {xis resting in $p.";
 		break;
-	
+
 	case POS_SITTING:
 		if (victim->on == NULL) {
-			msg = "$N {xis sitting here.";
+			if  (!IS_NPC(ch)
+			&&   IS_SET(PC(ch)->plr_flags, PLR_FISHING))
+				msg = "$N {xis sitting here, fishing.";
+			else
+				msg = "$N {xis sitting here.";
 			break;
 		}
-	
+
 		arg = victim->on;
 		if (IS_SET(victim->on->value[2], SIT_AT))
 			msg = "$N {xis sitting at $p.";
@@ -4376,7 +4384,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		else
 			msg = "$N {xis sitting in $p.";
 		break;
-	
+
 	case POS_STANDING:
 		if (victim->on == NULL) {
 			if (!IS_NPC(victim)
@@ -4384,7 +4392,13 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 				arg = PC(victim)->title;
 			else
 				arg = str_empty;
-	
+
+			if  (!IS_NPC(ch)
+			&&   IS_SET(PC(ch)->plr_flags, PLR_FISHING)) {
+				msg = "$N {xis here, fishing.";
+				break;
+			}
+
 			if (MOUNTED(victim)) {
 				arg3 = MOUNTED(victim);
 				msg = "$N{x$t {xis here, riding $I.";
@@ -4393,7 +4407,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 				msg = "$N{x$t {xis here.";
 			break;
 		}
-	
+
 		arg = victim->on;
 		if (IS_SET(victim->on->value[2],STAND_AT))
 			msg = "$N {xis standing at $p.";
@@ -4402,7 +4416,7 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		else
 			msg = "$N {xis standing in $p.";
 		break;
-	
+
 	case POS_FIGHTING:
 		if (victim->fighting == NULL) {
 			arg = "thin air??";

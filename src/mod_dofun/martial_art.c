@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.26 2002-08-24 13:58:18 tatyana Exp $
+ * $Id: martial_art.c,v 1.114.2.27 2002-09-09 14:01:08 tatyana Exp $
  */
 
 /***************************************************************************
@@ -664,7 +664,8 @@ void do_dirt(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_AFFECTED(victim, AFF_BLIND)) {
-		act("$e's already been blinded.", ch, NULL, victim, TO_CHAR);
+		act("$gN{He}'s already been blinded.",
+		    ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
