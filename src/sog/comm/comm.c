@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.242 2001-06-24 10:50:56 avn Exp $
+ * $Id: comm.c,v 1.243 2001-06-25 13:08:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1812,7 +1812,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			return;
 		}
 
-		if (argument[1] < '1'
+		if (argument[0] < '1'
 		|| (num = argument[0] - '1') >= NCODEPAGES) {
 			charset_print(d);
 			break;
