@@ -1,5 +1,5 @@
 /*
- * $Id: olc_help.c,v 1.8 1998-09-10 22:08:01 fjoe Exp $
+ * $Id: olc_help.c,v 1.9 1998-09-11 07:54:55 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -169,7 +169,8 @@ VALIDATE_FUN(validate_keyword)
 {
 	HELP_DATA *pHelp;
 
-	if ((pHelp = help_lookup(1, (char*) arg))) {
+	if ((pHelp = help_lookup(1, (char*) arg))
+	&&  pHelp != ch->desc->pEdit) {
 		char_printf(ch,
 			    "HEdit: Help already exists in area %s (%s).\n\r",
 			    pHelp->area->name, pHelp->area->file_name);
