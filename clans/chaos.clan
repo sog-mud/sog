@@ -2,14 +2,14 @@
 Name Chaos~
 Item 95502
 Altar 95504
-Skill 'disgrace' 33
-Skill 'garble' 10
-Skill 'confuse' 20
-Skill 'chaos blade' 23
-Skill 'randomizer' 28
-Skill 'disperse' 20
-Skill 'mirror' 15
-Skill 'doppelganger' 25
+Skill 'disgrace' 33 1
+Skill 'garble' 10 1
+Skill 'confuse' 20 1
+Skill 'chaos blade' 23 1
+Skill 'randomizer' 28 1
+Skill 'disperse' 20 1
+Skill 'mirror' 15 1
+Skill 'doppelganger' 25 1
 End
 
 #$

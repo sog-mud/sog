@@ -2,13 +2,13 @@
 Name Hunter~
 Item 95701
 Altar 95703
-Skill 'hunt' 13
-Skill 'find object' 25
-Skill 'path find' 13
-Skill 'wolf' 20
-Skill 'armor use' 17
-Skill 'world find' 53
-Skill 'take revenge' 53
+Skill 'hunt' 13 1
+Skill 'find object' 25 1
+Skill 'path find' 13 1
+Skill 'wolf' 20 1
+Skill 'armor use' 17 1
+Skill 'world find' 53 1
+Skill 'take revenge' 53 1
 End
 
 #$

@@ -2,13 +2,13 @@
 Name Shalafi~
 Item 95301
 Altar 95300
-Skill 'transform' 10
-Skill 'mental knife' 15
-Skill 'demon summon' 25
-Skill 'scourge' 30
-Skill 'tesseract' 29
-Skill 'brew' 23
-Skill 'mastering spell' 37
+Skill 'transform' 10 1
+Skill 'mental knife' 15 1
+Skill 'demon summon' 25 1
+Skill 'scourge' 30 1
+Skill 'tesseract' 29 1
+Skill 'brew' 23 1
+Skill 'mastering spell' 37 1
 End
 
 #$

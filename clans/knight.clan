@@ -2,14 +2,14 @@
 Name Knight~
 Item 95202
 Altar 95204
-Skill 'lance' 33
-Skill 'guard' 22
-Skill 'golden aura' 10
-Skill 'dragonplate' 15
-Skill 'squire' 25
-Skill 'dragonsword' 25
-Skill 'holy armor' 10
-Skill 'riding' 30
+Skill 'lance' 33 1
+Skill 'guard' 22 1
+Skill 'golden aura' 10 1
+Skill 'dragonplate' 15 1
+Skill 'squire' 25 1
+Skill 'dragonsword' 25 1
+Skill 'holy armor' 10 1
+Skill 'riding' 30 1
 End
 
 #$
