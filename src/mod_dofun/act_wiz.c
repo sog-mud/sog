@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.243 2000-06-07 08:55:31 fjoe Exp $
+ * $Id: act_wiz.c,v 1.244 2000-06-08 07:27:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2603,16 +2603,6 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 
 	value = atoi(arg3);
 
-	if (!str_prefix(arg2, "level")) {
-		obj->level = value;
-		return;
-	}
-		
-	if (!str_prefix(arg2, "cost")) {
-		obj->cost = value;
-		return;
-	}
-
 	if (!str_prefix(arg2, "timer")) {
 		obj->timer = value;
 		return;
@@ -2624,31 +2614,10 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!str_cmp(arg2, "v0")
-	||  !str_cmp(arg2, "v1")
-	||  !str_cmp(arg2, "v2")
-	||  !str_cmp(arg2, "v3")
-	||  !str_cmp(arg2, "v4")) {
-		int val_num = atoi(arg2 + 1);
-		BUFFER *output = buf_new(-1);
-
-		if (argument[0] == '\0'
-		||  objval_set(output, obj->item_type, obj->value,
-			       val_num, argument) < 2) {
-			objval_show(output, obj->item_type,
-				    obj->value);
-		}
-
-		page_to_char(buf_string(output), ch);
-		buf_free(output);
-		return;
-	}
-
 	/*
 	 * Generate usage message.
 	 */
 	do_oset(ch, str_empty);
-	return;
 }
 
 void do_rset(CHAR_DATA *ch, const char *argument)
