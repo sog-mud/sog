@@ -5293,7 +5293,7 @@ behind it is a ten foot tall sitting statue of Odin, the King of the Gods.
 The back of the altar opens into a a beautiful atrium, above which can be
 seen a rainbow.
 ~
-0 DS 0
+0 DSK 0
 H 150 M 150
 D0
 You see the room of templeman.
@@ -5548,7 +5548,7 @@ beautiful paintings and tapestries, while very nice, silk curtains
 decorate the windows.  You really feel like staying here the rest of your 
 life.
 ~
-0 D 0
+0 DK 0
 D0
 You can see the stairs leading down to the temple square.
 ~
@@ -5597,7 +5597,7 @@ By the Temple Altar~
 bed for the sacrifices the Dark God demands.  Torches hang on the walls 
 to cast a fitful light over the dark enterprise.
 ~
-0 D 0
+0 DK 0
 D3
 ~
 ~

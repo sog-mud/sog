@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.3 1998-05-07 07:07:27 fjoe Exp $
+# $Id: english.lang,v 1.4 1998-05-08 18:01:55 fjoe Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -330,7 +330,7 @@ MOVE_ARRIVED 		"$n has arrived."
 MOVE_ARRIVED_RIDING 	"$n has arrived, riding $N."
 QUEST_THANK_YOU_BRAVE 	"Thank you, brave {W%s{G!", 
 SKILLS_HAVE_BECOME_BETTER 		"{WYou have become better at {g%s{x!"
-SKILLS_LEARN_FROM_MISTAKES 	"{WYou learn from your mistakes, and your {g%s{Wx skill improves.{x"
+SKILLS_LEARN_FROM_MISTAKES 	"{WYou learn from your mistakes, and your {g%s{W skill improves.{x"
 HERA_STEPS_INTO_RIDING_ON 		"$n steps into $p, riding on %s"
 HERA_STEPS_INTO 			"$n steps into $p"
 MOVE_WHEN_YOU_ATTEMPT_YOU_BREAK_WEBS  "When you attempt to leave the room, you break the webs holding you tight.\n\r"
