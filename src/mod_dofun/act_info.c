@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.80 2003-09-30 01:24:54 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.81 2004-02-17 23:59:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1381,6 +1381,7 @@ void do_compare(CHAR_DATA *ch, const char *argument)
 
 void do_credits(CHAR_DATA *ch, const char *argument)
 {
+	do_help(ch, "DIKU");
 	do_help(ch, "'SHADES OF GRAY'");
 }
 
