@@ -1,5 +1,5 @@
 #
-# $Id: Makefile.inc,v 1.14 2000-11-17 17:14:17 avn Exp $
+# $Id: Makefile.inc,v 1.15 2001-06-19 21:26:17 avn Exp $
 #
 
 #
@@ -15,6 +15,13 @@ INCLUDES=	-I../include -I..
 
 COPTS=		${INCLUDES}
 CFLAGS=		-Wall -O -pipe
+.ifdef EXTRA_CHECKS
+CFLAGS+= -W -Wall -Wbad-function-cast -Wcast-align \
+	-Wcast-qual -Wchar-subscripts -Wconversion -Winline \
+	-Wmissing-prototypes -Wnested-externs -Wpointer-arith \
+	-Wredundant-decls -Wshadow -Wstrict-prototypes -Wwrite-strings
+#CFLAGS+= -Werror
+.endif
 LDFLAGS=	-export-dynamic
 
 #
@@ -44,6 +51,7 @@ PROG=		${MODULE}.so.${ABI_VERSION}
 MODULE_ID!=	echo MOD_${MODULE} | tr '[a-z]' '[A-Z]'
 CFLAGS+=	${MOD_CFLAGS} -DMODULE=${MODULE_ID}
 LDFLAGS+=	${MOD_LDFLAGS}
+CLEANFILES+=	${MODULE}.so.*
 
 BINDIR=		${INSTDIR}/modules
 
