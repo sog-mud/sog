@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.29 1998-05-21 11:56:43 efdi Exp $
+ * $Id: comm.c,v 1.30 1998-05-22 12:28:16 efdi Exp $
  */
 
 /***************************************************************************
@@ -1516,6 +1516,7 @@ void nanny( DESCRIPTOR_DATA *d, char *argument )
     int obj_count2;
     OBJ_DATA *obj;
     OBJ_DATA *inobj;
+    sh_int nextquest = 0;
 
     while ( isspace(*argument) )
 	argument++;
@@ -2352,14 +2353,14 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 		 ch->exp -= 10;
 		}
 
-	/* if (IS_QUESTOR(ch) && ch->pcdata->questmob == 0) 
-		{
-		 ch->pcdata->nextquest = ch->pcdata->countdown;
-		 ch->pcdata->questobj = 0;
-		 REMOVE_BIT(ch->act,PLR_QUESTOR);
-		}
-	*/
+		
+		/* quest code */
+		nextquest = ch->pcdata->countdown > 0 ? 
+				ch->pcdata->countdown : ch->pcdata->nextquest;
 		cancel_quest(ch);
+		ch->pcdata->nextquest = nextquest;
+		/* !quest code */
+
 		wiznet("{W$N{x joins us.", ch, NULL, WIZ_LOGINS, 0, 
 			get_trust(ch));
 
