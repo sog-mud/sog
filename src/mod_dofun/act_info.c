@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.443 2004-02-19 20:55:49 fjoe Exp $
+ * $Id: act_info.c,v 1.444 2004-02-24 10:13:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -409,7 +409,8 @@ DO_FUN(do_nofollow, ch, argument)
 	TOGGLE_BIT(PC(ch)->plr_flags, PLR_NOFOLLOW);
 	if (IS_SET(PC(ch)->plr_flags,PLR_NOFOLLOW)) {
 		act_char("You no longer accept followers.", ch);
-		die_follower(ch);
+		if (!IS_AFFECTED(ch, AFF_CHARM))
+			die_follower(ch);
 	} else
 		act_char("You now accept followers.", ch);
 }
