@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.30 1998-05-27 18:15:52 fjoe Exp $
+ * $Id: act_comm.c,v 1.31 1998-05-27 20:38:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1883,10 +1883,10 @@ void do_pray(CHAR_DATA *ch, char *argument)
 		!IS_SET(d->character->comm,COMM_NOWIZ))
 		 {
 		if (argument[0] == '\0')
-		act_puts("$n is PRAYING for: any god",
+		act_puts("$n is PRAYING for: {Cany god{x",
 			ch,argument,d->character,TO_VICT,POS_DEAD);
 		else
-		act_puts("$n is PRAYING for: $t",
+		act_puts("$n is PRAYING for: {C$t{x",
 			ch,argument,d->character,TO_VICT,POS_DEAD);
 		 }
 		 }

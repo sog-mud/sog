@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.34 1998-05-27 15:38:58 fjoe Exp $
+ * $Id: comm.c,v 1.35 1998-05-27 20:38:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2651,51 +2651,28 @@ void char_nprintf(CHAR_DATA* ch, int msgid, ...)
  */
 void char_puts(const char *txt, CHAR_DATA *ch)
 {
-	const	char 	*point;
-			char 	*point2;
-			char 	buf[ MAX_STRING_LENGTH*4 ];
+	const char *p;
+	char *q;
+	char buf[MAX_STRING_LENGTH*4];
 
 	if (txt == NULL || ch->desc == NULL)
 		return;
 
-	buf[0] = '\0';
-	point2 = buf;
-	    if( IS_SET( ch->act, PLR_COLOR ) )
-	    {
-		for( point = txt ; *point ; point++ )
-	        {
-		    if( *point == '{' )
-		    {
-			point++;
-			strcat( buf, color( *point, ch ) );
-			for( point2 = buf ; *point2 ; point2++ )
-			    ;
-			continue;
-		    }
-		    *point2 = *point;
-		    *++point2 = '\0';
-		}			
-		*point2 = '\0';
-	    	write_to_buffer( ch->desc, buf, point2 - buf );
-	    }
-	    else
-	    {
-		for( point = txt ; *point ; point++ )
-	        {
-		    if( *point == '{' )
-		    {
-			point++;
-			if( *point != '{' )
-			{
-			    continue;
+	for(p = txt, q = buf; *p; p++, q++) {
+		if (*p == '{') {
+			if (*++p == '\0')
+				break;
+			if (IS_SET(ch->act, PLR_COLOR)) {
+				strcpy(q, color(*p, ch));
+				while (*q) q++;
 			}
-		    }
-		    *point2 = *point;
-		    *++point2 = '\0';
+			if (*p != '{')
+				continue;
 		}
-		*point2 = '\0';
-	    	write_to_buffer( ch->desc, buf, point2 - buf );
-	    }
+		*q = *p;
+	}			
+	*q = '\0';
+	write_to_buffer(ch->desc, buf, q - buf);
 }
 
 /*
@@ -2977,8 +2954,8 @@ void act_nprintf(CHAR_DATA *ch, const void *arg1,
 		    fColour = FALSE;
 		    ++str;
 		    i = NULL;
-		    if( IS_SET( to->act, PLR_COLOR ) )
-			i = color( *str, to );
+		    if(IS_SET( to->act, PLR_COLOR))
+			i = color(*str, to);
 		    break;
 
 		default:
@@ -3367,51 +3344,51 @@ char* color(char type, CHAR_DATA *ch)
 	case 'z':
 		return BLINK;
 	case 'b':
-	    case '4':
+	case '4':
 		return C_BLUE;
 	case 'c':
-	    case '6':
+	case '6':
 		return C_CYAN;
 	case 'g':
-	    case '2':
+	case '2':
 		return C_GREEN;
 	case 'm':
-	    case '5':
+	case '5':
 		return C_MAGENTA;
 	case 'r':
-	    case '1':
+	case '1':
 		return C_RED;
 	case 'w':
-	    case '7':
+	case '7':
 		return C_WHITE;
 	case 'y':
-	    case '3':
+	case '3':
 		return C_YELLOW;
 	case 'B':
-	    case '$':
+	case '$':
 		return C_B_BLUE;
 	case 'C':
-	    case '^':
+	case '^':
 		return C_B_CYAN;
 	case 'G':
-	    case '@':
+	case '@':
 		return C_B_GREEN;
 	case 'M':
-	    case '%':
+	case '%':
 		return C_B_MAGENTA;
 	case 'R':
-	    case '!':
+	case '!':
 		return C_B_RED;
 	case 'W':
-	    case '&':
+	case '&':
 		return C_B_WHITE;
 	case 'Y':
-	    case '#':
+	case '#':
 		return C_B_YELLOW;
 	case 'D':
-	    case '8':
+	case '8':
 		return C_D_GREY;
-	    case '*':
+	case '*':
 		return "\a";
 	case '{':
 		return "{";
