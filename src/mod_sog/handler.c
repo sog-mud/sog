@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.330 2001-09-16 19:41:07 fjoe Exp $
+ * $Id: handler.c,v 1.331 2001-09-16 20:04:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3914,7 +3914,7 @@ look_char(CHAR_DATA *ch, CHAR_DATA *victim)
 	}
 
 	strnzcpy(buf, sizeof(buf), PERS(victim, ch, GET_LANG(ch), ACT_FORMSH));
-	buf[0] = UPPER(buf[0]);
+	cstrtoupper(buf);
 	if (IS_IMMORTAL(victim))
 		send_to_char("{W", ch);				// notrans
 	act_puts("$N", ch, NULL, victim,			// notrans
@@ -5994,8 +5994,7 @@ format_obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch, int flags)
 		strnzcat(buf, sizeof(buf),
 			 format_short(&obj->short_descr, obj->pObjIndex->name,
 				      ch, GET_LANG(ch), 0));
-		p = (char *) (uintptr_t) (const void *) cstrfirst(p);
-		p[0] = UPPER(p[0]);
+		cstrtoupper(p);
 		switch(number_range(1, 3)) {
 		case 1:
 			strnzcat(buf, sizeof(buf),

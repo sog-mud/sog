@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.88 2001-09-16 19:00:25 fjoe Exp $
+ * $Id: act.c,v 1.89 2001-09-16 20:04:16 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -573,7 +573,7 @@ act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 			case 'l':
 				if (tstack[sp].arg == 'u')
-					*tstack[sp].p = UPPER(*tstack[sp].p);
+					cstrtoupper(tstack[sp].p);
 				break;
 			}
 
@@ -905,10 +905,8 @@ act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 	*point = '\0';
 
 /* first non-control char is uppercased */
-	if (!IS_SET(opt->act_flags, ACT_NOUCASE)) {
-		point = (char *) (uintptr_t) (const void *) cstrfirst(buf);
-		*point = UPPER(*point);
-	}
+	if (!IS_SET(opt->act_flags, ACT_NOUCASE))
+		cstrtoupper(buf);
 }
 
 static CHAR_DATA *

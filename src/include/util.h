@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.h,v 1.25 2001-09-12 08:11:29 fjoe Exp $
+ * $Id: util.h,v 1.26 2001-09-16 20:04:14 fjoe Exp $
  */
 
 #ifndef _UTIL_H_
@@ -50,8 +50,9 @@ const char *	get_filename(const char*);
 
 int cmpint(const void *p1, const void *p2);
 
-size_t		cstrlen		(const char* cstr);
+size_t		cstrlen		(const char *cstr);
 const char *	cstrfirst	(const char *cstr);
+void		cstrtoupper	(char *cstr);
 
 char *		capitalize	(const char *str);
 char *		format_flags	(flag_t flags);
