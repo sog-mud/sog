@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.89.2.19 2002-10-18 09:13:02 tatyana Exp $
+ * $Id: tables.c,v 1.89.2.20 2002-12-11 17:32:38 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1247,6 +1247,7 @@ flag_t cmd_flags[] =
 	{ "hidden",		CMD_HIDDEN,		TRUE	},
 	{ "disabled",		CMD_DISABLED,		TRUE	},
 	{ "frozen_ok",		CMD_FROZEN_OK,		TRUE	},
+	{ "clan",		CMD_CLAN,		TRUE	},
 
 	{ NULL }
 };

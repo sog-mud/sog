@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.75 2002-12-09 21:40:19 tatyana Exp $
+ * $Id: act_info.c,v 1.271.2.76 2002-12-11 17:32:32 tatyana Exp $
  */
 
 /***************************************************************************
@@ -4724,7 +4724,8 @@ show_commands(CHAR_DATA *ch, const char *argument, bool wiz)
 
 		if (wiz ? WIZCMD_ALLOWED(cmd, vch) :
 			  CMD_ALLOWED(cmd, vch) &&
-			  !IS_SET(cmd->cmd_flags, CMD_HIDDEN)) {
+			  !IS_SET(cmd->cmd_flags, CMD_HIDDEN) &&
+			  !IS_SET(cmd->cmd_flags, CMD_CLAN)) {
 			int *p = (int *) varr_enew(&v);
 			*p = i;
 		}
@@ -5216,3 +5217,51 @@ void do_finger(CHAR_DATA *ch, const char *argument)
 		char_nuke(victim);
 }
 
+void do_cskills(CHAR_DATA *ch, const char *argument)
+{
+	int i, col;
+	varr v;
+	clan_t *cn;
+
+	if (IS_NPC(ch)) {
+		char_puts("Huh?\n", ch);
+		return;
+	}
+
+	if ((cn = clan_lookup(ch->clan)) == NULL)
+		return;
+
+	varr_init(&v, sizeof(int), commands.nused);
+	for (i = 0; i < commands.nused; i++) {
+		cmd_t *cmd = (cmd_t *) VARR_GET(&commands, i);
+
+		if (IS_SET(cmd->cmd_flags, CMD_CLAN)) {
+			int *p = (int *) varr_enew(&v);
+			*p = i;
+		}
+	}
+	varr_qsort(&v, cmpcmd);
+
+	col = 0;
+	act_char("Commands:", ch);
+	for (i = 0; i < v.nused; i++) {
+		cmd_t *cmd = GET_VCMD(VARR_GET(&v, i));
+
+		char_printf(ch, "    %s\n", cmd->name);
+	}
+
+	varr_destroy(&v);
+
+	act_char("Skills/spells:", ch);
+        for (i = 0; i < cn->skills.nused; i++) {
+		clskill_t *cs = VARR_GET(&cn->skills, i);
+		skill_t *sk;
+
+		if (cs->sn <= 0
+		||  (sk = skill_lookup(cs->sn)) == NULL)
+			continue;
+
+		char_printf(ch, "    Level %2d:       '%s'.\n",
+			   cs->level, sk->name);
+	}
+}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.h,v 1.7.2.3 2002-11-21 13:56:26 fjoe Exp $
+ * $Id: cmd.h,v 1.7.2.4 2002-12-11 17:32:27 tatyana Exp $
  */
 
 #ifndef _CMD_H_
@@ -45,6 +45,7 @@
 #define CMD_HIDDEN	(D)
 #define CMD_DISABLED	(E)
 #define CMD_FROZEN_OK	(F)
+#define CMD_CLAN	(G)
 
 /*
  * cmd classes

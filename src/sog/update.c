@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.52 2002-12-09 21:40:50 tatyana Exp $
+ * $Id: update.c,v 1.157.2.53 2002-12-11 17:32:39 tatyana Exp $
  */
 
 /***************************************************************************
@@ -82,6 +82,7 @@ void	room_affect_update	args((void));
 void	check_reboot	args((void));
 void	track_update	args((void));
 
+void	magic_update	args((void));
 void    check_fishing   args((void));
 
 /* used for saving */
@@ -1727,17 +1728,6 @@ void update_one_obj(OBJ_DATA *obj)
 	     t_obj->carried_by->in_room->area->nplayer > 0))
 		oprog_call(OPROG_AREA, obj, NULL, NULL);
 
-	if ((rch = t_obj->carried_by) != NULL
-	&&  IS_SET(obj->extra_flags, ITEM_MAGIC)
-	&&  HAS_SKILL(rch, gsn_spellbane)
-	&&  !IS_IMMORTAL(rch)) {
-		int dam;
-
-		dam = number_range(rch->max_hit / 6, rch->max_hit / 3);
-		act("{RMagic of $p hurts you!{x", rch, obj, NULL, TO_CHAR);
-		damage(rch, rch, dam, TYPE_UNDEFINED, DAM_OTHER, DAMF_NONE);
-	}
-
 	if (check_material(obj, "ice")
 	&&  update_ice_obj(obj))
 		return;
@@ -2031,6 +2021,7 @@ void update_handler(void)
 		pulse_mobile = PULSE_MOBILE;
 		mobile_update();
 		light_update();
+		magic_update();
 	}
 
 	if (--pulse_violence <= 0) {
@@ -2526,5 +2517,58 @@ sell_item(bmitem_t *item)
 				char_nuke(buyer);
 			}
 		}
+	}
+}
+
+/* hurt BR if it has magic object */
+void
+magic_update(void)
+{
+	DESCRIPTOR_DATA *d;
+
+	for (d = descriptor_list; d != NULL; d = d->next) {
+		CHAR_DATA *ch = d->character;
+		bool found = FALSE;
+		int dam;
+		OBJ_DATA *obj;
+
+		if (d->connected != CON_PLAYING)
+			continue;
+
+		if (IS_IMMORTAL(ch)
+		|| !HAS_SKILL(ch, gsn_spellbane))
+			continue;
+
+		if (ch->carrying == NULL)
+			continue;
+
+		for (obj = ch->carrying; obj != NULL; obj = obj->next_content) {
+
+			if (IS_SET(obj->extra_flags, ITEM_MAGIC)) {
+				found = TRUE;
+				break;
+			}
+
+			if (IS_SET(obj->pObjIndex->item_type, ITEM_CONTAINER)
+			&&  obj->contains != NULL) {
+				OBJ_DATA *t_obj;
+
+				for (t_obj = obj->contains; t_obj != NULL; t_obj = t_obj->next_content) {
+					if (IS_SET(t_obj->extra_flags, ITEM_MAGIC)) {
+						found = TRUE;
+						break;
+					}
+				}
+				if (found)
+					break;
+			}
+		}
+
+		if (!found)
+			continue;
+
+		dam = 1 + (ch->max_hit * 4)/ 100;
+		act_char("{RMagic one of your objects hurts you!{x", ch);
+		damage(ch, ch, dam, TYPE_UNDEFINED, DAM_OTHER, DAMF_NONE);
 	}
 }
