@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.256 2001-08-21 13:23:36 kostik Exp $
+ * $Id: spellfun.c,v 1.257 2001-08-21 16:07:05 kostik Exp $
  */
 
 /***************************************************************************
@@ -247,6 +247,7 @@ DECLARE_SPELL_FUN(spell_phantasmal_force);
 DECLARE_SPELL_FUN(spell_protection_from_missiles);
 DECLARE_SPELL_FUN(spell_alarm);
 DECLARE_SPELL_FUN(spell_globe_of_invulnerability);
+DECLARE_SPELL_FUN(spell_cloak_of_leaves);
 
 SPELL_FUN(spell_acid_blast, sn, level, ch, vo)
 {
@@ -7655,7 +7656,6 @@ SPELL_FUN(spell_simulacrum, sn, level, ch, vo)
 	illusion->level = victim->level;
 
 	for (i = 0; i < MAX_RESIST; i++) {
-		/* XXX */
 		if (victim->pMobIndex->resists[i] == RES_UNDEF)
 			continue;
 
@@ -7940,4 +7940,33 @@ SPELL_FUN(spell_globe_of_invulnerability, sn, level, ch, vo)
 	act("$n is surrounded by the globe of invulnerability.", ch, NULL, NULL,
 	    TO_ROOM);
 	act_char("You are surrounded by the globe of invulnerability.", ch);
+}
+
+/* Spell 'cloak of leaves'
+ * Quest item spell
+ * Target: self
+ * Effect: increases health of caster
+ */
+
+SPELL_FUN(spell_cloak_of_leaves, sn, level, ch, vo)
+{
+	AFFECT_DATA *paf;
+	int hp_to_add;
+
+	if (is_affected(ch,sn)) {
+		act_char("You are already protected.\n", ch);
+		return;
+	}
+	hp_to_add = number_range(level * 3 / 4, level * 4 / 3) + 15;
+	ch->hit += hp_to_add;
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level		= level;
+	paf->duration		= level / 3 + 3;
+	INT(paf->location)	= APPLY_HIT;
+	paf->modifier		= hp_to_add;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
+	act_char("Many green leaves cloak you.\n",ch);
 }

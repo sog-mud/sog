@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.78 2001-08-20 16:47:51 fjoe Exp $
+ * $Id: special.c,v 1.79 2001-08-21 16:07:07 kostik Exp $
  */
 
 /***************************************************************************
@@ -83,7 +83,7 @@ DECLARE_SPEC_FUN(spec_cast_clan		);
 DECLARE_SPEC_FUN(spec_special_guard	);
 DECLARE_SPEC_FUN(spec_assassinater	);
 DECLARE_SPEC_FUN(spec_captain		);
-DECLARE_SPEC_FUN(spec_headlamia		); 
+DECLARE_SPEC_FUN(spec_headlamia		);
 
 /* the function table */
 const   struct  spec_type    spec_table[] =
@@ -1054,16 +1054,17 @@ bool spec_nasty(CHAR_DATA *ch)
 {
 	CHAR_DATA *victim, *v_next;
 	long gold;
- 
+
 	if (!IS_AWAKE(ch))
 		return FALSE;
- 
+
 	if (ch->position != POS_FIGHTING) {
 		for (victim = ch->in_room->people; victim; victim = v_next) {
 			v_next = victim->next_in_room;
 			if (!IS_NPC(victim)
 			&&  (victim->level > ch->level)
-			&&  (victim->level < ch->level + 10)) {
+			&&  (victim->level < ch->level + 10)
+			&&  !is_safe(ch, victim)) {
 				dofun("backstab", ch, victim->name);
 				if (ch->position != POS_FIGHTING)
 					multi_hit(ch, victim, NULL);
@@ -1073,11 +1074,11 @@ bool spec_nasty(CHAR_DATA *ch)
 		}
 		return FALSE;    /*  No one to attack */
 	}
- 
+
 	/* okay, we must be fighting.... steal some coins and flee */
 	if ((victim = ch->fighting) == NULL)
 		return FALSE;   /* let's be paranoid.... */
- 
+
 	switch (number_bits(2)) {
 	case 0:
 		act("$n rips apart your coin purse, spilling your gold!",
@@ -1090,16 +1091,16 @@ bool spec_nasty(CHAR_DATA *ch)
 		victim->gold -= gold;
 		ch->gold     += gold;
 		return TRUE;
- 
+
 	case 1:
 		dofun("flee", ch, str_empty);
 		return TRUE;
- 
+
 	default:
 		return FALSE;
 	}
 }
-	
+
 bool spec_assassinater(CHAR_DATA *ch)
 {
 	const char* msg;
