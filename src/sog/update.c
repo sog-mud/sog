@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.48 2002-10-24 07:59:36 tatyana Exp $
+ * $Id: update.c,v 1.157.2.49 2002-10-27 07:04:22 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2465,6 +2465,7 @@ bmlist_update(void)
 			save_black_market();
 		}
 	}
+	save_black_market();
 }
 void
 sell_item(bmitem_t *item)
