@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.16 2001-03-15 09:54:08 cs Exp $
+ * $Id: martial_art.c,v 1.114.2.17 2001-05-12 12:22:21 kostik Exp $
  */
 
 /***************************************************************************
@@ -2351,25 +2351,25 @@ void do_warcry(CHAR_DATA *ch, const char *argument)
 	AFFECT_DATA af;
 	int chance;
 	int mana;
-	
+
 	if ((chance = get_skill(ch, gsn_warcry)) == 0) {
 		char_puts("Huh?\n", ch);
 		return;
 	}
-	
-	if (is_affected(ch,gsn_bless) || is_affected(ch, gsn_warcry)) {
-		char_puts("You are already blessed.\n",ch);
+
+	if (is_affected(ch, gsn_warcry)) {
+		char_puts("The fighting zeal is already with you.\n",ch);
 		return;
 	}
-	
+
 	mana = SKILL(gsn_warcry)->min_mana;
 	if (ch->mana < mana) {
 		char_puts("You can't concentrate enough right now.\n",ch);
 		return;
 	}
-	
+
 	WAIT_STATE(ch, SKILL(gsn_warcry)->beats);
-	
+
 	if (number_percent() > chance) {
 		char_puts("You grunt softly.\n", ch);
 		act("$n makes some soft grunting noises.",
@@ -2378,10 +2378,10 @@ void do_warcry(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_warcry, FALSE, 1);
 		return;
 	}
-	
+
 	ch->mana -= mana;
 	check_improve(ch, gsn_warcry, TRUE, 1);
- 
+
 	af.where	= TO_AFFECTS;
 	af.type      = gsn_warcry;
 	af.level	 = ch->level;
@@ -2390,7 +2390,7 @@ void do_warcry(CHAR_DATA *ch, const char *argument)
 	af.modifier  = LEVEL(ch) / 8;
 	af.bitvector = 0;
 	affect_to_char(ch, &af);
-	
+
 	af.location  = APPLY_SAVING_SPELL;
 	af.modifier  = 0 - LEVEL(ch) / 8;
 	affect_to_char(ch, &af);
