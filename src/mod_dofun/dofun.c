@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1999 fjoe <fjoe@iclub.nsu.ru>
+ * Copyright (c) 1999 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: dofun.c,v 1.3 1999-07-02 12:54:58 fjoe Exp $
+ * $Id: dofun.c,v 1.3.2.1 1999-12-16 12:39:49 fjoe Exp $
  */
 
 #include "typedef.h"

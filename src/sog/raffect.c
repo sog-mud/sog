@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1999 Arborn <avn@iclub.nsu.ru>
+ * Copyright (c) 1999 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: raffect.c,v 1.30 1999-09-25 11:29:35 fjoe Exp $
+ * $Id: raffect.c,v 1.30.2.1 1999-12-16 12:40:03 fjoe Exp $
  */
 
 #include <sys/time.h>

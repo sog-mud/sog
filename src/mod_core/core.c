@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1999 fjoe <fjoe@iclub.nsu.ru>
+ * Copyright (c) 1999 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: core.c,v 1.6 1999-09-08 10:39:46 fjoe Exp $
+ * $Id: core.c,v 1.6.2.1 1999-12-16 12:39:48 fjoe Exp $
  */
 
 #include <errno.h>

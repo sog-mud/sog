@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1998 Arborn <avn@org.chem.msu.su>
+ * Copyright (c) 1998 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_rspells.c,v 1.1 1999-07-30 05:18:25 avn Exp $
+ * $Id: db_rspells.c,v 1.1.2.1 1999-12-16 12:40:08 fjoe Exp $
  */
 
 #include <stdio.h>

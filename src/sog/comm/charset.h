@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1998 fjoe <fjoe@iclub.nsu.ru>
+ * Copyright (c) 1998 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: charset.h,v 1.3 1998-10-06 13:19:50 fjoe Exp $
+ * $Id: charset.h,v 1.3.4.1 1999-12-16 12:40:05 fjoe Exp $
  */
 
 #ifndef _CHARSET_H_

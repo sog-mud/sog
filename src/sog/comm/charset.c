@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1998 fjoe <fjoe@iclub.nsu.ru>
+ * Copyright (c) 1998 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: charset.c,v 1.5 1998-12-09 14:07:04 fjoe Exp $
+ * $Id: charset.c,v 1.5.4.1 1999-12-16 12:40:05 fjoe Exp $
  */
 
 unsigned char koi8_koi8[256] = {

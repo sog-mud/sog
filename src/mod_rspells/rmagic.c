@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1999 Arborn <avn@org.chem.msu.su>
+ * Copyright (c) 1999 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: rmagic.c,v 1.2 1999-09-25 11:29:31 fjoe Exp $
+ * $Id: rmagic.c,v 1.2.2.1 1999-12-16 12:40:00 fjoe Exp $
  */
 
 

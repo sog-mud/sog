@@ -1,5 +1,5 @@
 /*-
- * Copyright (c) 1998 fjoe <fjoe@iclub.nsu.ru>
+ * Copyright (c) 1998 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.16.2.1 1999-11-19 11:36:15 fjoe Exp $
+ * $Id: skills.h,v 1.16.2.2 1999-12-16 12:39:52 fjoe Exp $
  */
 
 #ifndef _SKILLS_H_

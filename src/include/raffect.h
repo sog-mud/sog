@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1999 Arborn <avn@org.chem.msu.su>
+ * Copyright (c) 1999 SoG Development Team
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: raffect.h,v 1.3 1999-07-30 05:18:20 avn Exp $
+ * $Id: raffect.h,v 1.3.2.1 1999-12-16 12:39:52 fjoe Exp $
  */
 
 #ifndef _RAFFECTS_H_
