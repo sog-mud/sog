@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.12 2002-02-07 17:19:33 tatyana Exp $
+ * $Id: comm.c,v 1.13 2002-11-23 21:01:52 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -423,17 +423,6 @@ close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 {
 	DESCRIPTOR_DATA *d;
 
-	if (!outbuf_empty(dclose))
-		process_output(dclose, FALSE);
-
-	if (dclose->snoop_by != NULL)
-		write_to_buffer(dclose->snoop_by,
-				"Your victim has left the game.\n\r", 0);
-
-	for (d = descriptor_list; d != NULL; d = d->next)
-		if (d->snoop_by == dclose)
-			d->snoop_by = NULL;
-
 	if (dclose->character != NULL) {
 		CHAR_DATA *ch = dclose->original ? dclose->original : dclose->character;
 		if (!IS_SET(save_flags, SAVE_F_NONE))
@@ -448,6 +437,25 @@ close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 			char_nuke(ch);
 	}
 
+	if (!outbuf_empty(dclose))
+		process_output(dclose, FALSE);
+
+	if (dclose->out_compress) {
+		deflateEnd(dclose->out_compress);
+		free(dclose->out_compress_buf);
+		free(dclose->out_compress);
+	}
+
+	if (dclose->snoop_by != NULL) {
+		write_to_buffer(dclose->snoop_by,
+				"Your victim has left the game.\n\r", 0);
+	}
+
+	for (d = descriptor_list; d != NULL; d = d->next) {
+		if (d->snoop_by == dclose)
+			d->snoop_by = NULL;
+	}
+
 	if (dclose == descriptor_list)
 		descriptor_list = descriptor_list->next;
 	else {
@@ -457,12 +465,6 @@ close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 			d->next = dclose->next;
 		else
 			log(LOG_BUG, "close_socket: dclose not found.");
-	}
-
-	if (dclose->out_compress) {
-		deflateEnd(dclose->out_compress);
-		free(dclose->out_compress_buf);
-		free(dclose->out_compress);
 	}
 
 #if !defined( WIN32 )
