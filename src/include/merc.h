@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.24 2001-12-11 14:53:34 tatyana Exp $
+ * $Id: merc.h,v 1.234.2.25 2002-01-04 16:39:42 matrim Exp $
  */
 
 /***************************************************************************
@@ -1149,14 +1149,11 @@ enum {
 #define PLR_NOEXP		(L)
 #define PLR_AUTOLOOK		(M)
 #define PLR_HOLYLIGHT		(N)
-#define PLR_CANLOOT		(P)
 #define PLR_NOSUMMON		(Q)
 #define PLR_NOFOLLOW		(R)
-#define PLR_NOCANCEL		(S)
 #define PLR_GHOST		(T)
 
 /* penalty flags */
-#define PLR_PERMIT		(U)
 #define PLR_LOG 		(W)
 #define PLR_FREEZE		(Y)
 #define PLR_PUMPED		(Z)	/* adrenalin is gushing */
@@ -1222,9 +1219,7 @@ enum {
 #define COMM_NOWIZ		(C)
 #define COMM_NOAUCTION		(D)
 #define COMM_NOGOSSIP		(E)
-#define COMM_NOQUESTION 	(F)
 #define COMM_NOMUSIC		(G)
-#define COMM_NOQUOTE		(I)
 #define COMM_NOCLAN		(J)
 
 /* display flags */
