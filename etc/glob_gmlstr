@@ -1,9 +1,0 @@
-#GLOB @eng the door@rus дверь~
-gender @eng none@rus female~
-end
-
-#GLOB @eng hit@rus удар~
-gender @eng none@rus male~
-end
-
-#$

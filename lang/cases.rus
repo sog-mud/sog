@@ -4224,6 +4224,17 @@ Form 6 -у~
 End
 
 #RULE
+Name апельсин~
+BaseLen 8
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
+Form 4 -ом~
+Form 5 -е~
+Form 6 -~
+End
+
+#RULE
 Name желтая~
 BaseLen 4
 Form 1 -ой~
