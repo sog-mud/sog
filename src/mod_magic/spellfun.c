@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.24 1998-07-10 10:39:39 fjoe Exp $
+ * $Id: spellfun.c,v 1.25 1998-07-10 13:03:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3974,7 +3974,8 @@ void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		{
 		    if (IS_IMMORTAL(ch) && in_obj->in_room != NULL)
 			buf_printf(buffer, "One is in %s [Room %d]\n\r",
-			    in_obj->in_room->name, in_obj->in_room->vnum);
+				ml_string(ch, in_obj->in_room->name),
+				in_obj->in_room->vnum);
 		    else
 			buf_printf(buffer, "One is in %s\n\r",
 			    in_obj->in_room == NULL ?
@@ -5211,7 +5212,7 @@ void spell_find_object(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		else {
 			if (IS_IMMORTAL(ch) && in_obj->in_room != NULL)
 				buf_printf(buffer, "One is in %s [Room %d]\n\r",
-					in_obj->in_room->name,
+					ml_string(ch, in_obj->in_room->name),
 					in_obj->in_room->vnum);
 			else
 				buf_printf(buffer, "One is in %s\n\r",

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.34 1998-07-10 10:39:38 fjoe Exp $
+ * $Id: act_wiz.c,v 1.35 1998-07-10 13:03:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -329,7 +329,9 @@ void do_limited(CHAR_DATA *ch, char *argument)
 		      if (obj->carried_by != NULL) 
 			char_printf(ch, "Carried by %-30s\n\r", obj->carried_by->name);
 		      else if (obj->in_room != NULL) 
-			char_printf(ch, "At %-20s [%d]\n\r", obj->in_room->name, obj->in_room->vnum);
+			char_printf(ch, "At %-20s [%d]\n\r",
+				ml_string(ch, obj->in_room->name),
+				obj->in_room->vnum);
 		      else if (obj->in_obj != NULL) 
 			char_printf(ch, "In %-20s [%d] \n\r", obj->in_obj->short_descr, obj->in_obj->pIndexData->vnum);
 		    }
@@ -2056,7 +2058,8 @@ void do_owhere(CHAR_DATA *ch, char *argument)
 		else if (in_obj->in_room != NULL
 		     &&  can_see_room(ch, in_obj->in_room))
 	        	buf_printf(buffer, "%3d) %s is in %s [Room %d]\n\r",
-	        		number, obj->short_descr,in_obj->in_room->name, 
+	        		number, obj->short_descr,
+				ml_string(ch, in_obj->in_room->name), 
 				in_obj->in_room->vnum);
 		else
 			buf_printf(buffer, "%3d) %s is somewhere\n\r",number, obj->short_descr);
@@ -2097,10 +2100,12 @@ void do_mwhere(CHAR_DATA *ch, char *argument)
 			if (d->original != NULL)
 			    buf_printf(buffer,"%3d) %s (in the body of %s) is in %s [%d]\n\r",
 				count, d->original->name,victim->short_descr,
-				victim->in_room->name,victim->in_room->vnum);
+				ml_string(ch, victim->in_room->name),
+				victim->in_room->vnum);
 			else
 			    buf_printf(buffer,"%3d) %s is in %s [%d]\n\r",
-				count, victim->name,victim->in_room->name,
+				count, victim->name,
+				ml_string(ch, victim->in_room->name),
 				victim->in_room->vnum);
 		    }
 		}
@@ -2124,7 +2129,7 @@ void do_mwhere(CHAR_DATA *ch, char *argument)
 			IS_NPC(victim) ? victim->pIndexData->vnum : 0,
 			IS_NPC(victim) ? victim->short_descr : victim->name,
 			victim->in_room->vnum,
-			victim->in_room->name);
+			ml_string(ch, victim->in_room->name));
 		}
 	}
 
@@ -4956,7 +4961,7 @@ void do_affrooms(CHAR_DATA *ch, char *argument)
 		room_next = room->aff_next;
 		count++;
 		char_printf(ch, "%d) [Vnum : %5d] %s\n\r",
-			count, room->vnum , room->name);
+			count, room->vnum , ml_string(ch, room->name));
 	}
 }
 

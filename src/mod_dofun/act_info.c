@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.89 1998-07-10 10:39:38 fjoe Exp $
+ * $Id: act_info.c,v 1.90 1998-07-10 13:03:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2168,11 +2168,11 @@ void do_where(CHAR_DATA *ch, char *argument)
 			&&  can_see(ch, victim)) {
 				found = TRUE;
 				char_printf(ch, "%s%-28s %s\n\r",
-					    (in_PK(ch, victim) &&
-					     ch->level < LEVEL_IMMORTAL) ?
-						"{r[{RPK{r]{x " : "     ",
-					    PERS(victim, ch),
-					    victim->in_room->name);
+					(in_PK(ch, victim) &&
+					ch->level < LEVEL_IMMORTAL) ?
+					"{r[{RPK{r]{x " : "     ",
+					PERS(victim, ch),
+					ml_string(ch, victim->in_room->name));
 			}
 		}
 		if (!found)
@@ -2188,8 +2188,8 @@ void do_where(CHAR_DATA *ch, char *argument)
 			&&  is_name(arg, victim->name)) {
 				found = TRUE;
 				char_printf(ch, "%-28s %s\n\r",
-					    PERS(victim, ch),
-					    victim->in_room->name);
+					PERS(victim, ch),
+					ml_string(ch, victim->in_room->name));
 				break;
 			}
 		}
