@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.208 1999-12-02 09:09:58 fjoe Exp $
+ * $Id: act_move.c,v 1.209 1999-12-03 11:57:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1407,15 +1407,8 @@ void do_train(CHAR_DATA *ch, const char *argument)
 		if (buf[strlen(buf)-1] != ':')
 			char_printf(ch, "%s.\n", buf);
 		else {
-			/*
-			 * This message dedicated to Jordan ... you big stud!
-			 */
-			act("You have nothing left to train, you $T!",
-			    ch, NULL,
-			    ch->sex == SEX_MALE   ? "big stud" :
-			    ch->sex == SEX_FEMALE ? "hot babe" :
-						    "wild thing",
-			    TO_CHAR);
+			act("You have nothing left to train!",
+			    ch, NULL, NULL, TO_CHAR);
 		}
 		return;
 	}

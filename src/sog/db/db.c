@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.188 1999-12-01 09:07:15 fjoe Exp $
+ * $Id: db.c,v 1.189 1999-12-03 11:57:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1215,17 +1215,22 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 		}
 	}
 
-	mob->sex		= pMobIndex->sex;
-	if (mob->sex == SEX_EITHER) { /* random sex */
+	if (flag_value(sex_table, mlstr_mval(&pMobIndex->gender)) == SEX_EITHER) {
 		MOB_INDEX_DATA *fmob;
-		mob->sex = number_range(SEX_MALE, SEX_FEMALE);
-		if (mob->sex == SEX_FEMALE
+		int sex = number_range(SEX_MALE, SEX_FEMALE);
+
+		mlstr_destroy(&mob->gender);
+		mlstr_init(&mob->gender, flag_string(gender_table, sex));
+
+		if (sex == SEX_FEMALE
 		&&  (fmob = get_mob_index(pMobIndex->fvnum))) {
 			mob->name	= str_qdup(fmob->name);
 			mlstr_cpy(&mob->short_descr, &fmob->short_descr);
 			mlstr_cpy(&mob->long_descr, &fmob->long_descr);
 			mlstr_cpy(&mob->description, &fmob->description);
 		}
+	} else {
+		mlstr_cpy(&mob->gender, &pMobIndex->gender);
 	}
 
 	for (i = 0; i < MAX_STATS; i ++)
@@ -1358,7 +1363,7 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 	mlstr_cpy(&clone->short_descr, &parent->short_descr);
 	mlstr_cpy(&clone->long_descr, &parent->long_descr);
 	mlstr_cpy(&clone->description, &parent->description);
-	clone->sex		= parent->sex;
+	mlstr_cpy(&clone->gender, &parent->gender);
 	free_string(clone->class);
 	clone->class		= str_qdup(parent->class);
 	free_string(clone->race);

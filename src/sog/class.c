@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.22 1999-11-22 14:54:25 fjoe Exp $
+ * $Id: class.c,v 1.23 1999-12-03 11:57:16 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -51,7 +51,7 @@ class_init(class_t *cl)
 	cl->class_flags = 0;
 	cl->points = 0;
 	cl->restrict_align = -1;
-	cl->restrict_sex = -1;
+	cl->restrict_sex = str_empty;
 	cl->restrict_ethos = -1;
 	cl->death_limit = -1;
 	cl->skill_spec = str_empty;
@@ -83,7 +83,7 @@ class_cpy(class_t *dst, class_t *src)
 	dst->class_flags = src->class_flags;
 	dst->points = src->points;
 	dst->restrict_align = src->restrict_align;
-	dst->restrict_sex = src->restrict_sex;
+	dst->restrict_sex = str_qdup(src->restrict_sex);
 	dst->restrict_ethos = src->restrict_ethos;
 	dst->death_limit = src->death_limit;
 	dst->skill_spec = str_qdup(src->skill_spec);
@@ -99,6 +99,7 @@ class_cpy(class_t *dst, class_t *src)
 void
 class_destroy(class_t *cl)
 {
+	free_string(cl->restrict_sex);
 	free_string(cl->skill_spec);
 	varr_destroy(&cl->poses);
 	varr_destroy(&cl->guilds);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.84 1999-11-24 12:01:32 fjoe Exp $
+ * $Id: olc.c,v 1.85 1999-12-03 11:57:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -809,6 +809,36 @@ bool olced_ival(CHAR_DATA *ch, const char *argument,
 	if (is_number(argument))
 		return olced_number(ch, argument, cmd, pInt);
 	return olced_flag32(ch, argument, cmd, pInt);
+}
+
+bool
+olced_gender(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd, mlstring *g)
+{
+	char arg[MAX_INPUT_LENGTH];
+	const char *p;
+
+	p = one_argument(argument, arg, sizeof(arg));
+	    one_argument(p, arg, sizeof(arg));
+
+	if (flag_value(cmd->arg1, arg) < 0) {
+		char_puts("Invalid value. Valid values are:\n", ch);
+		show_flags(ch, cmd->arg1);
+		return FALSE;
+	}
+
+	if (!str_cmp(arg, "?")) {
+		char_puts("Valid values are:\n", ch);
+		show_flags(ch, cmd->arg1);
+		return FALSE;
+	}
+
+	if (!mlstr_edit(g, argument)) {
+		char_printf(ch, "Syntax: %s lang value\n", cmd->name);
+		return FALSE;
+	}
+
+	char_puts("Ok.\n", ch);
+	return TRUE;
 }
 
 #define CC_RULES_ERR					\

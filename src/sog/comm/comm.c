@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.212 1999-12-01 09:07:14 fjoe Exp $
+ * $Id: comm.c,v 1.213 1999-12-03 11:57:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1363,9 +1363,7 @@ void bust_a_prompt(DESCRIPTOR_DATA *d)
 			break;
 
 		case 'S':
-			i = ch->sex == SEX_MALE ? "Male" :
-			    ch->sex == SEX_FEMALE ? "Female" :
-			    "None";
+			i = mlstr_cval(&ch->gender, ch);
 			break;
 
 		case 'y':
@@ -2077,10 +2075,10 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	case CON_GET_NEW_SEX: 
 		switch (argument[0]) {
 		case 'm': case 'M':
-			ch->sex = SEX_MALE;
+			mlstr_init(&ch->gender, flag_string(gender_table, SEX_MALE));
 			break;
 		case 'f': case 'F':
-			ch->sex = SEX_FEMALE;
+			mlstr_init(&ch->gender, flag_string(gender_table, SEX_FEMALE));
 			break;
 		default:
 	    		char_puts("That's not a sex.\n", ch);
@@ -2681,7 +2679,7 @@ bool class_ok(CHAR_DATA *ch, class_t *cl)
 		return FALSE;
 
 	if (rclass_lookup(r, cl->name) == NULL
-	||  (cl->restrict_sex >= 0 && cl->restrict_sex != ch->sex))
+	||  is_name(mlstr_mval(&ch->gender), cl->restrict_sex))
 		return FALSE;
 
 	return TRUE;

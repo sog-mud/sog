@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.44 1999-11-27 11:06:13 fjoe Exp $
+ * $Id: comm_act.c,v 1.45 1999-12-03 11:57:18 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -149,14 +149,16 @@ const char *PERS2(CHAR_DATA *ch, CHAR_DATA *to, int to_lang, int act_flags)
 			return fix_short(descr);
 		} else if (IS_AFFECTED(ch, AFF_TURNED) && !IS_IMMORTAL(to)) {
 			return word_form(GETMSG(PC(ch)->form_name, to_lang),
-					 ch->sex, to_lang, RULES_GENDER);
+					 GET_SEX(&ch->gender, to_lang), to_lang,
+					 RULES_GENDER);
 		}
 		return ch->name;
 	}
 
 	if (IS_IMMORTAL(ch)) {
 		return word_form(GETMSG("an immortal", to_lang),
-				 ch->sex, to_lang, RULES_GENDER);
+				 GET_SEX(&ch->gender, to_lang), to_lang,
+				 RULES_GENDER);
 	}
 
 	return GETMSG("someone", to_lang);
@@ -206,9 +208,9 @@ static char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *i)
 	return trans;
 }
 
-static char * const he_she  [] = { "it",  "he",  "she" };
-static char * const him_her [] = { "it",  "him", "her" };
-static char * const his_her [] = { "its", "his", "her" };
+const char *he_she [] = { "it",  "he",  "she", "they" };
+const char *him_her[] = { "it",  "him", "her", "them" };
+const char *his_her[] = { "its", "his", "her", "their" };
  
 struct tdata {
 	char	type;
@@ -218,12 +220,23 @@ struct tdata {
 
 #define TSTACK_SZ 4
 
-static int SEX(CHAR_DATA *ch, CHAR_DATA *looker)
+int
+GET_SEX(mlstring *ml, int to_lang)
 {
-	if (is_affected(ch, "doppelganger")
+	int gender = flag_value(gender_table, mlstr_val(ml, to_lang));
+	return URANGE(0, gender, 3);
+}
+
+int
+PERS_SEX(CHAR_DATA *ch, CHAR_DATA *looker, int to_lang)
+{
+	if (ch != looker
+	&&  is_affected(ch, "doppelganger")
+	&&  ch->doppel != NULL
 	&&  (IS_NPC(looker) || !IS_SET(PC(looker)->plr_flags, PLR_HOLYLIGHT)))
 		ch = ch->doppel;
-	return URANGE(0, ch->sex, 2);
+
+	return GET_SEX(&ch->gender, to_lang);
 }
 
 static const char *
@@ -583,32 +596,32 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 /* him/her arguments. obsolete. $gx{...} should be used instead */
 			case 'e':
 				CHECK_TYPE(ch, MT_CHAR);
-				i = he_she[SEX(ch, to)];
+				i = he_she[PERS_SEX(ch, to, opt->to_lang)];
 				break;
 	
 			case 'E':
 				CHECK_TYPE(vch, MT_CHAR);
-				i = he_she[SEX(vch, to)];
+				i = he_she[PERS_SEX(vch, to, opt->to_lang)];
 				break;
 	
 			case 'm':
 				CHECK_TYPE(ch, MT_CHAR);
-				i = him_her[SEX(ch, to)];
+				i = him_her[PERS_SEX(ch, to, opt->to_lang)];
 				break;
 	
 			case 'M':
 				CHECK_TYPE(vch, MT_CHAR);
-				i = him_her[SEX(vch, to)];
+				i = him_her[PERS_SEX(vch, to, opt->to_lang)];
 				break;
 	
 			case 's':
 				CHECK_TYPE(ch, MT_CHAR);
-				i = his_her[SEX(ch, to)];
+				i = his_her[PERS_SEX(ch, to, opt->to_lang)];
 				break;
 	
 			case 'S':
 				CHECK_TYPE(vch, MT_CHAR);
-				i = his_her[SEX(vch, to)];
+				i = his_her[PERS_SEX(vch, to, opt->to_lang)];
 				break;
 
 /* obj arguments */
@@ -680,22 +693,26 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 					case 'N':
 						CHECK_TYPE2(vch, MT_CHAR);
-						tstack[sp].arg = vch->sex;
+						tstack[sp].arg =
+							PERS_SEX(vch, to, opt->to_lang);
 						break;
 
 					case 'n':
 						CHECK_TYPE2(ch, MT_CHAR);
-						tstack[sp].arg = ch->sex;
+						tstack[sp].arg =
+							PERS_SEX(ch, to, opt->to_lang);
 						break;
 
 					case 'i':
 						CHECK_TYPE2(vch1, MT_CHAR);
-						tstack[sp].arg = vch1->sex;
+						tstack[sp].arg =
+							PERS_SEX(vch1, to, opt->to_lang);
 						break;
 
 					case 'I':
 						CHECK_TYPE2(vch3, MT_CHAR);
-						tstack[sp].arg = vch3->sex;
+						tstack[sp].arg =
+							PERS_SEX(vch3, to, opt->to_lang);
 						break;
 
 					case 'o':
@@ -704,12 +721,12 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 					case 'p':
 						CHECK_TYPE2(obj1, MT_OBJ);
-						tstack[sp].arg = obj1->pObjIndex->gender;
+						tstack[sp].arg = GET_SEX(&obj1->pObjIndex->gender, opt->to_lang);
 						break;
 
 					case 'P':
 						CHECK_TYPE2(obj2, MT_OBJ);
-						tstack[sp].arg = obj2->pObjIndex->gender;
+						tstack[sp].arg = GET_SEX(&obj2->pObjIndex->gender, opt->to_lang);
 						break;
 
 					case 't':
@@ -874,7 +891,7 @@ act_raw(CHAR_DATA *ch, CHAR_DATA *to,
 	actopt_t opt;
 
 	opt.to_lang = GET_LANG(to);
-	opt.to_sex = to->sex;
+	opt.to_sex = GET_SEX(&to->gender, opt.to_lang);
 	opt.act_flags = act_flags;
 
 	act_buf(format, ch, to, arg1, arg2, arg3,

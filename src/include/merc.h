@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.262 1999-12-02 10:54:08 kostik Exp $
+ * $Id: merc.h,v 1.263 1999-12-03 11:57:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1236,7 +1236,7 @@ struct mob_index_data
 	flag32_t		vuln_flags;
 	flag32_t		start_pos;
 	flag32_t		default_pos;
-	flag32_t		sex;
+	mlstring		gender;
 	const char *		race;		/* race */
 	int			wealth;
 	flag32_t		form;
@@ -1313,7 +1313,6 @@ struct char_data
 	mlstring		short_descr;
 	mlstring		long_descr;
 	mlstring		description;
-	flag32_t		sex;
 	const char *		class;
 	const char *		race;
 	const char *		clan;
@@ -1377,6 +1376,7 @@ struct char_data
 	CHAR_DATA *		doppel;		/* doppelganger and mirror */
 
 	int			slang;		/* spoken language */
+	mlstring		gender;
 };
 
 /*
@@ -1540,7 +1540,7 @@ struct obj_index_data
 	vo_t 			value[5];
 	int 			limit;
 	OPROG_FUN **		oprogs;
-	flag32_t		gender;
+	mlstring		gender;
 	varr			restrictions; /* varr of cc_ruleset_t */
 };
 
@@ -2155,8 +2155,6 @@ extern	char				DEFAULT_PROMPT	[];
 
 void		add_follower	(CHAR_DATA *ch, CHAR_DATA *master);
 void		stop_follower	(CHAR_DATA *ch);
-
-void		check_sex	(CHAR_DATA *ch);
 
 /*
  * ch is assumed to be !IS_NPC

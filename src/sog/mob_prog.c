@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.54 1999-12-01 09:07:12 fjoe Exp $
+ * $Id: mob_prog.c,v 1.55 1999-12-03 11:57:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -659,7 +659,7 @@ int cmd_eval(int vnum, const char *line, int check,
 	    if (lval_char != NULL && lval_char->in_room != NULL)
 		lval = lval_char->in_room->vnum; break;
         case CHK_SEX:
-	    if (lval_char != NULL) lval = lval_char->sex; break;
+	    if (lval_char != NULL) lval = GET_SEX(&lval_char->gender, 0); break;
         case CHK_LEVEL:
             if (lval_char != NULL) lval = lval_char->level; break;
 	case CHK_ALIGN:
@@ -707,9 +707,6 @@ void expand_arg(char *buf,
 	CHAR_DATA *mob, CHAR_DATA *ch, 
 	const void *arg1, const void *arg2, CHAR_DATA *rch)
 {
-    static char * const he_she  [] = { "it",  "he",  "she" };
-    static char * const him_her [] = { "it",  "him", "her" };
-    static char * const his_her [] = { "its", "his", "her" };
     const char *someone = "someone";
     const char *something = "something";
     const char *someones = "someone's";
@@ -802,60 +799,60 @@ void expand_arg(char *buf,
 		mlstr_mval(&NPC(mob)->mprog_target->short_descr) :
 		NPC(mob)->mprog_target->name) :
 		someone;                         		break;
-            case 'j': i = he_she  [URANGE(0, mob->sex, 2)];     break;
+            case 'j': i = he_she[GET_SEX(&mob->gender, 0)];     break;
             case 'e': 
 	    	i = (ch != NULL && can_see(mob, ch))
-		? he_she  [URANGE(0, ch->sex, 2)]        
+		? he_she  [GET_SEX(&ch->gender, 0)]        
 		: someone;					break;
             case 'E': 
 	    	i = (vch != NULL && can_see(mob, vch))
-		? he_she  [URANGE(0, vch->sex, 2)]        
+		? he_she  [GET_SEX(&vch->gender, 0)]        
 		: someone;					break;
             case 'J': 
 		i = (rch != NULL && can_see(mob, rch))
-		? he_she  [URANGE(0, rch->sex, 2)]        
+		? he_she  [GET_SEX(&rch->gender, 0)]        
 		: someone;					break;
 	    case 'X':
 		i = (NPC(mob)->mprog_target != NULL && can_see(mob, NPC(mob)->mprog_target))
-		? he_she  [URANGE(0, NPC(mob)->mprog_target->sex, 2)]
+		? he_she  [GET_SEX(&NPC(mob)->mprog_target->gender, 0)]
 		: someone;					break;
-            case 'k': i = him_her [URANGE(0, mob->sex, 2)];	break;
+            case 'k': i = him_her [GET_SEX(&mob->gender, 0)];	break;
             case 'm': 
 	    	i = (ch != NULL && can_see(mob, ch))
-		? him_her [URANGE(0, ch  ->sex, 2)]
+		? him_her [GET_SEX(&ch->gender, 0)]
 		: someone;        				break;
             case 'M': 
 	    	i = (vch != NULL && can_see(mob, vch))
-		? him_her [URANGE(0, vch ->sex, 2)]        
+		? him_her [GET_SEX(&vch->gender, 0)]        
 		: someone;					break;
             case 'K': 
 		if (rch == NULL) 
 		    rch = get_random_char(mob);
 		i = (rch != NULL && can_see(mob, rch))
-		? him_her [URANGE(0, rch ->sex, 2)]
+		? him_her [GET_SEX(&rch->gender, 0)]
 		: someone;					break;
             case 'Y': 
 	    	i = (NPC(mob)->mprog_target != NULL && can_see(mob, NPC(mob)->mprog_target))
-		? him_her [URANGE(0, NPC(mob)->mprog_target->sex, 2)]        
+		? him_her [GET_SEX(&NPC(mob)->mprog_target->gender, 0)]        
 		: someone;					break;
-            case 'l': i = his_her [URANGE(0, mob ->sex, 2)];    break;
+            case 'l': i = his_her [GET_SEX(&mob->gender, 0)];    break;
             case 's': 
 	    	i = (ch != NULL && can_see(mob, ch))
-		? his_her [URANGE(0, ch ->sex, 2)]
+		? his_her [GET_SEX(&ch->gender, 0)]
 		: someones;					break;
             case 'S': 
 	    	i = (vch != NULL && can_see(mob, vch))
-		? his_her [URANGE(0, vch ->sex, 2)]
+		? his_her [GET_SEX(&vch->gender, 0)]
 		: someones;					break;
             case 'L': 
 		if (rch == NULL) 
 		    rch = get_random_char(mob);
 		i = (rch != NULL && can_see(mob, rch))
-		? his_her [URANGE(0, rch ->sex, 2)]
+		? his_her [GET_SEX(&rch->gender, 0)]
 		: someones;					break;
             case 'Z': 
 	    	i = (NPC(mob)->mprog_target != NULL && can_see(mob, NPC(mob)->mprog_target))
-		? his_her [URANGE(0, NPC(mob)->mprog_target->sex, 2)]
+		? his_her [GET_SEX(&NPC(mob)->mprog_target->gender, 0)]
 		: someones;					break;
 	    case 'o':
 		i = something;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.293 1999-12-02 10:54:05 kostik Exp $
+ * $Id: act_info.c,v 1.294 1999-12-03 11:57:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2159,7 +2159,6 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	for (i=0; i < 3; i++)
 		bear->armor[i] = interpolate(bear->level, 100, -100);
 	bear->armor[3] = interpolate(bear->level, 100, 0);
-	bear->sex = ch->sex;
 	bear->gold = 0;
 
 	bear2 = create_mob(bear->pMobIndex);
@@ -2274,9 +2273,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	format_stat(buf2, sizeof(buf2), ch, STAT_WIS);
 	buf_printf(output,
 "     {G| {RSex  : {x%-11.11s  {C| {RWis: {x%-11.11s {C| {RTrain     : {x%-3d        {G|{x\n",
-		   ch->sex == 0 ?	"sexless" :
-		   ch->sex == 1 ?	"male" :
-					"female",
+		   mlstr_mval(&ch->gender),
 		   buf2,
 		   IS_NPC(ch) ? 0 : PC(ch)->train);
 
@@ -2439,7 +2436,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 		"Race: {c%s{x  Sex: {c%s{x  Class: {c%s{x  "
 		"Hometown: {c%s{x\n",
 		ch->race,
-		ch->sex == 0 ? "sexless" : ch->sex == 1 ? "male" : "female",
+		mlstr_mval(&ch->gender),
 		IS_NPC(ch) ? "mobile" : ch->class,
 		IS_NPC(ch) ? "Midgaard" : hometown_name(PC(ch)->hometown));
 
@@ -2858,7 +2855,6 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	for (i = 0; i < 3; i++)
 		lion->armor[i] = interpolate(lion->level,100,-100);
 	lion->armor[3] = interpolate(lion->level,100,0);
-	lion->sex = ch->sex;
 	lion->gold = 0;
 
 	lion2 = create_mob(lion->pMobIndex);
@@ -4488,9 +4484,11 @@ static void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	if (!IS_IMMORTAL(doppel)) {
 		char_printf(ch, "(%s) ", doppel->race);
-		if (!IS_NPC(doppel)) 
-			char_printf(ch, "(%s) ", doppel->class);
-		char_printf(ch, "(%s) ", flag_string(sex_table, doppel->sex));
+		if (!IS_NPC(doppel)) {
+			char_printf(ch, "(%s) (%s) ",
+				    doppel->class,
+				    mlstr_mval(&doppel->gender));
+		}
 	}
 
 	strnzcpy(buf, sizeof(buf), PERS(victim, ch));

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.61 1999-12-01 09:07:09 fjoe Exp $
+ * $Id: olc_area.c,v 1.62 1999-12-03 11:57:16 fjoe Exp $
  */
 
 #include "olc.h"
@@ -885,13 +885,16 @@ static void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 	fprintf(fp, "%s %s %s %d\n",
 			flag_string(position_table, pMobIndex->start_pos),
 			flag_string(position_table, pMobIndex->default_pos),
-			flag_string(sex_table, pMobIndex->sex),
+			mlstr_mval(&pMobIndex->gender),	/* compatibility */
 			pMobIndex->wealth);
 	fprintf(fp, "%s ",	format_flags(pMobIndex->form & ~r->form));
 	fprintf(fp, "%s ",	format_flags(pMobIndex->parts & ~r->parts));
 
 	fprintf(fp, "%s ",	flag_string(size_table, pMobIndex->size));
 	fprintf(fp, "%s\n",	IS_NULLSTR(pMobIndex->material) ? pMobIndex->material : "unknown");
+
+	if (mlstr_nlang(&pMobIndex->gender) > 1)
+		mlstr_fwrite(fp, "g", &pMobIndex->gender);
 
 	/* save diffs */
 	if ((temp = DIFF_BIT(r->act, pMobIndex->act)))
@@ -1033,7 +1036,7 @@ static void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 	for (pEd = pObjIndex->ed; pEd; pEd = pEd->next)
 		ed_fwrite(fp, pEd);
 
-	fprintf(fp, "G %s\n", flag_string(gender_table, pObjIndex->gender));
+	mlstr_fwrite(fp, "g", &pObjIndex->gender);
 	varr_foreach(&pObjIndex->restrictions, fwrite_cc_ruleset_cb,
 		     fp, "obj_wear", "R "); 
 }

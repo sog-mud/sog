@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.53 1999-11-23 16:04:55 fjoe Exp $
+ * $Id: olc.h,v 1.54 1999-12-03 11:57:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -137,7 +137,7 @@ DECLARE_OLC_FUN(olced_spell_out);
 DECLARE_OLC_FUN(olced_strkey);
 
 bool olced_number	(CHAR_DATA *ch, const char *argument,
-			 olc_cmd_t *cmd, int*);
+			 olc_cmd_t *cmd, int *);
 bool olced_name		(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, const char **pStr);
 bool olced_foreign_strkey(CHAR_DATA *ch, const char *argument,
@@ -147,17 +147,17 @@ bool olced_str		(CHAR_DATA *ch, const char *argument,
 bool olced_str_text	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, const char **pStr);
 bool olced_mlstr	(CHAR_DATA *ch, const char *argument,
-			 olc_cmd_t *cmd, mlstring*);
+			 olc_cmd_t *cmd, mlstring *);
 bool olced_mlstrnl	(CHAR_DATA *ch, const char *argument,
-			 olc_cmd_t *cmd, mlstring*);
+			 olc_cmd_t *cmd, mlstring *);
 bool olced_mlstr_text	(CHAR_DATA *ch, const char *argument,
-			 olc_cmd_t *cmd, mlstring*);
+			 olc_cmd_t *cmd, mlstring *);
 bool olced_exd		(CHAR_DATA *ch, const char* argument,
-			 olc_cmd_t *cmd, ED_DATA**);
+			 olc_cmd_t *cmd, ED_DATA **);
 bool olced_flag64	(CHAR_DATA *ch, const char* argument,
-			 olc_cmd_t *cmd, flag64_t*);
+			 olc_cmd_t *cmd, flag64_t *);
 bool olced_flag32	(CHAR_DATA *ch, const char* argument,
-			 olc_cmd_t *cmd, flag32_t*);
+			 olc_cmd_t *cmd, flag32_t *);
 bool olced_dice		(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, int *dice);
 bool olced_rulecl	(CHAR_DATA *ch, const char *argument,
@@ -168,6 +168,8 @@ bool olced_vform_del	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, rule_t *r);
 bool olced_ival		(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, int *);
+bool olced_gender	(CHAR_DATA *ch, const char *argument,
+			 olc_cmd_t *cmd, mlstring *);
 bool olced_cc_rules	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, const char *rcn, varr *v);
 

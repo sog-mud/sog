@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.48 1999-11-21 15:59:48 fjoe Exp $
+ * $Id: olc_mob.c,v 1.49 1999-12-03 11:57:16 fjoe Exp $
  */
 
 #include "olc.h"
@@ -48,7 +48,7 @@ DECLARE_OLC_FUN(mobed_level		);
 DECLARE_OLC_FUN(mobed_align		);
 DECLARE_OLC_FUN(mobed_spec		);
 
-DECLARE_OLC_FUN(mobed_sex		);  /* ROM */
+DECLARE_OLC_FUN(mobed_gender		);  /* ROM */
 DECLARE_OLC_FUN(mobed_act		);  /* ROM */
 DECLARE_OLC_FUN(mobed_affect		);  /* ROM */
 DECLARE_OLC_FUN(mobed_ac		);  /* ROM */
@@ -100,7 +100,7 @@ olc_cmd_t olc_cmds_mob[] =
 	{ "short",	mobed_short					},
 	{ "spec",	mobed_spec					},
 
-	{ "sex",	mobed_sex,	NULL,		sex_table	},
+	{ "gender",	mobed_gender,	NULL,		sex_table	},
 	{ "act",	mobed_act,	NULL,		act_flags	},
 	{ "affect",	mobed_affect,	NULL,		affect_flags	},
 	{ "prac",	mobed_prac,	NULL,		skill_groups	},
@@ -260,10 +260,11 @@ OLC_FUN(mobed_show)
 	buf_printf(buf, "Act:         [%s]\n",
 		flag_string(act_flags, pMob->act));
 
-	buf_printf(buf, "Vnum:        [%5d] Sex:   [%s]   Race: [%s]\n",
+	buf_printf(buf, "Vnum:        [%5d]    Race: [%s]\n",
 		pMob->vnum,
-		flag_string(sex_table, pMob->sex),
 		pMob->race);
+
+	mlstr_dump(buf, "Sex:         ", &pMob->gender);
 
 	if (!IS_NULLSTR(pMob->clan))
 		buf_printf(buf, "Clan:        [%s]\n", pMob->clan);
@@ -735,11 +736,11 @@ OLC_FUN(mobed_shop)
 	return FALSE;
 }
 
-OLC_FUN(mobed_sex)
+OLC_FUN(mobed_gender)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return olced_flag32(ch, argument, cmd, &pMob->sex);
+	return olced_gender(ch, argument, cmd, &pMob->gender);
 }
 
 OLC_FUN(mobed_act)
@@ -1166,7 +1167,7 @@ OLC_FUN(mobed_clone)
 	pMob->vuln_flags	= pFrom->vuln_flags;
 	pMob->start_pos		= pFrom->start_pos;
 	pMob->default_pos	= pFrom->default_pos;
-	pMob->sex		= pFrom->sex;
+	mlstr_cpy(&pMob->gender, &pFrom->gender);
 	pMob->wealth		= pFrom->wealth;
 	pMob->form		= pFrom->form;
 	pMob->parts		= pFrom->parts;

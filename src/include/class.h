@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.21 1999-10-21 12:51:53 fjoe Exp $
+ * $Id: class.h,v 1.22 1999-12-03 11:57:15 fjoe Exp $
  */
 
 #ifndef _CLASS_H_
@@ -46,7 +46,7 @@ struct class_t {
 	int		points;			/* cost in exp */
 	int		stats[MAX_STATS];	/* stat modifiers */
 	flag32_t	restrict_align;		/* alignment restrictions */
-	flag32_t	restrict_sex;		/* sex restrictions */
+	const char *	restrict_sex;		/* sex restrictions */
 	flag32_t	restrict_ethos;		/* ethos restrictions */
 	varr		poses;			/* varr of class poses */
 	int		death_limit;		/* death limit */

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.12 1999-11-22 14:54:24 fjoe Exp $
+ * $Id: olc_class.c,v 1.13 1999-12-03 11:57:16 fjoe Exp $
  */
 
 #include "olc.h"
@@ -237,9 +237,9 @@ OLC_FUN(classed_show)
 	if (class->restrict_ethos)
 		buf_printf(output, "Ethos restrict: [%s]\n",
 			   flag_string(ethos_table, class->restrict_ethos));
-	if (class->restrict_sex != -1)
+	if (!IS_NULLSTR(class->restrict_sex))
 		buf_printf(output, "Sex restrict:   [%s]\n",
-			   flag_string(sex_table, class->restrict_sex));
+			   class->restrict_sex);
 	if (class->death_limit != -1)
 		buf_printf(output, "Death limit:    [%d]\n", class->death_limit);
 
@@ -390,13 +390,7 @@ OLC_FUN(classed_sex		)
 {
 	class_t *class;
 	EDIT_CLASS(ch, class);
-
-	if (!olced_flag32(ch, argument, cmd, &class->restrict_sex))
-		return FALSE;
-	if (class->restrict_sex != SEX_MALE
-	&&  class->restrict_sex != SEX_FEMALE)
-		class->restrict_sex = -1;
-	return TRUE;
+	return olced_name(ch, argument, cmd, &class->restrict_sex);
 }
 
 OLC_FUN(classed_poses)
@@ -663,9 +657,7 @@ save_class_cb(void *p, va_list ap)
 	if (cl->restrict_align != -1)
 		fprintf(fp, "RestrictAlign %s~\n",
 			flag_string(ralign_names, cl->restrict_align));
-	if (cl->restrict_sex != -1)
-		fprintf(fp, "RestrictSex %s~\n",
-			flag_string(sex_table, cl->restrict_sex));
+	fwrite_string(fp, "RestrictSex", cl->restrict_sex);
 	if (cl->restrict_ethos != -1)
 		fprintf(fp, "RestrictEthos %s~\n",
 			flag_string(ethos_table, cl->restrict_ethos));

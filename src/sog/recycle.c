@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.81 1999-12-01 09:07:12 fjoe Exp $
+ * $Id: recycle.c,v 1.82 1999-12-03 11:57:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -379,6 +379,7 @@ void char_free(CHAR_DATA *ch)
 	free_string(ch->name);
 	ch->name = NULL;
 
+	mlstr_destroy(&ch->gender);
 	mlstr_destroy(&ch->short_descr);
 	mlstr_destroy(&ch->long_descr);
 	mlstr_destroy(&ch->description);
@@ -651,6 +652,7 @@ void free_obj_index(OBJ_INDEX_DATA *pObj)
 
 	free_string(pObj->name);
 	free_string(pObj->material);
+	mlstr_destroy(&pObj->gender);
 	mlstr_destroy(&pObj->short_descr);
 	mlstr_destroy(&pObj->description);
 
@@ -682,7 +684,6 @@ MOB_INDEX_DATA *new_mob_index(void)
 	pMob->start_pos		= POS_STANDING;
 	pMob->default_pos	= POS_STANDING;
 	pMob->damtype		= str_empty;
-
 	top_mob_index++;
 	return pMob;
 }
@@ -697,6 +698,7 @@ void free_mob_index(MOB_INDEX_DATA *pMob)
 	free_string(pMob->damtype);
 	free_string(pMob->clan);
 	free_string(pMob->race);
+	mlstr_destroy(&pMob->gender);
 	mlstr_destroy(&pMob->short_descr);
 	mlstr_destroy(&pMob->long_descr);
 	mlstr_destroy(&pMob->description);

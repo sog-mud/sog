@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.142 1999-12-01 15:03:22 fjoe Exp $
+ * $Id: save.c,v 1.143 1999-12-03 11:57:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -240,12 +240,9 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 	fwrite_string(fp, "Name", ch->name);
 	mlstr_fwrite(fp, "ShD", &ch->short_descr);
 	fprintf(fp, "Ethos %s\n", flag_string(ethos_table, ch->ethos));
-
 	fwrite_word(fp, "Clan", ch->clan);
-
 	fwrite_string(fp, "Desc", mlstr_mval(&ch->description));
-
-	fprintf(fp, "Sex %d\n", ch->sex);
+	mlstr_fwrite(fp, "SSex", &ch->gender);
 	fwrite_word(fp, "Class", ch->class);
 	fprintf(fp, "Levl %d\n", ch->level);
 	fprintf(fp, "Room %d\n",
@@ -413,7 +410,8 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp, int flags)
 		mlstr_fwrite(fp, "LnD", &pet->short_descr);
 	if (mlstr_cmp(&pet->description, &pet->pMobIndex->description) != 0)
 		mlstr_fwrite(fp, "Desc", &pet->short_descr);
-	fprintf(fp, "Sex %d\n", pet->sex);
+	if (mlstr_cmp(&pet->gender, &pet->pMobIndex->gender) != 0)
+		mlstr_fwrite(fp, "SSex", &pet->gender);
 	if (pet->level != pet->pMobIndex->level)
 		fprintf(fp, "Levl %d\n", pet->level);
 	fprintf(fp, "HMV %d %d %d %d %d %d\n",
@@ -839,7 +837,13 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 
 		case 'S':
 			KEY("Scro", PC(ch)->dvdata->pagelen, fread_number(fp));
-			KEY("Sex", ch->sex, fread_number(fp));
+			if (IS_TOKEN(fp, "Sex")) {
+				mlstr_destroy(&ch->gender);
+				mlstr_init(&ch->gender,
+					   flag_string(gender_table, fread_number(fp)));
+				fMatch = TRUE;
+			}
+			MLSKEY("SSex", ch->gender);
 			MLSKEY("ShD", ch->short_descr);
 			KEY("Sec", PC(ch)->security, fread_number(fp));
 			KEY("Silv", ch->silver, fread_number(fp));
@@ -988,7 +992,13 @@ fread_pet(CHAR_DATA * ch, rfile_t * fp, int flags)
 			break;
 
 		case 'S':
-			KEY("Sex", pet->sex, fread_number(fp));
+			if (IS_TOKEN(fp, "Sex")) {
+				mlstr_destroy(&pet->gender);
+				mlstr_init(&pet->gender,
+					   flag_string(gender_table, fread_number(fp)));
+				fMatch = TRUE;
+			}
+			MLSKEY("SSex", pet->gender);
 			MLSKEY("ShD", pet->short_descr);
 			KEY("Silv", pet->silver, fread_number(fp));
 			break;

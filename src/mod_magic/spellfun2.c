@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.150 1999-12-01 09:07:17 fjoe Exp $
+ * $Id: spellfun2.c,v 1.151 1999-12-03 11:57:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -680,9 +680,8 @@ void spell_guard_call(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	guard->alignment = ch->alignment;
 	guard->level = ch->level;
 	for (i=0; i < 3; i++)
-	guard->armor[i] = interpolate(guard->level,100,-200);
+		guard->armor[i] = interpolate(guard->level,100,-200);
 	guard->armor[3] = interpolate(guard->level,100,-100);
-	guard->sex = ch->sex;
 	guard->gold = 0;
 
 	NPC(guard)->dam.dice_number = number_range(level/18, level/14);   
@@ -1519,7 +1518,6 @@ void spell_shadowlife(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	for (i = 0; i < 3; i++)
 		shadow->armor[i] = interpolate(shadow->level,100,-100);
 	shadow->armor[3] = interpolate(shadow->level,100,0);
-	shadow->sex = victim->sex;
 	shadow->gold = 0;
 
 	NPC(shadow)->target = victim;
@@ -2575,10 +2573,16 @@ void spell_attract_other(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (ch->sex == victim->sex) {
+	if (IS_NPC(ch) || IS_NPC(victim)) {
+		char_puts("You failed.\n", ch);
+		return;
+	}
+
+	if (!mlstr_cmp(&ch->gender, &victim->gender)) {
 		char_puts("You'd better try your chance on other sex!\n", ch);
 		return;
 	}
+
 	spellfun_call("charm person", sn, level+2, ch, vo);
 }
 
@@ -2695,7 +2699,6 @@ void spell_animate_dead(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		for (i = 0; i < 3; i++)
 			undead->armor[i] = interpolate(undead->level,100,-100);
 		undead->armor[3] = interpolate(undead->level, 50, -200);
-		undead->sex = ch->sex;
 		undead->gold = 0;
 		NPC(undead)->dam.dice_number = 11;
 		NPC(undead)->dam.dice_type   = 5;
@@ -3243,7 +3246,6 @@ void spell_lion_help(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	for (i=0; i < 3; i++)
 	lion->armor[i] = interpolate(lion->level,100,-100);
 	lion->armor[3] = interpolate(lion->level,100,0);
-	lion->sex = ch->sex;
 	lion->gold = 0;
 	NPC(lion)->dam.dice_number = number_range(LEVEL(ch)/15, LEVEL(ch)/10);   
 	NPC(lion)->dam.dice_type = number_range(LEVEL(ch)/3, LEVEL(ch)/2);
@@ -5181,7 +5183,7 @@ void spell_mirror(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		mlstr_printf(&gch->long_descr, &gch->pMobIndex->long_descr,
 			     victim->name, PC(victim)->title);
 		mlstr_cpy(&gch->description, &victim->description);
-		gch->sex = victim->sex;
+		mlstr_cpy(&gch->gender, &victim->gender);
     
 		af.type = "dopperlganger";
 		af.duration = level;

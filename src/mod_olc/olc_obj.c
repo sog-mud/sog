@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.66 1999-12-01 09:07:09 fjoe Exp $
+ * $Id: olc_obj.c,v 1.67 1999-12-03 11:57:16 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -243,11 +243,11 @@ OLC_FUN(objed_show)
 		pObj->name, pArea->vnum, pArea->name);
 
 	buf_printf(output, "Vnum:        [%5d]\n"
-			   "Gender:      [%s]\n"
 			   "Type:        [%s]\n",
 		pObj->vnum,
-		flag_string(gender_table, pObj->gender),
 		flag_string(item_types, pObj->item_type));
+
+	mlstr_dump(output, "Gender:      ", &pObj->gender);
 
 	if (pObj->limit != -1)
 		buf_printf(output, "Limit:       [%5d]\n", pObj->limit);
@@ -927,7 +927,7 @@ OLC_FUN(objed_gender)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return olced_flag32(ch, argument, cmd, &pObj->gender);
+	return olced_gender(ch, argument, cmd, &pObj->gender);
 }
 
 OLC_FUN(objed_restrictions)

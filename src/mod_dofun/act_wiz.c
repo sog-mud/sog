@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.205 1999-12-02 13:09:29 fjoe Exp $
+ * $Id: act_wiz.c,v 1.206 1999-12-03 11:57:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1241,12 +1241,13 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 				NPC(victim)->zone->name : "?");
 
 	buf_printf(output, 
-		"Vnum: %d  Race: %s (%s)  Group: %d  Sex: %s  Room: %d\n",
+		"Vnum: %d  Race: %s (%s)  Group: %d  Room: %d\n",
 		IS_NPC(victim) ? victim->pMobIndex->vnum : 0,
 		victim->race, ORG_RACE(victim),
 		IS_NPC(victim) ? victim->pMobIndex->group : 0,
-		flag_string(sex_table, victim->sex),
 		victim->in_room == NULL ? 0 : victim->in_room->vnum);
+
+	mlstr_dump(output, "Sex: ", &victim->gender);
 
 	if (IS_NPC(victim))
 		buf_printf(output,"Count: %d  Killed: %d\n",
@@ -3140,11 +3141,12 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	char arg4 [MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	int value, val2;
+	const char *p;
 
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
-	argument = one_argument(argument, arg3, sizeof(arg3));
-		   one_argument(argument, arg4, sizeof(arg4));
+	p = one_argument(argument, arg3, sizeof(arg3));
+	one_argument(p, arg4, sizeof(arg4));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
 		do_help(ch, "'WIZ SET'");
@@ -3317,12 +3319,28 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_prefix(arg2, "sex")) {
-		if (value < 0 || value > 2) {
-		    char_puts("Sex range is 0 to 2.\n", ch);
-		    return;
+		int sex;
+
+		if (IS_NPC(victim)) {
+			sex = flag_value(gender_table, arg4);
+			if (sex < 0) {
+				char_puts("Valid values are:\n", ch);
+				show_flags(ch, gender_table);
+				return;
+			}
+			mlstr_edit(&victim->gender, argument);
+			return;
 		}
 
-		victim->sex = value;
+		sex = flag_value(gender_table, arg3);
+		if (sex != SEX_MALE
+		&&  sex != SEX_FEMALE) {
+			char_puts("Sex should be one of 'male', 'female'.\n", ch);
+			return;
+		}
+
+		mlstr_destroy(&victim->gender);
+		mlstr_init(&victim->gender, flag_string(gender_table, sex));
 		return;
 	}
 

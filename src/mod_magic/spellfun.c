@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.192 1999-12-01 09:07:16 fjoe Exp $
+ * $Id: spellfun.c,v 1.193 1999-12-03 11:57:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -562,7 +562,6 @@ void spell_charm_person(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
-	int ladj;		/* level adjustment (for females) */
 
 	if (count_charmed(ch))
 		return;
@@ -572,15 +571,20 @@ void spell_charm_person(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (!IS_NPC(victim) && !IS_NPC(ch)) 
-		level += get_curr_stat(ch, STAT_CHA) -
-			 get_curr_stat(victim, STAT_CHA); 
+	if (!IS_NPC(ch)) {
+		if (!IS_NPC(victim)) {
+			level += get_curr_stat(ch, STAT_CHA) -
+				 get_curr_stat(victim, STAT_CHA); 
+		}
 
-	ladj = ch->sex == SEX_FEMALE ? 2 : 0;
+		if (flag_value(gender_table, mlstr_mval(&ch->gender)) == SEX_FEMALE)
+			level += 2;
+	}
+
 	if (IS_AFFECTED(victim, AFF_CHARM)
 	||  IS_AFFECTED(ch, AFF_CHARM)
 	||  !IS_AWAKE(victim)
-	||  level+ladj < LEVEL(victim)
+	||  level < LEVEL(victim)
 	||  IS_SET(victim->imm_flags, IMM_CHARM)
 	||  saves_spell(level, victim, DAM_CHARM) 
 	||  (IS_NPC(victim) && victim->pMobIndex->pShop != NULL)

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.69 1999-12-01 09:07:16 fjoe Exp $
+ * $Id: db_area.c,v 1.70 1999-12-03 11:57:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -362,7 +362,9 @@ DBLOAD_FUN(load_old_mob)
 		/*
 		 * Back to meaningful values.
 		 */
-		pMobIndex->sex			= fread_number(fp);
+		mlstr_destroy(&pMobIndex->gender);
+		mlstr_init(&pMobIndex->gender,
+			   flag_string(sex_table, fread_number(fp)));
 
 		/* compute the race BS */
 		one_argument(pMobIndex->name, name, sizeof(name));
@@ -1104,7 +1106,10 @@ DBLOAD_FUN(load_mobiles)
 	/* vital statistics */
 	pMobIndex->start_pos		= fread_fword(position_table, fp);
 	pMobIndex->default_pos		= fread_fword(position_table, fp);
-	pMobIndex->sex			= fread_fword(sex_table, fp);
+
+	fread_word(fp);
+	mlstr_destroy(&pMobIndex->gender);
+	mlstr_init(&pMobIndex->gender, rfile_tok(fp));
 
 	pMobIndex->wealth		= fread_number(fp);
 
@@ -1176,6 +1181,8 @@ DBLOAD_FUN(load_mobiles)
 		mptrig = mptrig_new(type, phrase, vnum);
 		mptrig_add(pMobIndex, mptrig);
 		free_string(phrase);
+	     } else if (letter == 'g') {
+		mlstr_fread(fp, &pMobIndex->gender);
 	     } else {
 		xungetc(fp);
 		break;
@@ -1349,8 +1356,14 @@ DBLOAD_FUN(load_objects)
 				SLIST_ADD(AFFECT_DATA, pObjIndex->affected, paf);
 				break;
 	
+			case 'g':
+				mlstr_fread(fp, &pObjIndex->gender);
+				break;
+
 			case 'G':
-				pObjIndex->gender = fread_fword(gender_table, fp);
+				fread_word(fp);
+				mlstr_destroy(&pObjIndex->gender);
+				mlstr_init(&pObjIndex->gender, rfile_tok(fp));
 				break;
 	
 			case 'R':

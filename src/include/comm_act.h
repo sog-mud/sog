@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.h,v 1.18 1999-11-27 11:06:11 fjoe Exp $
+ * $Id: comm_act.h,v 1.19 1999-12-03 11:57:15 fjoe Exp $
  */
 
 #ifndef _COMM_ACT_H_
@@ -106,5 +106,14 @@ void	act_yell(CHAR_DATA *ch, const char *text, const void *arg,
 		 const char *format);
 void	act_clan(CHAR_DATA *ch, const char *text, const void *arg);
 void	act_say(CHAR_DATA *ch, const char *text, const void *arg);
+
+/*
+ * common declarations for act_xxx and mob progs
+ */
+extern const char *he_she[];
+extern const char *him_her[];
+extern const char *his_her[];
+
+int GET_SEX(mlstring *ml, int to_lang);
 
 #endif

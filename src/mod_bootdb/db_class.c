@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.25 1999-10-26 13:52:58 fjoe Exp $
+ * $Id: db_class.c,v 1.26 1999-12-03 11:57:18 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -125,8 +125,8 @@ DBLOAD_FUN(load_class)
 		case 'R':
 			KEY("RestrictAlign", class.restrict_align,
 			    fread_fstring(ralign_names, fp));
-			KEY("RestrictSex", class.restrict_sex,
-			    fread_fstring(sex_table, fp));
+			SKEY("RestrictSex", class.restrict_sex,
+			     fread_string(fp));
 			KEY("RestrictEthos", class.restrict_ethos,
 			    fread_fstring(ethos_table, fp));
 			break;
