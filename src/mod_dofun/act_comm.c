@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.28 2001-12-04 20:37:45 tatyana Exp $
+ * $Id: act_comm.c,v 1.187.2.29 2001-12-08 00:04:05 tatyana Exp $
  */
 
 /***************************************************************************
@@ -209,6 +209,13 @@ void do_say(CHAR_DATA *ch, const char *argument)
 	OBJ_DATA *char_obj;
 	OBJ_DATA *char_obj_next;
   
+        if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+        &&  !IS_IMMORTAL(ch)) {
+                char_puts("You are in silent room, you can't say anything.\n",
+			  ch);
+                return;
+        }
+
 	if (argument[0] == '\0') {
 		char_puts("Say what?\n", ch);
 		return;
@@ -245,6 +252,12 @@ void do_tell(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
+        if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+        &&  !IS_IMMORTAL(ch)) {
+                char_puts("You are in silent room, you can't tell.\n", ch);
+                return;
+        }
+
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0' || argument[0] == '\0') {
 		char_puts("Tell whom what?\n", ch);
@@ -260,6 +273,13 @@ void do_reply(CHAR_DATA *ch, const char *argument)
 		char_puts("Huh?\n", ch);
 		return;
 	}
+
+        if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+        &&  !IS_IMMORTAL(ch)
+        &&  !IS_IMMORTAL(PC(ch)->reply)) {
+                char_puts("You are in silent room, you can't tell.\n", ch);
+                return;
+        }
 	do_tell_raw(ch, PC(ch)->reply, argument);
 }
 
@@ -304,6 +324,13 @@ void do_gtell(CHAR_DATA *ch, const char *argument)
 	CHAR_DATA *gch;
 	int i;
 	int flags;
+
+        if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+        &&  !IS_IMMORTAL(ch)) {
+                char_puts("You are in silent room, you can't tell your group"
+                         " anything.\n", ch);
+                return;
+        }
 
 	if (argument[0] == '\0') {
 		char_puts("Tell your group what?\n", ch);
@@ -478,6 +505,12 @@ void do_immtalk(CHAR_DATA *ch, const char *argument)
 
 void do_yell(CHAR_DATA *ch, const char *argument)
 {
+        if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+        &&  !IS_IMMORTAL(ch)) {
+                char_puts("You are in silent room, you can't yell.\n", ch);
+                return;
+        }
+
 	if (IS_SET(ch->comm, COMM_NOCHANNELS)) {
 		 char_puts("The gods have revoked your channel privileges.\n", ch);
 		 return;
@@ -500,6 +533,12 @@ void do_shout(CHAR_DATA *ch, const char *argument)
 
 	if (IS_NPC(ch) && IS_AFFECTED(ch, AFF_CHARM))
 		return;
+
+        if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+        &&  !IS_IMMORTAL(ch)) {
+                char_puts("You are in silent room, you can't shout.\n", ch);
+                return;
+        }
 
 	if (argument[0] == '\0') {
 		TOGGLE_BIT(ch->comm, COMM_NOSHOUT);
@@ -526,7 +565,10 @@ void do_shout(CHAR_DATA *ch, const char *argument)
 	for (d = descriptor_list; d; d = d->next) {
 		if (d->connected == CON_PLAYING
 		&&  d->character != ch
-		&&  !IS_SET(d->character->comm, COMM_NOSHOUT)) {
+		&&  !IS_SET(d->character->comm, COMM_NOSHOUT)
+		&&  (d->character->in_room == NULL ||
+		     !IS_SET(d->character->in_room->room_flags, ROOM_SILENT) ||
+		     IS_IMMORTAL(d->character))) {
 			act_puts("$n shouts '{Y$t{x'",
 				 ch, argument, d->character,
 	    			 TO_VICT | ACT_NOTWIT | ACT_SPEECH(ch),
@@ -551,6 +593,12 @@ void do_music(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+        &&  !IS_IMMORTAL(ch)) {
+                char_puts("You are in silent room, you can't music.\n", ch);
+                return;
+        }
+
 	if (IS_SET(ch->comm, COMM_NOCHANNELS)) {
 		 char_puts("The gods have revoked your channel privileges.\n", ch);
 		 return;
@@ -567,7 +615,10 @@ void do_music(CHAR_DATA *ch, const char *argument)
 	for (d = descriptor_list; d; d = d->next) {
 		if (d->connected == CON_PLAYING
 		&&  d->character != ch
-		&&  !IS_SET(d->character->comm, COMM_NOMUSIC)) {
+		&&  !IS_SET(d->character->comm, COMM_NOMUSIC)
+		&&  (d->character->in_room == NULL ||
+		     !IS_SET(d->character->in_room->room_flags, ROOM_SILENT) ||
+		     IS_IMMORTAL(d->character))) {
 			act_puts("$n musics '{W$t{x'",
 		        	 ch, argument, d->character,
 	    			 TO_VICT | ACT_NOTWIT | ACT_SPEECH(ch),
@@ -640,6 +691,13 @@ void do_clan(CHAR_DATA *ch, const char *argument)
 			char_puts("You will now hear clan talks.\n", ch);
 		return;
 	}
+
+        if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+        &&  !IS_IMMORTAL(ch)) {
+                char_puts("You are in silent room, you can't tell to your "
+                         "clan anything.\n", ch);
+                return;
+        }
 
 	if (IS_SET(ch->comm, COMM_NOCLAN))
 		do_clan(ch, str_empty);

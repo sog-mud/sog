@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.43 2001-11-15 13:52:50 tatyana Exp $
+ * $Id: fight.c,v 1.202.2.44 2001-12-08 00:04:08 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1200,14 +1200,16 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 				gain_condition(ch, COND_BLOODLUST, 10);
 		}	
 
-		if (IS_SET(plr_flags, PLR_AUTOLOOK))
+		if (IS_SET(plr_flags, PLR_AUTOLOOK)
+		&&  can_see_obj(ch, corpse))
 			dofun("examine", ch, "corpse");
 		if (corpse->contains) {
 			/* corpse exists and not empty */
-			if (IS_SET(plr_flags, PLR_AUTOLOOT))
+			if (IS_SET(plr_flags, PLR_AUTOLOOT)
+			&&  can_see_obj(ch, corpse))
 				dofun("get", ch, "all corpse");
 			else if (IS_SET(plr_flags, PLR_AUTOGOLD)
-			     &&  !IS_AFFECTED(ch, AFF_BLIND))
+			     &&  can_see_obj(ch, corpse))
 				get_gold_corpse(ch, corpse);
 		}
 

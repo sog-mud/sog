@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.15 2001-12-05 18:43:19 tatyana Exp $
+ * $Id: obj_prog.c,v 1.66.2.16 2001-12-08 00:04:10 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1823,7 +1823,7 @@ int fight_prog_wasp_hive(OBJ_DATA *hive, CHAR_DATA *ch, const void *arg)
 
 	act("   You take $p carefully and shake it!",
 	    ch, hive, victim, TO_CHAR);
-	act("   $n takes $p carefully and shake it!",
+	act("   $n takes $p carefully and shakes it!",
 	    ch, hive, victim, TO_ROOM);
 
 	act("   The swarm of fury wasps pounces on $N!",

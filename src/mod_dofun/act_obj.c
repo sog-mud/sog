@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.29 2001-11-28 23:20:11 tatyana Exp $
+ * $Id: act_obj.c,v 1.165.2.30 2001-12-08 00:04:06 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3843,6 +3843,13 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 
 	if (IS_NPC(ch))    /* NPC can't auction cos it can be extracted! */
 		return;
+
+        if (IS_SET(ch->in_room->room_flags, ROOM_SILENT)
+        &&  !IS_IMMORTAL(ch)) {
+                char_puts("You are in silent room, auction"
+                         " is not available.\n", ch);
+                return;
+        }
 
 	if (!str_cmp(arg1, "off")) {
 		char_puts("Auction channel is now OFF.\n",ch);

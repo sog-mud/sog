@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.21 2001-12-04 20:37:44 tatyana Exp $
+ * $Id: merc.h,v 1.234.2.22 2001-12-08 00:04:03 tatyana Exp $
  */
 
 /***************************************************************************
@@ -995,6 +995,7 @@ where_t *where_lookup(flag32_t where);
  * Used in #ROOMS.
  */
 #define ROOM_DARK		(A)
+#define ROOM_SILENT		(B)
 #define ROOM_NOMOB		(C)
 #define ROOM_INDOORS		(D)
 #define ROOM_PEACE		(H)

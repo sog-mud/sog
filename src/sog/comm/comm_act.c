@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.40.2.6 2001-07-04 19:43:11 fjoe Exp $
+ * $Id: comm_act.c,v 1.40.2.7 2001-12-08 00:04:11 tatyana Exp $
  */
 
 #include <stdarg.h>
@@ -961,7 +961,9 @@ void act_yell(CHAR_DATA *ch, const char *text, const void *arg,
 		||  (vch = d->character) == NULL
 		||  vch == ch
 		||  vch->in_room == NULL
-		||  vch->in_room->area != ch->in_room->area)
+		||  vch->in_room->area != ch->in_room->area
+		||  (IS_SET(vch->in_room->room_flags, ROOM_SILENT) &&
+                     !IS_IMMORTAL(vch))) 
 			continue;
 
 		act_puts(format, ch, act_speech(ch, vch, text, arg), vch,
@@ -976,7 +978,9 @@ void act_clan(CHAR_DATA *ch, const char *text, const void *arg)
 	for (vch = char_list; vch; vch = vch->next) {
 		if (vch == ch
 		||  vch->clan != ch->clan
-		||  IS_SET(vch->comm, COMM_NOCLAN))
+		||  IS_SET(vch->comm, COMM_NOCLAN)
+                ||  (IS_SET(vch->in_room->room_flags, ROOM_SILENT) &&
+                    !IS_IMMORTAL(vch)))
 			continue;
 
 		act_puts("[CLAN] $lu{$n}: {C$t{x", ch,

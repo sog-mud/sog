@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.44 2001-12-04 20:37:53 tatyana Exp $
+ * $Id: handler.c,v 1.182.2.45 2001-12-08 00:04:09 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3483,6 +3483,14 @@ void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 		char_puts("Your message didn't get through.\n", ch);
 		return;
 	}
+
+        if (IS_SET(victim->in_room->room_flags, ROOM_SILENT)
+        &&  !IS_IMMORTAL(victim)
+        &&  !IS_IMMORTAL(ch)) {
+                act_puts("$E is in silent room.", ch, 0, victim,
+                         TO_CHAR, POS_DEAD);
+                return;
+        }
 
 	if (victim == NULL 
 	|| (IS_NPC(victim) && victim->in_room != ch->in_room)) {
