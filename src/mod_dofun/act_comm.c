@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.187.2.11 2000-04-26 11:10:46 fjoe Exp $
+ * $Id: act_comm.c,v 1.187.2.12 2000-05-06 15:00:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2064,7 +2064,7 @@ toggle_t toggle_table[] =
 	  "$t removed."
 	},
 
-	{ "race",		"show mobiles and chars race in long desc",
+	{ "showrace",		"show mobiles and chars race in long desc",
 	  comm_flags,	COMM_SHOW_RACE,
 	  "You will now see race in long desc.",
 	  "You will no longer see race in long desc."

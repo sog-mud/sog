@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.19 2000-04-25 12:03:47 osya Exp $
+ * $Id: act_info.c,v 1.271.2.20 2000-05-06 15:00:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4078,7 +4078,7 @@ static void show_list_to_char(OBJ_DATA *list, CHAR_DATA *ch,
 	free(prgnShow);
 }
 
-#define FLAG_SET(pos, c, exp) (buf[pos] = (exp) ? (flags = TRUE, c) : '.')
+#define FLAG_SET(pos, c, exp) (buf[pos] = (exp) ? (c) : '.')
 
 static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 {
@@ -4148,9 +4148,9 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	else {
 		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{g.{x.{x";
 		char buf[sizeof(FLAGS)];
-		bool flags = FALSE;
-		strnzcpy(buf, sizeof(buf), FLAGS);
+		bool diff;
 
+		strnzcpy(buf, sizeof(buf), FLAGS);
 		FLAG_SET( 5, 'I', IS_AFFECTED(victim, AFF_INVIS));
 		FLAG_SET( 8, 'H', IS_AFFECTED(victim, AFF_HIDE));
 		FLAG_SET(11, 'C', IS_AFFECTED(victim, AFF_CHARM));
@@ -4164,8 +4164,11 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 				  IS_AFFECTED(ch, AFF_DETECT_EVIL));
 		FLAG_SET(32, 'G', IS_GOOD(victim) &&
 				  IS_AFFECTED(ch, AFF_DETECT_GOOD));
-		FLAG_SET(35, 'S', IS_AFFECTED(victim, AFF_SANCTUARY));
-		FLAG_SET(34, 'W', IS_AFFECTED(victim, AFF_SANCTUARY));
+
+		if (IS_AFFECTED(victim, AFF_SANCTUARY)) {
+			FLAG_SET(35, 'S', TRUE);
+			FLAG_SET(34, 'W', TRUE);
+		}
 
 		if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)) {
 			FLAG_SET(35, 'B', TRUE);
@@ -4183,14 +4186,18 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			FLAG_SET(46, 'R', TRUE);
 			FLAG_SET(47, 'F', TRUE);
 		}
-		if (strcmp(buf, FLAGS) || IS_SET(ch->comm, COMM_SHOW_RACE)) 
-			if (IS_SET(ch->comm, COMM_SHOW_RACE)) {
-				char_puts(buf, ch);
-		                act_puts("{c$T{x] ", ch, NULL, race_name(victim->race), TO_CHAR | ACT_NOLF, POS_DEAD);
-			} else {
-				char_puts(buf, ch);
-				char_puts("] ", ch);
-			}
+
+		diff = strcmp(buf, FLAGS);
+		if (diff)
+			char_puts(buf, ch);
+		else if (IS_SET(ch->comm, COMM_SHOW_RACE))
+			char_puts("{x[", ch);
+
+		if (IS_SET(ch->comm, COMM_SHOW_RACE)) {
+			act_puts("{c$T{x] ", ch, NULL, race_name(victim->race),
+				 TO_CHAR | ACT_NOLF, POS_DEAD);
+		} else if (diff)
+			char_puts("] ", ch);
 	}
 
 	if (victim->invis_level >= LEVEL_HERO)
