@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.55 1999-12-29 12:11:33 kostik Exp $
+ * $Id: comm_act.c,v 1.56 2000-01-03 12:17:54 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -244,7 +244,7 @@ int
 GET_SEX(mlstring *ml, int to_lang)
 {
 	int gender = flag_value(gender_table, mlstr_val(ml, to_lang));
-	return URANGE(0, gender, 3);
+	return URANGE(0, gender, 4);
 }
 
 int
