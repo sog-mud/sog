@@ -1,0 +1,9 @@
+/*
+ * $Id: obj_wear_white_robes.mpc,v 1.1 2001-09-17 19:18:47 fjoe Exp $
+ */
+
+if (is_class($n, "cleric"))
+        return 0;
+ 
+act("Your class can't use $p.", $n, $p, NULL, TO_CHAR);
+return 1;

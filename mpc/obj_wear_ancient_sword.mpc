@@ -1,0 +1,9 @@
+/*
+ * $Id: obj_wear_ancient_sword.mpc,v 1.1 2001-09-17 19:18:46 fjoe Exp $
+ */
+
+if (is_class($n, "warrior"))
+        return 0;
+ 
+act("You are not skilled enough to use $p.", $n, $p, NULL, TO_CHAR);
+return 1;

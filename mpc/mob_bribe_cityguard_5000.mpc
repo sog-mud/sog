@@ -1,0 +1,7 @@
+/*
+ * $Id: mob_bribe_cityguard_5000.mpc,v 1.1 2001-09-17 19:18:40 fjoe Exp $
+ */
+
+social_char("smile", $n, $N);
+dofun("sleep", $n, "");
+return 0;

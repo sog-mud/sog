@@ -1,0 +1,55 @@
+/*
+ * $Id: mob_random_guard.mpc,v 1.1 2001-09-17 19:18:45 fjoe Exp $
+ */
+
+char victim;
+
+foreach (victim, char_in_room(char_room($n))) {
+        if (!is_immortal(victim)
+        &&  is_wanted(victim)
+        &&  can_see($n, victim))
+                break;
+}
+
+if (victim != NULL) {
+        act_yell($n, "$lu{$N} is a CRIMINAL! PROTECT THE INNOCENT!",
+                 victim, NULL);
+        multi_hit($n, victim, NULL);
+        return 0;
+}
+
+/*
+foreach (victim, char_in_room(char_room($n))) {
+        if (!is_immortal(victim) 
+	&&  char_fighting(victim) != NULL {
+		break;
+        }
+}
+	
+if (victim != NULL) {
+        act("$n screams 'PROTECT THE INNOCENT!", $n, NULL, NULL, TO_ROOM);
+        multi_hit($n, victim, NULL);
+	return 0;
+}
+*/
+
+foreach (victim, char_in_room(char_room($n))) {
+        if (!is_immortal(victim)
+        &&  !is_npc(victim)
+        &&  can_see($n, victim)
+        &&  char_fighting(victim) == NULL
+        &&  number_percent() < 2)
+                break;
+}
+
+if (victim == NULL)
+        return 0;
+
+act_say($n, "Do I know you, $lu{$N}?", victim);
+if (char_hometown(victim) != char_hometown($n))
+      	dofun("say", $n, "I don't remember you. Go away!");
+else {
+       	dofun("say", $n, "Ok, my dear! I have just remembered.");
+       	social_char("smile", $n, victim);
+}
+return 0;

@@ -1,0 +1,9 @@
+/*
+ * $Id: mob_death_beggar.mpc,v 1.1 2001-09-17 19:18:41 fjoe Exp $
+ */
+
+if (number_percent() < 50)
+        dofun("say", $n, "Now I go to a better place.");
+else
+        dofun("say", $n, "Forgive me God for I have sinned...");
+return 0;

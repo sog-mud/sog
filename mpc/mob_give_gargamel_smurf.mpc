@@ -1,9 +1,12 @@
 /*
- * $Id: mob_give_gargamel_smurf.mpc,v 1.1 2001-09-16 18:49:34 fjoe Exp $
+ * $Id: mob_give_gargamel_smurf.mpc,v 1.2 2001-09-17 19:18:43 fjoe Exp $
  */
 
+if (char_level($N) > 6)
+	return 0;
+
 if (obj_item_type($p) != ITEM_CORPSE_NPC
-||  !is_owner_name($p, "smurf")) {
+||  (!is_owner_name($p, "smurf") && !is_owner_name($p, "smurfette"))) {
        extract_obj($p, 0);
        return 1;
 }
@@ -35,8 +38,9 @@ if (i != 0) {
 }
  
 drop_obj($n, $p);
-if (get_char_here($n, "azreal") == NULL)
-       return 1;
-act("Azrael eats $p.", $n, $p, NULL, TO_ALL);
-extract_obj($p, 0);
+char azreal = get_char_here($n, "azreal");
+if (azreal == NULL)
+	return 1;
+act("$N eats $p.", $n, $p, azreal, TO_ALL);
+extract_obj($p, XO_F_NORECURSE);
 return 1;

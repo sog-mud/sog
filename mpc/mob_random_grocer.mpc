@@ -1,0 +1,6 @@
+/*
+ * $Id: mob_random_grocer.mpc,v 1.1 2001-09-17 19:18:45 fjoe Exp $
+ */
+
+dofun("say", $n, "Can I interest you in a lantern today?");
+return 0;

@@ -1,0 +1,13 @@
+/*
+ * $Id: mob_greet_grocer.mpc,v 1.1 2001-09-17 19:18:44 fjoe Exp $
+ */
+
+if (is_npc($N)
+||  is_immortal($N))
+        return 0;
+ 
+if (char_hometown($n) != char_hometown($N))
+        dofun("say", $n, "Welcome to my Store, traveler!");
+else
+        act_say($n, "Welcome to my Store, $N!", $N);
+return 0;

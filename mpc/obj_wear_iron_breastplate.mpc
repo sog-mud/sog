@@ -1,0 +1,9 @@
+/*
+ * $Id: obj_wear_iron_breastplate.mpc,v 1.1 2001-09-17 19:18:46 fjoe Exp $
+ */
+
+if (is_class($n, "warrior"))
+        return 0;
+
+act("$p is too heavy for you to wear.", $n, $p, NULL, TO_CHAR);
+return 1;

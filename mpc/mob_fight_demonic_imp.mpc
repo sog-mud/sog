@@ -1,0 +1,12 @@
+/*
+ * $Id: mob_fight_demonic_imp.mpc,v 1.1 2001-09-17 19:18:42 fjoe Exp $
+ */
+
+char victim = get_random_fighting($n);
+if (victim == NULL)
+       return 0;
+
+act("{DA $n's shriek resounds through the cave!{x",
+    $n, NULL, NULL, TO_ROOM);
+damage($n, victim, number_range(50, 80), NULL, DAM_SOUND, DAMF_NONE);
+return 0;

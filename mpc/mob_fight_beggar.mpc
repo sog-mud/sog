@@ -1,0 +1,10 @@
+/*
+ * $Id: mob_fight_beggar.mpc,v 1.1 2001-09-17 19:18:42 fjoe Exp $
+ */
+
+if (char_hit($n) < char_max_hit($n) * 45 / 100
+||  char_hit($n) > char_max_hit($n) * 55 / 100)
+        return 0;
+ 
+dofun("say", $n, "Halfway to death...");
+return 0;
