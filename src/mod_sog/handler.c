@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.274 2001-01-11 21:43:17 fjoe Exp $
+ * $Id: handler.c,v 1.275 2001-01-12 15:33:52 cs Exp $
  */
 
 /***************************************************************************
@@ -2996,6 +2996,11 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act_puts("$n steps out of shadows.",
 			 ch, NULL, NULL, TO_ROOM, POS_RESTING);
+	}
+
+	if (is_affected(ch, "globe of invulnerability")) {
+		affect_strip(ch, "globe of invulnerability");
+		act_char("You destroy your globe of invulnerability.", ch);
 	}
 
 	if (HAS_INVIS(ch, ID_CAMOUFLAGE))  {

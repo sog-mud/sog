@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.247 2001-01-11 21:43:12 fjoe Exp $
+ * $Id: act_move.c,v 1.248 2001-01-12 15:33:48 cs Exp $
  */
 
 /***************************************************************************
@@ -2653,10 +2653,10 @@ void do_dismount(CHAR_DATA *ch, const char *argument)
 		act_char("You aren't mounted.", ch);
 		return;
 	}
-} 
+}
 
-int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow, 
-	       int door, int chance ,int bonus) 
+int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
+	       int door, int chance, int bonus)
 {
 	EXIT_DATA *pExit;
 	ROOM_INDEX_DATA *dest_room;
@@ -2665,28 +2665,9 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 	int range_hit = -1;
 	AFFECT_DATA af;
 	const char *sn;
-	
-	/* instant kill */
-	if (get_skill(ch, "bow") > 90 
-	&&  !IS_NPC(victim)
-	&&  !IS_IMMORTAL(victim)
-	&&  WEAPON_IS(arrow, WEAPON_ARROW)
-	&&  number_range(1, 10000) < get_skill(ch, "mastering bow") *
-	   			    (get_curr_stat(ch, STAT_STR) +
-				     get_curr_stat(ch, STAT_DEX)) / 50) {
-		act("Your arrow hit $N's eye!", ch, NULL, victim, TO_CHAR);
-		act("$N's arrow hits $n's eye!", victim, NULL, ch,TO_ROOM);
-		act("$N's arrow hits your eye!", victim, NULL, ch, TO_CHAR);
-		act("$n is DEAD!!", victim, NULL, NULL, TO_ROOM);
-		act("$N is DEAD!!", ch, NULL, victim, TO_CHAR);
-		act_char("You have been KILLED!", victim);
-		check_improve(ch, "mastering bow", TRUE, 6);
-		handle_death(ch, victim);
-		return TRUE;
-	}
 
 	if (number_percent() < get_skill(ch, "mastering bow")) {
-		bonus *= dice(2, 4);
+		bonus *= dice(2, 3);
 		check_improve(ch, "mastering bow", TRUE, 9);
 	}
 
@@ -2709,7 +2690,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 		range_hit++;
 		chance -= 10;
 		if (victim->in_room == dest_room) {
-			if (number_percent() < chance) { 
+			if (number_percent() < chance) {
 				if (check_obj_dodge(ch, victim, arrow, chance))
 					return 0;
 				act("$p strikes you!",
@@ -2750,12 +2731,12 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 						int level;
 						AFFECT_DATA *poison, af;
 
-		      	 if ((poison = affect_find(arrow->affected, "poison")) == NULL)
-		          	level = arrow->level;
-		      	 else
-		          	level = poison->level;
-		      	 if (!saves_spell(level,victim,DAM_POISON))
-		      	 {
+			 if ((poison = affect_find(arrow->affected, "poison")) == NULL)
+				level = arrow->level;
+			 else
+				level = poison->level;
+			 if (!saves_spell(level,victim,DAM_POISON))
+			 {
 		            act_char("You feel poison coursing through your veins.", victim);
 		            act("$n is poisoned by the venom on $p.",
 				victim,arrow,NULL,TO_ROOM);
@@ -2769,16 +2750,16 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 		            af.bitvector = AFF_POISON;
 			    af.owner	 = NULL;
 		            affect_join(victim, &af);
-		      	 }
+			 }
 
-		  	}
-		  	if (IS_WEAPON_STAT(arrow,WEAPON_FLAMING))
-		  	{
-		      	 act("$n is burned by $p.",victim,arrow,NULL,TO_ROOM);
-		      	 act("$p sears your flesh.",victim,arrow,NULL,TO_CHAR);
-		      	 fire_effect(victim,arrow->level,dam);
+			}
+			if (IS_WEAPON_STAT(arrow,WEAPON_FLAMING))
+			{
+			 act("$n is burned by $p.",victim,arrow,NULL,TO_ROOM);
+			 act("$p sears your flesh.",victim,arrow,NULL,TO_CHAR);
+			 fire_effect(victim,arrow->level,dam);
 		        }
-		  	if (IS_WEAPON_STAT(arrow,WEAPON_FROST))
+			if (IS_WEAPON_STAT(arrow,WEAPON_FROST))
 		        {
 		            act("$p freezes $n.",victim,arrow,NULL,TO_ROOM);
 		            act("The cold touch of $p surrounds you with ice.",
@@ -2792,12 +2773,12 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 		            shock_effect(victim,arrow->level,dam);
 		        }
 
-			if (dam > victim->max_hit / 10 
+			if (dam > victim->max_hit / 10
 				&& number_percent() < 50)
 			{
 			  af.where     = TO_AFFECTS;
 			  af.type      = sn;
-			  af.level     = ch->level; 
+			  af.level     = ch->level;
 			  af.duration  = -1;
 			  INT(af.location) = APPLY_HITROLL;
 			  af.modifier  = - (dam / 20);
@@ -2811,7 +2792,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 			  obj_to_char(arrow,victim);
 			  equip_char(victim,arrow,WEAR_STUCK_IN);
 			}
-		        else obj_to_room(arrow,victim->in_room); 
+		        else obj_to_room(arrow,victim->in_room);
 
 			damage(ch, victim, dam, sn,
 				damtype_class(arrow->value[3].s), DAMF_SHOW);
@@ -2821,7 +2802,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 		    return TRUE;
 		  }
 		  else {
-		 	  obj_to_room(arrow,victim->in_room);
+			  obj_to_room(arrow,victim->in_room);
 		          act("$p sticks in the ground at your feet!",victim,arrow,NULL, TO_ALL);
 		          return FALSE;
 		        }
@@ -2831,7 +2812,7 @@ int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 		else {
 			dest_room = pExit->to_room.r;
 			if (dest_room->people) {
-			 	act("$p sails into the room from $T!",
+				act("$p sails into the room from $T!",
 				    dest_room->people, arrow,
 				    from_dir_name[rev_dir[door]], TO_ALL);
 			}
@@ -3033,26 +3014,26 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 	||  wield->item_type != ITEM_WEAPON
 	||  !WEAPON_IS(wield, WEAPON_BOW)) {
 		act_char("You need a bow to shoot!", ch);
-		return;    	
+		return;
 	}
 
 	if (get_eq_char(ch, WEAR_SECOND_WIELD)
 	||  get_eq_char(ch, WEAR_SHIELD)) {
 		act_char("Your second hand should be free!", ch);
-		return;    	
+		return;
 	}
 
 	if ((arrow = find_arrow(ch)) == NULL) {
 		 act_char("You need an arrow to shoot!", ch);
-		 return;    	
+		 return;
 	}
-		
+
 	if (arrow->item_type != ITEM_WEAPON
 	||  !WEAPON_IS(arrow, WEAPON_ARROW)) {
 		act_char("That's not the right kind of arrow!", ch);
 		return;
 	}
-		
+
 	WAIT_STATE(ch, skill_beats("bow"));
 
 	chance = (chance - 50) * 2;
@@ -3131,7 +3112,7 @@ void do_throw_weapon(CHAR_DATA *ch, const char *argument)
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	one_argument(argument, arg2, sizeof(arg2));
 
-  	if (arg1[0] == '\0' || arg2[0] == '\0') {
+	if (arg1[0] == '\0' || arg2[0] == '\0') {
 		act_char("Throw which direction and whom?", ch);
 		return;
 	}
@@ -3153,7 +3134,7 @@ void do_throw_weapon(CHAR_DATA *ch, const char *argument)
 		act_char("Throw which direction and whom?", ch);
 		return;
 	}
-		
+
 	if ((victim = find_char(ch, arg2, direction, range)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("They aren't there.", ch);
@@ -3173,7 +3154,7 @@ void do_throw_weapon(CHAR_DATA *ch, const char *argument)
 
 	if (obj->item_type != ITEM_WEAPON) {
 		act_char("Throwing cakes will not wound your foes. Try weapons.", ch);
-		return;    	
+		return;
 	}
 
 	sn = get_weapon_sn(obj);
@@ -3206,7 +3187,7 @@ void do_throw_weapon(CHAR_DATA *ch, const char *argument)
 		chance -= 40;
 	chance += GET_HITROLL(ch);
 
-	act_puts("You throw $p to $T.", 
+	act_puts("You throw $p to $T.",
 		 ch, obj, dir_name[direction], TO_CHAR, POS_DEAD);
 	act("$n throws $p to $T.",
 	    ch, obj, dir_name[direction], TO_ROOM);

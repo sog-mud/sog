@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.65 2000-10-21 18:15:52 fjoe Exp $
+ * $Id: comm_act.c,v 1.66 2001-01-12 15:33:53 cs Exp $
  */
 
 #include <stdio.h>
@@ -1092,7 +1092,7 @@ void act_yell(CHAR_DATA *ch, const char *text, const void *arg,
 			continue;
 
 		act_puts(format, ch, act_speech(ch, vch, text, arg), vch,
-	    		 TO_VICT | ACT_SPEECH(ch), POS_DEAD);
+			 TO_VICT | ACT_SPEECH(ch), POS_DEAD);
 	}
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.222 2001-01-11 21:43:11 fjoe Exp $
+ * $Id: act_comm.c,v 1.223 2001-01-12 15:33:48 cs Exp $
  */
 
 /***************************************************************************
@@ -471,7 +471,7 @@ void do_yell(CHAR_DATA *ch, const char *argument)
 		 act_char("The gods have revoked your channel privileges.", ch);
 		 return;
 	}
-	
+
 	if (argument[0] == '\0') {
 		act_char("Yell what?", ch);
 		return;

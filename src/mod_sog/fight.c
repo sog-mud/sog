@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.285 2001-01-11 21:43:14 fjoe Exp $
+ * $Id: fight.c,v 1.286 2001-01-12 15:33:50 cs Exp $
  */
 
 /***************************************************************************
@@ -1052,6 +1052,20 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 		affect_bit_strip(ch, TO_INVIS, ID_SNEAK);
 	}
 
+	if (ch != victim && is_affected(ch, "globe of invulnerability")) {
+		affect_strip(ch, "globe of invulnerability");
+		act_char("Your globe of invulnerability shatters.", ch);
+		act("$n's globe of invulnerability shatters.", ch,
+		    NULL, NULL, TO_ROOM);
+	}
+
+	if (ch != victim && is_affected(victim, "globe of invulnerability")) {
+		affect_strip(victim, "globe of invulnerability");
+		act_char("Your globe of invulnerability shatters.", victim);
+		act("$n's globe of invulnerability shatters.", victim,
+		    NULL, NULL, TO_ROOM);
+	}
+
 	/*
 	 * Damage modifiers.
 	 */
@@ -1061,7 +1075,7 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 	     number_percent() > 50))
 		dam /= 2;
 
-	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)) 
+	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD))
 		dam = (4 * dam) / 7;
 
 	if (IS_AFFECTED(victim, AFF_PROTECT_EVIL) && IS_EVIL(ch))
@@ -1487,6 +1501,17 @@ bool
 check_obj_dodge(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj, int bonus)
 {
 	int chance;
+
+	if (is_affected(victim, "protection from missiles")) {
+		act("$p falls to the ground, making no damage to you.",
+		    ch, obj, victim, TO_VICT);
+		act("$p falls to the ground, making no damage to $N.",
+		    ch, obj, victim, TO_CHAR);
+		act("$p falls to the fround, making no damage to $n.",
+		    victim, obj, ch, TO_NOTVICT);
+		obj_to_room(obj, victim->in_room);
+		return TRUE;
+	}
 
 	if (!IS_AWAKE(victim) || MOUNTED(victim))
 		return FALSE;

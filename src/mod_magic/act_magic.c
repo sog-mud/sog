@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.29 2001-01-11 12:41:13 cs Exp $
+ * $Id: act_magic.c,v 1.30 2001-01-12 15:33:51 cs Exp $
  */
 
 #include <stdio.h>
@@ -118,7 +118,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 	}
-	
+
 	if (IS_VAMPIRE(ch)
 	&&  !IS_IMMORTAL(ch)
 	&&  !is_affected(ch, "vampire")
@@ -150,7 +150,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		if (IS_AFFECTED(gch, AFF_CHARM)
 		&&  IS_NPC(gch)
 		&&  IS_SET(gch->pMobIndex->act, ACT_FAMILIAR)
-		&&  gch->master == ch) 	
+		&&  gch->master == ch)
 			familiar = gch;
 	}
 
@@ -209,7 +209,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 						WAIT_STATE(ch, spell->beats);
 						act_puts("You can't cast this spell to $N at this distance.", ch, NULL, victim, TO_CHAR, POS_DEAD);
 						return;
-					}	
+					}
 				}
 			}
 		}
@@ -302,7 +302,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		break;
 	}
 
-	if ((obj || (victim && victim != ch)) && (ch->shapeform) 
+	if ((obj || (victim && victim != ch)) && (ch->shapeform)
 	&& IS_SET(ch->shapeform->index->flags, FORM_CASTSELF)) {
 		act("You can only affect yourself in this form.",
 			ch, NULL, NULL, TO_CHAR);
@@ -372,16 +372,16 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 		if ((chance = get_skill(ch, "spell craft"))) {
 			if (number_percent() < chance) {
-				slevel = LEVEL(ch); 
+				slevel = LEVEL(ch);
 				check_improve(ch, "spell craft", TRUE, 1);
 			}
-			else 
+			else
 				check_improve(ch, "spell craft", FALSE, 1);
 		}
 
 		if ((chance = get_skill(ch, "mastering spell"))
 		&&  number_percent() < chance) {
-			slevel += number_range(1, 4); 
+			slevel += number_range(1, 4);
 			check_improve(ch, "mastering spell", TRUE, 1);
 		}
 
@@ -418,9 +418,17 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 				ch, NULL, NULL, TO_ROOM);
 			return;
 		}
+		if (victim && victim != ch &&
+		   is_affected(victim, "globe of invulnerability")) {
+			act("Your spell cannot pass through the sphere "
+			    "protecting $n", ch, victim, NULL, TO_CHAR);
+			act("Your globe protects you from $n's spell.",
+			    ch, victim, NULL, TO_VICT);
+			return;
+		}
 
 		check_improve(ch, sn, TRUE, 1);
-		
+
 		if (shadow)
 			check_improve(ch, "shadow magic", TRUE, 1);
 

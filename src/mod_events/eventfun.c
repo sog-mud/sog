@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.22 2000-11-17 19:19:48 avn Exp $
+ * $Id: eventfun.c,v 1.23 2001-01-12 15:33:49 cs Exp $
  */
 
 
@@ -52,7 +52,7 @@ EVENT_FUN(event_enter_lshield)
 {
 	if (af->owner->in_room != ch->in_room) {
 		log(LOG_BUG, "event_enter_lshield: owner of lightning shield left the room");
-		affect_remove_room(ch->in_room, af); 
+		affect_remove_room(ch->in_room, af);
 		return;
 	}
 
@@ -69,13 +69,34 @@ EVENT_FUN(event_enter_lshield)
 	}
 }
 
+EVENT_FUN(event_enter_alarm)
+{
+	DESCRIPTOR_DATA *d;
+
+	if (af->owner == ch)
+		return;
+	act_char("You trigger a hidden alarm.", ch);
+	act("$N enters to the room and triggers a hidden alarm.", NULL, NULL,
+		ch, TO_NOTVICT);
+
+	for (d = descriptor_list; d; d = d->next) {
+		CHAR_DATA *vch;
+		if (d->connected != CON_PLAYING
+		    || (vch = d->character) == NULL
+		    || vch->in_room == NULL
+		    || vch->in_room->area != ch->in_room->area)
+			continue;
+		act_char("You hear a loud ring.", vch);
+	}
+}
+
 EVENT_FUN(event_enter_shocking)
 {
 	if (af->owner == ch) {
 		act("You avoid your trap here.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
-	
+
 	if (!is_safe_rspell(af, ch)) {
 		ROOM_INDEX_DATA *room = ch->in_room;
 
@@ -94,7 +115,7 @@ EVENT_FUN(event_enter_thieftrap)
 		act("You avoid your trap here.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
-	
+
 	if (!is_safe_rspell(af, ch)) {
 		ROOM_INDEX_DATA *room = ch->in_room;
 
@@ -195,7 +216,7 @@ EVENT_FUN(event_update_rlight)
 EVENT_FUN(event_updatechar_wcurse)
 {
 	AFFECT_DATA  witch;
-	
+
 	if (ch->in_room == NULL)
 		return;
 
@@ -233,27 +254,27 @@ EVENT_FUN(event_updatechar_plague)
 
 	if (ch->in_room == NULL)
 		return;
-        
+
 	act("$n writhes in agony as plague sores erupt from $s skin.",
 	    ch, NULL, NULL, TO_ROOM);
 	act_char("You writhe in agony from the plague.", ch);
-	    
+
 	if (af->level == 1)
 		return;
-	    
-	plague.where 	 = TO_AFFECTS;
-	plague.type 	 = "plague";
-	plague.level 	 = af->level - 1; 
+
+	plague.where	 = TO_AFFECTS;
+	plague.type	 = "plague";
+	plague.level	 = af->level - 1;
 	plague.duration	 = number_range(1,2 * plague.level);
 	INT(plague.location) = APPLY_STR;
 	plague.modifier	 = -5;
 	plague.bitvector = AFF_PLAGUE;
 	plague.owner	= NULL;
-	    
+
 	for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {
-		if (!saves_spell(plague.level + 2, vch, DAM_DISEASE) 
-		&&  !IS_IMMORTAL(vch) 
-		&&  !IS_AFFECTED(vch, AFF_PLAGUE) 
+		if (!saves_spell(plague.level + 2, vch, DAM_DISEASE)
+		&&  !IS_IMMORTAL(vch)
+		&&  !IS_AFFECTED(vch, AFF_PLAGUE)
 		&&  number_bits(2) == 0) {
 			act_char("You feel hot and feverish.", vch);
 			act("$n shivers and looks very ill.",
@@ -267,7 +288,7 @@ EVENT_FUN(event_updatechar_plague)
 	ch->move -= dam;
 	damage(ch, ch, dam, "plague", DAM_DISEASE, DAMF_NONE);
 	if (number_range(1, 100) < 70) {
-		damage(ch, ch, UMAX(ch->max_hit/20, 50), 
+		damage(ch, ch, UMAX(ch->max_hit/20, 50),
 		       "plague", DAM_DISEASE, DAMF_SHOW);
 	}
 }
@@ -276,7 +297,7 @@ EVENT_FUN(event_updatechar_poison)
 {
 	if (IS_AFFECTED(ch, AFF_SLOW)) return;
 
-	act("$n shivers and suffers.", ch, NULL, NULL, TO_ROOM); 
+	act("$n shivers and suffers.", ch, NULL, NULL, TO_ROOM);
 	act_char("You shiver and suffer.", ch);
 	damage(ch, ch, af->level/10 + 1, "poison", DAM_POISON, DAMF_SHOW);
 }
@@ -285,7 +306,7 @@ EVENT_FUN(event_updatefast_entangle)
 {
 	AFFECT_DATA *paf;
 
-	if (!(paf = is_affected(ch, "entanglement"))) 
+	if (!(paf = is_affected(ch, "entanglement")))
 		return;
 
 	if (!paf->owner || !ch->fighting) {

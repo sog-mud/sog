@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.233 2000-11-17 17:14:21 avn Exp $
+ * $Id: db.c,v 1.234 2001-01-12 15:33:53 cs Exp $
  */
 
 /***************************************************************************
@@ -1824,22 +1824,22 @@ int dice(int number, int size)
 /*
  * Roll some dice with luck bonus.
  * ch wants roll to be bigger, victim wants roll to be smaller.
- */ 
+ */
 
  int dice_wlb(int number, int size, CHAR_DATA *ch, CHAR_DATA *victim)
  {
- 	int idice;
+	int idice;
 	int sum;
 
 	int luck_diff;
 
 	luck_diff = ((ch == NULL) ? 50 : GET_LUCK(ch)) -
 		 ((victim == NULL) ? 50 : GET_LUCK(victim));
-	
+
 	switch (size) {
-	case 0: 
+	case 0:
 		return 0;
-	case 1: 
+	case 1:
 		return number;
 	}
 

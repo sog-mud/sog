@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: events.c,v 1.8 2000-06-07 08:55:36 fjoe Exp $
+ * $Id: events.c,v 1.9 2001-01-12 15:33:49 cs Exp $
  */
 
 #include <stdarg.h>
@@ -94,4 +94,3 @@ unload_cb(void *p, va_list ap)
 	varr_foreach(&sk->events, unload_event_cb);
 	return NULL;
 }
-

@@ -1,16 +1,16 @@
 /*
- * $Id: spellfun2.c,v 1.203 2001-01-12 09:25:03 fjoe Exp $
+ * $Id: spellfun2.c,v 1.204 2001-01-12 15:33:51 cs Exp $
  */
 
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
  *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *
- *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *	
- *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *	
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *	
+ *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
+ *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
+ *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
  *     By using this code, you have agreed to follow the terms of the      *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence             *	
+ *     ANATOLIA license, in the file Anatolia/anatolia.licence             *
  ***************************************************************************/
 
 /***************************************************************************
@@ -77,8 +77,8 @@ ROOM_INDEX_DATA * check_place(CHAR_DATA *ch, const char *argument)
  }
  return NULL;
 }
-	
-#define OBJ_VNUM_PORTAL 		25
+
+#define OBJ_VNUM_PORTAL			25
 
 void spell_portal(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
@@ -91,10 +91,10 @@ void spell_portal(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	||  !can_gate(ch, victim)) {
 		act_char("You failed.", ch);
 		return;
-	}   
+	}
 
 	stone = get_eq_char(ch,WEAR_HOLD);
-	if (!IS_IMMORTAL(ch) 
+	if (!IS_IMMORTAL(ch)
 	&&  (stone == NULL || stone->item_type != ITEM_WARP_STONE))
 	{
 	act_char("You lack the proper component for this spell.", ch);
@@ -103,13 +103,13 @@ void spell_portal(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (stone != NULL && stone->item_type == ITEM_WARP_STONE)
 	{
-	 	act("You draw upon the power of $p.",ch,stone,NULL,TO_CHAR);
-	 	act("It flares brightly and vanishes!",ch,stone,NULL,TO_CHAR);
-	 	extract_obj(stone, 0);
+		act("You draw upon the power of $p.",ch,stone,NULL,TO_CHAR);
+		act("It flares brightly and vanishes!",ch,stone,NULL,TO_CHAR);
+		extract_obj(stone, 0);
 	}
 
 	portal = create_obj(get_obj_index(OBJ_VNUM_PORTAL),0);
-	portal->timer = 2 + level / 25; 
+	portal->timer = 2 + level / 25;
 	INT(portal->value[3]) = victim->in_room->vnum;
 
 	obj_to_room(portal,ch->in_room);
@@ -125,7 +125,7 @@ void spell_nexus(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	ROOM_INDEX_DATA *to_room, *from_room;
 
 	from_room = ch->in_room;
- 
+
 	if ((victim = get_char_world(ch, target_name)) == NULL
 	||  victim->level >= level + 3
 	||  !can_see_room(ch, from_room)
@@ -133,8 +133,8 @@ void spell_nexus(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	||  !can_gate(ch, victim)) {
 		act_char("You failed.", ch);
 		return;
-	}   
- 
+	}
+
 	to_room = victim->in_room;
 
 	stone = get_eq_char(ch,WEAR_HOLD);
@@ -143,20 +143,20 @@ void spell_nexus(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		act_char("You lack the proper component for this spell.", ch);
 		return;
 	}
- 
+
 	if (stone != NULL && stone->item_type == ITEM_WARP_STONE) {
 		act("You draw upon the power of $p.",ch,stone,NULL,TO_CHAR);
 		act("It flares brightly and vanishes!",ch,stone,NULL,TO_CHAR);
 		extract_obj(stone, 0);
 	}
 
-	/* portal one */ 
+	/* portal one */
 	portal = create_obj(get_obj_index(OBJ_VNUM_PORTAL),0);
 	portal->timer = 1 + level / 10;
 	INT(portal->value[3]) = to_room->vnum;
- 
+
 	obj_to_room(portal,from_room);
- 
+
 	act("$p rises up from the ground.",ch,portal,NULL,TO_ROOM);
 	act("$p rises up before you.",ch,portal,NULL,TO_CHAR);
 
@@ -184,9 +184,9 @@ void spell_disintegrate(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
 	int i,dam=0;
-	OBJ_DATA *tattoo, *clanmark; 
+	OBJ_DATA *tattoo, *clanmark;
 	PC_DATA *vpc;
-	
+
 	if (saves_spell(level+9, victim, DAM_ENERGY)
 	||  dice_wlb(1, 3, victim, NULL) == 1
 	||  IS_IMMORTAL(victim)
@@ -382,7 +382,7 @@ void spell_mana_transfer(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		victim->mana = UMIN(victim->max_mana, victim->mana + number_range(20,120));
 	damage(ch, ch, 50, sn, DAM_NONE, DAMF_SHOW);
 }
-	
+
 void spell_mental_knife(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	AFFECT_DATA af;
@@ -641,7 +641,7 @@ void spell_shield_of_ruler(const char *sn, int level,
 	shield->timer = level;
 	shield->cost  = 0;
 	obj_to_char(shield, ch);
-  
+
 	af.where	= TO_OBJECT;
 	af.type		= sn;
 	af.level	= level;
@@ -4493,7 +4493,7 @@ void spell_black_death(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.owner     = ch;
 	affect_to_room(ch->in_room, &af);
 
-	act_char("The room starts to be filled by disease.", ch);   
+	act_char("The room starts to be filled by disease.", ch);
 	act("The room starts to be filled by disease.",
 	    ch, NULL, NULL, TO_ROOM);
 }
@@ -4522,7 +4522,7 @@ void spell_mysterious_dream(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.owner     = ch;
 	affect_to_room(ch->in_room, &af);
 
-	act_char("The room starts to be seen good place to sleep.", ch);   
+	act_char("The room starts to be seen good place to sleep.", ch);
 	act("The room starts to be seen good place to you.",
 	    ch, NULL, NULL, TO_ROOM);
 }
@@ -4535,8 +4535,8 @@ void spell_ratform(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		act_char("You are rat already.", ch);
 		return;
 	}
-	
-	af.where 	= TO_FORM;
+
+	af.where	= TO_FORM;
 	af.type		= sn;
 	af.level	= level;
 	af.duration	= level / 10;
@@ -4547,7 +4547,7 @@ void spell_ratform(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	affect_to_char(ch, &af);
 
-	act("You turn into a small rat for a few hours.", 
+	act("You turn into a small rat for a few hours.",
 		ch, NULL, NULL, TO_CHAR);
 }
 
@@ -4557,18 +4557,18 @@ void spell_polymorph(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	race_t *r;
 
 	if (is_affected(ch, sn) || is_affected(ch, "deathen")) {
-		act_char("You are already polymorphed.", ch); 
+		act_char("You are already polymorphed.", ch);
 		return;
 	}
 
 	if (target_name == NULL || target_name[0]=='\0') {
-		act_char("Usage: cast 'polymorph' <pcracename>.", ch); 
+		act_char("Usage: cast 'polymorph' <pcracename>.", ch);
 		return;
 	}
 
 	r = race_search(target_name);
 	if (!r || !r->race_pcdata || !r->race_pcdata->classes.nused) {
-		act_char("That is not a valid race to polymorph.", ch); 
+		act_char("That is not a valid race to polymorph.", ch);
 		return;
 	}
 
@@ -4729,7 +4729,7 @@ void spell_protection_negative (const char *sn, int level, CHAR_DATA *ch, void *
 	  af.modifier = 100;
 	  af.owner	= NULL;
 	  affect_to_char(ch, &af);
-	} else 
+	} else
 	  act_char("You are already immune to negative attacks.", ch);
 }
 
@@ -4751,7 +4751,7 @@ void spell_ruler_aura(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	  af.owner	= NULL;
 	  affect_to_char(ch, &af);
 	}
-	else 
+	else
 	  act_char("You are as much self confident as you can.", ch);
 }
 
@@ -4800,11 +4800,11 @@ void spell_evil_spirit(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.bitvector = RAFF_ESPIRIT;
 	af.owner     = ch;
 
-	for (i=pArea->min_vnum; i<pArea->max_vnum; i++)  
+	for (i=pArea->min_vnum; i<pArea->max_vnum; i++)
 	{
 	 if ((room = get_room_index(i)) == NULL) continue;
 	 affect_to_room(room, &af);
-	 if (room->people) 
+	 if (room->people)
 	act("The zone is starts to be filled with evil spirit.",room->people,NULL,NULL,TO_ALL);
 	}
 
@@ -5467,12 +5467,12 @@ void spell_blur(const char *sn, int level, CHAR_DATA *ch, void *vo)
 #define MOB_VNUM_BLACK_CAT		30
 #define MOB_VNUM_BLACK_CROW		31
 
-void spell_find_familiar(const char *sn, int level, CHAR_DATA *ch, void *vo) 
-{	
+void spell_find_familiar(const char *sn, int level, CHAR_DATA *ch, void *vo)
+{
 	CHAR_DATA *familiar=NULL;
 	CHAR_DATA *gch;
 	int i;
-	
+
 	int chance;
 	int vnum;
 	bool new=TRUE;
@@ -5480,7 +5480,7 @@ void spell_find_familiar(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (chance < 60)
 		vnum = MOB_VNUM_BLACK_CAT;
-	else	
+	else
 		vnum = MOB_VNUM_BLACK_CROW;
 
 	for(gch=npc_list; gch; gch=gch->next) {
@@ -5513,19 +5513,19 @@ void spell_find_familiar(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			familiar->perm_stat[STAT_CHA] = get_curr_stat(ch, STAT_CHA)-4;
 			break;
 		}
-
+		/* Randomize stats a bit */
 		for (i = 0; i < MAX_STAT; i++)
 			familiar->perm_stat[i] += number_range(-1, 1);
 	}
-	
+
 	familiar->max_hit = ch->max_hit/2 + (ch->max_hit)*get_curr_stat(familiar, STAT_CON)/50;
 	familiar->max_mana = ch->max_mana * (get_curr_stat(familiar, STAT_INT) + get_curr_stat(familiar, STAT_WIS))/48;
 	familiar->level = ch->level;
 	familiar->hit = familiar->max_hit;
 	familiar->mana = familiar->max_mana;
-	for (i=0; i<4; i++)  
+	for (i=0; i<4; i++)
 		familiar->armor[i] = interpolate(familiar->level,100,-100);
-	
+
 	familiar->gold = 0;
 	familiar->silver = 0;
 
@@ -5535,7 +5535,7 @@ void spell_find_familiar(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	familiar->damroll = level/3;
 
 	familiar->master = familiar->leader = ch;
-	
+
 	if (!new)
 		transfer_char(familiar, ch, ch->in_room,
 			"$N disappears suddenly.",
@@ -5573,7 +5573,7 @@ death_ripple_cb(void *vo, va_list ap)
 		dam /= 2;
 	damage(ch, vch, dam, sn, DAM_NEGATIVE, DAMF_SHOW);
 
-	if (door != -1 && IS_NPC(vch)) 
+	if (door != -1 && IS_NPC(vch))
 		path_to_track(ch, vch, door);
 	return NULL;
 }
@@ -5596,7 +5596,7 @@ void spell_death_ripple(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
         if (!check_blind(ch))
 		return;
-	
+
 	if ((door = check_exit(target_name)) < 0) {
                 act_char("Which direction?", ch);
                 return;
@@ -5606,10 +5606,10 @@ void spell_death_ripple(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		ROOM_INDEX_DATA *next_room;
 		EXIT_DATA *to_next, *to_this;
 
-                if ((to_next = this_room->exit[door]) == NULL 
+                if ((to_next = this_room->exit[door]) == NULL
                 ||  IS_SET(to_next->exit_info, EX_CLOSED)
                 ||  (next_room = to_next->to_room.r) == NULL
-                ||  !can_see_room(ch, next_room)		
+                ||  !can_see_room(ch, next_room)
 		||  (to_this = next_room->exit[rev_dir[door]]) == NULL
 		||  IS_SET(to_this->exit_info, EX_CLOSED)
 		||  to_this->to_room.r != this_room
@@ -5644,7 +5644,7 @@ void spell_simulacrum(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (count_illusions > 0 ) {
-		act("You already control a simulacrum.", 
+		act("You already control a simulacrum.",
 			ch, NULL, victim, TO_CHAR);
 		return;
 	}
@@ -5657,7 +5657,7 @@ void spell_simulacrum(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	illusion->max_hit = illusion->hit = hitp;
 	illusion->level = victim->level;
 
-	for (i = 0; i < MAX_RESIST; i++) 
+	for (i = 0; i < MAX_RESIST; i++)
 		illusion->resists[i] = UMIN(victim->resists[i], 50);
 
 	af.where	= TO_AFFECTS;
@@ -5687,7 +5687,7 @@ void spell_misleading(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		act("You are already affected.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
-	
+
 	af.where	= TO_AFFECTS;
 	af.type		= sn;
 	af.level	= level;
@@ -5698,7 +5698,7 @@ void spell_misleading(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.owner	= NULL;
 	affect_to_char(ch, &af);
 
-	act("You will now mislead the people who follow you.", 
+	act("You will now mislead the people who follow you.",
 		ch, NULL, NULL, TO_CHAR);
 }
 
@@ -5706,13 +5706,13 @@ void spell_phantasmal_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int saves_count = 0;
-	int dam = 0; 
+	int dam = 0;
 	int dam_total = 0;
 	int i;
 	int count;
 
 	if (ch == victim) {
-		act("You wouldn't believe your own illusions.", 
+		act("You wouldn't believe your own illusions.",
 			ch, NULL, NULL, TO_CHAR);
 		return;
 	}
@@ -5735,14 +5735,14 @@ void spell_phantasmal_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			for (i = 0; i < count; i++) {
 				dam = dice(2, 2);
 				dam_total += dam;
-				act_puts3("$W $u you!", 
-					  ch, vp_dam_alias(dam), victim, 
+				act_puts3("$W $u you!",
+					  ch, vp_dam_alias(dam), victim,
 					  "bee bite", TO_VICT, POS_DEAD);
 			}
-			act_puts3("Your illusionary $W $u $N!", 
-				  ch, vp_dam_alias(dam_total), victim, 
+			act_puts3("Your illusionary $W $u $N!",
+				  ch, vp_dam_alias(dam_total), victim,
 				  "bee swarm", TO_CHAR, POS_DEAD);
-			damage(ch, victim, dam_total, NULL, DAM_MENTAL, 
+			damage(ch, victim, dam_total, NULL, DAM_MENTAL,
 				DAMF_NOREDUCE);
 			return;
 		case 2:
@@ -5751,14 +5751,14 @@ void spell_phantasmal_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			for (i = 0; i < count; i++) {
 				dam = dice(level, 4);
 				dam_total += dam;
-				act_puts3("$W $u you!", 
-					  ch, vp_dam_alias(dam), victim, 
+				act_puts3("$W $u you!",
+					  ch, vp_dam_alias(dam), victim,
 					  "goblin's punch", TO_VICT, POS_DEAD);
 			}
-			act_puts3("Your illusionary $W $u $N!", 
-				  ch, vp_dam_alias(dam_total), victim, 
+			act_puts3("Your illusionary $W $u $N!",
+				  ch, vp_dam_alias(dam_total), victim,
 				  "troop of goblins", TO_CHAR, POS_DEAD);
-			damage(ch, victim, dam_total, NULL, DAM_MENTAL, 
+			damage(ch, victim, dam_total, NULL, DAM_MENTAL,
 				DAMF_NOREDUCE);
 			return;
 		case 1:
@@ -5768,14 +5768,14 @@ void spell_phantasmal_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			for (i = 0; i < count; i++) {
 				dam = dice(level, 6);
 				dam_total += dam;
-				act_puts3("$W $u you!", 
-					  ch, vp_dam_alias(dam), victim, 
+				act_puts3("$W $u you!",
+					  ch, vp_dam_alias(dam), victim,
 					  "troll's smash", TO_VICT, POS_DEAD);
 			}
-			act_puts3("Your illusionary $W $u $N!", 
-				  ch, vp_dam_alias(dam_total), victim, 
+			act_puts3("Your illusionary $W $u $N!",
+				  ch, vp_dam_alias(dam_total), victim,
 				  "troll", TO_CHAR, POS_DEAD);
-			damage(ch, victim, dam_total, NULL, DAM_MENTAL, 
+			damage(ch, victim, dam_total, NULL, DAM_MENTAL,
 				DAMF_NOREDUCE);
 			return;
 		case 0:
@@ -5783,14 +5783,14 @@ void spell_phantasmal_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			act("$n turns into dragon and breathes fire at you!",
 			    ch, NULL, victim, TO_VICT);
 			dam = dice(level, 15);
-			act_puts3("$n's $W $u you!", 
-				  ch, vp_dam_alias(dam), victim, 
+			act_puts3("$n's $W $u you!",
+				  ch, vp_dam_alias(dam), victim,
 				  "fire breath", TO_VICT, POS_DEAD);
 			act("$N believes you turn yourself into dragon and breathe fire at $M", ch, NULL, victim, TO_CHAR);
-			act_puts3("Your illusionary $W $u $N!", 
-				  ch, vp_dam_alias(dam), victim, 
+			act_puts3("Your illusionary $W $u $N!",
+				  ch, vp_dam_alias(dam), victim,
 				  "fire breath", TO_CHAR, POS_DEAD);
-			damage(ch, victim, dam_total, NULL, DAM_MENTAL, 
+			damage(ch, victim, dam_total, NULL, DAM_MENTAL,
 				DAMF_NOREDUCE);
 			fire_effect((void *)victim, level, 0);
 			return;
@@ -5801,26 +5801,26 @@ void spell_phantasmal_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			act("$n conjures a large ball of fire!",
 				ch, NULL, victim, TO_VICT);
 			dam = dice(level, 12);
-			act_puts3("$n's $W $u you!", 
-				  ch, vp_dam_alias(dam), victim, 
+			act_puts3("$n's $W $u you!",
+				  ch, vp_dam_alias(dam), victim,
 				  "fireball", TO_VICT, POS_DEAD);
-			act_puts3("Your illusionary $W $u $N!", 
-				  ch, vp_dam_alias(dam), victim, 
+			act_puts3("Your illusionary $W $u $N!",
+				  ch, vp_dam_alias(dam), victim,
 				  "fireball", TO_CHAR, POS_DEAD);
-			damage(ch, victim, dam_total, NULL, DAM_MENTAL, 
+			damage(ch, victim, dam_total, NULL, DAM_MENTAL,
 				DAMF_NOREDUCE);
 			return;
 		case 2:
 			act("The earth trembles beneath your feet.",
 				ch, NULL, victim, TO_VICT);
 			dam = dice(level, 15);
-			act_puts3("$W $u you!", 
-				  ch, vp_dam_alias(dam), victim, 
+			act_puts3("$W $u you!",
+				  ch, vp_dam_alias(dam), victim,
 				  "earthquake", TO_VICT, POS_DEAD);
-			act_puts3("Your illusionary $W $u $N!", 
-				  ch, vp_dam_alias(dam), victim, 
+			act_puts3("Your illusionary $W $u $N!",
+				  ch, vp_dam_alias(dam), victim,
 				  "earthquake", TO_CHAR, POS_DEAD);
-			damage(ch, victim, dam_total, NULL, DAM_MENTAL, 
+			damage(ch, victim, dam_total, NULL, DAM_MENTAL,
 				DAMF_NOREDUCE);
 			return;
 
@@ -5831,14 +5831,14 @@ void spell_phantasmal_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
 			for (i = 0; i < count; i++) {
 				dam = dice(level, 9);
 				dam_total += dam;
-				act_puts3("$W $u you!", 
-					  ch, vp_dam_alias(dam), victim, 
+				act_puts3("$W $u you!",
+					  ch, vp_dam_alias(dam), victim,
 					  "demon prince", TO_VICT, POS_DEAD);
 			}
-			act_puts3("Illusionary $W $u $N!", 
-				  ch, vp_dam_alias(dam_total), victim, 
+			act_puts3("Illusionary $W $u $N!",
+				  ch, vp_dam_alias(dam_total), victim,
 				  "demon prince", TO_CHAR, POS_DEAD);
-			damage(ch, victim, dam_total, NULL, DAM_MENTAL, 
+			damage(ch, victim, dam_total, NULL, DAM_MENTAL,
 			       DAMF_NOREDUCE);
 			return;
 
@@ -5856,4 +5856,102 @@ void spell_phantasmal_force(const char *sn, int level, CHAR_DATA *ch, void *vo)
 		}
 
 	}
+}
+
+/*
+ * Spell: 'protection from missiles'.
+ * School: abjuration
+ * Target: self
+ * Effect: makes caster totally immune to all the normal missiles
+ * Level: medium
+ */
+void
+spell_protection_from_missiles(const char *sn, int level,
+			       CHAR_DATA *ch, void *vo)
+{
+	AFFECT_DATA af;
+
+	if (is_affected(ch, sn)) {
+		act_char("You are already well protected from missiles", ch);
+		return;
+	}
+
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= level / 4;
+	af.bitvector	= 0;
+	af.modifier	= 0;
+	INT(af.location)= APPLY_NONE;
+	af.owner	= NULL;
+	affect_to_char(ch, &af);
+
+	act_char("You feel well protected from range attacks.", ch);
+}
+
+/*
+ * Spell: 'alarm'
+ * School: abjuration
+ * Target: room
+ * Effect: creates an alarm, which will inform everyone in the room about
+ * creature arrived.
+ * Level: medium
+ */
+
+void
+spell_alarm(const char *sn, int level, CHAR_DATA *ch, void *vo)
+{
+	AFFECT_DATA af;
+
+	if (is_affected_room(ch->in_room, sn)) {
+		act_char("The alarm in this room had been already set", ch);
+		return;
+	}
+
+	af.where     = TO_ROOM_AFFECTS;
+	af.type      = sn;
+	af.level     = level;
+	af.duration  = level / 15;
+	INT(af.location) = APPLY_NONE;
+	af.modifier  = 0;
+	af.bitvector = 0;
+	af.owner     = ch;
+	affect_to_room(ch->in_room, &af);
+
+	act_char("You set a small alarm in the room", ch);
+}
+
+/* Spell: 'globe of invulnerability'
+ * School: abjuration
+ * Target: self
+ * Effect: protects caster from any spell, but shatters if character moves
+ * or recieves damage.
+ * Level: medium-high
+ */
+
+void
+spell_globe_of_invulnerability(const char *sn, int level, CHAR_DATA *ch,
+			       void *vo)
+{
+	AFFECT_DATA af;
+
+	if (is_affected(ch, sn)) {
+		act_char("You are already protected by a globe.", ch);
+		return;
+	}
+
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= 2 + level / 14;
+	INT(af.location)= APPLY_SAVES;
+	af.modifier	= -2 - level / 10;
+	af.bitvector	= 0;
+	af.owner	= NULL;
+
+	affect_to_char(ch, &af);
+
+	act("$n is surrounded by the globe of invulnerability", ch, NULL, NULL,
+	    TO_ROOM);
+	act_char("You are surrounded by the globe of invulnerability", ch);
 }
