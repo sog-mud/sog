@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.163 2002-08-26 16:13:36 fjoe Exp $
+ * $Id: act_quest.c,v 1.164 2002-08-26 16:24:06 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -629,8 +629,8 @@ DO_FUN(quest_request, ch, arg)
 
 		act_puts("    Vile pilferers have stolen {W$p{x "
 			 "from the royal treasury!",
-			 questor, eyed, ch, TO_VICT | ACT_FORMSH | ACT_NOCANSEE,
-			 POS_DEAD);
+			 questor, eyed, ch,
+			 TO_VICT | ACT_FORMSH | ACT_NOCANSEE, POS_DEAD);
 		act_puts("    My court wizardess, with her magic mirror, "
 			 "has pinpointed its location.",
 			 questor, NULL, ch, TO_VICT, POS_DEAD);
@@ -648,7 +648,7 @@ DO_FUN(quest_request, ch, arg)
 			act_puts3("    Since the escape, $i has murdered "
 				  "$J $qJ{civilians}!",
 				  questor, victim, ch, (const void *) n,
-				  TO_VICT, POS_DEAD);
+				  TO_VICT | ACT_NOCANSEE, POS_DEAD);
 			act_puts("    The penalty for this crime is death, "
 				 "and you are to deliver the sentence!",
 				 questor, victim, ch, TO_VICT, POS_DEAD);
@@ -663,7 +663,7 @@ DO_FUN(quest_request, ch, arg)
 
 		act_puts3("    Seek $i out in the vicinity of {W$R{x!",
 			  questor, victim, ch, victim->in_room,
-			  TO_VICT, POS_DEAD);
+			  TO_VICT | ACT_NOCANSEE, POS_DEAD);
 		act_puts("    That location is in general area of {W$t{x.",
 			 questor, victim->in_room->area->name, ch,
 			 TO_VICT, POS_DEAD);
@@ -674,7 +674,7 @@ DO_FUN(quest_request, ch, arg)
 
 	PC(ch)->questgiver = questor->pMobIndex->vnum;
 	PC(ch)->questtime = number_range(10, 20) + ch->level/10;
-	act_puts("    You have {W$j{x $qj{minutes} to complete this quest.", 
+	act_puts("    You have {W$j{x $qj{minutes} to complete this quest.",
 		 questor, (const void*) PC(ch)->questtime, ch,
 		 TO_VICT, POS_DEAD);
 	act_puts("    May the gods go with you!",
