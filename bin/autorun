@@ -3,6 +3,7 @@ umask 002
 
 lastlog=tmp/lastlog
 muddy=bin/muddy
+shutdown=tmp/shutdown
 index=0
 
 if [ "$1" = "" ]; then
@@ -13,8 +14,8 @@ fi
 
 cd /usr/local/muddy
 
-if [ -r tmp/shutdown.txt ]; then
-	rm tmp/shutdown.txt
+if [ -r $shutdown ]; then
+	rm $shutdown
 fi
 
 while [ 1 ]
@@ -53,9 +54,8 @@ do
 		continue
 	fi
 
-	if [ -r tmp/shutdown.txt ]
+	if [ -r $shutdown ]
 	then
-		rm -f tmp/shutdown.txt
 		break
 	fi
 
