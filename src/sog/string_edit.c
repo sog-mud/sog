@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.5 1998-07-22 22:19:51 efdi Exp $
+ * $Id: string_edit.c,v 1.6 1998-07-25 15:49:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -42,8 +42,6 @@ char *numlineas(char *);
 void string_edit(CHAR_DATA *ch, char **pString)
 {
     send_to_char("-========- Entering EDIT Mode -=========-\n\r", ch);
-    send_to_char("Attention!!! All commands now begins with "
-		 "commas instead of dots.\n\r", ch);
     send_to_char("    Type ,h on a new line for help\n\r", ch);
     send_to_char(" Terminate with a ~ or @ on a blank line.\n\r", ch);
     send_to_char("-=======================================-\n\r", ch);
@@ -72,7 +70,7 @@ void string_edit(CHAR_DATA *ch, char **pString)
 void string_append(CHAR_DATA *ch, char **pString)
 {
     send_to_char("-=======- Entering APPEND Mode -========-\n\r", ch);
-    send_to_char("    Type .h on a new line for help\n\r", ch);
+    send_to_char("    Type ,h on a new line for help\n\r", ch);
     send_to_char(" Terminate with a ~ or @ on a blank line.\n\r", ch);
     send_to_char("-=======================================-\n\r", ch);
 
