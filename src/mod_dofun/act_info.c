@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.4 2000-03-29 21:48:07 avn Exp $
+ * $Id: act_info.c,v 1.271.2.5 2000-03-30 06:40:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4596,11 +4596,12 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 	for (; name[0]; list = first_arg(list, name, sizeof(name), FALSE)) {
 		if ((vch = char_load(name, LOAD_F_NOCREATE)) == NULL) {
 			buf_printf(output, "[{RInvalid entry{x] %s (report this to immortals)\n", name);
-				continue;
+			continue;
 		}
 
 		if (str_cmp(clan_name(vch->clan), clan->name)) {
 			buf_printf(output, "[{RInvalid entry{x] %s (report this to immortals)\n", vch->name);
+			char_nuke(vch);
 			continue;
 		}
 
