@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.329 2001-09-12 12:32:39 fjoe Exp $
+ * $Id: fight.c,v 1.330 2001-09-15 19:23:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1028,7 +1028,9 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 				set_fighting(victim, ch);
 
 				if (pull_mob_trigger(
-				    TRIG_MOB_KILL, victim, ch, NULL) > 0)
+					TRIG_MOB_KILL, victim, ch, NULL) > 0
+				||  IS_EXTRACTED(ch)
+				||  IS_EXTRACTED(victim))
 					return FALSE;
 			}
 
@@ -1453,7 +1455,8 @@ FOREACH_CB_FUN(pull_obj_death_cb, p, ap)
 	if (obj->wear_loc == WEAR_NONE)
 		return NULL;
 
-	if (pull_obj_trigger(TRIG_OBJ_DEATH, obj, ch, NULL) > 0)
+	if (pull_obj_trigger(TRIG_OBJ_DEATH, obj, ch, NULL) > 0
+	||  IS_EXTRACTED(ch))
 		return p;
 
 	return NULL;
@@ -1487,7 +1490,8 @@ raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 		return NULL;
 	}
 
-	if (pull_mob_trigger(TRIG_MOB_DEATH, victim, ch, NULL) > 0)
+	if (pull_mob_trigger(TRIG_MOB_DEATH, victim, ch, NULL) > 0
+	||  IS_EXTRACTED(victim))
 		return NULL;
 	if (vo_foreach(victim, &iter_obj_char, pull_obj_death_cb) != NULL)
 		return NULL;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.19 2001-09-15 17:12:55 fjoe Exp $
+ * $Id: trig.c,v 1.20 2001-09-15 19:23:39 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -321,7 +321,6 @@ pull_one_trigger(trig_t *trig, int mp_type,
 		if (trig->trig_type != TRIG_MOB_FIGHT
 		&&  trig->trig_type != TRIG_MOB_DEATH
 		&&  trig->trig_type != TRIG_MOB_KILL
-		&&  trig->trig_type != TRIG_MOB_HPCNT
 		&&  ch->position != ch->pMobIndex->default_pos)
 			return MPC_ERR_COND_FAILED;
 
@@ -380,14 +379,8 @@ pull_one_trigger(trig_t *trig, int mp_type,
 
 		arg3 = NULL;
 		arg4 = (void *) (uintptr_t) argument;
-	} else if (trig->trig_type == TRIG_MOB_EXIT) {
+	} else if (HAS_EXIT_ARG(trig)) {
 		if (!is_name(arg3, trig_arg))
-			return MPC_ERR_COND_FAILED;
-	} else if (trig->trig_type == TRIG_MOB_HPCNT) {
-		CHAR_DATA *ch = (CHAR_DATA *) arg1;
-		int hpcnt = atoi(trig_arg);
-
-		if (100 * ch->hit / ch->max_hit > hpcnt)
 			return MPC_ERR_COND_FAILED;
 	} else {
 		int chance;

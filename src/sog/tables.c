@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.169 2001-09-13 16:22:25 fjoe Exp $
+ * $Id: tables.c,v 1.170 2001-09-15 19:23:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1527,7 +1527,6 @@ flaginfo_t mptrig_types[] =
 	{ "mob_give",		TRIG_MOB_GIVE,		TRUE	},
 	{ "mob_greet",		TRIG_MOB_GREET,		TRUE    },
 	{ "mob_kill",		TRIG_MOB_KILL,		TRUE	},
-	{ "mob_hpcnt",		TRIG_MOB_HPCNT,		TRUE    },
 	{ "mob_random",		TRIG_MOB_RANDOM,	TRUE	},
 	{ "mob_speech",		TRIG_MOB_SPEECH,	TRUE	},
 	{ "mob_exit",		TRIG_MOB_EXIT,		TRUE    },
@@ -1552,6 +1551,12 @@ flaginfo_t mptrig_types[] =
 	{ "obj_entry",		TRIG_OBJ_ENTRY,		TRUE	},
 	{ "obj_get",		TRIG_OBJ_GET,		TRUE	},
 	{ "obj_random",		TRIG_OBJ_RANDOM,	TRUE	},
+	{ "obj_enter",		TRIG_OBJ_ENTER,		TRUE	},
+	{ "obj_look",		TRIG_OBJ_LOOK,		TRUE	},
+	{ "obj_open",		TRIG_OBJ_OPEN,		TRUE	},
+	{ "obj_close",		TRIG_OBJ_CLOSE,		TRUE	},
+	{ "obj_lock",		TRIG_OBJ_LOCK,		TRUE	},
+	{ "obj_unlock",		TRIG_OBJ_UNLOCK,	TRUE	},
 
 	{ "spec",		TRIG_SPEC,		TRUE	},
 

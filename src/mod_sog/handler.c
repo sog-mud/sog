@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.327 2001-09-15 17:12:51 fjoe Exp $
+ * $Id: handler.c,v 1.328 2001-09-15 19:23:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1455,6 +1455,8 @@ equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 	}
 
 	if (pull_obj_trigger(TRIG_OBJ_WEAR, obj, ch, NULL) > 0
+	||  !mem_is(obj, MT_OBJ)
+	||  IS_EXTRACTED(ch)
 	||  obj->carried_by != ch
 	||  obj->wear_loc != WEAR_NONE)
 		return NULL;
@@ -1513,7 +1515,7 @@ unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 		--ch->in_room->light;
 
 	pull_obj_trigger(TRIG_OBJ_REMOVE, obj, ch, NULL);
-	if (IS_EXTRACTED(ch))
+	if (!mem_is(obj, MT_OBJ) || IS_EXTRACTED(ch))
 		return FALSE;
 
 	if (wear_loc == WEAR_WIELD
@@ -1562,10 +1564,13 @@ FOREACH_CB_FUN(pull_obj_trigger_cb, p, ap)
 {
 	OBJ_DATA *obj = (OBJ_DATA *) p;
 
-	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
 	int trig_type = va_arg(ap, int);
+	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	char *arg = va_arg(ap, char *);
 
-	pull_obj_trigger(trig_type, obj, ch, NULL);
+	pull_obj_trigger(trig_type, obj, ch, arg);
+	if (IS_EXTRACTED(ch))
+		return p;
 
 	return NULL;
 }
@@ -1576,14 +1581,18 @@ FOREACH_CB_FUN(pull_mob_greet_cb, p, ap)
 	CHAR_DATA *vch = (CHAR_DATA *) p;
 
 	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
+	char *arg = va_arg(ap, char *);
 
 	if (!can_see(vch, ch))
 		return NULL;
 
-	pull_mob_trigger(TRIG_MOB_GREET, vch, ch, NULL);
+	pull_mob_trigger(TRIG_MOB_GREET, vch, ch, arg);
+	if (IS_EXTRACTED(ch))
+		return p;
 
-	vo_foreach(vch, &iter_obj_char, pull_obj_trigger_cb,
-		   ch, TRIG_OBJ_GREET);
+	if (vo_foreach(vch, &iter_obj_char, pull_obj_trigger_cb,
+		       TRIG_OBJ_GREET, ch, arg) != NULL)
+		return p;
 
 	return NULL;
 }
@@ -1599,8 +1608,10 @@ FOREACH_CB_FUN(pull_mob_exit_cb, p, ap)
 	if (!can_see(vch, ch))
 		return NULL;
 
-	if (pull_mob_trigger(TRIG_MOB_EXIT, vch, ch, arg) > 0)
+	if (pull_mob_trigger(TRIG_MOB_EXIT, vch, ch, arg) > 0
+	||  IS_EXTRACTED(ch))
 		return p;
+
 	return NULL;
 }
 
@@ -1613,7 +1624,6 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 	ROOM_INDEX_DATA *in_room;
 	ROOM_INDEX_DATA *to_room;
 	EXIT_DATA *pexit;
-	bool room_has_pc;
 	int act_flags;
 	AFFECT_DATA *paf;
 
@@ -1989,7 +1999,7 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 	}
 
 	if (in_room == to_room) /* no circular follows */
-		return TRUE;
+		return !IS_EXTRACTED(ch);
 
 	/*
 	 * move all the followers
@@ -2016,19 +2026,7 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 	}
 
 	if (IS_EXTRACTED(ch))
-		return TRUE;
-
-	room_has_pc = FALSE;
-	for (fch = to_room->people; fch != NULL; fch = fch_next) {
-		fch_next = fch->next_in_room;
-		if (!IS_NPC(fch)) {
-			room_has_pc = TRUE;
-			break;
-		}
-	}
-
-	if (!room_has_pc)
-		return TRUE;
+		return FALSE;
 
 	/*
 	 * pull GREET and ENTRY triggers
@@ -2037,14 +2035,22 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 	 * for the followers before the char, but it's safer this way...
 	 */
 	if (!IS_NPC(ch)) {
-		vo_foreach(to_room, &iter_char_room, pull_mob_greet_cb, ch);
-		vo_foreach(to_room, &iter_obj_room, pull_obj_trigger_cb,
-			   ch, TRIG_OBJ_GREET);
+		if (vo_foreach(to_room, &iter_char_room, pull_mob_greet_cb,
+			       ch, dir_name[door]))
+			return FALSE;
 
-		vo_foreach(ch, &iter_obj_char, pull_obj_trigger_cb,
-			   ch, TRIG_OBJ_ENTRY);
+		if (vo_foreach(to_room, &iter_obj_room, pull_obj_trigger_cb,
+			       TRIG_OBJ_GREET, ch, dir_name[door]))
+			return FALSE;
+
+		if (vo_foreach(ch, &iter_obj_char, pull_obj_trigger_cb,
+			       TRIG_OBJ_ENTRY, ch, NULL))
+			return FALSE;
 	}
+
 	pull_mob_trigger(TRIG_MOB_ENTRY, ch, NULL, NULL);
+	if (IS_EXTRACTED(ch))
+		return FALSE;
 
 	return TRUE;
 }
@@ -2640,6 +2646,9 @@ FOREACH_CB_FUN(pull_mob_get_cb, p, ap)
 	OBJ_DATA *obj = va_arg(ap, OBJ_DATA *);
 
 	pull_mob_trigger(TRIG_MOB_GET, vch, ch, obj);
+	if (!mem_is(obj, MT_OBJ) || IS_EXTRACTED(ch))
+		return p;
+
 	return NULL;
 }
 
@@ -2758,11 +2767,14 @@ get_obj(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
 		obj_to_char(obj, ch);
 
 		if (!IS_NPC(ch)) {
-			vo_foreach(ch->in_room, &iter_char_room,
-				   pull_mob_get_cb, ch, obj);
+			if (vo_foreach(ch->in_room, &iter_char_room,
+				       pull_mob_get_cb, ch, obj))
+				return FALSE;
 		}
 
 		pull_obj_trigger(TRIG_OBJ_GET, obj, ch, NULL);
+		if (!mem_is(obj, MT_OBJ) || IS_EXTRACTED(ch))
+			return FALSE;
 	}
 
 	return FALSE;
@@ -3251,8 +3263,14 @@ give_obj(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj)
 	act("$n gives you $p.", ch, obj, victim, TO_VICT | ACT_NOTRIG);
 	act("You give $p to $N.", ch, obj, victim, TO_CHAR | ACT_NOTRIG);
 
-	if (can_see(victim, ch))
+	if (can_see(victim, ch)) {
 		pull_mob_trigger(TRIG_MOB_GIVE, victim, ch, obj);
+		if (IS_EXTRACTED(victim)
+		||  IS_EXTRACTED(ch)
+		||  !mem_is(obj, MT_OBJ))
+			return FALSE;
+	}
+
 #if 0
 	XXX MPC
 	oprog_call(OPROG_GIVE, obj, ch, victim);
@@ -3268,7 +3286,10 @@ FOREACH_CB_FUN(pull_mob_open_cb, p, ap)
 	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
 	OBJ_DATA *obj = va_arg(ap, OBJ_DATA *);
 
-	pull_mob_trigger(TRIG_MOB_OPEN, vch, ch, obj);
+	if (pull_mob_trigger(TRIG_MOB_OPEN, vch, ch, obj) > 0
+	||  !mem_is(obj, MT_OBJ) || IS_EXTRACTED(ch))
+		return p;
+
 	return NULL;
 }
 
@@ -3291,8 +3312,6 @@ open_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 			act_char("It's locked.", ch);
 			return FALSE;
 		}
-
-		REMOVE_BIT(INT(obj->value[1]), EX_CLOSED);
 	} else {
 		/* 'open object' */
 		if (obj->item_type != ITEM_CONTAINER) {
@@ -3314,17 +3333,25 @@ open_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 			act_char("It's locked.", ch);
 			return FALSE;
 		}
-
-		REMOVE_BIT(INT(obj->value[1]), CONT_CLOSED);
 	}
+
+	if (!IS_NPC(ch)) {
+		if (vo_foreach(ch->in_room, &iter_char_room,
+			       pull_mob_open_cb, ch, obj))
+			return FALSE;
+	}
+
+	if (pull_obj_trigger(TRIG_OBJ_OPEN, obj, ch, NULL) > 0
+	||  IS_EXTRACTED(ch) || !mem_is(obj, MT_OBJ))
+		return FALSE;
 
 	act_puts("You open $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 	act("$n opens $p.", ch, obj, NULL, TO_ROOM);
 
-	if (!IS_NPC(ch)) {
-		vo_foreach(ch->in_room, &iter_char_room,
-			   pull_mob_open_cb, ch, obj);
-	}
+	if (obj->item_type == ITEM_PORTAL)
+		REMOVE_BIT(INT(obj->value[1]), EX_CLOSED);
+	else
+		REMOVE_BIT(INT(obj->value[1]), CONT_CLOSED);
 
 	return TRUE;
 }
@@ -3344,8 +3371,6 @@ close_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 			act_char("It's already closed.", ch);
 			return FALSE;
 		}
-
-		SET_BIT(INT(obj->value[1]), EX_CLOSED);
 	} else {
 		/* 'close object' */
 		if (obj->item_type != ITEM_CONTAINER) {
@@ -3362,12 +3387,20 @@ close_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 			act_char("You can't do that.", ch);
 			return FALSE;
 		}
-
-		SET_BIT(INT(obj->value[1]), CONT_CLOSED);
 	}
+
+	if (pull_obj_trigger(TRIG_OBJ_CLOSE, obj, ch, NULL) > 0
+	||  IS_EXTRACTED(ch) || !mem_is(obj, MT_OBJ))
+		return FALSE;
+
+	if (obj->item_type == ITEM_PORTAL)
+		SET_BIT(INT(obj->value[1]), EX_CLOSED);
+	else
+		SET_BIT(INT(obj->value[1]), CONT_CLOSED);
 
 	act_puts("You close $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 	act("$n closes $p.", ch, obj, NULL, TO_ROOM);
+
 	return TRUE;
 }
 
@@ -3402,8 +3435,6 @@ lock_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 			act_char("It's already locked.", ch);
 			return FALSE;
 		}
-
-		SET_BIT(INT(obj->value[1]), EX_LOCKED);
 	} else {
 		/* 'lock object' */
 		if (obj->item_type != ITEM_CONTAINER) {
@@ -3430,12 +3461,20 @@ lock_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 			act_char("It's already locked.", ch);
 			return FALSE;
 		}
-
-		SET_BIT(INT(obj->value[1]), CONT_LOCKED);
 	}
+
+	if (pull_obj_trigger(TRIG_OBJ_LOCK, obj, ch, NULL) > 0
+	||  IS_EXTRACTED(ch) || !mem_is(obj, MT_OBJ))
+		return FALSE;
+
+	if (obj->item_type == ITEM_PORTAL)
+		SET_BIT(INT(obj->value[1]), EX_LOCKED);
+	else
+		SET_BIT(INT(obj->value[1]), CONT_LOCKED);
 
 	act_puts("You lock $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 	act("$n locks $p.", ch, obj, NULL, TO_ROOM);
+
 	return TRUE;
 }
 
@@ -3468,8 +3507,6 @@ unlock_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 			act_char("It's already unlocked.", ch);
 			return FALSE;
 		}
-
-		REMOVE_BIT(INT(obj->value[1]),EX_LOCKED);
 	} else {
 		/* 'unlock object' */
 		if (obj->item_type != ITEM_CONTAINER) {
@@ -3496,12 +3533,20 @@ unlock_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 			act_char("It's already unlocked.", ch);
 			return FALSE;
 		}
-
-		REMOVE_BIT(INT(obj->value[1]), CONT_LOCKED);
 	}
+
+	if (pull_obj_trigger(TRIG_OBJ_UNLOCK, obj, ch, NULL) > 0
+	||  IS_EXTRACTED(ch) || !mem_is(obj, MT_OBJ))
+		return FALSE;
+
+	if (obj->item_type == ITEM_PORTAL)
+		REMOVE_BIT(INT(obj->value[1]),EX_LOCKED);
+	else
+		REMOVE_BIT(INT(obj->value[1]), CONT_LOCKED);
 
 	act_puts("You unlock $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 	act("$n unlocks $p.", ch, obj, NULL, TO_ROOM);
+
 	return TRUE;
 }
 

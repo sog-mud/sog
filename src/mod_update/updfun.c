@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.45 2001-09-12 19:43:13 fjoe Exp $
+ * $Id: updfun.c,v 1.46 2001-09-15 19:23:38 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -137,8 +137,6 @@ FOREACH_CB_FUN(violence_update_cb, vo, ap)
 	pull_mob_trigger(TRIG_MOB_FIGHT, ch, victim, NULL);
 	if (IS_EXTRACTED(ch) || IS_EXTRACTED(victim))
 		return NULL;
-
-	pull_mob_trigger(TRIG_MOB_HPCNT, ch, victim, NULL);
 
 	return NULL;
 }
@@ -257,7 +255,8 @@ FOREACH_CB_FUN(mobile_update_cb, vo, ap)
 		}
 #endif
 
-	if (pull_mob_trigger(TRIG_MOB_RANDOM, ch, NULL, NULL) > 0)
+	if (pull_mob_trigger(TRIG_MOB_RANDOM, ch, NULL, NULL) > 0
+	||  IS_EXTRACTED(ch))
 		return NULL;
 
 /* potion using and stuff for intelligent mobs */

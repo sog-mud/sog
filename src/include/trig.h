@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.h,v 1.12 2001-09-13 19:59:40 fjoe Exp $
+ * $Id: trig.h,v 1.13 2001-09-15 19:23:28 fjoe Exp $
  */
 
 #ifndef _TRIG_H_
@@ -38,20 +38,19 @@
 #define TRIG_MOB_ENTRY		3		/* arg: probability	*/
 #define TRIG_MOB_FIGHT		4		/* arg: probability	*/
 #define TRIG_MOB_GIVE		5		/* arg: obj vnum/name	*/
-#define TRIG_MOB_GREET		6		/* arg: probability	*/
+#define TRIG_MOB_GREET		6		/* arg: dir (or "all")	*/
 #define TRIG_MOB_KILL		7		/* arg: probability	*/
-#define TRIG_MOB_HPCNT		8		/* arg: probability	*/
-#define TRIG_MOB_RANDOM		9		/* arg: probability	*/
-#define TRIG_MOB_SPEECH		10		/* arg: text		*/
-#define TRIG_MOB_EXIT		11		/* arg: dir (or "all")	*/
-#define TRIG_MOB_DELAY		12		/* arg: probability	*/
-#define TRIG_MOB_SURR		13		/* arg: probability	*/
-#define TRIG_MOB_LOOK		14		/* arg: probability	*/
-#define TRIG_MOB_OPEN		15		/* arg: obj vnum/name	*/
-#define TRIG_MOB_GET		16		/* arg: obj vnum/name	*/
-#define TRIG_MOB_TELL		17		/* arg: text		*/
-#define TRIG_MOB_CMD		18		/* arg: cmd		*/
-#define TRIG_MOB_YELL		19		/* arg: text		*/
+#define TRIG_MOB_RANDOM		8		/* arg: probability	*/
+#define TRIG_MOB_SPEECH		9		/* arg: text		*/
+#define TRIG_MOB_EXIT		10		/* arg: dir (or "all")	*/
+#define TRIG_MOB_DELAY		11		/* arg: probability	*/
+#define TRIG_MOB_SURR		12		/* arg: probability	*/
+#define TRIG_MOB_LOOK		13		/* arg: probability	*/
+#define TRIG_MOB_OPEN		14		/* arg: obj vnum/name	*/
+#define TRIG_MOB_GET		15		/* arg: obj vnum/name	*/
+#define TRIG_MOB_TELL		16		/* arg: text		*/
+#define TRIG_MOB_CMD		17		/* arg: cmd		*/
+#define TRIG_MOB_YELL		18		/* arg: text		*/
 
 /* obj triggers */
 #define TRIG_OBJ_WEAR		100		/* arg: probability	*/
@@ -59,13 +58,19 @@
 #define TRIG_OBJ_DROP		102		/* arg: probability	*/
 #define TRIG_OBJ_SAC		103		/* arg: probability	*/
 #define TRIG_OBJ_GIVE		104		/* arg: probability	*/
-#define TRIG_OBJ_GREET		105		/* arg: probability	*/
+#define TRIG_OBJ_GREET		105		/* arg: dir (or "all")	*/
 #define TRIG_OBJ_FIGHT		106		/* arg: probability	*/
 #define TRIG_OBJ_DEATH		107		/* arg: probability	*/
 #define TRIG_OBJ_SPEECH		108		/* arg: text		*/
 #define TRIG_OBJ_ENTRY		109		/* arg: probability	*/
 #define TRIG_OBJ_GET		110		/* arg: probability	*/
 #define TRIG_OBJ_RANDOM		111		/* arg: probability	*/
+#define TRIG_OBJ_ENTER		112		/* arg: probability	*/
+#define TRIG_OBJ_LOOK		113		/* arg: probability	*/
+#define TRIG_OBJ_OPEN		114		/* arg: probability	*/
+#define TRIG_OBJ_CLOSE		115		/* arg: probability	*/
+#define TRIG_OBJ_LOCK		116		/* arg: probability	*/
+#define TRIG_OBJ_UNLOCK		117		/* arg: probability	*/
 
 /* spec triggers */
 #define TRIG_SPEC		300
@@ -79,6 +84,9 @@
 				 trig->trig_type == TRIG_MOB_OPEN ||	\
 				 trig->trig_type == TRIG_MOB_GET)
 #define HAS_CMD_ARG(trig)	(trig->trig_type == TRIG_MOB_CMD)
+#define HAS_EXIT_ARG(trig)	(trig->trig_type == TRIG_MOB_GREET ||	\
+				 trig->trig_type == TRIG_MOB_EXIT ||	\
+				 trig->trig_type == TRIG_OBJ_GREET)
 
 #define TRIG_F_CASEDEP	(A)	/* text arg case-dependent	*/
 #define TRIG_F_REGEXP	(B)	/* text arg is regexp		*/

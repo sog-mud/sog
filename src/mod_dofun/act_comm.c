@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.252 2001-09-12 19:42:47 fjoe Exp $
+ * $Id: act_comm.c,v 1.253 2001-09-15 19:23:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -262,6 +262,9 @@ FOREACH_CB_FUN(pull_obj_speech_cb, p, ap)
 	char *speech = va_arg(ap, char *);
 
 	pull_obj_trigger(TRIG_OBJ_SPEECH, obj, ch, speech);
+	if (IS_EXTRACTED(ch))
+		return p;
+
 	return NULL;
 }
 
@@ -274,7 +277,12 @@ FOREACH_CB_FUN(pull_mob_speech_cb, p, ap)
 	char *speech = va_arg(ap, char *);
 
 	pull_mob_trigger(TRIG_MOB_SPEECH, vch, ch, speech);
-	vo_foreach(vch, &iter_obj_char, pull_obj_speech_cb, ch, speech);
+	if (IS_EXTRACTED(ch))
+		return p;
+
+	if (vo_foreach(vch, &iter_obj_char, pull_obj_speech_cb, ch, speech))
+		return p;
+
 	return NULL;
 }
 
@@ -296,10 +304,13 @@ DO_FUN(do_say, ch, argument)
 	act_say(ch, "$T", argument);
 
 	if (!IS_NPC(ch)) {
-		vo_foreach(ch->in_room, &iter_char_room, pull_mob_speech_cb,
-		    ch, argument);
-		vo_foreach(ch->in_room, &iter_obj_room, pull_obj_speech_cb,
-		    ch, argument);
+		if (vo_foreach(ch->in_room, &iter_char_room, pull_mob_speech_cb,
+			       ch, argument))
+			return;
+
+		if (vo_foreach(ch->in_room, &iter_obj_room, pull_obj_speech_cb,
+			       ch, argument))
+			return;
 	}
 }
 
@@ -369,12 +380,12 @@ DO_FUN(do_emote, ch, argument)
 		act_char("You can't show your emotions.", ch);
 		return;
 	}
-	
+
 	if (argument[0] == '\0') {
 		act_char("Emote what?", ch);
 		return;
 	}
-	
+
 	argument = garble(ch, argument);
 
 	flags = ACT_NOTRIG | 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.406 2001-09-15 17:12:38 fjoe Exp $
+ * $Id: act_info.c,v 1.407 2001-09-15 19:23:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -462,7 +462,7 @@ DO_FUN(do_nosummon, ch, argument)
 		TOGGLE_BIT(PC(ch)->plr_flags, PLR_NOSUMMON);
 		if (IS_SET(PC(ch)->plr_flags,PLR_NOSUMMON))
 			act_char("You may only be summoned by players within your PK range.", ch);
-		else 
+		else
 			act_char("You may now be summoned by anyone.", ch);
 	}
 }
@@ -577,6 +577,22 @@ DO_FUN(do_glance, ch, argument)
 	do_look_room(ch, LOOK_F_NORDESC);
 }
 
+static void
+look_obj(CHAR_DATA *ch, OBJ_DATA *obj, ED_DATA *ed, bool show_desc)
+{
+	if (ed != NULL) {
+		act_puts(mlstr_cval(&ed->description, ch),
+			 ch, NULL, NULL,
+			 TO_CHAR | ACT_NOLF, POS_DEAD);
+	} else if (show_desc) {
+		act_puts(format_long(&obj->description, ch),
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+	} else
+		act_char("You see nothing special about it.", ch);
+
+	pull_obj_trigger(TRIG_OBJ_LOOK, obj, ch, NULL);
+}
+
 DO_FUN(do_look, ch, argument)
 {
 	char arg1 [MAX_INPUT_LENGTH];
@@ -587,7 +603,7 @@ DO_FUN(do_look, ch, argument)
 	OBJ_DATA *obj;
 	ED_DATA *ed;
 	int door;
-	int number,count;
+	int number, count;
 
 	if (ch->desc == NULL)
 		return;
@@ -619,7 +635,7 @@ DO_FUN(do_look, ch, argument)
 
 	if (!str_cmp(arg1, "i")
 	||  !str_cmp(arg1, "in")
-	||  !str_cmp(arg1,"on")) {
+	||  !str_cmp(arg1, "on")) {
 		/* 'look in' */
 		if (arg2[0] == '\0') {
 			act_char("Look in what?", ch);
@@ -636,67 +652,69 @@ DO_FUN(do_look, ch, argument)
 	}
 
 	for (obj = ch->carrying; obj != NULL; obj = obj->next_content) {
-		if (can_see_obj(ch, obj)) {
-			/* player can see object */
-			ed = ed_lookup(arg3, obj->ed);
-			if (ed != NULL) {
-				if (++count == number) {
-					act_puts(mlstr_cval(&ed->description, ch),
-						 ch, NULL, NULL,
-						 TO_CHAR | ACT_NOLF, POS_DEAD);
-					return;
-				} else
-					continue;
+		if (!can_see_obj(ch, obj))
+			continue;
+
+		/* player can see object */
+		ed = ed_lookup(arg3, obj->ed);
+		if (ed != NULL) {
+			if (++count == number) {
+				look_obj(ch, obj, ed, FALSE);
+				return;
 			}
 
-			ed = ed_lookup(arg3, obj->pObjIndex->ed);
+			continue;
+		}
 
-			if (ed != NULL) {
-				if (++count == number) {
-					act_puts(mlstr_cval(&ed->description, ch),
-						 ch, NULL, NULL,
-						 TO_CHAR | ACT_NOLF, POS_DEAD);
-					return;
-				} else
-					continue;
+		ed = ed_lookup(arg3, obj->pObjIndex->ed);
+		if (ed != NULL) {
+			if (++count == number) {
+				look_obj(ch, obj, ed, FALSE);
+				return;
 			}
 
-			if (IS_OBJ_NAME(obj, arg3))
-				if (++count == number) {
-					act_char("You see nothing special about it.", ch);
-					return;
-				}
+			continue;
+		}
+
+		if (IS_OBJ_NAME(obj, arg3)) {
+			if (++count == number) {
+				look_obj(ch, obj, NULL, FALSE);
+				return;
+			}
 		}
 	}
 
 	for (obj = ch->in_room->contents;
 	     obj != NULL; obj = obj->next_content) {
-		if (can_see_obj(ch, obj)) {
-			ed = ed_lookup(arg3, obj->ed);
-			if (ed != NULL)
-				if (++count == number) {
-					act_puts(mlstr_cval(&ed->description, ch),
-						 ch, NULL, NULL,
-						 TO_CHAR | ACT_NOLF, POS_DEAD);
-					return;
-				}
+		if (!can_see_obj(ch, obj))
+			continue;
 
-			ed = ed_lookup(arg3, obj->pObjIndex->ed);
-			if (ed != NULL)
-				if (++count == number) {
-					act_puts(mlstr_cval(&ed->description, ch),
-						 ch, NULL, NULL,
-						 TO_CHAR | ACT_NOLF, POS_DEAD);
-					return;
-				}
-		}
-
-		if (IS_OBJ_NAME(obj, arg3))
+		ed = ed_lookup(arg3, obj->ed);
+		if (ed != NULL) {
 			if (++count == number) {
-				act_puts(format_long(&obj->description, ch),
-					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+				look_obj(ch, obj, ed, TRUE);
 				return;
 			}
+
+			continue;
+		}
+
+		ed = ed_lookup(arg3, obj->pObjIndex->ed);
+		if (ed != NULL) {
+			if (++count == number) {
+				look_obj(ch, obj, ed, TRUE);
+				return;
+			}
+
+			continue;
+		}
+
+		if (IS_OBJ_NAME(obj, arg3)) {
+			if (++count == number) {
+				look_obj(ch, obj, ed, TRUE);
+				return;
+			}
+		}
 	}
 
 	ed = ed_lookup(arg3, ch->in_room->ed);
@@ -776,6 +794,8 @@ DO_FUN(do_examine, ch, argument)
 	}
 
 	do_look(ch, arg);
+	if (IS_EXTRACTED(ch))
+		return;
 
 	if ((obj = get_obj_here(ch, arg)) == NULL)
 		return;
@@ -797,7 +817,7 @@ DO_FUN(do_examine, ch, argument)
 			else
 				msg = "There are $j $qj{silver coins} in the pile.";
 		} else {
-			msg = "There are $J gold and $j $qj{silver coins} in the pile."; 
+			msg = "There are $J gold and $j $qj{silver coins} in the pile.";
 		}
 		act_puts3(msg, ch,
 			  (const void*) INT(obj->value[0]), NULL,

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.264 2001-09-12 19:42:48 fjoe Exp $
+ * $Id: act_obj.c,v 1.265 2001-09-15 19:23:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -564,11 +564,13 @@ DO_FUN(do_give, ch, argument)
 
 		if (pull_mob_trigger(
 		     TRIG_MOB_BRIBE, victim, ch,
-		     (void *) (silver ? amount : amount * 100)) > 0)
+		     (void *) (silver ? amount : amount * 100)) > 0
+		||  IS_EXTRACTED(victim))
 			return;
 
 		if (IS_NPC(victim)
-		&&  MOB_IS(victim, MOB_CHANGER)) {
+		&&  MOB_IS(victim, MOB_CHANGER)
+		&&  !IS_EXTRACTED(ch)) {
 			int change;
 			char buf[MAX_INPUT_LENGTH];
 
@@ -3582,7 +3584,9 @@ sac_obj(CHAR_DATA * ch, OBJ_DATA *obj)
 		}
 	}
 
-	if (pull_obj_trigger(TRIG_OBJ_SAC, obj, ch, NULL) > 0)
+	if (pull_obj_trigger(TRIG_OBJ_SAC, obj, ch, NULL) > 0
+	||  !mem_is(obj, MT_OBJ)
+	||  IS_EXTRACTED(ch))
 		return;
 
 	wiznet("$N sends up $p as a burnt offering.",

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.h,v 1.10 2001-09-13 16:22:08 fjoe Exp $
+ * $Id: mpc_dynafun.h,v 1.11 2001-09-15 19:23:34 fjoe Exp $
  */
 
 #ifndef _MPC_DYNAFUN_H_
@@ -121,6 +121,8 @@ DECLARE_FUN1(cchar_t, char_race,
 DECLARE_FUN1(int, obj_vnum,
 	     ARG(OBJ_DATA), obj)
 DECLARE_FUN1(int, char_size,
+	     ARG(CHAR_DATA), ch)
+DECLARE_FUN1(int, char_quest_time,
 	     ARG(CHAR_DATA), ch)
 
 __MODULE_END_DECL

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.18 2001-09-13 16:22:08 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.19 2001-09-15 19:23:33 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -374,6 +374,15 @@ int
 char_size(CHAR_DATA *ch)
 {
 	return ch->size;
+}
+
+int
+char_quest_time(CHAR_DATA *ch)
+{
+	if (IS_NPC(ch))
+		return -1;
+
+	return PC(ch)->questtime;
 }
 
 #else /* !defined(MPC) */

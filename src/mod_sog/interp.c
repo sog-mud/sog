@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.189 2001-09-12 12:32:42 fjoe Exp $
+ * $Id: interp.c,v 1.190 2001-09-15 19:23:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -81,7 +81,8 @@ FOREACH_CB_FUN(pull_mob_cmd_cb, p, ap)
 	CHAR_DATA *ch = va_arg(ap, CHAR_DATA *);
 	char *argument = va_arg(ap, char *);
 
-	if (pull_mob_trigger(TRIG_MOB_CMD, vch, ch, argument) >= 0)
+	if (pull_mob_trigger(TRIG_MOB_CMD, vch, ch, argument) >= 0
+	||  IS_EXTRACTED(ch))
 		return p;
 
 	return NULL;

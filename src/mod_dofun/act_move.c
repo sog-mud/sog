@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.279 2001-09-12 12:32:23 fjoe Exp $
+ * $Id: act_move.c,v 1.280 2001-09-15 19:23:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2900,6 +2900,11 @@ DO_FUN(do_enter, ch, argument)
 	        act_char("Something prevents you from leaving...", ch);
 	        return;
 	}
+
+	if (pull_obj_trigger(TRIG_OBJ_ENTER, portal, ch, NULL) > 0
+	||  !mem_is(portal, MT_OBJ)
+	||  IS_EXTRACTED(ch))
+		return;
 
 	act(MOUNTED(ch) ? "$n steps into $p, riding on $N." :
 			  "$n steps into $p.",
