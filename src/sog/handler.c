@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.95 1998-12-17 21:05:41 fjoe Exp $
+ * $Id: handler.c,v 1.96 1998-12-21 04:39:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2944,7 +2944,7 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 		"Weight is %d, value is %d, level is %d.\n",
 		obj->name,
 		flag_string(item_types, obj->pIndexData->item_type),
-		flag_string(extra_flags, obj->extra_flags),
+		flag_string(extra_flags, obj->extra_flags & ~ITEM_ENCHANTED),
 		obj->weight / 10,
 		obj->cost,
 		obj->level);

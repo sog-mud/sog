@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.31 1998-12-14 04:26:07 fjoe Exp $
+ * $Id: tables.c,v 1.32 1998-12-21 04:39:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -386,6 +386,7 @@ FLAG room_flags[] =
 	{ "dark",		ROOM_DARK,		TRUE	},
 	{ "nomob",		ROOM_NOMOB,		TRUE	},
 	{ "indoors",		ROOM_INDOORS,		TRUE	},
+	{ "peace",		ROOM_PEACE,		TRUE	},
 	{ "private",		ROOM_PRIVATE,		TRUE    },
 	{ "safe",		ROOM_SAFE,		TRUE	},
 	{ "solitary",		ROOM_SOLITARY,		TRUE	},
@@ -486,7 +487,7 @@ FLAG extra_flags[] =
 	{ "nosell",		ITEM_NOSELL,		TRUE	},
 	{ "not_edible",		ITEM_NOT_EDIBLE,	TRUE	},
 	{ "quest",		ITEM_QUEST,		TRUE	},
-	{ "broken",		ITEM_ENCHANTED,		FALSE	},
+	{ "enchanted",		ITEM_ENCHANTED,		FALSE	},
 	{ NULL }
 };
 

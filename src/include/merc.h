@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.127 1998-12-17 21:05:42 fjoe Exp $
+ * $Id: merc.h,v 1.128 1998-12-21 04:39:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -920,27 +920,13 @@ enum {
 #define CONT_FOR_ARROW		(F)
 
 /*
- * Well known room virtual numbers.
- * Defined in #ROOMS.
- */
-#define ROOM_VNUM_LIMBO 	2
-#define ROOM_VNUM_CHAT		1200
-#define ROOM_VNUM_TEMPLE	3001
-#define ROOM_VNUM_ALTAR 	3054
-#define ROOM_VNUM_SCHOOL	3700
-#define ROOM_VNUM_BALANCE	4500
-#define ROOM_VNUM_CIRCLE	4400
-#define ROOM_VNUM_DEMISE	4201
-#define ROOM_VNUM_HONOR 	4300
-#define ROOM_VNUM_BATTLE	541
-
-/*
  * Room flags.
  * Used in #ROOMS.
  */
 #define ROOM_DARK		(A)
 #define ROOM_NOMOB		(C)
 #define ROOM_INDOORS		(D)
+#define ROOM_PEACE		(H)
 #define ROOM_PRIVATE		(J)
 #define ROOM_SAFE		(K)
 #define ROOM_SOLITARY		(L)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.15 1998-12-07 04:12:13 fjoe Exp $
+ * $Id: const.h,v 1.16 1998-12-21 04:39:42 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -333,6 +333,21 @@
 #define OBJ_VNUM_TATTOO_SETH		65
 #define OBJ_VNUM_TATTOO_ENKI		66
 #define OBJ_VNUM_TATTOO_EROS		67
+
+/*
+ * Well known room virtual numbers.
+ * Defined in #ROOMS.
+ */
+#define ROOM_VNUM_LIMBO 	2
+#define ROOM_VNUM_CHAT		1200
+#define ROOM_VNUM_TEMPLE	3001
+#define ROOM_VNUM_ALTAR 	3054
+#define ROOM_VNUM_SCHOOL	3700
+#define ROOM_VNUM_BALANCE	4500
+#define ROOM_VNUM_CIRCLE	4400
+#define ROOM_VNUM_DEMISE	4201
+#define ROOM_VNUM_HONOR 	4300
+#define ROOM_VNUM_BATTLE	541
 
 /* RT ASCII conversions -- used so we can have letters in this file */
 
