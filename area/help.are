@@ -4109,7 +4109,7 @@ ZMud 3.62a  -- notelnet on, noiac on
 tt++ 1.5pl6 -- notelnet on, noiac on
 tf 4.0g3    -- notelnet off, noiac off
  ~
-0 'OLC EXITS'~
+immortal 'OLC EXITS'~
 Syntax: <direction> <command>
  
 <direction> is one of: {cnorth south west east up down{x
@@ -6644,6 +6644,35 @@ Syntax: {cruleclass{x flags <flags list>
 automatical creation of the former.
 <filename> is name of file for this rules to be saved.
 <flags list> ... there's no flags you can set for rules manually.~
+immortal 'WEIGHT RESTRICTIONS'~
+Weight restrictions for weapons to wield and items to carry:
+Str Wield Carry
+  0    0     0
+  1   10    30
+  2   20    30
+  3   30   100
+  4   40   250
+  5   50   550
+  6   60   800
+  7   70   900
+  8   80  1000
+  9   90  1000
+ 10  100  1150
+ 11  110  1150
+ 12  120  1300
+ 13  130  1300
+ 14  140  1400
+ 15  150  1500
+ 16  160  1650
+ 17  220  1800
+ 18  250  2000
+ 19  300  2250
+ 20  350  2500
+ 21  400  3000
+ 22  450  3500
+ 23  500  4000
+ 24  550  4500
+ 25  600  5000~
 -1 $~
 
 #$

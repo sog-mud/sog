@@ -802,7 +802,7 @@ mace boundary дубинка warden~
 unknown~
 weapon ABG 0 AN
 mace 12 7 'blast' 0
-70 15 1938 P
+70 150 1938 P
 A
 19 6
 A
@@ -1046,7 +1046,7 @@ sword warden меч boundary~
 unknown~
 weapon ABCEJL 0 AN
 sword 9 6 'slash' 0
-50 30 3500 P
+50 300 3500 P
 A
 19 4
 A
@@ -1063,7 +1063,7 @@ flail warden кистень boundary~
 unknown~
 weapon ABCEJL 0 AN
 flail 7 7 'pound' 0
-50 30 3400 P
+50 300 3400 P
 A
 19 3
 A
@@ -1076,7 +1076,7 @@ mace warden палица стража границы boundary~
 unknown~
 weapon ABCI 0 AN
 mace 7 7 'pound' 0
-50 30 2999 P
+50 300 2999 P
 A
 18 2
 A
@@ -1089,7 +1089,7 @@ dagger warden кинжал boundary~
 steel~
 weapon ABCEIJ 0 AN
 dagger 5 10 'pierce' 0
-50 30 2999 P
+50 300 2999 P
 A
 19 3
 A
@@ -1102,7 +1102,7 @@ agiel weapon эйджил~
 unknown~
 weapon ABCEGM 0 AN
 exotic 18 7 'slash' 0
-90 20 9902 P
+90 200 9902 P
 A
 19 4
 A

@@ -907,7 +907,7 @@ Staff made of gray tree lays here.~
 hardwood~
 weapon A 0 AN
 staff 11 4 'smash' G
-50 0 0 P
+50 50 100000 P
 A
 19 10
 A
@@ -924,7 +924,7 @@ Staff made of green tree lays here.~
 softwood~
 weapon A 0 AN
 staff 11 4 'smash' G
-50 0 0 P
+50 100 10000 P
 A
 19 10
 A

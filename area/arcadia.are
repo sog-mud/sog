@@ -1167,7 +1167,7 @@ A long, perfectly balanced silver trident.~
 silver~
 weapon AG 0 AN
 spear 6 6 'pierce' K
-28 30 800 P
+28 300 800 P
 g male~
 #12003
 opal bracelet браслет~
@@ -1200,7 +1200,7 @@ sword slender меч клинок~
 silver~
 weapon G 0 AN
 sword 4 9 'slash' 0
-32 10 800 P
+32 100 800 P
 A
 18 3
 g male~
@@ -1235,7 +1235,7 @@ kris blade wavy~
 iron~
 weapon CG 0 AN
 dagger 4 10 'pierce' D
-40 9 30 W
+40 90 30 W
 A
 19 4
 g male~
@@ -1246,7 +1246,7 @@ blade jagged кинжал~
 unknown~
 weapon G 0 AN
 sword 4 11 'cleave' 0
-43 13 200 W
+43 130 200 W
 A
 24 -2
 A
@@ -1276,7 +1276,7 @@ club дубинка дубина~
 wood~
 weapon EJ 0 AN
 mace 7 7 'pound' D
-38 7 20 A
+38 70 20 A
 A
 19 7
 A
@@ -1302,7 +1302,7 @@ A bright, wide-bladed khopesh with a gold and ivory handle.~
 unknown~
 weapon G 0 AN
 sword 8 7 'slash' 0
-56 30 1200 P
+56 300 1200 P
 g none~
 #12014
 helmet unfinished шлем~
@@ -1334,7 +1334,7 @@ A small iron stitching needle.~
 iron~
 weapon AG 0 AN
 dagger 6 9 'pierce' 0
-51 1 200 P
+51 10 200 P
 g none~
 #12017
 apron leather передник~
@@ -1391,7 +1391,7 @@ axe unfinished секира~
 unknown~
 weapon 0 0 AN
 axe 5 10 'chop' 0
-51 10 10 G
+51 100 10 G
 A
 19 1
 A
@@ -1435,7 +1435,7 @@ sword меч dark~
 mithril~
 weapon CFHJKM 0 AN
 exotic 6 6 'slice' 0
-48 29 10 W
+48 290 10 W
 A
 19 -2
 A
@@ -1599,7 +1599,7 @@ A large white marble mace.~
 marble~
 weapon GK 0 AN
 mace 8 10 'pound' D
-70 25 1200 P
+70 250 1200 P
 A
 2 -1
 A
@@ -1616,7 +1616,7 @@ A large spiked club made of dark twisted wood.~
 wood~
 weapon GJ 0 AN
 mace 8 10 'blast' 0
-70 25 1200 W
+70 250 1200 W
 A
 3 -1
 A
@@ -1668,7 +1668,7 @@ A well made sidhe broadsword with a strange inscription.~
 unknown~
 weapon G 0 AN
 sword 10 8 'slash' 0
-72 5 1200 P
+72 50 1200 P
 g none~
 #12042
 noble breastplate~
@@ -1738,7 +1738,7 @@ The iron sword of a sidhe noble.~
 iron~
 weapon G 0 AN
 sword 8 12 'slash' 0
-75 5 990 P
+75 50 990 P
 A
 18 5
 A

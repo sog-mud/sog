@@ -324,7 +324,7 @@ Jher's evil curved dagger is here glowing.~
 unknown~
 weapon ABGJ 0 AN
 dagger 5 12 'pierce' 0
-53 3 530 P
+53 30 530 P
 A
 13 50
 A
@@ -365,7 +365,7 @@ A huge set of teeth are rotting like a skull in the desert.~
 unknown~
 weapon GKM 0 AN
 exotic 1 7 'bite' 0
-0 2 0 P
+0 20 0 P
 A
 18 5
 A

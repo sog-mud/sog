@@ -1264,7 +1264,7 @@ dagger squire кинжал~
 iron~
 weapon 0 0 AN
 dagger 5 5 'pierce' 0
-20 2 500 P
+20 20 500 P
 A
 18 2
 A
@@ -1277,7 +1277,7 @@ mace knight knight's шестопер~
 iron~
 weapon 0 0 AN
 mace 5 6 'crush' 0
-23 5 800 P
+23 50 800 P
 A
 18 1
 A
@@ -1290,7 +1290,7 @@ lance knight knight's копье~
 iron~
 weapon 0 0 AN
 lance 5 4 'stab' 0
-25 15 1000 P
+25 150 1000 P
 A
 18 3
 A
@@ -1326,7 +1326,7 @@ axe benlad benlad's топор бенлад~
 iron~
 weapon GK 0 AN
 axe 5 7 'slash' 0
-31 7 2000 P
+31 70 2000 P
 A
 18 4
 A
@@ -1399,7 +1399,7 @@ sword excalibur меч экскалибур~
 adamantite~
 weapon BKL 0 AN
 sword 5 8 'slice' D
-38 4 4500 P
+38 40 4500 P
 A
 18 5
 A
@@ -1704,7 +1704,7 @@ A spear is here, glowing with an unholy dark light.~
 adamantite~
 weapon ACEG 0 AN
 spear 5 8 'pierce' CK
-34 10 2500 P
+34 100 2500 P
 A
 1 2
 A
@@ -1750,7 +1750,7 @@ ball chain шестопер рыцарский~
 iron~
 weapon 0 0 AN
 flail 5 7 'crush' 0
-28 30 2300 P
+28 300 2300 P
 A
 19 4
 g @eng none@rus male~
@@ -1845,7 +1845,7 @@ sword broad steel commander commander's меч стальной широкий командир~
 iron~
 weapon 0 0 AN
 sword 5 6 'slash' 0
-24 5 1700 P
+24 50 1700 P
 A
 18 3
 A
@@ -1876,7 +1876,7 @@ angle энгл меч~
 iron~
 weapon 0 0 AN
 sword 5 7 'slash' 0
-31 15 600 P
+31 150 600 P
 A
 18 -3
 A
@@ -1934,7 +1934,7 @@ lifecutter меч душегуб~
 adamantite~
 weapon C 0 AN
 sword 5 7 'slash' C
-32 20 3200 P
+32 200 3200 P
 A
 18 4
 A
@@ -1966,7 +1966,7 @@ axe топор огромный~
 iron~
 weapon 0 0 AN
 axe 9 4 'chop' F
-33 25 2000 P
+33 250 2000 P
 A
 19 5
 E
@@ -2098,7 +2098,7 @@ sword galantine меч галантин~
 adamantite~
 weapon G 0 AN
 sword 8 5 'slash' D
-30 35 6500 P
+30 350 6500 P
 A
 19 6
 A
@@ -2153,7 +2153,7 @@ g @eng none@rus female~
 mithril~
 weapon GHIM A AN
 dagger 8 5 'pierce' 0
-24 5 3900 P
+24 50 3900 P
 A
 19 -2
 g @eng none@rus male~
@@ -2222,7 +2222,7 @@ sword excalibur меч экскалибур~
 adamantite~
 weapon ABGHM E AN
 sword 9 5 'slash' D
-42 15 8000 P
+42 150 8000 P
 A
 19 14
 A
@@ -2278,7 +2278,7 @@ sword arondight меч арондит~
 unknown~
 weapon IKM 0 AN
 sword 9 4 'slice' E
-40 25 8500 P
+40 250 8500 P
 S 'sword' 20 0
 A
 18 4

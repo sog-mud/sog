@@ -378,10 +378,10 @@ BG 0 0 0 AH -1000 0
 CFKN
 stand stand male 100
 AC 0 large unknown
-r fire 33
+r fire 50
 r cold -50
-r lightning 100
-r charm 100
+r lightning 30
+r charm 40
 #22470
 name man destroer~
 forest destroer~
@@ -425,16 +425,40 @@ r slash 30
 r mental 30
 #22472
 human sergeant~
+human sergeant~
+A human sergeant stand here , watch to intruders.
 ~
-~
+Before you stand a tall man wearing jewel encrusted clothes.In his shoulder
+you can see a sergeant sign.He have a blue eyes and short black hair, his 
+arms lies on jewel-encrusted hilt of his sword , but you see that a place
+for dagger on his wasit is empty.
 ~
 human~
-0 0 0 0 AB 0 0
+0 0 0 0 0 0 0
 30 20 20d20+1900 1d2+99 1d10+15 'slash'
 -12 -12 -12 -12
 ADFHJK
 stand stand none 0
 0 0 medium unknown
+M give 22472 22492~
+r bash 30
+r pierce 30
+r slash 30
+r fire 20
+r cold 20
+#22473
+troll small rumpelsteelskin~
+Rumpelsteelskin~
+A small black troll standing here defend his home.
+~
+~
+troll~
+T 0 0 K 0 -500 0
+20 5 5d6+500 1d1+99 2d8+5 'grep'
+-1 -1 -1 -1
+FK
+stand stand male 0
+0 0 small unknown
 #22479
 ~
 ~
@@ -480,7 +504,7 @@ pool of water~
 You see a pool on floor,collecting water.~
 moss~
 fountain GY B 0
-100000 100000 'water' 135141152 0
+100000 100000 'water' 0 0
 20 0 0 P
 g none~
 #22454
@@ -517,7 +541,7 @@ The small wooden staff catch your eye.~
 wood~
 weapon 0 0 AN
 staff 10 2 'smash' DF
-5 8 0 P
+5 10 0 P
 A
 17 -6
 A
@@ -536,7 +560,7 @@ The small wooden mace catch your eye.~
 wood~
 weapon 0 0 AN
 mace 9 2 'smash' 0
-5 3 0 P
+5 10 0 P
 A
 13 8
 A
@@ -551,7 +575,7 @@ The small wooden flail catch your eye.~
 wood~
 weapon 0 0 AN
 flail 9 2 'thwack' 0
-5 2 0 P
+5 10 0 P
 A
 13 15
 g none~
@@ -562,7 +586,7 @@ The small leather whip catch your eye.~
 leather~
 weapon 0 0 AN
 whip 9 2 'sting' 0
-5 3 0 P
+5 10 0 P
 A
 12 20
 A
@@ -575,7 +599,7 @@ The small wooden polearm catch your eye.~
 wood~
 weapon 0 0 AN
 polearm 10 2 'cleave' DF
-5 8 0 P
+5 10 0 P
 A
 17 -5
 A
@@ -590,7 +614,7 @@ The small wooden sword catch your eye.~
 wood~
 weapon 0 0 AN
 sword 9 2 'slash' 0
-5 3 0 P
+5 10 0 P
 A
 17 -5
 A
@@ -603,7 +627,7 @@ The small wooden dagger catch your eye.~
 wood~
 weapon 0 0 AN
 dagger 9 2 'pierce' D
-5 2 0 P
+5 10 0 P
 A
 18 1
 A
@@ -765,7 +789,7 @@ A large leaf of unknown tree lies in the grass.~
 wood~
 weapon GK 0 AN
 sword 9 4 'wrath' DH
-28 4 0 P
+28 120 0 P
 A
 5 2
 A
@@ -808,11 +832,11 @@ A long staff maded from blue ice crystall lies here.~
 crystal~
 weapon KY C AN
 staff 17 2 'wrath' BDF
-45 20 0 P
+45 100 0 P
 A
-30 10
+31 5
 A
-31 10
+30 5
 A
 17 -20
 A
@@ -859,7 +883,7 @@ A long beautiful bow maded from wood and horns lies here.~
 oak~
 weapon CY C AN
 bow 17 2 'flbite' D
-45 5 50000 P
+45 120 50000 P
 A
 19 5
 A
@@ -941,7 +965,7 @@ A large axe with twin blades lies here.~
 steel~
 weapon AC 0 AN
 axe 8 4 'cleave' ADH
-0 15 15000 P
+0 350 15000 P
 A
 30 2
 A
@@ -952,11 +976,60 @@ g none~
 #22492
 jewelled dagger~
 Jewelled dagger~
-A long-bladed dagger with incrusted jewels lies here, waiting his master.~
+A long-bladed dagger incrusted by jewels lies here, waiting his master.~
 unknown~
 weapon A 0 AN
-dagger 8 5 'pierce' 0
+dagger 8 5 'pierce' HK
 30 5 0 P
+A
+18 -2
+A
+19 8
+g none~
+#22493
+jewelled broadsword sword~
+Jewelled broadsword~
+A broad sword incrusted by jewels lies here, waiting his master.~
+unknown~
+weapon A 0 AN
+sword 8 5 'slash' D
+30 160 15000 P
+A
+19 2
+A
+18 3
+g none~
+#22494
+wooven leather bracer~
+wooven leather bracer~
+A small bracer lies here, catches dust.~
+unknown~
+armor U 0 AM
+5 5 5 8 0
+25 10 10000 P
+A
+19 2
+A
+35 2
+A
+28 1
+A
+29 1
+A
+27 1
+A
+29 1
+A
+20 -5
+g none~
+#22495
+black runed key~
+Black runed key~
+A black key covered with runes lies here.~
+wood~
+key CHMU 0 AO
+0 0 0 0 0
+1 10 0 P
 g none~
 #0
 
@@ -1948,7 +2021,7 @@ D2
 ~
 ~
 ~
-Z 0 22530
+ABLZ 0 22530
 D3
 ~
 ~
@@ -3272,7 +3345,12 @@ D2
 ABLZ 0 22512
 S
 #22530
-~
+In the small cave~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
 ~
 0 0 inside
 D0
@@ -3280,16 +3358,19 @@ D0
 ~
 ~
 ~
-Z 0 22480
+ABLZ 0 22480
 D2
 ~
 ~
 ~
 ~
-Z 0 22531
+ABCZ 22495 22531
 S
 #22531
-~
+In the troll's sleeping room~
+You standing in small cave , uses as sleeping room.In one corner you can 
+see a large bed and in the center you see a large tabele with different sorts 
+of food.May be master of this  @@
 ~
 0 0 inside
 D0
@@ -3297,7 +3378,7 @@ D0
 ~
 ~
 ~
-Z 0 22530
+ABCZ 0 22530
 D5
 ~
 ~
@@ -3961,7 +4042,7 @@ D1
 trapdoor~
 ~
 ~
-Z 0 22560
+ABLZ 0 22560
 D2
 ~
 ~
@@ -3976,13 +4057,13 @@ probably filled with gold, jewellery and other pretty things ...
 But you think that treasure must be protected buy somebody and 
 you don't did a mistake.
 ~
-0 AX inside
+0 X inside
 D3
 ~
 ~
 ~
 ~
-Z 0 22559
+ABLZ 0 22559
 S
 #22561
 In the dark deep tunnel~
@@ -4216,12 +4297,18 @@ M 22471 spec_nasty	* Giant cracken
 S
 
 #RESETS
+D 0 22480 2 1	* In the dark tunnel under forest: door to the south: closed
 D 0 22485 1 1	* A room of Queen: door to the east: closed
 D 0 22510 0 1	* In the Forest of Nowhere: door to the north: closed
 D 0 22512 0 1	* In the Forest of Nowhere: door to the north: closed
 D 0 22528 2 1	* Inside a small hut: door to the south: closed
 D 0 22529 2 1	* Inside a small hut: door to the south: closed
+D 0 22530 0 1	* In the small cave: door to the north: closed
+D 0 22530 2 2	* In the small cave: door to the south: closed and locked
+D 0 22531 0 2	* In the troll's sleeping room: door to the north: closed and locked
 D 0 22553 3 1	* In the dark deep tunnel: door to the west: closed
+D 0 22559 1 1	* In the dark deep tunnel: door to the east: closed
+D 0 22560 3 1	* Inside of treasure keep: door to the west: closed
 O 0 22454 0 22451	* a small sign (Entrance into Forest)
 M 0 22451 8 22452 1	* tiny guard (In the Forest of Nowhere)
 E 0 22456 0 16		*	wooden training mace: wielded
@@ -4407,6 +4494,10 @@ E 0 22476 0 1		*	FoN signed ring: on the left finger
 M 0 22466 1 22529 1	* Mifner (Inside a small hut)
 E 0 22478 0 16		*	Composite bow named "DarkSlayer": wielded
 E 0 22479 0 12		*	Ornately designed quiver: about the shoulders
+M 0 22473 1 22530 1	* Rumpelsteelskin (In the small cave)
+E 0 22495 0 17		*	Black runed key: held in the hands
+M 0 22472 1 22560 1	* human sergeant (Inside of treasure keep)
+E 0 22493 0 16		*	Jewelled broadsword: wielded
 S
 
 #SHOPS
@@ -4421,5 +4512,22 @@ O 22478 3	* Composite bow named "DarkSlayer"
 O 22479 5	* Ornately designed quiver
 O 22490 3	* box of matches
 S
+
+#MOBPROGS
+#22472
+mob purge $o
+if isvisible $n
+say Thanks a lot brave adventurer!
+say You return my favorite dagger.
+say And I regard you for it ...
+mob oload 22494
+give bracer $n
+mob purge $o
+else
+say Huh, who is here?
+mob purge $o
+endif
+~
+#0
 
 #$

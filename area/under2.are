@@ -2141,7 +2141,7 @@ A dull greyish mace of gnomish design~
 wood~
 weapon I 0 AN
 mace 4 5 'pound' 0
-17 4 10 P
+17 40 10 P
 A
 13 1
 A
@@ -2156,7 +2156,7 @@ A drow blade seems to cast a shadow of darkness around it~
 steel~
 weapon C 0 AN
 sword 4 4 'slice' 0
-15 4 10 P
+15 40 10 P
 A
 1 1
 A
@@ -2303,7 +2303,7 @@ A small pin glints in the light~
 steel~
 weapon F 0 AN
 dagger 5 5 'pierce' 0
-22 1 10 P
+22 10 10 P
 A
 1 -3
 A
@@ -2320,7 +2320,7 @@ A branch covered in muck lies discarded off to the side~
 unknown~
 weapon BHL 0 AN
 mace 5 5 'blast' 0
-21 15 0 P
+21 150 0 P
 A
 2 -2
 A
@@ -2383,7 +2383,7 @@ A very large sword made out of iron lies ready~
 iron~
 weapon B 0 AN
 sword 5 8 'slash' 0
-40 45 1000 P
+40 450 1000 P
 A
 1 2
 A
@@ -2400,7 +2400,7 @@ A large mace made completely of stone waits to be used~
 stone~
 weapon B 0 AN
 mace 4 10 'pound' 0
-38 25 1000 P
+38 250 1000 P
 A
 1 1
 A
@@ -2445,7 +2445,7 @@ A glowing demon horn waits to be wielded~
 bone~
 weapon AJ 0 AN
 exotic 4 10 'stab' 0
-40 4 0 P
+40 40 0 P
 A
 17 -10
 A
@@ -2512,7 +2512,7 @@ A broken bottle lies on the ground~
 glass~
 weapon C 0 AN
 exotic 3 3 'slash' 0
-11 2 0 P
+11 20 0 P
 A
 2 -1
 A
@@ -2579,7 +2579,7 @@ A long dangerous looking whip waits to used against a slave~
 leather~
 weapon B 0 AN
 whip 4 7 'whip' 0
-23 4 900 P
+23 40 900 P
 A
 4 -4
 A
@@ -2622,7 +2622,7 @@ A jagged long sword rests on the ground~
 steel~
 weapon B 0 AN
 sword 6 5 'slash' 0
-26 5 1000 P
+26 50 1000 P
 A
 17 -10
 A
@@ -2635,7 +2635,7 @@ An ebony dagger lies off to your side~
 ebony~
 weapon B 0 AN
 dagger 6 5 'pierce' 0
-26 4 4900 P
+26 40 4900 P
 A
 17 -10
 A
@@ -2672,7 +2672,7 @@ An ebony morning star rests on the ground~
 ebony~
 weapon B 0 AN
 mace 4 5 'blast' 0
-17 6 1000 P
+17 60 1000 P
 A
 5 1
 A
@@ -2700,7 +2700,7 @@ A dark sword lies on the ground~
 steel~
 weapon G 0 AN
 sword 3 4 'slice' 0
-10 5 1200 P
+10 50 1200 P
 A
 18 1
 A
@@ -2713,7 +2713,7 @@ A dark dagger lies on the ground~
 steel~
 weapon G 0 AN
 dagger 3 3 'pierce' 0
-11 3 1200 P
+11 30 1200 P
 A
 18 2
 A
@@ -2726,7 +2726,7 @@ A dark mace lies on the ground~
 wood~
 weapon G 0 AN
 mace 3 3 'pound' 0
-11 4 1200 P
+11 40 1200 P
 A
 18 1
 A
@@ -2889,7 +2889,7 @@ A beautifully crafted broadsword lies on the ground~
 steel~
 weapon AB 0 AN
 sword 4 4 'slice' 0
-17 4 1000 P
+17 40 1000 P
 A
 1 1
 A
@@ -3006,7 +3006,7 @@ A jewelled dagger looks as if it could cut through anything~
 steel~
 weapon BG 0 AN
 dagger 4 11 'pierce' D
-47 3 30000 P
+47 30 30000 P
 A
 2 2
 A
@@ -3049,7 +3049,7 @@ A dark blade rests here humming quietly~
 iron~
 weapon BCG 0 AN
 dagger 4 5 'pierce' H
-20 3 100 P
+20 30 100 P
 A
 18 1
 A
@@ -3088,7 +3088,7 @@ A thin wire lies on the ground humming~
 unknown~
 weapon BC 0 AN
 whip 5 5 'crush' 0
-25 1 0 P
+25 10 0 P
 A
 18 -5
 A
@@ -3211,7 +3211,7 @@ A black blade hums on the ground~
 steel~
 weapon BEGJ 0 AN
 dagger 5 6 'slash' 0
-23 6 1000 P
+23 60 1000 P
 A
 17 -5
 A

@@ -445,7 +445,7 @@ A dangerous short sword rests here.~
 steel~
 weapon 0 0 AN
 sword 1 6 'slash' 0
-5 5 100 P
+5 50 100 P
 A
 18 1
 A
@@ -483,7 +483,7 @@ Some soap on a rope is here.~
 unknown~
 weapon AGJL 0 AN
 exotic 4 4 'pound' 0
-11 10 10 P
+11 100 10 P
 A
 19 1
 A
@@ -745,7 +745,7 @@ A dirty mop has been set against the wall.~
 unknown~
 weapon 0 0 AN
 exotic 2 4 'pierce' 0
-5 5 10 P
+5 50 10 P
 g none~
 #32029
 large battle axe~
@@ -832,7 +832,7 @@ A curved dagger lies here.~
 steel~
 weapon EFJ 0 AN
 dagger 7 7 'pierce' 0
-45 5 1000 P
+45 50 1000 P
 A
 18 10
 A
@@ -1033,7 +1033,7 @@ A massive blood-stained axe of immeasurable age lies here.~
 steel~
 weapon BFG 0 AN
 axe 6 11 'chop' DE
-45 30 0 P
+45 300 0 P
 A
 19 5
 A

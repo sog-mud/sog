@@ -2104,7 +2104,7 @@ VainGlory Morning-Star Morningstar утренняя звезда слава напрасная~
 silver~
 weapon AGHM 0 AN
 mace 12 3 'wrath' 0
-38 10 10000 G
+38 100 10000 G
 A
 1 2
 A
@@ -2356,7 +2356,7 @@ Sword меч~
 silver~
 weapon GKL 0 AN
 sword 10 3 'wrath' 0
-35 8 12000 G
+35 80 12000 G
 A
 18 4
 A
@@ -2577,7 +2577,7 @@ Yew bow лук тисовый~
 yew~
 weapon GKL 0 AN
 bow 5 9 'pierce' 0
-43 9 30000 G
+43 90 30000 G
 A
 2 2
 A
@@ -2681,7 +2681,7 @@ A sword called "Swiftbird" sings a melancholic lament.~
 steel~
 weapon K 0 AN
 sword 10 3 'slash' 0
-35 10 10000 G
+35 100 10000 G
 A
 13 -5
 A
@@ -2703,7 +2703,7 @@ A striped marmalade orb floats in the air near you.~
 energy~
 weapon FGI 0 AN
 exotic 10 4 'magic' 0
-43 10 10000 G
+43 100 10000 G
 A
 18 3
 A
@@ -2811,7 +2811,7 @@ Marcel Proust's "A la Recherche du Temps Perdu" lies here.~
 gold~
 weapon K 0 AN
 mace 10 2 'pound' 0
-15 18 8000 G
+15 180 8000 G
 A
 2 -1
 A
@@ -2831,7 +2831,7 @@ A sword-stick lies on the grass here.~
 steel~
 weapon 0 0 AN
 dagger 8 2 'stab' 0
-5 8 100 G
+5 80 100 G
 E
 stick dagger sword-stick~
 The sword-stick seems to have been cunningly fashioned from the branch
@@ -2865,7 +2865,7 @@ A skillfully crafted longbow with a quiver of arrows lie here.~
 Gold~
 weapon K 0 AN
 bow 9 3 'pierce' 0
-28 10 4700 G
+28 100 4700 G
 A
 18 3
 A
@@ -2883,7 +2883,7 @@ A Hell-Spear wreathed in black flames.~
 iron~
 weapon CHJ 0 AN
 spear 9 3 'pierce' AK
-25 12 3000 G
+25 120 3000 G
 A
 18 1
 A
@@ -3258,7 +3258,7 @@ A chitinous chain of black plates with a whipping end.~
 iron~
 weapon M 0 AN
 whip 8 6 'sting' 0
-50 7 25000 G
+50 70 25000 G
 A
 18 3
 A
@@ -3277,7 +3277,7 @@ A blue steel dagger with a blackened hilt lies here.~
 steel~
 weapon AEJM 0 AN
 dagger 8 6 'frbite' B
-50 7 25000 G
+50 70 25000 G
 A
 18 4
 A
@@ -3328,7 +3328,7 @@ A Hell-Blade wreathed in black flames.~
 iron~
 weapon CHJ 0 AN
 sword 9 3 'slash' A
-25 12 4700 G
+25 120 4700 G
 A
 18 1
 A

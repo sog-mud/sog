@@ -690,10 +690,10 @@ mace 6 8 'pound' 0
 61 5 1500 P
 g none~
 #30839
-jo stick~
-a jo stick~
+stick bo~
+a bo stick~
 A bo stick rests against one wall here.~
-unknown~
+hardwood~
 weapon 0 0 AN
 mace 6 8 'pound' 0
 61 5 1500 P
@@ -3082,14 +3082,14 @@ O 0 30835 0 30830	* a backpack (A Storage Room)
 O 0 30836 0 30832	* a hand axe (An Armory)
 O 0 30837 0 30832	* a throwing axe (An Armory)
 O 0 30838 0 30832	* a bo stick (An Armory)
-O 0 30839 0 30832	* a jo stick (An Armory)
+O 0 30839 0 30832	* a bo stick (An Armory)
 O 0 30840 0 30832	* a quarterstaff (An Armory)
 O 0 30841 0 30832	* a crossbow (An Armory)
 O 0 30842 0 30832	* a quiver (An Armory)
 O 0 30836 0 30833	* a hand axe (An Armory)
 O 0 30837 0 30833	* a throwing axe (An Armory)
 O 0 30838 0 30833	* a bo stick (An Armory)
-O 0 30839 0 30833	* a jo stick (An Armory)
+O 0 30839 0 30833	* a bo stick (An Armory)
 O 0 30840 0 30833	* a quarterstaff (An Armory)
 O 0 30841 0 30833	* a crossbow (An Armory)
 O 0 30842 0 30833	* a quiver (An Armory)
@@ -3188,7 +3188,7 @@ O 30815 2	* a whip
 O 30821 1	* a suit of unholy armor
 O 30836 3	* a hand axe
 O 30838 5	* a bo stick
-O 30839 5	* a jo stick
+O 30839 5	* a bo stick
 O 30840 3	* a quarterstaff
 O 30841 3	* a crossbow
 S

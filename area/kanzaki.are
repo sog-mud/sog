@@ -263,7 +263,7 @@ r disease 33
 r poison 33
 r charm 33
 #47109
-demon one eyed four handed claw одноглазый четырехрукий демон~
+demon one eyed four одноглазый четырехрукий демон armed когти claws~
 @eng one-eyed and four-armed demon@rus ~~одноглазый~~ ~~четырехрукий~~ ~~демон~~~
 @eng An unnatural wail shatters the silence as clawed hands reach out to tear you apart.
 @rus Неестественный вой пронзает тишину и когтистые лапы тянутся разорвать тебя на части.
@@ -1090,7 +1090,7 @@ A large boulder lies here.~
 stone~
 weapon JL 0 AN
 sword 8 8 'crush' FK
-46 59 0 P
+46 600 0 P
 A
 19 30
 A
@@ -1191,7 +1191,7 @@ staff посох тысячи душ thousand souls~
 bone~
 weapon BC 0 AN
 staff 8 8 'drain' CEFH
-46 60 0 P
+46 600 0 P
 A
 19 30
 A
@@ -1219,8 +1219,8 @@ NOTE: Отвественности за последствия компания
 g none~
 #47100
 tablet wooden табличка деревянная~
-@eng {xWooden tablet@rus ~~деревянная~~ ~~табличка~~~
-@eng (Humming)(Glowing) A wooden tablet stands near the path.@rus Деревянная табличка стоит около дороги.~
+@eng a wooden tablet@rus ~~деревянная~~ ~~табличка~~~
+@eng A wooden tablet stands near the path.@rus Деревянная табличка (tablet) стоит около дороги.~
 wood~
 trash Y B 0
 0 0 0 0 0
@@ -1228,17 +1228,14 @@ trash Y B 0
 E
 tablet~
 *************************************************
-*                                               *                             
-*           The Rising Sun Land                 *                            
 *                                               *
-*  Planned, designed and debugged (hopefully)   *                              
-*            by Lothar and Eidu                 *                        
-*                                               *
-*                 Autumn'98                     *             
+*         Welcome to Kanzaki village!           *
+*  Feel free to visit our temple or pub, but    *
+*         keep out of the mountain ;)           *
 *                                               *
 *************************************************
 ~
-g female~
+g @eng neutral@rus female~
 #47101
 well stone колодец~
 @eng Well@rus ~~колодец~~~
@@ -1705,7 +1702,7 @@ pole бамбуковый шест bamboo~
 bamboo~
 weapon 0 0 AN
 staff 6 7 'beating' F
-25 30 400 P
+25 160 400 P
 A
 2 2
 A
@@ -1748,7 +1745,7 @@ hoe мотыга~
 wood~
 weapon 0 0 AN
 polearm 4 7 'stab' F
-15 25 2000 P
+15 160 2000 P
 A
 1 1
 g @eng neutral@rus female~
@@ -1759,7 +1756,7 @@ shovel лопата~
 wood~
 weapon 0 0 AN
 exotic 4 7 'slice' DF
-15 25 2000 P
+15 160 2000 P
 g @eng neutral@rus female~
 #47139
 bucket ведро~
@@ -1786,7 +1783,7 @@ pincers клещи~
 iron~
 weapon 0 0 AN
 exotic 6 7 'bite' EF
-20 20 1000 P
+20 350 1000 P
 A
 2 -2
 A
@@ -1808,7 +1805,7 @@ hammer blacksmith молот кузнечный~
 iron~
 weapon B 0 AN
 mace 13 3 'crush' 0
-27 40 2500 P
+27 400 2500 P
 A
 1 2
 A
@@ -1931,7 +1928,7 @@ hairpin sai заколка саи~
 steel~
 weapon 0 0 AN
 dagger 4 9 'thrust' D
-25 10 15000 P
+25 50 15000 P
 g @eng neutral@rus female~
 #47155
 doll кукла деревянная wooden~
@@ -2027,7 +2024,7 @@ naginata нагината шест pole blade long длинный~
 steel~
 weapon I 0 AN
 polearm 6 6 'slice' DF
-25 35 8000 P
+25 300 8000 P
 A
 19 2
 A
@@ -2166,7 +2163,7 @@ naginata magical магическая нагината~
 mithril~
 weapon GIK 0 AN
 polearm 6 9 'slice' DFG
-35 40 25000 P
+35 400 25000 P
 A
 20 -5
 A
@@ -2213,7 +2210,7 @@ longbow long bow длинный лук battle~
 wood~
 weapon 0 0 AN
 bow 5 9 'blast' F
-30 250 5000 P
+30 400 5000 P
 A
 19 7
 A
@@ -2317,7 +2314,7 @@ shuriken razor sharp острый сюрикен star звездочка~
 steel~
 weapon 0 0 AN
 exotic 9 5 'shock' DK
-30 13 5000 P
+30 130 5000 P
 g @eng neutral@rus male~
 #47176
 sai blade brown саи клинок коричневый~
@@ -2326,7 +2323,7 @@ sai blade brown саи клинок коричневый~
 mithril~
 weapon C 0 AN
 dagger 12 4 'thrust' DH
-40 22 8000 P
+40 220 8000 P
 A
 18 9
 A
@@ -2350,7 +2347,7 @@ sword ancient ivory меч древний~
 adamantite~
 weapon GIK 0 AN
 sword 15 3 'wrath' DE
-43 32 40000 P
+43 400 40000 P
 S 'mastering sword' 33 A
 A
 24 -7
@@ -2390,7 +2387,7 @@ wakizashi вакизаши sword меч ivory hilted~
 mithril~
 weapon I 0 AN
 sword 6 8 'slice' D
-43 27 20000 P
+43 300 20000 P
 S 'counter strike' 33 A
 S 'fence' 33 A
 A
@@ -2468,7 +2465,7 @@ hammer thunder молот грома~
 divinity~
 weapon BGIKQ F AN
 mace 7 9 'shock' FG
-45 42 0 P
+45 400 0 P
 A
 12 40
 A
@@ -2586,7 +2583,7 @@ horn huge curved огромный обгоревший рог charred~
 bone~
 weapon CEGJQ 0 AN
 exotic 12 5 'wrath' 0
-45 35 0 P
+45 400 0 P
 A
 35 25
 A
@@ -5490,7 +5487,7 @@ couldn't destroy his jail and break free up to now can only be explai-
 ned by a powerful magical defense that doesn't require any special
 abilities to be felt. The inhabitant, however, isn't going to wait
 'til you stand up and attacks fiercely.
-@rus После недолгого путешествия вниз и куда-то в бок по расщелине, ты
+@rus После недолгого путешествия вниз и куда-то вбок по расщелине, ты
 спиной вниз падаешь на пол, усыпанный обгоревшими костями, осколками
 камней и еще бог знает чем со столь же острыми краями. Стены этой
 довольно тесной полости сплошь покрыты бороздами и выбоинами от силь-
@@ -6073,7 +6070,7 @@ O 0 47003 0 47001	* A small tree (The terrace)
 M 0 47000 1 47001 1	* The statue (The terrace)
 E 0 47004 0 16		*	Sword of Enforcement: wielded
 O 0 47005 0 47002	* {YThe sun{x (Аbove the clouds)
-O 0 47100 0 47100	* {xWooden tablet (Dusty road)
+O 0 47100 0 47100	* a wooden tablet (Dusty road)
 M 0 47100 2 47104 1	* a duck (Road to the village)
 G 0 47132 0		*	a small pile of feathers
 M 0 47101 4 47104 2	* a small duck (Road to the village)
@@ -6349,5 +6346,18 @@ mob echoaround $n The statue opens the west door, letting $n enter.
 mob transfer $n 47000
 ~
 #0
+
+#HELPS
+0 'KANZAKI VILLAGE'~
+*****************************************
+*                                       *
+*            Kanzaki village            *
+*                                       *
+*    Designed by Lothar and Eidu by     *
+* autumn'98, finished by Megissogwon on *
+*               December'99.            *
+*                                       *
+*****************************************~
+-1 $~
 
 #$

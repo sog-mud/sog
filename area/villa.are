@@ -681,7 +681,7 @@ A heavy club sheathed in lead lies here.~
 copper~
 weapon 0 0 AN
 exotic 3 5 'crush' 0
-10 30 100 P
+10 300 100 P
 A
 18 -2
 A
@@ -694,7 +694,7 @@ A bone mace lies here.~
 copper~
 weapon 0 0 AN
 exotic 3 5 'pound' 0
-10 20 100 P
+10 200 100 P
 A
 18 -1
 A
@@ -707,7 +707,7 @@ A bronze dagger lies here.~
 copper~
 weapon 0 0 AN
 exotic 3 5 'pierce' 0
-10 15 100 P
+10 150 100 P
 A
 18 -1
 A
@@ -720,7 +720,7 @@ A broad, heavy bronze blade lies here.~
 copper~
 weapon 0 0 AN
 exotic 3 5 'slash' 0
-10 25 100 P
+10 250 100 P
 A
 18 -2
 A
@@ -851,7 +851,7 @@ The chief's oak club is lying here in the dirt.~
 copper~
 weapon G 0 AN
 mace 5 13 'crush' 0
-60 25 600 P
+60 250 600 P
 A
 17 -15
 A
@@ -866,7 +866,7 @@ A wooden stick.~
 copper~
 weapon 0 0 AN
 exotic 2 5 'pound' 0
-4 15 40 P
+4 150 40 P
 g none~
 #24129
 wooden club~
@@ -875,7 +875,7 @@ A wooden club is lying here.~
 copper~
 weapon G 0 AN
 exotic 4 11 'crush' 0
-50 15 500 P
+50 150 500 P
 A
 19 6
 g none~

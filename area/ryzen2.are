@@ -343,7 +343,7 @@ A long spear with a wickedly sharp blade.~
 mithril~
 weapon EG 0 AN
 spear 5 8 'thrust' DEFHK
-35 9 1300 P
+35 90 1300 P
 A
 19 6
 A
@@ -395,7 +395,7 @@ A silver longsword covered in mystical battle runes lies here~
 silver~
 weapon GI 0 AN
 sword 5 5 'slash' D
-23 4 1350 P
+23 40 1350 P
 A
 18 1
 A

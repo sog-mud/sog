@@ -1,7 +1,6 @@
 #AREADATA
 Ver 2
 Name Old Midgaard~
-Builders hlodvig~
 VNUMs 5300 5499
 Credits Kahn~
 Security 9
@@ -1149,9 +1148,9 @@ A
 E
 sword~
 @eng You see a sword of great craftsmanship.  Imprinted on the side is:
-Hlodvig (c).
+(c) Merc. Ind.
 @rus Ты видишь меч, изготовленный с огромным мастерством. На его лезвии выгравировано:
-Hlodvig (c).
+(c) Merc. Ind.
 ~
 g male~
 #5318
@@ -1169,9 +1168,9 @@ A
 E
 mace~
 @eng You see a mace of great craftsmanship.  Imprinted on the side is:
-Hlodvig (c).
+(c) Merc Inc.
 @rus Ты видишь булаву, изготовленную с огромным мастерством. На ее рукояти выгравировано:
-Hlodvig (c).
+(c) Merc Inc.
 ~
 g female~
 #5319
@@ -1185,9 +1184,9 @@ armor 0 0 AD
 E
 chest plate~
 @eng You see a chest plate of great craftsmanship.  Stamped on the side is:
-Hlodvig (c).
+(c) Merc Inc.
 @rus Ты видишь нагрудную пластину, сделанную с огромным мастерством. На ней выгравировано:
-Hlodvig (c).
+(c) Merc Inc.
 ~
 g female~
 #5320
@@ -1201,9 +1200,9 @@ armor 0 0 AJ
 E
 shield~
 @eng You see a shield of great craftsmanship.  Imprinted on the side is:
-Hlodvig (c).
+(c) Merc Inc.
 @rus Ты видишь щит, сделанный с огромным мастерством. На нем выгравировано:
-Hlodvig (c).
+(c) Merc Inc.
 ~
 g male~
 #5321
@@ -1217,9 +1216,9 @@ armor 0 0 AC
 E
 cloak~
 @eng You see a cloak of great craftsmanship.  Imprinted on the side is:
-Hlodvig (c).
+(c) Merc Inc.
 @rus Ты видишь плащ, сшитый с огромным мастерством. На нем вышито:
-Hlodvig (c).
+(c) Merc Inc.
 ~
 g male~
 #5322
@@ -1233,9 +1232,9 @@ armor 0 0 AE
 E
 helm~
 @eng You see a helm of great craftsmanship.  Imprinted on the side is:
-Hlodvig (c).
+(c) Merc Inc.
 @rus Ты видишь шлем, сделанный с огромным мастерством. На нем выгравировано:
-Hlodvig (c).
+(c) Merc Inc.
 ~
 g male~
 #5323
@@ -1249,9 +1248,9 @@ armor 0 0 AF
 E
 plate leggings~
 @eng You see plate leggings of great craftsmanship.  Imprinted on the side is:
-Hlodvig (c).
+(c) Merc Inc.
 @rus Ты видишь пластинчатые гамаши, сделанные с огромным мастерством. На них выгравировано:
-Hlodvig (c).
+(c) Merc Inc.
 ~
 g plural~
 #5324
@@ -1265,14 +1264,14 @@ armor 0 0 AG
 E
 plate boots~
 @eng You see plate boots of great craftsmanship.  Imprinted on the side is:
-Hlodvig (c).
+(c) Merc Inc.
 @rus Ты видишь пластинчатые сапоги, сделанные с огромным мастерством. На них выгравировано:
-Hlodvig (c).
+(c) Merc Inc.
 ~
 g plural~
 #5325
 plate gloves пластинчатые перчатки~
-@eng a pair of imperial plate gloves@rus ~~пара~~ ~~имперских~~ ~~пластинчатых~~ ~~перчаток~~~
+@eng a pair of imperial plate gloves@rus ~~пара~~ имперских пластинчатых перчаток~
 @eng You see a pair of imperial plate gloves here.@rus Ты видишь пару имперских пластинчатых перчаток (gloves).~
 mithril~
 armor 0 0 AH
@@ -1281,15 +1280,15 @@ armor 0 0 AH
 E
 plate gloves~
 @eng You see plate gloves of great craftsmanship.  Imprinted on the side is:
-Hlodvig (c).
+(c) Merc Inc.
 @rus Ты видишь пластинчатые перчатки, сделанные с огромным мастерством. На них
 выгравировано:
-Hlodvig (c).
+(c) Merc Inc.
 ~
 g plural~
 #5326
 plate sleeves пластинчатые наручи~
-@eng a pair of imperial plate sleeves@rus ~~пара~~ ~~имперских~~ ~~пластинчатых~~ ~~наручей~~~
+@eng a pair of imperial plate sleeves@rus ~~пара~~ имперских пластинчатых наручей~
 @eng You see a pair of imperial plate sleeves here.@rus Ты видишь пару имперских пластинчатых наручей (sleeves).~
 mithril~
 armor 0 0 AI
@@ -1298,10 +1297,10 @@ armor 0 0 AI
 E
 plate sleeves~
 @eng You see plate sleeves of great craftsmanship.  Imprinted on the side is:
-Hlodvig (c).
+(c) Merc Inc.
 @rus Ты видишь пластинчатые наручи, сделанные с огромным мастерством. На них
 выгравировано:
-Hlodvig (c).
+(c) Merc Inc.
 ~
 g plural~
 #5327
@@ -1315,9 +1314,9 @@ armor 0 0 AK
 E
 cape~
 @eng You see a cape of great craftsmanship.  Imprinted on the side is:
-Hlodvig (c).
+(c) Merc Inc.
 @rus Ты видишь накидку, сшитую с огромным мастерством. На ней вышито:
-Hlodvig (c).
+(c) Merc Inc.
 ~
 g female~
 #5328
@@ -1331,9 +1330,9 @@ armor 0 0 AL
 E
 belt~
 @eng You see a belt of great craftsmanship.  Imprinted on the side is:
-Hlodvig (c).
+(c) Merc Inc.
 @rus Ты видишь портупею, изготовленную с огромным мастерством. На ней выбито:
-Hlodvig (c).
+(c) Merc Inc.
 ~
 g female~
 #5329
@@ -1347,10 +1346,8 @@ armor 0 0 AM
 E
 metal bracer~
 @eng You see a metal bracer of great craftsmanship.  Imprinted on the side is:
-Hlodvig (c).
-@rus Ты видишь металлический нарукавник, изготовленный с огромным мастерством. На нем
-выбито:
-Hlodvig (c).
+(c) Merc Inc.
+@rus Ты видишь металлический нарукавник, изготовленный с огромным мастерством.
 ~
 g male~
 #5330
@@ -1427,6 +1424,7 @@ map old~
 						  
 *****************************************************************************
  
+ 
 @rus  
                             Старый Мидгаард    
 *****************************************************************************
@@ -1490,23 +1488,6 @@ archway.
 жизнь! На арке укреплена небольшая золотая пластинка.
 ~
 0 0 city
-E
-sign~
-~
-E
-name~
-@eng plaque
-@rus алцж
-~
-E
-sign~
-@rus Таблица
-~
-E
-sign~
-@eng table
-@rus Табличка знак 
-~
 E
 plaque sign~
 @eng This zone has been heavily modified by Kahn and Hatchet of MERC
@@ -1675,7 +1656,7 @@ You can hear music coming from within the temple.
 Z 0 5350
 S
 #5304
-A Garden Path~
+@eng A Garden Path@rus Садовая тропинка~
 @eng A circular path surrounds a magnificent domed temple in the center of the
 city. Flowers grow on the sides of the path and the lush trees are laden with
 fruit. Vines and ivy snake up the sides of the temple, making this temple
@@ -1710,7 +1691,7 @@ The garden path continues around the building.
 Z 0 5305
 S
 #5305
-A garden path~
+@eng A garden path@rus Садовая тропинка~
 @eng A circular path surrounds a magnificent domed temple in the center of the
 city. Flowers grow on the sides of the path and the lush trees are laden with
 fruit. Vines and ivy snake up the sides of the temple, making this temple
@@ -1738,7 +1719,7 @@ You can hear music coming from within the temple.
 Z 0 5350
 S
 #5306
-A Garden Path~
+@eng A Garden Path@rus Садовая тропинка~
 @eng A circular path surrounds a magnificent domed temple in the center of the
 city. Flowers grow on the sides of the path and the lush trees are laden with
 fruit. Vines and ivy snake up the sides of the temple, making this temple

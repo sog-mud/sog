@@ -918,7 +918,7 @@ A black hilted sword with engravings on the blade lie here.~
 copper~
 weapon FG 0 AN
 sword 5 7 'slice' 0
-30 30 300 P
+30 300 300 P
 A
 18 5
 A
@@ -982,7 +982,7 @@ A black hilted sword with engravings on the blade lie here.~
 copper~
 weapon FG 0 AN
 sword 5 7 'slice' 0
-28 30 280 P
+28 300 280 P
 A
 18 2
 A
@@ -1126,7 +1126,7 @@ A black hilted sword with engravings on the blade lie here.~
 copper~
 weapon BFGM 0 AN
 sword 5 6 'pierce' 0
-27 35 270 P
+27 350 270 P
 A
 13 50
 A
@@ -1256,7 +1256,7 @@ A red steel warhammer with engravings on the head lies here.~
 copper~
 weapon BG 0 AN
 mace 5 5 'crush' 0
-20 35 200 P
+20 350 200 P
 A
 18 4
 A
@@ -1290,7 +1290,7 @@ A blade with runes etched in it is on the floor.~
 copper~
 weapon G 0 AN
 sword 4 5 'none' 0
-15 7 150 P
+15 70 150 P
 A
 18 2
 A
@@ -1303,7 +1303,7 @@ A hammer with runes etched in it is on the floor.~
 copper~
 weapon G 0 AN
 mace 4 5 'none' 0
-15 12 150 P
+15 120 150 P
 A
 18 2
 g none~
@@ -1314,7 +1314,7 @@ A polearm with runes etched in it is on the floor.~
 copper~
 weapon G 0 AN
 polearm 4 5 'none' 0
-15 15 150 P
+15 150 150 P
 A
 18 2
 g none~
@@ -1412,7 +1412,7 @@ A bunch of taxes and fines are here waiting to take your money.~
 copper~
 weapon 0 0 AN
 exotic 5 4 'suction' 0
-17 40 170 P
+17 400 170 P
 A
 15 -10000
 g none~
@@ -1423,7 +1423,7 @@ A large two-handed sword with runes etched in it is on the floor.~
 copper~
 weapon G 0 AN
 sword 6 6 'magic' F
-16 30 160 P
+16 300 160 P
 A
 18 4
 g male~
@@ -1596,7 +1596,7 @@ A frozen asparagus spear is on the ground melting.~
 copper~
 weapon 0 0 AN
 spear 3 5 'none' K
-10 15 100 P
+10 150 100 P
 A
 18 1
 g none~
@@ -1717,7 +1717,7 @@ A small dagger is here. It looks like the kind alot of travellers carry.~
 copper~
 weapon 0 0 AN
 dagger 4 4 'pierce' 0
-12 10 120 P
+12 100 120 P
 g none~
 #10284
 travellers spellbook~
@@ -1762,7 +1762,7 @@ You see a travellers sword here.~
 copper~
 weapon G 0 AN
 sword 5 4 'slash' 0
-16 5 160 P
+16 50 160 P
 g none~
 #10289
 travellers scalemail~
@@ -1789,7 +1789,7 @@ You see a travellers hammer here.~
 copper~
 weapon 0 0 AN
 mace 5 5 'none' 0
-19 5 190 P
+19 50 190 P
 g none~
 #10292
 Magnus's spellbook~

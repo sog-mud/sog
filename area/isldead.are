@@ -30,12 +30,16 @@ BJRe 0 HT 0 ABF 0 0
 FKMO
 stand stand female 0
 AV ABCDEFPQ giant unknown
+r bash 30
+r pierce 30
+r slash 20
 r fire 33
 r cold 33
+r lightning 33
 r negative 33
 r mental 33
 r disease 100
-r poison 33
+r poison 100
 r charm 100
 #22301
 green glutton ghost~
@@ -54,6 +58,7 @@ FT 0 U 0 ABC -1000 0
 FKP
 stand stand none 0
 0 0 medium unknown
+r charm 100
 #22302
 cantoras skeltal lord~
 Cantoras the Skeletal Lord~
@@ -72,9 +77,11 @@ BIV ABCHU huge unknown
 r bash 33
 r pierce 33
 r slash 33
+r fire -15
 r cold 100
 r lightning 33
 r acid 33
+r holy -33
 r negative 100
 r energy 33
 r mental 33
@@ -108,6 +115,7 @@ r holy -50
 r negative 100
 r disease 100
 r poison 100
+r charm 100
 #22304
 daemon faegwath~
 Faegwath the Undead Sorceror~
@@ -1026,7 +1034,7 @@ A huge glowing iron staff lies here.~
 iron~
 weapon AB BC AN
 staff 10 5 'flbite' F
-0 400 50000 P
+0 450 50000 P
 A
 18 3
 A
@@ -1115,12 +1123,12 @@ container Y BC 0
 g none~
 #22326
 axe great~
-the Greate Axe named "Barukkheled"~
+the Great Axe named "Barukkheled"~
 A some huge humming axe lies here.~
 iron~
 weapon Y BC AN
 axe 15 4 'frbite' EF
-45 100 100000 P
+45 450 100000 P
 A
 30 -33
 A
@@ -1139,7 +1147,7 @@ A fire weapon lies here.~
 flame~
 weapon ACU C AN
 whip 10 7 'flbite' A
-46 100 100000 P
+46 50 100000 P
 A
 31 -80
 A
@@ -1286,7 +1294,7 @@ the mace named "Taratol"~
 A silver mace lies here, surrounded by an aura of purity.~
 silver~
 weapon BIY C AN
-mace 10 6 'shbite' F
+mace 10 6 'shbite' 0
 46 100 100000 P
 A
 36 -33
@@ -1339,7 +1347,7 @@ An ornated lance lies here.~
 mithril~
 weapon BIKLY CF AN
 spear 18 3 'divine' FI
-0 200 100000 P
+45 200 100000 P
 A
 35 25
 A
@@ -1451,7 +1459,7 @@ the flail named "Thunderfist"~
 A heavy flail covered with sparks of an elemental energy is here.~
 energy~
 weapon BY C AN
-flail 15 4 'shock' F
+flail 15 4 'shock' 0
 46 200 100000 P
 A
 36 -30
@@ -1681,6 +1689,149 @@ wood~
 container Y B 0
 1000 ABCD 22360 1000 0
 45 1000 0 P
+g none~
+#22369
+helm sliver~
+a silver helm~
+A big silver helm lies on the ground.~
+silver~
+armor BY C AE
+10 10 7 5 0
+45 40 40000 P
+A
+18 3
+A
+19 3
+A
+17 -10
+A
+29 1
+A
+28 1
+A
+27 1
+g none~
+#22370
+silver vest~
+a silver vest~
+A vest made of silver lies heaped on the floor.~
+silver~
+armor BY C AD
+20 20 18 15 0
+45 100 50000 P
+A
+2 -1
+A
+26 1
+A
+19 4
+A
+1 2
+A
+28 3
+A
+29 2
+A
+27 2
+g none~
+#22371
+silver boot~
+a silver boots~
+A pair of silver boots lies here.~
+unknown~
+armor BY C 0
+10 10 8 7 0
+45 20 45000 P
+A
+17 -5
+A
+2 1
+A
+19 3
+A
+14 50
+g none~
+#22372
+silver sleeves~
+a silver sleeves~
+A set of silver sleeves lies here.~
+silver~
+armor BY C AI
+15 15 15 10 0
+45 20 30000 P
+A
+18 3
+A
+19 3
+A
+28 2
+A
+27 1
+A
+29 1
+g none~
+#22373
+silver gloves~
+a pair of silver gloves~
+A pair of silver gloves lies in a mud.~
+silver~
+armor BY C AH
+10 10 10 7 0
+45 10 0 P
+A
+18 3
+g none~
+#22374
+silver leggings~
+a set of silver leggings~
+A set of silver leggings lies here.~
+silver~
+armor BY C AF
+18 18 16 13 0
+45 25 30000 P
+A
+18 1
+A
+19 1
+A
+13 10
+A
+27 1
+A
+28 1
+A
+29 1
+A
+17 -10
+g none~
+#22375
+silver shield~
+a silver shield~
+A huge silver shield lies here.~
+silver~
+armor BY C AJ
+25 25 20 15 0
+45 100 50000 P
+A
+27 6
+A
+28 5
+A
+29 3
+g none~
+#22376
+silver dagger~
+a small silver dagger named "Backstabber"~
+A fine crafted silver dagger was foggoten here.~
+silver~
+weapon Y C AN
+dagger 20 2 'stab' DH
+45 80 10000 P
+S 'backstab' 40 0
+A
+18 5
+A
+19 2
 g none~
 #22399
 battleaxe dagger sword~
@@ -4524,6 +4675,7 @@ O 0 22329 0 22301	* a corpse (The Isle of the Lost Souls)
 E 0 22300 0 17		*	key of the crypts: held in the hands
 O 0 22330 0 22302	*  (The Entrance to the Dungeon)
 O 0 22331 0 22302	* a parchment (The Entrance to the Dungeon)
+M 0 22300 1 22302 1	* the Manticore (The Entrance to the Dungeon)
 M 0 22303 12 22303 1	* the Shade (A Crypt)
 E 0 22309 0 13		*	a black belt of the 5 flowers: around the waist
 E 0 22310 0 3		*	a midnight cloak: around the neck (1)
@@ -4635,7 +4787,7 @@ P 0 22343 10 22322 1	* the chest of the beast: an ebony helmet
 O 0 22325 0 22358	* the chest of the beast (A Cage)
 M 0 22316 1 22358 1	* Tselakus, the Dreadlord (A Cage)
 E 0 22324 0 17		*	the key of the beast: held in the hands
-P 0 22326 1 22325 1	* the chest of the beast: the Greate Axe named "Barukkheled"
+P 0 22326 1 22325 1	* the chest of the beast: the Great Axe named "Barukkheled"
 P 0 22344 10 22325 1	* the chest of the beast: a set of ebony leggings
 M 0 22325 8 22361 1	* the Colbran (The underworld sea)
 M 0 22326 8 22361 1	* the Gelatinous cube (The underworld sea)
@@ -4702,36 +4854,61 @@ P 0 22348 10 22335 1	* a chest: a pair of ebony boots
 M 0 22327 1 22391 1	* Itangast, the Fire Drake (The Gate before Treasure Keep)
 E 0 22351 0 17		*	the key of treasure keep: held in the hands
 O 0 22361 0 22392	* chest (The North-West Coner of Treasure Keep)
+M 0 22330 42 22392 2	* the undead guard (The North-West Coner of Treasure Keep)
+M 0 22330 42 22393 2	* the undead guard (The North Wall of Treasure Keep)
 O 0 22362 0 22394	* chest (The North Wall of Treasure Keep)
+M 0 22330 42 22394 2	* the undead guard (The North Wall of Treasure Keep)
+M 0 22330 42 22395 2	* the undead guard (The North Wall of Treasure Keep)
 O 0 22363 0 22396	* chest (The North-East Corner of Treasure Keep)
+M 0 22330 42 22396 2	* the undead guard (The North-East Corner of Treasure Keep)
+M 0 22330 42 22397 2	* the undead guard (The West Wall of Treasure Keep)
 M 0 22329 8 22398 1	* the high guard (The Treasure Keep)
 G 0 22356 0		*	the bone key
+M 0 22330 42 22398 1	* the undead guard (The Treasure Keep)
 M 0 22329 8 22399 1	* the high guard (The Treasure Keep)
 E 0 22357 0 17		*	the bone key: held in the hands
+M 0 22330 42 22399 1	* the undead guard (The Treasure Keep)
 M 0 22329 8 22400 1	* the high guard (The Treasure Keep)
 E 0 22355 0 17		*	the bone key: held in the hands
+M 0 22330 42 22400 1	* the undead guard (The Treasure Keep)
+M 0 22330 42 22401 2	* the undead guard (The East Wall of Treasure Keep)
 O 0 22364 0 22402	* chest (The West Wall of Treasure Keep)
+M 0 22330 42 22402 2	* the undead guard (The West Wall of Treasure Keep)
 M 0 22329 8 22403 1	* the high guard (The Treasure Keep)
 E 0 22360 0 17		*	the bone key: held in the hands
+M 0 22330 42 22403 1	* the undead guard (The Treasure Keep)
+M 0 22330 42 22404 2	* the undead guard (The Entrance to Treasure Keep)
 M 0 22329 8 22405 1	* the high guard (The Treasure Keep)
 E 0 22358 0 17		*	the bony key: held in the hands
+M 0 22330 42 22405 1	* the undead guard (The Treasure Keep)
 O 0 22365 0 22406	* chest (The East Wall of Treasure Keep)
+M 0 22330 42 22406 2	* the undead guard (The East Wall of Treasure Keep)
+M 0 22330 42 22407 2	* the undead guard (The West Wall of Treasure Keep)
 M 0 22329 8 22408 1	* the high guard (The Treasure Keep)
 E 0 22353 0 17		*	the bone key: held in the hands
+M 0 22330 42 22408 1	* the undead guard (The Treasure Keep)
 M 0 22329 8 22409 1	* the high guard (The Treasure Keep)
 E 0 22359 0 17		*	the bone key: held in the hands
+M 0 22330 42 22409 1	* the undead guard (The Treasure Keep)
 M 0 22329 8 22410 1	* the high guard (The Treasure Keep)
 E 0 22354 0 17		*	the bone key: held in the hands
+M 0 22330 42 22410 1	* the undead guard (The Treasure Keep)
+M 0 22330 42 22411 2	* the undead guard (The East Wall of Treasure Keep)
 O 0 22366 0 22412	* chest (The South-West Corner  of Treasure Keep)
+M 0 22330 42 22412 2	* the undead guard (The South-West Corner  of Treasure Keep)
+M 0 22330 42 22413 2	* the undead guard (The South Wall of Treasure Keep)
 O 0 22367 0 22414	* chest (The South Wall of Treasure Keep)
+M 0 22330 42 22414 2	* the undead guard (The South Wall of Treasure Keep)
+M 0 22330 42 22415 2	* the undead guard (The South Wall of Treasure Keep)
 O 0 22368 0 22416	* chest (The South-East Corner of Treasure Keep)
+M 0 22330 42 22416 2	* the undead guard (The South-East Corner of Treasure Keep)
 S
 
 #OLIMITS
 O 22316 8	* the Wheel of Pa-Ra-Voz
 O 22318 4	* the Axel of Pa-Ra-Voz
 O 22321 10	* the Shield of Deflection
-O 22326 1	* the Greate Axe named "Barukkheled"
+O 22326 1	* the Great Axe named "Barukkheled"
 O 22327 1	* a Flame Whip
 O 22340 1	* the mace named "Taratol"
 O 22341 10	* an ebony breastplate
@@ -4744,6 +4921,7 @@ O 22347 1	* the flail named "Thunderfist"
 O 22348 10	* a pair of ebony boots
 O 22349 1	* the whip named "Careth Asdriag"
 O 22350 10	* a pair of ebony gloves
+O 22376 2	* a small silver dagger named "Backstabber"
 O 22399 0	* battlaxe 
 S
 

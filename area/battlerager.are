@@ -240,7 +240,7 @@ dagger fine gordall~
 adamantite~
 weapon 0 0 AN
 dagger 4 7 'pierce' DE
-32 450 5600 P
+32 4500 5600 P
 g none~
 #95406
 sword fine gordall~
@@ -249,7 +249,7 @@ sword fine gordall~
 adamantite~
 weapon 0 0 AN
 sword 5 6 'slash' DE
-33 450 5600 P
+33 4500 5600 P
 g none~
 #95407
 axe fine gordall~
@@ -258,7 +258,7 @@ axe fine gordall~
 adamantite~
 weapon 0 0 AN
 axe 6 6 'cleave' DF
-36 450 5600 P
+36 4500 5600 P
 g none~
 #95408
 tattoo clanmark~

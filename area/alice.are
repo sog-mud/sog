@@ -1254,7 +1254,7 @@ A soup-covered ladle lies here, dripping.~
 copper~
 weapon 0 0 AN
 exotic 5 8 'blast' 0
-37 10 370 P
+37 100 370 P
 A
 18 6
 A
@@ -1433,7 +1433,7 @@ A paint brush stained bright red is dripping on the floor here.~
 copper~
 weapon 0 0 AN
 exotic 5 8 'suction' 0
-36 5 360 P
+36 50 360 P
 A
 19 4
 g none~
@@ -1453,7 +1453,7 @@ A soldier's club lies here. It looks like the club off a playing card.~
 copper~
 weapon 0 0 AN
 mace 5 8 'crush' 0
-37 15 370 P
+37 150 370 P
 A
 5 2
 A
@@ -1514,7 +1514,7 @@ A flamingo that is being used as a croquet mallet wriggles about here.~
 copper~
 weapon G 0 AN
 exotic 5 8 'bite' 0
-37 10 370 P
+37 100 370 P
 A
 2 -2
 A
@@ -1549,7 +1549,7 @@ The executioner's axe is leaning against one wall here.~
 copper~
 weapon AEGM B AN
 axe 5 10 'slice' 0
-44 20 440 P
+44 200 440 P
 A
 1 4
 A
@@ -1580,7 +1580,7 @@ A squeaky pencil is driving you nuts!~
 copper~
 weapon 0 0 AN
 exotic 5 9 'stab' 0
-38 1 380 P
+38 10 380 P
 g none~
 #21064
 hessian sack~

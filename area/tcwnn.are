@@ -1140,7 +1140,7 @@ A heavy club sheathed in lead lies here.~
 wood~
 weapon 0 0 AN
 mace 3 3 'crush' 0
-5 30 20 P
+5 300 20 P
 A
 19 3
 A
@@ -1153,7 +1153,7 @@ A Sturdy Mace lies here.~
 wood~
 weapon 0 0 AN
 mace 2 4 'pound' 0
-6 20 0 P
+6 200 0 P
 A
 19 1
 A
@@ -1166,7 +1166,7 @@ A good backstabbing weapon, this.~
 steel~
 weapon 0 0 AN
 dagger 3 4 'pierce' 0
-13 15 0 P
+13 150 0 P
 A
 19 -2
 A
@@ -1179,7 +1179,7 @@ A Wickedly-Curved Scimitar hums ominously here.~
 steel~
 weapon BEGJ 0 AN
 sword 2 4 'slash' 0
-6 25 20 P
+6 250 20 P
 A
 19 2
 A
@@ -1336,7 +1336,7 @@ The Castellan's Longsword is lying here in the dirt.~
 steel~
 weapon G 0 AN
 sword 6 7 'slash' 0
-53 25 1200 P
+53 250 1200 P
 A
 23 -5
 A
@@ -1353,7 +1353,7 @@ A footpad's sap, used to stun victims.~
 unknown~
 weapon 0 0 AN
 mace 3 3 'pound' 0
-3 15 200 P
+3 150 200 P
 g none~
 #31033
 sword longsword~
@@ -1362,7 +1362,7 @@ An Ornate Longsword is lying here.~
 steel~
 weapon G 0 AN
 sword 8 6 'slash' 0
-54 25 2000 P
+54 250 2000 P
 A
 19 4
 A
@@ -1444,7 +1444,7 @@ A sturdy Throwing Spear has been thrust into the ground here.~
 steel~
 weapon G 0 AN
 spear 6 8 'pierce' K
-52 20 3000 P
+52 200 3000 P
 A
 19 3
 A

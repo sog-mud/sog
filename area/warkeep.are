@@ -377,7 +377,7 @@ A bone sword is stuck in the ground here.~
 copper~
 weapon AGJ 0 AN
 sword 5 7 'pierce' 0
-30 10 300 P
+30 100 300 P
 A
 18 4
 A
@@ -461,7 +461,7 @@ A rune-covered dagger has been left here.~
 copper~
 weapon BEGJ 0 AN
 dagger 5 7 'pierce' 0
-28 5 280 P
+28 50 280 P
 A
 18 6
 g none~
@@ -492,7 +492,7 @@ A spiked club lies here.~
 copper~
 weapon J B AN
 mace 5 6 'crush' 0
-25 20 250 P
+25 200 250 P
 A
 18 -4
 A
@@ -552,7 +552,7 @@ A bronze sword is buried in the ground here.~
 copper~
 weapon 0 0 AN
 sword 5 5 'slash' 0
-18 12 180 P
+18 120 180 P
 g none~
 #15720
 robes~
@@ -574,7 +574,7 @@ A wooden staff with a bronze head lies here.~
 copper~
 weapon 0 B AN
 staff 5 5 'pound' 0
-21 9 210 P
+21 90 210 P
 A
 19 3
 g none~
@@ -640,7 +640,7 @@ A rare steel sword covered in runes lies here.~
 copper~
 weapon AG 0 AN
 sword 5 6 'slash' 0
-27 10 270 P
+27 100 270 P
 A
 18 4
 A
@@ -696,7 +696,7 @@ A pick rests here.~
 copper~
 weapon 0 B AN
 axe 4 4 'stab' 0
-12 10 120 P
+12 100 120 P
 g none~
 #15732
 shovel~
@@ -705,7 +705,7 @@ A shovel rests here.~
 copper~
 weapon 0 B AN
 exotic 4 4 'pound' 0
-12 10 120 P
+12 100 120 P
 g none~
 #15733
 rubble~
@@ -723,7 +723,7 @@ A whip has been curled up here.~
 copper~
 weapon 0 0 AN
 whip 5 5 'whip' 0
-20 5 200 P
+20 50 200 P
 g none~
 #15735
 flind bar~

@@ -328,7 +328,7 @@ An ornate Longsword is lying here.~
 copper~
 weapon G 0 AN
 sword 4 11 'pierce' 0
-50 25 500 P
+50 250 500 P
 A
 18 4
 A
@@ -453,7 +453,7 @@ A knight's broadsword lies here.~
 copper~
 weapon AGK 0 AN
 sword 5 13 'slash' 0
-58 10 580 P
+58 100 580 P
 A
 18 8
 A
@@ -572,7 +572,7 @@ A finely-crafted crossbow lies here.~
 copper~
 weapon 0 B A
 bow 4 11 'pierce' 0
-48 10 480 P
+48 100 480 P
 A
 18 6
 g none~
@@ -706,7 +706,7 @@ A belaying pin lies here.~
 copper~
 weapon 0 0 AN
 exotic 3 5 'pound' 0
-8 5 80 P
+8 50 80 P
 g none~
 #31232
 barrel ale~
@@ -789,7 +789,7 @@ A cutlass lies here.~
 copper~
 weapon 0 0 AN
 exotic 3 5 'slash' 0
-8 7 80 P
+8 70 80 P
 g none~
 #31241
 ring wizardry~

@@ -217,7 +217,7 @@ mace black черная дубина~
 iron~
 weapon B 0 AN
 mace 3 9 'pound' 0
-20 25 5000 P
+20 150 5000 P
 g @eng none@rus female~
 #29351
 glowing skull пылающий череп~
@@ -248,6 +248,8 @@ gold~
 treasure AG 0 AB
 0 0 0 0 0
 45 1 900 P
+A
+20 -15
 A
 19 2
 A
@@ -296,7 +298,7 @@ ancient longsword sword древний старый меч~
 adamantite~
 weapon AG 0 AN
 sword 5 9 'slash' DH
-40 12 2500 P
+40 200 2500 P
 A
 19 3
 A
@@ -328,7 +330,7 @@ sword hell wraith меч призрак ада~
 adamantite~
 weapon ABEGM 0 AN
 exotic 10 6 'bite' CE
-45 10 5000 P
+45 250 5000 P
 A
 2 1
 A
@@ -1226,7 +1228,10 @@ E 0 29350 0 16		*	an old black mace: wielded
 S
 
 #OLIMITS
+O 29354 5	* a Garnet Ring
 O 29357 9	* an Ancient Longsword
+O 29358 9	* a black dragon scale
+O 29359 2	* the Hell's Wraith
 O 29373 1	* a large obsidian cross
 S
 

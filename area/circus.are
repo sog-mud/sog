@@ -640,7 +640,7 @@ A small sword lies here.~
 unknown~
 weapon 0 0 AN
 sword 3 3 'pierce' 0
-2 1 8 P
+2 10 8 P
 A
 18 3
 A
@@ -693,7 +693,7 @@ A razor lies here.~
 unknown~
 weapon 0 0 AN
 exotic 1 5 'stab' 0
-2 1 20 P
+2 10 20 P
 A
 19 2
 A
@@ -732,7 +732,7 @@ A sharp, well balanced knife lies on the ground.~
 unknown~
 weapon 0 0 AN
 dagger 2 3 'stab' D
-2 1 12 P
+2 10 12 P
 A
 18 2
 g none~
@@ -756,7 +756,7 @@ A leather whip is lying on the ground.~
 unknown~
 weapon 0 0 AN
 whip 4 3 'whip' 0
-8 1 256 P
+8 10 256 P
 A
 18 5
 A
@@ -1054,7 +1054,7 @@ A thin knife with a sharp blade lies here.~
 unknown~
 weapon 0 0 AN
 dagger 4 3 'slice' D
-6 1 108 P
+6 10 108 P
 A
 18 -2
 A
@@ -1076,7 +1076,7 @@ A very sharp knife gleams from the floor.~
 unknown~
 weapon 0 0 AN
 dagger 6 3 'pierce' D
-16 1 2000 P
+16 10 2000 P
 A
 18 3
 A

@@ -865,7 +865,7 @@ A large barbed sting is here.~
 stone~
 weapon EQ 0 AN
 dagger 6 20 'pierce' GH
-91 6 4500 G
+91 60 4500 G
 A
 18 10
 g none~
@@ -924,7 +924,7 @@ A golden sickle is here.~
 gold~
 weapon GIKL 0 AN
 exotic 10 10 'slice' E
-80 45 3500 P
+80 450 3500 P
 A
 19 5
 A
@@ -972,7 +972,7 @@ A great white bow lies here.~
 adamantite~
 weapon EJM 0 AN
 bow 10 10 'blast' AFH
-85 10 12000 P
+85 100 12000 P
 A
 19 5
 A
@@ -998,7 +998,7 @@ A great two-handed sword lies here.~
 adamantite~
 weapon EJM 0 AN
 sword 11 12 'slash' DEFH
-85 20 14000 P
+85 200 14000 P
 A
 19 10
 A
@@ -1062,7 +1062,7 @@ An unholy scythe, devours the light here.~
 unknown~
 weapon CEFJMQ 0 AN
 polearm 11 10 'cleave' CDFH
-85 20 14000 P
+85 200 14000 P
 A
 19 10
 A
@@ -1075,7 +1075,7 @@ A lance hums with a heavenly aura.~
 adamantite~
 weapon ABGIKM 0 AN
 lance 12 10 'pierce' A
-91 15 20000 P
+91 150 20000 P
 A
 19 10
 A
@@ -1221,7 +1221,7 @@ A huge two handed sword lies here.~
 adamantite~
 weapon IKLM 0 AN
 sword 3 43 'slash' DF
-91 30 25000 P
+91 300 25000 P
 g none~
 #14031
 robe white~
