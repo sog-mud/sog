@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.58 1999-07-21 04:19:19 avn Exp $
+ * $Id: db_area.c,v 1.58.2.1 2001-08-02 18:34:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1250,7 +1250,7 @@ DBLOAD_FUN(load_mobiles)
                 else if (!str_prefix(word,"aff"))
 		    REMOVE_BIT(pMobIndex->affected_by,vector);
 		else if (!str_prefix(word,"off"))
-		    REMOVE_BIT(pMobIndex->affected_by,vector);
+		    REMOVE_BIT(pMobIndex->off_flags,vector);
 		else if (!str_prefix(word,"imm"))
 		    REMOVE_BIT(pMobIndex->imm_flags,vector);
 		else if (!str_prefix(word,"res"))
