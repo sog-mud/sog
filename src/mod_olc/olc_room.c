@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.57.2.6 2001-02-11 21:21:33 fjoe Exp $
+ * $Id: olc_room.c,v 1.57.2.7 2001-11-14 15:27:52 avn Exp $
  */
 
 #include "olc.h"
@@ -1268,240 +1268,214 @@ void display_resets(CHAR_DATA *ch)
 
 void do_resets(CHAR_DATA *ch, const char *argument)
 {
-    char arg1[MAX_INPUT_LENGTH];
-    char arg2[MAX_INPUT_LENGTH];
-    char arg3[MAX_INPUT_LENGTH];
-    char arg4[MAX_INPUT_LENGTH];
-    char arg5[MAX_INPUT_LENGTH];
-    char arg6[MAX_INPUT_LENGTH];
-    char arg7[MAX_INPUT_LENGTH];
-    RESET_DATA *pReset = NULL;
+	char arg1[MAX_INPUT_LENGTH];
+	char arg2[MAX_INPUT_LENGTH];
+	char arg3[MAX_INPUT_LENGTH];
+	char arg4[MAX_INPUT_LENGTH];
+	char arg5[MAX_INPUT_LENGTH];
+	char arg6[MAX_INPUT_LENGTH];
+	char arg7[MAX_INPUT_LENGTH];
+	RESET_DATA *pReset = NULL;
 	ROOM_INDEX_DATA *pRoom = ch->in_room;
 
 
-    argument = one_argument(argument, arg1, sizeof(arg1));
-    argument = one_argument(argument, arg2, sizeof(arg2));
-    argument = one_argument(argument, arg3, sizeof(arg3));
-    argument = one_argument(argument, arg4, sizeof(arg4));
-    argument = one_argument(argument, arg5, sizeof(arg5));
-    argument = one_argument(argument, arg6, sizeof(arg6));
-    argument = one_argument(argument, arg7, sizeof(arg7));
+	argument = one_argument(argument, arg1, sizeof(arg1));
+	argument = one_argument(argument, arg2, sizeof(arg2));
+	argument = one_argument(argument, arg3, sizeof(arg3));
+	argument = one_argument(argument, arg4, sizeof(arg4));
+	argument = one_argument(argument, arg5, sizeof(arg5));
+	argument = one_argument(argument, arg6, sizeof(arg6));
+	argument = one_argument(argument, arg7, sizeof(arg7));
 
-    if (!IS_BUILDER(ch, pRoom->area))
-    {
-	char_puts("Resets: Invalid security for editing this area.\n",
-                      ch);
-	return;
-    }
-
-    /*
-     * Display resets in current room.
-     * -------------------------------
-     */
-    if (arg1[0] == '\0')
-    {
-	if (pRoom->reset_first)
-	{
-	    char_puts(
-		"Resets: M = mobile, R = room, O = object, "
-		"P = pet, S = shopkeeper\n", ch);
-	    display_resets(ch);
-	}
-	else
-	    char_puts("No resets in this room.\n", ch);
-    }
-
-
-    /*
-     * Take index number and search for commands.
-     * ------------------------------------------
-     */
-    if (is_number(arg1))
-    {
-	/*
-	 * Delete a reset.
-	 * ---------------
-	 */
-	if (!str_cmp(arg2, "delete"))
-	{
-	    int insert_loc = atoi(arg1);
-
-	    if (!pRoom->reset_first)
-	    {
-		char_puts("No resets in this area.\n", ch);
+	if (!IS_BUILDER(ch, pRoom->area)) {
+		char_puts("Resets: Invalid security for editing this area.\n", ch);
 		return;
-	    }
-
-	    if (insert_loc-1 <= 0)
-	    {
-		pReset = pRoom->reset_first;
-		pRoom->reset_first = pRoom->reset_first->next;
-		if (!pRoom->reset_first)
-		    pRoom->reset_last = NULL;
-	    }
-	    else
-	    {
-		int iReset = 0;
-		RESET_DATA *prev = NULL;
-
-		for (pReset = pRoom->reset_first;
-		  pReset;
-		  pReset = pReset->next)
-		{
-		    if (++iReset == insert_loc)
-			break;
-		    prev = pReset;
-		}
-
-		if (!pReset)
-		{
-		    char_puts("Reset not found.\n", ch);
-		    return;
-		}
-
-		if (prev)
-		    prev->next = prev->next->next;
-		else
-		    pRoom->reset_first = pRoom->reset_first->next;
-
-		for (pRoom->reset_last = pRoom->reset_first;
-		  pRoom->reset_last->next;
-		  pRoom->reset_last = pRoom->reset_last->next);
-	    }
-
-	    reset_free(pReset);
-	    TOUCH_AREA(pRoom->area);
-	    char_puts("Reset deleted.\n", ch);
 	}
-	else
+
 	/*
-	 * Add a reset.
-	 * ------------
+	 * Display resets in current room.
+	 * -------------------------------
 	 */
-	if ((!str_cmp(arg2, "mob") && is_number(arg3))
-	  || (!str_cmp(arg2, "obj") && is_number(arg3)))
-	{
-	    /*
-	     * Check for Mobile reset.
-	     * -----------------------
-	     */
-	    if (!str_cmp(arg2, "mob"))
-	    {
-		if (get_mob_index(is_number(arg3) ? atoi(arg3) : 1) == NULL)
-		  {
-		    char_puts("Mob no existe.\n",ch);
-		    return;
-		  }
-		pReset = reset_new();
-		pReset->command = 'M';
-		pReset->arg1    = atoi(arg3);
-		pReset->arg2    = is_number(arg4) ? atoi(arg4) : 1; /* Max # */
-		pReset->arg3    = pRoom->vnum;
-		pReset->arg4	= is_number(arg5) ? atoi(arg5) : 1; /* Min # */
-	    }
-	    else
-	    /*
-	     * Check for Object reset.
-	     * -----------------------
-	     */
-	    if (!str_cmp(arg2, "obj"))
-	    {
-		pReset = reset_new();
-		pReset->arg1    = atoi(arg3);
-		/*
-		 * Inside another object.
-		 * ----------------------
-		 */
-		if (!str_prefix(arg4, "inside"))
-		{
-		    OBJ_INDEX_DATA *temp;
-
-		    temp = get_obj_index(is_number(arg5) ? atoi(arg5) : 1);
-		    if ((temp->item_type != ITEM_CONTAINER) &&
-		         (temp->item_type != ITEM_CORPSE_NPC))
-		     {
-		       char_puts("Objeto 2 no es container.\n", ch);
-		       return;
-		     }
-		    pReset->command = 'P';
-		    pReset->arg2    = is_number(arg6) ? atoi(arg6) : 1;
-		    pReset->arg3    = is_number(arg5) ? atoi(arg5) : 1;
-		    pReset->arg4    = is_number(arg7) ? atoi(arg7) : 1;
-		}
-		else
-		/*
-		 * Inside the room.
-		 * ----------------
-		 */
-		if (!str_cmp(arg4, "room"))
-		{
-		    if (get_obj_index(atoi(arg3)) == NULL)
-		      {
-		         char_puts("Vnum no existe.\n",ch);
-		         return;
-		      }
-		    pReset->command  = 'O';
-		    pReset->arg2     = 0;
-		    pReset->arg3     = pRoom->vnum;
-		    pReset->arg4     = 0;
-		}
-		else {
-		/*
-		 * Into a Mobile's inventory.
-		 * --------------------------
-		 */
-		    int loc = WEAR_NONE;
-		    int vnum;
-
-		    if (str_prefix(arg4, "none")
-		    &&  str_prefix(arg4, "inventory")
-		    &&  (loc = flag_value(wear_loc_flags, arg4)) < 0) {
-				show_flags(ch, wear_loc_flags);
-				return;
-		    }
-
-		    if (get_obj_index(vnum = atoi(arg3)) == NULL) {
-		         char_puts("Vnum no existe.\n",ch);
-		         return;
-		    }
-		    pReset->arg1 = vnum;
-		    pReset->arg3 = loc;
-		    if (pReset->arg3 == WEAR_NONE)
-			pReset->command = 'G';
-		    else
-			pReset->command = 'E';
-		}
-	    }
-	    reset_add(pReset, pRoom, atoi(arg1));
-	    TOUCH_AREA(pRoom->area);
-	    char_puts("Reset added.\n", ch);
+	if (arg1[0] == '\0') {
+		if (pRoom->reset_first) {
+			char_puts("Resets: M = mobile, R = room, O = object, "
+				"P = pet, S = shopkeeper\n", ch);
+		display_resets(ch);
+		return;
 	}
 	else
-	if (!str_cmp(arg2, "random") && is_number(arg3))
-	{
-		if (atoi(arg3) < 1 || atoi(arg3) > 6)
-			{
+		char_puts("No resets in this room.\n", ch);
+		return;
+	}
+
+
+	/*
+	 * Take index number and search for commands.
+	 * ------------------------------------------
+	 */
+	if (is_number(arg1)) {
+		/*
+		 * Delete a reset.
+		 * ---------------
+		 */
+		if (!str_cmp(arg2, "delete")) {
+			int insert_loc = atoi(arg1);
+
+			if (!pRoom->reset_first) {
+				char_puts("No resets in this area.\n", ch);
+				return;
+			}
+
+			if (insert_loc <= 1) {
+				pReset = pRoom->reset_first;
+				pRoom->reset_first = pRoom->reset_first->next;
+				if (!pRoom->reset_first)
+					pRoom->reset_last = NULL;
+			}
+			else {
+				int iReset = 0;
+				RESET_DATA *prev = NULL;
+
+				for (pReset = pRoom->reset_first; pReset; pReset = pReset->next) {
+					if (++iReset == insert_loc)
+						break;
+					prev = pReset;
+				}
+
+				if (!pReset) {
+					char_puts("Reset not found.\n", ch);
+					return;
+				}
+
+				if (prev)
+					prev->next = prev->next->next;
+				else
+					pRoom->reset_first = pRoom->reset_first->next;
+
+				for (pRoom->reset_last = pRoom->reset_first;
+					pRoom->reset_last->next;
+					pRoom->reset_last = pRoom->reset_last->next)
+						;
+			}
+
+			reset_free(pReset);
+			TOUCH_AREA(pRoom->area);
+			char_puts("Reset deleted.\n", ch);
+		}
+		/*
+		 * Add a reset.
+		 * ------------
+		 */
+		else if ((!str_cmp(arg2, "mob") && is_number(arg3))
+		|| (!str_cmp(arg2, "obj") && is_number(arg3))) {
+			/*
+			 * Check for Mobile reset.
+			 * -----------------------
+			 */
+			if (!str_cmp(arg2, "mob")) {
+				if (get_mob_index(is_number(arg3) ? atoi(arg3) : 1) == NULL) {
+					char_puts("No such mob.\n",ch);
+					return;
+				}
+				pReset = reset_new();
+				pReset->command = 'M';
+				pReset->arg1    = atoi(arg3);
+				pReset->arg2    = is_number(arg4) ? atoi(arg4) : 1; /* Max # */
+				pReset->arg3    = pRoom->vnum;
+				pReset->arg4	= is_number(arg5) ? atoi(arg5) : 1; /* Min # */
+			}
+			/*
+			 * Check for Object reset.
+			 * -----------------------
+			 */
+			else if (!str_cmp(arg2, "obj")) {
+				pReset = reset_new();
+				pReset->arg1    = atoi(arg3);
+				/*
+				 * Inside another object.
+				 * ----------------------
+				 */
+				if (!str_prefix(arg4, "inside")) {
+					OBJ_INDEX_DATA *temp;
+
+					temp = get_obj_index(is_number(arg5) ? atoi(arg5) : 1);
+					if ((temp->item_type != ITEM_CONTAINER)
+					&& (temp->item_type != ITEM_CORPSE_NPC)) {
+						char_puts("Object is not a container.\n", ch);
+						return;
+					}
+					pReset->command = 'P';
+					pReset->arg2    = is_number(arg6) ? atoi(arg6) : 1;
+					pReset->arg3    = is_number(arg5) ? atoi(arg5) : 1;
+					pReset->arg4    = is_number(arg7) ? atoi(arg7) : 1;
+				}
+				/*
+				 * Inside the room.
+				 * ----------------
+				 */
+				else if (!str_cmp(arg4, "room")) {
+					if (get_obj_index(atoi(arg3)) == NULL) {
+						char_puts("Vnum does not exist.\n",ch);
+						return;
+					}
+					pReset->command  = 'O';
+					pReset->arg2     = 0;
+					pReset->arg3     = pRoom->vnum;
+					pReset->arg4     = 0;
+				}
+				/*
+				 * Into a Mobile's inventory.
+				 * --------------------------
+				 */
+				else {
+					int loc = WEAR_NONE;
+					int vnum;
+
+					if (str_prefix(arg4, "none")
+					&&  str_prefix(arg4, "inventory")
+					&&  (loc = flag_value(wear_loc_flags, arg4)) < 0) {
+					show_flags(ch, wear_loc_flags);
+						return;
+					}
+
+					if (get_obj_index(vnum = atoi(arg3)) == NULL) {
+						char_puts("Vnum does not exist.\n",ch);
+						return;
+					}
+					pReset->arg1 = vnum;
+					pReset->arg3 = loc;
+					if (pReset->arg3 == WEAR_NONE)
+						pReset->command = 'G';
+					else
+						pReset->command = 'E';
+				}
+			}
+			reset_add(pReset, pRoom, atoi(arg1));
+			TOUCH_AREA(pRoom->area);
+			char_puts("Reset added.\n", ch);
+		}
+		else if (!str_cmp(arg2, "random") && is_number(arg3)) {
+			if (atoi(arg3) < 1 || atoi(arg3) > 6) {
 				char_puts("Invalid argument.\n", ch);
 				return;
 			}
-		pReset = reset_new();
-		pReset->command = 'R';
-		pReset->arg1 = pRoom->vnum;
-		pReset->arg2 = atoi(arg3);
-		reset_add(pReset, pRoom, atoi(arg1));
+			pReset = reset_new();
+			pReset->command = 'R';
+			pReset->arg1 = pRoom->vnum;
+			pReset->arg2 = atoi(arg3);
+			reset_add(pReset, pRoom, atoi(arg1));
 
-		TOUCH_AREA(pRoom->area);
-		char_puts("Random exits reset added.\n", ch);
+			TOUCH_AREA(pRoom->area);
+			char_puts("Random exits reset added.\n", ch);
+		}
+		else {
+			char_puts("Syntax: RESET <number> OBJ <vnum> <wear_loc>\n", ch);
+			char_puts("        RESET <number> OBJ <vnum> inside <vnum> [limit] [count]\n", ch);
+			char_puts("        RESET <number> OBJ <vnum> room\n", ch);
+			char_puts("        RESET <number> MOB <vnum> [max #x area] [max #x room]\n", ch);
+			char_puts("        RESET <number> DELETE\n", ch);
+			char_puts("        RESET <number> RANDOM [#x exits]\n", ch);
+		}
 	}
-	else
-	{
-	char_puts("Syntax: RESET <number> OBJ <vnum> <wear_loc>\n", ch);
-	char_puts("        RESET <number> OBJ <vnum> inside <vnum> [limit] [count]\n", ch);
-	char_puts("        RESET <number> OBJ <vnum> room\n", ch);
-	char_puts("        RESET <number> MOB <vnum> [max #x area] [max #x room]\n", ch);
-	char_puts("        RESET <number> DELETE\n", ch);
-	char_puts("        RESET <number> RANDOM [#x exits]\n", ch);
-	}
-    }
 }
 
