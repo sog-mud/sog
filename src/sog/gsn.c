@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.32.2.7 2000-04-10 12:45:36 fjoe Exp $
+ * $Id: gsn.c,v 1.32.2.8 2000-04-19 11:52:14 osya Exp $
  */
 
 #include <stdio.h>
@@ -56,8 +56,6 @@ int gsn_mass_invis;
 int gsn_poison;
 int gsn_plague;
 int gsn_sleep;
-int gsn_sanctuary;
-int gsn_black_shroud;
 int gsn_demand;
 int gsn_fly;
 int gsn_fourth_attack;
@@ -281,8 +279,6 @@ namedp_t gsn_table[] =
 	{ "gsn_poison",			&gsn_poison			},
 	{ "gsn_plague",			&gsn_plague			},
 	{ "gsn_sleep",			&gsn_sleep			},
-	{ "gsn_sanctuary",		&gsn_sanctuary			},
-	{ "gsn_black_shroud",		&gsn_black_shroud		},
 	{ "gsn_demand", 		&gsn_demand			},
 	{ "gsn_fly",			&gsn_fly			},
 	{ "gsn_fourth_attack",		&gsn_fourth_attack		},

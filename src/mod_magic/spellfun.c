@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.6 2000-04-19 10:59:18 osya Exp $
+ * $Id: spellfun.c,v 1.181.2.7 2000-04-19 11:52:09 osya Exp $
  */
 
 /***************************************************************************
@@ -1506,13 +1506,13 @@ void spell_dispel_magic(int sn, int level, CHAR_DATA *ch, void *vo)
 	if (check_dispel(level,victim,sn_lookup("protection good")))
 	    found = TRUE;
  
-	if (check_dispel(level,victim, gsn_sanctuary)) {
+	if (check_dispel(level,victim, sn_lookup("sanctuary"))) {
 		act("The white aura around $n's body vanishes.",
 		    victim, NULL, NULL, TO_ROOM);
 		found = TRUE;
 	}
 
-	if (check_dispel(level, victim, gsn_black_shroud)) {
+	if (check_dispel(level, victim, sn_lookup("black shroud"))) {
 		act("The black aura around $n's body vanishes.",
 		    victim, NULL, NULL, TO_ROOM);
 		found = TRUE;
@@ -1520,7 +1520,7 @@ void spell_dispel_magic(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (IS_AFFECTED(victim,AFF_SANCTUARY) 
 	&&  !saves_dispel(level, LEVEL(victim), -1)
-	&&  !is_affected(victim, gsn_sanctuary)) {
+	&&  !is_affected(victim, sn_lookup("sanctuary"))) {
 		REMOVE_BIT(victim->affected_by,AFF_SANCTUARY);
 		act("The white aura around $n's body vanishes.",
 		    victim, NULL, NULL, TO_ROOM);
@@ -1529,7 +1529,7 @@ void spell_dispel_magic(int sn, int level, CHAR_DATA *ch, void *vo)
  
 	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)
 	&&  !saves_dispel(level, LEVEL(victim), -1)
-	&&  !is_affected(victim, gsn_black_shroud)) {
+	&&  !is_affected(victim, sn_lookup("black shroud"))) {
 		REMOVE_BIT(victim->affected_by, AFF_BLACK_SHROUD);
 		act("The black aura around $n's body vanishes.",
 		    victim, NULL, NULL, TO_ROOM);
