@@ -3366,6 +3366,15 @@ Form 6 -а~
 End
 
 #RULE
+Name костер~
+BaseLen 4
+Form 1 -ра~
+Form 2 -ру~
+Form 4 -ром~
+Form 5 -ре~
+End
+
+#RULE
 Name аура~
 BaseLen 3
 Form 1 -ы~
@@ -9525,6 +9534,15 @@ Form 3 -ый~
 Form 4 -ым~
 Form 5 -ом~
 Form 6 -ого~
+End
+
+#RULE
+Name родник~
+BaseLen 6
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
 End
 
 #RULE
