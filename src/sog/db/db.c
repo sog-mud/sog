@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.91 1998-12-10 15:37:22 fjoe Exp $
+ * $Id: db.c,v 1.92 1998-12-17 21:06:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -939,8 +939,7 @@ CHAR_DATA *create_mob_org(MOB_INDEX_DATA *pMobIndex, int flags)
 
 	mobile_count++;
 
-	if (pMobIndex == NULL)
-	{
+	if (pMobIndex == NULL) {
 		bug("Create_mobile: NULL pMobIndex.", 0);
 		exit(1);
 	}
@@ -968,231 +967,162 @@ CHAR_DATA *create_mob_org(MOB_INDEX_DATA *pMobIndex, int flags)
 		mob->silver = wealth - (mob->gold * 100);
 	} 
 
+	mob->plr_flags		= ACT_NPC;
+	mob->comm		= COMM_NOSHOUT | COMM_NOMUSIC;
+	mob->affected_by	= pMobIndex->affected_by;
+	mob->alignment		= pMobIndex->alignment;
+	mob->level		= pMobIndex->level;
+	mob->imm_flags		= pMobIndex->imm_flags;
+	mob->res_flags		= pMobIndex->res_flags;
+	mob->vuln_flags		= pMobIndex->vuln_flags;
+	mob->start_pos		= pMobIndex->start_pos;
+	mob->position		= mob->start_pos;
+	mob->default_pos	= pMobIndex->default_pos;
+	mob->race		= pMobIndex->race;
+	mob->form		= pMobIndex->form;
+	mob->parts		= pMobIndex->parts;
+	mob->size		= pMobIndex->size;
+	mob->clan		= pMobIndex->clan;
+	mob->invis_level	= pMobIndex->invis_level;
+ 	mob->group		= pMobIndex->group;
+	mob->material		= str_dup(pMobIndex->material);
+
+	mob->dam_type		= pMobIndex->dam_type;
+	if (mob->dam_type == 0)
+		switch(number_range(1,3)) {
+		case (1): mob->dam_type = 3;        break;  /* slash */
+		case (2): mob->dam_type = 7;        break;  /* pound */
+		case (3): mob->dam_type = 11;       break;  /* pierce */
+		}
+
+	mob->sex		= pMobIndex->sex;
+	if (mob->sex == SEX_EITHER) /* random sex */
+		mob->sex = number_range(1,2);
+
+	for (i = 0; i < MAX_STATS; i ++)
+		mob->perm_stat[i] = UMIN(25, 11 + mob->level/4);
+
 	if (pMobIndex->new_format) {
 		/* load in new style */
 		/* read from prototype */
- 		mob->group		= pMobIndex->group;
-		mob->act 		= pMobIndex->act | ACT_NPC;
-		mob->comm		= COMM_NOSHOUT | COMM_NOMUSIC;
-		mob->affected_by	= pMobIndex->affected_by;
-		mob->alignment		= pMobIndex->alignment;
-		mob->level		= pMobIndex->level;
+
+		mob->perm_stat[STAT_STR] += mob->size - SIZE_MEDIUM;
+		mob->perm_stat[STAT_CON] += (mob->size - SIZE_MEDIUM) / 2;
+
 		mob->hitroll		= (mob->level / 2) + pMobIndex->hitroll;
 		mob->damroll		= pMobIndex->damage[DICE_BONUS];
 		mob->max_hit		= dice(pMobIndex->hit[DICE_NUMBER],
 					       pMobIndex->hit[DICE_TYPE])
 					  + pMobIndex->hit[DICE_BONUS];
-		mob->hit		= mob->max_hit;
 		mob->max_mana		= dice(pMobIndex->mana[DICE_NUMBER],
 					       pMobIndex->mana[DICE_TYPE])
 					  + pMobIndex->mana[DICE_BONUS];
-		mob->mana		= mob->max_mana;
 		mob->damage[DICE_NUMBER]= pMobIndex->damage[DICE_NUMBER];
 		mob->damage[DICE_TYPE]	= pMobIndex->damage[DICE_TYPE];
-		mob->dam_type		= pMobIndex->dam_type;
-		
-		if (mob->dam_type == 0)
-		    switch(number_range(1,3))
-		    {
-		        case (1): mob->dam_type = 3;        break;  /* slash */
-		        case (2): mob->dam_type = 7;        break;  /* pound */
-		        case (3): mob->dam_type = 11;       break;  /* pierce */
-		    }
 		for (i = 0; i < 4; i++)
-		    mob->armor[i]	= pMobIndex->ac[i]; 
-		mob->off_flags		= pMobIndex->off_flags;
-		mob->imm_flags		= pMobIndex->imm_flags;
-		mob->res_flags		= pMobIndex->res_flags;
-		mob->vuln_flags		= pMobIndex->vuln_flags;
-		mob->start_pos		= pMobIndex->start_pos;
-		mob->default_pos	= pMobIndex->default_pos;
-		mob->sex		= pMobIndex->sex;
-		if (mob->sex == SEX_EITHER) /* random sex */
-		    mob->sex = number_range(1,2);
-		mob->race		= pMobIndex->race;
-		mob->form		= pMobIndex->form;
-		mob->parts		= pMobIndex->parts;
-		mob->size		= pMobIndex->size;
-		mob->material		= str_dup(pMobIndex->material);
-
-		/* computed on the spot */
-
-		for (i = 0; i < MAX_STATS; i ++)
-		    mob->perm_stat[i] = UMIN(25,11 + mob->level/4);
-		    
-		if (IS_SET(mob->act,ACT_WARRIOR))
-		{
-		    mob->perm_stat[STAT_STR] += 3;
-		    mob->perm_stat[STAT_INT] -= 1;
-		    mob->perm_stat[STAT_CON] += 2;
-		}
-		
-		if (IS_SET(mob->act,ACT_THIEF))
-		{
-		    mob->perm_stat[STAT_DEX] += 3;
-		    mob->perm_stat[STAT_INT] += 1;
-		    mob->perm_stat[STAT_WIS] -= 1;
-		}
-		
-		if (IS_SET(mob->act,ACT_CLERIC))
-		{
-		    mob->perm_stat[STAT_WIS] += 3;
-		    mob->perm_stat[STAT_DEX] -= 1;
-		    mob->perm_stat[STAT_STR] += 1;
-		}
-		
-		if (IS_SET(mob->act,ACT_MAGE))
-		{
-		    mob->perm_stat[STAT_INT] += 3;
-		    mob->perm_stat[STAT_STR] -= 1;
-		    mob->perm_stat[STAT_DEX] += 1;
-		}
-		
-		if (IS_SET(mob->off_flags,OFF_FAST))
-		    mob->perm_stat[STAT_DEX] += 2;
-		    
-		mob->perm_stat[STAT_STR] += mob->size - SIZE_MEDIUM;
-		mob->perm_stat[STAT_CON] += (mob->size - SIZE_MEDIUM) / 2;
-
-		/* let's get some spell action */
-		if (IS_AFFECTED(mob,AFF_SANCTUARY))
-		{
-		    af.where	 = TO_AFFECTS;
-		    af.type      = sn_lookup("sanctuary");
-		    af.level     = mob->level;
-		    af.duration  = -1;
-		    af.location  = APPLY_NONE;
-		    af.modifier  = 0;
-		    af.bitvector = AFF_SANCTUARY;
-		    affect_to_char(mob, &af);
-		}
-
-		if (IS_AFFECTED(mob,AFF_HASTE))
-		{
-		    af.where	 = TO_AFFECTS;
-		    af.type      = sn_lookup("haste");
-		    af.level     = mob->level;
-	  	    af.duration  = -1;
-		    af.location  = APPLY_DEX;
-		    af.modifier  = 1 + (mob->level >= 18) + (mob->level >= 25) + 
-				   (mob->level >= 32);
-		    af.bitvector = AFF_HASTE;
-		    affect_to_char(mob, &af);
-		}
-
-		if (IS_AFFECTED(mob,AFF_PROTECT_EVIL))
-		{
-		    af.where	 = TO_AFFECTS;
-		    af.type	 = sn_lookup("protection evil");
-		    af.level	 = mob->level;
-		    af.duration	 = -1;
-		    af.location	 = APPLY_SAVES;
-		    af.modifier	 = -1;
-		    af.bitvector = AFF_PROTECT_EVIL;
-		    affect_to_char(mob,&af);
-		}
-
-		if (IS_AFFECTED(mob,AFF_PROTECT_GOOD))
-		{
-		    af.where	 = TO_AFFECTS;
-		    af.type      = sn_lookup("protection good");
-		    af.level     = mob->level;
-		    af.duration  = -1;
-		    af.location  = APPLY_SAVES;
-		    af.modifier  = -1;
-		    af.bitvector = AFF_PROTECT_GOOD;
-		    affect_to_char(mob,&af);
-		}  
+			mob->armor[i]	= pMobIndex->ac[i]; 
 	}
-	else /* read in old format and convert */
-	{
-		mob->act		= pMobIndex->act;
-		mob->affected_by	= pMobIndex->affected_by;
-		mob->alignment		= pMobIndex->alignment;
-		mob->level		= pMobIndex->level;
+	else {
+		/* read in old format and convert */
+
 		mob->hitroll		= UMAX(pMobIndex->hitroll,pMobIndex->level/4);
-		mob->damroll		= pMobIndex->level /2 ;
+		mob->damroll		= pMobIndex->level / 2;
 		if (mob->level < 30)
-		mob->max_hit		= mob->level * 20 + number_range(
-						mob->level ,
-						mob->level * 5);
+			mob->max_hit	= mob->level * 20 +
+					  number_range(mob->level,
+						       mob->level * 5);
 		else if (mob->level < 60)
-		mob->max_hit		= mob->level * 50 + number_range(
-						mob->level * 10,
-						mob->level * 50);
+			mob->max_hit	= mob->level * 50 +
+					  number_range(mob->level * 10,
+						       mob->level * 50);
 		else
-		mob->max_hit		= mob->level * 100 + number_range(
-						mob->level * 20,
-						mob->level * 100);
-		if (IS_SET(mob->act,ACT_MAGE | ACT_CLERIC))
-			mob->max_hit *= 0.9;
-		mob->hit		= mob->max_hit;
+			mob->max_hit	= mob->level * 100 +
+					  number_range(mob->level * 20,
+						       mob->level * 100);
+		if (IS_SET(pMobIndex->act, ACT_MAGE | ACT_CLERIC))
+			mob->max_hit = (mob->max_hit * 9) / 10;
 		mob->max_mana		= 100 + dice(mob->level,10);
-		mob->mana		= mob->max_mana;
-		switch(number_range(1,3))
-		{
-		    case (1): mob->dam_type = 3; 	break;  /* slash */
-		    case (2): mob->dam_type = 7;	break;  /* pound */
-		    case (3): mob->dam_type = 11;	break;  /* pierce */
-		}
-		for (i = 0; i < 3; i++)
-		    mob->armor[i]	= interpolate(mob->level,100,-100);
-		mob->armor[3]		= interpolate(mob->level,100,0);
-		mob->race		= pMobIndex->race;
-		mob->off_flags		= pMobIndex->off_flags;
-		mob->imm_flags		= pMobIndex->imm_flags;
-		mob->res_flags		= pMobIndex->res_flags;
-		mob->vuln_flags		= pMobIndex->vuln_flags;
-		mob->start_pos		= pMobIndex->start_pos;
-		mob->default_pos	= pMobIndex->default_pos;
-		mob->sex		= pMobIndex->sex;
-		mob->form		= pMobIndex->form;
-		mob->parts		= pMobIndex->parts;
-		mob->size		= SIZE_MEDIUM;
-		mob->material		= str_empty;
-/*
-		for (i = 0; i < MAX_STATS; i ++)
-		    mob->perm_stat[i] = 11 + mob->level/4;
- computed on the spot */
 
-		for (i = 0; i < MAX_STATS; i ++)
-		    mob->perm_stat[i] = UMIN(25,11 + mob->level/4);
-		    
-		if (IS_SET(mob->act,ACT_WARRIOR))
-		{
-		    mob->perm_stat[STAT_STR] += 3;
-		    mob->perm_stat[STAT_INT] -= 1;
-		    mob->perm_stat[STAT_CON] += 2;
-		}
-		
-		if (IS_SET(mob->act,ACT_THIEF))
-		{
-		    mob->perm_stat[STAT_DEX] += 3;
-		    mob->perm_stat[STAT_INT] += 1;
-		    mob->perm_stat[STAT_WIS] -= 1;
-		}
-		
-		if (IS_SET(mob->act,ACT_CLERIC))
-		{
-		    mob->perm_stat[STAT_WIS] += 3;
-		    mob->perm_stat[STAT_DEX] -= 1;
-		    mob->perm_stat[STAT_STR] += 1;
-		}
-		
-		if (IS_SET(mob->act,ACT_MAGE))
-		{
-		    mob->perm_stat[STAT_INT] += 3;
-		    mob->perm_stat[STAT_STR] -= 1;
-		    mob->perm_stat[STAT_DEX] += 1;
-		}
-		
-		if (IS_SET(mob->off_flags,OFF_FAST))
-		    mob->perm_stat[STAT_DEX] += 2;
+		for (i = 0; i < 3; i++)
+			mob->armor[i]	= interpolate(mob->level, 100, -100);
+		mob->armor[3]		= interpolate(mob->level, 100, 0);
 	}
 
-	mob->position = mob->start_pos;
-	mob->clan = pMobIndex->clan;
-	mob->invis_level = pMobIndex->invis_level;
+	mob->hit		= mob->max_hit;
+	mob->mana		= mob->max_mana;
+
+	if (IS_SET(pMobIndex->act, ACT_WARRIOR)) {
+		mob->perm_stat[STAT_STR] += 3;
+		mob->perm_stat[STAT_INT] -= 1;
+		mob->perm_stat[STAT_CON] += 2;
+	}
+		
+	if (IS_SET(pMobIndex->act, ACT_THIEF)) {
+		mob->perm_stat[STAT_DEX] += 3;
+		mob->perm_stat[STAT_INT] += 1;
+		mob->perm_stat[STAT_WIS] -= 1;
+	}
+		
+	if (IS_SET(pMobIndex->act, ACT_CLERIC)) {
+		mob->perm_stat[STAT_WIS] += 3;
+		mob->perm_stat[STAT_DEX] -= 1;
+		mob->perm_stat[STAT_STR] += 1;
+	}
+		
+	if (IS_SET(pMobIndex->act, ACT_MAGE)) {
+		mob->perm_stat[STAT_INT] += 3;
+		mob->perm_stat[STAT_STR] -= 1;
+		mob->perm_stat[STAT_DEX] += 1;
+	}
+		
+	if (IS_SET(pMobIndex->off_flags, OFF_FAST))
+		mob->perm_stat[STAT_DEX] += 2;
+		    
+	/* let's get some spell action */
+	if (IS_AFFECTED(mob,AFF_SANCTUARY)) {
+		af.where	= TO_AFFECTS;
+		af.type		= sn_lookup("sanctuary");
+		af.level	= mob->level;
+		af.duration	= -1;
+		af.location	= APPLY_NONE;
+		af.modifier	= 0;
+		af.bitvector	= AFF_SANCTUARY;
+		affect_to_char(mob, &af);
+	}
+
+	if (IS_AFFECTED(mob, AFF_HASTE)) {
+		af.where	= TO_AFFECTS;
+		af.type		= sn_lookup("haste");
+		af.level	= mob->level;
+	  	af.duration	= -1;
+		af.location	= APPLY_DEX;
+		af.modifier	= 1 + (mob->level >= 18) + (mob->level >= 25) + 
+				  (mob->level >= 32);
+		af.bitvector	= AFF_HASTE;
+		affect_to_char(mob, &af);
+	}
+
+	if (IS_AFFECTED(mob,AFF_PROTECT_EVIL)) {
+		af.where	= TO_AFFECTS;
+		af.type		= sn_lookup("protection evil");
+		af.level	= mob->level;
+		af.duration	= -1;
+		af.location	= APPLY_SAVES;
+		af.modifier	= -1;
+		af.bitvector	= AFF_PROTECT_EVIL;
+		affect_to_char(mob, &af);
+	}
+
+	if (IS_AFFECTED(mob,AFF_PROTECT_GOOD)) {
+		af.where	= TO_AFFECTS;
+		af.type		= sn_lookup("protection good");
+		af.level	= mob->level;
+		af.duration	= -1;
+		af.location	= APPLY_SAVES;
+		af.modifier	= -1;
+		af.bitvector	= AFF_PROTECT_GOOD;
+		affect_to_char(mob, &af);
+	}  
 
 	/* link the mob to the world list */
 	mob->next		= char_list;
@@ -1248,7 +1178,6 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->gold		= parent->gold;
 	clone->silver		= parent->silver;
 	clone->exp		= parent->exp;
-	clone->act		= parent->act;
 	clone->comm		= parent->comm;
 	clone->imm_flags	= parent->imm_flags;
 	clone->res_flags	= parent->res_flags;
@@ -1267,8 +1196,6 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 	clone->parts		= parent->parts;
 	clone->size		= parent->size;
 	clone->material		= str_dup(parent->material);
-	clone->extracted	= parent->extracted;
-	clone->off_flags	= parent->off_flags;
 	clone->dam_type		= parent->dam_type;
 	clone->start_pos	= parent->start_pos;
 	clone->default_pos	= parent->default_pos;

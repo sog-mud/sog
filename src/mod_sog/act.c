@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.1 1998-12-02 13:33:19 fjoe Exp $
+ * $Id: act.c,v 1.2 1998-12-17 21:06:19 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -240,7 +240,7 @@ struct tdata {
 static int SEX(CHAR_DATA *ch, CHAR_DATA *looker)
 {
 	if (is_affected(ch, gsn_doppelganger)
-	&&  (IS_NPC(looker) || !IS_SET(looker->act, PLR_HOLYLIGHT)))
+	&&  (IS_NPC(looker) || !IS_SET(looker->plr_flags, PLR_HOLYLIGHT)))
 		ch = ch->doppel;
 	return URANGE(0, ch->sex, SEX_MAX-1);
 }

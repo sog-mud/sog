@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.133 1998-12-09 11:58:42 fjoe Exp $
+ * $Id: comm.c,v 1.134 1998-12-17 21:06:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1612,14 +1612,14 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			return;
 		} 
 #endif
-	  if (iNumPlayers > MAX_OLDIES && !IS_SET(ch->act, PLR_NEW))  {
+	  if (iNumPlayers > MAX_OLDIES && !IS_SET(ch->plr_flags, PLR_NEW))  {
 	     sprintf(buf, 
 	   "\n\rThere are currently %i players mudding out of a maximum of %i.\n\rPlease try again soon.\n\r",iNumPlayers - 1, MAX_OLDIES);
 	     write_to_buffer(d, buf, 0);
 	     close_descriptor(d);
 	     return;
 	  }
-	  if (iNumPlayers > MAX_NEWBIES && IS_SET(ch->act, PLR_NEW))  {
+	  if (iNumPlayers > MAX_NEWBIES && IS_SET(ch->plr_flags, PLR_NEW))  {
 	     sprintf(buf,
 	   "\n\rThere are currently %i players mudding. New player creation is \n\rlimited to when there are less than %i players. Please try again soon.\n\r",
 		     iNumPlayers - 1, MAX_NEWBIES);
@@ -1629,7 +1629,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	  }
 	   }
 	     
-	if (IS_SET(ch->act, PLR_DENY))
+	if (IS_SET(ch->plr_flags, PLR_DENY))
 	{
 	    log_printf("Denying access to %s@%s.", argument, d->host);
 	    write_to_buffer(d, "You are denied access.\n\r", 0);
@@ -1638,14 +1638,14 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	}
 
 		if (check_reconnect(d, argument, FALSE))
-			REMOVE_BIT(ch->act, PLR_NEW);
+			REMOVE_BIT(ch->plr_flags, PLR_NEW);
 		else if (wizlock && !IS_HERO(ch)) {
 			write_to_buffer(d, "The game is wizlocked.\n\r", 0);
 			close_descriptor(d);
 			return;
 		}
 
-		if (!IS_SET(ch->act, PLR_NEW)) {
+		if (!IS_SET(ch->plr_flags, PLR_NEW)) {
 			/* Old player */
 			write_to_descriptor(d->descriptor, echo_off_str, 0);
  			write_to_buffer(d, "Password: ", 0);
@@ -2160,7 +2160,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	load_char_obj(d, buf);
 	ch = d->character;
 
-	if (IS_SET(ch->act, PLR_NEW)) {
+	if (IS_SET(ch->plr_flags, PLR_NEW)) {
 	  write_to_buffer(d,
 			  "Please login again to create a new character.\n\r",
 			  0);
