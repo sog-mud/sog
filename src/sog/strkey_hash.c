@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.c,v 1.8 1999-12-16 12:24:53 fjoe Exp $
+ * $Id: strkey_hash.c,v 1.9 1999-12-16 19:08:03 avn Exp $
  */
 
 #include <limits.h>
@@ -154,9 +154,9 @@ print_name_cb(void *p, va_list ap)
 	BUFFER *buf = va_arg(ap, BUFFER *);
 	int *pcol = va_arg(ap, int *);
 
+	buf_printf(buf, "%-19.18s", *(const char**) p);
 	if (++(*pcol) % 4 == 0)
 		buf_add(buf, "\n");
-	buf_printf(buf, "%-19.18s", *(const char**) p);
 	return NULL;
 }
 
@@ -164,8 +164,6 @@ void strkey_printall(hash_t *h, BUFFER *buf)
 {
 	int col = 0;
 	hash_foreach(h, print_name_cb, buf, &col);
-	if (col % 4)
-		buf_add(buf, "\n");
 }
 
 static void *
@@ -174,9 +172,9 @@ print_mlname_cb(void *p, va_list ap)
 	BUFFER *buf = va_arg(ap, BUFFER *);
 	int *pcol = va_arg(ap, int *);
 
+	buf_printf(buf, "%-19.18s", mlstr_mval((mlstring *) p));
 	if (++(*pcol) % 4 == 0)
 		buf_add(buf, "\n");
-	buf_printf(buf, "%-19.18s", mlstr_mval((mlstring *) p));
 	return NULL;
 }
 
@@ -184,8 +182,6 @@ void mlstrkey_printall(hash_t *h, BUFFER *buf)
 {
 	int col = 0;
 	hash_foreach(h, print_mlname_cb, buf, &col);
-	if (col % 4)
-		buf_add(buf, "\n");
 }
 
 char *
