@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.28 2004-06-09 07:56:00 tatyana Exp $
+ * $Id: obj_prog.c,v 1.66.2.29 2004-06-09 10:14:25 tatyana Exp $
  */
 
 /***************************************************************************
@@ -163,6 +163,10 @@ DECLARE_OPROG(remove_prog_chameleon_poncho);
 
 DECLARE_OPROG(speech_prog_scarab);
 
+DECLARE_OPROG(wear_prog_owner);
+
+DECLARE_OPROG(speech_prog_cauldron);
+
 char* optype_table[] = {
 	"wear_prog",
 	"remove_prog",
@@ -270,6 +274,7 @@ OPROG_DATA oprog_table[] = {
 	{ "wear_prog_chameleon_poncho", wear_prog_chameleon_poncho },
 	{ "remove_prog_chameleon_poncho", remove_prog_chameleon_poncho },
 	{ "speech_prog_scarab", speech_prog_scarab },
+	{ "speech_prog_cauldron", speech_prog_cauldron },
 	{ NULL }
 };
 
@@ -2004,6 +2009,12 @@ speech_prog_scarab(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 			}
 		}
 
+		if ((left && !right) ||
+		    (!left && right)) {
+			act_char("You need to find a second part!", ch);
+			return 0;
+		}
+
 		if (left && right) {
 			obj_from_char(obj_left);
 			obj_from_char(obj_right);
@@ -2028,5 +2039,92 @@ speech_prog_scarab(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 			}
 		}
 	}
+	return 0;
+}
+
+int
+wear_prog_owner(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+{
+	if (mlstr_null(&obj->owner))
+		return 0;
+
+	if (IS_OWNER(ch, obj)
+	||  IS_IMMORTAL(ch))
+		return 0;
+
+	act("You are not owner of $p!", ch, obj, NULL, TO_CHAR);
+	act("$p passes through your hands and drops on the ground.",
+	    ch, obj, NULL, TO_CHAR);
+	act("$p passes through $n's hands and drops on the ground.",
+	    ch, obj, NULL, TO_ROOM);
+	obj_from_char(obj);
+	obj_to_room(obj, ch->in_room);
+	return 0;
+}
+
+#define OBJ_VNUM_PART1		4912	/* bat's wing */
+#define OBJ_VNUM_PART2		19145	/* sapphire sigil */
+#define OBJ_VNUM_PART3		204	/* a single black Rose */
+#define OBJ_VNUM_SLEEP_POTION	34491
+
+int
+speech_prog_cauldron(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+{
+	char *speech = (char*) arg;
+	bool first = FALSE;
+	bool second = FALSE;
+	bool third = FALSE;
+	OBJ_DATA *part1 = NULL, *part2 = NULL, *part3 = NULL;
+	OBJ_DATA *object;
+	int counter = 0;
+
+	if (ch->wait > 0)
+		return 0;
+
+	if (str_cmp(speech, "mamburu"))
+		return 0;
+
+	foreach (object, obj_in_obj(obj)) {
+		counter++;
+		if (object->pObjIndex->vnum == OBJ_VNUM_PART1) {
+			first = TRUE;
+			part1 = object;
+		}
+
+		if (object->pObjIndex->vnum == OBJ_VNUM_PART2) {
+			second = TRUE;
+			part2 = object;
+		}
+
+		if (object->pObjIndex->vnum == OBJ_VNUM_PART3) {
+			third = TRUE;
+			part3 = object;
+		}
+	} end_foreach(object);
+
+	if (counter != 3
+	||  !(first && second && third)) {
+		foreach (object, obj_in_obj(obj)) {
+			act("$p explodes!", ch, object, NULL, TO_CHAR);
+			extract_obj(object, 0);
+		} end_foreach(object);
+
+		extract_obj(obj, 0);
+		ch->hit = ch->max_hit / 10;
+		ch->mana = ch->max_mana / 10;
+		ch->move = ch->max_move / 10;
+		act_char("{RYou are burned by demonic fire!{x", ch);
+		return 0;
+
+	}
+
+	extract_obj(part1, 0);
+	extract_obj(part2, 0);
+	extract_obj(part3, 0);
+
+	object = create_obj(get_obj_index(OBJ_VNUM_SLEEP_POTION), 0);
+	obj_to_obj(object, obj);
+	act("You successfully brew $p!", ch, object, NULL, TO_CHAR);
+
 	return 0;
 }
