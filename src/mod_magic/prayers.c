@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.40 2002-10-03 15:53:50 tatyana Exp $
+ * $Id: prayers.c,v 1.41 2002-11-28 21:40:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2465,8 +2465,7 @@ SPELL_FUN(prayer_air_elemental, sn, level, ch, vo)
 		return;
 	}
 
-	if (ch->in_room == NULL
-	|| ch->in_room->sector_type == SECT_UNDERWATER) {
+	if (ch->in_room->sector_type == SECT_UNDERWATER) {
 		act_char("There is no air here.", ch);
 		return;
 	}
@@ -2545,12 +2544,11 @@ SPELL_FUN(prayer_wall_of_thorns, sn, level, ch, vo)
 		return;
 	}
 
-	if (ch->in_room == NULL
-	|| (ch->in_room->sector_type != SECT_FIELD
-	&& ch->in_room->sector_type != SECT_FOREST
-	&& ch->in_room->sector_type != SECT_HILLS
-	&& ch->in_room->sector_type != SECT_MOUNTAIN)
-	|| IS_SET(ch->in_room->room_flags,
+	if ((ch->in_room->sector_type != SECT_FIELD &&
+	     ch->in_room->sector_type != SECT_FOREST &&
+	     ch->in_room->sector_type != SECT_HILLS &&
+	     ch->in_room->sector_type != SECT_MOUNTAIN)
+	||  IS_SET(ch->in_room->room_flags,
 		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
 		act_char("You cannot grow a wall of thorns here.", ch);
 		return;

@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.47 2002-11-22 15:20:50 fjoe Exp $
+ * $Id: hunt.c,v 1.48 2002-11-28 21:40:19 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -69,7 +69,7 @@ DO_FUN(do_hunt, ch, argument)
 	else
 		victim = get_char_world(ch, arg);
 
-	if (victim == NULL || victim->in_room == NULL) {
+	if (victim == NULL) {
 		act_char("No-one around by that name.", ch);
 		return;
 	}
@@ -311,7 +311,7 @@ find_path(int in_room_vnum, int out_room_vnum,
 static void
 hunt_victim_attack(CHAR_DATA* ch)
 {
-	if (ch->in_room == NULL || ch->hunting == NULL)
+	if (ch->hunting == NULL)
 		return;
 
 	if (ch->in_room == ch->hunting->in_room) {
@@ -335,11 +335,6 @@ hunt_victim(CHAR_DATA *ch)
 	int		dir;
 	bool		found;
 	CHAR_DATA	*tmp;
-
-	if (ch->hunting->in_room == NULL) {
-		ch->hunting = NULL;
-		return;
-	}
 
 	/*
 	 * Make sure the victim still exists.

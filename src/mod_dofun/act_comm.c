@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.271 2002-11-27 15:35:35 tatyana Exp $
+ * $Id: act_comm.c,v 1.272 2002-11-28 21:40:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -643,8 +643,7 @@ DO_FUN(do_shout, ch, argument)
 		if (d->connected == CON_PLAYING
 		&&  d->character != ch
 		&&  !IS_SET(d->character->chan, CHAN_NOSHOUT)
-		&&  (d->character->in_room == NULL ||
-		     !IS_SET(d->character->in_room->room_flags, ROOM_SILENT) ||
+		&&  (!IS_SET(d->character->in_room->room_flags, ROOM_SILENT) ||
 		     IS_IMMORTAL(d->character))) {
 			act_puts("$n shouts '{Y$t{x'",
 			    ch, argument, d->character,
@@ -693,8 +692,7 @@ DO_FUN(do_music, ch, argument)
 		if (d->connected == CON_PLAYING
 		&&  d->character != ch
 		&&  !IS_SET(d->character->chan, CHAN_NOMUSIC)
-		&&  (d->character->in_room == NULL ||
-		     !IS_SET(d->character->in_room->room_flags, ROOM_SILENT) ||
+		&&  (!IS_SET(d->character->in_room->room_flags, ROOM_SILENT) ||
 		     IS_IMMORTAL(d->character))) {
 			act_puts("$n musics '{W$t{x'",
 				 ch, argument, d->character,
@@ -2413,8 +2411,7 @@ DO_FUN(do_ooc, ch, argument)
 		if (d->connected == CON_PLAYING
 		&&  d->character != ch
 		&&  !IS_SET(d->character->chan, CHAN_NOOOC)
-		&&  (d->character->in_room == NULL ||
-		     !IS_SET(d->character->in_room->room_flags, ROOM_SILENT) ||
+		&&  (!IS_SET(d->character->in_room->room_flags, ROOM_SILENT) ||
 		     IS_IMMORTAL(d->character))) {
 			act_puts("[Shades of Gray] $lu{$n}: {m$t{x",
 				 ch, argument, d->character,
@@ -2459,8 +2456,7 @@ DO_FUN(do_oocme, ch, argument)
 		if (d->connected == CON_PLAYING
 		&&  d->character != ch
 		&&  !IS_SET(d->character->chan, CHAN_NOOOC)
-		&&  (d->character->in_room == NULL ||
-		     !IS_SET(d->character->in_room->room_flags, ROOM_SILENT) ||
+		&&  (!IS_SET(d->character->in_room->room_flags, ROOM_SILENT) ||
 		     IS_IMMORTAL(d->character))) {
 			act_puts("[Shades of Gray] {m$lu{$n} $t{x",
 				 ch, argument, d->character,

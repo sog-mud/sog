@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.29 2002-08-30 13:46:32 tatyana Exp $
+ * $Id: note.c,v 1.30 2002-11-28 21:40:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -923,10 +923,10 @@ parse_note(CHAR_DATA *ch, const char *argument, int type)
 		/* Show new note message */
 		for (d = descriptor_list; d; d = d->next) {
 			CHAR_DATA *fch = d->character;
-			if (fch != NULL
+
+			if (d->connected == CON_PLAYING
 			&&  fch != ch
-			&&  is_note_to(fch, pc->pnote)
-			&&  d->connected == CON_PLAYING)
+			&&  is_note_to(fch, pc->pnote))
 				do_unread(fch, "login");	// notrans
 		}
 

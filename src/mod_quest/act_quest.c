@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.164 2002-08-26 16:24:06 fjoe Exp $
+ * $Id: act_quest.c,v 1.165 2002-11-28 21:40:26 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -577,7 +577,6 @@ DO_FUN(quest_request, ch, arg)
 		||  IS_SET(victim->pMobIndex->act,
 			   ACT_NOTRACK | ACT_IMMSUMMON | ACT_PET)
 		||  questor->pMobIndex == victim->pMobIndex
-		||  victim->in_room == NULL
 		||  victim->in_room->sector_type == SECT_UNDERWATER
 		||  (IS_SET(victim->pMobIndex->act, ACT_SENTINEL) &&
 		     IS_SET(victim->in_room->room_flags,

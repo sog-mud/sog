@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.356 2002-11-23 15:28:02 fjoe Exp $
+ * $Id: fight.c,v 1.357 2002-11-28 21:40:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3305,8 +3305,6 @@ damage2(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 	int initial_damage = dam;
 
 	if (IS_EXTRACTED(victim))
-		return FALSE;
-	if (victim->in_room == NULL || ch->in_room == NULL)
 		return FALSE;
 
 	/*

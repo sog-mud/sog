@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.153 2002-11-21 08:47:53 fjoe Exp $
+ * $Id: olc.c,v 1.154 2002-11-28 21:40:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -157,7 +157,8 @@ MODINIT_FUN(_module_unload, m)
 
 	/* drop all the builders out OLC editors */
 	for (d = descriptor_list; d; d = d->next) {
-		if (d->olced == NULL)
+		if (d->connected != CON_PLAYING
+		||  d->olced == NULL)
 			continue;
 
 		act_char("Unloading OLC module.", d->character);

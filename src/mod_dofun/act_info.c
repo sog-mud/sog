@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.429 2002-11-23 20:12:38 fjoe Exp $
+ * $Id: act_info.c,v 1.430 2002-11-28 21:40:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1252,12 +1252,13 @@ DO_FUN(do_whois, ch, argument)
 	for (d = descriptor_list; d != NULL; d = d->next) {
 		CHAR_DATA *wch;
 
-		if (d->connected != CON_PLAYING || !can_see(ch,d->character))
-				continue;
-
 		if (d->connected != CON_PLAYING
-		||  (is_sn_affected(d->character, "vampire") &&
-		     !IS_IMMORTAL(ch) && (ch != d->character)))
+		||  !can_see(ch, d->character))
+			continue;
+
+		if (is_sn_affected(d->character, "vampire")
+		&&  !IS_IMMORTAL(ch)
+		&&  ch != d->character)
 			continue;
 
 		wch = (d->original != NULL) ? d->original : d->character;
@@ -1439,8 +1440,9 @@ DO_FUN(do_where, ch, argument)
 		act_char("Players near you:", ch);
 		found = FALSE;
 		for (d = descriptor_list; d; d = d->next) {
+			victim = d->character;
+
 			if (d->connected == CON_PLAYING
-			&&  (victim = d->character) != NULL
 			&&  !IS_NPC(victim)
 			&&  (!fPKonly || in_PK(ch, victim))
 			&&  victim->in_room != NULL

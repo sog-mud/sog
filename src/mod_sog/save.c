@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.202 2002-11-26 11:19:41 kostik Exp $
+ * $Id: save.c,v 1.203 2002-11-28 21:40:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -196,8 +196,7 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 		(ch->in_room == get_room_index(ROOM_VNUM_LIMBO) &&
 		 !IS_NPC(ch) && PC(ch)->was_in_vnum) ?
 			PC(ch)->was_in_vnum :
-		 ch->in_room == NULL ?
-			ROOM_VNUM_TEMPLE : ch->in_room->vnum);
+		ch->in_room->vnum);
 
 	fprintf(fp, "HMV %d %d %d %d %d %d\n",
 		ch->hit, ch->perm_hit,
@@ -850,11 +849,11 @@ fread_char(CHAR_DATA *ch, rfile_t *fp, int flags)
 				fMatch = TRUE;
 			}
 			if (IS_TOKEN(fp, "Room")) {
-				int room = fread_number(fp);
+				int vnum = fread_number(fp);
 
 				if (IS_SET(flags, LOAD_F_MOVE))
-					MOVE(room);
-				ch->in_room = get_room_index(room);
+					MOVE(vnum);
+				ch->in_room = get_room_index(vnum);
 				if (ch->in_room == NULL)
 					ch->in_room = get_room_index(ROOM_VNUM_LIMBO);
 				fMatch = TRUE;

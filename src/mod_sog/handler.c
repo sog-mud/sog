@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.360 2002-11-22 18:00:13 fjoe Exp $
+ * $Id: handler.c,v 1.361 2002-11-28 21:40:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -908,10 +908,9 @@ quit_char(CHAR_DATA *ch, int flags)
 	 * with second. This clones the player's inventory.
 	 */
 	for (d = descriptor_list; d; d = d_next) {
-		CHAR_DATA *tch;
-
+		CHAR_DATA *tch = d->original ? d->original : d->character;
 		d_next = d->next;
-		tch = d->original ? d->original : d->character;
+
 		if (tch && !str_cmp(name, tch->name)) {
 			if (d->connected == CON_PLAYING)
 				extract_char(tch, XC_F_NOCOUNT);
@@ -5000,7 +4999,6 @@ can_gate(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	if (victim == ch
 	||  ch->fighting != NULL
-	||  victim->in_room == NULL
 	||  !can_see_room(ch, victim->in_room)
 	||  IS_SET(ch->in_room->room_flags, ROOM_NORECALL |
 					    ROOM_PEACE | ROOM_NOSUMMON)

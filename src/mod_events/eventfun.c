@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.43 2002-09-09 20:14:28 fjoe Exp $
+ * $Id: eventfun.c,v 1.44 2002-11-28 21:40:22 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -98,16 +98,16 @@ EVENT_FUN(event_enter_alarm, ch, af)
 
 	if (af->owner == ch)
 		return;
+
 	act_char("You trigger a hidden alarm.", ch);
 	act("$N enters to the room and triggers a hidden alarm.", NULL, NULL,
 		ch, TO_NOTVICT);
 
 	for (d = descriptor_list; d; d = d->next) {
-		CHAR_DATA *vch;
+		CHAR_DATA *vch = d->character;
+
 		if (d->connected != CON_PLAYING
-		    || (vch = d->character) == NULL
-		    || vch->in_room == NULL
-		    || vch->in_room->area != ch->in_room->area)
+		||  vch->in_room->area != ch->in_room->area)
 			continue;
 		act_char("You hear a loud ring.", vch);
 	}
@@ -241,9 +241,6 @@ EVENT_FUN(event_updatechar_wcurse, ch, af)
 {
 	AFFECT_DATA *paf;
 
-	if (ch->in_room == NULL)
-		return;
-
 	act("The witch curse makes $n feel $s life slipping away.",
 	    ch, NULL, NULL, TO_ROOM);
 	act_char("The witch curse makes you feeling your life slipping away.", ch);
@@ -268,9 +265,6 @@ EVENT_FUN(event_updatechar_plague, ch, af)
 	AFFECT_DATA *paf;
 	CHAR_DATA *vch;
 	int dam;
-
-	if (ch->in_room == NULL)
-		return;
 
 	act("$n writhes in agony as plague sores erupt from $s skin.",
 	    ch, NULL, NULL, TO_ROOM);

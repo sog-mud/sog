@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.96 2002-11-28 17:16:13 fjoe Exp $
+ * $Id: act.c,v 1.97 2002-11-28 21:40:28 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -1172,12 +1172,10 @@ act_yell(CHAR_DATA *ch, const char *text, const void *arg, const char *format)
 		format = "$n yells '{M$t{x'";
 
 	for (d = descriptor_list; d; d = d->next) {
-		CHAR_DATA *vch;
+		CHAR_DATA *vch = d->character;
 
 		if (d->connected != CON_PLAYING
-		||  (vch = d->character) == NULL
 		||  vch == ch
-		||  vch->in_room == NULL
 		||  vch->in_room->area != ch->in_room->area
 		||  (IS_SET(vch->in_room->room_flags, ROOM_SILENT) &&
 		    !IS_IMMORTAL(vch)))
@@ -1252,7 +1250,6 @@ wiznet(const char *msg, CHAR_DATA *ch, const void *arg,
 		CHAR_DATA *vch = d->original ? d->original : d->character;
 
 		if (d->connected != CON_PLAYING
-		||  !vch
 		||  vch->level < LEVEL_IMMORTAL
 		||  !IS_SET(PC(vch)->wiznet, WIZ_ON)
 		||  (flag && !IS_SET(PC(vch)->wiznet, flag))
@@ -1276,7 +1273,6 @@ yell(CHAR_DATA *victim, CHAR_DATA *ch, const char *text)
 {
 	if (IS_NPC(victim)
 	||  IS_IMMORTAL(victim)
-	||  victim->in_room == NULL
 	||  victim->position <= POS_SLEEPING
 	||  IS_EXTRACTED(victim)
 	||  IS_SET(PC(victim)->plr_flags, PLR_GHOST))

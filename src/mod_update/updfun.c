@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.56 2002-11-23 15:28:09 fjoe Exp $
+ * $Id: updfun.c,v 1.57 2002-11-28 21:40:32 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -100,7 +100,7 @@ FOREACH_CB_FUN(violence_update_cb, vo, ap)
 	if (ch->desc == NULL)
 		ch->wait = UMAX(0, ch->wait - get_pulse("violence"));
 
-	if ((victim = ch->fighting) == NULL || ch->in_room == NULL)
+	if ((victim = ch->fighting) == NULL)
 		return NULL;
 
 	if (ch->in_room == victim->in_room) {
@@ -973,15 +973,14 @@ FOREACH_CB_FUN(aggr_update_cb, vo, ap)
 
 UPDATE_FUN(light_update)
 {
-	CHAR_DATA *ch;
 	int dam_light;
 	DESCRIPTOR_DATA *d;
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
+		CHAR_DATA *ch = d->character;
+
 		if (d->connected != CON_PLAYING)
 			continue;
-
-		ch = (d->original != NULL) ? d->original : d->character;
 
 		if (IS_IMMORTAL(ch))
 			continue;
@@ -1266,13 +1265,13 @@ UPDATE_FUN(area_update)
 		if (weather_info.sky == SKY_RAINING)  {
 			int i;
 			DESCRIPTOR_DATA *d;
-			CHAR_DATA *ch;
 
 			for (d = descriptor_list; d; d = d->next)  {
+				CHAR_DATA *ch = d->character;
+
 				if (d->connected != CON_PLAYING)
 					continue;
 
-				ch = d->original ?  d->original : d->character;
 				if (ch->in_room->area == pArea
 				&&  get_skill(ch, "track") > 50
 				&&  !IS_SET(ch->in_room->room_flags,
@@ -1634,9 +1633,6 @@ move_gain(CHAR_DATA *ch)
 {
 	int gain;
 
-	if (ch->in_room == NULL)
-		return 0;
-
 	if (IS_NPC(ch))
 		gain = ch->level;
 	else {
@@ -1957,12 +1953,11 @@ print_resetmsg(AREA_DATA *pArea)
 	bool is_empty = mlstr_null(&pArea->resetmsg);
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
-		CHAR_DATA *ch;
+		CHAR_DATA *ch = d->character;
 
 		if (d->connected != CON_PLAYING)
 			continue;
 
-		ch = d->original ? d->original : d->character;
 		if (IS_NPC(ch) || !IS_AWAKE(ch) || ch->in_room->area != pArea)
 			continue;
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: info.c,v 1.34 2001-12-03 22:28:41 fjoe Exp $
+ * $Id: info.c,v 1.35 2002-11-28 21:40:29 fjoe Exp $
  */
 
 #if !defined (WIN32)
@@ -257,15 +257,13 @@ CMD_FUN(cmd_who)
 	buf_printf(output, BUF_END, "%d\n", top_player);
 
 	for (d = descriptor_list; d; d = d->next) {
-		CHAR_DATA *wch;
+		CHAR_DATA *wch = d->original ? d->original : d->character;
 
-		wch = d->original ? d->original : d->character;
-		if (!wch
-		|| d->connected != CON_PLAYING
-		|| wch->invis_level
-		|| wch->incog_level
-		|| HAS_INVIS(wch, ID_ALL_INVIS)
-		|| is_sn_affected(wch, "vampire"))
+		if (d->connected != CON_PLAYING
+		||  wch->invis_level
+		||  wch->incog_level
+		||  HAS_INVIS(wch, ID_ALL_INVIS)
+		||  is_sn_affected(wch, "vampire"))
 			continue;
 
 		do_who_raw(NULL, wch, output);

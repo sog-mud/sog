@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.299 2002-10-24 08:43:50 tatyana Exp $
+ * $Id: spellfun.c,v 1.300 2002-11-28 21:40:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2188,8 +2188,7 @@ SPELL_FUN(spell_summon, sn, level, ch, vo)
 	bool failed = FALSE;
 	CHAR_DATA *victim;
 
-	if ((victim = get_char_world(ch, target_name)) == NULL
-	||  victim->in_room == NULL) {
+	if ((victim = get_char_world(ch, target_name)) == NULL) {
 		act_char("You failed.", ch);
 		return;
 	}
@@ -2271,12 +2270,11 @@ SPELL_FUN(spell_teleport, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (victim->in_room == NULL
-	||  IS_SET(victim->in_room->room_flags, ROOM_NORECALL)
+	if (IS_SET(victim->in_room->room_flags, ROOM_NORECALL)
 	||  (!IS_NPC(ch) && victim->fighting != NULL)
 	||  (!IS_NPC(ch) && !in_PK(ch, victim))
-	||  (victim != ch
-	&&  (saves_spell(level - 5, victim, DAM_OTHER)))) {
+	||  (victim != ch &&
+	     saves_spell(level - 5, victim, DAM_OTHER))) {
 		act_char("You failed.", ch);
 		return;
 	}
@@ -2313,8 +2311,7 @@ SPELL_FUN(spell_bamf, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 
-	if (victim->in_room == NULL
-	||  (victim != ch && saves_spell(level, victim, DAM_OTHER))
+	if ((victim != ch && saves_spell(level, victim, DAM_OTHER))
 	||  IS_SET(victim->in_room->room_flags, ROOM_PEACE | ROOM_SAFE)) {
 		act_char("You failed.", ch);
 		return;

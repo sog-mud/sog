@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.311 2002-10-27 06:48:07 tatyana Exp $
+ * $Id: act_wiz.c,v 1.312 2002-11-28 21:40:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -661,7 +661,7 @@ DO_FUN(do_recho, ch, argument)
 
 	for (d = descriptor_list; d; d = d->next) {
 		if (d->connected == CON_PLAYING
-		&&   d->character->in_room == ch->in_room) {
+		&&  d->character->in_room == ch->in_room) {
 			if (IS_TRUSTED(d->character, trust_level(ch))) {
 				act("{W$N:local>{x ",
 					d->character, NULL, ch,
@@ -773,11 +773,6 @@ DO_FUN(do_transfer, ch, argument)
 
 	if ((victim = get_char_world(ch, arg1)) == NULL) {
 		act_char("They aren't here.", ch);
-		return;
-	}
-
-	if (victim->in_room == NULL) {
-		act_char("They are in limbo.", ch);
 		return;
 	}
 
@@ -1255,7 +1250,7 @@ DO_FUN(do_mstat, ch, argument)
 	buf_printf(output, BUF_END,
 		"Race: %s (%s)  Room: [%d]\n",			  // notrans
 		victim->race, ORG_RACE(victim),
-		victim->in_room == NULL ? 0 : victim->in_room->vnum);
+		victim->in_room->vnum);
 
 	mlstr_dump(output, "Gender: ", &victim->gender, DL_NONE); // notrans
 
@@ -1761,9 +1756,7 @@ DO_FUN(do_mwhere, ch, argument)
 
 		buffer = buf_new(0);
 		for (d = descriptor_list; d != NULL; d = d->next) {
-			if (d->character == NULL
-			||  d->connected != CON_PLAYING
-			||  d->character->in_room == NULL
+			if (d->connected != CON_PLAYING
 			||  !can_see(ch, d->character)
 			||  !can_see_room(ch, d->character->in_room))
 				continue;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.291 2002-11-23 15:27:27 fjoe Exp $
+ * $Id: act_move.c,v 1.292 2002-11-28 21:40:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1609,9 +1609,6 @@ DO_FUN(do_kidnap, ch, argument)
 		return;
 	}
 
-	if (ch->in_room == NULL)
-		return;
-
 	if ((victim = get_char_here(ch, arg)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("They aren't here.", ch);
@@ -2745,8 +2742,7 @@ DO_FUN(do_enter, ch, argument)
 
 DO_FUN(do_settraps, ch, argument)
 {
-	if (ch->in_room == NULL
-	||  IS_SET(ch->in_room->room_flags, ROOM_LAW)) {
+	if (IS_SET(ch->in_room->room_flags, ROOM_LAW)) {
 		act_char("A mystical power protects the room.", ch);
 		return;
 	}
