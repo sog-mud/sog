@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.104 1998-11-21 06:00:35 fjoe Exp $
+ * $Id: fight.c,v 1.105 1998-11-21 06:32:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -330,12 +330,11 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 		for (vch = ch->in_room->people; vch; vch = vch_next) {
 			vch_next = vch->next_in_room;
-			if ((vch != victim && vch->fighting == ch)) {
+			if (vch != victim && vch->fighting == ch) {
 				one_hit(ch, vch, dt, WEAR_WIELD);
-				count++;
+				if (++count == max_count)
+					break;
 			}
-			if (count == max_count)
-				break;
 		}
 	}
 
