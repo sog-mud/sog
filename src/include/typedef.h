@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.22 1999-05-08 17:25:38 fjoe Exp $
+ * $Id: typedef.h,v 1.23 1999-05-22 16:21:07 avn Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -60,6 +60,7 @@ typedef struct pc_data 			PC_DATA;
 typedef struct reset_data		RESET_DATA;
 typedef struct room_index_data 		ROOM_INDEX_DATA;
 typedef struct shop_data		SHOP_DATA;
+typedef struct room_affect_data		ROOM_AFFECT_DATA;
 typedef struct time_info_data		TIME_INFO_DATA;
 typedef struct weather_data		WEATHER_DATA;
 typedef struct room_history_data	ROOM_HISTORY_DATA;
@@ -107,17 +108,20 @@ typedef bool	SPEC_FUN	(CHAR_DATA *ch);
 typedef void	SPELL_FUN	(int sn, int level, CHAR_DATA *ch, void *vo,
 				 int target);
 typedef int	OPROG_FUN	(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg);
-
+typedef void	EVENT_FUN	(ROOM_INDEX_DATA *room, CHAR_DATA *ch,
+				 ROOM_AFFECT_DATA *raf);
 #define args(a) a
 #define DECLARE_DO_FUN(fun)	DO_FUN	  fun
 #define DECLARE_SPEC_FUN(fun) 	SPEC_FUN  fun
 #define DECLARE_SPELL_FUN(fun)	SPELL_FUN fun
 #define DECLARE_OPROG_FUN(fun)	OPROG_FUN fun
+#define DECLARE_EVENT_FUN(fun)	EVENT_FUN fun
 
 #define DO_FUN(fun)	void	fun(CHAR_DATA *ch, const char *argument)
 #define SPEC_FUN(fun)	bool	fun(CHAR_DATA *ch)
 #define SPELL_FUN(fun)	void	fun(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 #define OPROG_FUN(fun)	int	fun(OBJ_DATA *obj, CHAR_DATA *ch, void *arg);
+#define EVENT_FUN(fun)	void	fun(ROOM_INDEX_DATA *room, CHAR_DATA *ch, ROOM_AFFECT_DATA *raf)
 
 /* WIN32 Microsoft specific definitions */
 #if defined (WIN32)

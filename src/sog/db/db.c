@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.141 1999-05-22 15:50:53 fjoe Exp $
+ * $Id: db.c,v 1.142 1999-05-22 16:21:08 avn Exp $
  */
 
 /***************************************************************************
@@ -409,6 +409,7 @@ void boot_db(void)
 	 * Reset all areas once.
 	 * Load up the songs, notes and ban files.
 	 */
+	init_raff_table();
 	fix_exits();
 	check_mob_progs();
 	scan_pfiles();

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.146 1999-05-22 13:55:58 fjoe Exp $
+ * $Id: handler.c,v 1.147 1999-05-22 16:21:05 avn Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,6 @@
 #include <time.h>
 #include "merc.h"
 #include "obj_prog.h"
-#include "raffects.h"
 #include "fight.h"
 #include "quest.h"
 #include "chquest.h"
@@ -65,6 +64,7 @@ DECLARE_DO_FUN(do_look		);
  * Local functions.
  */
 void	affect_modify	(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd);
+void	strip_raff_owner(CHAR_DATA *ch);
 
 /* friend stuff -- for NPC's mostly */
 bool is_friend(CHAR_DATA *ch, CHAR_DATA *victim)
@@ -1122,7 +1122,7 @@ void char_from_room(CHAR_DATA *ch)
 	}
 
 	if (prev_room && prev_room->affected_by)
-		  raffect_back_char(prev_room, ch);
+		  check_room_affects(ch, prev_room, EVENT_LEAVE);
 
 	return;
 }
@@ -1210,7 +1210,7 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 		 if (IS_IMMORTAL(ch))
 			do_raffects(ch,str_empty);
 		 else
-			raffect_to_char(ch->in_room, ch);
+			check_room_affects(ch, ch->in_room, EVENT_ENTER);
 	}
 
 	if (ch->desc && OLCED(ch) && IS_EDIT(ch, ED_ROOM))
@@ -1677,6 +1677,21 @@ void extract_obj(OBJ_DATA *obj, int flags)
 	free_obj(obj);
 }
 
+void strip_raff_owner(CHAR_DATA *ch)
+{
+	ROOM_INDEX_DATA *room, *room_next;
+	ROOM_AFFECT_DATA *raf, *raf_next;
+
+	for (room = top_affected_room; room; room = room_next) {
+		room_next = room->aff_next;
+
+		for (raf = room->affected; raf; raf = raf_next) {
+			raf_next = raf->next;
+			if (raf->owner == ch) affect_remove_room(room, raf);
+		}
+	}
+}
+
 /*
  * Extract a char from the world.
  */
@@ -1708,6 +1723,8 @@ void extract_char(CHAR_DATA *ch, int flags)
 			ch->extracted = TRUE;
 		}
 	}
+	
+	strip_raff_owner(ch);
 
 	nuke_pets(ch);
 

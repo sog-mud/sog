@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.48 1999-05-20 19:59:03 fjoe Exp $
+ * $Id: recycle.c,v 1.49 1999-05-22 16:21:07 avn Exp $
  */
 
 /***************************************************************************
@@ -116,6 +116,11 @@ AFFECT_DATA *aff_new(void)
 	return calloc(1, sizeof(AFFECT_DATA));
 }
 
+ROOM_AFFECT_DATA *raff_new(void)
+{
+	return calloc(1, sizeof(ROOM_AFFECT_DATA));
+}
+
 AFFECT_DATA *aff_dup(const AFFECT_DATA *paf)
 {
 	AFFECT_DATA *naf = aff_new();
@@ -132,6 +137,11 @@ AFFECT_DATA *aff_dup(const AFFECT_DATA *paf)
 void aff_free(AFFECT_DATA *af)
 {
 	free(af);
+}
+
+void raff_free(ROOM_AFFECT_DATA *raf)
+{
+	free(raf);
 }
 
 OBJ_DATA *free_obj_list;

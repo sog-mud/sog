@@ -1,5 +1,5 @@
 /*
- * $Id: raffect.c,v 1.22 1999-04-16 20:49:43 fjoe Exp $
+ * $Id: raffect.c,v 1.23 1999-05-22 16:21:07 avn Exp $
  */
 
 /***************************************************************************
@@ -44,15 +44,12 @@
 #include <stdio.h>
 
 #include "merc.h"
-#include "raffects.h"
 #include "fight.h"
-
-DECLARE_DO_FUN(do_wake		);
 
 /*
  * Apply or remove an affect to a room.
  */
-void affect_modify_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf, bool fAdd)
+void affect_modify_room(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf, bool fAdd)
 {
 	int mod;
 
@@ -105,9 +102,9 @@ void affect_modify_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf, bool fAdd)
 /*
  * Give an affect to a room.
  */
-void affect_to_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
+void affect_to_room(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf)
 {
-	AFFECT_DATA *paf_new;
+	ROOM_AFFECT_DATA *paf_new;
 	ROOM_INDEX_DATA *pRoomIndex;
 
 	if (! room->affected)
@@ -124,7 +121,7 @@ void affect_to_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 	 room->aff_next = NULL;
 	}
 
-	paf_new = aff_new();
+	paf_new = raff_new();
 
 	*paf_new		= *paf;
 	paf_new->next	= room->affected;
@@ -136,7 +133,7 @@ void affect_to_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 
 void affect_check_room(ROOM_INDEX_DATA *room,int where,int vector)
 {
-	AFFECT_DATA *paf;
+	ROOM_AFFECT_DATA *paf;
 
 	if (vector == 0)
 		return;
@@ -162,7 +159,7 @@ void affect_check_room(ROOM_INDEX_DATA *room,int where,int vector)
 /*
  * Remove an affect from a room.
  */
-void affect_remove_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
+void affect_remove_room(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf)
 {
 	int where;
 	int vector;
@@ -184,7 +181,7 @@ void affect_remove_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 	}
 	else
 	{
-		AFFECT_DATA *prev;
+		ROOM_AFFECT_DATA *prev;
 
 		for (prev = room->affected; prev != NULL; prev = prev->next)
 		{
@@ -230,7 +227,7 @@ void affect_remove_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 
 	 }
 
-	aff_free(paf);
+	raff_free(paf);
 
 	affect_check_room(room,where,vector);
 	return;
@@ -241,8 +238,8 @@ void affect_remove_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
  */
 void affect_strip_room(ROOM_INDEX_DATA *room, int sn)
 {
-	AFFECT_DATA *paf;
-	AFFECT_DATA *paf_next;
+	ROOM_AFFECT_DATA *paf;
+	ROOM_AFFECT_DATA *paf_next;
 
 	for (paf = room->affected; paf != NULL; paf = paf_next)
 	{
@@ -261,7 +258,7 @@ void affect_strip_room(ROOM_INDEX_DATA *room, int sn)
  */
 bool is_affected_room(ROOM_INDEX_DATA *room, int sn)
 {
-	AFFECT_DATA *paf;
+	ROOM_AFFECT_DATA *paf;
 
 	for (paf = room->affected; paf != NULL; paf = paf->next)
 	{
@@ -277,9 +274,9 @@ bool is_affected_room(ROOM_INDEX_DATA *room, int sn)
 /*
  * Add or enhance an affect.
  */
-void affect_join_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
+void affect_join_room(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf)
 {
-	AFFECT_DATA *paf_old;
+	ROOM_AFFECT_DATA *paf_old;
 	bool found;
 
 	found = FALSE;
@@ -300,7 +297,7 @@ void affect_join_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 }
 
 
-bool is_safe_rspell_nom(int level, CHAR_DATA *victim)
+bool is_safe_rspell_nom(ROOM_AFFECT_DATA *raf, CHAR_DATA *victim)
 {
 	/* ghosts are safe */
 	if (!IS_NPC(victim) && IS_SET(victim->plr_flags, PLR_GHOST))
@@ -310,20 +307,17 @@ bool is_safe_rspell_nom(int level, CHAR_DATA *victim)
 	if (!IS_NPC(victim) && !IS_PUMPED(victim) && victim->desc == NULL) 
 		return TRUE;
 
-	if (victim->level < 5 && !IS_NPC(victim))
-		return TRUE;
+	if (raf->owner) return is_safe_nomessage(victim, raf->owner);
+	bug("is_safe_rspell_nom: no affect owner", 0);
+	affect_remove_room(victim->in_room, raf);
+	return TRUE; /* protected from broken raffs */ 
 
-	if (!IS_NPC(victim)
-	&&  ((level >= victim->level + 5) || (victim->level >= level + 5)))
-		return TRUE;
-
-	return FALSE;
 }
 
 
-bool is_safe_rspell(int level, CHAR_DATA *victim)
+bool is_safe_rspell(ROOM_AFFECT_DATA *raf, CHAR_DATA *victim)
 {
-  if (is_safe_rspell_nom(level,victim))
+  if (is_safe_rspell_nom(raf,victim))
 	{
 	  act("The gods protect you.",victim,NULL,NULL,TO_CHAR);
 	  act("The gods protect $n from the spell of room.",victim,NULL,NULL,TO_ROOM);
@@ -331,111 +325,33 @@ bool is_safe_rspell(int level, CHAR_DATA *victim)
 	}
   else return FALSE;
 }
+
+void check_room_affects(CHAR_DATA *ch, ROOM_INDEX_DATA *room, int event)
+{
+	ROOM_AFFECT_DATA *raf;
+
+	if (!room->affected || event == EVENT_NONE) return;
+
+	for (raf = room->affected; raf != NULL; raf = raf->next) {
+		if (raf->event == event) {
+		    if (!raf->owner) {
+			ROOM_AFFECT_DATA *raf_prev;
+			raf_prev = raf;
+			raf = raf->next;
+			affect_remove_room(room, raf_prev);
+		    }
+		    if (raf->event_fun != NULL)
+				raf->event_fun(room, ch, raf);
+			else log_printf("[*****] BUG: check_room_affects: "
+			"no event_fun for %d event", event);
+		}
+		if (IS_EXTRACTED(ch)) break;
+	}
+}
 	  
-		
-void raffect_to_char(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
-{
-  AFFECT_DATA *paf;
-
-  if (IS_ROOM_AFFECTED(room, RAFF_LSHIELD))
-  {
-	 int sn;
-	 CHAR_DATA *vch;
-
-	 if ((sn = sn_lookup("lightning shield")) == -1)
-		{ bug("Bad sn for lightning shield",0); return; }
-
-	 for (vch=room->people;vch;vch=vch->next_in_room)
-		{
-		 if (is_room_owner(vch,room)) break;
-		}
-
-	if (!vch)
-		{
-		 bug("Owner of lightning shield left the room.",0);
-		 free_string(room->owner);
-		 room->owner = str_dup(str_empty);	 
-		 affect_strip_room(room,sn); 
-		}
-	 else 
-	 {
-	  char_puts("The protective shield of room blocks you.\n",ch);
-	  act("$N has entered the room.",vch,NULL,ch,TO_CHAR);
-	  do_wake(vch,str_empty);
-
-	  if ((paf = affect_find(room->affected,sn)) == NULL)
-		 { bug("Bad paf for lightning shield",0); return; }
-
-	  if (!is_safe_rspell(paf->level,ch)) 
-		{
-		 damage(vch,ch,dice(paf->level,4)+12,sn,DAM_LIGHTNING, TRUE);
-		 free_string(room->owner);
-		 room->owner = str_dup(str_empty);	 
-		 affect_remove_room(room , paf);
-		}
-	 }
-   }
-
-  if (IS_ROOM_AFFECTED(room, RAFF_SHOCKING))
-  {
-	 int sn;
-
-	 if ((sn = sn_lookup("shocking trap")) == -1)
-		{ bug("Bad sn for shocking shield",0); return; }
-
-	 char_puts("The shocking waves of room shocks you.\n",ch);
-
-	 if ((paf = affect_find(room->affected,sn)) == NULL)
-		 { bug("Bad paf for shocking shield",0); return; }
-
-	 if (!is_safe_rspell(paf->level,ch)) 
-		{
-		 if (check_immune(ch, DAM_LIGHTNING) != IS_IMMUNE)
-		 damage(ch,ch,dice(paf->level,4)+12,TYPE_HUNGER,DAM_TRAP_ROOM, TRUE);
-		 affect_remove_room(room , paf);
-		}
-   }
-
-  if (IS_ROOM_AFFECTED(room, RAFF_THIEF_TRAP))
-  {
-	 char_puts("The trap ,set by someone, blocks you.\n",ch);
-
-	 if ((paf = affect_find(room->affected,gsn_settraps)) == NULL)
-		 { bug("Bad paf for settraps",0); return; }
-
-	 if (!is_safe_rspell(paf->level,ch)) 
-		{
-		 if (check_immune(ch, DAM_PIERCE) != IS_IMMUNE)
-		 damage(ch,ch,dice(paf->level,5)+12,TYPE_HUNGER,DAM_TRAP_ROOM, TRUE);
-		 affect_remove_room(room , paf);
-		}
-   }
-
-	if (IS_ROOM_AFFECTED(room, RAFF_SLOW)
-	||  IS_ROOM_AFFECTED(room, RAFF_SLEEP))
-		char_puts("There is some mist flowing in the air.\n",ch);
-}
-
-void raffect_back_char(ROOM_INDEX_DATA *room, CHAR_DATA *ch)
-{
-	if (IS_ROOM_AFFECTED(room, RAFF_LSHIELD)) {
-		int sn;
-
-	if ((sn = sn_lookup("lightning shield")) == -1)
-		{ bug("Bad sn for lightning shield",0); return; }
-	if (is_room_owner(ch,room)) 
-		{
-		 free_string(room->owner);
-		 room->owner = str_dup(str_empty);	 
-		 affect_strip_room(room,sn); 
-		}
-   }
-}
-
-
 void do_raffects(CHAR_DATA *ch, const char *argument)
 {
-	AFFECT_DATA *paf, *paf_last = NULL;
+	ROOM_AFFECT_DATA *paf, *paf_last = NULL;
 
 	if (ch->in_room->affected == NULL) {
 		char_puts("The room is not affected by any spells.\n",ch);

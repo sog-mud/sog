@@ -16,7 +16,7 @@ Arborn's personal healer stands here.
 ~
 human~
 ABa H 1000 0
-200 0 1d1+1 1d1+1 1d1+1 magic
+10000 0 1d1+1 1d1+1 1d1+1 magic
 0 0 0 0
 0 0 0 0
 stand stand female 0

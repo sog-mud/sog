@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.171 1999-05-21 17:55:38 fjoe Exp $
+ * $Id: act_move.c,v 1.172 1999-05-22 16:21:04 avn Exp $
  */
 
 /***************************************************************************
@@ -3730,7 +3730,8 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, SKILL(gsn_settraps)->beats);
 
 	if (IS_NPC(ch) || number_percent() <  chance * 7 / 10) {
-	  AFFECT_DATA af,af2;
+	  AFFECT_DATA af2;
+	  ROOM_AFFECT_DATA af;
 
 	  check_improve(ch,gsn_settraps,TRUE,1);
 
@@ -3753,6 +3754,9 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 	  af.location  = APPLY_NONE;
 	  af.modifier  = 0;
 	  af.bitvector = RAFF_THIEF_TRAP;
+	  af.owner     = ch;
+	  af.event     = EVENT_ENTER;
+	  af.event_fun = get_event_fun(gsn_settraps, EVENT_ENTER);
 	  affect_to_room(ch->in_room, &af);
 
 	  af2.where     = TO_AFFECTS;

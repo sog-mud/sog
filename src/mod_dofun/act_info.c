@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.238 1999-05-21 18:37:34 fjoe Exp $
+ * $Id: act_info.c,v 1.239 1999-05-22 16:21:04 avn Exp $
  */
 
 /***************************************************************************
@@ -3505,6 +3505,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 void do_camp(CHAR_DATA *ch, const char *argument)
 {
 	AFFECT_DATA af;
+	ROOM_AFFECT_DATA raf;
 	int sn;
 	int chance;
 	int mana;
@@ -3561,18 +3562,21 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 	af.location	= APPLY_NONE;
 	affect_to_char(ch, &af);
 
-	af.where	= TO_ROOM_CONST;
-	af.type		= sn;
-	af.level	= ch->level;
-	af.duration	= ch->level / 20;
-	af.bitvector	= 0;
-	af.modifier	= 2 * ch->level;
-	af.location	= APPLY_ROOM_HEAL;
-	affect_to_room(ch->in_room, &af);
+	raf.where	= TO_ROOM_CONST;
+	raf.type	= sn;
+	raf.level	= ch->level;
+	raf.duration	= ch->level / 20;
+	raf.bitvector	= 0;
+	raf.modifier	= 2 * ch->level;
+	raf.location	= APPLY_ROOM_HEAL;
+	raf.owner	= ch;
+	raf.event	= EVENT_NONE;
+	raf.event_fun	= NULL;
+	affect_to_room(ch->in_room, &raf);
 
-	af.modifier	= ch->level;
-	af.location	= APPLY_ROOM_MANA;
-	affect_to_room(ch->in_room, &af);
+	raf.modifier	= ch->level;
+	raf.location	= APPLY_ROOM_MANA;
+	affect_to_room(ch->in_room, &raf);
 }
 
 void do_demand(CHAR_DATA *ch, const char *argument)

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.156 1999-05-22 13:37:28 fjoe Exp $
+ * $Id: spellfun.c,v 1.157 1999-05-22 16:21:06 avn Exp $
  */
 
 /***************************************************************************
@@ -1250,7 +1250,8 @@ void spell_chain_lightning(int sn,int level,CHAR_DATA *ch, void *vo, int target)
 
 void spell_healing_light(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
-	AFFECT_DATA af,af2;
+	AFFECT_DATA af2;
+	ROOM_AFFECT_DATA af;
 
 	if (is_affected_room(ch->in_room, sn))
 	{
@@ -1263,8 +1264,11 @@ void spell_healing_light(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.level     = level;
 	af.duration  = level / 25;
 	af.location  = APPLY_ROOM_HEAL;
-	af.modifier  = level;
+	af.modifier  = level * 3 / 2;
 	af.bitvector = 0;
+	af.owner     = ch;
+	af.event     = EVENT_NONE;
+	af.event_fun = NULL;
 	affect_to_room(ch->in_room, &af);
 
 	af2.where     = TO_AFFECTS;
@@ -4788,7 +4792,8 @@ void spell_find_object(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 void spell_lightning_shield(int sn, int level, CHAR_DATA *ch, void *vo, int target) 
 {
-	AFFECT_DATA af,af2;
+	AFFECT_DATA af2;
+	ROOM_AFFECT_DATA af;
 
 	if (is_affected_room(ch->in_room, sn))
 	{
@@ -4804,11 +4809,19 @@ void spell_lightning_shield(int sn, int level, CHAR_DATA *ch, void *vo, int targ
    
 	af.where     = TO_ROOM_AFFECTS;
 	af.type      = sn;
-	af.level     = ch->level;
+	af.level     = level;
 	af.duration  = level / 40;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = RAFF_LSHIELD;
+	af.owner     = ch;
+	af.event     = EVENT_ENTER;
+	af.event_fun = get_event_fun(sn, EVENT_ENTER);
+	affect_to_room(ch->in_room, &af);
+
+	af.bitvector = 0;
+	af.event     = EVENT_LEAVE;
+	af.event_fun = get_event_fun(sn, EVENT_LEAVE);
 	affect_to_room(ch->in_room, &af);
 
 	af2.where     = TO_AFFECTS;
@@ -4820,7 +4833,6 @@ void spell_lightning_shield(int sn, int level, CHAR_DATA *ch, void *vo, int targ
 	af2.bitvector = 0;
 	affect_to_char(ch, &af2);
 
-	ch->in_room->owner = str_qdup(ch->name);
 	char_puts("The room starts to be filled with lightnings.\n", ch);
 	act("The room starts to be filled with $n's lightnings.",ch,NULL,NULL,TO_ROOM);
 	return;
@@ -4828,7 +4840,8 @@ void spell_lightning_shield(int sn, int level, CHAR_DATA *ch, void *vo, int targ
 
 void spell_shocking_trap(int sn, int level, CHAR_DATA *ch, void *vo, int target) 
 {
-	AFFECT_DATA af,af2;
+	AFFECT_DATA af2;
+	ROOM_AFFECT_DATA af;
 
 	if (is_affected_room(ch->in_room, sn))
 	{
@@ -4844,16 +4857,19 @@ void spell_shocking_trap(int sn, int level, CHAR_DATA *ch, void *vo, int target)
    
 	af.where     = TO_ROOM_AFFECTS;
 	af.type      = sn;
-	af.level     = ch->level;
+	af.level     = level;
 	af.duration  = level / 40;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = RAFF_SHOCKING;
+	af.owner     = ch;
+	af.event     = EVENT_ENTER;
+	af.event_fun = get_event_fun(sn, EVENT_ENTER);
 	affect_to_room(ch->in_room, &af);
 
 	af2.where     = TO_AFFECTS;
 	af2.type      = sn;
-	af2.level	 = level;
+	af2.level     = level;
 	af2.duration  = ch->level / 10;
 	af2.modifier  = 0;
 	af2.location  = APPLY_NONE;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.41 1999-05-21 22:49:34 fjoe Exp $
+ * $Id: db.h,v 1.42 1999-05-22 16:21:08 avn Exp $
  */
 
 #ifndef _DB_H_
@@ -110,6 +110,7 @@ void	load_oldmsgdb	(void);
 void	load_msgdb	(void);
 void	load_notes	(void);
 void	load_bans	(void);
+void	init_raff_table	(void);
 
 int	xgetc	(FILE *fp);
 void	xungetc	(int c, FILE *fp);

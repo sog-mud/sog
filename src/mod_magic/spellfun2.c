@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.107 1999-05-20 11:02:58 fjoe Exp $
+ * $Id: spellfun2.c,v 1.108 1999-05-22 16:21:06 avn Exp $
  */
 
 /***************************************************************************
@@ -3705,7 +3705,8 @@ void spell_dragon_skin(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 void spell_mind_light(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
-	AFFECT_DATA af,af2;
+	AFFECT_DATA af2;
+	ROOM_AFFECT_DATA af;
 
 	if (is_affected_room(ch->in_room, sn))
 	{
@@ -3718,8 +3719,11 @@ void spell_mind_light(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.level     = level;
 	af.duration  = level / 30;
 	af.location  = APPLY_ROOM_MANA;
-	af.modifier  = level;
+	af.modifier  = level * 3 / 2;
 	af.bitvector = 0;
+	af.owner     = ch;
+	af.event     = EVENT_NONE;
+	af.event_fun = NULL;
 	affect_to_room(ch->in_room, &af);
 
 	af2.where     = TO_AFFECTS;
@@ -3853,22 +3857,20 @@ void spell_severity_force(int sn, int level, CHAR_DATA *ch, void *vo, int target
 
 void spell_randomizer(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
-	AFFECT_DATA af,af2;
+	AFFECT_DATA af2;
+	ROOM_AFFECT_DATA af;
 
 	if (is_affected(ch, sn))
 	{
-	  char_puts
-	("Your power of randomness has been exhausted for now.\n",
-	 ch);
-	  return;
+	char_puts("Your power of randomness has been exhausted for now.\n", ch);
+	return;
 	}
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_LAW))
 	{
-	  char_puts(
-	    "This room is far too orderly for your powers to work on it.\n",
-		   ch);
-	  return;
+	char_puts("This room is far too orderly for your powers"
+		"to work on it.\n", ch);
+	return;
 	}
 	if (is_affected_room(ch->in_room, sn))
 	{
@@ -3897,11 +3899,14 @@ void spell_randomizer(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = RAFF_RANDOMIZER;
+	af.owner     = ch;
+	af.event     = EVENT_NONE;
+	af.event_fun = NULL;
 	affect_to_room(ch->in_room, &af);
 
 	af2.where     = TO_AFFECTS;
 	af2.type      = sn;
-	af2.level	  = ch->level;
+	af2.level     = ch->level;
 	af2.duration  = level / 5;
 	af2.modifier  = 0;
 	af2.location  = APPLY_NONE;
@@ -4395,7 +4400,7 @@ void spell_sanctify_lands(int sn, int level, CHAR_DATA *ch, void *vo, int target
 
 void spell_deadly_venom(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
-	AFFECT_DATA af;
+	ROOM_AFFECT_DATA af;
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_LAW))
 	{
@@ -4415,6 +4420,9 @@ void spell_deadly_venom(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = RAFF_POISON;
+	af.owner     = ch;
+	af.event     = EVENT_UPDATE;
+	af.event_fun = get_event_fun(sn, EVENT_UPDATE);
 	affect_to_room(ch->in_room, &af);
 
 	char_puts("The room starts to be filled by poison.\n",ch);   
@@ -4424,7 +4432,7 @@ void spell_deadly_venom(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 void spell_cursed_lands(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
-	AFFECT_DATA af;
+	ROOM_AFFECT_DATA af;
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_LAW))
 	{
@@ -4444,6 +4452,9 @@ void spell_cursed_lands(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = RAFF_CURSE;
+	af.owner     = ch;
+	af.event     = EVENT_NONE;
+	af.event_fun = NULL;
 	affect_to_room(ch->in_room, &af);
 
 	char_puts("The gods has forsaken the room.\n",ch);   
@@ -4453,7 +4464,7 @@ void spell_cursed_lands(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 void spell_lethargic_mist(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
-	 AFFECT_DATA af;
+	 ROOM_AFFECT_DATA af;
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_LAW))
 	{
@@ -4473,6 +4484,14 @@ void spell_lethargic_mist(int sn, int level, CHAR_DATA *ch, void *vo, int target
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = RAFF_SLOW;
+	af.owner     = ch;
+	af.event     = EVENT_UPDATE;
+	af.event_fun = get_event_fun(sn, EVENT_UPDATE);
+	affect_to_room(ch->in_room, &af);
+
+	af.bitvector = 0;
+	af.event     = EVENT_ENTER;
+	af.event_fun = get_event_fun(sn, EVENT_ENTER);
 	affect_to_room(ch->in_room, &af);
 
 	char_puts("The air in the room makes you slowing down.\n",ch);   
@@ -4482,7 +4501,7 @@ void spell_lethargic_mist(int sn, int level, CHAR_DATA *ch, void *vo, int target
 
 void spell_black_death(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
-	AFFECT_DATA af;
+	ROOM_AFFECT_DATA af;
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_LAW))
 	{
@@ -4502,6 +4521,9 @@ void spell_black_death(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = RAFF_PLAGUE;
+	af.owner     = ch;
+	af.event     = EVENT_UPDATE;
+	af.event_fun = get_event_fun(sn, EVENT_UPDATE);
 	affect_to_room(ch->in_room, &af);
 
 	char_puts("The room starts to be filled by disease.\n",ch);   
@@ -4511,7 +4533,7 @@ void spell_black_death(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 void spell_mysterious_dream(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
-	AFFECT_DATA af;
+	ROOM_AFFECT_DATA af;
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_LAW))
 	{
@@ -4531,6 +4553,14 @@ void spell_mysterious_dream(int sn, int level, CHAR_DATA *ch, void *vo, int targ
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = RAFF_SLEEP;
+	af.owner     = ch;
+	af.event     = EVENT_UPDATE;
+	af.event_fun = get_event_fun(sn, EVENT_UPDATE);
+	affect_to_room(ch->in_room, &af);
+
+	af.bitvector = 0;
+	af.event     = EVENT_ENTER;
+	af.event_fun = get_event_fun(sn, EVENT_ENTER);
 	affect_to_room(ch->in_room, &af);
 
 	char_puts("The room starts to be seen good place to sleep.\n",ch);   
@@ -4758,7 +4788,8 @@ void spell_evil_spirit(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
  AREA_DATA *pArea = ch->in_room->area;
  ROOM_INDEX_DATA *room;
- AFFECT_DATA af,af2;
+ AFFECT_DATA af2;
+ ROOM_AFFECT_DATA af;
  int i;
 
  if (IS_RAFFECTED(ch->in_room, RAFF_ESPIRIT)
@@ -4795,6 +4826,9 @@ void spell_evil_spirit(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = RAFF_ESPIRIT;
+	af.owner     = ch;
+	af.event     = EVENT_UPDATE;
+	af.event_fun = get_event_fun(sn, EVENT_UPDATE);
 
 	for (i=pArea->min_vnum; i<pArea->max_vnum; i++)  
 	{

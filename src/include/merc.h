@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.194 1999-05-22 13:37:29 fjoe Exp $
+ * $Id: merc.h,v 1.195 1999-05-22 16:21:07 avn Exp $
  */
 
 /***************************************************************************
@@ -347,6 +347,21 @@ struct affect_data
 	int		location;
 	int		modifier;
 	flag64_t 	bitvector;
+};
+
+struct room_affect_data
+{
+	ROOM_AFFECT_DATA *	next;
+	flag32_t		where;
+	int			type;
+	int			level;
+	CHAR_DATA *		owner;
+	int			duration;
+	int			location;
+	int			modifier;
+	flag64_t		bitvector;
+	int			event;
+	EVENT_FUN *		event_fun;
 };
 
 /* where definitions */
@@ -716,6 +731,14 @@ where_t *where_lookup(flag32_t where);
 #define RAFF_SLEEP		(R)
 #define RAFF_PLAGUE 		(X)
 #define RAFF_SLOW		(dd)
+
+/*
+ * EVENTs for room affects
+ */
+#define EVENT_NONE		0
+#define EVENT_ENTER		1
+#define EVENT_LEAVE		2
+#define EVENT_UPDATE		3
 
 /* AC types */
 #define AC_PIERCE			0
@@ -1646,7 +1669,7 @@ struct room_index_data
 	int			heal_rate;
 	int			mana_rate;
 	ROOM_HISTORY_DATA * 	history;
-	AFFECT_DATA *		affected;
+	ROOM_AFFECT_DATA *	affected;
 	int			affected_by;
 };
 
@@ -1926,11 +1949,11 @@ void	affect_bit_strip(CHAR_DATA *ch, int where, flag64_t bits);
 bool	is_affected	(CHAR_DATA *ch, int sn);
 bool	is_bit_affected	(CHAR_DATA *ch, int where, flag64_t bits);
 int	has_obj_affect	(CHAR_DATA *ch, int vector);
-void	affect_to_room	(ROOM_INDEX_DATA *room, AFFECT_DATA *paf);
-void	affect_remove_room	(ROOM_INDEX_DATA *room, AFFECT_DATA *paf);
+void	affect_to_room	(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf);
+void	affect_remove_room	(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf);
 void	affect_strip_room	(ROOM_INDEX_DATA *ch, int sn);
 bool	is_affected_room	(ROOM_INDEX_DATA *ch, int sn);
-void	affect_join_room	(ROOM_INDEX_DATA *ch, AFFECT_DATA *paf);
+void	affect_join_room	(ROOM_INDEX_DATA *ch, ROOM_AFFECT_DATA *paf);
 void	affect_join	(CHAR_DATA *ch, AFFECT_DATA *paf);
 void	char_from_room	(CHAR_DATA *ch);
 void	char_to_room	(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex);
@@ -1984,7 +2007,8 @@ bool	can_see_obj	(CHAR_DATA *ch, OBJ_DATA *obj);
 bool	can_see_room	(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex);
 bool	can_drop_obj	(CHAR_DATA *ch, OBJ_DATA *obj);
 void	room_record	(const char *name, ROOM_INDEX_DATA *room,int door);
-bool	is_safe_rspell	(int level, CHAR_DATA *victim);
+bool	is_safe_rspell	(ROOM_AFFECT_DATA *raf, CHAR_DATA *victim);
+EVENT_FUN*	get_event_fun	(int sn, int event);
 int	count_charmed	(CHAR_DATA *ch);
 void	add_mind	(CHAR_DATA *ch, const char *str);
 void	remove_mind	(CHAR_DATA *ch, const char *str);
@@ -2068,7 +2092,11 @@ void		free_exit		(EXIT_DATA *pExit);
 ROOM_INDEX_DATA *new_room_index		(void);
 void		free_room_index		(ROOM_INDEX_DATA *pRoom);
 AFFECT_DATA	*aff_new		(void);
+ROOM_AFFECT_DATA *raff_new		(void);
 void		aff_free		(AFFECT_DATA* pAf);
+void	 	raff_free		(ROOM_AFFECT_DATA *raf);
+void		check_room_affects	(CHAR_DATA *ch, ROOM_INDEX_DATA *room,
+					 int event);
 SHOP_DATA	*new_shop		(void);
 void		free_shop		(SHOP_DATA *pShop);
 OBJ_INDEX_DATA	*new_obj_index		(void);

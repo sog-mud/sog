@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.130 1999-05-22 15:46:00 fjoe Exp $
+ * $Id: update.c,v 1.131 1999-05-22 16:21:07 avn Exp $
  */
 
 /***************************************************************************
@@ -1861,6 +1861,7 @@ void update_handler(void)
 	}
 
 	if (--pulse_raffect <= 0) {
+		wiznet("RAFFECT TICK!", NULL, NULL, WIZ_TICKS, 0, 0);
 		pulse_raffect = PULSE_RAFFECT;
 		room_affect_update();
 	}
@@ -1943,8 +1944,8 @@ void room_update(void)
 	ROOM_INDEX_DATA *room_next;
 
 	for (room = top_affected_room; room; room = room_next) {
-		AFFECT_DATA *paf;
-		AFFECT_DATA *paf_next;
+		ROOM_AFFECT_DATA *paf;
+		ROOM_AFFECT_DATA *paf_next;
 
 		room_next = room->aff_next;
 
@@ -1953,12 +1954,8 @@ void room_update(void)
 
 			if (paf->duration > 0) {
 				paf->duration--;
-/*
- * spell strength shouldn't fade with time 
- * because of checks in safe_rspell with af->level 
 				if (number_range(0,4) == 0 && paf->level > 0)
 					paf->level--;
-*/
 			}
 			else if (paf->duration == 0)
 				affect_remove_room(room, paf);
@@ -1970,278 +1967,17 @@ void room_affect_update(void)
 {   
 	ROOM_INDEX_DATA *room;
 	ROOM_INDEX_DATA *room_next;
+	CHAR_DATA	*vch;
 
 	for (room = top_affected_room; room ; room = room_next)
 	{
 	room_next = room->aff_next;
 
-	    while (IS_ROOM_AFFECTED(room, RAFF_PLAGUE) && room->people != NULL)
-	    {
-	        AFFECT_DATA *af, plague;
-	        CHAR_DATA *vch;
+	for (vch = room->people; vch; vch = vch->next_in_room)
+		check_room_affects(vch, room, EVENT_UPDATE);
 
-	        for (af = room->affected; af != NULL; af = af->next)
-	        {
-	        	if (af->type == gsn_black_death)
-	                break;
-	        }
-	    
-	        if (af == NULL)
-	        {
-	        	REMOVE_BIT(room->affected_by,RAFF_PLAGUE);
-	        	break;
-	        }
-
-	        if (af->level == 1)
-	        	af->level = 2;
-	
-	    plague.where		= TO_AFFECTS;
-	        plague.type 		= gsn_plague;
-	        plague.level 		= af->level - 1; 
-	        plague.duration 		= number_range(1,((plague.level/2)+1));
-	        plague.location		= APPLY_NONE;
-	        plague.modifier 		= -5;
-	        plague.bitvector 		= AFF_PLAGUE;
-	    
-	        for (vch = room->people; vch != NULL; vch = vch->next_in_room)
-	        {
-	            if (!saves_spell(plague.level ,vch,DAM_DISEASE) 
-		&&  !IS_IMMORTAL(vch)
-		&&  !is_safe_rspell(af->level,vch)
-	        	&&  !IS_AFFECTED(vch,AFF_PLAGUE) && number_bits(3) == 0)
-	        	{
-	        	    char_puts("You feel hot and feverish.\n",vch);
-	        	    act("$n shivers and looks very ill.",vch,NULL,NULL,TO_ROOM);
-	        	    affect_join(vch,&plague);
-	        	}
-	        }
 	 break;
-	    }
-
-	    while (IS_ROOM_AFFECTED(room, RAFF_POISON) && room->people != NULL)
-	    {
-	        AFFECT_DATA *af, paf;
-	        CHAR_DATA *vch;
-
-	        for (af = room->affected; af != NULL; af = af->next)
-	        {
-	        	if (af->type == gsn_deadly_venom)
-	                break;
-	        }
-	    
-	        if (af == NULL)
-	        {
-	        	REMOVE_BIT(room->affected_by,RAFF_POISON);
-	        	break;
-	        }
-
-	        if (af->level == 1)
-	        	af->level = 2;
-	
-	    paf.where		= TO_AFFECTS;
-	        paf.type 		= gsn_poison;
-	        paf.level 		= af->level - 1; 
-	        paf.duration 	= number_range(1,((paf.level/5)+1));
-	        paf.location	= APPLY_NONE;
-	        paf.modifier 	= -5;
-	        paf.bitvector 	= AFF_POISON;
-	    
-	        for (vch = room->people; vch != NULL; vch = vch->next_in_room)
-	        {
-	            if (!saves_spell(paf.level ,vch,DAM_POISON) 
-		&&  !IS_IMMORTAL(vch)
-		&&  !is_safe_rspell(af->level,vch)
-	        	&&  !IS_AFFECTED(vch,AFF_POISON) && number_bits(3) == 0)
-	        	{
-	        	    char_puts("You feel very sick.\n",vch);
-	        	    act("$n looks very ill.",vch,NULL,NULL,TO_ROOM);
-	        	    affect_join(vch,&paf);
-	        	}
-	        }
-	 break;
-	    }
-
-	    while (IS_ROOM_AFFECTED(room, RAFF_SLOW) && room->people != NULL)
-	    {
-	        AFFECT_DATA *af, paf;
-	        CHAR_DATA *vch;
-
-	        for (af = room->affected; af != NULL; af = af->next)
-	        {
-	        	if (af->type == gsn_lethargic_mist)
-	                break;
-	        }
-	    
-	        if (af == NULL)
-	        {
-	        	REMOVE_BIT(room->affected_by,RAFF_SLOW);
-	        	break;
-	        }
-
-	        if (af->level == 1)
-	        	af->level = 2;
-	
-	    paf.where		= TO_AFFECTS;
-	        paf.type 		= gsn_slow;
-	        paf.level 		= af->level - 1; 
-	        paf.duration 	= number_range(1,((paf.level/5)+1));
-	        paf.location	= APPLY_NONE;
-	        paf.modifier 	= -5;
-	        paf.bitvector 	= AFF_SLOW;
-	    
-	        for (vch = room->people; vch != NULL; vch = vch->next_in_room)
-	        {
-	            if (!saves_spell(paf.level ,vch,DAM_OTHER) 
-		&&  !IS_IMMORTAL(vch)
-		&&  !is_safe_rspell(af->level,vch)
-	        	&&  !IS_AFFECTED(vch,AFF_SLOW) && number_bits(3) == 0)
-	        	{
-	        	    char_puts("You start to move less quickly.\n",vch);
-	        	    act("$n is moving less quickly.",vch,NULL,NULL,TO_ROOM);
-	        	    affect_join(vch,&paf);
-	        	}
-	        }
-	 break;
-	    }
-
-	    while (IS_ROOM_AFFECTED(room, RAFF_SLEEP) && room->people != NULL)
-	    {
-	        AFFECT_DATA *af, paf;
-	        CHAR_DATA *vch;
-
-	        for (af = room->affected; af != NULL; af = af->next)
-	        {
-	        	if (af->type == gsn_mysterious_dream)
-	                break;
-	        }
-	    
-	        if (af == NULL)
-	        {
-	        	REMOVE_BIT(room->affected_by,RAFF_SLEEP);
-	        	break;
-	        }
-
-	        if (af->level == 1)
-	        	af->level = 2;
-	
-	    paf.where		= TO_AFFECTS;
-	        paf.type 		= gsn_sleep;
-	        paf.level 		= af->level - 1; 
-	        paf.duration 	= number_range(1,((paf.level/10)+1));
-	        paf.location	= APPLY_NONE;
-	        paf.modifier 	= -5;
-	        paf.bitvector 	= AFF_SLEEP;
-	    
-	        for (vch = room->people; vch != NULL; vch = vch->next_in_room)
-	        {
-	            if (!saves_spell(paf.level - 4,vch,DAM_CHARM) 
-		&&  !IS_IMMORTAL(vch)
-		&&  !is_safe_rspell(af->level,vch)
-		&&  !(IS_NPC(vch) && IS_SET(vch->pIndexData->act, ACT_UNDEAD))
-	        	&&  !IS_AFFECTED(vch,AFF_SLEEP) && number_bits(3) == 0)
-	        	{
-		  if (IS_AWAKE(vch))
-		   {
-	        	    char_puts("You feel very sleepy.......zzzzzz.\n",vch);
-	        	    act("$n goes to sleep.",vch,NULL,NULL,TO_ROOM);
-		    vch->position = POS_SLEEPING;
-		   }		    
-	      	  affect_join(vch,&paf);
-	        	}
-	        }
-	 break;
-	    }
-
-
-	    while (IS_ROOM_AFFECTED(room, RAFF_ESPIRIT) && room->people != NULL)
-	    {
-	        AFFECT_DATA *af, paf;
-	        CHAR_DATA *vch;
-
-	        for (af = room->affected; af != NULL; af = af->next)
-	        {
-	        	if (af->type == gsn_evil_spirit)
-	                break;
-	        }
-	    
-	        if (af == NULL)
-	        {
-	        	REMOVE_BIT(room->affected_by,RAFF_ESPIRIT);
-	        	break;
-	        }
-
-	        if (af->level == 1)
-	        	af->level = 2;
-	
-	    paf.where		= TO_AFFECTS;
-	        paf.type 		= gsn_evil_spirit;
-	        paf.level 		= af->level; 
-	        paf.duration 	= number_range(1,(paf.level/30));
-	        paf.location	= APPLY_NONE;
-	        paf.modifier 	= 0;
-	        paf.bitvector 	= 0;
-	    
-	        for (vch = room->people; vch != NULL; vch = vch->next_in_room)
-	        {
-	            if (!saves_spell(paf.level + 2,vch,DAM_MENTAL) 
-		&&  !IS_IMMORTAL(vch)
-		&&  !is_safe_rspell(af->level,vch)
-	        	&&  !is_affected(vch,gsn_evil_spirit) && number_bits(3) == 0)
-	        	{
-	        	    char_puts("You feel worse than ever.\n",vch);
-	        	    act("$n looks more evil.",vch,NULL,NULL,TO_ROOM);
-	        	    affect_join(vch,&paf);
-	        	}
-	        }
-	 break;
-	    }
-
-/* new ones here
-	    while (IS_ROOM_AFFECTED(room, RAFF_) && room->people != NULL)
-	    {
-	        AFFECT_DATA *af, paf;
-	        CHAR_DATA *vch;
-
-	        for (af = room->affected; af != NULL; af = af->next)
-	        {
-	        	if (af->type == gsn_)
-	                break;
-	        }
-	    
-	        if (af == NULL)
-	        {
-	        	REMOVE_BIT(room->affected_by,RAFF_);
-	        	break;
-	        }
-
-	        if (af->level == 1)
-	        	af->level = 2;
-	
-	    paf.where		= TO_AFFECTS;
-	        paf.type 		= gsn_;
-	        paf.level 		= af->level - 1; 
-	        paf.duration 	= number_range(1,((paf.level/5)+1));
-	        paf.location	= APPLY_NONE;
-	        paf.modifier 	= -5;
-	        paf.bitvector 	= AFF_;
-	    
-	        for (vch = room->people; vch != NULL; vch = vch->next_in_room)
-	        {
-	            if (!saves_spell(paf.level + 2,vch,DAM_) 
-		&&  !IS_IMMORTAL(vch)
-		&&  !is_safe_rspell(af->level,vch)
-	        	&&  !IS_AFFECTED(vch,AFF_) && number_bits(3) == 0)
-	        	{
-	        	    char_puts("You feel hot and feverish.\n",vch);
-	        	    act("$n shivers and looks very ill.",vch,NULL,NULL,TO_ROOM);
-	        	    affect_join(vch,&paf);
-	        	}
-	        }
-	 break;
-	    }
-*/
 	}
-	return;
 }
 
 
