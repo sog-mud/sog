@@ -1,5 +1,5 @@
 /*
- * $Id: auction.c,v 1.45.2.3 2002-09-01 14:44:46 tatyana Exp $
+ * $Id: auction.c,v 1.45.2.4 2002-11-28 21:54:38 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -25,7 +25,7 @@ void act_auction(const char *fmt,
 	DESCRIPTOR_DATA *d;
 
 	for (d = descriptor_list; d != NULL; d = d->next) {
-		CHAR_DATA *ch = d->original ? d->original : d->character;
+		CHAR_DATA *ch = d->character;
 
 		if (d->connected != CON_PLAYING
 		||  IS_SET(ch->comm, COMM_NOAUCTION))

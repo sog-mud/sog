@@ -1,4 +1,4 @@
-/*-                        
+/*-
  * Copyright (c) 1998 SoG Development Team
  * All rights reserved.
  *
@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.70.2.6 2002-11-21 10:00:46 fjoe Exp $
+ * $Id: olc.c,v 1.70.2.7 2002-11-28 21:54:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -129,7 +129,8 @@ int _module_unload(module_t *m)
 
 	/* drop all the builders out OLC editors */
 	for (d = descriptor_list; d; d = d->next) {
-		if (d->olced == NULL)
+		if (d->connected != CON_PLAYING
+		||  d->olced == NULL)
 			continue;
 
 		char_puts("Unloading OLC module.\n", d->character);

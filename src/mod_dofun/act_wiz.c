@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.34 2002-10-24 08:58:05 tatyana Exp $
+ * $Id: act_wiz.c,v 1.186.2.35 2002-11-28 21:54:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1882,7 +1882,7 @@ void do_mwhere(CHAR_DATA *ch, const char *argument)
 		buffer = buf_new(-1);
 		for (d = descriptor_list; d != NULL; d = d->next)
 		{
-		    if (d->character != NULL && d->connected == CON_PLAYING
+		    if (d->connected == CON_PLAYING
 		    &&  d->character->in_room != NULL && can_see(ch,d->character)
 		    &&  can_see_room(ch,d->character->in_room))
 		    {

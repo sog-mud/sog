@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.50 2002-11-19 14:17:17 tatyana Exp $
+ * $Id: update.c,v 1.157.2.51 2002-11-28 21:54:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2073,16 +2073,14 @@ void update_handler(void)
 
 void light_update(void)
 {
-	CHAR_DATA *ch;
 	int dam_light;
 	DESCRIPTOR_DATA *d;
 
-
 	for (d = descriptor_list; d != NULL; d = d->next) {
+		CHAR_DATA *ch = d->character;
+
 		if (d->connected != CON_PLAYING)
 			continue;
-
-		ch = (d->original != NULL) ? d->original : d->character;
 
 		if (IS_IMMORTAL(ch))
 			continue;
@@ -2382,10 +2380,9 @@ void check_fishing()
         int bite;
 
         for (d = descriptor_list; d; d = d->next) {
-		CHAR_DATA *ch;
+		CHAR_DATA *ch = d->character;
 
                 if (d->connected != CON_PLAYING
-		||  (ch = d->character) == NULL
 		||  IS_NPC(ch)
 		||  !IS_SET(PC(ch)->plr_flags, PLR_FISHING))
 			continue;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.40.2.13 2002-11-28 17:20:17 fjoe Exp $
+ * $Id: comm_act.c,v 1.40.2.14 2002-11-28 21:54:45 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -992,10 +992,9 @@ void act_yell(CHAR_DATA *ch, const char *text, const void *arg,
 		format = "$n yells '{M$t{x'";
 
 	for (d = descriptor_list; d; d = d->next) {
-		CHAR_DATA *vch;
+		CHAR_DATA *vch = d->character;
 
 		if (d->connected != CON_PLAYING
-		||  (vch = d->character) == NULL
 		||  vch == ch
 		||  vch->in_room == NULL
 		||  vch->in_room->area != ch->in_room->area

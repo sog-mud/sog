@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.61.2.2 2002-10-22 21:15:02 tatyana Exp $
+ * $Id: note.c,v 1.61.2.3 2002-11-28 21:54:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -317,9 +317,9 @@ send_notice(CHAR_DATA *victim, bmitem_t *item, int type)
 
 	for (d = descriptor_list; d; d = d->next) {
 		CHAR_DATA *fch = d->character;
-		if (fch != NULL
-		&&  (is_name_raw(fch->name, note->to_list, str_cmp))
-		&&  d->connected == CON_PLAYING)
+
+		if (d->connected == CON_PLAYING
+		&&  is_name_raw(fch->name, note->to_list, str_cmp))
 			dofun("unread", fch, "login");
 	}
 }

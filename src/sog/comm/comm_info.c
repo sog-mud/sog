@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_info.c,v 1.8.2.1 1999-12-16 12:40:06 fjoe Exp $
+ * $Id: comm_info.c,v 1.8.2.2 2002-11-28 21:54:45 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -157,8 +157,7 @@ void info_process_cmd(INFO_DESC *id)
 	for (d = descriptor_list; d; d = d->next) {
 		CHAR_DATA *wch = d->original ? d->original : d->character;
 
-		if (!wch
-		||  d->connected != CON_PLAYING
+		if (d->connected != CON_PLAYING
 		||  wch->invis_level
 		||  wch->incog_level
 		||  IS_AFFECTED(wch, AFF_FADE | AFF_HIDE | AFF_CAMOUFLAGE | 

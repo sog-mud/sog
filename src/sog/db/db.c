@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.27 2002-11-20 14:53:59 fjoe Exp $
+ * $Id: db.c,v 1.169.2.28 2002-11-28 21:54:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -523,14 +523,13 @@ void print_resetmsg(AREA_DATA *pArea)
 {
 	DESCRIPTOR_DATA *d;
 	bool is_empty = mlstr_null(&pArea->resetmsg);
-	
+
 	for (d = descriptor_list; d != NULL; d = d->next) {
-		CHAR_DATA *ch;
+		CHAR_DATA *ch = d->character;
 
 		if (d->connected != CON_PLAYING)
 			continue;
 
-		ch = d->original ? d->original : d->character;
 		if (IS_NPC(ch) || !IS_AWAKE(ch) || ch->in_room->area != pArea)
 			continue;
 
@@ -570,13 +569,13 @@ void area_update(void)
 		if (weather_info.sky == SKY_RAINING)  {
 			int i;
 			DESCRIPTOR_DATA *d;
-			CHAR_DATA *ch;
 
-	 		for (d = descriptor_list; d; d = d->next)  {
+			for (d = descriptor_list; d; d = d->next)  {
+				CHAR_DATA *ch = d->character;
+
 				if (d->connected != CON_PLAYING)
 					continue;
 
-				ch = d->original ?  d->original : d->character;
 				if (ch->in_room->area == pArea
 				&&  get_skill(ch, gsn_track) > 50
 				&&  !IS_SET(ch->in_room->room_flags,

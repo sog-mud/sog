@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.66 2002-11-19 14:16:53 tatyana Exp $
+ * $Id: handler.c,v 1.182.2.67 2002-11-28 21:54:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3833,15 +3833,14 @@ void quit_char(CHAR_DATA *ch, int flags)
 	 * with second. This clones the player's inventory.
 	 */
 	for (d = descriptor_list; d; d = d_next) {
-		CHAR_DATA *tch;
-
+		CHAR_DATA *tch = d->original ? d->original : d->character;
 		d_next = d->next;
-		tch = d->original ? d->original : d->character;
-		if (tch && !str_cmp(name, tch->name)) {
+
+		if (tch != NULL && !str_cmp(name, tch->name)) {
 			if (d->connected == CON_PLAYING)
 				extract_char(tch, 0);
 			close_descriptor(d, SAVE_F_NONE);
-		} 
+		}
 	}
 
 	free_string(name);
@@ -5179,7 +5178,6 @@ void wiznet(const char *msg, CHAR_DATA *ch, const void *arg,
 		CHAR_DATA *vch = d->original ? d->original : d->character;
 
 		if (d->connected != CON_PLAYING
-		||  !vch
 		||  vch->level < LEVEL_IMMORTAL
 		||  !IS_SET(PC(vch)->wiznet, WIZ_ON)
 		||  (flag && !IS_SET(PC(vch)->wiznet, flag))

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.200.2.28 2002-11-28 20:45:15 fjoe Exp $
+ * $Id: comm.c,v 1.200.2.29 2002-11-28 21:54:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2632,9 +2632,8 @@ stop_idling(DESCRIPTOR_DATA *d)
 	CHAR_DATA *ch = d->character;
 	PC_DATA *pc;
 
-	if (ch == NULL
+	if (d->connected != CON_PLAYING
 	||  IS_NPC(ch)
-	||  d->connected != CON_PLAYING
 	||  (pc = PC(ch))->was_in_room == NULL
 	||  ch->in_room->vnum != ROOM_VNUM_LIMBO)
 		return;
