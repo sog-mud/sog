@@ -1,5 +1,5 @@
 #
-# $Id: triggers.txt,v 1.1 2001-09-05 13:01:49 fjoe Exp $
+# $Id: triggers.txt,v 1.2 2001-09-07 15:47:04 fjoe Exp $
 #
 
 Spec programs (MP_T_SPEC)
@@ -16,6 +16,12 @@ Mob programs (MP_T_MOB)
 int pull_mob_trigger(CHAR_DATA *ch,
 		     CHAR_DATA *victim, OBJ_DATA *obj, void *arg);
 
+Для всех триггеров, исключая TRIG_MOB_DEATH, TRIG_MOB_FIGHT, TRIG_MOB_KILL
+и TRIG_MOB_HPCNT если первым символом trig_arg не является '+', то
+триггер не срабатывает, если моб не находится в default позиции.
+Если первым символом trig_arg является '+', то позиция моба не проверяется,
+а символ '+' игнорируется в дальнейших проверках.
+
 TRIG_MOB_DEATH
 TRIG_MOB_ENTRY
 TRIG_MOB_FIGHT
@@ -28,17 +34,30 @@ TRIG_MOB_DELAY
 TRIG_MOB_SURR
 TRIG_MOB_LOOK
 TRIG_MOB_FIGHT
-	trig_arg - вероятность срабатывания
+	trig_arg: вероятность срабатывания
+
+	mprog retval:
+		TRIG_MOB_DEATH: при возвращении значения > 0 raw_kill()
+	не зовется (моб не умирает)
+		TRIG_MOB_KILL: при возращении значения > 0 выполняется
+	немедленный возврат из damage() (бой не начинается)
+		TRIG_MOB_RANDOM: при возвращении значения > 0
+	не используются potion'ы (potion using for intelligent mobs),
+	не подбираются предметы (ACT_SCAVENGER) и моб выполняются
+	случайные переходы в другие комнаты (!ACT_SENTINEL)
+		для остальных триггеров возвращаемое значение игнорируется
 
 TRIG_MOB_GIVE
 TRIG_MOB_OPEN
 TRIG_MOB_GET
-	trig_arg - vnum или name объекта
+	trig_arg: vnum или name объекта
+
+	mprog_retval: игнорируется
 
 TRIG_MOB_TELL
 TRIG_MOB_SPEECH
 TRIG_MOB_ACT
-	trig_arg - текст.
+	trig_arg: текст.
 		Если trig_arg начинается с +, то остальная часть trig_arg
 		рассматривается как regexp и arg должен соответствовать
 		этому regexp.
@@ -51,19 +70,40 @@ TRIG_MOB_ACT
 		с учетом регистра, если только строчные, то без учета
 		регистра.
 
+	mprog_retval: игнорируется
+
 TRIG_MOB_EXIT
 TRIG_MOB_EXALL
-	trig_arg - название выхода (north, south, west, east, up, down) или all
+	trig_arg: название выхода (north, south, west, east, up, down) или all
+
+	mprog_retval:
+		TRIG_MOB_EXIT, TRIG_MOB_EXALL: при возвращении значения > 0
+	игрок (моб) в другую комнату не перемещается
 
 TRIG_MOB_BRIBE
-	trig_arg - минимальное количество денег (серебра), необходимое для
+	trig_arg: минимальное количество денег (серебра), необходимое для
 	срабатывания триггера
+
+	mprog retval: если возвращается значение, большее 0, то
+	деньги мобу не добавляются
 
 TRIG_MOB_CMD
 	trig_arg - команда
 		Триггер срабатывает, если arg является префиксом trig_arg
 
+	mprog_retval: игнорирутся, но при успешном выполнении программы
+	(pull_mob_trigger(TRIG_MOB_CMD, ...) > 0), другие TRIG_MOB_CMD
+	триггера игнорируются (поиск прекращается)
+
 Obj programs (MP_T_OBJ)
 -----------------------
 
 int pull_obj_trigger(OBJ_DATA *obj, CHAR_DATA *victim);
+
+TRIG_OBJ_SAC
+TRIG_OBJ_DEATH
+	mprog_retval:
+		TRIG_OBJ_SAC: при возвращении значения > 0 объект не
+	приносится в жкртву
+		TRIG_OBJ_DEATH: при возвращении значения > 0 raw_kill не
+	зовется

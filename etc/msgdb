@@ -2597,7 +2597,7 @@ and hands you $p.@rus Из клуба дыма перед тобой появился маленький человечек
 @eng You are too pumped to pray now.@rus Ты слишком $gn{возбужден}, чтобы молиться.~
 @eng You are too pure to join $n's group!@rus Ты слишком $gn{добр}, чтобы присоединиться к группе $c1{$n}!~
 @eng You are too stunned to do that.@rus Ты лежишь $gn{оглушенный} и не можешь этого сделать.~
-@eng You are too stunned to respond $N's attack.@rus Ты $gn{оглушен} и не можешь ответить на $c1{$N} удар.~
+@eng You are too stunned to respond $N's attack.@rus Ты $gn{оглушен} и не можешь ответить на удар $c1{$N}.~
 @eng You are unable to follow $n's maneuvers.@rus Ты не поспеваешь за маневрами $c1{$n}.~
 @eng You are unable to pray in this form.@rus Ты не можешь молиться в этой форме.~
 @eng You are unable to release $p and it pulls your hand down.@rus Не имея возможности избавиться от $c1{$p}, ты болезненно $gN{опустил} руки вниз.~
