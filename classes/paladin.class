@@ -50,6 +50,9 @@ Skill 'summon' 51 1
 Skill 'superior heal' 43 1
 Skill 'turn' 60 1
 Skill 'wrath' 34 1
+Skill 'wands' 1 2
+Skill 'scrolls' 1 2
+Skill 'staves' 1 2
 Skill 'word of recall' 32 1
 Skill 'dagger' 1 1
 Skill 'mace' 1 1
