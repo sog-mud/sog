@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: resolver.c,v 1.12.2.1 1999-12-16 12:40:06 fjoe Exp $
+ * $Id: resolver.c,v 1.12.2.2 2001-11-11 20:37:11 avn Exp $
  */
 
 #if !defined (WIN32)
@@ -36,6 +36,7 @@
 #include <netdb.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <signal.h>
 #include <errno.h>

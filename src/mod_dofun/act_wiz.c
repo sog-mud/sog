@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.25 2001-03-11 21:11:27 fjoe Exp $
+ * $Id: act_wiz.c,v 1.186.2.26 2001-11-11 20:37:12 avn Exp $
  */
 
 /***************************************************************************
@@ -46,6 +46,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include <errno.h>
+#if defined(LINUX)
+#include <crypt.h>
+#endif
 #if !defined (WIN32)
 #include <unistd.h>
 #endif

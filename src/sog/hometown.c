@@ -23,10 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.c,v 1.6.2.1 1999-12-16 12:40:02 fjoe Exp $
+ * $Id: hometown.c,v 1.6.2.2 2001-11-11 20:37:10 avn Exp $
  */
 
 #include <stdio.h>
+#include <string.h>
 
 #include "merc.h"
 

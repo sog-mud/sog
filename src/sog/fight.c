@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.39 2001-10-29 11:55:14 kostik Exp $
+ * $Id: fight.c,v 1.202.2.40 2001-11-11 20:37:09 avn Exp $
  */
 
 /***************************************************************************
@@ -43,6 +43,7 @@
 #include <sys/types.h>
 #include <limits.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <time.h>
 
