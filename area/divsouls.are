@@ -1417,7 +1417,7 @@ modron~
 ABIJT T 0 0
 92 0 100d12+17250 1d10+950 10d10+40 slash
 -65 -65 -65 -65
-DEFK 0 0 0
+DEK 0 0 0
 stand stand none 0
 0 0 medium unknown
 #11693
@@ -1448,7 +1448,7 @@ modron~
 ABIJT NOT 0 0
 90 0 100d12+19000 1d10+1000 10d10+43 cleave
 -70 -70 -70 -68
-CDEFK 0 0 0
+CDEK 0 0 0
 stand stand none 0
 0 0 medium unknown
 #11695

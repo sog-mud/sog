@@ -82,7 +82,7 @@ before you, a rotting representation of what the wizard used to be.  Myzelak
 now spends his time searching for ways to end all life in StormFront.  
 ~
 human~
-ABQR Ju -1000 0
+ABKQR Ju -1000 0
 75 0 50d10+11000 45d10+1950 9d11+45 magic
 -45 -45 -45 -14
 FIJN 0 CDHIJ N
@@ -771,7 +771,7 @@ Ancient grimoires and scrolls catch your eye for a brief second, just long
 enough for Myzelak the Lich Lord to attack.  The only exits are through the
 doors to your north or west.  
 ~
-0 D inside
+0 DK inside
 D0
 ~
 ~
@@ -928,6 +928,10 @@ E 0 29357 0 16		*	an Ancient Longsword: wielded
 E 0 29358 0 11		*	a black dragon scale: as a shield
 M 0 29350 4 29369 1	* A Death Knight (A Storage Room)
 E 0 29350 0 16		*	an old black mace: wielded
+S
+
+#PRACTICERS
+M 29354 necromancy~	* Myzelak the Lich Lord
 S
 
 #$

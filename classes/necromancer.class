@@ -17,15 +17,12 @@ Flags magic noch~
 AddExp 200
 StatMod 0 2 1 0 0 5
 RestrictAlign evil~
-Skill 'acid arrow' 48 1 0
-Skill 'acid blast' 63 1 0
 Skill 'adamantite golem' 71 1 0
 Skill 'animate dead' 38 1 0
+Skill 'bone dragon' 75 1 0
 Skill 'armor' 13 1 0
-Skill 'assist' 43 1 0
 Skill 'burning hands' 14 1 0
 Skill 'cancellation' 28 1 0
-Skill 'chain lightning' 33 1 0
 Skill 'control undead' 57 1 0
 Skill 'chill touch' 7 1 0
 Skill 'control weather' 24 1 0
@@ -45,11 +42,12 @@ Skill 'dispel good' 32 1 0
 Skill 'dispel magic' 24 1 0
 Skill 'disruption' 40 1 0
 Skill 'energy drain' 45 1 0
+Skill 'mana drain' 28 1 0
+Skill 'draining touch' 16 1 0
 Skill 'fireproof' 42 1 0
 Skill 'fly' 23 1 0
 Skill 'gate' 33 1 0
 Skill 'giant strength' 28 1 0
-Skill 'hallucination' 55 1 0
 Skill 'hand of undead' 44 1 0
 Skill 'hurricane' 65 1 0
 Skill 'improved detect' 40 1 0
@@ -59,8 +57,6 @@ Skill 'iron golem' 52 1 0
 Skill 'knock' 62 1 0
 Skill 'know alignment' 22 1 0
 Skill 'lesser golem' 25 1 0
-Skill 'lightning bolt' 23 1 0
-Skill 'lightning shield' 41 1 0
 Skill 'link' 33 1 0
 Skill 'magic jar' 68 1 0
 Skill 'magic missile' 2 1 0
@@ -70,6 +66,7 @@ Skill 'nexus' 63 1 0
 Skill 'pass door' 27 1 0
 Skill 'plague' 36 1 0
 Skill 'poison' 23 1 0
+Skill 'lich' 45 1 0
 Skill 'portal' 43 1 0
 Skill 'protection cold' 50 1 0
 Skill 'protection good' 17 1 0
@@ -77,7 +74,6 @@ Skill 'protection heat' 48 1 0
 Skill 'protection negative' 15 1 0
 Skill 'protective shield' 18 1 0
 Skill 'power word kill' 78 1 0
-Skill 'refresh' 14 1 0
 Skill 'black shroud' 30 1 0
 Skill 'shield' 20 1 0
 Skill 'shielding' 53 1 0
@@ -111,6 +107,9 @@ Skill 'staves' 1 1 0
 Skill 'trance' 21 1 0
 Skill 'wands' 1 1 0
 Skill 'water breathing' 48 1 0
+Skill 'deathen' 73 1 0
+Skill 'death ripple' 48 1 0
+Skill 'death wave' 63 1 0
 Title 0 male the Man~
 Title 0 female the Woman~
 Title 1 male the Apprentice of Magic~

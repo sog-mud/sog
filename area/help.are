@@ -4421,6 +4421,7 @@ Where option is one of the following:
     {cquest list{x       : lists quest objects available for sale
     {cquest buy{x <type> : gets your reward
     {cquest trouble{x    : lost quest items may be regained (at most 3 times)
+    {cquest items{x      : get information about challenge quests
 @rus Синтаксис: {cquest{x <команда>
  
 Команда может быть одной из:
@@ -4433,6 +4434,7 @@ Where option is one of the following:
     {cquest buy{x <тип>  : получить награду
     {cquest trouble{x    : утерянные вещи-награды могут быть возвращены, но не
                      : более трех раз
+    {cquest items{x      : получить информацию о challenge квестах
 ~
 -1 AUCTION~
 @eng Syntax of the auction command is:

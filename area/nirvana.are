@@ -46,7 +46,7 @@ modron~
 ABFGT D 300 0
 14 3 15d12+110 1d1+99 4d4+3 slap
 -2 -2 0 -1
-CEFLN R 0 0
+CEN R 0 0
 stand stand none 0
 0 N medium unknown
 #9003
@@ -74,7 +74,7 @@ modron~
 ABFGQT DH 300 0
 20 5 11d8+250 20d8+75 4d6+4 pound
 -4 -4 -2 -3
-AEFN R 0 G
+AEN R 0 G
 stand stand none 0
 M N large unknown
 #9005
@@ -104,7 +104,7 @@ modron~
 ABFGQR D 300 0
 24 5 30d10+350 20d10+100 6d4+5 beating
 -6 -6 -6 -4
-AFKO R 0 0
+AKO R 0 0
 stand stand none 0
 M IN medium unknown
 #9007
@@ -119,7 +119,7 @@ modron~
 ABFGQT DFH 300 0
 26 7 35d20+300 20d10+75 4d8+6 slash
 -8 -8 -8 -4
-ACEFHIKLN AR C 0
+ACEHIKN AR C 0
 stand stand none 0
 M INP large unknown
 #9008
@@ -151,7 +151,7 @@ modron~
 ABFGQRT D 300 0
 33 12 1d1+999 20d20+50 8d6+12 pound
 -11 -13 -10 -9
-CEF AR C 0
+CE AR C 0
 stand stand none 0
 M IW huge unknown
 #9010
@@ -166,7 +166,7 @@ modron~
 ABFGQRT DFH 0 0
 36 15 1d1+1599 40d20+50 7d8+15 punch
 -11 -14 -11 -12
-EFHIKN AHIKR C 0
+EHIKN AHIKR C 0
 stand stand none 0
 M I huge unknown
 #9011
