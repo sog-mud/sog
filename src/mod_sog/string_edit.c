@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.39 2000-04-04 13:58:26 fjoe Exp $
+ * $Id: string_edit.c,v 1.40 2000-09-25 01:24:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,7 +56,7 @@ string_replace(const char *orig, const char *old, const char *new, int flags)
 	char xbuf[MAX_STRING_LENGTH];
 	char *p;
 
-	if (IS_NULLSTR(old) || !str_cmp(old, new))
+	if (IS_NULLSTR(old) || !str_cscmp(old, new))
 		return orig;
 
 	xbuf[0] = '\0';
