@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.58 1999-06-28 09:04:18 fjoe Exp $
+ * $Id: recycle.c,v 1.59 1999-06-29 18:28:42 avn Exp $
  */
 
 /***************************************************************************
@@ -529,7 +529,6 @@ ROOM_INDEX_DATA *new_room_index(void)
 
         pRoom = mem_alloc(MT_ROOM, sizeof(*pRoom));
 	memset(pRoom, 0, sizeof(*pRoom));
-	pRoom->owner = str_empty;
 	pRoom->heal_rate = 100;
 	pRoom->mana_rate = 100;
 
@@ -544,7 +543,6 @@ void free_room_index(ROOM_INDEX_DATA *pRoom)
 
 	mlstr_destroy(&pRoom->name);
 	mlstr_destroy(&pRoom->description);
-	free_string(pRoom->owner);
 
 	for (door = 0; door < MAX_DIR; door++)
         	if (pRoom->exit[door])

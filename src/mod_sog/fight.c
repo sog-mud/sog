@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.188 1999-06-28 09:04:17 fjoe Exp $
+ * $Id: fight.c,v 1.189 1999-06-29 18:28:39 avn Exp $
  */
 
 /***************************************************************************
@@ -351,6 +351,16 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 	if (IS_AFFECTED(ch, AFF_HASTE))
 		one_hit(ch, victim, dt, WEAR_WIELD);
+
+	{
+		OBJ_DATA *wield;
+
+		wield = get_eq_char(ch, WEAR_WIELD);
+		if (wield && wield->pIndexData->item_type == ITEM_WEAPON
+		  && wield->value[0] == WEAPON_STAFF
+		  && number_percent() < get_skill(ch, gsn_staff)/3)
+			one_hit(ch, victim, dt, WEAR_WIELD);
+	}
 
 	if (ch->fighting != victim || dt == gsn_backstab || dt == gsn_cleave
 	|| dt == gsn_ambush || dt == gsn_dual_backstab || dt == gsn_circle
@@ -967,8 +977,7 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 	if (result && wield != NULL && ch->fighting == victim) {
 		int dam;
 
-		if (IS_WEAPON_STAT(wield, WEAPON_VORPAL)
-		&&  wield->value[0] == WEAPON_SWORD) {
+		if (IS_WEAPON_STAT(wield, WEAPON_VORPAL)) {
 			int chance;
 
 			chance = get_skill(ch, get_weapon_sn(wield)) +
@@ -1135,6 +1144,8 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 		victim->pcdata->plevels++;
 		victim->exp = exp_for_level(victim, victim->level);
 		victim->exp_tl = 0;
+		wiznet("$N has died wanted, demoted to level $j.",
+			victim, (const void *)victim->level, WIZ_LEVELS, 0, 0);
 	}
 	else 
 		if (victim->exp_tl > 0)

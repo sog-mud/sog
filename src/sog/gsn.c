@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.23 1999-06-18 04:57:12 kostik Exp $
+ * $Id: gsn.c,v 1.24 1999-06-29 18:28:40 avn Exp $
  */
 
 #include <stdio.h>
@@ -220,6 +220,7 @@ int gsn_shield_block;
 int gsn_spear;
 int gsn_sword;
 int gsn_whip;
+int gsn_staff;
  
 int gsn_bash;
 int gsn_berserk;
@@ -434,6 +435,7 @@ namedp_t gsn_table[] =
 	{ "gsn_spear",			&gsn_spear			},
 	{ "gsn_sword",			&gsn_sword			},
 	{ "gsn_whip",			&gsn_whip			},
+	{ "gsn_staff",			&gsn_staff			},
 	{ "gsn_bash",			&gsn_bash			},
 	{ "gsn_berserk",		&gsn_berserk			},
 	{ "gsn_dirt",			&gsn_dirt			},

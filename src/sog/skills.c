@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.71 1999-06-28 09:04:18 fjoe Exp $
+ * $Id: skills.c,v 1.72 1999-06-29 18:28:42 avn Exp $
  */
 
 /***************************************************************************
@@ -441,6 +441,7 @@ int get_weapon_sn(OBJ_DATA *wield)
 	case(WEAPON_BOW):	sn = gsn_bow;		break;
 	case(WEAPON_ARROW):	sn = gsn_arrow;		break;
 	case(WEAPON_LANCE):	sn = gsn_lance;		break;
+	case(WEAPON_STAFF):	sn = gsn_staff;		break;
 	}
 	return sn;
 }

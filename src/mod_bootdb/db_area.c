@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.55 1999-06-24 16:33:21 fjoe Exp $
+ * $Id: db_area.c,v 1.56 1999-06-29 18:28:43 avn Exp $
  */
 
 /***************************************************************************
@@ -925,13 +925,9 @@ DBLOAD_FUN(load_rooms)
 			else if (letter == 'E') 
 				ed_fread(fp, &pRoomIndex->ed);
 			else if (letter == 'O') {
-				if (pRoomIndex->owner[0] != '\0') {
-					db_error("load_rooms",
-						 "duplicate owner.");
-					return;
-				}
+				db_error("load rooms", "owner present");
+				return;
 
-				pRoomIndex->owner = fread_string(fp);
 			}
 			else if (letter == 'C') {
 				if (pRoomIndex->clan) {

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.103 1999-06-28 09:04:15 fjoe Exp $
+ * $Id: martial_art.c,v 1.104 1999-06-29 18:28:37 avn Exp $
  */
 
 /***************************************************************************
@@ -1298,6 +1298,9 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 		chance = chance * ch_weapon/100;
 
 	chance += (ch_weapon/2 - vict_weapon) / 2; 
+
+	if (wield->value[0] == WEAPON_STAFF) chance += 30;
+	if (vwield->value[0] == WEAPON_STAFF) chance -= 30;
 
 	/* dex vs. strength */
 	chance += get_curr_stat(ch,STAT_DEX);
@@ -2824,6 +2827,10 @@ void do_weapon(CHAR_DATA *ch, const char *argument)
 		char_puts("Your weapon must be an axe or a sword.\n",ch);
 		return;
 	}
+
+	/* staves are easy to break */
+	if (wield->value[0] == WEAPON_STAFF)
+		chance += 50;
 
 	/* find weapon skills */
 	ch_weapon = get_weapon_skill(ch, get_weapon_sn(axe));

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.146 1999-06-29 10:57:07 fjoe Exp $
+ * $Id: update.c,v 1.147 1999-06-29 18:28:43 avn Exp $
  */
 
 /***************************************************************************
@@ -1932,7 +1932,7 @@ void update_handler(void)
 		char_update();
 		quest_update(); 
 		obj_update();
-		clan_item_update();
+		if (time_info.hour == 0) clan_item_update();
 		check_reboot();
 
 		/* room counting */
@@ -2111,9 +2111,6 @@ void track_update(void)
 void clan_item_update(void)
 {	
 	int i;
-
-	if (time_info.hour != 0) 
-		return;
 
 	for (i = 0; i < clans.nused; i++) {
 		OBJ_DATA *obj;

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.218 1999-06-29 04:09:16 fjoe Exp $
+ * $Id: merc.h,v 1.219 1999-06-29 18:28:38 avn Exp $
  */
 
 /***************************************************************************
@@ -862,6 +862,7 @@ where_t *where_lookup(flag32_t where);
 #define WEAPON_BOW		9
 #define WEAPON_ARROW		10
 #define WEAPON_LANCE		11
+#define	WEAPON_STAFF		12
 
 /* weapon types */
 #define WEAPON_FLAMING		(A)
@@ -1647,7 +1648,6 @@ struct room_index_data
 	RESET_DATA *		reset_last;	/* OLC */
 	mlstring		name;
 	mlstring		description;
-	const char *		owner;
 	int 			clan;
 	int			vnum;
 	flag32_t		room_flags;
@@ -1989,7 +1989,6 @@ int	get_true_weight (OBJ_DATA *obj);
 bool	room_is_dark	(CHAR_DATA *ch);
 bool	room_dark	(ROOM_INDEX_DATA *pRoomIndex);
 int	isn_dark_safe	(CHAR_DATA *ch);
-bool	is_room_owner	(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
 bool	room_is_private (ROOM_INDEX_DATA *pRoomIndex);
 bool	can_see 	(CHAR_DATA *ch, CHAR_DATA *victim);
 bool	can_see_obj	(CHAR_DATA *ch, OBJ_DATA *obj);
@@ -2262,6 +2261,9 @@ void	area_update	(void);
 void	room_update	(void);
 void	track_update	(void);
 void	obj_update	(void);
+void	clan_item_update(void);
+void	weather_update	(void);
+
 
 #endif
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.3 1999-06-28 09:04:18 fjoe Exp $
+ * $Id: magic.c,v 1.4 1999-06-29 18:28:42 avn Exp $
  */
 
 #include <stdio.h>
@@ -40,6 +40,7 @@ const char *target_name;
  */
 bool spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage)
 {
+	if (IS_IMMORTAL(bch) || IS_IMMORTAL(ch)) bane_chance = 0;
 	if (HAS_SKILL(bch, gsn_spellbane)
 	&&  number_percent() < bane_chance) {
 		if (ch == bch) {

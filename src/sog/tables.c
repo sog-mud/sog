@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.78 1999-06-28 09:04:18 fjoe Exp $
+ * $Id: tables.c,v 1.79 1999-06-29 18:28:42 avn Exp $
  */
 
 /***************************************************************************
@@ -764,7 +764,7 @@ flag_t weapon_class[] =
 	{ "sword",		WEAPON_SWORD,		TRUE    },
 	{ "dagger",		WEAPON_DAGGER,		TRUE    },
 	{ "spear",		WEAPON_SPEAR,		TRUE    },
-	{ "staff",		WEAPON_SPEAR,		TRUE	}, /* compat */
+	{ "staff",		WEAPON_STAFF,		TRUE	}, /* compat */
 	{ "mace",		WEAPON_MACE,		TRUE    },
 	{ "axe",		WEAPON_AXE,		TRUE    },
 	{ "flail",		WEAPON_FLAIL,		TRUE    },

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.52 1999-06-29 10:57:05 fjoe Exp $
+ * $Id: olc_room.c,v 1.53 1999-06-29 18:28:39 avn Exp $
  */
 
 #include "olc.h"
@@ -53,7 +53,6 @@ DECLARE_OLC_FUN(roomed_oreset		);
 DECLARE_OLC_FUN(roomed_heal		);
 DECLARE_OLC_FUN(roomed_mana		);
 DECLARE_OLC_FUN(roomed_clan		);
-DECLARE_OLC_FUN(roomed_owner		);
 DECLARE_OLC_FUN(roomed_room		);
 DECLARE_OLC_FUN(roomed_sector		);
 DECLARE_OLC_FUN(roomed_reset		);
@@ -88,7 +87,6 @@ olc_cmd_t olc_cmds_room[] =
 /* New reset commands. */
 	{ "mreset",	roomed_mreset			},
 	{ "oreset",	roomed_oreset			},
-	{ "owner",	roomed_owner			},
 	{ "room",	roomed_room,	room_flags	},
 	{ "sector",	roomed_sector,	sector_types	},
 	{ "reset",	roomed_reset			},
@@ -244,9 +242,6 @@ OLC_FUN(roomed_show)
 	if (pRoom->heal_rate != 100 || pRoom->mana_rate != 100)
 		buf_printf(output, "Health rec: [%d]\nMana rec  : [%d]\n",
 			   pRoom->heal_rate, pRoom->mana_rate);
-
-	if (!IS_NULLSTR(pRoom->owner))
-		buf_printf(output, "Owner     : [%s]\n", pRoom->owner);
 
 	if (pRoom->ed) {
 		ED_DATA *ed;
@@ -773,27 +768,6 @@ OLC_FUN(roomed_sector)
 	return olced_flag32(ch, argument, cmd, &room->sector_type);
 }
 
-OLC_FUN(roomed_owner)
-{
-	ROOM_INDEX_DATA *pRoom;
-	EDIT_ROOM(ch, pRoom);
-
-	if (argument[0] == '\0') {
-		char_puts("Syntax:  owner [owner]\n", ch);
-		char_puts("         owner none\n", ch);
-		return FALSE;
-	}
-
-	free_string(pRoom->owner);
-	if (!str_cmp(argument, "none"))
-		pRoom->owner = str_dup(str_empty);
-	else
-		pRoom->owner = str_dup(argument);
-
-	char_puts("Owner set.\n", ch);
-	return TRUE;
-}
-
 OLC_FUN(roomed_reset)
 {
 	ROOM_INDEX_DATA *pRoom;
@@ -840,9 +814,6 @@ OLC_FUN(roomed_clone)
 	if (fAll) {
 		ed_free(room->ed);
 		room->ed = ed_dup(proto->ed);
-
-		free_string(room->owner);
-		room->owner = str_dup(proto->owner);
 
 		room->room_flags = proto->room_flags;
 		room->sector_type = proto->sector_type;

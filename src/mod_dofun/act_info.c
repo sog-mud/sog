@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.259 1999-06-29 04:09:15 fjoe Exp $
+ * $Id: act_info.c,v 1.260 1999-06-29 18:28:32 avn Exp $
  */
 
 /***************************************************************************
@@ -4114,8 +4114,8 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			flag_t_SET(34, 'D', TRUE);
 		}
 
-		flag_t_SET(38, 'C', IS_AFFECTED(victim, AFF_CAMOUFLAGE));
-		flag_t_SET(41, 'F', IS_AFFECTED(victim, AFF_FADE));
+		flag_t_SET(38, 'F', IS_AFFECTED(victim, AFF_FADE));
+		flag_t_SET(41, 'C', IS_AFFECTED(victim, AFF_CAMOUFLAGE));
 		flag_t_SET(44, 'B', IS_AFFECTED(victim, AFF_BLEND));
 
 		if (flags)
@@ -4511,18 +4511,18 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 {
 	BUFFER *output;
 	char name[MAX_STRING_LENGTH];
-	bool found = FALSE;
+	int cnt = 0;
 
 	output = buf_new(-1);
 	buf_printf(output, "List of %s of %s:\n", name_list, clan->name);
 
 	list = first_arg(list, name, sizeof(name), FALSE);
 	for (; name[0]; list = first_arg(list, name, sizeof(name), FALSE)) {
-		found = TRUE;
+		cnt++;
 		buf_printf(output, "- %s\n", name);
 	}
 
-	if (!found)
+	if (!cnt)
 		buf_add(output, "None.\n");
 
 	page_to_char(buf_string(output), ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.168 1999-06-25 07:14:38 fjoe Exp $
+ * $Id: handler.c,v 1.169 1999-06-29 18:28:40 avn Exp $
  */
 
 /***************************************************************************
@@ -2479,14 +2479,6 @@ bool room_dark(ROOM_INDEX_DATA *pRoomIndex)
 }
 
 
-bool is_room_owner(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
-{
-	if (room->owner == NULL || room->owner[0] == '\0')
-		return FALSE;
-
-	return is_name(ch->name,room->owner);
-}
-
 /*
  * True if room is private.
  */
@@ -3635,6 +3627,7 @@ void quit_char(CHAR_DATA *ch, int flags)
 {
 	DESCRIPTOR_DATA *d, *d_next;
 	CHAR_DATA *vch, *vch_next;
+	CHAR_DATA *g_ed, *g_ing;
 	const char *name;
 
 	if (IS_NPC(ch))
@@ -3719,14 +3712,6 @@ void quit_char(CHAR_DATA *ch, int flags)
 			affect_strip(vch, gsn_doppelganger);
 		}
 
-		if (vch->guarding == ch) {
-			act("You stops guarding $N.", vch, NULL, ch, TO_CHAR);
-			act("$n stops guarding you.", vch, NULL, ch, TO_VICT);
-			act("$n stops guarding $N.", vch, NULL, ch, TO_NOTVICT);
-			vch->guarding  = NULL;
-			ch->guarded_by = NULL;
-		}
-
 		if (vch->last_fought == ch) {
 			vch->last_fought = NULL;
 			back_home(vch);
@@ -3756,9 +3741,26 @@ void quit_char(CHAR_DATA *ch, int flags)
 		}
 	}
 
+
+	g_ed = NULL; g_ing = NULL;
+	if (ch->guarding != NULL) {
+		g_ing = ch; g_ed = ch->guarding;
+		ch->guarding->guarded_by = NULL;
+		ch->guarding = NULL;
+	}
+
 	if (ch->guarded_by != NULL) {
+		g_ed = ch; g_ing = ch->guarded_by;
 		ch->guarded_by->guarding = NULL;
 		ch->guarded_by = NULL;
+	}
+	if (g_ed && g_ing) {
+		act("You stop guarding $N.",
+			g_ing, NULL, g_ed, TO_CHAR);
+		act("$n stops guarding you.",
+			g_ing, NULL, g_ed, TO_VICT);
+		act("$n stops guarding $N.",
+			g_ing, NULL, g_ed, TO_NOTVICT);
 	}
 
 	/*
@@ -4176,7 +4178,6 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		return FALSE;
 	}
 
-/*    if (!is_room_owner(ch,to_room) && room_is_private(to_room))	*/
 	if (room_is_private(to_room)) {
 		char_puts("That room is private right now.\n", ch);
 		return FALSE;
@@ -4281,6 +4282,8 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		}
 
 		if (!MOUNTED(ch)) {
+			int wait;
+
 			if (ch->move < move) {
 				act_puts("You are too exhausted.",
 					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
@@ -4291,9 +4294,12 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 
 			if (ch->in_room->sector_type == SECT_DESERT
 			||  IS_WATER(ch->in_room))
-				WAIT_STATE(ch, 2);
+				wait = 2;
 			else
-				WAIT_STATE(ch, 1);
+				wait = 1;
+
+			if (IS_AFFECTED(ch, AFF_SLOW)) wait *= 2;
+			WAIT_STATE(ch, wait);
 		}
 	}
 
@@ -4875,6 +4881,11 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 			char_puts("Your hands are tied up with your weapon!\n", ch);
 			return;
 		}
+		if (weapon->value[0] == WEAPON_STAFF) {
+			char_puts("You need both hands for this type of "
+				"weapon.\n", ch);
+			return;
+		}
 		act("$n wears $p as a shield.", ch, obj, NULL, TO_ROOM);
 		act_puts("You wear $p as a shield.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
@@ -4898,11 +4909,13 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 				equip_char(ch, dual, WEAR_SECOND_WIELD);
 			return;
 		}
-		if (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS)
-		&&  ((!IS_NPC(ch) && ch->size < SIZE_LARGE &&
-		      get_eq_char(ch, WEAR_SHIELD) != NULL) ||
-		     get_eq_char(ch, WEAR_SECOND_WIELD) != NULL)) {
-			char_puts("You need two hands free for that weapon.\n", ch);
+		if ((get_eq_char(ch, WEAR_SHIELD)
+			|| get_eq_char(ch, WEAR_SECOND_WIELD))
+		  && (obj->value[0] == WEAPON_STAFF
+		    || (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS)
+		       && !IS_NPC(ch) && ch->size < SIZE_LARGE))) {
+				char_puts("You need two hands free for that"
+					" weapon.\n", ch);
 			if (dual)
 				equip_char(ch, dual, WEAR_SECOND_WIELD);
 			return;
@@ -4942,9 +4955,17 @@ void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
 		return;
 	}
 	if (CAN_WEAR(obj, ITEM_HOLD)) {
+		OBJ_DATA *wield;
+
 		if (get_eq_char(ch, WEAR_SECOND_WIELD) != NULL) {
 			act_puts("You can't hold an item while using 2 weapons.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			return;
+		}
+		if ((wield = get_eq_char(ch, WEAR_WIELD))
+		  && wield->value[0] == WEAPON_STAFF) {
+			char_puts("You cannot hold something with this weapon"
+				" wielded.\n", ch);
 			return;
 		}
 		if (!remove_obj(ch, WEAR_HOLD, fReplace))

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.157 1999-06-28 09:04:13 fjoe Exp $
+ * $Id: act_obj.c,v 1.158 1999-06-29 18:28:34 avn Exp $
  */
 
 /***************************************************************************
@@ -2847,6 +2847,7 @@ void do_deposit(CHAR_DATA * ch, const char *argument)
 void do_second_wield(CHAR_DATA * ch, const char *argument)
 {
 	OBJ_DATA *	obj;
+	OBJ_DATA *	wield;
 	int		skill;
 	int		wear_lev;
 
@@ -2884,8 +2885,12 @@ void do_second_wield(CHAR_DATA * ch, const char *argument)
 		char_puts("You can't dual wield two-handed weapon!\n", ch);
 		return;
 	}
-	if (get_eq_char(ch, WEAR_WIELD) == NULL) {
+	if ((wield = get_eq_char(ch, WEAR_WIELD)) == NULL) {
 		char_puts("You need to wield a primary weapon, before using a secondary one!\n", ch);
+		return;
+	}
+	if (wield->value[0] == WEAPON_STAFF) {
+		char_puts("You can't use second weapon while wielding a staff.\n", ch);
 		return;
 	}
 	if (get_obj_weight(obj) > (str_app[get_curr_stat(ch, STAT_STR)].wield * 5)) {

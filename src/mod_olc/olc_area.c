@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.42 1999-06-29 10:57:04 fjoe Exp $
+ * $Id: olc_area.c,v 1.43 1999-06-29 18:28:39 avn Exp $
  */
 
 #include "olc.h"
@@ -1190,9 +1190,6 @@ static void save_room(FILE *fp, ROOM_INDEX_DATA *pRoomIndex)
 		fprintf (fp, "M %d H %d\n", pRoomIndex->mana_rate,
 					    pRoomIndex->heal_rate);
 		 			     
-	if (!IS_NULLSTR(pRoomIndex->owner))
-		fprintf (fp, "O %s~\n" , pRoomIndex->owner);
-
 	if (pRoomIndex->clan)
 		fwrite_string(fp, "C", clan_name(pRoomIndex->clan));
 

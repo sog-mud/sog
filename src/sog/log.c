@@ -1,5 +1,5 @@
 /*
- * $Id: log.c,v 1.17 1999-06-24 08:05:00 fjoe Exp $
+ * $Id: log.c,v 1.18 1999-06-29 18:28:42 avn Exp $
  */
 
 /***************************************************************************
@@ -108,6 +108,6 @@ void wizlog(const char *str, ...)
 	va_end(ap);
 
 	log(buf);
-	wiznet(buf, NULL, NULL, WIZ_WIZLOG, 0, 0);
+	wiznet(buf, NULL, NULL, WIZ_WIZLOG, WIZ_SECURE, 0);
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.162 1999-06-29 03:07:23 fjoe Exp $
+ * $Id: interp.c,v 1.163 1999-06-29 18:28:41 avn Exp $
  */
 
 /***************************************************************************
@@ -238,10 +238,8 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	     fLogAll ||
 	     cmd_log == LOG_ALWAYS)
 	&&  cmd_log != LOG_NEVER
-	&&  logline[0] != '\0') {
-		log("Log %s: %s", ch->name, logline);
-		wiznet("Log $N: $t", ch, logline, WIZ_SECURE, 0, ch->level);
-	}
+	&&  logline[0] != '\0')
+		wizlog("Log %s: %s", ch->name, logline);
 
 	if (!IS_NPC(ch)) {
 		/* Come out of hiding for most commands */
