@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.74 2004-03-04 11:39:23 tatyana Exp $
+ * $Id: prayers.c,v 1.75 2004-03-04 13:09:54 tatyana Exp $
  */
 
 /***************************************************************************
@@ -164,6 +164,8 @@ DECLARE_SPELL_FUN(prayer_water_walk);
 DECLARE_SPELL_FUN(prayer_breath_under_water);
 DECLARE_SPELL_FUN(prayer_geyser);
 DECLARE_SPELL_FUN(prayer_water_elemental);
+DECLARE_SPELL_FUN(prayer_fire_elemental);
+DECLARE_SPELL_FUN(prayer_earth_elemental);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -2468,7 +2470,7 @@ SPELL_FUN(prayer_air_elemental, sn, level, ch, vo)
 		if (IS_AFFECTED(gch, AFF_CHARM)
 		&&  gch->master == ch
 		&&  gch->pMobIndex->vnum == MOB_VNUM_AIR_ELEMENTAL) {
-			act_char("Two air elemental is too much", ch);
+			act_char("Two air elemental is too much.", ch);
 			act("But nothing else happens.", ch, NULL, NULL,
 			    TO_ROOM);
 			return;
@@ -3967,7 +3969,7 @@ SPELL_FUN(prayer_geyser, sn, level, ch, vo)
 #define MOB_VNUM_WATER_ELEMENTAL 34411
 
 static int water_elemental_stats[MAX_STAT] = {
-	23, 23, 5, 24, 16, 25
+	23, 23, 20, 24, 16, 25
 };
 
 SPELL_FUN(prayer_water_elemental, sn, level, ch, vo)
@@ -4006,8 +4008,8 @@ SPELL_FUN(prayer_water_elemental, sn, level, ch, vo)
 	for (gch = npc_list; gch; gch = gch->next) {
 		if (IS_AFFECTED(gch, AFF_CHARM)
 		&&  gch->master == ch
-		&&  gch->pMobIndex->vnum == MOB_VNUM_AIR_ELEMENTAL) {
-			act_char("Two water elemental is too much", ch);
+		&&  gch->pMobIndex->vnum == MOB_VNUM_WATER_ELEMENTAL) {
+			act_char("Two water elemental is too much.", ch);
 			act("But nothing else happens.", ch, NULL, NULL,
 			    TO_ROOM);
 			return;
@@ -4085,4 +4087,162 @@ can_cast_wards(CHAR_DATA *ch, CHAR_DATA *victim)
 	}
 
 	return TRUE;
+}
+
+#define MOB_VNUM_FIRE_ELEMENTAL 34412
+
+static int fire_elemental_stats[MAX_STAT] = {
+	23, 23, 20, 24, 16, 25
+};
+
+SPELL_FUN(prayer_fire_elemental, sn, level, ch, vo)
+{
+	CHAR_DATA *gch;
+	CHAR_DATA *elemental;
+	AFFECT_DATA *paf;
+	int i;
+
+	if (is_sn_affected(ch, sn)) {
+		act_puts("You cannot summon fire elemental right now.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
+	}
+
+	if (ch->in_room->sector_type == SECT_UNDERWATER
+	||  IS_WATER(ch->in_room)) {
+		act_char("You can't summon fire elemental here.", ch);
+		return;
+	}
+
+	act("You notice some strange motions around you.",
+	    ch, NULL, NULL, TO_ALL);
+
+	if (IS_SET(ch->in_room->room_flags,
+		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+		act("But nothing else happens.", ch, NULL, NULL, TO_ALL);
+		return;
+	}
+
+	for (gch = npc_list; gch; gch = gch->next) {
+		if (IS_AFFECTED(gch, AFF_CHARM)
+		&&  gch->master == ch
+		&&  gch->pMobIndex->vnum == MOB_VNUM_FIRE_ELEMENTAL) {
+			act_char("Two fire elemental is too much.", ch);
+			act("But nothing else happens.", ch, NULL, NULL,
+			    TO_ROOM);
+			return;
+		}
+	}
+
+	elemental = create_mob(MOB_VNUM_FIRE_ELEMENTAL, 0);
+	if (elemental == NULL) {
+		act("But nothing else happens.", ch, NULL, NULL, TO_ALL);
+		return;
+	}
+
+	for (i = 0; i < MAX_STAT; i++) {
+		elemental->perm_stat[i] = fire_elemental_stats[i];
+	}
+
+	SET_HIT(elemental, ch->perm_hit);
+	SET_MANA(elemental, ch->max_mana);
+	elemental->level = level;
+	for (i = 0; i < 4; i++)
+		elemental->armor[i] = interpolate(elemental->level, 100, -100);
+	elemental->gold = elemental->silver = 0;
+	NPC(elemental)->dam.dice_number =
+	    number_range(level/15, level/10);
+	NPC(elemental)->dam.dice_type   = number_range(level/3, level/2);
+	elemental->damroll  = 0;
+
+	act("$N appears from nowhere.", ch, NULL, elemental, TO_ALL);
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 50;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
+	elemental->master = elemental->leader = ch;
+
+	char_to_room(elemental, ch->in_room);
+}
+
+#define MOB_VNUM_EARTH_ELEMENTAL 34413
+
+static int earth_elemental_stats[MAX_STAT] = {
+	23, 23, 20, 24, 16, 25
+};
+
+SPELL_FUN(prayer_earth_elemental, sn, level, ch, vo)
+{
+	CHAR_DATA *gch;
+	CHAR_DATA *elemental;
+	AFFECT_DATA *paf;
+	int i;
+
+	if (is_sn_affected(ch, sn)) {
+		act_puts("You cannot summon earth elemental right now.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
+	}
+
+	if (ch->in_room->sector_type == SECT_UNDERWATER
+	||  IS_WATER(ch->in_room)) {
+		act_char("You can't summon earth elemental here.", ch);
+		return;
+	}
+
+	act("You notice some strange motions around you.",
+	    ch, NULL, NULL, TO_ALL);
+
+	if (IS_SET(ch->in_room->room_flags,
+		   ROOM_NOMOB | ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+		act("But nothing else happens.", ch, NULL, NULL, TO_ALL);
+		return;
+	}
+
+	for (gch = npc_list; gch; gch = gch->next) {
+		if (IS_AFFECTED(gch, AFF_CHARM)
+		&&  gch->master == ch
+		&&  gch->pMobIndex->vnum == MOB_VNUM_EARTH_ELEMENTAL) {
+			act_char("Two earth elemental is too much.", ch);
+			act("But nothing else happens.", ch, NULL, NULL,
+			    TO_ROOM);
+			return;
+		}
+	}
+
+	elemental = create_mob(MOB_VNUM_EARTH_ELEMENTAL, 0);
+	if (elemental == NULL) {
+		act("But nothing else happens.", ch, NULL, NULL, TO_ALL);
+		return;
+	}
+
+	for (i = 0; i < MAX_STAT; i++) {
+		elemental->perm_stat[i] = earth_elemental_stats[i];
+	}
+
+	SET_HIT(elemental, ch->perm_hit);
+	SET_MANA(elemental, ch->max_mana);
+	elemental->level = level;
+	for (i = 0; i < 4; i++)
+		elemental->armor[i] = interpolate(elemental->level, 100, -100);
+	elemental->gold = elemental->silver = 0;
+	NPC(elemental)->dam.dice_number =
+	    number_range(level/15, level/10);
+	NPC(elemental)->dam.dice_type   = number_range(level/3, level/2);
+	elemental->damroll  = 0;
+
+	act("$N appears from nowhere.", ch, NULL, elemental, TO_ALL);
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= 50;
+	affect_to_char(ch, paf);
+	aff_free(paf);
+
+	elemental->master = elemental->leader = ch;
+
+	char_to_room(elemental, ch->in_room);
 }

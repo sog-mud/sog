@@ -130,6 +130,32 @@ FH
 stand stand male 0
 0 0 huge unknown
 g @eng male@rus male~
+#34412
+elemental элементаль fire огненный~
+@eng the fire elemental@rus ~~огненный~~ ~~элементаль~~~
+@eng You see strange fire creature here.@rus Ты видишь странное существо из огня (elemental).~
+~
+fire elemental~
+D 0 SUV 0 ABH 0 0
+0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0 0
+FH
+stand stand male 0
+0 0 huge unknown
+g @eng male@rus male~
+#34413
+elemental элементаль земляной earth~
+@eng the earth elemental@rus ~~земляной~~ ~~элементаль~~~
+You see strange earth creature here.~
+~
+earth elemental~
+D 0 SUV 0 ABH 0 0
+0 0 0d0+0 0d0+0 0d0+0 'none'
+0 0 0 0
+FH
+stand stand male 0
+0 0 huge unknown
+g @eng male@rus male~
 #0
 
 #OBJECTS
