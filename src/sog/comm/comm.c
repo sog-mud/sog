@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.127 1998-11-21 06:33:24 fjoe Exp $
+ * $Id: comm.c,v 1.128 1998-11-23 06:38:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2507,8 +2507,6 @@ bool check_reconnect(DESCRIPTOR_DATA *d, const char *name, bool fConn)
 				d->character->pcdata->pwd = str_dup(ch->pcdata->pwd);
 			}
 			else {
-				OBJ_DATA *obj;
-
 				free_char(d->character);
 				d->character	= ch;
 				ch->desc	= d;
@@ -2516,10 +2514,6 @@ bool check_reconnect(DESCRIPTOR_DATA *d, const char *name, bool fConn)
 				char_puts("Reconnecting. Type replay to see missed tells.\n\r", ch);
 				act("$n has reconnected.",
 				    ch, NULL, NULL, TO_ROOM);
-				if ((obj = get_eq_char(ch, WEAR_LIGHT))
-				&&  obj->pIndexData->item_type == ITEM_LIGHT
-				&&  obj->value[2] != 0)
-					--ch->in_room->light;
 
 				log_printf("%s@%s reconnected.",
 					   ch->name, d->host);
@@ -2565,8 +2559,8 @@ void stop_idling(CHAR_DATA *ch)
 	if (ch == NULL
 	||  ch->desc == NULL
 	||  ch->desc->connected != CON_PLAYING
-	||  ch->was_in_room == NULL 
-	||  ch->in_room != get_room_index(ROOM_VNUM_LIMBO))
+	||  !ch->was_in_room
+	||  ch->in_room->vnum != ROOM_VNUM_LIMBO)
 		return;
 
 	ch->timer = 0;
