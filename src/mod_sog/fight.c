@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.348 2002-01-23 13:12:22 avn Exp $
+ * $Id: fight.c,v 1.349 2002-03-04 20:35:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1331,72 +1331,6 @@ damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, const char *dt,
 }
 
 /*
- * Focus positive energy. Damages undeads, have no effect on constructs,
- * heals living creatures. Should be called from 'cure * wounds'-like spells
- */
-
-void
-focus_positive_energy(CHAR_DATA *ch, CHAR_DATA *victim,
-		      const char *sn, int amount)
-{
-	if (IS_SET(victim->form, FORM_CONSTRUCT)) {
-		if (ch == victim)
-			act_char("You are not affected.", ch);
-		else
-			act("$N is not affected.", ch, NULL, victim, TO_CHAR);
-		return;
-	}
-
-	if (IS_SET(victim->form, FORM_UNDEAD)) {
-		if (saves_spell(LEVEL(ch), victim, DAM_HARM))
-			amount /= 2;
-		damage(ch, victim, amount, sn, DAM_HARM, DAM_F_SHOW);
-		return;
-	}
-	victim->hit = UMIN(victim->hit + amount, victim->max_hit);
-	update_pos(victim);
-        act_char("You feel better!", victim);
-
-	if (ch != victim)
-		act_char("Ok.", ch);
-}
-
-
-/*
- * Focus negative energy. Heals undeads, have no effect on constructs,
- * damages living creatures. Should be called from 'inflict * wounds'-like
- * spells
- */
-
-void
-focus_negative_energy(CHAR_DATA *ch, CHAR_DATA *victim,
-		      const char *sn, int amount)
-{
-	if (IS_SET(victim->form, FORM_CONSTRUCT)) {
-		if (ch == victim)
-			act_char("You are not affected.", ch);
-		else
-			act("$N is not affected.", ch, NULL, victim, TO_CHAR);
-		return;
-	}
-
-	if (IS_SET(victim->form, FORM_UNDEAD)) {
-		victim->hit = UMIN(victim->hit + amount, victim->max_hit);
-		update_pos(victim);
-		act_char("You feel better!", victim);
-
-		if (ch != victim)
-			act_char("Ok.", ch);
-		return;
-	}
-
-	if (saves_spell(LEVEL(ch), victim, DAM_HARM))
-		amount /= 2;
-	damage(ch, victim, amount, sn, DAM_HARM, DAM_F_SHOW);
-	victim->hit = UMIN(victim->hit + amount, victim->max_hit);
-}
-
-/*
  * Set position of a victim.
  */
 void
@@ -1949,6 +1883,70 @@ in_PK(CHAR_DATA *ch, CHAR_DATA *victim)
 		return FALSE;
 
 	return TRUE;
+}
+
+/*
+ * Focus positive energy. Damages undeads, have no effect on constructs,
+ * heals living creatures. Should be called from 'cure * wounds'-like spells
+ */
+void
+focus_positive_energy(CHAR_DATA *ch, CHAR_DATA *victim,
+		      const char *sn, int amount)
+{
+	if (IS_SET(victim->form, FORM_CONSTRUCT)) {
+		if (ch == victim)
+			act_char("You are not affected.", ch);
+		else
+			act("$N is not affected.", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (IS_SET(victim->form, FORM_UNDEAD)) {
+		if (saves_spell(LEVEL(ch), victim, DAM_HARM))
+			amount /= 2;
+		damage(ch, victim, amount, sn, DAM_HARM, DAM_F_SHOW);
+		return;
+	}
+	victim->hit = UMIN(victim->hit + amount, victim->max_hit);
+	update_pos(victim);
+        act_char("You feel better!", victim);
+
+	if (ch != victim)
+		act_char("Ok.", ch);
+}
+
+
+/*
+ * Focus negative energy. Heals undeads, have no effect on constructs,
+ * damages living creatures. Should be called from 'inflict * wounds'-like
+ * spells
+ */
+void
+focus_negative_energy(CHAR_DATA *ch, CHAR_DATA *victim,
+		      const char *sn, int amount)
+{
+	if (IS_SET(victim->form, FORM_CONSTRUCT)) {
+		if (ch == victim)
+			act_char("You are not affected.", ch);
+		else
+			act("$N is not affected.", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (IS_SET(victim->form, FORM_UNDEAD)) {
+		victim->hit = UMIN(victim->hit + amount, victim->max_hit);
+		update_pos(victim);
+		act_char("You feel better!", victim);
+
+		if (ch != victim)
+			act_char("Ok.", ch);
+		return;
+	}
+
+	if (saves_spell(LEVEL(ch), victim, DAM_HARM))
+		amount /= 2;
+	damage(ch, victim, amount, sn, DAM_HARM, DAM_F_SHOW);
+	victim->hit = UMIN(victim->hit + amount, victim->max_hit);
 }
 
 int
