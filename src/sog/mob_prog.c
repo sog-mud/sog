@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.50 1999-09-08 10:40:11 fjoe Exp $
+ * $Id: mob_prog.c,v 1.50.2.1 2000-03-27 04:01:32 osya Exp $
  */
 
 /***************************************************************************
@@ -118,6 +118,7 @@ enum {
 	CHK_CHA,
 	CHK_WAIT,
 	CHK_SAMECLAN,
+	CHK_INPK,
 };
 
 /*
@@ -206,6 +207,7 @@ const char * fn_keyword[] =
     "cha",
     "wait",
     "sameclan",
+    "inpk",		/* if inpk $a $n   - check includes in PK range */
 
     "\n"		/* Table terminator */
 };
@@ -380,6 +382,7 @@ bool get_obj_vnum_room(CHAR_DATA *ch, int vnum)
  * 3) keyword and actor		    	    if isnpc $n
  * 4) keyword, actor and value		    if carries $n sword
  * 5) keyword, actor, comparison and value  if level $n >= 10
+ * 6) keyword, actor and actor		    if inPK $n $a
  *
  *----------------------------------------------------------------------
  */
@@ -387,14 +390,17 @@ int cmd_eval(int vnum, const char *line, int check,
 	CHAR_DATA *mob, CHAR_DATA *ch, 
 	const void *arg1, const void *arg2, CHAR_DATA *rch)
 {
-    CHAR_DATA *lval_char = mob;
     CHAR_DATA *vch = (CHAR_DATA *) arg2;
-    OBJ_DATA *obj1 = (OBJ_DATA  *) arg1;
-    OBJ_DATA *obj2 = (OBJ_DATA  *) arg2;
-    OBJ_DATA  *lval_obj = NULL;
+    CHAR_DATA *lval_char = mob;
+    CHAR_DATA *lval_char1 = NULL;
+    OBJ_DATA *obj1 = (OBJ_DATA *) arg1;
+    OBJ_DATA *obj2 = (OBJ_DATA *) arg2;
+    OBJ_DATA *lval_obj = NULL;
+    OBJ_DATA *lval_obj1 = NULL;
 
     const char *original;
     char buf[MAX_INPUT_LENGTH], code;
+
     int lval = 0, oper = 0, rval = -1;
 
     original = line;
@@ -492,6 +498,8 @@ int cmd_eval(int vnum, const char *line, int check,
             lval_obj = obj2; break;
 	case 'q':
 	    lval_char = NPC(mob)->mprog_target; break;
+        case 'a':
+            lval_char = NPC(mob)->target; break;
 	default:
 	    log("cmd_eval: vnum %d: syntax error(4) '%s'",
 		vnum, original);
@@ -625,14 +633,15 @@ int cmd_eval(int vnum, const char *line, int check,
     /*
      * Case 5: Keyword, actor, comparison and value
      */
-    if ((oper = keyword_lookup(fn_evals, buf)) < 0)
-    {
-	log("cmd_eval: vnum %d: syntax error(5): '%s'",
-		vnum, original);
-	return FALSE;
-    }
-    one_argument(line, buf, sizeof(buf));
-    rval = atoi(buf);
+    if(buf[0] != '$') 
+    	if((oper = keyword_lookup(fn_evals, buf)) < 0) {
+		log("cmd_eval: vnum %d: syntax error(5): '%s'",
+			vnum, original);
+		return FALSE;
+	} else {
+		one_argument(line, buf, sizeof(buf));
+		rval = atoi(buf);
+	}
 
     switch(check)
     {
@@ -690,9 +699,58 @@ int cmd_eval(int vnum, const char *line, int check,
 	    if (lval_char != NULL)
 		lval = get_curr_stat(lval_char, check - CHK_STR);
 	    break;
-	default:
-            return FALSE;
+	default:;
     }
+    /*
+     * Case 6: Keyword, actor and actor
+     */
+
+    /*
+     * Grab second actor from $* codes
+     */
+
+    if (buf[0] != '$' || buf[1] == '\0')
+    {
+        log("cmd_eval: vnum %d: syntax error(6) '%s'",
+                vnum, original);
+        return FALSE;
+    } else 
+        code = buf[1];
+
+    switch(code)
+    {
+        case 'i':
+            lval_char1 = mob; break;
+        case 'n':
+            lval_char1 = ch; break;
+        case 't':
+            lval_char1 = vch; break;
+        case 'r':
+            lval_char1 = rch == NULL ? get_random_char(mob) : rch ; break;
+        case 'o':
+            lval_obj1 = obj1; break;
+        case 'p':
+            lval_obj1 = obj2; break;
+        case 'q':
+            lval_char1 = NPC(mob)->mprog_target; break;
+        case 'a':
+            lval_char1 = NPC(mob)->target; break;
+        default:
+            log("cmd_eval: vnum %d: syntax error(6) '%s'",
+                vnum, original);
+            return FALSE;
+     }
+
+    if (lval_char1 == NULL && lval_obj1 == NULL)
+        return FALSE;
+
+     switch(check) {
+	case CHK_INPK:
+	   return (lval_char != NULL && lval_char1 != NULL && in_PK(lval_char, lval_char1));
+	default:
+	   return FALSE;
+     }
+
     return(num_eval(lval, oper, rval));
 }
 
@@ -884,6 +942,21 @@ void expand_arg(char *buf,
                 : something;
 		i = fix_short(i);
 		break;
+            case 'a':
+                i = someone;
+                if (NPC(mob)->target != NULL && can_see(mob, NPC(mob)->target))
+                {
+                    one_argument(NPC(mob)->target->name, fname, sizeof(fname));
+                    i = capitalize(fname);
+                }                                               break;
+            case 'A':
+                i = (NPC(mob)->target != NULL &&
+                     can_see(mob, NPC(mob)->target)) ?
+                (IS_NPC(NPC(mob)->target) ?
+                mlstr_mval(&NPC(mob)->target->short_descr) :
+                NPC(mob)->target->name) :
+                someone;                                        break;
+
         }
  
         ++str;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.186.2.6 2000-03-21 13:52:47 fjoe Exp $
+ * $Id: act_wiz.c,v 1.186.2.7 2000-03-27 04:01:21 osya Exp $
  */
 
 /***************************************************************************
@@ -1368,10 +1368,11 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 			   flag_string(affect_flags, victim->affected_by));
 
 	pet = GET_PET(victim);
-	buf_printf(output, "Master: %s  Leader: %s  Pet: %s\n",
+	buf_printf(output, "Master: %s  Leader: %s  Pet: %s  Mprog Target: %s\n",
 		victim->master	? victim->master->name	: "(none)",
 		victim->leader	? victim->leader->name	: "(none)",
-		pet		? pet->name		: "(none)");
+		pet		? pet->name		: "(none)",
+		IS_NPC(victim)  ? (NPC(victim)->mprog_target ? NPC(victim)->mprog_target->name : "(none)") : "(none)");
 
 	/* OLC */
 	if (!IS_NPC(victim))
@@ -1481,11 +1482,12 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(victim)) {
 		NPC_DATA *npc = NPC(victim);
 		buf_printf(output, "Last fought: [%s]  In_mind: [%s]  "
-				   "Target: [%s]\n", 
+				   "Target: [%s]  Timer: [%d]\n", 
 			npc->last_fought ?
 				npc->last_fought->name : "none",
 			npc->in_mind ? npc->in_mind : "none",
-			npc->target ? npc->target->name : "none");
+			npc->target ? npc->target->name : "none",
+			npc->timer);
 	}
 	page_to_char(buf_string(output), ch);
 	buf_free(output);

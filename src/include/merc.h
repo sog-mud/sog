@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.234.2.5 1999-12-14 11:23:15 fjoe Exp $
+ * $Id: merc.h,v 1.234.2.6 2000-03-27 04:01:18 osya Exp $
  */
 
 /***************************************************************************
@@ -1447,6 +1447,7 @@ struct char_data
  * NPC-specific data
  */
 struct npc_data {
+	int		timer;
 	int		mprog_delay;
 	CHAR_DATA *	mprog_target;
 	struct {

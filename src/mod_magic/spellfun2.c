@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.6 2000-03-25 17:54:44 avn Exp $
+ * $Id: spellfun2.c,v 1.139.2.7 2000-03-27 04:01:26 osya Exp $
  */
 
 /***************************************************************************
@@ -5822,5 +5822,139 @@ void spell_abolish_undead(int sn, int level, CHAR_DATA *ch, void *vo)
         for (tmp_ch = npc_list; tmp_ch; tmp_ch = tmp_ch->next)
                 if (NPC(tmp_ch)->last_fought == victim)
                         NPC(tmp_ch)->last_fought = NULL;
+}
+
+void spell_crypt_thing(int sn, int level, CHAR_DATA *ch, void *vo)
+{
+        CHAR_DATA *victim, *gch;
+        CHAR_DATA *undead;
+        AFFECT_DATA af;
+        int i;
+        int chance;
+        int u_level;
+
+        /* deal with the object case first */
+        if (mem_is(vo, MT_OBJ)) {
+                OBJ_DATA *obj, *obj2, *next;
+
+                obj = (OBJ_DATA *) vo;
+
+                if (!(obj->pObjIndex->item_type == ITEM_CORPSE_NPC
+                || obj->pObjIndex->item_type == ITEM_CORPSE_PC)) {
+                        act_puts("You can animate only corpses!\n", ch, NULL, NULL, TO_CHAR, POS_DEAD);
+                        return;
+		}
+
+                if (is_affected(ch, sn)) {
+                        act_puts("You cannot summon the strength to handle more crypt things.", ch, NULL, NULL, TO_CHAR, POS_DEAD);
+                        return;
+                }
+
+	        for (gch = npc_list; gch; gch = gch->next) {
+	                if (gch->master == ch
+	                && gch->pMobIndex->vnum == MOB_VNUM_CRYPT_THING) {
+	                        act_puts("You cannot control two or more crypt things.", ch, NULL, NULL, TO_CHAR, POS_DEAD);
+                        return;
+	                }
+	        }
+
+                if (ch->in_room != NULL
+                &&  IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
+                        act_puts("You can't animate deads here.\n", ch, NULL, NULL, TO_CHAR, POS_DEAD);
+                        return;
+                }
+
+                /* can't animate PC corpses in ROOM_BATTLE_ARENA */
+                if (obj->pObjIndex->item_type == ITEM_CORPSE_PC
+                &&  obj->in_room
+                &&  IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA)
+                &&  !IS_OWNER(ch, obj)) {
+                        act_puts("You cannot do that.\n", ch, NULL, NULL, TO_CHAR, POS_DEAD);
+                        return;
+                }
+
+                if (IS_SET(ch->in_room->room_flags,
+                           ROOM_PEACE | ROOM_PRIVATE | ROOM_SOLITARY)) {
+                        act_puts("You can't animate here.\n", ch, NULL, NULL, TO_CHAR, POS_DEAD);
+                        return;
+                }
+
+                chance = URANGE(5, get_skill(ch, sn)+(level-obj->level)*7, 95);
+                if (number_percent() > chance) {
+                        act_puts("You failed and destroyed it.\n",
+                                 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+                        act("$n tries to animate $p, but fails and destroys it.", ch, obj, NULL, TO_ROOM);
+                        for (obj2 = obj->contains; obj2; obj2 = next) {
+                                next = obj2->next_content;
+                                obj_from_obj(obj2);
+                                obj_to_room(obj2, ch->in_room);
+                        }
+                        extract_obj(obj, 0);
+                        return;
+                }
+
+	        undead = create_mob(get_mob_index(MOB_VNUM_CRYPT_THING));
+
+	        for (i = 0; i < MAX_STATS; i++)
+			undead->perm_stat[i] = UMIN(25, 15+obj->level/10);
+		u_level = UMIN (obj->level, level+((obj->level-level)/3)*2);
+		undead->level = u_level;
+	
+	        undead->max_hit = number_range (100*level, 200*level);
+	        undead->hit = undead->max_hit;
+	        undead->mana = undead->max_mana = 0;
+	        for (i = 0; i < 4; i++)
+	                undead->armor[i] = 100 - 2*ch->level - number_range(0, 50);
+
+        	undead->gold = 0;
+	        NPC(undead)->dam.dice_number = number_range(1, level/20);
+	        NPC(undead)->dam.dice_type   = number_range(1, level/10);
+		NPC(undead)->timer = level;
+
+	        undead->damroll  = number_range(1, level/3);
+	        undead->master = NULL;
+		undead->leader = NULL;
+		NPC(undead)->target = ch;
+
+                for (obj2 = obj->contains; obj2; obj2 = next) {
+                        next = obj2->next_content;
+                        obj_from_obj(obj2);
+                        obj_to_char(obj2, undead);
+                }
+
+                af.where     = TO_AFFECTS;
+                af.type      = sn;
+                af.level     = level;
+                af.duration  = level / 10;
+                af.modifier  = 0;
+                af.bitvector = 0;
+                af.location  = APPLY_NONE;
+                affect_to_char(ch, &af);
+
+                act_puts("With mystic power, you animate it!",
+                         ch, NULL, NULL, TO_CHAR, POS_DEAD);
+                act("With mystic power, $n animates $p!",
+                    ch, obj, NULL, TO_ROOM);
+
+                act_puts("$N looks at you and plans to make you "
+                         "pay for distrurbing its rest!",
+                         ch, NULL, undead, TO_CHAR, POS_DEAD);
+
+                extract_obj(obj, 0);
+                char_to_room(undead, ch->in_room);
+                if (!IS_EXTRACTED(undead))
+                        dofun("wear", undead, "all");
+                return;
+        }
+
+        victim = (CHAR_DATA *) vo;
+
+        if (victim == ch) {
+                act_puts("But you aren't dead!!", ch, NULL, NULL, TO_CHAR, POS_DEAD);
+                return;
+
+        }
+
+        act_puts("But it ain't dead!!", ch, NULL, NULL, TO_CHAR, POS_DEAD);
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.h,v 1.7 1999-06-28 09:04:16 fjoe Exp $
+ * $Id: mob_cmds.h,v 1.7.2.1 2000-03-27 04:01:19 osya Exp $
  */
 
 /***************************************************************************
@@ -85,6 +85,7 @@ DECLARE_DO_FUN(do_mpotransfer	);
 DECLARE_DO_FUN(do_mpremove	);
 DECLARE_DO_FUN(do_mpreligion	);
 DECLARE_DO_FUN(do_mpslay	);
+DECLARE_DO_FUN(do_mpsechoat	);
 
 #endif
 

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.42 1999-09-11 12:50:02 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.42.2.1 2000-03-27 04:01:31 osya Exp $
  */
 
 /***************************************************************************
@@ -82,6 +82,7 @@ const	struct	mob_cmd_type	mob_cmd_table	[] =
 	{	"remove",	do_mpremove	},
 	{	"religion",	do_mpreligion	},
 	{	"slay",		do_mpslay	},
+	{	"sechoat",	do_mpsechoat	},
 	{	str_empty,		0	}
 };
 
@@ -367,6 +368,46 @@ void do_mpechoat(CHAR_DATA *ch, const char *argument)
 	return;
 
     act(argument, ch, NULL, victim, TO_VICT);
+}
+
+/*
+ * Prints the message to only the victim in any position
+ *
+ * Syntax: mob sechoat [victim] [string]
+ */
+void do_mpsechoat(CHAR_DATA *ch, const char *argument)
+{
+    char       arg[ MAX_INPUT_LENGTH ];
+    CHAR_DATA *victim;
+    char code;
+
+    argument = one_argument(argument, arg, sizeof(arg));
+
+    if (arg[0] == '\0' || argument[0] == '\0')
+        return;
+
+    if (arg[0] != '$' || arg[1] == '\0') {
+	if ((victim = get_char_room(ch, arg)) == NULL) 
+	        return;
+    } else {
+    	code = arg[1];
+    	switch(code) {
+    	    case 'i':
+    	       victim = ch; break;
+   	    case 'n':
+     	       victim = NPC(ch)->mprog_target; break;
+            case 'q':
+               victim = NPC(ch)->mprog_target; break;
+            case 'a':
+               victim = NPC(ch)->target; break;
+            default:
+               log("sechoat: vnum %d: syntax error '%s'",
+                   ch->pMobIndex->vnum, arg);
+               return;
+        }
+    }  
+
+    act_puts(argument, victim, NULL, NULL, TO_CHAR, POS_DEAD);
 }
 
 /*

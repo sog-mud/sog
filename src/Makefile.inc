@@ -1,11 +1,11 @@
 #
-# $Id: Makefile.inc,v 1.2.2.1 1999-11-18 15:35:30 fjoe Exp $
+# $Id: Makefile.inc,v 1.2.2.2 2000-03-27 04:01:15 osya Exp $
 #
 
 #
 # core version
 #
-ABI_VERSION = 8
+ABI_VERSION = 9 
 
 #
 # common defines

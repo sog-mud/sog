@@ -159,6 +159,23 @@ stand stand none 0
 0 0 medium unknown
 F for AHMV
 F par ABCDEFGHIJK
+#15030
+crypt thing~
+a crypt thing~
+A Crypt Thing cackles evilly and taunts you.
+~
+This fell creature will not attack you, despite its evil- it will merely
+taunt you, though it will not hesitate to defend itself.
+~
+undead~
+ABCOe 0 -1000 0
+0 0 1d1+0 1d1+0 1d1+0 pierce
+-25 -25 -25 0
+EFN AB 0 0
+stand stand none 0
+0 0 medium unknown
+F aff U
+M grall 15030 100~
 #0
 
 #OBJECTS
@@ -903,6 +920,13 @@ endif
 if rand 50 
 flex $r
 end
+endif
+~
+#15030
+mob sechoat $a Warning, my master!
+wake $a 
+if inpk $a $n
+      mob kill $n
 endif
 ~
 #15100
