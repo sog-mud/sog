@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.54 2003-03-06 10:08:48 avn Exp $
+ * $Id: update.c,v 1.157.2.55 2003-04-18 06:41:48 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1131,8 +1131,14 @@ void char_update(void)
 
 		if (!IS_NPC(ch) && is_affected(ch, gsn_notrack)) {
 			if (ch->position < POS_SLEEPING
-			||  number_percent() > get_skill(ch, gsn_notrack))
+			||  number_percent() > get_skill(ch, gsn_notrack)) {
+				skill_t *sk;
+
 				affect_strip(ch, gsn_notrack);
+				if ((sk = skill_lookup(gsn_notrack))
+				&&  !IS_NULLSTR(sk->msg_off))
+					char_printf(ch, "%s\n", sk->msg_off);
+			}
 		}
 
 		/* reset path find */
