@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.147 1999-02-26 13:26:51 fjoe Exp $
+ * $Id: fight.c,v 1.148 1999-03-01 13:43:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2013,18 +2013,19 @@ void death_cry_org(CHAR_DATA *ch, int part)
 	else
 		msg = "You hear someone's death cry.";
 
-	was_in_room = ch->in_room;
-	for (door = 0; door <= 5; door++) {
-		EXIT_DATA *pexit;
+	if ((was_in_room = ch->in_room)) {
+		for (door = 0; door <= 5; door++) {
+			EXIT_DATA *pexit;
 
-		if ((pexit = was_in_room->exit[door]) != NULL
-		&&   pexit->u1.to_room != NULL
-		&&   pexit->u1.to_room != was_in_room) {
-			ch->in_room = pexit->u1.to_room;
-			act(msg, ch, NULL, NULL, TO_ROOM);
+			if ((pexit = was_in_room->exit[door]) != NULL
+			&&   pexit->u1.to_room != NULL
+			&&   pexit->u1.to_room != was_in_room) {
+				ch->in_room = pexit->u1.to_room;
+				act(msg, ch, NULL, NULL, TO_ROOM);
+			}
 		}
+		ch->in_room = was_in_room;
 	}
-	ch->in_room = was_in_room;
 }
 
 void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
