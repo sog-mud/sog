@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.46 1998-07-19 17:05:08 efdi Exp $
+ * $Id: update.c,v 1.47 1998-07-24 14:21:15 efdi Exp $
  */
 
 /***************************************************************************
@@ -1346,61 +1346,35 @@ void char_update(void)
 
 void water_float_update(void)
 {
-OBJ_DATA *obj_next;
-OBJ_DATA *obj;
-CHAR_DATA *ch;
-bool fChar;
+	OBJ_DATA *obj_next;
+	OBJ_DATA *obj;
+	CHAR_DATA *ch;
 
-	for (obj = object_list; obj != NULL; obj = obj_next)
-	{
- 	obj_next = obj->next;
+	for (obj = object_list; obj != NULL; obj = obj_next) {
+		obj_next = obj->next;
 
-	if (obj == NULL) {dump_to_scr("NULL OBJ encounter!\n\r");break;}
+		if (!obj->in_room || !IS_WATER(obj->in_room))
+			continue;
 
-	if (obj->in_room == NULL)  
-	  continue;
+		obj->water_float = obj->water_float > 0 ?
+						obj->water_float - 1 : -1;
 
-
-	if (IS_WATER(obj->in_room)) {
-
-	  fChar = FALSE;
-	  ch = obj->in_room->people;
-	  if (ch != NULL) 
-	    fChar = TRUE;
-	  if (obj->water_float != -1) 
-	    obj->water_float--;
-
-	  if (obj->water_float < 0) obj->water_float = -1;
-
-	  if (obj->item_type == ITEM_DRINK_CON)  {
-	     obj->value[1] = URANGE(1, obj->value[1]+8 , obj->value[0]);
-	     if (fChar)  {
-	       act("$p makes bubbles on the water.", ch, obj, NULL, TO_CHAR);
-	       act("$p makes bubbles on the water.", ch, obj, NULL, TO_ROOM);
-	     }
-	     obj->water_float = obj->value[0]-obj->value[1];
-	     obj->value[2] = 0;
-	  }
-  	  if (obj->water_float == 0)  {    
-	    if (((obj->item_type == ITEM_CORPSE_NPC) ||
-		  (obj->item_type == ITEM_CORPSE_PC)  ||
-		  (obj->item_type == ITEM_CONTAINER)) &&
-		  fChar)  {
-	       act("$p sinks down the water releasing some bubbles behind.", ch, obj, NULL, TO_CHAR); 
-	       act("$p sinks down the water releasing some bubbles behind.", ch, obj, NULL, TO_ROOM); 
-	    }
-  	    else if (fChar) {
-	      act("$p sinks down the water.", ch, obj, NULL, TO_CHAR); 
-	      act("$p sinks down the water.", ch, obj, NULL, TO_ROOM); 
-	    }
-	    extract_obj(obj);
-	    continue;
-	  }
-	   }
+		if (obj->item_type == ITEM_DRINK_CON) {
+			obj->value[1] = URANGE(1, obj->value[1]+8,
+					       obj->value[0]);
+			if ((ch = obj->in_room->people))
+				act("$p makes bubbles on the water.", ch, obj,
+				    NULL, TO_ALL);
+			obj->water_float = obj->value[0]-obj->value[1];
+			obj->value[2] = 0;
+		}
+		if (obj->water_float == 0) {
+			if((ch = obj->in_room->people))
+				act("$p sinks down the water.", ch, obj, NULL,
+				    TO_ALL); 
+			extract_obj(obj);
+		}
 	}
-
-	return;
-
 }
 
 void update_obj_affects(OBJ_DATA *obj)
@@ -1417,28 +1391,24 @@ void update_obj_affects(OBJ_DATA *obj)
         		if (number_range(0,4) == 0 && paf->level > 0)
 				paf->level--;
 
-        	} else if (paf->duration >= 0) {
-			if (paf_next == NULL
-			||  paf_next->type != paf->type
-			||  paf_next->duration > 0) {
-                		if (paf->type > 0
-				&&  skill_table[paf->type].msg_obj) {
-					if (obj->carried_by != NULL) {
-						rch = obj->carried_by;
-						act(skill_table[
-						     paf->type].msg_obj,
-						    rch, obj, NULL, TO_CHAR);
-					}
+        	} else if (paf->duration == 0) {
+			if ((paf_next == NULL
+			     || paf_next->type != paf->type
+			     || paf_next->duration > 0)
+			&&  skill_table[paf->type].msg_obj) {
+				if (obj->carried_by != NULL) {
+					rch = obj->carried_by;
+					act(skill_table[paf->type].msg_obj,
+					    rch, obj, NULL, TO_CHAR);
+				}
 
-					if (obj->in_room != NULL 
-					&& obj->in_room->people) {
-						rch = obj->in_room->people;
-						act(skill_table[paf->type].
-									msg_obj,
-						     rch,obj,NULL,TO_ALL);
-					}
-                		}
-            		}
+				if (obj->in_room != NULL 
+				&& obj->in_room->people) {
+					rch = obj->in_room->people;
+					act(skill_table[paf->type].msg_obj,
+					    rch, obj, NULL, TO_ALL);
+				}
+                	}
 			affect_remove_obj(obj, paf);
         	}
 	}
@@ -1446,51 +1416,45 @@ void update_obj_affects(OBJ_DATA *obj)
 
 bool update_ice_obj(OBJ_DATA *obj)
 {
-	if (obj->carried_by != NULL) {
-		if (obj->carried_by->in_room->sector_type == SECT_DESERT
-		&&  number_percent() < 40) {
-			act("The extreme heat melts $p.",
-			    obj->carried_by, obj, NULL,
-			    TO_CHAR);
-			extract_obj(obj);
-			return TRUE;
-		}
-	} else if (obj->in_room != NULL)
-		if (obj->in_room->sector_type == SECT_DESERT
-		&&  number_percent() < 50)  {
-			if (obj->in_room->people) {
-				act("The extreme heat melts $p.",
-				    obj->in_room->people, obj, NULL, TO_ROOM);
-				act("The extreme heat melts $p.",
-				    obj->in_room->people, obj, NULL, TO_CHAR);
-			}
-			extract_obj(obj);
-			return TRUE;
-		}
+	if (obj->carried_by != NULL
+	&&  obj->carried_by->in_room->sector_type == SECT_DESERT
+	&&  number_percent() < 40) {
+		act("The extreme heat melts $p.", obj->carried_by, obj, NULL,
+		    TO_CHAR);
+		extract_obj(obj);
+		return TRUE;
+	}
+	if (obj->in_room != NULL
+	&&  obj->in_room->sector_type == SECT_DESERT
+	&&  number_percent() < 50) {
+		act("The extreme heat melts $p.", obj->in_room->people, obj,
+		    NULL, TO_ALL);
+		extract_obj(obj);
+		return TRUE;
+	}
 	return FALSE;
 }
 
 bool update_glass_obj(OBJ_DATA *obj)
 {
-	if (obj->carried_by)  {
-		if (obj->carried_by->in_room->sector_type == SECT_DESERT
-		&&  !IS_NPC(obj->carried_by)
-		&&  number_percent() < 20)  {
-			act("$p evaporates.", obj->carried_by, obj, NULL,
-			    TO_CHAR);
-			extract_obj(obj);
-			return TRUE;
-		}
-	} else if (obj->in_room)
-		if (obj->in_room->sector_type == SECT_DESERT
-		&&  number_percent() < 30)  {
-			act("$p evaporates by the extream heat.",
-			    obj->in_room->people, obj, NULL, TO_ROOM);
-			act("$p evaporates by the extream heat.",
-			    obj->in_room->people, obj, NULL, TO_CHAR);
-			extract_obj(obj);
-			return TRUE;
-		}
+	if (obj->carried_by
+	&&  obj->carried_by->in_room->sector_type == SECT_DESERT
+	&&  !IS_NPC(obj->carried_by)
+	&&  number_percent() < 20)  {
+		act("$p evaporates.", obj->carried_by, obj, NULL, TO_CHAR);
+		extract_obj(obj);
+		return TRUE;
+	}
+	if (obj->in_room
+	&&  obj->in_room->sector_type == SECT_DESERT
+	&&  number_percent() < 30) {
+		act("$p evaporates by the extream heat.", obj->in_room->people,
+		    obj, NULL, TO_ROOM);
+		act("$p evaporates by the extream heat.", obj->in_room->people,
+		    obj, NULL, TO_CHAR);
+		extract_obj(obj);
+		return TRUE;
+	}
 	return FALSE;
 }
 
@@ -1528,17 +1492,16 @@ void update_one_obj(OBJ_DATA *obj)
 	     t_obj->carried_by->in_room->area->nplayer > 0))
 		oprog_call(OPROG_AREA, obj, NULL, NULL);
 
-	if (check_material(obj, "ice")) 
-		if (update_ice_obj(obj))
-			return;
+	if (check_material(obj, "ice") 
+	&&  update_ice_obj(obj))
+		return;
 
 	if (check_material(obj, "glass")
-	&&  obj->item_type == ITEM_POTION) 
-		if (update_glass_obj(obj))
-			return;
+	&&  obj->item_type == ITEM_POTION
+	&&  update_glass_obj(obj))
+		return;
 
-	if (obj->condition > -1
-	&&  (obj->timer <= 0 || --obj->timer > 0))
+	if (obj->condition > -1 && (obj->timer <= 0 || --obj->timer > 0))
 		return;
 
 	switch (obj->item_type) {
@@ -1575,7 +1538,7 @@ void update_one_obj(OBJ_DATA *obj)
 			break;
 	}
 
-	if (obj->carried_by != NULL) {
+	if (obj->carried_by != NULL)
 		if (IS_NPC(obj->carried_by) 
 		&&  obj->carried_by->pIndexData->pShop != NULL)
 			obj->carried_by->silver += obj->cost/5;
@@ -1585,15 +1548,13 @@ void update_one_obj(OBJ_DATA *obj)
 				act(message, obj->carried_by, obj, NULL,
 				    TO_ROOM);
 		}
-	} else if (obj->in_room != NULL && (rch = obj->in_room->people) != NULL)
-		if (!(obj->in_obj && obj_is_pit(obj->in_obj)
-		&&  !CAN_WEAR(obj->in_obj, ITEM_TAKE))) {
-			act(message, rch, obj, NULL, TO_ROOM);
-			act(message, rch, obj, NULL, TO_CHAR);
-		}
+	if (obj->in_room && (rch = obj->in_room->people)
+	&&  !(obj->in_obj && obj_is_pit(obj->in_obj)
+	      && !CAN_WEAR(obj->in_obj, ITEM_TAKE)))
+		act(message, rch, obj, NULL, TO_ALL);
 
 	if ((obj->item_type == ITEM_CORPSE_PC
-	||  obj->wear_loc == WEAR_FLOAT)
+	     || obj->wear_loc == WEAR_FLOAT)
 	&&  obj->contains) {
 		/* save the contents */
 		OBJ_DATA *t_obj, *next_obj;
@@ -1607,26 +1568,21 @@ void update_one_obj(OBJ_DATA *obj)
 				obj_to_obj(t_obj, obj->in_obj);
 			/* carried */
 			else if (obj->carried_by)
-				if (obj->wear_loc == WEAR_FLOAT)
-					if (!obj->carried_by->in_room)
-						extract_obj(t_obj);
-					else
-						obj_to_room(t_obj,
-						      obj->carried_by->in_room);
+				if (obj->wear_loc == WEAR_FLOAT
+				&&  obj->carried_by->in_room)
+					obj_to_room(t_obj,
+						    obj->carried_by->in_room);
 				else
 					obj_to_char(t_obj, obj->carried_by);
-			/* destroy it */
-			else if (obj->in_room == NULL)
-				extract_obj(t_obj);
 			/* to the pit */
 			else {
 				for (pit = get_room_index(obj->altar)->contents;
 				     pit && pit->pIndexData->vnum != obj->pit;
 				     pit = pit->next);
-					if (pit)
-						obj_to_obj(t_obj, pit);
-					else
-						obj_to_room(t_obj,obj->in_room);
+				if (pit)
+					obj_to_obj(t_obj, pit);
+				else if(obj->in_room)
+					obj_to_room(t_obj, obj->in_room);
 			}
 		}
 	}
