@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.109 1999-02-10 14:57:35 fjoe Exp $
+ * $Id: spellfun.c,v 1.110 1999-02-10 15:58:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -133,7 +133,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	int target;
 	int door, range;
 	bool cast_far = FALSE;
-	bool trust = FALSE;
+	bool trust = TRUE;
 	int slevel;
 	int chance = 0;
 	SKILL_DATA *spell;
@@ -510,7 +510,7 @@ void obj_cast_spell(int sn, int level,
 	CHAR_DATA *bch = NULL;
 	int bane_chance = 100;
 	int bane_damage = 0;
-	bool trust = FALSE;
+	bool trust = TRUE;
 
 	if (sn <= 0
 	||  (spell = skill_lookup(sn)) == NULL
