@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.19 1998-05-19 13:55:14 efdi Exp $
+ * $Id: act_comm.c,v 1.20 1998-05-19 14:10:38 efdi Exp $
  */
 
 /***************************************************************************
@@ -66,6 +66,37 @@ void do_quit_org	args((CHAR_DATA *ch, char *argument, bool Count));
 bool proper_order	args((CHAR_DATA *ch, char *argument));
 char *translate(CHAR_DATA *ch, CHAR_DATA *victim, char *argument);
 int lang_lookup		args((const char *name));
+
+void do_gossip(CHAR_DATA *ch, char *argument)
+{
+	DESCRIPTOR_DATA *d;
+	char buf[MAX_INPUT_LENGTH];
+	char trans[MAX_STRING_LENGTH];
+
+	if (argument[0] == '\0')
+	{
+		 send_to_char("Gossip what?.\n\r",ch);
+		 return;
+	}
+
+	if (!is_affected(ch, gsn_deafen))
+		act_puts("You gosiip '{Y$T{x'",
+		       ch, NULL, buf, TO_CHAR,POS_DEAD);
+
+	for (d = descriptor_list; d != NULL; d = d->next) {
+		CHAR_DATA *victim;
+
+		victim = d->original ? d->original : d->character;
+
+		if (d->connected == CON_PLAYING && d->character != ch) {
+			strcpy(trans, translate(ch,d->character,buf));
+			act_puts("{W$n{x gossips '{Y$t{x'",
+		        	 ch, trans, d->character, TO_VICT, POS_DEAD);
+		}
+	}
+
+	return;
+}
 
 void do_ilang(CHAR_DATA *ch, char *argument)
 {
