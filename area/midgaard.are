@@ -1216,7 +1216,7 @@ This is where you put money and items to help Doz expand this shrine,
 ~
 #3011
 bread~
-a bread~
+ศฬลย~
 A loaf of bread is here. It doesn't look too stale.~
 food~
 food 0 A
@@ -8060,7 +8060,7 @@ O 0 3139 0 3008	* the receptionist's letter of resignation (The Defunct Receptio
 O 0 3140 0 3008	* the bank's notice of liquidation (The Defunct Reception)
 M 0 3001 1 3009 1	* the baker (The Bakery)
 G 0 3009 0		*	a big pot pie
-G 0 3011 0		*	a bread
+G 0 3011 0		*	ศฬลย
 G 0 3012 0		*	a cinnamon roll
 G 0 3013 0		*	a batch of Sara's cookies
 G 0 3014 0		*	a blueberry danish

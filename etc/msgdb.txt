@@ -6,6 +6,8 @@
 ~
 @eng ({yInvis{x) @rus ({yНевидимо{x) ~
 @eng $n steps into $p, riding on $N.@rus $n въезжает в $p верхом на $N.~
+@eng schnapps@rus шнапс~
+@eng rum@rus ром~
 @eng You wear $p on your feet.@rus Ты обуваешься в $p.~
 @eng You can't seem to find a place to stand.
 @rus Ты даже не представляешь куда здесь можно встать.
@@ -76,6 +78,9 @@
 @eng $n's spell fizzles out and fails.@rus Заклинание $n не произвело видимого эффекта.~
 @eng $n lights $p and holds it.@rus $n берет $p и зажигает его.~
 @eng {Mis writhing in agony{x.@rus {Mбьется в агонии{x.~
+@eng white wine@rus белое вино~
+@eng tea@rus чай~
+@eng mead@rus медовуха~
 @eng Your skill with $p is adequate.@rus Ты достаточно хорошо владеешь $p.~
 @eng Your description is:
 %s
@@ -183,6 +188,7 @@ Use 'desc edit' to edit your description.
 @eng $n's power increases!@rus Энергия $n увеличивается!~
 @eng $n rests in $p.@rus $n садится отдыхать в $p.~
 @eng {Rfighting{x@rus {Rсражаешься{x~
+@eng vodka@rus водка~
 @eng You slam into $d, and try to break $d!@rus Ты с разбегу ударяешься в $d!~
 @eng You feel quite confident with $p.@rus Ты чувствуешь себя уверенно с $p.~
 @eng You can't sleep while mounted.
@@ -215,6 +221,7 @@ Use 'desc edit' to edit your description.
 @rus Тут нет таких.
 ~
 @eng The day has begun.@rus Начинается новый день.~
+@eng coffee@rus кофе~
 @eng <worn on arms>      $t@rus <надето на плечи>      $t~
 @eng You see nothing special about it.
 @rus Ты не видишь ничего особенного в этом.
@@ -277,6 +284,7 @@ Use 'desc edit' to edit your description.
 @eng $n asks $N for a quest.@rus $n просит задание у $N.~
 @eng  none@rus  нет~
 @eng  is sitting here.@rus  сидит здесь.~
+@eng lemonade@rus лимонад~
 @eng There's no cover here.
 @rus Здесь нет прикрытия.
 ~
@@ -284,6 +292,8 @@ Use 'desc edit' to edit your description.
 @rus Это не заклинание.
 ~
 @eng $n writhes in agony as plague sores erupt from $s skin.@rus $n мучается от разрывающихся на теле язв.~
+@eng red wine@rus красное вино~
+@eng dark ale@rus темный эль~
 @eng You have to REQUEST a quest first, {W%s{z.@rus Сначала нужно попросить задание, {W%s{z.~
 @eng To buy an item, type 'QUEST BUY <item>'.
 @rus Чтобы купить что-нибудь, набери 'QUEST BUY <item>'.
@@ -323,11 +333,13 @@ Use 'desc edit' to edit your description.
 @rus На тебе уже надето два кольца.
 ~
 @eng $n slams into $d, and tries to break it!@rus $n с разбегу ударяется в $d!~
+@eng elvish wine@rus эльфийское вино~
 @eng Wear, wield, or hold what?
 @rus Надеть, вооружиться или взять в руку что?
 ~
 @eng $n wakes up and rests at $p.@rus $n просыпается и садится отдыхать около $p.~
 @eng $n asks $N for list of quest items.@rus $n просит у $N список квестовых вещей.~
+@eng cordial@rus ликер~
 @eng Your hands are tied up with your weapon!
 @rus Ты слишком слаб чтобы держать такое тяжелое оружие и щит!
 ~
@@ -534,10 +546,12 @@ Use 'desc edit' to edit your description.
 @eng $n shivers and suffers.@rus $n дрожит и испытывает боль.~
 @eng $n hops on your back!@rus $n вскакивает тебе на спину!~
 @eng west@rus на запад (west)~
+@eng aquavit@rus спирт~
 @eng You aren't fighting anyone.
 @rus Ты ни с кем не сражаешься.
 ~
 @eng $n eats $p.@rus $n ест $p.~
+@eng ale@rus эль~
 @eng You wear $p around your left wrist.@rus Ты надеваешь $p на левое запястье.~
 @eng $n wakes you.@rus $n будит тебя.~
 @eng $n locks the $d.@rus $n замыкает $d.~
@@ -558,6 +572,7 @@ Use 'desc edit' to edit your description.
 @eng $n holds $p in $s hand.@rus $n берет $p в руку.~
 @eng $n gets $p from $P.@rus $n достает $p из $P.~
 @eng $N gives you 60 practices.@rus $N дает тебе 60 практик.~
+@eng milk@rus молоко~
 @eng You try to show yourself even more ugly.
 @rus Ты пытаешься выглядеть еще более ужасно.
 ~
@@ -630,6 +645,7 @@ Use 'desc edit' to edit your description.
 @eng It can't be unlocked.
 @rus Это нельзя разомкнуть.
 ~
+@eng salt water@rus соленая вода~
 @eng You wear $p about your waist.@rus Ты надеваешь $p на талию.~
 @eng You unlock $p.@rus Ты размыкаешь $p.~
 @eng You can't rest on that.
@@ -873,6 +889,7 @@ Use 'desc edit' to edit your description.
 @eng $n wakes and sits at $p.@rus $n просыпается и садится около $p.~
 @eng $n sits down and rests.@rus $n садится отдыхать.~
 @eng $n recites $p.@rus $n зачитывает $p.~
+@eng beer@rus пиво~
 @eng You sit in $p.@rus Ты садишься на $p.~
 @eng You can't hide while mounted.
 @rus Ты не можешь прятаться верхом.
@@ -1128,6 +1145,7 @@ You peek at the inventory:
 @eng  is resting here.@rus  отдыхает здесь.~
 @eng {Rmortally wounded{x@rus {Rумираешь{x~
 @eng less than half-@rus меньше, чем наполовину~
+@eng brandy@rus бренди~
 @eng You feel better!
 @rus Тебе лучше!
 ~
@@ -1176,12 +1194,15 @@ You peek at the inventory:
 @rus Этот зверь уже оседлан.
 ~
 @eng $n bashes the $d and breaks the lock.@rus $n ударяется с разбегу в $d и выбивает замок.~
+@eng orange juice@rus апельсиновый сок~
+@eng champagne@rus шампанское~
 @eng You do not have that item.
 @rus У тебя этого нет.
 ~
 @eng $n says '{GDamn me!{x'@rus $n произносит '{GДа чтоб я под землю провалился!{x'~
 @eng $n rests.@rus $n садится отдыхать.~
 @eng {bhas a few scratches{x.@rus {bимеет несколько царапин{x.~
+@eng coke@rus кока-кола~
 @eng You feel yourself getting greater and greater.
 @rus Ты чуствуешь, как становишься все больше и БОЛЬШЕ.
 ~
@@ -1304,8 +1325,11 @@ You peek at the inventory:
 @eng How can you sneak upon yourself?
 @rus Ты не можешь подкрасться к себе сзади.
 ~
+@eng sherry@rus херес~
+@eng rose wine@rus розовое вино~
 @eng But you are already on a quest!@rus У тебя уже есть задание!~
 @eng $n stands at $p.@rus $n встает около $p.~
+@eng blood@rus кровь~
 @eng That's not a container.
 @rus Это не контейнер.
 ~
@@ -1317,6 +1341,7 @@ You peek at the inventory:
 ~
 @eng <stuck in>          $t@rus <воткнуто>             $t~
 @eng $n wakes up and rests in $p.@rus $n просыпается и садится отдыхать в $p.~
+@eng whisky@rus виски~
 @eng You wake up and rest in $p.@rus Ты просыпаешься и садишься отдыхать в $p.~
 @eng You lack the key.
 @rus У тебя нет ключа.

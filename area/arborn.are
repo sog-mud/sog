@@ -11,7 +11,7 @@ End
 #36100
 healer~
 Healer~
-Ahellair's personal healer stands here.
+Arborn's personal healer stands here.
 ~
 ~
 human~
@@ -327,6 +327,15 @@ S
 #RESETS
 M 0 36100 1 36100 1	* Healer (Arborn's home)
 O 0 36100 0 36100	* sofa (Arborn's home)
+M 0 36101 4 36111 4	* TARGET (At the targets)
+M 0 36101 4 36111 4	* TARGET (At the targets)
+M 0 36101 4 36111 4	* TARGET (At the targets)
+M 0 36101 4 36111 4	* TARGET (At the targets)
 S
+
+#MOBPROGS
+#36101
+~
+#0
 
 #$

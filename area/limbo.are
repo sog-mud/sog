@@ -439,8 +439,8 @@ food 0 A
 BD BD 0 0 0
 0 20 0 D
 #20
-mushroom~
-a Magic Mushroom~
+mushroom мухомор~
+@eng a Magic Mushroom@rus Волшебный Мухомор~
 A delicious magic mushroom is here.~
 food~
 food 0 A

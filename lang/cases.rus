@@ -10,6 +10,11 @@ Form 1 фонтана~
 End
 
 #WORD
+Name медовуха~
+Form 3 медовуху~
+End
+
+#WORD
 Name вооруженная~
 Base вооруженн~
 Form 1 -ой~
@@ -20,6 +25,11 @@ Form 5 -ой~
 End
 
 #WORD
+Name соленая вода~
+Form 3 соленую воду~
+End
+
+#WORD
 Name вооруженный~
 Base вооруженн~
 Form 1 -ого~
@@ -27,6 +37,11 @@ Form 2 -ому~
 Form 3 -ого~
 Form 4 -ым~
 Form 5 -ом~
+End
+
+#WORD
+Name кока-кола~
+Form 3 кока-колу~
 End
 
 #WORD

@@ -3709,6 +3709,8 @@ Syntax: asave world                 - save all areas
 Syntax: asave changed               - save changed areas
 Syntax: asave clans                 - save changed clans
 Syntax: asave msgdb                 - save msgdb
+Syntax: asave socials               - save socials
+Syntax: asave langs                 - save langs (with genders/cases tables)
  
 Please note that 'asave world/changed' will save only authorized areas.
  
@@ -3741,6 +3743,8 @@ Syntax: create help keyword
 Syntax: create clan name
 Syntax: create msg message
 Syntax: create social name
+Syntax: create lang name
+Syntax: create form {{ case | gender } name
  
 ~
 0 'OLC EDIT'~
@@ -3753,6 +3757,8 @@ Syntax: edit help [num.]keyword
 Syntax: edit clan name
 Syntax: edit msg substr
 Syntax: edit social name
+Syntax: edit lang name
+Syntax: edit form {{ case | gender } name
  
 ~
 0 'OLC ASHOW'~
@@ -4047,6 +4053,62 @@ in your clan (or the specified clan -- imms only).
  
 These lists are updated automagically when the player is
 accepted/rejected to/from clan, promoted or renamed.
+ 
+~
+0 'OLC FORM'~
+Syntax: form add num text
+Syntax: form del num
+ 
+'form' command will add/delete form number num.
+ 
+~
+0 'OLC MSGDB'~
+Every message going through char_xxx or act_xxx to player is
+translated on-the-fly using msgdb facilities.
+Additional functionality is available in act_xxx functions:
+$cn{{text} - case number ``n'' of ``text''
+$gx{{text} - ``x'' gender of ``text'', where ``x'' is:
+            c - sex of ch
+            v - sex of vch
+            t - sex of player the message is being printed to
+ 
+Examples:
+1) msgdb contains the following message:
+[eng] [$n drinks $T from $p.]
+[rus] [$n пьет $c3{{$T} из $c1{{$p}.]
+ 
+cases database of language "rus" (russian) contains the following
+forms:
+Name: [вода]
+Lang: [rus]
+Type: [case]
+Base: [вод]
+Form: [3] [-у]
+ 
+Name: [фонтан]
+Lang: [rus]
+Type: [case]
+Base: [фонтан]
+Form: [1] [-a]
+ 
+and object has name 'fountain фонтан' and short descr
+[eng] fountain
+[rus] фонтан
+
+and the liquid in object is "water".
+ 
+When the player (fjoe) drinks from that object ("drink fount") other
+players in his room will see:
+"fjoe drinks water from the fountain." or "fjoe пьет воду из фонтана."
+depending on their language (set by command "lang").
+ 
+$gx{{..} and $cn{{...} calls can be nested. For example in the phrase
+"Ты не можешь ничего взять в руку будучи $c4{{$gc{{вооруженный}}
+двумя оружиями" the word "вооруженный" will be taken in the gender form
+depending on the sex of ch and then in the case form 4.
+ 
+Forms can be created/edited with OLC via "create/edit form" commands.
+See "help 'OLC FORMS INTRO"' for more info.
  
 ~
 -1 $~
