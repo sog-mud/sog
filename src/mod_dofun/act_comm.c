@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.228 2001-03-11 21:10:56 fjoe Exp $
+ * $Id: act_comm.c,v 1.229 2001-03-11 21:28:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -743,8 +743,9 @@ void do_save(CHAR_DATA *ch, const char *argument)
 	}
 
 	/*
-	 * save_char intentionally omitted
+	 * char_save intentionally omitted
 	 */
+	act_puts("Saving.", ch, NULL, NULL, TO_CHAR, POS_DEAD);
 
 	WAIT_STATE(ch, get_pulse("violence"));
 }
