@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.27 2004-05-31 13:05:51 sg Exp $
+ * $Id: obj_prog.c,v 1.66.2.28 2004-06-09 07:56:00 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1878,6 +1878,14 @@ wear_prog_amulet_strangulation(OBJ_DATA *amulet, CHAR_DATA *ch, const void *arg)
 	if (IS_IMMORTAL(ch)
 	||  IS_NPC(ch))
 		return 0;
+
+	if (IS_SET(PC(ch)->plr_flags, PLR_GHOST)) {
+		act("$p passes through your neck and drops on the ground.",
+		    ch, amulet, NULL, TO_CHAR);
+		obj_from_char(amulet);
+		obj_to_room(amulet, ch->in_room);
+		return 0;
+	}
 
 	act("As you wear this strange amulet you begin to choke.",
 	    ch, NULL, NULL, TO_CHAR);
