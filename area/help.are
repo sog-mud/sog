@@ -3566,11 +3566,18 @@ Satyrs are a race of half human and half goat race.They are neutral. They are
 inherently dextrerious. But not strengthful. Due the desterity they can
 steal from someone, camuflage themselves and ambush opponents very easly.
 ~
--1 GITHYANKI~
-Githyanki's are more intelligient then humanbeings. But they are constitutive
-as human race. But they are evil. And they can be either fighter, caster or
-fighter/caster races.They are good warriors . But casters use only offensive 
-spells.
+-1 GITH GITHYANKI~
+The Gith are a race descended from humans.  Once long ago, they were a
+peaceful civilization of humans that were captured by mind flayers and
+tormented for centuries.  Eventually, a savior named Gith led them to
+freedom, yet their bodies had been flayed by the mental powers of the
+illithids. The Gith found themselves, stronger, quicker, luckier and
+smarter than average humans, yet they had lost much of their faith,
+wisdom, stamina and charisma.
+ 
+They had yellowed skin and were very long of limb.  Sunken eyes peered
+from yellowed sockets. All githyanki has evil tendencies.
+They are good warriors, but casters use only offensive spells.
 ~
 -1 ROCKSEERS~
 Rockseers are a race of renegade elves who lives underworld in rock caves.
@@ -3839,7 +3846,7 @@ by this burning. The burning affect fills the room. And potions bubles, and
 mobiles can be blind.
 ~
 0 'DRAGONS BREATH'~
-Syntax: cast 'dragons breath'
+Syntax: {ccast 'dragons breath'{x <victim>
 
     A warlock can't use dragon breaths, i.e 'fire breath', 'lightning 
 breath'. So he calls the Lord of Dragons to help.
@@ -7451,6 +7458,7 @@ Use 'event <eventcl> none' to remove event.
     / , ~~ . ~~ \ Tom Madsen, Sebastian Hammer.`-,___,---,__
   /`dan. ~~ . ` `\Based on MERC 2.1 code by Hatchet, Furey,~~---,____
 /` .hunt,  . ~~ , \Kahn. ROM 2.4 copyright (c) 1993-1995 Russ Taylor`-,,
+.` . ~~' . ` . . ~~  \ANATOLIA 2.1 by 1997 Serdar BULUT, Ibrahim CANPUNAR,\
 ~~.  ` ` ,. ` , . ~~ ~~\ .~~ '`. '.Murat BICER, Devrim Baris ACAR.` . ~~` .' ~~\
    Shades of Gray code by fjoe, Constantin Svintsoff, Alexey Neyman.
 ~
