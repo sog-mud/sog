@@ -443,8 +443,7 @@ wood~
 armor 0 0 AD
 7 7 7 3 1
 28 80 1500 P
-A
-17 -10
+a '' to_object 28 -1 -10 17 0
 g none~
 #29131
 cross white marble~
@@ -463,10 +462,8 @@ silk~
 armor CEHJM 0 AD
 6 6 6 3 0
 25 25 300 P
-A
-4 -2
-A
-12 30
+a '' to_object 25 -1 -2 4 0
+a '' to_object 25 -1 30 12 0
 g none~
 #29133
 band black~
@@ -476,10 +473,8 @@ metal~
 armor CEHJM 0 AM
 0 0 0 0 0
 1 300 0 P
-A
-13 -20
-A
-24 -10
+a '' to_object 1 -1 -20 13 0
+a '' to_object 1 -1 -10 24 0
 E
 rune runes~
 As you look at the runes, you feel an incredible heat surge toward you, 
@@ -512,12 +507,9 @@ flame~
 armor AQ 0 AB
 1 1 1 1 0
 30 50 3000 P
-A
-23 -3
-A
-24 -3
-A
-12 10
+a '' to_object 30 -1 -3 23 0
+a '' to_object 30 -1 -3 24 0
+a '' to_object 30 -1 10 12 0
 g none~
 #29136
 pick~

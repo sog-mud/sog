@@ -605,9 +605,9 @@ steel~
 trash 0 K AO
 0 0 0 0 0
 10 10 10000 P
-S 'perception' 100 A
-S 'knock' 100 A
-S 'pick lock' 100 A
+a '' to_skills 10 -1 100 'perception' A
+a '' to_skills 10 -1 100 'knock' A
+a '' to_skills 10 -1 100 'pick lock' A
 g female~
 #20
 mushroom грибок~
@@ -653,17 +653,13 @@ flesh~
 clothing Y K AF
 0 0 0 0 0
 10 1 10000 P
-A
-19 20
-A
-18 20
-A
-12 200
-A
-13 200
-S 'dragon skin' 100 A
-S 'dragon breath' 100 A
-S 'dragon strength' 100 A
+a '' to_object 10 -1 20 19 0
+a '' to_object 10 -1 20 18 0
+a '' to_object 10 -1 200 12 0
+a '' to_object 10 -1 200 13 0
+a '' to_skills 10 -1 100 'dragon skin' A
+a '' to_skills 10 -1 100 'dragon breath' A
+a '' to_skills 10 -1 100 'dragon strength' A
 g male~
 #25
 gate portal ворота врата~
@@ -682,10 +678,8 @@ flesh~
 armor 0 0 AK
 0 0 0 0 0
 0 60 0 P
-A
-13 35
-A
-6 1
+a '' to_object 0 -1 35 13 0
+a '' to_object 0 -1 1 6 0
 g none~
 #27
 steak бифштекс~
@@ -713,8 +707,8 @@ unknown~
 armor Y K AH
 20 20 20 20 0
 10 1 10000 P
-S 'peek' 100 A
-S 'steal' 100 A
+a '' to_skills 10 -1 100 'peek' A
+a '' to_skills 10 -1 100 'steal' A
 g plural~
 #30
 dummy object~
@@ -742,24 +736,15 @@ energy~
 weapon AGIY ABG AN
 dagger 10 4 'pierce' D
 21 100 100000 G
-A
-1 2
-A
-2 2
-A
-4 2
-A
-6 1
-A
-19 25
-A
-18 25
-A
-12 200
-A
-13 200
-A
-14 500
+a '' to_object 21 -1 2 1 0
+a '' to_object 21 -1 2 2 0
+a '' to_object 21 -1 2 4 0
+a '' to_object 21 -1 1 6 0
+a '' to_object 21 -1 25 19 0
+a '' to_object 21 -1 25 18 0
+a '' to_object 21 -1 200 12 0
+a '' to_object 21 -1 200 13 0
+a '' to_object 21 -1 500 14 0
 g male~
 #33
 mace hero~
@@ -769,24 +754,15 @@ energy~
 weapon AGIY ABG AN
 mace 10 4 'pound' D
 21 100 100000 G
-A
-1 2
-A
-2 2
-A
-4 2
-A
-6 1
-A
-19 25
-A
-18 25
-A
-12 200
-A
-13 200
-A
-14 500
+a '' to_object 21 -1 2 1 0
+a '' to_object 21 -1 2 2 0
+a '' to_object 21 -1 2 4 0
+a '' to_object 21 -1 1 6 0
+a '' to_object 21 -1 25 19 0
+a '' to_object 21 -1 25 18 0
+a '' to_object 21 -1 200 12 0
+a '' to_object 21 -1 200 13 0
+a '' to_object 21 -1 500 14 0
 g male~
 #34
 arrow green стрела зеленая~
@@ -841,7 +817,7 @@ silver~
 jewelry AG K AO
 0 0 0 0 0
 10 0 0 P
-S 'summon' 100 A
+a '' to_skills 10 -1 100 'summon' A
 g male~
 #40
 song hero~
@@ -851,26 +827,16 @@ energy~
 container IY ABFG AQ
 150 0 0 600 5
 120 5 10000 P
-A
-24 -15
-A
-18 15
-A
-1 2
-A
-2 2
-A
-4 2
-A
-6 1
-A
-19 15
-A
-14 500
-A
-12 150
-A
-13 200
+a '' to_object 120 -1 -15 24 0
+a '' to_object 120 -1 15 18 0
+a '' to_object 120 -1 2 1 0
+a '' to_object 120 -1 2 2 0
+a '' to_object 120 -1 2 4 0
+a '' to_object 120 -1 1 6 0
+a '' to_object 120 -1 15 19 0
+a '' to_object 120 -1 500 14 0
+a '' to_object 120 -1 150 12 0
+a '' to_object 120 -1 200 13 0
 g female~
 #41
 sack sands мешок~
@@ -880,7 +846,7 @@ canvas~
 container 0 K AO
 0 C 0 500 5
 0 100 10000 P
-S 'blackjack' 100 A
+a '' to_skills 0 -1 100 'blackjack' A
 g male~
 #42
 vial potion пузырек~
@@ -930,27 +896,19 @@ energy~
 container GIY K AQ
 150 A 0 600 5
 10 5 10000 P
-S 'control weather' 100 A
-S 'call lightning' 100 A
-S 'chain lightning' 100 A
-S 'lightning bolt' 100 A
-S 'lightning breath' 100 A
-A
-13 100
-A
-12 500
-A
-3 5
-A
-4 5
-A
-8 5
-A
-20 -10
-A
-19 10
-A
-18 10
+a '' to_skills 10 -1 100 'control weather' A
+a '' to_skills 10 -1 100 'call lightning' A
+a '' to_skills 10 -1 100 'chain lightning' A
+a '' to_skills 10 -1 100 'lightning bolt' A
+a '' to_skills 10 -1 100 'lightning breath' A
+a '' to_object 10 -1 100 13 0
+a '' to_object 10 -1 500 12 0
+a '' to_object 10 -1 5 3 0
+a '' to_object 10 -1 5 4 0
+a '' to_object 10 -1 5 8 0
+a '' to_object 10 -1 -10 20 0
+a '' to_object 10 -1 10 19 0
+a '' to_object 10 -1 10 18 0
 g none~
 #47
 cloak плащ~
@@ -960,30 +918,24 @@ skin~
 armor GIY K AD
 -20 -20 -20 -20 0
 10 1 10000 P
-S 'stone skin' 100 A
-S 'dragon skin' 100 A
-S 'bark skin' 100 A
-A
-2 5
-A
-12 100
-A
-13 100
-A
-20 -10
-A
-19 10
-A
-18 10
-S 'enhanced armor' 100 A
-S 'armor' 100 A
-S 'sanctuary' 100 A
-S 'shield' 100 A
-S 'protection good' 100 A
-S 'protection negative' 100 A
-S 'protection heat' 100 A
-S 'protection cold' 100 A
-S 'protection evil' 100 A
+a '' to_skills 10 -1 100 'stone skin' A
+a '' to_skills 10 -1 100 'dragon skin' A
+a '' to_skills 10 -1 100 'bark skin' A
+a '' to_object 10 -1 5 2 0
+a '' to_object 10 -1 100 12 0
+a '' to_object 10 -1 100 13 0
+a '' to_object 10 -1 -10 20 0
+a '' to_object 10 -1 10 19 0
+a '' to_object 10 -1 10 18 0
+a '' to_skills 10 -1 100 'enhanced armor' A
+a '' to_skills 10 -1 100 'armor' A
+a '' to_skills 10 -1 100 'sanctuary' A
+a '' to_skills 10 -1 100 'shield' A
+a '' to_skills 10 -1 100 'protection good' A
+a '' to_skills 10 -1 100 'protection negative' A
+a '' to_skills 10 -1 100 'protection heat' A
+a '' to_skills 10 -1 100 'protection cold' A
+a '' to_skills 10 -1 100 'protection evil' A
 g male~
 #48
 ring кольцо golden золотое колечко~
@@ -993,14 +945,13 @@ gold~
 jewelry Y K AB
 0 0 0 0 0
 10 0 10000 P
-S 'camouflage move' 100 A
-F i 13 100 G
-A
-12 100
-S 'hide' 100 A
-S 'camouflage' 100 A
-S 'improved invis' 100 A
-S 'invisibility' 100 A
+a '' to_skills 10 -1 100 'camouflage move' A
+a '' to_invis 10 -1 100 13 G
+a '' to_object 10 -1 100 12 0
+a '' to_skills 10 -1 100 'hide' A
+a '' to_skills 10 -1 100 'camouflage' A
+a '' to_skills 10 -1 100 'improved invis' A
+a '' to_skills 10 -1 100 'invisibility' A
 g none~
 #49
 ring кольцо silver серебряное колечко~
@@ -1010,16 +961,16 @@ silver~
 jewelry Y K AB
 0 0 0 0 0
 10 0 0 P
-F d 13 10 J
-F d 13 10 F
-F d 13 10 F
-F d 13 10 I
-F d 13 10 D
-F d 13 10 M
-F d 13 10 B
-F d 13 10 A
-F d 13 10 K
-F d 13 10 L
+a '' to_detects 10 -1 10 13 J
+a '' to_detects 10 -1 10 13 F
+a '' to_detects 10 -1 10 13 F
+a '' to_detects 10 -1 10 13 I
+a '' to_detects 10 -1 10 13 D
+a '' to_detects 10 -1 10 13 M
+a '' to_detects 10 -1 10 13 B
+a '' to_detects 10 -1 10 13 A
+a '' to_detects 10 -1 10 13 K
+a '' to_detects 10 -1 10 13 L
 g none~
 #50
 rug коврик~
@@ -1191,13 +1142,11 @@ skin~
 trash A K AG
 0 0 0 0 0
 10 0 0 P
-F A 20 -20 T
-A
-19 20
-A
-18 20
-F A 12 100 U
-F i 13 100 G
+a '' to_affects 10 -1 -20 20 T
+a '' to_object 10 -1 20 19 0
+a '' to_object 10 -1 20 18 0
+a '' to_affects 10 -1 100 12 U
+a '' to_invis 10 -1 100 13 G
 g female~
 #69
 amulet амулет holy~
@@ -1207,19 +1156,14 @@ magic~
 jewelry GI K AC
 0 0 0 0 0
 10 1 10000 P
-A
-12 250
-A
-13 250
-A
-6 5
-A
-8 5
-A
-20 -25
-S 'holy word' 100 A
-S 'bless' 100 A
-S 'benediction' 100 A
+a '' to_object 10 -1 250 12 0
+a '' to_object 10 -1 250 13 0
+a '' to_object 10 -1 5 6 0
+a '' to_object 10 -1 5 8 0
+a '' to_object 10 -1 -25 20 0
+a '' to_skills 10 -1 100 'holy word' A
+a '' to_skills 10 -1 100 'bless' A
+a '' to_skills 10 -1 100 'benediction' A
 g male~
 #70
 badge значок~
@@ -1229,7 +1173,7 @@ silver~
 treasure M ACDE A
 0 0 0 0 0
 50 4 0 P
-F d 0 0 B
+a '' to_detects 50 -1 0 0 B
 g male~
 #71
 buckler ruler shield~
@@ -1257,12 +1201,9 @@ steel~
 armor GIY BE AJ
 20 20 20 10 0
 0 310 20000 P
-A
-17 -10
-A
-18 3
-A
-19 4
+a '' to_object 0 -1 -10 17 0
+a '' to_object 0 -1 3 18 0
+a '' to_object 0 -1 4 19 0
 g none~
 #74
 tower ruler shield щит~
@@ -1308,12 +1249,9 @@ gold~
 armor GIY 0 AD
 30 30 30 30 0
 0 250 10000 P
-A
-6 2
-A
-19 5
-A
-18 5
+a '' to_object 0 -1 2 6 0
+a '' to_object 0 -1 5 19 0
+a '' to_object 0 -1 5 18 0
 g none~
 #83
 sword golden меч~
@@ -1384,10 +1322,8 @@ platinum~
 weapon B G AN
 exotic 10 1 'pierce' D
 15 60 0 P
-A
-18 20
-A
-6 1
+a '' to_object 15 -1 20 18 0
+a '' to_object 15 -1 1 6 0
 E
 sword~
 The letters '%s' is carved on the handle.
@@ -1459,56 +1395,32 @@ energy~
 armor AGIY ABG AL
 12 12 12 9 2
 120 30 100000 G
-A
-1 2
-A
-4 2
-A
-5 3
-A
-3 3
-A
-6 1
-A
-12 200
-A
-13 200
-A
-14 500
-A
-18 10
-A
-30 33
-A
-31 33
-A
-32 33
-A
-33 33
-A
-34 33
-A
-35 33
-A
-36 33
-A
-37 33
-A
-38 33
-A
-39 33
-A
-40 33
-A
-41 33
-A
-42 33
-A
-43 33
-A
-19 10
-F d 17 -30 H
-F d 0 0 AKLM
+a '' to_object 120 -1 2 1 0
+a '' to_object 120 -1 2 4 0
+a '' to_object 120 -1 3 5 0
+a '' to_object 120 -1 3 3 0
+a '' to_object 120 -1 1 6 0
+a '' to_object 120 -1 200 12 0
+a '' to_object 120 -1 200 13 0
+a '' to_object 120 -1 500 14 0
+a '' to_object 120 -1 10 18 0
+a '' to_object 120 -1 33 30 0
+a '' to_object 120 -1 33 31 0
+a '' to_object 120 -1 33 32 0
+a '' to_object 120 -1 33 33 0
+a '' to_object 120 -1 33 34 0
+a '' to_object 120 -1 33 35 0
+a '' to_object 120 -1 33 36 0
+a '' to_object 120 -1 33 37 0
+a '' to_object 120 -1 33 38 0
+a '' to_object 120 -1 33 39 0
+a '' to_object 120 -1 33 40 0
+a '' to_object 120 -1 33 41 0
+a '' to_object 120 -1 33 42 0
+a '' to_object 120 -1 33 43 0
+a '' to_object 120 -1 10 19 0
+a '' to_detects 120 -1 -30 17 H
+a '' to_detects 120 -1 0 0 AKLM
 g none~
 #95
 ring hero~
@@ -1518,20 +1430,13 @@ energy~
 weapon AGIY ABG AB
 exotic 0 0 'none' 0
 120 30 100000 G
-A
-17 -30
-A
-14 500
-A
-19 5
-A
-18 10
-A
-6 1
-A
-12 150
-A
-13 150
+a '' to_object 120 -1 -30 17 0
+a '' to_object 120 -1 500 14 0
+a '' to_object 120 -1 5 19 0
+a '' to_object 120 -1 10 18 0
+a '' to_object 120 -1 1 6 0
+a '' to_object 120 -1 150 12 0
+a '' to_object 120 -1 150 13 0
 g none~
 #96
 weapon hero~
@@ -1541,24 +1446,15 @@ energy~
 weapon AGIY ABG AN
 exotic 10 4 'slash' D
 21 100 100000 G
-A
-1 2
-A
-2 2
-A
-4 2
-A
-6 1
-A
-19 25
-A
-18 25
-A
-12 200
-A
-13 200
-A
-14 500
+a '' to_object 21 -1 2 1 0
+a '' to_object 21 -1 2 2 0
+a '' to_object 21 -1 2 4 0
+a '' to_object 21 -1 1 6 0
+a '' to_object 21 -1 25 19 0
+a '' to_object 21 -1 25 18 0
+a '' to_object 21 -1 200 12 0
+a '' to_object 21 -1 200 13 0
+a '' to_object 21 -1 500 14 0
 g none~
 #97
 chaos blade~
@@ -1568,8 +1464,7 @@ gold~
 weapon AIP CD AN
 dagger 8 1 'pierce' D
 20 200 0 P
-A
-6 2
+a '' to_object 20 -1 2 6 0
 g none~
 #98
 sword katana~

@@ -8,6 +8,18 @@ Security 1
 LevelRange 25 45
 End
 
+#OBJECTS
+#34101
+flying sign~
+@rus надпись из огня в небе~
+~
+shadow~
+trash 0 0 0
+0 0 0 0 0
+0 0 0 P
+g none~
+#0
+
 #ROOMS
 #34101
 @eng Entrance to Verges@rus Кромка Грани~

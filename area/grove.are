@@ -289,8 +289,7 @@ cloth~
 armor K 0 AD
 6 6 6 0 0
 16 50 2300 P
-A
-12 10
+a '' to_object 16 -1 10 12 0
 E
 robe brown cloth~
 This robe is rough, but appears quite durable.

@@ -325,16 +325,11 @@ unknown~
 weapon ABGJ 0 AN
 dagger 5 12 'pierce' 0
 53 30 530 P
-A
-13 50
-A
-12 120
-A
-19 10
-A
-4 2
-A
-1 -1
+a '' to_object 53 -1 50 13 0
+a '' to_object 53 -1 120 12 0
+a '' to_object 53 -1 10 19 0
+a '' to_object 53 -1 2 4 0
+a '' to_object 53 -1 -1 1 0
 g none~
 #32704
 breeding formula~
@@ -353,10 +348,8 @@ unknown~
 potion G 0 AO
 35 'word of recall' 'blindness' 'sleep' ''
 0 0 0 P
-A
-19 5
-A
-13 25
+a '' to_object 0 -1 5 19 0
+a '' to_object 0 -1 25 13 0
 g none~
 #32706
 beorn's fury~
@@ -366,10 +359,8 @@ unknown~
 weapon GKM 0 AN
 exotic 1 7 'bite' 0
 0 20 0 P
-A
-18 5
-A
-19 8
+a '' to_object 0 -1 5 18 0
+a '' to_object 0 -1 8 19 0
 g none~
 #32707
 key~
@@ -424,8 +415,7 @@ unknown~
 armor AFG 0 AM
 10 10 10 0 0
 37 5 370 P
-A
-12 50
+a '' to_object 37 -1 50 12 0
 g none~
 #32713
 broken scroll~
@@ -444,10 +434,8 @@ unknown~
 armor AGJM 0 AC
 10 10 10 0 0
 35 1 350 P
-A
-14 100
-A
-19 4
+a '' to_object 35 -1 100 14 0
+a '' to_object 35 -1 4 19 0
 g none~
 #32715
 gold pill coin~

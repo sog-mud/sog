@@ -314,10 +314,8 @@ steel~
 weapon AGL 0 AN
 sword 4 8 'slice' 0
 36 20 2700 G
-A
-14 30
-A
-19 2
+a '' to_object 36 -1 30 14 0
+a '' to_object 36 -1 2 19 0
 E
 pixie~
 This elegant sword appears to have served its previous owner very well, but
@@ -400,12 +398,9 @@ silver~
 armor AGI 0 AC
 18 18 18 9 0
 40 120 3500 G
-A
-20 -5
-A
-18 5
-A
-19 1
+a '' to_object 40 -1 -5 20 0
+a '' to_object 40 -1 5 18 0
+a '' to_object 40 -1 1 19 0
 E
 white pendant dragon scale~
 This pendant appears to be very ancient.  It is solid white, with a blue 
@@ -421,12 +416,9 @@ bone~
 armor AGI 0 AC
 18 18 18 9 0
 40 120 3500 G
-A
-20 -6
-A
-18 5
-A
-19 2
+a '' to_object 40 -1 -6 20 0
+a '' to_object 40 -1 5 18 0
+a '' to_object 40 -1 2 19 0
 E
 copper pendant dragon scale~
 The pendant you now own appears to be very new, in fact it looks freshly
@@ -443,12 +435,9 @@ flame~
 light AG 0 A
 0 0 -1 0 0
 48 60 7500 G
-A
-12 100
-A
-13 125
-A
-14 125
+a '' to_object 48 -1 100 12 0
+a '' to_object 48 -1 125 13 0
+a '' to_object 48 -1 125 14 0
 E
 pixie wings~
 Just what they are called.  You feel sorry for the pixie who used to own these.
@@ -463,7 +452,7 @@ energy~
 armor AFGI 0 AC
 20 20 20 9 0
 51 1 31970 G
-F A 17 -60 U
+a '' to_affects 51 -1 -60 17 U
 E
 pendant eternity~
 As you stare at the pendant, you begin to feel as if you are being sucked in.
@@ -478,10 +467,8 @@ steel~
 armor GJ 0 AD
 16 16 16 7 0
 40 190 6430 G
-A
-9 5
-A
-24 -10
+a '' to_object 40 -1 5 9 0
+a '' to_object 40 -1 -10 24 0
 E
 white dragon scale breast plate~
 This is a very quickly strewn together breast plate.  It looks like it was
@@ -496,12 +483,9 @@ bone~
 armor GK 0 AD
 18 18 18 8 0
 40 200 6230 G
-A
-17 -10
-A
-18 5
-A
-9 2
+a '' to_object 40 -1 -10 17 0
+a '' to_object 40 -1 5 18 0
+a '' to_object 40 -1 2 9 0
 E
 copper dragon scale breast plate~
 This is a very hastely strewn together breast plate.  It looks like it was
@@ -540,10 +524,8 @@ crystal~
 weapon AL 0 AN
 mace 5 7 'pound' D
 35 20 1700 G
-A
-19 3
-A
-18 3
+a '' to_object 35 -1 3 19 0
+a '' to_object 35 -1 3 18 0
 E
 pixie stick~
 This is a Pixie Stick.  While you may be used to eating these "sugar sticks",
@@ -557,10 +539,8 @@ steel~
 armor A 0 AD
 15 15 15 7 0
 37 30 2230 G
-A
-17 -7
-A
-1 -1
+a '' to_object 37 -1 -7 17 0
+a '' to_object 37 -1 -1 1 0
 E
 plate pixie breast~
 This is a piece of Pixie armor.  It looks very well crafted, but has an odd
@@ -574,10 +554,8 @@ steel~
 armor AG 0 AF
 15 15 15 7 0
 32 14 1900 G
-A
-3 4
-A
-5 -1
+a '' to_object 32 -1 4 3 0
+a '' to_object 32 -1 -1 5 0
 E
 pixie greaves~
 These are VERY small pants....although they do seem fairly stretchy.....
@@ -591,12 +569,9 @@ steel~
 armor AG 0 AI
 16 16 16 7 0
 35 19 2077 G
-A
-19 2
-A
-2 3
-A
-17 -30
+a '' to_object 35 -1 2 19 0
+a '' to_object 35 -1 3 2 0
+a '' to_object 35 -1 -30 17 0
 E
 pixie arm plates~
 These arm plates would be a tad bit to small for you.....IF YOU WERE A
@@ -610,10 +585,8 @@ flame~
 light AL 0 A
 0 0 -1 0 0
 38 20 2300 G
-A
-18 3
-A
-19 3
+a '' to_object 38 -1 3 18 0
+a '' to_object 38 -1 3 19 0
 E
 flame wisp dragon fyre fire~
 You aren't quite sure how it is, but the DragonFyre is existing without its
@@ -627,12 +600,9 @@ steel~
 armor AGJ 0 AE
 16 16 16 8 0
 38 230 2460 G
-A
-4 2
-A
-2 -1
-A
-1 3
+a '' to_object 38 -1 2 4 0
+a '' to_object 38 -1 -1 2 0
+a '' to_object 38 -1 3 1 0
 E
 helm dragon~
 This helm appears to have been created from the scales of a freshly dead dragon.
@@ -646,12 +616,9 @@ bone~
 armor AGK 0 AE
 16 16 16 9 0
 38 250 2960 G
-A
-4 2
-A
-2 -1
-A
-5 2
+a '' to_object 38 -1 2 4 0
+a '' to_object 38 -1 -1 2 0
+a '' to_object 38 -1 2 5 0
 E
 helm dragon~
 This helm appears to be made from the scales of a recently dead dragon.
@@ -667,14 +634,10 @@ wood~
 weapon ABCFGHM 0 AN
 staff 5 11 'pound' 0
 52 200 45780 G
-A
-12 100
-A
-19 6
-A
-18 6
-A
-13 -50
+a '' to_object 52 -1 100 12 0
+a '' to_object 52 -1 6 19 0
+a '' to_object 52 -1 6 18 0
+a '' to_object 52 -1 -50 13 0
 E
 staff magius~
 This is the Staff of the Magius.  Rumored to bring untold mystical 
@@ -690,10 +653,8 @@ steel~
 weapon AGL 0 AN
 dagger 4 8 'stab' 0
 33 5 647 G
-A
-14 20
-A
-19 4
+a '' to_object 33 -1 20 14 0
+a '' to_object 33 -1 4 19 0
 g none~
 #2423
 diamond gem~
@@ -775,8 +736,7 @@ flame~
 armor AG 0 AQ
 18 18 18 7 0
 45 20 4717 G
-A
-17 -30
+a '' to_object 45 -1 -30 17 0
 g none~
 #2432
 rabbit's foot magic~
@@ -786,8 +746,7 @@ meat~
 armor AG 0 AQ
 11 11 11 5 0
 33 20 617 G
-A
-17 -20
+a '' to_object 33 -1 -20 17 0
 g none~
 #2433
 pixie shield~

@@ -552,10 +552,8 @@ nothingness~
 weapon BGM 0 AN
 exotic 6 7 'peck' 0
 45 70 16750 G
-A
-18 2
-A
-19 5
+a '' to_object 45 -1 2 18 0
+a '' to_object 45 -1 5 19 0
 E
 nothingness~
 You are not sure, but you do not seem not able to figure out what it isn't, 
@@ -576,8 +574,7 @@ gold~
 furniture GK 0 AO
 0 0 0 0 0
 50 200 27225 G
-A
-18 2
+a '' to_object 50 -1 2 18 0
 g none~
 #15203
 crown golden~
@@ -587,10 +584,8 @@ gold~
 armor GK 0 AE
 16 17 16 6 0
 50 400 28244 G
-A
-12 30
-A
-3 1
+a '' to_object 50 -1 30 12 0
+a '' to_object 50 -1 1 3 0
 g none~
 #15204
 apple golden~
@@ -622,8 +617,7 @@ iron~
 weapon G 0 AN
 sword 5 8 'scratch' 0
 35 70 9000 G
-A
-18 -2
+a '' to_object 35 -1 -2 18 0
 g none~
 #15207
 key huge~
@@ -686,10 +680,8 @@ velvet~
 furniture AG 0 AO
 0 0 0 0 0
 40 300 25000 G
-A
-18 2
-A
-19 1
+a '' to_object 40 -1 2 18 0
+a '' to_object 40 -1 1 19 0
 E
 banner royal standard~
 It is large and very heavy. On top of it flutters King Welmar's flag
@@ -766,10 +758,8 @@ steel~
 weapon G 0 AN
 polearm 5 10 'stab' 0
 48 140 19716 G
-A
-18 2
-A
-19 2
+a '' to_object 48 -1 2 18 0
+a '' to_object 48 -1 2 19 0
 g none~
 #15220
 mail chain hauberk~
@@ -779,8 +769,7 @@ steel~
 armor G 0 AD
 16 16 16 7 0
 48 300 26240 G
-A
-17 -30
+a '' to_object 48 -1 -30 17 0
 g none~
 #15221
 mail chain hauberk~
@@ -790,8 +779,7 @@ steel~
 armor G 0 AD
 13 13 12 3 0
 40 400 16278 G
-A
-17 -15
+a '' to_object 40 -1 -15 17 0
 g none~
 #15222
 sword short broadsword~

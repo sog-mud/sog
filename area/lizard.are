@@ -614,14 +614,10 @@ snakeskin~
 armor 0 0 AM
 15 15 15 15 0
 50 1 0 P
-A
-14 100
-A
-13 30
-A
-3 1
-A
-1 1
+a '' to_object 50 -1 100 14 0
+a '' to_object 50 -1 30 13 0
+a '' to_object 50 -1 1 3 0
+a '' to_object 50 -1 1 1 0
 g none~
 #22103
 small bracelet~
@@ -631,12 +627,9 @@ snakeskin~
 armor 0 0 AM
 10 10 10 10 0
 40 0 0 P
-A
-14 100
-A
-13 10
-A
-20 -5
+a '' to_object 40 -1 100 14 0
+a '' to_object 40 -1 10 13 0
+a '' to_object 40 -1 -5 20 0
 g none~
 #22104
 huge bracelet~
@@ -646,18 +639,12 @@ snakeskin~
 armor I BC AM
 17 17 17 10 0
 55 1 10000 P
-A
-19 3
-A
-18 3
-A
-13 30
-A
-8 1
-A
-5 2
-A
-1 1
+a '' to_object 55 -1 3 19 0
+a '' to_object 55 -1 3 18 0
+a '' to_object 55 -1 30 13 0
+a '' to_object 55 -1 1 8 0
+a '' to_object 55 -1 2 5 0
+a '' to_object 55 -1 1 1 0
 g none~
 #22105
 invisible robe~
@@ -667,12 +654,9 @@ unknown~
 armor FHIMY BCE AK
 18 18 18 18 0
 55 1 0 P
-A
-12 200
-A
-4 3
-A
-3 3
+a '' to_object 55 -1 200 12 0
+a '' to_object 55 -1 3 4 0
+a '' to_object 55 -1 3 3 0
 g none~
 #22106
 white robe~
@@ -682,12 +666,9 @@ unknown~
 armor AHIMY BCE AK
 18 18 18 18 0
 55 1 0 P
-A
-13 75
-A
-6 3
-A
-5 3
+a '' to_object 55 -1 75 13 0
+a '' to_object 55 -1 3 6 0
+a '' to_object 55 -1 3 5 0
 g none~
 #22107
 red robe~
@@ -697,14 +678,10 @@ unknown~
 armor AHIMY BCE AK
 17 17 17 17 0
 55 1 0 P
-A
-14 300
-A
-18 10
-A
-2 3
-A
-1 3
+a '' to_object 55 -1 300 14 0
+a '' to_object 55 -1 10 18 0
+a '' to_object 55 -1 3 2 0
+a '' to_object 55 -1 3 1 0
 g none~
 #22108
 yellow robe~
@@ -714,22 +691,14 @@ unknown~
 armor AHIMY BCE AK
 17 17 17 17 0
 55 1 0 P
-A
-17 -30
-A
-20 -15
-A
-6 1
-A
-5 1
-A
-4 1
-A
-3 1
-A
-2 1
-A
-1 1
+a '' to_object 55 -1 -30 17 0
+a '' to_object 55 -1 -15 20 0
+a '' to_object 55 -1 1 6 0
+a '' to_object 55 -1 1 5 0
+a '' to_object 55 -1 1 4 0
+a '' to_object 55 -1 1 3 0
+a '' to_object 55 -1 1 2 0
+a '' to_object 55 -1 1 1 0
 g none~
 #22109
 black robe~
@@ -739,22 +708,14 @@ unknown~
 armor AHIMY BCE AK
 17 17 17 17 0
 55 1 0 P
-A
-19 10
-A
-9 5
-A
-6 -2
-A
-5 -2
-A
-4 -2
-A
-3 -2
-A
-2 -2
-A
-1 -2
+a '' to_object 55 -1 10 19 0
+a '' to_object 55 -1 5 9 0
+a '' to_object 55 -1 -2 6 0
+a '' to_object 55 -1 -2 5 0
+a '' to_object 55 -1 -2 4 0
+a '' to_object 55 -1 -2 3 0
+a '' to_object 55 -1 -2 2 0
+a '' to_object 55 -1 -2 1 0
 g none~
 #22110
 invisible whip~
@@ -800,8 +761,7 @@ unknown~
 weapon AHIMY BCE AN
 whip 12 4 'drain' D
 55 5 0 P
-A
-19 10
+a '' to_object 55 -1 10 19 0
 g none~
 #22115
 invisible sleeves~
@@ -811,12 +771,9 @@ unknown~
 armor FHIMY BCE AK
 18 18 18 18 0
 55 1 0 P
-A
-12 200
-A
-4 3
-A
-3 3
+a '' to_object 55 -1 200 12 0
+a '' to_object 55 -1 3 4 0
+a '' to_object 55 -1 3 3 0
 g none~
 #22116
 white sleeves~
@@ -826,12 +783,9 @@ unknown~
 armor AHIMY BCE AI
 18 18 18 18 0
 55 1 0 P
-A
-13 75
-A
-6 3
-A
-5 3
+a '' to_object 55 -1 75 13 0
+a '' to_object 55 -1 3 6 0
+a '' to_object 55 -1 3 5 0
 g none~
 #22117
 red sleeves~
@@ -841,14 +795,10 @@ unknown~
 armor AHIMY BCE AI
 17 17 17 17 0
 55 1 0 P
-A
-14 300
-A
-18 10
-A
-2 3
-A
-1 3
+a '' to_object 55 -1 300 14 0
+a '' to_object 55 -1 10 18 0
+a '' to_object 55 -1 3 2 0
+a '' to_object 55 -1 3 1 0
 g none~
 #22118
 yellow sleeves~
@@ -858,22 +808,14 @@ unknown~
 armor AHIMY BCE AI
 17 17 17 17 0
 55 1 0 P
-A
-17 -30
-A
-20 -15
-A
-6 1
-A
-5 1
-A
-4 1
-A
-3 1
-A
-2 1
-A
-1 1
+a '' to_object 55 -1 -30 17 0
+a '' to_object 55 -1 -15 20 0
+a '' to_object 55 -1 1 6 0
+a '' to_object 55 -1 1 5 0
+a '' to_object 55 -1 1 4 0
+a '' to_object 55 -1 1 3 0
+a '' to_object 55 -1 1 2 0
+a '' to_object 55 -1 1 1 0
 g none~
 #22119
 black sleeves~
@@ -883,22 +825,14 @@ unknown~
 armor AHIMY BCE AI
 17 17 17 17 0
 55 1 0 P
-A
-19 10
-A
-9 5
-A
-6 -2
-A
-5 -2
-A
-4 -2
-A
-3 -2
-A
-2 -2
-A
-1 -2
+a '' to_object 55 -1 10 19 0
+a '' to_object 55 -1 5 9 0
+a '' to_object 55 -1 -2 6 0
+a '' to_object 55 -1 -2 5 0
+a '' to_object 55 -1 -2 4 0
+a '' to_object 55 -1 -2 3 0
+a '' to_object 55 -1 -2 2 0
+a '' to_object 55 -1 -2 1 0
 g none~
 #22120
 gray staff~
@@ -908,14 +842,10 @@ hardwood~
 weapon A 0 AN
 staff 11 4 'smash' G
 50 50 100000 P
-A
-19 10
-A
-18 10
-A
-12 100
-A
-13 20
+a '' to_object 50 -1 10 19 0
+a '' to_object 50 -1 10 18 0
+a '' to_object 50 -1 100 12 0
+a '' to_object 50 -1 20 13 0
 g none~
 #22121
 staff green~
@@ -925,16 +855,11 @@ softwood~
 weapon A 0 AN
 staff 11 4 'smash' G
 50 100 10000 P
-A
-19 10
-A
-18 10
-A
-14 50
-A
-13 50
-A
-13 40
+a '' to_object 50 -1 10 19 0
+a '' to_object 50 -1 10 18 0
+a '' to_object 50 -1 50 14 0
+a '' to_object 50 -1 50 13 0
+a '' to_object 50 -1 40 13 0
 g none~
 #22122
 gray vest~
@@ -944,14 +869,10 @@ snakeskin~
 armor 0 0 AD
 15 15 15 10 0
 50 10 1000 P
-A
-20 -10
-A
-6 2
-A
-4 2
-A
-3 2
+a '' to_object 50 -1 -10 20 0
+a '' to_object 50 -1 2 6 0
+a '' to_object 50 -1 2 4 0
+a '' to_object 50 -1 2 3 0
 g none~
 #22123
 vest green~
@@ -961,14 +882,10 @@ snakeskin~
 armor 0 0 AD
 15 15 15 10 0
 50 10 1000 P
-A
-17 -20
-A
-5 1
-A
-2 2
-A
-1 2
+a '' to_object 50 -1 -20 17 0
+a '' to_object 50 -1 1 5 0
+a '' to_object 50 -1 2 2 0
+a '' to_object 50 -1 2 1 0
 g none~
 #22124
 gray boots~
@@ -978,12 +895,9 @@ snakeskin~
 armor 0 0 AG
 15 15 15 10 0
 50 10 1000 P
-A
-6 1
-A
-4 2
-A
-3 2
+a '' to_object 50 -1 1 6 0
+a '' to_object 50 -1 2 4 0
+a '' to_object 50 -1 2 3 0
 g none~
 #22125
 green boots~
@@ -993,10 +907,8 @@ snakeskin~
 armor 0 0 AG
 15 15 15 10 0
 50 10 1000 P
-A
-19 3
-A
-18 3
+a '' to_object 50 -1 3 19 0
+a '' to_object 50 -1 3 18 0
 g none~
 #22126
 mantle gods~
@@ -1006,32 +918,19 @@ unknown~
 armor ABGHI AE AK
 20 20 20 20 0
 60 0 0 P
-A
-19 5
-A
-18 5
-A
-14 50
-A
-12 50
-A
-13 50
-A
-17 -20
-A
-20 -10
-A
-8 1
-A
-5 2
-A
-4 2
-A
-3 2
-A
-2 2
-A
-1 2
+a '' to_object 60 -1 5 19 0
+a '' to_object 60 -1 5 18 0
+a '' to_object 60 -1 50 14 0
+a '' to_object 60 -1 50 12 0
+a '' to_object 60 -1 50 13 0
+a '' to_object 60 -1 -20 17 0
+a '' to_object 60 -1 -10 20 0
+a '' to_object 60 -1 1 8 0
+a '' to_object 60 -1 2 5 0
+a '' to_object 60 -1 2 4 0
+a '' to_object 60 -1 2 3 0
+a '' to_object 60 -1 2 2 0
+a '' to_object 60 -1 2 1 0
 g none~
 #22127
 huge bone~
@@ -1041,10 +940,8 @@ bone~
 weapon ABI 0 AN
 mace 10 4 'smash' 0
 40 10 10000 P
-A
-19 7
-A
-18 7
+a '' to_object 40 -1 7 19 0
+a '' to_object 40 -1 7 18 0
 g none~
 #22128
 ring death~
@@ -1054,22 +951,14 @@ steel~
 armor ABCEM EF AB
 20 20 20 20 0
 60 1 0 P
-A
-6 -2
-A
-5 -2
-A
-4 -2
-A
-3 -2
-A
-2 -2
-A
-1 -2
-A
-19 5
-A
-18 5
+a '' to_object 60 -1 -2 6 0
+a '' to_object 60 -1 -2 5 0
+a '' to_object 60 -1 -2 4 0
+a '' to_object 60 -1 -2 3 0
+a '' to_object 60 -1 -2 2 0
+a '' to_object 60 -1 -2 1 0
+a '' to_object 60 -1 5 19 0
+a '' to_object 60 -1 5 18 0
 g none~
 #22129
 shortsword sword~
@@ -1079,10 +968,8 @@ bronze~
 weapon A 0 AN
 sword 11 4 'slash' D
 50 100 100 P
-A
-19 8
-A
-18 8
+a '' to_object 50 -1 8 19 0
+a '' to_object 50 -1 8 18 0
 g none~
 #22130
 round shield~
@@ -1092,10 +979,8 @@ bronze~
 armor A 0 AJ
 30 30 30 10 0
 50 300 22222 P
-A
-19 3
-A
-18 3
+a '' to_object 50 -1 3 19 0
+a '' to_object 50 -1 3 18 0
 g none~
 #22131
 bronze skirt~
@@ -1105,10 +990,8 @@ bronze~
 armor A 0 AF
 15 15 15 6 0
 40 100 3333 P
-A
-19 1
-A
-18 3
+a '' to_object 40 -1 1 19 0
+a '' to_object 40 -1 3 18 0
 g none~
 #22132
 opal bracelet~
@@ -1118,12 +1001,9 @@ opal~
 armor ABI 0 AM
 18 18 18 12 0
 55 10 444444 P
-A
-19 4
-A
-18 4
-A
-13 30
+a '' to_object 55 -1 4 19 0
+a '' to_object 55 -1 4 18 0
+a '' to_object 55 -1 30 13 0
 g none~
 #22133
 steel bracelet~
@@ -1133,8 +1013,7 @@ steel~
 armor 0 0 AM
 10 10 10 6 0
 30 0 0 P
-A
-13 15
+a '' to_object 30 -1 15 13 0
 g none~
 #22134
 halberd~
@@ -1144,10 +1023,8 @@ steel~
 weapon 0 0 AN
 polearm 10 4 'slash' F
 30 300 11110 P
-A
-19 2
-A
-18 5
+a '' to_object 30 -1 2 19 0
+a '' to_object 30 -1 5 18 0
 g none~
 #22135
 strange plate~
@@ -1157,8 +1034,7 @@ steel~
 armor 0 0 AD
 15 15 15 10 0
 30 300 1231 P
-A
-13 15
+a '' to_object 30 -1 15 13 0
 g none~
 #22136
 mithril bracer~
@@ -1168,12 +1044,9 @@ mithril~
 armor BIK F AM
 20 20 20 15 0
 60 20 0 P
-A
-19 4
-A
-18 4
-A
-13 40
+a '' to_object 60 -1 4 19 0
+a '' to_object 60 -1 4 18 0
+a '' to_object 60 -1 40 13 0
 g none~
 #22137
 mithril shortsword~
@@ -1183,10 +1056,8 @@ mithril~
 weapon BIK F AN
 sword 13 4 'slash' DE
 60 100 10000 P
-A
-19 10
-A
-18 10
+a '' to_object 60 -1 10 19 0
+a '' to_object 60 -1 10 18 0
 g none~
 #22138
 mithril shield~
@@ -1196,14 +1067,10 @@ mithril~
 armor BIK F AJ
 20 20 20 12 0
 60 1000 10000 P
-A
-17 -30
-A
-19 4
-A
-18 4
-A
-13 30
+a '' to_object 60 -1 -30 17 0
+a '' to_object 60 -1 4 19 0
+a '' to_object 60 -1 4 18 0
+a '' to_object 60 -1 30 13 0
 g none~
 #22139
 mithril plate~
@@ -1213,14 +1080,10 @@ mithril~
 armor BIK F AD
 20 20 20 12 0
 60 1000 10000 P
-A
-13 40
-A
-17 -30
-A
-19 4
-A
-18 4
+a '' to_object 60 -1 40 13 0
+a '' to_object 60 -1 -30 17 0
+a '' to_object 60 -1 4 19 0
+a '' to_object 60 -1 4 18 0
 g none~
 #22140
 mithril bootd~
@@ -1230,12 +1093,9 @@ mithril~
 armor BIK F AG
 20 20 20 12 0
 60 1000 10000 P
-A
-13 40
-A
-19 4
-A
-18 4
+a '' to_object 60 -1 40 13 0
+a '' to_object 60 -1 4 19 0
+a '' to_object 60 -1 4 18 0
 g none~
 #22141
 violet cloak~
@@ -1245,8 +1105,7 @@ silk~
 armor AB 0 AC
 20 20 20 20 0
 55 300 6666 P
-A
-8 2
+a '' to_object 55 -1 2 8 0
 g none~
 #22142
 doom mace~
@@ -1256,10 +1115,8 @@ unknown~
 weapon ABE 0 AN
 mace 12 4 'acbite' DE
 60 100 6666 P
-A
-19 9
-A
-18 9
+a '' to_object 60 -1 9 19 0
+a '' to_object 60 -1 9 18 0
 g none~
 #22143
 obsidian longsword~
@@ -1269,10 +1126,8 @@ obsidian~
 weapon BE 0 AN
 sword 12 3 'slice' DE
 40 300 3000 P
-A
-19 6
-A
-18 6
+a '' to_object 40 -1 6 19 0
+a '' to_object 40 -1 6 18 0
 g none~
 #22144
 obsidian shield~
@@ -1282,16 +1137,11 @@ obsidian~
 armor BE 0 AJ
 10 10 10 6 0
 40 100 2000 P
-A
-17 20
-A
-1 3
-A
-19 1
-A
-18 1
-A
-13 20
+a '' to_object 40 -1 20 17 0
+a '' to_object 40 -1 3 1 0
+a '' to_object 40 -1 1 19 0
+a '' to_object 40 -1 1 18 0
+a '' to_object 40 -1 20 13 0
 g none~
 #22145
 obsidian vest~
@@ -1301,16 +1151,11 @@ obsidian~
 armor BE 0 AD
 10 10 10 6 0
 40 100 2000 P
-A
-17 20
-A
-1 3
-A
-19 1
-A
-18 1
-A
-13 20
+a '' to_object 40 -1 20 17 0
+a '' to_object 40 -1 3 1 0
+a '' to_object 40 -1 1 19 0
+a '' to_object 40 -1 1 18 0
+a '' to_object 40 -1 20 13 0
 g none~
 #22146
 obsidian gauntlets~
@@ -1320,14 +1165,10 @@ obsidian~
 armor BE 0 AH
 10 10 10 6 0
 40 100 2000 P
-A
-2 3
-A
-19 1
-A
-18 1
-A
-13 20
+a '' to_object 40 -1 3 2 0
+a '' to_object 40 -1 1 19 0
+a '' to_object 40 -1 1 18 0
+a '' to_object 40 -1 20 13 0
 g none~
 #22147
 obsidian armguards~
@@ -1337,14 +1178,10 @@ obsidian~
 armor BE 0 AI
 10 10 10 6 0
 40 100 2000 P
-A
-2 3
-A
-19 1
-A
-18 1
-A
-13 20
+a '' to_object 40 -1 3 2 0
+a '' to_object 40 -1 1 19 0
+a '' to_object 40 -1 1 18 0
+a '' to_object 40 -1 20 13 0
 g none~
 #22148
 obsidian helm~
@@ -1354,16 +1191,11 @@ obsidian~
 armor BE 0 AE
 10 10 10 6 0
 40 100 2000 P
-A
-17 -5
-A
-3 3
-A
-19 1
-A
-18 1
-A
-13 20
+a '' to_object 40 -1 -5 17 0
+a '' to_object 40 -1 3 3 0
+a '' to_object 40 -1 1 19 0
+a '' to_object 40 -1 1 18 0
+a '' to_object 40 -1 20 13 0
 g none~
 #22149
 obsidian boots~
@@ -1373,14 +1205,10 @@ obsidian~
 armor BE 0 AG
 10 10 10 6 0
 40 100 2000 P
-A
-5 3
-A
-19 1
-A
-18 1
-A
-13 20
+a '' to_object 40 -1 3 5 0
+a '' to_object 40 -1 1 19 0
+a '' to_object 40 -1 1 18 0
+a '' to_object 40 -1 20 13 0
 g none~
 #22150
 obsidian leggins~
@@ -1390,16 +1218,11 @@ obsidian~
 armor BE 0 AF
 10 10 10 6 0
 40 100 2000 P
-A
-17 -2
-A
-5 3
-A
-19 1
-A
-18 1
-A
-13 20
+a '' to_object 40 -1 -2 17 0
+a '' to_object 40 -1 3 5 0
+a '' to_object 40 -1 1 19 0
+a '' to_object 40 -1 1 18 0
+a '' to_object 40 -1 20 13 0
 g none~
 #22151
 apron~
@@ -1409,14 +1232,10 @@ snakeskin~
 armor B 0 AF
 18 18 18 10 0
 60 100 10000 P
-A
-4 -2
-A
-13 50
-A
-19 1
-A
-18 1
+a '' to_object 60 -1 -2 4 0
+a '' to_object 60 -1 50 13 0
+a '' to_object 60 -1 1 19 0
+a '' to_object 60 -1 1 18 0
 g none~
 #22152
 bracelet~
@@ -1426,14 +1245,10 @@ snakeskin~
 armor B 0 AM
 18 18 18 10 0
 60 100 10000 P
-A
-4 -2
-A
-13 50
-A
-19 1
-A
-18 1
+a '' to_object 60 -1 -2 4 0
+a '' to_object 60 -1 50 13 0
+a '' to_object 60 -1 1 19 0
+a '' to_object 60 -1 1 18 0
 g none~
 #22153
 tie~
@@ -1443,14 +1258,10 @@ snakeskin~
 armor B 0 AC
 18 18 18 10 0
 60 10 1000 P
-A
-3 -1
-A
-1 -1
-A
-14 100
-A
-12 100
+a '' to_object 60 -1 -1 3 0
+a '' to_object 60 -1 -1 1 0
+a '' to_object 60 -1 100 14 0
+a '' to_object 60 -1 100 12 0
 g none~
 #22154
 bracelet~
@@ -1460,14 +1271,10 @@ snakeskin~
 armor B 0 AM
 18 18 18 10 0
 60 10 1000 P
-A
-3 -1
-A
-1 -1
-A
-14 100
-A
-12 100
+a '' to_object 60 -1 -1 3 0
+a '' to_object 60 -1 -1 1 0
+a '' to_object 60 -1 100 14 0
+a '' to_object 60 -1 100 12 0
 g none~
 #22155
 hammer~
@@ -1477,12 +1284,9 @@ steel~
 weapon ABI 0 AN
 mace 12 4 'chomp' A
 60 400 100000 P
-A
-6 -2
-A
-19 5
-A
-18 10
+a '' to_object 60 -1 -2 6 0
+a '' to_object 60 -1 5 19 0
+a '' to_object 60 -1 10 18 0
 g none~
 #22156
 bracelet~
@@ -1492,14 +1296,10 @@ snakeskin~
 armor B 0 AM
 18 18 18 10 0
 60 100 10000 P
-A
-5 -2
-A
-13 50
-A
-19 1
-A
-18 1
+a '' to_object 60 -1 -2 5 0
+a '' to_object 60 -1 50 13 0
+a '' to_object 60 -1 1 19 0
+a '' to_object 60 -1 1 18 0
 g none~
 #22157
 hammer~
@@ -1509,12 +1309,9 @@ steel~
 weapon ABI 0 AN
 mace 12 4 'flame' A
 60 400 100000 P
-A
-19 10
-A
-18 5
-A
-5 -2
+a '' to_object 60 -1 10 19 0
+a '' to_object 60 -1 5 18 0
+a '' to_object 60 -1 -2 5 0
 g none~
 #22158
 bracelet~
@@ -1524,14 +1321,10 @@ snakeskin~
 armor B 0 AM
 18 18 18 10 0
 60 100 10000 P
-A
-6 -2
-A
-13 50
-A
-19 1
-A
-18 1
+a '' to_object 60 -1 -2 6 0
+a '' to_object 60 -1 50 13 0
+a '' to_object 60 -1 1 19 0
+a '' to_object 60 -1 1 18 0
 g none~
 #22159
 hookah~
@@ -1541,10 +1334,8 @@ bone~
 staff ABM 0 AO
 100 20 20 'frenzy' 0
 60 10 1000 P
-A
-5 -1
-A
-2 -1
+a '' to_object 60 -1 -1 5 0
+a '' to_object 60 -1 -1 2 0
 g none~
 #22160
 bracelet~
@@ -1554,16 +1345,11 @@ snakeskin~
 armor B 0 AM
 18 18 18 10 0
 60 100 10000 P
-A
-5 -1
-A
-2 -1
-A
-13 50
-A
-19 1
-A
-18 1
+a '' to_object 60 -1 -1 5 0
+a '' to_object 60 -1 -1 2 0
+a '' to_object 60 -1 50 13 0
+a '' to_object 60 -1 1 19 0
+a '' to_object 60 -1 1 18 0
 g none~
 #22161
 cap~
@@ -1582,18 +1368,12 @@ snakeskin~
 armor B 0 AM
 18 18 18 10 0
 60 100 10000 P
-A
-12 80
-A
-13 30
-A
-6 -1
-A
-1 -1
-A
-19 1
-A
-18 1
+a '' to_object 60 -1 80 12 0
+a '' to_object 60 -1 30 13 0
+a '' to_object 60 -1 -1 6 0
+a '' to_object 60 -1 -1 1 0
+a '' to_object 60 -1 1 19 0
+a '' to_object 60 -1 1 18 0
 g none~
 #22163
 sleeves~
@@ -1603,14 +1383,10 @@ unknown~
 armor AM 0 AI
 15 15 15 12 0
 60 10 10000 P
-A
-19 6
-A
-18 5
-A
-9 1
-A
-1 -1
+a '' to_object 60 -1 6 19 0
+a '' to_object 60 -1 5 18 0
+a '' to_object 60 -1 1 9 0
+a '' to_object 60 -1 -1 1 0
 g none~
 #22164
 bracelet~
@@ -1620,16 +1396,11 @@ snakeskin~
 armor B 0 AM
 18 18 18 10 0
 60 100 10000 P
-A
-19 6
-A
-18 5
-A
-9 1
-A
-1 -1
-A
-18 1
+a '' to_object 60 -1 6 19 0
+a '' to_object 60 -1 5 18 0
+a '' to_object 60 -1 1 9 0
+a '' to_object 60 -1 -1 1 0
+a '' to_object 60 -1 1 18 0
 g none~
 #22165
 glasses~
@@ -1639,14 +1410,10 @@ unknown~
 armor AH 0 AE
 15 15 15 15 0
 60 0 0 P
-A
-13 50
-A
-9 -5
-A
-2 -1
-A
-1 -1
+a '' to_object 60 -1 50 13 0
+a '' to_object 60 -1 -5 9 0
+a '' to_object 60 -1 -1 2 0
+a '' to_object 60 -1 -1 1 0
 g none~
 #22166
 bracelet~
@@ -1656,12 +1423,9 @@ snakeskin~
 armor B 0 AM
 18 18 18 10 0
 60 100 10000 P
-A
-13 50
-A
-2 -1
-A
-1 -1
+a '' to_object 60 -1 50 13 0
+a '' to_object 60 -1 -1 2 0
+a '' to_object 60 -1 -1 1 0
 g none~
 #22167
 hooded cloak~
@@ -1671,10 +1435,8 @@ cotton~
 armor J 0 AE
 20 20 20 9 0
 40 10 100 P
-A
-13 10
-A
-2 2
+a '' to_object 40 -1 10 13 0
+a '' to_object 40 -1 2 2 0
 g none~
 #22168
 gray cape~
@@ -1684,10 +1446,8 @@ cotton~
 armor J 0 AC
 20 20 20 8 0
 40 10 1000 P
-A
-13 15
-A
-2 2
+a '' to_object 40 -1 15 13 0
+a '' to_object 40 -1 2 2 0
 g none~
 #22169
 long knife~
@@ -1715,10 +1475,8 @@ gold~
 treasure AB 0 AC
 0 0 0 0 0
 0 10 10000 P
-A
-7 -2
-A
-6 3
+a '' to_object 0 -1 -2 7 0
+a '' to_object 0 -1 3 6 0
 g none~
 #22172
 assassin mask~
@@ -1728,13 +1486,10 @@ cotton~
 armor H F AE
 20 20 20 10 0
 60 20 0 P
-F i 0 0 A
-A
-19 3
-A
-18 3
-A
-6 -3
+a '' to_invis 60 -1 0 0 A
+a '' to_object 60 -1 3 19 0
+a '' to_object 60 -1 3 18 0
+a '' to_object 60 -1 -3 6 0
 g none~
 #22173
 black vest~
@@ -1744,13 +1499,10 @@ unknown~
 armor H F AD
 20 20 20 10 0
 60 100 60000 P
-F A 0 0 U
-A
-19 3
-A
-18 3
-A
-6 -2
+a '' to_affects 60 -1 0 0 U
+a '' to_object 60 -1 3 19 0
+a '' to_object 60 -1 3 18 0
+a '' to_object 60 -1 -2 6 0
 g none~
 #22174
 black trousers~
@@ -1760,13 +1512,10 @@ unknown~
 armor H F AF
 20 20 20 10 0
 2 100 10000 P
-F A 0 0 TV
-A
-19 3
-A
-18 3
-A
-6 -2
+a '' to_affects 2 -1 0 0 TV
+a '' to_object 2 -1 3 19 0
+a '' to_object 2 -1 3 18 0
+a '' to_object 2 -1 -2 6 0
 g none~
 #22175
 black sandals~
@@ -1776,13 +1525,10 @@ unknown~
 armor 0 0 AG
 15 15 15 7 0
 60 100 10000 P
-F i 0 0 G
-A
-19 3
-A
-18 3
-A
-6 -2
+a '' to_invis 60 -1 0 0 G
+a '' to_object 60 -1 3 19 0
+a '' to_object 60 -1 3 18 0
+a '' to_object 60 -1 -2 6 0
 g none~
 #22176
 sun glasses~
@@ -1792,16 +1538,11 @@ glass~
 armor 0 0 AE
 12 12 15 5 0
 35 10 1000 P
-A
-17 -5
-A
-19 2
-A
-18 2
-A
-14 100
-A
-13 20
+a '' to_object 35 -1 -5 17 0
+a '' to_object 35 -1 2 19 0
+a '' to_object 35 -1 2 18 0
+a '' to_object 35 -1 100 14 0
+a '' to_object 35 -1 20 13 0
 g none~
 #22177
 shorts~
@@ -1811,14 +1552,10 @@ cotton~
 armor 0 0 AF
 12 12 15 5 0
 35 10 1000 P
-A
-17 -6
-A
-19 2
-A
-18 2
-A
-13 20
+a '' to_object 35 -1 -6 17 0
+a '' to_object 35 -1 2 19 0
+a '' to_object 35 -1 2 18 0
+a '' to_object 35 -1 20 13 0
 g none~
 #22178
 short~
@@ -1828,14 +1565,10 @@ cotton~
 armor 0 0 AD
 12 12 15 5 0
 35 10 1000 P
-A
-17 -8
-A
-19 2
-A
-18 2
-A
-13 20
+a '' to_object 35 -1 -8 17 0
+a '' to_object 35 -1 2 19 0
+a '' to_object 35 -1 2 18 0
+a '' to_object 35 -1 20 13 0
 g none~
 #22179
 sneakers~
@@ -1845,16 +1578,11 @@ rubber~
 armor 0 0 AG
 12 12 15 5 0
 35 10 1000 P
-A
-14 200
-A
-17 -6
-A
-19 2
-A
-18 2
-A
-13 20
+a '' to_object 35 -1 200 14 0
+a '' to_object 35 -1 -6 17 0
+a '' to_object 35 -1 2 19 0
+a '' to_object 35 -1 2 18 0
+a '' to_object 35 -1 20 13 0
 g none~
 #22180
 canon camera~
@@ -1873,14 +1601,10 @@ cotton~
 armor 0 0 AF
 12 12 15 5 0
 35 10 1000 P
-A
-6 2
-A
-13 10
-A
-19 2
-A
-18 2
+a '' to_object 35 -1 2 6 0
+a '' to_object 35 -1 10 13 0
+a '' to_object 35 -1 2 19 0
+a '' to_object 35 -1 2 18 0
 g none~
 #22182
 camera polaroid~
@@ -1935,10 +1659,8 @@ steel~
 weapon 0 0 AN
 dagger 5 7 'pierce' 0
 20 50 2000 P
-A
-12 30
-A
-1 1
+a '' to_object 20 -1 30 12 0
+a '' to_object 20 -1 1 1 0
 g none~
 #22188
 red dagger~
@@ -1948,10 +1670,8 @@ steel~
 weapon 0 0 AN
 dagger 5 7 'pierce' 0
 20 50 2000 P
-A
-19 5
-A
-18 5
+a '' to_object 20 -1 5 19 0
+a '' to_object 20 -1 5 18 0
 g none~
 #22189
 yellow dagger~
@@ -1961,8 +1681,7 @@ steel~
 weapon 0 0 AN
 dagger 5 7 'pierce' 0
 20 50 2000 P
-A
-13 20
+a '' to_object 20 -1 20 13 0
 g none~
 #22190
 black dagger~
@@ -1972,10 +1691,8 @@ steel~
 weapon 0 0 AN
 dagger 5 7 'pierce' EH
 20 50 2000 P
-A
-19 4
-A
-18 4
+a '' to_object 20 -1 4 19 0
+a '' to_object 20 -1 4 18 0
 g none~
 #22191
 tail clear~
@@ -1985,12 +1702,9 @@ snakeskin~
 armor 0 0 AF
 10 10 10 5 0
 20 300 9000 P
-A
-12 75
-A
-4 1
-A
-3 1
+a '' to_object 20 -1 75 12 0
+a '' to_object 20 -1 1 4 0
+a '' to_object 20 -1 1 3 0
 g none~
 #22192
 tail white~
@@ -2000,12 +1714,9 @@ snakeskin~
 armor 0 0 AF
 10 10 10 5 0
 20 300 9000 P
-A
-13 25
-A
-6 1
-A
-5 1
+a '' to_object 20 -1 25 13 0
+a '' to_object 20 -1 1 6 0
+a '' to_object 20 -1 1 5 0
 g none~
 #22193
 tail red~
@@ -2015,12 +1726,9 @@ snakeskin~
 armor 0 0 AF
 10 10 10 5 0
 20 300 9000 P
-A
-18 5
-A
-2 1
-A
-1 1
+a '' to_object 20 -1 5 18 0
+a '' to_object 20 -1 1 2 0
+a '' to_object 20 -1 1 1 0
 g none~
 #22194
 tail yellow~
@@ -2030,22 +1738,14 @@ snakeskin~
 armor 0 0 AF
 10 10 10 5 0
 20 300 9000 P
-A
-17 -10
-A
-9 -1
-A
-6 1
-A
-5 1
-A
-4 1
-A
-3 1
-A
-2 1
-A
-1 1
+a '' to_object 20 -1 -10 17 0
+a '' to_object 20 -1 -1 9 0
+a '' to_object 20 -1 1 6 0
+a '' to_object 20 -1 1 5 0
+a '' to_object 20 -1 1 4 0
+a '' to_object 20 -1 1 3 0
+a '' to_object 20 -1 1 2 0
+a '' to_object 20 -1 1 1 0
 g none~
 #22195
 tail black~
@@ -2055,20 +1755,13 @@ snakeskin~
 armor 0 0 AF
 10 10 10 5 0
 20 300 9000 P
-A
-19 3
-A
-6 -1
-A
-5 -1
-A
-4 -1
-A
-3 -1
-A
-2 -1
-A
-1 -1
+a '' to_object 20 -1 3 19 0
+a '' to_object 20 -1 -1 6 0
+a '' to_object 20 -1 -1 5 0
+a '' to_object 20 -1 -1 4 0
+a '' to_object 20 -1 -1 3 0
+a '' to_object 20 -1 -1 2 0
+a '' to_object 20 -1 -1 1 0
 g none~
 #22196
 herb clear~

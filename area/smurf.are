@@ -207,10 +207,8 @@ glass~
 clothing A 0 AE
 0 0 0 0 0
 3 20 270 P
-A
-4 1
-A
-2 -1
+a '' to_object 3 -1 1 4 0
+a '' to_object 3 -1 -1 2 0
 g none~
 #102
 smurf hat~
@@ -238,8 +236,7 @@ gem~
 jewelry A 0 AC
 0 0 0 0 0
 5 20 550 P
-A
-3 1
+a '' to_object 5 -1 1 3 0
 g none~
 #105
 pink potion~

@@ -353,8 +353,7 @@ obsidian~
 weapon G 0 AN
 dagger 3 7 'pierce' 0
 15 10 910 P
-A
-18 1
+a '' to_object 15 -1 1 18 0
 E
 obsidian dirk~
 The blade of the dirk is black, glassy obsidian, chipped razor sharp.
@@ -368,10 +367,8 @@ cloth~
 armor G 0 AE
 5 5 5 0 0
 13 100 1470 P
-A
-13 5
-A
-2 1
+a '' to_object 13 -1 5 13 0
+a '' to_object 13 -1 1 2 0
 E
 cloth turban~
 The turban used to be white cloth, now it is covered with oil and dirt from
@@ -425,10 +422,8 @@ flame~
 light AG 0 AO
 0 0 -1 0 0
 20 100 720 P
-A
-14 20
-A
-13 10
+a '' to_object 20 -1 20 14 0
+a '' to_object 20 -1 10 13 0
 E
 ball fire~
 The ball of fire is hot to the touch and very very bright.
@@ -442,10 +437,8 @@ stone~
 weapon BG 0 AN
 sword 5 5 'slash' 0
 20 180 1820 P
-A
-19 2
-A
-18 1
+a '' to_object 20 -1 2 19 0
+a '' to_object 20 -1 1 18 0
 E
 stone scimitar~
 The scimitar is formed from solid stone, chipped and carved to perfection,
@@ -520,10 +513,8 @@ silver~
 staff ABGK 0 AO
 25 5 5 'fly' 0
 20 100 4700 P
-A
-18 1
-A
-17 -5
+a '' to_object 20 -1 1 18 0
+a '' to_object 20 -1 -5 17 0
 E
 lamp~
 The lamp is quite old and tarnished.  You rub at it to get some of the
@@ -538,12 +529,9 @@ brass~
 jewelry IK 0 AO
 0 0 0 0 0
 14 90 2100 P
-A
-4 1
-A
-3 1
-A
-17 -3
+a '' to_object 14 -1 1 4 0
+a '' to_object 14 -1 1 3 0
+a '' to_object 14 -1 -3 17 0
 E
 ankh~
 The ankh is a small brass symbol of an ancient religion.
@@ -573,12 +561,9 @@ bone~
 weapon G 0 AN
 exotic 4 15 'claw' 0
 26 200 4400 P
-A
-19 6
-A
-18 8
-A
-5 1
+a '' to_object 26 -1 6 19 0
+a '' to_object 26 -1 8 18 0
+a '' to_object 26 -1 1 5 0
 E
 lion paw~
 The massive paw has straps on it formed of bronze, so that it will
@@ -635,16 +620,11 @@ unknown~
 trash EGHM 0 AO
 0 0 0 0 0
 0 10 0 P
-A
-14 -100
-A
-13 -50
-A
-5 -3
-A
-2 -3
-A
-1 -3
+a '' to_object 0 -1 -100 14 0
+a '' to_object 0 -1 -50 13 0
+a '' to_object 0 -1 -3 5 0
+a '' to_object 0 -1 -3 2 0
+a '' to_object 0 -1 -3 1 0
 E
 curse mummy~
 Rumor has it that whomever disturbs the grave of the mummy shall be 
@@ -675,14 +655,10 @@ gold~
 armor G 0 AE
 11 11 10 5 0
 33 100 5500 P
-A
-20 -1
-A
-14 30
-A
-13 10
-A
-12 25
+a '' to_object 33 -1 -1 20 0
+a '' to_object 33 -1 30 14 0
+a '' to_object 33 -1 10 13 0
+a '' to_object 33 -1 25 12 0
 E
 golden mask~
 This beautiful mask was shaped from solid gold and magically enchanted
@@ -715,8 +691,7 @@ brass~
 wand AG 0 AO
 35 25 25 'harm' 0
 24 100 29800 P
-A
-20 -2
+a '' to_object 24 -1 -2 20 0
 E
 sun wand~
 This small brass shaft is a holy weapon used by the ancient people of 
@@ -732,10 +707,8 @@ ruby~
 jewelry BG 0 AB
 0 0 0 0 0
 20 50 1300 P
-A
-12 20
-A
-3 1
+a '' to_object 20 -1 20 12 0
+a '' to_object 20 -1 1 3 0
 E
 sandy ring~
 The ring is small, smooth, sandy-colored and unremarkable, save that
@@ -750,8 +723,7 @@ gold~
 treasure G 0 AO
 0 0 0 0 0
 5 50 550 P
-A
-4 1
+a '' to_object 5 -1 1 4 0
 E
 golden sphinx~
 The golden sphinx is incredibly detailed and very small, fitting easily
@@ -767,12 +739,9 @@ mithril~
 armor GK 0 AF
 11 11 11 4 0
 32 200 7800 P
-A
-14 100
-A
-1 2
-A
-19 3
+a '' to_object 32 -1 100 14 0
+a '' to_object 32 -1 2 1 0
+a '' to_object 32 -1 3 19 0
 E
 sphinxian leggings~
 These magically fashioned leggings impart the strength and stamina
@@ -788,10 +757,8 @@ ruby~
 jewelry BG 0 AB
 0 0 0 0 0
 40 50 44300 P
-A
-19 5
-A
-17 20
+a '' to_object 40 -1 5 19 0
+a '' to_object 40 -1 20 17 0
 E
 ra ring~
 The ring is bigger than other rings, smooth, metal-colored and shining, 

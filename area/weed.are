@@ -157,12 +157,9 @@ glass~
 weapon AJ 0 AN
 exotic 6 9 'suction' 0
 60 7 7200 P
-A
-18 10
-A
-19 10
-A
-3 -1
+a '' to_object 60 -1 10 18 0
+a '' to_object 60 -1 10 19 0
+a '' to_object 60 -1 -1 3 0
 g none~
 #30233
 hit joint~
@@ -190,8 +187,7 @@ unknown~
 armor G 0 AO
 0 0 0 0 0
 50 2 1300 P
-A
-1 2
+a '' to_object 50 -1 2 1 0
 g none~
 #30236
 bowl~
@@ -201,12 +197,9 @@ unknown~
 weapon AK 0 AN
 exotic 6 9 'suction' 0
 54 6 12000 P
-A
-13 10
-A
-19 10
-A
-12 35
+a '' to_object 54 -1 10 13 0
+a '' to_object 54 -1 10 19 0
+a '' to_object 54 -1 35 12 0
 g none~
 #30237
 joint everburning~
@@ -216,10 +209,8 @@ unknown~
 light A 0 A
 0 A -1 0 0
 55 5 1200 P
-A
-12 25
-A
-2 2
+a '' to_object 55 -1 25 12 0
+a '' to_object 55 -1 2 2 0
 g none~
 #30238
 plate wings~

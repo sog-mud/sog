@@ -120,32 +120,19 @@ unknown~
 armor AJKY BCF AR
 0 0 0 0 0
 96 0 2147483647 P
-A
-6 50
-A
-5 50
-A
-4 50
-A
-3 50
-A
-2 50
-A
-1 50
-A
-23 -200
-A
-17 -1111
-A
-20 -200
-A
-18 200
-A
-19 200
-A
-20 -200
-A
-18 200
+a '' to_object 96 -1 50 6 0
+a '' to_object 96 -1 50 5 0
+a '' to_object 96 -1 50 4 0
+a '' to_object 96 -1 50 3 0
+a '' to_object 96 -1 50 2 0
+a '' to_object 96 -1 50 1 0
+a '' to_object 96 -1 -200 23 0
+a '' to_object 96 -1 -1111 17 0
+a '' to_object 96 -1 -200 20 0
+a '' to_object 96 -1 200 18 0
+a '' to_object 96 -1 200 19 0
+a '' to_object 96 -1 -200 20 0
+a '' to_object 96 -1 200 18 0
 g none~
 #34402
 abysmality~
@@ -200,12 +187,9 @@ unknown~
 armor ABKY BCEF AE
 33 33 33 33 0
 91 0 2147483647 P
-A
-20 -15
-A
-18 15
-A
-19 15
+a '' to_object 91 -1 -15 20 0
+a '' to_object 91 -1 15 18 0
+a '' to_object 91 -1 15 19 0
 g none~
 #34409
 ring portal~
@@ -242,10 +226,10 @@ claw~
 clothing Y K AH
 0 0 0 0 0
 10 1 10000 P
-S 'grip' 75 A
-S 'master hand' 50 A
-S 'hand block' 75 A
-S 'disarm' 75 A
+a '' to_skills 10 -1 75 'grip' A
+a '' to_skills 10 -1 50 'master hand' A
+a '' to_skills 10 -1 75 'hand block' A
+a '' to_skills 10 -1 75 'disarm' A
 g plural~
 #34451
 book справочник энциклопедия old~
@@ -255,9 +239,9 @@ paper~
 treasure A K AO
 0 0 0 0 0
 10 1 10000 P
-S 'locate object' 75 A
-S 'identify' 100 A
-S 'lore' 100 A
+a '' to_skills 10 -1 75 'locate object' A
+a '' to_skills 10 -1 100 'identify' A
+a '' to_skills 10 -1 100 'lore' A
 g none~
 #34452
 staff necromancy посох rod~
@@ -267,17 +251,15 @@ bone~
 staff CGJM EK AO
 70 100 100 'mana drain' 0
 40 20 0 P
-A
-35 100
-A
-20 -15
-F d 19 20 I
-S 'lich' 70 A
-S 'animate dead' 80 A
-S 'draining touch' 100 A
-S 'mana drain' 100 A
-S 'control undead' 50 A
-S 'bone dragon' 80 A
+a '' to_object 40 -1 100 35 0
+a '' to_object 40 -1 -15 20 0
+a '' to_detects 40 -1 20 19 I
+a '' to_skills 40 -1 70 'lich' A
+a '' to_skills 40 -1 80 'animate dead' A
+a '' to_skills 40 -1 100 'draining touch' A
+a '' to_skills 40 -1 100 'mana drain' A
+a '' to_skills 40 -1 50 'control undead' A
+a '' to_skills 40 -1 80 'bone dragon' A
 g male~
 #0
 

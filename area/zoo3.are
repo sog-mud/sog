@@ -418,8 +418,7 @@ satin~
 clothing 0 0 AK
 0 0 0 0 0
 1 20 50 P
-A
-17 -1
+a '' to_object 1 -1 -1 17 0
 E
 writting футболка tee-shirt~
 @eng The writting on the tee-shirt reads 

@@ -793,10 +793,8 @@ copper~
 armor GK 0 AE
 9 9 9 0 0
 30 30 300 P
-A
-13 1
-A
-1 1
+a '' to_object 30 -1 1 13 0
+a '' to_object 30 -1 1 1 0
 g none~
 #10202
 sleeves obsidian~
@@ -806,10 +804,8 @@ copper~
 armor GK 0 AI
 9 9 9 0 0
 30 40 300 P
-A
-5 1
-A
-24 -5
+a '' to_object 30 -1 1 5 0
+a '' to_object 30 -1 -5 24 0
 g none~
 #10203
 leggings obsidian~
@@ -819,10 +815,8 @@ copper~
 armor GK 0 AF
 9 9 9 0 0
 30 40 300 P
-A
-14 20
-A
-2 2
+a '' to_object 30 -1 20 14 0
+a '' to_object 30 -1 2 2 0
 g none~
 #10204
 gauntlets obsidian~
@@ -832,10 +826,8 @@ copper~
 armor GK 0 AH
 9 9 9 0 0
 30 40 300 P
-A
-18 3
-A
-23 -3
+a '' to_object 30 -1 3 18 0
+a '' to_object 30 -1 -3 23 0
 g none~
 #10205
 boots obsidian~
@@ -845,10 +837,8 @@ copper~
 armor GK 0 AG
 9 9 9 0 0
 30 40 300 P
-A
-13 10
-A
-23 -6
+a '' to_object 30 -1 10 13 0
+a '' to_object 30 -1 -6 23 0
 g none~
 #10206
 cloak obsidian~
@@ -858,10 +848,8 @@ copper~
 armor GK 0 AC
 9 9 9 0 0
 30 40 300 P
-A
-22 -4
-A
-24 -2
+a '' to_object 30 -1 -4 22 0
+a '' to_object 30 -1 -2 24 0
 g none~
 #10207
 girth obsidian~
@@ -871,10 +859,8 @@ copper~
 armor GK 0 AL
 9 9 9 0 0
 30 40 300 P
-A
-1 1
-A
-24 -2
+a '' to_object 30 -1 1 1 0
+a '' to_object 30 -1 -2 24 0
 g none~
 #10208
 shield large obsidian~
@@ -884,10 +870,8 @@ copper~
 armor GK 0 AJ
 9 9 9 0 0
 30 40 300 P
-A
-17 4
-A
-19 3
+a '' to_object 30 -1 4 17 0
+a '' to_object 30 -1 3 19 0
 g none~
 #10209
 amulet solace~
@@ -897,10 +881,8 @@ copper~
 armor GK 0 AC
 7 7 7 0 0
 20 40 200 P
-A
-17 3
-A
-19 1
+a '' to_object 20 -1 3 17 0
+a '' to_object 20 -1 1 19 0
 g none~
 #10210
 obsidian key~
@@ -919,10 +901,8 @@ copper~
 weapon FG 0 AN
 sword 5 7 'slice' 0
 30 300 300 P
-A
-18 5
-A
-19 4
+a '' to_object 30 -1 5 18 0
+a '' to_object 30 -1 4 19 0
 E
 sword~
 The blade of the sword is a full meter long, and straight as an arrow, with
@@ -946,10 +926,8 @@ copper~
 armor G 0 AB
 7 7 7 0 0
 20 1 200 P
-A
-24 -2
-A
-13 4
+a '' to_object 20 -1 -2 24 0
+a '' to_object 20 -1 4 13 0
 g none~
 #10213
 bracer~
@@ -983,12 +961,9 @@ copper~
 weapon FG 0 AN
 sword 5 7 'slice' 0
 28 300 280 P
-A
-18 2
-A
-19 6
-A
-23 -15
+a '' to_object 28 -1 2 18 0
+a '' to_object 28 -1 6 19 0
+a '' to_object 28 -1 -15 23 0
 E
 sword~
 The blade of the sword is a full meter long, and straight as an arrow, with
@@ -1012,10 +987,8 @@ copper~
 armor GK 0 AE
 8 8 8 0 0
 27 25 270 P
-A
-21 -2
-A
-3 1
+a '' to_object 27 -1 -2 21 0
+a '' to_object 27 -1 1 3 0
 g none~
 #10217
 sleeves steel~
@@ -1025,10 +998,8 @@ copper~
 armor GK 0 AI
 8 8 8 0 0
 27 35 270 P
-A
-20 -2
-A
-24 -1
+a '' to_object 27 -1 -2 20 0
+a '' to_object 27 -1 -1 24 0
 g none~
 #10218
 leggings steel~
@@ -1038,10 +1009,8 @@ copper~
 armor GK 0 AF
 8 8 8 0 0
 27 35 270 P
-A
-14 10
-A
-2 1
+a '' to_object 27 -1 10 14 0
+a '' to_object 27 -1 1 2 0
 g none~
 #10219
 gauntlets steel~
@@ -1051,12 +1020,9 @@ copper~
 armor GK 0 AH
 8 8 8 0 0
 27 35 270 P
-A
-18 1
-A
-23 -1
-A
-1 1
+a '' to_object 27 -1 1 18 0
+a '' to_object 27 -1 -1 23 0
+a '' to_object 27 -1 1 1 0
 g none~
 #10220
 boots steel~
@@ -1066,10 +1032,8 @@ copper~
 armor GK 0 AG
 8 8 8 0 0
 27 35 270 P
-A
-13 5
-A
-23 -2
+a '' to_object 27 -1 5 13 0
+a '' to_object 27 -1 -2 23 0
 g none~
 #10221
 cloak lieutenant ~
@@ -1079,10 +1043,8 @@ copper~
 armor GK 0 AC
 8 8 8 0 0
 27 35 270 P
-A
-22 -2
-A
-24 -1
+a '' to_object 27 -1 -2 22 0
+a '' to_object 27 -1 -1 24 0
 g none~
 #10222
 girth steel~
@@ -1092,8 +1054,7 @@ copper~
 armor GK 0 AL
 8 8 8 0 0
 27 35 270 P
-A
-24 -1
+a '' to_object 27 -1 -1 24 0
 g none~
 #10223
 shield large steel~
@@ -1103,10 +1064,8 @@ copper~
 armor GK 0 AJ
 8 8 8 0 0
 27 35 270 P
-A
-17 2
-A
-19 1
+a '' to_object 27 -1 2 17 0
+a '' to_object 27 -1 1 19 0
 g none~
 #10224
 bracer steel~
@@ -1116,8 +1075,7 @@ copper~
 armor 0 0 ABM
 8 8 8 0 0
 27 9 270 P
-A
-12 5
+a '' to_object 27 -1 5 12 0
 g none~
 #10225
 sword shieldbreaker~
@@ -1127,14 +1085,10 @@ copper~
 weapon BFGM 0 AN
 sword 5 6 'pierce' 0
 27 350 270 P
-A
-13 50
-A
-18 10
-A
-19 10
-A
-24 -10
+a '' to_object 27 -1 50 13 0
+a '' to_object 27 -1 10 18 0
+a '' to_object 27 -1 10 19 0
+a '' to_object 27 -1 -10 24 0
 E
 sword~
 The blade of the sword is a full meter long, and straight as an arrow, with
@@ -1158,8 +1112,7 @@ copper~
 armor GK 0 AE
 7 7 7 0 0
 20 20 200 P
-A
-21 -1
+a '' to_object 20 -1 -1 21 0
 g none~
 #10227
 sleeves red scalemail~
@@ -1169,8 +1122,7 @@ copper~
 armor GK 0 AI
 7 7 7 0 0
 20 30 200 P
-A
-20 -1
+a '' to_object 20 -1 -1 20 0
 g none~
 #10228
 leggings red scalemail~
@@ -1180,8 +1132,7 @@ copper~
 armor GK 0 AF
 7 7 7 0 0
 20 30 200 P
-A
-14 5
+a '' to_object 20 -1 5 14 0
 g none~
 #10229
 gauntlets red scalemail~
@@ -1191,8 +1142,7 @@ copper~
 armor GK 0 AH
 7 7 7 0 0
 20 30 200 P
-A
-21 -1
+a '' to_object 20 -1 -1 21 0
 g none~
 #10230
 boots red scalemail~
@@ -1202,10 +1152,8 @@ copper~
 armor GK 0 AG
 7 7 7 0 0
 20 30 200 P
-A
-13 2
-A
-23 -1
+a '' to_object 20 -1 2 13 0
+a '' to_object 20 -1 -1 23 0
 g none~
 #10231
 cloak red sergeant~
@@ -1215,8 +1163,7 @@ copper~
 armor GK 0 AC
 7 7 7 0 0
 20 30 200 P
-A
-22 -1
+a '' to_object 20 -1 -1 22 0
 g none~
 #10232
 girth red scalemail~
@@ -1235,8 +1182,7 @@ copper~
 armor GK 0 AJ
 7 7 7 0 0
 20 30 200 P
-A
-17 1
+a '' to_object 20 -1 1 17 0
 g none~
 #10234
 bracer red~
@@ -1246,8 +1192,7 @@ copper~
 armor 0 0 BM
 7 7 7 0 0
 20 9 200 P
-A
-12 1
+a '' to_object 20 -1 1 12 0
 g none~
 #10235
 warhammer mage masher~
@@ -1257,12 +1202,9 @@ copper~
 weapon BG 0 AN
 mace 5 5 'crush' 0
 20 350 200 P
-A
-18 4
-A
-19 1
-A
-12 -50
+a '' to_object 20 -1 4 18 0
+a '' to_object 20 -1 1 19 0
+a '' to_object 20 -1 -50 12 0
 E
 hammer warhammer~
 This hammer has the words, "MAGE MASHER" engraved into it's head.
@@ -1278,10 +1220,8 @@ copper~
 armor G 0 AD
 6 6 6 0 0
 15 10 150 P
-A
-24 -1
-A
-13 8
+a '' to_object 15 -1 -1 24 0
+a '' to_object 15 -1 8 13 0
 g none~
 #10237
 enchanted longsword~
@@ -1291,10 +1231,8 @@ copper~
 weapon G 0 AN
 sword 4 5 'none' 0
 15 70 150 P
-A
-18 2
-A
-19 1
+a '' to_object 15 -1 2 18 0
+a '' to_object 15 -1 1 19 0
 g none~
 #10238
 enchanted hammer~
@@ -1304,8 +1242,7 @@ copper~
 weapon G 0 AN
 mace 4 5 'none' 0
 15 120 150 P
-A
-18 2
+a '' to_object 15 -1 2 18 0
 g none~
 #10239
 enchanted pike~
@@ -1315,8 +1252,7 @@ copper~
 weapon G 0 AN
 polearm 4 5 'none' 0
 15 150 150 P
-A
-18 2
+a '' to_object 15 -1 2 18 0
 g none~
 #10240
 chamorro ringmail~
@@ -1326,8 +1262,7 @@ copper~
 armor G 0 AN
 5 5 5 0 0
 10 6 100 P
-A
-12 15
+a '' to_object 10 -1 15 12 0
 E
 ringmail~
 This armor is imported from the island of Guam.
@@ -1413,8 +1348,7 @@ copper~
 weapon 0 0 AN
 exotic 5 4 'suction' 0
 17 400 170 P
-A
-15 -10000
+a '' to_object 17 -1 -10000 15 0
 g none~
 #10250
 enchanted two-handed sword~
@@ -1424,8 +1358,7 @@ copper~
 weapon G 0 AN
 sword 6 6 'magic' F
 16 300 160 P
-A
-18 4
+a '' to_object 16 -1 4 18 0
 g male~
 #10251
 carrot~
@@ -1597,8 +1530,7 @@ copper~
 weapon 0 0 AN
 spear 3 5 'none' K
 10 150 100 P
-A
-18 1
+a '' to_object 10 -1 1 18 0
 g none~
 #10270
 mulburry extract~
@@ -1653,8 +1585,7 @@ copper~
 armor G 0 AG
 5 5 5 0 0
 10 7 100 P
-A
-2 2
+a '' to_object 10 -1 2 2 0
 g none~
 #10277
 scuba snorkle~
@@ -1808,10 +1739,8 @@ copper~
 armor G 0 AK
 6 6 6 0 0
 19 10 190 P
-A
-12 50
-A
-24 -5
+a '' to_object 19 -1 50 12 0
+a '' to_object 19 -1 -5 24 0
 g none~
 #10294
 crystal plate armor~
@@ -1821,12 +1750,9 @@ copper~
 armor FG 0 AD
 6 6 6 0 0
 18 60 180 P
-A
-1 1
-A
-5 1
-A
-13 10
+a '' to_object 18 -1 1 1 0
+a '' to_object 18 -1 1 5 0
+a '' to_object 18 -1 10 13 0
 g none~
 #10295
 Scythe Grim Reaper~
@@ -1836,12 +1762,9 @@ copper~
 armor AGJ 0 AN
 3 3 3 0 0
 0 50 0 P
-A
-18 80
-A
-19 80
-A
-24 -30
+a '' to_object 0 -1 80 18 0
+a '' to_object 0 -1 80 19 0
+a '' to_object 0 -1 -30 24 0
 g none~
 #10296
 crystal shield~
@@ -1851,8 +1774,7 @@ copper~
 armor FG 0 AJ
 6 6 6 0 0
 18 20 180 P
-A
-13 10
+a '' to_object 18 -1 10 13 0
 g none~
 #10297
 crystal longsword~
@@ -1862,10 +1784,8 @@ copper~
 armor FG 0 AN
 6 6 6 1 0
 18 15 180 P
-A
-13 10
-A
-18 3
+a '' to_object 18 -1 10 13 0
+a '' to_object 18 -1 3 18 0
 g none~
 #10298
 obsidian plate armor~
@@ -1875,10 +1795,8 @@ copper~
 armor GK 0 AD
 9 9 9 0 0
 30 40 300 P
-A
-13 20
-A
-14 20
+a '' to_object 30 -1 20 13 0
+a '' to_object 30 -1 20 14 0
 g none~
 #10299
 steel plate armor~
@@ -1888,10 +1806,8 @@ copper~
 armor GK 0 AD
 8 8 8 0 0
 27 37 270 P
-A
-13 15
-A
-14 15
+a '' to_object 27 -1 15 13 0
+a '' to_object 27 -1 15 14 0
 g none~
 #10300
 red plate armor~
@@ -1901,10 +1817,8 @@ copper~
 armor GK 0 AD
 7 7 7 0 0
 20 33 200 P
-A
-13 10
-A
-14 10
+a '' to_object 20 -1 10 13 0
+a '' to_object 20 -1 10 14 0
 g none~
 #10301
 enchanted bow~
@@ -1914,8 +1828,7 @@ copper~
 armor G 0 AN
 6 6 6 0 0
 15 7 150 P
-A
-18 2
+a '' to_object 15 -1 2 18 0
 g none~
 #10302
 safe deposit box~

@@ -682,10 +682,8 @@ copper~
 weapon 0 0 AN
 exotic 3 5 'crush' 0
 10 300 100 P
-A
-18 -2
-A
-19 4
+a '' to_object 10 -1 -2 18 0
+a '' to_object 10 -1 4 19 0
 g none~
 #24112
 mace~
@@ -695,10 +693,8 @@ copper~
 weapon 0 0 AN
 exotic 3 5 'pound' 0
 10 200 100 P
-A
-18 -1
-A
-19 1
+a '' to_object 10 -1 -1 18 0
+a '' to_object 10 -1 1 19 0
 g none~
 #24113
 dagger~
@@ -708,10 +704,8 @@ copper~
 weapon 0 0 AN
 exotic 3 5 'pierce' 0
 10 150 100 P
-A
-18 -1
-A
-19 -1
+a '' to_object 10 -1 -1 18 0
+a '' to_object 10 -1 -1 19 0
 g none~
 #24114
 blade sword~
@@ -721,10 +715,8 @@ copper~
 weapon 0 0 AN
 exotic 3 5 'slash' 0
 10 250 100 P
-A
-18 -2
-A
-19 2
+a '' to_object 10 -1 -2 18 0
+a '' to_object 10 -1 2 19 0
 g none~
 #24115
 sandals~
@@ -752,10 +744,8 @@ copper~
 armor 0 0 AE
 5 5 5 0 0
 10 5 100 P
-A
-17 -2
-A
-17 -2
+a '' to_object 10 -1 -2 17 0
+a '' to_object 10 -1 -2 17 0
 g none~
 #24118
 cloak~
@@ -765,10 +755,8 @@ copper~
 armor 0 0 AC
 5 5 5 0 0
 10 5 100 P
-A
-17 -5
-A
-23 -1
+a '' to_object 10 -1 -5 17 0
+a '' to_object 10 -1 -1 23 0
 g none~
 #24119
 ring~
@@ -841,8 +829,7 @@ skin~
 armor 0 0 AE
 21 21 21 0 0
 45 75 930 P
-A
-13 120
+a '' to_object 45 -1 120 13 0
 g none~
 #24127
 club~
@@ -852,12 +839,9 @@ copper~
 weapon G 0 AN
 mace 5 13 'crush' 0
 60 250 600 P
-A
-17 -15
-A
-19 6
-A
-23 -3
+a '' to_object 60 -1 -15 17 0
+a '' to_object 60 -1 6 19 0
+a '' to_object 60 -1 -3 23 0
 g none~
 #24128
 stick~
@@ -876,8 +860,7 @@ copper~
 weapon G 0 AN
 exotic 4 11 'crush' 0
 50 150 500 P
-A
-19 6
+a '' to_object 50 -1 6 19 0
 g none~
 #24130
 boiled leather jerkin~
@@ -887,10 +870,8 @@ copper~
 armor 0 0 AD
 13 13 13 0 0
 50 10 500 P
-A
-5 2
-A
-17 -15
+a '' to_object 50 -1 2 5 0
+a '' to_object 50 -1 -15 17 0
 g none~
 #24131
 bone bracelet~
@@ -900,10 +881,8 @@ copper~
 armor 0 0 AM
 13 13 13 0 0
 50 5 500 P
-A
-2 1
-A
-18 2
+a '' to_object 50 -1 1 2 0
+a '' to_object 50 -1 2 18 0
 g none~
 #24132
 fur cloak~
@@ -913,10 +892,8 @@ copper~
 armor 0 0 AC
 13 13 13 0 0
 50 10 500 P
-A
-12 25
-A
-17 -5
+a '' to_object 50 -1 25 12 0
+a '' to_object 50 -1 -5 17 0
 g none~
 #24133
 helm~
@@ -926,8 +903,7 @@ copper~
 armor 0 0 AE
 13 13 13 0 0
 50 10 500 P
-A
-17 -10
+a '' to_object 50 -1 -10 17 0
 g none~
 #24134
 shield~
@@ -937,12 +913,9 @@ copper~
 armor 0 0 AJ
 13 13 13 0 0
 50 20 500 P
-A
-17 -20
-A
-23 -2
-A
-24 -2
+a '' to_object 50 -1 -20 17 0
+a '' to_object 50 -1 -2 23 0
+a '' to_object 50 -1 -2 24 0
 g none~
 #24135
 spear~
@@ -952,10 +925,8 @@ copper~
 warp_stone G 0 ANO
 0 0 0 0 0
 50 20 500 P
-A
-18 2
-A
-19 2
+a '' to_object 50 -1 2 18 0
+a '' to_object 50 -1 2 19 0
 g none~
 #24136
 papyrus~

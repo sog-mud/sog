@@ -512,8 +512,7 @@ titanium~
 armor AGK 0 AI
 6 6 6 0 0
 22 100 3100 P
-A
-19 2
+a '' to_object 22 -1 2 19 0
 E
 arm~
 These mighty armors have been worn by this immortal, since the ancient time.
@@ -527,8 +526,7 @@ titanium~
 armor AGK 0 AL
 6 6 6 0 0
 17 70 3800 P
-A
-5 2
+a '' to_object 17 -1 2 5 0
 E
 belt~
 You can immediately see that it belongs to Orion, from the three stars
@@ -552,8 +550,7 @@ titanium~
 armor AGK 0 AC
 7 7 7 0 0
 20 90 2000 P
-A
-17 -2
+a '' to_object 20 -1 -2 17 0
 E
 fleece~
 From a look it resembles the Golden Fleece that exists in the Greek myths.
@@ -567,10 +564,8 @@ titanium~
 armor AGK 0 AG
 3 3 3 0 0
 20 100 1280 P
-A
-19 2
-A
-14 20
+a '' to_object 20 -1 2 19 0
+a '' to_object 20 -1 20 14 0
 E
 hoof~
 It is with these hooves that Taurus can stand against Orion's attacks.
@@ -584,10 +579,8 @@ titanium~
 armor AGHK 0 AE
 2 2 2 0 0
 16 70 3600 P
-A
-2 2
-A
-1 1
+a '' to_object 16 -1 2 2 0
+a '' to_object 16 -1 1 1 0
 E
 mask~
 You notice the mask has got two faces, one smiling and the other crying.
@@ -602,8 +595,7 @@ bone~
 armor AGK 0 AD
 7 7 7 3 0
 20 150 3800 P
-A
-17 -2
+a '' to_object 20 -1 -2 17 0
 E
 shell~
 A shell which is dented in the middle, resulting from the Hercules' mighty
@@ -618,8 +610,7 @@ skin~
 armor AGK 0 AK
 7 7 7 5 0
 20 150 1740 P
-A
-27 3
+a '' to_object 20 -1 3 27 0
 E
 skin~
 A skin made of metal, which was worn by Hercules during his Ten Labours.
@@ -633,8 +624,7 @@ titanium~
 jewelry AGK 0 AM
 0 0 0 0 0
 15 10 2600 P
-A
-4 2
+a '' to_object 15 -1 2 4 0
 E
 bracelet~
 A bracelet of purity and youth, only worn by selected virgins.
@@ -648,10 +638,8 @@ titanium~
 armor AGK 0 AJ
 8 8 8 0 0
 25 250 3900 P
-A
-13 5
-A
-17 -3
+a '' to_object 25 -1 5 13 0
+a '' to_object 25 -1 -3 17 0
 E
 scale~
 It is a shield of justice, used in the ancient battle against injustice.
@@ -665,10 +653,8 @@ titanium~
 armor BGH 0 AJ
 1 1 1 0 0
 0 250 0 P
-A
-13 -30
-A
-17 6
+a '' to_object 0 -1 -30 13 0
+a '' to_object 0 -1 6 17 0
 E
 scale~
 It is a shield of injustice, it picks on the innocent.
@@ -682,10 +668,8 @@ ebony~
 weapon AGK 0 AN
 exotic 4 4 'pierce' 0
 19 70 2700 P
-A
-19 2
-A
-18 3
+a '' to_object 19 -1 2 19 0
+a '' to_object 19 -1 3 18 0
 E
 sting~
 This dreadful weapon put a lot of mortals to death before Scorpio was banished.
@@ -712,10 +696,8 @@ wood~
 weapon AGK 0 AN
 bow 3 9 'blast' 0
 20 200 2800 P
-A
-19 4
-A
-18 1
+a '' to_object 20 -1 4 19 0
+a '' to_object 20 -1 1 18 0
 E
 bow~
 The gigantic bow used by the Archer; it is a very powerful weapon.
@@ -729,10 +711,8 @@ titanium~
 armor AGK 0 AH
 4 4 4 0 0
 22 60 3000 P
-A
-19 2
-A
-18 2
+a '' to_object 22 -1 2 19 0
+a '' to_object 22 -1 2 18 0
 E
 horn~
 These strange horns are the work of gods, shaped to fit on hands.
@@ -761,10 +741,8 @@ titanium~
 armor AGK 0 AF
 8 8 8 0 0
 21 100 950 P
-A
-2 -2
-A
-17 -2
+a '' to_object 21 -1 -2 2 0
+a '' to_object 21 -1 -2 17 0
 E
 tail~
 This tail can actually be worn by mortals somehow as leggings ... another
@@ -779,10 +757,8 @@ unknown~
 jewelry ABFGK 0 AB
 0 0 0 0 0
 26 30 4200 P
-A
-3 2
-A
-12 25
+a '' to_object 26 -1 2 3 0
+a '' to_object 26 -1 25 12 0
 E
 ring~
 This ring belongs to Cassiopeia, queen of the Universe.
@@ -797,10 +773,8 @@ unknown~
 light ABFGK 0 ACDEGHIJKLMN
 0 0 -1 0 0
 22 40 2400 P
-A
-19 2
-A
-18 2
+a '' to_object 22 -1 2 19 0
+a '' to_object 22 -1 2 18 0
 E
 sceptre~
 You'd better give it back, or the king of the Universe will punish you.
@@ -814,10 +788,8 @@ unknown~
 jewelry ABFGI 0 AB
 0 0 0 0 0
 30 30 1690 P
-A
-13 30
-A
-12 10
+a '' to_object 30 -1 30 13 0
+a '' to_object 30 -1 10 12 0
 E
 ring~
 It conceals the power of the universe.
@@ -831,10 +803,8 @@ unknown~
 weapon ABFGI 0 AN
 exotic 5 6 'blast' 0
 29 200 4200 P
-A
-19 3
-A
-18 2
+a '' to_object 29 -1 3 19 0
+a '' to_object 29 -1 2 18 0
 g none~
 #9324
 spring shoot~

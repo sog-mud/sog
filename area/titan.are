@@ -1858,12 +1858,9 @@ wood~
 weapon AB 0 AN
 exotic 5 5 'pound' 0
 24 200 4350 G
-A
-5 1
-A
-19 3
-A
-18 2
+a '' to_object 24 -1 1 5 0
+a '' to_object 24 -1 3 19 0
+a '' to_object 24 -1 2 18 0
 g none~
 #18011
 guitar~
@@ -1873,10 +1870,8 @@ wood~
 weapon AB 0 AN
 exotic 5 6 'chomp' 0
 25 200 6500 G
-A
-19 3
-A
-18 2
+a '' to_object 25 -1 3 19 0
+a '' to_object 25 -1 2 18 0
 g none~
 #18012
 pipe wind windpipe~
@@ -1886,10 +1881,8 @@ wood~
 weapon AB 0 AN
 exotic 6 4 'slash' 0
 25 120 7500 G
-A
-19 4
-A
-18 3
+a '' to_object 25 -1 4 19 0
+a '' to_object 25 -1 3 18 0
 g none~
 #18013
 striped bodysuit~
@@ -1899,10 +1892,8 @@ leather~
 armor ABG 0 AK
 8 8 8 1 3
 25 200 7200 G
-A
-14 -30
-A
-18 4
+a '' to_object 25 -1 -30 14 0
+a '' to_object 25 -1 4 18 0
 g none~
 #18014
 bread~
@@ -1984,12 +1975,9 @@ stone~
 weapon AB 0 AN
 flail 5 8 'cleave' 0
 35 200 11407 P
-A
-22 -1
-A
-19 1
-A
-18 2
+a '' to_object 35 -1 -1 22 0
+a '' to_object 35 -1 1 19 0
+a '' to_object 35 -1 2 18 0
 g none~
 #18023
 scribler~
@@ -2026,10 +2014,8 @@ leather~
 armor AG 0 AC
 12 12 12 0 4
 43 250 10900 G
-A
-19 3
-A
-18 2
+a '' to_object 43 -1 3 19 0
+a '' to_object 43 -1 2 18 0
 g none~
 #18027
 bottle rum~
@@ -2093,10 +2079,8 @@ silver~
 armor G 0 AD
 9 9 9 1 4
 25 350 12840 G
-A
-17 -30
-A
-19 2
+a '' to_object 25 -1 -30 17 0
+a '' to_object 25 -1 2 19 0
 g none~
 #18034
 bracer titan silver~
@@ -2106,10 +2090,8 @@ silver~
 armor G 0 AI
 9 9 9 1 1
 25 100 10994 G
-A
-19 2
-A
-1 1
+a '' to_object 25 -1 2 19 0
+a '' to_object 25 -1 1 1 0
 g none~
 #18035
 legging silver titan~
@@ -2119,8 +2101,7 @@ silver~
 armor G 0 AF
 9 9 9 1 3
 25 200 9954 G
-A
-22 -1
+a '' to_object 25 -1 -1 22 0
 g none~
 #18036
 silver boots boot titan~
@@ -2130,10 +2111,8 @@ silver~
 armor G 0 AG
 9 9 9 1 2
 25 200 8906 G
-A
-14 30
-A
-17 -10
+a '' to_object 25 -1 30 14 0
+a '' to_object 25 -1 -10 17 0
 g none~
 #18037
 silver helm titan~
@@ -2197,10 +2176,8 @@ silver~
 weapon AB 0 AN
 dagger 5 6 'stab' 0
 25 120 5900 P
-A
-19 1
-A
-18 1
+a '' to_object 25 -1 1 19 0
+a '' to_object 25 -1 1 18 0
 g none~
 #18044
 titan sword silver~
@@ -2210,8 +2187,7 @@ silver~
 weapon AB 0 AN
 sword 5 6 'pierce' 0
 25 250 5100 P
-A
-19 1
+a '' to_object 25 -1 1 19 0
 g none~
 #18045
 titan mace silver~
@@ -2221,8 +2197,7 @@ silver~
 weapon AB 0 AN
 mace 6 5 'pound' 0
 25 250 5660 P
-A
-18 1
+a '' to_object 25 -1 1 18 0
 g none~
 #18046
 titan axe silver~
@@ -2232,10 +2207,8 @@ silver~
 weapon AB 0 AN
 axe 5 6 'chomp' 0
 25 250 5330 P
-A
-17 1
-A
-1 -1
+a '' to_object 25 -1 1 17 0
+a '' to_object 25 -1 -1 1 0
 g none~
 #18047
 titan silver spear~
@@ -2245,8 +2218,7 @@ silver~
 weapon AB 0 AN
 spear 5 7 'pierce' K
 25 250 5250 P
-A
-18 4
+a '' to_object 25 -1 4 18 0
 g none~
 #18048
 titan silver whip~
@@ -2256,10 +2228,8 @@ silver~
 weapon AB 0 AN
 whip 6 6 'whip' 0
 30 200 1000 P
-A
-19 1
-A
-18 2
+a '' to_object 30 -1 1 19 0
+a '' to_object 30 -1 2 18 0
 g none~
 #18049
 book titan lore~
@@ -2296,10 +2266,8 @@ wood~
 treasure A 0 AO
 0 0 0 0 0
 10 1 1000 P
-A
-18 1
-A
-17 -1
+a '' to_object 10 -1 1 18 0
+a '' to_object 10 -1 -1 17 0
 g none~
 #18053
 red rose dozen~
@@ -2327,10 +2295,8 @@ leather~
 armor ABG 0 AE
 9 9 9 1 0
 29 160 8400 G
-A
-19 1
-A
-18 1
+a '' to_object 29 -1 1 19 0
+a '' to_object 29 -1 1 18 0
 g none~
 #18056
 cook pot~
@@ -2340,10 +2306,8 @@ leather~
 armor ABG 0 AE
 9 9 9 1 0
 28 200 8100 G
-A
-13 10
-A
-1 1
+a '' to_object 28 -1 10 13 0
+a '' to_object 28 -1 1 1 0
 g none~
 #18057
 serf shoes serfs shoe~
@@ -2353,10 +2317,8 @@ leather~
 armor A 0 AG
 10 10 10 1 0
 28 20 450 G
-A
-13 20
-A
-1 -1
+a '' to_object 28 -1 20 13 0
+a '' to_object 28 -1 -1 1 0
 g none~
 #18058
 pouch beggar money~
@@ -2375,12 +2337,9 @@ iron~
 armor ABG 0 AO
 10 10 10 50 0
 40 10 33350 G
-A
-18 2
-A
-19 2
-A
-13 75
+a '' to_object 40 -1 2 18 0
+a '' to_object 40 -1 2 19 0
+a '' to_object 40 -1 75 13 0
 g none~
 #18060
 leather boot boots titan~
@@ -2390,8 +2349,7 @@ stone~
 armor ABG 0 AG
 8 8 8 1 2
 25 250 4700 G
-A
-3 3
+a '' to_object 25 -1 3 3 0
 g none~
 #18061
 patrol guard club~
@@ -2401,8 +2359,7 @@ stone~
 weapon AB 0 AN
 mace 5 8 'pound' 0
 39 250 4570 P
-A
-1 -1
+a '' to_object 39 -1 -1 1 0
 g none~
 #18062
 key town~
@@ -2421,8 +2378,7 @@ gold~
 weapon ABG 0 AN
 dagger 5 6 'cleave' D
 25 120 4500 P
-A
-12 10
+a '' to_object 25 -1 10 12 0
 g none~
 #18064
 wooden carved music box~
@@ -2585,10 +2541,8 @@ leather~
 armor AG 0 AF
 8 9 8 1 3
 25 300 5050 G
-A
-19 2
-A
-18 1
+a '' to_object 25 -1 2 19 0
+a '' to_object 25 -1 1 18 0
 g none~
 #18082
 silver white cloak~
@@ -2598,10 +2552,8 @@ leather~
 armor AG 0 AK
 8 8 8 0 0
 25 170 9604 G
-A
-2 2
-A
-1 1
+a '' to_object 25 -1 2 2 0
+a '' to_object 25 -1 1 1 0
 g none~
 #18083
 emerald studded bracer~
@@ -2611,8 +2563,7 @@ leather~
 armor AG 0 AK
 9 9 9 1 0
 25 10 7600 G
-A
-13 10
+a '' to_object 25 -1 10 13 0
 g none~
 #18084
 fountain marble~
@@ -2631,12 +2582,9 @@ stone~
 weapon ABCG 0 AN
 exotic 5 9 'wrath' CF
 35 200 14300 P
-A
-22 -1
-A
-19 2
-A
-18 2
+a '' to_object 35 -1 -1 22 0
+a '' to_object 35 -1 2 19 0
+a '' to_object 35 -1 2 18 0
 g none~
 #18086
 weapon combat tournament~
@@ -2646,12 +2594,9 @@ stone~
 weapon AB 0 AN
 flail 6 8 'cleave' 0
 48 200 18907 P
-A
-22 -2
-A
-19 3
-A
-18 3
+a '' to_object 48 -1 -2 22 0
+a '' to_object 48 -1 3 19 0
+a '' to_object 48 -1 3 18 0
 g none~
 #18099
 potion cure sickness~

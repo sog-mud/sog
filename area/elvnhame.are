@@ -1482,10 +1482,8 @@ tin~
 treasure G 0 AB
 0 0 0 0 0
 6 10 500 P
-A
-2 1
-A
-4 1
+a '' to_object 6 -1 1 2 0
+a '' to_object 6 -1 1 4 0
 g none~
 #40113
 standard shield~
@@ -1504,10 +1502,8 @@ steel~
 weapon G 0 AN
 sword 2 5 'slash' D
 6 70 100 P
-A
-18 2
-A
-19 2
+a '' to_object 6 -1 2 18 0
+a '' to_object 6 -1 2 19 0
 E
 sword blade~
 While it doesn't look like anything special, this
@@ -1523,10 +1519,8 @@ wood~
 weapon G 0 AN
 mace 2 6 'smash' 0
 6 90 90 P
-A
-18 1
-A
-19 3
+a '' to_object 6 -1 1 18 0
+a '' to_object 6 -1 3 19 0
 E
 shillelagh stick club~
 It's a little worn in places where its former owner
@@ -1541,8 +1535,7 @@ steel~
 armor G 0 AD
 -5 -5 -5 -5 2
 8 140 300 P
-A
-1 1
+a '' to_object 8 -1 1 1 0
 g none~
 #40117
 dashing cape~
@@ -1552,10 +1545,8 @@ cloth~
 armor G 0 AK
 -5 -5 -5 -5 0
 8 50 500 P
-A
-5 1
-A
-7 2
+a '' to_object 8 -1 1 5 0
+a '' to_object 8 -1 2 7 0
 E
 dashing cape~
 There is something about this cape... You've seen them
@@ -1571,10 +1562,8 @@ steel~
 weapon G 0 AN
 sword 4 8 'slice' 0
 8 100 1000 P
-A
-18 3
-A
-19 2
+a '' to_object 8 -1 3 18 0
+a '' to_object 8 -1 2 19 0
 g none~
 #40119
 lieutenant helmet helm~
@@ -1584,8 +1573,7 @@ steel~
 armor G 0 AE
 -5 -5 -5 -5 2
 8 130 2000 P
-A
-20 -5
+a '' to_object 8 -1 -5 20 0
 g none~
 #40120
 captain helmet helm~
@@ -1595,8 +1583,7 @@ silver~
 armor G 0 AE
 -6 -6 -6 -6 2
 10 140 2600 P
-A
-3 1
+a '' to_object 10 -1 1 3 0
 g none~
 #40121
 captain jacket~
@@ -1606,12 +1593,9 @@ cloth~
 armor G 0 AD
 -6 -6 -6 -6 0
 10 100 1900 P
-A
-2 1
-A
-4 1
-A
-5 1
+a '' to_object 10 -1 1 2 0
+a '' to_object 10 -1 1 4 0
+a '' to_object 10 -1 1 5 0
 g none~
 #40122
 captain cape blue~
@@ -1621,8 +1605,7 @@ velvet~
 armor G 0 AK
 -6 -7 -7 -6 0
 10 120 2300 P
-A
-1 1
+a '' to_object 10 -1 1 1 0
 g none~
 #40123
 captain gloves blue~
@@ -1632,8 +1615,7 @@ velvet~
 armor G 0 AH
 -6 -6 -6 -6 0
 10 20 1000 P
-A
-2 1
+a '' to_object 10 -1 1 2 0
 g none~
 #40124
 golden scimitar captain~
@@ -1643,10 +1625,8 @@ gold~
 weapon G 0 AN
 sword 4 5 'slice' 0
 10 80 2190 P
-A
-18 4
-A
-19 3
+a '' to_object 10 -1 4 18 0
+a '' to_object 10 -1 3 19 0
 g none~
 #40125
 captain boots~
@@ -1656,10 +1636,8 @@ leather~
 armor G 0 AG
 -6 -6 -6 -6 1
 10 150 2900 P
-A
-13 10
-A
-14 25
+a '' to_object 10 -1 10 13 0
+a '' to_object 10 -1 25 14 0
 g none~
 #40126
 captain striped trousers~
@@ -1669,12 +1647,9 @@ cloth~
 armor G 0 AF
 -6 -6 -6 -6 0
 10 110 2600 P
-A
-2 1
-A
-13 10
-A
-20 -5
+a '' to_object 10 -1 1 2 0
+a '' to_object 10 -1 10 13 0
+a '' to_object 10 -1 -5 20 0
 g none~
 #40127
 mug beer~
@@ -1720,12 +1695,9 @@ silver~
 armor GJK 0 AB
 -15 -14 -15 -16 0
 50 10 6500 P
-A
-7 3
-A
-13 20
-A
-20 -9
+a '' to_object 50 -1 3 7 0
+a '' to_object 50 -1 20 13 0
+a '' to_object 50 -1 -9 20 0
 E
 signet-ring ring~
 This silver ring looks flawless, close examination of 
@@ -1741,12 +1713,9 @@ silk~
 armor GY 0 AK
 -10 -14 -14 -9 0
 40 40 7000 P
-A
-4 1
-A
-7 2
-A
-17 -10
+a '' to_object 40 -1 1 4 0
+a '' to_object 40 -1 2 7 0
+a '' to_object 40 -1 -10 17 0
 E
 tuxedo~
 Although it is made of silk, it is a sturdy suit of clothing
@@ -1789,7 +1758,7 @@ A quilted sleeping bag is here.~
 cloth~
 furniture 0 0 A
 B DFGHIJ HIKL ACDEFG ACDEFG
-30 200 200 P
+16 200 200 P
 E
 sleeping bag sleepingbag~
 It is made of quilted cotton filled with some
@@ -1943,8 +1912,7 @@ corundum~
 gem G 0 AO
 0 0 0 0 0
 10 10 1000 P
-A
-2 2
+a '' to_object 10 -1 2 2 0
 g none~
 #40152
 emerald~
@@ -1954,8 +1922,7 @@ corundum~
 gem G 0 AO
 0 0 0 0 0
 14 10 1000 P
-A
-3 2
+a '' to_object 14 -1 2 3 0
 g none~
 #40153
 sapphire~
@@ -1965,10 +1932,8 @@ corundum~
 gem G 0 AO
 0 0 0 0 0
 18 10 1300 P
-A
-4 1
-A
-12 20
+a '' to_object 18 -1 1 4 0
+a '' to_object 18 -1 20 12 0
 g none~
 #40154
 diamond~
@@ -1978,10 +1943,8 @@ diamond~
 gem G 0 AO
 0 0 0 0 0
 23 10 2000 P
-A
-1 2
-A
-5 2
+a '' to_object 23 -1 2 1 0
+a '' to_object 23 -1 2 5 0
 g none~
 #40155
 diamond ring~
@@ -1991,8 +1954,7 @@ diamond~
 jewelry 0 0 AB
 0 0 0 0 0
 30 10 4000 P
-A
-7 1
+a '' to_object 30 -1 1 7 0
 g none~
 #40156
 golden bracelet gold~
@@ -2020,10 +1982,8 @@ quartz~
 jewelry G 0 AB
 0 0 0 0 0
 25 40 14500 P
-A
-3 3
-A
-12 25
+a '' to_object 25 -1 3 3 0
+a '' to_object 25 -1 25 12 0
 g none~
 #40159
 dagger~
@@ -2744,7 +2704,7 @@ D3
 Z -1 40124
 S
 #40124
-@eng Center Square@rus Центральная Улица (север)~
+@eng Center Square@rus Центральная площадь~
 @eng Center Square is one of the busiest intersections in  Elvenhame.  It
 is equidistant from the fountains and the temples in the center of the
 city.
@@ -2778,21 +2738,15 @@ D3
 Z -1 40125
 S
 #40125
-@eng West Main Road@rus Воровская Гильдия~
-@eng As guildhouses go, this guild is one of the richest and most lavishly
-decorated. Tapestries adorn the walls. In one corner is a marble statue
-of  a  man on a rearing horse, his blade drawn. At the tip of the blade
-is someone's cap, resting until the thief who tossed it there retrieves
-it.
+@eng West Main Road@rus Западный проспект~
+@eng You are on the main road in Elvenhame. This stretch of road
+is lined with dark green leafed trees offset with dainty
+white and pink flowers. At the base of these trees are Elven
+Paint Brush flowers, a native strain.
 @rus Вы находитесь на Западном  Проспекте  Эльвенхейма.  Вдоль  проспекта
 растут темно-зеленые  деревья в перемешку с изящными белыми и розовыми
 цветами.  У подножий  этих деревьев  --  цветы оригинальной Эльфийской
 Расцветки, местной породы.
-Среди  всех  гильдий  эта  гильдия  --  одна из самых богатых и щедро
-украшенных.  Стены покрыты гобеленами. В одном углу -- мраморная статуя
-человека  на  вздыбленной  лошади, его меч притягивает взгляд. На конце
-меча  --  чья-то  кепка, ждущая, пока вор, бросивший ее, не вернется за
-ней.
 ~
 0 0 city
 D1
@@ -3620,13 +3574,18 @@ D2
 Z -1 40148
 S
 #40150
-Guild of Thieves~
-As guildhouses go, this guild is one of the richest and
+@eng Guild of Thieves@rus Воровская гильдия~
+@eng As guildhouses go, this guild is one of the richest and
 most lavishly decorated. Tapestries adorn the walls. 
 In one corner is a marble statue of a man on a rearing
 horse, his blade drawn. At the tip of the blade is
 someone's cap, resting until the thief who tossed it 
 there retrieves it.
+@rus Среди всех  гильдий  эта  гильдия  --  одна из самых богатых и щедро
+украшенных. Стены покрыты гобеленами. В одном углу -- мраморная статуя
+человека на  вздыбленной  лошади, его меч притягивает взгляд. На конце
+меча --  чья-то  кепка, ждущая, пока вор, бросивший ее, не вернется за
+ней.
 ~
 0 D inside
 D1

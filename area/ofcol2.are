@@ -621,8 +621,7 @@ iron~
 weapon 0 0 AN
 dagger 2 5 'chop' 0
 8 50 530 P
-A
-19 1
+a '' to_object 8 -1 1 19 0
 E
 meat cleaver~
 This meat cleaver is made of good steel.
@@ -681,8 +680,7 @@ glass~
 gem 0 0 AO
 0 0 0 0 0
 0 10 150 P
-A
-20 -1
+a '' to_object 0 -1 -1 20 0
 g none~
 #608
 golden necklace~
@@ -692,8 +690,7 @@ gold~
 jewelry 0 0 AC
 0 0 0 0 0
 0 20 500 P
-A
-4 -1
+a '' to_object 0 -1 -1 4 0
 g none~
 #609
 cabbage~
@@ -802,12 +799,9 @@ gold~
 jewelry G 0 AB
 0 0 0 0 0
 10 10 730 P
-A
-17 -2
-A
-13 5
-A
-20 -1
+a '' to_object 10 -1 -2 17 0
+a '' to_object 10 -1 5 13 0
+a '' to_object 10 -1 -1 20 0
 g none~
 #621
 plate brass~
@@ -817,10 +811,8 @@ brass~
 armor G 0 AD
 6 5 6 1 0
 16 100 2400 P
-A
-13 10
-A
-20 -1
+a '' to_object 16 -1 10 13 0
+a '' to_object 16 -1 -1 20 0
 g none~
 #622
 helm brass~
@@ -830,10 +822,8 @@ brass~
 armor G 0 AE
 6 5 6 1 0
 16 100 1280 P
-A
-13 5
-A
-20 -1
+a '' to_object 16 -1 5 13 0
+a '' to_object 16 -1 -1 20 0
 g none~
 #623
 leggings brass~
@@ -843,10 +833,8 @@ brass~
 armor G 0 AF
 6 5 6 1 0
 16 100 1280 P
-A
-13 5
-A
-20 -1
+a '' to_object 16 -1 5 13 0
+a '' to_object 16 -1 -1 20 0
 g none~
 #624
 boots brass~
@@ -856,10 +844,8 @@ brass~
 armor G 0 AG
 6 5 6 1 0
 16 100 1280 P
-A
-13 5
-A
-20 -1
+a '' to_object 16 -1 5 13 0
+a '' to_object 16 -1 -1 20 0
 g none~
 #625
 gauntlets brass~
@@ -869,10 +855,8 @@ brass~
 armor G 0 AH
 6 5 6 1 0
 16 100 1280 P
-A
-13 5
-A
-20 -1
+a '' to_object 16 -1 5 13 0
+a '' to_object 16 -1 -1 20 0
 g none~
 #626
 sleeves brass~
@@ -882,10 +866,8 @@ brass~
 armor G 0 AI
 6 5 6 1 0
 16 100 1280 P
-A
-13 5
-A
-20 -1
+a '' to_object 16 -1 5 13 0
+a '' to_object 16 -1 -1 20 0
 g none~
 #627
 shield brass~
@@ -895,10 +877,8 @@ brass~
 armor G 0 AJ
 6 5 6 2 0
 16 200 1850 P
-A
-13 5
-A
-20 -1
+a '' to_object 16 -1 5 13 0
+a '' to_object 16 -1 -1 20 0
 g none~
 #628
 girth brass~
@@ -908,10 +888,8 @@ brass~
 armor G 0 AL
 6 5 6 1 0
 16 100 1280 P
-A
-13 5
-A
-20 -1
+a '' to_object 16 -1 5 13 0
+a '' to_object 16 -1 -1 20 0
 g none~
 #629
 bracer brass~
@@ -921,10 +899,8 @@ brass~
 armor G 0 AM
 4 5 6 1 0
 12 100 1040 P
-A
-13 5
-A
-20 -1
+a '' to_object 12 -1 5 13 0
+a '' to_object 12 -1 -1 20 0
 g none~
 #630
 claymore sword~
@@ -934,10 +910,8 @@ iron~
 weapon G 0 AN
 sword 4 6 'cleave' F
 19 160 3100 P
-A
-19 4
-A
-18 -2
+a '' to_object 19 -1 4 19 0
+a '' to_object 19 -1 -2 18 0
 g none~
 #631
 plate silver~
@@ -947,10 +921,8 @@ silver~
 armor GK 0 AD
 8 8 8 2 0
 25 200 5000 P
-A
-1 1
-A
-12 10
+a '' to_object 25 -1 1 1 0
+a '' to_object 25 -1 10 12 0
 g none~
 #632
 helm silver~
@@ -960,10 +932,8 @@ silver~
 armor GK 0 AE
 8 8 8 2 0
 25 200 2900 P
-A
-2 1
-A
-12 5
+a '' to_object 25 -1 1 2 0
+a '' to_object 25 -1 5 12 0
 g none~
 #633
 leggings silver~
@@ -973,10 +943,8 @@ silver~
 armor GK 0 AF
 8 8 8 2 0
 25 200 2900 P
-A
-3 1
-A
-12 5
+a '' to_object 25 -1 1 3 0
+a '' to_object 25 -1 5 12 0
 g none~
 #634
 boots silver~
@@ -986,10 +954,8 @@ silver~
 armor GK 0 AG
 8 8 8 2 0
 25 200 2900 P
-A
-4 1
-A
-12 5
+a '' to_object 25 -1 1 4 0
+a '' to_object 25 -1 5 12 0
 g none~
 #635
 gauntlets silver~
@@ -999,10 +965,8 @@ silver~
 armor GK 0 AH
 8 8 8 2 0
 25 200 2900 P
-A
-5 1
-A
-12 5
+a '' to_object 25 -1 1 5 0
+a '' to_object 25 -1 5 12 0
 g none~
 #636
 sleeves silver~
@@ -1012,10 +976,8 @@ silver~
 armor GK 0 AI
 8 8 8 2 0
 25 200 2400 P
-A
-18 1
-A
-12 5
+a '' to_object 25 -1 1 18 0
+a '' to_object 25 -1 5 12 0
 g none~
 #637
 shield silver~
@@ -1025,10 +987,8 @@ silver~
 armor GK 0 AJ
 8 8 8 3 0
 25 240 4200 P
-A
-17 -3
-A
-12 5
+a '' to_object 25 -1 -3 17 0
+a '' to_object 25 -1 5 12 0
 g none~
 #638
 girth silver~
@@ -1038,10 +998,8 @@ silver~
 armor GK 0 AL
 8 8 8 2 0
 25 200 2400 P
-A
-19 1
-A
-12 5
+a '' to_object 25 -1 1 19 0
+a '' to_object 25 -1 5 12 0
 g none~
 #639
 plate platinum~
@@ -1051,12 +1009,9 @@ platinum~
 armor GK 0 AD
 9 9 9 5 0
 33 500 9200 P
-A
-19 2
-A
-5 2
-A
-13 15
+a '' to_object 33 -1 2 19 0
+a '' to_object 33 -1 2 5 0
+a '' to_object 33 -1 15 13 0
 g none~
 #640
 helmet platinum~
@@ -1066,12 +1021,9 @@ platinum~
 armor GK 0 AE
 9 9 9 5 0
 33 300 6300 P
-A
-13 20
-A
-12 20
-A
-4 2
+a '' to_object 33 -1 20 13 0
+a '' to_object 33 -1 20 12 0
+a '' to_object 33 -1 2 4 0
 g none~
 #641
 leggings platinum~
@@ -1081,12 +1033,9 @@ platinum~
 armor GK 0 AF
 9 9 9 3 0
 33 400 6300 P
-A
-19 2
-A
-13 15
-A
-2 2
+a '' to_object 33 -1 2 19 0
+a '' to_object 33 -1 15 13 0
+a '' to_object 33 -1 2 2 0
 g none~
 #642
 boots platinum~
@@ -1096,12 +1045,9 @@ platinum~
 armor GK 0 AG
 9 9 9 5 0
 33 400 4100 P
-A
-14 100
-A
-19 2
-A
-13 15
+a '' to_object 33 -1 100 14 0
+a '' to_object 33 -1 2 19 0
+a '' to_object 33 -1 15 13 0
 g none~
 #643
 gauntlets platinum~
@@ -1111,12 +1057,9 @@ platinum~
 armor GK 0 AH
 9 9 9 5 0
 33 400 4300 P
-A
-18 2
-A
-19 2
-A
-13 15
+a '' to_object 33 -1 2 18 0
+a '' to_object 33 -1 2 19 0
+a '' to_object 33 -1 15 13 0
 g none~
 #644
 sleeves platinum~
@@ -1126,12 +1069,9 @@ platinum~
 armor GK 0 AI
 9 9 9 5 0
 33 400 6300 P
-A
-19 2
-A
-13 15
-A
-1 2
+a '' to_object 33 -1 2 19 0
+a '' to_object 33 -1 15 13 0
+a '' to_object 33 -1 2 1 0
 g none~
 #645
 shield spiked platinum~
@@ -1141,10 +1081,8 @@ platinum~
 armor GK 0 AJ
 9 9 9 5 0
 33 400 6000 P
-A
-13 15
-A
-19 2
+a '' to_object 33 -1 15 13 0
+a '' to_object 33 -1 2 19 0
 g none~
 #646
 girth platinum~
@@ -1154,12 +1092,9 @@ platinum~
 armor GK 0 AL
 9 9 9 5 0
 33 400 4000 P
-A
-19 2
-A
-13 15
-A
-20 -5
+a '' to_object 33 -1 2 19 0
+a '' to_object 33 -1 15 13 0
+a '' to_object 33 -1 -5 20 0
 g none~
 #647
 avenger holy sword~
@@ -1169,10 +1104,8 @@ platinum~
 weapon GK 0 AN
 sword 5 8 'slice' I
 33 250 5700 P
-A
-19 6
-A
-18 1
+a '' to_object 33 -1 6 19 0
+a '' to_object 33 -1 1 18 0
 g none~
 #648
 whiskey shot~
@@ -1218,12 +1151,9 @@ ivory~
 jewelry GIKL 0 AC
 0 0 0 0 0
 17 50 3700 P
-A
-4 2
-A
-12 10
-A
-17 -3
+a '' to_object 17 -1 2 4 0
+a '' to_object 17 -1 10 12 0
+a '' to_object 17 -1 -3 17 0
 g none~
 #653
 ranseur polearm~
@@ -1233,10 +1163,8 @@ iron~
 weapon GK 0 AN
 polearm 4 7 'thrust' F
 24 200 1460 P
-A
-19 -1
-A
-18 3
+a '' to_object 24 -1 -1 19 0
+a '' to_object 24 -1 3 18 0
 g none~
 #654
 torso dragonscale golden~
@@ -1246,10 +1174,8 @@ gold~
 armor GK 0 AD
 7 7 7 3 0
 24 250 6200 P
-A
-18 2
-A
-17 -5
+a '' to_object 24 -1 2 18 0
+a '' to_object 24 -1 -5 17 0
 g none~
 #655
 dragonhelm golden~
@@ -1259,10 +1185,8 @@ gold~
 armor GK 0 AE
 7 7 7 3 0
 21 100 2800 P
-A
-18 1
-A
-17 -3
+a '' to_object 21 -1 1 18 0
+a '' to_object 21 -1 -3 17 0
 g none~
 #656
 leggings golden~
@@ -1272,10 +1196,8 @@ gold~
 armor GK 0 AF
 7 7 7 3 0
 21 100 2800 P
-A
-18 1
-A
-17 -3
+a '' to_object 21 -1 1 18 0
+a '' to_object 21 -1 -3 17 0
 g none~
 #657
 boots golden~
@@ -1285,10 +1207,8 @@ gold~
 armor GK 0 AG
 7 7 7 3 0
 21 100 2800 P
-A
-18 1
-A
-17 -3
+a '' to_object 21 -1 1 18 0
+a '' to_object 21 -1 -3 17 0
 g none~
 #658
 gauntlets golden~
@@ -1298,10 +1218,8 @@ gold~
 armor GK 0 AH
 7 7 7 3 0
 21 100 2800 P
-A
-18 1
-A
-17 -3
+a '' to_object 21 -1 1 18 0
+a '' to_object 21 -1 -3 17 0
 g none~
 #659
 sleeves golden~
@@ -1311,10 +1229,8 @@ gold~
 armor GK 0 AI
 7 7 7 3 0
 21 100 2800 P
-A
-18 1
-A
-17 -3
+a '' to_object 21 -1 1 18 0
+a '' to_object 21 -1 -3 17 0
 g none~
 #660
 shield golden~
@@ -1324,10 +1240,8 @@ gold~
 armor GK 0 AJ
 7 7 7 4 0
 21 200 3700 P
-A
-18 1
-A
-17 -3
+a '' to_object 21 -1 1 18 0
+a '' to_object 21 -1 -3 17 0
 g none~
 #661
 girth golden~
@@ -1337,10 +1251,8 @@ gold~
 armor GK 0 AL
 7 7 7 3 0
 21 100 2800 P
-A
-18 1
-A
-17 -3
+a '' to_object 21 -1 1 18 0
+a '' to_object 21 -1 -3 17 0
 g none~
 #662
 claw golden~
@@ -1350,8 +1262,7 @@ gold~
 weapon GK 0 AN
 exotic 3 9 'claw' 0
 21 100 2600 P
-A
-19 2
+a '' to_object 21 -1 2 19 0
 g none~
 #663
 orb dragonorb~
@@ -1361,10 +1272,8 @@ gold~
 staff GKL 0 AO
 14 4 4 'heal' 0
 17 300 9000 P
-A
-4 2
-A
-3 1
+a '' to_object 17 -1 2 4 0
+a '' to_object 17 -1 1 3 0
 g none~
 #664
 robe golden~
@@ -1374,8 +1283,7 @@ cloth~
 armor GK 0 AK
 6 6 5 2 0
 17 100 3800 P
-A
-3 2
+a '' to_object 17 -1 2 3 0
 g none~
 #665
 house key~
@@ -1394,10 +1302,8 @@ wood~
 weapon 0 0 AN
 exotic 2 3 'beating' 0
 1 80 760 P
-A
-19 -3
-A
-18 3
+a '' to_object 1 -1 -3 19 0
+a '' to_object 1 -1 3 18 0
 g none~
 #667
 chest~
@@ -1416,8 +1322,7 @@ gold~
 weapon GK 0 AN
 exotic 4 10 'claw' 0
 39 200 7200 P
-A
-19 5
+a '' to_object 39 -1 5 19 0
 g none~
 #669
 claw golden~
@@ -1427,8 +1332,7 @@ gold~
 weapon GK 0 AN
 exotic 3 11 'claw' 0
 28 150 4100 P
-A
-19 3
+a '' to_object 28 -1 3 19 0
 g none~
 #670
 pit~

@@ -281,10 +281,8 @@ iron~
 weapon GHI C AN
 sword 6 6 'frbite' B
 35 90 12000 P
-A
-19 1
-A
-18 1
+a '' to_object 35 -1 1 19 0
+a '' to_object 35 -1 1 18 0
 g none~
 #4602
 symbol unholy~
@@ -294,16 +292,11 @@ iron~
 armor CEGIJL C AC
 12 12 12 12 0
 45 1 25000 A
-A
-13 -30
-A
-19 1
-A
-18 2
-A
-12 50
-A
-14 30
+a '' to_object 45 -1 -30 13 0
+a '' to_object 45 -1 1 19 0
+a '' to_object 45 -1 2 18 0
+a '' to_object 45 -1 50 12 0
+a '' to_object 45 -1 30 14 0
 g none~
 #4603
 corpse~
@@ -322,18 +315,12 @@ iron~
 armor ABCEGJ C AG
 14 14 14 14 0
 49 7 51000 A
-A
-2 -1
-A
-5 -1
-A
-19 2
-A
-18 3
-A
-17 -4
-A
-13 40
+a '' to_object 49 -1 -1 2 0
+a '' to_object 49 -1 -1 5 0
+a '' to_object 49 -1 2 19 0
+a '' to_object 49 -1 3 18 0
+a '' to_object 49 -1 -4 17 0
+a '' to_object 49 -1 40 13 0
 g none~
 #4605
 darkened helm helmet~
@@ -343,18 +330,12 @@ iron~
 armor ABCEIJ C AE
 14 14 14 14 0
 49 4 48000 A
-A
-3 -1
-A
-5 -1
-A
-19 2
-A
-18 3
-A
-17 -4
-A
-13 40
+a '' to_object 49 -1 -1 3 0
+a '' to_object 49 -1 -1 5 0
+a '' to_object 49 -1 2 19 0
+a '' to_object 49 -1 3 18 0
+a '' to_object 49 -1 -4 17 0
+a '' to_object 49 -1 40 13 0
 g none~
 #4606
 darkened leggings~
@@ -364,16 +345,11 @@ iron~
 armor ABCEIJ C AF
 15 12 16 12 0
 49 5 55000 A
-A
-5 -1
-A
-19 3
-A
-18 2
-A
-17 -3
-A
-13 35
+a '' to_object 49 -1 -1 5 0
+a '' to_object 49 -1 3 19 0
+a '' to_object 49 -1 2 18 0
+a '' to_object 49 -1 -3 17 0
+a '' to_object 49 -1 35 13 0
 E
 darkened leggings~
 Upon closer examination of these leggings, you realize they are of
@@ -389,16 +365,11 @@ iron~
 armor ABCEGIJ C AB
 0 0 0 0 0
 49 1 42000 A
-A
-1 -1
-A
-19 2
-A
-18 3
-A
-17 -11
-A
-13 21
+a '' to_object 49 -1 -1 1 0
+a '' to_object 49 -1 2 19 0
+a '' to_object 49 -1 3 18 0
+a '' to_object 49 -1 -11 17 0
+a '' to_object 49 -1 21 13 0
 g none~
 #4608
 darkened shield~
@@ -408,16 +379,11 @@ iron~
 armor ABHJM 0 AJ
 12 6 0 0 0
 25 15 1 A
-A
-19 -6
-A
-18 -2
-A
-13 -20
-A
-5 -2
-A
-1 -3
+a '' to_object 25 -1 -6 19 0
+a '' to_object 25 -1 -2 18 0
+a '' to_object 25 -1 -20 13 0
+a '' to_object 25 -1 -2 5 0
+a '' to_object 25 -1 -3 1 0
 g none~
 #4609
 guardian sword~
@@ -427,12 +393,9 @@ iron~
 weapon ABCEGIJM C AN
 sword 6 8 'slash' 0
 55 40 55000 A
-A
-19 7
-A
-18 2
-A
-17 -10
+a '' to_object 55 -1 7 19 0
+a '' to_object 55 -1 2 18 0
+a '' to_object 55 -1 -10 17 0
 g none~
 #4610
 potion healing~
@@ -460,16 +423,11 @@ cloth~
 armor CEGM C AK
 13 13 13 13 0
 45 4 50000 P
-A
-19 -3
-A
-13 -250
-A
-12 250
-A
-3 3
-A
-2 -3
+a '' to_object 45 -1 -3 19 0
+a '' to_object 45 -1 -250 13 0
+a '' to_object 45 -1 250 12 0
+a '' to_object 45 -1 3 3 0
+a '' to_object 45 -1 -3 2 0
 g none~
 #4613
 scroll yellow parchment~
@@ -488,16 +446,11 @@ copper~
 armor ABCEFGHIM C AB
 0 0 0 0 0
 60 0 120000 P
-A
-17 -20
-A
-13 40
-A
-6 -1
-A
-5 4
-A
-1 1
+a '' to_object 60 -1 -20 17 0
+a '' to_object 60 -1 40 13 0
+a '' to_object 60 -1 -1 6 0
+a '' to_object 60 -1 4 5 0
+a '' to_object 60 -1 1 1 0
 E
 copper ring~
 An inscription is engraved inside the ring, stating 'accursed be the
@@ -521,10 +474,8 @@ gold~
 weapon ABCJ C AN
 flail 5 7 'none' 0
 40 160 16000 P
-A
-19 3
-A
-13 10
+a '' to_object 40 -1 3 19 0
+a '' to_object 40 -1 10 13 0
 g none~
 #4617
 poncho~
@@ -534,16 +485,11 @@ iron~
 armor HM 0 AK
 0 0 0 0 0
 1 1 0 P
-A
-19 -6
-A
-17 20
-A
-13 -20
-A
-5 -5
-A
-1 -3
+a '' to_object 1 -1 -6 19 0
+a '' to_object 1 -1 20 17 0
+a '' to_object 1 -1 -20 13 0
+a '' to_object 1 -1 -5 5 0
+a '' to_object 1 -1 -3 1 0
 g none~
 #4618
 corpse~
@@ -580,12 +526,9 @@ iron~
 armor A C AL
 9 9 9 9 0
 40 1 19230 P
-A
-19 2
-A
-13 7
-A
-2 2
+a '' to_object 40 -1 2 19 0
+a '' to_object 40 -1 7 13 0
+a '' to_object 40 -1 2 2 0
 g none~
 #4622
 shadow dagger litrahth~
@@ -595,10 +538,8 @@ iron~
 weapon ABHM C AN
 dagger 8 6 'none' 0
 52 30 100000 P
-A
-19 8
-A
-18 8
+a '' to_object 52 -1 8 19 0
+a '' to_object 52 -1 8 18 0
 E
 shadow dagger~
 Wear the dagger and speak the magic words, 'Litrahth Ezandor' to open
@@ -613,14 +554,10 @@ iron~
 weapon ABHM 0 AN
 dagger 1 1 'none' 0
 52 10 0 P
-A
-13 -100
-A
-14 -200
-A
-2 -2
-A
-1 -8
+a '' to_object 52 -1 -100 13 0
+a '' to_object 52 -1 -200 14 0
+a '' to_object 52 -1 -2 2 0
+a '' to_object 52 -1 -8 1 0
 E
 shadow dagger~
 Wear the dagger and speak the magic words, 'Litrahth Ezandor' to open
@@ -635,14 +572,10 @@ bone~
 weapon ABCEGHIM C AN
 exotic 7 8 'none' C
 60 300 150000 P
-A
-19 6
-A
-18 5
-A
-12 -50
-A
-5 -2
+a '' to_object 60 -1 6 19 0
+a '' to_object 60 -1 5 18 0
+a '' to_object 60 -1 -50 12 0
+a '' to_object 60 -1 -2 5 0
 g none~
 #4625
 coffin~
@@ -661,16 +594,11 @@ steel~
 armor CEH C AN
 4 6 7 18 0
 40 8 28550 P
-A
-13 -20
-A
-19 1
-A
-18 4
-A
-12 10
-A
-2 1
+a '' to_object 40 -1 -20 13 0
+a '' to_object 40 -1 1 19 0
+a '' to_object 40 -1 4 18 0
+a '' to_object 40 -1 10 12 0
+a '' to_object 40 -1 1 2 0
 g none~
 #4627
 libram gainful conjuration~
@@ -698,14 +626,10 @@ flesh~
 armor ABCEF C AK
 30 0 0 0 0
 50 3 25000 P
-A
-12 60
-A
-17 -25
-A
-4 2
-A
-3 3
+a '' to_object 50 -1 60 12 0
+a '' to_object 50 -1 -25 17 0
+a '' to_object 50 -1 2 4 0
+a '' to_object 50 -1 3 3 0
 g none~
 #4630
 scroll overkill~
@@ -819,8 +743,8 @@ g none~
 
 #ROOMS
 #4600
-Outside of the mausoleum~
-The skies seem eternally dark and cloudy here, and the stench of
+@eng Outside of the mausoleum@rus Перед мавзолеем~
+@eng The skies seem eternally dark and cloudy here, and the stench of
 death is almost overpowering as you stand north of the huge grey stone
 building. There are numerous heavy footprints in the dirt leading into
 and out of this accursed place, along with many deep grooves as if
@@ -829,16 +753,24 @@ You hear a faint howling from within, and sense an occassional rustling
 in the graveyard surrounding you. Suddenly, it dawns on you that
 entering here may be a very bad idea...
 A sign is posted, urging caution.
+@rus Небо сплошь затянуто черными облаками и дух смерти вполне физически
+давит на тебя перед входом в это мрачное здание из серого камня. Мно-
+жество глубоко отпечатавшихся в грязи следов ведет в обе стороны и
+местами видны оставленные чем-то тяжелым глубокие колеи. Еле слышный,
+леденящий кровь вой доносится изнутри и, ощутимое скорее кожей, нежели
+слухом шуршание - из находящихся по обе стороны могил.
+  Воткнутый в землю знак о чем-то предупреждает странников.
 ~
 0 T inside
 E
-sign~
-This area is for high level characters only... 25 to 50+, and most
+sign знак~
+@eng This area is for high level characters only... 25 to 50+, and most
 everything is aggressive, so keep in large groups of high levels.
 Once you go in, there may be no coming back alive... you have been
 warned.
 - Written by Khargqwzxdds
 - Idea by Khargqwzxdds, Ulric, and Harrap Jan-1995
+@rus Будь осторожен в этом проклятом месте, странник.
 ~
 D0
 ~
@@ -854,11 +786,14 @@ door~
 Z 4600 4602
 S
 #4601
-A grisly scene, NW corner of Mausoleum.~
-Half-decayed corpses have been dragged here and half-eaten by something
+@eng A grisly scene, NW corner of Mausoleum.@rus Кровавая сцена, северо-западный угол мавзолея~
+@eng Half-decayed corpses have been dragged here and half-eaten by something
 with a ravenous appetite. Maybe it would be a good idea to find the way
 back outside now...
 A door leads back out to the south.
+@rus   Полусгнившие трупы свалены в кучу и местами кем-то обглоданы...
+Дверь в южной стене ведет назад, и ты думаешь, не пора ли покинуть
+это место.. пока здешние обитатели не нашли тебя сами.
 ~
 0 ADN inside
 D2
@@ -869,14 +804,20 @@ door~
 ABZ 0 4605
 S
 #4602
-Foyer of the mausoleum.~
-You are in the entrance hall of the accursed mausoleum. Rats and roaches
+@eng Foyer of the mausoleum.@rus Фойе мавзолея~
+@eng You are in the entrance hall of the accursed mausoleum. Rats and roaches
 scuttle about here, feeding on decaying flesh. You hear the door shut
 behind you and realize that you have indeed made a mistake.
  To the north is the entryway back to the graveyard, to the south is
 the main area of the mausoleum.
  Corpses litter the ground, obviously being dragged here for some vile
 purpose. You have an urge to leave this place now.
+@rus   Ты стоишь на входе в проклятый мавзолей. Крысы и тараканы, во мно-
+жестве расплодившиеся при таком обилии гниющей плоти, разегаются во
+все стороны из-под твоих ног. Дверь позади громко захлопывается, зас-
+тавляя тебя сожалеть о решении войти. Множество трупов, принесенных
+сюда с какой-то непонятной целью, устилает землю и тебе стоит больших
+усилий унять предательскую дрожь в ногах и зарождающуюся панику внутри.
 ~
 0 ADN inside
 D0
@@ -893,11 +834,15 @@ door~
 ABZ 0 4606
 S
 #4603
-A grisly scene, NE corner of Mausoleum.~
-Half-decayed corpses have been dragged here and half-eaten by something
+@eng A grisly scene, NE corner of Mausoleum.@rus Кровавая сцена, северо-восточный угол мавзолея~
+@eng Half-decayed corpses have been dragged here and half-eaten by something
 with a ravenous appetite. Maybe it would be a good idea to find the way
 back outside now...
 A door to the south leaves this carnage.
+@rus Полусгнившие трупы свалены в кучу и местами кем-то обглоданы.
+Дверь в южной стене ведет назад из этого ужасного места и ты
+начинаешь подумывать, не пора ли пробираться к выходу, пока здеш-
+ние обитатели не добрались до тебя.
 ~
 0 ADN inside
 D2
@@ -908,12 +853,15 @@ door~
 ABZ 0 4607
 S
 #4604
-A small room.~
-This room is being used as a temporary storehouse for the corpses, until
+@eng A small room.@rus Небольшая комната~
+@eng This room is being used as a temporary storehouse for the corpses, until
 they can be dragged into the room to the south for some obviously
 horrible process to create the zombies you see roaming around here.
 To the south is a black wooden doorway, and to the east you may go back
 out to the main mausoleum area.
+@rus Это помещение выполняет роль склада для трупов, которые впоследствии
+утащат дальше для того, чтобы вернуть их к жизни.. в качестве зомби,
+которых ты здесь видел уже предостаточно.
 ~
 0 ADN inside
 D1
@@ -930,12 +878,16 @@ door~
 ABCZ 4600 4610
 S
 #4605
-Northwest main area of the Mausoleum.~
-Zombies wander aimlessly around here. Most are oblivious to you, and go
+@eng Northwest main area of the Mausoleum.@rus Северо-западная часть помещения~
+@eng Zombies wander aimlessly around here. Most are oblivious to you, and go
 about their business of hauling corpses from one area to another, but
 a few of the unoccupied ones seem to have taken an interest in your life.
 There are doors to the north and west, and the mausoleum extends to the
 east and south.
+@rus Зомби бесцельно слоняются вокруг, апатично перетаскивая трупы туда,
+куда велят их до сих пор не виденные тобой хозяева. По большей части
+они не уделяют тебе никакого внимания, но некоторые все же оказываются
+неожиданно заинтересованными в немедленном прекращении твоей жизни.
 ~
 0 ADN inside
 D0
@@ -964,12 +916,16 @@ door~
 ABZ 0 4604
 S
 #4606
-Northern main area of the Mausoleum.~
-Zombies wander aimlessly around here. Most are oblivious to you, and go
+@eng Northern main area of the Mausoleum.@rus Северная часть помещения~
+@eng Zombies wander aimlessly around here. Most are oblivious to you, and go
 about their business of hauling corpses from one area to another, but
 a few of the unoccupied ones seem to have taken an interest in your life.
 There is a door to the north, and the mausoleum extends to the west, east,
 and south.
+@rus Зомби бесцельно слоняются вокруг, апатично перетаскивая трупы туда,
+куда велят их до сих пор не виденные тобой хозяева. По большей части
+они не уделяют тебе никакого внимания, но некоторые все же оказываются
+неожиданно заинтересованными в немедленном прекращении твоей жизни.
 ~
 0 ADN inside
 D0
@@ -998,12 +954,16 @@ D3
 Z 0 4605
 S
 #4607
-Northeastern main area of the Mausoleum.~
-Zombies wander aimlessly around here. Most are oblivious to you, and go
+@eng Northeastern main area of the Mausoleum.@rus Северо-восточная часть помещения~
+@eng Zombies wander aimlessly around here. Most are oblivious to you, and go
 about their business of hauling corpses from one area to another, but
 a few of the unoccupied ones seem to have taken an interest in your life.
 There is a door to the north and east, and the mausoleum extends to the
 west and south.
+@rus Зомби бесцельно слоняются вокруг, апатично перетаскивая трупы туда,
+куда велят их до сих пор не виденные тобой хозяева. По большей части
+они не уделяют тебе никакого внимания, но некоторые все же оказываются
+неожиданно заинтересованными в немедленном прекращении твоей жизни.
 ~
 0 ADN inside
 D0
@@ -1032,12 +992,15 @@ D3
 Z 0 4606
 S
 #4608
-A small room.~
-This room is being used as a temporary storehouse for the corpses, until
+@eng A small room.@rus Небольшая комната~
+@eng This room is being used as a temporary storehouse for the corpses, until
 they can be dragged into the room to the south for some obviously
 horrible process to create the zombies you see roaming around here.
 To the south is a black wooden doorway, and to the west you may go back
 out to the main mausoleum area.
+@rus Это помещение выполняет роль склада для трупов, которые впоследствии
+утащат дальше для того, чтобы вернуть их к жизни.. в качестве зомби,
+которых ты здесь видел уже предостаточно.
 ~
 0 ADN inside
 D2
@@ -1054,7 +1017,7 @@ door~
 ABZ 0 4607
 S
 #4609
-The Kharzandra's coffin room~
+@eng The Kharzandra's coffin room@rus Склеп Кхарзандры~
 ~
 0 ADN inside
 D1
@@ -1065,7 +1028,7 @@ D1
 ABZ 0 4610
 S
 #4610
-The workroom of Kharzandra.~
+@eng The workroom of Kharzandra.@rus Рабочая комната Кхарзандры~
 ~
 0 ADN inside
 D0
@@ -1082,12 +1045,16 @@ D3
 Z 0 4609
 S
 #4611
-Western main area of the Mausoleum.~
-Zombies wander aimlessly around here. Most are oblivious to you, and go
+@eng Western main area of the Mausoleum.@rus Западная часть помещения~
+@eng Zombies wander aimlessly around here. Most are oblivious to you, and go
 about their business of hauling corpses from one area to another, but
 a few of the unoccupied ones seem to have taken an interest in your life.
 There is a wall to the west, and the mausoleum extends to the north, east,
 and south.
+@rus Зомби бесцельно слоняются вокруг, апатично перетаскивая трупы туда,
+куда велят их до сих пор не виденные тобой хозяева. По большей части
+они не уделяют тебе никакого внимания, но некоторые все же оказываются
+неожиданно заинтересованными в немедленном прекращении твоей жизни.
 ~
 0 ADN inside
 D0
@@ -1110,11 +1077,15 @@ D2
 Z 0 4617
 S
 #4612
-Central main area of the Mausoleum.~
-Zombies wander aimlessly around here. Most are oblivious to you, and go
+@eng Central main area of the Mausoleum.@rus Центральная часть помещения~
+@eng Zombies wander aimlessly around here. Most are oblivious to you, and go
 about their business of hauling corpses from one area to another, but
 a few of the unoccupied ones seem to have taken an interest in your life.
 The mausoleum extends to the west, east, north and south.
+@rus Зомби бесцельно слоняются вокруг, апатично перетаскивая трупы туда,
+куда велят их до сих пор не виденные тобой хозяева. По большей части
+они не уделяют тебе никакого внимания, но некоторые все же оказываются
+неожиданно заинтересованными в немедленном прекращении твоей жизни.
 ~
 0 ADN inside
 D0
@@ -1143,12 +1114,16 @@ D3
 Z 0 4611
 S
 #4613
-Eastern main area of the Mausoleum.~
-Zombies wander aimlessly around here. Most are oblivious to you, and go
+@eng Eastern main area of the Mausoleum.@rus Восточная часть помещения~
+@eng Zombies wander aimlessly around here. Most are oblivious to you, and go
 about their business of hauling corpses from one area to another, but
 a few of the unoccupied ones seem to have taken an interest in your life.
 There is a wall to the east, and the mausoleum extends to the north, west,
 and south.
+@rus Зомби бесцельно слоняются вокруг, апатично перетаскивая трупы туда,
+куда велят их до сих пор не виденные тобой хозяева. По большей части
+они не уделяют тебе никакого внимания, но некоторые все же оказываются
+неожиданно заинтересованными в немедленном прекращении твоей жизни.
 ~
 0 ADN inside
 D0
@@ -1171,11 +1146,17 @@ D3
 Z 0 4612
 S
 #4614
-The workroom of Shadar Lunn~
-The room is very orderly and neat, except for a pile of gore and body
+@eng The workroom of Shadar Lunn@rus Рабочая комната Шадар Лунна~
+@eng The room is very orderly and neat, except for a pile of gore and body
 parts against the far wall.  Weapons are displayed neatly in cases, and a
 suit of armor lies ready to be donned at a moment's notice.  The occupant is
 obviously a very organized, however twisted, individual.
+@rus Эта комната производит впечатление очень чистой и аккуратной до
+тех пор, пока ты не замечаешь кучу искромсанных и окровавленных
+частей тел у дальней стены. Оружие выставлено на всеобщее обозрение
+в нескольких витринах и находящийся в превосходном состоянии доспех
+лежит неподалеку, готовый к использованию. Очевидно, хозяин этой
+комнаты - очень организованный, но в то же время явно безумный человек.
 ~
 0 ADN inside
 D0

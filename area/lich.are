@@ -228,18 +228,12 @@ bone~
 light AGY 0 AO
 0 0 999 0 0
 35 5 1000 P
-A
-5 -2
-A
-13 25
-A
-12 25
-A
-18 2
-A
-19 2
-A
-3 2
+a '' to_object 35 -1 -2 5 0
+a '' to_object 35 -1 25 13 0
+a '' to_object 35 -1 25 12 0
+a '' to_object 35 -1 2 18 0
+a '' to_object 35 -1 2 19 0
+a '' to_object 35 -1 2 3 0
 g none~
 #29354
 garnet ring кольцо гранат золотое~
@@ -249,16 +243,11 @@ gold~
 treasure AG 0 AB
 0 0 0 0 0
 45 1 900 P
-A
-20 -15
-A
-19 2
-A
-12 30
-A
-3 2
-A
-18 2
+a '' to_object 45 -1 -15 20 0
+a '' to_object 45 -1 2 19 0
+a '' to_object 45 -1 30 12 0
+a '' to_object 45 -1 2 3 0
+a '' to_object 45 -1 2 18 0
 g @eng none@rus neutral~
 #29355
 bracer night браслет ночи~
@@ -268,12 +257,9 @@ adamantite~
 armor BG 0 AM
 10 10 10 8 0
 30 5 1500 P
-A
-18 2
-A
-19 2
-A
-5 1
+a '' to_object 30 -1 2 18 0
+a '' to_object 30 -1 2 19 0
+a '' to_object 30 -1 1 5 0
 g none~
 #29356
 amulet night амулет ночи~
@@ -283,14 +269,10 @@ silver~
 armor AG 0 AC
 11 11 11 9 0
 40 3 2000 P
-A
-12 30
-A
-14 15
-A
-3 1
-A
-4 1
+a '' to_object 40 -1 30 12 0
+a '' to_object 40 -1 15 14 0
+a '' to_object 40 -1 1 3 0
+a '' to_object 40 -1 1 4 0
 g @eng none@rus male~
 #29357
 ancient longsword sword древний старый меч~
@@ -300,10 +282,8 @@ adamantite~
 weapon AG 0 AN
 sword 5 9 'slash' DH
 40 200 2500 P
-A
-19 3
-A
-18 3
+a '' to_object 40 -1 3 19 0
+a '' to_object 40 -1 3 18 0
 g @eng none@rus male~
 #29358
 scale black dragon чешуя дракон черная~
@@ -313,16 +293,11 @@ dragonscale~
 armor G 0 AJ
 11 11 11 8 0
 40 30 1200 P
-A
-13 15
-A
-19 3
-A
-18 2
-A
-1 2
-A
-3 -2
+a '' to_object 40 -1 15 13 0
+a '' to_object 40 -1 3 19 0
+a '' to_object 40 -1 2 18 0
+a '' to_object 40 -1 2 1 0
+a '' to_object 40 -1 -2 3 0
 g @eng none@rus female~
 #29359
 sword hell wraith меч призрак ада~
@@ -332,18 +307,12 @@ adamantite~
 weapon ABEGM 0 AN
 exotic 10 6 'bite' CE
 45 250 5000 P
-A
-2 1
-A
-1 1
-A
-18 5
-A
-19 5
-A
-4 -1
-A
-3 -1
+a '' to_object 45 -1 1 2 0
+a '' to_object 45 -1 1 1 0
+a '' to_object 45 -1 5 18 0
+a '' to_object 45 -1 5 19 0
+a '' to_object 45 -1 -1 4 0
+a '' to_object 45 -1 -1 3 0
 E
 sword hell wraith меч призрак ада~
 @eng This sword was supposedly forged in the depths of Hell. It's wavy
@@ -361,10 +330,8 @@ etherealness~
 armor G 0 AK
 12 12 12 7 0
 45 10 3000 P
-A
-3 2
-A
-12 75
+a '' to_object 45 -1 2 3 0
+a '' to_object 45 -1 75 12 0
 g @eng none@rus female~
 #29361
 infinity scroll свиток бесконечности~
@@ -374,22 +341,14 @@ parchment~
 armor ABG 0 AO
 12 12 12 7 0
 45 4 7500 P
-A
-18 2
-A
-19 2
-A
-2 -1
-A
-1 -2
-A
-4 2
-A
-3 2
-A
-13 50
-A
-12 50
+a '' to_object 45 -1 2 18 0
+a '' to_object 45 -1 2 19 0
+a '' to_object 45 -1 -1 2 0
+a '' to_object 45 -1 -2 1 0
+a '' to_object 45 -1 2 4 0
+a '' to_object 45 -1 2 3 0
+a '' to_object 45 -1 50 13 0
+a '' to_object 45 -1 50 12 0
 E
 infinity scroll свиток бесконечности~
 @eng This old scroll is rumored answer all questions.. Unfortunately,
@@ -424,8 +383,7 @@ leather~
 boat G 0 AG
 0 0 0 0 0
 20 5 1000 P
-A
-2 1
+a '' to_object 20 -1 1 2 0
 g @eng none@rus plural~
 #29365
 thieve's tunic туника вора рубашка shirt~
@@ -435,10 +393,8 @@ cloth~
 container G 0 AD
 120 0 0 10 25
 25 15 900 P
-A
-18 3
-A
-2 3
+a '' to_object 25 -1 3 18 0
+a '' to_object 25 -1 3 2 0
 g @eng none@rus female~
 #29366
 paper бумаги обрывок чистый piece blank~

@@ -437,16 +437,11 @@ platinum~
 armor FGK 0 AD
 12 12 11 6 0
 35 500 8400 P
-A
-27 2
-A
-29 2
-A
-28 2
-A
-32 7
-A
-1 1
+a '' to_object 35 -1 2 27 0
+a '' to_object 35 -1 2 29 0
+a '' to_object 35 -1 2 28 0
+a '' to_object 35 -1 7 32 0
+a '' to_object 35 -1 1 1 0
 g none~
 #901
 hammer thunder bolt thunderbolt~
@@ -456,12 +451,9 @@ mithril~
 weapon FGK 0 AN
 mace 8 7 'blast' G
 50 140 5400 P
-A
-18 5
-A
-19 5
-A
-4 -1
+a '' to_object 50 -1 5 18 0
+a '' to_object 50 -1 5 19 0
+a '' to_object 50 -1 -1 4 0
 g none~
 #902
 helmet winged~
@@ -471,8 +463,7 @@ platinum~
 armor FGK 0 AE
 11 12 11 5 0
 35 50 7300 P
-A
-2 2
+a '' to_object 35 -1 2 2 0
 g none~
 #903
 spear ares~
@@ -482,12 +473,9 @@ titanium~
 weapon FGJ 0 AN
 spear 5 10 'thrust' FK
 48 180 2000 P
-A
-19 4
-A
-6 1
-A
-18 4
+a '' to_object 48 -1 4 19 0
+a '' to_object 48 -1 1 6 0
+a '' to_object 48 -1 4 18 0
 g none~
 #904
 sandals winged~
@@ -497,7 +485,7 @@ silk~
 armor FGK 0 AG
 8 8 8 4 0
 25 50 2200 P
-F A 0 0 T
+a '' to_affects 25 -1 0 0 T
 g none~
 #905
 staff ivory~
@@ -516,8 +504,7 @@ oak~
 weapon FGK 0 AN
 spear 7 7 'pierce' FK
 47 160 5700 P
-A
-4 2
+a '' to_object 47 -1 2 4 0
 g none~
 #907
 bow silver~
@@ -527,10 +514,8 @@ silver~
 weapon FGK 0 AN
 bow 6 7 'pierce' F
 47 150 10300 P
-A
-19 1
-A
-18 1
+a '' to_object 47 -1 1 19 0
+a '' to_object 47 -1 1 18 0
 g none~
 #908
 gauntlets flaming~
@@ -540,8 +525,7 @@ steel~
 armor G 0 AH
 7 7 7 4 0
 27 60 2900 P
-A
-13 25
+a '' to_object 27 -1 25 13 0
 g none~
 #909
 vial potion ambrosia~
@@ -560,8 +544,7 @@ amethyst~
 jewelry FGK 0 AC
 0 0 0 0 0
 25 20 980 P
-A
-12 25
+a '' to_object 25 -1 25 12 0
 g none~
 #911
 ring sapphire~
@@ -571,10 +554,8 @@ sapphire~
 jewelry FGK 0 AB
 0 0 0 0 0
 35 10 6900 P
-A
-19 3
-A
-4 2
+a '' to_object 35 -1 3 19 0
+a '' to_object 35 -1 2 4 0
 g none~
 #912
 shield glowing~
@@ -584,8 +565,7 @@ silver~
 armor FGK 0 AJ
 9 9 9 6 0
 30 200 5300 P
-A
-4 1
+a '' to_object 30 -1 1 4 0
 g none~
 #913
 axe notched~
@@ -676,12 +656,9 @@ crystal~
 jewelry FGK 0 AC
 0 0 0 0 0
 40 10 4900 P
-A
-35 5
-A
-31 5
-A
-36 5
+a '' to_object 40 -1 5 35 0
+a '' to_object 40 -1 5 31 0
+a '' to_object 40 -1 5 36 0
 g none~
 #923
 sun sword~
@@ -691,12 +668,9 @@ unknown~
 weapon FGK 0 AN
 sword 8 8 'slash' 0
 50 200 6800 P
-A
-19 8
-A
-18 6
-A
-6 3
+a '' to_object 50 -1 8 19 0
+a '' to_object 50 -1 6 18 0
+a '' to_object 50 -1 3 6 0
 g none~
 #924
 robe blue~
@@ -706,8 +680,7 @@ unknown~
 armor FGK 0 AK
 6 6 6 8 0
 17 100 1960 P
-A
-13 15
+a '' to_object 17 -1 15 13 0
 g none~
 #925
 hat~
@@ -799,10 +772,8 @@ silver~
 weapon FGK 0 AO
 arrow 6 7 'pierce' ABCDEFGHK
 47 20 10300 P
-A
-19 1
-A
-18 1
+a '' to_object 47 -1 1 19 0
+a '' to_object 47 -1 1 18 0
 g none~
 #0
 

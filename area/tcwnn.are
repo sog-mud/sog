@@ -1141,10 +1141,8 @@ wood~
 weapon 0 0 AN
 mace 3 3 'crush' 0
 5 300 20 P
-A
-19 3
-A
-18 -2
+a '' to_object 5 -1 3 19 0
+a '' to_object 5 -1 -2 18 0
 g none~
 #31014
 mace~
@@ -1154,10 +1152,8 @@ wood~
 weapon 0 0 AN
 mace 2 4 'pound' 0
 6 200 0 P
-A
-19 1
-A
-18 1
+a '' to_object 6 -1 1 19 0
+a '' to_object 6 -1 1 18 0
 g none~
 #31015
 dagger~
@@ -1167,10 +1163,8 @@ steel~
 weapon 0 0 AN
 dagger 3 4 'pierce' 0
 13 150 0 P
-A
-19 -2
-A
-18 4
+a '' to_object 13 -1 -2 19 0
+a '' to_object 13 -1 4 18 0
 g none~
 #31016
 scimitar~
@@ -1180,10 +1174,8 @@ steel~
 weapon BEGJ 0 AN
 sword 2 4 'slash' 0
 6 250 20 P
-A
-19 2
-A
-18 2
+a '' to_object 6 -1 2 19 0
+a '' to_object 6 -1 2 18 0
 g none~
 #31017
 boots~
@@ -1193,10 +1185,8 @@ leather~
 armor 0 0 AG
 4 4 4 0 0
 13 15 2100 P
-A
-5 1
-A
-17 -5
+a '' to_object 13 -1 1 5 0
+a '' to_object 13 -1 -5 17 0
 g none~
 #31018
 belt~
@@ -1206,10 +1196,8 @@ leather~
 armor 0 0 AL
 3 3 3 0 0
 6 2 320 P
-A
-23 -2
-A
-2 1
+a '' to_object 6 -1 -2 23 0
+a '' to_object 6 -1 1 2 0
 g none~
 #31019
 kamikaze headband~
@@ -1219,8 +1207,7 @@ cloth~
 armor 0 0 AE
 4 4 4 0 0
 15 5 3000 P
-A
-18 2
+a '' to_object 15 -1 2 18 0
 g none~
 #31020
 scarf~
@@ -1230,10 +1217,8 @@ cloth~
 armor 0 0 AC
 3 3 3 0 0
 6 5 1900 P
-A
-19 1
-A
-18 1
+a '' to_object 6 -1 1 19 0
+a '' to_object 6 -1 1 18 0
 g none~
 #31021
 fountain~
@@ -1252,8 +1237,7 @@ gold~
 armor A 0 AB
 0 0 0 0 0
 0 1 10 P
-A
-14 20
+a '' to_object 0 -1 20 14 0
 g none~
 #31023
 cake ~
@@ -1326,8 +1310,7 @@ cloth~
 armor 0 0 AE
 19 18 18 12 0
 58 75 0 P
-A
-13 50
+a '' to_object 58 -1 50 13 0
 g none~
 #31031
 sword longsword~
@@ -1337,14 +1320,10 @@ steel~
 weapon G 0 AN
 sword 6 7 'slash' 0
 53 250 1200 P
-A
-23 -5
-A
-19 8
-A
-18 8
-A
-17 -15
+a '' to_object 53 -1 -5 23 0
+a '' to_object 53 -1 8 19 0
+a '' to_object 53 -1 8 18 0
+a '' to_object 53 -1 -15 17 0
 g none~
 #31032
 sap~
@@ -1363,10 +1342,8 @@ steel~
 weapon G 0 AN
 sword 8 6 'slash' 0
 54 250 2000 P
-A
-19 4
-A
-18 4
+a '' to_object 54 -1 4 19 0
+a '' to_object 54 -1 4 18 0
 g none~
 #31034
 breastplate plate~
@@ -1376,10 +1353,8 @@ steel~
 armor 0 0 AD
 17 17 16 8 0
 52 20 1700 P
-A
-17 -15
-A
-5 2
+a '' to_object 52 -1 -15 17 0
+a '' to_object 52 -1 2 5 0
 g none~
 #31035
 bracer~
@@ -1389,10 +1364,8 @@ leather~
 armor 0 0 AM
 16 17 17 8 0
 52 15 8000 P
-A
-18 2
-A
-2 2
+a '' to_object 52 -1 2 18 0
+a '' to_object 52 -1 2 2 0
 g none~
 #31036
 cloak~
@@ -1402,10 +1375,8 @@ cloth~
 armor 0 0 AC
 15 17 17 8 0
 52 10 20000 P
-A
-17 -15
-A
-12 25
+a '' to_object 52 -1 -15 17 0
+a '' to_object 52 -1 25 12 0
 g none~
 #31037
 helm~
@@ -1415,12 +1386,9 @@ steel~
 armor 0 0 AE
 17 17 17 8 0
 52 10 3000 P
-A
-17 -20
-A
-4 1
-A
-3 1
+a '' to_object 52 -1 -20 17 0
+a '' to_object 52 -1 1 4 0
+a '' to_object 52 -1 1 3 0
 g none~
 #31038
 shield~
@@ -1430,12 +1398,9 @@ steel~
 armor 0 0 AJ
 17 17 17 8 0
 52 20 9000 P
-A
-24 -2
-A
-23 -2
-A
-17 -20
+a '' to_object 52 -1 -2 24 0
+a '' to_object 52 -1 -2 23 0
+a '' to_object 52 -1 -20 17 0
 g none~
 #31039
 spear~
@@ -1445,10 +1410,8 @@ steel~
 weapon G 0 AN
 spear 6 8 'pierce' K
 52 200 3000 P
-A
-19 3
-A
-18 3
+a '' to_object 52 -1 3 19 0
+a '' to_object 52 -1 3 18 0
 g none~
 #31040
 scroll~
@@ -1476,10 +1439,8 @@ unknown~
 armor AHM 0 AE
 0 0 0 0 0
 3 1 0 P
-A
-4 -2
-A
-3 -2
+a '' to_object 3 -1 -2 4 0
+a '' to_object 3 -1 -2 3 0
 E
 sticker~
 The wearer of this item has been officially marked by the deity Yaegar as 
@@ -2924,8 +2885,7 @@ unknown~
 treasure B 0 AO
 0 0 0 0 0
 0 1 10 P
-A
-3 2
+a '' to_object 0 -1 2 3 0
 E
 gem~
 This gem is worth next to nothing on the open market, but is prized by

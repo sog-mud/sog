@@ -299,8 +299,7 @@ silver~
 armor G 0 AE
 4 6 5 3 0
 16 100 2000 P
-A
-13 21
+a '' to_object 16 -1 21 13 0
 g none~
 #29010
 grumm axe~
@@ -310,10 +309,8 @@ iron~
 weapon ABEGLY B AN
 axe 5 5 'slash' CDF
 18 140 5000 G
-A
-18 3
-A
-19 4
+a '' to_object 18 -1 3 18 0
+a '' to_object 18 -1 4 19 0
 g none~
 #29011
 helmet goblin horned dark~
@@ -323,10 +320,8 @@ iron~
 armor 0 0 AE
 3 5 4 0 0
 9 30 450 P
-A
-3 -1
-A
-19 1
+a '' to_object 9 -1 -1 3 0
+a '' to_object 9 -1 1 19 0
 g none~
 #29012
 arm guards granite~
@@ -336,8 +331,7 @@ stone~
 armor GM 0 AI
 6 6 9 2 0
 15 251 1900 P
-A
-5 1
+a '' to_object 15 -1 1 5 0
 E
 arm guards armguards granite~
 These heavy armguards have been carved from the rock of these caverns.
@@ -351,12 +345,9 @@ cloth~
 armor G 0 AK
 1 2 1 1 0
 10 30 1650 P
-A
-3 1
-A
-2 -1
-A
-12 28
+a '' to_object 10 -1 1 3 0
+a '' to_object 10 -1 -1 2 0
+a '' to_object 10 -1 28 12 0
 E
 Filthy green cape.~
 You see a cape ridden with filth and vermin. You're not going to WEAR it are
@@ -371,10 +362,8 @@ stone~
 weapon AG 0 AN
 dagger 4 4 'stab' D
 12 10 1100 G
-A
-19 3
-A
-18 -1
+a '' to_object 12 -1 3 19 0
+a '' to_object 12 -1 -1 18 0
 E
 A stone shard~
 Looks like it would make a good weapon.
@@ -388,8 +377,7 @@ iron~
 weapon G 0 AN
 sword 4 4 'slash' D
 12 50 900 G
-A
-19 1
+a '' to_object 12 -1 1 19 0
 g none~
 #29016
 potion frothing black~
@@ -412,14 +400,10 @@ iron~
 weapon AG 0 AN
 sword 4 6 'slash' DF
 20 50 7900 G
-A
-18 2
-A
-19 5
-A
-4 -2
-A
-5 -2
+a '' to_object 20 -1 2 18 0
+a '' to_object 20 -1 5 19 0
+a '' to_object 20 -1 -2 4 0
+a '' to_object 20 -1 -2 5 0
 g none~
 #29018
 key shaman goblin~
@@ -465,18 +449,12 @@ stone~
 container ABGLY B AQ
 600 0 0 100 10
 20 20 12300 G
-A
-24 -2
-A
-23 -2
-A
-22 -2
-A
-21 -2
-A
-20 -2
-A
-17 -2
+a '' to_object 20 -1 -2 24 0
+a '' to_object 20 -1 -2 23 0
+a '' to_object 20 -1 -2 22 0
+a '' to_object 20 -1 -2 21 0
+a '' to_object 20 -1 -2 20 0
+a '' to_object 20 -1 -2 17 0
 g female~
 #29023
 ring britta~
@@ -486,10 +464,8 @@ gold~
 treasure G 0 AB
 0 0 0 0 0
 9 10 1100 G
-A
-12 21
-A
-3 2
+a '' to_object 9 -1 21 12 0
+a '' to_object 9 -1 2 3 0
 g none~
 #29024
 Bookcase~

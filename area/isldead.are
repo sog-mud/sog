@@ -767,12 +767,9 @@ steel~
 weapon B 0 AN
 sword 5 9 'cleave' 0
 45 5 40000 P
-A
-19 4
-A
-18 5
-A
-2 1
+a '' to_object 45 -1 4 19 0
+a '' to_object 45 -1 5 18 0
+a '' to_object 45 -1 1 2 0
 g none~
 #22302
 kabuto battle helm~
@@ -782,16 +779,11 @@ steel~
 armor 0 C AE
 15 15 13 10 0
 45 8 30000 P
-A
-17 -10
-A
-19 2
-A
-18 1
-A
-4 1
-A
-3 1
+a '' to_object 45 -1 -10 17 0
+a '' to_object 45 -1 2 19 0
+a '' to_object 45 -1 1 18 0
+a '' to_object 45 -1 1 4 0
+a '' to_object 45 -1 1 3 0
 g none~
 #22303
 hi-kane-do battle gown~
@@ -801,12 +793,9 @@ steel~
 armor 0 C AD
 20 20 20 15 0
 45 20 30000 P
-A
-17 -15
-A
-19 2
-A
-18 1
+a '' to_object 45 -1 -15 17 0
+a '' to_object 45 -1 2 19 0
+a '' to_object 45 -1 1 18 0
 g none~
 #22304
 hi-kane-do battle leggings~
@@ -816,14 +805,10 @@ steel~
 armor 0 C AF
 17 17 15 13 0
 45 11 30000 P
-A
-17 -10
-A
-19 2
-A
-18 1
-A
-2 2
+a '' to_object 45 -1 -10 17 0
+a '' to_object 45 -1 2 19 0
+a '' to_object 45 -1 1 18 0
+a '' to_object 45 -1 2 2 0
 g none~
 #22305
 hi-kane-do battle sleeves~
@@ -833,12 +818,9 @@ steel~
 armor 0 C AI
 10 10 10 9 0
 45 9 30000 P
-A
-19 2
-A
-18 1
-A
-5 2
+a '' to_object 45 -1 2 19 0
+a '' to_object 45 -1 1 18 0
+a '' to_object 45 -1 2 5 0
 g none~
 #22306
 hi-kane-do battle gloves~
@@ -848,14 +830,10 @@ steel~
 armor 0 C AH
 10 10 10 9 0
 45 8 0 P
-A
-17 -5
-A
-19 2
-A
-18 1
-A
-1 1
+a '' to_object 45 -1 -5 17 0
+a '' to_object 45 -1 2 19 0
+a '' to_object 45 -1 1 18 0
+a '' to_object 45 -1 1 1 0
 g none~
 #22307
 hi-kane-do battle boots~
@@ -865,14 +843,10 @@ steel~
 armor 0 C AG
 10 10 10 7 0
 45 13 30000 P
-A
-17 -5
-A
-14 70
-A
-19 2
-A
-18 1
+a '' to_object 45 -1 -5 17 0
+a '' to_object 45 -1 70 14 0
+a '' to_object 45 -1 2 19 0
+a '' to_object 45 -1 1 18 0
 g none~
 #22308
 bracer defence~
@@ -882,12 +856,9 @@ steel~
 armor C 0 AM
 8 8 8 6 0
 40 3 30000 P
-A
-19 2
-A
-18 1
-A
-17 -6
+a '' to_object 40 -1 2 19 0
+a '' to_object 40 -1 1 18 0
+a '' to_object 40 -1 -6 17 0
 g none~
 #22309
 black belt five flowers~
@@ -897,12 +868,9 @@ leather~
 armor C 0 AL
 8 8 8 7 0
 40 1 10000 P
-A
-19 1
-A
-2 1
-A
-5 2
+a '' to_object 40 -1 1 19 0
+a '' to_object 40 -1 1 2 0
+a '' to_object 40 -1 2 5 0
 g none~
 #22310
 midnight cloak~
@@ -912,12 +880,9 @@ energy~
 armor C 0 AC
 4 5 5 4 0
 40 2 30000 P
-A
-13 20
-A
-20 -3
-A
-19 2
+a '' to_object 40 -1 20 13 0
+a '' to_object 40 -1 -3 20 0
+a '' to_object 40 -1 2 19 0
 g none~
 #22311
 key ringwraith~
@@ -936,13 +901,10 @@ clay~
 furniture GY 0 AO
 A CFG EH CFG CFG
 45 4 30000 P
-S 'perception' 50 0
-A
-4 2
-A
-3 2
-A
-2 2
+a '' to_skills 45 -1 50 'perception' 0
+a '' to_object 45 -1 2 4 0
+a '' to_object 45 -1 2 3 0
+a '' to_object 45 -1 2 2 0
 g none~
 #22313
 black gown death essence~
@@ -952,16 +914,11 @@ energy~
 armor BCHM E AD
 -10 -10 -10 -10 0
 0 0 666 P
-A
-5 -5
-A
-14 -100
-A
-20 -10
-A
-17 -10
-A
-19 -10
+a '' to_object 0 -1 -5 5 0
+a '' to_object 0 -1 -100 14 0
+a '' to_object 0 -1 -10 20 0
+a '' to_object 0 -1 -10 17 0
+a '' to_object 0 -1 -10 19 0
 g none~
 #22314
 ring demons~
@@ -971,18 +928,12 @@ iron~
 armor CEHJM C AB
 7 6 6 15 0
 0 1 6666 P
-A
-19 2
-A
-18 1
-A
-20 -10
-A
-4 -2
-A
-3 -2
-A
-5 -2
+a '' to_object 0 -1 2 19 0
+a '' to_object 0 -1 1 18 0
+a '' to_object 0 -1 -10 20 0
+a '' to_object 0 -1 -2 4 0
+a '' to_object 0 -1 -2 3 0
+a '' to_object 0 -1 -2 5 0
 g none~
 #22315
 mummy tomb~
@@ -1001,14 +952,10 @@ iron~
 armor BY BC AC
 15 15 15 15 0
 45 30 50000 P
-A
-23 -10
-A
-18 -4
-A
-19 4
-A
-17 -30
+a '' to_object 45 -1 -10 23 0
+a '' to_object 45 -1 -4 18 0
+a '' to_object 45 -1 4 19 0
+a '' to_object 45 -1 -30 17 0
 g none~
 #22317
 ankh death~
@@ -1018,16 +965,11 @@ iron~
 treasure CEHM C AC
 0 0 0 0 0
 45 1 6666 P
-A
-18 2
-A
-19 2
-A
-14 -66
-A
-17 -17
-A
-5 -2
+a '' to_object 45 -1 2 18 0
+a '' to_object 45 -1 2 19 0
+a '' to_object 45 -1 -66 14 0
+a '' to_object 45 -1 -17 17 0
+a '' to_object 45 -1 -2 5 0
 g none~
 #22318
 pa-ra-voz axel~
@@ -1037,12 +979,9 @@ iron~
 weapon AB BC AN
 staff 10 5 'flbite' F
 0 450 50000 P
-A
-18 3
-A
-19 8
-A
-17 -10
+a '' to_object 0 -1 3 18 0
+a '' to_object 0 -1 8 19 0
+a '' to_object 0 -1 -10 17 0
 g none~
 #22319
 staff death~
@@ -1052,14 +991,10 @@ energy~
 weapon CEHJM CE AN
 exotic 5 7 'drain' CH
 45 0 6666 P
-A
-18 3
-A
-17 10
-A
-13 -50
-A
-19 4
+a '' to_object 45 -1 3 18 0
+a '' to_object 45 -1 10 17 0
+a '' to_object 45 -1 -50 13 0
+a '' to_object 45 -1 4 19 0
 g none~
 #22320
 key gorrors~
@@ -1078,14 +1013,10 @@ iron~
 armor BCI C AJ
 25 25 25 20 0
 45 100 50000 P
-A
-12 -50
-A
-13 10
-A
-18 -5
-A
-17 -30
+a '' to_object 45 -1 -50 12 0
+a '' to_object 45 -1 10 13 0
+a '' to_object 45 -1 -5 18 0
+a '' to_object 45 -1 -30 17 0
 g none~
 #22322
 chest~
@@ -1131,16 +1062,11 @@ iron~
 weapon Y BC AN
 axe 15 4 'frbite' EF
 45 450 100000 P
-A
-30 -33
-A
-31 33
-A
-26 1
-A
-19 5
-A
-18 5
+a '' to_object 45 -1 -33 30 0
+a '' to_object 45 -1 33 31 0
+a '' to_object 45 -1 1 26 0
+a '' to_object 45 -1 5 19 0
+a '' to_object 45 -1 5 18 0
 g none~
 #22327
 whip flame~
@@ -1150,10 +1076,8 @@ flame~
 weapon ACU C AN
 whip 10 7 'flbite' A
 46 50 100000 P
-A
-31 -80
-A
-30 100
+a '' to_object 46 -1 -80 31 0
+a '' to_object 46 -1 100 30 0
 g none~
 #22328
 stone~
@@ -1298,18 +1222,12 @@ silver~
 weapon BIY C AN
 mace 10 6 'shbite' 0
 46 100 100000 P
-A
-36 -33
-A
-32 33
-A
-18 3
-A
-19 7
-A
-4 1
-A
-3 1
+a '' to_object 46 -1 -33 36 0
+a '' to_object 46 -1 33 32 0
+a '' to_object 46 -1 3 18 0
+a '' to_object 46 -1 7 19 0
+a '' to_object 46 -1 1 4 0
+a '' to_object 46 -1 1 3 0
 g none~
 #22341
 ebony breastplate plate~
@@ -1319,20 +1237,13 @@ ebony~
 armor BCGU C AD
 30 30 30 25 0
 46 15 100000 P
-A
-27 9
-A
-29 7
-A
-28 11
-A
-20 -7
-A
-1 1
-A
-19 3
-A
-18 3
+a '' to_object 46 -1 9 27 0
+a '' to_object 46 -1 7 29 0
+a '' to_object 46 -1 11 28 0
+a '' to_object 46 -1 -7 20 0
+a '' to_object 46 -1 1 1 0
+a '' to_object 46 -1 3 19 0
+a '' to_object 46 -1 3 18 0
 E
 breastplate~
 This piece of a full plate armour appears to be extremely light and
@@ -1350,18 +1261,12 @@ mithril~
 weapon BIKLY CF AN
 spear 18 3 'divine' FI
 45 200 100000 P
-A
-35 25
-A
-18 4
-A
-19 5
-A
-5 1
-A
-2 1
-A
-17 -15
+a '' to_object 45 -1 25 35 0
+a '' to_object 45 -1 4 18 0
+a '' to_object 45 -1 5 19 0
+a '' to_object 45 -1 1 5 0
+a '' to_object 45 -1 1 2 0
+a '' to_object 45 -1 -15 17 0
 E
 lance~
 The sense of holiness and purity comes over you as you look at this
@@ -1377,22 +1282,14 @@ ebony~
 armor BGY C AE
 25 25 23 20 0
 46 12 100000 P
-A
-28 5
-A
-29 3
-A
-20 -5
-A
-27 7
-A
-1 1
-A
-2 1
-A
-18 3
-A
-19 3
+a '' to_object 46 -1 5 28 0
+a '' to_object 46 -1 3 29 0
+a '' to_object 46 -1 -5 20 0
+a '' to_object 46 -1 7 27 0
+a '' to_object 46 -1 1 1 0
+a '' to_object 46 -1 1 2 0
+a '' to_object 46 -1 3 18 0
+a '' to_object 46 -1 3 19 0
 g none~
 #22344
 ebony leggings~
@@ -1402,22 +1299,14 @@ ebony~
 armor CY C AF
 27 27 23 20 0
 46 5 100000 P
-A
-28 6
-A
-20 -5
-A
-27 2
-A
-29 5
-A
-2 1
-A
-5 1
-A
-18 3
-A
-19 3
+a '' to_object 46 -1 6 28 0
+a '' to_object 46 -1 -5 20 0
+a '' to_object 46 -1 2 27 0
+a '' to_object 46 -1 5 29 0
+a '' to_object 46 -1 1 2 0
+a '' to_object 46 -1 1 5 0
+a '' to_object 46 -1 3 18 0
+a '' to_object 46 -1 3 19 0
 g none~
 #22345
 staff nar-i-vagil~
@@ -1427,14 +1316,10 @@ wood~
 weapon AY C AN
 staff 12 5 'flame' F
 46 250 100000 P
-A
-31 -33
-A
-30 33
-A
-18 5
-A
-19 4
+a '' to_object 46 -1 -33 31 0
+a '' to_object 46 -1 33 30 0
+a '' to_object 46 -1 5 18 0
+a '' to_object 46 -1 4 19 0
 g none~
 #22346
 ebony sleeves~
@@ -1444,16 +1329,11 @@ ebony~
 armor CY C AI
 20 20 20 10 0
 46 5 100000 P
-A
-20 -5
-A
-18 3
-A
-19 3
-A
-29 4
-A
-27 5
+a '' to_object 46 -1 -5 20 0
+a '' to_object 46 -1 3 18 0
+a '' to_object 46 -1 3 19 0
+a '' to_object 46 -1 4 29 0
+a '' to_object 46 -1 5 27 0
 g none~
 #22347
 flail thunderfist~
@@ -1463,18 +1343,12 @@ energy~
 weapon BY C AN
 flail 15 4 'shock' 0
 46 200 100000 P
-A
-36 -30
-A
-32 30
-A
-20 -5
-A
-13 20
-A
-18 2
-A
-19 4
+a '' to_object 46 -1 -30 36 0
+a '' to_object 46 -1 30 32 0
+a '' to_object 46 -1 -5 20 0
+a '' to_object 46 -1 20 13 0
+a '' to_object 46 -1 2 18 0
+a '' to_object 46 -1 4 19 0
 g none~
 #22348
 ebony boots~
@@ -1484,14 +1358,10 @@ ebony~
 armor CY C AG
 20 20 20 15 0
 46 5 100000 P
-A
-20 -5
-A
-14 80
-A
-19 3
-A
-18 3
+a '' to_object 46 -1 -5 20 0
+a '' to_object 46 -1 80 14 0
+a '' to_object 46 -1 3 19 0
+a '' to_object 46 -1 3 18 0
 g none~
 #22349
 whip careth asdriag~
@@ -1501,12 +1371,9 @@ leather~
 weapon CJY C AN
 whip 11 5 'kiss' D
 46 50 100000 P
-A
-13 20
-A
-19 3
-A
-18 5
+a '' to_object 46 -1 20 13 0
+a '' to_object 46 -1 3 19 0
+a '' to_object 46 -1 5 18 0
 E
 whip~
 A foul smell of acid surrounds nine barbed tails of this whip,
@@ -1521,14 +1388,10 @@ unknown~
 armor CY C AI
 15 15 15 15 0
 46 5 100000 P
-A
-1 3
-A
-18 3
-A
-20 -5
-A
-19 3
+a '' to_object 46 -1 3 1 0
+a '' to_object 46 -1 3 18 0
+a '' to_object 46 -1 -5 20 0
+a '' to_object 46 -1 3 19 0
 g none~
 #22351
 key treasure~
@@ -1700,18 +1563,12 @@ silver~
 armor BY C AE
 10 10 7 5 0
 45 40 40000 P
-A
-18 3
-A
-19 3
-A
-17 -10
-A
-29 1
-A
-28 1
-A
-27 1
+a '' to_object 45 -1 3 18 0
+a '' to_object 45 -1 3 19 0
+a '' to_object 45 -1 -10 17 0
+a '' to_object 45 -1 1 29 0
+a '' to_object 45 -1 1 28 0
+a '' to_object 45 -1 1 27 0
 g none~
 #22370
 silver vest~
@@ -1721,20 +1578,13 @@ silver~
 armor BY C AD
 20 20 18 15 0
 45 100 50000 P
-A
-2 -1
-A
-26 1
-A
-19 4
-A
-1 2
-A
-28 3
-A
-29 2
-A
-27 2
+a '' to_object 45 -1 -1 2 0
+a '' to_object 45 -1 1 26 0
+a '' to_object 45 -1 4 19 0
+a '' to_object 45 -1 2 1 0
+a '' to_object 45 -1 3 28 0
+a '' to_object 45 -1 2 29 0
+a '' to_object 45 -1 2 27 0
 g none~
 #22371
 silver boot~
@@ -1744,14 +1594,10 @@ unknown~
 armor BY C AG
 10 10 8 7 0
 45 20 45000 P
-A
-17 -5
-A
-2 1
-A
-19 3
-A
-14 50
+a '' to_object 45 -1 -5 17 0
+a '' to_object 45 -1 1 2 0
+a '' to_object 45 -1 3 19 0
+a '' to_object 45 -1 50 14 0
 g none~
 #22372
 silver sleeves~
@@ -1761,16 +1607,11 @@ silver~
 armor BY C AI
 15 15 15 10 0
 45 20 30000 P
-A
-18 3
-A
-19 3
-A
-28 2
-A
-27 1
-A
-29 1
+a '' to_object 45 -1 3 18 0
+a '' to_object 45 -1 3 19 0
+a '' to_object 45 -1 2 28 0
+a '' to_object 45 -1 1 27 0
+a '' to_object 45 -1 1 29 0
 g none~
 #22373
 silver gloves~
@@ -1780,8 +1621,7 @@ silver~
 armor BY C AH
 10 10 10 7 0
 45 10 0 P
-A
-18 3
+a '' to_object 45 -1 3 18 0
 g none~
 #22374
 silver leggings~
@@ -1791,20 +1631,13 @@ silver~
 armor BY C AF
 18 18 16 13 0
 45 25 30000 P
-A
-18 1
-A
-19 1
-A
-13 10
-A
-27 1
-A
-28 1
-A
-29 1
-A
-17 -10
+a '' to_object 45 -1 1 18 0
+a '' to_object 45 -1 1 19 0
+a '' to_object 45 -1 10 13 0
+a '' to_object 45 -1 1 27 0
+a '' to_object 45 -1 1 28 0
+a '' to_object 45 -1 1 29 0
+a '' to_object 45 -1 -10 17 0
 g none~
 #22375
 silver shield~
@@ -1814,12 +1647,9 @@ silver~
 armor BY C AJ
 25 25 20 15 0
 45 100 50000 P
-A
-27 6
-A
-28 5
-A
-29 3
+a '' to_object 45 -1 6 27 0
+a '' to_object 45 -1 5 28 0
+a '' to_object 45 -1 3 29 0
 g none~
 #22376
 silver dagger~
@@ -1829,11 +1659,9 @@ silver~
 weapon Y C AN
 dagger 20 2 'stab' DH
 45 80 10000 P
-S 'backstab' 40 0
-A
-18 5
-A
-19 2
+a '' to_skills 45 -1 40 'backstab' 0
+a '' to_object 45 -1 5 18 0
+a '' to_object 45 -1 2 19 0
 g none~
 #22377
 silver mace~
@@ -1843,13 +1671,10 @@ silver~
 weapon Y C AN
 mace 15 3 'smash' DG
 45 200 50000 P
-S 'head crush' 50 0
-A
-1 3
-A
-18 5
-A
-19 5
+a '' to_skills 45 -1 50 'head crush' 0
+a '' to_object 45 -1 3 1 0
+a '' to_object 45 -1 5 18 0
+a '' to_object 45 -1 5 19 0
 g none~
 #22378
 silver axe~
@@ -1859,11 +1684,9 @@ silver~
 weapon Y C AN
 axe 17 4 'cleave' BD
 45 200 30000 P
-A
-18 3
-A
-19 5
-S 'cleave' 50 0
+a '' to_object 45 -1 3 18 0
+a '' to_object 45 -1 5 19 0
+a '' to_skills 45 -1 50 'cleave' 0
 g none~
 #22379
 silver flail~
@@ -1873,11 +1696,9 @@ silver~
 weapon Y C AN
 flail 10 5 'charge' CD
 45 100 30000 P
-A
-18 3
-A
-19 3
-S 'deathblow' 30 0
+a '' to_object 45 -1 3 18 0
+a '' to_object 45 -1 3 19 0
+a '' to_skills 45 -1 30 'deathblow' 0
 g none~
 #22399
 battleaxe dagger sword~
@@ -1896,12 +1717,9 @@ unknown~
 armor 0 0 AM
 10000 10000 10000 10000 0
 46 0 0 P
-A
-8 100
-A
-13 10000
-A
-12 10000
+a '' to_object 46 -1 100 8 0
+a '' to_object 46 -1 10000 13 0
+a '' to_object 46 -1 10000 12 0
 g none~
 #0
 

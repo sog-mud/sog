@@ -26,7 +26,7 @@ BGR 0 H 0 AB 0 0
 46 0 100d5+3000 1d100+2000 9d9+31 'magic'
 -61 -63 -64 -33
 EFG
-stand stand female 55000
+stand stand female 11000
 0 0 medium unknown
 r lightning 33
 r acid 33
@@ -42,10 +42,10 @@ of major house Deriki, Lechandre.
 ~
 elf~
 BGR 0 H 0 AB 0 0
-93 0 100d12+19000 1d100+14700 12d13+63 'wrath'
+46 0 100d5+3000 1d100+3000 6d15+32 'wrath'
 -63 -63 -61 -32
 FG
-stand stand male 45700
+stand stand male 94000
 0 0 medium unknown
 r pierce -50
 r lightning 33
@@ -1798,14 +1798,10 @@ mithril~
 armor AI 0 AC
 9 9 10 8 0
 43 30 10000 P
-A
-12 35
-A
-18 2
-A
-19 2
-A
-3 2
+a '' to_object 43 -1 35 12 0
+a '' to_object 43 -1 2 18 0
+a '' to_object 43 -1 2 19 0
+a '' to_object 43 -1 2 3 0
 E
 mithril ((+*+)) torque deriki~
 An inscription along the edge reads:
@@ -1821,10 +1817,8 @@ light~
 armor A 0 AK
 10 9 9 9 0
 43 50 10000 P
-A
-12 35
-A
-3 1
+a '' to_object 43 -1 35 12 0
+a '' to_object 43 -1 1 3 0
 E
 shimmering blue robe~
 An inscription along the edge reads:
@@ -1840,10 +1834,8 @@ flame~
 light A 0 A
 0 0 -1 0 0
 43 0 10000 P
-A
-12 30
-A
-19 2
+a '' to_object 43 -1 30 12 0
+a '' to_object 43 -1 2 19 0
 g none~
 #11812
 engraved ((+*+)) ring deriki~
@@ -1853,14 +1845,10 @@ mithril~
 armor B 0 AB
 8 8 8 7 0
 43 10 10000 P
-A
-18 3
-A
-1 1
-A
-12 35
-A
-13 25
+a '' to_object 43 -1 3 18 0
+a '' to_object 43 -1 1 1 0
+a '' to_object 43 -1 35 12 0
+a '' to_object 43 -1 25 13 0
 E
 engraved ((+*+)) ring deriki~
 An inscription along the inside of the band reads:
@@ -1876,16 +1864,11 @@ mithril~
 armor A 0 AO
 9 9 10 6 0
 43 20 10000 P
-A
-12 30
-A
-17 -10
-A
-4 1
-A
-3 1
-A
-2 1
+a '' to_object 43 -1 30 12 0
+a '' to_object 43 -1 -10 17 0
+a '' to_object 43 -1 1 4 0
+a '' to_object 43 -1 1 3 0
+a '' to_object 43 -1 1 2 0
 E
 ((+*+)) crest deriki~
 An inscription along the inside of the band reads:
@@ -1901,10 +1884,8 @@ mithril~
 armor A 0 AM
 9 10 9 8 0
 42 20 9500 P
-A
-12 30
-A
-19 3
+a '' to_object 42 -1 30 12 0
+a '' to_object 42 -1 3 19 0
 g none~
 #11815
 ((+*+)) chain belt deriki~
@@ -1914,12 +1895,9 @@ mithril~
 armor A 0 AL
 10 10 10 8 0
 42 50 9000 P
-A
-12 50
-A
-19 4
-A
-5 -2
+a '' to_object 42 -1 50 12 0
+a '' to_object 42 -1 4 19 0
+a '' to_object 42 -1 -2 5 0
 g none~
 #11816
 ((+*+)) shoes deriki~
@@ -1929,16 +1907,11 @@ mithril~
 armor A 0 AG
 8 9 8 7 0
 40 50 11100 P
-A
-12 25
-A
-13 15
-A
-3 1
-A
-2 1
-A
-18 -2
+a '' to_object 40 -1 25 12 0
+a '' to_object 40 -1 15 13 0
+a '' to_object 40 -1 1 3 0
+a '' to_object 40 -1 1 2 0
+a '' to_object 40 -1 -2 18 0
 g none~
 #11817
 ((+*+)) armbands arm bands deriki~
@@ -1948,14 +1921,10 @@ mithril~
 armor AI 0 AI
 9 9 9 8 0
 41 50 11000 P
-A
-12 30
-A
-19 2
-A
-4 1
-A
-6 -1
+a '' to_object 41 -1 30 12 0
+a '' to_object 41 -1 2 19 0
+a '' to_object 41 -1 1 4 0
+a '' to_object 41 -1 -1 6 0
 g none~
 #11818
 glittering ((+*+)) earring deriki~
@@ -1965,16 +1934,11 @@ mithril~
 armor AG 0 AE
 6 6 6 5 0
 40 10 12400 P
-A
-12 30
-A
-13 15
-A
-19 2
-A
-5 -1
-A
-1 1
+a '' to_object 40 -1 30 12 0
+a '' to_object 40 -1 15 13 0
+a '' to_object 40 -1 2 19 0
+a '' to_object 40 -1 -1 5 0
+a '' to_object 40 -1 1 1 0
 g none~
 #11819
 glowing ((+*+)) sphere deriki~
@@ -1984,14 +1948,10 @@ light~
 armor ABI 0 AQ
 13 12 13 11 0
 40 10 10000 P
-A
-12 30
-A
-19 2
-A
-18 2
-A
-9 -5
+a '' to_object 40 -1 30 12 0
+a '' to_object 40 -1 2 19 0
+a '' to_object 40 -1 2 18 0
+a '' to_object 40 -1 -5 9 0
 g none~
 #11820
 ((+*+)) tunic deriki~
@@ -2001,14 +1961,10 @@ silk~
 armor 0 0 AD
 10 10 9 8 0
 40 40 10000 P
-A
-3 2
-A
-12 30
-A
-13 20
-A
-20 -5
+a '' to_object 40 -1 2 3 0
+a '' to_object 40 -1 30 12 0
+a '' to_object 40 -1 20 13 0
+a '' to_object 40 -1 -5 20 0
 g none~
 #11821
 owl eyes feather~
@@ -2018,12 +1974,9 @@ feathers~
 armor GI 0 AE
 10 10 9 8 0
 42 10 9000 P
-A
-12 40
-A
-18 2
-A
-20 -2
+a '' to_object 42 -1 40 12 0
+a '' to_object 42 -1 2 18 0
+a '' to_object 42 -1 -2 20 0
 g none~
 #11822
 staff guarding mithril~
@@ -2033,8 +1986,7 @@ mithril~
 staff B 0 AO
 50 8 6 'sanctuary' 0
 35 30 10100 P
-A
-17 -20
+a '' to_object 35 -1 -20 17 0
 g none~
 #11823
 gleaming ((-*-)) circlet treniste~
@@ -2044,14 +1996,10 @@ gold~
 armor AIKL 0 AE
 12 11 13 11 0
 42 20 10500 P
-A
-4 2
-A
-3 2
-A
-18 4
-A
-19 4
+a '' to_object 42 -1 2 4 0
+a '' to_object 42 -1 2 3 0
+a '' to_object 42 -1 4 18 0
+a '' to_object 42 -1 4 19 0
 g none~
 #11824
 ((-*-)) set chain armor treniste~
@@ -2061,12 +2009,9 @@ gold~
 armor IKL 0 AD
 14 12 13 11 0
 42 100 15000 P
-A
-19 3
-A
-1 1
-A
-13 10
+a '' to_object 42 -1 3 19 0
+a '' to_object 42 -1 1 1 0
+a '' to_object 42 -1 10 13 0
 g none~
 #11825
 white ((-*-)) belt treniste~
@@ -2076,14 +2021,10 @@ leather~
 armor IKL 0 AL
 10 10 9 8 0
 42 30 10000 P
-A
-19 3
-A
-4 1
-A
-12 25
-A
-13 25
+a '' to_object 42 -1 3 19 0
+a '' to_object 42 -1 1 4 0
+a '' to_object 42 -1 25 12 0
+a '' to_object 42 -1 25 13 0
 g none~
 #11826
 pair ((-*-)) gauntlets treniste~
@@ -2093,14 +2034,10 @@ gold~
 armor IKL 0 AH
 9 9 9 8 0
 41 50 10150 P
-A
-19 4
-A
-18 4
-A
-4 -1
-A
-13 37
+a '' to_object 41 -1 4 19 0
+a '' to_object 41 -1 4 18 0
+a '' to_object 41 -1 -1 4 0
+a '' to_object 41 -1 37 13 0
 g none~
 #11827
 pair ((-*-)) leggings treniste~
@@ -2110,14 +2047,10 @@ gold~
 armor IKL 0 AF
 8 9 9 7 0
 41 50 12000 P
-A
-14 20
-A
-12 20
-A
-13 20
-A
-1 1
+a '' to_object 41 -1 20 14 0
+a '' to_object 41 -1 20 12 0
+a '' to_object 41 -1 20 13 0
+a '' to_object 41 -1 1 1 0
 g none~
 #11828
 white ((-*-)) visor treniste~
@@ -2127,14 +2060,10 @@ gold~
 armor AIKL 0 AE
 8 8 8 7 0
 39 30 9000 P
-A
-19 1
-A
-13 20
-A
-4 1
-A
-2 1
+a '' to_object 39 -1 1 19 0
+a '' to_object 39 -1 20 13 0
+a '' to_object 39 -1 1 4 0
+a '' to_object 39 -1 1 2 0
 g none~
 #11829
 golden ((-*-)) bracer treniste~
@@ -2144,14 +2073,10 @@ gold~
 armor IKL 0 AM
 9 8 8 7 0
 41 20 11000 P
-A
-12 25
-A
-13 25
-A
-5 2
-A
-19 4
+a '' to_object 41 -1 25 12 0
+a '' to_object 41 -1 25 13 0
+a '' to_object 41 -1 2 5 0
+a '' to_object 41 -1 4 19 0
 g none~
 #11830
 embroidered ((-*-)) cape treniste~
@@ -2161,18 +2086,12 @@ linen~
 armor IKL 0 AK
 9 8 9 7 0
 39 40 11200 P
-A
-19 2
-A
-18 2
-A
-13 -15
-A
-12 50
-A
-3 1
-A
-6 -1
+a '' to_object 39 -1 2 19 0
+a '' to_object 39 -1 2 18 0
+a '' to_object 39 -1 -15 13 0
+a '' to_object 39 -1 50 12 0
+a '' to_object 39 -1 1 3 0
+a '' to_object 39 -1 -1 6 0
 g none~
 #11831
 ancient tome~
@@ -2182,8 +2101,7 @@ parchment~
 staff BFG 0 AO
 40 4 4 'detect hidden' 0
 30 50 10000 P
-A
-3 4
+a '' to_object 30 -1 4 3 0
 g none~
 #11832
 ornate mask~
@@ -2193,14 +2111,10 @@ wood~
 armor BFI 0 AE
 9 9 9 7 0
 39 20 11000 P
-A
-19 3
-A
-13 25
-A
-8 1
-A
-9 5
+a '' to_object 39 -1 3 19 0
+a '' to_object 39 -1 25 13 0
+a '' to_object 39 -1 1 8 0
+a '' to_object 39 -1 5 9 0
 g none~
 #11833
 ((-*-)) sleeves pair golden treniste~
@@ -2210,14 +2124,10 @@ gold~
 armor IKL 0 AI
 8 9 9 7 0
 39 40 10000 P
-A
-13 15
-A
-19 2
-A
-4 1
-A
-2 1
+a '' to_object 39 -1 15 13 0
+a '' to_object 39 -1 2 19 0
+a '' to_object 39 -1 1 4 0
+a '' to_object 39 -1 1 2 0
 g none~
 #11834
 gleaming white sword~
@@ -2227,10 +2137,8 @@ mithril~
 weapon IK 0 AN
 sword 9 5 'cleave' 0
 40 200 10000 P
-A
-18 5
-A
-19 5
+a '' to_object 40 -1 5 18 0
+a '' to_object 40 -1 5 19 0
 g none~
 #11835
 gleaming white shield~
@@ -2240,14 +2148,10 @@ mithril~
 armor IK 0 AJ
 11 11 11 10 0
 40 50 10000 P
-A
-17 -10
-A
-19 4
-A
-2 3
-A
-1 3
+a '' to_object 40 -1 -10 17 0
+a '' to_object 40 -1 4 19 0
+a '' to_object 40 -1 3 2 0
+a '' to_object 40 -1 3 1 0
 g none~
 #11836
 deep indigo pill~
@@ -2266,14 +2170,10 @@ obsidian~
 armor CJL 0 AE
 10 10 10 8 0
 42 40 10000 P
-A
-13 20
-A
-19 4
-A
-18 4
-A
-1 2
+a '' to_object 42 -1 20 13 0
+a '' to_object 42 -1 4 19 0
+a '' to_object 42 -1 4 18 0
+a '' to_object 42 -1 2 1 0
 g none~
 #11838
 taloned gloves~
@@ -2283,14 +2183,10 @@ obsidian~
 armor JL 0 AH
 11 10 10 9 0
 42 30 10000 P
-A
-19 5
-A
-18 4
-A
-6 1
-A
-12 100
+a '' to_object 42 -1 5 19 0
+a '' to_object 42 -1 4 18 0
+a '' to_object 42 -1 1 6 0
+a '' to_object 42 -1 100 12 0
 g none~
 #11839
 ->*<- breast plate reykaris~
@@ -2300,14 +2196,10 @@ obsidian~
 armor EJL 0 AD
 15 15 15 15 0
 42 100 15000 P
-A
-13 35
-A
-2 1
-A
-1 1
-A
-19 4
+a '' to_object 42 -1 35 13 0
+a '' to_object 42 -1 1 2 0
+a '' to_object 42 -1 1 1 0
+a '' to_object 42 -1 4 19 0
 g none~
 #11840
 dark ->*<- orb reykaris~
@@ -2317,14 +2209,10 @@ nothingness~
 armor CEJL 0 AQ
 8 8 9 7 0
 41 0 10000 P
-A
-19 2
-A
-12 15
-A
-13 20
-A
-3 1
+a '' to_object 41 -1 2 19 0
+a '' to_object 41 -1 15 12 0
+a '' to_object 41 -1 20 13 0
+a '' to_object 41 -1 1 3 0
 g none~
 #11841
 ->*<- legplates leg plates reykaris~
@@ -2334,14 +2222,10 @@ obsidian~
 armor EJLM 0 AF
 9 9 9 7 0
 82 50 10200 P
-A
-19 2
-A
-13 15
-A
-2 1
-A
-1 1
+a '' to_object 82 -1 2 19 0
+a '' to_object 82 -1 15 13 0
+a '' to_object 82 -1 1 2 0
+a '' to_object 82 -1 1 1 0
 g none~
 #11842
 carved ->*<- ring reykaris~
@@ -2351,14 +2235,10 @@ obsidian~
 armor EJLM 0 AB
 4 4 4 5 0
 39 10 10000 P
-A
-13 25
-A
-19 4
-A
-18 4
-A
-3 1
+a '' to_object 39 -1 25 13 0
+a '' to_object 39 -1 4 19 0
+a '' to_object 39 -1 4 18 0
+a '' to_object 39 -1 1 3 0
 g none~
 #11843
 cloak nightmares black~
@@ -2368,20 +2248,13 @@ shadow~
 armor CEFJ 0 AK
 8 7 8 7 0
 36 20 10000 P
-A
-19 3
-A
-12 25
-A
-13 15
-A
-5 -1
-A
-3 -1
-A
-2 3
-A
-9 3
+a '' to_object 36 -1 3 19 0
+a '' to_object 36 -1 25 12 0
+a '' to_object 36 -1 15 13 0
+a '' to_object 36 -1 -1 5 0
+a '' to_object 36 -1 -1 3 0
+a '' to_object 36 -1 3 2 0
+a '' to_object 36 -1 3 9 0
 g none~
 #11844
 ebony ->*<- bracer reykaris~
@@ -2391,12 +2264,9 @@ ebony~
 armor EJL 0 AM
 9 9 8 8 0
 41 20 12500 P
-A
-5 3
-A
-4 3
-A
-3 3
+a '' to_object 41 -1 3 5 0
+a '' to_object 41 -1 3 4 0
+a '' to_object 41 -1 3 3 0
 g none~
 #11845
 dark ->*<- necklace reykaris~
@@ -2406,16 +2276,11 @@ obsidian~
 treasure EL 0 AC
 0 0 0 0 0
 40 20 25000 P
-A
-12 30
-A
-13 30
-A
-2 3
-A
-9 2
-A
-6 2
+a '' to_object 40 -1 30 12 0
+a '' to_object 40 -1 30 13 0
+a '' to_object 40 -1 3 2 0
+a '' to_object 40 -1 2 9 0
+a '' to_object 40 -1 2 6 0
 g none~
 #11846
 humanoid skull~
@@ -2425,14 +2290,10 @@ bone~
 treasure E 0 AO
 0 0 0 0 0
 44 20 5000 P
-A
-19 4
-A
-2 1
-A
-1 2
-A
-12 40
+a '' to_object 44 -1 4 19 0
+a '' to_object 44 -1 1 2 0
+a '' to_object 44 -1 2 1 0
+a '' to_object 44 -1 40 12 0
 g none~
 #11847
 pair obsidian ->*<- boots reykaris~
@@ -2442,12 +2303,9 @@ obsidian~
 armor EJL 0 AG
 8 8 7 7 0
 42 30 11000 P
-A
-12 15
-A
-13 15
-A
-2 2
+a '' to_object 42 -1 15 12 0
+a '' to_object 42 -1 15 13 0
+a '' to_object 42 -1 2 2 0
 g none~
 #11848
 tempered silver throwing dagger~
@@ -2457,10 +2315,8 @@ silver~
 weapon CE 0 AN
 dagger 8 4 'pierce' DHK
 40 200 15000 P
-A
-19 10
-A
-18 10
+a '' to_object 40 -1 10 19 0
+a '' to_object 40 -1 10 18 0
 g none~
 #11849
 ->*<- sleeves obsidian reykaris~
@@ -2470,14 +2326,10 @@ obsidian~
 armor EJL 0 AI
 10 10 10 8 0
 44 30 10000 P
-A
-19 4
-A
-18 3
-A
-3 2
-A
-1 2
+a '' to_object 44 -1 4 19 0
+a '' to_object 44 -1 3 18 0
+a '' to_object 44 -1 2 3 0
+a '' to_object 44 -1 2 1 0
 g none~
 #11850
 black collar runes runed leather~
@@ -2487,20 +2339,13 @@ leather~
 armor BEGHM 0 AC
 9 9 9 7 0
 42 30 5500 P
-A
-12 15
-A
-13 15
-A
-19 3
-A
-1 1
-A
-4 -1
-A
-5 -1
-A
-18 -2
+a '' to_object 42 -1 15 12 0
+a '' to_object 42 -1 15 13 0
+a '' to_object 42 -1 3 19 0
+a '' to_object 42 -1 1 1 0
+a '' to_object 42 -1 -1 4 0
+a '' to_object 42 -1 -1 5 0
+a '' to_object 42 -1 -2 18 0
 E
 runes~
 The runes are in no language that you recognize.  As you gaze at them,
@@ -2515,22 +2360,14 @@ leather~
 armor BE 0 AI
 10 10 9 15 0
 44 50 15000 P
-A
-18 3
-A
-19 3
-A
-13 35
-A
-12 40
-A
-6 1
-A
-5 2
-A
-1 2
-A
-9 5
+a '' to_object 44 -1 3 18 0
+a '' to_object 44 -1 3 19 0
+a '' to_object 44 -1 35 13 0
+a '' to_object 44 -1 40 12 0
+a '' to_object 44 -1 1 6 0
+a '' to_object 44 -1 2 5 0
+a '' to_object 44 -1 2 1 0
+a '' to_object 44 -1 5 9 0
 g none~
 #11852
 onyx -=+)> earring myrxes~
@@ -2540,14 +2377,10 @@ stone~
 armor CFI 0 AE
 8 8 8 7 0
 39 10 10000 P
-A
-13 10
-A
-19 3
-A
-12 15
-A
-2 2
+a '' to_object 39 -1 10 13 0
+a '' to_object 39 -1 3 19 0
+a '' to_object 39 -1 15 12 0
+a '' to_object 39 -1 2 2 0
 E
 onyx -=+)> earring myrxes~
 Below the Myrxes crest is the inscription:
@@ -2563,14 +2396,10 @@ leather~
 armor CFI 0 AH
 8 9 9 7 0
 39 30 10000 P
-A
-19 3
-A
-18 4
-A
-2 1
-A
-1 1
+a '' to_object 39 -1 3 19 0
+a '' to_object 39 -1 4 18 0
+a '' to_object 39 -1 1 2 0
+a '' to_object 39 -1 1 1 0
 g none~
 #11854
 sharpened stiletto sharp~
@@ -2580,10 +2409,8 @@ silver~
 weapon CHI 0 AN
 dagger 5 11 'pierce' DH
 42 200 12500 P
-A
-18 5
-A
-19 5
+a '' to_object 42 -1 5 18 0
+a '' to_object 42 -1 5 19 0
 g none~
 #11855
 invisible flame~
@@ -2593,12 +2420,9 @@ flame~
 light CF 0 A
 0 0 -1 0 0
 40 0 11500 P
-A
-2 1
-A
-19 3
-A
-12 30
+a '' to_object 40 -1 1 2 0
+a '' to_object 40 -1 3 19 0
+a '' to_object 40 -1 30 12 0
 g none~
 #11856
 pair -=+)> sleeves myrxes~
@@ -2608,14 +2432,10 @@ leather~
 armor CFI 0 AI
 9 9 9 7 0
 39 30 9900 P
-A
-19 3
-A
-18 3
-A
-3 1
-A
-2 2
+a '' to_object 39 -1 3 19 0
+a '' to_object 39 -1 3 18 0
+a '' to_object 39 -1 1 3 0
+a '' to_object 39 -1 2 2 0
 g none~
 #11857
 engraved platinum ][+][ ring xaek~
@@ -2625,14 +2445,10 @@ platinum~
 armor G 0 AB
 8 8 7 6 0
 34 20 12000 P
-A
-19 3
-A
-13 15
-A
-2 1
-A
-1 2
+a '' to_object 34 -1 3 19 0
+a '' to_object 34 -1 15 13 0
+a '' to_object 34 -1 1 2 0
+a '' to_object 34 -1 2 1 0
 g none~
 #11858
 -=+)> shroud shadows myrxes~
@@ -2642,12 +2458,9 @@ shadow~
 armor CFI 0 AK
 9 9 8 6 0
 37 10 10000 P
-A
-19 4
-A
-18 3
-A
-13 25
+a '' to_object 37 -1 4 19 0
+a '' to_object 37 -1 3 18 0
+a '' to_object 37 -1 25 13 0
 g none~
 #11859
 black slim -=+)> bracer myrxes~
@@ -2657,14 +2470,10 @@ stone~
 armor CFI 0 AM
 7 6 8 6 0
 36 20 8000 P
-A
-19 2
-A
-18 2
-A
-17 -10
-A
-2 2
+a '' to_object 36 -1 2 19 0
+a '' to_object 36 -1 2 18 0
+a '' to_object 36 -1 -10 17 0
+a '' to_object 36 -1 2 2 0
 g none~
 #11860
 shadowy -=+)> neckchain neck chain myrxes~
@@ -2674,14 +2483,10 @@ adamantite~
 armor CFI 0 AC
 8 8 8 6 0
 36 20 12000 P
-A
-12 10
-A
-13 10
-A
-19 2
-A
-1 1
+a '' to_object 36 -1 10 12 0
+a '' to_object 36 -1 10 13 0
+a '' to_object 36 -1 2 19 0
+a '' to_object 36 -1 1 1 0
 g none~
 #11861
 black -=+)> leggings leather pair myrxes~
@@ -2691,14 +2496,10 @@ leather~
 armor CFI 0 AF
 8 8 8 7 0
 38 40 10000 P
-A
-18 2
-A
-19 2
-A
-13 20
-A
-2 2
+a '' to_object 38 -1 2 18 0
+a '' to_object 38 -1 2 19 0
+a '' to_object 38 -1 20 13 0
+a '' to_object 38 -1 2 2 0
 g none~
 #11862
 silent -=+)> boots myrxes~
@@ -2708,12 +2509,9 @@ leather~
 armor CFI 0 AG
 8 8 9 7 0
 37 20 8900 P
-A
-2 2
-A
-18 3
-A
-19 2
+a '' to_object 37 -1 2 2 0
+a '' to_object 37 -1 3 18 0
+a '' to_object 37 -1 2 19 0
 g none~
 #11863
 hair ring panther black~
@@ -2723,14 +2521,10 @@ fur~
 armor CFI 0 AB
 6 6 5 4 0
 37 10 10000 P
-A
-2 2
-A
-19 3
-A
-18 3
-A
-12 30
+a '' to_object 37 -1 2 2 0
+a '' to_object 37 -1 3 19 0
+a '' to_object 37 -1 3 18 0
+a '' to_object 37 -1 30 12 0
 g none~
 #11864
 black -=+)> belt myrxes~
@@ -2740,14 +2534,10 @@ leather~
 armor CFI 0 AL
 6 7 6 6 0
 37 40 7900 P
-A
-13 -100
-A
-12 200
-A
-2 3
-A
-1 3
+a '' to_object 37 -1 -100 13 0
+a '' to_object 37 -1 200 12 0
+a '' to_object 37 -1 3 2 0
+a '' to_object 37 -1 3 1 0
 g none~
 #11865
 ring lynx~
@@ -2757,14 +2547,10 @@ fur~
 armor CFGI 0 AB
 3 4 4 3 0
 37 10 10000 P
-A
-1 1
-A
-19 2
-A
-18 2
-A
-13 25
+a '' to_object 37 -1 1 1 0
+a '' to_object 37 -1 2 19 0
+a '' to_object 37 -1 2 18 0
+a '' to_object 37 -1 25 13 0
 g none~
 #11866
 night hawk talons~
@@ -2774,14 +2560,10 @@ bone~
 armor CFI 0 AH
 8 8 8 7 0
 36 40 9000 P
-A
-5 1
-A
-2 1
-A
-1 1
-A
-19 3
+a '' to_object 36 -1 1 5 0
+a '' to_object 36 -1 1 2 0
+a '' to_object 36 -1 1 1 0
+a '' to_object 36 -1 3 19 0
 g none~
 #11867
 hunter's hunters hunter arrow mithril~
@@ -2791,10 +2573,8 @@ mithril~
 weapon A 0 AN
 exotic 6 7 'pierce' EK
 35 200 10000 P
-A
-19 5
-A
-18 5
+a '' to_object 35 -1 5 19 0
+a '' to_object 35 -1 5 18 0
 g none~
 #11868
 set ][+][ platemail plate mail xaek~
@@ -2804,10 +2584,8 @@ adamantite~
 armor 0 0 AD
 9 9 9 7 0
 39 100 10000 P
-A
-19 3
-A
-18 5
+a '' to_object 39 -1 3 19 0
+a '' to_object 39 -1 5 18 0
 g none~
 #11869
 bracer power~
@@ -2817,16 +2595,11 @@ adamantite~
 armor B 0 AM
 8 8 8 7 0
 39 20 9900 P
-A
-12 50
-A
-13 50
-A
-1 2
-A
-2 2
-A
-6 1
+a '' to_object 39 -1 50 12 0
+a '' to_object 39 -1 50 13 0
+a '' to_object 39 -1 2 1 0
+a '' to_object 39 -1 2 2 0
+a '' to_object 39 -1 1 6 0
 g none~
 #11870
 ][+][ shield xaek~
@@ -2836,12 +2609,9 @@ adamantite~
 armor 0 0 AJ
 9 10 9 7 0
 38 50 10000 P
-A
-19 4
-A
-1 1
-A
-5 2
+a '' to_object 38 -1 4 19 0
+a '' to_object 38 -1 1 1 0
+a '' to_object 38 -1 2 5 0
 g none~
 #11871
 grey ][+][ legplates leg plates xaek~
@@ -2851,14 +2621,10 @@ platinum~
 armor 0 0 AF
 8 8 8 6 0
 37 90 10000 P
-A
-13 15
-A
-19 3
-A
-5 1
-A
-1 1
+a '' to_object 37 -1 15 13 0
+a '' to_object 37 -1 3 19 0
+a '' to_object 37 -1 1 5 0
+a '' to_object 37 -1 1 1 0
 g none~
 #11872
 ][+][ helm xaek~
@@ -2868,14 +2634,10 @@ adamantite~
 armor 0 0 AE
 7 8 7 6 0
 35 50 8000 P
-A
-13 25
-A
-18 2
-A
-19 2
-A
-5 1
+a '' to_object 35 -1 25 13 0
+a '' to_object 35 -1 2 18 0
+a '' to_object 35 -1 2 19 0
+a '' to_object 35 -1 1 5 0
 g none~
 #11873
 engraved ][+][ crest xaek~
@@ -2885,12 +2647,9 @@ platinum~
 armor 0 0 AO
 6 7 7 5 0
 34 50 11000 P
-A
-19 2
-A
-13 20
-A
-1 2
+a '' to_object 34 -1 2 19 0
+a '' to_object 34 -1 20 13 0
+a '' to_object 34 -1 2 1 0
 g none~
 #11874
 ][+][ armplates arm plates xaek~
@@ -2900,14 +2659,10 @@ adamantite~
 armor 0 0 AI
 8 8 8 7 0
 36 50 10000 P
-A
-19 3
-A
-18 2
-A
-13 20
-A
-5 1
+a '' to_object 36 -1 3 19 0
+a '' to_object 36 -1 2 18 0
+a '' to_object 36 -1 20 13 0
+a '' to_object 36 -1 1 5 0
 g none~
 #11875
 balanced adamantite longsword long sword~
@@ -2917,10 +2672,8 @@ adamantite~
 weapon AI 0 AN
 sword 5 9 'cleave' D
 35 300 17800 P
-A
-18 5
-A
-19 5
+a '' to_object 35 -1 5 18 0
+a '' to_object 35 -1 5 19 0
 g none~
 #11876
 silver carven -(+)- signet ring noriva~
@@ -2930,14 +2683,10 @@ silver~
 armor AI 0 AB
 7 7 7 5 0
 39 10 10000 P
-A
-13 20
-A
-12 20
-A
-4 2
-A
-3 2
+a '' to_object 39 -1 20 13 0
+a '' to_object 39 -1 20 12 0
+a '' to_object 39 -1 2 4 0
+a '' to_object 39 -1 2 3 0
 g none~
 #11877
 niobium -(+)- circlet noriva~
@@ -2947,12 +2696,9 @@ silver~
 armor AI 0 AE
 9 9 9 8 0
 39 20 21500 P
-A
-4 2
-A
-18 3
-A
-12 30
+a '' to_object 39 -1 2 4 0
+a '' to_object 39 -1 3 18 0
+a '' to_object 39 -1 30 12 0
 g none~
 #11878
 light shimmering -(+)- sphere noriva~
@@ -2962,14 +2708,10 @@ light~
 armor ABI 0 AQ
 8 8 9 8 0
 38 0 15500 P
-A
-3 1
-A
-18 5
-A
-12 20
-A
-13 20
+a '' to_object 38 -1 1 3 0
+a '' to_object 38 -1 5 18 0
+a '' to_object 38 -1 20 12 0
+a '' to_object 38 -1 20 13 0
 g none~
 #11879
 inlaid silver -(+)- bracelet noriva~
@@ -2979,14 +2721,10 @@ silver~
 armor AI 0 AM
 8 8 8 7 0
 37 20 12200 P
-A
-13 40
-A
-12 -50
-A
-18 5
-A
-4 1
+a '' to_object 37 -1 40 13 0
+a '' to_object 37 -1 -50 12 0
+a '' to_object 37 -1 5 18 0
+a '' to_object 37 -1 1 4 0
 g none~
 #11880
 -(+)- girth noriva~
@@ -2996,14 +2734,10 @@ silver~
 armor AI 0 AL
 8 8 7 6 0
 35 50 10000 P
-A
-18 6
-A
-12 30
-A
-13 20
-A
-1 1
+a '' to_object 35 -1 6 18 0
+a '' to_object 35 -1 30 12 0
+a '' to_object 35 -1 20 13 0
+a '' to_object 35 -1 1 1 0
 g none~
 #11881
 pair -(+)- sleeves noriva~
@@ -3013,12 +2747,9 @@ silver~
 armor AI 0 AI
 8 7 8 6 0
 34 50 9900 P
-A
-19 2
-A
-13 25
-A
-5 1
+a '' to_object 34 -1 2 19 0
+a '' to_object 34 -1 25 13 0
+a '' to_object 34 -1 1 5 0
 g none~
 #11882
 pair -(+)- gloves noriva~
@@ -3028,14 +2759,10 @@ leather~
 armor I 0 AH
 7 7 7 7 0
 36 30 11250 P
-A
-2 1
-A
-18 4
-A
-12 35
-A
-5 1
+a '' to_object 36 -1 1 2 0
+a '' to_object 36 -1 4 18 0
+a '' to_object 36 -1 35 12 0
+a '' to_object 36 -1 1 5 0
 g none~
 #11883
 filligree -(+)- necklace noriva~
@@ -3045,12 +2772,9 @@ silver~
 armor AI 0 AC
 7 7 7 6 0
 34 20 25500 P
-A
-5 2
-A
-4 2
-A
-3 2
+a '' to_object 34 -1 2 5 0
+a '' to_object 34 -1 2 4 0
+a '' to_object 34 -1 2 3 0
 g none~
 #11884
 tooled -(+)- boots noriva~
@@ -3060,14 +2784,10 @@ leather~
 armor I 0 AG
 6 6 6 6 0
 34 60 11200 P
-A
-19 2
-A
-18 4
-A
-12 20
-A
-5 2
+a '' to_object 34 -1 2 19 0
+a '' to_object 34 -1 4 18 0
+a '' to_object 34 -1 20 12 0
+a '' to_object 34 -1 2 5 0
 g none~
 #11885
 laerkai fury rage~
@@ -3077,14 +2797,10 @@ flame~
 armor AI 0 AQ
 14 14 14 13 0
 45 0 50000 P
-A
-12 75
-A
-19 5
-A
-20 -5
-A
-3 3
+a '' to_object 45 -1 75 12 0
+a '' to_object 45 -1 5 19 0
+a '' to_object 45 -1 -5 20 0
+a '' to_object 45 -1 3 3 0
 g none~
 #11886
 laerkai justice shield~
@@ -3094,14 +2810,10 @@ mithril~
 armor AI 0 AJ
 29 29 29 26 0
 45 50 50000 P
-A
-13 40
-A
-20 -10
-A
-5 3
-A
-17 -25
+a '' to_object 45 -1 40 13 0
+a '' to_object 45 -1 -10 20 0
+a '' to_object 45 -1 3 5 0
+a '' to_object 45 -1 -25 17 0
 g none~
 #11887
 laerkai pain~
@@ -3111,16 +2823,11 @@ nothingness~
 armor BI 0 AH
 15 15 15 13 0
 45 0 50000 P
-A
-19 6
-A
-18 4
-A
-13 40
-A
-6 1
-A
-1 2
+a '' to_object 45 -1 6 19 0
+a '' to_object 45 -1 4 18 0
+a '' to_object 45 -1 40 13 0
+a '' to_object 45 -1 1 6 0
+a '' to_object 45 -1 2 1 0
 g none~
 #11888
 shadows laerkai stealth~
@@ -3130,13 +2837,10 @@ shadow~
 armor CI 0 AG
 14 14 14 13 0
 45 0 50000 P
-A
-2 3
-A
-12 50
-A
-18 10
-F i 0 0 G
+a '' to_object 45 -1 3 2 0
+a '' to_object 45 -1 50 12 0
+a '' to_object 45 -1 10 18 0
+a '' to_invis 45 -1 0 0 G
 g none~
 #11889
 laerkai might platemail plate mail~
@@ -3146,18 +2850,12 @@ mithril~
 armor BI 0 AD
 20 20 20 15 0
 45 100 50000 P
-A
-28 5
-A
-29 5
-A
-27 5
-A
-19 7
-A
-12 100
-A
-1 3
+a '' to_object 45 -1 5 28 0
+a '' to_object 45 -1 5 29 0
+a '' to_object 45 -1 5 27 0
+a '' to_object 45 -1 7 19 0
+a '' to_object 45 -1 100 12 0
+a '' to_object 45 -1 3 1 0
 g none~
 #11890
 laerkai life health aura~
@@ -3167,13 +2865,10 @@ etherealness~
 armor AI 0 AC
 14 14 14 13 0
 45 0 50000 P
-A
-13 40
-F A 0 0 c
-A
-18 5
-A
-5 3
+a '' to_object 45 -1 40 13 0
+a '' to_affects 45 -1 0 0 c
+a '' to_object 45 -1 5 18 0
+a '' to_object 45 -1 3 5 0
 g none~
 #11891
 laerkai power presense~
@@ -3183,21 +2878,14 @@ nothingness~
 armor BI 0 AM
 20 20 20 13 0
 45 0 55000 P
-A
-12 60
-A
-13 60
-A
-18 5
-A
-19 5
-A
-1 2
-A
-2 2
-A
-6 1
-F A 0 0 V
+a '' to_object 45 -1 60 12 0
+a '' to_object 45 -1 60 13 0
+a '' to_object 45 -1 5 18 0
+a '' to_object 45 -1 5 19 0
+a '' to_object 45 -1 2 1 0
+a '' to_object 45 -1 2 2 0
+a '' to_object 45 -1 1 6 0
+a '' to_affects 45 -1 0 0 V
 E
 laerkai power presense~
 As you focus on the presense, a thundering voice booms through your
@@ -3221,10 +2909,8 @@ mithril~
 weapon BCI 0 AN
 sword 8 7 'pierce' ADH
 45 250 55000 P
-A
-19 10
-A
-18 10
+a '' to_object 45 -1 10 19 0
+a '' to_object 45 -1 10 18 0
 E
 honed shortsword zedraikis~
 A wickedly sharp silvery blue blade gleams above a black wrapped leather
@@ -3244,26 +2930,16 @@ flame~
 light AFIJK 0 A
 0 0 -1 0 0
 45 0 55000 P
-A
-19 4
-A
-18 4
-A
-12 50
-A
-13 50
-A
-6 1
-A
-5 1
-A
-4 1
-A
-2 1
-A
-3 1
-A
-1 1
+a '' to_object 45 -1 4 19 0
+a '' to_object 45 -1 4 18 0
+a '' to_object 45 -1 50 12 0
+a '' to_object 45 -1 50 13 0
+a '' to_object 45 -1 1 6 0
+a '' to_object 45 -1 1 5 0
+a '' to_object 45 -1 1 4 0
+a '' to_object 45 -1 1 2 0
+a '' to_object 45 -1 1 3 0
+a '' to_object 45 -1 1 1 0
 E
 flame balance silver~
 The flame flickers blindingly, and you are forced to look away.
@@ -3277,12 +2953,9 @@ mithril~
 armor A 0 AI
 6 6 7 5 0
 31 40 7500 P
-A
-19 2
-A
-2 1
-A
-1 1
+a '' to_object 31 -1 2 19 0
+a '' to_object 31 -1 1 2 0
+a '' to_object 31 -1 1 1 0
 g none~
 #11895
 drakyri girth silvery~
@@ -3292,12 +2965,9 @@ mithril~
 armor AI 0 AL
 7 6 6 5 0
 31 40 7500 P
-A
-19 2
-A
-12 20
-A
-3 1
+a '' to_object 31 -1 2 19 0
+a '' to_object 31 -1 20 12 0
+a '' to_object 31 -1 1 3 0
 g none~
 #11896
 drakyri wrist guard~
@@ -3307,14 +2977,10 @@ mithril~
 armor AI 0 AM
 6 7 7 5 0
 31 20 7500 P
-A
-19 2
-A
-18 2
-A
-13 15
-A
-5 1
+a '' to_object 31 -1 2 19 0
+a '' to_object 31 -1 2 18 0
+a '' to_object 31 -1 15 13 0
+a '' to_object 31 -1 1 5 0
 g none~
 #11897
 drakyri dagger mithril~
@@ -3324,12 +2990,9 @@ mithril~
 weapon AI 0 AN
 dagger 6 6 'pierce' 0
 62 200 7500 P
-A
-18 4
-A
-19 3
-A
-2 1
+a '' to_object 62 -1 4 18 0
+a '' to_object 62 -1 3 19 0
+a '' to_object 62 -1 1 2 0
 g none~
 #11898
 green greenish energy pill~

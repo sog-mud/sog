@@ -345,8 +345,7 @@ silver~
 weapon 0 0 AN
 dagger 4 7 'pierce' 0
 22 10 2000 P
-A
-20 -2
+a '' to_object 22 -1 -2 20 0
 g none~
 #2202
 knife tooth dragon~
@@ -356,10 +355,8 @@ bone~
 weapon 0 0 AN
 dagger 5 6 'pierce' 0
 30 80 3200 P
-A
-19 4
-A
-2 1
+a '' to_object 30 -1 4 19 0
+a '' to_object 30 -1 1 2 0
 g none~
 #2203
 bracelet dragon~
@@ -378,8 +375,7 @@ silk~
 armor 0 0 AL
 6 6 6 2 0
 17 250 3900 P
-A
-5 2
+a '' to_object 17 -1 2 5 0
 g none~
 #2210
 belt silk white~
@@ -389,8 +385,7 @@ silk~
 armor 0 0 AL
 6 6 6 2 0
 17 250 3900 P
-A
-1 2
+a '' to_object 17 -1 2 1 0
 g none~
 #2211
 bracelet platinum~
@@ -409,8 +404,7 @@ gold~
 jewelry A 0 ACO
 0 0 0 0 0
 10 20 270 P
-A
-12 15
+a '' to_object 10 -1 15 12 0
 g none~
 #2221
 robe black~
@@ -420,8 +414,7 @@ leather~
 armor 0 0 AK
 5 5 5 0 0
 21 30 2000 P
-A
-19 2
+a '' to_object 21 -1 2 19 0
 g none~
 #2222
 sword emerald~
@@ -431,8 +424,7 @@ steel~
 weapon 0 0 AN
 sword 5 6 'slash' D
 28 240 2300 P
-A
-19 2
+a '' to_object 28 -1 2 19 0
 g none~
 #2223
 club stone~
@@ -451,10 +443,8 @@ diamond~
 jewelry 0 0 AB
 0 0 0 0 0
 37 60 6800 P
-A
-19 3
-A
-18 3
+a '' to_object 37 -1 3 19 0
+a '' to_object 37 -1 3 18 0
 g none~
 #2230
 ring copper~
@@ -464,8 +454,7 @@ copper~
 jewelry 0 0 AB
 0 0 0 0 0
 15 10 2600 P
-A
-4 2
+a '' to_object 15 -1 2 4 0
 g none~
 #2231
 key steel~
@@ -538,8 +527,7 @@ steel~
 armor 0 0 AJ
 8 8 8 3 0
 25 200 3900 P
-A
-5 1
+a '' to_object 25 -1 1 5 0
 g none~
 #2243
 wand golden~
@@ -612,10 +600,8 @@ iron~
 armor AG 0 AH
 4 4 4 0 0
 20 100 2500 P
-A
-1 1
-A
-19 2
+a '' to_object 20 -1 1 1 0
+a '' to_object 20 -1 2 19 0
 g none~
 #2260
 scimitar golden~
@@ -625,10 +611,8 @@ gold~
 weapon A 0 AN
 sword 3 5 'slash' 0
 16 100 2500 P
-A
-4 1
-A
-3 1
+a '' to_object 16 -1 1 4 0
+a '' to_object 16 -1 1 3 0
 g none~
 #2261
 brooch diamond~
@@ -638,8 +622,7 @@ diamond~
 jewelry G 0 AC
 0 0 0 0 0
 25 20 980 P
-A
-12 25
+a '' to_object 25 -1 25 12 0
 g none~
 #2270
 scroll~
@@ -658,8 +641,7 @@ dragonskin~
 armor 0 0 AH
 6 6 6 3 0
 17 50 4000 P
-A
-2 2
+a '' to_object 17 -1 2 2 0
 g none~
 #2275
 helm dragon~
@@ -669,8 +651,7 @@ dragonskin~
 armor 0 0 AE
 10 10 10 5 0
 35 150 4100 P
-A
-13 15
+a '' to_object 35 -1 15 13 0
 g none~
 #2276
 fur cloak~
@@ -680,10 +661,8 @@ fur~
 armor 0 0 AK
 6 6 6 1 0
 16 100 1910 P
-A
-13 10
-A
-1 1
+a '' to_object 16 -1 10 13 0
+a '' to_object 16 -1 1 1 0
 g none~
 #2280
 leggings dragon scale~
@@ -711,10 +690,8 @@ dragonskin~
 weapon BJ 0 AN
 whip 6 5 'whip' 0
 24 140 1530 P
-A
-19 3
-A
-18 3
+a '' to_object 24 -1 3 19 0
+a '' to_object 24 -1 3 18 0
 g none~
 #2286
 hammer copper~

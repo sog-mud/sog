@@ -297,10 +297,8 @@ cloth~
 armor FG 0 AE
 6 6 6 3 0
 18 50 4600 P
-A
-17 -2
-A
-4 2
+a '' to_object 18 -1 -2 17 0
+a '' to_object 18 -1 2 4 0
 g none~
 #6304
 visor black knight's~
@@ -310,10 +308,8 @@ iron~
 armor FG 0 AE
 6 6 6 2 0
 17 50 4600 P
-A
-5 2
-A
-1 1
+a '' to_object 17 -1 2 5 0
+a '' to_object 17 -1 1 1 0
 g none~
 #6308
 coins silver gold~

@@ -142,19 +142,14 @@ unknown~
 fountain 0 0 AQ
 0 0 'beer' 0 0
 0 0 0 P
-F A 0 0 U
-F A 0 0 V
-F A 0 0 H
-A
-26 3
-A
-18 1000
-A
-19 1000
-A
-17 -30000
-A
-8 100
+a '' to_affects 0 -1 0 0 U
+a '' to_affects 0 -1 0 0 V
+a '' to_affects 0 -1 0 0 H
+a '' to_object 0 -1 3 26 0
+a '' to_object 0 -1 1000 18 0
+a '' to_object 0 -1 1000 19 0
+a '' to_object 0 -1 -30000 17 0
+a '' to_object 0 -1 100 8 0
 g none~
 #0
 

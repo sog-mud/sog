@@ -717,10 +717,8 @@ steel~
 weapon GJL A AN
 sword 5 8 'pierce' D
 40 320 18400 G
-A
-18 4
-A
-19 4
+a '' to_object 40 -1 4 18 0
+a '' to_object 40 -1 4 19 0
 E
 ancients ancient~
 This huge sword is very old, and very very big and sharp.  
@@ -734,8 +732,7 @@ wool~
 armor GL 0 AK
 12 12 12 6 0
 37 120 19453 G
-A
-17 -10
+a '' to_object 37 -1 -10 17 0
 E
 dark blue~
 This cloak is dark blue, and looks like very effective armor
@@ -749,8 +746,7 @@ silver~
 armor GL A AI
 11 11 11 5 0
 32 200 11800 G
-A
-13 15
+a '' to_object 32 -1 15 13 0
 E
 silver sleeves~
 These sleeves seem to have a sort of magical aura...
@@ -777,10 +773,8 @@ steel~
 armor GJL 0 AE
 12 12 12 2 0
 38 240 19450 G
-A
-6 1
-A
-17 -17
+a '' to_object 38 -1 1 6 0
+a '' to_object 38 -1 -17 17 0
 E
 helm dragons~
 The metal is like nothing you have ever seen, perhaps this helm is of the
@@ -795,8 +789,7 @@ steel~
 armor GJL A AD
 11 11 11 2 0
 38 150 18394 G
-A
-17 -10
+a '' to_object 38 -1 -10 17 0
 E
 rune breast plate~
 The breast plate is of no metal you have ever seen, strange markings 
@@ -862,10 +855,8 @@ steel~
 armor GJL 0 AH
 15 15 15 7 0
 45 17 13670 G
-A
-18 2
-A
-19 4
+a '' to_object 45 -1 2 18 0
+a '' to_object 45 -1 4 19 0
 E
 gauntlets~
 Looks very useful in combat.  They are made of fine chain mail.
@@ -888,10 +879,8 @@ diamond~
 armor GHLM A AM
 11 11 11 2 0
 35 20 24678 G
-A
-18 2
-A
-19 3
+a '' to_object 35 -1 2 18 0
+a '' to_object 35 -1 3 19 0
 E
 flaming bracelet~
 It had several large diamonds placed on it... it burns fiercely!
@@ -905,10 +894,8 @@ stone~
 armor GL 0 AB
 0 0 0 0 0
 36 10 12250 G
-A
-17 -10
-A
-18 4
+a '' to_object 36 -1 -10 17 0
+a '' to_object 36 -1 4 18 0
 g neutral~
 #25014
 shadowshiv кинжал dagger~
@@ -918,10 +905,8 @@ steel~
 weapon BGHLM 0 AN
 dagger 5 7 'stab' C
 25 40 13060 G
-A
-18 -1
-A
-19 4
+a '' to_object 25 -1 -1 18 0
+a '' to_object 25 -1 4 19 0
 g @eng none@rus male~
 #25015
 two handed sword flaming меч огненный двуручный~
@@ -931,11 +916,9 @@ flame~
 weapon GL A AN
 sword 5 11 'blast' AF
 50 450 36740 G
-F A 0 0 I
-A
-18 3
-A
-19 12
+a '' to_affects 50 -1 0 0 I
+a '' to_object 50 -1 3 18 0
+a '' to_object 50 -1 12 19 0
 g @eng none@rus male~
 #25016
 silver trident серебряный трезубец~
@@ -945,10 +928,8 @@ silver~
 weapon BCGHJLM 0 AN
 spear 5 8 'pierce' K
 36 180 16740 G
-A
-18 2
-A
-19 2
+a '' to_object 36 -1 2 18 0
+a '' to_object 36 -1 2 19 0
 g @eng none@rus male~
 #25017
 sword sharpness меч острый клинок~
@@ -958,10 +939,8 @@ steel~
 weapon GL A AN
 sword 5 7 'pierce' D
 33 70 8700 G
-A
-18 2
-A
-19 5
+a '' to_object 33 -1 2 18 0
+a '' to_object 33 -1 5 19 0
 g @eng none@rus male~
 #25018
 crystal ring кольцо кристаллическое~
@@ -971,8 +950,7 @@ crystal~
 treasure AGL 0 AB
 0 0 0 0 0
 22 100 5000 G
-A
-12 25
+a '' to_object 22 -1 25 12 0
 g @eng none@rus neutral~
 #25019
 jeweled dagger кинжал украшенный камнями~
@@ -1000,8 +978,7 @@ quartz~
 armor AGLP 0 AC
 13 14 13 2 0
 41 20 18999 G
-A
-12 50
+a '' to_object 41 -1 50 12 0
 g none~
 #25022
 ivory bracelet браслет слоновой кости~
@@ -1011,13 +988,10 @@ ivory~
 armor GL 0 AM
 9 9 9 2 0
 31 16 13420 G
-A
-28 15
-A
-29 15
-A
-27 15
-F A 0 0 KT
+a '' to_object 31 -1 15 28 0
+a '' to_object 31 -1 15 29 0
+a '' to_object 31 -1 15 27 0
+a '' to_affects 31 -1 0 0 KT
 g @eng none@rus male~
 #25023
 green cape накидка зеленая~
@@ -1027,8 +1001,7 @@ snakeskin~
 armor GL 0 AC
 9 9 9 1 3
 33 120 10404 G
-A
-13 10
+a '' to_object 33 -1 10 13 0
 g @eng none@rus female~
 #25024
 fire blade~
@@ -1065,8 +1038,7 @@ silver~
 armor GL 0 AE
 12 12 12 2 0
 42 100 18450 G
-A
-12 88
+a '' to_object 42 -1 88 12 0
 E
 silver обруч серебряный circlet~
 @eng A small inscription says "I hated it when i lost concentration in battle"
@@ -1118,8 +1090,7 @@ silver~
 armor GJL 0 AD
 16 17 16 3 0
 48 150 19394 G
-A
-17 -20
+a '' to_object 48 -1 -20 17 0
 g @eng none@rus male~
 #25061
 helm silver шлем серебряный~
@@ -1129,8 +1100,7 @@ silver~
 armor GJL 0 AE
 17 17 16 12 0
 48 280 21450 G
-A
-17 -25
+a '' to_object 48 -1 -25 17 0
 g @eng none@rus male~
 #25062
 pair boot boots ботинки rune руны~

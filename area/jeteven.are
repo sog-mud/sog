@@ -216,18 +216,12 @@ unknown~
 jewelry GI 0 AC
 0 0 0 0 0
 92 10 100000 P
-A
-8 1
-A
-18 10
-A
-13 50
-A
-35 100
-A
-37 100
-A
-12 200
+a '' to_object 92 -1 1 8 0
+a '' to_object 92 -1 10 18 0
+a '' to_object 92 -1 50 13 0
+a '' to_object 92 -1 100 35 0
+a '' to_object 92 -1 100 37 0
+a '' to_object 92 -1 200 12 0
 g none~
 #0
 

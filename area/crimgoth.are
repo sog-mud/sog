@@ -45,10 +45,8 @@ bone~
 weapon C 0 AN
 mace 7 6 'crush' 0
 20 0 0 P
-A
-18 -2
-A
-19 3
+a '' to_object 20 -1 -2 18 0
+a '' to_object 20 -1 3 19 0
 g none~
 #0
 

@@ -321,15 +321,11 @@ unknown~
 armor AB 0 AB
 10 10 10 10 0
 100 0 0 P
-A
-13 10000
-A
-19 25
-A
-24 -25
-A
-18 25
-F A 0 0 c
+a '' to_object 100 -1 10000 13 0
+a '' to_object 100 -1 25 19 0
+a '' to_object 100 -1 -25 24 0
+a '' to_object 100 -1 25 18 0
+a '' to_affects 100 -1 0 0 c
 g none~
 #36102
 helm seeing~
@@ -339,25 +335,20 @@ unknown~
 armor 0 0 AB
 100 100 100 100 0
 48 0 0 P
-A
-19 2000
-A
-18 2000
-A
-8 50000
-A
-8 4000
-A
-8 2000
-F d 0 0 F
-F d 0 0 L
-F d 0 0 I
-F d 0 0 K
-F d 0 0 M
-F d 0 0 C
-F d 0 0 D
-F d 0 0 B
-F d 0 0 A
+a '' to_object 48 -1 2000 19 0
+a '' to_object 48 -1 2000 18 0
+a '' to_object 48 -1 50000 8 0
+a '' to_object 48 -1 4000 8 0
+a '' to_object 48 -1 2000 8 0
+a '' to_detects 48 -1 0 0 F
+a '' to_detects 48 -1 0 0 L
+a '' to_detects 48 -1 0 0 I
+a '' to_detects 48 -1 0 0 K
+a '' to_detects 48 -1 0 0 M
+a '' to_detects 48 -1 0 0 C
+a '' to_detects 48 -1 0 0 D
+a '' to_detects 48 -1 0 0 B
+a '' to_detects 48 -1 0 0 A
 g none~
 #36103
 ring death~
@@ -367,16 +358,11 @@ unknown~
 armor CF 0 AB
 10 10 10 100 0
 100 0 0 P
-A
-12 10000
-A
-24 -100
-A
-19 70
-A
-37 100
-A
-35 100
+a '' to_object 100 -1 10000 12 0
+a '' to_object 100 -1 -100 24 0
+a '' to_object 100 -1 70 19 0
+a '' to_object 100 -1 100 37 0
+a '' to_object 100 -1 100 35 0
 g none~
 #36104
 dagger might~
@@ -386,12 +372,9 @@ unknown~
 weapon BM 0 AN
 dagger 1 10000 'scratch' ABDEGH
 75 0 0 P
-A
-18 30
-A
-19 70
-A
-17 -250
+a '' to_object 75 -1 30 18 0
+a '' to_object 75 -1 70 19 0
+a '' to_object 75 -1 -250 17 0
 g none~
 #36105
 Black Hole~
@@ -401,44 +384,26 @@ unknown~
 light A 0 A
 0 0 -1 0 0
 0 0 0 P
-F A 0 0 T
-F A 0 0 H
-A
-30 33
-A
-31 33
-A
-32 33
-A
-33 33
-A
-34 33
-A
-35 33
-A
-36 33
-A
-37 33
-A
-38 33
-A
-39 33
-A
-40 33
-A
-41 33
-A
-42 33
-A
-43 33
-A
-27 33
-A
-28 33
-A
-29 33
-A
-19 20
+a '' to_affects 0 -1 0 0 T
+a '' to_affects 0 -1 0 0 H
+a '' to_object 0 -1 33 30 0
+a '' to_object 0 -1 33 31 0
+a '' to_object 0 -1 33 32 0
+a '' to_object 0 -1 33 33 0
+a '' to_object 0 -1 33 34 0
+a '' to_object 0 -1 33 35 0
+a '' to_object 0 -1 33 36 0
+a '' to_object 0 -1 33 37 0
+a '' to_object 0 -1 33 38 0
+a '' to_object 0 -1 33 39 0
+a '' to_object 0 -1 33 40 0
+a '' to_object 0 -1 33 41 0
+a '' to_object 0 -1 33 42 0
+a '' to_object 0 -1 33 43 0
+a '' to_object 0 -1 33 27 0
+a '' to_object 0 -1 33 28 0
+a '' to_object 0 -1 33 29 0
+a '' to_object 0 -1 20 19 0
 g none~
 #36106
 gloves universal~
@@ -448,22 +413,14 @@ unknown~
 armor A 0 AH
 100 100 100 100 0
 99 0 0 P
-A
-6 20
-A
-5 20
-A
-4 20
-A
-3 20
-A
-2 20
-A
-1 20
-A
-19 500
-A
-18 500
+a '' to_object 99 -1 20 6 0
+a '' to_object 99 -1 20 5 0
+a '' to_object 99 -1 20 4 0
+a '' to_object 99 -1 20 3 0
+a '' to_object 99 -1 20 2 0
+a '' to_object 99 -1 20 1 0
+a '' to_object 99 -1 500 19 0
+a '' to_object 99 -1 500 18 0
 g none~
 #36107
 bottle of milk~
@@ -500,12 +457,9 @@ gold~
 drink AI C AO
 100 100 'blood' 0 0
 70 100 1000000 P
-A
-13 100
-A
-24 -15
-A
-18 25
+a '' to_object 70 -1 100 13 0
+a '' to_object 70 -1 -15 24 0
+a '' to_object 70 -1 25 18 0
 g none~
 #36111
 wand sparkling rod~
@@ -542,11 +496,9 @@ iridium~
 jewelry AG BC AB
 0 0 0 0 0
 35 2 250000 P
-F A 0 0 c
-A
-24 -3
-A
-13 25
+a '' to_affects 35 -1 0 0 c
+a '' to_object 35 -1 -3 24 0
+a '' to_object 35 -1 25 13 0
 E
 ring jade iridium~
 This ring, made of iriium and jade, glows with magic. You feel that
@@ -561,12 +513,9 @@ copper~
 jewelry A BC AB
 0 0 0 0 0
 35 2 250000 P
-A
-35 100
-A
-19 7
-A
-12 50
+a '' to_object 35 -1 100 35 0
+a '' to_object 35 -1 7 19 0
+a '' to_object 35 -1 50 12 0
 g none~
 #36116
 plain rod~
@@ -576,8 +525,7 @@ unknown~
 staff HK BE AO
 50 20 20 'detect hide' 0
 45 0 0 P
-A
-36 33
+a '' to_object 45 -1 33 36 0
 g none~
 #36117
 rancor sword~
@@ -587,11 +535,9 @@ steel~
 weapon AJ BCF AN
 sword 4 13 'cleave' H
 20 20 100000 P
-F A 13 -30 M
-A
-19 3
-A
-18 10
+a '' to_affects 20 -1 -30 13 M
+a '' to_object 20 -1 3 19 0
+a '' to_object 20 -1 10 18 0
 g none~
 #36118
 mithras axe~
@@ -601,9 +547,8 @@ mithril~
 weapon B BCF AN
 axe 5 19 'chop' E
 50 50 200000 P
-A
-18 10
-F A 19 25 a
+a '' to_object 50 -1 10 18 0
+a '' to_affects 50 -1 25 19 a
 g male~
 #36119
 warmonger sword~
@@ -613,11 +558,9 @@ adamantite~
 weapon ACEM ABEF AN
 sword 24 6 'slice' DEF
 85 80 1200000 P
-A
-8 1
-A
-19 20
-F A 18 15 V
+a '' to_object 85 -1 1 8 0
+a '' to_object 85 -1 20 19 0
+a '' to_affects 85 -1 15 18 V
 E
 warmonger~
 This legendary sword, once belonged to Borel, is n your hands. Though
@@ -638,14 +581,10 @@ energy~
 weapon A ABF AN
 bow 7 17 'flame' AE
 65 50 700000 P
-A
-30 100
-A
-8 1
-A
-19 10
-A
-18 30
+a '' to_object 65 -1 100 30 0
+a '' to_object 65 -1 1 8 0
+a '' to_object 65 -1 10 19 0
+a '' to_object 65 -1 30 18 0
 g male~
 #36121
 carnage dagger~
@@ -655,16 +594,11 @@ steel~
 weapon A ABF AN
 dagger 14 10 'stab' BDE
 75 50 900000 P
-A
-34 100
-A
-35 100
-A
-8 1
-A
-19 25
-A
-18 -10
+a '' to_object 75 -1 100 34 0
+a '' to_object 75 -1 100 35 0
+a '' to_object 75 -1 1 8 0
+a '' to_object 75 -1 25 19 0
+a '' to_object 75 -1 -10 18 0
 g male~
 #36122
 battlecraft flail~
@@ -674,14 +608,10 @@ unknown~
 weapon A ABF AN
 flail 10 9 'smash' ADE
 55 50 500000 P
-A
-28 33
-A
-8 1
-A
-19 15
-A
-18 10
+a '' to_object 55 -1 33 28 0
+a '' to_object 55 -1 1 8 0
+a '' to_object 55 -1 15 19 0
+a '' to_object 55 -1 10 18 0
 g none~
 #36123
 tempest sword~
@@ -691,16 +621,11 @@ titanium~
 weapon AK ABCF AN
 sword 4 17 'slash' DGI
 40 30 0 P
-A
-13 80
-A
-32 100
-A
-8 1
-A
-19 12
-A
-18 12
+a '' to_object 40 -1 80 13 0
+a '' to_object 40 -1 100 32 0
+a '' to_object 40 -1 1 8 0
+a '' to_object 40 -1 12 19 0
+a '' to_object 40 -1 12 18 0
 g none~
 #36124
 wings крылья~
@@ -710,7 +635,7 @@ feathers~
 armor AGIJKMY BCE AI
 -40 -40 -40 -40 0
 46 0 0 P
-F A 0 0 T
+a '' to_affects 46 -1 0 0 T
 E
 wings~
 @eng It is not only big, it is huge!......  
@@ -734,7 +659,7 @@ energy~
 jewelry ABGIU 0 AR
 0 0 0 0 0
 46 0 0 P
-F A 0 0 c
+a '' to_affects 46 -1 0 0 c
 g none~
 #36130
 erastus~
@@ -963,45 +888,26 @@ energy~
 armor FGH ACE AK
 15 15 15 15 0
 15 0 180000 P
-A
-18 5
-F i 12 30 G
-A
-27 33
-A
-28 33
-A
-29 33
-A
-30 33
-A
-31 33
-A
-32 33
-A
-33 33
-A
-34 33
-A
-35 33
-A
-36 33
-A
-37 33
-A
-38 33
-A
-39 33
-A
-40 33
-A
-41 33
-A
-42 33
-A
-43 33
-A
-13 30
+a '' to_object 15 -1 5 18 0
+a '' to_invis 15 -1 30 12 G
+a '' to_object 15 -1 33 27 0
+a '' to_object 15 -1 33 28 0
+a '' to_object 15 -1 33 29 0
+a '' to_object 15 -1 33 30 0
+a '' to_object 15 -1 33 31 0
+a '' to_object 15 -1 33 32 0
+a '' to_object 15 -1 33 33 0
+a '' to_object 15 -1 33 34 0
+a '' to_object 15 -1 33 35 0
+a '' to_object 15 -1 33 36 0
+a '' to_object 15 -1 33 37 0
+a '' to_object 15 -1 33 38 0
+a '' to_object 15 -1 33 39 0
+a '' to_object 15 -1 33 40 0
+a '' to_object 15 -1 33 41 0
+a '' to_object 15 -1 33 42 0
+a '' to_object 15 -1 33 43 0
+a '' to_object 15 -1 30 13 0
 g none~
 #36140
 gloves glowing spiked~
@@ -1011,11 +917,9 @@ unknown~
 armor AY ABF AH
 14 14 14 9 0
 40 100 50000 P
-S 'deathblow' 40 A
-A
-1 3
-A
-19 4
+a '' to_skills 40 -1 40 'deathblow' A
+a '' to_object 40 -1 3 1 0
+a '' to_object 40 -1 4 19 0
 g none~
 #36150
 something~
@@ -1070,71 +974,39 @@ shadow~
 armor ABCEJYb C AQ
 -10000 -10000 -10000 -10000 0
 0 0 1000 P
-A
-33 100
-A
-12 50000
-A
-34 -50
-A
-20 -10000
-A
-27 100
-A
-28 100
-A
-29 100
-A
-19 1000
-A
-27 100
-A
-18 1000
-A
-30 100
-A
-32 100
-A
-41 100
-A
-43 100
-A
-37 100
-A
-8 100
-A
-30 100
-A
-31 100
-A
-32 100
-A
-33 100
-A
-34 100
-A
-35 100
-A
-36 100
-A
-37 100
-A
-38 100
-A
-39 100
-A
-40 100
-A
-41 100
-A
-42 100
-A
-43 100
-F A 0 0 J
-A
-36 100
-A
-38 100
+a '' to_object 0 -1 100 33 0
+a '' to_object 0 -1 50000 12 0
+a '' to_object 0 -1 -50 34 0
+a '' to_object 0 -1 -10000 20 0
+a '' to_object 0 -1 100 27 0
+a '' to_object 0 -1 100 28 0
+a '' to_object 0 -1 100 29 0
+a '' to_object 0 -1 1000 19 0
+a '' to_object 0 -1 100 27 0
+a '' to_object 0 -1 1000 18 0
+a '' to_object 0 -1 100 30 0
+a '' to_object 0 -1 100 32 0
+a '' to_object 0 -1 100 41 0
+a '' to_object 0 -1 100 43 0
+a '' to_object 0 -1 100 37 0
+a '' to_object 0 -1 100 8 0
+a '' to_object 0 -1 100 30 0
+a '' to_object 0 -1 100 31 0
+a '' to_object 0 -1 100 32 0
+a '' to_object 0 -1 100 33 0
+a '' to_object 0 -1 100 34 0
+a '' to_object 0 -1 100 35 0
+a '' to_object 0 -1 100 36 0
+a '' to_object 0 -1 100 37 0
+a '' to_object 0 -1 100 38 0
+a '' to_object 0 -1 100 39 0
+a '' to_object 0 -1 100 40 0
+a '' to_object 0 -1 100 41 0
+a '' to_object 0 -1 100 42 0
+a '' to_object 0 -1 100 43 0
+a '' to_affects 0 -1 0 0 J
+a '' to_object 0 -1 100 36 0
+a '' to_object 0 -1 100 38 0
 g female~
 #36164
 wand~
@@ -1225,16 +1097,12 @@ silver~
 trash AY 0 AB
 0 0 0 0 0
 0 10 1000 P
-A
-19 100
-A
-13 1000
-A
-27 100
-A
-8 50
-S 'gate' 100 0
-F A 18 100 V
+a '' to_object 0 -1 100 19 0
+a '' to_object 0 -1 1000 13 0
+a '' to_object 0 -1 100 27 0
+a '' to_object 0 -1 50 8 0
+a '' to_skills 0 -1 100 'gate' 0
+a '' to_affects 0 -1 100 18 V
 g male~
 #36195
 bag сумка~

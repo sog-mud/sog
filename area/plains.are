@@ -225,8 +225,7 @@ bronze~
 jewelry GH 0 AC
 0 0 0 0 0
 0 10 1 P
-A
-20 5
+a '' to_object 0 -1 5 20 0
 E
 amulet~
 Judging from the signs inscripted in the amulet, you gather it must

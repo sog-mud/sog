@@ -573,10 +573,8 @@ leather~
 armor 0 0 AH
 8 8 8 0 0
 25 60 2600 P
-A
-19 1
-A
-18 1
+a '' to_object 25 -1 1 19 0
+a '' to_object 25 -1 1 18 0
 E
 gloves combat~
 These gloves are plated with metal plates that provide strength and 
@@ -591,8 +589,7 @@ iron~
 armor 0 0 AD
 7 7 7 0 0
 22 80 4200 P
-A
-19 2
+a '' to_object 22 -1 2 19 0
 g none~
 #2302
 greaves black~
@@ -620,10 +617,8 @@ steel~
 weapon AGI 0 AN
 exotic 3 12 'blast' 0
 28 240 4700 P
-A
-19 3
-A
-18 3
+a '' to_object 28 -1 3 19 0
+a '' to_object 28 -1 3 18 0
 g none~
 #2305
 cloak pitch black~
@@ -633,8 +628,7 @@ leather~
 container G 0 AK
 150 0 0 30 90
 20 30 860 P
-A
-20 -2
+a '' to_object 20 -1 -2 20 0
 E
 cloak pitch black~
 It appears to have pockets inside it.
@@ -648,8 +642,7 @@ iron~
 armor GJL 0 AC
 9 9 9 0 0
 30 100 3400 P
-A
-4 1
+a '' to_object 30 -1 1 4 0
 g none~
 #2307
 spiked gauntlets~
@@ -659,8 +652,7 @@ leather~
 armor 0 0 AH
 3 3 3 0 0
 20 100 1570 P
-A
-19 2
+a '' to_object 20 -1 2 19 0
 E
 spiked gauntlets~
 They look pretty damaging.
@@ -674,10 +666,8 @@ oak~
 armor AGJL 0 AJ
 8 8 8 3 0
 27 150 4900 P
-A
-20 -2
-A
-17 -2
+a '' to_object 27 -1 -2 20 0
+a '' to_object 27 -1 -2 17 0
 E
 shield shadow~
 You look into the depths of the shield and shiver at the evil it contains.
@@ -691,10 +681,8 @@ unknown~
 weapon CGJL 0 AN
 sword 3 14 'pierce' 0
 39 90 3500 P
-A
-19 4
-A
-18 2
+a '' to_object 39 -1 4 19 0
+a '' to_object 39 -1 2 18 0
 E
 nightbringer short sword shortsword~
 The runes "NiGHtBrINgeR" are scrawled along the blade.
@@ -708,10 +696,8 @@ gold~
 armor AGKL 0 AE
 7 7 7 2 0
 20 150 3000 P
-A
-3 1
-A
-4 1
+a '' to_object 20 -1 1 3 0
+a '' to_object 20 -1 1 4 0
 g none~
 #2311
 breast plate gilded gold~
@@ -721,8 +707,7 @@ gold~
 armor AGKL 0 AD
 9 9 9 3 0
 32 180 6700 P
-A
-13 25
+a '' to_object 32 -1 25 13 0
 g none~
 #2312
 cape white billowing silk~
@@ -754,10 +739,8 @@ iron~
 weapon AGKL 0 AN
 mace 5 9 'blast' F
 38 240 3200 P
-A
-19 3
-A
-18 1
+a '' to_object 38 -1 3 19 0
+a '' to_object 38 -1 1 18 0
 E
 dawnbringer mace huge~
 The runes "DAwNbRIngER" are scrawled along the handle.
@@ -771,8 +754,7 @@ glass~
 clothing G 0 AE
 0 0 0 0 0
 15 20 2600 P
-A
-3 2
+a '' to_object 15 -1 2 3 0
 E
 spectacles wire rimmed~
 They'll make you look smart.
@@ -786,8 +768,7 @@ silver~
 jewelry AG 0 AB
 0 0 0 0 0
 30 20 1520 P
-A
-12 30
+a '' to_object 30 -1 30 12 0
 E
 ring banded~
 The ring has entwined bands of gold and silver.
@@ -801,8 +782,7 @@ crystal~
 armor AG 0 AK
 8 8 8 4 0
 27 10 3200 P
-A
-20 -2
+a '' to_object 27 -1 -2 20 0
 E
 globe minor~
 Shimmering colors move inside the globe.
@@ -816,12 +796,9 @@ platinum~
 weapon G 0 AN
 staff 6 5 'pound' F
 27 100 2900 P
-A
-20 -2
-A
-19 3
-A
-18 1
+a '' to_object 27 -1 -2 20 0
+a '' to_object 27 -1 3 19 0
+a '' to_object 27 -1 1 18 0
 E
 staff gnarled magius~
 It appears to be simply a gnarled old limb. It feels powerful though.
@@ -857,8 +834,7 @@ ivory~
 jewelry AGI 0 AC
 0 0 0 0 0
 30 50 1520 P
-A
-13 30
+a '' to_object 30 -1 30 13 0
 g none~
 #2322
 manual arts healing book~
@@ -881,10 +857,8 @@ mithril~
 weapon AG 0 AN
 mace 5 5 'crush' 0
 26 130 1960 P
-A
-19 3
-A
-18 1
+a '' to_object 26 -1 3 19 0
+a '' to_object 26 -1 1 18 0
 g none~
 #2324
 symbol holy golden~
@@ -894,8 +868,7 @@ gold~
 jewelry G 0 AC
 0 0 0 0 0
 5 30 110 P
-A
-12 10
+a '' to_object 5 -1 10 12 0
 g none~
 #2325
 ring marble thick~
@@ -905,8 +878,7 @@ marble~
 jewelry G 0 AB
 0 0 0 0 0
 8 50 470 P
-A
-17 -2
+a '' to_object 8 -1 -2 17 0
 g none~
 #2326
 bracelet thick marble~
@@ -916,8 +888,7 @@ marble~
 jewelry G 0 AM
 0 0 0 0 0
 5 80 550 P
-A
-5 1
+a '' to_object 5 -1 1 5 0
 g none~
 #2327
 boots striding~
@@ -927,8 +898,7 @@ leather~
 armor G 0 AG
 5 5 5 0 0
 30 50 2500 P
-A
-14 30
+a '' to_object 30 -1 30 14 0
 E
 boots striding~
 They look comfortable to walk in.
@@ -955,10 +925,8 @@ ice~
 weapon G 0 AN
 staff 7 4 'pound' BF
 28 130 1470 P
-A
-12 20
-A
-18 2
+a '' to_object 28 -1 20 12 0
+a '' to_object 28 -1 2 18 0
 E
 staff ice~
 The runes "FrIgID" are inscribed in the icy staff.
@@ -972,10 +940,8 @@ wood~
 jewelry G 0 AB
 0 0 0 0 0
 7 30 460 P
-A
-19 1
-A
-18 1
+a '' to_object 7 -1 1 19 0
+a '' to_object 7 -1 1 18 0
 g none~
 #2331
 horn life~
@@ -998,8 +964,7 @@ leather~
 clothing G 0 AL
 0 0 0 0 0
 30 90 7600 P
-A
-5 3
+a '' to_object 30 -1 3 5 0
 g none~
 #2333
 stone blood red~
@@ -1009,8 +974,7 @@ stone~
 warp_stone BG C AO
 AB 0 0 0 0
 20 20 580 P
-A
-13 20
+a '' to_object 20 -1 20 13 0
 E
 stone blood red~
 The stone pulses with your own heart beat.
@@ -1024,10 +988,8 @@ wood~
 weapon G 0 AN
 exotic 3 10 'pierce' F
 27 150 4300 P
-A
-19 2
-A
-18 1
+a '' to_object 27 -1 2 19 0
+a '' to_object 27 -1 1 18 0
 g none~
 #2335
 pack leather small~
@@ -1081,8 +1043,7 @@ steel~
 weapon G 0 AN
 sword 4 8 'pierce' 0
 26 110 2300 P
-A
-19 1
+a '' to_object 26 -1 1 19 0
 E
 sword wicked short shortsword~
 It looks just perfect for backstabbing.
@@ -1096,16 +1057,11 @@ glass~
 armor ABG 0 AK
 9 9 9 6 0
 31 10 4100 P
-A
-2 2
-A
-18 5
-A
-19 4
-A
-6 1
-A
-20 -2
+a '' to_object 31 -1 2 2 0
+a '' to_object 31 -1 5 18 0
+a '' to_object 31 -1 4 19 0
+a '' to_object 31 -1 1 6 0
+a '' to_object 31 -1 -2 20 0
 E
 globe major~
 Shimmering colors move inside the globe.
@@ -1119,10 +1075,8 @@ iron~
 armor G 0 AD
 9 9 9 2 0
 30 120 7000 P
-A
-5 1
-A
-1 1
+a '' to_object 30 -1 1 5 0
+a '' to_object 30 -1 1 1 0
 g none~
 #2342
 buckler spiked~
@@ -1132,8 +1086,7 @@ unknown~
 armor 0 0 AJ
 10 10 10 3 0
 35 50 6600 P
-A
-19 3
+a '' to_object 35 -1 3 19 0
 g none~
 #2343
 ring studded~
@@ -1143,10 +1096,8 @@ gem~
 jewelry G 0 AB
 0 0 0 0 0
 13 10 1020 P
-A
-17 -3
-A
-19 1
+a '' to_object 13 -1 -3 17 0
+a '' to_object 13 -1 1 19 0
 g none~
 #2344
 helm horned~
@@ -1165,12 +1116,9 @@ titanium~
 weapon BG 0 AN
 axe 7 5 'slash' 0
 31 260 3400 P
-A
-19 4
-A
-18 1
-A
-6 1
+a '' to_object 31 -1 4 19 0
+a '' to_object 31 -1 1 18 0
+a '' to_object 31 -1 1 6 0
 E
 axe great~
 The runes "DeAtH" are scrawled along the blade.
@@ -1184,8 +1132,7 @@ unknown~
 armor AJ 0 AD
 8 8 8 4 0
 27 20 5500 P
-A
-20 -2
+a '' to_object 27 -1 -2 20 0
 E
 plate ethereal suit~
 @eng You can almost see through it.
@@ -1214,10 +1161,8 @@ unknown~
 weapon AJ 0 AN
 sword 3 10 'slash' 0
 25 30 3200 P
-A
-19 1
-A
-18 1
+a '' to_object 25 -1 1 19 0
+a '' to_object 25 -1 1 18 0
 E
 blade ethereal~
 @eng You can almost see through it.
@@ -1335,8 +1280,7 @@ fur~
 armor G 0 AG
 3 3 3 1 0
 7 50 470 P
-A
-14 10
+a '' to_object 7 -1 10 14 0
 g none~
 #2361
 pelt yeti white~
@@ -1414,10 +1358,8 @@ wood~
 weapon G 0 AN
 polearm 3 8 'cleave' F
 18 180 690 P
-A
-19 1
-A
-18 1
+a '' to_object 18 -1 1 19 0
+a '' to_object 18 -1 1 18 0
 g none~
 #2369
 visor blue steel helm~
@@ -1454,10 +1396,8 @@ steel~
 weapon G 0 AN
 sword 5 5 'slash' F
 22 180 2500 P
-A
-19 2
-A
-18 2
+a '' to_object 22 -1 2 19 0
+a '' to_object 22 -1 2 18 0
 g none~
 #2373
 visor helm steel red~
@@ -1494,10 +1434,8 @@ bronze~
 weapon G 0 AN
 polearm 5 4 'slash' F
 22 190 830 P
-A
-19 1
-A
-18 1
+a '' to_object 22 -1 1 19 0
+a '' to_object 22 -1 1 18 0
 g none~
 #2377
 visor helm crimson steel~
@@ -1534,10 +1472,8 @@ wood~
 weapon G 0 AN
 mace 7 5 'pound' 0
 29 200 2300 P
-A
-19 3
-A
-18 1
+a '' to_object 29 -1 3 19 0
+a '' to_object 29 -1 1 18 0
 E
 star morning morningstar~
 It looks damaging.
@@ -1640,10 +1576,8 @@ gold~
 armor BG 0 AH
 9 9 9 0 0
 23 130 5800 P
-A
-19 4
-A
-1 4
+a '' to_object 23 -1 4 19 0
+a '' to_object 23 -1 4 1 0
 E
 gauntlets ogre power~
 They look very "handy".

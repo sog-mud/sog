@@ -1177,8 +1177,7 @@ silver~
 armor AG 0 AM
 10 7 9 0 0
 30 5 400 P
-A
-19 3
+a '' to_object 30 -1 3 19 0
 g male~
 #12004
 gown gossamer платье~
@@ -1188,10 +1187,8 @@ cloth~
 armor AFG 0 AD
 10 10 10 0 0
 30 1 600 P
-A
-14 50
-A
-2 2
+a '' to_object 30 -1 50 14 0
+a '' to_object 30 -1 2 2 0
 g none~
 #12005
 sword slender меч клинок~
@@ -1201,8 +1198,7 @@ silver~
 weapon G 0 AN
 sword 4 9 'slash' 0
 32 100 800 P
-A
-18 3
+a '' to_object 32 -1 3 18 0
 g male~
 #12006
 boots grey ботинки~
@@ -1212,10 +1208,8 @@ leather~
 armor G 0 AG
 10 11 8 8 0
 32 5 500 P
-A
-2 2
-A
-14 110
+a '' to_object 32 -1 2 2 0
+a '' to_object 32 -1 110 14 0
 g plural~
 #12007
 bow pixie лук~
@@ -1225,8 +1219,7 @@ silver~
 wand ABC 0 AO
 30 18 18 'curse' 0
 30 2 1000 P
-A
-20 1
+a '' to_object 30 -1 1 20 0
 g male~
 #12008
 kris blade wavy~
@@ -1236,8 +1229,7 @@ iron~
 weapon CG 0 AN
 dagger 4 10 'pierce' D
 40 90 30 W
-A
-19 4
+a '' to_object 40 -1 4 19 0
 g male~
 #12009
 blade jagged кинжал~
@@ -1247,14 +1239,10 @@ unknown~
 weapon G 0 AN
 sword 4 11 'cleave' 0
 43 130 200 W
-A
-24 -2
-A
-19 2
-A
-4 -2
-A
-1 2
+a '' to_object 43 -1 -2 24 0
+a '' to_object 43 -1 2 19 0
+a '' to_object 43 -1 -2 4 0
+a '' to_object 43 -1 2 1 0
 g male~
 #12010
 cap red кепка~
@@ -1264,10 +1252,8 @@ cloth~
 armor EGJ 0 AE
 12 12 13 4 0
 38 4 20 G
-A
-19 3
-A
-3 -3
+a '' to_object 38 -1 3 19 0
+a '' to_object 38 -1 -3 3 0
 g female~
 #12011
 club дубинка дубина~
@@ -1277,10 +1263,8 @@ wood~
 weapon EJ 0 AN
 mace 7 7 'pound' D
 38 70 20 A
-A
-19 7
-A
-12 -50
+a '' to_object 38 -1 7 19 0
+a '' to_object 38 -1 -50 12 0
 g female~
 #12012
 book книга tales~
@@ -1290,10 +1274,8 @@ paper~
 treasure G 0 AO
 0 0 0 0 0
 54 5 300 P
-A
-14 100
-A
-4 3
+a '' to_object 54 -1 100 14 0
+a '' to_object 54 -1 3 4 0
 g female~
 #12013
 khopesh~
@@ -1322,10 +1304,8 @@ leather~
 armor G 0 AGO
 14 14 12 10 0
 52 8 1000 G
-A
-5 4
-A
-2 4
+a '' to_object 52 -1 4 5 0
+a '' to_object 52 -1 4 2 0
 g none~
 #12016
 stitching needle~
@@ -1344,8 +1324,7 @@ leather~
 armor 0 0 AK
 14 14 14 8 0
 51 20 100 A
-A
-13 30
+a '' to_object 51 -1 30 13 0
 g male~
 #12018
 pan pipes свирель~
@@ -1364,10 +1343,8 @@ wood~
 drink G 0 AO
 200 100 'dark ale' 0 0
 30 10 120 W
-A
-18 -2
-A
-5 3
+a '' to_object 30 -1 -2 18 0
+a '' to_object 30 -1 3 5 0
 g male~
 #12020
 cap jester колпак~
@@ -1377,12 +1354,9 @@ cloth~
 armor BGHI 0 AE
 17 17 18 10 0
 59 6 800 P
-A
-17 -10
-A
-2 1
-A
-3 -3
+a '' to_object 59 -1 -10 17 0
+a '' to_object 59 -1 1 2 0
+a '' to_object 59 -1 -3 3 0
 g male~
 #12021
 axe unfinished секира~
@@ -1392,12 +1366,9 @@ unknown~
 weapon 0 0 AN
 axe 5 10 'chop' 0
 51 100 10 G
-A
-19 1
-A
-18 -1
-A
-1 1
+a '' to_object 51 -1 1 19 0
+a '' to_object 51 -1 -1 18 0
+a '' to_object 51 -1 1 1 0
 g none~
 #12022
 ember уголек~
@@ -1407,8 +1378,7 @@ stone~
 light A 0 A
 0 0 30 0 0
 50 1 0 G
-A
-1 4
+a '' to_object 50 -1 4 1 0
 g none~
 #12023
 coals pile куча уголь~
@@ -1436,22 +1406,14 @@ mithril~
 weapon CFHJKM 0 AN
 exotic 6 6 'slice' 0
 48 290 10 W
-A
-19 -2
-A
-18 -2
-A
-24 -2
-A
-23 -2
-A
-22 -2
-A
-21 -2
-A
-20 -2
-A
-12 -50
+a '' to_object 48 -1 -2 19 0
+a '' to_object 48 -1 -2 18 0
+a '' to_object 48 -1 -2 24 0
+a '' to_object 48 -1 -2 23 0
+a '' to_object 48 -1 -2 22 0
+a '' to_object 48 -1 -2 21 0
+a '' to_object 48 -1 -2 20 0
+a '' to_object 48 -1 -50 12 0
 g none~
 #12026
 fountain фонтан~
@@ -1600,14 +1562,10 @@ marble~
 weapon GK 0 AN
 mace 8 10 'pound' D
 70 250 1200 P
-A
-2 -1
-A
-5 2
-A
-1 2
-A
-19 7
+a '' to_object 70 -1 -1 2 0
+a '' to_object 70 -1 2 5 0
+a '' to_object 70 -1 2 1 0
+a '' to_object 70 -1 7 19 0
 g none~
 #12037
 spiked club~
@@ -1617,14 +1575,10 @@ wood~
 weapon GJ 0 AN
 mace 8 10 'blast' 0
 70 250 1200 W
-A
-3 -1
-A
-5 2
-A
-1 2
-A
-19 7
+a '' to_object 70 -1 -1 3 0
+a '' to_object 70 -1 2 5 0
+a '' to_object 70 -1 2 1 0
+a '' to_object 70 -1 7 19 0
 g none~
 #12038
 ice shield~
@@ -1634,10 +1588,8 @@ ice~
 armor G 0 AJ
 23 23 22 16 0
 70 25 1200 P
-A
-17 -10
-A
-24 -7
+a '' to_object 70 -1 -10 17 0
+a '' to_object 70 -1 -7 24 0
 g none~
 #12039
 oath ring~
@@ -1647,10 +1599,8 @@ unknown~
 treasure G 0 AB
 0 0 0 0 0
 70 25 1200 P
-A
-13 40
-A
-17 -5
+a '' to_object 70 -1 40 13 0
+a '' to_object 70 -1 -5 17 0
 g none~
 #12040
 noble cape~
@@ -1678,8 +1628,7 @@ unknown~
 armor G 0 AD
 22 22 21 17 0
 72 9 1200 P
-A
-4 2
+a '' to_object 72 -1 2 4 0
 g none~
 #12043
 sidhe armguards~
@@ -1689,8 +1638,7 @@ unknown~
 armor G 0 AI
 22 23 21 16 0
 68 6 1100 P
-A
-1 1
+a '' to_object 68 -1 1 1 0
 g none~
 #12044
 sidhe greaves~
@@ -1700,8 +1648,7 @@ unknown~
 armor G 0 AF
 23 23 21 16 0
 68 6 800 P
-A
-14 50
+a '' to_object 68 -1 50 14 0
 g none~
 #12045
 sidhe braceers~
@@ -1711,10 +1658,8 @@ unknown~
 armor G 0 AM
 22 21 23 16 0
 68 3 960 P
-A
-19 5
-A
-18 5
+a '' to_object 68 -1 5 19 0
+a '' to_object 68 -1 5 18 0
 g none~
 #12046
 noble circlet~
@@ -1724,12 +1669,9 @@ unknown~
 armor G 0 AE
 23 23 23 17 0
 73 3 980 P
-A
-3 3
-A
-4 4
-A
-5 5
+a '' to_object 73 -1 3 3 0
+a '' to_object 73 -1 4 4 0
+a '' to_object 73 -1 5 5 0
 g none~
 #12047
 noble rapier~
@@ -1739,10 +1681,8 @@ iron~
 weapon G 0 AN
 sword 8 12 'slash' 0
 75 50 990 P
-A
-18 5
-A
-19 5
+a '' to_object 75 -1 5 18 0
+a '' to_object 75 -1 5 19 0
 g none~
 #12048
 heart night~
@@ -1752,16 +1692,11 @@ unknown~
 treasure G 0 AO
 0 0 0 0 0
 84 20 0 P
-A
-19 3
-A
-18 3
-A
-17 -20
-A
-13 50
-A
-12 50
+a '' to_object 84 -1 3 19 0
+a '' to_object 84 -1 3 18 0
+a '' to_object 84 -1 -20 17 0
+a '' to_object 84 -1 50 13 0
+a '' to_object 84 -1 50 12 0
 g none~
 #12049
 night blood~
@@ -1780,8 +1715,7 @@ unknown~
 armor G 0 AE
 28 28 28 11 0
 86 11 2800 P
-A
-18 6
+a '' to_object 86 -1 6 18 0
 g none~
 #12051
 silver torc~
@@ -1791,8 +1725,7 @@ silver~
 armor G 0 AC
 28 28 28 10 0
 86 11 2900 P
-A
-4 3
+a '' to_object 86 -1 3 4 0
 g none~
 #12052
 poetry~
@@ -1811,8 +1744,7 @@ unknown~
 armor G 0 AK
 25 25 25 18 0
 78 7 2000 P
-A
-3 4
+a '' to_object 78 -1 4 3 0
 g none~
 #12054
 gown~
@@ -1822,8 +1754,7 @@ unknown~
 armor G 0 AK
 28 29 29 22 0
 84 8 2000 P
-A
-12 100
+a '' to_object 84 -1 100 12 0
 g none~
 #12055
 locket~
@@ -1833,12 +1764,9 @@ unknown~
 armor G 0 AC
 28 28 29 22 0
 84 4 1750 P
-A
-12 50
-A
-3 2
-A
-19 4
+a '' to_object 84 -1 50 12 0
+a '' to_object 84 -1 2 3 0
+a '' to_object 84 -1 4 19 0
 g none~
 #12056
 golden torc~
@@ -1848,12 +1776,9 @@ gold~
 armor G 0 AC
 28 28 28 20 0
 86 7 2500 P
-A
-13 50
-A
-5 2
-A
-4 2
+a '' to_object 86 -1 50 13 0
+a '' to_object 86 -1 2 5 0
+a '' to_object 86 -1 2 4 0
 g none~
 #12057
 cloak shadows~
@@ -1863,8 +1788,7 @@ unknown~
 armor CG 0 AC
 27 28 28 21 0
 84 2 3000 P
-A
-2 3
+a '' to_object 84 -1 3 2 0
 g none~
 #12058
 bag tricks~
@@ -1892,10 +1816,8 @@ unknown~
 boat M 0 AO
 0 0 0 0 0
 89 0 0 W
-A
-9 50
-A
-6 1
+a '' to_object 89 -1 50 9 0
+a '' to_object 89 -1 1 6 0
 g none~
 #12061
 slime bit~
@@ -1977,8 +1899,7 @@ unknown~
 armor G 0 AJ
 24 24 25 17 0
 74 13 1200 P
-A
-17 -10
+a '' to_object 74 -1 -10 17 0
 g none~
 #0
 

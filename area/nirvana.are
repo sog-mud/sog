@@ -229,10 +229,8 @@ adamantite~
 weapon AGJK 0 AN
 sword 4 10 'slash' EF
 39 400 8800 P
-A
-19 5
-A
-18 5
+a '' to_object 39 -1 5 19 0
+a '' to_object 39 -1 5 18 0
 E
 sword long the~
 This is an extremely long and heavy sword, with many magical runes inscribed

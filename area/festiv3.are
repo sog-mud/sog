@@ -1458,16 +1458,11 @@ feathers~
 armor A 0 AM
 25 25 25 10 0
 90 20 1000 P
-A
-1 2
-A
-13 50
-A
-14 50
-A
-18 6
-A
-19 6
+a '' to_object 90 -1 2 1 0
+a '' to_object 90 -1 50 13 0
+a '' to_object 90 -1 50 14 0
+a '' to_object 90 -1 6 18 0
+a '' to_object 90 -1 6 19 0
 g male~
 #36301
 tomahawk axe томагавк~
@@ -1477,10 +1472,8 @@ steel~
 weapon BY 0 AN
 axe 15 7 'slash' DEK
 90 40 10000 P
-A
-18 11
-A
-19 15
+a '' to_object 90 -1 11 18 0
+a '' to_object 90 -1 15 19 0
 g male~
 #36302
 necklace tooth ожерелье~
@@ -1490,14 +1483,10 @@ horn~
 armor BG 0 AC
 26 28 26 20 0
 85 13 5000 P
-A
-5 2
-A
-13 20
-A
-18 3
-A
-19 7
+a '' to_object 85 -1 2 5 0
+a '' to_object 85 -1 20 13 0
+a '' to_object 85 -1 3 18 0
+a '' to_object 85 -1 7 19 0
 g none~
 #36303
 skirt palm юбка~
@@ -1507,16 +1496,11 @@ bamboo~
 armor I 0 AF
 20 20 20 10 0
 85 10 500 P
-A
-2 2
-A
-12 50
-A
-13 65
-A
-18 7
-A
-19 7
+a '' to_object 85 -1 2 2 0
+a '' to_object 85 -1 50 12 0
+a '' to_object 85 -1 65 13 0
+a '' to_object 85 -1 7 18 0
+a '' to_object 85 -1 7 19 0
 g female~
 #36304
 bracer charisma feathery браслет~
@@ -1526,14 +1510,10 @@ feathers~
 armor AGI 0 AM
 25 25 25 19 0
 90 5 5000 P
-A
-12 35
-A
-13 65
-A
-18 7
-A
-19 7
+a '' to_object 90 -1 35 12 0
+a '' to_object 90 -1 65 13 0
+a '' to_object 90 -1 7 18 0
+a '' to_object 90 -1 7 19 0
 g male~
 #36305
 shield ebony щит~
@@ -1543,16 +1523,11 @@ ebony~
 armor CE 0 AJ
 35 35 35 15 0
 90 60 6700 P
-A
-1 -1
-A
-13 65
-A
-14 -100
-A
-18 8
-A
-19 8
+a '' to_object 90 -1 -1 1 0
+a '' to_object 90 -1 65 13 0
+a '' to_object 90 -1 -100 14 0
+a '' to_object 90 -1 8 18 0
+a '' to_object 90 -1 8 19 0
 g male~
 #36306
 lion шкура skin~
@@ -1562,18 +1537,12 @@ hard leather~
 armor H 0 AK
 25 26 24 19 0
 90 15 15000 P
-A
-1 2
-A
-2 1
-A
-5 1
-A
-13 75
-A
-19 8
-A
-24 -5
+a '' to_object 90 -1 2 1 0
+a '' to_object 90 -1 1 2 0
+a '' to_object 90 -1 1 5 0
+a '' to_object 90 -1 75 13 0
+a '' to_object 90 -1 8 19 0
+a '' to_object 90 -1 -5 24 0
 g female~
 #36307
 stick reet spear bamboo копье~
@@ -1583,10 +1552,8 @@ bamboo~
 weapon BI 0 AN
 spear 11 12 'pierce' CHK
 95 10 100 P
-A
-18 10
-A
-19 10
+a '' to_object 95 -1 10 18 0
+a '' to_object 95 -1 10 19 0
 g female~
 #36308
 casque black helm шлем~
@@ -1596,10 +1563,8 @@ iron~
 armor E 0 AE
 30 30 30 20 0
 85 20 5100 P
-A
-18 8
-A
-19 8
+a '' to_object 85 -1 8 18 0
+a '' to_object 85 -1 8 19 0
 g male~
 #36309
 platemail black scale кольчуга~
@@ -1609,14 +1574,10 @@ dragonskin~
 armor ABCEG 0 AD
 35 35 35 27 0
 85 23 16700 G
-A
-13 50
-A
-18 12
-A
-19 12
-A
-24 -5
+a '' to_object 85 -1 50 13 0
+a '' to_object 85 -1 12 18 0
+a '' to_object 85 -1 12 19 0
+a '' to_object 85 -1 -5 24 0
 g female~
 #36310
 gauntlets black dragon перчатки~
@@ -1626,10 +1587,8 @@ dragonskin~
 armor ABCEG 0 AH
 30 30 30 24 0
 85 20 18000 P
-A
-18 7
-A
-19 7
+a '' to_object 85 -1 7 18 0
+a '' to_object 85 -1 7 19 0
 g plural~
 #36311
 leg black dragon plates поножи~
@@ -1639,12 +1598,9 @@ dragonskin~
 armor ABCEG 0 AF
 28 28 28 16 0
 85 25 17000 P
-A
-13 50
-A
-18 7
-A
-19 7
+a '' to_object 85 -1 50 13 0
+a '' to_object 85 -1 7 18 0
+a '' to_object 85 -1 7 19 0
 g plural~
 #36312
 bow short~
@@ -1654,10 +1610,8 @@ wood~
 weapon G 0 AN
 bow 8 10 'blast' 0
 80 15 1000 P
-A
-18 5
-A
-19 5
+a '' to_object 80 -1 5 18 0
+a '' to_object 80 -1 5 19 0
 g male~
 #36313
 boots black scale dragon сапоги~
@@ -1667,12 +1621,9 @@ dragonskin~
 armor ABCEG 0 AG
 31 28 31 20 0
 85 12 15000 P
-A
-14 -50
-A
-18 8
-A
-19 8
+a '' to_object 85 -1 -50 14 0
+a '' to_object 85 -1 8 18 0
+a '' to_object 85 -1 8 19 0
 g plural~
 #36314
 pot ink girth чернильница~
@@ -1682,8 +1633,7 @@ quartz~
 drink AGIY 0 AL
 100 0 'water' 0 0
 25 0 1000 P
-A
-4 10
+a '' to_object 25 -1 10 4 0
 g female~
 #36315
 apple яблоко~
@@ -1719,16 +1669,11 @@ soft leather~
 weapon HM 0 AN
 whip 9 11 'blast' G
 78 0 1000 P
-A
-3 1
-A
-4 4
-A
-18 5
-A
-19 15
-A
-24 -2
+a '' to_object 78 -1 1 3 0
+a '' to_object 78 -1 4 4 0
+a '' to_object 78 -1 5 18 0
+a '' to_object 78 -1 15 19 0
+a '' to_object 78 -1 -2 24 0
 g female~
 #36318
 mist накидка cloak illusory~
@@ -1738,22 +1683,14 @@ air~
 armor ABCFGIY BD AK
 0 0 0 0 0
 100 0 100000 P
-A
-3 2
-A
-4 2
-A
-12 200
-A
-14 500
-A
-17 -100
-A
-18 20
-A
-19 20
-A
-24 -15
+a '' to_object 100 -1 2 3 0
+a '' to_object 100 -1 2 4 0
+a '' to_object 100 -1 200 12 0
+a '' to_object 100 -1 500 14 0
+a '' to_object 100 -1 -100 17 0
+a '' to_object 100 -1 20 18 0
+a '' to_object 100 -1 20 19 0
+a '' to_object 100 -1 -15 24 0
 g female~
 #36319
 sword long illusory mist меч~
@@ -1763,14 +1700,10 @@ air~
 weapon ACFGY ABD AN
 sword 13 13 'slash' DEFG
 100 80 100000 P
-A
-2 1
-A
-13 100
-A
-18 25
-A
-19 25
+a '' to_object 100 -1 1 2 0
+a '' to_object 100 -1 100 13 0
+a '' to_object 100 -1 25 18 0
+a '' to_object 100 -1 25 19 0
 g male~
 #36320
 arrow silver~
@@ -1780,10 +1713,8 @@ silver~
 weapon AIY AB AO
 arrow 15 15 'pierce' AGK
 90 10 0 P
-A
-18 20
-A
-19 20
+a '' to_object 90 -1 20 18 0
+a '' to_object 90 -1 20 19 0
 g none~
 #36321
 ring bowman кольцо~
@@ -1793,14 +1724,10 @@ mithril~
 armor BGI C AB
 20 18 20 15 0
 85 10 23000 P
-A
-1 1
-A
-13 50
-A
-18 10
-A
-19 7
+a '' to_object 85 -1 1 1 0
+a '' to_object 85 -1 50 13 0
+a '' to_object 85 -1 10 18 0
+a '' to_object 85 -1 7 19 0
 g none~
 #36322
 hat green red шляпа~
@@ -1810,12 +1737,9 @@ fur~
 armor AGI B AE
 30 25 30 20 0
 89 10 10000 P
-A
-2 1
-A
-18 10
-A
-19 7
+a '' to_object 89 -1 1 2 0
+a '' to_object 89 -1 10 18 0
+a '' to_object 89 -1 7 19 0
 g female~
 #36323
 vest green куртка~
@@ -1825,18 +1749,12 @@ silk~
 armor AGI 0 AD
 32 30 32 21 0
 97 10 2500 P
-A
-2 1
-A
-12 40
-A
-13 80
-A
-18 10
-A
-19 7
-A
-24 -1
+a '' to_object 97 -1 1 2 0
+a '' to_object 97 -1 40 12 0
+a '' to_object 97 -1 80 13 0
+a '' to_object 97 -1 10 18 0
+a '' to_object 97 -1 7 19 0
+a '' to_object 97 -1 -1 24 0
 g none~
 #36324
 leggings leather штаны~
@@ -1846,18 +1764,12 @@ soft leather~
 armor BGY C AF
 32 30 32 23 0
 98 20 5000 P
-A
-5 1
-A
-12 30
-A
-13 80
-A
-14 50
-A
-18 10
-A
-19 7
+a '' to_object 98 -1 1 5 0
+a '' to_object 98 -1 30 12 0
+a '' to_object 98 -1 80 13 0
+a '' to_object 98 -1 50 14 0
+a '' to_object 98 -1 10 18 0
+a '' to_object 98 -1 7 19 0
 g plural~
 #36325
 boots leather thin ботинки~
@@ -1867,18 +1779,12 @@ soft leather~
 armor BG 0 AG
 35 33 35 26 0
 96 20 3000 P
-A
-5 1
-A
-13 80
-A
-14 45
-A
-18 10
-A
-19 7
-A
-24 -1
+a '' to_object 96 -1 1 5 0
+a '' to_object 96 -1 80 13 0
+a '' to_object 96 -1 45 14 0
+a '' to_object 96 -1 10 18 0
+a '' to_object 96 -1 7 19 0
+a '' to_object 96 -1 -1 24 0
 g plural~
 #36326
 bow long лук~
@@ -1888,8 +1794,7 @@ ebony~
 weapon BG 0 AN
 bow 6 20 'blast' 0
 94 30 14000 P
-A
-18 8
+a '' to_object 94 -1 8 18 0
 g male~
 #36327
 headband head band повязка~
@@ -1899,22 +1804,14 @@ feathers~
 armor ABGI 0 AE
 23 23 23 18 0
 89 0 2400 P
-A
-2 1
-A
-4 2
-A
-13 65
-A
-14 100
-A
-17 -5
-A
-18 11
-A
-19 6
-A
-24 -2
+a '' to_object 89 -1 1 2 0
+a '' to_object 89 -1 2 4 0
+a '' to_object 89 -1 65 13 0
+a '' to_object 89 -1 100 14 0
+a '' to_object 89 -1 -5 17 0
+a '' to_object 89 -1 11 18 0
+a '' to_object 89 -1 6 19 0
+a '' to_object 89 -1 -2 24 0
 g female~
 #36328
 snake пояс~
@@ -1924,16 +1821,11 @@ snakeskin~
 armor ABGHIM 0 AL
 25 28 25 25 0
 85 0 10000 P
-A
-4 1
-A
-5 1
-A
-13 65
-A
-18 8
-A
-19 6
+a '' to_object 85 -1 1 4 0
+a '' to_object 85 -1 1 5 0
+a '' to_object 85 -1 65 13 0
+a '' to_object 85 -1 8 18 0
+a '' to_object 85 -1 6 19 0
 g male~
 #36329
 scalp штаны leggings~
@@ -1943,16 +1835,11 @@ fur~
 armor CEG 0 AF
 26 24 26 15 0
 88 23 1000 P
-A
-4 -1
-A
-13 65
-A
-14 100
-A
-18 11
-A
-19 6
+a '' to_object 88 -1 -1 4 0
+a '' to_object 88 -1 65 13 0
+a '' to_object 88 -1 100 14 0
+a '' to_object 88 -1 11 18 0
+a '' to_object 88 -1 6 19 0
 g plural~
 #36330
 boots soft мокасины moccasins~
@@ -1962,17 +1849,12 @@ soft leather~
 armor C 0 AG
 23 18 23 15 0
 85 20 1000 P
-F i 0 0 G
-A
-24 -2
-A
-2 2
-A
-14 100
-A
-18 8
-A
-19 8
+a '' to_invis 85 -1 0 0 G
+a '' to_object 85 -1 -2 24 0
+a '' to_object 85 -1 2 2 0
+a '' to_object 85 -1 100 14 0
+a '' to_object 85 -1 8 18 0
+a '' to_object 85 -1 8 19 0
 g plural~
 #36331
 spiritus vini~
@@ -1982,14 +1864,10 @@ nothingness~
 armor BG 0 AQ
 0 0 0 0 0
 90 0 0 P
-A
-13 100
-A
-17 -50
-A
-18 -5
-A
-19 10
+a '' to_object 90 -1 100 13 0
+a '' to_object 90 -1 -50 17 0
+a '' to_object 90 -1 -5 18 0
+a '' to_object 90 -1 10 19 0
 g none~
 #36332
 waistcoat dirty плащ~
@@ -1999,12 +1877,9 @@ silk~
 armor AGY 0 AK
 28 28 28 24 0
 87 20 18000 P
-A
-18 10
-A
-19 8
-A
-24 -2
+a '' to_object 87 -1 10 18 0
+a '' to_object 87 -1 8 19 0
+a '' to_object 87 -1 -2 24 0
 g male~
 #36333
 belt shoulder перевязь~
@@ -2014,16 +1889,11 @@ hard leather~
 container GY 0 AL
 150 0 0 150 50
 100 10 25000 P
-A
-12 50
-A
-13 100
-A
-17 -30
-A
-18 8
-A
-19 8
+a '' to_object 100 -1 50 12 0
+a '' to_object 100 -1 100 13 0
+a '' to_object 100 -1 -30 17 0
+a '' to_object 100 -1 8 18 0
+a '' to_object 100 -1 8 19 0
 g female~
 #36334
 sword veteran old меч~
@@ -2033,10 +1903,8 @@ steel~
 weapon BHMY C AN
 sword 9 14 'pierce' D
 90 100 10000 A
-A
-18 15
-A
-19 15
+a '' to_object 90 -1 15 18 0
+a '' to_object 90 -1 15 19 0
 g male~
 #36335
 flask crumpled фляжка~
@@ -2055,12 +1923,9 @@ glass~
 armor 0 0 AE
 2 2 2 0 0
 5 5 100 P
-A
-18 2
-A
-19 1
-A
-24 -2
+a '' to_object 5 -1 2 18 0
+a '' to_object 5 -1 1 19 0
+a '' to_object 5 -1 -2 24 0
 g plural~
 #36337
 match спичка~
@@ -2088,10 +1953,8 @@ wool~
 armor AM 0 AE
 15 15 15 18 0
 50 20 1000 P
-A
-4 -3
-A
-12 100
+a '' to_object 50 -1 -3 4 0
+a '' to_object 50 -1 100 12 0
 g male~
 #36340
 hat cowboy dusty шляпа~
@@ -2101,18 +1964,12 @@ kid leather~
 armor M 0 AE
 24 20 27 17 0
 75 35 1200 A
-A
-1 1
-A
-2 1
-A
-5 1
-A
-13 80
-A
-18 5
-A
-19 5
+a '' to_object 75 -1 1 1 0
+a '' to_object 75 -1 1 2 0
+a '' to_object 75 -1 1 5 0
+a '' to_object 75 -1 80 13 0
+a '' to_object 75 -1 5 18 0
+a '' to_object 75 -1 5 19 0
 g female~
 #36341
 staff strength посох~
@@ -2122,8 +1979,7 @@ wood~
 staff A 0 AO
 91 10 10 'earthquake' 0
 81 30 4500 P
-A
-18 2
+a '' to_object 81 -1 2 18 0
 g male~
 #36342
 suit festival костюм~
@@ -2133,10 +1989,8 @@ satin~
 armor A 0 AD
 12 12 12 12 0
 25 20 8900 P
-A
-6 3
-A
-18 1
+a '' to_object 25 -1 3 6 0
+a '' to_object 25 -1 1 18 0
 g male~
 #36343
 toy boy key ключ~
@@ -2155,30 +2009,18 @@ gold~
 armor AGIY B AC
 30 30 30 25 0
 75 50 0 P
-A
-1 1
-A
-2 1
-A
-3 1
-A
-4 1
-A
-5 1
-A
-12 100
-A
-13 100
-A
-14 200
-A
-17 -20
-A
-18 15
-A
-19 15
-A
-24 -10
+a '' to_object 75 -1 1 1 0
+a '' to_object 75 -1 1 2 0
+a '' to_object 75 -1 1 3 0
+a '' to_object 75 -1 1 4 0
+a '' to_object 75 -1 1 5 0
+a '' to_object 75 -1 100 12 0
+a '' to_object 75 -1 100 13 0
+a '' to_object 75 -1 200 14 0
+a '' to_object 75 -1 -20 17 0
+a '' to_object 75 -1 15 18 0
+a '' to_object 75 -1 15 19 0
+a '' to_object 75 -1 -10 24 0
 g female~
 #36345
 robe dark grey~
@@ -2188,14 +2030,10 @@ linen~
 armor 0 0 AD
 10 10 10 10 0
 25 20 400 P
-A
-24 -2
-A
-3 2
-A
-14 -100
-A
-18 5
+a '' to_object 25 -1 -2 24 0
+a '' to_object 25 -1 2 3 0
+a '' to_object 25 -1 -100 14 0
+a '' to_object 25 -1 5 18 0
 g female~
 #36346
 sleeves accuracy нарукавники~
@@ -2205,12 +2043,9 @@ linen~
 armor 0 0 AH
 10 10 10 10 0
 25 10 1000 A
-A
-3 2
-A
-12 40
-A
-18 5
+a '' to_object 25 -1 2 3 0
+a '' to_object 25 -1 40 12 0
+a '' to_object 25 -1 5 18 0
 g plural~
 #36347
 pen goose~
@@ -2220,12 +2055,9 @@ feathers~
 weapon BIJK 0 AN
 exotic 5 7 'pierce' 0
 25 10 1000 P
-A
-4 2
-A
-12 10
-A
-18 15
+a '' to_object 25 -1 2 4 0
+a '' to_object 25 -1 10 12 0
+a '' to_object 25 -1 15 18 0
 g none~
 #36348
 scroll dispatch witch hunt свиток~
@@ -2253,10 +2085,8 @@ iron~
 armor 0 0 AB
 8 8 8 5 0
 50 10 1000 P
-A
-18 2
-A
-19 3
+a '' to_object 50 -1 2 18 0
+a '' to_object 50 -1 3 19 0
 E
 inscription~
 Made by Agrael.
@@ -2270,10 +2100,8 @@ iron~
 armor 0 0 AC
 10 10 10 5 0
 50 12 1200 P
-A
-18 3
-A
-19 3
+a '' to_object 50 -1 3 18 0
+a '' to_object 50 -1 3 19 0
 E
 inscription~
 Made by Agrael.
@@ -2287,8 +2115,7 @@ iron~
 armor 0 0 AE
 15 15 15 10 0
 50 35 2300 P
-A
-19 4
+a '' to_object 50 -1 4 19 0
 g male~
 #36353
 plate breast tournament нагрудник~
@@ -2298,10 +2125,8 @@ iron~
 armor 0 0 AD
 15 15 15 10 0
 50 50 5000 P
-A
-18 1
-A
-19 3
+a '' to_object 50 -1 1 18 0
+a '' to_object 50 -1 3 19 0
 E
 carvings~
 Made by Agrael.
@@ -2315,10 +2140,8 @@ iron~
 armor 0 0 AF
 10 10 10 5 0
 50 35 2300 P
-A
-5 1
-A
-19 2
+a '' to_object 50 -1 1 5 0
+a '' to_object 50 -1 2 19 0
 g plural~
 #36355
 boots plated tournament сапоги~
@@ -2328,8 +2151,7 @@ iron~
 armor 0 0 AG
 15 15 15 6 0
 50 23 2300 P
-A
-19 2
+a '' to_object 50 -1 2 19 0
 g plural~
 #36356
 arm plate tournament наручи~
@@ -2339,8 +2161,7 @@ iron~
 armor 0 0 AI
 10 10 10 10 0
 50 23 2300 P
-A
-19 3
+a '' to_object 50 -1 3 19 0
 g plural~
 #36357
 shield tournament щит~
@@ -2350,8 +2171,7 @@ iron~
 armor 0 0 AJ
 20 20 20 18 0
 50 40 1200 P
-A
-5 3
+a '' to_object 50 -1 3 5 0
 g male~
 #36358
 cloak tournament накидка~
@@ -2361,8 +2181,7 @@ iron~
 armor 0 0 AK
 15 10 10 10 0
 50 20 2000 P
-A
-19 3
+a '' to_object 50 -1 3 19 0
 E
 inscription~
 Made by Agrael.
@@ -2376,8 +2195,7 @@ iron~
 armor 0 0 AH
 15 15 15 10 0
 50 30 10356 P
-A
-19 3
+a '' to_object 50 -1 3 19 0
 g plural~
 #36360
 tournament sword меч~
@@ -2459,8 +2277,7 @@ steel~
 armor 0 0 AD
 10 15 10 10 0
 25 50 2000 P
-A
-19 2
+a '' to_object 25 -1 2 19 0
 g female~
 #36369
 shield guard щит~
@@ -2470,10 +2287,8 @@ shell~
 armor 0 0 AJ
 15 18 15 10 0
 25 35 3400 P
-A
-5 2
-A
-17 -10
+a '' to_object 25 -1 2 5 0
+a '' to_object 25 -1 -10 17 0
 g male~
 #36370
 cape guard накидка~
@@ -2483,8 +2298,7 @@ fur~
 armor 0 0 AK
 10 12 10 8 0
 25 10 2387 P
-A
-18 3
+a '' to_object 25 -1 3 18 0
 g female~
 #36371
 sword guard меч~
@@ -2512,14 +2326,10 @@ fur~
 armor BGIM 0 AH
 5 6 5 3 0
 5 10 0 P
-A
-4 1
-A
-18 1
-A
-19 1
-A
-24 -1
+a '' to_object 5 -1 1 4 0
+a '' to_object 5 -1 1 18 0
+a '' to_object 5 -1 1 19 0
+a '' to_object 5 -1 -1 24 0
 g plural~
 #36374
 some stilts ходули~
@@ -2529,10 +2339,8 @@ wood~
 armor 0 0 AG
 10 12 15 5 0
 25 20 2000 P
-A
-14 300
-A
-18 -3
+a '' to_object 25 -1 300 14 0
+a '' to_object 25 -1 -3 18 0
 g plural~
 #36375
 safe сейф~
@@ -2641,8 +2449,7 @@ kid leather~
 treasure AY B AO
 0 0 0 0 0
 0 0 0 P
-A
-24 -1
+a '' to_object 0 -1 -1 24 0
 E
 book~
 @rus Верховная власть в этом мире. Его слово закон для всех
@@ -2663,8 +2470,7 @@ kid leather~
 treasure AY B AO
 0 0 0 0 0
 0 0 0 P
-A
-24 -1
+a '' to_object 0 -1 -1 24 0
 E
 book~
 @rus Идейный лидер бессмертных. Не любит, когда его отвлекают
@@ -2686,8 +2492,7 @@ kid leather~
 treasure AEY B AO
 0 0 0 0 0
 0 0 0 P
-A
-24 -1
+a '' to_object 0 -1 -1 24 0
 E
 book~
 @rus Черный, как Извечная Тьма. Ее наместник в этом мире. Ему поклоняются
@@ -2709,8 +2514,7 @@ kid leather~
 treasure AY B AO
 0 0 0 0 0
 0 0 0 P
-A
-24 -1
+a '' to_object 0 -1 -1 24 0
 E
 book~
 @rus Он стоял у истоков. Он видел, как этот мир рождался. Но Тьма
@@ -2727,8 +2531,7 @@ kid leather~
 treasure AY B AO
 0 0 0 0 0
 0 0 0 P
-A
-24 -1
+a '' to_object 0 -1 -1 24 0
 E
 book~
 @rus Он настолько таинственен и скрытен, что о нем никто ничего не знает. 
@@ -2742,8 +2545,7 @@ kid leather~
 treasure AY B AO
 0 0 0 0 0
 0 0 0 P
-A
-24 -1
+a '' to_object 0 -1 -1 24 0
 E
 book~
 @rus Он настолько таинственен и скрытен, что о нем никто ничего не знает. 
@@ -2757,8 +2559,7 @@ kid leather~
 treasure AY B AO
 0 0 0 0 0
 0 0 0 P
-A
-24 -1
+a '' to_object 0 -1 -1 24 0
 E
 book~
 @rus Непостоянный, как ртуть, и неуловимый, как ветер, он по праву
@@ -2785,8 +2586,7 @@ kid leather~
 treasure A 0 AO
 0 0 0 0 0
 0 0 0 P
-A
-24 -1
+a '' to_object 0 -1 -1 24 0
 E
 book~
 @rus Если Вы окончательно решили, что Вашу проблему без вмешательства
@@ -2818,8 +2618,7 @@ kid leather~
 treasure AGY B AO
 0 0 0 0 0
 0 0 0 P
-A
-24 -1
+a '' to_object 0 -1 -1 24 0
 E
 book~
 @rus Жестокость, жажда денег и крови -- вот составляющие его характера.
@@ -2834,8 +2633,7 @@ kid leather~
 treasure AY B AO
 0 0 0 0 0
 0 0 0 P
-A
-24 -1
+a '' to_object 0 -1 -1 24 0
 E
 book~
 @rus Если у Вас какие-то проблемы, то Вы всегда можете обратиться к ней,
@@ -2855,8 +2653,7 @@ kid leather~
 treasure AIY B A
 0 0 0 0 0
 0 0 0 P
-A
-24 -1
+a '' to_object 0 -1 -1 24 0
 E
 book~
 @rus Неутомимый поставщик идей к столу богов. Не знающий усталости
@@ -2875,8 +2672,7 @@ kid leather~
 treasure AGY B AO
 0 0 0 0 0
 0 0 0 P
-A
-24 -1
+a '' to_object 0 -1 -1 24 0
 E
 book~
 @rus Шустрый и быстрый, молнией мелькающий то тут, то там, всюду
@@ -2903,8 +2699,7 @@ kid leather~
 treasure AY B AO
 0 0 0 0 0
 0 0 0 P
-A
-24 -1
+a '' to_object 0 -1 -1 24 0
 E
 book~
 @rus Большой почитатель культа Геры. Возглавляет общину поклоняющихся ей
@@ -2924,8 +2719,7 @@ kid leather~
 treasure AY B A
 0 0 0 0 0
 0 0 0 P
-A
-24 -1
+a '' to_object 0 -1 -1 24 0
 g female~
 #36402
 book immortal~
@@ -3016,14 +2810,10 @@ silk~
 armor AGHKLM 0 AK
 35 35 35 30 0
 90 10 5000 P
-A
-3 2
-A
-4 2
-A
-12 150
-A
-24 -10
+a '' to_object 90 -1 2 3 0
+a '' to_object 90 -1 2 4 0
+a '' to_object 90 -1 150 12 0
+a '' to_object 90 -1 -10 24 0
 g female~
 #36412
 cape grey накидка~
@@ -3033,14 +2823,10 @@ silk~
 armor AGHJKM 0 AK
 35 35 35 30 0
 85 10 5500 P
-A
-3 2
-A
-4 2
-A
-12 150
-A
-24 -10
+a '' to_object 85 -1 2 3 0
+a '' to_object 85 -1 2 4 0
+a '' to_object 85 -1 150 12 0
+a '' to_object 85 -1 -10 24 0
 g female~
 #36413
 cape dark накидка~
@@ -3050,14 +2836,10 @@ silk~
 armor AEGHJLM 0 AK
 35 35 35 30 0
 85 10 4500 P
-A
-3 2
-A
-4 2
-A
-12 150
-A
-24 -10
+a '' to_object 85 -1 2 3 0
+a '' to_object 85 -1 2 4 0
+a '' to_object 85 -1 150 12 0
+a '' to_object 85 -1 -10 24 0
 g female~
 #36414
 mask clown маска~
@@ -3067,18 +2849,12 @@ plastic~
 armor CEM 0 AE
 12 12 10 5 0
 25 10 1000 P
-A
-2 2
-A
-3 -2
-A
-4 -1
-A
-12 25
-A
-13 10
-A
-18 5
+a '' to_object 25 -1 2 2 0
+a '' to_object 25 -1 -2 3 0
+a '' to_object 25 -1 -1 4 0
+a '' to_object 25 -1 25 12 0
+a '' to_object 25 -1 10 13 0
+a '' to_object 25 -1 5 18 0
 g female~
 #36415
 ball crystall quartz шар~
@@ -3088,20 +2864,13 @@ quartz~
 light AG 0 A
 0 0 -1 0 0
 91 10 4560 P
-A
-1 5
-A
-4 1
-A
-12 100
-A
-13 100
-A
-17 -20
-A
-18 10
-A
-19 5
+a '' to_object 91 -1 5 1 0
+a '' to_object 91 -1 1 4 0
+a '' to_object 91 -1 100 12 0
+a '' to_object 91 -1 100 13 0
+a '' to_object 91 -1 -20 17 0
+a '' to_object 91 -1 10 18 0
+a '' to_object 91 -1 5 19 0
 g male~
 #36416
 heal пилюля pill~
@@ -3120,8 +2889,7 @@ food~
 pill ABGM 0 AO
 95 'refresh' 'teleport' 'heal' 'mana restore'
 75 0 25000 P
-A
-12 200
+a '' to_object 75 -1 200 12 0
 g female~
 #36418
 pill great пилюля~
@@ -3203,10 +2971,8 @@ silver~
 armor I 0 AB
 2 2 2 1 0
 15 0 5600 P
-A
-24 -2
-A
-18 2
+a '' to_object 15 -1 -2 24 0
+a '' to_object 15 -1 2 18 0
 g none~
 #36427
 amulet holy silver амулет~
@@ -3216,10 +2982,8 @@ silver~
 armor AI 0 AC
 2 2 2 2 0
 25 10 12900 P
-A
-24 -3
-A
-18 3
+a '' to_object 25 -1 -3 24 0
+a '' to_object 25 -1 3 18 0
 g male~
 #36428
 helm iron шлем~
@@ -3247,7 +3011,7 @@ unknown~
 trash GU 0 AO
 0 0 0 0 0
 10 5 1000 P
-S 'farsight' 30 A
+a '' to_skills 10 -1 30 'farsight' A
 g male~
 #36431
 toad tongue язык~
@@ -3257,7 +3021,7 @@ unknown~
 trash GU 0 AO
 0 0 0 0 0
 10 5 1000 P
-S 'ventriloquate' 30 A
+a '' to_skills 10 -1 30 'ventriloquate' A
 g male~
 #36432
 dried bat мышь~
@@ -3267,7 +3031,7 @@ unknown~
 trash GU 0 AO
 0 0 0 0 0
 10 5 1000 P
-S 'control weather' 50 A
+a '' to_skills 10 -1 50 'control weather' A
 g female~
 #36433
 sword katana samurai катана~
@@ -3286,8 +3050,7 @@ silk~
 armor I 0 AD
 20 21 21 18 0
 50 20 20000 P
-A
-24 -10
+a '' to_object 50 -1 -10 24 0
 g none~
 #36435
 coins кучка~
@@ -3454,12 +3217,9 @@ wool~
 armor I 0 AD
 10 10 10 10 0
 95 30 1000 P
-A
-12 100
-A
-24 -15
-A
-6 2
+a '' to_object 95 -1 100 12 0
+a '' to_object 95 -1 -15 24 0
+a '' to_object 95 -1 2 6 0
 g female~
 #36439
 shackles foot iron band chain pair кандалы~
@@ -3469,17 +3229,13 @@ iron~
 treasure CEHIPUY 0 AG
 0 0 0 0 0
 90 300 10 P
-A
-18 50
-A
-17 100
-S 'settraps' 24 A
-S 'throwing weapons' 9 A
-S 'knife' 3 A
-A
-14 250
-A
-2 8
+a '' to_object 90 -1 50 18 0
+a '' to_object 90 -1 100 17 0
+a '' to_skills 90 -1 24 'settraps' A
+a '' to_skills 90 -1 9 'throwing weapons' A
+a '' to_skills 90 -1 3 'knife' A
+a '' to_object 90 -1 250 14 0
+a '' to_object 90 -1 8 2 0
 g none~
 #0
 

@@ -72,11 +72,9 @@ steel~
 weapon IM C AN
 sword 100 30 'pierce' D
 5 10 0 P
-F A 0 0 V
-A
-18 300
-A
-19 300
+a '' to_affects 5 -1 0 0 V
+a '' to_object 5 -1 300 18 0
+a '' to_object 5 -1 300 19 0
 g none~
 #44001
 mat~
@@ -108,17 +106,12 @@ unknown~
 armor 0 0 AB
 0 0 0 0 0
 96 0 0 P
-A
-29 100
-A
-28 100
-A
-27 100
-F A 0 0 H
-A
-12 20000
-A
-13 20000
+a '' to_object 96 -1 100 29 0
+a '' to_object 96 -1 100 28 0
+a '' to_object 96 -1 100 27 0
+a '' to_affects 96 -1 0 0 H
+a '' to_object 96 -1 20000 12 0
+a '' to_object 96 -1 20000 13 0
 g none~
 #44004
 Statue of Eidu~
@@ -155,14 +148,10 @@ plastic~
 container 0 0 AL
 1000000 A 0 1000 1
 0 0 0 P
-A
-8 150
-A
-13 1000
-A
-18 150
-A
-19 150
+a '' to_object 0 -1 150 8 0
+a '' to_object 0 -1 1000 13 0
+a '' to_object 0 -1 150 18 0
+a '' to_object 0 -1 150 19 0
 g none~
 #44009
 bottle vodka absolut~
@@ -181,12 +170,9 @@ steel~
 armor PY 0 AB
 0 0 0 0 0
 32 0 0 P
-A
-13 30
-A
-18 4
-A
-19 4
+a '' to_object 32 -1 30 13 0
+a '' to_object 32 -1 4 18 0
+a '' to_object 32 -1 4 19 0
 g none~
 #44011
 rivulet~
@@ -223,10 +209,8 @@ obsidian~
 armor 0 0 AB
 0 0 0 0 0
 50 0 0 P
-A
-20 -15
-A
-19 5
+a '' to_object 50 -1 -15 20 0
+a '' to_object 50 -1 5 19 0
 g none~
 #44014
 ring constricting~
@@ -236,7 +220,7 @@ steel~
 jewelry CMY 0 AB
 0 0 0 0 0
 96 0 0 P
-F A 0 0 L
+a '' to_affects 96 -1 0 0 L
 g none~
 #44015
 пиво мартовское beer~

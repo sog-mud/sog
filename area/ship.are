@@ -4117,9 +4117,9 @@ D3
 Z 0 10784
 S
 #10792
+@rus ÷ ÔÒÀÍÅ~
 ~
-~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -4146,9 +4146,9 @@ D3
 Z 0 10796
 S
 #10793
+@rus ÷ ÔÒÀÍÅ~
 ~
-~
-0 0 inside
+0 NX inside
 D1
 ~
 ~
@@ -4169,9 +4169,9 @@ D3
 Z 0 10800
 S
 #10794
+@rus ÷ ÔÒÀÍÅ~
 ~
-~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -4192,9 +4192,9 @@ D3
 Z 0 10792
 S
 #10795
+@rus ÷ ÔÒÀÍÅ~
 ~
-~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -4221,9 +4221,9 @@ D3
 Z 0 10799
 S
 #10796
+@rus ÷ ÔÒÀÍÅ~
 ~
-~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -4244,9 +4244,9 @@ D2
 Z 0 10799
 S
 #10797
+@rus ÷ ÔÒÀÍÅ~
 ~
-~
-0 0 inside
+0 NX inside
 D2
 ~
 ~
@@ -4261,9 +4261,9 @@ D3
 Z 0 10793
 S
 #10798
+@rus ÷ ÔÒÀÍÅ~
 ~
-~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -4278,9 +4278,9 @@ D3
 Z 0 10795
 S
 #10799
+@rus ÷ ÔÒÀÍÅ~
 ~
-~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -4295,9 +4295,9 @@ D1
 Z 0 10795
 S
 #10800
+@rus ÷ ÔÒÀÍÅ~
 ~
-~
-0 0 inside
+0 NX inside
 D1
 ~
 ~
@@ -4560,9 +4560,6 @@ R 0 10793 4	* : randomize
 R 0 10794 1	* : randomize
 R 0 10794 3	* : randomize
 R 0 10794 4	* : randomize
-R 0 10795 1	* : randomize
-R 0 10795 2	* : randomize
-R 0 10795 4	* : randomize
 R 0 10796 1	* : randomize
 R 0 10796 2	* : randomize
 R 0 10796 3	* : randomize

@@ -71,25 +71,33 @@ ghoul гуль~
 @eng A ghoul stands here chewing on an old bone.
 @rus Гуль (ghoul) стоит здесь, обгладывая чью-то кость.
 ~
-A disgusting undead creature that resembles a zombie, though much more
+@eng A disgusting undead creature that resembles a zombie, though much more
 ferocious.  It carries around an old arm bone that it chews on constantly,
 tearing the last remnants of flesh from it for food.  
+@rus Отвратительная тварь, напоминающая зомби, но куда менее апатичная.
+Он всюду таскает с собой чью-то оторванную руку и все время обгла-
+дывает ее, словно решив отполировать ее до блеска.
 ~
-human~
-GO 0 0 0 H -950 0
+ghoul~
+GO 0 0 0 0 -950 0
 36 0 5d25+1400 36d10+100 3d10+11 'claw'
 -12 -12 -12 3
 CDHK
 stand stand none 500
-I 0 medium unknown
-r holy -50
+0 0 medium unknown
+g @eng none@rus male~
+r disease 100
+r poison 100
 #22006
-demon lemure lowest~
-a lemure~
-A lowly demon wanders slugishly forward.
+demon lemure lowest демон лемур~
+@eng a lemure@rus ~~лемур~~~
+@eng A lowly demon wanders slugishly forward.
+@rus Демон (demon) медленно бредет куда-то, безразличный ко всему.
 ~
-A Lemure trudges slowly forward.  Its morphous form not allowing it to
+@eng A Lemure trudges slowly forward.  Its morphous form not allowing it to
 move any faster than at a slow walk.  
+@rus Это лемур, еще одна разновидность демонов. Он слишком тучен, чтобы
+двигаться быстрей и эта неуклюжесть ему явно не в радость.
 ~
 human~
 GO 0 0 0 H -600 0
@@ -98,66 +106,101 @@ GO 0 0 0 H -600 0
 CDF
 stand stand none 0
 I 0 medium unknown
+g @eng none@rus male~
 r holy -50
 #22007
-nupperibo demon obese~
-a nupperibo~
-An obese demon wandering around aimlessly.
+nupperibo demon obese нупперибо демон тучный~
+@eng a nupperibo@rus нупперибо~
+@eng An obese demon wandering around aimlessly.
+@rus Очень тучный демон (demon) бесцельно слоняется здесь.
 ~
-The next step up from lemures in the demon hierarchy, the nupperibos are
+@eng The next step up from lemures in the demon hierarchy, the nupperibos are
 disgusting.  It's huge, obese form is disgusting, rolls of fat cover its
 entire body.
+@rus Нупперибо стоят одной ступенью выше лемуров в иерархии демонов.
+Этот образчик невозможно, до ужаса толст и жировые складки свисают
+до самой земли.
 ~
 human~
 GO 0 0 0 H -700 0
 27 0 5d10+650 27d10+100 5d4+7 'charge'
 -8 -8 -8 6
 CDF
-stand stand none 0
+stand stand neutral 0
 I 0 large unknown
+g @eng neutral@rus male~
 r holy -50
 #22008
-spinagon demon~
-a Spinagon~
-An imp-like demon flys towards you on leathery wings
+spinagon demon спинагон демон~
+@eng a Spinagon@rus ~~спинагон~~~
+@eng An imp-like demon flys towards you on leathery wings
+@rus Похожий на большого бесенка демон (demon) летит к тебе на своих кожистых крыльях.
 ~
-The Spinagon looks much like a large imp.  It's large leathery wings keep
+@eng The Spinagon looks much like a large imp.  It's large leathery wings keep
 it aflight as it wields its monstrous spear, a blade that is sure to keep
 even the hardiest of warriors at bay.  
+@rus Он и правда похож на больного чертенка. Большие кожистые крылья
+за спиной позволяют ему сохранить равновесие, держа в руках чудо-
+вищное копье, способное одним только видом удержать многих на
+расстоянии.
 ~
 human~
 GO 0 T 0 H -1000 0
-33 0 5d20+1200 39d10+1100 6d4+10 'none'
+33 10 5d20+1200 39d10+1100 6d4+10 'claw'
 -11 -11 -11 5
 DEFIKN
 stand stand none 500
 I 0 medium unknown
+g @eng none@rus male~
 r holy -50
 #22009
-ghoul lord~
-the ghoul lord~
-The ghoul lord stands here, ready to tear you apart.
+ghoul lord повелитель гулей~
+@eng the ghoul lord@rus ~~повелитель~~ гулей~
+@eng The ghoul lord stands here, ready to tear you apart.
+@rus Повелитель гулей (ghoul lord) стоит здесь, готовый разорвать тебя на части.
 ~
-Much like a normal ghoul but about two feet taller, the ghoul lord is a
+@eng Much like a normal ghoul but about two feet taller, the ghoul lord is a
 monstrous sight.  His long snake-like tongue licks scaly lips as it looks at
 you.  
+@rus С виду обычный гуль, только повыше на пару футов, повелитель
+выглядит впечатляюще. Он о чем-то раздумывает, уставившись на
+тебя, и его змеиный язык время от времени высовывается и обли-
+зывает чешуйчатые губы.
 ~
-human~
-BO 0 0 0 H -1000 0
-42 0 5d50+2250 42d10+4400 3d12+14 'blast'
+ghoul~
+BGJO 0 0 0 H -1000 0
+42 10 5d50+2250 42d10+4400 3d12+14 'blast'
 -14 -14 -14 0
 CDEFHK
 stand stand male 800
-I 0 large unknown
-r holy -50
+0 0 large unknown
+r fire 0
+r cold 0
+r lightning 0
+r acid 0
+r negative 100
+r energy 0
+r mental 0
+r sound 0
+r disease 100
+r poison 100
+r harm 0
+r light 0
 #22010
-dragon deep black~
-A Deep Dragon~
-A black deep dragon is napping here
+dragon deep black черный подземный дракон~
+@eng A Deep Dragon@rus ~~подземный~~ ~~дракон~~~
+@eng A black deep dragon is napping here
+@rus Черный подземный дракон (dragon) дремлет здесь.
 ~
-With gleeming scales and razor sharp claws, the Deep Dragon is a mighty
+@eng With gleeming scales and razor sharp claws, the Deep Dragon is a mighty
 opponent.  He must have been out hunting because he looks awfully tired now,
 well at least you get the first attack before he kills you.  
+@rus Весь покрытый блестящей черной чешуей, которая, если верить слухам,
+прочнее лучшей стали, и вооруженный острыми, устрашающего вида когтями,
+этот дракон - безусловно могучий противник. Судя по всему, ты застал
+его вскоре после изматывающей охоты, потому что он выглядит очень ус-
+тавшим и спит, никак не реагируя на твое присутствие. Что ж, это тебе
+на руку - ты сможешь нанести первый удар... прежде чем умереть.
 ~
 dragon~
 BG 0 0 0 0 -800 0
@@ -170,13 +213,17 @@ r cold 0
 r lightning 33
 r acid 33
 #22011
-beast undead~
-an Undead Beast~
-A mounstrous undead beast is here searching for dinner
+beast undead тварь неживая~
+@eng an Undead Beast@rus ~~неживая~~ ~~тварь~~~
+@eng A mounstrous undead beast is here searching for dinner
+@rus Ужасная тварь (undead beast) ищет, что бы сожрать.
 ~
-A large undead beast stands here.  Multiple bones stick through its rough
+@eng A large undead beast stands here.  Multiple bones stick through its rough
 hide, creating spear like points.  Its skin has decayed away, leaving the
 ribs and organs exposed.  ICK!  
+@rus Ее грубая шкура во многих местах проткнута торчащими во все стороны
+острыми, копьеобразными костями и кое где прогнила, открывая твоему
+взгляду ребра и потроха.
 ~
 unique~
 BFGO 0 0 0 H -900 0
@@ -185,15 +232,20 @@ BFGO 0 0 0 H -900 0
 CDEF
 stand stand none 500
 AGIV ACDEFJKQV large unknown
+g @eng none@rus female~
 r holy -50
 #22012
-cleric holy~
-a Holy Cleric~
-A cleric is here searching for his lost companions.
+cleric holy священник~
+@eng a Holy Cleric@rus ~~священник~~~
+@eng A cleric is here searching for his lost companions.
+@rus Священник (cleric) разыскивает здесь своих потерявшихся товарищей.
 ~
-A cleric of the ancient legend, Ryzen.  He appears to be lost in the
+@eng A cleric of the ancient legend, Ryzen.  He appears to be lost in the
 caverns.  From what he tells you he and his companions became seperated
 during a battle with undead.  
+@rus Представившись Риззеном, он рассказывает тебе, что потерял своих
+компаньонов во время драки с нежитью и теперь заблудился, разыс-
+кивая их.
 ~
 human~
 BGQ 0 0 0 H 800 0
@@ -203,13 +255,17 @@ CEKLS
 stand stand male 500
 0 0 medium unknown
 #22013
-knight~
-A Well Armed Knight~
-A knight in beautiful armor stands here looking lost
+knight рыцарь~
+@eng A Well Armed Knight@rus ~~вооруженный~~ ~~рыцарь~~~
+@eng A knight in beautiful armor stands here looking lost
+@rus Одетый в дивные доспехи рыцарь (knight) растерянно глядит по сторонам.
 ~
-This young man wears the plate and sword of a grand knight.  A large blue
+@eng This young man wears the plate and sword of a grand knight.  A large blue
 dragon is emblazoned on his plate and he wields his silver long sword with
 ease.  
+@rus Этот молодой человек носит знаки отличия великого рыцаря. На его
+доспехе изображен большой синий дракони и он отлично управляется
+со своим серебристым мечом.
 ~
 human~
 GT 0 0 0 HK 1000 0
@@ -219,12 +275,15 @@ CEFIKS
 stand stand male 500
 0 0 medium unknown
 #22014
-halfling thief~
-A Halfling Thief~
-A halfling thief peers around, looking for something to steal
+halfling thief воришка хоббит~
+@eng A Halfling Thief@rus ~~воришка~~ ~~хоббит~~~
+@eng A halfling thief peers around, looking for something to steal
+@rus Хоббит глядит по сторонам, высматривая, что бы спереть.
 ~
-Lost from his adventuring companions this little trouble maker is now
+@eng Lost from his adventuring companions this little trouble maker is now
 just running around looking for things to slip into his purses.  
+@rus Отбившийся от своих товарищей, но не слишком этим расстроенный, он
+бесстрашно идет, куда ему вздумается, и хватая все, что плохо лежит.
 ~
 unique~
 GS 0 0 0 H -400 0
@@ -234,13 +293,16 @@ FJNS
 stand stand male 1200
 AHMV ABCDEFGHIJK small unknown
 #22015
-powerful enchantress~
-A Powerful Enchantress~
-A powerful enchantress walks about searching for her comrades
+powerful enchantress могущественная волшебница~
+@eng A Powerful Enchantress@rus ~~могущественная~~ ~~волшебница~~~
+@eng A powerful enchantress walks about searching for her comrades
+@rus Могущественная волшебница (enchantress) разыскивает здесь своих товарищей.
 ~
-A beautiful enchantress wanders around looking for her comrades who were
+@eng A beautiful enchantress wanders around looking for her comrades who were
 lost after a fight.  She seems to be quite confident in here magic and she
 wears a gorgeous ring on her finger.  
+@rus Прекрасная волшебница разыскивает своих потерявшихся во время боя товарищей.
+Она вполне уверена в своей силе, а на ее пальце сверкает великолепное кольцо.
 ~
 human~
 GR 0 J 0 H -600 0
@@ -267,150 +329,127 @@ r light 33
 
 #OBJECTS
 #22000
-girdle giant strength~
-girdle of giant strength~
-A brilliant admantite girdle floats here.~
+girdle giant strength пояс силы гиганта~
+@eng girdle of giant strength@rus ~~пояс~~ силы гиганта~
+@eng A brilliant admantite girdle floats here.@rus Великолепный адамантитовый пояс (girdle) сверкает здесь.~
 adamantite~
 armor BG 0 AL
 20 20 20 10 0
 42 3 2000 P
-A
-19 5
-A
-1 5
-g none~
+a '' to_object 42 -1 5 19 0
+a '' to_object 42 -1 5 1 0
+g @eng none@rus male~
 #22001
-bone key carved~
-a carved bone key~
-A small bone key, carved from a giants finger bone, lies here.~
-stone~
+bone key carved ключ костяной резной~
+@eng a carved bone key@rus ~~резной~~ ~~костяной~~ ~~ключ~~~
+@eng A small bone key, carved from a giants finger bone, lies here.@rus Маленький ключ (key), вырезанный из фаланги гиганта, лежит тут.~
+bone~
 key 0 0 A
 0 0 0 0 0
 40 1 25 P
-g none~
+g @eng none@rus male~
 #22002
-leggings speed~
-leggings of speed~
-A set of glowing leather leggings lie here~
+leggings speed гетры скорости штаны~
+@eng leggings of speed@rus ~~гетры~~ скорости~
+@eng A set of glowing leather leggings lie here@rus Кожаные штаны (leggings) лежат на земле, слабо светясь.~
 silver~
 armor A 0 AF
 9 9 9 0 0
 30 5 1000 P
-A
-14 100
-A
-2 2
-g none~
+a '' to_object 30 -1 100 14 0
+a '' to_object 30 -1 2 2 0
+g @eng none@rus plural~
 #22003
-armor ornate plate~
-an ornate breast plate~
-A silver breast plate engraved in gold~
+armor ornate plate нагрудный доспех~
+@eng an ornate breast plate@rus ~~нагрудный~~ ~~доспех~~~
+@eng A silver breast plate engraved in gold@rus Серебряный с золотом нагрудный доспех (breast plate) лежит здесь.~
 silver~
 armor 0 0 AD
 8 7 7 0 0
 25 13 1200 P
-A
-19 1
-A
-18 1
-g none~
+a '' to_object 25 -1 1 19 0
+a '' to_object 25 -1 1 18 0
+g @eng none@rus male~
 #22004
-ring magic~
-ring of magic~
-A glowing ring covered in magical runes lies here.~
+ring magic магическое кольцо~
+@eng ring of magic@rus ~~магическое~~ ~~кольцо~~~
+@eng A glowing ring covered in magical runes lies here.@rus Покрытое магическими рунами кольцо (ring) светится здесь.~
 mithril~
 armor AG 0 AB
 9 9 9 4 0
 28 1 1000 P
-A
-12 50
-A
-3 2
-g none~
+a '' to_object 28 -1 50 12 0
+a '' to_object 28 -1 2 3 0
+g @eng none@rus neutral~
 #22005
-sheath wrist~
+sheath wrist браслет ножны~
 a concealable wrist sheath~
-A large leather wrist sheath for a dagger lies here.~
+@eng A large leather wrist sheath for a dagger lies here.@rus Кожаные ножны (wrist sheath) для кинжала, одевающиеся на запястья, лежат тут.~
 leather~
 container GY 0 AM
 10 0 0 5 50
 26 2 500 P
-A
-17 -10
-A
-2 2
-A
-19 4
-A
-18 4
-g none~
+a '' to_object 26 -1 -10 17 0
+a '' to_object 26 -1 2 2 0
+a '' to_object 26 -1 4 19 0
+a '' to_object 26 -1 4 18 0
+g @eng none@rus plural~
 #22006
-spinagon spear~
-a Spinagon's spear~
-A long spear with a wickedly sharp blade.~
+spinagon spear копье спинагона~
+@eng a Spinagon's spear@rus ~~копье~~ спинагона~
+@eng A long spear with a wickedly sharp blade.@rus Длинное копье (spear) зловеще поблескивает острым лезвием.~
 mithril~
 weapon EG 0 AN
 spear 5 8 'thrust' DEFHK
 35 90 1300 P
-A
-19 6
-A
-18 2
-g none~
+a '' to_object 35 -1 6 19 0
+a '' to_object 35 -1 2 18 0
+g @eng none@rus neutral~
 #22007
-rulership rod~
-the Rod of Rulership~
-A rod inscribed with words of command floats here.~
+rulership rod жезл власти~
+@eng the Rod of Rulership@rus ~~жезл~~ власти~
+@eng A rod inscribed with words of command floats here.@rus Жезл (rod) правителя лежит здесь.~
 flame~
 armor ABG 0 AO
 13 12 12 5 0
 38 5 5000 P
-A
-18 4
-A
-13 100
-A
-19 7
-g none~
+a '' to_object 38 -1 4 18 0
+a '' to_object 38 -1 100 13 0
+a '' to_object 38 -1 7 19 0
+g @eng none@rus male~
 #22008
-collar bloody~
-a bloody collar~
-The bloody collar of a dead beast lies here~
+collar bloody окровавленный ошейник~
+@eng a bloody collar@rus ~~окровавленный~~ ~~ошейник~~~
+@eng The bloody collar of a dead beast lies here@rus Окровавленный ошейник (collar), снятый с поверженного чудовища, лежит тут.~
 gold~
 armor G 0 AC
 12 12 12 6 0
 36 7 800 P
-A
-18 2
-A
-19 4
-A
-13 10
-g none~
+a '' to_object 36 -1 2 18 0
+a '' to_object 36 -1 4 19 0
+a '' to_object 36 -1 10 13 0
+g @eng none@rus male~
 #22010
-vial holy water~
-a vial of holy water~
-A glowing vial of holy water has been left here~
+vial holy water пузырек святая вода~
+@eng a vial of holy water@rus ~~пузырек~~ со святой водой~
+@eng A glowing vial of holy water has been left here@rus Пузырек (vial) со святой водой брошен тут.~
 glass~
 potion I 0 AO
 35 'bless' 'heal' '' ''
 30 1 600 P
-g none~
+g @eng none@rus male~
 #22011
-sword silver longsword long~
-a silver longsword~
-A silver longsword covered in mystical battle runes lies here~
+sword silver longsword long серебряный меч~
+@eng a silver longsword@rus ~~серебряный~~ ~~меч~~~
+@eng A silver longsword covered in mystical battle runes lies here@rus Украшенный загадочными рунами серебристый меч (sword) лежит здесь.~
 silver~
 weapon GI 0 AN
 sword 5 5 'slash' D
 23 40 1350 P
-A
-18 1
-A
-19 3
-A
-4 1
-g none~
+a '' to_object 23 -1 1 18 0
+a '' to_object 23 -1 3 19 0
+a '' to_object 23 -1 1 4 0
+g @eng none@rus male~
 #0
 
 #ROOMS
@@ -1643,6 +1682,7 @@ S
 O 22000 2	* girdle of giant strength
 O 22005 3	* a concealable wrist sheath
 O 22007 2	* the Rod of Rulership
+O 22008 10	* a bloody collar
 S
 
 #OMPROGS

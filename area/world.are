@@ -17,7 +17,7 @@ unknown~
 treasure AGI C AO
 0 0 0 0 0
 0 0 0 P
-S 'control weather' 100 A
+a '' to_skills 0 -1 100 'control weather' A
 g female~
 #2503
 fountain фонтан~
@@ -63,10 +63,8 @@ coal~
 light A 0 A
 0 0 200 0 0
 30 2 500 P
-A
-13 25
-A
-18 3
+a '' to_object 30 -1 25 13 0
+a '' to_object 30 -1 3 18 0
 g male~
 #2508
 carpet ковер~

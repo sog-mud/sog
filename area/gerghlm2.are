@@ -1394,10 +1394,8 @@ wood~
 wand G 0 AO
 20 10 10 'gas breath' 0
 9 20 810 P
-A
-14 -100
-A
-5 -10
+a '' to_object 9 -1 -100 14 0
+a '' to_object 9 -1 -10 5 0
 E
 lute~
 On the side it has words that say:
@@ -1413,10 +1411,8 @@ gold~
 wand G 0 AO
 35 10 10 'word of recall' 0
 9 20 4200 P
-A
-13 12
-A
-17 -50
+a '' to_object 9 -1 12 13 0
+a '' to_object 9 -1 -50 17 0
 E
 harp~
 On the side it says:
@@ -1473,8 +1469,7 @@ leather~
 armor G 0 AD
 6 6 6 0 1
 14 60 2448 P
-A
-17 -10
+a '' to_object 14 -1 -10 17 0
 E
 junior guard vest~
 On the side it says:
@@ -1489,8 +1484,7 @@ leather~
 armor G 0 AJ
 6 6 6 0 1
 14 60 2400 P
-A
-2 2
+a '' to_object 14 -1 2 2 0
 E
 junior guard shield~
 On the side it says:
@@ -1532,8 +1526,7 @@ bronze~
 treasure 0 0 AB
 0 0 0 0 0
 15 10 2640 P
-A
-19 1
+a '' to_object 15 -1 1 19 0
 g none~
 #7525
 helmet guard gerighelm~
@@ -1597,12 +1590,9 @@ cloth~
 armor G 0 AC
 6 6 6 0 2
 16 50 2560 P
-A
-1 3
-A
-5 3
-A
-17 -10
+a '' to_object 16 -1 3 1 0
+a '' to_object 16 -1 3 5 0
+a '' to_object 16 -1 -10 17 0
 g none~
 #7532
 gloves guard gerighelm~
@@ -1675,8 +1665,7 @@ brass~
 treasure A 0 AB
 0 0 0 0 0
 22 1 5082 P
-A
-19 1
+a '' to_object 22 -1 1 19 0
 g none~
 #7540
 helmet palace guard~
@@ -1740,12 +1729,9 @@ steel~
 armor ABG 0 AC
 7 7 7 -1 2
 22 40 4700 P
-A
-5 2
-A
-17 -10
-A
-1 2
+a '' to_object 22 -1 2 5 0
+a '' to_object 22 -1 -10 17 0
+a '' to_object 22 -1 2 1 0
 g none~
 #7547
 gloves palace guard~
@@ -1817,10 +1803,8 @@ silver~
 weapon G 0 AN
 dagger 5 6 'stab' 0
 20 40 4666 P
-A
-2 3
-A
-18 10
+a '' to_object 20 -1 3 2 0
+a '' to_object 20 -1 10 18 0
 g none~
 #7554
 holy word holyword~
@@ -1830,12 +1814,9 @@ crystal~
 weapon G 0 AN
 exotic 5 6 'blast' 0
 25 50 5400 P
-A
-18 5
-A
-19 10
-A
-5 -2
+a '' to_object 25 -1 5 18 0
+a '' to_object 25 -1 10 19 0
+a '' to_object 25 -1 -2 5 0
 g none~
 #7555
 mace~
@@ -1845,10 +1826,8 @@ wood~
 weapon AG 0 AN
 mace 2 4 'pound' 0
 6 10 870 P
-A
-2 1
-A
-1 3
+a '' to_object 6 -1 1 2 0
+a '' to_object 6 -1 3 1 0
 g none~
 #7556
 sword thunder~
@@ -1858,10 +1837,8 @@ steel~
 weapon G 0 AN
 sword 5 6 'slash' 0
 21 80 5000 P
-A
-1 5
-A
-19 2
+a '' to_object 21 -1 5 1 0
+a '' to_object 21 -1 2 19 0
 g none~
 #7557
 vest titans titan~
@@ -1871,10 +1848,8 @@ leather~
 armor G 0 AD
 7 7 7 0 3
 21 60 5520 P
-A
-18 4
-A
-1 3
+a '' to_object 21 -1 4 18 0
+a '' to_object 21 -1 3 1 0
 g none~
 #7558
 hoe destruction~
@@ -1884,8 +1859,7 @@ wood~
 weapon ABG 0 AN
 exotic 5 6 'blast' 0
 21 80 5175 P
-A
-18 10
+a '' to_object 21 -1 10 18 0
 g none~
 #7559
 gardeners gloves~
@@ -1895,10 +1869,8 @@ cloth~
 armor G 0 AH
 3 3 3 0 1
 21 50 9 P
-A
-2 2
-A
-1 2
+a '' to_object 21 -1 2 2 0
+a '' to_object 21 -1 2 1 0
 g none~
 #7560
 cutlass~
@@ -1917,8 +1889,7 @@ cloth~
 armor G 0 AD
 8 8 8 0 3
 22 60 6000 P
-A
-17 -15
+a '' to_object 22 -1 -15 17 0
 g none~
 #7562
 saber~
@@ -1928,8 +1899,7 @@ steel~
 weapon G 0 AN
 sword 5 6 'slash' 0
 22 80 7000 P
-A
-18 10
+a '' to_object 22 -1 10 18 0
 g none~
 #7563
 two-handed two handed~
@@ -1939,16 +1909,11 @@ steel~
 weapon G 0 AN
 sword 5 7 'slash' F
 28 8 8928 P
-A
-1 3
-A
-2 1
-A
-4 2
-A
-18 5
-A
-19 5
+a '' to_object 28 -1 3 1 0
+a '' to_object 28 -1 1 2 0
+a '' to_object 28 -1 2 4 0
+a '' to_object 28 -1 5 18 0
+a '' to_object 28 -1 5 19 0
 g none~
 #7564
 dukes duke helm~
@@ -1958,8 +1923,7 @@ steel~
 armor G 0 AE
 9 9 9 0 3
 28 50 9920 P
-A
-17 -25
+a '' to_object 28 -1 -25 17 0
 g none~
 #7565
 duchesses tiara~
@@ -1969,10 +1933,8 @@ diamond~
 armor G 0 AE
 7 7 7 0 2
 22 10 6520 P
-A
-20 5
-A
-12 100
+a '' to_object 22 -1 5 20 0
+a '' to_object 22 -1 100 12 0
 g none~
 #7566
 wedding ring~
@@ -1982,10 +1944,8 @@ gold~
 armor ABG 0 AB
 7 7 7 0 2
 22 10 6600 P
-A
-13 20
-A
-20 4
+a '' to_object 22 -1 20 13 0
+a '' to_object 22 -1 4 20 0
 g none~
 #7567
 wedding ring~
@@ -1995,10 +1955,8 @@ gold~
 armor ABG 0 AB
 8 8 8 0 2
 28 10 6600 P
-A
-13 20
-A
-20 4
+a '' to_object 28 -1 20 13 0
+a '' to_object 28 -1 4 20 0
 g none~
 #7596
 strange herbs green bunch~
@@ -2086,8 +2044,7 @@ gold~
 armor G 0 AB
 0 0 0 0 0
 18 10 3610 P
-A
-13 20
+a '' to_object 18 -1 20 13 0
 g none~
 #7654
 vest defender~

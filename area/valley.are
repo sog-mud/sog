@@ -254,8 +254,7 @@ steel~
 armor 0 0 AG
 3 3 3 0 0
 7 30 390 P
-A
-14 5
+a '' to_object 7 -1 5 14 0
 g none~
 #7802
 longsword elven sword long~
@@ -265,8 +264,7 @@ steel~
 weapon G 0 AN
 sword 3 3 'slash' 0
 7 30 670 P
-A
-18 1
+a '' to_object 7 -1 1 18 0
 g none~
 #7803
 cloak brown~
@@ -276,8 +274,7 @@ cloth~
 armor G 0 AC
 3 3 3 0 0
 7 30 900 P
-A
-2 1
+a '' to_object 7 -1 1 2 0
 g none~
 #7804
 key~
@@ -305,8 +302,7 @@ gold~
 jewelry G 0 AB
 0 0 0 0 0
 5 10 110 P
-A
-12 10
+a '' to_object 5 -1 10 12 0
 g none~
 #7807
 quarterstaff staff two-handed~
@@ -316,8 +312,7 @@ wood~
 weapon G 0 AN
 staff 5 5 'pound' F
 21 50 670 P
-A
-19 2
+a '' to_object 21 -1 2 19 0
 g none~
 #7808
 potion~
@@ -471,8 +466,7 @@ wood~
 weapon G 0 AN
 staff 3 7 'pound' F
 14 50 310 P
-A
-19 1
+a '' to_object 14 -1 1 19 0
 g none~
 #0
 

@@ -152,11 +152,9 @@ leather~
 armor G 0 AG
 3 3 3 0 0
 13 100 2800 P
-A
-20 1
-A
-2 2
-F A 0 0 T
+a '' to_object 13 -1 1 20 0
+a '' to_object 13 -1 2 2 0
+a '' to_affects 13 -1 0 0 T
 g plural~
 #9102
 bracer бронзовый браслет bronze~
@@ -175,10 +173,8 @@ silver~
 jewelry F 0 AC
 0 0 0 0 0
 7 100 1140 P
-A
-4 1
-A
-3 1
+a '' to_object 7 -1 1 4 0
+a '' to_object 7 -1 1 3 0
 g none~
 #9104
 potion magenta красное зелье~

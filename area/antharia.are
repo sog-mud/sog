@@ -388,10 +388,8 @@ copper~
 armor G 0 AO
 5 5 5 0 0
 10 10 100 P
-A
-5 3
-A
-17 -20
+a '' to_object 10 -1 3 5 0
+a '' to_object 10 -1 -20 17 0
 g none~
 #12301
 green gem~
@@ -401,10 +399,8 @@ copper~
 armor I 0 AO
 5 5 5 0 0
 10 10 100 P
-A
-2 1
-A
-1 1
+a '' to_object 10 -1 1 2 0
+a '' to_object 10 -1 1 1 0
 g none~
 #12302
 sea shell armor~
@@ -414,10 +410,8 @@ copper~
 armor B 0 AD
 5 5 5 0 0
 10 10 100 P
-A
-17 -20
-A
-18 1
+a '' to_object 10 -1 -20 17 0
+a '' to_object 10 -1 1 18 0
 g none~
 #12303
 giant clamshell~
@@ -436,8 +430,7 @@ copper~
 armor A 0 AB
 8 8 8 0 0
 25 5 250 P
-A
-17 -5
+a '' to_object 25 -1 -5 17 0
 g none~
 #12305
 Antharian Signet ring~
@@ -447,8 +440,7 @@ copper~
 map AP 0 AB
 D 0 0 0 0
 32 5 320 P
-A
-17 -10
+a '' to_object 32 -1 -10 17 0
 g none~
 #12306
 Antharian Signet ring~
@@ -458,12 +450,9 @@ copper~
 map AP 0 AB
 D 0 0 0 0
 42 5 420 P
-A
-17 -20
-A
-9 -10
-A
-12 10
+a '' to_object 42 -1 -20 17 0
+a '' to_object 42 -1 -10 9 0
+a '' to_object 42 -1 10 12 0
 g none~
 #12307
 Antharian plate mail~
@@ -473,16 +462,11 @@ copper~
 armor FM 0 AD
 8 8 8 0 0
 25 50 250 P
-A
-2 1
-A
-14 40
-A
-18 1
-A
-19 1
-A
-6 -1
+a '' to_object 25 -1 1 2 0
+a '' to_object 25 -1 40 14 0
+a '' to_object 25 -1 1 18 0
+a '' to_object 25 -1 1 19 0
+a '' to_object 25 -1 -1 6 0
 g none~
 #12308
 Antharian plate mail~
@@ -492,14 +476,10 @@ copper~
 armor FM 0 AD
 3 3 3 0 0
 0 50 0 P
-A
-2 1
-A
-18 2
-A
-14 40
-A
-17 -10
+a '' to_object 0 -1 1 2 0
+a '' to_object 0 -1 2 18 0
+a '' to_object 0 -1 40 14 0
+a '' to_object 0 -1 -10 17 0
 g none~
 #12309
 Antharian plate mail~
@@ -509,12 +489,9 @@ copper~
 armor K 0 AD
 11 11 11 0 0
 42 50 420 P
-A
-2 1
-A
-19 2
-A
-6 -1
+a '' to_object 42 -1 1 2 0
+a '' to_object 42 -1 2 19 0
+a '' to_object 42 -1 -1 6 0
 g none~
 #12310
 synthetic fin~
@@ -524,8 +501,7 @@ copper~
 armor I 0 AF
 8 8 8 0 0
 25 15 250 P
-A
-14 150
+a '' to_object 25 -1 150 14 0
 g none~
 #12311
 synthetic fin~
@@ -535,8 +511,7 @@ copper~
 armor I 0 AF
 9 9 9 0 0
 32 15 320 P
-A
-14 200
+a '' to_object 32 -1 200 14 0
 g none~
 #12312
 synthetic fin~
@@ -546,8 +521,7 @@ copper~
 armor I 0 AF
 11 11 11 0 0
 42 15 420 P
-A
-14 250
+a '' to_object 42 -1 250 14 0
 g none~
 #12313
 Antharian helmet~
@@ -557,8 +531,7 @@ copper~
 armor A 0 AE
 8 8 8 0 0
 25 15 250 P
-A
-12 20
+a '' to_object 25 -1 20 12 0
 g none~
 #12314
 Antharian helmet~
@@ -568,8 +541,7 @@ copper~
 armor A 0 AE
 9 9 9 0 0
 32 15 320 P
-A
-12 30
+a '' to_object 32 -1 30 12 0
 g none~
 #12315
 Antharian helmet~
@@ -579,10 +551,8 @@ copper~
 armor A 0 AE
 11 11 11 0 0
 42 15 420 P
-A
-12 40
-A
-24 -5
+a '' to_object 42 -1 40 12 0
+a '' to_object 42 -1 -5 24 0
 g none~
 #12316
 Trident~
@@ -592,12 +562,9 @@ copper~
 weapon I 0 AN
 polearm 5 6 'pierce' 0
 25 100 250 P
-A
-13 40
-A
-19 3
-A
-18 3
+a '' to_object 25 -1 40 13 0
+a '' to_object 25 -1 3 19 0
+a '' to_object 25 -1 3 18 0
 g none~
 #12317
 trident~
@@ -607,12 +574,9 @@ copper~
 weapon I 0 AN
 polearm 5 7 'pierce' 0
 32 100 320 P
-A
-13 40
-A
-19 3
-A
-18 3
+a '' to_object 32 -1 40 13 0
+a '' to_object 32 -1 3 19 0
+a '' to_object 32 -1 3 18 0
 g none~
 #12318
 trident~
@@ -622,12 +586,9 @@ copper~
 weapon I 0 AN
 polearm 5 9 'pierce' 0
 42 150 420 P
-A
-13 60
-A
-19 4
-A
-18 2
+a '' to_object 42 -1 60 13 0
+a '' to_object 42 -1 4 19 0
+a '' to_object 42 -1 2 18 0
 g none~
 #12319
 Seafood platter~
@@ -673,12 +634,9 @@ copper~
 armor 0 0 AK
 6 6 6 0 0
 15 10 150 P
-A
-2 1
-A
-1 -1
-A
-19 1
+a '' to_object 15 -1 1 2 0
+a '' to_object 15 -1 -1 1 0
+a '' to_object 15 -1 1 19 0
 g none~
 #12331
 Antharian belt~
@@ -688,10 +646,8 @@ copper~
 armor 0 0 AL
 6 6 6 0 0
 16 10 160 P
-A
-24 -4
-A
-3 1
+a '' to_object 16 -1 -4 24 0
+a '' to_object 16 -1 1 3 0
 g none~
 #12332
 Antharian trousers~
@@ -701,12 +657,9 @@ copper~
 armor 0 0 AF
 4 4 4 0 0
 9 5 90 P
-A
-5 1
-A
-18 1
-A
-17 -5
+a '' to_object 9 -1 1 5 0
+a '' to_object 9 -1 1 18 0
+a '' to_object 9 -1 -5 17 0
 g none~
 #12333
 Piece Metal~
@@ -752,10 +705,8 @@ copper~
 armor G 0 AM
 8 8 8 0 0
 25 5 250 P
-A
-18 1
-A
-4 1
+a '' to_object 25 -1 1 18 0
+a '' to_object 25 -1 1 4 0
 g none~
 #12338
 antharian bracer~
@@ -765,10 +716,8 @@ copper~
 armor G 0 AM
 9 9 9 0 0
 32 5 320 P
-A
-18 2
-A
-4 1
+a '' to_object 32 -1 2 18 0
+a '' to_object 32 -1 1 4 0
 g none~
 #12339
 antharian bracer~
@@ -778,10 +727,8 @@ copper~
 armor G 0 AM
 11 11 11 0 0
 42 5 420 P
-A
-18 3
-A
-4 2
+a '' to_object 42 -1 3 18 0
+a '' to_object 42 -1 2 4 0
 g none~
 #12340
 net~
@@ -791,8 +738,7 @@ copper~
 staff A 0 AO
 25 10 10 '' 0
 25 5 250 P
-A
-22 5
+a '' to_object 25 -1 5 22 0
 g none~
 #0
 

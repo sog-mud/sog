@@ -335,14 +335,10 @@ unknown~
 light AGI 0 AO
 0 0 999 0 0
 15 0 1000 P
-A
-4 1
-A
-3 1
-A
-18 1
-A
-19 1
+a '' to_object 15 -1 1 4 0
+a '' to_object 15 -1 1 3 0
+a '' to_object 15 -1 1 18 0
+a '' to_object 15 -1 1 19 0
 g male~
 #29103
 belt sprite поясок rainbow радуга~
@@ -352,8 +348,7 @@ mithril~
 armor FM 0 AL
 5 5 5 5 0
 11 1 500 P
-A
-24 -3
+a '' to_object 11 -1 -3 24 0
 g female~
 #29104
 bracer brownie браслет~
@@ -363,10 +358,8 @@ mithril~
 armor G 0 AM
 5 5 5 5 0
 13 1 700 P
-A
-2 1
-A
-13 8
+a '' to_object 13 -1 1 2 0
+a '' to_object 13 -1 8 13 0
 g male~
 #29105
 vial moonlight bottled пузырек~
@@ -385,10 +378,8 @@ cloth~
 armor IM 0 AK
 6 6 6 6 0
 15 1 1500 P
-A
-12 10
-A
-24 -2
+a '' to_object 15 -1 10 12 0
+a '' to_object 15 -1 -2 24 0
 g male~
 #29107
 moonbeam луч~
@@ -398,10 +389,8 @@ unknown~
 weapon AF 0 AN
 exotic 4 4 'pierce' G
 15 0 1500 P
-A
-18 2
-A
-19 2
+a '' to_object 15 -1 2 18 0
+a '' to_object 15 -1 2 19 0
 g male~
 #29108
 wine goblet faerie бокал вино~
@@ -420,14 +409,10 @@ leather~
 armor C 0 AF
 5 5 5 0 0
 14 0 900 P
-A
-13 10
-A
-18 1
-A
-19 1
-A
-23 -1
+a '' to_object 14 -1 10 13 0
+a '' to_object 14 -1 1 18 0
+a '' to_object 14 -1 1 19 0
+a '' to_object 14 -1 -1 23 0
 g plural~
 #29110
 key sparkling ключ сверкающий~
@@ -446,10 +431,8 @@ leather~
 armor C 0 AC
 5 5 5 0 0
 14 2 900 P
-A
-2 1
-A
-1 1
+a '' to_object 14 -1 1 2 0
+a '' to_object 14 -1 1 1 0
 g male~
 #29112
 wand blue diamond жезл~

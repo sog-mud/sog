@@ -628,10 +628,8 @@ unknown~
 armor 0 0 AI
 3 3 3 3 0
 4 8 100 P
-A
-1 1
-A
-5 1
+a '' to_object 4 -1 1 1 0
+a '' to_object 4 -1 1 5 0
 g none~
 #4408
 sword small~
@@ -641,10 +639,8 @@ unknown~
 weapon 0 0 AN
 sword 3 3 'pierce' 0
 2 10 8 P
-A
-18 3
-A
-17 8
+a '' to_object 2 -1 3 18 0
+a '' to_object 2 -1 8 17 0
 g none~
 #4409
 staff translucent~
@@ -654,8 +650,7 @@ unknown~
 weapon 0 0 AN
 staff 3 4 'pound' 0
 5 0 144 P
-A
-18 2
+a '' to_object 5 -1 2 18 0
 g none~
 #4410
 sword bastard~
@@ -665,8 +660,7 @@ unknown~
 weapon 0 0 AN
 sword 2 3 'slice' 0
 1 0 10 P
-A
-18 1
+a '' to_object 1 -1 1 18 0
 g none~
 #4411
 purse~
@@ -694,10 +688,8 @@ unknown~
 weapon 0 0 AN
 exotic 1 5 'stab' 0
 2 10 20 P
-A
-19 2
-A
-17 6
+a '' to_object 2 -1 2 19 0
+a '' to_object 2 -1 6 17 0
 g none~
 #4414
 barbell~
@@ -733,8 +725,7 @@ unknown~
 weapon 0 0 AN
 dagger 2 3 'stab' D
 2 10 12 P
-A
-18 2
+a '' to_object 2 -1 2 18 0
 g none~
 #4417
 blindfold~
@@ -744,10 +735,8 @@ unknown~
 armor 0 0 AE
 2 2 2 2 0
 1 1 8 P
-A
-18 -10
-A
-14 -50
+a '' to_object 1 -1 -10 18 0
+a '' to_object 1 -1 -50 14 0
 g none~
 #4418
 whip~
@@ -757,10 +746,8 @@ unknown~
 weapon 0 0 AN
 whip 4 3 'whip' 0
 8 10 256 P
-A
-18 5
-A
-4 -1
+a '' to_object 8 -1 5 18 0
+a '' to_object 8 -1 -1 4 0
 g none~
 #4419
 pole~
@@ -770,8 +757,7 @@ unknown~
 furniture A 0 AO
 0 0 0 0 0
 6 1 175 P
-A
-2 2
+a '' to_object 6 -1 2 2 0
 g none~
 #4420
 clown shoes~
@@ -781,10 +767,8 @@ unknown~
 armor 0 0 AG
 3 3 3 3 0
 1 4 3 P
-A
-14 -20
-A
-2 -1
+a '' to_object 1 -1 -20 14 0
+a '' to_object 1 -1 -1 2 0
 g none~
 #4421
 tophat hat~
@@ -794,10 +778,8 @@ unknown~
 armor 0 0 AE
 3 3 3 3 0
 7 1 280 P
-A
-12 10
-A
-17 4
+a '' to_object 7 -1 10 12 0
+a '' to_object 7 -1 4 17 0
 g none~
 #4422
 chest~
@@ -970,10 +952,8 @@ unknown~
 armor 0 0 AE
 2 2 2 2 0
 1 1 4 P
-A
-3 -2
-A
-4 -1
+a '' to_object 1 -1 -2 3 0
+a '' to_object 1 -1 -1 4 0
 g none~
 #4440
 chest~
@@ -1055,10 +1035,8 @@ unknown~
 weapon 0 0 AN
 dagger 4 3 'slice' D
 6 10 108 P
-A
-18 -2
-A
-19 6
+a '' to_object 6 -1 -2 18 0
+a '' to_object 6 -1 6 19 0
 g none~
 #4449
 refrigerator frig fridge~
@@ -1077,10 +1055,8 @@ unknown~
 weapon 0 0 AN
 dagger 6 3 'pierce' D
 16 10 2000 P
-A
-18 3
-A
-19 3
+a '' to_object 16 -1 3 18 0
+a '' to_object 16 -1 3 19 0
 g none~
 #0
 

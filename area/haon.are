@@ -392,8 +392,7 @@ wood~
 weapon 0 0 AN
 mace 2 5 'pound' 0
 6 300 290 P
-A
-18 -2
+a '' to_object 6 -1 -2 18 0
 g none~
 #6105
 branch~

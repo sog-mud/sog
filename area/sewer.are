@@ -385,10 +385,8 @@ silver~
 jewelry G 0 AB
 0 0 0 0 0
 7 10 468 P
-A
-18 1
-A
-17 -1
+a '' to_object 7 -1 1 18 0
+a '' to_object 7 -1 -1 17 0
 g none~
 #7200
 rod devil~
@@ -398,10 +396,8 @@ oak~
 weapon G 0 AN
 exotic 4 5 'pound' C
 15 60 2300 P
-A
-1 1
-A
-18 2
+a '' to_object 15 -1 1 1 0
+a '' to_object 15 -1 2 18 0
 E
 devil rod~
 This is indeed a mysterious rod.  It is dark black at the base but has four
@@ -416,8 +412,7 @@ iron~
 weapon G 0 AN
 mace 2 6 'crush' 0
 8 100 610 P
-A
-19 2
+a '' to_object 8 -1 2 19 0
 E
 large mace~
 The mace is pretty large with a weight of 10 lbs.  The head is actually four
@@ -432,8 +427,7 @@ iron~
 weapon G 0 AN
 mace 2 6 'crush' 0
 8 60 480 P
-A
-19 1
+a '' to_object 8 -1 1 19 0
 E
 small mace~
 This weapon doesn't look like it does a lot of damage, but then you never know.
@@ -448,8 +442,7 @@ cloth~
 armor G 0 AC
 6 6 6 0 0
 15 200 1250 P
-A
-20 -1
+a '' to_object 15 -1 -1 20 0
 g none~
 #7204
 potion neon blue~
@@ -477,8 +470,7 @@ bone~
 armor GH 0 AE
 1 1 1 0 0
 0 300 10 P
-A
-2 -4
+a '' to_object 0 -1 -4 2 0
 E
 writing text~
 You read the number '666'.
@@ -515,8 +507,7 @@ leather~
 armor G 0 AG
 3 3 3 0 0
 7 200 900 P
-A
-2 1
+a '' to_object 7 -1 1 2 0
 E
 The boots are muddy and they look well worn, but also very comfortable.~
 ~
@@ -542,8 +533,7 @@ iron~
 weapon 0 0 AN
 sword 2 4 'pierce' 0
 5 40 540 P
-A
-18 1
+a '' to_object 5 -1 1 18 0
 g none~
 #7216
 claw red redclaw~
@@ -553,10 +543,8 @@ bone~
 weapon G 0 AN
 exotic 3 12 'claw' 0
 31 190 5800 P
-A
-19 5
-A
-17 2
+a '' to_object 31 -1 5 19 0
+a '' to_object 31 -1 2 17 0
 E
 claw red redclaw~
 This big claw looks like a part of a dragon.
@@ -570,8 +558,7 @@ silver~
 armor GIKL 0 AD
 8 8 8 2 0
 32 400 12400 P
-A
-1 3
+a '' to_object 32 -1 3 1 0
 E
 plate breast silvery~
 On the breast plate you notice a relief of large rose. The metal seems to be 
@@ -586,8 +573,7 @@ silver~
 armor GIKL 0 AF
 8 8 8 2 0
 32 200 10100 P
-A
-3 3
+a '' to_object 32 -1 3 3 0
 E
 leg plates silvery~
 They seem to be made from silver or platinum.  You see the outline of a rose.
@@ -601,10 +587,8 @@ silver~
 armor GIKL 0 AH
 8 8 8 2 0
 27 140 3700 P
-A
-19 1
-A
-18 2
+a '' to_object 27 -1 1 19 0
+a '' to_object 27 -1 2 18 0
 E
 gloves silvery~
 The gloves are made of silver threads.
@@ -618,8 +602,7 @@ silver~
 armor GIKL 0 AE
 9 9 9 2 0
 32 350 10600 P
-A
-4 3
+a '' to_object 32 -1 3 4 0
 E
 helmet silvery~
 The helmet is made from platinum or silver and has a white fur brush attached
@@ -634,8 +617,7 @@ steel~
 armor GIKL 0 AJ
 8 8 8 3 0
 30 300 5800 P
-A
-17 -7
+a '' to_object 30 -1 -7 17 0
 E
 shield~
 On the shield you see a clear and perfect painting of a dark red rose on a white
@@ -650,8 +632,7 @@ silver~
 armor GIKL 0 AG
 8 8 8 2 0
 32 400 10100 P
-A
-2 3
+a '' to_object 32 -1 3 2 0
 E
 boots silvery~
 The boots are made from a silvery metal.
@@ -665,8 +646,7 @@ silver~
 armor GIKL 0 AI
 8 8 8 2 0
 32 400 10100 P
-A
-5 3
+a '' to_object 32 -1 3 5 0
 E
 plates arm silvery~
 They seem to be made from silver or platinum. You see the outline of a rose.
@@ -680,8 +660,7 @@ wool~
 armor GIKL 0 AK
 9 9 9 2 0
 31 200 3700 P
-A
-20 -2
+a '' to_object 31 -1 -2 20 0
 E
 cloak white~
 This is a very fine made cloak from an unknown material, in a bright white
@@ -740,10 +719,8 @@ emerald~
 staff GJ 0 AO
 13 10 10 'sanctuary' 0
 21 50 18600 P
-A
-4 2
-A
-3 2
+a '' to_object 21 -1 2 4 0
+a '' to_object 21 -1 2 3 0
 g none~
 #7304
 red torso~
@@ -753,10 +730,8 @@ dragonskin~
 armor GJ 0 AD
 9 9 9 4 0
 29 300 6400 P
-A
-19 2
-A
-2 -1
+a '' to_object 29 -1 2 19 0
+a '' to_object 29 -1 -1 2 0
 g none~
 #7305
 leggings red~
@@ -766,10 +741,8 @@ dragonskin~
 armor GJ 0 AF
 9 9 9 4 0
 29 170 3700 P
-A
-19 2
-A
-2 -1
+a '' to_object 29 -1 2 19 0
+a '' to_object 29 -1 -1 2 0
 g none~
 #7306
 claws dragonclaws red~
@@ -779,8 +752,7 @@ bone~
 furniture GJ 0 AH
 AD 0 0 0 0
 20 40 1150 P
-A
-19 2
+a '' to_object 20 -1 2 19 0
 g none~
 #7307
 skull dragonhelm red~
@@ -790,12 +762,9 @@ dragonskin~
 armor GJ 0 AE
 9 9 9 4 0
 29 150 7000 P
-A
-4 2
-A
-19 2
-A
-2 -1
+a '' to_object 29 -1 2 4 0
+a '' to_object 29 -1 2 19 0
+a '' to_object 29 -1 -1 2 0
 g none~
 #7308
 shield red~
@@ -805,8 +774,7 @@ dragonskin~
 armor GJ 0 AJ
 10 10 10 5 0
 35 220 6900 P
-A
-19 2
+a '' to_object 35 -1 2 19 0
 g none~
 #7309
 greaves red~
@@ -816,10 +784,8 @@ bone~
 armor GJ 0 AG
 9 9 9 4 0
 29 400 3700 P
-A
-2 -1
-A
-19 2
+a '' to_object 29 -1 -1 2 0
+a '' to_object 29 -1 2 19 0
 g none~
 #7310
 arm guards red~
@@ -829,10 +795,8 @@ dragonskin~
 armor GJ 0 AI
 9 9 9 4 0
 29 400 3700 P
-A
-2 -1
-A
-19 2
+a '' to_object 29 -1 -1 2 0
+a '' to_object 29 -1 2 19 0
 g none~
 #0
 

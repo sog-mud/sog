@@ -522,8 +522,7 @@ unknown~
 light G 0 A
 0 0 -1 0 0
 5 80 550 P
-A
-4 1
+a '' to_object 5 -1 1 4 0
 g none~
 #1101
 sting~
@@ -533,8 +532,7 @@ mithril~
 weapon ABK 0 AN
 dagger 2 7 'bite' 0
 17 10 3500 P
-A
-2 2
+a '' to_object 17 -1 2 2 0
 g none~
 #1102
 sign~
@@ -574,8 +572,7 @@ cloth~
 armor GK 0 AK
 6 6 6 2 0
 15 30 1320 P
-A
-20 -1
+a '' to_object 15 -1 -1 20 0
 g none~
 #1105
 one ring~
@@ -585,9 +582,8 @@ copper~
 jewelry G 0 AB
 0 0 0 0 0
 20 30 1660 P
-F i 0 0 A
-A
-1 -1
+a '' to_invis 20 -1 0 0 A
+a '' to_object 20 -1 -1 1 0
 g none~
 #1106
 elven spear~
@@ -597,8 +593,7 @@ wood~
 weapon BGK 0 AN
 spear 3 7 'thrust' K
 16 50 500 P
-A
-18 2
+a '' to_object 16 -1 2 18 0
 g none~
 #1107
 mithril axe~
@@ -608,8 +603,7 @@ mithril~
 weapon ACM A AN
 axe 3 8 'chop' 0
 17 120 1440 P
-A
-19 3
+a '' to_object 17 -1 3 19 0
 g none~
 #1108
 thain girth~
@@ -619,8 +613,7 @@ cloth~
 armor 0 0 AL
 5 5 5 0 0
 17 40 3600 P
-A
-4 2
+a '' to_object 17 -1 2 4 0
 g none~
 #1109
 tiny dagger~
@@ -666,8 +659,7 @@ wood~
 weapon 0 0 AN
 polearm 3 10 'cleave' F
 21 100 1810 P
-A
-18 4
+a '' to_object 21 -1 4 18 0
 g none~
 #1114
 flail~
@@ -686,8 +678,7 @@ wood~
 weapon 0 0 AN
 polearm 2 3 'pound' F
 3 100 980 P
-A
-18 4
+a '' to_object 3 -1 4 18 0
 g none~
 #1116
 dagger shiriff~
@@ -697,10 +688,8 @@ steel~
 weapon 0 0 AN
 dagger 2 4 'pierce' 0
 6 10 480 P
-A
-19 1
-A
-18 1
+a '' to_object 6 -1 1 19 0
+a '' to_object 6 -1 1 18 0
 g none~
 #1117
 club heavy~

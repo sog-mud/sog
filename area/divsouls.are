@@ -2741,14 +2741,10 @@ felt~
 armor 0 0 AE
 23 24 23 20 0
 75 40 2500 P
-A
-19 5
-A
-18 5
-A
-13 50
-A
-12 50
+a '' to_object 75 -1 5 19 0
+a '' to_object 75 -1 5 18 0
+a '' to_object 75 -1 50 13 0
+a '' to_object 75 -1 50 12 0
 g none~
 #11618
 circlets wonder arm bands~
@@ -2758,14 +2754,10 @@ etherealness~
 armor AF 0 AI
 24 24 24 20 0
 75 20 3000 P
-A
-19 7
-A
-12 75
-A
-6 1
-A
-3 3
+a '' to_object 75 -1 7 19 0
+a '' to_object 75 -1 75 12 0
+a '' to_object 75 -1 1 6 0
+a '' to_object 75 -1 3 3 0
 E
 circlets wonder arm bands~
 shimmering letters are visible amidst the swirling matter of the circlets:
@@ -2812,14 +2804,10 @@ light~
 armor AIK 0 AL
 27 27 28 21 0
 85 0 4000 P
-A
-19 6
-A
-18 6
-A
-12 85
-A
-4 2
+a '' to_object 85 -1 6 19 0
+a '' to_object 85 -1 6 18 0
+a '' to_object 85 -1 85 12 0
+a '' to_object 85 -1 2 4 0
 g none~
 #11621
 innocent dreams~
@@ -2829,16 +2817,11 @@ etherealness~
 armor AK 0 AQ
 27 27 28 20 0
 85 0 3500 P
-A
-19 6
-A
-18 6
-A
-13 -10
-A
-12 95
-A
-3 -1
+a '' to_object 85 -1 6 19 0
+a '' to_object 85 -1 6 18 0
+a '' to_object 85 -1 -10 13 0
+a '' to_object 85 -1 95 12 0
+a '' to_object 85 -1 -1 3 0
 g none~
 #11622
 gleaming white cross~
@@ -2848,14 +2831,10 @@ ivory~
 armor AK 0 AO
 28 28 28 21 0
 85 30 1500 P
-A
-19 5
-A
-13 30
-A
-12 75
-A
-4 2
+a '' to_object 85 -1 5 19 0
+a '' to_object 85 -1 30 13 0
+a '' to_object 85 -1 75 12 0
+a '' to_object 85 -1 2 4 0
 g none~
 #11623
 white kid gloves~
@@ -2865,14 +2844,10 @@ soft leather~
 armor AK 0 AH
 23 23 21 21 0
 85 30 3500 P
-A
-19 5
-A
-18 10
-A
-12 85
-A
-2 3
+a '' to_object 85 -1 5 19 0
+a '' to_object 85 -1 10 18 0
+a '' to_object 85 -1 85 12 0
+a '' to_object 85 -1 3 2 0
 g none~
 #11624
 mark gabrian white insignia hair~
@@ -2882,14 +2857,10 @@ flesh~
 armor BIM 0 AE
 21 21 20 20 32768
 80 0 2000 P
-A
-19 3
-A
-18 5
-A
-12 80
-A
-5 3
+a '' to_object 80 -1 3 19 0
+a '' to_object 80 -1 5 18 0
+a '' to_object 80 -1 80 12 0
+a '' to_object 80 -1 3 5 0
 E
 mark gabrian white insignia hair~
 an inscription is woven in gold around edge of the mark:
@@ -2927,12 +2898,9 @@ feathers~
 armor 0 0 AD
 21 22 21 19 0
 65 150 5500 P
-A
-13 40
-A
-19 6
-A
-1 2
+a '' to_object 65 -1 40 13 0
+a '' to_object 65 -1 6 19 0
+a '' to_object 65 -1 2 1 0
 g none~
 #11626
 song nightingale~
@@ -2942,12 +2910,9 @@ nothingness~
 armor BFHI 0 AQ
 15 15 15 11 0
 45 0 2200 P
-A
-19 4
-A
-12 45
-A
-4 2
+a '' to_object 45 -1 4 19 0
+a '' to_object 45 -1 45 12 0
+a '' to_object 45 -1 2 4 0
 g none~
 #11627
 scroll enlightenment white~
@@ -2957,10 +2922,8 @@ parchment~
 scroll B 0 AO
 60 'colour spray' 'curse' 'charm person' 'poison'
 60 10 550 P
-A
-5 -4
-A
-3 -5
+a '' to_object 60 -1 -4 5 0
+a '' to_object 60 -1 -5 3 0
 g none~
 #11628
 sparkling wand~
@@ -2979,12 +2942,9 @@ mithril~
 armor AK 0 AG
 22 21 23 18 0
 66 50 5200 P
-A
-12 65
-A
-3 3
-A
-2 3
+a '' to_object 66 -1 65 12 0
+a '' to_object 66 -1 3 3 0
+a '' to_object 66 -1 3 2 0
 g none~
 #11630
 golden bell silver neckchain chain~
@@ -2994,12 +2954,9 @@ gold~
 jewelry A 0 AC
 0 0 0 0 0
 66 20 10240 P
-A
-19 6
-A
-12 50
-A
-4 3
+a '' to_object 66 -1 6 19 0
+a '' to_object 66 -1 50 12 0
+a '' to_object 66 -1 3 4 0
 g none~
 #11631
 rose tinted shades~
@@ -3009,11 +2966,9 @@ glass~
 armor 0 0 AC
 17 17 17 14 0
 55 20 1000 P
-F A 0 0 A
-A
-12 100
-A
-4 -4
+a '' to_affects 55 -1 0 0 A
+a '' to_object 55 -1 100 12 0
+a '' to_object 55 -1 -4 4 0
 g none~
 #11632
 breastplate plate white cross~
@@ -3023,10 +2978,8 @@ mithril~
 armor AK 0 AD
 20 20 21 17 0
 60 350 5560 P
-A
-19 5
-A
-1 3
+a '' to_object 60 -1 5 19 0
+a '' to_object 60 -1 3 1 0
 g none~
 #11633
 white legplates~
@@ -3036,12 +2989,9 @@ mithril~
 armor AK 0 AF
 21 21 21 17 0
 64 150 4500 P
-A
-19 4
-A
-18 2
-A
-5 2
+a '' to_object 64 -1 4 19 0
+a '' to_object 64 -1 2 18 0
+a '' to_object 64 -1 2 5 0
 g none~
 #11634
 diamond longsword sword~
@@ -3051,10 +3001,8 @@ diamond~
 weapon A 0 AN
 sword 7 10 'cleave' 0
 63 370 5650 P
-A
-19 4
-A
-18 3
+a '' to_object 63 -1 4 19 0
+a '' to_object 63 -1 3 18 0
 g none~
 #11635
 ivory scales~
@@ -3064,14 +3012,10 @@ ivory~
 treasure A 0 AH
 0 0 0 0 0
 67 150 4334 P
-A
-13 50
-A
-12 50
-A
-4 2
-A
-3 2
+a '' to_object 67 -1 50 13 0
+a '' to_object 67 -1 50 12 0
+a '' to_object 67 -1 2 4 0
+a '' to_object 67 -1 2 3 0
 g none~
 #11636
 pruning shears~
@@ -3081,10 +3025,8 @@ metal~
 weapon 0 0 AN
 exotic 10 7 'stab' 0
 70 370 1000 P
-A
-19 3
-A
-18 3
+a '' to_object 70 -1 3 19 0
+a '' to_object 70 -1 3 18 0
 g none~
 #11637
 grass stained jumpsuit leather~
@@ -3094,10 +3036,8 @@ soft leather~
 armor 0 0 AD
 19 18 19 19 0
 70 70 450 P
-A
-6 -1
-A
-2 3
+a '' to_object 70 -1 -1 6 0
+a '' to_object 70 -1 3 2 0
 g none~
 #11638
 sculptor's chisel~
@@ -3107,10 +3047,8 @@ diamond~
 weapon 0 0 AN
 dagger 9 8 'pierce' D
 68 250 4500 P
-A
-19 3
-A
-18 3
+a '' to_object 68 -1 3 19 0
+a '' to_object 68 -1 3 18 0
 g none~
 #11639
 polished bone chip~
@@ -3129,12 +3067,9 @@ cloth~
 armor A 0 AK
 16 16 16 16 0
 57 70 200 P
-A
-12 55
-A
-5 3
-A
-4 3
+a '' to_object 57 -1 55 12 0
+a '' to_object 57 -1 3 5 0
+a '' to_object 57 -1 3 4 0
 E
 flowing white priest robes~
 A glowing white cross is emblazoned across the front of the robes.
@@ -3148,12 +3083,9 @@ nothingness~
 armor AU 0 AD
 17 18 17 16 0
 60 0 0 P
-A
-12 60
-A
-4 -8
-A
-2 -6
+a '' to_object 60 -1 60 12 0
+a '' to_object 60 -1 -8 4 0
+a '' to_object 60 -1 -6 2 0
 g none~
 #11642
 silver neckchain chain~
@@ -3163,12 +3095,9 @@ silver~
 jewelry A 0 AC
 0 0 0 0 0
 45 10 7500 P
-A
-13 25
-A
-12 40
-A
-5 3
+a '' to_object 45 -1 25 13 0
+a '' to_object 45 -1 40 12 0
+a '' to_object 45 -1 3 5 0
 g none~
 #11643
 broken watch~
@@ -3178,12 +3107,9 @@ brass~
 armor B 0 AL
 15 15 15 13 0
 45 50 20 P
-A
-19 4
-A
-13 35
-A
-9 3
+a '' to_object 45 -1 4 19 0
+a '' to_object 45 -1 35 13 0
+a '' to_object 45 -1 3 9 0
 g none~
 #11644
 fluffy white tail~
@@ -3193,12 +3119,9 @@ cotton~
 armor 0 0 AF
 13 14 13 13 0
 45 0 10 P
-A
-19 3
-A
-12 40
-A
-2 2
+a '' to_object 45 -1 3 19 0
+a '' to_object 45 -1 40 12 0
+a '' to_object 45 -1 2 2 0
 g none~
 #11645
 rabbit food pellet~
@@ -3217,12 +3140,9 @@ etherealness~
 armor AFI 0 AQ
 17 17 16 14 0
 51 10 0 P
-A
-19 4
-A
-12 50
-A
-4 3
+a '' to_object 51 -1 4 19 0
+a '' to_object 51 -1 50 12 0
+a '' to_object 51 -1 3 4 0
 g none~
 #11647
 shattered dreams pieces~
@@ -3232,12 +3152,9 @@ nothingness~
 armor B 0 AQ
 25 25 25 20 0
 80 0 0 P
-A
-19 6
-A
-13 75
-A
-12 -15
+a '' to_object 80 -1 6 19 0
+a '' to_object 80 -1 75 13 0
+a '' to_object 80 -1 -15 12 0
 g none~
 #11648
 ice mask~
@@ -3247,14 +3164,10 @@ ice~
 armor A 0 AE
 25 26 25 20 0
 80 70 2450 P
-A
-19 5
-A
-13 70
-A
-12 -10
-A
-1 4
+a '' to_object 80 -1 5 19 0
+a '' to_object 80 -1 70 13 0
+a '' to_object 80 -1 -10 12 0
+a '' to_object 80 -1 4 1 0
 E
 ice mask~
 A poem is engraved on the inside of the mask:
@@ -3281,12 +3194,9 @@ feathers~
 armor A 0 AO
 21 20 20 18 0
 65 10 5500 P
-A
-19 5
-A
-13 50
-A
-1 3
+a '' to_object 65 -1 5 19 0
+a '' to_object 65 -1 50 13 0
+a '' to_object 65 -1 3 1 0
 g none~
 #11650
 bloody cowl~
@@ -3296,14 +3206,10 @@ wool~
 armor 0 0 AE
 19 20 20 19 0
 64 50 100 P
-A
-19 5
-A
-12 65
-A
-3 4
-A
-1 -2
+a '' to_object 64 -1 5 19 0
+a '' to_object 64 -1 65 12 0
+a '' to_object 64 -1 4 3 0
+a '' to_object 64 -1 -2 1 0
 g none~
 #11651
 dark eye nightmare~
@@ -3313,14 +3219,10 @@ flame~
 light AE 0 A
 0 0 -1 0 0
 66 10 700 P
-A
-19 6
-A
-18 2
-A
-13 50
-A
-1 4
+a '' to_object 66 -1 6 19 0
+a '' to_object 66 -1 2 18 0
+a '' to_object 66 -1 50 13 0
+a '' to_object 66 -1 4 1 0
 g none~
 #11652
 nightmare breath dark cloud~
@@ -3330,12 +3232,9 @@ air~
 armor BCFHJ 0 AK
 20 20 20 18 0
 66 10 100 P
-A
-19 6
-A
-18 4
-A
-13 50
+a '' to_object 66 -1 6 19 0
+a '' to_object 66 -1 4 18 0
+a '' to_object 66 -1 50 13 0
 g none~
 #11653
 sacrificial robes bloody~
@@ -3345,12 +3244,9 @@ linen~
 armor EJM 0 AK
 19 20 19 19 0
 60 50 2300 P
-A
-19 5
-A
-18 3
-A
-12 55
+a '' to_object 60 -1 5 19 0
+a '' to_object 60 -1 3 18 0
+a '' to_object 60 -1 55 12 0
 g none~
 #11654
 deathblade blade~
@@ -3360,10 +3256,8 @@ adamantite~
 weapon BJ 0 AN
 sword 8 9 'drain' C
 65 420 4500 P
-A
-19 2
-A
-18 2
+a '' to_object 65 -1 2 19 0
+a '' to_object 65 -1 2 18 0
 g none~
 #11655
 gauntlets night black~
@@ -3373,10 +3267,8 @@ onyx~
 armor BJ 0 AH
 20 20 20 15 0
 60 60 5400 P
-A
-19 6
-A
-18 4
+a '' to_object 60 -1 6 19 0
+a '' to_object 60 -1 4 18 0
 g none~
 #11656
 blood drenched dagger~
@@ -3386,10 +3278,8 @@ obsidian~
 weapon AJ 0 AN
 dagger 7 10 'pierce' D
 65 250 2550 P
-A
-19 4
-A
-18 3
+a '' to_object 65 -1 4 19 0
+a '' to_object 65 -1 3 18 0
 g none~
 #11657
 hole~
@@ -3408,12 +3298,9 @@ flesh~
 armor 0 0 AH
 13 13 14 13 0
 45 10 1200 P
-A
-19 3
-A
-13 30
-A
-12 40
+a '' to_object 45 -1 3 19 0
+a '' to_object 45 -1 30 13 0
+a '' to_object 45 -1 40 12 0
 g none~
 #11659
 blood spattered shield obsidian~
@@ -3423,14 +3310,10 @@ obsidian~
 armor A 0 AJ
 19 20 19 18 0
 70 100 1050 P
-A
-19 7
-A
-18 5
-A
-13 50
-A
-1 2
+a '' to_object 70 -1 7 19 0
+a '' to_object 70 -1 5 18 0
+a '' to_object 70 -1 50 13 0
+a '' to_object 70 -1 2 1 0
 g none~
 #11660
 bloody fang vampire~
@@ -3440,10 +3323,8 @@ bone~
 weapon B 0 AN
 dagger 8 10 'pierce' CD
 70 250 4300 P
-A
-19 4
-A
-18 3
+a '' to_object 70 -1 4 19 0
+a '' to_object 70 -1 3 18 0
 g none~
 #11661
 tattered cloak black~
@@ -3453,14 +3334,10 @@ wool~
 armor 0 0 AC
 19 19 19 19 0
 70 50 10 P
-A
-19 5
-A
-18 4
-A
-13 60
-A
-1 2
+a '' to_object 70 -1 5 19 0
+a '' to_object 70 -1 4 18 0
+a '' to_object 70 -1 60 13 0
+a '' to_object 70 -1 2 1 0
 g none~
 #11662
 mark daemias black hair~
@@ -3470,14 +3347,10 @@ flesh~
 armor BCM 0 AE
 21 21 20 21 0
 80 0 9400 P
-A
-19 5
-A
-18 3
-A
-13 80
-A
-1 3
+a '' to_object 80 -1 5 19 0
+a '' to_object 80 -1 3 18 0
+a '' to_object 80 -1 80 13 0
+a '' to_object 80 -1 3 1 0
 E
 mark daemias black hair~
 silver threads interwoven with the black form the words:
@@ -3503,14 +3376,10 @@ shadow~
 light ACJ 0 A
 0 0 -1 0 0
 85 10 10000 P
-A
-19 7
-A
-18 4
-A
-13 75
-A
-12 75
+a '' to_object 85 -1 7 19 0
+a '' to_object 85 -1 4 18 0
+a '' to_object 85 -1 75 13 0
+a '' to_object 85 -1 75 12 0
 g none~
 #11664
 circle tears~
@@ -3520,14 +3389,10 @@ water~
 armor AFIJ 0 AL
 21 21 21 21 0
 85 50 7500 P
-A
-19 6
-A
-18 -2
-A
-13 75
-A
-2 3
+a '' to_object 85 -1 6 19 0
+a '' to_object 85 -1 -2 18 0
+a '' to_object 85 -1 75 13 0
+a '' to_object 85 -1 3 2 0
 g none~
 #11665
 ashes lost~
@@ -3537,16 +3402,11 @@ ash~
 armor AJM 0 AQ
 20 20 20 20 0
 85 10 100 P
-A
-19 7
-A
-18 4
-A
-13 75
-A
-12 75
-A
-5 -1
+a '' to_object 85 -1 7 19 0
+a '' to_object 85 -1 4 18 0
+a '' to_object 85 -1 75 13 0
+a '' to_object 85 -1 75 12 0
+a '' to_object 85 -1 -1 5 0
 g none~
 #11666
 broken bible~
@@ -3556,14 +3416,10 @@ soft leather~
 armor BJ 0 AO
 20 20 20 20 0
 85 50 10 P
-A
-19 5
-A
-18 4
-A
-13 75
-A
-12 -10
+a '' to_object 85 -1 5 19 0
+a '' to_object 85 -1 4 18 0
+a '' to_object 85 -1 75 13 0
+a '' to_object 85 -1 -10 12 0
 g none~
 #11667
 bloodstained platter silver~
@@ -3573,12 +3429,9 @@ silver~
 armor A 0 AJ
 20 21 20 16 0
 60 100 3200 P
-A
-19 5
-A
-12 65
-A
-5 2
+a '' to_object 60 -1 5 19 0
+a '' to_object 60 -1 65 12 0
+a '' to_object 60 -1 2 5 0
 g none~
 #11668
 razor claws~
@@ -3588,12 +3441,9 @@ bone~
 armor ACF 0 AH
 20 20 20 20 0
 82 50 4530 P
-A
-19 7
-A
-18 5
-A
-13 50
+a '' to_object 82 -1 7 19 0
+a '' to_object 82 -1 5 18 0
+a '' to_object 82 -1 50 13 0
 g none~
 #11669
 mark ykres shadow black~
@@ -3603,14 +3453,10 @@ shadow~
 armor BCF 0 AC
 20 20 20 20 0
 82 0 8300 P
-A
-19 6
-A
-13 75
-A
-12 25
-A
-2 3
+a '' to_object 82 -1 6 19 0
+a '' to_object 82 -1 75 13 0
+a '' to_object 82 -1 25 12 0
+a '' to_object 82 -1 3 2 0
 g none~
 #11670
 bracelet night darkness~
@@ -3620,12 +3466,9 @@ shadow~
 armor BCF 0 AM
 15 15 16 14 0
 55 20 3300 P
-A
-19 5
-A
-13 45
-A
-2 4
+a '' to_object 55 -1 5 19 0
+a '' to_object 55 -1 45 13 0
+a '' to_object 55 -1 4 2 0
 g none~
 #11671
 onyx owl ring~
@@ -3635,12 +3478,9 @@ onyx~
 jewelry C 0 AB
 0 0 0 0 0
 55 10 5560 P
-A
-19 5
-A
-12 50
-A
-4 2
+a '' to_object 55 -1 5 19 0
+a '' to_object 55 -1 50 12 0
+a '' to_object 55 -1 2 4 0
 g none~
 #11672
 sliver darkness~
@@ -3650,10 +3490,8 @@ shadow~
 weapon C 0 AN
 dagger 13 6 'pierce' D
 70 250 6230 P
-A
-19 4
-A
-18 3
+a '' to_object 70 -1 4 19 0
+a '' to_object 70 -1 3 18 0
 g none~
 #11673
 mask deception grey~
@@ -3663,14 +3501,10 @@ shadow~
 armor BCF 0 AE
 24 24 24 20 0
 80 30 4240 P
-A
-19 5
-A
-18 3
-A
-13 65
-A
-2 4
+a '' to_object 80 -1 5 19 0
+a '' to_object 80 -1 3 18 0
+a '' to_object 80 -1 65 13 0
+a '' to_object 80 -1 4 2 0
 g none~
 #11674
 cloak shadows~
@@ -3680,12 +3514,9 @@ shadow~
 container BCF 0 AC
 200 0 0 20 50
 75 70 2550 P
-A
-19 5
-A
-17 -12
-A
-2 4
+a '' to_object 75 -1 5 19 0
+a '' to_object 75 -1 -12 17 0
+a '' to_object 75 -1 4 2 0
 g none~
 #11675
 ice candle~
@@ -3695,12 +3526,9 @@ ice~
 light AF 0 A
 0 0 -1 0 0
 75 60 4520 P
-A
-19 7
-A
-18 4
-A
-3 4
+a '' to_object 75 -1 7 19 0
+a '' to_object 75 -1 4 18 0
+a '' to_object 75 -1 4 3 0
 g none~
 #11676
 stiletto shadow shadow's edge~
@@ -3710,10 +3538,8 @@ shadow~
 weapon C 0 AN
 dagger 15 8 'pierce' CD
 87 250 6650 P
-A
-19 6
-A
-18 16
+a '' to_object 87 -1 6 19 0
+a '' to_object 87 -1 16 18 0
 g none~
 #11677
 silhouette~
@@ -3723,14 +3549,10 @@ shadow~
 armor CF 0 AK
 24 24 25 21 0
 87 0 0 P
-A
-19 7
-A
-13 75
-A
-12 75
-A
-2 3
+a '' to_object 87 -1 7 19 0
+a '' to_object 87 -1 75 13 0
+a '' to_object 87 -1 75 12 0
+a '' to_object 87 -1 3 2 0
 g none~
 #11678
 silence~
@@ -3740,14 +3562,10 @@ nothingness~
 armor CF 0 AF
 24 23 23 21 0
 87 10 230 P
-A
-19 6
-A
-13 25
-A
-12 80
-A
-2 4
+a '' to_object 87 -1 6 19 0
+a '' to_object 87 -1 25 13 0
+a '' to_object 87 -1 80 12 0
+a '' to_object 87 -1 4 2 0
 g none~
 #11679
 black shadowhawk hawk talons~
@@ -3757,14 +3575,10 @@ bone~
 armor AC 0 AG
 26 26 26 20 0
 80 80 8430 P
-A
-19 6
-A
-18 3
-A
-13 75
-A
-1 3
+a '' to_object 80 -1 6 19 0
+a '' to_object 80 -1 3 18 0
+a '' to_object 80 -1 75 13 0
+a '' to_object 80 -1 3 1 0
 g none~
 #11680
 bracers energy~
@@ -3774,13 +3588,10 @@ energy~
 armor AB 0 AI
 20 20 20 20 0
 76 40 4300 P
-F A 0 0 V
-A
-19 5
-A
-12 90
-A
-2 3
+a '' to_affects 76 -1 0 0 V
+a '' to_object 76 -1 5 19 0
+a '' to_object 76 -1 90 12 0
+a '' to_object 76 -1 3 2 0
 g none~
 #11681
 whirling disc energy~
@@ -3790,12 +3601,9 @@ energy~
 armor AB 0 AJ
 20 20 21 20 0
 81 50 3230 P
-A
-19 7
-A
-18 5
-A
-12 80
+a '' to_object 81 -1 7 19 0
+a '' to_object 81 -1 5 18 0
+a '' to_object 81 -1 80 12 0
 g none~
 #11682
 brain cell~
@@ -3805,10 +3613,8 @@ skin~
 armor B 0 AE
 18 18 19 18 0
 65 10 1 P
-A
-12 60
-A
-3 4
+a '' to_object 65 -1 60 12 0
+a '' to_object 65 -1 4 3 0
 g none~
 #11683
 pink pig wings~
@@ -3818,12 +3624,9 @@ feathers~
 armor B 0 AI
 15 15 15 15 0
 59 60 2250 P
-A
-19 4
-A
-18 4
-A
-2 2
+a '' to_object 59 -1 4 19 0
+a '' to_object 59 -1 4 18 0
+a '' to_object 59 -1 2 2 0
 g none~
 #11684
 effigy barney purple dinosaur~
@@ -3833,14 +3636,10 @@ cloth~
 armor AB 0 AO
 16 15 16 15 0
 60 50 0 P
-A
-19 4
-A
-13 70
-A
-4 -2
-A
-3 -2
+a '' to_object 60 -1 4 19 0
+a '' to_object 60 -1 70 13 0
+a '' to_object 60 -1 -2 4 0
+a '' to_object 60 -1 -2 3 0
 g none~
 #11685
 white lab coat~
@@ -3850,10 +3649,8 @@ linen~
 armor AB 0 AK
 18 18 19 18 0
 65 40 3400 P
-A
-4 4
-A
-3 4
+a '' to_object 65 -1 4 4 0
+a '' to_object 65 -1 4 3 0
 g none~
 #11686
 trendy suit~
@@ -3863,14 +3660,10 @@ linen~
 armor 0 0 AD
 16 15 16 15 0
 60 90 7777 P
-A
-13 50
-A
-12 50
-A
-4 -2
-A
-3 -3
+a '' to_object 60 -1 50 13 0
+a '' to_object 60 -1 50 12 0
+a '' to_object 60 -1 -2 4 0
+a '' to_object 60 -1 -3 3 0
 g none~
 #11687
 energy shimmering circlet~
@@ -3880,12 +3673,9 @@ energy~
 armor ABHM 0 AB
 21 21 21 21 0
 86 10 7550 P
-A
-19 8
-A
-18 4
-A
-12 70
+a '' to_object 86 -1 8 19 0
+a '' to_object 86 -1 4 18 0
+a '' to_object 86 -1 70 12 0
 g none~
 #11688
 bracelet delusions~
@@ -3895,12 +3685,9 @@ energy~
 armor ABM 0 AM
 21 21 21 21 0
 86 30 1000 P
-A
-18 -9
-A
-12 110
-A
-4 -3
+a '' to_object 86 -1 -9 18 0
+a '' to_object 86 -1 110 12 0
+a '' to_object 86 -1 -3 4 0
 g none~
 #11689
 idea~
@@ -3910,14 +3697,10 @@ energy~
 light AB 0 A
 0 0 -1 0 0
 86 0 10000 P
-A
-19 6
-A
-18 5
-A
-12 90
-A
-3 3
+a '' to_object 86 -1 6 19 0
+a '' to_object 86 -1 5 18 0
+a '' to_object 86 -1 90 12 0
+a '' to_object 86 -1 3 3 0
 g none~
 #11690
 energy mail chainmail chain~
@@ -3927,14 +3710,10 @@ energy~
 armor AB 0 AD
 21 21 21 21 0
 86 100 7650 P
-A
-19 7
-A
-18 5
-A
-13 50
-A
-12 75
+a '' to_object 86 -1 7 19 0
+a '' to_object 86 -1 5 18 0
+a '' to_object 86 -1 50 13 0
+a '' to_object 86 -1 75 12 0
 g none~
 #11691
 red feather leggings~
@@ -3944,12 +3723,9 @@ feathers~
 armor AB 0 AF
 20 21 20 20 0
 77 80 6500 P
-A
-19 6
-A
-18 4
-A
-13 50
+a '' to_object 77 -1 6 19 0
+a '' to_object 77 -1 4 18 0
+a '' to_object 77 -1 50 13 0
 g none~
 #11692
 brilliant red tailfeather feather~
@@ -3959,10 +3735,8 @@ feathers~
 weapon A 0 AN
 spear 10 10 'pierce' DGK
 80 380 3450 P
-A
-19 5
-A
-18 5
+a '' to_object 80 -1 5 19 0
+a '' to_object 80 -1 5 18 0
 g none~
 #11693
 musical bracers black feather~
@@ -3972,12 +3746,9 @@ feathers~
 armor AB 0 AI
 13 13 13 13 0
 43 20 2200 P
-A
-19 3
-A
-12 45
-A
-2 3
+a '' to_object 43 -1 3 19 0
+a '' to_object 43 -1 45 12 0
+a '' to_object 43 -1 3 2 0
 g none~
 #11694
 silent flame dark~
@@ -3987,12 +3758,9 @@ shadow~
 light ACF 0 A
 0 0 -1 0 0
 51 0 2000 P
-A
-19 4
-A
-13 35
-A
-2 3
+a '' to_object 51 -1 4 19 0
+a '' to_object 51 -1 35 13 0
+a '' to_object 51 -1 3 2 0
 g none~
 #11695
 shadowy handprints prints~
@@ -4002,12 +3770,9 @@ shadow~
 armor BCF 0 AH
 16 16 16 16 0
 61 0 0 P
-A
-19 5
-A
-12 65
-A
-2 3
+a '' to_object 61 -1 5 19 0
+a '' to_object 61 -1 65 12 0
+a '' to_object 61 -1 3 2 0
 g none~
 #11696
 dark owl feather blanket~
@@ -4078,10 +3843,8 @@ stone~
 treasure C 0 AC
 0 0 0 0 0
 0 10 0 P
-A
-5 1
-A
-2 1
+a '' to_object 0 -1 1 5 0
+a '' to_object 0 -1 1 2 0
 g none~
 #11703
 steel key~
@@ -4145,20 +3908,13 @@ adamantite~
 armor AI 0 AI
 41 40 40 23 0
 90 50 10000 P
-A
-20 -5
-A
-19 12
-A
-18 12
-A
-13 120
-A
-12 120
-A
-2 4
-A
-1 4
+a '' to_object 90 -1 -5 20 0
+a '' to_object 90 -1 12 19 0
+a '' to_object 90 -1 12 18 0
+a '' to_object 90 -1 120 13 0
+a '' to_object 90 -1 120 12 0
+a '' to_object 90 -1 4 2 0
+a '' to_object 90 -1 4 1 0
 E
 dark crimson armbands arm bands pair circles blood~
 Engraved in the blood red metal is the inscription:  "Ir'vekire zai'Zdreni",
@@ -4173,63 +3929,35 @@ adamantite~
 armor B 0 AC
 40 40 40 24 0
 90 30 15000 P
-A
-27 33
-A
-28 33
-A
-29 33
-A
-30 33
-A
-31 33
-A
-32 33
-A
-33 33
-A
-34 33
-A
-35 33
-A
-36 33
-A
-37 33
-A
-38 33
-A
-39 33
-A
-40 33
-A
-41 33
-A
-42 33
-A
-43 33
-F A 0 0 c
-A
-20 -10
-A
-19 15
-A
-18 15
-A
-14 500
-A
-13 250
-A
-12 500
-A
-5 5
-A
-4 5
-A
-3 5
-A
-2 5
-A
-1 5
+a '' to_object 90 -1 33 27 0
+a '' to_object 90 -1 33 28 0
+a '' to_object 90 -1 33 29 0
+a '' to_object 90 -1 33 30 0
+a '' to_object 90 -1 33 31 0
+a '' to_object 90 -1 33 32 0
+a '' to_object 90 -1 33 33 0
+a '' to_object 90 -1 33 34 0
+a '' to_object 90 -1 33 35 0
+a '' to_object 90 -1 33 36 0
+a '' to_object 90 -1 33 37 0
+a '' to_object 90 -1 33 38 0
+a '' to_object 90 -1 33 39 0
+a '' to_object 90 -1 33 40 0
+a '' to_object 90 -1 33 41 0
+a '' to_object 90 -1 33 42 0
+a '' to_object 90 -1 33 43 0
+a '' to_affects 90 -1 0 0 c
+a '' to_object 90 -1 -10 20 0
+a '' to_object 90 -1 15 19 0
+a '' to_object 90 -1 15 18 0
+a '' to_object 90 -1 500 14 0
+a '' to_object 90 -1 250 13 0
+a '' to_object 90 -1 500 12 0
+a '' to_object 90 -1 5 5 0
+a '' to_object 90 -1 5 4 0
+a '' to_object 90 -1 5 3 0
+a '' to_object 90 -1 5 2 0
+a '' to_object 90 -1 5 1 0
 E
 oath vengeance band adamantite ruby~
 An inscription encircles the outside of the band:  "Ir'vekire zai'Zdreni"
@@ -4251,10 +3979,8 @@ adamantite~
 weapon AC 0 AN
 dagger 10 15 'pierce' CD
 90 180 12500 P
-A
-19 25
-A
-18 25
+a '' to_object 90 -1 25 19 0
+a '' to_object 90 -1 25 18 0
 g none~
 #11711
 midnight black insignia onyx ring~
@@ -4264,16 +3990,11 @@ stone~
 treasure C 0 AB
 0 0 0 0 0
 82 10 5000 P
-A
-19 8
-A
-18 4
-A
-13 65
-A
-12 65
-A
-1 2
+a '' to_object 82 -1 8 19 0
+a '' to_object 82 -1 4 18 0
+a '' to_object 82 -1 65 13 0
+a '' to_object 82 -1 65 12 0
+a '' to_object 82 -1 2 1 0
 g none~
 #11712
 dark grey insignia chainmail chain mail~
@@ -4283,12 +4004,9 @@ adamantite~
 armor C 0 AD
 26 26 26 19 0
 78 80 5000 P
-A
-19 7
-A
-13 50
-A
-2 2
+a '' to_object 78 -1 7 19 0
+a '' to_object 78 -1 50 13 0
+a '' to_object 78 -1 2 2 0
 E
 dark grey insignia chainmail chain mail~
 An engraving of two crossed daggers shimmers above the left shoulder of
@@ -4303,10 +4021,8 @@ silk~
 armor C 0 AL
 20 20 20 18 0
 73 40 4000 P
-A
-19 5
-A
-13 50
+a '' to_object 73 -1 5 19 0
+a '' to_object 73 -1 50 13 0
 g none~
 #11714
 dark blue sash purple~
@@ -4316,12 +4032,9 @@ silk~
 armor C 0 AL
 19 19 20 20 0
 73 40 4000 P
-A
-19 5
-A
-12 65
-A
-3 2
+a '' to_object 73 -1 5 19 0
+a '' to_object 73 -1 65 12 0
+a '' to_object 73 -1 2 3 0
 g none~
 #11715
 smokey blue insignia cloak~
@@ -4331,14 +4044,10 @@ leather~
 armor C 0 AC
 19 19 19 17 0
 68 50 3800 P
-A
-19 5
-A
-13 50
-A
-5 2
-A
-2 2
+a '' to_object 68 -1 5 19 0
+a '' to_object 68 -1 50 13 0
+a '' to_object 68 -1 2 5 0
+a '' to_object 68 -1 2 2 0
 g none~
 #11716
 indigo insignia pair gloves~
@@ -4348,14 +4057,10 @@ leather~
 armor C 0 AH
 17 18 17 16 0
 63 20 3500 P
-A
-19 4
-A
-13 45
-A
-12 65
-A
-2 2
+a '' to_object 63 -1 4 19 0
+a '' to_object 63 -1 45 13 0
+a '' to_object 63 -1 65 12 0
+a '' to_object 63 -1 2 2 0
 g none~
 #11717
 dark green insignia boots~
@@ -4365,14 +4070,10 @@ leather~
 armor C 0 AG
 16 16 16 14 0
 58 40 3300 P
-A
-20 -2
-A
-19 4
-A
-12 60
-A
-2 2
+a '' to_object 58 -1 -2 20 0
+a '' to_object 58 -1 4 19 0
+a '' to_object 58 -1 60 12 0
+a '' to_object 58 -1 2 2 0
 g none~
 #11718
 grey insignia leggings~
@@ -4382,16 +4083,11 @@ leather~
 armor C 0 AF
 15 14 14 15 0
 53 30 3000 P
-A
-19 4
-A
-13 35
-A
-12 35
-A
-2 2
-A
-1 1
+a '' to_object 53 -1 4 19 0
+a '' to_object 53 -1 35 13 0
+a '' to_object 53 -1 35 12 0
+a '' to_object 53 -1 2 2 0
+a '' to_object 53 -1 1 1 0
 g none~
 #11719
 tan insignia bracer~
@@ -4401,14 +4097,10 @@ leather~
 armor 0 0 AM
 14 14 14 12 0
 48 20 2500 P
-A
-19 3
-A
-13 30
-A
-5 1
-A
-3 1
+a '' to_object 48 -1 3 19 0
+a '' to_object 48 -1 30 13 0
+a '' to_object 48 -1 1 5 0
+a '' to_object 48 -1 1 3 0
 g none~
 #11720
 applicants ring adamantite~
@@ -4418,14 +4110,10 @@ adamantite~
 treasure B 0 AB
 0 0 0 0 0
 43 10 1000 P
-A
-19 4
-A
-18 3
-A
-2 1
-A
-1 1
+a '' to_object 43 -1 4 19 0
+a '' to_object 43 -1 3 18 0
+a '' to_object 43 -1 1 2 0
+a '' to_object 43 -1 1 1 0
 E
 applicants ring adamantite~
 Though plain, the adamantite band hums with a magic which identifies
@@ -4469,12 +4157,9 @@ adamantite~
 armor C 0 AD
 14 13 13 10 0
 45 40 5500 P
-A
-19 3
-A
-18 3
-A
-2 2
+a '' to_object 45 -1 3 19 0
+a '' to_object 45 -1 3 18 0
+a '' to_object 45 -1 2 2 0
 g none~
 #11725
 adamantite shortsword short sword~
@@ -4484,10 +4169,8 @@ adamantite~
 weapon C 0 AN
 sword 10 10 'pierce' D
 80 220 5500 P
-A
-19 6
-A
-18 6
+a '' to_object 80 -1 6 19 0
+a '' to_object 80 -1 6 18 0
 g none~
 #11726
 adamantite kris~
@@ -4497,10 +4180,8 @@ adamantite~
 weapon C 0 AN
 dagger 10 8 'pierce' D
 73 150 5000 P
-A
-19 5
-A
-18 5
+a '' to_object 73 -1 5 19 0
+a '' to_object 73 -1 5 18 0
 g none~
 #11727
 adamantite stiletto~
@@ -4510,10 +4191,8 @@ adamantite~
 weapon C 0 AN
 dagger 10 7 'pierce' 0
 65 150 4700 P
-A
-19 5
-A
-18 5
+a '' to_object 65 -1 5 19 0
+a '' to_object 65 -1 5 18 0
 g none~
 #11728
 adamantite throwing knife blue black~
@@ -4523,10 +4202,8 @@ adamantite~
 weapon C 0 AN
 dagger 9 6 'pierce' HK
 55 150 4500 P
-A
-19 4
-A
-18 5
+a '' to_object 55 -1 4 19 0
+a '' to_object 55 -1 5 18 0
 g none~
 #11729
 adamantite dagger~
@@ -4536,10 +4213,8 @@ adamantite~
 weapon C 0 AN
 dagger 5 11 'pierce' 0
 49 150 4000 P
-A
-19 4
-A
-18 4
+a '' to_object 49 -1 4 19 0
+a '' to_object 49 -1 4 18 0
 g none~
 #0
 

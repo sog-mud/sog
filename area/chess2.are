@@ -307,10 +307,8 @@ stone~
 armor J 0 AD
 8 8 8 0 5
 25 70 1250 G
-A
-17 2
-A
-5 1
+a '' to_object 25 -1 2 17 0
+a '' to_object 25 -1 1 5 0
 g female~
 #4205
 armour white rook кольчуга~
@@ -320,10 +318,8 @@ stone~
 armor K 0 AD
 8 8 8 0 5
 25 70 1250 G
-A
-17 2
-A
-5 1
+a '' to_object 25 -1 2 17 0
+a '' to_object 25 -1 1 5 0
 g female~
 #4206
 lance black knight копье~
@@ -333,10 +329,8 @@ bronze~
 weapon BJ 0 AN
 lance 5 5 'pierce' D
 17 50 2250 P
-A
-19 3
-A
-23 5
+a '' to_object 17 -1 3 19 0
+a '' to_object 17 -1 5 23 0
 g none~
 #4207
 lance white knight копье~
@@ -346,10 +340,8 @@ bronze~
 weapon BK 0 AN
 lance 5 5 'pierce' D
 17 50 2300 P
-A
-19 3
-A
-23 5
+a '' to_object 17 -1 3 19 0
+a '' to_object 17 -1 5 23 0
 g none~
 #4208
 staff black bishop посох~
@@ -377,10 +369,8 @@ gold~
 armor AGJL 0 AE
 9 9 9 1 1
 32 50 5000 G
-A
-3 1
-A
-4 1
+a '' to_object 32 -1 1 3 0
+a '' to_object 32 -1 1 4 0
 g female~
 #4211
 crown white queen корона~
@@ -390,10 +380,8 @@ gold~
 armor AGKL 0 AE
 9 9 9 1 1
 32 50 5000 G
-A
-3 1
-A
-4 1
+a '' to_object 32 -1 1 3 0
+a '' to_object 32 -1 1 4 0
 g female~
 #4212
 sceptre black king скипетр~
@@ -403,10 +391,8 @@ gold~
 treasure JL 0 AO
 0 0 0 0 0
 32 10 7900 P
-A
-1 1
-A
-18 1
+a '' to_object 32 -1 1 1 0
+a '' to_object 32 -1 1 18 0
 g male~
 #4213
 sceptre white king скипетр~
@@ -416,10 +402,8 @@ gold~
 treasure KL 0 AO
 0 0 0 0 0
 32 10 7900 P
-A
-1 1
-A
-18 1
+a '' to_object 32 -1 1 1 0
+a '' to_object 32 -1 1 18 0
 g male~
 #4214
 key black treasury ключ~
@@ -771,7 +755,7 @@ wood~
 armor ABFJK 0 AQ
 17 17 17 33 0
 51 60 55390 P
-F A 13 95 AT
+a '' to_affects 51 -1 95 13 AT
 g female~
 #4261
 shield black pawn щит~

@@ -198,8 +198,7 @@ skin~
 armor 0 0 AK
 5 5 5 0 0
 12 200 1380 P
-A
-1 1
+a '' to_object 12 -1 1 1 0
 E
 troll skin~
 This is the skin from a huge (and dead) beast.  It looks bad, smells bad,
@@ -214,8 +213,7 @@ opal~
 jewelry G 0 AB
 0 0 0 0 0
 20 10 1150 P
-A
-19 2
+a '' to_object 20 -1 2 19 0
 E
 ring opal~
 It is a full circle of opal, smooth and simple.
@@ -242,10 +240,8 @@ bone~
 weapon 0 0 AN
 mace 3 3 'pound' 0
 6 30 350 P
-A
-18 -1
-A
-19 -1
+a '' to_object 6 -1 -1 18 0
+a '' to_object 6 -1 -1 19 0
 E
 bone~
 This piece of bone looks sturdy enough to be used as a weapon, but you

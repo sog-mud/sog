@@ -4826,8 +4826,8 @@ From OLC editor you can use shortened form ({cshow{x) or just press RETURN
 on empty line.
 ~
 0 'OLC ADDAFFECT'~
-Syntax: {caddaffect{x { <where> | {cnone{x } { <loc> <mod> | {cnone{x } [<bitvector>]
-Syntax: {caddaffect skill{x {{ <skill> | {creserved{x } <mod> [<bitvector>]
+Syntax: {caddaffect{x <type> {{ <where> | {cnone{x } { <loc> <mod> | {cnone{x } [<bitvec>]
+Syntax: {caddaffect{x <type> {cskill{x {{ <skill> | {creserved{x } <mod> [<bitvec>]
 ~
 0 TWIT~
 @eng Syntax: {ctwit{x <name>
@@ -7186,23 +7186,22 @@ Syntax: {cpose list{x
  
 To add new pose: {cpose add, pose self{x <number> <msg>, {cpose others{x <number> <msg>
 ~
-immortal 'OLC CC_RULESET'~
-Syntax: <cmd> {cshow{x
-Syntax: <cmd> {corder{x <order>
-Syntax: <cmd> {cadd{x { {callow{x | {cdeny{x } <expression>
-Syntax: <cmd> {cdelete{x {{ {callow{x | {cdeny{x } <number>
+immortal 'OLC CC_EXPR'~
+Syntax: <cmd> [add] <expr>
+Syntax: <cmd> mfun <num> <mfun>
+Syntax: <cmd> delete <num>
+Syntax: <cmd> show
  
-<cmd> is OLC command for checking CC rules, i.e. {crestrictions{x
-for object wear restrictions.
+<cmd> is OLC command for editing CC exprs (depends on current OLC
+editor, e.g.: {crestrictions{x for OLC for objects).
  
-<order> is one of the following:
-{cdeny_allow{x     - check 'deny' rules first, initial state is OK
-{cdeny_allow{x     - check 'allow' rules first, initial state is FORBIDDEN
-{cmutual_failure{x - OK only if 'allow' rules are fulfilled and 'deny'
-                 are not. Otherwise FORBIDDEN.
+<expr> is an arbitrary expression of boolean predicates. Each
+predicate has one string argument. Valid predicates and their meaning
+depend on current OLC editor and are listed in 'OLC CC_PREDICATES'.
+You can use !, && and || operators.
  
-See also for details on expressions:
-{CHELP 'OLC CC_RULES EXPRESSIONS'{x
+<mfun> is a name of `main' predicate for an expression.
+ 
 ~
 0 SPECIALIZE~
 @eng Syntax: {cspecialize{x <weapon type>
@@ -7219,7 +7218,7 @@ related to that weapon.
 Syntax:{cpray{x <prayer> <target>
  
 ~
-immortal 'OLC CC_RULES EXPRESSIONS'~
+immortal 'OLC CC_PREDICATES'~
 Condition checking expression is one of the following:
  
 cc_fun{c("{xargument{c"){x
@@ -7243,7 +7242,8 @@ Spec dependancies:
 {cspclass_limit{x - TRUE if character has no more then specified
                 number of specs of given class. Argument is
                 "number class" format, class is one of the following:
-                {crace{x, {cweapon{x, {cclass[x, {cclan{x.
+                {crace{x, {cweapon{x, {cclass{x, {cclan{x.
+{clevel_lt{x      - TRUE if character's level is less than specified number.
 ~
 immortal 'OLC CLASS GUILDS'~
 Syntax: {cguilds list{x

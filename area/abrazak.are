@@ -254,18 +254,12 @@ unknown~
 trash 0 0 AO
 0 0 0 0 0
 0 0 0 P
-A
-2 100
-A
-4 100
-A
-5 100
-A
-6 100
-A
-3 100
-A
-1 100
+a '' to_object 0 -1 100 2 0
+a '' to_object 0 -1 100 4 0
+a '' to_object 0 -1 100 5 0
+a '' to_object 0 -1 100 6 0
+a '' to_object 0 -1 100 3 0
+a '' to_object 0 -1 100 1 0
 g none~
 #15004
 beer barrel~
@@ -320,14 +314,10 @@ divinity~
 weapon 0 0 AN
 mace 2000 2000 'divine' BCDEGHI
 100 0 1000000 P
-A
-8 10000
-A
-34 75
-A
-19 10000
-A
-8 2000
+a '' to_object 100 -1 10000 8 0
+a '' to_object 100 -1 75 34 0
+a '' to_object 100 -1 10000 19 0
+a '' to_object 100 -1 2000 8 0
 g none~
 R
 deny race !race("lich")~
@@ -340,10 +330,8 @@ unknown~
 weapon Y BF AN
 dagger 10000 10000 'pierce' ABCDEGHI
 99 0 0 P
-A
-19 100000
-A
-18 100000
+a '' to_object 99 -1 100000 19 0
+a '' to_object 99 -1 100000 18 0
 g none~
 #15011
 horn~
@@ -398,50 +386,32 @@ unknown~
 clothing GIY C AE
 0 0 0 0 0
 95 0 0 P
-A
-27 100
-A
-28 100
-A
-29 100
-A
-30 100
-A
-31 100
-A
-32 100
-A
-33 100
-A
-34 100
-A
-35 100
-A
-36 100
-A
-37 100
-A
-38 100
-A
-39 100
-A
-40 100
-A
-41 100
-A
-42 100
-A
-43 100
-A
-20 -10
-F d 20 -10 L
-F d 20 -10 K
-F d 20 -10 M
-F d 20 -10 C
-F d 20 -10 B
-F d 20 -10 D
-F d 20 -10 A
-F d 20 -10 F
+a '' to_object 95 -1 100 27 0
+a '' to_object 95 -1 100 28 0
+a '' to_object 95 -1 100 29 0
+a '' to_object 95 -1 100 30 0
+a '' to_object 95 -1 100 31 0
+a '' to_object 95 -1 100 32 0
+a '' to_object 95 -1 100 33 0
+a '' to_object 95 -1 100 34 0
+a '' to_object 95 -1 100 35 0
+a '' to_object 95 -1 100 36 0
+a '' to_object 95 -1 100 37 0
+a '' to_object 95 -1 100 38 0
+a '' to_object 95 -1 100 39 0
+a '' to_object 95 -1 100 40 0
+a '' to_object 95 -1 100 41 0
+a '' to_object 95 -1 100 42 0
+a '' to_object 95 -1 100 43 0
+a '' to_object 95 -1 -10 20 0
+a '' to_detects 95 -1 -10 20 L
+a '' to_detects 95 -1 -10 20 K
+a '' to_detects 95 -1 -10 20 M
+a '' to_detects 95 -1 -10 20 C
+a '' to_detects 95 -1 -10 20 B
+a '' to_detects 95 -1 -10 20 D
+a '' to_detects 95 -1 -10 20 A
+a '' to_detects 95 -1 -10 20 F
 g none~
 #15017
 посох staff~
@@ -460,10 +430,8 @@ pearl~
 jewelry GI C AC
 0 0 0 0 0
 95 0 0 P
-A
-19 250
-A
-18 250
+a '' to_object 95 -1 250 19 0
+a '' to_object 95 -1 250 18 0
 g none~
 #15019
 mark~
@@ -500,7 +468,7 @@ unknown~
 weapon 0 0 AN
 exotic 0 0 'none' 0
 10 0 0 P
-S 'vampire' 100 A
+a '' to_skills 10 -1 100 'vampire' A
 g none~
 #15027
 elephant~
@@ -610,18 +578,12 @@ unknown~
 armor GIY BCF AB
 -20 -20 -20 -20 0
 0 0 0 P
-A
-6 3
-A
-5 3
-A
-3 3
-A
-4 3
-A
-2 3
-A
-1 3
+a '' to_object 0 -1 3 6 0
+a '' to_object 0 -1 3 5 0
+a '' to_object 0 -1 3 3 0
+a '' to_object 0 -1 3 4 0
+a '' to_object 0 -1 3 2 0
+a '' to_object 0 -1 3 1 0
 g none~
 #15043
 splinter~

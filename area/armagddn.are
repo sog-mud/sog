@@ -853,10 +853,8 @@ iron~
 armor 0 0 AD
 42 42 42 15 0
 91 350 3000 P
-A
-19 15
-A
-17 -25
+a '' to_object 91 -1 15 19 0
+a '' to_object 91 -1 -25 17 0
 g none~
 #14003
 sting locust~
@@ -866,8 +864,7 @@ stone~
 weapon EQ 0 AN
 dagger 6 20 'pierce' GH
 91 60 4500 G
-A
-18 10
+a '' to_object 91 -1 10 18 0
 g none~
 #14004
 chain binding~
@@ -877,16 +874,11 @@ silver~
 treasure GM 0 AD
 0 0 0 0 0
 50 20 8000 P
-A
-17 100
-A
-5 -10
-A
-2 -10
-A
-1 -10
-A
-14 -400
+a '' to_object 50 -1 100 17 0
+a '' to_object 50 -1 -10 5 0
+a '' to_object 50 -1 -10 2 0
+a '' to_object 50 -1 -10 1 0
+a '' to_object 50 -1 -400 14 0
 g none~
 #14005
 cup babylon~
@@ -910,12 +902,9 @@ gold~
 armor GIKL 0 AL
 28 28 28 0 0
 80 1 8000 P
-A
-24 -5
-A
-19 7
-A
-18 5
+a '' to_object 80 -1 -5 24 0
+a '' to_object 80 -1 7 19 0
+a '' to_object 80 -1 5 18 0
 g none~
 #14007
 sickle golden~
@@ -925,10 +914,8 @@ gold~
 weapon GIKL 0 AN
 exotic 10 10 'slice' E
 80 450 3500 P
-A
-19 5
-A
-18 5
+a '' to_object 80 -1 5 19 0
+a '' to_object 80 -1 5 18 0
 g none~
 #14008
 saints prayers~
@@ -956,14 +943,10 @@ adamantite~
 armor EJ 0 AE
 28 28 28 14 0
 85 35 10000 P
-A
-19 7
-A
-18 5
-A
-12 50
-A
-13 50
+a '' to_object 85 -1 7 19 0
+a '' to_object 85 -1 5 18 0
+a '' to_object 85 -1 50 12 0
+a '' to_object 85 -1 50 13 0
 g none~
 #14011
 bow white conquerer~
@@ -973,10 +956,8 @@ adamantite~
 weapon EJM 0 AN
 bow 10 10 'blast' AFH
 85 100 12000 P
-A
-19 5
-A
-18 10
+a '' to_object 85 -1 5 19 0
+a '' to_object 85 -1 10 18 0
 g none~
 #14012
 breastplate fire~
@@ -986,10 +967,8 @@ unknown~
 armor EJ D AD
 28 28 28 15 0
 85 20 14000 P
-A
-19 7
-A
-17 -10
+a '' to_object 85 -1 7 19 0
+a '' to_object 85 -1 -10 17 0
 g none~
 #14013
 sword war~
@@ -999,10 +978,8 @@ adamantite~
 weapon EJM 0 AN
 sword 11 12 'slash' DEFH
 85 200 14000 P
-A
-19 10
-A
-18 10
+a '' to_object 85 -1 10 19 0
+a '' to_object 85 -1 10 18 0
 g none~
 #14014
 breastplate jacinth~
@@ -1012,10 +989,8 @@ unknown~
 armor EJ D AD
 28 28 28 10 0
 85 10 14000 P
-A
-12 100
-A
-17 -25
+a '' to_object 85 -1 100 12 0
+a '' to_object 85 -1 -25 17 0
 g none~
 #14015
 breastplate brimstone~
@@ -1025,10 +1000,8 @@ unknown~
 armor EJ D AD
 28 28 28 10 0
 85 20 14000 P
-A
-24 -15
-A
-17 -25
+a '' to_object 85 -1 -15 24 0
+a '' to_object 85 -1 -25 17 0
 g none~
 #14016
 balances pair~
@@ -1063,10 +1036,8 @@ unknown~
 weapon CEFJMQ 0 AN
 polearm 11 10 'cleave' CDFH
 85 200 14000 P
-A
-19 10
-A
-18 10
+a '' to_object 85 -1 10 19 0
+a '' to_object 85 -1 10 18 0
 g none~
 #14019
 lance holy archangel Michael~
@@ -1076,10 +1047,8 @@ adamantite~
 weapon ABGIKM 0 AN
 lance 12 10 'pierce' A
 91 150 20000 P
-A
-19 10
-A
-18 10
+a '' to_object 91 -1 10 19 0
+a '' to_object 91 -1 10 18 0
 g none~
 #14020
 mark beast~
@@ -1089,12 +1058,9 @@ flesh~
 armor EJLM 0 AC
 23 23 23 23 0
 70 10 0 P
-A
-24 -5
-A
-19 5
-A
-18 3
+a '' to_object 70 -1 -5 24 0
+a '' to_object 70 -1 5 19 0
+a '' to_object 70 -1 3 18 0
 E
 mark~
 The mark bears the number of his name: 666.
@@ -1108,12 +1074,9 @@ unknown~
 armor GIK 0 AI
 30 30 30 17 0
 89 50 19000 P
-A
-2 3
-A
-14 100
-A
-17 -15
+a '' to_object 89 -1 3 2 0
+a '' to_object 89 -1 100 14 0
+a '' to_object 89 -1 -15 17 0
 g none~
 #14022
 crown stars twelve~
@@ -1123,10 +1086,8 @@ stone~
 armor AIK 0 AE
 30 30 30 20 0
 89 5 19000 P
-A
-4 4
-A
-3 3
+a '' to_object 89 -1 4 4 0
+a '' to_object 89 -1 3 3 0
 g none~
 #14023
 clothing sun~
@@ -1136,14 +1097,10 @@ unknown~
 armor AIK 0 AD
 30 30 30 10 0
 89 10 19000 P
-A
-13 50
-A
-1 5
-A
-2 5
-A
-5 5
+a '' to_object 89 -1 50 13 0
+a '' to_object 89 -1 5 1 0
+a '' to_object 89 -1 5 2 0
+a '' to_object 89 -1 5 5 0
 g none~
 #14024
 clothing sun~
@@ -1153,12 +1110,9 @@ unknown~
 armor AIK 0 AF
 30 30 30 10 0
 89 10 19000 P
-A
-24 -10
-A
-23 -10
-A
-2 5
+a '' to_object 89 -1 -10 24 0
+a '' to_object 89 -1 -10 23 0
+a '' to_object 89 -1 5 2 0
 g none~
 #14025
 moon~
@@ -1177,8 +1131,7 @@ unknown~
 armor AFKLQ 0 AB
 0 0 0 0 0
 91 15 25000 P
-A
-12 200
+a '' to_object 91 -1 200 12 0
 g none~
 #14027
 rod iron~
@@ -1206,8 +1159,7 @@ stone~
 armor IKL 0 AJ
 30 30 30 10 0
 91 10 15000 P
-A
-19 8
+a '' to_object 91 -1 8 19 0
 E
 stone white~
 The stone says:
@@ -1231,8 +1183,7 @@ unknown~
 armor IKL 0 AK
 23 23 23 23 0
 70 10 5000 P
-A
-17 -10
+a '' to_object 70 -1 -10 17 0
 g none~
 #14032
 seal~
@@ -1242,8 +1193,7 @@ unknown~
 armor IKL 0 AE
 23 23 23 23 0
 70 0 5000 P
-A
-18 -1
+a '' to_object 70 -1 -1 18 0
 g none~
 #14033
 star morning~
