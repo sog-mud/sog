@@ -408,7 +408,7 @@ a bright ball of light~
 A bright ball of light shimmers in the air.~
 energy~
 light A A
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 0 0 0 P
 #22
 spring~
@@ -602,7 +602,7 @@ lawful good tattoo of atum-ra~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 0 0 0 P
 #52
 tattoo zeus~
@@ -610,7 +610,7 @@ neutral good tattoo of zeus~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 0 0 0 P
 #53
 tattoo siebele~
@@ -618,7 +618,7 @@ true neutral tattoo of siebele~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 0 0 0 P
 #54
 tattoo shamash~
@@ -626,7 +626,7 @@ tattoo of shamash, god of justice~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 0 0 0 P
 #55
 tattoo ahura mazda~
@@ -634,7 +634,7 @@ chaotic good tattoo of ahuramazda~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 0 0 0 P
 #56
 tattoo ehrumen~
@@ -642,7 +642,7 @@ chaotic evil tattoo of ehrumen~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 0 0 0 P
 #57
 tattoo deimos~
@@ -650,7 +650,7 @@ lawful evil tattoo of deimos~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 0 0 0 P
 #58
 tattoo phobos~
@@ -658,7 +658,7 @@ neutral evil tattoo of phobos~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 0 0 0 P
 #59
 tattoo odin~
@@ -666,7 +666,7 @@ lawful neutral tattoo of odin~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 0 0 0 P
 #60
 tattoo teshub~
@@ -674,7 +674,7 @@ chaotic neutral tattoo of teshub~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 0 0 0 P
 #61
 tattoo ares~
@@ -682,7 +682,7 @@ tattoo of ares, God of War~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 0 0 0 P
 #62
 tattoo goktengri~
@@ -690,7 +690,7 @@ tattoo of goktengri, God of Honor~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 0 0 0 P
 #63
 tattoo hera~
@@ -698,7 +698,7 @@ tattoo of hera, god of hate~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 0 0 0 P
 #64
 tattoo venus~
@@ -706,7 +706,7 @@ tattoo of venus, god of beauty~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 0 0 0 P
 #65
 tattoo set~
@@ -714,7 +714,7 @@ tattoo of set, god of anger~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 0 0 0 P
 #66
 tattoo enki~
@@ -722,7 +722,7 @@ tattoo of enki, god of knowledge~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 0 0 0 P
 #67
 tattoo eros~
@@ -730,7 +730,7 @@ tattoo of eros, god of love~
 A tattoo flying in the air.~
 energy~
 tattoo ATUY AR
-0 0 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdef 0 0
+0 0 -1 0 0
 0 0 0 P
 #70
 badge~

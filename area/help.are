@@ -53,37 +53,37 @@ a person).
 0 PROMPT~
 Syntax: prompt
 Syntax: prompt all
-Syntax: prompt <%%*>
+Syntax: prompt <%*>
  
 PROMPT with out an argument will turn your prompt on or off.
  
-PROMPT ALL will give you the standard "<hits mana moves>" prompt.
+PROMPT ALL will give you the standard prompt.
  
-PROMPT <%%*> where the %%* are the various variables you may set yourself.
+PROMPT <%*> where the %* are the various variables you may set yourself.
  
-        %%h :  Display your current hits
-        %%H :  Display your maximum hits
-        %%m :  Display your current mana
-        %%M :  Display your maximum mana
-        %%v :  Display your current moves
-        %%V :  Display your maximum moves
-        %%x :  Display your current experience
-	%%X :  Display experience to level
-        %%g :  Display your gold held
-	%%s :  Display silver carried
-        %%a :  Display your alignment
-	%%y :  Display your percent hit
-        %%o :  Display opponents percent hit
-        %%r :  Display the room name you are in
-	%%e :  Display the exits from the room in NESWDU style
-	%%c :  Display a carriage return (useful for multi-line prompts)
-        %%R :  Display the vnum you are in (IMMORTAL ONLY)
-        %%z :  Display the area name you are in (IMMORTAL ONLY)
-	%%n :  Display your name
-	%%S :  Display your sex
-	%%t :  Display current MUD time
+        %h :  Display your current hits
+        %H :  Display your maximum hits
+        %m :  Display your current mana
+        %M :  Display your maximum mana
+        %v :  Display your current moves
+        %V :  Display your maximum moves
+        %x :  Display your current experience
+	%X :  Display experience to level
+        %g :  Display your gold held
+	%s :  Display silver carried
+        %a :  Display your alignment
+	%y :  Display your percent hit
+        %o :  Display opponents percent hit
+        %r :  Display the room name you are in
+	%e :  Display the exits from the room in NESWDU style
+	%c :  Display a carriage return (useful for multi-line prompts)
+        %R :  Display the vnum you are in (IMMORTAL ONLY)
+        %z :  Display the area name you are in (IMMORTAL ONLY)
+	%n :  Display your name
+	%S :  Display your sex
+	%t :  Display current MUD time
 
-Example:  PROMPT <%%hhp %%mm %%vmv>
+Example:  PROMPT <%hhp %mm %vmv>
         Will set your prompt to "<10hp 100m 100mv>"
  
 ~
@@ -421,13 +421,12 @@ note remove	: removes a note that you wrote or are the target of
 note catchup	: markes all notes as read
 
 writing new notes:
-note to		: sets the to line (playername, clanname, immortal, or all)
-note subject	: sets the subject for a new note
-note +		: adds a line to a new note (i.e. note + hi guys!)
-note -		: remove a line from a note in progress
+note to		: set the to line (playername, clanname, immortal, or all)
+note subject	: set the subject for a new note
+note edit	: edit note
 note clear	: erase a note in progress
-note show	: shows the note you are working on
-note post	: posts a new note. This MUST be done to post a note.
+note show	: show the note you are working on
+note post	: post a new note. This MUST be done to post a note.
 
 When you log in, you will be informed if there are unread notes waiting. Type
 note read to scroll through them one at a time.

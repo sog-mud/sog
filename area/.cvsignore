@@ -1,9 +1,6 @@
-resource.h
-area_stat.txt
-notes.not
-bugs.txt
-chang.not
+*.txt
+*.not
+*.h
 muddy
-objlist.txt
-ideas.not
-typos.txt
+*.lang
+lang.lst

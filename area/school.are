@@ -2222,7 +2222,7 @@ O 3722 fight_prog fight_prog_sub_weapon		* polearm
 
 S
 #PRACTICERS
-M 3719 weaponsmaster	*priest of circe
+M 3719 weaponsmaster *priest of circe
 M 3719 combat
 M 3719 protective
 M 3719 defensive
