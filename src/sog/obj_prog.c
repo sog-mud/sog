@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.11 2001-09-14 18:11:05 fjoe Exp $
+ * $Id: obj_prog.c,v 1.66.2.12 2001-11-28 23:20:13 tatyana Exp $
  */
 
 /***************************************************************************
@@ -153,6 +153,8 @@ DECLARE_OPROG(get_prog_quest_reward);
 
 DECLARE_OPROG(fight_prog_swordbreaker);
 
+DECLARE_OPROG(fight_prog_wasp_hive);
+
 char* optype_table[] = {
 	"wear_prog",
 	"remove_prog",
@@ -253,6 +255,7 @@ OPROG_DATA oprog_table[] = {
 	{ "remove_prog_fire_shield", remove_prog_fire_shield },
 	{ "wear_prog_quest_weapon", wear_prog_quest_weapon },
 	{ "get_prog_quest_reward", get_prog_quest_reward },
+	{ "fight_prog_wasp_hive", fight_prog_wasp_hive },
 	{ NULL }
 };
 
@@ -1788,3 +1791,33 @@ int fight_prog_swordbreaker(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
         return 0;
 }
 
+int fight_prog_wasp_hive(OBJ_DATA *hive, CHAR_DATA *ch, const void *arg)
+{
+	CHAR_DATA *victim;
+	int dam;
+
+	if (get_eq_char(ch, WEAR_HOLD) != hive)
+		return 1;
+
+	if (number_percent() > 25)
+		return 1;
+
+	victim = ch->fighting;
+
+	act("   You take $p carefully and shake it!",
+	    ch, hive, victim, TO_CHAR);
+	act("   $n take $p carefully and shake it!",
+	    ch, hive, victim, TO_ROOM);
+
+	act("   The swarm of fury wasps pounce on $N!",
+	    ch, NULL, victim, TO_CHAR);
+	act("   The swarm of fury wasps pounce on you!",
+	    ch, NULL, victim, TO_VICT);
+	act("   The swarm of fury wasps pounce on $N!",
+	    ch, NULL, victim, TO_NOTVICT);
+
+	dam = dice(LEVEL(ch), 15);
+	damage(ch, victim, dam, NULL, DAM_ACID, DAMF_NONE);
+	spellfun_call("poison", LEVEL(ch) - number_bits(2), ch, victim);
+	return 0;
+}
