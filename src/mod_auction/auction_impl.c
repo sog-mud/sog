@@ -1,5 +1,5 @@
 /*
- * $Id: auction_impl.c,v 1.5 1998-07-09 12:01:35 fjoe Exp $
+ * $Id: auction_impl.c,v 1.6 1998-07-11 11:34:41 efdi Exp $
  */
 
 #include <stdio.h>
@@ -37,7 +37,7 @@ void talk_auction(const char *fmt, ...)
 		original = d->original ? d->original : d->character;
 		if (d->connected == CON_PLAYING
 		&&  !IS_SET(original->comm, COMM_NOAUCTION))
-	        	act_printf(original, NULL, NULL, TO_CHAR, POS_RESTING,
+	        	act_printf(original, NULL, NULL, TO_CHAR, POS_DEAD,
 				   "{YAUCTION{x: %s", buf);
 	}
 }
