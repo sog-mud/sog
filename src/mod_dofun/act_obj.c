@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.96 1998-11-23 06:38:01 fjoe Exp $
+ * $Id: act_obj.c,v 1.97 1998-11-26 13:19:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2004,7 +2004,13 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 			act("You fail to invoke $p.", ch, staff, NULL, TO_CHAR);
 			act("...and nothing happens.", ch, NULL, NULL, TO_ROOM);
 			check_improve(ch, sn, FALSE, 2);
-		} else
+		}
+		else {
+			SKILL_DATA *spell = skill_lookup(staff->value[3]);
+
+			if (!spell)
+				return;
+
 			for (vch = ch->in_room->people; vch; vch = vch_next) {
 				vch_next = vch->next_in_room;
 
@@ -2038,9 +2044,13 @@ void do_brandish(CHAR_DATA * ch, const char *argument)
 
 				obj_cast_spell(staff->value[3],
 					       staff->value[0], ch, vch, NULL);
-				check_improve(ch, sn, TRUE, 2);
+				if (IS_SET(spell->flags, SKILL_AREA_ATTACK))
+					break;
 			}
+			check_improve(ch, sn, TRUE, 2);
+		}
 	}
+
 	if (--staff->value[2] <= 0) {
 		act("$n's $p blazes bright and is gone.", ch, staff, NULL, TO_ROOM);
 		act("Your $p blazes bright and is gone.", ch, staff, NULL, TO_CHAR);

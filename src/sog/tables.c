@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.27 1998-11-25 15:17:46 fjoe Exp $
+ * $Id: tables.c,v 1.28 1998-11-26 13:19:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -895,7 +895,7 @@ FLAG skill_flags[] =
 {
 	{ "clan",		SKILL_CLAN,		TRUE	},
 	{ "range",		SKILL_RANGE,		TRUE	},
-	{ "area",		SKILL_AREA,		TRUE	},
+	{ "area_attack",	SKILL_AREA_ATTACK,	TRUE	},
 	{ NULL }
 };
 
