@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.68 1999-12-06 11:10:20 fjoe Exp $
+ * $Id: olc_obj.c,v 1.69 1999-12-07 08:50:04 avn Exp $
  */
 
 #include <sys/types.h>
@@ -1383,6 +1383,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 		break;
 
 	case ITEM_DRINK_CON:
+	case ITEM_FOUNTAIN:
 		switch (value_num) {
 		default:
 			return 1;
@@ -1411,30 +1412,6 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 		}
 		break;
 
-	case ITEM_FOUNTAIN:
-		switch (value_num) {
-		default:
-			return 1;
-		case 0:
-			buf_add(output, "MAXIMUM AMOUT OF LIQUID HOURS SET.\n\n");
-			INT(pObj->value[0]) = atoi(argument);
-			break;
-		case 1:
-			buf_add(output, "CURRENT AMOUNT OF LIQUID HOURS SET.\n\n");
-			INT(pObj->value[1]) = atoi(argument);
-			break;
-		case 2: 
-			if (!str_cmp(argument, "?")
-			||  (liq = liquid_search(argument)) == NULL) {
-				strkey_printall(&liquids, output);
-				return 2;
-			}
-			buf_add(output, "LIQUID TYPE SET.\n\n");
-			STR_ASSIGN(pObj->value[2], str_qdup(liq->name));
-			break;
-		}
-		break;
-			    	
 	case ITEM_FOOD:
 		switch (value_num) {
 		default:
