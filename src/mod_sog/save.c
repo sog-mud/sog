@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.206 2003-09-30 00:31:29 fjoe Exp $
+ * $Id: save.c,v 1.207 2004-02-18 21:42:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -419,8 +419,6 @@ fwrite_pet(CHAR_DATA *pet, FILE *fp, int flags)
 	fprintf(fp, "Pos %d\n", pet->position = POS_FIGHTING ? POS_STANDING : pet->position);
 	if (pet->alignment != pet->pMobIndex->alignment)
 		fprintf(fp, "Alig %d\n", pet->alignment);
-	if (pet->damroll != pet->pMobIndex->damage[DICE_BONUS])
-		fprintf(fp, "Damr %d\n", pet->damroll);
 	if (NPC(pet)->dam.dice_number != pet->pMobIndex->damage[DICE_NUMBER] ||
 	    NPC(pet)->dam.dice_type != pet->pMobIndex->damage[DICE_TYPE])
 		fprintf(fp, "Damd %d %d\n",
@@ -430,11 +428,20 @@ fwrite_pet(CHAR_DATA *pet, FILE *fp, int flags)
 		pet->perm_stat[STAT_STR], pet->perm_stat[STAT_INT],
 		pet->perm_stat[STAT_WIS], pet->perm_stat[STAT_DEX],
 		pet->perm_stat[STAT_CON], pet->perm_stat[STAT_CHA]);
-	fprintf(fp, "AC %d %d %d %d\n",
-		pet->armor[0], pet->armor[1], pet->armor[2], pet->armor[3]);
 
 	aff_fwrite_list("Affc", NULL, pet->affected, fp, 0);
 	fwrite_vars(&pet->vars, fp);
+
+	/*
+	 * Stats that can be changed by affects should be written
+	 * AFTER affects so they will be read after them
+	 * and will not increase after each load.
+	 */
+	if (pet->damroll != pet->pMobIndex->damage[DICE_BONUS])
+		fprintf(fp, "Damr %d\n", pet->damroll);
+	fprintf(fp, "AC %d %d %d %d\n",
+		pet->armor[0], pet->armor[1], pet->armor[2], pet->armor[3]);
+
 	fprintf(fp, "End\n\n");
 }
 
