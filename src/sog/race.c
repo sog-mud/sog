@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.36 2002-01-11 20:13:22 tatyana Exp $
+ * $Id: race.c,v 1.37 2003-06-18 07:58:58 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -47,7 +47,7 @@ race_init(race_t *r)
 	r->parts = 0;
 	r->race_flags = 0;
 	r->luck_bonus = 0;
-	r->damtype = str_dup("punch");
+	r->damtype = str_dup("+punch");
 	for (i = 0; i < MAX_RESIST; i++)
 		r->resists[i] = RES_UNDEF;
 	r->race_pcdata = NULL;
