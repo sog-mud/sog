@@ -76,6 +76,9 @@ char *strings_engl[] =  {
 
 /* INFO_YOU_ARE */		"You are",
 /* INFO_YOU_ARE_CARRYING */	"You are carrying:\n\r",
+/* INFO_YOU_ARE_USING */	"You are using:\n\r",
+/* INFO_IS_USING */		"$N is using:",
+/* INFO_YOU_PEEK_AT_THE_INVENTORY */	"\n\rYou peek at the inventory:\n\r",
 
 /* COMM_SWITCH_TO_RUSSIAN */	"Now messages will be shown in russian.",
 /* COMM_SWITCH_TO_ENGLSH */	"Now messages will be shown in english.",

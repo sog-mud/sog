@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.7 1998-04-17 11:27:03 efdi Exp $
+ * $Id: act_info.c,v 1.8 1998-04-18 05:51:49 efdi Exp $
  */
 
 /***************************************************************************
@@ -631,7 +631,7 @@ void show_char_to_char_1( CHAR_DATA *victim, CHAR_DATA *ch )
 	    if ( !found )
 	    {
 		send_to_char( "\n\r", ch );
-		act( "$N is using:", ch, NULL, victim, TO_CHAR );
+		act(msg(INFO_IS_USING, ch->i_lang), ch, NULL, victim, TO_CHAR );
 		found = TRUE;
 	    }
 	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, "%s%s", 
@@ -648,7 +648,7 @@ void show_char_to_char_1( CHAR_DATA *victim, CHAR_DATA *ch )
 	    if ( !found )
 	    {
 		send_to_char( "\n\r", ch );
-		act( "$N is using:", ch, NULL, victim, TO_CHAR );
+		act(msg(INFO_IS_USING, ch->i_lang), ch, NULL, victim, TO_CHAR );
 		found = TRUE;
 	    }
 	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, "%s%s", 
@@ -666,7 +666,7 @@ void show_char_to_char_1( CHAR_DATA *victim, CHAR_DATA *ch )
 	    if ( !found )
 	    {
 		send_to_char( "\n\r", ch );
-		act( "$N is using:", ch, NULL, victim, TO_CHAR );
+		act(msg(INFO_IS_USING, ch->i_lang), ch, NULL, victim, TO_CHAR );
 		found = TRUE;
 	    }
 	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, "%s%s", 
@@ -685,7 +685,7 @@ void show_char_to_char_1( CHAR_DATA *victim, CHAR_DATA *ch )
 	    if ( !found )
 	    {
 		send_to_char( "\n\r", ch );
-		act( "$N is using:", ch, NULL, victim, TO_CHAR );
+		act(msg(INFO_IS_USING, ch->i_lang), ch, NULL, victim, TO_CHAR );
 		found = TRUE;
 	    }
 	    act_printf(ch, NULL, NULL, TO_CHAR, POS_RESTING, "%s%s", 
@@ -698,7 +698,7 @@ void show_char_to_char_1( CHAR_DATA *victim, CHAR_DATA *ch )
 	&&   !IS_NPC(ch)
 	&&   number_percent( ) < get_skill(ch,gsn_peek))
 	{
-	send_to_char( "\n\rYou peek at the inventory:\n\r", ch );
+	send_to_char( msg(INFO_YOU_PEEK_AT_THE_INVENTORY, ch->i_lang), ch );
 	check_improve(ch,gsn_peek,TRUE,4);
 	show_list_to_char( is_affected(victim,gsn_mirror) ?
 	                       vict->carrying : victim->carrying,
@@ -1985,7 +1985,7 @@ void do_equipment( CHAR_DATA *ch, char *argument )
 	bool found;
 	char buf[MAX_STRING_LENGTH];
 
-	send_to_char( "You are using:\n\r", ch );
+	send_to_char( msg(INFO_YOU_ARE_USING, ch->i_lang), ch );
 	found = FALSE;
 	for ( iWear = 0; iWear < WEAR_HOLD; iWear++ )
 	{
@@ -3485,8 +3485,9 @@ void do_oscore( CHAR_DATA *ch, char *argument )
 	int i;
 
 	sprintf(buf,
-		"You are {W%s{x %s, level {W%d{x, {g%d{x years old "
+		"%s {W%s{x %s, level {W%d{x, {g%d{x years old "
 		"(%d hours).\n\r",
+		msg(INFO_YOU_ARE, ch->i_lang),
 		ch->name,
 		IS_NPC(ch) ? "" : ch->pcdata->title, ch->level, get_age(ch),
 		(ch->played + (int) (current_time - ch->logon)) / 3600);
@@ -3615,7 +3616,8 @@ void do_oscore( CHAR_DATA *ch, char *argument )
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DESIRE] <= 0)
 		send_to_char("You are {rdesiring your home{x.\n\r", ch);
 	
-	sprintf(buf, "You are %s.\n\r", 
+	sprintf(buf, "%s %s.\n\r",
+		msg(INFO_YOU_ARE, ch->i_lang), 
 		msg(pos_name[ch->sex == SEX_FEMALE ? ch->position+9 : ch->position], ch->i_lang));
 	send_to_char(buf, ch);
 	

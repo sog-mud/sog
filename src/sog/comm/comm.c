@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.6 1998-04-17 11:27:04 efdi Exp $
+ * $Id: comm.c,v 1.7 1998-04-18 05:51:50 efdi Exp $
  */
 
 /***************************************************************************
@@ -3228,7 +3228,8 @@ static char C_B_BLUE[]		= "[1;34m";
 static char C_B_MAGENTA[]	= "[1;35m";
 static char C_B_CYAN[]		= "[1;36m";
 static char C_B_WHITE[]		= "[1;37m";
-static char R_BLACK[]		= "[0m[0;30m";	/* Reset Colors      */
+/*
+static char R_BLACK[]		= "[0m[0;30m";	
 static char R_RED[]		= "[0m[0;31m";
 static char R_GREEN[]		= "[0m[0;32m";
 static char R_YELLOW[]		= "[0m[0;33m";
@@ -3236,7 +3237,7 @@ static char R_BLUE[]		= "[0m[0;34m";
 static char R_MAGENTA[]		= "[0m[0;35m";
 static char R_CYAN[]		= "[0m[0;36m";
 static char R_WHITE[]		= "[0m[0;37m";
-static char R_D_GREY[]		= "[0m[1;30m";	/* Reset Light        */
+static char R_D_GREY[]		= "[0m[1;30m";	
 static char R_B_RED[]		= "[0m[1;31m";
 static char R_B_GREEN[]		= "[0m[1;32m";
 static char R_B_YELLOW[]	= "[0m[1;33m";
@@ -3244,6 +3245,7 @@ static char R_B_BLUE[]		= "[0m[1;34m";
 static char R_B_MAGENTA[]	= "[0m[1;35m";
 static char R_B_CYAN[]		= "[0m[1;36m";
 static char R_B_WHITE[]		= "[0m[1;37m";
+*/
 
 char* color(char type, CHAR_DATA *ch)
 {

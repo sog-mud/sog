@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.8 1998-04-18 04:05:26 efdi Exp $
+ * $Id: resource.h,v 1.9 1998-04-18 05:51:50 efdi Exp $
  */
 
 char* msg(int resnum, int lang);
@@ -86,6 +86,9 @@ enum {
 
 	INFO_YOU_ARE,
 	INFO_YOU_ARE_CARRYING,
+	INFO_YOU_ARE_USING,
+	INFO_IS_USING,
+	INFO_YOU_PEEK_AT_THE_INVENTORY,
 	
 	COMM_SWITCH_TO_RUSSIAN,
 	COMM_SWITCH_TO_ENGLISH,

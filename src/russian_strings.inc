@@ -76,6 +76,9 @@ char *strings_rus[] = {
 
 /* INFO_YOU_ARE */		"Ты",
 /* INFO_YOU_ARE_CARRYING */	"Ты несёшь:\n\r",
+/* INFO_YOU_ARE_USING */	"Ты используешь:\n\r",
+/* INFO_IS_USING */		"$N использует:",
+/* INFO_YOU_PEEK_AT_THE_INVENTORY */"\n\rТы всматриваешься в снаряжение:\n\r",
 
 /* SWITCH_TO_RUSSIAN */		"Русский язык включен.",
 /* SWITCH_TO_ENGLSH */		"Английский язык включен.",
