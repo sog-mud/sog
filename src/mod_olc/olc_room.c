@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.74 2000-01-04 11:53:40 avn Exp $
+ * $Id: olc_room.c,v 1.75 2000-02-02 09:58:41 kostik Exp $
  */
 
 #include "olc.h"
@@ -485,8 +485,8 @@ const struct wear_type wear_table[] =
 	{ WEAR_LIGHT,		ITEM_LIGHT		},
 	{ WEAR_FINGER_L,	ITEM_WEAR_FINGER	},
 	{ WEAR_FINGER_R,	ITEM_WEAR_FINGER	},
-	{ WEAR_NECK_1,		ITEM_WEAR_NECK		},
-	{ WEAR_NECK_2,		ITEM_WEAR_NECK		},
+	{ WEAR_NECK,		ITEM_WEAR_NECK		},
+	{ WEAR_FACE,		ITEM_WEAR_FACE		},
 	{ WEAR_BODY,		ITEM_WEAR_BODY		},
 	{ WEAR_HEAD,		ITEM_WEAR_HEAD		},
 	{ WEAR_LEGS,		ITEM_WEAR_LEGS		},

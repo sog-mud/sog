@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.130 2000-01-31 08:23:46 kostik Exp $
+ * $Id: tables.c,v 1.131 2000-02-02 09:58:48 kostik Exp $
  */
 
 /***************************************************************************
@@ -599,6 +599,7 @@ flaginfo_t wear_flags[] =
 	{ "float_around",	ITEM_WEAR_FLOAT,	TRUE	},
 	{ "tattoo",		ITEM_WEAR_TATTOO,	TRUE	},
 	{ "clanmark",		ITEM_WEAR_CLANMARK,	TRUE	},
+	{ "face",		ITEM_WEAR_FACE,		TRUE	},
 
 	{ NULL }
 };
@@ -729,8 +730,8 @@ flaginfo_t wear_loc_strings[] =
 	{ "as a light",			WEAR_LIGHT,		TRUE	},
 	{ "on the left finger",		WEAR_FINGER_L,		TRUE	},
 	{ "on the right finger",	WEAR_FINGER_R,		TRUE	},
-	{ "around the neck (1)",	WEAR_NECK_1,		TRUE	},
-	{ "around the neck (2)",	WEAR_NECK_2,		TRUE	},
+	{ "around the neck",		WEAR_NECK,		TRUE	},
+	{ "on the face",		WEAR_FACE,		TRUE	},
 	{ "on the body",		WEAR_BODY,		TRUE	},
 	{ "over the head",		WEAR_HEAD,		TRUE	},
 	{ "on the legs",		WEAR_LEGS,		TRUE	},
@@ -762,8 +763,8 @@ flaginfo_t wear_loc_flags[] =
 	{ "light",		WEAR_LIGHT,		TRUE	},
 	{ "lfinger",		WEAR_FINGER_L,		TRUE	},
 	{ "rfinger",		WEAR_FINGER_R,		TRUE	},
-	{ "neck1",		WEAR_NECK_1,		TRUE	},
-	{ "neck2",		WEAR_NECK_2,		TRUE	},
+	{ "neck",		WEAR_NECK,		TRUE	},
+	{ "face",		WEAR_FACE,		TRUE	},
 	{ "body",		WEAR_BODY,		TRUE	},
 	{ "head",		WEAR_HEAD,		TRUE	},
 	{ "legs",		WEAR_LEGS,		TRUE	},

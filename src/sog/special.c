@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.65 2000-01-31 08:23:46 kostik Exp $
+ * $Id: special.c,v 1.66 2000-02-02 09:58:47 kostik Exp $
  */
 
 /***************************************************************************
@@ -298,10 +298,8 @@ bool spec_patrolman(CHAR_DATA *ch)
 	     victim->pMobIndex->spec_fun == ch->pMobIndex->spec_fun))
 		return FALSE;
 
-	if (((obj = get_eq_char(ch,WEAR_NECK_1)) != NULL &&
-	     obj->pObjIndex->vnum == OBJ_VNUM_WHISTLE)
-	||  ((obj = get_eq_char(ch,WEAR_NECK_2)) != NULL &&
-	     obj->pObjIndex->vnum == OBJ_VNUM_WHISTLE)) {
+	if ((obj = get_eq_char(ch,WEAR_NECK)) != NULL &&
+	     obj->pObjIndex->vnum == OBJ_VNUM_WHISTLE) {
 		act("You blow down hard on $p.", ch, obj, NULL, TO_CHAR);
 		act("$n blows on $p, ***WHEEEEEEEEEEEET***",
 		    ch, obj, NULL, TO_ROOM);

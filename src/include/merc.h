@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.288 2000-01-18 13:25:42 kostik Exp $
+ * $Id: merc.h,v 1.289 2000-02-02 09:58:33 kostik Exp $
  */
 
 /***************************************************************************
@@ -731,6 +731,7 @@ struct spec_type
 #define ITEM_WEAR_FLOAT 	(Q)
 #define ITEM_WEAR_TATTOO	(R)
 #define ITEM_WEAR_CLANMARK	(S)
+#define ITEM_WEAR_FACE		(T)
 
 /* obj_data->condition */
 #define COND_EXCELLENT		100
@@ -946,8 +947,8 @@ enum {
 #define WEAR_LIGHT		      0
 #define WEAR_FINGER_L		      1
 #define WEAR_FINGER_R		      2
-#define WEAR_NECK_1		      3
-#define WEAR_NECK_2		      4
+#define WEAR_NECK		      3
+#define WEAR_FACE		      4
 #define WEAR_BODY		      5
 #define WEAR_HEAD		      6
 #define WEAR_LEGS		      7

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.174 2000-02-01 09:23:13 fjoe Exp $
+ * $Id: spellfun2.c,v 1.175 2000-02-02 09:58:54 kostik Exp $
  */
 
 /***************************************************************************
@@ -1540,8 +1540,7 @@ void spell_ruler_badge(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	OBJ_DATA *obj_next;
 	AFFECT_DATA af;
 
-	if ((get_eq_char(ch, WEAR_NECK_1)  != NULL) &&
-	(get_eq_char(ch, WEAR_NECK_2)  != NULL))
+	if (get_eq_char(ch, WEAR_NECK) != NULL) 
 	{
 	char_puts("But you are wearing something else.\n", ch);
 	return;
@@ -1595,16 +1594,7 @@ void spell_ruler_badge(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	act("$n wears the $s ruler badge!", ch, NULL, NULL, TO_ROOM);
 
 	obj_to_char(badge,victim);
-	if (get_eq_char(ch, WEAR_NECK_1)  == NULL)
-	equip_char(ch, badge, WEAR_NECK_1);
-	else if (get_eq_char(ch, WEAR_NECK_2)  == NULL)
-	equip_char(ch, badge, WEAR_NECK_2);
-	else
-	{
-	char_puts("But you are wearing something else.\n", ch);
-	return;
-	}
-
+	equip_char(ch, badge, WEAR_NECK);
 }    
 
 void spell_remove_badge(const char *sn, int level, CHAR_DATA *ch, void *vo)

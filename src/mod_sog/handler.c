@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.234 2000-01-19 06:51:47 fjoe Exp $
+ * $Id: handler.c,v 1.235 2000-02-02 09:58:46 kostik Exp $
  */
 
 /***************************************************************************
@@ -333,10 +333,10 @@ int apply_ac(OBJ_DATA *obj, int iWear, int type)
 	case WEAR_HANDS:	return	INT(obj->value[type]);
 	case WEAR_ARMS:		return	INT(obj->value[type]);
 	case WEAR_SHIELD:	return	INT(obj->value[type]);
-	case WEAR_FINGER_L:	return	0;
-	case WEAR_FINGER_R:	return	INT(obj->value[type]);
-	case WEAR_NECK_1:	return	INT(obj->value[type]);
-	case WEAR_NECK_2:	return	INT(obj->value[type]);
+	case WEAR_FINGER_L:	return	INT(obj->value[type]) / 2;
+	case WEAR_FINGER_R:	return	INT(obj->value[type]) / 2;
+	case WEAR_NECK:		return	INT(obj->value[type]);
+	case WEAR_FACE:		return	INT(obj->value[type]);
 	case WEAR_ABOUT:	return 2 * INT(obj->value[type]);
 	case WEAR_WAIST:	return	INT(obj->value[type]);
 	case WEAR_WRIST_L:	return	INT(obj->value[type]);
@@ -3791,32 +3791,29 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 	}
 
 	if (CAN_WEAR(obj, ITEM_WEAR_NECK)) {
-		if (get_eq_char(ch, WEAR_NECK_1) != NULL
-		&&  get_eq_char(ch, WEAR_NECK_2) != NULL
-		&&  !remove_obj(ch, WEAR_NECK_1, fReplace)
-		&&  !remove_obj(ch, WEAR_NECK_2, fReplace))
+		if (get_eq_char(ch, WEAR_NECK) != NULL
+		&&  !remove_obj(ch, WEAR_NECK, fReplace))
 			return;
 
-		if (get_eq_char(ch, WEAR_NECK_1) == NULL) {
+		if (get_eq_char(ch, WEAR_NECK) == NULL) {
 			act("$n wears $p around $s neck.",
 			    ch, obj, NULL, TO_ROOM);
 			act_puts("You wear $p around your neck.",
 				 ch, obj, NULL, TO_CHAR, POS_DEAD);
-			equip_char(ch, obj, WEAR_NECK_1);
+			equip_char(ch, obj, WEAR_NECK);
 			return;
 		}
 
-		if (get_eq_char(ch, WEAR_NECK_2) == NULL) {
-			act("$n wears $p around $s neck.",
-			    ch, obj, NULL, TO_ROOM);
-			act_puts("You wear $p around your neck.",
-				 ch, obj, NULL, TO_CHAR, POS_DEAD);
-			equip_char(ch, obj, WEAR_NECK_2);
-			return;
-		}
+	}
 
-		bug("wear_obj: no free neck");
-		char_puts("You already wear two neck items.\n", ch);
+	if (CAN_WEAR(obj, ITEM_WEAR_FACE)) {
+		if (!remove_obj(ch, WEAR_FACE, fReplace))
+			return;
+
+		act("$n wears $p on $s face.", ch, obj, NULL, TO_ROOM);
+		act_puts("You wear $p on your face.",
+			 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		equip_char(ch, obj, WEAR_FACE);
 		return;
 	}
 
