@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.264 2002-01-08 20:21:35 tatyana Exp $
+ * $Id: act_comm.c,v 1.265 2002-01-10 14:02:47 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1021,15 +1021,28 @@ DO_FUN(do_group, ch, argument)
 
 		for (gch = char_list; gch; gch = gch->next) {
 			if (is_same_group(gch, ch)) {
-				buf_printf(buf, BUF_END,
-				    "[%2d %s] %-16s %d/%d hp %d/%d mana %d/%d mv %d tnl\n",
-				    gch->level,
-				    class_who_name(gch),
-				    PERS(gch, ch, GET_LANG(ch), ACT_FORMSH),
-				    gch->hit,   gch->max_hit,
-				    gch->mana,  gch->max_mana,
-				    gch->move,  gch->max_move,
-				    exp_to_level(gch));
+				if (IS_NPC(gch)) {
+					buf_printf(buf, BUF_END,
+					    "[%2d %s] %-16s %d/%d hp "
+					    "%d/%d mana %d/%d mv\n",
+					    gch->level,
+					    class_who_name(gch),
+					    PERS(gch, ch, GET_LANG(ch), ACT_FORMSH),
+					    gch->hit,   gch->max_hit,
+					    gch->mana,  gch->max_mana,
+					    gch->move,  gch->max_move);
+				} else {
+					buf_printf(buf, BUF_END,
+					    "[%2d %s] %-16s %d/%d hp "
+					    "%d/%d mana %d/%d mv %d tnl\n",
+					    gch->level,
+					    class_who_name(gch),
+					    PERS(gch, ch, GET_LANG(ch), ACT_FORMSH),
+					    gch->hit,   gch->max_hit,
+					    gch->mana,  gch->max_mana,
+					    gch->move,  gch->max_move,
+					    exp_to_level(gch));
+				}
 			}
 		}
 
