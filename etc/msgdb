@@ -728,6 +728,7 @@ $n loses his position and falls down!~
 @eng $n rests on $p.@rus $n $gn{садится} отдыхать на $c3{$p}.~
 @eng $n rests.@rus $n $gn{садится} отдыхать.~
 @eng $n resumes to identify by looking at $p.@rus Внимательно оглядев $c3{$p}, $n $gn{произнес}.~
+@eng $n rises off the ground.@rus $n $gn{приподнялся} над землей.~
 @eng $n sacrifices $p to gods.@rus $n $gn{приносит} $c3{$p} в жертву богам.~
 @eng $n savagely devours a corpse.@rus $n жадно $gn{пожирает} труп.~
 @eng $n says '{G$t{x'@rus $n $gn{произносит}: "{G$t{x"~
@@ -959,7 +960,6 @@ $n takes advantage of your fall, stabbing you down."~
 @eng $n's dagger slides off your $p.@rus Кинжал $c1{$n} скользнул по $gp{твоему} $c2{$p}.~
 @eng $n's efforts with $p produce only smoke and sparks.@rus $n $gn{попытался} использовать $c1{$p}, но $gn{добился} лишь того, что во все стороны полетели искры, и повалил дым.~
 @eng $n's eyes glow red.@rus Глаза $c1{$n} горят красным светом.~
-@eng $n's feet rise off the ground.@rus Ноги $c1{$n} оторвались от земли.~
 @eng $n's flesh is burned with the holy aura of $p.@rus Аура святости, окружающая $c3{$p}, обжигает кожу $c1{$n}!~
 @eng $n's flesh starts to decay.@rus Кожа $c1{$n} покрылась болезненными пятнами и начала разлагаться.~
 @eng $n's follow through kick strikes $N.@rus Вслед за первым $n $gn{наносит} еще один удар ногой по $c2{$N}.~
@@ -1265,6 +1265,7 @@ $t~
 @eng Affects will no longer be shown in score.@rus Оказываемые на тебя воздействия не будут выводиться в суммарной информации о твоем персонаже.~
 @eng Affects will now be shown in score.@rus Оказываемые на тебя воздействия будут выводиться в суммарной информации о твоем персонаже.~
 @eng Ahhhh!  My prey is gone!!@rus Аххх! Добыча ускользнула!!~
+@eng Air became solid and you now can stand on it.@rus Воздух становиться твердым и теперь ты можешь на нем стоять!~
 @eng Alas, all good things must come to an end.@rus Увы, все хорошее заканчивается.~
 @eng Alas, you cannot go that way.@rus Увы, ты не можешь идти туда.~
 @eng Alias removed.@rus Сокращение убрано.~
@@ -3441,6 +3442,7 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You return to your normal form.@rus Ты снова $gn{стал} $gn{самим} собой.~
 @eng You return to your original body.@rus Ты $gn{вернулся} в свое тело.~
 @eng You return to your original size.@rus Ты становишься своего нормального размера.~
+@eng You rise off the ground.@rus Ты приподнимаешься над землей.~
 @eng You say '{G$t{x'@rus Ты произносишь: "{G$t{x"~
 @eng You scan $t.@rus Ты пристально вглядываешься $t.~
 @eng You scream in agony as plague sores erupt from your skin.@rus Чума пожирает твое тело, ты кричишь в агонии от невыносимой боли.~
@@ -3696,7 +3698,6 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng Your eyes tingle.@rus Ты чувствуешь легкое покалывание в глазах.~
 @eng Your feel stregthen up, but nothing happens.@rus Ты чувствуешь, как сила возросла, но она быстро тебя покинула.~
 @eng Your feet must touch the ground to balance.@rus Ты $gn{должен} стоять на земле.~
-@eng Your feet rise off the ground.@rus Твои ноги оторвались от земли.~
 @eng Your fighting doesn't worth to dishonor yourself.@rus Сбежать из подобной битвы ниже твоего достоинства.~
 @eng Your flash strike instantly slays $N!@rus Твой молниеносный выпад сражает наповал $c6{$N}!~
 @eng Your flesh is already dead.@rus Твое тело уже мертво.~

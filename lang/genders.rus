@@ -2200,6 +2200,14 @@ Form 3 -ы~
 End
 
 #RULE
+Name приподнялся~
+BaseLen 9
+Form 1 -ась~
+Form 2 -ось~
+Form 3 -ись~
+End
+
+#RULE
 Name наносит~
 BaseLen 5
 Form 1 -ит~
