@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.144 1999-05-31 08:17:22 fjoe Exp $
+ * $Id: act_obj.c,v 1.145 1999-05-31 12:10:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -94,7 +94,8 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 	int             members;
 
 	if (!CAN_WEAR(obj, ITEM_TAKE)
-	||  (obj->in_room &&
+	||  (obj->pIndexData->item_type == ITEM_CORPSE_PC &&
+	     obj->in_room &&
 	     IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA) &&
 	     !IS_OWNER(ch, obj))) {
 		char_puts("You can't take that.\n", ch);
@@ -115,14 +116,14 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 	}
 
 	if (ch->carry_number + get_obj_number(obj) > can_carry_n(ch)) {
-		act_puts("$d: you can't carry that many items.",
-			 ch, NULL, obj->name, TO_CHAR, POS_DEAD);
+		act_puts("$P: you can't carry that many items.",
+			 ch, NULL, obj, TO_CHAR, POS_DEAD);
 		return;
 	}
 
 	if (get_carry_weight(ch) + get_obj_weight(obj) > can_carry_w(ch)) {
-		act_puts("$d: you can't carry that much weight.",
-			 ch, NULL, obj->name, TO_CHAR, POS_DEAD);
+		act_puts("$P: you can't carry that much weight.",
+			 ch, NULL, obj, TO_CHAR, POS_DEAD);
 		return;
 	}
 
@@ -135,33 +136,38 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 				return;
 			}
 	}
-	if (container) {
-		if (IS_SET(container->pIndexData->extra_flags, ITEM_PIT)
-		&&  !IS_OBJ_STAT(obj, ITEM_HAD_TIMER))
-			obj->timer = 0;
-		act_puts("You get $p from $P.",
-			 ch, obj, container, TO_CHAR, POS_DEAD);
-		act("$n gets $p from $P.", ch, obj, container,
-		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
-		REMOVE_BIT(obj->extra_flags, ITEM_HAD_TIMER);
-		obj_from_obj(obj);
-	}
-	else {
-		act_puts("You get $p.", ch, obj, container, TO_CHAR, POS_DEAD);
-		act("$n gets $p.", ch, obj, container,
-		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
-		obj_from_room(obj);
-	}
 
 	if (obj->pIndexData->item_type == ITEM_MONEY) {
 		if (get_carry_weight(ch) + obj->value[0] / 10
 		    + obj->value[1] * 2 / 5 > can_carry_w(ch)) {
 			act_puts("$d: you can't carry that much weight.",
 				 ch, NULL, obj->name, TO_CHAR, POS_DEAD);
-			if (container)
-				obj_to_obj(obj, container);
 			return;
 		}
+	}
+
+	if (container) {
+		if (IS_SET(container->pIndexData->extra_flags, ITEM_PIT)
+		&&  !IS_OBJ_STAT(obj, ITEM_HAD_TIMER))
+			obj->timer = 0;
+		REMOVE_BIT(obj->extra_flags, ITEM_HAD_TIMER);
+
+		act_puts("You get $p from $P.",
+			 ch, obj, container, TO_CHAR, POS_DEAD);
+		act("$n gets $p from $P.", ch, obj, container,
+		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
+
+		obj_from_obj(obj);
+	}
+	else {
+		act_puts("You get $p.", ch, obj, container, TO_CHAR, POS_DEAD);
+		act("$n gets $p.", ch, obj, container,
+		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
+
+		obj_from_room(obj);
+	}
+
+	if (obj->pIndexData->item_type == ITEM_MONEY) {
 		ch->silver += obj->value[0];
 		ch->gold += obj->value[1];
 		if (IS_SET(ch->plr_flags, PLR_AUTOSPLIT)) {
@@ -180,8 +186,7 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 					 obj->value[1]);
 		}
 		extract_obj(obj, 0);
-	}
-	else {
+	} else {
 		obj_to_char(obj, ch);
 		oprog_call(OPROG_GET, obj, ch, NULL);
 	}

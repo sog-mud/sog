@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.55 1999-05-24 11:12:55 fjoe Exp $
+ * $Id: note.c,v 1.56 1999-05-31 12:10:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -71,98 +71,99 @@ note_t *note_free;
 
 note_t *new_note()
 {
-    note_t *note;
+	note_t *note;
 
-    if (note_free == NULL)
-	note = alloc_perm(sizeof(*note));
-    else
-    { 
-	note = note_free;
-	note_free = note_free->next;
-    }
-    return note;
+	if (note_free == NULL)
+		note = alloc_perm(sizeof(*note));
+	else { 
+		note = note_free;
+		note_free = note_free->next;
+	}
+	return note;
 }
 
 void free_note(note_t *note)
 {
-    free_string(note->text  );
-    free_string(note->subject);
-    free_string(note->to_list);
-    free_string(note->date  );
-    free_string(note->sender);
+	free_string(note->text  );
+	free_string(note->subject);
+	free_string(note->to_list);
+	free_string(note->date  );
+	free_string(note->sender);
 
-    note->next = note_free;
-    note_free   = note;
+	note->next = note_free;
+	note_free   = note;
 }
 
 int count_spool(CHAR_DATA *ch, note_t *spool)
 {
-    int count = 0;
-    note_t *pnote;
+	int count = 0;
+	note_t *pnote;
 
-    for (pnote = spool; pnote != NULL; pnote = pnote->next)
-	if (!hide_note(ch,pnote))
-	    count++;
+	for (pnote = spool; pnote != NULL; pnote = pnote->next) {
+		if (!hide_note(ch, pnote))
+			count++;
+	}
 
-    return count;
+	return count;
 }
 
 void do_unread(CHAR_DATA *ch, const char *argument)
 {
-    int count;
-    bool found = FALSE;
+	int count;
+	bool found = FALSE;
 
-    if (IS_NPC(ch))
-	return; 
+	if (IS_NPC(ch))
+		return; 
 
-    if ((count = count_spool(ch,news_list)) > 0)
-    {
-	found = TRUE;
-	char_printf(ch,"There %s %d new news article%s waiting.\n",
-	    count > 1 ? "are" : "is",count, count > 1 ? "s" : str_empty);
-    }
-    if ((count = count_spool(ch,changes_list)) > 0)
-    {
-	found = TRUE;
-	char_printf(ch,"There %s %d change%s waiting to be read.\n",
-	    count > 1 ? "are" : "is", count, count > 1 ? "s" : str_empty);
-    }
-    if ((count = count_spool(ch,note_list)) > 0)
-    {
-	found = TRUE;
-	char_printf(ch,"You have %d new note%s waiting.\n",
-	    count, count > 1 ? "s" : str_empty);
-    }
-    if ((count = count_spool(ch,idea_list)) > 0)
-    {
-	found = TRUE;
-	char_printf(ch,"You have %d unread idea%s to peruse.\n",
-	    count, count > 1 ? "s" : str_empty);
-    }
-    if (IS_IMMORTAL(ch) && (count = count_spool(ch,penalty_list)) > 0)
-    {
-	found = TRUE;
-	char_printf(ch,"%d %s been added.\n",
-	    count, count > 1 ? "penalties have" : "penalty has");
-    }
+	if ((count = count_spool(ch, news_list)) > 0) {
+		found = TRUE;
+		char_printf(ch, "There %s %d new news article%s waiting.\n",
+			    count > 1 ? "are" : "is",
+			    count, count > 1 ? "s" : str_empty);
+	}
 
-    if (!found && str_cmp(argument, "login"))
-	char_puts("You have no unread messages.\n", ch);
+	if ((count = count_spool(ch, changes_list)) > 0) {
+		found = TRUE;
+		char_printf(ch, "There %s %d change%s waiting to be read.\n",
+			    count > 1 ? "are" : "is",
+			    count, count > 1 ? "s" : str_empty);
+	}
+
+	if ((count = count_spool(ch, note_list)) > 0) {
+		found = TRUE;
+		char_printf(ch, "You have %d new note%s waiting.\n",
+			    count, count > 1 ? "s" : str_empty);
+	}
+
+	if ((count = count_spool(ch, idea_list)) > 0) {
+		found = TRUE;
+		char_printf(ch, "You have %d unread idea%s to peruse.\n",
+			    count, count > 1 ? "s" : str_empty);
+	}
+
+	if (IS_IMMORTAL(ch) && (count = count_spool(ch, penalty_list)) > 0) {
+		found = TRUE;
+		char_printf(ch, "%d %s been added.\n",
+			    count, count > 1 ? "penalties have" : "penalty has");
+}
+
+	if (!found && str_cmp(argument, "login"))
+		char_puts("You have no unread messages.\n", ch);
 }
 
 void do_note(CHAR_DATA *ch,const char *argument)
 {
-    parse_note(ch,argument,NOTE_NOTE);
+	parse_note(ch,argument,NOTE_NOTE);
 }
 
 void do_idea(CHAR_DATA *ch,const char *argument)
 {
-    parse_note(ch,argument,NOTE_IDEA);
+	parse_note(ch,argument,NOTE_IDEA);
 }
 
 void do_penalty(CHAR_DATA *ch,const char *argument)
 {
-    parse_note(ch,argument,NOTE_PENALTY);
+	parse_note(ch,argument,NOTE_PENALTY);
 }
 
 void do_news(CHAR_DATA *ch,const char *argument)
@@ -225,75 +226,70 @@ void load_notes(void)
 
 void load_thread(const char *name, note_t **list, int type, time_t free_time)
 {
-    FILE *fp;
-    note_t *pnotelast;
-    const char *p;
+	FILE *fp;
+	note_t *pnotelast;
+	const char *p;
  
 	if (!dfexist(NOTES_PATH, name))
 		return;
 
-    if ((fp = dfopen(NOTES_PATH, name, "r")) == NULL)
-	return;
+	if ((fp = dfopen(NOTES_PATH, name, "r")) == NULL)
+		return;
 	 
-    pnotelast = NULL;
-    for (; ;)
-    {
-	note_t *pnote;
-	char letter;
+	pnotelast = NULL;
+	for (; ;) {
+		note_t *pnote;
+		char letter;
 	 
-	do
-	{
-	    letter = getc(fp);
-            if (feof(fp))
-            {
-                fclose(fp);
-                return;
-            }
-        }
-        while (isspace(letter));
-        ungetc(letter, fp);
+		do {
+			letter = getc(fp);
+			if (feof(fp)) {
+				fclose(fp);
+				return;
+			}
+		} while (isspace(letter));
+		ungetc(letter, fp);
  
-        pnote           = alloc_perm(sizeof(*pnote));
+		pnote = alloc_perm(sizeof(*pnote));
  
-        if (str_cmp(p = fread_word(fp), "sender"))
-            break;
-        pnote->sender   = fread_string(fp);
+		if (str_cmp(p = fread_word(fp), "sender"))
+			break;
+		pnote->sender = fread_string(fp);
  
-        if (str_cmp(p = fread_word(fp), "date"))
-            break;
-        pnote->date     = fread_string(fp);
+		if (str_cmp(p = fread_word(fp), "date"))
+			break;
+		pnote->date = fread_string(fp);
  
-        if (str_cmp(p = fread_word(fp), "stamp"))
-            break;
-        pnote->date_stamp = fread_number(fp);
+		if (str_cmp(p = fread_word(fp), "stamp"))
+			break;
+		pnote->date_stamp = fread_number(fp);
  
-        if (str_cmp(p = fread_word(fp), "to"))
-            break;
-        pnote->to_list  = fread_string(fp);
+		if (str_cmp(p = fread_word(fp), "to"))
+			break;
+		pnote->to_list = fread_string(fp);
  
-        if (str_cmp(p = fread_word(fp), "subject"))
-            break;
-        pnote->subject  = fread_string(fp);
+		if (str_cmp(p = fread_word(fp), "subject"))
+			break;
+		pnote->subject  = fread_string(fp);
  
-        if (str_cmp(p = fread_word(fp), "text"))
-            break;
-        pnote->text     = fread_string(fp);
+		if (str_cmp(p = fread_word(fp), "text"))
+			break;
+		pnote->text = fread_string(fp);
  
-        if (free_time && pnote->date_stamp < current_time - free_time)
-        {
-	    free_note(pnote);
-            continue;
-        }
+		if (free_time && pnote->date_stamp < current_time - free_time) {
+			free_note(pnote);
+			continue;
+		}
 
-	pnote->type = type;
+		pnote->type = type;
  
-        if (*list == NULL)
-            *list = pnote;
-        else
-            pnotelast->next = pnote;
+		if (*list == NULL)
+			*list = pnote;
+		else
+			pnotelast->next = pnote;
  
-        pnotelast = pnote;
-    }
+		pnotelast = pnote;
+	}
  
 	db_error("load_notes", "%s: bad keyword '%s'", name, p);
 }
@@ -403,155 +399,142 @@ bool note_attach(CHAR_DATA *ch, int type)
 
 void note_remove(CHAR_DATA *ch, note_t *pnote, bool delete)
 {
-    char to_new[MAX_INPUT_LENGTH];
-    char to_one[MAX_INPUT_LENGTH];
-    note_t *prev;
-    note_t **list;
-    const char *to_list;
+	char to_new[MAX_INPUT_LENGTH];
+	char to_one[MAX_INPUT_LENGTH];
+	note_t *prev;
+	note_t **list;
+	const char *to_list;
 
-    if (!delete)
-    {
-	/* make a new list */
-        to_new[0]	= '\0';
-        to_list	= pnote->to_list;
-        while (*to_list != '\0')
-        {
-    	    to_list	= one_argument(to_list, to_one, sizeof(to_one));
-    	    if (to_one[0] != '\0' && str_cmp(ch->name, to_one))
-	    {
-	        strnzcat(to_new, sizeof(to_new), " ");
-	        strnzcat(to_new, sizeof(to_new), to_one);
-	    }
-        }
-        /* Just a simple recipient removal? */
-       if (str_cmp(ch->name, pnote->sender) && to_new[0] != '\0')
-       {
-	   free_string(pnote->to_list);
-	   pnote->to_list = str_dup(to_new + 1);
-	   return;
-       }
-    }
-    /* nuke the whole note */
+	if (!delete) {
+		/* make a new list */
+		to_new[0] = '\0';
+		to_list	= pnote->to_list;
+		while (*to_list != '\0') {
+			to_list	= one_argument(to_list, to_one, sizeof(to_one));
+			if (to_one[0] != '\0' && str_cmp(ch->name, to_one)) {
+				strnzcat(to_new, sizeof(to_new), " ");
+				strnzcat(to_new, sizeof(to_new), to_one);
+			}
+		}
 
-    switch(pnote->type)
-    {
+		/* Just a simple recipient removal? */
+		if (str_cmp(ch->name, pnote->sender) && to_new[0] != '\0') {
+			free_string(pnote->to_list);
+			pnote->to_list = str_dup(to_new + 1);
+			return;
+		}
+	}
+
+	/* nuke the whole note */
+
+	switch(pnote->type) {
 	default:
-	    return;
+		return;
 	case NOTE_NOTE:
-	    list = &note_list;
-	    break;
+		list = &note_list;
+		break;
 	case NOTE_IDEA:
-	    list = &idea_list;
-	    break;
+		list = &idea_list;
+		break;
 	case NOTE_PENALTY:
-	    list = &penalty_list;
-	    break;
+		list = &penalty_list;
+		break;
 	case NOTE_NEWS:
-	    list = &news_list;
-	    break;
+		list = &news_list;
+		break;
 	case NOTE_CHANGES:
-	    list = &changes_list;
-	    break;
-    }
-
-    /*
-     * Remove note from linked list.
-     */
-    if (pnote == *list)
-    {
-	*list = pnote->next;
-    }
-    else
-    {
-	for (prev = *list; prev != NULL; prev = prev->next)
-	{
-	    if (prev->next == pnote)
+		list = &changes_list;
 		break;
 	}
 
-	if (prev == NULL)
-	{
-	    bug("Note_remove: pnote not found.", 0);
-	    return;
+	/*
+	 * Remove note from linked list.
+	 */
+	if (pnote == *list)
+		*list = pnote->next;
+	else {
+		for (prev = *list; prev != NULL; prev = prev->next) {
+			if (prev->next == pnote)
+				break;
+		}
+
+		if (prev == NULL)
+			return;
+
+		prev->next = pnote->next;
 	}
 
-	prev->next = pnote->next;
-    }
-
-    save_notes(pnote->type);
-    free_note(pnote);
-    return;
+	save_notes(pnote->type);
+	free_note(pnote);
 }
 
 bool hide_note(CHAR_DATA *ch, note_t *pnote)
 {
-    time_t last_read;
+	time_t last_read;
 
-    if (IS_NPC(ch))
-	return TRUE;
+	if (IS_NPC(ch))
+		return TRUE;
 
-    switch (pnote->type)
-    {
+	switch (pnote->type) {
 	default:
-	    return TRUE;
+		return TRUE;
 	case NOTE_NOTE:
-	    last_read = ch->pcdata->last_note;
-	    break;
+		last_read = ch->pcdata->last_note;
+		break;
 	case NOTE_IDEA:
-	    last_read = ch->pcdata->last_idea;
-	    break;
+		last_read = ch->pcdata->last_idea;
+		break;
 	case NOTE_PENALTY:
-	    last_read = ch->pcdata->last_penalty;
-	    break;
+		last_read = ch->pcdata->last_penalty;
+		break;
 	case NOTE_NEWS:
-	    last_read = ch->pcdata->last_news;
-	    break;
+		last_read = ch->pcdata->last_news;
+		break;
 	case NOTE_CHANGES:
-	    last_read = ch->pcdata->last_changes;
-	    break;
-    }
+		last_read = ch->pcdata->last_changes;
+		break;
+	}
     
-    if (pnote->date_stamp <= last_read)
-	return TRUE;
+	if (pnote->date_stamp <= last_read)
+		return TRUE;
 
-    if (!str_cmp(ch->name,pnote->sender))
-	return TRUE;
+	if (!str_cmp(ch->name, pnote->sender))
+		return TRUE;
 
-    if (!is_note_to(ch,pnote))
-	return TRUE;
+	if (!is_note_to(ch, pnote))
+		return TRUE;
 
-    return FALSE;
+	return FALSE;
 }
 
 void update_read(CHAR_DATA *ch, note_t *pnote)
 {
-    time_t stamp;
+	time_t stamp;
 
-    if (IS_NPC(ch))
-	return;
+	if (IS_NPC(ch))
+		return;
 
-    stamp = pnote->date_stamp;
+	stamp = pnote->date_stamp;
 
-    switch (pnote->type)
-    {
-        default:
-            return;
-        case NOTE_NOTE:
-	    ch->pcdata->last_note = UMAX(ch->pcdata->last_note,stamp);
-            break;
-        case NOTE_IDEA:
-	    ch->pcdata->last_idea = UMAX(ch->pcdata->last_idea,stamp);
-            break;
-        case NOTE_PENALTY:
-	    ch->pcdata->last_penalty = UMAX(ch->pcdata->last_penalty,stamp);
-            break;
-        case NOTE_NEWS:
-	    ch->pcdata->last_news = UMAX(ch->pcdata->last_news,stamp);
-            break;
-        case NOTE_CHANGES:
-	    ch->pcdata->last_changes = UMAX(ch->pcdata->last_changes,stamp);
-            break;
-    }
+	switch (pnote->type) {
+	default:
+		return;
+	case NOTE_NOTE:
+		ch->pcdata->last_note = UMAX(ch->pcdata->last_note, stamp);
+		break;
+	case NOTE_IDEA:
+		ch->pcdata->last_idea = UMAX(ch->pcdata->last_idea, stamp);
+		break;
+	case NOTE_PENALTY:
+		ch->pcdata->last_penalty = UMAX(ch->pcdata->last_penalty, stamp);
+		break;
+	case NOTE_NEWS:
+		ch->pcdata->last_news = UMAX(ch->pcdata->last_news, stamp);
+		break;
+	case NOTE_CHANGES:
+		ch->pcdata->last_changes = UMAX(ch->pcdata->last_changes, stamp);
+		break;
+	}
 }
 
 void print_note(BUFFER *buf, note_t *pnote, int vnum)
