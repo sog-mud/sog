@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.16.2.1 1999-12-16 12:40:08 fjoe Exp $
+ * $Id: db_lang.c,v 1.16.2.2 2000-10-21 19:44:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -225,7 +225,7 @@ load_rules(FILE *fp, rulecl_t *rcl, rule_t* (*rule_add)(rulecl_t*, rule_t*))
 					break;
 				}
 
-				vform_add(r.f, fnum, fstring);
+				rule_form_add(&r, fnum, fstring);
 				free_string(fstring);
 				fMatch = TRUE;
 			}

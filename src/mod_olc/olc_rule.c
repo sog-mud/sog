@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.15.2.1 1999-12-16 12:39:59 fjoe Exp $
+ * $Id: olc_rule.c,v 1.15.2.2 2000-10-21 19:44:49 fjoe Exp $
  */
 
 #include "olc.h"
@@ -87,8 +87,8 @@ DECLARE_OLC_FUN(ruleed_del	);
 DECLARE_OLC_FUN(ruleed_delete	);
 
 DECLARE_OLC_FUN(eruleed_name	);
+DECLARE_OLC_FUN(eruleed_auto	);
 DECLARE_OLC_FUN(iruleed_name	);
-DECLARE_OLC_FUN(eruleed_list	);
 
 olc_cmd_t olc_cmds_expl[] =
 {
@@ -100,6 +100,7 @@ olc_cmd_t olc_cmds_expl[] =
 	{ "list",		ruleed_list,	&rops_expl	},
 
 	{ "name",		eruleed_name			},
+	{ "auto",		eruleed_auto			},
 	{ "base",		ruleed_base			},
 	{ "add",		ruleed_add			},
 	{ "del",		ruleed_del			},
@@ -315,8 +316,8 @@ OLC_FUN(ruleed_show)
 		char_printf(ch, "Base: [%s] (%d)\n", buf, r->arg);
 	}
 
-	for (i = 0; i < r->f->v.nused; i++) {
-		char **p = VARR_GET(&r->f->v, i);
+	for (i = 0; i < r->forms.nused; i++) {
+		char **p = VARR_GET(&r->forms, i);
 
 		if (!IS_NULLSTR(*p))
 			char_printf(ch, "Form: [%d] [%s]\n", i, *p);
@@ -434,6 +435,40 @@ OLC_FUN(eruleed_name)
 	return TRUE;
 }
 
+OLC_FUN(eruleed_auto)
+{
+	rule_t *r;
+	rulecl_t *rcl;
+	rule_t *impl;
+	int i;
+
+	EDIT_RULE(ch, r);
+	EDIT_RCL(ch, rcl);
+
+	/*
+	 * lookup implicit rule
+	 */
+	if ((impl = irule_find(rcl, r->name)) == NULL) {
+		char_puts("No matching implicit rules found.\n", ch);
+		return FALSE;
+	}
+
+	r->arg = strlen(r->name) + impl->arg;
+
+	for (i = 0; i < r->forms.nused; i++) {
+		const char **p = VARR_GET(&r->forms, i);
+		free_string(*p);
+	}
+	varr_destroy(&r->forms);
+
+	for (i = 0; i < impl->forms.nused; i++) {
+		const char **p = varr_touch(&r->forms, i);
+		const char **q = VARR_GET(&impl->forms, i);
+		*p = str_qdup(*q);
+	}
+	return TRUE;
+}
+
 OLC_FUN(iruleed_name)
 {
 	rule_t *r;
@@ -511,8 +546,8 @@ static void rule_save(FILE *fp, rule_t *r)
 		    "Name %s~\n", r->name);
 	if (r->arg)
 		fprintf(fp, "BaseLen %d\n", r->arg);
-	for (i = 0; i < r->f->v.nused; i++) {
-		char **p = VARR_GET(&r->f->v, i);
+	for (i = 0; i < r->forms.nused; i++) {
+		char **p = VARR_GET(&r->forms, i);
 		if (IS_NULLSTR(*p))
 			continue;
 		fprintf(fp, "Form %d %s~\n", i, *p);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.16.2.1 1999-12-16 12:40:02 fjoe Exp $
+ * $Id: lang.c,v 1.16.2.2 2000-10-21 19:44:50 fjoe Exp $
  */
 
 #include <string.h>
@@ -97,24 +97,8 @@ word_form_lookup(lang_t *l, rulecl_t *rcl, const char *word, int fnum)
 	/*
 	 * explicit rule lookup
 	 */
-	if ((rule = erule_lookup(rcl, word)) == NULL) {
-		rule_t e;
-
-		/*
-		 * implicit rule lookup
-		 */
-		if ((rule = irule_find(rcl, word)) == NULL)
-			return word;
-
-		/*
-		 * implicit rule found - create explicit rule and use it
-		 */
-		erule_create(&e, rule, word);
-		rule = erule_add(rcl, &e);
-		SET_BIT(rcl->rcl_flags, RULES_EXPL_CHANGED);
-	}
-
-	if ((p = varr_get(&rule->f->v, fnum)) == NULL
+	if ((rule = erule_lookup(rcl, word)) == NULL
+	||  (p = varr_get(&rule->forms, fnum)) == NULL
 	||  IS_NULLSTR(*p))
 		return word;
 
@@ -158,54 +142,6 @@ const char *word_form(const char *word, int fnum, int lang, int rulecl)
 }
 
 /*----------------------------------------------------------------------------
- * vform_t functions
- */
-vform_t *vform_new(void)
-{
-	vform_t *f = calloc(1, sizeof(*f));
-	varr_init(&f->v, sizeof(char*), 4);
-	f->ref = 1;
-	return f;
-}
-
-vform_t *vform_dup(vform_t *f)
-{
-	f->ref++;
-	return f;
-}
-
-void vform_free(vform_t *f)
-{
-	int i;
-
-	if (--f->ref)
-		return;
-	for (i = 0; i < f->v.nused; i++)
-		free_string(VARR_GET(&f->v, i));
-	varr_destroy(&f->v);
-	free(f);
-}
-
-void vform_add(vform_t *f, size_t fnum, const char *s)
-{
-	const char **p = varr_touch(&f->v, fnum);
-	if (*p)
-		free_string(*p);
-	*p = str_dup(s);
-}
-
-void vform_del(vform_t *f, size_t fnum)
-{
-	const char **p = varr_get(&f->v, fnum);
-	if (p == NULL)
-		return;
-
-	if (*p)
-		free_string(*p);
-	*p = NULL;
-}
-
-/*----------------------------------------------------------------------------
  * rule_t functions
  */
 
@@ -221,22 +157,35 @@ void rule_init(rule_t *r)
 {
 	r->name = NULL;
 	r->arg = 0;
-	r->f = vform_new();
+	varr_init(&r->forms, sizeof(char*), 4);
 }
 
 void rule_clear(rule_t *r)
 {
+	int i;
+
 	free_string(r->name);
-	vform_free(r->f);
 	r->name = NULL;
+
+	for (i = 0; i < r->forms.nused; i++)
+		free_string(VARR_GET(&r->forms, i));
+	varr_destroy(&r->forms);
 }
 
-void erule_create(rule_t *expl, rule_t *impl, const char *word)
+void rule_form_add(rule_t *r, size_t fnum, const char *s)
 {
-	rule_init(expl);
-	expl->name = str_dup(word);
-	expl->arg = strlen(word) + impl->arg;
-	expl->f = vform_dup(impl->f);
+	const char **p = varr_touch(&r->forms, fnum);
+	free_string(*p);
+	*p = str_dup(s);
+}
+
+void rule_form_del(rule_t *r, size_t fnum)
+{
+	const char **p = varr_get(&r->forms, fnum);
+	if (p == NULL)
+		return;
+	free_string(*p);
+	*p = str_empty;
 }
 
 /*----------------------------------------------------------------------------

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.9.2.1 1999-12-16 12:40:05 fjoe Exp $
+ * $Id: varr.c,v 1.9.2.2 2000-10-21 19:44:50 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -40,12 +40,15 @@ void varr_init(varr *v, size_t nsize, size_t nstep)
 {
 	v->nsize = nsize;
 	v->nstep = nstep;
+	v->p = NULL;
+	v->nused = v->nalloc = 0;
 }
 
 void varr_destroy(varr *v)
 {
 	v->nalloc = v->nused = 0;
 	free(v->p);
+	v->p = NULL;
 }
 	
 void *varr_touch(varr *v, size_t i)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.70.2.3 2000-03-31 13:56:52 fjoe Exp $
+ * $Id: olc.c,v 1.70.2.4 2000-10-21 19:44:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -728,7 +728,7 @@ bool olced_vform_add(CHAR_DATA *ch, const char *argument,
 		return FALSE;
 	}
 
-	vform_add(r->f, fnum, argument);
+	rule_form_add(r, fnum, argument);
 	char_puts("Form added.\n", ch);
 	return TRUE;
 }
@@ -745,7 +745,7 @@ bool olced_vform_del(CHAR_DATA *ch, const char *argument,
 		return FALSE;
 	}
 
-	vform_del(r->f, fnum);
+	rule_form_del(r, fnum);
 	char_puts("Form deleted.\n", ch);
 	return TRUE;
 }
