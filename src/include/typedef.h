@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.65 2001-12-10 21:50:38 fjoe Exp $
+ * $Id: typedef.h,v 1.66 2002-03-21 13:30:30 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -112,6 +112,7 @@ typedef struct vo_iter_t		vo_iter_t;
 typedef struct hint_t			hint_t;
 typedef struct var_t			var_t;
 typedef struct pc_skill_t		pc_skill_t;
+typedef struct effect_t			effect_t;
 
 #if !defined(NO_MMAP)
 typedef struct rfile_t			rfile_t;
@@ -145,11 +146,12 @@ union vo_t {
 	} while(0);
 
 typedef void	DO_FUN		(CHAR_DATA *, const char *);
-typedef void	SPELL_FUN	(const char *, int, CHAR_DATA *, void *);
 typedef void	EVENT_FUN	(CHAR_DATA *, AFFECT_DATA *);
+typedef void	SPELL_FUN	(const char *, int, CHAR_DATA *, void *);
 typedef void	UPDATE_FUN	(void);
 typedef int	MODINIT_FUN	(module_t *);
 typedef void	RUNGAME_FUN	(fd_set *, fd_set *, fd_set *);
+typedef void	EFFECT_FUN	(void *vo, int level, int dam);
 
 #define DECLARE_DO_FUN(fun)		DO_FUN fun
 #define DECLARE_EVENT_FUN(fun)		EVENT_FUN fun
@@ -157,6 +159,7 @@ typedef void	RUNGAME_FUN	(fd_set *, fd_set *, fd_set *);
 #define DECLARE_UPDATE_FUN(fun)		UPDATE_FUN fun
 #define DECLARE_MODINIT_FUN(fun)	MODINIT_FUN fun
 #define DECLARE_RUNGAME_FUN(fun)	RUNGAME_FUN fun
+#define DECLARE_EFFECT_FUN(fun)		EFFECT_FUN fun
 
 #define DO_FUN(fun, ch, argument)					\
 	void fun(CHAR_DATA *ch __attribute__((unused)),			\
@@ -175,6 +178,9 @@ typedef void	RUNGAME_FUN	(fd_set *, fd_set *, fd_set *);
 #define RUNGAME_FUN(fun, in_set, out_set, exc_set)			\
 	void fun(fd_set *in_set, fd_set *out_set,			\
 		 fd_set *exc_set __attribute__((unused)))
+#define EFFECT_FUN(fun)							\
+	static void fun(void *vo, int level, int dam)
+
 
 /* WIN32 Microsoft specific definitions */
 #if defined (WIN32)

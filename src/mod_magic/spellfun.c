@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.288 2002-03-20 19:39:39 fjoe Exp $
+ * $Id: spellfun.c,v 1.289 2002-03-21 13:30:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2399,10 +2399,10 @@ SPELL_FUN(spell_acid_breath, sn, level, ch, vo)
 	dam = UMAX(hp_dam + dice_dam/10,dice_dam + hp_dam/10);
 
 	if (saves_spell(level, victim, DAM_ACID)) {
-		acid_effect(victim, level/2, dam/4);
+		inflict_effect("acid", victim, level/2, dam/4);
 		damage(ch,victim, dam/2, sn, DAM_F_SHOW);
 	} else {
-		acid_effect(victim, level, dam);
+		inflict_effect("acid", victim, level, dam);
 		damage(ch, victim, dam, sn, DAM_F_SHOW);
 	}
 }
@@ -2425,18 +2425,18 @@ fire_breath_cb(void *vo, va_list ap)
 
 	if (vch == victim) { /* full damage */
 		if (saves_spell(level, vch, DAM_FIRE)) {
-			fire_effect(vch, level/2, dam/4);
+			inflict_effect("fire", vch, level/2, dam/4);
 			damage(ch, vch, dam/2, sn, DAM_F_SHOW);
 		} else {
-			fire_effect(vch, level, dam);
+			inflict_effect("fire", vch, level, dam);
 			damage(ch, vch, dam, sn, DAM_F_SHOW);
 		}
 	} else { /* partial damage */
 		if (saves_spell(level - 2, vch, DAM_FIRE)) {
-			fire_effect(vch, level/4, dam/8);
+			inflict_effect("fire", vch, level/4, dam/8);
 			damage(ch, vch, dam/4, sn, DAM_F_SHOW);
 		} else {
-			fire_effect(vch, level/2, dam/4);
+			inflict_effect("fire", vch, level/2, dam/4);
 			damage(ch, vch, dam/2, sn, DAM_F_SHOW);
 		}
 	}
@@ -2457,7 +2457,7 @@ SPELL_FUN(spell_fire_breath, sn, level, ch, vo)
 	    ch, NULL, victim, TO_VICT);
 	act("You breath forth a cone of fire.", ch, NULL, NULL, TO_CHAR);
 
-	fire_effect(victim->in_room, level, dam / 2);
+	inflict_effect("fire", victim->in_room, level, dam / 2);
 	vo_foreach(victim->in_room, &iter_char_room, fire_breath_cb,
 		   sn, level, ch, victim, dam);
 }
@@ -2480,18 +2480,18 @@ frost_breath_cb(void *vo, va_list ap)
 
 	if (vch == victim) { /* full damage */
 		if (saves_spell(level, vch, DAM_COLD)) {
-			cold_effect(vch, level/2, dam/4);
+			inflict_effect("cold", vch, level/2, dam/4);
 			damage(ch, vch, dam/2, sn, DAM_F_SHOW);
 		} else {
-			cold_effect(vch, level, dam);
+			inflict_effect("cold", vch, level, dam);
 			damage(ch, vch, dam, sn, DAM_F_SHOW);
 		}
 	} else {
 		if (saves_spell(level - 2, vch, DAM_COLD)) {
-			cold_effect(vch, level/4, dam/8);
+			inflict_effect("cold", vch, level/4, dam/8);
 			damage(ch, vch, dam/4, sn, DAM_F_SHOW);
 		} else {
-			cold_effect(vch, level/2, dam/4);
+			inflict_effect("cold", vch, level/2, dam/4);
 			damage(ch, vch, dam/2, sn, DAM_F_SHOW);
 		}
 	}
@@ -2514,7 +2514,7 @@ SPELL_FUN(spell_frost_breath, sn, level, ch, vo)
 	act("You breath out a cone of frost.",
 	    ch, NULL, NULL, TO_CHAR);
 
-	cold_effect(victim->in_room, level, dam/2);
+	inflict_effect("cold", victim->in_room, level, dam/2);
 	vo_foreach(victim->in_room, &iter_char_room, frost_breath_cb,
 		   sn, level, ch, victim, dam);
 }
@@ -2535,10 +2535,10 @@ gas_breath_cb(void *vo, va_list ap)
 		return NULL;
 
 	if (saves_spell(level, vch, DAM_POISON)) {
-		poison_effect(vch, level/2, dam/4);
+		inflict_effect("poison", vch, level/2, dam/4);
 		damage(ch, vch, dam/2, sn, DAM_F_SHOW);
 	} else {
-		poison_effect(vch, level, dam);
+		inflict_effect("poison", vch, level, dam);
 		damage(ch, vch, dam, sn, DAM_F_SHOW);
 	}
 
@@ -2556,7 +2556,7 @@ SPELL_FUN(spell_gas_breath, sn, level, ch, vo)
 	    ch, NULL, NULL, TO_ROOM);
 	act("You breath out a cloud of poisonous gas.",
 	    ch, NULL, NULL, TO_CHAR);
-	poison_effect(ch->in_room, level, dam);
+	inflict_effect("poison", ch->in_room, level, dam);
 	vo_foreach(ch->in_room, &iter_char_room, gas_breath_cb,
 		   sn, level, ch, dam);
 }
@@ -2577,10 +2577,10 @@ SPELL_FUN(spell_lightning_breath, sn, level, ch, vo)
 	    ch, NULL, victim, TO_CHAR);
 
 	if (saves_spell(level, victim, DAM_LIGHTNING)) {
-		shock_effect(victim, level/2, dam/4);
+		inflict_effect("shock", victim, level/2, dam/4);
 		damage(ch, victim, dam/2, sn, DAM_F_SHOW);
 	} else {
-		shock_effect(victim, level, dam);
+		inflict_effect("shock", victim, level, dam);
 		damage(ch, victim, dam, sn, DAM_F_SHOW);
 	}
 }
@@ -5294,10 +5294,10 @@ sand_storm_cb(void *vo, va_list ap)
 		return NULL;
 
 	if (saves_spell(level, vch, DAM_COLD)) {
-		sand_effect(vch, level/2, dam/4);
+		inflict_effect("sand", vch, level/2, dam/4);
 		damage(ch, vch, dam/2, sn, DAM_F_SHOW);
 	} else {
-		sand_effect(vch, level, dam);
+		inflict_effect("sand", vch, level, dam);
 		damage(ch, vch, dam, sn, DAM_F_SHOW);
 	}
 
@@ -5326,7 +5326,7 @@ SPELL_FUN(spell_sand_storm, sn, level, ch, vo)
 	dice_dam = dice(level, 15);
 
 	dam = UMAX(hp_dam + dice_dam /10, dice_dam + hp_dam / 10);
-	sand_effect(ch->in_room, level, dam/2);
+	inflict_effect("sand", ch->in_room, level, dam/2);
 	vo_foreach(ch->in_room, &iter_char_room, sand_storm_cb,
 		   sn, level, ch, dam);
 }
@@ -5344,9 +5344,9 @@ scream_cb(void *vo, va_list ap)
 		return NULL;
 
 	if (saves_spell(level, vch, DAM_ENERGY))
-		scream_effect(vch, level/2, dam/4);
+		inflict_effect("scream", vch, level/2, dam/4);
 	else
-		scream_effect(vch, level, dam);
+		inflict_effect("scream", vch, level, dam);
 
 	if (vch->fighting)
 		stop_fighting(vch, TRUE);
@@ -5364,7 +5364,7 @@ SPELL_FUN(spell_scream, sn, level, ch, vo)
 	act("$n screams with a disturbing NOISE!", ch, NULL, NULL, TO_ROOM);
 	act("You scream with a powerful sound.", ch, NULL, NULL, TO_CHAR);
 
-	scream_effect(ch->in_room, level, dam/2);
+	inflict_effect("scream", ch->in_room, level, dam/2);
 	vo_foreach(ch->in_room, &iter_char_room, scream_cb, level, ch, dam);
 }
 
@@ -7984,7 +7984,7 @@ SPELL_FUN(spell_phantasmal_force, sn, level, ch, vo)
 				  ch, vp_dam_alias(dam), victim,
 				  "fire breath", TO_CHAR, POS_DEAD);
 			damage(ch, victim, dam_total, sn, DAM_F_NOREDUCE);
-			fire_effect((void *)victim, level, 0);
+			inflict_effect("fire", victim, level, 0);
 			return;
 		}
 	} else {

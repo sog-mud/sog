@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.211 2002-03-20 19:39:34 fjoe Exp $
+ * $Id: martial_art.c,v 1.212 2002-03-21 13:30:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3498,10 +3498,10 @@ explode_cb(void *vo, va_list ap)
 		return NULL;
 
 	if (vch == victim) { /* full damage */
-		fire_effect(vch, LEVEL(ch), dam);
+		inflict_effect("fire", vch, LEVEL(ch), dam);
 		damage(ch, vch, dam, "explode", DAM_F_SHOW);
 	} else { /* partial damage */
-		fire_effect(vch, LEVEL(ch)/2, dam/4);
+		inflict_effect("fire", vch, LEVEL(ch)/2, dam/4);
 		damage(ch, vch, dam/2, "explode", DAM_F_SHOW);
 	}
 
@@ -3563,12 +3563,12 @@ DO_FUN(do_explode, ch, argument)
 	dice_dam = dice(LEVEL(ch), 20);
 	dam = UMAX(hp_dam + dice_dam /10, dice_dam + hp_dam / 10);
 
-	fire_effect(victim->in_room, LEVEL(ch), dam/2);
+	inflict_effect("fire", victim->in_room, LEVEL(ch), dam/2);
 	vo_foreach(victim->in_room, &iter_char_room, explode_cb,
 		   ch, victim, dam);
 
 	if (number_percent() >= chance) {
-		fire_effect(ch, LEVEL(ch)/4, dam/10);
+		inflict_effect("fire", ch, LEVEL(ch)/4, dam/10);
 		damage(ch, ch, (ch->hit / 10), "explode", DAM_F_SHOW);
 	}
 }

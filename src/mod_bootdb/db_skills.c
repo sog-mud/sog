@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skills.c,v 1.35 2002-03-20 19:39:30 fjoe Exp $
+ * $Id: db_skills.c,v 1.36 2002-03-21 13:30:31 fjoe Exp $
  */
 
 #include <assert.h>
@@ -80,6 +80,8 @@ DBLOAD_FUN(load_skill)
 
 			if (IS_TOKEN(fp, "End"))
 				return;
+
+			SKEY("Effect", sk->effect, fread_string(fp));
 
 			if (IS_TOKEN(fp, "Event")) {
 				flag_t event = fread_fword(events_classes, fp);

@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.31 2002-03-20 19:39:39 fjoe Exp $
+ * $Id: prayers.c,v 1.32 2002-03-21 13:30:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -924,7 +924,7 @@ SPELL_FUN(prayer_desert_fist, sn, level, ch, vo)
 	act("An existing parcel of sand rises up and forms a fist and pummels you.",
 	    victim, NULL, NULL, TO_CHAR);
 	dam = dice(level, 14);
-	sand_effect(victim, level, dam);
+	inflict_effect("sand", victim, level, dam);
 	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
 

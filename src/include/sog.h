@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.35 2002-03-20 19:39:28 fjoe Exp $
+ * $Id: sog.h,v 1.36 2002-03-21 13:30:30 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -328,7 +328,7 @@ DECLARE_FUN1(int, age_to_num,
 DECLARE_PROC2(make_visible,
 	      ARG(CHAR_DATA), ch, ARG(bool), at_will)
 DECLARE_PROC2(bad_effect,
-	      ARG(CHAR_DATA), ch, ARG(int), effect)
+	      ARG(CHAR_DATA), ch, ARG(int), effect_type)
 DECLARE_FUN1(int, trust_level,
 	     ARG(CHAR_DATA), ch)
 DECLARE_FUN1(cchar_t, get_cond_alias,
@@ -391,22 +391,6 @@ DECLARE_PROC2(reset_room,
 	      ARG(ROOM_INDEX_DATA), room, ARG(int), flags)
 DECLARE_PROC1(reset_area,
 	      ARG(AREA_DATA), pArea)
-
-/*--- effects.c */
-DECLARE_PROC3(acid_effect,
-	      ARG(pvoid_t), vo, ARG(int), level, ARG(int), dam)
-DECLARE_PROC3(cold_effect,
-	      ARG(pvoid_t), vo, ARG(int), level, ARG(int), dam)
-DECLARE_PROC3(fire_effect,
-	      ARG(pvoid_t), vo, ARG(int), level, ARG(int), dam)
-DECLARE_PROC3(poison_effect,
-	      ARG(pvoid_t), vo, ARG(int), level, ARG(int), dam)
-DECLARE_PROC3(shock_effect,
-	      ARG(pvoid_t), vo, ARG(int), level, ARG(int), dam)
-DECLARE_PROC3(sand_effect,
-	      ARG(pvoid_t), vo, ARG(int), level, ARG(int), dam)
-DECLARE_PROC3(scream_effect,
-	      ARG(pvoid_t), vo, ARG(int), level, ARG(int), dam)
 
 /*--- affects.c */
 DECLARE_PROC3(affect_modify,

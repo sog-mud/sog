@@ -1,5 +1,5 @@
 /*
- * $Id: effects.c,v 1.46 2001-12-08 00:08:40 tatyana Exp $
+ * $Id: effects.c,v 1.47 2002-03-21 13:30:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,14 +52,11 @@
 
 #include <sog.h>
 
-typedef void (*effect_cb)(void *vo, int level, int dam);
-
-static void toast_obj_list(OBJ_DATA *obj, effect_cb cb, int level, int dam);
+static void toast_obj_list(OBJ_DATA *obj, EFFECT_FUN *eff, int level, int dam);
 static bool effect_ok(OBJ_DATA *obj, int chance, const char *msg);
-static void toast_obj(OBJ_DATA *obj, effect_cb cb, int level, int dam);
+static void toast_obj(OBJ_DATA *obj, EFFECT_FUN *eff, int level, int dam);
 
-void
-acid_effect(void *vo, int level, int dam)
+EFFECT_FUN(acid_effect)
 {
 	if (mem_is(vo, MT_ROOM)) { /* nail objects on the floor */
 		ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
@@ -167,8 +164,7 @@ acid_effect(void *vo, int level, int dam)
 	}
 }
 
-void
-cold_effect(void *vo, int level, int dam)
+EFFECT_FUN(cold_effect)
 {
 	if (mem_is(vo, MT_ROOM)) { /* nail objects on the floor */
 		ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
@@ -246,8 +242,7 @@ cold_effect(void *vo, int level, int dam)
 	}
 }
 
-void
-fire_effect(void *vo, int level, int dam)
+EFFECT_FUN(fire_effect)
 {
 	if (mem_is(vo, MT_ROOM)) { /* nail objects on the floor */
 		ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
@@ -348,8 +343,7 @@ fire_effect(void *vo, int level, int dam)
 	}
 }
 
-void
-poison_effect(void *vo, int level, int dam)
+EFFECT_FUN(poison_effect)
 {
 	if (mem_is(vo, MT_ROOM)) {  /* nail objects on the floor */
 		ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
@@ -416,8 +410,7 @@ poison_effect(void *vo, int level, int dam)
 	}
 }
 
-void
-shock_effect(void *vo,int level, int dam)
+EFFECT_FUN(shock_effect)
 {
 	if (mem_is(vo, MT_ROOM)) {
 		ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
@@ -479,8 +472,7 @@ shock_effect(void *vo,int level, int dam)
 	}
 }
 
-void
-sand_effect(void *vo, int level, int dam)
+EFFECT_FUN(sand_effect)
 {
 	if (mem_is(vo, MT_ROOM)) { /* nail objects on the floor */
 		ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
@@ -611,8 +603,7 @@ sand_effect(void *vo, int level, int dam)
 	}
 }
 
-void
-scream_effect(void *vo, int level, int dam)
+EFFECT_FUN(scream_effect)
 {
 	if (mem_is(vo, MT_ROOM)) { /* nail objects on the floor */
 		ROOM_INDEX_DATA *room = (ROOM_INDEX_DATA *) vo;
@@ -703,14 +694,18 @@ scream_effect(void *vo, int level, int dam)
 	}
 }
 
+/*--------------------------------------------------------------------
+ * static functions
+ */
+
 static void
-toast_obj_list(OBJ_DATA *obj, effect_cb cb, int level, int dam)
+toast_obj_list(OBJ_DATA *obj, EFFECT_FUN *eff, int level, int dam)
 {
 	OBJ_DATA *obj_next;
 
 	for (; obj != NULL; obj = obj_next) {
 		obj_next = obj->next_content;
-		cb(obj, level, dam);
+		eff(obj, level, dam);
 	}
 }
 
@@ -729,7 +724,7 @@ effect_ok(OBJ_DATA *obj, int chance, const char *msg)
 }
 
 static void
-toast_obj(OBJ_DATA *obj, effect_cb cb, int level, int dam)
+toast_obj(OBJ_DATA *obj, EFFECT_FUN *eff, int level, int dam)
 {
 	/* get rid of the object */
 	if (obj->contains) {
@@ -748,7 +743,7 @@ toast_obj(OBJ_DATA *obj, effect_cb cb, int level, int dam)
 				continue;
 			}
 
-			cb(t_obj, level / 2, dam / 2);
+			eff(t_obj, level / 2, dam / 2);
 		}
 	}
 

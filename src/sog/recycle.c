@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.147 2002-03-20 19:39:50 fjoe Exp $
+ * $Id: recycle.c,v 1.148 2002-03-21 13:30:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -141,9 +141,10 @@ const char CMD_CONF		[] = "cmd.conf";	// notrans
 const char DAMTYPE_CONF		[] = "damtype.conf";	// notrans
 const char MATERIALS_CONF	[] = "materials.conf";	// notrans
 const char LIQUIDS_CONF		[] = "liquids.conf";	// notrans
-const char FORMS_CONF		[] = "forms.conf";	// notrans
 const char CC_EXPR_CONF		[] = "cc_expr.conf";	// notrans
 const char UHANDLERS_CONF	[] = "uhandlers.conf";	// notrans
+const char FORMS_CONF		[] = "forms.conf";	// notrans
+const char EFFECTS_CONF		[] = "effects.conf";	// notrans
 
 const char GLOB_GMLSTR_FILE	[] = "glob_gmlstr";	// notrans
 const char MSGDB_FILE		[] = "msgdb";		// notrans
@@ -1279,6 +1280,54 @@ get_mob_index(int vnum)
 }
 
 /*--------------------------------------------------------------------
+ * effect_t
+ */
+
+avltree_t effects;
+
+static void
+effect_init(effect_t *eff)
+{
+	eff->name = str_empty;
+	eff->fun_name = str_empty;
+	eff->fun = NULL;
+}
+
+static void
+effect_destroy(effect_t *eff)
+{
+	free_string(eff->name);
+	free_string(eff->fun_name);
+}
+
+avltree_info_t c_info_effects =
+{
+	&avltree_ops,
+
+	(e_init_t) effect_init,
+	(e_destroy_t) effect_destroy,
+
+	MT_PVOID, sizeof(effect_t), ke_cmp_str
+};
+
+void
+inflict_effect(const char *name, void *vo, int level, int dam)
+{
+	effect_t *eff;
+
+	C_STRKEY_CHECK(__FUNCTION__, &effects, name);
+	if ((eff = effect_lookup(name)) == NULL)
+		return;
+
+	if (eff->fun == NULL) {
+		log(LOG_ERROR, "%s: %s: NULL fun", __FUNCTION__, eff->name);
+		return;
+	}
+
+	eff->fun(vo, level, dam);
+}
+
+/*--------------------------------------------------------------------
  * skill_t
  */
 
@@ -1319,8 +1368,9 @@ skill_init(skill_t *sk)
 	sk->min_mana = 0;
 	sk->rank = 0;
 	sk->beats = 0;
-	sk->dam_class = DAM_NONE;
 	gmlstr_init(&sk->noun_damage);
+	sk->dam_class = DAM_NONE;
+	sk->effect = str_empty;
 	mlstr_init2(&sk->msg_off, str_empty);
 	mlstr_init2(&sk->msg_obj, str_empty);
 	sk->skill_flags = 0;
@@ -1336,6 +1386,7 @@ skill_destroy(skill_t *sk)
 	gmlstr_destroy(&sk->sk_name);
 	free_string(sk->fun_name);
 	gmlstr_destroy(&sk->noun_damage);
+	free_string(sk->effect);
 	mlstr_destroy(&sk->msg_off);
 	mlstr_destroy(&sk->msg_obj);
 	free_string(sk->restrict_race);

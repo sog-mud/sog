@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.352 2002-03-20 19:39:45 fjoe Exp $
+ * $Id: handler.c,v 1.353 2002-03-21 13:30:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5632,9 +5632,9 @@ make_visible(CHAR_DATA *ch, bool at_will)
 }
 
 void
-bad_effect(CHAR_DATA *ch, int effect)
+bad_effect(CHAR_DATA *ch, int effect_type)
 {
-	switch(effect) {
+	switch (effect_type) {
 	case FAIL_NONE:
 	default:
 		act("Nothing happens.", ch, NULL, NULL, TO_CHAR);

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.389 2002-03-20 19:39:28 fjoe Exp $
+ * $Id: merc.h,v 1.390 2002-03-21 13:30:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2179,6 +2179,24 @@ where_t *where_lookup(flag_t where);
 				 IS_RESIST_AFFECT(paf))
 
 /*----------------------------------------------------------------------
+ * effects stuff
+ */
+
+struct effect_t {
+	const char *name;
+	const char *fun_name;
+	EFFECT_FUN *fun;
+};
+
+extern avltree_t effects;
+extern avltree_info_t c_info_effects;
+
+#define effect_lookup(en) ((effect_t*) c_strkey_lookup(&effects, (en)))
+#define effect_search(en) ((effect_t*) c_strkey_search(&effects, (en)))
+
+void inflict_effect(const char *name, void *vo, int level, int dam);
+
+/*----------------------------------------------------------------------
  * skills stuff
  */
 
@@ -2224,8 +2242,9 @@ struct skill_t {
 	int		beats;			/* waiting time after use */
 	int		rank;			/* Shows rank of difficulty */
 						/* of spell or prayer (0..7) */
-	int		dam_class;		/* damage class */
 	gmlstr_t	noun_damage;		/* damage message */
+	int		dam_class;		/* damage class */
+	const char *	effect;			/* effect */
 	mlstring	msg_off;		/* wear off message */
 	mlstring	msg_obj;		/* wear off message for obj */
 	flag_t		skill_flags;		/* skill flags */
@@ -2522,6 +2541,7 @@ extern const char LIQUIDS_CONF	[];
 extern const char CC_EXPR_CONF	[];
 extern const char UHANDLERS_CONF[];
 extern const char FORMS_CONF	[];
+extern const char EFFECTS_CONF	[];
 
 extern const char MSGDB_FILE	[];
 extern const char HINTS_FILE	[];

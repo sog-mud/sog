@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.31 2002-03-20 19:39:43 fjoe Exp $
+ * $Id: olc_skill.c,v 1.32 2002-03-21 13:30:39 fjoe Exp $
  */
 
 #include "olc.h"
@@ -51,6 +51,7 @@ DECLARE_OLC_FUN(skilled_group		);
 DECLARE_OLC_FUN(skilled_type		);
 DECLARE_OLC_FUN(skilled_event		);
 DECLARE_OLC_FUN(skilled_rank		);
+DECLARE_OLC_FUN(skilled_effect		);
 
 static DECLARE_VALIDATE_FUN(validate_skill_rank);
 static DECLARE_VALIDATE_FUN(validate_skname);
@@ -83,6 +84,8 @@ olc_cmd_t olc_cmds_skill[] =
 	{ "event",	skilled_event, validate_funname, events_classes	},
 	{ "rank",	skilled_rank, validate_skill_rank, NULL		},
 	{ "damclass",	skilled_damclass, NULL,	dam_classes		},
+	{ "effect",	skilled_effect, NULL,	&effects		},
+
 	{ "delete_skil", olced_spell_out, NULL,	NULL			},
 	{ "delete_skill", skilled_delete, NULL,	NULL			},
 
@@ -187,6 +190,8 @@ OLC_FUN(skilled_save)
 			fprintf(fp, "DamClass %s\n",
 				flag_string(dam_classes, sk->dam_class));
 		}
+		if (!IS_NULLSTR(sk->effect))
+			fwrite_string(fp, "Effect", sk->effect);
 		if (!IS_NULLSTR(sk->fun_name))
 			fprintf(fp, "SpellFun %s\n", sk->fun_name);
 		mlstr_fwrite(fp, "WearOff", &sk->msg_off);
@@ -252,6 +257,8 @@ OLC_FUN(skilled_show)
 	mlstr_dump(buf, "NounGender ", &sk->noun_damage.gender, DL_NONE);
 	buf_printf(buf, BUF_END, "DamClass:  [%s]\n",
 		flag_string(dam_classes, sk->dam_class));
+	if (!IS_NULLSTR(sk->effect))
+		buf_printf(buf, BUF_END, "Effect:    [%s]\n", sk->effect);
 	buf_printf(buf, BUF_END, "Rank       [%d]\n", sk->rank);
 
 	if (!IS_NULLSTR(sk->fun_name))
@@ -465,6 +472,13 @@ OLC_FUN(skilled_event)
 	varr_qsort(&sk->events, cmpint);
 	act_char("SkillEd: Ok.", ch);
 	return TRUE;
+}
+
+OLC_FUN(skilled_effect)
+{
+	skill_t *sk;
+	EDIT_SKILL(ch, sk);
+	return olced_foreign_strkey(ch, argument, cmd, &sk->effect);
 }
 
 OLC_FUN(skilled_delete)

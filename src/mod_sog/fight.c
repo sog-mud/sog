@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.351 2002-03-20 19:52:58 fjoe Exp $
+ * $Id: fight.c,v 1.352 2002-03-21 13:30:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -692,7 +692,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			act("$n is burned by $p.", victim, wield, NULL, TO_ROOM);
 			act("$p sears your flesh.",
 			    victim, wield, NULL, TO_CHAR);
-			fire_effect(victim, wield->level/2, dam2);
+			inflict_effect("fire", victim, wield->level/2, dam2);
 			damage(ch, victim, dam2, "+flame", DAM_F_NONE);
 		}
 
@@ -703,7 +703,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			act("$p freezes $n.", victim, wield, NULL, TO_ROOM);
 			act("The cold touch of $p surrounds you with ice.",
 			    victim, wield, NULL, TO_CHAR);
-			cold_effect(victim, wield->level/2, dam2);
+			inflict_effect("cold", victim, wield->level/2, dam2);
 			damage(ch, victim, dam2, "+chill", DAM_F_NONE);
 		}
 
@@ -715,7 +715,7 @@ one_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt, int loc)
 			    victim, wield, NULL, TO_ROOM);
 			act("You are shocked by $p.",
 			    victim, wield, NULL, TO_CHAR);
-			shock_effect(victim, wield->level/2, dam2);
+			inflict_effect("shock", victim, wield->level/2, dam2);
 			damage(ch, victim, dam2, "+shock", DAM_F_NONE);
 		}
 
@@ -782,21 +782,21 @@ _obj_one_hit(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *obj,
 	if (IS_WEAPON_STAT(obj, WEAPON_FLAMING)) {
 		act("$n is burned by $p.", victim, obj, NULL, TO_ROOM);
 		act("$p sears your flesh.", victim, obj, NULL, TO_CHAR);
-		fire_effect(victim, obj->level, dam);
+		inflict_effect("fire", victim, obj->level, dam);
 	}
 
 	if (IS_WEAPON_STAT(obj, WEAPON_FROST)) {
 		act("$p freezes $n.", victim, obj, NULL, TO_ROOM);
 		act("The cold touch of $p surrounds you with ice.",
 		    victim, obj, NULL, TO_CHAR);
-		cold_effect(victim, obj->level, dam);
+		inflict_effect("cold", victim, obj->level, dam);
 	}
 
 	if (IS_WEAPON_STAT(obj, WEAPON_SHOCKING)) {
 		act("$n is struck by lightning from $p.",
 		    victim, obj, NULL, TO_ROOM);
 		act("You are shocked by $p.", victim, obj, NULL, TO_CHAR);
-		shock_effect(victim, obj->level, dam);
+		inflict_effect("shock", victim, obj->level, dam);
 	}
 
 	if (dam > victim->max_hit / 10
