@@ -8,21 +8,21 @@
 04 zoology.are  34 chapel.are   64 -            94  mobfact.are   124 crimgoth
 05 -            35 midennir.are 65 dwarven.are  95  newthalos.are 125 -
 06 ofcol2.are   36 grave.are    66 daycare.are  96  newthalos.are 126 -
-07 -		37 school.are   67 -            97  newthalos.are 127 -
-08 -            38 -            68 -            98  -             128 -
+07 arkham.are	37 school.are   67 -            97  newthalos.are 127 -
+08 arkham.are   38 -            68 -            98  -             128 -
 09 olympus.are  39 moria.are    69 -		99  nation.are    129 -
 10 -		40 moria.are    70 sewer.are    100 westland.are  130 giant.are
 11 shire.are    41 moria.are    71 sewer.are    101 -             131 -
 12 immort.are   42 chess2.are   72 sewer.are    102 solace.are    132 -
 13 hitower.are  43 -            73 sewer.are    103 solace.are    133 -
 14 hitower.are  44 circus.are   74 sewer.are    104 tohell.are    134 ciquala2
-15 gnome.are    45 silver.are   75 gerghlm2.are 105 tohell.are    135 -
+15 gnome.are    45 silver.are   75 gerghlm2.are 105 tohell.are    135 dale.are
 16 wyvern.are   46 mausoleum.are76 gerghlm2.are 106 -		  136 -
-17 wyvern.are   47 -            77 astral.are   107 -		  137 -
-18 magicfor.are 48 -            78 valley.are   108 -    	  138 -
-19 -            49 clocktow.are 79 redferne.are 109 -             139 -
-20 catacomb.are 50 eastern.are  80 -		110 enfan.are     140 armaggdn
-21 -            51 drow.are     81 gtown.are    111 -             141 armaggdn
+17 wyvern.are   47 -            77 astral.are   107 -		  137 mythruins
+18 magicfor.are 48 -            78 valley.are   108 -    	  138 mythruins
+19 -            49 clocktow.are 79 redferne.are 109 -             139 rakshasa
+20 catacomb.are 50 eastern.are  80 -		110 enfan.are     140 drannon
+21 -            51 drow.are     81 gtown.are    111 -             141 -
 22 draconia.are 52 thalos.are   82 zoo3.are     112 -             142 -
 23 mahntor.are  53 oldmid.are   83 marsh.are    113 -             143 -
 24 dragon2.are  54 oldmid.are   84 -            114 -             144 -
@@ -30,7 +30,7 @@
 26 world.are    56 aarak2.are   86 -		116 divsouls.are  146 -
 27 world.are    57 firetop2.are 87 pyramid.are  117 divsouls.are  147 mtdoom.are
 28 trollden.are 58 firetop2.are 88 mirkwd2.are  118 drakury.are   148 -
-29 tree.are     59 -            89 grove.are    119 -             149 -
+29 tree.are     59 -            89 grove.are    119 -             149 kender.are
 --------------------------------------------------------------------------------150 abrazak.are  152 king2.are   154 dara.are    156 -            158 -
 151 abrazak.are  153 -           155 -           157 warkeep.are  159 -
 -------------------------------------------------------------------------------
@@ -52,8 +52,8 @@
 210 alice.are    212 -           214 -           216 -            218 -
 211 -            213 -           215 -           217 -            219 -
 --------------------------------------------------------------------------------
-220 ryzen2.are   222 lizard.are  224 isldead.are 226 fon.are      228 -
-221 lizard.are   223 isldead.are 225 fon.are     227 -            229 blight.are
+220 ryzen2.are   222 lizard.are  224 isldead.are 226 -            228 -
+221 lizard.are   223 isldead.are 225 mythforest	 227 -            229 blight.are
 --------------------------------------------------------------------------------
 230 blight.are   232 shadowlands 234 shadowlands 236 -            238 -
 231 blight.are   233 shadowlands 235 -           237 -            239 -
@@ -63,13 +63,14 @@
 --------------------------------------------------------------------------------
 250 abyss2.are   252 -		 254 -		 256 -		  258 -
 251 -		 253 -		 255 -		 257 -		  259 -
---------------------------------------------------------------------------------260 -            262 -           264 -           266 -            268 -
-261 -		 263 -           265 -           267 -            269 -
+--------------------------------------------------------------------------------260 -            262 forest.are  264 redtwr.are  266 -            268 -
+261 bluetwr.are	 263 -           265 greentwr.are267 -            269 -
 --------------------------------------------------------------------------------
-270-289
+270 -		 272 -		 274 carnival	 276 -		  278 -
+271 -		 273 -		 275 -		 277 -		  279 -
 --------------------------------------------------------------------------------
-290 gstrong.are     292 freeport.are 294 -        296 -           298 - 
-291 faeriering.are, 293 lich.are     295 troy.are 297 -           299 -
+290 gstrong.are     292 freeport.are 294 aswamp   296 legion      298 legion 
+291 faeriering.are, 293 lich.are     295 legion   297 legion      299 -
     coven.are
 --------------------------------------------------------------------------------
 300 -		 302 - 		 304 -           306 -            308 unholy.are
@@ -84,14 +85,14 @@
 330 -            332 -           334 -		 336 -		  338 - 
 331 -            333 -		 335 -		 337 -		  339 -
 --------------------------------------------------------------------------------
-340 -            342 -           344 hello       346 -            348 -
-341 -            343 -           345 -           347 -            349 -
+340 indra        342 -           344 hello       346 -            348 -
+341 indra        343 -           345 -           347 -            349 -
 --------------------------------------------------------------------------------
 350 atlantis     352 -		 354 pixie.are   356 -            358 -
-351 [pond.are]   353 - 		 355 -           357 -            359 -
+351 pond.are     353 - 		 355 -           357 -            359 -
 --------------------------------------------------------------------------------
-360 -		 362 -		 364 festiv3.are 366 -            368 -
-361 -		 363 festiv3.are 365 -           367 -            369 - 
+360 -		 362 -		 364 festiv3.are 366 armageddon   368 troy.are
+361 -		 363 festiv3.are 365 armageddon  367 troy.are     369 - 
 --------------------------------------------------------------------------------
 370-374 clones.are
 --------------------------------------------------------------------------------
@@ -106,7 +107,9 @@
 450-451 
 470-479 kanzaki.are
 502-503 newschool.are
---------------------------------------------------------------------------------
+510	dessins.are (grothendick)
+512	rubble.are (krol)
+513-515 thief_guild (weron, vilmarion)
 --------------------------------------------------------------------------------
 950              952 knights     954 battlerager 956 invaders     958 -
 951 enforcers    953 shalafi     955 chaos       957 hunters      959 lothlorien
