@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.32 1999-02-10 15:58:51 fjoe Exp $
+ * $Id: olc_room.c,v 1.33 1999-02-11 05:38:29 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -158,7 +158,6 @@ OLC_FUN(roomed_edit)
 {
 	char arg[MAX_STRING_LENGTH];
 	ROOM_INDEX_DATA *pRoom;
-	AREA_DATA *pArea;
 
 	one_argument(argument, arg);
 	if (arg[0] == '\0')
@@ -172,14 +171,7 @@ OLC_FUN(roomed_edit)
 		return FALSE;
 	}
 
-	pArea = area_vnum_lookup(pRoom->vnum);
-	if (!IS_BUILDER(ch, pArea)) {
-		char_puts("RoomEd: Insufficient security.\n", ch);
-	       	return FALSE;
-	}
-
-	ch->desc->pEdit = (void*) pRoom;
-	ch->desc->editor = ED_ROOM;
+	roomed_edit_room(ch, pRoom, FALSE);
 	return FALSE;
 }
 
@@ -792,6 +784,21 @@ OLC_FUN(roomed_reset)
 	reset_room(pRoom);
 	char_puts("RoomEd: Room reset.\n", ch);
 	return FALSE;
+}
+
+void roomed_edit_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoom, bool drop_out)
+{
+	AREA_DATA *pArea = area_vnum_lookup(pRoom->vnum);
+
+	if (!IS_BUILDER(ch, pArea)) {
+		char_puts("RoomEd: Insufficient security.\n", ch);
+		if (drop_out)
+			edit_done(ch->desc);
+	       	return;
+	}
+
+	ch->desc->pEdit = (void*) pRoom;
+	ch->desc->editor = ED_ROOM;
 }
 
 static bool olced_exit(CHAR_DATA *ch, const char *argument,

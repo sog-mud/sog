@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.27 1999-02-10 15:58:51 fjoe Exp $
+ * $Id: olc.h,v 1.28 1999-02-11 05:38:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -137,6 +137,8 @@ bool	touch_vnum	(int vnum);
 
 void		edit_done	(DESCRIPTOR_DATA *d);
 OLC_CMD_DATA *	olc_cmd_lookup	(CHAR_DATA *ch, OLC_FUN *fun);
+void		roomed_edit_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoom,
+				 bool drop_out);
 
 #define	SECURITY_CLAN		5
 #define	SECURITY_CLAN_PLIST	9
