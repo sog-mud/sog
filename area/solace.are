@@ -795,7 +795,7 @@ armor GK 0 AE
 30 30 300 P
 a '' to_object 30 -1 1 13 0
 a '' to_object 30 -1 1 1 0
-g none~
+g @rus none~
 #10202
 sleeves obsidian~
 obsidian sleeves~
@@ -806,7 +806,7 @@ armor GK 0 AI
 30 40 300 P
 a '' to_object 30 -1 1 5 0
 a '' to_object 30 -1 -5 24 0
-g none~
+g @rus none~
 #10203
 leggings obsidian~
 obsidian leggings~
@@ -817,7 +817,7 @@ armor GK 0 AF
 30 40 300 P
 a '' to_object 30 -1 20 14 0
 a '' to_object 30 -1 2 2 0
-g none~
+g @rus none~
 #10204
 gauntlets obsidian~
 obsidian gauntlets~
@@ -828,7 +828,7 @@ armor GK 0 AH
 30 40 300 P
 a '' to_object 30 -1 3 18 0
 a '' to_object 30 -1 -3 23 0
-g none~
+g @rus none~
 #10205
 boots obsidian~
 obsidian boots~
@@ -839,7 +839,7 @@ armor GK 0 AG
 30 40 300 P
 a '' to_object 30 -1 10 13 0
 a '' to_object 30 -1 -6 23 0
-g none~
+g @rus none~
 #10206
 cloak obsidian~
 obsidian cloak~
@@ -850,7 +850,7 @@ armor GK 0 AC
 30 40 300 P
 a '' to_object 30 -1 -4 22 0
 a '' to_object 30 -1 -2 24 0
-g none~
+g @rus none~
 #10207
 girth obsidian~
 the obsidian girth~
@@ -861,7 +861,7 @@ armor GK 0 AL
 30 40 300 P
 a '' to_object 30 -1 1 1 0
 a '' to_object 30 -1 -2 24 0
-g none~
+g @rus none~
 #10208
 shield large obsidian~
 the large obsidian shield~
@@ -872,7 +872,7 @@ armor GK 0 AJ
 30 40 300 P
 a '' to_object 30 -1 4 17 0
 a '' to_object 30 -1 3 19 0
-g none~
+g @rus none~
 #10209
 amulet solace~
 the amulet of Solace~
@@ -883,7 +883,7 @@ armor GK 0 AC
 20 40 200 P
 a '' to_object 20 -1 3 17 0
 a '' to_object 20 -1 1 19 0
-g none~
+g @rus none~
 #10210
 obsidian key~
 a obsidian key~
@@ -892,7 +892,7 @@ copper~
 key 0 0 A
 0 0 0 0 0
 30 5 300 P
-g none~
+g @rus none~
 #10211
 sword doomgiver~
 a black hilted sword called, "Doomgiver"~
@@ -917,7 +917,7 @@ Apon the blade is engraved a poem:
                       The fate of all folk everywhere.
 
 ~
-g none~
+g @rus none~
 #10212
 signet ring~
 an Solace signet ring~
@@ -928,7 +928,7 @@ armor G 0 AB
 20 1 200 P
 a '' to_object 20 -1 -2 24 0
 a '' to_object 20 -1 4 13 0
-g none~
+g @rus none~
 #10213
 bracer~
 a obsidian bracer~
@@ -937,7 +937,7 @@ copper~
 armor 0 0 BM
 9 9 9 0 0
 30 9 300 P
-g none~
+g @rus none~
 #10214
 weapons cabinet~
 a weapons cabinet~
@@ -952,7 +952,7 @@ This is a finely crafted reinforced weapons cabinet. It looks very sturdy.
 The cabinet doors are made of smoked glass. Something seems to be
 calling you from within.
 ~
-g none~
+g @rus none~
 #10215
 sword dragonslicer~
 a black hilted sword called, "Dragonslicer"~
@@ -978,7 +978,7 @@ Apon the blade is engraved a poem:
                       In the belly of the giant that my blade impales.
 
 ~
-g none~
+g @rus none~
 #10216
 helmet steel~
 the steel helmet~
@@ -989,7 +989,7 @@ armor GK 0 AE
 27 25 270 P
 a '' to_object 27 -1 -2 21 0
 a '' to_object 27 -1 1 3 0
-g none~
+g @rus none~
 #10217
 sleeves steel~
 steel sleeves~
@@ -1000,7 +1000,7 @@ armor GK 0 AI
 27 35 270 P
 a '' to_object 27 -1 -2 20 0
 a '' to_object 27 -1 -1 24 0
-g none~
+g @rus none~
 #10218
 leggings steel~
 steel leggings~
@@ -1011,7 +1011,7 @@ armor GK 0 AF
 27 35 270 P
 a '' to_object 27 -1 10 14 0
 a '' to_object 27 -1 1 2 0
-g none~
+g @rus none~
 #10219
 gauntlets steel~
 steel gauntlets~
@@ -1023,7 +1023,7 @@ armor GK 0 AH
 a '' to_object 27 -1 1 18 0
 a '' to_object 27 -1 -1 23 0
 a '' to_object 27 -1 1 1 0
-g none~
+g @rus none~
 #10220
 boots steel~
 steel boots~
@@ -1034,7 +1034,7 @@ armor GK 0 AG
 27 35 270 P
 a '' to_object 27 -1 5 13 0
 a '' to_object 27 -1 -2 23 0
-g none~
+g @rus none~
 #10221
 cloak lieutenant ~
 the lieutenant's cloak~
@@ -1045,7 +1045,7 @@ armor GK 0 AC
 27 35 270 P
 a '' to_object 27 -1 -2 22 0
 a '' to_object 27 -1 -1 24 0
-g none~
+g @rus none~
 #10222
 girth steel~
 the steel girth~
@@ -1055,7 +1055,7 @@ armor GK 0 AL
 8 8 8 0 0
 27 35 270 P
 a '' to_object 27 -1 -1 24 0
-g none~
+g @rus none~
 #10223
 shield large steel~
 the large steel shield~
@@ -1066,7 +1066,7 @@ armor GK 0 AJ
 27 35 270 P
 a '' to_object 27 -1 2 17 0
 a '' to_object 27 -1 1 19 0
-g none~
+g @rus none~
 #10224
 bracer steel~
 a steel bracer~
@@ -1076,7 +1076,7 @@ armor 0 0 ABM
 8 8 8 0 0
 27 9 270 P
 a '' to_object 27 -1 5 12 0
-g none~
+g @rus none~
 #10225
 sword shieldbreaker~
 black hilted sword called, "Shieldbreaker"~
@@ -1103,7 +1103,7 @@ Apon the blade is engraved a poem:
                       My edge the widowmaker.
 
 ~
-g none~
+g @rus none~
 #10226
 helmet red~
 the red helmet~
@@ -1113,7 +1113,7 @@ armor GK 0 AE
 7 7 7 0 0
 20 20 200 P
 a '' to_object 20 -1 -1 21 0
-g none~
+g @rus none~
 #10227
 sleeves red scalemail~
 red scalemail sleeves~
@@ -1123,7 +1123,7 @@ armor GK 0 AI
 7 7 7 0 0
 20 30 200 P
 a '' to_object 20 -1 -1 20 0
-g none~
+g @rus none~
 #10228
 leggings red scalemail~
 red scalemail leggings~
@@ -1133,7 +1133,7 @@ armor GK 0 AF
 7 7 7 0 0
 20 30 200 P
 a '' to_object 20 -1 5 14 0
-g none~
+g @rus none~
 #10229
 gauntlets red scalemail~
 red scalemail gauntlets~
@@ -1143,7 +1143,7 @@ armor GK 0 AH
 7 7 7 0 0
 20 30 200 P
 a '' to_object 20 -1 -1 21 0
-g none~
+g @rus none~
 #10230
 boots red scalemail~
 red scalemail boots~
@@ -1154,7 +1154,7 @@ armor GK 0 AG
 20 30 200 P
 a '' to_object 20 -1 2 13 0
 a '' to_object 20 -1 -1 23 0
-g none~
+g @rus none~
 #10231
 cloak red sergeant~
 the red sergeant's cloak~
@@ -1164,7 +1164,7 @@ armor GK 0 AC
 7 7 7 0 0
 20 30 200 P
 a '' to_object 20 -1 -1 22 0
-g none~
+g @rus none~
 #10232
 girth red scalemail~
 the red scalemail girth~
@@ -1173,7 +1173,7 @@ copper~
 armor GK 0 AL
 7 7 7 0 0
 20 30 200 P
-g none~
+g @rus none~
 #10233
 shield large red~
 the large red shield~
@@ -1183,7 +1183,7 @@ armor GK 0 AJ
 7 7 7 0 0
 20 30 200 P
 a '' to_object 20 -1 1 17 0
-g none~
+g @rus none~
 #10234
 bracer red~
 a red bracer~
@@ -1193,7 +1193,7 @@ armor 0 0 BM
 7 7 7 0 0
 20 9 200 P
 a '' to_object 20 -1 1 12 0
-g none~
+g @rus none~
 #10235
 warhammer mage masher~
 a red steel warhammer called, "Mage Masher"~
@@ -1211,7 +1211,7 @@ This hammer has the words, "MAGE MASHER" engraved into it's head.
 It seems to glow and pulse when pointed at a magic user. It seems to just
 glow when pointed at clerics though.
 ~
-g none~
+g @rus none~
 #10236
 plate black platemail~
 black platemail~
@@ -1222,7 +1222,7 @@ armor G 0 AD
 15 10 150 P
 a '' to_object 15 -1 -1 24 0
 a '' to_object 15 -1 8 13 0
-g none~
+g @rus none~
 #10237
 enchanted longsword~
 enchanted longsword~
@@ -1233,7 +1233,7 @@ sword 4 5 'none' 0
 15 70 150 P
 a '' to_object 15 -1 2 18 0
 a '' to_object 15 -1 1 19 0
-g none~
+g @rus none~
 #10238
 enchanted hammer~
 enchanted hammer~
@@ -1243,7 +1243,7 @@ weapon G 0 AN
 mace 4 5 'none' 0
 15 120 150 P
 a '' to_object 15 -1 2 18 0
-g none~
+g @rus none~
 #10239
 enchanted pike~
 enchanted pike~
@@ -1253,7 +1253,7 @@ weapon G 0 AN
 polearm 4 5 'none' 0
 15 150 150 P
 a '' to_object 15 -1 2 18 0
-g none~
+g @rus none~
 #10240
 chamorro ringmail~
 chamorro ringmail~
@@ -1267,7 +1267,7 @@ E
 ringmail~
 This armor is imported from the island of Guam.
 ~
-g none~
+g @rus none~
 #10241
 Mcbread~
 Mcbread~
@@ -1276,7 +1276,7 @@ copper~
 food 0 0 A
 CE 0 0 0 0
 0 5 0 P
-g none~
+g @rus none~
 #10242
 Mcdonut~
 Mcdonut~
@@ -1285,7 +1285,7 @@ copper~
 food 0 0 A
 BD 0 0 0 0
 0 5 0 P
-g none~
+g @rus none~
 #10243
 mcbagel~
 Mcbagel~
@@ -1294,7 +1294,7 @@ copper~
 food 0 0 A
 BD 0 0 0 0
 0 5 0 P
-g none~
+g @rus none~
 #10244
 mcpastry~
 Mcpastry~
@@ -1303,7 +1303,7 @@ copper~
 food 0 0 A
 CD 0 0 0 0
 0 5 0 P
-g none~
+g @rus none~
 #10245
 chocolate chip cookie~
 chocolate chip cookie~
@@ -1312,7 +1312,7 @@ copper~
 food 0 0 A
 ABC 0 0 0 0
 0 5 0 P
-g none~
+g @rus none~
 #10246
 peanut butter cookie~
 peanut butter cookie~
@@ -1321,7 +1321,7 @@ copper~
 food 0 0 A
 ABC 0 0 0 0
 0 5 0 P
-g none~
+g @rus none~
 #10247
 oatmeal cookie~
 oatmeal  cookie~
@@ -1330,7 +1330,7 @@ copper~
 food 0 0 A
 ABC 0 0 0 0
 0 5 0 P
-g none~
+g @rus none~
 #10248
 sugar cookie~
 sugar cookie~
@@ -1339,7 +1339,7 @@ copper~
 food 0 0 A
 ABC 0 0 0 0
 0 5 0 P
-g none~
+g @rus none~
 #10249
 taxes fines~
 taxes and fines~
@@ -1349,7 +1349,7 @@ weapon 0 0 AN
 exotic 5 4 'suction' 0
 17 400 170 P
 a '' to_object 17 -1 -10000 15 0
-g none~
+g @rus none~
 #10250
 enchanted two-handed sword~
 enchanted two-handed sword~
@@ -1359,7 +1359,7 @@ weapon G 0 AN
 sword 6 6 'magic' F
 16 300 160 P
 a '' to_object 16 -1 4 18 0
-g male~
+g @rus male~
 #10251
 carrot~
 carrot~
@@ -1368,7 +1368,7 @@ copper~
 food 0 0 A
 AC 0 0 0 0
 0 2 0 P
-g none~
+g @rus none~
 #10252
 cauliflower~
 cauliflower~
@@ -1377,7 +1377,7 @@ copper~
 food 0 0 A
 AC 0 0 0 0
 0 2 0 P
-g none~
+g @rus none~
 #10253
 bell pepper~
 bell pepper~
@@ -1386,7 +1386,7 @@ copper~
 food 0 0 A
 AC 0 0 0 0
 0 2 0 P
-g none~
+g @rus none~
 #10254
 celery stick~
 celery stick~
@@ -1395,7 +1395,7 @@ copper~
 food 0 0 A
 AC 0 0 0 0
 0 2 0 P
-g none~
+g @rus none~
 #10255
 glass ice tea~
 a glass of ice tea~
@@ -1404,7 +1404,7 @@ copper~
 drink 0 0 A
 5 5 'tea' 0 0
 0 5 0 P
-g none~
+g @rus none~
 #10256
 glass water~
 a glass of water~
@@ -1413,7 +1413,7 @@ copper~
 drink 0 0 A
 5 5 'water' 0 0
 0 5 0 P
-g none~
+g @rus none~
 #10257
 glass koca colah~
 a glass of koca colah~
@@ -1422,7 +1422,7 @@ copper~
 drink 0 0 A
 5 5 'coke' 0 0
 0 5 0 P
-g none~
+g @rus none~
 #10258
 bottle Snapple ice tea~
 a bottle of Snapple ice tea~
@@ -1431,7 +1431,7 @@ copper~
 drink 0 0 A
 5 5 'tea' 0 0
 0 5 0 P
-g none~
+g @rus none~
 #10259
 apple~
 apple~
@@ -1440,7 +1440,7 @@ copper~
 food 0 0 A
 AC 0 0 0 0
 0 2 0 P
-g none~
+g @rus none~
 #10260
 grape~
 a grape~
@@ -1449,7 +1449,7 @@ copper~
 food 0 0 A
 AB 0 0 0 0
 0 2 0 P
-g none~
+g @rus none~
 #10261
 orange~
 a orange~
@@ -1458,7 +1458,7 @@ copper~
 food 0 0 A
 BC 0 0 0 0
 0 2 0 P
-g none~
+g @rus none~
 #10262
 pear~
 a pear~
@@ -1467,7 +1467,7 @@ copper~
 food 0 0 A
 BC 0 0 0 0
 0 2 0 P
-g none~
+g @rus none~
 #10263
 charm solace~
 the charm of Solace~
@@ -1476,7 +1476,7 @@ copper~
 armor 0 0 AC
 5 5 5 0 0
 10 15 100 P
-g none~
+g @rus none~
 #10264
 ring solace~
 the ring of Solace~
@@ -1485,7 +1485,7 @@ copper~
 armor 0 0 AB
 5 5 5 0 0
 10 5 100 P
-g none~
+g @rus none~
 #10265
 earrings solace~
 the earrings of Solace~
@@ -1494,7 +1494,7 @@ copper~
 armor 0 0 AE
 5 5 5 0 0
 10 4 100 P
-g none~
+g @rus none~
 #10266
 frozen pizza crust~
 a frozen pizza crust~
@@ -1503,7 +1503,7 @@ copper~
 armor 0 0 AJ
 5 5 5 0 0
 10 15 100 P
-g none~
+g @rus none~
 #10267
 frozen pumpkin~
 a frozen pumpkin~
@@ -1512,7 +1512,7 @@ copper~
 armor 0 0 AE
 5 5 5 0 0
 10 15 100 P
-g none~
+g @rus none~
 #10268
 frozen side beef~
 a frozen side of beef~
@@ -1521,7 +1521,7 @@ copper~
 armor 0 0 AD
 5 5 5 0 0
 10 23 100 P
-g none~
+g @rus none~
 #10269
 frozen asparagus spear~
 a frozen asparagus spear~
@@ -1531,7 +1531,7 @@ weapon 0 0 AN
 spear 3 5 'none' K
 10 150 100 P
 a '' to_object 10 -1 1 18 0
-g none~
+g @rus none~
 #10270
 mulburry extract~
 mulburry extract~
@@ -1540,7 +1540,7 @@ copper~
 potion G 0 A
 20 'refresh' 'cure light' 'cure poison' ''
 5 1 50 P
-g none~
+g @rus none~
 #10271
 rutabaga~
 rutabaga~
@@ -1549,7 +1549,7 @@ copper~
 pill G 0 A
 20 'detect magic' 'dispel magic' 'stone skin' ''
 5 1 50 P
-g none~
+g @rus none~
 #10272
 rutabaga~
 rutabaga~
@@ -1558,7 +1558,7 @@ copper~
 pill G 0 A
 20 'poison' 'know alignment' 'blindness' ''
 5 1 50 P
-g none~
+g @rus none~
 #10274
 rutabaga~
 rutabaga~
@@ -1567,7 +1567,7 @@ copper~
 pill G 0 A
 20 'detect magic' 'dispel magic' 'stone skin' ''
 5 1 50 P
-g none~
+g @rus none~
 #10275
 Scuba tank~
 scuba tank~
@@ -1576,7 +1576,7 @@ copper~
 boat 0 0 AK
 0 0 0 0 0
 0 30 0 P
-g none~
+g @rus none~
 #10276
 Scuba flippers~
 scuba flippers~
@@ -1586,7 +1586,7 @@ armor G 0 AG
 5 5 5 0 0
 10 7 100 P
 a '' to_object 10 -1 2 2 0
-g none~
+g @rus none~
 #10277
 scuba snorkle~
 scuba snorkle~
@@ -1595,7 +1595,7 @@ copper~
 armor 0 0 AE
 5 5 5 0 0
 10 2 100 P
-g none~
+g @rus none~
 #10278
 dive belt~
 dive belt~
@@ -1604,7 +1604,7 @@ copper~
 armor 0 0 AL
 5 5 5 0 0
 10 50 100 P
-g none~
+g @rus none~
 #10279
 belt pouch~
 belt pouch~
@@ -1613,7 +1613,7 @@ copper~
 container 0 0 AL
 50 A 0 0 0
 0 5 0 P
-g none~
+g @rus none~
 #10280
 cloak storage~
 cloak of storage~
@@ -1622,7 +1622,7 @@ copper~
 container G 0 AC
 125 A 0 0 0
 0 5 0 P
-g none~
+g @rus none~
 #10281
 ring holding~
 ring of holding~
@@ -1631,7 +1631,7 @@ copper~
 container G 0 AB
 300 A 0 0 0
 0 3 0 P
-g none~
+g @rus none~
 #10282
 travellers robe~
 travellers robe~
@@ -1640,7 +1640,7 @@ copper~
 armor 0 0 AK
 5 5 5 0 0
 14 15 140 P
-g none~
+g @rus none~
 #10283
 travellers dagger~
 travellers dagger~
@@ -1649,7 +1649,7 @@ copper~
 weapon 0 0 AN
 dagger 4 4 'pierce' 0
 12 100 120 P
-g none~
+g @rus none~
 #10284
 travellers spellbook~
 travellers spellbook~
@@ -1658,7 +1658,7 @@ copper~
 staff 0 0 AO
 14 5 5 'flamestrike' 0
 14 45 140 P
-g none~
+g @rus none~
 #10285
 travellers holy symbol~
 travellers holy symbol~
@@ -1667,7 +1667,7 @@ copper~
 staff 0 0 AO
 19 5 5 'remove curse' 0
 19 20 190 P
-g none~
+g @rus none~
 #10286
 travellers vest~
 a travellers vest~
@@ -1676,7 +1676,7 @@ copper~
 armor 0 0 AD
 5 5 5 0 0
 12 5 120 P
-g none~
+g @rus none~
 #10287
 travellers cloak~
 a travellers cloak~
@@ -1685,7 +1685,7 @@ copper~
 armor 0 0 AC
 5 5 5 0 0
 12 5 120 P
-g none~
+g @rus none~
 #10288
 travellers sword~
 a travellers sword~
@@ -1694,7 +1694,7 @@ copper~
 weapon G 0 AN
 sword 5 4 'slash' 0
 16 50 160 P
-g none~
+g @rus none~
 #10289
 travellers scalemail~
 a travellers scalemail~
@@ -1703,7 +1703,7 @@ copper~
 armor 0 0 AD
 6 6 6 0 0
 16 5 160 P
-g none~
+g @rus none~
 #10290
 travellers shield~
 a travellers shield~
@@ -1712,7 +1712,7 @@ copper~
 armor 0 0 BJ
 6 6 6 0 0
 16 5 160 P
-g none~
+g @rus none~
 #10291
 travellers hammer~
 a travellers hammer~
@@ -1721,7 +1721,7 @@ copper~
 weapon 0 0 AN
 mace 5 5 'none' 0
 19 50 190 P
-g none~
+g @rus none~
 #10292
 Magnus's spellbook~
 Magnus's spellbook~
@@ -1730,7 +1730,7 @@ copper~
 staff 0 0 AO
 19 5 5 'acid breath' 0
 19 55 190 P
-g none~
+g @rus none~
 #10293
 robe magi~
 robe of the magi~
@@ -1741,7 +1741,7 @@ armor G 0 AK
 19 10 190 P
 a '' to_object 19 -1 50 12 0
 a '' to_object 19 -1 -5 24 0
-g none~
+g @rus none~
 #10294
 crystal plate armor~
 crystal plate armor~
@@ -1753,7 +1753,7 @@ armor FG 0 AD
 a '' to_object 18 -1 1 1 0
 a '' to_object 18 -1 1 5 0
 a '' to_object 18 -1 10 13 0
-g none~
+g @rus none~
 #10295
 Scythe Grim Reaper~
 Scythe of the Grim Reaper~
@@ -1765,7 +1765,7 @@ armor AGJ 0 AN
 a '' to_object 0 -1 80 18 0
 a '' to_object 0 -1 80 19 0
 a '' to_object 0 -1 -30 24 0
-g none~
+g @rus none~
 #10296
 crystal shield~
 crystal shield~
@@ -1775,7 +1775,7 @@ armor FG 0 AJ
 6 6 6 0 0
 18 20 180 P
 a '' to_object 18 -1 10 13 0
-g none~
+g @rus none~
 #10297
 crystal longsword~
 crystal longsword~
@@ -1786,7 +1786,7 @@ armor FG 0 AN
 18 15 180 P
 a '' to_object 18 -1 10 13 0
 a '' to_object 18 -1 3 18 0
-g none~
+g @rus none~
 #10298
 obsidian plate armor~
 a suit of obsidian plate armor~
@@ -1797,7 +1797,7 @@ armor GK 0 AD
 30 40 300 P
 a '' to_object 30 -1 20 13 0
 a '' to_object 30 -1 20 14 0
-g none~
+g @rus none~
 #10299
 steel plate armor~
 a suit of steel plate armor~
@@ -1808,7 +1808,7 @@ armor GK 0 AD
 27 37 270 P
 a '' to_object 27 -1 15 13 0
 a '' to_object 27 -1 15 14 0
-g none~
+g @rus none~
 #10300
 red plate armor~
 a suit of red plate armor~
@@ -1819,7 +1819,7 @@ armor GK 0 AD
 20 33 200 P
 a '' to_object 20 -1 10 13 0
 a '' to_object 20 -1 10 14 0
-g none~
+g @rus none~
 #10301
 enchanted bow~
 enchanted bow~
@@ -1829,7 +1829,7 @@ armor G 0 AN
 6 6 6 0 0
 15 7 150 P
 a '' to_object 15 -1 2 18 0
-g none~
+g @rus none~
 #10302
 safe deposit box~
 safe deposit box~
@@ -1842,7 +1842,7 @@ E
 safe deposit box~
 You see a strong metal box used to keep the town deposits in.
 ~
-g none~
+g @rus none~
 #10303
 gold coins~
 a lot of gold coins~
@@ -1851,7 +1851,7 @@ copper~
 money 0 0 A
 140 0 0 0 0
 14 0 140 P
-g none~
+g @rus none~
 #10304
 fountain water~
 a fountain~
@@ -1864,7 +1864,7 @@ E
 fountain~
 It is very nice.  Made from fine white marble.
 ~
-g none~
+g @rus none~
 #10305
 depository key~
 a depository key~
@@ -1873,7 +1873,7 @@ copper~
 key 0 0 A
 0 0 0 0 0
 17 5 170 P
-g none~
+g @rus none~
 #10306
 city key gold solace~
 Key to the City of Solace~
@@ -1882,7 +1882,7 @@ copper~
 key 0 0 A
 0 0 0 0 0
 30 5 300 P
-g none~
+g @rus none~
 #10307
 flaming homer~
 a drink called, "a Flaming homer"~
@@ -1891,7 +1891,7 @@ copper~
 drink 0 0 A
 1 1 'firebreather' 0 0
 16 3 160 P
-g none~
+g @rus none~
 #10308
 jello shot~
 a jello shot~
@@ -1900,7 +1900,7 @@ copper~
 drink 0 0 A
 1 1 'ale' 0 0
 16 3 160 P
-g none~
+g @rus none~
 #10309
 bloody heads~
 a drink called, "bloody heads"~
@@ -1909,7 +1909,7 @@ copper~
 drink 0 0 A
 1 1 'whisky' 0 0
 16 3 160 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

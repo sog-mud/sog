@@ -2196,7 +2196,7 @@ their bright blue flowers and sword-like leaves greet you cordially.
 @rus На этих свежесрезанных ирисах еще висят капельки утренней росы. Их
 ярко-синие лепестки и узкие как мечи листья словно приветствуют тебя.
 ~
-g plural~
+g @rus plural~
 #208
 Nosegay rosebuds flower бутоньерка розы цветы~
 @eng a nosegay of rosebuds@rus ~~бутоньерка~~ с розами~
@@ -2271,7 +2271,7 @@ dress платье~
 @eng It's a flouncy and frilly thing, the color of crushed lavender.
 @rus Это богато украшенное платье, несомненно, украсит любую фигуру!
 ~
-g none~
+g @rus none~
 #213
 sonnet сонет~
 @eng a badly-written love sonnet@rus ~~неудачный~~ ~~сонет~~~
@@ -2449,7 +2449,7 @@ care has been taken to keep it clean, shiny and whole.
 к ним во время своих путешествий, и эти поножи не раз защищали его от
 увечий.
 ~
-g plural~
+g @rus plural~
 #220
 sollerets boots солереты ботинки~
 @eng a pair of steel sollerets@rus ~~пара~~ стальных солеретов~
@@ -2469,7 +2469,7 @@ been fitted with rubber and leather, reducing the clanking when walking.
 оплетены кольчугой снаружи и отделаны мехом внутри. Подошвы сделаны из
 грубой кожи, поэтому эти солереты почти не гремят при ходьбе.
 ~
-g plural~
+g @rus plural~
 #221
 altar алтарь~
 @eng Altar of Sacrifice@rus ~~алтарь~~ для кровавых жертв~
@@ -2506,7 +2506,7 @@ magic has kept it pulsing, and it continues to bleed painfully.
 заставляет это сердце биться у тебя в ладонях, и из него постоянно течет
 кровь.
 ~
-g none~
+g @rus none~
 #223
 chest сундук~
 @eng a wooden chest@rus ~~деревянный~~ ~~сундук~~~
@@ -2578,7 +2578,7 @@ sandstone altar алтарь песчаник~
 @eng An ancient sandstone altar sits here, weathering all time.
 @rus Старый алтарь неизвестного бога выветривается, старея.
 ~
-g none~
+g @rus none~
 #228
 bole ствол~
 @eng a bole@rus дупло~
@@ -2599,7 +2599,7 @@ bole ствол~
 @eng You see a hole in a bole.
 @rus Ты видишь дупло в стволе на уровне твоего роста.
 ~
-g none~
+g @rus none~
 #229
 nut nuts cache~
 a cache of nuts~
@@ -2612,7 +2612,7 @@ E
 nuts~
 These delicious-looking nuts must be from a squirrel's winter larder.
 ~
-g none~
+g @rus none~
 #230
 Herman Melville book~
 Herman Melville's "Moby Dick"~
@@ -2626,7 +2626,7 @@ Herman Melville book~
 A classic tale of man against fish.  Flipping through it, you notice
 that the word "eskimo" has been circled repeatedly in red.
 ~
-g none~
+g @rus none~
 #231
 shield melancholic~
 the Knight Melancholic's shield~
@@ -2644,7 +2644,7 @@ Order, that of a bleeding heart skewered by a sword and crossed with
 roses.  You feel at once angry with and tired of life just looking
 at the device.
 ~
-g none~
+g @rus none~
 #232
 sword swiftbird~
 a sword called "Swiftbird"~
@@ -2663,7 +2663,7 @@ for measure to the enemies of its wielder.  Engraved along the blade
 of the weapon is the device of the Order of the Knights Melancholic
 and the words, "Honor, Love, Pain, Death and Poetry".
 ~
-g none~
+g @rus none~
 #233
 marmalade Orb~
 a marmalade orb~
@@ -2680,7 +2680,7 @@ The orb is fist-sized and pulsates with an otherworldly energy.  As
 you examine it closer, it spits a burst of magic into the air.  It
 emits a low hum that sounds almost like the purring of a cat.
 ~
-g none~
+g @rus none~
 #234
 TianCanShenGong Manual~
 the TianCanShenGong manual~
@@ -2700,7 +2700,7 @@ that glows right out of the page :
           Bu Pa Tian Cang Di Jui  Zi Pa Cheng Jing Yong You
 
 ~
-g none~
+g @rus none~
 #235
 bible~
 the Bible~
@@ -2720,7 +2720,7 @@ seems to have survived time, dust and wind. A small name seems
 to have been written neatly on the top right hand corner of the
 first page, you can just make out 'Sebastian' on it.
 ~
-g none~
+g @rus none~
 #236
 map~
 Smokey's Map~
@@ -2763,7 +2763,7 @@ map~
                                \\--===\\\\\\\
 
 ~
-g none~
+g @rus none~
 #237
 marcel proust mace book~
 Marcel Proust's "A la Recherche du Temps Perdu"~
@@ -2780,7 +2780,7 @@ marcel proust mace book~
 All 7 related books of this literary masterpiece have been bound in
 one weighty collection.  It looks extremely valuable.
 ~
-g none~
+g @rus none~
 #238
 dagger stick sword-stick палка меч~
 a sword-stick~
@@ -2796,7 +2796,7 @@ of a tree.  It is about 2 feet long and has edges as sharp as that of
 any steel sword.  Its pommel has been carved into the likeness of a
 demon elf with a mysterious expression on her face.
 ~
-g none~
+g @rus none~
 #239
 bookcase cabinet~
 book cabinet~
@@ -2814,7 +2814,7 @@ literature, like "Faust", "To The Lighthouse", "Les Fleurs du mal",
 Tama Janowitz's "The Male Cross-Dresser's Support Group", and an
 autographed collection of Steve Nicks lyrics.
 ~
-g none~
+g @rus none~
 #240
 bow ashen longbow~
 an ashen longbow~
@@ -2830,7 +2830,7 @@ bow ashen Longbow~
 This longbow is six feet tall and made from the sturdy, supple wood
 of the valley ash.  Clearly, it has been crafted by skillful hands.
 ~
-g none~
+g @rus none~
 #241
 hell-spear spear~
 a Hell-Spear~
@@ -2847,7 +2847,7 @@ Five and half feet of night-black iron, the Hell-Spears were forged in
 the Devil's infernal smithies for his huntsmen to claim the souls of
 the damned.  Serpentine tendrils of smoke curl down along its shaft.
 ~
-g none~
+g @rus none~
 #242
 tulips bunch flower~
 a bunch of tulips~
@@ -2861,7 +2861,7 @@ tulips bunch flower~
 A few choice stalks of yellow tulips are here, wrapped carefully in
 brown paper.
 ~
-g none~
+g @rus none~
 #243
 gourd~
 a brown leather gourd~
@@ -2874,7 +2874,7 @@ E
 gourd~
 A hollowed husk of a fruit lies here.
 ~
-g none~
+g @rus none~
 #244
 wafers wafer~
 an elven wafer~
@@ -2887,7 +2887,7 @@ E
 wafer wafers~
 Can you resist me?
 ~
-g none~
+g @rus none~
 #245
 sack~
 a Big Ol'Pack Sack~
@@ -2900,7 +2900,7 @@ E
 sack~
 A brownish leather-like sack rests here.
 ~
-g none~
+g @rus none~
 #246
 Brinjal gourd~
 a purplish brinjal gourd~
@@ -2913,7 +2913,7 @@ E
 brinjal gourd~
 Some purplish husk of a fruit lies here.
 ~
-g none~
+g @rus none~
 #247
 Omelette surprise plate~
 an Omelette Surprise~
@@ -2926,7 +2926,7 @@ E
 omelette surprise plate~
 An Omelette Surprise!!!
 ~
-g none~
+g @rus none~
 #248
 milkshake vanilla~
 a vanilla milkshake~
@@ -2935,7 +2935,7 @@ food~
 drink 0 0 A
 1 1 'milk' 0 0
 1 1 2 P
-g none~
+g @rus none~
 #249
 pancakes plate~
 a plate of pancakes~
@@ -2948,7 +2948,7 @@ E
 pancakes plate~
 A stack of pancakes winks at you seductively.
 ~
-g none~
+g @rus none~
 #250
 dish pate saucer~
 goose-liver pate~
@@ -2961,7 +2961,7 @@ E
 dish pate saucer~
 Farmer Griff's slaughtered Goose, Duffie's liver!
 ~
-g none~
+g @rus none~
 #251
 duck~
 Griff's Roast Duck~
@@ -2975,7 +2975,7 @@ duck~
 Farmer Griff's Speciality -- A golden roasted duck with a savory aroma,
 fresh from the oven.
 ~
-g none~
+g @rus none~
 #252
 stew bowl~
 a herbal pig's brain stew~
@@ -2991,7 +2991,7 @@ carefully broiled with a pig's brain.
 A fragrant aroma of sea cucumber adds a delicate flavour to this savory
 dish.
 ~
-g none~
+g @rus none~
 #253
 bun~
 a Char Siew Bun~
@@ -3005,7 +3005,7 @@ bun~
 Still warm from the oven rack, this fist-sized white bun is wrapped with
 roast pork.
 ~
-g none~
+g @rus none~
 #254
 book~
 Farmer Griff's Culinary Secrets~
@@ -3036,7 +3036,7 @@ irresitably drawn to this page...
    Instructions overleaf.
 
 ~
-g none~
+g @rus none~
 #255
 apron~
 an apron~
@@ -3049,7 +3049,7 @@ E
 apron~
 A fanciful "G" is nicely embroided in the apron's centre.
 ~
-g none~
+g @rus none~
 #256
 cushion cushions~
 a snowy-white cushion~
@@ -3058,7 +3058,7 @@ cloth~
 container 0 0 0
 2 AC 0 0 0
 1 100000 1000 A
-g none~
+g @rus none~
 #257
 key iron~
 a rusty iron key~
@@ -3071,7 +3071,7 @@ E
 key iron~
 It is covered with rust.
 ~
-g none~
+g @rus none~
 #258
 skin cloak~
 the skin of an elven princess~
@@ -3092,7 +3092,7 @@ her sacrifice.  The coven at Struith is now destroyed, but this example
 of their evil and blasphemy has been saved by the Last Sisters.  It
 retains a flawless and immortal beauty that is horrible to behold.
 ~
-g none~
+g @rus none~
 #259
 candle~
 a blood candle~
@@ -3109,7 +3109,7 @@ The blood candle burns so that only you can see its light.  It is made
 by witches from the blood and fat of dead women and can be extinguished
 only by dousing its dark flame with milk.
 ~
-g none~
+g @rus none~
 #260
 ring scarab beetle~
 a gold scarab ring~
@@ -3126,7 +3126,7 @@ A large ugly beetle has been dipped in liquid gold.  Its legs curl in
 the manner of death and you imagine you could slip the thing over your
 finger if you wanted to.
 ~
-g none~
+g @rus none~
 #261
 wig~
 a green serpent-tressed wig~
@@ -3146,7 +3146,7 @@ serpents sewn into what looks like human skin.  The serpents suddenly
 stop writhing and you find yourself staring at a dirty wig dyed with
 crushed moss and leaves.
 ~
-g none~
+g @rus none~
 #262
 circlet~
 the dead star circlet~
@@ -3165,7 +3165,7 @@ glows dully from within a circle of crystal. It radiates an aura of
 evil, and merely being in its presence fills you with a sense of
 dread and fear.
 ~
-g none~
+g @rus none~
 #263
 gown samite~
 a beautiful gown of white samite~
@@ -3185,7 +3185,7 @@ hesitate at the thought of sullying it with your hands and wonder at
 the blood that may have been shed by those seeking to possess it or
 the one clothed in it.
 ~
-g none~
+g @rus none~
 #264
 whip tail manticore~
 the whipping tail of a manticore~
@@ -3202,7 +3202,7 @@ This exotic instrument of death is the massive tail of a manticore.
 The severed end has been cauterized and bound with magic to a
 greaved haft of black iron.
 ~
-g none~
+g @rus none~
 #265
 dagger Yog-Sothoth~
 the dagger of Yog-Sothoth~
@@ -3220,7 +3220,7 @@ The name of the god Yog-Sothoth has been runed upon the blade of this
 dagger. Its steel mirrors your reflection in waves that decay and rot
 your image. An ancient fear claws at your soul as you look upon it.
 ~
-g none~
+g @rus none~
 #266
 root~
 a three-eyed root~
@@ -3235,7 +3235,7 @@ These roots grow in the deepest marshes, feeding off the remains of
 dead animals and men.  Its body is a dirty mauve and bears three red
 eyes which seem to be staring at you.
 ~
-g none~
+g @rus none~
 #267
 root~
 a three-eyed root~
@@ -3250,7 +3250,7 @@ These roots grow in the deepest marshes, feeding off the remains of
 dead animals and men.  Its body is a dirty mauve and bears three red
 eyes which seem to be staring at you.
 ~
-g none~
+g @rus none~
 #268
 Hell-blade blade~
 a Hell-Blade~
@@ -3268,7 +3268,7 @@ into the blade of this evil sword.  Black flames run along its blade
 near your hand and serpentine tendrils of smoke twist around your
 fingers.  A name glows for a moment and it seems to be your own.
 ~
-g none~
+g @rus none~
 #269
 Word~
 a word~
@@ -3282,7 +3282,7 @@ E
 word~
 It is written in a foreign tongue. You can't understand it.
 ~
-g none~
+g @rus none~
 #270
 carnations carnation flower~
 a dozen pink carnations~
@@ -3296,7 +3296,7 @@ carnations carnation flower~
 These white carnations, flushed with pink tinges, give off a strong sweet
 fragrance.
 ~
-g none~
+g @rus none~
 #271
 casket dandelion dandelions flower~
 a casket of Fairy Dandelions~
@@ -3312,7 +3312,7 @@ youngling faeries, who assume form at certain hours of the night as they
 dance gaily in homage to Flora. They lie here now, fluffly and quiet, in
 their wooden casket.
 ~
-g none~
+g @rus none~
 #272
 carrion flower~
 a Carrion Flower~
@@ -3330,7 +3330,7 @@ its emanates, which conjures up images of rank damp rotting bodies, it looks
 as though - could it be - the Carrion Flower grins evily at you, revelling
 the countless lifes it has already claimed.
 ~
-g none~
+g @rus none~
 #273
 tub crocuses~
 a tub of bright yellow crocuses~
@@ -3344,7 +3344,7 @@ tub crocuses~
 A queer cracked stone with beautiful cravings on the side holds serveral
 yellow and orange cup-like bloom.
 ~
-g none~
+g @rus none~
 #274
 cactus~
 a cactus~
@@ -3358,7 +3358,7 @@ cactus~
 This desert shrub seems somewhat out of place but its proud, throny spine
 and tiny white blossoms make it the ideal house warming gift.
 ~
-g none~
+g @rus none~
 #275
 lancelot signet ring~
 Lancelot's Signet Ring~
@@ -3379,7 +3379,7 @@ head. Around its perimeter has been engraved in Latin the chivalric
 motto of the Knights of the Table Round and the name of Lancelot,
 the fallen Knight of Avalon.
 ~
-g none~
+g @rus none~
 #276
 pool~
 Scrying Pool~
@@ -3395,7 +3395,7 @@ bones, old jewellery and odd trinkets in here where they now lie
 decaying or corroded. You notice something glimmer faintly at the
 bottom of the pool.
 ~
-g none~
+g @rus none~
 #277
 staff~
 the Grand Pooh-Ba's Staff~
@@ -3411,7 +3411,7 @@ over the Brownie-Pixie Bonanzas, this hoary willow staff is used
 both to conjure up simple fare and beverage, and to thump over-
 enthusiastic party-goers over the head.
 ~
-g none~
+g @rus none~
 #278
 pool water~
 a rock pool~
@@ -3424,7 +3424,7 @@ E
 rock pool~
 A rock pool with crystal clear water has formed.
 ~
-g none~
+g @rus none~
 #279
 knapsack sack~
 a ranger's knapsack~
@@ -3438,7 +3438,7 @@ E
 knapsack sack~
 A knapsack made from the finest leather rests here.
 ~
-g none~
+g @rus none~
 #280
 well water~
 an old well~
@@ -3451,7 +3451,7 @@ E
 well water~
 An old cracked well stands rooted in the center of the village square.
 ~
-g none~
+g @rus none~
 #281
 bone bracelet~
 a bone bracelet~
@@ -3468,7 +3468,7 @@ bone bracelet~
 This ornamental chain was strung from blackened knuckle bones of an elf.
 It is surrounded with an aura of death.
 ~
-g none~
+g @rus none~
 #282
 portal портал~
 @eng portal@rus портал~
@@ -3486,7 +3486,7 @@ unknown~
 portal 0 0 0
 0 0 0 298 0
 0 0 0 P
-g none~
+g @rus none~
 #284
 portal портал~
 @eng portal@rus портал~
@@ -3495,7 +3495,7 @@ unknown~
 portal 0 0 0
 0 0 DE 0 0
 0 0 0 P
-g none~
+g @rus none~
 #285
 sneakers тапочки~
 @eng sneakers@rus ~~домашние~~ ~~тапочки~~~
@@ -3507,7 +3507,7 @@ clothing GUb B AG
 a '' to_object 10 -1 -10 20 0
 a '' to_object 10 -1 15 31 0
 a '' to_invis 10 -1 5 18 G
-g plural~
+g @rus plural~
 #0
 
 #ROOMS

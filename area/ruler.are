@@ -76,7 +76,7 @@ ivory~
 container Y AB 0
 10 ABCD 95102 15 100
 60 1 20 P
-g none~
+g @rus none~
 #95101
 law laws book~
 @eng the book of laws@rus Кодекс~
@@ -85,7 +85,7 @@ paper~
 treasure 0 ABH AO
 0 0 0 0 0
 0 1 100000 P
-g none~
+g @rus none~
 #95102
 paper rolled roll свиток~
 @eng a rolled paper@rus ~~бумажный~~ ~~свиток~~~
@@ -99,7 +99,7 @@ paper~
 @eng There are some secret codes written here, in order to open something.
 @rus Секретные коды, написанные здесь, несомненно открывают что-то.
 ~
-g none~
+g @rus none~
 #95103
 sofa silk~
 @eng a silk sofa@rus обитый шелком диван~
@@ -108,7 +108,7 @@ silk~
 furniture 0 0 0
 AB DFGHIJ BHKN BCEH BCEH
 20 400 100000 P
-g none~
+g @rus none~
 #95104
 clan mark book law~
 Book of LAW~
@@ -117,7 +117,7 @@ unknown~
 jewelry Y 0 S
 0 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #95105
 law~
 @eng {CLaw and order{x@rus {CНа страже порядка{x~
@@ -126,7 +126,7 @@ unknown~
 trash AM ACE AS
 0 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

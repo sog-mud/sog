@@ -43,7 +43,7 @@ These are a set of sturdy leather leggings with small brass bells sewn on.
 They look like the leggings worn by Morris dancers.  There is a motto tooled
 into the leather.
 ~
-g none~
+g @rus none~
 #8601
 handkerchief hankie kerchief morris~
 a morris handkerchief~
@@ -56,7 +56,7 @@ E
 handkerchief hankie kerchief~
 This is a fine linen handkerchief used for ritual Morris dances.
 ~
-g none~
+g @rus none~
 #8602
 sash morris white~
 a morris sash~
@@ -69,7 +69,7 @@ E
 sash~
 This is a fine linen sash used for ritual Morris dances.
 ~
-g none~
+g @rus none~
 #8603
 staff morris~
 a morris staff~
@@ -83,7 +83,7 @@ stick staff~
 Made from the wood of a Yule Tree, this staff is about one meter long and
 highly polished.  It looks more like a ritual device than a weapon.
 ~
-g none~
+g @rus none~
 #0
 
 #ROOMS

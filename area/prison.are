@@ -437,7 +437,7 @@ iron~
 key B 0 AO
 0 0 0 0 0
 5 0 0 P
-g none~
+g @rus none~
 #32001
 short sword~
 a short sword~
@@ -448,7 +448,7 @@ sword 1 6 'slash' 0
 5 50 100 P
 a '' to_object 5 -1 1 18 0
 a '' to_object 5 -1 1 19 0
-g none~
+g @rus none~
 #32002
 pack of cigarettes~
 a pack of cigarettes~
@@ -462,7 +462,7 @@ a '' to_object 10 -1 2 18 0
 E
 smokes cigarettes pack~
 The surgeon General warns that smoking may be harmful to your health~
-g none~
+g @rus none~
 #32003
 Trojan wrapper~
 a used condom wrapper~
@@ -471,7 +471,7 @@ unknown~
 trash H 0 A
 0 A BC ABD P
 20 0 0 P
-g none~
+g @rus none~
 #32004
 soap rope~
 a soap on a rope~
@@ -482,7 +482,7 @@ exotic 4 4 'pound' 0
 11 100 10 P
 a '' to_object 11 -1 1 19 0
 a '' to_object 11 -1 1 4 0
-g none~
+g @rus none~
 #32005
 tricks~
 flar's bag of tricks~
@@ -491,7 +491,7 @@ leather~
 container FG 0 AO
 300 0 0 11 100
 0 10 10 P
-g none~
+g @rus none~
 #32006
 unknown ember ring~
 a unknown ember ring~
@@ -502,7 +502,7 @@ treasure 0 0 AB
 1 5 0 P
 a '' to_object 1 -1 1 1 0
 a '' to_object 1 -1 12 13 0
-g none~
+g @rus none~
 #32007
 hatchling ember ring~
 a hatchling ember ring~
@@ -513,7 +513,7 @@ treasure 0 0 AB
 1 5 0 P
 a '' to_object 1 -1 1 1 0
 a '' to_object 1 -1 6 13 0
-g none~
+g @rus none~
 #32008
 Hatchling robe~
 a hatchling robe~
@@ -524,7 +524,7 @@ armor 0 0 AK
 1 5 0 P
 a '' to_object 1 -1 1 4 0
 a '' to_object 1 -1 5 12 0
-g none~
+g @rus none~
 #32009
 filet rat~
 a rat filet~
@@ -533,7 +533,7 @@ food~
 food 0 0 A
 D BC 0 A 0
 0 1 0 P
-g none~
+g @rus none~
 #32010
 hatchling cloak~
 a hatchling cloak~
@@ -542,7 +542,7 @@ leather~
 armor 0 0 AC
 2 0 0 0 0
 1 5 0 P
-g none~
+g @rus none~
 #32011
 hatchling shirt~
 a hatchling shirt~
@@ -551,7 +551,7 @@ leather~
 armor 0 0 AD
 2 0 0 0 0
 1 5 0 P
-g none~
+g @rus none~
 #32012
 helmet~
 a hatchling helmet~
@@ -560,7 +560,7 @@ steel~
 armor 0 0 AE
 2 0 0 0 0
 1 5 0 P
-g none~
+g @rus none~
 #32013
 hatchling leggings~
 a set of hatchling leggings~
@@ -569,7 +569,7 @@ steel~
 armor 0 0 AF
 2 0 0 0 0
 1 5 0 P
-g none~
+g @rus none~
 #32014
 hatchling boots~
 a pair of hatchling boots~
@@ -578,7 +578,7 @@ leather~
 armor 0 0 AG
 2 0 0 0 0
 1 5 0 P
-g none~
+g @rus none~
 #32015
 hatchling gloves~
 a pair of hatchling gloves~
@@ -587,7 +587,7 @@ leather~
 armor 0 0 AH
 2 0 0 0 0
 1 5 0 P
-g none~
+g @rus none~
 #32016
 hatchling sleeves~
 a set of hatchling sleeves~
@@ -596,7 +596,7 @@ steel~
 armor 0 0 AI
 2 0 0 0 0
 1 10 0 P
-g none~
+g @rus none~
 #32017
 shield hatchling~
 a hatchling shield~
@@ -605,7 +605,7 @@ steel~
 armor 0 0 AJ
 2 0 0 0 0
 1 10 0 P
-g none~
+g @rus none~
 #32018
 hatchling belt~
 a hatchling belt~
@@ -617,7 +617,7 @@ container 0 0 AK
 a '' to_object 3 -1 1 19 0
 a '' to_object 3 -1 1 18 0
 a '' to_object 3 -1 10 13 0
-g none~
+g @rus none~
 #32019
 hatchling bracer~
 a hatchling bracer ~
@@ -626,7 +626,7 @@ leather~
 armor 0 0 AM
 2 0 0 0 0
 1 5 2000 P
-g none~
+g @rus none~
 #32020
 lucky charm hatchling~
 a lucky charm~
@@ -637,7 +637,7 @@ B 0 0 0 0
 5 10 110 P
 a '' to_object 5 -1 1 4 0
 a '' to_object 5 -1 1 5 0
-g none~
+g @rus none~
 #32021
 Starter Kit~
 a starter kit~
@@ -651,7 +651,7 @@ starter kit~
 This kit has been brought to you by Environmental Chemical corporation
 
 Ask For Terry~
-g none~
+g @rus none~
 #32022
 fountain water~
 a fountain~
@@ -660,7 +660,7 @@ marble~
 fountain A 0 0
 1100 1100 'water' 0 0
 0 0 0 P
-g none~
+g @rus none~
 #32023
 crumpled piece paper~
 a crumpled piece of paper~
@@ -681,7 +681,7 @@ Diana
 
 
 PS I have given the kids to the cannibals in Westreen.~
-g none~
+g @rus none~
 #32024
 Desk~
 a large cluttered desk~
@@ -693,7 +693,7 @@ container 0 0 0
 E
 desk~
 Don't mess with the desk it is not yours.~
-g none~
+g @rus none~
 #32025
 Cell key~
 a cell block key  ~
@@ -702,7 +702,7 @@ iron~
 key 0 0 A
 0 0 0 0 0
 15 0 0 P
-g none~
+g @rus none~
 #32026
 joint~
 a big fat joint~
@@ -711,7 +711,7 @@ unknown~
 wand 0 0 AO
 23 6 6 'faerie fire' 0
 5 5 10 P
-g none~
+g @rus none~
 #32027
 py check paycheck~
 a paycheck~
@@ -720,7 +720,7 @@ unknown~
 treasure 0 0 AO
 0 A 6 0 0
 0 10 10 P
-g none~
+g @rus none~
 #32028
 dirty mop~
 a dirty mop~
@@ -729,7 +729,7 @@ unknown~
 weapon 0 0 AN
 exotic 2 4 'pierce' 0
 5 50 10 P
-g none~
+g @rus none~
 #32029
 large battle axe~
 a large battle axe~
@@ -740,7 +740,7 @@ axe 5 7 'chop' 0
 30 0 0 P
 a '' to_object 30 -1 -10 17 0
 a '' to_object 30 -1 3 19 0
-g none~
+g @rus none~
 #32030
 spiked wristguard~
 a spiked wristguard~
@@ -754,7 +754,7 @@ a '' to_object 60 -1 50 12 0
 a '' to_object 60 -1 -20 17 0
 a '' to_object 60 -1 5 18 0
 a '' to_object 60 -1 5 19 0
-g none~
+g @rus none~
 #32031
 titanium leggings~
 a pair of titanium leggings~
@@ -765,7 +765,7 @@ armor 0 0 AF
 60 15 100 P
 a '' to_object 60 -1 -15 17 0
 a '' to_object 60 -1 -15 24 0
-g none~
+g @rus none~
 #32032
 titanium sleeves~
 a set of titanium sleeves~
@@ -775,7 +775,7 @@ armor 0 0 AI
 25 25 26 20 0
 60 5 100 P
 a '' to_object 60 -1 3 1 0
-g none~
+g @rus none~
 #32033
 prison uniform~
 a prison uniform~
@@ -785,7 +785,7 @@ armor 0 0 AK
 6 6 7 5 0
 20 5 10 P
 a '' to_object 20 -1 3 2 0
-g none~
+g @rus none~
 #32034
 titanium shield~
 a titanium shield~
@@ -795,7 +795,7 @@ armor 0 0 AJ
 29 29 28 20 0
 60 35 1000 P
 a '' to_object 60 -1 10 19 0
-g none~
+g @rus none~
 #32035
 dagger curved~
 a curved  assasin's dagger~
@@ -806,7 +806,7 @@ dagger 7 7 'pierce' 0
 45 50 1000 P
 a '' to_object 45 -1 10 18 0
 a '' to_object 45 -1 4 19 0
-g none~
+g @rus none~
 #32036
 ring guardian~
 a pitch black ring~
@@ -817,7 +817,7 @@ armor ABFG 0 AB
 30 5 1000 P
 a '' to_object 30 -1 100 13 0
 a '' to_object 30 -1 -15 17 0
-g none~
+g @rus none~
 #32037
 iron manacle~
 a set of wrought iron manacles~
@@ -828,7 +828,7 @@ armor M 0 AM
 1 5 100 P
 a '' to_object 1 -1 -200 14 0
 a '' to_object 1 -1 2 9 0
-g none~
+g @rus none~
 #32038
 zip gun~
 a zip gun~
@@ -837,7 +837,7 @@ unknown~
 wand 0 0 AO
 15 8 8 'high explosive' 0
 5 5 10 P
-g none~
+g @rus none~
 #32039
 coins gold pile~
 a pile of gold coins~
@@ -846,7 +846,7 @@ gold~
 money 0 0 A
 1500 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #32040
 heels pink sequin~
 a set of pink sequined high heels~
@@ -856,7 +856,7 @@ armor 0 0 AG
 26 26 26 16 0
 80 5 1000 P
 a '' to_object 80 -1 5 2 0
-g none~
+g @rus none~
 #32041
 scarf pink cashmire~
 a pink cashmire scarf~
@@ -866,7 +866,7 @@ armor 0 0 AC
 20 20 20 10 0
 60 5 1000 P
 a '' to_object 60 -1 -10 17 0
-g none~
+g @rus none~
 #32042
 bra push up~
 a push up bra~
@@ -877,7 +877,7 @@ armor M 0 AD
 36 10 10 P
 a '' to_object 36 -1 -10 9 0
 a '' to_object 36 -1 3 19 0
-g none~
+g @rus none~
 #32043
 coveralls~
 a pair of coveralls~
@@ -888,7 +888,7 @@ armor BF 0 AK
 48 10 1100 P
 a '' to_object 48 -1 3 1 0
 a '' to_object 48 -1 100 13 0
-g none~
+g @rus none~
 #32044
 indians baseball hat~
 an Indians baseball hat~
@@ -899,7 +899,7 @@ armor 0 0 AE
 48 2 10 P
 a '' to_object 48 -1 200 14 0
 a '' to_object 48 -1 10 24 0
-g none~
+g @rus none~
 #32045
 tool belt~
 a tool belt~
@@ -909,7 +909,7 @@ armor 0 0 AL
 16 17 15 10 0
 50 5 50 P
 a '' to_object 50 -1 3 5 0
-g none~
+g @rus none~
 #32046
 golden hairnet~
 a golden hairnet~
@@ -924,7 +924,7 @@ a '' to_object 45 -1 2 3 0
 a '' to_object 45 -1 2 2 0
 a '' to_object 45 -1 2 1 0
 a '' to_object 45 -1 2 5 0
-g none~
+g @rus none~
 #32047
 baby jacob~
 baby jacob~
@@ -933,7 +933,7 @@ stone~
 light 0 0 0
 0 0 0 0 0
 40 5 50 P
-g none~
+g @rus none~
 #32048
 scroll persuasion~
 a scroll of persuasion~
@@ -942,7 +942,7 @@ vellum~
 scroll 0 0 A
 60 'word of recall' '' '' ''
 40 5 50 P
-g none~
+g @rus none~
 #32049
 Gown virginity~
 a gown of virginity~
@@ -953,7 +953,7 @@ armor 0 0 AK
 80 5 0 P
 a '' to_object 80 -1 1 4 0
 a '' to_object 80 -1 -500 14 0
-g none~
+g @rus none~
 #32050
 packet boiler water treatment~
 a packet of boiler water treatment~
@@ -962,7 +962,7 @@ food~
 food H 0 A
 BC BC 0 0 0
 0 5 0 P
-g none~
+g @rus none~
 #32051
 dreadlocks~
 a mane of dreadlocks~
@@ -972,7 +972,7 @@ armor ABFKL 0 AE
 30 30 30 20 0
 45 25 110 P
 a '' to_object 45 -1 6 19 0
-g none~
+g @rus none~
 #32052
 Axe destruction~
 an axe of destruction~
@@ -983,7 +983,7 @@ axe 6 11 'chop' DE
 45 300 0 P
 a '' to_object 45 -1 5 19 0
 a '' to_object 45 -1 60 17 0
-g none~
+g @rus none~
 #32053
 trash can~
 a trash can~
@@ -992,7 +992,7 @@ bronze~
 container 0 0 0
 200 0 0 6 100
 0 0 0 P
-g none~
+g @rus none~
 #32054
 chopping block~
 a chopping block~
@@ -1001,7 +1001,7 @@ iron~
 furniture 0 0 0
 0 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #32055
 head severed~
 a severed head~
@@ -1014,7 +1014,7 @@ E
 head~
 Hmmm this head looks like it has been here a while. It has maggots crawling in a
 nd out of the eyes. Better put it down........~
-g none~
+g @rus none~
 #32056
 rusty shower~
 a rusty leaky shower head~
@@ -1023,7 +1023,7 @@ stone~
 fountain 0 0 0
 0 0 'water' 0 0
 0 0 0 P
-g none~
+g @rus none~
 #32057
 pill lude~
 a lude~
@@ -1032,7 +1032,7 @@ unknown~
 pill 0 0 A
 10 'bless' 'cure serious' 'cure light' ''
 1 20 200 P
-g none~
+g @rus none~
 #32058
 flask vile mist~
 a flask of vile liquid~
@@ -1041,7 +1041,7 @@ glass~
 potion 0 0 A
 8 'fly' 'refresh' '' ''
 2 25 10 P
-g none~
+g @rus none~
 #32059
 invisibility staff~
 a staff of invisibility~
@@ -1050,7 +1050,7 @@ wood~
 staff 0 0 AO
 12 8 8 'armor' 0
 5 5 100 P
-g none~
+g @rus none~
 #32060
 drum~
 a drum~
@@ -1063,7 +1063,7 @@ E
 drum~
 The proudly states that it was purchased from environmental chemical Corporation
 .~
-g none~
+g @rus none~
 #32061
 briefcase~
 a brown leather briefcase~
@@ -1073,7 +1073,7 @@ container 0 0 AJ
 50 0 0 5 100
 5 10 10 P
 a '' to_object 5 -1 -12 17 0
-g none~
+g @rus none~
 #32062
 Ball point pen~
 a ball point pen~
@@ -1086,7 +1086,7 @@ a '' to_object 50 -1 3 19 0
 a '' to_object 50 -1 3 18 0
 a '' to_object 50 -1 30 13 0
 a '' to_object 50 -1 50 12 0
-g none~
+g @rus none~
 #32063
 quart~
 a quart of astro-sol#3~
@@ -1095,7 +1095,7 @@ unknown~
 trash 0 0 A
 0 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #32064
 quart Natural ~
 a quart of Natural 50~
@@ -1104,7 +1104,7 @@ unknown~
 trash 0 0 A
 0 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #32065
 Can ec50~
 a can of EC50~
@@ -1113,7 +1113,7 @@ unknown~
 wand 0 0 AO
 13 5 5 'fireball' 0
 10 10 1000 P
-g none~
+g @rus none~
 #32067
 hatchling ember ring~
 a hatchling ember ring~
@@ -1124,7 +1124,7 @@ treasure 0 0 AB
 1 8 0 P
 a '' to_object 1 -1 1 1 0
 a '' to_object 1 -1 6 13 0
-g none~
+g @rus none~
 #32068
 hatchling cloak~
 a hatchling cloak~
@@ -1133,7 +1133,7 @@ unknown~
 armor 0 0 AC
 2 0 0 0 0
 1 5 0 P
-g none~
+g @rus none~
 #32069
 hatchling bracer~
 a hatchling bracer~
@@ -1142,7 +1142,7 @@ unknown~
 armor 0 0 AM
 2 1 0 0 0
 1 5 0 P
-g none~
+g @rus none~
 #32070
 large desk~
 a large desk~
@@ -1151,7 +1151,7 @@ unknown~
 container 0 0 0
 200 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #32071
 fountain water holy~
 an ivory fountain~
@@ -1160,7 +1160,7 @@ ivory~
 fountain A 0 0
 100 100 'water' 0 0
 0 0 0 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

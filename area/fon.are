@@ -483,7 +483,7 @@ plant~
 pill 0 0 A
 20 'water breathing' '' '' ''
 10 1 500 P
-g none~
+g @rus none~
 #22452
 staff green~
 green staff~
@@ -497,7 +497,7 @@ staff~
 You see a large green staff incrusted by fresh leaves.You can read runes 
 on staff :"Satisfy Hunger".
 ~
-g none~
+g @rus none~
 #22453
 water pool~
 pool of water~
@@ -506,7 +506,7 @@ moss~
 fountain GY B 0
 100000 100000 'water' 0 0
 20 0 0 P
-g none~
+g @rus none~
 #22454
 sing plaque~
 a small sign~
@@ -533,7 +533,7 @@ And in our forest you can't find aggressive creatures.
 But beware a deep tunnel under forest.
                      Signed Tellias,Ranger Guard of FoN.
 ~
-g none~
+g @rus none~
 #22455
 staff wooden training~
 wooden training staff~
@@ -549,7 +549,7 @@ E
 staff~
 You see a small wooden staff maded form fresh wood.
 ~
-g none~
+g @rus none~
 #22456
 mace wood training~
 wooden training mace~
@@ -561,7 +561,7 @@ mace 9 2 'smash' 0
 a '' to_object 5 -1 8 13 0
 a '' to_object 5 -1 1 19 0
 a '' to_object 5 -1 1 18 0
-g none~
+g @rus none~
 #22457
 flail wooden training~
 wooden training flail~
@@ -571,7 +571,7 @@ weapon 0 0 AN
 flail 9 2 'thwack' 0
 5 10 0 P
 a '' to_object 5 -1 15 13 0
-g none~
+g @rus none~
 #22458
 leather training whip~
 leather training whip~
@@ -582,7 +582,7 @@ whip 9 2 'sting' 0
 5 10 0 P
 a '' to_object 5 -1 20 12 0
 a '' to_object 5 -1 3 19 0
-g none~
+g @rus none~
 #22459
 wooden training polearm~
 wooden training polearm~
@@ -594,7 +594,7 @@ polearm 10 2 'cleave' DF
 a '' to_object 5 -1 -5 17 0
 a '' to_object 5 -1 3 19 0
 a '' to_object 5 -1 3 18 0
-g none~
+g @rus none~
 #22460
 wooden training sword~
 wooden training sword~
@@ -605,7 +605,7 @@ sword 9 2 'slash' 0
 5 10 0 P
 a '' to_object 5 -1 -5 17 0
 a '' to_object 5 -1 3 19 0
-g none~
+g @rus none~
 #22461
 wooden trainig dagger~
 wooden training dagger~
@@ -616,7 +616,7 @@ dagger 9 2 'pierce' D
 5 10 0 P
 a '' to_object 5 -1 1 18 0
 a '' to_object 5 -1 1 19 0
-g none~
+g @rus none~
 #22462
 mushroom food cooked~
 cooked mushroom~
@@ -625,7 +625,7 @@ flesh~
 food 0 0 AO
 BCDE ADE 0 0 0
 1 1 2 P
-g none~
+g @rus none~
 #22463
 necklace strenght power~
 Necklace of Power~
@@ -635,7 +635,7 @@ armor A 0 AC
 3 2 4 5 0
 5 1 0 P
 a '' to_object 5 -1 1 1 0
-g none~
+g @rus none~
 #22464
 necklace intelligence magi~
 Necklace of Magi~
@@ -645,7 +645,7 @@ armor A 0 AC
 3 2 4 5 0
 5 1 0 P
 a '' to_object 5 -1 1 3 0
-g none~
+g @rus none~
 #22465
 necklace wisdom~
 Necklace of Wisdom~
@@ -655,7 +655,7 @@ armor A 0 AC
 3 2 4 5 0
 5 1 0 P
 a '' to_object 5 -1 2 4 0
-g none~
+g @rus none~
 #22466
 necklace speed~
 Necklace of Speed~
@@ -665,7 +665,7 @@ armor A 0 AC
 3 2 4 5 0
 5 1 0 P
 a '' to_object 5 -1 1 2 0
-g none~
+g @rus none~
 #22467
 necklace life~
 Necklace of Life~
@@ -675,7 +675,7 @@ armor A 0 AC
 3 2 4 5 0
 5 1 0 P
 a '' to_object 5 -1 1 5 0
-g none~
+g @rus none~
 #22468
 necklace beauty~
 Necklace of Beauty~
@@ -685,7 +685,7 @@ armor A 0 AC
 3 2 4 5 0
 5 1 0 P
 a '' to_object 5 -1 1 6 0
-g none~
+g @rus none~
 #22469
 bloody orb~
 bloody orb~
@@ -700,7 +700,7 @@ a '' to_object 5 -1 12 13 0
 a '' to_object 5 -1 -5 17 0
 a '' to_object 5 -1 2 19 0
 a '' to_object 5 -1 2 18 0
-g none~
+g @rus none~
 #22470
 slime mold~
 slime mold~
@@ -709,7 +709,7 @@ flesh~
 food 0 0 A
 BD AC 0 0 0
 1 2 0 P
-g none~
+g @rus none~
 #22471
 ring wildreness~
 ring of wildreness~
@@ -722,7 +722,7 @@ a '' to_object 16 -1 15 13 0
 a '' to_object 16 -1 1 19 0
 a '' to_object 16 -1 1 18 0
 a '' to_object 16 -1 -5 20 0
-g none~
+g @rus none~
 #22472
 claw serpent~
 claw of serpents~
@@ -745,7 +745,7 @@ You see on ancient serpents claws.It claws is encrusted by some strange metals
 and you sense aura of magic surronds him.Its linke old things but you see 
 that it can't be broken.In one place you can see runes.
 ~
-g none~
+g @rus none~
 #22473
 leaf blade~
 leaf blade~
@@ -764,7 +764,7 @@ You see a large lead of unknown tree.IIt's material is very strong and it has sh
 In the edge you can see a strange poisonus-smell liqud and
 think that you don't like to touch it.
 ~
-g none~
+g @rus none~
 #22474
 leggings tail skin~
 Naga's tail~
@@ -781,7 +781,7 @@ skin~
 The skin on tail is very strong and you sense magical fluid ,
 from it.This skin have grey color and small scales.
 ~
-g none~
+g @rus none~
 #22475
 staff ice crystal blue~
 ice crystal staff~
@@ -801,7 +801,7 @@ staff~
 You see a long staff maded from blue ice crystall.You sense a aura of stange
 energy surrounded it.And sometimes this staff glows brighly in you hands.
 ~
-g none~
+g @rus none~
 #22476
 ring signed fon~
 FoN signed ring~
@@ -821,7 +821,7 @@ You see a ring with blue crystall surrounded by energy.
 In the crystal you see stange sign such as 'F o N'.You think on this
 sign some time but don't know what is it...
 ~
-g none~
+g @rus none~
 #22478
 bow composite darkslayer~
 Composite bow named "DarkSlayer"~
@@ -841,7 +841,7 @@ from unicorn.On the bow you can see three strange runes on unknown dead
 language.But you can read it and translate but only one part :"...for
 steel and fire ...".
 ~
-g none~
+g @rus none~
 #22479
 quiver skin~
 Ornately designed quiver~
@@ -860,7 +860,7 @@ quiver~
 This quiver maded from skin of snow minotaur and encrusted by many sorts
 of gems such as ruby , tiger's eye's, saphyres and etc.
 ~
-g none~
+g @rus none~
 #22480
 shield wooden~
 wooden shield fashhioned by fresh grass~
@@ -873,7 +873,7 @@ a '' to_object 37 -1 -1 4 0
 a '' to_object 37 -1 1 2 0
 a '' to_object 37 -1 5 19 0
 a '' to_object 37 -1 35 13 0
-g none~
+g @rus none~
 #22490
 box matches~
 box of matches~
@@ -886,7 +886,7 @@ a '' to_object 33 -1 -3 19 0
 a '' to_object 33 -1 -3 18 0
 a '' to_object 33 -1 50 13 0
 a '' to_object 33 -1 50 12 0
-g none~
+g @rus none~
 #22491
 twin bladed axe~
 twin-bladed axe~
@@ -898,7 +898,7 @@ axe 8 4 'cleave' ADH
 a '' to_object 0 -1 2 30 0
 a '' to_object 0 -1 -5 18 0
 a '' to_object 0 -1 8 19 0
-g none~
+g @rus none~
 #22492
 jewelled dagger~
 Jewelled dagger~
@@ -909,7 +909,7 @@ dagger 8 5 'pierce' HK
 30 5 0 P
 a '' to_object 30 -1 -2 18 0
 a '' to_object 30 -1 8 19 0
-g none~
+g @rus none~
 #22493
 jewelled broadsword sword~
 Jewelled broadsword~
@@ -920,7 +920,7 @@ sword 8 5 'slash' D
 30 160 15000 P
 a '' to_object 30 -1 2 19 0
 a '' to_object 30 -1 3 18 0
-g none~
+g @rus none~
 #22494
 wooven leather bracer~
 wooven leather bracer~
@@ -936,7 +936,7 @@ a '' to_object 25 -1 1 29 0
 a '' to_object 25 -1 1 27 0
 a '' to_object 25 -1 1 29 0
 a '' to_object 25 -1 -5 20 0
-g none~
+g @rus none~
 #22495
 black runed key~
 Black runed key~
@@ -945,7 +945,7 @@ wood~
 key CHMU 0 AO
 0 0 0 0 0
 1 10 0 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

@@ -245,7 +245,7 @@ iron~
 armor 0 0 AD
 4 4 4 2 0
 5 30 1080 P
-g none~
+g @rus none~
 #7801
 boots elven~
 elven boots~
@@ -255,7 +255,7 @@ armor 0 0 AG
 3 3 3 0 0
 7 30 390 P
 a '' to_object 7 -1 5 14 0
-g none~
+g @rus none~
 #7802
 longsword elven sword long~
 an elven longsword~
@@ -265,7 +265,7 @@ weapon G 0 AN
 sword 3 3 'slash' 0
 7 30 670 P
 a '' to_object 7 -1 1 18 0
-g none~
+g @rus none~
 #7803
 cloak brown~
 a brown cloak~
@@ -275,7 +275,7 @@ armor G 0 AC
 3 3 3 0 0
 7 30 900 P
 a '' to_object 7 -1 1 2 0
-g none~
+g @rus none~
 #7804
 key~
 a key~
@@ -284,7 +284,7 @@ bronze~
 key 0 0 A
 BCFHJKLM 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #7805
 key~
 a key~
@@ -293,7 +293,7 @@ wood~
 key 0 0 A
 DGHJKLM 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #7806
 ring gold~
 a gold ring~
@@ -303,7 +303,7 @@ jewelry G 0 AB
 0 0 0 0 0
 5 10 110 P
 a '' to_object 5 -1 10 12 0
-g none~
+g @rus none~
 #7807
 quarterstaff staff two-handed~
 a quarterstaff~
@@ -313,7 +313,7 @@ weapon G 0 AN
 staff 5 5 'pound' F
 21 50 670 P
 a '' to_object 21 -1 2 19 0
-g none~
+g @rus none~
 #7808
 potion~
 a potion~
@@ -322,7 +322,7 @@ glass~
 potion G 0 A
 10 'armor' 'invisibility' '' ''
 0 10 200 P
-g none~
+g @rus none~
 #7809
 potion~
 a potion~
@@ -331,7 +331,7 @@ glass~
 potion G 0 A
 10 'energy drain' '' '' ''
 8 10 580 P
-g none~
+g @rus none~
 #7810
 potion~
 a potion~
@@ -340,7 +340,7 @@ glass~
 potion G 0 A
 10 'detect hidden' 'detect magic' '' ''
 4 10 290 P
-g none~
+g @rus none~
 #7811
 potion~
 a potion~
@@ -349,7 +349,7 @@ glass~
 potion G 0 A
 50 'dispel magic' 'dispel magic' 'dispel magic' ''
 6 10 1380 P
-g none~
+g @rus none~
 #7812
 potion~
 a potion~
@@ -358,7 +358,7 @@ glass~
 potion G 0 A
 10 'refresh' 'protection evil' '' ''
 2 10 240 P
-g none~
+g @rus none~
 #7813
 potion~
 a potion~
@@ -367,7 +367,7 @@ glass~
 potion G 0 A
 10 'sleep' '' '' ''
 1 10 250 P
-g none~
+g @rus none~
 #7814
 potion~
 a potion~
@@ -376,7 +376,7 @@ glass~
 potion G 0 A
 10 'bless' '' '' ''
 1 10 220 P
-g none~
+g @rus none~
 #7815
 potion~
 a potion~
@@ -385,7 +385,7 @@ glass~
 potion G 0 A
 10 'cure critical' '' '' ''
 5 10 330 P
-g none~
+g @rus none~
 #7816
 potion~
 a potion~
@@ -394,7 +394,7 @@ glass~
 potion G 0 A
 14 'farsight' '' '' ''
 6 10 420 P
-g none~
+g @rus none~
 #7817
 scroll~
 a scroll~
@@ -403,7 +403,7 @@ vellum~
 scroll G 0 A
 10 'cure critical' '' '' ''
 5 10 660 P
-g none~
+g @rus none~
 #7818
 scroll~
 a scroll~
@@ -412,7 +412,7 @@ vellum~
 scroll G 0 A
 16 'enchant armor' '' '' ''
 8 10 1090 P
-g none~
+g @rus none~
 #7819
 scroll~
 a scroll~
@@ -421,7 +421,7 @@ vellum~
 scroll G 0 A
 10 'detect evil' '' '' ''
 0 10 400 P
-g none~
+g @rus none~
 #7820
 scroll~
 a scroll~
@@ -430,7 +430,7 @@ vellum~
 scroll G 0 A
 10 'create water' '' '' ''
 0 10 400 P
-g none~
+g @rus none~
 #7821
 scroll~
 a scroll~
@@ -439,7 +439,7 @@ vellum~
 scroll G 0 A
 10 'magic missile' '' '' ''
 0 10 400 P
-g none~
+g @rus none~
 #7822
 scroll~
 a scroll~
@@ -448,7 +448,7 @@ vellum~
 scroll G 0 A
 10 'chill touch' '' '' ''
 0 10 400 P
-g none~
+g @rus none~
 #7823
 scroll~
 a scroll~
@@ -457,7 +457,7 @@ vellum~
 scroll G 0 A
 10 'heal' '' '' ''
 11 10 1360 P
-g none~
+g @rus none~
 #7825
 quarterstaff staff two-handed~
 a quarterstaff~
@@ -467,7 +467,7 @@ weapon G 0 AN
 staff 3 7 'pound' F
 14 50 310 P
 a '' to_object 14 -1 1 19 0
-g none~
+g @rus none~
 #0
 
 #ROOMS

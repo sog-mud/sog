@@ -234,7 +234,7 @@ a '' to_object 35 -1 25 12 0
 a '' to_object 35 -1 2 18 0
 a '' to_object 35 -1 2 19 0
 a '' to_object 35 -1 2 3 0
-g none~
+g @rus none~
 #29354
 garnet ring кольцо гранат золотое~
 @eng a Garnet Ring@rus ~~кольцо~~ с гранатом~
@@ -260,7 +260,7 @@ armor BG 0 AM
 a '' to_object 30 -1 2 18 0
 a '' to_object 30 -1 2 19 0
 a '' to_object 30 -1 1 5 0
-g none~
+g @rus none~
 #29356
 amulet night амулет ночи~
 @eng the Amulet of the Night@rus ~~амулет~~ ночи~

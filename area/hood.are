@@ -206,7 +206,7 @@ leather~
 armor 0 0 AD
 3 5 4 0 0
 5 20 970 A
-g none~
+g @rus none~
 #2102
 ogre jacket~
 an Ogre gang jacket~
@@ -215,7 +215,7 @@ leather~
 armor 0 0 AD
 5 4 3 0 0
 5 20 970 A
-g none~
+g @rus none~
 #2103
 chain~
 a hefty length of chain~
@@ -226,7 +226,7 @@ whip 2 6 'whip' 0
 12 100 960 A
 a '' to_object 12 -1 -2 17 0
 a '' to_object 12 -1 1 18 0
-g none~
+g @rus none~
 #2104
 metal cover shield~
 a metal shield~
@@ -235,7 +235,7 @@ steel~
 armor 0 0 AJ
 3 3 3 1 0
 3 80 500 A
-g none~
+g @rus none~
 #2105
 spray paint can~
 a spray paint can~
@@ -244,7 +244,7 @@ aluminum~
 wand B 0 AO
 11 2 2 'colour spray' 0
 12 10 2200 G
-g none~
+g @rus none~
 #2106
 stiletto~
 a stiletto~
@@ -255,7 +255,7 @@ dagger 5 2 'pierce' 0
 9 20 1090 G
 a '' to_object 9 -1 4 18 0
 a '' to_object 9 -1 2 17 0
-g none~
+g @rus none~
 #2107
 spiked heel boots~
 spiked heeled boots~
@@ -266,7 +266,7 @@ armor 0 0 AG
 5 40 260 G
 a '' to_object 5 -1 -1 2 0
 a '' to_object 5 -1 1 19 0
-g none~
+g @rus none~
 #2108
 mirror~
 a mirror~
@@ -275,7 +275,7 @@ glass~
 wand AG 0 AO
 20 10 10 'blindness' 0
 8 10 1910 P
-g none~
+g @rus none~
 #2109
 gloves~
 comfortable leather gloves~
@@ -285,7 +285,7 @@ armor 0 0 AH
 4 3 4 0 0
 7 20 1010 G
 a '' to_object 7 -1 1 1 0
-g none~
+g @rus none~
 #2110
 patrol club~
 a patrol club~
@@ -296,7 +296,7 @@ mace 1 10 'pound' 0
 9 10 980 G
 a '' to_object 9 -1 3 18 0
 a '' to_object 9 -1 5 14 0
-g none~
+g @rus none~
 #2111
 signet ring~
 a troll signet ring~
@@ -307,7 +307,7 @@ jewelry 0 0 AB
 10 10 1090 P
 a '' to_object 10 -1 -2 17 0
 a '' to_object 10 -1 1 1 0
-g none~
+g @rus none~
 #2112
 knuckles brass~
 brass knuckles~
@@ -317,7 +317,7 @@ armor 0 0 AH
 1 1 1 0 0
 5 10 300 A
 a '' to_object 5 -1 1 18 0
-g none~
+g @rus none~
 #2113
 pipe lead length~
 a lead pipe~
@@ -328,7 +328,7 @@ mace 2 6 'pound' 0
 11 60 0 A
 a '' to_object 11 -1 -1 18 0
 a '' to_object 11 -1 1 19 0
-g none~
+g @rus none~
 #2114
 troll jacket studded~
 a studded Troll gang jacket~
@@ -337,7 +337,7 @@ leather~
 armor 0 0 AD
 4 6 5 0 0
 10 30 1470 G
-g none~
+g @rus none~
 #2115
 ogre jacket studded~
 a studded Ogre gang jacket~
@@ -346,7 +346,7 @@ leather~
 armor 0 0 AD
 6 5 4 0 0
 10 30 1470 P
-g none~
+g @rus none~
 #2116
 whistle steel police~
 a police whistle~
@@ -355,7 +355,7 @@ steel~
 clothing 0 0 AC
 0 0 0 0 0
 0 2 100 G
-g none~
+g @rus none~
 #2117
 pants black leather~
 a pair of black leather pants~
@@ -368,7 +368,7 @@ E
 pants black leather~
 They're worn, but they look suprisingly tough.
 ~
-g none~
+g @rus none~
 #2118
 switchblade knife~
 a switchblade~
@@ -378,7 +378,7 @@ weapon 0 0 AN
 dagger 1 12 'stab' 0
 9 5 760 G
 a '' to_object 9 -1 2 18 0
-g none~
+g @rus none~
 #2119
 bottle broken~
 a broken bottle~
@@ -392,7 +392,7 @@ E
 bottle broken~
 It appears to be a broken wine bottle, but what do you know about brewing?
 ~
-g none~
+g @rus none~
 #0
 
 #ROOMS

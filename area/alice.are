@@ -889,7 +889,7 @@ armor 0 0 AD
 12 12 12 0 0
 45 5 450 P
 a '' to_object 45 -1 3 2 0
-g none~
+g @rus none~
 #21001
 apron~
 a white apron~
@@ -898,7 +898,7 @@ copper~
 container 0 0 AL
 5 A -1 0 0
 45 2 450 P
-g none~
+g @rus none~
 #21002
 pair black shoes~
 a pair of black shoes~
@@ -908,7 +908,7 @@ armor 0 0 AG
 12 12 12 0 0
 45 2 450 P
 a '' to_object 45 -1 75 14 0
-g none~
+g @rus none~
 #21003
 thimble~
 a thimble~
@@ -921,7 +921,7 @@ a '' to_object 45 -1 2 2 0
 a '' to_object 45 -1 40 12 0
 a '' to_object 45 -1 2 18 0
 a '' to_object 45 -1 2 19 0
-g none~
+g @rus none~
 #21004
 tweed jacket~
 a tweed jacket~
@@ -930,7 +930,7 @@ copper~
 armor 0 0 AK
 11 11 11 0 0
 40 3 400 P
-g none~
+g @rus none~
 #21005
 waistcoat~
 a red waistcoat~
@@ -941,7 +941,7 @@ armor 0 0 AD
 40 2 400 P
 a '' to_object 40 -1 3 5 0
 a '' to_object 40 -1 4 19 0
-g none~
+g @rus none~
 #21006
 pocket watch~
 a pocket watch~
@@ -955,7 +955,7 @@ a '' to_object 40 -1 2 4 0
 a '' to_object 40 -1 25 12 0
 a '' to_object 40 -1 -1 23 0
 a '' to_object 40 -1 -1 24 0
-g none~
+g @rus none~
 #21007
 pair tiny white kid gloves~
 a pair of tiny white kid-gloves~
@@ -966,7 +966,7 @@ armor 0 0 AH
 33 2 330 P
 a '' to_object 33 -1 2 2 0
 a '' to_object 33 -1 4 18 0
-g none~
+g @rus none~
 #21008
 fan~
 a fan~
@@ -976,7 +976,7 @@ armor 0 0 AJ
 9 9 9 0 0
 33 1 330 P
 a '' to_object 33 -1 -24 17 0
-g none~
+g @rus none~
 #21009
 scarf~
 a neck scarf~
@@ -986,7 +986,7 @@ armor 0 0 AC
 11 11 11 0 0
 40 2 400 P
 a '' to_object 40 -1 30 13 0
-g none~
+g @rus none~
 #21010
 shelf~
 a shelf~
@@ -995,7 +995,7 @@ copper~
 container 0 0 0
 15 A -1 0 0
 48 100 480 P
-g none~
+g @rus none~
 #21011
 jar orange marmalade~
 a jar of orange marmalade~
@@ -1008,7 +1008,7 @@ E
 jar~
 It is empty.
 ~
-g none~
+g @rus none~
 #21012
 glass thre legged table~
 a tiny three-legged table~
@@ -1021,7 +1021,7 @@ E
 table~
 You think you can see a small glass box sitting under the table...
 ~
-g none~
+g @rus none~
 #21013
 tiny golden key~
 a tiny golden key~
@@ -1030,7 +1030,7 @@ copper~
 key 0 0 AO
 0 0 0 0 0
 48 1 480 P
-g none~
+g @rus none~
 #21014
 little bottle~
 a little bottle~
@@ -1043,7 +1043,7 @@ E
 bottle label~
 The label reads- "DRINK ME"
 ~
-g none~
+g @rus none~
 #21015
 glass box~
 a tiny glass box~
@@ -1052,7 +1052,7 @@ copper~
 container 0 0 A
 2 AC 0 0 0
 48 1 480 P
-g none~
+g @rus none~
 #21016
 small cake~
 a small cake~
@@ -1061,7 +1061,7 @@ copper~
 pill 0 0 A
 35 'giant strength' 'giant strength' 'giant strength' ''
 48 1 480 P
-g none~
+g @rus none~
 #21017
 little bottle~
 a little bottle~
@@ -1074,7 +1074,7 @@ E
 bottle label~
 The label reads- "DRINK ME"
 ~
-g none~
+g @rus none~
 #21018
 table~
 a window table~
@@ -1083,7 +1083,7 @@ copper~
 furniture 0 0 0
 0 0 0 0 0
 33 1000 330 P
-g none~
+g @rus none~
 #21019
 bottle brandy~
 a bottle of brandy~
@@ -1092,7 +1092,7 @@ copper~
 drink 0 0 AO
 2 2 'whisky' 0 0
 36 1 360 P
-g none~
+g @rus none~
 #21020
 hookah~
 a hookah~
@@ -1104,7 +1104,7 @@ armor ABG 0 AO
 a '' to_object 40 -1 25 12 0
 a '' to_object 40 -1 4 18 0
 a '' to_object 40 -1 5 19 0
-g none~
+g @rus none~
 #21021
 mushroom flesh~
 some flesh from a mushroom~
@@ -1113,7 +1113,7 @@ copper~
 pill 0 0 AO
 40 'weaken' '' 'poison' ''
 40 1 400 P
-g none~
+g @rus none~
 #21022
 mushroom flesh~
 some flesh from a mushroom~
@@ -1122,7 +1122,7 @@ copper~
 pill 0 0 AO
 40 'protection evil' 'pass door' 'fly' ''
 40 1 400 P
-g none~
+g @rus none~
 #21023
 pigeon egg~
 a pigeon egg~
@@ -1131,7 +1131,7 @@ copper~
 pill B 0 AO
 36 'cure poison' '' '' ''
 34 1 340 P
-g none~
+g @rus none~
 #21024
 pigeon egg~
 a pigeon egg~
@@ -1140,7 +1140,7 @@ copper~
 pill B 0 AO
 36 'mind light' '' '' ''
 34 1 340 P
-g none~
+g @rus none~
 #21025
 pigeon egg~
 a pigeon egg~
@@ -1149,7 +1149,7 @@ copper~
 pill B 0 AO
 36 'detect hidden' '' '' ''
 34 1 340 P
-g none~
+g @rus none~
 #21026
 nest~
 a small nest~
@@ -1158,7 +1158,7 @@ copper~
 container 0 0 A
 3 A 0 0 0
 34 1 340 P
-g none~
+g @rus none~
 #21027
 footman livery~
 a footman's livery~
@@ -1170,7 +1170,7 @@ armor 0 0 AD
 a '' to_object 37 -1 3 5 0
 a '' to_object 37 -1 30 13 0
 a '' to_object 37 -1 3 18 0
-g none~
+g @rus none~
 #21028
 powdered wig~
 a powdered wig~
@@ -1182,7 +1182,7 @@ armor 0 0 AE
 a '' to_object 37 -1 1 2 0
 a '' to_object 37 -1 1 3 0
 a '' to_object 37 -1 1 4 0
-g none~
+g @rus none~
 #21029
 invitation~
 an invitation~
@@ -1191,7 +1191,7 @@ copper~
 scroll A 0 AO
 36 'bless' 'detect magic' 'faerie fog' ''
 37 1 370 P
-g none~
+g @rus none~
 #21030
 cradle~
 a baby's cradle~
@@ -1201,7 +1201,7 @@ container M 0 AE
 150 A 0 0 0
 43 14 430 P
 a '' to_object 43 -1 -25 14 0
-g none~
+g @rus none~
 #21031
 pot soup~
 a pot of soup~
@@ -1210,7 +1210,7 @@ copper~
 container 0 0 0
 10 A -1 0 0
 41 100 410 P
-g none~
+g @rus none~
 #21032
 plate~
 a plate~
@@ -1219,7 +1219,7 @@ copper~
 warp_stone 0 0 AO
 0 0 0 0 0
 37 2 370 P
-g none~
+g @rus none~
 #21033
 ladle~
 a ladle~
@@ -1230,7 +1230,7 @@ exotic 5 8 'blast' 0
 37 100 370 P
 a '' to_object 37 -1 6 18 0
 a '' to_object 37 -1 6 19 0
-g none~
+g @rus none~
 #21034
 green top hat~
 a green top hat~
@@ -1241,7 +1241,7 @@ armor M 0 AE
 42 7 420 P
 a '' to_object 42 -1 -2 3 0
 a '' to_object 42 -1 -2 4 0
-g none~
+g @rus none~
 #21035
 table~
 a long dining table~
@@ -1250,7 +1250,7 @@ copper~
 furniture 0 0 0
 0 0 0 0 0
 43 1000 430 P
-g none~
+g @rus none~
 #21036
 chair~
 a comfortable chair~
@@ -1259,7 +1259,7 @@ copper~
 furniture 0 0 A
 0 0 0 0 0
 33 50 330 P
-g none~
+g @rus none~
 #21037
 chair~
 a comfortable chair~
@@ -1268,7 +1268,7 @@ copper~
 furniture 0 0 A
 0 0 0 0 0
 33 50 330 P
-g none~
+g @rus none~
 #21038
 chair~
 a comfortable chair~
@@ -1277,7 +1277,7 @@ copper~
 furniture 0 0 A
 0 0 0 0 0
 43 50 430 P
-g none~
+g @rus none~
 #21039
 chair~
 a comfortable chair~
@@ -1286,7 +1286,7 @@ copper~
 furniture 0 0 A
 0 0 0 0 0
 43 50 430 P
-g none~
+g @rus none~
 #21040
 polka dot bow tie~
 a large polka dot bow tie~
@@ -1298,7 +1298,7 @@ armor M 0 AC
 a '' to_object 42 -1 2 2 0
 a '' to_object 42 -1 1 12 0
 a '' to_object 42 -1 3 18 0
-g none~
+g @rus none~
 #21041
 green frock coat~
 a green frock coat~
@@ -1307,7 +1307,7 @@ copper~
 armor 0 0 AK
 11 11 11 0 0
 42 5 420 P
-g none~
+g @rus none~
 #21042
 bits of straw~
 some bits of straw~
@@ -1319,7 +1319,7 @@ armor 0 0 AE
 a '' to_object 41 -1 -3 2 0
 a '' to_object 41 -1 -3 3 0
 a '' to_object 41 -1 -3 4 0
-g none~
+g @rus none~
 #21043
 biscuit plate~
 a biscuit plate~
@@ -1328,7 +1328,7 @@ copper~
 warp_stone 0 0 ANO
 0 0 0 0 0
 43 1 430 P
-g none~
+g @rus none~
 #21044
 tea pot~
 a tea pot~
@@ -1337,7 +1337,7 @@ copper~
 drink 0 0 AO
 5 3 'tea' 0 0
 43 3 430 P
-g none~
+g @rus none~
 #21045
 tea cup~
 a tea cup~
@@ -1346,7 +1346,7 @@ copper~
 drink 0 0 AO
 1 1 'tea' 0 0
 43 1 430 P
-g none~
+g @rus none~
 #21046
 checked shirt~
 a checked shirt~
@@ -1355,7 +1355,7 @@ copper~
 armor 0 0 AD
 10 10 10 0 0
 37 3 370 P
-g none~
+g @rus none~
 #21047
 brown breeches~
 some brown breeches~
@@ -1367,7 +1367,7 @@ armor 0 0 AF
 a '' to_object 37 -1 3 2 0
 a '' to_object 37 -1 45 14 0
 a '' to_object 37 -1 2 18 0
-g none~
+g @rus none~
 #21048
 pair shoes~
 a pair of black shoes~
@@ -1376,7 +1376,7 @@ copper~
 armor 0 0 AG
 10 10 10 0 0
 37 3 370 P
-g none~
+g @rus none~
 #21049
 paint red can~
 a can of red paint~
@@ -1385,7 +1385,7 @@ copper~
 container 0 0 AO
 5 A -1 0 0
 36 2 360 P
-g none~
+g @rus none~
 #21050
 paint brush~
 a paint brush~
@@ -1395,7 +1395,7 @@ weapon 0 0 AN
 exotic 5 8 'suction' 0
 36 50 360 P
 a '' to_object 36 -1 4 19 0
-g none~
+g @rus none~
 #21051
 bush roses white red~
 a white rose bush~
@@ -1404,7 +1404,7 @@ copper~
 furniture 0 0 0
 0 0 0 0 0
 33 150 330 P
-g none~
+g @rus none~
 #21052
 club~
 a soldier's club~
@@ -1416,7 +1416,7 @@ mace 5 8 'crush' 0
 a '' to_object 37 -1 2 5 0
 a '' to_object 37 -1 5 18 0
 a '' to_object 37 -1 4 19 0
-g none~
+g @rus none~
 #21053
 diamond~
 a diamond~
@@ -1428,7 +1428,7 @@ light AG 0 AOQ
 a '' to_object 37 -1 50 12 0
 a '' to_object 37 -1 2 18 0
 a '' to_object 37 -1 2 19 0
-g none~
+g @rus none~
 #21054
 king hearts sceptre~
 the King of Heart's sceptre~
@@ -1437,7 +1437,7 @@ copper~
 staff G 0 AO
 41 8 8 'cure critical' 0
 41 5 410 P
-g none~
+g @rus none~
 #21055
 king hearts crown~
 the King of Heart's crown~
@@ -1447,7 +1447,7 @@ armor AM 0 AE
 11 11 11 0 0
 41 15 410 P
 a '' to_object 41 -1 6 19 0
-g none~
+g @rus none~
 #21056
 queen hearts fan~
 the Queen of Heart's fan~
@@ -1457,7 +1457,7 @@ armor 0 0 AJ
 12 12 12 0 0
 45 7 450 P
 a '' to_object 45 -1 -6 24 0
-g none~
+g @rus none~
 #21057
 flamingo~
 a flamingo~
@@ -1470,7 +1470,7 @@ a '' to_object 37 -1 -2 2 0
 a '' to_object 37 -1 45 13 0
 a '' to_object 37 -1 3 18 0
 a '' to_object 37 -1 4 19 0
-g none~
+g @rus none~
 #21058
 queen hearts sceptre~
 the Queen of Heart's sceptre~
@@ -1479,7 +1479,7 @@ copper~
 staff AGM 0 AO
 45 9 9 'cause critical' 0
 45 8 450 P
-g none~
+g @rus none~
 #21059
 tarts~
 the Queen's tarts~
@@ -1488,7 +1488,7 @@ copper~
 food 0 0 A
 DE 0 0 0 0
 34 5 340 P
-g none~
+g @rus none~
 #21060
 axe~
 the executioner's axe~
@@ -1499,7 +1499,7 @@ axe 5 10 'slice' 0
 44 200 440 P
 a '' to_object 44 -1 4 1 0
 a '' to_object 44 -1 8 19 0
-g none~
+g @rus none~
 #21061
 executioner's hood~
 the executioner's hood~
@@ -1508,7 +1508,7 @@ copper~
 armor 0 0 AE
 11 11 11 0 0
 44 1 440 P
-g none~
+g @rus none~
 #21062
 slate~
 a slate~
@@ -1517,7 +1517,7 @@ copper~
 scroll 0 0 AO
 35 'sleep' 'sleep' 'sleep' ''
 38 1 380 P
-g none~
+g @rus none~
 #21063
 pencil~
 a pencil~
@@ -1526,7 +1526,7 @@ copper~
 weapon 0 0 AN
 exotic 5 9 'stab' 0
 38 10 380 P
-g none~
+g @rus none~
 #21064
 hessian sack~
 a hessian sack~
@@ -1535,7 +1535,7 @@ copper~
 container 0 0 A
 150 A 0 0 0
 39 15 390 P
-g none~
+g @rus none~
 #21065
 rabbit hole~
 a rabbit hole~
@@ -1544,7 +1544,7 @@ copper~
 portal 0 0 0
 0 0 0 21002 0
 48 1 480 P
-g none~
+g @rus none~
 #21066
 tree door~
 a tree with a tiny door~
@@ -1553,7 +1553,7 @@ copper~
 portal 0 0 0
 0 0 0 21042 0
 35 1 350 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

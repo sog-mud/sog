@@ -758,7 +758,7 @@ iron~
 key U I O
 0 0 0 0 0
 0 10 10000 P
-g none~
+g @rus none~
 #22301
 bushido blade sword~
 the Bushido blade~
@@ -770,7 +770,7 @@ sword 5 9 'cleave' 0
 a '' to_object 45 -1 4 19 0
 a '' to_object 45 -1 5 18 0
 a '' to_object 45 -1 1 2 0
-g none~
+g @rus none~
 #22302
 kabuto battle helm~
 the Kabuto~
@@ -784,7 +784,7 @@ a '' to_object 45 -1 2 19 0
 a '' to_object 45 -1 1 18 0
 a '' to_object 45 -1 1 4 0
 a '' to_object 45 -1 1 3 0
-g none~
+g @rus none~
 #22303
 hi-kane-do battle gown~
 the Hi-Kane-Do battle gown~
@@ -796,7 +796,7 @@ armor 0 C AD
 a '' to_object 45 -1 -15 17 0
 a '' to_object 45 -1 2 19 0
 a '' to_object 45 -1 1 18 0
-g none~
+g @rus none~
 #22304
 hi-kane-do battle leggings~
 the Hi-Kane-Do battle leggings~
@@ -809,7 +809,7 @@ a '' to_object 45 -1 -10 17 0
 a '' to_object 45 -1 2 19 0
 a '' to_object 45 -1 1 18 0
 a '' to_object 45 -1 2 2 0
-g none~
+g @rus none~
 #22305
 hi-kane-do battle sleeves~
 the Hi-Kane-Do battle sleeves~
@@ -821,7 +821,7 @@ armor 0 C AI
 a '' to_object 45 -1 2 19 0
 a '' to_object 45 -1 1 18 0
 a '' to_object 45 -1 2 5 0
-g none~
+g @rus none~
 #22306
 hi-kane-do battle gloves~
 the Hi-Kane-Do battle gloves~
@@ -834,7 +834,7 @@ a '' to_object 45 -1 -5 17 0
 a '' to_object 45 -1 2 19 0
 a '' to_object 45 -1 1 18 0
 a '' to_object 45 -1 1 1 0
-g none~
+g @rus none~
 #22307
 hi-kane-do battle boots~
 the Hi-Kane-Do battle boots~
@@ -847,7 +847,7 @@ a '' to_object 45 -1 -5 17 0
 a '' to_object 45 -1 70 14 0
 a '' to_object 45 -1 2 19 0
 a '' to_object 45 -1 1 18 0
-g none~
+g @rus none~
 #22308
 bracer defence~
 a bracer of defence~
@@ -859,7 +859,7 @@ armor C 0 AM
 a '' to_object 40 -1 2 19 0
 a '' to_object 40 -1 1 18 0
 a '' to_object 40 -1 -6 17 0
-g none~
+g @rus none~
 #22309
 black belt five flowers~
 a black belt of the 5 flowers~
@@ -871,7 +871,7 @@ armor C 0 AL
 a '' to_object 40 -1 1 19 0
 a '' to_object 40 -1 1 2 0
 a '' to_object 40 -1 2 5 0
-g none~
+g @rus none~
 #22310
 midnight cloak~
 a midnight cloak~
@@ -883,7 +883,7 @@ armor C 0 AC
 a '' to_object 40 -1 20 13 0
 a '' to_object 40 -1 -3 20 0
 a '' to_object 40 -1 2 19 0
-g none~
+g @rus none~
 #22311
 key ringwraith~
 the key of ringwraiths~
@@ -892,7 +892,7 @@ iron~
 key U I AO
 0 0 0 0 0
 0 10 10000 P
-g none~
+g @rus none~
 #22312
 bonsai tree pot~
 a Bonsai tree~
@@ -905,7 +905,7 @@ a '' to_skills 45 -1 50 'perception' 0
 a '' to_object 45 -1 2 4 0
 a '' to_object 45 -1 2 3 0
 a '' to_object 45 -1 2 2 0
-g none~
+g @rus none~
 #22313
 black gown death essence~
 a black gown of Death~
@@ -919,7 +919,7 @@ a '' to_object 0 -1 -100 14 0
 a '' to_object 0 -1 -10 20 0
 a '' to_object 0 -1 -10 17 0
 a '' to_object 0 -1 -10 19 0
-g none~
+g @rus none~
 #22314
 ring demons~
 a ring of demons~
@@ -934,7 +934,7 @@ a '' to_object 0 -1 -10 20 0
 a '' to_object 0 -1 -2 4 0
 a '' to_object 0 -1 -2 3 0
 a '' to_object 0 -1 -2 5 0
-g none~
+g @rus none~
 #22315
 mummy tomb~
 the tomb~
@@ -943,7 +943,7 @@ flesh~
 container Y BC 0
 1000 0 0 100 0
 0 1000 0 P
-g none~
+g @rus none~
 #22316
 ankh wheel~
 the Wheel of Pa-Ra-Voz~
@@ -956,7 +956,7 @@ a '' to_object 45 -1 -10 23 0
 a '' to_object 45 -1 -4 18 0
 a '' to_object 45 -1 4 19 0
 a '' to_object 45 -1 -30 17 0
-g none~
+g @rus none~
 #22317
 ankh death~
 the Ankh of Death~
@@ -970,7 +970,7 @@ a '' to_object 45 -1 2 19 0
 a '' to_object 45 -1 -66 14 0
 a '' to_object 45 -1 -17 17 0
 a '' to_object 45 -1 -2 5 0
-g none~
+g @rus none~
 #22318
 pa-ra-voz axel~
 the Axel of Pa-Ra-Voz~
@@ -982,7 +982,7 @@ staff 10 5 'flbite' F
 a '' to_object 0 -1 3 18 0
 a '' to_object 0 -1 8 19 0
 a '' to_object 0 -1 -10 17 0
-g none~
+g @rus none~
 #22319
 staff death~
 the staff of Death~
@@ -995,7 +995,7 @@ a '' to_object 45 -1 3 18 0
 a '' to_object 45 -1 10 17 0
 a '' to_object 45 -1 -50 13 0
 a '' to_object 45 -1 4 19 0
-g none~
+g @rus none~
 #22320
 key gorrors~
 a key of the Gorrors~
@@ -1004,7 +1004,7 @@ iron~
 key U I AO
 0 0 0 0 0
 0 1 1000 P
-g none~
+g @rus none~
 #22321
 shield~
 the Shield of Deflection~
@@ -1017,7 +1017,7 @@ a '' to_object 45 -1 -50 12 0
 a '' to_object 45 -1 10 13 0
 a '' to_object 45 -1 -5 18 0
 a '' to_object 45 -1 -30 17 0
-g none~
+g @rus none~
 #22322
 chest~
 the chest of the beast~
@@ -1026,7 +1026,7 @@ iron~
 container Y B 0
 0 ABCD 22323 500 0
 45 1000 0 P
-g none~
+g @rus none~
 #22323
 key~
 the key of the beast~
@@ -1035,7 +1035,7 @@ iron~
 key PU CI AO
 0 0 0 0 0
 5 1 0 P
-g none~
+g @rus none~
 #22324
 key~
 the key of the beast~
@@ -1044,7 +1044,7 @@ energy~
 key PU CI AO
 0 0 0 0 0
 5 1 0 P
-g none~
+g @rus none~
 #22325
 chest~
 the chest of the beast~
@@ -1053,7 +1053,7 @@ iron~
 container Y BC 0
 0 ABCD 22324 1000 0
 45 1000 0 P
-g none~
+g @rus none~
 #22326
 axe great~
 the Great Axe named "Barukkheled"~
@@ -1067,7 +1067,7 @@ a '' to_object 45 -1 33 31 0
 a '' to_object 45 -1 1 26 0
 a '' to_object 45 -1 5 19 0
 a '' to_object 45 -1 5 18 0
-g none~
+g @rus none~
 #22327
 whip flame~
 a Flame Whip~
@@ -1078,7 +1078,7 @@ whip 10 7 'flbite' A
 46 50 100000 P
 a '' to_object 46 -1 -80 31 0
 a '' to_object 46 -1 100 30 0
-g none~
+g @rus none~
 #22328
 stone~
 a huge stone~
@@ -1096,7 +1096,7 @@ It wasn't destroyed but mortal guards died only undead creatures and
 demons survived. They will eliminate everyone who try to steal theirs 
 tresures or come to them. DON'T EN........
 ~
-g none~
+g @rus none~
 #22329
 corpse~
 a corpse~
@@ -1110,7 +1110,7 @@ corpse~
 A half-decaed corpse is dressed in a rusty iron armor.
 You see a words on it. "For Maggot from Bulroarer.".
 ~
-g none~
+g @rus none~
 #22330
 sign~
 ~
@@ -1126,7 +1126,7 @@ If you don't feel strong enough or you are alone it should be better
 to keep them their. Only storng adventurer with good staff is able to 
 get them.
 ~
-g none~
+g @rus none~
 #22331
 parchment~
 a parchment~
@@ -1141,7 +1141,7 @@ This is small, badly bloodstained piece of parchment.  The only message
 in it reads: "If you find this, you will know that I have been defeated.
 Take great care always here, or they will overtake you too."
 ~
-g none~
+g @rus none~
 #22332
 key~
 the key of the beast~
@@ -1150,7 +1150,7 @@ iron~
 key PU CI AO
 0 0 0 0 0
 5 5 0 P
-g none~
+g @rus none~
 #22333
 chest~
 a chest~
@@ -1159,7 +1159,7 @@ iron~
 container Y BC 0
 1000 ABCD 22332 0 0
 45 1000 0 P
-g none~
+g @rus none~
 #22334
 key~
 the key of the beast~
@@ -1168,7 +1168,7 @@ iron~
 key PU CI AO
 0 0 0 0 0
 5 5 0 P
-g none~
+g @rus none~
 #22335
 chest~
 a chest~
@@ -1177,7 +1177,7 @@ iron~
 container Y B 0
 1000 ABCD 22334 1000 0
 45 1000 0 P
-g none~
+g @rus none~
 #22336
 key~
 the key of the beast~
@@ -1186,7 +1186,7 @@ iron~
 key PU CI AO
 0 0 0 0 0
 5 0 0 P
-g none~
+g @rus none~
 #22337
 chest~
 a chest~
@@ -1195,7 +1195,7 @@ iron~
 container Y BC 0
 1000 ABCD 22336 1000 0
 45 1000 0 P
-g none~
+g @rus none~
 #22338
 key~
 the key of the beast~
@@ -1204,7 +1204,7 @@ unknown~
 key PU CI AO
 0 0 0 0 0
 5 5 0 P
-g none~
+g @rus none~
 #22339
 chest~
 a chest~
@@ -1213,7 +1213,7 @@ unknown~
 container Y BC 0
 1000 ABCD 22338 1000 0
 45 1000 0 P
-g none~
+g @rus none~
 #22340
 mace taratol~
 the mace named "Taratol"~
@@ -1228,7 +1228,7 @@ a '' to_object 46 -1 3 18 0
 a '' to_object 46 -1 7 19 0
 a '' to_object 46 -1 1 4 0
 a '' to_object 46 -1 1 3 0
-g none~
+g @rus none~
 #22341
 ebony breastplate plate~
 an ebony breastplate~
@@ -1252,7 +1252,7 @@ In spite of its lightness, wearer of this amazing plate will be almost
 invulnerable.  You feel an ancient enchantments radiating from this
 strange armour, allowing the wearer to cause more damage in the fight.
 ~
-g none~
+g @rus none~
 #22342
 lance osondir~
 the lance named "Osondir"~
@@ -1273,7 +1273,7 @@ The sense of holiness and purity comes over you as you look at this
 beautiful weapon, only person of a great virtue and honour is able
 to wield it.
 ~
-g none~
+g @rus none~
 #22343
 ebony helmet helm~
 an ebony helmet~
@@ -1290,7 +1290,7 @@ a '' to_object 46 -1 1 1 0
 a '' to_object 46 -1 1 2 0
 a '' to_object 46 -1 3 18 0
 a '' to_object 46 -1 3 19 0
-g none~
+g @rus none~
 #22344
 ebony leggings~
 a set of ebony leggings~
@@ -1307,7 +1307,7 @@ a '' to_object 46 -1 1 2 0
 a '' to_object 46 -1 1 5 0
 a '' to_object 46 -1 3 18 0
 a '' to_object 46 -1 3 19 0
-g none~
+g @rus none~
 #22345
 staff nar-i-vagil~
 the staff named "Nar-i-vagil"~
@@ -1320,7 +1320,7 @@ a '' to_object 46 -1 -33 31 0
 a '' to_object 46 -1 33 30 0
 a '' to_object 46 -1 5 18 0
 a '' to_object 46 -1 4 19 0
-g none~
+g @rus none~
 #22346
 ebony sleeves~
 a set of ebony sleeves~
@@ -1334,7 +1334,7 @@ a '' to_object 46 -1 3 18 0
 a '' to_object 46 -1 3 19 0
 a '' to_object 46 -1 4 29 0
 a '' to_object 46 -1 5 27 0
-g none~
+g @rus none~
 #22347
 flail thunderfist~
 the flail named "Thunderfist"~
@@ -1349,7 +1349,7 @@ a '' to_object 46 -1 -5 20 0
 a '' to_object 46 -1 20 13 0
 a '' to_object 46 -1 2 18 0
 a '' to_object 46 -1 4 19 0
-g none~
+g @rus none~
 #22348
 ebony boots~
 a pair of ebony boots~
@@ -1362,7 +1362,7 @@ a '' to_object 46 -1 -5 20 0
 a '' to_object 46 -1 80 14 0
 a '' to_object 46 -1 3 19 0
 a '' to_object 46 -1 3 18 0
-g none~
+g @rus none~
 #22349
 whip careth asdriag~
 the whip named "Careth Asdriag"~
@@ -1379,7 +1379,7 @@ whip~
 A foul smell of acid surrounds nine barbed tails of this whip,
 you think should you wield it or drop this odd weapon.
 ~
-g none~
+g @rus none~
 #22350
 ebony gloves~
 a pair of ebony gloves~
@@ -1392,7 +1392,7 @@ a '' to_object 46 -1 3 1 0
 a '' to_object 46 -1 3 18 0
 a '' to_object 46 -1 -5 20 0
 a '' to_object 46 -1 3 19 0
-g none~
+g @rus none~
 #22351
 key treasure~
 the key of treasure keep~
@@ -1401,7 +1401,7 @@ iron~
 key PUY CI AO
 0 0 0 0 0
 5 5 0 P
-g none~
+g @rus none~
 #22352
 huge piece beef~
 a huge piece of beef~
@@ -1410,7 +1410,7 @@ unknown~
 food 0 0 A
 CFG CFG 0 0 0
 45 100 2000 P
-g none~
+g @rus none~
 #22353
 key~
 the bone key~
@@ -1419,7 +1419,7 @@ bone~
 key APU CI AO
 0 0 0 0 0
 3 5 0 P
-g none~
+g @rus none~
 #22354
 key~
 the bone key~
@@ -1428,7 +1428,7 @@ bone~
 key APU CI AO
 0 0 0 0 0
 3 5 0 P
-g none~
+g @rus none~
 #22355
 key~
 the bone key~
@@ -1437,7 +1437,7 @@ bone~
 key APU CI AO
 0 0 0 0 0
 3 5 0 P
-g none~
+g @rus none~
 #22356
 key~
 the bone key~
@@ -1446,7 +1446,7 @@ bone~
 key APU CI AO
 0 0 0 0 0
 3 5 0 P
-g none~
+g @rus none~
 #22357
 key~
 the bone key~
@@ -1455,7 +1455,7 @@ bone~
 key APU CI AO
 0 0 0 0 0
 3 5 0 P
-g none~
+g @rus none~
 #22358
 key~
 the bony key~
@@ -1464,7 +1464,7 @@ bone~
 key APU CI AO
 0 0 0 0 0
 3 5 0 P
-g none~
+g @rus none~
 #22359
 key~
 the bone key~
@@ -1473,7 +1473,7 @@ bone~
 key APU CI AO
 0 0 0 0 0
 3 5 0 P
-g none~
+g @rus none~
 #22360
 key~
 the bone key~
@@ -1482,7 +1482,7 @@ bone~
 key APU CI AO
 0 0 0 0 0
 5 5 0 P
-g none~
+g @rus none~
 #22361
 chest~
 chest~
@@ -1491,7 +1491,7 @@ wood~
 container Y B 0
 1000 ABCD 22353 100 0
 50 10000 0 P
-g none~
+g @rus none~
 #22362
 chest~
 chest~
@@ -1500,7 +1500,7 @@ unknown~
 container Y B 0
 1000 ABCD 22354 1000 0
 50 10000 0 P
-g none~
+g @rus none~
 #22363
 chest~
 chest~
@@ -1509,7 +1509,7 @@ wood~
 container Y B 0
 1000 ABCD 22355 1000 0
 45 0 0 P
-g none~
+g @rus none~
 #22364
 chest~
 chest~
@@ -1518,7 +1518,7 @@ wood~
 container Y B 0
 1000 ABCD 22356 1000 0
 45 1000 0 P
-g none~
+g @rus none~
 #22365
 chest~
 chest~
@@ -1527,7 +1527,7 @@ wood~
 container Y B 0
 1000 ABCD 22357 1000 0
 45 1000 0 P
-g none~
+g @rus none~
 #22366
 chest~
 chest~
@@ -1536,7 +1536,7 @@ wood~
 container Y B 0
 1000 ABCD 22358 1000 0
 45 1000 0 P
-g none~
+g @rus none~
 #22367
 chest~
 chest~
@@ -1545,7 +1545,7 @@ wood~
 container Y B 0
 1000 ABCD 22359 1000 0
 45 1000 0 P
-g none~
+g @rus none~
 #22368
 chest~
 chest~
@@ -1554,7 +1554,7 @@ wood~
 container Y B 0
 1000 ABCD 22360 1000 0
 45 1000 0 P
-g none~
+g @rus none~
 #22369
 helm sliver~
 a silver helm~
@@ -1569,7 +1569,7 @@ a '' to_object 45 -1 -10 17 0
 a '' to_object 45 -1 1 29 0
 a '' to_object 45 -1 1 28 0
 a '' to_object 45 -1 1 27 0
-g none~
+g @rus none~
 #22370
 silver vest~
 a silver vest~
@@ -1585,7 +1585,7 @@ a '' to_object 45 -1 2 1 0
 a '' to_object 45 -1 3 28 0
 a '' to_object 45 -1 2 29 0
 a '' to_object 45 -1 2 27 0
-g none~
+g @rus none~
 #22371
 silver boot~
 a silver boots~
@@ -1598,7 +1598,7 @@ a '' to_object 45 -1 -5 17 0
 a '' to_object 45 -1 1 2 0
 a '' to_object 45 -1 3 19 0
 a '' to_object 45 -1 50 14 0
-g none~
+g @rus none~
 #22372
 silver sleeves~
 a silver sleeves~
@@ -1612,7 +1612,7 @@ a '' to_object 45 -1 3 19 0
 a '' to_object 45 -1 2 28 0
 a '' to_object 45 -1 1 27 0
 a '' to_object 45 -1 1 29 0
-g none~
+g @rus none~
 #22373
 silver gloves~
 a pair of silver gloves~
@@ -1622,7 +1622,7 @@ armor BY C AH
 10 10 10 7 0
 45 10 0 P
 a '' to_object 45 -1 3 18 0
-g none~
+g @rus none~
 #22374
 silver leggings~
 a set of silver leggings~
@@ -1638,7 +1638,7 @@ a '' to_object 45 -1 1 27 0
 a '' to_object 45 -1 1 28 0
 a '' to_object 45 -1 1 29 0
 a '' to_object 45 -1 -10 17 0
-g none~
+g @rus none~
 #22375
 silver shield~
 a silver shield~
@@ -1650,7 +1650,7 @@ armor BY C AJ
 a '' to_object 45 -1 6 27 0
 a '' to_object 45 -1 5 28 0
 a '' to_object 45 -1 3 29 0
-g none~
+g @rus none~
 #22376
 silver dagger~
 a small silver dagger named "Backstabber"~
@@ -1662,7 +1662,7 @@ dagger 20 2 'stab' DH
 a '' to_skills 45 -1 40 'backstab' 0
 a '' to_object 45 -1 5 18 0
 a '' to_object 45 -1 2 19 0
-g none~
+g @rus none~
 #22377
 silver mace~
 a small silver mace named "Skullcrasher"~
@@ -1675,7 +1675,7 @@ a '' to_skills 45 -1 50 'head crush' 0
 a '' to_object 45 -1 3 1 0
 a '' to_object 45 -1 5 18 0
 a '' to_object 45 -1 5 19 0
-g none~
+g @rus none~
 #22378
 silver axe~
 a small silver axe named "Meat Cleaver"~
@@ -1687,7 +1687,7 @@ axe 17 4 'cleave' BD
 a '' to_object 45 -1 3 18 0
 a '' to_object 45 -1 5 19 0
 a '' to_skills 45 -1 50 'cleave' 0
-g none~
+g @rus none~
 #22379
 silver flail~
 a small silver flail named "Death Bringer"~
@@ -1699,7 +1699,7 @@ flail 10 5 'charge' CD
 a '' to_object 45 -1 3 18 0
 a '' to_object 45 -1 3 19 0
 a '' to_skills 45 -1 30 'deathblow' 0
-g none~
+g @rus none~
 #22399
 battleaxe dagger sword~
 battlaxe ~
@@ -1708,7 +1708,7 @@ iron~
 weapon 0 0 AN
 sword 1000 100 'magic' BDI
 46 10 100000 P
-g none~
+g @rus none~
 #22400
 bracer~
 bracer~
@@ -1720,7 +1720,7 @@ armor 0 0 AM
 a '' to_object 46 -1 100 8 0
 a '' to_object 46 -1 10000 13 0
 a '' to_object 46 -1 10000 12 0
-g none~
+g @rus none~
 #0
 
 #ROOMS

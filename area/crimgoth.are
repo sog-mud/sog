@@ -36,7 +36,7 @@ iron~
 key C 0 AO
 0 0 0 0 0
 10 3 10 P
-g male~
+g @rus male~
 #12401
 bone club~
 @eng a bone club@rus дубина из кости~
@@ -47,7 +47,7 @@ mace 7 6 'crush' 0
 20 0 0 P
 a '' to_object 20 -1 -2 18 0
 a '' to_object 20 -1 3 19 0
-g none~
+g @rus none~
 #0
 
 #ROOMS

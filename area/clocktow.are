@@ -682,7 +682,7 @@ a '' to_object 30 -1 -50 17 0
 a '' to_object 30 -1 5 18 0
 a '' to_object 30 -1 5 19 0
 a '' to_object 30 -1 -5 24 0
-g male~
+g @rus male~
 #4901
 robe mechanic фартук~
 @eng robe of mechanic@rus ~~фартук~~ часовщика~
@@ -693,7 +693,7 @@ armor 0 0 AD
 30 20 0 A
 a '' to_object 30 -1 -1 2 0
 a '' to_object 30 -1 3 4 0
-g male~
+g @rus male~
 #4902
 standart set instrument набор~
 @eng standart set of instruments@rus ~~набор~~ инструментов~
@@ -705,7 +705,7 @@ exotic 6 6 'cleave' G
 a '' to_object 30 -1 -100 14 0
 a '' to_object 30 -1 3 18 0
 a '' to_object 30 -1 3 19 0
-g male~
+g @rus male~
 #4903
 box carved шкатулка~
 @eng carved box@rus шкатулка~
@@ -714,7 +714,7 @@ ebony~
 container CY B 0
 100 ABCD 4904 100 100
 0 0 0 P
-g female~
+g @rus female~
 #4904
 key ключ ivory~
 @eng ivory key@rus ~~ключ~~ из слоновой кости~
@@ -723,7 +723,7 @@ ivory~
 key CFU 0 AO
 0 0 0 0 0
 30 0 0 P
-g male~
+g @rus male~
 #4905
 bronze key ключ бронзовый~
 @eng bronze clock key@rus ~~бронзовый~~ ~~ключ~~ от часов~
@@ -739,7 +739,7 @@ a '' to_object 20 -1 -50 17 0
 a '' to_object 20 -1 5 18 0
 a '' to_object 20 -1 5 19 0
 a '' to_object 20 -1 -5 24 0
-g male~
+g @rus male~
 #4906
 hat top black цилиндр черный~
 @eng black top hat of a chimney-sweep@rus ~~черный~~ ~~цилиндр~~ трубочиста~
@@ -752,7 +752,7 @@ a '' to_object 15 -1 -1 3 0
 a '' to_object 15 -1 -1 4 0
 a '' to_object 15 -1 20 12 0
 a '' to_object 15 -1 -3 24 0
-g male~
+g @rus male~
 #4907
 vest chimney black куртка черная~
 @eng black vest of a chimney-sweep@rus ~~черная~~ ~~куртка~~ трубочиста~
@@ -765,7 +765,7 @@ a '' to_object 15 -1 -1 1 0
 a '' to_object 15 -1 2 2 0
 a '' to_object 15 -1 -1 5 0
 a '' to_object 15 -1 20 13 0
-g female~
+g @rus female~
 #4908
 leggins chimney black штаны черные~
 @eng black leggings of a chimney-sweep@rus ~~черные~~ ~~штаны~~ трубочиста~
@@ -778,7 +778,7 @@ a '' to_object 15 -1 1 5 0
 a '' to_object 15 -1 50 14 0
 a '' to_object 15 -1 -5 17 0
 a '' to_object 15 -1 2 19 0
-g plural~
+g @rus plural~
 #4909
 broom chimney black щетка черная~
 @eng black chimney broom@rus ~~черная~~ ~~щетка~~ трубочиста~
@@ -787,7 +787,7 @@ steel~
 staff 0 0 AO
 25 10 10 'faerie fog' 0
 15 10 1500 P
-g female~
+g @rus female~
 #4910
 hand short стрелка маленькая~
 @eng short hand@rus ~~маленькая~~ ~~стрелка~~~
@@ -796,7 +796,7 @@ copper~
 weapon AH 0 AN
 spear 6 5 'pierce' DK
 25 50 4500 P
-g female~
+g @rus female~
 #4911
 hand long стрелка большая~
 @eng long hand@rus ~~большая~~ ~~стрелка~~~
@@ -805,7 +805,7 @@ copper~
 weapon 0 0 AN
 spear 6 6 'pierce' DK
 30 50 5600 P
-g female~
+g @rus female~
 #4912
 wing bat крыло~
 @eng bat's wing@rus ~~крыло~~ летучей мыши~
@@ -815,7 +815,7 @@ armor BHLM 0 AM
 3 3 3 2 0
 5 10 0 P
 a '' to_object 5 -1 1 18 0
-g none~
+g @rus none~
 #4913
 web spider паутина~
 @eng spider's web@rus паутина~
@@ -827,7 +827,7 @@ armor HM 0 AK
 a '' to_object 5 -1 5 13 0
 a '' to_object 5 -1 -10 14 0
 a '' to_object 5 -1 3 24 0
-g female~
+g @rus female~
 #4914
 skull pigeon череп~
 @eng pigeon skull@rus ~~голубиный~~ ~~череп~~~
@@ -846,7 +846,7 @@ a '' to_object 10 -1 10 13 0
 a '' to_object 10 -1 10 14 0
 a '' to_object 10 -1 -10 17 0
 a '' to_object 10 -1 2 18 0
-g male~
+g @rus male~
 #4915
 talon rat коготь~
 @eng rat's talon@rus ~~коготь~~ крысы~
@@ -857,7 +857,7 @@ armor U 0 AB
 5 5 0 P
 a '' to_object 5 -1 -1 18 0
 a '' to_object 5 -1 1 19 0
-g male~
+g @rus male~
 #4916
 breast plate glowing кираса~
 @eng "3" glowing breast plate@rus "3" ~~сверкающая~~ ~~кираса~~~
@@ -866,7 +866,7 @@ brass~
 armor A 0 AD
 4 4 4 2 0
 6 40 1500 P
-g female~
+g @rus female~
 #4917
 legplates plate glowing поножи~
 @eng "3" glowing leg plates@rus "3" ~~сверкающие~~ ~~поножи~~~
@@ -875,7 +875,7 @@ brass~
 armor A 0 AF
 4 4 4 2 0
 6 40 1500 P
-g plural~
+g @rus plural~
 #4918
 plate glowing arm наручи~
 @eng "3" glowing arm plates@rus "3" ~~сверкающие~~ ~~наручи~~~
@@ -884,7 +884,7 @@ brass~
 armor A 0 AI
 4 4 4 2 0
 6 40 1500 P
-g plural~
+g @rus plural~
 #4919
 helmet шлем glowing~
 @eng "3" glowing helmet@rus "3" ~~сверкающий~~ ~~шлем~~~
@@ -893,7 +893,7 @@ brass~
 armor A 0 AE
 4 4 4 2 0
 6 40 1500 P
-g male~
+g @rus male~
 #4920
 gauntlets латные рукавицы glowing~
 @eng "3" glowing gauntlets@rus "3" ~~сверкающие~~ ~~латные~~ ~~рукавицы~~~
@@ -902,7 +902,7 @@ brass~
 armor A 0 AH
 4 4 4 2 0
 6 40 1500 P
-g plural~
+g @rus plural~
 #4921
 boots сапоги glowing~
 @eng "3" glowing boots@rus "3" ~~сверкающие~~ ~~сапоги~~~
@@ -911,7 +911,7 @@ brass~
 armor A 0 AG
 4 4 4 2 0
 6 40 1500 P
-g plural~
+g @rus plural~
 #4922
 breast plate glowing кираса~
 @eng "6" glowing breast plate@rus "6" ~~сверкающая~~ ~~кираса~~~
@@ -920,7 +920,7 @@ brass~
 armor A 0 AD
 8 8 8 4 0
 12 40 1500 P
-g female~
+g @rus female~
 #4923
 leg поножи plate glowing~
 @eng "6" glowing leg plates@rus "6" ~~сверкающие~~ ~~поножи~~~
@@ -929,7 +929,7 @@ brass~
 armor A 0 AF
 8 8 8 4 0
 12 40 1500 P
-g plural~
+g @rus plural~
 #4924
 plate glowing arm наручи~
 @eng "6" glowing arm plates@rus "6" ~~сверкающие~~ ~~наручи~~~
@@ -938,7 +938,7 @@ brass~
 armor A 0 AI
 8 8 8 4 0
 12 40 1500 P
-g plural~
+g @rus plural~
 #4925
 helmet шлем glowing~
 @eng "6" glowing helmet@rus "6" ~~сверкающий~~ ~~шлем~~~
@@ -947,7 +947,7 @@ brass~
 armor A 0 AE
 8 8 8 4 0
 12 40 1500 P
-g male~
+g @rus male~
 #4926
 gauntlets латные рукавицы glowing~
 @eng "6" glowing gauntlets@rus "6" ~~сверкающие~~ ~~латные~~ ~~рукавицы~~~
@@ -956,7 +956,7 @@ brass~
 armor A 0 AH
 8 8 8 4 0
 12 40 1500 P
-g plural~
+g @rus plural~
 #4927
 boots сапоги glowing~
 @eng "6" glowing boots@rus "6" ~~сверкающие~~ ~~сапоги~~~
@@ -965,7 +965,7 @@ brass~
 armor A 0 AG
 8 8 8 4 0
 12 40 1500 P
-g plural~
+g @rus plural~
 #4928
 breast plate glowing кираса~
 @eng "9" glowing breast plate@rus "9" ~~сверкающая~~ ~~кираса~~~
@@ -974,7 +974,7 @@ brass~
 armor A 0 AD
 12 12 12 6 0
 18 40 1500 P
-g female~
+g @rus female~
 #4929
 leg поножи plate glowing~
 @eng "9" glowing leg plates@rus "9" ~~сверкающие~~ ~~поножи~~~
@@ -983,7 +983,7 @@ brass~
 armor A 0 AF
 12 12 12 6 0
 18 40 1500 P
-g plural~
+g @rus plural~
 #4930
 plate glowing arm наручи~
 @eng "9" glowing arm plates@rus "9" ~~сверкающие~~ ~~наручи~~~
@@ -992,7 +992,7 @@ brass~
 armor A 0 AI
 12 12 12 6 0
 18 40 1500 P
-g none~
+g @rus none~
 #4931
 helmet шлем glowing~
 @eng "9" glowing helmet@rus "9" ~~сверкающий~~ ~~шлем~~~
@@ -1001,7 +1001,7 @@ brass~
 armor A 0 AE
 12 12 12 6 0
 18 40 1500 P
-g male~
+g @rus male~
 #4932
 gauntlets латные рукавицы glowing~
 @eng "9" glowing gauntlets@rus "9" ~~сверкающие~~ ~~латные~~ ~~рукавицы~~~
@@ -1010,7 +1010,7 @@ brass~
 armor A 0 AH
 12 12 12 6 0
 18 40 1500 P
-g plural~
+g @rus plural~
 #4933
 boots сапоги glowing~
 @eng "9" glowing boots@rus "9" ~~сверкающие~~ ~~сапоги~~~
@@ -1019,7 +1019,7 @@ brass~
 armor A 0 AG
 12 12 12 6 0
 18 40 1500 P
-g plural~
+g @rus plural~
 #4934
 breast plate glowing кираса~
 @eng "12" glowing breast plate@rus "12" ~~сверкающая~~ ~~кираса~~~
@@ -1028,7 +1028,7 @@ brass~
 armor A 0 AD
 16 16 16 8 0
 24 40 1500 P
-g female~
+g @rus female~
 #4935
 leg поножи plate glowing~
 @eng "12" glowing leg plates@rus "12" ~~сверкающие~~ ~~поножи~~~
@@ -1037,7 +1037,7 @@ brass~
 armor A 0 AF
 16 16 16 8 0
 24 40 1500 P
-g plural~
+g @rus plural~
 #4936
 plate glowing arm наручи~
 @eng "12" glowing arm plates@rus "12" ~~сверкающие~~ ~~наручи~~~
@@ -1046,7 +1046,7 @@ brass~
 armor A 0 AI
 16 16 16 8 0
 24 40 1500 P
-g plural~
+g @rus plural~
 #4937
 helm helmet шлем glowing~
 @eng "12" glowing helmet@rus "12" ~~сверкающий~~ ~~шлем~~~
@@ -1055,7 +1055,7 @@ brass~
 armor A 0 AE
 16 16 16 8 0
 24 40 1500 P
-g male~
+g @rus male~
 #4938
 gauntlets латные рукавицы glowing~
 @eng "12" glowing gauntlets@rus "12" ~~сверкающие~~ ~~латные~~ ~~рукавицы~~~
@@ -1064,7 +1064,7 @@ brass~
 armor A 0 AH
 16 16 16 8 0
 24 40 1500 P
-g plural~
+g @rus plural~
 #4939
 boots сапоги glowing~
 @eng "12" glowing boots@rus "12" ~~сверкающие~~ ~~сапоги~~~
@@ -1073,7 +1073,7 @@ brass~
 armor A 0 AG
 16 16 16 8 0
 24 40 1500 P
-g plural~
+g @rus plural~
 #4940
 dagger clock кинжал~
 @eng clock dagger@rus ~~кинжал~~ из башенных часов~
@@ -1082,7 +1082,7 @@ air~
 weapon 0 0 AN
 dagger 1 18 'pierce' 0
 6 20 0 P
-g male~
+g @rus male~
 #4941
 sword clock меч~
 @eng clock sword@rus ~~меч~~ из башенных часов~
@@ -1091,7 +1091,7 @@ brass~
 weapon 0 0 AN
 sword 3 8 'slash' 0
 12 50 1500 P
-g male~
+g @rus male~
 #4942
 mace clock булава~
 @eng clock mace@rus ~~булава~~ из башенных часов~
@@ -1100,7 +1100,7 @@ brass~
 weapon 0 0 AN
 mace 4 8 'crush' 0
 18 60 3500 P
-g female~
+g @rus female~
 #4943
 lance clock пика~
 @eng clock lance@rus ~~пика~~ из башенных часов~
@@ -1109,7 +1109,7 @@ brass~
 weapon 0 0 AN
 lance 12 3 'none' 0
 30 100 5000 P
-g female~
+g @rus female~
 #4944
 exit door дверь~
 @eng exit from the tower@rus ~~выход~~ из башни~
@@ -1118,7 +1118,7 @@ unknown~
 portal 0 0 0
 0 0 0 36332 0
 0 0 0 P
-g male~
+g @rus male~
 #4945
 cabinet конторка~
 @eng cabinet@rus конторка~
@@ -1127,7 +1127,7 @@ ebony~
 furniture CY B 0
 B DFGHIJ DN BCDE BCDE
 0 0 0 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

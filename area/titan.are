@@ -1768,7 +1768,7 @@ glass~
 drink A 0 AO
 40 40 'elvish wine' 0 0
 2 10 140 G
-g none~
+g @rus none~
 #18001
 bottle wine chablis~
 a bottle of Chablis Wine~
@@ -1777,7 +1777,7 @@ glass~
 drink A 0 AO
 40 40 'white wine' 0 0
 2 10 130 G
-g none~
+g @rus none~
 #18002
 bottle wine liebfraumilch~
 a bottle of Liebfraumilch~
@@ -1786,7 +1786,7 @@ glass~
 drink A 0 AO
 40 40 'red wine' 0 0
 2 10 130 G
-g none~
+g @rus none~
 #18003
 bottle wine austrian red~
 a bottle of Austrian Red~
@@ -1795,7 +1795,7 @@ glass~
 drink A 0 AO
 40 40 'red wine' 0 0
 2 10 100 G
-g none~
+g @rus none~
 #18004
 bottle wine sauvignon blanc~
 a bottle of Sauvignon Blanc~
@@ -1804,7 +1804,7 @@ glass~
 drink A 0 AO
 40 40 'white wine' 0 0
 2 10 100 G
-g none~
+g @rus none~
 #18005
 bottle wine tanqueray~
 a bottle of Tanqueray~
@@ -1813,7 +1813,7 @@ glass~
 drink A 0 AO
 40 40 'sherry' 0 0
 2 10 100 G
-g none~
+g @rus none~
 #18006
 slice ham meat~
 a slice of ham~
@@ -1822,7 +1822,7 @@ meat~
 food A 0 A
 CDF BCDE 0 0 0
 20 50 244 P
-g none~
+g @rus none~
 #18007
 side beef~
 a side of beef~
@@ -1831,7 +1831,7 @@ meat~
 food A 0 A
 AF BCDE 0 0 0
 20 20 260 P
-g none~
+g @rus none~
 #18008
 chicken wing~
 a chicken wing~
@@ -1840,7 +1840,7 @@ meat~
 food A 0 A
 BCDE BCDE 0 0 0
 20 20 230 P
-g none~
+g @rus none~
 #18009
 leg lamb~
 a leg of lamb~
@@ -1849,7 +1849,7 @@ meat~
 food A 0 A
 BCDE BCDE 0 0 0
 20 20 203 P
-g none~
+g @rus none~
 #18010
 bongo drum~
 a groovy Bong Drum~
@@ -1861,7 +1861,7 @@ exotic 5 5 'pound' 0
 a '' to_object 24 -1 1 5 0
 a '' to_object 24 -1 3 19 0
 a '' to_object 24 -1 2 18 0
-g none~
+g @rus none~
 #18011
 guitar~
 a groovy Guitar~
@@ -1872,7 +1872,7 @@ exotic 5 6 'chomp' 0
 25 200 6500 G
 a '' to_object 25 -1 3 19 0
 a '' to_object 25 -1 2 18 0
-g none~
+g @rus none~
 #18012
 pipe wind windpipe~
 a groovy Wind-Pipe~
@@ -1883,7 +1883,7 @@ exotic 6 4 'slash' 0
 25 120 7500 G
 a '' to_object 25 -1 4 19 0
 a '' to_object 25 -1 3 18 0
-g none~
+g @rus none~
 #18013
 striped bodysuit~
 a Prisoner's Strip-Suit~
@@ -1894,7 +1894,7 @@ armor ABG 0 AK
 25 200 7200 G
 a '' to_object 25 -1 -30 14 0
 a '' to_object 25 -1 4 18 0
-g none~
+g @rus none~
 #18014
 bread~
 a fresh baked bread~
@@ -1903,7 +1903,7 @@ meat~
 food A 0 A
 AC AC 0 0 0
 20 20 22 P
-g none~
+g @rus none~
 #18015
 batch cookies~
 a batch of cookies~
@@ -1912,7 +1912,7 @@ meat~
 food A 0 A
 CE CE 0 0 0
 20 20 100 P
-g none~
+g @rus none~
 #18016
 bread stick~
 a fresh breadstick~
@@ -1921,7 +1921,7 @@ meat~
 food A 0 A
 ACDF ACDF 0 0 0
 20 2 400 P
-g none~
+g @rus none~
 #18017
 pie peach~
 a peach pie~
@@ -1930,7 +1930,7 @@ meat~
 food A 0 A
 AF BCDE 0 0 0
 20 20 100 P
-g none~
+g @rus none~
 #18018
 pie blueberry~
 a blueberry pie~
@@ -1939,7 +1939,7 @@ meat~
 food A 0 A
 F F 0 0 0
 20 20 600 P
-g none~
+g @rus none~
 #18019
 honey comb~
 a honey comb~
@@ -1948,7 +1948,7 @@ meat~
 food A 0 A
 ABCDF ABCDF 0 0 0
 20 20 300 P
-g none~
+g @rus none~
 #18020
 honey mead~
 a bottle of honey mead~
@@ -1957,7 +1957,7 @@ meat~
 food A 0 A
 CE 0 0 0 0
 20 20 210 P
-g none~
+g @rus none~
 #18021
 honey jar~
 a jar of honey~
@@ -1966,7 +1966,7 @@ meat~
 food A 0 A
 CE CE 0 0 0
 20 20 231 P
-g none~
+g @rus none~
 #18022
 standard weapon combat tournament~
 a Standard Tournament Combat Weapon~
@@ -1978,7 +1978,7 @@ flail 5 8 'cleave' 0
 a '' to_object 35 -1 -1 22 0
 a '' to_object 35 -1 1 19 0
 a '' to_object 35 -1 2 18 0
-g none~
+g @rus none~
 #18023
 scribler~
 a tourists' scribler~
@@ -1987,7 +1987,7 @@ cloth~
 trash A 0 A
 0 0 0 0 0
 20 20 1206 P
-g none~
+g @rus none~
 #18024
 fish bones~
 a fish bone~
@@ -1996,7 +1996,7 @@ stone~
 trash A 0 A
 0 0 0 0 0
 10 20 1260 P
-g none~
+g @rus none~
 #18025
 broken wine bottle~
 a broken wine bottle~
@@ -2005,7 +2005,7 @@ glass~
 trash A 0 A
 0 0 0 0 0
 10 20 1260 P
-g none~
+g @rus none~
 #18026
 patch townguard crest~
 a townguard crest~
@@ -2016,7 +2016,7 @@ armor AG 0 AC
 43 250 10900 G
 a '' to_object 43 -1 3 19 0
 a '' to_object 43 -1 2 18 0
-g none~
+g @rus none~
 #18027
 bottle rum~
 a bottle of Rum~
@@ -2025,7 +2025,7 @@ glass~
 drink A 0 A
 10 10 'rum' 0 0
 20 2 400 P
-g none~
+g @rus none~
 #18028
 potion invisibility~
 a Magical Potion of Invisibility.~
@@ -2034,7 +2034,7 @@ glass~
 potion AB 0 AO
 50 'invisibility' 'pass door' '' ''
 20 2 1660 P
-g none~
+g @rus none~
 #18029
 potion teleportation~
 a Magical Potion of Teleportation.~
@@ -2043,7 +2043,7 @@ glass~
 potion AB 0 AO
 50 'teleport' 'teleport' 'teleport' 'teleport'
 20 50 13000 P
-g none~
+g @rus none~
 #18030
 potion holy touch~
 a Magical Potion of The Holy Touch.~
@@ -2052,7 +2052,7 @@ glass~
 potion AB 0 A
 50 'bless' 'protection evil' 'haste' 'shield'
 20 100 25000 P
-g none~
+g @rus none~
 #18031
 potion deadly combat~
 a Magical Potion of Deadly Combat.~
@@ -2061,7 +2061,7 @@ glass~
 potion AB 0 A
 50 'frenzy' 'stone skin' 'giant strength' 'armor'
 20 100 19000 P
-g none~
+g @rus none~
 #18032
 potion cure battle wounds~
 a Magical Potion to Cure Battle Wounds~
@@ -2070,7 +2070,7 @@ glass~
 potion AB 0 A
 40 'cure serious' 'cure critical' 'heal' ''
 20 50 10500 P
-g none~
+g @rus none~
 #18033
 breast plate titan~
 the silver breast plate of the Titans~
@@ -2081,7 +2081,7 @@ armor G 0 AD
 25 350 12840 G
 a '' to_object 25 -1 -30 17 0
 a '' to_object 25 -1 2 19 0
-g none~
+g @rus none~
 #18034
 bracer titan silver~
 the silver bracer of the Titans~
@@ -2092,7 +2092,7 @@ armor G 0 AI
 25 100 10994 G
 a '' to_object 25 -1 2 19 0
 a '' to_object 25 -1 1 1 0
-g none~
+g @rus none~
 #18035
 legging silver titan~
 the silver leggings of the Titans~
@@ -2102,7 +2102,7 @@ armor G 0 AF
 9 9 9 1 3
 25 200 9954 G
 a '' to_object 25 -1 -1 22 0
-g none~
+g @rus none~
 #18036
 silver boots boot titan~
 the silver boots of the Titans~
@@ -2113,7 +2113,7 @@ armor G 0 AG
 25 200 8906 G
 a '' to_object 25 -1 30 14 0
 a '' to_object 25 -1 -10 17 0
-g none~
+g @rus none~
 #18037
 silver helm titan~
 the silver helm of the Titans~
@@ -2122,7 +2122,7 @@ silver~
 armor A 0 AE
 9 10 9 0 2
 25 20 9906 G
-g none~
+g @rus none~
 #18038
 carrot~
 a Titan grown carrot~
@@ -2131,7 +2131,7 @@ meat~
 food A 0 A
 BEF BEF 0 0 0
 20 20 350 P
-g none~
+g @rus none~
 #18039
 spinich~
 a Titan grown head of spinich~
@@ -2140,7 +2140,7 @@ meat~
 food A 0 A
 BEF BEF 0 0 0
 20 20 300 P
-g none~
+g @rus none~
 #18040
 apple~
 a Titan grown apple~
@@ -2149,7 +2149,7 @@ meat~
 food A 0 A
 CE CE 0 0 0
 20 20 250 P
-g none~
+g @rus none~
 #18041
 orange~
 a Titan grown orange~
@@ -2158,7 +2158,7 @@ meat~
 food A 0 A
 F F 0 0 0
 20 20 100 P
-g none~
+g @rus none~
 #18042
 cherry~
 a Titan grown cherry~
@@ -2167,7 +2167,7 @@ meat~
 food A 0 A
 CF CF 0 0 0
 30 20 440 P
-g none~
+g @rus none~
 #18043
 titan dagger silver~
 a Silver Dagger of The Titans~
@@ -2178,7 +2178,7 @@ dagger 5 6 'stab' 0
 25 120 5900 P
 a '' to_object 25 -1 1 19 0
 a '' to_object 25 -1 1 18 0
-g none~
+g @rus none~
 #18044
 titan sword silver~
 a Silver Sword of The Titans~
@@ -2188,7 +2188,7 @@ weapon AB 0 AN
 sword 5 6 'pierce' 0
 25 250 5100 P
 a '' to_object 25 -1 1 19 0
-g none~
+g @rus none~
 #18045
 titan mace silver~
 a Silver Mace of The Titans~
@@ -2198,7 +2198,7 @@ weapon AB 0 AN
 mace 6 5 'pound' 0
 25 250 5660 P
 a '' to_object 25 -1 1 18 0
-g none~
+g @rus none~
 #18046
 titan axe silver~
 a Silver Axe of The Titans~
@@ -2209,7 +2209,7 @@ axe 5 6 'chomp' 0
 25 250 5330 P
 a '' to_object 25 -1 1 17 0
 a '' to_object 25 -1 -1 1 0
-g none~
+g @rus none~
 #18047
 titan silver spear~
 a Silver Spear of The Titans~
@@ -2219,7 +2219,7 @@ weapon AB 0 AN
 spear 5 7 'pierce' K
 25 250 5250 P
 a '' to_object 25 -1 4 18 0
-g none~
+g @rus none~
 #18048
 titan silver whip~
 a Silver-Linked Whip of The Titans~
@@ -2230,7 +2230,7 @@ whip 6 6 'whip' 0
 30 200 1000 P
 a '' to_object 30 -1 1 19 0
 a '' to_object 30 -1 2 18 0
-g none~
+g @rus none~
 #18049
 book titan lore~
 a Leather Bound Book on Titan Lore~
@@ -2239,7 +2239,7 @@ leather~
 wand A 0 AO
 30 10 10 'sleep' 0
 25 80 10620 P
-g none~
+g @rus none~
 #18050
 tulip yellow~
 a Bright Yellow Tulip~
@@ -2248,7 +2248,7 @@ wood~
 treasure A 0 A
 0 0 0 0 0
 10 1 1004 P
-g none~
+g @rus none~
 #18051
 tulip red~
 a Bright Red Tulip~
@@ -2257,7 +2257,7 @@ wood~
 treasure A 0 A
 0 0 0 0 0
 10 0 1330 P
-g none~
+g @rus none~
 #18052
 white rose~
 a Beautiful Single White Rose~
@@ -2268,7 +2268,7 @@ treasure A 0 AO
 10 1 1000 P
 a '' to_object 10 -1 1 18 0
 a '' to_object 10 -1 -1 17 0
-g none~
+g @rus none~
 #18053
 red rose dozen~
 One Dozen Red Roses~
@@ -2277,7 +2277,7 @@ wood~
 treasure A 0 A
 0 0 0 0 0
 10 0 1003 P
-g none~
+g @rus none~
 #18054
 chrysanthemum yellow~
 Twenty-Two Bright Yellow Chrysanthemums~
@@ -2286,7 +2286,7 @@ wood~
 treasure A 0 A
 0 0 0 0 0
 10 0 1000 G
-g none~
+g @rus none~
 #18055
 cook hat~
 the Cook's Hat~
@@ -2297,7 +2297,7 @@ armor ABG 0 AE
 29 160 8400 G
 a '' to_object 29 -1 1 19 0
 a '' to_object 29 -1 1 18 0
-g none~
+g @rus none~
 #18056
 cook pot~
 the Cook's Pot~
@@ -2308,7 +2308,7 @@ armor ABG 0 AE
 28 200 8100 G
 a '' to_object 28 -1 10 13 0
 a '' to_object 28 -1 1 1 0
-g none~
+g @rus none~
 #18057
 serf shoes serfs shoe~
 the little serfs shoes~
@@ -2319,7 +2319,7 @@ armor A 0 AG
 28 20 450 G
 a '' to_object 28 -1 20 13 0
 a '' to_object 28 -1 -1 1 0
-g none~
+g @rus none~
 #18058
 pouch beggar money~
 a little beggar's money pouch~
@@ -2328,7 +2328,7 @@ leather~
 container AG 0 A
 200 A 0 100 50
 24 20 1500 P
-g none~
+g @rus none~
 #18059
 staff knight templar~
 the Staff of The Knight Templar~
@@ -2340,7 +2340,7 @@ armor ABG 0 AO
 a '' to_object 40 -1 2 18 0
 a '' to_object 40 -1 2 19 0
 a '' to_object 40 -1 75 13 0
-g none~
+g @rus none~
 #18060
 leather boot boots titan~
 a Titan Citizen's Leather Boots.~
@@ -2350,7 +2350,7 @@ armor ABG 0 AG
 8 8 8 1 2
 25 250 4700 G
 a '' to_object 25 -1 3 3 0
-g none~
+g @rus none~
 #18061
 patrol guard club~
 a patrol guard's club~
@@ -2360,7 +2360,7 @@ weapon AB 0 AN
 mace 5 8 'pound' 0
 39 250 4570 P
 a '' to_object 39 -1 -1 1 0
-g none~
+g @rus none~
 #18062
 key town~
 the Golden Key to The  Valley of The Titans~
@@ -2369,7 +2369,7 @@ gold~
 trash A 0 AO
 0 0 0 0 0
 25 20 10000 P
-g none~
+g @rus none~
 #18063
 long dagger golden~
 a Long Golden Dagger~
@@ -2379,7 +2379,7 @@ weapon ABG 0 AN
 dagger 5 6 'cleave' D
 25 120 4500 P
 a '' to_object 25 -1 10 12 0
-g none~
+g @rus none~
 #18064
 wooden carved music box~
 a beautifully carved music box~
@@ -2388,7 +2388,7 @@ wood~
 container A 0 A
 500 A 0 500 60
 20 20 3340 P
-g none~
+g @rus none~
 #18065
 small steel box~
 a small steel box~
@@ -2397,7 +2397,7 @@ wood~
 container A 0 A
 500 A 0 500 50
 20 20 4500 P
-g none~
+g @rus none~
 #18066
 backpack~
 a Designer Backpack~
@@ -2406,7 +2406,7 @@ leather~
 container AGH 0 A
 1000 A 0 1000 25
 20 25 15000 P
-g none~
+g @rus none~
 #18067
 wand titans titan magic~
 a Wand of Titan Magic~
@@ -2415,7 +2415,7 @@ wood~
 wand A 0 AO
 50 19 19 'calm' 0
 25 200 17080 P
-g none~
+g @rus none~
 #18068
 wand elven magic~
 a Wand of Elven Magic~
@@ -2424,7 +2424,7 @@ wood~
 wand A 0 AO
 50 60 60 'know alignment' 0
 25 200 11980 P
-g none~
+g @rus none~
 #18069
 wand druid magic~
 a Wand of Druid Magic~
@@ -2433,7 +2433,7 @@ wood~
 wand A 0 AO
 25 10 10 'acid blast' 0
 25 200 49706 P
-g none~
+g @rus none~
 #18070
 wand pixie magic~
 a Wand of Pixie Magic~
@@ -2442,7 +2442,7 @@ wood~
 wand A 0 AO
 30 15 15 'faerie fire' 0
 25 200 12204 P
-g none~
+g @rus none~
 #18071
 wand avian magic~
 a Wand of Avian Magic~
@@ -2451,7 +2451,7 @@ wood~
 wand A 0 AO
 30 5 5 'fireball' 0
 25 20 14356 P
-g none~
+g @rus none~
 #18072
 wand drow magic~
 a Wand of Drow Magic~
@@ -2460,7 +2460,7 @@ wood~
 wand A 0 AO
 30 16 16 'curse' 0
 25 20 13490 P
-g none~
+g @rus none~
 #18073
 chocolate icecream~
 a Double Scoop of Chocolate Icecream~
@@ -2469,7 +2469,7 @@ food~
 food A 0 A
 BEF BEF 0 0 0
 3 110 340 P
-g none~
+g @rus none~
 #18074
 blueberry icecream~
 a Tripple Scoop of Blueberry Icecream~
@@ -2478,7 +2478,7 @@ food~
 food A 0 A
 ABCEF ABCEF 0 0 0
 3 110 500 P
-g none~
+g @rus none~
 #18075
 fudge icecream~
 a Single Scoop of Fudge Icecream~
@@ -2487,7 +2487,7 @@ food~
 food A 0 A
 CDEF CDEF 0 0 0
 3 110 200 P
-g none~
+g @rus none~
 #18076
 chocolate covered almonds~
 some chocolate covered almonds~
@@ -2496,7 +2496,7 @@ food~
 food A 0 A
 AG AG 0 0 0
 4 120 500 P
-g none~
+g @rus none~
 #18077
 chocolate fudge~
 some chocolate fudge~
@@ -2505,7 +2505,7 @@ food~
 food A 0 A
 BCG BCG 0 0 0
 4 120 600 P
-g none~
+g @rus none~
 #18078
 chocolate brittle~
 some chocolate brittle~
@@ -2514,7 +2514,7 @@ food~
 food A 0 A
 BD BD 0 0 0
 4 120 100 P
-g none~
+g @rus none~
 #18079
 chocolate mint~
 some chocolate mint~
@@ -2523,7 +2523,7 @@ food~
 food A 0 A
 BEF BEF 0 0 0
 2 120 100 P
-g none~
+g @rus none~
 #18080
 black suede boot boots~
 a pair of black suede boots~
@@ -2532,7 +2532,7 @@ leather~
 armor A 0 AG
 9 9 9 0 1
 25 200 4400 G
-g none~
+g @rus none~
 #18081
 navy blue skirt~
 a long navy blue skirt~
@@ -2543,7 +2543,7 @@ armor AG 0 AF
 25 300 5050 G
 a '' to_object 25 -1 2 19 0
 a '' to_object 25 -1 1 18 0
-g none~
+g @rus none~
 #18082
 silver white cloak~
 a beautiful silver and white cloak~
@@ -2554,7 +2554,7 @@ armor AG 0 AK
 25 170 9604 G
 a '' to_object 25 -1 2 2 0
 a '' to_object 25 -1 1 1 0
-g none~
+g @rus none~
 #18083
 emerald studded bracer~
 an emerald-studded bracer~
@@ -2564,7 +2564,7 @@ armor AG 0 AK
 9 9 9 1 0
 25 10 7600 G
 a '' to_object 25 -1 10 13 0
-g none~
+g @rus none~
 #18084
 fountain marble~
 a beautiful large marble fountain.~
@@ -2573,7 +2573,7 @@ marble~
 fountain A A 0
 10000 10000 'vodka' 0 0
 0 0 0 P
-g none~
+g @rus none~
 #18085
 standard weapon~
 a Standard Demon Weapon~
@@ -2585,7 +2585,7 @@ exotic 5 9 'wrath' CF
 a '' to_object 35 -1 -1 22 0
 a '' to_object 35 -1 2 19 0
 a '' to_object 35 -1 2 18 0
-g none~
+g @rus none~
 #18086
 weapon combat tournament~
 an Enhanced Tournament Combat Weapon~
@@ -2597,7 +2597,7 @@ flail 6 8 'cleave' 0
 a '' to_object 48 -1 -2 22 0
 a '' to_object 48 -1 3 19 0
 a '' to_object 48 -1 3 18 0
-g none~
+g @rus none~
 #18099
 potion cure sickness~
 a Magical Potion of Cure Sickness.~
@@ -2606,7 +2606,7 @@ glass~
 potion AB 0 A
 90 'remove curse' 'cure blindness' 'cure poison' 'cure disease'
 20 50 50333 P
-g none~
+g @rus none~
 #18100
 pie apple~
 an apple pie~
@@ -2615,7 +2615,7 @@ food~
 food A 0 A
 CE CE 0 0 0
 20 20 50 P
-g none~
+g @rus none~
 #18101
 pit~
 the donation pit~
@@ -2624,7 +2624,7 @@ unknown~
 container 0 AJ 0
 10000 0 0 1000 100
 0 0 0 P
-g none~
+g @rus none~
 #18102
 fountain~
 a fountain~
@@ -2633,7 +2633,7 @@ unknown~
 fountain A B 0
 0 0 'water' 0 0
 0 0 0 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

@@ -408,7 +408,7 @@ or marks of any kind.
 @rus Это совсем маленький ключик, изготовленный из латуни, без каких-либо
 надписей на нем.
 ~
-g male~
+g @rus male~
 #8201
 tee-shirt футболка~
 @eng a tee-shirt@rus футболка~
@@ -425,7 +425,7 @@ writting футболка tee-shirt~
 "I've been to the Midgaard Zoo"
 @rus Надпись на футболке гласит: "Я был в зоопарке Мидгаарда!"
 ~
-g female~
+g @rus female~
 #8202
 mug кружка~
 @eng a mug@rus кружка~
@@ -440,7 +440,7 @@ writting mug кружка~
 "I've been to the Midgaard Zoo"
 @rus Надпись на кружке гласит: "Я был в зоопарке Мидгаарда!"
 ~
-g female~
+g @rus female~
 #8203
 fountain water фонтан~
 @eng a fountain@rus фонтан~
@@ -454,7 +454,7 @@ fountain фонтан~
 @eng It is very nice.  Made from fine white marble.
 @rus Этот фонтан сделан из прекрасного белого мрамора и очень красив.
 ~
-g male~
+g @rus male~
 #8204
 map zoo foldable карта~
 @eng a map of Midgaard Zoo@rus ~~карта~~ зоопарка Мидгаарда~
@@ -501,7 +501,7 @@ map zoo карта~
              [12]       |         12 = тигр
                        [13]       13 = единорог
 ~
-g none~
+g @rus none~
 #8205
 dagger кинжал zoo~
 @eng a zoo dagger@rus зоо-~~кинжал~~~
@@ -515,7 +515,7 @@ writting~
 The writting on the tee-shirt reads
 "I've been to the Midgaard Zoo"
 ~
-g none~
+g @rus none~
 #0
 
 #ROOMS

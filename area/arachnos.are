@@ -299,7 +299,7 @@ armor FG 0 AE
 18 50 4600 P
 a '' to_object 18 -1 -2 17 0
 a '' to_object 18 -1 2 4 0
-g none~
+g @rus none~
 #6304
 visor black knight's~
 a black knight's visor~
@@ -310,7 +310,7 @@ armor FG 0 AE
 17 50 4600 P
 a '' to_object 17 -1 2 5 0
 a '' to_object 17 -1 1 1 0
-g none~
+g @rus none~
 #6308
 coins silver gold~
 a big pile of coins~
@@ -319,7 +319,7 @@ silver~
 money 0 0 A
 500 20 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #6309
 potion blue~
 a blue potion~
@@ -332,7 +332,7 @@ E
 potion blue~
 It has a nice sky blue colour and a smell like peppermint.
 ~
-g none~
+g @rus none~
 #0
 
 #ROOMS

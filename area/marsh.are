@@ -322,7 +322,7 @@ spear 1 12 'stab' F
 11 100 1330 P
 a '' to_object 11 -1 1 2 0
 a '' to_object 11 -1 3 19 0
-g none~
+g @rus none~
 #8302
 horned helmet рогатый шлем~
 @eng a dark horned helmet@rus ~~рогатый~~ ~~шлем~~~
@@ -336,7 +336,7 @@ a '' to_object 10 -1 1 19 0
 E
 horns horn рог гогатый~
 @eng These horns appear to be made of adamantite.@rus Этот шлем сделан из адамантина.~
-g none~
+g @rus none~
 #8303
 chain mail chainmail кольчуга кольчужная рубаха~
 @eng a suit of chainmail@rus ~~кольчужная~~ ~~рубаха~~~
@@ -345,7 +345,7 @@ iron~
 armor J 0 AD
 5 8 7 0 0
 20 200 2700 P
-g none~
+g @rus none~
 #8306
 scythe коса~
 @eng a huge, wicked-looking scythe@rus ~~огромная~~ ~~коса~~~
@@ -368,7 +368,7 @@ potion AB 0 A
 E
 potion микстура~
 @eng It looks really disgusting and doesn't smell very nice either.@rus Выглядит отвратительно. Пахнет не лучше...~
-g none~
+g @rus none~
 #8308
 claymore rusty sword палаш ржавый меч~
 @eng a rusty claymore@rus ~~ржавый~~ ~~палаш~~~

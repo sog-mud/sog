@@ -571,7 +571,7 @@ food~
 food 0 0 A
 CE CE 0 0 0
 1 10 5 P
-g none~
+g @rus none~
 #5601
 bowl curry curried grubs~
 a bowl of curried grubs~
@@ -580,7 +580,7 @@ food~
 food 0 0 A
 BEF BEF 0 0 0
 2 1 30 P
-g none~
+g @rus none~
 #5602
 cup spicy rodent stew~
 a cup of spicy rodent stew~
@@ -589,7 +589,7 @@ food~
 food 0 0 A
 DF DF 0 0 0
 3 1 25 P
-g none~
+g @rus none~
 #5603
 meat seasoned rat kabob~
 a seasoned rat kabob~
@@ -598,7 +598,7 @@ food~
 food 0 0 A
 BCDE BCDE 0 0 0
 1 1 20 P
-g none~
+g @rus none~
 #5604
 raw worms rice~
 raw worms with rice~
@@ -607,7 +607,7 @@ food~
 food 0 0 A
 BCDE BCDE 0 0 0
 1 1 20 P
-g none~
+g @rus none~
 #5605
 talon extenders~
 some talon extenders~
@@ -617,7 +617,7 @@ armor 0 0 AH
 5 6 5 1 0
 5 100 800 G
 a '' to_object 5 -1 2 19 0
-g none~
+g @rus none~
 #5606
 packet black centipede spice~
 spice of the black, aquatic centipede~
@@ -626,7 +626,7 @@ glass~
 pill 0 0 A
 20 'teleport' '' '' ''
 1 10 100 P
-g none~
+g @rus none~
 #5607
 seaweed~
 aromatic seaweed~
@@ -635,7 +635,7 @@ glass~
 pill 0 0 A
 20 'detect magic' '' '' ''
 2 100 100 P
-g none~
+g @rus none~
 #5608
 chameleon~
 a desiccated chameleon~
@@ -644,7 +644,7 @@ snakeskin~
 pill 0 0 A
 11 'detect invis' '' '' ''
 3 100 300 P
-g none~
+g @rus none~
 #5609
 giant squid eye eyeball~
 the eye of a giant squid~
@@ -653,7 +653,7 @@ gut~
 pill 0 0 A
 13 'poison' 'plague' '' ''
 4 100 100 P
-g none~
+g @rus none~
 #5610
 shiny bit green glass~
 a shiny bit of green glass~
@@ -663,7 +663,7 @@ treasure G 0 AO
 0 0 0 0 0
 8 10 640 P
 a '' to_object 8 -1 1 2 0
-g none~
+g @rus none~
 #5611
 shiny bit blue glass~
 a shiny bit of blue glass~
@@ -673,7 +673,7 @@ treasure G 0 AO
 0 0 0 0 0
 8 10 650 P
 a '' to_object 8 -1 1 1 0
-g none~
+g @rus none~
 #5612
 gold circlet~
 a bright gold circlet~
@@ -683,7 +683,7 @@ treasure G 0 AO
 0 0 0 0 0
 8 10 680 P
 a '' to_object 8 -1 1 5 0
-g none~
+g @rus none~
 #5613
 piece string~
 a pretty piece of string~
@@ -693,7 +693,7 @@ treasure G 0 AO
 0 0 0 0 0
 10 10 600 P
 a '' to_object 10 -1 4 13 0
-g none~
+g @rus none~
 #5614
 silver coin disk~
 one silver coin~
@@ -702,7 +702,7 @@ silver~
 trash 0 0 A
 0 0 0 0 0
 1 10 100 P
-g none~
+g @rus none~
 #5615
 red glass~
 glittering red glass~
@@ -711,7 +711,7 @@ glass~
 trash 0 0 A
 0 0 0 0 0
 1 10 20 P
-g none~
+g @rus none~
 #5616
 ball string~
 a ball of string~
@@ -720,7 +720,7 @@ glass~
 trash 0 0 A
 0 0 0 0 0
 1 10 300 P
-g none~
+g @rus none~
 #5617
 red string thread~
 a fine red thread~
@@ -729,7 +729,7 @@ glass~
 trash 0 0 A
 0 0 0 0 0
 1 10 40 P
-g none~
+g @rus none~
 #5618
 gem garnet stone~
 a flawed garnet stone~
@@ -738,7 +738,7 @@ stone~
 trash A 0 A
 0 0 0 0 0
 1 10 50 P
-g none~
+g @rus none~
 #5619
 nest~
 a fancy nest~
@@ -747,7 +747,7 @@ wood~
 container 0 0 0
 10000 0 0 0 0
 1 0 0 P
-g none~
+g @rus none~
 #5620
 nest~
 a straw nest~
@@ -756,7 +756,7 @@ wood~
 container 0 0 0
 10000 0 0 0 0
 1000 0 0 P
-g none~
+g @rus none~
 #5621
 nest~
 a huge nest~
@@ -765,7 +765,7 @@ wood~
 container 0 0 0
 10000 0 0 0 0
 1000 0 0 P
-g none~
+g @rus none~
 #5622
 hand ashtray~
 an ashtray~
@@ -774,7 +774,7 @@ gut~
 furniture 0 0 AO
 0 0 0 0 0
 1 1 0 P
-g none~
+g @rus none~
 #5623
 stuffed snow leopard~
 a stuffed snow leopard~
@@ -783,7 +783,7 @@ gut~
 furniture 0 0 AL
 0 0 0 0 0
 1 20 0 P
-g none~
+g @rus none~
 #5624
 stuffed jaguar~
 a stuffed jaguar~
@@ -792,7 +792,7 @@ paper~
 furniture 0 0 0
 CEFGHI 0 0 0 0
 500 0 0 P
-g none~
+g @rus none~
 #5625
 stuffed orc~
 a stuffed orc~
@@ -801,7 +801,7 @@ paper~
 furniture 0 0 0
 0 0 0 0 0
 500 0 0 P
-g none~
+g @rus none~
 #5626
 stuffed grizzly bear~
 a stuffed grizzly bear~
@@ -810,7 +810,7 @@ wood~
 container 0 0 0
 500 0 0 0 0
 1 0 0 P
-g none~
+g @rus none~
 #5627
 dragon head~
 a stuffed dragon's head~
@@ -819,7 +819,7 @@ wood~
 treasure 0 0 0
 0 0 0 0 0
 5 0 100 P
-g none~
+g @rus none~
 #5628
 glass eye~
 a glass eye~
@@ -829,7 +829,7 @@ treasure G 0 AO
 0 0 0 0 0
 10 4 10 P
 a '' to_object 10 -1 3 3 0
-g none~
+g @rus none~
 #5629
 glass eye~
 a glass eye~
@@ -838,7 +838,7 @@ glass~
 trash 0 0 A
 CEFGHI 0 0 0 0
 5 2 3 P
-g none~
+g @rus none~
 #5630
 painting~
 a strange bird painting~
@@ -854,7 +854,7 @@ seem to follow you about the room.  The painting begins to speak!  The Shaman
 utters 'xipodf sdfi dsfiop ewroia !wuer' which you recognize as being some kind
 of curse on the old Aarakocran high tongue.
 ~
-g none~
+g @rus none~
 #5631
 hand ashtray~
 an ashtray~
@@ -864,7 +864,7 @@ treasure G 0 AO
 0 0 0 0 0
 10 550 1000 P
 a '' to_object 10 -1 1 5 0
-g none~
+g @rus none~
 #5632
 canoe~
 a light weight canoe~
@@ -877,7 +877,7 @@ E
 canoe~
 Hey!  This canoe has a hole in it!
 ~
-g none~
+g @rus none~
 #5633
 chain collar~
 a thick collar and chain~
@@ -886,7 +886,7 @@ copper~
 armor 0 0 AC
 5 5 5 1 0
 1 1000 100 G
-g none~
+g @rus none~
 #5634
 bottle potion clear~
 a clear potion with feathers inside~
@@ -895,7 +895,7 @@ glass~
 potion 0 0 AO
 5 'fly' '' '' ''
 1 50 1001 P
-g none~
+g @rus none~
 #5635
 tapestry~
 a faded tapestry~
@@ -904,7 +904,7 @@ wood~
 container 0 0 0
 10000 0 0 0 0
 100 0 0 P
-g none~
+g @rus none~
 #5636
 sword~
 a sword~
@@ -915,7 +915,7 @@ sword 5 6 'pierce' 0
 25 100 1000 P
 a '' to_object 25 -1 3 18 0
 a '' to_object 25 -1 3 19 0
-g none~
+g @rus none~
 #5637
 mace~
 a mace~
@@ -926,7 +926,7 @@ mace 5 7 'crush' 0
 27 100 3000 P
 a '' to_object 27 -1 3 18 0
 a '' to_object 27 -1 3 19 0
-g none~
+g @rus none~
 #5638
 vest~
 an open-winged vest~
@@ -941,7 +941,7 @@ This vest has been designed to give proper room for large wing muscles, and
 has holes in the back which are large enough to allow you to put it on and
 take it off without getting your feathers caught.
 ~
-g none~
+g @rus none~
 #5639
 shield spiked~
 a wicked, spiked shield~
@@ -951,7 +951,7 @@ armor A A AJ
 5 5 5 1 1
 5 100 1000 G
 a '' to_object 5 -1 5 19 0
-g none~
+g @rus none~
 #5640
 cloak~
 a cloak~
@@ -960,7 +960,7 @@ wool~
 armor A 0 AC
 5 5 5 1 1
 5 100 1000 G
-g none~
+g @rus none~
 #5641
 helmet~
 a full-view helmet~
@@ -975,7 +975,7 @@ This helmet has been designed to give you an unobstructed view of a full 180
 degrees.  There is also a cleverly designed beak guard to allow you to eat and
 drink without removing the helmet.
 ~
-g none~
+g @rus none~
 #5642
 leggings~
 a pair of leggings~
@@ -984,7 +984,7 @@ steel~
 armor A A AF
 5 10 10 1 1
 5 100 1000 G
-g none~
+g @rus none~
 #5643
 boots~
 a pair of open-toe boots~
@@ -999,7 +999,7 @@ E
 boots~
 These boots have large toe holes, to accommodate large Aarakocran feet.
 ~
-g none~
+g @rus none~
 #5644
 talon extenders talons~
 a pair of talon extenders~
@@ -1009,7 +1009,7 @@ armor A A AH
 5 1 1 1 1
 5 100 1000 G
 a '' to_object 5 -1 4 19 0
-g none~
+g @rus none~
 #5645
 wing guards wingguards~
 a pair of wing guards~
@@ -1018,7 +1018,7 @@ iron~
 armor A A AI
 5 5 5 1 1
 5 100 1000 G
-g none~
+g @rus none~
 #5646
 cape~
 a cape~
@@ -1027,7 +1027,7 @@ snakeskin~
 armor A 0 AK
 5 3 3 1 1
 5 100 1000 G
-g none~
+g @rus none~
 #5647
 belt~
 a belt~
@@ -1036,7 +1036,7 @@ copper~
 armor A 0 AL
 5 3 3 1 1
 3 100 1000 G
-g none~
+g @rus none~
 #5648
 bracer~
 a bracer~
@@ -1045,7 +1045,7 @@ tin~
 armor A A AM
 5 5 5 2 1
 5 100 1000 G
-g none~
+g @rus none~
 #5649
 vest~
 an open-winged vest~
@@ -1060,7 +1060,7 @@ This vest has been designed to give proper room for large wing muscles, and
 has holes in the back which are large enough to allow you to put it on and
 take it off without getting your feathers caught.
 ~
-g none~
+g @rus none~
 #5650
 shield spiked~
 a wicked, spiked shield~
@@ -1070,7 +1070,7 @@ armor B A AJ
 5 5 5 5 5
 5 100 1000 G
 a '' to_object 5 -1 5 19 0
-g none~
+g @rus none~
 #5651
 cloak~
 a cloak~
@@ -1079,7 +1079,7 @@ wool~
 armor B 0 AC
 5 3 4 1 1
 5 100 1000 G
-g none~
+g @rus none~
 #5652
 helmet~
 a full-view helmet~
@@ -1094,7 +1094,7 @@ This helmet has been designed to give you an unobstructed view of a full 180
 degrees.  There is also a cleverly designed beak guard to allow you to eat and
 drink without removing the helmet.
 ~
-g none~
+g @rus none~
 #5653
 leggings~
 a pair of leggings~
@@ -1103,7 +1103,7 @@ steel~
 armor B A AF
 5 5 5 3 1
 5 100 1000 G
-g none~
+g @rus none~
 #5654
 boots~
 a pair of open-toe boots~
@@ -1118,7 +1118,7 @@ E
 boots~
 These boots have large toe holes, to accommodate large Aarakocran feet.
 ~
-g none~
+g @rus none~
 #5655
 talon extenders~
 a pair of talon extenders~
@@ -1128,7 +1128,7 @@ armor B A AH
 5 1 1 1 0
 5 100 1000 G
 a '' to_object 5 -1 4 19 0
-g none~
+g @rus none~
 #5656
 sleeves~
 a pair of sleeves~
@@ -1137,7 +1137,7 @@ steel~
 armor B A AI
 5 3 3 1 1
 5 100 1000 G
-g none~
+g @rus none~
 #5657
 cape~
 a cape~
@@ -1146,7 +1146,7 @@ wool~
 armor B A AK
 5 4 4 1 1
 5 100 1000 G
-g none~
+g @rus none~
 #5658
 belt~
 a belt~
@@ -1155,7 +1155,7 @@ tin~
 armor B 0 AL
 5 5 5 1 1
 5 100 1000 G
-g none~
+g @rus none~
 #5659
 bracer~
 a bracer~
@@ -1164,7 +1164,7 @@ steel~
 armor B A AM
 5 5 5 1 1
 5 100 1000 G
-g none~
+g @rus none~
 #5660
 purse~
 a generic purse~
@@ -1173,7 +1173,7 @@ steel~
 container 0 0 A
 50 0 0 0 0
 5 50 0 P
-g none~
+g @rus none~
 #5661
 fire campfire~
 a campfire~
@@ -1182,7 +1182,7 @@ flame~
 container 0 0 0
 10000 0 0 0 0
 5 0 0 P
-g none~
+g @rus none~
 #5662
 gold key~
 a shiny gold key~
@@ -1191,7 +1191,7 @@ gold~
 key AB 0 A
 0 0 0 0 0
 1 0 0 P
-g none~
+g @rus none~
 #5663
 string green thread~
 a frayed bit of green thread~
@@ -1200,7 +1200,7 @@ steel~
 staff AG 0 AO
 6 1 1 'charm person' 0
 6 1 1000 P
-g none~
+g @rus none~
 #5664
 stuffed polar bear~
 a stuffed polar bear~
@@ -1209,7 +1209,7 @@ wood~
 container 0 0 0
 500 0 0 0 0
 500 0 0 P
-g none~
+g @rus none~
 #5665
 small talon extenders~
 some small talon extenders~
@@ -1219,7 +1219,7 @@ armor 0 0 AH
 5 5 5 3 1
 17 70 700 G
 a '' to_object 17 -1 2 19 0
-g none~
+g @rus none~
 #5666
 small mace~
 a small mace~
@@ -1230,7 +1230,7 @@ mace 5 5 'pound' 0
 16 10 999 G
 a '' to_object 16 -1 1 18 0
 a '' to_object 16 -1 1 19 0
-g none~
+g @rus none~
 #5667
 small sticker~
 a small rat sticker~
@@ -1247,7 +1247,7 @@ This is a medium length piercing blade, primarily used to catch rats.  It is
 fairly long, but the point is about as long as a dagger's.  The sticker looks
 as sturdy as a short sword.
 ~
-g none~
+g @rus none~
 #5668
 large sticker~
 a large rat sticker~
@@ -1264,7 +1264,7 @@ This is a long metal blade, primarily used to catch rats.  It is about as big
 as a small sword, and has a sharp slashing blade.  It looks as sturdy as a
 short sword.
 ~
-g none~
+g @rus none~
 #5669
 helmet~
 a full-view helmet of plate~
@@ -1279,7 +1279,7 @@ This helmet has been designed to give you an unobstructed view of a full 180
 degrees.  There is also a cleverly designed beak guard to allow you to eat and
 drink without removing the helmet.
 ~
-g none~
+g @rus none~
 #5670
 vest~
 an open-winged vest~
@@ -1294,7 +1294,7 @@ This vest has been designed to give proper room for large wing muscles, and
 has holes in the back which are large enough to allow you to put it on and
 take it off without getting your feathers caught.
 ~
-g none~
+g @rus none~
 #5671
 boots~
 a pair of open-toe boots~
@@ -1309,7 +1309,7 @@ E
 boots~
 These boots have large toe holes, to accommodate large Aarakocran feet.
 ~
-g none~
+g @rus none~
 #5672
 lump metal~
 a lump of shiny metal~
@@ -1318,7 +1318,7 @@ iron~
 trash 0 0 A
 CEFGHI 0 0 0 0
 5 0 0 G
-g none~
+g @rus none~
 #5673
 pick lockpick metal bit~
 a lockpick~
@@ -1328,7 +1328,7 @@ treasure 0 0 AO
 0 0 0 0 0
 1 55 10 G
 a '' to_object 1 -1 1 2 0
-g none~
+g @rus none~
 #5674
 bottle alcohol rotgut~
 a bottle of rotgut~
@@ -1337,7 +1337,7 @@ glass~
 drink 0 0 A
 8 8 'vodka' 0 0
 10 5 140 G
-g none~
+g @rus none~
 #5675
 cracked crystal ball~
 a crystal ball~
@@ -1352,7 +1352,7 @@ You shake the crystal ball, and hold it in front of your eyes.  In a few
 seconds, a small blue tetrahedron floats to the surface.  Written on the face
 of the tetrahedron are the words 'please shake me again'.
 ~
-g none~
+g @rus none~
 #5676
 rock~
 a worthless rock~
@@ -1366,7 +1366,7 @@ rock~
 When you look at the rock, you think of a lonely kobold balling his eyes
 out in some dinghy back room.
 ~
-g none~
+g @rus none~
 #5677
 flying helmet~
 a leather flying helmet~
@@ -1380,7 +1380,7 @@ helmet~
 This helmet is made of leather and covers the entire face and upper beak.
 Glass protects the eyes while leaving view unobstructed.
 ~
-g none~
+g @rus none~
 #5678
 wing guards wingguards~
 a pair of tough leather wing guards~
@@ -1389,7 +1389,7 @@ iron~
 armor 0 0 AI
 5 5 5 3 1
 12 100 400 G
-g none~
+g @rus none~
 #5679
 fountain water~
 a fountain~
@@ -1398,7 +1398,7 @@ marble~
 fountain G 0 0
 100000 10000 'milk' 0 0
 0 0 0 P
-g none~
+g @rus none~
 #5680
 cannon tube~
 a cannon~
@@ -1412,7 +1412,7 @@ tube cannon~
 The revolutionary is experimenting with gunpowder from the far east, in an
 attempt to create a 'super weapon'.
 ~
-g none~
+g @rus none~
 #5681
 skin waterskin~
 a water skin~
@@ -1421,7 +1421,7 @@ leather~
 drink 0 0 A
 100 100 'water' 0 0
 2 30 400 G
-g none~
+g @rus none~
 #5682
 bug glowbug chitin~
 a dead glowbug~
@@ -1430,7 +1430,7 @@ gut~
 light G 0 A
 0 0 80 0 0
 5 33 567 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

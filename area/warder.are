@@ -79,7 +79,7 @@ wood~
 key Y ABI AO
 0 0 0 0 0
 0 5 0 P
-g none~
+g @rus none~
 #96001
 leaf лист~
 the Leaf of Great Oak~
@@ -88,7 +88,7 @@ wood~
 treasure 0 ABH AO
 0 0 0 0 0
 0 1 0 P
-g none~
+g @rus none~
 #96002
 hollow in tree дупло~
 the hollow~
@@ -97,7 +97,7 @@ wood~
 container Y AB 0
 10 ABCD 96000 15 100
 0 0 0 P
-g none~
+g @rus none~
 #96003
 waterfall~
 a beautiful waterfall~
@@ -106,7 +106,7 @@ water~
 portal 0 0 0
 0 0 0 96009 0
 0 0 0 P
-g male~
+g @rus male~
 #96004
 spring~
 @eng spring@rus ручей~
@@ -115,7 +115,7 @@ unknown~
 fountain AB 0 0
 0 0 'elvish wine' 0 0
 0 0 0 P
-g none~
+g @rus none~
 #96005
 branch~
 branch~
@@ -124,7 +124,7 @@ wood~
 furniture IY B 0
 BD GJOQRST EHKN DGH DGH
 0 1000000 0 P
-g none~
+g @rus none~
 #96010
 cap milk~
 cap of milk~
@@ -133,7 +133,7 @@ wood~
 fountain AB 0 0
 0 0 'milk' 0 0
 0 0 0 P
-g none~
+g @rus none~
 #96011
 item bottle~
 @eng bottle of Clain~
@@ -150,7 +150,7 @@ a '' to_object 0 -1 1000 18 0
 a '' to_object 0 -1 1000 19 0
 a '' to_object 0 -1 -30000 17 0
 a '' to_object 0 -1 100 8 0
-g none~
+g @rus none~
 #0
 
 #ROOMS

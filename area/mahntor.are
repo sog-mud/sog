@@ -580,7 +580,7 @@ gloves combat~
 These gloves are plated with metal plates that provide strength and 
 protection.
 ~
-g none~
+g @rus none~
 #2301
 spiked armor garde~
 a suit of spiked garde armor~
@@ -590,7 +590,7 @@ armor 0 0 AD
 7 7 7 0 0
 22 80 4200 P
 a '' to_object 22 -1 2 19 0
-g none~
+g @rus none~
 #2302
 greaves black~
 a pair of black minotaur greaves~
@@ -599,7 +599,7 @@ brass~
 armor 0 0 AF
 9 9 9 0 0
 30 90 2600 P
-g none~
+g @rus none~
 #2303
 vambraces black~
 a pair of black minotaur vambraces~
@@ -608,7 +608,7 @@ iron~
 armor 0 0 AI
 9 9 9 0 0
 30 90 2600 P
-g none~
+g @rus none~
 #2304
 rod weaponry~
 the rod of weaponry~
@@ -619,7 +619,7 @@ exotic 3 12 'blast' 0
 28 240 4700 P
 a '' to_object 28 -1 3 19 0
 a '' to_object 28 -1 3 18 0
-g none~
+g @rus none~
 #2305
 cloak pitch black~
 a pitch black cloak~
@@ -633,7 +633,7 @@ E
 cloak pitch black~
 It appears to have pockets inside it.
 ~
-g none~
+g @rus none~
 #2306
 neckguard neck guard black plate~
 a black plate neckguard~
@@ -643,7 +643,7 @@ armor GJL 0 AC
 9 9 9 0 0
 30 100 3400 P
 a '' to_object 30 -1 1 4 0
-g none~
+g @rus none~
 #2307
 spiked gauntlets~
 a pair of spiked gauntlets~
@@ -657,7 +657,7 @@ E
 spiked gauntlets~
 They look pretty damaging.
 ~
-g none~
+g @rus none~
 #2308
 shield shadow~
 the shadow shield~
@@ -672,7 +672,7 @@ E
 shield shadow~
 You look into the depths of the shield and shiver at the evil it contains.
 ~
-g none~
+g @rus none~
 #2309
 nightbringer short sword shortsword~
 a shortsword named "Nightbringer"~
@@ -687,7 +687,7 @@ E
 nightbringer short sword shortsword~
 The runes "NiGHtBrINgeR" are scrawled along the blade.
 ~
-g none~
+g @rus none~
 #2310
 visor helm golden~
 a golden helm and visor~
@@ -698,7 +698,7 @@ armor AGKL 0 AE
 20 150 3000 P
 a '' to_object 20 -1 1 3 0
 a '' to_object 20 -1 1 4 0
-g none~
+g @rus none~
 #2311
 breast plate gilded gold~
 a gilded gold breast plate~
@@ -708,7 +708,7 @@ armor AGKL 0 AD
 9 9 9 3 0
 32 180 6700 P
 a '' to_object 32 -1 25 13 0
-g none~
+g @rus none~
 #2312
 cape white billowing silk~
 a billowing white cape ~
@@ -717,7 +717,7 @@ silk~
 armor AG 0 AC
 5 5 5 1 0
 10 50 760 P
-g none~
+g @rus none~
 #2313
 shield huge tower~
 a huge tower shield~
@@ -730,7 +730,7 @@ E
 shield huge tower~
 A pure white shield with a gold cross emblazoned across it.
 ~
-g none~
+g @rus none~
 #2314
 dawnbringer mace huge two-handed~
 a huge mace named "Dawnbringer"~
@@ -745,7 +745,7 @@ E
 dawnbringer mace huge~
 The runes "DAwNbRIngER" are scrawled along the handle.
 ~
-g none~
+g @rus none~
 #2315
 spectacles wire rimmed~
 a pair of wire rimmed spectacles~
@@ -759,7 +759,7 @@ E
 spectacles wire rimmed~
 They'll make you look smart.
 ~
-g none~
+g @rus none~
 #2316
 ring banded~
 a banded ring~
@@ -773,7 +773,7 @@ E
 ring banded~
 The ring has entwined bands of gold and silver.
 ~
-g none~
+g @rus none~
 #2317
 globe minor~
 a minor globe of invulnerability~
@@ -787,7 +787,7 @@ E
 globe minor~
 Shimmering colors move inside the globe.
 ~
-g none~
+g @rus none~
 #2318
 staff gnarled magius~
 a gnarled magius staff~
@@ -803,7 +803,7 @@ E
 staff gnarled magius~
 It appears to be simply a gnarled old limb. It feels powerful though.
 ~
-g none~
+g @rus none~
 #2319
 girdle pouches many~
 a girdle of many pouches~
@@ -816,7 +816,7 @@ E
 girdle pouches many~
 It appears to be full of tiny pockets.
 ~
-g none~
+g @rus none~
 #2320
 robe heavy woolen~
 a heavy woolen robe~
@@ -825,7 +825,7 @@ wool~
 armor G 0 AK
 8 8 8 0 0
 25 100 1950 P
-g none~
+g @rus none~
 #2321
 brooch ivory~
 a brooch of life~
@@ -835,7 +835,7 @@ jewelry AGI 0 AC
 0 0 0 0 0
 30 50 1520 P
 a '' to_object 30 -1 30 13 0
-g none~
+g @rus none~
 #2322
 manual arts healing book~
 a manual of healing arts~
@@ -848,7 +848,7 @@ E
 manual arts healing book~
 It appears to be a book of anatomy and medicine.
 ~
-g none~
+g @rus none~
 #2323
 mace huge mithril~
 a huge mithril mace~
@@ -859,7 +859,7 @@ mace 5 5 'crush' 0
 26 130 1960 P
 a '' to_object 26 -1 3 19 0
 a '' to_object 26 -1 1 18 0
-g none~
+g @rus none~
 #2324
 symbol holy golden~
 a golden holy symbol~
@@ -869,7 +869,7 @@ jewelry G 0 AC
 0 0 0 0 0
 5 30 110 P
 a '' to_object 5 -1 10 12 0
-g none~
+g @rus none~
 #2325
 ring marble thick~
 a thick marble ring~
@@ -879,7 +879,7 @@ jewelry G 0 AB
 0 0 0 0 0
 8 50 470 P
 a '' to_object 8 -1 -2 17 0
-g none~
+g @rus none~
 #2326
 bracelet thick marble~
 a thick marble bracelet~
@@ -889,7 +889,7 @@ jewelry G 0 AM
 0 0 0 0 0
 5 80 550 P
 a '' to_object 5 -1 1 5 0
-g none~
+g @rus none~
 #2327
 boots striding~
 boots of striding~
@@ -903,7 +903,7 @@ E
 boots striding~
 They look comfortable to walk in.
 ~
-g none~
+g @rus none~
 #2328
 cloak icy white~
 an icy white cloak~
@@ -916,7 +916,7 @@ E
 cloak icy white~
 Smoke rises from it almost like it's made of dry ice.
 ~
-g none~
+g @rus none~
 #2329
 staff ice~
 an ice staff~
@@ -931,7 +931,7 @@ E
 staff ice~
 The runes "FrIgID" are inscribed in the icy staff.
 ~
-g none~
+g @rus none~
 #2330
 ring carved wooden~
 a carved wooden ring~
@@ -942,7 +942,7 @@ jewelry G 0 AB
 7 30 460 P
 a '' to_object 7 -1 1 19 0
 a '' to_object 7 -1 1 18 0
-g none~
+g @rus none~
 #2331
 horn life~
 the horn of life~
@@ -955,7 +955,7 @@ E
 horn life~
 The horn is capped at both ends with gold. Unreadable runes are scrawled on it.
 ~
-g none~
+g @rus none~
 #2332
 belt life~
 the belt of life~
@@ -965,7 +965,7 @@ clothing G 0 AL
 0 0 0 0 0
 30 90 7600 P
 a '' to_object 30 -1 3 5 0
-g none~
+g @rus none~
 #2333
 stone blood red~
 a blood red stone~
@@ -979,7 +979,7 @@ E
 stone blood red~
 The stone pulses with your own heart beat.
 ~
-g none~
+g @rus none~
 #2334
 crossbow huge~
 a huge crossbow~
@@ -990,7 +990,7 @@ exotic 3 10 'pierce' F
 27 150 4300 P
 a '' to_object 27 -1 2 19 0
 a '' to_object 27 -1 1 18 0
-g none~
+g @rus none~
 #2335
 pack leather small~
 a small leather pack~
@@ -1003,7 +1003,7 @@ E
 pack leather small~
 It looks pretty big on the inside.
 ~
-g none~
+g @rus none~
 #2336
 hood black leather~
 a black leather hood~
@@ -1012,7 +1012,7 @@ leather~
 armor G 0 AE
 5 5 5 0 0
 10 50 730 P
-g none~
+g @rus none~
 #2337
 sleeves black leather~
 a pair of black leather sleeves~
@@ -1021,7 +1021,7 @@ leather~
 armor 0 0 AI
 7 7 7 0 0
 20 50 1450 P
-g none~
+g @rus none~
 #2338
 pants black leather~
 a pair of black leather pants~
@@ -1034,7 +1034,7 @@ E
 pants black leather~
 They look sneaky.
 ~
-g none~
+g @rus none~
 #2339
 sword wicked short shortsword~
 a wicked shortsword~
@@ -1048,7 +1048,7 @@ E
 sword wicked short shortsword~
 It looks just perfect for backstabbing.
 ~
-g none~
+g @rus none~
 #2340
 globe major~
 a major globe of invulnerability~
@@ -1066,7 +1066,7 @@ E
 globe major~
 Shimmering colors move inside the globe.
 ~
-g none~
+g @rus none~
 #2341
 chain chainmail black suit~
 a suit of black minotaur chainmail~
@@ -1077,7 +1077,7 @@ armor G 0 AD
 30 120 7000 P
 a '' to_object 30 -1 1 5 0
 a '' to_object 30 -1 1 1 0
-g none~
+g @rus none~
 #2342
 buckler spiked~
 a spiked buckler~
@@ -1087,7 +1087,7 @@ armor 0 0 AJ
 10 10 10 3 0
 35 50 6600 P
 a '' to_object 35 -1 3 19 0
-g none~
+g @rus none~
 #2343
 ring studded~
 a studded ring~
@@ -1098,7 +1098,7 @@ jewelry G 0 AB
 13 10 1020 P
 a '' to_object 13 -1 -3 17 0
 a '' to_object 13 -1 1 19 0
-g none~
+g @rus none~
 #2344
 helm horned~
 a horned minotaur helm~
@@ -1107,7 +1107,7 @@ iron~
 armor 0 0 AE
 10 10 10 2 0
 35 80 3400 P
-g none~
+g @rus none~
 #2345
 axe great~
 mahn-Tor's Great Axe~
@@ -1123,7 +1123,7 @@ E
 axe great~
 The runes "DeAtH" are scrawled along the blade.
 ~
-g none~
+g @rus none~
 #2346
 plate ethereal suit доспех~
 @eng a suit of ethereal plate@rus мерцающий доспех~
@@ -1138,7 +1138,7 @@ plate ethereal suit~
 @eng You can almost see through it.
 @rus Ты почти можешь видить через этот полупрозрачный, мерцающий доспех.
 ~
-g none~
+g @rus none~
 #2347
 helm ethereal шлем~
 @eng an ethereal helm@rus Мерцающий шлем~
@@ -1152,7 +1152,7 @@ helm ethereal~
 @eng You can almost see through it.
 @rus Ты можешь видеть сквозь этот полупрозрачный, мерцающей шлем.
 ~
-g none~
+g @rus none~
 #2348
 blade ethereal лезвие~
 @eng an ethereal blade@rus Мерцающее лезвие~
@@ -1168,7 +1168,7 @@ blade ethereal~
 @eng You can almost see through it.
 @rus Ты можешь видеть сквозь это полупрозрачное, мерцающее лезвие.
 ~
-g none~
+g @rus none~
 #2349
 branch willow~
 a willow branch~
@@ -1177,7 +1177,7 @@ wood~
 wand G 0 AO
 20 5 5 'heat metal' 0
 13 30 2600 P
-g none~
+g @rus none~
 #2350
 key keep~
 the keep key~
@@ -1186,7 +1186,7 @@ iron~
 key 0 0 A
 B 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #2351
 key red~
 a red key~
@@ -1195,7 +1195,7 @@ brass~
 key 0 0 A
 B 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #2352
 key black~
 a black key~
@@ -1204,7 +1204,7 @@ oak~
 key 0 0 A
 B 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #2353
 key white~
 a white key~
@@ -1213,7 +1213,7 @@ wood~
 key 0 0 A
 B 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #2354
 key brown~
 a brown key~
@@ -1222,7 +1222,7 @@ wood~
 key 0 0 A
 B 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #2355
 key yellow~
 a yellow key~
@@ -1231,7 +1231,7 @@ wood~
 key 0 0 A
 B 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #2356
 key maroon~
 a maroon key~
@@ -1240,7 +1240,7 @@ bronze~
 key 0 0 A
 B 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #2357
 key green~
 a green key~
@@ -1249,7 +1249,7 @@ copper~
 key 0 0 A
 B 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #2358
 key grey~
 a grey key~
@@ -1258,7 +1258,7 @@ lead~
 key 0 0 A
 B 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #2359
 key runed~
 a runed key~
@@ -1271,7 +1271,7 @@ E
 key runed~
 The key looks like it was made for royalty.
 ~
-g none~
+g @rus none~
 #2360
 boots fur lined~
 a pair of fur lined boots~
@@ -1281,7 +1281,7 @@ armor G 0 AG
 3 3 3 1 0
 7 50 470 P
 a '' to_object 7 -1 10 14 0
-g none~
+g @rus none~
 #2361
 pelt yeti white~
 the white pelt of a yeti~
@@ -1290,7 +1290,7 @@ silk~
 armor Q 0 AK
 6 6 6 1 0
 15 90 1080 P
-g none~
+g @rus none~
 #2362
 sword kopesh~
 a kopesh sword~
@@ -1304,7 +1304,7 @@ sword kopesh~
 The sword looks like it would be grasped so that the blade extended along the
 forearm of the wielder.
 ~
-g none~
+g @rus none~
 #2363
 vambraces steel~
 a pair of steel vambraces~
@@ -1313,7 +1313,7 @@ steel~
 armor 0 0 AI
 6 6 6 0 0
 15 0 1050 P
-g none~
+g @rus none~
 #2364
 greaves steel~
 a pair of steel greaves~
@@ -1322,7 +1322,7 @@ steel~
 armor 0 0 AF
 6 6 6 0 0
 15 70 1050 P
-g none~
+g @rus none~
 #2365
 axe battle battleaxe~
 a battle axe~
@@ -1331,7 +1331,7 @@ steel~
 weapon 0 0 AN
 axe 5 5 'slash' 0
 17 180 1310 P
-g none~
+g @rus none~
 #2366
 plate steel breast~
 a steel breast plate~
@@ -1340,7 +1340,7 @@ steel~
 armor 0 0 AD
 6 6 6 0 0
 15 100 2100 P
-g none~
+g @rus none~
 #2367
 helm steel~
 a steel helm~
@@ -1349,7 +1349,7 @@ steel~
 armor 0 0 AE
 6 6 6 0 0
 15 60 1050 P
-g none~
+g @rus none~
 #2368
 halberd huge two-handed~
 a huge halberd~
@@ -1360,7 +1360,7 @@ polearm 3 8 'cleave' F
 18 180 690 P
 a '' to_object 18 -1 1 19 0
 a '' to_object 18 -1 1 18 0
-g none~
+g @rus none~
 #2369
 visor blue steel helm~
 a blue steel helm and visor~
@@ -1369,7 +1369,7 @@ steel~
 armor 0 0 AE
 8 8 8 0 0
 25 80 1950 P
-g none~
+g @rus none~
 #2370
 greaves blue steel~
 a pair of blue steel greaves~
@@ -1378,7 +1378,7 @@ steel~
 armor 0 0 AF
 8 8 8 0 0
 25 80 1950 P
-g none~
+g @rus none~
 #2371
 vambraces blue steel~
 a pair of blue steel vambraces~
@@ -1387,7 +1387,7 @@ steel~
 armor 0 0 AI
 8 8 8 0 0
 25 80 1950 P
-g none~
+g @rus none~
 #2372
 sword two two-handed~
 a two-handed sword~
@@ -1398,7 +1398,7 @@ sword 5 5 'slash' F
 22 180 2500 P
 a '' to_object 22 -1 2 19 0
 a '' to_object 22 -1 2 18 0
-g none~
+g @rus none~
 #2373
 visor helm steel red~
 a red steel helm and visor~
@@ -1407,7 +1407,7 @@ steel~
 armor 0 0 AE
 7 7 7 0 0
 20 80 1450 P
-g none~
+g @rus none~
 #2374
 greaves red steel~
 a pair of red steel greaves~
@@ -1416,7 +1416,7 @@ steel~
 armor 0 0 AF
 7 7 7 0 0
 20 80 1450 P
-g none~
+g @rus none~
 #2375
 vambraces red steel~
 a pair of red steel vambraces~
@@ -1425,7 +1425,7 @@ steel~
 armor 0 0 AI
 7 7 7 0 0
 20 80 1450 P
-g none~
+g @rus none~
 #2376
 glaive~
 a minotaur glaive~
@@ -1436,7 +1436,7 @@ polearm 5 4 'slash' F
 22 190 830 P
 a '' to_object 22 -1 1 19 0
 a '' to_object 22 -1 1 18 0
-g none~
+g @rus none~
 #2377
 visor helm crimson steel~
 a crimson steel helm and visor~
@@ -1445,7 +1445,7 @@ steel~
 armor 0 0 AE
 8 8 8 0 0
 25 80 1950 P
-g none~
+g @rus none~
 #2378
 greaves crimson steel~
 a pair of crimson steel greaves~
@@ -1454,7 +1454,7 @@ steel~
 armor 0 0 AF
 8 8 8 0 0
 25 80 1950 P
-g none~
+g @rus none~
 #2379
 vambraces crimson steel~
 a pair of crimson steel vambraces~
@@ -1463,7 +1463,7 @@ steel~
 armor 0 0 AI
 8 8 8 0 0
 25 80 1950 P
-g none~
+g @rus none~
 #2380
 star morning morningstar~
 a huge morningstar~
@@ -1478,7 +1478,7 @@ E
 star morning morningstar~
 It looks damaging.
 ~
-g none~
+g @rus none~
 #2381
 spiked brass knuckles~
 some huge spiked brass knuckles~
@@ -1491,7 +1491,7 @@ E
 spiked brass knuckles~
 A band held in the hand that has spikes on the front side.
 ~
-g none~
+g @rus none~
 #2382
 ring key multi colored multi-colored~
 a multi-colored key ring~
@@ -1504,7 +1504,7 @@ E
 ring key multi colored multi-colored~
 It has several keys of different colors on it.
 ~
-g none~
+g @rus none~
 #2383
 maul huge wooden~
 a huge wooden maul~
@@ -1513,7 +1513,7 @@ wood~
 weapon 0 0 AN
 mace 5 5 'blast' 0
 28 220 1700 P
-g none~
+g @rus none~
 #2384
 potion misty~
 a misty potion~
@@ -1522,7 +1522,7 @@ glass~
 potion AG 0 A
 20 'heal' '' '' ''
 11 30 800 P
-g none~
+g @rus none~
 #2385
 pouch belt~
 a belt pouch~
@@ -1531,7 +1531,7 @@ cloth~
 container 0 0 AL
 15 0 0 2 100
 0 50 20 P
-g none~
+g @rus none~
 #2386
 spear ogre~
 an ogre spear~
@@ -1540,7 +1540,7 @@ wood~
 weapon 0 0 AN
 spear 2 10 'thrust' FK
 17 80 320 P
-g none~
+g @rus none~
 #2387
 club ogre war~
 an ogre war club~
@@ -1549,7 +1549,7 @@ wood~
 weapon 0 0 AN
 mace 5 4 'pound' 0
 17 100 880 P
-g none~
+g @rus none~
 #2388
 cloak bear skin bearskin~
 a bearskin cloak~
@@ -1558,7 +1558,7 @@ bearskin~
 armor 0 0 AK
 7 7 7 0 0
 20 120 1450 P
-g none~
+g @rus none~
 #2389
 ear ring earring feathered~
 a pair of feathered earrings~
@@ -1567,7 +1567,7 @@ fur~
 jewelry AG 0 AE
 0 0 0 0 0
 0 20 500 P
-g none~
+g @rus none~
 #2390
 gauntlets ogre power~
 gauntlets of ogre power~
@@ -1582,7 +1582,7 @@ E
 gauntlets ogre power~
 They look very "handy".
 ~
-g none~
+g @rus none~
 #2391
 club massive~
 a massive club~
@@ -1591,7 +1591,7 @@ wood~
 weapon 0 0 AN
 mace 4 7 'blast' F
 23 190 1520 P
-g none~
+g @rus none~
 #2392
 cape thick fur~
 a thick fur cape~
@@ -1600,7 +1600,7 @@ fur~
 armor 0 0 AC
 6 6 6 0 0
 15 50 1050 P
-g none~
+g @rus none~
 #2393
 tunic fur lined~
 a fur lined tunic~
@@ -1609,7 +1609,7 @@ fur~
 armor 0 0 AD
 6 6 6 0 0
 15 60 2100 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

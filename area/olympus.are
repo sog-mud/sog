@@ -442,7 +442,7 @@ a '' to_object 35 -1 2 29 0
 a '' to_object 35 -1 2 28 0
 a '' to_object 35 -1 7 32 0
 a '' to_object 35 -1 1 1 0
-g none~
+g @rus none~
 #901
 hammer thunder bolt thunderbolt~
 the Thunder Bolt~
@@ -454,7 +454,7 @@ mace 8 7 'blast' G
 a '' to_object 50 -1 5 18 0
 a '' to_object 50 -1 5 19 0
 a '' to_object 50 -1 -1 4 0
-g none~
+g @rus none~
 #902
 helmet winged~
 a Winged Helmet~
@@ -464,7 +464,7 @@ armor FGK 0 AE
 11 12 11 5 0
 35 50 7300 P
 a '' to_object 35 -1 2 2 0
-g none~
+g @rus none~
 #903
 spear ares~
 the spear of Ares~
@@ -476,7 +476,7 @@ spear 5 10 'thrust' FK
 a '' to_object 48 -1 4 19 0
 a '' to_object 48 -1 1 6 0
 a '' to_object 48 -1 4 18 0
-g none~
+g @rus none~
 #904
 sandals winged~
 a pair of winged sandals~
@@ -486,7 +486,7 @@ armor FGK 0 AG
 8 8 8 4 0
 25 50 2200 P
 a '' to_affects 25 -1 0 0 T
-g none~
+g @rus none~
 #905
 staff ivory~
 an ivory staff~
@@ -495,7 +495,7 @@ ivory~
 staff FGK 0 AO
 30 3 3 'sanctuary' 0
 15 80 5800 P
-g none~
+g @rus none~
 #906
 trident poseidon~
 poseidon's Trident~
@@ -505,7 +505,7 @@ weapon FGK 0 AN
 spear 7 7 'pierce' FK
 47 160 5700 P
 a '' to_object 47 -1 2 4 0
-g none~
+g @rus none~
 #907
 bow silver~
 a silver bow~
@@ -516,7 +516,7 @@ bow 6 7 'pierce' F
 47 150 10300 P
 a '' to_object 47 -1 1 19 0
 a '' to_object 47 -1 1 18 0
-g none~
+g @rus none~
 #908
 gauntlets flaming~
 flaming gauntlets~
@@ -526,7 +526,7 @@ armor G 0 AH
 7 7 7 4 0
 27 60 2900 P
 a '' to_object 27 -1 25 13 0
-g none~
+g @rus none~
 #909
 vial potion ambrosia~
 ambrosia~
@@ -535,7 +535,7 @@ glass~
 potion FGK 0 A
 30 'dispel evil' 'heal' '' ''
 11 10 1130 P
-g none~
+g @rus none~
 #910
 necklace glowing~
 a glowing necklace~
@@ -545,7 +545,7 @@ jewelry FGK 0 AC
 0 0 0 0 0
 25 20 980 P
 a '' to_object 25 -1 25 12 0
-g none~
+g @rus none~
 #911
 ring sapphire~
 a sapphire ring~
@@ -556,7 +556,7 @@ jewelry FGK 0 AB
 35 10 6900 P
 a '' to_object 35 -1 3 19 0
 a '' to_object 35 -1 2 4 0
-g none~
+g @rus none~
 #912
 shield glowing~
 a brightly glowing shield~
@@ -566,7 +566,7 @@ armor FGK 0 AJ
 9 9 9 6 0
 30 200 5300 P
 a '' to_object 30 -1 1 4 0
-g none~
+g @rus none~
 #913
 axe notched~
 a notched axe~
@@ -575,7 +575,7 @@ iron~
 weapon FGK 0 AN
 axe 4 10 'slice' 0
 35 120 3600 P
-g none~
+g @rus none~
 #914
 grapes~
 a bunch of grapes~
@@ -584,7 +584,7 @@ food~
 food 0 0 A
 DE DE 0 0 0
 0 10 100 P
-g none~
+g @rus none~
 #915
 fan~
 a fan made of peacock feathers~
@@ -593,7 +593,7 @@ fur~
 trash 0 0 A
 0 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #916
 lute~
 a lute~
@@ -602,7 +602,7 @@ unknown~
 trash 0 0 A
 0 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #917
 nugget gold~
 a gold nugget~
@@ -611,7 +611,7 @@ gold~
 treasure 0 0 A
 0 0 0 0 0
 0 50 5000 P
-g none~
+g @rus none~
 #918
 apple~
 an apple~
@@ -620,7 +620,7 @@ food~
 pill 0 0 A
 24 '' '' 'cure light' ''
 0 10 340 P
-g none~
+g @rus none~
 #919
 pear~
 a pear~
@@ -629,7 +629,7 @@ food~
 pill 0 0 A
 24 '' '' 'cure poison' ''
 6 10 530 P
-g none~
+g @rus none~
 #920
 orange~
 a orange~
@@ -638,7 +638,7 @@ food~
 pill 0 0 A
 24 '' '' 'armor' ''
 0 10 340 P
-g none~
+g @rus none~
 #921
 kiwi~
 a kiwi~
@@ -647,7 +647,7 @@ food~
 pill 0 0 A
 24 '' '' 'cure poison' ''
 6 10 530 P
-g none~
+g @rus none~
 #922
 amulet~
 the Amulet of Ra~
@@ -659,7 +659,7 @@ jewelry FGK 0 AC
 a '' to_object 40 -1 5 35 0
 a '' to_object 40 -1 5 31 0
 a '' to_object 40 -1 5 36 0
-g none~
+g @rus none~
 #923
 sun sword~
 the Sword of the Sun~
@@ -671,7 +671,7 @@ sword 8 8 'slash' 0
 a '' to_object 50 -1 8 19 0
 a '' to_object 50 -1 6 18 0
 a '' to_object 50 -1 3 6 0
-g none~
+g @rus none~
 #924
 robe blue~
 a blue robe~
@@ -680,7 +680,7 @@ unknown~
 armor FGK 0 AK
 6 6 6 8 0
 17 100 1960 P
-g none~
+g @rus none~
 #925
 hat~
 a wide brimmed hat~
@@ -689,7 +689,7 @@ cloth~
 armor FGK 0 AE
 4 4 4 3 0
 5 50 580 P
-g none~
+g @rus none~
 #926
 nectar~
 nectar~
@@ -698,7 +698,7 @@ glass~
 potion 0 0 A
 12 'sanctuary' 'giant strength' 'armor' ''
 12 10 810 P
-g none~
+g @rus none~
 #927
 key cell~
 a Cell key~
@@ -707,7 +707,7 @@ ivory~
 key 0 0 A
 0 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #928
 map olympus secret~
 a secret map of Olympus~
@@ -762,7 +762,7 @@ map olympus secret~
                             /
                       Mountain
 ~
-g none~
+g @rus none~
 #930
 arrow silver~
 a silver arrow~
@@ -773,7 +773,7 @@ arrow 6 7 'pierce' ABCDEFGHK
 47 20 10300 P
 a '' to_object 47 -1 1 19 0
 a '' to_object 47 -1 1 18 0
-g none~
+g @rus none~
 #0
 
 #ROOMS

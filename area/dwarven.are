@@ -280,7 +280,7 @@ wood~
 key 0 0 A
 0 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #6504
 dwarven hammer~
 a hammer~
@@ -289,7 +289,7 @@ iron~
 weapon 0 0 AN
 mace 4 5 'pound' 0
 17 30 880 P
-g none~
+g @rus none~
 #6505
 dwarven plate~
 dwarven plate mail~
@@ -298,7 +298,7 @@ iron~
 armor 0 0 AD
 7 7 7 0 0
 20 40 2900 P
-g none~
+g @rus none~
 #6506
 stick~
 long, black stick~
@@ -307,7 +307,7 @@ wood~
 staff 0 0 AO
 4 10 10 'cure critical' 0
 11 10 4800 P
-g none~
+g @rus none~
 #6507
 stick~
 long, black stick~
@@ -316,7 +316,7 @@ wood~
 light 0 0 AO
 0 0 50 0 0
 0 10 0 P
-g none~
+g @rus none~
 #6508
 club~
 dwarven club~
@@ -325,7 +325,7 @@ wood~
 weapon 0 0 AN
 mace 2 7 'pound' 0
 10 10 510 P
-g none~
+g @rus none~
 #6509
 two-handed dwarven axe~
 a two-handed dwarven axe~
@@ -337,7 +337,7 @@ axe 3 7 'cleave' F
 a '' to_object 17 -1 2 1 0
 a '' to_object 17 -1 2 18 0
 a '' to_object 17 -1 2 19 0
-g none~
+g @rus none~
 #6510
 helmet~
 a dwarven helmet~
@@ -346,7 +346,7 @@ iron~
 armor 0 0 AE
 7 7 7 0 0
 20 40 1450 P
-g none~
+g @rus none~
 #6511
 ring golden dwarven~
 a dwarven golden ring~
@@ -357,7 +357,7 @@ gem G 0 AB
 7 10 460 P
 a '' to_object 7 -1 1 19 0
 a '' to_object 7 -1 1 18 0
-g none~
+g @rus none~
 #6512
 gloves~
 dwarven gloves~
@@ -368,7 +368,7 @@ armor 0 0 AH
 13 20 2000 P
 a '' to_object 13 -1 1 2 0
 a '' to_object 13 -1 1 1 0
-g none~
+g @rus none~
 #6513
 note~
 a note~
@@ -382,7 +382,7 @@ note letter letters~
 It seems to be a hot love letter from the Queen.  Unfortunately,
 it's not suitable for transmission across a public data network.
 ~
-g none~
+g @rus none~
 #6514
 castle key~
 a castle key~
@@ -391,7 +391,7 @@ iron~
 key 0 0 A
 0 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #6516
 key mine~
 a mine key~
@@ -400,7 +400,7 @@ iron~
 key 0 0 A
 0 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #6517
 coal~
 a chunk of coal~
@@ -409,7 +409,7 @@ coal~
 trash 0 C AO
 0 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #6518
 pick~
 a mining pick~
@@ -418,7 +418,7 @@ iron~
 weapon I 0 AN
 axe 2 3 'pierce' 0
 3 10 240 P
-g none~
+g @rus none~
 #6519
 pills~
 a box of birth control pills~
@@ -433,7 +433,7 @@ They are in a circular container, and there are numbers corresponding
 to the day that they are to be taken.  You can tell they haven't been
 used for a while.
 ~
-g none~
+g @rus none~
 #6520
 map castle strangelove~
 a map of Castle Strangelove~
@@ -483,7 +483,7 @@ map castle strangelove~
                            To Dwarven
                              Kingdom
 ~
-g none~
+g @rus none~
 #6521
 iron bars~
 a chunk of iron bars~
@@ -492,7 +492,7 @@ iron~
 trash 0 C AO
 0 0 0 0 0
 0 30 0 P
-g none~
+g @rus none~
 #6522
 dwarven hammer~
 a hammer~
@@ -501,7 +501,7 @@ iron~
 trash 0 C AO
 0 0 0 0 0
 0 30 0 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

@@ -356,7 +356,7 @@ armor AGJ 0 AK
 30 5 300 P
 a '' to_object 30 -1 2 3 0
 a '' to_object 30 -1 50 12 0
-g none~
+g @rus none~
 #15701
 staff~
 a bone staff~
@@ -366,7 +366,7 @@ staff AGJ 0 AO
 30 12 12 'call lightning' 0
 30 2 300 P
 a '' to_object 30 -1 2 4 0
-g none~
+g @rus none~
 #15702
 sword~
 a bone sword~
@@ -377,7 +377,7 @@ sword 5 7 'pierce' 0
 30 100 300 P
 a '' to_object 30 -1 4 18 0
 a '' to_object 30 -1 4 19 0
-g none~
+g @rus none~
 #15703
 helm~
 a bronze helm~
@@ -389,7 +389,7 @@ armor AGJ 0 AE
 a '' to_object 30 -1 -10 17 0
 a '' to_object 30 -1 -3 23 0
 a '' to_object 30 -1 -3 24 0
-g none~
+g @rus none~
 #15704
 bandolier~
 a leather bandolier~
@@ -399,7 +399,7 @@ container 0 0 AD
 50 A 0 0 0
 28 4 280 P
 a '' to_object 28 -1 1 5 0
-g none~
+g @rus none~
 #15705
 potion~
 a green potion~
@@ -408,7 +408,7 @@ copper~
 potion BG 0 AO
 28 'stone skin' 'protection evil' 'cause light' ''
 28 1 280 P
-g none~
+g @rus none~
 #15706
 potion~
 a red potion~
@@ -417,7 +417,7 @@ copper~
 potion BG 0 AO
 28 'curse' 'armor' 'cure serious' ''
 28 1 280 P
-g none~
+g @rus none~
 #15707
 scroll~
 a lightning scroll~
@@ -426,7 +426,7 @@ copper~
 scroll 0 0 AO
 28 'call lightning' 'lightning bolt' 'lightning breath' ''
 28 1 280 P
-g none~
+g @rus none~
 #15708
 scroll~
 a fire scroll~
@@ -435,7 +435,7 @@ copper~
 scroll 0 0 AO
 28 'fire breath' 'flamestrike' 'fireball' ''
 28 1 280 P
-g none~
+g @rus none~
 #15709
 wand~
 a wand~
@@ -444,7 +444,7 @@ copper~
 wand AGJ 0 AO
 28 7 7 'cause critical' 0
 28 1 280 P
-g none~
+g @rus none~
 #15710
 dagger~
 a dagger~
@@ -454,7 +454,7 @@ weapon BEGJ 0 AN
 dagger 5 7 'pierce' 0
 28 50 280 P
 a '' to_object 28 -1 6 18 0
-g none~
+g @rus none~
 #15711
 staff~
 a garthalanium staff~
@@ -464,7 +464,7 @@ staff BEGJ 0 AO
 28 10 10 'energy drain' 0
 28 5 280 P
 a '' to_object 28 -1 25 12 0
-g none~
+g @rus none~
 #15712
 pentagram~
 a pentagram~
@@ -473,7 +473,7 @@ copper~
 furniture 0 0 0
 0 0 0 0 0
 33 1 330 P
-g none~
+g @rus none~
 #15713
 spiked club~
 a spiked club~
@@ -484,7 +484,7 @@ mace 5 6 'crush' 0
 25 200 250 P
 a '' to_object 25 -1 -4 18 0
 a '' to_object 25 -1 6 19 0
-g none~
+g @rus none~
 #15714
 leather hauberk~
 a leather hauberk~
@@ -493,7 +493,7 @@ copper~
 armor 0 0 AD
 8 8 8 0 0
 25 10 250 P
-g none~
+g @rus none~
 #15715
 drake hide~
 a fire drake hide~
@@ -503,7 +503,7 @@ armor BJ 0 AK
 8 8 8 0 0
 28 25 280 P
 a '' to_object 28 -1 -25 17 0
-g none~
+g @rus none~
 #15716
 bronze plate~
 a suit of bronze plate~
@@ -512,7 +512,7 @@ copper~
 armor 0 0 AD
 6 6 6 0 0
 18 15 180 P
-g none~
+g @rus none~
 #15717
 bronze shield~
 a bronze shield~
@@ -521,7 +521,7 @@ copper~
 armor 0 0 AJ
 6 6 6 0 0
 18 10 180 P
-g none~
+g @rus none~
 #15718
 bronze helm~
 a bronze helm~
@@ -530,7 +530,7 @@ copper~
 armor 0 0 AE
 6 6 6 0 0
 18 6 180 P
-g none~
+g @rus none~
 #15719
 bronze sword~
 a bronze sword~
@@ -539,7 +539,7 @@ copper~
 weapon 0 0 AN
 sword 5 5 'slash' 0
 18 120 180 P
-g none~
+g @rus none~
 #15720
 robes~
 some green robes~
@@ -550,7 +550,7 @@ armor AGJ 0 AK
 21 3 210 P
 a '' to_object 21 -1 20 12 0
 a '' to_object 21 -1 -3 24 0
-g none~
+g @rus none~
 #15721
 staff~
 a wooden staff~
@@ -560,7 +560,7 @@ weapon 0 B AN
 staff 5 5 'pound' 0
 21 90 210 P
 a '' to_object 21 -1 3 19 0
-g none~
+g @rus none~
 #15722
 spellbook~
 a spellbook~
@@ -569,7 +569,7 @@ copper~
 scroll BGJ 0 AO
 21 'blindness' 'weaken' 'word of recall' ''
 21 4 210 P
-g none~
+g @rus none~
 #15723
 pit~
 a deep pit~
@@ -578,7 +578,7 @@ copper~
 container 0 0 0
 1000 A 0 0 0
 20 1 200 P
-g none~
+g @rus none~
 #15724
 collar обруч~
 @eng a spiked collar@rus ~~обруч~~ с шипами~
@@ -589,7 +589,7 @@ armor 0 0 AC
 16 5 160 P
 a '' to_object 16 -1 2 18 0
 a '' to_object 16 -1 2 19 0
-g male~
+g @rus male~
 #15725
 assassin robes~
 the robes of an assassin~
@@ -600,7 +600,7 @@ armor J 0 AO
 20 3 200 P
 a '' to_object 20 -1 2 2 0
 a '' to_object 20 -1 -5 17 0
-g none~
+g @rus none~
 #15726
 dagger~
 a throwing dagger~
@@ -610,7 +610,7 @@ warp_stone 0 0 ANO
 0 0 0 0 0
 20 3 200 P
 a '' to_object 20 -1 2 18 0
-g none~
+g @rus none~
 #15727
 sword~
 a steel sword~
@@ -621,7 +621,7 @@ sword 5 6 'slash' 0
 27 100 270 P
 a '' to_object 27 -1 4 18 0
 a '' to_object 27 -1 4 19 0
-g none~
+g @rus none~
 #15728
 ring~
 a magic ring~
@@ -633,7 +633,7 @@ armor AGP 0 AB
 a '' to_object 27 -1 10 12 0
 a '' to_object 27 -1 -1 23 0
 a '' to_object 27 -1 -1 24 0
-g none~
+g @rus none~
 #15729
 boots~
 elven boots~
@@ -644,7 +644,7 @@ armor 0 0 AG
 27 5 270 P
 a '' to_object 27 -1 2 2 0
 a '' to_object 27 -1 25 14 0
-g none~
+g @rus none~
 #15730
 elven cloak~
 a green elven cloak~
@@ -656,7 +656,7 @@ armor 0 0 AC
 a '' to_object 27 -1 1 5 0
 a '' to_object 27 -1 10 13 0
 a '' to_object 27 -1 -5 17 0
-g none~
+g @rus none~
 #15731
 pick~
 a pick~
@@ -665,7 +665,7 @@ copper~
 weapon 0 B AN
 axe 4 4 'stab' 0
 12 100 120 P
-g none~
+g @rus none~
 #15732
 shovel~
 a shovel~
@@ -674,7 +674,7 @@ copper~
 weapon 0 B AN
 exotic 4 4 'pound' 0
 12 100 120 P
-g none~
+g @rus none~
 #15733
 rubble~
 a pile of rubble~
@@ -683,7 +683,7 @@ copper~
 trash 0 0 A
 0 0 0 0 0
 10 75 100 P
-g none~
+g @rus none~
 #15734
 whip~
 a whip~
@@ -692,7 +692,7 @@ copper~
 weapon 0 0 AN
 whip 5 5 'whip' 0
 20 50 200 P
-g none~
+g @rus none~
 #15735
 flind bar~
 a flind bar~
@@ -702,7 +702,7 @@ armor J 0 AO
 7 7 7 7 0
 20 5 200 P
 a '' to_object 20 -1 5 19 0
-g none~
+g @rus none~
 #15736
 rubbish~
 a huge pile of rubbish~
@@ -711,7 +711,7 @@ copper~
 trash 0 0 A
 0 0 0 0 0
 20 150 200 P
-g none~
+g @rus none~
 #15737
 rack~
 a torturer's rack~
@@ -725,7 +725,7 @@ rack~
 It is not currently in use. The warlock enjoys executions, so people he
 captures rarely live long enough to be tortured.
 ~
-g none~
+g @rus none~
 #15738
 gallows~
 a gallows~
@@ -738,7 +738,7 @@ E
 gallows~
 They are used regularly to hang those who piss off the warlock.
 ~
-g none~
+g @rus none~
 #15739
 stocks~
 the stocks~
@@ -751,7 +751,7 @@ E
 stocks gnoll~
 This unfortunate has been left here for a week for insubordination.
 ~
-g none~
+g @rus none~
 #15740
 pot boiling oil~
 a pot of boiling oil~
@@ -764,7 +764,7 @@ E
 pot boiling oil~
 The warlock enjoys immersing insubordinate or irritating lackeys in here.
 ~
-g none~
+g @rus none~
 #15741
 flag~
 a black flag~
@@ -777,7 +777,7 @@ E
 flag~
 It is plain black. The warlock isn't very imaginative.
 ~
-g none~
+g @rus none~
 #15742
 leg irons~
 a set of leg irons~
@@ -788,7 +788,7 @@ armor M 0 AF
 12 10 120 P
 a '' to_object 12 -1 -3 2 0
 a '' to_object 12 -1 -100 14 0
-g none~
+g @rus none~
 #0
 
 #ROOMS

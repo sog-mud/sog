@@ -814,7 +814,7 @@ the use of killing. This truly is a strong weapon.
 @rus Довольно крупная дубинка, усеянная острыми шипами. Сразу чувствуется, что
 это орудие убийства.
 ~
-g none~
+g @rus none~
 #10002
 necklace ожерелье bone~
 @eng the Bone Woman's necklace@rus ~~костяное~~ ~~ожерелье~~~
@@ -833,7 +833,7 @@ neck. It must be very powerful since the kill took awhile.
 @rus Магическое ожерелье, сделанное из невзрачных с виду косточек каких-то 
 животных. Но за его внешней невзрачностью многое скрывается.
 ~
-g none~
+g @rus none~
 #10003
 teeth зубы gripper~
 @eng some grippers teeth@rus ~~острые~~ ~~кривые~~ ~~зубы~~~
@@ -844,7 +844,7 @@ armor ABM 0 AC
 80 10 100 P
 a '' to_object 80 -1 6 19 0
 a '' to_object 80 -1 3 1 0
-g none~
+g @rus none~
 #10004
 jug beer кувшин~
 @eng a jug of beer@rus ~~кувшин~~ эля~
@@ -853,7 +853,7 @@ glass~
 drink BC 0 A
 20 20 'beer' 0 0
 1 1 1 P
-g none~
+g @rus none~
 #10005
 boots black ботинки thief~
 @eng a pair of black boots@rus ~~пара~~ кожаных черных ботинок~
@@ -865,7 +865,7 @@ armor BC 0 AG
 a '' to_object 60 -1 -10 13 0
 a '' to_object 60 -1 30 12 0
 a '' to_object 60 -1 2 1 0
-g none~
+g @rus none~
 #10006
 glove warden gloves рукавицы boundary~
 @eng boundary warden gloves@rus ~~рукавицы~~ стража границы~
@@ -877,7 +877,7 @@ armor BC 0 AH
 a '' to_object 60 -1 -2 24 0
 a '' to_object 60 -1 8 18 0
 a '' to_object 60 -1 2 1 0
-g none~
+g @rus none~
 #10007
 boot warden boots ботинки boundary~
 @eng boundary warden boots@rus ~~ботинки~~ стража границы~
@@ -889,7 +889,7 @@ armor BC 0 AG
 a '' to_object 60 -1 -3 22 0
 a '' to_object 60 -1 6 19 0
 a '' to_object 60 -1 5 18 0
-g none~
+g @rus none~
 #10008
 sleeves warden нарукавники boundary~
 @eng boundary warden sleeves@rus ~~нарукавники~~ стража границы~
@@ -901,7 +901,7 @@ armor BC 0 AI
 a '' to_object 60 -1 20 13 0
 a '' to_object 60 -1 2 2 0
 a '' to_object 60 -1 2 1 0
-g none~
+g @rus none~
 #10009
 shield warden щит boundary~
 @eng boundary warden's shield@rus ~~щит~~ стража границы~
@@ -912,7 +912,7 @@ armor BC 0 AJ
 60 10 9898 P
 a '' to_object 60 -1 40 13 0
 a '' to_object 60 -1 -9 17 0
-g none~
+g @rus none~
 #10010
 tunic warden плащ boundary~
 @eng boundary warden's tunic@rus ~~плащ~~ стража границы~
@@ -922,7 +922,7 @@ armor BC 0 AK
 20 20 20 10 0
 60 10 9898 P
 a '' to_object 60 -1 -21 17 0
-g none~
+g @rus none~
 #10011
 helmet warden шлем boundary~
 @eng a boundary warden's helmet@rus ~~шлем~~ стража границы~
@@ -933,7 +933,7 @@ armor BC 0 AE
 60 10 9898 P
 a '' to_object 60 -1 -5 23 0
 a '' to_object 60 -1 2 1 0
-g none~
+g @rus none~
 #10012
 ring warden кольцо boundary~
 @eng a boundary warden's ring@rus ~~кольцо~~ стража границы~
@@ -943,7 +943,7 @@ treasure BC 0 AB
 0 0 0 0 0
 60 10 9898 P
 a '' to_object 60 -1 75 13 0
-g none~
+g @rus none~
 #10013
 legging warden leggings штаны boundary~
 @eng boundary warden leggins@rus ~~штаны~~ стража границы~
@@ -954,7 +954,7 @@ armor BC 0 AF
 60 10 9898 P
 a '' to_object 60 -1 -1 21 0
 a '' to_object 60 -1 30 14 0
-g none~
+g @rus none~
 #10014
 robe dark плащ~
 @eng a dark robe@rus ~~темный~~ ~~плащ~~~
@@ -965,7 +965,7 @@ armor BC 0 AD
 70 10 5060 P
 a '' to_object 70 -1 25 13 0
 a '' to_object 70 -1 50 12 0
-g none~
+g @rus none~
 #10015
 collar heart hound ошейник~
 @eng a heart hound collar@rus ~~ошейник~~ гончей~
@@ -977,7 +977,7 @@ armor BC 0 AC
 a '' to_object 70 -1 -8 17 0
 a '' to_object 70 -1 50 13 0
 a '' to_object 70 -1 50 12 0
-g none~
+g @rus none~
 #10016
 pouch magical leather мешочек~
 @eng a magical leather pouch@rus ~~маленький~~ ~~магический~~ ~~мешочек~~~
@@ -986,7 +986,7 @@ leather~
 container BC 0 A
 700 A 0 350 72
 70 50 1000 P
-g none~
+g @rus none~
 #10017
 cookie пирожок~
 @eng a BIG cookie!@rus ~~вкусный~~ ~~пирожок~~~
@@ -995,7 +995,7 @@ unknown~
 food B 0 A
 DF 0 0 0 0
 8 10 0 P
-g none~
+g @rus none~
 #10018
 cake кусок пирог~
 @eng a BIG piece of cake!@rus ~~кусок~~ пирога~
@@ -1004,7 +1004,7 @@ unknown~
 food B 0 A
 BD 0 0 0 0
 1 10 0 P
-g none~
+g @rus none~
 #10019
 sword warden меч boundary~
 @eng a boundary warden's sword@rus ~~меч~~ стража границы~
@@ -1019,7 +1019,7 @@ E
 boundary sword warden~
 This is a boundary warden sword that is made just for their use.
 ~
-g none~
+g @rus none~
 #10020
 flail warden кистень boundary~
 @eng a boundary warden's flail@rus ~~кистень~~ стража границы~
@@ -1030,7 +1030,7 @@ flail 7 7 'pound' 0
 50 300 3400 P
 a '' to_object 50 -1 3 19 0
 a '' to_object 50 -1 4 18 0
-g none~
+g @rus none~
 #10021
 mace warden палица стража границы boundary~
 @eng a boundary warden's mace@rus ~~палица~~ стража границы~
@@ -1041,7 +1041,7 @@ mace 7 7 'pound' 0
 50 300 2999 P
 a '' to_object 50 -1 2 18 0
 a '' to_object 50 -1 3 18 0
-g none~
+g @rus none~
 #10022
 dagger warden кинжал boundary~
 @eng a boundary warden's dagger@rus ~~кинжал~~ стража границы~
@@ -1052,7 +1052,7 @@ dagger 5 10 'pierce' 0
 50 300 2999 P
 a '' to_object 50 -1 3 19 0
 a '' to_object 50 -1 3 18 0
-g none~
+g @rus none~
 #10023
 agiel weapon эйджил~
 @eng a mord-sith agiel@rus эйджил~
@@ -1065,7 +1065,7 @@ a '' to_object 90 -1 4 19 0
 a '' to_object 90 -1 4 18 0
 a '' to_object 90 -1 20 13 0
 a '' to_object 90 -1 20 12 0
-g none~
+g @rus none~
 #10024
 bracer power браслет~
 @eng the bracer of power@rus ~~магический~~ ~~браслет~~ Рала~
@@ -1078,7 +1078,7 @@ a '' to_object 90 -1 7 19 0
 a '' to_object 90 -1 7 18 0
 a '' to_object 90 -1 50 13 0
 a '' to_object 90 -1 50 12 0
-g none~
+g @rus none~
 #10025
 westland sign знак указатель вывеска вестландия~
 @eng a sign@rus ~~небольшой~~ ~~знак~~~
@@ -1160,7 +1160,7 @@ west land westland sign вестландия знак~
 ****************************************************************
  
 ~
-g none~
+g @rus none~
 #10026
 sign dhara d'hara дхара д'хара~
 @eng a little sign@rus ~~небольшой~~ ~~указатель~~~
@@ -1252,7 +1252,7 @@ D'Hara.  This is Darken Rahl's home land.
 Дворец -- резиденция великого Магистра Рала.
 
 ~
-g none~
+g @rus none~
 #0
 
 #ROOMS

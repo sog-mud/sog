@@ -336,7 +336,7 @@ steel~
 weapon 0 0 AN
 spear 2 7 'thrust' K
 10 150 153 P
-g none~
+g @rus none~
 #2201
 dagger silver~
 a silver dagger~
@@ -346,7 +346,7 @@ weapon 0 0 AN
 dagger 4 7 'pierce' 0
 22 10 2000 P
 a '' to_object 22 -1 -2 20 0
-g none~
+g @rus none~
 #2202
 knife tooth dragon~
 a dragon's tooth knife~
@@ -357,7 +357,7 @@ dagger 5 6 'pierce' 0
 30 80 3200 P
 a '' to_object 30 -1 4 19 0
 a '' to_object 30 -1 1 2 0
-g none~
+g @rus none~
 #2203
 bracelet dragon~
 a dragon skin bracelet~
@@ -366,7 +366,7 @@ dragonskin~
 armor 0 0 AM
 6 6 6 3 0
 15 100 1170 P
-g none~
+g @rus none~
 #2204
 belt silk black~
 a black silk belt~
@@ -376,7 +376,7 @@ armor 0 0 AL
 6 6 6 2 0
 17 250 3900 P
 a '' to_object 17 -1 2 5 0
-g none~
+g @rus none~
 #2210
 belt silk white~
 a white silk belt~
@@ -386,7 +386,7 @@ armor 0 0 AL
 6 6 6 2 0
 17 250 3900 P
 a '' to_object 17 -1 2 1 0
-g none~
+g @rus none~
 #2211
 bracelet platinum~
 a platinum bracelet.~
@@ -395,7 +395,7 @@ platinum~
 armor A 0 AM
 7 7 7 0 0
 20 50 1450 P
-g none~
+g @rus none~
 #2220
 symbol holy~
 a holy symbol~
@@ -405,7 +405,7 @@ jewelry A 0 ACO
 0 0 0 0 0
 10 20 270 P
 a '' to_object 10 -1 15 12 0
-g none~
+g @rus none~
 #2221
 robe black~
 a plain black robe~
@@ -415,7 +415,7 @@ armor 0 0 AK
 5 5 5 0 0
 21 30 2000 P
 a '' to_object 21 -1 2 19 0
-g none~
+g @rus none~
 #2222
 sword emerald~
 an emerald sword~
@@ -425,7 +425,7 @@ weapon 0 0 AN
 sword 5 6 'slash' D
 28 240 2300 P
 a '' to_object 28 -1 2 19 0
-g none~
+g @rus none~
 #2223
 club stone~
 a stone club~
@@ -434,7 +434,7 @@ stone~
 weapon 0 0 AN
 mace 3 6 'crush' 0
 18 180 940 P
-g none~
+g @rus none~
 #2224
 ring diamond~
 a diamond ring~
@@ -445,7 +445,7 @@ jewelry 0 0 AB
 37 60 6800 P
 a '' to_object 37 -1 3 19 0
 a '' to_object 37 -1 3 18 0
-g none~
+g @rus none~
 #2230
 ring copper~
 a copper ring~
@@ -455,7 +455,7 @@ jewelry 0 0 AB
 0 0 0 0 0
 15 10 2600 P
 a '' to_object 15 -1 2 4 0
-g none~
+g @rus none~
 #2231
 key steel~
 a steel key~
@@ -464,7 +464,7 @@ steel~
 key 0 0 A
 0 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #2232
 key ruby~
 a ruby key~
@@ -473,7 +473,7 @@ ruby~
 key 0 0 A
 0 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #2233
 key white~
 a white key~
@@ -482,7 +482,7 @@ ivory~
 key 0 0 A
 0 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #2234
 key grey~
 a grey key~
@@ -491,7 +491,7 @@ wood~
 key 0 0 A
 0 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #2237
 key stone~
 a stone key~
@@ -500,7 +500,7 @@ stone~
 key 0 0 A
 0 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #2240
 key black~
 a black key~
@@ -509,7 +509,7 @@ onyx~
 key 0 0 A
 0 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #2241
 key platinum~
 a platinum key~
@@ -518,7 +518,7 @@ platinum~
 key 0 0 A
 0 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #2242
 shield crested~
 a crested shield~
@@ -528,7 +528,7 @@ armor 0 0 AJ
 8 8 8 3 0
 25 200 3900 P
 a '' to_object 25 -1 1 5 0
-g none~
+g @rus none~
 #2243
 wand golden~
 a golden wand~
@@ -537,7 +537,7 @@ gold~
 wand A 0 AO
 25 10 10 'dispel magic' 0
 14 50 5500 P
-g none~
+g @rus none~
 #2244
 staff silver~
 a silver staff~
@@ -546,7 +546,7 @@ silver~
 staff AG 0 AO
 25 20 20 'faerie fog' 0
 14 50 11700 P
-g none~
+g @rus none~
 #2245
 staff dragon~
 the staff of the dragon~
@@ -555,7 +555,7 @@ oak~
 staff AG 0 AO
 25 10 10 'call lightning' 0
 15 50 10200 P
-g none~
+g @rus none~
 #2246
 mail scale~
 scale mail~
@@ -564,7 +564,7 @@ steel~
 armor A 0 AD
 8 8 8 0 0
 25 200 3900 P
-g none~
+g @rus none~
 #2250
 staff black~
 a black staff~
@@ -573,7 +573,7 @@ onyx~
 staff AJ 0 AO
 30 3 3 'energy drain' 0
 14 250 5300 P
-g none~
+g @rus none~
 #2251
 potion cyan~
 a cyan potion~
@@ -582,7 +582,7 @@ glass~
 potion 0 0 A
 30 'blindness' 'harm' '' ''
 9 10 1060 P
-g none~
+g @rus none~
 #2252
 potion magenta~
 a magenta potion~
@@ -591,7 +591,7 @@ glass~
 potion H 0 A
 30 'cure critical' 'protection evil' '' ''
 7 10 600 P
-g none~
+g @rus none~
 #2254
 gauntlets spiked~
 a pair of spiked gauntlets~
@@ -602,7 +602,7 @@ armor AG 0 AH
 20 100 2500 P
 a '' to_object 20 -1 1 1 0
 a '' to_object 20 -1 2 19 0
-g none~
+g @rus none~
 #2260
 scimitar golden~
 a golden scimitar~
@@ -613,7 +613,7 @@ sword 3 5 'slash' 0
 16 100 2500 P
 a '' to_object 16 -1 1 4 0
 a '' to_object 16 -1 1 3 0
-g none~
+g @rus none~
 #2261
 brooch diamond~
 a diamond brooch~
@@ -623,7 +623,7 @@ jewelry G 0 AC
 0 0 0 0 0
 25 20 980 P
 a '' to_object 25 -1 25 12 0
-g none~
+g @rus none~
 #2270
 scroll~
 a runed scroll~
@@ -632,7 +632,7 @@ vellum~
 scroll G 0 AO
 30 'armor' 'protection evil' 'shield' ''
 12 10 1960 P
-g none~
+g @rus none~
 #2271
 gloves dragon~
 a pair of dragon skin gloves~
@@ -642,7 +642,7 @@ armor 0 0 AH
 6 6 6 3 0
 17 50 4000 P
 a '' to_object 17 -1 2 2 0
-g none~
+g @rus none~
 #2275
 helm dragon~
 a helm of dragon kind~
@@ -652,7 +652,7 @@ armor 0 0 AE
 10 10 10 5 0
 35 150 4100 P
 a '' to_object 35 -1 15 13 0
-g none~
+g @rus none~
 #2276
 fur cloak~
 a fur cloak~
@@ -663,7 +663,7 @@ armor 0 0 AK
 16 100 1910 P
 a '' to_object 16 -1 10 13 0
 a '' to_object 16 -1 1 1 0
-g none~
+g @rus none~
 #2280
 leggings dragon scale~
 a pair of dragon scale leggings~
@@ -672,7 +672,7 @@ dragonskin~
 armor 0 0 AF
 7 7 7 3 0
 20 150 1590 P
-g none~
+g @rus none~
 #2281
 sleeves dragon scale~
 a set of dragon scale sleeves~
@@ -681,7 +681,7 @@ dragonskin~
 armor 0 0 AI
 7 7 7 3 0
 20 120 1590 P
-g none~
+g @rus none~
 #2285
 whip dragon tail~
 a dragon tailed whip~
@@ -692,7 +692,7 @@ whip 6 5 'whip' 0
 24 140 1530 P
 a '' to_object 24 -1 3 19 0
 a '' to_object 24 -1 3 18 0
-g none~
+g @rus none~
 #2286
 hammer copper~
 a copper hammer~
@@ -701,7 +701,7 @@ copper~
 weapon 0 0 AN
 mace 4 5 'crush' 0
 15 120 750 P
-g none~
+g @rus none~
 #2287
 dagger silver~
 a silver dagger~
@@ -710,7 +710,7 @@ silver~
 weapon 0 0 AN
 dagger 2 4 'pierce' 0
 5 10 360 P
-g none~
+g @rus none~
 #2299
 key gold tarnished~
 a tarnished gold key~
@@ -719,7 +719,7 @@ gold~
 key 0 0 A
 0 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

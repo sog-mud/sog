@@ -433,7 +433,7 @@ a '' to_object 45 -1 2 19 0
 a '' to_object 45 -1 3 18 0
 a '' to_object 45 -1 -11 17 0
 a '' to_object 45 -1 21 13 0
-g neutral~
+g @rus neutral~
 #4608
 darkened shield темный щит~
 @eng a darkened shield@rus ~~темный~~ ~~щит~~~
@@ -447,7 +447,7 @@ a '' to_object 25 -1 -2 18 0
 a '' to_object 25 -1 -20 13 0
 a '' to_object 25 -1 -2 5 0
 a '' to_object 25 -1 -3 1 0
-g none~
+g @rus none~
 #4609
 guardian sword меч стража~
 @eng a guardian sword@rus ~~меч~~ стража~
@@ -509,11 +509,11 @@ copper~
 armor ABCEFGHIM C AB
 0 0 0 0 0
 45 0 120000 P
-a '' to_object 60 -1 -20 17 0
-a '' to_object 60 -1 40 13 0
-a '' to_object 60 -1 -1 6 0
-a '' to_object 60 -1 4 5 0
-a '' to_object 60 -1 1 1 0
+a '' to_object 45 -1 -20 17 0
+a '' to_object 45 -1 40 13 0
+a '' to_object 45 -1 -1 6 0
+a '' to_object 45 -1 4 5 0
+a '' to_object 45 -1 1 1 0
 E
 copper ring кольцо силы духа~
 @eng An inscription is engraved inside the ring, stating 'accursed be the
@@ -539,8 +539,8 @@ gold~
 weapon ABCJ C AN
 flail 5 7 'none' 0
 30 160 16000 P
-a '' to_object 40 -1 3 19 0
-a '' to_object 40 -1 10 13 0
+a '' to_object 30 -1 3 19 0
+a '' to_object 30 -1 10 13 0
 g @eng none@rus female~
 #4617
 poncho пончо rags лохмотья~
@@ -594,7 +594,7 @@ armor A C AL
 a '' to_object 40 -1 2 19 0
 a '' to_object 40 -1 7 13 0
 a '' to_object 40 -1 2 2 0
-g none~
+g @rus none~
 #4622
 shadow dagger litrahth~
 the Shadow Dagger~
@@ -610,7 +610,7 @@ shadow dagger~
 Wear the dagger and speak the magic words, 'Litrahth Ezandor' to open
 the portal to the spirit realms...
 ~
-g none~
+g @rus none~
 #4623
 shadow dagger~
 the Shadow Dagger~
@@ -628,7 +628,7 @@ shadow dagger~
 Wear the dagger and speak the magic words, 'Litrahth Ezandor' to open
 the portal to the spirit realms...
 ~
-g none~
+g @rus none~
 #4624
 claw dracolich~
 the Claw of great Dracolich~
@@ -641,7 +641,7 @@ a '' to_object 60 -1 6 19 0
 a '' to_object 60 -1 5 18 0
 a '' to_object 60 -1 -50 12 0
 a '' to_object 60 -1 -2 5 0
-g none~
+g @rus none~
 #4625
 coffin~
 a coffin~
@@ -650,7 +650,7 @@ wood~
 container 0 0 0
 1000 0 0 0 0
 1 100 0 P
-g none~
+g @rus none~
 #4626
 sceptre chaos~
 the flaming sceptre of Chaos~
@@ -664,7 +664,7 @@ a '' to_object 40 -1 1 19 0
 a '' to_object 40 -1 4 18 0
 a '' to_object 40 -1 10 12 0
 a '' to_object 40 -1 1 2 0
-g none~
+g @rus none~
 #4627
 libram gainful conjuration~
 the Libram of Gainful Conjuration~
@@ -673,7 +673,7 @@ parchment~
 container ABCEP C AO
 100 0 0 500 0
 50 15 40000 P
-g none~
+g @rus none~
 #4628
 potion protection divine~
 a potion of divine protection~
@@ -682,7 +682,7 @@ glass~
 potion A 0 AO
 30 'harm' 'plague' 'poison' 'chill touch'
 50 15 40000 P
-g none~
+g @rus none~
 #4629
 cloak wizardry~
 the cloak of wizardry~
@@ -695,7 +695,7 @@ a '' to_object 50 -1 60 12 0
 a '' to_object 50 -1 -25 17 0
 a '' to_object 50 -1 2 4 0
 a '' to_object 50 -1 3 3 0
-g none~
+g @rus none~
 #4630
 scroll overkill~
 a scroll of ultimate overkill~
@@ -704,7 +704,7 @@ parchment~
 scroll 0 C A
 50 'lightning breath' 'acid blast' 'harm' ''
 38 1 1500 P
-g none~
+g @rus none~
 #4631
 scroll truimph~
 a scroll of truimph~
@@ -713,7 +713,7 @@ parchment~
 scroll A C A
 43 'giant strength' 'cure serious' 'bless' ''
 34 1 1500 P
-g none~
+g @rus none~
 #4632
 scroll feasting~
 a scroll of feasting~
@@ -722,7 +722,7 @@ parchment~
 scroll A C A
 35 'infravision' 'armor' 'colour spray' ''
 20 1 1500 P
-g none~
+g @rus none~
 #4633
 scroll redecoration~
 a scroll of room-redecoration~
@@ -731,7 +731,7 @@ parchment~
 scroll A C A
 38 'cause serious' 'energy drain' 'demonfire' ''
 45 1 1500 P
-g none~
+g @rus none~
 #4634
 scroll protection~
 a scroll of protection~
@@ -740,7 +740,7 @@ parchment~
 scroll A C A
 50 'armor' 'stone skin' 'pass door' ''
 40 1 1500 P
-g none~
+g @rus none~
 #4635
 scroll invulnerability~
 a scroll of invulnerability~
@@ -749,7 +749,7 @@ parchment~
 scroll A C A
 34 'armor' 'teleport' '' ''
 12 1 1500 P
-g none~
+g @rus none~
 #4636
 scroll wolverine~
 a scroll of the Wolverine~
@@ -758,7 +758,7 @@ parchment~
 scroll A C A
 38 'frenzy' 'shield' '' ''
 20 1 1500 P
-g none~
+g @rus none~
 #4637
 scroll lifebane~
 a scroll of lifebane~
@@ -767,7 +767,7 @@ parchment~
 scroll A C A
 40 'energy drain' 'energy drain' '' ''
 33 1 1500 P
-g none~
+g @rus none~
 #4638
 scroll destruction~
 a scroll of destruction~
@@ -776,7 +776,7 @@ parchment~
 scroll A C A
 42 'fireball' 'demonfire' '' ''
 29 1 1500 P
-g none~
+g @rus none~
 #4639
 scroll chaos~
 a scroll of chaos~
@@ -785,7 +785,7 @@ parchment~
 scroll A C A
 50 'teleport' 'teleport' 'sleep' 'curse'
 10 1 1500 P
-g none~
+g @rus none~
 #4640
 potion healing bvumpertan~
 a potion of healing~
@@ -794,7 +794,7 @@ glass~
 potion A 0 AO
 35 '' 'acid blast' 'plague' ''
 5 0 15000 P
-g none~
+g @rus none~
 #4641
 potion life~
 a potion of life~
@@ -803,7 +803,7 @@ glass~
 potion A 0 AO
 27 'cause critical' 'cause light' 'cure serious' ''
 5 0 1000 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

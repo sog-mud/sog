@@ -180,7 +180,7 @@ flesh~
 container 0 0 A
 30 0 0 30 100
 0 500 1 P
-g none~
+g @rus none~
 #2801
 pile rotting heap bed~
 @eng the heap of carnage@rus ~~куча~~ гниющих останков~
@@ -189,7 +189,7 @@ unknown~
 container 0 0 0
 30 0 0 30 100
 0 0 0 P
-g none~
+g @rus none~
 #2802
 trollskin troll skin~
 the troll skin~
@@ -204,7 +204,7 @@ troll skin~
 This is the skin from a huge (and dead) beast.  It looks bad, smells bad,
 and feels bad.
 ~
-g none~
+g @rus none~
 #2803
 ring opal~
 an opal ring~
@@ -218,7 +218,7 @@ E
 ring opal~
 It is a full circle of opal, smooth and simple.
 ~
-g none~
+g @rus none~
 #2804
 leather belt ремень пояс~
 @eng a leather belt@rus кожанный ремень~
@@ -231,7 +231,7 @@ E
 leather belt~
 This old, smelly belt looks like it is barely better than rotting cloth.
 ~
-g none~
+g @rus none~
 #2805
 bone cracked~
 a cracked bone~
@@ -247,7 +247,7 @@ bone~
 This piece of bone looks sturdy enough to be used as a weapon, but you
 wouldn't want to entrust your life to it.
 ~
-g none~
+g @rus none~
 #0
 
 #ROOMS

@@ -52,7 +52,7 @@ container KY C AK
 36 0 10 P
 a '' to_object 36 -1 75 13 0
 a '' to_skills 36 -1 100 'refresh' A
-g male~
+g @rus male~
 #0
 
 #ROOMS

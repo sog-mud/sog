@@ -191,7 +191,7 @@ bone~
 key Y ABI AO
 0 0 0 0 0
 0 4 0 P
-g none~
+g @rus none~
 #95401
 skull череп~
 @eng Skull of mage@rus ~~Череп~~ мага~
@@ -200,7 +200,7 @@ bone~
 treasure 0 ABH AO
 0 0 0 0 0
 0 1 100000 P
-g none~
+g @rus none~
 #95402
 white throne~
 @eng a white throne@rus ~~белый~~ ~~трон~~~
@@ -209,7 +209,7 @@ bone~
 container Y AB 0
 10 ABCDE 95400 15 100
 60 1 20 P
-g male~
+g @rus male~
 #95403
 pit~
 the pit for donations~
@@ -222,7 +222,7 @@ E
 pit~
 This pit is for battleragers, in order to donate themselves.
 ~
-g none~
+g @rus none~
 #95404
 bed soldier's plank~
 @eng soldier's plank bed@rus ~~солдатские~~ ~~нары~~~
@@ -231,7 +231,7 @@ wood~
 furniture IY B 0
 EIJKN ABCDEFGHIJKLMNOPQRSTUVWXYZabcde EHKN DGH DGH
 0 1000000000 0 P
-g none~
+g @rus none~
 #95405
 dagger fine gordall~
 @eng a fine dagger@rus изящный кинжал~
@@ -240,7 +240,7 @@ adamantite~
 weapon 0 0 AN
 dagger 4 7 'pierce' DE
 32 4500 5600 P
-g none~
+g @rus none~
 #95406
 sword fine gordall~
 @eng a fine sword@rus изящный меч~
@@ -249,7 +249,7 @@ adamantite~
 weapon 0 0 AN
 sword 5 6 'slash' DE
 33 4500 5600 P
-g none~
+g @rus none~
 #95407
 axe fine gordall~
 @eng a fine two-handed axe@rus изящный двуручный топор~
@@ -258,7 +258,7 @@ adamantite~
 weapon 0 0 AN
 axe 6 6 'cleave' DF
 36 4500 5600 P
-g none~
+g @rus none~
 #95408
 tattoo clanmark~
 @eng {DI hate magic{x@rus {DНенавижу магию{x~
@@ -267,7 +267,7 @@ unknown~
 jewelry AMY CE AS
 0 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

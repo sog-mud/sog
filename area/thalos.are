@@ -162,7 +162,7 @@ armor GK 0 AD
 26 300 7600 P
 a '' to_object 26 -1 2 1 0
 a '' to_object 26 -1 1 19 0
-g none~
+g @rus none~
 #5201
 helm mithril~
 a mithril helm~
@@ -172,7 +172,7 @@ armor GK 0 AE
 8 8 8 2 0
 27 100 3400 P
 a '' to_object 27 -1 2 18 0
-g none~
+g @rus none~
 #5202
 gauntlets mithril~
 a pair of mithril gauntlets~
@@ -183,7 +183,7 @@ armor GK 0 AH
 25 100 2700 P
 a '' to_object 25 -1 1 19 0
 a '' to_object 25 -1 1 18 0
-g none~
+g @rus none~
 #5203
 sleeves mithril~
 some mithril sleeves~
@@ -194,7 +194,7 @@ armor GK 0 AI
 25 100 2700 P
 a '' to_object 25 -1 1 19 0
 a '' to_object 25 -1 1 18 0
-g none~
+g @rus none~
 #5204
 boots mithril~
 a pair of mithril boots~
@@ -205,7 +205,7 @@ armor GK 0 AG
 25 60 3100 P
 a '' to_object 25 -1 1 2 0
 a '' to_object 25 -1 1 18 0
-g none~
+g @rus none~
 #5205
 leggings mithril~
 a set of mithril leggings~
@@ -216,7 +216,7 @@ armor GK 0 AF
 25 100 3100 P
 a '' to_object 25 -1 1 2 0
 a '' to_object 25 -1 1 18 0
-g none~
+g @rus none~
 #5206
 girth mithril~
 a mithril girth~
@@ -226,7 +226,7 @@ armor GK 0 AL
 8 8 8 2 0
 26 60 5200 P
 a '' to_object 26 -1 2 5 0
-g none~
+g @rus none~
 #5207
 breast plate iron~
 a battered iron breast plate~
@@ -236,7 +236,7 @@ armor 0 0 AD
 5 5 5 0 0
 4 450 9100 P
 a '' to_object 4 -1 -6 18 0
-g none~
+g @rus none~
 #5208
 shield iron~
 a sturdy iron shield~
@@ -248,7 +248,7 @@ armor GJ 0 AJ
 a '' to_object 24 -1 -2 20 0
 a '' to_object 24 -1 -2 20 0
 a '' to_object 24 -1 100 41 0
-g none~
+g @rus none~
 #5210
 potion black~
 a black potion~
@@ -257,7 +257,7 @@ glass~
 potion FG 0 A
 16 'blindness' 'sanctuary' 'giant strength' ''
 11 50 880 P
-g none~
+g @rus none~
 #5211
 potion orange~
 an orange potion~
@@ -266,7 +266,7 @@ glass~
 potion FG 0 A
 20 'detect hidden' '' '' ''
 4 100 400 P
-g none~
+g @rus none~
 #5214
 ball quartz~
 a smooth quartz ball~
@@ -275,7 +275,7 @@ quartz~
 light G 0 AO
 0 0 72 0 0
 0 300 50 P
-g none~
+g @rus none~
 #5215
 scroll tattered~
 a tattered scroll~
@@ -284,7 +284,7 @@ vellum~
 scroll G 0 A
 24 'enchant weapon' '' '' ''
 8 150 1280 P
-g none~
+g @rus none~
 #5216
 scroll bound~
 a bound scroll~
@@ -293,7 +293,7 @@ vellum~
 scroll G 0 A
 15 'detect evil' 'detect invis' 'detect magic' ''
 0 150 500 P
-g none~
+g @rus none~
 #5217
 flute silver~
 a silver flute~
@@ -303,7 +303,7 @@ staff AG 0 AO
 17 1 1 'charm person' 0
 9 10 3300 P
 a '' to_object 9 -1 -2 2 0
-g none~
+g @rus none~
 #5218
 talisman demon~
 a demon-faced talisman~
@@ -314,7 +314,7 @@ jewelry AG 0 AC
 0 110 0 P
 a '' to_object 0 -1 -8 2 0
 a '' to_object 0 -1 -10 1 0
-g none~
+g @rus none~
 #5219
 venison chunk~
 a chunk of venison~
@@ -323,7 +323,7 @@ food~
 food 0 0 A
 DE DE 0 0 0
 0 200 0 P
-g none~
+g @rus none~
 #5220
 fountain water~
 a large cracked fountain~
@@ -332,7 +332,7 @@ unknown~
 fountain 0 0 0
 10 10 'water' 1 0
 0 0 0 P
-g none~
+g @rus none~
 #5221
 two-handed two sword~
 a two-handed sword~
@@ -343,7 +343,7 @@ sword 3 11 'chop' F
 26 240 3300 P
 a '' to_object 26 -1 3 19 0
 a '' to_object 26 -1 2 18 0
-g none~
+g @rus none~
 #5222
 robe black silk~
 a black silk robe~
@@ -353,7 +353,7 @@ armor 0 0 AK
 1 1 1 5 0
 5 60 410 P
 a '' to_object 5 -1 10 12 0
-g none~
+g @rus none~
 #5223
 cloak green~
 a dark green cloak~
@@ -363,7 +363,7 @@ armor GJ 0 AC
 7 7 7 2 0
 20 120 1600 P
 a '' to_object 20 -1 5 13 0
-g none~
+g @rus none~
 #5224
 seal ebony~
 an engraved ebony seal~
@@ -372,7 +372,7 @@ ebony~
 key 0 0 A
 BCDE 0 0 0 0
 0 20 0 P
-g none~
+g @rus none~
 #5225
 desk curved~
 the desk~
@@ -381,7 +381,7 @@ wood~
 container 0 0 0
 100 ACD 5224 100 100
 0 0 0 P
-g none~
+g @rus none~
 #5226
 seal ivory~
 an engraved ivory seal~
@@ -390,7 +390,7 @@ ivory~
 key 0 0 A
 ABCDE 0 0 0 0
 0 20 0 P
-g none~
+g @rus none~
 #5227
 cabinet glass~
 the glass cabinet~
@@ -399,7 +399,7 @@ glass~
 container 0 0 0
 500 ACD 5226 100 100
 0 0 0 P
-g none~
+g @rus none~
 #5228
 arm rotted~
 a rotten arm~
@@ -408,7 +408,7 @@ flesh~
 food 0 0 A
 BEF BEF 0 A 0
 0 200 0 P
-g none~
+g @rus none~
 #5230
 stone pale blue~
 a pale blue stone~
@@ -418,7 +418,7 @@ gem G 0 AQ
 0 0 0 0 0
 5 10 550 P
 a '' to_object 5 -1 1 1 0
-g none~
+g @rus none~
 #5231
 stone scarlet blue~
 a scarlet and blue stone~
@@ -428,7 +428,7 @@ gem G 0 AQ
 0 0 0 0 0
 5 10 550 P
 a '' to_object 5 -1 1 3 0
-g none~
+g @rus none~
 #5232
 stone blue incandescent~
 an incandescent blue stone~
@@ -438,7 +438,7 @@ gem G 0 AQ
 0 0 0 0 0
 5 10 550 P
 a '' to_object 5 -1 1 4 0
-g none~
+g @rus none~
 #5233
 stone red deep~
 a deep red stone~
@@ -448,7 +448,7 @@ gem G 0 AQ
 0 0 0 0 0
 5 10 550 P
 a '' to_object 5 -1 1 2 0
-g none~
+g @rus none~
 #5234
 stone pink~
 a pink stone~
@@ -458,7 +458,7 @@ gem G 0 AQ
 0 0 0 0 0
 5 10 550 P
 a '' to_object 5 -1 1 5 0
-g none~
+g @rus none~
 #5235
 stone pearly white~
 a pearly white stone~
@@ -468,7 +468,7 @@ gem G 0 AQ
 0 0 0 0 0
 5 10 11 P
 a '' to_object 5 -1 1 13 0
-g none~
+g @rus none~
 #5237
 stone lavender green~
 a lavender and green stone~
@@ -478,7 +478,7 @@ gem G 0 AQ
 0 0 0 0 0
 0 10 150 P
 a '' to_object 0 -1 -1 20 0
-g none~
+g @rus none~
 #5239
 stone grey dull~
 a dull grey stone~
@@ -487,7 +487,7 @@ stone~
 gem 0 0 A
 0 0 0 0 0
 0 10 10 P
-g none~
+g @rus none~
 #5241
 stone pink green~
 a pink and green stone~
@@ -497,7 +497,7 @@ gem G 0 AQ
 0 0 0 0 0
 0 10 500 P
 a '' to_object 0 -1 -5 18 0
-g none~
+g @rus none~
 #5243
 stone clear~
 a clear stone~
@@ -507,7 +507,7 @@ gem G 0 AQ
 0 0 0 0 0
 0 10 100 P
 a '' to_object 0 -1 3 17 0
-g none~
+g @rus none~
 #5250
 mandolin~
 a mandolin~
@@ -516,7 +516,7 @@ wood~
 staff G 0 AO
 13 3 3 'cure critical' 0
 9 100 2500 P
-g none~
+g @rus none~
 #5251
 harp golden~
 a golden harp~
@@ -526,7 +526,7 @@ staff G 0 AO
 18 1 1 'call lightning' 0
 7 500 2700 P
 a '' to_object 7 -1 -2 2 0
-g none~
+g @rus none~
 #5252
 long dagger slim~
 a long slim dagger~
@@ -537,7 +537,7 @@ dagger 2 5 'pierce' 0
 8 10 590 P
 a '' to_object 8 -1 2 19 0
 a '' to_object 8 -1 1 18 0
-g none~
+g @rus none~
 #5253
 water fall waterfall~
 Waterfall~
@@ -546,7 +546,7 @@ water~
 portal A A 0
 0 0 B 95400 0
 0 0 0 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

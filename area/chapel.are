@@ -307,7 +307,7 @@ candlestick~
 It is a rather old-looking three-armed candlestick made from pewter.  Its
 candles are a yellowish white colour.
 ~
-g none~
+g @rus none~
 #3402
 tickler~
 a nightgaunt's tickler~
@@ -323,7 +323,7 @@ tickler~
 A horrid black mass of gooey tentacles obviously ripped from the corpse
 of a nightgaunt ... disgusting.
 ~
-g none~
+g @rus none~
 #3403
 plasma webbing~
 disgusting pinkish plasma webbing~
@@ -336,7 +336,7 @@ E
 plasma webbing~
 Yuck, mossy and wet.  It looks like some sort of webbing.
 ~
-g none~
+g @rus none~
 #3410
 rod key~
 a queerly shaped rod~
@@ -350,7 +350,7 @@ rod key~
 This rod looks sort of octagonal, and sort of like a key and crowbar.  You
 recognize that it will probably fit the lock at the entrance of the tombs.
 ~
-g none~
+g @rus none~
 #3411
 large black dirty key~
 a large black dirty key~
@@ -364,7 +364,7 @@ large black dirty key~
 One of those traditional old lock type keys ... except huge, black and
 filthy ... hmm ... like it has been buried for some time ...
 ~
-g none~
+g @rus none~
 #3412
 head jubal mummy~
 the mummified head of Jubal the Benevolent~
@@ -378,7 +378,7 @@ head jubal mummy~
 ACK! It's half eaten away ... yet it is whole ... in fact I think it can be
 opened and closed ... is there something in its teeth!?!?!? ACK you do it!
 ~
-g none~
+g @rus none~
 #3413
 ring black marble~
 a black marble ring~
@@ -394,7 +394,7 @@ black marble ring~
 It is pitch black and has beautiful swirls characteristic of marble all
 through it.
 ~
-g none~
+g @rus none~
 #3414
 rapier thin~
 a whisper thin rapier~
@@ -409,7 +409,7 @@ E
 thin rapier~
 It seems so thin that it would be useless but at the same time it looks deadly.
 ~
-g none~
+g @rus none~
 #3415
 sarcophagus coffin~
 a stone sarcophagus~
@@ -423,7 +423,7 @@ sarcophagus coffin~
 A well crafted, if dusty and ancient, home for the afterworld, it seems
 to be able to be opened but needs a key.
 ~
-g none~
+g @rus none~
 #3416
 iron heavy key~
 a heavy iron key~
@@ -436,7 +436,7 @@ E
 key iron heavy~
 It looks to be a very heavy old iron key.
 ~
-g none~
+g @rus none~
 #3417
 flask wineflask~
 a wineflask~
@@ -450,7 +450,7 @@ wineflask flask~
 A nice leather wineflask that has somehow survived the ages in a coffin.
 The wine should be nicely aged.
 ~
-g none~
+g @rus none~
 #3418
 coins~
 a mound of coins fit for a dead king~
@@ -459,7 +459,7 @@ silver~
 money 0 0 A
 400 8 0 0 0
 0 500 0 P
-g none~
+g @rus none~
 #3419
 key~
 key to the coffin~
@@ -473,7 +473,7 @@ key~
 Neat you have the key to the coffin...is is a soft orange color
 and burns in your hand a bit.
 ~
-g none~
+g @rus none~
 #3420
 rathcor~
 a hidden compartment in the room~
@@ -486,7 +486,7 @@ E
 rathcor~
 Ah HA!  A hidden compartment!
 ~
-g none~
+g @rus none~
 #3421
 rusty sword curved scimitar~
 a rusty curved scimitar~
@@ -500,7 +500,7 @@ rusty sword scimitar~
 Very rusty and old...it has a wide blade and chunks missing from
 its cutting edge.
 ~
-g none~
+g @rus none~
 #3422
 piece slime~
 a piece of slime~
@@ -514,7 +514,7 @@ slime piece~
 ICK! This is a piece of slug-like brownish green slime...
 Blech!
 ~
-g none~
+g @rus none~
 #3423
 smock~
 an artist's smock~
@@ -528,7 +528,7 @@ smock~
 It has paint and little shavings of different materials all over it.
 It is very old an smells of paint, mildew, and rot.
 ~
-g none~
+g @rus none~
 #3424
 scroll tightly rolled~
 a tightly rolled scroll~
@@ -549,7 +549,7 @@ unreadable but the scroll has a seal on it with a grey :
     88
 
 ~
-g none~
+g @rus none~
 #3425
 auburn orb~
 an auburn-colored orb~
@@ -563,7 +563,7 @@ auburn orb~
 You gaze into the orb and are almost lost in the swirling mists of color
 inside of this rare and beautiful object.
 ~
-g none~
+g @rus none~
 #3426
 bar gold~
 a bar of gold~
@@ -577,7 +577,7 @@ bar gold~
 A nice little brick of gold...very dusty and old... it has some emblem
 on it...The emblem is a large 'J'
 ~
-g none~
+g @rus none~
 #3427
 cape dark black~
 a dark black cape~
@@ -593,7 +593,7 @@ dark black cape~
 The cape is gently flows and pulls in the light so evenly and perfectly
 that the cape seems to be simply a void of blackness. It is quite beautiful
 ~
-g none~
+g @rus none~
 #3428
 flaming black sword long longsword~
 the pitch-black flaming longsword~
@@ -610,7 +610,7 @@ This sword is amazing! It almost wields itself! As you test it out, the
 flames seems to roar brighter as you go thru basic swordsman routines.
 it is obviously a great find!
 ~
-g none~
+g @rus none~
 #3429
 breast plate dented worn~
 a worn and dented breast plate~
@@ -623,7 +623,7 @@ E
 breast dented plate worn~
 Though this piece of armour is worn and dented it looks very usable.
 ~
-g none~
+g @rus none~
 #3430
 key silver~
 a silver key~
@@ -636,7 +636,7 @@ E
 key silver~
 for the altar...
 ~
-g none~
+g @rus none~
 #0
 
 #ROOMS

@@ -512,7 +512,7 @@ Merc Industries
 @rus Ты видишь искусно смастеренную, но дешевую булаву. На рукояти ты видишь
 выгравированные буквы: "мастерская Мерка".
 ~
-g female~
+g @rus female~
 #3701
 dagger sub merc кинжал~
 @eng a sub issue dagger@rus ~~учебный~~ ~~кинжал~~~
@@ -529,7 +529,7 @@ Merc Industries
 @rus Ты видишь искусно выкованный, но дешевый кинжал. На его рукояти
 видны выгравированные буквы -- "мастерская Мерка".
 ~
-g male~
+g @rus male~
 #3702
 sword sub merc меч~
 @eng a sub issue sword@rus ~~учебный~~ ~~меч~~~
@@ -546,7 +546,7 @@ Merc Industries
 @rus Ты видишь искусно выкованный, но дешевый меч. На его рукояти видны
 выгравированные буквы -- "мастерская Мерка".
 ~
-g male~
+g @rus male~
 #3703
 vest sub merc жилет~
 @eng a sub issue vest@rus ~~тренировочный~~ ~~жилет~~~
@@ -562,7 +562,7 @@ Merc Industries
 @rus Ты видишь жилет из дешевой ткани, но достаточно хорошо сшитый. На
 внутренней стороне вышиты буквы -- "мастерская Мерка".
 ~
-g male~
+g @rus male~
 #3704
 shield sub merc щит~
 @eng a sub issue shield@rus ~~учебный~~ ~~щит~~~
@@ -578,7 +578,7 @@ Merc Industries
 @rus Ты видишь хорошо сделанный, но дешевый щит. С внутренней стороны
 на нем выгровированны слова -- "мастерская Мерка".
 ~
-g male~
+g @rus male~
 #3705
 cloak sub merc платок~
 @eng a sub issue cloak@rus ~~учебный~~ ~~платок~~~
@@ -608,7 +608,7 @@ Merc Industries
 @rus Ты видишь искусно выделанный, но дешевый платок. Надпись на нем гласит:
 Merc Industries
 ~
-g male~
+g @rus male~
 #3706
 helmet sub merc шлем~
 @eng a sub issue helmet@rus ~~учебный~~ ~~шлем~~~
@@ -631,7 +631,7 @@ Merc Industries
 @rus Ты видишь искусно сделанный, но дешевый шлем. Надпись на нем гласит:
 Merc Industries
 ~
-g male~
+g @rus male~
 #3707
 leggings sub merc штаны~
 @eng a pair of sub issue leggings@rus ~~учебные~~ ~~штаны~~~
@@ -654,7 +654,7 @@ Merc Industries
 @rus Ты видишь хорошо выделанные, но дешевые штаны. Надпись на них гласит:
 Merc Industries
 ~
-g plural~
+g @rus plural~
 #3708
 boots sub merc сапоги~
 @eng a pair of sub issue boots@rus ~~тренировочные~~ ~~сапоги~~~
@@ -677,7 +677,7 @@ Merc Industries
 @rus Ты видишь сапоги, сшитые добротно, но из дешевой кожи. Надпись на них гласит:
 Merc Industries
 ~
-g plural~
+g @rus plural~
 #3709
 gloves sub merc перчатки~
 @eng a pair of sub issue gloves@rus ~~учебные~~ ~~перчатки~~~
@@ -700,7 +700,7 @@ Merc Industries
 @rus Ты видишь перчатки, добротно сшитые из дешевой кожи. Надпись на них гласит:
 Merc Industries
 ~
-g plural~
+g @rus plural~
 #3710
 sleeves sub merc нарукавники~
 @eng a pair of sub issue sleeves@rus ~~учебные~~ ~~нарукавники~~~
@@ -723,7 +723,7 @@ Merc Industries
 @rus Ты видишь аккуратно сшитые, но дешевые нарукавники. Надпись на них гласит:
 Merc Industries
 ~
-g plural~
+g @rus plural~
 #3711
 cape sub merc накидка~
 @eng a sub issue cape@rus ~~учебная~~ ~~накидка~~~
@@ -746,7 +746,7 @@ Merc Industries
 @rus Ты видишь прекрасно сшитую, но дешевую накидку. Надпись на ней гласит:
 Merc Industries
 ~
-g female~
+g @rus female~
 #3712
 belt sub merc пояс~
 @eng a sub issue belt@rus ~~учебный~~ ~~пояс~~~
@@ -769,7 +769,7 @@ Merc Industries
 @rus Ты видишь прекрасно сшитый, но дешевый пояс. Надпись на нем гласит:
 Merc Industries
 ~
-g male~
+g @rus male~
 #3713
 bracer sub merc браслет~
 @eng a sub issue bracer@rus ~~учебный~~ ~~браслет~~~
@@ -792,7 +792,7 @@ Merc Industries
 @rus Ты видишь искусно сделанный, но дешевый браслет. Надпись на нем гласит:
 Merc Industries
 ~
-g male~
+g @rus male~
 #3714
 key ключ~
 @eng a key@rus ключ~
@@ -801,7 +801,7 @@ brass~
 key P 0 A
 0 0 0 0 0
 0 10 0 P
-g male~
+g @rus male~
 #3715
 diploma диплом~
 @eng a mud school diploma@rus ~~диплом~~ об окончании МУД школы~
@@ -834,7 +834,7 @@ Merc Industries
  
 Merc Industries
 ~
-g male~
+g @rus male~
 #3716
 banner war merc знамя~
 @eng a war banner@rus ~~боевое~~ ~~знамя~~~
@@ -855,7 +855,7 @@ banner~
 @eng This is the official Merc war banner to see you through the darkest realm!
 @rus Это официальное знамя Merc, чтобы освещать тебе путь в этом мире!
 ~
-g none~
+g @rus none~
 #3717
 spear sub merc копье~
 @eng a sub issue spear@rus ~~учебное~~ ~~копье~~~
@@ -879,7 +879,7 @@ Merc Industries
 @rus Ты видишь хорошо сделанное, но дешевое копье. Надпись на нем гласит:
 Merc Industries
 ~
-g none~
+g @rus none~
 #3718
 staff sub merc посох~
 @eng a sub issue staff@rus ~~учебный~~ ~~посох~~~
@@ -904,7 +904,7 @@ Merc Industries
 @rus Ты видишь красиво выструганный, но дешевый посох. На нем вырезано:
 Merc Industries
 ~
-g male~
+g @rus male~
 #3719
 axe sub merc топор~
 @eng a sub issue axe@rus ~~учебный~~ ~~топор~~~
@@ -928,7 +928,7 @@ Merc Industries
 @rus Ты видишь хорошо сделанный, но дешевый топор. Надпись на топорище гласит:
 Merc Industries
 ~
-g male~
+g @rus male~
 #3720
 flail sub merc цеп~
 @eng a sub issue flail@rus ~~учебный~~ ~~цеп~~~
@@ -952,7 +952,7 @@ Merc Industries
 @rus Ты видишь цеп, сделанный добротно, но не сильно дорогой. Надпись на нем гласит:
 Merc Industries
 ~
-g male~
+g @rus male~
 #3721
 whip sub merc плеть~
 @eng a sub issue whip@rus ~~учебная~~ ~~плеть~~~
@@ -976,7 +976,7 @@ Merc Industries
 @rus Ты видишь недорогую плеть, но сделанную весьма качественно. Надпись на рукоятке:
 Merc Industries
 ~
-g female~
+g @rus female~
 #3722
 glaive sub merc алебарда~
 @eng a sub issue glaive@rus ~~учебная~~ ~~алебарда~~~
@@ -1000,7 +1000,7 @@ Merc Industries
 @rus Ты видишь тщательно откованную, но дешевую алебарду. Надпись на древке гласит:
 Merc Industries
 ~
-g female~
+g @rus female~
 #3723
 bow sub merc лук~
 @eng a sub issue bow@rus ~~учебный~~ ~~лук~~~
@@ -1024,7 +1024,7 @@ Merc Industries
 @rus Ты видишь тщательно сработанный, но дешевый лук. Надпись на нем гласит:
 Merc Industries
 ~
-g male~
+g @rus male~
 #3724
 lance sub merc пика~
 @eng a sub issue lance@rus ~~учебная~~ ~~пика~~~
@@ -1048,7 +1048,7 @@ Merc Industries
 @rus Ты видишь блестящую, но довольно дешевую пику. Надпись на древке гласит:
 Merc Industries
 ~
-g female~
+g @rus female~
 #0
 
 #ROOMS

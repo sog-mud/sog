@@ -75,7 +75,7 @@ sword 100 30 'pierce' D
 a '' to_affects 5 -1 0 0 V
 a '' to_object 5 -1 300 18 0
 a '' to_object 5 -1 300 19 0
-g none~
+g @rus none~
 #44001
 mat~
 @eng mat@rus Циновка~
@@ -84,7 +84,7 @@ straw~
 furniture 0 B 0
 A EIJKN EH 0 0
 0 0 0 P
-g none~
+g @rus none~
 #44002
 low table~
 @eng low table@rus низенький столик~
@@ -97,7 +97,7 @@ E
 table~
 На столике стоят фарфоровые чашки и чайник. Похоже что здесь кто-то собирался попить чаю.
 ~
-g none~
+g @rus none~
 #44003
 life of Eidu~
 @eng Life@rus Жизнь Eidu~
@@ -112,7 +112,7 @@ a '' to_object 96 -1 100 27 0
 a '' to_affects 96 -1 0 0 H
 a '' to_object 96 -1 20000 12 0
 a '' to_object 96 -1 20000 13 0
-g none~
+g @rus none~
 #44004
 Statue of Eidu~
 @eng Статуя главного самурая~
@@ -121,7 +121,7 @@ marble~
 fountain 0 B 0
 0 0 'water' 0 0
 0 0 0 P
-g none~
+g @rus none~
 #44005
 axe bloody amputation~
 {RBloody Axe of Amputation{x~
@@ -130,7 +130,7 @@ steel~
 weapon 0 0 AN
 axe 9 9 'chop' DEI
 40 0 0 P
-g none~
+g @rus none~
 #44006
 hammer great sleep~
 {yGreat Hammer of Sleep{x~
@@ -139,7 +139,7 @@ wood~
 wand 0 0 AO
 300 1000000 1000000 'terangreal' 0
 40 0 0 P
-g none~
+g @rus none~
 #44007
 kit fighter's first aid~
 {Wfighter's {Rfirst aid {Wkit{x~
@@ -152,7 +152,7 @@ a '' to_object 0 -1 150 8 0
 a '' to_object 0 -1 1000 13 0
 a '' to_object 0 -1 150 18 0
 a '' to_object 0 -1 150 19 0
-g none~
+g @rus none~
 #44009
 bottle vodka absolut~
 bottle of Absolut~
@@ -161,7 +161,7 @@ glass~
 drink 0 0 AS
 100 100 'vodka' 0 0
 0 0 0 P
-g none~
+g @rus none~
 #44010
 ring black skull~
 @eng ring with little black skull@rus кольцо с маленьким черным черепом~
@@ -173,7 +173,7 @@ armor PY 0 AB
 a '' to_object 32 -1 30 13 0
 a '' to_object 32 -1 4 18 0
 a '' to_object 32 -1 4 19 0
-g none~
+g @rus none~
 #44011
 rivulet~
 {rrivulet{x~
@@ -187,7 +187,7 @@ rivulet~
 Ручеек весело несет свои красные воды дальше на восток. Попробуй-ка его 
 понюхать.
 ~
-g none~
+g @rus none~
 #44012
 statue~
 the statue of Eidu~
@@ -200,7 +200,7 @@ E
 statue~
 Under construction
 ~
-g none~
+g @rus none~
 #44013
 great ring jafar power~
 ring of jafar power~
@@ -211,7 +211,7 @@ armor 0 0 AB
 50 0 0 P
 a '' to_object 50 -1 -15 20 0
 a '' to_object 50 -1 5 19 0
-g none~
+g @rus none~
 #44014
 ring constricting~
 {rconstricting ring{x~
@@ -221,7 +221,7 @@ jewelry CMY 0 AB
 0 0 0 0 0
 96 0 0 P
 a '' to_affects 96 -1 0 0 L
-g none~
+g @rus none~
 #44015
 пиво мартовское beer~
 "Мартовское"~
@@ -230,7 +230,7 @@ glass~
 drink 0 0 AO
 1000000 1000000 'beer' 0 0
 0 0 0 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

@@ -605,7 +605,7 @@ unknown~
 weapon AB BC AN
 staff 8 9 'wrath' D
 60 5 100000 P
-g none~
+g @rus none~
 #22102
 gray bracelet~
 gray bracelet~
@@ -618,7 +618,7 @@ a '' to_object 50 -1 100 14 0
 a '' to_object 50 -1 30 13 0
 a '' to_object 50 -1 1 3 0
 a '' to_object 50 -1 1 1 0
-g none~
+g @rus none~
 #22103
 small bracelet~
 small bracelet~
@@ -630,7 +630,7 @@ armor 0 0 AM
 a '' to_object 40 -1 100 14 0
 a '' to_object 40 -1 10 13 0
 a '' to_object 40 -1 -5 20 0
-g none~
+g @rus none~
 #22104
 huge bracelet~
 wide bracelet~
@@ -645,7 +645,7 @@ a '' to_object 55 -1 30 13 0
 a '' to_object 55 -1 1 8 0
 a '' to_object 55 -1 2 5 0
 a '' to_object 55 -1 1 1 0
-g none~
+g @rus none~
 #22105
 invisible robe~
 invisible robe~
@@ -657,7 +657,7 @@ armor FHIMY BCE AK
 a '' to_object 55 -1 200 12 0
 a '' to_object 55 -1 3 4 0
 a '' to_object 55 -1 3 3 0
-g none~
+g @rus none~
 #22106
 white robe~
 white robe~
@@ -669,7 +669,7 @@ armor AHIMY BCE AK
 a '' to_object 55 -1 75 13 0
 a '' to_object 55 -1 3 6 0
 a '' to_object 55 -1 3 5 0
-g none~
+g @rus none~
 #22107
 red robe~
 red robe~
@@ -682,7 +682,7 @@ a '' to_object 55 -1 300 14 0
 a '' to_object 55 -1 10 18 0
 a '' to_object 55 -1 3 2 0
 a '' to_object 55 -1 3 1 0
-g none~
+g @rus none~
 #22108
 yellow robe~
 yellow robe~
@@ -699,7 +699,7 @@ a '' to_object 55 -1 1 4 0
 a '' to_object 55 -1 1 3 0
 a '' to_object 55 -1 1 2 0
 a '' to_object 55 -1 1 1 0
-g none~
+g @rus none~
 #22109
 black robe~
 black robe~
@@ -716,7 +716,7 @@ a '' to_object 55 -1 -2 4 0
 a '' to_object 55 -1 -2 3 0
 a '' to_object 55 -1 -2 2 0
 a '' to_object 55 -1 -2 1 0
-g none~
+g @rus none~
 #22110
 invisible whip~
 invisible whip~
@@ -725,7 +725,7 @@ unknown~
 weapon AHIMY BCE AN
 whip 12 4 'shock' D
 55 5 0 P
-g none~
+g @rus none~
 #22111
 white whip~
 white whip~
@@ -734,7 +734,7 @@ unknown~
 weapon AHIMY BCE AN
 whip 12 4 'wrath' CD
 55 5 0 P
-g none~
+g @rus none~
 #22112
 red whip~
 red whip~
@@ -743,7 +743,7 @@ unknown~
 weapon AHIMY BCE AN
 whip 12 4 'chill' D
 55 5 0 P
-g none~
+g @rus none~
 #22113
 yellow whip~
 yellow whip~
@@ -752,7 +752,7 @@ unknown~
 weapon AHIMY BCE AN
 whip 12 4 'flame' D
 55 5 0 P
-g none~
+g @rus none~
 #22114
 black whip~
 black whip~
@@ -762,7 +762,7 @@ weapon AHIMY BCE AN
 whip 12 4 'drain' D
 55 5 0 P
 a '' to_object 55 -1 10 19 0
-g none~
+g @rus none~
 #22115
 invisible sleeves~
 invisible sleeves~
@@ -774,7 +774,7 @@ armor FHIMY BCE AK
 a '' to_object 55 -1 200 12 0
 a '' to_object 55 -1 3 4 0
 a '' to_object 55 -1 3 3 0
-g none~
+g @rus none~
 #22116
 white sleeves~
 white sleeves~
@@ -786,7 +786,7 @@ armor AHIMY BCE AI
 a '' to_object 55 -1 75 13 0
 a '' to_object 55 -1 3 6 0
 a '' to_object 55 -1 3 5 0
-g none~
+g @rus none~
 #22117
 red sleeves~
 red sleeves~
@@ -799,7 +799,7 @@ a '' to_object 55 -1 300 14 0
 a '' to_object 55 -1 10 18 0
 a '' to_object 55 -1 3 2 0
 a '' to_object 55 -1 3 1 0
-g none~
+g @rus none~
 #22118
 yellow sleeves~
 yellow sleeves~
@@ -816,7 +816,7 @@ a '' to_object 55 -1 1 4 0
 a '' to_object 55 -1 1 3 0
 a '' to_object 55 -1 1 2 0
 a '' to_object 55 -1 1 1 0
-g none~
+g @rus none~
 #22119
 black sleeves~
 black sleeves~
@@ -833,7 +833,7 @@ a '' to_object 55 -1 -2 4 0
 a '' to_object 55 -1 -2 3 0
 a '' to_object 55 -1 -2 2 0
 a '' to_object 55 -1 -2 1 0
-g none~
+g @rus none~
 #22120
 gray staff~
 gray staff~
@@ -846,7 +846,7 @@ a '' to_object 50 -1 10 19 0
 a '' to_object 50 -1 10 18 0
 a '' to_object 50 -1 100 12 0
 a '' to_object 50 -1 20 13 0
-g none~
+g @rus none~
 #22121
 staff green~
 green staff~
@@ -860,7 +860,7 @@ a '' to_object 50 -1 10 18 0
 a '' to_object 50 -1 50 14 0
 a '' to_object 50 -1 50 13 0
 a '' to_object 50 -1 40 13 0
-g none~
+g @rus none~
 #22122
 gray vest~
 gray vest~
@@ -873,7 +873,7 @@ a '' to_object 50 -1 -10 20 0
 a '' to_object 50 -1 2 6 0
 a '' to_object 50 -1 2 4 0
 a '' to_object 50 -1 2 3 0
-g none~
+g @rus none~
 #22123
 vest green~
 green vest~
@@ -886,7 +886,7 @@ a '' to_object 50 -1 -20 17 0
 a '' to_object 50 -1 1 5 0
 a '' to_object 50 -1 2 2 0
 a '' to_object 50 -1 2 1 0
-g none~
+g @rus none~
 #22124
 gray boots~
 gray boots~
@@ -898,7 +898,7 @@ armor 0 0 AG
 a '' to_object 50 -1 1 6 0
 a '' to_object 50 -1 2 4 0
 a '' to_object 50 -1 2 3 0
-g none~
+g @rus none~
 #22125
 green boots~
 green boots~
@@ -909,7 +909,7 @@ armor 0 0 AG
 50 10 1000 P
 a '' to_object 50 -1 3 19 0
 a '' to_object 50 -1 3 18 0
-g none~
+g @rus none~
 #22126
 mantle gods~
 mantle of gods~
@@ -931,7 +931,7 @@ a '' to_object 60 -1 2 4 0
 a '' to_object 60 -1 2 3 0
 a '' to_object 60 -1 2 2 0
 a '' to_object 60 -1 2 1 0
-g none~
+g @rus none~
 #22127
 huge bone~
 huge bone~
@@ -942,7 +942,7 @@ mace 10 4 'smash' 0
 40 10 10000 P
 a '' to_object 40 -1 7 19 0
 a '' to_object 40 -1 7 18 0
-g none~
+g @rus none~
 #22128
 ring death~
 ring of death~
@@ -959,7 +959,7 @@ a '' to_object 60 -1 -2 2 0
 a '' to_object 60 -1 -2 1 0
 a '' to_object 60 -1 5 19 0
 a '' to_object 60 -1 5 18 0
-g none~
+g @rus none~
 #22129
 shortsword sword~
 roman shortsword~
@@ -970,7 +970,7 @@ sword 11 4 'slash' D
 50 100 100 P
 a '' to_object 50 -1 8 19 0
 a '' to_object 50 -1 8 18 0
-g none~
+g @rus none~
 #22130
 round shield~
 bronze round shield~
@@ -981,7 +981,7 @@ armor A 0 AJ
 50 300 22222 P
 a '' to_object 50 -1 3 19 0
 a '' to_object 50 -1 3 18 0
-g none~
+g @rus none~
 #22131
 bronze skirt~
 broznze skirt~
@@ -992,7 +992,7 @@ armor A 0 AF
 40 100 3333 P
 a '' to_object 40 -1 1 19 0
 a '' to_object 40 -1 3 18 0
-g none~
+g @rus none~
 #22132
 opal bracelet~
 opal bracelet~
@@ -1004,7 +1004,7 @@ armor ABI 0 AM
 a '' to_object 55 -1 4 19 0
 a '' to_object 55 -1 4 18 0
 a '' to_object 55 -1 30 13 0
-g none~
+g @rus none~
 #22133
 steel bracelet~
 steel bracelet~
@@ -1014,7 +1014,7 @@ armor 0 0 AM
 10 10 10 6 0
 30 0 0 P
 a '' to_object 30 -1 15 13 0
-g none~
+g @rus none~
 #22134
 halberd~
 halberd~
@@ -1025,7 +1025,7 @@ polearm 10 4 'slash' F
 30 300 11110 P
 a '' to_object 30 -1 2 19 0
 a '' to_object 30 -1 5 18 0
-g none~
+g @rus none~
 #22135
 strange plate~
 strange plate~
@@ -1035,7 +1035,7 @@ armor 0 0 AD
 15 15 15 10 0
 30 300 1231 P
 a '' to_object 30 -1 15 13 0
-g none~
+g @rus none~
 #22136
 mithril bracer~
 mithril bracer~
@@ -1047,7 +1047,7 @@ armor BIK F AM
 a '' to_object 60 -1 4 19 0
 a '' to_object 60 -1 4 18 0
 a '' to_object 60 -1 40 13 0
-g none~
+g @rus none~
 #22137
 mithril shortsword~
 mithril shortsword~
@@ -1058,7 +1058,7 @@ sword 13 4 'slash' DE
 60 100 10000 P
 a '' to_object 60 -1 10 19 0
 a '' to_object 60 -1 10 18 0
-g none~
+g @rus none~
 #22138
 mithril shield~
 huge mithril shield~
@@ -1071,7 +1071,7 @@ a '' to_object 60 -1 -30 17 0
 a '' to_object 60 -1 4 19 0
 a '' to_object 60 -1 4 18 0
 a '' to_object 60 -1 30 13 0
-g none~
+g @rus none~
 #22139
 mithril plate~
 mithril plate~
@@ -1084,7 +1084,7 @@ a '' to_object 60 -1 40 13 0
 a '' to_object 60 -1 -30 17 0
 a '' to_object 60 -1 4 19 0
 a '' to_object 60 -1 4 18 0
-g none~
+g @rus none~
 #22140
 mithril bootd~
 mithril boots~
@@ -1096,7 +1096,7 @@ armor BIK F AG
 a '' to_object 60 -1 40 13 0
 a '' to_object 60 -1 4 19 0
 a '' to_object 60 -1 4 18 0
-g none~
+g @rus none~
 #22141
 violet cloak~
 violet cloak~
@@ -1106,7 +1106,7 @@ armor AB 0 AC
 20 20 20 20 0
 55 300 6666 P
 a '' to_object 55 -1 2 8 0
-g none~
+g @rus none~
 #22142
 doom mace~
 mace of doom~
@@ -1117,7 +1117,7 @@ mace 12 4 'acbite' DE
 60 100 6666 P
 a '' to_object 60 -1 9 19 0
 a '' to_object 60 -1 9 18 0
-g none~
+g @rus none~
 #22143
 obsidian longsword~
 obsidian longsword~
@@ -1128,7 +1128,7 @@ sword 12 3 'slice' DE
 40 300 3000 P
 a '' to_object 40 -1 6 19 0
 a '' to_object 40 -1 6 18 0
-g none~
+g @rus none~
 #22144
 obsidian shield~
 large obsidian shield~
@@ -1142,7 +1142,7 @@ a '' to_object 40 -1 3 1 0
 a '' to_object 40 -1 1 19 0
 a '' to_object 40 -1 1 18 0
 a '' to_object 40 -1 20 13 0
-g none~
+g @rus none~
 #22145
 obsidian vest~
 obsidian vest~
@@ -1156,7 +1156,7 @@ a '' to_object 40 -1 3 1 0
 a '' to_object 40 -1 1 19 0
 a '' to_object 40 -1 1 18 0
 a '' to_object 40 -1 20 13 0
-g none~
+g @rus none~
 #22146
 obsidian gauntlets~
 obsidian gauntlets~
@@ -1169,7 +1169,7 @@ a '' to_object 40 -1 3 2 0
 a '' to_object 40 -1 1 19 0
 a '' to_object 40 -1 1 18 0
 a '' to_object 40 -1 20 13 0
-g none~
+g @rus none~
 #22147
 obsidian armguards~
 obsidian armguards~
@@ -1182,7 +1182,7 @@ a '' to_object 40 -1 3 2 0
 a '' to_object 40 -1 1 19 0
 a '' to_object 40 -1 1 18 0
 a '' to_object 40 -1 20 13 0
-g none~
+g @rus none~
 #22148
 obsidian helm~
 obsidian helm~
@@ -1196,7 +1196,7 @@ a '' to_object 40 -1 3 3 0
 a '' to_object 40 -1 1 19 0
 a '' to_object 40 -1 1 18 0
 a '' to_object 40 -1 20 13 0
-g none~
+g @rus none~
 #22149
 obsidian boots~
 obsidian boots~
@@ -1209,7 +1209,7 @@ a '' to_object 40 -1 3 5 0
 a '' to_object 40 -1 1 19 0
 a '' to_object 40 -1 1 18 0
 a '' to_object 40 -1 20 13 0
-g none~
+g @rus none~
 #22150
 obsidian leggins~
 obsidian leggins~
@@ -1223,7 +1223,7 @@ a '' to_object 40 -1 3 5 0
 a '' to_object 40 -1 1 19 0
 a '' to_object 40 -1 1 18 0
 a '' to_object 40 -1 20 13 0
-g none~
+g @rus none~
 #22151
 apron~
 apron~
@@ -1236,7 +1236,7 @@ a '' to_object 60 -1 -2 4 0
 a '' to_object 60 -1 50 13 0
 a '' to_object 60 -1 1 19 0
 a '' to_object 60 -1 1 18 0
-g none~
+g @rus none~
 #22152
 bracelet~
 bracelet of ko~
@@ -1249,7 +1249,7 @@ a '' to_object 60 -1 -2 4 0
 a '' to_object 60 -1 50 13 0
 a '' to_object 60 -1 1 19 0
 a '' to_object 60 -1 1 18 0
-g none~
+g @rus none~
 #22153
 tie~
 tie of sa~
@@ -1262,7 +1262,7 @@ a '' to_object 60 -1 -1 3 0
 a '' to_object 60 -1 -1 1 0
 a '' to_object 60 -1 100 14 0
 a '' to_object 60 -1 100 12 0
-g none~
+g @rus none~
 #22154
 bracelet~
 bracelet of sa~
@@ -1275,7 +1275,7 @@ a '' to_object 60 -1 -1 3 0
 a '' to_object 60 -1 -1 1 0
 a '' to_object 60 -1 100 14 0
 a '' to_object 60 -1 100 12 0
-g none~
+g @rus none~
 #22155
 hammer~
 hammer of vi~
@@ -1287,7 +1287,7 @@ mace 12 4 'chomp' A
 a '' to_object 60 -1 -2 6 0
 a '' to_object 60 -1 5 19 0
 a '' to_object 60 -1 10 18 0
-g none~
+g @rus none~
 #22156
 bracelet~
 bracelet of vi~
@@ -1300,7 +1300,7 @@ a '' to_object 60 -1 -2 5 0
 a '' to_object 60 -1 50 13 0
 a '' to_object 60 -1 1 19 0
 a '' to_object 60 -1 1 18 0
-g none~
+g @rus none~
 #22157
 hammer~
 hammer of zo~
@@ -1312,7 +1312,7 @@ mace 12 4 'flame' A
 a '' to_object 60 -1 10 19 0
 a '' to_object 60 -1 5 18 0
 a '' to_object 60 -1 -2 5 0
-g none~
+g @rus none~
 #22158
 bracelet~
 bracelet of zo~
@@ -1325,7 +1325,7 @@ a '' to_object 60 -1 -2 6 0
 a '' to_object 60 -1 50 13 0
 a '' to_object 60 -1 1 19 0
 a '' to_object 60 -1 1 18 0
-g none~
+g @rus none~
 #22159
 hookah~
 hookah~
@@ -1336,7 +1336,7 @@ staff ABM 0 AO
 60 10 1000 P
 a '' to_object 60 -1 -1 5 0
 a '' to_object 60 -1 -1 2 0
-g none~
+g @rus none~
 #22160
 bracelet~
 bracelet of la~
@@ -1350,7 +1350,7 @@ a '' to_object 60 -1 -1 2 0
 a '' to_object 60 -1 50 13 0
 a '' to_object 60 -1 1 19 0
 a '' to_object 60 -1 1 18 0
-g none~
+g @rus none~
 #22161
 cap~
 cap~
@@ -1359,7 +1359,7 @@ cotton~
 armor ABG 0 AE
 18 18 18 10 0
 60 10 30000 P
-g none~
+g @rus none~
 #22162
 bracelet~
 bracelet of de~
@@ -1374,7 +1374,7 @@ a '' to_object 60 -1 -1 6 0
 a '' to_object 60 -1 -1 1 0
 a '' to_object 60 -1 1 19 0
 a '' to_object 60 -1 1 18 0
-g none~
+g @rus none~
 #22163
 sleeves~
 sleeves of mu~
@@ -1387,7 +1387,7 @@ a '' to_object 60 -1 6 19 0
 a '' to_object 60 -1 5 18 0
 a '' to_object 60 -1 1 9 0
 a '' to_object 60 -1 -1 1 0
-g none~
+g @rus none~
 #22164
 bracelet~
 bracelet of mu~
@@ -1401,7 +1401,7 @@ a '' to_object 60 -1 5 18 0
 a '' to_object 60 -1 1 9 0
 a '' to_object 60 -1 -1 1 0
 a '' to_object 60 -1 1 18 0
-g none~
+g @rus none~
 #22165
 glasses~
 glasses~
@@ -1414,7 +1414,7 @@ a '' to_object 60 -1 50 13 0
 a '' to_object 60 -1 -5 9 0
 a '' to_object 60 -1 -1 2 0
 a '' to_object 60 -1 -1 1 0
-g none~
+g @rus none~
 #22166
 bracelet~
 bracelet of Ce~
@@ -1426,7 +1426,7 @@ armor B 0 AM
 a '' to_object 60 -1 50 13 0
 a '' to_object 60 -1 -1 2 0
 a '' to_object 60 -1 -1 1 0
-g none~
+g @rus none~
 #22167
 hooded cloak~
 hooded cloak~
@@ -1437,7 +1437,7 @@ armor J 0 AE
 40 10 100 P
 a '' to_object 40 -1 10 13 0
 a '' to_object 40 -1 2 2 0
-g none~
+g @rus none~
 #22168
 gray cape~
 gray cape~
@@ -1448,7 +1448,7 @@ armor J 0 AC
 40 10 1000 P
 a '' to_object 40 -1 15 13 0
 a '' to_object 40 -1 2 2 0
-g none~
+g @rus none~
 #22169
 long knife~
 long knife~
@@ -1457,7 +1457,7 @@ steel~
 weapon EJ 0 AN
 dagger 10 4 'stab' 0
 40 50 3000 P
-g none~
+g @rus none~
 #22170
 sword~
 sword~
@@ -1466,7 +1466,7 @@ steel~
 weapon EJ 0 AN
 sword 10 4 'slash' 0
 45 50 2000 P
-g none~
+g @rus none~
 #22171
 necklace~
 necklace~
@@ -1477,7 +1477,7 @@ treasure AB 0 AC
 0 10 10000 P
 a '' to_object 0 -1 -2 7 0
 a '' to_object 0 -1 3 6 0
-g none~
+g @rus none~
 #22172
 assassin mask~
 ~
@@ -1490,7 +1490,7 @@ a '' to_invis 60 -1 0 0 A
 a '' to_object 60 -1 3 19 0
 a '' to_object 60 -1 3 18 0
 a '' to_object 60 -1 -3 6 0
-g none~
+g @rus none~
 #22173
 black vest~
 black vest~
@@ -1503,7 +1503,7 @@ a '' to_affects 60 -1 0 0 U
 a '' to_object 60 -1 3 19 0
 a '' to_object 60 -1 3 18 0
 a '' to_object 60 -1 -2 6 0
-g none~
+g @rus none~
 #22174
 black trousers~
 black trousers~
@@ -1516,7 +1516,7 @@ a '' to_affects 2 -1 0 0 TV
 a '' to_object 2 -1 3 19 0
 a '' to_object 2 -1 3 18 0
 a '' to_object 2 -1 -2 6 0
-g none~
+g @rus none~
 #22175
 black sandals~
 ~
@@ -1529,7 +1529,7 @@ a '' to_invis 60 -1 0 0 G
 a '' to_object 60 -1 3 19 0
 a '' to_object 60 -1 3 18 0
 a '' to_object 60 -1 -2 6 0
-g none~
+g @rus none~
 #22176
 sun glasses~
 sun-glasses~
@@ -1543,7 +1543,7 @@ a '' to_object 35 -1 2 19 0
 a '' to_object 35 -1 2 18 0
 a '' to_object 35 -1 100 14 0
 a '' to_object 35 -1 20 13 0
-g none~
+g @rus none~
 #22177
 shorts~
 shorts~
@@ -1556,7 +1556,7 @@ a '' to_object 35 -1 -6 17 0
 a '' to_object 35 -1 2 19 0
 a '' to_object 35 -1 2 18 0
 a '' to_object 35 -1 20 13 0
-g none~
+g @rus none~
 #22178
 short~
 t-short~
@@ -1569,7 +1569,7 @@ a '' to_object 35 -1 -8 17 0
 a '' to_object 35 -1 2 19 0
 a '' to_object 35 -1 2 18 0
 a '' to_object 35 -1 20 13 0
-g none~
+g @rus none~
 #22179
 sneakers~
 sneakers~
@@ -1583,7 +1583,7 @@ a '' to_object 35 -1 -6 17 0
 a '' to_object 35 -1 2 19 0
 a '' to_object 35 -1 2 18 0
 a '' to_object 35 -1 20 13 0
-g none~
+g @rus none~
 #22180
 canon camera~
 canon~
@@ -1592,7 +1592,7 @@ unknown~
 wand 0 0 AO
 30 12 12 'colour spray' 0
 35 100 10000 P
-g none~
+g @rus none~
 #22181
 miniskirt~
 miniskirt~
@@ -1605,7 +1605,7 @@ a '' to_object 35 -1 2 6 0
 a '' to_object 35 -1 10 13 0
 a '' to_object 35 -1 2 19 0
 a '' to_object 35 -1 2 18 0
-g none~
+g @rus none~
 #22182
 camera polaroid~
 polaroid~
@@ -1614,7 +1614,7 @@ unknown~
 wand 0 0 AO
 25 12 12 'colour spray' 0
 30 100 10000 P
-g none~
+g @rus none~
 #22183
 chocolate~
 ~
@@ -1623,7 +1623,7 @@ chocolate~
 food 0 0 A
 CFG CEFGHI 0 0 0
 5 5 5 P
-g none~
+g @rus none~
 #22184
 cookery book~
 cookery book~
@@ -1632,7 +1632,7 @@ unknown~
 staff 0 0 AO
 50 30 30 'create food' 0
 10 100 50 P
-g none~
+g @rus none~
 #22185
 jungle call~
 jungle call~
@@ -1641,7 +1641,7 @@ unknown~
 staff 0 0 AO
 50 30 30 'create spring' 0
 10 100 50 P
-g none~
+g @rus none~
 #22186
 clear dagger~
 clear dagger~
@@ -1650,7 +1650,7 @@ steel~
 weapon A 0 AN
 dagger 5 7 'pierce' D
 20 50 2000 P
-g none~
+g @rus none~
 #22187
 white dagger~
 white dagger~
@@ -1661,7 +1661,7 @@ dagger 5 7 'pierce' 0
 20 50 2000 P
 a '' to_object 20 -1 30 12 0
 a '' to_object 20 -1 1 1 0
-g none~
+g @rus none~
 #22188
 red dagger~
 red dagger~
@@ -1672,7 +1672,7 @@ dagger 5 7 'pierce' 0
 20 50 2000 P
 a '' to_object 20 -1 5 19 0
 a '' to_object 20 -1 5 18 0
-g none~
+g @rus none~
 #22189
 yellow dagger~
 yellow dagger~
@@ -1682,7 +1682,7 @@ weapon 0 0 AN
 dagger 5 7 'pierce' 0
 20 50 2000 P
 a '' to_object 20 -1 20 13 0
-g none~
+g @rus none~
 #22190
 black dagger~
 black dagger~
@@ -1693,7 +1693,7 @@ dagger 5 7 'pierce' EH
 20 50 2000 P
 a '' to_object 20 -1 4 19 0
 a '' to_object 20 -1 4 18 0
-g none~
+g @rus none~
 #22191
 tail clear~
 clear tail~
@@ -1705,7 +1705,7 @@ armor 0 0 AF
 a '' to_object 20 -1 75 12 0
 a '' to_object 20 -1 1 4 0
 a '' to_object 20 -1 1 3 0
-g none~
+g @rus none~
 #22192
 tail white~
 white tail~
@@ -1717,7 +1717,7 @@ armor 0 0 AF
 a '' to_object 20 -1 25 13 0
 a '' to_object 20 -1 1 6 0
 a '' to_object 20 -1 1 5 0
-g none~
+g @rus none~
 #22193
 tail red~
 red tail~
@@ -1729,7 +1729,7 @@ armor 0 0 AF
 a '' to_object 20 -1 5 18 0
 a '' to_object 20 -1 1 2 0
 a '' to_object 20 -1 1 1 0
-g none~
+g @rus none~
 #22194
 tail yellow~
 yellow tail~
@@ -1746,7 +1746,7 @@ a '' to_object 20 -1 1 4 0
 a '' to_object 20 -1 1 3 0
 a '' to_object 20 -1 1 2 0
 a '' to_object 20 -1 1 1 0
-g none~
+g @rus none~
 #22195
 tail black~
 black tail~
@@ -1762,7 +1762,7 @@ a '' to_object 20 -1 -1 4 0
 a '' to_object 20 -1 -1 3 0
 a '' to_object 20 -1 -1 2 0
 a '' to_object 20 -1 -1 1 0
-g none~
+g @rus none~
 #22196
 herb clear~
 clear herb~
@@ -1771,7 +1771,7 @@ moss~
 pill 0 0 A
 40 'cancellation' 'cancellation' 'cancellation' 'cancellation'
 20 10 3000 P
-g none~
+g @rus none~
 #22197
 herb white~
 white herb~
@@ -1780,7 +1780,7 @@ moss~
 pill 0 0 A
 40 'cure poison' 'cure poison' 'cure disease' 'cure disease'
 20 10 3000 P
-g none~
+g @rus none~
 #22198
 herb red~
 red herb~
@@ -1789,7 +1789,7 @@ moss~
 pill 0 0 A
 20 'giant strength' 'haste' 'haste' ''
 20 10 3000 P
-g none~
+g @rus none~
 #22199
 herb yellow~
 yellow herb~
@@ -1798,7 +1798,7 @@ moss~
 pill 0 0 A
 20 'shield' 'armor' '' ''
 20 10 3000 P
-g none~
+g @rus none~
 #22200
 herb black~
 black herb~
@@ -1807,7 +1807,7 @@ moss~
 pill 0 0 A
 50 'slow' 'slow' 'slow' 'slow'
 20 10 3000 P
-g none~
+g @rus none~
 #22201
 potion clear~
 clear potion~
@@ -1816,7 +1816,7 @@ glass~
 potion AB 0 AO
 40 'dispel magic' 'dispel magic' 'dispel magic' 'dispel magic'
 20 50 9000 P
-g none~
+g @rus none~
 #22202
 potion white~
 white potion~
@@ -1825,7 +1825,7 @@ glass~
 potion AB 0 AO
 40 'cure blindness' 'cure blindness' 'cure blindness' 'cure blindness'
 20 50 9000 P
-g none~
+g @rus none~
 #22203
 potion red~
 red potion~
@@ -1834,7 +1834,7 @@ glass~
 potion AB 0 AO
 20 'bless' 'frenzy' '' ''
 20 50 9000 P
-g none~
+g @rus none~
 #22204
 potion yellow~
 yellow potion~
@@ -1843,7 +1843,7 @@ glass~
 potion AB 0 AO
 50 'word of recall' 'refresh' 'refresh' 'refresh'
 20 50 9000 P
-g none~
+g @rus none~
 #22205
 potion black~
 black potion~
@@ -1852,7 +1852,7 @@ glass~
 potion AB 0 AO
 20 'teleport' 'teleport' 'teleport' 'teleport'
 20 50 9000 P
-g none~
+g @rus none~
 #22206
 wand clear~
 clear wand~
@@ -1861,7 +1861,7 @@ bone~
 wand AB 0 AO
 20 10 10 'mass invis' 0
 20 100 10000 P
-g none~
+g @rus none~
 #22207
 wand white~
 white wand~
@@ -1870,7 +1870,7 @@ bone~
 wand AB 0 AO
 20 10 10 'curse' 0
 20 100 10000 P
-g none~
+g @rus none~
 #22208
 wand red~
 red wand~
@@ -1879,7 +1879,7 @@ bone~
 wand AB 0 AO
 20 10 10 'blindness' 0
 20 100 10000 P
-g none~
+g @rus none~
 #22209
 wand yellow~
 yellow wand~
@@ -1888,7 +1888,7 @@ bone~
 wand AB 0 AO
 20 10 10 'slow' 0
 20 100 10000 P
-g none~
+g @rus none~
 #22210
 wand black~
 black wand~
@@ -1897,7 +1897,7 @@ bone~
 wand AB 0 AO
 20 10 10 'chill touch' 0
 20 100 10000 P
-g none~
+g @rus none~
 #22211
 fountain~
 fountain~
@@ -1906,7 +1906,7 @@ marble~
 fountain 0 AB 0
 0 0 'water' 135139728 0
 0 0 0 P
-g none~
+g @rus none~
 #22212
 fountain~
 fountain~
@@ -1915,7 +1915,7 @@ marble~
 fountain 0 AB 0
 0 0 'milk' 135139728 0
 0 0 0 P
-g none~
+g @rus none~
 #22213
 fountain~
 fountain~
@@ -1924,7 +1924,7 @@ marble~
 fountain 0 AB 0
 0 0 'red wine' 135139728 0
 0 0 0 P
-g none~
+g @rus none~
 #22214
 fountain~
 fountain~
@@ -1933,7 +1933,7 @@ marble~
 fountain 0 AB 0
 0 0 'mead' 135139728 0
 0 0 0 P
-g none~
+g @rus none~
 #22215
 fountain~
 fountain~
@@ -1942,7 +1942,7 @@ marble~
 fountain 0 AB 0
 0 0 'blood' 135139728 0
 0 0 0 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

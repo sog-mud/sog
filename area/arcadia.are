@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Arcadia~
 VNUMs 12000 12199
 Credits Cernunn~
@@ -24,10 +24,10 @@ Seelie way, light, love, celebration, honor and wisdom.
 и благородства.
 ~
 elf~
-BThz 0 Hn 0 ABKLghqr 1000 0
+BT 0 H 0 ABKL 1000 0
 86 0 50d20+16500 10d20+2000 13d10+56 'bite'
 -56 -53 -51 -26
-EFHIKNklnoqt
+EFHIKN
 stand stand male 5000
 0 0 medium unknown
 r holy -50
@@ -49,10 +49,10 @@ of the sun.
 улыбка подобно солнцу озаряет все вокруг.
 ~
 elf~
-BQhw 0 HTnz 0 AKLgqr 1000 0
+BQ 0 HT 0 AKL 1000 0
 84 0 50d20+15500 10d20+2000 9d14+51 'bite'
 -53 -50 -52 -23
-FKNlqt
+FKN
 stand stand female 5000
 0 0 medium unknown
 r fire 33
@@ -80,10 +80,10 @@ laughter and joy, Puck is a dangerous one indeed.
 Его, пожалуй, действительно стоит опасаться.
 ~
 human~
-GHSmny 0 NTUtz ABGghm 0 0 0
+GHS 0 NTU ABG 0 0 0
 94 0 50d20+22000 10d20+2000 13d10+56 'bite'
 -55 -56 -54 -26
-BEFHIJKNYhklnopqt
+BEFHIJKNY
 sit sit male 100
 0 0 medium unknown
 r fire 33
@@ -112,10 +112,10 @@ voice is clear and strong and his mind is much quicker than yours.
 лучше тебя.
 ~
 elf~
-BRhx 0 Ag 0 ABKLghqr 850 0
+BR 0 A 0 ABKL 850 0
 78 0 50d20+12500 10d20+2000 9d12+48 'bite'
 -40 -40 -42 -18
-BEFHIJKNYhklnopqt
+BEFHIJKNY
 stand stand male 500
 0 0 medium unknown
 r fire 33
@@ -150,10 +150,10 @@ embodies not only the terror of death but the seductive beauty of night.
 обольстительной красоты ночи.
 ~
 elf~
-BThz 0 0 0 0 -1000 0
+BT 0 0 0 0 -1000 0
 86 0 50d20+16500 10d20+2000 13d10+56 'slash'
 -56 -53 -51 -26
-EFHIKNklnoqt
+EFHIKN
 stand stand male 500
 0 0 medium unknown
 r holy -50
@@ -173,10 +173,10 @@ while the Puck may be harmfull the Morrigan is deadly.
 самое пугающие создание ночи, ее повелительница.
 ~
 unique~
-CFGOTilmuz 0 0 0 ABKLghqr -1000 0
+CFGOT 0 0 0 ABKL -1000 0
 84 0 50d20+15500 10d20+2000 9d14+51 'pierce'
 -53 -50 -52 -23
-ABDHNYghjnt
+ABDHNY
 stand stand female 5050
 0 0 medium unknown
 r holy -50
@@ -196,10 +196,10 @@ radiates strength, beauty, and nobility.
 собственного достоинства и прямо-таки излучает красоту и силу.  
 ~
 elf~
-GTmz 0 0 0 0 800 0
+GT 0 0 0 0 800 0
 77 0 50d20+12000 10d20+2000 9d12+47 'pound'
 -55 -53 -52 -25
-CFIUilo
+CFIU
 stand stand male 500
 0 0 medium unknown
 r negative -50
@@ -217,10 +217,10 @@ radiates strength, beauty, and nobility.
 собственного достоинства и прямо-таки излучает красоту и силу.  
 ~
 elf~
-GTmz 0 0 0 0 800 0
+GT 0 0 0 0 800 0
 77 0 50d20+12000 10d20+2000 9d12+47 'pound'
 -55 -53 -52 -25
-CFIUilo
+CFIU
 stand stand male 500
 0 0 medium unknown
 r negative -50
@@ -238,10 +238,10 @@ radiates strength, beauty, and nobility.
 собственного достоинства и прямо-таки излучает красоту и силу.  
 ~
 elf~
-GTmz 0 0 0 0 -800 0
+GT 0 0 0 0 -800 0
 77 0 50d20+12000 10d20+2000 9d12+47 'pound'
 -55 -53 -52 -25
-CFIUilo
+CFIU
 stand stand male 500
 0 0 medium unknown
 r negative -50
@@ -259,10 +259,10 @@ radiates strength, beauty, and nobility.
 собственного достоинства и прямо-таки излучает красоту и силу.  
 ~
 elf~
-GTmz 0 0 0 0 -800 0
+GT 0 0 0 0 -800 0
 77 0 50d20+12000 10d20+2000 9d12+47 'pound'
 -55 -53 -52 -25
-CFIUilo
+CFIU
 stand stand male 500
 0 0 medium unknown
 r negative -50
@@ -280,10 +280,10 @@ leadership that graces all of the sidhe.
 притягательность, несвойственная людям, но отличающая всех сидов.
 ~
 elf~
-BThz 0 Nt 0 0 900 0
+BT 0 N 0 0 900 0
 66 0 50d20+8500 10d20+2000 7d9+36 'pound'
 -22 -25 -23 -5
-EIKLQRTUkoqrwxz
+EIKLQRTU
 stand stand male 500
 0 0 medium unknown
 r negative -50
@@ -302,10 +302,10 @@ not to admire.
 восхищения.
 ~
 elf~
-BThz 0 Nt 0 0 -900 0
+BT 0 N 0 0 -900 0
 65 0 50d20+8250 10d20+2000 11d5+35 'pound'
 -22 -25 -23 -5
-EIKLQRTUkoqrwxz
+EIKLQRTU
 stand stand male 500
 0 0 medium unknown
 r holy -50
@@ -323,10 +323,10 @@ loyalty, courage and skill in battle.
 храбрости, мужества, отваги и умения драться.
 ~
 elf~
-GTmz 0 0 0 Ms 1000 0
+GT 0 0 0 M 1000 0
 72 0 50d20+10250 10d20+2000 8d11+42 'slash'
 -43 -41 -39 -10
-CDEFIKLSijkloqry
+CDEFIKLS
 stand stand male 500
 0 0 medium unknown
 r negative -50
@@ -344,10 +344,10 @@ loyalty, courage and skill in battle.
 храбрости, мужества, отваги и умения драться.
 ~
 elf~
-GTmz 0 0 0 Ms 1000 0
+GT 0 0 0 M 1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 'slash'
 -43 -41 -39 -10
-CDEFIKLSijkloqry
+CDEFIKLS
 stand stand female 500
 0 0 medium unknown
 r holy 100
@@ -366,10 +366,10 @@ skill in battle.
 храбрости, мужества, отваги и умения драться.
 ~
 elf~
-GTmz 0 0 0 Ms -1000 0
+GT 0 0 0 M -1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 'slash'
 -43 -41 -39 -10
-CDEFIKLSijkloqry
+CDEFIKLS
 stand stand male 500
 0 0 medium unknown
 r holy -50
@@ -388,10 +388,10 @@ skill in battle.
 храбрости, мужества, отваги и умения драться.
 ~
 elf~
-GTmz 0 0 0 Ms 1000 0
+GT 0 0 0 M 1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 'slash'
 -43 -41 -39 -10
-CDEFIKLSijkloqry
+CDEFIKLS
 stand stand female 500
 0 0 medium unknown
 r holy 100
@@ -410,10 +410,10 @@ loyalty, courage and skill in battle.
 храбрости, мужества, отваги и умения драться.
 ~
 elf~
-BThz 0 0 0 Ms 1000 0
+BT 0 0 0 M 1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 'slash'
 -43 -41 -39 -10
-CDEFIKLSijkloqry
+CDEFIKLS
 stand stand male 500
 0 0 medium unknown
 r holy 100
@@ -432,10 +432,10 @@ skill in battle.
 храбрости, мужества, отваги и умения драться.
 ~
 elf~
-BThz 0 0 0 Ms -1000 0
+BT 0 0 0 M -1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 'slash'
 -43 -41 -39 -10
-CDEFIKLSijkloqry
+CDEFIKLS
 stand stand male 500
 0 0 medium unknown
 r holy -50
@@ -454,10 +454,10 @@ skill in battle.
 храбрости, мужества, отваги и умения драться.
 ~
 elf~
-BThz 0 0 0 Ms -1000 0
+BT 0 0 0 M -1000 0
 75 0 50d20+11000 10d20+2000 9d11+45 'slash'
 -43 -41 -39 -10
-CDEFIKLSijkloqry
+CDEFIKLS
 stand stand female 500
 0 0 medium unknown
 r holy -50
@@ -478,10 +478,10 @@ sidhe as faithfull warriors.
 заслужили репутацию хороших воинов.
 ~
 giant~
-BThz 0 Nbcdt 0 0 1000 0
+BT 0 Nbcd 0 0 1000 0
 69 0 50d20+9500 10d20+2000 7d11+39 'pierce'
 -39 -39 -39 -9
-CDIKNQUijoqtw
+CDIKNQU
 stand stand male 500
 0 0 giant unknown
 r holy -50
@@ -500,10 +500,10 @@ sidhe as faithfull warriors.
 заслужили репутацию хороших воинов.
 ~
 troll~
-BThz 0 Nbdt 0 0 -1000 0
+BT 0 Nbd 0 0 -1000 0
 71 0 50d20+10000 10d20+2000 9d9+49 'pierce'
 -62 -63 -59 -29
-CIKNQUioqtw
+CIKNQU
 stand stand male 500
 0 0 giant unknown
 r lightning -50
@@ -525,10 +525,10 @@ After all, it's all in good fun.
 станется запустить в тебя пирогом.
 ~
 human~
-GHSmny 0 0 Gm 0 100 0
+GHS 0 0 G 0 100 0
 60 0 50d20+6750 10d20+2000 8d6+28 'slash'
 -32 -33 -33 -15
-BEFHJNhklnpt
+BEFHJN
 stand stand male 500
 0 0 medium unknown
 r holy -50
@@ -549,10 +549,10 @@ fun....
 маскарадом что-то кроется.
 ~
 human~
-GHSmny 0 0 BGhm 0 -100 0
+GHS 0 0 BG 0 -100 0
 60 0 50d20+6750 10d20+2000 8d6+28 'slash'
 -32 -33 -33 -5
-BEFHJNhklnpt
+BEFHJN
 stand stand male 500
 0 0 medium unknown
 r holy -50
@@ -569,10 +569,10 @@ for their great stamina they can drink more than almost any other being.
 выносливость позволяет ему перепить любого.
 ~
 satyr~
-BShy 0 d 0 0 -100 0
+BS 0 d 0 0 -100 0
 64 0 50d20+8000 10d20+2000 8d7+34 'slash'
 -30 -35 -32 -10
-CDINijot
+CDIN
 sit sit male 1000
 0 0 medium unknown
 r fire 33
@@ -600,10 +600,10 @@ As you listen you too are drawn into the music.....
 музыки...
 ~
 satyr~
-GRmx 0 d 0 0 100 0
+GR 0 d 0 0 100 0
 66 0 50d20+8250 10d20+2000 11d5+35 'slash'
 -29 -28 -25 -10
-EHNknt
+EHN
 stand stand male 500
 0 0 medium unknown
 r fire 33
@@ -628,10 +628,10 @@ satyr singer сатир~
 @rus Сатир, полу-человек, полу-козел.
 ~
 satyr~
-GRmx 0 d 0 0 100 0
+GR 0 d 0 0 100 0
 62 0 50d20+7250 10d20+2000 6d9+32 'slash'
 -30 -26 -28 -1
-FHJlnp
+FHJ
 stand stand male 500
 0 0 medium unknown
 r holy -50
@@ -649,10 +649,10 @@ to get in his way.
 И мешать ему щас не стоит.
 ~
 satyr~
-BThz 0 Vbd 0 0 -100 0
+BT 0 Vbd 0 0 -100 0
 60 0 50d20+6750 10d20+2000 8d6+28 'slash'
 -28 -28 -20 -2
-CDRijx
+CDR
 stand stand male 500
 0 0 medium unknown
 r holy -50
@@ -673,10 +673,10 @@ wrought item when he is finished.
 когда он закончит свою работу.
 ~
 dwarf~
-BThz 0 0 0 0 300 0
+BT 0 0 0 0 300 0
 52 0 50d20+4750 10d20+2000 6d7+20 'slash'
 -34 -35 -34 -2
-Ci
+C
 sit sit male 320
 0 0 small unknown
 r fire 33
@@ -704,10 +704,10 @@ He is working on a dark, rough-looking piece of armor.
 изготовлением будущей брони.
 ~
 dwarf~
-BThz 0 0 0 0 300 0
+BT 0 0 0 0 300 0
 52 0 50d20+4750 10d20+2000 6d7+20 'slash'
 -34 -35 -34 -2
-Ci
+C
 sit sit male 320
 0 0 small unknown
 r fire 33
@@ -732,10 +732,10 @@ This tall, dark, man-shaped creature is almost completely covered in
 bright purple, flowing robes with a winding turban hiding his face.
 ~
 human~
-Tz 0 TUz 0 0 0 0
+T 0 TU 0 0 0 0
 58 0 50d20+6250 10d20+2000 5d10+25 'pierce'
 -30 -30 -31 -10
-CDEIijko
+CDEI
 stand stand male 500
 0 0 medium unknown
 r fire 33
@@ -765,10 +765,10 @@ experienced than you will ever be.
 слышал.
 ~
 human~
-Tz 0 TUz 0 0 0 0
+T 0 TU 0 0 0 0
 58 0 50d20+6250 10d20+2000 5d10+25 'pierce'
 -30 -30 -31 -10
-CDEIijko
+CDEI
 stand stand male 500
 0 0 medium unknown
 r holy -50
@@ -782,10 +782,10 @@ eshu drinker drunk эшу~
 @rus Этот человек мог бы послужить школой для детей бармена.
 ~
 human~
-Tz 0 TUz 0 0 -200 0
+T 0 TU 0 0 -200 0
 58 0 50d20+6250 10d20+2000 5d10+25 'pierce'
 -30 -30 -31 -10
-CDEIijko
+CDEI
 stand stand male 500
 0 0 medium unknown
 r holy -50
@@ -798,12 +798,12 @@ This nasty little creature is a blood-stained mouth with sharp-clawed
 appendages dressed in a brown tunic with a blood red hat.
 ~
 unique~
-CFGSilmy 0 Vb 0 Hn -850 0
+CFGS 0 Vb 0 H -850 0
 38 0 10d20+1600 10d20+2000 5d6+12 'pierce'
 -16 -20 -18 -6
-BDJVYhjp
+BDJVY
 stand stand male 500
-AHMVgns ABCDEFGHIJKghijklmnopq small unknown
+AHMV ABCDEFGHIJK small unknown
 r holy -50
 r negative 100
 r disease 33
@@ -816,12 +816,12 @@ A murderous redcap attacks from behind.
 This redcap is a killing machine.  All sharp teeth, claws, and talons.
 ~
 unique~
-CFGSilmy 0 Vb 0 Hn -850 0
+CFGS 0 Vb 0 H -850 0
 43 0 10d20+2500 10d20+2000 8d4+15 'pierce'
 -20 -18 -20 0
-BDJVYhjp
+BDJVY
 stand stand male 500
-AHMVgns ABCDEFGHIJKghijklmnopq small unknown
+AHMV ABCDEFGHIJK small unknown
 r holy -50
 r negative 100
 r disease 33
@@ -836,12 +836,12 @@ have seen. Even the Unseelie don't rival the natural repulsion you feel towards
 this creature.
 ~
 unique~
-HSny 0 NUt ABGghm ABHKLghnqr -20 0
+HS 0 NU ABG ABHKL -20 0
 36 0 10d20+1400 10d20+2000 3d10+11 'pound'
 -12 -12 -13 -1
-EFHJKklnpq
+EFHJK
 stand stand female 500
-AHMVgns ABCDEFGHIJKghijklmnopq small unknown
+AHMV ABCDEFGHIJK small unknown
 r holy -50
 r negative 100
 r disease 33
@@ -856,12 +856,12 @@ This dark fae is not willing to let you in on it's secrets, you had best
 leave now.
 ~
 unique~
-HSny 0 NUt ABGghm ABHKLghnqr -20 0
+HS 0 NU ABG ABHKL -20 0
 36 0 10d20+1400 10d20+2000 3d10+11 'pierce'
 -12 -12 -13 -1
-EFHJKklnpq
+EFHJK
 stand stand female 500
-AHMVgns ABCDEFGHIJKghijklmnopq small unknown
+AHMV ABCDEFGHIJK small unknown
 r holy -50
 r negative 100
 r disease 33
@@ -878,12 +878,12 @@ pixie пикси~
 полупрозрачными крылышками.  
 ~
 unique~
-GRmx 0 TYz Ag 0 100 0
+GR 0 TY A 0 100 0
 29 0 10d20+800 10d20+2000 4d6+7 'pound'
 -20 -20 -20 -1
-FHKRlnqx
+FHKR
 stand stand male 500
-AHMVgns ABCDEFGHIJKghijklmnopq tiny unknown
+AHMV ABCDEFGHIJK tiny unknown
 r bash 33
 r pierce 33
 r slash 33
@@ -899,12 +899,12 @@ smile on his face.
 бабочки и хитрой улыбкой.
 ~
 unique~
-FHWln 0 TVz Ag 0 -300 0
+FHW 0 TV A 0 -300 0
 32 0 10d20+1000 10d20+2000 6d4+9 'pierce'
 -18 -18 -18 -1
-EFIKkloq
+EFIK
 stand stand male 500
-AHMVgns ABCDEFGHIJKghijklmnopq tiny unknown
+AHMV ABCDEFGHIJK tiny unknown
 r bash 33
 r pierce 33
 r slash 33
@@ -921,12 +921,12 @@ and form amaze and beguile you.
 очаровывают и вызывает изумление.
 ~
 unique~
-GHQmnw 0 NTtz Ag 0 300 0
+GHQ 0 NT A 0 300 0
 32 0 10d20+1000 10d20+2000 6d4+9 'slash'
 -20 -18 -16 -1
-FHln
+FH
 stand stand female 500
-AHMVgns ABCDEFGHIJKghijklmnopq tiny unknown
+AHMV ABCDEFGHIJK tiny unknown
 r holy -50
 r disease 33
 r poison 33
@@ -940,10 +940,10 @@ nymph нимфа~
 @rus Скудно одетая нимфа стоит здесь наполовину в воде.
 ~
 elf~
-BHQhnw 0 0 0 0 100 0
+BHQ 0 0 0 0 100 0
 30 0 10d20+853 10d20+2000 4d6+8 'slash'
 -20 -15 -18 -1
-FNlt
+FN
 stand stand female 500
 0 0 medium unknown
 r holy -50
@@ -960,10 +960,10 @@ leaves runs among the trees darting in and out of sight.
 снова появляясь в поле зрения.
 ~
 elf~
-GHQmnw 0 0 0 0 100 0
+GHQ 0 0 0 0 100 0
 30 0 10d20+853 10d20+2000 4d6+8 'slash'
 -20 -15 -18 -1
-FNlt
+FN
 stand stand female 500
 0 0 medium unknown
 r holy -50
@@ -979,10 +979,10 @@ finned tail.
 чешуей.
 ~
 unique~
-BHThnz 0 Tcz 0 0 250 0
+BHT 0 Tc 0 0 250 0
 30 0 10d20+853 10d20+2000 4d6+8 'pierce'
 -20 -15 -18 -1
-FMWls
+FMW
 stand stand female 500
 0 0 medium unknown
 r lightning -50
@@ -999,10 +999,10 @@ finned tail.
 есть и сильный хвост.
 ~
 unique~
-BHThnz 0 Tcz 0 0 250 0
+BHT 0 Tc 0 0 250 0
 28 0 10d20+750 10d20+2000 4d6+7 'pierce'
 -20 -15 -18 -1
-FMWls
+FMW
 stand stand male 500
 0 0 medium unknown
 r lightning -50
@@ -1018,12 +1018,12 @@ alive.
 @rus Что-то странное с этим цветком. Такое чувство, что на самом деле он живой.
 ~
 unique~
-CGUim 0 Vd Gm 0 100 0
+CGU 0 Vd G 0 100 0
 22 0 5d10+400 10d20+2000 4d4+6 'none'
 -12 -10 -12 -1
-FNUlt
+FNU
 stand stand male 0
-AHMVgns ABCDEFGHIJKghijklmnopq tiny unknown
+AHMV ABCDEFGHIJK tiny unknown
 r bash 100
 r pierce 33
 r fire -50
@@ -1040,12 +1040,12 @@ acorn fae фейри~
 @rus Желудь как желудь. Только вот он почему-то двигается...
 ~
 unique~
-CGUim 0 Vd Gm 0 100 0
+CGU 0 Vd G 0 100 0
 22 0 5d10+400 10d20+2000 4d4+6 'pound'
 -12 -10 -12 -1
-FNUlt
+FNU
 stand stand none 0
-AHMVgns ABCDEFGHIJKghijklmnopq tiny unknown
+AHMV ABCDEFGHIJK tiny unknown
 r bash 100
 r pierce 33
 r fire -50
@@ -1064,12 +1064,12 @@ strange music.  He holds a small set of glowing pipes in his hands.
 зверей. В руках он держит маленькую тростниковую свирель.
 ~
 unique~
-BCUhi 0 Vd Gm 0 100 0
+BCU 0 Vd G 0 100 0
 22 0 5d10+400 10d20+2000 4d4+6 'pound'
 -12 -10 -12 -1
-FNUlt
+FNU
 stand stand none 0
-AHMVgns ABCDEFGHIJKghijklmnopq tiny unknown
+AHMV ABCDEFGHIJK tiny unknown
 r bash 100
 r pierce 33
 r fire -50
@@ -1088,12 +1088,12 @@ measure of intelligence rarely seen in a normal animal.
 интеллект, что говорит о необычности этого животного.
 ~
 unique~
-TUz 0 0 Gm ABgh 0 0
+TU 0 0 G AB 0 0
 22 0 5d10+550 10d20+2000 2d10+7 'claw'
 -7 -7 -7 -1
-CDFLNijlrt
+CDFLN
 stand stand female 0
-BHMVhns ABCDEFGHIJKQVghijklmnopqw tiny unknown
+BHMV ABCDEFGHIJKQV tiny unknown
 r holy -50
 #12047
 bosidhe pet босид~
@@ -1107,12 +1107,12 @@ intelligence that is not common in one of it's species.
 интеллект, что весьма необычно для подобных ему животных.
 ~
 unique~
-TUz 0 0 Gm ABgh 0 0
+TU 0 0 G AB 0 0
 40 0 10d20+2000 10d20+2000 4d8+13 'pierce'
 -21 -20 -21 -2
-CDILNijort
+CDILN
 stand stand male 0
-BHMVhns ABCDEFGHIJKQVghijklmnopqw huge unknown
+BHMV ABCDEFGHIJKQV huge unknown
 #12048
 catsidhe pet котасид~
 @eng A CatSidhe@rus КотаСид~
@@ -1124,10 +1124,10 @@ inteligence.
 @rus Полностью белая кошка с красными глазами, в которых светится интеллект.
 ~
 cat~
-RUx 0 0 Gm ABgh 0 0
+RU 0 0 G AB 0 0
 50 0 20d20+4250 10d20+2000 5d8+19 'claw'
 -24 -25 -23 -2
-BEJKNVhkpqt
+BEJKNV
 stand stand female 0
 0 0 medium unknown
 #12049
@@ -1144,12 +1144,12 @@ only its the size of a small child.
 похожа на ворона, только размером с маленького ребенка.
 ~
 unique~
-QUw 0 Tz 0 ABLghr 0 0
+QU 0 T 0 ABL 0 0
 70 0 50d20+9750 10d20+2000 8d10+40 'claw'
 -32 -32 -32 -3
-BEFHJKNXhklnpqt
+BEFHJKNX
 stand stand male 0
-AHMVgns ABCDEFGHIJKPUghijklmnopqv small unknown
+AHMV ABCDEFGHIJKPU small unknown
 r bash -50
 r pierce 33
 r holy -50
@@ -1161,7 +1161,7 @@ hat acorn шляпка~
 @eng An acorn hat@rus ~~желудевая~~ ~~шляпка~~~
 @eng A small brown cap lies here.@rus Маленькая коричневая шляпка (hat) лежит здесь.~
 wood~
-armor Gm 0 AEgk
+armor G 0 AE
 5 6 5 3 0
 22 3 30 P
 g @eng neutral @rus female ~
@@ -1170,7 +1170,7 @@ nectar нектар камелька~
 @eng A drop of nectar@rus ~~капелька~~ нектара~
 @eng A small drop af amber nectar.@rus Маленькая капелька янтарного нектара (nectar).~
 cloth~
-potion Qw 0 Ag
+potion Q 0 A
 25 'refresh' 'cure critical' 'cure poison' 'cure blindness'
 22 1 0 P
 g @eng neutral @rus female ~
@@ -1179,8 +1179,8 @@ trident трезубец~
 @eng A silver trident@rus ~~серебряный~~ ~~трезубец~~~
 A long, perfectly balanced silver trident.~
 silver~
-weapon AGgm 0 ANgt
-spear 6 6 'pierce' Kq
+weapon AG 0 AN
+spear 6 6 'pierce' K
 28 30 800 P
 g @eng neutral @rus male ~
 #12003
@@ -1188,142 +1188,124 @@ opal bracelet браслет~
 @eng an opal bracelet@rus ~~опаловый~~ ~~браслет~~~
 @eng A gleeming opal bracelet shines faintly from the floor.@rus Переливающийся опаловый браслет (bracelet) сверкает у твоих ног.~
 silver~
-armor AGgm 0 AMgs
+armor AG 0 AM
 10 7 9 0 0
 30 5 400 P
-A
-19 3
+a '' to_object 30 -1 3 19 0
 g @eng neutral @rus male ~
 #12004
 gown gossamer платье~
 @eng A light gossamer gown@rus ~~газовое~~ ~~платье~~~
 @eng This see through gossamer gown leaves little to the imagination.@rus Это газовое платье (gown) оставляет очень мало твоему воображению.~
 cloth~
-armor AFGglm 0 ADgj
+armor AFG 0 AD
 10 10 10 0 0
 30 1 600 P
-A
-14 50
-A
-2 2
-g none~
+a '' to_object 30 -1 50 14 0
+a '' to_object 30 -1 2 2 0
+g @rus none~
 #12005
 sword slender меч клинок~
 @eng A small slender sword@rus ~~маленький~~ ~~тонкий~~ ~~клинок~~~
 @eng A small slender blade of good craftsmanship.@rus Маленький тонкий клинок (sword), выкованный с необыкновенным мастерством.~
 silver~
-weapon Gm 0 ANgt
+weapon G 0 AN
 sword 4 9 'slash' 0
 32 10 800 P
-A
-18 3
+a '' to_object 32 -1 3 18 0
 g @eng neutral @rus male ~
 #12006
 boots grey ботинки~
 @eng A pair of grey boots@rus ~~пара~~ ~~серых~~ ~~ботинок~~~
 @eng A pair boots made of some grey material you haven't seen before.@rus Пара ботинок (boots), сделанных из серого, невиданного тобой ранее материала.~
 leather~
-armor Gm 0 AGgm
+armor G 0 AG
 10 11 8 8 0
 32 5 500 P
-A
-2 2
-A
-14 110
-g plural~
+a '' to_object 32 -1 2 2 0
+a '' to_object 32 -1 110 14 0
+g @rus plural~
 #12007
 bow pixie лук~
 @eng A pixie bow@rus ~~эльфийский~~ ~~лук~~~
 @eng A small elegantly crafted bow with tiny arrows.@rus Небольшой, изящно сделанный лук (bow) с маленькими стрелами.~
 silver~
-wand ABCghi 0 AOgu
+wand ABC 0 AO
 30 18 18 'curse' 0
 30 2 1000 P
-A
-20 1
+a '' to_object 30 -1 1 20 0
 g @eng neutral @rus male ~
 #12008
 kris blade wavy~
 @eng A dull kris blade@rus ~~кривой~~ ~~нож~~ с тупым лезвием~
 @eng A dull kris blade with a broken handle and a few chips.@rus Кривой нож (kris) с тупым лезвием и сломанной рукоятью валяется здесь.~
 iron~
-weapon CGim 0 ANgt
-dagger 4 10 'pierce' Dj
+weapon CG 0 AN
+dagger 4 10 'pierce' D
 40 9 30 W
-A
-19 4
+a '' to_object 40 -1 4 19 0
 g @eng neutral @rus male ~
 #12009
 blade jagged кинжал~
 @eng A jagged blade@rus ~~зазубренный~~ ~~кинжал~~~
 @eng A jagged, broken and chipped blade.@rus Кинжал (blade) со сломанным зазубренным лезвием.~
 unknown~
-weapon Gm 0 ANgt
+weapon G 0 AN
 sword 4 11 'cleave' 0
 43 13 200 W
-A
-24 -2
-A
-19 2
-A
-4 -2
-A
-1 2
+a '' to_object 43 -1 -2 24 0
+a '' to_object 43 -1 2 19 0
+a '' to_object 43 -1 -2 4 0
+a '' to_object 43 -1 2 1 0
 g @eng neutral @rus male ~
 #12010
 cap red кепка~
 @eng A red cap@rus ~~красная~~ ~~кепка~~~
 @eng This hat looks as if it were dyed with the blood of several animals.@rus Эта кепка (hat) выглядит так, будто ее качественно измазали в чьей-то крови.~
 cloth~
-armor EGJkmp 0 AEgk
+armor EGJ 0 AE
 12 12 13 4 0
 38 4 20 G
-A
-19 3
-A
-3 -3
+a '' to_object 38 -1 3 19 0
+a '' to_object 38 -1 -3 3 0
 g @eng neutral @rus female ~
 #12011
 club дубинка дубина~
 @eng A blood stained club@rus ~~дубинка~~, ~~испачканная~~ кровью~
 @eng This heavy club is marred by several blood stains.@rus Большая дубина (club), густо измазанная кровью валяется здесь.~
 wood~
-weapon EJkp 0 ANgt
-mace 7 7 'pound' Dj
+weapon EJ 0 AN
+mace 7 7 'pound' D
 38 7 20 A
-A
-19 7
-A
-12 -50
+a '' to_object 38 -1 7 19 0
+a '' to_object 38 -1 -50 12 0
 g @eng neutral @rus female ~
 #12012
 book книга tales~
 @eng A book of Tales@rus ~~книга~~ сказок~
 @eng This book contains the adventures of a wandering Eshu.@rus Эта книга (book), в которой собраны рассказы странствующего эшу.~
 paper~
-treasure Gm 0 AOgu
+treasure G 0 AO
 0 0 0 0 0
 54 5 300 P
-A
-14 100
-A
-4 3
+a '' to_object 54 -1 100 14 0
+a '' to_object 54 -1 3 4 0
 g @eng neutral @rus female ~
 #12013
 khopesh~
 A gleaming khopesh~
 A bright, wide-bladed khopesh with a gold and ivory handle.~
 unknown~
-weapon Gm 0 ANgt
+weapon G 0 AN
 sword 8 7 'slash' 0
 56 30 1200 P
-g none~
+g @rus none~
 #12014
 helmet unfinished шлем~
 @eng An unfinished helmet@rus ~~незаконченный~~ ~~шлем~~~
 @eng This helmet looks to be of unparalleled craftsmanship, too bad it was never finished.@rus Этот шлем (helm) никогда не будет закончен мастером, слишком плохой уж материал попался.~
 unknown~
-armor Gm 0 AEOgku
+armor G 0 AEO
 14 14 12 12 0
 51 15 800 G
 g @eng neutral @rus male ~
@@ -1333,40 +1315,37 @@ boots unfinished ботинки~
 @eng These boots would be the best pair you had ever seen if their maker had 
 ever finished them.@rus Эти ботинки (boots) будут лучшими из виденных тобой, если мастер их закончит.~
 leather~
-armor Gm 0 AGOgmu
+armor G 0 AGO
 14 14 12 10 0
 52 8 1000 G
-A
-5 4
-A
-2 4
+a '' to_object 52 -1 4 5 0
+a '' to_object 52 -1 4 2 0
 g @eng neutral @rus plural~
 #12016
 stitching needle~
 A stitching needle~
 A small iron stitching needle.~
 iron~
-weapon AGgm 0 ANgt
+weapon AG 0 AN
 dagger 6 9 'pierce' 0
 51 1 200 P
-g none~
+g @rus none~
 #12017
 apron leather передник~
 @eng A scorched leather apron@rus ~~кожаный~~ ~~передник~~~
 @eng A thick leather apron marked by many burns lies here.@rus Толстый кожаный передник (apron) с многочисленными пятнами лежит здесь.~
 leather~
-armor 0 0 AKgq
+armor 0 0 AK
 14 14 14 8 0
 51 20 100 A
-A
-13 30
+a '' to_object 51 -1 30 13 0
 g @eng neutral @rus male ~
 #12018
 pan pipes свирель~
 @eng Pan pipes@rus ~~свирель~~~
 @eng A small set of playing pipes of varying lengths.@rus Маленькая свирель (pan pipes) валяется здесь.~
 wood~
-wand Gm 0 AOgu
+wand G 0 AO
 50 20 20 'charm person' 0
 60 3 400 P
 g @eng neutral @rus female ~
@@ -1375,61 +1354,52 @@ flagon графин~
 @eng A flagon of dark ale@rus ~~графин~~ темного эля~
 @eng A large wooden flagon of almost endless capacity.@rus Большой деревянный графин (flagon) уже практически пустой стоит здесь.~
 wood~
-drink Gm 0 AOgu
+drink G 0 AO
 200 100 'dark ale' 0 0
 30 10 120 W
-A
-18 -2
-A
-5 3
+a '' to_object 30 -1 -2 18 0
+a '' to_object 30 -1 3 5 0
 g @eng neutral @rus male ~
 #12020
 cap jester колпак~
 @eng A jester's cap@rus ~~шутовской~~ ~~колпак~~~
 @eng A multi-colored cap with four parts, each ending in a large silver bell.@rus Разноцветный колпак (cap) с четырьмя серебрянными бубенчиками лежит здесь.~
 cloth~
-armor BGHIhmno 0 AEgk
+armor BGHI 0 AE
 17 17 18 10 0
 59 6 800 P
-A
-17 -10
-A
-2 1
-A
-3 -3
+a '' to_object 59 -1 -10 17 0
+a '' to_object 59 -1 1 2 0
+a '' to_object 59 -1 -3 3 0
 g @eng neutral @rus male ~
 #12021
 axe unfinished секира~
 @eng An unfinished axe@rus ~~незаконченная~~ ~~секира~~~
 @eng A large, impressive axe that seems just a little unbalanced.@rus Большая, острая секира (axe), которая лишь слегка незбалансирована, лежит здесь.~
 unknown~
-weapon 0 0 ANgt
+weapon 0 0 AN
 axe 5 10 'chop' 0
 51 10 10 G
-A
-19 1
-A
-18 -1
-A
-1 1
+a '' to_object 51 -1 1 19 0
+a '' to_object 51 -1 -1 18 0
+a '' to_object 51 -1 1 1 0
 g @eng neutral @rus female ~
 #12022
 ember уголек~
 @eng A fiery ember@rus ~~пылающий~~ ~~уголек~~~
 @eng A glowing ember from a forge.@rus Светящийся пылающий уголек (ember) выкатился из горна.~
 stone~
-light Ag 0 Ag
+light A 0 A
 0 0 30 0 0
 50 1 0 G
-A
-1 4
+a '' to_object 50 -1 4 1 0
 g @eng none@rus male ~
 #12023
 coals pile куча уголь~
 @eng A pile of coals@rus ~~куча~~ угля~
 @eng A small pile of coals lies beside the forge.@rus Небольшая куча угля (coals) лежит рядом с кузнечным горном.~
 stone~
-container Ag 0 0
+container A 0 0
 100 0 0 50 100
 100 1 0 P
 g @eng none@rus female ~
@@ -1447,32 +1417,24 @@ sword меч dark~
 @eng A crude, dark sword@rus ~~недоделанный~~ ~~темный~~ ~~меч~~~
 @eng A crudely made sword of some dark metal that is obviously not fit for use.@rus Меч (sword) темного металла, еще не сделанный до конца, лежит здесь.~
 mithril~
-weapon CFHJKMilnpqs 0 ANgt
+weapon CFHJKM 0 AN
 exotic 6 6 'slice' 0
 48 29 10 W
-A
-19 -2
-A
-18 -2
-A
-24 -2
-A
-23 -2
-A
-22 -2
-A
-21 -2
-A
-20 -2
-A
-12 -50
+a '' to_object 48 -1 -2 19 0
+a '' to_object 48 -1 -2 18 0
+a '' to_object 48 -1 -2 24 0
+a '' to_object 48 -1 -2 23 0
+a '' to_object 48 -1 -2 22 0
+a '' to_object 48 -1 -2 21 0
+a '' to_object 48 -1 -2 20 0
+a '' to_object 48 -1 -50 12 0
 g @eng none@rus male ~
 #12026
 fountain фонтан~
 @eng A beautiful crystal fountain@rus ~~прекрасный~~ ~~кристальный~~ ~~фонтан~~~
 @eng A fountain of crystal reflects light from a thousand facets.@rus Фонтан (fountain), сделанный из кристалла, отражает свет, образуя тысячи бликов.~
 glass~
-fountain Ag 0 0
+fountain A 0 0
 1000 1000 'water' 0 0
 0 0 0 P
 E
@@ -1488,7 +1450,7 @@ bucket ведро~
 @eng A wooden bucket@rus ~~деревянное~~ ~~ведро~~~
 @eng This is the bucket the boggans use to cool items from the forge.@rus Ведро (bucket), в котором кузнец закаливает свои изделия.~
 wood~
-drink 0 0 Ag
+drink 0 0 A
 5 5 'water' 8 0
 1 8 0 W
 E
@@ -1498,7 +1460,7 @@ quench your thirst.
 @rus Вода в ведре выглядит достаточно грязной. Думаю, пить ее не стоит, а то 
 последствий не оберешься.
 ~
-g none~
+g @rus none~
 #12028
 pool slime лужа~
 @eng slime pool@rus ~~лужа~~ грязи~
@@ -1513,7 +1475,7 @@ slime bit кусок~
 @eng A bit of slime@rus ~~кусок~~ грязи~
 @eng A small bit of purple slime with luminescent blue streaks.@rus Кусок красноватой грязи (slime) с голубыми прожилками валяется здесь.~
 unknown~
-pill Ag 0 Ag
+pill A 0 A
 30 'know alignment' 'armor' '' ''
 28 2 0 G
 g @eng neutral @rus male ~
@@ -1531,7 +1493,7 @@ manuscript манускрипт~
 @eng An ancient manuscript@rus ~~старинный~~ ~~манускрипт~~~
 An ancient manuscript on the subject of the Seelie and Unseelie.~
 unknown~
-treasure 0 0 Ag
+treasure 0 0 A
 0 0 0 0 0
 20 3 2000 P
 E
@@ -1559,7 +1521,7 @@ manuscript~
 An ancient manuscript~
 A manuscript on the subject of Puck the fool of the fae.~
 unknown~
-treasure 0 0 Ag
+treasure 0 0 A
 0 0 0 0 0
 20 3 2000 P
 E
@@ -1578,348 +1540,308 @@ change of roles since the last cycle of fae existence. Why the Fool is
 exempt from these yearly changes is a mystery that only he may know and 
 as is his nature he isn't telling.
 ~
-g none~
+g @rus none~
 #12033
 jester stick~
 A jester's stick~
 A carved wooden stick with a puppet jester head on top.~
 unknown~
-staff BIho 0 AOgu
+staff BI 0 AO
 60 20 20 'faerie fog' 0
 58 7 1200 G
-g none~
+g @rus none~
 #12034
 jester stick~
 A jester's stick~
 A carved wooden stick with a puppet jester head on top.~
 unknown~
-staff BIho 0 AOgu
+staff BI 0 AO
 60 20 20 'blindness' 0
 58 7 1200 G
-g none~
+g @rus none~
 #12035
 jester stick~
 A jester's stick~
 A carved wooden stick with a puppet jester head on top.~
 unknown~
-staff BIho 0 AOgu
+staff BI 0 AO
 60 20 20 'teleport' 0
 58 7 1200 G
-g none~
+g @rus none~
 #12036
 white marble mace~
 A white  mace~
 A large white marble mace.~
 marble~
-weapon GKmq 0 ANgt
-mace 8 10 'pound' Dj
+weapon GK 0 AN
+mace 8 10 'pound' D
 70 25 1200 P
-A
-2 -1
-A
-5 2
-A
-1 2
-A
-19 7
-g none~
+a '' to_object 70 -1 -1 2 0
+a '' to_object 70 -1 2 5 0
+a '' to_object 70 -1 2 1 0
+a '' to_object 70 -1 7 19 0
+g @rus none~
 #12037
 spiked club~
 A twisted spiked club~
 A large spiked club made of dark twisted wood.~
 wood~
-weapon GJmp 0 ANgt
+weapon GJ 0 AN
 mace 8 10 'blast' 0
 70 25 1200 W
-A
-3 -1
-A
-5 2
-A
-1 2
-A
-19 7
-g none~
+a '' to_object 70 -1 -1 3 0
+a '' to_object 70 -1 2 5 0
+a '' to_object 70 -1 2 1 0
+a '' to_object 70 -1 7 19 0
+g @rus none~
 #12038
 ice shield~
 An ice shield~
 A large shield made of pure ice.~
 ice~
-armor Gm 0 AJgp
+armor G 0 AJ
 23 23 22 16 0
 70 25 1200 P
-A
-17 -10
-A
-24 -7
-g none~
+a '' to_object 70 -1 -10 17 0
+a '' to_object 70 -1 -7 24 0
+g @rus none~
 #12039
 oath ring~
 An oath ring~
 A brightly gleeming ring with a small inscription on the inside.~
 unknown~
-treasure Gm 0 ABgh
+treasure G 0 AB
 0 0 0 0 0
 70 25 1200 P
-A
-13 40
-A
-17 -5
-g none~
+a '' to_object 70 -1 40 13 0
+a '' to_object 70 -1 -5 17 0
+g @rus none~
 #12040
 noble cape~
 A noble's cape~
 A long well made cape of some rich purple cloth.~
 unknown~
-armor Gm 0 ACgi
+armor G 0 AC
 22 22 22 16 0
 72 5 1200 P
-g none~
+g @rus none~
 #12041
 noble sword~
 A sidhe broadsword~
 A well made sidhe broadsword with a strange inscription.~
 unknown~
-weapon Gm 0 ANgt
+weapon G 0 AN
 sword 10 8 'slash' 0
 72 5 1200 P
-g none~
+g @rus none~
 #12042
 noble breastplate~
 A sidhe breastplate~
 A well made sidhe noble's breastplate with fine engraving.~
 unknown~
-armor Gm 0 ADgj
+armor G 0 AD
 22 22 21 17 0
 72 9 1200 P
-A
-4 2
-g none~
+a '' to_object 72 -1 2 4 0
+g @rus none~
 #12043
 sidhe armguards~
 A pair of sidhe armguards~
 A pair of bright silver armguards of fine craftsmanship.~
 unknown~
-armor Gm 0 AIgo
+armor G 0 AI
 22 23 21 16 0
 68 6 1100 P
-A
-1 1
-g none~
+a '' to_object 68 -1 1 1 0
+g @rus none~
 #12044
 sidhe greaves~
 A pair of sidhe greaves~
 A set of bright silver leg armor.~
 unknown~
-armor Gm 0 AFgl
+armor G 0 AF
 23 23 21 16 0
 68 6 800 P
-A
-14 50
-g none~
+a '' to_object 68 -1 50 14 0
+g @rus none~
 #12045
 sidhe braceers~
 An engraved sidhe bracer~
 A light metal bracer of intricate design.~
 unknown~
-armor Gm 0 AMgs
+armor G 0 AM
 22 21 23 16 0
 68 3 960 P
-A
-19 5
-A
-18 5
-g none~
+a '' to_object 68 -1 5 19 0
+a '' to_object 68 -1 5 18 0
+g @rus none~
 #12046
 noble circlet~
 A noble's circlet~
 This silver circlet is covered in sidhe designs and pale green gems.~
 unknown~
-armor Gm 0 AEgk
+armor G 0 AE
 23 23 23 17 0
 73 3 980 P
-A
-3 3
-A
-4 4
-A
-5 5
-g none~
+a '' to_object 73 -1 3 3 0
+a '' to_object 73 -1 4 4 0
+a '' to_object 73 -1 5 5 0
+g @rus none~
 #12047
 noble rapier~
 A noble's rapier~
 The iron sword of a sidhe noble.~
 iron~
-weapon Gm 0 ANgt
+weapon G 0 AN
 sword 8 12 'slash' 0
 75 5 990 P
-A
-18 5
-A
-19 5
-g none~
+a '' to_object 75 -1 5 18 0
+a '' to_object 75 -1 5 19 0
+g @rus none~
 #12048
 heart night~
 The heart of Night~
 The black heart of night pulses with power.~
 unknown~
-treasure Gm 0 AOgu
+treasure G 0 AO
 0 0 0 0 0
 84 20 0 P
-A
-19 3
-A
-18 3
-A
-17 -20
-A
-13 50
-A
-12 50
-g none~
+a '' to_object 84 -1 3 19 0
+a '' to_object 84 -1 3 18 0
+a '' to_object 84 -1 -20 17 0
+a '' to_object 84 -1 50 13 0
+a '' to_object 84 -1 50 12 0
+g @rus none~
 #12049
 night blood~
 night's blood~
 A drop of the blood of the Queen of night.~
 unknown~
-potion Gm 0 AOgu
+potion G 0 AO
 80 'pass door' 'sanctuary' '' ''
 82 3 3000 P
-g none~
+g @rus none~
 #12050
 stag horned helmet~
 A stag horned helmet~
 This dark helm has two silver antlers of seven tines on the top.~
 unknown~
-armor Gm 0 AEgk
+armor G 0 AE
 28 28 28 11 0
 86 11 2800 P
-A
-18 6
-g none~
+a '' to_object 86 -1 6 18 0
+g @rus none~
 #12051
 silver torc~
 A silver torc~
 The silver torc of the Unseelie King.~
 silver~
-armor Gm 0 ACgi
+armor G 0 AC
 28 28 28 10 0
 86 11 2900 P
-A
-4 3
-g none~
+a '' to_object 86 -1 3 4 0
+g @rus none~
 #12052
 poetry~
 poetry~
 A large paper with poetry written on it.~
 unknown~
-scroll Gm 0 Ag
+scroll G 0 A
 80 'enchant weapon' 'enchant weapon' 'enchant weapon' ''
 78 2 5000 P
-g none~
+g @rus none~
 #12053
 robe~
 A poet's robe~
 A heay blue poet's robe.~
 unknown~
-armor Gm 0 AKgq
+armor G 0 AK
 25 25 25 18 0
 78 7 2000 P
-A
-3 4
-g none~
+a '' to_object 78 -1 4 3 0
+g @rus none~
 #12054
 gown~
 An embroidered gown~
 A finely embroidered court gown.~
 unknown~
-armor Gm 0 AKgq
+armor G 0 AK
 28 29 29 22 0
 84 8 2000 P
-A
-12 100
-g none~
+a '' to_object 84 -1 100 12 0
+g @rus none~
 #12055
 locket~
 A summer locket~
 A golden locket that contains the essence of summer.~
 unknown~
-armor Gm 0 ACgi
+armor G 0 AC
 28 28 29 22 0
 84 4 1750 P
-A
-12 50
-A
-3 2
-A
-19 4
-g none~
+a '' to_object 84 -1 50 12 0
+a '' to_object 84 -1 2 3 0
+a '' to_object 84 -1 4 19 0
+g @rus none~
 #12056
 golden torc~
 A golden torc~
 The torc of Rulership of the Seelie Court.~
 gold~
-armor Gm 0 ACgi
+armor G 0 AC
 28 28 28 20 0
 86 7 2500 P
-A
-13 50
-A
-5 2
-A
-4 2
-g none~
+a '' to_object 86 -1 50 13 0
+a '' to_object 86 -1 2 5 0
+a '' to_object 86 -1 2 4 0
+g @rus none~
 #12057
 cloak shadows~
 The cloak of shadows~
 A cloak made of shifting formless shadows.~
 unknown~
-armor CGim 0 ACgi
+armor CG 0 AC
 27 28 28 21 0
 84 2 3000 P
-A
-2 3
-g none~
+a '' to_object 84 -1 3 2 0
+g @rus none~
 #12058
 bag tricks~
 A bag of tricks~
 A doe skin bag that looks empty.~
 unknown~
-container Gm 0 AOgu
+container G 0 AO
 1000 0 0 500 100
 82 2 0 P
-g none~
+g @rus none~
 #12059
 orange~
 An orange~
 A small orange orange.~
 unknown~
-pill 0 0 Ag
+pill 0 0 A
 82 'curse' 'sleep' 'blindness' 'poison'
 83 1 0 P
-g none~
+g @rus none~
 #12060
 pebble~
 A small pebble~
 This is a small pebble that has had a hole worn through it.~
 unknown~
-boat Ms 0 AOgu
+boat M 0 AO
 0 0 0 0 0
 89 0 0 W
-A
-9 50
-A
-6 1
-g none~
+a '' to_object 89 -1 50 9 0
+a '' to_object 89 -1 1 6 0
+g @rus none~
 #12061
 slime bit~
 A bit of slime~
 A small bit of blue slime with luminescent green streaks.~
 unknown~
-boat Ag 0 Ag
-BCDEhijk 0 0 DEGJjkmp 0
+boat A 0 A
+BCDE 0 0 DEGJ 0
 28 2 0 G
-g none~
+g @rus none~
 #12062
 bed~
 An unmade bed~
@@ -1928,7 +1850,7 @@ unknown~
 container 0 0 0
 100 0 0 50 72
 0 0 0 P
-g none~
+g @rus none~
 #12063
 bed~
 A well made bed~
@@ -1937,63 +1859,62 @@ unknown~
 container 0 0 0
 100 0 0 50 72
 0 0 0 P
-g none~
+g @rus none~
 #12064
 scroll armor~
 A scroll of armor making~
 This scroll is entitled "The secrets of Boggan armor".~
 unknown~
-scroll FGlm 0 Ag
+scroll FG 0 A
 60 'armor' 'shield' 'stone skin' 'bless'
 55 3 1000 P
-g none~
+g @rus none~
 #12065
 oak key~
 A small oak key~
 This key is made of dark hard oak.~
 unknown~
-key Bh 0 Ag
+key B 0 A
 0 0 0 0 0
 55 1 0 P
-g none~
+g @rus none~
 #12066
 page~
 A page of glowing script~
 The letters on this page are glowing and seem to move and change.~
 unknown~
-scroll AGgm 0 Ag
+scroll AG 0 A
 50 'word of recall' '' '' ''
 55 4 10000 P
-g none~
+g @rus none~
 #12067
 black key~
 A small Black key~
 A small black key.~
 unknown~
-key CFil 0 Ag
+key CF 0 A
 0 0 0 0 0
 55 1 0 W
-g none~
+g @rus none~
 #12068
 glowing dust~
 Some glowing dust~
 This dust glows faintly as you look at it.~
 unknown~
-pill Gm 0 Ag
+pill G 0 A
 90 'dispel evil' 'create spring' 'armor' ''
 82 1 0 P
-g none~
+g @rus none~
 #12069
 crested shield~
 A crested shield~
 This shield bears the crest of one of the sidhe noble houses.~
 unknown~
-armor Gm 0 AJgp
+armor G 0 AJ
 24 24 25 17 0
 74 13 1200 P
-A
-17 -10
-g none~
+a '' to_object 74 -1 -10 17 0
+g @rus none~
 #0
 
 #ROOMS
@@ -2017,10 +1938,14 @@ D1
 @rus Склон холма.
 ~
 ~
+~
+~
 Z 0 12002
 D2
 @eng Toward the hillside.
 @rus Склон холма.
+~
+~
 ~
 ~
 Z 0 12005
@@ -2043,16 +1968,22 @@ D1
 @rus На склоне холма.
 ~
 ~
+~
+~
 Z -1 12003
 D2
 @eng Further up the Hill.
 @rus Вверх по склону.
 ~
 ~
+~
+~
 Z -1 12006
 D3
 @eng In a Field.
 @rus Море колышущейся травы.
+~
+~
 ~
 ~
 Z -1 12001
@@ -2075,16 +2006,22 @@ D1
 @rus Море колышущейся травы.
 ~
 ~
+~
+~
 Z -1 12004
 D2
 @eng Further up the Hill.
 @rus Вверх по склону.
 ~
 ~
+~
+~
 Z -1 12007
 D3
 @eng On the Hillside..
 @rus На склоне холма.
+~
+~
 ~
 ~
 Z -1 12002
@@ -2109,10 +2046,14 @@ D2
 @rus Склон холма.
 ~
 ~
+~
+~
 Z 0 12008
 D3
 @eng Toward the hillside.
 @rus Склон холма.
+~
+~
 ~
 ~
 Z -1 12003
@@ -2135,16 +2076,22 @@ D0
 @rus Море колышущейся травы.
 ~
 ~
+~
+~
 Z -1 12001
 D1
 @eng Further up the Hill.
 @rus Вверх по склону.
 ~
 ~
+~
+~
 Z -1 12006
 D2
 @eng On the Hillside..
 @rus Склон холма.
+~
+~
 ~
 ~
 Z -1 12009
@@ -2161,10 +2108,14 @@ D0
 @rus Склон холма.
 ~
 ~
+~
+~
 Z -1 12002
 D1
 @eng On the Hillside.
 @rus Склон холма.
+~
+~
 ~
 ~
 Z -1 12007
@@ -2173,16 +2124,22 @@ D2
 @rus Склон холма.
 ~
 ~
+~
+~
 Z -1 12010
 D3
 @eng On the Hillside.
 @rus Склон холма.
 ~
 ~
+~
+~
 Z -1 12005
 D4
 @eng On top of the Hill.
 @rus Вершина холма.
+~
+~
 ~
 ~
 Z -1 12021
@@ -2201,10 +2158,14 @@ D0
 @rus Склон холма.
 ~
 ~
+~
+~
 Z -1 12003
 D1
 @eng On the Hillside.
 @rus Склон холма.
+~
+~
 ~
 ~
 Z -1 12008
@@ -2213,10 +2174,14 @@ D2
 @rus Склон холма.
 ~
 ~
+~
+~
 Z -1 12011
 D3
 @eng On the Hillside.
 @rus Склон холма.
+~
+~
 ~
 ~
 Z -1 12006
@@ -2238,14 +2203,20 @@ D0
 In a Field.
 ~
 ~
+~
+~
 Z -1 12004
 D2
 On the Hillside..
 ~
 ~
+~
+~
 Z -1 12012
 D3
 Further up the Hill.
+~
+~
 ~
 ~
 Z -1 12007
@@ -2268,16 +2239,22 @@ D0
 @rus Склон холма.
 ~
 ~
+~
+~
 Z -1 12005
 D1
 @eng Further up the Hill.
 @rus Вверх по склону.
 ~
 ~
+~
+~
 Z -1 12010
 D2
 @eng In a Field.
 @rus Колышущаяся трава.
+~
+~
 ~
 ~
 Z -1 12013
@@ -2296,10 +2273,14 @@ D0
 @rus На склоне холма.
 ~
 ~
+~
+~
 Z -1 12006
 D1
 @eng On the Hillside.
 @rus На склоне холма.
+~
+~
 ~
 ~
 Z -1 12011
@@ -2308,10 +2289,14 @@ D2
 @rus На склоне холма.
 ~
 ~
+~
+~
 Z -1 12014
 D3
 @eng On the Hillside.
 @rus На склоне холма.
+~
+~
 ~
 ~
 Z -1 12009
@@ -2330,10 +2315,14 @@ D0
 @rus На склоне холма.
 ~
 ~
+~
+~
 Z -1 12007
 D1
 @eng On the Hillside.
 @rus На склоне холма.
+~
+~
 ~
 ~
 Z -1 12012
@@ -2342,10 +2331,14 @@ D2
 @rus На склоне холма.
 ~
 ~
+~
+~
 Z -1 12015
 D3
 @eng On the Hillside.
 @rus На склоне холма.
+~
+~
 ~
 ~
 Z -1 12010
@@ -2368,10 +2361,14 @@ D0
 @rus Склон холма.
 ~
 ~
+~
+~
 Z -1 12008
 D2
 @eng In a Field.
 @rus Море колышущейся травы.
+~
+~
 ~
 ~
 Z -1 12016
@@ -2396,16 +2393,22 @@ D0
 @rus Склон холма.
 ~
 ~
+~
+~
 Z -1 12009
 D1
 @eng On a Hillside.
 @rus Склон холма.
 ~
 ~
+~
+~
 Z -1 12014
 D2
 @eng In a Field.
 @rus Море колышущейся травы.
+~
+~
 ~
 ~
 Z -1 12017
@@ -2427,16 +2430,22 @@ D0
 @rus Вверх по склону.
 ~
 ~
+~
+~
 Z -1 12010
 D1
 @eng On the Hillside.
 @rus На склоне холма.
 ~
 ~
+~
+~
 Z -1 12015
 D3
 @eng In a Field.
 @rus Море колышущейся травы.
+~
+~
 ~
 ~
 Z -1 12013
@@ -2457,9 +2466,13 @@ D0
 Further up the Hill.
 ~
 ~
+~
+~
 Z -1 12011
 D1
 In a Field.
+~
+~
 ~
 ~
 Z -1 12016
@@ -2467,9 +2480,13 @@ D2
 In a Field.
 ~
 ~
+~
+~
 Z -1 12019
 D3
 On the Hillside.
+~
+~
 ~
 ~
 Z -1 12014
@@ -2494,16 +2511,22 @@ D0
 @rus Склон холма.
 ~
 ~
+~
+~
 Z -1 12012
 D2
 @eng In a Field.
 @rus Море колышущейся травы.
 ~
 ~
+~
+~
 Z -1 12020
 D3
 @eng On a Hillside.
 @rus Склон холма.
+~
+~
 ~
 ~
 Z -1 12015
@@ -2527,10 +2550,14 @@ D0
 @rus Поля.
 ~
 ~
+~
+~
 Z -1 12013
 D1
 @eng In a Field.
 @rus Поля.
+~
+~
 ~
 ~
 Z -1 12018
@@ -2552,10 +2579,14 @@ D0
 @rus Дорога.
 ~
 ~
+~
+~
 Z -1 12022
 D1
 @eng In a Field
 @rus Поля.
+~
+~
 ~
 ~
 Z -1 12019
@@ -2564,10 +2595,14 @@ D2
 @rus Дорога.
 ~
 ~
+~
+~
 Z 0 7827
 D3
 @eng In a Field
 @rus Поля.
+~
+~
 ~
 ~
 Z -1 12017
@@ -2591,16 +2626,22 @@ D0
 @rus На склоне холма.
 ~
 ~
+~
+~
 Z -1 12015
 D1
 @eng In a Field.
 @rus Поля.
 ~
 ~
+~
+~
 Z -1 12020
 D3
 @eng In a Field.
 @rus Поля.
+~
+~
 ~
 ~
 Z -1 12018
@@ -2624,10 +2665,14 @@ D0
 @rus Поля.
 ~
 ~
+~
+~
 Z -1 12016
 D3
 @eng In a Field.
 @rus Поля.
+~
+~
 ~
 ~
 Z 0 12019
@@ -2656,6 +2701,8 @@ D5
 @rus Вниз по склону.
 ~
 ~
+~
+~
 Z -1 12006
 S
 #12022
@@ -2671,10 +2718,14 @@ D2
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12018
 D3
 @eng Further along the Path.
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12023
@@ -2692,10 +2743,14 @@ D0
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12024
 D1
 @eng Off the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12022
@@ -2713,16 +2768,22 @@ D0
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12025
 D1
 @eng Off the Path
 @rus Поле.
 ~
 ~
+~
+~
 Z -1 12013
 D2
 @eng Off the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12023
@@ -2742,10 +2803,14 @@ D0
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12026
 D2
 @eng Off the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12024
@@ -2763,16 +2828,22 @@ D0
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12027
 D1
 @eng Off the Path
 @rus Поля.
 ~
 ~
+~
+~
 Z -1 12005
 D2
 @eng Along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12025
@@ -2790,10 +2861,14 @@ D1
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12028
 D2
 @eng Off the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12026
@@ -2811,16 +2886,22 @@ D1
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12029
 D2
 @eng Off the Pa1th
 @rus Поле.
 ~
 ~
+~
+~
 Z -1 12002
 D3
 @eng Along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12027
@@ -2839,16 +2920,22 @@ D1
 @rus Дальше по тропе.
 ~
 ~
+~
+~
 Z -1 12030
 D2
 @eng Off the Path
 @rus Поле.
 ~
 ~
+~
+~
 Z -1 12003
 D3
 @eng Along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12028
@@ -2866,10 +2953,14 @@ D2
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12031
 D3
 @eng Along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12029
@@ -2889,10 +2980,14 @@ D0
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12030
 D2
 @eng Further along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12032
@@ -2912,10 +3007,14 @@ D0
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12031
 D2
 @eng Further along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12033
@@ -2934,10 +3033,14 @@ D0
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12032
 D3
 @eng Further along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12034
@@ -2957,16 +3060,22 @@ D0
 @rus Поля.
 ~
 ~
+~
+~
 Z -1 12014
 D1
 @eng Along the Path
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12033
 D3
 @eng Further along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12035
@@ -2986,10 +3095,14 @@ D0
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12036
 D1
 @eng Along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12034
@@ -3009,10 +3122,14 @@ D0
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12037
 D2
 @eng Along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12035
@@ -3031,16 +3148,22 @@ D0
 @rus Склон холма.
 ~
 ~
+~
+~
 Z -1 12014
 D1
 @eng Further along the Path
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12038
 D2
 @eng Along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12036
@@ -3060,10 +3183,14 @@ D2
 @rus Тропа.
 ~
 ~
+~
+~
 Z -1 12039
 D3
 @eng Along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12037
@@ -3083,10 +3210,14 @@ D0
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12038
 D3
 @eng The end of the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12040
@@ -3107,10 +3238,14 @@ D0
 @rus Аркадия.
 ~
 ~
+~
+~
 Z 0 12044
 D1
 @eng Along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12039
@@ -3133,10 +3268,14 @@ D0
 @rus В глубине озера.
 ~
 ~
+~
+~
 Z -1 12055
 D1
 @eng The Lake Shore
 @rus Берег.
+~
+~
 ~
 ~
 Z -1 12042
@@ -3158,14 +3297,20 @@ D0
 The Lake Shore
 ~
 ~
+~
+~
 Z -1 12054
 D1
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12043
 D3
 The Deep end of the Lake
+~
+~
 ~
 ~
 Z -1 12041
@@ -3186,14 +3331,20 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12053
 D1
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12044
 D3
 The Lake Shore
+~
+~
 ~
 ~
 Z -1 12042
@@ -3214,9 +3365,13 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12052
 D1
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12045
@@ -3224,9 +3379,13 @@ D2
 End of the Path.
 ~
 ~
+~
+~
 Z -1 12040
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12043
@@ -3247,14 +3406,20 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12051
 D1
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12046
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12044
@@ -3275,14 +3440,20 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12050
 D1
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12048
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12045
@@ -3303,9 +3474,13 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12049
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12046
@@ -3326,14 +3501,20 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12063
 D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12048
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12050
@@ -3354,9 +3535,13 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12062
 D1
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12049
@@ -3364,9 +3549,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12046
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12051
@@ -3387,9 +3576,13 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12061
 D1
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12050
@@ -3397,9 +3590,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12045
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12052
@@ -3420,9 +3617,13 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12060
 D1
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12051
@@ -3430,9 +3631,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12044
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12053
@@ -3453,9 +3658,13 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12059
 D1
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12052
@@ -3463,9 +3672,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12043
 D3
 The Lake Shore
+~
+~
 ~
 ~
 Z -1 12054
@@ -3488,9 +3701,13 @@ D0
 The Lake Shore
 ~
 ~
+~
+~
 Z -1 12057
 D1
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12053
@@ -3498,9 +3715,13 @@ D2
 The Lake Shore
 ~
 ~
+~
+~
 Z -1 12042
 D3
 The Deep end of the Lake
+~
+~
 ~
 ~
 Z -1 12055
@@ -3521,14 +3742,20 @@ D0
 The Lake Shore
 ~
 ~
+~
+~
 Z -1 12056
 D1
 The Lake Shore.
 ~
 ~
+~
+~
 Z -1 12054
 D2
 The Deep end of the Lake.
+~
+~
 ~
 ~
 Z -1 12041
@@ -3551,14 +3778,20 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12070
 D1
 The Lake Shore
 ~
 ~
+~
+~
 Z -1 12057
 D2
 The Deep end of the Lake
+~
+~
 ~
 ~
 Z -1 12055
@@ -3581,9 +3814,13 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12069
 D1
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12059
@@ -3591,9 +3828,13 @@ D2
 The Lake Shore
 ~
 ~
+~
+~
 Z -1 12054
 D3
 The Lake Shore
+~
+~
 ~
 ~
 Z -1 12056
@@ -3614,9 +3855,13 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12068
 D1
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12060
@@ -3624,9 +3869,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12053
 D3
 The Lake Shore
+~
+~
 ~
 ~
 Z -1 12057
@@ -3647,9 +3896,13 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12067
 D1
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12061
@@ -3657,9 +3910,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12052
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12059
@@ -3680,9 +3937,13 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12066
 D1
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12062
@@ -3690,9 +3951,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12051
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12060
@@ -3713,9 +3978,13 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12065
 D1
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12063
@@ -3723,9 +3992,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12050
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12061
@@ -3746,14 +4019,20 @@ D0
 The Forest Edge
 ~
 ~
+~
+~
 Z -1 12064
 D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12049
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12062
@@ -3775,14 +4054,20 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12077
 D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12063
 D3
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12065
@@ -3804,9 +4089,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12076
 D1
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12064
@@ -3814,9 +4103,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12062
 D3
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12066
@@ -3838,9 +4131,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12075
 D1
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12065
@@ -3848,9 +4145,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12061
 D3
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12067
@@ -3872,9 +4173,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12074
 D1
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12066
@@ -3882,9 +4187,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12060
 D3
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12068
@@ -3906,9 +4215,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12073
 D1
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12067
@@ -3916,9 +4229,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12059
 D3
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12069
@@ -3939,9 +4256,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12072
 D1
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12068
@@ -3949,9 +4270,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12057
 D3
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12070
@@ -3972,14 +4297,20 @@ D0
 The Forest Edge
 ~
 ~
+~
+~
 Z -1 12071
 D1
 The Forest Edge
 ~
 ~
+~
+~
 Z -1 12069
 D2
 The Lake Shore
+~
+~
 ~
 ~
 Z -1 12056
@@ -4001,9 +4332,13 @@ D1
 The Forest Edge
 ~
 ~
+~
+~
 Z -1 12072
 D2
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12070
@@ -4027,9 +4362,13 @@ D0
 The Dirt Trod
 ~
 ~
+~
+~
 Z -1 12083
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12073
@@ -4037,9 +4376,13 @@ D2
 The Forest Edge
 ~
 ~
+~
+~
 Z -1 12069
 D3
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12071
@@ -4061,9 +4404,13 @@ D0
 The Dirt Trod
 ~
 ~
+~
+~
 Z -1 12082
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12074
@@ -4071,9 +4418,13 @@ D2
 The Forest Edge
 ~
 ~
+~
+~
 Z -1 12068
 D3
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12072
@@ -4095,9 +4446,13 @@ D0
 Before the Castle Gates
 ~
 ~
+~
+~
 Z -1 12081
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12075
@@ -4105,9 +4460,13 @@ D2
 The Forest Edge
 ~
 ~
+~
+~
 Z -1 12067
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12073
@@ -4130,9 +4489,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12080
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12076
@@ -4140,9 +4503,13 @@ D2
 The Forest Edge
 ~
 ~
+~
+~
 Z -1 12066
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12074
@@ -4165,9 +4532,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12079
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12077
@@ -4175,9 +4546,13 @@ D2
 The Forest Edge
 ~
 ~
+~
+~
 Z -1 12065
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12075
@@ -4200,14 +4575,20 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12078
 D2
 The Forest Edge
 ~
 ~
+~
+~
 Z -1 12064
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12076
@@ -4228,14 +4609,20 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12091
 D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12077
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12079
@@ -4256,9 +4643,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12090
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12078
@@ -4266,9 +4657,13 @@ D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12076
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12080
@@ -4289,9 +4684,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12089
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12079
@@ -4299,9 +4698,13 @@ D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12075
 D3
 Before the Castle Gates
+~
+~
 ~
 ~
 Z -1 12081
@@ -4323,9 +4726,13 @@ D0
 Inside the Gate
 ~
 ~
+~
+~
 Z 0 12119
 D1
 The Flower Field
+~
+~
 ~
 ~
 Z -1 12080
@@ -4333,9 +4740,13 @@ D2
 The Flower Field
 ~
 ~
+~
+~
 Z -1 12074
 D3
 The Dirt Trod
+~
+~
 ~
 ~
 Z -1 12082
@@ -4354,9 +4765,13 @@ D0
 The Flower Field
 ~
 ~
+~
+~
 Z -1 12087
 D1
 Before the Castle Gates
+~
+~
 ~
 ~
 Z -1 12081
@@ -4364,9 +4779,13 @@ D2
 The Flower Field
 ~
 ~
+~
+~
 Z -1 12073
 D3
 The Dirt Trod
+~
+~
 ~
 ~
 Z -1 12083
@@ -4385,9 +4804,13 @@ D0
 The Flower Field
 ~
 ~
+~
+~
 Z -1 12086
 D1
 The Dirt Trod
+~
+~
 ~
 ~
 Z -1 12082
@@ -4395,9 +4818,13 @@ D2
 The Flower Field
 ~
 ~
+~
+~
 Z -1 12072
 D3
 The Dog Tail Inn
+~
+~
 ~
 ~
 Z 0 12084
@@ -4410,9 +4837,11 @@ exit is back to the east.
 @rus Обеденный зал таверны полон посетителей. Все столы заняты завсегдаями,
 но нигде не видно владельца. Выход ведет на восток.
 ~
-0 Dj inside
+0 D inside
 D1
 The Dirt Trod
+~
+~
 ~
 ~
 Z 0 12083
@@ -4435,9 +4864,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12098
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12086
@@ -4459,9 +4892,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12097
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12087
@@ -4469,9 +4906,13 @@ D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12083
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12085
@@ -4493,9 +4934,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12096
 D1
 Behind the Hill
+~
+~
 ~
 ~
 Z -1 12156
@@ -4503,9 +4948,13 @@ D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12082
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12086
@@ -4527,9 +4976,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12094
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12090
@@ -4537,9 +4990,13 @@ D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12080
 D3
 Behind the Hill
+~
+~
 ~
 ~
 Z -1 12156
@@ -4561,9 +5018,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12093
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12091
@@ -4571,9 +5032,13 @@ D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12079
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12089
@@ -4594,14 +5059,20 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12092
 D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12078
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12090
@@ -4624,9 +5095,13 @@ D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12091
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12093
@@ -4649,14 +5124,20 @@ D1
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12092
 D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12090
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12094
@@ -4679,9 +5160,13 @@ D0
 Path Up the Mountains
 ~
 ~
+~
+~
 Z -1 12103
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12093
@@ -4689,9 +5174,13 @@ D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12089
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12095
@@ -4714,9 +5203,13 @@ D0
 Path up the Mountains
 ~
 ~
+~
+~
 Z -1 12102
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12094
@@ -4724,9 +5217,13 @@ D2
 Behind the Hill
 ~
 ~
+~
+~
 Z -1 12156
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12096
@@ -4749,9 +5246,13 @@ D0
 Path up the Mountains
 ~
 ~
+~
+~
 Z -1 12101
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12095
@@ -4759,9 +5260,13 @@ D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12087
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12097
@@ -4784,14 +5289,20 @@ D1
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12096
 D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12086
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12098
@@ -4814,9 +5325,13 @@ D1
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12097
 D2
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12085
@@ -4831,9 +5346,11 @@ the east toward the lighter part of the cave.
 и свет из других частей сюда не доходят, потому здесь сыро и влажно. Выход
 ведет обратно в освещенную часть пещер.
 ~
-0 ADgj mountain
+0 AD mountain
 D1
 The Lighter Part of the Caves.
+~
+~
 ~
 ~
 Z -1 12100
@@ -4841,6 +5358,8 @@ D5
 A Dark Abyss.
 ~
 Abyss~
+the abyss~
+~
 Z 0 12113
 S
 #12100
@@ -4856,14 +5375,18 @@ The only other exit is back into the main caves.
 маленький узкий проход, а на востоке кузница соеденяется с остальными пеще-
 рами.
 ~
-0 Dj inside
+0 D inside
 D1
 The Workplace Before the Forge
+~
+~
 ~
 ~
 Z -1 12101
 D3
 The Dark Hole Behind the Forge
+~
+~
 ~
 ~
 Z -1 12099
@@ -4880,9 +5403,11 @@ to the west you hear the sounds of a forge.  The path to the meadow is south.
 пада доносятся звон, шипение и другие звуки, говорящие о том, что в 
 кузнице вовсю кипит работа. На юг уходит дорожка ведущая на луга.
 ~
-0 Dj inside
+0 D inside
 D0
 The Boggan Caverns
+~
+~
 ~
 ~
 Z -1 12109
@@ -4890,14 +5415,20 @@ D1
 Up on a Path in the Mountains.
 ~
 ~
+~
+~
 Z -1 12102
 D2
 The Flower Meadow.
 ~
 ~
+~
+~
 Z -1 12096
 D3
 The Great Stone Forge.
+~
+~
 ~
 ~
 Z -1 12100
@@ -4911,9 +5442,11 @@ the sounds of metalworking and from the east you hear deep voices.
 по горам. На севере видны пещеры, откуда доносятся размеренные удары молота
 по наковальне. С востока слышится низкий голоса.
 ~
-0 Dj inside
+0 D inside
 D0
 The Boggan Caverns.
+~
+~
 ~
 ~
 Z -1 12108
@@ -4921,14 +5454,20 @@ D1
 An Empty Rock Shelf.
 ~
 ~
+~
+~
 Z -1 12103
 D2
 The Flower Meadow.
 ~
 ~
+~
+~
 Z -1 12095
 D3
 The Workplace Before the Forge.
+~
+~
 ~
 ~
 Z -1 12101
@@ -4942,9 +5481,11 @@ to the west you hear the sound of metal banging on metal.
 На севере видно несколько входов в пещеры, с запада догосятся голоса,
 с востока -- размерный стук молота.
 ~
-0 Dj inside
+0 D inside
 D0
 The Boggan Caverns.
+~
+~
 ~
 ~
 Z -1 12107
@@ -4952,14 +5493,20 @@ D1
 The Crafts Shoppe.
 ~
 ~
+~
+~
 Z -1 12104
 D2
 The Flower Meadow.
 ~
 ~
+~
+~
 Z -1 12094
 D3
 Up on a Path in the Mountains.
+~
+~
 ~
 ~
 Z -1 12102
@@ -4973,9 +5520,11 @@ east and north the cavern extends and to the west is a rock ledge.
 продолжаются на восток и на запад, а на востоке находится скальный
 выступ.
 ~
-0 Dj inside
+0 D inside
 D0
 A Cluttered Room.
+~
+~
 ~
 ~
 Z -1 12106
@@ -4983,9 +5532,13 @@ D1
 A Storage Room.
 ~
 ~
+~
+~
 Z -1 12105
 D3
 The Rock Ledge.
+~
+~
 ~
 ~
 Z -1 12103
@@ -5000,9 +5553,11 @@ several little metal tols you can't even identify.
 с маленькими металическими штучками, о назначении которых можно только
 догадываться.
 ~
-0 Dj inside
+0 D inside
 D3
 The Crafts Shoppe.
+~
+~
 ~
 ~
 Z -1 12104
@@ -5015,14 +5570,18 @@ looks as if it is a place kept by several absent minded bachelors.
 назначения. Она выглядит так, словно здесь жили несколько рассеянных
 холостяков.
 ~
-0 Dj inside
+0 D inside
 D2
 The Crafts Shoppe.
+~
+~
 ~
 ~
 Z -1 12104
 D3
 The Kitchen.
+~
+~
 ~
 ~
 Z -1 12107
@@ -5041,9 +5600,11 @@ a bedroom to the north and some kind of hall to the east.
 что и в этих пещерах можно неплохо устроится. На севере находится 
 спальня, на востоке -- еще какие помещения.
 ~
-0 Dj inside
+0 D inside
 D0
 A Small Bedroom.
+~
+~
 ~
 ~
 Z -1 12112
@@ -5051,14 +5612,20 @@ D1
 The cluttered Room.
 ~
 ~
+~
+~
 Z -1 12106
 D2
 The Rock Ledge.
 ~
 ~
+~
+~
 Z -1 12103
 D3
 The Welcoming Hall.
+~
+~
 ~
 ~
 Z -1 12108
@@ -5077,9 +5644,11 @@ the west.
 На севере находится спальня, на юге -- дорога на луга, на востоке -- кухня,
 и, наконец, на западе -- комната, в которой хранятся всяческие трофеи.
 ~
-0 Dj inside
+0 D inside
 D0
 A Small Bedroom.
+~
+~
 ~
 ~
 Z -1 12111
@@ -5087,14 +5656,20 @@ D1
 The Kitchen.
 ~
 ~
+~
+~
 Z -1 12107
 D2
 Up on a Path in the Mountains.
 ~
 ~
+~
+~
 Z -1 12102
 D3
 The Trophy Room.
+~
+~
 ~
 ~
 Z -1 12109
@@ -5113,9 +5688,11 @@ the north is a bedroom and to the south you hear sounds of metalworking.
 просто диву даешься. Гобелены на стенах красочно изображают великие битвы.
   На севере находится спальня, на юге -- кузница.
 ~
-0 Dj inside
+0 D inside
 D0
 A Small Bedroom.
+~
+~
 ~
 ~
 Z -1 12110
@@ -5123,9 +5700,13 @@ D1
 The Welcoming Hall.
 ~
 ~
+~
+~
 Z -1 12108
 D2
 The Workplace Before the Forge.
+~
+~
 ~
 ~
 Z -1 12101
@@ -5141,9 +5722,11 @@ The inhabitant of this room must never sleep.
 по комнате, несколько штук лежит на пыльном покрывале. Жители этого 
 места, вероятно, не спят.
 ~
-0 Dj inside
+0 D inside
 D2
 The Trophy Room.
+~
+~
 ~
 ~
 Z -1 12109
@@ -5159,9 +5742,11 @@ The inhabitant of this room must never sleep.
 по комнате, несколько штук лежит на пыльном покрывале. Жители этого 
 места, вероятно, не спят.
 ~
-0 Dj inside
+0 D inside
 D2
 The Welcoming Hall.
+~
+~
 ~
 ~
 Z -1 12108
@@ -5177,9 +5762,11 @@ and it seems as if no one has used it in a long time.
 сложены аккуратно на своих местах, комната запылена и выглядит так, словно
 здесь уже давно никто не жил.
 ~
-0 Dj inside
+0 D inside
 D2
 The Kitchen.
+~
+~
 ~
 ~
 Z -1 12107
@@ -5193,14 +5780,18 @@ and the way out is up.
 Воздух зловонен, а еще здесь холодно. Дыра продолжается на север, а
 а выход отсюда вверх.
 ~
-0 ADgj mountain
+0 AD mountain
 D0
 More Darkness and Slime.
+~
+~
 ~
 ~
 Z -1 12114
 D4
 The Dark Space Behind the Forge.
+~
+~
 ~
 ~
 Z 0 12099
@@ -5216,9 +5807,11 @@ strange designs on it to the west.
 на западе отделяет тебя от чего-то непонятного, но явно не очень
 хорошего.
 ~
-0 ADgj mountain
+0 AD mountain
 D2
 A Dark Abyss.
+~
+~
 ~
 ~
 Z -1 12113
@@ -5226,7 +5819,9 @@ D3
 The Forbidden Room.
 ~
 ~
-ABZgh 0 12115
+~
+~
+ABZ 0 12115
 S
 #12115
 @eng The Forbiden Room@rus Запретное место~
@@ -5239,9 +5834,11 @@ You get the feeling you shouldn't be here.
 а по полу разбросаны листы бумаги, на которых что-то написано. Ты чувству-
 есшь, что не $gn{должен} здесь находиться.
 ~
-0 ADgj mountain
+0 AD mountain
 D1
 More Darkness and Slime.
+~
+~
 ~
 ~
 Z 0 12114
@@ -5255,9 +5852,11 @@ flowered meadow all around the castle and dark mountains to the north.
 окружающие замок: цветочные луга вокруг, прекрасные леса на юге и 
 темные горы на севере.
 ~
-0 Dj inside
+0 D inside
 D5
 In the Guard Tower.
+~
+~
 ~
 ~
 Z -1 12117
@@ -5271,14 +5870,18 @@ where the guards obviously sit to play cards and drink.
 Это помещение очень мрачное и выглядит запущенным. В цетре стоит
 стол, за которым несущие вахту охранники играютв карты и пьют.
 ~
-0 Dj inside
+0 D inside
 D4
 The Top of the Western Tower.
+~
+~
 ~
 ~
 Z -1 12116
 D5
 The Guard Barracks.
+~
+~
 ~
 ~
 Z -1 12118
@@ -5292,14 +5895,18 @@ gloomy, wet, and in a state of disorder.
 Здесь несколько больших кроватей и пара столов. А само помещение
 теплое, но мрачное, и здесь царит беспорядок.
 ~
-0 Dj inside
+0 D inside
 D1
 The Gates of the Fae Stronghold.
+~
+~
 ~
 ~
 Z 0 12119
 D4
 In the Guard Tower.
+~
+~
 ~
 ~
 Z -1 12117
@@ -5318,9 +5925,11 @@ the gates.
 коридору, украшенному многочисленными драпировками, на север, то попадешь
 внутрь замка. На юге, за воротами, колышутся моря зеленой травы.
 ~
-0 Dj inside
+0 D inside
 D0
 The Entryway.
+~
+~
 ~
 ~
 Z -1 12123
@@ -5328,16 +5937,22 @@ D1
 The East Tower
 ~
 gold~
+the gold~
+~
 Z 0 12120
 D2
 Outside the Gates.
 ~
 gate~
+the gate~
+~
 Z 12065 12081
 D3
 The West Tower
 ~
 silver~
+the silver~
+~
 Z 0 12118
 S
 #12120
@@ -5350,14 +5965,18 @@ a door to the west.
 дисциплинированы и комната в образцовом порядке, кровати застелены, а
 столы выскоблены до блеска. Лестница ведет наверх, а дверь -- на запад.
 ~
-0 Dj inside
+0 D inside
 D3
 The Gates of the Fae Stronghold.
 ~
 gold~
+the gold~
+~
 Z 0 12119
 D4
 Inside the East Tower
+~
+~
 ~
 ~
 Z -1 12121
@@ -5374,14 +5993,18 @@ knives stuck in them.  Also a new deck of cards sits on one of the tables.
 стенах несколько досок для метания ножей. Новая колода карт лежит на одном
 из столов, а пара ножей воткнута в одну из досок на стене.
 ~
-0 Dj inside
+0 D inside
 D4
 The Top of the Eastern Guard Tower.
+~
+~
 ~
 ~
 Z -1 12122
 D5
 The East Tower.
+~
+~
 ~
 ~
 Z -1 12120
@@ -5395,9 +6018,11 @@ flowered meadow all around the castle and dark mountains to the north.
 окружающие замок цветочные луга, прекрасные леса на юге и мрачные темные
 горы на севере.
 ~
-0 Dj inside
+0 D inside
 D5
 Inside the East Tower.
+~
+~
 ~
 ~
 Z -1 12121
@@ -5413,14 +6038,18 @@ back south to the gates.
 на полянах, у прудов, в пещерах и в замке. Замковый коридор ведет дальше на
 север, а на юге находятся врата замка.
 ~
-0 Dj inside
+0 D inside
 D0
 The Hall of Spring.
+~
+~
 ~
 ~
 Z -1 12124
 D2
 The Gates of the Fae Stronghold.
+~
+~
 ~
 ~
 Z -1 12119
@@ -5444,9 +6073,11 @@ $gn{вошел} в этот зал. Ты $gn{почувствовал} себя $gn{посвежевшим}, $gn{бодрым}, 
 себя от гобелена.
   Выходы из зала ведут на юг и на север.
 ~
-0 Dj inside
+0 D inside
 D0
 The Hall of Summer.
+~
+~
 ~
 ~
 Z -1 12125
@@ -5454,9 +6085,13 @@ D1
 Eternal Spring.
 ~
 tapestry~
-ABZgh 0 12154
+the tapestry~
+~
+ABZ 0 12154
 D2
 The Castle Entryway.
+~
+~
 ~
 ~
 Z -1 12123
@@ -5479,9 +6114,11 @@ The hall continues to the north and south.
 и $gn{прекрасным}. Картина тускнеет и ты слышишь доносящицся смех.
   Выходы из зала находятся на юге и на севере.
 ~
-0 Dj inside
+0 D inside
 D0
 The Hall of Autumn.
+~
+~
 ~
 ~
 Z -1 12126
@@ -5489,9 +6126,13 @@ D1
 Eternal Summer.
 ~
 tapestry~
-ABZgh 0 12153
+the tapestry~
+~
+ABZ 0 12153
 D2
 The Hall of Spring.
+~
+~
 ~
 ~
 Z -1 12124
@@ -5517,9 +6158,11 @@ confused.  The hall continues to the north and south.
 совершенно $gn{потерявшим} ориентацию.
   Выходы из зала находятся на севере и на юге.
 ~
-0 Dj inside
+0 D inside
 D0
 The Hall of Winter.
+~
+~
 ~
 ~
 Z -1 12127
@@ -5527,9 +6170,13 @@ D1
 The Hidden Court.
 ~
 leaves~
-ABCZghi 0 12150
+the leaves~
+~
+ABCZ 0 12150
 D2
 The Hall of Summer.
+~
+~
 ~
 ~
 Z -1 12125
@@ -5537,7 +6184,9 @@ D3
 Eternal Autumn.
 ~
 tapestry~
-ABZgh 0 12152
+the tapestry~
+~
+ABZ 0 12152
 S
 #12127
 @eng The Hall of Winter@rus Зимний зал~
@@ -5561,9 +6210,11 @@ to the north and south.
 какое-то хихиканье вывело тебя из задумчивости и ты $gn{вздрогнул} от холода.
   Выходы из зала находятся на юге и на севере.
 ~
-0 Dj inside
+0 D inside
 D0
 An Intersection of Hallways.
+~
+~
 ~
 ~
 Z -1 12128
@@ -5571,9 +6222,13 @@ D1
 The Hidden Court.
 ~
 ice~
-ABCZghi 0 12149
+the ice~
+~
+ABCZ 0 12149
 D2
 The Hall of Autumn.
+~
+~
 ~
 ~
 Z -1 12126
@@ -5581,7 +6236,9 @@ D3
 Eternal Winter.
 ~
 tapestry~
-ABZgh 0 12151
+the tapestry~
+~
+ABZ 0 12151
 S
 #12128
 @eng A Hallway Intersection@rus Пересечение коридоров~
@@ -5592,9 +6249,11 @@ west are large chambers. From the south a chill wind blows in.
 находятся большие зала, с юга веет холодом. На севере виден большой двор
 замка.
 ~
-0 Dj inside
+0 D inside
 D0
 The Courtyard.
+~
+~
 ~
 ~
 Z -1 12134
@@ -5602,14 +6261,20 @@ D1
 The Chamber of Imbolc.
 ~
 ~
+~
+~
 Z -1 12130
 D2
 The Hall of Winter.
 ~
 ~
+~
+~
 Z -1 12127
 D3
 The Chamber of Beltane.
+~
+~
 ~
 ~
 Z -1 12129
@@ -5623,14 +6288,18 @@ intensifying it.  To the north and east is a hallway.
 Отполированные стены отражают свет исходящий от пламени. На востоке и на
 севере находятся выходы в коридоры замка.
 ~
-0 Dj inside
+0 D inside
 D0
 A Hallway.
+~
+~
 ~
 ~
 Z -1 12133
 D1
 A Hallway intersection.
+~
+~
 ~
 ~
 Z -1 12128
@@ -5646,14 +6315,18 @@ west is the intersection.
 Стены в зале голые и ничего особенно интересного здесь нет. Выходы из
 зала на севере и на западе.
 ~
-0 Dj inside
+0 D inside
 D0
 A Hallway.
+~
+~
 ~
 ~
 Z -1 12135
 D3
 A Hallway intersection.
+~
+~
 ~
 ~
 Z -1 12128
@@ -5667,14 +6340,18 @@ leading back to the main chambers and there is a stairway up into the tower.
 замка. Комната пуста и запылена. Коридор на востоке ведет к залам
 в центре замка, лестница ведет вверх, внутрь башни.
 ~
-0 Dj inside
+0 D inside
 D1
 A Hallway.
+~
+~
 ~
 ~
 Z -1 12132
 D4
 Inside the Western Tower.
+~
+~
 ~
 ~
 Z -1 12142
@@ -5687,14 +6364,18 @@ kept in this part of the castle.
 @rus Этот коридор соеденяет западную сторожевую башню и центральные залы
 замка. Он выглядит темнее и менее используемым, чем другие части дворца.
 ~
-0 Dj inside
+0 D inside
 D1
 A Hallway.
+~
+~
 ~
 ~
 Z -1 12133
 D3
 The Base of the Western Tower.
+~
+~
 ~
 ~
 Z -1 12131
@@ -5708,9 +6389,11 @@ is the tower and to the east is a courtyard.
 севере и на юге находятся замковые залы, на востоке -- внутренний двор, 
 а на западе -- сторожевая башня.
 ~
-0 Dj inside
+0 D inside
 D0
 The Chamber of Lughnasadh.
+~
+~
 ~
 ~
 Z -1 12141
@@ -5718,14 +6401,20 @@ D1
 The Courtyard.
 ~
 ~
+~
+~
 Z -1 12134
 D2
 The Chamber of Beltane.
 ~
 ~
+~
+~
 Z -1 12129
 D3
 A Hallway.
+~
+~
 ~
 ~
 Z -1 12132
@@ -5739,9 +6428,11 @@ wanting to recline beside the fountain at the center.
 полное цветов и трав. Несколько небольших деревьев создают тень для тех,
 кто желает прилечь отдохнуть на травке у фонтана в центре двора.
 ~
-0 Dj inside
+0 D inside
 D0
 A Hallway.
+~
+~
 ~
 ~
 Z -1 12140
@@ -5749,14 +6440,20 @@ D1
 A Hallway.
 ~
 ~
+~
+~
 Z -1 12135
 D2
 A Hallway.
 ~
 ~
+~
+~
 Z -1 12128
 D3
 A Hallway.
+~
+~
 ~
 ~
 Z -1 12133
@@ -5770,9 +6467,11 @@ courtyard.  The east tower lies to the east.
 севере и на юге находятся два зала, на западе -- внутренний дворик 
 замка. Если пойти на восток, то придешь в восточную башню.
 ~
-0 Dj inside
+0 D inside
 D0
 The Chamber of Samhain.
+~
+~
 ~
 ~
 Z -1 12139
@@ -5780,14 +6479,20 @@ D1
 A Hallway.
 ~
 ~
+~
+~
 Z -1 12136
 D2
 The Chamber of Imbolc.
 ~
 ~
+~
+~
 Z -1 12130
 D3
 The Courtyard.
+~
+~
 ~
 ~
 Z -1 12134
@@ -5799,14 +6504,18 @@ castle.  To the east is the tower base and to the west is another hallway.
 @rus Этот коридор соеденяет центральные залы замка и восточную башню. На востоке
 находится вход в башню, а на западе виден еще один коридор.
 ~
-0 Dj inside
+0 D inside
 D1
 The Base of the Eastern Tower.
+~
+~
 ~
 ~
 Z -1 12137
 D3
 A Hallway.
+~
+~
 ~
 ~
 Z -1 12135
@@ -5821,14 +6530,18 @@ castle and there is a staircase going up the tower.
 воинов. Стены башни сияют и переливаются золотым. Коридор ведет на запад к
 центральным залам замка, а лестница ведет на верх башни.
 ~
-0 Dj inside
+0 D inside
 D3
 A Hallway.
+~
+~
 ~
 ~
 Z -1 12136
 D4
 Inside the Eastern Tower.
+~
+~
 ~
 ~
 Z -1 12138
@@ -5846,14 +6559,18 @@ top of the tower.
 прикреплено к полкам, на которых лежит, и у тебя нет возможности взять
 его. Лестница ведет вниз и вверх.
 ~
-0 Dj inside
+0 D inside
 D4
 The Top of the Eastern Guard Tower.
 ~
 trapdoor~
+the trapdoor~
+~
 Z 12065 12145
 D5
 The Base of the Eastern Tower.
+~
+~
 ~
 ~
 Z -1 12137
@@ -5869,14 +6586,18 @@ the walls, along with the mounted heads of several animals.
 темному лесу, дующие в рога охотники... На стенах висит несколько таких
 охотничьих рогов вперемешку с чучелами нескольких животных.
 ~
-0 Dj inside
+0 D inside
 D2
 A Hallway.
+~
+~
 ~
 ~
 Z -1 12135
 D3
 An Audience Chamber.
+~
+~
 ~
 ~
 Z -1 12140
@@ -5893,9 +6614,11 @@ east and west are some large decorated chambers.
 гих из них изображены сами Владыки. На юге расположен внутренний двор замка,
 на востоке и на западе -- замковые залы.
 ~
-0 Dj inside
+0 D inside
 D0
 The Court of the Fae.
+~
+~
 ~
 ~
 Z -1 12144
@@ -5903,14 +6626,20 @@ D1
 The Chamber of Samhain.
 ~
 ~
+~
+~
 Z -1 12139
 D2
 The Courtyard. 
 ~
 ~
+~
+~
 Z -1 12134
 D3
 The Chamber of Lughnasadh.
+~
+~
 ~
 ~
 Z -1 12141
@@ -5924,14 +6653,18 @@ there is, strangely out of place a bookcase along the northern wall.
 На стенах несколько предметов, напоминающих серпы, и большая полка
 вдоль всей северной стены.
 ~
-0 Dj inside
+0 D inside
 D1
 The Audience Chamber.
+~
+~
 ~
 ~
 Z -1 12140
 D2
 A Hallway.
+~
+~
 ~
 ~
 Z -1 12133
@@ -5948,14 +6681,18 @@ up to the top of the tower.
 количество осколков лезвий, рукояток и древков копий. Лестница ведет
 вверх и вниз.
 ~
-0 Dj inside
+0 D inside
 D4
 The Top of the Western Guard Tower.
 ~
 trapdoor~
+the trapdoor~
+~
 Z 12065 12143
 D5
 The Base of the Western Tower.
+~
+~
 ~
 ~
 Z -1 12131
@@ -5972,12 +6709,14 @@ of smoke.
 горы на севере, цветочные луга вогруг замка. Большая латунная жаровня,
 наполненная углями, стоит здесь, испуская немало дыма.
 ~
-0 Dj inside
+0 D inside
 D5
 In the Guard Tower.
 ~
 ~
-ABZgh 0 12142
+~
+~
+ABZ 0 12142
 S
 #12144
 @eng The Court of the Fae@rus Площадка для игр~
@@ -5991,14 +6730,18 @@ throne that sits farther to the north.
 свое всемя. Здесь они играют, танцуют, веселяться. На севере золой трон
 владык, задрапированный пурпурной тканью.
 ~
-0 Dj inside
+0 D inside
 D0
 The Throne of the Seelie Fae.
+~
+~
 ~
 ~
 Z -1 12146
 D2
 The Audience Chamber.
+~
+~
 ~
 ~
 Z -1 12140
@@ -6015,12 +6758,14 @@ light and heat.  The trapdoor leads back down into the tower.
 севере. Огонь, горящий в большой латунной жаровне, распространяет вокруг
 свет и тепло. Люк в полу ведет вниз, назад в башню.
 ~
-0 Dj inside
+0 D inside
 D5
 Inside the Eastern Tower.
 ~
 trapdoor~
-ABZgh 12065 12138
+the trapdoor~
+~
+ABZ 12065 12138
 S
 #12146
 @eng The Throne of the Seelie Fae@rus Трон владык Светлого царства~
@@ -6032,14 +6777,18 @@ from the ceiling and are gathered back behind the massive throne.
 веселящаяся. Толстая пурпурная портьера, свисающая с потолка, висит позади
 трона, скрывая, что находится за ним.
 ~
-0 Dj inside
+0 D inside
 D0
 Behind the Drapes.
 ~
 drapes~
-ABZgh 0 12147
+the drapes~
+~
+ABZ 0 12147
 D2
 The Court of the Fae.
+~
+~
 ~
 ~
 Z -1 12144
@@ -6053,17 +6802,21 @@ the court outside quite well.
 занавеской. Стоя здесь можно слышать, что происхотит в тронном зале,
 оставаясь совершенно незаметным.
 ~
-0 Dj inside
+0 D inside
 D2
 The Throne of the Seelie Fae.
 ~
 drapes~
+the drapes~
+~
 Z 0 12146
 D5
 The Watcher's Home.
 ~
 floor~
-ABCZghi 12067 12148
+the floor~
+~
+ABCZ 12067 12148
 S
 #12148
 @eng The Watcher's Home@rus Дом соглядая~
@@ -6074,9 +6827,11 @@ other than the rag bed and the small pool of slime in the corner.
 следит за происходящим из-за трона владык Светлого царства. Здесь нет ничего
 интересного, только кровать, заваленная тряпками и лужа в углу.
 ~
-0 Dj inside
+0 D inside
 D4
 Behind the Royal Drapes.
+~
+~
 ~
 ~
 Z -1 12147
@@ -6094,9 +6849,11 @@ of the Dark court.
 понятно, есть ли кто на нем, этого не видно. На юге виден еще один темный
 зал.
 ~
-0 Dj inside
+0 D inside
 D2
 The Hidden Court.
+~
+~
 ~
 ~
 Z -1 12150
@@ -6104,7 +6861,9 @@ D3
 The Hall of Winter.
 ~
 wall~
-ABCZghi 0 12127
+the wall~
+~
+ABCZ 0 12127
 S
 #12150
 @eng The Hidden Court@rus Скрытый двор~
@@ -6119,9 +6878,11 @@ of the Dark court.
 понятно, есть ли кто на нем, этого не видно. На севере виден еще один темный
 зал.
 ~
-0 Dj inside
+0 D inside
 D0
 The Hidden Court.
+~
+~
 ~
 ~
 Z -1 12149
@@ -6129,7 +6890,9 @@ D3
 The Hall of Autumn.
 ~
 ~
-ABCZghi 0 12126
+~
+~
+ABCZ 0 12126
 S
 #12151
 @eng Eternal Winter@rus Вечная зима~
@@ -6141,9 +6904,11 @@ find yourself unable to even contemplate leaving this eternal winter.
 ствуешь, что не в состоянии сдвинуться с места и покинуть место, где
 царит вечная, непрекращающаяся зима.
 ~
-0 DLNTUVWjrtz inside
+0 DLNTUVW inside
 D0
 Eternal Winter.
+~
+~
 ~
 ~
 Z -1 12151
@@ -6151,9 +6916,13 @@ D1
 Eternal Winter.
 ~
 ~
+~
+~
 Z -1 12151
 D2
 Eternal Winter.
+~
+~
 ~
 ~
 Z -1 12151
@@ -6161,12 +6930,16 @@ D3
 Eternal Winter.
 ~
 ~
+~
+~
 Z -1 12151
 D5
 Hope.
 ~
 hope~
-ABZgh -1 12155
+the hope~
+~
+ABZ -1 12155
 S
 #12152
 @eng Eternal Autumn@rus Вечная осень~
@@ -6176,9 +6949,11 @@ comfortable that you really don't ever want to leave this place.
 и $gn{вялым}. Тебе хорошо и спокойно, и ты совершенно не желаешь покидать
 это место.
 ~
-0 DLNTUVWjrtz inside
+0 DLNTUVW inside
 D0
 Eternal Autumn.
+~
+~
 ~
 ~
 Z -1 12152
@@ -6186,9 +6961,13 @@ D1
 Eternal Autumn.
 ~
 ~
+~
+~
 Z -1 12152
 D2
 Eternal Autumn.
+~
+~
 ~
 ~
 Z -1 12152
@@ -6196,12 +6975,16 @@ D3
 Eternal Autumn.
 ~
 ~
+~
+~
 Z -1 12152
 D5
 Hope.
 ~
 hope~
-ABZgh -1 12155
+the hope~
+~
+ABZ -1 12155
 S
 #12153
 @eng Eternal Summer@rus Вечное лето~
@@ -6213,9 +6996,11 @@ of the eternal summer.
 и все, что ты можешь, это сидеть и наслаждаться светом льющимся в тебя. Ты
 не $gn{способен} уйти, теперь ты -- часть этого лета, вечного лета.
 ~
-0 DLNTUVWjrtz inside
+0 DLNTUVW inside
 D0
 Eternal Summer.
+~
+~
 ~
 ~
 Z -1 12153
@@ -6223,9 +7008,13 @@ D1
 Eternal Summer.
 ~
 ~
+~
+~
 Z -1 12153
 D2
 Eternal Summer.
+~
+~
 ~
 ~
 Z -1 12153
@@ -6233,12 +7022,16 @@ D3
 Eternal Summer.
 ~
 ~
+~
+~
 Z -1 12153
 D5
 Hope.
 ~
 hope~
-ABZgh -1 12155
+the hope~
+~
+ABZ -1 12155
 S
 #12154
 @eng Eternal Spring@rus Вечная весна~
@@ -6254,9 +7047,11 @@ $gn{сам} $gn{стал} меньше ростом. Это не имеет значения, потому что ты снова $gn
 и тебе совсем совсем не хочется опять взрослеть. Ты можешь остаться здесь
 и всегда быть $gn{юным}.
 ~
-0 DLNTUVWjrtz inside
+0 DLNTUVW inside
 D0
 Eternal Spring.
+~
+~
 ~
 ~
 Z -1 12154
@@ -6264,9 +7059,13 @@ D1
 Eternal Spring.
 ~
 ~
+~
+~
 Z -1 12154
 D2
 Eternal Spring.
+~
+~
 ~
 ~
 Z -1 12154
@@ -6274,12 +7073,16 @@ D3
 Eternal Spring.
 ~
 ~
+~
+~
 Z -1 12154
 D5
 Hope.
 ~
 hope~
-ABZgh -1 12155
+the hope~
+~
+ABZ -1 12155
 S
 #12155
 @eng Hope@rus Надежда~
@@ -6288,7 +7091,7 @@ let you grasp onto your hope and escape from your own actions.
 @rus Когда ты $gn{попал} в ловушку вечности, твоя смертность позволила тебе
 надеяться и спастись.
 ~
-0 CDij inside
+0 CD inside
 S
 #12156
 @eng Behind the Hill@rus Позади холма~
@@ -6304,10 +7107,12 @@ you hear?'
 перестал играть. "Я сыграю тебе мелодию за вознаграждение",- сказал он с
 улыбкой.
 ~
-0 Ms field
+0 M field
 D0
 @eng The Flower Meadow
 @rus Цветочный луг.
+~
+~
 ~
 ~
 Z -1 12095
@@ -6316,16 +7121,22 @@ D1
 @rus Цветочный луг.
 ~
 ~
+~
+~
 Z -1 12089
 D2
 @eng Under the Hill.
 @rus Под холмом.
 ~
 ~
-ABCFZghil 0 12157
+~
+~
+ABCFZ 0 12157
 D3
 @eng The Flower Meadow
 @rus Цветочный луг.
+~
+~
 ~
 ~
 Z -1 12087
@@ -6338,13 +7149,15 @@ are several wondrous creatures standing here studying you.
 созданий. Они находятся прямо рядом с тобой, с интересом наблюдая за
 твоими действиями.
 ~
-0 Ms field
+0 M field
 D0
 @eng Behind the Hill.
 @rus Позади холма.
 ~
 ~
-ABFZghl 0 12156
+~
+~
+ABFZ 0 12156
 S
 #0
 

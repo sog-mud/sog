@@ -612,7 +612,7 @@ handaxe hand axe~
 You see a finely made axe.  Iron, with a nice wooden shaft, this axe can
 withstand years of use.
 ~
-g none~
+g @rus none~
 #601
 meat cleaver~
 a meat cleaver~
@@ -626,7 +626,7 @@ E
 meat cleaver~
 This meat cleaver is made of good steel.
 ~
-g none~
+g @rus none~
 #602
 side meat beef~
 a side of beef~
@@ -635,7 +635,7 @@ meat~
 food 0 0 A
 DE DE 0 0 0
 0 100 50 P
-g none~
+g @rus none~
 #603
 side meat pork~
 a side of pork~
@@ -644,7 +644,7 @@ meat~
 food 0 0 A
 ABCE ABCE 0 0 0
 0 100 42 P
-g none~
+g @rus none~
 #604
 side meat horse~
 a side of horse~
@@ -653,7 +653,7 @@ meat~
 food 0 0 A
 BCDE BCDE 0 0 0
 0 120 21 P
-g none~
+g @rus none~
 #605
 meat chicken~
 a defeathered chicken~
@@ -662,7 +662,7 @@ meat~
 food 0 0 A
 E E 0 0 0
 0 50 10 P
-g none~
+g @rus none~
 #606
 emerald ring~
 an emerald ring~
@@ -671,7 +671,7 @@ amethyst~
 jewelry G 0 AB
 0 0 0 0 0
 0 10 1000 P
-g none~
+g @rus none~
 #607
 glass trinket~
 a glass trinket~
@@ -681,7 +681,7 @@ gem 0 0 AO
 0 0 0 0 0
 0 10 150 P
 a '' to_object 0 -1 -1 20 0
-g none~
+g @rus none~
 #608
 golden necklace~
 a golden necklace~
@@ -691,7 +691,7 @@ jewelry 0 0 AC
 0 0 0 0 0
 0 20 500 P
 a '' to_object 0 -1 -1 4 0
-g none~
+g @rus none~
 #609
 cabbage~
 a head of cabbage~
@@ -700,7 +700,7 @@ food~
 food 0 0 A
 CD CD 0 0 0
 0 20 2 P
-g none~
+g @rus none~
 #610
 lettuce~
 a head of lettuce~
@@ -709,7 +709,7 @@ plant~
 food 0 0 A
 CD CD 0 0 0
 0 20 2 P
-g none~
+g @rus none~
 #611
 milk bottle~
 a bottle of milk~
@@ -718,7 +718,7 @@ glass~
 drink 0 0 A
 20 20 'milk' 0 0
 0 50 3 P
-g none~
+g @rus none~
 #612
 apple~
 an apple~
@@ -727,7 +727,7 @@ food~
 food 0 0 A
 D D 0 0 0
 0 10 1 P
-g none~
+g @rus none~
 #613
 corn~
 an ear of corn~
@@ -736,7 +736,7 @@ food~
 food 0 0 A
 D D 0 0 0
 0 10 3 P
-g none~
+g @rus none~
 #614
 hay pile~
 a pile of hay~
@@ -745,7 +745,7 @@ wood~
 trash 0 0 A
 0 0 0 0 0
 0 200 0 P
-g none~
+g @rus none~
 #615
 pitchfork fork~
 a pitchfork~
@@ -754,7 +754,7 @@ iron~
 weapon 0 0 AN
 spear 3 3 'stab' K
 7 100 122 P
-g none~
+g @rus none~
 #616
 vest~
 a leather vest~
@@ -763,7 +763,7 @@ leather~
 armor 0 0 AD
 1 2 2 0 0
 0 100 270 P
-g none~
+g @rus none~
 #617
 sleeves~
 some leather sleeves~
@@ -772,7 +772,7 @@ leather~
 armor 0 0 AI
 1 2 2 0 0
 0 50 136 P
-g none~
+g @rus none~
 #618
 leggings~
 some leather leggings~
@@ -781,7 +781,7 @@ leather~
 armor 0 0 AF
 1 2 2 0 0
 0 50 136 P
-g none~
+g @rus none~
 #619
 boots~
 some leather boots~
@@ -790,7 +790,7 @@ leather~
 armor 0 0 AG
 1 2 2 0 0
 0 50 136 P
-g none~
+g @rus none~
 #620
 signet ring~
 an Ofcol signet ring~
@@ -802,7 +802,7 @@ jewelry G 0 AB
 a '' to_object 10 -1 -2 17 0
 a '' to_object 10 -1 5 13 0
 a '' to_object 10 -1 -1 20 0
-g none~
+g @rus none~
 #621
 plate brass~
 brass plate~
@@ -813,7 +813,7 @@ armor G 0 AD
 16 100 2400 P
 a '' to_object 16 -1 10 13 0
 a '' to_object 16 -1 -1 20 0
-g none~
+g @rus none~
 #622
 helm brass~
 a brass helm~
@@ -824,7 +824,7 @@ armor G 0 AE
 16 100 1280 P
 a '' to_object 16 -1 5 13 0
 a '' to_object 16 -1 -1 20 0
-g none~
+g @rus none~
 #623
 leggings brass~
 brass leggings~
@@ -835,7 +835,7 @@ armor G 0 AF
 16 100 1280 P
 a '' to_object 16 -1 5 13 0
 a '' to_object 16 -1 -1 20 0
-g none~
+g @rus none~
 #624
 boots brass~
 brass boots~
@@ -846,7 +846,7 @@ armor G 0 AG
 16 100 1280 P
 a '' to_object 16 -1 5 13 0
 a '' to_object 16 -1 -1 20 0
-g none~
+g @rus none~
 #625
 gauntlets brass~
 brass gauntlets~
@@ -857,7 +857,7 @@ armor G 0 AH
 16 100 1280 P
 a '' to_object 16 -1 5 13 0
 a '' to_object 16 -1 -1 20 0
-g none~
+g @rus none~
 #626
 sleeves brass~
 brass sleeves~
@@ -868,7 +868,7 @@ armor G 0 AI
 16 100 1280 P
 a '' to_object 16 -1 5 13 0
 a '' to_object 16 -1 -1 20 0
-g none~
+g @rus none~
 #627
 shield brass~
 a brass shield~
@@ -879,7 +879,7 @@ armor G 0 AJ
 16 200 1850 P
 a '' to_object 16 -1 5 13 0
 a '' to_object 16 -1 -1 20 0
-g none~
+g @rus none~
 #628
 girth brass~
 a brass girth~
@@ -890,7 +890,7 @@ armor G 0 AL
 16 100 1280 P
 a '' to_object 16 -1 5 13 0
 a '' to_object 16 -1 -1 20 0
-g none~
+g @rus none~
 #629
 bracer brass~
 a brass bracer~
@@ -901,7 +901,7 @@ armor G 0 AM
 12 100 1040 P
 a '' to_object 12 -1 5 13 0
 a '' to_object 12 -1 -1 20 0
-g none~
+g @rus none~
 #630
 claymore sword~
 a claymore~
@@ -912,7 +912,7 @@ sword 4 6 'cleave' F
 19 160 3100 P
 a '' to_object 19 -1 4 19 0
 a '' to_object 19 -1 -2 18 0
-g none~
+g @rus none~
 #631
 plate silver~
 silver plate~
@@ -923,7 +923,7 @@ armor GK 0 AD
 25 200 5000 P
 a '' to_object 25 -1 1 1 0
 a '' to_object 25 -1 10 12 0
-g none~
+g @rus none~
 #632
 helm silver~
 a silver helm~
@@ -934,7 +934,7 @@ armor GK 0 AE
 25 200 2900 P
 a '' to_object 25 -1 1 2 0
 a '' to_object 25 -1 5 12 0
-g none~
+g @rus none~
 #633
 leggings silver~
 silver leggings~
@@ -945,7 +945,7 @@ armor GK 0 AF
 25 200 2900 P
 a '' to_object 25 -1 1 3 0
 a '' to_object 25 -1 5 12 0
-g none~
+g @rus none~
 #634
 boots silver~
 silver boots~
@@ -956,7 +956,7 @@ armor GK 0 AG
 25 200 2900 P
 a '' to_object 25 -1 1 4 0
 a '' to_object 25 -1 5 12 0
-g none~
+g @rus none~
 #635
 gauntlets silver~
 silver gauntlets~
@@ -967,7 +967,7 @@ armor GK 0 AH
 25 200 2900 P
 a '' to_object 25 -1 1 5 0
 a '' to_object 25 -1 5 12 0
-g none~
+g @rus none~
 #636
 sleeves silver~
 silver sleeves~
@@ -978,7 +978,7 @@ armor GK 0 AI
 25 200 2400 P
 a '' to_object 25 -1 1 18 0
 a '' to_object 25 -1 5 12 0
-g none~
+g @rus none~
 #637
 shield silver~
 the silver shield~
@@ -989,7 +989,7 @@ armor GK 0 AJ
 25 240 4200 P
 a '' to_object 25 -1 -3 17 0
 a '' to_object 25 -1 5 12 0
-g none~
+g @rus none~
 #638
 girth silver~
 the silver girth~
@@ -1000,7 +1000,7 @@ armor GK 0 AL
 25 200 2400 P
 a '' to_object 25 -1 1 19 0
 a '' to_object 25 -1 5 12 0
-g none~
+g @rus none~
 #639
 plate platinum~
 platinum plate~
@@ -1012,7 +1012,7 @@ armor GK 0 AD
 a '' to_object 33 -1 2 19 0
 a '' to_object 33 -1 2 5 0
 a '' to_object 33 -1 15 13 0
-g none~
+g @rus none~
 #640
 helmet platinum~
 the platinum helmet~
@@ -1024,7 +1024,7 @@ armor GK 0 AE
 a '' to_object 33 -1 20 13 0
 a '' to_object 33 -1 20 12 0
 a '' to_object 33 -1 2 4 0
-g none~
+g @rus none~
 #641
 leggings platinum~
 platinum leggings~
@@ -1036,7 +1036,7 @@ armor GK 0 AF
 a '' to_object 33 -1 2 19 0
 a '' to_object 33 -1 15 13 0
 a '' to_object 33 -1 2 2 0
-g none~
+g @rus none~
 #642
 boots platinum~
 platinum boots~
@@ -1048,7 +1048,7 @@ armor GK 0 AG
 a '' to_object 33 -1 100 14 0
 a '' to_object 33 -1 2 19 0
 a '' to_object 33 -1 15 13 0
-g none~
+g @rus none~
 #643
 gauntlets platinum~
 platinum gauntlets~
@@ -1060,7 +1060,7 @@ armor GK 0 AH
 a '' to_object 33 -1 2 18 0
 a '' to_object 33 -1 2 19 0
 a '' to_object 33 -1 15 13 0
-g none~
+g @rus none~
 #644
 sleeves platinum~
 platinum sleeves~
@@ -1072,7 +1072,7 @@ armor GK 0 AI
 a '' to_object 33 -1 2 19 0
 a '' to_object 33 -1 15 13 0
 a '' to_object 33 -1 2 1 0
-g none~
+g @rus none~
 #645
 shield spiked platinum~
 the platinum spiked shield~
@@ -1083,7 +1083,7 @@ armor GK 0 AJ
 33 400 6000 P
 a '' to_object 33 -1 15 13 0
 a '' to_object 33 -1 2 19 0
-g none~
+g @rus none~
 #646
 girth platinum~
 the platinum girth~
@@ -1095,7 +1095,7 @@ armor GK 0 AL
 a '' to_object 33 -1 2 19 0
 a '' to_object 33 -1 15 13 0
 a '' to_object 33 -1 -5 20 0
-g none~
+g @rus none~
 #647
 avenger holy sword~
 the holy Avenger~
@@ -1106,7 +1106,7 @@ sword 5 8 'slice' I
 33 250 5700 P
 a '' to_object 33 -1 6 19 0
 a '' to_object 33 -1 1 18 0
-g none~
+g @rus none~
 #648
 whiskey shot~
 a shot of whiskey~
@@ -1115,7 +1115,7 @@ glass~
 drink 0 0 A
 2 2 'whisky' 0 0
 0 10 12 P
-g none~
+g @rus none~
 #649
 ale quart~
 a quart of ale~
@@ -1124,7 +1124,7 @@ clay~
 drink 0 0 A
 32 32 'ale' 0 0
 0 20 10 P
-g none~
+g @rus none~
 #650
 port brew quart~
 a quart of port brew~
@@ -1133,7 +1133,7 @@ clay~
 drink 0 0 A
 32 32 'dark ale' 0 0
 0 20 18 P
-g none~
+g @rus none~
 #651
 key citadel~
 the citadel key~
@@ -1142,7 +1142,7 @@ iron~
 key 0 0 A
 0 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #652
 symbol holy~
 the Holy Symbol of Bahamut~
@@ -1154,7 +1154,7 @@ jewelry GIKL 0 AC
 a '' to_object 17 -1 2 4 0
 a '' to_object 17 -1 10 12 0
 a '' to_object 17 -1 -3 17 0
-g none~
+g @rus none~
 #653
 ranseur polearm~
 a ranseur~
@@ -1165,7 +1165,7 @@ polearm 4 7 'thrust' F
 24 200 1460 P
 a '' to_object 24 -1 -1 19 0
 a '' to_object 24 -1 3 18 0
-g none~
+g @rus none~
 #654
 torso dragonscale golden~
 a golden dragonscale torso~
@@ -1176,7 +1176,7 @@ armor GK 0 AD
 24 250 6200 P
 a '' to_object 24 -1 2 18 0
 a '' to_object 24 -1 -5 17 0
-g none~
+g @rus none~
 #655
 dragonhelm golden~
 a golden dragonhelm~
@@ -1187,7 +1187,7 @@ armor GK 0 AE
 21 100 2800 P
 a '' to_object 21 -1 1 18 0
 a '' to_object 21 -1 -3 17 0
-g none~
+g @rus none~
 #656
 leggings golden~
 golden dragonscale leggings~
@@ -1198,7 +1198,7 @@ armor GK 0 AF
 21 100 2800 P
 a '' to_object 21 -1 1 18 0
 a '' to_object 21 -1 -3 17 0
-g none~
+g @rus none~
 #657
 boots golden~
 golden dragonscale boots~
@@ -1209,7 +1209,7 @@ armor GK 0 AG
 21 100 2800 P
 a '' to_object 21 -1 1 18 0
 a '' to_object 21 -1 -3 17 0
-g none~
+g @rus none~
 #658
 gauntlets golden~
 golden dragonscale gauntlets~
@@ -1220,7 +1220,7 @@ armor GK 0 AH
 21 100 2800 P
 a '' to_object 21 -1 1 18 0
 a '' to_object 21 -1 -3 17 0
-g none~
+g @rus none~
 #659
 sleeves golden~
 golden dragonscale sleeves~
@@ -1231,7 +1231,7 @@ armor GK 0 AI
 21 100 2800 P
 a '' to_object 21 -1 1 18 0
 a '' to_object 21 -1 -3 17 0
-g none~
+g @rus none~
 #660
 shield golden~
 a golden dragonscale shield~
@@ -1242,7 +1242,7 @@ armor GK 0 AJ
 21 200 3700 P
 a '' to_object 21 -1 1 18 0
 a '' to_object 21 -1 -3 17 0
-g none~
+g @rus none~
 #661
 girth golden~
 a golden dragonscale girth~
@@ -1253,7 +1253,7 @@ armor GK 0 AL
 21 100 2800 P
 a '' to_object 21 -1 1 18 0
 a '' to_object 21 -1 -3 17 0
-g none~
+g @rus none~
 #662
 claw golden~
 the golden claw~
@@ -1263,7 +1263,7 @@ weapon GK 0 AN
 exotic 3 9 'claw' 0
 21 100 2600 P
 a '' to_object 21 -1 2 19 0
-g none~
+g @rus none~
 #663
 orb dragonorb~
 the Gold Dragon Orb~
@@ -1274,7 +1274,7 @@ staff GKL 0 AO
 17 300 9000 P
 a '' to_object 17 -1 2 4 0
 a '' to_object 17 -1 1 3 0
-g none~
+g @rus none~
 #664
 robe golden~
 a golden robe~
@@ -1284,7 +1284,7 @@ armor GK 0 AK
 6 6 5 2 0
 17 100 3800 P
 a '' to_object 17 -1 2 3 0
-g none~
+g @rus none~
 #665
 house key~
 a house key~
@@ -1293,7 +1293,7 @@ silver~
 key 0 0 A
 0 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #666
 broom~
 a broom~
@@ -1304,7 +1304,7 @@ exotic 2 3 'beating' 0
 1 80 760 P
 a '' to_object 1 -1 -3 19 0
 a '' to_object 1 -1 3 18 0
-g none~
+g @rus none~
 #667
 chest~
 a chest~
@@ -1313,7 +1313,7 @@ wood~
 container 0 0 A
 100 0 0 10 100
 0 100 100 P
-g none~
+g @rus none~
 #668
 claw golden~
 the Golden Claw~
@@ -1323,7 +1323,7 @@ weapon GK 0 AN
 exotic 4 10 'claw' 0
 39 200 7200 P
 a '' to_object 39 -1 5 19 0
-g none~
+g @rus none~
 #669
 claw golden~
 the golden claw~
@@ -1333,7 +1333,7 @@ weapon GK 0 AN
 exotic 3 11 'claw' 0
 28 150 4100 P
 a '' to_object 28 -1 3 19 0
-g none~
+g @rus none~
 #670
 pit~
 the donation pit~
@@ -1346,7 +1346,7 @@ E
 pit~
 This is where you put money and items to help Doz expand this shrine,
 ~
-g none~
+g @rus none~
 #671
 fountain~
 fountain~
@@ -1355,7 +1355,7 @@ unknown~
 fountain ABG B 0
 0 0 'water' 0 0
 0 0 0 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

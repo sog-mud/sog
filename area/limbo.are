@@ -421,7 +421,7 @@ silver~
 money 0 0 A
 1 0 0 0 0
 0 10 0 P
-g female~
+g @rus female~
 #2
 gold gcash золотая золотой монета coin~
 @eng a gold coin@rus ~~золотая~~ ~~монета~~~
@@ -430,7 +430,7 @@ gold~
 money 0 0 A
 0 1 0 0 0
 0 10 0 P
-g female~
+g @rus female~
 #3
 gold gcash coins золотые монеты золотой~
 @eng %d %s@rus %d ~~%s~~~
@@ -439,7 +439,7 @@ gold~
 money 0 0 A
 0 0 0 0 0
 0 10 0 P
-g plural~
+g @rus plural~
 #4
 coins silver gcash серебряные монеты серебряный~
 @eng %d %s@rus %d ~~%s~~~
@@ -448,7 +448,7 @@ silver~
 money 0 0 A
 0 0 0 0 0
 0 10 0 P
-g plural~
+g @rus plural~
 #5
 coins silver gold gcash золото серебро монеты~
 @eng %d %s and %d %s@rus %d ~~%s~~ и %d ~~%s~~~
@@ -457,7 +457,7 @@ gold~
 money 0 0 A
 0 0 0 0 0
 0 10 0 P
-g plural~
+g @rus plural~
 #6
 arrow деревянная wooden стрела~
 @eng a wooden arrow@rus ~~деревянная~~ ~~стрела~~~
@@ -466,7 +466,7 @@ wood~
 weapon 0 0 AO
 arrow 1 1 'pierce' K
 1 5 10 P
-g female~
+g @rus female~
 #7
 bow wooden лук деревянный~
 @eng a wooden bow@rus ~~деревянный~~ ~~лук~~~
@@ -475,7 +475,7 @@ wood~
 weapon 0 0 AN
 bow 1 1 'blast' 0
 1 5 10 P
-g male~
+g @rus male~
 #8
 cross крест распятье~
 A cross of %s~
@@ -484,7 +484,7 @@ flesh~
 trash CE C 0
 0 0 0 0 0
 0 100 0 P
-g male~
+g @rus male~
 #9
 elka christmas tree елка дерево~
 @eng Christmas tree@rus Елка~
@@ -515,7 +515,7 @@ elka christmas tree~
            .         .   . {y  ### {W    .        .       .
     .. .. ..................{y#####{W................... ...... ...{x
 ~
-g female~
+g @rus female~
 #10
 corpse труп~
 @eng the corpse of %s@rus ~~труп~~ %s~
@@ -524,7 +524,7 @@ flesh~
 npc_corpse 0 0 A
 0 0 0 A 0
 0 1000 0 D
-g male~
+g @rus male~
 #11
 corpse труп~
 @eng the corpse of %s@rus ~~труп~~ %s~
@@ -533,7 +533,7 @@ flesh~
 pc_corpse 0 AB A
 0 0 0 A 0
 0 1000 0 D
-g male~
+g @rus male~
 #12
 head голова~
 @eng the head of %s@rus ~~голова~~ %s~
@@ -542,7 +542,7 @@ meat~
 trash 0 0 A
 0 0 0 0 0
 0 50 0 D
-g female~
+g @rus female~
 #13
 heart сердце~
 @eng the heart of %s@rus ~~сердце~~ %s~
@@ -551,7 +551,7 @@ meat~
 food 0 0 A
 E E 0 0 0
 0 20 0 D
-g none~
+g @rus none~
 #14
 arm рука~
 @eng the arm of %s@rus ~~рука~~ %s~
@@ -560,7 +560,7 @@ meat~
 food 0 0 A
 CE CE 0 0 0
 0 50 0 D
-g female~
+g @rus female~
 #15
 leg нога~
 @eng the leg of %s@rus ~~нога~~ %s~
@@ -569,7 +569,7 @@ meat~
 food 0 0 A
 CE CE 0 0 0
 0 50 0 D
-g female~
+g @rus female~
 #16
 guts entrails внутренности кишки~
 @eng the guts of %s@rus ~~внутренности~~ %s~
@@ -587,7 +587,7 @@ meat~
 food 0 0 A
 BD BD 0 0 0
 0 20 0 D
-g plural~
+g @rus plural~
 #18
 holy hammer молот~
 @eng Holy Hammer@rus ~~Священный~~ ~~Молот~~~
@@ -596,7 +596,7 @@ spirit~
 weapon AGIKL 0 AN
 mace 9 0 'divine' I
 0 0 0 P
-g male~
+g @rus male~
 #19
 lock-pick picklock отмычка~
 @eng lock-pick@rus отмычка~
@@ -608,7 +608,7 @@ trash 0 K AO
 a '' to_skills 10 -1 100 'perception' A
 a '' to_skills 10 -1 100 'knock' A
 a '' to_skills 10 -1 100 'pick lock' A
-g female~
+g @rus female~
 #20
 mushroom грибок~
 @eng a Magic Mushroom@rus ~~Волшебный~~ ~~Мухомор~~~
@@ -617,7 +617,7 @@ food~
 food G 0 A
 D D 0 0 0
 0 10 0 P
-g male~
+g @rus male~
 #21
 ball light шар~
 @eng a bright ball of light@rus ~~светящийся~~ ~~шар~~~
@@ -626,7 +626,7 @@ energy~
 light A 0 A
 0 0 -1 0 0
 0 0 0 P
-g male~
+g @rus male~
 #22
 spring источник~
 @eng a magical spring@rus ~~магический~~ ~~источник~~~
@@ -635,7 +635,7 @@ water~
 fountain G 0 0
 100000 100000 'water' 0 0
 0 0 0 P
-g male~
+g @rus male~
 #23
 disc disk floating black диск~
 @eng a floating disc@rus ~~летающий~~ ~~диск~~~
@@ -644,7 +644,7 @@ energy~
 container GMPUY E AQ
 0 E 0 0 0
 0 0 0 P
-g male~
+g @rus male~
 #24
 tail dragon хвост~
 @eng Dragon's tail@rus ~~хвост~~ дракона~
@@ -660,7 +660,7 @@ a '' to_object 10 -1 200 13 0
 a '' to_skills 10 -1 100 'dragon skin' A
 a '' to_skills 10 -1 100 'dragon breath' A
 a '' to_skills 10 -1 100 'dragon strength' A
-g male~
+g @rus male~
 #25
 gate portal ворота врата~
 @eng a shimmering gate@rus ~~мерцающие~~ ~~врата~~~
@@ -669,7 +669,7 @@ shadow~
 portal G AC 0
 0 0 0 0 0
 0 0 0 P
-g plural~
+g @rus plural~
 #26
 poncho пончо~
 @eng a poncho from the carcass of %s@rus ~~пончо~~ из трупа %s~
@@ -680,7 +680,7 @@ armor 0 0 AK
 0 60 0 P
 a '' to_object 0 -1 35 13 0
 a '' to_object 0 -1 1 6 0
-g none~
+g @rus none~
 #27
 steak бифштекс~
 @eng a steak from %s@rus ~~бифштекс~~ из %s~
@@ -689,7 +689,7 @@ meat~
 food 0 0 A
 ADE ADE 0 0 0
 0 20 0 P
-g male~
+g @rus male~
 #28
 ranger staff посох~
 @eng a ranger staff@rus ~~охотничий~~ ~~посох~~~
@@ -698,7 +698,7 @@ ebony~
 weapon A 0 AN
 staff 0 0 'pierce' 0
 0 160 0 P
-g male~
+g @rus male~
 #29
 gloves перчатки~
 @eng black gloves@rus ~~черные~~ ~~перчатки~~~
@@ -709,7 +709,7 @@ armor Y K AH
 10 1 10000 P
 a '' to_skills 10 -1 100 'peek' A
 a '' to_skills 10 -1 100 'steal' A
-g plural~
+g @rus plural~
 #30
 dummy object~
 a dummy object~
@@ -718,7 +718,7 @@ unknown~
 trash 0 0 0
 0 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #31
 sword hero~
 the %s Sword of %s~
@@ -727,7 +727,7 @@ energy~
 weapon AGIY ABG AN
 sword 10 4 'slash' D
 21 100 100000 G
-g male~
+g @rus male~
 #32
 dagger hero~
 the %s Dagger of %s~
@@ -745,7 +745,7 @@ a '' to_object 21 -1 25 18 0
 a '' to_object 21 -1 200 12 0
 a '' to_object 21 -1 200 13 0
 a '' to_object 21 -1 500 14 0
-g male~
+g @rus male~
 #33
 mace hero~
 the %s Mace of %s~
@@ -763,7 +763,7 @@ a '' to_object 21 -1 25 18 0
 a '' to_object 21 -1 200 12 0
 a '' to_object 21 -1 200 13 0
 a '' to_object 21 -1 500 14 0
-g male~
+g @rus male~
 #34
 arrow green стрела зеленая~
 @eng a green arrow@rus ~~зеленая~~ ~~стрела~~~
@@ -772,7 +772,7 @@ wood~
 weapon 0 0 AO
 arrow 1 1 'pierce' HK
 1 5 10 P
-g female~
+g @rus female~
 #35
 arrow red стрела багровая~
 @eng red arrow@rus ~~багровая~~ ~~стрела~~~
@@ -781,7 +781,7 @@ wood~
 weapon 0 0 AO
 arrow 1 1 'pierce' AK
 1 5 10 P
-g female~
+g @rus female~
 #36
 arrow white стрела белая~
 @eng white arrow@rus ~~белая~~ ~~стрела~~~
@@ -790,7 +790,7 @@ wood~
 weapon 0 0 AO
 arrow 1 1 'pierce' BK
 1 5 10 P
-g female~
+g @rus female~
 #37
 arrow стрела blue голубая~
 @eng blue arrow@rus ~~голубая~~ ~~стрела~~~
@@ -799,7 +799,7 @@ wood~
 weapon 0 0 AO
 arrow 1 1 'pierce' GK
 1 5 10 P
-g female~
+g @rus female~
 #38
 pillow big подушка~
 @eng Big Soft Pillow@rus ~~большая~~ ~~мягкая~~ ~~подушка~~~
@@ -808,7 +808,7 @@ unknown~
 furniture A K A
 A CFG EK DFGHIJ DFGHIJ
 10 1 10000 P
-g female~
+g @rus female~
 #39
 bell small колокольчик~
 @eng Small silver bell@rus ~~маленький~~ ~~серебряный~~ ~~колокольчик~~~
@@ -818,7 +818,7 @@ jewelry AG K AO
 0 0 0 0 0
 10 0 0 P
 a '' to_skills 10 -1 100 'summon' A
-g male~
+g @rus male~
 #40
 song hero~
 the %s Song of %s~
@@ -837,7 +837,7 @@ a '' to_object 120 -1 15 19 0
 a '' to_object 120 -1 500 14 0
 a '' to_object 120 -1 150 12 0
 a '' to_object 120 -1 200 13 0
-g female~
+g @rus female~
 #41
 sack sands мешок~
 @eng sack filled with sands@rus ~~мешок~~ с песком~
@@ -847,7 +847,7 @@ container 0 K AO
 0 C 0 500 5
 0 100 10000 P
 a '' to_skills 0 -1 100 'blackjack' A
-g male~
+g @rus male~
 #42
 vial potion пузырек~
 @eng a potion vial@rus ~~пустой~~ ~~пузырек~~~
@@ -860,7 +860,7 @@ E
 vial~
 It's a glass vial used to hold magical potions. It looks fragile.
 ~
-g male~
+g @rus male~
 #43
 potion silver зелье~
 @eng a silver potion@rus ~~серебристое~~ ~~зелье~~~
@@ -869,7 +869,7 @@ glass~
 potion G 0 AO
 1 'detect invis' '' '' ''
 0 10 0 P
-g female~
+g @rus female~
 #44
 potion golden зелье золотое~
 @eng a golden potion@rus ~~золотое~~ ~~зелье~~~
@@ -878,7 +878,7 @@ glass~
 potion G 0 AO
 1 'frenzy' '' '' ''
 0 10 0 P
-g female~
+g @rus female~
 #45
 potion swirling зелье~
 @eng a swirling potion@rus ~~бурлящее~~ ~~зелье~~~
@@ -887,7 +887,7 @@ glass~
 potion G 0 AO
 1 'bless' '' '' ''
 0 10 0 P
-g female~
+g @rus female~
 #46
 cloud облако~
 @eng the small cloud@rus ~~маленькое~~ ~~облако~~~
@@ -909,7 +909,7 @@ a '' to_object 10 -1 5 8 0
 a '' to_object 10 -1 -10 20 0
 a '' to_object 10 -1 10 19 0
 a '' to_object 10 -1 10 18 0
-g none~
+g @rus none~
 #47
 cloak плащ~
 @eng Cloak of The Lord Protector@rus ~~плащ~~ Лорда-Защитника~
@@ -936,7 +936,7 @@ a '' to_skills 10 -1 100 'protection negative' A
 a '' to_skills 10 -1 100 'protection heat' A
 a '' to_skills 10 -1 100 'protection cold' A
 a '' to_skills 10 -1 100 'protection evil' A
-g male~
+g @rus male~
 #48
 ring кольцо golden золотое колечко~
 @eng Golden Ring@rus ~~золотое~~ ~~колечко~~~
@@ -952,7 +952,7 @@ a '' to_skills 10 -1 100 'hide' A
 a '' to_skills 10 -1 100 'camouflage' A
 a '' to_skills 10 -1 100 'improved invis' A
 a '' to_skills 10 -1 100 'invisibility' A
-g none~
+g @rus none~
 #49
 ring кольцо silver серебряное колечко~
 @eng Silver Ring@rus ~~серебряное~~ ~~колечко~~~
@@ -971,7 +971,7 @@ a '' to_detects 10 -1 10 13 B
 a '' to_detects 10 -1 10 13 A
 a '' to_detects 10 -1 10 13 K
 a '' to_detects 10 -1 10 13 L
-g none~
+g @rus none~
 #50
 rug коврик~
 @eng a small magic rug@rus ~~магический~~ ~~коврик~~~
@@ -980,7 +980,7 @@ unknown~
 furniture Y BF A
 A EIJKN HK DGH DGH
 10 10 0 P
-g male~
+g @rus male~
 #51
 tattoo atum ra~
 lawful good tattoo of atum-ra~
@@ -989,7 +989,7 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-g none~
+g @rus none~
 #52
 tattoo zeus~
 neutral good tattoo of zeus~
@@ -998,7 +998,7 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-g none~
+g @rus none~
 #53
 tattoo siebele~
 true neutral tattoo of siebele~
@@ -1007,7 +1007,7 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-g none~
+g @rus none~
 #54
 tattoo shamash~
 tattoo of shamash, god of justice~
@@ -1016,7 +1016,7 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-g none~
+g @rus none~
 #55
 tattoo ahura mazda~
 chaotic good tattoo of ahuramazda~
@@ -1025,7 +1025,7 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-g none~
+g @rus none~
 #56
 tattoo ehrumen~
 chaotic evil tattoo of ehrumen~
@@ -1034,7 +1034,7 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-g none~
+g @rus none~
 #57
 tattoo deimos~
 lawful evil tattoo of deimos~
@@ -1043,7 +1043,7 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-g none~
+g @rus none~
 #58
 tattoo phobos~
 neutral evil tattoo of phobos~
@@ -1052,7 +1052,7 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-g none~
+g @rus none~
 #59
 tattoo odin~
 lawful neutral tattoo of odin~
@@ -1061,7 +1061,7 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-g none~
+g @rus none~
 #60
 tattoo teshub~
 chaotic neutral tattoo of teshub~
@@ -1070,7 +1070,7 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-g none~
+g @rus none~
 #61
 tattoo ares~
 tattoo of ares, God of War~
@@ -1079,7 +1079,7 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-g none~
+g @rus none~
 #62
 tattoo goktengri татуировка гоктенгри~
 @eng tattoo of goktengri, God of Honor@rus татуировка Гоктенгри, бога чести~
@@ -1088,7 +1088,7 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-g female~
+g @rus female~
 #63
 tattoo hera~
 tattoo of hera, god of hate~
@@ -1097,7 +1097,7 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-g none~
+g @rus none~
 #64
 tattoo venus~
 tattoo of venus, god of beauty~
@@ -1106,7 +1106,7 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-g none~
+g @rus none~
 #65
 tattoo seth~
 tattoo of seth, god of anger~
@@ -1115,7 +1115,7 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-g none~
+g @rus none~
 #66
 tattoo enki~
 tattoo of enki, god of knowledge~
@@ -1124,7 +1124,7 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-g none~
+g @rus none~
 #67
 tattoo eros татуировка эрос~
 @eng tattoo of eros, god of love@rus татуировка Эроса, бога любви~
@@ -1133,7 +1133,7 @@ energy~
 tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
-g none~
+g @rus none~
 #68
 skin rabbit шкура шкурка~
 @eng Rabbit's skin@rus ~~кроличья~~ ~~шкурка~~~
@@ -1147,7 +1147,7 @@ a '' to_object 10 -1 20 19 0
 a '' to_object 10 -1 20 18 0
 a '' to_affects 10 -1 100 12 U
 a '' to_invis 10 -1 100 13 G
-g female~
+g @rus female~
 #69
 amulet амулет holy~
 @eng holy amulet@rus ~~священный~~ ~~амулет~~~
@@ -1164,7 +1164,7 @@ a '' to_object 10 -1 -25 20 0
 a '' to_skills 10 -1 100 'holy word' A
 a '' to_skills 10 -1 100 'bless' A
 a '' to_skills 10 -1 100 'benediction' A
-g male~
+g @rus male~
 #70
 badge значок~
 @eng silver ruler badge@rus ~~серебрянный~~ ~~значок~~ Охранника Порядка~
@@ -1174,7 +1174,7 @@ treasure M ACDE A
 0 0 0 0 0
 50 4 0 P
 a '' to_detects 50 -1 0 0 B
-g male~
+g @rus male~
 #71
 buckler ruler shield~
 @eng Rulers' Buckler@rus ~~круглый~~ ~~щит~~ Рулера~
@@ -1183,7 +1183,7 @@ steel~
 armor GIY BE AJ
 8 8 8 3 0
 0 200 10000 P
-g male~
+g @rus male~
 #72
 great ruler shield щит~
 @eng Rulers' Great Shield@rus ~~большой~~ ~~щит~~ Рулера~
@@ -1192,7 +1192,7 @@ steel~
 armor GIY BE AJ
 20 20 20 10 0
 0 300 15000 P
-g male~
+g @rus male~
 #73
 kite ruler shield щит~
 Rulers' Kite Shield~
@@ -1204,7 +1204,7 @@ armor GIY BE AJ
 a '' to_object 0 -1 -10 17 0
 a '' to_object 0 -1 3 18 0
 a '' to_object 0 -1 4 19 0
-g none~
+g @rus none~
 #74
 tower ruler shield щит~
 @eng Rulers' Tower Shield@rus ~~огромный~~ ~~щит~~ Рулера~
@@ -1213,7 +1213,7 @@ steel~
 armor GIY BE AJ
 30 30 30 20 0
 0 240 20000 P
-g male~
+g @rus male~
 #75
 herb healing травка bunch~
 @eng a bunch of herbs.~
@@ -1222,7 +1222,7 @@ unknown~
 pill G 0 AO
 0 'reserved' 'reserved' 'reserved' 'reserved'
 0 1 1 P
-g none~
+g @rus none~
 #80
 golden dagger кинжал~
 @eng a golden dagger@rus ~~золотистый~~ ~~кинжал~~~
@@ -1231,7 +1231,7 @@ gold~
 weapon AIP CD AN
 dagger 10 1 'pierce' DK
 20 80 0 P
-g male~
+g @rus male~
 #81
 golden mace булава~
 @eng a golden mace@rus ~~золотистая~~ ~~булава~~~
@@ -1240,7 +1240,7 @@ gold~
 weapon AIP CD AN
 mace 8 1 'crush' 0
 20 200 0 P
-g female~
+g @rus female~
 #82
 golden dragonplate plate~
 Dragonplate~
@@ -1252,7 +1252,7 @@ armor GIY 0 AD
 a '' to_object 0 -1 2 6 0
 a '' to_object 0 -1 5 19 0
 a '' to_object 0 -1 5 18 0
-g none~
+g @rus none~
 #83
 sword golden меч~
 @eng a golden sword@rus ~~золотистый~~ ~~меч~~~
@@ -1261,7 +1261,7 @@ gold~
 weapon AIP CD AN
 sword 10 1 'pierce' D
 20 80 0 P
-g male~
+g @rus male~
 #84
 quest kio~
 quest staff of kio~
@@ -1274,7 +1274,7 @@ E
 quest~
 The letters '%s' are carved on the staff.
 ~
-g male~
+g @rus male~
 #85
 quest conrad~
 quest staff of conrad~
@@ -1287,7 +1287,7 @@ E
 quest~
 The letters '%s' are carved on the staff.
 ~
-g male~
+g @rus male~
 #86
 quest powerman~
 quest staff of powerman~
@@ -1300,7 +1300,7 @@ E
 quest~
 The letters '%s' are carved on the staff.
 ~
-g male~
+g @rus male~
 #87
 quest mandrake~
 quest staff of mandrake~
@@ -1313,7 +1313,7 @@ E
 quest~
 The letters '%s' are carved on the staff.
 ~
-g male~
+g @rus male~
 #88
 eyed sword~
 %s's eyed sword~
@@ -1328,7 +1328,7 @@ E
 sword~
 The letters '%s' is carved on the handle.
 ~
-g none~
+g @rus none~
 #89
 kassandra камушек камень~
 @eng kassandra@rus ~~кассандра~~~
@@ -1337,7 +1337,7 @@ stone~
 treasure AUY C AO
 0 0 -1 0 0
 0 0 0 P
-g female~
+g @rus female~
 #90
 dress~
 dress~
@@ -1351,7 +1351,7 @@ dress~
 This dress is made by dressmaker for Keeper who is after all work of hard
 years guarding a retired lord.
 ~
-g none~
+g @rus none~
 #91
 turkish rug~
 a rug with Turkish patterns~
@@ -1360,7 +1360,7 @@ wool~
 treasure 0 0 AO
 0 0 0 0 0
 18 10 1000 G
-g none~
+g @rus none~
 #92
 shield fire~
 fire shield~
@@ -1373,7 +1373,7 @@ E
 shield energy~
 This shield is resistive to %s.
 ~
-g none~
+g @rus none~
 #93
 magic jar~
 the spirit of %s~
@@ -1386,7 +1386,7 @@ E
 spirit~
 The spirit of %s is in this vial.
 ~
-g none~
+g @rus none~
 #94
 girth hero~
 the %s Girth of %s~
@@ -1421,7 +1421,7 @@ a '' to_object 120 -1 33 43 0
 a '' to_object 120 -1 10 19 0
 a '' to_detects 120 -1 -30 17 H
 a '' to_detects 120 -1 0 0 AKLM
-g none~
+g @rus none~
 #95
 ring hero~
 the %s Ring of %s~
@@ -1437,7 +1437,7 @@ a '' to_object 120 -1 10 18 0
 a '' to_object 120 -1 1 6 0
 a '' to_object 120 -1 150 12 0
 a '' to_object 120 -1 150 13 0
-g none~
+g @rus none~
 #96
 weapon hero~
 the %s Weapon of %s~
@@ -1455,7 +1455,7 @@ a '' to_object 21 -1 25 18 0
 a '' to_object 21 -1 200 12 0
 a '' to_object 21 -1 200 13 0
 a '' to_object 21 -1 500 14 0
-g none~
+g @rus none~
 #97
 chaos blade~
 a chaos blade~
@@ -1465,7 +1465,7 @@ weapon AIP CD AN
 dagger 8 1 'pierce' D
 20 200 0 P
 a '' to_object 20 -1 2 6 0
-g none~
+g @rus none~
 #98
 sword katana~
 a katana sword~
@@ -1478,7 +1478,7 @@ E
 katana~
 The letters '%s' is carved on the handle.
 ~
-g none~
+g @rus none~
 #99
 golden lance~
 a golden lance~
@@ -1487,7 +1487,7 @@ gold~
 weapon AIP CD AN
 lance 10 1 'none' D
 20 80 0 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

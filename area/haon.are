@@ -237,7 +237,7 @@ E
 axe lumber~
 It is a heavy axe of the kind lumberjacks use to chop down trees.
 ~
-g none~
+g @rus none~
 #6001
 shirt~
 a chequered shirt~
@@ -250,7 +250,7 @@ E
 shirt~
 It is an extra large, chequered shirt made from heavy cloth.
 ~
-g none~
+g @rus none~
 #6002
 boots~
 a pair of leather boots~
@@ -264,7 +264,7 @@ boots~
 They are fashioned from rough leather that has been oiled frequently to make
 it stay waterproof.  They look worn but quite functional.
 ~
-g none~
+g @rus none~
 #6003
 fireplace~
 a fireplace~
@@ -279,7 +279,7 @@ It is fashioned from stones of various sizes that have been stacked on top of
 each other and fastened with mortar.  Its chimney is constructed likewise and
 leads the smoke out through the low cabin ceiling.
 ~
-g none~
+g @rus none~
 #6005
 chest~
 a wooden chest~
@@ -293,7 +293,7 @@ chest~
 It is a robust chest made from short, heavy planks that have been fastened
 together with tenons.  It is equipped with a simple brass lock.
 ~
-g none~
+g @rus none~
 #6006
 key~
 a small brass key~
@@ -306,7 +306,7 @@ E
 key~
 It is a small, simple brass key with no inscriptions or marks of any kind.
 ~
-g none~
+g @rus none~
 #6007
 coins silver~
 a heap of silver coins~
@@ -319,7 +319,7 @@ E
 coins~
 The coins seem to be gold.  They are obviously valuable.
 ~
-g none~
+g @rus none~
 #6010
 blackberries~
 some blackberries~
@@ -332,7 +332,7 @@ E
 blackberries~
 They look very tasty indeed.
 ~
-g none~
+g @rus none~
 #6011
 mushroom~
 a mushroom~
@@ -345,7 +345,7 @@ E
 mushroom~
 It is a tasty little thing.
 ~
-g none~
+g @rus none~
 #6013
 water barrel~
 the barrel~
@@ -354,7 +354,7 @@ wood~
 drink 0 0 A
 256 256 'water' 0 0
 0 200 20 P
-g none~
+g @rus none~
 #6102
 tree opening~
 a colossal tree~
@@ -374,7 +374,7 @@ This enormous tree must be a thousand years old.  Its rough bark looks grey
 and pale and is decorated with scratches and claw marks.  On its west side is a
 small opening just above ground level.
 ~
-g none~
+g @rus none~
 #6103
 branch~
 a long, grey branch~
@@ -383,7 +383,7 @@ wood~
 light 0 0 AO
 0 0 25 0 0
 0 200 0 P
-g none~
+g @rus none~
 #6104
 branch~
 a long, grey branch~
@@ -393,7 +393,7 @@ weapon 0 0 AN
 mace 2 5 'pound' 0
 6 300 290 P
 a '' to_object 6 -1 -2 18 0
-g none~
+g @rus none~
 #6105
 branch~
 a long, grey branch~
@@ -402,7 +402,7 @@ wood~
 trash 0 0 A
 0 0 0 0 0
 0 400 0 P
-g none~
+g @rus none~
 #6106
 toadstool~
 a toadstool~
@@ -417,7 +417,7 @@ It is a large, brown boletus that must weigh nearly five pounds.  The top
 surface is covered in a thin layer of transparent slime that emits a weak,
 musty smell.  Not the most delicious thing you have seen.
 ~
-g none~
+g @rus none~
 #6107
 toadstool~
 a toadstool~
@@ -432,7 +432,7 @@ It is a large, brown boletus that must weigh nearly five pounds.  It has small
 white spots and the top surface is covered in a thin layer of transparent slime
 that emits a weak, musty smell.  Not the most delicious thing you have seen.
 ~
-g none~
+g @rus none~
 #6110
 potion yellow~
 a yellow potion~
@@ -445,7 +445,7 @@ E
 potion yellow~
 It has a deep yellow colour and and a strong spicy smell.
 ~
-g none~
+g @rus none~
 #6111
 shield large~
 a large round shield~
@@ -458,7 +458,7 @@ E
 shield large~
 It is made from hard wood that has been reinforced with heavy iron bands.
 ~
-g none~
+g @rus none~
 #6112
 crown iron~
 an iron crown~
@@ -471,7 +471,7 @@ E
 crown iron~
 It is a heavy human-sized crown made from solid iron.
 ~
-g none~
+g @rus none~
 #6114
 ring iron~
 an iron ring~
@@ -485,7 +485,7 @@ ring iron~
 It is a quite heavy human-sized ring made from solid iron.  It lacks
 decorations of any kind.
 ~
-g none~
+g @rus none~
 #6155
 morning-star star morning~
 the morning star~
@@ -494,7 +494,7 @@ wood~
 weapon G 0 AN
 mace 2 8 'crush' 0
 15 100 750 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

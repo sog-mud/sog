@@ -65,7 +65,7 @@ paper~
 trash 0 0 AO
 0 0 0 0 0
 10 1 100 P
-g none~
+g @rus none~
 #35302
 battleaxe axe~
 A huge battleaxe~
@@ -74,7 +74,7 @@ mithril~
 weapon BHY 0 AN
 axe 8 4 'frbite' BD
 31 7 100000 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

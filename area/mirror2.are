@@ -1150,7 +1150,7 @@ E
 mirror shield mirrored~
 You see your own reflection on the surface of the mirror shield.
 ~
-g none~
+g @rus none~
 #19002
 mirror plate mirrored~
 a mirrored plate of armor~
@@ -1163,7 +1163,7 @@ E
 mirror plate mirrored~
 Your own reflection stares up from the mirrored plate.
 ~
-g none~
+g @rus none~
 #19003
 sword shiny silver~
 a shiny silver sword~
@@ -1172,7 +1172,7 @@ silver~
 weapon G 0 AN
 sword 4 7 'slash' 0
 23 10 100 P
-g none~
+g @rus none~
 #19004
 chainmail cowl chainmail~
 a chainmail cowl~
@@ -1181,7 +1181,7 @@ steel~
 armor 0 0 AD
 6 6 6 0 0
 23 10 10 P
-g none~
+g @rus none~
 #19005
 throne~
 a throne~
@@ -1190,7 +1190,7 @@ unknown~
 furniture 0 0 0
 0 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #19006
 robe grey~
 a grey robe~
@@ -1202,7 +1202,7 @@ armor 0 0 AD
 a '' to_object 49 -1 3 2 0
 a '' to_object 49 -1 3 5 0
 a '' to_object 49 -1 -10 17 0
-g none~
+g @rus none~
 #19007
 circlet golden~
 the Golden Circlet~
@@ -1221,7 +1221,7 @@ throne; he removed it for the last time when he split the land in
 two, saying that he no longer deserved to wear it.  Though it is simply
 made, it is nevertheless intricate, with fine milled edges and a beautiful
 ruby sigil at the front.~
-g none~
+g @rus none~
 #19008
 bent sword~
 a bent sword~
@@ -1232,7 +1232,7 @@ sword 4 11 'slash' 0
 45 10 200 P
 a '' to_object 45 -1 -5 18 0
 a '' to_object 45 -1 -5 19 0
-g none~
+g @rus none~
 #19009
 worn jerkin chain mail~
 a worn chainmail jerkin~
@@ -1241,7 +1241,7 @@ leather~
 armor 0 0 AD
 13 13 13 4 0
 45 10 10 P
-g none~
+g @rus none~
 #19010
 royal staff king~
 the Royal Staff~
@@ -1259,7 +1259,7 @@ beautiful blendings of silver and gold.  As you hold it in your hand, you
 somehow feel more confident, calmer, even happier, even though the king
 gave up the sceptre just after he was plunged into despair and depression.
 ~
-g none~
+g @rus none~
 #19011
 harp silver caerlin~
 a silver harp~
@@ -1268,7 +1268,7 @@ silver~
 wand K 0 AO
 30 25 25 'sanctuary' 0
 15 10 1000 P
-g none~
+g @rus none~
 #19012
 pool cue~
 a pool cue~
@@ -1277,7 +1277,7 @@ wood~
 weapon G 0 AN
 mace 5 6 'blast' 0
 25 4 100 P
-g none~
+g @rus none~
 #19013
 pool table~
 a pool table~
@@ -1293,7 +1293,7 @@ years of continuous use.  The balls strewn across its surface look
 well-used as well; most are scratched or marred, and some have whole chips
 taken out of their sides.
 ~
-g none~
+g @rus none~
 #19014
 amulet bard's bard~
 a bard's amulet~
@@ -1304,7 +1304,7 @@ armor K 0 AC
 35 20 500 P
 a '' to_object 35 -1 2 5 0
 a '' to_object 35 -1 -5 24 0
-g none~
+g @rus none~
 #19015
 small steel knife~
 a small steel knife~
@@ -1317,7 +1317,7 @@ E
 small steel dagger~
 The good citizens of the Mirror Realm have no need for weapons; they carry
 at most a small knife, simply because it's handy to have around.~
-g none~
+g @rus none~
 #19016
 potion human flight~
 a potion of human flight~
@@ -1326,7 +1326,7 @@ glass~
 potion H 0 A
 20 'fly' '' '' ''
 10 0 0 P
-g none~
+g @rus none~
 #19017
 pill restore restoration~
 a pill of mana and life restoration~
@@ -1335,7 +1335,7 @@ silver~
 pill H 0 A
 30 'heal' 'refresh' 'teleport' ''
 15 3 0 P
-g none~
+g @rus none~
 #19018
 flask holy water~
 a flask of holy water~
@@ -1344,7 +1344,7 @@ glass~
 potion AH 0 A
 25 'bless' 'cure blindness' 'remove curse' ''
 10 5 1000 P
-g none~
+g @rus none~
 #19019
 staff destruction~
 a staff of destruction~
@@ -1353,7 +1353,7 @@ wood~
 staff BH 0 AO
 25 7 7 'earthquake' 0
 10 3 100 P
-g none~
+g @rus none~
 #19020
 gold coins~
 some coins~
@@ -1362,7 +1362,7 @@ gold~
 money 0 0 A
 1000 0 0 0 0
 1 4 100 P
-g none~
+g @rus none~
 #19021
 potion invis invisible~
 a clear potion of invisibility~
@@ -1371,7 +1371,7 @@ glass~
 potion H 0 A
 20 'invisibility' 'detect magic' '' ''
 10 5 0 P
-g none~
+g @rus none~
 #19022
 hamburger burger~
 a hamburger~
@@ -1380,7 +1380,7 @@ food~
 food 0 0 A
 ABCD ABCD 0 0 0
 1 2 20 P
-g none~
+g @rus none~
 #19023
 steak yorkshire pudding food~
 steak and Yorkshire Pudding~
@@ -1389,7 +1389,7 @@ food~
 food 0 0 A
 ABCD ABCD 0 0 0
 1 2 20 P
-g none~
+g @rus none~
 #19024
 roast chicken food~
 roast Chicken~
@@ -1398,7 +1398,7 @@ food~
 food 0 0 A
 ABCD ABCD 0 0 0
 1 1 0 P
-g none~
+g @rus none~
 #19025
 mashed potatoes food~
 mashed potatoes~
@@ -1407,7 +1407,7 @@ food~
 food 0 0 A
 C C 0 0 0
 1 1 0 P
-g none~
+g @rus none~
 #19026
 peas food~
 peas~
@@ -1416,7 +1416,7 @@ food~
 food 0 0 A
 B B 0 0 0
 1 1 0 P
-g none~
+g @rus none~
 #19027
 baked ham food~
 baked Ham~
@@ -1425,7 +1425,7 @@ food~
 food 0 0 A
 ABCD BD 0 0 0
 1 1 0 P
-g none~
+g @rus none~
 #19028
 green beans food~
 green beans~
@@ -1434,7 +1434,7 @@ food~
 food 0 0 A
 B B 0 0 0
 1 1 0 P
-g none~
+g @rus none~
 #19029
 shrimp cocktail food~
 shrimp cocktail~
@@ -1443,7 +1443,7 @@ food~
 food 0 0 A
 B B 0 0 0
 1 1 0 P
-g none~
+g @rus none~
 #19030
 green salad food~
 green salad~
@@ -1452,7 +1452,7 @@ food~
 food 0 0 A
 C C 0 0 0
 1 2 0 P
-g none~
+g @rus none~
 #19031
 vegetable soup food~
 vegetable soup~
@@ -1461,7 +1461,7 @@ food~
 food 0 0 A
 C C 0 0 0
 1 1 0 P
-g none~
+g @rus none~
 #19032
 menu~
 a menu~
@@ -1492,7 +1492,7 @@ menu~
 *                                                                  *
 *  Your waiter will take your order.                               *
 ********************************************************************~
-g none~
+g @rus none~
 #19033
 horn golden~
 a unicorn's golden horn~
@@ -1510,7 +1510,7 @@ glittering diamond; down at the base, where it was severed from the
 unicorn's head, you can see some dried blood and fibers.  As you hold 
 the horn in your hand, you feel a strange current running through your 
 body, as though it still retained life in some way.~
-g none~
+g @rus none~
 #19034
 ermine blanket~
 an ermine blanket~
@@ -1519,7 +1519,7 @@ unknown~
 armor 0 0 AD
 13 12 12 5 0
 39 5 10 P
-g none~
+g @rus none~
 #19035
 apple tree trees~
 a grove of apple trees~
@@ -1528,7 +1528,7 @@ wood~
 container 0 0 0
 100 0 0 10 100
 0 0 0 P
-g none~
+g @rus none~
 #19036
 apple fruit~
 an apple~
@@ -1537,7 +1537,7 @@ food~
 pill 0 0 A
 10 'refresh' '' '' ''
 1 1 0 P
-g none~
+g @rus none~
 #19037
 plum tree trees~
 a grove of plum trees~
@@ -1546,7 +1546,7 @@ wood~
 container 0 0 0
 100 0 0 0 100
 0 0 0 P
-g none~
+g @rus none~
 #19038
 plum fruit~
 a plum~
@@ -1555,7 +1555,7 @@ food~
 food 0 0 A
 AB AB 0 0 0
 1 1 0 P
-g none~
+g @rus none~
 #19039
 plaque brass~
 a brass plaque~
@@ -1576,7 +1576,7 @@ you like for the sword Taliesin and the Sunrise Shield, but you may not
 attempt to transport any citizen from one side of our realm to another, 
 nor may you try to help any citizen leave....
 ~
-g none~
+g @rus none~
 #19040
 brown robe~
 a brown robe~
@@ -1585,7 +1585,7 @@ leather~
 armor 0 0 AD
 5 5 5 0 0
 19 3 0 P
-g none~
+g @rus none~
 #19041
 telescope~
 a telescope~
@@ -1605,7 +1605,7 @@ beautiful unicorn in front of the sparkling tower, which now appears to be
 made out of frosted glass; there are riders in robes of every color of the 
 rainbow.
 ~
-g none~
+g @rus none~
 #19042
 telescope~
 a telescope~
@@ -1622,7 +1622,7 @@ horn on its skull; riders cloaked in black and white robes patrol the area
 with flashing swords; ragged citizens walk through a decaying swamp; a 
 glittering palace of obsidian rises from the mire at the far end of the 
 land.~
-g none~
+g @rus none~
 #19043
 oil lamp~
 an oil lamp~
@@ -1631,7 +1631,7 @@ oil~
 light A 0 A
 0 0 15 0 0
 1 0 0 P
-g none~
+g @rus none~
 #19044
 white jacket coat~
 a formal white jacket~
@@ -1640,7 +1640,7 @@ unknown~
 armor 0 0 AK
 8 8 8 0 0
 25 5 0 P
-g none~
+g @rus none~
 #19045
 black tie~
 a black bow tie~
@@ -1649,7 +1649,7 @@ leather~
 armor 0 0 AC
 5 5 5 0 0
 25 5 0 P
-g none~
+g @rus none~
 #19046
 shirt white~
 a crisp white shirt~
@@ -1658,7 +1658,7 @@ cloth~
 armor 0 0 AD
 5 5 5 0 0
 25 5 0 P
-g none~
+g @rus none~
 #19047
 pants black~
 a pair of black dress pants~
@@ -1667,7 +1667,7 @@ cloth~
 armor 0 0 AF
 5 5 5 0 0
 25 5 0 P
-g none~
+g @rus none~
 #19048
 cummerbund~
 a cummerbund~
@@ -1678,7 +1678,7 @@ armor 0 0 AL
 25 10 0 P
 a '' to_object 25 -1 -1 2 0
 a '' to_object 25 -1 1 1 0
-g none~
+g @rus none~
 #19049
 big black shoes~
 a pair of black shoes~
@@ -1689,7 +1689,7 @@ armor 0 0 AG
 25 3 0 P
 a '' to_object 25 -1 -25 14 0
 a '' to_object 25 -1 2 19 0
-g none~
+g @rus none~
 #19050
 engagement band ring~
 an engagement band~
@@ -1702,7 +1702,7 @@ a '' to_object 25 -1 1 4 0
 E
 engagement ring band~
 "Till Death Do Us Part......"~
-g none~
+g @rus none~
 #19051
 wedding dress~
 a wedding dress~
@@ -1719,7 +1719,7 @@ touch of lace accents the collar and the short sleeves.  The train looks just
 as simple as the rest of the dress, but it shimmers gently in the light, 
 revealing the pure, beautifully cut silk from which it was made.
 ~
-g none~
+g @rus none~
 #19052
 white shoes flat flats~
 a pair of white shoes~
@@ -1729,7 +1729,7 @@ armor 0 0 AG
 5 5 5 0 0
 25 10 0 P
 a '' to_object 25 -1 15 14 0
-g none~
+g @rus none~
 #19053
 wedding veil~
 a thin white veil~
@@ -1739,7 +1739,7 @@ armor 0 0 AE
 5 5 5 0 0
 25 10 0 P
 a '' to_object 25 -1 -3 18 0
-g none~
+g @rus none~
 #19054
 engagement ring diamond~
 a diamond engagement ring~
@@ -1753,7 +1753,7 @@ E
 engagement diamond ring~
 "Till Death Do Us Part...."
 ~
-g none~
+g @rus none~
 #19055
 corsage flowers~
 a corsage~
@@ -1763,7 +1763,7 @@ armor 0 0 AO
 5 5 5 0 0
 25 10 0 P
 a '' to_object 25 -1 20 13 0
-g none~
+g @rus none~
 #19056
 jar glowing fish~
 a small jar of pale glowing fish~
@@ -1773,7 +1773,7 @@ light A 0 A
 0 0 -1 0 0
 15 0 0 P
 a '' to_object 15 -1 20 12 0
-g none~
+g @rus none~
 #19057
 goldfish white~
 the white goldfish~
@@ -1782,7 +1782,7 @@ food~
 food 0 0 A
 C C 0 0 0
 2 2 0 P
-g none~
+g @rus none~
 #19058
 crimson robe~
 a crimson robe~
@@ -1792,7 +1792,7 @@ armor 0 0 AK
 10 12 11 5 0
 35 5 100 P
 a '' to_object 35 -1 20 13 0
-g none~
+g @rus none~
 #19059
 burnt orange robe~
 a burnt-orange robe~
@@ -1802,7 +1802,7 @@ armor 0 0 AK
 10 10 11 5 0
 35 5 10 P
 a '' to_object 35 -1 35 14 0
-g none~
+g @rus none~
 #19060
 yellow sun robe~
 a yellow robe~
@@ -1812,7 +1812,7 @@ armor 0 0 AK
 11 11 10 4 0
 35 5 10 P
 a '' to_object 35 -1 5 18 0
-g none~
+g @rus none~
 #19061
 forest green robe~
 a forest green robe~
@@ -1822,7 +1822,7 @@ armor 0 0 AK
 11 11 10 7 0
 35 5 10 P
 a '' to_object 35 -1 35 12 0
-g none~
+g @rus none~
 #19062
 sea blue robe sea-blue~
 a sea-blue robe~
@@ -1832,7 +1832,7 @@ armor 0 0 AK
 12 11 11 8 0
 35 5 10 P
 a '' to_object 35 -1 5 19 0
-g none~
+g @rus none~
 #19063
 violet robe~
 a violet robe~
@@ -1842,7 +1842,7 @@ armor 0 0 AK
 11 11 11 6 0
 35 5 10 P
 a '' to_object 35 -1 25 13 0
-g none~
+g @rus none~
 #19064
 prism sword~
 a prism sword~
@@ -1853,7 +1853,7 @@ sword 4 10 'slice' 0
 35 10 4000 P
 a '' to_object 35 -1 5 18 0
 a '' to_object 35 -1 -5 24 0
-g none~
+g @rus none~
 #19065
 hoe~
 a hoe~
@@ -1862,7 +1862,7 @@ iron~
 weapon G 0 AN
 exotic 4 7 'charge' 0
 25 14 100 P
-g none~
+g @rus none~
 #19066
 robe white~
 a white robe~
@@ -1871,7 +1871,7 @@ cloth~
 armor K 0 AK
 11 12 11 10 0
 39 5 100 P
-g none~
+g @rus none~
 #19067
 poultice detection~
 a poultice of detection~
@@ -1880,7 +1880,7 @@ food~
 pill 0 0 AO
 20 'detect invis' 'detect magic' '' ''
 10 1 0 P
-g none~
+g @rus none~
 #19068
 beer glass~
 beer~
@@ -1889,7 +1889,7 @@ glass~
 drink 0 0 A
 1 1 'beer' 0 0
 1 0 0 P
-g none~
+g @rus none~
 #19069
 whisky whiskey shot~
 whisky~
@@ -1898,7 +1898,7 @@ glass~
 drink 0 0 A
 1 1 'whisky' 0 0
 5 3 0 P
-g none~
+g @rus none~
 #19070
 lemonade~
 lemonade~
@@ -1907,7 +1907,7 @@ glass~
 drink 0 0 A
 1 1 'lemonade' 0 0
 5 2 0 P
-g none~
+g @rus none~
 #19071
 kendo stick staff~
 a kendo~
@@ -1918,7 +1918,7 @@ staff 5 9 'crush' D
 45 10 100 P
 a '' to_object 45 -1 1 2 0
 a '' to_object 45 -1 10 18 0
-g none~
+g @rus none~
 #19072
 karate uniform gi~
 a black gi~
@@ -1929,7 +1929,7 @@ armor 0 0 AD
 45 10 1000 P
 a '' to_object 45 -1 4 2 0
 a '' to_object 45 -1 -10 17 0
-g none~
+g @rus none~
 #19073
 red belt master~
 a red master's belt~
@@ -1939,7 +1939,7 @@ armor K 0 AL
 13 13 12 6 0
 45 5 10 P
 a '' to_object 45 -1 2 4 0
-g none~
+g @rus none~
 #19074
 fountains fountain~
 a fountain~
@@ -1948,7 +1948,7 @@ marble~
 fountain 0 0 0
 110 110 'water' 0 0
 0 0 0 P
-g none~
+g @rus none~
 #19075
 suitcase~
 a suitcase~
@@ -1957,7 +1957,7 @@ unknown~
 container 0 0 AO
 25 0 0 10 100
 3 0 0 P
-g none~
+g @rus none~
 #19076
 canteen~
 a canteen~
@@ -1966,7 +1966,7 @@ metal~
 drink H 0 A
 10 10 'water' 0 0
 1 2 0 P
-g none~
+g @rus none~
 #19077
 pack rations~
 rations~
@@ -1975,7 +1975,7 @@ food~
 food 0 0 A
 BC BC 0 0 0
 1 1 0 P
-g none~
+g @rus none~
 #19078
 knife pocket pocketknife~
 a pocketknife~
@@ -1984,7 +1984,7 @@ steel~
 weapon G 0 AN
 dagger 1 6 'pierce' 0
 2 2 10 P
-g none~
+g @rus none~
 #19079
 raft~
 a small raft~
@@ -1993,7 +1993,7 @@ leather~
 boat 0 0 A
 0 0 0 0 0
 10 10 0 P
-g none~
+g @rus none~
 #19080
 cap wizard wizard's~
 a wizard's peaked cap~
@@ -2003,7 +2003,7 @@ armor 0 0 AE
 13 13 13 4 0
 45 12 100 P
 a '' to_object 45 -1 25 12 0
-g none~
+g @rus none~
 #19081
 cloak wizards wizard's~
 a wizard's cloak~
@@ -2012,7 +2012,7 @@ cloth~
 armor 0 0 AK
 13 13 13 5 0
 45 10 100 P
-g none~
+g @rus none~
 #19082
 page hymn~
 a hymn~
@@ -2021,7 +2021,7 @@ glass~
 scroll 0 0 A
 20 'bless' '' '' ''
 5 1 0 P
-g none~
+g @rus none~
 #19083
 ring rose~
 a rose-colored ring~
@@ -2032,7 +2032,7 @@ jewelry AK 0 AB
 39 1 1000 P
 a '' to_object 39 -1 -25 13 0
 a '' to_object 39 -1 1 3 0
-g none~
+g @rus none~
 #19084
 clippers~
 a pair of clippers~
@@ -2041,7 +2041,7 @@ steel~
 weapon G 0 AN
 exotic 4 4 'slice' 0
 25 10 10 P
-g none~
+g @rus none~
 #19085
 club staff wood wooden~
 a thick wooden staff~
@@ -2050,7 +2050,7 @@ wood~
 weapon 0 0 AN
 staff 4 4 'crush' 0
 19 10 0 P
-g none~
+g @rus none~
 #19086
 leggings mirror mirrored~
 a set of mirrored leggings~
@@ -2059,7 +2059,7 @@ steel~
 armor 0 0 AF
 7 7 7 0 0
 23 5 0 P
-g none~
+g @rus none~
 #19087
 shawl white~
 a white shawl~
@@ -2068,7 +2068,7 @@ cloth~
 armor 0 0 AK
 13 13 14 6 0
 45 11 100 P
-g none~
+g @rus none~
 #19088
 boots fishing~
 fishing boots~
@@ -2078,7 +2078,7 @@ armor M 0 AG
 7 7 7 0 0
 25 5 0 P
 a '' to_object 25 -1 -1 2 0
-g none~
+g @rus none~
 #19089
 gaff~
 a gaff~
@@ -2087,7 +2087,7 @@ steel~
 weapon G 0 AN
 spear 5 6 'pierce' DK
 25 10 100 P
-g none~
+g @rus none~
 #19090
 rain slicker~
 a rain slicker~
@@ -2097,7 +2097,7 @@ armor 0 0 AD
 5 5 5 0 0
 25 10 0 P
 a '' to_object 25 -1 -50 14 0
-g none~
+g @rus none~
 #19091
 dinghy boat~
 a dinghy~
@@ -2106,7 +2106,7 @@ leather~
 boat 0 0 A
 0 0 0 0 0
 20 10 0 P
-g none~
+g @rus none~
 #19092
 diploma wizard finishing~
 a "Wizard's Finishing School" diploma~
@@ -2130,7 +2130,7 @@ diploma wizard finishing~
 *	.....................Asena					  *
 ***************************************************************************
 ~
-g none~
+g @rus none~
 #19093
 antlers~
 antlers~
@@ -2141,7 +2141,7 @@ armor 0 0 AE
 30 8 10 P
 a '' to_object 30 -1 -1 2 0
 a '' to_object 30 -1 5 18 0
-g none~
+g @rus none~
 #19094
 nectarine tree trees~
 a nectarine tree~
@@ -2150,7 +2150,7 @@ wood~
 container 0 0 0
 100 0 0 10 100
 0 0 0 P
-g none~
+g @rus none~
 #19095
 nectarine fruit~
 a nectarine~
@@ -2159,7 +2159,7 @@ food~
 food 0 0 A
 AB AB 0 0 0
 1 1 0 P
-g none~
+g @rus none~
 #19096
 diploma wizard finishing~
 a "Wizard's Finishing School" diploma~
@@ -2169,7 +2169,7 @@ treasure GJ 0 AO
 0 0 0 0 0
 1 0 0 P
 a '' to_object 1 -1 1 3 0
-g none~
+g @rus none~
 #19097
 fangs~
 some fangs~
@@ -2179,7 +2179,7 @@ weapon 0 0 AN
 exotic 6 6 'bite' 0
 35 5 100 P
 a '' to_object 35 -1 2 19 0
-g none~
+g @rus none~
 #19098
 hemlock extract~
 hemlock~
@@ -2188,7 +2188,7 @@ glass~
 drink 0 0 A
 1 1 'water' 0 0
 1 0 0 P
-g none~
+g @rus none~
 #19099
 ale evil darkale bottle~
 a bottle of evil-smelling ale~
@@ -2197,7 +2197,7 @@ glass~
 drink 0 0 A
 2 2 'water' 0 0
 1 0 0 P
-g none~
+g @rus none~
 #19100
 water~
 a bottle of water~
@@ -2206,7 +2206,7 @@ glass~
 drink 0 0 A
 3 3 'water' 0 0
 1 1 0 P
-g none~
+g @rus none~
 #19101
 broken bottle~
 a broken bottle~
@@ -2217,7 +2217,7 @@ exotic 6 6 'slime' 0
 40 2 100 P
 a '' to_object 40 -1 -5 18 0
 a '' to_object 40 -1 5 19 0
-g none~
+g @rus none~
 #19102
 flask devil brew devil's~
 a flask of devil's brew~
@@ -2226,7 +2226,7 @@ glass~
 potion BEGH 0 A
 10 'giant strength' 'shield' '' ''
 5 5 0 P
-g none~
+g @rus none~
 #19103
 wand soul stealer~
 the Soul Stealer~
@@ -2243,7 +2243,7 @@ it looms larger and larger in your eyes, filling your field of vision....
 
 ....till you bring it too close and poke yourself in the eye.  Ouch.
 ~
-g none~
+g @rus none~
 #19104
 rubber gloves~
 rubber gloves~
@@ -2252,7 +2252,7 @@ rubber~
 armor J 0 AH
 11 10 10 5 0
 35 2 0 P
-g none~
+g @rus none~
 #19105
 scabbard~
 a scabbard~
@@ -2261,7 +2261,7 @@ unknown~
 container F 0 AL
 20 0 0 5 100
 5 0 0 P
-g none~
+g @rus none~
 #19106
 bone horn~
 a horn of bone~
@@ -2272,7 +2272,7 @@ exotic 6 7 'pierce' 0
 45 5 100 P
 a '' to_object 45 -1 -1 1 0
 a '' to_object 45 -1 5 19 0
-g none~
+g @rus none~
 #19107
 red ribbons ribbon~
 a set of red ribbons~
@@ -2287,7 +2287,7 @@ E
 red ribbons~
 These red ribbons are just the ghosts of actual reins....
 ~
-g none~
+g @rus none~
 #19108
 holly tree~
 a holly tree~
@@ -2296,7 +2296,7 @@ wood~
 container 0 0 0
 100 0 0 0 100
 0 0 0 P
-g none~
+g @rus none~
 #19109
 holly berries berry~
 a few holly berries~
@@ -2305,7 +2305,7 @@ food~
 pill 0 0 A
 10 'poison' '' '' ''
 2 2 0 P
-g none~
+g @rus none~
 #19110
 sword obsidian eclipse~
 an eclipse sword~
@@ -2322,7 +2322,7 @@ eclipse sword obsidian~
 This dark sword seems to draw in all the light near it and swallow it up....
 its edges and hilt are fuzzy and hard to make out, since all the light that
 falls near them is consumed by the power of the sword.~
-g none~
+g @rus none~
 #19111
 menu~
 a menu~
@@ -2344,7 +2344,7 @@ menu~
 *                                                                          *
 ****************************************************************************
 ~
-g none~
+g @rus none~
 #19112
 sign health board~
 a sign~
@@ -2366,7 +2366,7 @@ sign health~
 *                                                 Reg Felix Dept Mud Admin *
 ****************************************************************************
 ~
-g none~
+g @rus none~
 #19113
 beef stew~
 beef stew~
@@ -2375,7 +2375,7 @@ food~
 food 0 0 A
 AB AB 0 0 0
 0 2 0 P
-g none~
+g @rus none~
 #19114
 jar slugs light~
 a small jar of glowing slugs~
@@ -2390,7 +2390,7 @@ Glowing slugs fill the jar, excreting vile ooze all over the jar's inside--and
 its outside as well; it appears that some of the slug slime has spilled over,
 forming a sticky residue on the outside of the jar.  
 ~
-g none~
+g @rus none~
 #19115
 oak tree poison trees~
 a poison oak tree~
@@ -2399,7 +2399,7 @@ unknown~
 container 0 0 0
 100 0 0 0 100
 0 0 0 P
-g none~
+g @rus none~
 #19116
 acorn~
 an acorn~
@@ -2408,7 +2408,7 @@ food~
 food H 0 A
 BD BD 0 0 0
 1 1 0 P
-g none~
+g @rus none~
 #19117
 tight leather bodice~
 a tight leather bodice~
@@ -2419,7 +2419,7 @@ armor JM 0 AD
 25 3 0 P
 a '' to_object 25 -1 -25 13 0
 a '' to_object 25 -1 5 18 0
-g none~
+g @rus none~
 #19118
 leather miniskirt~
 a tight leather miniskirt~
@@ -2429,7 +2429,7 @@ armor M 0 AF
 5 5 5 0 0
 25 2 10 P
 a '' to_object 25 -1 -2 2 0
-g none~
+g @rus none~
 #19119
 squid~
 a dead squid~
@@ -2438,7 +2438,7 @@ food~
 food 0 0 A
 B B 0 0 0
 2 2 0 P
-g none~
+g @rus none~
 #19120
 cabinet door~
 a cabinet door~
@@ -2447,7 +2447,7 @@ wood~
 container 0 0 0
 100 0 0 0 100
 0 0 0 P
-g none~
+g @rus none~
 #19121
 bag newbie~
 a Newbie Bag!~
@@ -2464,7 +2464,7 @@ type 'look in bag'.  To put stuff in the bag, type 'put <object name> in bag'.
 That's all for the bag....good luck, and ask an immortal or a high-level
 mortal if you have any questions.....
 ~
-g none~
+g @rus none~
 #19122
 circlet silver~
 a silver circlet~
@@ -2474,7 +2474,7 @@ armor AK 0 AE
 10 10 10 0 0
 50 15 0 P
 a '' to_object 50 -1 50 12 0
-g none~
+g @rus none~
 #19123
 robe black~
 a black robe~
@@ -2486,7 +2486,7 @@ armor J 0 AK
 a '' to_object 35 -1 2 1 0
 a '' to_object 35 -1 2 2 0
 a '' to_object 35 -1 -50 13 0
-g none~
+g @rus none~
 #19124
 white robe~
 a white robe~
@@ -2497,7 +2497,7 @@ armor J 0 AK
 35 5 0 P
 a '' to_object 35 -1 1 3 0
 a '' to_object 35 -1 -100 12 0
-g none~
+g @rus none~
 #19125
 amulet death~
 the Amulet of Death and Dishonor~
@@ -2516,7 +2516,7 @@ a '' to_object 50 -1 -5000 13 0
 a '' to_object 50 -1 100 17 0
 a '' to_object 50 -1 -100 18 0
 a '' to_object 50 -1 -100 19 0
-g none~
+g @rus none~
 #19126
 cloak black~
 a black cloak~
@@ -2525,7 +2525,7 @@ cloth~
 armor F 0 AK
 16 16 16 7 0
 50 5 0 P
-g none~
+g @rus none~
 #19127
 blood red dagger~
 a blood-red dagger~
@@ -2546,7 +2546,7 @@ excellent grip, while the creature's gaping mouth and head form the hilt
 at the dagger's top.  The blade itself has been notched like a saw, for 
 extra destructive power....
  ~
-g none~
+g @rus none~
 #19128
 sigil dark~
 the Sigil of the Dark~
@@ -2567,7 +2567,7 @@ than made out of several different pieces...and as you look closer, you see
 runes inscribed all over the Sigil, runes that chill you to the heart.  You
 realize that a cold power beats out of the Sigil, more than anything that ever
 came out of any more usual sign....~
-g none~
+g @rus none~
 #19129
 sigil light~
 the Sigil of the Light~
@@ -2585,7 +2585,7 @@ light strikes the bright circle of glass, you see that it contains more than
 just a beautiful representation of the Sign of the Light: intricate runes have
 been carved into its face, and the sigil as a whole glows with a warm, almost
 friendly energy.~
-g none~
+g @rus none~
 #19130
 netting hat netted beekeeper~
 a beekeeper's hat~
@@ -2602,7 +2602,7 @@ The beekeeper's hat has white netting sewn to the brim; when zipped into the
 collar of the beekeeper's jacket, it prevents the bees from attacking the
 wearer's face.
 ~
-g none~
+g @rus none~
 #19131
 white cloak~
 a white cloak~
@@ -2612,7 +2612,7 @@ armor J 0 AD
 16 17 16 9 0
 50 5 0 P
 a '' to_object 50 -1 50 12 0
-g none~
+g @rus none~
 #19132
 black cloak~
 a black cloak~
@@ -2622,7 +2622,7 @@ armor 0 0 AD
 16 17 17 6 0
 50 5 0 P
 a '' to_object 50 -1 50 12 0
-g none~
+g @rus none~
 #19133
 smoke can jug~
 a beekeeper's smoke can~
@@ -2637,7 +2637,7 @@ The beekeeper's smoke can is an invaluable tool: bees calm down tremendously
 when doused with thick smoke, allowing the beekeeper to handle them without
 being stung.
 ~
-g none~
+g @rus none~
 #19134
 history mirror realm book~
 a History of the Mirror Realm~
@@ -2693,7 +2693,7 @@ a rock wall between good and evil, and separating them forever.  The Sword and
 Shield were hidden, never to be found by any but those most dedicated to the
 realm.....
 ~
-g none~
+g @rus none~
 #19135
 book legends~
 a Book of Legends~
@@ -2727,7 +2727,7 @@ VIOLET: ............shadowy spring.......namesake.
 
 And for the final ....... search above honor, above faith, above love.....
 ~
-g none~
+g @rus none~
 #19136
 book history midgaard~
 a History of Midgaard~
@@ -2752,7 +2752,7 @@ the streets and allowing for faster and less rocky travel.
 ...And now, though towns and villages have been colonized all around Midgaard,
 some large, some small, millions upon millions still call Midgaard home..... 
 ~
-g none~
+g @rus none~
 #19137
 altar crystal drawer~
 the crystal altar~
@@ -2764,7 +2764,7 @@ container 0 0 0
 E
 altar crystal~
 You see a small drawer in the front of the sparkling altar.~
-g none~
+g @rus none~
 #19138
 crystal sigil~
 the crystal sigil~
@@ -2774,7 +2774,7 @@ trash A 0 A
 0 0 0 0 0
 5 0 0 P
 a '' to_object 5 -1 10 12 0
-g none~
+g @rus none~
 #19139
 altar yellow drawer~
 a citrine altar~
@@ -2783,7 +2783,7 @@ unknown~
 container 0 0 0
 100 0 0 0 100
 0 0 0 P
-g none~
+g @rus none~
 #19140
 topaz sigil~
 the yellow topaz sigil~
@@ -2793,7 +2793,7 @@ trash 0 0 BD
 0 0 0 0 0
 5 0 0 P
 a '' to_object 5 -1 10 12 0
-g none~
+g @rus none~
 #19141
 drawer altar amethyst purple~
 a purple altar~
@@ -2805,7 +2805,7 @@ container 0 0 0
 E
 drawer purple altar~
 A drawer has been set into the front of the altar.~
-g none~
+g @rus none~
 #19142
 amethyst sigil~
 the amethyst sigil~
@@ -2815,7 +2815,7 @@ treasure 0 0 AO
 0 0 0 0 0
 1 1 0 P
 a '' to_object 1 -1 10 13 0
-g none~
+g @rus none~
 #19143
 drawer red altar~
 the red altar~
@@ -2827,7 +2827,7 @@ container 0 0 0
 E
 altar ruby red drawer~
 A small drawer has been set into the front of the altar.~
-g none~
+g @rus none~
 #19144
 ruby sigil~
 the ruby sigil~
@@ -2837,7 +2837,7 @@ treasure 0 0 A
 0 0 0 0 0
 2 2 10 P
 a '' to_object 2 -1 20 14 0
-g none~
+g @rus none~
 #19145
 sigil sapphire~
 the sapphire sigil~
@@ -2847,7 +2847,7 @@ treasure 0 0 AO
 0 0 0 0 0
 5 0 0 P
 a '' to_object 5 -1 10 13 0
-g none~
+g @rus none~
 #19146
 drawer altar sapphire~
 the sapphire altar~
@@ -2859,7 +2859,7 @@ container 0 0 0
 E
 drawer sapphire altar~
 A small drawer has been set into the front of the altar.~
-g none~
+g @rus none~
 #19147
 drawer green altar~
 the green altar~
@@ -2871,7 +2871,7 @@ container 0 0 0
 E
 drawer altar~
 A small drawer has been set into the front of the altar.~
-g none~
+g @rus none~
 #19148
 emerald sigil~
 the emerald sigil~
@@ -2881,7 +2881,7 @@ furniture 0 0 AO
 0 0 0 0 0
 8 0 0 P
 a '' to_object 8 -1 2 18 0
-g none~
+g @rus none~
 #19149
 amber sigil~
 the amber sigil~
@@ -2891,7 +2891,7 @@ furniture 0 0 AO
 0 0 0 0 0
 5 0 0 P
 a '' to_object 5 -1 20 14 0
-g none~
+g @rus none~
 #19150
 honey jar~
 a jar of honey~
@@ -2903,7 +2903,7 @@ B B 0 0 0
 E
 honey jar~
 "Golden Blossom Honey"~
-g none~
+g @rus none~
 #19157
 sword taliesin~
 taliesin~
@@ -2924,7 +2924,7 @@ from tip to hilt.  The hilt itself has been crafted of fine gold, worked
 into an ornate, twisting pattern, with a strange sigil carved on its hilt: 
 the sign of the Light has been interlocked with the sign of the Dark.
 ~
-g none~
+g @rus none~
 #19158
 sunrise shield~
 the Sunrise Shield~
@@ -2943,7 +2943,7 @@ jewels: sapphires, rubies, diamonds, and emeralds have been mixed together
 to create the shield's border, while soft, braided gold forms the rays
 of light that lead to the polished gold sun in the shield's center.
 ~
-g none~
+g @rus none~
 #19159
 red key~
 a red key~
@@ -2952,7 +2952,7 @@ iron~
 key 0 0 A
 0 0 0 0 0
 1 0 0 P
-g none~
+g @rus none~
 #19160
 orange key~
 an orange key~
@@ -2961,7 +2961,7 @@ iron~
 key 0 0 A
 0 0 0 0 0
 1 0 0 P
-g none~
+g @rus none~
 #19161
 yellow key~
 a yellow key~
@@ -2970,7 +2970,7 @@ iron~
 key 0 0 A
 0 0 0 0 0
 1 0 0 P
-g none~
+g @rus none~
 #19162
 green key~
 a green key~
@@ -2979,7 +2979,7 @@ iron~
 key 0 0 A
 0 0 0 0 0
 1 0 0 P
-g none~
+g @rus none~
 #19163
 blue key~
 a blue key~
@@ -2988,7 +2988,7 @@ steel~
 key 0 0 A
 0 0 0 0 0
 1 0 0 P
-g none~
+g @rus none~
 #19164
 violet key~
 a violet key~
@@ -2997,7 +2997,7 @@ iron~
 key 0 0 A
 0 0 0 0 0
 1 0 0 P
-g none~
+g @rus none~
 #19165
 fish trout~
 a trout~
@@ -3006,7 +3006,7 @@ food~
 food 0 0 A
 BC BC 0 0 0
 2 2 0 P
-g none~
+g @rus none~
 #19166
 heart key~
 the heart key~
@@ -3015,7 +3015,7 @@ food~
 food 0 0 A
 0 0 0 0 0
 1 0 0 P
-g none~
+g @rus none~
 #19167
 champagne bottle~
 a bottle of champagne~
@@ -3024,7 +3024,7 @@ glass~
 drink 0 0 A
 10 10 'champagne' 0 0
 2 2 0 P
-g none~
+g @rus none~
 #19168
 spam can~
 a can of Spam~
@@ -3033,7 +3033,7 @@ food~
 food 0 0 A
 CE BD 0 0 0
 1 3 0 P
-g none~
+g @rus none~
 #19169
 bottle water~
 a bottle of water~
@@ -3042,7 +3042,7 @@ glass~
 drink 0 0 A
 20 20 'water' 0 0
 1 2 0 P
-g none~
+g @rus none~
 #19170
 silver pendant~
 a small silver pendant~
@@ -3052,7 +3052,7 @@ armor A 0 AC
 4 0 0 0 0
 1 0 0 P
 a '' to_object 1 -1 5 13 0
-g none~
+g @rus none~
 #19171
 bronze band~
 a simple bronze band~
@@ -3063,7 +3063,7 @@ armor A 0 AB
 5 0 0 P
 a '' to_object 5 -1 1 3 0
 a '' to_object 5 -1 5 14 0
-g none~
+g @rus none~
 #19172
 thick brown robe~
 a thick brown robe~
@@ -3074,7 +3074,7 @@ armor A 0 AK
 5 0 0 P
 a '' to_object 5 -1 1 5 0
 a '' to_object 5 -1 1 4 0
-g none~
+g @rus none~
 #0
 
 #ROOMS

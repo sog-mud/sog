@@ -1678,7 +1678,7 @@ spray in the light.  The narrow face and chiseled cheekbones appear
 elven, but twin wings rise from the shoulderblades, sculpted feathers
 cascading over the sorceress' back like a cloak.
 ~
-g none~
+g @rus none~
 #11801
 black marble key~
 a black marble key~
@@ -1687,7 +1687,7 @@ stone~
 key 0 0 A
 0 0 0 0 0
 1 10 0 P
-g none~
+g @rus none~
 #11802
 tentacled key black stone~
 a tentacled key~
@@ -1696,7 +1696,7 @@ stone~
 key B 0 A
 0 0 0 0 0
 1 10 0 P
-g none~
+g @rus none~
 #11803
 lapis lazuli statue~
 the lapis statue~
@@ -1712,7 +1712,7 @@ The carved form depicts a kneeling drakyri dressed long flowing robes.
 His hands are cupped before him, as if in supplication.  Nestled between
 the hands is a carved bowl filled with cloudy white liquid.
 ~
-g none~
+g @rus none~
 #11804
 pool water mirror~
 a pool of water~
@@ -1729,7 +1729,7 @@ to your own and seems to smile mysteriously up at you.  The water
 ripples and clears, leaving only your reflection.. or perhaps the vision
 was just your imagination?  The water sparkles in the light.
 ~
-g none~
+g @rus none~
 #11805
 guardian guardian's key silver~
 the guardian's key~
@@ -1738,7 +1738,7 @@ silver~
 key A 0 A
 0 0 0 0 0
 1 0 0 P
-g none~
+g @rus none~
 #11806
 counter black stone~
 a black counter~
@@ -1761,7 +1761,7 @@ You know me !
 Type list to list items.
 Type buy to buy something.
 ~
-g none~
+g @rus none~
 #11807
 shimmering curtain light~
 a shimmering curtain~
@@ -1774,7 +1774,7 @@ E
 shimmering curtain light~
 Peering through the curtain, you see a grove of trees.
 ~
-g none~
+g @rus none~
 #11808
 table stone~
 a large stone table~
@@ -1789,7 +1789,7 @@ Engraved across the center of the table are the words:
 
                D'lan Treviki Drakyri Laerkai
 ~
-g none~
+g @rus none~
 #11809
 mithril ((+*+)) torque deriki~
 a mithril ((+*+)) torque~
@@ -1808,7 +1808,7 @@ An inscription along the edge reads:
 
                Sh'evale Deriki Lechandre Deia
 ~
-g none~
+g @rus none~
 #11810
 shimmering blue robe~
 a shimmering blue robe~
@@ -1825,7 +1825,7 @@ An inscription along the edge reads:
 
                Sh'evale Deriki Lechandre Deia
 ~
-g none~
+g @rus none~
 #11811
 magic flame~
 a magic flame~
@@ -1836,7 +1836,7 @@ light A 0 A
 43 0 10000 P
 a '' to_object 43 -1 30 12 0
 a '' to_object 43 -1 2 19 0
-g none~
+g @rus none~
 #11812
 engraved ((+*+)) ring deriki~
 an engraved ((+*+)) ring~
@@ -1855,7 +1855,7 @@ An inscription along the inside of the band reads:
 
                She'vale Deriki Noriek Deiayan
 ~
-g none~
+g @rus none~
 #11813
 ((+*+)) crest deriki~
 a ((+*+)) crest~
@@ -1875,7 +1875,7 @@ An inscription along the inside of the band reads:
 
                She'vale Deriki Noriek Deiayan
 ~
-g none~
+g @rus none~
 #11814
 mithril ((+*+)) bracelet deriki~
 a ((+*+)) bracelet~
@@ -1886,7 +1886,7 @@ armor A 0 AM
 42 20 9500 P
 a '' to_object 42 -1 30 12 0
 a '' to_object 42 -1 3 19 0
-g none~
+g @rus none~
 #11815
 ((+*+)) chain belt deriki~
 a ((+*+)) chain belt~
@@ -1898,7 +1898,7 @@ armor A 0 AL
 a '' to_object 42 -1 50 12 0
 a '' to_object 42 -1 4 19 0
 a '' to_object 42 -1 -2 5 0
-g none~
+g @rus none~
 #11816
 ((+*+)) shoes deriki~
 a pair of ((+*+)) shoes~
@@ -1912,7 +1912,7 @@ a '' to_object 40 -1 15 13 0
 a '' to_object 40 -1 1 3 0
 a '' to_object 40 -1 1 2 0
 a '' to_object 40 -1 -2 18 0
-g none~
+g @rus none~
 #11817
 ((+*+)) armbands arm bands deriki~
 some ((+*+)) armbands~
@@ -1925,7 +1925,7 @@ a '' to_object 41 -1 30 12 0
 a '' to_object 41 -1 2 19 0
 a '' to_object 41 -1 1 4 0
 a '' to_object 41 -1 -1 6 0
-g none~
+g @rus none~
 #11818
 glittering ((+*+)) earring deriki~
 a glittering ((+*+)) earring~
@@ -1939,7 +1939,7 @@ a '' to_object 40 -1 15 13 0
 a '' to_object 40 -1 2 19 0
 a '' to_object 40 -1 -1 5 0
 a '' to_object 40 -1 1 1 0
-g none~
+g @rus none~
 #11819
 glowing ((+*+)) sphere deriki~
 a glowing ((+*+)) sphere~
@@ -1952,7 +1952,7 @@ a '' to_object 40 -1 30 12 0
 a '' to_object 40 -1 2 19 0
 a '' to_object 40 -1 2 18 0
 a '' to_object 40 -1 -5 9 0
-g none~
+g @rus none~
 #11820
 ((+*+)) tunic deriki~
 a ((+*+)) tunic~
@@ -1965,7 +1965,7 @@ a '' to_object 40 -1 2 3 0
 a '' to_object 40 -1 30 12 0
 a '' to_object 40 -1 20 13 0
 a '' to_object 40 -1 -5 20 0
-g none~
+g @rus none~
 #11821
 owl eyes feather~
 Owl eyes~
@@ -1977,7 +1977,7 @@ armor GI 0 AE
 a '' to_object 42 -1 40 12 0
 a '' to_object 42 -1 2 18 0
 a '' to_object 42 -1 -2 20 0
-g none~
+g @rus none~
 #11822
 staff guarding mithril~
 a staff of guarding~
@@ -1987,7 +1987,7 @@ staff B 0 AO
 50 8 6 'sanctuary' 0
 35 30 10100 P
 a '' to_object 35 -1 -20 17 0
-g none~
+g @rus none~
 #11823
 gleaming ((-*-)) circlet treniste~
 a gleaming ((-*-)) circlet~
@@ -2000,7 +2000,7 @@ a '' to_object 42 -1 2 4 0
 a '' to_object 42 -1 2 3 0
 a '' to_object 42 -1 4 18 0
 a '' to_object 42 -1 4 19 0
-g none~
+g @rus none~
 #11824
 ((-*-)) set chain armor treniste~
 a set of ((-*-)) chain armor~
@@ -2012,7 +2012,7 @@ armor IKL 0 AD
 a '' to_object 42 -1 3 19 0
 a '' to_object 42 -1 1 1 0
 a '' to_object 42 -1 10 13 0
-g none~
+g @rus none~
 #11825
 white ((-*-)) belt treniste~
 a white ((-*-)) belt~
@@ -2025,7 +2025,7 @@ a '' to_object 42 -1 3 19 0
 a '' to_object 42 -1 1 4 0
 a '' to_object 42 -1 25 12 0
 a '' to_object 42 -1 25 13 0
-g none~
+g @rus none~
 #11826
 pair ((-*-)) gauntlets treniste~
 a pair of ((-*-)) gauntlets~
@@ -2038,7 +2038,7 @@ a '' to_object 41 -1 4 19 0
 a '' to_object 41 -1 4 18 0
 a '' to_object 41 -1 -1 4 0
 a '' to_object 41 -1 37 13 0
-g none~
+g @rus none~
 #11827
 pair ((-*-)) leggings treniste~
 a pair of ((-*-)) leggings~
@@ -2051,7 +2051,7 @@ a '' to_object 41 -1 20 14 0
 a '' to_object 41 -1 20 12 0
 a '' to_object 41 -1 20 13 0
 a '' to_object 41 -1 1 1 0
-g none~
+g @rus none~
 #11828
 white ((-*-)) visor treniste~
 a white ((-*-)) visor~
@@ -2064,7 +2064,7 @@ a '' to_object 39 -1 1 19 0
 a '' to_object 39 -1 20 13 0
 a '' to_object 39 -1 1 4 0
 a '' to_object 39 -1 1 2 0
-g none~
+g @rus none~
 #11829
 golden ((-*-)) bracer treniste~
 a golden ((-*-)) bracer~
@@ -2077,7 +2077,7 @@ a '' to_object 41 -1 25 12 0
 a '' to_object 41 -1 25 13 0
 a '' to_object 41 -1 2 5 0
 a '' to_object 41 -1 4 19 0
-g none~
+g @rus none~
 #11830
 embroidered ((-*-)) cape treniste~
 an embroidered ((-*-)) cape~
@@ -2092,7 +2092,7 @@ a '' to_object 39 -1 -15 13 0
 a '' to_object 39 -1 50 12 0
 a '' to_object 39 -1 1 3 0
 a '' to_object 39 -1 -1 6 0
-g none~
+g @rus none~
 #11831
 ancient tome~
 an ancient tome~
@@ -2102,7 +2102,7 @@ staff BFG 0 AO
 40 4 4 'detect hidden' 0
 30 50 10000 P
 a '' to_object 30 -1 4 3 0
-g none~
+g @rus none~
 #11832
 ornate mask~
 an ornate mask~
@@ -2115,7 +2115,7 @@ a '' to_object 39 -1 3 19 0
 a '' to_object 39 -1 25 13 0
 a '' to_object 39 -1 1 8 0
 a '' to_object 39 -1 5 9 0
-g none~
+g @rus none~
 #11833
 ((-*-)) sleeves pair golden treniste~
 some ((-*-)) sleeves~
@@ -2128,7 +2128,7 @@ a '' to_object 39 -1 15 13 0
 a '' to_object 39 -1 2 19 0
 a '' to_object 39 -1 1 4 0
 a '' to_object 39 -1 1 2 0
-g none~
+g @rus none~
 #11834
 gleaming white sword~
 a gleaming white sword~
@@ -2139,7 +2139,7 @@ sword 9 5 'cleave' 0
 40 200 10000 P
 a '' to_object 40 -1 5 18 0
 a '' to_object 40 -1 5 19 0
-g none~
+g @rus none~
 #11835
 gleaming white shield~
 a gleaming white shield~
@@ -2152,7 +2152,7 @@ a '' to_object 40 -1 -10 17 0
 a '' to_object 40 -1 4 19 0
 a '' to_object 40 -1 3 2 0
 a '' to_object 40 -1 3 1 0
-g none~
+g @rus none~
 #11836
 deep indigo pill~
 a deep indigo pill~
@@ -2161,7 +2161,7 @@ food~
 pill 0 0 A
 65 'protection evil' 'bless' '' ''
 55 10 850 P
-g none~
+g @rus none~
 #11837
 jet black ->*<- helm reykaris~
 a jet black  ->*<-  helm~
@@ -2174,7 +2174,7 @@ a '' to_object 42 -1 20 13 0
 a '' to_object 42 -1 4 19 0
 a '' to_object 42 -1 4 18 0
 a '' to_object 42 -1 2 1 0
-g none~
+g @rus none~
 #11838
 taloned gloves~
 a pair of taloned gloves~
@@ -2187,7 +2187,7 @@ a '' to_object 42 -1 5 19 0
 a '' to_object 42 -1 4 18 0
 a '' to_object 42 -1 1 6 0
 a '' to_object 42 -1 100 12 0
-g none~
+g @rus none~
 #11839
 ->*<- breast plate reykaris~
 a  ->*<-  breast plate~
@@ -2200,7 +2200,7 @@ a '' to_object 42 -1 35 13 0
 a '' to_object 42 -1 1 2 0
 a '' to_object 42 -1 1 1 0
 a '' to_object 42 -1 4 19 0
-g none~
+g @rus none~
 #11840
 dark ->*<- orb reykaris~
 a dark  ->*<-  orb~
@@ -2213,7 +2213,7 @@ a '' to_object 41 -1 2 19 0
 a '' to_object 41 -1 15 12 0
 a '' to_object 41 -1 20 13 0
 a '' to_object 41 -1 1 3 0
-g none~
+g @rus none~
 #11841
 ->*<- legplates leg plates reykaris~
 some  ->*<-  legplates~
@@ -2226,7 +2226,7 @@ a '' to_object 82 -1 2 19 0
 a '' to_object 82 -1 15 13 0
 a '' to_object 82 -1 1 2 0
 a '' to_object 82 -1 1 1 0
-g none~
+g @rus none~
 #11842
 carved ->*<- ring reykaris~
 a carved  ->*<-  ring~
@@ -2239,7 +2239,7 @@ a '' to_object 39 -1 25 13 0
 a '' to_object 39 -1 4 19 0
 a '' to_object 39 -1 4 18 0
 a '' to_object 39 -1 1 3 0
-g none~
+g @rus none~
 #11843
 cloak nightmares black~
 a cloak of nightmares~
@@ -2255,7 +2255,7 @@ a '' to_object 36 -1 -1 5 0
 a '' to_object 36 -1 -1 3 0
 a '' to_object 36 -1 3 2 0
 a '' to_object 36 -1 3 9 0
-g none~
+g @rus none~
 #11844
 ebony ->*<- bracer reykaris~
 an ebony  ->*<-  bracer~
@@ -2267,7 +2267,7 @@ armor EJL 0 AM
 a '' to_object 41 -1 3 5 0
 a '' to_object 41 -1 3 4 0
 a '' to_object 41 -1 3 3 0
-g none~
+g @rus none~
 #11845
 dark ->*<- necklace reykaris~
 a dark  ->*<-  necklace~
@@ -2281,7 +2281,7 @@ a '' to_object 40 -1 30 13 0
 a '' to_object 40 -1 3 2 0
 a '' to_object 40 -1 2 9 0
 a '' to_object 40 -1 2 6 0
-g none~
+g @rus none~
 #11846
 humanoid skull~
 a humanoid skull~
@@ -2294,7 +2294,7 @@ a '' to_object 44 -1 4 19 0
 a '' to_object 44 -1 1 2 0
 a '' to_object 44 -1 2 1 0
 a '' to_object 44 -1 40 12 0
-g none~
+g @rus none~
 #11847
 pair obsidian ->*<- boots reykaris~
 a pair of  ->*<-  boots~
@@ -2306,7 +2306,7 @@ armor EJL 0 AG
 a '' to_object 42 -1 15 12 0
 a '' to_object 42 -1 15 13 0
 a '' to_object 42 -1 2 2 0
-g none~
+g @rus none~
 #11848
 tempered silver throwing dagger~
 a tempered throwing dagger~
@@ -2317,7 +2317,7 @@ dagger 8 4 'pierce' DHK
 40 200 15000 P
 a '' to_object 40 -1 10 19 0
 a '' to_object 40 -1 10 18 0
-g none~
+g @rus none~
 #11849
 ->*<- sleeves obsidian reykaris~
 some  ->*<-  sleeves~
@@ -2330,7 +2330,7 @@ a '' to_object 44 -1 4 19 0
 a '' to_object 44 -1 3 18 0
 a '' to_object 44 -1 2 3 0
 a '' to_object 44 -1 2 1 0
-g none~
+g @rus none~
 #11850
 black collar runes runed leather~
 a black runed collar~
@@ -2351,7 +2351,7 @@ runes~
 The runes are in no language that you recognize.  As you gaze at them,
 they shimmer, and you feel the urge to wear this collar..
 ~
-g none~
+g @rus none~
 #11851
 demon's wings demon black~
 demon's wings~
@@ -2368,7 +2368,7 @@ a '' to_object 44 -1 1 6 0
 a '' to_object 44 -1 2 5 0
 a '' to_object 44 -1 2 1 0
 a '' to_object 44 -1 5 9 0
-g none~
+g @rus none~
 #11852
 onyx -=+)> earring myrxes~
 an onyx -=+)> earring~
@@ -2387,7 +2387,7 @@ Below the Myrxes crest is the inscription:
 
                    Myr'vale Myxes Jaena Deia
 ~
-g none~
+g @rus none~
 #11853
 dark -=+)> gloves myrxes~
 some dark -=+)> gloves~
@@ -2400,7 +2400,7 @@ a '' to_object 39 -1 3 19 0
 a '' to_object 39 -1 4 18 0
 a '' to_object 39 -1 1 2 0
 a '' to_object 39 -1 1 1 0
-g none~
+g @rus none~
 #11854
 sharpened stiletto sharp~
 a sharpened stiletto~
@@ -2411,7 +2411,7 @@ dagger 5 11 'pierce' DH
 42 200 12500 P
 a '' to_object 42 -1 5 18 0
 a '' to_object 42 -1 5 19 0
-g none~
+g @rus none~
 #11855
 invisible flame~
 an invisible flame~
@@ -2423,7 +2423,7 @@ light CF 0 A
 a '' to_object 40 -1 1 2 0
 a '' to_object 40 -1 3 19 0
 a '' to_object 40 -1 30 12 0
-g none~
+g @rus none~
 #11856
 pair -=+)> sleeves myrxes~
 a pair of -=+)> sleeves~
@@ -2436,7 +2436,7 @@ a '' to_object 39 -1 3 19 0
 a '' to_object 39 -1 3 18 0
 a '' to_object 39 -1 1 3 0
 a '' to_object 39 -1 2 2 0
-g none~
+g @rus none~
 #11857
 engraved platinum ][+][ ring xaek~
 an engraved platinum ][+][ ring~
@@ -2449,7 +2449,7 @@ a '' to_object 34 -1 3 19 0
 a '' to_object 34 -1 15 13 0
 a '' to_object 34 -1 1 2 0
 a '' to_object 34 -1 2 1 0
-g none~
+g @rus none~
 #11858
 -=+)> shroud shadows myrxes~
 a -=+)> shroud~
@@ -2461,7 +2461,7 @@ armor CFI 0 AK
 a '' to_object 37 -1 4 19 0
 a '' to_object 37 -1 3 18 0
 a '' to_object 37 -1 25 13 0
-g none~
+g @rus none~
 #11859
 black slim -=+)> bracer myrxes~
 a slim -=+)> bracer~
@@ -2474,7 +2474,7 @@ a '' to_object 36 -1 2 19 0
 a '' to_object 36 -1 2 18 0
 a '' to_object 36 -1 -10 17 0
 a '' to_object 36 -1 2 2 0
-g none~
+g @rus none~
 #11860
 shadowy -=+)> neckchain neck chain myrxes~
 a shadowy -=+)> neckchain~
@@ -2487,7 +2487,7 @@ a '' to_object 36 -1 10 12 0
 a '' to_object 36 -1 10 13 0
 a '' to_object 36 -1 2 19 0
 a '' to_object 36 -1 1 1 0
-g none~
+g @rus none~
 #11861
 black -=+)> leggings leather pair myrxes~
 a pair of black -=+)> leggings~
@@ -2500,7 +2500,7 @@ a '' to_object 38 -1 2 18 0
 a '' to_object 38 -1 2 19 0
 a '' to_object 38 -1 20 13 0
 a '' to_object 38 -1 2 2 0
-g none~
+g @rus none~
 #11862
 silent -=+)> boots myrxes~
 silent -=+)> boots~
@@ -2512,7 +2512,7 @@ armor CFI 0 AG
 a '' to_object 37 -1 2 2 0
 a '' to_object 37 -1 3 18 0
 a '' to_object 37 -1 2 19 0
-g none~
+g @rus none~
 #11863
 hair ring panther black~
 a ring of the panther~
@@ -2525,7 +2525,7 @@ a '' to_object 37 -1 2 2 0
 a '' to_object 37 -1 3 19 0
 a '' to_object 37 -1 3 18 0
 a '' to_object 37 -1 30 12 0
-g none~
+g @rus none~
 #11864
 black -=+)> belt myrxes~
 a black -=+)> belt~
@@ -2538,7 +2538,7 @@ a '' to_object 37 -1 -100 13 0
 a '' to_object 37 -1 200 12 0
 a '' to_object 37 -1 3 2 0
 a '' to_object 37 -1 3 1 0
-g none~
+g @rus none~
 #11865
 ring lynx~
 a ring of the lynx~
@@ -2551,7 +2551,7 @@ a '' to_object 37 -1 1 1 0
 a '' to_object 37 -1 2 19 0
 a '' to_object 37 -1 2 18 0
 a '' to_object 37 -1 25 13 0
-g none~
+g @rus none~
 #11866
 night hawk talons~
 night hawk talons~
@@ -2564,7 +2564,7 @@ a '' to_object 36 -1 1 5 0
 a '' to_object 36 -1 1 2 0
 a '' to_object 36 -1 1 1 0
 a '' to_object 36 -1 3 19 0
-g none~
+g @rus none~
 #11867
 hunter's hunters hunter arrow mithril~
 a hunter's arrow~
@@ -2575,7 +2575,7 @@ exotic 6 7 'pierce' EK
 35 200 10000 P
 a '' to_object 35 -1 5 19 0
 a '' to_object 35 -1 5 18 0
-g none~
+g @rus none~
 #11868
 set ][+][ platemail plate mail xaek~
 a set of ][+][ platemail~
@@ -2586,7 +2586,7 @@ armor 0 0 AD
 39 100 10000 P
 a '' to_object 39 -1 3 19 0
 a '' to_object 39 -1 5 18 0
-g none~
+g @rus none~
 #11869
 bracer power~
 a bracer of power~
@@ -2600,7 +2600,7 @@ a '' to_object 39 -1 50 13 0
 a '' to_object 39 -1 2 1 0
 a '' to_object 39 -1 2 2 0
 a '' to_object 39 -1 1 6 0
-g none~
+g @rus none~
 #11870
 ][+][ shield xaek~
 a ][+][ shield~
@@ -2612,7 +2612,7 @@ armor 0 0 AJ
 a '' to_object 38 -1 4 19 0
 a '' to_object 38 -1 1 1 0
 a '' to_object 38 -1 2 5 0
-g none~
+g @rus none~
 #11871
 grey ][+][ legplates leg plates xaek~
 some grey ][+][ legplates~
@@ -2625,7 +2625,7 @@ a '' to_object 37 -1 15 13 0
 a '' to_object 37 -1 3 19 0
 a '' to_object 37 -1 1 5 0
 a '' to_object 37 -1 1 1 0
-g none~
+g @rus none~
 #11872
 ][+][ helm xaek~
 a ][+][ helm~
@@ -2638,7 +2638,7 @@ a '' to_object 35 -1 25 13 0
 a '' to_object 35 -1 2 18 0
 a '' to_object 35 -1 2 19 0
 a '' to_object 35 -1 1 5 0
-g none~
+g @rus none~
 #11873
 engraved ][+][ crest xaek~
 an engraved ][+][ crest~
@@ -2650,7 +2650,7 @@ armor 0 0 AO
 a '' to_object 34 -1 2 19 0
 a '' to_object 34 -1 20 13 0
 a '' to_object 34 -1 2 1 0
-g none~
+g @rus none~
 #11874
 ][+][ armplates arm plates xaek~
 strong ][+][ armplates~
@@ -2663,7 +2663,7 @@ a '' to_object 36 -1 3 19 0
 a '' to_object 36 -1 2 18 0
 a '' to_object 36 -1 20 13 0
 a '' to_object 36 -1 1 5 0
-g none~
+g @rus none~
 #11875
 balanced adamantite longsword long sword~
 a finely balance adamantite longsword~
@@ -2674,7 +2674,7 @@ sword 5 9 'cleave' D
 35 300 17800 P
 a '' to_object 35 -1 5 18 0
 a '' to_object 35 -1 5 19 0
-g none~
+g @rus none~
 #11876
 silver carven -(+)- signet ring noriva~
 a carven -(+)- signet ring~
@@ -2687,7 +2687,7 @@ a '' to_object 39 -1 20 13 0
 a '' to_object 39 -1 20 12 0
 a '' to_object 39 -1 2 4 0
 a '' to_object 39 -1 2 3 0
-g none~
+g @rus none~
 #11877
 niobium -(+)- circlet noriva~
 a niobium -(+)- circlet~
@@ -2699,7 +2699,7 @@ armor AI 0 AE
 a '' to_object 39 -1 2 4 0
 a '' to_object 39 -1 3 18 0
 a '' to_object 39 -1 30 12 0
-g none~
+g @rus none~
 #11878
 light shimmering -(+)- sphere noriva~
 a shimmering -(+)- sphere~
@@ -2712,7 +2712,7 @@ a '' to_object 38 -1 1 3 0
 a '' to_object 38 -1 5 18 0
 a '' to_object 38 -1 20 12 0
 a '' to_object 38 -1 20 13 0
-g none~
+g @rus none~
 #11879
 inlaid silver -(+)- bracelet noriva~
 an inlaid silver -(+)- bracelet~
@@ -2725,7 +2725,7 @@ a '' to_object 37 -1 40 13 0
 a '' to_object 37 -1 -50 12 0
 a '' to_object 37 -1 5 18 0
 a '' to_object 37 -1 1 4 0
-g none~
+g @rus none~
 #11880
 -(+)- girth noriva~
 a beautiful -(+)- girth~
@@ -2738,7 +2738,7 @@ a '' to_object 35 -1 6 18 0
 a '' to_object 35 -1 30 12 0
 a '' to_object 35 -1 20 13 0
 a '' to_object 35 -1 1 1 0
-g none~
+g @rus none~
 #11881
 pair -(+)- sleeves noriva~
 a pair of -(+)- sleeves~
@@ -2750,7 +2750,7 @@ armor AI 0 AI
 a '' to_object 34 -1 2 19 0
 a '' to_object 34 -1 25 13 0
 a '' to_object 34 -1 1 5 0
-g none~
+g @rus none~
 #11882
 pair -(+)- gloves noriva~
 some finely crafted -(+)- gloves~
@@ -2763,7 +2763,7 @@ a '' to_object 36 -1 1 2 0
 a '' to_object 36 -1 4 18 0
 a '' to_object 36 -1 35 12 0
 a '' to_object 36 -1 1 5 0
-g none~
+g @rus none~
 #11883
 filligree -(+)- necklace noriva~
 a filligree -(+)- necklace~
@@ -2775,7 +2775,7 @@ armor AI 0 AC
 a '' to_object 34 -1 2 5 0
 a '' to_object 34 -1 2 4 0
 a '' to_object 34 -1 2 3 0
-g none~
+g @rus none~
 #11884
 tooled -(+)- boots noriva~
 some tooled -(+)- boots~
@@ -2788,7 +2788,7 @@ a '' to_object 34 -1 2 19 0
 a '' to_object 34 -1 4 18 0
 a '' to_object 34 -1 20 12 0
 a '' to_object 34 -1 2 5 0
-g none~
+g @rus none~
 #11885
 laerkai fury rage~
 laerkai fury~
@@ -2801,7 +2801,7 @@ a '' to_object 45 -1 75 12 0
 a '' to_object 45 -1 5 19 0
 a '' to_object 45 -1 -5 20 0
 a '' to_object 45 -1 3 3 0
-g none~
+g @rus none~
 #11886
 laerkai justice shield~
 laerkai justice~
@@ -2814,7 +2814,7 @@ a '' to_object 45 -1 40 13 0
 a '' to_object 45 -1 -10 20 0
 a '' to_object 45 -1 3 5 0
 a '' to_object 45 -1 -25 17 0
-g none~
+g @rus none~
 #11887
 laerkai pain~
 laerkai pain~
@@ -2828,7 +2828,7 @@ a '' to_object 45 -1 4 18 0
 a '' to_object 45 -1 40 13 0
 a '' to_object 45 -1 1 6 0
 a '' to_object 45 -1 2 1 0
-g none~
+g @rus none~
 #11888
 shadows laerkai stealth~
 laerkai stealth~
@@ -2841,7 +2841,7 @@ a '' to_object 45 -1 3 2 0
 a '' to_object 45 -1 50 12 0
 a '' to_object 45 -1 10 18 0
 a '' to_invis 45 -1 0 0 G
-g none~
+g @rus none~
 #11889
 laerkai might platemail plate mail~
 laerkai might~
@@ -2856,7 +2856,7 @@ a '' to_object 45 -1 5 27 0
 a '' to_object 45 -1 7 19 0
 a '' to_object 45 -1 100 12 0
 a '' to_object 45 -1 3 1 0
-g none~
+g @rus none~
 #11890
 laerkai life health aura~
 laerkai life~
@@ -2869,7 +2869,7 @@ a '' to_object 45 -1 40 13 0
 a '' to_affects 45 -1 0 0 c
 a '' to_object 45 -1 5 18 0
 a '' to_object 45 -1 3 5 0
-g none~
+g @rus none~
 #11891
 laerkai power presense~
 laerkai power~
@@ -2900,7 +2900,7 @@ skull:
 
 	       D'lan Treviki Drakyri Laerkai
 ~
-g none~
+g @rus none~
 #11892
 honed shortsword zedraikis~
 a honed shortsword 'Zedraikis'~
@@ -2921,7 +2921,7 @@ hilt.  An inscription in the face of the blade reads:
 	      With the fury of fire
               And Zedraikis' wrath!
 ~
-g none~
+g @rus none~
 #11893
 flame balance silver~
 flame of balance~
@@ -2944,7 +2944,7 @@ E
 flame balance silver~
 The flame flickers blindingly, and you are forced to look away.
 ~
-g none~
+g @rus none~
 #11894
 drakyri arm guards pair silvery~
 drakyri arm guards~
@@ -2956,7 +2956,7 @@ armor A 0 AI
 a '' to_object 31 -1 2 19 0
 a '' to_object 31 -1 1 2 0
 a '' to_object 31 -1 1 1 0
-g none~
+g @rus none~
 #11895
 drakyri girth silvery~
 a drakyri girth~
@@ -2968,7 +2968,7 @@ armor AI 0 AL
 a '' to_object 31 -1 2 19 0
 a '' to_object 31 -1 20 12 0
 a '' to_object 31 -1 1 3 0
-g none~
+g @rus none~
 #11896
 drakyri wrist guard~
 a drakyri wrist guard~
@@ -2981,7 +2981,7 @@ a '' to_object 31 -1 2 19 0
 a '' to_object 31 -1 2 18 0
 a '' to_object 31 -1 15 13 0
 a '' to_object 31 -1 1 5 0
-g none~
+g @rus none~
 #11897
 drakyri dagger mithril~
 a drakyri dagger~
@@ -2993,7 +2993,7 @@ dagger 6 6 'pierce' 0
 a '' to_object 62 -1 4 18 0
 a '' to_object 62 -1 3 19 0
 a '' to_object 62 -1 1 2 0
-g none~
+g @rus none~
 #11898
 green greenish energy pill~
 an energy pill~
@@ -3002,7 +3002,7 @@ food~
 pill B 0 A
 65 'haste' 'enhanced armor' '' ''
 55 10 500 P
-g none~
+g @rus none~
 #11899
 warp pill~
 a warp pill~
@@ -3011,7 +3011,7 @@ food~
 pill B 0 A
 65 'teleport' 'teleport' 'heal' 'invisibility'
 55 10 300 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

@@ -854,7 +854,7 @@ a '' to_object 65 -1 2 18 0
 a '' to_object 65 -1 3 19 0
 a '' to_object 65 -1 -1 23 0
 a '' to_object 65 -1 -1 24 0
-g none~
+g @rus none~
 #14701
 krothgar sword~
 the sword of Lord Krothgar~
@@ -866,7 +866,7 @@ sword 6 11 'pierce' 0
 a '' to_object 65 -1 50 13 0
 a '' to_object 65 -1 10 18 0
 a '' to_object 65 -1 10 19 0
-g none~
+g @rus none~
 #14702
 krothgar shield~
 the shield of Lord Krothgar~
@@ -878,7 +878,7 @@ armor BEGHJL 0 AJ
 a '' to_object 65 -1 -30 17 0
 a '' to_object 65 -1 -3 23 0
 a '' to_object 65 -1 -3 24 0
-g none~
+g @rus none~
 #14703
 krothgar helm~
 the cursed helm of Lord Krothgar~
@@ -889,7 +889,7 @@ armor BEGHJLM 0 AE
 65 5 1000 P
 a '' to_object 65 -1 -5 3 0
 a '' to_object 65 -1 -5 4 0
-g none~
+g @rus none~
 #14704
 two handed sword~
 a two-handed sword~
@@ -902,7 +902,7 @@ a '' to_object 56 -1 3 1 0
 a '' to_object 56 -1 10 17 0
 a '' to_object 56 -1 6 18 0
 a '' to_object 56 -1 6 19 0
-g none~
+g @rus none~
 #14705
 burnt helm~
 a burnt helm~
@@ -915,7 +915,7 @@ a '' to_object 56 -1 20 12 0
 a '' to_object 56 -1 20 13 0
 a '' to_object 56 -1 20 14 0
 a '' to_object 56 -1 -10 17 0
-g none~
+g @rus none~
 #14706
 iron fist~
 the iron fist~
@@ -927,7 +927,7 @@ armor BEGJM 0 AH
 a '' to_object 50 -1 -2 2 0
 a '' to_object 50 -1 10 17 0
 a '' to_object 50 -1 8 19 0
-g none~
+g @rus none~
 #14707
 barbed flail~
 a demon's barbed flail~
@@ -938,7 +938,7 @@ flail 7 9 'whip' 0
 60 100 10000 P
 a '' to_object 60 -1 6 18 0
 a '' to_object 60 -1 6 19 0
-g none~
+g @rus none~
 #14708
 flaming spear~
 a flaming spear~
@@ -948,7 +948,7 @@ furniture ABEGJQ 0 AO
 0 0 0 0 0
 20 5 0 P
 a '' to_object 20 -1 4 18 0
-g none~
+g @rus none~
 #14709
 staff power~
 a staff of power~
@@ -960,7 +960,7 @@ staff AG 0 AO
 a '' to_object 40 -1 2 3 0
 a '' to_object 40 -1 2 4 0
 a '' to_object 40 -1 -20 17 0
-g none~
+g @rus none~
 #14710
 robes archmage~
 robes of the archmage~
@@ -970,7 +970,7 @@ armor AG 0 AK
 17 17 18 9 0
 54 5 1000 P
 a '' to_object 54 -1 50 12 0
-g none~
+g @rus none~
 #14711
 vial dust~
 a vial of magic dust~
@@ -979,7 +979,7 @@ glass~
 potion AG 0 AO
 54 'heal' 'heal' 'heal' 'heal'
 20 3 20000 P
-g none~
+g @rus none~
 #14712
 dagger~
 a sacrifical dagger~
@@ -988,7 +988,7 @@ steel~
 weapon EJ 0 AN
 dagger 5 11 'pierce' 0
 54 50 1000 P
-g none~
+g @rus none~
 #14713
 robes~
 the high priest's robes~
@@ -998,7 +998,7 @@ armor EJ 0 AK
 18 18 17 8 0
 54 5 5000 P
 a '' to_object 54 -1 4 4 0
-g none~
+g @rus none~
 #14714
 mask~
 the high priest's death mask~
@@ -1009,7 +1009,7 @@ armor EJ 0 AE
 54 3 3000 P
 a '' to_object 54 -1 3 5 0
 a '' to_object 54 -1 20 13 0
-g none~
+g @rus none~
 #14715
 spiked plate mail~
 a suit of spiked plate mail~
@@ -1019,7 +1019,7 @@ armor BEJ 0 AD
 16 17 17 8 0
 50 20 2000 P
 a '' to_object 50 -1 -15 17 0
-g none~
+g @rus none~
 #14716
 morning star~
 a huge morning star~
@@ -1030,7 +1030,7 @@ mace 5 10 'crush' 0
 50 150 3000 P
 a '' to_object 50 -1 -5 18 0
 a '' to_object 50 -1 10 19 0
-g none~
+g @rus none~
 #14717
 helm~
 a dark helm~
@@ -1039,7 +1039,7 @@ steel~
 armor BEJ 0 AE
 16 17 17 8 0
 50 5 2000 P
-g none~
+g @rus none~
 #14718
 dagger~
 a sacrifical dagger~
@@ -1048,7 +1048,7 @@ steel~
 weapon EJ 0 AN
 dagger 4 10 'pierce' 0
 40 50 2000 P
-g none~
+g @rus none~
 #14719
 robes~
 the priest's robes~
@@ -1057,7 +1057,7 @@ cloth~
 armor EJ 0 AK
 13 13 13 6 0
 40 5 1000 P
-g none~
+g @rus none~
 #14720
 mask~
 the priest's death mask~
@@ -1066,7 +1066,7 @@ cloth~
 armor EJ 0 AE
 13 13 13 6 0
 40 3 1000 P
-g none~
+g @rus none~
 #14721
 mage robes~
 the mage's robes~
@@ -1075,7 +1075,7 @@ cloth~
 armor 0 0 AK
 15 15 14 7 0
 45 1 1000 P
-g none~
+g @rus none~
 #14722
 wand~
 a magic wand~
@@ -1084,7 +1084,7 @@ unknown~
 wand AG 0 AO
 45 9 9 'cure critical' 0
 25 4 4000 P
-g none~
+g @rus none~
 #14723
 elixir chemicals~
 an elixir of noxious chemicals~
@@ -1093,7 +1093,7 @@ glass~
 potion B 0 AO
 45 'poison' 'weaken' 'acid blast' ''
 40 4 0 P
-g none~
+g @rus none~
 #14724
 dragon scale~
 a dragon scale~
@@ -1104,7 +1104,7 @@ armor BEJ 0 AJ
 45 10 2000 P
 a '' to_object 45 -1 -18 17 0
 a '' to_object 45 -1 -5 23 0
-g none~
+g @rus none~
 #14725
 tooth~
 a dragon tooth~
@@ -1115,7 +1115,7 @@ exotic 5 8 'pierce' 0
 45 100 2000 P
 a '' to_object 45 -1 5 18 0
 a '' to_object 45 -1 5 19 0
-g none~
+g @rus none~
 #14726
 claw~
 dragon claws~
@@ -1127,7 +1127,7 @@ armor BEJ 0 AH
 a '' to_object 45 -1 -2 2 0
 a '' to_object 45 -1 4 18 0
 a '' to_object 45 -1 4 19 0
-g none~
+g @rus none~
 #14727
 hide~
 a dragon hide~
@@ -1140,7 +1140,7 @@ a '' to_object 45 -1 15 13 0
 a '' to_object 45 -1 -20 17 0
 a '' to_object 45 -1 -2 23 0
 a '' to_object 45 -1 -2 24 0
-g none~
+g @rus none~
 #14728
 brazier~
 a bronze brazier~
@@ -1149,7 +1149,7 @@ bronze~
 staff G 0 AO
 53 1 1 'summon' 0
 40 4 3000 P
-g none~
+g @rus none~
 #14729
 flask~
 an empty flask~
@@ -1158,7 +1158,7 @@ unknown~
 container 0 0 AO
 1 0 0 0 100
 1 500 0 P
-g none~
+g @rus none~
 #14730
 manacles~
 a pair of manacles~
@@ -1169,7 +1169,7 @@ armor GM 0 AI
 10 5 0 P
 a '' to_object 10 -1 -3 2 0
 a '' to_object 10 -1 10 17 0
-g none~
+g @rus none~
 #14731
 robes~
 an illithid's robes~
@@ -1179,7 +1179,7 @@ armor G 0 AK
 16 16 18 8 0
 50 1 3000 P
 a '' to_object 50 -1 25 12 0
-g none~
+g @rus none~
 #14732
 gem~
 a gem~
@@ -1192,7 +1192,7 @@ a '' to_object 40 -1 1 3 0
 a '' to_object 40 -1 1 4 0
 a '' to_object 40 -1 20 12 0
 a '' to_object 40 -1 -10 17 0
-g none~
+g @rus none~
 #14733
 chest~
 a chest~
@@ -1201,7 +1201,7 @@ steel~
 container 0 0 0
 10000 A 0 0 0
 1 0 0 P
-g none~
+g @rus none~
 #14734
 treasure~
 a great treasure~
@@ -1210,7 +1210,7 @@ gold~
 money A 0 A
 0 0 0 0 0
 0 100 50000 P
-g none~
+g @rus none~
 #14735
 bed~
 a luxurious bed~
@@ -1219,7 +1219,7 @@ silver~
 furniture 0 0 0
 0 0 0 0 0
 1 0 0 P
-g none~
+g @rus none~
 #14736
 silk~
 some expensive silk~
@@ -1228,7 +1228,7 @@ silver~
 treasure 0 0 AK
 0 0 0 0 0
 10 1 15000 P
-g none~
+g @rus none~
 #14737
 stone~
 a stone~
@@ -1237,7 +1237,7 @@ stone~
 staff G 0 AO
 53 1 1 'summon' 0
 45 5 0 P
-g none~
+g @rus none~
 #14738
 bowl~
 a bowl~
@@ -1246,7 +1246,7 @@ unknown~
 staff G 0 AO
 53 1 1 'summon' 0
 45 5 0 P
-g none~
+g @rus none~
 #14739
 censer~
 a censer~
@@ -1255,7 +1255,7 @@ unknown~
 staff G 0 AO
 53 1 1 'summon' 0
 45 5 0 P
-g none~
+g @rus none~
 #14740
 spiked collar~
 a spiked collar~
@@ -1265,7 +1265,7 @@ armor EM 0 AC
 14 14 14 6 0
 42 5 1000 P
 a '' to_object 42 -1 4 19 0
-g none~
+g @rus none~
 #14741
 sword~
 a giant sword~
@@ -1275,7 +1275,7 @@ weapon 0 0 AN
 sword 4 11 'crush' 0
 45 250 2000 P
 a '' to_object 45 -1 4 19 0
-g none~
+g @rus none~
 #14742
 rock~
 a throwing rock~
@@ -1286,7 +1286,7 @@ furniture 0 0 AO
 45 15 0 P
 a '' to_object 45 -1 -4 18 0
 a '' to_object 45 -1 4 19 0
-g none~
+g @rus none~
 #14743
 club~
 a wooden club~
@@ -1295,7 +1295,7 @@ wood~
 weapon 0 0 AN
 mace 4 11 'pound' 0
 45 50 2000 P
-g none~
+g @rus none~
 #14744
 collar~
 a slave collar~
@@ -1308,7 +1308,7 @@ a '' to_object 10 -1 -1 2 0
 a '' to_object 10 -1 -1 5 0
 a '' to_object 10 -1 -10 13 0
 a '' to_object 10 -1 10 17 0
-g none~
+g @rus none~
 #14745
 glaive~
 a glaive~
@@ -1319,7 +1319,7 @@ polearm 5 8 'slash' 0
 49 100 0 P
 a '' to_object 49 -1 3 18 0
 a '' to_object 49 -1 3 19 0
-g none~
+g @rus none~
 #14746
 potion~
 a magical potion~
@@ -1328,7 +1328,7 @@ glass~
 potion G 0 AO
 49 'armor' 'bless' 'shield' ''
 30 3 3000 P
-g none~
+g @rus none~
 #14747
 pole arm~
 a pole arm~
@@ -1339,7 +1339,7 @@ polearm 6 8 'crush' 0
 48 100 2000 P
 a '' to_object 48 -1 -2 18 0
 a '' to_object 48 -1 6 19 0
-g none~
+g @rus none~
 #14748
 chainmail~
 a suit of black chainmail~
@@ -1350,7 +1350,7 @@ armor EM 0 AD
 48 10 1000 P
 a '' to_object 48 -1 -2 2 0
 a '' to_object 48 -1 -20 17 0
-g none~
+g @rus none~
 #14749
 black sword~
 the black sword~
@@ -1360,7 +1360,7 @@ weapon AEGJ 0 AN
 sword 5 11 'slash' 0
 53 50 3000 P
 a '' to_object 53 -1 8 18 0
-g none~
+g @rus none~
 #14750
 blue sword~
 the blue sword~
@@ -1370,7 +1370,7 @@ weapon BEGJ 0 AN
 sword 5 11 'slash' 0
 53 50 0 P
 a '' to_object 53 -1 8 19 0
-g none~
+g @rus none~
 #14751
 black robes~
 black robes~
@@ -1383,7 +1383,7 @@ E
 robes~
 They look extraordinarily unencumbering.
 ~
-g none~
+g @rus none~
 #14752
 vial poison~
 a vial of poison~
@@ -1396,7 +1396,7 @@ E
 vial poison~
 It looks very deadly.
 ~
-g none~
+g @rus none~
 #14753
 drow cloak~
 a drow cloak~
@@ -1409,7 +1409,7 @@ a '' to_object 50 -1 1 2 0
 a '' to_object 50 -1 1 18 0
 a '' to_object 50 -1 -1 23 0
 a '' to_object 50 -1 -1 24 0
-g none~
+g @rus none~
 #14754
 drow boots~
 a pair of drow boots~
@@ -1421,7 +1421,7 @@ armor C 0 AG
 a '' to_object 50 -1 1 2 0
 a '' to_object 50 -1 50 14 0
 a '' to_object 50 -1 -5 17 0
-g none~
+g @rus none~
 #14755
 drow chain chainmail~
 a suit of drow chainmail~
@@ -1433,7 +1433,7 @@ armor G 0 AD
 a '' to_object 50 -1 1 5 0
 a '' to_object 50 -1 10 13 0
 a '' to_object 50 -1 -10 17 0
-g none~
+g @rus none~
 #14756
 tentacle whip~
 a greater tentacle whip~
@@ -1444,7 +1444,7 @@ whip 6 8 'whip' 0
 50 100 4000 P
 a '' to_object 50 -1 4 18 0
 a '' to_object 50 -1 6 19 0
-g none~
+g @rus none~
 #14757
 tiara~
 a tiara~
@@ -1456,7 +1456,7 @@ armor GJ 0 AE
 a '' to_object 50 -1 2 3 0
 a '' to_object 50 -1 2 4 0
 a '' to_object 50 -1 25 12 0
-g none~
+g @rus none~
 #14758
 key~
 a door key~
@@ -1465,7 +1465,7 @@ iron~
 key 0 0 AO
 0 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

@@ -335,7 +335,7 @@ armor K 0 AI
 32 100 8000 P
 a '' to_object 32 -1 2 19 0
 a '' to_object 32 -1 -1 2 0
-g plural~
+g @rus plural~
 #24301
 bracer браслет стальной centaur steel~
 @eng a steel centaur bracer@rus ~~стальной~~ ~~браслет~~~
@@ -346,7 +346,7 @@ armor 0 0 AM
 30 100 8000 P
 a '' to_object 30 -1 2 19 0
 a '' to_object 30 -1 -1 2 0
-g male~
+g @rus male~
 #24302
 helm шлем~
 @eng a centaur helm@rus ~~шлем~~ кентавра~
@@ -355,7 +355,7 @@ steel~
 armor 0 0 AE
 7 7 7 10 0
 30 10 8000 P
-g male~
+g @rus male~
 #24303
 plate armor centaur доспехи~
 @eng a suit of centaur plate@rus ~~доспехи~~ кентавра~
@@ -366,7 +366,7 @@ armor K 0 AD
 35 160 8000 P
 a '' to_object 35 -1 2 19 0
 a '' to_object 35 -1 -1 2 0
-g plural~
+g @rus plural~
 #24305
 spear копье steel~
 @eng a steel-tipped spear@rus ~~острое~~ ~~копье~~~
@@ -382,7 +382,7 @@ br~
 @rus l
 "
 ~
-g none~
+g @rus none~
 #24306
 circlet centaur hair клочок~
 @eng a circlet of braided centaur hair@rus ~~повязка~~ для волос~
@@ -395,7 +395,7 @@ a '' to_object 50 -1 -2 24 0
 a '' to_object 50 -1 5 18 0
 a '' to_object 50 -1 3 19 0
 a '' to_object 50 -1 50 13 0
-g female~
+g @rus female~
 #24308
 sword меч black bastard~
 @eng a blackened bastard sword@rus ~~черный~~ ~~острый~~ ~~меч~~~
@@ -406,7 +406,7 @@ sword 7 7 'pierce' DH
 40 160 9000 P
 a '' to_object 40 -1 8 18 0
 a '' to_object 40 -1 8 19 0
-g male~
+g @rus male~
 #24309
 fist earth перчатка~
 @eng Fist of the Earth@rus ~~Перчатка~~ Земли~
@@ -417,7 +417,7 @@ exotic 10 7 'crush' D
 51 300 100000 P
 a '' to_object 51 -1 5 18 0
 a '' to_object 51 -1 5 19 0
-g female~
+g @rus female~
 #24312
 bark ebon ebonwood кора~
 @eng a casing of ebonwood bark@rus ~~древесная~~ ~~кора~~~
@@ -429,7 +429,7 @@ armor CEHJ 0 AD
 a '' to_object 51 -1 3 18 0
 a '' to_object 51 -1 3 19 0
 a '' to_object 51 -1 35 13 0
-g female~
+g @rus female~
 #0
 
 #ROOMS

@@ -133,7 +133,7 @@ a '' to_object 96 -1 200 18 0
 a '' to_object 96 -1 200 19 0
 a '' to_object 96 -1 -200 20 0
 a '' to_object 96 -1 200 18 0
-g none~
+g @rus none~
 #34402
 abysmality~
 {Babysmality{w~
@@ -142,7 +142,7 @@ kender's skin~
 drink Y BF A
 -1 -1 'cranberry juice' 0 0
 1 10 -1 P
-g female~
+g @rus female~
 #34404
 spring crystal~
 @eng {WSpring with crystal and clear water{w@rus {WРодник с кристально-чистой водой{w~
@@ -151,7 +151,7 @@ unknown~
 fountain AIY ABC 0
 -1 -1 'water' 0 0
 1 0 0 P
-g none~
+g @rus none~
 #34405
 trunk fallen tree~
 @eng fallen tree@rus ~~ствол~~ упавшего дерева~
@@ -160,7 +160,7 @@ wood~
 furniture AIY ABCEF 0
 BD ABCDEFGHIJKLMNOPQRSTUVWXYZabcde AEHKN EHI EHI
 1 0 0 P
-g none~
+g @rus none~
 #34406
 food~
 @eng {rHot and tasty bite of roasted meat{w@rus {rВкусный и горячий шашлык из свежей баранины{w~
@@ -169,7 +169,7 @@ meat~
 food Y 0 A
 CE CE 0 0 0
 1 1 1 P
-g none~
+g @rus none~
 #34407
 glass vodka~
 @eng {WHeeled glass filled with {BKosoruloFF{W vodka{w@rus {WГраненый стакан водовки {BКосорылоФФ{w~
@@ -178,7 +178,7 @@ glass~
 drink IU 0 AO
 1 1 'vodka' 0 0
 1 0 1 P
-g none~
+g @rus none~
 #34408
 hero helm oleg~
 {WThe Real Hero helm of Oleg{x~
@@ -190,7 +190,7 @@ armor ABKY BCEF AE
 a '' to_object 91 -1 -15 20 0
 a '' to_object 91 -1 15 18 0
 a '' to_object 91 -1 15 19 0
-g none~
+g @rus none~
 #34409
 ring portal~
 @eng {Wring of repatriation{w@rus {Wk0льц0 b0зbpaщeHuЯ дomоu{x~
@@ -199,7 +199,7 @@ unknown~
 portal AY BCF AB
 A A AB 34400 0
 96 1 2147483647 P
-g none~
+g @rus none~
 #34410
 karmael statue piss~
 @eng Pissed Karmael@rus {YСтатуя писающего Кармаеля стоит здесь!{\{Y    Он одет в форму штандартенфюрера СС фон{\{Y    Штирлица, глаза дико выпучены!  Он рад!{x~
@@ -208,7 +208,7 @@ marble~
 fountain Y BCF A
 -1 -1 'salt water' 0 0
 1 20000 2147483647 P
-g none~
+g @rus none~
 #34411
 wand жезл~
 @eng small wooden wand@rus ~~маленький~~ ~~деревянный~~ ~~жезл~~~
@@ -217,7 +217,7 @@ wood~
 wand CF 0 AO
 100 1 1 'improved identify' 0
 10 1 5000 P
-g none~
+g @rus none~
 #34450
 claws когти~
 @eng tiger's claws@rus ~~когти~~ тигра~
@@ -230,7 +230,7 @@ a '' to_skills 10 -1 75 'grip' A
 a '' to_skills 10 -1 50 'master hand' A
 a '' to_skills 10 -1 75 'hand block' A
 a '' to_skills 10 -1 75 'disarm' A
-g plural~
+g @rus plural~
 #34451
 book справочник энциклопедия old~
 @eng An old book@rus "~~Энциклопедия~~ юных сурков"~
@@ -242,7 +242,7 @@ treasure A K AO
 a '' to_skills 10 -1 75 'locate object' A
 a '' to_skills 10 -1 100 'identify' A
 a '' to_skills 10 -1 100 'lore' A
-g none~
+g @rus none~
 #34452
 staff necromancy посох rod~
 @eng Rod of Necromancy@rus ~~Посох~~ некромансера~
@@ -260,7 +260,7 @@ a '' to_skills 40 -1 100 'draining touch' A
 a '' to_skills 40 -1 100 'mana drain' A
 a '' to_skills 40 -1 50 'control undead' A
 a '' to_skills 40 -1 80 'bone dragon' A
-g male~
+g @rus male~
 #0
 
 #ROOMS

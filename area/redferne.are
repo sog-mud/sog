@@ -64,7 +64,7 @@ E
 writing letters~
 It reads: "Hi Conan.  No more coins from here, pal. :) Signed, Redferne".
 ~
-g none~
+g @rus none~
 #7910
 chest~
 a wooden chest~
@@ -78,7 +78,7 @@ chest~
 It is a robust chest made from short, heavy planks that have been fastened
 together with tenons.  It is equipped with a simple brass lock.
 ~
-g none~
+g @rus none~
 #7911
 key~
 a small brass key~
@@ -91,7 +91,7 @@ E
 key~
 It is a small, simple brass key with no inscriptions or marks of any kind.
 ~
-g none~
+g @rus none~
 #0
 
 #ROOMS

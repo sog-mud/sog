@@ -896,7 +896,7 @@ armor GL 0 AB
 36 10 12250 G
 a '' to_object 36 -1 -10 17 0
 a '' to_object 36 -1 4 18 0
-g neutral~
+g @rus neutral~
 #25014
 shadowshiv кинжал dagger~
 @eng the Shadowshiv@rus ~~кинжал~~ Shadowshiv~
@@ -979,7 +979,7 @@ armor AGLP 0 AC
 13 14 13 2 0
 41 20 18999 G
 a '' to_object 41 -1 50 12 0
-g none~
+g @rus none~
 #25022
 ivory bracelet браслет слоновой кости~
 @eng an Ivory Bracelet@rus ~~браслет~~ из слоновой кости~
@@ -1011,7 +1011,7 @@ flame~
 weapon AGL 0 AN
 sword 5 5 'blast' A
 25 400 13780 G
-g none~
+g @rus none~
 #25025
 glaive шестопер~
 @eng glaive@rus ~~шестопер~~~
@@ -1081,7 +1081,7 @@ crystal~
 key I 0 AO
 0 0 0 0 0
 1 1 0 G
-g none~
+g @rus none~
 #25060
 breast plate нагрудный доспех silver серебряный~
 @eng The Silver Breast Plate@rus ~~серебряный~~ ~~нагрудный~~ ~~доспех~~~
@@ -1110,7 +1110,7 @@ leather~
 armor GL A AG
 12 12 12 2 0
 27 120 19560 G
-g none~
+g @rus none~
 #25063
 portal shimmering портал сияющий~
 @eng a shimmering portal@rus ~~сияющий~~ ~~портал~~~

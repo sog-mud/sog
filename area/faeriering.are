@@ -326,7 +326,7 @@ Revealed to all, and to me
 Пакля, шпакля, рвакля...
 Розы, морозы..
 ~
-g male~
+g @rus male~
 #29102
 ball light twinkle twinkling мерцающий шар~
 @eng a *twinkling* ball of light@rus ~~мерцающий~~ ~~шар~~~
@@ -339,7 +339,7 @@ a '' to_object 15 -1 1 4 0
 a '' to_object 15 -1 1 3 0
 a '' to_object 15 -1 1 18 0
 a '' to_object 15 -1 1 19 0
-g male~
+g @rus male~
 #29103
 belt sprite поясок rainbow радуга~
 @eng a sprite belt@rus ~~поясок~~ спрайта~
@@ -349,7 +349,7 @@ armor FM 0 AL
 5 5 5 5 0
 11 1 500 P
 a '' to_object 11 -1 -3 24 0
-g female~
+g @rus female~
 #29104
 bracer brownie браслет~
 @eng a brownie bracer@rus ~~браслет~~ брауни~
@@ -360,7 +360,7 @@ armor G 0 AM
 13 1 700 P
 a '' to_object 13 -1 1 2 0
 a '' to_object 13 -1 8 13 0
-g male~
+g @rus male~
 #29105
 vial moonlight bottled пузырек~
 @eng a vial of bottled moonlight@rus ~~пузырек~~, полный лунного света~
@@ -369,7 +369,7 @@ glass~
 potion AG 0 AO
 15 'fly' 'cure poison' 'cure critical' ''
 12 1 700 P
-g male~
+g @rus male~
 #29106
 robe gossamer плащ~
 @eng a gossamer robe@rus ~~плащ~~ из тончайшего газа~
@@ -380,7 +380,7 @@ armor IM 0 AK
 15 1 1500 P
 a '' to_object 15 -1 10 12 0
 a '' to_object 15 -1 -2 24 0
-g male~
+g @rus male~
 #29107
 moonbeam луч~
 @eng a moonbeam@rus ~~лунный~~ ~~луч~~~
@@ -391,7 +391,7 @@ exotic 4 4 'pierce' G
 15 0 1500 P
 a '' to_object 15 -1 2 18 0
 a '' to_object 15 -1 2 19 0
-g male~
+g @rus male~
 #29108
 wine goblet faerie бокал вино~
 @eng a goblet of faerie wine@rus ~~бокал~~ вина фейри~
@@ -400,7 +400,7 @@ glass~
 potion G 0 A
 10 'cure blindness' 'invisibility' '' ''
 10 1 100 P
-g male~
+g @rus male~
 #29109
 britches dirty штаны~
 @eng a pair of dirty britches@rus ~~грязные~~ ~~штаны~~~
@@ -413,7 +413,7 @@ a '' to_object 14 -1 10 13 0
 a '' to_object 14 -1 1 18 0
 a '' to_object 14 -1 1 19 0
 a '' to_object 14 -1 -1 23 0
-g plural~
+g @rus plural~
 #29110
 key sparkling ключ сверкающий~
 @eng a sparkling key@rus ~~сверкающий~~ ~~ключ~~~
@@ -422,7 +422,7 @@ silver~
 key BG 0 AO
 0 0 0 0 0
 13 1 130 P
-g male~
+g @rus male~
 #29111
 cloak dirty плащ~
 @eng a dirty cloak@rus ~~грязный~~ ~~плащ~~~
@@ -433,7 +433,7 @@ armor C 0 AC
 14 2 900 P
 a '' to_object 14 -1 1 2 0
 a '' to_object 14 -1 1 1 0
-g male~
+g @rus male~
 #29112
 wand blue diamond жезл~
 @eng a blue diamond wand@rus ~~жезл~~ из голубого алмаза~
@@ -447,7 +447,7 @@ diamond blue~
 @eng They're magically delicious!
 @rus Просто прелесть.
 ~
-g male~
+g @rus male~
 #29113
 gold золото деньги~
 @eng whoooooopie! Gold!@rus Деньги!!!~
@@ -456,7 +456,7 @@ gold~
 money A 0 AO
 500 0 0 0 0
 0 13 130 P
-g plural~
+g @rus plural~
 #29114
 food finger пирожок~
 @eng delicious finger food@rus ~~вкусный~~ ~~пирожок~~~
@@ -465,7 +465,7 @@ flesh~
 food 0 0 AN
 DE DE 0 0 0
 0 1 5 P
-g male~
+g @rus male~
 #0
 
 #ROOMS

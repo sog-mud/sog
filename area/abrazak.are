@@ -227,7 +227,7 @@ unknown~
 pill ABG 0 AOQ
 66 'detect invis' 'detect hidden' 'acute vision' 'improved detect'
 1 1 100000 P
-g none~
+g @rus none~
 #15001
 food~
 Food~
@@ -236,7 +236,7 @@ unknown~
 pill AG 0 A
 300 'create food' 'create food' 'create food' 'create food'
 0 0 100 P
-g none~
+g @rus none~
 #15002
 blood fountain~
 @eng a fountain@rus фонтан~
@@ -260,7 +260,7 @@ a '' to_object 0 -1 100 5 0
 a '' to_object 0 -1 100 6 0
 a '' to_object 0 -1 100 3 0
 a '' to_object 0 -1 100 1 0
-g none~
+g @rus none~
 #15004
 beer barrel~
 @eng a BIG barrel of beer for Mabutu@rus БОЛЬШОЙ бочонок пива для старого негра~
@@ -269,7 +269,7 @@ unknown~
 drink AGHIY ABCEF AO
 -1 100 'beer' 0 0
 0 0 0 P
-g none~
+g @rus none~
 #15005
 fountain~
 @eng a fountain with milk@rus ~~фонтан~~ с молоком~
@@ -278,7 +278,7 @@ unknown~
 fountain 0 A 0
 0 0 'milk' 0 0
 0 0 0 P
-g none~
+g @rus none~
 #15006
 bed~
 @eng bed@rus нары~
@@ -287,7 +287,7 @@ unknown~
 furniture ABCEGIY A 0
 ABE ABCDEFGHIJKLMNOPQRSTUVWXYZabcde BEK DFGHIJ DFGHIJ
 0 0 0 P
-g none~
+g @rus none~
 #15007
 bottle vodka absolute~
 @eng a bottle of crystal clear vodka@rus литровый пузырь кристалльно чистой водки~
@@ -296,7 +296,7 @@ glass~
 drink ABCEHJLMY ABE AO
 -1 1000 'vodka' 0 0
 99 1 2500 P
-g none~
+g @rus none~
 #15008
 pill anti invader~
 Anti-invader's pill~
@@ -305,7 +305,7 @@ energy~
 pill AB AC A
 45 'detect fade' 'protection evil' 'bless' 'sanctuary'
 0 1 10000 P
-g none~
+g @rus none~
 #15009
 abrazak mace~
 Abrazak's mace~
@@ -318,7 +318,7 @@ a '' to_object 100 -1 10000 8 0
 a '' to_object 100 -1 75 34 0
 a '' to_object 100 -1 10000 19 0
 a '' to_object 100 -1 2000 8 0
-g none~
+g @rus none~
 R
 deny race !race("lich") && !race("human)~
 end
@@ -332,7 +332,7 @@ dagger 10000 10000 'pierce' ABCDEGHI
 99 0 0 P
 a '' to_object 99 -1 100000 19 0
 a '' to_object 99 -1 100000 18 0
-g none~
+g @rus none~
 #15011
 horn~
 @eng {DHorns{x@rus {DРога{x~
@@ -341,7 +341,7 @@ unknown~
 armor 0 B AE
 -1000 -1000 -1000 -1000 0
 99 0 0 P
-g none~
+g @rus none~
 #15012
 rose~
 @eng {DBlack Rose{x@rus {DЧерная роза{x~
@@ -350,7 +350,7 @@ unknown~
 trash 0 B AO
 0 0 0 0 0
 99 0 0 P
-g none~
+g @rus none~
 #15013
 hoof~
 @eng {DHooves{x@rus {DКопыта{x~
@@ -359,7 +359,7 @@ unknown~
 armor 0 B AG
 0 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #15014
 mark beast~
 The Mark of the Beast~
@@ -368,7 +368,7 @@ darkness~
 treasure ABCEG 0 AS
 0 0 0 0 0
 100 0 0 P
-g none~
+g @rus none~
 #15015
 dress платье~
 @eng a green dress@rus {G~~платье~~ из зеленого муслина{x~
@@ -377,7 +377,7 @@ unknown~
 clothing GIY C AD
 0 0 0 0 0
 95 0 0 P
-g none~
+g @rus none~
 #15016
 диадема diadem~
 @eng a silver diadem@rus ~~серебряная~~ ~~диадема~~~
@@ -412,7 +412,7 @@ a '' to_detects 95 -1 -10 20 B
 a '' to_detects 95 -1 -10 20 D
 a '' to_detects 95 -1 -10 20 A
 a '' to_detects 95 -1 -10 20 F
-g none~
+g @rus none~
 #15017
 посох staff~
 @eng a wooden staff@rus ~~посох~~, обвитый лианами~
@@ -421,7 +421,7 @@ wood~
 weapon GI 0 AN
 staff 10 20 'none' 0
 95 0 0 P
-g none~
+g @rus none~
 #15018
 ожерелье necklace~
 @eng a pearl necklace@rus ~~жемчужное~~ ~~ожерелье~~~
@@ -432,7 +432,7 @@ jewelry GI C AC
 95 0 0 P
 a '' to_object 95 -1 250 19 0
 a '' to_object 95 -1 250 18 0
-g none~
+g @rus none~
 #15019
 mark~
 @rus Свернувший с пути~
@@ -441,7 +441,7 @@ unknown~
 treasure A 0 S
 0 0 0 0 0
 0 0 100 P
-g none~
+g @rus none~
 #15020
 box~
 {Dящик ворсинского пива{x~
@@ -450,7 +450,7 @@ wood~
 container GY BF AO
 20 0 0 100 0
 1 0 0 P
-g none~
+g @rus none~
 #15021
 bottle~
 {Dбутылка холодного Ворсинского пива{x~
@@ -459,7 +459,7 @@ glass~
 drink CGY BF AO
 20 20 'beer' 0 0
 1 0 0 P
-g none~
+g @rus none~
 #15026
 shtuchka~
 shtuchka~
@@ -469,7 +469,7 @@ weapon 0 0 AN
 exotic 0 0 'none' 0
 10 0 0 P
 a '' to_skills 10 -1 100 'vampire' A
-g none~
+g @rus none~
 #15027
 elephant~
 @eng HUGE elephant@rus ОГРОМНЫЙ СЛОНЯРА~
@@ -478,7 +478,7 @@ unknown~
 treasure 0 0 AO
 0 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #15028
 bell~
 @eng {Wlittle magic bell{x@rus {Wмаленький глиняный колокольчик{x~
@@ -487,7 +487,7 @@ unknown~
 treasure 0 0 AO
 0 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #15029
 bear~
 @eng teddy bear@rus плюшевый медвежонок~
@@ -496,7 +496,7 @@ unknown~
 treasure 0 0 AO
 0 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #15030
 tron~
 {Gмаленькая удобная кроватка{x~
@@ -505,7 +505,7 @@ unknown~
 furniture Y BF A
 AC EIJKN HK CFG CFG
 0 0 0 P
-g none~
+g @rus none~
 #15031
 fff~
 ~
@@ -524,7 +524,7 @@ s
 s
 s
 ~
-g none~
+g @rus none~
 #15035
 bottle champagne~
 @eng {ga bottle of champagne{x@rus {gбутылка шампанского{x~
@@ -533,7 +533,7 @@ glass~
 drink GY BF AO
 -1 2147483647 'champagne' 0 0
 0 0 0 P
-g none~
+g @rus none~
 #15036
 chocolate sweet~
 @eng {ychocolate sweet{x@rus {yшоколадная конфета{x~
@@ -542,7 +542,7 @@ chocolate~
 pill GY BF AO
 30 'haste' 'frenzy' 'enhanced armor' 'sanctuary'
 0 0 0 P
-g none~
+g @rus none~
 #15037
 box~
 @eng {ra box of chocolate sweets{x@rus {rкоробка шоколадных конфет{x~
@@ -551,7 +551,7 @@ paper~
 container GY BF AO
 100 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #15040
 chair~
 ancient chair~
@@ -560,7 +560,7 @@ unknown~
 furniture FGY BCF A
 A FHJKPQ H BCEH BCEH
 0 0 0 P
-g none~
+g @rus none~
 #15041
 chair~
 ancient chair~
@@ -569,7 +569,7 @@ unknown~
 furniture FGY BCF A
 A HJKMPTUX H CEFGHI CEFGHI
 0 0 0 P
-g none~
+g @rus none~
 #15042
 gabagaba ring~
 gabagaba ring~
@@ -584,7 +584,7 @@ a '' to_object 0 -1 3 3 0
 a '' to_object 0 -1 3 4 0
 a '' to_object 0 -1 3 2 0
 a '' to_object 0 -1 3 1 0
-g none~
+g @rus none~
 #15043
 splinter~
 splinter "p"~
@@ -593,7 +593,7 @@ unknown~
 trash GY BCF A
 0 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #15044
 splinter~
 splinter "i"~
@@ -602,7 +602,7 @@ unknown~
 trash GY BCF A
 0 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #15045
 splinter~
 splinter "r"~
@@ -611,7 +611,7 @@ unknown~
 trash GY BCF A
 0 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #15046
 splinter~
 splinter "a"~
@@ -620,7 +620,7 @@ unknown~
 trash GY BCF A
 0 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #15047
 splinter~
 splinter "t"~
@@ -629,7 +629,7 @@ unknown~
 trash GY BCF A
 0 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #15048
 splinter~
 splinter "e"~
@@ -638,7 +638,7 @@ unknown~
 trash GY BCF A
 0 0 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #15050
 eye~
 eye~
@@ -647,7 +647,7 @@ unknown~
 staff EFHMPY BCF AO
 0 0 0 'reserved' 0
 10 10 0 P
-g none~
+g @rus none~
 #15060
 wand storm~
 the wand of death storm~
@@ -656,7 +656,7 @@ wood~
 wand CEGJLY BCF AO
 50 10 10 'sand storm' 0
 20 10 0 P
-g none~
+g @rus none~
 #15113
 bucket rose~
 @eng Bucket full of roses@rus Ведерко для роз~
@@ -665,7 +665,7 @@ brass~
 container Yb 0 AE
 1000 0 0 1000 10
 0 0 0 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

@@ -1013,7 +1013,7 @@ safe~
 Ты открываешь дверцу и обнаруживаешь, что сейф пуст!
 А почему, ты думал, он открыт ?
 ~
-g none~
+g @rus none~
 #47001
 window~
 @eng the window@rus Окно~
@@ -1026,7 +1026,7 @@ E
 window~
 За ним ты видишь лишь небо, земля скрыта под облаками.
 ~
-g none~
+g @rus none~
 #47002
 armchair cosy~
 @eng A velvet covered armchair@rus Обитое бархатом кресло~
@@ -1040,7 +1040,7 @@ armchair~
 Оно очень мягкое и широкое - наверное, в нем могло
 бы уместиться несколько человек сразу :o
 ~
-g none~
+g @rus none~
 #47003
 tree~
 @eng A small tree@rus Деревце в кадке~
@@ -1055,7 +1055,7 @@ A small tree grows from the tub. Its vines are
 twisted in a weird dance, but flowers look nice.
 It seems flammable.
 ~
-g none~
+g @rus none~
 #47004
 sword enforcement~
 Sword of Enforcement~
@@ -1066,7 +1066,7 @@ sword 15 11 'chop' DF
 100 59 100000 P
 a '' to_object 100 -1 15 18 0
 a '' to_object 100 -1 15 19 0
-g none~
+g @rus none~
 #47005
 sun~
 @eng {YThe sun{x@rus {YСолнце{x~
@@ -1080,7 +1080,7 @@ sun~
 Your eyes tear up from sunlight!
 You can't see a thing!
 ~
-g none~
+g @rus none~
 #47006
 boulder throwing~
 a throwing boulder~
@@ -1091,7 +1091,7 @@ exotic 8 8 'crush' FK
 46 600 0 P
 a '' to_object 46 -1 30 19 0
 a '' to_object 46 -1 30 18 0
-g none~
+g @rus none~
 #47009
 shirt wampum~
 a shirt of wampum~
@@ -1104,7 +1104,7 @@ a '' to_affects 46 -1 0 0 T
 a '' to_object 46 -1 100 35 0
 a '' to_object 46 -1 100 39 0
 a '' to_object 46 -1 22 5 0
-g male~
+g @rus male~
 #47011
 crest eagle feathers~
 a crest of eagle-feathers~
@@ -1113,7 +1113,7 @@ feathers~
 jewelry JLY 0 AE
 0 0 0 0 0
 46 0 0 P
-g male~
+g @rus male~
 #47012
 barrel large~
 @eng {xBarrel of ale@rus ~~бочка~~ с элем~
@@ -1122,7 +1122,7 @@ wood~
 fountain Y 0 0
 0 0 'ale' 0 0
 0 1 1 P
-g none~
+g @rus none~
 #47013
 staff посох тысячи душ thousand souls~
 @eng the Staff of Thousand Souls@rus ~~Посох~~ Тысячи Душ~
@@ -1133,7 +1133,7 @@ staff 8 8 'drain' CEFH
 46 600 0 P
 a '' to_object 46 -1 30 19 0
 a '' to_object 46 -1 45 18 0
-g male~
+g @rus male~
 #47024
 champautomat fountain champagne~
 @eng Champautomat@rus Шампомат?~
@@ -1153,7 +1153,7 @@ champautomat fountain champagne~
 NOTE: Отвественности за последствия компания
       не несет - модель-то пробная ;))
 ~
-g none~
+g @rus none~
 #47100
 tablet wooden табличка деревянная~
 @eng a wooden tablet@rus ~~деревянная~~ ~~табличка~~~
@@ -1289,7 +1289,7 @@ stone~
 portal CY 0 0
 0 0 0 47219 0
 0 1 1 P
-g male~
+g @rus male~
 #47109
 anvil iron huge чугунная наковальня~
 @eng a huge anvil@rus ~~чугунная~~ ~~наковальня~~~
@@ -1330,7 +1330,7 @@ You attempt to read it but have no clue what do these hyeroglyphs mean.
 @rus На нем лежит какая-то бумага, похоже, неоконченное письмо...
 Впрочем, ты все равно не понимаешь эти иероглифы.
 ~
-g male~
+g @rus male~
 #47112
 tatami татами~
 @eng Tatami@rus ~~татами~~~
@@ -1346,7 +1346,7 @@ but remember: that would not be polite.
 @rus Оно выглядит мягким, и ты чувствуешь соблазн присесть, но
 вспоминаешь, что это было бы не слишком вежливо.
 ~
-g neutral~
+g @rus neutral~
 #47113
 altar алтарь~
 @eng Altar@rus ~~алтарь~~~
@@ -1371,7 +1371,7 @@ cloth~
 furniture Y 0 0
 AB INOPQSUVWXYa EH CFG CFG
 0 1 1 P
-g neutral~
+g @rus neutral~
 #47115
 bed coverlet pillow постель подушка покрывало циновки~
 @eng Bed@rus ~~постель~~~
@@ -1397,7 +1397,7 @@ You smooth your hair and like yourself even more.
 это же ты и есть! Ты поправляешь волосы и еще
 больше себе нравишься.
 ~
-g neutral~
+g @rus neutral~
 #47117
 vase flowers ваза цветы~
 @eng Vase with flowers@rus ~~ваза~~ с цветами~
@@ -1498,7 +1498,7 @@ beneath them.
 @rus Под этими широкими листьями вполне может находиться
 что-нибудь еще.
 ~
-g neutral~
+g @rus neutral~
 #47124
 fruits food плоды~
 @eng some fruits@rus ~~плоды~~~
@@ -1507,7 +1507,7 @@ plant~
 food 0 0 A
 AC AC 0 0 0
 0 50 0 P
-g plural~
+g @rus plural~
 #47125
 bench скамья~
 @eng wooden bench@rus ~~деревянная~~ ~~скамья~~~
@@ -1543,7 +1543,7 @@ a single leaf may cure incurable diseases.
 что отдых под его ветвями может вылечить неизлечимые душевные заболе-
 вания, а единственный лист - болезни тела.
 ~
-g neutral~
+g @rus neutral~
 #47128
 hot spring горячий источник вода water яма~
 @eng a pool of hot water@rus ~~горячий~~ ~~источник~~~
@@ -1677,7 +1677,7 @@ wood~
 container Y 0 AO
 300 0 0 100 0
 0 10 2500 P
-g neutral~
+g @rus neutral~
 #47140
 forge горн кузнечный~
 @eng the forge@rus ~~кузнечный~~ ~~горн~~~
@@ -1755,7 +1755,7 @@ cloth~
 clothing 0 0 AI
 0 0 0 0 0
 10 6 100 P
-g neutral~
+g @rus neutral~
 #47148
 kimono fine silken dress~
 @eng a fine kimono@rus ~~красивое~~ кимоно~
@@ -1766,7 +1766,7 @@ clothing 0 0 AD
 22 4 10000 P
 a '' to_object 22 -1 -10 9 0
 a '' to_object 22 -1 3 6 0
-g neutral~
+g @rus neutral~
 #47149
 key ключ~
 @eng a small key@rus ~~маленький~~ ~~ключ~~~
@@ -1799,7 +1799,7 @@ container I 0 AD
 30 4 20000 P
 a '' to_object 30 -1 4 6 0
 a '' to_object 30 -1 -5 9 0
-g neutral~
+g @rus neutral~
 #47152
 chest сундук~
 @eng a chest@rus ~~сундук~~ для одежды~
@@ -1866,7 +1866,7 @@ this amulet.
 дикаря, щеголяющего нацепившего чьи-то зубы в качестве
 амулета из непонятных мистичечких соображений.
 ~
-g neutral~
+g @rus neutral~
 #47158
 ruby gem рубин~
 @eng a large ruby gem@rus ~~большой~~ ~~рубин~~~
@@ -1905,7 +1905,7 @@ armor 0 0 AD
 a '' to_object 25 -1 2 27 0
 a '' to_object 25 -1 2 29 0
 a '' to_object 25 -1 1 2 0
-g neutral~
+g @rus neutral~
 #47161
 naginata нагината шест pole blade long длинный~
 @eng naginata@rus нагината~
@@ -2158,7 +2158,7 @@ fact that hiding in the shadows when wearing it is much easier.
 образом защищает от некоторых видов магии. Ну и конечно,
 прятаться намного легче, если на тебе одет такой костюм.
 ~
-g neutral~
+g @rus neutral~
 R
 deny minsize !minsize("medium")~
 end
@@ -2299,7 +2299,7 @@ power contained within it.
 берешь камень в руки. Не нужно быть магом, чтобы
 почувствовать чудовищную силу, скрытую внутри него.
 ~
-g neutral~
+g @rus neutral~
 #47181
 hammer thunder молот грома~
 @eng the Hammer of Thunder@rus ~~Молот~~ Грома~
@@ -2371,7 +2371,7 @@ a '' to_object 45 -1 -10 22 0
 a '' to_object 45 -1 50 39 0
 a '' to_object 45 -1 50 35 0
 a '' to_object 45 -1 10 19 0
-g neutral~
+g @rus neutral~
 #47184
 talons sharp demon острые когти демона руки hands severed отрезанные~
 @eng sharp talons of a demon@rus ~~острые~~ ~~когти~~ демона~

@@ -189,7 +189,7 @@ sword 2 7 'slash' 0
 11 20 910 P
 a '' to_object 11 -1 2 19 0
 a '' to_object 11 -1 1 18 0
-g none~
+g @rus none~
 #5101
 longsword noble~
 a noble's longsword~
@@ -200,7 +200,7 @@ sword 3 7 'slash' 0
 15 10 1510 P
 a '' to_object 15 -1 3 19 0
 a '' to_object 15 -1 2 18 0
-g none~
+g @rus none~
 #5102
 whip snake two-headed~
 a snake headed whip~
@@ -211,7 +211,7 @@ whip 2 7 'whip' F
 11 10 920 P
 a '' to_object 11 -1 3 19 0
 a '' to_object 11 -1 3 18 0
-g none~
+g @rus none~
 #5103
 whip snake three-headed~
 a snake headed whip~
@@ -222,7 +222,7 @@ whip 3 7 'whip' 0
 15 10 1020 P
 a '' to_object 15 -1 3 19 0
 a '' to_object 15 -1 3 18 0
-g none~
+g @rus none~
 #5104
 whip snake four-headed~
 a snake headed whip~
@@ -233,7 +233,7 @@ whip 5 5 'whip' 0
 24 10 1530 P
 a '' to_object 24 -1 3 19 0
 a '' to_object 24 -1 3 18 0
-g none~
+g @rus none~
 #5105
 longsword black~
 a black longsword~
@@ -244,7 +244,7 @@ sword 4 6 'slash' 0
 21 0 2100 P
 a '' to_object 21 -1 3 19 0
 a '' to_object 21 -1 3 18 0
-g none~
+g @rus none~
 #5106
 whip snake five-headed~
 a snake headed whip~
@@ -255,7 +255,7 @@ whip 4 6 'whip' 0
 14 0 10 P
 a '' to_object 14 -1 -1 3 0
 a '' to_object 14 -1 -1 1 0
-g none~
+g @rus none~
 #5107
 whip snake six-headed~
 a snake headed whip~
@@ -266,7 +266,7 @@ whip 5 5 'whip' 0
 13 0 0 P
 a '' to_object 13 -1 -2 3 0
 a '' to_object 13 -1 -2 1 0
-g none~
+g @rus none~
 #5108
 bracer iron~
 an iron bracer~
@@ -275,7 +275,7 @@ iron~
 armor AG 0 AM
 4 7 7 2 0
 15 30 1150 P
-g none~
+g @rus none~
 #5109
 gauntlets iron~
 a pair of gauntlets~
@@ -285,7 +285,7 @@ armor A 0 AH
 5 5 5 0 0
 17 20 3600 P
 a '' to_object 17 -1 2 1 0
-g none~
+g @rus none~
 #5110
 wand blue silver~
 a silvery blue wand~
@@ -294,7 +294,7 @@ silver~
 wand G 0 AO
 10 3 3 'lightning bolt' 0
 9 10 1550 P
-g none~
+g @rus none~
 #5111
 helmet helm~
 a small helmet~
@@ -304,7 +304,7 @@ armor G 0 AE
 4 4 4 0 0
 16 50 3300 P
 a '' to_object 16 -1 2 3 0
-g none~
+g @rus none~
 #5112
 ring ruby~
 a small ruby ring~
@@ -314,7 +314,7 @@ jewelry G 0 AB
 0 0 0 0 0
 25 10 980 P
 a '' to_object 25 -1 25 13 0
-g none~
+g @rus none~
 #5113
 dagger sacrificial~
 a spider shaped dagger~
@@ -325,7 +325,7 @@ dagger 4 8 'stab' 0
 30 25 3300 P
 a '' to_object 30 -1 5 19 0
 a '' to_object 30 -1 3 18 0
-g none~
+g @rus none~
 #5114
 hat green~
 a small bright green hat~
@@ -335,7 +335,7 @@ armor H 0 AE
 4 5 5 0 0
 12 10 1180 P
 a '' to_object 12 -1 -2 17 0
-g none~
+g @rus none~
 #5115
 whip snake skin~
 two Snake Headed whip~
@@ -346,7 +346,7 @@ whip 6 6 'whip' 0
 24 140 1530 P
 a '' to_object 24 -1 7 19 0
 a '' to_object 24 -1 5 18 0
-g none~
+g @rus none~
 #0
 
 #ROOMS

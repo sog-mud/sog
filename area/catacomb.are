@@ -266,7 +266,7 @@ steel~
 key ABG 0 A
 ABCF 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #2002
 granite plate mail platemail~
 a suit of granite platemail~
@@ -276,7 +276,7 @@ armor BJ 0 AD
 8 8 8 2 0
 23 550 3600 P
 a '' to_object 23 -1 -1 2 0
-g none~
+g @rus none~
 #2003
 onyx ring~
 an onyx ring~
@@ -287,7 +287,7 @@ jewelry J 0 AB
 7 10 800 P
 a '' to_object 7 -1 1 4 0
 a '' to_object 7 -1 -1 17 0
-g none~
+g @rus none~
 #2004
 neutralizer sword~
 the neutralizer~
@@ -298,7 +298,7 @@ sword 4 5 'slash' 0
 16 90 1280 P
 a '' to_object 16 -1 2 19 0
 a '' to_object 16 -1 1 18 0
-g none~
+g @rus none~
 #2005
 sword excalibur~
 the sword Excalibur~
@@ -309,7 +309,7 @@ sword 10 4 'slash' 0
 24 150 3400 P
 a '' to_object 24 -1 1 1 0
 a '' to_object 24 -1 3 18 0
-g none~
+g @rus none~
 #2006
 crown~
 a kingly crown~
@@ -319,7 +319,7 @@ key I 0 AE
 0 0 0 0 0
 24 100 1850 P
 a '' to_object 24 -1 -6 17 0
-g none~
+g @rus none~
 #2007
 stone~
 stone~
@@ -328,7 +328,7 @@ stone~
 container A 0 0
 15 ABCD 2006 15 100
 0 0 0 P
-g none~
+g @rus none~
 #2008
 holy water flask~
 a flask of holy water~
@@ -337,7 +337,7 @@ copper~
 potion A 0 AO
 25 'bless' 'sanctuary' '' ''
 11 20 880 P
-g none~
+g @rus none~
 #2009
 chainmail chain mail suit~
 a suit of chainmail~
@@ -346,7 +346,7 @@ iron~
 armor I 0 AD
 5 5 5 0 0
 10 200 1450 P
-g none~
+g @rus none~
 #2010
 white cape~
 a white cape~
@@ -356,7 +356,7 @@ armor A 0 AC
 5 5 5 0 0
 12 30 1000 P
 a '' to_object 12 -1 1 18 0
-g none~
+g @rus none~
 #2011
 shield defense~
 the shield of defense~
@@ -370,7 +370,7 @@ a '' to_object 13 -1 -2 18 0
 a '' to_object 13 -1 10 13 0
 a '' to_object 13 -1 10 12 0
 a '' to_object 13 -1 -2 17 0
-g none~
+g @rus none~
 #2012
 scale shield dragonscale~
 a dragonscale shield~
@@ -380,7 +380,7 @@ armor 0 0 AJ
 7 7 7 4 0
 22 200 3500 P
 a '' to_object 22 -1 -2 20 0
-g none~
+g @rus none~
 #2013
 prism wand~
 a prism wand~
@@ -389,7 +389,7 @@ glass~
 wand AG 0 AO
 11 4 4 'colour spray' 0
 12 40 2200 P
-g none~
+g @rus none~
 #2014
 shadow cloak~
 a shadow cloak~
@@ -399,7 +399,7 @@ armor G 0 AK
 7 7 7 2 0
 14 10 210 P
 a '' to_object 14 -1 -30 14 0
-g none~
+g @rus none~
 #2015
 misty potion~
 a misty potion~
@@ -408,7 +408,7 @@ glass~
 potion 0 0 AO
 10 'pass door' 'faerie fire' '' ''
 12 10 920 P
-g none~
+g @rus none~
 #2016
 templar templars sword wooden~
 a templar's sword~
@@ -418,7 +418,7 @@ weapon I 0 AN
 sword 2 6 'slash' 0
 10 60 830 P
 a '' to_object 10 -1 2 18 0
-g none~
+g @rus none~
 #0
 
 #ROOMS

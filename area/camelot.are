@@ -1293,7 +1293,7 @@ E
 pole~
 This pole looks alot like a lance.
 ~
-g none~
+g @rus none~
 #17304
 armor green броня зеленая~
 @eng a suit of green armor@rus ~~зеленая~~ ~~рыцарская~~ ~~броня~~~
@@ -1460,7 +1460,7 @@ armor CMQ 0 AB
 a '' to_object 40 -1 20 12 0
 a '' to_object 40 -1 1 3 0
 a '' to_object 40 -1 1 4 0
-g none~
+g @rus none~
 #17317
 staff merlin merlin's посох мерлин~
 @eng merlin's staff@rus ~~посох~~ Мерлина~
@@ -1641,7 +1641,7 @@ Isolde
 Навсегда и навеки в твоей власти,
 Изольда.
 ~
-g none~
+g @rus none~
 #17328
 armor golden броня золотая~
 @eng a suit of golden armor@rus ~~золотая~~ ~~броня~~~
@@ -1676,7 +1676,7 @@ fills you, you want to kill. Rend. Tear. Rape. Murder - ahhahahahah!
 убивать. Резать. Истязать. Разрывать! Мучить!! Выкалывать глаза!!! 
 Хааххаахха...
 ~
-g none~
+g @rus none~
 #17330
 favor silken платок шелковый~
 @eng a silken favor@rus ~~шелковый~~ ~~платок~~~
@@ -1694,7 +1694,7 @@ gold~
 treasure 0 0 AC
 0 0 0 0 0
 12 2 1500 P
-g none~
+g @rus none~
 #17332
 ball chain шестопер рыцарский~
 @eng a massive spiked ball and chain@rus ~~рыцарский~~ ~~шестопер~~~
@@ -2093,7 +2093,7 @@ wood in the fireplace.
 @rus Камин давно погас. Все, что ты видишь,- это угли дров и обгорелые обрывки
 бумаги.
 ~
-g none~
+g @rus none~
 #17366
 chest big сундук большой~
 @eng big chest@rus ~~большой~~ ~~сундук~~~
@@ -2214,7 +2214,7 @@ to see me. Is there anything you can do?
 ему видеть меня. Можешь ли ты чем-нибудь помочь нам?
                Изольда.
 ~
-g none~
+g @rus none~
 #0
 
 #ROOMS

@@ -722,7 +722,7 @@ ring ~
 @eng It feels heavy.
 @rus Судя по весу, ... не из легких.
 ~
-g none~
+g @rus none~
 #4001
 corpse труп~
 @eng a corpse@rus труп~
@@ -829,7 +829,7 @@ armor G 0 AE
 4 4 3 2 1
 5 40 650 G
 a '' to_object 5 -1 -1 20 0
-g none~
+g @rus none~
 #4052
 mushroom мухомор~
 @eng a mushroom@rus мухомор~
@@ -928,7 +928,7 @@ falchion~
 for piercing as well as slashing.
 @rus Это тяжелое, изогнутое, острое как бритва лезвие.
 ~
-g none~
+g @rus none~
 #4059
 voulge polearm алебарда~
 @eng a voulge@rus алебарда~
@@ -1015,7 +1015,7 @@ weapon 0 0 AN
 spear 2 5 'pound' F
 10 60 630 G
 a '' to_object 10 -1 -2 17 0
-g male~
+g @rus male~
 #4150
 black potion черное зелье~
 @eng a black potion@rus ~~черное~~ ~~зелье~~~
@@ -1029,7 +1029,7 @@ potion black черное зелье~
 @eng It looks healthy.
 @rus Оно выглядит...  здоровым, что ли?!
 ~
-g none~
+g @rus none~
 #4151
 staff oak тяжелый дубовый посох~
 @eng a heavy oak staff@rus ~~тяжелый~~ ~~дубовый~~ ~~посох~~~

@@ -726,7 +726,7 @@ spear 5 6 'stab' K
 25 50 250 P
 a '' to_object 25 -1 2 18 0
 a '' to_object 25 -1 2 19 0
-g none~
+g @rus none~
 #29501
 spear~
 a long throwing spear~
@@ -736,7 +736,7 @@ warp_stone 0 0 ANO
 0 0 0 0 0
 25 10 250 P
 a '' to_object 25 -1 4 18 0
-g none~
+g @rus none~
 #29502
 ox hide shield~
 an ox hide shield~
@@ -746,7 +746,7 @@ armor 0 0 AJ
 8 8 8 0 0
 25 5 250 P
 a '' to_object 25 -1 -10 17 0
-g none~
+g @rus none~
 #29503
 boar tusk helm~
 a boar tusk helm~
@@ -757,7 +757,7 @@ armor 0 0 AE
 25 5 250 P
 a '' to_object 25 -1 2 5 0
 a '' to_object 25 -1 15 13 0
-g none~
+g @rus none~
 #29504
 leather jerkin~
 a leather jerkin~
@@ -766,7 +766,7 @@ unknown~
 armor 0 0 AD
 8 8 8 0 0
 25 7 250 P
-g none~
+g @rus none~
 #29505
 bronze breastplate~
 a bronze breastplate~
@@ -778,7 +778,7 @@ armor 0 0 AD
 a '' to_object 28 -1 2 1 0
 a '' to_object 28 -1 -1 2 0
 a '' to_object 28 -1 -10 17 0
-g none~
+g @rus none~
 #29506
 goblet wine~
 a goblet of watered wine~
@@ -787,7 +787,7 @@ unknown~
 drink 0 0 AO
 5 4 'red wine' 0 0
 30 5 300 P
-g none~
+g @rus none~
 #29507
 board game~
 a board game~
@@ -797,7 +797,7 @@ trash 0 0 AO
 0 0 0 0 0
 30 5 300 P
 a '' to_object 30 -1 2 4 0
-g none~
+g @rus none~
 #29508
 achilles breastplate~
 achilles' breastplate~
@@ -808,7 +808,7 @@ armor AG 0 AD
 45 5 450 P
 a '' to_object 45 -1 3 5 0
 a '' to_object 45 -1 -16 17 0
-g none~
+g @rus none~
 #29509
 achilles greaves~
 achilles' greaves~
@@ -819,7 +819,7 @@ armor AG 0 AF
 45 5 450 P
 a '' to_object 45 -1 3 2 0
 a '' to_object 45 -1 60 14 0
-g none~
+g @rus none~
 #29510
 achilles helm~
 achilles' helm~
@@ -830,7 +830,7 @@ armor AG 0 AE
 45 5 450 P
 a '' to_object 45 -1 3 4 0
 a '' to_object 45 -1 50 12 0
-g none~
+g @rus none~
 #29511
 achilles' sword~
 achilles' sword~
@@ -841,7 +841,7 @@ sword 5 10 'pierce' 0
 45 100 450 P
 a '' to_object 45 -1 8 18 0
 a '' to_object 45 -1 8 19 0
-g none~
+g @rus none~
 #29512
 bronze sword~
 a bronze sword~
@@ -852,7 +852,7 @@ sword 5 5 'pierce' 0
 20 50 200 P
 a '' to_object 20 -1 -2 18 0
 a '' to_object 20 -1 2 19 0
-g none~
+g @rus none~
 #29513
 bronze dagger~
 a bronze dagger~
@@ -861,7 +861,7 @@ unknown~
 weapon 0 0 AN
 dagger 5 5 'pierce' 0
 20 30 200 P
-g none~
+g @rus none~
 #29514
 bronze shield~
 a bronze shield~
@@ -871,7 +871,7 @@ armor 0 0 AJ
 8 8 8 0 0
 28 8 280 P
 a '' to_object 28 -1 -13 17 0
-g none~
+g @rus none~
 #29515
 achilles' shield~
 achilles' shield~
@@ -881,7 +881,7 @@ armor AG 0 AJ
 12 12 12 0 0
 45 5 450 P
 a '' to_object 45 -1 -15 17 0
-g none~
+g @rus none~
 #29516
 sandals~
 a pair of sandals~
@@ -890,7 +890,7 @@ unknown~
 armor 0 0 AG
 8 8 8 0 0
 28 3 280 P
-g none~
+g @rus none~
 #29517
 stone axe~
 a stone axe~
@@ -899,7 +899,7 @@ unknown~
 weapon 0 0 AN
 axe 5 6 'crush' 0
 25 150 250 P
-g none~
+g @rus none~
 #29518
 banner~
 a banner~
@@ -908,7 +908,7 @@ unknown~
 trash 0 0 AO
 0 0 0 0 0
 28 10 280 P
-g none~
+g @rus none~
 #29519
 bronze helm~
 a bronze helm~
@@ -919,7 +919,7 @@ armor 0 0 AE
 28 10 280 P
 a '' to_object 28 -1 2 5 0
 a '' to_object 28 -1 -11 17 0
-g none~
+g @rus none~
 #29520
 cot~
 a cot~
@@ -928,7 +928,7 @@ unknown~
 furniture 0 0 A
 0 0 0 0 0
 30 25 300 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

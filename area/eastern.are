@@ -262,7 +262,7 @@ silver~
 weapon J 0 AN
 axe 1 9 'pierce' 0
 5 30 320 P
-g none~
+g @rus none~
 #5001
 banded mail~
 a glowing suit of banded mail~
@@ -273,7 +273,7 @@ armor AG 0 AD
 23 0 7300 P
 a '' to_object 23 -1 -4 17 0
 a '' to_object 23 -1 2 2 0
-g none~
+g @rus none~
 #5002
 halberd~
 the halberd~
@@ -284,7 +284,7 @@ polearm 3 14 'cleave' F
 29 160 1620 P
 a '' to_object 29 -1 3 19 0
 a '' to_object 29 -1 2 18 0
-g none~
+g @rus none~
 #5003
 amulet~
 the amulet~
@@ -294,7 +294,7 @@ jewelry G 0 AC
 0 0 0 0 0
 5 20 550 P
 a '' to_object 5 -1 1 5 0
-g none~
+g @rus none~
 #5005
 bone~
 a large leg bone~
@@ -303,7 +303,7 @@ bone~
 weapon 0 0 AN
 mace 1 4 'pound' 0
 0 50 140 P
-g none~
+g @rus none~
 #5006
 cactus~
 a small cactus cup~
@@ -312,7 +312,7 @@ plant~
 drink 0 0 A
 5 5 'water' 0 0
 0 60 5 P
-g none~
+g @rus none~
 #5007
 basket~
 a small wicker basket~
@@ -321,7 +321,7 @@ leather~
 container 0 0 A
 100 AC 0 10 100
 0 20 20 P
-g none~
+g @rus none~
 #5008
 basket~
 a small wicker basket~
@@ -330,7 +330,7 @@ leather~
 container 0 0 A
 100 AC 0 10 100
 0 20 20 P
-g none~
+g @rus none~
 #5009
 basket~
 a small wicker basket~
@@ -339,7 +339,7 @@ wood~
 container 0 0 A
 100 AC 0 10 100
 0 20 20 P
-g none~
+g @rus none~
 #5010
 basket~
 a small wicker basket~
@@ -348,7 +348,7 @@ wood~
 container 0 0 0
 100 AC 0 0 100
 0 0 0 P
-g none~
+g @rus none~
 #5011
 rope~
 a coil of rope~
@@ -357,7 +357,7 @@ linen~
 furniture 0 0 A
 0 0 0 0 0
 0 120 20 P
-g none~
+g @rus none~
 #5012
 stakes~
 a bunch of stakes~
@@ -366,7 +366,7 @@ wood~
 furniture 0 0 A
 0 0 0 0 0
 0 60 20 P
-g none~
+g @rus none~
 #5013
 map~
 an old, tattered map~
@@ -375,7 +375,7 @@ paper~
 furniture 0 0 A
 0 0 0 0 0
 0 10 5 P
-g none~
+g @rus none~
 #5014
 turban~
 a thick padded turban~
@@ -385,7 +385,7 @@ clothing GH 0 AE
 0 0 0 0 0
 0 10 10 P
 a '' to_object 0 -1 1 17 0
-g none~
+g @rus none~
 #5015
 coins~
 a great pile of treasure~
@@ -394,7 +394,7 @@ silver~
 money 0 0 A
 427 12 0 0 0
 0 0 0 P
-g none~
+g @rus none~
 #5016
 sabre~
 a long, curved sabre~
@@ -405,7 +405,7 @@ sword 3 7 'slash' 0
 16 70 1410 P
 a '' to_object 16 -1 3 18 0
 a '' to_object 16 -1 1 19 0
-g none~
+g @rus none~
 #5017
 scimitar~
 a curved scimitar~
@@ -416,7 +416,7 @@ sword 2 8 'slash' 0
 12 60 990 P
 a '' to_object 12 -1 2 18 0
 a '' to_object 12 -1 1 19 0
-g none~
+g @rus none~
 #5018
 cutlass~
 a long, pointed cutlass~
@@ -425,7 +425,7 @@ adamantite~
 weapon L 0 AN
 sword 3 6 'slash' 0
 12 50 930 P
-g none~
+g @rus none~
 #5019
 potion pink~
 a pink potion~
@@ -434,7 +434,7 @@ clay~
 potion P 0 A
 25 'heal' 'remove curse' '' ''
 13 60 1220 P
-g none~
+g @rus none~
 #5020
 wand platinum~
 a platinum wand~
@@ -443,7 +443,7 @@ platinum~
 wand B 0 AO
 30 10 10 'magic missile' 0
 2 80 990 P
-g none~
+g @rus none~
 #5021
 bow energy strange~
 a strange energy bow~
@@ -452,7 +452,7 @@ unknown~
 weapon ABGI 0 AN
 bow 5 5 'blast' 0
 21 200 2600 P
-g none~
+g @rus none~
 #5022
 scroll encrypted~
 an encrypted scroll~
@@ -461,7 +461,7 @@ vellum~
 scroll 0 0 A
 22 'cure blindness' 'remove curse' 'cure poison' ''
 11 70 1730 P
-g none~
+g @rus none~
 #5023
 chest~
 an iron bound chest~
@@ -470,7 +470,7 @@ iron~
 container 0 0 0
 200 ACD 5024 200 100
 0 0 0 P
-g none~
+g @rus none~
 #5024
 key golden~
 a golden key~
@@ -479,7 +479,7 @@ gold~
 key 0 0 A
 BD 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #5025
 bracelet copper~
 a copper bracelet~
@@ -490,7 +490,7 @@ jewelry GH 0 AM
 20 100 1300 P
 a '' to_object 20 -1 3 19 0
 a '' to_object 20 -1 15 13 0
-g none~
+g @rus none~
 #5026
 gem ruby~
 a large ruby~
@@ -499,7 +499,7 @@ ruby~
 gem G 0 AO
 CE 0 0 0 0
 0 1 5000 P
-g none~
+g @rus none~
 #5027
 gem diamond glittering~
 a glittering diamond~
@@ -508,7 +508,7 @@ diamond~
 gem G 0 AO
 ACE 0 0 0 0
 0 1 6000 P
-g none~
+g @rus none~
 #5028
 gem sapphire~
 a brilliant sapphire~
@@ -517,7 +517,7 @@ sapphire~
 gem G 0 AO
 BCE 0 0 0 0
 0 1 2000 P
-g none~
+g @rus none~
 #5029
 gem lapis~
 a deep blue lapis lazuli~
@@ -526,7 +526,7 @@ gem~
 gem G 0 AO
 DE 0 0 0 0
 0 1 800 P
-g none~
+g @rus none~
 #5030
 jewel tiger~
 the tiger jewel~
@@ -536,7 +536,7 @@ gem I 0 AO
 0 0 0 0 0
 5 1 550 P
 a '' to_object 5 -1 1 2 0
-g none~
+g @rus none~
 #5031
 jewel red-eyed~
 the red-eyed jewel~
@@ -546,7 +546,7 @@ gem 0 0 AO
 0 0 0 0 0
 15 1 2600 P
 a '' to_object 15 -1 2 3 0
-g none~
+g @rus none~
 #5032
 gem emerald~
 a fiery green emerald~
@@ -555,7 +555,7 @@ gem~
 warp_stone 0 C AO
 ABCE 0 0 0 0
 0 1 4000 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

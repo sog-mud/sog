@@ -844,7 +844,7 @@ adamantite~
 key BG 0 AO
 0 0 0 0 0
 0 10 0 P
-g none~
+g @rus none~
 #14002
 breastplate iron~
 An iron breastplate~
@@ -855,7 +855,7 @@ armor 0 0 AD
 91 350 3000 P
 a '' to_object 91 -1 15 19 0
 a '' to_object 91 -1 -25 17 0
-g none~
+g @rus none~
 #14003
 sting locust~
 A locust stinger~
@@ -865,7 +865,7 @@ weapon EQ 0 AN
 dagger 6 20 'pierce' GH
 91 60 4500 G
 a '' to_object 91 -1 10 18 0
-g none~
+g @rus none~
 #14004
 chain binding~
 The chain of binding~
@@ -879,7 +879,7 @@ a '' to_object 50 -1 -10 5 0
 a '' to_object 50 -1 -10 2 0
 a '' to_object 50 -1 -10 1 0
 a '' to_object 50 -1 -400 14 0
-g none~
+g @rus none~
 #14005
 cup babylon~
 The golden cup of Babylon~
@@ -893,7 +893,7 @@ blood cup babylon~
 You look inside the cup and find it filled with
 the blood of saints.
 ~
-g none~
+g @rus none~
 #14006
 girdle golden~
 A golden girdle~
@@ -905,7 +905,7 @@ armor GIKL 0 AL
 a '' to_object 80 -1 -5 24 0
 a '' to_object 80 -1 7 19 0
 a '' to_object 80 -1 5 18 0
-g none~
+g @rus none~
 #14007
 sickle golden~
 A golden sickle~
@@ -916,7 +916,7 @@ exotic 10 10 'slice' E
 80 450 3500 P
 a '' to_object 80 -1 5 19 0
 a '' to_object 80 -1 5 18 0
-g none~
+g @rus none~
 #14008
 saints prayers~
 The prayers of saints~
@@ -925,7 +925,7 @@ glass~
 potion BI 0 AO
 80 'bless' 'faerie fog' 'flamestrike' ''
 80 2 9000 P
-g none~
+g @rus none~
 #14009
 censer~
 A censer~
@@ -934,7 +934,7 @@ bronze~
 wand AG 0 AO
 100 3 3 'fireball' 0
 85 25 6700 P
-g none~
+g @rus none~
 #14010
 crown white conquerer~
 The white crown of the conquerer~
@@ -947,7 +947,7 @@ a '' to_object 85 -1 7 19 0
 a '' to_object 85 -1 5 18 0
 a '' to_object 85 -1 50 12 0
 a '' to_object 85 -1 50 13 0
-g none~
+g @rus none~
 #14011
 bow white conquerer~
 The white bow of the conquerer~
@@ -958,7 +958,7 @@ bow 10 10 'blast' AFH
 85 100 12000 P
 a '' to_object 85 -1 5 19 0
 a '' to_object 85 -1 10 18 0
-g none~
+g @rus none~
 #14012
 breastplate fire~
 A breastplate of fire~
@@ -969,7 +969,7 @@ armor EJ D AD
 85 20 14000 P
 a '' to_object 85 -1 7 19 0
 a '' to_object 85 -1 -10 17 0
-g none~
+g @rus none~
 #14013
 sword war~
 The sword of war~
@@ -980,7 +980,7 @@ sword 11 12 'slash' DEFH
 85 200 14000 P
 a '' to_object 85 -1 10 19 0
 a '' to_object 85 -1 10 18 0
-g none~
+g @rus none~
 #14014
 breastplate jacinth~
 A breastplate of jacinth~
@@ -991,7 +991,7 @@ armor EJ D AD
 85 10 14000 P
 a '' to_object 85 -1 100 12 0
 a '' to_object 85 -1 -25 17 0
-g none~
+g @rus none~
 #14015
 breastplate brimstone~
 A breastplate of brimstone~
@@ -1002,7 +1002,7 @@ armor EJ D AD
 85 20 14000 P
 a '' to_object 85 -1 -15 24 0
 a '' to_object 85 -1 -25 17 0
-g none~
+g @rus none~
 #14016
 balances pair~
 A pair of engraved balances~
@@ -1018,7 +1018,7 @@ A measure of wheat for a penny, and three
 measures of barley for a penny; and see
 thou hurt not the oil and the wine.
 ~
-g none~
+g @rus none~
 #14017
 cloak death deaths death's~
 Death's cloak~
@@ -1027,7 +1027,7 @@ mithril~
 armor CEFGQ 0 AK
 30 30 30 10 0
 85 10 14000 P
-g none~
+g @rus none~
 #14018
 scythe reaper grim~
 The scythe of the Grim reaper~
@@ -1038,7 +1038,7 @@ polearm 11 10 'cleave' CDFH
 85 200 14000 P
 a '' to_object 85 -1 10 19 0
 a '' to_object 85 -1 10 18 0
-g none~
+g @rus none~
 #14019
 lance holy archangel Michael~
 The holy lance of archangel Michael~
@@ -1049,7 +1049,7 @@ lance 12 10 'pierce' A
 91 150 20000 P
 a '' to_object 91 -1 10 19 0
 a '' to_object 91 -1 10 18 0
-g none~
+g @rus none~
 #14020
 mark beast~
 The mark of the beast~
@@ -1065,7 +1065,7 @@ E
 mark~
 The mark bears the number of his name: 666.
 ~
-g none~
+g @rus none~
 #14021
 wings eagles~
 The wings of eagles~
@@ -1077,7 +1077,7 @@ armor GIK 0 AI
 a '' to_object 89 -1 3 2 0
 a '' to_object 89 -1 100 14 0
 a '' to_object 89 -1 -15 17 0
-g none~
+g @rus none~
 #14022
 crown stars twelve~
 A crown with twelve stars~
@@ -1088,7 +1088,7 @@ armor AIK 0 AE
 89 5 19000 P
 a '' to_object 89 -1 4 4 0
 a '' to_object 89 -1 3 3 0
-g none~
+g @rus none~
 #14023
 clothing sun~
 Clothing of the sun~
@@ -1101,7 +1101,7 @@ a '' to_object 89 -1 50 13 0
 a '' to_object 89 -1 5 1 0
 a '' to_object 89 -1 5 2 0
 a '' to_object 89 -1 5 5 0
-g none~
+g @rus none~
 #14024
 clothing sun~
 Clothing of the sun~
@@ -1113,7 +1113,7 @@ armor AIK 0 AF
 a '' to_object 89 -1 -10 24 0
 a '' to_object 89 -1 -10 23 0
 a '' to_object 89 -1 5 2 0
-g none~
+g @rus none~
 #14025
 moon~
 The moon under your feet~
@@ -1122,7 +1122,7 @@ unknown~
 armor AIK 0 AG
 30 30 30 10 0
 89 10 19000 P
-g none~
+g @rus none~
 #14026
 manna hidden~
 Hidden manna~
@@ -1132,7 +1132,7 @@ armor AFKLQ 0 AB
 0 0 0 0 0
 91 15 25000 P
 a '' to_object 91 -1 200 12 0
-g none~
+g @rus none~
 #14027
 rod iron~
 A rod of iron~
@@ -1141,7 +1141,7 @@ iron~
 wand GIKL 0 AO
 120 10 10 'cure blindness' 0
 80 100 25000 P
-g none~
+g @rus none~
 #14028
 raiment white~
 White raiment~
@@ -1150,7 +1150,7 @@ unknown~
 armor AGIKL 0 AC
 30 30 30 10 0
 91 10 25000 P
-g none~
+g @rus none~
 #14029
 stone white~
 A white stone~
@@ -1165,7 +1165,7 @@ stone white~
 The stone says:
 KING OF KINGS, AND LORD OF LORDS
 ~
-g none~
+g @rus none~
 #14030
 sword mouth sharp two edged~
 The sharp, two-edged sword of the mouth~
@@ -1174,7 +1174,7 @@ adamantite~
 weapon IKLM 0 AN
 sword 3 43 'slash' DF
 91 300 25000 P
-g none~
+g @rus none~
 #14031
 robe white~
 A white robe~
@@ -1184,7 +1184,7 @@ armor IKL 0 AK
 23 23 23 23 0
 70 10 5000 P
 a '' to_object 70 -1 -10 17 0
-g none~
+g @rus none~
 #14032
 seal~
 A seal~
@@ -1194,7 +1194,7 @@ armor IKL 0 AE
 23 23 23 23 0
 70 0 5000 P
 a '' to_object 70 -1 -1 18 0
-g none~
+g @rus none~
 #14033
 star morning~
 The morning star~
@@ -1203,7 +1203,7 @@ unknown~
 container A 0 0
 150 0 0 150 100
 10 10 10000 P
-g none~
+g @rus none~
 #14034
 blood puddle~
 A puddle of blood~
@@ -1212,7 +1212,7 @@ unknown~
 drink 0 0 0
 150 150 'blood' 0 0
 10 10 0 P
-g none~
+g @rus none~
 #14035
 blood fountain~
 A fountain of blood~
@@ -1221,7 +1221,7 @@ unknown~
 fountain 0 0 0
 9999 9999 'blood' 0 0
 10 10 0 P
-g none~
+g @rus none~
 #14036
 throne emerald rainbow~
 An emerald throne~
@@ -1235,7 +1235,7 @@ throne emerald rainbow~
 The throne flashes lightnings, and peals of thunder roll
 from it.
 ~
-g none~
+g @rus none~
 #14037
 thrones four twenty~
 Four and twenty thrones~
@@ -1248,7 +1248,7 @@ E
 thrones four twenty~
 The thrones are made of gold and have a holy aura.
 ~
-g none~
+g @rus none~
 #14039
 scroll seven seals broken~
 A scroll of seven broken seals~
@@ -1263,7 +1263,7 @@ You carefully look at the writing on the scroll. It reads:
 
 THOSE MORTALS ARE IN DEEP BLOOD LAKE NOW
 ~
-g none~
+g @rus none~
 #14040
 book~
 The book of life~
@@ -1276,7 +1276,7 @@ E
 life~
 I bet mortals will drive themselves crazy about this one.
 ~
-g none~
+g @rus none~
 #14041
 bowl golden incense~
 A golden bowl of incense~
@@ -1285,7 +1285,7 @@ unknown~
 staff IQ D AO
 100 3 3 'enchant weapon' 0
 75 10 10000 P
-g none~
+g @rus none~
 #0
 
 #ROOMS

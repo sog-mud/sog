@@ -1092,7 +1092,7 @@ glass~
 potion 0 0 A
 20 'gas breath' '' '' ''
 25 50 3000 P
-g none~
+g @rus none~
 #5313
 bluish herbs голубоватая травка~
 @eng some bluish herbs@rus ~~голубоватая~~ ~~травка~~~
@@ -1244,7 +1244,7 @@ Merc Industries.
 @rus Ты видишь пластинчатые гамаши, сделанные с огромным мастерством. На них выгравировано:
 Merc Industries.
 ~
-g plural~
+g @rus plural~
 #5324
 plate boots пластинчатые сапоги~
 @eng a pair of imperial plate boots@rus ~~пара~~ имперских пластинчатых сапог~
@@ -1260,7 +1260,7 @@ Merc Industries.
 @rus Ты видишь пластинчатые сапоги, сделанные с огромным мастерством. На них выгравировано:
 Merc Industries.
 ~
-g plural~
+g @rus plural~
 #5325
 plate gloves пластинчатые перчатки~
 @eng a pair of imperial plate gloves@rus ~~пара~~ имперских пластинчатых перчаток~
@@ -1276,7 +1276,7 @@ Merc Industries.
 @rus Ты видишь пластинчатые перчатки, сделанные с огромным мастерством. На них
 выгравировано Merc Industries.
 ~
-g plural~
+g @rus plural~
 #5326
 plate sleeves пластинчатые наручи~
 @eng a pair of imperial plate sleeves@rus ~~пара~~ имперских пластинчатых наручей~
@@ -1292,7 +1292,7 @@ Merc Industries.
 @rus Ты видишь пластинчатые наручи, сделанные с огромным мастерством. На них
 выгравировано Merc Industries.
 ~
-g plural~
+g @rus plural~
 #5327
 cape накидка~
 @eng an imperial cape@rus ~~имперская~~ ~~накидка~~~
@@ -1339,7 +1339,7 @@ metal bracer~
 Merc Industries.
 @rus Ты видишь металлический нарукавник, изготовленный с огромным мастерством.
 ~
-g male~
+g @rus male~
 #5330
 ring signet кольцо печатка~
 @eng an imperial city guard signet ring@rus ~~имперское~~ ~~кольцо~~ стражника с печатью~
@@ -1350,7 +1350,7 @@ jewelry G 0 AB
 16 10 1280 P
 a '' to_object 16 -1 -1 20 0
 a '' to_object 16 -1 -4 17 0
-g none~
+g @rus none~
 #5331
 imperial banner имперское знамя~
 @eng an imperial war banner@rus ~~имперское~~ ~~боевое~~ ~~знамя~~~
@@ -1366,7 +1366,7 @@ banner~
 @eng This is the official Merc war banner to see you through the darkest realm!
 @rus Это казенное боевое знамя поможет найти тебя в самом темном царстве!
 ~
-g none~
+g @rus none~
 #5332
 two-handed two sword двуручный меч~
 @eng a two-handed sword@rus ~~двуручный~~ ~~меч~~~
@@ -1377,7 +1377,7 @@ sword 5 7 'cleave' DF
 34 240 4400 P
 a '' to_object 34 -1 4 19 0
 a '' to_object 34 -1 2 18 0
-g male~
+g @rus male~
 #5333
 map old midgaard карта старого мидгаарда~
 @eng a map of the old Midgaard@rus ~~карта~~ старого Мидгаарда~
@@ -1444,7 +1444,7 @@ It is quite heavy.  The blade is made of some metal that you can't even
 spell.  The edge of the blade looks as if it could cut through anything
 or anyone.
 ~
-g none~
+g @rus none~
 #5343
 stone clear прозрачный камень~
 @eng a clear stone@rus ~~прозрачный~~ ~~камень~~~
@@ -1454,7 +1454,7 @@ gem G 0 AQ
 0 0 0 0 0
 0 10 100 P
 a '' to_object 0 -1 3 17 0
-g male~
+g @rus male~
 #0
 
 #ROOMS
