@@ -59,7 +59,7 @@ stand stand male 0
 0 0 medium unknown
 r negative -50
 r charm 33
-m mob_random mob_random_special_guard 100~
+m mob_random mob_random_executioner 100~
 #12
 bear~
 a bear~

@@ -193,7 +193,7 @@ F for D
 r charm 100
 m mob_death mob_death_tree_guardian 100~
 m mob_death mob_death_tree 100~
-m mob_greet mob_greet_guardian_tree all~
+m mob_greet mob_greet_guardian_tree north west~
 #0
 
 #OBJECTS
@@ -214,6 +214,7 @@ magic~
 portal 0 0 0
 A 0 0 35468 0
 0 0 0 P
+m obj_enter obj_enter_green_window 100~
 #35463
 chips wood щепки~
 wooden chips~

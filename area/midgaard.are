@@ -115,6 +115,7 @@ CHS 0 0 BG 0 -100 0
 EFJN
 stand stand either 100
 0 0 medium unknown
+V 37012
 m mob_random mob_random_thief 100~
 #3006
 captain капитан~
@@ -652,8 +653,10 @@ FJNU
 stand stand female 0
 0 0 medium unknown
 r magic -50
-m mob_bribe mob_bribe_beggar_nocoppers 1000~
-m mob_bribe mob_bribe_beggar_thank 1~
+m mob_bribe mob_bribe_beggar_500 500~
+m mob_bribe mob_bribe_beggar_100 100~
+m mob_bribe mob_bribe_beggar_10 10~
+m mob_bribe mob_bribe_beggar_1 1~
 m mob_greet mob_greet_beggar all~
 #3066
 cat кот~
@@ -1161,6 +1164,7 @@ CHS 0 0 BG 0 -100 0
 EFJN
 stand stand either 100
 0 0 medium unknown
+V 37011
 m mob_fight mob_fight_nasty 100~
 m mob_random mob_random_nasty 100~
 #3164
@@ -4590,8 +4594,8 @@ old book~
 I am not sure about all information in this book, because the adventurer
 who told me the story was not...........................................
 Firstly you will need a dress for the keeper. You may find a suitable
-dress in the general store in New Thalos area. Say to shopkeeper keeper
-( say keeper) and he will help you. Now you need a beautiful rug for the
+dress in the general store in New Thalos area. Say to shopkeeper "keeper"
+and he will help you. Now you need a beautiful rug for the
 Fireflash who has the key of kassandra. Fireflash interests only with special
 rug which has been sold by grocer in Valley of Titans area. Now, you
 should find the keeper who will unlocks the gate to you against the
@@ -4599,12 +4603,10 @@ dress. I don't know the exact place of the keeper and Fireflash,
 but I heard that they are in an area which includes many pixies and
 dragons. As you give the dress to keeper he will helps you. And now you
 should give rug to Fireflash. Now you have a key find the Paladin who is
-responsible for the stone kassandra. Adventured said me that you may find
+responsible for the stone kassandra. Adventurer said me that you may find
 that paladin in the south and up of the Midgaard. 
-	Usage of the kassandra is very easy, as you are holding it say :
-"  kassandra, matandra, or sebat."
-eg, say kassandra
-    say sebat
+	Usage of the kassandra is very easy, as you are holding it say:
+"kassandra, matandra, or sebat."
 ~
 g @rus none~
 #3397

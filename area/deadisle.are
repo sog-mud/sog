@@ -325,7 +325,7 @@ CEJT 0 TUVc G ABCD -1000 0
 ACEFGIKMOP
 stand stand male 30000
 ABV ABCDEFPU gargantuan unknown
-m mob_random mob_random_special_guard 100~
+m mob_random mob_random_executioner 100~
 #22319
 lich vecna skelet~
 Vecna, the Emperor Lich~

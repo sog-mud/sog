@@ -166,6 +166,34 @@ HIU
 stand stand either 10
 0 0 medium unknown
 F for AHMV
+#37011
+thief воровка~
+@eng the thief@rus воровка~
+@eng A thief, all dressed in black.@rus Воровка (thief), одетая в черные одежды, стоит здесь.~
+@eng Well COUNT your money!
+@rus Пересчитай свои денежки!
+~
+human~
+CHS 0 0 BG 0 -100 0
+30 1 6d8+700 1d1+99 4d5+5 'stab'
+2 4 3 7
+EFJN
+stand stand either 100
+0 0 medium unknown
+#37012
+thief воровка~
+@eng the thief@rus воровка~
+@eng A thief, all dressed in black.@rus Воровка (thief), одетая в черные одежды, стоит здесь.~
+@eng Well COUNT your money!
+@rus Пересчитай свои денежки!
+~
+human~
+CHS 0 0 BG 0 -100 0
+8 1 6d8+80 1d1+99 1d5+1 'punch'
+2 4 3 7
+EFJN
+stand stand either 100
+0 0 medium unknown
 #0
 
 #$

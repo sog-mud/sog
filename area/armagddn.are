@@ -417,10 +417,10 @@ r energy -50
 r charm 100
 m mob_fight mob_fight_cast_mage 100~
 #14020
-prophet false лжепророк~
+prophet false лжепророк man человек~
 @eng The false prophet@rus лжепророк~
-A smoke-breathing man with rams horns shouts here!~
-The false prophet is the spokesman for the beast.
+@eng A smoke-breathing man with rams horns shouts here!@rus Ты видишь человека (man) с овечьими рогами и выдахающего дым.~
+@eng The false prophet is the spokesman for the beast.
 He does great wonders, such as summoning fire from
 heaven to gather worshippers for the beast. He seems
 set on getting those around him to make an image to 
@@ -662,13 +662,17 @@ FJ
 stand stand male 900
 0 0 medium unknown
 #14032
-man mighty~
-The mighty man~
-A mighty man is here, fleeing divine wrath.~
-The man you vaguely recall as being involved
+man mighty человек могущественный~
+@eng The mighty man@rus ~~могущественный~~ ~~человек~~~
+@eng A mighty man is here, fleeing divine wrath.@rus Могущественный человек (man), сейчас он испытывает на себе всю силу Божественного гнева.~
+@eng The man you vaguely recall as being involved
 in politics somehow. He is in rags now, and
 has a harried look. He blames his sins on
 his rivals.
+@rus Человек, которого ты $gn{окликнул} (безрезультатно, впрочем), был
+некогда вовлечен в большую политику. Сейчас он в лохмотьях и смотрит
+вокруг опусташенным взглядом. В своих все грехах он винит всех своих
+противников и оппонентов.
 ~
 human~
 HT 0 0 0 H -1000 0
@@ -715,11 +719,13 @@ FJ
 stand stand male 900
 0 0 medium unknown
 #14035
-freeman~
-The freeman~
-A freeman is here, fleeing divine wrath.~
-The freeman is empoverished. He blames
+freeman свободный человек~
+@eng The freeman@rus ~~свободный~~ ~~житель~~~
+@eng A freeman is here, fleeing divine wrath.@rus Свободный житель (freeman) испытывает на себе всю силу гнева Господня.~
+@eng The freeman is empoverished. He blames
 all of his sins on the guild.
+@rus Свободный человек, сейчас он лишен всего и бесправен. В своих грехах
+он обвиняет свою гильдию.
 ~
 human~
 HT 0 0 0 0 -1000 0
@@ -729,11 +735,13 @@ FJ
 stand stand male 900
 0 0 medium unknown
 #14036
-captain chief~
-The chief captain~
-A former captain is here, fleeing divine wrath.~
-The chief captain is in rags. He blames his sins
+captain chief капитан~
+@eng The chief captain@rus капитан~
+@eng A former captain is here, fleeing divine wrath.@rus Бывший капитан (captain) сейчас испытывает на себе силу Божественного гнева.~
+@eng The chief captain is in rags. He blames his sins
 on the king, who ordered him to commit atrocities.
+@rus Бывший начальник, сейчас он одет в лохмотья. Во всех своих грехах
+он винит короля, по повелению которого чинились зверства.
 ~
 human~
 HT 0 0 0 0 -1000 0
