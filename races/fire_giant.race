@@ -11,6 +11,7 @@ Resist cold -30
 Resist lightning -30
 Resist mental -30
 Damtype smash
+LuckBonus 0
 End
 
 #PCRACE
@@ -24,6 +25,7 @@ MaxStats 25 16 16 15 24 25
 Size huge
 HPBonus 20
 ManaBonus -20
+HungerRate 200
 RestrictAlign evil~
 Slang giant
 End

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.278 2001-01-24 17:25:29 fjoe Exp $
+ * $Id: handler.c,v 1.279 2001-01-28 11:39:49 cs Exp $
  */
 
 /***************************************************************************
@@ -159,7 +159,8 @@ int can_carry_w(CHAR_DATA *ch)
 			return -1;
 	}
 
-	return str_app[get_curr_stat(ch,STAT_STR)].carry + ch->level * 25;
+	return (str_app[get_curr_stat(ch,STAT_STR)].carry + ch->level * 25) * 3
+	    / 2;
 }
 
 /*
@@ -3116,6 +3117,7 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 
 	if (!IS_NPC(ch)) {
 		int move;
+		int can_carry;
 
 		if (!IS_IMMORTAL(ch)) {
 			if (IS_SET(to_room->room_flags, ROOM_GUILD)
@@ -3196,9 +3198,23 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 		move = (movement_loss[URANGE(0, in_room->sector_type, MAX_SECT)]
 		  + movement_loss[URANGE(0, to_room->sector_type, MAX_SECT)])/2;
 
+		can_carry = can_carry_w(ch);
+
 		if (IS_AFFECTED(ch, AFF_FLYING)
 		||  IS_AFFECTED(ch, AFF_HASTE))
 			move /= 2;
+
+		if (ch->carry_weight > can_carry * 3 / 4) {
+			act_puts("You're carrying too much to go further.",
+			    ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			return FALSE;
+		} else if (ch->carry_weight > can_carry * 2 / 3) {
+			/* Overburdened much */
+			move *= 2;
+		} else if (ch->carry_weight > can_carry / 2) {
+			/* slightly overburdened */
+			move = move * 3 / 2;
+		}
 
 		if (IS_AFFECTED(ch, AFF_SLOW))
 			move *= 2;
@@ -3214,6 +3230,9 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 
 			ch->move -= move;
 
+			if (!IS_NPC(ch))
+				PC(ch)->move_used += move;
+
 			if (ch->in_room->sector_type == SECT_DESERT
 			||  IS_WATER(ch->in_room))
 				wait = 2;
@@ -3221,6 +3240,9 @@ bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
 				wait = 1;
 
 			if (IS_AFFECTED(ch, AFF_SLOW)) wait *= 2;
+			if (ch->carry_weight > can_carry * 2 / 3)
+				wait *= 2;
+
 			WAIT_STATE(ch, wait);
 		}
 	}

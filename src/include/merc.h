@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.317 2001-01-23 21:46:52 fjoe Exp $
+ * $Id: merc.h,v 1.318 2001-01-28 11:39:48 cs Exp $
  */
 
 /***************************************************************************
@@ -1377,14 +1377,14 @@ struct char_data
 
 	DESCRIPTOR_DATA *	desc;
 
-	CHAR_DATA * 		next;
+	CHAR_DATA *		next;
 	CHAR_DATA *		aff_next;
-	CHAR_DATA * 		next_in_room;
+	CHAR_DATA *		next_in_room;
 
-	CHAR_DATA * 		master;
-	CHAR_DATA * 		leader;
+	CHAR_DATA *		master;
+	CHAR_DATA *		leader;
 
-	CHAR_DATA * 		fighting;
+	CHAR_DATA *		fighting;
 	time_t			last_fight_time;
 	time_t			last_death_time;
 
@@ -1403,21 +1403,21 @@ struct char_data
 	int			ethos;
 	int			level;
 	int			wait;
-	int 			add_level;
+	int			add_level;
 	int			daze;
 	form_t *		shapeform;
 
 	int			hit;
-	int 			max_hit;
-	int 			perm_hit;
+	int			max_hit;
+	int			perm_hit;
 
-	int 			mana;
-	int 			max_mana;
-	int 			perm_mana;
+	int			mana;
+	int			max_mana;
+	int			perm_mana;
 
-	int 			move;
-	int 			max_move;
-	int 			perm_move;
+	int			move;
+	int			max_move;
+	int			perm_move;
 
 	int			gold;
 	int			silver;
@@ -1445,7 +1445,7 @@ struct char_data
 	int			perm_stat[MAX_STAT];
 	int			mod_stat[MAX_STAT];
 
-	int 			luck;
+	int			luck;
 	int			luck_mod;
 
 	/* resistances */
@@ -1461,7 +1461,7 @@ struct char_data
 	CHAR_DATA *		mount;
 
 	CHAR_DATA *		hunting;	/* hunt data */
-	int 			endur;
+	int			endur;
 
 	CHAR_DATA *		doppel;		/* doppelganger and mirror */
 
@@ -1513,15 +1513,15 @@ struct pc_data
 	int			condition	[MAX_COND];
 	varr			learned;	/* pc_skill_t */
 	varr			specs;		/* spec names */
-	int 			security;	/* OLC */ /* Builder security */
+	int			security;	/* OLC */ /* Builder security */
 	int			bank_s;
 	int			bank_g;
-	int 			death;
-	int 			anti_killed;
-	int 			has_killed;
-	
+	int			death;
+	int			anti_killed;
+	int			has_killed;
+
 	int			questgiver;
-	int	 		questpoints;
+	int			questpoints;
 	int			questtime;
 	int			questobj;
 	int			questmob;
@@ -1540,31 +1540,33 @@ struct pc_data
 	ROOM_INDEX_DATA	*	homepoint;
 
 	const char *		wanted_by;
-	CHAR_DATA * 		reply;		/* for do_reply */
-	note_t * 		pnote;
+	CHAR_DATA *		reply;		/* for do_reply */
+	note_t *		pnote;
 
-	int 			exp;		/* total exp */
+	int			exp;		/* total exp */
 	int			practice;
 	int			train;
-	int 			random_value;	/* for hallucination spell */
+	int			random_value;	/* for hallucination spell */
 
 	time_t			logon;
 	time_t			logoff;
 
-	int 			played;
+	int			played;
 	int			add_age;
 
 	int			idle_timer;
 
 	int			was_in_vnum;	/* room vnum char was in */
-	CHAR_DATA * 		pet;
-	CHAR_DATA *	 	guarding;
-	CHAR_DATA * 		guarded_by;
+	CHAR_DATA *		pet;
+	CHAR_DATA *		guarding;
+	CHAR_DATA *		guarded_by;
 	int			version;
 
 	flag_t			hints_level;
 
 	dvdata_t *		dvdata;
+
+	int			move_used;	/* Moves used in current tick */
 };
 
 /*
@@ -2013,7 +2015,7 @@ void	deduct_cost	(CHAR_DATA *ch, uint cost);
 int	check_exit	(const char *arg);
 
 int	get_hours	(CHAR_DATA *ch);
-int	get_age 	(CHAR_DATA *ch);
+int	get_age		(CHAR_DATA *ch);
 
 int	get_curr_stat	(CHAR_DATA *ch, int stat);
 int	get_max_train	(CHAR_DATA *ch, int stat);
@@ -2036,7 +2038,7 @@ void	obj_from_room	(OBJ_DATA *obj);
 void	obj_to_room	(OBJ_DATA *obj, ROOM_INDEX_DATA *pRoomIndex);
 void	obj_to_obj	(OBJ_DATA *obj, OBJ_DATA *obj_to);
 void	obj_from_obj	(OBJ_DATA *obj);
-void 	bad_effect	(CHAR_DATA *ch, int effect);
+void	bad_effect	(CHAR_DATA *ch, int effect);
 
 /* extract obj flags */
 #define XO_F_NOCOUNT	(A)	/* do not update obj count		*/

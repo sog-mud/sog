@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.29 2000-08-04 14:12:45 cs Exp $
+ * $Id: race.h,v 1.30 2001-01-28 11:39:48 cs Exp $
  */
 
 #ifndef _RACE_H_
@@ -56,21 +56,22 @@ struct race_t
 /* additional data for pc races */
 struct pcrace_t
 {
-	char 	who_name[6];		/* 5-letter who-name		*/
-	int 	points; 		/* cost in exp of the race	*/
+	char	who_name[6];		/* 5-letter who-name		*/
+	int	points;			/* cost in exp of the race	*/
 	varr	classes;		/* available classes		*/
 	const char *	bonus_skills;	/* bonus skills for the race	*/
 	const char *	skill_spec;	/* skill spec for this race	*/
 	int	mod_stat[MAX_STAT];	/* starting stat mod		*/
 	int	max_stat[MAX_STAT];	/* maximum stat			*/
 	flag_t	size;			/* aff bits for the race	*/
-	int 	hp_bonus;		/* initial hp bonus		*/
-	int 	mana_bonus;		/* initial mana bonus		*/
-	int 	prac_bonus;		/* initial practice bonus	*/
+	int	hp_bonus;		/* initial hp bonus		*/
+	int	mana_bonus;		/* initial mana bonus		*/
+	int	prac_bonus;		/* initial practice bonus	*/
 	int	slang;			/* spoken language		*/
 	flag_t	restrict_align;		/* alignment restrictions	*/
 	flag_t	restrict_ethos;		/* ethos restrictions		*/
 	int	refcnt;
+	int	hunger_rate;
 };
 
 /* additional data for available classes for race */

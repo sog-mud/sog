@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.30 2001-01-23 21:47:04 fjoe Exp $
+ * $Id: db_race.c,v 1.31 2001-01-28 11:39:50 cs Exp $
  */
 
 #include <stdio.h>
@@ -61,7 +61,7 @@ DBINIT_FUN(init_race)
 {
 	if (DBDATA_VALID(dbdata))
 		db_set_arg(dbdata, "PCRACE", NULL);
-	else 
+	else
 		hash_init(&races, &h_races);
 }
 
@@ -72,7 +72,7 @@ DBLOAD_FUN(load_race)
 	race_init(&r);
 	for (;;) {
 		bool fMatch = FALSE;
-		
+
 		fread_keyword(fp);
 		switch(rfile_tokfl(fp)) {
 		case 'A':
@@ -201,6 +201,8 @@ DBLOAD_FUN(load_pcrace)
 
 		case 'H':
 			KEY("HPBonus", pcr->hp_bonus, fread_number(fp));
+			KEY("HungerRate", pcr->hunger_rate, fread_number(fp));
+
 			break;
 
 		case 'M':

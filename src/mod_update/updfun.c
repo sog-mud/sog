@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.23 2001-01-23 21:46:59 fjoe Exp $
+ * $Id: updfun.c,v 1.24 2001-01-28 11:39:49 cs Exp $
  */
 
 #include <sys/types.h>
@@ -663,7 +663,7 @@ char_update_cb(void *vo, va_list ap)
 				act_puts("You disappear into the void.",
 					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 				char_save(ch, 0);
-  				char_from_room(ch);
+				char_from_room(ch);
 				char_to_room(ch, to_room);
 				if (pc->pet) {
 					act("$n disappears into the void.",
@@ -679,19 +679,42 @@ char_update_cb(void *vo, va_list ap)
 		}
 
 		if (!pc->was_in_vnum) {
-			gain_condition(ch, COND_DRUNK, -1);
+			race_t *r;
+			int race_hunger_rate;
+			if (((r = race_lookup(PC(ch)->race)) == NULL)
+			|| !r->race_pcdata)
+				race_hunger_rate = 100;
+			else
+				race_hunger_rate = r->race_pcdata->hunger_rate;
+
+			gain_condition(ch, COND_DRUNK,
+			    (ch->position == POS_SLEEPING) ? -2 : -1);
 			if (IS_VAMPIRE(ch))
 				gain_condition(ch, COND_BLOODLUST, -1);
-			gain_condition(ch, COND_FULL, 
-				       ch->size > SIZE_MEDIUM ? -4 : -2);
-			if (ch->in_room->sector_type == SECT_DESERT)
-				gain_condition(ch, COND_THIRST, -3);
-			else
-				gain_condition(ch, COND_THIRST, -1);
-			gain_condition(ch, COND_HUNGER, 
-				       ch->size > SIZE_MEDIUM ? -2 : -1);
+
+			/* ch could die in gain_condition() */
 			if (IS_EXTRACTED(ch))
 				return NULL;
+
+			/* Person becomes more hungry if it moves too much */
+
+			gain_condition(ch, COND_FULL, -URANGE(1,
+			    (pc->move_used + 100) * race_hunger_rate / 10000,
+			    10));
+
+			if (IS_EXTRACTED(ch))
+				return NULL;
+
+			gain_condition(ch, COND_THIRST, -URANGE(1,
+			    (pc->move_used + 100) *
+			    (ch->in_room->sector_type == SECT_DESERT ? 3 : 1) /
+			    10000, 10));
+
+			if (IS_EXTRACTED(ch))
+				return NULL;
+
+			pc->move_used = 0;
+
 		}
 	}
 
@@ -709,7 +732,7 @@ char_update_cb(void *vo, va_list ap)
 			     paf_next->type != paf->type ||
 			     paf_next->duration > 0)
 			&&  (sk = skill_lookup(paf->type)) != NULL
-			&&  !mlstr_null(&sk->msg_off)) 
+			&&  !mlstr_null(&sk->msg_off))
 				act_mlputs(&sk->msg_off, ch, NULL, NULL,
 					   TO_CHAR, POS_DEAD);
 
@@ -725,7 +748,7 @@ char_update_cb(void *vo, va_list ap)
 	if (IS_EXTRACTED(ch))
 		return NULL;
 
-	if (ch->position == POS_INCAP 
+	if (ch->position == POS_INCAP
 	&&  number_range(0, 1) == 0)
 		damage(ch, ch, 1, NULL, DAM_NONE, DAMF_NONE);
 	else if (ch->position == POS_MORTAL)

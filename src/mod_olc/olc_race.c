@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.41 2000-10-29 19:49:24 fjoe Exp $
+ * $Id: olc_race.c,v 1.42 2001-01-28 11:39:49 cs Exp $
  */
 
 #include "olc.h"
@@ -68,6 +68,7 @@ DECLARE_OLC_FUN(raceed_ethos		);
 DECLARE_OLC_FUN(raceed_class		);
 DECLARE_OLC_FUN(raceed_addaffect	);
 DECLARE_OLC_FUN(raceed_delaffect	);
+DECLARE_OLC_FUN(raceed_hungerrate	);
 
 DECLARE_OLC_FUN(olc_skill_update	);
 
@@ -91,12 +92,12 @@ olc_cmd_t olc_cmds_race[] =
 	{ "invis",	raceed_invis,	NULL,		id_flags	},
 	{ "detect",	raceed_detect,	NULL,		id_flags	},
 	{ "off",	raceed_off,	NULL,		off_flags	},
-       	{ "form",	raceed_form,	NULL,		form_flags	},
+	{ "form",	raceed_form,	NULL,		form_flags	},
 	{ "parts",	raceed_parts,	NULL,		part_flags	},
 	{ "flags",	raceed_flags,	NULL,		race_flags	},
 
 	{ "resists",	raceed_resists					},
-	{ "damtype", 	raceed_damtype					},
+	{ "damtype",	raceed_damtype					},
 
 	{ "addpcdata",	raceed_addpcdata,validate_whoname		},
 	{ "delpcdata",	raceed_delpcdata				},
@@ -111,13 +112,14 @@ olc_cmd_t olc_cmds_race[] =
 	{ "hpbonus",	raceed_hpbonus,	validate_haspcdata		},
 	{ "manabonus",	raceed_manabonus,validate_haspcdata		},
 	{ "pracbonus",	raceed_pracbonus,validate_haspcdata		},
-	{ "luckbonus", 	raceed_luckbonus				},
+	{ "luckbonus",	raceed_luckbonus				},
 	{ "slang",	raceed_slang,	validate_haspcdata, slang_table	},
 	{ "align",	raceed_align,	validate_haspcdata, ralign_names},
 	{ "ethos",	raceed_ethos,	validate_haspcdata, ethos_table	},
 	{ "class",	raceed_class					},
 	{ "addaffect",	raceed_addaffect				},
 	{ "delaffect",	raceed_delaffect				},
+	{ "hungerrate",	raceed_hungerrate,validate_haspcdata		},
 
 	{ "update",	olc_skill_update				},
 	{ "commands",	show_commands					},
@@ -255,8 +257,8 @@ OLC_FUN(raceed_show)
 			   flag_string(race_flags, r->race_flags));
 	if (str_cmp(r->damtype, "punch"))
 		buf_printf(output, BUF_END, "Damage type:   [%s]\n", r->damtype);
-	
-	buf_printf(output, BUF_END, "Luck bonus:    [%d]\n", r->luck_bonus);		
+
+	buf_printf(output, BUF_END, "Luck bonus:    [%d]\n", r->luck_bonus);
 
 	for (i = 0, j = 0; i < MAX_RESIST; i++) {
 		if (r->resists[i]) {
@@ -266,7 +268,7 @@ OLC_FUN(raceed_show)
 				buf_printf(output, BUF_END, "\t%s\t%d%%",
 					flag_string(dam_classes, i),
 					r->resists[i]);
-			else 
+			else
 				buf_printf(output, BUF_END, "\t%s\t\t%d%%",
 					flag_string(dam_classes, i),
 					r->resists[i]);
@@ -279,7 +281,7 @@ OLC_FUN(raceed_show)
 
 	aff_dump_list(r->affected, output);
 
-	if (!r->race_pcdata) {               
+	if (!r->race_pcdata) {
 		buf_append(output, "=== No PC race defined ===\n");
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
@@ -324,6 +326,10 @@ OLC_FUN(raceed_show)
 	if (r->race_pcdata->hp_bonus)
 		buf_printf(output, BUF_END, "HP bonus:      [%d]\n",
 			   r->race_pcdata->hp_bonus);
+
+	buf_printf(output, BUF_END, "Hunger Rate:	[%d]%%\n",
+		   r->race_pcdata->hunger_rate);
+
 	if (r->race_pcdata->mana_bonus)
 		buf_printf(output, BUF_END, "Mana bonus:    [%d]\n",
 			   r->race_pcdata->mana_bonus);
@@ -338,7 +344,7 @@ OLC_FUN(raceed_show)
 	if (r->race_pcdata->restrict_ethos)
 		buf_printf(output, BUF_END, "Ethos restrict:[%s]\n",
 			   flag_string(ethos_table, r->race_pcdata->restrict_ethos));
-       	for (i = 0; i < r->race_pcdata->classes.nused; i++) {
+	for (i = 0; i < r->race_pcdata->classes.nused; i++) {
 		rclass_t *rc = VARR_GET(&r->race_pcdata->classes, i);
 
 		if (rc->name == NULL)
@@ -804,6 +810,13 @@ OLC_FUN(olc_skill_update)
 	return FALSE;
 }
 
+OLC_FUN(raceed_hungerrate)
+{
+	race_t *race;
+	EDIT_RACE(ch, race);
+	return olced_number(ch, argument, cmd, &race->race_pcdata->hunger_rate);
+}
+
 bool touch_race(race_t *race)
 {
 	SET_BIT(race->race_flags, RACE_CHANGED);
@@ -901,6 +914,7 @@ save_race_pcdata(pcrace_t *pcr, FILE *fp)
 	fwrite_number(fp, "HPBonus", pcr->hp_bonus);
 	fwrite_number(fp, "ManaBonus", pcr->mana_bonus);
 	fwrite_number(fp, "PracBonus", pcr->prac_bonus);
+	fwrite_number(fp, "HungerRate", pcr->hunger_rate);
 	if (pcr->restrict_align)
 		fprintf(fp, "RestrictAlign %s~\n",
 			flag_string(ralign_names, pcr->restrict_align));

@@ -12,6 +12,7 @@ Resist lightning -15
 Resist acid -40
 Resist charm 30
 Damtype smash
+LuckBonus 0
 End
 
 #PCRACE
@@ -24,6 +25,7 @@ BonusSkills 'fast healing'~
 Stats 4 -2 -2 -2 5 0 
 MaxStats 24 17 18 17 25 25 
 Size large
+HungerRate 300
 RestrictAlign evil~
 Slang trollish
 End

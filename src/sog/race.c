@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.23 2000-08-04 14:12:48 cs Exp $
+ * $Id: race.c,v 1.24 2001-01-28 11:39:50 cs Exp $
  */
 
 #include <stdio.h>
@@ -99,6 +99,7 @@ pcrace_new(void)
 	pcrace_t *pcr;
 	pcr = calloc(1, sizeof(*pcr));
 	pcr->skill_spec = str_empty;
+	pcr->hunger_rate = 100;
 	varr_init(&pcr->classes, &v_classes);
 	pcr->refcnt = 1;
 	return pcr;
@@ -160,12 +161,12 @@ int get_curr_stat(CHAR_DATA *ch, int stat)
 
 	if (IS_NPC(ch) || ch->level >= LEVEL_IMMORTAL)
 		max = 25;
-	else 
+	else
 		max = get_max_train(ch, stat);
-  
+
 	if (!ch->shapeform)
 		return URANGE(3, ch->perm_stat[stat] + ch->mod_stat[stat], max);
-	else 
+	else
 		return URANGE(3, ch->shapeform->index->stats[stat], 25);
 }
 
