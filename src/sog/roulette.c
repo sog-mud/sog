@@ -31,7 +31,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: roulette.c,v 1.1.2.1 2004-06-10 09:20:16 tatyana Exp $
+ * $Id: roulette.c,v 1.1.2.2 2004-06-21 08:54:35 sg Exp $
  */
 
 #include <stdio.h>
@@ -65,10 +65,10 @@ roulette_update(void)
 			continue;
 		if (IS_SET(vch->in_room->room_flags, ROOM_CASINO)) {
 			if (i == 0) {
-				act("You looks on the roulette wheel. Zero!",
+				act("You glance at the roulette wheel. Zero!",
 				    vch, NULL, NULL, TO_CHAR);
 			} else {
-				act("You looks on the roulette wheel. $j!",
+				act("You glance at the roulette wheel. $j!",
 					vch, (const void *) i, NULL, TO_CHAR);
 			}
 		}
