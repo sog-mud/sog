@@ -36,4 +36,62 @@ SOG_SHUTDOWN=tmp/shutdown; export SOG_SHUTDOWN
 # corefile name
 SOG_CORE=sog.core; export SOG_CORE
 
-nohup $SOG_HOME/bin/autorun >/dev/null 2>&1 &
+#
+# corefile count limit
+SOG_CORELIM=10
+
+#
+# here we go
+#
+umask 002
+index=0
+cd $SOG_HOME
+
+if [ -r $SOG_SHUTDOWN ]; then
+	rm $SOG_SHUTDOWN
+fi
+
+while [ 1 ]
+do
+	if [ -r $SOG_LASTLOG ]; then
+		index=`cat $SOG_LASTLOG`
+	fi
+
+	while [ 1 ]
+	do
+		logfile=`printf "log/%05d.log" $index`
+		if [ -r $logfile ]
+		then
+			index=$(($index + 1))
+		else
+			break
+		fi
+	done
+
+	echo $(($index+1)) > $SOG_LASTLOG
+	bin/$SOG_BIN >$logfile 2>&1
+	exitcode=$?
+
+	avail=`df -k $SOG_HOME | tail -1 | awk '{ print $4 }'`
+	corecount=`ls corefiles/core.* | wc -l`
+	if [ -r $SOG_CORE -a $corecount -le $SOG_CORELIM ]; then
+		chmod g+rw $SOG_CORE
+		if [ $avail -gt 65535 ]; then
+			mv $SOG_CORE corefiles/core.$index
+			ln bin/$SOG_BIN corefiles/$SOG_BIN.$index
+		else
+			echo `date` "Low space (${avail}k) on disk: corefile not renamed" >> $logfile
+		fi
+		sleep 5
+		continue
+	fi
+
+	if [ -r $SOG_SHUTDOWN ]; then
+		break
+	fi
+
+	if [ $exitcode -ne 0 ]; then
+		break
+	fi
+	sleep 5
+done
