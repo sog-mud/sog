@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.2 1998-04-14 08:54:27 fjoe Exp $
+ * $Id: act_obj.c,v 1.3 1998-04-14 11:36:16 efdi Exp $
  */
 
 /***************************************************************************
@@ -2041,9 +2041,21 @@ void do_remove( CHAR_DATA *ch, char *argument )
     return;
 }
 
-
-
 void do_sacrifice( CHAR_DATA *ch, char *argument )
+{
+	OBJ_DATA *r_cont;
+	OBJ_DATA *r_next_cont;
+/* DEBUG */ printf( "do_sacrifice: input argument = '%s'\n", argument );
+	if( !strcmp( argument, "all" ) )
+		for( r_cont = ch->in_room->contents; r_cont; r_cont = r_next_cont ) {
+			r_next_cont = r_cont->next_content;
+			do_sacr( ch, r_cont->name );
+	}
+	else
+		do_sacr( ch, argument );
+}
+
+void do_sacr( CHAR_DATA *ch, char *argument )
 {
     char arg[MAX_INPUT_LENGTH];
     char buf[MAX_STRING_LENGTH];
@@ -2065,6 +2077,7 @@ void do_sacrifice( CHAR_DATA *ch, char *argument )
 
     one_argument( argument, arg );
 
+/* DEBUG */ printf("do_sacr: input argument = '%s'\n", arg );
     if ( arg[0] == '\0' || !str_cmp( arg, ch->name ) )
     {
 	act( "$n offers $mself to gods, who graciously declines.",

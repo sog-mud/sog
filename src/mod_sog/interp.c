@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.2 1998-04-14 08:54:30 fjoe Exp $
+ * $Id: interp.c,v 1.3 1998-04-14 11:36:17 efdi Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,7 @@
 #include "merc.h"
 #include "interp.h"
 #include "act_wiz.h"
+#include "act_comm.h"
 #include "db.h"
 #include "comm.h"
 
@@ -133,6 +134,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "unlock",         do_unlock,      POS_RESTING,     0,  LOG_NORMAL, 1,0},
     { "wield",		do_wear,	POS_RESTING,	 0,  LOG_NORMAL, 1,0},
     { "wizhelp",	do_wizhelp,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "i_lang",		do_i_lang,	POS_DEAD,	0,   LOG_NORMAL, 1,0},
 
     /*
      * Informational commands.

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.2 1998-04-14 08:54:25 fjoe Exp $
+ * $Id: act_comm.c,v 1.3 1998-04-14 11:36:15 efdi Exp $
  */
 
 /***************************************************************************
@@ -67,6 +67,11 @@ void do_quit_org	args( (CHAR_DATA *ch, char *argument, bool Count) );
 bool proper_order	args( (CHAR_DATA *ch, char *argument ) );
 char *translate(CHAR_DATA *ch, CHAR_DATA *victim, char *argument);
 int lang_lookup		args( (const char *name ) );
+
+void do_i_lang( CHAR_DATA *ch, char *argument)
+{
+	ch->i_lang = atoi( argument );
+}
 
 /* RT code to delete yourself */
 

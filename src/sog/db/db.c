@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.3 1998-04-14 08:54:29 fjoe Exp $
+ * $Id: db.c,v 1.4 1998-04-14 11:36:16 efdi Exp $
  */
 
 /***************************************************************************
@@ -4009,6 +4009,7 @@ void load_limited_objects()
 	    bug("Load_limited_objects: Can't open player file.",0);
 	  else
 	    {
+/* DEBUG */ printf("Opening file: %s\n", buf );
 	      for (letter = fread_letter(pfile);letter != EOF;
 		   letter = fread_letter(pfile) )
 		{

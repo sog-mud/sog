@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.3 1998-04-14 08:54:25 fjoe Exp $
+ * $Id: act_info.c,v 1.4 1998-04-14 11:36:15 efdi Exp $
  */
 
 /***************************************************************************
@@ -60,6 +60,7 @@
 #include "recycle.h"
 #include "tables.h"
 #include "lookup.h"
+#include "resource.h"
 #include "act_info.h"
 
 /* command procedures needed */
@@ -304,9 +305,9 @@ void show_list_to_char( OBJ_DATA *list, CHAR_DATA *ch, bool fShort, bool fShowNo
 	{
 	if ( IS_NPC(ch) || IS_SET(ch->comm, COMM_COMBINE) )
 	    send_to_char( "     ", ch );
-	send_to_char( "Nothing.\n\r", ch );
-	}
-	page_to_char(buf_string(output),ch);
+	send_to_char(msg(INFO_NOTHING, ch->i_lang), ch );
+    }
+    page_to_char(buf_string(output),ch);
 
 	/*
 	 * Clean up.

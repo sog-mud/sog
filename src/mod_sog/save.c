@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.3 1998-04-14 08:54:34 fjoe Exp $
+ * $Id: save.c,v 1.4 1998-04-14 11:36:17 efdi Exp $
  */
 
 /***************************************************************************
@@ -193,6 +193,7 @@ void fwrite_char( CHAR_DATA *ch, FILE *fp )
 {
     AFFECT_DATA *paf;
     int sn, pos;
+/* DEBUG */ printf( "saving.\n" );
 
     fprintf( fp, "#%s\n", IS_NPC(ch) ? "MOB" : "PLAYER"	);
 
@@ -328,6 +329,8 @@ void fwrite_char( CHAR_DATA *ch, FILE *fp )
 	    ch->pcdata->condition[3],
 	    ch->pcdata->condition[4],
 	    ch->pcdata->condition[5] );
+	/* write i_lang */
+	fprintf( fp, "I_Lang %d\n", ch->i_lang );
 
 	/* write alias */
         for (pos = 0; pos < MAX_ALIAS; pos++)
@@ -1107,6 +1110,7 @@ void fread_char( CHAR_DATA *ch, FILE *fp )
 	    KEY( "InvisLevel",	ch->invis_level,	fread_number( fp ) );
 	    KEY( "Inco",	ch->incog_level,	fread_number( fp ) );
 	    KEY( "Invi",	ch->invis_level,	fread_number( fp ) );
+	    KEY( "I_Lang",	ch->i_lang,		fread_number( fp ) );
 	    break;
 
 	case 'L':
