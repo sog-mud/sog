@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.28 1998-05-21 10:16:37 efdi Exp $
+ * $Id: comm.c,v 1.29 1998-05-21 11:56:43 efdi Exp $
  */
 
 /***************************************************************************
@@ -2360,6 +2360,8 @@ sprintf(buf,"Str:%s  Int:%s  Wis:%s  Dex:%s  Con:%s Cha:%s \n\r Accept (Y/N)? ",
 		}
 	*/
 		cancel_quest(ch);
+		wiznet("{W$N{x joins us.", ch, NULL, WIZ_LOGINS, 0, 
+			get_trust(ch));
 
 	if (IS_SET(ch->act,PLR_NO_EXP))	REMOVE_BIT(ch->act,PLR_NO_EXP);
 
