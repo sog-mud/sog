@@ -20,7 +20,7 @@ You now know what true fear is.
 ~
 human~
 BCQ 0 HNT A AB 1000 0
-60 30 50d10+3000 60d9+100 8d13+40 'none'
+60 30 50d10+4000 60d9+100 8d13+40 'none'
 -30 -30 -30 -3
 EIKU
 stand stand male 5000
@@ -38,7 +38,7 @@ looks up at you and smiles.
 ~
 human~
 BC 0 HNT A ABH 1000 0
-51 0 50d10+2000 25d9+100 5d8+20 'none'
+51 0 50d10+3000 25d9+100 5d8+20 'none'
 -21 -21 -21 3
 EFNU
 stand stand male 2000
@@ -55,7 +55,7 @@ even notice your presence.
 ~
 human~
 CEJS 0 HNT AG AB 1000 0
-55 25 50d10+2000 28d9+100 10d4+23 'none'
+55 25 50d10+2500 28d9+100 10d4+23 'none'
 -25 -25 -25 -1
 BEFJNU
 stand stand male 2500
@@ -107,7 +107,7 @@ and says 'I am very busy.  What do you want?'
 ~
 human~
 BCEFJ 0 JT A ABH -1000 0
-59 30 50d10+3000 29d9+100 8d6+26 'none'
+59 30 50d10+3700 29d9+100 8d6+26 'none'
 -29 -29 -29 1
 EFNU
 stand stand male 2500
@@ -126,7 +126,7 @@ you and invites you to join her.
 ~
 human~
 BCEJ 0 HNT A AB 1000 0
-56 25 50d10+2500 28d9+100 10d4+24 'none'
+56 25 50d10+2500 28d9+100 10d4+24 'divine'
 -26 -26 -26 1
 EFNU
 stand stand female 3000
@@ -142,11 +142,12 @@ way to help you.  He is attended by three golden maidens.
 ~
 human~
 BCEJ 0 HNT A AB 1000 0
-55 25 50d10+2500 27d9+100 10d4+23 'none'
+55 25 50d10+3200 27d9+100 10d4+23 'none'
 -25 -25 -25 2
 EFNU
 stand stand male 3000
 0 0 medium unknown
+r charm 100
 #909
 handmaid golden~
 A Golden Maiden~
@@ -232,7 +233,7 @@ presence.
 ~
 human~
 BCJ 0 HNT A AB 1000 0
-55 25 50d10+2500 30d9+100 8d6+28 'none'
+55 25 50d10+3800 30d9+100 8d6+28 'none'
 -50 -50 -50 -20
 EFNU
 stand stand male 5000
@@ -314,7 +315,7 @@ to be trifled with.
 ~
 human~
 BC 0 HNT A AB 1000 0
-60 30 50d10+3000 30d9+100 8d6+28 'none'
+60 30 50d10+3700 30d9+100 8d6+28 'none'
 -40 -40 -40 0
 ENR
 stand stand male 5000
@@ -332,7 +333,7 @@ of a dragon.  It growls at you as you enter the cell, then suddenly attacks!
 ~
 human~
 BCF 0 JT A ABH -1000 0
-34 0 10d10+1200 17d9+100 4d7+10 'none'
+34 20 10d10+1200 17d9+100 4d7+20 'none'
 -11 -11 -11 5
 EFNU
 stand stand male 50
@@ -347,7 +348,7 @@ to rest and sit for a while.
 ~
 human~
 BCQ 0 HNT A AB 1000 0
-59 0 50d10+9000 59d9+100 6d8+26 'none'
+45 25 50d10+2000 59d9+100 6d8+26 'none'
 -29 -29 -29 -3
 EIKU
 stand stand female 5000
@@ -435,13 +436,13 @@ the Aegis~
 A powerful breast plate has been left here.~
 platinum~
 armor FGK 0 AD
-12 12 11 6 0
-35 500 8400 P
-a '' to_object 35 -1 2 27 0
-a '' to_object 35 -1 2 29 0
-a '' to_object 35 -1 2 28 0
-a '' to_object 35 -1 7 32 0
-a '' to_object 35 -1 1 1 0
+15 15 15 15 0
+45 350 8400 P
+a '' unknown 45 -1 2 1 0
+a '' unknown 45 -1 5 28 0
+a '' unknown 45 -1 5 29 0
+a '' unknown 45 -1 5 27 0
+a '' unknown 45 -1 17 32 0
 g @rus none~
 #901
 hammer thunder bolt thunderbolt~
@@ -450,10 +451,10 @@ A huge hammer has been carelessly dropped here.~
 mithril~
 weapon FGK 0 AN
 mace 8 7 'blast' G
-50 140 5400 P
-a '' to_object 50 -1 5 18 0
-a '' to_object 50 -1 5 19 0
-a '' to_object 50 -1 -1 4 0
+45 400 5400 P
+a '' to_object 45 -1 5 18 0
+a '' to_object 45 -1 5 19 0
+a '' to_object 45 -1 -1 4 0
 g @rus none~
 #902
 helmet winged~
@@ -462,8 +463,10 @@ A helmet with small wings lies here.~
 platinum~
 armor FGK 0 AE
 11 12 11 5 0
-35 50 7300 P
-a '' to_object 35 -1 2 2 0
+45 50 7300 P
+a '' unknown 45 -1 25 13 0
+a '' unknown 45 -1 -5 20 0
+a '' to_object 45 -1 2 2 0
 g @rus none~
 #903
 spear ares~
@@ -471,11 +474,10 @@ the spear of Ares~
 A wicked spear rests on the ground here.~
 titanium~
 weapon FGJ 0 AN
-spear 5 10 'thrust' FK
-48 180 2000 P
-a '' to_object 48 -1 4 19 0
-a '' to_object 48 -1 1 6 0
-a '' to_object 48 -1 4 18 0
+spear 5 10 'thrust' DFK
+45 180 2000 P
+a '' to_object 45 -1 4 19 0
+a '' to_object 45 -1 4 18 0
 g @rus none~
 #904
 sandals winged~
@@ -503,8 +505,8 @@ A huge three pronged spear lies here.~
 oak~
 weapon FGK 0 AN
 spear 7 7 'pierce' FK
-47 160 5700 P
-a '' to_object 47 -1 2 4 0
+45 160 5700 P
+a '' to_object 45 -1 2 4 0
 g @rus none~
 #907
 bow silver~
@@ -513,9 +515,9 @@ A silver bow.~
 silver~
 weapon FGK 0 AN
 bow 6 7 'pierce' F
-47 150 10300 P
-a '' to_object 47 -1 1 19 0
-a '' to_object 47 -1 1 18 0
+45 150 10300 P
+a '' to_object 45 -1 1 19 0
+a '' to_object 45 -1 1 18 0
 g @rus none~
 #908
 gauntlets flaming~
@@ -524,8 +526,8 @@ A pair of metal gauntlets flame here.~
 steel~
 armor G 0 AH
 7 7 7 4 0
-27 60 2900 P
-a '' to_object 27 -1 25 13 0
+45 60 2900 P
+a '' to_object 45 -1 25 13 0
 g @rus none~
 #909
 vial potion ambrosia~
@@ -563,9 +565,14 @@ a brightly glowing shield~
 A shield lies here, filling the room with its aura.~
 silver~
 armor FGK 0 AJ
-9 9 9 6 0
-30 200 5300 P
-a '' to_object 30 -1 1 4 0
+25 25 23 18 0
+45 1000 5300 P
+a '' unknown 45 -1 5 35 0
+a '' unknown 45 -1 5 34 0
+a '' unknown 45 -1 4 18 0
+a '' unknown 45 -1 4 19 0
+a '' unknown 45 -1 30 13 0
+a '' to_object 45 -1 1 4 0
 g @rus none~
 #913
 axe notched~
@@ -655,10 +662,10 @@ A sun shaped medallion is lying here.~
 crystal~
 jewelry FGK 0 AC
 0 0 0 0 0
-40 10 4900 P
-a '' to_object 40 -1 5 35 0
-a '' to_object 40 -1 5 31 0
-a '' to_object 40 -1 5 36 0
+45 10 4900 P
+a '' unknown 45 -1 -10 20 0
+a '' unknown 45 -1 15 36 0
+a '' unknown 45 -1 15 30 0
 g @rus none~
 #923
 sun sword~
@@ -667,10 +674,10 @@ A beautiful sword with the rising sun etched on the pommel is lying here.~
 unknown~
 weapon FGK 0 AN
 sword 8 8 'slash' 0
-50 200 6800 P
-a '' to_object 50 -1 8 19 0
-a '' to_object 50 -1 6 18 0
-a '' to_object 50 -1 3 6 0
+45 200 6800 P
+a '' to_object 45 -1 8 19 0
+a '' to_object 45 -1 6 18 0
+a '' to_object 45 -1 3 6 0
 g @rus none~
 #924
 robe blue~
@@ -678,8 +685,12 @@ a blue robe~
 A deep blue robe is on the ground here.~
 unknown~
 armor FGK 0 AK
-6 6 6 8 0
-17 100 1960 P
+12 12 11 6 0
+45 100 1960 P
+a '' unknown 45 -1 3 20 0
+a '' unknown 45 -1 4 24 0
+a '' unknown 45 -1 7 23 0
+a '' unknown 45 -1 30 12 0
 g @rus none~
 #925
 hat~
@@ -687,8 +698,13 @@ a wide brimmed hat~
 A hat is lying here.~
 cloth~
 armor FGK 0 AE
-4 4 4 3 0
-5 50 580 P
+16 16 14 9 0
+45 50 580 P
+a '' unknown 45 -1 5 42 0
+a '' unknown 45 -1 5 31 0
+a '' unknown 45 -1 5 36 0
+a '' unknown 45 -1 5 37 0
+a '' unknown 45 -1 15 13 0
 g @rus none~
 #926
 nectar~
@@ -762,17 +778,6 @@ map olympus secret~
                             /
                       Mountain
 ~
-g @rus none~
-#930
-arrow silver~
-a silver arrow~
-A silver arrow with an inner glow lies here.~
-silver~
-weapon FGK 0 AO
-arrow 6 7 'pierce' ABCDEFGHK
-47 20 10300 P
-a '' to_object 47 -1 1 19 0
-a '' to_object 47 -1 1 18 0
 g @rus none~
 #0
 
@@ -1748,7 +1753,7 @@ S
 #0
 
 #SPECIALS
-M 901 spec_cast_cleric	* Zeus
+M 901 spec_breath_lightning	* Zeus
 M 902 spec_breath_fire	* Prometheus
 M 903 spec_thief	* Hermes
 M 904 spec_cast_mage	* Poseidon
@@ -1839,9 +1844,6 @@ M 0 924 3 933 3	* a pegasus (Stable)
 M 0 924 3 933 3	* a pegasus (Stable)
 M 0 923 10 934 2	* A citizen (Ares Street)
 M 0 918 1 935 1	* Samuel the Armourer (Armoury)
-G 0 904 0		*	a pair of winged sandals
-G 0 908 0		*	flaming gauntlets
-G 0 911 0		*	a sapphire ring
 M 0 917 1 936 1	* Clive the Weapons Master (Weapon Shop)
 G 0 907 0		*	a silver bow
 G 0 913 0		*	a notched axe
@@ -1886,15 +1888,20 @@ S
 0
 
 #OLIMITS
-O 900 5	* the Aegis
+O 900 2	* the Aegis
 O 901 1	* the Thunder Bolt
-O 903 9	* the spear of Ares
+O 902 8	* a Winged Helmet
+O 903 5	* the spear of Ares
+O 904 10	* a pair of winged sandals
 O 905 9	* an ivory staff
-O 906 9	* poseidon's Trident
+O 906 5	* poseidon's Trident
 O 907 10	* a silver bow
 O 908 2	* flaming gauntlets
-O 922 9	* the Amulet of Ra
+O 912 2	* a brightly glowing shield
+O 922 3	* the Amulet of Ra
 O 923 1	* the Sword of the Sun
+O 924 6	* a blue robe
+O 925 3	* a wide brimmed hat
 S
 
 #OMPROGS

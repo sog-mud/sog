@@ -29,8 +29,8 @@ A drow commoner walks on guard duty.
 ~
 I doubt he is the type to give directions.
 ~
-human~
-FG 0 0 0 AH -1000 0
+dark-elf~
+FG 0 0 0 A -1000 0
 10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU
@@ -43,8 +43,8 @@ The drow warrior noble stands here guarding his home.
 ~
 He looks pissed off!
 ~
-human~
-BF 0 0 0 AH -1000 0
+dark-elf~
+BF 0 0 0 A -1000 0
 14 0 2d10+190 7d9+100 1d12+3 'none'
 -1 -1 -1 8
 EFNU
@@ -57,8 +57,8 @@ The drow mage noble is here protecting his home.
 ~
 The mage prepares to cast a spell ... at you!!
 ~
-human~
-BFR 0 0 0 AH -1000 0
+dark-elf~
+BFR 0 0 0 A -1000 0
 15 0 2d10+190 15d9+100 1d10+3 'none'
 -1 -1 -1 5
 FU
@@ -71,8 +71,8 @@ The drow priestess is here shouting orders.
 ~
 I wouldn't want go get on her bad side!
 ~
-human~
-BFQ 0 0 0 AH -1000 0
+dark-elf~
+BFQ 0 0 0 A -1000 0
 17 0 3d9+258 17d9+100 2d6+4 'none'
 -3 -3 -3 6
 EIKU
@@ -85,8 +85,8 @@ The drow master stares at you angrily.
 ~
 The drow master is ALWAYS ready for a fight.
 ~
-human~
-BF 0 0 0 AH -1000 0
+dark-elf~
+BF 0 0 0 A -1000 0
 21 0 4d10+360 10d9+100 4d4+5 'none'
 -5 -5 -5 7
 EFNU
@@ -99,8 +99,8 @@ The drow weapons master is here shadow boxing.
 ~
 He definitely knows his way around in combat.
 ~
-human~
-BF 0 0 0 AH -1000 0
+dark-elf~
+BF 0 0 0 A -1000 0
 23 0 5d10+450 11d9+100 3d6+6 'none'
 -6 -6 -6 6
 EFNU
@@ -113,8 +113,8 @@ The matron mother of the house is standing here.
 ~
 She looks really pissed off!
 ~
-human~
-BF 0 0 0 AH -1000 0
+dark-elf~
+BF 0 0 0 A -1000 0
 24 0 5d10+500 12d9+100 2d10+6 'none'
 -6 -6 -6 6
 EFNU
@@ -127,8 +127,8 @@ The matron mother of the 1st house is waiting for you.
 ~
 She looks like she is about to rip your head off and eat it.
 ~
-human~
-BFQ 0 J 0 AH -1000 0
+dark-elf~
+BFQ 0 J 0 A -1000 0
 26 0 5d10+600 26d9+100 2d10+7 'none'
 -7 -7 -7 5
 EIKU
@@ -141,7 +141,7 @@ A yochlol forms out of a swirling mist.
 ~
 The yochlol is not in a good mood.
 ~
-human~
+unique~
 BF 0 J 0 AH -1000 0
 35 0 10d10+1300 17d9+100 4d7+11 'none'
 -11 -11 -11 5
@@ -155,8 +155,8 @@ The drow guard is here staring at you ominously.
 ~
 The drow guard blends so well with his environment, you barely see his form.
 ~
-human~
-BF 0 0 B H -1000 0
+dark-elf~
+BF 0 0 B 0 -1000 0
 12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU
@@ -169,8 +169,8 @@ The drow scout is here sneaking among the shadows.
 ~
 The drow scout blends so well with her environment, you barely see her form.
 ~
-human~
-FH 0 0 BG H -1000 0
+dark-elf~
+FH 0 0 B 0 -1000 0
 11 0 2d8+134 5d9+100 1d10+2 'none'
 1 1 1 8
 EFNU
@@ -319,12 +319,12 @@ g @rus none~
 dagger sacrificial~
 a spider shaped dagger~
 A dagger with spider leg shaped blades lies on the ground.~
-unknown~
+adamantite~
 weapon GJ 0 AN
-dagger 4 8 'stab' 0
-30 25 3300 P
-a '' to_object 30 -1 5 19 0
-a '' to_object 30 -1 3 18 0
+dagger 5 9 'stab' 0
+35 25 3300 P
+a '' to_object 35 -1 5 19 0
+a '' to_object 35 -1 3 18 0
 g @rus none~
 #5114
 hat green~
@@ -351,38 +351,47 @@ g @rus none~
 
 #ROOMS
 #5100
-City Entrance~
-You are at the entrance to a small underground city. A great adamantite
+@eng City Entrance@rus Вход в город~
+@eng You are at the entrance to a small underground city. A great adamantite
 gate lies open to the west allowing entrance into the city.
+@rus Ты стоишь на входе в небольшой подземный город. Огромные
+адамантитовые ворота открыты и ты решаешь, что путь свободен.
 ~
 0 AD inside
 E
-hole~
-A small hole that looks to have been sealed at one time.
+hole нора~
+@eng A small hole that looks to have been sealed at one time.
+@rus Небольшая нора, похоже, была запечатана... до недавнего времени.
 ~
 E
-gate~
-A large adamantite gate with giant spider shaped emblems stands here.
+gate ворота~
+@eng A large adamantite gate with giant spider shaped emblems stands here.
+@rus Огромные адамантитовые ворота, украшенные стилизованными изображениями
+пауков, ведут в город.
 ~
 D3
-A huge gate opens to the west allowing entrance into the city.
+@eng A huge gate opens to the west allowing entrance into the city.
+@rus Огромные ворота ведут на восток, в город.
 ~
-gate~
-the gate~
-~
+gate ворота~
+@eng the gate@rus ~~ворота~~~
+@rus plural~
 Z 0 5101
 D4
-A small hole in the ceiling leads up into darkness.
+@eng A small hole in the ceiling leads up into darkness.
+@rus Небольшое отверстие в потолке ведет куда-то в темноту.
 ~
-door~
-~
-~
+hole отверстие~
+@eng hole@rus ~~отверстие~~~
+@rus neutral~
 ABZ -1 5270
 S
 #5101
-City street~
-You walk along a highly ornate street going north-south. A large gate
+@eng City street@rus Городская улица~
+@eng You walk along a highly ornate street going north-south. A large gate
 lies to the east while a building lies to the west.
+@rus Ты бредешь по улице, идущей с севера на юг. На востоке находятся
+городские ворота, а на западе - какое-то здание.
 ~
 0 AD inside
 D0
@@ -411,8 +420,9 @@ D3
 Z 0 5122
 S
 #5102
-City street~
-You walk along a highly ornate city street going north and west.
+@eng City street@rus Городская улица~
+@eng You walk along a highly ornate city street going north and west.
+@rus Улица продолжается на север и запад.
 ~
 0 AD inside
 D0
@@ -429,9 +439,11 @@ D3
 Z 0 5103
 S
 #5103
-City street~
-You walk along a highly ornate city street going east-west. A large house
+@eng City street@rus Городская улица~
+@eng You walk along a highly ornate city street going east-west. A large house
 stands to the south.
+@rus Улица тянется с востока на запад, а к югу от тебя находится
+большой дом.
 ~
 0 AD inside
 D1
@@ -1204,6 +1216,12 @@ drow priestesses. In the center is a large sacrificial pit and beyond that is
 an altar.
 ~
 0 AD inside
+D0
+~
+~
+~
+~
+Z 0 5145
 D1
 ~
 ~
@@ -1240,7 +1258,7 @@ D1
 ~
 ~
 ~
-Z -1 5146
+ABZ -1 5146
 D2
 ~
 ~
@@ -1295,6 +1313,12 @@ D1
 ~
 ~
 Z 0 5142
+D2
+~
+~
+~
+~
+Z 0 5141
 D3
 ~
 ~
@@ -1325,7 +1349,7 @@ D3
 ~
 ~
 ~
-Z 0 5142
+ABZ 0 5142
 S
 #5147
 Slave Pen~
@@ -1359,7 +1383,7 @@ D3
 ~
 ~
 ~
-Z -1 5149
+ABZ -1 5149
 S
 #5149
 The Treasury~
@@ -1372,7 +1396,7 @@ D1
 ~
 ~
 ~
-Z -1 5148
+ABZ -1 5148
 S
 #5150
 Weaponsmaster's Chamber~
@@ -1398,6 +1422,10 @@ S
 
 #RESETS
 D 0 5100 4 1	* City Entrance: door to the up: closed
+D 0 5142 1 1	* Eastern side of Chamber: door to the east: closed
+D 0 5146 3 1	* Slave Cells: door to the west: closed
+D 0 5148 3 1	* Dais: door to the west: closed
+D 0 5149 1 1	* The Treasury: door to the east: closed
 M 0 5106 2 5101 1	* The weapons master (City street)
 E 0 5105 0 16		*	a black longsword: wielded
 M 0 5102 4 5104 1	* the drow warrior noble (3rd House)
@@ -1458,6 +1486,7 @@ E 0 5109 0 9		*	a pair of gauntlets: on the hands
 S
 
 #OLIMITS
+O 5113 6	* a spider shaped dagger
 O 5115 1	* two Snake Headed whip
 S
 

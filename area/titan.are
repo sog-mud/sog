@@ -2078,7 +2078,7 @@ A breast plate lies here on the ground.~
 silver~
 armor G 0 AD
 9 9 9 1 4
-25 350 12840 G
+25 150 12840 G
 a '' to_object 25 -1 -30 17 0
 a '' to_object 25 -1 2 19 0
 g @rus none~

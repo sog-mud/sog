@@ -869,7 +869,7 @@ A boiled leather jerkin is lying here.~
 copper~
 armor 0 0 AD
 13 13 13 0 0
-50 10 500 P
+50 100 500 P
 a '' to_object 50 -1 2 5 0
 a '' to_object 50 -1 -15 17 0
 g @rus none~
@@ -3150,7 +3150,7 @@ S
 0
 
 #OLIMITS
-O 24126 4	* a wolf's head
+O 24126 3	* a wolf's head
 O 24127 2	* the chief's club
 S
 

@@ -19,17 +19,13 @@ necromancy, they were the most renown knights of their day.
 @rus Рыцарь смерти - достойный противник. Когда-то прославленный рыцарь,
 он был убит и навечно порабощен с помощью черной магии.
 ~
-undead~
-FGO 0 c 0 0 -1000 0
+death knight~
+FG 0 0 0 0 -1000 0
 20 0 7d45+300 25d10+100 4d5+10 'magic'
 -2 -2 -2 4
-CDEIKU
+C
 stand stand male 800
 0 0 medium unknown
-r fire -50
-r cold 33
-r lightning 33
-r mental 100
 #29351
 inquisitor инквизитор~
 @eng The Inquisitor@rus ~~Инквизитор~~~
@@ -127,11 +123,11 @@ before you, a rotting representation of what the wizard used to be.  Myzelak
 now spends his time searching for ways to end all life in StormFront.  
 @rus Воплощение зла, Мизелак потратил многие годы, совершенствуя свои магические
 способности и пытаясь найти секрет жизни после смерти. Результат перед то-
-бой, лишь немного подгнивший. Меперь он коротает вечность в поисках способов
+бой, лишь немного подгнивший. Теперь он коротает вечность в поисках способов
 расправиться с остальными живыми.
 ~
 lich~
-BOQR 0 J 0 H -1000 0
+BQ 0 J 0 H -1000 0
 50 30 15d300+2000 45d10+1950 8d10+35 'drain'
 -24 -24 -24 -7
 IJN
@@ -189,25 +185,14 @@ is much larger and appears to be more powerful as well.
 на тех рыцарей, что ты видел прежде, если не считать того, что он нам-
 ного больше и сильнее.
 ~
-undead~
-BFJOT 0 0 0 0 -1000 0
+death knight~
+BFGJT 0 0 0 0 -1000 0
 40 50 10d80+1200 45d10+2950 8d10+40 'magic'
 -24 -24 -24 -7
-0
+C
 stand stand male 800
 0 0 large unknown
-r fire 100
-r cold 100
-r lightning 100
-r acid 100
-r holy 50
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r charm 100
-r harm 100
-r light 50
+F off EK
 #0
 
 #OBJECTS

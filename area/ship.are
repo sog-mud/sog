@@ -55,7 +55,7 @@ r sound -70
 ~
 ~
 school monster~
-0 0 V 0 ABCDFG 0 0
+B 0 V 0 ABCDFG 0 0
 12 0 50d100+5000 2d2+2 2d2+2 'shock'
 -100 -100 -100 -100
 0
@@ -73,13 +73,14 @@ r lightning 100
 r acid 100
 r holy 100
 r negative 100
-r energy -90
-r mental 0
+r energy 99
+r mental 99
 r sound 100
 r disease 100
 r poison 100
 r charm 100
 r harm 100
+r light 100
 #0
 
 #OBJECTS
@@ -115,8 +116,8 @@ E
 ~
 g @rus none~
 #10604
-сон кошмар~
-@rus Кошмарный сон~
+sleep nightmare сон кошмар~
+@eng nightmare@rus Кошмарный сон~
 ~
 darkness~
 portal FY B 0
@@ -868,7 +869,7 @@ S
 бочке впередсмотрящего. Далеко внизу
 палуба раскачивается из стороны в сторону.
 ~
-0 JNX inside
+0 NX inside
 D5
 ~
 ~
@@ -879,7 +880,7 @@ S
 #10635
 @eng The gun-deck@rus Орудийная палуба~
 @rus Ты стоишь на орудийной палубе корабля. Стволы
-орудиз слегка поблескивают в полутьме. Отзвук
+орудий слегка поблескивают в полутьме. Отзвук
 былых сражений до сих пор сохранился здесь.
 ~
 0 0 inside
@@ -969,7 +970,7 @@ S
 #10638
 @eng The gun-deck@rus Орудийная палуба~
 @rus Ты стоишь на орудийной палубе корабля. Стволы
-орудиз слегка поблескивают в полутьме. Отзвук
+орудий слегка поблескивают в полутьме. Отзвук
 былых сражений до сих пор сохранился здесь.
 ~
 0 NX inside
@@ -1021,8 +1022,9 @@ S
 #10640
 @eng The gun-deck@rus Орудийная палуба~
 @rus Ты стоишь на орудийной палубе корабля. Стволы
-орудиз слегка поблескивают в полутьме. Отзвук
+орудий слегка поблескивают в полутьме. Отзвук
 былых сражений до сих пор сохранился здесь.
+ 
 ~
 0 NX inside
 D0
@@ -1053,7 +1055,7 @@ S
 #10641
 @eng The gun-deck@rus Орудийная палуба~
 @rus Ты стоишь на орудийной палубе корабля. Стволы
-орудиз слегка поблескивают в полутьме. Отзвук
+орудий слегка поблескивают в полутьме. Отзвук
 былых сражений до сих пор сохранился здесь.
 ~
 0 NX inside
@@ -1165,7 +1167,7 @@ S
 #10646
 @eng The gun-deck@rus Орудийная палуба~
 @rus Ты стоишь на орудийной палубе корабля. Стволы
-орудиз слегка поблескивают в полутьме. Отзвук
+орудий слегка поблескивают в полутьме. Отзвук
 былых сражений до сих пор сохранился здесь.
 ~
 0 NX inside
@@ -1249,7 +1251,7 @@ S
 #10649
 @eng The gun-deck@rus Орудийная палуба~
 @rus Ты стоишь на орудийной палубе корабля. Стволы
-орудиз слегка поблескивают в полутьме. Отзвук
+орудий слегка поблескивают в полутьме. Отзвук
 былых сражений до сих пор сохранился здесь.
 ~
 0 NX inside
@@ -1971,7 +1973,7 @@ S
 #10678
 @eng The gun-deck@rus Орудийная палуба~
 @rus Ты стоишь на орудийной палубе корабля. Стволы
-орудиз слегка поблескивают в полутьме. Отзвук
+орудий слегка поблескивают в полутьме. Отзвук
 былых сражений до сих пор сохранился здесь.
 ~
 0 NX inside
@@ -2055,7 +2057,7 @@ S
 #10681
 @eng The gun-deck@rus Орудийная палуба~
 @rus Ты стоишь на орудийной палубе корабля. Стволы
-орудиз слегка поблескивают в полутьме. Отзвук
+орудий слегка поблескивают в полутьме. Отзвук
 былых сражений до сих пор сохранился здесь.
 ~
 0 NX inside
@@ -2139,7 +2141,7 @@ S
 #10684
 @eng The gun-deck@rus Орудийная палуба~
 @rus Ты стоишь на орудийной палубе корабля. Стволы
-орудиз слегка поблескивают в полутьме. Отзвук
+орудий слегка поблескивают в полутьме. Отзвук
 былых сражений до сих пор сохранился здесь.
 ~
 0 NX inside
@@ -2223,7 +2225,7 @@ S
 #10687
 @eng The gun-deck@rus Орудийная палуба~
 @rus Ты стоишь на орудийной палубе корабля. Стволы
-орудиз слегка поблескивают в полутьме. Отзвук
+орудий слегка поблескивают в полутьме. Отзвук
 былых сражений до сих пор сохранился здесь.
 ~
 0 NX inside
@@ -2301,7 +2303,7 @@ S
 #10690
 @eng The gun-deck@rus Орудийная палуба~
 @rus Ты стоишь на орудийной палубе корабля. Стволы
-орудиз слегка поблескивают в полутьме. Отзвук
+орудий слегка поблескивают в полутьме. Отзвук
 былых сражений до сих пор сохранился здесь.
 ~
 0 NX inside
@@ -2353,7 +2355,7 @@ S
 #10692
 ~
 ~
-0 0 inside
+0 NX inside
 D2
 ~
 ~
@@ -2370,7 +2372,7 @@ S
 #10693
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -2387,7 +2389,7 @@ S
 #10694
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -2422,7 +2424,7 @@ S
 #10695
 ~
 ~
-0 0 inside
+0 NX inside
 D1
 ~
 ~
@@ -2445,7 +2447,7 @@ S
 #10696
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -2468,7 +2470,7 @@ S
 #10697
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -2491,7 +2493,7 @@ S
 #10698
 ~
 ~
-0 0 inside
+0 NX inside
 D1
 ~
 ~
@@ -2508,7 +2510,7 @@ S
 #10699
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -2525,7 +2527,7 @@ S
 #10700
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -2566,7 +2568,7 @@ S
 #10701
 ~
 ~
-0 0 inside
+0 NX inside
 D1
 ~
 ~
@@ -2589,7 +2591,7 @@ S
 #10702
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -2612,7 +2614,7 @@ S
 #10703
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -2635,7 +2637,7 @@ S
 #10704
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -2658,7 +2660,7 @@ S
 #10705
 ~
 ~
-0 0 inside
+0 NX inside
 D2
 ~
 ~
@@ -2675,7 +2677,7 @@ S
 #10706
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -2692,7 +2694,7 @@ S
 #10707
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -2709,7 +2711,7 @@ S
 #10708
 ~
 ~
-0 0 inside
+0 NX inside
 D1
 ~
 ~
@@ -2726,7 +2728,7 @@ S
 #10709
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -2761,7 +2763,7 @@ S
 #10710
 ~
 ~
-0 0 inside
+0 NX inside
 D1
 ~
 ~
@@ -2784,7 +2786,7 @@ S
 #10711
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -2807,7 +2809,7 @@ S
 #10712
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -2830,7 +2832,7 @@ S
 #10713
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -2853,7 +2855,7 @@ S
 #10714
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -2888,7 +2890,7 @@ S
 #10715
 ~
 ~
-0 0 inside
+0 NX inside
 D1
 ~
 ~
@@ -2905,7 +2907,7 @@ S
 #10716
 ~
 ~
-0 0 inside
+0 NX inside
 D2
 ~
 ~
@@ -2922,7 +2924,7 @@ S
 #10717
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -2939,7 +2941,7 @@ S
 #10718
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -2956,7 +2958,7 @@ S
 #10719
 ~
 ~
-0 0 inside
+0 NX inside
 D1
 ~
 ~
@@ -2979,7 +2981,7 @@ S
 #10720
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -3008,7 +3010,7 @@ S
 #10721
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -3031,7 +3033,7 @@ S
 #10722
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -3054,7 +3056,7 @@ S
 #10723
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -3077,7 +3079,7 @@ S
 #10724
 ~
 ~
-0 0 inside
+0 NX inside
 D1
 ~
 ~
@@ -3094,7 +3096,7 @@ S
 #10725
 ~
 ~
-0 0 inside
+0 NX inside
 D2
 ~
 ~
@@ -3111,7 +3113,7 @@ S
 #10726
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -3128,7 +3130,7 @@ S
 #10727
 ~
 ~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -4117,7 +4119,7 @@ D3
 Z 0 10784
 S
 #10792
-@rus В трюме~
+@eng 1th@rus В трюме~
 ~
 0 NX inside
 D0
@@ -4146,7 +4148,7 @@ D3
 Z 0 10796
 S
 #10793
-@rus В трюме~
+@eng 1th@rus В трюме~
 ~
 0 NX inside
 D1
@@ -4169,7 +4171,7 @@ D3
 Z 0 10800
 S
 #10794
-@rus В трюме~
+@eng 1th@rus В трюме~
 ~
 0 NX inside
 D0
@@ -4192,7 +4194,7 @@ D3
 Z 0 10792
 S
 #10795
-@rus В трюме~
+@eng 1th@rus В трюме~
 ~
 0 NX inside
 D0
@@ -4201,12 +4203,6 @@ D0
 ~
 ~
 Z 0 10792
-D1
-~
-~
-~
-~
-Z 0 10798
 D2
 ~
 ~
@@ -4221,7 +4217,7 @@ D3
 Z 0 10799
 S
 #10796
-@rus В трюме~
+@eng 1th@rus В трюме~
 ~
 0 NX inside
 D0
@@ -4244,7 +4240,7 @@ D2
 Z 0 10799
 S
 #10797
-@rus В трюме~
+@eng 1th@rus В трюме~
 ~
 0 NX inside
 D2
@@ -4261,7 +4257,7 @@ D3
 Z 0 10793
 S
 #10798
-@rus В трюме~
+@eng 1th@rus В трюме~
 ~
 0 NX inside
 D0
@@ -4278,7 +4274,7 @@ D3
 Z 0 10795
 S
 #10799
-@rus В трюме~
+@eng 1th@rus В трюме~
 ~
 0 NX inside
 D0
@@ -4295,7 +4291,7 @@ D1
 Z 0 10795
 S
 #10800
-@rus В трюме~
+@eng 1th@rus В трюме~
 ~
 0 NX inside
 D1
@@ -4312,15 +4308,9 @@ D2
 Z 0 10796
 S
 #10801
+@eng 2th@rus Второй трюм~
 ~
-~
-0 0 inside
-D0
-~
-~
-~
-~
-Z 0 10795
+0 NX inside
 D1
 ~
 ~
@@ -4341,9 +4331,9 @@ D3
 Z 0 10808
 S
 #10802
+@eng 2th@rus Второй трюм~
 ~
-~
-0 0 inside
+0 NX inside
 D2
 ~
 ~
@@ -4358,9 +4348,9 @@ D3
 Z 0 10801
 S
 #10803
+@eng 2th@rus Второй трюм~
 ~
-~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -4381,9 +4371,9 @@ D3
 Z 0 10809
 S
 #10804
+@eng 2th@rus Второй трюм~
 ~
-~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -4398,15 +4388,9 @@ D3
 Z 0 10805
 S
 #10805
+@eng 2th@rus Второй трюм~
 ~
-~
-0 0 inside
-D0
-~
-~
-~
-~
-Z 0 10809
+0 NX inside
 D1
 ~
 ~
@@ -4421,9 +4405,9 @@ D3
 Z 0 10806
 S
 #10806
+@eng 2th@rus Второй трюм~
 ~
-~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -4438,9 +4422,9 @@ D1
 Z 0 10805
 S
 #10807
+@eng 2th@rus Второй трюм~
 ~
-~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -4461,9 +4445,9 @@ D2
 Z 0 10806
 S
 #10808
+@eng 2th@rus Второй трюм~
 ~
-~
-0 0 inside
+0 NX inside
 D1
 ~
 ~
@@ -4478,9 +4462,9 @@ D2
 Z 0 10807
 S
 #10809
+@eng 2th@rus Второй трюм~
 ~
-~
-0 0 inside
+0 NX inside
 D0
 ~
 ~
@@ -4506,6 +4490,1301 @@ D3
 ~
 Z 0 10807
 S
+#10810
+@eng 3th@rus Третий трюм~
+~
+0 NX inside
+D1
+~
+~
+~
+~
+Z 0 10815
+D2
+~
+~
+~
+~
+Z 0 10811
+D3
+~
+~
+~
+~
+Z 0 10818
+S
+#10811
+@eng 3th@rus Третий трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10810
+D1
+~
+~
+~
+~
+Z 0 10812
+D2
+~
+~
+~
+~
+Z 0 10813
+D3
+~
+~
+~
+~
+Z 0 10814
+S
+#10812
+@eng 3th@rus Третий трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10815
+D2
+~
+~
+~
+~
+Z 0 10816
+D3
+~
+~
+~
+~
+Z 0 10811
+S
+#10813
+@eng 3th@rus Третий трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10811
+D1
+~
+~
+~
+~
+Z 0 10816
+D3
+~
+~
+~
+~
+Z 0 10817
+S
+#10814
+@eng 3th@rus Третий трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10818
+D1
+~
+~
+~
+~
+Z 0 10811
+D2
+~
+~
+~
+~
+Z 0 10817
+S
+#10815
+@eng 3th@rus Третий трюм~
+~
+0 NX inside
+D2
+~
+~
+~
+~
+Z 0 10812
+D3
+~
+~
+~
+~
+Z 0 10810
+S
+#10816
+@eng 3th@rus Третий трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10812
+D3
+~
+~
+~
+~
+Z 0 10813
+S
+#10817
+@eng 3th@rus Третий трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10814
+D1
+~
+~
+~
+~
+Z 0 10813
+S
+#10818
+@eng 3th@rus Третий трюм~
+~
+0 NX inside
+D1
+~
+~
+~
+~
+Z 0 10810
+D2
+~
+~
+~
+~
+Z 0 10814
+S
+#10819
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10822
+D1
+~
+~
+~
+~
+Z 0 10824
+D2
+~
+~
+~
+~
+Z 0 10820
+D3
+~
+~
+~
+~
+Z 0 10827
+D4
+~
+~
+~
+~
+Z 0 10830
+D5
+~
+~
+~
+~
+Z 0 10839
+S
+#10820
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D1
+~
+~
+~
+~
+Z 0 10821
+D2
+~
+~
+~
+~
+Z 0 10822
+D3
+~
+~
+~
+~
+Z 0 10823
+D4
+~
+~
+~
+~
+Z 0 10829
+D5
+~
+~
+~
+~
+Z 0 10838
+S
+#10821
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10824
+D2
+~
+~
+~
+~
+Z 0 10825
+D3
+~
+~
+~
+~
+Z 0 10820
+D4
+~
+~
+~
+~
+Z 0 10831
+D4
+~
+~
+~
+~
+Z 0 10829
+D5
+~
+~
+~
+~
+Z 0 10840
+S
+#10822
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10820
+D1
+~
+~
+~
+~
+Z 0 10825
+D1
+~
+~
+~
+~
+Z 0 10820
+D3
+~
+~
+~
+~
+Z 0 10826
+D4
+~
+~
+~
+~
+Z 0 10832
+D5
+~
+~
+~
+~
+Z 0 10841
+S
+#10823
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10827
+D1
+~
+~
+~
+~
+Z 0 10846
+D1
+~
+~
+~
+~
+Z 0 10820
+D2
+~
+~
+~
+~
+Z 0 10826
+D4
+~
+~
+~
+~
+Z 0 10833
+D5
+~
+~
+~
+~
+Z 0 10842
+S
+#10824
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10823
+D2
+~
+~
+~
+~
+Z 0 10821
+D3
+~
+~
+~
+~
+Z 0 10819
+D4
+~
+~
+~
+~
+Z 0 10834
+D5
+~
+~
+~
+~
+Z 0 10836
+D5
+~
+~
+~
+~
+Z 0 10843
+S
+#10825
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10821
+D3
+~
+~
+~
+~
+Z 0 10830
+D3
+~
+~
+~
+~
+Z 0 10822
+D4
+~
+~
+~
+~
+Z 0 10841
+D4
+~
+~
+~
+~
+Z 0 10835
+D5
+~
+~
+~
+~
+Z 0 10844
+S
+#10826
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10823
+D1
+~
+~
+~
+~
+Z 0 10822
+D3
+~
+~
+~
+~
+Z 0 10845
+D4
+~
+~
+~
+~
+Z 0 10836
+D5
+~
+~
+~
+~
+Z 0 10845
+D5
+~
+~
+~
+~
+Z 0 10843
+S
+#10827
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10822
+D1
+~
+~
+~
+~
+Z 0 10819
+D2
+~
+~
+~
+~
+Z 0 10840
+D2
+~
+~
+~
+~
+Z 0 10823
+D4
+~
+~
+~
+~
+Z 0 10837
+D5
+~
+~
+~
+~
+Z 0 10846
+S
+#10829
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10841
+D0
+~
+~
+~
+~
+Z 0 10830
+D1
+~
+~
+~
+~
+Z 0 10831
+D2
+~
+~
+~
+~
+Z 0 10832
+D3
+~
+~
+~
+~
+Z 0 10833
+D5
+~
+~
+~
+~
+Z 0 10820
+S
+#10830
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D1
+~
+~
+~
+~
+Z 0 10834
+D2
+~
+~
+~
+~
+Z 0 10829
+D3
+~
+~
+~
+~
+Z 0 10837
+D3
+~
+~
+~
+~
+Z 0 10826
+D5
+~
+~
+~
+~
+Z 0 10823
+D5
+~
+~
+~
+~
+Z 0 10819
+S
+#10831
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10834
+D1
+~
+~
+~
+~
+Z 0 10832
+D2
+~
+~
+~
+~
+Z 0 10835
+D3
+~
+~
+~
+~
+Z 0 10829
+D5
+~
+~
+~
+~
+Z 0 10839
+D5
+~
+~
+~
+~
+Z 0 10821
+S
+#10832
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10822
+D0
+~
+~
+~
+~
+Z 0 10829
+D1
+~
+~
+~
+~
+Z 0 10835
+D3
+~
+~
+~
+~
+Z 0 10836
+D5
+~
+~
+~
+~
+Z 0 10844
+D5
+~
+~
+~
+~
+Z 0 10822
+S
+#10833
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10826
+D0
+~
+~
+~
+~
+Z 0 10837
+D1
+~
+~
+~
+~
+Z 0 10829
+D2
+~
+~
+~
+~
+Z 0 10836
+D4
+~
+~
+~
+~
+Z 0 10829
+D5
+~
+~
+~
+~
+Z 0 10823
+S
+#10834
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D2
+~
+~
+~
+~
+Z 0 10831
+D2
+~
+~
+~
+~
+Z 0 10820
+D3
+~
+~
+~
+~
+Z 0 10830
+D3
+~
+~
+~
+~
+Z 0 10838
+D5
+~
+~
+~
+~
+Z 0 10834
+D5
+~
+~
+~
+~
+Z 0 10824
+S
+#10835
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10831
+D0
+~
+~
+~
+~
+Z 0 10834
+D3
+~
+~
+~
+~
+Z 0 10832
+D3
+~
+~
+~
+~
+Z 0 10838
+D4
+~
+~
+~
+~
+Z 0 10837
+D5
+~
+~
+~
+~
+Z 0 10825
+S
+#10836
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10819
+D0
+~
+~
+~
+~
+Z 0 10833
+D1
+~
+~
+~
+~
+Z 0 10832
+D4
+~
+~
+~
+~
+Z 0 10821
+D5
+~
+~
+~
+~
+Z 0 10826
+D5
+~
+~
+~
+~
+Z 0 10833
+S
+#10837
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10844
+D1
+~
+~
+~
+~
+Z 0 10830
+D2
+~
+~
+~
+~
+Z 0 10833
+D2
+~
+~
+~
+~
+Z 0 10822
+D5
+~
+~
+~
+~
+Z 0 10827
+D5
+~
+~
+~
+~
+Z 0 10838
+S
+#10838
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10839
+D1
+~
+~
+~
+~
+Z 0 10840
+D2
+~
+~
+~
+~
+Z 0 10841
+D3
+~
+~
+~
+~
+Z 0 10842
+D4
+~
+~
+~
+~
+Z 0 10820
+D5
+~
+~
+~
+~
+Z 0 10844
+S
+#10839
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D1
+~
+~
+~
+~
+Z 0 10843
+D2
+~
+~
+~
+~
+Z 0 10838
+D3
+~
+~
+~
+~
+Z 0 10846
+D3
+~
+~
+~
+~
+Z 0 10822
+D4
+~
+~
+~
+~
+Z 0 10819
+D5
+~
+~
+~
+~
+Z 0 10826
+S
+#10840
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10843
+D1
+~
+~
+~
+~
+Z 0 10827
+D2
+~
+~
+~
+~
+Z 0 10844
+D3
+~
+~
+~
+~
+Z 0 10838
+D4
+~
+~
+~
+~
+Z 0 10821
+D5
+~
+~
+~
+~
+Z 0 10841
+S
+#10841
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10838
+D1
+~
+~
+~
+~
+Z 0 10844
+D2
+~
+~
+~
+~
+Z 0 10827
+D3
+~
+~
+~
+~
+Z 0 10845
+D4
+~
+~
+~
+~
+Z 0 10822
+D5
+~
+~
+~
+~
+Z 0 10829
+S
+#10842
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10846
+D1
+~
+~
+~
+~
+Z 0 10838
+D2
+~
+~
+~
+~
+Z 0 10845
+D4
+~
+~
+~
+~
+Z 0 10823
+D4
+~
+~
+~
+~
+Z 0 10823
+D5
+~
+~
+~
+~
+Z 0 10833
+S
+#10843
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D1
+~
+~
+~
+~
+Z 0 10837
+D2
+~
+~
+~
+~
+Z 0 10840
+D3
+~
+~
+~
+~
+Z 0 10842
+D3
+~
+~
+~
+~
+Z 0 10839
+D4
+~
+~
+~
+~
+Z 0 10824
+D5
+~
+~
+~
+~
+Z 0 10834
+S
+#10844
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10847
+D0
+~
+~
+~
+~
+Z 0 10840
+D3
+~
+~
+~
+~
+Z 0 10841
+D3
+~
+~
+~
+~
+Z 0 10835
+D4
+~
+~
+~
+~
+Z 0 10825
+D5
+~
+~
+~
+~
+Z 0 10840
+S
+#10845
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D0
+~
+~
+~
+~
+Z 0 10842
+D1
+~
+~
+~
+~
+Z 0 10841
+D1
+~
+~
+~
+~
+Z 0 10838
+D3
+~
+~
+~
+~
+Z 0 10831
+D4
+~
+~
+~
+~
+Z 0 10826
+D5
+~
+~
+~
+~
+Z 0 10843
+S
+#10846
+@eng 4th@rus Четвертый трюм~
+~
+0 NX inside
+D1
+~
+~
+~
+~
+Z 0 10839
+D2
+~
+~
+~
+~
+Z 0 10842
+D2
+~
+~
+~
+~
+Z 0 10819
+D4
+~
+~
+~
+~
+Z 0 10827
+D4
+~
+~
+~
+~
+Z 0 10837
+D5
+~
+~
+~
+~
+Z 0 10835
+S
+#10847
+~
+~
+0 0 inside
+S
 #0
 
 #RESETS
@@ -4525,7 +5804,7 @@ D 0 10709 4 1	* : door to the up: closed
 D 0 10714 4 1	* : door to the up: closed
 D 0 10720 4 1	* : door to the up: closed
 D 0 10785 5 1	* : door to the down: closed
-O 0 10604 0 10634	*  ()
+O 0 10604 0 10634	* nightmare ()
 M 0 10602 1 10634 1	*  ()
 O 0 10602 0 10636	* gun (Porthole)
 M 0 10601 1 10636 1	*  (Porthole)
@@ -4550,55 +5829,205 @@ O 0 10602 0 10688	* gun (Porthole)
 O 0 10602 0 10689	* gun (Porthole)
 O 0 10602 0 10691	* gun (Porthole)
 M 0 10603 1 10752 1	* gravity (In air)
-R 0 10792 1	* : randomize
-R 0 10792 2	* : randomize
-R 0 10792 3	* : randomize
-R 0 10792 4	* : randomize
-R 0 10793 2	* : randomize
-R 0 10793 3	* : randomize
-R 0 10793 4	* : randomize
-R 0 10794 1	* : randomize
-R 0 10794 3	* : randomize
-R 0 10794 4	* : randomize
-R 0 10796 1	* : randomize
-R 0 10796 2	* : randomize
-R 0 10796 3	* : randomize
-R 0 10797 3	* : randomize
-R 0 10797 4	* : randomize
-R 0 10798 1	* : randomize
-R 0 10798 4	* : randomize
-R 0 10799 1	* : randomize
-R 0 10799 2	* : randomize
-R 0 10800 2	* : randomize
-R 0 10800 3	* : randomize
-R 0 10801 2	* : randomize
-R 0 10801 3	* : randomize
-R 0 10801 4	* : randomize
-R 0 10802 3	* : randomize
-R 0 10802 4	* : randomize
-R 0 10803 1	* : randomize
-R 0 10803 3	* : randomize
-R 0 10803 4	* : randomize
-R 0 10804 1	* : randomize
-R 0 10804 4	* : randomize
-R 0 10805 1	* : randomize
-R 0 10805 2	* : randomize
-R 0 10805 4	* : randomize
-R 0 10806 1	* : randomize
-R 0 10806 2	* : randomize
-R 0 10807 1	* : randomize
-R 0 10807 2	* : randomize
-R 0 10807 3	* : randomize
-R 0 10808 2	* : randomize
-R 0 10808 3	* : randomize
-R 0 10809 1	* : randomize
-R 0 10809 2	* : randomize
-R 0 10809 3	* : randomize
-R 0 10809 4	* : randomize
+R 0 10792 1	* 1th: randomize
+R 0 10792 2	* 1th: randomize
+R 0 10792 3	* 1th: randomize
+R 0 10792 4	* 1th: randomize
+R 0 10793 2	* 1th: randomize
+R 0 10793 3	* 1th: randomize
+R 0 10793 4	* 1th: randomize
+R 0 10794 1	* 1th: randomize
+R 0 10794 3	* 1th: randomize
+R 0 10794 4	* 1th: randomize
+R 0 10796 1	* 1th: randomize
+R 0 10796 2	* 1th: randomize
+R 0 10796 3	* 1th: randomize
+R 0 10797 3	* 1th: randomize
+R 0 10797 4	* 1th: randomize
+R 0 10798 1	* 1th: randomize
+R 0 10798 4	* 1th: randomize
+R 0 10799 1	* 1th: randomize
+R 0 10799 2	* 1th: randomize
+R 0 10800 2	* 1th: randomize
+R 0 10800 3	* 1th: randomize
+R 0 10801 2	* 2th: randomize
+R 0 10801 3	* 2th: randomize
+R 0 10801 4	* 2th: randomize
+R 0 10802 3	* 2th: randomize
+R 0 10802 4	* 2th: randomize
+R 0 10803 1	* 2th: randomize
+R 0 10803 3	* 2th: randomize
+R 0 10803 4	* 2th: randomize
+R 0 10804 1	* 2th: randomize
+R 0 10804 4	* 2th: randomize
+R 0 10805 1	* 2th: randomize
+R 0 10805 2	* 2th: randomize
+R 0 10805 4	* 2th: randomize
+R 0 10806 1	* 2th: randomize
+R 0 10806 2	* 2th: randomize
+R 0 10807 1	* 2th: randomize
+R 0 10807 2	* 2th: randomize
+R 0 10807 3	* 2th: randomize
+R 0 10808 2	* 2th: randomize
+R 0 10808 3	* 2th: randomize
+R 0 10809 1	* 2th: randomize
+R 0 10809 2	* 2th: randomize
+R 0 10809 3	* 2th: randomize
+R 0 10809 4	* 2th: randomize
+R 0 10810 2	* 3th: randomize
+R 0 10810 3	* 3th: randomize
+R 0 10810 4	* 3th: randomize
+R 0 10811 1	* 3th: randomize
+R 0 10811 2	* 3th: randomize
+R 0 10811 3	* 3th: randomize
+R 0 10811 4	* 3th: randomize
+R 0 10812 1	* 3th: randomize
+R 0 10812 3	* 3th: randomize
+R 0 10812 4	* 3th: randomize
+R 0 10814 1	* 3th: randomize
+R 0 10814 2	* 3th: randomize
+R 0 10814 3	* 3th: randomize
+R 0 10815 3	* 3th: randomize
+R 0 10815 3	* 3th: randomize
+R 0 10816 1	* 3th: randomize
+R 0 10816 4	* 3th: randomize
+R 0 10817 1	* 3th: randomize
+R 0 10817 2	* 3th: randomize
+R 0 10818 2	* 3th: randomize
+R 0 10818 3	* 3th: randomize
+R 0 10819 2	* 4th: randomize
+R 0 10819 3	* 4th: randomize
+R 0 10819 4	* 4th: randomize
+R 0 10819 5	* 4th: randomize
+R 0 10819 6	* 4th: randomize
+R 0 10820 1	* 4th: randomize
+R 0 10820 2	* 4th: randomize
+R 0 10820 3	* 4th: randomize
+R 0 10820 4	* 4th: randomize
+R 0 10820 5	* 4th: randomize
+R 0 10820 6	* 4th: randomize
+R 0 10821 1	* 4th: randomize
+R 0 10821 3	* 4th: randomize
+R 0 10821 4	* 4th: randomize
+R 0 10821 5	* 4th: randomize
+R 0 10821 6	* 4th: randomize
+R 0 10822 1	* 4th: randomize
+R 0 10822 2	* 4th: randomize
+R 0 10822 3	* 4th: randomize
+R 0 10822 4	* 4th: randomize
+R 0 10822 3	* 4th: randomize
+R 0 10822 5	* 4th: randomize
+R 0 10822 6	* 4th: randomize
+R 0 10823 1	* 4th: randomize
+R 0 10823 2	* 4th: randomize
+R 0 10823 3	* 4th: randomize
+R 0 10823 5	* 4th: randomize
+R 0 10823 6	* 4th: randomize
+R 0 10824 3	* 4th: randomize
+R 0 10824 4	* 4th: randomize
+R 0 10824 5	* 4th: randomize
+R 0 10824 6	* 4th: randomize
+R 0 10825 1	* 4th: randomize
+R 0 10825 4	* 4th: randomize
+R 0 10825 5	* 4th: randomize
+R 0 10825 6	* 4th: randomize
+R 0 10826 1	* 4th: randomize
+R 0 10826 2	* 4th: randomize
+R 0 10826 5	* 4th: randomize
+R 0 10826 6	* 4th: randomize
+R 0 10827 2	* 4th: randomize
+R 0 10827 3	* 4th: randomize
+R 0 10827 5	* 4th: randomize
+R 0 10827 6	* 4th: randomize
+R 0 10829 1	* 4th: randomize
+R 0 10829 2	* 4th: randomize
+R 0 10829 3	* 4th: randomize
+R 0 10829 4	* 4th: randomize
+R 0 10829 6	* 4th: randomize
+R 0 10830 2	* 4th: randomize
+R 0 10830 3	* 4th: randomize
+R 0 10830 4	* 4th: randomize
+R 0 10830 6	* 4th: randomize
+R 0 10831 1	* 4th: randomize
+R 0 10831 3	* 4th: randomize
+R 0 10831 4	* 4th: randomize
+R 0 10831 6	* 4th: randomize
+R 0 10832 1	* 4th: randomize
+R 0 10832 2	* 4th: randomize
+R 0 10832 4	* 4th: randomize
+R 0 10832 6	* 4th: randomize
+R 0 10833 1	* 4th: randomize
+R 0 10833 2	* 4th: randomize
+R 0 10833 3	* 4th: randomize
+R 0 10833 6	* 4th: randomize
+R 0 10834 3	* 4th: randomize
+R 0 10834 4	* 4th: randomize
+R 0 10834 6	* 4th: randomize
+R 0 10835 1	* 4th: randomize
+R 0 10835 3	* 4th: randomize
+R 0 10835 6	* 4th: randomize
+R 0 10836 1	* 4th: randomize
+R 0 10836 2	* 4th: randomize
+R 0 10836 6	* 4th: randomize
+R 0 10837 2	* 4th: randomize
+R 0 10837 3	* 4th: randomize
+R 0 10837 6	* 4th: randomize
+R 0 10838 1	* 4th: randomize
+R 0 10838 2	* 4th: randomize
+R 0 10838 3	* 4th: randomize
+R 0 10838 4	* 4th: randomize
+R 0 10838 5	* 4th: randomize
+R 0 10839 2	* 4th: randomize
+R 0 10839 3	* 4th: randomize
+R 0 10839 4	* 4th: randomize
+R 0 10839 5	* 4th: randomize
+R 0 10840 1	* 4th: randomize
+R 0 10840 3	* 4th: randomize
+R 0 10840 4	* 4th: randomize
+R 0 10840 5	* 4th: randomize
+R 0 10841 1	* 4th: randomize
+R 0 10841 2	* 4th: randomize
+R 0 10841 4	* 4th: randomize
+R 0 10841 5	* 4th: randomize
+R 0 10842 1	* 4th: randomize
+R 0 10842 2	* 4th: randomize
+R 0 10842 3	* 4th: randomize
+R 0 10842 5	* 4th: randomize
+R 0 10843 3	* 4th: randomize
+R 0 10843 4	* 4th: randomize
+R 0 10843 5	* 4th: randomize
+R 0 10844 1	* 4th: randomize
+R 0 10844 4	* 4th: randomize
+R 0 10844 5	* 4th: randomize
+R 0 10844 1	* 4th: randomize
+R 0 10844 2	* 4th: randomize
+R 0 10844 4	* 4th: randomize
+R 0 10844 5	* 4th: randomize
+R 0 10844 1	* 4th: randomize
+R 0 10845 1	* 4th: randomize
+R 0 10845 2	* 4th: randomize
+R 0 10845 5	* 4th: randomize
+R 0 10846 2	* 4th: randomize
+R 0 10846 3	* 4th: randomize
+R 0 10846 5	* 4th: randomize
 S
 
 #OLIMITS
 O 10602 50	* gun
 S
+
+#MOBPROGS
+#10601
+mob transfer $n 10751
+say Ты падаешь и разбиваешься о палубу.
+end
+~
+#10602
+if level $n < 45
+mob slay $n
+end
+endif
+~
+#0
 
 #$

@@ -1,0 +1,30 @@
+#RACE
+Name reptilian~
+Det infrared~
+Form edible biped reptile amphibian cold_blood~
+Parts head arms legs brains guts tail~
+Resist bash 10
+Resist slash 10
+Resist fire 25
+Resist cold -25
+Resist acid 25
+Resist disease 40
+Resist poison 40
+Damtype claw
+End
+
+#PCRACE
+Shortname Reptl~
+Points 400
+Class 'warrior' 100
+BonusSkills tail~
+Stats 3 -2 -1 1 2 0 
+MaxStats 23 17 18 21 22 25 
+Size medium
+HPBonus 10
+ManaBonus -10
+RestrictAlign evil neutral~
+Slang common
+End
+
+#$

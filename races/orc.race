@@ -3,8 +3,28 @@ Name orc~
 Det infrared~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
-Resist disease 33
-Resist light -50
+Resist bash 5
+Resist pierce 5
+Resist slash 5
+Resist holy -15
+Resist negative 15
+Resist disease 15
+Resist poison 15
+Resist light -15
+End
+
+#PCRACE
+Shortname Orc~
+Points 400
+Class 'warrior' 100
+BonusSkills berserk warcry~
+Stats 2 -1 -1 0 2 0 
+MaxStats 22 18 18 20 22 25 
+Size medium
+HPBonus 10
+ManaBonus -20
+RestrictAlign evil~
+Slang common
 End
 
 #$

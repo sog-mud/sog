@@ -1700,6 +1700,71 @@ a '' to_object 45 -1 3 18 0
 a '' to_object 45 -1 3 19 0
 a '' to_skills 45 -1 30 'deathblow' 0
 g @rus none~
+#22380
+treasure gold~
+a pile of coins~
+A small pile of treasure lies here.~
+gold~
+money 0 0 A
+1000 200 0 0 0
+0 0 0 P
+#22381
+helm ancient~
+an ancient helmet~
+Very old helmet lies on the ground.~
+steel~
+armor Y C AE
+8 8 6 5 0
+45 50 10000 P
+a '' unknown 45 -1 5 33 0
+a '' unknown 45 -1 3 28 0
+a '' unknown 45 -1 -5 20 0
+a '' unknown 45 -1 3 18 0
+a '' unknown 45 -1 3 19 0
+#22382
+ancinet chainmail~
+an ancient chainmail~
+Very old chainmail lies on the ground.~
+steel~
+armor Y C AD
+15 15 13 10 0
+45 200 10000 P
+a '' unknown 45 -1 5 33 0
+a '' unknown 45 -1 3 29 0
+a '' unknown 45 -1 1 18 0
+a '' unknown 45 -1 2 1 0
+a '' unknown 45 -1 4 19 0
+#22383
+ancient boots~
+a pair of ancient boots~
+A pair of very old boots lies on the ground.~
+steel~
+armor Y C AG
+8 8 6 6 0
+45 40 10000 P
+a '' to_affects 45 -1 0 0 T
+a '' unknown 45 -1 5 33 0
+a '' unknown 45 -1 50 14 0
+#22384
+ancient sleeves~
+a set of ancient sleeves~
+A set of very old sleeves lies on the ground.~
+steel~
+armor Y C AI
+13 13 10 9 0
+45 40 10000 P
+a '' unknown 45 -1 5 33 0
+a '' unknown 45 -1 2 28 0
+a '' unknown 45 -1 2 18 0
+a '' unknown 45 -1 2 19 0
+#22385
+~
+~
+~
+unknown~
+trash 0 0 0
+0 0 0 0 0
+0 0 0 P
 #22399
 battleaxe dagger sword~
 battlaxe ~
@@ -4719,13 +4784,19 @@ M 0 22327 1 22391 1	* Itangast, the Fire Drake (The Gate before Treasure Keep)
 E 0 22351 0 17		*	the key of treasure keep: held in the hands
 O 0 22361 0 22392	* chest (The North-West Coner of Treasure Keep)
 M 0 22330 42 22392 2	* the undead guard (The North-West Coner of Treasure Keep)
+O 0 22380 0 22392	* a pile of coins (The North-West Coner of Treasure Keep)
 M 0 22330 42 22393 2	* the undead guard (The North Wall of Treasure Keep)
+O 0 22380 0 22393	* a pile of coins (The North Wall of Treasure Keep)
 O 0 22362 0 22394	* chest (The North Wall of Treasure Keep)
 M 0 22330 42 22394 2	* the undead guard (The North Wall of Treasure Keep)
+O 0 22380 0 22394	* a pile of coins (The North Wall of Treasure Keep)
 M 0 22330 42 22395 2	* the undead guard (The North Wall of Treasure Keep)
+O 0 22380 0 22395	* a pile of coins (The North Wall of Treasure Keep)
 O 0 22363 0 22396	* chest (The North-East Corner of Treasure Keep)
 M 0 22330 42 22396 2	* the undead guard (The North-East Corner of Treasure Keep)
+O 0 22380 0 22396	* a pile of coins (The North-East Corner of Treasure Keep)
 M 0 22330 42 22397 2	* the undead guard (The West Wall of Treasure Keep)
+O 0 22380 0 22397	* a pile of coins (The West Wall of Treasure Keep)
 M 0 22329 8 22398 1	* the high guard (The Treasure Keep)
 E 0 22356 0 17		*	the bone key: held in the hands
 E 0 22369 0 6		*	a silver helm: over the head
@@ -4737,6 +4808,7 @@ E 0 22374 0 7		*	a set of silver leggings: on the legs
 E 0 22375 0 11		*	a silver shield: as a shield
 E 0 22376 0 16		*	a small silver dagger named "Backstabber": wielded
 M 0 22330 42 22398 1	* the undead guard (The Treasure Keep)
+O 0 22380 0 22398	* a pile of coins (The Treasure Keep)
 M 0 22329 8 22399 1	* the high guard (The Treasure Keep)
 E 0 22357 0 17		*	the bone key: held in the hands
 E 0 22369 0 6		*	a silver helm: over the head
@@ -4748,6 +4820,7 @@ E 0 22374 0 7		*	a set of silver leggings: on the legs
 E 0 22375 0 11		*	a silver shield: as a shield
 E 0 22379 0 16		*	a small silver flail named "Death Bringer": wielded
 M 0 22330 42 22399 1	* the undead guard (The Treasure Keep)
+O 0 22380 0 22399	* a pile of coins (The Treasure Keep)
 M 0 22329 8 22400 1	* the high guard (The Treasure Keep)
 E 0 22355 0 17		*	the bone key: held in the hands
 E 0 22369 0 6		*	a silver helm: over the head
@@ -4759,9 +4832,12 @@ E 0 22374 0 7		*	a set of silver leggings: on the legs
 E 0 22375 0 11		*	a silver shield: as a shield
 E 0 22377 0 16		*	a small silver mace named "Skullcrasher": wielded
 M 0 22330 42 22400 1	* the undead guard (The Treasure Keep)
+O 0 22380 0 22400	* a pile of coins (The Treasure Keep)
 M 0 22330 42 22401 2	* the undead guard (The East Wall of Treasure Keep)
+O 0 22380 0 22401	* a pile of coins (The East Wall of Treasure Keep)
 O 0 22364 0 22402	* chest (The West Wall of Treasure Keep)
 M 0 22330 42 22402 2	* the undead guard (The West Wall of Treasure Keep)
+O 0 22380 0 22402	* a pile of coins (The West Wall of Treasure Keep)
 M 0 22329 8 22403 1	* the high guard (The Treasure Keep)
 E 0 22369 0 6		*	a silver helm: over the head
 E 0 22370 0 5		*	a silver vest: on the body
@@ -4773,6 +4849,7 @@ E 0 22375 0 11		*	a silver shield: as a shield
 E 0 22378 0 16		*	a small silver axe named "Meat Cleaver": wielded
 E 0 22360 0 17		*	the bone key: held in the hands
 M 0 22330 42 22403 1	* the undead guard (The Treasure Keep)
+O 0 22380 0 22403	* a pile of coins (The Treasure Keep)
 M 0 22330 42 22404 2	* the undead guard (The Entrance to Treasure Keep)
 M 0 22329 8 22405 1	* the high guard (The Treasure Keep)
 E 0 22358 0 17		*	the bony key: held in the hands
@@ -4785,9 +4862,12 @@ E 0 22374 0 7		*	a set of silver leggings: on the legs
 E 0 22375 0 11		*	a silver shield: as a shield
 E 0 22378 0 16		*	a small silver axe named "Meat Cleaver": wielded
 M 0 22330 42 22405 1	* the undead guard (The Treasure Keep)
+O 0 22380 0 22405	* a pile of coins (The Treasure Keep)
 O 0 22365 0 22406	* chest (The East Wall of Treasure Keep)
 M 0 22330 42 22406 2	* the undead guard (The East Wall of Treasure Keep)
+O 0 22380 0 22406	* a pile of coins (The East Wall of Treasure Keep)
 M 0 22330 42 22407 2	* the undead guard (The West Wall of Treasure Keep)
+O 0 22380 0 22407	* a pile of coins (The West Wall of Treasure Keep)
 M 0 22329 8 22408 1	* the high guard (The Treasure Keep)
 E 0 22353 0 17		*	the bone key: held in the hands
 E 0 22369 0 6		*	a silver helm: over the head
@@ -4799,6 +4879,7 @@ E 0 22374 0 7		*	a set of silver leggings: on the legs
 E 0 22375 0 11		*	a silver shield: as a shield
 E 0 22377 0 16		*	a small silver mace named "Skullcrasher": wielded
 M 0 22330 42 22408 1	* the undead guard (The Treasure Keep)
+O 0 22380 0 22408	* a pile of coins (The Treasure Keep)
 M 0 22329 8 22409 1	* the high guard (The Treasure Keep)
 E 0 22359 0 17		*	the bone key: held in the hands
 E 0 22369 0 6		*	a silver helm: over the head
@@ -4810,6 +4891,7 @@ E 0 22374 0 7		*	a set of silver leggings: on the legs
 E 0 22375 0 11		*	a silver shield: as a shield
 E 0 22379 0 16		*	a small silver flail named "Death Bringer": wielded
 M 0 22330 42 22409 1	* the undead guard (The Treasure Keep)
+O 0 22380 0 22409	* a pile of coins (The Treasure Keep)
 M 0 22329 8 22410 1	* the high guard (The Treasure Keep)
 E 0 22354 0 17		*	the bone key: held in the hands
 E 0 22369 0 6		*	a silver helm: over the head
@@ -4821,15 +4903,22 @@ E 0 22374 0 7		*	a set of silver leggings: on the legs
 E 0 22375 0 11		*	a silver shield: as a shield
 E 0 22376 0 16		*	a small silver dagger named "Backstabber": wielded
 M 0 22330 42 22410 1	* the undead guard (The Treasure Keep)
+O 0 22380 0 22410	* a pile of coins (The Treasure Keep)
 M 0 22330 42 22411 2	* the undead guard (The East Wall of Treasure Keep)
+O 0 22380 0 22411	* a pile of coins (The East Wall of Treasure Keep)
 O 0 22366 0 22412	* chest (The South-West Corner  of Treasure Keep)
 M 0 22330 42 22412 2	* the undead guard (The South-West Corner  of Treasure Keep)
+O 0 22380 0 22412	* a pile of coins (The South-West Corner  of Treasure Keep)
 M 0 22330 42 22413 2	* the undead guard (The South Wall of Treasure Keep)
+O 0 22380 0 22413	* a pile of coins (The South Wall of Treasure Keep)
 O 0 22367 0 22414	* chest (The South Wall of Treasure Keep)
 M 0 22330 42 22414 2	* the undead guard (The South Wall of Treasure Keep)
+O 0 22380 0 22414	* a pile of coins (The South Wall of Treasure Keep)
 M 0 22330 42 22415 2	* the undead guard (The South Wall of Treasure Keep)
+O 0 22380 0 22415	* a pile of coins (The South Wall of Treasure Keep)
 O 0 22368 0 22416	* chest (The South-East Corner of Treasure Keep)
 M 0 22330 42 22416 2	* the undead guard (The South-East Corner of Treasure Keep)
+O 0 22380 0 22416	* a pile of coins (The South-East Corner of Treasure Keep)
 S
 
 #OLIMITS

@@ -9,12 +9,15 @@ End
 
 #MOBILES
 #101
-smurf~
-a smurf~
-A smurf is singing and walking along.
+smurf смурф~
+@eng a smurf@rus смурф~
+@eng A smurf is singing and walking along.
+@rus Смурф (smurf) ходит туда сюда, напевая песенку.
 ~
-A cute little blue smurf with a white hat and white boots.  You have a sudden
+@eng A cute little blue smurf with a white hat and white boots.  You have a sudden
 urge to crush him.
+@rus Милый маленький смурф в белой кепке и белых ботинках. Ты неожиданно
+$gn{испытал} желание толкнуть его.
 ~
 human~
 GHS 0 0 0 AB 100 0
@@ -24,11 +27,14 @@ BEFJNU
 stand stand male 1
 0 0 medium unknown
 #102
-smurf~
-a smurf~
-A smurf is here, picking berries.
+smurf смурф~
+@eng a smurf@rus смурф~
+@eng A smurf is here, picking berries.
+@rus Смурф (smurf) собирает здесь ягоды.
 ~
-A small smurf is quietly picking berries.  He seems to hardly notice you.
+@eng A small smurf is quietly picking berries.  He seems to hardly notice you.
+@rus Маленький смурф спокойно собирает ягоды. Он не обращает на тебя ни
+малейшего внимания.
 ~
 human~
 BHS 0 0 0 AB 100 0
@@ -38,12 +44,15 @@ BEFJNU
 stand stand male 1
 0 0 medium unknown
 #103
-brainy smurf~
-Brainy Smurf~
-Brainy Smurf is here, mumbling something to himself.
+brainy smurf смурф~
+@eng Brainy Smurf@rus ~~мозговитый~~ ~~смурф~~~
+@eng Brainy Smurf is here, mumbling something to himself.
+@rus Мозговитый смурф (smurf) бормочет себе под нос непонятно что.
 ~
-Brainy Smurf has on his usual glasses.  Brainy Smurf isn't liked much by the
+@eng Brainy Smurf has on his usual glasses.  Brainy Smurf isn't liked much by the
 other smurfs.  They fear his knowledge.  Knowledge is power!
+@rus Как обычно, этот смурф в очках. Он не похож на своих собратьев.
+Они почитают его знания. Знания -- это сила.
 ~
 human~
 GHS 0 0 0 AB 100 0
@@ -68,12 +77,14 @@ BEFJNU
 stand stand male 1
 0 0 medium unknown
 #105
-sleepy smurf~
-Sleepy Smurf~
-Sleepy Smurf is sleep walking here.
+sleepy smurf смурф~
+@eng Sleepy Smurf@rus ~~смурф~~ ~~Соня~~~
+@eng Sleepy Smurf is sleep walking here.
+@rus Смурф (smurf). Он спит на ходу.
 ~
-Sleepy never gets enough sleep.  You would think he goes to college.  I wonder
+@eng Sleepy never gets enough sleep.  You would think he goes to college.  I wonder
 if he has ever stayed up a whole night without sleeping.
+@rus Этот соня всегда невыспавшийся. 
 ~
 human~
 GHS 0 0 0 AB 100 0
@@ -127,12 +138,15 @@ BEFJNU
 stand stand male 1
 0 0 medium unknown
 #109
-smurfette~
-Smurfette~
-Smurfette is here, looking beautiful.
+smurfette смурфетта~
+@eng Smurfette@rus Смурфетта~
+@eng Smurfette is here, looking beautiful.
+@rus Смурфетта (Smurfette). Она прекрасно выглядит.
 ~
-Smurfette is the cutest little smurf you've ever seen.  If only she were your
+@eng Smurfette is the cutest little smurf you've ever seen.  If only she were your
 size.  I wonder how much she charges the other smurfs.
+@rus Она самый милый маленький смурф из всех виденных тобой. Если бы она была
+такого же размера, как и ты. 
 ~
 human~
 GHS 0 0 0 AB 100 0
@@ -200,8 +214,8 @@ pill 0 0 A
 0 20 180 P
 g @rus none~
 #101
-glasses~
-a pair of glasses~
+glasses очки~
+@eng a pair of glasses@rus очки~
 An odd pair of glasses has been left here.~
 glass~
 clothing A 0 AE
@@ -209,29 +223,29 @@ clothing A 0 AE
 3 20 270 P
 a '' to_object 3 -1 1 4 0
 a '' to_object 3 -1 -1 2 0
-g @rus none~
+g @rus plural~
 #102
-smurf hat~
-a smurf hat~
-A smurf hat has been left here.~
+smurf hat шляпка~
+@eng a smurf hat@rus ~~шляпка~~ смурфа~
+@eng A smurf hat has been left here.@rus Смурф оставил здесь свою шляпку (hat).~
 cloth~
 armor 0 0 AE
 3 3 3 0 0
 3 20 310 P
-g @rus none~
+g @rus female~
 #103
-axe small~
-a small axe~
-A small axe has been dropped here.~
+axe small топор~
+@eng a small axe@rus ~~маленький~~ ~~топорик~~~
+@eng A small axe has been dropped here.@rus Маленький топорик (axe) выброшен за ненадобностью.~
 wood~
 weapon 0 0 AN
 axe 1 7 'slash' 0
 3 20 370 P
-g @rus none~
+g @rus male~
 #104
-necklace~
-a small necklace~
-A small necklace is lying on the ground.~
+necklace ожерелье~
+@eng a small necklace@rus ~~маленькое~~ ~~ожерелье~~~
+@eng A small necklace is lying on the ground.@rus Маленькое ожерелье (necklace) брошено тут.~
 gem~
 jewelry A 0 AC
 0 0 0 0 0
@@ -239,68 +253,72 @@ jewelry A 0 AC
 a '' to_object 5 -1 1 3 0
 g @rus none~
 #105
-pink potion~
-a pink potion~
-A pink potion is barely visible on the ground.~
+pink potion розовая микстура~
+@eng a pink potion@rus ~~розовая~~ ~~микстура~~~
+@eng A pink potion is barely visible on the ground.@rus Розовая микстура (potion) лежит на земле, она едва заметна.~
 glass~
 potion 0 0 A
-6 'armor' 'cure blindness' '' ''
+10 'armor' 'cure blindness' '' ''
 0 20 160 P
 g @rus none~
 #106
-wand~
-a small wand~
-A small wand lies on the ground.~
+wand жезл~
+@eng a small wand@rus ~~маленький~~ ~~жезл~~~
+@eng A small wand lies on the ground.@rus Здесь лежит маленький жезл (wand).~
 wood~
 wand 0 0 AO
-5 1 1 'burning hands' 0
+8 1 1 'burning hands' 0
 3 20 540 P
-g @rus none~
+g @rus male~
 #107
-key~
-a tiny key~
-A tiny key is lying on the ground.~
+key ключик~
+@eng a tiny key@rus ~~маленький~~ ~~ключик~~~
+@eng A tiny key is lying on the ground.@rus Маленький ключик (key) лежит на земле.~
 wood~
 key 0 0 A
 B 0 0 0 0
 0 20 0 P
-g @rus none~
+g @rus male~
 #108
-well~
-a smurf well~
-A small smurfy well is here.~
+well колодец~
+@eng a smurf well@rus ~~колодец~~ смурфов~
+@eng A small smurfy well is here.@rus Маленький колодец (well) смурфов.~
 stone~
 fountain 0 0 0
 50 50 'water' 0 0
 0 0 0 P
-g @rus none~
+g @rus male~
 #109
-key~
-a small key~
-A key to Gargamel's door lies here.~
+key ключ~
+@eng a small key@rus ~~маленький~~ ~~ключ~~~
+@eng A key to Gargamel's door lies here.@rus Ключ (key) от замка Гаргамеля лежит здесь.~
 wood~
 key 0 0 A
 B 0 0 0 0
 0 20 0 P
-g @rus none~
+g @rus male~
 #0
 
 #ROOMS
 #101
-Dimly Lit Path~
-This path is made of crushed granite with curious blue streaks in it.
+@eng Dimly Lit Path@rus Темная тропинка~
+@eng This path is made of crushed granite with curious blue streaks in it.
 The path continues north to a village, or south to the eastern road.
+@rus Дорога вымощена дробленным гранитом, с голубыми вкраплениями в нем.
+Она ведет на север к селению, а на юге выходит на восточный тракт.
 ~
 0 0 forest
 D0
-The path continues toward the village.
+@eng The path continues toward the village.
+@rus Дорога ведет к селению.
 ~
 ~
 ~
 ~
 Z -1 102
 D2
-The path heads back toward the eastern road.
+@eng The path heads back toward the eastern road.
+@rus Дорога ведет к восточному тракту.
 ~
 ~
 ~
@@ -350,7 +368,7 @@ The dimly lit path.
 Z -1 102
 S
 #104
-Entrance to Smurf Village~
+@eng Entrance to Smurf Village@rus На окраине селения смурфов~
 You stand at the entrance to a tiny village.  You can see across the whole
 village easily.  Little blue creatures with white hats and boots and little 
 fluffy tails scamper about.  They sing continuously.  The singing is getting
@@ -831,7 +849,7 @@ Smurfy Road
 Z -1 111
 S
 #122
-Sleepy Smurf's Home~
+@eng Sleepy Smurf's Home@rus Дом смурфа Сони~
 Be vewy vewy quiet.  Sleepy Smurf is probably sleeping.  You see so many
 beds you can't even tell if he is here.  Maybe you should quietly go back to
 Smurfy Road to the east.

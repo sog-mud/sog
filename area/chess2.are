@@ -306,7 +306,7 @@ armour black rook ËÏÌØÞÕÇÁ~
 stone~
 armor J 0 AD
 8 8 8 0 5
-25 70 1250 G
+25 450 1250 G
 a '' to_object 25 -1 2 17 0
 a '' to_object 25 -1 1 5 0
 g @rus female~
@@ -317,7 +317,7 @@ armour white rook ËÏÌØÞÕÇÁ~
 stone~
 armor K 0 AD
 8 8 8 0 5
-25 70 1250 G
+25 450 1250 G
 a '' to_object 25 -1 2 17 0
 a '' to_object 25 -1 1 5 0
 g @rus female~

@@ -473,7 +473,7 @@ There is a large black kite shield lying here.~
 onyx~
 armor AG 0 AJ
 6 6 6 2 0
-13 80 1530 P
+13 350 1530 P
 a '' to_object 13 -1 1 20 0
 g @rus none~
 #1614

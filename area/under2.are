@@ -87,7 +87,7 @@ This body is a sphere with ten eyestalks ontop.  A huge eleventh eye
 resides in the central area.  A large mouth with razor sharp teeth lies below
 this huge eye.  The body is protected by a hard chitinous covering.
 ~
-unique~
+beholder~
 B 0 0 0 ABHKL 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 'bite'
 -20 -20 -20 0
@@ -104,7 +104,7 @@ moving eyestalks.  A huge eye is in the centre of the sphere.  This huge eye
 seems to disrupt your casting abilities.  This beholder lives in this city and
 masterminds many evil operations.
 ~
-unique~
+beholder~
 BC 0 J 0 ABHKL -1000 0
 49 0 50d10+4000 5d5+1000 4d10+18 'charge'
 -19 -19 -19 1
@@ -120,7 +120,7 @@ Before you stands a svirfneblin, a deep gnome.  Much like a regular gnome
 the only real difference is the fact that this gnome's skin is a brownish grey
 and he is going slightly bald.
 ~
-gnome~
+svirfnebli~
 C 0 0 0 L -500 0
 19 0 3d9+308 5d5+1000 2d7+5 'punch'
 -4 -4 -4 5
@@ -136,8 +136,8 @@ A black-skinned and pale-haired elf stands before you heading somewhere
 with a purpose to sell his goods.  Although he looks skinny he looks very
 deadly and quick.
 ~
-human~
-0 0 0 0 AH -750 0
+dark-elf~
+0 0 0 0 A -750 0
 16 0 3d9+233 5d5+1000 2d6+4 'pound'
 -2 -2 -2 6
 EIK
@@ -152,7 +152,7 @@ Before you stands an emaciated, evil-visaged dwarf.  His skin is dark grey.
 He wears clothing that is a dark grey, he seems to blend into his
 surroundings.
 ~
-dwarf~
+duergar~
 0 0 0 0 K -600 0
 21 0 4d10+360 5d5+1000 4d4+5 'pound'
 -5 -5 -5 5
@@ -167,7 +167,7 @@ A necromancer dressed in flowing dark robes
 You turn your gaze on a necromancer who seems to have power flowing
 through every one of her movements.  Her visage is gaunt and strained, it
 seems as if at every moment she is concentrating on a spell of some sort. ~
-human~
+dark-elf~
 B 0 0 0 AH -150 0
 43 0 25d10+2500 5d5+1000 3d12+15 'punch'
 -15 -15 -15 2
@@ -253,7 +253,7 @@ Before you lies a worm of incredible size and power.  The worm is about
 uses to slowly crush it's prey if they are unlucky enough not to be
 swallowed whole.
 ~
-human~
+unique~
 BF 0 H B H -100 0
 44 0 25d10+2750 5d5+1000 8d4+15 'none'
 -15 -15 -15 2
@@ -269,7 +269,7 @@ This worm is almost 60 feet long and 13 feet in diameter.  It is a very dark
 purple and has teeth about 4 inches long each.  The mouth is so large that
 it looks like a small cavern.  You can only see the front of the worm since
 it's whole mass can not possibly fit in the corridor. ~
-human~
+unique~
 BF 0 H B H -250 0
 48 0 25d10+3750 5d5+1000 6d6+18 'bite'
 -18 -18 -18 1
@@ -304,7 +304,7 @@ aren't, you look closer to see just what type of humanoid he is.  Then he
 looks straight at you and you see glowing red eyes.  This figure is a
 githzerai!  You wonder how that happened.
 ~
-human~
+githzerai~
 G 0 0 0 ABH -850 0
 46 0 25d10+3250 5d5+1000 6d6+16 'pound'
 -16 -16 -16 2
@@ -321,7 +321,7 @@ they glow green in this light.  His gaze challenges you to either attack or
 leave him in peace.  He holds himself with confidence and you realise it
 would no easy matter to defeat him.
 ~
-human~
+githzerai~
 B 0 0 0 ABH -900 0
 48 0 25d10+3750 5d5+1000 6d6+18 'pound'
 -18 -18 -18 1
@@ -338,7 +338,7 @@ giant exposed brain approximately five feet in diameter and with a frontal
 beak, below which trail ten six foot long tentacles hang.  The body of the
 grell is a drab olive colour streaked with white; the tentacles are pale
 olive-green.  This grell is the beloved pet of the beholder. ~
-human~
+grell~
 BF 0 J 0 H -750 0
 46 0 25d10+3250 5d5+1000 6d6+16 'none'
 -16 -16 -16 2
@@ -371,7 +371,7 @@ stand about four feet tall at max you figure.  Built like an ox this guy could
 easily pick you up.  You figure he frequents the Gemstone since he just
 seems to fit in.
 ~
-human~
+duergar~
 G 0 0 0 HL -500 0
 11 0 2d8+134 5d5+100 1d10+2 'punch'
 1 1 1 7
@@ -385,7 +385,7 @@ A drow sits here quietly minding his own business
 ~
 The drow doesn't seem to be looking at anything at all.  His dark skin
 blends in with the murky lighting.  The drow looks quick and deadly. ~
-human~
+dark-elf~
 B 0 0 0 AH -600 0
 13 0 2d10+170 5d5+100 2d5+3 'punch'
 -1 -1 -1 6
@@ -449,7 +449,7 @@ beady yellow eyes.  It's skin is a dark greenish colour and looks to be
 slimy.  This little fellow has nasty little teeth and questing hands that pick
 up anything.
 ~
-human~
+gremlin~
 CG 0 0 BG H -50 0
 17 0 3d9+258 5d5+1000 3d4+4 'punch'
 -3 -3 -3 6
@@ -465,7 +465,7 @@ The slime is green and oozes slowly down the wall onto the floor.  You
 look closely and notice with a start that it seems to be alive.  The slime is
 slowly eating it's way through the wall and floor.
 ~
-human~
+unique~
 G 0 0 0 H 0 0
 20 0 3d9+333 5d5+1000 2d8+5 'magic'
 -4 -4 -4 5
@@ -481,7 +481,7 @@ This is an incredibly huge rat, you have never seen anything comparable
 on the surface.  The rat has green eyes that seem to shimmer with hatred. 
 The rat's fur is black and brown and very dirty.
 ~
-human~
+rat~
 G 0 0 0 H 0 0
 19 0 3d9+308 5d5+1000 2d7+5 'charge'
 -4 -4 -4 5
@@ -498,7 +498,7 @@ clothing and an ill-fitting leather helmet.  You realise right away, this is
 one of the "little people" who cause trouble.  You then notice this jinxkin
 has dirty but sharp nails.
 ~
-human~
+gremlin~
 CG 0 0 BG H -400 0
 22 0 5d10+400 5d5+1000 4d4+6 'punch'
 -5 -5 -5 5
@@ -516,7 +516,7 @@ clothing isn't actually clothing but it is folds of skin and the helmet is just
 the head, all leathery and smooth.  The limbs of this creature are knotty
 and bowed, with hands and feet tipped with thick nails which are filthy.
 ~
-human~
+gremlin~
 CG 0 0 G H -600 0
 21 0 4d10+360 5d5+1000 4d4+5 'punch'
 -5 -5 -5 5
@@ -534,7 +534,7 @@ has dark grey, pearly skin.  It's muscular body has no hair, and the head is
 long with oddly distorted features.  The eyes are milky-white, vertical
 ovals of large size.
 ~
-human~
+unique~
 B 0 J 0 ABH -999 0
 45 0 25d10+3000 5d5+1000 8d4+16 'pound'
 -15 -15 -15 2
@@ -613,7 +613,7 @@ A small imp is here spying for the bodak
 This is a small imp who has become the familiar of the bodak.  He is the
 eyes and ears of the bodak, if the bodak so desires.
 ~
-human~
+imp~
 BG 0 0 ABG ABH -750 0
 39 0 15d10+1700 5d5+1000 5d6+13 'charge'
 -13 -13 -13 3
@@ -631,7 +631,7 @@ tall and appears much as a skeleton in form-fitting black leather.  Its
 extremities are larger than normal, however.  Its feet, hands, and head are
 the size of a hill giant's.  The taloned fingers are deadly.  This is the babau.
 ~
-unique~
+tanar'ri~
 CF 0 0 0 H -1000 0
 40 0 15d10+1850 5d5+1000 4d8+13 'slash'
 -13 -13 -13 3
@@ -756,7 +756,7 @@ difference being this halfling looks to be very dangerous.  He seems to
 have the confidence that one could only find if he had been brought up on
 the streets of this foul city.
 ~
-human~
+halfling~
 B 0 0 0 H -500 0
 13 0 2d10+170 5d5+100 2d5+3 'punch'
 -1 -1 -1 6
@@ -780,13 +780,13 @@ EIK
 stand stand male 0
 0 0 medium unknown
 #16048
-gnome patron~
+gnome svirfnebli patron~
 The svirfneblin patron~
 A deep gnome sits here watching his back
 ~
 This deep gnome sits at the table watching for suckers to prey upon.  His
 skin is grey and his eyes are also grey.  He looks to be very dangerous. ~
-human~
+svirfnebli~
 B 0 0 0 H -750 0
 12 0 2d10+150 5d5+100 1d10+3 'punch'
 0 0 0 7
@@ -811,7 +811,7 @@ CDEFIJK
 stand stand male 0
 0 0 medium unknown
 #16050
-duergar~
+duergar limbeck adventurer~
 Limbeck~
 A duergar adventurer sits here telling his heroic tales to those around
 ~
@@ -819,7 +819,7 @@ Before you sits a duergar of impressive build.  From the mutterings around
 you know his name is Limbeck, a hero down here.  He has reputedly killed
 a purple worm single handed.
 ~
-human~
+duergar~
 B 0 0 0 H -500 0
 33 0 10d10+1100 5d5+1000 6d4+10 'punch'
 -11 -11 -11 3
@@ -827,7 +827,7 @@ EIK
 stand stand male 0
 0 0 medium unknown
 #16051
-gnome~
+gnome Geg~
 Geg~
 A deep gnome adventurer is resting on the bed
 ~
@@ -835,7 +835,7 @@ This deep gnome goes by the name Geg, which you overheard while
 walking through the inn.  He is one of the heroes of this city, and for that
 reason many people are after his life.
 ~
-human~
+svirfnebli~
 B 0 0 0 H -600 0
 30 0 6d12+853 5d5+1000 4d6+8 'pound'
 -9 -9 -9 3
@@ -843,15 +843,15 @@ EIK
 stand stand male 0
 0 0 medium unknown
 #16052
-drow~
+drow drevlin warrior~
 Drevlin~
 A drow warrior sits here watching you carefully
 ~
 This is Drevlin, one of the drow's most powerful warrior.  He once
 defeated the drow weapon's master without a weapon.  He is very ruthless
 and quick.  His dark skin and pointed ears makes him look like a demon. ~
-human~
-BT 0 0 0 H -999 0
+dark-elf~
+BT 0 0 0 0 -999 0
 31 0 6d12+928 5d5+1000 4d6+9 'slash'
 -10 -10 -10 3
 EFIK
@@ -1058,7 +1058,7 @@ A drow adventurer sits with his party watching you.
 ~
 This adventurer's name is well known in this establishment, he goes by the
 name Prax.  He is an accomplished mage, and seems to breathe magic. ~
-human~
+dark-elf~
 B 0 0 0 AH -500 0
 28 0 6d12+703 5d5+1000 2d12+8 'pound'
 -8 -8 -8 4
@@ -1073,7 +1073,7 @@ A drow warrior watches you keenly while sipping his ale
 This drow is a very strong warrior.  He has never been defeated in his
 entire career.  He goes by the name Thespan.
 ~
-human~
+dark-elf~
 BT 0 0 0 H -600 0
 26 0 5d10+600 5d5+1000 3d7+7 'slash'
 -7 -7 -7 4
@@ -1087,7 +1087,7 @@ A drow thief sits at the table with his companions watching you
 ~
 This drow is not to be trusted, he has a well earned reputation of being
 able to steal anything off of anyone.  Maybe you should check your gold. ~
-human~
+dark-elf~
 BS 0 0 0 H -600 0
 26 0 5d10+600 5d5+1000 3d7+7 'punch'
 -7 -7 -7 4
@@ -1103,7 +1103,7 @@ This gnome has just begun to build herself a reputation.  She is has just on
 the threshold of becoming powerful, no easy feat in the Underdark.  She is
 clearly very intelligent and cunning.
 ~
-human~
+svirfnebli~
 BR 0 0 0 AH -600 0
 16 0 3d9+233 5d5+1000 2d6+4 'punch'
 -2 -2 -2 6
@@ -1120,7 +1120,7 @@ becoming a powerful force in the Underdark, given a few more years and
 they will be a force to be reckoned with.  Knowing this one of the city's
 beholder's has outfitted them and protects them.
 ~
-human~
+svirfnebli~
 BS 0 0 0 H -700 0
 16 0 3d9+233 5d5+1000 2d6+4 'pound'
 -2 -2 -2 6
@@ -1138,7 +1138,7 @@ wonder if this group is an indication that the under world races may be
 getting closer together, which would be a very bad thing for the surface
 races.
 ~
-human~
+duergar~
 BT 0 0 0 H -800 0
 17 0 3d9+258 5d5+1000 3d4+4 'slash'
 -3 -3 -3 6
@@ -1155,7 +1155,7 @@ From the conversations around you, you figure his name is Shillikif.  This
 group has reputedly found a way into the githzerai keep from the
 Underdark.
 ~
-human~
+dark-elf~
 BS 0 0 0 H -700 0
 16 0 3d9+233 5d5+1000 2d6+4 'punch'
 -2 -2 -2 6
@@ -1171,7 +1171,7 @@ Yie'Stei is a drow mage of some repute, he's been able to maintain this
 shop even while others have tried to take it from him.  He has a very
 profitable business going.
 ~
-human~
+dark-elf~
 BRe 0 0 0 AH 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 'magic'
 -20 -20 -20 0
@@ -1188,7 +1188,7 @@ Underdark.  When the town was first established he quickly realised that
 there would be a profitable trade in selling arms, especially drow arms to
 those who visit this unique city.
 ~
-human~
+dark-elf~
 BTe 0 0 0 AH 0 0
 95 0 50d10+8250 10d10+1000 11d5+35 'pound'
 -33 -33 -33 -17
@@ -1205,7 +1205,7 @@ and selling it at a ridiculous price.  Raesarnt is a stocky little fellow who
 obviously has been through a lot in his life.  He walks with a quiet
 confidence of one who has seen everything and knows nothing can best
 him. ~
-human~
+duergar~
 BTe 0 0 0 AH 0 0
 65 0 50d10+8250 10d10+1000 11d5+35 'pound'
 -33 -33 -33 -17
@@ -1239,7 +1239,7 @@ food has healing properties.  Jiestis is a small figure who is easy to
 overlook, yet he seems to be very very powerful, not a person to mess
 with.
 ~
-human~
+svirfnebli~
 Be 0 0 0 AH 0 0
 49 0 50d10+4000 5d5+1000 4d10+18 'pound'
 -19 -19 -19 1
@@ -1255,7 +1255,7 @@ This svirfneblin or deep gnome has taken sanctuary in the embassy.  By
 the way he is acting you figure he is running from something.  He is
 dressed is dark grey clothing and stands a good five feet tall.
 ~
-human~
+svirfnebli~
 G 0 0 0 H -500 0
 17 0 3d9+258 5d5+1000 3d4+4 'punch'
 -3 -3 -3 6
@@ -1271,7 +1271,7 @@ This is a svirfneblin dignitary who is using the embassy as a place of rest.
 He has just been rather shaken up by his visit to the drow city and has
 come here to find comfort in the safe walls of this building.  He is dressed
 in different shades of grey and sports a nice looking necklace ~
-human~
+svirfnebli~
 G 0 0 0 H -500 0
 16 0 3d9+233 5d5+1000 2d6+4 'punch'
 -2 -2 -2 6
@@ -1288,7 +1288,7 @@ building is kept clean and open all year round.  He was once a powerful
 figure in his homeland, but he fell out of favour and was sent here.  He
 does his duty with a fanatic pride.
 ~
-human~
+svirfnebli~
 B 0 0 0 H -700 0
 17 0 3d9+258 5d5+1000 3d4+4 'punch'
 -3 -3 -3 6
@@ -1303,7 +1303,7 @@ A footpad slinks through the shadows
 This is one of the younger thieves of the guild.  He has considerable
 experience, like all the thieves in the Underdark.  Although he has plenty
 of experience his skills aren't refined like those of his superiors. ~
-human~
+dark-elf~
 0 0 0 B H -450 0
 16 0 3d9+233 5d5+1000 2d6+4 'pound'
 -2 -2 -2 6
@@ -1319,7 +1319,7 @@ This thief has begun his climb to the top.  He has just begun to prove
 himself to the guild, by working the streets he is looking for that perfect
 steal or kill.
 ~
-human~
+dark-elf~
 H 0 0 B H -600 0
 17 0 3d9+258 5d5+1000 3d4+4 'punch'
 -3 -3 -3 6
@@ -1335,7 +1335,7 @@ This figure is a thief of minor repute.  He's been in the city for awhile now
 and knows who to pick on.  He is lean but covered in muscles, with many
 scars from countless fights.
 ~
-human~
+dark-elf~
 H 0 0 0 AH -600 0
 18 0 3d9+283 5d5+1000 2d7+4 'punch'
 -3 -3 -3 6
@@ -1351,7 +1351,7 @@ This thief is on the threshold of becoming a high ranking member of the
 guild.  He only has to make his name even and bigger, and thus he is
 willing to take greater risks.
 ~
-human~
+dark-elf~
 HS 0 0 B AH -700 0
 19 0 3d9+308 5d5+1000 2d7+5 'punch'
 -4 -4 -4 5
@@ -1367,7 +1367,7 @@ This thief has finally made it into the guild itself.  Although just a guard,
 he is proud to be in the guild's main building.  He will defend the guild
 with his life.
 ~
-human~
+dark-elf~
 BFS 0 0 0 A -500 0
 21 0 4d10+360 5d5+1000 4d4+5 'slash'
 -5 -5 -5 5
@@ -1383,7 +1383,7 @@ This thief is dressed richly and has lots of money.  He is very confident in
 his ability to both kill and steal.  He lives in the guild where the head thief
 can watch him.
 ~
-human~
+dark-elf~
 BS 0 0 0 AH -500 0
 23 0 5d10+450 5d5+1000 3d6+6 'punch'
 -6 -6 -6 4
@@ -1399,7 +1399,7 @@ This thief is one of the most powerful figures of the guild.  He is dressed in
 silk and has many items of jewellery.  The thief movements are as fluid as
 water, he seems to flow rather than move.
 ~
-human~
+dark-elf~
 BS 0 0 0 ABL -700 0
 25 0 5d10+550 5d5+1000 2d10+7 'slap'
 -7 -7 -7 4
@@ -1415,7 +1415,7 @@ This is the head of the guild.  He isn't that tall nor impressive in size.  But
 he has a quiet certainty about him, all his movements are precise and
 calculated.  The thief has a cunning that made him the head of this guild,
 and he makes sure non of the other thieves gets near him in power. ~
-human~
+dark-elf~
 BS 0 0 0 ABL -1000 0
 47 0 25d10+3500 5d5+1000 6d6+17 'pound'
 -17 -17 -17 2
@@ -1430,7 +1430,7 @@ The guild's mage is resting here
 This is the thieve's guild main mage.  He is the only one who power
 anywhere near that of the head's.  Meliadus is dressed in a long flowing
 robe and lights the room with a rob shaped like a hand holding an orb. ~
-human~
+dark-elf~
 BR 0 J 0 ABHL -500 0
 40 0 15d10+1850 5d5+1000 4d8+13 'magic'
 -13 -13 -13 3
@@ -1446,7 +1446,7 @@ This is the trainer of the thieve's guild.  He is the one that helps the thieves
 increase in ability and skill.  He is also the only member of the guild who
 is stronger than the leader.
 ~
-human~
+dark-elf~
 BS D N 0 A 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 'slash'
 -20 -20 -20 0
@@ -1477,7 +1477,7 @@ This is a drow assassin, he blends into the shadows on each side of the
 street.  You can barely make out his form as he moves silently, looking for
 the opening.
 ~
-human~
+dark-elf~
 G 0 0 BG AH -999 0
 21 0 4d10+360 5d5+1000 4d4+5 'pound'
 -5 -5 -5 5
@@ -1687,7 +1687,7 @@ This is Gulthac who has a booming trade dealing with all sorts of
 grotesque creatures, like the ones that Eurandus creates.  He is a powerful
 warrior and is rarely beaten in a fight.
 ~
-human~
+duergar~
 GT 0 0 0 H -800 0
 46 0 25d10+3250 5d5+1000 6d6+16 'pound'
 -16 -16 -16 2
@@ -1759,7 +1759,7 @@ back like buttons on a cloak, and when the tail is hidden it is almost
 impossible to distinguish from a real cloak.  In the middle of the front is a
 large gaping mouth and two glowing eyespots.
 ~
-unique~
+cloaker~
 B 0 0 0 BH -999 0
 48 0 25d10+3750 5d5+1000 6d6+18 'charge'
 -18 -18 -18 1
@@ -1772,7 +1772,7 @@ Lord Rygar~
 A human fighter sits at a table minding his own business
 ~
 Before you sits Lord Rygar, a fighter of some repute.  People have said
-that he once killed a wrym single handed.  He is a brute of a man, with
+that he once killed a wyrm single handed.  He is a brute of a man, with
 muscles rippling all over his body.  He sports a long black beard and his
 hair is black.  He looks very evil.
 ~
@@ -1809,7 +1809,7 @@ This is Sabrakarn a drow mage.  He has become a powerful force in the
 politics of his homeland.  He is here to learn new destructive spells so he
 can become the most feared drow in the land
 ~
-human~
+dark-elf~
 BR 0 0 0 H -700 0
 26 0 5d10+600 5d5+1000 3d7+7 'punch'
 -7 -7 -7 4
@@ -1825,7 +1825,7 @@ This is Hangharid, a svirfneblin fighter.  He has vanquished many foes and
 all his enemies fear him.  Even though he is a gnome, he has strength that
 rivals that of an ogre.
 ~
-human~
+svirfnebli~
 BT 0 0 0 H -500 0
 24 0 5d10+500 5d5+1000 2d10+6 'punch'
 -6 -6 -6 4
@@ -1839,7 +1839,7 @@ A drow cleric sits cross legged on the ground
 ~
 Sifrim is one of the few powerful drow clerics.  He is dressed all in black
 and stares at your with glowing eyes.  A dangerous fellow by far. ~
-human~
+dark-elf~
 BQ 0 0 0 H -800 0
 25 0 5d10+550 5d5+1000 2d10+7 'punch'
 -7 -7 -7 4
@@ -1854,7 +1854,7 @@ A duergar fighter polishes his sword
 This is Wismarel, a duergar fighter.  Wismarel is here to find his fortune
 and hopes to find many powerful magical items.
 ~
-human~
+duergar~
 BT 0 0 0 H -500 0
 26 0 5d10+600 5d5+1000 3d7+7 'punch'
 -7 -7 -7 4
@@ -1977,7 +1977,7 @@ Before you stands a cross between a demon and a human.  His build is
 stocky and strong.  He has scaly skin and fangs.  Small fangs protrude
 from his head.
 ~
-human~
+tanar'ri~
 BGT 0 N 0 0 -999 0
 30 0 6d12+853 5d5+1000 4d6+8 'claw'
 -9 -9 -9 3
@@ -1994,7 +1994,7 @@ mates with a demon lord.  He looks very human, just the glowing red eyes
 and dark skin give him away.  He opens his mouth and you notice small
 red fangs instead of teeth.
 ~
-human~
+tanar'ri~
 BG 0 N 0 0 -999 0
 35 0 10d10+1300 5d5+1000 4d7+11 'pound'
 -11 -11 -11 3
@@ -2019,15 +2019,15 @@ EIK
 stand stand male 0
 0 0 medium unknown
 #16126
-demon hezron~
-The hezron~
+demon hezrou~
+The hezrou~
 A large demon springs at you
 ~
 Before you stands an ugly demon.  His skin is dark green with splashes of
 red.  His eyes glow green in the light.  His skin is smooth and shimmers in
 the light.  He stands about six feet tall and four feet across.  Down his back
 he has spikes and his hands end with large claws. ~
-unique~
+tanar'ri~
 BF 0 0 0 0 -999 0
 25 0 5d10+550 5d5+1000 2d10+7 'slash'
 -7 -7 -7 4
@@ -2092,7 +2092,7 @@ A brown scale glitters somewhat in the lighting~
 cloth~
 armor C 0 AD
 9 9 9 0 0
-30 5 10 P
+30 50 10 P
 a '' to_object 30 -1 1 1 0
 a '' to_object 30 -1 1 13 0
 g @rus none~
@@ -2194,7 +2194,7 @@ A breast plate emits an aura of power~
 unknown~
 armor AG 0 AD
 25 25 25 20 0
-43 4 100 P
+43 40 100 P
 a '' to_object 43 -1 5 1 0
 a '' to_object 43 -1 50 13 0
 a '' to_object 43 -1 5 18 0
@@ -2237,7 +2237,7 @@ A huge purple worm scale lies discarded off to the side~
 cloth~
 armor C 0 AJ
 15 15 16 5 0
-46 4 10 P
+46 450 10 P
 a '' to_object 46 -1 20 12 0
 a '' to_object 46 -1 15 13 0
 a '' to_object 46 -1 4 19 0
@@ -2366,7 +2366,7 @@ A black shield waits to protect it's owner~
 steel~
 armor BIM 0 AJ
 14 14 14 6 0
-42 4 100 P
+42 40 100 P
 a '' to_object 42 -1 -15 17 0
 g @rus none~
 #16027
@@ -2592,7 +2592,7 @@ A black suit of chainmail lies ready to be taken~
 iron~
 armor B 0 AD
 5 5 5 0 0
-16 5 120 P
+16 50 120 P
 a '' to_object 16 -1 1 2 0
 a '' to_object 16 -1 4 13 0
 g @rus none~
@@ -2636,7 +2636,7 @@ A breastplate of duergar make lies ready~
 brass~
 armor G 0 AD
 5 5 5 0 0
-12 4 1180 P
+12 40 1180 P
 a '' to_object 12 -1 -5 17 0
 g @rus none~
 #16051
@@ -2656,7 +2656,7 @@ A shield of duergar designs lies ready~
 brass~
 armor G 0 AJ
 3 3 3 0 0
-6 3 420 P
+6 30 420 P
 a '' to_object 6 -1 -2 17 0
 g @rus none~
 #16053
@@ -2998,7 +2998,7 @@ A large shield that looks as if it were made of stone lies here~
 stone~
 armor G 0 AJ
 16 15 16 8 0
-49 10 1000 P
+49 450 1000 P
 a '' to_object 49 -1 50 13 0
 a '' to_object 49 -1 -15 17 0
 a '' to_object 49 -1 -2 20 0
@@ -3055,7 +3055,7 @@ A black suite of plate mail rests on the ground~
 steel~
 armor BEGJ 0 AD
 10 10 10 4 0
-30 9 1000 P
+30 450 1000 P
 a '' to_object 30 -1 -5 17 0
 a '' to_object 30 -1 2 19 0
 g @rus none~
@@ -3066,7 +3066,7 @@ A weird flame burns here~
 flame~
 armor BEG 0 AJ
 22 20 20 12 0
-37 5 1000 P
+37 50 1000 P
 a '' to_object 37 -1 -15 17 0
 a '' to_object 37 -1 6 19 0
 g @rus none~

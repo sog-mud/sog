@@ -3,36 +3,22 @@ Name duergar~
 Det infrared~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
-Resist fire 33
-Resist cold 33
-Resist lightning 33
-Resist acid 33
-Resist holy 33
-Resist negative 33
-Resist energy 33
-Resist mental 33
-Resist sound 33
-Resist disease 40
-Resist poison 40
-Resist charm 33
-Resist harm 33
-Resist light 33
+Resist bash 5
+Resist disease 25
+Resist poison 25
 End
 
 #PCRACE
 Shortname Duerg~
-Points 250
-Class 'anti-paladin' 100
+Points 300
 Class 'cleric' 100
-Class 'necromancer' 100
 Class 'thief' 100
 Class 'warrior' 100
 BonusSkills 'berserk' 'pick lock'~
-Stats 2 -2 -1 1 1 0 
-MaxStats 22 18 19 21 21 25 
+Stats 2 -1 -1 1 1 0 
+MaxStats 22 19 19 21 22 25 
 Size medium
-HPBonus 20
-ManaBonus -10
+HPBonus 10
 RestrictAlign evil~
 Slang dwarvish
 End

@@ -3,35 +3,23 @@ Name svirfnebli~
 Det infrared~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
-Resist bash -40
-Resist fire 33
-Resist cold 33
-Resist lightning 33
-Resist acid 33
-Resist holy 33
-Resist negative 33
-Resist energy 33
-Resist mental 33
-Resist sound 33
-Resist disease 40
-Resist poison 40
-Resist charm 33
-Resist harm 33
-Resist light 33
+Resist bash -25
+Resist disease 20
+Resist poison 20
 End
 
 #PCRACE
 Shortname Svirf~
-Points 250
+Points 300
 Class 'cleric' 100
 Class 'thief' 100
 Class 'wizard' 100
-BonusSkills 'lore' 'identify'~
-Stats 0 -1 3 0 0 0 
-MaxStats 20 19 23 20 20 25 
+BonusSkills identify lore smithing~
+Stats -1 1 3 0 0 0 
+MaxStats 19 21 23 19 21 25 
 Size small
-HPBonus 10
-PracBonus 2
+ManaBonus 5
+PracBonus 3
 RestrictAlign neutral~
 Slang gnomish
 End

@@ -67,6 +67,7 @@ Use 'desc edit' to edit your description.
 @rus Даже не думай об этом.
 ~
 @eng $n is burned by $p.@rus $p $gp{обжигает} $c6{$n}.~
+@eng $N {xis here, fighting with YOU!@rus $N {xздесь, сражается с ТОБОЙ!~
 @eng {y*** DEMOLISHES ***{x@rus {y*** РАЗРЫВАЕТ НА ЧАСТИ ***{x~
 @eng {csitting{x@rus {cсидишь{x~
 @eng the up@rus сверху (up)~
@@ -83,6 +84,7 @@ Use 'desc edit' to edit your description.
 @eng $n prays for transportation!@rus $n $gn{молит} о возвращении домой!~
 @eng $n appears in the room.@rus $n $gn{появляется} в комнате.~
 @eng $N deadly touches $n's neck and puts $m to nightmares.@rus $N касается шеи $c1{$n} и отправляет $gn{его} в мир кошмаров.~
+@eng {gYou mastered {W$v{g!{x@rus {gТы $gn{узнал} все об умении "{W$v{g"!{x~
 @eng You wear $p on your left finger.@rus Ты надеваешь $c3{$p} на палец левой руки.~
 @eng You knock $d, and try to open it.@rus Ты тихонько $gn{постучал} и $gn{попытался} открыть $c3{$d}.~
 @eng You can't sleep on that.
@@ -98,8 +100,6 @@ Use 'desc edit' to edit your description.
 @rus Ты прекращаешь отдыхать.
 ~
 @eng You dodge $n's attack.@rus Ты $gN{уклонился} от атаки $c1{$n}.~
-@eng As you wield it, you will feel that its power will increase continuosly.@rus Взяв катану в руку, ты почувствуешь, как ее мощь постоянно растет.~
-@eng thin air??@rus воздухом??~
 @eng You wake and sit in $p.@rus Ты просыпаешься и садишься в $c3{$p}.~
 @eng A bet of $J gold has been received on $p.@rus Лот "$p". Ставка $J $qJ{золотых} -- принято!~
 @eng $p draws life from $n.@rus $p $gp{вытягивает} жизнь из $c1{$n}.~
@@ -173,6 +173,7 @@ Use 'desc edit' to edit your description.
 @eng $n asks $N for a quest.@rus $n $gn{просит} задание у $c1{$N}.~
 @eng $N {xis standing on $p.@rus $N {x$gN{стоит} на $c5{$p}.~
 @eng $N {xis resting at $p.@rus $N {x$gN{отдыхает} за $c4{$p}.~
+@eng $N {xis here, fighting with someone who left??@rus $N {xздесь, сражается с кем-то, кто ушел??~
 @eng It is closed.@rus $p $gp{закрыт}.~
 @eng $n sacrifices $p to gods.@rus $n $gn{приносит} $c3{$p} в жертву богам.~
 @eng $n has created $N!@rus $n $gn{создал} $c6{$N}!~
@@ -200,7 +201,6 @@ Use 'desc edit' to edit your description.
 @eng Your hands are tied up with your weapon!
 @rus Ты слишком слаб чтобы держать такое тяжелое оружие и щит!
 ~
-@eng You feel your pulse slow down.@rus Твой пульс успокаивается.~
 @eng You feel your blood heats your body.
 @rus Ты чувствуешь как кровь обжигает твое тело.
 ~
@@ -358,7 +358,6 @@ Use 'desc edit' to edit your description.
 ~
 @eng {cdevastate{x@rus {cопустошаешь{x~
 @eng {R### TERMINATE ###{x@rus {R### УНИЧТОЖАЕШЬ ###{x~
-@eng You feel less cold.@rus Холод понемногу отпускает тебя.~
 @eng Lock what?
 @rus Замкнуть что?
 ~
@@ -725,6 +724,7 @@ The actioneer appears before $n and hands $m $p.~
 @eng You are hurt far too bad for that.
 @rus Тебе слишком больно делать это.
 ~
+@eng {gYou have become better at {W$v{g!{x]@rus {gТы $gn{стал} лучше владеть умением "{W$v{g"!{x~
 @eng Better hurry, you're almost out of time for your quest!
 @rus Лучше поторопись, время, отведенное на задание, почти вышло!
 ~
@@ -781,7 +781,6 @@ The actioneer appears before $n and hands $m $p.~
 @rus Что съесть?
 ~
 @eng {cresting{x@rus {cотдыхаешь{x~
-@eng You feel less sick.@rus Ты чувствуешь себя немного лучше.~
 @eng Do I know you?@rus А ты кто такой?~
 @eng $p glows brightly, and is whole again.  Good Job!@rus $p окутывается сиянием и, когда оно рассеивается, ты уже не видишь ни одной царапины.~
 @eng $p glows brightly, and is whole again.@rus $p окутывается сиянием, которое вскоре исчезает.~
@@ -804,7 +803,6 @@ Get back to questor before your time runs out!
 @eng $n takes you down with a weird judo move!@rus Ловким движением $n $gn{посылает} тебя на землю!~
 @eng $n steps into $p, riding on $N.@rus $n $gn{въезжает} в $c3{$p} верхом на $c5{$N}.~
 @eng $N {xis resting in $p.@rus $N {x$gN{отдыхает} в $c5{$p}.~
-@eng $N {xis here, fighting with $t.@rus $N {xздесь, $gN{сражается} с $c4{$t}.~
 @eng You wear $p on your feet.@rus Ты обуваешься в $c3{$p}.~
 @eng You can't seem to find a place to stand.
 @rus Ты даже не представляешь куда здесь можно встать.
@@ -853,7 +851,6 @@ Get back to questor before your time runs out!
 @rus Пусть живет.
 ~
 @eng You can't bring $N into the city.@rus Ты не можешь внести $N в этот город.~
-@eng YOU!@rus ТОБОЙ!~
 @eng From now on, you won't hear tells.
 @rus С этого момента ты не будешь слышать то, что тебе говорят.
 ~
@@ -899,7 +896,6 @@ Get back to questor before your time runs out!
 @eng It won't fit.
 @rus Не входит.
 ~
-@eng {gYou have become better at {W$t{g!{x@rus {gТы $gn{стал} лучше владеть умением "{W$t{g"!{x~
 @eng scratch@rus царапающий удар~
 @eng $p flickers and vanishes.@rus $p $gp{вспыхнул} и $gp{исчез}.~
 @eng $n's power increases!@rus Энергия $c1{$p} увеличивается!~
@@ -916,12 +912,12 @@ Get back to questor before your time runs out!
 @eng First ask your beloved master!
 @rus Сначала спроси у своего любимого хозяина!
 ~
-@eng {gYou learn from your mistakes and your {W$t{g skill improves!{x@rus {gИзучив свои ошибки, ты $gn{стал} лучше владеть умением "{W$t{g"!{x~
-@eng {gYou learn from your mistakes and you manage to master {W$t{g!{x@rus Поняв все свои ошибки, ты $gn{стал} в совершенстве владеть умением "{W$t{g"!{x~
 @eng You don't have enough power.
 @rus Ты не достотачно силен для этого.
 ~
 @eng $p flickers and vanishes, spilling its contents on the floor.@rus $p $gp{вспыхнул} и $gp{исчез}, разбросав содержимое вокруг.~
+@eng {gYou learn from your mistakes and you manage to master {W$v{g!{x@rus Поняв все свои ошибки, ты в совершенстве $gn{овладел} умением "{W$t{g"!{x~
+@eng {gYou learn from your mistakes and your {W$v{g skill improves!{x@rus {gИзучив свои ошибки, ты $gn{стал} лучше владеть умением "{W$v{g"!{x~
 @eng You need to wield a dagger first.@rus Это делается с помощью кинжала.~
 @eng They aren't here.
 @rus Тут нет таких.
@@ -940,7 +936,6 @@ Get back to questor before your time runs out!
 @eng {cstanding{x@rus {cстоишь{x~
 @eng scatter around.~
 @eng You say '{G$b{x'@rus Ты произносишь: "{G$b{x"~
-@eng You feel you gain your life again.@rus Жизнь понемногу возвращается в твое тело.~
 @eng Wow. One silver coin.
 @rus Ух ты. Целый серебрянный.
 ~
@@ -1399,7 +1394,6 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng You reach for the True Source and feel something stopping you.
 @rus Ты чувстуешь, что кто-то не дает тебе добратся да Источника Силы.
 ~
-@eng someone who left??@rus тем, кто ушел??~
 @eng more than half-@rus больше чем наполовину ~
 @eng ({mCharmed{x) @rus ({mОчаровано{x) ~
 @eng $N gives secret of undead to $n.@rus $N открывает $c2{$n} секрет бессмертия.~
@@ -1539,6 +1533,7 @@ Quest staff waits patiently to return.
 @eng {R>>> ANNIHILATE <<<{x@rus {R>>> АННИГИЛИРУЕШЬ <<<{x~
 @eng $n spills $s guts all over the floor.@rus Внутренности $c1{$n} вывалились из распоротого живота наружу!~
 @eng $N {xis sitting at $p.@rus $N {x$gN{сидит} за $c4{$p}.~
+@eng $N {xis here, fighting with thin air??@rus $N {xздесь, сражается с пустотой??~
 @eng You feel yourself getting greater and greater.
 @rus Ты чуствуешь, как становишься все больше и БОЛЬШЕ.
 ~
@@ -1559,7 +1554,6 @@ Quest staff waits patiently to return.
 @eng You feel drunk.
 @rus Ты пьянеешь.
 ~
-@eng The smoke leaves your eyes.@rus Дым покидает твои глаза, возвращая зрение.~
 @eng $n wakes and sits in $p.@rus $n $gn{просыпается} и $gn{садится} в $c3{$p}.~
 @eng You can't fade while being ridden.
 @rus Ты не можешь поблекнуть оседланным.
@@ -1609,7 +1603,6 @@ Quest staff waits patiently to return.
 @eng How can you sneak upon yourself?
 @rus Ты не можешь подкрасться к себе сзади.
 ~
-@eng {gYou mastered {W$t{g!{x@rus {gТы $gn{узнал} все об умении "{W$t{g"!{x~
 @eng You butcher $P and create $j $qj{steaks}.@rus Ты $gn{разделал} $c3{$P} и $gn{приготовил} $j $c3{$qj{бифштексов}}.~
 @eng $n stands at $p.@rus $n встает около $c1{$p}.~
 @eng That's not a container.

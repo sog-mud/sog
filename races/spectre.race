@@ -1,0 +1,17 @@
+#RACE
+Name spectre~
+Act undead~
+Aff pass_door~
+Form undead intangible~
+Resist bash 100
+Resist pierce 100
+Resist slash 100
+Resist cold 100
+Resist holy -50
+Resist poison 100
+Resist charm 100
+Resist light -100
+Damtype drain
+End
+
+#$

@@ -23,8 +23,8 @@ The left pocket is partially tinted with grass stains.
 ~
 elf~
 CGR 0 V AB 0 900 0
-80 0 100d12+13500 1d10+850 13d5+50 'punch'
--50 -52 -51 -50
+40 15 100d4+1700 1d10+850 9d7+20 'punch'
+-20 -20 -20 -10
 FGJN
 stand stand either 1000
 Q 0 medium unknown
@@ -51,8 +51,8 @@ height, you probably do resemble a bug..  yumm...
 ~
 song bird~
 BCG 0 0 0 0 0 0
-65 0 65d10+8500 1d10+650 9d6+30 'peck'
--35 -33 -34 -20
+32 15 100d3+1200 1d10+650 7d7+20 'peck'
+-15 -15 -15 -10
 0
 stand stand either 0
 0 0 huge unknown
@@ -81,8 +81,8 @@ and returns to its lunch.
 ~
 song bird~
 CG 0 0 0 0 0 0
-45 0 25d10+3000 1d10+450 3d12+15 'peck'
--17 -17 -17 -17
+23 5 10d10+550 1d10+450 6d5+5 'peck'
+-10 -10 -10 -5
 0
 stand stand either 0
 0 0 tiny unknown
@@ -98,8 +98,8 @@ one hand above the book, pointing as if to emphasize one paragraph.
 ~
 unique~
 BG 0 0 0 0 0 0
-60 0 50d10+7750 1d10+600 8d6+28 'crush'
--32 -31 -30 -25
+30 10 50d5+1150 1d10+600 7d7+15 'crush'
+-15 -15 -15 -10
 DJK
 stand stand female 0
 HJM ABCEGHIJK large unknown
@@ -130,8 +130,8 @@ puzzled frown mars the otherwise smooth young face.
 ~
 unique~
 BCG 0 V 0 0 0 0
-52 0 50d10+4500 1d10+520 6d7+20 'punch'
--24 -25 -23 -18
+26 7 50d4+600 1d10+520 10d3+10 'punch'
+-10 -10 -10 -5
 F
 stand stand female 0
 HJM ABCDEFGHIJK small unknown
@@ -149,8 +149,8 @@ stone mouth is open, as if frozen in the middle of an incantation.
 ~
 unique~
 B 0 0 0 0 0 0
-61 0 50d10+7500 1d10+1800 8d6+20 'crush'
--29 -28 -29 -33
+30 15 100d3+1200 1d10+1000 7d6+20 'crush'
+-15 -15 -15 -10
 FJ
 stand stand male 3000
 HJM ABCEGIJK small unknown
@@ -178,8 +178,8 @@ with a strange, innocent vacancy.
 ~
 horse~
 G 0 HN 0 ABHKLM 1000 0
-70 2 100d10+9500 1d10+800 12d5+40 'cleave'
--45 -45 -45 -45
+35 15 50d5+1400 1d10+800 7d7+20 'cleave'
+-20 -20 -20 -15
 EIK
 stand stand either 0
 CH H large unknown
@@ -203,8 +203,8 @@ belong to the present.
 ~
 unique~
 BGU 0 T 0 0 0 0
-57 0 50d10+6000 1d10+570 6d8+24 'pound'
--27 -28 -26 -20
+28 10 50d2+700 1d10+570 5d5+10 'pound'
+-12 -12 -12 -8
 F
 stand stand female 0
 HJ ABCGHIJK medium unknown
@@ -227,10 +227,10 @@ gleaming cross... white, of course.
 ~
 human~
 GT 0 N 0 K 900 0
-65 3 65d10+9000 1d10+250 9d6+40 'cleave'
--37 -38 -36 -27
+32 15 50d4+1100 1d10+250 7d8+25 'cleave'
+-20 -20 -20 -15
 DEFIK
-stand stand either 5000
+stand stand either 2500
 0 0 large unknown
 r bash 33
 r slash 33
@@ -250,10 +250,10 @@ chipped on one side, causing the scales to tilt slightly.
 ~
 unique~
 BG 0 0 0 M 0 0
-68 0 70d10+9500 1d10+680 9d6+45 'pound'
--37 -38 -38 -35
+34 15 50d4+1500 1d10+680 7d8+20 'pound'
+-20 -20 -20 -15
 EFK
-stand stand female 4000
+stand stand female 2000
 HJM ABCGHIJK medium unknown
 r pierce 33
 r fire 100
@@ -273,8 +273,8 @@ to anything living that might get in the way..
 ~
 gnome~
 CS 0 V 0 0 0 0
-70 0 65d10+10300 1d10+620 9d6+25 'bite'
--40 -39 -40 -38
+35 15 50d5+1500 1d10+620 7d8+20 'bite'
+-20 -20 -20 -15
 DFJ
 stand stand male 1000
 C 0 small unknown
@@ -294,10 +294,10 @@ be the creator of this artwork..
 ~
 human~
 CGS 0 0 0 H 0 0
-65 0 65d10+8500 1d10+500 9d6+20 'punch'
--33 -32 -30 -30
+32 15 50d4+1400 1d10+500 7d7+20 'punch'
+-20 -20 -20 -15
 DEFJ
-stand stand male 2500
+stand stand male 1200
 0 0 small unknown
 r energy -50
 r disease 33
@@ -313,8 +313,8 @@ as if in prayer.
 ~
 unique~
 BGQ 0 N 0 0 800 0
-60 0 50d10+7000 1d10+1000 8d6+18 'pound'
--30 -29 -31 -28
+30 10 50d4+1300 1d10+1000 7d6+15 'pound'
+-18 -18 -18 -15
 FK
 rest stand either 0
 HJM ABCDGHIJK medium unknown
@@ -333,8 +333,8 @@ you see is thin air.
 ~
 unique~
 BG 0 0 0 0 0 0
-57 0 50d10+6000 1d10+500 6d8+20 'scratch'
--27 -28 -25 -26
+28 15 50d3+1000 1d10+500 7d6+20 'scratch'
+-15 -15 -15 -10
 EF
 stand stand either 0
 HJM ABCDGHIJK medium unknown
@@ -364,8 +364,8 @@ Aww, isn't it cute?
 ~
 rabbit~
 CG 0 0 0 0 0 0
-45 0 25d10+3000 0d0+0 8d4+6 'scratch'
--15 -16 -15 -15
+22 5 10d10+550 0d0+0 6d5+7 'scratch'
+-10 -10 -10 -5
 D
 stand stand none 0
 0 0 small unknown
@@ -382,8 +382,8 @@ at you.
 ~
 unique~
 BG 0 0 0 0 0 0
-55 0 50d10+6000 1d10+700 10d4+15 'pound'
--24 -25 -24 -23
+27 15 50d4+850 1d10+700 6d6+15 'pound'
+-12 -12 -12 -8
 F
 stand stand male 0
 HJM ABCDGHIJK medium unknown
@@ -405,9 +405,9 @@ weeping quietly.  You can make out a few whispered words..
 ~
 unique~
 BG 0 TU A 0 0 0
-51 0 50d10+4800 1d10+600 4d10+18 'magic'
--25 -26 -26 -25
-FG
+25 10 50d4+650 1d10+600 6d6+15 'magic'
+-8 -8 -8 -5
+F
 stand stand female 0
 HLS 0 medium unknown
 r bash 33
@@ -432,8 +432,8 @@ It seems to grow more solid as you look at it.
 ~
 unique~
 GS 0 TU 0 H 0 0
-62 0 50d10+7800 1d10+620 10d5+10 'magic'
--35 -34 -33 -31
+31 15 50d4+1100 1d10+620 7d6+15 'magic'
+-15 -15 -15 -10
 EFG
 stand stand either 0
 HL 0 medium unknown
@@ -455,8 +455,8 @@ Weird.  You can see right through it.
 ~
 unique~
 GS 0 TU 0 0 0 0
-61 0 50d10+7500 1d10+610 10d5+0 'magic'
--35 -34 -33 -31
+30 15 50d4+1100 1d10+610 7d6+15 'magic'
+-15 -15 -15 -12
 EFG
 stand stand either 0
 HL 0 medium unknown
@@ -478,8 +478,8 @@ They remind you of something.. but you can't quite recall what..
 ~
 unique~
 GS 0 TU 0 H 0 0
-64 0 50d10+8500 1d10+640 10d5+40 'magic'
--35 -34 -33 -31
+32 15 50d5+1200 1d10+640 7d7+15 'magic'
+-18 -18 -18 -12
 EFG
 stand stand either 0
 HL 0 medium unknown
@@ -501,8 +501,8 @@ You are blinded by a flash of insight!
 ~
 unique~
 GS 0 TU 0 0 0 0
-62 0 50d10+7800 1d10+620 10d5+10 'magic'
--35 -34 -33 -31
+31 15 50d5+1150 1d10+620 7d6+15 'magic'
+-15 -15 -15 -12
 EFG
 stand stand either 0
 HL 0 medium unknown
@@ -526,8 +526,8 @@ to watch your every move.
 ~
 cat~
 BGT 0 0 G 0 0 11621
-80 2 100d12+14500 1d10+850 15d5+40 'claw'
--50 -54 -52 -51
+40 20 50d6+2200 1d10+850 7d8+20 'claw'
+-24 -24 -24 -18
 DKM
 stand stand male 0
 0 0 large unknown
@@ -547,8 +547,8 @@ lady can clearly see.. though what she is looking at is not visible to you.
 ~
 elf~
 BGQ 0 HNT 0 AM 1000 11621
-85 0 100d12+15000 1d10+2000 9d10+50 'crush'
--50 -53 -55 -53
+43 20 100d4+1800 100d4+1500 8d8+30 'crush'
+-25 -25 -25 -20
 EFGK
 stand stand female 0
 0 0 medium unknown
@@ -575,27 +575,13 @@ arms are the words:
 and
 "Myrl"
 ~
-drow~
-CGR 0 0 BG AB -900 0
-80 0 100d12+14000 1d10+1050 14d5+50 'claw'
--50 -53 -52 -51
+dark-elf~
+CGR 0 0 B AB -900 0
+40 20 50d6+2100 1d10+1050 8d7+25 'claw'
+-20 -20 -20 -18
 EFHJ
 stand stand either 1000
 0 0 medium unknown
-r bash -50
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 33
-r harm 33
-r light 33
 #11624
 hellhawk hawk~
 the hellhawk~
@@ -606,8 +592,8 @@ that makes you shiver inside.
 ~
 unique~
 BCFG 0 T 0 ABH 0 0
-65 2 65d10+8000 1d10+650 9d6+30 'peck'
--35 -33 -34 -20
+32 15 50d4+1250 1d10+650 7d6+20 'peck'
+-15 -15 -15 -10
 FH
 stand stand either 0
 AHW ACDEFK huge unknown
@@ -625,8 +611,8 @@ a cat.
 ~
 human~
 CFGS 0 0 BG H 0 0
-52 1 50d10+4500 1d10+100 5d8+22 'pierce'
--23 -24 -22 -24
+26 10 50d3+600 1d10+100 6d6+15 'pierce'
+-12 -12 -12 -8
 BEFJ
 stand stand either 0
 0 0 medium unknown
@@ -642,8 +628,8 @@ dull grey eyes flash restlessly from side to side searchingly.
 ~
 unique~
 BCFG 0 O 0 H -500 0
-64 0 50d10+8000 1d10+500 9d6+28 'digestion'
--33 -34 -34 -32
+32 15 50d4+1300 1d10+500 7d6+15 'digestion'
+-15 -15 -15 -12
 CDEFJ
 stand stand none 0
 ABHIM ABCDEFGHIJK large unknown
@@ -663,8 +649,8 @@ fall to the floor.
 ~
 human~
 BG 0 IU 0 H 0 0
-52 0 50d10+4500 1d10+520 6d7+0 'scratch'
--20 -18 -17 -15
+26 10 50d3+600 1d10+520 6d6+15 'scratch'
+-12 -12 -12 -8
 F
 rest rest either 0
 0 0 medium unknown
@@ -681,8 +667,8 @@ you notice that the fingers are clawed and bloody..
 ~
 human~
 BCFGR 0 O 0 ABHM -800 0
-64 0 50d10+8000 1d10+2000 9d6+0 'claw'
--30 -32 -31 -30
+32 15 50d5+1350 100d2+1000 7d7+20 'claw'
+-15 -15 -15 -12
 FG
 stand stand either 0
 0 0 medium unknown
@@ -702,8 +688,8 @@ only by the hellish red lights of its eyes.
 ~
 horse~
 GQ 0 HN 0 ABHKLM 1000 0
-70 2 100d10+10000 1d10+800 12d5+40 'cleave'
--45 -45 -45 -45
+35 2 50d5+1400 1d10+800 7d7+25 'cleave'
+-20 -20 -20 -15
 DEGI
 stand stand either 0
 CH H large unknown
@@ -730,10 +716,10 @@ terribly evil and entirely inhuman.
 ~
 human~
 BFG 0 O 0 H -800 0
-60 0 50d10+7500 1d10+700 8d6+24 'claw'
--30 -31 -29 -28
+30 10 50d4+1100 1d10+700 7d6+15 'claw'
+-22 -22 -22 -18
 FGI
-stand stand female 8765
+stand stand female 4000
 0 0 medium unknown
 r bash 100
 r lightning -50
@@ -751,10 +737,10 @@ and the blood red eyes seem to bore into yours with an insatiable hunger..
 ~
 unique~
 CGOT 0 OTU 0 H -400 0
-65 3 65d10+8900 1d10+250 9d6+40 'drain'
--37 -38 -36 -27
+32 15 50d4+1100 1d10+250 7d8+25 'drain'
+-20 -20 -20 -15
 DEFK
-stand stand either 4000
+stand stand either 2000
 DHIM 0 medium unknown
 r fire -50
 r cold 100
@@ -773,8 +759,8 @@ flicker searchingly around the room.
 ~
 human~
 CFG 0 V 0 H -600 0
-68 0 70d10+9250 1d10+680 9d6+45 'claw'
--37 -38 -38 -35
+34 20 50d4+1400 1d10+680 7d7+25 'claw'
+-24 -24 -24 -18
 DF
 stand stand either 3500
 0 0 medium unknown
@@ -791,8 +777,8 @@ doing a remarkable good job, considering that his tongue is only so long..
 ~
 human~
 CG 0 0 0 H 0 0
-70 0 65d10+10200 1d10+630 9d6+25 'chomp'
--38 -39 -40 -38
+35 15 50d5+1500 1d10+630 7d8+20 'chomp'
+-24 -24 -24 -18
 F
 stand stand either 1000
 0 0 medium unknown
@@ -807,8 +793,8 @@ yourself...  <g>
 ~
 unique~
 CG 0 TV 0 H 0 0
-65 1 65d10+8500 0d0+0 9d6+30 'chomp'
--33 -32 -30 -30
+32 15 50d4+1250 0d0+0 7d7+20 'chomp'
+-20 -20 -20 -15
 DEF
 stand stand none 0
 0 0 large unknown
@@ -839,10 +825,10 @@ The ghastly face turns towards you and licks its lips.
 ~
 human~
 CFGQ 0 O 0 H -900 0
-65 0 50d10+8200 1d10+1300 9d6+20 'wrath'
--35 -34 -35 -33
+32 20 50d5+1230 10d10+700 7d7+25 'wrath'
+-25 -25 -25 -20
 DEFG
-stand stand either 6200
+stand stand either 3000
 0 0 medium unknown
 r cold 100
 r holy -50
@@ -859,9 +845,9 @@ Your guts wrench as you attempt to look at.. nothing at all.
 ~
 unique~
 GO 0 T A H 0 0
-57 0 50d10+6200 1d10+500 6d8+10 'drain'
--28 -29 -27 -25
-FG
+28 10 50d3+700 1d10+500 6d6+15 'drain'
+-15 -15 -15 -10
+F
 stand stand none 0
 DL 0 medium unknown
 r bash 100
@@ -886,8 +872,8 @@ on self destruction.
 ~
 rabbit~
 CG 0 0 0 H 0 0
-45 0 25d10+3000 0d0+0 8d4+6 'bite'
--15 -16 -15 -15
+23 7 50d2+550 0d0+0 6d5+10 'bite'
+-8 -8 -8 -5
 0
 stand stand none 0
 0 0 small unknown
@@ -902,8 +888,8 @@ make this man a very dangerous enemy.
 ~
 human~
 GT 0 V 0 HK 0 0
-70 5 50d12+10200 1d10+400 10d6+45 'cleave'
--41 -42 -41 -40
+35 20 50d5+1500 1d10+400 7d7+25 'cleave'
+-20 -20 -20 -10
 ADEFIK
 stand stand male 0
 0 0 large unknown
@@ -921,10 +907,10 @@ red eyes gleaming sadistically against the blackness.
 ~
 unique~
 FG 0 OT A ABH -700 0
-70 0 100d10+10500 1d10+700 7d10+30 'drain'
--40 -42 -41 -39
+35 15 50d5+1450 1d10+700 7d7+25 'drain'
+-22 -22 -22 -18
 FG
-stand stand either 5650
+stand stand either 2500
 CHI ABCDEFGHIJKU medium unknown
 r slash 33
 r lightning 33
@@ -932,6 +918,7 @@ r acid 33
 r holy -50
 r energy -50
 r charm 100
+r light -50
 #11640
 lost dreams~
 some lost dreams~
@@ -941,8 +928,8 @@ Some dreams have been left here, forgotten.
 ~
 unique~
 G 0 TU A H 0 0
-62 0 50d10+8250 1d10+620 10d5+10 'magic'
--35 -34 -33 -31
+31 10 50d10+8250 1d10+620 7d6+15 'magic'
+-20 -20 -20 -15
 FG
 stand stand none 0
 DHL 0 medium unknown
@@ -956,8 +943,8 @@ You feel wiser, yet somehow dirty..
 ~
 unique~
 G 0 ITU 0 H 0 0
-61 0 50d10+7600 1d10+610 10d5+0 'digestion'
--35 -34 -33 -31
+30 11 50d4+1150 1d10+610 6d6+15 'digestion'
+-18 -18 -18 -15
 EFG
 stand stand none 0
 HL 0 medium unknown
@@ -976,8 +963,8 @@ As you attempt to look at them, they bury deeper into the shadows.
 ~
 unique~
 GHS 0 TU BG H 0 0
-64 0 50d10+8200 1d10+640 10d5+40 'drain'
--35 -34 -33 -31
+32 12 50d5+1237 1d10+640 7d6+15 'drain'
+-15 -15 -15 -12
 EFGJ
 stand stand none 0
 HL 0 medium unknown
@@ -994,8 +981,8 @@ An overwhelming feeling of hopelessness washes over you.
 ~
 unique~
 G 0 TU A H 0 0
-62 0 50d10+8200 1d10+620 10d5+10 'scratch'
--35 -34 -33 -31
+31 13 49d4+1187 1d10+620 6d6+14 'scratch'
+-12 -12 -12 -7
 EFG
 stand stand either 0
 HL 0 medium unknown
@@ -1014,8 +1001,8 @@ silently, like a living shadow.
 ~
 cat~
 BFGT 0 V BG H 0 11644
-80 2 100d12+15000 1d10+850 15d5+40 'claw'
--52 -51 -49 -50
+40 25 50d6+2200 1d10+850 8d8+30 'claw'
+-25 -25 -25 -20
 DEG
 stand stand female 0
 0 0 large unknown
@@ -1035,8 +1022,8 @@ the cruel smile that seems to have permanently twisted the human lips.
 ~
 human~
 BFGRT 0 JO 0 AHK -1000 11644
-85 0 100d12+16500 1d10+1000 9d10+50 'smash'
--50 -53 -55 -53
+43 25 50d7+2700 1d10+1000 8d9+30 'smash'
+-30 -30 -30 -20
 EIK
 stand stand male 0
 0 0 medium unknown
@@ -1057,8 +1044,8 @@ It leers at you mockingly.
 ~
 unique~
 BCG 0 U B 0 0 0
-58 0 5d10+6800 1d10+580 5d10+25 'shbite'
--58 -56 -59 -57
+29 14 50d3+950 1d10+580 6d7+15 'shbite'
+-20 -20 -20 -15
 ACDEF
 stand stand none 0
 DHL 0 medium unknown
@@ -1087,8 +1074,8 @@ This person is completely rigid with fear.
 ~
 human~
 BG 0 I 0 H 0 0
-58 0 5d10+6500 1d10+180 5d10+0 'scratch'
--52 -50 -51 -46
+29 12 50d3+750 1d10+180 6d6+16 'scratch'
+-18 -18 -18 -14
 DFJ
 rest rest either 0
 0 0 medium unknown
@@ -1102,8 +1089,8 @@ He appears to be taking good care of the garden.
 ~
 gnome~
 CG 0 0 0 0 0 0
-65 0 65d10+8700 1d10+500 9d6+25 'punch'
--35 -34 -36 -33
+32 15 50d4+1100 1d10+500 7d6+17 'punch'
+-15 -15 -15 -10
 DFJ
 stand stand male 1000
 C 0 small unknown
@@ -1122,8 +1109,8 @@ clean.
 ~
 ghost~
 BCG 0 IU A H 0 0
-65 0 65d10+8500 1d10+6700 9d6+20 'magic'
--39 -38 -36 -34
+32 17 50d4+1150 1d1+1200 7d6+18 'magic'
+-20 -20 -20 -17
 F
 stand stand either 100
 DIL 0 medium unknown
@@ -1134,12 +1121,12 @@ A silent figure melts into the shadows.
 ~
 Wary green eyes glow like a cat's amidst the deep shadow. 
 ~
-elf~
+dark-elf~
 CFGS 0 V B B 0 0
-82 1 100d12+15500 1d10+850 8d10+30 'pierce'
--55 -54 -54 -54
+41 27 50d6+2100 1d10+850 8d8+25 'pierce'
+-25 -25 -25 -20
 BEFHJ
-stand stand female 5000
+stand stand female 2500
 0 0 medium unknown
 r fire -50
 r cold -50
@@ -1153,12 +1140,12 @@ An assassin stalks in the shadows, looking for prey.
 ~
 The dark eyes seem to measure you, searching for weakness.
 ~
-elf~
+dark-elf~
 CFGS 0 0 B AB 0 0
-51 0 50d10+4900 1d10+510 4d8+25 'pierce'
--23 -23 -22 -21
+26 13 50d2+600 1d10+510 6d6+15 'pierce'
+-12 -12 -12 -10
 BEFJ
-stand stand either 4050
+stand stand either 2000
 0 0 medium unknown
 r lightning -50
 r holy 33
@@ -1172,8 +1159,8 @@ Slitted silver eyes glint menacingly.
 ~
 unique~
 CGS 0 0 BG ABH 0 0
-66 0 65d10+8800 1d10+660 9d6+35 'claw'
--37 -38 -36 -35
+33 17 50d4+1200 1d10+660 7d7+18 'claw'
+-18 -18 -18 -14
 EFH
 stand stand either 0
 AGHV ACDEFJKQU large unknown
@@ -1190,8 +1177,8 @@ You think you see something there.. but maybe it's just your imagination.
 ~
 unique~
 GS 0 TU A H 0 0
-62 0 65d10+7800 1d10+650 8d6+30 'magic'
--33 -34 -34 -33
+31 13 50d3+1100 1d10+650 7d6+19 'magic'
+-20 -20 -20 -15
 EFGH
 stand stand none 0
 DHL 0 medium unknown
@@ -1211,8 +1198,8 @@ black feathers forming the avian face.
 ~
 unique~
 BCG 0 T 0 ABH 0 0
-67 0 65d10+9000 1d10+670 9d6+40 'claw'
--36 -37 -37 -35
+33 18 50d4+1250 1d10+670 7d7+23 'claw'
+-20 -20 -20 -16
 ADEFK
 stand stand either 0
 ACHW ACDEFIJKPU huge unknown
@@ -1230,8 +1217,8 @@ black talons betray a natural predator behind the seeming vulnerability.
 ~
 unique~
 BCG 0 0 0 H 0 0
-60 0 50d10+7200 1d10+600 8d6+20 'peck'
--28 -29 -28 -27
+30 17 50d4+950 1d10+600 7d6+18 'peck'
+-18 -18 -18 -14
 EF
 stand stand either 0
 ACHW ACDEFIJKPU large unknown
@@ -1249,10 +1236,10 @@ from one claw.
 ~
 unique~
 CFG 0 TU A H 0 0
-67 0 65d10+9000 1d10+670 9d6+40 'drain'
--36 -37 -37 -35
+33 22 50d5+1200 1d10+670 7d7+23 'drain'
+-20 -20 -20 -15
 DEFG
-stand stand none 3250
+stand stand none 1500
 CHIL ABDEFJKU medium unknown
 r slash 33
 r fire -50
@@ -1266,8 +1253,8 @@ A dark sillouhette of a humanoid form.
 ~
 unique~
 G 0 ITV A H 0 0
-70 0 100d10+10500 1d10+1000 12d5+20 'magic'
--45 -44 -43 -41
+35 27 50d5+1450 1d10+1000 7d7+24 'magic'
+-20 -20 -20 -17
 EFGN
 stand stand none 0
 CHIL ABDEFJKU medium unknown
@@ -1295,12 +1282,12 @@ A dark elf waits silently in the darkness.
 ~
 The slim form seems almost a part of the surrounding darkness.
 ~
-elf~
+dark-elf~
 CGS 0 V B 0 0 0
-72 1 100d12+11000 1d10+720 12d5+30 'pierce'
--44 -44 -45 -43
+36 21 50d5+1500 1d10+720 7d7+26 'pierce'
+-20 -20 -20 -19
 EFGJ
-stand stand either 2550
+stand stand either 1200
 0 0 medium unknown
 #11659
 shadowblade shadow blade sinister form~
@@ -1309,12 +1296,12 @@ A lithe sinister form slips through the shadows.
 ~
 The figure seems to move constantly, eluding your focus.
 ~
-elf~
+dark-elf~
 CGS 0 0 B 0 0 0
-72 1 100d12+11000 1d10+720 12d5+27 'pierce'
--45 -46 -44 -42
+36 26 50d5+1550 1d10+720 7d8+23 'pierce'
+-20 -20 -20 -18
 EFGH
-stand stand either 4500
+stand stand either 2200
 0 0 medium unknown
 #11660
 grey ninja cloaked form~
@@ -1323,12 +1310,12 @@ Wary green eyes glint menacingly from the hood of a grey cloaked form.
 ~
 The grey figure seems to blend in with its surroundings.
 ~
-elf~
+dark-elf~
 BCGS 0 0 B 0 0 0
-80 2 100d12+14500 1d10+850 15d5+40 'wrath'
--53 -52 -52 -51
+40 25 50d6+1700 1d10+850 8d7+26 'wrath'
+-20 -20 -20 -18
 DEFGHJ
-stand stand either 6250
+stand stand either 1500
 0 0 medium unknown
 #11661
 black ninja figure~
@@ -1338,12 +1325,12 @@ A black clothed figure watches from the shadows.
 Raven black hair frames a dark elven face and the slitted yellow eyes of a
 cat.
 ~
-elf~
+dark-elf~
 BCGS 0 0 B 0 0 0
-78 1 100d12+13500 1d10+780 15d5+10 'chill'
--49 -50 -50 -47
+39 10 50d5+2000 1d10+780 8d7+15 'chill'
+-20 -20 -20 -15
 EFGJ
-stand stand female 5200
+stand stand female 2500
 0 0 medium unknown
 r fire -50
 r cold 100
@@ -1354,12 +1341,12 @@ A figure clothed in white stands here.
 ~
 He seems to blur and shimmer like a living flame.
 ~
-elf~
+dark-elf~
 BCGS 0 0 A 0 0 0
-78 1 100d12+13500 1d10+780 15d5+10 'flame'
--51 -50 -49 -48
+39 15 50d5+2000 1d10+780 8d7+15 'flame'
+-20 -20 -20 -15
 EFGJ
-stand stand male 5200
+stand stand male 2600
 0 0 medium unknown
 r fire 100
 r cold -50
@@ -1373,10 +1360,10 @@ out from between sharp white fangs as the serpent hisses warningly.
 ~
 snake~
 BFG 0 0 G ABH 0 0
-75 0 65d10+12000 1d10+750 10d6+25 'shbite'
--45 -46 -47 -44
+37 15 50d5+1900 1d10+750 8d7+15 'shbite'
+-20 -20 -20 -15
 EFM
-stand stand either 3250
+stand stand either 1600
 0 0 large unknown
 r lightning 100
 #11664
@@ -1386,12 +1373,12 @@ Slitted silver eyes glint from the shadows.
 ~
 The silver eyes gleam menacingly, like twin daggers in the darkness.
 ~
-elf~
-BCFGS 0 0 B AB 0 11664
-85 2 100d12+17000 1d10+900 9d10+60 'wrath'
--57 -57 -56 -55
+dark-elf~
+BCFGS 0 0 B AB 0 11665
+43 30 50d7+3200 1d10+900 8d8+25 'wrath'
+-24 -24 -24 -20
 DEFK
-stand stand female 6770
+stand stand female 3400
 0 0 medium unknown
 r cold -50
 r holy 33
@@ -1407,8 +1394,8 @@ dark hawk.
 ~
 unique~
 BCFG 0 T B ABH 0 11664
-80 0 100d12+14500 1d10+820 9d10+20 'claw'
--40 -39 -40 -38
+40 15 50d6+2400 1d10+820 8d8+10 'claw'
+-20 -20 -20 -17
 ACDEFG
 stand stand female 0
 ACHW ACDEFJKPU large unknown
@@ -1426,10 +1413,10 @@ incredibly hyper..
 ~
 gnome~
 CGS 0 IV 0 0 0 0
-81 0 100d12+14900 1d10+900 9d10+0 'thwack'
--42 -42 -41 -39
+41 0 50d6+2800 1d10+900 8d8+1 'thwack'
+-20 -20 -20 -15
 EFGJ
-stand stand male 3400
+stand stand male 1700
 C 0 small unknown
 #11667
 boggled brain~
@@ -1440,8 +1427,8 @@ It appears to be a bodiless brain, boggling..
 ~
 unique~
 G 0 T 0 0 0 0
-65 0 65d10+8500 1d10+650 9d6+30 'charge'
--32 -33 -34 -32
+33 5 50d4+1600 1d10+650 6d7+10 'charge'
+-14 -14 -14 -10
 CDEF
 stand stand none 0
 DH 0 medium unknown
@@ -1458,8 +1445,8 @@ It snuffles your armpit.
 ~
 pig~
 BGH 0 T 0 0 0 0
-62 0 65d10+7800 1d10+620 9d6+10 'crush'
--30 -32 -31 -30
+31 1 50d4+1500 1d10+620 6d7+5 'crush'
+-10 -10 -10 -7
 CDEFJ
 stand stand none 0
 0 0 large unknown
@@ -1473,8 +1460,8 @@ Muh-oOoOOoo..
 ~
 pig~
 BG 0 0 0 0 0 0
-63 0 65d10+8250 1d10+630 9d6+15 'chomp'
--33 -34 -32 -31
+31 2 50d5+1500 1d10+630 6d7+5 'chomp'
+-10 -10 -10 -8
 CDEF
 stand stand none 0
 0 0 large unknown
@@ -1488,10 +1475,10 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAARGGGGGGHHHHHHH!!!
 ~
 unique~
 CG 0 T 0 0 0 0
-65 0 65d10+8000 1d10+650 9d6+30 'suction'
--35 -35 -35 -33
+32 5 50d5+1450 1d10+650 6d7+10 'suction'
+-12 -12 -12 -9
 ADEJ
-stand stand none 2500
+stand stand none 1200
 DHL 0 medium unknown
 r bash 33
 r pierce 33
@@ -1508,10 +1495,10 @@ It giggles and bonks you on the head.
 ~
 unique~
 G 0 0 B 0 0 0
-67 0 65d10+8800 1d10+800 10d6+30 'peck'
--38 -37 -38 -36
+33 4 50d5+1700 1d10+800 6d7+10 'peck'
+-12 -12 -12 -9
 DFGH
-stand stand none 1780
+stand stand none 900
 DHL 0 medium unknown
 r fire 33
 r cold 33
@@ -1528,8 +1515,8 @@ better yet, a brain?
 ~
 human~
 CG 0 I 0 0 0 0
-60 0 50d10+6750 1d10+10 8d6+28 'beating'
--30 -30 -30 -30
+30 0 50d4+1250 1d10+10 8d6+28 'beating'
+-10 -10 -10 -5
 FJ
 stand stand male 10
 0 0 medium unknown
@@ -1543,10 +1530,10 @@ She peers down her nose at you and mumbles something about ids and egos.
 ~
 human~
 BG 0 0 0 H 0 0
-70 -1 100d10+10250 1d10+1000 12d5+30 'slap'
--38 -39 -40 -37
+35 10 50d6+2400 1d10+1000 6d7+15 'slap'
+-15 -15 -15 -12
 DEF
-stand stand female 4750
+stand stand female 2300
 0 0 medium unknown
 r holy -50
 r negative -50
@@ -1560,10 +1547,10 @@ It's a normal person, with neat blond hair and a trendy suit.  How boring..
 ~
 human~
 BG 0 0 0 0 0 0
-61 0 50d10+7000 1d10+10 8d6+35 'punch'
--31 -31 -31 -30
+30 4 50d5+1550 1d10+10 6d6+10 'punch'
+-10 -10 -10 -7
 F
-stand stand either 3400
+stand stand either 1700
 0 0 medium unknown
 #11675
 toilet monster mound stuff~
@@ -1574,8 +1561,8 @@ Gross..
 ~
 unique~
 BCFGU 0 NO 0 H 0 0
-65 0 65d10+8700 1d10+650 9d6+27 'suction'
--35 -35 -36 -34
+32 7 50d5+1550 1d10+650 6d7+12 'suction'
+-12 -12 -12 -10
 ACD
 stand stand none 0
 BHJ ABCDEFHIJKU large unknown
@@ -1591,8 +1578,8 @@ into the dirt at a tremendous pace.
 ~
 pig~
 BCGH 0 0 0 0 0 0
-75 0 100d12+12100 1d10+650 14d5+5 'claw'
--45 -44 -44 -43
+37 1 50d6+2600 1d10+650 8d7+2 'claw'
+-18 -18 -18 -15
 CDJ
 stand stand either 0
 0 0 large unknown
@@ -1609,10 +1596,10 @@ resembles a giant rabbit.
 ~
 unique~
 BCGR 0 TUV 0 0 0 11677
-86 0 100d12+16500 1d10+1000 9d10+60 'magic'
--57 -57 -58 -56
+43 25 50d7+3300 1d10+1000 8d8+30 'magic'
+-25 -25 -25 -24
 ACDEFG
-stand stand male 6740
+stand stand male 3400
 ACHL ABCDEFGHIJK large unknown
 r lightning -50
 r energy 33
@@ -1628,8 +1615,8 @@ He looks back at you.  You boggle, he boggles.  Argh..
 ~
 song bird~
 BCG 0 0 0 0 0 11677
-80 0 100d12+13500 1d10+900 15d15+20 'peckb'
--50 -50 -49 -48
+40 6 50d6+3000 1d10+900 5d10+5 'peckb'
+-25 -25 -25 -24
 CDEJ
 stand stand male 110
 0 0 large unknown
@@ -1644,9 +1631,9 @@ Summoned from the elemental plane of air, the servant is bound to
 follow its master's orders until it is killed or freed.
 ~
 human~
-B C TU A A 0 0
-40 0 15d10+2550 1d10+400 4d8+13 'chill'
--13 -13 -13 -10
+B 0 TU A A 0 0
+20 0 50d3+650 1d10+400 4d4+2 'chill'
+-7 -7 -7 -4
 FG
 stand stand either 0
 0 0 medium unknown
@@ -1658,9 +1645,9 @@ A gauntleted fist hovers menacingly.
 Hard adamantite knuckles gleam with a fierce power. 
 ~
 modron~
-B C T 0 0 0 0
-45 0 25d10+3000 1d10+450 8d4+16 'crush'
--15 -15 -15 -12
+B 0 T 0 0 0 0
+22 0 50d3+800 1d10+450 4d4+3 'crush'
+-8 -8 -8 -5
 CDK
 stand stand none 0
 0 0 large unknown
@@ -1673,9 +1660,9 @@ Midnight black hair ripples across the sleek muscles of a large,
 powerful cat.
 ~
 cat~
-B C 0 G 0 0 0
-50 0 50d10+4500 1d10+500 5d8+19 'claw'
--21 -19 -20 -19
+B 0 0 G 0 0 0
+25 0 50d3+900 1d10+500 4d5+5 'claw'
+-10 -10 -10 -9
 DE
 stand stand either 0
 0 0 large unknown
@@ -1692,9 +1679,9 @@ The huge silver cat form moves with a liquid grace that leaves the
 impression of a living bolt of pure lightning.
 ~
 cat~
-B C 0 G A 0 0
-55 0 50d10+6000 1d10+550 10d4+23 'shbite'
--26 -25 -25 -23
+B 0 0 G A 0 0
+27 0 50d4+1150 1d10+550 4d5+5 'shbite'
+-11 -11 -11 -10
 CD
 stand stand either 0
 0 0 large unknown
@@ -1709,9 +1696,9 @@ Powerful snow white wings sprout from the equinne shoulder blades.
 Intelligent sea blue eyes seem to follow your every move.
 ~
 pig~
-B C T 0 AL 500 0
-60 0 50d10+6500 1d10+600 8d6+28 'cleave'
--30 -30 -30 -30
+B 0 T 0 AL 500 0
+30 0 50d4+1300 1d10+600 5d5+10 'cleave'
+-13 -13 -13 -12
 FIK
 stand stand either 0
 0 0 large unknown
@@ -1725,8 +1712,8 @@ glint like twin furnaces amidst the heat.
 ~
 cat~
 B C 0 G 0 0 0
-65 0 75d10+8000 1d10+650 8d6+34 'flbite'
--36 -36 -34 -33
+32 0 50d4+1600 1d10+650 5d5+9 'flbite'
+-15 -15 -15 -13
 DE
 stand stand either 0
 0 0 large unknown
@@ -1742,9 +1729,9 @@ hardness of its make the cat moves with the silent, dangerous grace of
 a killer.
 ~
 cat~
-B C 0 G 0 0 0
-65 0 75d10+8000 1d10+650 8d6+34 'flbite'
--35 -36 -34 -33
+B 0 0 G 0 0 0
+32 0 50d4+1600 1d10+650 5d5+9 'frbite'
+-15 -15 -15 -13
 DE
 stand stand either 0
 0 0 large unknown
@@ -1762,9 +1749,9 @@ the ability to do quite a bit of very real damage to those who oppose
 its master..
 ~
 cat~
-B C TU AG AB 0 0
-70 0 100d10+9500 1d10+700 7d10+30 'wrath'
--40 -41 -41 -40
+B 0 TU AG AB 0 0
+35 0 50d4+1800 1d10+700 5d6+10 'wrath'
+-22 -22 -22 -21
 DE
 stand stand either 0
 0 0 large unknown
@@ -1791,9 +1778,9 @@ arms and powerful legs.  A narrow enchanted collar encircles the thick
 neck, binding it to the will of its master.
 ~
 human~
-B C 0 0 L -500 0
-75 0 100d10+11250 1d10+750 7d10+35 'slash'
--45 -45 -45 -45
+B 0 0 0 L -500 0
+37 0 50d5+2050 1d10+750 5d6+12 'slash'
+-24 -24 -24 -23
 CDK
 stand stand either 0
 0 0 large unknown
@@ -1807,9 +1794,9 @@ bat wings.  A thick tail protrudes from the demon's hindquarters, ending
 in a sharp, triangular tip.
 ~
 human~
-B C T 0 L -700 0
-80 0 100d12+13500 1d10+800 9d10+28 'slash'
--50 -50 -50 -50
+B 0 T 0 L -700 0
+40 0 50d5+2500 1d10+800 6d6+10 'slash'
+-25 -25 -25 -25
 CDEKM
 stand stand either 0
 0 0 large unknown
@@ -1823,9 +1810,9 @@ to absorb all light in the area.  Two muscular arms sprout from
 either side of the broad torso, ending in wickedly sharp black talons.
 ~
 human~
-B C O 0 L -900 0
-85 0 100d12+16250 1d10+800 9d10+33 'claw'
--55 -55 -55 -55
+B 0 O 0 L -900 0
+42 0 50d6+3050 1d10+800 6d7+12 'claw'
+-27 -27 -27 -27
 CDK
 stand stand either 0
 0 0 huge unknown
@@ -1840,9 +1827,9 @@ The soft brown fur stands on end, giving the hamster the appearance
 of a small and deadly fluffball.  Watch those incisors!
 ~
 rabbit~
-BC C 0 0 0 0 0
-90 0 100d12+18000 1d10+900 9d10+38 'bite'
--60 -60 -60 -58
+BC 0 0 0 0 0 0
+45 0 50d6+3400 1d10+900 6d7+15 'bite'
+-30 -30 -30 -30
 DJ
 stand stand either 0
 0 0 small unknown
@@ -1854,9 +1841,9 @@ A small guinea pig hisses at you viciously.
 It snuffles viciously.  Fatal and furry!
 ~
 rabbit~
-BC C a 0 0 0 0
-92 0 100d12+17250 1d10+950 10d10+38 'chomp'
--68 -68 -68 -68
+BC 0 a 0 0 0 0
+46 0 50d6+3300 1d10+950 7d7+16 'chomp'
+-34 -34 -34 -34
 DEJ
 stand stand either 0
 0 0 small unknown
@@ -1869,9 +1856,9 @@ Exquisitely crafted of mithril, the blade has been given life through
 powerful magic.  It is very precise and extremely deadly.
 ~
 modron~
-BT C T 0 0 0 0
-92 0 100d12+17250 1d10+950 10d10+40 'slash'
--65 -65 -65 -65
+BT 0 T 0 0 0 0
+46 0 50d6+3300 1d10+950 7d7+20 'slash'
+-33 -33 -33 -33
 DEFK
 stand stand none 0
 0 0 medium unknown
@@ -1885,9 +1872,9 @@ resembles a large rabbit.  Though small, it possesses an intelligence
 and training which make it an deadly fighter.
 ~
 rabbit~
-BT C TU A AB 0 0
-93 0 100d12+19000 1d10+1000 10d10+43 'magic'
--75 -74 -74 -74
+BT 0 TU A AB 0 0
+47 0 50d6+3500 1d10+1000 7d7+22 'magic'
+-37 -37 -37 -37
 CDEGK
 stand stand either 0
 0 0 small unknown
@@ -1914,9 +1901,9 @@ Powerful runes shimmer along both faces of the finely crafted adamantite
 blade.  Magically empowered and honed, the blade is a lethal enemy.
 ~
 modron~
-BT C NOT 0 0 0 0
-90 0 100d12+19000 1d10+1000 10d10+43 'cleave'
--70 -70 -70 -68
+BT 0 NOT 0 0 0 0
+45 0 50d7+3500 1d10+1000 7d7+24 'cleave'
+-35 -35 -35 -35
 CDEFK
 stand stand none 0
 0 0 medium unknown
@@ -1932,10 +1919,10 @@ A classy nametag pinned to her lapel reads:
 ~
 elf~
 BGJe 0 0 0 AB 0 0
-93 0 100d12+19000 1d10+1000 10d10+43 'wrath'
--50 -50 -50 -50
+47 26 50d7+3500 1d10+1000 8d8+25 'wrath'
+-25 -25 -25 -25
 EFK
-stand stand female 10000
+stand stand female 5000
 0 0 medium unknown
 M greet 11600 100~
 #11696
@@ -1950,10 +1937,10 @@ A silver pin on her lapel reads:
 ~
 elf~
 BGJe 0 0 0 AB 0 0
-90 0 100d12+18000 1d10+1000 10d10+43 'magic'
--50 -50 -50 -50
+45 27 50d6+3450 1d10+1000 8d8+24 'magic'
+-25 -25 -25 -25
 EFK
-stand stand female 10000
+stand stand female 5000
 0 0 medium unknown
 #11697
 zdreni avenger figure~
@@ -1969,12 +1956,12 @@ the clan members for status, the avenger is extremely loyal to all members
 of the clan.  Shimmering above the collarbone is the form of a stooping
 hawk over two crossed daggers.
 ~
-elf~
-BCFGS 0 a B AB -500 11700
-88 5 100d12+17250 1d10+3000 10d10+49 'pierce'
--70 -70 -70 -69
+dark-elf~
+BCFGS 0 a B AB -500 11725
+44 27 50d6+3400 1d1+1500 8d8+25 'pierce'
+-35 -35 -35 -35
 BDEFHJK
-stand stand either 10000
+stand stand either 5000
 0 0 medium unknown
 r bash 33
 r pierce 33
@@ -2006,12 +1993,12 @@ the clan members for status, the avenger is extremely loyal to all members
 of the clan.  Shimmering above the collarbone is the form of a stooping
 hawk over two crossed daggers.
 ~
-elf~
-BCFGRS 0 0 B AB 0 11700
-88 5 100d12+17700 1d10+6000 10d10+48 'pierce'
--70 -70 -70 -69
+dark-elf~
+BCFGRS 0 0 B AB 0 11725
+44 24 50d6+3450 1d10+2500 8d8+28 'pierce'
+-35 -35 -35 -35
 BEFJK
-stand stand either 10000
+stand stand either 5000
 0 0 medium unknown
 r bash 33
 r pierce 33
@@ -2040,12 +2027,12 @@ of the influence of his position and his ability to retain it despite
 the power games of those below him.  The image of two crossed daggers
 shimmers above his collarbone.
 ~
-elf~
-BCFGRS 0 O B AB -500 11700
-85 2 100d12+15750 1d10+1500 9d10+33 'wrath'
--57 -57 -58 -56
+dark-elf~
+BCFGRS 0 0 B AB -500 11699
+42 19 50d6+3250 1d10+600 8d7+15 'wrath'
+-29 -28 -29 -29
 BEFHJK
-stand stand male 10000
+stand stand male 5000
 0 0 medium unknown
 #11700
 zdreni shadowmaster assassin dark elven form~
@@ -2055,12 +2042,12 @@ A slender dark elven form blends in with the shadows.
 The figure moves with a powerful liquid grace, like a living shadow.
 Silent and deadly, the shadowmaster is a lethal enemy.
 ~
-elf~
-BCFGS 0 0 B AB -500 11700
-80 2 100d12+13500 1d10+1200 9d10+28 'pierce'
--53 -53 -52 -51
+dark-elf~
+BCFGS 0 0 B AB -500 11699
+40 17 50d6+3000 1d10+500 8d7+15 'pierce'
+-26 -26 -26 -26
 BEFJK
-stand stand female 8000
+stand stand female 4000
 0 0 medium unknown
 #11701
 zdreni blademaster assassin~
@@ -2071,12 +2058,12 @@ The blademaster has been honed mind and body to the sharpness of
 a living weapon.  Crisscrossed scars mar the dark skin, tokens
 of the power and difficulty of this rank.
 ~
-elf~
-CFGS 0 0 B 0 -500 11700
-75 1 100d10+11250 1d10+900 7d10+35 'pierce'
--48 -48 -48 -44
+dark-elf~
+CFGS 0 0 B AB -500 11699
+37 19 50d5+2100 1d10+400 7d7+18 'pierce'
+-24 -24 -24 -22
 BDEFJ
-stand stand either 7500
+stand stand either 3700
 0 0 medium unknown
 #11702
 zdreni magemaster assassin elf form~
@@ -2087,12 +2074,12 @@ In addition to skills in weapons and stealth, the magemaster excels
 in the magical arts.  The combination makes the magemaster an extremely
 versatile and effective assassin.
 ~
-elf~
-CFGRS 0 OT B A -500 11700
-75 1 100d10+11000 1d10+1500 7d10+34 'pierce'
--49 -50 -49 -47
-BFGJ
-stand stand either 7500
+dark-elf~
+CFGRS 0 0 B AB -500 11699
+37 16 50d5+2000 1d10+600 7d7+17 'pierce'
+-24 -24 -24 -24
+BFJ
+stand stand either 3700
 0 0 medium unknown
 #11703
 zdreni stalker assassin figure~
@@ -2108,12 +2095,12 @@ of one of higher rank.  Hence, the stalker seeks to hone his abilities
 to perfection, for a failed assassination attempt means instant death,
 and those above him are anything but strangers to the art.
 ~
-elf~
-CFGS 0 0 B 0 -500 11700
-70 1 100d10+9500 1d10+900 7d10+30 'pierce'
--43 -44 -43 -41
+dark-elf~
+CFGS 0 0 B AB -500 11699
+35 18 50d5+1900 1d10+900 7d6+14 'pierce'
+-21 -21 -21 -21
 BEFJK
-stand stand either 7000
+stand stand either 3500
 0 0 medium unknown
 #11704
 zdreni darkblade assassin form~
@@ -2123,12 +2110,12 @@ A dark form measures you from the shadows.
 The darkblade is an expert in killing and has already caused numerous
 deaths to obtain this rank.
 ~
-elf~
-CFGS 0 0 B 0 -500 11700
-65 1 75d10+8000 1d10+750 8d6+34 'pierce'
--37 -38 -38 -37
+dark-elf~
+CFGS 0 0 B AB -500 11699
+32 13 50d5+1750 1d10+750 7d6+12 'pierce'
+-18 -18 -18 -18
 BEFJK
-stand stand either 6500
+stand stand either 3200
 0 0 medium unknown
 #11705
 zdreni venomblade assassin elf~
@@ -2138,15 +2125,13 @@ A dark elf looks you over and smiles cruelly.
 Well versed in the arts of killing, the venomblade also has an extensive
 repertoire of poisons to aid his assassinations.
 ~
-elf~
-CFGS 0 0 B 0 -500 11700
-60 1 50d10+8000 1d10+700 8d6+28 'pierce'
--34 -33 -34 -32
+dark-elf~
+CFGS 0 0 B B -500 11699
+30 17 50d4+1500 1d10+700 6d6+13 'pierce'
+-17 -17 -17 -16
 BEFJK
-stand stand either 6000
+stand stand either 3000
 0 0 medium unknown
-r disease 33
-r poison 100
 #11706
 zdreni stiletto assassin~
 the Zdreni stiletto~
@@ -2155,12 +2140,12 @@ An assassin appears silently from the darkness.
 The stiletto assassin moves with the quiet, lethal grace of a well-aimed
 blade.
 ~
-elf~
-CFGS 0 0 B 0 -500 11700
-55 1 50d10+5000 1d10+650 10d4+23 'pierce'
--29 -28 -28 -26
+dark-elf~
+CFGS 0 0 B 0 -500 11699
+27 17 50d4+1500 1d10+650 6d6+12 'pierce'
+-14 -14 -14 -13
 BEFJK
-stand stand either 5500
+stand stand either 2700
 0 0 medium unknown
 #11707
 zdreni apprentice assassin young~
@@ -2172,10 +2157,10 @@ trials, is among the lowest in rank.  Though not as finely honed
 as those above him, the apprentice has already begun to learn his
 art and is a dangerous enemy.
 ~
-elf~
-CFGS 0 0 B 0 -50 11700
-50 0 50d10+4500 1d10+600 5d8+19 'pierce'
--21 -21 -21 -19
+dark-elf~
+CFGS 0 0 B 0 -50 11699
+25 7 50d3+800 1d10+600 5d5+5 'pierce'
+-10 -10 -10 -9
 BFJ
 stand stand either 1000
 0 0 medium unknown
@@ -2189,12 +2174,12 @@ which will prove his worth to join the guild.  Failure will mean
 immediate death.  And cowardice at this point will bring down the wrath
 of the guild, also resulting in death.
 ~
-elf~
-BGS 0 0 0 0 -50 11700
-45 0 25d10+3000 1d10+500 8d4+16 'pierce'
--15 -15 -15 -12
+dark-elf~
+BGS 0 0 0 0 -50 11699
+22 3 50d3+600 1d10+500 5d4+2 'pierce'
+-7 -7 -7 -7
 BF
-stand stand either 500
+stand stand either 250
 0 0 medium unknown
 #11709
 shadow panther black~
@@ -2206,9 +2191,9 @@ the huge cat.  Though large, the panther is all muscle and moves
 with a powerful grace.
 ~
 cat~
-FG 0 0 BG H 0 11700
-55 0 50d10+5000 1d10+550 10d4+23 'claw'
--28 -28 -28 -27
+FG 0 0 BG H 0 11699
+27 8 50d3+800 1d10+550 5d5+7 'claw'
+-14 -14 -14 -13
 DE
 stand stand either 0
 0 0 large unknown
@@ -2220,9 +2205,9 @@ A midnight black lynx paces silently.
 Slitted green eyes watch you warily.  A black key is draped around its neck.
 ~
 cat~
-BFG 0 0 G H 0 11700
-55 0 50d10+5000 1d10+550 10d4+23 'claw'
--28 -28 -28 -27
+BFG 0 0 G H 0 11699
+27 9 50d3+1000 1d10+550 5d5+8 'claw'
+-14 -14 -14 -13
 DE
 stand stand either 0
 0 0 large unknown
@@ -2234,12 +2219,12 @@ A Zdreni magemaster is here, training apprentices.
 Of the three magemaster, this is the one currently assigned to
 teach apprentices in the arts of killing magics.
 ~
-elf~
-BCFGRS 0 OT B A -500 11700
-75 1 100d10+11000 1d10+1500 7d10+34 'pierce'
--49 -50 -49 -47
-BFGJ
-stand stand either 7500
+dark-elf~
+BCFGRS 0 0 B AB -500 11699
+37 16 50d5+2000 1d10+600 7d7+17 'pierce'
+-25 -25 -25 -23
+BFJ
+stand stand either 3700
 0 0 medium unknown
 #11712
 zdreni apprentice assassin~
@@ -2251,12 +2236,12 @@ trials, is among the lowest in rank.  Though not as finely honed
 as those above him, the apprentice has already begun to learn his
 art and is a dangerous enemy.
 ~
-elf~
-BCFGRS 0 0 B 0 -50 11700
-50 0 50d10+4500 1d10+600 5d8+19 'pierce'
--21 -21 -21 -19
+dark-elf~
+BCFGRS 0 0 B 0 -50 11711
+25 0 50d3+800 1d10+250 5d5+5 'pierce'
+-5 -5 -5 -4
 BFJ
-stand stand either 1000
+stand stand either 500
 0 0 medium unknown
 #11713
 zdreni apprentice assassin~
@@ -2268,12 +2253,12 @@ trials, is among the lowest in rank.  Though not as finely honed
 as those above him, the apprentice has already begun to learn his
 art and is a dangerous enemy.
 ~
-elf~
-BCFGRS 0 0 B 0 -50 11700
-50 0 50d10+4500 1d10+600 5d8+19 'pierce'
+dark-elf~
+BCFGRS 0 0 B 0 -50 11699
+25 0 50d3+850 1d10+250 5d5+5 'pierce'
 -21 -21 -21 -19
 BFJ
-stand stand either 1000
+stand stand either 500
 0 0 medium unknown
 #11714
 zdreni blademaster assassin~
@@ -2284,12 +2269,12 @@ The blademaster has been honed mind and body to the sharpness of
 a living weapon.  Crisscrossed scars mar the dark skin, tokens
 of the power and difficulty of this rank.
 ~
-elf~
-BCFGS 0 0 B 0 -500 11700
-75 1 100d10+11250 1d10+900 7d10+35 'pierce'
--48 -48 -48 -44
+dark-elf~
+BCFGS 0 0 B AB -500 11699
+37 19 50d5+2100 1d10+900 7d7+18 'pierce'
+-24 -24 -24 -22
 BDEFJ
-stand stand either 7500
+stand stand either 3700
 0 0 medium unknown
 #11715
 zdreni apprentice assassin~
@@ -2301,12 +2286,12 @@ trials, is among the lowest in rank.  Though not as finely honed
 as those above him, the apprentice has already begun to learn his
 art and is a dangerous enemy.
 ~
-elf~
-BCFGS 0 0 B 0 -50 11700
-50 0 50d10+4500 1d10+600 5d8+19 'pierce'
--21 -21 -21 -19
+dark-elf~
+BCFGS 0 0 B 0 -50 11714
+25 7 50d3+850 1d10+250 5d5+5 'pierce'
+-10 -10 -10 -9
 BFJ
-stand stand either 1000
+stand stand either 500
 0 0 medium unknown
 #11716
 zdreni apprentice assassin~
@@ -2318,12 +2303,12 @@ trials, is among the lowest in rank.  Though not as finely honed
 as those above him, the apprentice has already begun to learn his
 art and is a dangerous enemy.
 ~
-elf~
-BCFGS 0 0 B 0 -50 11700
-50 0 50d10+4500 1d10+600 5d8+19 'pierce'
--21 -21 -21 -19
+dark-elf~
+BCFGS 0 0 B 0 -50 11699
+25 0 50d3+800 1d10+250 5d5+5 'pierce'
+-10 -10 -10 -9
 BFJ
-stand stand either 1000
+stand stand either 500
 0 0 medium unknown
 #11717
 zdreni magemaster assassin~
@@ -2333,12 +2318,12 @@ A Zdreni magemaster is here, concentrating on an experiment.
 Of the three magemaster, this is the one currently assigned to
 teach apprentices in the arts of killing magics.
 ~
-elf~
-BCFGRS 0 OT B A -500 11700
-75 1 100d10+11000 1d10+1500 7d10+34 'pierce'
--49 -50 -49 -47
-BFGJ
-stand stand either 7500
+dark-elf~
+BCFGRS 0 0 B AB -500 11699
+37 18 50d5+2000 1d10+600 7d7+17 'pierce'
+-24 -24 -24 -22
+BFJ
+stand stand either 3700
 0 0 medium unknown
 #11718
 zdreni venomblade assassin elf~
@@ -2348,12 +2333,12 @@ A venomblade is here, assisting his magemaster.
 Well versed in the arts of killing, the venomblade also has an extensive
 repertoire of poisons to aid his assassinations.
 ~
-elf~
-BCFGS 0 0 B 0 -500 11700
-60 1 50d10+6750 1d10+700 8d6+28 'pierce'
--24 -23 -24 -22
+dark-elf~
+BCFGS 0 0 B 0 -500 11717
+30 15 6d6+13 1d10+700 50d4+1500 'pierce'
+-12 -12 -12 -11
 BEFJK
-stand stand male 6000
+stand stand male 3000
 0 0 medium unknown
 r disease 33
 r poison 100
@@ -2365,12 +2350,12 @@ A stiletto assassin is here, assisting her magemaster.
 The stiletto assassin moves with the quiet, lethal grace of a well-aimed
 blade.
 ~
-elf~
-BCFGS 0 0 B 0 -500 11700
-55 1 50d10+5500 1d10+650 10d4+23 'pierce'
--29 -28 -28 -26
+dark-elf~
+BCFGS 0 0 B 0 -500 11717
+27 14 50d4+1500 1d10+650 6d6+12 'pierce'
+-14 -14 -14 -13
 BEFJK
-stand stand female 5500
+stand stand female 2700
 0 0 medium unknown
 #11720
 zdreni venomblade assassin elf~
@@ -2380,12 +2365,12 @@ A venomblade is mixing chemicals here.
 Well versed in the arts of killing, the venomblade also has an extensive
 repertoire of poisons to aid his assassinations.
 ~
-elf~
-BCFGS 0 0 B 0 -500 11700
-60 1 50d10+6500 1d10+700 8d6+28 'pierce'
--34 -33 -34 -32
+dark-elf~
+BCFGS 0 0 B 0 -500 11699
+30 17 50d4+1500 1d10+300 6d6+13 'pierce'
+-17 -17 -17 -16
 BEFJK
-stand stand either 6000
+stand stand either 3000
 0 0 medium unknown
 r disease 33
 r poison 100
@@ -2397,12 +2382,12 @@ A venomblade is here, testing some new poisons on captives.
 White teeth gleam as the assassin smiles cruelly and forces the poison
 into the captives' mouths.
 ~
-elf~
-BCFGS 0 0 B 0 -500 11700
-60 1 50d10+7200 1d10+700 8d6+28 'pierce'
--34 -33 -34 -32
+dark-elf~
+BCFGS 0 0 B 0 -500 11699
+30 14 50d4+1500 1d10+500 6d6+13 'pierce'
+-17 -17 -17 -16
 BEFJK
-stand stand either 6000
+stand stand either 3000
 0 0 medium unknown
 r disease 33
 r poison 100
@@ -2415,9 +2400,9 @@ The captive tugs futiley at the cords which bind him to the table
 and only succeeds in pulling them tighter.
 ~
 human~
-BG 0 M 0 H 0 11700
-30 0 6d12+853 1d10+300 4d6+6 'scratch'
--6 -6 -6 -4
+BG 0 M 0 H 0 11722
+15 3 50d2+400 1d10+100 3d4+4 'scratch'
+-3 -3 -3 -2
 0
 rest rest either 0
 0 0 medium unknown
@@ -2429,10 +2414,10 @@ A drow stands here, hammering.
 Taught muscles bulge against the dark elven skin as the armoursmith
 strikes the metal before him.
 ~
-elf~
-BCG 0 0 0 0 -200 11700
-50 0 50d10+5000 1d10+500 5d8+20 'crush'
--22 -21 -21 -18
+dark-elf~
+BCG 0 0 0 0 -200 11699
+25 7 50d3+800 1d10+500 5d5+5 'crush'
+-11 -11 -11 -10
 CDIK
 stand stand male 2500
 0 0 medium unknown
@@ -2444,10 +2429,10 @@ A drow is here, working at the forge.
 Sparks fly as the weaponsmith hammers the red hot metal on the anvil
 before him into the shape of a dagger.
 ~
-elf~
+dark-elf~
 BCG 0 0 0 0 -200 11700
-50 0 50d10+5000 1d10+500 5d8+20 'smash'
--22 -21 -21 -18
+25 9 50d3+800 1d10+500 5d5+7 'smash'
+-11 -11 -11 -10
 CDIK
 stand stand male 2500
 0 0 medium unknown
@@ -2465,12 +2450,12 @@ the clan members for status, the avenger is extremely loyal to all members
 of the clan.  Shimmering above the collarbone is the form of a stooping
 hawk over two crossed daggers.
 ~
-elf~
-BCFGRS 0 a B AB -500 11700
-89 5 100d12+18500 1d10+3500 10d10+51 'wrath'
--74 -74 -74 -74
+dark-elf~
+BCFGRS 0 0 B AB -500 11699
+45 27 50d7+3500 1d10+1500 8d8+25 'wrath'
+-37 -37 -37 -37
 BDEFHJK
-stand stand either 10000
+stand stand either 4500
 0 0 medium unknown
 r bash 33
 r pierce 33
@@ -2739,12 +2724,12 @@ a tassled jester's hat~
 A colorful pointed hat tipped with silver tassles lies here.~
 felt~
 armor 0 0 AE
-23 24 23 20 0
-75 40 2500 P
-a '' to_object 75 -1 5 19 0
-a '' to_object 75 -1 5 18 0
-a '' to_object 75 -1 50 13 0
-a '' to_object 75 -1 50 12 0
+12 12 12 10 0
+36 40 1200 P
+a '' unknown 36 -1 25 12 0
+a '' unknown 36 -1 25 13 0
+a '' unknown 36 -1 3 18 0
+a '' unknown 36 -1 2 19 0
 g @rus none~
 #11618
 circlets wonder arm bands~
@@ -2752,12 +2737,12 @@ circlets of wonder~
 A pair of multicolored arm bands lie here.~
 etherealness~
 armor AF 0 AI
-24 24 24 20 0
-75 20 3000 P
-a '' to_object 75 -1 7 19 0
-a '' to_object 75 -1 75 12 0
-a '' to_object 75 -1 1 6 0
-a '' to_object 75 -1 3 3 0
+12 12 12 10 0
+37 20 3000 P
+a '' unknown 37 -1 1 3 0
+a '' unknown 37 -1 35 12 0
+a '' unknown 37 -1 3 19 0
+a '' to_object 37 -1 1 6 0
 E
 circlets wonder arm bands~
 shimmering letters are visible amidst the swirling matter of the circlets:
@@ -2793,8 +2778,8 @@ a bubbling indigo potion~
 A deep indigo potion bubbles here.~
 crystal~
 potion A 0 AO
-80 'detect magic' 'heal' 'bless' ''
-70 10 1000 P
+40 'detect magic' 'heal' 'bless' ''
+35 10 1000 P
 g @rus none~
 #11620
 moonbeam moon beam shaft moonlight light~
@@ -2802,12 +2787,12 @@ a moonbeam~
 A shaft of moonlight glimmers here.~
 light~
 armor AIK 0 AL
-27 27 28 21 0
-85 0 4000 P
-a '' to_object 85 -1 6 19 0
-a '' to_object 85 -1 6 18 0
-a '' to_object 85 -1 85 12 0
-a '' to_object 85 -1 2 4 0
+14 14 14 12 0
+42 0 4000 P
+a '' unknown 42 -1 1 4 0
+a '' unknown 42 -1 40 12 0
+a '' unknown 42 -1 3 19 0
+a '' unknown 42 -1 3 18 0
 g @rus none~
 #11621
 innocent dreams~
@@ -2816,12 +2801,12 @@ Some innocent dreams hover here.~
 etherealness~
 armor AK 0 AQ
 27 27 28 20 0
-85 0 3500 P
-a '' to_object 85 -1 6 19 0
-a '' to_object 85 -1 6 18 0
-a '' to_object 85 -1 -10 13 0
-a '' to_object 85 -1 95 12 0
-a '' to_object 85 -1 -1 3 0
+42 0 3500 P
+a '' unknown 42 -1 45 12 0
+a '' unknown 42 -1 -5 13 0
+a '' unknown 42 -1 3 18 0
+a '' unknown 42 -1 3 19 0
+a '' to_object 42 -1 -1 3 0
 g @rus none~
 #11622
 gleaming white cross~
@@ -2829,12 +2814,12 @@ a gleaming white cross~
 A white cross is here, glowing with an inner light.~
 ivory~
 armor AK 0 AO
-28 28 28 21 0
-85 30 1500 P
-a '' to_object 85 -1 5 19 0
-a '' to_object 85 -1 30 13 0
-a '' to_object 85 -1 75 12 0
-a '' to_object 85 -1 2 4 0
+14 14 14 12 0
+42 30 1500 P
+a '' unknown 42 -1 1 4 0
+a '' unknown 42 -1 35 12 0
+a '' unknown 42 -1 15 13 0
+a '' unknown 42 -1 2 19 0
 g @rus none~
 #11623
 white kid gloves~
@@ -2842,12 +2827,12 @@ a pair of white kid gloves~
 A pair of white kid gloves lie here.~
 soft leather~
 armor AK 0 AH
-23 23 21 21 0
-85 30 3500 P
-a '' to_object 85 -1 5 19 0
-a '' to_object 85 -1 10 18 0
-a '' to_object 85 -1 85 12 0
-a '' to_object 85 -1 3 2 0
+12 12 12 12 0
+42 30 3500 P
+a '' unknown 42 -1 2 2 0
+a '' unknown 42 -1 40 12 0
+a '' unknown 42 -1 5 18 0
+a '' unknown 42 -1 2 19 0
 g @rus none~
 #11624
 mark gabrian white insignia hair~
@@ -2855,12 +2840,12 @@ Mark of Gabrian~
 An insignia woven of white panther hair lies here.~
 flesh~
 armor BIM 0 AE
-21 21 20 20 32768
-80 0 2000 P
-a '' to_object 80 -1 3 19 0
-a '' to_object 80 -1 5 18 0
-a '' to_object 80 -1 80 12 0
-a '' to_object 80 -1 3 5 0
+11 11 10 10 32768
+40 0 2000 P
+a '' unknown 40 -1 40 12 0
+a '' unknown 40 -1 1 5 0
+a '' unknown 40 -1 3 18 0
+a '' unknown 40 -1 2 19 0
 E
 mark gabrian white insignia hair~
 an inscription is woven in gold around edge of the mark:
@@ -2896,11 +2881,11 @@ a white grey breast plate~
 A breast plate of huge white-grey feathers lies here~
 feathers~
 armor 0 0 AD
-21 22 21 19 0
-65 150 5500 P
-a '' to_object 65 -1 40 13 0
-a '' to_object 65 -1 6 19 0
-a '' to_object 65 -1 2 1 0
+10 11 11 9 0
+32 150 2700 P
+a '' unknown 32 -1 1 18 0
+a '' unknown 32 -1 3 19 0
+a '' unknown 32 -1 20 13 0
 g @rus none~
 #11626
 song nightingale~
@@ -2908,11 +2893,11 @@ song of the nightingale~
 A beautiful song fills the air.~
 nothingness~
 armor BFHI 0 AQ
-15 15 15 11 0
-45 0 2200 P
-a '' to_object 45 -1 4 19 0
-a '' to_object 45 -1 45 12 0
-a '' to_object 45 -1 2 4 0
+8 8 8 6 0
+23 0 1100 P
+a '' unknown 23 -1 1 4 0
+a '' unknown 23 -1 25 12 0
+a '' unknown 23 -1 2 19 0
 g @rus none~
 #11627
 scroll enlightenment white~
@@ -2920,10 +2905,10 @@ a scroll of enlightenment~
 A beautiful white scroll lies here, promising to teach you many things.~
 parchment~
 scroll B 0 AO
-60 'colour spray' 'curse' 'charm person' 'poison'
-60 10 550 P
-a '' to_object 60 -1 -4 5 0
-a '' to_object 60 -1 -5 3 0
+30 'colour spray' 'curse' 'charm person' 'poison'
+30 10 550 P
+a '' unknown 30 -1 -3 3 0
+a '' unknown 30 -1 -2 5 0
 g @rus none~
 #11628
 sparkling wand~
@@ -2931,8 +2916,8 @@ a sparkling wand~
 A wand sparkles in the light.~
 mithril~
 wand AF 0 AO
-69 12 12 'colour spray' 0
-61 10 3250 P
+34 12 12 'colour spray' 0
+30 10 1500 P
 g @rus none~
 #11629
 glowing silvery hooves~
@@ -2940,11 +2925,11 @@ glowing silvery hooves~
 A pair of silvery hooves glow with a soft inner light.~
 mithril~
 armor AK 0 AG
-22 21 23 18 0
-66 50 5200 P
-a '' to_object 66 -1 65 12 0
-a '' to_object 66 -1 3 3 0
-a '' to_object 66 -1 3 2 0
+11 11 11 9 0
+33 50 2500 P
+a '' unknown 33 -1 2 2 0
+a '' unknown 33 -1 1 3 0
+a '' unknown 33 -1 30 12 0
 g @rus none~
 #11630
 golden bell silver neckchain chain~
@@ -2953,10 +2938,10 @@ A golden bell lies here, attached to a delicate silver chain.~
 gold~
 jewelry A 0 AC
 0 0 0 0 0
-66 20 10240 P
-a '' to_object 66 -1 6 19 0
-a '' to_object 66 -1 50 12 0
-a '' to_object 66 -1 3 4 0
+33 20 5000 P
+a '' unknown 33 -1 2 4 0
+a '' unknown 33 -1 25 12 0
+a '' unknown 33 -1 3 19 0
 g @rus none~
 #11631
 rose tinted shades~
@@ -2964,11 +2949,11 @@ a pair of rose tinted shades~
 Some rose tinted shades lie here.~
 glass~
 armor 0 0 AC
-17 17 17 14 0
-55 20 1000 P
-a '' to_affects 55 -1 0 0 A
-a '' to_object 55 -1 100 12 0
-a '' to_object 55 -1 -4 4 0
+9 9 9 7 0
+27 20 5000 P
+a '' unknown 27 -1 -2 4 0
+a '' unknown 27 -1 50 12 0
+a '' to_affects 27 -1 0 0 A
 g @rus none~
 #11632
 breastplate plate white cross~
@@ -2976,10 +2961,10 @@ a breastplate emblazoned with a white cross~
 A breastplate engraved with a gleaming white cross lies here.~
 mithril~
 armor AK 0 AD
-20 20 21 17 0
-60 350 5560 P
-a '' to_object 60 -1 5 19 0
-a '' to_object 60 -1 3 1 0
+10 10 10 9 0
+30 350 2800 P
+a '' unknown 30 -1 2 1 0
+a '' unknown 30 -1 3 19 0
 g @rus none~
 #11633
 white legplates~
@@ -2987,11 +2972,11 @@ white legplates~
 A pair of gleaming white legplates lie here.~
 mithril~
 armor AK 0 AF
-21 21 21 17 0
-64 150 4500 P
-a '' to_object 64 -1 4 19 0
-a '' to_object 64 -1 2 18 0
-a '' to_object 64 -1 2 5 0
+10 10 10 9 0
+32 150 2200 P
+a '' unknown 32 -1 1 5 0
+a '' unknown 32 -1 1 18 0
+a '' unknown 32 -1 2 19 0
 g @rus none~
 #11634
 diamond longsword sword~
@@ -2999,10 +2984,10 @@ a diamond longsword~
 A diamond longsword gleams sharply in the light.~
 diamond~
 weapon A 0 AN
-sword 7 10 'cleave' 0
-63 370 5650 P
-a '' to_object 63 -1 4 19 0
-a '' to_object 63 -1 3 18 0
+sword 6 7 'cleave' 0
+32 370 2500 P
+a '' unknown 32 -1 2 18 0
+a '' unknown 32 -1 2 19 0
 g @rus none~
 #11635
 ivory scales~
@@ -3011,11 +2996,11 @@ A pair of golden scales lie here.~
 ivory~
 treasure A 0 AH
 0 0 0 0 0
-67 150 4334 P
-a '' to_object 67 -1 50 13 0
-a '' to_object 67 -1 50 12 0
-a '' to_object 67 -1 2 4 0
-a '' to_object 67 -1 2 3 0
+34 150 2000 P
+a '' unknown 34 -1 1 3 0
+a '' unknown 34 -1 1 4 0
+a '' unknown 34 -1 20 12 0
+a '' unknown 34 -1 20 13 0
 g @rus none~
 #11636
 pruning shears~
@@ -3023,10 +3008,10 @@ a pair of pruning shears~
 A pair of pruning shears lie here.~
 metal~
 weapon 0 0 AN
-exotic 10 7 'stab' 0
-70 370 1000 P
-a '' to_object 70 -1 3 19 0
-a '' to_object 70 -1 3 18 0
+exotic 11 3 'stab' 0
+35 370 500 P
+a '' unknown 35 -1 1 18 0
+a '' unknown 35 -1 2 19 0
 g @rus none~
 #11637
 grass stained jumpsuit leather~
@@ -3034,10 +3019,10 @@ A grass stained jumpsuit~
 A leather jumpsuit smeared with grass stains is here.~
 soft leather~
 armor 0 0 AD
-19 18 19 19 0
-70 70 450 P
-a '' to_object 70 -1 -1 6 0
-a '' to_object 70 -1 3 2 0
+9 9 9 9 0
+35 70 300 P
+a '' unknown 35 -1 1 2 0
+a '' to_object 35 -1 -1 6 0
 g @rus none~
 #11638
 sculptor's chisel~
@@ -3045,10 +3030,10 @@ a sculptor's chisel~
 The sharp chisel of a master sculptor lies here.~
 diamond~
 weapon 0 0 AN
-dagger 9 8 'pierce' D
-68 250 4500 P
-a '' to_object 68 -1 3 19 0
-a '' to_object 68 -1 3 18 0
+dagger 4 10 'pierce' D
+34 250 2200 P
+a '' unknown 34 -1 2 18 0
+a '' unknown 34 -1 1 19 0
 g @rus none~
 #11639
 polished bone chip~
@@ -3065,11 +3050,11 @@ flowing white priest's robes~
 Some flowing white robes lie in a pool.~
 cloth~
 armor A 0 AK
-16 16 16 16 0
-57 70 200 P
-a '' to_object 57 -1 55 12 0
-a '' to_object 57 -1 3 5 0
-a '' to_object 57 -1 3 4 0
+8 8 8 8 0
+29 70 200 P
+a '' unknown 29 -1 2 4 0
+a '' unknown 29 -1 1 5 0
+a '' unknown 29 -1 30 12 0
 E
 flowing white priest robes~
 A glowing white cross is emblazoned across the front of the robes.
@@ -3081,11 +3066,11 @@ blind devotion~
 Some devotion shimmers whitely here.~
 nothingness~
 armor AU 0 AD
-17 18 17 16 0
-60 0 0 P
-a '' to_object 60 -1 60 12 0
-a '' to_object 60 -1 -8 4 0
-a '' to_object 60 -1 -6 2 0
+9 9 9 8 0
+30 30 0 P
+a '' unknown 30 -1 -3 2 0
+a '' unknown 30 -1 -4 4 0
+a '' unknown 30 -1 30 12 0
 g @rus none~
 #11642
 silver neckchain chain~
@@ -3094,10 +3079,10 @@ A silver neckchain lies coiled here.~
 silver~
 jewelry A 0 AC
 0 0 0 0 0
-45 10 7500 P
-a '' to_object 45 -1 25 13 0
-a '' to_object 45 -1 40 12 0
-a '' to_object 45 -1 3 5 0
+23 10 4000 P
+a '' unknown 23 -1 1 5 0
+a '' unknown 23 -1 15 13 0
+a '' unknown 23 -1 20 12 0
 g @rus none~
 #11643
 broken watch~
@@ -3105,11 +3090,11 @@ a broken watch~
 A broken brass watch hangs suspended from a matching chain.~
 brass~
 armor B 0 AL
-15 15 15 13 0
-45 50 20 P
-a '' to_object 45 -1 4 19 0
-a '' to_object 45 -1 35 13 0
-a '' to_object 45 -1 3 9 0
+8 8 8 7 0
+23 50 20 P
+a '' unknown 23 -1 15 13 0
+a '' unknown 23 -1 2 19 0
+a '' to_object 23 -1 3 9 0
 g @rus none~
 #11644
 fluffy white tail~
@@ -3117,11 +3102,11 @@ a fluffy white tail~
 A fluffy white rabbit tail lies here.~
 cotton~
 armor 0 0 AF
-13 14 13 13 0
-45 0 10 P
-a '' to_object 45 -1 3 19 0
-a '' to_object 45 -1 40 12 0
-a '' to_object 45 -1 2 2 0
+7 7 7 7 0
+23 0 10 P
+a '' unknown 23 -1 1 2 0
+a '' unknown 23 -1 20 12 0
+a '' unknown 23 -1 2 19 0
 g @rus none~
 #11645
 rabbit food pellet~
@@ -3129,8 +3114,8 @@ a pellet of rabbit food~
 A pellet of rabbit food lies here.~
 food~
 pill 0 0 A
-55 'haste' '' '' ''
-45 10 500 P
+27 'haste' '' '' ''
+23 10 500 P
 g @rus none~
 #11646
 weeping angel white~
@@ -3138,11 +3123,11 @@ a weeping angel~
 A little white angel floats here, weeping silently.~
 etherealness~
 armor AFI 0 AQ
-17 17 16 14 0
-51 10 0 P
-a '' to_object 51 -1 4 19 0
-a '' to_object 51 -1 50 12 0
-a '' to_object 51 -1 3 4 0
+8 8 8 7 0
+25 10 0 P
+a '' unknown 25 -1 1 4 0
+a '' unknown 25 -1 25 12 0
+a '' unknown 25 -1 2 19 0
 g @rus none~
 #11647
 shattered dreams pieces~
@@ -3150,11 +3135,11 @@ shattered dreams~
 Some dreams lie here in pieces.~
 nothingness~
 armor B 0 AQ
-25 25 25 20 0
-80 0 0 P
-a '' to_object 80 -1 6 19 0
-a '' to_object 80 -1 75 13 0
-a '' to_object 80 -1 -15 12 0
+13 13 13 10 0
+40 0 0 P
+a '' unknown 40 -1 -10 12 0
+a '' unknown 40 -1 35 13 0
+a '' unknown 40 -1 3 19 0
 g @rus none~
 #11648
 ice mask~
@@ -3162,12 +3147,12 @@ ice mask~
 A mask of ice is here.~
 ice~
 armor A 0 AE
-25 26 25 20 0
-80 70 2450 P
-a '' to_object 80 -1 5 19 0
-a '' to_object 80 -1 70 13 0
-a '' to_object 80 -1 -10 12 0
-a '' to_object 80 -1 4 1 0
+12 13 12 10 0
+40 70 1100 P
+a '' unknown 40 -1 2 1 0
+a '' unknown 40 -1 -5 12 0
+a '' unknown 40 -1 35 13 0
+a '' unknown 40 -1 3 19 0
 E
 ice mask~
 A poem is engraved on the inside of the mask:
@@ -3192,11 +3177,11 @@ a hellhawk feather~
 A gleaming black feather glints with fiery reddish highlights.~
 feathers~
 armor A 0 AO
-21 20 20 18 0
-65 10 5500 P
-a '' to_object 65 -1 5 19 0
-a '' to_object 65 -1 50 13 0
-a '' to_object 65 -1 3 1 0
+10 10 10 9 0
+33 10 2700 P
+a '' unknown 33 -1 1 1 0
+a '' unknown 33 -1 25 13 0
+a '' unknown 33 -1 3 19 0
 g @rus none~
 #11650
 bloody cowl~
@@ -3204,12 +3189,12 @@ a bloody cowl~
 A bloody black cowl lies here.~
 wool~
 armor 0 0 AE
-19 20 20 19 0
-64 50 100 P
-a '' to_object 64 -1 5 19 0
-a '' to_object 64 -1 65 12 0
-a '' to_object 64 -1 4 3 0
-a '' to_object 64 -1 -2 1 0
+10 10 10 10 0
+32 50 100 P
+a '' unknown 32 -1 -1 1 0
+a '' unknown 32 -1 2 3 0
+a '' unknown 32 -1 35 12 0
+a '' unknown 32 -1 2 19 0
 g @rus none~
 #11651
 dark eye nightmare~
@@ -3218,11 +3203,11 @@ A dark eye shot with streaks of red lies here, pulsing.~
 flame~
 light AE 0 A
 0 0 -1 0 0
-66 10 700 P
-a '' to_object 66 -1 6 19 0
-a '' to_object 66 -1 2 18 0
-a '' to_object 66 -1 50 13 0
-a '' to_object 66 -1 4 1 0
+33 10 350 P
+a '' unknown 33 -1 2 1 0
+a '' unknown 33 -1 25 13 0
+a '' unknown 33 -1 1 18 0
+a '' unknown 33 -1 3 19 0
 g @rus none~
 #11652
 nightmare breath dark cloud~
@@ -3230,11 +3215,11 @@ nightmare's breath~
 A dark cloud hovers menacingly.~
 air~
 armor BCFHJ 0 AK
-20 20 20 18 0
-66 10 100 P
-a '' to_object 66 -1 6 19 0
-a '' to_object 66 -1 4 18 0
-a '' to_object 66 -1 50 13 0
+10 10 10 9 0
+33 10 100 P
+a '' unknown 33 -1 25 13 0
+a '' unknown 33 -1 2 18 0
+a '' unknown 33 -1 3 19 0
 g @rus none~
 #11653
 sacrificial robes bloody~
@@ -3242,11 +3227,11 @@ sacrificial robes~
 Some bloody robes are here.~
 linen~
 armor EJM 0 AK
-19 20 19 19 0
-60 50 2300 P
-a '' to_object 60 -1 5 19 0
-a '' to_object 60 -1 3 18 0
-a '' to_object 60 -1 55 12 0
+9 10 9 9 0
+30 50 1200 P
+a '' unknown 30 -1 30 12 0
+a '' unknown 30 -1 2 18 0
+a '' unknown 30 -1 3 19 0
 g @rus none~
 #11654
 deathblade blade~
@@ -3254,10 +3239,10 @@ a deathblade~
 A dark blade lies here, dripping with the blood of the slain.~
 adamantite~
 weapon BJ 0 AN
-sword 8 9 'drain' C
-65 420 4500 P
-a '' to_object 65 -1 2 19 0
-a '' to_object 65 -1 2 18 0
+sword 5 9 'drain' C
+32 400 2000 P
+a '' to_object 32 -1 2 19 0
+a '' to_object 32 -1 2 18 0
 g @rus none~
 #11655
 gauntlets night black~
@@ -3265,10 +3250,10 @@ gauntlets of the night~
 A pair of pitch black gauntlets lie here, humming softly.~
 onyx~
 armor BJ 0 AH
-20 20 20 15 0
-60 60 5400 P
-a '' to_object 60 -1 6 19 0
-a '' to_object 60 -1 4 18 0
+10 10 10 8 0
+30 60 2700 P
+a '' unknown 30 -1 2 18 0
+a '' unknown 30 -1 3 19 0
 g @rus none~
 #11656
 blood drenched dagger~
@@ -3276,10 +3261,10 @@ a blood drenched dagger~
 A sharp dagger gleams with fresh blood.~
 obsidian~
 weapon AJ 0 AN
-dagger 7 10 'pierce' D
-65 250 2550 P
-a '' to_object 65 -1 4 19 0
-a '' to_object 65 -1 3 18 0
+dagger 5 8 'pierce' D
+33 250 1300 P
+a '' unknown 33 -1 2 18 0
+a '' unknown 33 -1 2 19 0
 g @rus none~
 #11657
 hole~
@@ -3288,7 +3273,7 @@ A hole.~
 nothingness~
 container Y 0 AO
 350 0 0 40 50
-55 0 9540 P
+27 0 5000 P
 g @rus none~
 #11658
 furry gloves~
@@ -3296,11 +3281,11 @@ some furry gloves~
 A pair of furry gloves lies here.~
 flesh~
 armor 0 0 AH
-13 13 14 13 0
-45 10 1200 P
-a '' to_object 45 -1 3 19 0
-a '' to_object 45 -1 30 13 0
-a '' to_object 45 -1 40 12 0
+7 7 7 7 0
+23 10 600 P
+a '' unknown 23 -1 20 12 0
+a '' unknown 23 -1 15 13 0
+a '' unknown 23 -1 2 19 0
 g @rus none~
 #11659
 blood spattered shield obsidian~
@@ -3308,12 +3293,12 @@ a blood spattered shield~
 An obsidian shield lies here, spattered with dried blood.~
 obsidian~
 armor A 0 AJ
-19 20 19 18 0
-70 100 1050 P
-a '' to_object 70 -1 7 19 0
-a '' to_object 70 -1 5 18 0
-a '' to_object 70 -1 50 13 0
-a '' to_object 70 -1 2 1 0
+10 10 10 9 0
+35 100 1050 P
+a '' unknown 35 -1 1 1 0
+a '' unknown 35 -1 25 13 0
+a '' unknown 35 -1 3 18 0
+a '' unknown 35 -1 4 19 0
 g @rus none~
 #11660
 bloody fang vampire~
@@ -3321,10 +3306,10 @@ fang of the vampire~
 The bloody fang of a vampire lies here.~
 bone~
 weapon B 0 AN
-dagger 8 10 'pierce' CD
-70 250 4300 P
-a '' to_object 70 -1 4 19 0
-a '' to_object 70 -1 3 18 0
+dagger 8 5 'pierce' CD
+35 250 2000 P
+a '' unknown 35 -1 2 18 0
+a '' unknown 35 -1 2 19 0
 g @rus none~
 #11661
 tattered cloak black~
@@ -3332,12 +3317,12 @@ a tattered cloak~
 A tattered black cloak lies here.~
 wool~
 armor 0 0 AC
-19 19 19 19 0
-70 50 10 P
-a '' to_object 70 -1 5 19 0
-a '' to_object 70 -1 4 18 0
-a '' to_object 70 -1 60 13 0
-a '' to_object 70 -1 2 1 0
+10 10 10 10 0
+35 50 10 P
+a '' unknown 35 -1 1 1 0
+a '' unknown 35 -1 30 13 0
+a '' unknown 35 -1 2 18 0
+a '' unknown 35 -1 3 19 0
 g @rus none~
 #11662
 mark daemias black hair~
@@ -3345,12 +3330,12 @@ Mark of Daemias~
 An insignia woven of shadow black panther hair lies here, humming.~
 flesh~
 armor BCM 0 AE
-21 21 20 21 0
-80 0 9400 P
-a '' to_object 80 -1 5 19 0
-a '' to_object 80 -1 3 18 0
-a '' to_object 80 -1 80 13 0
-a '' to_object 80 -1 3 1 0
+10 10 10 10 0
+40 0 5000 P
+a '' unknown 40 -1 2 1 0
+a '' unknown 40 -1 40 13 0
+a '' unknown 40 -1 2 18 0
+a '' unknown 40 -1 3 19 0
 E
 mark daemias black hair~
 silver threads interwoven with the black form the words:
@@ -3375,11 +3360,11 @@ A flame of pure darkness burns here.~
 shadow~
 light ACJ 0 A
 0 0 -1 0 0
-85 10 10000 P
-a '' to_object 85 -1 7 19 0
-a '' to_object 85 -1 4 18 0
-a '' to_object 85 -1 75 13 0
-a '' to_object 85 -1 75 12 0
+42 10 5000 P
+a '' unknown 42 -1 35 12 0
+a '' unknown 42 -1 35 13 0
+a '' unknown 42 -1 2 18 0
+a '' unknown 42 -1 4 19 0
 g @rus none~
 #11664
 circle tears~
@@ -3387,12 +3372,12 @@ a circle of tears~
 A circle formed of tears lies here.~
 water~
 armor AFIJ 0 AL
-21 21 21 21 0
-85 50 7500 P
-a '' to_object 85 -1 6 19 0
-a '' to_object 85 -1 -2 18 0
-a '' to_object 85 -1 75 13 0
-a '' to_object 85 -1 3 2 0
+11 11 11 11 0
+42 50 3500 P
+a '' unknown 42 -1 2 2 0
+a '' unknown 42 -1 35 13 0
+a '' unknown 42 -1 -1 18 0
+a '' unknown 42 -1 3 19 0
 g @rus none~
 #11665
 ashes lost~
@@ -3400,13 +3385,13 @@ ashes of the lost~
 Some ashes float here.~
 ash~
 armor AJM 0 AQ
-20 20 20 20 0
-85 10 100 P
-a '' to_object 85 -1 7 19 0
-a '' to_object 85 -1 4 18 0
-a '' to_object 85 -1 75 13 0
-a '' to_object 85 -1 75 12 0
-a '' to_object 85 -1 -1 5 0
+10 10 10 10 0
+42 10 100 P
+a '' unknown 42 -1 35 12 0
+a '' unknown 42 -1 35 13 0
+a '' unknown 42 -1 2 18 0
+a '' unknown 42 -1 4 19 0
+a '' to_object 42 -1 -1 5 0
 g @rus none~
 #11666
 broken bible~
@@ -3414,12 +3399,12 @@ a broken bible~
 A bible lies here, broken along the spine.~
 soft leather~
 armor BJ 0 AO
-20 20 20 20 0
-85 50 10 P
-a '' to_object 85 -1 5 19 0
-a '' to_object 85 -1 4 18 0
-a '' to_object 85 -1 75 13 0
-a '' to_object 85 -1 -10 12 0
+10 10 10 10 0
+42 50 10 P
+a '' unknown 42 -1 -5 12 0
+a '' unknown 42 -1 35 13 0
+a '' unknown 42 -1 2 18 0
+a '' unknown 42 -1 3 19 0
 g @rus none~
 #11667
 bloodstained platter silver~
@@ -3427,11 +3412,11 @@ a bloodstained platter~
 A silver platter gleams dully beneath streaks of dried blood.~
 silver~
 armor A 0 AJ
-20 21 20 16 0
-60 100 3200 P
-a '' to_object 60 -1 5 19 0
-a '' to_object 60 -1 65 12 0
-a '' to_object 60 -1 2 5 0
+10 10 10 8 0
+30 100 1600 P
+a '' unknown 30 -1 1 5 0
+a '' unknown 30 -1 30 12 0
+a '' unknown 30 -1 3 19 0
 g @rus none~
 #11668
 razor claws~
@@ -3439,11 +3424,11 @@ razor claws~
 Some sharp claws gleam menacingly.~
 bone~
 armor ACF 0 AH
-20 20 20 20 0
-82 50 4530 P
-a '' to_object 82 -1 7 19 0
-a '' to_object 82 -1 5 18 0
-a '' to_object 82 -1 50 13 0
+10 10 10 10 0
+41 50 2000 P
+a '' unknown 41 -1 25 13 0
+a '' unknown 41 -1 3 18 0
+a '' unknown 41 -1 4 19 0
 g @rus none~
 #11669
 mark ykres shadow black~
@@ -3451,12 +3436,12 @@ Mark of Ykres~
 A shadow black mark floats here.~
 shadow~
 armor BCF 0 AC
-20 20 20 20 0
-82 0 8300 P
-a '' to_object 82 -1 6 19 0
-a '' to_object 82 -1 75 13 0
-a '' to_object 82 -1 25 12 0
-a '' to_object 82 -1 3 2 0
+10 10 10 10 0
+41 0 4000 P
+a '' unknown 41 -1 2 2 0
+a '' unknown 41 -1 15 12 0
+a '' unknown 41 -1 35 13 0
+a '' unknown 41 -1 3 19 0
 g @rus none~
 #11670
 bracelet night darkness~
@@ -3464,11 +3449,11 @@ bracelet of night~
 A bracelet formed of darkness lies here.~
 shadow~
 armor BCF 0 AM
-15 15 16 14 0
-55 20 3300 P
-a '' to_object 55 -1 5 19 0
-a '' to_object 55 -1 45 13 0
-a '' to_object 55 -1 4 2 0
+8 8 8 7 0
+27 20 1500 P
+a '' unknown 27 -1 20 13 0
+a '' unknown 27 -1 2 2 0
+a '' unknown 27 -1 3 19 0
 g @rus none~
 #11671
 onyx owl ring~
@@ -3477,10 +3462,10 @@ An onyx ring engraved with the face of an owl lies here.~
 onyx~
 jewelry C 0 AB
 0 0 0 0 0
-55 10 5560 P
-a '' to_object 55 -1 5 19 0
-a '' to_object 55 -1 50 12 0
-a '' to_object 55 -1 2 4 0
+27 10 2500 P
+a '' unknown 27 -1 1 4 0
+a '' unknown 27 -1 25 12 0
+a '' unknown 27 -1 3 19 0
 g @rus none~
 #11672
 sliver darkness~
@@ -3488,10 +3473,10 @@ a sliver of darkness~
 A sliver of darkness glimmers here.~
 shadow~
 weapon C 0 AN
-dagger 13 6 'pierce' D
-70 250 6230 P
-a '' to_object 70 -1 4 19 0
-a '' to_object 70 -1 3 18 0
+dagger 9 4 'pierce' D
+35 250 6230 P
+a '' unknown 35 -1 1 18 0
+a '' unknown 35 -1 2 19 0
 g @rus none~
 #11673
 mask deception grey~
@@ -3499,12 +3484,12 @@ mask of deception~
 A grey mask lies here, seeming to shift and change continuously.~
 shadow~
 armor BCF 0 AE
-24 24 24 20 0
-80 30 4240 P
-a '' to_object 80 -1 5 19 0
-a '' to_object 80 -1 3 18 0
-a '' to_object 80 -1 65 13 0
-a '' to_object 80 -1 4 2 0
+12 12 12 10 0
+40 30 2000 P
+a '' unknown 40 -1 2 2 0
+a '' unknown 40 -1 30 13 0
+a '' unknown 40 -1 1 18 0
+a '' unknown 40 -1 2 19 0
 g @rus none~
 #11674
 cloak shadows~
@@ -3513,10 +3498,10 @@ A cloak of formed of shifting shadows is here.~
 shadow~
 container BCF 0 AC
 200 0 0 20 50
-75 70 2550 P
-a '' to_object 75 -1 5 19 0
-a '' to_object 75 -1 -12 17 0
-a '' to_object 75 -1 4 2 0
+32 70 1200 P
+a '' unknown 32 -1 -6 17 0
+a '' unknown 32 -1 2 2 0
+a '' unknown 32 -1 3 19 0
 g @rus none~
 #11675
 ice candle~
@@ -3525,10 +3510,10 @@ An ice candle shimmers here.~
 ice~
 light AF 0 A
 0 0 -1 0 0
-75 60 4520 P
-a '' to_object 75 -1 7 19 0
-a '' to_object 75 -1 4 18 0
-a '' to_object 75 -1 4 3 0
+32 60 2200 P
+a '' unknown 32 -1 2 3 0
+a '' unknown 32 -1 2 18 0
+a '' unknown 32 -1 4 19 0
 g @rus none~
 #11676
 stiletto shadow shadow's edge~
@@ -3536,10 +3521,10 @@ Shadow's Edge~
 A dark stiletto blends in with its surroundings.~
 shadow~
 weapon C 0 AN
-dagger 15 8 'pierce' CD
-87 250 6650 P
-a '' to_object 87 -1 6 19 0
-a '' to_object 87 -1 16 18 0
+dagger 13 4 'pierce' CD
+43 250 3300 P
+a '' unknown 43 -1 3 19 0
+a '' unknown 43 -1 8 18 0
 g @rus none~
 #11677
 silhouette~
@@ -3547,12 +3532,12 @@ a silhouette~
 Someone's silhouette has been left here~
 shadow~
 armor CF 0 AK
-24 24 25 21 0
-87 0 0 P
-a '' to_object 87 -1 7 19 0
-a '' to_object 87 -1 75 13 0
-a '' to_object 87 -1 75 12 0
-a '' to_object 87 -1 3 2 0
+12 12 12 10 0
+43 0 0 P
+a '' unknown 43 -1 1 2 0
+a '' unknown 43 -1 30 12 0
+a '' unknown 43 -1 30 13 0
+a '' unknown 43 -1 4 19 0
 g @rus none~
 #11678
 silence~
@@ -3560,12 +3545,12 @@ silence~
 Some silence hides here.~
 nothingness~
 armor CF 0 AF
-24 23 23 21 0
-87 10 230 P
-a '' to_object 87 -1 6 19 0
-a '' to_object 87 -1 25 13 0
-a '' to_object 87 -1 80 12 0
-a '' to_object 87 -1 4 2 0
+12 12 12 11 0
+43 10 230 P
+a '' unknown 43 -1 2 2 0
+a '' unknown 43 -1 40 12 0
+a '' unknown 43 -1 10 13 0
+a '' unknown 43 -1 3 19 0
 g @rus none~
 #11679
 black shadowhawk hawk talons~
@@ -3573,12 +3558,12 @@ shadowhawk talons~
 Some sharp black talons lie here, gleaming wickedly.~
 bone~
 armor AC 0 AG
-26 26 26 20 0
-80 80 8430 P
-a '' to_object 80 -1 6 19 0
-a '' to_object 80 -1 3 18 0
-a '' to_object 80 -1 75 13 0
-a '' to_object 80 -1 3 1 0
+13 13 13 10 0
+40 80 4000 P
+a '' unknown 40 -1 1 1 0
+a '' unknown 40 -1 30 13 0
+a '' unknown 40 -1 1 18 0
+a '' unknown 40 -1 3 19 0
 g @rus none~
 #11680
 bracers energy~
@@ -3586,12 +3571,12 @@ bracers of energy~
 Bracers formed of multicolored energy lie here.~
 energy~
 armor AB 0 AI
-20 20 20 20 0
-76 40 4300 P
-a '' to_affects 76 -1 0 0 V
-a '' to_object 76 -1 5 19 0
-a '' to_object 76 -1 90 12 0
-a '' to_object 76 -1 3 2 0
+10 10 10 10 0
+38 40 2200 P
+a '' unknown 38 -1 2 2 0
+a '' unknown 38 -1 45 12 0
+a '' unknown 38 -1 3 19 0
+a '' to_affects 38 -1 0 0 V
 g @rus none~
 #11681
 whirling disc energy~
@@ -3599,11 +3584,11 @@ whirling disc~
 A disc of energy whirls here.~
 energy~
 armor AB 0 AJ
-20 20 21 20 0
-81 50 3230 P
-a '' to_object 81 -1 7 19 0
-a '' to_object 81 -1 5 18 0
-a '' to_object 81 -1 80 12 0
+10 10 10 10 0
+40 50 1500 P
+a '' unknown 40 -1 40 12 0
+a '' unknown 40 -1 3 18 0
+a '' unknown 40 -1 4 19 0
 g @rus none~
 #11682
 brain cell~
@@ -3611,10 +3596,10 @@ a brain cell~
 A lone brain cell floats here.~
 skin~
 armor B 0 AE
-18 18 19 18 0
-65 10 1 P
-a '' to_object 65 -1 60 12 0
-a '' to_object 65 -1 4 3 0
+9 9 9 9 0
+32 10 1 P
+a '' unknown 32 -1 2 3 0
+a '' unknown 32 -1 30 12 0
 g @rus none~
 #11683
 pink pig wings~
@@ -3622,11 +3607,11 @@ a pink pair of pig wings~
 Some pink pig wings flutter around.~
 feathers~
 armor B 0 AI
-15 15 15 15 0
-59 60 2250 P
-a '' to_object 59 -1 4 19 0
-a '' to_object 59 -1 4 18 0
-a '' to_object 59 -1 2 2 0
+8 8 8 8 0
+29 60 2250 P
+a '' unknown 29 -1 1 2 0
+a '' unknown 29 -1 2 18 0
+a '' unknown 29 -1 2 19 0
 g @rus none~
 #11684
 effigy barney purple dinosaur~
@@ -3634,12 +3619,12 @@ an effigy of a purple dinosaur~
 A stuffed purple dinosaur lies here, slightly chewed.~
 cloth~
 armor AB 0 AO
-16 15 16 15 0
-60 50 0 P
-a '' to_object 60 -1 4 19 0
-a '' to_object 60 -1 70 13 0
-a '' to_object 60 -1 -2 4 0
-a '' to_object 60 -1 -2 3 0
+8 8 8 8 0
+30 50 0 P
+a '' unknown 30 -1 -1 3 0
+a '' unknown 30 -1 -1 4 0
+a '' unknown 30 -1 35 13 0
+a '' unknown 30 -1 2 19 0
 g @rus none~
 #11685
 white lab coat~
@@ -3647,10 +3632,10 @@ a white lab coat~
 A white lab coat lies here.~
 linen~
 armor AB 0 AK
-18 18 19 18 0
-65 40 3400 P
-a '' to_object 65 -1 4 4 0
-a '' to_object 65 -1 4 3 0
+9 9 9 9 0
+32 40 1700 P
+a '' unknown 32 -1 2 3 0
+a '' unknown 32 -1 2 4 0
 g @rus none~
 #11686
 trendy suit~
@@ -3658,12 +3643,12 @@ a trendy suit~
 A trendy suit lies here, getting all dusty.~
 linen~
 armor 0 0 AD
-16 15 16 15 0
-60 90 7777 P
-a '' to_object 60 -1 50 13 0
-a '' to_object 60 -1 50 12 0
-a '' to_object 60 -1 -2 4 0
-a '' to_object 60 -1 -3 3 0
+8 8 8 8 0
+30 90 3500 P
+a '' unknown 30 -1 -1 3 0
+a '' unknown 30 -1 -1 4 0
+a '' unknown 30 -1 25 12 0
+a '' unknown 30 -1 25 13 0
 g @rus none~
 #11687
 energy shimmering circlet~
@@ -3671,11 +3656,11 @@ a shimmering circlet~
 A circlet of shimmering multicolored energy lies here.~
 energy~
 armor ABHM 0 AB
-21 21 21 21 0
-86 10 7550 P
-a '' to_object 86 -1 8 19 0
-a '' to_object 86 -1 4 18 0
-a '' to_object 86 -1 70 12 0
+10 10 10 10 0
+43 10 3500 P
+a '' unknown 43 -1 35 12 0
+a '' unknown 43 -1 2 18 0
+a '' unknown 43 -1 4 19 0
 g @rus none~
 #11688
 bracelet delusions~
@@ -3683,11 +3668,11 @@ bracelet of delusions~
 A pretty multicolored bracelet lies here.~
 energy~
 armor ABM 0 AM
-21 21 21 21 0
-86 30 1000 P
-a '' to_object 86 -1 -9 18 0
-a '' to_object 86 -1 110 12 0
-a '' to_object 86 -1 -3 4 0
+10 10 10 10 0
+43 30 1000 P
+a '' unknown 43 -1 -2 4 0
+a '' unknown 43 -1 55 12 0
+a '' unknown 43 -1 -5 18 0
 g @rus none~
 #11689
 idea~
@@ -3696,11 +3681,11 @@ An ideas glows brightly.~
 energy~
 light AB 0 A
 0 0 -1 0 0
-86 0 10000 P
-a '' to_object 86 -1 6 19 0
-a '' to_object 86 -1 5 18 0
-a '' to_object 86 -1 90 12 0
-a '' to_object 86 -1 3 3 0
+43 0 5000 P
+a '' unknown 43 -1 2 3 0
+a '' unknown 43 -1 45 12 0
+a '' unknown 43 -1 2 18 0
+a '' unknown 43 -1 3 19 0
 g @rus none~
 #11690
 energy mail chainmail chain~
@@ -3708,12 +3693,12 @@ energy mail~
 A suit of chainmail formed of pure energy shimmers here.~
 energy~
 armor AB 0 AD
-21 21 21 21 0
-86 100 7650 P
-a '' to_object 86 -1 7 19 0
-a '' to_object 86 -1 5 18 0
-a '' to_object 86 -1 50 13 0
-a '' to_object 86 -1 75 12 0
+10 10 10 10 0
+43 100 3500 P
+a '' unknown 43 -1 35 12 0
+a '' unknown 43 -1 25 13 0
+a '' unknown 43 -1 3 18 0
+a '' unknown 43 -1 4 19 0
 g @rus none~
 #11691
 red feather leggings~
@@ -3721,11 +3706,11 @@ some red feather leggings~
 A pair of leggings made from bright red parrot feathers lies here.~
 feathers~
 armor AB 0 AF
-20 21 20 20 0
-77 80 6500 P
-a '' to_object 77 -1 6 19 0
-a '' to_object 77 -1 4 18 0
-a '' to_object 77 -1 50 13 0
+10 10 10 10 0
+38 80 3000 P
+a '' unknown 38 -1 25 13 0
+a '' unknown 38 -1 2 18 0
+a '' unknown 38 -1 3 19 0
 g @rus none~
 #11692
 brilliant red tailfeather feather~
@@ -3733,10 +3718,10 @@ a brilliant red tailfeather~
 A long red feather gleams brightly.~
 feathers~
 weapon A 0 AN
-spear 10 10 'pierce' DGK
-80 380 3450 P
-a '' to_object 80 -1 5 19 0
-a '' to_object 80 -1 5 18 0
+spear 5 10 'pierce' DGK
+40 380 1500 P
+a '' unknown 40 -1 3 18 0
+a '' unknown 40 -1 3 19 0
 g @rus none~
 #11693
 musical bracers black feather~
@@ -3744,11 +3729,11 @@ musical bracers~
 A pair of black feather bracers lie here, humming melodically.~
 feathers~
 armor AB 0 AI
-13 13 13 13 0
-43 20 2200 P
-a '' to_object 43 -1 3 19 0
-a '' to_object 43 -1 45 12 0
-a '' to_object 43 -1 3 2 0
+7 7 7 7 0
+22 20 2200 P
+a '' unknown 22 -1 2 2 0
+a '' unknown 22 -1 20 12 0
+a '' unknown 22 -1 2 19 0
 g @rus none~
 #11694
 silent flame dark~
@@ -3757,10 +3742,10 @@ A dark flame burns silently.~
 shadow~
 light ACF 0 A
 0 0 -1 0 0
-51 0 2000 P
-a '' to_object 51 -1 4 19 0
-a '' to_object 51 -1 35 13 0
-a '' to_object 51 -1 3 2 0
+25 0 1000 P
+a '' unknown 25 -1 1 2 0
+a '' unknown 25 -1 15 13 0
+a '' unknown 25 -1 2 19 0
 g @rus none~
 #11695
 shadowy handprints prints~
@@ -3768,11 +3753,11 @@ shadowy handprints~
 Some shadowy handprints mark the wall.~
 shadow~
 armor BCF 0 AH
-16 16 16 16 0
-61 0 0 P
-a '' to_object 61 -1 5 19 0
-a '' to_object 61 -1 65 12 0
-a '' to_object 61 -1 3 2 0
+7 7 7 7 0
+30 0 0 P
+a '' unknown 30 -1 1 2 0
+a '' unknown 30 -1 30 12 0
+a '' unknown 30 -1 3 19 0
 g @rus none~
 #11696
 dark owl feather blanket~
@@ -3781,7 +3766,7 @@ The soft feathers of a dark bird have been woven together to form a blanket.~
 feathers~
 furniture CG 0 AO
 B EFHK BEHKN ABEFG ABEFG
-65 70 5500 P
+32 70 2500 P
 g @rus none~
 #11697
 hole ground~
@@ -3808,7 +3793,7 @@ There is nothing here.~
 nothingness~
 portal B 0 AO
 0 0 BCE 2 0
-75 0 0 P
+37 0 0 P
 g @rus none~
 #11700
 oaken door~
@@ -3906,15 +3891,15 @@ dark crimson armbands~
 A pair of dark crimson armbands gleam like circles of wet blood in the light.~
 adamantite~
 armor AI 0 AI
-41 40 40 23 0
-90 50 10000 P
-a '' to_object 90 -1 -5 20 0
-a '' to_object 90 -1 12 19 0
-a '' to_object 90 -1 12 18 0
-a '' to_object 90 -1 120 13 0
-a '' to_object 90 -1 120 12 0
-a '' to_object 90 -1 4 2 0
-a '' to_object 90 -1 4 1 0
+20 20 20 12 0
+45 50 10000 P
+a '' unknown 45 -1 6 19 0
+a '' unknown 45 -1 6 18 0
+a '' unknown 45 -1 60 12 0
+a '' unknown 45 -1 60 13 0
+a '' unknown 45 -1 2 1 0
+a '' unknown 45 -1 2 2 0
+a '' to_object 45 -1 -5 20 0
 E
 dark crimson armbands arm bands pair circles blood~
 Engraved in the blood red metal is the inscription:  "Ir'vekire zai'Zdreni",
@@ -3927,37 +3912,34 @@ Oath of Vengeance~
 A band of adamantite set with a blood red ruby hums with promised vengeance.~
 adamantite~
 armor B 0 AC
-40 40 40 24 0
-90 30 15000 P
-a '' to_object 90 -1 33 27 0
-a '' to_object 90 -1 33 28 0
-a '' to_object 90 -1 33 29 0
-a '' to_object 90 -1 33 30 0
-a '' to_object 90 -1 33 31 0
-a '' to_object 90 -1 33 32 0
-a '' to_object 90 -1 33 33 0
-a '' to_object 90 -1 33 34 0
-a '' to_object 90 -1 33 35 0
-a '' to_object 90 -1 33 36 0
-a '' to_object 90 -1 33 37 0
-a '' to_object 90 -1 33 38 0
-a '' to_object 90 -1 33 39 0
-a '' to_object 90 -1 33 40 0
-a '' to_object 90 -1 33 41 0
-a '' to_object 90 -1 33 42 0
-a '' to_object 90 -1 33 43 0
-a '' to_affects 90 -1 0 0 c
-a '' to_object 90 -1 -10 20 0
-a '' to_object 90 -1 15 19 0
-a '' to_object 90 -1 15 18 0
-a '' to_object 90 -1 500 14 0
-a '' to_object 90 -1 250 13 0
-a '' to_object 90 -1 500 12 0
-a '' to_object 90 -1 5 5 0
-a '' to_object 90 -1 5 4 0
-a '' to_object 90 -1 5 3 0
-a '' to_object 90 -1 5 2 0
-a '' to_object 90 -1 5 1 0
+20 20 20 12 0
+45 30 15000 P
+a '' unknown 45 -1 20 32 0
+a '' unknown 45 -1 20 43 0
+a '' unknown 45 -1 20 39 0
+a '' unknown 45 -1 20 40 0
+a '' unknown 45 -1 20 37 0
+a '' unknown 45 -1 20 36 0
+a '' unknown 45 -1 20 34 0
+a '' unknown 45 -1 20 35 0
+a '' unknown 45 -1 20 41 0
+a '' unknown 45 -1 20 31 0
+a '' unknown 45 -1 20 30 0
+a '' unknown 45 -1 20 28 0
+a '' unknown 45 -1 20 29 0
+a '' unknown 45 -1 20 27 0
+a '' unknown 45 -1 2 1 0
+a '' unknown 45 -1 2 2 0
+a '' unknown 45 -1 2 3 0
+a '' unknown 45 -1 2 4 0
+a '' unknown 45 -1 2 5 0
+a '' unknown 45 -1 150 14 0
+a '' unknown 45 -1 150 12 0
+a '' unknown 45 -1 100 13 0
+a '' unknown 45 -1 8 18 0
+a '' unknown 45 -1 8 19 0
+a '' to_affects 45 -1 0 0 c
+a '' to_object 45 -1 -10 20 0
 E
 oath vengeance band adamantite ruby~
 An inscription encircles the outside of the band:  "Ir'vekire zai'Zdreni"
@@ -3977,24 +3959,24 @@ a crimson hilted stiletto~
 An adamantite stiletto with a hilt the color of dark blood gleams here.~
 adamantite~
 weapon AC 0 AN
-dagger 10 15 'pierce' CD
-90 180 12500 P
-a '' to_object 90 -1 25 19 0
-a '' to_object 90 -1 25 18 0
+dagger 10 7 'pierce' CD
+45 180 12500 P
+a '' unknown 45 -1 13 18 0
+a '' unknown 45 -1 13 19 0
 g @rus none~
 #11711
 midnight black insignia onyx ring~
 a midnight black insignia~
 An onyx ring engraved with two crossed daggers is here, gleaming darkly.~
-stone~
+onyx~
 treasure C 0 AB
 0 0 0 0 0
-82 10 5000 P
-a '' to_object 82 -1 8 19 0
-a '' to_object 82 -1 4 18 0
-a '' to_object 82 -1 65 13 0
-a '' to_object 82 -1 65 12 0
-a '' to_object 82 -1 2 1 0
+41 10 2500 P
+a '' unknown 41 -1 1 1 0
+a '' unknown 41 -1 30 12 0
+a '' unknown 41 -1 30 13 0
+a '' unknown 41 -1 2 18 0
+a '' unknown 41 -1 4 19 0
 g @rus none~
 #11712
 dark grey insignia chainmail chain mail~
@@ -4002,11 +3984,11 @@ a suit of drow chainmail with a dark grey insignia~
 A suit of dark grey chainmail lies here.~
 adamantite~
 armor C 0 AD
-26 26 26 19 0
-78 80 5000 P
-a '' to_object 78 -1 7 19 0
-a '' to_object 78 -1 50 13 0
-a '' to_object 78 -1 2 2 0
+13 13 13 10 0
+39 80 2500 P
+a '' unknown 39 -1 1 2 0
+a '' unknown 39 -1 25 13 0
+a '' unknown 39 -1 4 19 0
 E
 dark grey insignia chainmail chain mail~
 An engraving of two crossed daggers shimmers above the left shoulder of
@@ -4019,10 +4001,10 @@ a dark blue sash with a green insignia~
 The form of two crossed daggers is embroidered in green on a dark blue sash.~
 silk~
 armor C 0 AL
-20 20 20 18 0
-73 40 4000 P
-a '' to_object 73 -1 5 19 0
-a '' to_object 73 -1 50 13 0
+10 10 10 9 0
+36 40 2000 P
+a '' unknown 36 -1 25 13 0
+a '' unknown 36 -1 3 19 0
 g @rus none~
 #11714
 dark blue sash purple~
@@ -4030,11 +4012,11 @@ a dark blue sash with a purple insignia~
 The form of two crossed daggers is embroidered in purple on a dark blue sash.~
 silk~
 armor C 0 AL
-19 19 20 20 0
-73 40 4000 P
-a '' to_object 73 -1 5 19 0
-a '' to_object 73 -1 65 12 0
-a '' to_object 73 -1 2 3 0
+10 10 10 10 0
+36 40 2000 P
+a '' unknown 36 -1 1 3 0
+a '' unknown 36 -1 35 12 0
+a '' unknown 36 -1 3 19 0
 g @rus none~
 #11715
 smokey blue insignia cloak~
@@ -4042,12 +4024,12 @@ a dark cloak embroidered with a smokey blue insignia~
 A dark cloak is embroidered with the smokey blue form of two crossed daggers.~
 leather~
 armor C 0 AC
-19 19 19 17 0
-68 50 3800 P
-a '' to_object 68 -1 5 19 0
-a '' to_object 68 -1 50 13 0
-a '' to_object 68 -1 2 5 0
-a '' to_object 68 -1 2 2 0
+10 10 10 8 0
+34 50 2000 P
+a '' unknown 34 -1 1 2 0
+a '' unknown 34 -1 1 5 0
+a '' unknown 34 -1 25 13 0
+a '' unknown 34 -1 3 19 0
 g @rus none~
 #11716
 indigo insignia pair gloves~
@@ -4055,12 +4037,12 @@ a pair of leather gloves with an indigo insignia~
 The indigo insignia of two crossed daggers shimmers above a pair of gloves.~
 leather~
 armor C 0 AH
-17 18 17 16 0
-63 20 3500 P
-a '' to_object 63 -1 4 19 0
-a '' to_object 63 -1 45 13 0
-a '' to_object 63 -1 65 12 0
-a '' to_object 63 -1 2 2 0
+9 9 9 8 0
+31 20 2000 P
+a '' unknown 31 -1 1 2 0
+a '' unknown 31 -1 30 12 0
+a '' unknown 31 -1 20 13 0
+a '' unknown 31 -1 2 19 0
 g @rus none~
 #11717
 dark green insignia boots~
@@ -4068,12 +4050,12 @@ a pair of boots with a dark green insignia~
 A pair of supple boots bears the dark green insignia of two crossed daggers.~
 leather~
 armor C 0 AG
-16 16 16 14 0
-58 40 3300 P
-a '' to_object 58 -1 -2 20 0
-a '' to_object 58 -1 4 19 0
-a '' to_object 58 -1 60 12 0
-a '' to_object 58 -1 2 2 0
+8 8 8 7 0
+29 40 1500 P
+a '' unknown 29 -1 1 2 0
+a '' unknown 29 -1 30 12 0
+a '' unknown 29 -1 2 19 0
+a '' to_object 29 -1 -2 20 0
 g @rus none~
 #11718
 grey insignia leggings~
@@ -4081,13 +4063,13 @@ leather leggings with a grey insignia~
 A pair of leggings bearing the grey insignia of two crossed daggers is here.~
 leather~
 armor C 0 AF
-15 14 14 15 0
-53 30 3000 P
-a '' to_object 53 -1 4 19 0
-a '' to_object 53 -1 35 13 0
-a '' to_object 53 -1 35 12 0
-a '' to_object 53 -1 2 2 0
-a '' to_object 53 -1 1 1 0
+7 7 7 7 0
+26 30 1500 P
+a '' unknown 26 -1 1 2 0
+a '' unknown 26 -1 15 12 0
+a '' unknown 26 -1 15 13 0
+a '' unknown 26 -1 2 19 0
+a '' to_object 26 -1 1 1 0
 g @rus none~
 #11719
 tan insignia bracer~
@@ -4095,12 +4077,12 @@ a bracer engraved with a tan insignia~
 A leather bracer bears the tan colored insignia of two crossed daggers.~
 leather~
 armor 0 0 AM
-14 14 14 12 0
-48 20 2500 P
-a '' to_object 48 -1 3 19 0
-a '' to_object 48 -1 30 13 0
-a '' to_object 48 -1 1 5 0
-a '' to_object 48 -1 1 3 0
+7 7 7 6 0
+24 20 1200 P
+a '' unknown 24 -1 15 13 0
+a '' unknown 24 -1 1 19 0
+a '' to_object 24 -1 1 5 0
+a '' to_object 24 -1 1 3 0
 g @rus none~
 #11720
 applicants ring adamantite~
@@ -4109,11 +4091,11 @@ A plain adamantite ring lies here, humming.~
 adamantite~
 treasure B 0 AB
 0 0 0 0 0
-43 10 1000 P
-a '' to_object 43 -1 4 19 0
-a '' to_object 43 -1 3 18 0
-a '' to_object 43 -1 1 2 0
-a '' to_object 43 -1 1 1 0
+21 10 500 P
+a '' unknown 21 -1 1 18 0
+a '' unknown 21 -1 2 19 0
+a '' to_object 21 -1 1 2 0
+a '' to_object 21 -1 1 1 0
 E
 applicants ring adamantite~
 Though plain, the adamantite band hums with a magic which identifies
@@ -4128,8 +4110,8 @@ a manual of bladework~
 A black bound manual is here.~
 leather~
 scroll 0 0 A
-82 'bless' 'frenzy' '' ''
-73 10 1000 P
+41 'bless' 'frenzy' '' ''
+36 10 500 P
 g @rus none~
 #11722
 dark blue scroll~
@@ -4137,8 +4119,8 @@ a dark blue scroll~
 A dark blue scroll lies here.~
 vellum~
 scroll B 0 A
-82 'enchant weapon' '' '' ''
-73 10 1000 P
+41 'enchant weapon' '' '' ''
+36 10 1000 P
 g @rus none~
 #11723
 simmering green potion~
@@ -4146,8 +4128,8 @@ a simmering green potion~
 A dark green potion simmers here.~
 glass~
 potion 0 0 A
-67 'poison' 'blindness' 'plague' 'curse'
-60 10 1000 P
+33 'poison' 'blindness' 'plague' 'curse'
+30 10 1000 P
 g @rus none~
 #11724
 dark elven chainmail chain mail suit adamantite~
@@ -4155,11 +4137,11 @@ a suit of dark elven chainmail~
 A suit of finely crafted adamantite chain lies here, gleaming.~
 adamantite~
 armor C 0 AD
-14 13 13 10 0
-45 40 5500 P
-a '' to_object 45 -1 3 19 0
-a '' to_object 45 -1 3 18 0
-a '' to_object 45 -1 2 2 0
+7 7 7 5 0
+22 40 2500 P
+a '' unknown 22 -1 1 2 0
+a '' unknown 22 -1 2 18 0
+a '' unknown 22 -1 2 19 0
 g @rus none~
 #11725
 adamantite shortsword short sword~
@@ -4167,10 +4149,10 @@ an adamantite shortsword~
 An adamantite shortsword lies here, gleaming wickedly.~
 adamantite~
 weapon C 0 AN
-sword 10 10 'pierce' D
-80 220 5500 P
-a '' to_object 80 -1 6 19 0
-a '' to_object 80 -1 6 18 0
+sword 11 4 'pierce' D
+40 220 2500 P
+a '' unknown 40 -1 3 18 0
+a '' unknown 40 -1 3 19 0
 g @rus none~
 #11726
 adamantite kris~
@@ -4178,10 +4160,10 @@ an adamantite kris~
 A sharp adamantite kris is here.~
 adamantite~
 weapon C 0 AN
-dagger 10 8 'pierce' D
-73 150 5000 P
-a '' to_object 73 -1 5 19 0
-a '' to_object 73 -1 5 18 0
+dagger 5 8 'pierce' D
+36 150 2500 P
+a '' unknown 36 -1 3 18 0
+a '' unknown 36 -1 2 19 0
 g @rus none~
 #11727
 adamantite stiletto~
@@ -4189,10 +4171,10 @@ an adamantite stiletto~
 A well tempered adamantite stiletto lies here.~
 adamantite~
 weapon C 0 AN
-dagger 10 7 'pierce' 0
-65 150 4700 P
-a '' to_object 65 -1 5 19 0
-a '' to_object 65 -1 5 18 0
+dagger 5 7 'pierce' 0
+32 150 2500 P
+a '' unknown 32 -1 3 18 0
+a '' unknown 32 -1 2 19 0
 g @rus none~
 #11728
 adamantite throwing knife blue black~
@@ -4200,10 +4182,10 @@ an adamantite throwing knife~
 A sharp blue black knife gleams here.~
 adamantite~
 weapon C 0 AN
-dagger 9 6 'pierce' HK
-55 150 4500 P
-a '' to_object 55 -1 4 19 0
-a '' to_object 55 -1 5 18 0
+dagger 9 3 'pierce' HK
+27 150 2000 P
+a '' unknown 27 -1 3 18 0
+a '' unknown 27 -1 2 19 0
 g @rus none~
 #11729
 adamantite dagger~
@@ -4211,10 +4193,10 @@ an adamantite dagger~
 A long dagger forged of adamantite lies here.~
 adamantite~
 weapon C 0 AN
-dagger 5 11 'pierce' 0
-49 150 4000 P
-a '' to_object 49 -1 4 19 0
-a '' to_object 49 -1 4 18 0
+dagger 5 5 'pierce' 0
+24 150 2000 P
+a '' unknown 24 -1 2 18 0
+a '' unknown 24 -1 2 19 0
 g @rus none~
 #0
 
@@ -5560,7 +5542,7 @@ D0
 Black steel doors loom to the north.
 ~
 black steel double doors~
-@eng the black@rus черный~
+black steel doors~
 ~
 ABZ -1 11640
 S
@@ -8238,11 +8220,42 @@ S
 0
 
 #OLIMITS
+O 11617 8	* a tassled jester's hat
+O 11647 7	* shattered dreams
+O 11648 7	* ice mask
+O 11651 7	* eye of the nightmare
+O 11652 7	* nightmare's breath
+O 11654 6	* a deathblade
+O 11659 7	* a blood spattered shield
+O 11660 6	* fang of the vampire
+O 11661 6	* a tattered cloak
+O 11662 6	* Mark of Daemias
+O 11663 5	* a Flame of Darkness
+O 11664 5	* a circle of tears
+O 11665 5	* ashes of the lost
+O 11666 5	* a broken bible
+O 11668 7	* razor claws
+O 11669 7	* Mark of Ykres
+O 11670 10	* bracelet of night
+O 11673 7	* mask of deception
+O 11676 4	* Shadow's Edge
+O 11677 6	* a silhouette
+O 11679 7	* shadowhawk talons
 O 11680 2	* bracers of energy
+O 11684 7	* an effigy of a purple dinosaur
+O 11687 6	* a shimmering circlet
+O 11690 6	* energy mail
+O 11692 4	* a brilliant red tailfeather
 O 11693 2	* musical bracers
 O 11708 2	* dark crimson armbands
 O 11709 2	* Oath of Vengeance
 O 11710 2	* a crimson hilted stiletto
+O 11711 6	* a midnight black insignia
+O 11712 6	* a suit of drow chainmail with a dark grey insignia
+O 11713 6	* a dark blue sash with a green insignia
+O 11714 10	* a dark blue sash with a purple insignia
+O 11715 8	* a dark cloak embroidered with a smokey blue insignia
+O 11725 5	* an adamantite shortsword
 S
 
 #MOBPROGS

@@ -4,6 +4,22 @@ Det invis hidden~
 Off disarm~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
+Damtype claw
+End
+
+#PCRACE
+Shortname Gnoll~
+Points 250
+Class 'assassin' 100
+Class 'thief' 100
+Class 'warrior' 100
+Stats 2 -1 -1 0 2 0 
+MaxStats 22 18 18 21 22 25 
+Size medium
+HPBonus 10
+ManaBonus -20
+RestrictAlign evil neutral~
+Slang common
 End
 
 #$

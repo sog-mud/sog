@@ -874,7 +874,7 @@ A Dwarven Shield has been dropped here.~
 wood~
 armor AG 0 AJ
 6 6 6 1 5
-17 190 4500 G
+17 100 4500 G
 a '' to_object 17 -1 4 5 0
 g @rus none~
 #0

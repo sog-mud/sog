@@ -4,6 +4,8 @@ Inv sneak~
 Det infrared~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
+Resist holy -10
+Resist negative 20
 Resist charm 33
 End
 
@@ -14,13 +16,13 @@ Class 'anti-paladin' 100
 Class 'assassin' 100
 Class 'cleric' 100
 Class 'thief' 100
-Class 'wizard' 100
 Class 'warrior' 100
-Stats -2 4 0 2 -2 0 
-MaxStats 18 24 21 22 18 25 
+Class 'wizard' 100
+Stats -1 2 1 1 -1 0 
+MaxStats 19 23 21 23 18 25 
 Size medium
-HPBonus -10
-ManaBonus 20
+HPBonus -5
+ManaBonus 10
 RestrictAlign evil~
 Slang elvish
 End

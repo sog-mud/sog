@@ -33,7 +33,7 @@ The nightmare is a wholly evil being, sent out by the rulers of the lower
 planes to torment mortals.  It vaguely resembles a horse, with a hide blacker
 than the darkest night, and hooves that burn with unholy fires.
 ~
-human~
+unique~
 0 0 T 0 AH -950 0
 18 0 3d9+283 9d9+100 2d7+4 'none'
 -3 -3 -3 7
@@ -49,7 +49,7 @@ You see a shadowy creature with long talons and an evil grin, whose sole
 purpose is to hunt down and slay mortals in order to obtain souls for her foul
 master to torment.
 ~
-human~
+unique~
 FR 0 0 0 AH -1000 0
 24 0 5d10+450 24d9+100 4d4+5 'none'
 -6 -6 -6 2
@@ -64,7 +64,7 @@ You see a wavy distortion in the air.
 You see only a wavy distortion in the air.  You reach out to touch it, and
 feel nothing, not even the slightest of motions.
 ~
-human~
+unique~
 0 0 T A 0 200 0
 17 0 3d9+258 8d9+100 3d4+4 'none'
 -3 -3 -3 7
@@ -79,7 +79,7 @@ The soulless one wanders mindlessly.
 This unfortunate being has had its very soul torn from its body.  It now roams
 mindlessly, unaware of its surroundings.
 ~
-human~
+unique~
 0 0 0 0 0 0 0
 10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
@@ -95,7 +95,7 @@ You see a leathery-skinned humanoid creature that stands almost as tall as a
 normal man.  Like all githyanki, his teeth are fanged and his eyes hollow
 and sunken.
 ~
-human~
+githyanki~
 CS 0 0 G ABH -500 0
 11 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 7
@@ -112,7 +112,7 @@ man.  Like all githyanki, his teeth are fanged and his eyes hollow and sunken.
 He is clad in ornately designed splinted armor, and wields a sword that
 whistles through the air as it slices towards your neck.
 ~
-human~
+githyanki~
 0 0 0 0 H -500 0
 15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
@@ -129,7 +129,7 @@ man.  Like all githyanki, his teeth are fanged and his eyes hollow and sunken.
 He is clad in ornately designed splinted armor, and wields a sword that
 whistles through the air as it slices towards your neck.
 ~
-human~
+githyanki~
 BF 0 0 0 H -500 0
 15 0 3d9+208 7d9+100 2d6+3 'none'
 -2 -2 -2 7
@@ -146,7 +146,7 @@ than a normal man.  His features are obscured by a suit of ornately designed
 splinted armor -- you only hear the hissing of his breath and the scraping
 of his sword against its scabbard as it is unsheathed.
 ~
-human~
+githyanki~
 0 0 0 0 H -500 0
 25 0 5d10+550 12d9+100 2d10+7 'none'
 -7 -7 -7 6
@@ -163,7 +163,7 @@ than a normal man.  His features are obscured by a suit of ornately designed
 splinted armor -- you only hear the hissing of his breath and the scraping
 of his sword against its scabbard as it is unsheathed.
 ~
-human~
+githyanki~
 BF 0 0 0 H -500 0
 25 0 5d10+550 12d9+100 2d10+7 'none'
 -7 -7 -7 6
@@ -180,7 +180,7 @@ normal man.  Like all githyanki, his teeth are fanged and his eyes hollow and
 sunken.  The gish are well-versed in the arcane arts, unlike the normal gith
 people.  You notice this from the blast of lightning headed towards you.
 ~
-human~
+githyanki~
 R 0 0 0 H -500 0
 11 0 2d7+121 11d9+100 1d7+2 'none'
 1 1 1 6
@@ -197,7 +197,7 @@ normal man.  Like all githyanki, his teeth are fanged and his eyes hollow and
 sunken.  The gish are well-versed in the arcane arts, unlike the normal gith
 people.  You notice this from the blast of lightning headed towards you.
 ~
-human~
+githyanki~
 CFR 0 0 0 H -500 0
 11 0 2d7+121 11d9+100 1d7+2 'none'
 1 1 1 6
@@ -214,7 +214,7 @@ colored sword.  Like all githyanki, his teeth are fanged and his eyes hollow
 and sunken.  As you turn to flee, you feel the impact of a fireball against
 your back.
 ~
-human~
+githyanki~
 FR 0 0 0 AHL -500 0
 20 0 3d9+308 20d9+100 3d4+4 'none'
 -4 -4 -4 3
@@ -231,7 +231,7 @@ completely shrunken around her skull, held together solely by the force of
 unholy magic and the powers of this plane of existence.  The cold glare of her
 hollow eyes sends you into paroxysms of fright.
 ~
-human~
+lich~
 BF 0 J 0 ABHL -750 0
 30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
@@ -251,7 +251,7 @@ beyond mortal ken.
 He gestures towards you.  You feel your heart tremble and your throat begin
 to tighten.  You are about to die.
 ~
-human~
+undead~
 BF 0 J A ABH -900 0
 35 0 10d10+1300 17d9+100 4d7+11 'none'
 -11 -11 -11 5
@@ -268,7 +268,7 @@ now to roam forever without rest.  The mind of this creature has been twisted
 and destroyed in this torment, and it now envys and intends to destroy all the
 true living beings it encounters, including you.
 ~
-human~
+ghost~
 0 0 TU 0 H -1000 0
 16 0 3d9+233 8d9+100 2d6+4 'none'
 -2 -2 -2 7
@@ -284,7 +284,7 @@ You see a conniving humanoid, a descendant of a race of humans once enslaved
 by the mindflayers and related to the githyanki.  Unfortunately, the two races
 are bitter enemies, and this one happened to get caught.  He intends to escape.
 ~
-human~
+githzerai~
 0 0 0 0 H -250 0
 10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
@@ -300,7 +300,7 @@ You see a formerly tall humanoid creature, with four tentacles hanging from the
 middle of its head.  It is hunched over, bent and scarred from torture inflicted
 by the githyanki.  It cringes as you approach.
 ~
-human~
+illithid~
 BR 0 0 0 0 0 0
 8 0 2d6+85 8d9+100 1d6+1 'none'
 4 4 4 7
@@ -317,13 +317,13 @@ of the keep.  Nevertheless, he is still an impressive sight, some twenty feet
 in length with an even more massive wingspan.  He watches you, smoke drifting
 from his open mouth.
 ~
-dragon~
+red dragon~
 BR 0 0 0 A -400 0
 28 0 5d10+650 28d9+100 2d10+7 'none'
 -8 -8 -8 1
 FR
 stand stand male 250
-0 0 medium unknown
+0 0 giant unknown
 #7719
 fire furnace flame~
 A massive blast of fire~
@@ -331,7 +331,7 @@ The fires of the furnace burn away at your skin!
 ~
 The fire feeds on your skin like a living being, licking out at your hair.
 ~
-human~
+unique~
 BF 0 0 0 H 0 0
 13 0 2d10+170 6d9+100 2d5+3 'none'
 -1 -1 -1 8
@@ -595,7 +595,7 @@ An intricately fashioned splint mail vest lies here.~
 wood~
 armor 0 0 AD
 6 6 6 0 0
-15 450 2100 P
+15 100 2100 P
 E
 vest splint~
 This splint mail has been expertly and ornately fashioned from the highest

@@ -917,7 +917,7 @@ cloak плащ~
 skin~
 armor GIY K AD
 -20 -20 -20 -20 0
-10 1 10000 P
+10 100 10000 P
 a '' to_skills 10 -1 100 'stone skin' A
 a '' to_skills 10 -1 100 'dragon skin' A
 a '' to_skills 10 -1 100 'bark skin' A
@@ -1182,7 +1182,7 @@ buckler ruler shield~
 steel~
 armor GIY BE AJ
 8 8 8 3 0
-0 200 10000 P
+0 50 10000 P
 g @rus male~
 #72
 great ruler shield щит~
@@ -1200,7 +1200,7 @@ You see a large Kite Shield of Ruler on the ground.~
 steel~
 armor GIY BE AJ
 20 20 20 10 0
-0 310 20000 P
+0 350 20000 P
 a '' to_object 0 -1 -10 17 0
 a '' to_object 0 -1 3 18 0
 a '' to_object 0 -1 4 19 0
@@ -1212,7 +1212,7 @@ tower ruler shield щит~
 steel~
 armor GIY BE AJ
 30 30 30 20 0
-0 240 20000 P
+0 450 20000 P
 g @rus male~
 #75
 herb healing травка bunch~
@@ -1248,7 +1248,7 @@ Dragonplate~
 gold~
 armor GIY 0 AD
 30 30 30 30 0
-0 250 10000 P
+0 350 10000 P
 a '' to_object 0 -1 2 6 0
 a '' to_object 0 -1 5 19 0
 a '' to_object 0 -1 5 18 0
@@ -1368,7 +1368,7 @@ An energy shield is left here.~
 energy~
 armor GPUY 0 AJ
 20 20 20 20 2
-0 250 10000 P
+0 50 10000 P
 E
 shield energy~
 This shield is resistive to %s.

@@ -3,8 +3,9 @@ Name gnome~
 Det infrared~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
-Resist bash -40
-Resist poison 33
+Resist bash -30
+Resist disease 20
+Resist poison 20
 End
 
 #PCRACE
@@ -12,11 +13,10 @@ Shortname Gnome~
 Points 300
 Class 'cleric' 100
 Class 'thief' 100
-Class 'warrior' 100
 Class 'wizard' 100
-BonusSkills 'identify'~
-Stats -2 3 5 0 -2 0 
-MaxStats 18 23 25 20 18 25 
+BonusSkills identify lore~
+Stats -2 3 5 -2 -1 0 
+MaxStats 18 23 25 18 20 25 
 Size small
 ManaBonus 10
 PracBonus 5

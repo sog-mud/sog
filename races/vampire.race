@@ -1,0 +1,15 @@
+#RACE
+Name vampire~
+Act undead~
+Aff regeneration~
+Resist fire -50
+Resist cold 50
+Resist lightning 50
+Resist holy -50
+Resist negative 50
+Resist poison 100
+Resist charm 100
+Resist light -100
+End
+
+#$

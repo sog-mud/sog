@@ -23,6 +23,14 @@ Form 3 -ют~
 End
 
 #RULE
+Name прекрасным~
+BaseLen 8
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
+End
+
+#RULE
 Name наполняет~
 BaseLen 7
 Form 1 -ет~
@@ -310,11 +318,27 @@ Form 3 -ые~
 End
 
 #RULE
+Name вялым~
+BaseLen 3
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
+End
+
+#RULE
 Name уведомляет~
 BaseLen 8
 Form 1 -ет~
 Form 2 -ет~
 Form 3 -ют~
+End
+
+#RULE
+Name взглянул~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
 End
 
 #RULE
@@ -502,6 +526,14 @@ Form 3 -ли~
 End
 
 #RULE
+Name хватает~
+BaseLen 5
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
 Name подслушал~
 BaseLen 8
 Form 1 -ла~
@@ -549,6 +581,14 @@ Form 3 им~
 End
 
 #RULE
+Name переполненным~
+BaseLen 11
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
+End
+
+#RULE
 Name коричневый~
 BaseLen 8
 Form 1 -ая~
@@ -575,9 +615,9 @@ End
 #RULE
 Name способен~
 BaseLen 6
-Form 1 -а~
-Form 2 -о~
-Form 3 -ы~
+Form 1 -на~
+Form 2 -но~
+Form 3 -ны~
 End
 
 #RULE
@@ -645,6 +685,14 @@ Form 3 -ли~
 End
 
 #RULE
+Name посвежевшим~
+BaseLen 11
+Form 1 посвежевшей~
+Form 2 посвежевшим~
+Form 3 посвежевшими~
+End
+
+#RULE
 Name замыкает~
 BaseLen 6
 Form 1 -ет~
@@ -700,6 +748,14 @@ Form 3 -ют~
 End
 
 #RULE
+Name воспротивился~
+BaseLen 10
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
 Name гаснет~
 BaseLen 4
 Form 3 -ут~
@@ -711,6 +767,14 @@ BaseLen 8
 Form 1 -ет~
 Form 2 -ет~
 Form 3 -ют~
+End
+
+#RULE
+Name юным~
+BaseLen 2
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
 End
 
 #RULE
@@ -798,6 +862,14 @@ BaseLen 7
 Form 1 -ась~
 Form 2 -ось~
 Form 3 -ись~
+End
+
+#RULE
+Name сонным~
+BaseLen 4
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
 End
 
 #RULE
@@ -936,6 +1008,30 @@ Form 3 -ы~
 End
 
 #RULE
+Name заставил~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name вздрогнул~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name потерявшим~
+BaseLen 8
+Form 1 -ей~
+Form 2 -им~
+Form 3 -ими~
+End
+
+#RULE
 Name сбежал~
 BaseLen 6
 Form 1 -а~
@@ -996,6 +1092,14 @@ BaseLen 9
 Form 1 -ая~
 Form 2 -ое~
 Form 3 -ые~
+End
+
+#RULE
+Name испытал~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
 End
 
 #RULE
@@ -1201,6 +1305,14 @@ BaseLen 5
 Form 1 -лась~
 Form 2 -лось~
 Form 3 -лись~
+End
+
+#RULE
+Name молодым~
+BaseLen 5
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
 End
 
 #RULE
@@ -1500,6 +1612,22 @@ Form 3 -лись~
 End
 
 #RULE
+Name помолодевшим~
+BaseLen 10
+Form 1 -ей~
+Form 2 -им~
+Form 3 -ими~
+End
+
+#RULE
+Name родившимся~
+BaseLen 10
+Form 1 родившейся~
+Form 2 родившимся~
+Form 3 родившимися~
+End
+
+#RULE
 Name вытаскивает~
 BaseLen 9
 Form 1 -ет~
@@ -1607,6 +1735,22 @@ Form 3 ними~
 End
 
 #RULE
+Name бодрым~
+BaseLen 6
+Form 1 бодрой~
+Form 2 бодрым~
+Form 3 бодрыми~
+End
+
+#RULE
+Name снял~
+BaseLen 3
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name забрел~
 BaseLen 5
 Form 1 -ла~
@@ -1620,6 +1764,14 @@ BaseLen 5
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
+End
+
+#RULE
+Name молод~
+BaseLen 5
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
 End
 
 #RULE

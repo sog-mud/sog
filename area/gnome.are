@@ -551,7 +551,7 @@ A stone slab lies here.~
 stone~
 armor 0 0 AJ
 4 4 4 2 0
-16 350 3700 P
+16 450 3700 P
 a '' to_object 16 -1 2 1 0
 g @rus none~
 #1520
@@ -561,7 +561,7 @@ A large suit of heavy banded mail is here~
 iron~
 armor 0 0 AD
 6 6 6 0 0
-15 300 2100 P
+15 400 2100 P
 g @rus none~
 #1521
 club large two-handed~

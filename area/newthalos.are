@@ -1659,7 +1659,7 @@ A suit of field plate lies here.~
 iron~
 armor FGIKL 0 AD
 8 8 8 0 0
-25 280 3900 P
+25 400 3900 P
 g @rus none~
 #9518
 ringmail ring mail suit~
@@ -1697,7 +1697,7 @@ A splinted shield lies here.~
 steel~
 armor 0 0 AJ
 4 4 4 0 0
-5 180 710 P
+5 100 710 P
 g @rus none~
 #9522
 buckler shield~
@@ -2358,7 +2358,7 @@ A multi-colored shirt lies here.~
 cloth~
 armor G 0 AD
 7 7 7 0 0
-20 10 2900 P
+20 100 2900 P
 g @rus none~
 #9596
 bugle boy jeans~

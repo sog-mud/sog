@@ -909,7 +909,7 @@ shield warden щит boundary~
 unknown~
 armor BC 0 AJ
 20 21 20 15 0
-60 10 9898 P
+60 100 9898 P
 a '' to_object 60 -1 40 13 0
 a '' to_object 60 -1 -9 17 0
 g @rus none~
@@ -962,7 +962,7 @@ robe dark плащ~
 cloth~
 armor BC 0 AD
 23 23 22 11 0
-70 10 5060 P
+70 100 5060 P
 a '' to_object 70 -1 25 13 0
 a '' to_object 70 -1 50 12 0
 g @rus none~

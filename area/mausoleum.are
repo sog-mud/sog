@@ -26,22 +26,17 @@ to make its kill.
 внимания до тех пор, пока ты не подойдешь достаточно близко, чтобы
 он смог убить тебя.
 ~
-unique~
+zombie~
 FGJO 0 0 0 ABH -1000 0
 25 7 20d5+700 1d1+300 5d4+7 'bite'
 0 0 0 0
 CDEFK
 stand stand neutral 50
-ABDIc ABCDEF medium unknown
+BDc 0 medium unknown
 g @eng neutral@rus male~
-r fire -50
-r holy -50
-r negative 33
-r charm 33
-r light -50
 #4601
 zombie зомби~
-@eng the Juju zombie@rus зомби~
+@eng the Ju-ju zombie@rus зомби~
 @eng A pale, withered man stands here, staring at you with an immense hatred.
 @rus Бледный, иссохший человек (zombie) смотрит на тебя с невыразимой ненавистью.
 ~
@@ -55,41 +50,30 @@ sockets.
 рабство. Ты замечаешь, что у него нет глаз - вместо них в его глаз-
 ницах тлеют зловещие красные огни.
 ~
-unique~
+zombie~
 BFGHO 0 0 0 ABH -1000 0
 30 10 20d10+1100 1d1+400 5d5+10 'claw'
 -5 -5 -5 -5
 DEFKN
 stand stand none 1500
-ABIc ABCDEF medium unknown
+Bc 0 medium unknown
 g @eng none@rus male~
-r fire -50
-r negative 33
-r charm 33
-r light -50
 #4602
 young vampire юный вампир~
-@eng a young vampire@rus Молодой вампир (vampire) выискивает очередную жертву.~
-A young vampire stands here, looking for something to kill.
+@eng a young vampire@rus ~~юный~~ ~~вампир~~~
+@eng A young vampire stands here, looking for something to kill.
+@rus Юный вампир (vampire) высматривает, кого бы убить.
 ~
 @eng This young lady looks quite famished and pale.
 @rus Эта ...девушка выглядит очень бледной и изголодавшейся.
 ~
-unique~
-FJO 0 U 0 ABH -1000 0
+vampire~
+FJ 0 U 0 ABH -1000 0
 31 12 10d3+1500 0d0+100 7d4+15 'magic'
 -5 -5 -5 -5
 DEFIKNV
 stand stand female 10000
 ABCDHIKMc ABCDEFGHIJKV medium unknown
-r pierce -50
-r fire -50
-r cold 33
-r holy -50
-r negative 33
-r energy -50
-r charm 33
-r light -50
 #4603
 Kharzandra wizardress vampire кхарзандра волшебница~
 @eng Kharzandra, the Dark-elf Vampire@rus ~~Кхарзандра~~~
@@ -106,20 +90,13 @@ perhaps you will be her dinner?
 бессмертие после смерти. Она работает уже целый день и очень прого-
 лодалась.. как бы тебе не стать ее обедом.
 ~
-dark-elf~
-0 0 JU 0 AB -1000 0
+vampire~
+BFGR 0 JU 0 AB -1000 0
 45 20 100d3+4000 100d4+600 7d5+30 'magic'
 -10 -10 -10 -10
 EFIK
-stand stand female 17000
+stand stand female 10000
 0 0 medium unknown
-r pierce -50
-r fire -50
-r cold 100
-r holy -50
-r negative 100
-r charm 50
-r light -50
 #4604
 vampire shadar lunn вампир шадар лунн man мужчина~
 @eng the Vampire, Shadar Lunn@rus ~~вампир~~ Шадар ~~Лунн~~~
@@ -133,20 +110,13 @@ when he sees it.
 стражи.. возможно, он и сам был одним из них... В любом случае, он знает
 толк в броне.
 ~
-unique~
-BFJO 0 JU 0 ABH -1000 0
+vampire~
+BFJ 0 JUV 0 ABH -1000 0
 48 30 100d4+4500 100d3+2000 10d5+30 'slash'
 -25 -25 -25 -20
-AEFIKV
+AEFHIKV
 stand stand male 20000
 ABCDHIKMc ABCDEFGHIJKV medium unknown
-r pierce -50
-r fire -50
-r cold 33
-r holy -50
-r negative 33
-r charm 100
-r light -50
 #4605
 ghoul creature гуль существо~
 @eng a hungry ghoul@rus ~~голодный~~ ~~гуль~~~
@@ -161,18 +131,13 @@ walked into the room.
 несвежей пищи, но стоит тебе подойти поближе, как оно переключает
 все внимание на более свежее мясо, то есть тебя.
 ~
-unique~
+ghoul~
 FGJO 0 0 0 ABH -1000 0
 33 10 100d3+1200 0d0+300 5d6+10 'chill'
 -2 -2 -2 -2
 CEFKN
 stand stand none 200
-ABCDIc ABCDEFPU medium unknown
-r fire -50
-r holy -50
-r negative 33
-r charm 33
-r light -50
+ACDc PU medium unknown
 #4606
 mastiff hound адский пес hell~
 @eng the hell hound@rus ~~адский~~ ~~пес~~~
@@ -270,12 +235,12 @@ priest vampire вампир священник~
 @eng A dark-robed man stands here, praying to his unholy god.
 @rus Одетый в черное человек (priest) стоит здесь, молясь своему нечистому божеству.
 ~
-@eng This dark-priest wears the sign of Loki about his neck, and is seeming
+@eng This dark-priest wears the sign of Lloth about his neck, and is seeming
 disturbed by your intrusion during his meditation.
-@rus Он носит знак Локи на шее и, похоже, очень недоволен твоим
+@rus Он носит знак Ллос на шее и, похоже, очень недоволен твоим
 вторжением, заставившим его прервать медитацию.
 ~
-unique~
+vampire~
 GJLQ 0 U 0 ABH -1000 0
 41 20 100d3+2700 1d1+500 6d8+25 'divine'
 -20 -20 -20 -20
@@ -283,7 +248,6 @@ AFIK
 stand stand none 5000
 CGI 0 medium unknown
 g @eng none@rus male~
-r charm 100
 #4612
 dark spectre темный призрак~
 @eng the dark spectre@rus ~~темный~~ ~~призрак~~~
@@ -296,30 +260,13 @@ it's red, glowing eyes... it looks pissed off that you're still alive.
 красным глаз.. и их выражение подсказывает, что тебе следует уб-
 раться как можно дальше и как можно скорей.
 ~
-unique~
-BFJT 0 JTU AB ABH -1000 0
+spectre~
+BFJT 0 JT AB ABH -1000 0
 46 10 100d3+2500 1d1+500 5d8+25 'drain'
 -15 -15 -15 -10
 FK
 stand stand none 0
 ACK 0 medium unknown
-r bash 100
-r pierce 100
-r slash 100
-r fire 33
-r cold 100
-r lightning 100
-r acid 100
-r holy 100
-r negative 100
-r energy 100
-r mental 100
-r sound 100
-r disease 100
-r poison 100
-r charm 100
-r harm 100
-r light 100
 #0
 
 #OBJECTS
@@ -360,7 +307,7 @@ g @eng none@rus male~
 #4603
 corpse труп~
 @eng a smelly humanoid corpse@rus ~~смердящий~~ ~~труп~~~
-@eng A decaying corpse lies here, feeding the worms and rats.@rus Гниющий труп (corpse) лежит здесь, служа пищей червям и крысамю~
+@eng A decaying corpse lies here, feeding the worms and rats.@rus Гниющий труп (corpse) лежит здесь, служа пищей червям и крысам.~
 flesh~
 container 0 0 0
 0 0 0 0 0
@@ -630,59 +577,59 @@ the portal to the spirit realms...
 ~
 g @rus none~
 #4624
-claw dracolich~
-the Claw of great Dracolich~
-A claw of great ancient Dracolich is here.~
+claw dracolich коготь драколича~
+@eng the Claw of great Dracolich@rus ~~коготь~~ драколича~
+@eng A claw of great ancient Dracolich is here.@rus Коготь (claw) драколича лежит на земле.~
 bone~
 weapon ABCEGHIM C AN
-exotic 7 8 'none' C
-60 300 150000 P
-a '' to_object 60 -1 6 19 0
-a '' to_object 60 -1 5 18 0
-a '' to_object 60 -1 -50 12 0
-a '' to_object 60 -1 -2 5 0
-g @rus none~
+exotic 7 8 'claw' C
+45 300 150000 P
+a '' to_object 45 -1 6 19 0
+a '' to_object 45 -1 5 18 0
+a '' to_object 45 -1 -50 12 0
+a '' to_object 45 -1 -2 5 0
+g @rus male~
 #4625
-coffin~
-a coffin~
-A plain, wooden coffin is here.~
+coffin гроб~
+@eng a coffin@rus ~~гроб~~~
+@eng A plain, wooden coffin is here.@rus Простой деревянный гроб (coffin) стоит здесь.~
 wood~
 container 0 0 0
 1000 0 0 0 0
 1 100 0 P
-g @rus none~
+g @rus male~
 #4626
-sceptre chaos~
-the flaming sceptre of Chaos~
-A flaming rod of steel lies here.~
+sceptre chaos скипетр хаоса rod жезл~
+@eng the flaming sceptre of Chaos@rus ~~огненный~~ ~~скипетр~~ Хаоса~
+@eng A flaming rod of steel lies here.@rus Объятый пламенем стальной жезл (rod) лежит здесь.~
 steel~
-armor CEH C AN
-4 6 7 18 0
-40 8 28550 P
-a '' to_object 40 -1 -20 13 0
-a '' to_object 40 -1 1 19 0
-a '' to_object 40 -1 4 18 0
-a '' to_object 40 -1 10 12 0
-a '' to_object 40 -1 1 2 0
-g @rus none~
+weapon CEH C AN
+mace 5 9 'divine' A
+30 8 28550 P
+a '' to_object 30 -1 -20 13 0
+a '' to_object 30 -1 1 19 0
+a '' to_object 30 -1 4 18 0
+a '' to_object 30 -1 10 12 0
+a '' to_object 30 -1 1 2 0
+g @rus male~
 #4627
-libram gainful conjuration~
+libram gainful conjuration том spellbook~
 the Libram of Gainful Conjuration~
-A large spellbook lies here waiting to be read.~
+@eng A large spellbook lies here waiting to be read.@rus Большой том (spellbook) ждет, пока кто-нибудь откроет его.~
 parchment~
 container ABCEP C AO
 100 0 0 500 0
-50 15 40000 P
-g @rus none~
+45 15 40000 P
+g @rus male~
 #4628
-potion protection divine~
-a potion of divine protection~
-A gleamy, white potion is here.~
+potion protection divine снадобье божественной защиты~
+@eng a potion of divine protection@rus ~~снадобье~~ божественной защиты~
+@eng A gleamy, white potion is here.@rus Блестящий белый пузырек (potion) лежит тут.~
 glass~
 potion A 0 AO
 30 'harm' 'plague' 'poison' 'chill touch'
-50 15 40000 P
-g @rus none~
+45 15 40000 P
+g @rus neutral~
 #4629
 cloak wizardry~
 the cloak of wizardry~
@@ -690,120 +637,120 @@ A mystical, maroon cloak lies here in a pile.~
 flesh~
 armor ABCEF C AK
 30 0 0 0 0
-50 3 25000 P
-a '' to_object 50 -1 60 12 0
-a '' to_object 50 -1 -25 17 0
-a '' to_object 50 -1 2 4 0
-a '' to_object 50 -1 3 3 0
+45 3 25000 P
+a '' to_object 45 -1 60 12 0
+a '' to_object 45 -1 -25 17 0
+a '' to_object 45 -1 2 4 0
+a '' to_object 45 -1 3 3 0
 g @rus none~
 #4630
-scroll overkill~
-a scroll of ultimate overkill~
-A scroll with the title 'Ultimate Overkill' lies here.~
+scroll overkill свиток истребления~
+@eng a scroll of ultimate overkill@rus ~~свиток~~ полного истребления~
+@eng A scroll with the title 'Ultimate Overkill' lies here.@rus Свиток (scroll), надписанный 'Полное истребление', лежит тут.~
 parchment~
 scroll 0 C A
 50 'lightning breath' 'acid blast' 'harm' ''
-38 1 1500 P
-g @rus none~
+35 1 1500 P
+g @rus male~
 #4631
-scroll truimph~
-a scroll of truimph~
-A scroll with the title 'Truimph' lies here.~
+scroll truimph свиток триумфа~
+@eng a scroll of triumph~
+@eng A scroll with the title 'Truimph' lies here.@rus Свиток (scroll), надписанный 'Триумф', лежит тут.~
 parchment~
 scroll A C A
 43 'giant strength' 'cure serious' 'bless' ''
-34 1 1500 P
-g @rus none~
+30 1 1500 P
+g @rus male~
 #4632
-scroll feasting~
-a scroll of feasting~
-A scroll with the title 'Feasting' lies here.~
+scroll feasting свиток пожирания~
+@eng a scroll of feasting@rus ~~свиток~~ пожирания~
+@eng A scroll with the title 'Feasting' lies here.@rus Свиток (scroll), надписанный 'Пожирание', лежит тут.~
 parchment~
 scroll A C A
 35 'infravision' 'armor' 'colour spray' ''
 20 1 1500 P
-g @rus none~
+g @rus male~
 #4633
-scroll redecoration~
-a scroll of room-redecoration~
-A scroll with the title 'Room-redecoration' lies here.~
+scroll redecoration свиток отделка комнат~
+@eng a scroll of room-redecoration@rus ~~свиток~~ отделки комнат~
+@eng A scroll with the title 'Room-redecoration' lies here.@rus Свиток (scroll), надписанный 'Отделка комнат', лежит тут.~
 parchment~
 scroll A C A
-38 'cause serious' 'energy drain' 'demonfire' ''
-45 1 1500 P
-g @rus none~
-#4634
-scroll protection~
-a scroll of protection~
-A scroll with the title 'Protection' lies here.~
-parchment~
-scroll A C A
-50 'armor' 'stone skin' 'pass door' ''
+40 'cause serious' 'energy drain' 'demonfire' ''
 40 1 1500 P
-g @rus none~
+g @rus male~
+#4634
+scroll protection свиток защиты~
+@eng a scroll of protection@rus ~~свиток~~ защиты~
+@eng A scroll with the title 'Protection' lies here.@rus Свиток (scroll), надписанный 'Защита', лежит тут.~
+parchment~
+scroll A C A
+45 'armor' 'stone skin' 'pass door' ''
+35 1 1500 P
+g @rus male~
 #4635
-scroll invulnerability~
-a scroll of invulnerability~
-A scroll with the title 'Invulnerability' lies here.~
+scroll invulnerability свиток неуязвимости~
+@eng a scroll of invulnerability@rus ~~свиток~~ неуязвимости~
+@eng A scroll with the title 'Invulnerability' lies here.@rus Свиток (scroll), надписанный 'Неуязвимость', лежит тут.~
 parchment~
 scroll A C A
 34 'armor' 'teleport' '' ''
 12 1 1500 P
-g @rus none~
+g @rus male~
 #4636
-scroll wolverine~
-a scroll of the Wolverine~
-A scroll with the title 'Wolverine' lies here.~
+scroll wolverine свиток ярости~
+@eng a scroll of the Wolverine@rus ~~свиток~~ ярости~
+@eng A scroll with the title 'Wolverine' lies here.@rus Свиток (scroll), надписанный 'Ярость', лежит тут.~
 parchment~
 scroll A C A
 38 'frenzy' 'shield' '' ''
 20 1 1500 P
-g @rus none~
+g @rus male~
 #4637
-scroll lifebane~
-a scroll of lifebane~
-A scroll with the title 'Lifebane' lies here.~
+scroll lifebane свиток погибели~
+@eng a scroll of lifebane@rus ~~свиток~~ погибели~
+@eng A scroll with the title 'Lifebane' lies here.@rus Свиток (scroll), надписанный 'Погибель', лежит тут.~
 parchment~
 scroll A C A
 40 'energy drain' 'energy drain' '' ''
-33 1 1500 P
+27 1 1500 P
 g @rus none~
 #4638
-scroll destruction~
-a scroll of destruction~
-A scroll with the title 'Destruction' lies here.~
+scroll destruction свиток разрушения~
+@eng a scroll of destruction@rus ~~свиток~~ разрушения~
+@eng A scroll with the title 'Destruction' lies here.@rus Свиток (scroll), надписанный 'Разрушение', лежит тут.~
 parchment~
 scroll A C A
 42 'fireball' 'demonfire' '' ''
 29 1 1500 P
-g @rus none~
+g @rus male~
 #4639
-scroll chaos~
-a scroll of chaos~
-A scroll with the title 'Chaos' lies here.~
+scroll chaos свиток хаоса~
+@eng a scroll of chaos@rus ~~свиток~~ хаоса~
+@eng A scroll with the title 'Chaos' lies here.@rus Свиток (scroll), надписанный 'Хаос', лежит тут.~
 parchment~
 scroll A C A
-50 'teleport' 'teleport' 'sleep' 'curse'
+45 'teleport' 'teleport' 'sleep' 'curse'
 10 1 1500 P
-g @rus none~
+g @rus male~
 #4640
-potion healing bvumpertan~
-a potion of healing~
-A crystal-clear potion lies here... it looks refreshing.~
+potion healing снадобье исцеления пузырек~
+@eng a potion of healing@rus ~~снадобье~~ исцеления~
+@eng A crystal-clear potion lies here... it looks refreshing.@rus Наполненный кристально-чистой жидкостью пузырек (potion) лежит тут.~
 glass~
 potion A 0 AO
 35 '' 'acid blast' 'plague' ''
 5 0 15000 P
-g @rus none~
+g @rus neutral~
 #4641
-potion life~
-a potion of life~
-A reddish-brown potion lies here.~
+potion life снадобье жизни пузырек~
+@eng a potion of life@rus ~~снадобье~~ жизни~
+@eng A reddish-brown potion lies here.@rus Красно-коричневый пузырек (potion) лежит тут.~
 glass~
 potion A 0 AO
 27 'cause critical' 'cause light' 'cure serious' ''
 5 0 1000 P
-g @rus none~
+g @rus neutral~
 #0
 
 #ROOMS
@@ -1869,11 +1816,11 @@ D 0 4631 0 1	* A grisly scene, SW corner of Mausoleum.: door to the north: close
 D 0 4633 0 1	* A grisly scene, SE corner of Mausoleum.: door to the north: closed
 D 0 4634 3 1	* Shadar Lunn's coffin room: door to the west: closed
 O 0 4603 0 4600	* a smelly humanoid corpse (Outside of the mausoleum)
-M 0 4601 40 4600 10	* the Juju zombie (Outside of the mausoleum)
+M 0 4601 40 4600 10	* the Ju-ju zombie (Outside of the mausoleum)
 G 0 4600 0		*	a small black skeleton key
 M 0 4605 12 4601 6	* a hungry ghoul (A grisly scene, NW corner of Mausoleum.)
 M 0 4605 12 4603 6	* a hungry ghoul (A grisly scene, NE corner of Mausoleum.)
-M 0 4601 40 4604 10	* the Juju zombie (A small room.)
+M 0 4601 40 4604 10	* the Ju-ju zombie (A small room.)
 G 0 4600 0		*	a small black skeleton key
 O 0 4603 0 4605	* a smelly humanoid corpse (Northwest main area of the Mausoleum.)
 M 0 4600 35 4605 9	* a disgusting, rotting Zombie (Northwest main area of the Mausoleum.)
@@ -1885,7 +1832,7 @@ O 0 4615 0 4607	* a corpse of an elfin wizard (Northeastern main area of the Mau
 M 0 4600 35 4607 9	* a disgusting, rotting Zombie (Northeastern main area of the Mausoleum.)
 M 0 4600 35 4608 9	* a disgusting, rotting Zombie (A small room.)
 M 0 4605 12 4608 4	* a hungry ghoul (A small room.)
-M 0 4601 40 4608 10	* the Juju zombie (A small room.)
+M 0 4601 40 4608 10	* the Ju-ju zombie (A small room.)
 G 0 4600 0		*	a small black skeleton key
 O 0 4625 0 4609	* a coffin (The Kharzandra's coffin room)
 O 0 4603 0 4610	* a smelly humanoid corpse (The workroom of Kharzandra.)
@@ -1898,7 +1845,7 @@ G 0 4629 0		*	the cloak of wizardry
 G 0 4627 0		*	the Libram of Gainful Conjuration
 P 0 4613 1 4627 1	* the Libram of Gainful Conjuration: an ancient yellow parchment
 P 0 4630 1 4627 1	* the Libram of Gainful Conjuration: a scroll of ultimate overkill
-P 0 4631 1 4627 1	* the Libram of Gainful Conjuration: a scroll of truimph
+P 0 4631 1 4627 1	* the Libram of Gainful Conjuration: a scroll of triumph
 P 0 4632 1 4627 1	* the Libram of Gainful Conjuration: a scroll of feasting
 P 0 4633 1 4627 1	* the Libram of Gainful Conjuration: a scroll of room-redecoration
 P 0 4634 1 4627 1	* the Libram of Gainful Conjuration: a scroll of protection
@@ -1930,14 +1877,14 @@ M 0 4602 2 4616 2	* a young vampire (The dark priest's workroom.)
 E 0 4601 0 16		*	a Frostbrand sword: wielded
 E 0 4617 0 12		*	a rat-eaten poncho: about the shoulders
 M 0 4600 35 4617 9	* a disgusting, rotting Zombie (Western check point.)
-M 0 4601 40 4617 10	* the Juju zombie (Western check point.)
+M 0 4601 40 4617 10	* the Ju-ju zombie (Western check point.)
 G 0 4600 0		*	a small black skeleton key
 O 0 4615 0 4618	* a corpse of an elfin wizard (Central main area of the Mausoleum.)
 M 0 4600 35 4618 9	* a disgusting, rotting Zombie (Central main area of the Mausoleum.)
 G 0 4603 0		*	a smelly humanoid corpse
 M 0 4600 35 4619 9	* a disgusting, rotting Zombie (Eastern check point.)
 M 0 4600 35 4619 9	* a disgusting, rotting Zombie (Eastern check point.)
-M 0 4601 40 4619 10	* the Juju zombie (Eastern check point.)
+M 0 4601 40 4619 10	* the Ju-ju zombie (Eastern check point.)
 G 0 4600 0		*	a small black skeleton key
 M 0 4600 35 4620 9	* a disgusting, rotting Zombie (A vacant workroom.)
 M 0 4612 1 4620 1	* the dark spectre (A vacant workroom.)
@@ -1962,7 +1909,7 @@ M 0 4609 1 4625 1	* the demon familiar (Roaming ground for the Demon.)
 E 0 4616 0 16		*	the flail of Pestilance: wielded
 E 0 4621 0 13		*	an ulrician belt: around the waist
 M 0 4605 12 4626 4	* a hungry ghoul (A small room.)
-M 0 4601 40 4626 10	* the Juju zombie (A small room.)
+M 0 4601 40 4626 10	* the Ju-ju zombie (A small room.)
 G 0 4600 0		*	a small black skeleton key
 O 0 4620 0 4627	* a peaceful corpse (Southwest main area of the Mausoleum.)
 M 0 4600 35 4627 9	* a disgusting, rotting Zombie (Southwest main area of the Mausoleum.)
@@ -1970,7 +1917,7 @@ M 0 4600 35 4628 9	* a disgusting, rotting Zombie (Central main area of the Maus
 G 0 4603 0		*	a smelly humanoid corpse
 M 0 4600 35 4629 9	* a disgusting, rotting Zombie (Southeast main area of the Mausoleum.)
 M 0 4605 12 4630 4	* a hungry ghoul (A small room.)
-M 0 4601 40 4630 10	* the Juju zombie (A small room.)
+M 0 4601 40 4630 10	* the Ju-ju zombie (A small room.)
 G 0 4600 0		*	a small black skeleton key
 M 0 4605 12 4631 4	* a hungry ghoul (A grisly scene, SW corner of Mausoleum.)
 O 0 4603 0 4632	* a smelly humanoid corpse (A hole in the southern wall.)
@@ -1997,6 +1944,8 @@ O 4606 5	* a pair of darkened leggings
 O 4607 10	* the Arkham signet ring
 O 4609 5	* a guardian sword
 O 4622 4	* the Shadow Dagger
+O 4624 2	* the Claw of great Dracolich
+O 4626 5	* the flaming sceptre of Chaos
 S
 
 #$

@@ -2263,7 +2263,7 @@ dress платье~
 cloth~
 armor 0 0 AD
 7 7 7 0 0
-20 5 500 G
+20 50 500 G
 a '' to_object 20 -1 1 2 0
 a '' to_object 20 -1 1 6 0
 E
@@ -2410,7 +2410,7 @@ shirt mailed рубашка броня бронированная~
 steel~
 armor KL 0 AD
 6 6 6 0 0
-36 9 4000 G
+36 90 4000 G
 a '' to_object 36 -1 2 19 0
 E
 shirt mailed рубашка броня бронированная~
@@ -2634,7 +2634,7 @@ A green and silver shield bears a bleeding heart device.~
 steel~
 armor BK 0 AJ
 8 8 9 0 0
-35 8 10000 P
+35 80 10000 P
 a '' to_object 35 -1 -10 13 0
 a '' to_object 35 -1 2 19 0
 E
@@ -3044,7 +3044,7 @@ A blue, embroided apron lies folded on the ground.~
 cloth~
 armor 0 0 AD
 3 2 3 0 0
-1 5 50 G
+1 50 50 G
 E
 apron~
 A fanciful "G" is nicely embroided in the apron's centre.
@@ -3173,7 +3173,7 @@ A white samite gown lies here like a symbol of beauty and purity.~
 bronze~
 armor G 0 AD
 11 11 11 0 0
-50 6 25000 G
+50 60 25000 G
 a '' to_object 50 -1 20 12 0
 a '' to_object 50 -1 2 18 0
 a '' to_object 50 -1 2 19 0
@@ -4607,7 +4607,7 @@ wind, falls at your feet.
 Туман не дает тебе разглядеть, что происходит за кустарником, но ты
 чувствуешь сильное, древнее зло тянется оттуда к тебе холодными
 пальцами. К югу, лес становится гораздо светлее, и ты уже почти $gn{готов}
-пойти на юг, когда ветер дросает тебе под ноги какой-то старый
+пойти на юг, когда ветер бросает тебе под ноги какой-то старый
 свиток (parchment).
 ~
 0 A forest
@@ -5328,7 +5328,7 @@ loom out ominously.  The road continues south.
 @rus Ты стоишь в начале дороги, идущей с севера на юг. Кусты шиповника,
 растущие по обе стороны дороги, устлали ее своими листьями. Тишина и
 покой вокруг. На севере лес темнеет, шиповник сменятся бузиной. Дорога
-идет на юг
+идет на юг.
 ~
 0 A field
 D0
@@ -5638,11 +5638,11 @@ soft cool embrace while a breeze flows in from the north.  Huge salmon
 and rainbow trout weave their way amongst the rocks in the stream below.
 To the west the forest stretches on, while the sounds of laughter and
 play drift in softly from the south.
-@rus Ты стоишь на западном концу деревянного мостика.  Имя его строителя
+@rus Ты стоишь на западном конце деревянного мостика.  Имя его строителя
 скрыто покровом старины, однако качество работы и красота резьбы может
 поспорить с лучшими образцами работ резчиков.  Ветви деревьев, растущих на
 берегу этого ручья окутывают мост приятной тенистой прохладой, легкий
-ветерок дует с севера.  Две большие рыбы, похожих на лососей проплывают
+ветерок дует с севера.  Две большие рыбы, похожие на лососей проплывают
 между камнями в потоке, текущем под мостом.  Тропка теряется в лесу на
 западе и идет через мост на восток.  
 ~

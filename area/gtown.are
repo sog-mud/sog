@@ -86,7 +86,7 @@ The Evil Baron and his two brothers were vampires imprisoned here by Xanan
 centuries ago, who had not the power to slay them utterly, and now thanks
 to your disturbance they have risen again!
 ~
-undead~
+vampire~
 BFGO 0 N 0 0 -1000 0
 54 0 25d10+5250 10d10+1110 7d6+22 'pierce'
 -24 -24 -24 -1
@@ -103,7 +103,7 @@ This powerful Undead is actually Xantharus' former master, whom he betrayed
 and slew. But he underestimated his master's power, and now he as returned
 as a Lich, seeking revenge!
 ~
-human~
+lich~
 BFGJO 0 0 0 ABH -1000 0
 58 0 50d10+6250 10d10+1110 5d10+25 'pierce'
 -28 -28 -28 2
@@ -233,7 +233,7 @@ rat крыса giant~
 @eng When I say GIANT, I am talking ten feet high...
 @rus Существо аж десяти футов ростом с горящими красными глазами.
 ~
-unique~
+rat~
 CFGHO 0 0 B AB -1000 0
 40 0 10d10+1850 10d10+100 4d8+13 'charge'
 -13 -13 -13 4
@@ -249,7 +249,7 @@ spider паук giant~
 @eng When I say GIANT, I am talking ten feet high...
 @rus Мохнатое чудище 10-ти футов ростов. Ужас.
 ~
-undead~
+insect~
 CFGHO 0 0 B 0 -1000 0
 45 0 25d10+3000 10d10+1000 8d4+16 'charge'
 -15 -15 -15 4
@@ -264,7 +264,7 @@ A Lurker Above seeks to enfold and suffocate you!
 This foul abberration feeds on any and all that enter its lair- even the
 corporeal undead avoid it...
 ~
-undead~
+lurker~
 BFGHO 0 T 0 0 0 0
 52 0 50d10+4750 10d10+1000 6d7+20 'pierce'
 -20 -20 -20 2
@@ -281,7 +281,7 @@ succubus woman суккуб~
 @rus Ой! Да это же суккуб. Она сначала очарует, а потом высосет из тебя все
 соки и поможет умереть. С ней нужно говорить только на языке грубой силы.
 ~
-undead~
+tanar'ri~
 BGO 0 JT 0 0 -1000 0
 50 0 50d10+4250 10d10+1000 5d8+19 'slash'
 -20 -20 -20 2
@@ -298,7 +298,7 @@ the Undead to this town, destroying it, before losing control of them. He
 has fled here, in the hopes that they won't find him before he finds a way
 to escape his terrible mistake.
 ~
-undead~
+human~
 BGHO 0 0 0 0 -400 0
 50 0 50d10+4250 10d10+1000 5d8+19 'pound'
 -20 -20 -20 2
@@ -453,7 +453,7 @@ while you rest, and perhaps heal your wounds if you pay her enough...
 ты находишься на его территории и, возможно, даже полечит, если ты
 достаточно заплатишь.
 ~
-undead~
+treant~
 BGO 0 N A 0 400 0
 65 0 50d10+8250 10d10+1000 11d5+35 'pierce'
 -35 -35 -35 -5
@@ -470,7 +470,7 @@ to an eternity as an undead servant. Clad in ornate, ancient armor and
 wielding a shiny silver sword, he would look as he did in life save for his
 rotting face...
 ~
-undead~
+death knight~
 BFGO 0 0 0 0 -1000 0
 60 0 50d10+6250 10d10+1000 8d6+28 'pierce'
 -30 -30 -30 0
@@ -518,7 +518,7 @@ all possible. He is attempting to ascertain the degree of power of the
 master, and inform his master if the strange man poses a significant threat
 to his domination of all things Undead.
 ~
-undead~
+tanar'ri~
 CGHO 0 V B L -1000 0
 50 0 50d10+4250 10d10+1000 5d8+19 'pound'
 -40 -40 -40 2
@@ -536,7 +536,7 @@ grips a rod with a goat's head in one hoof, and glares suspiciously at you.
 He is not really meant to be here, and thus will avoid attracting attention
 of the powers of the Prime Material Plane by avoiding combat.
 ~
-undead~
+unique~
 BGHO 0 JN A L -1000 0
 65 0 50d10+8250 10d10+1000 11d5+35 'pierce'
 -35 -35 -35 -4
@@ -566,7 +566,7 @@ spider giant паук~
 @eng When I say GIANT, I am talking ten feet high...
 @rus Когда я говорил гигантский, я имел ввиду 10 футов высотой...
 ~
-undead~
+insect~
 BCFGHO 0 0 B 0 -1000 0
 48 0 50d10+3750 10d10+1000 6d6+18 'charge'
 -18 -18 -18 3
@@ -582,7 +582,7 @@ The Evil Baron and his two brothers were vampires imprisoned here by Xanan
 centuries ago, who had not the power to slay them utterly, and now thanks
 to your disturbance they have risen again!
 ~
-undead~
+vampire~
 BFGO 0 0 0 0 -1000 0
 60 0 50d10+6750 10d10+1000 8d6+28 'pierce'
 -30 -30 -30 0
@@ -682,9 +682,9 @@ container 0 0 A
 48 100 0 P
 g @rus male~
 #8107
-robes flesh накидка~
-@eng robes of Flesh@rus ~~накидка~~, сделанная из кожи~
-@eng Robes made of human flesh are piled here.@rus Накидка (robes), изготовленная из кожи людей, брошена здесь.~
+robes flesh мантия~
+@eng robes of Flesh@rus ~~мантия~~ из плоти~
+@eng Robes made of human flesh are piled here.@rus Скомканная мантия (robes) из человеческой плоти лежит на земле.~
 flesh~
 armor EJ 0 AK
 15 15 15 6 0
@@ -715,12 +715,12 @@ trash 0 0 A
 1 50 0 P
 g @rus female~
 #8110
-gem power кристал~
-@eng a Power Gem@rus ~~кристал~~ ~
-@eng A Mana Power Gem pulses strongly here.@rus Кристал (gem) весь пульсирует от заключенной в нем мощи.~
-wood~
+gem power камень силы~
+@eng a Power Gem@rus ~~камень~~ Силы~
+@eng A Mana Power Gem pulses strongly here.@rus Сверкающий кристалл (gem) пульсирует от заключенной в нем силы.~
+crystal~
 staff AG 0 AO
-50 20 20 'sanctuary' 0
+50 10 10 'sanctuary' 0
 45 10 40000 P
 a '' to_object 45 -1 50 12 0
 g @rus male~
@@ -754,7 +754,7 @@ armor dark~
 steel~
 armor CEJ 0 AD
 16 16 17 10 0
-50 25 15000 P
+50 450 15000 P
 a '' to_object 50 -1 -10 17 0
 a '' to_object 50 -1 4 18 0
 a '' to_object 50 -1 7 19 0
@@ -3547,6 +3547,7 @@ S
 O 8100 1	* the Rod of Orcus
 O 8103 5	* the Sword of Kas
 O 8108 3	* a Rod of Bone
+O 8110 7	* a Power Gem
 O 8112 3	* (Diabolical) a Dark Sword
 O 8113 1	* a Suit of Dark Armor
 S

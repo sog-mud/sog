@@ -683,7 +683,7 @@ A suit of emerald armor is here.~
 stone~
 armor G 0 AD
 13 13 13 10 0
-46 40 2000 P
+46 400 2000 P
 a '' to_object 46 -1 -30 17 0
 g @rus none~
 #29217
@@ -806,7 +806,7 @@ A cape with the emblem of Freeport is here.~
 cloth~
 armor GI 0 ACD
 12 12 12 6 0
-45 10 3200 P
+45 100 3200 P
 a '' to_object 45 -1 2 18 0
 a '' to_object 45 -1 2 19 0
 a '' to_object 45 -1 -20 17 0

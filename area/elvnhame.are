@@ -1892,8 +1892,8 @@ a jacket of platemail~
 You see a heavy jacket on the floor.~
 steel~
 armor 0 0 AD
--7 -7 -7 -4 2
-8 180 500 P
+7 7 7 4 2
+8 450 500 P
 g @rus none~
 #40150
 steel bracers~

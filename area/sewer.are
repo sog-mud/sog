@@ -557,7 +557,7 @@ There is a silvery breast plate on the floor.~
 silver~
 armor GIKL 0 AD
 8 8 8 2 0
-32 400 12400 P
+32 150 12400 P
 a '' to_object 32 -1 3 1 0
 E
 plate breast silvery~
@@ -616,7 +616,7 @@ The shield of the rose rests on the floor.~
 steel~
 armor GIKL 0 AJ
 8 8 8 3 0
-30 300 5800 P
+30 100 5800 P
 a '' to_object 30 -1 -7 17 0
 E
 shield~
@@ -773,7 +773,7 @@ A large red dragon shield rests on the floor.~
 dragonskin~
 armor GJ 0 AJ
 10 10 10 5 0
-35 220 6900 P
+35 350 6900 P
 a '' to_object 35 -1 2 19 0
 g @rus none~
 #7309

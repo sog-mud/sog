@@ -377,7 +377,7 @@ A suit of well-crafted chain lies here.~
 unknown~
 armor AG 0 AD
 21 21 22 20 0
-63 5 25000 P
+63 50 25000 P
 a '' to_object 63 -1 -30 17 0
 g @rus none~
 #30810
@@ -387,7 +387,7 @@ A shield covered with mithril runes is propped up against a wall here.~
 unknown~
 armor AG 0 AJ
 20 20 20 20 0
-63 8 15000 P
+63 80 15000 P
 a '' to_object 63 -1 5 5 0
 a '' to_object 63 -1 -30 17 0
 g @rus none~
@@ -491,7 +491,7 @@ A suit of unholy armor lies here.~
 unknown~
 armor ABEGJM 0 AD
 21 21 21 10 0
-63 25 20000 P
+63 450 20000 P
 a '' to_object 63 -1 3 1 0
 a '' to_object 63 -1 3 2 0
 a '' to_object 63 -1 3 5 0
@@ -630,7 +630,7 @@ A backpack sits here.~
 unknown~
 container 0 0 AD
 25 0 0 10 100
-0 3 0 P
+0 30 0 P
 g @rus none~
 #30836
 hand axe~
@@ -702,7 +702,7 @@ A white shield bearing a white hart on a green field lies here.~
 unknown~
 armor AGIK 0 AJ
 25 25 25 18 0
-75 7 25000 P
+75 70 25000 P
 a '' to_object 75 -1 4 5 0
 a '' to_object 75 -1 50 13 0
 a '' to_object 75 -1 -30 17 0
@@ -716,7 +716,7 @@ A surcoat bearing the coat of arms of Malathar lies here.~
 unknown~
 armor AGIK 0 AD
 25 25 25 20 0
-75 5 15000 P
+75 50 15000 P
 a '' to_object 75 -1 4 1 0
 a '' to_object 75 -1 5 18 0
 a '' to_object 75 -1 5 19 0
@@ -3056,8 +3056,8 @@ O 0 30845 0 30834	* a throne (A Strange Room)
 O 0 30846 0 30834	* a skeleton (A Strange Room)
 M 0 30810 1 30837 1	* a paladin (The Tomb)
 E 0 30843 0 11		*	a white shield: as a shield
-E 0 30844 0 15		*	a white surcoat: on the right wrist
 O 0 30847 0 30837	* a massive sarcophagus (The Tomb)
+E 0 30844 0 5		*	a white surcoat: on the body
 O 0 30828 0 30838	* a glowing red portal (The Portal)
 O 0 30849 0 30839	* a glowing red portal (The Portal Chamber)
 M 0 30801 7 30840 1	* a clay golem (A Long Dark Passage)

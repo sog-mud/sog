@@ -963,7 +963,7 @@ breast plate iron кираса~
 iron~
 armor 0 0 AD
 7 7 7 0 0
-20 450 3200 P
+20 150 3200 P
 a '' to_object 20 -1 1 18 0
 g @eng neutral@rus female~
 #5302

@@ -569,8 +569,8 @@ cheeks and arms; you also see that many of those slashes have long healed,
 forming thick, hard scars.
 ~
 human~
-Ge D 0 BG ABH -1000 0
-45 0 25d10+3000 5d5+1000 8d4+16 'pound'
+Ge 0 0 BG ABH -1000 0
+45 25 25d10+3000 5d5+1000 7d7+25 'pound'
 -15 -15 -15 2
 FIK
 stand stand male 0
@@ -1144,7 +1144,7 @@ A shield with a mirrored surface lies on the ground.~
 glass~
 armor 0 0 AJ
 7 7 7 0 0
-23 5 100 P
+23 50 100 P
 a '' to_object 23 -1 1 2 0
 E
 mirror shield mirrored~
@@ -1158,7 +1158,7 @@ A metal plate is on the ground; your face is reflected in its surface.~
 glass~
 armor 0 0 AD
 6 6 6 0 0
-23 10 100 P
+23 100 100 P
 E
 mirror plate mirrored~
 Your own reflection stares up from the mirrored plate.
@@ -1180,7 +1180,7 @@ A chainmail cowl is here.~
 steel~
 armor 0 0 AD
 6 6 6 0 0
-23 10 10 P
+23 100 10 P
 g @rus none~
 #19005
 throne~
@@ -1198,7 +1198,7 @@ A thin grey robe is here.~
 leather~
 armor 0 0 AD
 15 15 15 10 0
-49 5 500 P
+49 50 500 P
 a '' to_object 49 -1 3 2 0
 a '' to_object 49 -1 3 5 0
 a '' to_object 49 -1 -10 17 0
@@ -1240,7 +1240,7 @@ This chainmail jerkin is worn and full of holes.~
 leather~
 armor 0 0 AD
 13 13 13 4 0
-45 10 10 P
+45 100 10 P
 g @rus none~
 #19010
 royal staff king~
@@ -1379,7 +1379,7 @@ A juicy hamburger is here.~
 food~
 food 0 0 A
 ABCD ABCD 0 0 0
-1 2 20 P
+1 400 20 P
 g @rus none~
 #19023
 steak yorkshire pudding food~
@@ -1518,7 +1518,7 @@ An ermine blanket is here.~
 unknown~
 armor 0 0 AD
 13 12 12 5 0
-39 5 10 P
+39 50 10 P
 g @rus none~
 #19035
 apple tree trees~
@@ -1584,7 +1584,7 @@ A brown robe is here.~
 leather~
 armor 0 0 AD
 5 5 5 0 0
-19 3 0 P
+19 30 0 P
 g @rus none~
 #19041
 telescope~
@@ -1657,7 +1657,7 @@ A heavily starched white shirt is here.~
 cloth~
 armor 0 0 AD
 5 5 5 0 0
-25 5 0 P
+25 50 0 P
 g @rus none~
 #19047
 pants black~
@@ -1710,7 +1710,7 @@ A wedding dress is here.~
 cloth~
 armor 0 0 AD
 5 5 5 0 0
-25 5 0 P
+25 50 0 P
 a '' to_object 25 -1 1 5 0
 E
 wedding dress~
@@ -1926,7 +1926,7 @@ A black karate uniform lies here.~
 cloth~
 armor 0 0 AD
 15 15 15 8 0
-45 10 1000 P
+45 100 1000 P
 a '' to_object 45 -1 4 2 0
 a '' to_object 45 -1 -10 17 0
 g @rus none~
@@ -2095,7 +2095,7 @@ A rain slicker lies here.~
 cloth~
 armor 0 0 AD
 5 5 5 0 0
-25 10 0 P
+25 100 0 P
 a '' to_object 25 -1 -50 14 0
 g @rus none~
 #19091
@@ -2416,7 +2416,7 @@ A tight leather bodice sits here.~
 leather~
 armor JM 0 AD
 6 6 6 0 0
-25 3 0 P
+25 30 0 P
 a '' to_object 25 -1 -25 13 0
 a '' to_object 25 -1 5 18 0
 g @rus none~
@@ -2610,7 +2610,7 @@ A white cloak lies here.~
 cloth~
 armor J 0 AD
 16 17 16 9 0
-50 5 0 P
+50 50 0 P
 a '' to_object 50 -1 50 12 0
 g @rus none~
 #19132
@@ -2620,7 +2620,7 @@ A black cloak lies here.~
 cloth~
 armor 0 0 AD
 16 17 17 6 0
-50 5 0 P
+50 50 0 P
 a '' to_object 50 -1 50 12 0
 g @rus none~
 #19133
@@ -2743,7 +2743,7 @@ midgaard history book~
 Midgaard, the City at the Center of the Glass Dragon Realm.....It was founded
 in times forgotten by noble Dutch explorers; their names remain with us today,
 inscribed on the plaque near the Great Temple.  They are Sebastian Hammer,
-Michael Seifert, Hans Henrik St{rfelt, Tom Madsen, and Katja Nyboe, and our 
+Michael Seifert, Hans Henrik Starfelt, Tom Madsen, and Katja Nyboe, and our 
 history begins with them....
 
 ....the later explorers, Hatchet and Furey and Kahn, renewed Midgaard, widening
@@ -2789,9 +2789,9 @@ topaz sigil~
 the yellow topaz sigil~
 A small piece of topaz lies here.~
 unknown~
-trash 0 0 BD
+trash 0 0 AB
 0 0 0 0 0
-5 0 0 P
+5 10 0 P
 a '' to_object 5 -1 10 12 0
 g @rus none~
 #19141
@@ -2906,11 +2906,11 @@ honey jar~
 g @rus none~
 #19157
 sword taliesin~
-taliesin~
+the sword Taliesin~
 A beautiful sword lies here.~
 gold~
 weapon GM 0 AN
-sword 5 9 'slash' 0
+sword 8 7 'slash' DE
 45 0 1000 P
 a '' to_object 45 -1 50 13 0
 a '' to_object 45 -1 50 12 0
@@ -2932,7 +2932,7 @@ A beautiful jewelled shield lies here.~
 gold~
 armor GM 0 AJ
 5 5 5 0 0
-10 0 0 P
+10 50 0 P
 a '' to_object 10 -1 1 2 0
 a '' to_object 10 -1 1 5 0
 a '' to_object 10 -1 -20 17 0
@@ -3659,12 +3659,6 @@ from the entranceway shines faintly below you, but complete darkness
 lies both ahead of you and to your right.
 ~
 0 AD air
-D0
-~
-~
-~
-~
-Z -1 19026
 D1
 ~
 ~
@@ -3758,7 +3752,7 @@ The tapestry is somewhat translucent to the east.
 tapestry~
 the tapestry~
 ~
-ABZ -1 19043
+Z -1 19043
 D2
 ~
 ~
@@ -3964,7 +3958,7 @@ D0
 ~
 ~
 ~
-ABZ -1 19031
+Z -1 19031
 D2
 ~
 ~
@@ -3986,13 +3980,13 @@ D0
 ~
 ~
 ~
-Z -1 19032
+Z 0 19033
 D2
 ~
 ~
 ~
 ~
-Z -1 19030
+ABZ -1 19030
 S
 #19032
 Mirrors~
@@ -4005,25 +3999,25 @@ D0
 ~
 ~
 ~
-Z -1 19036
+Z 0 19035
 D1
 ~
 ~
 ~
 ~
-Z -1 19033
+Z 0 19033
 D2
 ~
 ~
 ~
 ~
-Z -1 19031
+Z 0 19038
 D3
 ~
 ~
 ~
 ~
-Z -1 19034
+Z 0 19034
 S
 #19033
 Mirrors~
@@ -4036,19 +4030,25 @@ D0
 ~
 ~
 ~
-Z -1 19035
+Z 0 19036
 D1
 ~
 ~
 ~
 ~
-Z -1 19034
+Z 0 19034
+D2
+~
+~
+~
+~
+Z 0 19031
 D3
 ~
 ~
 ~
 ~
-Z -1 19032
+Z 0 19032
 S
 #19034
 Mirrors~
@@ -4061,19 +4061,25 @@ D0
 ~
 ~
 ~
-Z -1 19037
+Z 0 19037
 D1
 ~
 ~
 ~
 ~
-Z -1 19032
+Z 0 19032
+D2
+~
+~
+~
+~
+Z 0 19040
 D3
 ~
 ~
 ~
 ~
-Z -1 19033
+Z 0 19033
 S
 #19035
 Mirrors~
@@ -4086,25 +4092,25 @@ D0
 ~
 ~
 ~
-Z -1 19038
+Z 0 19038
 D1
 ~
 ~
 ~
 ~
-Z -1 19037
+Z 0 19036
 D2
 ~
 ~
 ~
 ~
-Z -1 19033
+Z 0 19032
 D3
 ~
 ~
 ~
 ~
-Z -1 19036
+Z 0 19037
 S
 #19036
 Mirrors~
@@ -4117,25 +4123,25 @@ D0
 ~
 ~
 ~
-Z -1 19040
+Z 0 19039
 D1
 ~
 ~
 ~
 ~
-Z -1 19035
+Z 0 19037
 D2
 ~
 ~
 ~
 ~
-Z -1 19032
+Z 0 19033
 D3
 ~
 ~
 ~
 ~
-Z -1 19037
+Z 0 19035
 S
 #19037
 Mirrors~
@@ -4148,25 +4154,25 @@ D0
 ~
 ~
 ~
-Z -1 19039
+Z 0 19040
 D1
 ~
 ~
 ~
 ~
-Z -1 19036
+Z 0 19035
 D2
 ~
 ~
 ~
 ~
-Z -1 19034
+Z 0 19034
 D3
 ~
 ~
 ~
 ~
-Z -1 19035
+Z 0 19036
 S
 #19038
 Mirrors~
@@ -4174,24 +4180,30 @@ The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
 0 D inside
+D0
+~
+~
+~
+~
+Z 0 19032
 D1
 ~
 ~
 ~
 ~
-Z -1 19039
+Z 0 19039
 D2
 ~
 ~
 ~
 ~
-Z -1 19035
+Z 0 19035
 D3
 ~
 ~
 ~
 ~
-Z -1 19040
+Z 0 19040
 S
 #19039
 Mirrors~
@@ -4199,24 +4211,30 @@ The mirror hall surrounds and envelops you; you can see nothing but yourself
 in every direction.
 ~
 0 D inside
+D0
+~
+~
+~
+~
+Z 0 19041
 D1
 ~
 ~
 ~
 ~
-Z -1 19040
+Z 0 19040
 D2
 ~
 ~
 ~
 ~
-Z -1 19037
+Z 0 19036
 D3
 ~
 ~
 ~
 ~
-Z -1 19038
+Z 0 19038
 S
 #19040
 Mirrors~
@@ -4229,25 +4247,25 @@ D0
 ~
 ~
 ~
-Z -1 19041
+Z 0 19034
 D1
 ~
 ~
 ~
 ~
-Z -1 19038
+Z 0 19038
 D2
 ~
 ~
 ~
 ~
-Z -1 19036
+Z 0 19037
 D3
 ~
 ~
 ~
 ~
-Z -1 19039
+Z 0 19039
 S
 #19041
 Intersection~
@@ -4257,7 +4275,7 @@ preventing you from seeing inside.  A strange, mirrored spiral staircase
 leads upwards into a tower; it looks rough and unworn, and the metal 
 joints lack the smooth ruts that you'd expect to see in a well-used stairway.
 ~
-0 DO inside
+0 D inside
 D0
 ~
 ~
@@ -4269,7 +4287,7 @@ D2
 ~
 ~
 ~
-Z -1 19040
+Z 0 19039
 D4
 ~
 ~
@@ -4303,7 +4321,7 @@ D3
 tapestry~
 the tapestry~
 ~
-Z -1 19024
+ABZ -1 19024
 S
 #19044
 Below the Watchtower~
@@ -7501,10 +7519,10 @@ S
 #RESETS
 D 0 19005 0 1	* Before the Face of the Mountain: door to the north: closed
 D 0 19006 2 1	* The Path Above the Realm: door to the south: closed
-D 0 19024 1 1	* Floating Beside the Right Wall: door to the east: closed
 D 0 19026 3 1	* Floating Beside the Left Wall: door to the west: closed
-D 0 19030 0 1	* In Front of the Castle Entrance: door to the north: closed
+D 0 19031 2 1	* Entrance to the Castle: door to the south: closed
 D 0 19042 1 1	* An Alcove: door to the east: closed
+D 0 19043 3 1	* An Alcove: door to the west: closed
 D 0 19045 3 1	* The Foot of the Rock Ladder: door to the west: closed
 D 0 19048 1 1	* Intersection in the Garden: door to the east: closed
 D 0 19067 4 1	* The Gazebo: door to the up: closed
@@ -7835,7 +7853,7 @@ O 19062 1	* a sea-blue robe
 O 19071 10	* a kendo
 O 19110 1	* an eclipse sword
 O 19127 1	* a blood-red dagger
-O 19157 10	* taliesin
+O 19157 1	* the sword Taliesin
 S
 
 #$

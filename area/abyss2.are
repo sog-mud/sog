@@ -92,7 +92,7 @@ death. Its eyes glow with a furious fire to kill.
 кровью множества жертв. Пылающие глаза не выражают ничего,
 кроме желания убивать.
 ~
-human~
+unique~
 BCFJ 0 JTU 0 AH -1000 0
 36 0 10d10+1400 359d1+1 3d10+11 'punch'
 -12 -12 -12 5
@@ -115,7 +115,7 @@ Its winged form stares down at you in utter hatred.
 @rus Большое демоноподобное создание парит в воздухе перед тобой,
 окруженное туманом, и смотрит на тебя с ненавистью.
 ~
-human~
+unique~
 BCFJ 0 U 0 H -1000 0
 34 0 10d10+1200 339d1+1 4d7+10 'punch'
 -11 -11 -11 5
@@ -135,7 +135,7 @@ a heavey, black cloak, in his right hand, he wields a wicked dagger.
 @rus Ростом свыше семи футов, он одет в тяжелый черный плащ
 и сжимает в руке кинжал.
 ~
-human~
+unique~
 BCFJ 0 0 G AH -1000 0
 25 0 5d10+550 249d1+1 2d10+7 'punch'
 -7 -7 -7 6
@@ -163,8 +163,8 @@ lost soul потерянная душа~
 ~
 The lost soul is a ghostly apparition, seeking revenge on the living.
 ~
-human~
-CFJ 0 U G AH -1000 0
+ghost~
+CFJ 0 0 G AH -1000 0
 20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
 FGJK
@@ -238,7 +238,7 @@ flaming efreet огненный ифрит~
 intense heat.
 @rus Он состоит целиком из огня и ты чувствуешь исходящий от него жар.
 ~
-unique~
+genie~
 0 0 0 0 0 -1000 25008
 35 0 10d10+1200 349d1+1 4d7+10 'punch'
 -11 -11 -11 7
@@ -261,7 +261,7 @@ hydra гидра~
 a dangerous stream of fire.
 @rus Огромная чешуйчатая тварь с восемью огнедышащими головами.
 ~
-fox~
+hydra~
 BCFJ 0 0 0 H -1000 0
 36 0 10d10+1400 359d1+1 3d10+11 'blast'
 -12 -12 -12 6
@@ -314,7 +314,7 @@ is a large opening that looks very much like a mouth.
 @rus Это было бы еще больше похоже на дерево, если бы не имело
 рта у основания.
 ~
-unique~
+treant~
 0 0 0 0 0 -1000 0
 44 0 25d10+2550 439d1+1 8d4+12 'punch'
 -15 -15 -15 4
@@ -325,7 +325,6 @@ g @eng male@rus neutral~
 r bash 33
 r pierce 33
 r slash 33
-r fire -50
 r cold -50
 r lightning -50
 r acid -50
@@ -398,7 +397,7 @@ its sword, he charges for battle.
 воскресившего его из мертвых. Не сводя с тебя глаз,
 он обнажает свое оружие и нападает.
 ~
-undead~
+death knight~
 0 0 0 0 0 -1000 0
 38 0 10d10+1600 379d1+1 4d8+13 'punch'
 -13 -13 -13 5
@@ -411,8 +410,8 @@ r slash 33
 r fire -50
 r charm 100
 #25015
-Neo Otyugh отюф~
-@eng the Neo-Otyugh@rus отюф~
+Neo Otyugh нео отью~
+@eng the Neo-Otyugh@rus Нео-отью~
 @eng A large, disgusting, vile creature stands here, smelling putrid.
 @rus Огромная мерзкая тварь (otyugh) стоит тут, распространяя запах гнили.
 ~
@@ -420,7 +419,7 @@ Neo Otyugh отюф~
 from its disgusting body.
 @rus Оно покрыто какой-то слизью и имеет кучу щупалец.
 ~
-dog~
+unique~
 BCFJ 0 J 0 H -1000 25015
 46 0 25d10+3250 459d1+1 6d6+16 'slime'
 -16 -16 -16 4
@@ -441,7 +440,7 @@ shadow демон теней demon~
 @rus Это просто тень с крыльями, которая легко может менять
 свои очертания.
 ~
-human~
+unique~
 CFJ 0 0 0 AH -1000 0
 28 0 6d12+703 279d1+1 2d12+8 'punch'
 -8 -8 -8 5
@@ -465,30 +464,14 @@ He guards the portal beyond him angrily.
 @rus Ростом в восемь футов и мускулистый, он способен помешать
 тебе добраться до портала.
 ~
-human~
+giant~
 BFGJ 0 J 0 ABH -1000 25036
 35 0 10d10+1300 349d1+1 4d7+11 'punch'
 -11 -11 -11 5
 CI
 stand stand male 5400
 0 0 medium unknown
-r bash -50
-r pierce -50
-r slash -50
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
-r holy 33
-r negative 33
-r energy 33
-r mental 33
-r sound 33
-r disease 33
-r poison 33
 r charm 100
-r harm 33
-r light 33
 #25018
 elemental water prince принц элементалей воды~
 @eng The Water Prince@rus ~~принц~~ водных элементалей~
@@ -532,7 +515,7 @@ air elemental lord повелитель элементалей воздуха~
 @rus Огромный смерч (air) невообразимым образом умещается в таком маленьком пространстве.
 ~
 @eng It looks sentinent.
-@rus Вполне живой.
+@rus Его даже можно потрогать. 
 ~
 air elemental~
 B 0 H 0 0 0 0
@@ -571,7 +554,7 @@ demon vrock демон врок~
 @rus Врок похож одновременно на человека и стервятника.
 Отвратительная и страшная комбинация.
 ~
-human~
+tanar'ri~
 CFJ 0 0 0 ABH -666 25030
 21 0 4d10+360 209d1+1 4d4+5 'punch'
 -5 -5 -5 6
@@ -604,7 +587,7 @@ demon hezrou демон хезроу~
 @eng Not unlike A large toad/man
 @rus Гибрид человека и жабы.
 ~
-human~
+tanar'ri~
 CFJ 0 0 0 ABH -666 0
 17 0 3d9+258 169d1+1 3d4+4 'punch'
 -3 -3 -3 7
@@ -625,7 +608,7 @@ demon glabrezu демон глабрезу~
 @eng I forget what this one looks like.
 @rus Похож на толстого и тупого турка.
 ~
-human~
+tanar'ri~
 CFJ 0 0 0 ABH -666 25032
 18 0 3d9+283 179d1+1 2d7+4 'punch'
 -3 -3 -3 7
@@ -642,7 +625,7 @@ demon nalfeshnee нэльфешни~
 @eng This one is big and mean looking.
 @rus Большой и злой.
 ~
-giant~
+tanar'ri~
 BCFJ 0 0 0 ABH -666 25033
 19 0 3d9+308 190d1+1 2d7+5 'punch'
 -4 -4 -4 7
@@ -659,14 +642,13 @@ demon marilith марилит~
 @eng A woman with 6 arms and a snake's tail
 @rus Шестирукая женщина со змеиным хвостом.
 ~
-unique~
-0 0 0 0 0 -666 25034
+tanar'ri~
+F 0 0 0 0 -666 25034
 15 0 3d9+208 149d1+1 2d6+3 'punch'
 -2 -2 -2 7
 0
 stand stand female 450
-0 0 tiny unknown
-r charm 100
+0 0 large unknown
 #25035
 demon balor балор~
 @eng Balor@rus Балор~
@@ -676,7 +658,7 @@ demon balor балор~
 @eng He is very large, and looks rather deadly
 @rus Большой и злой.
 ~
-unique~
+tanar'ri~
 0 0 0 0 0 -666 0
 20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
@@ -686,7 +668,6 @@ stand stand male 899
 r bash 33
 r pierce 33
 r slash 33
-r fire 100
 r charm 50
 #25036
 gatekeeper gate keeper хранитель врат~
@@ -817,7 +798,7 @@ brightly.@rus Прочный серебряный щит (shield) прислонен к стене и ярко сияет.~
 silver~
 armor GL A AJ
 12 12 12 2 0
-46 250 20666 G
+46 100 20666 G
 E
 silver shield~
 The shield is made of a silvery substance.. It is like nothing you have
@@ -1129,7 +1110,7 @@ g @eng neutral@rus male~
 and gnarled trees. To the north, you see a neglected, twisted path,
 disappearing far into the mountains.
      There is a small (Glowing) (Huming) tablet.
-@rus Ты оказался в лесистой местности, заросшей кустарником и кривыми
+@rus Ты $gn{оказался} в лесистой местности, заросшей кустарником и кривыми
 деревьями. Заброшенная дорога ведет на север, петляя и в конце кон-
 цов теряясь в горах.
 ~
@@ -1374,7 +1355,7 @@ walls and floor of the cave are rather damp, and a musty smell
 feels the air. A familiar crashing sound continues to come from
 beyond the east passageway.
 @rus Здесь путь не заканчивается - у пещеры два выхода. И стены, и
-пол здесь порядочно сырые, а воздух весьмя затхлый. С востока
+пол здесь порядочно сырые, а воздух весьма затхлый. С востока
 доносится все тот же знакомый звук волн, разбивающихся о берег.
 ~
 0 ADN forest
@@ -1493,7 +1474,7 @@ S
 @eng As you step through the window, you are instantly transported
 to find yourself here. Just to the north is what appears to be
 the shore of a lareg ocean.
-@rus Ты вошел в портал и оказался в совершенно незнакомом
+@rus Ты вошел в портал и $gn{оказался} в совершенно незнакомом
 месте. В нескольких десятках шагов перед тобой находится
 тот самый океанский берег.
 ~
@@ -1857,8 +1838,8 @@ S
 @eng It continues to grow darker, the only thing you can see are
 the flames lighting your way along the trail on which you now
 walk.
-@rus Тьма вокруг сгущается все сильней, лишь горящая
-земля позволяет что-то разглядеть.
+@rus Тьма вокруг сгущается все сильней и лишь свет от горящей 
+земли позволяет что-то разглядеть.
 ~
 0 AN city
 D1
@@ -1930,7 +1911,7 @@ that seem to glowing with a faint aura of red.
 @rus Подойдя ближе, ты обнаруживаешь, что стена огня на
 самом деле является огромным, полыхающим жарким пла-
 менем ифритом. За его спиной возвышаются величествен-
-ные врата, тускло светящиеся краснымю
+ные врата, тускло светящиеся красным.
 ~
 0 AN city
 D0

@@ -1,9 +1,8 @@
 #RACE
 Name ghost~
 Act undead~
-Aff flying~
-Off fade~
-Form edible sentient biped mammal~
+Aff flying pass_door~
+Form undead intangible~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
 Resist bash 33
 Resist pierce 33

@@ -2,6 +2,7 @@
 Name warrior~
 ShortName War~
 PrimeStat str
+SkillSpec 'class_warrior'
 SchoolWeapon 3702
 GuildRoom 3022
 GuildRoom 3023
@@ -11,9 +12,9 @@ Thac0_00 18
 Thac0_32 -10
 HPRate 100
 ManaRate 50
-AddExp 0
-StatMod 3 0 0 0 1 5
-SkillSpec class_warrior
+StatMod 2 0 0 0 1 5
+RestrictAlign none~
+RestrictEthos none~
 End
 
 #POSE

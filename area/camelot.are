@@ -1301,7 +1301,7 @@ armor green броня зеленая~
 mithril~
 armor GK 0 AD
 9 9 9 9 0
-31 2 2000 P
+31 400 2000 P
 a '' to_object 31 -1 10 13 0
 a '' to_object 31 -1 2 1 0
 a '' to_object 31 -1 -5 24 0
@@ -1368,7 +1368,7 @@ shield щит многоцветный~
 silver~
 armor GK 0 AJ
 9 9 9 9 0
-34 4 1500 P
+34 40 1500 P
 a '' to_object 34 -1 4 19 0
 g @eng none@rus male~
 #17310
@@ -1518,7 +1518,7 @@ pack backpack trailpack leather pellinore pellinore's мешок пеллинор рюкзак~
 leather~
 container GH 0 AD
 500 0 17321 250 75
-27 0 1200 P
+27 40 1200 P
 E
 lettering~
 You read the writing on the pack. It says "To my dear friend Pellinore, may 
@@ -1649,7 +1649,7 @@ armor golden броня золотая~
 gold~
 armor EJL 0 AD
 9 9 9 9 0
-34 5 3000 P
+34 450 3000 P
 a '' to_object 34 -1 5000 15 0
 a '' to_object 34 -1 -12 17 0
 g @eng none@rus female~
@@ -1733,7 +1733,7 @@ armor shimmering red броня красная сверкающая~
 mithril~
 armor AG 0 AD
 9 9 9 4 0
-31 15 1800 P
+31 400 1800 P
 a '' to_object 31 -1 -10 17 0
 g @eng none@rus female~
 #17336
@@ -1885,7 +1885,7 @@ armor plate full броня полный комплект стальной~
 iron~
 armor 0 0 AD
 11 13 12 0 0
-30 100 300 P
+30 450 300 P
 a '' to_object 30 -1 -8 17 0
 g @eng none@rus male~
 #17349
@@ -1932,7 +1932,7 @@ plate blue синяя броня~
 steel~
 armor AG 0 AD
 12 12 12 8 0
-33 5 2300 P
+33 400 2300 P
 a '' to_object 33 -1 5 5 0
 g @eng none@rus female~
 #17352
@@ -1955,7 +1955,7 @@ arthur plate доспехи артур~
 gold~
 armor AGK 0 AD
 19 19 19 6 0
-43 5 4900 P
+43 450 4900 P
 a '' to_object 43 -1 -7 20 0
 a '' to_object 43 -1 30 13 0
 a '' to_object 43 -1 9 19 0

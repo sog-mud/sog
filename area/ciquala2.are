@@ -509,7 +509,7 @@ An iron maiden sits here, looking rather unused.  Why not try it on?~
 iron~
 armor 0 0 AD
 20 20 20 5 0
-33 1000 0 G
+33 100 0 G
 a '' to_object 33 -1 -400 13 0
 a '' to_object 33 -1 -5 5 0
 a '' to_object 33 -1 -5 1 0

@@ -1,6 +1,5 @@
 #RACE
 Name storm giant~
-Aff flying~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
 Flags noch~
@@ -16,14 +15,10 @@ End
 
 #PCRACE
 Shortname StGia~
-Points 600
-Class 'cleric' 100
-Class 'paladin' 100
-Class 'ranger' 100
+Points 500
 Class 'warrior' 100
-BonusSkills 'bash' 'enhanced damage' 'sword'~
-Stats 5 -2 -2 -6 3 0 
-MaxStats 24 17 17 17 21 25 
+Stats 5 -3 -3 -3 4 0 
+MaxStats 25 16 16 15 24 25 
 Size huge
 HPBonus 20
 ManaBonus -20

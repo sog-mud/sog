@@ -9,13 +9,18 @@ End
 
 #MOBILES
 #3600
-henry gardener~
-Henry the Gardener~
-Henry the Gardener is sitting here, looking drunk.
+henry gardener садовник генри~
+@eng Henry the Gardener@rus ~~садовник~~ Генри~
+@eng Henry the Gardener is sitting here, looking drunk.
+@rus Здесь сидит садовник Генри (Henry). На вид - пьян.
 ~
-He is a tall but bulky man in his late fifties.  His features are worn with
+@eng He is a tall but bulky man in his late fifties.  His features are worn with
 decades of hard work and his somewhat crouched expression is one of deep
 sorrow and depression.  He is haunted by a memory of a lost paradise.
+@rus Ему под шестьдесят, он высокий, но грузный.  На его лицо наложили
+свой отпечаток годы тяжёлого труда, его согбенная фигура выражает
+глубокую печаль и депрессию.  Его преследуют видения потерянного
+рая.
 ~
 human~
 G 0 0 0 0 350 0
@@ -25,11 +30,13 @@ EFNU
 sit sit male 2
 0 0 medium unknown
 #3601
-zombie~
-the rotting zombie~
-A rotting zombie is staggering towards you with outstretched hands.
+zombie зомби~
+@eng the rotting zombie@rus ~~гниющий~~ зомби~
+@eng A rotting zombie is staggering towards you with outstretched hands.
+@rus Гниющий зомби (zombie) движется к вам, раскинув руки и спотыкаясь.
 ~
-Maggots crawl all over its decaying body.
+@eng Maggots crawl all over its decaying body.
+@rus Черви ползают по всему его телу.
 ~
 human~
 BF 0 0 0 H -750 0
@@ -39,12 +46,16 @@ EFNU
 stand stand male 2
 0 0 medium unknown
 #3602
-ghoul~
-the ghastly ghoul~
-A ghastly ghoul is here.
+ghoul гуль~
+@eng the ghastly ghoul@rus ~~отвратительный~~ ~~гуль~~~
+@eng A ghastly ghoul is here.
+@rus Здесь есть отвратительный гуль (ghoul).
 ~
-It is a walking corpse with long fangs and long, sharp nails that most of
+@eng It is a walking corpse with long fangs and long, sharp nails that most of
 resemble claws.  Its eyes are a dark yellow colour and glare hungrily at you.
+@rus Это ходячий труп с длинными клыками и длинными острыми ногтями,
+напоминающими когти.  Его тёмно-жёлтые глаза с голодным блеском
+следят за тобой.
 ~
 human~
 BF 0 0 0 H -750 0
@@ -54,12 +65,15 @@ EFNU
 stand stand male 5
 0 0 medium unknown
 #3603
-skeleton~
-a dusty skeleton~
-A dusty skeleton lies here.
+skeleton скелет~
+@eng a dusty skeleton@rus ~~пыльный~~ ~~скелет~~~
+@eng A dusty skeleton lies here.
+@rus Здесь лежит пыльный скелет (skeleton).
 ~
-The dusty bones are almost brown.  It must have been buried for a very long
+@eng The dusty bones are almost brown.  It must have been buried for a very long
 time.
+@rus Пыльные кости стали уже почти коричневыми.  Должно быть, он очень давно
+уже здесь похоронен.
 ~
 human~
 BF 0 0 0 H -750 0
@@ -70,15 +84,18 @@ stand stand male 0
 0 0 medium unknown
 r bash -50
 #3604
-skeleton~
-a dusty skeleton~
-A dusty skeleton lies here.
+skeleton скелет~
+@eng a dusty skeleton@rus ~~пыльный~~ ~~скелет~~~
+@eng A dusty skeleton lies here.
+@rus Здесь лежит пыльный скелет (skeleton).
 ~
-The dusty bones are almost brown.  It must have been buried for a very long
+@eng The dusty bones are almost brown.  It must have been buried for a very long
 time.
+@rus Пыльные кости стали уже почти коричневыми.  Должно быть, он очень давно
+уже здесь похоронен.
 ~
 human~
-F 0 0 0 H -750 0
+BF 0 0 0 H -750 0
 3 0 2d6+35 1d9+100 1d6+0 'none'
 7 7 7 10
 EFNU
@@ -86,11 +103,13 @@ stand stand male 0
 0 0 medium unknown
 r bash -50
 #3605
-zombie~
-the rotting zombie~
-A rotting zombie is staggering towards you with outstretched hands.
+zombie зомби~
+@eng the rotting zombie@rus ~~гниющий~~ зомби~
+@eng A rotting zombie is staggering towards you with outstretched hands.
+@rus Гниющий зомби (zombie) движется к вам, раскинув руки и спотыкаясь.
 ~
-Maggots crawl all over its decaying body.
+@eng Maggots crawl all over its decaying body.
+@rus Черви ползают по всему его телу.
 ~
 human~
 F 0 0 0 H -750 0
@@ -103,121 +122,136 @@ stand stand male 5
 
 #OBJECTS
 #3600
-candlestick~
-a candlestick~
-A pewter candlestick is standing here.~
+candlestick канделябр~
+@eng a candlestick@rus канделябр~
+@eng A pewter candlestick is standing here.@rus Здесь стоит оловянный канделябр (candlestick).~
 wax~
 light 0 0 AO
 0 0 24 0 0
 0 50 10 P
 E
-candlestick~
-It is a rather old-looking three-armed candlestick made from pewter.  Its
+candlestick канделябр~
+@eng It is a rather old-looking three-armed candlestick made from pewter.  Its
 candles are a yellowish white colour.
+@rus Это - довольно старый канделябр на три свечи, сделанный
+из олова. В него вставлены желтовато-белые свечи.
 ~
-g @rus none~
+g @rus male~
 #3601
-brandy bottle~
-a brandy bottle~
-A brandy bottle is lying here.~
+brandy bottle бутылка бренди~
+@eng a brandy bottle@rus ~~бутылка~~ бренди~
+@eng A brandy bottle is lying here.@rus Здесь лежит бутылка бренди (brandy).~
 glass~
 drink 0 0 A
 32 32 'whisky' 0 0
 0 20 100 P
 E
-brandy bottle~
-The bottle is a special 'Dragon Blood' brandy bottle.  Its neck is shaped
+brandy bottle бутылка бренди~
+@eng The bottle is a special 'Dragon Blood' brandy bottle.  Its neck is shaped
 like a small dragon's head.  Bottles like these are often worth a small
 amount money, even when empty.
+@rus Это - бутылка бренди "Кровь Дракона". Её горлышко
+выполнено в форме головы дракона. За такую бутылку,
+ даже пустую, можно выручить немало денег.
 ~
-g @rus none~
+g @rus female~
 #3602
-brandy bottle~
-a brandy bottle~
-A brandy bottle is lying here.~
+brandy bottle бутылка бренди~
+@eng a brandy bottle@rus ~~бутылка~~ бренди~
+@eng A brandy bottle is lying here.@rus Здесь лежит бутылка бренди (brandy).~
 glass~
 drink 0 0 A
 32 0 'whisky' 0 0
 0 20 100 P
 E
-brandy bottle~
-The bottle is a special 'Dragon Blood' brandy bottle.  Its neck is shaped
+brandy bottle бутылка бренди~
+@eng The bottle is a special 'Dragon Blood' brandy bottle.  Its neck is shaped
 like a small dragon's head.  Bottles like these are often worth some money,
 even when empty.
+@rus Это - бутылка бренди "Кровь Дракона". Её горлышко
+выполнено в форме головы дракона. За такую бутылку,
+даже пустую, можно выручить немало денег.
 ~
-g @rus none~
+g @rus female~
 #3603
-wheelbarrow~
-a wheelbarrow~
-A green-painted wheelbarrow is standing here.~
+wheelbarrow тачка~
+@eng a wheelbarrow@rus тачка~
+@eng A green-painted wheelbarrow is standing here.@rus Здесь стоит тачка (wheelbarrow), выкрашенная в зелёный цвет.~
 wood~
 boat 0 0 A
 0 0 0 0 0
 0 1000 50 P
 E
-wheelbarrow~
-It is a heavy wheelbarrow made from solid oaken planks that have been painted
+wheelbarrow тачка~
+@eng It is a heavy wheelbarrow made from solid oaken planks that have been painted
 a dark, green colour.
+@rus Это - тяжёлая тачка, сделанная из цельных  дубовых досок,
+выкрашенная в тёмно-зелёный цвет.
 ~
 g @rus none~
 #3604
-shovel~
-a shovel~
-A shovel is lying here.~
+shovel лопата~
+@eng a shovel@rus лопата~
+@eng A shovel is lying here.@rus Здесь лежит лопата (shovel).~
 iron~
 weapon 0 0 AN
 mace 1 5 'pound' 0
 0 80 169 P
 E
-shovel~
-It is a large metal shovel with a solid wooden handle.
+shovel лопата~
+@eng It is a large metal shovel with a solid wooden handle.
+@rus Это - большая металлическая лопата с прочным деревянным черенком.
 ~
-g @rus none~
+g @rus female~
 #3605
-rake~
-a rake~
-A rake is lying here.~
+rake грабли~
+@eng a rake@rus грабли~
+@eng A rake is lying here.@rus Здесь лежат грабли (rake).~
 unknown~
 weapon 0 0 AN
 mace 1 4 'claw' 0
 0 80 140 P
 E
-rake~
-It is a large metal rake with a solid wooden handle.
+rake грабли~
+@eng It is a large metal rake with a solid wooden handle.
+@rus Это - большие металлические грабли с прочным деревянным черенком.
 ~
 g @rus none~
 #3610
-skeleton~
-a dusty skeleton~
-A dusty skeleton lies here.~
+skeleton скелет~
+@eng a dusty skeleton@rus ~~пыльный~~ ~~скелет~~~
+@eng A dusty skeleton lies here.@rus Здесь лежит пыльный скелет (skeleton).~
 bone~
 furniture 0 0 A
 0 0 0 0 0
 0 150 0 P
 E
-skeleton~
-The dusty bones are almost brown.  It must have been buried for a very long
+skeleton скелет~
+@eng The dusty bones are almost brown.  It must have been buried for a very long
 time.
 A dusty skeleton is in an excellent condition.
+@rus Пыльные кости стали уже почти коричневыми.  Должно быть, он очень давно уже
+здесь похоронен.
 ~
-g @rus none~
+g @rus male~
 #3611
-amethyst gem~
-a amethyst~
-A large, beautifully polished amethyst has been left here.~
+amethyst gem аметист~
+@eng a amethyst@rus аметист~
+@eng A large, beautifully polished amethyst has been left here.@rus Кто-то оставил здесь крупный, прекрасно отшлифованный аметист (amethyst).~
 amethyst~
 warp_stone 0 C AO
 0 0 0 0 0
 0 10 2500 P
 E
-amethyst~
-It has a very deep purple colour.
+amethyst аметист~
+@eng It has a very deep purple colour.
+@rus Он очень глубокого пурпурного цвета.
 ~
-g @rus none~
+g @rus male~
 #3612
-pendant silver~
-a silver pendant~
-A silver pendant has been left here.~
+pendant silver кулон~
+@eng a silver pendant@rus ~~серебряный~~ ~~кулон~~~
+@eng A silver pendant has been left here.@rus Кто-то оставил здесь серебряный кулон (pendant).~
 silver~
 jewelry 0 0 AC
 0 0 0 0 0
@@ -225,58 +259,71 @@ jewelry 0 0 AC
 a '' to_object 7 -1 1 1 0
 a '' to_object 7 -1 -1 17 0
 E
-pendant silver~
-It resembles Thor's hammer and appears to be made of solid silver.
+pendant silver серебряный кулон~
+@eng It resembles Thor's hammer and appears to be made of solid silver.
+@rus Он напоминает молот Тора и, кажется сделан из чистого серебра.
 ~
-g @rus none~
+g @rus male~
 #3613
-dagger silver~
-a silver dagger~
-A long silver dagger is lying here.~
+dagger silver кинжал серебряный~
+@eng a silver dagger@rus ~~серебряный~~ ~~кинжал~~~
+@eng A long silver dagger is lying here.@rus Здесь лежит серебряный кинжал (dagger).~
 silver~
 weapon 0 0 AN
 dagger 2 4 'pierce' 0
 6 10 430 P
 a '' to_object 6 -1 1 19 0
 E
-dagger silver~
-It has a long, sharp blade that is made entirely from silver.  A small rune
+dagger silver серебряный кинжал~
+@eng It has a long, sharp blade that is made entirely from silver.  A small rune
 has been engraved on the blade next to the hilt.
+@rus У него длинное острое лезвие, сделанное целиком из серебра.
+На лезвии у самой рукоятки выгравирована маленькая руна.
 ~
-g @rus none~
+g @rus male~
 #0
 
 #ROOMS
 #3600
-A Gravel Road in the Graveyard~
-You are on a well-kept gravel road that leads north-south through the
+@eng A Gravel Road in the Graveyard@rus Гравийная дорога на кладбище~
+@eng You are on a well-kept gravel road that leads north-south through the
 graveyard.  On both sides of the road grow dark evergreen trees.  An iron
 grate is to the north and narrow gravel paths lead east and west.
+@rus Ты $gn{оказался} на хорошо ухоженной гравийной дороге, пересекающей кладбище
+с севера на юг. По обе стороны дороги растут тёмные вечно-зелёные деревья.
+На севере видна железная решётка, узкие дорожки, посыпанные гравием, ведут
+на восток и на запад.
 ~
 0 0 field
 D0
-Through the solid iron bars you see Elm Street. 
+@eng Through the solid iron bars you see Elm Street. 
+@rus Сквозь прочные железные прутья ты видишь улицу Вязов.
 ~
-grate~
-the grate~
-~
+grate решётка~
+@eng the grate@rus решётка~
+@rus female~
 ABZ -1 3124
 D1
-The gravel path leads eastwards between the dark evergreen trees.
+@eng The gravel path leads eastwards between the dark evergreen trees.
+@rus Дорожка, посыпанная гравием, ведёт на восток, петляя между тёмными
+вечно-зелёными деревьями.
 ~
 ~
 ~
 ~
 Z -1 3650
 D2
-The gravel road continues southwards.
+@eng The gravel road continues southwards.
+@rus Дорога, посыпанная гравием, ведёт дальше на юг.
 ~
 ~
 ~
 ~
 Z -1 3601
 D3
-The gravel path leads westwards between the dark evergreen trees.
+@eng The gravel path leads westwards between the dark evergreen trees.
+@rus Дорожка, посыпанная гравием, ведёт на запад, петляя между тёмными
+вечно-зелёными деревьями.
 ~
 ~
 ~
@@ -284,20 +331,24 @@ The gravel path leads westwards between the dark evergreen trees.
 Z -1 3606
 S
 #3601
-A Gravel Road in the Graveyard~
-You are on a well-kept gravel road that leads north-south through the
+@eng A Gravel Road in the Graveyard@rus Гравийная дорога на кладбище~
+@eng You are on a well-kept gravel road that leads north-south through the
 graveyard.  On both sides of the road grow dark evergreen trees.
+@rus Ты $gn{оказался} на хорошо ухоженной гравийной дороге, пересекающей кладбище
+с севера на юг. По обе стороны дорожки растут тёмные вечно-зелёные деревья.
 ~
 0 0 field
 D0
-The gravel road continues northwards.
+@eng The gravel road continues northwards.
+@rus Дорожка, посыпанная гравием, ведёт дальше на север.
 ~
 ~
 ~
 ~
 Z -1 3600
 D2
-The gravel road continues southwards.
+@eng The gravel road continues southwards.
+@rus Дорожка, посыпанная гравием, ведёт дальше на юг.
 ~
 ~
 ~
@@ -305,20 +356,24 @@ The gravel road continues southwards.
 Z -1 3602
 S
 #3602
-A Gravel Road in the Graveyard~
-You are on a well-kept gravel road that leads north-south through the
+@eng A Gravel Road in the Graveyard@rus Гравийная дорога на кладбище~
+@eng You are on a well-kept gravel road that leads north-south through the
 graveyard.  On both sides of the road grow dark evergreen trees.
+@rus Ты $gn{оказался} на хорошо ухоженной гравийной дороге, пересекающей кладбище
+с севера на юг. По обе стороны дорожки растут тёмные вечно-зелёные деревья.
 ~
 0 0 field
 D0
-The gravel road continues northwards.
+@eng The gravel road continues northwards.
+@rus Дорожка, посыпанная гравием, ведёт дальше на север.
 ~
 ~
 ~
 ~
 Z -1 3601
 D2
-The gravel road continues southwards.
+@eng The gravel road continues southwards.
+@rus Дорожка, посыпанная гравием, ведёт дальше на юг.
 ~
 ~
 ~
@@ -326,21 +381,25 @@ The gravel road continues southwards.
 Z -1 3603
 S
 #3603
-A Gravel Road in the Graveyard~
-You are on a well-kept gravel road that leads north-south through the
+@eng A Gravel Road in the Graveyard@rus Гравийная дорога на кладбище~
+@eng You are on a well-kept gravel road that leads north-south through the
 graveyard.  On both sides of the road grow dark evergreen trees.
+@rus Ты $gn{оказался} на хорошо ухоженной гравийной дороге, пересекающей кладбище
+с севера на юг. По обе стороны дорожки растут тёмные вечно-зелёные деревья.
 ~
 0 0 field
 D0
-The gravel road continues northwards.
+@eng The gravel road continues northwards.
+@rus Дорожка, посыпанная гравием, ведёт дальше на север.
 ~
 ~
 ~
 ~
 Z -1 3602
 D2
-The gravel road continues southwards to an open space before a small
+@eng The gravel road continues southwards to an open space before a small
 building.
+@rus Гравийная дорога ведёт на юг к площадке перед небольщим зданием.
 ~
 ~
 ~
@@ -348,34 +407,42 @@ building.
 Z -1 3604
 S
 #3604
-In front of the Chapel~
-You are on an open space before a small chapel.  A gravel road leads north
+@eng In front of the Chapel@rus Перед часовней~
+@eng You are on an open space before a small chapel.  A gravel road leads north
 through the graveyard and the chapel entrance is to the south.
+@rus Ты стоишь на площадке перед небольшой часовней. Гравийная дорога ведёт
+на север через кладбище, вход в часовню - на юге.
 ~
 0 0 field
 D0
-The gravel road continues northwards.
+@eng The gravel road continues northwards.
+@rus Дорожка, посыпанная гравием, ведёт дальше на север.
 ~
 ~
 ~
 ~
 Z -1 3603
 D1
-The gravel path leads eastwards between the dark evergreen trees.
+@eng The gravel path leads eastwards between the dark evergreen trees.
+@rus Дорожка, посыпанная гравием, ведёт на восток, петляя между тёмными
+вечно-зелёными деревьями.
 ~
 ~
 ~
 ~
 Z -1 3638
 D2
-The chapel door is made of dark wood.
+@eng The chapel door is made of dark wood.
+@rus Дверь часовни сделана из тёмного дерева.
 ~
-door~
-~
-~
+door дверь~
+@rus дверь~
+@rus female~
 ABZ -1 3405
 D3
-The gravel path leads westwards between the dark evergreen trees.
+@eng The gravel path leads westwards between the dark evergreen trees.
+@rus Дорожка, посыпанная гравием, ведёт на запад, петляя между тёмными
+вечно-зелёными деревьями.
 ~
 ~
 ~
@@ -383,25 +450,31 @@ The gravel path leads westwards between the dark evergreen trees.
 Z -1 3618
 S
 #3606
-A Gravel Path on the Graveyard~
-You are on a gravel path winding its way between dark evergreen trees on
+@eng A Gravel Path on the Graveyard@rus Гравийная дорожка на кладбище~
+@eng You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  An old tomb is here.
+@rus Ты идешь по гравийной дорожке, извивающейся между тёмными
+вечно-зелёными деревьями на кладбище. Здесь старая гробница.
 ~
 0 0 field
 E
-tomb stone~
-It is a large rectangular slab of dark grey stone that has been placed face
+tomb stone могильная плита~
+@eng It is a large rectangular slab of dark grey stone that has been placed face
 up in the ground.  The name has been erased by the ravages of time.
+@rus Это - большая проямоугольная плита серого камня, лежащая
+на земле лицевой стороной вверх. Имя стёрлось от времени.
 ~
 D1
-The gravel path continues eastwards towards a gravel road.
+@eng The gravel path continues eastwards towards a gravel road.
+@rus Гравийная дорожка на востоке выходит на гравийную дорогу.
 ~
 ~
 ~
 ~
 Z -1 3600
 D2
-The gravel path continues southwards.
+@eng The gravel path continues southwards.
+@rus Гравийная дорожка ведёт дальше на юг.
 ~
 ~
 ~
@@ -409,44 +482,53 @@ The gravel path continues southwards.
 Z -1 3608
 D5
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female~
 ABZ -1 3607
 S
 #3607
-In a dusty Tomb~
-You are in a dark burial chamber beneath a large tomb stone.
+@eng In a dusty Tomb@rus В пыльной гробнице~
+@eng You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
+@rus Ты находишься в тёмной гробнице под большим могильным камнем.
+Единственный очевидный выход - вверх.
 ~
 0 AD city
 D4
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female~
 ABZ -1 3606
 S
 #3608
-A Gravel Path on the Graveyard~
-You are on a gravel path winding its way between dark evergreen trees on
+@eng A Gravel Path on the Graveyard@rus Гравийная дорожка на кладбище~
+@eng You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads north and west.  An old tomb is here.
+@rus Ты идешь по гравийной дорожке, извивающейся по кладбищу между 
+тёмными вечно-зелёными деревьями. Дорожка ведёт на север и на
+запад. Здесь старая гробница.
 ~
 0 0 field
 E
-tomb stone~
-It is a large rectangular slab of dark grey stone that has been placed face
+tomb stone могильная плита~
+@eng It is a large rectangular slab of dark grey stone that has been placed face
 up in the ground.  The name has been erased by the ravages of time.
+@rus Это - большая проямоугольная плита серого камня, лежащая
+на земле лицевой стороной вверх. Имя стёрлось от времени.
 ~
 D0
-The gravel path continues northwards.
+@eng The gravel path continues northwards.
+@rus Гравийная дорожка ведёт дальше на север.
 ~
 ~
 ~
 ~
 Z -1 3606
 D3
-The gravel path continues westwards.
+@eng The gravel path continues westwards.
+@rus Гравийная дорожка ведёт дальше на запад.
 ~
 ~
 ~
@@ -454,44 +536,53 @@ The gravel path continues westwards.
 Z -1 3610
 D5
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female~
 ABZ -1 3609
 S
 #3609
-In a dusty Tomb~
-You are in a dark burial chamber beneath a large tomb stone.
+@eng In a dusty Tomb@rus В пыльной гробнице~
+@eng You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
+@rus Ты находишься в тёмной гробнице под большим могильным камнем.
+Единственный очевидный выход - вверх.
 ~
 0 AD city
 D4
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female~
 ABZ -1 3608
 S
 #3610
-A Gravel Path on the Graveyard~
-You are on a gravel path winding its way between dark evergreen trees on
+@eng A Gravel Path on the Graveyard@rus Гравийная дорожка на кладбище~
+@eng You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads east and south.  An old tomb is here.
+@rus Ты идёшь по гравийной дорожке, извивающейся между тёмными
+вечно-зелёными деревьями на кладбище. Дорожка ведёт на восток
+и на юг. Здесь старая гробница.
 ~
 0 0 field
 E
-tomb stone~
-It is a large rectangular slab of dark grey stone that has been placed face
+tomb stone могильная плита~
+@eng It is a large rectangular slab of dark grey stone that has been placed face
 up in the ground.  The name has been erased by the ravages of time.
+@rus Это - большая проямоугольная плита серого камня, лежащая на земле
+лицевой стороной вверх. Имя стёрлось от времени.
 ~
 D1
-The gravel path continues eastwards.
+@eng The gravel path continues eastwards.
+@rus Гравийная дорожка ведёт дальше на восток.
 ~
 ~
 ~
 ~
 Z -1 3608
 D2
-The gravel path continues southwards.
+@eng The gravel path continues southwards.
+@rus Гравийная дорожка ведёт дальше на юг.
 ~
 ~
 ~
@@ -499,85 +590,102 @@ The gravel path continues southwards.
 Z -1 3612
 D5
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female~
 ABZ -1 3611
 S
 #3611
-In a dusty Tomb~
-You are in a dark burial chamber beneath a large tomb stone.
+@eng In a dusty Tomb@rus В пыльной гробнице~
+@eng You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
+@rus Ты находишься в тёмной гробнице под большим могильным камнем.
+Единственный очевидный выход - вверх.
 ~
 0 AD city
 D4
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female~
 ABZ -1 3610
 S
 #3612
-A Gravel Path on the Graveyard~
-You are on a gravel path winding its way between dark evergreen trees on
+@eng A Gravel Path on the Graveyard@rus Гравийная дорожка на кладбище~
+@eng You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads north and east.  A small shed is to the west.
+@rus Ты идешь по гравийной дорожке, извивающейся между тёмными вечно-зелёными
+деревьями на кладбище. Дорожка ведёт на восток и на север. На западе виден
+маленький сарай.
 ~
 0 0 field
 D0
-The gravel path continues northwards.
+@eng The gravel path continues northwards.
+@rus Гравийная дорожка ведёт дальше на север.
 ~
 ~
 ~
 ~
 Z -1 3610
 D1
-The gravel path continues eastwards.
+@eng The gravel path continues eastwards.
+@rus Гравийная дорожка ведёт дальше на восток.
 ~
 ~
 ~
 ~
 Z -1 3614
 D3
-It is a small black-painted shed with a wooden door.
+@eng It is a small black-painted shed with a wooden door.
+@rus Это - маленький сарай, выкрашенный в чёрный цвет, с деревянной дверью.
 ~
-door~
-~
-~
+door дверь~
+@eng the door@rus дверь~
+@rus female~
 ABZ -1 3613
 S
 #3613
-In a shed on the Graveyard~
-You are in a small shed that looks as if it is used to store all sorts of
+@eng In a shed on the Graveyard@rus В сарае на кладбище~
+@eng You are in a small shed that looks as if it is used to store all sorts of
 gardening equipment.  The only exit appears to be through a door to the east.
+@rus Ты стоишь в маленьком сарае. Он, похоже, используется для хранения
+разнообразного садового инвентаря. Единственный очевидный выход - 
+через дверь на восток.
 ~
 0 D city
 D1
 ~
-door~
-~
-~
+door дверь~
+@eng the door@rus дверь~
+@rus female~
 ABZ -1 3612
 S
 #3614
-A Gravel Path on the Graveyard~
-You are on a gravel path winding its way between dark evergreen trees on
+@eng A Gravel Path on the Graveyard@rus Гравийная дорожка на кладбище~
+@eng You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads south and west.  An old tomb is here.
+@rus Ты идёшь по гравийной дорожке, извивающейся между тёмными вечно-зелёными
+деревьями на кладбище. Дорожка ведёт на запад и на юг. Здесь старая гробница.
 ~
 0 0 field
 E
-tomb stone~
-It is a large rectangular slab of dark grey stone that has been placed face
+tomb stone могильная плита~
+@eng It is a large rectangular slab of dark grey stone that has been placed face
 up in the ground.  The name has been erased by the ravages of time.
+@rus Это - большая проямоугольная плита серого камня, лежащая на земле лицевой 
+стороной вверх. Имя стерлось от времени.
 ~
 D2
-The gravel path continues southwards.
+@eng The gravel path continues southwards.
+@rus Гравийная дорожка ведёт дальше на юг.
 ~
 ~
 ~
 ~
 Z -1 3616
 D3
-The gravel path continues westwards.
+@eng The gravel path continues westwards.
+@rus Гравийная дорожка ведёт дальше на запад.
 ~
 ~
 ~
@@ -585,44 +693,52 @@ The gravel path continues westwards.
 Z -1 3612
 D5
 ~
-tomb stone~
-the tomb~
-~
+stone могильная плита tomb~
+@eng the tomb@rus гробница~
+@rus female~
 ABZ -1 3615
 S
 #3615
-In a dusty Tomb~
-You are in a dark burial chamber beneath a large tomb stone.
+@eng In a dusty Tomb@rus В пыльной гробнице~
+@eng You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
+@rus Ты находишься в тёмной гробнице под большим могильным камнем.
+Единственный очевидный выход - вверх.
 ~
 0 AD city
 D4
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female~
 ABZ -1 3614
 S
 #3616
-A Gravel Path on the Graveyard~
-You are on a gravel path winding its way between dark evergreen trees on
+@eng A Gravel Path on the Graveyard@rus Гравийная дорожка на кладбище~
+@eng You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads north and south.  An old tomb is here.
+@rus Ты идёшь по гравийной дорожке, извивающейся между тёмными вечно-зелёными
+деревьями на кладбище. Дорожка ведёт на север и на юг. Здесь старая гробница.
 ~
 0 0 field
 E
-tomb stone~
-It is a large rectangular slab of dark grey stone that has been placed face
+tomb stone могильная плита~
+@eng It is a large rectangular slab of dark grey stone that has been placed face
 up in the ground.  The name has been erased by the ravages of time.
+@rus Это - большая проямоугольная плита серого камня, лежащая на земле лицевой
+стороной вверх. Имя стерлось от времени.
 ~
 D0
-The gravel path continues northwards.
+@eng The gravel path continues northwards.
+@rus Гравийная дорожка ведёт дальше на север.
 ~
 ~
 ~
 ~
 Z -1 3614
 D2
-The gravel path continues southwards.
+@eng The gravel path continues southwards.
+@rus Гравийная дорожка ведёт дальше на юг.
 ~
 ~
 ~
@@ -630,44 +746,51 @@ The gravel path continues southwards.
 Z -1 3618
 D5
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female~
 ABZ -1 3617
 S
 #3617
-In a dusty Tomb~
-You are in a dark burial chamber beneath a large tomb stone.
+@eng In a dusty Tomb@rus В пыльной гробнице~
+@eng You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
+@rus Ты находишься в тёмной гробнице под большим могильным камнем.
+Единственный очевидный выход - вверх.
 ~
 0 AD city
 D4
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female~
 ABZ -1 3616
 S
 #3618
-A Gravel Path on the Graveyard~
-You are on a gravel path winding its way between dark evergreen trees on
+@eng A Gravel Path on the Graveyard@rus Гравийная дорожка на кладбище~
+@eng You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads north and east.  An old tomb is here.
+@rus Ты идёшь по гравийной дорожке, извивающейся между тёмными вечно-зелёными 
+деревьями на кладбище. Дорожка ведёт на восток и на север. Здесь старая
+гробница.
 ~
 0 0 field
 E
-tomb stone~
+tomb stone могильная плита~
 It is a large rectangular slab of dark grey stone that has been placed face
 up in the ground.  The name has been erased by the ravages of time.
 ~
 D0
-The gravel path continues northwards.
+@eng The gravel path continues northwards.
+@rus Гравийная дорожка ведёт дальше на север.
 ~
 ~
 ~
 ~
 Z -1 3616
 D1
-The gravel path continues eastwards towards a building of some sort.
+@eng The gravel path continues eastwards towards a building of some sort.
+@rus Гравийная дорожка ведёт на восток какому-то зданию.
 ~
 ~
 ~
@@ -675,44 +798,53 @@ The gravel path continues eastwards towards a building of some sort.
 Z -1 3604
 D5
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female~
 ABZ -1 3619
 S
 #3619
-In a dusty Tomb~
-You are in a dark burial chamber beneath a large tomb stone.
+@eng In a dusty Tomb@rus В пыльной гробнице~
+@eng You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
+@rus Ты находишься в тёмной гробнице под большим могильным камнем.
+Единственный очевидный выход - вверх.
 ~
 0 AD city
 D4
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female~
 ABZ -1 3618
 S
 #3638
-A Gravel Path on the Graveyard~
-You are on a gravel path winding its way between dark evergreen trees on
+@eng A Gravel Path on the Graveyard@rus Гравийная дорожка на кладбище~
+@eng You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads north and west.  An old tomb is here.
+@rus Ты идёшь по гравийной дорожке, извивающейся между тёмными вечно-зелёными
+деревьями на кладбище. Дорожка ведёт на север и на запад. Здесь старая
+гробница.
 ~
 0 0 field
 E
-tomb stone~
-It is a large rectangular slab of dark grey stone that has been placed face
+tomb stone могильная плита~
+@eng It is a large rectangular slab of dark grey stone that has been placed face
 up in the ground.  The name has been erased by the ravages of time.
+@rus Это - большая прямоугольная плита серого камня, лежащая на земле лицевой
+стороной вверх. Имя стерлось от времени.
 ~
 D0
-The gravel path continues northwards.
+@eng The gravel path continues northwards.
+@rus Гравийная дорожка ведёт дальше на север.
 ~
 ~
 ~
 ~
 Z -1 3640
 D3
-The gravel path continues westwards towards a building of some sort.
+@eng The gravel path continues westwards towards a building of some sort.
+@rus Гравийная дорожка ведёт на запад какому-то зданию.
 ~
 ~
 ~
@@ -720,44 +852,52 @@ The gravel path continues westwards towards a building of some sort.
 Z -1 3604
 D5
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female~
 ABZ -1 3639
 S
 #3639
-In a dusty Tomb~
-You are in a dark burial chamber beneath a large tomb stone.
+@eng In a dusty Tomb@rus В пыльной гробнице~
+@eng You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
+@rus Ты находишься в тёмной гробнице под большим могильным камнем.
+Единственный очевидный выход - вверх.
 ~
 0 AD city
 D4
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female~
 ABZ -1 3638
 S
 #3640
-A Gravel Path on the Graveyard~
-You are on a gravel path winding its way between dark evergreen trees on
+@eng A Gravel Path on the Graveyard@rus Гравийная дорожка на кладбище~
+@eng You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads north and south.  An old tomb is here.
+@rus Ты идёшь по гравийной дорожке, извивающейся между тёмными вечно-зелёными
+деревьями на кладбище. Дорожка ведёт на север и на юг. Здесь старая гробница.
 ~
 0 0 field
 E
-tomb stone~
-It is a large rectangular slab of dark grey stone that has been placed face
+tomb stone могильная плита~
+@eng It is a large rectangular slab of dark grey stone that has been placed face
 up in the ground.  The name has been erased by the ravages of time.
+@rus Это - большая прямоугольная плита серого камня, лежащая на земле лицевой
+стороной вверх. Имя стёрлось от времени.
 ~
 D0
-The gravel path continues northwards.
+@eng The gravel path continues northwards.
+@rus Гравийная дорожка ведёт дальше на север.
 ~
 ~
 ~
 ~
 Z -1 3642
 D2
-The gravel path continues southwards.
+@eng The gravel path continues southwards.
+@rus Гравийная дорожка ведёт дальше на юг.
 ~
 ~
 ~
@@ -765,44 +905,52 @@ The gravel path continues southwards.
 Z -1 3638
 D5
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female~
 ABZ -1 3641
 S
 #3641
-In a dusty Tomb~
-You are in a dark burial chamber beneath a large tomb stone.
+@eng In a dusty Tomb@rus В пыльной гробнице~
+@eng You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
+@rus Ты находишься в тёмной гробнице под большим могильным камнем.
+Единственный очевидный выход - вверх.
 ~
 0 AD city
 D4
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female~
 ABZ -1 3640
 S
 #3642
-A Gravel Path on the Graveyard~
-You are on a gravel path winding its way between dark evergreen trees on
+@eng A Gravel Path on the Graveyard@rus Гравийная дорожка на кладбище~
+@eng You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads east and south.  An old tomb is here.
+@rus Ты идёшь по гравийной дорожке, извивающейся между тёмными вечно-зелёными
+деревьями на кладбище. Дорожка ведёт на восток и на юг. Здесь старая гробница.
 ~
 0 0 field
 E
-tomb stone~
-It is a large rectangular slab of dark grey stone that has been placed face
+tomb stone могильная плита~
+@eng It is a large rectangular slab of dark grey stone that has been placed face
 up in the ground.  The name has been erased by the ravages of time.
+@rus Это - большая прямоугольная плита серого камня, лежащая на земле лицевой
+стороной вверх. Имя стерлось от времени.
 ~
 D1
-The gravel path continues eastwards.
+@eng The gravel path continues eastwards.
+@rus Гравийная дорожка ведёт дальше на восток.
 ~
 ~
 ~
 ~
 Z -1 3644
 D2
-The gravel path continues southwards.
+@eng The gravel path continues southwards.
+@rus Гравийная дорожка ведёт дальше на юг.
 ~
 ~
 ~
@@ -810,44 +958,53 @@ The gravel path continues southwards.
 Z -1 3640
 D5
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female~
 ABZ -1 3643
 S
 #3643
-In a dusty Tomb~
-You are in a dark burial chamber beneath a large tomb stone.
+@eng In a dusty Tomb@rus В пыльной гробнице~
+@eng You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
+@rus Ты находишься в тёмной гробнице под большим могильным камнем.
+Единственный очевидный выход - вверх.
 ~
 0 AD city
 D4
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female ~
 ABZ -1 3642
 S
 #3644
-A Gravel Path on the Graveyard~
-You are on a gravel path winding its way between dark evergreen trees on
+@eng A Gravel Path on the Graveyard@rus Гравийная дорожка на кладбище~
+@eng You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads north and west.  An old tomb is here.
+@rus Ты идёшь по гравийной дорожке, извивающейся между тёмными вечно-зелёными
+деревьями на кладбище. Дорожка ведёт на север и на запад. Здесь старая 
+гробница.
 ~
 0 0 field
 E
-tomb stone~
-It is a large rectangular slab of dark grey stone that has been placed face
+tomb stone могильная плита~
+@eng It is a large rectangular slab of dark grey stone that has been placed face
 up in the ground.  The name has been erased by the ravages of time.
+@rus Это - большая прямоугольная плита серого камня, лежащая на земле лицевой
+стороной вверх. Имя стерлось от времени.
 ~
 D0
-The gravel path continues northwards.
+@eng The gravel path continues northwards.
+@rus Гравийная дорожка ведёт дальше на север.
 ~
 ~
 ~
 ~
 Z -1 3646
 D3
-The gravel path continues westwards.
+@eng The gravel path continues westwards.
+@rus Гравийная дорожка ведёт дальше на запад.
 ~
 ~
 ~
@@ -855,44 +1012,52 @@ The gravel path continues westwards.
 Z -1 3642
 D5
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female ~
 ABZ -1 3645
 S
 #3645
-In a dusty Tomb~
-You are in a dark burial chamber beneath a large tomb stone.
+@eng In a dusty Tomb@rus В пыльной гробнице~
+@eng You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
+@rus Ты находишься в тёмной гробнице под большим могильным камнем.
+Единственный очевидный выход - вверх.
 ~
 0 AD city
 D4
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female ~
 ABZ -1 3644
 S
 #3646
-A Gravel Path on the Graveyard~
-You are on a gravel path winding its way between dark evergreen trees on
+@eng A Gravel Path on the Graveyard@rus Гравийная дорожка на кладбище~
+@eng You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads south and west.  An old tomb is here.
+@rus Ты идёшь по гравийной дорожке, извивающейся между тёмными вечно-зелёными
+деревьями на кладбище. Дорожка ведёт на запад и на юг. Здесь старая гробница.
 ~
 0 0 field
 E
-tomb stone~
-It is a large rectangular slab of dark grey stone that has been placed face
+tomb stone могильная плита~
+@eng It is a large rectangular slab of dark grey stone that has been placed face
 up in the ground.  The name has been erased by the ravages of time.
+@rus Это - большая прямоугольная плита серого камня, лежащая на земле лицевой
+стороной вверх. Имя стерлось от времени.
 ~
 D2
-The gravel path continues southwards.
+@eng The gravel path continues southwards.
+@rus Гравийная дорожка ведёт дальше на юг.
 ~
 ~
 ~
 ~
 Z -1 3644
 D3
-The gravel path continues westwards.
+@eng The gravel path continues westwards.
+@rus Гравийная дорожка ведёт дальше на запад.
 ~
 ~
 ~
@@ -900,44 +1065,53 @@ The gravel path continues westwards.
 Z -1 3648
 D5
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female~
 ABZ -1 3647
 S
 #3647
-In a dusty Tomb~
-You are in a dark burial chamber beneath a large tomb stone.
+@eng In a dusty Tomb@rus В пыльной гробнице~
+@eng You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
+@rus Ты находишься в тёмной гробнице под большим могильным камнем.
+Единственный очевидный выход - вверх.
 ~
 0 AD city
 D4
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female~
 ABZ -1 3646
 S
 #3648
-A Gravel Path on the Graveyard~
-You are on a gravel path winding its way between dark evergreen trees on
+@eng A Gravel Path on the Graveyard@rus Гравийная дорожка на кладбище~
+@eng You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads north and east.  An old tomb is here.
+@rus Ты идёшь по гравийной дорожке, извивающейся между тёмными вечно-зелёными
+деревьями на кладбище. Дорожка ведёт на восток и на север. Здесь старая
+гробница.
 ~
 0 0 field
 E
-tomb stone~
-It is a large rectangular slab of dark grey stone that has been placed face
+tomb stone могильная плита~
+@eng It is a large rectangular slab of dark grey stone that has been placed face
 up in the ground.  The name has been erased by the ravages of time.
+@rus Это - большая прямоугольная плита серого камня, лежащая на земле лицевой
+стороной вверх. Имя стерлось от времени.
 ~
 D0
-The gravel path continues northwards.
+@eng The gravel path continues northwards.
+@rus Гравийная дорожка ведёт дальше на север.
 ~
 ~
 ~
 ~
 Z -1 3650
 D1
-The gravel path continues eastwards.
+@eng The gravel path continues eastwards.
+@rus Гравийная дорожка ведёт дальше на восток.
 ~
 ~
 ~
@@ -945,44 +1119,52 @@ The gravel path continues eastwards.
 Z -1 3646
 D5
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female~
 ABZ -1 3649
 S
 #3649
-In a dusty Tomb~
-You are in a dark burial chamber beneath a large tomb stone.
+@eng In a dusty Tomb@rus В пыльной гробнице~
+@eng You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
+@rus Ты находишься в тёмной гробнице под большим могильным камнем.
+Единственный очевидный выход - вверх.
 ~
 0 AD city
 D4
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female~
 ABZ -1 3648
 S
 #3650
-A Gravel Path on the Graveyard~
-You are on a gravel path winding its way between dark evergreen trees on
+@eng A Gravel Path on the Graveyard@rus Гравийная дорожка на кладбище~
+@eng You are on a gravel path winding its way between dark evergreen trees on
 the graveyard.  The path leads south and west.  An old tomb is here.
+@rus Ты идёшь по гравийной дорожке, извивающейся между тёмными вечно-зелёными
+деревьями на кладбище. Дорожка ведёт на запад и на юг. Здесь старая гробница.
 ~
 0 0 field
 E
-tomb stone~
-It is a large rectangular slab of dark grey stone that has been placed face
+tomb stone могильная плита~
+@eng It is a large rectangular slab of dark grey stone that has been placed face
 up in the ground.  The name has been erased by the ravages of time.
+@rus Это - большая прямоугольная плита серого камня, лежащая на земле лицевой
+стороной вверх. Имя стерлось от времени.
 ~
 D2
-The gravel path continues southwards.
+@eng The gravel path continues southwards.
+@rus Гравийная дорожка ведёт дальше на юг.
 ~
 ~
 ~
 ~
 Z -1 3648
 D3
-The gravel path continues westwards towards a gravel road.
+@eng The gravel path continues westwards towards a gravel road.
+@rus Гравийная дорожка на западе выходит на гравийную дорогу.
 ~
 ~
 ~
@@ -990,22 +1172,24 @@ The gravel path continues westwards towards a gravel road.
 Z -1 3600
 D5
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female~
 ABZ -1 3651
 S
 #3651
-In a dusty Tomb~
-You are in a dark burial chamber beneath a large tomb stone.
+@eng In a dusty Tomb@rus В пыльной гробнице~
+@eng You are in a dark burial chamber beneath a large tomb stone.
 The only exit appears to be up.
+@rus Ты находишься в тёмной гробнице под большим могильным камнем.
+Единственный очевидный выход - вверх.
 ~
 0 AD city
 D4
 ~
-tomb stone~
-the tomb~
-~
+tomb stone могильная плита~
+@eng the tomb@rus гробница~
+@rus female~
 ABZ -1 3650
 S
 #0

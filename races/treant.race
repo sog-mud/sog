@@ -1,0 +1,10 @@
+#RACE
+Name treant~
+Form construct~
+Resist bash 50
+Resist pierce 50
+Resist slash 50
+Resist fire -50
+End
+
+#$

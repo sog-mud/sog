@@ -363,7 +363,7 @@ plate armor centaur доспехи~
 steel~
 armor K 0 AD
 9 10 9 3 0
-35 160 8000 P
+35 450 8000 P
 a '' to_object 35 -1 2 19 0
 a '' to_object 35 -1 -1 2 0
 g @rus plural~

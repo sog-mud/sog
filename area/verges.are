@@ -8,15 +8,149 @@ Security 1
 LevelRange 25 45
 End
 
+#MOBILES
+#34101
+Ranger~
+@eng Novice ranger@rus новичок рэйнджер~
+@eng A ranger here cries on pain
+@rus Рэйнджер здесь и громко вопит.
+~
+@eng  
+You see a man who polished his bow. He had a hazel eyes, straight brown hair and an average complexion. Green elven boots on his legs. Suddenly ranger cries on pain. You don't understand what is it. Ranger lift his arm and you see a big splinter in his finger. He take off a splinter and his face turn green as well as his clothes. Ranger smiles happily.
+~
+half-elf~
+L 0 0 0 0 0 0
+35 15 2d1+1200 1d1+99 6d6+25 'blast'
+-8 -8 -8 -8
+0
+stand stand male 100
+0 0 medium unknown
+r bash 33
+r pierce 33
+r slash -50
+#34102
+novice warrior~
+@eng Novice Warrior~
+@eng Novice Warrior here knokced loud
+~
+@eng A young man dressed in superb leather armour and green stands here,
+ 
+he knocked on his shield by his sword. suddenly he droped shield and shield hit him on his left foot. He mutter some exorcism and you see a tears in his eyes. But he smile at you.
+~
+human~
+0 0 0 0 0 -900 0
+40 20 2d1+1700 1d1+99 6d6+35 'punch'
+-10 -10 -10 -10
+0
+stand stand male 100
+0 0 medium unknown
+r bash 25
+r pierce 25
+r slash 25
+r fire -33
+r cold -33
+r lightning -33
+r holy -33
+r energy -33
+r mental -33
+r disease 33
+r poison 25
+r charm -50
+#34103
+baby dragon~
+@eng Baby dragon~
+@eng Baby dragon here call his mother
+~
+@eng  
+You see a small dragon wich crying and call his mother
+Dragon scratches your boot, close eyes and purring. @@
+ 
+~
+dragon~
+0 0 0 0 0 0 0
+26 0 5d10+600 13d9+100 3d7+7 'scratch'
+-7 -7 -7 6
+0
+stand stand male 40
+0 0 medium unknown
+M random 34103 10~
+#34104
+guard water elemental~
+@eng Guardian of Verges~
+@eng The Fluid Guardian of Verges stay here
+~
+@eng You see a transparent humanoid in sparkling silver plate. You look in his face but on face     onli one big eye and on fore head is one big ear.  You srugged and go away. Strnge people live in Verges.
+ 
+ 
+~
+water elemental~
+BG 0 0 0 0 350 0
+40 0 15d10+1850 5d5+1000 4d8+13 'charge'
+-13 -13 -13 -2
+0
+stand stand male 4999
+C BJK huge unknown
+F for Z
+r cold -25
+#34105
+mage novice~
+@eng Novice Mage~
+@eng Novice mage here casts magic missile
+~
+@eng You see a thin man, who casts a magic missile. But missile turn and began flee around him. He yell 'Flee, who may' and flee away.
+~
+human~
+R 0 0 0 AH -300 0
+30 0 6d12+778 30d9+100 5d4+7 'magic'
+-9 -9 -9 1
+FU
+stand stand male 1105
+0 0 medium unknown
+#34106
+giant forecaster~
+@eng Forecaster@rus ~~Черный~~ ~~Король~~~
+@eng Forecaster here looking in the sky
+@rus Фигура Черного Короля (King) возвышается перед тобой.
+~
+@eng Here stand a strange giant with umbrella. He look in the clear sky and mutter 'It seems rain starts'.
+@rus Мрачная, угрожающего вида фигура. При взгляде на него сразу ясно, почему он
+король, а ты -- нет.
+~
+storm giant~
+0 0 0 0 0 0 0
+35 0 10d10+1400 1d35+99 3d10+12 'shock'
+-12 -12 -12 4
+0
+stand stand male 5000
+0 0 medium unknown
+r bash 0
+r pierce 0
+r slash 0
+#0
+
 #OBJECTS
 #34101
 flying sign~
-@rus надпись из огня в небе~
-~
+@eng flying sign in the sky@rus надпись из огня в небе~
+@eng On the sky glowing sign "WELCOME TRAVELER"~
 shadow~
-trash 0 0 0
+trash AB AB 0
 0 0 0 0 0
 0 0 0 P
+E
+sign~
+@eng this area with some eq and EXP for 25 up players.
+Writing and debugged by Vadkov.
+WELCOME!
+~
+E
+sky~
+@eng Hi mudders!
+In this area you may find some EQ,jokes and EXP.
+This area signed by Vadkov in 1999-2000y.
+Main idea based on book '9 lifes of god of twilight' by Sam Kozlov
+Welcom mortals!!!
+~
 g @rus none~
 #0
 
@@ -90,6 +224,12 @@ D1
 ~
 ~
 Z 0 34103
+D3
+~
+~
+~
+~
+Z 0 34127
 S
 #34105
 @eng Verge@rus Грань~
@@ -97,6 +237,12 @@ S
 @rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
 ~
 0 0 inside
+D1
+~
+~
+~
+~
+Z 0 34106
 D3
 ~
 ~
@@ -110,6 +256,18 @@ S
 @rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
 ~
 0 0 inside
+D0
+~
+~
+~
+~
+Z 0 34107
+D3
+~
+~
+~
+~
+Z 0 34105
 S
 #34107
 @eng Verge@rus Грань~
@@ -117,6 +275,18 @@ S
 @rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
 ~
 0 0 inside
+D0
+~
+~
+~
+~
+Z 0 34108
+D2
+~
+~
+~
+~
+Z 0 34106
 S
 #34108
 @eng Verge@rus Грань~
@@ -124,6 +294,18 @@ S
 @rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
 ~
 0 0 inside
+D1
+~
+~
+~
+~
+Z 0 34109
+D2
+~
+~
+~
+~
+Z 0 34107
 S
 #34109
 @eng Verge@rus Грань~
@@ -131,6 +313,18 @@ S
 @rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
 ~
 0 0 inside
+D0
+~
+~
+~
+~
+Z 0 34110
+D3
+~
+~
+~
+~
+Z 0 34108
 S
 #34110
 @eng Verge@rus Грань~
@@ -138,6 +332,18 @@ S
 @rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
 ~
 0 0 inside
+D0
+~
+~
+~
+~
+Z 0 34111
+D2
+~
+~
+~
+~
+Z 0 34109
 S
 #34111
 @eng Verge@rus Грань~
@@ -145,6 +351,18 @@ S
 @rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
 ~
 0 0 inside
+D0
+~
+~
+~
+~
+Z 0 34112
+D2
+~
+~
+~
+~
+Z 0 34110
 S
 #34112
 @eng Verge@rus Грань~
@@ -152,6 +370,18 @@ S
 @rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
 ~
 0 0 inside
+D2
+~
+~
+~
+~
+Z 0 34111
+D3
+~
+~
+~
+~
+Z 0 34113
 S
 #34113
 @eng Verge@rus Грань~
@@ -159,6 +389,18 @@ S
 @rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
 ~
 0 0 inside
+D1
+~
+~
+~
+~
+Z 0 34112
+D3
+~
+~
+~
+~
+Z 0 34114
 S
 #34114
 @eng Verge@rus Грань~
@@ -166,6 +408,18 @@ S
 @rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
 ~
 0 0 inside
+D1
+~
+~
+~
+~
+Z 0 34113
+D3
+~
+~
+~
+~
+Z 0 34115
 S
 #34115
 @eng Verge@rus Грань~
@@ -173,6 +427,24 @@ S
 @rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
 ~
 0 0 inside
+D1
+~
+~
+~
+~
+Z 0 34114
+D2
+~
+~
+~
+~
+Z 0 34116
+D3
+~
+~
+~
+~
+Z 0 34119
 S
 #34116
 @eng Verge@rus Грань~
@@ -180,6 +452,18 @@ S
 @rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
 ~
 0 0 inside
+D0
+~
+~
+~
+~
+Z 0 34115
+D2
+~
+~
+~
+~
+Z 0 34117
 S
 #34117
 @eng Verge@rus Грань~
@@ -187,6 +471,18 @@ S
 @rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
 ~
 0 0 inside
+D0
+~
+~
+~
+~
+Z 0 34116
+D2
+~
+~
+~
+~
+Z 0 34118
 S
 #34118
 @eng Verge@rus Грань~
@@ -194,6 +490,12 @@ S
 @rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
 ~
 0 0 inside
+D0
+~
+~
+~
+~
+Z 0 34117
 S
 #34119
 @eng Verge@rus Грань~
@@ -201,6 +503,18 @@ S
 @rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
 ~
 0 0 inside
+D1
+~
+~
+~
+~
+Z 0 34115
+D3
+~
+~
+~
+~
+Z 0 34120
 S
 #34120
 @eng Verge@rus Грань~
@@ -208,6 +522,18 @@ S
 @rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
 ~
 0 0 inside
+D1
+~
+~
+~
+~
+Z 0 34119
+D3
+~
+~
+~
+~
+Z 0 34121
 S
 #34121
 @eng Verge@rus Грань~
@@ -215,6 +541,18 @@ S
 @rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
 ~
 0 0 inside
+D1
+~
+~
+~
+~
+Z 0 34120
+D2
+~
+~
+~
+~
+Z 0 34122
 S
 #34122
 @eng Verge@rus Грань~
@@ -222,6 +560,18 @@ S
 @rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
 ~
 0 0 inside
+D0
+~
+~
+~
+~
+Z 0 34121
+D2
+~
+~
+~
+~
+Z 0 34123
 S
 #34123
 @eng Verge@rus Грань~
@@ -229,6 +579,18 @@ S
 @rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
 ~
 0 0 inside
+D0
+~
+~
+~
+~
+Z 0 34122
+D2
+~
+~
+~
+~
+Z 0 34124
 S
 #34124
 @eng Verge@rus Грань~
@@ -236,6 +598,18 @@ S
 @rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
 ~
 0 0 inside
+D0
+~
+~
+~
+~
+Z 0 34123
+D1
+~
+~
+~
+~
+Z 0 34125
 S
 #34125
 @eng Verge@rus Грань~
@@ -243,6 +617,18 @@ S
 @rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
 ~
 0 0 inside
+D2
+~
+~
+~
+~
+Z 0 34126
+D3
+~
+~
+~
+~
+Z 0 34124
 S
 #34126
 @eng Verge@rus Грань~
@@ -250,6 +636,18 @@ S
 @rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
 ~
 0 0 inside
+D0
+~
+~
+~
+~
+Z 0 34125
+D2
+~
+~
+~
+~
+Z 0 34127
 S
 #34127
 @eng Verge@rus Грань~
@@ -257,7 +655,47 @@ S
 @rus Грань! благословенная долина! В синем небе парят драконы! Вокруг сады и виноградники! Запах цветущих яблонь! Счастливые люди спешат по своим делам!
 ~
 0 0 inside
+D0
+~
+~
+~
+~
+Z 0 34126
+D1
+~
+~
+~
+~
+Z 0 34104
 S
+#0
+
+#SPECIALS
+M 34103 spec_breath_any	* Baby dragon
+M 34104 spec_guard	* Guardian of Verges
+M 34105 spec_cast_mage	* Novice Mage
+S
+
+#RESETS
+O 0 34101 0 34101	* flying sign in the sky (Entrance to Verges)
+M 0 34103 1 34106 1	* Baby dragon (Verge)
+M 0 34105 1 34106 1	* Novice Mage (Verge)
+M 0 34104 1 34108 1	* Guardian of Verges (Verge)
+M 0 34103 1 34110 1	* Baby dragon (Verge)
+M 0 34106 1 34110 1	* Forecaster (Verge)
+M 0 34106 1 34110 1	* Forecaster (Verge)
+M 0 34103 1 34115 1	* Baby dragon (Verge)
+M 0 34103 1 34115 1	* Baby dragon (Verge)
+M 0 34102 1 34123 1	* Novice Warrior (Verge)
+M 0 34102 1 34123 1	* Novice Warrior (Verge)
+M 0 34101 1 34127 1	* Novice ranger (Verge)
+M 0 34101 1 34127 1	* Novice ranger (Verge)
+S
+
+#MOBPROGS
+#34103
+say Blup
+~
 #0
 
 #$

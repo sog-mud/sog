@@ -1573,7 +1573,7 @@ platemail black scale кольчуга~
 dragonskin~
 armor ABCEG 0 AD
 35 35 35 27 0
-85 23 16700 G
+85 450 16700 G
 a '' to_object 85 -1 50 13 0
 a '' to_object 85 -1 12 18 0
 a '' to_object 85 -1 12 19 0
@@ -1748,7 +1748,7 @@ vest green куртка~
 silk~
 armor AGI 0 AD
 32 30 32 21 0
-97 10 2500 P
+97 100 2500 P
 a '' to_object 97 -1 1 2 0
 a '' to_object 97 -1 40 12 0
 a '' to_object 97 -1 80 13 0

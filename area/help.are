@@ -5459,7 +5459,7 @@ Thanks to ...
       of Mud, Ruhr Mud, and Mystic Realms for bug reports, ideas, new code,
       and hours of enjoyment.
 ~
--1 GREETING~
+immortal _GREETING~
 .         .     .
     ...  :``..':
      : ````.'   :''::'                                     _=_
@@ -7370,6 +7370,30 @@ Syntax: event ?
 event classes. <funname> is function name from module
 'events' which will be called on specified event.
 Use 'event <eventcl> none' to remove event.
+~
+0 GREETING~
+This MUD is being tested. So, don't               ...  :``..':
+express any claims. Remember, the only         : ````.'   :''::'
+purpose this world was made available        ..:..  :     .'' :
+to everyone is playtesting.               ``.    `:    .'     :
+                                              :    :   :        :
+So, any bugreports sent by you will be         :   :   :         :
+appreciated. And, of course, we need           :    :   :        :
+help with area translation.                     :    :   :..''''``::.
+                                                 : ...:..'     .''
+Original DikuMUD by Hans Staerfeldt,             .'   .'  .::::'
+Katja Nyboe, Tom Madsen, Michael Seifert        :..'''``:::::::
+and Sebastian Hammer.                           '         `::::
+Merc 2.1 by Hatchet, Furey and Kahn.                        `::.
+ROM 2.4 (c) Russ Taylor, 1993-95                             `::
+Anatolia 2.1 (c) Serdar BULUT, Ibrahim                        :::.
+CANPUNAR, Murat BICER, Devrim Baris ACAR.          ,,:,:,::.   ::'`   .-:~~:-._
+SoG code by fjoe, kostik, avn.                   ..'      `:.: ::   :'       .
+                                                .:        .:``:::  :       .:
+HEED THESE WORDS AND STEP IN!                   .:    ..''     :::.'    :':
+                                                 : .''         .:: : : '
+                                                  :          .'`::
+                                                                ::
 ~
 -1 $~
 

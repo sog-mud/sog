@@ -4,29 +4,26 @@ Det infrared~
 Off tail~
 Form edible sentient biped mammal~
 Parts head legs heart brains guts feet ear eye tail claws fangs~
-Resist fire -40
-Resist cold 40
-Resist light 33
+Resist fire -35
+Resist cold 35
 Damtype claw
 End
 
 #PCRACE
 Shortname Felar~
 Points 250
-Class 'anti-paladin' 100
 Class 'assassin' 100
-Class 'paladin' 100
 Class 'ranger' 100
 Class 'thief' 100
-Class 'wizard' 100
 Class 'warrior' 100
+Class 'wizard' 100
 SkillSpec race_felar
-BonusSkills 'hand to hand' 'tail'~
-Stats -1 -1 0 2 2 0 
-MaxStats 19 19 20 22 22 25 
+BonusSkills 'hand to hand' tail~
+Stats 0 -1 -1 2 2 0 
+MaxStats 20 19 19 22 22 25 
 Size medium
-HPBonus 10
-ManaBonus -10
+HPBonus 5
+ManaBonus -5
 Slang cat
 End
 

@@ -367,7 +367,7 @@ spiked adamantite platemail шипастая адамантитовая пластинчатая кольчуга~
 adamantite~
 armor AB 0 AD
 8 8 8 8 8
-50 200 8000 P
+50 450 8000 P
 a '' to_object 50 -1 6 19 0
 a '' to_object 50 -1 -3 2 0
 a '' to_object 50 -1 -10 20 0
@@ -412,8 +412,8 @@ a '' to_object 50 -1 -5 20 0
 g @rus plural~
 #13012
 robe халат~
-@eng Robe of the Healer@rus ~~халат~~ ~~лекаря~~~
-@eng A crumpled up robe radiates a magical aura here.@rus Лежащий на полу скомканный халат (robe) окружен волшебной аурой.~
+@eng Robe of the Healer@rus ~~роба~~ целителя~
+@eng A crumpled up robe radiates a magical aura here.@rus Скомканная роба (robe) лежит на полу, окруженная волшебной аурой.~
 wool~
 armor B 0 AD
 8 8 8 8 8
@@ -424,7 +424,7 @@ a '' to_skills 45 -1 100 'cure blindness' A
 a '' to_object 45 -1 3 3 0
 a '' to_object 45 -1 3 4 0
 a '' to_object 45 -1 75 12 0
-g @rus male~
+g @rus female~
 #13013
 hammer power молот силы~
 @eng the Hammer of Power@rus ~~Молот~~ ~~Силы~~~
@@ -554,7 +554,7 @@ Some tough-looking skin is here.~
 flesh~
 armor QY 0 AD
 6 5 7 3 2
-51 400 10000 P
+51 150 10000 P
 a '' to_object 51 -1 2 18 0
 a '' to_object 51 -1 3 19 0
 a '' to_object 51 -1 100 13 0

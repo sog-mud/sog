@@ -23,7 +23,7 @@ her forehead:
 ~
 elf~
 BGR 0 H 0 AB 0 0
-46 0 100d5+3000 1d100+2000 9d10+31 'magic'
+46 35 100d5+3000 1d100+2000 9d10+31 'magic'
 -30 -31 -32 -16
 EFG
 stand stand female 11000
@@ -42,7 +42,7 @@ of major house Deriki, Lechandre.
 ~
 elf~
 BGR 0 H 0 AB 0 0
-46 0 100d5+3000 1d100+2000 7d15+32 'wrath'
+46 36 100d5+3000 1d100+2000 7d15+32 'wrath'
 -31 -31 -30 -16
 FG
 stand stand male 18000
@@ -61,7 +61,7 @@ she'vale Deriki and the mark of the first in command.
 ~
 elf~
 BGR 0 H 0 AB 0 0
-44 0 100d5+2500 1d100+1800 8d10+26 'wrath'
+44 32 100d5+2500 1d100+1800 8d10+26 'wrath'
 -29 -29 -29 -19
 FG
 stand stand female 4000
@@ -79,7 +79,7 @@ of the fae.  Pale green eyes watch you measuringly.
 ~
 elf~
 BGR 0 T A AB 0 0
-42 0 5d12+2000 1d100+2100 8d8+30 'magic'
+42 30 5d12+2000 1d100+2100 8d8+30 'magic'
 -27 -27 -27 -13
 FG
 stand stand female 2300
@@ -97,7 +97,7 @@ of she'vale Deriki.
 ~
 elf~
 BGR 0 0 0 AB 0 0
-41 0 5d12+1800 1d100+1900 8d8+27 'magic'
+41 28 5d12+1800 1d100+1900 8d8+27 'magic'
 -26 -27 -25 -11
 FG
 stand stand male 2500
@@ -116,10 +116,10 @@ dot will be replaced by the house crest.
 ~
 elf~
 BGR 0 H 0 AB 0 0
-87 0 100d12+16000 1d100+11500 12d11+57 'magic'
--56 -55 -57 -27
+43 29 100d5+2250 1d100+1750 7d11+29 'magic'
+-28 -27 -28 -13
 FGI
-stand stand female 25300
+stand stand female 6300
 0 0 medium unknown
 r lightning -50
 #11806
@@ -133,8 +133,8 @@ younger siblings (ira'deia) of the heir.
 ~
 elf~
 BCGR 0 TV 0 AB 0 0
-83 0 100d12+14000 1d100+10000 9d14+53 'pierce'
--54 -53 -53 -23
+42 27 100d5+1800 1d100+1750 8d9+26 'pierce'
+-27 -26 -26 -11
 FGJ
 stand stand female 5700
 0 0 medium unknown
@@ -149,8 +149,8 @@ indicates that he is a younger sibling of the Deriki heir.
 ~
 elf~
 BGR 0 T A AB 0 0
-84 0 100d12+14500 1d100+10000 9d14+54 'slash'
--55 -54 -53 -24
+42 28 100d5+1900 1d100+2000 5d16+27 'slash'
+-27 -27 -22 -12
 FGHN
 stand stand male 6000
 0 0 medium unknown
@@ -166,8 +166,8 @@ bears the mark of an ira'deian, or younger child, along one cheekbone.
 ~
 elf~
 CGR 0 TV A AB 0 0
-83 0 100d12+14000 1d100+10000 9d14+53 'punch'
--52 -52 -52 -14
+41 28 100d5+1850 1d100+2000 6d12+30 'punch'
+-26 -26 -26 -7
 FGJ
 stand stand male 7500
 0 0 medium unknown
@@ -182,10 +182,10 @@ Huge dark eyes examine you curiously.
 ~
 unique~
 C 0 T 0 0 0 0
-90 0 100d12+17000 1d50+12000 10d10+60 'peckb'
--60 -59 -60 -20
+45 30 100d5+2500 1d50+1500 9d9+35 'peckb'
+-30 -29 -30 -10
 CDEFG
-stand stand either 0
+stand stand either 100
 ACHW ACDEFHJKPU large unknown
 r fire -50
 r cold 33
@@ -199,8 +199,8 @@ He seems a little harried and glares at you for getting in the way.
 ~
 elf~
 BCGR 0 T 0 A 0 0
-81 0 100d12+13000 1d50+9500 13d9+51 'punch'
--50 -50 -52 -21
+40 27 100d5+1650 1d100+1750 8d9+25 'punch'
+-25 -25 -26 -10
 DFG
 stand stand male 1500
 0 0 medium unknown
@@ -217,10 +217,10 @@ your left ear.
 ~
 elf~
 CGR 0 T 0 AB 0 0
-80 0 100d12+12500 1d50+9500 13d9+50 'scratch'
--49 -50 -50 -20
+40 25 100d5+1600 1d50+2000 17d4+25 'scratch'
+-24 -25 -25 -10
 FG
-stand stand either 5000
+stand stand either 4000
 0 0 medium unknown
 #11812
 writhing form ghostly~
@@ -233,8 +233,8 @@ holds despite the form's continuous lashing.
 ~
 unique~
 BGR 0 ITU A H 0 0
-87 0 100d12+16000 1d50+10000 12d11+57 'magic'
--57 -57 -57 -20
+43 30 100d5+2250 1d50+2000 8d10+28 'magic'
+-28 -28 -28 -10
 DFG
 stand stand none 0
 HL 0 medium unknown
@@ -254,8 +254,8 @@ of a magical glyph, created to guard the house against outside threats.
 ~
 unique~
 BG 0 TU AB ABH 0 0
-90 0 100d12+17500 1d100+10000 12d12+60 'wrath'
--60 -60 -60 -28
+45 30 100d5+2600 1d100+1500 9d9+30 'wrath'
+-30 -30 -30 -14
 DEFG
 stand stand none 0
 HL 0 medium unknown
@@ -279,10 +279,10 @@ A golden symbol shimmers between his brows:
 ~
 elf~
 BGT 0 HN 0 K 1000 0
-90 0 100d12+19000 1d10+1000 12d12+60 'none'
--60 -58 -58 -26
+45 35 100d5+3000 1d100+1250 10d9+30 'none'
+-30 -29 -29 -13
 CDEIK
-stand stand male 65000
+stand stand male 20000
 0 0 medium unknown
 r holy 100
 r negative -50
@@ -297,10 +297,10 @@ an aura of great power behind the gentle smile.
 ~
 elf~
 BGQ 0 HNT 0 K 1000 0
-89 0 100d12+17500 1d10+2000 12d11+59 'none'
--59 -59 -58 -25
+44 29 100d5+2600 1d10+1000 8d10+29 'none'
+-92 -29 -29 -12
 DEF
-stand stand female 45500
+stand stand female 15000
 0 0 medium unknown
 r holy 33
 r negative -50
@@ -315,10 +315,10 @@ on his collar.
 ~
 elf~
 CGT 0 HNT 0 K 1000 0
-85 0 100d12+16500 1d10+950 10d13+55 'wrath'
+42 25 100d5+2450 1d10+950 4d20+25 'wrath'
 -56 -57 -56 -21
 CDEFK
-stand stand male 25500
+stand stand male 12500
 0 0 medium unknown
 r holy 33
 r negative -50
@@ -334,10 +334,10 @@ the Treniste sequas, the second in command.
 ~
 elf~
 CGT 0 NT 0 K 900 0
-83 0 100d12+15500 1d10+930 9d14+53 'cleave'
--54 -53 -54 -20
+41 26 100d5+2100 1d100+1200 9d8+26 'cleave'
+-27 -26 -27 -10
 CDEIK
-stand stand female 15500
+stand stand female 6500
 0 0 medium unknown
 r fire -50
 r cold 33
@@ -354,10 +354,10 @@ of house Treniste.
 ~
 elf~
 GQ 0 NT 0 K 900 0
-80 0 100d12+12500 1d50+5000 9d12+50 'none'
--48 -48 -49 -19
+40 25 100d5+1550 1d50+2000 10d7+25 'none'
+-24 -24 -24 -9
 EFI
-stand stand male 10200
+stand stand male 5400
 0 0 medium unknown
 r holy 33
 r negative -50
@@ -373,10 +373,10 @@ the Treniste na'deia, or heir.
 ~
 elf~
 GT 0 HNT 0 K 980 0
-86 1 100d12+17000 1d10+900 13d10+56 'slash'
--57 -56 -55 -24
+43 30 100d5+2500 1d10+900 12d7+20 'slash'
+-28 -28 -22 -12
 CDEHIK
-stand stand female 21000
+stand stand female 8500
 0 0 medium unknown
 r cold -50
 r lightning 33
@@ -393,10 +393,10 @@ Along one cheekbone, you notice the tiny mark of a Treniste ira'deian.
 ~
 elf~
 CGR 0 NT 0 ABK 920 0
-81 0 100d12+12500 1d100+10000 9d12+51 'shock'
--51 -50 -50 -18
+40 25 100d5+1550 1d100+2500 8d8+25 'shock'
+-25 -25 -25 -9
 FG
-stand stand male 9400
+stand stand male 4550
 0 0 medium unknown
 r fire 33
 r cold -50
@@ -414,10 +414,10 @@ an ira'deia along one cheekbone.
 ~
 elf~
 GT 0 NT 0 K 920 0
-82 0 100d12+15000 1d10+900 10d12+52 'slash'
--53 -51 -50 -20
+41 26 100d5+2000 1d100+900 9d8+26 'slash'
+-26 -25 -25 -10
 EFHIK
-stand stand female 9500
+stand stand female 4500
 0 0 medium unknown
 r holy 33
 r negative -50
@@ -431,10 +431,10 @@ worth.
 ~
 elf~
 BGT 0 NT 0 K 950 0
-85 0 100d12+16500 1d10+950 10d13+55 'cleave'
--56 -52 -53 -23
+42 28 100d5+2350 1d10+950 8d9+28 'cleave'
+-28 -26 -26 -11
 CDFIK
-stand stand either 5500
+stand stand either 2500
 0 0 medium unknown
 r holy 33
 r negative -50
@@ -453,10 +453,10 @@ of house Reykaris:
 ~
 elf~
 BFGR 0 JOT 0 ABM -1000 0
-90 0 100d12+17000 1d100+12000 13d10+60 'none'
--60 -60 -60 -20
+45 35 100d5+2500 1d100+2500 9d9+35 'none'
+-30 -30 -30 -10
 EFG
-stand stand female 35500
+stand stand female 18550
 0 0 medium unknown
 r fire 33
 r cold -50
@@ -473,10 +473,10 @@ He bears the mark of the deiayan (consort) of she'vale Reykaris.
 ~
 elf~
 BFGT 0 JOT 0 M -1000 0
-89 0 100d12+18500 1d10+1000 14d10+59 'slash'
--58 -58 -59 -27
+44 30 100d5+2900 1d100+1200 8d10+30 'slash'
+-29 -29 -29 -13
 CDFK
-stand stand male 30000
+stand stand male 19500
 0 0 medium unknown
 r holy -50
 r negative 33
@@ -492,10 +492,10 @@ is emblazoned along her collar.
 ~
 elf~
 FG 0 JOT 0 M -990 0
-86 0 100d12+15500 1d10+960 9d14+56 'slice'
--55 -56 -56 -24
+43 28 100d5+2100 1d100+900 8d9+28 'slice'
+-27 -28 -28 -12
 EFK
-stand stand female 21200
+stand stand female 13500
 0 0 medium unknown
 r holy -50
 r negative 33
@@ -509,10 +509,10 @@ mark of the Reykaris sequas on her collar.
 ~
 elf~
 FG 0 OT 0 M -975 0
-83 0 100d12+15750 1d10+930 10d11+53 'claw'
--54 -52 -53 -21
+41 25 100d5+2200 1d100+1000 8d9+30 'claw'
+-27 -26 -26 -10
 FIK
-stand stand female 15400
+stand stand female 9500
 0 0 medium unknown
 r holy -50
 r negative 33
@@ -527,10 +527,10 @@ Reykaris treye, the third in command.
 ~
 elf~
 CFGQ 0 OT A M -970 0
-81 0 100d12+13000 1d100+9000 9d12+51 'crush'
--50 -50 -50 -20
+40 26 100d6+1650 1d100+1500 8d8+26 'crush'
+-25 -25 -25 -10
 FI
-stand stand male 11250
+stand stand male 6550
 0 0 medium unknown
 r cold 33
 r holy -50
@@ -547,10 +547,10 @@ of the heir to Reykaris.
 ~
 elf~
 BCFGR 0 JOT A ABM -978 0
-85 0 100d12+15000 1d100+10500 13d9+55 'slash'
--56 -56 -55 -25
+42 25 100d5+2000 1d100+2000 4d10+25 'slash'
+-28 -28 -22 -12
 EFG
-stand stand male 23400
+stand stand male 12350
 0 0 medium unknown
 r fire 33
 r cold -50
@@ -570,8 +570,8 @@ her status as an ira'deia, younger child, of house Reykaris.
 ~
 elf~
 CG 0 TV 0 M -500 0
-81 0 100d12+13000 1d10+950 9d12+51 'pound'
--50 -51 -50 -20
+40 26 100d5+1650 1d100+1000 8d8+26 'pound'
+-25 -25 -25 -10
 FJ
 stand stand female 1000
 0 0 medium unknown
@@ -587,10 +587,10 @@ is the mark of an ira'deia of house Reykaris.
 ~
 elf~
 BCFGS 0 TV B BM -900 0
-80 0 100d12+12500 1d10+2000 9d12+50 'pierce'
--50 -45 -46 -18
+40 25 100d5+1550 1d100+1750 8d8+25 'pierce'
+-25 -22 -23 -9
 BEFJK
-stand stand female 14300
+stand stand female 7550
 0 0 medium unknown
 r holy -50
 r negative 33
@@ -604,10 +604,10 @@ slitted eyes.  The mark of an ira'deian glimmers along one cheekbone.
 ~
 elf~
 BCFG 0 OT 0 M -900 0
-82 0 100d12+13500 1d10+950 9d12+52 'slash'
--52 -51 -52 -20
+41 26 100d5+1750 1d100+1150 8d9+26 'slash'
+-26 -25 -26 -10
 EFK
-stand stand male 14300
+stand stand male 8550
 0 0 medium unknown
 r holy -50
 r negative 33
@@ -620,8 +620,8 @@ A rabid reddish light flickers behind narrow green cat eyes.
 ~
 pig~
 CFG 0 0 0 HM -950 0
-79 0 100d12+13000 1d50+5000 9d11+49 'claw'
--48 -47 -47 -15
+39 25 100d5+1650 1d100+1500 7d10+22 'claw'
+-24 -23 -23 -7
 CDJK
 stand stand none 1000
 0 0 large unknown
@@ -641,10 +641,10 @@ the long muzzle opens to emit a furious, ear-piercing screech!
 ~
 pig~
 BCFG 0 O 0 H -800 0
-82 0 100d12+14500 1d10+900 9d12+52 'bite'
--50 -51 -52 -20
+41 25 100d5+1900 1d100+900 6d11+26 'bite'
+-25 -25 -26 -10
 DEFI
-stand stand none 0
+stand stand none 1000
 0 0 medium unknown
 r acid 33
 r mental -50
@@ -659,8 +659,8 @@ figure emits a threatening snarl..
 ~
 pig~
 BCFG 0 T B HM -855 0
-81 0 100d12+14250 1d10+950 10d10+51 'claw'
--50 -50 -51 -20
+40 25 100d5+1950 1d100+950 8d8+25 'claw'
+-25 -25 -25 -10
 DEFJ
 stand stand none 1000
 0 0 large unknown
@@ -693,11 +693,11 @@ blood-freezing snarl, and a trail of very real blood drips from
 the gleaming white fangs!
 ~
 human~
-BFGR 0 O 0 AHM -955 0
-80 0 100d12+12500 1d100+8500 9d11+50 'claw'
--50 -52 -51 -20
+BFGR 0 O 0 AHM -995 0
+40 25 100d5+1550 1d100+2000 15d4+25 'claw'
+-25 -26 -25 -10
 FG
-stand stand either 7500
+stand stand either 4500
 0 0 medium unknown
 r holy -50
 r negative 33
@@ -712,8 +712,8 @@ round, fanged mouth at the center, dripping blood.
 ~
 unique~
 BCFG 0 OV 0 H -670 0
-81 0 100d12+14000 1d10+950 10d10+51 'slash'
--51 -50 -51 -20
+40 26 100d5+1900 1d10+950 3d30+5 'slash'
+-25 -25 -25 -10
 DEK
 stand stand none 0
 ACGJ ADEFN huge unknown
@@ -726,13 +726,18 @@ You catch a glimpse of hellish red eyes and wickedly sharp black talons.
 ~
 unique~
 BG 0 c 0 HL -900 0
-95 0 100d12+22500 1d100+7500 12d12+65 'claw'
--65 -65 -63 -24
-EFG
+50 40 100d5+3000 1d100+1500 2d90+10 'claw'
+-32 -32 -31 -12
+DEFGK
 stand stand male 10300
 ACH ABCDEFJKQUV large unknown
+r bash 20
+r pierce 10
+r slash 10
 r holy -50
 r negative 33
+r energy -50
+r mental -100
 r disease 33
 r light -50
 #11838
@@ -748,10 +753,10 @@ silver eyes gleam from a dark, narrow face like twin daggers.
 ~
 elf~
 BFGS 0 HTV B B 0 0
-73 0 100d12+10250 1d10+1000 8d10+43 'pierce'
--46 -47 -46 -14
+36 23 100d5+1300 1d10+1000 8d7+22 'pierce'
+-23 -23 -23 -7
 BEFJK
-stand stand female 65500
+stand stand female 22550
 0 0 medium unknown
 #11839
 drakyri myrxes neraikis deiayan form~
@@ -764,10 +769,10 @@ that he bears the mark of a deiayan of house Myrxes.
 ~
 elf~
 BFGS 0 HT B B 0 0
-73 1 100d12+10250 1d10+900 8d10+43 'slash'
--43 -43 -43 -12
+36 25 100d5+1300 1d10+900 8d8+24 'slash'
+-21 -21 -21 -6
 BEFJ
-stand stand male 65000
+stand stand male 22000
 0 0 medium unknown
 #11840
 drakyri myrxes katyre sh'aya figure~
@@ -780,10 +785,10 @@ the mark of the Myrxes sh'aya.
 ~
 elf~
 CGS 0 HT B B 0 0
-70 0 100d12+9000 1d10+900 8d8+40 'pierce'
--40 -40 -40 -11
+35 0 100d5+1150 1d10+900 7d8+20 'pierce'
+-20 -20 -20 -5
 BEFJ
-stand stand female 52500
+stand stand female 19500
 0 0 medium unknown
 #11841
 drakyri myrxes ryxis sequen~
@@ -797,10 +802,10 @@ wears the mark of a sequen, second in command of Myrxes.
 ~
 elf~
 CGS 0 TV B B 0 0
-66 0 100d10+8000 1d10+800 11d5+36 'pierce'
--36 -36 -36 -5
+33 20 100d4+1000 1d10+800 7d7+18 'pierce'
+-18 -18 -18 -2
 BEFJ
-stand stand male 41400
+stand stand male 14250
 0 0 medium unknown
 #11842
 drakyri myrxes gydeas treye form~
@@ -814,10 +819,10 @@ emblazoned on his collar.
 ~
 elf~
 CGS 0 T B B 0 0
-64 0 100d10+7250 1d10+800 6d9+34 'slash'
--34 -34 -34 -4
+32 21 100d4+900 1d10+800 7d7+17 'slash'
+-17 -17 -17 -2
 BEFJ
-stand stand male 15500
+stand stand male 5250
 0 0 medium unknown
 #11843
 drakyri myrxes dyraena na'deia lady~
@@ -832,10 +837,10 @@ Between her eyebrows is the mark of the Myrxes heir.
 ~
 elf~
 BCFGS 0 HT B B 0 0
-71 1 100d12+9500 1d10+1000 7d11+41 'slash'
--41 -41 -41 -11
+35 22 100d5+1100 1d10+1000 7d8+20 'slash'
+-20 -20 -20 -5
 BEFJK
-stand stand female 25500
+stand stand female 8750
 0 0 medium unknown
 #11844
 drakyri myrxes nyxi ira'deia girl~
@@ -848,10 +853,10 @@ one cheekbone is the mark of an ira'deia of Myrxes.
 ~
 elf~
 BCGS 0 T B B 0 0
-68 0 100d10+8500 1d10+870 7d9+38 'slice'
--38 -38 -39 -4
+34 20 100d4+1075 1d10+870 7d7+19 'slice'
+-19 -19 -19 -2
 BEFHJ
-stand stand female 15560
+stand stand female 5560
 0 0 medium unknown
 #11845
 drakyri myrxes delise ira'deia~
@@ -862,10 +867,10 @@ Pale green cat eyes seem to glow with a silent power.
 ~
 elf~
 BCGS 0 T B B 0 0
-68 0 100d12+8500 1d10+850 7d9+38 'slash'
--39 -40 -41 -10
+34 22 100d5+1100 1d10+850 8d7+19 'slash'
+-19 -20 -20 -5
 BEFJ
-stand stand female 15500
+stand stand female 5500
 0 0 medium unknown
 #11846
 black panther~
@@ -877,8 +882,8 @@ cat eyes flicker constantly around the room, taking in everything.
 ~
 cat~
 FG 0 0 BG ABH 0 0
-63 0 100d10+7500 1d10+750 8d6+33 'claw'
--33 -33 -33 -13
+31 19 100d4+900 1d10+750 7d6+15 'claw'
+-16 -16 -16 -6
 EK
 stand stand male 0
 0 0 large unknown
@@ -892,8 +897,8 @@ Slitted silver eyes flicker towards you, and she hisses in warning.
 ~
 cat~
 FG 0 0 BG ABH 0 0
-63 0 100d10+7500 1d10+750 8d6+33 'claw'
--33 -33 -34 -13
+31 20 100d4+900 1d10+750 6d7+17 'claw'
+-16 -16 -17 -6
 EK
 stand stand male 0
 0 0 large unknown
@@ -907,8 +912,8 @@ dark eyes, a cruel black beak opens to emit a shrill scream of challenge!
 ~
 song bird~
 CFG 0 0 BG H 0 0
-75 0 100d10+10500 1d10+800 8d11+45 'peck'
--44 -45 -46 -14
+37 23 100d4+1300 1d10+800 8d8+23 'peck'
+-22 -22 -23 -7
 CDE
 stand stand female 0
 0 0 huge unknown
@@ -923,8 +928,8 @@ silver gaze that sends a chill up your spine.
 ~
 elf~
 CFGS 0 T B B 0 0
-71 0 100d10+9500 1d10+750 7d10+41 'pierce'
--43 -43 -42 -11
+35 21 100d4+1200 1d10+750 6d9+20 'pierce'
+-21 -21 -21 -5
 BEFJ
 stand stand male 5500
 0 0 medium unknown
@@ -938,7 +943,7 @@ arrow at you with dangerous accuracy.
 ~
 elf~
 CFG 0 T B B 0 0
-72 0 100d10+10250 1d10+770 7d11+42 'slash'
+36 23 100d4+1300 1d10+770 7d8+21 'slash'
 -44 -43 -44 -11
 EFJK
 stand stand female 7000
@@ -957,10 +962,10 @@ grey mark of myr'vale Xaek:
 ~
 elf~
 BGT 0 HT 0 0 0 0
-80 1 100d12+14000 1d10+700 13d9+50 'cleave'
--48 -48 -47 -15
+40 26 100d5+1900 1d10+700 9d7+25 'cleave'
+-24 -24 -23 -7
 CDEFIK
-stand stand female 65500
+stand stand female 19500
 0 0 medium unknown
 #11852
 drakyri xaek ryke deiayan lord~
@@ -973,10 +978,10 @@ of the head of house Xaek.
 ~
 elf~
 BGT 0 HT 0 0 0 0
-79 1 100d10+13500 1d10+690 10d11+49 'slash'
--46 -47 -47 -16
+39 25 100d10+13500 1d10+690 8d8+25 'slash'
+-23 -23 -23 -8
 CDEK
-stand stand male 61000
+stand stand male 18000
 0 0 medium unknown
 #11853
 drakyri xaek nyxil sh'aya~
@@ -991,10 +996,10 @@ Xaek's first commander (sh'aya).
 ~
 elf~
 GT 0 T 0 0 0 0
-67 1 100d10+9000 1d10+800 8d8+37 'slash'
--37 -37 -37 -5
+33 20 100d4+1000 1d10+800 7d7+20 'slash'
+-18 -18 -18 -2
 CDEHIK
-stand stand female 22500
+stand stand female 4500
 0 0 medium unknown
 #11854
 drakyri xaek rakael sequas female warrior~
@@ -1008,10 +1013,10 @@ She wears the mark of the sequas, second commander, of Xaek.
 ~
 elf~
 GT 0 T 0 0 0 0
-74 0 100d10+11000 1d10+640 9d10+44 'cleave'
--44 -45 -43 -13
+37 22 100d4+1250 1d10+640 8d8+22 'cleave'
+-22 -22 -21 -6
 EFHIK
-stand stand female 17500
+stand stand female 7500
 0 0 medium unknown
 #11855
 drakyri xaek yeven treye man~
@@ -1025,10 +1030,10 @@ the mark of the Xaek treye, third commander.
 ~
 elf~
 GT 0 T 0 0 0 0
-71 0 100d10+10250 1d10+610 9d9+41 'slice'
--38 -39 -40 -8
+35 0 100d4+1250 1d10+610 8d7+25 'slice'
+-19 -19 -20 -4
 CDIK
-stand stand male 12100
+stand stand male 2100
 0 0 medium unknown
 #11856
 drakyri xaek versant na'deian boy~
@@ -1042,10 +1047,10 @@ center of his forehead marks him as the na'deia (heir) to Xaek.
 ~
 elf~
 BGT 0 0 0 0 0 0
-76 1 100d10+12000 1d10+680 10d10+46 'cleave'
--45 -44 -45 -14
+76 24 100d4+1500 1d10+680 8d8+23 'cleave'
+-22 -22 -22 -7
 CDEIK
-stand stand male 16000
+stand stand male 6000
 0 0 large unknown
 #11857
 drakyri xaek saera ira'deia girl~
@@ -1058,10 +1063,10 @@ an ira'deia.
 ~
 elf~
 BGT 0 0 0 0 0 0
-72 0 100d10+11000 1d10+700 8d11+42 'slash'
--42 -42 -43 -11
+36 21 100d4+1500 1d10+700 6d11+21 'slash'
+-21 -21 -21 -5
 CEFIK
-stand stand female 12100
+stand stand female 3400
 0 0 medium unknown
 #11858
 grey lion~
@@ -1073,8 +1078,8 @@ follow you warily.
 ~
 cat~
 B 0 0 0 0 0 0
-82 0 100d10+13500 1d10+700 9d12+52 'claw'
--50 -50 -50 -19
+41 26 100d4+1800 1d10+700 8d9+26 'claw'
+-25 -25 -25 -10
 CDK
 stand stand male 0
 0 0 large unknown
@@ -1092,8 +1097,8 @@ with her size.  Deep emerald eyes flicker around the room.
 ~
 cat~
 B 0 0 0 0 0 0
-81 0 100d10+13000 1d10+700 9d12+51 'chomp'
--50 -50 -53 -10
+40 26 100d4+1650 1d10+700 8d8+26 'chomp'
+-25 -25 -26 -6
 EIK
 stand stand female 0
 0 0 large unknown
@@ -1110,8 +1115,8 @@ The knight is tall, powerful, and quite ready to defend.
 ~
 elf~
 BT 0 0 0 0 0 0
-71 0 100d10+10250 1d10+600 9d9+41 'cleave'
--40 -40 -40 -10
+35 22 100d4+1350 1d10+600 7d8+21 'cleave'
+-20 -20 -20 -5
 CDIK
 stand stand either 2500
 0 0 large unknown
@@ -1125,8 +1130,8 @@ growing agility and quickness.
 ~
 elf~
 BGT 0 0 0 0 0 0
-70 0 100d10+10000 1d10+650 8d10+40 'slash'
--38 -37 -38 -6
+35 24 100d4+1250 1d10+650 7d8+23 'slash'
+-19 -18 -19 -4
 EFK
 stand stand either 1220
 0 0 medium unknown
@@ -1139,8 +1144,8 @@ The warrior seems quite intent on weapons work.
 ~
 elf~
 GT 0 0 0 0 0 0
-86 0 100d10+17000 1d10+600 13d10+56 'slice'
--49 -48 -49 -16
+43 30 100d4+2500 1d10+600 9d8+30 'slice'
+-24 -24 -25 -10
 EFIK
 stand stand either 1400
 0 0 medium unknown
@@ -1157,10 +1162,10 @@ the arched brows is the shimmering green insignia of myr'vale Noriva:
 ~
 elf~
 GQ 0 HT 0 AB 0 0
-88 0 100d12+16500 1d100+5000 10d13+58 'crush'
--58 -59 -58 -21
+44 30 100d5+2400 1d100+2000 8d10+15 'crush'
+-24 -24 -24 -10
 FIK
-stand stand male 62500
+stand stand male 21500
 0 0 medium unknown
 r fire -50
 r holy 33
@@ -1178,10 +1183,10 @@ On her collar, the lady bears the mark of the deiaya of myr'vale Noriva.
 ~
 elf~
 GQ 0 HT 0 AB 0 0
-84 0 100d12+14500 1d100+5000 13d9+54 'pound'
--55 -55 -58 -25
+42 25 100d5+1900 1d100+2000 10d7+24 'pound'
+-27 -27 -28 -18
 EFI
-stand stand female 61100
+stand stand female 18500
 0 0 medium unknown
 r fire 33
 r cold -50
@@ -1198,10 +1203,10 @@ indicates her rank as sh'aya of myr'vale (minor house) Noriva.
 ~
 elf~
 BGQ 0 H 0 ABKM 0 0
-77 0 100d10+11000 1d100+4800 9d10+47 'pound'
--46 -47 -45 -16
+38 23 100d4+1500 1d100+1800 7d9+23 'pound'
+-23 -23 -22 -9
 FI
-stand stand female 53000
+stand stand female 14000
 0 0 medium unknown
 r fire 33
 r cold 33
@@ -1220,10 +1225,10 @@ he is neutral and worships neutral gods and goddesses.
 ~
 elf~
 BGQT 0 NOT 0 AB 0 0
-74 0 100d10+10500 1d50+4000 9d10+44 'cleave'
--43 -44 -44 -12
+37 22 100d4+1350 1d100+1500 8d8+20 'cleave'
+-21 -22 -22 -8
 CDEK
-rest stand male 25000
+rest stand male 8000
 0 0 medium unknown
 r lightning -50
 r holy 33
@@ -1239,10 +1244,10 @@ the health of the herbs as he weeds.
 ~
 elf~
 BGQ 0 T 0 AB 0 0
-72 0 100d10+9750 1d100+4500 7d11+42 'pound'
--41 -42 -42 -10
+36 22 100d4+1150 1d100+1500 8d7+22 'pound'
+-20 -21 -21 -6
 FIK
-rest stand male 15500
+rest stand male 5500
 0 0 medium unknown
 #11868
 drakyri noriva yllyra na'deia lady~
@@ -1256,10 +1261,10 @@ dot of the Noriva na'deia.
 ~
 elf~
 BQ 0 H 0 AB 0 0
-77 0 100d10+11000 1d100+4900 9d10+47 'pound'
--46 -45 -47 -16
+38 23 10d4+1500 1d100+1900 8d8+23 'pound'
+-23 -22 -23 -9
 FIK
-stand stand female 45500
+stand stand female 12500
 0 0 medium unknown
 #11869
 drakyri noriva dryna ira'deia girl~
@@ -1273,8 +1278,8 @@ On one cheekbone, she bears the mark of an ira'deia of Noriva.
 ~
 elf~
 CGQ 0 T 0 AB 0 0
-72 0 100d10+9750 1d100+4300 7d11+42 'punch'
--40 -42 -43 -11
+36 22 100d4+1150 1d100+1900 8d7+25 'punch'
+-20 -21 -21 -6
 EFGHI
 stand stand female 10500
 0 0 medium unknown
@@ -1293,10 +1298,10 @@ Along one cheekbone is the mark of a Noriva ira'deian.
 ~
 elf~
 CGQ 0 T 0 AB 0 0
-86 0 100d10+15500 1d100+4250 10d12+56 'pound'
--55 -55 -55 -21
+43 28 100d4+2100 1d100+1850 9d8+28 'pound'
+-27 27 -27 -11
 FI
-stand stand male 10500
+stand stand male 2500
 0 0 medium unknown
 r fire 33
 r cold -50
@@ -1311,8 +1316,8 @@ and the cat hisses warningly.
 ~
 cat~
 BC 0 0 G 0 0 0
-72 0 100d10+9750 1d10+900 7d11+42 'claw'
--42 -42 -42 -12
+36 21 100d4+1200 1d10+900 8d7+25 'claw'
+-21 -21 -21 -6
 D
 stand stand male 0
 0 0 medium unknown
@@ -1326,8 +1331,8 @@ follow you warily.
 ~
 cat~
 B 0 0 G B 0 0
-73 0 100d10+10000 1d10+900 7d11+43 'claw'
--44 -43 -43 -12
+36 24 100d4+1250 1d10+900 8d8+24 'claw'
+-22 -22 -21 -7
 J
 stand stand female 0
 0 0 medium unknown
@@ -1342,8 +1347,8 @@ guard here.
 ~
 unique~
 BGQ 0 TU A AB 0 0
-89 0 100d10+17000 1d100+6000 13d10+59 'magic'
--55 -57 -56 -20
+44 30 100d4+2500 1d100+2000 9d9+30 'magic'
+-25 -26 -25 -10
 FG
 stand stand none 0
 DHL 0 medium unknown
@@ -1363,10 +1368,10 @@ by the best.. which she is.
 ~
 elf~
 GR 0 HT 0 0 0 0
-95 0 100d12+20000 1d100+15000 12d12+65 'flame'
--68 -66 -65 -35
+50 35 100d5+3500 1d100+2500 9d11+35 'flame'
+-34 -33 -32 -18
 FG
-stand stand female 65000
+stand stand female 25000
 0 0 medium unknown
 r fire 100
 r lightning 33
@@ -1392,10 +1397,10 @@ elite force of drakyri, the Laerkai.
 ~
 elf~
 GT 0 HNT 0 A 1000 0
-92 0 100d12+20000 1d50+7500 15d10+66 'none'
--63 -63 -63 -23
+50 35 100d5+3500 1d100+2500 9d11+35 'none'
+-31 -31 -31 -19
 CDIK
-stand stand male 65000
+stand stand male 25000
 0 0 medium unknown
 r holy 100
 r negative -50
@@ -1409,10 +1414,10 @@ she smiles a cruel not-smile and flexes wickedly sharp taloned hands.
 ~
 elf~
 CGT 0 JOT 0 A -1000 0
-92 5 100d12+20000 1d50+7000 15d10+62 'none'
--60 -61 -61 -30
+50 35 100d5+3500 1d100+2500 9d11+35 'none'
+-30 -30 -30 -17
 DEFIK
-stand stand female 65000
+stand stand female 25000
 0 0 medium unknown
 r holy -50
 r negative 100
@@ -1428,10 +1433,10 @@ power and agility, both dangerous.
 ~
 elf~
 CGS 0 HT B B 0 0
-92 0 100d12+19000 1d50+7000 12d12+62 'pierce'
--62 -62 -61 -30
+50 32 100d5+3500 1d100+2500 11d9+32 'pierce'
+-31 -31 -30 -16
 BEFHJ
-stand stand male 65000
+stand stand male 25000
 0 0 medium unknown
 r bash 33
 r energy -50
@@ -1447,10 +1452,10 @@ to be a master.
 ~
 elf~
 GT 0 HT 0 0 0 0
-91 1 100d12+19500 1d10+4500 10d15+61 'smash'
--60 -60 -60 -30
+50 32 100d5+3500 1d10+4500 9d11+32 'smash'
+-30 -30 -30 -16
 CDEIK
-stand stand female 65000
+stand stand female 25000
 0 0 large unknown
 r bash 33
 r pierce 33
@@ -1468,10 +1473,10 @@ far above you, as if possessed by some divine presense.
 ~
 elf~
 GQ 0 HNOT 0 AB 0 0
-91 0 100d12+18000 10d101+10000 12d11+61 'none'
--61 -60 -59 -30
+50 30 100d5+3500 1d100+2500 9d11+30 'none'
+-30 -30 -29 -16
 FIK
-stand stand male 65000
+stand stand male 25000
 0 0 medium unknown
 r fire -50
 r holy 33
@@ -1492,10 +1497,10 @@ Trained by both, she has become a lethal blend of sorcery and stealth.
 ~
 elf~
 BCFGRS 0 HT AB ABD 0 0
-100 12 100d12+29500 1d100+15000 18d11+85 'wrath'
--86 -87 -87 -57
+55 50 100d6+5000 1d100+4000 9d11+40 'wrath'
+-43 -43 -43 -28
 EFGHJK
-stand stand female 89800
+stand stand female 30000
 0 0 medium unknown
 r pierce 33
 r fire 33
@@ -1515,10 +1520,10 @@ devotion and training, and is a formidable opponent.
 ~
 elf~
 BGQT 0 HT 0 AB 0 0
-94 1 100d12+20000 1d100+12500 15d10+64 'shock'
--64 -63 -63 -33
+49 35 100d5+3000 1d100+1500 10d10+35 'shock'
+-32 -31 -31 -17
 CDEFGK
-stand stand female 10000
+stand stand female 2000
 0 0 medium unknown
 r fire -50
 r cold 33
@@ -1540,10 +1545,10 @@ it passes the final judgment on all issues that affect the race as a whole.
 ~
 unique~
 BGQRU 0 HTU A ABKLM 0 0
-90 16 100d12+16500 1d100+15000 10d13+60 'none'
--60 -60 -60 -30
+47 25 100d5+3000 1d100+15000 9d9+25 'none'
+-30 -30 -30 -16
 EFIK
-stand stand none 65000
+stand stand none 25000
 HK 0 huge unknown
 r bash 100
 r lightning 33
@@ -1564,8 +1569,8 @@ protect the land and its inhabitants til death.
 ~
 elf~
 GT 0 T 0 0 0 0
-66 0 75d10+8750 1d10+600 7d9+36 'cleave'
--34 -33 -34 -1
+33 20 50d5+1000 1d10+600 6d6+20 'cleave'
+-17 -16 -17 -1
 CDEK
 stand stand either 5500
 0 0 medium unknown
@@ -1579,8 +1584,8 @@ and its inhabitants until death.
 ~
 elf~
 GR 0 T 0 A 0 0
-68 0 45d10+8500 1d50+4000 8d7+38 'magic'
--40 -40 -40 -10
+34 20 50d5+1000 1d50+1800 6d6+19 'magic'
+-20 -20 -20 -5
 FG
 stand stand either 6000
 0 0 medium unknown
@@ -1596,8 +1601,8 @@ master, the mediator, and the warden.
 ~
 elf~
 GQ 0 NOT 0 A 0 0
-68 0 75d10+8500 1d50+3550 7d9+38 'pound'
--36 -36 -37 -18
+34 19 500d5+1000 1d50+1500 6d6+19 'pound'
+-18 -18 -18 -10
 IK
 stand stand either 6000
 0 0 medium unknown
@@ -1612,8 +1617,8 @@ master, and occasionally to the mediator or warden.
 ~
 elf~
 CS 0 T B B 0 0
-67 1 50d10+8250 1d10+700 11d5+37 'pierce'
--42 -42 -43 -19
+33 20 50d4+1000 1d10+700 6d6+20 'pierce'
+-21 -21 -21 -10
 EFJ
 stand stand either 8000
 0 0 medium unknown
@@ -1629,10 +1634,10 @@ He winks at you and returns to his work.
 ~
 elf~
 BGJe 0 T 0 AB 0 0
-65 0 100d12+8000 1d100+17500 8d7+35 'shock'
--35 -35 -35 -10
+32 20 100d5+1000 1d100+1750 5d5+20 'shock'
+-18 -17 -17 -5
 EFGJK
-stand stand male 500000
+stand stand male 50000
 0 0 medium unknown
 #11888
 drakyri warden~
@@ -1646,10 +1651,10 @@ very soul.
 ~
 elf~
 BGJT 0 HNOT 0 AB 0 0
-88 2 100d12+18500 1d100+8000 15d9+58 'none'
--58 -58 -58 -28
+54 25 100d5+3000 1d100+2500 10d10+25 'none'
+-29 -29 -29 -15
 CDEFHIK
-stand stand female 82000
+stand stand female 22000
 0 0 medium unknown
 r bash 33
 r pierce 33
@@ -2313,10 +2318,10 @@ a tempered throwing dagger~
 A silver dagger with a sharply tempered edge gleams wickedly.~
 silver~
 weapon CE 0 AN
-dagger 8 4 'pierce' DHK
+dagger 9 5 'pierce' DHK
 40 200 15000 P
-a '' to_object 40 -1 10 19 0
-a '' to_object 40 -1 10 18 0
+a '' unknown 40 -1 10 18 0
+a '' unknown 40 -1 5 19 0
 g @rus none~
 #11849
 ->*<- sleeves obsidian reykaris~
@@ -2583,7 +2588,7 @@ A set of engraved platemail is here.~
 adamantite~
 armor 0 0 AD
 9 9 9 7 0
-39 100 10000 P
+39 450 10000 P
 a '' to_object 39 -1 3 19 0
 a '' to_object 39 -1 5 18 0
 g @rus none~
@@ -2849,7 +2854,7 @@ A set of powerful looking platemail is here, humming.~
 mithril~
 armor BI 0 AD
 20 20 20 15 0
-45 100 50000 P
+45 450 50000 P
 a '' to_object 45 -1 5 28 0
 a '' to_object 45 -1 5 29 0
 a '' to_object 45 -1 5 27 0
@@ -2902,7 +2907,7 @@ skull:
 ~
 g @rus none~
 #11892
-honed shortsword zedraikis~
+honed shortsword zedraikis sword~
 a honed shortsword 'Zedraikis'~
 A finely honed shortsword gleams wickedly.~
 mithril~

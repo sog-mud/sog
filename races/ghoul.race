@@ -1,20 +1,12 @@
 #RACE
 Name ghoul~
-Form edible sentient undead biped mammal~
+Form poison sentient undead biped~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
 Resist fire -50
-Resist cold -50
-Resist lightning -50
-Resist acid -50
 Resist holy -50
-Resist negative -50
-Resist energy -50
-Resist mental -50
-Resist sound -50
 Resist disease 33
-Resist poison -50
-Resist harm -50
-Resist light -50
+Resist poison 33
+Resist charm 100
 End
 
 #PCRACE

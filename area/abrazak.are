@@ -18,7 +18,7 @@ Avatar of abrazak is here.
 @eng You see a huge man. He looks very strong and wise. You'd better never mess with him.
 ~
 aarakocra~
-J 0 0 0 0 0 0
+J E 0 0 0 0 0
 1000 0 5d5000+5000 1d1+666 5d300+1 'none'
 6 6 66 66
 YZ
@@ -376,7 +376,7 @@ dress платье~
 unknown~
 clothing GIY C AD
 0 0 0 0 0
-95 0 0 P
+95 20 0 P
 g @rus none~
 #15016
 диадема diadem~
@@ -471,14 +471,14 @@ exotic 0 0 'none' 0
 a '' to_skills 10 -1 100 'vampire' A
 g @rus none~
 #15027
-elephant~
-@eng HUGE elephant@rus ОГРОМНЫЙ СЛОНЯРА~
+elephant слон~
+@eng HUGE elephant@rus ~~ОГРОМНЫЙ СЛОНЯРА~~~
 @eng HUGE elephant wanders around.@rus ОГРОМНЫЙ СЛОНЯРА бродит тут в поисках хозяина.~
 unknown~
 treasure 0 0 AO
 0 0 0 0 0
 0 0 0 P
-g @rus none~
+g @rus male~
 #15028
 bell~
 @eng {Wlittle magic bell{x@rus {Wмаленький глиняный колокольчик{x~
@@ -489,14 +489,14 @@ treasure 0 0 AO
 0 0 0 P
 g @rus none~
 #15029
-bear~
+bear медвеженок~
 @eng teddy bear@rus плюшевый медвежонок~
 @eng Teddy bear lies here, forgotten.@rus Уронили мишку на пол, оторвали мишке лапу...~
 unknown~
 treasure 0 0 AO
 0 0 0 0 0
 0 0 0 P
-g @rus none~
+g @rus male~
 #15030
 tron~
 {Gмаленькая удобная кроватка{x~

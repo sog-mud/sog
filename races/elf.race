@@ -4,6 +4,7 @@ Inv sneak~
 Det infrared~
 Form edible sentient biped mammal~
 Parts head arms legs heart brains guts hands feet fingers ear eye~
+Resist negative -10
 Resist charm 33
 End
 
@@ -17,8 +18,8 @@ Class 'thief' 100
 Class 'warrior' 100
 Class 'wizard' 100
 BonusSkills 'mastering bow'~
-Stats -2 5 0 2 -2 0 
-MaxStats 18 25 21 22 18 25 
+Stats -2 4 1 2 -2 0 
+MaxStats 17 25 24 24 16 25 
 Size medium
 HPBonus -10
 ManaBonus 30

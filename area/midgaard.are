@@ -3294,7 +3294,7 @@ shield large metal щит~
 steel~
 armor 0 0 AJ
 5 5 5 2 4
-10 140 1190 P
+10 300 1190 P
 g @rus male~
 #3117
 shield small wooden щит~
@@ -8278,9 +8278,9 @@ S
 @eng A huge chunk of black obsidian stone has been fashioned into a death 
 bed for the sacrifices the Dark God demands.  Torches hang on the walls 
 to cast a fitful light over the dark enterprise.
-@rus Большой кусок черного обсидиана вытесан в форме смертного ложа, чтобы приносить
-на нем жертвы, требуемые темным богом. Факелы висят на стенах, освещая эти злые
-деяния.
+@rus Большой кусок черного обсидиана вытесан в форме смертного ложа, чтобы
+приносить на нем жертвы, требуемые темным богом.  Факелы висят на стенах,
+освещая эти злые деяния.  
 ~
 0 DKNS inside
 D3
@@ -11409,6 +11409,13 @@ E 0 3350 0 16		*	a standard issue sword: wielded
 E 0 3353 0 5		*	a standard issue vest: on the body
 E 0 3355 0 4		*	a standard issue cloak: around the neck (2)
 O 0 3135 0 3005	* a fountain (The Temple Square)
+O 0 9 0 3005	* Christmas tree (The Temple Square)
+P 0 15029 0 9 1	* Christmas tree: teddy bear
+P 0 15029 0 9 1	* Christmas tree: teddy bear
+P 0 15029 0 9 1	* Christmas tree: teddy bear
+P 0 15027 0 9 1	* Christmas tree: HUGE elephant
+P 0 15027 0 9 1	* Christmas tree: HUGE elephant
+P 0 15027 0 9 1	* Christmas tree: HUGE elephant
 M 0 3061 5 3006 5	* the janitor (Entrance to the Grunting Boar Inn)
 M 0 3040 1 3007 1	* the bartender (The Grunting Boar)
 G 0 3000 0		*	a barrel of beer

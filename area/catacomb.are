@@ -274,7 +274,7 @@ A suit of platemail hewn from granite stands by itself in the corner.~
 granite~
 armor BJ 0 AD
 8 8 8 2 0
-23 550 3600 P
+23 450 3600 P
 a '' to_object 23 -1 -1 2 0
 g @rus none~
 #2003
@@ -378,7 +378,7 @@ A shield from from the scales of a large dragon lies here.~
 dragonskin~
 armor 0 0 AJ
 7 7 7 4 0
-22 200 3500 P
+22 100 3500 P
 a '' to_object 22 -1 -2 20 0
 g @rus none~
 #2013

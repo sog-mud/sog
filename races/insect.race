@@ -1,0 +1,9 @@
+#RACE
+Name insect~
+Form poison insect~
+Parts legs guts~
+Resist bash -50
+Resist poison 50
+End
+
+#$

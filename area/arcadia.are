@@ -1200,7 +1200,7 @@ gown gossamer платье~
 cloth~
 armor AFG 0 AD
 10 10 10 0 0
-30 1 600 P
+30 100 600 P
 a '' to_object 30 -1 50 14 0
 a '' to_object 30 -1 2 2 0
 g @rus none~
@@ -1601,7 +1601,7 @@ A large shield made of pure ice.~
 ice~
 armor G 0 AJ
 23 23 22 16 0
-70 25 1200 P
+70 350 1200 P
 a '' to_object 70 -1 -10 17 0
 a '' to_object 70 -1 -7 24 0
 g @rus none~
@@ -1641,7 +1641,7 @@ A well made sidhe noble's breastplate with fine engraving.~
 unknown~
 armor G 0 AD
 22 22 21 17 0
-72 9 1200 P
+72 90 1200 P
 a '' to_object 72 -1 2 4 0
 g @rus none~
 #12043

@@ -20,8 +20,8 @@ ends in a scorpion stinger.
 ~
 unique~
 FT 0 0 0 ABH -1000 0
-91 0 90d20+19000 91d10+9500 10d15+61 'bite'
--63 -63 -63 -26
+46 31 100d10+3000 1d500+1500 10d10+31 'bite'
+-31 -31 -31 -14
 FIKW
 stand stand none 900
 AGHNO ACDEFHKQV large unknown
@@ -42,8 +42,8 @@ and you find his voice pleasant and reasonable.
 ~
 unique~
 BT 0 AITX A H -1000 0
-95 0 90d20+23000 91d10+9500 16d10+65 'crush'
--66 -66 -66 -28
+49 30 100d10+3500 1d500+2000 10d10+40 'crush'
+-33 -33 -33 -14
 FV
 stand stand male 900
 AHMVXd ABCDEFGHIJKP medium unknown
@@ -63,8 +63,8 @@ OF HARLOTS AND ABOMINATIONS OF THE EARTH.
 ~
 human~
 HQ 0 c 0 0 -1000 0
-88 0 90d20+17500 91d10+9500 12d11+57 'blast'
--60 -60 -60 -25
+44 29 100d10+2750 1d500+2200 8d10+29 'blast'
+-30 -30 -30 -12
 FN
 stand stand female 900
 0 0 medium unknown
@@ -78,8 +78,8 @@ He has already cast the second vial of wrath into the sea.
 ~
 unique~
 BT 0 NT A 0 1000 0
-85 0 90d20+16000 91d10+9500 10d13+55 'smash'
--58 -58 -58 -24
+43 25 100d10+2250 1d500+1500 9d9+25 'smash'
+-39 -39 -39 -12
 CEFKPX
 stand stand male 10
 ADHLMV ABCDEFGHIJKP large unknown
@@ -99,8 +99,8 @@ The 6th seal already has been broken.
 ~
 unique~
 BT 0 NT A 0 1000 0
-85 0 90d20+16000 91d10+9500 10d13+55 'smash'
--58 -58 -58 -24
+43 25 100d10+2250 1d500+1500 9d9+25 'smash'
+-39 -39 -39 -12
 CEFKPX
 stand stand male 900
 ADHLMV ABCDEFGHIJKP large unknown
@@ -120,8 +120,8 @@ He has already scattered the seventh vial of wrath on the wind.
 ~
 unique~
 BT 0 NT A H 1000 0
-85 0 90d20+16000 91d10+9500 10d13+55 'divine'
--58 -58 -58 -24
+43 25 100d10+2250 1d500+1500 9d9+25 'divine'
+-39 -39 -39 -12
 CEFKPX
 stand stand male 900
 ADHLMV ABCDEFGHIJKP large unknown
@@ -141,8 +141,8 @@ He has already poured the fourth vial of wrath upon the sun.
 ~
 unique~
 BT 0 NT A 0 1000 0
-85 0 90d20+16000 91d10+9500 10d13+55 'divine'
--58 -58 -58 -24
+43 25 10d100+2250 1d500+1500 9d9+25 'divine'
+-39 -39 -39 -12
 CEFKPX
 stand stand male 900
 ADHLMV ABCDEFGHIJKP large unknown
@@ -161,8 +161,8 @@ The angel has no mercy for those without seals.
 ~
 unique~
 T 0 NT A ABK 1000 0
-80 0 50d20+13500 91d10+9500 13d9+50 'pound'
--54 -54 -54 -22
+40 25 50d10+1750 1d500+1250 8d9+20 'pound'
+-27 -27 -27 -11
 CEFKPX
 stand stand male 900
 ADHLMV ABCDEFGHIJKP large unknown
@@ -182,8 +182,8 @@ armed with simple spears and shields.
 ~
 human~
 T 0 N 0 H 1000 0
-75 0 50d20+11000 91d10+9000 9d11+45 'slice'
--50 -50 -50 -20
+37 22 50d10+1550 1d500+1000 8d8+22 'slice'
+-25 -25 -25 -10
 CEP
 stand stand none 900
 S 0 huge unknown
@@ -200,8 +200,8 @@ fire, smoke and brimstone as it rears.
 ~
 human~
 FT 0 0 0 ABH -1000 0
-85 0 90d20+16000 91d10+9500 10d13+55 'pound'
--58 -58 -58 -24
+45 30 100d10+1500 2d500+1500 10d10+30 'pound'
+-29 -29 -29 -12
 CDEFK
 stand stand male 900
 BCN 0 large unknown
@@ -218,8 +218,8 @@ fire, smoke and brimstone as it rears.
 ~
 human~
 FT 0 0 0 ABH -1000 0
-85 0 90d20+16000 91d10+9500 10d13+55 'pound'
--58 -58 -58 -24
+45 30 100d10+1500 2d500+1500 10d10+30 'pound'
+-29 -29 -29 -12
 CDEFK
 stand stand male 900
 BCN 0 large unknown
@@ -236,8 +236,8 @@ fire, smoke and brimstone as it rears.
 ~
 human~
 FT 0 0 0 ABH -1000 0
-85 0 90d20+16000 91d10+9500 10d13+55 'magic'
--58 -58 -58 -24
+45 30 100d10+1500 2d500+1500 10d10+30 'magic'
+-29 -29 -29 -12
 CDEFK
 stand stand male 900
 BCN 0 large unknown
@@ -254,8 +254,8 @@ fire, smoke and brimstone as it rears.
 ~
 human~
 FT 0 0 0 ABH -1000 0
-85 0 90d20+16000 91d10+9500 10d13+55 'magic'
--58 -58 -58 -24
+45 30 100d10+1500 2d500+1500 10d10+30 'magic'
+-29 -29 -29 -12
 CDEFK
 stand stand male 900
 BCN 0 large unknown
@@ -263,9 +263,10 @@ r holy -50
 r negative 33
 r charm 100
 #14014
-michael archangel~
-The archangel Michael~
-Michael, Archangel of war is here, fighting the dragon.
+michael archangel архангел михаил~
+@eng The archangel Michael@rus ~~архангел~~ ~~Михаил~~~
+@eng Michael, Archangel of war is here, fighting the dragon.
+@rus Архангел Михаил (Michael) сражается с драконом.
 ~
 Michael towers some 18', and is dressed in the blinding
 white of heaven. His voice booms in a deep base laugh.
@@ -286,13 +287,16 @@ r disease 100
 r charm 100
 r light 100
 #14015
-dragon~
-The dragon~
-A great, 7 headed dragon is here, fighting Michael.
+dragon дракон~
+@eng The dragon@rus дракон~
+@eng A great, 7 headed dragon is here, fighting Michael.
+@rus Огромный, семиглавый дракон (dragon) сражается с архангелом Михаилом.
 ~
-The dragon has seven heads and ten horns. Upon the
+@eng The dragon has seven heads and ten horns. Upon the
 ten horns are ten crowns, and upon the 7 heads are
 blasphemy.
+@rus Огромный дракон с семью головами и десятью рогами. На нем одето
+десять корон, а головы венчают семь диадем.
 ~
 dragon~
 BR 0 0 0 AB -1000 0
@@ -851,10 +855,10 @@ An iron breastplate~
 A huge, iron breastplate is here.~
 iron~
 armor 0 0 AD
-42 42 42 15 0
-91 350 3000 P
-a '' to_object 91 -1 15 19 0
-a '' to_object 91 -1 -25 17 0
+24 24 24 15 0
+45 450 3000 P
+a '' unknown 45 -1 8 19 0
+a '' unknown 45 -1 -15 17 0
 g @rus none~
 #14003
 sting locust~
@@ -862,9 +866,9 @@ A locust stinger~
 A large barbed sting is here.~
 stone~
 weapon EQ 0 AN
-dagger 6 20 'pierce' GH
-91 60 4500 G
-a '' to_object 91 -1 10 18 0
+dagger 6 10 'pierce' GH
+45 60 4500 G
+a '' to_object 45 -1 10 18 0
 g @rus none~
 #14004
 chain binding~
@@ -873,12 +877,12 @@ A pretty silver chain lies here.~
 silver~
 treasure GM 0 AD
 0 0 0 0 0
-50 20 8000 P
-a '' to_object 50 -1 100 17 0
-a '' to_object 50 -1 -10 5 0
-a '' to_object 50 -1 -10 2 0
-a '' to_object 50 -1 -10 1 0
-a '' to_object 50 -1 -400 14 0
+30 20 30000 P
+a '' unknown 30 -1 -250 14 0
+a '' to_object 30 -1 100 17 0
+a '' to_object 30 -1 -10 5 0
+a '' to_object 30 -1 -10 2 0
+a '' to_object 30 -1 -10 1 0
 g @rus none~
 #14005
 cup babylon~
@@ -900,11 +904,11 @@ A golden girdle~
 A golden girdle is here.~
 gold~
 armor GIKL 0 AL
-28 28 28 0 0
-80 1 8000 P
-a '' to_object 80 -1 -5 24 0
-a '' to_object 80 -1 7 19 0
-a '' to_object 80 -1 5 18 0
+12 12 12 0 0
+40 1 8000 P
+a '' unknown 40 -1 3 18 0
+a '' unknown 40 -1 4 19 0
+a '' to_object 40 -1 -5 24 0
 g @rus none~
 #14007
 sickle golden~
@@ -912,10 +916,10 @@ A golden sickle~
 A golden sickle is here.~
 gold~
 weapon GIKL 0 AN
-exotic 10 10 'slice' E
-80 450 3500 P
-a '' to_object 80 -1 5 19 0
-a '' to_object 80 -1 5 18 0
+exotic 10 6 'slice' E
+40 450 3500 P
+a '' to_object 40 -1 5 19 0
+a '' to_object 40 -1 5 18 0
 g @rus none~
 #14008
 saints prayers~
@@ -923,8 +927,8 @@ The prayers of saints~
 A vial humming with holiness lies here.~
 glass~
 potion BI 0 AO
-80 'bless' 'faerie fog' 'flamestrike' ''
-80 2 9000 P
+40 'bless' 'faerie fog' 'flamestrike' ''
+40 2 9000 P
 g @rus none~
 #14009
 censer~
@@ -932,8 +936,8 @@ A censer~
 A censer, smoking with incense burns here.~
 bronze~
 wand AG 0 AO
-100 3 3 'fireball' 0
-85 25 6700 P
+50 3 3 'fireball' 0
+40 25 6700 P
 g @rus none~
 #14010
 crown white conquerer~
@@ -941,12 +945,12 @@ The white crown of the conquerer~
 A white crown lies here.~
 adamantite~
 armor EJ 0 AE
-28 28 28 14 0
-85 35 10000 P
-a '' to_object 85 -1 7 19 0
-a '' to_object 85 -1 5 18 0
-a '' to_object 85 -1 50 12 0
-a '' to_object 85 -1 50 13 0
+13 13 13 8 0
+43 35 10000 P
+a '' unknown 43 -1 25 13 0
+a '' unknown 43 -1 25 12 0
+a '' unknown 43 -1 3 18 0
+a '' unknown 43 -1 4 19 0
 g @rus none~
 #14011
 bow white conquerer~
@@ -954,10 +958,10 @@ The white bow of the conquerer~
 A great white bow lies here.~
 adamantite~
 weapon EJM 0 AN
-bow 10 10 'blast' AFH
-85 100 12000 P
-a '' to_object 85 -1 5 19 0
-a '' to_object 85 -1 10 18 0
+bow 6 6 'blast' AFH
+43 100 12000 P
+a '' to_object 43 -1 5 19 0
+a '' to_object 43 -1 10 18 0
 g @rus none~
 #14012
 breastplate fire~
@@ -965,10 +969,10 @@ A breastplate of fire~
 A breastplate of fire smoulders here.~
 unknown~
 armor EJ D AD
-28 28 28 15 0
-85 20 14000 P
-a '' to_object 85 -1 7 19 0
-a '' to_object 85 -1 -10 17 0
+15 15 15 5 0
+43 300 14000 P
+a '' unknown 43 -1 5 19 0
+a '' to_object 43 -1 -10 17 0
 g @rus none~
 #14013
 sword war~
@@ -976,10 +980,10 @@ The sword of war~
 A great two-handed sword lies here.~
 adamantite~
 weapon EJM 0 AN
-sword 11 12 'slash' DEFH
-85 200 14000 P
-a '' to_object 85 -1 10 19 0
-a '' to_object 85 -1 10 18 0
+sword 7 10 'slash' DEFH
+43 500 14000 P
+a '' unknown 43 -1 5 18 0
+a '' unknown 43 -1 5 19 0
 g @rus none~
 #14014
 breastplate jacinth~
@@ -987,10 +991,10 @@ A breastplate of jacinth~
 A breastplate of jacinth glitters here.~
 unknown~
 armor EJ D AD
-28 28 28 10 0
-85 10 14000 P
-a '' to_object 85 -1 100 12 0
-a '' to_object 85 -1 -25 17 0
+15 15 15 5 0
+43 300 14000 P
+a '' unknown 43 -1 -15 17 0
+a '' unknown 43 -1 40 12 0
 g @rus none~
 #14015
 breastplate brimstone~
@@ -998,10 +1002,10 @@ A breastplate of brimstone~
 A breastplate of brimstone smokes here.~
 unknown~
 armor EJ D AD
-28 28 28 10 0
-85 20 14000 P
-a '' to_object 85 -1 -15 24 0
-a '' to_object 85 -1 -25 17 0
+15 15 15 5 0
+43 300 14000 P
+a '' unknown 43 -1 -10 17 0
+a '' unknown 43 -1 -10 24 0
 g @rus none~
 #14016
 balances pair~
@@ -1010,7 +1014,7 @@ A fine set of engraved balances lies here.~
 iron~
 gem G 0 AO
 0 0 0 0 0
-85 10 8000 P
+43 10 8000 P
 E
 engrave engraved writing letters~
 The lettering says:
@@ -1026,7 +1030,7 @@ A cloak, black as oblivion devours the light.~
 mithril~
 armor CEFGQ 0 AK
 30 30 30 10 0
-85 10 14000 P
+43 10 14000 P
 g @rus none~
 #14018
 scythe reaper grim~
@@ -1034,10 +1038,10 @@ The scythe of the Grim reaper~
 An unholy scythe, devours the light here.~
 unknown~
 weapon CEFJMQ 0 AN
-polearm 11 10 'cleave' CDFH
-85 200 14000 P
-a '' to_object 85 -1 10 19 0
-a '' to_object 85 -1 10 18 0
+polearm 8 8 'cleave' CDFH
+43 360 14000 P
+a '' unknown 43 -1 5 19 0
+a '' unknown 43 -1 5 18 0
 g @rus none~
 #14019
 lance holy archangel Michael~
@@ -1045,10 +1049,10 @@ The holy lance of archangel Michael~
 A lance hums with a heavenly aura.~
 adamantite~
 weapon ABGIKM 0 AN
-lance 12 10 'pierce' A
-91 150 20000 P
-a '' to_object 91 -1 10 19 0
-a '' to_object 91 -1 10 18 0
+lance 8 7 'pierce' A
+44 200 20000 P
+a '' unknown 44 -1 7 18 0
+a '' unknown 44 -1 7 19 0
 g @rus none~
 #14020
 mark beast~
@@ -1056,11 +1060,11 @@ The mark of the beast~
 A branded patch of skin lies on the ground.~
 flesh~
 armor EJLM 0 AC
-23 23 23 23 0
-70 10 0 P
-a '' to_object 70 -1 -5 24 0
-a '' to_object 70 -1 5 19 0
-a '' to_object 70 -1 3 18 0
+11 11 11 11 0
+35 10 0 P
+a '' unknown 35 -1 -4 24 0
+a '' unknown 35 -1 2 18 0
+a '' unknown 35 -1 3 19 0
 E
 mark~
 The mark bears the number of his name: 666.
@@ -1072,11 +1076,11 @@ The wings of eagles~
 A giant pair of eagle wings lie here.~
 unknown~
 armor GIK 0 AI
-30 30 30 17 0
-89 50 19000 P
-a '' to_object 89 -1 3 2 0
-a '' to_object 89 -1 100 14 0
-a '' to_object 89 -1 -15 17 0
+15 15 15 9 0
+44 50 19000 P
+a '' unknown 44 -1 -5 17 0
+a '' unknown 44 -1 100 14 0
+a '' unknown 44 -1 2 2 0
 g @rus none~
 #14022
 crown stars twelve~
@@ -1084,10 +1088,10 @@ A crown with twelve stars~
 A crown with twelve stars lies here.~
 stone~
 armor AIK 0 AE
-30 30 30 20 0
-89 5 19000 P
-a '' to_object 89 -1 4 4 0
-a '' to_object 89 -1 3 3 0
+15 15 15 10 0
+44 5 19000 P
+a '' to_object 44 -1 4 4 0
+a '' to_object 44 -1 3 3 0
 g @rus none~
 #14023
 clothing sun~
@@ -1095,12 +1099,12 @@ Clothing of the sun~
 A shirt glowing like the sun lies here.~
 unknown~
 armor AIK 0 AD
-30 30 30 10 0
-89 10 19000 P
-a '' to_object 89 -1 50 13 0
-a '' to_object 89 -1 5 1 0
-a '' to_object 89 -1 5 2 0
-a '' to_object 89 -1 5 5 0
+15 15 15 5 0
+44 100 19000 P
+a '' unknown 44 -1 3 5 0
+a '' unknown 44 -1 3 2 0
+a '' unknown 44 -1 3 1 0
+a '' unknown 44 -1 20 13 0
 g @rus none~
 #14024
 clothing sun~
@@ -1108,11 +1112,11 @@ Clothing of the sun~
 A skirt glowing like the sun lies here.~
 unknown~
 armor AIK 0 AF
-30 30 30 10 0
-89 10 19000 P
-a '' to_object 89 -1 -10 24 0
-a '' to_object 89 -1 -10 23 0
-a '' to_object 89 -1 5 2 0
+15 15 15 5 0
+44 10 19000 P
+a '' unknown 44 -1 3 2 0
+a '' unknown 44 -1 -5 23 0
+a '' unknown 44 -1 -5 24 0
 g @rus none~
 #14025
 moon~
@@ -1120,8 +1124,8 @@ The moon under your feet~
 A glowing piece of the moon is here.~
 unknown~
 armor AIK 0 AG
-30 30 30 10 0
-89 10 19000 P
+15 15 15 5 0
+44 10 19000 P
 g @rus none~
 #14026
 manna hidden~
@@ -1130,8 +1134,8 @@ A glowing circlet of hidden manna is here.~
 unknown~
 armor AFKLQ 0 AB
 0 0 0 0 0
-91 15 25000 P
-a '' to_object 91 -1 200 12 0
+45 15 25000 P
+a '' unknown 45 -1 100 12 0
 g @rus none~
 #14027
 rod iron~
@@ -1139,8 +1143,8 @@ A rod of iron~
 A heavy rod of iron lies here.~
 iron~
 wand GIKL 0 AO
-120 10 10 'cure blindness' 0
-80 100 25000 P
+60 10 10 'cure blindness' 0
+40 100 25000 P
 g @rus none~
 #14028
 raiment white~
@@ -1148,8 +1152,8 @@ White raiment~
 White raiment gleams brightly.~
 unknown~
 armor AGIKL 0 AC
-30 30 30 10 0
-91 10 25000 P
+15 15 15 5 0
+45 10 25000 P
 g @rus none~
 #14029
 stone white~
@@ -1158,8 +1162,8 @@ A white stone the size of a shield lies here.~
 stone~
 armor IKL 0 AJ
 30 30 30 10 0
-91 10 15000 P
-a '' to_object 91 -1 8 19 0
+45 350 15000 P
+a '' unknown 45 -1 8 19 0
 E
 stone white~
 The stone says:
@@ -1172,8 +1176,8 @@ The sharp, two-edged sword of the mouth~
 A huge two handed sword lies here.~
 adamantite~
 weapon IKLM 0 AN
-sword 3 43 'slash' DF
-91 300 25000 P
+sword 2 32 'slash' DF
+45 300 25000 P
 g @rus none~
 #14031
 robe white~
@@ -1181,9 +1185,9 @@ A white robe~
 A white robe lies here~
 unknown~
 armor IKL 0 AK
-23 23 23 23 0
-70 10 5000 P
-a '' to_object 70 -1 -10 17 0
+11 11 11 11 0
+35 10 5000 P
+a '' to_object 35 -1 -10 17 0
 g @rus none~
 #14032
 seal~
@@ -1191,9 +1195,9 @@ A seal~
 A seal lies here.~
 unknown~
 armor IKL 0 AE
-23 23 23 23 0
-70 0 5000 P
-a '' to_object 70 -1 -1 18 0
+11 11 11 11 0
+35 0 5000 P
+a '' to_object 35 -1 -1 18 0
 g @rus none~
 #14033
 star morning~
@@ -1229,7 +1233,7 @@ An emerald throne surrounded by a rainbow is here.~
 unknown~
 furniture AGKL D 0
 A EIJKN AEHK DGH DGH
-92 500 18000 P
+46 500 18000 P
 E
 throne emerald rainbow~
 The throne flashes lightnings, and peals of thunder roll
@@ -1243,7 +1247,7 @@ Four and twenty thrones are here.~
 unknown~
 furniture AGKL D 0
 DE GHIKLMO AEHK BCEH BCEH
-75 50 45000 P
+35 50 45000 P
 E
 thrones four twenty~
 The thrones are made of gold and have a holy aura.
@@ -1256,7 +1260,7 @@ A scroll of seven broken seals lies here, writing unseen.~
 unknown~
 scroll 0 D 0
 10 '' '' '' ''
-125 100 10 P
+60 100 10 P
 E
 writing~
 You carefully look at the writing on the scroll. It reads:
@@ -1271,7 +1275,7 @@ A strange book with billions of names is here.~
 unknown~
 scroll 0 D AO
 10 '' '' '' ''
-125 1000 1000 P
+60 1000 1000 P
 E
 life~
 I bet mortals will drive themselves crazy about this one.
@@ -1282,9 +1286,9 @@ bowl golden incense~
 A golden bowl of incense~
 A golden bowl filled with incense smokes here.~
 unknown~
-staff IQ D AO
-100 3 3 'enchant weapon' 0
-75 10 10000 P
+wand IQ D AO
+0 0 0 '' 0
+40 10 10000 P
 g @rus none~
 #0
 
@@ -7006,9 +7010,22 @@ S
 
 #OLIMITS
 O 14002 2	* An iron breastplate
+O 14003 4	* A locust stinger
+O 14006 1	* A golden girdle
+O 14007 10	* A golden sickle
+O 14009 5	* A censer
+O 14010 2	* The white crown of the conquerer
+O 14012 1	* A breastplate of fire
 O 14013 1	* The sword of war
+O 14014 1	* A breastplate of jacinth
+O 14015 1	* A breastplate of brimstone
+O 14017 1	* Death's cloak
 O 14018 1	* The scythe of the Grim reaper
 O 14019 1	* The holy lance of archangel Michael
+O 14026 2	* Hidden manna
+O 14029 1	* A white stone
+O 14030 3	* The sharp, two-edged sword of the mouth
+O 14041 1	* A golden bowl of incense
 S
 
 #$

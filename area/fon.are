@@ -868,7 +868,7 @@ Wooden disk lies in the grass catch your eye.~
 wood~
 armor 0 0 AJ
 10 10 10 9 0
-37 6 10000 P
+37 60 10000 P
 a '' to_object 37 -1 -1 4 0
 a '' to_object 37 -1 1 2 0
 a '' to_object 37 -1 5 19 0

@@ -397,7 +397,7 @@ A leather bandolier lies here.~
 copper~
 container 0 0 AD
 50 A 0 0 0
-28 4 280 P
+28 40 280 P
 a '' to_object 28 -1 1 5 0
 g @rus none~
 #15705
@@ -492,7 +492,7 @@ A leather hauberk has been dropped here.~
 copper~
 armor 0 0 AD
 8 8 8 0 0
-25 10 250 P
+25 100 250 P
 g @rus none~
 #15715
 drake hide~
@@ -511,7 +511,7 @@ A suit of bronze plate has been piled up here.~
 copper~
 armor 0 0 AD
 6 6 6 0 0
-18 15 180 P
+18 400 180 P
 g @rus none~
 #15717
 bronze shield~
@@ -520,7 +520,7 @@ A bronze shield lies here.~
 copper~
 armor 0 0 AJ
 6 6 6 0 0
-18 10 180 P
+18 100 180 P
 g @rus none~
 #15718
 bronze helm~

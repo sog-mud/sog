@@ -1,6 +1,7 @@
 #AREADATA
 Ver 2
 Name Elemental Canyon~
+Builders akmal~
 VNUMs 9200 9299
 Credits Raff~
 Security 9
@@ -623,7 +624,7 @@ A breastplate made of the stone from deep within the earth lies here.~
 stone~
 armor 0 0 AD
 10 10 10 2 0
-31 700 5500 P
+31 400 5500 P
 a '' to_object 31 -1 1 5 0
 a '' to_object 31 -1 -2 2 0
 g @rus none~
@@ -1043,7 +1044,7 @@ D5
 Z -1 9204
 S
 #9206
-The Overlook~
+@eng The Overlook@rus Смотровая площадка~
 You see various elemental servants wandering around the canyon.  The noise of
 humming coming from the canyon gets louder.  The path makes a steep descent
 into the canyon here.
@@ -1063,7 +1064,7 @@ D5
 Z -1 9207
 S
 #9207
-Entrance to Elemental Canyon~
+@eng Entrance to Elemental Canyon@rus Вход в Каньон элементалов~
 You are awed by the sounds and sights of great powers at works here.
 Elemental servants bustle back and forth doing the biddings of the elemental
 rulers.  You see a sort of cross roads to the north, and you can climb up to
@@ -1449,7 +1450,7 @@ D3
 Z -1 9218
 S
 #9220
-Dark Cave~
+@eng Dark Cave@rus Темная пещера~
 You notice a path winding east among some huge boulders.  You feel a powerful
 source of energy from that direction.
 ~
@@ -1468,7 +1469,7 @@ D3
 Z -1 9210
 S
 #9221
-Darker Caves~
+@eng Darker Caves@rus Более темная пещера~
 You can barely see your way even with a light source.  The rocks of the cave
 are even darker than the darkness.  You hear a powerful humming all around
 you.  Cave paths go south and east roughly, its hard to tell exactly when you
@@ -1618,7 +1619,7 @@ D3
 Z -1 9225
 S
 #9227
-Earth Chamber~
+@eng Earth Chamber@rus Палата Земли~
 This is the abode of the Earth Ruler.  He decides about earthquakes,
 landslides, and avalanches.  The Earth Ruler sits upon a huge marble throne
 carved into the wall.

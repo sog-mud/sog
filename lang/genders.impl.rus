@@ -119,6 +119,14 @@ Form 3 -ат~
 End
 
 #RULE
+Name -им~
+BaseLen -2
+Form 1 -ей~
+Form 2 -им~
+Form 3 -ими~
+End
+
+#RULE
 Name -чит~
 BaseLen -2
 Form 1 -ит~
@@ -132,6 +140,14 @@ BaseLen -2
 Form 1 -ит~
 Form 2 -ит~
 Form 3 -ят~
+End
+
+#RULE
+Name -ым~
+BaseLen -2
+Form 1 -ой~
+Form 2 -ым~
+Form 3 -ыми~
 End
 
 #$

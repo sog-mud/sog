@@ -846,7 +846,7 @@ The armor of Lord Krothgar lies here.~
 steel~
 armor BEGHJL 0 AD
 21 21 21 10 0
-65 25 8000 P
+65 450 8000 P
 a '' to_object 65 -1 2 1 0
 a '' to_object 65 -1 2 5 0
 a '' to_object 65 -1 -15 17 0
@@ -1017,7 +1017,7 @@ A suit of spiked plate mail has been foolishly discarded here.~
 steel~
 armor BEJ 0 AD
 16 17 17 8 0
-50 20 2000 P
+50 450 2000 P
 a '' to_object 50 -1 -15 17 0
 g @rus none~
 #14716
@@ -1101,7 +1101,7 @@ A huge dragon scale has been dropped here.~
 dragonskin~
 armor BEJ 0 AJ
 15 15 15 7 0
-45 10 2000 P
+45 450 2000 P
 a '' to_object 45 -1 -18 17 0
 a '' to_object 45 -1 -5 23 0
 g @rus none~
@@ -1347,7 +1347,7 @@ A tight-fitting suit of black chainmail lies here.~
 leather~
 armor EM 0 AD
 16 16 17 8 0
-48 10 1000 P
+48 100 1000 P
 a '' to_object 48 -1 -2 2 0
 a '' to_object 48 -1 -20 17 0
 g @rus none~
@@ -1429,7 +1429,7 @@ A suit of finely crafted adamantite chainmail is here.~
 cloth~
 armor G 0 AD
 17 17 16 8 0
-50 5 2000 P
+50 50 2000 P
 a '' to_object 50 -1 1 5 0
 a '' to_object 50 -1 10 13 0
 a '' to_object 50 -1 -10 17 0

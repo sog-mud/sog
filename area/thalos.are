@@ -159,7 +159,7 @@ A vest made of mithril plates lies heaped on the floor.~
 mithril~
 armor GK 0 AD
 8 8 8 2 0
-26 300 7600 P
+26 400 7600 P
 a '' to_object 26 -1 2 1 0
 a '' to_object 26 -1 1 19 0
 g @rus none~
@@ -234,7 +234,7 @@ A battered iron breast plate lies here.~
 iron~
 armor 0 0 AD
 5 5 5 0 0
-4 450 9100 P
+4 350 9100 P
 a '' to_object 4 -1 -6 18 0
 g @rus none~
 #5208
@@ -2145,9 +2145,11 @@ You see the trail lead down into gloom.
 Z 0 5267
 S
 #5267
-A valley in the dark dwarf forest~
-You are in a valley in the dark dwarf forest.  Short black grass grows
+@eng A valley in the dark dwarf forest@rus Поляна в темном лесу~
+@eng You are in a valley in the dark dwarf forest.  Short black grass grows
 around you.  Trails lead in all directions.
+@rus Ты стоишь на поляне в темном лесу, поросшей короткой черной
+травой. Тропинки ведут во всех направлениях.
 ~
 0 A forest
 D0
@@ -2170,11 +2172,12 @@ You see a large mountain on the far side of a canyon.
 ~
 Z 0 9201
 D3
-You see a dark fox hole.
+@eng You see a dark fox hole.
+@rus Вход в лисью нору чернеет здесь.
 ~
 hole fox~
-the hole~
-~
+@eng the hole@rus ~~нора~~~
+@rus female~
 ABZ -1 5268
 D4
 ~
@@ -2184,26 +2187,33 @@ D4
 Z 0 5266
 S
 #5268
-A small ugly cave~
-You see a small cave.  Skeletons of many types of creatures litter the area.
+@eng A small ugly cave@rus Отвратительная маленькая пещера~
+@eng You see a small cave.  Skeletons of many types of creatures litter the area.
 Obviously, no fox lives here!  The oppression makes you want to leave and
 vomit.
+@rus Ты попал в небольшую пещеру. Пол усеян скелетами самых разных
+существ.. похоже, здесь обитает отнюдь не лиса! Ты чувствуешь
+позывы к рвоте и вертишь головой во все стороны в поисках выхода.
 ~
 0 A forest
 E
-skeleton skeletons~
-Something is strange about these skeletons.  Upon further investigation, these
-skeletons appear illusionary.
+skeletons скелеты~
+@eng Something is strange about these skeletons. Upon further investigation,
+they appear illusionary.
+@rus Что-то не так с этими скелетами... Приглядевшись повнимательней,
+ты понимаешь, что они ненастоящие - это лишь морок, иллюзия!
 ~
 D1
-You see the exit from here!
+@eng You see the exit from here!
+@rus Похоже, это выход!
 ~
 fox hole~
-the fox~
-~
+@eng the hole@rus ~~нора~~~
+@rus female~
 ABZ -1 5267
 D2
-You see more of the cave.
+@eng You see more of the cave.
+@rus Пещера продолжается на юг.
 ~
 ~
 ~
@@ -2211,32 +2221,40 @@ You see more of the cave.
 Z 0 5269
 S
 #5269
-A small ugly cave~
-You are in a small ugly cave.  More skeletons lie around.  It is obvious
+@eng A small ugly cave@rus Отвратительная маленькая пещера~
+@eng You are in a small ugly cave.  More skeletons lie around.  It is obvious
 that the owner doesn't want you here.  The exit north is still visible.
 Some writings are on this wall.
+@rus Здесь все так же темно и противно, а слой костей на полу
+заметно толще. Судя по всему, хозяин пещеры не слишком гос-
+теприимен. Приглядевшись, ты замечаешь какую-то надпись на
+стене.
 ~
 0 A forest
 E
-skeleton skeletons~
-Something is strange about these skeletons.  Upon further investigation, these
+skeleton skeletons скелеты~
+@eng Something is strange about these skeletons.  Upon further investigation, these
 skeletons appear illusionary.
+@rus Что-то не так с этими скелетами... Приглядевшись повнимательней,
+ты понимаешь, что они ненастоящие - это всего лишь иллюзия.
 ~
 E
-writings writing words~
+writings writing words надпись~
 This cave along with the valley and dwarf forest is made by Hatchet for any
 Merc Mud.
 copyright 1992
 ~
 D0
-You see more of the cave.
+@eng You see more of the cave.
+@rus Пещера продолжается на север.
 ~
 ~
 ~
 ~
 Z 0 5268
 D5
-You see a path leading down into the dark gloom.
+@eng You see a path leading down into the dark gloom.
+@rus Путь ведет дальше, исчезая во мраке.
 ~
 ~
 ~
@@ -2244,29 +2262,36 @@ You see a path leading down into the dark gloom.
 Z 0 5270
 S
 #5270
-Down the path into a dead end~
-You are down the path.  There is no obvious exit in this place, exit the
+@eng Down the path into a dead end@rus Тупик в конце пути~
+@eng You are down the path.  There is no obvious exit in this place, exit the
 one back up north.  All around you, you see skeletons.
+@rus Здесь путь заканчивается тупиком и единственный выход - 
+назад через пещеру. Земля вокруг тебя сплошь усеяна скелетами.
 ~
 0 A forest
 E
-skeleton skeletons~
-Something is strange about these skeletons.  Upon further investigation, these
+skeleton skeletons скелеты~
+@eng Something is strange about these skeletons.  Upon further investigation, these
 skeletons appear illusionary.  In fact, through the skeletons, you see a
 secret door!!
+@rus Что-то не так с этими скелетами.. Приглядевшись повнимательней,
+ты понимаешь, что это лишь иллюзия, скрывающая под собой потай-
+ную дверь.
 ~
 D4
-You see your only way back up.
+@eng You see your only way back up.
+@rus Похоже, это единственный выход.
 ~
 ~
 ~
 ~
 Z 0 5269
 D5
-You see nothing on the floor except skeletons.
+@eng You see nothing on the floor except skeletons.
+@rus Здесь нет ничего, кроме скелетов.
 ~
 secret~
-@eng the secret@rus секретная дверь~
+@eng the secret@rus ~~секретная~~ ~~дверь~~~
 @rus female~
 ABZ -1 5100
 S
