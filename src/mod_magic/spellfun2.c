@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.33 2001-03-09 21:34:18 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139.2.34 2001-03-10 09:19:02 cs Exp $
  */
 
 /***************************************************************************
@@ -4957,65 +4957,67 @@ void spell_disgrace(int sn, int level, CHAR_DATA *ch, void *vo)
 void spell_control_undead(int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
- 	AFFECT_DATA af;
- 	race_t *r;	
- 
- 	if (count_charmed(ch))
- 		return;
- 
- 	if (victim == ch) {
- 		char_puts("You like yourself even better!\n", ch);
- 		return;
- 	}
- 
- 	if ((r = race_lookup(victim->race)) == NULL
+	AFFECT_DATA af;
+	race_t *r;
+
+	if (count_charmed(ch))
+		return;
+
+	if (victim == ch) {
+		char_puts("You like yourself even better!\n", ch);
+		return;
+	}
+
+	if ((r = race_lookup(victim->race)) == NULL
 	||  !IS_UNDEAD(victim, r)) {
-  		act("$N doesn't seem to be an undead.",
+		act("$N doesn't seem to be an undead.",
 		    ch, NULL, victim, TO_CHAR);
-  		return;
-  	}
- 
- 	if (!IS_NPC(victim) && !IS_NPC(ch)) {
- 		level += get_curr_stat(ch, STAT_CHA) -
- 			 get_curr_stat(victim, STAT_CHA); 
-	} 
- 
- 	if (IS_IMMORTAL(victim)
+		return;
+	}
+
+	if (!IS_NPC(victim) && !IS_NPC(ch)) {
+		level += get_curr_stat(ch, STAT_CHA) -
+			 get_curr_stat(victim, STAT_CHA);
+	}
+
+	if (IS_IMMORTAL(victim)
 	||  IS_AFFECTED(victim, AFF_CHARM)
- 	||  IS_AFFECTED(ch, AFF_CHARM)
- 	||  saves_spell(level, victim, DAM_OTHER) 
- 	||  (IS_NPC(victim) && victim->pMobIndex->pShop != NULL)
- 	||  (victim->in_room &&
- 		IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)))
- 			return;
- 
- 	if (is_safe(ch, victim))
- 		return;
- 
- 	add_follower(victim, ch);
+	||  !IS_AWAKE(victim)
+	||  victim->position == POS_FIGHTING
+	||  IS_AFFECTED(ch, AFF_CHARM)
+	||  saves_spell(level, victim, DAM_OTHER)
+	||  (IS_NPC(victim) && victim->pMobIndex->pShop != NULL)
+	||  (victim->in_room &&
+		IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)))
+			return;
+
+	if (is_safe(ch, victim))
+		return;
+
+	add_follower(victim, ch);
 	set_leader(victim, ch);
- 
- 	af.where	= TO_AFFECTS;
- 	af.type		= sn;
- 	af.level	= level;
- 	af.duration	= number_fuzzy(level / 5);
- 	af.location	= 0;
- 	af.modifier	= 0;
- 	af.bitvector	= AFF_CHARM;
- 	affect_to_char(victim, &af);
- 	act("Isn't $n just so nice?", ch, NULL, victim, TO_VICT);
- 	act("$N looks at you with adoring eyes.",
- 		    ch, NULL, victim, TO_CHAR);
- 
- 	if (IS_NPC(victim) && !IS_NPC(ch)) {
- 		NPC(victim)->last_fought = ch;
- 		if (number_percent() < (4 + (LEVEL(victim) - LEVEL(ch))) * 10)
- 		 	add_mind(victim, ch->name);
- 		else if (NPC(victim)->in_mind == NULL) {
- 			NPC(victim)->in_mind =
+
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= number_fuzzy(level / 5);
+	af.location	= 0;
+	af.modifier	= 0;
+	af.bitvector	= AFF_CHARM;
+	affect_to_char(victim, &af);
+	act("Isn't $n just so nice?", ch, NULL, victim, TO_VICT);
+	act("$N looks at you with adoring eyes.",
+		    ch, NULL, victim, TO_CHAR);
+
+	if (IS_NPC(victim) && !IS_NPC(ch)) {
+		NPC(victim)->last_fought = ch;
+		if (number_percent() < (4 + (LEVEL(victim) - LEVEL(ch))) * 10)
+			add_mind(victim, ch->name);
+		else if (NPC(victim)->in_mind == NULL) {
+			NPC(victim)->in_mind =
 				str_printf("%d", victim->in_room->vnum);
- 		}
- 	}
+		}
+	}
 }
 
 void spell_assist(int sn, int level, CHAR_DATA *ch, void *vo)
