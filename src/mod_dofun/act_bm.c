@@ -31,7 +31,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_bm.c,v 1.1.2.8 2002-11-19 14:15:48 tatyana Exp $
+ * $Id: act_bm.c,v 1.1.2.9 2002-11-20 22:04:14 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -162,9 +162,16 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 			return;
 		}
 
-		if (newbet > (PC(ch)->bank_g)) {
-			act("{D[BLACK MARKET]{x You don't have that much"
-			    " money in your account!",
+		if (!str_cmp(item->buyer, ch->name)) {
+			if (newbet > (PC(ch)->bank_g + item->bet)) {
+				act("{D[BLACK MARKET]{x You don't have "
+				    "that much money in your account!",
+				    ch, NULL, NULL, TO_CHAR);
+				return;
+			}
+		} else if (newbet > PC(ch)->bank_g) {
+			act("{D[BLACK MARKET]{x You don't have "
+			    "that much money in your account!",
 			    ch, NULL, NULL, TO_CHAR);
 			return;
 		}
@@ -454,6 +461,7 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 		item->next = bmitem_list;
 		bmitem_list = item;
 		save_black_market();
+		char_save(ch, 0);
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.42 2002-11-19 14:16:02 tatyana Exp $
+ * $Id: spellfun.c,v 1.181.2.43 2002-11-20 22:04:30 tatyana Exp $
  */
 
 /***************************************************************************
@@ -3008,10 +3008,10 @@ void spell_lightning_bolt(int sn, int level,CHAR_DATA *ch,void *vo)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
 
-	dam = dice(level,4) + 12;
-	if (saves_spell(level, victim,DAM_LIGHTNING))
+	dam = dice(level, 4) + 12;
+	if (saves_spell(level, victim, DAM_LIGHTNING))
 		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_LIGHTNING ,TRUE);
+	damage(ch, victim, dam, sn, DAM_LIGHTNING, TRUE);
 }
 
 void spell_locate_object(int sn, int level, CHAR_DATA *ch, void *vo)
