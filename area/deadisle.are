@@ -467,8 +467,8 @@ AGK
 stand stand male 0
 0 0 gargantuan unknown
 m mob_bribe mob_bribe_itangast 1000~
-m mob_give mob_give_itangast 22352~
 m mob_fight mob_fight_breath_fire 100~
+m mob_give mob_give_itangast 22352~
 #22328
 lord evil tiamat dragon~
 Tiamat, Celestial Dragon of Evil~
