@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.157 1999-05-22 16:21:06 avn Exp $
+ * $Id: spellfun.c,v 1.158 1999-05-24 06:17:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4747,12 +4747,13 @@ void spell_find_object(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	number = 0;
 	max_found = IS_IMMORTAL(ch) ? 200 : 2 * level;
 
-
 	for (obj = object_list; obj != NULL; obj = obj->next) {
 		if (!can_see_obj(ch, obj) || !is_name(target_name, obj->name)
-			|| number_percent() > 2 * level
-			||   ch->level < obj->level)
-		    continue;
+		||  number_percent() > 2 * level
+		||  ch->level < obj->level
+		||  (IS_SET(obj->pIndexData->extra_flags, ITEM_CHQUEST) &&
+		     chquest_carried_by(obj) == NULL))
+			continue;
 
 		if (buffer == NULL)
 			buffer = buf_new(-1);
