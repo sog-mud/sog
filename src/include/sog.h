@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.44 2003-04-23 08:13:11 fjoe Exp $
+ * $Id: sog.h,v 1.45 2003-04-25 12:49:08 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -852,22 +852,6 @@ DECLARE_FUN1(bool, compressStart,
 	     ARG(DESCRIPTOR_DATA), desc)
 DECLARE_FUN1(bool, compressEnd,
 	     ARG(DESCRIPTOR_DATA), desc)
-
-/*--- mpc_helpers.c */
-DECLARE_PROC2(mob_interpret,
-	      ARG(CHAR_DATA), ch, ARG(cchar_t), argument)
-DECLARE_FUN2(CHAR_DATA, load_mob,
-	     ARG(CHAR_DATA), ch, ARG(int), vnum)
-DECLARE_FUN2(OBJ_DATA, load_obj,
-	     ARG(CHAR_DATA), ch, ARG(int), vnum)
-DECLARE_FUN2(bool, transfer_group,
-	     ARG(CHAR_DATA), ch, ARG(ROOM_INDEX_DATA), room)
-DECLARE_PROC8(affect_char,
-	      ARG(CHAR_DATA), ch, ARG(int), where, ARG(cchar_t), sn,
-	      ARG(int), level, ARG(int), duration,
-	      ARG(int), loc, ARG(int), mod, ARG(int), bits)
-DECLARE_PROC2(set_char_hit,
-	      ARG(CHAR_DATA), ch, ARG(int), hit)
 
 __MODULE_END_DECL
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.296 2003-04-24 12:41:54 fjoe Exp $
+ * $Id: act_move.c,v 1.297 2003-04-25 12:49:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2127,11 +2127,11 @@ DO_FUN(do_layhands, ch, argument)
 	act_char("A warm feeling fills your body.", victim);
 
 	if (IS_AFFECTED(victim, AFF_BLIND))
-		spellfun_call("cure blindness", NULL, ch->level, ch, victim);
+		spellfun("cure blindness", NULL, ch->level, ch, victim);
 	if (IS_AFFECTED(victim, AFF_PLAGUE))
-		spellfun_call("cure disease", NULL, ch->level, ch, victim);
+		spellfun("cure disease", NULL, ch->level, ch, victim);
 	if (IS_AFFECTED(victim, AFF_POISON))
-		spellfun_call("cure poison", NULL, ch->level, ch, victim);
+		spellfun("cure poison", NULL, ch->level, ch, victim);
 
 	if (ch != victim)
 		act_char("Ok.", ch);

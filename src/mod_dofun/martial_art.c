@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.221 2003-04-24 12:41:58 fjoe Exp $
+ * $Id: martial_art.c,v 1.222 2003-04-25 12:49:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1216,7 +1216,7 @@ DO_FUN(do_breath, ch, argument)
 		return;
 	}
 	ch->mana -= mana;
-	spellfun_call(spell, NULL, LEVEL(ch), ch, victim);
+	spellfun(spell, NULL, LEVEL(ch), ch, victim);
 	WAIT_STATE(ch, skill_beats("breath"));
 }
 
@@ -4204,7 +4204,7 @@ DO_FUN(do_poison_smoke, ch, argument)
 		if (is_safe_spell(ch, vch, TRUE))
 			continue;
 
-		spellfun_call("poison", NULL, LEVEL(ch), ch, vch);
+		spellfun("poison", NULL, LEVEL(ch), ch, vch);
 		if (vch != ch) {
 			if (attack)
 				yell(vch, ch, "$lu{$N} tries to poison me!");
@@ -4244,7 +4244,7 @@ DO_FUN(do_blindness_dust, ch, argument)
 			if (is_safe_spell(ch, vch, TRUE))
 				continue;
 
-			spellfun_call("blindness", NULL, LEVEL(ch), ch, vch);
+			spellfun("blindness", NULL, LEVEL(ch), ch, vch);
 			if (attack) {
 				yell(vch, ch,
 				    "Help! $lu{$N} just threw dust into my eyes!");
@@ -4266,7 +4266,7 @@ DO_FUN(do_blindness_dust, ch, argument)
 	act("You throw some dust into $N's eyes.", ch, NULL, vch, TO_CHAR);
 	act("$n throws some dust into $N's eyes.", ch, NULL, vch, TO_ROOM);
 	act("$n throws some dust into your eyes.", ch, NULL, vch, TO_VICT);
-	spellfun_call("blindness", NULL, LEVEL(ch), ch, vch);
+	spellfun("blindness", NULL, LEVEL(ch), ch, vch);
 	if (vch != ch)
 		multi_hit(vch, ch, NULL);
 }

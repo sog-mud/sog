@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: healer.c,v 1.58 2002-11-23 15:27:30 fjoe Exp $
+ * $Id: healer.c,v 1.59 2003-04-25 12:49:15 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -185,6 +185,6 @@ DO_FUN(do_heal, ch, argument)
 
 	deduct_cost(ch, cost);
 	say_spell(mob, h->spellname);
-	spellfun_call(h->spellname, NULL,
+	spellfun(h->spellname, NULL,
 		      h->level ? h->level : mob->level, mob, ch);
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_auction.c,v 1.10 2002-12-03 17:38:03 tatyana Exp $
+ * $Id: act_auction.c,v 1.11 2003-04-25 12:49:10 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -92,7 +92,7 @@ do_auction(CHAR_DATA *ch, const char *argument)
 					 "received.", ch, NULL, NULL,
 					 TO_CHAR, POS_DEAD);
 			}
-			spellfun_call("identify", NULL, 0, ch, auction.item);
+			spellfun("identify", NULL, 0, ch, auction.item);
 			return;
 		} else {
 			act_char("Auction WHAT?", ch);

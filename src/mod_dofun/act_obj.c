@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.286 2003-04-24 12:41:55 fjoe Exp $
+ * $Id: act_obj.c,v 1.287 2003-04-25 12:49:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1289,7 +1289,7 @@ DO_FUN(do_eat, ch, argument)
 		if (number_percent() < chance && !IS_NPC(ch)) {
 			act("$P was too powerful for you.",
 			    ch, NULL, obj, TO_CHAR);
-			spellfun_call("hallucination", NULL, obj->level, ch,ch);
+			spellfun("hallucination", NULL, obj->level, ch,ch);
 		}
 
 	case ITEM_HERB:
@@ -1443,7 +1443,7 @@ DO_FUN(do_quaff, ch, argument)
 
 	if ((obj->level - LEVEL(ch)) * 7 > number_percent()) {
 		act_char("This liquid was too powerful for you to drink.", ch);
-		spellfun_call("hallucination", NULL, obj->level, ch, ch);
+		spellfun("hallucination", NULL, obj->level, ch, ch);
 		return;
 	}
 
@@ -3222,7 +3222,7 @@ DO_FUN(do_enchant, ch, argument)
 		return;
 	}
 	ch->mana -= 100;
-	spellfun_call("enchant weapon", NULL, LEVEL(ch), ch, obj);
+	spellfun("enchant weapon", NULL, LEVEL(ch), ch, obj);
 	check_improve(ch, "enchant sword", TRUE, 2);
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.368 2003-04-24 12:42:12 fjoe Exp $
+ * $Id: handler.c,v 1.369 2003-04-25 12:49:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5597,7 +5597,7 @@ bad_effect(CHAR_DATA *ch, int effect_type)
 		return;
 
 	case FAIL_HALLUCINATION:
-		spellfun_call("hallucination", NULL, ch->level, ch, ch);
+		spellfun("hallucination", NULL, ch->level, ch, ch);
 		return;
 	}
 }

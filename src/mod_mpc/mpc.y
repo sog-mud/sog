@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.47 2003-04-24 12:42:06 fjoe Exp $
+ * $Id: mpc.y,v 1.48 2003-04-25 12:49:32 fjoe Exp $
  */
 
 /*
@@ -219,6 +219,32 @@ code3(mpcode_t *mpc,
 		(rv) = MT_INT;						\
 	} while (0)
 
+#define CHECK_MUTABLE()							\
+	do {								\
+		int addr;						\
+		POP_ADDR(addr);						\
+		if ((c_fun) CODE(addr)[0] == c_push_accessor) {		\
+			mpc_accessor_t *acs =				\
+			    (mpc_accessor_t *) CODE(addr)[1];		\
+			if (acs->set == NULL) {				\
+				compile_error(mpc,			\
+				    "property '%s' of class '%s' is not mutable", \
+				    acs->name,				\
+				    flag_string(mpc_types, acs->type_tag)); \
+				YYERROR;				\
+			}						\
+		} else if ((c_fun) CODE(addr)[0] == c_push_var) {	\
+			sym_t *sym;					\
+			const char *name = (const char *) CODE(addr)[1];\
+			SYM_LOOKUP(sym, name, SYM_VAR);			\
+			if (sym->s.var.is_const) {			\
+				compile_error(mpc,			\
+				    "can't modify const value");	\
+				YYERROR;				\
+			}						\
+		}							\
+	} while (0);
+
 #define PUSH_EXPLICIT(addr)						\
 	do {								\
 		int *p = (int *) varr_enew(&mpc->cstack);		\
@@ -262,7 +288,7 @@ code3(mpcode_t *mpc,
 %token L_IF L_SWITCH L_CASE L_DEFAULT L_ELSE L_FOREACH L_CONTINUE L_BREAK
 %token L_RETURN L_PERSISTENT L_STATIC
 %token L_ADD_EQ L_SUB_EQ L_DIV_EQ L_MUL_EQ L_MOD_EQ L_AND_EQ L_OR_EQ L_XOR_EQ
-%token L_SHL_EQ L_SHR_EQ
+%token L_SHL_EQ L_SHR_EQ L_ARROW
 
 %right '='
 %right '?'
@@ -278,6 +304,7 @@ code3(mpcode_t *mpc,
 %left '*' '%' '/'
 %right L_NOT '~'
 %nonassoc L_INC L_DEC
+%left L_ARROW
 
 %type <type_tag> expr comma_expr lvalue L_TYPE
 %type <number> expr_list expr_list_ne int_const var_class L_INT
@@ -791,13 +818,13 @@ int_const: L_INT
 	;
 
 expr:	lvalue assign expr %prec '=' {
+		CHECK_MUTABLE();
 		if ($1 != $3) {
 			compile_error(mpc, "type mismatch ('%s' vs. '%s')",
 			    flag_string(mpc_types, $1),
 			    flag_string(mpc_types, $3));
 			YYERROR;
 		}
-
 		code(mpc, $2);
 		$$ = $1;
 	}
@@ -859,6 +886,8 @@ expr:	lvalue assign expr %prec '=' {
 		argtype_popn(mpc, $3);
 	}
 	| lvalue {
+		int addr;
+		POP_ADDR(addr);
 		code(mpc, c_push_lvalue);
 	}
 	| L_STRING {
@@ -1025,15 +1054,19 @@ expr:	lvalue assign expr %prec '=' {
 		INT_UOP("-", c_uop_minus, $2, $$);
 	}
 	| lvalue L_INC			/* normal precedence here */ {
+		CHECK_MUTABLE();
 		INT_UOP("++", c_postinc, $1, $$);
 	}
 	| lvalue L_DEC			/* normal precedence here */ {
+		CHECK_MUTABLE();
 		INT_UOP("--", c_postdec, $1, $$);
 	}
 	| L_INC lvalue %prec L_NOT	/* note lower precedence here */ {
+		CHECK_MUTABLE();
 		INT_UOP("++", c_preinc, $2, $$);
 	}
 	| L_DEC lvalue %prec L_NOT	/* note lower precedence here */ {
+		CHECK_MUTABLE();
 		INT_UOP("--", c_predec, $2, $$);
 	}
 	| '+' expr %prec L_NOT		{ $$ = $2; }
@@ -1043,6 +1076,7 @@ lvalue: L_IDENT {
 		sym_t *sym;
 
 		SYM_LOOKUP(sym, $1, SYM_VAR);
+		PUSH_ADDR();
 		code2(mpc, c_push_var, sym->name);
 		$$ = sym->s.var.type_tag;
 	}
@@ -1059,9 +1093,27 @@ lvalue: L_IDENT {
 			YYERROR;
 		}
 
+		PUSH_ADDR();
 		code3(mpc, c_push_svar, sym->name, svar->name);
 		code2(mpc, (void *) svar->type_tag, (void *) svar->var_flags);
 		$$ = svar->type_tag;
+	}
+	| lvalue L_ARROW L_IDENT {
+		int addr;
+		mpc_accessor_t *acs;
+
+		acs = mpc_accessor_lookup($1, $3);
+		if (acs == NULL) {
+			compile_error(mpc,
+			    "class '%s' does not have property '%s'",
+			    flag_string(mpc_types, $1), $3);
+			YYERROR;
+		}
+
+		POP_ADDR(addr);
+		PUSH_ADDR();
+		code2(mpc, c_push_accessor, acs);
+		$$ = acs->val_type_tag;
 	}
 
 comma_expr: expr	{ $$ = $1; }
@@ -1118,6 +1170,7 @@ struct codeinfo_t codetab[] = {
 	{ c_declare_assign,	"declare_assign",	3 },
 	{ c_cleanup_syms,	"cleanup_syms",		1 },
 	{ c_return,		"return",		0 },
+	{ c_push_accessor,	"push_accessor",	1 },
 	{ c_bop_lor,		"bop_lor",		1 },
 	{ c_bop_land,		"bop_land",		1 },
 	{ c_bop_or,		"bop_or",		0 },
@@ -1278,6 +1331,9 @@ mpcode_dump(mpcode_t *mpc)
 				CODE(ip)[3]);
 		} else if (p == c_cleanup_syms) {
 			fprintf(stderr, " (block: %d)", CODE(ip)[1]);
+		} else if (p == c_push_accessor) {
+			fprintf(stderr, " (%s)",
+				((mpc_accessor_t *) CODE(ip)[1])->name);
 		}
 
 		ip += ci->gobble;

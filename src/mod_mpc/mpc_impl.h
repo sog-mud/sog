@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.29 2003-04-24 12:42:07 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.30 2003-04-25 12:49:32 fjoe Exp $
  */
 
 #ifndef _MPC_IMPL_H_
@@ -113,6 +113,9 @@ extern flaginfo_t mpc_types[];
 	 (type_tag) == MT_SIZE_T ||					\
 	 (type_tag) == MT_UINT)
 
+/*
+ * check that type_tag1 can be casted to type_tag2
+ */
 #define TYPE_IS(type_tag1, type_tag2)					\
 	 ((type_tag1) == (type_tag2) ||					\
 	  (IS_PTR_TYPE(type_tag1) && (type_tag2) == MT_PVOID) ||	\
@@ -164,6 +167,17 @@ typedef struct mpcode_t mpcode_t;
 extern avltree_t mpcodes;
 
 #define mpcode_lookup(name)	((mpcode_t *) c_lookup(&mpcodes, (name)))
+
+struct mpc_accessor_t {
+	const char *name;
+	int type_tag;
+	int val_type_tag;
+	vo_t (*get)(vo_t *vo);
+	vo_t (*set)(vo_t *vo, vo_t val);
+};
+typedef struct mpc_accessor_t mpc_accessor_t;
+
+mpc_accessor_t *mpc_accessor_lookup(int type_tag, const char *name);
 
 /**
  * Dump program
@@ -276,6 +290,7 @@ void	c_declare_assign(mpcode_t *mpc);/* declare variable and assign */
 					/* initial value */
 void	c_cleanup_syms(mpcode_t *mpc);	/* cleanup symbols */
 void	c_return(mpcode_t *mpc);	/* return expr */
+void	c_push_accessor(mpcode_t *mpc);	/* accessor */
 
 /*--------------------------------------------------------------------
  * binary operations

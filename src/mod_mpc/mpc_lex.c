@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_lex.c,v 1.23 2003-04-24 12:42:07 fjoe Exp $
+ * $Id: mpc_lex.c,v 1.24 2003-04-25 12:49:32 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -215,6 +215,7 @@ mpc_lex(mpcode_t *mpc)
 			/* NOTREACHED */
 
 		case '-':
+			TRY('>', L_ARROW);
 			TRY('-', L_DEC);
 			TRY('=', L_SUB_EQ);
 			return ch;

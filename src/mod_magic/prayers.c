@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.49 2003-04-24 12:42:02 fjoe Exp $
+ * $Id: prayers.c,v 1.50 2003-04-25 12:49:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -386,8 +386,8 @@ SPELL_FUN(prayer_group_heal, sn, level, ch, vo)
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
 		if (is_same_group(ch, gch)
 		&&  !has_spec(gch, "clan_battleragers")) {
-			spellfun_call("master healing", NULL, level, ch, gch);
-			spellfun_call("refresh", NULL, level, ch, gch);
+			spellfun("master healing", NULL, level, ch, gch);
+			spellfun("refresh", NULL, level, ch, gch);
 		}
 	}
 }
@@ -405,8 +405,8 @@ SPELL_FUN(prayer_mass_healing, sn, level, ch, vo)
 	for (gch = ch->in_room->people; gch != NULL; gch = gch->next_in_room) {
 		if ((IS_NPC(ch) && IS_NPC(gch))
 		||  (!IS_NPC(ch) && !IS_NPC(gch))) {
-			spellfun_call("heal", NULL, level, ch, gch);
-			spellfun_call("refresh", NULL, level, ch, gch);
+			spellfun("heal", NULL, level, ch, gch);
+			spellfun("refresh", NULL, level, ch, gch);
 		}
 	}
 }
@@ -797,7 +797,7 @@ SPELL_FUN(prayer_mass_sanctuary, sn, level, ch, vo)
 			continue;
 		}
 
-		spellfun_call("sanctuary", NULL, level, ch, gch);
+		spellfun("sanctuary", NULL, level, ch, gch);
 	} end_foreach(gch);
 }
 
@@ -1117,7 +1117,7 @@ SPELL_FUN(prayer_demonfire, sn, level, ch, vo)
 		    ch, NULL, victim, TO_VICT);
 		act_char("You conjure forth the demons of hell!", ch);
 	}
-	spellfun_call("curse", NULL, 3 * level / 4, ch, victim);
+	spellfun("curse", NULL, 3 * level / 4, ch, victim);
 	inflict_spell_damage(ch, victim, level, sn);
 }
 
@@ -1353,8 +1353,8 @@ SPELL_FUN(prayer_holy_word, sn, level, ch, vo)
 		    (IS_EVIL(ch) && IS_EVIL(vch)) ||
 		    (IS_NEUTRAL(ch) && IS_NEUTRAL(vch))) {
 			act_char("You feel full more powerful.", vch);
-			spellfun_call("frenzy", NULL, level, ch, vch);
-			spellfun_call("bless", NULL, level, ch, vch);
+			spellfun("frenzy", NULL, level, ch, vch);
+			spellfun("bless", NULL, level, ch, vch);
 			continue;
 		}
 
@@ -1363,14 +1363,14 @@ SPELL_FUN(prayer_holy_word, sn, level, ch, vo)
 
 		if ((IS_GOOD(ch) && IS_EVIL(vch))
 		||  (IS_EVIL(ch) && IS_GOOD(vch))) {
-			spellfun_call("curse", NULL, level, ch, vch);
+			spellfun("curse", NULL, level, ch, vch);
 			act_char("You are struck down!", vch);
 			inflict_spell_damage(ch, vch, level, sn);
 			continue;
 		}
 
 		if (IS_NEUTRAL(ch)) {
-			spellfun_call("curse", NULL, level/2, ch, vch);
+			spellfun("curse", NULL, level/2, ch, vch);
 			act_char("You are struck down!", vch);
 			inflict_spell_damage(ch, vch, level/2, sn);
 			continue;
@@ -1891,7 +1891,7 @@ SPELL_FUN(prayer_ray_of_truth, sn, level, ch, vo)
 
 	dam = (dam * align * align) / 1000000;
 
-	spellfun_call("blindness", NULL, 4 * level / 3, ch, victim);
+	spellfun("blindness", NULL, 4 * level / 3, ch, victim);
 	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
 

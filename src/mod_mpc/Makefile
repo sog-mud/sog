@@ -1,8 +1,9 @@
 #
-# $Id: Makefile,v 1.13 2002-03-20 19:39:41 fjoe Exp $
+# $Id: Makefile,v 1.14 2003-04-25 12:49:31 fjoe Exp $
 #
 
-SRCS=		mpc.y mpc_dynafun.c mpc_iter.c mpc_lex.c mpc_c.c mpc_const.c
+SRCS=		mpc.y mpc_accessor.c mpc_dynafun.c mpc_iter.c mpc_lex.c\
+		mpc_c.c mpc_const.c
 CLEANFILES+=	mpc_const.c
 
 mpc_const.c:	../include/merc.h ../include/sog.h genconst.sh genconst.sed
@@ -32,3 +33,4 @@ afterdepend:
 .include <bsd.prog.mk>
 
 YFLAGS+=	-p mpc_
+#CFLAGS+=	-E

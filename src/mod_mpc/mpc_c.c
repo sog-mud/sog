@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.35 2003-04-24 12:42:07 fjoe Exp $
+ * $Id: mpc_c.c,v 1.36 2003-04-25 12:49:32 fjoe Exp $
  */
 
 #include <assert.h>
@@ -42,7 +42,7 @@ static vo_t *pop(mpcode_t *mpc);
 static vo_t *peek(mpcode_t *mpc, size_t depth);
 
 static void *code_get(mpcode_t *mpc);
-#define CODE_GET(t, mpc)	((t) (const void *) code_get(mpc))
+#define CODE_GET(t, mpc)	(CAST(t, code_get(mpc)))
 
 static sym_t *sym_get(mpcode_t *mpc, symtype_t symtype);
 
@@ -78,10 +78,15 @@ c_push_const(mpcode_t *mpc)
 void
 c_push_lvalue(mpcode_t *mpc)
 {
-	vo_t *v;
+	mpc_accessor_t *acs;
+	vo_t *vo;
 
-	v = pop(mpc);
-	push(mpc, *((vo_t *) v->p));
+	acs = pop(mpc)->p;
+	vo = (vo_t *) pop(mpc)->p;
+	if (acs != NULL)
+		push(mpc, acs->get(vo));
+	else
+		push(mpc, *vo);
 }
 
 void
@@ -94,6 +99,8 @@ c_push_var(mpcode_t *mpc)
 	sym = sym_get(mpc, SYM_VAR);
 	v.p = &sym->s.var.data;
 	push(mpc, v);
+	v.p = NULL;
+	push(mpc, v);	/* accessor */
 
 	if (IS_SET(mpc->mp->flags, MP_F_TRACE))
 		dumpvar(__FUNCTION__, mpc, sym);
@@ -156,6 +163,8 @@ c_push_svar(mpcode_t *mpc)
 
 	v.p = &var->value;
 	push(mpc, v);
+	v.p = NULL;
+	push(mpc, v);	/* accessor */
 }
 
 void
@@ -546,6 +555,24 @@ c_return(mpcode_t *mpc)
 	mpc->ip = INVALID_ADDR;
 }
 
+void
+c_push_accessor(mpcode_t *mpc)
+{
+	vo_t *vo;
+	mpc_accessor_t *acs;
+
+	TRACE((LOG_INFO, __FUNCTION__));
+
+	vo = (vo_t *) peek(mpc, 1)->p;
+	acs = CODE_GET(mpc_accessor_t *, mpc);
+	mpc_assert(mpc, __FUNCTION__,
+	    mem_is(vo->p, acs->type_tag),
+	    "type mismatch (want '%s', got '%s')",
+	    flag_string(mpc_types, acs->type_tag),
+	    flag_string(mpc_types, mem_type(vo->p)));
+	peek(mpc, 0)->p = acs;
+}
+
 /*--------------------------------------------------------------------
  * binary operations
  */
@@ -721,13 +748,24 @@ INT_UOP(c_uop_minus, -)
 	void								\
 	c_incdec_fun(mpcode_t *mpc)					\
 	{								\
-		vo_t *vp;						\
+		vo_t *vo;						\
 		vo_t v;							\
+		mpc_accessor_t *acs;					\
 									\
 		TRACE((LOG_INFO, __FUNCTION__));			\
 									\
-		vp = pop(mpc);						\
-		v.i = preop ((vo_t *) vp->p)->i postop;			\
+		acs = pop(mpc)->p;					\
+		vo = (vo_t *) pop(mpc)->p;				\
+		if (acs != NULL) {					\
+			vo_t nv;					\
+			mpc_assert(mpc, __FUNCTION__,			\
+			    acs == NULL || acs->set != NULL,		\
+			    "accessor with NULL setter");		\
+			nv = acs->get(vo);				\
+			v.i = preop nv.i postop;			\
+			acs->set(vo, nv);				\
+		} else							\
+			v.i = preop vo->i postop;			\
 		push(mpc, v);						\
 	}
 
@@ -740,32 +778,47 @@ INT_INCDEC(c_predec, --, )
  * assign operations
  */
 
-#define ASSIGN_HEAD							\
+#define ASSIGN_HEAD()							\
 	vo_t *vl;							\
 	vo_t *vr;							\
+	mpc_accessor_t *acs;						\
 									\
 	TRACE((LOG_INFO, __FUNCTION__));				\
 									\
 	vr = pop(mpc);							\
-	vl = pop(mpc)
+	acs = (mpc_accessor_t *) pop(mpc)->p;				\
+	vl = (vo_t *) pop(mpc)->p;					\
+	mpc_assert(mpc, __FUNCTION__, acs == NULL || acs->set != NULL,	\
+		   "accessor with NULL setter")
 
 #define INT_ASSIGN_TAIL(op)						\
-	((vo_t *) vl->p)->i op vr->i;					\
+	if (acs != NULL) {						\
+		vo_t v;							\
+		v = acs->get(vl);					\
+		v.i op vr->i;						\
+		push(mpc, acs->set(vl, v));				\
+		return;							\
+	}								\
+	vl->i op vr->i;							\
 	push(mpc, *vl)
 
 #define INT_ASSIGN(c_assign_fun, op)					\
 	void								\
 	c_assign_fun(mpcode_t *mpc)					\
 	{								\
-		ASSIGN_HEAD;						\
+		ASSIGN_HEAD();						\
 		INT_ASSIGN_TAIL(op);					\
 	}
 
 void
 c_assign(mpcode_t *mpc)
 {
-	ASSIGN_HEAD;
-	push(mpc, *(vo_t *) vl->p = *vr);
+	ASSIGN_HEAD();
+	if (acs != NULL) {
+		push(mpc, acs->set(vl, *vr));
+		return;
+	}
+	push(mpc, *vl = *vr);
 }
 
 INT_ASSIGN(c_add_eq, +=)
@@ -783,7 +836,7 @@ INT_ASSIGN(c_shr_eq, >>=)
 void
 c_div_eq(mpcode_t *mpc)
 {
-	ASSIGN_HEAD;
+	ASSIGN_HEAD();
 	mpc_assert(mpc, __FUNCTION__, vr->i != 0, "division by zero");
 	INT_ASSIGN_TAIL(/=);
 }
@@ -791,7 +844,7 @@ c_div_eq(mpcode_t *mpc)
 void
 c_mod_eq(mpcode_t *mpc)
 {
-	ASSIGN_HEAD;
+	ASSIGN_HEAD();
 	mpc_assert(mpc, __FUNCTION__, vr->i != 0, "division by zero");
 	INT_ASSIGN_TAIL(%=);
 }

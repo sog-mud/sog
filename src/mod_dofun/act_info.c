@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.432 2003-04-19 16:12:29 fjoe Exp $
+ * $Id: act_info.c,v 1.433 2003-04-25 12:49:12 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2202,7 +2202,7 @@ DO_FUN(do_identify, ch, argument)
 	}
 
 	act("$n gives a wise look at $p.", rch, obj, 0, TO_ROOM);
-	spellfun_call("identify", NULL, 0, ch, obj);
+	spellfun("identify", NULL, 0, ch, obj);
 }
 
 static void format_stat(char *buf, size_t len, CHAR_DATA *ch, int stat)

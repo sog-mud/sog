@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.36 2001-09-07 15:40:13 fjoe Exp $
+ * $Id: magic.c,v 1.37 2003-04-25 12:49:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -310,18 +310,18 @@ cast_obj(const char *sn, CHAR_DATA *ch, OBJ_DATA *obj)
 }
 
 /*
- * spellfun_call -- calls spellfun for spell `sn_fun' with
+ * spellfun -- calls spellfun for spell `sn_fun' with
  *		    args (sn, level, ch, vo)
  *		    If `sn' is NULL it will be the same as `sn_fun'
  */
 void
-spellfun_call(const char *sn_fun, const char *sn, int level,
+spellfun(const char *sn_fun, const char *sn, int level,
 	      CHAR_DATA *ch, void *vo)
 {
 	skill_t *sk;
 
 	if ((sk = skill_lookup(sn_fun)) == NULL) {
-		log(LOG_BUG, "spellfun_call: %s (name): unknown or reserved spell",
+		log(LOG_BUG, "spellfun: %s (name): unknown or reserved spell",
 		    sn_fun);
 		return;
 	}
@@ -329,19 +329,19 @@ spellfun_call(const char *sn_fun, const char *sn, int level,
 	if (sn == NULL)
 		sn = sn_fun;
 	else if (skill_lookup(sn) == NULL) {
-		log(LOG_BUG, "spellfun_call: %s (sn): unknown or reserved spell", sn);
+		log(LOG_BUG, "spellfun: %s (sn): unknown or reserved spell", sn);
 		return;
 	}
 
 	if (sk->skill_type != ST_SPELL
 	&&  sk->skill_type != ST_PRAYER) {
-		log(LOG_BUG, "spellfun_call: %s: not a spell or prayer",
+		log(LOG_BUG, "spellfun: %s: not a spell or prayer",
 		    gmlstr_mval(&sk->sk_name));
 		return;
 	}
 
 	if (sk->fun == NULL) {
-		log(LOG_BUG, "spellfun_call: %s: NULL skill function",
+		log(LOG_BUG, "spellfun: %s: NULL skill function",
 		    gmlstr_mval(&sk->sk_name));
 		return;
 	}

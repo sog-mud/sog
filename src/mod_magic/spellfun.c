@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.305 2003-04-24 12:42:02 fjoe Exp $
+ * $Id: spellfun.c,v 1.306 2003-04-25 12:49:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -590,7 +590,7 @@ SPELL_FUN(spell_colour_spray, sn, level, ch, vo)
 	if (saves_spell(level, victim, DAM_LIGHT))
 		dam /= 2;
 	else
-		spellfun_call("blindness", NULL, level/2, ch, (void *) victim);
+		spellfun("blindness", NULL, level/2, ch, (void *) victim);
 
 	damage(ch, victim, dam, sn, DAM_F_SHOW);
 }
@@ -3410,13 +3410,13 @@ SPELL_FUN(spell_scourge, sn, level, ch, vo)
 			continue;
 
 		if (number_percent() < level * 2)
-			spellfun_call("poison", NULL, level, ch, vch);
+			spellfun("poison", NULL, level, ch, vch);
 
 		if (number_percent() < level * 2)
-			spellfun_call("blindness", NULL, level, ch, vch);
+			spellfun("blindness", NULL, level, ch, vch);
 
 		if (number_percent() < level * 2)
-			spellfun_call("weaken", NULL, level, ch, vch);
+			spellfun("weaken", NULL, level, ch, vch);
 
 		if (saves_spell(level, vch, DAM_FIRE))
 			dam /= 2;
@@ -3454,7 +3454,7 @@ SPELL_FUN(spell_manacles, sn, level, ch, vo)
 	affect_to_char(victim, paf);
 	aff_free(paf);
 
-	spellfun_call("charm person", sn, level, ch, vo);
+	spellfun("charm person", sn, level, ch, vo);
 }
 
 #define OBJ_VNUM_RULER_SHIELD1		71
@@ -5049,8 +5049,8 @@ SPELL_FUN(spell_honor_shield, sn, level, ch, vo)
 	affect_to_char(victim, paf);
 	aff_free(paf);
 
-	spellfun_call("remove curse", NULL, level, ch, victim);
-	spellfun_call("bless", NULL, level, ch, victim);
+	spellfun("remove curse", NULL, level, ch, victim);
+	spellfun("bless", NULL, level, ch, victim);
 
 	act_char("Your honor protects you.", victim);
 	act("$n's Honor protects $m.", victim, NULL, NULL, TO_ROOM);
@@ -5080,7 +5080,7 @@ SPELL_FUN(spell_dragons_breath, sn, level, ch, vo)
 		sn_fun = "lightning breath";
 		break;
 	}
-	spellfun_call(sn_fun, "dragons breath", level, ch, vo);
+	spellfun(sn_fun, "dragons breath", level, ch, vo);
 }
 
 SPELL_FUN(spell_sand_storm, sn, level, ch, vo)
@@ -5163,7 +5163,7 @@ SPELL_FUN(spell_attract_other, sn, level, ch, vo)
 		return;
 	}
 
-	spellfun_call("charm person", sn, level+2, ch, vo);
+	spellfun("charm person", sn, level+2, ch, vo);
 }
 
 #define MOB_VNUM_UNDEAD			18

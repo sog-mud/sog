@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.44 2002-11-28 21:40:22 fjoe Exp $
+ * $Id: eventfun.c,v 1.45 2003-04-25 12:49:23 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -159,7 +159,7 @@ EVENT_FUN(event_update_plague, ch, af)
 	if (af->level < 1)
 		af->level = 2;
 	if (!is_safe_rspell(af, ch))
-		spellfun_call("plague", NULL, af->level - 1, af->owner, ch);
+		spellfun("plague", NULL, af->level - 1, af->owner, ch);
 }
 
 EVENT_FUN(event_update_poison, ch, af)
@@ -167,7 +167,7 @@ EVENT_FUN(event_update_poison, ch, af)
 	if (af->level < 1)
 		af->level = 2;
 	if (!is_safe_rspell(af, ch))
-		spellfun_call("poison", NULL, af->level - 1, af->owner, ch);
+		spellfun("poison", NULL, af->level - 1, af->owner, ch);
 }
 
 EVENT_FUN(event_update_slow, ch, af)
@@ -175,7 +175,7 @@ EVENT_FUN(event_update_slow, ch, af)
 	if (af->level < 1)
 		af->level = 2;
 	if (!is_safe_rspell(af, ch))
-		spellfun_call("slow", NULL, af->level - 1, af->owner, ch);
+		spellfun("slow", NULL, af->level - 1, af->owner, ch);
 }
 
 EVENT_FUN(event_update_sleep, ch, af)
@@ -183,7 +183,7 @@ EVENT_FUN(event_update_sleep, ch, af)
 	if (af->level < 1)
 		af->level = 2;
 	if (!is_safe_rspell(af, ch))
-		spellfun_call("sleep", NULL, af->level - 1, af->owner, ch);
+		spellfun("sleep", NULL, af->level - 1, af->owner, ch);
 }
 
 EVENT_FUN(event_update_espirit, ch, af)
@@ -226,14 +226,14 @@ EVENT_FUN(event_update_rlight, ch, af)
 	act_char("A warm feeling fills your body.", ch);
 
 	if (IS_AFFECTED(ch, AFF_BLIND))
-		spellfun_call("cure blindness", NULL, af->level, ch, ch);
+		spellfun("cure blindness", NULL, af->level, ch, ch);
 	if (IS_AFFECTED(ch, AFF_CURSE))
-		spellfun_call("remove curse", NULL, af->level, ch, ch);
+		spellfun("remove curse", NULL, af->level, ch, ch);
 	if (IS_AFFECTED(ch, AFF_POISON))
-		spellfun_call("cure poison", NULL, af->level, ch, ch);
+		spellfun("cure poison", NULL, af->level, ch, ch);
 	if (IS_AFFECTED(ch, AFF_PLAGUE))
-		spellfun_call("cure disease", NULL, af->level, ch, ch);
-	spellfun_call("cure critical wounds", NULL, af->level, ch, ch);
+		spellfun("cure disease", NULL, af->level, ch, ch);
+	spellfun("cure critical wounds", NULL, af->level, ch, ch);
 
 }
 

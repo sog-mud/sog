@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.29 2003-04-17 17:17:09 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.30 2003-04-25 12:49:32 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,6 +31,8 @@
 #if !defined(MPC)
 
 #include <merc.h>
+
+#include <sog.h>
 
 #include "mpc_dynafun.h"
 
@@ -88,12 +90,6 @@ is_immortal(CHAR_DATA *ch)
 	return IS_IMMORTAL(ch);
 }
 
-int
-char_sex(CHAR_DATA *ch)
-{
-	return flag_value(sex_table, mlstr_mval(&ch->gender));
-}
-
 bool
 is_ghost(CHAR_DATA *ch)
 {
@@ -118,139 +114,16 @@ is_evil(CHAR_DATA *ch)
 	return IS_EVIL(ch);
 }
 
-ROOM_INDEX_DATA *
-char_room(CHAR_DATA *ch)
+bool
+char_name_is(CHAR_DATA *ch, const char *nl)
 {
-	return ch->in_room;
-}
-
-int
-char_level(CHAR_DATA *ch)
-{
-	return LEVEL(ch);
-}
-
-int
-real_char_level(CHAR_DATA *ch)
-{
-	return LEVEL(ch);
-}
-
-void
-set_weapon_dice_type(OBJ_DATA *obj, int dice_type)
-{
-	if (obj->pObjIndex->item_type != ITEM_WEAPON)
-		return;
-
-	INT(obj->value[2]) = dice_type;
-}
-
-CHAR_DATA *
-char_fighting(CHAR_DATA *ch)
-{
-	return ch->fighting;
-}
-
-void
-set_obj_level(OBJ_DATA *obj, int level)
-{
-	obj->level = level;
+	return is_name(ch->name, nl);
 }
 
 bool
 is_owner(OBJ_DATA *obj, CHAR_DATA *ch)
 {
 	return !mlstr_cmp(&ch->short_descr, &obj->owner);
-}
-
-bool
-is_class(CHAR_DATA *ch, const char *cl)
-{
-	return IS_CLASS(ch->class, cl);
-}
-
-int
-obj_level(OBJ_DATA *obj)
-{
-	return obj->level;
-}
-
-int
-room_sector(ROOM_INDEX_DATA *room)
-{
-	return room->sector_type;
-}
-
-int
-char_max_hit(CHAR_DATA *ch)
-{
-	return ch->max_hit;
-}
-
-int
-char_hit(CHAR_DATA *ch)
-{
-	return ch->hit;
-}
-
-int
-char_max_mana(CHAR_DATA *ch)
-{
-	return ch->max_mana;
-}
-
-int
-char_mana(CHAR_DATA *ch)
-{
-	return ch->mana;
-}
-
-void
-set_char_mana(CHAR_DATA *ch, int mana)
-{
-	ch->mana = mana;
-}
-
-int
-char_max_moves(CHAR_DATA *ch)
-{
-	return ch->max_move;
-}
-
-int
-char_moves(CHAR_DATA *ch)
-{
-	return ch->move;
-}
-
-void
-set_char_moves(CHAR_DATA *ch, int moves)
-{
-	ch->move = moves;
-}
-
-int
-obj_timer(OBJ_DATA *obj)
-{
-	return obj->timer;
-}
-
-void
-set_obj_timer(OBJ_DATA *obj, int timer)
-{
-	obj->timer = timer;
-}
-
-void
-set_char_gold(CHAR_DATA *ch, int gold)
-{
-	ch->gold = gold;
-}
-
-void
-set_char_silver(CHAR_DATA *ch, int silver)
-{
-	ch->silver = silver;
 }
 
 void
@@ -263,12 +136,6 @@ bool
 is_affected(CHAR_DATA *ch, int aff)
 {
 	return IS_AFFECTED(ch, aff);
-}
-
-int
-obj_wear_loc(OBJ_DATA *obj)
-{
-	return obj->wear_loc;
 }
 
 bool
@@ -289,12 +156,6 @@ umax(int i1, int i2)
 	return UMAX(i1, i2);
 }
 
-int
-char_position(CHAR_DATA *ch)
-{
-	return ch->position;
-}
-
 bool
 is_wanted(CHAR_DATA *ch)
 {
@@ -308,21 +169,9 @@ is_awake(CHAR_DATA *ch)
 }
 
 int
-obj_item_type(OBJ_DATA *obj)
-{
-	return obj->item_type;
-}
-
-int
 weapon_is(OBJ_DATA *obj, int wclass)
 {
 	return WEAPON_IS(obj, wclass);
-}
-
-const char *
-char_clan(CHAR_DATA *ch)
-{
-	return ch->clan;
 }
 
 int
@@ -364,115 +213,16 @@ get_random_fighting(CHAR_DATA *ch)
 	return victim;
 }
 
-int
-char_gold(CHAR_DATA *ch)
-{
-	return ch->gold;
-}
-
-int
-char_silver(CHAR_DATA *ch)
-{
-	return ch->silver;
-}
-
-const char *
-char_race(CHAR_DATA *ch)
-{
-	return ch->race;
-}
-
-int
-obj_vnum(OBJ_DATA *obj)
-{
-	return obj->pObjIndex->vnum;
-}
-
-int
-char_size(CHAR_DATA *ch)
-{
-	return ch->size;
-}
-
-int
-char_quest_time(CHAR_DATA *ch)
-{
-	if (IS_NPC(ch))
-		return -1;
-
-	return PC(ch)->questtime;
-}
-
 bool
 can_wear(OBJ_DATA *obj, int wear)
 {
 	return CAN_WEAR(obj, wear);
 }
 
-int
-obj_cost(OBJ_DATA *obj)
-{
-	return obj->cost;
-}
-
-int
-char_vnum(CHAR_DATA *ch)
-{
-	if (!IS_NPC(ch))
-		return 0;
-
-	return ch->pMobIndex->vnum;
-}
-
-const char *
-char_hometown(CHAR_DATA *ch)
-{
-	if (!IS_NPC(ch))
-		return hometown_name(PC(ch)->hometown);
-
-	if (NPC(ch)->zone)
-		return NPC(ch)->zone->name;
-
-	return ch->in_room->area->name;
-}
-
 bool
 is_owner_name(OBJ_DATA *obj, const char *name)
 {
 	return is_name_strict(name, mlstr_mval(&obj->owner));
-}
-
-int
-char_ethos(CHAR_DATA *ch)
-{
-	if (IS_NPC(ch))
-		return ETHOS_NONE;
-
-	return PC(ch)->ethos;
-}
-
-CHAR_DATA *
-obj_carried_by(OBJ_DATA *obj)
-{
-	return obj->carried_by;
-}
-
-ROOM_INDEX_DATA *
-obj_room(OBJ_DATA *obj)
-{
-	return obj->in_room;
-}
-
-OBJ_DATA *
-obj_in(OBJ_DATA *obj)
-{
-	return obj->in_obj;
-}
-
-int
-room_vnum(ROOM_INDEX_DATA *room)
-{
-	return room->vnum;
 }
 
 bool
@@ -493,60 +243,6 @@ is_act(CHAR_DATA *ch, int act_flags)
 	return IS_NPC(ch) && IS_SET(ch->pMobIndex->act, act_flags);
 }
 
-int
-char_str(CHAR_DATA *ch)
-{
-	return get_curr_stat(ch, STAT_STR);
-}
-
-int
-char_int(CHAR_DATA *ch)
-{
-	return get_curr_stat(ch, STAT_INT);
-}
-
-int
-char_wis(CHAR_DATA *ch)
-{
-	return get_curr_stat(ch, STAT_WIS);
-}
-
-int
-char_dex(CHAR_DATA *ch)
-{
-	return get_curr_stat(ch, STAT_DEX);
-}
-
-int
-char_con(CHAR_DATA *ch)
-{
-	return get_curr_stat(ch, STAT_CON);
-}
-
-int
-char_cha(CHAR_DATA *ch)
-{
-	return get_curr_stat(ch, STAT_CHA);
-}
-
-int
-char_luck(CHAR_DATA *ch)
-{
-	return GET_LUCK(ch);
-}
-
-bool
-char_name_is(CHAR_DATA *ch, const char *nl)
-{
-	return is_name(ch->name, nl);
-}
-
-void
-set_obj_owner(OBJ_DATA *obj, CHAR_DATA *ch)
-{
-	mlstr_cpy(&obj->owner, &ch->short_descr);
-}
-
 bool
 has_detect(CHAR_DATA *ch, int f)
 {
@@ -565,18 +261,87 @@ room_is(ROOM_INDEX_DATA *r, int f)
 	return IS_SET(r->room_flags, f);
 }
 
-CHAR_DATA *
-get_pet(CHAR_DATA *ch)
-{
-	return GET_PET(ch);
-}
-
 bool
 char_form_is(CHAR_DATA *ch, int form)
 {
 	return IS_SET(ch->form, form);
 }
 
+void
+set_obj_owner(OBJ_DATA *obj, CHAR_DATA *ch)
+{
+	mlstr_cpy(&obj->owner, &ch->short_descr);
+}
+
+void
+mob_interpret(CHAR_DATA *ch, const char *argument)
+{
+	interpret(ch, argument, FALSE);
+}
+
+CHAR_DATA *
+load_mob(CHAR_DATA *ch, int vnum)
+{
+	CHAR_DATA *mob;
+
+	if ((mob = create_mob(vnum, 0)) == NULL)
+		return NULL;
+
+	char_to_room(mob, ch->in_room);
+	return mob;
+}
+
+OBJ_DATA *
+load_obj(CHAR_DATA *ch, int vnum)
+{
+	OBJ_DATA *obj;
+
+	if ((obj = create_obj(vnum, 0)) == NULL)
+		return NULL;
+
+	obj_to_char(obj, ch);
+	return obj;
+}
+
+bool
+transfer_group(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
+{
+	CHAR_DATA *victim, *victim_next;
+	bool found = FALSE;
+
+	for (victim = ch->in_room->people; victim != NULL; victim = victim_next) {
+		victim_next = victim->next_in_room;
+
+		if (is_same_group(ch, victim)
+		&&  transfer_char(victim, room)
+		&&  !found)
+			found = TRUE;
+	}
+
+	return found;
+}
+
+void
+affect_char(CHAR_DATA *ch, int where, const char *sn,
+	    int level, int duration, int loc, int mod, int bits)
+{
+	AFFECT_DATA *paf;
+
+	if (!IS_APPLY_WHERE(where))
+		return;
+
+	paf = aff_new(where, sn);
+
+	paf->level = level;
+	paf->duration = duration;
+
+	INT(paf->location) = loc;
+	paf->modifier = mod;
+	paf->bitvector = bits;
+
+	affect_to_char(ch, paf);
+	aff_free(paf);
+}
 #else /* !defined(MPC) */
 
 void
