@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.2 1999-11-19 11:36:17 fjoe Exp $
+ * $Id: db.c,v 1.169.2.3 2000-03-27 20:03:56 avn Exp $
  */
 
 /***************************************************************************
@@ -1950,7 +1950,7 @@ void scan_pfiles()
 	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
 		CHAR_DATA *ch;
 		OBJ_DATA *obj, *obj_next;
-		bool changed;
+		bool changed, pet;
 
 #if defined (LINUX) || defined (WIN32)
 		if (strlen(dp->d_name) < 3)
@@ -1965,9 +1965,14 @@ void scan_pfiles()
 			continue;
 
 		changed = FALSE;
+		pet = FALSE;
 
 		for (obj = ch->carrying; obj; obj = obj_next) {
 			obj_next = obj->next_content;
+			if (!obj_next && !pet && GET_PET(ch)) {
+				obj_next = GET_PET(ch)->carrying;
+				pet = TRUE;
+			}
 
 			obj->pObjIndex->count++;
 
