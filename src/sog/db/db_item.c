@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_item.c,v 1.1.2.3 2003-09-11 10:39:51 tatyana Exp $
+ * $Id: db_item.c,v 1.1.2.4 2003-09-30 01:25:43 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -79,7 +79,7 @@ DBLOAD_FUN(load_black_market)
 				const char *skname = fread_word(fp);
 				int sn = sn_lookup(skname);
 				if (sn < 0)
-					log("fread_obj: %s: %s: unknown skill", BLACK_MARKET_CONF, skname);
+					printlog("fread_obj: %s: %s: unknown skill", BLACK_MARKET_CONF, skname);
 
 				paf->type = sn;
 				paf->where = fread_number(fp);
@@ -127,7 +127,7 @@ DBLOAD_FUN(load_black_market)
 				item->obj = obj;
 				item->next = bmitem_list;
 				bmitem_list = item;
-				log("Black market: %s", item->obj->name);
+				printlog("Black market: %s", item->obj->name);
 				return;
 			}
 			break;
@@ -156,9 +156,9 @@ DBLOAD_FUN(load_black_market)
 				int sn = sn_lookup(skname);
 
 				if (iValue < 0 || iValue > 3)
-					log("fread_item %d: bad iValue", iValue);
+					printlog("fread_item %d: bad iValue", iValue);
 				else if (sn < 0)
-					log("fread_item: %s: unknown skill", skname);
+					printlog("fread_item: %s: unknown skill", skname);
 				else
 					obj->value[iValue] = sn;
 

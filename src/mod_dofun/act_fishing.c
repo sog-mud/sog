@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_fishing.c,v 1.1.2.5 2002-09-10 14:08:26 tatyana Exp $
+ * $Id: act_fishing.c,v 1.1.2.6 2003-09-30 01:24:54 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -282,7 +282,7 @@ void do_reelin(CHAR_DATA *ch, const char *argument)
 	if (index == NULL) {
 		act("Something wrong. Report it to immortals.",
 		    ch, NULL, NULL, TO_CHAR);
-		log("[*****] BUG: NULL object, vnum %d.", fish_vnum);
+		printlog("[*****] BUG: NULL object, vnum %d.", fish_vnum);
 		return;
 	}
 

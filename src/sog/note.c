@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.61.2.3 2002-11-28 21:54:41 fjoe Exp $
+ * $Id: note.c,v 1.61.2.4 2003-09-30 01:25:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -309,7 +309,7 @@ send_notice(CHAR_DATA *victim, bmitem_t *item, int type)
 		}
 		break;
 	default:
-		log("[*****] BUG: Unknown type of notice on black market.");
+		printlog("[*****] BUG: Unknown type of notice on black market.");
 		return;
 	}
 	note->type = NOTE_NOTE;

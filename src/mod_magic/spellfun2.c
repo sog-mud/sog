@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.63 2003-09-23 09:42:23 matrim Exp $
+ * $Id: spellfun2.c,v 1.139.2.64 2003-09-30 01:25:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -194,7 +194,7 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	/*log death */
-	log("MURDER: %s has killed %s.", ch->name, victim->name);
+	printlog("MURDER: %s has killed %s.", ch->name, victim->name);
 
 	act_puts("$n's thin light ray {G###DISINTEGRATES###{x you!",
 	      ch, NULL, victim, TO_VICT, POS_RESTING);
@@ -1342,7 +1342,7 @@ void spell_stalker(int sn, int level, CHAR_DATA *ch, void *vo)
 	multi_hit(stalker, victim, TYPE_UNDEFINED);
 }
 
-static inline void
+static void
 tesseract_other(CHAR_DATA *ch, CHAR_DATA *victim, ROOM_INDEX_DATA *to_room)
 {
 	transfer_char(victim, ch, to_room,
@@ -5968,7 +5968,7 @@ void spell_abolish_undead(int sn, int level, CHAR_DATA *ch, void *vo)
         }
 
 	/*log death */
-	log("MURDER: %s has killed %s.", ch->name, victim->name);
+	printlog("MURDER: %s has killed %s.", ch->name, victim->name);
 
         act_puts("$n's holy light burns you! Your flesh decays into dust.",
               ch, NULL, victim, TO_VICT, POS_RESTING);

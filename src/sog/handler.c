@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.71 2003-02-26 18:54:37 tatyana Exp $
+ * $Id: handler.c,v 1.182.2.72 2003-09-30 01:25:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -711,14 +711,14 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	}
 	default:
 		if (IS_NPC(ch)) {
-			log("affect_modify: vnum %d: in room %d: "
+			printlog("affect_modify: vnum %d: in room %d: "
 				   "unknown location %d, where: %d",
 				   ch->pMobIndex->vnum,
 				   ch->in_room ? ch->in_room->vnum : -1,
 				   paf->location, paf->where);
 		}
 		else {
-			log("affect_modify: %s: unknown location %d"
+			printlog("affect_modify: %s: unknown location %d"
 				"where: %d", ch->name, paf->location,
 				paf->where);
 		}
@@ -1232,7 +1232,7 @@ void obj_from_char(OBJ_DATA *obj)
 
 	if ((ch = obj->carried_by) == NULL) {
 		bug("Obj_from_char: null ch.", 0);
-		log("Name %s", obj->name);
+		printlog("Name %s", obj->name);
 		return;
 	}
 
@@ -1361,7 +1361,7 @@ OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 
 	if (get_eq_char(ch, iWear)) {
 		if (IS_NPC(ch)) {
-			log("equip_char: vnum %d: in_room %d: "
+			printlog("equip_char: vnum %d: in_room %d: "
 				   "obj vnum %d: location %s: "
 				   "already equipped.",
 				   ch->pMobIndex->vnum,
@@ -1369,7 +1369,7 @@ OBJ_DATA * equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 				   obj->pObjIndex->vnum,
 				   flag_string(wear_loc_flags, iWear));
 		} else {
-			log("equip_char: %s: location %s: "
+			printlog("equip_char: %s: location %s: "
 				   "already equipped.",
 				   ch->name,
 				   flag_string(wear_loc_flags, iWear));
@@ -1486,7 +1486,7 @@ void obj_from_room(OBJ_DATA *obj)
 	CHAR_DATA *ch;
 
 	if ((in_room = obj->in_room) == NULL) {
-		log("obj_from_room: NULL obj->in_room (vnum %d)",
+		printlog("obj_from_room: NULL obj->in_room (vnum %d)",
 			   obj->pObjIndex->vnum);
 		return;
 	}
@@ -1543,7 +1543,7 @@ void obj_to_room(OBJ_DATA *obj, ROOM_INDEX_DATA *pRoomIndex)
 void obj_to_obj(OBJ_DATA *obj, OBJ_DATA *obj_to)
 {
 	if (obj == obj_to) {
-		log("obj_to_obj: obj == obj_to (vnum %d)",
+		printlog("obj_to_obj: obj == obj_to (vnum %d)",
 			   obj->pObjIndex->vnum);
 		return;
 	}
@@ -2240,13 +2240,13 @@ void deduct_cost(CHAR_DATA *ch, uint cost)
 	}
 
 	if (ch->gold < gold) {
-		log("deduct cost: %s: ch->gold (%d) < gold (%d)",
+		printlog("deduct cost: %s: ch->gold (%d) < gold (%d)",
 			   ch->name, ch->gold, gold);
 		ch->gold = gold;
 	}
 
 	if (ch->silver < silver) {
-		log("deduct cost: %s: ch->silver (%d) < silver (%d)",
+		printlog("deduct cost: %s: ch->silver (%d) < silver (%d)",
 			   ch->name, ch->silver, silver);
 		ch->silver = silver;
 	}
@@ -2255,7 +2255,7 @@ void deduct_cost(CHAR_DATA *ch, uint cost)
 	ch->silver -= silver;
 } 
 
-static inline void
+static void
 money_form(int lang, char *buf, size_t len, int num, const char *name)
 {
 	char tmp[MAX_STRING_LENGTH];
@@ -2319,7 +2319,7 @@ OBJ_DATA *create_money(int gold, int silver)
 	OBJ_DATA *obj;
 
 	if (gold < 0 || silver < 0 || (gold == 0 && silver == 0)) {
-		log("create_money: gold %d, silver %d",
+		printlog("create_money: gold %d, silver %d",
 			   gold, silver);
 		gold = UMAX(1, gold);
 		silver = UMAX(1, silver);
@@ -3471,7 +3471,7 @@ void set_leader(CHAR_DATA *ch, CHAR_DATA *lch)
 
 		for (tch = lch; tch && tch != ch; tch = tch_next) {
 			tch_next = tch->leader;
-			log("set_leader: removing cycle: %s", tch->name);
+			printlog("set_leader: removing cycle: %s", tch->name);
 			tch->leader = NULL;
 			stop_follower(tch);
 		}
@@ -3779,7 +3779,7 @@ void quit_char(CHAR_DATA *ch, int flags)
 	char_puts("Alas, all good things must come to an end.\n", ch);
 	char_puts("You hit reality hard. Reality truth does unspeakable things to you.\n", ch);
 	act_puts("$n has left the game.", ch, NULL, NULL, TO_ROOM, POS_RESTING);
-	log("%s has quit.", ch->name);
+	printlog("%s has quit.", ch->name);
 	wiznet("{W$N{x rejoins the real world.",
 		ch, NULL, WIZ_LOGINS, 0, ch->level);
 
@@ -5235,7 +5235,7 @@ void reboot_mud(void)
 	extern bool merc_down;
 	DESCRIPTOR_DATA *d,*d_next;
 
-	log("Rebooting SoG");
+	printlog("Rebooting SoG");
 	for (d = descriptor_list; d != NULL; d = d_next) {
 		d_next = d->next;
 		write_to_buffer(d,"SoG is going down for rebooting NOW!\n\r",0);
@@ -5248,9 +5248,9 @@ void reboot_mud(void)
 	if (!rebooter) {
 		FILE *fp = dfopen(TMP_PATH, EQCHECK_FILE, "w");
 		if (!fp) {
-			log("reboot_mud: unable to activate eqcheck");
+			printlog("reboot_mud: unable to activate eqcheck");
 		} else {
-			log("reboot_mud: eqcheck activated");
+			printlog("reboot_mud: eqcheck activated");
 			fclose(fp);
 		}
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: log.h,v 1.5 1999-06-24 08:05:00 fjoe Exp $
+ * $Id: log.h,v 1.5.2.1 2003-09-30 01:24:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -43,7 +43,7 @@
 #ifndef _LOG_H_
 #define _LOG_H_
 
-void	log	(const char *str, ...);
+void	printlog(const char *str, ...);
 void	bug	(const char *str, ...);
 void	wizlog	(const char *str, ...);
 

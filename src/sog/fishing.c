@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: fishing.c,v 1.1.2.3 2002-09-17 16:59:05 tatyana Exp $
+ * $Id: fishing.c,v 1.1.2.4 2003-09-30 01:25:20 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -92,7 +92,7 @@ void fish_affect(CHAR_DATA *ch, int fish_vnum)
 
 	if ((gsn = fish_gsn_lookup(fish_vnum)) < 0) {
 		char_puts("Something wrong. Report it to immortals.\n", ch);
-		log("[*****] BUG: gsn not exists, fish_vnum %d", fish_vnum);
+		printlog("[*****] BUG: gsn not exists, fish_vnum %d", fish_vnum);
 		return;
 	}
 

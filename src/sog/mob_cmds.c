@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.42.2.6 2002-12-09 22:51:58 tatyana Exp $
+ * $Id: mob_cmds.c,v 1.42.2.7 2003-09-30 01:25:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -110,7 +110,7 @@ void mob_interpret(CHAR_DATA *ch, const char *argument)
 	    return;
 	}
     }
-    log("mob_interpret: invalid cmd from mob %d: '%s'",
+    printlog("mob_interpret: invalid cmd from mob %d: '%s'",
 	IS_NPC(ch) ? ch->pMobIndex->vnum : 0, command);
 }
 
@@ -408,7 +408,7 @@ void do_mpsechoat(CHAR_DATA *ch, const char *argument)
             case 'a':
                victim = NPC(ch)->target; break;
             default:
-               log("sechoat: vnum %d: syntax error '%s'",
+               printlog("sechoat: vnum %d: syntax error '%s'",
                    ch->pMobIndex->vnum, arg);
                return;
         }
@@ -449,7 +449,7 @@ void do_mpmload(CHAR_DATA *ch, const char *argument)
     vnum = atoi(arg);
     if ((pMobIndex = get_mob_index(vnum)) == NULL)
     {
-	log("mpmload: bad mob index (%d) from mob %d",
+	printlog("mpmload: bad mob index (%d) from mob %d",
 	    vnum, IS_NPC(ch) ? ch->pMobIndex->vnum : 0);
 	return;
     }

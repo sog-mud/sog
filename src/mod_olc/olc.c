@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.70.2.8 2002-12-11 14:06:43 tatyana Exp $
+ * $Id: olc.c,v 1.70.2.9 2003-09-30 01:25:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -883,7 +883,7 @@ void olc_printf(CHAR_DATA *ch, const char *format, ...)
 	if (ch)
 		char_printf(ch, "%s\n", buf);
 	else
-		log(buf);
+		printlog(buf);
 	wiznet("$t", ch, buf, WIZ_OLC, 0, 0);
 }
 

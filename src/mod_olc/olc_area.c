@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.49.2.4 2002-12-09 21:40:49 tatyana Exp $
+ * $Id: olc_area.c,v 1.49.2.5 2003-09-30 01:25:16 fjoe Exp $
  */
 
 #include "olc.h"
@@ -1155,7 +1155,7 @@ static void save_object(FILE *fp, OBJ_INDEX_DATA *pObjIndex)
 				letter = 'V';
 				break;
 			default:
-				log("olc_save: vnum %d: "
+				printlog("olc_save: vnum %d: "
 					   "invalid affect->where: %d",
 					   pObjIndex->vnum, pAf->where);
 				continue;

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.28 2002-11-28 21:54:47 fjoe Exp $
+ * $Id: db.c,v 1.169.2.29 2003-09-30 01:25:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -327,7 +327,7 @@ void db_load_list(DBDATA *dbdata, const char *path, const char *file)
 	FILE *fp;
 
 	if ((fp = dfopen(path, file, "r")) == NULL) {
-		log("%s%c%s: %s",
+		printlog("%s%c%s: %s",
 		    path, PATH_SEPARATOR, file, strerror(errno));
 		exit(1);
 	}
@@ -457,12 +457,12 @@ void boot_db(void)
 void vnum_check(AREA_DATA *area, int vnum)
 {
 	if (area->min_vnum == 0 || area->max_vnum == 0) {
-		log("%s: min_vnum or max_vnum not assigned",
+		printlog("%s: min_vnum or max_vnum not assigned",
 			   area->file_name);
 	}
 
 	if (vnum < area->min_vnum || vnum > area->max_vnum) {
-		log("%s: %d not in area vnum range",
+		printlog("%s: %d not in area vnum range",
 			   area->file_name, vnum);
 	}
 }
@@ -715,15 +715,15 @@ void reset_room(ROOM_INDEX_DATA *pRoom, int flags)
         case 'O':
             if (!(pObjIndex = get_obj_index(pReset->arg1)))
             {
-                log("reset_room: 'O' 1 : bad vnum %d", pReset->arg1);
-                log("reset_room: %c %d %d %d",pReset->arg1, pReset->arg2, pReset->arg3, pReset->arg4);
+                printlog("reset_room: 'O' 1 : bad vnum %d", pReset->arg1);
+                printlog("reset_room: %c %d %d %d",pReset->arg1, pReset->arg2, pReset->arg3, pReset->arg4);
                 continue;
             }
 
             if (!(pRoomIndex = get_room_index(pReset->arg3)))
             {
-                log("reset_room: 'O' 2 : bad vnum %d.", pReset->arg3);
-                log("reset_room: %c %d %d %d", pReset->arg1, pReset->arg2, pReset->arg3, pReset->arg4);
+                printlog("reset_room: 'O' 2 : bad vnum %d.", pReset->arg3);
+                printlog("reset_room: %c %d %d %d", pReset->arg1, pReset->arg2, pReset->arg3, pReset->arg4);
                 continue;
             }
 
@@ -1539,7 +1539,7 @@ int fread_number(FILE *fp)
 			/* NOTREACHED */
 		}
 
-		log("fread_number: bad format");
+		printlog("fread_number: bad format");
 		return 0;
 	}
 
@@ -1934,7 +1934,7 @@ rip_limited_eq(CHAR_DATA *ch, OBJ_DATA *container)
 			continue;
 
 		extract_obj(obj, XO_F_NORECURSE);
-		log("scan_pfiles: %s: %s (vnum %d)",
+		printlog("scan_pfiles: %s: %s (vnum %d)",
 		    ch->name,
 		    mlstr_mval(&obj->pObjIndex->short_descr),
 		    obj->pObjIndex->vnum);
@@ -1955,17 +1955,17 @@ void scan_pfiles()
 	bool eqcheck = dfexist(TMP_PATH, EQCHECK_FILE);
 	bool eqcheck_save_all = dfexist(TMP_PATH, EQCHECK_SAVE_ALL_FILE);
 
-	log("scan_pfiles: start (eqcheck: %s, save all: %s)",
+	printlog("scan_pfiles: start (eqcheck: %s, save all: %s)",
 	    eqcheck ? "yes" : "no",
 	    eqcheck_save_all ? "yes" : "no");
 
 	if (eqcheck
 	&&  dunlink(TMP_PATH, EQCHECK_FILE) < 0)
-		log("scan_pfiles: unable to deactivate 'eqcheck' (%s)", strerror(errno));
+		printlog("scan_pfiles: unable to deactivate 'eqcheck' (%s)", strerror(errno));
 
 	if (eqcheck_save_all
 	&&  dunlink(TMP_PATH, EQCHECK_SAVE_ALL_FILE) < 0)
-		log("scan_pfiles: unable to deactivate save all in eq checker (%s)", strerror(errno));
+		printlog("scan_pfiles: unable to deactivate save all in eq checker (%s)", strerror(errno));
 
 	if ((dirp = opendir(PLAYER_PATH)) == NULL) {
 		bug("Load_limited_objects: unable to open player directory.",
@@ -1995,7 +1995,7 @@ void scan_pfiles()
 
 		/* Remove limited eq from the pfile if it's two weeks old */
 		if (dstat(PLAYER_PATH, dp->d_name, &s) < 0) {
-			log("scan_pfiles: %s%c%s: stat: %s",
+			printlog("scan_pfiles: %s%c%s: stat: %s",
 			    PLAYER_PATH, PATH_SEPARATOR, dp->d_name,
 			    strerror(errno));
 			continue;
@@ -2036,7 +2036,7 @@ void scan_pfiles()
 				continue;
 
 			changed = TRUE;
-			log("scan_pfiles: %s: %s (vnum %d)",
+			printlog("scan_pfiles: %s: %s (vnum %d)",
 				   ch->name,
 				   mlstr_mval(&obj->pObjIndex->short_descr),
 				   obj->pObjIndex->vnum);
@@ -2064,7 +2064,7 @@ void scan_pfiles()
 	}
 	closedir(dirp);
 
-	log("scan_pfiles: end (eqcheck: %s, save all: %s)",
+	printlog("scan_pfiles: end (eqcheck: %s, save all: %s)",
 	    dfexist(TMP_PATH, EQCHECK_FILE) ?  "yes" : "no",
 	    dfexist(TMP_PATH, EQCHECK_SAVE_ALL_FILE) ? "yes" : "no");
 }
@@ -2135,12 +2135,12 @@ void db_error(const char* fn, const char* fmt,...)
 	va_end(ap);
 
 	if (fBootDb) {
-		log("%s: line %d: %s: %s",
+		printlog("%s: line %d: %s: %s",
 			   filename, line_number, fn, buf);
 		exit(1);
 	}
 
-	log("%s: %s", fn, buf);
+	printlog("%s: %s", fn, buf);
 }
 
 /*****************************************************************************

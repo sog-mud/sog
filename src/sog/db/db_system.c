@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_system.c,v 1.6.2.1 1999-12-16 12:40:09 fjoe Exp $
+ * $Id: db_system.c,v 1.6.2.2 2003-09-30 01:25:43 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -135,13 +135,13 @@ static void fread_host(FILE *fp, varr *v)
 
 	free_string(s);
 	if (!h)
-		log("load_info: gethostbyname: %s", hstrerror(h_errno));
+		printlog("load_info: gethostbyname: %s", hstrerror(h_errno));
 	else {
 		for (; *h->h_addr_list; h->h_addr_list++) {
 			struct in_addr *in_addr;
 			in_addr = varr_enew(v);
 			memcpy(in_addr, *h->h_addr_list, sizeof(*in_addr));
-			log("load_info: added '%s' to trusted list",
+			printlog("load_info: added '%s' to trusted list",
 				   inet_ntoa(*in_addr));
 		}
 	}

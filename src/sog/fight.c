@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.65 2003-03-04 16:39:28 tatyana Exp $
+ * $Id: fight.c,v 1.202.2.66 2003-09-30 01:25:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2344,10 +2344,10 @@ raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 
 	/* log death */
 	if (!IS_NPC(victim) && ch->master != NULL) {
-		log("MURDER: %s (master %s) has killed %s.",
+		printlog("MURDER: %s (master %s) has killed %s.",
 		    ch->name, ch->master->name, victim->name);
 	} else if (!IS_NPC(victim) && !IS_NPC(ch))
-		log("MURDER: %s has killed %s.", ch->name, victim->name);
+		printlog("MURDER: %s has killed %s.", ch->name, victim->name);
 
 	for (obj = victim->carrying; obj != NULL; obj = obj_next) {
 		obj_next = obj->next_content;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mining.c,v 1.1.2.2 2002-08-31 17:41:34 tatyana Exp $
+ * $Id: mining.c,v 1.1.2.3 2003-09-30 01:25:01 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -186,7 +186,7 @@ void do_mine(CHAR_DATA *ch, const char *argument)
 		if (index == NULL) {
 			char_puts("Something wrong. Report it to immortals.\n",
 				  ch);
-			log("[*****] BUG: Null object. Vnum %d.", vnum);
+			printlog("[*****] BUG: Null object. Vnum %d.", vnum);
 			return;
 		}
 
@@ -317,7 +317,7 @@ void do_smelt(CHAR_DATA *ch, const char *argument)
 		if (index == NULL) {
 			char_puts("Something wrong. Report it to immortals.\n",
 				  ch);
-			log("[*****] BUG: Null object. Vnum %d.", vnum);
+			printlog("[*****] BUG: Null object. Vnum %d.", vnum);
 			return;
 		}
 
@@ -419,7 +419,7 @@ void do_forge(CHAR_DATA *ch, const char *argument)
 			if (index == NULL) {
 				char_puts("Something wrong. Report it to "
 					  "immortals.\n", ch);
-				log("[*****] BUG: Null object. Vnum %d.", vnum);
+				printlog("[*****] BUG: Null object. Vnum %d.", vnum);
 				return;
 			}
 
@@ -611,7 +611,7 @@ void do_forge(CHAR_DATA *ch, const char *argument)
 	index = get_obj_index(vnum);
 	if (index == NULL) {
 		char_puts("Something wrong. Report it to immortals\n", ch);
-		log("[*****] BUG: Null object. Vnum %d.", vnum);
+		printlog("[*****] BUG: Null object. Vnum %d.", vnum);
 		return;
 	}
 
@@ -711,7 +711,7 @@ void do_anvil(CHAR_DATA *ch, const char *argument)
 	index = get_obj_index(OBJ_VNUM_ANVIL);
 	if (index == NULL) {
 		char_puts("Something wrong. Report it to immortals.\n", ch);
-		log("[*****] BUG: Null object. Vnum %d.", OBJ_VNUM_ANVIL);
+		printlog("[*****] BUG: Null object. Vnum %d.", OBJ_VNUM_ANVIL);
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.50.2.6 2000-04-19 08:40:55 osya Exp $
+ * $Id: mob_prog.c,v 1.50.2.7 2003-09-30 01:25:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -467,7 +467,7 @@ int cmd_eval(int vnum, const char *line, int check,
     {
 	if ((oper = keyword_lookup(fn_evals, buf)) < 0)
 	{
-	    log("cmd_eval: vnum %d: syntax error(2) '%s'",
+	    printlog("cmd_eval: vnum %d: syntax error(2) '%s'",
 		vnum, original);
 	    return FALSE;
 	}
@@ -482,7 +482,7 @@ int cmd_eval(int vnum, const char *line, int check,
      */
     if (buf[0] != '$' || buf[1] == '\0')
     {
-	log("cmd_eval: vnum %d: syntax error(3) '%s'",
+	printlog("cmd_eval: vnum %d: syntax error(3) '%s'",
 		vnum, original);
         return FALSE;
     }
@@ -507,7 +507,7 @@ int cmd_eval(int vnum, const char *line, int check,
         case 'a':
             lval_char = NPC(mob)->target; break;
 	default:
-	    log("cmd_eval: vnum %d: syntax error(4) '%s'",
+	    printlog("cmd_eval: vnum %d: syntax error(4) '%s'",
 		vnum, original);
 	    return FALSE;
     }
@@ -647,7 +647,7 @@ int cmd_eval(int vnum, const char *line, int check,
      */
     if(buf[0] != '$') {
     	if((oper = keyword_lookup(fn_evals, buf)) < 0) {
-		log("cmd_eval: vnum %d: syntax error(5): '%s'",
+		printlog("cmd_eval: vnum %d: syntax error(5): '%s'",
 			vnum, original);
 		return FALSE;
 	} else {
@@ -726,7 +726,7 @@ int cmd_eval(int vnum, const char *line, int check,
 
     if (buf[0] != '$' || buf[1] == '\0')
     {
-        log("cmd_eval: vnum %d: syntax error(6) '%s'",
+        printlog("cmd_eval: vnum %d: syntax error(6) '%s'",
                 vnum, original);
         return FALSE;
     } else 
@@ -751,7 +751,7 @@ int cmd_eval(int vnum, const char *line, int check,
         case 'a':
             lval_char1 = NPC(mob)->target; break;
         default:
-            log("cmd_eval: vnum %d: syntax error(6) '%s'",
+            printlog("cmd_eval: vnum %d: syntax error(6) '%s'",
                 vnum, original);
             return FALSE;
      }
@@ -1014,13 +1014,13 @@ void program_flow(int pvnum, CHAR_DATA *mob, CHAR_DATA *ch,
 	cond[MAX_NESTED_LEVEL];  /* Boolean value based on the last if-check */
 
 	if ((mprog = mpcode_lookup(pvnum)) == NULL) {
-		log("program_flow: mob vnum %d: mprog vnum %d: "
+		printlog("program_flow: mob vnum %d: mprog vnum %d: "
 			   "not found", mob->pMobIndex->vnum, pvnum);
 		return;
 	}
 
 	if (++call_level > MAX_CALL_LEVEL) {
-		log("program_flow: vnum %d: MAX_CALL_LEVEL exceeded",
+		printlog("program_flow: vnum %d: MAX_CALL_LEVEL exceeded",
 		pvnum);
 		goto bail_out;
 	}
@@ -1083,14 +1083,14 @@ void program_flow(int pvnum, CHAR_DATA *mob, CHAR_DATA *ch,
 	{
 	    if (state[level] == BEGIN_BLOCK)
 	    {
-		log("program_flow: vnum %d: misplaced if statement",
+		printlog("program_flow: vnum %d: misplaced if statement",
 			pvnum);
 		goto bail_out;
 	    }
 	    state[level] = BEGIN_BLOCK;
             if (++level >= MAX_NESTED_LEVEL)
             {
-		log("program_flow: vnum %d: max nested level exceeded",
+		printlog("program_flow: vnum %d: max nested level exceeded",
 			pvnum);
 		goto bail_out;
 	    }
@@ -1106,7 +1106,7 @@ void program_flow(int pvnum, CHAR_DATA *mob, CHAR_DATA *ch,
 	    }
 	    else
 	    {
-		log("program_flow: vnum %d: invalid if_check (if)",
+		printlog("program_flow: vnum %d: invalid if_check (if)",
 			pvnum);
 		goto bail_out;
 	    }
@@ -1116,7 +1116,7 @@ void program_flow(int pvnum, CHAR_DATA *mob, CHAR_DATA *ch,
 	{
 	    if (!level || state[level-1] != BEGIN_BLOCK)
 	    {
-		log("program_flow: vnum %d: 'or' without 'if'",
+		printlog("program_flow: vnum %d: 'or' without 'if'",
 			pvnum);
 		goto bail_out;
 	    }
@@ -1128,7 +1128,7 @@ void program_flow(int pvnum, CHAR_DATA *mob, CHAR_DATA *ch,
 	    }
 	    else
             {
-		log("program_flow: vnum %d: invalid if_check (or)",
+		printlog("program_flow: vnum %d: invalid if_check (or)",
 			pvnum);
 		goto bail_out;
             }
@@ -1138,7 +1138,7 @@ void program_flow(int pvnum, CHAR_DATA *mob, CHAR_DATA *ch,
 	{
 	    if (!level || state[level-1] != BEGIN_BLOCK)
 	    {
-		log("program_flow: vnum %d: 'and' without 'if'",
+		printlog("program_flow: vnum %d: 'and' without 'if'",
 			pvnum);
 		goto bail_out;
 	    }
@@ -1150,7 +1150,7 @@ void program_flow(int pvnum, CHAR_DATA *mob, CHAR_DATA *ch,
 	    }
 	    else
 	    {
-		log("program_flow: vnum %d: invalid if_check (and)",
+		printlog("program_flow: vnum %d: invalid if_check (and)",
 			pvnum);
 		goto bail_out;
 	    }
@@ -1160,7 +1160,7 @@ void program_flow(int pvnum, CHAR_DATA *mob, CHAR_DATA *ch,
 	{
 	    if (!level || state[level-1] != BEGIN_BLOCK)
 	    {
-		log("program_flow: vnum %d: 'endif' without 'if'",
+		printlog("program_flow: vnum %d: 'endif' without 'if'",
 			pvnum);
 		goto bail_out;
 	    }
@@ -1172,7 +1172,7 @@ void program_flow(int pvnum, CHAR_DATA *mob, CHAR_DATA *ch,
 	{
 	    if (!level || state[level-1] != BEGIN_BLOCK)
 	    {
-		log("program_flow: vnum %d: 'else' without 'if'",
+		printlog("program_flow: vnum %d: 'else' without 'if'",
 			pvnum);
 		goto bail_out;
 	    }

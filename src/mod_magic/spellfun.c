@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.181.2.45 2002-12-03 16:57:34 tatyana Exp $
+ * $Id: spellfun.c,v 1.181.2.46 2003-09-30 01:25:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2444,7 +2444,7 @@ void spell_frenzy(int sn, int level, CHAR_DATA *ch, void *vo)
 	act("$n gets a wild look in $s eyes!",victim,NULL,NULL,TO_ROOM);
 }
 
-static inline void
+static void
 gate(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	transfer_char(ch, NULL, victim->in_room,
@@ -4664,7 +4664,7 @@ void spell_hand_of_undead(int sn, int level, CHAR_DATA *ch, void *vo)
 	damage(ch, victim, dam, sn,DAM_NEGATIVE,TRUE);
 }
 
-static inline void
+static void
 astral_walk(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	transfer_char(ch, victim, victim->in_room,

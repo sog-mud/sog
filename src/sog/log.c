@@ -1,5 +1,5 @@
 /*
- * $Id: log.c,v 1.19.2.1 1999-12-04 06:08:58 fjoe Exp $
+ * $Id: log.c,v 1.19.2.2 2003-09-30 01:25:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -57,7 +57,7 @@
 /*
  * Writes a string to the log.
  */
-void log(const char *format, ...)
+void printlog(const char *format, ...)
 {
 #if defined(WIN32)
 	FILE *logfile;
@@ -95,7 +95,7 @@ void bug(const char *str, ...)
 	vsnprintf(buf, sizeof(buf), str, ap);
 	va_end(ap);
 
-	log("[*****] BUG: %s", buf);
+	printlog("[*****] BUG: %s", buf);
 }
 
 void wizlog(const char *str, ...)
@@ -107,7 +107,7 @@ void wizlog(const char *str, ...)
 	vsnprintf(buf, sizeof(buf), str, ap);
 	va_end(ap);
 
-	log(buf);
+	printlog(buf);
 	wiznet("$t", NULL, buf, WIZ_WIZLOG, 0, 0);
 }
 

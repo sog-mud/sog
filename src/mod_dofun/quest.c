@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.123.2.14 2003-02-26 20:19:52 tatyana Exp $
+ * $Id: quest.c,v 1.123.2.15 2003-09-30 01:25:01 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -191,7 +191,7 @@ void do_quest(CHAR_DATA *ch, const char *argument)
 	char_puts("\nFor more information, type: help quests.\n", ch);
 }
 
-static inline void chquest_status(CHAR_DATA *ch)
+static void chquest_status(CHAR_DATA *ch)
 {
 	chquest_t *q;
 

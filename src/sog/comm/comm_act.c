@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_act.c,v 1.40.2.14 2002-11-28 21:54:45 fjoe Exp $
+ * $Id: comm_act.c,v 1.40.2.15 2003-09-30 01:25:38 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -276,7 +276,7 @@ door_name(const char *name)
 
 #define CHECK_STRING(p)						\
 	if (p == NULL) {					\
-		log("act_buf: format '%s', NULL string arg",	\
+		printlog("act_buf: format '%s', NULL string arg",\
 		    format);					\
 		i = NULL;					\
 		break;						\
@@ -284,7 +284,7 @@ door_name(const char *name)
 
 #define CHECK_STRING2(p)					\
 	if (p == NULL) {					\
-		log("act_buf: format '%s', NULL string arg",	\
+		printlog("act_buf: format '%s', NULL string arg",\
 		    format);					\
 		sp--;						\
 		break;						\
@@ -292,7 +292,7 @@ door_name(const char *name)
 
 #define CHECK_TYPE(p, mem_type)					\
 	if (!mem_is(p, mem_type)) {				\
-		log("act_buf: format '%s', expected type %d",	\
+		printlog("act_buf: format '%s', expected type %d",\
 		    format, mem_type);				\
 		i = NULL;					\
 		break;						\
@@ -300,7 +300,7 @@ door_name(const char *name)
 
 #define CHECK_TYPE2(p, mem_type)				\
 	if (!mem_is(p, mem_type)) {				\
-		log("act_buf: format '%s', expected type %d",	\
+		printlog("act_buf: format '%s', expected type %d",\
 		    format, mem_type);				\
 		sp--;						\
 		break;						\
@@ -518,7 +518,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 			switch (code = *s++) {
 			default:
 				i = " <@@@> ";
-				log("act_buf: '%s': bad code $%c",
+				printlog("act_buf: '%s': bad code $%c",
 					   format, code);
 				continue;
 
@@ -640,7 +640,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 			case 'l':
 			case 'F':
 				if (++sp >= TSTACK_SZ) {
-					log("act_raw: '%s': "
+					printlog("act_raw: '%s': "
 					    "tstack overflow", format);
 					continue;
 				}
@@ -661,7 +661,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 						tstack[sp].arg = subcode;
 						break;
 					default:
-						log("act_buf: '%s': "
+						printlog("act_buf: '%s': "
 						    "bad subcode '%c' "
 						    "(pos %d)",
 						    format, subcode,
@@ -745,7 +745,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 						break;
 
 					default:
-						log("act_buf: '%s': "
+						printlog("act_buf: '%s': "
 						    "bad subcode '%c' "
 						    "(pos %d)",
 						    format, subcode,
@@ -766,7 +766,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 						tstack[sp].arg = num3;
 						break;
 					default:
-						log("act_buf: '%s': "
+						printlog("act_buf: '%s': "
 						    "bad subcode '%c' "
 						    "(pos %d)",
 						    format, subcode,
@@ -779,7 +779,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 				}
 
 				if (*s != '{') {
-					log("act_buf: '%s': "
+					printlog("act_buf: '%s': "
 					    "syntax error (pos %d)",
 					    format, s - format);
 					sp--;
@@ -828,7 +828,7 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 		else if (actq == ACTQ_IMMTALK)
 			msgq = &msgq_immtalk;
 		else {
-			log("act_buf: %d: invalid actq (act_flags = 0x%08x)\n",
+			printlog("act_buf: %d: invalid actq (act_flags = 0x%08x)\n",
 			    actq, opt->act_flags);
 		}
 

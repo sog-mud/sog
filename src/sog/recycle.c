@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.64.2.13 2003-09-11 13:41:22 matrim Exp $
+ * $Id: recycle.c,v 1.64.2.14 2003-09-30 01:25:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -444,7 +444,7 @@ MPTRIG *mptrig_new(int type, const char *phrase, int vnum)
 			char buf[MAX_STRING_LENGTH];
 
 			regerror(errcode, mptrig->extra, buf, sizeof(buf));
-			log("bad trigger for vnum %d (phrase '%s'): %s",
+			printlog("bad trigger for vnum %d (phrase '%s'): %s",
 				   vnum, phrase, buf);
 		}
 	}

@@ -28,7 +28,7 @@
  * along with this program (see the file COPYING); if not, write to the
  * Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
- * $Id: imc.c,v 1.1.2.5 2003-09-21 14:18:21 matrim Exp $
+ * $Id: imc.c,v 1.1.2.6 2003-09-30 01:25:24 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -111,13 +111,13 @@ bool imc_str_prefix( const char *astr, const char *bstr )
 {
     if ( !astr || astr[0] == '\0' )
     {
-	log( "imc_str_prefix: null astr." );
+	printlog( "imc_str_prefix: null astr." );
 	return TRUE;
     }
 
     if ( !bstr || bstr[0] == '\0' )
     {
-	log( "imc_str_prefix: null bstr." );
+	printlog( "imc_str_prefix: null bstr." );
 	return TRUE;
     }
 
@@ -281,7 +281,7 @@ void imclog( const char *format, ... )
    vsnprintf( buf, LSS, format, ap );
    va_end( ap );
 
-   log( buf );
+   printlog( buf );
    return;
 }
 

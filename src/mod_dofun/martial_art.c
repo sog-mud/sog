@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.34 2003-04-05 10:13:55 tatyana Exp $
+ * $Id: martial_art.c,v 1.114.2.35 2003-09-30 01:24:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -57,7 +57,7 @@ DECLARE_DO_FUN(do_sit		);
 DECLARE_DO_FUN(do_bash_door	);
 DECLARE_DO_FUN(do_dismount	);
 
-static inline bool	check_yell	(CHAR_DATA *ch, CHAR_DATA *victim,
+static		bool	check_yell	(CHAR_DATA *ch, CHAR_DATA *victim,
 					 bool fighting);
 void			one_hit		(CHAR_DATA *ch, CHAR_DATA *victim,
 					 int dt, int loc); 
@@ -3842,7 +3842,7 @@ do_poncho(CHAR_DATA *ch, const char *argument)
 
 		index = get_obj_index(OBJ_VNUM_CHAMELEON_PONCHO);
 		if (index == NULL) {
-			log("[*****] BUG: NULL index, vnum %d.",
+			printlog("[*****] BUG: NULL index, vnum %d.",
 			    OBJ_VNUM_CHAMELEON_PONCHO);
 			act("Something wrong, report it to immortals.",
 			    ch, NULL, NULL, TO_CHAR);
@@ -3937,7 +3937,7 @@ do_hunters_trophy(CHAR_DATA *ch, const char *argument)
 
 	index = get_obj_index(OBJ_VNUM_HUNTERS_TROPHY);
 	if (index == NULL) {
-		log("[******] BUG: NULL index, vnum %d.",
+		printlog("[******] BUG: NULL index, vnum %d.",
 		    OBJ_VNUM_HUNTERS_TROPHY);
 		act("Somethinh wrong, report it to immortals.",
 		    ch, NULL, NULL, TO_CHAR);
@@ -3966,7 +3966,7 @@ do_hunters_trophy(CHAR_DATA *ch, const char *argument)
 	extract_obj(corpse, 0);
 }
 
-static inline bool check_yell(CHAR_DATA *ch, CHAR_DATA *victim, bool fighting)
+static bool check_yell(CHAR_DATA *ch, CHAR_DATA *victim, bool fighting)
 {
 	return (!IS_NPC(ch) && !IS_NPC(victim) &&
 		victim->position > POS_STUNNED && !fighting);

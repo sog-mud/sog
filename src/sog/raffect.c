@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: raffect.c,v 1.30.2.1 1999-12-16 12:40:03 fjoe Exp $
+ * $Id: raffect.c,v 1.30.2.2 2003-09-30 01:25:27 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -109,7 +109,7 @@ void affect_to_room(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf)
 	ROOM_INDEX_DATA *pRoomIndex;
 
 	if (paf->owner == NULL) {
-		log("[*****] BUG: affect_to_room: NULL owner");
+		printlog("[*****] BUG: affect_to_room: NULL owner");
 		return;
 	}
 
@@ -333,7 +333,7 @@ void check_room_affects(CHAR_DATA *ch, ROOM_INDEX_DATA *room, flag32_t event)
 
 		switch (event) {
 			default:
-				log("[*****] BUG: no such event %d", event);
+				printlog("[*****] BUG: no such event %d", event);
 				return;
 			case EVENT_ENTER:
 				SAFE_RSPELL_CALL(rsp->enter_fun);

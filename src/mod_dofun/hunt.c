@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.26 1999-09-11 12:49:56 fjoe Exp $
+ * $Id: hunt.c,v 1.26.2.1 2003-09-30 01:24:58 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -508,7 +508,7 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 	 * Give a random direction if the player misses the die roll.
 	 */
 	if (IS_NPC (ch) && number_percent () > 75) {       /* NPC @ 25% */
-		log("Do PC hunt");
+		printlog("Do PC hunt");
 		ok = FALSE;
 		for(i = 0; i < 6; i++) {
 			if (ch->in_room->exit[direction]) {
@@ -525,7 +525,7 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 			       (ch->in_room->exit[direction]->to_room.r == NULL));
 		}
 		else {
-			log("Do hunt, player hunt, no exits from room!");
+			printlog("Do hunt, player hunt, no exits from room!");
 			ch->hunting = NULL;
 			char_puts("Your room has not exits!!!!\n", ch);
 			return;
@@ -581,12 +581,12 @@ static void hunt_victim(CHAR_DATA *ch)
 
 	if(!found || !can_see(ch, ch->hunting)) {
 		if (get_char_area(ch, ch->hunting->name) != NULL) {
-	    		log("mob portal");
+	    		printlog("mob portal");
 	    		dofun("cast", ch, "portal %s", ch->hunting->name);
-	    		log("do_enter1");
+	    		printlog("do_enter1");
 	    		dofun("enter", ch, "portal");
 			hunt_victim_attack(ch);
-			log("done1");  
+			printlog("done1");  
 		} 
 		else { 
 			dofun("say", ch, "Ahhhh!  My prey is gone!!");
@@ -602,12 +602,12 @@ static void hunt_victim(CHAR_DATA *ch)
 		/* 1 */ 
 		if (get_char_area(ch, ch->hunting->name) != NULL  
 		&&  ch->level > 35) {
-			log("mob portal");
+			printlog("mob portal");
 			dofun("cast", ch, "portal %s", ch->hunting->name);
-			log("do_enter2");
+			printlog("do_enter2");
 			dofun("enter", ch, "portal");
 			hunt_victim_attack(ch);
-			log("done2"); 
+			printlog("done2"); 
 			}
 		else { 
 			act_say(ch, "I have lost $i!", ch->hunting);
@@ -623,7 +623,7 @@ static void hunt_victim(CHAR_DATA *ch)
 	}
 
 	if (!ch->in_room->exit[dir]) {
-		log("BUG:  hunt through null door");
+		printlog("BUG:  hunt through null door");
 		ch->hunting = NULL;
 		return;
 	}
@@ -687,7 +687,7 @@ void do_find(CHAR_DATA *ch, const char *argument)
 
 	path = find_way(ch, ch->in_room, location);
 	char_printf(ch, "%s.\n", path);
-	log("From %d to %d: %s.\n",
+	printlog("From %d to %d: %s.\n",
 		   ch->in_room->vnum, location->vnum, path);
 	return;
 }

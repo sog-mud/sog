@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.79 2003-09-08 17:15:27 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.80 2003-09-30 01:24:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2892,7 +2892,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 	}	
 
 	if ((cl = class_lookup(ch->class)) == NULL) {
-		log("do_practice: %s: class %d: unknown",
+		printlog("do_practice: %s: class %d: unknown",
 			   ch->name, ch->class);
 		return;
 	}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm_info.c,v 1.8.2.2 2002-11-28 21:54:45 fjoe Exp $
+ * $Id: comm_info.c,v 1.8.2.3 2003-09-30 01:25:39 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -65,12 +65,12 @@ void info_newconn(int infofd)
 
 	getsockname(infofd, (struct sockaddr*) &sock, &size);
 	if ((fd = accept(infofd, (struct sockaddr*) &sock, &size)) < 0) {
-		log("info_newconn: accept: %s", strerror(errno));
+		printlog("info_newconn: accept: %s", strerror(errno));
 		return;
 	}
 
 	if (getpeername(fd, (struct sockaddr *) &sock, &size) < 0) {
-		log("info_newconn: getpeername: %s", strerror(errno));
+		printlog("info_newconn: getpeername: %s", strerror(errno));
 #ifdef WIN32
 		closesocket(fd);
 #else
@@ -79,7 +79,7 @@ void info_newconn(int infofd)
 		return;
 	}
 
-	log("info_newconn: sock.sin_addr: %s", inet_ntoa(sock.sin_addr));
+	printlog("info_newconn: sock.sin_addr: %s", inet_ntoa(sock.sin_addr));
 
 	for (i = 0; i < info_trusted.nused; i++) {
 		struct in_addr* in_addr = VARR_GET(&info_trusted, i);
@@ -88,7 +88,7 @@ void info_newconn(int infofd)
 	}
 
 	if (i >= info_trusted.nused) {
-		log("info_newconn: incoming connection refused");
+		printlog("info_newconn: incoming connection refused");
 #ifdef WIN32
 		closesocket(fd);
 #else
@@ -99,7 +99,7 @@ void info_newconn(int infofd)
 
 #if !defined (WIN32)
 	if (fcntl(fd, F_SETFL, FNDELAY) < 0) {
-		log("info_newconn: fcntl: FNDELAY: %s", strerror(errno));
+		printlog("info_newconn: fcntl: FNDELAY: %s", strerror(errno));
 		close(fd);
 		return;
 	}
@@ -131,7 +131,7 @@ void info_process_cmd(INFO_DESC *id)
         if ( WSAGetLastError() == WSAEWOULDBLOCK)
 #endif
 			return;
-		log("info_input: read: %s", strerror(errno));
+		printlog("info_input: read: %s", strerror(errno));
 		goto bail_out;
 	}
 	buf[nread] = '\0';
@@ -141,7 +141,7 @@ void info_process_cmd(INFO_DESC *id)
 
 	if ((q = strpbrk(p, " \n\r\t")))
 		*q = '\0';
-	log("process_who: output format requested: '%s'", p);
+	printlog("process_who: output format requested: '%s'", p);
 	format = format_lookup(p);
 
 	output = buf_new(-1);
@@ -210,7 +210,7 @@ static void info_desc_free(INFO_DESC *id)
 				break;
 
 		if (!prev) {
-			log("info_desc_free: descriptor not found");
+			printlog("info_desc_free: descriptor not found");
 			return;
 		}
 

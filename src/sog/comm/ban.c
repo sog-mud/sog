@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.39.2.1 2003-09-30 01:10:11 fjoe Exp $
+ * $Id: ban.c,v 1.39.2.2 2003-09-30 01:25:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -66,7 +66,7 @@ ban_t *ban_list;
 	if (ch)					\
 		dofun("help", ch, "'WIZ BAN'");	\
 	else					\
-		log arg;			\
+		printlog arg;			\
 }
 
 void ban_add(CHAR_DATA *ch, const char *argument)
@@ -115,7 +115,7 @@ void ban_add(CHAR_DATA *ch, const char *argument)
 			if (ch)
 				char_printf(ch, "do_ban: rule %d already exists.\n", ban_num);
 			else
-				log("do_ban: rule %d already exists.\n", ban_num);
+				printlog("do_ban: rule %d already exists.\n", ban_num);
 			return;
 		}
 		if (b->ban_num > ban_num)
@@ -138,7 +138,7 @@ void ban_add(CHAR_DATA *ch, const char *argument)
 
 	if (ch) {
 		char_printf(ch, "do_ban: rule added.\n");
-		log("Log %s: ban add %s", ch->name, format_ban(bnew));
+		printlog("Log %s: ban add %s", ch->name, format_ban(bnew));
 		save_bans();
 	}
 }
@@ -177,7 +177,7 @@ void ban_delete(CHAR_DATA *ch, const char *argument)
 	free(curr);
 
 	char_printf(ch, "do_ban: rule %d deleted.\n", ban_num);
-	log("Log %s: ban delete %d", ch->name, ban_num);
+	printlog("Log %s: ban delete %d", ch->name, ban_num);
 	save_bans();
 }
 
