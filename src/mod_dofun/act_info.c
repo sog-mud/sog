@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.271.2.22 2000-07-05 13:20:24 fjoe Exp $
+ * $Id: act_info.c,v 1.271.2.23 2000-07-27 09:30:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2149,6 +2149,7 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 	bear->armor[3] = interpolate(bear->level, 100, 0);
 	bear->sex = ch->sex;
 	bear->gold = 0;
+	bear->silver = 0;
 
 	bear2 = create_mob(bear->pMobIndex);
 	clone_mob(bear, bear2);
@@ -2382,11 +2383,11 @@ void do_score(CHAR_DATA *ch, const char *argument)
 
 	buf_printf(output,
 "     {G| {RGold          : {Y%9d           {RArmor vs pierce : {x%5d     {G|{x\n",
-		 ch->gold,GET_AC(ch,AC_PIERCE));
+		 ch->gold, GET_AC(ch,AC_PIERCE));
 
 	buf_printf(output,
 "     {G| {RSilver        : {W%9d           {RArmor vs slash  : {x%5d     {G|{x\n",
-		 ch->silver,GET_AC(ch,AC_SLASH));
+		 ch->silver, GET_AC(ch,AC_SLASH));
 
 	buf_printf(output,
 "     {G| {RCurrent exp   : {x%9d           {RSaves vs Spell  : {x%5d     {G|{x\n",
@@ -2807,6 +2808,7 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 	lion->armor[3] = interpolate(lion->level,100,0);
 	lion->sex = ch->sex;
 	lion->gold = 0;
+	lion->silver = 0;
 
 	lion2 = create_mob(lion->pMobIndex);
 	clone_mob(lion,lion2);

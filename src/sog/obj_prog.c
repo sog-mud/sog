@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.66.2.6 2000-06-15 16:16:44 fjoe Exp $
+ * $Id: obj_prog.c,v 1.66.2.7 2000-07-27 09:30:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -411,6 +411,7 @@ bool sac_prog_excalibur(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		 (ch->hit - 1) > 1000? 1000 : (ch->hit - 1),
 		 TYPE_HIT,DAM_HOLY, TRUE);
 	ch->gold = 0;
+	ch->silver = 0;
 	return TRUE; 
 }
 

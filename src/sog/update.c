@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.24 2000-07-25 12:02:45 fjoe Exp $
+ * $Id: update.c,v 1.157.2.25 2000-07-27 09:30:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2299,6 +2299,7 @@ void hatchout_dragon(CHAR_DATA *coc, AFFECT_DATA *paf)
 		drag->armor[i] = interpolate(dlev, 100, -120);
 	drag->armor[3] = interpolate(dlev, 100, -40);
 	drag->gold = 0;
+	drag->silver = 0;
 	NPC(drag)->dam.dice_number = number_fuzzy(13);
 	NPC(drag)->dam.dice_type = number_fuzzy(9);
 	drag->damroll = dlev/2 + dice(3, 11);
