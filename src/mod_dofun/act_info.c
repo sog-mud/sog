@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.213 1999-03-03 13:50:41 fjoe Exp $
+ * $Id: act_info.c,v 1.214 1999-03-04 14:31:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -48,7 +48,7 @@
 #include <time.h>
 #include <stdarg.h>
 
-#if !defined (WIN32)
+#if !defined(WIN32)
 #	include <unistd.h>
 #endif
 #include <ctype.h>
@@ -60,7 +60,7 @@
 #include "obj_prog.h"
 #include "fight.h"
 
-#if defined(SUNOS) || defined(SVR4)
+#if defined(SUNOS) || defined(SVR4) || defined(LINUX)
 #	include <crypt.h>
 #endif
 
@@ -315,6 +315,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 	const char *msg = str_empty;
 	const void *arg = NULL;
 	const void *arg3 = NULL;
+	flag32_t flags = 0;
 
 	if (is_affected(victim, gsn_doppelganger)
 	&&  (IS_NPC(ch) || !IS_SET(ch->plr_flags, PLR_HOLYLIGHT)))
@@ -415,7 +416,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	switch (victim->position) {
 	case POS_DEAD:
-		msg = "$N {xis {RDEAD!!{x";
+		msg = "$N {xis DEAD!!";
 		break;
 	
 	case POS_MORTAL:
@@ -496,16 +497,18 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		else if (IS_SET(victim->on->value[2],STAND_ON))
 			msg = "$N {xis standing on $p.";
 		else
-			msg = "$N {xis standing here.";
+			msg = "$N {xis standing in $p.";
 		break;
 	
 	case POS_FIGHTING:
 		if (victim->fighting == NULL) {
 			arg = "thin air??";
+			flags = ACT_TRANS;
 			msg = "$N {xis here, fighting with $t.";
 		}
 		else if (victim->fighting == ch) {
 			arg = "YOU!";
+			flags = ACT_TRANS;
 			msg = "$N {xis here, fighting with $t.";
 		}
 		else if (victim->in_room == victim->fighting->in_room) {
@@ -514,12 +517,14 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 		}
 		else {
 			arg = "someone who left??";
+			flags = ACT_TRANS;
 			msg = "$N {xis here, fighting with $t.";
 		}
 		break;
 	}
 
-	act_puts3(msg, ch, arg, victim, arg3, TO_CHAR | ACT_FORMSH, POS_DEAD);
+	act_puts3(msg, ch, arg, victim, arg3,
+		  TO_CHAR | ACT_FORMSH | flags, POS_DEAD);
 }
 
 char* wear_loc_names[] =

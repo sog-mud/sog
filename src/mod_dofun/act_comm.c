@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.152 1999-02-27 10:23:31 fjoe Exp $
+ * $Id: act_comm.c,v 1.153 1999-03-04 14:31:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -276,6 +276,11 @@ void do_say(CHAR_DATA *ch, const char *argument)
 
 void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
 {
+	if (ch == victim) {
+		char_puts("Talking to yourself, eh?\n", ch);
+		return;
+	}
+
 	if (IS_SET(ch->comm, COMM_NOTELL)) {
 		char_puts("Your message didn't get through.\n", ch);
 		return;

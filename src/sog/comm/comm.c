@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.155 1999-03-04 08:28:53 fjoe Exp $
+ * $Id: comm.c,v 1.156 1999-03-04 14:31:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -59,7 +59,7 @@
  */
 
 #include <sys/types.h>
-#if	!defined (WIN32)
+#if	!defined(WIN32)
 #	include <sys/socket.h>
 #	include <netinet/in.h>
 #	include <arpa/telnet.h>
@@ -82,6 +82,10 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+
+#if defined(SUNOS) || defined(SVR4) || defined(LINUX)
+#	include <crypt.h>
+#endif
 
 #include "merc.h"
 #include "hometown.h"
@@ -902,7 +906,7 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 			q = p+2;
 			break;
 		}
-		memcpy(p, q, strlen(q)+1);
+		strnzcpy(p, sizeof(d->inbuf) - ((char*) p - d->inbuf + 1), q);
 	} 
 
 	return TRUE;
