@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.13 1998-10-08 12:39:32 fjoe Exp $
+ * $Id: hunt.c,v 1.14 1998-10-16 09:37:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -482,7 +482,7 @@ void do_hunt(CHAR_DATA *ch, const char *argument)
 	else
 		victim = get_char_world(ch, arg);
 
- 	if (victim == NULL) {
+ 	if (victim == NULL || victim->in_room == NULL) {
 		char_puts("No-one around by that name.\n\r", ch);
 		return;
 	}

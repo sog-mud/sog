@@ -1,9 +1,10 @@
 #
-# $Id: Makefile,v 1.31 1998-10-06 19:08:55 fjoe Exp $
+# $Id: Makefile,v 1.32 1998-10-16 09:37:15 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
 INCLUDES	= -I . -I ../msgdb
+PROF		=
 .ifdef PROF
 PFLAGS		= -pg
 .else

@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.72 1998-10-14 11:04:54 fjoe Exp $
+ * $Id: save.c,v 1.73 1998-10-16 09:37:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1339,11 +1339,10 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 			if (!str_cmp(word, "ExtraDescr") || !str_cmp(word, "ExDe")) {
 				ed_fread(fp, &obj->ed);
 				fMatch = TRUE;
+				break;
 			}
+
 			if (!str_cmp(word, "End")) {
-				if (IS_SET(obj->pIndexData->extra_flags,
-					   ITEM_QUEST))
-					obj->owner = str_dup(ch->name);
 				if (enchanted)
 					SET_BIT(obj->extra_flags,
 						ITEM_ENCHANTED);
@@ -1352,18 +1351,22 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 					bug("Fread_obj: incomplete object.", 0);
 					free_obj(obj);
 					return;
-				} else {
-					if (!fVnum) {
-						free_obj(obj);
-						obj = create_obj(get_obj_index(OBJ_VNUM_DUMMY), 0);
-					}
-
-					if (iNest == 0 || rgObjNest[iNest] == NULL)
-						obj_to_char(obj, ch);
-					else
-						obj_to_obj(obj, rgObjNest[iNest - 1]);
-					return;
 				}
+
+				if (!fVnum) {
+					free_obj(obj);
+					obj = create_obj(get_obj_index(OBJ_VNUM_DUMMY), 0);
+				}
+
+				if (IS_SET(obj->pIndexData->extra_flags,
+					   ITEM_QUEST))
+					obj->owner = str_dup(ch->name);
+
+				if (iNest == 0 || rgObjNest[iNest] == NULL)
+					obj_to_char(obj, ch);
+				else
+					obj_to_obj(obj, rgObjNest[iNest - 1]);
+				return;
 			}
 			break;
 
