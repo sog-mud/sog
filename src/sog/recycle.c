@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.151 2002-03-21 15:47:36 fjoe Exp $
+ * $Id: recycle.c,v 1.152 2002-07-16 05:56:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -402,7 +402,7 @@ fwrite_vars(avltree_t *vars, FILE *fp)
 
 		switch (var->type_tag) {
 		case MT_INT:
-			fprintf(fp, "%d", var->value.i);
+			fprintf(fp, "%d\n", var->value.i);
 			break;
 
 		case MT_STR:
