@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.44 1998-10-10 04:36:23 fjoe Exp $
+ * $Id: martial_art.c,v 1.45 1998-10-11 16:52:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1017,7 +1017,7 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 			disarm_second = 0;    
 	}
 	/* find weapon skills */
-	ch_weapon = get_weapon_skill(ch,get_weapon_sn(ch, WEAR_WIELD));
+	ch_weapon = get_weapon_skill(ch, get_weapon_sn(ch, WEAR_WIELD));
 
 	if (disarm_second) {
 		vict_weapon = get_weapon_skill(victim,
@@ -1060,7 +1060,7 @@ void do_disarm(CHAR_DATA *ch, const char *argument)
 		    ch, NULL, victim, TO_VICT);
 		act("$n tries to disarm $N, but fails.",
 		    ch, NULL, victim, TO_NOTVICT);
-		check_improve(ch,gsn_disarm,FALSE,1);
+		check_improve(ch, gsn_disarm, FALSE, 1);
 	}
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.78 1998-10-08 12:39:33 fjoe Exp $
+ * $Id: interp.c,v 1.79 1998-10-11 16:52:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -84,170 +84,170 @@ const	struct	cmd_type	cmd_table	[] =
     /*
      * Common movement commands.
      */
-    { "north",		do_north,	POS_STANDING,    0,  LOG_NEVER, 0, CMD_KEEP_HIDE|CMD_GHOST },
-    { "east",		do_east,	POS_STANDING,	 0,  LOG_NEVER, 0, CMD_KEEP_HIDE|CMD_GHOST },
-    { "south",		do_south,	POS_STANDING,	 0,  LOG_NEVER, 0, CMD_KEEP_HIDE|CMD_GHOST },
-    { "west",		do_west,	POS_STANDING,	 0,  LOG_NEVER, 0, CMD_KEEP_HIDE|CMD_GHOST },
-    { "up",		do_up,		POS_STANDING,	 0,  LOG_NEVER, 0, CMD_KEEP_HIDE|CMD_GHOST },
-    { "down",		do_down,	POS_STANDING,	 0,  LOG_NEVER, 0, CMD_KEEP_HIDE|CMD_GHOST },
+    { "north",		do_north,	POS_STANDING,    0,  LOG_NEVER, 0, CMD_KEEP_HIDE },
+    { "east",		do_east,	POS_STANDING,	 0,  LOG_NEVER, 0, CMD_KEEP_HIDE },
+    { "south",		do_south,	POS_STANDING,	 0,  LOG_NEVER, 0, CMD_KEEP_HIDE },
+    { "west",		do_west,	POS_STANDING,	 0,  LOG_NEVER, 0, CMD_KEEP_HIDE },
+    { "up",		do_up,		POS_STANDING,	 0,  LOG_NEVER, 0, CMD_KEEP_HIDE },
+    { "down",		do_down,	POS_STANDING,	 0,  LOG_NEVER, 0, CMD_KEEP_HIDE },
 
     /*
      * Common other commands.
      * Placed here so one and two letter abbreviations work.
      */
-    { "at",             do_at,          POS_DEAD,       L6,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST  },
-    { "cast",		do_cast,	POS_FIGHTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "auction",        do_auction,     POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_GHOST  },
-    { "buy",		do_buy,		POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "channels",       do_channels,    POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST},
-    { "dual",		do_second_wield,POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "exits",		do_exits,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "estimate",	do_estimate,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "get",		do_get,		POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "at",             do_at,          POS_DEAD,       L6,  LOG_NORMAL, 1, CMD_KEEP_HIDE  },
+    { "cast",		do_cast,	POS_FIGHTING,	 0,  LOG_NORMAL, 1, CMD_NOORDER },
+    { "auction",        do_auction,     POS_SLEEPING,    0,  LOG_NORMAL, 1, 0  },
+    { "buy",		do_buy,		POS_RESTING,	 0,  LOG_NORMAL, 1, 0 },
+    { "channels",       do_channels,    POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "dual",		do_second_wield,POS_RESTING,	 0,  LOG_NORMAL, 1, 0 },
+    { "exits",		do_exits,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "estimate",	do_estimate,	POS_RESTING,	 0,  LOG_NORMAL, 1, 0 },
+    { "get",		do_get,		POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
 
-    { "goto",           do_goto,        POS_DEAD,       L8,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "goto",           do_goto,        POS_DEAD,       L8,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "glist",          do_glist,       POS_DEAD,        0,  LOG_NEVER,  1, 0},
     { "group",          do_group,       POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
-    { "hit",		do_kill,	POS_FIGHTING,	 0,  LOG_NORMAL, 0, CMD_GHOST },
-    { "inventory",	do_inventory,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "kill",		do_kill,	POS_FIGHTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "look",		do_look,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "hit",		do_kill,	POS_FIGHTING,	 0,  LOG_NORMAL, 0, 0 },
+    { "inventory",	do_inventory,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "kill",		do_kill,	POS_FIGHTING,	 0,  LOG_NORMAL, 1, 0 },
+    { "look",		do_look,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "order",		do_order,	POS_RESTING,	 0,  LOG_NORMAL, 1,0},
     { "practice",       do_practice,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
-    { "rest",		do_rest,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "rest",		do_rest,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "repair",		do_repair,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
-    { "second",		do_second_wield,POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "sit",		do_sit,		POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_GHOST},
+    { "second",		do_second_wield,POS_RESTING,	 0,  LOG_NORMAL, 1, 0 },
+    { "sit",		do_sit,		POS_SLEEPING,    0,  LOG_NORMAL, 1, 0},
     { "smithing",	do_smithing,	POS_RESTING,	 0,  LOG_NORMAL, 1,0},
-    { "sockets",        do_sockets,	POS_DEAD,       L4,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST},
-    { "stand",		do_stand,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_GHOST},
-    { "tell",		do_tell,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "unlock",         do_unlock,      POS_RESTING,     0,  LOG_NORMAL, 1, CMD_GHOST},
-    { "wield",		do_wear,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "wizhelp",	do_wizhelp,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "language",	do_lang,	POS_DEAD,	0,   LOG_NORMAL, 1, CMD_GHOST},
+    { "sockets",        do_sockets,	POS_DEAD,       L4,  LOG_NORMAL, 1, CMD_KEEP_HIDE},
+    { "stand",		do_stand,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, 0},
+    { "tell",		do_tell,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_CHARMED_OK },
+    { "unlock",         do_unlock,      POS_RESTING,     0,  LOG_NORMAL, 1, 0},
+    { "wield",		do_wear,	POS_RESTING,	 0,  LOG_NORMAL, 1, 0 },
+    { "wizhelp",	do_wizhelp,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "language",	do_lang,	POS_DEAD,	0,   LOG_NORMAL, 1, 0},
 
     /*
      * Informational commands.
      */
-    { "affects",	do_affects,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "afk",		do_afk,		POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "areas",		do_areas,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "balance",	do_balance,	POS_STANDING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "bug",		do_bug,		POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "changes",	do_changes,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "commands",	do_commands,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "affects",	do_affects,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "afk",		do_afk,		POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "areas",		do_areas,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "balance",	do_balance,	POS_STANDING,	 0,  LOG_NORMAL, 1, 0 },
+    { "bug",		do_bug,		POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "changes",	do_changes,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "commands",	do_commands,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "compare",	do_compare,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "consider",	do_consider,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "concentrate",	do_concentrate,	POS_STANDING,	 0,  LOG_NORMAL, 1, 0 },
-    { "count",		do_count,	POS_SLEEPING,	HE,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "credits",	do_credits,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "date",		do_date,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "deposit",	do_deposit,	POS_STANDING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "equipment",	do_equipment,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "count",		do_count,	POS_SLEEPING,	HE,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "credits",	do_credits,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "date",		do_date,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "deposit",	do_deposit,	POS_STANDING,	 0,  LOG_NORMAL, 1, 0 },
+    { "equipment",	do_equipment,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "escape",		do_escape,	POS_FIGHTING,	 0,  LOG_NORMAL,1,0 },
-    { "examine",	do_examine,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST }, 
-    { "help",		do_help,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "idea",		do_idea,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "news",		do_news,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "raffects",	do_raffects,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "rating",		do_rating,	POS_DEAD,	ML,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "read",		do_look,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "report",		do_report,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "rules",		do_rules,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "scan",           do_scan,        POS_RESTING,     0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "oscore",		do_oscore,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "skills",		do_skills,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "speak",		do_speak,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "socials",	do_socials,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "show",		do_show,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "spells",		do_spells,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "time",		do_time,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "typo",		do_typo,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "weather",	do_weather,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "who",		do_who,		POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "whois",		do_whois,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "withdraw",	do_withdraw,	POS_STANDING,    0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "wizlist",	do_wizlist,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "worth",		do_worth,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "examine",	do_examine,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_CHARMED_OK }, 
+    { "help",		do_help,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "idea",		do_idea,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "news",		do_news,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "raffects",	do_raffects,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "rating",		do_rating,	POS_DEAD,	ML,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "read",		do_look,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "report",		do_report,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "rules",		do_rules,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "scan",           do_scan,        POS_RESTING,     0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "oscore",		do_oscore,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "skills",		do_skills,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "speak",		do_speak,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "socials",	do_socials,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "show",		do_show,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "spells",		do_spells,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "time",		do_time,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "typo",		do_typo,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "weather",	do_weather,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "who",		do_who,		POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "whois",		do_whois,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "withdraw",	do_withdraw,	POS_STANDING,    0,  LOG_NORMAL, 1, 0 },
+    { "wizlist",	do_wizlist,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "worth",		do_worth,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
 
     /*
      * Communication commands.
      */
     { "bearcall",       do_bear_call,   POS_FIGHTING,    0,  LOG_NORMAL, 1,0},
-    { "clan",		do_clan,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
-    { "=",		do_clan,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
-    { "clanlist",	do_clanlist,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
-    { "clanrecall",	do_crecall,	POS_FIGHTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "deaf",		do_deaf,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "emote",		do_emote,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "pmote",		do_pmote,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { ",",		do_emote,	POS_RESTING,	 0,  LOG_NORMAL, 0, CMD_GHOST },
-    { "gtell",		do_gtell,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { ";",		do_gtell,	POS_DEAD,	 0,  LOG_NORMAL, 0, CMD_GHOST },
-    { "note",		do_note,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "petitio",	do_petitio,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "petition",	do_petition,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_GHOST|CMD_NOORDER },
-    { "pose",		do_pose,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "promote",	do_promote,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "pray",           do_pray,        POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "reply",		do_reply,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "replay",		do_replay,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "say",		do_say,		POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "'",		do_say,		POS_RESTING,	 0,  LOG_NORMAL, 0, CMD_GHOST },
-    { "shout",		do_shout,	POS_DEAD,	 3,  LOG_NORMAL, 1, CMD_GHOST },
-    { ".",		do_shout,	POS_DEAD,	 3,  LOG_NORMAL, 1, CMD_GHOST },
-    { "music",		do_music,	POS_DEAD,	 3,  LOG_NORMAL, 1, CMD_GHOST },
-    { "gossip",		do_gossip,	POS_DEAD,	 3,  LOG_NORMAL, 1, CMD_GHOST },
-    { "motd",		do_motd,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "wake",		do_wake,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "clan",		do_clan,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "=",		do_clan,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "clanlist",	do_clanlist,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "clanrecall",	do_crecall,	POS_FIGHTING,	 0,  LOG_NORMAL, 1, 0 },
+    { "deaf",		do_deaf,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "emote",		do_emote,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_CHARMED_OK },
+    { "pmote",		do_pmote,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_CHARMED_OK },
+    { ",",		do_emote,	POS_RESTING,	 0,  LOG_NORMAL, 0, CMD_CHARMED_OK },
+    { "gtell",		do_gtell,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_CHARMED_OK },
+    { ";",		do_gtell,	POS_DEAD,	 0,  LOG_NORMAL, 0, CMD_CHARMED_OK },
+    { "note",		do_note,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "petitio",	do_petitio,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_CHARMED_OK },
+    { "petition",	do_petition,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_NOORDER },
+    { "pose",		do_pose,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_CHARMED_OK },
+    { "promote",	do_promote,	POS_DEAD,	 0,  LOG_NORMAL, 1, 0 },
+    { "pray",           do_pray,        POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "reply",		do_reply,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_CHARMED_OK },
+    { "replay",		do_replay,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_CHARMED_OK },
+    { "say",		do_say,		POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_CHARMED_OK },
+    { "'",		do_say,		POS_RESTING,	 0,  LOG_NORMAL, 0, CMD_CHARMED_OK },
+    { "shout",		do_shout,	POS_DEAD,	 3,  LOG_NORMAL, 1, CMD_CHARMED_OK },
+    { ".",		do_shout,	POS_DEAD,	 3,  LOG_NORMAL, 1, CMD_CHARMED_OK },
+    { "music",		do_music,	POS_DEAD,	 3,  LOG_NORMAL, 1, CMD_CHARMED_OK },
+    { "gossip",		do_gossip,	POS_DEAD,	 3,  LOG_NORMAL, 1, CMD_CHARMED_OK },
+    { "motd",		do_motd,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "wake",		do_wake,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "warcry",         do_warcry,      POS_FIGHTING,    0,  LOG_NORMAL, 1,0},
-    { "unread",		do_unread,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "yell",		do_yell,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "unread",		do_unread,	POS_SLEEPING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "yell",		do_yell,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_CHARMED_OK },
 
     /*
      * Configuration commands.
      */
-    { "alia",		do_alia,	POS_DEAD,	 0,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST },
-    { "alias",		do_alias,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "clear",		do_clear,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "cls",		do_clear,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "autolist",	do_autolist,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "color",		do_color,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "colour",		do_color,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "ansi",		do_color,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "autoassist",	do_autoassist,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "autoexit",	do_autoexit,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "autogold",	do_autogold,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "autoloot",	do_autoloot,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "autosac",	do_autosac,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "autosplit",	do_autosplit,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "brief",		do_brief,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "combine",	do_combine,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "compact",	do_compact,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "description",	do_description,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "delet",		do_delet,	POS_DEAD,	 0,  LOG_ALWAYS, 0, CMD_KEEP_HIDE|CMD_GHOST },
-    { "delete",		do_delete,	POS_STANDING,	 0,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST|CMD_NOORDER},
-    { "identify",	do_identify,	POS_STANDING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "long",		do_long,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "nofollow",	do_nofollow,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "noloot",		do_noloot,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "nosummon",	do_nosummon,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "noiac",		do_noiac,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "notelnet",	do_notelnet,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "outfit",		do_outfit,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "tick",		do_tick,	POS_DEAD,	ML,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "password",	do_password,	POS_DEAD,	 0,  LOG_NEVER,  1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "prompt",		do_prompt,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "quest",          do_quest,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST|CMD_NOORDER},
-    { "qui",		do_qui,		POS_DEAD,	 0,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST },
-    { "quit",		do_quit,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "quiet",		do_quiet,	POS_SLEEPING, 	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "scroll",		do_scroll,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "title",		do_title,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "twit",		do_twit,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "unalias",	do_unalias,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "wimpy",		do_wimpy,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "alia",		do_alia,	POS_DEAD,	 0,  LOG_NORMAL, 0, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "alias",		do_alias,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "clear",		do_clear,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "cls",		do_clear,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "autolist",	do_autolist,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "color",		do_color,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "colour",		do_color,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "ansi",		do_color,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "autoassist",	do_autoassist,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "autoexit",	do_autoexit,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "autogold",	do_autogold,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "autoloot",	do_autoloot,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "autosac",	do_autosac,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "autosplit",	do_autosplit,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "brief",		do_brief,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "combine",	do_combine,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "compact",	do_compact,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "description",	do_description,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "delet",		do_delet,	POS_DEAD,	 0,  LOG_ALWAYS, 0, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "delete",		do_delete,	POS_STANDING,	 0,  LOG_ALWAYS, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK|CMD_NOORDER},
+    { "identify",	do_identify,	POS_STANDING,	 0,  LOG_NORMAL, 1, 0 },
+    { "long",		do_long,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "nofollow",	do_nofollow,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "noloot",		do_noloot,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "nosummon",	do_nosummon,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "noiac",		do_noiac,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "notelnet",	do_notelnet,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "outfit",		do_outfit,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "tick",		do_tick,	POS_DEAD,	ML,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "password",	do_password,	POS_DEAD,	 0,  LOG_NEVER,  1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "prompt",		do_prompt,	POS_DEAD,        0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "quest",          do_quest,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_NOORDER},
+    { "qui",		do_qui,		POS_DEAD,	 0,  LOG_NORMAL, 0, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "quit",		do_quit,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "quiet",		do_quiet,	POS_SLEEPING, 	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "scroll",		do_scroll,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "title",		do_title,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "twit",		do_twit,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "unalias",	do_unalias,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "wimpy",		do_wimpy,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
 
 
     /*
@@ -259,10 +259,10 @@ const	struct	cmd_type	cmd_table	[] =
      * Miscellaneous commands.
      */
     { "endure",         do_endure,      POS_STANDING,    0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
-    { "enter", 		do_enter, 	POS_STANDING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "follow",		do_follow,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "enter", 		do_enter, 	POS_STANDING,	 0,  LOG_NORMAL, 1, 0 },
+    { "follow",		do_follow,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "gain",		do_gain,	POS_STANDING,	 0,  LOG_NORMAL, 1,0 },
-    { "go",		do_enter,	POS_STANDING,	 0,  LOG_NORMAL, 0, CMD_GHOST },
+    { "go",		do_enter,	POS_STANDING,	 0,  LOG_NORMAL, 0, 0 },
     { "fade",		do_fade,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "herbs",          do_herbs,       POS_STANDING,    0,  LOG_NORMAL, 1,0 },
     { "hara",           do_hara,        POS_STANDING,    0,  LOG_NORMAL,1,0 },
@@ -270,56 +270,56 @@ const	struct	cmd_type	cmd_table	[] =
     { "hide",		do_hide,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "human",          do_human,       POS_STANDING,    0,  LOG_NORMAL,1,0 },
     { "hunt",           do_hunt,        POS_STANDING,    0,  LOG_NORMAL,1,0 },
-    { "leave", 		do_enter, 	POS_STANDING,	 0,  LOG_NORMAL,1, CMD_GHOST },
+    { "leave", 		do_enter, 	POS_STANDING,	 0,  LOG_NORMAL,1, 0 },
     { "rent",		do_rent,	POS_DEAD,	 0,  LOG_NORMAL, 0,0 },
-    { "save",		do_save,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "sleep",		do_sleep,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "save",		do_save,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "sleep",		do_sleep,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "sneak",		do_sneak,	POS_STANDING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "split",		do_split,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
     { "steal",		do_steal,	POS_STANDING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "train",		do_train,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
     { "visible",	do_visible,	POS_SLEEPING,	 0,  LOG_NORMAL, 1,0 },
-    { "where",		do_where,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "where",		do_where,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     /*
      * Object manipulation commands.
      */
-    { "brandish",	do_brandish,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "brandish",	do_brandish,	POS_RESTING,	 0,  LOG_NORMAL, 1, 0 },
     { "butcher",        do_butcher,     POS_STANDING,    0,  LOG_NORMAL, 1,0 },
-    { "close",		do_close,	POS_RESTING,	 0,  LOG_NORMAL, 1,CMD_GHOST },
+    { "close",		do_close,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
     { "detect",         do_detect_hidden,POS_RESTING,    0,  LOG_NORMAL, 1,0},
-    { "drink",		do_drink,	POS_RESTING,	 0,  LOG_NORMAL, 1,CMD_GHOST },
-    { "drop",		do_drop,	POS_RESTING,	 0,  LOG_NORMAL, 1,CMD_GHOST },
-    { "eat",		do_eat,		POS_RESTING,	 0,  LOG_NORMAL, 1,CMD_GHOST },
+    { "drink",		do_drink,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
+    { "drop",		do_drop,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
+    { "eat",		do_eat,		POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
     { "enchant",	do_enchant, 	POS_RESTING,     0,  LOG_NORMAL, 1,0 },
     { "envenom",	do_envenom,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
-    { "fill",		do_fill,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "fly",		do_fly,		POS_FIGHTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "give",		do_give,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "fill",		do_fill,	POS_RESTING,	 0,  LOG_NORMAL, 1, 0 },
+    { "fly",		do_fly,		POS_FIGHTING,	 0,  LOG_NORMAL, 1, 0 },
+    { "give",		do_give,	POS_RESTING,	 0,  LOG_NORMAL, 1, 0 },
     { "heal",		do_heal,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 }, 
-    { "hold",		do_wear,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "hold",		do_wear,	POS_RESTING,	 0,  LOG_NORMAL, 1, 0 },
     { "layhands",	do_layhands,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
-    { "list",		do_list,	POS_RESTING,	 0,  LOG_NORMAL, 1,CMD_KEEP_HIDE | CMD_GHOST },
+    { "list",		do_list,	POS_RESTING,	 0,  LOG_NORMAL, 1,CMD_KEEP_HIDE },
     { "lock",		do_lock,	POS_RESTING,	 0,  LOG_NORMAL, 1, 0 },
     { "lore",           do_lore,        POS_RESTING,     0,  LOG_NORMAL, 1, 0 },
-    { "open",		do_open,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "pick",		do_pick,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "open",		do_open,	POS_RESTING,	 0,  LOG_NORMAL, 1, 0 },
+    { "pick",		do_pick,	POS_RESTING,	 0,  LOG_NORMAL, 1, 0 },
     { "pour",		do_pour,	POS_RESTING,	 0,  LOG_NORMAL, 1,CMD_KEEP_HIDE },
-    { "put",		do_put,		POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "quaff",		do_quaff,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "recite",		do_recite,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "remove",		do_remove,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "put",		do_put,		POS_RESTING,	 0,  LOG_NORMAL, 1, 0 },
+    { "quaff",		do_quaff,	POS_RESTING,	 0,  LOG_NORMAL, 1, 0 },
+    { "recite",		do_recite,	POS_RESTING,	 0,  LOG_NORMAL, 1, 0 },
+    { "remove",		do_remove,	POS_RESTING,	 0,  LOG_NORMAL, 1, 0 },
     { "request",        do_request,     POS_STANDING,    0,  LOG_NORMAL, 1,0 },
-    { "sell",		do_sell,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "take",		do_get,		POS_RESTING,	 0,  LOG_NORMAL, 1,CMD_KEEP_HIDE | CMD_GHOST },
+    { "sell",		do_sell,	POS_RESTING,	 0,  LOG_NORMAL, 1, 0 },
+    { "take",		do_get,		POS_RESTING,	 0,  LOG_NORMAL, 1,CMD_KEEP_HIDE },
     { "sacrifice",	do_sacrifice,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
     { "junk",           do_sacrifice,   POS_RESTING,     0,  LOG_NORMAL, 0,0 },
     { "trophy",         do_trophy,      POS_STANDING,    0,  LOG_NORMAL, 1,0 },
     { "value",		do_value,	POS_RESTING,	 0,  LOG_NORMAL, 1,0 },
-    { "wear",		do_wear,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "zap",		do_zap,		POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
+    { "wear",		do_wear,	POS_RESTING,	 0,  LOG_NORMAL, 1, 0 },
+    { "zap",		do_zap,		POS_RESTING,	 0,  LOG_NORMAL, 1, 0 },
 
-    { "recall",		do_recall,	POS_FIGHTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
-    { "/",		do_recall,	POS_FIGHTING,	 0,  LOG_NORMAL, 0, CMD_GHOST },
+    { "recall",		do_recall,	POS_FIGHTING,	 0,  LOG_NORMAL, 1, 0 },
+    { "/",		do_recall,	POS_FIGHTING,	 0,  LOG_NORMAL, 0, 0 },
 
     /*
      * Combat commands.
@@ -360,7 +360,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "rescue",		do_rescue,	POS_FIGHTING,	 0,  LOG_NORMAL, 0,0 },
     { "resistance",     do_resistance,  POS_FIGHTING,    0,  LOG_NORMAL, 0,0 },
     { "truesight",      do_truesight,   POS_FIGHTING,    0,  LOG_NORMAL, 0,0 },
-    { "thumbling",	do_thumbling,	POS_FIGHTING,	 0,  LOG_NORMAL, 0,CMD_KEEP_HIDE|CMD_GHOST },
+    { "thumbling",	do_thumbling,	POS_FIGHTING,	 0,  LOG_NORMAL, 0,CMD_KEEP_HIDE },
     { "shield",		do_shield,	POS_FIGHTING,	 0,  LOG_NORMAL, 1,0 },
     { "spellbane",      do_spellbane,   POS_FIGHTING,    0,  LOG_NORMAL, 0,0 },
     { "strangle",       do_strangle,    POS_STANDING,    0,  LOG_NORMAL, 1,0 },
@@ -379,79 +379,79 @@ const	struct	cmd_type	cmd_table	[] =
     /*
      * Immortal commands.
      */
-    { "advance",	do_advance,	POS_DEAD,	ML,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST }, 
-    { "set",		do_set,		POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "dump",		do_dump,	POS_DEAD,	ML,  LOG_ALWAYS, 0, CMD_KEEP_HIDE|CMD_GHOST },
-    { "rename",		do_rename,	POS_DEAD,	ML,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "violate",	do_violate,	POS_DEAD,	ML,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "advance",	do_advance,	POS_DEAD,	ML,  LOG_ALWAYS, 1, CMD_KEEP_HIDE }, 
+    { "set",		do_set,		POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "dump",		do_dump,	POS_DEAD,	ML,  LOG_ALWAYS, 0, CMD_KEEP_HIDE },
+    { "rename",		do_rename,	POS_DEAD,	ML,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "violate",	do_violate,	POS_DEAD,	ML,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
     { "track",          do_track,       POS_STANDING,    0,  LOG_NORMAL, 0,0 },
-    { "trust",		do_trust,	POS_DEAD,	ML,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "trust",		do_trust,	POS_DEAD,	ML,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
 
-    { "allow",		do_allow,	POS_DEAD,	L2,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "ban",		do_ban,		POS_DEAD,	L2,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "deny",		do_deny,	POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "disconnect",	do_disconnect,	POS_DEAD,	L3,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "freeze",		do_freeze,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "permban",	do_permban,	POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "protect",	do_protect,	POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "reboo",		do_reboo,	POS_DEAD,	L1,  LOG_NEVER, 0, CMD_KEEP_HIDE|CMD_GHOST },
-    { "reboot",		do_reboot,	POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "allow",		do_allow,	POS_DEAD,	L2,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "ban",		do_ban,		POS_DEAD,	L2,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "deny",		do_deny,	POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "disconnect",	do_disconnect,	POS_DEAD,	L3,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "freeze",		do_freeze,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "permban",	do_permban,	POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "protect",	do_protect,	POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "reboo",		do_reboo,	POS_DEAD,	L1,  LOG_NEVER, 0, CMD_KEEP_HIDE },
+    { "reboot",		do_reboot,	POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
     { "smite",		do_smite,	POS_DEAD,	L2,  LOG_ALWAYS, 1,0 },
-    { "limited",	do_limited,	POS_DEAD,	L2,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "popularity",	do_popularity,	POS_DEAD,	L2,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "shutdow",	do_shutdow,	POS_DEAD,	L1,  LOG_NEVER, 0, CMD_KEEP_HIDE|CMD_GHOST },
-    { "shutdown",	do_shutdown,	POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST},
-    { "wizlock",	do_wizlock,	POS_DEAD,	L2,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "affrooms",	do_affrooms,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "force",		do_force,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "load",		do_load,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "newlock",	do_newlock,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "noaffect",	do_noaffect,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "nochannels",	do_nochannels,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "notitle",	do_notitle,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "noemote",	do_noemote,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "noshout",	do_noshout,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "notell",		do_notell,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "pecho",		do_pecho,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST }, 
-    { "purge",		do_purge,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "restore",	do_restore,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "sla",		do_sla,		POS_DEAD,	L3,  LOG_NEVER, 0, CMD_KEEP_HIDE|CMD_GHOST },
-    { "slay",		do_slay,	POS_DEAD,	L3,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "teleport",	do_transfer,    POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },	
-    { "transfer",	do_transfer,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "poofin",		do_bamfin,	POS_DEAD,	L8,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "poofout",	do_bamfout,	POS_DEAD,	L8,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "gecho",		do_echo,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { ">",		do_echo,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "holylight",	do_holylight,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "incognito",	do_incognito,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "invis",		do_invis,	POS_DEAD,	IM,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST },
-    { "log",		do_log,		POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST  },
-    { "memory",		do_memory,	POS_DEAD,	IM,  LOG_NEVER, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "mwhere",		do_mwhere,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "owhere",		do_owhere,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "peace",		do_peace,	POS_DEAD,	L5,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "penalty",	do_penalty,	POS_DEAD,	L7,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "echo",		do_recho,	POS_DEAD,	L6,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "return",         do_return,      POS_DEAD,       L6,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "snoop",		do_snoop,	POS_DEAD,	ML,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST},
-    { "stat",		do_stat,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "string",		do_string,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "switch",		do_switch,	POS_DEAD,	L6,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "wizinvis",	do_invis,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "vnum",		do_vnum,	POS_DEAD,	L4,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "zecho",		do_zecho,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "clone",		do_clone,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "wiznet",		do_wiznet,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "immtalk",	do_immtalk,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "imotd",          do_imotd,       POS_DEAD,       IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { ":",		do_immtalk,	POS_DEAD,	IM,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST },
-    { "smote",		do_smote,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "prefi",		do_prefi,	POS_DEAD,	IM,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST },
-    { "prefix",		do_prefix,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "objlist",	do_objlist,	POS_DEAD,	ML,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "limited",	do_limited,	POS_DEAD,	L2,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "popularity",	do_popularity,	POS_DEAD,	L2,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "shutdow",	do_shutdow,	POS_DEAD,	L1,  LOG_NEVER, 0, CMD_KEEP_HIDE },
+    { "shutdown",	do_shutdown,	POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE},
+    { "wizlock",	do_wizlock,	POS_DEAD,	L2,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "affrooms",	do_affrooms,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "force",		do_force,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "load",		do_load,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "newlock",	do_newlock,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "noaffect",	do_noaffect,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "nochannels",	do_nochannels,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "notitle",	do_notitle,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "noemote",	do_noemote,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "noshout",	do_noshout,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "notell",		do_notell,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "pecho",		do_pecho,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE }, 
+    { "purge",		do_purge,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "restore",	do_restore,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "sla",		do_sla,		POS_DEAD,	L3,  LOG_NEVER, 0, CMD_KEEP_HIDE },
+    { "slay",		do_slay,	POS_DEAD,	L3,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "teleport",	do_transfer,    POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },	
+    { "transfer",	do_transfer,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "poofin",		do_bamfin,	POS_DEAD,	L8,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "poofout",	do_bamfout,	POS_DEAD,	L8,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "gecho",		do_echo,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { ">",		do_echo,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "holylight",	do_holylight,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "incognito",	do_incognito,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "invis",		do_invis,	POS_DEAD,	IM,  LOG_NORMAL, 0, CMD_KEEP_HIDE },
+    { "log",		do_log,		POS_DEAD,	L1,  LOG_ALWAYS, 1, CMD_KEEP_HIDE  },
+    { "memory",		do_memory,	POS_DEAD,	IM,  LOG_NEVER, 1, CMD_KEEP_HIDE },
+    { "mwhere",		do_mwhere,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "owhere",		do_owhere,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "peace",		do_peace,	POS_DEAD,	L5,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "penalty",	do_penalty,	POS_DEAD,	L7,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "echo",		do_recho,	POS_DEAD,	L6,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "return",         do_return,      POS_DEAD,       L6,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "snoop",		do_snoop,	POS_DEAD,	ML,  LOG_ALWAYS, 1, CMD_KEEP_HIDE},
+    { "stat",		do_stat,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "string",		do_string,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "switch",		do_switch,	POS_DEAD,	L6,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "wizinvis",	do_invis,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "vnum",		do_vnum,	POS_DEAD,	L4,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "zecho",		do_zecho,	POS_DEAD,	L4,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "clone",		do_clone,	POS_DEAD,	L5,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "wiznet",		do_wiznet,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "immtalk",	do_immtalk,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "imotd",          do_imotd,       POS_DEAD,       IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { ":",		do_immtalk,	POS_DEAD,	IM,  LOG_NORMAL, 0, CMD_KEEP_HIDE },
+    { "smote",		do_smote,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "prefi",		do_prefi,	POS_DEAD,	IM,  LOG_NORMAL, 0, CMD_KEEP_HIDE },
+    { "prefix",		do_prefix,	POS_DEAD,	IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
+    { "objlist",	do_objlist,	POS_DEAD,	ML,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "settraps",	do_settraps,	POS_STANDING,	 0,  LOG_NORMAL, 1,0},
-    { "slook",		do_slook,	POS_SLEEPING,	 0,  LOG_NORMAL, 1,CMD_KEEP_HIDE|CMD_GHOST},
+    { "slook",		do_slook,	POS_SLEEPING,	 0,  LOG_NORMAL, 1,CMD_KEEP_HIDE},
     { "learn",		do_learn,	POS_STANDING,	 0,  LOG_NORMAL, 1,0},
     { "teach",		do_teach,	POS_STANDING,	 0,  LOG_NORMAL, 1,0},
     { "camp",		do_camp,  	POS_STANDING,    0,  LOG_NORMAL, 1,0 },
@@ -460,11 +460,11 @@ const	struct	cmd_type	cmd_table	[] =
     { "demand",         do_demand,      POS_STANDING,    0,  LOG_NORMAL, 1,0 },
     { "bandage",        do_bandage,     POS_FIGHTING,    0,  LOG_NORMAL, 1,0 },
     { "shoot",          do_shoot,       POS_STANDING,    0,  LOG_NORMAL, 1,0 },
-    { "find",		do_find,	POS_DEAD,	ML,  LOG_ALWAYS, 1, CMD_KEEP_HIDE|CMD_GHOST },
-    { "score",		do_score,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "find",		do_find,	POS_DEAD,	ML,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "score",		do_score,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
     { "katana",		do_katana, 	POS_STANDING,    0,  LOG_NORMAL, 1,0 },
     { "control",       	do_control,	POS_STANDING,    0,  LOG_NORMAL, 1,0 },
-    { "ititle",		do_ititle,	POS_DEAD,	IM,  LOG_NORMAL, 1,CMD_KEEP_HIDE|CMD_GHOST },
+    { "ititle",		do_ititle,	POS_DEAD,	IM,  LOG_NORMAL, 1,CMD_KEEP_HIDE },
     { "sense",          do_sense,       POS_RESTING,     0,  LOG_NORMAL, 1,0},
 
     { "mpdump",		do_mpdump,	POS_DEAD,	IM,  LOG_NEVER,  1, 0 },
@@ -477,16 +477,16 @@ const	struct	cmd_type	cmd_table	[] =
     /*
      * OLC
      */
-    { "edit",		do_edit,	POS_DEAD,   IM,  LOG_ALWAYS, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "create",		do_create,	POS_DEAD,   IM,  LOG_ALWAYS, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "asave",          do_asave,	POS_DEAD,   IM,  LOG_ALWAYS, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "alist",		do_alist,	POS_DEAD,   IM,  LOG_NEVER, 1, CMD_KEEP_HIDE | CMD_GHOST },
-    { "resets",		do_resets,	POS_DEAD,   IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE | CMD_GHOST },
+    { "edit",		do_edit,	POS_DEAD,   IM,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "create",		do_create,	POS_DEAD,   IM,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "asave",          do_asave,	POS_DEAD,   IM,  LOG_ALWAYS, 1, CMD_KEEP_HIDE },
+    { "alist",		do_alist,	POS_DEAD,   IM,  LOG_NEVER, 1, CMD_KEEP_HIDE },
+    { "resets",		do_resets,	POS_DEAD,   IM,  LOG_NORMAL, 1, CMD_KEEP_HIDE },
 
     /*
      * End of list.
      */
-    { str_empty,		0,		POS_DEAD,    0,  LOG_NORMAL, 0, CMD_KEEP_HIDE|CMD_GHOST }
+    { str_empty,		0,		POS_DEAD,    0,  LOG_NORMAL, 0, CMD_KEEP_HIDE }
 };
 
 
@@ -567,7 +567,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	for (cmd = 0; cmd_table[cmd].name[0] != '\0'; cmd++) {
 		if (command[0] != cmd_table[cmd].name[0]
 		||  str_prefix(command, cmd_table[cmd].name)
-		||   cmd_table[cmd].level > trust)
+		||  cmd_table[cmd].level > trust)
 			continue;
 
 #if 0
@@ -580,34 +580,23 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 			if (number_percent() < get_curr_stat(ch, STAT_CHA)
 #endif
 
-         	/*
- 	         * Implement charmed mobs commands.
-       		 */
-		if (!is_order && IS_AFFECTED(ch,AFF_CHARM)
-		&&  cmd_table[cmd].do_fun != do_return
-		&&  cmd_table[cmd].do_fun != do_tell
-		&&  cmd_table[cmd].do_fun != do_reply
-		&&  cmd_table[cmd].do_fun != do_gtell
-		&&  cmd_table[cmd].do_fun != do_say
-		&&  cmd_table[cmd].do_fun != do_socials
-		&&  cmd_table[cmd].do_fun != do_emote 
-		&&  cmd_table[cmd].do_fun != do_clan
-		&&  cmd_table[cmd].do_fun != do_gossip
-		&&  cmd_table[cmd].do_fun != do_music
-		&&  cmd_table[cmd].do_fun != do_shout
-		&&  cmd_table[cmd].do_fun != do_yell
-		&&  cmd_table[cmd].do_fun != do_immtalk
-		&&  cmd_table[cmd].do_fun != do_who
-		&&  cmd_table[cmd].do_fun != do_whois ) {
-			char_puts("First ask to your beloved master!\n\r", ch);
-			return;
+		if (is_order) {
+			if (IS_SET(cmd_table[cmd].extra, CMD_NOORDER)
+			||  cmd_table[cmd].level >= LEVEL_IMMORTAL)
+				return;
+		}
+		else {
+			if (IS_AFFECTED(ch, AFF_CHARM)
+			&&  !IS_SET(cmd_table[cmd].extra, CMD_CHARMED_OK)
+			&&  cmd_table[cmd].level < LEVEL_IMMORTAL) {
+				char_puts("First ask your beloved master!\n\r",
+					  ch);
+				return;
+			}
 		}
 
-		if (is_order && IS_SET(cmd_table[cmd].extra, CMD_NOORDER))
-			return;
-
-		if (IS_AFFECTED(ch,AFF_STUN) 
-		&& !(cmd_table[cmd].extra & CMD_KEEP_HIDE)) {
+		if (IS_AFFECTED(ch, AFF_STUN) 
+		&&  !(cmd_table[cmd].extra & CMD_KEEP_HIDE)) {
 			char_puts("You are STUNNED to do that.\n\r", ch);
 			return;
 		}
@@ -628,16 +617,6 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 			act("$n fades into existence.",
 			    ch, NULL, NULL, TO_ROOM);
 		}
-
-#if 0
-		/* prevent ghosts from doing a bunch of commands */
-		if (!IS_NPC(ch) && IS_SET(ch->act, PLR_GHOST)
-		&&  (cmd_table[cmd].extra & CMD_GHOST) == 0) {
-			char_puts("You cannot do that while you are ghost.\n\r",
-				  ch);
-			return;
-		}
-#endif
 
 		found = TRUE;
 		break;
@@ -671,7 +650,8 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		if (!check_social(ch, command, argument)) {
 			char_puts("Huh?\n\r", ch);
 			return;
-		} else
+		}
+		else
 			return;
 	}
 

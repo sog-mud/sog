@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.81 1998-10-10 04:36:22 fjoe Exp $
+ * $Id: fight.c,v 1.82 1998-10-11 16:52:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -427,7 +427,6 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 
 	if (ch->fighting != victim)
 		return;
-
 
 	/* Area attack -- BALLS nasty! */
 

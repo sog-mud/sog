@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.40 1998-10-10 06:25:07 fjoe Exp $
+ * $Id: obj_prog.c,v 1.41 1998-10-11 16:52:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1645,7 +1645,8 @@ int remove_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 int wear_prog_quest_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (!str_cmp(obj->owner, ch->name))  {
-		char_puts("Your weapon starts glowing.\n\r",ch);
+		act_puts("Your weapon starts glowing.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		     if (                  ch->level <= 20) obj->value[2] = 3;
 		else if (ch->level > 20 && ch->level <= 30) obj->value[2] = 4;
 		else if (ch->level > 30 && ch->level <= 40) obj->value[2] = 5;
@@ -1668,7 +1669,7 @@ int wear_prog_quest_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 int get_prog_quest_reward(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg) 
 {
 	if (!str_cmp(obj->owner, ch->name))  {
-		act_puts("Your $p starts glowing.\n\r",
+		act_puts("Your $p starts glowing.",
 			 ch, obj, NULL, TO_CHAR, POS_SLEEPING);
 		return 0;
 	}

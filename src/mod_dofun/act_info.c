@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.142 1998-10-10 04:36:20 fjoe Exp $
+ * $Id: act_info.c,v 1.143 1998-10-11 16:52:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -772,7 +772,7 @@ void do_wizlist(CHAR_DATA *ch, const char *argument)
 /* RT this following section holds all the auto commands from ROM, as well as
    replacements for config */
 #define do_print_sw(ch, swname, sw) \
-		char_printf(ch, "%-16s {r%s{x\n\r", swname, sw ? "ON" : "OFF");
+		char_printf(ch, "%-16s %s\n\r", swname, sw ? "ON" : "OFF");
 void do_autolist(CHAR_DATA *ch, const char *argument)
 {
 	/* lists most player flags */
@@ -2186,16 +2186,10 @@ void do_description(CHAR_DATA *ch, const char *argument)
 
 void do_report(CHAR_DATA *ch, const char *argument)
 {
-	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-		   "$n says '{GI have {c%d/%d{z hp {c%d/%d{z mana {c%d/%d{z mv.{x'",
-		   ch->hit, ch->max_hit,
-		   ch->mana, ch->max_mana,
-		   ch->move, ch->max_move);
-	act_printf(ch, NULL, NULL, TO_CHAR, POS_DEAD,
-		   "You say '{GI have {c%d/%d{z hp {c%d/%d{z mana {c%d/%d{z mv.{x'",
-		   ch->hit, ch->max_hit,
-		   ch->mana, ch->max_mana,
-		   ch->move, ch->max_move);
+	doprintf(do_say, ch, "I have %d/%d hp %d/%d mana %d/%d mv.",
+		 ch->hit, ch->max_hit,
+		 ch->mana, ch->max_mana,
+		 ch->move, ch->max_move);
 }
 
 /*

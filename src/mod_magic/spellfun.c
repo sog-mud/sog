@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.64 1998-10-09 15:34:32 fjoe Exp $
+ * $Id: spellfun.c,v 1.65 1998-10-11 16:52:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -88,12 +88,6 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	if ((cl = class_lookup(ch->class)) == NULL)
 		return;
 
-	/*
-	 * Switched NPC's can cast spells, but others can't.
-	 */
-	if (IS_NPC(ch) && ch->desc == NULL)
-		return;
-
 	if (is_affected(ch, gsn_shielding)) {
 		char_puts("You reach for the True Source and feel something stopping you.\n\r", ch);
 		return;
@@ -113,6 +107,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_NPC(ch)) {
+		if (ch->wait)
+			return;
 		sn = sn_lookup(arg1);
 		chance = get_skill(ch, sn);
 	}

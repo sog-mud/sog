@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.79 1998-10-10 04:36:21 fjoe Exp $
+ * $Id: act_obj.c,v 1.80 1998-10-11 16:52:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -78,8 +78,8 @@ bool can_loot(CHAR_DATA * ch, OBJ_DATA * obj)
 	 * only by owners
 	 */
 	if (obj->in_room != NULL
-	&& IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA)
-	&& obj->owner != NULL && str_cmp(ch->name, obj->owner))
+	&&  IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA)
+	&&  obj->owner != NULL && str_cmp(ch->name, obj->owner))
 		return FALSE;
 
 	return TRUE;
@@ -137,45 +137,20 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 			}
 	}
 	if (container != NULL) {
-		if (container->pIndexData->vnum == OBJ_VNUM_INVADER_SKULL
-		    || container->pIndexData->vnum == OBJ_VNUM_RULER_STAND
-		    || container->pIndexData->vnum == OBJ_VNUM_BATTLE_THRONE
-		    || container->pIndexData->vnum == OBJ_VNUM_CHAOS_ALTAR
-		    || container->pIndexData->vnum == OBJ_VNUM_SHALAFI_ALTAR
-		    || container->pIndexData->vnum == OBJ_VNUM_KNIGHT_ALTAR
-		    || container->pIndexData->vnum == OBJ_VNUM_LIONS_ALTAR
-		    || container->pIndexData->vnum == OBJ_VNUM_HUNTER_ALTAR) {
-			act_puts("You get $p from $P.",
-				 ch, obj, container, TO_CHAR, POS_DEAD);
-				    
-			if (!IS_AFFECTED(ch, AFF_SNEAK))
-				act("$n gets $p from $P.",
-				    ch, obj, container, TO_ROOM);
-			obj_from_obj(obj);
-			act("$p fades to black, then dissapears!", ch,
-			    container, NULL, TO_ROOM);
-			act("$p fades to black, then dissapears!", ch,
-			    container, NULL, TO_CHAR);
-			extract_obj(container);
-			obj_to_char(obj, ch);
-
-			oprog_call(OPROG_GET, obj, ch, NULL);
-			return;
-		}
 		if (obj_is_pit(container)
 		&&  !CAN_WEAR(container, ITEM_TAKE)
 		&&  !IS_OBJ_STAT(obj, ITEM_HAD_TIMER))
 			obj->timer = 0;
 		act_puts("You get $p from $P.",
 			 ch, obj, container, TO_CHAR, POS_DEAD);
-		if (!IS_AFFECTED(ch, AFF_SNEAK))
-			act("$n gets $p from $P.", ch, obj, container, TO_ROOM);
+		act("$n gets $p from $P.", ch, obj, container,
+		    TO_ROOM | IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0);
 		REMOVE_BIT(obj->extra_flags, ITEM_HAD_TIMER);
 		obj_from_obj(obj);
 	} else {
 		act_puts("You get $p.", ch, obj, container, TO_CHAR, POS_DEAD);
-		if (!IS_AFFECTED(ch, AFF_SNEAK))
-			act("$n gets $p.", ch, obj, container, TO_ROOM);
+		act("$n gets $p.", ch, obj, container,
+		    TO_ROOM | IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0);
 		obj_from_room(obj);
 	}
 
@@ -514,8 +489,8 @@ void drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	obj_from_char(obj);
 	obj_to_room(obj, ch->in_room);
 
-	if (!IS_AFFECTED(ch, AFF_SNEAK))
-		act("$n drops $p.", ch, obj, NULL, TO_ROOM);
+	act("$n drops $p.", ch, obj, NULL,
+	    TO_ROOM | IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0);
 	act_puts("You drop $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
 
 	if (obj->pIndexData->vnum == OBJ_VNUM_POTION_VIAL
@@ -540,14 +515,14 @@ void drop_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	oprog_call(OPROG_DROP, obj, ch, NULL);
 
 	if (!may_float(obj) && cant_float(obj) && IS_WATER(ch->in_room)) {
-		if (!IS_AFFECTED(ch, AFF_SNEAK))
-			act("$p sinks down the water.", ch, obj, NULL, TO_ROOM);
+		act("$p sinks down the water.", ch, obj, NULL,
+		    TO_ROOM | IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0);
 		act("$p sinks down the water.", ch, obj, NULL, TO_CHAR);
 		extract_obj(obj);
 	}
 	else if (IS_OBJ_STAT(obj, ITEM_MELT_DROP)) {
-		if (!IS_AFFECTED(ch, AFF_SNEAK))
-			act("$p dissolves into smoke.", ch, obj, NULL, TO_ROOM);
+		act("$p dissolves into smoke.", ch, obj, NULL,
+		    TO_ROOM | IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0);
 		act("$p dissolves into smoke.", ch, obj, NULL, TO_CHAR);
 		extract_obj(obj);
 	}
@@ -628,13 +603,14 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 
 		obj = create_money(gold, silver);
 		obj_to_room(obj, ch->in_room);
-		if (!IS_AFFECTED(ch, AFF_SNEAK))
-			act("$n drops some coins.", ch, NULL, NULL, TO_ROOM);
+		act("$n drops some coins.", ch, NULL, NULL,
+		    TO_ROOM | IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0);
 		char_puts("Ok.\n\r", ch);
 		if (IS_WATER(ch->in_room)) {
 			extract_obj(obj);
-			if (!IS_AFFECTED(ch, AFF_SNEAK))
-				act("The coins sink down, and disapear in the water.", ch, NULL, NULL, TO_ROOM);
+			act("The coins sink down, and disapear in the water.",
+			    ch, NULL, NULL,
+			    TO_ROOM | IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0);
 			act_puts("The coins sink down, and disapear in the water.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		}
@@ -778,18 +754,22 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		}
 		return;
 	}
+
 	if ((obj = get_obj_carry(ch, arg1)) == NULL) {
 		char_puts("You do not have that item.\n\r", ch);
 		return;
 	}
+
 	if (obj->wear_loc != WEAR_NONE) {
 		char_puts("You must remove it first.\n\r", ch);
 		return;
 	}
+
 	if ((victim = get_char_room(ch, arg2)) == NULL) {
 		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
+
 	if (IS_NPC(victim) && victim->pIndexData->pShop != NULL
 	&&  !HAS_TRIGGER(victim, TRIG_GIVE)) {
 		do_tell_raw(victim, ch, "Sorry, you'll have to sell that.");
@@ -800,22 +780,33 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		char_puts("You can't let go of it.\n\r", ch);
 		return;
 	}
+
 	if (victim->carry_number + get_obj_number(obj) > can_carry_n(victim)) {
 		act("$N has $S hands full.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
+
 	if (get_carry_weight(victim) + get_obj_weight(obj) > can_carry_w(victim)) {
 		act("$N can't carry that much weight.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
+
+	if (IS_SET(obj->pIndexData->extra_flags, ITEM_QUEST)
+	&&  !IS_IMMORTAL(victim)) {
+		act_puts("Even you are not that silly to give $p to $N.",
+			 ch, obj, victim, TO_CHAR, POS_DEAD);
+		return;
+	}
+
 	if (!can_see_obj(victim, obj)) {
 		act("$N can't see it.", ch, NULL, victim, TO_CHAR);
 		return;
 	}
+
 	if (obj->pIndexData->limit != -1) {
 		if ((IS_OBJ_STAT(obj, ITEM_ANTI_EVIL) && IS_EVIL(victim))
-		    || (IS_OBJ_STAT(obj, ITEM_ANTI_GOOD) && IS_GOOD(victim))
-		    || (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(victim))) {
+		||  (IS_OBJ_STAT(obj, ITEM_ANTI_GOOD) && IS_GOOD(victim))
+		||  (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(victim))) {
 			char_puts("Your victim's alignment doesn't match the objects align.", ch);
 			return;
 		}
@@ -923,8 +914,8 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 			af.bitvector = WEAPON_POISON;
 			affect_to_obj(obj, &af);
 
-			if (!IS_AFFECTED(ch, AFF_SNEAK))
-				act("$n coats $p with deadly venom.", ch, obj, NULL, TO_ROOM);
+			act("$n coats $p with deadly venom.", ch, obj, NULL,
+			    TO_ROOM | IS_AFFECTED(ch, AFF_SNEAK) ? SKIP_MORTAL : 0);
 			act("You coat $p with venom.", ch, obj, NULL, TO_CHAR);
 			check_improve(ch, sn, TRUE, 3);
 			return;

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.68 1998-10-10 06:25:06 fjoe Exp $
+ * $Id: handler.c,v 1.69 1998-10-11 16:52:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1902,8 +1902,6 @@ void extract_char_org(CHAR_DATA *ch, bool fPull, bool Count)
 	return;
 }
 
-
-
 /*
  * Find a char in the room.
  */
@@ -1927,9 +1925,9 @@ CHAR_DATA *get_char_room(CHAR_DATA *ch, const char *argument)
 	if (!str_cmp(arg, "ugly"))
 		ugly = TRUE;
 
-	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room) {
+	for (rch = ch->in_room->people; rch; rch = rch->next_in_room) {
 		if (!can_see(ch, rch))
-		    continue;
+			continue;
 
 		if (ugly && (count + 1) == number
 		&&  is_affected(rch, gsn_vampire))
@@ -1939,7 +1937,7 @@ CHAR_DATA *get_char_room(CHAR_DATA *ch, const char *argument)
 			continue;
 
 		if (++count == number)
-		    return rch;
+			return rch;
 	}
 
 	return NULL;
@@ -3079,12 +3077,12 @@ bool saves_spell(int level, CHAR_DATA *victim, int dam_type)
 	int save;
 
 	save = 40 + (victim->level - level) * 4 - 
-		(victim->saving_throw * 90) / UMAX(45,victim->level);
+		(victim->saving_throw * 90) / UMAX(45, victim->level);
 
-	if (IS_AFFECTED(victim,AFF_BERSERK))
+	if (IS_AFFECTED(victim, AFF_BERSERK))
 		save += victim->level / 5;
 
-	switch(check_immune(victim,dam_type)) {
+	switch(check_immune(victim, dam_type)) {
 	case IS_IMMUNE:
 		return TRUE;
 	case IS_RESISTANT:

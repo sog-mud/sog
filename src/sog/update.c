@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.71 1998-10-09 13:42:44 fjoe Exp $
+ * $Id: update.c,v 1.72 1998-10-11 16:52:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1190,9 +1190,9 @@ void char_update(void)
 			if (ch->in_room == NULL)
 				continue;
 
-			act("The witch curse makes $n feel $s life slipping away.\n\r",
+			act("The witch curse makes $n feel $s life slipping away.",
 			    ch, NULL, NULL, TO_ROOM);
-			char_puts("The witch curse makes you feeling your life slipping away.\n\r", ch); 
+			char_puts("The witch curse makes you feeling your life slipping away.\n\r", ch);
 	
 			for (af = ch->affected; af!= NULL; af = af->next)
 				if (af->type == gsn_witch_curse)
