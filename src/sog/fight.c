@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202.2.49 2001-12-18 11:47:14 tatyana Exp $
+ * $Id: fight.c,v 1.202.2.50 2001-12-18 18:15:47 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2989,10 +2989,14 @@ int sharp_claws(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
 	||  get_eq_char(ch, WEAR_WIELD) != NULL)
 		return dam;
 
-	if (number_percent() < 9 * chance / 10 + (get_curr_stat(ch, STAT_DEX)
-				- get_curr_stat(victim, STAT_DEX)) * 3) {
+	if (number_percent() < 14 * chance / 15 + (get_curr_stat(ch, STAT_DEX)
+				- get_curr_stat(victim, STAT_DEX)) * 2) {
 
 		dam = dam * number_range(3, 5) / 2;
+
+		if (dam == 0)
+			return dam;
+
 		act("You scratches $N by your sharp claws.",
 		    ch, NULL, victim, TO_CHAR);
 		act("$n scratches your by $gn{his} sharp claws.",
