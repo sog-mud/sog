@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Nirvana~
 VNUMs 9000 9099
 Credits Fstall~
@@ -269,14 +269,20 @@ D1
 To the east, the plane extends for what seems to be forever.
 ~
 ~
+~
+~
 Z -1 9001
 D3
 To the west, the plane extends for what seems to be forever.
 ~
 ~
+~
+~
 Z -1 9002
 D5
 Downwards, you see the portal leading back to home.
+~
+~
 ~
 ~
 Z -1 8905
@@ -291,9 +297,13 @@ D1
 To the east, there seems to be a bend in direction of travel.
 ~
 ~
+~
+~
 Z -1 9003
 D3
 To the west, the plane seems to extend forever.
+~
+~
 ~
 ~
 Z -1 9000
@@ -308,9 +318,13 @@ D1
 The plane seems to strech forever to the east
 ~
 ~
+~
+~
 Z -1 9000
 D3
 The plane continues to the west where is appears to change direction
+~
+~
 ~
 ~
 Z -1 9004
@@ -325,9 +339,13 @@ D0
 The plane continues to the north with no end in sight
 ~
 ~
+~
+~
 Z -1 9005
 D3
 The plane contiues to the west with no end in sight
+~
+~
 ~
 ~
 Z -1 9001
@@ -341,9 +359,13 @@ D0
 The vast plane seems to have no end to the north
 ~
 ~
+~
+~
 Z -1 9006
 D1
 To the east, the plane has no visible end
+~
+~
 ~
 ~
 Z -1 9002
@@ -357,9 +379,13 @@ D0
 To the north, the plane stretches as far as the eye can see.
 ~
 ~
+~
+~
 Z -1 9012
 D2
 To the south, the plane stretches as far as the eye can see.
+~
+~
 ~
 ~
 Z -1 9003
@@ -373,9 +399,13 @@ D0
 To the north, the plane stretches as far as the eye can see.
 ~
 ~
+~
+~
 Z -1 9013
 D2
 To the south, the plane stretches as far as the eye can see.
+~
+~
 ~
 ~
 Z -1 9004
@@ -390,11 +420,15 @@ D1
 The hall continues east into oblivion.
 ~
 ~
+~
+~
 Z -1 9010
 D3
 A great door lies to the west
 ~
 door~
+~
+~
 AFZ -1 9013
 S
 #9008
@@ -407,9 +441,13 @@ D1
 A great door lies to the east
 ~
 door~
+~
+~
 AFZ -1 9012
 D3
 the hallway continues west into oblivion.
+~
+~
 ~
 ~
 Z -1 9009
@@ -423,9 +461,13 @@ D1
 The hallway continues east into oblivion.
 ~
 ~
+~
+~
 Z -1 9008
 D3
 The Hallway continues west into oblivion.
+~
+~
 ~
 ~
 Z -1 9011
@@ -438,9 +480,13 @@ D1
 The Hallway contiues east into oblivion
 ~
 ~
+~
+~
 Z -1 9011
 D3
 The Hallway contiues west into oblivion
+~
+~
 ~
 ~
 Z -1 9007
@@ -455,14 +501,20 @@ D0
 The passage continues to the north where it seems to get wider.
 ~
 ~
+~
+~
 Z -1 9023
 D1
 The passage ontinues eastward into oblivion.
 ~
 ~
+~
+~
 Z -1 9009
 D3
 The passage continues westward into oblivion.
+~
+~
 ~
 ~
 Z -1 9010
@@ -485,9 +537,13 @@ D0
 The plane continues northward as far as the eye can see.
 ~
 ~
+~
+~
 Z -1 9014
 D2
 The plane continues southward as far as the eye can see.
+~
+~
 ~
 ~
 Z -1 9005
@@ -495,6 +551,8 @@ D3
 A mighty door lies to the west
 ~
 door~
+~
+~
 AFZ -1 9008
 S
 #9013
@@ -514,14 +572,20 @@ D0
 The plane stretches to the north as far as the eye can see.
 ~
 ~
+~
+~
 Z -1 9015
 D1
 A mighty door sits to the east
 ~
 door~
+~
+~
 AFZ 0 9007
 D2
 The plane continues to the south as far as the eye can see
+~
+~
 ~
 ~
 Z -1 9006
@@ -535,9 +599,13 @@ D0
 The plane continues endlessly to the north.
 ~
 ~
+~
+~
 Z -1 9027
 D2
 The plane continues endlessly to the south.
+~
+~
 ~
 ~
 Z -1 9012
@@ -551,9 +619,13 @@ D0
 The plane continues endlessly to the north
 ~
 ~
+~
+~
 Z -1 9028
 D2
 The plane continues endlessly to the south
+~
+~
 ~
 ~
 Z -1 9013
@@ -567,6 +639,8 @@ D3
 The passage continue to the west.
 ~
 ~
+~
+~
 Z -1 9018
 S
 #9017
@@ -576,6 +650,8 @@ You are at what appears to be a dead end.  The only exit is back east.
 0 D inside
 D1
 The passage continues to the east.
+~
+~
 ~
 ~
 Z -1 9019
@@ -590,9 +666,13 @@ D1
 The passage continues to the east
 ~
 ~
+~
+~
 Z -1 9016
 D3
 The passage leads west where you can see a bright light ahead.
+~
+~
 ~
 ~
 Z -1 9020
@@ -607,9 +687,13 @@ D1
 The passage continues eastward where you can see a bright light.
 ~
 ~
+~
+~
 Z -1 9020
 D3
 The passage continues westward into oblivion.
+~
+~
 ~
 ~
 Z -1 9017
@@ -625,9 +709,13 @@ D0
 A passage leads north into the unknown.
 ~
 ~
+~
+~
 Z -1 9024
 D1
 A passage leads east into the unknown.
+~
+~
 ~
 ~
 Z -1 9018
@@ -635,9 +723,13 @@ D2
 A passage leads south into the unknown.
 ~
 ~
+~
+~
 Z -1 9021
 D3
 A passage leads west into the unknown.
+~
+~
 ~
 ~
 Z -1 9019
@@ -652,9 +744,13 @@ D0
 The passage leads north where you can see a bright light.
 ~
 ~
+~
+~
 Z -1 9020
 D2
 The passage leads south into the unknown.
+~
+~
 ~
 ~
 Z -1 9022
@@ -671,9 +767,13 @@ D0
 The passage heads northward where you can see nothing.
 ~
 ~
+~
+~
 Z -1 9021
 D1
 The passage goes east where you feel it might be bad to go.
+~
+~
 ~
 ~
 Z -1 9046
@@ -681,9 +781,13 @@ D2
 The passage goes south into oblivion.
 ~
 ~
+~
+~
 Z -1 9023
 D3
 The passage heads westward into oblivion.
+~
+~
 ~
 ~
 Z -1 9053
@@ -697,9 +801,13 @@ D0
 To the north, you spy an intersection of tunnels.
 ~
 ~
+~
+~
 Z -1 9022
 D2
 To the south you can barely make out a junction of passageways.
+~
+~
 ~
 ~
 Z -1 9011
@@ -713,9 +821,13 @@ D0
 To the north, you can make out a intersection of tunnels.
 ~
 ~
+~
+~
 Z -1 9025
 D2
 To the south, you can see a bright light.
+~
+~
 ~
 ~
 Z -1 9020
@@ -729,13 +841,19 @@ D0
 Far to the north you can see a door.
 ~
 ~
+~
+~
 Z -1 9026
 D2
 To the south you stare into darkness.
 ~
 ~
+~
+~
 Z -1 9024
 D3
+~
+~
 ~
 ~
 Z 0 9039
@@ -750,14 +868,20 @@ D0
 you see a massive door
 ~
 door~
+~
+~
 AFZ 0 9031
 D1
 To the east, you spy a dark passage
 ~
 ~
+~
+~
 Z -1 9032
 D2
 To the south you stare into oblivion.
+~
+~
 ~
 ~
 Z -1 9025
@@ -771,9 +895,13 @@ D2
 looking south, you see the plane extending beyond view.
 ~
 ~
+~
+~
 Z -1 9014
 D3
 looking west, you can't fathom how far the plane extends.
+~
+~
 ~
 ~
 Z -1 9030
@@ -787,9 +915,13 @@ D1
 The plane heads east from here. You can't see the end of it.
 ~
 ~
+~
+~
 Z -1 9029
 D2
 Looking south, you view the plane extending for miles.
+~
+~
 ~
 ~
 Z -1 9015
@@ -803,9 +935,13 @@ D1
 looking east, you spy a door far off in the distance.
 ~
 ~
+~
+~
 Z -1 9031
 D3
 looking west, in the distance you can spy a curve south.
+~
+~
 ~
 ~
 Z -1 9028
@@ -819,9 +955,13 @@ D1
 looking east, you can see a bend in the distance.
 ~
 ~
+~
+~
 Z -1 9027
 D3
 glancing west, you can spy a door far off in the distance.
+~
+~
 ~
 ~
 Z -1 9031
@@ -835,14 +975,20 @@ D1
 looking east, you see more of the passage.
 ~
 ~
+~
+~
 Z -1 9030
 D2
 A large door blocks the way to the south.
 ~
 door~
+~
+~
 AFZ 0 9026
 D3
 looking west, you see more of the passage.
+~
+~
 ~
 ~
 Z -1 9029
@@ -856,9 +1002,13 @@ D0
 Looking north, you spy a small room in the distance
 ~
 ~
+~
+~
 Z -1 9033
 D1
 Eastward, the passage continues in the darkness.
+~
+~
 ~
 ~
 Z -1 9035
@@ -866,9 +1016,13 @@ D2
 South of here is a small room.
 ~
 ~
+~
+~
 Z -1 9034
 D3
 West, you spy an intersection.
+~
+~
 ~
 ~
 Z -1 9026
@@ -882,6 +1036,8 @@ D2
 looking south, you see an intersection.
 ~
 ~
+~
+~
 Z -1 9032
 S
 #9034
@@ -891,6 +1047,8 @@ The only exit is north
 0 D inside
 D0
 Looking north, you spy an intersection.
+~
+~
 ~
 ~
 Z -1 9032
@@ -904,9 +1062,13 @@ D0
 Looking north you spy a average sized room.
 ~
 ~
+~
+~
 Z -1 9036
 D1
 Looking east, you can make out a large room
+~
+~
 ~
 ~
 Z -1 9038
@@ -914,9 +1076,13 @@ D2
 Looking south, you can see an average room.
 ~
 ~
+~
+~
 Z -1 9037
 D3
 Looking west, you can see an intersection ahead.
+~
+~
 ~
 ~
 Z -1 9032
@@ -932,6 +1098,8 @@ D2
 Looking south, you can make out a passage.
 ~
 ~
+~
+~
 Z -1 9035
 S
 #9037
@@ -941,6 +1109,8 @@ A makeshift desk forms the center of this room.  The only exit is north.
 0 D inside
 D0
 Looking north, you can make out a hallway.
+~
+~
 ~
 ~
 Z -1 9035
@@ -956,6 +1126,8 @@ D3
 Looking west you can see a long hallway
 ~
 ~
+~
+~
 Z -1 9035
 S
 #9039
@@ -967,8 +1139,12 @@ D0
 To the north, you spy a small room
 ~
 ~
+~
+~
 Z -1 9040
 D1
+~
+~
 ~
 ~
 Z 0 9025
@@ -976,9 +1152,13 @@ D2
 To the south you see a small room
 ~
 ~
+~
+~
 Z -1 9041
 D3
 To the west, the passageway continues
+~
+~
 ~
 ~
 Z -1 9042
@@ -993,6 +1173,8 @@ D2
 To the south you can make out a junction.
 ~
 ~
+~
+~
 Z -1 9039
 S
 #9041
@@ -1003,6 +1185,8 @@ exit lies to the north.
 0 D inside
 D0
 To the north you see a junction.
+~
+~
 ~
 ~
 Z -1 9039
@@ -1016,9 +1200,13 @@ D0
 You can see a room to the north.
 ~
 ~
+~
+~
 Z -1 9043
 D1
 To the east you can see a junction
+~
+~
 ~
 ~
 Z -1 9039
@@ -1026,9 +1214,13 @@ D2
 To the south you can make out a averaged sized room.
 ~
 ~
+~
+~
 Z -1 9044
 D3
 To the west you can see what appears to be a cavernous room.
+~
+~
 ~
 ~
 Z -1 9045
@@ -1044,6 +1236,8 @@ D2
 To the south you can see junction
 ~
 ~
+~
+~
 Z -1 9042
 S
 #9044
@@ -1055,6 +1249,8 @@ overtakes you as you enter the room.  The only exit lies to the north.
 0 D inside
 D0
 To the north you can visualize a junction of passages.
+~
+~
 ~
 ~
 Z -1 9042
@@ -1069,6 +1265,8 @@ D1
 To the east you can see a junction
 ~
 ~
+~
+~
 Z -1 9042
 S
 #9046
@@ -1081,9 +1279,13 @@ D0
 To the north you can see a small chamber
 ~
 ~
+~
+~
 Z -1 9047
 D1
 To the east, the passage continues,.
+~
+~
 ~
 ~
 Z -1 9049
@@ -1091,9 +1293,13 @@ D2
 To the south, a chamber can be seen
 ~
 ~
+~
+~
 Z -1 9048
 D3
 To the west, a large tunnel can be found.
+~
+~
 ~
 ~
 Z -1 9022
@@ -1108,6 +1314,8 @@ D2
 To the south you can see a passage.
 ~
 ~
+~
+~
 Z -1 9046
 S
 #9048
@@ -1118,6 +1326,8 @@ only exit lies to the north
 0 D inside
 D0
 To the north you can see a passageway.
+~
+~
 ~
 ~
 Z -1 9046
@@ -1132,9 +1342,13 @@ D0
 To the north you can see a room
 ~
 ~
+~
+~
 Z -1 9050
 D1
 To the east you can make out a large chamber
+~
+~
 ~
 ~
 Z -1 9052
@@ -1142,9 +1356,13 @@ D2
 To the south, a room can be seen.
 ~
 ~
+~
+~
 Z -1 9051
 D3
 to the west, the passageway continues
+~
+~
 ~
 ~
 Z -1 9046
@@ -1159,6 +1377,8 @@ D2
 To the south you can see a passageway.
 ~
 ~
+~
+~
 Z -1 9049
 S
 #9051
@@ -1169,6 +1389,8 @@ northbound.
 0 D inside
 D0
 To the north you can see a passage.
+~
+~
 ~
 ~
 Z -1 9049
@@ -1183,6 +1405,8 @@ D3
 To the west you can see a passageway.
 ~
 ~
+~
+~
 Z -1 9049
 S
 #9053
@@ -1194,9 +1418,13 @@ D0
 To the north lies a small chamber
 ~
 ~
+~
+~
 Z -1 9054
 D1
 To the east, a main passage forms a junction.
+~
+~
 ~
 ~
 Z -1 9022
@@ -1204,9 +1432,13 @@ D2
 To the south, you can spot a small room
 ~
 ~
+~
+~
 Z -1 9055
 D3
 To the west, the passageway continues
+~
+~
 ~
 ~
 Z -1 9059
@@ -1220,6 +1452,8 @@ D2
 To the south you can see a passage
 ~
 ~
+~
+~
 Z -1 9053
 S
 #9055
@@ -1229,6 +1463,8 @@ You are in a small, crowded room.  The only exit appears to lie to the north.
 0 D inside
 D0
 To the north, you can see a passageway.
+~
+~
 ~
 ~
 Z -1 9053
@@ -1243,6 +1479,8 @@ D2
 To the south you can visualize a east-west passage.
 ~
 ~
+~
+~
 Z -1 9059
 S
 #9057
@@ -1253,6 +1491,8 @@ The only exit lies to the north.
 0 D inside
 D0
 To the north you can make out a passageway.
+~
+~
 ~
 ~
 Z -1 9059
@@ -1268,6 +1508,8 @@ D1
 To the east you can spot a hallway
 ~
 ~
+~
+~
 Z -1 9059
 S
 #9059
@@ -1279,9 +1521,13 @@ D0
 To the north lies a large chamber
 ~
 ~
+~
+~
 Z -1 9056
 D1
 To the east , the passage continues.
+~
+~
 ~
 ~
 Z -1 9053
@@ -1289,9 +1535,13 @@ D2
 To the south, a small chamber can be found.
 ~
 ~
+~
+~
 Z -1 9057
 D3
 To the west, lies a monstrous room.
+~
+~
 ~
 ~
 Z -1 9058

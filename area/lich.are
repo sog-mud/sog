@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Lich Tower~
 VNUMs 29300 29399
 Credits Ryzen~
@@ -534,251 +534,373 @@ g male~
 
 #ROOMS
 #29350
-Before the Tower~
-You stand before a grand, black tower.  The terror rising up inside of
+@eng Before the Tower@rus Приближаясь к башне~
+@eng You stand before a grand, black tower.  The terror rising up inside of
 your soul is nearly overwhelming as you stare at its obsidian form.  The
 tower walls project an aura of death and evil making you feel quite
 insignificant.  To the north a large mountain has sprouted from the ground
 to block all hopes of passage.  You may go back east to the path, or
 continue west under an archway.  (LOOK CROSS!!!) 
+@rus Величественная черная башня, выстроенная целиком из обсидиана,
+возвышается перед тобой. Глядя на ее очертания, ты чувствуешь
+суеверный ужас перед зловещей магией, охраняющей ее стены. Ощу-
+щение полнейшей беспомощности и обреченности овладевает тобой.
+Путь на север упирается в огромную гору. и у тебя остается лишь
+два выхода: повернуть назад, либо же войти под своды башни.
 ~
 0 0 inside
 D1
+~
+~
 ~
 ~
 Z 0 2309
 D3
 ~
 ~
+~
+~
 Z 0 29351
 S
 #29351
-Beneath the Archway~
-The walls of this room disappear above you, completing an arch somewhere
+@eng Beneath the Archway@rus Сводчатый вход~
+@eng The walls of this room disappear above you, completing an arch somewhere
 in the darkness over your head.  Thorn covered vines hang from the walls in
 thick entanglements; you find yourself getting scratched in the most
 annoying of places.  From the west comes the faint light of torches, and
 from the north you hear what can only be described as an unholy growl.  
+@rus Стены уходят ввысь, образуя арку где-то в темноте над твоей
+головой. Густо переплетенные между собой и усеянные шипами лозы
+свисают со стен тут и там, не оставляя возможности пройти даль-
+ше, не оцарапавшись. Мерцающий свет факелов виден на западе, а
+с севера доносится грозное рычание какой-то бестии.
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 Z 0 29352
 D1
 ~
 ~
+~
+~
 Z 0 29350
 D3
+~
+~
 ~
 ~
 Z 0 29353
 S
 #29352
-The Dracolich's Lair~
-You find yourself in awe of the treasure and artifacts amassed in this
+@eng The Dracolich's Lair@rus Логово драколича~
+@eng You find yourself in awe of the treasure and artifacts amassed in this
 room.  One object of truly unusual looks catches your eye.  It appears to be
 a set of gigantic riding equipment, including a large saddle.  Just as you
 are wondering what could possibly fill that saddle, you notice the tremendous
 form of a dracolich towering above you.  The only exit is south, under the
 archway.  
+@rus Вид бесчисленных сокровищ и артефактов, хранящихся в этой
+комнате, заставляет тебя трепетать. Ты вертишь головой в
+разные стороны, пока твой взгляд не останавливается на ком-
+плекте необычно большого ездового снаряжения, включающем и
+огромное седло. Пытаясь представить животное, для которого
+предназначено это седло, ты наконец замечаешь громадного
+драколича, возвышающегося над тобой. Единственный выход от-
+сюда - назад, на юг.
 ~
 0 D inside
 D2
+~
+~
 ~
 ~
 Z 0 29351
 S
 #29353
-The Entrance Hall~
-A large carpet covers the floor in this room.  The carpet depicts armies
+@eng The Entrance Hall@rus Вестибюль~
+@eng A large carpet covers the floor in this room.  The carpet depicts armies
 of humans and demi-humans being slaughtered by horrible undead hoards. 
 Torches hang on the walls surrounded by old shields and weapons, artifacts
 from battles long past.  Two exits lead from the room, one south and one
 west.  From where you stand it is impossible to see what type of rooms lie
 beyond.  
+@rus Пол застелен большим ковром, на котором изображены орды нежити,
+изничтожающие армии людей и полу-людей. В промежутках между факелами,
+стены увешаны древними щитами и оружием, наследием давно минувших
+битв. Готические арки ведут на юг и запад, но ты не можешь разгля-
+деть, что находится за ними оттуда, где стоишь.
 ~
 0 D inside
 D1
+~
+~
 ~
 ~
 Z 0 29351
 D2
 ~
 ~
+~
+~
 Z 0 29354
 D3
+~
+~
 ~
 ~
 Z 0 29356
 S
 #29354
-The Dining Hall~
-This room looks like what used to be a dining hall.  A thick layer of
+@eng The Dining Hall@rus Обеденный зал~
+@eng This room looks like what used to be a dining hall.  A thick layer of
 dust lines the table settings, stating that the hall is never used anymore. 
 To the west is the entrance to the kitchen and to your north is the entrance
 hall.  
+@rus Похоже, когда-то эта комната служила обеденным залом. Сейчас
+же толстый слой пыли покрывает всю мебель, говоря о годах, про-
+шедших с тех времен, когда эту комнату использовали в последний
+раз. Дверь в западной стене ведет на кухню, на севере же нахо-
+дится вестибюль.
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 Z 0 29353
 D3
 ~
 ~
+~
+~
 Z 0 29355
 S
 #29355
-The Kitchen~
-You reflexively reach for your nose as the stench of rotting food
+@eng The Kitchen@rus Кухня~
+@eng You reflexively reach for your nose as the stench of rotting food
 assaults your senses.  You break into a run towards the nearest exit, hoping
 for fresh air.  To the north are the stairs, east is the dining hall, and a
 large storage room lies open to the south.  
+@rus Ты инстинктивно тянешься прикрыть нос от запаха гниющей
+пищи и немедля бежишь к ближайшему выходу за глотком свежего
+воздуха. Краем глаза ты замечаешь лестницу на севере и подо-
+бие кладовой на юге.
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 Z 0 29356
 D1
 ~
 ~
+~
+~
 Z 0 29354
 D2
+~
+~
 ~
 ~
 Z 0 29369
 S
 #29356
-The Bottom of the Stairs~
-A flight of stairs winds away into the darkness above you.  A stronger
+@eng The Bottom of the Stairs@rus У подножия лестницы~
+@eng A flight of stairs winds away into the darkness above you.  A stronger
 sense of evil comes from up the steps.  You can go south to the kitchen,
 east to the entrance hall, or up into the unknown.  
+@rus Бесчисленные ступени уводят выше и выше, исчезая в темноте,
+откуда вполне ощутимо веет чем-то зловещим. Ты можешь вернуться
+в вестибюль, на кухню, или же наверх, к неизвестности.
 ~
 0 D inside
 D1
 ~
 ~
+~
+~
 Z 0 29353
 D2
+~
+~
 ~
 ~
 Z 0 29355
 D4
 ~
 ~
+~
+~
 Z 0 29357
 S
 #29357
-On the Stairs~
-The steps continue into blackness up or down and there is a small flicker
+@eng On the Stairs@rus Поднимаясь по ступеням~
+@eng The steps continue into blackness up or down and there is a small flicker
 of light entering the room from a doorway east.  This whole area seems
 unnaturally quiet scaring you more than any screams of death you have ever
 heard.  
+@rus Ступени ведут вверх и вниз, скрываясь в темноте уже в нескольких
+шагах от тебя. Слабый мерцающий свет факела едва доходит сюда из-за
+двери на востоке и неестественная тишина вокруг пугает тебя больше,
+чем кровавые сцены убийств, виденные ранее.
 ~
 0 D inside
 D1
+~
+~
 ~
 ~
 Z 0 29362
 D4
 ~
 ~
+~
+~
 Z 0 29358
 D5
+~
+~
 ~
 ~
 Z 0 29356
 S
 #29358
-On the Stairs~
-You continue your way on the stairs.  Listening intently, you think you
+@eng On the Stairs@rus Поднимаясь по ступеням~
+@eng You continue your way on the stairs.  Listening intently, you think you
 hear what sounds like the screams of damned and tortured souls to the south
 and east.  
+@rus Ты взбираешься все выше по лестнице, и ужасные стоны истязаемых
+здесь слышны особенно отчетливо.
 ~
 0 D inside
 D1
+~
+~
 ~
 ~
 Z 0 29365
 D2
 ~
 ~
+~
+~
 Z 0 29363
 D4
+~
+~
 ~
 ~
 Z 0 29359
 D5
 ~
 ~
+~
+~
 Z 0 29357
 S
 #29359
-The Top of the Stairs~
-You have reached the top of the stairs.  To the south and east are long
+@eng The Top of the Stairs@rus Наверху лестницы~
+@eng You have reached the top of the stairs.  To the south and east are long
 hallways and the stairs lead back down into darkness.  
+@rus Ты поднялся на самый верх и увидел два длинных коридора,
+уводящие на восток и юг.
 ~
 0 D inside
 D1
+~
+~
 ~
 ~
 Z 0 29368
 D2
 ~
 ~
+~
+~
 Z 0 29366
 D5
+~
+~
 ~
 ~
 Z 0 29358
 S
 #29360
-Lich's Study~
-This small room is virtually covered in books and scrolls, each marked in
+@eng Lich's Study@rus Кабинет~
+@eng This small room is virtually covered in books and scrolls, each marked in
 various places with notes.  A few oil lamps burn here and there, providing
 light for the owner of the tower.  A large desk sits near the western wall,
 while a closet has been carved into the wall to the south.  The only exit
 appears to be back into the library to the east.  
+@rus Сотни свитков и испещренных пометками книг занимают практически
+все место. Несколько масляных ламп производят необходимый свет,
+позволяя тебе увидеть большой стол напротив входа и шкаф в южной
+стене. Единственный выход отсюда - тот, через который ты вошел.
 ~
 0 D inside
 D1
 ~
 ~
+~
+~
 Z 0 29361
 S
 #29361
-The Library~
-Even after seeing the first room of the library, you are still in
+@eng The Library@rus Библиотека~
+@eng Even after seeing the first room of the library, you are still in
 astonishment of the racks of scrolls that are scattered about this room. 
 Various tables line the walls, providing study space for anyone doing
 research here.  The library continues to the north and a small archway leads
 west into a study.  
+@rus Обилие свитков, унизывающих расставленные тут и там стойки
+повергает тебя в еще большее изумление, чем в предыдущей ком-
+нате. Несколько столов стоят вдоль стен, обеспечивая удобное
+место для изучения всей этой информации. Библиотека тянется
+дальше на север, а на западе виден кабинет.
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 Z 0 29362
 D3
 ~
 ~
+~
+~
 Z 0 29360
 S
 #29362
-The Library~
-The size of the shelves in this library is astounding.  They span the
+@eng The Library@rus Библиотека~
+@eng The size of the shelves in this library is astounding.  They span the
 entire length of both the north and east walls.  The collection of books
 accumulated here is amazing.  To the south the library continues, while the
 stairs are back to the west.  
+@rus Размеры стоящих здесь стеллажей повергают тебя в благоговейный
+трепет. Полки занимают северную и восточную стены от пола до по-
+толка, и тянутся от одного угла до другого. Ты даже не можешь
+представить сколько информации собрано в этом помещении. Библио-
+тека тянется дальше на юг, а выход находится на западе от тебя.
 ~
 0 D inside
 D2
 ~
 ~
+~
+~
 Z 0 29361
 D3
+~
+~
 ~
 ~
 Z 0 29357
@@ -793,8 +915,12 @@ only exits are north, to the stairs, and east, to the torture chamber.
 D0
 ~
 ~
+~
+~
 Z 0 29358
 D1
+~
+~
 ~
 ~
 Z 0 29364
@@ -811,8 +937,12 @@ summoning rooms provide exit to the north and west.
 D0
 ~
 ~
+~
+~
 Z 0 29365
 D3
+~
+~
 ~
 ~
 Z 0 29363
@@ -828,8 +958,12 @@ chamber.
 D2
 ~
 ~
+~
+~
 Z 0 29364
 D3
+~
+~
 ~
 ~
 Z 0 29358
@@ -843,8 +977,12 @@ to the north and a large set of double doors are to the east.
 D0
 ~
 ~
+~
+~
 Z 0 29359
 D1
+~
+~
 ~
 ~
 ABZ 0 29367
@@ -861,8 +999,12 @@ doors to your north or west.
 D0
 ~
 ~
+~
+~
 ABZ 0 29368
 D3
+~
+~
 ~
 ~
 ABZ 0 29366
@@ -876,8 +1018,12 @@ to the west and a large set of doors block your way south.
 D2
 ~
 ~
+~
+~
 ABZ 0 29367
 D3
+~
+~
 ~
 ~
 Z 0 29359
@@ -893,8 +1039,12 @@ kitchen or south into the dark tunnel.
 D0
 ~
 ~
+~
+~
 Z 0 29355
 D2
+~
+~
 ~
 ~
 Z 0 29370
@@ -910,8 +1060,12 @@ pit.
 D0
 ~
 ~
+~
+~
 Z 0 29369
 D5
+~
+~
 ~
 ~
 Z 0 29371
@@ -925,8 +1079,12 @@ that you can make out is a tunnel running in a south direction.
 D2
 ~
 ~
+~
+~
 Z 0 29372
 D4
+~
+~
 ~
 ~
 Z 0 29370
@@ -941,8 +1099,12 @@ the light.
 D0
 ~
 ~
+~
+~
 Z 0 29371
 D2
+~
+~
 ~
 ~
 Z 0 29373
@@ -959,8 +1121,12 @@ realms of hell is for them to make it through the maze of caverns below you.
 D0
 ~
 ~
+~
+~
 Z 0 29372
 D5
+~
+~
 ~
 ~
 Z 0 22000

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Chapel~
 VNUMs 3400 3499
 Credits Copper~
@@ -668,10 +668,14 @@ D0
 The chapel door is made of dark wood.
 ~
 door~
+~
+~
 ABCZ -1 3604
 D5
 ~
 altar~
+the altar~
+~
 ABCFZ 3430 3421
 S
 #3408
@@ -682,8 +686,12 @@ You sense even more danger coming from below but are urged onward ...
 D3
 ~
 door~
+~
+~
 ABCZ 3411 3449
 D5
+~
+~
 ~
 ~
 Z 0 3450
@@ -713,8 +721,12 @@ The stench of death is heavy in these caverns.
 D1
 ~
 ~
+~
+~
 Z 0 3415
 D2
+~
+~
 ~
 ~
 Z 0 3411
@@ -725,6 +737,8 @@ The stench of death is heavy in these caverns.
 ~
 0 ADN inside
 D0
+~
+~
 ~
 ~
 Z 0 3410
@@ -748,11 +762,15 @@ That's odd ... they seem a little GREEN.
 D1
 ~
 ~
+~
+~
 Z 0 3417
 D2
 A door to the south
 ~
 door~
+~
+~
 ABZ -1 3413
 S
 #3413
@@ -767,10 +785,14 @@ lies overturned and smashed.  Doors lead to the south and to the north.
 D0
 ~
 north~
+the north~
+~
 ABZ -1 3412
 D2
 ~
 south~
+the south~
+~
 Z -1 3414
 S
 #3414
@@ -791,8 +813,12 @@ slaughtered!'
 D0
 ~
 door north~
+~
+~
 Z 0 3413
 D1
+~
+~
 ~
 ~
 Z 0 3419
@@ -805,12 +831,18 @@ The stench of death is heavy in these caverns.
 D1
 ~
 ~
+~
+~
 Z 0 3420
 D2
 ~
 ~
+~
+~
 Z 0 3416
 D3
+~
+~
 ~
 ~
 Z 0 3410
@@ -830,10 +862,14 @@ claw marks.
 D0
 ~
 ~
+~
+~
 Z 0 3415
 D4
 ~
 tunnel~
+the tunnel~
+~
 Z -1 3418
 S
 #3417
@@ -845,8 +881,12 @@ the east and west in this gloomy hallway.
 D1
 ~
 ~
+~
+~
 Z 0 3422
 D3
+~
+~
 ~
 ~
 Z 0 3412
@@ -883,10 +923,14 @@ peace.  May the Gods remember him forever ...'
 D2
 ~
 ~
+~
+~
 Z 0 3419
 D5
 ~
 staircase~
+the staircase~
+~
 ABZ -1 3416
 S
 #3419
@@ -897,12 +941,18 @@ Everything here has simply been destroyed.   Exits lead north and west.
 D0
 ~
 ~
+~
+~
 Z 0 3418
 D2
 ~
 ~
+~
+~
 Z 0 4600
 D3
+~
+~
 ~
 ~
 Z 0 3414
@@ -915,8 +965,12 @@ The stench of death is heavy in these caverns.
 D1
 ~
 ~
+~
+~
 Z 0 3425
 D3
+~
+~
 ~
 ~
 Z 0 3415
@@ -965,12 +1019,16 @@ D2
 Finely polished oak doors stand to the south.
 ~
 oak~
+the oak~
+~
 ABZ -1 3422
 D4
 You see a large set of stone stairs leading upwards to a small stone door at
 the top. 
 ~
 stone trapdoor door~
+the stone~
+~
 ABCFZ 3410 3405
 S
 #3422
@@ -984,8 +1042,12 @@ has been kept well by acolytes, there remains a stench of the undead.
 D0
 ~
 oak~
+the oak~
+~
 ABZ -1 3421
 D1
+~
+~
 ~
 ~
 Z 0 3427
@@ -994,8 +1056,12 @@ The door has written above it: 'May all the lands thank Crotus the Victor.
 Without his guidance this kingdom would not have stood.'
 ~
 door~
+~
+~
 ABZ -1 3423
 D3
+~
+~
 ~
 ~
 Z 0 3417
@@ -1012,8 +1078,12 @@ turned to the dark ways in his dying years ... and died an evil man.
 D0
 ~
 door~
+~
+~
 ABZ -1 3422
 D2
+~
+~
 ~
 ~
 Z 0 3424
@@ -1027,8 +1097,12 @@ A hole has been knocked into the east wall.
 D0
 ~
 ~
+~
+~
 Z 0 3423
 D1
+~
+~
 ~
 ~
 Z 0 3429
@@ -1041,8 +1115,12 @@ The stench of death is heavy in these caverns.
 D2
 ~
 ~
+~
+~
 Z 0 3426
 D3
+~
+~
 ~
 ~
 Z 0 3420
@@ -1055,8 +1133,12 @@ The stench of death is heavy in these caverns.
 D0
 ~
 ~
+~
+~
 Z 0 3425
 D1
+~
+~
 ~
 ~
 Z 0 3430
@@ -1070,12 +1152,18 @@ door and to the east and west the hall continues.
 D1
 ~
 ~
+~
+~
 Z 0 3432
 D2
 ~
 door~
+~
+~
 ABZ -1 3428
 D3
+~
+~
 ~
 ~
 Z 0 3422
@@ -1091,12 +1179,18 @@ A small opening has been shaped carefully to the east.
 D0
 ~
 door~
+~
+~
 ABZ -1 3427
 D1
 ~
 ~
+~
+~
 Z 0 3433
 D2
+~
+~
 ~
 ~
 Z 0 3429
@@ -1112,8 +1206,12 @@ only a rectangular blemish on the floor of the dusty room.
 D0
 ~
 ~
+~
+~
 Z 0 3428
 D3
+~
+~
 ~
 ~
 Z 0 3424
@@ -1126,12 +1224,18 @@ The stench of death is heavy in these caverns.
 D1
 ~
 ~
+~
+~
 Z 0 3435
 D2
 ~
 ~
+~
+~
 Z 0 3431
 D3
+~
+~
 ~
 ~
 Z 0 3426
@@ -1144,8 +1248,12 @@ The stench of death is heavy in these caverns.
 D0
 ~
 ~
+~
+~
 Z 0 3430
 D1
+~
+~
 ~
 ~
 Z 0 3436
@@ -1158,8 +1266,12 @@ You are still walking through the gloomy hallway.
 D1
 ~
 ~
+~
+~
 Z 0 3437
 D3
+~
+~
 ~
 ~
 Z 0 3427
@@ -1174,8 +1286,12 @@ almost make out the design!
 D1
 ~
 ~
+~
+~
 Z 0 3438
 D3
+~
+~
 ~
 ~
 Z 0 3428
@@ -1189,6 +1305,8 @@ open, ripped to pieces.  Gnawed pieces of flesh and bone are strewn here.
 D5
 ~
 ~
+~
+~
 Z 0 3439
 S
 #3435
@@ -1199,12 +1317,18 @@ The stench of death is heavy in these caverns.
 D1
 ~
 ~
+~
+~
 Z 0 3440
 D2
 ~
 ~
+~
+~
 Z 0 3436
 D3
+~
+~
 ~
 ~
 Z 0 3430
@@ -1217,12 +1341,18 @@ The stench of death is heavy in these caverns.
 D0
 ~
 ~
+~
+~
 Z 0 3435
 D1
 ~
 ~
+~
+~
 Z 0 3441
 D3
+~
+~
 ~
 ~
 Z 0 3431
@@ -1236,8 +1366,12 @@ door leading north and the hallway continues west.
 D0
 ~
 door~
+~
+~
 ABZ -1 3409
 D3
+~
+~
 ~
 ~
 Z 0 3432
@@ -1252,8 +1386,12 @@ altar is crumbled.
 D2
 ~
 ~
+~
+~
 Z 0 3439
 D3
+~
+~
 ~
 ~
 Z 0 3433
@@ -1268,8 +1406,12 @@ Jubal the Benevolent is missing his head!
 D0
 ~
 ~
+~
+~
 Z 0 3438
 D4
+~
+~
 ~
 ~
 Z 0 3434
@@ -1282,12 +1424,18 @@ The stench of death is heavy in these caverns.
 D1
 ~
 ~
+~
+~
 Z 0 3445
 D2
 ~
 ~
+~
+~
 Z 0 3441
 D3
+~
+~
 ~
 ~
 Z 0 3435
@@ -1300,12 +1448,18 @@ The stench of death is heavy in these caverns.
 D0
 ~
 ~
+~
+~
 Z 0 3440
 D1
 ~
 ~
+~
+~
 Z 0 3446
 D3
+~
+~
 ~
 ~
 Z 0 3436
@@ -1318,8 +1472,12 @@ The stench of death is heavy in these caverns.
 D1
 ~
 ~
+~
+~
 Z 0 3447
 D2
+~
+~
 ~
 ~
 Z 0 3443
@@ -1332,8 +1490,12 @@ The stench of death is heavy in these caverns.
 D0
 ~
 ~
+~
+~
 Z 0 3442
 D2
+~
+~
 ~
 ~
 Z 0 3444
@@ -1346,8 +1508,12 @@ The stench of death is heavy in these caverns.
 D0
 ~
 ~
+~
+~
 Z 0 3443
 D1
+~
+~
 ~
 ~
 Z 0 3449
@@ -1360,8 +1526,12 @@ The stench of death is heavy in these caverns.
 D2
 ~
 ~
+~
+~
 Z 0 3446
 D3
+~
+~
 ~
 ~
 Z 0 3440
@@ -1374,12 +1544,18 @@ The stench of death is heavy in these caverns.
 D0
 ~
 ~
+~
+~
 Z 0 3445
 D2
 ~
 ~
+~
+~
 Z 0 3447
 D3
+~
+~
 ~
 ~
 Z 0 3441
@@ -1392,12 +1568,18 @@ The stench of death is heavy in these caverns.
 D0
 ~
 ~
+~
+~
 Z 0 3446
 D2
 ~
 ~
+~
+~
 Z 0 3448
 D3
+~
+~
 ~
 ~
 Z 0 3442
@@ -1418,6 +1600,8 @@ reflected picture of the vault ... the word in tiny print is 'rathcor'.
 D0
 ~
 ~
+~
+~
 Z 0 3447
 S
 #3449
@@ -1428,8 +1612,12 @@ The stench of death is heavy in these caverns.
 D1
 ~
 door~
+~
+~
 ABCFZ 3411 3408
 D3
+~
+~
 ~
 ~
 Z 0 3444
@@ -1445,9 +1633,13 @@ D0
 Too dark to tell.
 ~
 ~
+~
+~
 Z -1 3451
 D1
 Too dark to tell.
+~
+~
 ~
 ~
 Z -1 3452
@@ -1455,13 +1647,19 @@ D2
 Too dark to tell.
 ~
 ~
+~
+~
 Z -1 3453
 D3
 Too dark to tell.
 ~
 ~
+~
+~
 Z -1 3454
 D4
+~
+~
 ~
 ~
 Z -1 3408
@@ -1475,9 +1673,13 @@ D1
 Too dark to tell.
 ~
 ~
+~
+~
 Z -1 3455
 D2
 Too dark to tell.
+~
+~
 ~
 ~
 Z -1 3450
@@ -1491,9 +1693,13 @@ D0
 Too dark to tell.
 ~
 ~
+~
+~
 Z 0 3461
 D3
 Too dark to tell.
+~
+~
 ~
 ~
 Z -1 3450
@@ -1507,6 +1713,8 @@ D0
 Too dark to tell.
 ~
 ~
+~
+~
 Z -1 3450
 S
 #3454
@@ -1516,6 +1724,8 @@ Stone walls, musty air ... the earth seems to moan softly.
 0 ADN inside
 D1
 Too dark to tell.
+~
+~
 ~
 ~
 Z -1 3450
@@ -1529,9 +1739,13 @@ D2
 Too dark to tell.
 ~
 ~
+~
+~
 Z -1 3456
 D3
 Too dark to tell.
+~
+~
 ~
 ~
 Z 0 3451
@@ -1545,9 +1759,13 @@ D0
 Too dark to tell.
 ~
 ~
+~
+~
 Z -1 3455
 D1
 Too dark to tell.
+~
+~
 ~
 ~
 Z -1 3457
@@ -1561,9 +1779,13 @@ D2
 Too dark to tell.
 ~
 ~
+~
+~
 Z -1 3458
 D3
 Too dark to tell.
+~
+~
 ~
 ~
 Z 0 3456
@@ -1576,14 +1798,20 @@ Stone walls, musty air ... the earth seems to moan softly.
 D0
 ~
 ~
+~
+~
 Z 0 3457
 D2
 You see unfathomable blackness to the south ...
 ~
 ~
+~
+~
 Z -1 3472
 D3
 Too dark to tell.
+~
+~
 ~
 ~
 Z -1 3459
@@ -1597,9 +1825,13 @@ D1
 Too dark to tell.
 ~
 ~
+~
+~
 Z -1 3458
 D3
 You see something's den.
+~
+~
 ~
 ~
 Z -1 3460
@@ -1615,11 +1847,15 @@ D1
 Too dark to tell.
 ~
 ~
+~
+~
 Z -1 3459
 D5
 A jet black coffin ... who knows what lurks beneath.
 ~
 coffin~
+the coffin~
+~
 ABCFZ 3419 3475
 S
 #3461
@@ -1631,9 +1867,13 @@ D1
 Too dark to tell.
 ~
 ~
+~
+~
 Z 0 3462
 D2
 Too dark to tell.
+~
+~
 ~
 ~
 Z 0 3452
@@ -1647,9 +1887,13 @@ D2
 Too dark to tell.
 ~
 ~
+~
+~
 Z 0 3463
 D3
 Too dark too tell.
+~
+~
 ~
 ~
 Z 0 3461
@@ -1663,9 +1907,13 @@ D0
 Too dark to tell.
 ~
 ~
+~
+~
 Z 0 3462
 D1
 Too dark to tell.
+~
+~
 ~
 ~
 Z 0 3464
@@ -1679,14 +1927,20 @@ D1
 There is a secret door here.
 ~
 secret~
+@eng the secret@rus секретная дверь~
+@rus female~
 ABZ -1 3470
 D2
 Too dark to tell.
 ~
 ~
+~
+~
 Z 0 3465
 D3
 Too dark to tell.
+~
+~
 ~
 ~
 Z 0 3463
@@ -1708,9 +1962,13 @@ D0
 The glow of your light reflects off the walls and you see the catacombs.
 ~
 ~
+~
+~
 Z 0 3464
 D2
 The glow of your light reflects off the walls ... the gilded hallway.
+~
+~
 ~
 ~
 Z 0 3466
@@ -1730,9 +1988,13 @@ D0
 Your light reveals more of the hallway.
 ~
 ~
+~
+~
 Z 0 3465
 D2
 Your light reveals more of the hallway.
+~
+~
 ~
 ~
 Z 0 3467
@@ -1752,9 +2014,13 @@ D0
 Your light reveals more of the hallway.
 ~
 ~
+~
+~
 Z 0 3466
 D2
 Your light reveals more of the hallway.
+~
+~
 ~
 ~
 Z 0 3468
@@ -1774,9 +2040,13 @@ D0
 Your light reveals more of the hallway.
 ~
 ~
+~
+~
 Z 0 3467
 D2
 Your light reveals more of the hallway.
+~
+~
 ~
 ~
 Z 0 3469
@@ -1796,6 +2066,8 @@ D0
 Your light reveals more of the hallway.
 ~
 ~
+~
+~
 Z 0 3468
 S
 #3470
@@ -1811,6 +2083,8 @@ D2
 Too dark to tell.
 ~
 ~
+~
+~
 Z 0 3471
 S
 #3471
@@ -1820,6 +2094,8 @@ A secret passage!  You wonder where it may lead!
 0 AD inside
 D0
 Too dark to tell.
+~
+~
 ~
 ~
 Z 0 3470
@@ -1849,6 +2125,8 @@ up out of the coffin, or you can wait for here the real occupant to join you.
 D4
 ~
 lid coffin~
+the lid~
+~
 ABCZ 3419 3460
 S
 #0

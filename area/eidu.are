@@ -257,20 +257,20 @@ g none~
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 44001
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 44002
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 44003
 S
 #44001
@@ -280,8 +280,8 @@ S
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 44000
 S
 #44002
@@ -302,8 +302,8 @@ S
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 44000
 S
 #44100

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Zoology~
 VNUMs 400 499
 Credits Og~
@@ -279,8 +279,12 @@ D2
 The entrance lies just ahead of you! What are you waiting for?
 ~
 ~
+~
+~
 Z 0 401
 D3
+~
+~
 ~
 ~
 Z 0 3700
@@ -299,20 +303,30 @@ D0
 The entrance to the museum.
 ~
 ~
+~
+~
 Z 0 400
 D1
+~
+~
 ~
 ~
 Z 0 403
 D2
 ~
 ~
+~
+~
 Z 0 404
 D3
 ~
 ~
+~
+~
 Z 0 402
 D4
+~
+~
 ~
 ~
 Z 0 413
@@ -327,8 +341,12 @@ mayor of Midgaard.  This is boring, you think.
 D1
 ~
 ~
+~
+~
 Z 0 401
 D2
+~
+~
 ~
 ~
 Z 0 406
@@ -343,8 +361,12 @@ come out and visit you.
 D2
 ~
 ~
+~
+~
 Z 0 408
 D3
+~
+~
 ~
 ~
 Z 0 401
@@ -358,8 +380,12 @@ them.  You sure hope they forgot to magnify the pubic lice!
 D0
 ~
 ~
+~
+~
 Z 0 401
 D2
+~
+~
 ~
 ~
 Z 0 405
@@ -375,8 +401,12 @@ the exit to the south.
 D0
 ~
 ~
+~
+~
 Z 0 404
 D2
+~
+~
 ~
 ~
 Z 0 411
@@ -392,8 +422,12 @@ little more interesting.  The hall of chordates continues to the south.
 D0
 ~
 ~
+~
+~
 Z 0 402
 D2
+~
+~
 ~
 ~
 Z 0 407
@@ -408,14 +442,20 @@ more punishment on yourself.  Wait!  Over there, to the south, is the exit!
 D0
 ~
 ~
+~
+~
 Z 0 406
 D2
+~
+~
 ~
 ~
 Z 0 411
 D3
 ~
 cage~
+the cage~
+~
 ABZ 0 412
 S
 #408
@@ -429,13 +469,19 @@ and the hall continues to the south.
 D0
 ~
 ~
+~
+~
 Z 0 403
 D1
 To the east you see the shark tank.
 ~
 tank~
+the tank~
+~
 ABCZ 401 409
 D2
+~
+~
 ~
 ~
 Z 0 410
@@ -450,6 +496,8 @@ and many more sharks to play with!
 D3
 ~
 tank~
+the tank~
+~
 ABCZ 401 408
 S
 #410
@@ -462,8 +510,12 @@ science.  Thank the Gods this stupid field trip is almost over.
 D0
 ~
 ~
+~
+~
 Z 0 408
 D2
+~
+~
 ~
 ~
 Z 0 411
@@ -479,6 +531,8 @@ M.U.D.U. arena.
 D2
 ~
 ~
+~
+~
 Z 0 3746
 S
 #412
@@ -490,6 +544,8 @@ You feel sorry for the guy who has to clean up after all of these gorillas.
 D1
 ~
 cage~
+the cage~
+~
 ABZ 0 407
 S
 #413
@@ -500,6 +556,8 @@ teacher coming up the stairs to bring you back together with the class.
 ~
 0 D inside
 D5
+~
+~
 ~
 ~
 Z 0 401

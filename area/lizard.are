@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Lizard Kingdom~
 VNUMs 22100 22299
 Credits ParAvoz~
@@ -2250,8 +2250,12 @@ Entrance to the town of the lizards~
 D1
 ~
 ~
+~
+~
 Z 0 22102
 D3
+~
+~
 ~
 ~
 Z 0 22182
@@ -2263,8 +2267,12 @@ Gate of the lizard town~
 D1
 ~
 ~
+~
+~
 Z 0 22103
 D3
+~
+~
 ~
 ~
 Z 0 22101
@@ -2276,12 +2284,18 @@ Main Street before Temple of Five Serpents~
 D0
 ~
 ~
+~
+~
 Z 0 22136
 D1
 ~
 ~
+~
+~
 Z 0 22104
 D3
+~
+~
 ~
 ~
 Z 0 22102
@@ -2293,12 +2307,18 @@ Main Street before Arena of Death~
 D1
 ~
 ~
+~
+~
 Z 0 22105
 D2
 ~
 ~
+~
+~
 Z 0 22148
 D3
+~
+~
 ~
 ~
 Z 0 22103
@@ -2310,8 +2330,12 @@ Main Street~
 D1
 ~
 ~
+~
+~
 Z 0 22106
 D3
+~
+~
 ~
 ~
 Z 0 22104
@@ -2323,8 +2347,12 @@ Main Street Before Market~
 D1
 ~
 ~
+~
+~
 Z 0 22110
 D3
+~
+~
 ~
 ~
 Z 0 22105
@@ -2336,8 +2364,12 @@ Market~
 D1
 ~
 ~
+~
+~
 Z 0 22108
 D2
+~
+~
 ~
 ~
 Z 0 22110
@@ -2349,16 +2381,24 @@ Market~
 D0
 ~
 ~
+~
+~
 Z 0 22116
 D1
+~
+~
 ~
 ~
 Z 0 22109
 D2
 ~
 ~
+~
+~
 Z 0 22111
 D3
+~
+~
 ~
 ~
 Z 0 22107
@@ -2370,8 +2410,12 @@ Market~
 D2
 ~
 ~
+~
+~
 Z 0 22112
 D3
+~
+~
 ~
 ~
 Z 0 22108
@@ -2383,16 +2427,24 @@ Market~
 D0
 ~
 ~
+~
+~
 Z 0 22107
 D1
+~
+~
 ~
 ~
 Z 0 22111
 D2
 ~
 ~
+~
+~
 Z 0 22113
 D3
+~
+~
 ~
 ~
 Z 0 22106
@@ -2404,16 +2456,24 @@ Market~
 D0
 ~
 ~
+~
+~
 Z 0 22108
 D1
+~
+~
 ~
 ~
 Z 0 22112
 D2
 ~
 ~
+~
+~
 Z 0 22114
 D3
+~
+~
 ~
 ~
 Z 0 22110
@@ -2425,16 +2485,24 @@ Market~
 D0
 ~
 ~
+~
+~
 Z 0 22109
 D1
+~
+~
 ~
 ~
 Z 0 22126
 D2
 ~
 ~
+~
+~
 Z 0 22115
 D3
+~
+~
 ~
 ~
 Z 0 22111
@@ -2446,8 +2514,12 @@ Market~
 D0
 ~
 ~
+~
+~
 Z 0 22110
 D1
+~
+~
 ~
 ~
 Z 0 22114
@@ -2459,16 +2531,24 @@ Market~
 D0
 ~
 ~
+~
+~
 Z 0 22111
 D1
+~
+~
 ~
 ~
 Z 0 22115
 D2
 ~
 ~
+~
+~
 Z 0 22121
 D3
+~
+~
 ~
 ~
 Z 0 22113
@@ -2480,8 +2560,12 @@ Market~
 D0
 ~
 ~
+~
+~
 Z 0 22112
 D3
+~
+~
 ~
 ~
 Z 0 22114
@@ -2493,8 +2577,12 @@ King's street~
 D0
 ~
 ~
+~
+~
 Z 0 22117
 D2
+~
+~
 ~
 ~
 Z 0 22108
@@ -2506,16 +2594,24 @@ King's street~
 D0
 ~
 ~
+~
+~
 Z 0 22118
 D1
+~
+~
 ~
 ~
 Z 0 22159
 D2
 ~
 ~
+~
+~
 Z 0 22116
 D3
+~
+~
 ~
 ~
 Z 0 22160
@@ -2527,8 +2623,12 @@ King's street~
 D0
 ~
 ~
+~
+~
 Z 0 22119
 D2
+~
+~
 ~
 ~
 Z 0 22117
@@ -2540,12 +2640,18 @@ King's street~
 D0
 ~
 ~
+~
+~
 Z 0 22120
 D1
 ~
 ~
+~
+~
 Z 0 22158
 D2
+~
+~
 ~
 ~
 Z 0 22118
@@ -2557,8 +2663,12 @@ King's street~
 D2
 ~
 ~
+~
+~
 Z 0 22119
 D3
+~
+~
 ~
 ~
 Z 0 22157
@@ -2570,8 +2680,12 @@ King's street~
 D0
 ~
 ~
+~
+~
 Z 0 22114
 D2
+~
+~
 ~
 ~
 Z 0 22122
@@ -2583,16 +2697,24 @@ King's street~
 D0
 ~
 ~
+~
+~
 Z 0 22121
 D1
+~
+~
 ~
 ~
 Z 0 22162
 D2
 ~
 ~
+~
+~
 Z 0 22123
 D3
+~
+~
 ~
 ~
 Z 0 22161
@@ -2604,8 +2726,12 @@ King's street~
 D0
 ~
 ~
+~
+~
 Z 0 22122
 D2
+~
+~
 ~
 ~
 Z 0 22124
@@ -2617,12 +2743,18 @@ King's street~
 D0
 ~
 ~
+~
+~
 Z 0 22123
 D2
 ~
 ~
+~
+~
 Z 0 22125
 D3
+~
+~
 ~
 ~
 Z 0 22163
@@ -2634,8 +2766,12 @@ King's street~
 D0
 ~
 ~
+~
+~
 Z 0 22124
 D1
+~
+~
 ~
 ~
 Z 0 22164
@@ -2647,8 +2783,12 @@ Main Street Before Market~
 D1
 ~
 ~
+~
+~
 Z 0 22127
 D3
+~
+~
 ~
 ~
 Z 0 22112
@@ -2660,8 +2800,12 @@ Main Street Palace of Lizard King~
 D1
 ~
 ~
+~
+~
 Z 0 22130
 D3
+~
+~
 ~
 ~
 Z 0 22126
@@ -2673,8 +2817,12 @@ Palace of Lizard King~
 D1
 ~
 ~
+~
+~
 Z 0 22129
 D2
+~
+~
 ~
 ~
 Z 0 22130
@@ -2686,8 +2834,12 @@ Palace of Lizard King~
 D2
 ~
 ~
+~
+~
 Z 0 22131
 D3
+~
+~
 ~
 ~
 Z 0 22128
@@ -2699,16 +2851,24 @@ Palace of Lizard King~
 D0
 ~
 ~
+~
+~
 Z 0 22128
 D1
+~
+~
 ~
 ~
 Z 0 22131
 D2
 ~
 ~
+~
+~
 Z 0 22132
 D3
+~
+~
 ~
 ~
 Z 0 22127
@@ -2720,16 +2880,24 @@ Palace of Lizard King~
 D0
 ~
 ~
+~
+~
 Z 0 22129
 D1
+~
+~
 ~
 ~
 Z 0 22134
 D2
 ~
 ~
+~
+~
 Z 0 22133
 D3
+~
+~
 ~
 ~
 Z 0 22130
@@ -2741,8 +2909,12 @@ Palace of Lizard King~
 D0
 ~
 ~
+~
+~
 Z 0 22130
 D1
+~
+~
 ~
 ~
 Z 0 22133
@@ -2754,8 +2926,12 @@ Palace of Lizard King~
 D0
 ~
 ~
+~
+~
 Z 0 22131
 D3
+~
+~
 ~
 ~
 Z 0 22132
@@ -2767,8 +2943,12 @@ Buttom of the throne~
 D3
 ~
 ~
+~
+~
 Z 0 22131
 D4
+~
+~
 ~
 ~
 Z 0 22135
@@ -2780,6 +2960,8 @@ Throne of the lizard king~
 D5
 ~
 ~
+~
+~
 Z 0 22134
 S
 #22136
@@ -2789,8 +2971,12 @@ Temple Square~
 D0
 ~
 ~
+~
+~
 Z 0 22138
 D2
+~
+~
 ~
 ~
 Z 0 22103
@@ -2802,6 +2988,8 @@ Temple Square~
 D1
 ~
 ~
+~
+~
 Z 0 22138
 S
 #22138
@@ -2811,16 +2999,24 @@ Temple Square~
 D0
 ~
 ~
+~
+~
 Z 0 22140
 D1
+~
+~
 ~
 ~
 Z 0 22139
 D2
 ~
 ~
+~
+~
 Z 0 22136
 D3
+~
+~
 ~
 ~
 Z 0 22137
@@ -2832,6 +3028,8 @@ Temple Square~
 D3
 ~
 ~
+~
+~
 Z 0 22138
 S
 #22140
@@ -2841,8 +3039,12 @@ Disciple place~
 D0
 ~
 ~
+~
+~
 Z 0 22141
 D2
+~
+~
 ~
 ~
 Z 0 22138
@@ -2854,16 +3056,24 @@ Disciple place~
 D0
 ~
 ~
+~
+~
 Z 0 22142
 D1
+~
+~
 ~
 ~
 Z 0 22144
 D2
 ~
 ~
+~
+~
 Z 0 22140
 D3
+~
+~
 ~
 ~
 Z 0 22143
@@ -2875,16 +3085,24 @@ Disciple place~
 D0
 ~
 ~
+~
+~
 Z 0 22147
 D1
+~
+~
 ~
 ~
 Z 0 22146
 D2
 ~
 ~
+~
+~
 Z 0 22141
 D3
+~
+~
 ~
 ~
 Z 0 22145
@@ -2896,6 +3114,8 @@ Chamber of Wise Serpent~
 D1
 ~
 ~
+~
+~
 Z 0 22141
 S
 #22144
@@ -2903,6 +3123,8 @@ Chamber of Mother Serpent~
 ~
 0 0 inside
 D3
+~
+~
 ~
 ~
 Z 0 22141
@@ -2914,6 +3136,8 @@ Chamber of Angry Serpent~
 D1
 ~
 ~
+~
+~
 Z 0 22142
 S
 #22146
@@ -2921,6 +3145,8 @@ Chamber of Kind Serpent~
 ~
 0 0 inside
 D3
+~
+~
 ~
 ~
 Z 0 22142
@@ -2932,6 +3158,8 @@ Chamber of Dead Serpent~
 D2
 ~
 ~
+~
+~
 Z 0 22142
 S
 #22148
@@ -2941,8 +3169,12 @@ Entrace to Arena of Death~
 D0
 ~
 ~
+~
+~
 Z 0 22104
 D2
+~
+~
 ~
 ~
 Z 0 22150
@@ -2954,12 +3186,18 @@ Tribune~
 D1
 ~
 ~
+~
+~
 Z 0 22150
 D3
 ~
 ~
+~
+~
 Z 0 22151
 D5
+~
+~
 ~
 ~
 Z 0 22152
@@ -2971,16 +3209,24 @@ Tribune~
 D0
 ~
 ~
+~
+~
 Z 0 22148
 D1
+~
+~
 ~
 ~
 Z 0 22151
 D3
 ~
 ~
+~
+~
 Z 0 22149
 D5
+~
+~
 ~
 ~
 Z 0 22153
@@ -2992,12 +3238,18 @@ Tribune~
 D1
 ~
 ~
+~
+~
 Z 0 22149
 D3
 ~
 ~
+~
+~
 Z 0 22150
 D5
+~
+~
 ~
 ~
 Z 0 22154
@@ -3009,8 +3261,12 @@ Arena of Death~
 D1
 ~
 ~
+~
+~
 Z 0 22153
 D4
+~
+~
 ~
 ~
 Z 0 22149
@@ -3022,16 +3278,24 @@ Arena of Death~
 D1
 ~
 ~
+~
+~
 Z 0 22154
 D2
+~
+~
 ~
 ~
 Z 0 22155
 D3
 ~
 ~
+~
+~
 Z 0 22152
 D4
+~
+~
 ~
 ~
 Z 0 22150
@@ -3043,8 +3307,12 @@ Arena of Death~
 D3
 ~
 ~
+~
+~
 Z 0 22153
 D4
+~
+~
 ~
 ~
 Z 0 22151
@@ -3056,6 +3324,8 @@ Arena of Death~
 D0
 ~
 ~
+~
+~
 Z 0 22153
 S
 #22156
@@ -3063,6 +3333,8 @@ Cafe~
 ~
 0 0 inside
 D1
+~
+~
 ~
 ~
 Z 0 22157
@@ -3074,8 +3346,12 @@ Cafe~
 D1
 ~
 ~
+~
+~
 Z 0 22120
 D3
+~
+~
 ~
 ~
 Z 0 22156
@@ -3087,6 +3363,8 @@ S
 D3
 ~
 ~
+~
+~
 Z 0 22119
 S
 #22159
@@ -3094,6 +3372,8 @@ Weapon shop~
 ~
 0 0 inside
 D3
+~
+~
 ~
 ~
 Z 0 22117
@@ -3105,6 +3385,8 @@ Armory~
 D1
 ~
 ~
+~
+~
 Z 0 22117
 S
 #22161
@@ -3112,6 +3394,8 @@ Herbal shop~
 ~
 0 0 inside
 D1
+~
+~
 ~
 ~
 Z 0 22122
@@ -3123,6 +3407,8 @@ Alchemy laboratory~
 D3
 ~
 ~
+~
+~
 Z 0 22122
 S
 #22163
@@ -3130,6 +3416,8 @@ Magic stuff~
 ~
 0 0 inside
 D1
+~
+~
 ~
 ~
 Z 0 22124
@@ -3141,8 +3429,12 @@ Bar~
 D1
 ~
 ~
+~
+~
 Z 0 22165
 D3
+~
+~
 ~
 ~
 Z 0 22125
@@ -3152,6 +3444,8 @@ Bar~
 ~
 0 0 inside
 D3
+~
+~
 ~
 ~
 Z 0 22164
@@ -3165,12 +3459,18 @@ look at you.Be careful don't hurt foots,it is hard stony path.
 D1
 ~
 ~
+~
+~
 Z 0 22167
 D2
 ~
 ~
+~
+~
 Z 0 22171
 D3
+~
+~
 ~
 ~
 Z 0 22175
@@ -3184,6 +3484,8 @@ look at you.Be careful don't hurt foots,it is hard stony path.
 D3
 ~
 ~
+~
+~
 Z 0 22166
 S
 #22168
@@ -3193,6 +3495,8 @@ look at you.Be careful don't hurt foots,it is hard stony path.
 ~
 0 0 mountain
 D2
+~
+~
 ~
 ~
 Z 0 22184
@@ -3206,6 +3510,8 @@ look at you.Be careful don't hurt foots,it is hard stony path.
 D1
 ~
 ~
+~
+~
 Z 0 22170
 S
 #22170
@@ -3217,8 +3523,12 @@ look at you.Be careful don't hurt foots,it is hard stony path.
 D2
 ~
 ~
+~
+~
 Z 0 22186
 D3
+~
+~
 ~
 ~
 Z 0 22169
@@ -3232,8 +3542,12 @@ look at you.Be careful don't hurt foots,it is hard stony path.
 D0
 ~
 ~
+~
+~
 Z 0 22166
 D1
+~
+~
 ~
 ~
 Z 0 22183
@@ -3246,6 +3560,8 @@ You on a road in Lizard Kingdom.Road as a road,nothing special.
 D2
 ~
 ~
+~
+~
 Z 0 22173
 S
 #22173
@@ -3256,12 +3572,18 @@ You on a road in Lizard Kingdom.Road as a road,nothing special.
 D0
 ~
 ~
+~
+~
 Z 0 22172
 D2
 ~
 ~
+~
+~
 Z 0 22174
 D3
+~
+~
 ~
 ~
 Z 0 22275
@@ -3274,16 +3596,24 @@ You on a road in Lizard Kingdom.Road as a road,nothing special.
 D0
 ~
 ~
+~
+~
 Z 0 22173
 D1
+~
+~
 ~
 ~
 Z 0 22176
 D2
 ~
 ~
+~
+~
 Z 0 22175
 D3
+~
+~
 ~
 ~
 Z 0 22277
@@ -3296,12 +3626,18 @@ You on a road in Lizard Kingdom.Road as a road,nothing special.
 D0
 ~
 ~
+~
+~
 Z 0 22174
 D1
 ~
 ~
+~
+~
 Z 0 22166
 D3
+~
+~
 ~
 ~
 Z 0 22280
@@ -3314,8 +3650,12 @@ You on a road in Lizard Kingdom.Road as a road,nothing special.
 D1
 ~
 ~
+~
+~
 Z 0 22177
 D3
+~
+~
 ~
 ~
 Z 0 22174
@@ -3328,8 +3668,12 @@ You on a road in Lizard Kingdom.Road as a road,nothing special.
 D1
 ~
 ~
+~
+~
 Z 0 22178
 D3
+~
+~
 ~
 ~
 Z 0 22176
@@ -3342,8 +3686,12 @@ You on a road in Lizard Kingdom.Road as a road,nothing special.
 D1
 ~
 ~
+~
+~
 Z 0 22179
 D3
+~
+~
 ~
 ~
 Z 0 22177
@@ -3356,12 +3704,18 @@ You on a road in Lizard Kingdom.Road as a road,nothing special.
 D0
 ~
 ~
+~
+~
 Z 0 22296
 D1
 ~
 ~
+~
+~
 Z 0 22180
 D3
+~
+~
 ~
 ~
 Z 0 22178
@@ -3374,8 +3728,12 @@ You on a road in Lizard Kingdom.Road as a road,nothing special.
 D1
 ~
 ~
+~
+~
 Z 0 22181
 D3
+~
+~
 ~
 ~
 Z 0 22179
@@ -3388,8 +3746,12 @@ You on a road in Lizard Kingdom.Road as a road,nothing special.
 D1
 ~
 ~
+~
+~
 Z 0 22182
 D3
+~
+~
 ~
 ~
 Z 0 22180
@@ -3402,8 +3764,12 @@ You on a road in Lizard Kingdom.Road as a road,nothing special.
 D1
 ~
 ~
+~
+~
 Z 0 22101
 D3
+~
+~
 ~
 ~
 Z 0 22181
@@ -3417,8 +3783,12 @@ look at you.Be careful don't hurt foots,it is hard stony path.
 D1
 ~
 ~
+~
+~
 Z 0 22184
 D3
+~
+~
 ~
 ~
 Z 0 22171
@@ -3432,16 +3802,24 @@ look at you.Be careful don't hurt foots,it is hard stony path.
 D0
 ~
 ~
+~
+~
 Z 0 22168
 D1
+~
+~
 ~
 ~
 Z 0 22185
 D2
 ~
 ~
+~
+~
 Z 0 22189
 D3
+~
+~
 ~
 ~
 Z 0 22183
@@ -3455,6 +3833,8 @@ look at you.Be careful don't hurt foots,it is hard stony path.
 D3
 ~
 ~
+~
+~
 Z 0 22184
 S
 #22186
@@ -3466,8 +3846,12 @@ look at you.Be careful don't hurt foots,it is hard stony path.
 D0
 ~
 ~
+~
+~
 Z 0 22170
 D2
+~
+~
 ~
 ~
 Z 0 22191
@@ -3481,6 +3865,8 @@ look at you.Be careful don't hurt foots,it is hard stony path.
 D1
 ~
 ~
+~
+~
 Z 0 22188
 S
 #22188
@@ -3492,8 +3878,12 @@ look at you.Be careful don't hurt foots,it is hard stony path.
 D1
 ~
 ~
+~
+~
 Z 0 22189
 D3
+~
+~
 ~
 ~
 Z 0 22187
@@ -3507,12 +3897,18 @@ look at you.Be careful don't hurt foots,it is hard stony path.
 D0
 ~
 ~
+~
+~
 Z 0 22184
 D1
 ~
 ~
+~
+~
 Z 0 22190
 D3
+~
+~
 ~
 ~
 Z 0 22188
@@ -3526,8 +3922,12 @@ look at you.Be careful don't hurt foots,it is hard stony path.
 D1
 ~
 ~
+~
+~
 Z 0 22191
 D3
+~
+~
 ~
 ~
 Z 0 22189
@@ -3541,8 +3941,12 @@ look at you.Be careful don't hurt foots,it is hard stony path.
 D0
 ~
 ~
+~
+~
 Z 0 22186
 D3
+~
+~
 ~
 ~
 Z 0 22190
@@ -3565,8 +3969,12 @@ but you don't know how you can do that.
 D1
 ~
 ~
+~
+~
 Z 0 22202
 D2
+~
+~
 ~
 ~
 Z 0 22203
@@ -3582,6 +3990,8 @@ but you don't know how you can do that.
 D3
 ~
 ~
+~
+~
 Z 0 22201
 S
 #22203
@@ -3595,12 +4005,18 @@ but you don't know how you can do that.
 D0
 ~
 ~
+~
+~
 Z 0 22201
 D1
 ~
 ~
+~
+~
 Z 0 22204
 D2
+~
+~
 ~
 ~
 Z 0 22205
@@ -3616,8 +4032,12 @@ but you don't know how you can do that.
 D2
 ~
 ~
+~
+~
 Z 0 22206
 D3
+~
+~
 ~
 ~
 Z 0 22203
@@ -3633,8 +4053,12 @@ but you don't know how you can do that.
 D0
 ~
 ~
+~
+~
 Z 0 22203
 D2
+~
+~
 ~
 ~
 Z 0 22207
@@ -3650,8 +4074,12 @@ but you don't know how you can do that.
 D0
 ~
 ~
+~
+~
 Z 0 22204
 D2
+~
+~
 ~
 ~
 Z 0 22208
@@ -3667,6 +4095,8 @@ but you don't know how you can do that.
 D0
 ~
 ~
+~
+~
 Z 0 22205
 S
 #22208
@@ -3680,8 +4110,12 @@ but you don't know how you can do that.
 D0
 ~
 ~
+~
+~
 Z 0 22206
 D1
+~
+~
 ~
 ~
 Z 0 22215
@@ -3697,8 +4131,12 @@ but you don't know how you can do that.
 D1
 ~
 ~
+~
+~
 Z 0 22210
 D2
+~
+~
 ~
 ~
 Z 0 22211
@@ -3714,6 +4152,8 @@ but you don't know how you can do that.
 D3
 ~
 ~
+~
+~
 Z 0 22209
 S
 #22211
@@ -3727,12 +4167,18 @@ but you don't know how you can do that.
 D0
 ~
 ~
+~
+~
 Z 0 22209
 D1
 ~
 ~
+~
+~
 Z 0 22212
 D2
+~
+~
 ~
 ~
 Z 0 22213
@@ -3748,8 +4194,12 @@ but you don't know how you can do that.
 D1
 ~
 ~
+~
+~
 Z 0 22217
 D3
+~
+~
 ~
 ~
 Z 0 22211
@@ -3765,8 +4215,12 @@ but you don't know how you can do that.
 D0
 ~
 ~
+~
+~
 Z 0 22211
 D1
+~
+~
 ~
 ~
 Z 0 22214
@@ -3782,6 +4236,8 @@ but you don't know how you can do that.
 D3
 ~
 ~
+~
+~
 Z 0 22213
 S
 #22215
@@ -3795,12 +4251,18 @@ but you don't know how you can do that.
 D1
 ~
 ~
+~
+~
 Z 0 22219
 D2
 ~
 ~
+~
+~
 Z 0 22216
 D3
+~
+~
 ~
 ~
 Z 0 22208
@@ -3816,8 +4278,12 @@ but you don't know how you can do that.
 D0
 ~
 ~
+~
+~
 Z 0 22215
 D2
+~
+~
 ~
 ~
 Z 0 22217
@@ -3833,8 +4299,12 @@ but you don't know how you can do that.
 D0
 ~
 ~
+~
+~
 Z 0 22216
 D3
+~
+~
 ~
 ~
 Z 0 22212
@@ -3850,6 +4320,8 @@ The unlive lake.
 D2
 ~
 ~
+~
+~
 Z 0 22219
 S
 #22219
@@ -3863,16 +4335,24 @@ The unlive lake.
 D0
 ~
 ~
+~
+~
 Z 0 22218
 D1
+~
+~
 ~
 ~
 Z 0 22220
 D2
 ~
 ~
+~
+~
 Z 0 22221
 D3
+~
+~
 ~
 ~
 Z 0 22215
@@ -3888,8 +4368,12 @@ The unlive lake.
 D1
 ~
 ~
+~
+~
 Z 0 22242
 D3
+~
+~
 ~
 ~
 Z 0 22219
@@ -3905,8 +4389,12 @@ The unlive lake.
 D0
 ~
 ~
+~
+~
 Z 0 22219
 D2
+~
+~
 ~
 ~
 Z 0 22222
@@ -3922,8 +4410,12 @@ The unlive lake.
 D0
 ~
 ~
+~
+~
 Z 0 22221
 D1
+~
+~
 ~
 ~
 Z 0 22223
@@ -3939,6 +4431,8 @@ The unlive lake.
 D3
 ~
 ~
+~
+~
 Z 0 22222
 S
 #22224
@@ -3950,6 +4444,8 @@ makes everything unreal.
 ~
 0 0 forest
 D1
+~
+~
 ~
 ~
 Z 0 22225
@@ -3965,8 +4461,12 @@ makes everything unreal.
 D1
 ~
 ~
+~
+~
 Z 0 22226
 D3
+~
+~
 ~
 ~
 Z 0 22224
@@ -3982,8 +4482,12 @@ makes everything unreal.
 D1
 ~
 ~
+~
+~
 Z 0 22227
 D3
+~
+~
 ~
 ~
 Z 0 22225
@@ -3999,12 +4503,18 @@ makes everything unreal.
 D1
 ~
 ~
+~
+~
 Z 0 22228
 D2
 ~
 ~
+~
+~
 Z 0 22229
 D3
+~
+~
 ~
 ~
 Z 0 22226
@@ -4020,8 +4530,12 @@ makes everything unreal.
 D2
 ~
 ~
+~
+~
 Z 0 22230
 D3
+~
+~
 ~
 ~
 Z 0 22227
@@ -4037,6 +4551,8 @@ makes everything unreal.
 D0
 ~
 ~
+~
+~
 Z 0 22227
 S
 #22230
@@ -4050,8 +4566,12 @@ makes everything unreal.
 D0
 ~
 ~
+~
+~
 Z 0 22228
 D1
+~
+~
 ~
 ~
 Z 0 22232
@@ -4067,6 +4587,8 @@ makes everything unreal.
 D2
 ~
 ~
+~
+~
 Z 0 22232
 S
 #22232
@@ -4080,12 +4602,18 @@ makes everything unreal.
 D0
 ~
 ~
+~
+~
 Z 0 22231
 D2
 ~
 ~
+~
+~
 Z 0 22233
 D3
+~
+~
 ~
 ~
 Z 0 22230
@@ -4101,16 +4629,24 @@ makes everything unreal.
 D0
 ~
 ~
+~
+~
 Z 0 22232
 D1
+~
+~
 ~
 ~
 Z 0 22248
 D2
 ~
 ~
+~
+~
 Z 0 22234
 D3
+~
+~
 ~
 ~
 Z 0 22244
@@ -4126,8 +4662,12 @@ makes everything unreal.
 D0
 ~
 ~
+~
+~
 Z 0 22233
 D2
+~
+~
 ~
 ~
 Z 0 22237
@@ -4143,6 +4683,8 @@ makes everything unreal.
 D1
 ~
 ~
+~
+~
 Z 0 22236
 S
 #22236
@@ -4156,8 +4698,12 @@ makes everything unreal.
 D1
 ~
 ~
+~
+~
 Z 0 22237
 D3
+~
+~
 ~
 ~
 Z 0 22235
@@ -4173,8 +4719,12 @@ makes everything unreal.
 D0
 ~
 ~
+~
+~
 Z 0 22234
 D3
+~
+~
 ~
 ~
 Z 0 22236
@@ -4189,6 +4739,8 @@ Nothing.Only grass and trees.
 D2
 ~
 ~
+~
+~
 Z 0 22240
 S
 #22239
@@ -4201,8 +4753,12 @@ Nothing.Only grass and trees.
 D1
 ~
 ~
+~
+~
 Z 0 22240
 D2
+~
+~
 ~
 ~
 Z 0 22242
@@ -4217,16 +4773,24 @@ Nothing.Only grass and trees.
 D0
 ~
 ~
+~
+~
 Z 0 22238
 D1
+~
+~
 ~
 ~
 Z 0 22241
 D2
 ~
 ~
+~
+~
 Z 0 22243
 D3
+~
+~
 ~
 ~
 Z 0 22239
@@ -4241,8 +4805,12 @@ Nothing.Only grass and trees.
 D2
 ~
 ~
+~
+~
 Z 0 22244
 D3
+~
+~
 ~
 ~
 Z 0 22240
@@ -4257,16 +4825,24 @@ Nothing.Only grass and trees.
 D0
 ~
 ~
+~
+~
 Z 0 22239
 D1
+~
+~
 ~
 ~
 Z 0 22243
 D2
 ~
 ~
+~
+~
 Z 0 22245
 D3
+~
+~
 ~
 ~
 Z 0 22220
@@ -4281,16 +4857,24 @@ Nothing.Only grass and trees.
 D0
 ~
 ~
+~
+~
 Z 0 22240
 D1
+~
+~
 ~
 ~
 Z 0 22244
 D2
 ~
 ~
+~
+~
 Z 0 22246
 D3
+~
+~
 ~
 ~
 Z 0 22242
@@ -4305,16 +4889,24 @@ Nothing.Only grass and trees.
 D0
 ~
 ~
+~
+~
 Z 0 22241
 D1
+~
+~
 ~
 ~
 Z 0 22233
 D2
 ~
 ~
+~
+~
 Z 0 22247
 D3
+~
+~
 ~
 ~
 Z 0 22243
@@ -4329,8 +4921,12 @@ Nothing.Only grass and trees.
 D0
 ~
 ~
+~
+~
 Z 0 22242
 D1
+~
+~
 ~
 ~
 Z 0 22246
@@ -4345,12 +4941,18 @@ Nothing.Only grass and trees.
 D0
 ~
 ~
+~
+~
 Z 0 22243
 D1
 ~
 ~
+~
+~
 Z 0 22247
 D3
+~
+~
 ~
 ~
 Z 0 22245
@@ -4365,8 +4967,12 @@ Nothing.Only grass and trees.
 D0
 ~
 ~
+~
+~
 Z 0 22244
 D3
+~
+~
 ~
 ~
 Z 0 22246
@@ -4380,8 +4986,12 @@ because pathes become too narrow.
 D1
 ~
 ~
+~
+~
 Z 0 22255
 D3
+~
+~
 ~
 ~
 Z 0 22233
@@ -4395,8 +5005,12 @@ because pathes become too narrow.
 D1
 ~
 ~
+~
+~
 Z 0 22250
 D2
+~
+~
 ~
 ~
 Z 0 22252
@@ -4410,8 +5024,12 @@ because pathes become too narrow.
 D1
 ~
 ~
+~
+~
 Z 0 22251
 D3
+~
+~
 ~
 ~
 Z 0 22249
@@ -4425,8 +5043,12 @@ because pathes become too narrow.
 D2
 ~
 ~
+~
+~
 Z 0 22254
 D3
+~
+~
 ~
 ~
 Z 0 22250
@@ -4440,8 +5062,12 @@ because pathes become too narrow.
 D0
 ~
 ~
+~
+~
 Z 0 22249
 D2
+~
+~
 ~
 ~
 Z 0 22255
@@ -4455,6 +5081,8 @@ because pathes become too narrow.
 D2
 ~
 ~
+~
+~
 Z 0 22256
 S
 #22254
@@ -4466,8 +5094,12 @@ because pathes become too narrow.
 D0
 ~
 ~
+~
+~
 Z 0 22251
 D2
+~
+~
 ~
 ~
 Z 0 22257
@@ -4481,16 +5113,24 @@ because pathes become too narrow.
 D0
 ~
 ~
+~
+~
 Z 0 22252
 D1
+~
+~
 ~
 ~
 Z 0 22256
 D2
 ~
 ~
+~
+~
 Z 0 22258
 D3
+~
+~
 ~
 ~
 Z 0 22248
@@ -4504,12 +5144,18 @@ because pathes become too narrow.
 D0
 ~
 ~
+~
+~
 Z 0 22253
 D1
 ~
 ~
+~
+~
 Z 0 22257
 D3
+~
+~
 ~
 ~
 Z 0 22255
@@ -4523,16 +5169,24 @@ because pathes become too narrow.
 D0
 ~
 ~
+~
+~
 Z 0 22254
 D1
+~
+~
 ~
 ~
 Z 0 22269
 D2
 ~
 ~
+~
+~
 Z 0 22259
 D3
+~
+~
 ~
 ~
 Z 0 22256
@@ -4546,6 +5200,8 @@ because pathes become too narrow.
 D0
 ~
 ~
+~
+~
 Z 0 22255
 S
 #22259
@@ -4555,6 +5211,8 @@ because pathes become too narrow.
 ~
 0 0 hills
 D0
+~
+~
 ~
 ~
 Z 0 22257
@@ -4570,6 +5228,8 @@ the smell of flowers.
 D1
 ~
 ~
+~
+~
 Z 0 22261
 S
 #22261
@@ -4583,8 +5243,12 @@ the smell of flowers.
 D1
 ~
 ~
+~
+~
 Z 0 22262
 D3
+~
+~
 ~
 ~
 Z 0 22260
@@ -4600,12 +5264,18 @@ the smell of flowers.
 D1
 ~
 ~
+~
+~
 Z 0 22263
 D2
 ~
 ~
+~
+~
 Z 0 22264
 D3
+~
+~
 ~
 ~
 Z 0 22261
@@ -4621,8 +5291,12 @@ the smell of flowers.
 D2
 ~
 ~
+~
+~
 Z 0 22265
 D3
+~
+~
 ~
 ~
 Z 0 22262
@@ -4638,8 +5312,12 @@ the smell of flowers.
 D0
 ~
 ~
+~
+~
 Z 0 22262
 D1
+~
+~
 ~
 ~
 Z 0 22265
@@ -4655,16 +5333,24 @@ the smell of flowers.
 D0
 ~
 ~
+~
+~
 Z 0 22263
 D1
+~
+~
 ~
 ~
 Z 0 22266
 D2
 ~
 ~
+~
+~
 Z 0 22267
 D3
+~
+~
 ~
 ~
 Z 0 22264
@@ -4680,8 +5366,12 @@ the smell of flowers.
 D2
 ~
 ~
+~
+~
 Z 0 22268
 D3
+~
+~
 ~
 ~
 Z 0 22265
@@ -4697,12 +5387,18 @@ the smell of flowers.
 D0
 ~
 ~
+~
+~
 Z 0 22265
 D1
 ~
 ~
+~
+~
 Z 0 22268
 D2
+~
+~
 ~
 ~
 Z 0 22270
@@ -4718,12 +5414,18 @@ the smell of flowers.
 D1
 ~
 ~
+~
+~
 Z 0 22278
 D2
 ~
 ~
+~
+~
 Z 0 22271
 D3
+~
+~
 ~
 ~
 Z 0 22267
@@ -4739,8 +5441,12 @@ the smell of flowers.
 D1
 ~
 ~
+~
+~
 Z 0 22270
 D3
+~
+~
 ~
 ~
 Z 0 22257
@@ -4756,12 +5462,18 @@ the smell of flowers.
 D0
 ~
 ~
+~
+~
 Z 0 22267
 D1
 ~
 ~
+~
+~
 Z 0 22271
 D3
+~
+~
 ~
 ~
 Z 0 22269
@@ -4777,12 +5489,18 @@ the smell of flowers.
 D0
 ~
 ~
+~
+~
 Z 0 22268
 D1
 ~
 ~
+~
+~
 Z 0 22282
 D3
+~
+~
 ~
 ~
 Z 0 22270
@@ -4796,6 +5514,8 @@ You guess you hear the hissing of thousand snakes.It seems endless.
 D1
 ~
 ~
+~
+~
 Z 0 22273
 S
 #22273
@@ -4807,12 +5527,18 @@ You guess you hear the hissing of thousand snakes.It seems endless.
 D1
 ~
 ~
+~
+~
 Z 0 22274
 D2
 ~
 ~
+~
+~
 Z 0 22276
 D3
+~
+~
 ~
 ~
 Z 0 22272
@@ -4826,8 +5552,12 @@ You guess you hear the hissing of thousand snakes.It seems endless.
 D1
 ~
 ~
+~
+~
 Z 0 22275
 D3
+~
+~
 ~
 ~
 Z 0 22273
@@ -4841,12 +5571,18 @@ You guess you hear the hissing of thousand snakes.It seems endless.
 D1
 ~
 ~
+~
+~
 Z 0 22173
 D2
 ~
 ~
+~
+~
 Z 0 22277
 D3
+~
+~
 ~
 ~
 Z 0 22274
@@ -4860,8 +5596,12 @@ You guess you hear the hissing of thousand snakes.It seems endless.
 D0
 ~
 ~
+~
+~
 Z 0 22273
 D2
+~
+~
 ~
 ~
 Z 0 22278
@@ -4875,12 +5615,18 @@ You guess you hear the hissing of thousand snakes.It seems endless.
 D0
 ~
 ~
+~
+~
 Z 0 22275
 D1
 ~
 ~
+~
+~
 Z 0 22174
 D2
+~
+~
 ~
 ~
 Z 0 22280
@@ -4894,12 +5640,18 @@ You guess you hear the hissing of thousand snakes.It seems endless.
 D0
 ~
 ~
+~
+~
 Z 0 22276
 D1
 ~
 ~
+~
+~
 Z 0 22279
 D3
+~
+~
 ~
 ~
 Z 0 22268
@@ -4913,12 +5665,18 @@ You guess you hear the hissing of thousand snakes.It seems endless.
 D0
 ~
 ~
+~
+~
 Z 0 22281
 D1
 ~
 ~
+~
+~
 Z 0 22280
 D3
+~
+~
 ~
 ~
 Z 0 22278
@@ -4932,12 +5690,18 @@ You guess you hear the hissing of thousand snakes.It seems endless.
 D0
 ~
 ~
+~
+~
 Z 0 22277
 D1
 ~
 ~
+~
+~
 Z 0 22175
 D3
+~
+~
 ~
 ~
 Z 0 22279
@@ -4952,6 +5716,8 @@ a isle of life in sea of death.
 D2
 ~
 ~
+~
+~
 Z 0 22279
 S
 #22282
@@ -4963,12 +5729,18 @@ At right a cliff.It's horrible.Look forward forget about everything.
 D1
 ~
 ~
+~
+~
 Z 0 22283
 D2
 ~
 ~
+~
+~
 Z 0 22287
 D3
+~
+~
 ~
 ~
 Z 0 22271
@@ -4982,8 +5754,12 @@ At right a cliff.It's horrible.Look forward forget about everything.
 D1
 ~
 ~
+~
+~
 Z 0 22284
 D3
+~
+~
 ~
 ~
 Z 0 22282
@@ -4997,8 +5773,12 @@ At right a cliff.It's horrible.Look forward forget about everything.
 D2
 ~
 ~
+~
+~
 Z 0 22289
 D3
+~
+~
 ~
 ~
 Z 0 22283
@@ -5012,6 +5792,8 @@ At right a cliff.It's horrible.Look forward forget about everything.
 D1
 ~
 ~
+~
+~
 Z 0 22286
 S
 #22286
@@ -5023,8 +5805,12 @@ At right a cliff.It's horrible.Look forward forget about everything.
 D1
 ~
 ~
+~
+~
 Z 0 22287
 D3
+~
+~
 ~
 ~
 Z 0 22285
@@ -5038,12 +5824,18 @@ At right a cliff.It's horrible.Look forward forget about everything.
 D0
 ~
 ~
+~
+~
 Z 0 22282
 D1
 ~
 ~
+~
+~
 Z 0 22288
 D3
+~
+~
 ~
 ~
 Z 0 22286
@@ -5057,8 +5849,12 @@ At right a cliff.It's horrible.Look forward forget about everything.
 D1
 ~
 ~
+~
+~
 Z 0 22289
 D3
+~
+~
 ~
 ~
 Z 0 22287
@@ -5072,8 +5868,12 @@ At right a cliff.It's horrible.Look forward forget about everything.
 D0
 ~
 ~
+~
+~
 Z 0 22284
 D3
+~
+~
 ~
 ~
 Z 0 22288
@@ -5087,6 +5887,8 @@ for spending his last hours.You don't feel well here.
 D1
 ~
 ~
+~
+~
 Z 0 22291
 S
 #22291
@@ -5098,8 +5900,12 @@ for spending his last hours.You don't feel well here.
 D1
 ~
 ~
+~
+~
 Z 0 22292
 D3
+~
+~
 ~
 ~
 Z 0 22290
@@ -5113,8 +5919,12 @@ for spending his last hours.You don't feel well here.
 D1
 ~
 ~
+~
+~
 Z 0 22293
 D3
+~
+~
 ~
 ~
 Z 0 22291
@@ -5128,12 +5938,18 @@ for spending his last hours.You don't feel well here.
 D1
 ~
 ~
+~
+~
 Z 0 22294
 D2
 ~
 ~
+~
+~
 Z 0 22296
 D3
+~
+~
 ~
 ~
 Z 0 22292
@@ -5147,8 +5963,12 @@ for spending his last hours.You don't feel well here.
 D1
 ~
 ~
+~
+~
 Z 0 22295
 D3
+~
+~
 ~
 ~
 Z 0 22293
@@ -5162,6 +5982,8 @@ for spending his last hours.You don't feel well here.
 D3
 ~
 ~
+~
+~
 Z 0 22294
 S
 #22296
@@ -5173,8 +5995,12 @@ for spending his last hours.You don't feel well here.
 D0
 ~
 ~
+~
+~
 Z 0 22293
 D2
+~
+~
 ~
 ~
 Z 0 22179

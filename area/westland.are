@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Westland~
 VNUMs 10000 10099
 Credits Xavier~
@@ -1331,10 +1331,14 @@ D0
 @rus Вековой лес.
 ~
 ~
+~
+~
 Z 0 10002
 D2
 @eng The long dusty trail.
 @rus Тропа, ведущая непонятно куда.
+~
+~
 ~
 ~
 Z 0 18002
@@ -1359,10 +1363,14 @@ D0
 @rus Под сенью деревьев.
 ~
 ~
+~
+~
 Z 0 10003
 D2
 @eng Back to the woods.
 @rus Тропинка у озера.
+~
+~
 ~
 ~
 Z 0 10001
@@ -1386,10 +1394,14 @@ D0
 @rus Лесная дорога.
 ~
 ~
+~
+~
 Z 0 10004
 D2
 @eng Back to the clearing.
 @rus Лесная просека.
+~
+~
 ~
 ~
 Z 0 10002
@@ -1411,10 +1423,14 @@ D0
 @rus Поворот дороги.
 ~
 ~
+~
+~
 Z 0 10005
 D2
 @eng The road south.
 @rus Под сенью деревьев.
+~
+~
 ~
 ~
 Z 0 10003
@@ -1440,10 +1456,14 @@ D2
 @rus Лесная дорога.
 ~
 ~
+~
+~
 Z 0 10004
 D3
 @eng The path to the mountains.
 @rus Дорога через возвышенность.
+~
+~
 ~
 ~
 Z 0 10006
@@ -1468,10 +1488,14 @@ D1
 @rus Поворот дороги.
 ~
 ~
+~
+~
 Z 0 10005
 D4
 @eng The trail up the mountain.
 @rus На вершине холма.
+~
+~
 ~
 ~
 Z 0 10007
@@ -1498,10 +1522,14 @@ D0
 @rus Опушка леса.
 ~
 ~
+~
+~
 Z 0 10008
 D5
 @eng Back down the mountain.
 @rus Дорога через возвышенность.
+~
+~
 ~
 ~
 Z 0 10006
@@ -1528,10 +1556,14 @@ D2
 @rus На вершине холма.
 ~
 ~
+~
+~
 Z 0 10007
 D5
 @eng The trail into the forest.
 @rus Тропинка через лес.
+~
+~
 ~
 ~
 Z 0 10009
@@ -1558,10 +1590,14 @@ D0
 @rus Окраины Хартленда.
 ~
 ~
+~
+~
 Z 0 10010
 D4
 @eng The trail up the mountain.
 @rus Опушка леса.
+~
+~
 ~
 ~
 Z 0 10008
@@ -1591,10 +1627,14 @@ D0
 @rus Центр города.
 ~
 ~
+~
+~
 Z 0 10011
 D2
 @eng Back to the woods.
 @rus Тропинка в лесу.
+~
+~
 ~
 ~
 Z 0 10009
@@ -1621,10 +1661,14 @@ D0
 @rus Сельскохозяйственные поля.
 ~
 ~
+~
+~
 Z 0 10012
 D2
 @eng Back to the out-skirts of Hartland.
 @rus Окраины Хартленда.
+~
+~
 ~
 ~
 Z 0 10010
@@ -1650,10 +1694,14 @@ D0
 @rus Тропинка к болоту.
 ~
 ~
+~
+~
 Z 0 10013
 D2
 @eng Back to the town.
 @rus Центр города.
+~
+~
 ~
 ~
 Z 0 10011
@@ -1684,10 +1732,14 @@ D0
 @rus Начало топей.
 ~
 ~
+~
+~
 Z 0 10014
 D2
 @eng Back to the fields.
 @rus Поля Хартленда.
+~
+~
 ~
 ~
 Z 0 10012
@@ -1712,10 +1764,14 @@ D1
 @rus Дорога через топи.
 ~
 ~
+~
+~
 Z 0 10015
 D2
 @eng Back to the trail.
 @rus Тропинка в сторону города.
+~
+~
 ~
 ~
 Z 0 10013
@@ -1746,10 +1802,14 @@ D1
 @rus Протока.
 ~
 ~
+~
+~
 Z 0 10016
 D3
 @eng Back through the woods.
 @rus Конец болота.
+~
+~
 ~
 ~
 Z 0 10014
@@ -1777,10 +1837,14 @@ D1
 @rus Небольшой островок.
 ~
 ~
+~
+~
 Z 0 10017
 D3
 @eng Back to the path.
 @rus Дорога через болота.
+~
+~
 ~
 ~
 Z 0 10015
@@ -1806,10 +1870,14 @@ D1
 @rus Протока.
 ~
 ~
+~
+~
 Z 0 10018
 D3
 @eng Back on the waters.
 @rus Протока.
+~
+~
 ~
 ~
 Z 0 10016
@@ -1834,10 +1902,14 @@ D1
 @rus Сухая тропа.
 ~
 ~
+~
+~
 Z 0 10019
 D3
 @eng Back to the Island.
 @rus Небольшой островок.
+~
+~
 ~
 ~
 Z 0 10017
@@ -1862,10 +1934,14 @@ D1
 @rus Тропинка под деревьями.
 ~
 ~
+~
+~
 Z 0 10020
 D3
 @eng Back on the waters.
 @rus Протока.
+~
+~
 ~
 ~
 Z 0 10018
@@ -1890,10 +1966,14 @@ D1
 @rus Небольшая полузаброшенная деревня.
 ~
 ~
+~
+~
 Z 0 10021
 D3
 @eng Back to the waters.
 @rus Тропинка у воды.
+~
+~
 ~
 ~
 Z 0 10019
@@ -1917,10 +1997,14 @@ D1
 @rus Деревенская улица.
 ~
 ~
+~
+~
 Z 0 10022
 D3
 @eng Back to the Forest.
 @rus Тропинка через лес.
+~
+~
 ~
 ~
 Z 0 10020
@@ -1945,16 +2029,22 @@ D0
 @rus Забегаловка.
 ~
 ~
+~
+~
 Z 0 10023
 D1
 @eng Path to the narrows.
 @rus Дорога к проходу.
 ~
 ~
+~
+~
 Z 0 10024
 D3
 @eng Back to the gates.
 @rus Окраина деревни.
+~
+~
 ~
 ~
 Z 0 10021
@@ -1977,6 +2067,8 @@ ale stains on their shirts.
 0 0 inside
 D2
 Back to the road.
+~
+~
 ~
 ~
 Z 0 10022
@@ -2005,10 +2097,14 @@ D1
 @rus Тропинка к дому Эди.
 ~
 ~
+~
+~
 Z 0 10025
 D3
 @eng The path to the village.
 @rus Дорога к деревне.
+~
+~
 ~
 ~
 Z 0 10022
@@ -2033,16 +2129,22 @@ D0
 @rus Дом Эди.
 ~
 ~
+~
+~
 Z 0 10026
 D1
 @eng The path to the Narrows.
 @rus Затеряная тропа.
 ~
 ~
+~
+~
 Z 0 10027
 D3
 @eng Back to the forest.
 @rus Мрачного вида лес.
+~
+~
 ~
 ~
 Z 0 10024
@@ -2068,6 +2170,8 @@ D2
 @rus Тропинка.
 ~
 ~
+~
+~
 Z 0 10025
 S
 #10027
@@ -2086,10 +2190,14 @@ D1
 @rus Проход.
 ~
 ~
+~
+~
 Z 0 10028
 D3
 @eng Back to the bone woman's for a cup of tea.
 @rus Дорожка к дому Эди.
+~
+~
 ~
 ~
 Z 0 10025
@@ -2113,10 +2221,14 @@ D1
 @rus Проход.
 ~
 ~
+~
+~
 Z 0 10029
 D3
 @eng Back to the enterance of the Narrows.
 @rus Проход.
+~
+~
 ~
 ~
 Z 0 10027
@@ -2141,10 +2253,14 @@ D1
 @rus Проход.
 ~
 ~
+~
+~
 Z 0 10030
 D3
 @eng The way you came.
 @rus Проход.
+~
+~
 ~
 ~
 Z 0 10028
@@ -2168,10 +2284,14 @@ D1
 @rus Выход из прохода.
 ~
 ~
+~
+~
 Z 0 10031
 D3
 @eng The way you came..of course.
 @rus Проход.
+~
+~
 ~
 ~
 Z 0 10029
@@ -2196,10 +2316,14 @@ D1
 @rus Равнины Азрита.
 ~
 ~
+~
+~
 Z 0 10032
 D3
 @eng The Narrows.
 @rus Проход.
+~
+~
 ~
 ~
 Z 0 10030
@@ -2225,10 +2349,14 @@ D0
 @rus Дорога через равнины.
 ~
 ~
+~
+~
 Z 0 10033
 D3
 @eng The Narrows end.
 @rus Теснина.
+~
+~
 ~
 ~
 Z 0 10031
@@ -2256,10 +2384,14 @@ D0
 @rus Равнины Азрита.
 ~
 ~
+~
+~
 Z 0 10034
 D2
 @eng The path back where you came from.
 @rus Равнины Азрита.
+~
+~
 ~
 ~
 Z 0 10032
@@ -2286,10 +2418,14 @@ D0
 @rus Каньон.
 ~
 ~
+~
+~
 Z 0 10035
 D2
 @eng Back through the boring old plains.
 @rus Дорога через равнины.
+~
+~
 ~
 ~
 Z 0 10033
@@ -2316,10 +2452,14 @@ D0
 @rus Дорога ко дворцу.
 ~
 ~
+~
+~
 Z 0 10036
 D2
 @eng Back the way you came.
 @rus Равнины Азрита.
+~
+~
 ~
 ~
 Z 0 10034
@@ -2344,10 +2484,14 @@ D0
 @rus Внутренние помещения дворца.
 ~
 ~
+~
+~
 Z 0 10038
 D2
 @eng The big scary DRaGoN.
 @rus Каньон.
+~
+~
 ~
 ~
 Z 0 10035
@@ -2375,16 +2519,22 @@ D0
 @rus Конец коридора.
 ~
 ~
+~
+~
 Z 0 10041
 D1
 @eng The devotion room.
 @rus Многолюдная площадка для посвящений.
 ~
 ~
+~
+~
 Z 0 10039
 D2
 @eng Back to the gates.
 @rus Выход из Народного Дворца.
+~
+~
 ~
 ~
 Z 0 10036
@@ -2410,10 +2560,14 @@ D0
 @rus Комната Морд-Сит.
 ~
 ~
+~
+~
 Z 0 10040
 D3
 @eng Back to the hallway.
 @rus Длинный коридор.
+~
+~
 ~
 ~
 Z 0 10038
@@ -2435,6 +2589,8 @@ spotted you and are heading in your direction. Better run FAST!
 0 0 inside
 D2
 Back to the Devotion room.
+~
+~
 ~
 ~
 Z 0 10039
@@ -2460,10 +2616,14 @@ D0
 @rus Магический сад скрывается за массивными позолоченными дверями.
 ~
 ~
+~
+~
 Z 0 10042
 D2
 @eng The long hallway.
 @rus Длинный коридор.
+~
+~
 ~
 ~
 Z 0 10038
@@ -2501,6 +2661,8 @@ sorcerer's sand, ringed with torches that burn with fluid flames.
 D2
 @eng The exit from the Garden of Life.
 @rus Дверь с позолоченной ручкой, ведущая во внутренние покои дворца.
+~
+~
 ~
 ~
 Z 0 10041

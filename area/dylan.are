@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Dylan's Area~
 VNUMs 9100 9199
 Credits Dylan~
@@ -221,20 +221,28 @@ D0
 @rus Похоже, путь ведет назад на твердую поверхность.
 ~
 ~
+~
+~
 Z -1 7900
 D1
 @eng Intersection on a Pebbled Path.
 @rus На востоке ты видишь вход в зону Разделенные Души (Dividen Souls).
 ~
 ~
+~
+~
 Z -1 11600
 D2
+~
+~
 ~
 ~
 Z 0 21000
 D4
 @eng There is another cloud above you.  If you jump you might make it...
 @rus Над тобой другое облако. Если прыгнешь - то попадешь туда...
+~
+~
 ~
 ~
 Z -1 9102
@@ -254,10 +262,14 @@ D1
 @rus На востоке от тебя - другое облако.
 ~
 ~
+~
+~
 Z -1 9103
 D5
 @eng There is another cloud below you.
 @rus Под тобой - другое облако.
+~
+~
 ~
 ~
 Z -1 9101
@@ -277,16 +289,22 @@ D0
 @rus Ты едва можешь заметить облако на севере.
 ~
 ~
+~
+~
 Z -1 9128
 D2
 @eng You see a cloud somewhere south of you.
 @rus Ты видишь облако где-то на юге от тебя.
 ~
 ~
+~
+~
 Z -1 9104
 D3
 @eng You see a cloud somewhere west of you.
 @rus Ты видишь облако где-то на западе от тебя.
+~
+~
 ~
 ~
 Z -1 9102
@@ -306,10 +324,14 @@ D0
 @rus Ты едва можешь заметить облако на севере.
 ~
 ~
+~
+~
 Z -1 9103
 D1
 @eng There is another cloud east of you.
 @rus На востоке от себя ты видишь другое облако.
+~
+~
 ~
 ~
 Z -1 9105
@@ -329,10 +351,14 @@ D1
 @rus На востоке от себя ты видишь другое облако.
 ~
 ~
+~
+~
 Z -1 9106
 D3
 @eng You spy a tiny cloud.
 @rus Ты замечаешь крохотное облако.
+~
+~
 ~
 ~
 Z -1 9104
@@ -352,10 +378,14 @@ D0
 @rus Ты едва можешь заметить облако на севере.
 ~
 ~
+~
+~
 Z -1 9107
 D3
 @eng You spy a tiny cloud.
 @rus Ты замечаешь крохотное облако.
+~
+~
 ~
 ~
 Z -1 9105
@@ -375,16 +405,22 @@ D1
 @rus На востоке от себя ты видишь другое облако.
 ~
 ~
+~
+~
 Z -1 9108
 D2
 @eng You see a cloud somewhere south of you.
 @rus Ты видишь облако где-то на юге от себя.
 ~
 ~
+~
+~
 Z -1 9106
 D5
 @eng There is another cloud below you.
 @rus Под тобой - другое облако.
+~
+~
 ~
 ~
 Z -1 9126
@@ -404,10 +440,14 @@ D1
 @rus Зловещая грозовая туча маячит на востоке.
 ~
 ~
+~
+~
 Z -1 9109
 D3
 @eng You spy a tiny cloud.
 @rus Ты замечаешь крохотное облако.
+~
+~
 ~
 ~
 Z -1 9107
@@ -427,10 +467,14 @@ D3
 @rus Ты замечаешь крохотное облако.
 ~
 ~
+~
+~
 Z -1 9108
 D5
 @eng An ominous storm cloud looms below you.
 @rus Зловещая грозовая туча маячит под тобой.
+~
+~
 ~
 ~
 Z -1 9110
@@ -448,16 +492,22 @@ D1
 @rus Здесь скала, высокая и крепкая.
 ~
 ~
+~
+~
 Z -1 9111
 D3
 @eng You spy a tiny cloud.
 @rus Ты замечаешь крохотное облако.
 ~
 ~
+~
+~
 Z -1 9125
 D4
 @eng There is another cloud above you.  If you jump you might make it...
 @rus Над тобой другое облако. Если прыгнешь - то попадешь туда...
+~
+~
 ~
 ~
 Z -1 9109
@@ -476,10 +526,14 @@ leading to the south.
 D2
 ~
 ~
+~
+~
 Z -1 9112
 D3
 @eng An ominous storm cloud looms to the east.
 @rus Зловещая грозовая туча маячит на востоке.
+~
+~
 ~
 ~
 Z -1 9110
@@ -496,8 +550,12 @@ Obviously, it has not been maintained in years.
 D0
 ~
 ~
+~
+~
 Z -1 9111
 D5
+~
+~
 ~
 ~
 Z -1 9113
@@ -513,8 +571,12 @@ odd carcass or two.  The trail leads south and it leads up.
 D2
 ~
 ~
+~
+~
 Z -1 9114
 D4
+~
+~
 ~
 ~
 Z -1 9112
@@ -530,10 +592,14 @@ odd carcass or two.  The trail leads south and it leads up.
 D0
 ~
 ~
+~
+~
 Z -1 9113
 D5
 @eng The crevice looks a little slippery.
 @rus Расщелина, похоже, немного скользкая.
+~
+~
 ~
 ~
 Z -1 9115
@@ -550,14 +616,20 @@ Better take your time climbing through here.
 D2
 ~
 ~
+~
+~
 Z -1 9117
 D3
 @eng The mist looks thicker in this direction.
 @rus Туман становится гуще в этом направлении.
 ~
 ~
+~
+~
 Z -1 9116
 D4
+~
+~
 ~
 ~
 Z -1 9114
@@ -582,10 +654,14 @@ D1
 @rus Путь обратно, в безопасность.
 ~
 ~
+~
+~
 Z -1 9115
 D5
 @eng Only fools would dare tread here!
 @rus Только дурак рискнет пройти здесь!
+~
+~
 ~
 ~
 Z -1 9199
@@ -601,8 +677,12 @@ Midgaard is far, far to the west.  What a postcard perfect view!
 D0
 ~
 ~
+~
+~
 Z -1 9115
 D4
+~
+~
 ~
 ~
 Z -1 9118
@@ -618,8 +698,12 @@ Midgaard is far, far to the west.  What a postcard perfect view!
 D1
 ~
 ~
+~
+~
 Z -1 9119
 D5
+~
+~
 ~
 ~
 Z -1 9117
@@ -637,11 +721,15 @@ nasty.
 D3
 ~
 ~
+~
+~
 Z -1 9118
 D4
 @eng Above you is an almost vertical cliff.  It looks dangerous but
 climbable.
 @rus Над тобой - почти отвесный утес. Он выглядит опасным, но преодолимым.
+~
+~
 ~
 ~
 Z -1 9120
@@ -661,14 +749,20 @@ D1
 @rus Сырая, темная, вонючая дыра.
 ~
 ~
+~
+~
 Z -1 9121
 D4
 @eng A large ledge that looks pretty safe.
 @rus Большой выступ выглядит довольно безопасным.
 ~
 ~
+~
+~
 Z -1 9122
 D5
+~
+~
 ~
 ~
 Z -1 9119
@@ -683,6 +777,8 @@ something disgusting.
 ~
 0 AD mountain
 D3
+~
+~
 ~
 ~
 Z -1 9120
@@ -700,12 +796,18 @@ two small caves here, one north and one west.
 D0
 ~
 ~
+~
+~
 Z -1 9124
 D3
 ~
 ~
+~
+~
 Z -1 9123
 D5
+~
+~
 ~
 ~
 Z -1 9120
@@ -725,6 +827,8 @@ D1
 @rus Единственная надежда оставить твой завтрак внутри - это двигаться этим путем...
 ~
 ~
+~
+~
 Z -1 9122
 S
 #9124
@@ -740,6 +844,8 @@ you have to strain yourself not to lose your lunch.
 D2
 @eng Your only hope to keep your lunch down is to head this way...
 @rus Единственная надежда оставить твой завтрак внутри - это двигаться этим путем...
+~
+~
 ~
 ~
 Z -1 9122
@@ -759,10 +865,14 @@ D1
 @rus Зловещая грозовая туча маячит на востоке.
 ~
 ~
+~
+~
 Z -1 9110
 D4
 @eng There is another cloud above you.  If you jump you might make it...
 @rus Над тобой другое облако. Если прыгнешь - то попадешь туда...
+~
+~
 ~
 ~
 Z -1 9126
@@ -782,10 +892,14 @@ D0
 @rus Перистое облако мирно что-то себе гудит.
 ~
 ~
+~
+~
 Z -1 9131
 D3
 @eng You spy a tiny cloud.
 @rus Ты замечаешь крохотное облако.
+~
+~
 ~
 ~
 Z -1 9127
@@ -794,10 +908,14 @@ D4
 @rus Над тобой другое облако. Если прыгнешь - то попадешь туда...
 ~
 ~
+~
+~
 Z -1 9107
 D5
 @eng There is another cloud below you.
 @rus Под тобой - другое облако.
+~
+~
 ~
 ~
 Z -1 9125
@@ -817,16 +935,22 @@ D0
 @rus На севере ты видишь сердитое облако, разражающееся бранью.
 ~
 ~
+~
+~
 Z -1 9130
 D1
 @eng There is another cloud east of you.
 @rus На востоке - другое облако.
 ~
 ~
+~
+~
 Z -1 9126
 D4
 @eng There is another cloud above you.  If you jump you might make it...
 @rus Над тобой другое облако. Если прыгнешь - то попадешь туда...
+~
+~
 ~
 ~
 Z -1 9128
@@ -846,10 +970,14 @@ D2
 @rus Ты видишь облако где-то к югу от тебя.
 ~
 ~
+~
+~
 Z -1 9103
 D5
 @eng There is another cloud below you.
 @rus Под тобой - другое облако.
+~
+~
 ~
 ~
 Z -1 9127
@@ -868,10 +996,14 @@ it.
 @rus Облако на севере смущается и пытается спрятаться, когда ты на него смотришь.
 ~
 ~
+~
+~
 Z -1 9132
 D1
 @eng The cloud to the east mutters and grumbles at you.
 @rus Облако на востоке ворчит и бурчит на тебя.
+~
+~
 ~
 ~
 Z -1 9130
@@ -891,10 +1023,14 @@ D1
 @rus Счастливое маленькое облако что-то мирно себе гудит.
 ~
 ~
+~
+~
 Z -1 9131
 D2
 @eng You see a cloud somewhere south of you.
 @rus Ты видишь облако где-то к югу от тебя.
+~
+~
 ~
 ~
 Z -1 9127
@@ -902,6 +1038,8 @@ D3
 @eng A sleepy little cloud to the west yawns and rolls over.  You hear
 snoring.
 @rus Сонное маленькое облако на западе зевает и ворочается. Ты слышишь храп.
+~
+~
 ~
 ~
 Z -1 9129
@@ -919,16 +1057,22 @@ D0
 @rus На севере - безупречно белое облако. Там идет снег!
 ~
 ~
+~
+~
 Z -1 9136
 D2
 @eng You see a cloud somewhere south of you.
 @rus Ты видишь облако где-то к югу от тебя.
 ~
 ~
+~
+~
 Z -1 9126
 D3
 @eng You see an angry little cloud muttering and grumbling to itself.
 @rus Ты видишь маленькое сердитое облако ворчащее и бурчащее на тебя.
+~
+~
 ~
 ~
 Z -1 9130
@@ -947,6 +1091,8 @@ D0
 @rus Облако на севере чихает!
 ~
 ~
+~
+~
 Z -1 9133
 D2
 @eng A sleepy little cloud to the south yawns and rolls over.  You hear
@@ -954,10 +1100,14 @@ snoring.
 @rus Сонное маленькое облако на западе зевает и ворочается. Ты слышишь храп.
 ~
 ~
+~
+~
 Z -1 9129
 D3
 @eng An isolated little raincloud.
 @rus Изолированная дождевая туча.
+~
+~
 ~
 ~
 Z -1 9142
@@ -973,10 +1123,14 @@ in an earthquake before you realize where you are!
 D0
 ~
 ~
+~
+~
 Z -1 9145
 D1
 @eng This cloud is, like, totally lost, you know?
 @rus Это облако, похоже, полностью потерялось. Может ты знаешь откуда оно?
+~
+~
 ~
 ~
 Z -1 9134
@@ -986,10 +1140,14 @@ it.
 @rus Облако на юге краснеет и пытается спрятаться, когда ты смотришь на него.
 ~
 ~
+~
+~
 Z -1 9132
 D3
 @eng You see a cirrus maximus cloud.
 @rus Ты видишь правильное перьевое облако.
+~
+~
 ~
 ~
 Z -1 9143
@@ -1009,10 +1167,14 @@ D1
 @rus Ты видишь очень ученое облако.
 ~
 ~
+~
+~
 Z -1 9135
 D3
 @eng The cloud sneezes!  Yuck.
 @rus Облако чихает!  А-а-пчхи!
+~
+~
 ~
 ~
 Z -1 9133
@@ -1030,10 +1192,14 @@ D2
 @rus На юге - безупречно белое облако. Там идет снег!
 ~
 ~
+~
+~
 Z -1 9136
 D3
 @eng This cloud is, like, totally lost, you know?
 @rus Это облако, похоже, полностью потерялось. Может ты знаешь откуда оно?
+~
+~
 ~
 ~
 Z -1 9134
@@ -1053,14 +1219,20 @@ D0
 @rus Ты видишь очень ученое облако.
 ~
 ~
+~
+~
 Z -1 9135
 D2
 @eng A happy, peaceful little cloud humming to itself.
 @rus Счастливое мирное облако гудит что-то себе.
 ~
 ~
+~
+~
 Z -1 9131
 D3
+~
+~
 ~
 ~
 Z -1 9137
@@ -1078,8 +1250,12 @@ D1
 @rus На востоке - безупречно белое облако. Там идет снег!
 ~
 ~
+~
+~
 Z -1 9136
 D4
+~
+~
 ~
 ~
 Z -1 9138
@@ -1099,8 +1275,12 @@ D0
 @rus Мрачный дом.
 ~
 door~
+~
+~
 Z -1 9139
 D5
+~
+~
 ~
 ~
 Z -1 9137
@@ -1119,8 +1299,12 @@ trouble making out the room to the east.
 D1
 ~
 ~
+~
+~
 Z -1 9140
 D2
+~
+~
 ~
 ~
 Z -1 9138
@@ -1139,8 +1323,12 @@ is the house and there is a stairway leading up into the tower.
 D3
 ~
 ~
+~
+~
 Z -1 9139
 D4
+~
+~
 ~
 ~
 Z -1 9141
@@ -1168,8 +1356,12 @@ almost see people walking around the temple in the picture.
 D1
 ~
 picture~
+the picture~
+~
 ABZ -1 3001
 D5
+~
+~
 ~
 ~
 Z -1 9140
@@ -1185,10 +1377,14 @@ something like, 'Tut, tut!  It looks like rain!'
 D0
 ~
 ~
+~
+~
 Z -1 9143
 D1
 @eng A bashful little cloud that tries to avoid your notice.
 @rus Маленькое застенчивое облако пытается избежать твоего внимания.
+~
+~
 ~
 ~
 Z -1 9132
@@ -1204,10 +1400,14 @@ D1
 @rus Облако на востоке чихает!
 ~
 ~
+~
+~
 Z -1 9133
 D2
 @eng A suspicious little raincloud with a balloon.
 @rus Маленькая ненадежная дождевая туча с воздушным шаром.
+~
+~
 ~
 ~
 Z -1 9142
@@ -1225,8 +1425,12 @@ Your only thought is to seek refuge from the storm.
 D0
 ~
 ~
+~
+~
 Z -1 9148
 D5
+~
+~
 ~
 ~
 Z -1 9146
@@ -1246,12 +1450,18 @@ D2
 @rus Ты видишь маленькое чихающее облако.
 ~
 ~
+~
+~
 Z -1 9133
 D3
 ~
 ~
+~
+~
 Z -1 9150
 D5
+~
+~
 ~
 ~
 Z -1 9148
@@ -1269,8 +1479,12 @@ Your only thought is to seek refuge from the storm.
 D0
 ~
 ~
+~
+~
 Z -1 9147
 D1
+~
+~
 ~
 ~
 Z -1 9144
@@ -1288,8 +1502,12 @@ Your only thought is to seek refuge from the storm.
 D1
 ~
 ~
+~
+~
 Z -1 9148
 D2
+~
+~
 ~
 ~
 Z -1 9146
@@ -1307,12 +1525,18 @@ Your only thought is to seek refuge from the storm.
 D2
 ~
 ~
+~
+~
 Z -1 9144
 D3
 ~
 ~
+~
+~
 Z -1 9147
 D4
+~
+~
 ~
 ~
 Z -1 9145
@@ -1330,14 +1554,20 @@ Your only thought is to seek refuge from the storm.
 D0
 ~
 ~
+~
+~
 Z -1 9152
 D1
+~
+~
 ~
 ~
 Z -1 9150
 D5
 @eng You see a cumulative nimbus cloud.
 @rus Ты видишь накапливающуюся дождевую тучу.
+~
+~
 ~
 ~
 Z -1 9157
@@ -1355,12 +1585,18 @@ Your only thought is to seek refuge from the storm.
 D0
 ~
 ~
+~
+~
 Z -1 9151
 D1
 ~
 ~
+~
+~
 Z -1 9145
 D3
+~
+~
 ~
 ~
 Z -1 9149
@@ -1378,8 +1614,12 @@ Your only thought is to seek refuge from the storm.
 D2
 ~
 ~
+~
+~
 Z -1 9150
 D3
+~
+~
 ~
 ~
 Z -1 9152
@@ -1397,8 +1637,12 @@ Your only thought is to seek refuge from the storm.
 D1
 ~
 ~
+~
+~
 Z -1 9151
 D2
+~
+~
 ~
 ~
 Z -1 9149
@@ -1414,8 +1658,12 @@ get sucked in, but you feel safe for the moment.
 D3
 ~
 ~
+~
+~
 Z -1 9154
 D4
+~
+~
 ~
 ~
 Z -1 9152
@@ -1435,8 +1683,12 @@ place.
 D1
 ~
 ~
+~
+~
 Z -1 9153
 D3
+~
+~
 ~
 ~
 Z -1 9155
@@ -1456,8 +1708,12 @@ place.
 D1
 ~
 ~
+~
+~
 Z -1 9154
 D4
+~
+~
 ~
 ~
 Z -1 9156
@@ -1475,6 +1731,8 @@ and look almost leathery.  Better hope mom isn't around!
 D5
 ~
 ~
+~
+~
 Z -1 9155
 S
 #9157
@@ -1486,12 +1744,18 @@ S
 D2
 ~
 ~
+~
+~
 Z -1 9159
 D3
 ~
 ~
+~
+~
 Z -1 9158
 D4
+~
+~
 ~
 ~
 Z -1 9149
@@ -1503,6 +1767,8 @@ S
 ~
 0 A inside
 D1
+~
+~
 ~
 ~
 Z -1 9157
@@ -1518,8 +1784,12 @@ end?  There is a rope ladder leading up.
 D0
 ~
 ~
+~
+~
 Z -1 9157
 D4
+~
+~
 ~
 ~
 Z -1 9160
@@ -1539,10 +1809,14 @@ D2
 @rus Ты видишь огромную лужайку.
 ~
 ~
+~
+~
 Z -1 9161
 D5
 @eng There is a rope ladder leading down.
 @rus Веревочная лестница ведет вниз.
+~
+~
 ~
 ~
 Z -1 9159
@@ -1559,12 +1833,18 @@ obviously well cared for.
 D0
 ~
 ~
+~
+~
 Z -1 9160
 D2
 ~
 ~
+~
+~
 Z -1 9163
 D3
+~
+~
 ~
 ~
 Z -1 9162
@@ -1581,8 +1861,12 @@ been set up for spectators and players to enjoy themselves.
 D1
 ~
 ~
+~
+~
 Z -1 9161
 D2
+~
+~
 ~
 ~
 Z -1 9164
@@ -1600,8 +1884,12 @@ fountain empties into a huge pool that looks quite inviting.
 D0
 ~
 ~
+~
+~
 Z -1 9161
 D3
+~
+~
 ~
 ~
 Z -1 9164
@@ -1620,12 +1908,18 @@ house.
 D0
 ~
 ~
+~
+~
 Z -1 9162
 D1
 ~
 ~
+~
+~
 Z -1 9163
 D4
+~
+~
 ~
 ~
 Z -1 9165
@@ -1642,8 +1936,12 @@ inlays.
 D4
 ~
 ~
+~
+~
 Z -1 9166
 D5
+~
+~
 ~
 ~
 Z -1 9164
@@ -1661,18 +1959,26 @@ made of oak.
 D1
 ~
 ~
+~
+~
 Z -1 9173
 D2
 @eng You see an ornate oak door.
 @rus Ты видишь богато украшенную дубовую дверь.
 ~
 oak door~
+the oak~
+~
 AFZ -1 9177
 D3
 ~
 ~
+~
+~
 Z -1 9167
 D5
+~
+~
 ~
 ~
 Z -1 9165
@@ -1688,8 +1994,12 @@ to peek in a window, but it is a little too high to see anything.
 D1
 ~
 ~
+~
+~
 Z -1 9166
 D2
+~
+~
 ~
 ~
 Z -1 9168
@@ -1705,8 +2015,12 @@ peek in a window, but it is a little too high to see anything.
 D0
 ~
 ~
+~
+~
 Z -1 9167
 D2
+~
+~
 ~
 ~
 Z -1 9169
@@ -1722,12 +2036,18 @@ to peek in a window, but it is a little too high to see anything.
 D0
 ~
 ~
+~
+~
 Z -1 9168
 D1
 ~
 ~
+~
+~
 Z -1 9170
 D5
+~
+~
 ~
 ~
 Z -1 9174
@@ -1743,8 +2063,12 @@ peek in a window, but it is a little too high to see anything.
 D1
 ~
 ~
+~
+~
 Z -1 9171
 D3
+~
+~
 ~
 ~
 Z -1 9169
@@ -1760,8 +2084,12 @@ to peek in a window, but it is a little too high to see anything.
 D0
 ~
 ~
+~
+~
 Z -1 9172
 D3
+~
+~
 ~
 ~
 Z -1 9170
@@ -1777,8 +2105,12 @@ peek in a window, but it is a little too high to see anything.
 D0
 ~
 ~
+~
+~
 Z -1 9173
 D2
+~
+~
 ~
 ~
 Z -1 9171
@@ -1794,8 +2126,12 @@ to peek in a window, but it is a little too high to see anything.
 D2
 ~
 ~
+~
+~
 Z -1 9172
 D3
+~
+~
 ~
 ~
 Z -1 9166
@@ -1809,8 +2145,12 @@ S
 D1
 ~
 ~
+~
+~
 Z -1 9175
 D4
+~
+~
 ~
 ~
 Z -1 9169
@@ -1827,8 +2167,12 @@ rats in the corners.
 D0
 ~
 ~
+~
+~
 Z -1 9176
 D3
+~
+~
 ~
 ~
 Z -1 9174
@@ -1845,8 +2189,12 @@ clutter gathered throughout the years.
 D2
 ~
 ~
+~
+~
 Z -1 9175
 D4
+~
+~
 ~
 ~
 Z -1 9177
@@ -1870,16 +2218,24 @@ D0
 @rus Ты видишь богато украшенную дубовую дверь.
 ~
 oak door~
+the oak~
+~
 AFZ -1 9166
 D1
+~
+~
 ~
 ~
 Z -1 9183
 D3
 ~
 ~
+~
+~
 Z -1 9178
 D5
+~
+~
 ~
 ~
 Z -1 9176
@@ -1897,12 +2253,18 @@ the hallway and some gorgeous, handwoven drapes.
 D1
 ~
 ~
+~
+~
 Z -1 9177
 D2
 ~
 ~
+~
+~
 Z -1 9179
 D3
+~
+~
 ~
 ~
 Z -1 9180
@@ -1921,6 +2283,8 @@ and a desk for more intense studies.
 D0
 ~
 ~
+~
+~
 Z -1 9178
 S
 #9180
@@ -1936,8 +2300,12 @@ trees, a small pond and flowers of every kind.
 D1
 ~
 ~
+~
+~
 Z -1 9178
 D2
+~
+~
 ~
 ~
 Z -1 9181
@@ -1958,8 +2326,12 @@ up into darkness.
 D0
 ~
 ~
+~
+~
 Z -1 9180
 D4
+~
+~
 ~
 ~
 Z -1 9182
@@ -1980,6 +2352,8 @@ although there are a couple of cobwebs in the corner.
 D5
 ~
 ~
+~
+~
 Z -1 9181
 S
 #9183
@@ -1995,12 +2369,18 @@ the hallway and some gorgeous, handwoven drapes.
 D1
 ~
 ~
+~
+~
 Z -1 9185
 D2
 ~
 ~
+~
+~
 Z -1 9184
 D3
+~
+~
 ~
 ~
 Z -1 9177
@@ -2016,6 +2396,8 @@ instruments are on display in a glass cabinet.
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 Z -1 9183
@@ -2034,8 +2416,12 @@ mechanically ticking and tocking the hours away.
 D2
 ~
 ~
+~
+~
 Z -1 9186
 D3
+~
+~
 ~
 ~
 Z -1 9183
@@ -2056,8 +2442,12 @@ up into darkness.
 D0
 ~
 ~
+~
+~
 Z -1 9185
 D4
+~
+~
 ~
 ~
 Z -1 9187
@@ -2076,6 +2466,8 @@ although there are a couple of cobwebs in the corner.
 ~
 0 AD city
 D5
+~
+~
 ~
 ~
 Z -1 9186

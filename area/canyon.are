@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Elemental Canyon~
 VNUMs 9200 9299
 Credits Raff~
@@ -963,8 +963,12 @@ You do sense great power though coming from the area behind the mountain.
 D0
 ~
 ~
+~
+~
 Z -1 5267
 D4
+~
+~
 ~
 ~
 Z -1 9202
@@ -979,12 +983,18 @@ D0
 Gateway to abysis.
 ~
 ~
+~
+~
 Z -1 25000
 D4
 ~
 ~
+~
+~
 Z -1 9203
 D5
+~
+~
 ~
 ~
 Z -1 9201
@@ -1010,8 +1020,12 @@ here a lot.
 D4
 ~
 ~
+~
+~
 Z -1 9204
 D5
+~
+~
 ~
 ~
 Z -1 9202
@@ -1026,8 +1040,12 @@ makes its final ascent to an overlook.
 D4
 ~
 ~
+~
+~
 Z -1 9205
 D5
+~
+~
 ~
 ~
 Z -1 9203
@@ -1047,8 +1065,12 @@ overlook.
 D0
 ~
 ~
+~
+~
 Z -1 9206
 D5
+~
+~
 ~
 ~
 Z -1 9204
@@ -1063,8 +1085,12 @@ into the canyon here.
 D2
 ~
 ~
+~
+~
 Z -1 9205
 D5
+~
+~
 ~
 ~
 Z -1 9207
@@ -1080,8 +1106,12 @@ the overlook here.
 D0
 ~
 ~
+~
+~
 Z -1 9209
 D4
+~
+~
 ~
 ~
 Z -1 9206
@@ -1097,8 +1127,12 @@ going on about.  The canyon continues north and east.
 D0
 ~
 ~
+~
+~
 Z -1 9211
 D1
+~
+~
 ~
 ~
 Z -1 9209
@@ -1118,22 +1152,32 @@ force helps you to fly through to chamber.
 D0
 ~
 ~
+~
+~
 Z -1 9212
 D1
+~
+~
 ~
 ~
 Z -1 9210
 D2
 ~
 ~
+~
+~
 Z -1 9207
 D3
+~
+~
 ~
 ~
 Z -1 9208
 D4
 ~
 Entrance to the Combat Magician Chamber.
+~
+the entrance~
 ~
 Z -1 9261
 S
@@ -1149,12 +1193,18 @@ cave mouth set into the canyon wall to the east.
 D0
 ~
 ~
+~
+~
 Z -1 9213
 D1
 ~
 ~
+~
+~
 Z -1 9220
 D3
+~
+~
 ~
 ~
 Z -1 9209
@@ -1171,12 +1221,18 @@ and south.
 D0
 ~
 ~
+~
+~
 Z -1 9214
 D1
 ~
 ~
+~
+~
 Z -1 9212
 D2
+~
+~
 ~
 ~
 Z -1 9208
@@ -1192,16 +1248,24 @@ things going on about.  The canyon floor extends in all directions.
 D0
 ~
 ~
+~
+~
 Z -1 9215
 D1
+~
+~
 ~
 ~
 Z -1 9213
 D2
 ~
 ~
+~
+~
 Z -1 9209
 D3
+~
+~
 ~
 ~
 Z -1 9211
@@ -1218,16 +1282,24 @@ A path follows a stream to the east.
 D0
 ~
 ~
+~
+~
 Z -1 9216
 D1
+~
+~
 ~
 ~
 Z -1 9228
 D2
 ~
 ~
+~
+~
 Z -1 9210
 D3
+~
+~
 ~
 ~
 Z -1 9212
@@ -1244,16 +1316,24 @@ To the west a garden is on fire.
 D0
 ~
 ~
+~
+~
 Z -1 9217
 D1
+~
+~
 ~
 ~
 Z -1 9215
 D2
 ~
 ~
+~
+~
 Z -1 9211
 D3
+~
+~
 ~
 ~
 Z -1 9237
@@ -1269,16 +1349,24 @@ things going on about.  The canyon floor extends in all directions.
 D0
 ~
 ~
+~
+~
 Z -1 9218
 D1
+~
+~
 ~
 ~
 Z -1 9216
 D2
 ~
 ~
+~
+~
 Z -1 9212
 D3
+~
+~
 ~
 ~
 Z -1 9214
@@ -1294,12 +1382,18 @@ things going on about.  The Canyon floor extends north, south and west.
 D0
 ~
 ~
+~
+~
 Z -1 9219
 D2
 ~
 ~
+~
+~
 Z -1 9213
 D3
+~
+~
 ~
 ~
 Z -1 9215
@@ -1316,12 +1410,18 @@ climb a rise in the canyon floor to the north.
 D0
 ~
 ~
+~
+~
 Z -1 9253
 D1
 ~
 ~
+~
+~
 Z -1 9218
 D2
+~
+~
 ~
 ~
 Z -1 9214
@@ -1337,12 +1437,18 @@ things going on about.  The canyon floor extends east, south, and west.
 D1
 ~
 ~
+~
+~
 Z -1 9219
 D2
 ~
 ~
+~
+~
 Z -1 9215
 D3
+~
+~
 ~
 ~
 Z -1 9217
@@ -1359,12 +1465,18 @@ climb a rise in the canyon floor to the north.
 D0
 ~
 ~
+~
+~
 Z -1 9254
 D2
 ~
 ~
+~
+~
 Z -1 9216
 D3
+~
+~
 ~
 ~
 Z -1 9218
@@ -1378,8 +1490,12 @@ source of energy from that direction.
 D1
 ~
 ~
+~
+~
 Z -1 9221
 D3
+~
+~
 ~
 ~
 Z -1 9210
@@ -1395,12 +1511,18 @@ can't see where you are going.
 D1
 ~
 ~
+~
+~
 Z -1 9222
 D2
 ~
 ~
+~
+~
 Z -1 9223
 D3
+~
+~
 ~
 ~
 Z -1 9220
@@ -1416,8 +1538,12 @@ can't see where you are going.
 D2
 ~
 ~
+~
+~
 Z -1 9224
 D3
+~
+~
 ~
 ~
 Z -1 9221
@@ -1433,12 +1559,18 @@ you can't see where you are going.
 D0
 ~
 ~
+~
+~
 Z -1 9221
 D1
 ~
 ~
+~
+~
 Z -1 9224
 D2
+~
+~
 ~
 ~
 Z -1 9225
@@ -1454,12 +1586,18 @@ can't see where you are going.
 D0
 ~
 ~
+~
+~
 Z -1 9222
 D2
 ~
 ~
+~
+~
 Z -1 9226
 D3
+~
+~
 ~
 ~
 Z -1 9223
@@ -1475,8 +1613,12 @@ darkness.  You sense a great presence off to the east aways.
 D0
 ~
 ~
+~
+~
 Z -1 9223
 D1
+~
+~
 ~
 ~
 Z -1 9226
@@ -1492,12 +1634,18 @@ darkness.  You sense a great presence directly to the east.
 D0
 ~
 ~
+~
+~
 Z -1 9224
 D1
 ~
 ~
+~
+~
 Z -1 9227
 D3
+~
+~
 ~
 ~
 Z -1 9225
@@ -1517,6 +1665,8 @@ earth seems to shake with his emotion.
 D3
 ~
 ~
+~
+~
 Z -1 9226
 S
 #9228
@@ -1529,8 +1679,12 @@ to the water. To the west you see a T-intersection.
 D0
 ~
 ~
+~
+~
 Z -1 9229
 D3
+~
+~
 ~
 ~
 Z -1 9213
@@ -1545,8 +1699,12 @@ the north and the river goes south.
 D0
 ~
 ~
+~
+~
 Z -1 9230
 D2
+~
+~
 ~
 ~
 Z -1 9228
@@ -1561,12 +1719,18 @@ magical water indeed.  Though you splash through the bay you do not get wet.
 D0
 ~
 ~
+~
+~
 Z -1 9233
 D1
 ~
 ~
+~
+~
 Z -1 9231
 D2
+~
+~
 ~
 ~
 Z -1 9229
@@ -1581,12 +1745,18 @@ magical water indeed.  Though you splash through the bay you do not get wet.
 D0
 ~
 ~
+~
+~
 Z -1 9234
 D1
 ~
 ~
+~
+~
 Z -1 9232
 D3
+~
+~
 ~
 ~
 Z -1 9230
@@ -1601,8 +1771,12 @@ magical water indeed.  Though you splash through the bay you do not get wet.
 D0
 ~
 ~
+~
+~
 Z -1 9235
 D3
+~
+~
 ~
 ~
 Z -1 9231
@@ -1617,8 +1791,12 @@ magical water indeed.  Though you splash through the bay you do not get wet.
 D1
 ~
 ~
+~
+~
 Z -1 9234
 D2
+~
+~
 ~
 ~
 Z -1 9230
@@ -1633,12 +1811,18 @@ magical water indeed.  Though you splash through the bay you do not get wet.
 D1
 ~
 ~
+~
+~
 Z -1 9235
 D2
 ~
 ~
+~
+~
 Z -1 9231
 D3
+~
+~
 ~
 ~
 Z -1 9233
@@ -1653,12 +1837,18 @@ magical water indeed.  Though you splash through the bay you do not get wet.
 D2
 ~
 ~
+~
+~
 Z -1 9232
 D3
 ~
 ~
+~
+~
 Z -1 9234
 D5
+~
+~
 ~
 ~
 Z -1 9236
@@ -1674,6 +1864,8 @@ the water above you.
 D4
 ~
 ~
+~
+~
 Z -1 9235
 S
 #9237
@@ -1686,8 +1878,12 @@ dangerous.  The path extends east and south.
 D1
 ~
 ~
+~
+~
 Z -1 9214
 D2
+~
+~
 ~
 ~
 Z -1 9238
@@ -1701,8 +1897,12 @@ beds of coals.  A garden to the west glows with an everlasting fire.
 D0
 ~
 ~
+~
+~
 Z -1 9237
 D3
+~
+~
 ~
 ~
 Z -1 9242
@@ -1717,8 +1917,12 @@ consume its hosts.  A path leads east among some fire pits.
 D1
 ~
 ~
+~
+~
 Z -1 9238
 D3
+~
+~
 ~
 ~
 Z -1 9245
@@ -1730,6 +1934,8 @@ flame dance to and fro for the entertainment of the ruler.
 ~
 0 0 forest
 D1
+~
+~
 ~
 ~
 Z -1 9242
@@ -1744,8 +1950,12 @@ sunken-in area.  A path leads east also.
 D0
 ~
 ~
+~
+~
 Z -1 9248
 D1
+~
+~
 ~
 ~
 Z -1 9253
@@ -1760,8 +1970,12 @@ extends north and east.
 D0
 ~
 ~
+~
+~
 Z -1 9249
 D1
+~
+~
 ~
 ~
 Z -1 9248
@@ -1776,12 +1990,18 @@ path heading away south.  The playground extends north and west.
 D0
 ~
 ~
+~
+~
 Z -1 9250
 D2
 ~
 ~
+~
+~
 Z -1 9246
 D3
+~
+~
 ~
 ~
 Z -1 9247
@@ -1796,8 +2016,12 @@ south and east.
 D1
 ~
 ~
+~
+~
 Z -1 9250
 D2
+~
+~
 ~
 ~
 Z -1 9247
@@ -1812,12 +2036,18 @@ south and west.  Something more important catches your eye to the east.
 D1
 ~
 ~
+~
+~
 Z -1 9251
 D2
 ~
 ~
+~
+~
 Z -1 9248
 D3
+~
+~
 ~
 ~
 Z -1 9249
@@ -1832,8 +2062,12 @@ is the electric playground.
 D3
 ~
 ~
+~
+~
 Z -1 9250
 D4
+~
+~
 ~
 ~
 Z -1 9252
@@ -1848,6 +2082,8 @@ the hill lead down to a causeway.
 D5
 ~
 ~
+~
+~
 Z -1 9251
 S
 #9253
@@ -1859,12 +2095,18 @@ Or you can climb down to the canyon floor to the south.
 D1
 ~
 ~
+~
+~
 Z -1 9254
 D2
 ~
 ~
+~
+~
 Z -1 9217
 D3
+~
+~
 ~
 ~
 Z -1 9246
@@ -1878,12 +2120,18 @@ Or you can climb down to the canyon floor to the south.
 D0
 ~
 ~
+~
+~
 Z -1 9255
 D2
 ~
 ~
+~
+~
 Z -1 9219
 D3
+~
+~
 ~
 ~
 Z -1 9253
@@ -1900,12 +2148,18 @@ walk there.  The pathway you came from is to the south.
 D0
 ~
 ~
+~
+~
 Z -1 9257
 D1
 ~
 ~
+~
+~
 Z -1 9256
 D2
+~
+~
 ~
 ~
 Z -1 9254
@@ -1920,8 +2174,12 @@ you spy a portal of sorts.  To the west is more thin air.
 D0
 ~
 ~
+~
+~
 Z -1 9258
 D3
+~
+~
 ~
 ~
 Z -1 9255
@@ -1936,8 +2194,12 @@ you spy a portal of sorts.  To the south is more thin air.
 D1
 ~
 ~
+~
+~
 Z -1 9258
 D2
+~
+~
 ~
 ~
 Z -1 9255
@@ -1957,17 +2219,25 @@ Through the portal you see a tunnel.
 D1
 ~
 ~
+~
+~
 Z -1 9259
 D2
+~
+~
 ~
 ~
 Z -1 9256
 D3
 ~
 ~
+~
+~
 Z -1 9257
 D4
 Aarakocran City.
+~
+~
 ~
 ~
 Z -1 5600
@@ -1985,8 +2255,12 @@ Through the portal you see nothing but sky.
 D1
 ~
 ~
+~
+~
 Z -1 9260
 D3
+~
+~
 ~
 ~
 Z -1 9258
@@ -2006,6 +2280,8 @@ it if I were you!
 D3
 ~
 ~
+~
+~
 Z -1 9259
 S
 #9261
@@ -2017,6 +2293,8 @@ practicing mage.
 ~
 0 0 inside
 D5
+~
+~
 ~
 ~
 Z -1 9209

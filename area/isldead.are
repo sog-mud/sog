@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Isles Of Dead~
 Builders jiehar~
 VNUMs 22300 22449
@@ -1607,6 +1607,8 @@ The River of the Lost Souls~
 D2
 ~
 ~
+~
+~
 Z 0 22301
 S
 #22301
@@ -1620,8 +1622,12 @@ the south.
 D0
 ~
 ~
+~
+~
 Z 0 22300
 D2
+~
+~
 ~
 ~
 Z 0 22302
@@ -1637,8 +1643,12 @@ dungeon, you begin to think that better leave this place.
 D0
 ~
 ~
+~
+~
 Z 0 22301
 D5
+~
+~
 ~
 ~
 ABCFGJZ 0 22322
@@ -1653,6 +1663,8 @@ Strange, but this coffin appears to be empty.  A door leads to the east.
 D2
 ~
 ~
+~
+~
 ABLZ 0 22311
 S
 #22304
@@ -1665,6 +1677,8 @@ Strange, but this coffin appears to be empty.  A door leads to the east.
 D2
 ~
 ~
+~
+~
 ABLZ 0 22312
 S
 #22305
@@ -1675,6 +1689,8 @@ Strange, but this coffin appears to be empty.  A door leads to the east.
 ~
 0 ADX inside
 D2
+~
+~
 ~
 ~
 ABLZ 0 22313
@@ -1694,8 +1710,12 @@ this place?
 D2
 ~
 ~
+~
+~
 Z 0 22314
 D5
+~
+~
 ~
 ~
 ABCFGZ 22311 22356
@@ -1710,6 +1730,8 @@ Strange, but this coffin appears to be empty.  A door leads to the east.
 D2
 ~
 ~
+~
+~
 ABLZ 0 22315
 S
 #22308
@@ -1720,6 +1742,8 @@ Strange, but this coffin appears to be empty.  A door leads to the east.
 ~
 0 ADNX inside
 D2
+~
+~
 ~
 ~
 ABLZ 0 22316
@@ -1734,6 +1758,8 @@ Strange, but this coffin appears to be empty.  A door leads to the east.
 D2
 ~
 ~
+~
+~
 ABLZ 0 22317
 S
 #22310
@@ -1744,6 +1770,8 @@ Strange, but this coffin appears to be empty.  A door leads to the east.
 ~
 0 ADNX inside
 D1
+~
+~
 ~
 ~
 ABLZ 0 22311
@@ -1760,16 +1788,24 @@ blocks your way.
 D0
 ~
 ~
+~
+~
 ABLZ 0 22303
 D1
+~
+~
 ~
 ~
 Z 0 22312
 D2
 ~
 ~
+~
+~
 ABLZ 0 22319
 D3
+~
+~
 ~
 ~
 ABLZ 0 22310
@@ -1785,16 +1821,24 @@ you notice small doors of the crypts.
 D0
 ~
 ~
+~
+~
 ABLZ 0 22304
 D1
+~
+~
 ~
 ~
 Z 0 22313
 D2
 ~
 ~
+~
+~
 ABLZ 0 22320
 D3
+~
+~
 ~
 ~
 Z 0 22311
@@ -1810,16 +1854,24 @@ you notice small doors of the crypts.
 D0
 ~
 ~
+~
+~
 ABLZ 0 22305
 D1
+~
+~
 ~
 ~
 Z 0 22314
 D2
 ~
 ~
+~
+~
 ABLZ 0 22321
 D3
+~
+~
 ~
 ~
 Z 0 22312
@@ -1837,16 +1889,24 @@ east and west...
 D0
 ~
 ~
+~
+~
 Z 0 22306
 D1
+~
+~
 ~
 ~
 Z 0 22315
 D2
 ~
 ~
+~
+~
 Z 0 22322
 D3
+~
+~
 ~
 ~
 Z 0 22313
@@ -1862,16 +1922,24 @@ you notice small doors of the crypts.
 D0
 ~
 ~
+~
+~
 ABLZ 0 22307
 D1
+~
+~
 ~
 ~
 Z 0 22316
 D2
 ~
 ~
+~
+~
 ABLZ 0 22323
 D3
+~
+~
 ~
 ~
 Z 0 22314
@@ -1887,16 +1955,24 @@ you notice small doors of the crypts.
 D0
 ~
 ~
+~
+~
 ABLZ 0 22308
 D1
+~
+~
 ~
 ~
 Z 0 22317
 D2
 ~
 ~
+~
+~
 ABLZ 0 22324
 D3
+~
+~
 ~
 ~
 Z 0 22315
@@ -1913,16 +1989,24 @@ blocks your way.
 D0
 ~
 ~
+~
+~
 ABLZ 0 22309
 D1
+~
+~
 ~
 ~
 ABLZ 0 22318
 D2
 ~
 ~
+~
+~
 ABLZ 0 22325
 D3
+~
+~
 ~
 ~
 Z 0 22316
@@ -1937,6 +2021,8 @@ Strange, but this coffin appears to be empty.  A door leads to the west.
 D3
 ~
 ~
+~
+~
 ABLZ 0 22317
 S
 #22319
@@ -1947,6 +2033,8 @@ Strange, but this coffin appears to be empty.  A door leads to the north.
 ~
 0 ADNX inside
 D0
+~
+~
 ~
 ~
 ABLZ 0 22311
@@ -1961,6 +2049,8 @@ Strange, but this coffin appears to be empty.  A door leads to the north.
 D0
 ~
 ~
+~
+~
 ABLZ 0 22312
 S
 #22321
@@ -1971,6 +2061,8 @@ Strange, but this coffin appears to be empty.  A door leads to the north.
 ~
 0 ADNX inside
 D0
+~
+~
 ~
 ~
 ABLZ 0 22313
@@ -1987,8 +2079,12 @@ the light of day, but a huge black gate blocks your way out.
 D0
 ~
 ~
+~
+~
 Z 0 22314
 D4
+~
+~
 ~
 ~
 ABCFGJZ 22300 22302
@@ -2003,6 +2099,8 @@ Strange, but this coffin appears to be empty.  A door leads to the north.
 D0
 ~
 ~
+~
+~
 ABLZ 0 22315
 S
 #22324
@@ -2015,6 +2113,8 @@ Strange, but this coffin appears to be empty.  A door leads to the north.
 D0
 ~
 ~
+~
+~
 ABLZ 0 22316
 S
 #22325
@@ -2025,6 +2125,8 @@ Strange, but this coffin appears to be empty.  A door leads to the north.
 ~
 0 ADNX inside
 D0
+~
+~
 ~
 ~
 ABLZ 0 22317
@@ -2040,8 +2142,12 @@ the central hallway.
 D1
 ~
 ~
+~
+~
 Z 0 22327
 D2
+~
+~
 ~
 ~
 Z 0 22334
@@ -2056,8 +2162,12 @@ bones crackle under your feet.
 D1
 ~
 ~
+~
+~
 Z 0 22328
 D3
+~
+~
 ~
 ~
 Z 0 22326
@@ -2073,12 +2183,18 @@ to the central hallway.
 D1
 ~
 ~
+~
+~
 Z 0 22329
 D2
 ~
 ~
+~
+~
 Z 0 22335
 D3
+~
+~
 ~
 ~
 Z 0 22327
@@ -2093,8 +2209,12 @@ bones crackle under your feet.
 D1
 ~
 ~
+~
+~
 Z 0 22330
 D3
+~
+~
 ~
 ~
 Z 0 22328
@@ -2110,12 +2230,18 @@ to the central hallway.
 D1
 ~
 ~
+~
+~
 Z 0 22331
 D2
 ~
 ~
+~
+~
 Z 0 22336
 D3
+~
+~
 ~
 ~
 Z 0 22329
@@ -2130,8 +2256,12 @@ bones crackle under your feet.
 D1
 ~
 ~
+~
+~
 Z 0 22332
 D3
+~
+~
 ~
 ~
 Z 0 22330
@@ -2148,12 +2278,18 @@ leading down to the depths of dungeon.
 D1
 ~
 ~
+~
+~
 Z 0 22333
 D2
 ~
 ~
+~
+~
 Z 0 22337
 D3
+~
+~
 ~
 ~
 Z 0 22331
@@ -2171,6 +2307,8 @@ evil emanates from its frame.  Maybe better leave this place?
 D3
 ~
 ~
+~
+~
 Z 0 22332
 S
 #22334
@@ -2184,8 +2322,12 @@ wind blowing around.
 D0
 ~
 ~
+~
+~
 Z 0 22326
 D2
+~
+~
 ~
 ~
 Z 0 22338
@@ -2201,8 +2343,12 @@ wind blowing around.
 D0
 ~
 ~
+~
+~
 Z 0 22328
 D2
+~
+~
 ~
 ~
 Z 0 22340
@@ -2218,8 +2364,12 @@ wind blowing around.
 D0
 ~
 ~
+~
+~
 Z 0 22330
 D2
+~
+~
 ~
 ~
 Z 0 22342
@@ -2235,8 +2385,12 @@ wind blowing around.
 D0
 ~
 ~
+~
+~
 Z 0 22332
 D2
+~
+~
 ~
 ~
 Z 0 22344
@@ -2253,12 +2407,18 @@ hallways.
 D0
 ~
 ~
+~
+~
 Z 0 22334
 D1
 ~
 ~
+~
+~
 Z 0 22339
 D2
+~
+~
 ~
 ~
 Z 0 22345
@@ -2274,8 +2434,12 @@ in the air.
 D1
 ~
 ~
+~
+~
 Z 0 22340
 D3
+~
+~
 ~
 ~
 Z 0 22338
@@ -2292,16 +2456,24 @@ hallways.
 D0
 ~
 ~
+~
+~
 Z 0 22335
 D1
+~
+~
 ~
 ~
 Z 0 22341
 D2
 ~
 ~
+~
+~
 Z 0 22346
 D3
+~
+~
 ~
 ~
 Z 0 22339
@@ -2317,8 +2489,12 @@ in the air.
 D1
 ~
 ~
+~
+~
 Z 0 22342
 D3
+~
+~
 ~
 ~
 Z 0 22340
@@ -2335,16 +2511,24 @@ hallways.
 D0
 ~
 ~
+~
+~
 Z 0 22336
 D1
+~
+~
 ~
 ~
 Z 0 22343
 D2
 ~
 ~
+~
+~
 Z 0 22347
 D3
+~
+~
 ~
 ~
 Z 0 22341
@@ -2360,8 +2544,12 @@ in the air.
 D1
 ~
 ~
+~
+~
 Z 0 22344
 D3
+~
+~
 ~
 ~
 Z 0 22342
@@ -2378,12 +2566,18 @@ hallways.
 D0
 ~
 ~
+~
+~
 Z 0 22337
 D2
 ~
 ~
+~
+~
 Z 0 22348
 D3
+~
+~
 ~
 ~
 Z 0 22343
@@ -2399,8 +2593,12 @@ blue lightings sparkling in the air.
 D0
 ~
 ~
+~
+~
 Z 0 22338
 D2
+~
+~
 ~
 ~
 Z 0 22349
@@ -2416,8 +2614,12 @@ blue lightings sparkling in the air.
 D0
 ~
 ~
+~
+~
 Z 0 22340
 D2
+~
+~
 ~
 ~
 Z 0 22351
@@ -2433,8 +2635,12 @@ blue lightings sparkling in the air.
 D0
 ~
 ~
+~
+~
 Z 0 22342
 D2
+~
+~
 ~
 ~
 Z 0 22353
@@ -2450,8 +2656,12 @@ blue lightings sparkling in the air.
 D0
 ~
 ~
+~
+~
 Z 0 22344
 D2
+~
+~
 ~
 ~
 Z 0 22355
@@ -2467,12 +2677,18 @@ leads north.  To the south you see the entrance to this Hall.
 D0
 ~
 ~
+~
+~
 Z 0 22345
 D1
 ~
 ~
+~
+~
 Z 0 22350
 D2
+~
+~
 ~
 ~
 Z 0 22356
@@ -2487,8 +2703,12 @@ as you feel energy in the air around you.
 D1
 ~
 ~
+~
+~
 Z 0 22351
 D3
+~
+~
 ~
 ~
 Z 0 22349
@@ -2504,12 +2724,18 @@ corridor to the central hallway.
 D0
 ~
 ~
+~
+~
 Z 0 22346
 D1
 ~
 ~
+~
+~
 Z 0 22352
 D3
+~
+~
 ~
 ~
 Z 0 22350
@@ -2524,8 +2750,12 @@ as you feel energy in the air around you.
 D1
 ~
 ~
+~
+~
 Z 0 22353
 D3
+~
+~
 ~
 ~
 Z 0 22351
@@ -2540,12 +2770,18 @@ as you feel energy in the air around you.
 D0
 ~
 ~
+~
+~
 Z 0 22347
 D1
 ~
 ~
+~
+~
 Z 0 22354
 D3
+~
+~
 ~
 ~
 Z 0 22352
@@ -2560,8 +2796,12 @@ as you feel energy in the air around you.
 D1
 ~
 ~
+~
+~
 Z 0 22355
 D3
+~
+~
 ~
 ~
 Z 0 22353
@@ -2577,8 +2817,12 @@ corridor leads north to the central hallway.
 D0
 ~
 ~
+~
+~
 Z 0 22348
 D3
+~
+~
 ~
 ~
 Z 0 22354
@@ -2594,8 +2838,12 @@ up to the Hall of Crypts.
 D0
 ~
 ~
+~
+~
 Z 0 22349
 D4
+~
+~
 ~
 ~
 ABCFGZ 0 22306
@@ -2611,6 +2859,8 @@ this cage must have imprisoned...
 D2
 ~
 ~
+~
+~
 ABLZ 0 22359
 S
 #22358
@@ -2622,6 +2872,8 @@ this cage must have imprisoned...
 ~
 0 ANX inside
 D2
+~
+~
 ~
 ~
 ABLZ 0 22360
@@ -2646,8 +2898,12 @@ plaque~
 D0
 ~
 ~
+~
+~
 ABLZ 0 22357
 D2
+~
+~
 ~
 ~
 Z 0 22361
@@ -2672,8 +2928,12 @@ plaque~
 D0
 ~
 ~
+~
+~
 ABLZ 0 22358
 D2
+~
+~
 ~
 ~
 Z 0 22365
@@ -2690,12 +2950,18 @@ a small island with a huge metal construction.
 D0
 ~
 ~
+~
+~
 Z 0 22359
 D1
 ~
 ~
+~
+~
 Z 0 22362
 D2
+~
+~
 ~
 ~
 Z 0 22366
@@ -2711,8 +2977,12 @@ glares at you from the waters below.
 D1
 ~
 ~
+~
+~
 Z 0 22363
 D3
+~
+~
 ~
 ~
 Z 0 22361
@@ -2728,12 +2998,18 @@ glares at you from the waters below.
 D1
 ~
 ~
+~
+~
 Z 0 22364
 D2
 ~
 ~
+~
+~
 Z 0 22367
 D3
+~
+~
 ~
 ~
 Z 0 22362
@@ -2749,8 +3025,12 @@ glares at you from the waters below.
 D1
 ~
 ~
+~
+~
 Z 0 22365
 D3
+~
+~
 ~
 ~
 Z 0 22363
@@ -2766,12 +3046,18 @@ glares at you from the waters below.
 D0
 ~
 ~
+~
+~
 Z 0 22360
 D2
 ~
 ~
+~
+~
 Z 0 22368
 D3
+~
+~
 ~
 ~
 Z 0 22364
@@ -2787,8 +3073,12 @@ glares at you from the waters below.
 D0
 ~
 ~
+~
+~
 Z 0 22361
 D2
+~
+~
 ~
 ~
 Z 0 22371
@@ -2804,8 +3094,12 @@ glares at you from the waters below.
 D0
 ~
 ~
+~
+~
 Z 0 22363
 D2
+~
+~
 ~
 ~
 Z 0 22373
@@ -2821,8 +3115,12 @@ glares at you from the waters below.
 D0
 ~
 ~
+~
+~
 Z 0 22365
 D2
+~
+~
 ~
 ~
 Z 0 22375
@@ -2838,6 +3136,8 @@ this cage must have imprisoned...
 D1
 ~
 ~
+~
+~
 ABLZ 0 22370
 S
 #22370
@@ -2851,8 +3151,12 @@ hanging on the bar.
 D1
 ~
 ~
+~
+~
 Z 0 22371
 D3
+~
+~
 ~
 ~
 ABLZ 0 22369
@@ -2869,16 +3173,24 @@ a small island with a huge metal construction.
 D0
 ~
 ~
+~
+~
 Z 0 22366
 D1
+~
+~
 ~
 ~
 Z 0 22372
 D2
 ~
 ~
+~
+~
 Z 0 22378
 D3
+~
+~
 ~
 ~
 Z 0 22370
@@ -2894,8 +3206,12 @@ glares at you from the waters below.
 D1
 ~
 ~
+~
+~
 Z 0 22373
 D3
+~
+~
 ~
 ~
 Z 0 22371
@@ -2912,20 +3228,30 @@ your way out.
 D0
 ~
 ~
+~
+~
 Z 0 22367
 D1
+~
+~
 ~
 ~
 Z 0 22374
 D2
 ~
 ~
+~
+~
 Z 0 22379
 D3
 ~
 ~
+~
+~
 Z 0 22372
 D5
+~
+~
 ~
 ~
 ABLZ 0 22390
@@ -2941,8 +3267,12 @@ glares at you from the waters below.
 D1
 ~
 ~
+~
+~
 Z 0 22375
 D3
+~
+~
 ~
 ~
 Z 0 22373
@@ -2959,16 +3289,24 @@ a small island with a huge metal construction.
 D0
 ~
 ~
+~
+~
 Z 0 22368
 D1
+~
+~
 ~
 ~
 Z 0 22376
 D2
 ~
 ~
+~
+~
 Z 0 22380
 D3
+~
+~
 ~
 ~
 Z 0 22374
@@ -2993,8 +3331,12 @@ plaque~
 D1
 ~
 ~
+~
+~
 ABLZ 0 22377
 D3
+~
+~
 ~
 ~
 Z 0 22375
@@ -3010,6 +3352,8 @@ this cage must have imprisoned...
 D3
 ~
 ~
+~
+~
 ABLZ 0 22376
 S
 #22378
@@ -3023,8 +3367,12 @@ glares at you from the waters below.
 D0
 ~
 ~
+~
+~
 Z 0 22371
 D2
+~
+~
 ~
 ~
 Z 0 22381
@@ -3040,8 +3388,12 @@ glares at you from the waters below.
 D0
 ~
 ~
+~
+~
 Z 0 22373
 D2
+~
+~
 ~
 ~
 Z 0 22383
@@ -3057,8 +3409,12 @@ glares at you from the waters below.
 D0
 ~
 ~
+~
+~
 Z 0 22375
 D2
+~
+~
 ~
 ~
 Z 0 22385
@@ -3075,12 +3431,18 @@ a small island with a huge metal construction.
 D0
 ~
 ~
+~
+~
 Z 0 22378
 D1
 ~
 ~
+~
+~
 Z 0 22382
 D2
+~
+~
 ~
 ~
 Z 0 22386
@@ -3096,8 +3458,12 @@ glares at you from the waters below.
 D1
 ~
 ~
+~
+~
 Z 0 22383
 D3
+~
+~
 ~
 ~
 Z 0 22381
@@ -3113,12 +3479,18 @@ glares at you from the waters below.
 D0
 ~
 ~
+~
+~
 Z 0 22379
 D1
 ~
 ~
+~
+~
 Z 0 22384
 D3
+~
+~
 ~
 ~
 Z 0 22382
@@ -3134,8 +3506,12 @@ glares at you from the waters below.
 D1
 ~
 ~
+~
+~
 Z 0 22385
 D3
+~
+~
 ~
 ~
 Z 0 22383
@@ -3152,12 +3528,18 @@ a small island with a huge metal construction.
 D0
 ~
 ~
+~
+~
 Z 0 22380
 D2
 ~
 ~
+~
+~
 Z 0 22387
 D3
+~
+~
 ~
 ~
 Z 0 22384
@@ -3173,8 +3555,12 @@ hanging on the bar.
 D0
 ~
 ~
+~
+~
 Z 0 22381
 D2
+~
+~
 ~
 ~
 ABLZ 0 22388
@@ -3190,8 +3576,12 @@ hanging on the bar.
 D0
 ~
 ~
+~
+~
 Z 0 22385
 D2
+~
+~
 ~
 ~
 ABLZ 0 22389
@@ -3207,6 +3597,8 @@ this cage must have imprisoned...
 D0
 ~
 ~
+~
+~
 ABLZ 0 22386
 S
 #22389
@@ -3220,6 +3612,8 @@ this cage must have imprisoned...
 D0
 ~
 ~
+~
+~
 ABLZ 0 22387
 S
 #22390
@@ -3229,8 +3623,12 @@ The Way to Treasure Keep~
 D4
 ~
 ~
+~
+~
 ABLZ 0 22373
 D5
+~
+~
 ~
 ~
 Z 0 22391
@@ -3246,6 +3644,8 @@ by thick layer of soot.
 D5
 ~
 ~
+~
+~
 ABCFGZ 22351 22404
 S
 #22392
@@ -3258,8 +3658,12 @@ Probably the main part of treasures lies in this coffers.
 D1
 ~
 ~
+~
+~
 Z 0 22393
 D2
+~
+~
 ~
 ~
 Z 0 22397
@@ -3274,12 +3678,18 @@ Probably the main part of treasures lies in this coffers.
 D1
 ~
 ~
+~
+~
 Z 0 22394
 D2
 ~
 ~
+~
+~
 Z 0 22398
 D3
+~
+~
 ~
 ~
 Z 0 22392
@@ -3294,12 +3704,18 @@ Probably the main part of treasures lies in this coffers.
 D1
 ~
 ~
+~
+~
 Z 0 22395
 D2
 ~
 ~
+~
+~
 Z 0 22399
 D3
+~
+~
 ~
 ~
 Z 0 22393
@@ -3314,12 +3730,18 @@ Probably the main part of treasures lies in this coffers.
 D1
 ~
 ~
+~
+~
 Z 0 22396
 D2
 ~
 ~
+~
+~
 Z 0 22400
 D3
+~
+~
 ~
 ~
 Z 0 22394
@@ -3334,8 +3756,12 @@ Probably the main part of treasures lies in this coffers.
 D2
 ~
 ~
+~
+~
 Z 0 22401
 D3
+~
+~
 ~
 ~
 Z 0 22395
@@ -3350,12 +3776,18 @@ Probably the main part of treasures lies in this coffers.
 D0
 ~
 ~
+~
+~
 Z 0 22392
 D1
 ~
 ~
+~
+~
 Z 0 22398
 D2
+~
+~
 ~
 ~
 Z 0 22402
@@ -3370,16 +3802,24 @@ Probably the main part of treasures lies in this coffers.
 D0
 ~
 ~
+~
+~
 Z 0 22393
 D1
+~
+~
 ~
 ~
 Z 0 22399
 D2
 ~
 ~
+~
+~
 Z 0 22403
 D3
+~
+~
 ~
 ~
 Z 0 22397
@@ -3394,16 +3834,24 @@ Probably the main part of treasures lies in this coffers.
 D0
 ~
 ~
+~
+~
 Z 0 22394
 D1
+~
+~
 ~
 ~
 Z 0 22400
 D2
 ~
 ~
+~
+~
 Z 0 22404
 D3
+~
+~
 ~
 ~
 Z 0 22398
@@ -3418,16 +3866,24 @@ Probably the main part of treasures lies in this coffers.
 D0
 ~
 ~
+~
+~
 Z 0 22395
 D1
+~
+~
 ~
 ~
 Z 0 22401
 D2
 ~
 ~
+~
+~
 Z 0 22405
 D3
+~
+~
 ~
 ~
 Z 0 22399
@@ -3442,12 +3898,18 @@ Probably the main part of treasures lies in this coffers.
 D0
 ~
 ~
+~
+~
 Z 0 22396
 D2
 ~
 ~
+~
+~
 Z 0 22406
 D3
+~
+~
 ~
 ~
 Z 0 22400
@@ -3462,12 +3924,18 @@ Probably the main part of treasures lies in this coffers.
 D0
 ~
 ~
+~
+~
 Z 0 22397
 D1
 ~
 ~
+~
+~
 Z 0 22403
 D2
+~
+~
 ~
 ~
 Z 0 22407
@@ -3482,16 +3950,24 @@ Probably the main part of treasures lies in this coffers.
 D0
 ~
 ~
+~
+~
 Z 0 22398
 D1
+~
+~
 ~
 ~
 Z 0 22404
 D2
 ~
 ~
+~
+~
 Z 0 22408
 D3
+~
+~
 ~
 ~
 Z 0 22402
@@ -3506,16 +3982,24 @@ Probably the main part of treasures lies in this coffers.
 D0
 ~
 ~
+~
+~
 Z 0 22399
 D1
+~
+~
 ~
 ~
 Z 0 22405
 D2
 ~
 ~
+~
+~
 Z 0 22409
 D3
+~
+~
 ~
 ~
 Z 0 22403
@@ -3530,16 +4014,24 @@ Probably the main part of treasures lies in this coffers.
 D0
 ~
 ~
+~
+~
 Z 0 22400
 D1
+~
+~
 ~
 ~
 Z 0 22406
 D2
 ~
 ~
+~
+~
 Z 0 22410
 D3
+~
+~
 ~
 ~
 Z 0 22404
@@ -3554,12 +4046,18 @@ Probably the main part of treasures lies in this coffers.
 D0
 ~
 ~
+~
+~
 Z 0 22401
 D2
 ~
 ~
+~
+~
 Z 0 22411
 D3
+~
+~
 ~
 ~
 Z 0 22405
@@ -3574,12 +4072,18 @@ Probably the main part of treasures lies in this coffers.
 D0
 ~
 ~
+~
+~
 Z 0 22402
 D1
 ~
 ~
+~
+~
 Z 0 22408
 D2
+~
+~
 ~
 ~
 Z 0 22412
@@ -3594,16 +4098,24 @@ Probably the main part of treasures lies in this coffers.
 D0
 ~
 ~
+~
+~
 Z 0 22403
 D1
+~
+~
 ~
 ~
 Z 0 22409
 D2
 ~
 ~
+~
+~
 Z 0 22413
 D3
+~
+~
 ~
 ~
 Z 0 22407
@@ -3618,16 +4130,24 @@ Probably the main part of treasures lies in this coffers.
 D0
 ~
 ~
+~
+~
 Z 0 22404
 D1
+~
+~
 ~
 ~
 Z 0 22410
 D2
 ~
 ~
+~
+~
 Z 0 22414
 D3
+~
+~
 ~
 ~
 Z 0 22408
@@ -3642,16 +4162,24 @@ Probably the main part of treasures lies in this coffers.
 D0
 ~
 ~
+~
+~
 Z 0 22405
 D1
+~
+~
 ~
 ~
 Z 0 22411
 D2
 ~
 ~
+~
+~
 Z 0 22415
 D3
+~
+~
 ~
 ~
 Z 0 22409
@@ -3666,12 +4194,18 @@ Probably the main part of treasures lies in this coffers.
 D0
 ~
 ~
+~
+~
 Z 0 22406
 D2
 ~
 ~
+~
+~
 Z 0 22416
 D3
+~
+~
 ~
 ~
 Z 0 22410
@@ -3686,8 +4220,12 @@ Probably the main part of treasures lies in this coffers.
 D0
 ~
 ~
+~
+~
 Z 0 22407
 D1
+~
+~
 ~
 ~
 Z 0 22413
@@ -3702,12 +4240,18 @@ Probably the main part of treasures lies in this coffers.
 D0
 ~
 ~
+~
+~
 Z 0 22408
 D1
 ~
 ~
+~
+~
 Z 0 22414
 D3
+~
+~
 ~
 ~
 Z 0 22412
@@ -3722,12 +4266,18 @@ Probably the main part of treasures lies in this coffers.
 D0
 ~
 ~
+~
+~
 Z 0 22409
 D1
 ~
 ~
+~
+~
 Z 0 22415
 D3
+~
+~
 ~
 ~
 Z 0 22413
@@ -3742,12 +4292,18 @@ Probably the main part of treasures lies in this coffers.
 D0
 ~
 ~
+~
+~
 Z 0 22410
 D1
 ~
 ~
+~
+~
 Z 0 22416
 D3
+~
+~
 ~
 ~
 Z 0 22414
@@ -3762,8 +4318,12 @@ Probably the main part of treasures lies in this coffers.
 D0
 ~
 ~
+~
+~
 Z 0 22411
 D3
+~
+~
 ~
 ~
 Z 0 22415

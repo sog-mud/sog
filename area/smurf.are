@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Smurfville~
 VNUMs 100 199
 Credits Generic~
@@ -299,9 +299,13 @@ D0
 The path continues toward the village.
 ~
 ~
+~
+~
 Z -1 102
 D2
 The path heads back toward the eastern road.
+~
+~
 ~
 ~
 Z -1 3525
@@ -316,9 +320,13 @@ D0
 The path continues toward the village.
 ~
 ~
+~
+~
 Z -1 103
 D2
 The dimly lit path.
+~
+~
 ~
 ~
 Z -1 101
@@ -333,9 +341,13 @@ D0
 The entrance to smurf village.
 ~
 ~
+~
+~
 Z -1 104
 D2
 The dimly lit path.
+~
+~
 ~
 ~
 Z -1 102
@@ -352,9 +364,13 @@ D0
 Smurfy Road
 ~
 ~
+~
+~
 Z -1 105
 D2
 Dimly Lit Path
+~
+~
 ~
 ~
 Z -1 103
@@ -371,9 +387,13 @@ D0
 Smurfy Road
 ~
 ~
+~
+~
 Z -1 106
 D1
 Smurfy Road
+~
+~
 ~
 ~
 Z -1 110
@@ -381,9 +401,13 @@ D2
 Entrance to smurf village
 ~
 ~
+~
+~
 Z -1 104
 D3
 Smurfy Road
+~
+~
 ~
 ~
 Z -1 111
@@ -399,9 +423,13 @@ D0
 Smurfy Road
 ~
 ~
+~
+~
 Z -1 107
 D1
 Smurfy Home
+~
+~
 ~
 ~
 Z -1 120
@@ -409,9 +437,13 @@ D2
 Smurfy Road
 ~
 ~
+~
+~
 Z -1 105
 D3
 Smurfy Road
+~
+~
 ~
 ~
 Z -1 112
@@ -427,9 +459,13 @@ D0
 Smurfy Road
 ~
 ~
+~
+~
 Z -1 108
 D1
 Smurfberry Patch
+~
+~
 ~
 ~
 Z -1 116
@@ -437,9 +473,13 @@ D2
 Smurfy Road
 ~
 ~
+~
+~
 Z -1 106
 D3
 A Smurfy Home
+~
+~
 ~
 ~
 Z -1 129
@@ -455,9 +495,13 @@ D0
 Smurfy Road
 ~
 ~
+~
+~
 Z -1 109
 D1
 Smurfberry patch
+~
+~
 ~
 ~
 Z -1 117
@@ -465,9 +509,13 @@ D2
 Smurfy Road
 ~
 ~
+~
+~
 Z -1 107
 D3
 A stone path
+~
+~
 ~
 ~
 Z -1 113
@@ -488,14 +536,20 @@ D1
 Smurfberry Patch
 ~
 ~
+~
+~
 Z -1 118
 D2
 Smurfy Road
 ~
 ~
+~
+~
 Z -1 108
 D3
 Smurfy Road
+~
+~
 ~
 ~
 Z -1 114
@@ -511,9 +565,13 @@ D0
 Smurfy Home
 ~
 ~
+~
+~
 Z -1 119
 D3
 Smurfy Road
+~
+~
 ~
 ~
 Z -1 105
@@ -528,14 +586,20 @@ D0
 Smurfy Road
 ~
 ~
+~
+~
 Z -1 112
 D1
 Smurfy Road
 ~
 ~
+~
+~
 Z -1 105
 D2
 Smurfy Home
+~
+~
 ~
 ~
 Z -1 121
@@ -552,14 +616,20 @@ D1
 Smurfy Road
 ~
 ~
+~
+~
 Z -1 106
 D2
 Smurfy Road
 ~
 ~
+~
+~
 Z -1 111
 D3
 Smurfy Home
+~
+~
 ~
 ~
 Z -1 122
@@ -575,14 +645,20 @@ D1
 Smurfy Road
 ~
 ~
+~
+~
 Z -1 108
 D2
 Papa Smurf's House
 ~
 door~
+~
+~
 Z 107 125
 D3
 Smurfy House
+~
+~
 ~
 ~
 Z -1 123
@@ -597,9 +673,13 @@ D1
 Smurfy Road
 ~
 ~
+~
+~
 Z -1 109
 D3
 Smurfy Road
+~
+~
 ~
 ~
 Z -1 115
@@ -615,14 +695,20 @@ D0
 Path to Gargamel's Castle
 ~
 ~
+~
+~
 Z -1 126
 D1
 Smurfy Road
 ~
 ~
+~
+~
 Z -1 114
 D2
 Smurfy Home
+~
+~
 ~
 ~
 Z -1 124
@@ -638,9 +724,13 @@ D0
 Smurfberry Patch
 ~
 ~
+~
+~
 Z -1 117
 D3
 Smurfy Road
+~
+~
 ~
 ~
 Z -1 107
@@ -657,14 +747,20 @@ D0
 Smurfberry Patch
 ~
 ~
+~
+~
 Z -1 118
 D2
 Smurfberry Patch
 ~
 ~
+~
+~
 Z -1 116
 D3
 Smurfy Road
+~
+~
 ~
 ~
 Z -1 108
@@ -680,9 +776,13 @@ D2
 Smurfberry Patch
 ~
 ~
+~
+~
 Z -1 117
 D3
 Smurfy Road
+~
+~
 ~
 ~
 Z -1 109
@@ -699,6 +799,8 @@ D2
 Smurfy Road
 ~
 ~
+~
+~
 Z -1 110
 S
 #120
@@ -710,6 +812,8 @@ back to the west.
 0 0 city
 D3
 Smurfy Road
+~
+~
 ~
 ~
 Z -1 106
@@ -725,6 +829,8 @@ D0
 Smurfy Road
 ~
 ~
+~
+~
 Z -1 111
 S
 #122
@@ -736,6 +842,8 @@ Smurfy Road to the east.
 0 0 city
 D1
 Smurfy Road
+~
+~
 ~
 ~
 Z -1 112
@@ -751,6 +859,8 @@ D1
 Smurfy Road
 ~
 ~
+~
+~
 Z -1 113
 S
 #124
@@ -762,6 +872,8 @@ your face.  You better get even.  Smurfy Road is to the north.
 0 0 city
 D0
 Smurfy Road
+~
+~
 ~
 ~
 Z -1 115
@@ -778,6 +890,8 @@ D0
 Stone Path
 ~
 door~
+~
+~
 Z 107 113
 S
 #126
@@ -790,9 +904,13 @@ D0
 Outside Gargamel's Castle
 ~
 ~
+~
+~
 Z -1 127
 D2
 Smurfy Road
+~
+~
 ~
 ~
 Z -1 115
@@ -808,9 +926,13 @@ D0
 Gargamel's Castle
 ~
 door~
+~
+~
 Z 109 128
 D2
 Path to Gargamel's Castle
+~
+~
 ~
 ~
 Z -1 126
@@ -825,6 +947,8 @@ D2
 Outside Gargamel's Castle
 ~
 door~
+~
+~
 Z 109 127
 S
 #129
@@ -836,6 +960,8 @@ have little smurfs running around.  The only exit is to the east.
 0 0 city
 D1
 Smurfy Road
+~
+~
 ~
 ~
 Z -1 107

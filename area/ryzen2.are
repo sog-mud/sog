@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Caverns~
 VNUMs 22000 22099
 Credits Ryzen~
@@ -416,12 +416,18 @@ lead east and west , into the caverns, from here.
 D1
 ~
 ~
+~
+~
 Z 0 22002
 D3
 ~
 ~
+~
+~
 Z 0 22001
 D4
+~
+~
 ~
 ~
 Z 0 29373
@@ -436,12 +442,18 @@ darkness.
 D1
 ~
 ~
+~
+~
 Z 0 22000
 D2
 ~
 ~
+~
+~
 Z 0 22003
 D5
+~
+~
 ~
 ~
 Z 0 22008
@@ -455,12 +467,18 @@ lead from this room, each one shrouded in darkness.
 D2
 ~
 ~
+~
+~
 Z 0 22004
 D3
 ~
 ~
+~
+~
 Z 0 22000
 D5
+~
+~
 ~
 ~
 Z 0 22011
@@ -473,8 +491,12 @@ The tunnel turns here slightly, both directions lead into shadows.
 D0
 ~
 ~
+~
+~
 Z 0 22001
 D2
+~
+~
 ~
 ~
 Z 0 22005
@@ -487,8 +509,12 @@ The tunnel turns sharply here.  Directions lead south and north.
 D0
 ~
 ~
+~
+~
 Z 0 22002
 D2
+~
+~
 ~
 ~
 Z 0 22006
@@ -502,12 +528,18 @@ north.
 D0
 ~
 ~
+~
+~
 Z 0 22003
 D1
 ~
 ~
+~
+~
 Z 0 22007
 D5
+~
+~
 ~
 ~
 Z 0 22024
@@ -523,12 +555,18 @@ north, and south.
 D0
 ~
 ~
+~
+~
 Z 0 22004
 D2
 ~
 ~
+~
+~
 Z 0 22007
 D5
+~
+~
 ~
 ~
 Z 0 22014
@@ -541,8 +579,12 @@ The shadowy tunnel continues to the east and west.
 D1
 ~
 ~
+~
+~
 Z 0 22006
 D3
+~
+~
 ~
 ~
 Z 0 22005
@@ -557,8 +599,12 @@ south is noticeable.
 D2
 ~
 ~
+~
+~
 Z 0 22009
 D4
+~
+~
 ~
 ~
 Z 0 22001
@@ -572,8 +618,12 @@ blackness.
 D0
 ~
 ~
+~
+~
 Z 0 22008
 D3
+~
+~
 ~
 ~
 Z 0 22010
@@ -587,6 +637,8 @@ back to the east.
 D1
 ~
 ~
+~
+~
 Z 0 22009
 S
 #22011
@@ -598,8 +650,12 @@ heads east into further gloom.
 D1
 ~
 ~
+~
+~
 Z 0 22012
 D4
+~
+~
 ~
 ~
 Z 0 22002
@@ -613,8 +669,12 @@ everything in mystery.  Exits lead west and south.
 D2
 ~
 ~
+~
+~
 Z 0 22013
 D3
+~
+~
 ~
 ~
 Z 0 22011
@@ -628,6 +688,8 @@ wall standing in your way.  The only exit is back to the north.
 D0
 ~
 ~
+~
+~
 Z 0 22012
 S
 #22014
@@ -638,12 +700,18 @@ You stand in an enormous cave that spreads out to the south and east.
 D1
 ~
 ~
+~
+~
 Z 0 22015
 D2
 ~
 ~
+~
+~
 Z 0 22016
 D4
+~
+~
 ~
 ~
 Z 0 22006
@@ -658,8 +726,12 @@ south while the cave continues to the west.
 D2
 ~
 ~
+~
+~
 Z 0 22017
 D3
+~
+~
 ~
 ~
 Z 0 22014
@@ -675,6 +747,8 @@ exit is north.
 D0
 ~
 ~
+~
+~
 Z 0 22014
 S
 #22017
@@ -687,8 +761,12 @@ from here.
 D0
 ~
 ~
+~
+~
 Z 0 22015
 D2
+~
+~
 ~
 ~
 Z 0 22018
@@ -702,12 +780,18 @@ east, or west.
 D0
 ~
 ~
+~
+~
 Z 0 22017
 D1
 ~
 ~
+~
+~
 Z 0 22020
 D3
+~
+~
 ~
 ~
 Z 0 22019
@@ -721,12 +805,18 @@ south, down, and east.
 D1
 ~
 ~
+~
+~
 Z 0 22018
 D2
 ~
 ~
+~
+~
 Z 0 22021
 D5
+~
+~
 ~
 ~
 Z 0 22032
@@ -741,8 +831,12 @@ soul.
 D2
 ~
 ~
+~
+~
 Z 0 22022
 D3
+~
+~
 ~
 ~
 Z 0 22018
@@ -754,12 +848,18 @@ A Darkened Tunnel~
 D0
 ~
 ~
+~
+~
 Z 0 22019
 D1
 ~
 ~
+~
+~
 Z 0 22023
 D3
+~
+~
 ~
 ~
 Z 0 22039
@@ -774,12 +874,18 @@ same as all of the others.  Exits lead north, down, and west from here.
 D0
 ~
 ~
+~
+~
 Z 0 22020
 D3
 ~
 ~
+~
+~
 Z 0 22023
 D5
+~
+~
 ~
 ~
 Z 0 22036
@@ -793,8 +899,12 @@ east and west.
 D1
 ~
 ~
+~
+~
 Z 0 22022
 D3
+~
+~
 ~
 ~
 Z 0 22021
@@ -810,8 +920,12 @@ tunnel to the west or return to the main tunnel up the stairs.
 D3
 ~
 ~
+~
+~
 Z 0 22025
 D4
+~
+~
 ~
 ~
 Z 0 22005
@@ -826,8 +940,12 @@ light of day again and get out of thse cramped tunnels.
 D1
 ~
 ~
+~
+~
 Z 0 22024
 D3
+~
+~
 ~
 ~
 Z 0 22026
@@ -841,8 +959,12 @@ north into darkness.
 D0
 ~
 ~
+~
+~
 Z 0 22027
 D1
+~
+~
 ~
 ~
 Z 0 22025
@@ -856,8 +978,12 @@ south.
 D0
 ~
 ~
+~
+~
 Z 0 22028
 D2
+~
+~
 ~
 ~
 Z 0 22026
@@ -872,8 +998,12 @@ impossible to tell.
 D2
 ~
 ~
+~
+~
 Z 0 22027
 D5
+~
+~
 ~
 ~
 Z 0 22029
@@ -887,8 +1017,12 @@ appear to be up or north.
 D0
 ~
 ~
+~
+~
 Z 0 22030
 D4
+~
+~
 ~
 ~
 Z 0 22028
@@ -903,8 +1037,12 @@ must not be happy.
 D1
 ~
 ~
+~
+~
 Z 0 22031
 D2
+~
+~
 ~
 ~
 Z 0 22029
@@ -919,6 +1057,8 @@ stumble several times.
 D3
 ~
 ~
+~
+~
 Z 0 22030
 S
 #22032
@@ -931,8 +1071,12 @@ whatever is living here is going to be too friendly.
 D2
 ~
 ~
+~
+~
 Z 0 22033
 D4
+~
+~
 ~
 ~
 Z 0 22019
@@ -947,8 +1091,12 @@ your bravery.
 D0
 ~
 ~
+~
+~
 Z 0 22032
 D3
+~
+~
 ~
 ~
 Z 0 22034
@@ -964,8 +1112,12 @@ from a still living person.
 D1
 ~
 ~
+~
+~
 Z 0 22033
 D3
+~
+~
 ~
 ~
 Z 0 22035
@@ -980,6 +1132,8 @@ desire to run as fast as posible away from this monster and its dinner.
 D1
 ~
 ~
+~
+~
 Z 0 22034
 S
 #22036
@@ -991,8 +1145,12 @@ corner comes a slight shimmering light.
 D2
 ~
 ~
+~
+~
 Z 0 22037
 D4
+~
+~
 ~
 ~
 Z 0 22022
@@ -1008,8 +1166,12 @@ west or return to the tunnel to the north.
 D0
 ~
 ~
+~
+~
 Z 0 22036
 D3
+~
+~
 ~
 ~
 Z 0 22038
@@ -1025,6 +1187,8 @@ you.
 D1
 ~
 ~
+~
+~
 Z 0 22037
 S
 #22039
@@ -1036,8 +1200,12 @@ head in a south direction.
 D1
 ~
 ~
+~
+~
 Z 0 22021
 D2
+~
+~
 ~
 ~
 Z 0 22040
@@ -1051,8 +1219,12 @@ north.
 D0
 ~
 ~
+~
+~
 Z 0 22039
 D3
+~
+~
 ~
 ~
 Z 0 22041
@@ -1067,8 +1239,12 @@ descend through the caverns.
 D1
 ~
 ~
+~
+~
 Z 0 22040
 D5
+~
+~
 ~
 ~
 Z 0 22042
@@ -1083,8 +1259,12 @@ to walk.
 D1
 ~
 ~
+~
+~
 Z 0 22043
 D4
+~
+~
 ~
 ~
 Z 0 22041
@@ -1100,8 +1280,12 @@ to ambush you here as your attention is focussed on nature's magnificence.
 D1
 ~
 ~
+~
+~
 Z 0 22044
 D3
+~
+~
 ~
 ~
 Z 0 22042
@@ -1117,8 +1301,12 @@ evil continues to grow stronger, you must be getting close.
 D3
 ~
 ~
+~
+~
 Z 0 22043
 D5
+~
+~
 ~
 ~
 Z 0 22045
@@ -1133,8 +1321,12 @@ south, but ponder your mortality first, should you continue?
 D2
 ~
 ~
+~
+~
 Z 0 22046
 D4
+~
+~
 ~
 ~
 Z 0 22044
@@ -1150,8 +1342,12 @@ hell himself around the corner.
 D0
 ~
 ~
+~
+~
 Z 0 22045
 D1
+~
+~
 ~
 ~
 Z 0 22047
@@ -1167,8 +1363,12 @@ prefered the darkness over this.
 D2
 ~
 ~
+~
+~
 Z 0 22048
 D3
+~
+~
 ~
 ~
 Z 0 22046
@@ -1184,8 +1384,12 @@ to the south or return towards the exit, north.
 D0
 ~
 ~
+~
+~
 Z 0 22047
 D2
+~
+~
 ~
 ~
 Z 0 22049
@@ -1199,8 +1403,12 @@ Hell. I am sure the demons look forward to having you over for dinner.
 D0
 ~
 ~
+~
+~
 Z 0 22048
 D2
+~
+~
 ~
 ~
 Z 0 10401

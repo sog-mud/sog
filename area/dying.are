@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Dying Forest~
 VNUMs 24300 24399
 Credits Ceran~
@@ -466,8 +466,12 @@ orange that seems to be from fires.
 D0
 ~
 ~
+~
+~
 Z 0 5258
 D3
+~
+~
 ~
 ~
 Z 0 24302
@@ -488,8 +492,12 @@ out of hand.
 D1
 ~
 ~
+~
+~
 Z 0 24300
 D3
+~
+~
 ~
 ~
 Z 0 24303
@@ -510,8 +518,12 @@ out of hand.
 D1
 ~
 ~
+~
+~
 Z 0 24302
 D3
+~
+~
 ~
 ~
 Z 0 24304
@@ -532,12 +544,18 @@ out of hand.
 D0
 ~
 ~
+~
+~
 Z 0 24305
 D1
 ~
 ~
+~
+~
 Z 0 24303
 D3
+~
+~
 ~
 ~
 Z 0 24312
@@ -558,8 +576,12 @@ out of hand.
 D0
 ~
 ~
+~
+~
 Z 0 24306
 D2
+~
+~
 ~
 ~
 Z 0 24304
@@ -580,8 +602,12 @@ out of hand.
 D0
 ~
 ~
+~
+~
 Z 0 24307
 D2
+~
+~
 ~
 ~
 Z 0 24305
@@ -602,12 +628,18 @@ out of hand.
 D0
 ~
 ~
+~
+~
 Z 0 24368
 D2
 ~
 ~
+~
+~
 Z 0 24306
 D3
+~
+~
 ~
 ~
 Z 0 24308
@@ -628,8 +660,12 @@ out of hand.
 D1
 ~
 ~
+~
+~
 Z 0 24307
 D3
+~
+~
 ~
 ~
 Z 0 24309
@@ -650,12 +686,18 @@ out of hand.
 D1
 ~
 ~
+~
+~
 Z 0 24308
 D2
 ~
 ~
+~
+~
 Z 0 24310
 D3
+~
+~
 ~
 ~
 Z 0 24323
@@ -676,8 +718,12 @@ out of hand.
 D0
 ~
 ~
+~
+~
 Z 0 24309
 D2
+~
+~
 ~
 ~
 Z 0 24311
@@ -698,8 +744,12 @@ out of hand.
 D0
 ~
 ~
+~
+~
 Z 0 24310
 D2
+~
+~
 ~
 ~
 Z 0 24313
@@ -720,8 +770,12 @@ out of hand.
 D1
 ~
 ~
+~
+~
 Z 0 24304
 D3
+~
+~
 ~
 ~
 Z 0 24313
@@ -742,12 +796,18 @@ out of hand.
 D0
 ~
 ~
+~
+~
 Z 0 24311
 D1
 ~
 ~
+~
+~
 Z 0 24312
 D3
+~
+~
 ~
 ~
 Z 0 24314
@@ -768,8 +828,12 @@ out of hand.
 D1
 ~
 ~
+~
+~
 Z 0 24313
 D3
+~
+~
 ~
 ~
 Z 0 24315
@@ -790,12 +854,18 @@ out of hand.
 D0
 ~
 ~
+~
+~
 Z 0 24321
 D1
 ~
 ~
+~
+~
 Z 0 24314
 D3
+~
+~
 ~
 ~
 Z 0 24316
@@ -816,8 +886,12 @@ out of hand.
 D1
 ~
 ~
+~
+~
 Z 0 24315
 D3
+~
+~
 ~
 ~
 Z 0 24317
@@ -838,12 +912,18 @@ out of hand.
 D0
 ~
 ~
+~
+~
 Z 0 24328
 D1
 ~
 ~
+~
+~
 Z 0 24316
 D3
+~
+~
 ~
 ~
 Z 0 24318
@@ -864,8 +944,12 @@ out of hand.
 D1
 ~
 ~
+~
+~
 Z 0 24317
 D3
+~
+~
 ~
 ~
 Z 0 24319
@@ -886,8 +970,12 @@ out of hand.
 D1
 ~
 ~
+~
+~
 Z 0 24318
 D3
+~
+~
 ~
 ~
 Z 0 24320
@@ -913,8 +1001,12 @@ that direction.
 D1
 ~
 ~
+~
+~
 Z 0 24319
 D2
+~
+~
 ~
 ~
 Z 0 24336
@@ -935,8 +1027,12 @@ out of hand.
 D0
 ~
 ~
+~
+~
 Z 0 24322
 D2
+~
+~
 ~
 ~
 Z 0 24315
@@ -957,8 +1053,12 @@ out of hand.
 D0
 ~
 ~
+~
+~
 Z 0 24324
 D2
+~
+~
 ~
 ~
 Z 0 24321
@@ -979,12 +1079,18 @@ out of hand.
 D0
 ~
 ~
+~
+~
 Z 0 24329
 D1
 ~
 ~
+~
+~
 Z 0 24309
 D3
+~
+~
 ~
 ~
 Z 0 24324
@@ -1005,12 +1111,18 @@ out of hand.
 D1
 ~
 ~
+~
+~
 Z 0 24323
 D2
 ~
 ~
+~
+~
 Z 0 24322
 D3
+~
+~
 ~
 ~
 Z 0 24325
@@ -1031,12 +1143,18 @@ out of hand.
 D0
 ~
 ~
+~
+~
 Z 0 24331
 D1
 ~
 ~
+~
+~
 Z 0 24324
 D3
+~
+~
 ~
 ~
 Z 0 24326
@@ -1057,8 +1175,12 @@ out of hand.
 D1
 ~
 ~
+~
+~
 Z 0 24325
 D2
+~
+~
 ~
 ~
 Z 0 24327
@@ -1079,8 +1201,12 @@ out of hand.
 D0
 ~
 ~
+~
+~
 Z 0 24326
 D2
+~
+~
 ~
 ~
 Z 0 24328
@@ -1101,8 +1227,12 @@ out of hand.
 D0
 ~
 ~
+~
+~
 Z 0 24327
 D2
+~
+~
 ~
 ~
 Z 0 24317
@@ -1123,8 +1253,12 @@ out of hand.
 D2
 ~
 ~
+~
+~
 Z 0 24323
 D3
+~
+~
 ~
 ~
 Z 0 24330
@@ -1145,12 +1279,18 @@ out of hand.
 D0
 ~
 ~
+~
+~
 Z 0 24332
 D1
 ~
 ~
+~
+~
 Z 0 24329
 D3
+~
+~
 ~
 ~
 Z 0 24331
@@ -1171,8 +1311,12 @@ out of hand.
 D1
 ~
 ~
+~
+~
 Z 0 24330
 D2
+~
+~
 ~
 ~
 Z 0 24325
@@ -1193,8 +1337,12 @@ out of hand.
 D1
 ~
 ~
+~
+~
 Z 0 24333
 D2
+~
+~
 ~
 ~
 Z 0 24330
@@ -1215,8 +1363,12 @@ out of hand.
 D1
 ~
 ~
+~
+~
 Z 0 24334
 D3
+~
+~
 ~
 ~
 Z 0 24332
@@ -1237,8 +1389,12 @@ out of hand.
 D2
 ~
 ~
+~
+~
 Z 0 24335
 D3
+~
+~
 ~
 ~
 Z 0 24333
@@ -1257,6 +1413,8 @@ out of hand.
 ~
 0 A forest
 D0
+~
+~
 ~
 ~
 Z 0 24334
@@ -1278,8 +1436,12 @@ section.
 D0
 ~
 ~
+~
+~
 Z 0 24320
 D2
+~
+~
 ~
 ~
 Z 0 24337
@@ -1301,8 +1463,12 @@ section.
 D0
 ~
 ~
+~
+~
 Z 0 24336
 D2
+~
+~
 ~
 ~
 Z 0 24338
@@ -1324,8 +1490,12 @@ section.
 D0
 ~
 ~
+~
+~
 Z 0 24337
 D1
+~
+~
 ~
 ~
 Z 0 24339
@@ -1347,8 +1517,12 @@ section.
 D1
 ~
 ~
+~
+~
 Z 0 24340
 D3
+~
+~
 ~
 ~
 Z 0 24338
@@ -1370,8 +1544,12 @@ section.
 D1
 ~
 ~
+~
+~
 Z 0 24341
 D3
+~
+~
 ~
 ~
 Z 0 24339
@@ -1393,8 +1571,12 @@ section.
 D1
 ~
 ~
+~
+~
 Z 0 24342
 D3
+~
+~
 ~
 ~
 Z 0 24340
@@ -1416,12 +1598,18 @@ section.
 D1
 ~
 ~
+~
+~
 Z 0 24343
 D2
 ~
 ~
+~
+~
 Z 0 24345
 D3
+~
+~
 ~
 ~
 Z 0 24341
@@ -1443,8 +1631,12 @@ section.
 D1
 ~
 ~
+~
+~
 Z 0 24344
 D3
+~
+~
 ~
 ~
 Z 0 24342
@@ -1466,8 +1658,12 @@ section.
 D2
 ~
 ~
+~
+~
 Z 0 24349
 D3
+~
+~
 ~
 ~
 Z 0 24343
@@ -1489,8 +1685,12 @@ section.
 D0
 ~
 ~
+~
+~
 Z 0 24342
 D2
+~
+~
 ~
 ~
 Z 0 24346
@@ -1512,8 +1712,12 @@ section.
 D0
 ~
 ~
+~
+~
 Z 0 24345
 D1
+~
+~
 ~
 ~
 Z 0 24347
@@ -1535,12 +1739,18 @@ real large creatures. To the north there appears to be some sort of hut.
 D0
 ~
 ~
+~
+~
 Z 0 24367
 D1
 ~
 ~
+~
+~
 Z 0 24348
 D3
+~
+~
 ~
 ~
 Z 0 24346
@@ -1562,8 +1772,12 @@ section.
 D0
 ~
 ~
+~
+~
 Z 0 24349
 D3
+~
+~
 ~
 ~
 Z 0 24347
@@ -1587,12 +1801,18 @@ what looks like domesticated huts.
 D0
 ~
 ~
+~
+~
 Z 0 24344
 D1
 ~
 ~
+~
+~
 Z 0 24350
 D2
+~
+~
 ~
 ~
 Z 0 24348
@@ -1614,12 +1834,18 @@ a small hut.
 D0
 ~
 ~
+~
+~
 Z 0 24351
 D1
 ~
 ~
+~
+~
 Z 0 24352
 D3
+~
+~
 ~
 ~
 Z 0 24349
@@ -1634,6 +1860,8 @@ appears back south to the settlment pathway.
 ~
 0 D inside
 D2
+~
+~
 ~
 ~
 Z 0 24350
@@ -1654,16 +1882,24 @@ huts to the north and south.
 D0
 ~
 ~
+~
+~
 Z 0 24353
 D1
+~
+~
 ~
 ~
 Z 0 24355
 D2
 ~
 ~
+~
+~
 Z 0 24354
 D3
+~
+~
 ~
 ~
 Z 0 24350
@@ -1680,6 +1916,8 @@ appears back south to the settlment pathway.
 D2
 ~
 ~
+~
+~
 Z 0 24352
 S
 #24354
@@ -1692,6 +1930,8 @@ appears back south to the settlment pathway.
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 Z 0 24352
@@ -1711,12 +1951,18 @@ of the region, almost like it was in a totally sperate region.
 D1
 ~
 ~
+~
+~
 Z 0 24356
 D2
 ~
 ~
+~
+~
 Z 0 24364
 D3
+~
+~
 ~
 ~
 Z 0 24352
@@ -1736,8 +1982,12 @@ of the region, almost like it was in a totally sperate region.
 D1
 ~
 ~
+~
+~
 Z 0 24357
 D3
+~
+~
 ~
 ~
 Z 0 24355
@@ -1757,8 +2007,12 @@ of the region, almost like it was in a totally sperate region.
 D2
 ~
 ~
+~
+~
 Z 0 24358
 D3
+~
+~
 ~
 ~
 Z 0 24356
@@ -1780,12 +2034,18 @@ lies east.
 D0
 ~
 ~
+~
+~
 Z 0 24357
 D1
 ~
 ~
+~
+~
 Z 0 24359
 D2
+~
+~
 ~
 ~
 Z 0 24361
@@ -1802,6 +2062,8 @@ appears back south to the settlment pathway.
 D3
 ~
 ~
+~
+~
 Z 0 24358
 S
 #24360
@@ -1814,6 +2076,8 @@ appears back south to the settlment pathway.
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 Z 0 24361
@@ -1835,12 +2099,18 @@ lies east.
 D0
 ~
 ~
+~
+~
 Z 0 24358
 D1
 ~
 ~
+~
+~
 Z 0 24360
 D3
+~
+~
 ~
 ~
 Z 0 24362
@@ -1862,12 +2132,18 @@ lies north.
 D0
 ~
 ~
+~
+~
 Z 0 24366
 D1
 ~
 ~
+~
+~
 Z 0 24361
 D3
+~
+~
 ~
 ~
 Z 0 24363
@@ -1889,12 +2165,18 @@ lies west.
 D0
 ~
 ~
+~
+~
 Z 0 24364
 D1
 ~
 ~
+~
+~
 Z 0 24362
 D3
+~
+~
 ~
 ~
 Z 0 24365
@@ -1914,8 +2196,12 @@ of the region, almost like it was in a totally sperate region.
 D0
 ~
 ~
+~
+~
 Z 0 24355
 D2
+~
+~
 ~
 ~
 Z 0 24363
@@ -1932,6 +2218,8 @@ appears back south to the settlment pathway.
 D1
 ~
 ~
+~
+~
 Z 0 24363
 S
 #24366
@@ -1944,6 +2232,8 @@ appears back south to the settlment pathway.
 ~
 0 D inside
 D2
+~
+~
 ~
 ~
 Z 0 24362
@@ -1960,10 +2250,14 @@ appears back south to the settlment pathway.
 D2
 ~
 ~
+~
+~
 Z 0 24347
 D5
 ~
 door~
+~
+~
 ABCFGZ 0 24373
 S
 #24368
@@ -1982,8 +2276,12 @@ out of hand.
 D1
 ~
 ~
+~
+~
 Z 0 24369
 D2
+~
+~
 ~
 ~
 Z 0 24307
@@ -2004,12 +2302,18 @@ out of hand.
 D0
 ~
 ~
+~
+~
 Z 0 24371
 D1
 ~
 ~
+~
+~
 Z 0 24370
 D3
+~
+~
 ~
 ~
 Z 0 24368
@@ -2030,8 +2334,12 @@ out of hand.
 D2
 ~
 ~
+~
+~
 Z 0 24372
 D3
+~
+~
 ~
 ~
 Z 0 24369
@@ -2052,6 +2360,8 @@ out of hand.
 D2
 ~
 ~
+~
+~
 Z 0 24369
 S
 #24372
@@ -2070,6 +2380,8 @@ out of hand.
 D0
 ~
 ~
+~
+~
 Z 0 24370
 S
 #24373
@@ -2081,6 +2393,8 @@ There is no noise here, always calm....
 ~
 0 CHKQTWX inside
 D4
+~
+~
 ~
 ~
 ABCFGZ 0 24367

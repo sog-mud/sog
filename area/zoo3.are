@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Zoo of Midgaard~
 VNUMs 8200 8299
 Credits Anon~
@@ -539,14 +539,20 @@ The turnstiles are study and can only be made to turn in one direction.
 D0
 ~
 ~
+~
+~
 Z -1 3114
 D2
 @eng The turnstiles are study and can only be made to turn in one direction.
 @rus Турникеты могут быть повернуты лишь в одном направлении.
 ~
 turnstile~
+the turnstile~
+~
 Z -1 8205
 D5
+~
+~
 ~
 ~
 Z -1 3115
@@ -570,10 +576,14 @@ D1
 @rus Вы видите несколько хижин.
 ~
 ~
+~
+~
 Z -1 8230
 D2
 @eng You can see a small path.
 @rus Вы видите маленькую тропинку.
+~
+~
 ~
 ~
 Z -1 8204
@@ -582,12 +592,16 @@ D3
 @rus Вы видите магазин сувениров.
 ~
 door~
+~
+~
 AFZ -1 8205
 D5
 @eng You can see coins glistening in the murky water at the bottom of the well.
 @rus Вы видите несколько монет на дне колодца.
 ~
 grate~
+the grate~
+~
 ABCZ 8200 8203
 S
 #8203
@@ -604,6 +618,8 @@ D4
 @rus Ты можешь видеть небо.
 ~
 grate~
+the grate~
+~
 Z 8200 8201
 S
 #8204
@@ -620,10 +636,14 @@ D0
 @rus Колодец.
 ~
 ~
+~
+~
 Z -1 8201
 D2
 @eng You can see a crossroads.
 @rus Вы видите прекресток.
+~
+~
 ~
 ~
 Z -1 8207
@@ -632,6 +652,8 @@ D3
 @rus Дверь с табличкой 'Хранитель зоопарка.'
 ~
 door~
+~
+~
 ABZ -1 8206
 S
 #8205
@@ -662,6 +684,8 @@ D0
 @rus Крепкие турникеты ведут наружу.
 ~
 turnstile~
+the turnstile~
+~
 Z -1 8200
 D1
 @eng You can see the zoo Well though the door.
@@ -669,6 +693,8 @@ D1
 Вы видите колодец через дверь.
 ~
 door~
+~
+~
 AFZ -1 8201
 S
 #8206
@@ -688,6 +714,8 @@ zoo for the last week. Wow! You realise this guy is making a packet.
 D1
 ~
 door~
+~
+~
 ABZ -1 8204
 S
 #8207
@@ -703,10 +731,14 @@ D0
 @rus Вы видите маленькую тропинку.
 ~
 ~
+~
+~
 Z -1 8204
 D1
 @eng You can see a small path.
 @rus Вы видите маленькую тропинку.
+~
+~
 ~
 ~
 Z -1 8208
@@ -715,10 +747,14 @@ D2
 @rus Вы видите маленькую тропинку.
 ~
 ~
+~
+~
 Z -1 8209
 D3
 @eng You can see a small path.
 @rus Вы видите маленькую тропинку.
+~
+~
 ~
 ~
 Z -1 8210
@@ -738,10 +774,14 @@ you. Surely they can't be that clever?
 @rus На севере стоит горилла и пытается испугать тебя.
 ~
 door cage~
+~
+~
 ABCFZ 8200 8211
 D1
 @eng You can see a small hut in the distance.
 @rus Вы видите хижину на некотором расстоянии.
+~
+~
 ~
 ~
 Z -1 8213
@@ -751,10 +791,14 @@ get a better look.
 @rus Большой коричневый медведь виден через клетку.
 ~
 door cage~
+~
+~
 ABCFZ 8200 8212
 D3
 @eng You can see the crossroads.
 @rus Вы видите перекресток.
+~
+~
 ~
 ~
 Z -1 8207
@@ -772,6 +816,8 @@ D0
 @rus Вы видите перекресток.
 ~
 ~
+~
+~
 Z -1 8207
 D2
 @eng A large Tiger can be seen through the bars of the cage door. The tiger is 
@@ -779,12 +825,16 @@ wandering up and down in the cage and looks slightly bored.
 @rus Вы видите большого тигра.
 ~
 cage door~
+the cage~
+~
 ABCFZ 8200 8214
 D3
 @eng A large Elephant stands idly in the cage to the west.
 @rus Вы видите большого слона.
 ~
 cage door~
+the cage~
+~
 ABCFZ 8200 8215
 S
 #8210
@@ -802,9 +852,13 @@ The crocodiles thrash about in the pools water.
 @rus Несколько крокодилов видны через прутья.
 ~
 cage door~
+the cage~
+~
 ABCFZ 8200 8216
 D1
 You can see the crossroads.
+~
+~
 ~
 ~
 Z -1 8207
@@ -814,6 +868,8 @@ playfully frolicing in the water.
 @rus Несколько дельфинов видны через прутья.
 ~
 door cage~
+~
+~
 ABCFZ 8200 8217
 S
 #8211
@@ -830,6 +886,8 @@ D2
 @rus Через дверь видна маленькая тропинка.
 ~
 door cage~
+~
+~
 ABCFZ 8200 8208
 S
 #8212
@@ -848,6 +906,8 @@ D0
 @rus Вы видите маленькую тропинку.
 ~
 door cage~
+~
+~
 ABCFZ 8200 8208
 S
 #8213
@@ -864,16 +924,22 @@ D1
 Вы видите хлипкую дверь.
 ~
 door~
+~
+~
 Z -1 8219
 D2
 @eng You can see a small path.
 @rus Вы видите маленькую тропинку.
 ~
 ~
+~
+~
 Z -1 8218
 D3
 @eng You can see a small path.
 @rus Вы видите маленькую тропинку.
+~
+~
 ~
 ~
 Z -1 8208
@@ -893,6 +959,8 @@ D0
 @rus Через дверь видна маленькая тропинка.
 ~
 cage door~
+the cage~
+~
 ABCFZ 8200 8209
 S
 #8215
@@ -908,6 +976,8 @@ D1
 @rus Вы видите маленькую тропинку.
 ~
 cage door~
+the cage~
+~
 ABCFZ 8200 8209
 S
 #8216
@@ -923,6 +993,8 @@ D2
 @rus Вы видите маленькую тропинку через клетку.
 ~
 cage door~
+the cage~
+~
 ABCFZ 8200 8210
 S
 #8217
@@ -938,6 +1010,8 @@ D0
 @rus Через дверь видна маленькая тропинка.
 ~
 cage door~
+the cage~
+~
 ABCFZ 8200 8210
 S
 #8218
@@ -953,18 +1027,24 @@ D0
 @rus Вы видите маленькую тропинку.
 ~
 ~
+~
+~
 Z -1 8213
 D1
 @eng You can see a gigantic lizard through the cage door.
 @rus Через прутья вы видите огромного ящера.
 ~
 cage door~
+the cage~
+~
 ABCFZ 8200 8220
 D2
 @eng You can see a white horned horse through the cage door.
 @rus Через прутья вы видите рогатую лошадь.
 ~
 cage door~
+the cage~
+~
 ABCFZ 8200 8221
 S
 #8219
@@ -982,6 +1062,8 @@ D3
 @rus Вы видите хлипкую дверь.
 ~
 door~
+~
+~
 Z -1 8213
 S
 #8220
@@ -997,6 +1079,8 @@ D3
 @rus Через дверь видна маленькая тропинка.
 ~
 cage door~
+the cage~
+~
 ABCFZ 8200 8218
 S
 #8221
@@ -1012,6 +1096,8 @@ D0
 @rus Вы видите маленькую тропинку.
 ~
 cage door~
+the cage~
+~
 ABCFZ 8200 8218
 S
 #8230
@@ -1027,10 +1113,14 @@ D1
 @rus Вы видите маленькую тропинку.
 ~
 ~
+~
+~
 Z -1 8231
 D3
 @eng You can see a Well.
 @rus Вы видите колодец.
+~
+~
 ~
 ~
 Z -1 8201
@@ -1049,10 +1139,14 @@ D0
 @eng You can see a family of goats.
 ~
 ~
+~
+~
 Z -1 8232
 D1
 @eng You can see a small path
 @rus Вы видите маленькую тропинку.
+~
+~
 ~
 ~
 Z -1 8234
@@ -1061,10 +1155,14 @@ D2
 @rus Вы видите свиней, купающихся в грязи
 ~
 ~
+~
+~
 Z -1 8233
 D3
 @eng You can see the entrance way.
 @rus Вы видите вход.
+~
+~
 ~
 ~
 Z -1 8230
@@ -1082,6 +1180,8 @@ D2
 @rus Вы видите маленькую тропинку.
 ~
 ~
+~
+~
 Z -1 8231
 S
 #8233
@@ -1096,6 +1196,8 @@ A foul smell fills your nostrils. You can go back to the path to the north.
 D0
 @eng You can see a small path.
 @rus Вы видите маленькую тропинку.
+~
+~
 ~
 ~
 Z -1 8231
@@ -1115,16 +1217,22 @@ D0
 @rus Вы видите птиц, летающих по огромной клетке.
 ~
 door~
+~
+~
 ABZ -1 8236
 D2
 @eng You can see a horses head poking out of a stable door.
 @rus Вы видите лошадиную голову, торчащую из стояла.
 ~
 door~
+~
+~
 ABZ -1 8235
 D3
 @eng You can see a small path.
 @rus Вы видите маленькую тропинку.
+~
+~
 ~
 ~
 Z -1 8231
@@ -1144,6 +1252,8 @@ D0
 @rus Через двери стояла вы видите тропинку и клетки с птицами.
 ~
 door~
+~
+~
 ABZ -1 8234
 S
 #8236
@@ -1159,12 +1269,16 @@ D0
 @rus Вы видите продолжение клетки.
 ~
 ~
+~
+~
 Z -1 8237
 D2
 @eng You can see a small path through the window in the door.
 @rus Вы видите маленькую тропинку через окошко в двери.
 ~
 door~
+~
+~
 ABZ -1 8234
 S
 #8237
@@ -1179,10 +1293,14 @@ D2
 @rus Вы видите продолжение клетки.
 ~
 ~
+~
+~
 Z -1 8236
 D3
 @eng You can see the aviary continue.
 @rus Вы видите продолжение клетки.
+~
+~
 ~
 ~
 Z -1 8238
@@ -1196,6 +1314,8 @@ S
 D1
 @eng You can see the aviary continue.
 @rus Вы видите продолжение клетки.
+~
+~
 ~
 ~
 Z -1 8237

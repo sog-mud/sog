@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Arcadia~
 VNUMs 12000 12199
 Credits Cernunn~
@@ -2003,10 +2003,14 @@ D1
 @rus Склон холма.
 ~
 ~
+~
+~
 Z 0 12002
 D2
 @eng Toward the hillside.
 @rus Склон холма.
+~
+~
 ~
 ~
 Z 0 12005
@@ -2029,16 +2033,22 @@ D1
 @rus На склоне холма.
 ~
 ~
+~
+~
 Z -1 12003
 D2
 @eng Further up the Hill.
 @rus Вверх по склону.
 ~
 ~
+~
+~
 Z -1 12006
 D3
 @eng In a Field.
 @rus Море колышущейся травы.
+~
+~
 ~
 ~
 Z -1 12001
@@ -2061,16 +2071,22 @@ D1
 @rus Море колышущейся травы.
 ~
 ~
+~
+~
 Z -1 12004
 D2
 @eng Further up the Hill.
 @rus Вверх по склону.
 ~
 ~
+~
+~
 Z -1 12007
 D3
 @eng On the Hillside..
 @rus На склоне холма.
+~
+~
 ~
 ~
 Z -1 12002
@@ -2095,10 +2111,14 @@ D2
 @rus Склон холма.
 ~
 ~
+~
+~
 Z 0 12008
 D3
 @eng Toward the hillside.
 @rus Склон холма.
+~
+~
 ~
 ~
 Z -1 12003
@@ -2121,16 +2141,22 @@ D0
 @rus Море колышущейся травы.
 ~
 ~
+~
+~
 Z -1 12001
 D1
 @eng Further up the Hill.
 @rus Вверх по склону.
 ~
 ~
+~
+~
 Z -1 12006
 D2
 @eng On the Hillside..
 @rus Склон холма.
+~
+~
 ~
 ~
 Z -1 12009
@@ -2147,10 +2173,14 @@ D0
 @rus Склон холма.
 ~
 ~
+~
+~
 Z -1 12002
 D1
 @eng On the Hillside.
 @rus Склон холма.
+~
+~
 ~
 ~
 Z -1 12007
@@ -2159,16 +2189,22 @@ D2
 @rus Склон холма.
 ~
 ~
+~
+~
 Z -1 12010
 D3
 @eng On the Hillside.
 @rus Склон холма.
 ~
 ~
+~
+~
 Z -1 12005
 D4
 @eng On top of the Hill.
 @rus Вершина холма.
+~
+~
 ~
 ~
 Z -1 12021
@@ -2187,10 +2223,14 @@ D0
 @rus Склон холма.
 ~
 ~
+~
+~
 Z -1 12003
 D1
 @eng On the Hillside.
 @rus Склон холма.
+~
+~
 ~
 ~
 Z -1 12008
@@ -2199,10 +2239,14 @@ D2
 @rus Склон холма.
 ~
 ~
+~
+~
 Z -1 12011
 D3
 @eng On the Hillside.
 @rus Склон холма.
+~
+~
 ~
 ~
 Z -1 12006
@@ -2224,14 +2268,20 @@ D0
 In a Field.
 ~
 ~
+~
+~
 Z -1 12004
 D2
 On the Hillside..
 ~
 ~
+~
+~
 Z -1 12012
 D3
 Further up the Hill.
+~
+~
 ~
 ~
 Z -1 12007
@@ -2254,16 +2304,22 @@ D0
 @rus Склон холма.
 ~
 ~
+~
+~
 Z -1 12005
 D1
 @eng Further up the Hill.
 @rus Вверх по склону.
 ~
 ~
+~
+~
 Z -1 12010
 D2
 @eng In a Field.
 @rus Колышущаяся трава.
+~
+~
 ~
 ~
 Z -1 12013
@@ -2282,10 +2338,14 @@ D0
 @rus На склоне холма.
 ~
 ~
+~
+~
 Z -1 12006
 D1
 @eng On the Hillside.
 @rus На склоне холма.
+~
+~
 ~
 ~
 Z -1 12011
@@ -2294,10 +2354,14 @@ D2
 @rus На склоне холма.
 ~
 ~
+~
+~
 Z -1 12014
 D3
 @eng On the Hillside.
 @rus На склоне холма.
+~
+~
 ~
 ~
 Z -1 12009
@@ -2316,10 +2380,14 @@ D0
 @rus На склоне холма.
 ~
 ~
+~
+~
 Z -1 12007
 D1
 @eng On the Hillside.
 @rus На склоне холма.
+~
+~
 ~
 ~
 Z -1 12012
@@ -2328,10 +2396,14 @@ D2
 @rus На склоне холма.
 ~
 ~
+~
+~
 Z -1 12015
 D3
 @eng On the Hillside.
 @rus На склоне холма.
+~
+~
 ~
 ~
 Z -1 12010
@@ -2354,10 +2426,14 @@ D0
 @rus Склон холма.
 ~
 ~
+~
+~
 Z -1 12008
 D2
 @eng In a Field.
 @rus Море колышущейся травы.
+~
+~
 ~
 ~
 Z -1 12016
@@ -2382,16 +2458,22 @@ D0
 @rus Склон холма.
 ~
 ~
+~
+~
 Z -1 12009
 D1
 @eng On a Hillside.
 @rus Склон холма.
 ~
 ~
+~
+~
 Z -1 12014
 D2
 @eng In a Field.
 @rus Море колышущейся травы.
+~
+~
 ~
 ~
 Z -1 12017
@@ -2413,16 +2495,22 @@ D0
 @rus Вверх по склону.
 ~
 ~
+~
+~
 Z -1 12010
 D1
 @eng On the Hillside.
 @rus На склоне холма.
 ~
 ~
+~
+~
 Z -1 12015
 D3
 @eng In a Field.
 @rus Море колышущейся травы.
+~
+~
 ~
 ~
 Z -1 12013
@@ -2443,9 +2531,13 @@ D0
 Further up the Hill.
 ~
 ~
+~
+~
 Z -1 12011
 D1
 In a Field.
+~
+~
 ~
 ~
 Z -1 12016
@@ -2453,9 +2545,13 @@ D2
 In a Field.
 ~
 ~
+~
+~
 Z -1 12019
 D3
 On the Hillside.
+~
+~
 ~
 ~
 Z -1 12014
@@ -2480,16 +2576,22 @@ D0
 @rus Склон холма.
 ~
 ~
+~
+~
 Z -1 12012
 D2
 @eng In a Field.
 @rus Море колышущейся травы.
 ~
 ~
+~
+~
 Z -1 12020
 D3
 @eng On a Hillside.
 @rus Склон холма.
+~
+~
 ~
 ~
 Z -1 12015
@@ -2513,10 +2615,14 @@ D0
 @rus Поля.
 ~
 ~
+~
+~
 Z -1 12013
 D1
 @eng In a Field.
 @rus Поля.
+~
+~
 ~
 ~
 Z -1 12018
@@ -2538,10 +2644,14 @@ D0
 @rus Дорога.
 ~
 ~
+~
+~
 Z -1 12022
 D1
 @eng In a Field
 @rus Поля.
+~
+~
 ~
 ~
 Z -1 12019
@@ -2550,10 +2660,14 @@ D2
 @rus Дорога.
 ~
 ~
+~
+~
 Z 0 7827
 D3
 @eng In a Field
 @rus Поля.
+~
+~
 ~
 ~
 Z -1 12017
@@ -2577,16 +2691,22 @@ D0
 @rus На склоне холма.
 ~
 ~
+~
+~
 Z -1 12015
 D1
 @eng In a Field.
 @rus Поля.
 ~
 ~
+~
+~
 Z -1 12020
 D3
 @eng In a Field.
 @rus Поля.
+~
+~
 ~
 ~
 Z -1 12018
@@ -2610,10 +2730,14 @@ D0
 @rus Поля.
 ~
 ~
+~
+~
 Z -1 12016
 D3
 @eng In a Field.
 @rus Поля.
+~
+~
 ~
 ~
 Z 0 12019
@@ -2642,6 +2766,8 @@ D5
 @rus Вниз по склону.
 ~
 ~
+~
+~
 Z -1 12006
 S
 #12022
@@ -2657,10 +2783,14 @@ D2
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12018
 D3
 @eng Further along the Path.
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12023
@@ -2678,10 +2808,14 @@ D0
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12024
 D1
 @eng Off the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12022
@@ -2699,16 +2833,22 @@ D0
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12025
 D1
 @eng Off the Path
 @rus Поле.
 ~
 ~
+~
+~
 Z -1 12013
 D2
 @eng Off the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12023
@@ -2728,10 +2868,14 @@ D0
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12026
 D2
 @eng Off the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12024
@@ -2749,16 +2893,22 @@ D0
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12027
 D1
 @eng Off the Path
 @rus Поля.
 ~
 ~
+~
+~
 Z -1 12005
 D2
 @eng Along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12025
@@ -2776,10 +2926,14 @@ D1
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12028
 D2
 @eng Off the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12026
@@ -2797,16 +2951,22 @@ D1
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12029
 D2
 @eng Off the Pa1th
 @rus Поле.
 ~
 ~
+~
+~
 Z -1 12002
 D3
 @eng Along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12027
@@ -2825,16 +2985,22 @@ D1
 @rus Дальше по тропе.
 ~
 ~
+~
+~
 Z -1 12030
 D2
 @eng Off the Path
 @rus Поле.
 ~
 ~
+~
+~
 Z -1 12003
 D3
 @eng Along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12028
@@ -2852,10 +3018,14 @@ D2
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12031
 D3
 @eng Along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12029
@@ -2875,10 +3045,14 @@ D0
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12030
 D2
 @eng Further along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12032
@@ -2898,10 +3072,14 @@ D0
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12031
 D2
 @eng Further along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12033
@@ -2920,10 +3098,14 @@ D0
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12032
 D3
 @eng Further along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12034
@@ -2943,16 +3125,22 @@ D0
 @rus Поля.
 ~
 ~
+~
+~
 Z -1 12014
 D1
 @eng Along the Path
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12033
 D3
 @eng Further along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12035
@@ -2972,10 +3160,14 @@ D0
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12036
 D1
 @eng Along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12034
@@ -2995,10 +3187,14 @@ D0
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12037
 D2
 @eng Along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12035
@@ -3017,16 +3213,22 @@ D0
 @rus Склон холма.
 ~
 ~
+~
+~
 Z -1 12014
 D1
 @eng Further along the Path
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12038
 D2
 @eng Along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12036
@@ -3046,10 +3248,14 @@ D2
 @rus Тропа.
 ~
 ~
+~
+~
 Z -1 12039
 D3
 @eng Along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12037
@@ -3069,10 +3275,14 @@ D0
 @rus Тропинка.
 ~
 ~
+~
+~
 Z -1 12038
 D3
 @eng The end of the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12040
@@ -3093,10 +3303,14 @@ D0
 @rus Аркадия.
 ~
 ~
+~
+~
 Z 0 12044
 D1
 @eng Along the Path
 @rus Тропинка.
+~
+~
 ~
 ~
 Z -1 12039
@@ -3119,10 +3333,14 @@ D0
 @rus В глубине озера.
 ~
 ~
+~
+~
 Z -1 12055
 D1
 @eng The Lake Shore
 @rus Берег.
+~
+~
 ~
 ~
 Z -1 12042
@@ -3144,14 +3362,20 @@ D0
 The Lake Shore
 ~
 ~
+~
+~
 Z -1 12054
 D1
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12043
 D3
 The Deep end of the Lake
+~
+~
 ~
 ~
 Z -1 12041
@@ -3172,14 +3396,20 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12053
 D1
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12044
 D3
 The Lake Shore
+~
+~
 ~
 ~
 Z -1 12042
@@ -3200,9 +3430,13 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12052
 D1
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12045
@@ -3210,9 +3444,13 @@ D2
 End of the Path.
 ~
 ~
+~
+~
 Z -1 12040
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12043
@@ -3233,14 +3471,20 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12051
 D1
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12046
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12044
@@ -3261,14 +3505,20 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12050
 D1
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12048
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12045
@@ -3289,9 +3539,13 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12049
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12046
@@ -3312,14 +3566,20 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12063
 D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12048
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12050
@@ -3340,9 +3600,13 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12062
 D1
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12049
@@ -3350,9 +3614,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12046
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12051
@@ -3373,9 +3641,13 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12061
 D1
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12050
@@ -3383,9 +3655,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12045
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12052
@@ -3406,9 +3682,13 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12060
 D1
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12051
@@ -3416,9 +3696,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12044
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12053
@@ -3439,9 +3723,13 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12059
 D1
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12052
@@ -3449,9 +3737,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12043
 D3
 The Lake Shore
+~
+~
 ~
 ~
 Z -1 12054
@@ -3474,9 +3766,13 @@ D0
 The Lake Shore
 ~
 ~
+~
+~
 Z -1 12057
 D1
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12053
@@ -3484,9 +3780,13 @@ D2
 The Lake Shore
 ~
 ~
+~
+~
 Z -1 12042
 D3
 The Deep end of the Lake
+~
+~
 ~
 ~
 Z -1 12055
@@ -3507,14 +3807,20 @@ D0
 The Lake Shore
 ~
 ~
+~
+~
 Z -1 12056
 D1
 The Lake Shore.
 ~
 ~
+~
+~
 Z -1 12054
 D2
 The Deep end of the Lake.
+~
+~
 ~
 ~
 Z -1 12041
@@ -3537,14 +3843,20 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12070
 D1
 The Lake Shore
 ~
 ~
+~
+~
 Z -1 12057
 D2
 The Deep end of the Lake
+~
+~
 ~
 ~
 Z -1 12055
@@ -3567,9 +3879,13 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12069
 D1
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12059
@@ -3577,9 +3893,13 @@ D2
 The Lake Shore
 ~
 ~
+~
+~
 Z -1 12054
 D3
 The Lake Shore
+~
+~
 ~
 ~
 Z -1 12056
@@ -3600,9 +3920,13 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12068
 D1
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12060
@@ -3610,9 +3934,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12053
 D3
 The Lake Shore
+~
+~
 ~
 ~
 Z -1 12057
@@ -3633,9 +3961,13 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12067
 D1
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12061
@@ -3643,9 +3975,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12052
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12059
@@ -3666,9 +4002,13 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12066
 D1
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12062
@@ -3676,9 +4016,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12051
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12060
@@ -3699,9 +4043,13 @@ D0
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12065
 D1
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12063
@@ -3709,9 +4057,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12050
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12061
@@ -3732,14 +4084,20 @@ D0
 The Forest Edge
 ~
 ~
+~
+~
 Z -1 12064
 D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12049
 D3
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12062
@@ -3761,14 +4119,20 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12077
 D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12063
 D3
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12065
@@ -3790,9 +4154,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12076
 D1
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12064
@@ -3800,9 +4168,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12062
 D3
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12066
@@ -3824,9 +4196,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12075
 D1
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12065
@@ -3834,9 +4210,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12061
 D3
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12067
@@ -3858,9 +4238,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12074
 D1
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12066
@@ -3868,9 +4252,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12060
 D3
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12068
@@ -3893,9 +4281,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12073
 D1
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12067
@@ -3903,9 +4295,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12059
 D3
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12069
@@ -3926,9 +4322,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12072
 D1
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12068
@@ -3936,9 +4336,13 @@ D2
 An Enchanted Forest
 ~
 ~
+~
+~
 Z -1 12057
 D3
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12070
@@ -3959,14 +4363,20 @@ D0
 The Forest Edge
 ~
 ~
+~
+~
 Z -1 12071
 D1
 The Forest Edge
 ~
 ~
+~
+~
 Z -1 12069
 D2
 The Lake Shore
+~
+~
 ~
 ~
 Z -1 12056
@@ -3988,9 +4398,13 @@ D1
 The Forest Edge
 ~
 ~
+~
+~
 Z -1 12072
 D2
 An Enchanted Forest
+~
+~
 ~
 ~
 Z -1 12070
@@ -4014,9 +4428,13 @@ D0
 The Dirt Trod
 ~
 ~
+~
+~
 Z -1 12083
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12073
@@ -4024,9 +4442,13 @@ D2
 The Forest Edge
 ~
 ~
+~
+~
 Z -1 12069
 D3
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12071
@@ -4048,9 +4470,13 @@ D0
 The Dirt Trod
 ~
 ~
+~
+~
 Z -1 12082
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12074
@@ -4058,9 +4484,13 @@ D2
 The Forest Edge
 ~
 ~
+~
+~
 Z -1 12068
 D3
 The Forest Edge
+~
+~
 ~
 ~
 Z -1 12072
@@ -4082,9 +4512,13 @@ D0
 Before the Castle Gates
 ~
 ~
+~
+~
 Z -1 12081
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12075
@@ -4092,9 +4526,13 @@ D2
 The Forest Edge
 ~
 ~
+~
+~
 Z -1 12067
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12073
@@ -4117,9 +4555,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12080
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12076
@@ -4127,9 +4569,13 @@ D2
 The Forest Edge
 ~
 ~
+~
+~
 Z -1 12066
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12074
@@ -4152,9 +4598,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12079
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12077
@@ -4162,9 +4612,13 @@ D2
 The Forest Edge
 ~
 ~
+~
+~
 Z -1 12065
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12075
@@ -4187,14 +4641,20 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12078
 D2
 The Forest Edge
 ~
 ~
+~
+~
 Z -1 12064
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12076
@@ -4215,14 +4675,20 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12091
 D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12077
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12079
@@ -4243,9 +4709,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12090
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12078
@@ -4253,9 +4723,13 @@ D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12076
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12080
@@ -4276,9 +4750,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12089
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12079
@@ -4286,9 +4764,13 @@ D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12075
 D3
 Before the Castle Gates
+~
+~
 ~
 ~
 Z -1 12081
@@ -4310,9 +4792,13 @@ D0
 Inside the Gate
 ~
 ~
+~
+~
 Z 0 12119
 D1
 The Flower Field
+~
+~
 ~
 ~
 Z -1 12080
@@ -4320,9 +4806,13 @@ D2
 The Flower Field
 ~
 ~
+~
+~
 Z -1 12074
 D3
 The Dirt Trod
+~
+~
 ~
 ~
 Z -1 12082
@@ -4341,9 +4831,13 @@ D0
 The Flower Field
 ~
 ~
+~
+~
 Z -1 12087
 D1
 Before the Castle Gates
+~
+~
 ~
 ~
 Z -1 12081
@@ -4351,9 +4845,13 @@ D2
 The Flower Field
 ~
 ~
+~
+~
 Z -1 12073
 D3
 The Dirt Trod
+~
+~
 ~
 ~
 Z -1 12083
@@ -4372,9 +4870,13 @@ D0
 The Flower Field
 ~
 ~
+~
+~
 Z -1 12086
 D1
 The Dirt Trod
+~
+~
 ~
 ~
 Z -1 12082
@@ -4382,9 +4884,13 @@ D2
 The Flower Field
 ~
 ~
+~
+~
 Z -1 12072
 D3
 The Dog Tail Inn
+~
+~
 ~
 ~
 Z 0 12084
@@ -4398,6 +4904,8 @@ exit is back to the east.
 0 D inside
 D1
 The Dirt Trod
+~
+~
 ~
 ~
 Z 0 12083
@@ -4420,9 +4928,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12098
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12086
@@ -4444,9 +4956,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12097
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12087
@@ -4454,9 +4970,13 @@ D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12083
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12085
@@ -4478,9 +4998,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12096
 D1
 Behind the Hill
+~
+~
 ~
 ~
 Z -1 12156
@@ -4488,9 +5012,13 @@ D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12082
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12086
@@ -4512,9 +5040,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12094
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12090
@@ -4522,9 +5054,13 @@ D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12080
 D3
 Behind the Hill
+~
+~
 ~
 ~
 Z -1 12156
@@ -4546,9 +5082,13 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12093
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12091
@@ -4556,9 +5096,13 @@ D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12079
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12089
@@ -4579,14 +5123,20 @@ D0
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12092
 D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12078
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12090
@@ -4609,9 +5159,13 @@ D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12091
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12093
@@ -4634,14 +5188,20 @@ D1
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12092
 D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12090
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12094
@@ -4664,9 +5224,13 @@ D0
 Path Up the Mountains
 ~
 ~
+~
+~
 Z -1 12103
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12093
@@ -4674,9 +5238,13 @@ D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12089
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12095
@@ -4699,9 +5267,13 @@ D0
 Path up the Mountains
 ~
 ~
+~
+~
 Z -1 12102
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12094
@@ -4709,9 +5281,13 @@ D2
 Behind the Hill
 ~
 ~
+~
+~
 Z -1 12156
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12096
@@ -4734,9 +5310,13 @@ D0
 Path up the Mountains
 ~
 ~
+~
+~
 Z -1 12101
 D1
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12095
@@ -4744,9 +5324,13 @@ D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12087
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12097
@@ -4769,14 +5353,20 @@ D1
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12096
 D2
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12086
 D3
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12098
@@ -4799,9 +5389,13 @@ D1
 The Flower Meadow
 ~
 ~
+~
+~
 Z -1 12097
 D2
 The Flower Meadow
+~
+~
 ~
 ~
 Z -1 12085
@@ -4818,11 +5412,15 @@ D1
 The Lighter Part of the Caves.
 ~
 ~
+~
+~
 Z -1 12100
 D5
 A Dark Abyss.
 ~
 Abyss~
+the abyss~
+~
 Z 0 12113
 S
 #12100
@@ -4838,9 +5436,13 @@ D1
 The Workplace Before the Forge
 ~
 ~
+~
+~
 Z -1 12101
 D3
 The Dark Hole Behind the Forge
+~
+~
 ~
 ~
 Z -1 12099
@@ -4857,9 +5459,13 @@ D0
 The Boggan Caverns
 ~
 ~
+~
+~
 Z -1 12109
 D1
 Up on a Path in the Mountains.
+~
+~
 ~
 ~
 Z -1 12102
@@ -4867,9 +5473,13 @@ D2
 The Flower Meadow.
 ~
 ~
+~
+~
 Z -1 12096
 D3
 The Great Stone Forge.
+~
+~
 ~
 ~
 Z -1 12100
@@ -4885,9 +5495,13 @@ D0
 The Boggan Caverns.
 ~
 ~
+~
+~
 Z -1 12108
 D1
 An Empty Rock Shelf.
+~
+~
 ~
 ~
 Z -1 12103
@@ -4895,9 +5509,13 @@ D2
 The Flower Meadow.
 ~
 ~
+~
+~
 Z -1 12095
 D3
 The Workplace Before the Forge.
+~
+~
 ~
 ~
 Z -1 12101
@@ -4913,9 +5531,13 @@ D0
 The Boggan Caverns.
 ~
 ~
+~
+~
 Z -1 12107
 D1
 The Crafts Shoppe.
+~
+~
 ~
 ~
 Z -1 12104
@@ -4923,9 +5545,13 @@ D2
 The Flower Meadow.
 ~
 ~
+~
+~
 Z -1 12094
 D3
 Up on a Path in the Mountains.
+~
+~
 ~
 ~
 Z -1 12102
@@ -4941,14 +5567,20 @@ D0
 A Cluttered Room.
 ~
 ~
+~
+~
 Z -1 12106
 D1
 A Storage Room.
 ~
 ~
+~
+~
 Z -1 12105
 D3
 The Rock Ledge.
+~
+~
 ~
 ~
 Z -1 12103
@@ -4964,6 +5596,8 @@ D3
 The Crafts Shoppe.
 ~
 ~
+~
+~
 Z -1 12104
 S
 #12106
@@ -4976,9 +5610,13 @@ D2
 The Crafts Shoppe.
 ~
 ~
+~
+~
 Z -1 12104
 D3
 The Kitchen.
+~
+~
 ~
 ~
 Z -1 12107
@@ -4997,9 +5635,13 @@ D0
 A Small Bedroom.
 ~
 ~
+~
+~
 Z -1 12112
 D1
 The cluttered Room.
+~
+~
 ~
 ~
 Z -1 12106
@@ -5007,9 +5649,13 @@ D2
 The Rock Ledge.
 ~
 ~
+~
+~
 Z -1 12103
 D3
 The Welcoming Hall.
+~
+~
 ~
 ~
 Z -1 12108
@@ -5028,9 +5674,13 @@ D0
 A Small Bedroom.
 ~
 ~
+~
+~
 Z -1 12111
 D1
 The Kitchen.
+~
+~
 ~
 ~
 Z -1 12107
@@ -5038,9 +5688,13 @@ D2
 Up on a Path in the Mountains.
 ~
 ~
+~
+~
 Z -1 12102
 D3
 The Trophy Room.
+~
+~
 ~
 ~
 Z -1 12109
@@ -5060,14 +5714,20 @@ D0
 A Small Bedroom.
 ~
 ~
+~
+~
 Z -1 12110
 D1
 The Welcoming Hall.
 ~
 ~
+~
+~
 Z -1 12108
 D2
 The Workplace Before the Forge.
+~
+~
 ~
 ~
 Z -1 12101
@@ -5084,6 +5744,8 @@ D2
 The Trophy Room.
 ~
 ~
+~
+~
 Z -1 12109
 S
 #12111
@@ -5096,6 +5758,8 @@ The inhabitant of this room must never sleep.
 0 D inside
 D2
 The Welcoming Hall.
+~
+~
 ~
 ~
 Z -1 12108
@@ -5112,6 +5776,8 @@ D2
 The Kitchen.
 ~
 ~
+~
+~
 Z -1 12107
 S
 #12113
@@ -5125,9 +5791,13 @@ D0
 More Darkness and Slime.
 ~
 ~
+~
+~
 Z -1 12114
 D4
 The Dark Space Behind the Forge.
+~
+~
 ~
 ~
 Z 0 12099
@@ -5144,9 +5814,13 @@ D2
 A Dark Abyss.
 ~
 ~
+~
+~
 Z -1 12113
 D3
 The Forbidden Room.
+~
+~
 ~
 ~
 ABZ 0 12115
@@ -5163,6 +5837,8 @@ D1
 More Darkness and Slime.
 ~
 ~
+~
+~
 Z 0 12114
 S
 #12116
@@ -5174,6 +5850,8 @@ flowered meadow all around the castle and dark mountains to the north.
 0 D inside
 D5
 In the Guard Tower.
+~
+~
 ~
 ~
 Z -1 12117
@@ -5189,9 +5867,13 @@ D4
 The Top of the Western Tower.
 ~
 ~
+~
+~
 Z -1 12116
 D5
 The Guard Barracks.
+~
+~
 ~
 ~
 Z -1 12118
@@ -5207,9 +5889,13 @@ D1
 The Gates of the Fae Stronghold.
 ~
 ~
+~
+~
 Z 0 12119
 D4
 In the Guard Tower.
+~
+~
 ~
 ~
 Z -1 12117
@@ -5228,21 +5914,29 @@ D0
 The Entryway.
 ~
 ~
+~
+~
 Z -1 12123
 D1
 The East Tower
 ~
 gold~
+the gold~
+~
 Z 0 12120
 D2
 Outside the Gates.
 ~
 gate~
+the gate~
+~
 Z 12065 12081
 D3
 The West Tower
 ~
 silver~
+the silver~
+~
 Z 0 12118
 S
 #12120
@@ -5257,9 +5951,13 @@ D3
 The Gates of the Fae Stronghold.
 ~
 gold~
+the gold~
+~
 Z 0 12119
 D4
 Inside the East Tower
+~
+~
 ~
 ~
 Z -1 12121
@@ -5276,9 +5974,13 @@ D4
 The Top of the Eastern Guard Tower.
 ~
 ~
+~
+~
 Z -1 12122
 D5
 The East Tower.
+~
+~
 ~
 ~
 Z -1 12120
@@ -5292,6 +5994,8 @@ flowered meadow all around the castle and dark mountains to the north.
 0 D inside
 D5
 Inside the East Tower.
+~
+~
 ~
 ~
 Z -1 12121
@@ -5308,9 +6012,13 @@ D0
 The Hall of Spring.
 ~
 ~
+~
+~
 Z -1 12124
 D2
 The Gates of the Fae Stronghold.
+~
+~
 ~
 ~
 Z -1 12119
@@ -5330,14 +6038,20 @@ D0
 The Hall of Summer.
 ~
 ~
+~
+~
 Z -1 12125
 D1
 Eternal Spring.
 ~
 tapestry~
+the tapestry~
+~
 ABZ 0 12154
 D2
 The Castle Entryway.
+~
+~
 ~
 ~
 Z -1 12123
@@ -5358,14 +6072,20 @@ D0
 The Hall of Autumn.
 ~
 ~
+~
+~
 Z -1 12126
 D1
 Eternal Summer.
 ~
 tapestry~
+the tapestry~
+~
 ABZ 0 12153
 D2
 The Hall of Spring.
+~
+~
 ~
 ~
 Z -1 12124
@@ -5387,14 +6107,20 @@ D0
 The Hall of Winter.
 ~
 ~
+~
+~
 Z -1 12127
 D1
 The Hidden Court.
 ~
 leaves~
+the leaves~
+~
 ABCZ 0 12150
 D2
 The Hall of Summer.
+~
+~
 ~
 ~
 Z -1 12125
@@ -5402,6 +6128,8 @@ D3
 Eternal Autumn.
 ~
 tapestry~
+the tapestry~
+~
 ABZ 0 12152
 S
 #12127
@@ -5422,14 +6150,20 @@ D0
 An Intersection of Hallways.
 ~
 ~
+~
+~
 Z -1 12128
 D1
 The Hidden Court.
 ~
 ice~
+the ice~
+~
 ABCZ 0 12149
 D2
 The Hall of Autumn.
+~
+~
 ~
 ~
 Z -1 12126
@@ -5437,6 +6171,8 @@ D3
 Eternal Winter.
 ~
 tapestry~
+the tapestry~
+~
 ABZ 0 12151
 S
 #12128
@@ -5450,9 +6186,13 @@ D0
 The Courtyard.
 ~
 ~
+~
+~
 Z -1 12134
 D1
 The Chamber of Imbolc.
+~
+~
 ~
 ~
 Z -1 12130
@@ -5460,9 +6200,13 @@ D2
 The Hall of Winter.
 ~
 ~
+~
+~
 Z -1 12127
 D3
 The Chamber of Beltane.
+~
+~
 ~
 ~
 Z -1 12129
@@ -5478,9 +6222,13 @@ D0
 A Hallway.
 ~
 ~
+~
+~
 Z -1 12133
 D1
 A Hallway intersection.
+~
+~
 ~
 ~
 Z -1 12128
@@ -5497,9 +6245,13 @@ D0
 A Hallway.
 ~
 ~
+~
+~
 Z -1 12135
 D3
 A Hallway intersection.
+~
+~
 ~
 ~
 Z -1 12128
@@ -5515,9 +6267,13 @@ D1
 A Hallway.
 ~
 ~
+~
+~
 Z -1 12132
 D4
 Inside the Western Tower.
+~
+~
 ~
 ~
 Z -1 12142
@@ -5533,9 +6289,13 @@ D1
 A Hallway.
 ~
 ~
+~
+~
 Z -1 12133
 D3
 The Base of the Western Tower.
+~
+~
 ~
 ~
 Z -1 12131
@@ -5551,9 +6311,13 @@ D0
 The Chamber of Lughnasadh.
 ~
 ~
+~
+~
 Z -1 12141
 D1
 The Courtyard.
+~
+~
 ~
 ~
 Z -1 12134
@@ -5561,9 +6325,13 @@ D2
 The Chamber of Beltane.
 ~
 ~
+~
+~
 Z -1 12129
 D3
 A Hallway.
+~
+~
 ~
 ~
 Z -1 12132
@@ -5579,9 +6347,13 @@ D0
 A Hallway.
 ~
 ~
+~
+~
 Z -1 12140
 D1
 A Hallway.
+~
+~
 ~
 ~
 Z -1 12135
@@ -5589,9 +6361,13 @@ D2
 A Hallway.
 ~
 ~
+~
+~
 Z -1 12128
 D3
 A Hallway.
+~
+~
 ~
 ~
 Z -1 12133
@@ -5607,9 +6383,13 @@ D0
 The Chamber of Samhain.
 ~
 ~
+~
+~
 Z -1 12139
 D1
 A Hallway.
+~
+~
 ~
 ~
 Z -1 12136
@@ -5617,9 +6397,13 @@ D2
 The Chamber of Imbolc.
 ~
 ~
+~
+~
 Z -1 12130
 D3
 The Courtyard.
+~
+~
 ~
 ~
 Z -1 12134
@@ -5634,9 +6418,13 @@ D1
 The Base of the Eastern Tower.
 ~
 ~
+~
+~
 Z -1 12137
 D3
 A Hallway.
+~
+~
 ~
 ~
 Z -1 12135
@@ -5653,9 +6441,13 @@ D3
 A Hallway.
 ~
 ~
+~
+~
 Z -1 12136
 D4
 Inside the Eastern Tower.
+~
+~
 ~
 ~
 Z -1 12138
@@ -5673,9 +6465,13 @@ D4
 The Top of the Eastern Guard Tower.
 ~
 trapdoor~
+the trapdoor~
+~
 Z 12065 12145
 D5
 The Base of the Eastern Tower.
+~
+~
 ~
 ~
 Z -1 12137
@@ -5692,9 +6488,13 @@ D2
 A Hallway.
 ~
 ~
+~
+~
 Z -1 12135
 D3
 An Audience Chamber.
+~
+~
 ~
 ~
 Z -1 12140
@@ -5712,9 +6512,13 @@ D0
 The Court of the Fae.
 ~
 ~
+~
+~
 Z -1 12144
 D1
 The Chamber of Samhain.
+~
+~
 ~
 ~
 Z -1 12139
@@ -5722,9 +6526,13 @@ D2
 The Courtyard. 
 ~
 ~
+~
+~
 Z -1 12134
 D3
 The Chamber of Lughnasadh.
+~
+~
 ~
 ~
 Z -1 12141
@@ -5740,9 +6548,13 @@ D1
 The Audience Chamber.
 ~
 ~
+~
+~
 Z -1 12140
 D2
 A Hallway.
+~
+~
 ~
 ~
 Z -1 12133
@@ -5760,9 +6572,13 @@ D4
 The Top of the Western Guard Tower.
 ~
 trapdoor~
+the trapdoor~
+~
 Z 12065 12143
 D5
 The Base of the Western Tower.
+~
+~
 ~
 ~
 Z -1 12131
@@ -5780,6 +6596,8 @@ D5
 In the Guard Tower.
 ~
 ~
+~
+~
 ABZ 0 12142
 S
 #12144
@@ -5795,9 +6613,13 @@ D0
 The Throne of the Seelie Fae.
 ~
 ~
+~
+~
 Z -1 12146
 D2
 The Audience Chamber.
+~
+~
 ~
 ~
 Z -1 12140
@@ -5815,6 +6637,8 @@ D5
 Inside the Eastern Tower.
 ~
 trapdoor~
+the trapdoor~
+~
 ABZ 12065 12138
 S
 #12146
@@ -5829,9 +6653,13 @@ D0
 Behind the Drapes.
 ~
 drapes~
+the drapes~
+~
 ABZ 0 12147
 D2
 The Court of the Fae.
+~
+~
 ~
 ~
 Z -1 12144
@@ -5847,11 +6675,15 @@ D2
 The Throne of the Seelie Fae.
 ~
 drapes~
+the drapes~
+~
 Z 0 12146
 D5
 The Watcher's Home.
 ~
 floor~
+the floor~
+~
 ABCZ 12067 12148
 S
 #12148
@@ -5863,6 +6695,8 @@ other than the rag bed and the small pool of slime in the corner.
 0 D inside
 D4
 Behind the Royal Drapes.
+~
+~
 ~
 ~
 Z -1 12147
@@ -5880,11 +6714,15 @@ D2
 The Hidden Court.
 ~
 ~
+~
+~
 Z -1 12150
 D3
 The Hall of Winter.
 ~
 wall~
+the wall~
+~
 ABCZ 0 12127
 S
 #12150
@@ -5900,9 +6738,13 @@ D0
 The Hidden Court.
 ~
 ~
+~
+~
 Z -1 12149
 D3
 The Hall of Autumn.
+~
+~
 ~
 ~
 ABCZ 0 12126
@@ -5918,9 +6760,13 @@ D0
 Eternal Winter.
 ~
 ~
+~
+~
 Z -1 12151
 D1
 Eternal Winter.
+~
+~
 ~
 ~
 Z -1 12151
@@ -5928,9 +6774,13 @@ D2
 Eternal Winter.
 ~
 ~
+~
+~
 Z -1 12151
 D3
 Eternal Winter.
+~
+~
 ~
 ~
 Z -1 12151
@@ -5938,6 +6788,8 @@ D5
 Hope.
 ~
 hope~
+the hope~
+~
 ABZ -1 12155
 S
 #12152
@@ -5950,9 +6802,13 @@ D0
 Eternal Autumn.
 ~
 ~
+~
+~
 Z -1 12152
 D1
 Eternal Autumn.
+~
+~
 ~
 ~
 Z -1 12152
@@ -5960,9 +6816,13 @@ D2
 Eternal Autumn.
 ~
 ~
+~
+~
 Z -1 12152
 D3
 Eternal Autumn.
+~
+~
 ~
 ~
 Z -1 12152
@@ -5970,6 +6830,8 @@ D5
 Hope.
 ~
 hope~
+the hope~
+~
 ABZ -1 12155
 S
 #12153
@@ -5984,9 +6846,13 @@ D0
 Eternal Summer.
 ~
 ~
+~
+~
 Z -1 12153
 D1
 Eternal Summer.
+~
+~
 ~
 ~
 Z -1 12153
@@ -5994,9 +6860,13 @@ D2
 Eternal Summer.
 ~
 ~
+~
+~
 Z -1 12153
 D3
 Eternal Summer.
+~
+~
 ~
 ~
 Z -1 12153
@@ -6004,6 +6874,8 @@ D5
 Hope.
 ~
 hope~
+the hope~
+~
 ABZ -1 12155
 S
 #12154
@@ -6020,9 +6892,13 @@ D0
 Eternal Spring.
 ~
 ~
+~
+~
 Z -1 12154
 D1
 Eternal Spring.
+~
+~
 ~
 ~
 Z -1 12154
@@ -6030,9 +6906,13 @@ D2
 Eternal Spring.
 ~
 ~
+~
+~
 Z -1 12154
 D3
 Eternal Spring.
+~
+~
 ~
 ~
 Z -1 12154
@@ -6040,6 +6920,8 @@ D5
 Hope.
 ~
 hope~
+the hope~
+~
 ABZ -1 12155
 S
 #12155
@@ -6064,10 +6946,14 @@ D0
 @rus Цветочный луг.
 ~
 ~
+~
+~
 Z -1 12095
 D1
 @eng The Flower Meadow
 @rus Цветочный луг.
+~
+~
 ~
 ~
 Z -1 12089
@@ -6076,10 +6962,14 @@ D2
 @rus Под холмом.
 ~
 ~
+~
+~
 ABCFZ 0 12157
 D3
 @eng The Flower Meadow
 @rus Цветочный луг.
+~
+~
 ~
 ~
 Z -1 12087
@@ -6096,6 +6986,8 @@ are several wondrous creatures standing here studying you.
 D0
 @eng Behind the Hill.
 @rus Позади холма.
+~
+~
 ~
 ~
 ABFZ 0 12156

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Valley of the Titans~
 VNUMs 18000 18199
 Credits Xavier~
@@ -1306,7 +1306,7 @@ passage-way behind the throne. Obviously, someone in the kingdom wants the
 king and queen destroyed. Why is beyon all knowledge.
 ~
 giant~
-BJT 0 V 0 ABH -1000 0
+BJT 0 V B ABH -1000 0
 45 0 25d10+3500 1d1+302 8d4+16 'slash'
 -15 -15 -15 4
 CDEFGKNO
@@ -2746,9 +2746,13 @@ D0
 The path continues.
 ~
 ~
+~
+~
 Z 0 18002
 D2
 Back to the lighter forests.
+~
+~
 ~
 ~
 Z -1 6152
@@ -2767,14 +2771,20 @@ D0
 Path by a lake.
 ~
 ~
+~
+~
 Z 0 10001
 D2
 Back south to the trail.
 ~
 ~
+~
+~
 Z 0 18001
 D3
 The curving path west.
+~
+~
 ~
 ~
 Z 0 18003
@@ -2795,9 +2805,13 @@ D1
 back to the dusty trail.
 ~
 ~
+~
+~
 Z 0 18002
 D3
 Following the path west.
+~
+~
 ~
 ~
 Z 0 18004
@@ -2816,9 +2830,13 @@ D1
 The path continues...
 ~
 ~
+~
+~
 Z 0 18003
 D3
 The path continues...
+~
+~
 ~
 ~
 Z 0 18005
@@ -2841,9 +2859,13 @@ D1
 The path continues...
 ~
 ~
+~
+~
 Z 0 18004
 D3
 The path continues...
+~
+~
 ~
 ~
 Z 0 18007
@@ -2869,9 +2891,13 @@ D0
 The matted deer trail.
 ~
 ~
+~
+~
 Z 0 18008
 D1
 The path continues...
+~
+~
 ~
 ~
 Z 0 18005
@@ -2891,9 +2917,13 @@ D2
 The path south.
 ~
 ~
+~
+~
 Z 0 18007
 D3
 The path widens.
+~
+~
 ~
 ~
 Z 0 18009
@@ -2911,9 +2941,13 @@ D1
 The way back.
 ~
 ~
+~
+~
 Z 0 18008
 D3
 The path continues.
+~
+~
 ~
 ~
 Z 0 18010
@@ -2932,9 +2966,13 @@ D0
 On the bridge.
 ~
 ~
+~
+~
 Z 0 18011
 D1
 Back to the path.
+~
+~
 ~
 ~
 Z 0 18009
@@ -2952,9 +2990,13 @@ D0
 The path continues.
 ~
 ~
+~
+~
 Z 0 18012
 D2
 The path back.
+~
+~
 ~
 ~
 Z 0 18010
@@ -2975,9 +3017,13 @@ D2
 Back to the bridge.
 ~
 ~
+~
+~
 Z 0 18011
 D3
 The path continues.
+~
+~
 ~
 ~
 Z 0 18013
@@ -2999,9 +3045,13 @@ D1
 The path continues.
 ~
 ~
+~
+~
 Z 0 18012
 D3
 The path continues.
+~
+~
 ~
 ~
 Z 0 18014
@@ -3021,9 +3071,13 @@ D1
 Back to the path.
 ~
 ~
+~
+~
 Z 0 18013
 D2
 Out across the bridge.
+~
+~
 ~
 ~
 Z 0 18015
@@ -3042,14 +3096,20 @@ D0
 Back to solid ground.
 ~
 ~
+~
+~
 Z 0 18014
 D1
 You see nothing special there.
 ~
 door~
+~
+~
 ABZ -1 18017
 D2
 Out across the bridge.
+~
+~
 ~
 ~
 Z 0 18016
@@ -3066,9 +3126,13 @@ D0
 The beginning of the bridge.
 ~
 ~
+~
+~
 Z 0 18015
 D2
 The end of the bridge.
+~
+~
 ~
 ~
 Z 0 18018
@@ -3097,6 +3161,8 @@ D3
 Back to the bridge.
 ~
 ~
+~
+~
 Z 0 18015
 S
 #18018
@@ -3112,9 +3178,13 @@ D0
 Back to the middle of the bridge.
 ~
 ~
+~
+~
 Z 0 18016
 D2
 Back on solid ground.
+~
+~
 ~
 ~
 Z 0 18019
@@ -3137,9 +3207,13 @@ D0
 Back to the bridge.
 ~
 ~
+~
+~
 Z 0 18018
 D2
 To the main road.
+~
+~
 ~
 ~
 Z 0 18020
@@ -3172,14 +3246,20 @@ D0
 Back to the bridge.
 ~
 ~
+~
+~
 Z 0 18019
 D1
 A Path to A House.
 ~
 ~
+~
+~
 Z 0 18021
 D3
 Along the Road.
+~
+~
 ~
 ~
 Z 0 18023
@@ -3199,9 +3279,13 @@ D1
 Inside the front foyer
 ~
 door~
+~
+~
 ABZ 0 18022
 D3
 Back to the road.
+~
+~
 ~
 ~
 Z 0 18020
@@ -3220,6 +3304,8 @@ D3
 Back to the road.
 ~
 ~
+~
+~
 Z 0 18021
 S
 #18023
@@ -3236,9 +3322,13 @@ D1
 The path continues.
 ~
 ~
+~
+~
 Z 0 18020
 D3
 The path continues.
+~
+~
 ~
 ~
 Z 0 18024
@@ -3255,14 +3345,20 @@ a giant plate. The exits are in an east-west and north directions.
 D0
 ~
 ~
+~
+~
 Z 0 30232
 D1
 The path continues.
 ~
 ~
+~
+~
 Z 0 18023
 D3
 The path continues.
+~
+~
 ~
 ~
 Z 0 18025
@@ -3281,9 +3377,13 @@ D1
 The path continues.
 ~
 ~
+~
+~
 Z 0 18024
 D3
 The path continues.
+~
+~
 ~
 ~
 Z 0 18026
@@ -3302,9 +3402,13 @@ D1
 Back to the main road.
 ~
 ~
+~
+~
 Z 0 18025
 D2
 On the road to the Bridges.
+~
+~
 ~
 ~
 Z 0 18027
@@ -3323,9 +3427,13 @@ D0
 Back to the path.
 ~
 ~
+~
+~
 Z 0 18026
 D2
 On the Bridges.
+~
+~
 ~
 ~
 Z 0 18028
@@ -3345,9 +3453,13 @@ D0
 Back to the road.
 ~
 ~
+~
+~
 Z 0 18027
 D2
 Along the Bridge.
+~
+~
 ~
 ~
 Z 0 18029
@@ -3365,9 +3477,13 @@ D0
 Back to the beggining of the bridge.
 ~
 ~
+~
+~
 Z 0 18028
 D2
 Along the bridge.
+~
+~
 ~
 ~
 Z 0 18030
@@ -3385,9 +3501,13 @@ D0
 Back from where you came.
 ~
 ~
+~
+~
 Z 0 18029
 D2
 Along the Bridge.
+~
+~
 ~
 ~
 Z 0 18031
@@ -3406,9 +3526,13 @@ D0
 The Bridge continues.
 ~
 ~
+~
+~
 Z 0 18030
 D2
 The Bridge continues.
+~
+~
 ~
 ~
 Z 0 18032
@@ -3427,8 +3551,12 @@ D0
 Back to the Bridge.
 ~
 ~
+~
+~
 Z 0 18031
 D2
+~
+~
 ~
 ~
 Z 0 18033
@@ -3452,9 +3580,13 @@ stables, north to the bridge, and south to the city.
 D0
 ~
 ~
+~
+~
 Z 0 18032
 D1
 To the stables.
+~
+~
 ~
 ~
 Z 0 18034
@@ -3462,9 +3594,13 @@ D2
 Along The Main Street.
 ~
 ~
+~
+~
 Z 0 18036
 D3
 To the stables.
+~
+~
 ~
 ~
 Z 0 18035
@@ -3487,6 +3623,8 @@ D3
 Back to the main road.
 ~
 ~
+~
+~
 Z 0 18033
 S
 #18035
@@ -3505,6 +3643,8 @@ The exit is east back to the main road.
 0 AS inside
 D1
 Back to the main road.
+~
+~
 ~
 ~
 Z 0 18033
@@ -3527,9 +3667,13 @@ D0
 The road continues.
 ~
 ~
+~
+~
 Z 0 18033
 D2
 The road continues.
+~
+~
 ~
 ~
 Z 0 18037
@@ -3551,14 +3695,20 @@ D0
 The main road continues.
 ~
 ~
+~
+~
 Z 0 18036
 D1
 To the prison.
 ~
 door~
+~
+~
 ABZ 0 18038
 D2
 The main road continues.
+~
+~
 ~
 ~
 Z 0 18045
@@ -3581,9 +3731,13 @@ D0
 The stairwell.
 ~
 ~
+~
+~
 Z 0 18039
 D3
 Back to the main road.
+~
+~
 ~
 ~
 Z 0 18037
@@ -3601,9 +3755,13 @@ D2
 Back to the main office.
 ~
 ~
+~
+~
 Z 0 18038
 D5
 To the prison cells.
+~
+~
 ~
 ~
 Z 0 18040
@@ -3621,9 +3779,13 @@ D0
 Through the corridor.
 ~
 ~
+~
+~
 Z 0 18041
 D4
 Back to the stairwell.
+~
+~
 ~
 ~
 Z 0 18039
@@ -3640,14 +3802,20 @@ D0
 The corridor continues.
 ~
 ~
+~
+~
 Z 0 18042
 D1
 The Eastern Cell.
 ~
 door~
+~
+~
 ABZ 0 18043
 D2
 Back to the stairwell.
+~
+~
 ~
 ~
 Z 0 18040
@@ -3655,6 +3823,8 @@ D3
 The Western Cell.
 ~
 door~
+~
+~
 ABZ 0 18044
 S
 #18042
@@ -3669,6 +3839,8 @@ and its south.
 0 AS city
 D2
 Back to the cells.
+~
+~
 ~
 ~
 Z 0 18041
@@ -3686,6 +3858,8 @@ D3
 To the main corridor.
 ~
 ~
+~
+~
 Z 0 18041
 S
 #18044
@@ -3699,6 +3873,8 @@ east to the main corridor.
 0 AS city
 D1
 To the main corridor.
+~
+~
 ~
 ~
 Z 0 18041
@@ -3721,9 +3897,13 @@ Maybe not! The exits are in all directions: north, south, east, and west.
 D0
 ~
 ~
+~
+~
 Z 0 18037
 D1
 To the Blue Rabbit.
+~
+~
 ~
 ~
 Z 0 18047
@@ -3731,9 +3911,13 @@ D2
 To The Town Center.
 ~
 ~
+~
+~
 Z 0 18049
 D3
 To the Chocolate Shoppe.
+~
+~
 ~
 ~
 Z 0 18048
@@ -3757,6 +3941,8 @@ D3
 To the road.
 ~
 ~
+~
+~
 Z 0 18045
 S
 #18048
@@ -3770,6 +3956,8 @@ back to the road, but who says you'll ever leave??!!
 0 AS inside
 D1
 To the road.
+~
+~
 ~
 ~
 Z 0 18045
@@ -3792,8 +3980,12 @@ D0
 The road you came from.
 ~
 ~
+~
+~
 Z 0 18045
 D1
+~
+~
 ~
 ~
 Z 0 18104
@@ -3801,8 +3993,12 @@ D2
 The Southern Main Roads.
 ~
 ~
+~
+~
 Z 0 18050
 D3
+~
+~
 ~
 ~
 Z 0 18074
@@ -3826,9 +4022,13 @@ D0
 Back to the town square.
 ~
 ~
+~
+~
 Z 0 18049
 D1
 The Icecream Shoppe.
+~
+~
 ~
 ~
 Z 0 18051
@@ -3836,9 +4036,13 @@ D2
 The Southern Main Street.
 ~
 ~
+~
+~
 Z 0 18054
 D3
 The Red Dragon.
+~
+~
 ~
 ~
 Z 0 18052
@@ -3857,6 +4061,8 @@ like to buy something here. The only exit is west to the street.
 0 AS forest
 D3
 Back to the main street.
+~
+~
 ~
 ~
 Z 0 18050
@@ -3878,9 +4084,13 @@ D0
 To the back room.
 ~
 door~
+~
+~
 ABZ 0 18053
 D1
 Back to the Southern Main Street.
+~
+~
 ~
 ~
 Z 0 18050
@@ -3896,6 +4106,8 @@ store.
 0 AS forest
 D2
 The Red Dragon.
+~
+~
 ~
 ~
 Z 0 18052
@@ -3917,9 +4129,13 @@ D0
 Back to the Southern Main Street.
 ~
 ~
+~
+~
 Z 0 18050
 D1
 The Lovely Florist.
+~
+~
 ~
 ~
 Z 0 18055
@@ -3927,11 +4143,15 @@ D2
 The Market Square.
 ~
 ~
+~
+~
 Z 0 18059
 D3
 The rare Apiarist.
 ~
 door~
+~
+~
 ABZ 0 18058
 S
 #18055
@@ -3948,9 +4168,13 @@ D0
 To the hidden greenhouse.
 ~
 door~
+~
+~
 ABZ 0 18056
 D3
 Back to The Southern Main Street.
+~
+~
 ~
 ~
 Z 0 18054
@@ -3969,9 +4193,13 @@ D1
 The Outside Garden.
 ~
 door~
+~
+~
 ABZ 0 18057
 D2
 Back to the Florists' Shop.
+~
+~
 ~
 ~
 Z 0 18055
@@ -3990,6 +4218,8 @@ D3
 The GreenHouse.
 ~
 ~
+~
+~
 Z 0 18056
 S
 #18058
@@ -4004,6 +4234,8 @@ west to the main street.
 0 AS forest
 D1
 Back to the Main Street.
+~
+~
 ~
 ~
 Z 0 18054
@@ -4032,9 +4264,13 @@ D0
 Back to the Southern Main Streets.
 ~
 ~
+~
+~
 Z 0 18054
 D1
 The Eastern Main Road.
+~
+~
 ~
 ~
 Z 0 18105
@@ -4042,9 +4278,13 @@ D2
 The Southern-side Streets.
 ~
 ~
+~
+~
 Z 0 18060
 D3
 The Western Main Road.
+~
+~
 ~
 ~
 Z 0 18084
@@ -4065,19 +4305,27 @@ D0
 Back to the market square.
 ~
 ~
+~
+~
 Z 0 18059
 D1
 A Large Armour Shop.
 ~
 door~
+~
+~
 ABZ 0 18061
 D2
 A quaint Cul-De-Sac.
 ~
 ~
+~
+~
 Z 0 18067
 D3
 A Large Weapon Shop.
+~
+~
 ~
 ~
 Z 0 18066
@@ -4097,9 +4345,13 @@ D0
 A Large Spiral Staircase.
 ~
 ~
+~
+~
 Z 0 18062
 D3
 Back to the side-street.
+~
+~
 ~
 ~
 Z 0 18060
@@ -4118,9 +4370,13 @@ D2
 Back to the Large Armoury.
 ~
 ~
+~
+~
 Z 0 18061
 D5
 The Unknown.
+~
+~
 ~
 ~
 Z 0 18063
@@ -4140,9 +4396,13 @@ D3
 A Large Workroom.
 ~
 ~
+~
+~
 Z 0 18064
 D4
 The Stairwell.
+~
+~
 ~
 ~
 Z 0 18062
@@ -4162,9 +4422,13 @@ D1
 The Large Workroom.
 ~
 ~
+~
+~
 Z 0 18063
 D4
 A Large Stairwell.
+~
+~
 ~
 ~
 Z 0 18065
@@ -4182,8 +4446,12 @@ Weapon Shop.
 D2
 ~
 ~
+~
+~
 Z 0 18066
 D5
+~
+~
 ~
 ~
 Z 0 18064
@@ -4200,9 +4468,13 @@ to a stairwell, and east to the side streets.
 D0
 ~
 ~
+~
+~
 Z 0 18065
 D1
 The side-streets.
+~
+~
 ~
 ~
 Z 0 18060
@@ -4222,21 +4494,29 @@ D0
 The side-street.
 ~
 ~
+~
+~
 Z 0 18060
 D1
 The very large grocer.
 ~
 door~
+~
+~
 ABZ 0 18070
 D2
 You see a Large White House.
 ~
 door~
+~
+~
 ABZ 0 18069
 D3
 The Apothecary.
 ~
 door~
+~
+~
 ABZ 0 18068
 S
 #18068
@@ -4251,6 +4531,8 @@ room a strange appearance. The only exit is east to the Cul-De-Sac.
 0 AS forest
 D1
 Back to the Cul-De-Sac.
+~
+~
 ~
 ~
 Z 0 18067
@@ -4269,6 +4551,8 @@ D0
 The Cul-De-Sac.
 ~
 ~
+~
+~
 Z 0 18067
 S
 #18070
@@ -4285,9 +4569,13 @@ D0
 The produce section.
 ~
 ~
+~
+~
 Z 0 18071
 D1
 The Canned Goods, etc.
+~
+~
 ~
 ~
 Z 0 18072
@@ -4295,9 +4583,13 @@ D2
 The Meat and Fish department.
 ~
 ~
+~
+~
 Z 0 18073
 D3
 The Cul-De-Sac.
+~
+~
 ~
 ~
 Z 0 18067
@@ -4312,6 +4604,8 @@ your purchase. The only exit is south to the main entrance.
 0 AS forest
 D2
 The main enterance.
+~
+~
 ~
 ~
 Z 0 18070
@@ -4330,6 +4624,8 @@ D3
 The main enterance.
 ~
 ~
+~
+~
 Z 0 18070
 S
 #18073
@@ -4342,6 +4638,8 @@ could want to buy. The only exit is north to the main enterance.
 0 AS forest
 D0
 The main enterance.
+~
+~
 ~
 ~
 Z 0 18070
@@ -4360,18 +4658,26 @@ west to the end of this road, north to a pub and south to a back alley.
 D0
 ~
 ~
+~
+~
 Z 0 18075
 D1
 The Southern Main Street.
+~
+~
 ~
 ~
 Z 0 18049
 D2
 ~
 ~
+~
+~
 Z 0 18081
 D3
 The End of the Western Road.
+~
+~
 ~
 ~
 Z 0 18083
@@ -4391,9 +4697,13 @@ to the western road, and west to a second room.
 D2
 ~
 ~
+~
+~
 Z 0 18074
 D3
 The second room of the pub.
+~
+~
 ~
 ~
 Z 0 18076
@@ -4412,9 +4722,13 @@ D0
 The unknown.
 ~
 door~
+~
+~
 ABZ 0 18077
 D1
 The pub.
+~
+~
 ~
 ~
 Z 0 18075
@@ -4432,9 +4746,13 @@ D0
 The stairwell.
 ~
 ~
+~
+~
 Z 0 18078
 D2
 The Game Hall.
+~
+~
 ~
 ~
 Z 0 18076
@@ -4452,9 +4770,13 @@ D2
 The Lounge.
 ~
 ~
+~
+~
 Z 0 18077
 D4
 The Wall.
+~
+~
 ~
 ~
 Z 0 18079
@@ -4476,9 +4798,13 @@ D1
 The Dance Floor.
 ~
 ~
+~
+~
 Z 0 18080
 D5
 The Stairwell.
+~
+~
 ~
 ~
 Z 0 18078
@@ -4496,6 +4822,8 @@ D3
 The Dining Lounge.
 ~
 ~
+~
+~
 Z 0 18079
 S
 #18081
@@ -4509,9 +4837,13 @@ The exits are west to the garbage dump and north to the Western Roads.
 D0
 ~
 ~
+~
+~
 Z 0 18074
 D3
 The Garbage Dump.
+~
+~
 ~
 ~
 Z 0 18082
@@ -4528,11 +4860,15 @@ D1
 The Ally.
 ~
 ~
+~
+~
 Z 0 18081
 D2
 A Pile of Garbage.
 ~
 door~
+~
+~
 ABZ 0 18097
 S
 #18083
@@ -4546,6 +4882,8 @@ road.
 0 AS forest
 D1
 The Western Road.
+~
+~
 ~
 ~
 Z 0 18074
@@ -4563,9 +4901,13 @@ D0
 The Green Dragon Inn.
 ~
 door~
+~
+~
 ABZ 0 18088
 D1
 The Main Street.
+~
+~
 ~
 ~
 Z 0 18059
@@ -4573,9 +4915,13 @@ D2
 The Blue Crossings Inn.
 ~
 door~
+~
+~
 ABZ 0 18085
 D3
 The Western Road continues.
+~
+~
 ~
 ~
 Z 0 18089
@@ -4595,9 +4941,13 @@ D0
 The Western Main Street.
 ~
 ~
+~
+~
 Z 0 18084
 D1
 The Stairwell.
+~
+~
 ~
 ~
 Z 0 18086
@@ -4614,9 +4964,13 @@ D3
 The Lobby.
 ~
 ~
+~
+~
 Z 0 18085
 D4
 The Second Floor.
+~
+~
 ~
 ~
 Z 0 18087
@@ -4636,6 +4990,8 @@ D5
 The Stairwell.
 ~
 ~
+~
+~
 Z 0 18086
 S
 #18088
@@ -4648,6 +5004,8 @@ The only exit from this wonderful Inn is south to the Western Main Road.
 0 AS forest
 D2
 The Western Street.
+~
+~
 ~
 ~
 Z 0 18084
@@ -4668,9 +5026,13 @@ D0
 A Quaint Little Shop.
 ~
 door~
+~
+~
 ABZ 0 18090
 D1
 The Western road continues.
+~
+~
 ~
 ~
 Z 0 18084
@@ -4678,9 +5040,13 @@ D2
 The Library.
 ~
 ~
+~
+~
 ABZ 0 18091
 D3
 The Western road continues.
+~
+~
 ~
 ~
 Z 0 18099
@@ -4696,6 +5062,8 @@ The only exit is south to the main road.
 0 AS forest
 D2
 The Western Road.
+~
+~
 ~
 ~
 Z 0 18089
@@ -4714,9 +5082,13 @@ D0
 The Western Road.
 ~
 ~
+~
+~
 Z 0 18089
 D3
 The Large Stairwell.
+~
+~
 ~
 ~
 Z 0 18092
@@ -4735,9 +5107,13 @@ D1
 The main room.
 ~
 ~
+~
+~
 Z 0 18091
 D4
 The Balcony.
+~
+~
 ~
 ~
 Z 0 18093
@@ -4756,9 +5132,13 @@ D2
 You see nothing special there.
 ~
 ~
+~
+~
 ABZ 0 18094
 D5
 The stairwell.
+~
+~
 ~
 ~
 Z 0 18092
@@ -4778,9 +5158,13 @@ D0
 Back to the balcony.
 ~
 ~
+~
+~
 Z 0 18093
 D3
 The passage continues.
+~
+~
 ~
 ~
 Z 0 18095
@@ -4799,9 +5183,13 @@ D1
 The passage continues.
 ~
 ~
+~
+~
 Z 0 18094
 D3
 The passage continues.
+~
+~
 ~
 ~
 Z 0 18096
@@ -4818,14 +5206,20 @@ D0
 The passage continues.
 ~
 ~
+~
+~
 Z 0 18097
 D1
 The passage continues.
 ~
 ~
+~
+~
 Z 0 18095
 D3
 The passage continues.
+~
+~
 ~
 ~
 Z 0 18098
@@ -4847,9 +5241,13 @@ D0
 The dirty grate.
 ~
 grate~
+the grate~
+none~
 ABZ 0 18082
 D2
 The three-way passage
+~
+~
 ~
 ~
 Z 0 18096
@@ -4867,9 +5265,13 @@ D0
 You see eee...... nothing special there.
 ~
 secret~
+@eng the secret@rus секретная дверь~
+@eng none@rus female~
 ABZ 0 18124
 D1
 The passage continues.
+~
+~
 ~
 ~
 Z 0 18096
@@ -4888,9 +5290,13 @@ D0
 The baker.
 ~
 ~
+~
+~
 Z 0 18102
 D1
 The west main street.
+~
+~
 ~
 ~
 Z 0 18089
@@ -4898,11 +5304,15 @@ D2
 The wand shop.
 ~
 door~
+~
+~
 ABZ 0 18103
 D3
 The pet shop.
 ~
 door~
+~
+~
 ABZ 0 18100
 S
 #18100
@@ -4918,9 +5328,13 @@ D0
 The forbidden store room.
 ~
 door~
+~
+~
 ABZ 0 18101
 D1
 The main road.
+~
+~
 ~
 ~
 Z 0 18099
@@ -4939,6 +5353,8 @@ D2
 The store room, where you belong!
 ~
 ~
+~
+~
 Z 0 18100
 S
 #18102
@@ -4954,6 +5370,8 @@ D2
 The main street.
 ~
 ~
+~
+~
 Z 0 18099
 S
 #18103
@@ -4966,6 +5384,8 @@ things you can get in this store. The only exit is north to the main street.
 0 AS forest
 D0
 The main street.
+~
+~
 ~
 ~
 Z 0 18099
@@ -4987,8 +5407,12 @@ D2
 The Northern Royal Ave.
 ~
 ~
+~
+~
 Z 0 18106
 D3
+~
+~
 ~
 ~
 Z 0 18049
@@ -5010,9 +5434,13 @@ D0
 The Southern Royal Ave.
 ~
 ~
+~
+~
 Z 0 18107
 D3
 The Market Square.
+~
+~
 ~
 ~
 Z 0 18059
@@ -5031,9 +5459,13 @@ D0
 The Eastern Boulevard.
 ~
 ~
+~
+~
 Z 0 18104
 D2
 The Royal Square.
+~
+~
 ~
 ~
 Z 0 18108
@@ -5052,9 +5484,13 @@ D0
 The Royal Square.
 ~
 ~
+~
+~
 Z 0 18108
 D2
 The Eastern Boulevard.
+~
+~
 ~
 ~
 Z 0 18105
@@ -5073,9 +5509,13 @@ D0
 The Northern Ave.
 ~
 ~
+~
+~
 Z 0 18106
 D1
 The Royal Gates.
+~
+~
 ~
 ~
 ABZ -1 18109
@@ -5083,8 +5523,12 @@ D2
 The Southern Ave.
 ~
 ~
+~
+~
 Z 0 18107
 D3
+~
+~
 ~
 ~
 Z 0 18140
@@ -5103,14 +5547,20 @@ D0
 Temple of titans.
 ~
 ~
+~
+~
 Z -1 18126
 D1
 The Palace Gates. 
 ~
 gates~
+the gates~
+none~
 Z 0 18110
 D3
 The Gates to the Royal Square.
+~
+~
 ~
 ~
 Z 0 18108
@@ -5129,9 +5579,13 @@ D0
 The Training Grounds.
 ~
 ~
+~
+~
 Z 0 18114
 D1
 On To The Palace.
+~
+~
 ~
 ~
 Z 0 18112
@@ -5139,9 +5593,13 @@ D2
 The Doors to The Warriors and Clerics Guild.
 ~
 door~
+~
+~
 Z 0 18111
 D3
 The Palace Gates.
+~
+~
 ~
 ~
 Z 0 18109
@@ -5158,6 +5616,8 @@ warrior or cleric. The only exit is north, back to the road.
 0 AS city
 D0
 The Great Doors.
+~
+~
 ~
 ~
 Z 0 18110
@@ -5177,19 +5637,27 @@ D0
 The Training Grounds.
 ~
 ~
+~
+~
 Z 0 18117
 D1
 The Palace.
 ~
 door~
+~
+~
 ABZ 0 18120
 D2
 The Great Doors.
 ~
 door~
+~
+~
 ABZ 0 18113
 D3
 The Road to The Gates.
+~
+~
 ~
 ~
 Z 0 18110
@@ -5205,6 +5673,8 @@ The only exit is north, back to the road.
 0 AS forest
 D0
 The Great Doors.
+~
+~
 ~
 ~
 Z 0 18112
@@ -5224,14 +5694,20 @@ D0
 The Training Grounds.
 ~
 ~
+~
+~
 Z 0 18115
 D1
 The training grounds.
 ~
 ~
+~
+~
 Z 0 18117
 D2
 The road.
+~
+~
 ~
 ~
 Z 0 18110
@@ -5249,14 +5725,20 @@ D0
 The training grounds.
 ~
 ~
+~
+~
 Z 0 18116
 D1
 The training grounds.
 ~
 ~
+~
+~
 Z 0 18118
 D2
 The training grounds.
+~
+~
 ~
 ~
 Z 0 18114
@@ -5274,9 +5756,13 @@ D1
 The training grounds.
 ~
 ~
+~
+~
 Z 0 18119
 D2
 The training grounds.
+~
+~
 ~
 ~
 Z 0 18115
@@ -5296,14 +5782,20 @@ D0
 The training grounds.
 ~
 ~
+~
+~
 Z 0 18118
 D2
 The road.
 ~
 ~
+~
+~
 Z 0 18112
 D3
 The training grounds.
+~
+~
 ~
 ~
 Z 0 18114
@@ -5321,14 +5813,20 @@ D0
 The training grounds.
 ~
 ~
+~
+~
 Z 0 18119
 D2
 The training grounds.
 ~
 ~
+~
+~
 Z 0 18117
 D3
 The training grounds.
+~
+~
 ~
 ~
 Z 0 18115
@@ -5346,9 +5844,13 @@ D2
 The training grounds.
 ~
 ~
+~
+~
 Z 0 18118
 D3
 The training grounds.
+~
+~
 ~
 ~
 Z 0 18116
@@ -5368,9 +5870,13 @@ D1
 The Massive Hall.
 ~
 ~
+~
+~
 Z 0 18121
 D3
 The Grand Palace Doors.
+~
+~
 ~
 ~
 Z 0 18112
@@ -5390,9 +5896,13 @@ D1
 The Throne Room.
 ~
 ~
+~
+~
 Z 0 18122
 D3
 The Front Foyer.
+~
+~
 ~
 ~
 Z 0 18120
@@ -5413,9 +5923,13 @@ D1
 The Throne.
 ~
 throne~
+the throne~
+none~
 ABZ 0 18123
 D3
 The massive hall.
+~
+~
 ~
 ~
 Z 0 18121
@@ -5430,6 +5944,8 @@ highly for his head. This assassin appears to be very talented.
 0 AS forest
 D3
 The Throne.
+~
+~
 ~
 ~
 Z 0 18122
@@ -5452,6 +5968,8 @@ D2
 You see nothing special there.
 ~
 ~
+~
+~
 Z 0 18098
 S
 #18125
@@ -5471,13 +5989,19 @@ D0
 Healer's temple.
 ~
 ~
+~
+~
 Z -1 18127
 D2
 You see the royal gates
 ~
 ~
+~
+~
 Z -1 18109
 D4
+~
+~
 ~
 ~
 Z 0 3757
@@ -5493,6 +6017,8 @@ D2
 Healer's temple.
 ~
 ~
+~
+~
 Z -1 18126
 S
 #18140
@@ -5502,6 +6028,8 @@ ceilings. A long counter lies through the room.
 ~
 0 KSU inside
 D1
+~
+~
 ~
 ~
 Z 0 18108

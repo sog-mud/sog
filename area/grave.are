@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Graveyard~
 VNUMs 3600 3699
 Credits Alfa~
@@ -261,9 +261,13 @@ D0
 Through the solid iron bars you see Elm Street. 
 ~
 grate~
+the grate~
+~
 ABZ -1 3124
 D1
 The gravel path leads eastwards between the dark evergreen trees.
+~
+~
 ~
 ~
 Z -1 3650
@@ -271,9 +275,13 @@ D2
 The gravel road continues southwards.
 ~
 ~
+~
+~
 Z -1 3601
 D3
 The gravel path leads westwards between the dark evergreen trees.
+~
+~
 ~
 ~
 Z -1 3606
@@ -288,9 +296,13 @@ D0
 The gravel road continues northwards.
 ~
 ~
+~
+~
 Z -1 3600
 D2
 The gravel road continues southwards.
+~
+~
 ~
 ~
 Z -1 3602
@@ -305,9 +317,13 @@ D0
 The gravel road continues northwards.
 ~
 ~
+~
+~
 Z -1 3601
 D2
 The gravel road continues southwards.
+~
+~
 ~
 ~
 Z -1 3603
@@ -322,10 +338,14 @@ D0
 The gravel road continues northwards.
 ~
 ~
+~
+~
 Z -1 3602
 D2
 The gravel road continues southwards to an open space before a small
 building.
+~
+~
 ~
 ~
 Z -1 3604
@@ -340,9 +360,13 @@ D0
 The gravel road continues northwards.
 ~
 ~
+~
+~
 Z -1 3603
 D1
 The gravel path leads eastwards between the dark evergreen trees.
+~
+~
 ~
 ~
 Z -1 3638
@@ -350,9 +374,13 @@ D2
 The chapel door is made of dark wood.
 ~
 door~
+~
+~
 ABZ -1 3405
 D3
 The gravel path leads westwards between the dark evergreen trees.
+~
+~
 ~
 ~
 Z -1 3618
@@ -372,15 +400,21 @@ D1
 The gravel path continues eastwards towards a gravel road.
 ~
 ~
+~
+~
 Z -1 3600
 D2
 The gravel path continues southwards.
+~
+~
 ~
 ~
 Z -1 3608
 D5
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3607
 S
 #3607
@@ -392,6 +426,8 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3606
 S
 #3608
@@ -409,15 +445,21 @@ D0
 The gravel path continues northwards.
 ~
 ~
+~
+~
 Z -1 3606
 D3
 The gravel path continues westwards.
+~
+~
 ~
 ~
 Z -1 3610
 D5
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3609
 S
 #3609
@@ -429,6 +471,8 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3608
 S
 #3610
@@ -446,15 +490,21 @@ D1
 The gravel path continues eastwards.
 ~
 ~
+~
+~
 Z -1 3608
 D2
 The gravel path continues southwards.
+~
+~
 ~
 ~
 Z -1 3612
 D5
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3611
 S
 #3611
@@ -466,6 +516,8 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3610
 S
 #3612
@@ -478,9 +530,13 @@ D0
 The gravel path continues northwards.
 ~
 ~
+~
+~
 Z -1 3610
 D1
 The gravel path continues eastwards.
+~
+~
 ~
 ~
 Z -1 3614
@@ -488,6 +544,8 @@ D3
 It is a small black-painted shed with a wooden door.
 ~
 door~
+~
+~
 ABZ -1 3613
 S
 #3613
@@ -499,6 +557,8 @@ gardening equipment.  The only exit appears to be through a door to the east.
 D1
 ~
 door~
+~
+~
 ABZ -1 3612
 S
 #3614
@@ -516,15 +576,21 @@ D2
 The gravel path continues southwards.
 ~
 ~
+~
+~
 Z -1 3616
 D3
 The gravel path continues westwards.
+~
+~
 ~
 ~
 Z -1 3612
 D5
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3615
 S
 #3615
@@ -536,6 +602,8 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3614
 S
 #3616
@@ -553,15 +621,21 @@ D0
 The gravel path continues northwards.
 ~
 ~
+~
+~
 Z -1 3614
 D2
 The gravel path continues southwards.
+~
+~
 ~
 ~
 Z -1 3618
 D5
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3617
 S
 #3617
@@ -573,6 +647,8 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3616
 S
 #3618
@@ -590,15 +666,21 @@ D0
 The gravel path continues northwards.
 ~
 ~
+~
+~
 Z -1 3616
 D1
 The gravel path continues eastwards towards a building of some sort.
+~
+~
 ~
 ~
 Z -1 3604
 D5
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3619
 S
 #3619
@@ -610,6 +692,8 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3618
 S
 #3638
@@ -627,15 +711,21 @@ D0
 The gravel path continues northwards.
 ~
 ~
+~
+~
 Z -1 3640
 D3
 The gravel path continues westwards towards a building of some sort.
+~
+~
 ~
 ~
 Z -1 3604
 D5
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3639
 S
 #3639
@@ -647,6 +737,8 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3638
 S
 #3640
@@ -664,15 +756,21 @@ D0
 The gravel path continues northwards.
 ~
 ~
+~
+~
 Z -1 3642
 D2
 The gravel path continues southwards.
+~
+~
 ~
 ~
 Z -1 3638
 D5
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3641
 S
 #3641
@@ -684,6 +782,8 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3640
 S
 #3642
@@ -701,15 +801,21 @@ D1
 The gravel path continues eastwards.
 ~
 ~
+~
+~
 Z -1 3644
 D2
 The gravel path continues southwards.
+~
+~
 ~
 ~
 Z -1 3640
 D5
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3643
 S
 #3643
@@ -721,6 +827,8 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3642
 S
 #3644
@@ -738,15 +846,21 @@ D0
 The gravel path continues northwards.
 ~
 ~
+~
+~
 Z -1 3646
 D3
 The gravel path continues westwards.
+~
+~
 ~
 ~
 Z -1 3642
 D5
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3645
 S
 #3645
@@ -758,6 +872,8 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3644
 S
 #3646
@@ -775,15 +891,21 @@ D2
 The gravel path continues southwards.
 ~
 ~
+~
+~
 Z -1 3644
 D3
 The gravel path continues westwards.
+~
+~
 ~
 ~
 Z -1 3648
 D5
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3647
 S
 #3647
@@ -795,6 +917,8 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3646
 S
 #3648
@@ -812,15 +936,21 @@ D0
 The gravel path continues northwards.
 ~
 ~
+~
+~
 Z -1 3650
 D1
 The gravel path continues eastwards.
+~
+~
 ~
 ~
 Z -1 3646
 D5
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3649
 S
 #3649
@@ -832,6 +962,8 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3648
 S
 #3650
@@ -849,15 +981,21 @@ D2
 The gravel path continues southwards.
 ~
 ~
+~
+~
 Z -1 3648
 D3
 The gravel path continues westwards towards a gravel road.
+~
+~
 ~
 ~
 Z -1 3600
 D5
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3651
 S
 #3651
@@ -869,6 +1007,8 @@ The only exit appears to be up.
 D4
 ~
 tomb stone~
+the tomb~
+~
 ABZ -1 3650
 S
 #0

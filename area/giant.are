@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Castle of Giants~
 Builders hlodvig~
 VNUMs 13000 13099
@@ -693,8 +693,12 @@ while south leads into the dwarven forests.
 D0
 ~
 ~
+~
+~
 Z 0 13001
 D2
+~
+~
 ~
 ~
 Z 0 5277
@@ -714,8 +718,12 @@ in the distance.
 D0
 ~
 ~
+~
+~
 Z 0 13002
 D2
+~
+~
 ~
 ~
 Z 0 13000
@@ -739,8 +747,12 @@ forest. No matter. It makes you feel good... that's it.
 D0
 ~
 ~
+~
+~
 Z 0 13003
 D2
+~
+~
 ~
 ~
 Z 0 13001
@@ -761,8 +773,12 @@ like a large clearing.
 D0
 ~
 adamantite~
+the adamantite~
+~
 Z 0 13004
 D2
+~
+~
 ~
 ~
 Z 0 13002
@@ -783,12 +799,18 @@ south.
 D1
 ~
 ~
+~
+~
 Z 0 13011
 D2
 ~
 Adamantite~
+the adamantite~
+~
 Z 0 13003
 D3
+~
+~
 ~
 ~
 Z 0 13005
@@ -804,8 +826,12 @@ the west the hallway continues.
 D1
 ~
 ~
+~
+~
 Z 0 13004
 D3
+~
+~
 ~
 ~
 Z 0 13006
@@ -820,8 +846,12 @@ a life of it's own.
 D1
 ~
 ~
+~
+~
 Z 0 13005
 D3
+~
+~
 ~
 ~
 Z 0 13007
@@ -836,8 +866,12 @@ would like to stand around. Perhaps you should continue on your way...
 D0
 ~
 ~
+~
+~
 Z 0 13008
 D1
+~
+~
 ~
 ~
 Z 0 13006
@@ -852,8 +886,12 @@ a life of it's own.
 D0
 ~
 ~
+~
+~
 Z 0 13009
 D2
+~
+~
 ~
 ~
 Z 0 13007
@@ -868,14 +906,20 @@ to the north where it meets a stairwell and south to more hallway.
 D0
 ~
 ~
+~
+~
 Z 0 13010
 D2
+~
+~
 ~
 ~
 Z 0 13008
 D3
 ~
 wooden door~
+the wooden~
+~
 ABZ 0 13048
 S
 #13010
@@ -889,12 +933,18 @@ a stone doorway leads east into the castle garden.
 D1
 ~
 ~
+~
+~
 Z 0 13053
 D2
 ~
 ~
+~
+~
 Z 0 13009
 D4
+~
+~
 ~
 ~
 Z 0 13017
@@ -910,8 +960,12 @@ continues.
 D1
 ~
 ~
+~
+~
 Z 0 13012
 D3
+~
+~
 ~
 ~
 Z 0 13004
@@ -926,8 +980,12 @@ a life of it's own.
 D1
 ~
 ~
+~
+~
 Z 0 13013
 D3
+~
+~
 ~
 ~
 Z 0 13011
@@ -942,8 +1000,12 @@ would like to stand around. Perhaps you should continue on your way...
 D0
 ~
 ~
+~
+~
 Z 0 13014
 D3
+~
+~
 ~
 ~
 Z 0 13012
@@ -958,8 +1020,12 @@ a life of it's own.
 D0
 ~
 ~
+~
+~
 Z 0 13015
 D2
+~
+~
 ~
 ~
 Z 0 13013
@@ -974,12 +1040,18 @@ a life of it's own. To the east you see a wooden door.
 D0
 ~
 ~
+~
+~
 Z 0 13016
 D1
 ~
 wooden door~
+the wooden~
+~
 ABZ 0 13049
 D2
+~
+~
 ~
 ~
 Z 0 13014
@@ -995,12 +1067,18 @@ a stone doorway leads west into the castle garden.
 D2
 ~
 ~
+~
+~
 Z 0 13015
 D3
 ~
 ~
+~
+~
 Z 0 13050
 D4
+~
+~
 ~
 ~
 Z 0 13021
@@ -1015,8 +1093,12 @@ a life of it's own.
 D0
 ~
 ~
+~
+~
 Z 0 13018
 D5
+~
+~
 ~
 ~
 Z 0 13010
@@ -1031,14 +1113,20 @@ a life of it's own. There is a door to the west.
 D0
 ~
 ~
+~
+~
 Z 0 13019
 D2
+~
+~
 ~
 ~
 Z 0 13017
 D3
 ~
 wooden door~
+the wooden~
+~
 ABZ 0 13082
 S
 #13019
@@ -1051,8 +1139,12 @@ a life of it's own.
 D0
 ~
 ~
+~
+~
 Z 0 13020
 D2
+~
+~
 ~
 ~
 Z 0 13018
@@ -1067,8 +1159,12 @@ would like to stand around. Perhaps you should continue on your way...
 D1
 ~
 ~
+~
+~
 Z 0 13025
 D2
+~
+~
 ~
 ~
 Z 0 13019
@@ -1083,8 +1179,12 @@ a life of it's own.
 D0
 ~
 ~
+~
+~
 Z 0 13022
 D5
+~
+~
 ~
 ~
 Z 0 13016
@@ -1099,12 +1199,18 @@ a life of it's own. There is a door to the east.
 D0
 ~
 ~
+~
+~
 Z 0 13023
 D1
 ~
 wooden door~
+the wooden~
+~
 ABZ 0 13083
 D2
+~
+~
 ~
 ~
 Z 0 13021
@@ -1119,8 +1225,12 @@ a life of it's own.
 D0
 ~
 ~
+~
+~
 Z 0 13024
 D2
+~
+~
 ~
 ~
 Z 0 13022
@@ -1135,8 +1245,12 @@ would like to stand around. Perhaps you should continue on your way...
 D2
 ~
 ~
+~
+~
 Z 0 13023
 D3
+~
+~
 ~
 ~
 Z 0 13028
@@ -1151,8 +1265,12 @@ a life of it's own.
 D1
 ~
 ~
+~
+~
 Z 0 13026
 D3
+~
+~
 ~
 ~
 Z 0 13019
@@ -1167,8 +1285,12 @@ a life of it's own.
 D1
 ~
 ~
+~
+~
 Z 0 13027
 D3
+~
+~
 ~
 ~
 Z 0 13025
@@ -1183,12 +1305,18 @@ a life of it's own. To the north you see a stairwell.
 D0
 ~
 ~
+~
+~
 Z 0 13029
 D1
 ~
 ~
+~
+~
 Z 0 13028
 D3
+~
+~
 ~
 ~
 Z 0 13026
@@ -1203,8 +1331,12 @@ a life of it's own.
 D1
 ~
 ~
+~
+~
 Z 0 13024
 D3
+~
+~
 ~
 ~
 Z 0 13027
@@ -1220,12 +1352,18 @@ the south and the stairwell leads up and down.
 D2
 ~
 ~
+~
+~
 Z 0 13027
 D4
 ~
 ~
+~
+~
 Z 0 13030
 D5
+~
+~
 ~
 ~
 Z 0 13054
@@ -1240,8 +1378,12 @@ a life of it's own.
 D2
 ~
 ~
+~
+~
 Z 0 13031
 D5
+~
+~
 ~
 ~
 Z 0 13029
@@ -1256,19 +1398,27 @@ a life of it's own. There are doors to the east and west.
 D0
 ~
 ~
+~
+~
 Z 0 13030
 D1
 ~
 gold door
 ~
+the gold~
+~
 ABZ 0 13078
 D2
+~
+~
 ~
 ~
 Z 0 13032
 D3
 ~
 dark door
+~
+@eng the dark@rus темный~
 ~
 ABZ 0 13077
 S
@@ -1282,8 +1432,12 @@ a life of it's own.
 D0
 ~
 ~
+~
+~
 Z 0 13031
 D2
+~
+~
 ~
 ~
 Z 0 13033
@@ -1298,19 +1452,27 @@ a life of it's own. There are doors to the east and west.
 D0
 ~
 ~
+~
+~
 Z 0 13032
 D1
 ~
 wooden door
 ~
+the wooden~
+~
 ABZ 0 13075
 D2
+~
+~
 ~
 ~
 Z 0 13034
 D3
 ~
 ivory door
+~
+the ivory~
 ~
 ABZ 0 13076
 S
@@ -1324,8 +1486,12 @@ a life of it's own.
 D0
 ~
 ~
+~
+~
 Z 0 13033
 D2
+~
+~
 ~
 ~
 Z 0 13035
@@ -1340,19 +1506,27 @@ a life of it's own. There are doors to the east and west.
 D0
 ~
 ~
+~
+~
 Z 0 13034
 D1
 ~
 iron door
 ~
+the iron~
+~
 ABZ 0 13073
 D2
+~
+~
 ~
 ~
 Z 0 13036
 D3
 ~
 black door
+~
+@eng the black@rus черный~
 ~
 ABZ 0 13074
 S
@@ -1366,8 +1540,12 @@ a life of it's own.
 D0
 ~
 ~
+~
+~
 Z 0 13035
 D2
+~
+~
 ~
 ~
 Z 0 13037
@@ -1382,8 +1560,12 @@ a life of it's own.
 D0
 ~
 ~
+~
+~
 Z 0 13036
 D2
+~
+~
 ~
 ~
 Z 0 13038
@@ -1400,8 +1582,12 @@ wrapped in gold. The hallway is to the north.
 D0
 ~
 ~
+~
+~
 Z 0 13037
 D4
+~
+~
 ~
 ~
 Z 0 13039
@@ -1417,8 +1603,12 @@ hallway continues north.
 D0
 ~
 ~
+~
+~
 Z 0 13040
 D5
+~
+~
 ~
 ~
 Z 0 13038
@@ -1434,18 +1624,26 @@ with a picture of a Giant lurking in the shadows.
 D0
 ~
 ~
+~
+~
 Z 0 13041
 D1
 ~
 titanium door~
+the titanium~
+~
 ABZ 0 13047
 D2
+~
+~
 ~
 ~
 Z 0 13039
 D3
 ~
 obsidian door~
+the obsidian~
+~
 ABZ 0 13045
 S
 #13041
@@ -1460,18 +1658,26 @@ cover this door and a bone or two can be seen tossed a few feet from it.
 D0
 ~
 adamantite door~
+the adamantite~
+~
 ABZ 0 13042
 D1
 ~
 ivory door~
+the ivory~
+~
 ABZ 0 13046
 D2
+~
+~
 ~
 ~
 Z 0 13040
 D3
 ~
 iron door~
+the iron~
+~
 ABZ 0 13044
 S
 #13042
@@ -1487,10 +1693,14 @@ your uninvited entrance to his Chamber. He quickly stands up to engage you.
 D2
 ~
 adamantite door~
+the adamantite~
+~
 ABZ 0 13041
 D5
 ~
 map~
+the map~
+~
 ABZ 0 13043
 S
 #13043
@@ -1504,6 +1714,8 @@ to climb back up to the Lord's Chamber.
 D4
 ~
 map secret~
+the map~
+~
 ABZ 0 13042
 S
 #13044
@@ -1519,6 +1731,8 @@ the center... All within this room. I guess it's time to prove yourself.
 D1
 ~
 iron door~
+the iron~
+~
 ABZ 0 13041
 S
 #13045
@@ -1534,6 +1748,8 @@ room.
 D1
 ~
 obsidian door~
+the obsidian~
+~
 ABZ 0 13040
 S
 #13046
@@ -1548,6 +1764,8 @@ and greets you.
 D3
 ~
 ivory~
+the ivory~
+~
 ABZ 0 13041
 S
 #13047
@@ -1562,6 +1780,8 @@ far wall and alot of paperwork sitting on top of it, waiting to be done.
 D3
 ~
 titanium door~
+the titanium~
+~
 ABZ 0 13040
 S
 #13048
@@ -1576,6 +1796,8 @@ but the elf get's very little recognition of this fact.
 D1
 ~
 wooden door~
+the wooden~
+~
 ABZ 0 13009
 S
 #13049
@@ -1588,6 +1810,8 @@ often.
 D3
 ~
 wooden door~
+the wooden~
+~
 Z 0 13015
 S
 #13050
@@ -1600,12 +1824,18 @@ little garden.
 D1
 ~
 ~
+~
+~
 Z 0 13016
 D2
 ~
 ~
+~
+~
 Z 0 13051
 D3
+~
+~
 ~
 ~
 Z 0 13053
@@ -1620,8 +1850,12 @@ little garden.
 D0
 ~
 ~
+~
+~
 Z 0 13050
 D3
+~
+~
 ~
 ~
 Z 0 13052
@@ -1636,8 +1870,12 @@ little garden.
 D0
 ~
 ~
+~
+~
 Z 0 13052
 D1
+~
+~
 ~
 ~
 Z 0 13051
@@ -1652,12 +1890,18 @@ little garden.
 D1
 ~
 ~
+~
+~
 Z 0 13050
 D2
 ~
 ~
+~
+~
 Z 0 13052
 D3
+~
+~
 ~
 ~
 Z 0 13010
@@ -1673,8 +1917,12 @@ darkness.
 D2
 ~
 ~
+~
+~
 Z 0 13055
 D4
+~
+~
 ~
 ~
 Z 0 13029
@@ -1689,16 +1937,24 @@ in the distance you hear screams of torture.
 D0
 ~
 ~
+~
+~
 Z 0 13054
 D1
+~
+~
 ~
 ~
 Z 0 13056
 D2
 ~
 ~
+~
+~
 Z 0 13063
 D3
+~
+~
 ~
 ~
 Z 0 13071
@@ -1713,12 +1969,18 @@ in the distance you hear screams of torture.
 D1
 ~
 ~
+~
+~
 Z 0 13057
 D2
 ~
 ~
+~
+~
 Z 0 13062
 D3
+~
+~
 ~
 ~
 Z 0 13055
@@ -1735,17 +1997,25 @@ D0
 ~
 cell door
 ~
+the cell~
+~
 ABZ 0 13058
 D1
 ~
 cell door
 ~
+the cell~
+~
 ABZ 0 13059
 D2
 ~
 ~
+~
+~
 Z 0 13061
 D3
+~
+~
 ~
 ~
 Z 0 13056
@@ -1760,6 +2030,8 @@ D2
 ~
 cell door
 ~
+the cell~
+~
 ABZ 0 13057
 S
 #13059
@@ -1771,6 +2043,8 @@ thievery, or prisoner of war, your cell is the same. Small and Cold.
 D3
 ~
 cell door
+~
+the cell~
 ~
 ABZ 0 13057
 S
@@ -1784,6 +2058,8 @@ D3
 ~
 cell door
 ~
+the cell~
+~
 ABZ 0 13061
 S
 #13061
@@ -1796,18 +2072,26 @@ in the distance you hear screams of torture.
 D0
 ~
 ~
+~
+~
 Z 0 13057
 D1
 ~
 cell door
+~
+the cell~
 ~
 ABZ 0 13060
 D2
 ~
 cell door
 ~
+the cell~
+~
 ABZ 0 13064
 D3
+~
+~
 ~
 ~
 Z 0 13062
@@ -1822,12 +2106,18 @@ in the distance you hear screams of torture.
 D0
 ~
 ~
+~
+~
 Z 0 13056
 D1
 ~
 ~
+~
+~
 Z 0 13061
 D3
+~
+~
 ~
 ~
 Z 0 13063
@@ -1842,16 +2132,24 @@ in the distance you hear screams of torture.
 D0
 ~
 ~
+~
+~
 Z 0 13055
 D1
+~
+~
 ~
 ~
 Z 0 13062
 D2
 ~
 ~
+~
+~
 Z 0 13079
 D3
+~
+~
 ~
 ~
 Z 0 13066
@@ -1866,6 +2164,8 @@ D0
 ~
 cell door
 ~
+the cell~
+~
 Z 0 13061
 S
 #13065
@@ -1877,6 +2177,8 @@ thievery, or prisoner of war, your cell is the same. Small and Cold.
 D0
 ~
 cell door
+~
+the cell~
 ~
 ABZ 0 13067
 S
@@ -1890,12 +2192,18 @@ in the distance you hear screams of torture.
 D0
 ~
 ~
+~
+~
 Z 0 13071
 D1
 ~
 ~
+~
+~
 Z 0 13063
 D3
+~
+~
 ~
 ~
 Z 0 13067
@@ -1911,8 +2219,12 @@ south and west.
 D0
 ~
 ~
+~
+~
 Z 0 13070
 D1
+~
+~
 ~
 ~
 Z 0 13066
@@ -1920,10 +2232,14 @@ D2
 ~
 cell door
 ~
+the cell~
+~
 ABZ 0 13065
 D3
 ~
 cell door
+~
+the cell~
 ~
 ABZ 0 13068
 S
@@ -1937,6 +2253,8 @@ D1
 ~
 cell door
 ~
+the cell~
+~
 ABZ 0 13067
 S
 #13069
@@ -1948,6 +2266,8 @@ thievery, or prisoner of war, your cell is the same. Small and Cold.
 D1
 ~
 cell door
+~
+the cell~
 ~
 ABZ 0 13070
 S
@@ -1963,18 +2283,26 @@ D0
 ~
 cell door
 ~
+the cell~
+~
 ABZ 0 13072
 D1
+~
+~
 ~
 ~
 Z 0 13071
 D2
 ~
 ~
+~
+~
 Z 0 13067
 D3
 ~
 cell door
+~
+the cell~
 ~
 ABZ 0 13069
 S
@@ -1988,12 +2316,18 @@ in the distance you hear screams of torture.
 D1
 ~
 ~
+~
+~
 Z 0 13055
 D2
 ~
 ~
+~
+~
 Z 0 13066
 D3
+~
+~
 ~
 ~
 Z 0 13070
@@ -2007,6 +2341,8 @@ thievery, or prisoner of war, your cell is the same. Small and Cold.
 D2
 ~
 cell door
+~
+the cell~
 ~
 ABZ 0 13070
 S
@@ -2022,6 +2358,8 @@ on the wall.
 D3
 ~
 iron door~
+the iron~
+~
 ABZ 0 13035
 S
 #13074
@@ -2038,6 +2376,8 @@ background.
 D1
 ~
 black door~
+@eng the black@rus черный~
+~
 ABZ 0 13035
 S
 #13075
@@ -2052,6 +2392,8 @@ bit more rare and hard to get are kept in the back room.
 D3
 ~
 wooden door~
+the wooden~
+~
 ABZ 0 13033
 S
 #13076
@@ -2065,6 +2407,8 @@ god.
 D1
 ~
 ivory door~
+the ivory~
+~
 ABZ 0 13033
 S
 #13077
@@ -2078,6 +2422,8 @@ and decide that you might want to leave this room.
 D1
 ~
 dark door~
+@eng the dark@rus темный~
+~
 ABZ 0 13031
 S
 #13078
@@ -2091,6 +2437,8 @@ trophies.
 D3
 ~
 gold door~
+the gold~
+~
 ABZ 0 13031
 S
 #13079
@@ -2103,8 +2451,12 @@ that someone is being tortured.
 D0
 ~
 ~
+~
+~
 Z 0 13063
 D2
+~
+~
 ~
 ~
 Z 0 13080
@@ -2119,10 +2471,14 @@ south and know that someone is being tortured.
 D0
 ~
 ~
+~
+~
 Z 0 13079
 D2
 ~
 iron door~
+the iron~
+~
 ABZ 0 13081
 S
 #13081
@@ -2137,6 +2493,8 @@ of torture.
 D0
 ~
 iron door~
+the iron~
+~
 ABZ 0 13080
 S
 #13082
@@ -2149,6 +2507,8 @@ often.
 D1
 ~
 wooden door~
+the wooden~
+~
 ABZ 0 13018
 S
 #13083
@@ -2162,6 +2522,8 @@ a window overlooking a vast forest.
 D3
 ~
 wooden door~
+the wooden~
+~
 ABZ 0 13022
 S
 #0

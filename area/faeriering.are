@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Faerie Fire~
 VNUMs 29101 29114
 Credits Lok~
@@ -506,12 +506,16 @@ of a trap door in the center of the ring.
 D3
 ~
 ~
+~
+~
 Z -1 3513
 D5
 @eng A small trap door.
 @rus Маленькая дверца.
 ~
 door trap~
+~
+~
 ABZ -1 29102
 S
 #29102
@@ -532,10 +536,14 @@ D0
 @rus Маленькая дверца.
 ~
 door tiny~
+~
+~
 ABZ -1 29103
 D1
 @eng A smoky hallway
 @rus Прокуренный коридор.
+~
+~
 ~
 ~
 Z -1 29104
@@ -544,18 +552,24 @@ D2
 @rus Маленькая дверца.
 ~
 door tiny~
+~
+~
 ABZ -1 29105
 D3
 @eng A tiny door
 @rus Маленькая дверца.
 ~
 door tiny~
+~
+~
 ABZ -1 29106
 D4
 @eng A small trap door
 @rus Небольшая дверь.
 ~
 door trap~
+~
+~
 ABZ -1 29101
 S
 #29103
@@ -581,6 +595,8 @@ D2
 @rus Маленькая дверца.
 ~
 door tiny~
+~
+~
 ABZ -1 29102
 S
 #29104
@@ -605,10 +621,14 @@ D1
 @rus В направлении шума.
 ~
 ~
+~
+~
 Z -1 29107
 D3
 @eng A smoky hallway
 @rus Прокуренный коридор.
+~
+~
 ~
 ~
 Z -1 29102
@@ -632,6 +652,8 @@ D0
 @rus Маленькая дверца.
 ~
 door tiny~
+~
+~
 ABZ -1 29102
 S
 #29106
@@ -652,12 +674,16 @@ D1
 @rus Маленькая дверца.
 ~
 door tiny~
+~
+~
 ABZ -1 29102
 D2
 @eng A normal sized door
 @rus Самая обыкновенная дверь.
 ~
 door normal~
+~
+~
 ABCZ 29110 29108
 S
 #29107
@@ -687,6 +713,8 @@ D3
 @rus Забегаловка.
 ~
 ~
+~
+~
 Z -1 29104
 S
 #29108
@@ -708,6 +736,8 @@ D0
 @rus Самая обыкновенная дверь.
 ~
 door normal~
+~
+~
 ABCZ 29110 29106
 S
 #0

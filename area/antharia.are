@@ -819,15 +819,15 @@ D0
 The entrance street continues.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12301
 D4
 You can look up and barely make out the sun far, far above you.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 5358
 S
 #12301
@@ -849,15 +849,15 @@ D0
 The Temple of Anthar
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12302
 D2
 Entrance street to Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12300
 S
 #12302
@@ -889,22 +889,22 @@ D1
 One of the main roads of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12303
 D2
 The entrance road of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12301
 D3
 One of the main roads of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12309
 S
 #12303
@@ -922,22 +922,22 @@ D0
 Temple Circle.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12304
 D1
 Main road of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12337
 D3
 Temple of Anthar.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12302
 S
 #12304
@@ -957,15 +957,15 @@ D0
 Temple Circle.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12305
 D2
 Main street of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12303
 S
 #12305
@@ -983,15 +983,15 @@ D2
 Temple Circle.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12304
 D3
 Temple Circle.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12306
 S
 #12306
@@ -1012,22 +1012,22 @@ D0
 Kaer's Bridge.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12318
 D1
 Temple Circle.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12305
 D3
 Temple Circle.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12307
 S
 #12307
@@ -1045,15 +1045,15 @@ D1
 Temple circle.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12306
 D2
 Temple circle.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12308
 S
 #12308
@@ -1071,15 +1071,15 @@ D0
 Temple circle.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12307
 D2
 Main street of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12309
 S
 #12309
@@ -1097,22 +1097,22 @@ D0
 Temple Circle.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12308
 D1
 Before the Temple of Anthar.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12302
 D3
 Main street of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12310
 S
 #12310
@@ -1127,22 +1127,22 @@ D1
 Main street of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12309
 D2
 Zaertses' House of Relics.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12340
 D3
 Main street of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12311
 S
 #12311
@@ -1154,15 +1154,15 @@ D0
 Main street of Antharia
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12312
 D1
 Main street of Antharia
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12310
 S
 #12312
@@ -1174,15 +1174,15 @@ D0
 Main street of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12314
 D2
 Main Street of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12311
 S
 #12314
@@ -1201,15 +1201,15 @@ D0
 East intersection
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12315
 D2
 Main street of Antharia
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12312
 S
 #12315
@@ -1234,29 +1234,29 @@ D0
 Main street of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12320
 D1
 Center street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12316
 D2
 Main street of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12314
 D3
 Street of Guilds.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12350
 S
 #12316
@@ -1272,15 +1272,15 @@ D1
 Center street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12317
 D3
 Main street of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12315
 S
 #12317
@@ -1312,29 +1312,29 @@ D0
 Ertuvia's shop.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12344
 D1
 Center street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12319
 D2
 Kaer's Bridge.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12318
 D3
 Center street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12316
 S
 #12318
@@ -1353,15 +1353,15 @@ D0
 Center street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12317
 D2
 Temple Circle.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12306
 S
 #12319
@@ -1380,22 +1380,22 @@ D0
 Heaustf's armory.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12345
 D1
 Main street of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12333
 D3
 Center street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12317
 S
 #12320
@@ -1417,15 +1417,15 @@ D0
 Main street of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12321
 D2
 East intersection.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12315
 S
 #12321
@@ -1438,15 +1438,15 @@ D1
 Main road of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12322
 D2
 Main road of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12320
 S
 #12322
@@ -1471,21 +1471,21 @@ D1
 The main street of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12323
 D3
 Bend in the main road.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12321
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABCFZ 12315 12366
 S
 #12323
@@ -1502,15 +1502,15 @@ D1
 Main road of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12324
 D3
 Main road of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12322
 S
 #12324
@@ -1536,22 +1536,22 @@ D1
 Small intersection.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12326
 D2
 Shop of Cyrtpea.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12348
 D3
 Main road of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12323
 S
 #12326
@@ -1569,22 +1569,22 @@ D1
 a new road.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12327
 D2
 Main street of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12332
 D3
 Main road of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12324
 S
 #12327
@@ -1597,15 +1597,15 @@ D1
 Zoo gate.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12328
 D3
 Main street of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12326
 S
 #12328
@@ -1629,8 +1629,8 @@ D3
 a new road.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12327
 S
 #12332
@@ -1652,15 +1652,15 @@ D0
 Main street of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12326
 D2
 East intersection of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12333
 S
 #12333
@@ -1682,22 +1682,22 @@ D0
 Main street of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12332
 D2
 Main street of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12334
 D3
 Center street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12319
 S
 #12334
@@ -1710,15 +1710,15 @@ D0
 Main street of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12333
 D2
 Main street of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12335
 S
 #12335
@@ -1736,22 +1736,22 @@ D0
 Main road of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12334
 D1
 Irghum's Antharian Eatery.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12341
 D2
 Main road of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12336
 S
 #12336
@@ -1768,15 +1768,15 @@ D0
 MAin road of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12335
 D3
 Main road of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12337
 S
 #12337
@@ -1795,15 +1795,15 @@ D1
 Main road of Antharia
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12336
 D3
 Main road of Antharia
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12303
 S
 #12340
@@ -1823,8 +1823,8 @@ D0
 Main street of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12310
 S
 #12341
@@ -1842,8 +1842,8 @@ D3
 Main street of Antharia.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12335
 S
 #12344
@@ -1860,8 +1860,8 @@ D2
 Center street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12317
 S
 #12345
@@ -1878,8 +1878,8 @@ D2
 Center street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12319
 S
 #12348
@@ -1900,8 +1900,8 @@ D0
 Main road of Antharia
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12324
 S
 #12350
@@ -1917,15 +1917,15 @@ D1
 West intersection.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12315
 D3
 Guild street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12351
 S
 #12351
@@ -1941,29 +1941,29 @@ D0
 Human guild.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12360
 D1
 Guild street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12350
 D2
 Illithid Guild.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12370
 D3
 Guild street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12352
 S
 #12352
@@ -1979,29 +1979,29 @@ D0
 Avian Guild.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12371
 D1
 Guild street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12351
 D2
 Dwarven guild.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12365
 D3
 Guild street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12353
 S
 #12353
@@ -2017,29 +2017,29 @@ D0
 Druid guild.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12361
 D1
 Guild street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12352
 D2
 Elven guild.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12364
 D3
 Guild street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12354
 S
 #12354
@@ -2055,22 +2055,22 @@ D0
 Kender guild.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12362
 D1
 Guild street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12353
 D2
 Antharian guild.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12363
 S
 #12360
@@ -2085,8 +2085,8 @@ D2
 Guild street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12351
 S
 #12361
@@ -2101,8 +2101,8 @@ D2
 Guild street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12353
 S
 #12362
@@ -2117,8 +2117,8 @@ D2
 Guild street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12354
 S
 #12363
@@ -2137,8 +2137,8 @@ D0
 Guild street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12354
 S
 #12364
@@ -2153,8 +2153,8 @@ D0
 Guild street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12353
 S
 #12365
@@ -2169,8 +2169,8 @@ D0
 Guild street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12352
 S
 #12366
@@ -2193,8 +2193,8 @@ D0
 Guild street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12351
 S
 #12371
@@ -2209,8 +2209,8 @@ D2
 Guild street.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 12352
 S
 #0

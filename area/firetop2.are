@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Firetop Mountain~
 VNUMs 5700 5899
 Credits Yaegar~
@@ -1831,8 +1831,12 @@ D0
 inside the mountain
 ~
 ~
+~
+~
 Z 0 5736
 D2
+~
+~
 ~
 ~
 Z 0 8854
@@ -1848,14 +1852,20 @@ D1
 a door
 ~
 ~
+~
+~
 Z 0 5737
 D2
 the entrance
 ~
 ~
+~
+~
 Z 0 5735
 D3
 a guard post
+~
+~
 ~
 ~
 Z 0 5739
@@ -1872,9 +1882,13 @@ D1
 a pit
 ~
 ~
+~
+~
 ABZ 0 5738
 D3
 inside the mountain
+~
+~
 ~
 ~
 Z 0 5736
@@ -1889,9 +1903,13 @@ seem to work here. Looks like you might need to recall.
 D3
 ~
 ~
+~
+~
 Z -1 5737
 D5
 a trapdoor
+~
+~
 ~
 ~
 ABZ -1 13400
@@ -1910,9 +1928,13 @@ D0
 a corridor
 ~
 ~
+~
+~
 Z 0 5740
 D1
 inside the mountain
+~
+~
 ~
 ~
 Z 0 5736
@@ -1929,14 +1951,20 @@ D0
 a corridor
 ~
 ~
+~
+~
 Z 0 5742
 D2
 a guard post
 ~
 ~
+~
+~
 Z 0 5739
 D3
 a door
+~
+~
 ~
 ~
 ABZ 0 5741
@@ -1953,6 +1981,8 @@ D1
 a corridor
 ~
 ~
+~
+~
 Z 0 5740
 S
 #5742
@@ -1967,14 +1997,20 @@ D0
 a corridor
 ~
 ~
+~
+~
 Z 0 5744
 D2
 a corridor
 ~
 ~
+~
+~
 Z 0 5740
 D3
 a door
+~
+~
 ~
 ~
 ABZ 0 5743
@@ -1989,6 +2025,8 @@ There is a small snake curled up around a box in the far corner of this room.
 0 AD inside
 D1
 a corridor
+~
+~
 ~
 ~
 Z 0 5742
@@ -2006,14 +2044,20 @@ D0
 a corridor
 ~
 ~
+~
+~
 Z 0 5746
 D2
 a corridor
 ~
 ~
+~
+~
 Z 0 5742
 D3
 a door
+~
+~
 ~
 ~
 ABZ 0 5745
@@ -2031,6 +2075,8 @@ D1
 a corridor
 ~
 ~
+~
+~
 Z 0 5744
 S
 #5746
@@ -2046,14 +2092,20 @@ D1
 another junction
 ~
 ~
+~
+~
 Z 0 5748
 D2
 a corridor
 ~
 ~
+~
+~
 Z 0 5744
 D3
 a westward corridor
+~
+~
 ~
 ~
 Z 0 5747
@@ -2070,9 +2122,13 @@ D1
 a junction
 ~
 ~
+~
+~
 Z 0 5746
 D3
 a door
+~
+~
 ~
 ~
 ABZ 0 5799
@@ -2089,14 +2145,20 @@ D0
 a corridor
 ~
 ~
+~
+~
 Z 0 5750
 D1
 a door
 ~
 ~
+~
+~
 Z 0 5749
 D3
 a junction
+~
+~
 ~
 ~
 Z 0 5746
@@ -2112,9 +2174,13 @@ D1
 the kitchen
 ~
 ~
+~
+~
 ABZ 0 5800
 D3
 another junction
+~
+~
 ~
 ~
 Z 0 5748
@@ -2132,14 +2198,20 @@ D0
 a corridor
 ~
 ~
+~
+~
 Z 0 5752
 D1
 a door
 ~
 ~
+~
+~
 ABZ 0 5751
 D2
 another junction
+~
+~
 ~
 ~
 Z 0 5748
@@ -2157,6 +2229,8 @@ D3
 a corridor
 ~
 ~
+~
+~
 Z 0 5750
 S
 #5752
@@ -2171,14 +2245,20 @@ D0
 a corridor
 ~
 ~
+~
+~
 Z 0 5754
 D1
 a door
 ~
 ~
+~
+~
 ABZ 0 5753
 D2
 another junction
+~
+~
 ~
 ~
 Z 0 5750
@@ -2193,6 +2273,8 @@ to you...
 0 AD inside
 D3
 a corridor
+~
+~
 ~
 ~
 Z 0 5752
@@ -2210,14 +2292,20 @@ D0
 a junction
 ~
 portcullis~
+the portcullis~
+~
 ABZ 0 5756
 D1
 a door
 ~
 ~
+~
+~
 ABZ 0 5755
 D2
 another junction
+~
+~
 ~
 ~
 Z 0 5752
@@ -2232,6 +2320,8 @@ what you know, they are going to torture you anyway :).
 0 AD inside
 D3
 a corridor
+~
+~
 ~
 ~
 Z 0 5754
@@ -2249,14 +2339,20 @@ D1
 a bend in the corridor
 ~
 ~
+~
+~
 Z 0 5757
 D2
 a corridor
 ~
 portcullis~
+the portcullis~
+~
 Z 0 5754
 D3
 a long passageway
+~
+~
 ~
 ~
 Z 0 5779
@@ -2273,9 +2369,13 @@ D0
 a junction
 ~
 ~
+~
+~
 Z 0 5758
 D3
 a junction
+~
+~
 ~
 ~
 Z 0 5756
@@ -2291,14 +2391,20 @@ D1
 a junction
 ~
 ~
+~
+~
 Z 0 5759
 D2
 a bench
 ~
 ~
+~
+~
 Z 0 5757
 D3
 a bend
+~
+~
 ~
 ~
 Z 0 5761
@@ -2315,14 +2421,20 @@ D0
 a door
 ~
 ~
+~
+~
 ABZ 0 5765
 D1
 a door
 ~
 ~
+~
+~
 ABZ 0 5760
 D3
 a junction
+~
+~
 ~
 ~
 Z 0 5758
@@ -2340,6 +2452,8 @@ D3
 a junction
 ~
 ~
+~
+~
 Z 0 5759
 S
 #5761
@@ -2353,9 +2467,13 @@ D0
 outside three doors
 ~
 ~
+~
+~
 Z 0 5762
 D1
 a junction
+~
+~
 ~
 ~
 Z 0 5758
@@ -2383,9 +2501,13 @@ D0
 a pitch-black portal
 ~
 ~
+~
+~
 ABZ 0 5766
 D1
 a shop
+~
+~
 ~
 ~
 ABZ 0 5764
@@ -2393,9 +2515,13 @@ D2
 a bend
 ~
 ~
+~
+~
 Z 0 5761
 D3
 a door
+~
+~
 ~
 ~
 ABZ 0 5763
@@ -2412,6 +2538,8 @@ D1
 outside three doors
 ~
 ~
+~
+~
 Z 0 5762
 S
 #5764
@@ -2424,6 +2552,8 @@ that can help light your way.
 0 D inside
 D3
 outside three doors
+~
+~
 ~
 ~
 Z 0 5762
@@ -2440,9 +2570,13 @@ D0
 a short passage
 ~
 ~
+~
+~
 Z 0 5801
 D2
 a door
+~
+~
 ~
 ~
 Z 0 5759
@@ -2460,9 +2594,13 @@ D0
 a fountain room
 ~
 ~
+~
+~
 ABZ 0 5768
 D2
 outside three doors
+~
+~
 ~
 ~
 ABZ 0 5762
@@ -2479,9 +2617,13 @@ D0
 a short corridor
 ~
 ~
+~
+~
 Z 0 5802
 D2
 a short corridor
+~
+~
 ~
 ~
 Z 0 5801
@@ -2497,9 +2639,13 @@ D0
 a corridor
 ~
 ~
+~
+~
 Z 0 5770
 D2
 a pitch-black portal
+~
+~
 ~
 ~
 ABZ 0 5766
@@ -2517,9 +2663,13 @@ D0
 a door
 ~
 ~
+~
+~
 ABZ 0 5773
 D2
 a short corridor
+~
+~
 ~
 ~
 Z 0 5802
@@ -2535,14 +2685,20 @@ D0
 a door
 ~
 ~
+~
+~
 ABZ 0 5803
 D1
 a door
 ~
 ~
+~
+~
 ABZ 0 5771
 D2
 a fountain
+~
+~
 ~
 ~
 Z 0 5768
@@ -2555,6 +2711,8 @@ some interesting items upon it.
 0 AD inside
 D3
 a corridor
+~
+~
 ~
 ~
 Z 0 5770
@@ -2571,14 +2729,20 @@ D1
 a cave
 ~
 ~
+~
+~
 Z 0 5775
 D2
 a door
 ~
 ~
+~
+~
 ABZ 0 5803
 D3
 a bend
+~
+~
 ~
 ~
 Z 0 5774
@@ -2599,9 +2763,13 @@ D0
 the other side
 ~
 ~
+~
+~
 Z 0 5798
 D1
 river
+~
+~
 ~
 ~
 Z 0 5778
@@ -2609,9 +2777,13 @@ D2
 pear room
 ~
 ~
+~
+~
 Z 0 5769
 D3
 river
+~
+~
 ~
 ~
 Z 0 5777
@@ -2628,9 +2800,13 @@ D0
 the river
 ~
 ~
+~
+~
 Z 0 5777
 D1
 a junction
+~
+~
 ~
 ~
 Z 0 5772
@@ -2647,6 +2823,8 @@ D3
 a junction
 ~
 ~
+~
+~
 Z 0 5772
 S
 #5776
@@ -2660,9 +2838,13 @@ D1
 river
 ~
 ~
+~
+~
 Z 0 5777
 D3
 a rocky beach
+~
+~
 ~
 ~
 Z 0 5797
@@ -2679,14 +2861,20 @@ D1
 bridge
 ~
 ~
+~
+~
 Z 0 5773
 D2
 alcove
 ~
 ~
+~
+~
 Z 0 5774
 D3
 river
+~
+~
 ~
 ~
 Z 0 5776
@@ -2702,6 +2890,8 @@ D3
 bridge
 ~
 ~
+~
+~
 Z 0 5773
 S
 #5779
@@ -2714,9 +2904,13 @@ D1
 a junction
 ~
 ~
+~
+~
 Z 0 5756
 D3
 entrance to a cave
+~
+~
 ~
 ~
 Z 0 5780
@@ -2732,14 +2926,20 @@ D0
 cave
 ~
 ~
+~
+~
 Z 0 5781
 D1
 a passage
 ~
 ~
+~
+~
 Z 0 5779
 D3
 a passage
+~
+~
 ~
 ~
 Z 0 5782
@@ -2761,6 +2961,8 @@ D2
 entrance to a cave
 ~
 ~
+~
+~
 Z 0 5780
 S
 #5782
@@ -2774,9 +2976,13 @@ D0
 a junction
 ~
 ~
+~
+~
 Z 0 5783
 D1
 entrance to a cave
+~
+~
 ~
 ~
 Z 0 5780
@@ -2793,14 +2999,20 @@ D0
 a t-junction
 ~
 ~
+~
+~
 Z 0 5785
 D2
 a bend
 ~
 ~
+~
+~
 Z 0 5782
 D3
 a narrow passageway
+~
+~
 ~
 ~
 Z 0 5784
@@ -2829,14 +3041,20 @@ D1
 a bend
 ~
 ~
+~
+~
 Z 0 5786
 D2
 a side passage
 ~
 ~
+~
+~
 Z 0 5783
 D3
 a bend
+~
+~
 ~
 ~
 Z 0 5788
@@ -2853,9 +3071,13 @@ D0
 a long passageway
 ~
 ~
+~
+~
 Z 0 5787
 D3
 a junction
+~
+~
 ~
 ~
 Z 0 5785
@@ -2871,9 +3093,13 @@ D0
 a bend
 ~
 ~
+~
+~
 Z 0 5794
 D2
 a bend
+~
+~
 ~
 ~
 Z 0 5786
@@ -2892,9 +3118,13 @@ D1
 a junction
 ~
 ~
+~
+~
 Z 0 5785
 D5
 a troll den
+~
+~
 ~
 ~
 Z 0 5789
@@ -2911,6 +3141,8 @@ earlier - TROLL.
 0 AD inside
 D0
 a rough cavern
+~
+~
 ~
 ~
 Z 0 5790
@@ -2930,6 +3162,8 @@ D0
 a door
 ~
 ~
+~
+~
 ABZ 0 5791
 S
 #5791
@@ -2945,9 +3179,13 @@ D0
 a giant's room
 ~
 ~
+~
+~
 ABZ 0 5792
 D1
 a junction
+~
+~
 ~
 ~
 Z 0 5793
@@ -2961,6 +3199,8 @@ giant rats in the room you just exited as a food supply. Foul creature!
 0 AD inside
 D2
 rat room
+~
+~
 ~
 ~
 Z 0 5791
@@ -2977,14 +3217,20 @@ D0
 a passageway
 ~
 ~
+~
+~
 Z 0 5796
 D1
 a bend
 ~
 ~
+~
+~
 Z 0 5794
 D3
 a door
+~
+~
 ~
 ~
 ABZ 0 5791
@@ -3001,14 +3247,20 @@ D0
 gas room
 ~
 ~
+~
+~
 ABZ 0 5795
 D2
 a long passageway
 ~
 ~
+~
+~
 Z 0 5787
 D3
 a junction
+~
+~
 ~
 ~
 Z 0 5793
@@ -3025,6 +3277,8 @@ D2
 a bend
 ~
 ~
+~
+~
 Z 0 5794
 S
 #5796
@@ -3038,9 +3292,13 @@ D0
 a rocky beach
 ~
 ~
+~
+~
 Z 0 5797
 D2
 a junction
+~
+~
 ~
 ~
 Z 0 5793
@@ -3056,9 +3314,13 @@ D1
 the river
 ~
 ~
+~
+~
 Z 0 5776
 D2
 a passageway
+~
+~
 ~
 ~
 Z 0 5796
@@ -3075,9 +3337,13 @@ D0
 a door
 ~
 ~
+~
+~
 ABZ 0 5807
 D1
 towards a door
+~
+~
 ~
 ~
 Z 0 5815
@@ -3085,9 +3351,13 @@ D2
 a bridge to the south bank
 ~
 ~
+~
+~
 Z 0 5773
 D3
 towards living quarters
+~
+~
 ~
 ~
 Z 0 5804
@@ -3103,6 +3373,8 @@ possess...
 0 AD inside
 D1
 a westward corridor
+~
+~
 ~
 ~
 Z 0 5747
@@ -3121,6 +3393,8 @@ D3
 outside the kitchen
 ~
 ~
+~
+~
 Z 0 5749
 S
 #5801
@@ -3133,9 +3407,13 @@ D0
 a gallery
 ~
 ~
+~
+~
 ABZ 0 5767
 D2
 a barbarian
+~
+~
 ~
 ~
 Z 0 5765
@@ -3150,9 +3428,13 @@ D0
 a pear-shaped room
 ~
 ~
+~
+~
 Z 0 5769
 D2
 a gallery
+~
+~
 ~
 ~
 ABZ 0 5767
@@ -3168,9 +3450,13 @@ D0
 a junction
 ~
 ~
+~
+~
 ABZ 0 5772
 D2
 a corridor
+~
+~
 ~
 ~
 ABZ 0 5770
@@ -3186,9 +3472,13 @@ D0
 a door
 ~
 ~
+~
+~
 ABZ 0 5805
 D1
 a junction on the north bank near a bridge
+~
+~
 ~
 ~
 Z 0 5798
@@ -3206,9 +3496,13 @@ D2
 outside a door
 ~
 ~
+~
+~
 Z 0 5804
 D3
 a pantry
+~
+~
 ~
 ~
 ABZ 0 5806
@@ -3224,6 +3518,8 @@ D1
 the shipbuilder's quarters
 ~
 ~
+~
+~
 Z 0 5805
 S
 #5807
@@ -3235,9 +3531,13 @@ D0
 a zombie room
 ~
 ~
+~
+~
 ABZ 0 5808
 D2
 a junction on the north bank near a bridge
+~
+~
 ~
 ~
 Z 0 5798
@@ -3255,9 +3555,13 @@ D0
 a crypt
 ~
 ~
+~
+~
 ABZ 0 5809
 D2
 a short dark corridor
+~
+~
 ~
 ~
 Z 0 5807
@@ -3273,9 +3577,13 @@ D2
 a zombie room
 ~
 ~
+~
+~
 Z 0 5808
 D3
 a junction
+~
+~
 ~
 ~
 ABZ 0 5810
@@ -3292,9 +3600,13 @@ D0
 a bend
 ~
 ~
+~
+~
 Z 0 5813
 D1
 a door
+~
+~
 ~
 ~
 ABZ 0 5809
@@ -3302,9 +3614,13 @@ D2
 dead end
 ~
 ~
+~
+~
 Z 0 5811
 D3
 construction
+~
+~
 ~
 ~
 Z 0 5812
@@ -3332,6 +3648,8 @@ D0
 a junction
 ~
 ~
+~
+~
 Z 0 5810
 S
 #5812
@@ -3349,6 +3667,8 @@ D1
 a junction
 ~
 ~
+~
+~
 Z 0 5810
 S
 #5813
@@ -3362,9 +3682,13 @@ D1
 a hole
 ~
 ~
+~
+~
 Z 0 5814
 D2
 a junction
+~
+~
 ~
 ~
 Z 0 5810
@@ -3381,14 +3705,20 @@ D1
 a junction
 ~
 ~
+~
+~
 Z 0 5820
 D3
 a bend
 ~
 ~
+~
+~
 Z 0 5813
 D5
 a creepy room
+~
+~
 ~
 ~
 Z 0 5823
@@ -3405,9 +3735,13 @@ D1
 a shipbuilding room
 ~
 ~
+~
+~
 ABCFZ 5779 5816
 D3
 a junction on the north bank near a bridge
+~
+~
 ~
 ~
 Z 0 5798
@@ -3426,9 +3760,13 @@ D0
 a door
 ~
 ~
+~
+~
 ABZ 0 5817
 D3
 a door
+~
+~
 ~
 ~
 AFZ 5779 5815
@@ -3443,9 +3781,13 @@ D0
 a room
 ~
 ~
+~
+~
 ABZ 0 5818
 D2
 a boathouse
+~
+~
 ~
 ~
 Z 0 5816
@@ -3463,9 +3805,13 @@ D0
 a corridor
 ~
 ~
+~
+~
 ABZ 0 5819
 D2
 a corridor
+~
+~
 ~
 ~
 Z 0 5817
@@ -3481,9 +3827,13 @@ D0
 junction
 ~
 ~
+~
+~
 Z 0 5820
 D2
 a room
+~
+~
 ~
 ~
 Z 0 5818
@@ -3497,14 +3847,20 @@ D1
 a door
 ~
 ~
+~
+~
 Z 0 5821
 D2
 a corridor
 ~
 ~
+~
+~
 Z 0 5819
 D3
 a long passageway and a hole
+~
+~
 ~
 ~
 Z 0 5814
@@ -3520,9 +3876,13 @@ D2
 loot room
 ~
 ~
+~
+~
 ABCFZ 5806 5822
 D3
 a junction
+~
+~
 ~
 ~
 Z 0 5820
@@ -3536,6 +3896,8 @@ here...
 0 D inside
 D0
 outside the loot room
+~
+~
 ~
 ~
 AFZ 5806 5821
@@ -3553,9 +3915,13 @@ D0
 a bend
 ~
 ~
+~
+~
 Z 0 5824
 D4
 a passage
+~
+~
 ~
 ~
 Z 0 5814
@@ -3570,9 +3936,13 @@ D1
 a widening of the passage
 ~
 ~
+~
+~
 Z 0 5825
 D2
 a creepy room
+~
+~
 ~
 ~
 Z 0 5823
@@ -3590,9 +3960,13 @@ D1
 junction
 ~
 ~
+~
+~
 Z 0 5826
 D3
 a bend
+~
+~
 ~
 ~
 ABCFZ 5808 5824
@@ -3607,9 +3981,13 @@ D0
 dwarf room
 ~
 ~
+~
+~
 ABZ 0 5827
 D1
 another door
+~
+~
 ~
 ~
 Z 0 5828
@@ -3617,9 +3995,13 @@ D2
 a bend
 ~
 ~
+~
+~
 Z 0 5830
 D3
 portcullis
+~
+~
 ~
 ~
 Z 0 5825
@@ -3637,6 +4019,8 @@ D2
 a junction
 ~
 ~
+~
+~
 Z 0 5826
 S
 #5828
@@ -3650,14 +4034,20 @@ D0
 a minotaur room
 ~
 ~
+~
+~
 ABZ 0 5829
 D2
 a junction
 ~
 ~
+~
+~
 Z 0 5831
 D3
 a junction
+~
+~
 ~
 ~
 Z 0 5826
@@ -3674,6 +4064,8 @@ D2
 another door
 ~
 ~
+~
+~
 Z 0 5828
 S
 #5830
@@ -3686,9 +4078,13 @@ D0
 a junction
 ~
 ~
+~
+~
 Z 0 5826
 D1
 a junction
+~
+~
 ~
 ~
 Z 0 5831
@@ -3704,14 +4100,20 @@ D0
 another door
 ~
 ~
+~
+~
 Z 0 5828
 D3
 a bend
 ~
 ~
+~
+~
 Z 0 5830
 D5
 dragon cave
+~
+~
 ~
 ~
 Z 0 5832
@@ -3730,9 +4132,13 @@ D2
 a locked steel door
 ~
 ~
+~
+~
 Z 0 5833
 D4
 a junction
+~
+~
 ~
 ~
 Z 0 5831
@@ -3747,11 +4153,15 @@ D0
 dragon cave
 ~
 ~
+~
+~
 Z 0 5832
 D1
 the warlock's chambers
 ~
 chamber door~
+the chamber~
+~
 ABCFZ 5807 5834
 S
 #5834
@@ -3767,6 +4177,8 @@ D3
 a door
 ~
 door~
+~
+~
 AFZ 5807 5833
 S
 #0

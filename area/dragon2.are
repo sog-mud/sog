@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Dragon Spyre~
 VNUMs 2400 2501
 Credits Anon~
@@ -879,9 +879,13 @@ D1
 An Ancient Path through the dense forest
 ~
 ~
+~
+~
 Z 0 2401
 D5
 The ancient path
+~
+~
 ~
 ~
 Z -1 332
@@ -898,9 +902,13 @@ D1
 End of the Ancient Path
 ~
 ~
+~
+~
 Z 0 2402
 D3
 An Ancient Path through the dense forest
+~
+~
 ~
 ~
 Z 0 2400
@@ -917,9 +925,13 @@ D0
 Path to the Mountain
 ~
 ~
+~
+~
 Z 0 2403
 D3
 An Ancient Path through the dense forest
+~
+~
 ~
 ~
 Z 0 2401
@@ -936,9 +948,13 @@ D0
 Path to the Mountain
 ~
 ~
+~
+~
 Z 0 2404
 D2
 End of the Anicient Path
+~
+~
 ~
 ~
 Z 0 2402
@@ -956,9 +972,13 @@ D0
 At the foot of the Mountain
 ~
 ~
+~
+~
 Z 0 2405
 D2
 Path to the Mountain
+~
+~
 ~
 ~
 Z 0 2403
@@ -975,9 +995,13 @@ D2
 Path to the Mountain
 ~
 ~
+~
+~
 Z 0 2404
 D4
 Climbing the Mountain
+~
+~
 ~
 ~
 Z 0 2406
@@ -995,9 +1019,13 @@ D4
 Climbing the Mountain
 ~
 ~
+~
+~
 Z 0 2407
 D5
 At the foot of the Mountain
+~
+~
 ~
 ~
 Z 0 2405
@@ -1015,9 +1043,13 @@ D4
 The ledge on the Mountain
 ~
 ~
+~
+~
 Z 0 2408
 D5
 Climbing the Mountain
+~
+~
 ~
 ~
 Z 0 2406
@@ -1034,9 +1066,13 @@ D1
 Entrance to the Cave
 ~
 ~
+~
+~
 Z 0 2409
 D5
 Climbing the Mountain
+~
+~
 ~
 ~
 Z 0 2407
@@ -1054,9 +1090,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2410
 D3
 A ledge on the Mountain
+~
+~
 ~
 ~
 Z 0 2408
@@ -1073,9 +1113,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2411
 D3
 Entrance to the Cave
+~
+~
 ~
 ~
 Z 0 2409
@@ -1092,9 +1136,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2412
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2410
@@ -1111,9 +1159,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2413
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2411
@@ -1130,9 +1182,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2414
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2412
@@ -1149,9 +1205,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2415
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2413
@@ -1168,14 +1228,20 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2416
 D2
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2419
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2414
@@ -1192,9 +1258,13 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2417
 D2
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2415
@@ -1211,9 +1281,13 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2418
 D2
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2416
@@ -1230,9 +1304,13 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2439
 D2
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2417
@@ -1249,9 +1327,13 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2415
 D1
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2420
@@ -1268,9 +1350,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2421
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2419
@@ -1287,9 +1373,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2422
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2420
@@ -1306,9 +1396,13 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2423
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2421
@@ -1325,9 +1419,13 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2424
 D2
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2422
@@ -1344,9 +1442,13 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2425
 D2
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2423
@@ -1363,14 +1465,20 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2428
 D2
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2424
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2426
@@ -1387,9 +1495,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2425
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2427
@@ -1407,9 +1519,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2426
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2417
@@ -1426,9 +1542,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2429
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2425
@@ -1445,9 +1565,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2430
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2428
@@ -1465,14 +1589,20 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2431
 D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2433
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2429
@@ -1490,9 +1620,13 @@ D0
 The Lair of the White Dragon
 ~
 ~
+~
+~
 Z 0 2432
 D2
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2430
@@ -1510,9 +1644,13 @@ D1
 Walking through DragonSpyre
 ~
 wall~
+the wall~
+~
 ABCFZ 2401 2444
 D2
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2431
@@ -1528,9 +1666,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2434
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2430
@@ -1547,9 +1689,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2435
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2433
@@ -1566,9 +1712,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2436
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2434
@@ -1585,9 +1735,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2437
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2435
@@ -1603,9 +1757,13 @@ D1
 Walking through DragonSpyre
 ~
 door oaken~
+~
+~
 ABCFZ 2402 2438
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2436
@@ -1621,6 +1779,8 @@ D3
 Walking through DragonSpyre
 ~
 door oaken~
+~
+~
 ABCFZ 2402 2437
 S
 #2439
@@ -1636,9 +1796,13 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2440
 D2
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2418
@@ -1656,9 +1820,13 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2441
 D2
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2439
@@ -1676,9 +1844,13 @@ D0
 Walking through DragonSpyre
 ~
 door~
+~
+~
 ABCFZ 2402 2443
 D1
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2442
@@ -1686,9 +1858,13 @@ D2
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2440
 D3
 The retired dragons office.
+~
+~
 ~
 ~
 Z -1 2500
@@ -1714,6 +1890,8 @@ D2
 Walking through DragonSpyre
 ~
 door~
+~
+~
 ABCFZ 2402 2441
 S
 #2444
@@ -1729,11 +1907,15 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2445
 D3
 Lair of the White Dragon
 ~
 wall~
+the wall~
+~
 ABCFZ 2401 2432
 S
 #2445
@@ -1749,9 +1931,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2446
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2444
@@ -1769,9 +1955,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2447
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2445
@@ -1789,14 +1979,20 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 AFZ 0 2448
 D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2451
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2446
@@ -1814,9 +2010,13 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 AFZ 0 2449
 D2
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2447
@@ -1834,9 +2034,13 @@ D1
 Walking through DragonSpyre
 ~
 door~
+~
+~
 ABCFZ 2401 2450
 D2
 Treasure Room
+~
+~
 ~
 ~
 Z 0 2448
@@ -1854,6 +2058,8 @@ D3
 Walking through DragonSpyre
 ~
 door~
+~
+~
 ABCFZ 2401 2449
 S
 #2451
@@ -1869,9 +2075,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2452
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2447
@@ -1889,9 +2099,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2453
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2451
@@ -1909,9 +2123,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2454
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2452
@@ -1929,9 +2147,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2455
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2453
@@ -1949,9 +2171,13 @@ D2
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2456
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2454
@@ -1969,9 +2195,13 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 AFZ 0 2455
 D2
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2457
@@ -1989,9 +2219,13 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 AFZ 0 2456
 D2
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2458
@@ -2009,9 +2243,13 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 AFZ 0 2457
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2459
@@ -2029,9 +2267,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2458
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2460
@@ -2049,9 +2291,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2459
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2461
@@ -2069,9 +2315,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2460
 D2
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2462
@@ -2089,9 +2339,13 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 AFZ 0 2461
 D2
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2463
@@ -2109,9 +2363,13 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 AFZ 0 2462
 D1
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2464
@@ -2129,9 +2387,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2465
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2463
@@ -2149,9 +2411,13 @@ D2
 Walking through DragonSpyre
 ~
 wall~
+the wall~
+~
 ABCFZ 2403 2466
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2464
@@ -2169,9 +2435,13 @@ D0
 Walking through DragonSpyre
 ~
 wall~
+the wall~
+~
 ABCFZ 2403 2465
 D2
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2467
@@ -2189,9 +2459,13 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2466
 D2
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2468
@@ -2209,9 +2483,13 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2467
 D2
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2469
@@ -2229,9 +2507,13 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2468
 D2
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2470
@@ -2249,9 +2531,13 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2469
 D1
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2471
@@ -2259,6 +2545,8 @@ D3
 Walking through DragonSpyre
 ~
 gate~
+the gate~
+~
 ABCFZ 2404 2474
 S
 #2471
@@ -2274,9 +2562,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2472
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2470
@@ -2294,9 +2586,13 @@ D1
 Lair of the Copper Dragon
 ~
 ~
+~
+~
 Z 0 2473
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2471
@@ -2314,6 +2610,8 @@ D3
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2472
 S
 #2474
@@ -2329,9 +2627,13 @@ D1
 Walking through DragonSpyre
 ~
 gate~
+the gate~
+~
 ABCFZ 0 2470
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2475
@@ -2349,9 +2651,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2474
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2476
@@ -2369,14 +2675,20 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2475
 D2
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2477
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2479
@@ -2394,11 +2706,15 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2476
 D2
 Treasure Room
 ~
 door~
+~
+~
 ABCFZ 2404 2478
 S
 #2478
@@ -2412,11 +2728,15 @@ D0
 Walking through DragonSpyre
 ~
 door~
+~
+~
 ABCFZ 2404 2477
 D2
 Walking through DragonSpyre
 ~
 door~
+~
+~
 AFZ 2404 2483
 S
 #2479
@@ -2432,9 +2752,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2476
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2480
@@ -2452,9 +2776,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2479
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2481
@@ -2472,9 +2800,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2480
 D2
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2482
@@ -2492,6 +2824,8 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2481
 S
 #2483
@@ -2507,9 +2841,13 @@ D0
 Treasure Room
 ~
 door~
+~
+~
 ABCFZ 2404 2478
 D2
 Walking through DragonSpyre
+~
+~
 ~
 ~
 AFZ 2404 2484
@@ -2527,9 +2865,13 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2483
 D2
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2485
@@ -2547,9 +2889,13 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2484
 D1
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2491
@@ -2557,9 +2903,13 @@ D2
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2495
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2486
@@ -2577,9 +2927,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2485
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2487
@@ -2597,9 +2951,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2486
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2488
@@ -2617,9 +2975,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2487
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2489
@@ -2637,11 +2999,15 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2488
 D3
 Pixie King's Bedroom
 ~
 door~
+~
+~
 ABCFZ 2405 2490
 S
 #2490
@@ -2656,6 +3022,8 @@ D1
 Walking through DragonSpyre
 ~
 door~
+~
+~
 ABCFZ 2405 2489
 S
 #2491
@@ -2671,9 +3039,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2492
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2485
@@ -2691,9 +3063,13 @@ D1
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2493
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2491
@@ -2711,9 +3087,13 @@ D1
 Throne room of the Pixie King
 ~
 door~
+~
+~
 ABZ -1 2494
 D3
 Walking through DragonSpyre
+~
+~
 ~
 ~
 Z 0 2492
@@ -2731,6 +3111,8 @@ D3
 Walking through DragonSpyre
 ~
 door~
+~
+~
 ABFZ -1 2493
 S
 #2495
@@ -2746,9 +3128,13 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2485
 D2
 Approaching the end of the Hallway
+~
+~
 ~
 ~
 Z 0 2496
@@ -2766,9 +3152,13 @@ D0
 Walking through DragonSpyre
 ~
 ~
+~
+~
 Z 0 2495
 D2
 Approaching the end of the Hallway
+~
+~
 ~
 ~
 Z 0 2497
@@ -2786,9 +3176,13 @@ D0
 Approaching the end of the Hallway
 ~
 ~
+~
+~
 Z 0 2496
 D2
 Approaching the end of the Hallway
+~
+~
 ~
 ~
 Z 0 2498
@@ -2806,9 +3200,13 @@ D0
 Approaching the end of the Hallway
 ~
 ~
+~
+~
 Z 0 2497
 D2
 The end of the Hallway
+~
+~
 ~
 ~
 Z 0 2499
@@ -2825,9 +3223,13 @@ D0
 Approaching the end of the Hallway
 ~
 ~
+~
+~
 Z 0 2498
 D1
 The Beginning of the Cavern
+~
+~
 ~
 ~
 Z 0 2408
@@ -2844,9 +3246,13 @@ D0
 old dragon's office
 ~
 door~
+~
+~
 ABCFGZ 2434 2501
 D1
 dragonspyre.
+~
+~
 ~
 ~
 Z -1 2441
@@ -2863,6 +3269,8 @@ D2
 old dragon's office
 ~
 door~
+~
+~
 Z -1 2500
 S
 #0

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Holy Grove~
 VNUMs 8900 8999
 Credits Alfa~
@@ -374,9 +374,13 @@ D1
 The path wind its way through the tall trees, disappearing out of sight.
 ~
 ~
+~
+~
 Z -1 8902
 D2
 The path wind its way through the tall trees, disappearing out of sight.
+~
+~
 ~
 ~
 Z -1 8904
@@ -392,15 +396,21 @@ D1
 The path wind its way through the tall trees, towards a clearing faintly seen.
 ~
 ~
+~
+~
 Z -1 8903
 D2
 The path wind its way through the tall trees, towards an open area barely
 visible in the distance.
 ~
 ~
+~
+~
 Z -1 8905
 D3
 The path wind its way through the tall trees, disappearing out of sight.
+~
+~
 ~
 ~
 Z -1 8901
@@ -422,15 +432,21 @@ A small, narrow path winds north, and is quickly lost in the bushes. It
 looks quite a wilderness there!
 ~
 ~
+~
+~
 Z -1 5378
 D2
 There is a path winding its way south through the tall poplars, disappearing
 out of sight some 100 yds. away.
 ~
 ~
+~
+~
 Z -1 8906
 D3
 There is a friendly-looking path leading west through the tall trees.
+~
+~
 ~
 ~
 Z -1 8902
@@ -448,9 +464,13 @@ D0
 The path wind its way through the tall trees, disappearing out of sight.
 ~
 ~
+~
+~
 Z -1 8901
 D1
 The path wind its way through the tall trees, towards a clearing faintly seen.
+~
+~
 ~
 ~
 Z -1 8905
@@ -458,9 +478,13 @@ D2
 The path wind its way through the tall trees, into the grove.
 ~
 ~
+~
+~
 Z -1 8907
 D3
 You can barely see a path leading back towards the eastern road.
+~
+~
 ~
 ~
 Z -1 8951
@@ -481,9 +505,13 @@ D0
 The path wind its way north, disappearing through the tall trees.
 ~
 ~
+~
+~
 Z -1 8902
 D1
 The path wind its way through the tall trees, disappearing out of sight.
+~
+~
 ~
 ~
 Z -1 8906
@@ -492,15 +520,21 @@ To the south, a wide, sunny field stretch out, sloping down towards a brightly
 glittering lake.
 ~
 ~
+~
+~
 Z -1 8908
 D3
 The path wind its way west between stately poplars and oaks.
+~
+~
 ~
 ~
 Z -1 8904
 D4
 The shimmering grows in intensity as you look at it, beckoning you to reach
 upwards...
+~
+~
 ~
 ~
 Z -1 9000
@@ -524,15 +558,21 @@ D0
 The path wind its way through the tall trees, disappearing out of sight.
 ~
 ~
+~
+~
 Z -1 8903
 D2
 To the south, just beyond the trees, you can see a wide green lawn, and past
 the lawn, a softly shimmering, rainbow-colored mansion.
 ~
 ~
+~
+~
 Z -1 8909
 D3
 The path wind its way through the tall trees, disappearing out of sight.
+~
+~
 ~
 ~
 Z -1 8905
@@ -558,11 +598,15 @@ The path leading north is soon lost out of sight amongst the ancient oaks and
 poplars.
 ~
 ~
+~
+~
 Z -1 8904
 D1
 To the east, the path leads out into a wide, sunny summer's field, sloping
 south towards a beautiful lake. Past the field You can see a stately mansion,
 shimmering gently in all the rainbow's colours.
+~
+~
 ~
 ~
 Z -1 8908
@@ -590,15 +634,21 @@ D0
 There is a path leading north towards the sacred glade.
 ~
 ~
+~
+~
 Z -1 8905
 D1
 To the east, You can see the rainbow-colored mansion, shimmering like some-
 thing out of this world.
 ~
 ~
+~
+~
 Z -1 8919
 D3
 There is a small path leading into the woods to the west.
+~
+~
 ~
 ~
 Z -1 8907
@@ -623,11 +673,15 @@ D0
 To the north, the winding stone path leads into the holy grove.
 ~
 ~
+~
+~
 Z -1 8906
 D2
 To the south, the path leads straight up to the front door of the mansion.
 ~
 door~
+~
+~
 ABZ -1 8910
 S
 #8910
@@ -651,10 +705,14 @@ Through the windows next to the door you can see the croquet lawn, bathed in
 afternoon sunlight.
 ~
 door~
+~
+~
 ABZ -1 8909
 D2
 ~
 door~
+~
+~
 ABZ -1 8911
 S
 #8911
@@ -667,12 +725,18 @@ The hallway leads south, and there is a door in the eastern wall.
 D0
 ~
 door~
+~
+~
 ABZ -1 8910
 D1
 ~
 door~
+~
+~
 ABZ -1 8912
 D2
+~
+~
 ~
 ~
 Z -1 8913
@@ -689,6 +753,8 @@ blinds in front of the large east window you can see the edge of the grove.
 D3
 ~
 door~
+~
+~
 ABZ -1 8911
 S
 #8913
@@ -701,18 +767,26 @@ coat-of-arms adorn the walls here.
 D0
 ~
 ~
+~
+~
 Z -1 8911
 D1
 ~
 door~
+~
+~
 ABZ -1 8914
 D2
 ~
 door~
+~
+~
 ABZ -1 8915
 D3
 ~
 door~
+~
+~
 ABZ -1 8916
 S
 #8914
@@ -727,6 +801,8 @@ pulled away from the wide windows, to reveal a nice view towards the grove.
 D3
 ~
 door~
+~
+~
 ABZ -1 8913
 S
 #8915
@@ -743,10 +819,14 @@ than meticulous housekeeper... There are doors to the north and west.
 D0
 ~
 door~
+~
+~
 ABZ -1 8913
 D3
 ~
 door~
+~
+~
 ABZ -1 8918
 S
 #8916
@@ -761,12 +841,18 @@ short corridor to the greenhouse.
 D1
 ~
 door~
+~
+~
 ABZ -1 8913
 D2
 ~
 door~
+~
+~
 ABZ -1 8918
 D3
+~
+~
 ~
 ~
 Z -1 8917
@@ -785,10 +871,14 @@ terrace.
 D1
 ~
 ~
+~
+~
 Z -1 8916
 D2
 ~
 door~
+~
+~
 ABZ -1 8919
 S
 #8918
@@ -816,14 +906,20 @@ portrait of a silver Dragon, sparkling with blue lightening, looking amused.
 D0
 ~
 door~
+~
+~
 ABZ -1 8916
 D1
 ~
 door~
+~
+~
 ABZ -1 8915
 D3
 ~
 wide door~
+the wide~
+~
 ABZ -1 8919
 S
 #8919
@@ -839,12 +935,18 @@ together with a matched set of chairs.
 D0
 ~
 door~
+~
+~
 ABZ -1 8917
 D1
 ~
 double door~
+the double~
+~
 ABZ -1 8918
 D3
+~
+~
 ~
 ~
 Z -1 8908
@@ -861,9 +963,13 @@ D0
 A faint trail leads deeper into the grove.
 ~
 ~
+~
+~
 Z -1 8951
 D2
 A wide road lies to the south.
+~
+~
 ~
 ~
 Z -1 3526
@@ -881,9 +987,13 @@ D1
 You see the stately oaks and poplars of the holy grove.
 ~
 ~
+~
+~
 Z -1 8904
 D2
 A faint trail heads towards the eastern road.
+~
+~
 ~
 ~
 Z -1 8950

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Wyvern's Tower~
 VNUMs 1600 1799
 Credits Tyrst~
@@ -653,9 +653,13 @@ D1
 The road heads into low hills this way.
 ~
 ~
+~
+~
 Z 0 1602
 D3
 The cross-roads and a trading post lie in this direction.
+~
+~
 ~
 ~
 Z 0 1702
@@ -671,9 +675,13 @@ D1
 You see a pair of tall towers in the distance.
 ~
 ~
+~
+~
 Z 0 1603
 D3
 The road continues.
+~
+~
 ~
 ~
 Z 0 1601
@@ -689,9 +697,13 @@ D1
 Two fantastic towers surrounded by a moat rise before you.
 ~
 ~
+~
+~
 Z 0 1604
 D3
 The road continues.
+~
+~
 ~
 ~
 Z 0 1602
@@ -708,14 +720,20 @@ D0
 A worn path leads to a cluster of low buildings.
 ~
 ~
+~
+~
 Z 0 1605
 D1
 The Towers loom directly over you, just beyond the moat.
 ~
 ~
+~
+~
 Z 0 1620
 D3
 An old ill-kept roads leads away to the west.
+~
+~
 ~
 ~
 Z 0 1603
@@ -730,9 +748,13 @@ D0
 Several low buildings lie this way.
 ~
 ~
+~
+~
 Z 0 1606
 D2
 The path ends west of the moat.
+~
+~
 ~
 ~
 Z 0 1604
@@ -748,9 +770,13 @@ D0
 There is an entrance to a building.
 ~
 ~
+~
+~
 Z 0 1609
 D1
 A sign over the door reads 'House of Pancakes'.
+~
+~
 ~
 ~
 Z 0 1607
@@ -758,9 +784,13 @@ D2
 A path heads south toward the west side of the towers.
 ~
 ~
+~
+~
 Z 0 1605
 D3
 There is an entrance to a building here.
+~
+~
 ~
 ~
 Z 0 1608
@@ -781,6 +811,8 @@ that were in here appear to have been ruined long ago.
 D1
 ~
 ~
+~
+~
 Z 0 1606
 S
 #1609
@@ -792,9 +824,13 @@ way you came.  There are some scratches around the floor.
 D2
 ~
 ~
+~
+~
 Z 0 1606
 D5
 You see a concealed opening leading down.
+~
+~
 ~
 ~
 Z 0 1610
@@ -806,6 +842,8 @@ the worn but cared-for gear and trappings of some large humanoid.
 ~
 0 ACD inside
 D4
+~
+~
 ~
 ~
 Z 0 1609
@@ -820,16 +858,24 @@ water all around you.
 D0
 ~
 ~
+~
+~
 Z 0 1621
 D1
+~
+~
 ~
 ~
 Z 0 1623
 D2
 ~
 ~
+~
+~
 Z 0 1622
 D3
+~
+~
 ~
 ~
 Z 0 1604
@@ -844,6 +890,8 @@ around you.
 D2
 ~
 ~
+~
+~
 Z 0 1620
 S
 #1622
@@ -854,6 +902,8 @@ around you.
 ~
 0 0 noswim
 D0
+~
+~
 ~
 ~
 Z 0 1620
@@ -868,8 +918,12 @@ the walls are ornately decorated with very life-like stone gargoyles.
 D1
 ~
 ~
+~
+~
 Z 0 1624
 D3
+~
+~
 ~
 ~
 Z 0 1620
@@ -886,8 +940,12 @@ covered in highly ornate and life-like stone gargoyles.
 D1
 ~
 ~
+~
+~
 Z 0 1625
 D3
+~
+~
 ~
 ~
 Z 0 1623
@@ -902,16 +960,24 @@ stone gargoyle.  There are doors north and south, and passages east and west.
 D0
 ~
 ~
+~
+~
 Z 0 1627
 D1
+~
+~
 ~
 ~
 Z 0 1626
 D2
 ~
 ~
+~
+~
 Z 0 1628
 D3
+~
+~
 ~
 ~
 Z 0 1624
@@ -925,16 +991,24 @@ There are room on each side of the corridor, and openings at each end.
 D0
 ~
 ~
+~
+~
 Z 0 1629
 D1
+~
+~
 ~
 ~
 Z 0 1631
 D2
 ~
 ~
+~
+~
 Z 0 1630
 D3
+~
+~
 ~
 ~
 Z 0 1625
@@ -949,6 +1023,8 @@ pot-belly stove.  There is a door south, and a serving hatch east.
 D2
 ~
 ~
+~
+~
 Z 0 1625
 S
 #1628
@@ -958,6 +1034,8 @@ the plants have grown into a hideous jungle.  The only exit is north.
 ~
 0 AD inside
 D0
+~
+~
 ~
 ~
 Z 0 1625
@@ -973,6 +1051,8 @@ a door south.
 D2
 ~
 ~
+~
+~
 Z 0 1626
 S
 #1630
@@ -982,6 +1062,8 @@ have been stolen long ago, however.  The only exit is north.
 ~
 0 AD city
 D0
+~
+~
 ~
 ~
 Z 0 1626
@@ -998,17 +1080,25 @@ tower.
 D0
 ~
 ~
+~
+~
 Z 0 1632
 D2
+~
+~
 ~
 ~
 Z 0 1633
 D3
 ~
 ~
+~
+~
 Z 0 1626
 D4
 You see a spiral staircase leading up.
+~
+~
 ~
 ~
 Z 0 1635
@@ -1023,9 +1113,13 @@ remains of a great many table and chairs.  The exit is south.
 D2
 ~
 ~
+~
+~
 Z 0 1631
 D5
 You notice a grate in the bottom of the fire pit.  Maybe it's an opening ...
+~
+~
 ~
 ~
 Z -1 1634
@@ -1040,6 +1134,8 @@ anyway.  The only exit is north.
 D0
 ~
 ~
+~
+~
 Z 0 1631
 S
 #1634
@@ -1050,6 +1146,8 @@ furniture looms obliquely about the room.
 ~
 0 AD city
 D4
+~
+~
 ~
 ~
 Z -1 1632
@@ -1063,8 +1161,12 @@ the eastern tower. You can go up or down.
 D4
 ~
 ~
+~
+~
 Z 0 1636
 D5
+~
+~
 ~
 ~
 Z 0 1631
@@ -1079,8 +1181,12 @@ walls.  An opening leads westward, and a spiral staircase leads down.
 D3
 ~
 ~
+~
+~
 Z 0 1637
 D5
+~
+~
 ~
 ~
 Z 0 1635
@@ -1096,16 +1202,24 @@ and openings east and west.
 D0
 ~
 ~
+~
+~
 Z 0 1638
 D1
+~
+~
 ~
 ~
 Z 0 1636
 D2
 ~
 ~
+~
+~
 Z 0 1639
 D3
+~
+~
 ~
 ~
 Z 0 1640
@@ -1121,6 +1235,8 @@ exit is south.
 D2
 ~
 ~
+~
+~
 Z 0 1637
 S
 #1639
@@ -1130,6 +1246,8 @@ The only exit is north.
 ~
 0 AD inside
 D0
+~
+~
 ~
 ~
 Z 0 1637
@@ -1145,13 +1263,19 @@ room is barren.
 D1
 ~
 ~
+~
+~
 Z 0 1637
 D3
+~
+~
 ~
 ~
 Z 0 1641
 D4
 You see the spiral staircase leading up.
+~
+~
 ~
 ~
 Z 0 1642
@@ -1165,6 +1289,8 @@ view of the entire room.  The only exit is the way you came in.
 D1
 ~
 ~
+~
+~
 Z 0 1640
 S
 #1642
@@ -1176,8 +1302,12 @@ second and third floors.  You can go up or down.
 D4
 ~
 ~
+~
+~
 Z 0 1643
 D5
+~
+~
 ~
 ~
 Z 0 1640
@@ -1192,8 +1322,12 @@ comes a strange inky blackness.  A spiral staircase leads down.
 D1
 ~
 ~
+~
+~
 Z -1 1644
 D5
+~
+~
 ~
 ~
 Z 0 1642
@@ -1205,16 +1339,24 @@ It's too dark to see anything!~
 D0
 ~
 ~
+~
+~
 Z -1 1645
 D1
+~
+~
 ~
 ~
 Z -1 1647
 D2
 ~
 ~
+~
+~
 Z -1 1646
 D3
+~
+~
 ~
 ~
 Z -1 1643
@@ -1227,6 +1369,8 @@ in one corner catches your eye.  The only exit is the way you came in.
 ~
 0 AD inside
 D2
+~
+~
 ~
 ~
 Z -1 1644
@@ -1243,6 +1387,8 @@ of authority.  The only door is north.
 D0
 ~
 ~
+~
+~
 Z -1 1644
 S
 #1647
@@ -1256,9 +1402,13 @@ looking keyhole.  There is also a door to the west.
 D3
 ~
 ~
+~
+~
 Z -1 1644
 D4
 The hatchway appears securely fastened.  In it is a strange keyhole.
+~
+~
 ~
 ~
 Z -1 1648
@@ -1275,8 +1425,12 @@ D3
 There is a small opening this way.
 ~
 ~
+~
+~
 Z 0 1649
 D5
+~
+~
 ~
 ~
 Z -1 1647
@@ -1294,9 +1448,13 @@ leads into the western turret.
 D1
 ~
 ~
+~
+~
 Z 0 1648
 D3
 A mirror-like portal glimmers, allowing entry into the western turret.
+~
+~
 ~
 ~
 Z 0 1650
@@ -1312,9 +1470,13 @@ western wall.
 D1
 ~
 ~
+~
+~
 Z 0 1649
 D3
 A mirror-like portal glimmers in this wall.
+~
+~
 ~
 ~
 Z 0 1651
@@ -1331,8 +1493,12 @@ as the eye can see under the conditions.
 D1
 ~
 ~
+~
+~
 Z 0 1650
 D3
+~
+~
 ~
 ~
 Z 0 1652
@@ -1344,6 +1510,8 @@ chair facing a mirror on the wall.
 ~
 0 0 inside
 D1
+~
+~
 ~
 ~
 Z 0 1651
@@ -1359,8 +1527,12 @@ D1
 You see a cross roads and an old building.
 ~
 ~
+~
+~
 Z 0 1702
 D3
+~
+~
 ~
 ~
 Z 0 5267
@@ -1378,9 +1550,13 @@ D0
 You see a trail leading north.
 ~
 ~
+~
+~
 Z 0 1704
 D1
 The old Eastern road continues this way.
+~
+~
 ~
 ~
 Z 0 1601
@@ -1388,8 +1564,12 @@ D2
 An old, ram-shackle building serves as a trading post here.
 ~
 ~
+~
+~
 Z 0 1703
 D3
+~
+~
 ~
 ~
 Z 0 1701
@@ -1405,6 +1585,8 @@ D0
 The door opens out on the crossroads.
 ~
 ~
+~
+~
 Z 0 1702
 S
 #1704
@@ -1418,9 +1600,13 @@ D0
 The trail continues toward a deep, dark, forest.
 ~
 ~
+~
+~
 Z 0 1705
 D2
 A major crossroads and a building lie in this direction.
+~
+~
 ~
 ~
 Z 0 1702
@@ -1435,9 +1621,13 @@ D0
 The trail enters a dark forest of thick oaks this way.
 ~
 ~
+~
+~
 Z 0 1706
 D2
 The trail continues.
+~
+~
 ~
 ~
 Z 0 1704
@@ -1453,9 +1643,13 @@ D0
 You see the trail continuing into the forest.
 ~
 ~
+~
+~
 Z 0 1707
 D2
 You see the trail head back on south.
+~
+~
 ~
 ~
 Z 0 1705
@@ -1472,9 +1666,13 @@ D0
 You see the trail continue into thick, dark forest.
 ~
 ~
+~
+~
 Z 0 1708
 D2
 The edge of the forest is visible in this direction.
+~
+~
 ~
 ~
 Z 0 1706
@@ -1489,14 +1687,20 @@ D1
 A path disappears into thick forest.
 ~
 ~
+~
+~
 Z 0 1720
 D2
 A path disappears into thick forest.
 ~
 ~
+~
+~
 Z 0 1707
 D3
 You see the path to the Centaur village.
+~
+~
 ~
 ~
 Z 0 1709
@@ -1512,9 +1716,13 @@ D1
 A path disappears into thick forest.
 ~
 ~
+~
+~
 Z 0 1708
 D3
 There is a small clearing in this direction.
+~
+~
 ~
 ~
 Z 0 1710
@@ -1531,9 +1739,13 @@ D0
 There is a hut here.
 ~
 ~
+~
+~
 Z 0 1712
 D1
 A path leads away through the forest.
+~
+~
 ~
 ~
 Z 0 1709
@@ -1541,9 +1753,13 @@ D2
 There is a hut here.
 ~
 ~
+~
+~
 Z 0 1713
 D3
 You see the west side of the clearing.
+~
+~
 ~
 ~
 Z 0 1711
@@ -1559,9 +1775,13 @@ D0
 There is a hut here.
 ~
 ~
+~
+~
 Z 0 1714
 D1
 You see the east side of the clearing.
+~
+~
 ~
 ~
 Z 0 1710
@@ -1569,9 +1789,13 @@ D2
 There is a hut here.
 ~
 ~
+~
+~
 Z 0 1715
 D3
 There is a hut here.
+~
+~
 ~
 ~
 Z 0 1716
@@ -1586,6 +1810,8 @@ D2
 The opening leads out onto the clearing.
 ~
 ~
+~
+~
 Z 0 1710
 S
 #1713
@@ -1596,6 +1822,8 @@ is sparsely furnished, mostly the trappings of survival.
 0 D inside
 D0
 The opening leads out onto the clearing.
+~
+~
 ~
 ~
 Z 0 1710
@@ -1610,6 +1838,8 @@ D2
 The opening leads out onto the clearing.
 ~
 ~
+~
+~
 Z 0 1711
 S
 #1715
@@ -1620,6 +1850,8 @@ is sparsely furnished, mostly the trappings of survival.
 0 D inside
 D0
 The opening leads out onto the clearing.
+~
+~
 ~
 ~
 Z 0 1711
@@ -1635,9 +1867,13 @@ D1
 The opening leads out onto the clearing.
 ~
 ~
+~
+~
 Z 0 1711
 D3
 There is a curtain here separating this section from the next.
+~
+~
 ~
 ~
 Z 0 1717
@@ -1653,6 +1889,8 @@ D1
 There is a curtain here separating this room from the front of the hut.
 ~
 ~
+~
+~
 Z 0 1716
 S
 #1720
@@ -1664,6 +1902,8 @@ be seen in any direction.
 0 0 hills
 D3
 The path continues west through thick forest.
+~
+~
 ~
 ~
 Z 0 1708

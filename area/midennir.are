@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Miden'nir~
 VNUMs 3500 3599
 Credits Copper~
@@ -299,12 +299,18 @@ enter the hills far away north.
 D0
 ~
 ~
+~
+~
 Z 0 4000
 D1
 ~
 ~
+~
+~
 Z -1 19001
 D2
+~
+~
 ~
 ~
 Z 0 3501
@@ -322,8 +328,12 @@ serenity. You can follow the road north or south.
 D0
 ~
 ~
+~
+~
 Z 0 3500
 D2
+~
+~
 ~
 ~
 Z 0 3502
@@ -348,10 +358,14 @@ D0
 @rus Старая дорога ведет к оставленным шахтам Мории и Гномьему Королевству.
 ~
 ~
+~
+~
 Z 0 3501
 D1
 @eng The road continues east, where you hear faint singing.
 @rus Дорога продолжается на восток, и там, на востоке слабо слышится писклявое пение.
+~
+~
 ~
 ~
 Z 0 3525
@@ -361,10 +375,14 @@ D2
 к руинам Талоса.
 ~
 ~
+~
+~
 Z 0 5261
 D3
 @eng The road leads west towards Midgaard.
 @rus Дорога ведет на запад к Мидгаарду.
+~
+~
 ~
 ~
 Z 0 3503
@@ -385,8 +403,12 @@ a confusion of shops, bars, and market places.
 D1
 ~
 ~
+~
+~
 Z 0 3502
 D3
+~
+~
 ~
 ~
 Z 0 3053
@@ -415,10 +437,14 @@ D0
 @rus На севере ты видишь южные ворота Мидгаарда.
 ~
 ~
+~
+~
 Z 0 3256
 D1
 @eng More light forest.
 @rus Много редколесья.
+~
+~
 ~
 ~
 Z 0 3506
@@ -427,10 +453,14 @@ D2
 @rus Этот путь идет сквозь чащу Миден'нира.
 ~
 ~
+~
+~
 Z 0 3507
 D3
 @eng The Woodsman's Inn.
 @rus Гостиница лешего.
+~
+~
 ~
 ~
 Z 0 3570
@@ -446,16 +476,22 @@ here, only the lighter forest to the west or south offer a way to travel.
 D1
 ~
 ~
+~
+~
 Z -1 3550
 D2
 @eng The forest is darker to the south.
 @rus Лес на юге все темнее и темнее.
 ~
 ~
+~
+~
 Z 0 3509
 D3
 @eng The forest gets lighter as you go west.
 @rus Лес становится реже на западе.
+~
+~
 ~
 ~
 Z 0 3505
@@ -475,16 +511,22 @@ D0
 @rus В этом направлении лес становится реже.
 ~
 ~
+~
+~
 Z 0 3505
 D2
 @eng More and darker woods.
 @rus Еще более темный лес.
 ~
 ~
+~
+~
 Z 0 3510
 D3
 @eng There is a small path leading west.
 @rus Маленькая тропа ведет на запад.
+~
+~
 ~
 ~
 Z 0 3508
@@ -502,10 +544,14 @@ D1
 @rus Лес насквозь продувается ветром.
 ~
 ~
+~
+~
 Z 0 3507
 D2
 @eng To the south, the trail continues.
 @rus На юге путь продолжается.
+~
+~
 ~
 ~
 Z 0 3511
@@ -526,16 +572,22 @@ D0
 @rus Деревья здесь растут реже и это несколько облегчает путь.
 ~
 ~
+~
+~
 Z 0 3506
 D1
 @eng Huge grey mountains lie in this direction.
 @rus Огромные серые горы виднеются в этом направлении.
 ~
 ~
+~
+~
 Z 0 3512
 D2
 @eng The forest continues.
 @rus Лес продолжается.
+~
+~
 ~
 ~
 Z 0 3514
@@ -553,16 +605,22 @@ D0
 @rus Деревья, деревья, деревья... Куда ни кинешь взгляд - везде лес.
 ~
 ~
+~
+~
 Z 0 3507
 D1
 @eng There is an especially dark part of the forest this way.
 @rus Особенно темный лес в этом месте.
 ~
 ~
+~
+~
 Z 0 3514
 D2
 @eng There is an especially dark section of forest this way.
 @rus Особенно темная часть леса в этом месте.
+~
+~
 ~
 ~
 Z 0 3516
@@ -582,10 +640,14 @@ D0
 @rus Тропа отклоняется к северу.
 ~
 ~
+~
+~
 Z 0 3508
 D2
 @eng To the south, the path re-enters the forest.
 @rus На юге тропа скрывается в лесу.
+~
+~
 ~
 ~
 Z 0 3515
@@ -594,6 +656,8 @@ D3
 @rus Ты ничего тут не видишь.
 ~
 secret~
+@eng the secret@rus секретная дверь~
+@rus female~
 Z 0 201
 S
 #3512
@@ -609,16 +673,22 @@ forest, but the steep mountains prevent any movement east.
 D0
 ~
 ~
+~
+~
 Z -1 3550
 D2
 @eng A light section of forest.
 @rus Участок редколесья.
 ~
 ~
+~
+~
 Z 0 3513
 D3
 @eng The forest continues here.
 @rus Лес продолжается.
+~
+~
 ~
 ~
 Z 0 3509
@@ -639,14 +709,20 @@ D0
 @rus На севере виднеется небольшой просвет.
 ~
 ~
+~
+~
 Z 0 3512
 D1
+~
+~
 ~
 ~
 Z 0 29101
 D3
 @eng It gets darker and thicker this way.
 @rus Деревья становятся все толще, а лес все темнее.
+~
+~
 ~
 ~
 Z 0 3514
@@ -666,10 +742,14 @@ D0
 @rus Еще лес.
 ~
 ~
+~
+~
 Z 0 3509
 D1
 @eng Lighter forest and mountains in the distance.
 @rus Редкие деревья и горы невдалеке.
+~
+~
 ~
 ~
 Z 0 3513
@@ -678,10 +758,14 @@ D2
 @rus Еще деревья.
 ~
 ~
+~
+~
 Z 0 3517
 D3
 @eng The forest continues.
 @rus Лес прожолжается.
+~
+~
 ~
 ~
 Z 0 3510
@@ -700,16 +784,22 @@ D0
 @rus Тропа ведет на север и на юг.
 ~
 ~
+~
+~
 Z 0 3511
 D1
 @eng The trees get thicker as you go east.
 @rus Деревья растут все гуще при продвижении на восток.
 ~
 ~
+~
+~
 Z 0 3516
 D2
 @eng More trees and some small hills.
 @rus Деревья и несколько маленьких холмов.
+~
+~
 ~
 ~
 Z 0 3518
@@ -729,10 +819,14 @@ D0
 @rus Миден'нир продолжается.
 ~
 ~
+~
+~
 Z 0 3510
 D1
 @eng More trees.
 @rus Еще деревья.
+~
+~
 ~
 ~
 Z 0 3517
@@ -741,10 +835,14 @@ D2
 @rus Деревья становятся просто необхватными на юге. Ты можешь только смотреть...
 ~
 ~
+~
+~
 Z 0 3519
 D3
 @eng Some light trees and daylight.
 @rus Несколько деревьев в дневном свете.
+~
+~
 ~
 ~
 Z 0 3515
@@ -764,10 +862,14 @@ D0
 @rus Множество деревьев виднеется на севере.
 ~
 ~
+~
+~
 Z 0 3514
 D3
 @eng There is a bit of a slope downward to the west.
 @rus На западе ощущается небольшой наклон.
+~
+~
 ~
 ~
 Z 0 3516
@@ -785,10 +887,14 @@ D0
 @rus Ты не можешь разглядеть тропу.
 ~
 ~
+~
+~
 Z 0 3515
 D2
 @eng Dark forests.
 @rus Чаща леса.
+~
+~
 ~
 ~
 Z 0 3522
@@ -807,16 +913,22 @@ D0
 @rus Лес редеет.
 ~
 ~
+~
+~
 Z 0 3516
 D1
 @eng The forest continues.
 @rus Лес продолжается.
 ~
 ~
+~
+~
 Z 0 3520
 D2
 @eng There is a strong stench coming from this direction.
 @rus Идя в этом направлении ты начинаешь чувствовать сильную вонь.
+~
+~
 ~
 ~
 Z 0 3521
@@ -838,10 +950,14 @@ D2
 @rus Густой лес продолжается.
 ~
 ~
+~
+~
 Z 0 3523
 D3
 @eng The thick forest continues.
 @rus Густой лес продолжается.
+~
+~
 ~
 ~
 Z 0 3519
@@ -874,16 +990,22 @@ D0
 @rus Тьма...
 ~
 ~
+~
+~
 Z 0 3519
 D1
 @eng Your light does not extend that far.
 @rus Твой свет не достает так далеко.
 ~
 ~
+~
+~
 Z 0 3523
 D3
 @eng More dark forest.
 @rus Еще темный лес.
+~
+~
 ~
 ~
 Z 0 3522
@@ -903,10 +1025,14 @@ D0
 @rus Ты видишь дневной свет вдалеке.
 ~
 ~
+~
+~
 Z 0 3518
 D1
 @eng The stench seems to becoming from this direction.
 @rus Зловоние усиливается в этом направлении.
+~
+~
 ~
 ~
 Z 0 3521
@@ -927,14 +1053,20 @@ D0
 @rus Лес, кажется, становится еще темнее.
 ~
 ~
+~
+~
 Z 0 3520
 D1
+~
+~
 ~
 ~
 Z -1 3551
 D3
 @eng The sky becomes lighter in this direction.
 @rus Небо светлеет в этом направлении.
+~
+~
 ~
 ~
 Z 0 3521
@@ -953,16 +1085,22 @@ D0
 @rus Ты видишь тропку, покрытую крошечными следами. Пение усиливается.
 ~
 ~
+~
+~
 Z -1 101
 D1
 @eng The road continues to the east.
 @rus Дорога продолжается на восток.
 ~
 ~
+~
+~
 Z -1 3526
 D3
 @eng You can see the crossroads.
 @rus Ты видишь перекресток.
+~
+~
 ~
 ~
 Z -1 3502
@@ -983,10 +1121,14 @@ D0
 @rus Ты видишь красивую, тенистую рощу - это мирное место где можно расслабиться.
 ~
 ~
+~
+~
 Z -1 8950
 D1
 @eng The road continues west towards a guarded checkpoint.
 @rus Дорога продолжается на запад к охраняемой заставе.
+~
+~
 ~
 ~
 Z -1 3527
@@ -995,10 +1137,14 @@ D2
 @rus Пыльная тропа ведет в деревню гномов.
 ~
 ~
+~
+~
 Z -1 1501
 D3
 @eng The road continues west towards midgaard.
 @rus Дорога ведет на запад в Мидгаард.
+~
+~
 ~
 ~
 Z -1 3525
@@ -1019,10 +1165,14 @@ D1
 @rus Дорога ведет на восток к Новому Талосу.
 ~
 ~
+~
+~
 Z -1 3528
 D3
 @eng The road continues west towards midgaard.
 @rus Дорога ведет на запал к Мидгаарду.
+~
+~
 ~
 ~
 Z -1 3526
@@ -1046,10 +1196,14 @@ D1
 приближения к пустыне.
 ~
 ~
+~
+~
 Z -1 3529
 D3
 @eng You see a heavily guarded checkpoint to the west.
 @rus Ты видешь укрепленную заставу на западе.
+~
+~
 ~
 ~
 Z -1 3527
@@ -1070,10 +1224,14 @@ D1
 @rus Ты в Песках Горя. Пыль клубится вокруг на дороге.
 ~
 ~
+~
+~
 Z -1 3530
 D3
 @eng The road continues to the west, towards distant Midgaard.
 @rus Дорога идет на запад, Мидгаард в отдалении.
+~
+~
 ~
 ~
 Z -1 3528
@@ -1097,10 +1255,14 @@ D1
 @rus Дорога впереди полностью теряется в пустыне.
 ~
 ~
+~
+~
 Z -1 3531
 D3
 @eng You see a clearer section of road. 
 @rus Невдалеке более чистый участок дороги.
+~
+~
 ~
 ~
 Z -1 3529
@@ -1122,10 +1284,14 @@ D1
 @rus Ты можешь едва пройти по дороге.
 ~
 ~
+~
+~
 Z -1 3532
 D3
 @eng The desert thins a little to the west.
 @rus Пустыня несколько разбавлена к западу.
+~
+~
 ~
 ~
 Z -1 3530
@@ -1148,10 +1314,14 @@ D1
 @rus Ты видишь западные врата Нового Талоса.
 ~
 ~
+~
+~
 Z -1 9669
 D3
 @eng You see the road to Midgaard, covered with sand.
 @rus Ты видишь дорогу на Мидгаард, покрытую песком.
+~
+~
 ~
 ~
 Z -1 3531
@@ -1170,10 +1340,14 @@ D2
 @rus Лес Миден'нира раскинулся перед тобой.
 ~
 ~
+~
+~
 Z -1 3512
 D3
 @eng The forest of Miden'nir spreads out before you.
 @rus Лес Миден'нира раскинулся перед тобой.
+~
+~
 ~
 ~
 Z -1 3506
@@ -1193,8 +1367,12 @@ small tunnel dug into the mountainside.
 D2
 ~
 ~
+~
+~
 Z -1 3552
 D3
+~
+~
 ~
 ~
 Z -1 3523
@@ -1212,10 +1390,14 @@ D0
 @rus Снаружи ты видишь лес Миден'нира.
 ~
 ~
+~
+~
 Z -1 3551
 D2
 @eng The tunnel continues to the south.
 @rus Туннель продолжается на юг.
+~
+~
 ~
 ~
 Z -1 3553
@@ -1234,16 +1416,22 @@ D0
 @rus Туннели идут во всех направлениях.
 ~
 ~
+~
+~
 Z -1 3552
 D1
 @eng You see a small alcove.
 @rus Ты видишь маленький альков.
 ~
 ~
+~
+~
 Z -1 3554
 D2
 @eng The tunnel gets smaller in this direction.
 @rus Тунель сужается во всех направлениях.
+~
+~
 ~
 ~
 Z -1 3555
@@ -1268,6 +1456,8 @@ D3
 @rus Ты видишь главный проход.
 ~
 ~
+~
+~
 Z -1 3553
 S
 #3555
@@ -1285,10 +1475,14 @@ D0
 @rus Туннель продолжается на север.
 ~
 ~
+~
+~
 Z -1 3553
 D2
 @eng You see a small cavern.
 @rus Ты видишь небольшую каверну.
+~
+~
 ~
 ~
 Z -1 3556
@@ -1309,10 +1503,14 @@ D0
 @rus Туннель ведет на север.
 ~
 ~
+~
+~
 Z -1 3555
 D4
 @eng The Entry to the Goblin Stronghold.
 @rus Главный вход в Крепость гоблинов.
+~
+~
 ~
 ~
 Z -1 29001
@@ -1357,10 +1555,14 @@ D0
 @rus Ты видишь проход на север вокруг гостиницы.
 ~
 ~
+~
+~
 Z 0 3571
 D1
 @eng Back through the trees to the Miden'nir.
 @rus Обратно под деревья Миден'нира.
+~
+~
 ~
 ~
 Z 0 3505
@@ -1369,10 +1571,14 @@ D2
 @rus Ты видишь проход на север вокруг гостиницы.
 ~
 ~
+~
+~
 Z 0 3572
 D3
 @eng The front door of the inn beckons.
 @rus Передняя дверь гостиницы приглашает войти.
+~
+~
 ~
 ~
 Z 0 3574
@@ -1394,6 +1600,8 @@ D2
 @rus Ты видишь двор перед гостиницей.
 ~
 ~
+~
+~
 Z -1 3570
 S
 #3572
@@ -1411,16 +1619,22 @@ D0
 @rus Путь ведет во двор гостиницы.
 ~
 ~
+~
+~
 Z 0 3570
 D2
 @eng The trail heads south.
 @rus Тропка ведет на юг.
 ~
 ~
+~
+~
 Z 0 3575
 D3
 @eng This way leads to the back of the inn.
 @rus Эта тропка ведет назад к гостинице.
+~
+~
 ~
 ~
 Z 0 3573
@@ -1443,10 +1657,14 @@ D1
 @rus Ты можешь идти вокруг гостиницы этим путем.
 ~
 ~
+~
+~
 Z 0 3572
 D3
 @eng Only rats and fool adventurers play in garbage.
 @rus Только крысы и глупые авантюристы играют в мусоре.
+~
+~
 ~
 ~
 Z 0 3578
@@ -1469,10 +1687,14 @@ D0
 @rus Барная стойка. За ней владелец гостиницы.
 ~
 ~
+~
+~
 Z 0 3576
 D1
 @eng You can leave now and return to fresher air.
 @rus Ты можешь вернуться на свежий воздух.
+~
+~
 ~
 ~
 Z 0 3570
@@ -1481,8 +1703,12 @@ D2
 @rus Пустой стол - жалкое зрелище...
 ~
 ~
+~
+~
 Z 0 3579
 D3
+~
+~
 ~
 ~
 Z 0 3577
@@ -1503,10 +1729,14 @@ D0
 @rus Гостиница находится севернее.
 ~
 ~
+~
+~
 Z 0 3572
 D3
 @eng A trail thru the woods.
 @rus Тропа ведет в леса.
+~
+~
 ~
 ~
 Z 0 3581
@@ -1528,6 +1758,8 @@ D2
 @rus Ты можешь вернуться на юг в комнату отдыха.
 ~
 ~
+~
+~
 Z 0 3574
 S
 #3577
@@ -1542,6 +1774,8 @@ of a spilled drink.
 D1
 @eng You see the main floor of the Inn to the east.
 @rus Ты видишь главную комнату гостиницы на востоке.
+~
+~
 ~
 ~
 Z 0 3574
@@ -1560,6 +1794,8 @@ D1
 @rus Ты можешь вернуться в более чистое место.
 ~
 ~
+~
+~
 Z 0 3573
 S
 #3579
@@ -1573,6 +1809,8 @@ to rest and lick your wounds ...
 D0
 @eng You see the common room.
 @rus Ты видишь комнату отдыха.
+~
+~
 ~
 ~
 Z 0 3574
@@ -1590,10 +1828,14 @@ D1
 @rus Обратно к точке засады.
 ~
 ~
+~
+~
 Z 0 3575
 D3
 @eng The trail continues.
 @rus Тропа продолжается.
+~
+~
 ~
 ~
 Z -1 3582
@@ -1611,10 +1853,14 @@ D1
 @rus Тропа продолжается.
 ~
 ~
+~
+~
 Z 0 3581
 D2
 @eng The tracks lead south.
 @rus Тропа ведет на юг.
+~
+~
 ~
 ~
 Z -1 3583
@@ -1632,10 +1878,14 @@ D0
 @rus Тропа продолжается.
 ~
 ~
+~
+~
 Z -1 3582
 D3
 @eng The tracks lead east.
 @rus Следы ведут на восток.
+~
+~
 ~
 ~
 Z -1 3584
@@ -1651,6 +1901,8 @@ end right here.  The horsemen must be nearby.
 D1
 @eng Back to along the trail.
 @rus Назад на тропу.
+~
+~
 ~
 ~
 Z 0 3583

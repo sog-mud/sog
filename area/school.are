@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name MUD School~
 VNUMs 3700 3799
 Credits Hatchet~
@@ -1090,10 +1090,14 @@ D0
 @rus Ты видишь проход ведущий в МУД школу.
 ~
 ~
+~
+~
 Z 0 3757
 D1
 @eng You see the entrance to the museum.
 @rus Ты видишь вход в музей.
+~
+~
 ~
 ~
 Z -1 400
@@ -1102,14 +1106,20 @@ D2
 @rus Ты видишь дверь в одну сторону на арену.
 ~
 door~
+~
+~
 ABZ -1 3744
 D3
+~
+~
 ~
 ~
 Z 0 95800
 D5
 @eng You see the Temple of Midgaard.
 @rus Ты видишь храм Мидгарда.
+~
+~
 ~
 ~
 Z 0 3001
@@ -1166,10 +1176,14 @@ D2
 @rus Ты видишь проход в другую комнату.
 ~
 ~
+~
+~
 Z -1 3757
 D3
 @eng You see a path into another room.
 @rus Ты видишь проход в другую комнату.
+~
+~
 ~
 ~
 Z -1 3702
@@ -1213,10 +1227,14 @@ D0
 @rus Ты видишь комнату, которая поведет тебя вперед.
 ~
 ~
+~
+~
 Z 0 3703
 D1
 @eng You see a room.
 @rus Ты видишь комнату.
+~
+~
 ~
 ~
 Z 0 3701
@@ -1225,10 +1243,14 @@ D2
 @rus Ты видишь комнату.
 ~
 ~
+~
+~
 Z 0 3705
 D3
 @eng You see a room.
 @rus Ты видишь комнату.
+~
+~
 ~
 ~
 Z 0 3704
@@ -1237,10 +1259,14 @@ D4
 @rus Ты видишь комнату.
 ~
 ~
+~
+~
 Z 0 3708
 D5
 @eng You see a room.
 @rus Ты видишь комнату.
+~
+~
 ~
 ~
 Z 0 3707
@@ -1271,10 +1297,14 @@ D0
 @rus Ты видишь еще одну школу комнаты.
 ~
 ~
+~
+~
 Z -1 3709
 D2
 @eng You see the central room.
 @rus Ты видишь центральную комнату.
+~
+~
 ~
 ~
 Z 0 3702
@@ -1299,6 +1329,8 @@ D1
 @rus Ты видишь центральную комнату.
 ~
 ~
+~
+~
 Z 0 3702
 S
 #3705
@@ -1319,6 +1351,8 @@ sign~
 D0
 @eng You see the central room.
 @rus Ты видишь центральную комнату.
+~
+~
 ~
 ~
 Z 0 3702
@@ -1343,6 +1377,8 @@ D4
 @rus Ты видишь центральную комнату.
 ~
 ~
+~
+~
 Z 0 3702
 S
 #3708
@@ -1363,6 +1399,8 @@ sign~
 D5
 @eng You see the central room.
 @rus Ты видишь центральную комнату.
+~
+~
 ~
 ~
 Z 0 3702
@@ -1417,10 +1455,14 @@ D3
 @rus Ты видишь следующую комнату школы.
 ~
 ~
+~
+~
 Z -1 3711
 D5
 @eng You see a cage.
 @rus Ты видишь клетку.
+~
+~
 ~
 ~
 Z 0 3710
@@ -1443,6 +1485,8 @@ when you are fighting, type 'FLEE', until you flee and are out of here.
 D4
 @eng You see a safe room up.
 @rus На верху ты видишь безопасную комнату.
+~
+~
 ~
 ~
 Z 0 3709
@@ -1472,10 +1516,14 @@ D1
 @rus Ты видишь еще одну комнату школы.
 ~
 ~
+~
+~
 Z 0 3709
 D5
 @eng You see the combat hall.
 @rus Ты видишь зал сражений.
+~
+~
 ~
 ~
 Z 0 3712
@@ -1527,10 +1575,14 @@ D0
 @rus Ты видишь агрессивного монстра внутри.
 ~
 ~
+~
+~
 Z -1 3713
 D1
 @eng You see the unmodified monster inside!
 @rus Ты видишь оригинального монстра внутри.
+~
+~
 ~
 ~
 Z -1 3716
@@ -1539,16 +1591,22 @@ D2
 @rus Ты видишь трусливого монстра внутри.
 ~
 ~
+~
+~
 Z -1 3715
 D3
 @eng You see the aggressive wimpy monster inside!
 @rus Ты видишь непонятно-какого монстра внутри.
 ~
 ~
+~
+~
 Z -1 3714
 D5
 @eng You see the next station below.
 @rus Ты видишь еще одну комнату школы внизу.
+~
+~
 ~
 ~
 Z -1 3717
@@ -1573,6 +1631,8 @@ D2
 @rus Ты видишь комнату с клетками.
 ~
 ~
+~
+~
 Z -1 3712
 S
 #3714
@@ -1593,6 +1653,8 @@ here fast!  Remember to loot and sacrifice the corpse.
 D1
 @eng You see the Cage Room.
 @rus Ты видишь комнату с клетками.
+~
+~
 ~
 ~
 Z -1 3712
@@ -1617,6 +1679,8 @@ D0
 @rus Ты видишь комнату с клетками.
 ~
 ~
+~
+~
 Z -1 3712
 S
 #3716
@@ -1637,6 +1701,8 @@ Remember to loot and sacrifice the corpse.
 D3
 @eng You see the Cage Room.
 @rus Ты видишь комнату с клетками.
+~
+~
 ~
 ~
 Z -1 3712
@@ -1672,16 +1738,22 @@ D1
 @rus Ты видишь еще одну комнату школы.
 ~
 door~
+~
+~
 ABZ -1 3719
 D2
 @eng You see the Shop.
 @rus Ты видишь магазин.
 ~
 ~
+~
+~
 Z 0 3718
 D4
 @eng You see the Cage room.
 @rus Ты видишь комнату с клетками.
+~
+~
 ~
 ~
 Z -1 3712
@@ -1717,6 +1789,8 @@ D0
 @rus Ты видишь только выход отсюда.
 ~
 ~
+~
+~
 Z 0 3717
 S
 #3719
@@ -1749,18 +1823,24 @@ D0
 @rus Ты видишь затемненную внутри комнату.
 ~
 ~
+~
+~
 Z 0 3720
 D1
 @eng You see the next station of Mud School.
 @rus Ты видишь следущую комнату школы.
 ~
 door~
+~
+~
 ABCFZ 3714 3721
 D3
 @eng You see the room you just came from.
 @rus Ты видишь комнату откуда только что пришел.
 ~
 door~
+~
+~
 ABZ -1 3717
 S
 #3720
@@ -1776,6 +1856,8 @@ The only exit is south.
 D2
 @eng You see the room that you have come from.
 @rus Ты видишь комнату их которой пришел.
+~
+~
 ~
 ~
 Z 0 3719
@@ -1828,6 +1910,8 @@ D0
 @rus Впереди ты видишь арену.
 ~
 gate~
+the gate~
+~
 ABZ -1 3722
 S
 #3722
@@ -1843,18 +1927,26 @@ being watched by some divine being.
 D0
 ~
 ~
+~
+~
 Z 0 3729
 D1
+~
+~
 ~
 ~
 Z 0 3725
 D3
 ~
 ~
+~
+~
 Z 0 3723
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
+~
+~
 ~
 ~
 Z 0 3760
@@ -1872,18 +1964,26 @@ being watched by some divine being.
 D0
 ~
 ~
+~
+~
 Z 0 3728
 D1
+~
+~
 ~
 ~
 Z 0 3722
 D3
 ~
 ~
+~
+~
 Z 0 3724
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
+~
+~
 ~
 ~
 Z 0 3760
@@ -1901,14 +2001,20 @@ being watched by some divine being.
 D0
 ~
 ~
+~
+~
 Z 0 3727
 D1
+~
+~
 ~
 ~
 Z 0 3723
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
+~
+~
 ~
 ~
 Z 0 3760
@@ -1926,18 +2032,26 @@ being watched by some divine being.
 D0
 ~
 ~
+~
+~
 Z 0 3730
 D1
+~
+~
 ~
 ~
 Z 0 3726
 D3
 ~
 ~
+~
+~
 Z 0 3722
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
+~
+~
 ~
 ~
 Z 0 3760
@@ -1955,14 +2069,20 @@ being watched by some divine being.
 D0
 ~
 ~
+~
+~
 Z 0 3731
 D3
+~
+~
 ~
 ~
 Z 0 3725
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
+~
+~
 ~
 ~
 Z 0 3760
@@ -1980,18 +2100,26 @@ being watched by some divine being.
 D0
 ~
 ~
+~
+~
 Z 0 3732
 D1
+~
+~
 ~
 ~
 Z 0 3728
 D2
 ~
 ~
+~
+~
 Z 0 3724
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
+~
+~
 ~
 ~
 Z 0 3760
@@ -2010,22 +2138,32 @@ being watched by some divine being.
 D0
 ~
 ~
+~
+~
 Z 0 3733
 D1
+~
+~
 ~
 ~
 Z 0 3729
 D2
 ~
 ~
+~
+~
 Z 0 3723
 D3
+~
+~
 ~
 ~
 Z 0 3727
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
+~
+~
 ~
 ~
 Z 0 3760
@@ -2043,22 +2181,32 @@ being watched by some divine being.
 D0
 ~
 ~
+~
+~
 Z 0 3734
 D1
+~
+~
 ~
 ~
 Z 0 3730
 D2
 ~
 ~
+~
+~
 Z 0 3722
 D3
+~
+~
 ~
 ~
 Z 0 3728
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
+~
+~
 ~
 ~
 Z 0 3760
@@ -2076,22 +2224,32 @@ being watched by some divine being.
 D0
 ~
 ~
+~
+~
 Z 0 3735
 D1
+~
+~
 ~
 ~
 Z 0 3731
 D2
 ~
 ~
+~
+~
 Z 0 3725
 D3
+~
+~
 ~
 ~
 Z 0 3729
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
+~
+~
 ~
 ~
 Z 0 3760
@@ -2109,18 +2267,26 @@ being watched by some divine being.
 D0
 ~
 ~
+~
+~
 Z 0 3736
 D2
+~
+~
 ~
 ~
 Z 0 3726
 D3
 ~
 ~
+~
+~
 Z 0 3730
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
+~
+~
 ~
 ~
 Z 0 3760
@@ -2138,18 +2304,26 @@ being watched by some divine being.
 D0
 ~
 ~
+~
+~
 Z 0 3737
 D1
+~
+~
 ~
 ~
 Z 0 3733
 D2
 ~
 ~
+~
+~
 Z 0 3727
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
+~
+~
 ~
 ~
 Z 0 3760
@@ -2167,22 +2341,32 @@ being watched by some divine being.
 D0
 ~
 ~
+~
+~
 Z 0 3738
 D1
+~
+~
 ~
 ~
 Z 0 3734
 D2
 ~
 ~
+~
+~
 Z 0 3728
 D3
+~
+~
 ~
 ~
 Z 0 3732
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
+~
+~
 ~
 ~
 Z 0 3760
@@ -2210,16 +2394,24 @@ and there is no quick escape back out of here when you are in the dungeon.
 D0
 ~
 ~
+~
+~
 Z 0 3739
 D1
+~
+~
 ~
 ~
 Z 0 3735
 D2
 ~
 ~
+~
+~
 Z 0 3729
 D3
+~
+~
 ~
 ~
 Z 0 3733
@@ -2228,12 +2420,16 @@ D4
 @rus Ты видишь ВЫХОД.
 ~
 ~
+~
+~
 Z 0 3760
 D5
 @eng You see a dark murky dungeon below.
 @rus Ты видишь темное и мрачное подземелье внизу.
 ~
 grate~
+the grate~
+~
 ABZ -1 3748
 S
 #3735
@@ -2249,22 +2445,32 @@ being watched by some divine being.
 D0
 ~
 ~
+~
+~
 Z 0 3740
 D1
+~
+~
 ~
 ~
 Z 0 3736
 D2
 ~
 ~
+~
+~
 Z 0 3730
 D3
+~
+~
 ~
 ~
 Z 0 3734
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
+~
+~
 ~
 ~
 Z 0 3760
@@ -2282,18 +2488,26 @@ being watched by some divine being.
 D0
 ~
 ~
+~
+~
 Z 0 3741
 D2
+~
+~
 ~
 ~
 Z 0 3731
 D3
 ~
 ~
+~
+~
 Z 0 3735
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД (не надоело смотреть?)
+~
+~
 ~
 ~
 Z 0 3760
@@ -2311,18 +2525,26 @@ being watched by some divine being.
 D0
 ~
 ~
+~
+~
 Z 0 3742
 D1
+~
+~
 ~
 ~
 Z 0 3738
 D2
 ~
 ~
+~
+~
 Z 0 3732
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
+~
+~
 ~
 ~
 Z 0 3760
@@ -2340,22 +2562,32 @@ being watched by some divine being.
 D0
 ~
 ~
+~
+~
 Z 0 3743
 D1
+~
+~
 ~
 ~
 Z 0 3739
 D2
 ~
 ~
+~
+~
 Z 0 3733
 D3
+~
+~
 ~
 ~
 Z 0 3737
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
+~
+~
 ~
 ~
 Z 0 3760
@@ -2373,22 +2605,32 @@ being watched by some divine being.
 D0
 ~
 ~
+~
+~
 Z 0 3744
 D1
+~
+~
 ~
 ~
 Z 0 3740
 D2
 ~
 ~
+~
+~
 Z 0 3734
 D3
+~
+~
 ~
 ~
 Z 0 3738
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
+~
+~
 ~
 ~
 Z 0 3760
@@ -2406,22 +2648,32 @@ being watched by some divine being.
 D0
 ~
 ~
+~
+~
 Z 0 3745
 D1
+~
+~
 ~
 ~
 Z 0 3741
 D2
 ~
 ~
+~
+~
 Z 0 3735
 D3
+~
+~
 ~
 ~
 Z 0 3739
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
+~
+~
 ~
 ~
 Z 0 3760
@@ -2439,18 +2691,26 @@ being watched by some divine being.
 D0
 ~
 ~
+~
+~
 Z 0 3746
 D2
+~
+~
 ~
 ~
 Z 0 3736
 D3
 ~
 ~
+~
+~
 Z 0 3740
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
+~
+~
 ~
 ~
 Z 0 3760
@@ -2468,14 +2728,20 @@ being watched by some divine being.
 D1
 ~
 ~
+~
+~
 Z 0 3743
 D2
+~
+~
 ~
 ~
 Z 0 3737
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
+~
+~
 ~
 ~
 Z 0 3760
@@ -2493,18 +2759,26 @@ being watched by some divine being.
 D1
 ~
 ~
+~
+~
 Z 0 3744
 D2
+~
+~
 ~
 ~
 Z 0 3738
 D3
 ~
 ~
+~
+~
 Z 0 3742
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
+~
+~
 ~
 ~
 Z 0 3760
@@ -2522,18 +2796,26 @@ being watched by some divine being.
 D1
 ~
 ~
+~
+~
 Z 0 3745
 D2
+~
+~
 ~
 ~
 Z 0 3739
 D3
 ~
 ~
+~
+~
 Z 0 3743
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
+~
+~
 ~
 ~
 Z 0 3760
@@ -2551,18 +2833,26 @@ being watched by some divine being.
 D1
 ~
 ~
+~
+~
 Z 0 3746
 D2
+~
+~
 ~
 ~
 Z 0 3740
 D3
 ~
 ~
+~
+~
 Z 0 3744
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
+~
+~
 ~
 ~
 Z 0 3760
@@ -2580,14 +2870,20 @@ being watched by some divine being.
 D2
 ~
 ~
+~
+~
 Z 0 3741
 D3
+~
+~
 ~
 ~
 Z 0 3745
 D4
 @eng You see the EXIT.
 @rus Ты видишь ВЫХОД.
+~
+~
 ~
 ~
 Z 0 3760
@@ -2609,10 +2905,14 @@ D0
 @rus Ты видишь северную стену.
 ~
 ~
+~
+~
 Z 0 3750
 D1
 @eng You see the east wall.
 @rus Ты видишь восточную стену.
+~
+~
 ~
 ~
 Z 0 3753
@@ -2621,10 +2921,14 @@ D2
 @rus Ты видишь южную стену.
 ~
 ~
+~
+~
 Z 0 3755
 D3
 @eng You see the west wall.
 @rus Ты видишь западную стену.
+~
+~
 ~
 ~
 Z 0 3752
@@ -2633,6 +2937,8 @@ D4
 @rus Ты видишь СПАСЕНИЕ!
 ~
 grate~
+the grate~
+~
 ABZ -1 3734
 S
 #3749
@@ -2648,10 +2954,14 @@ D1
 @rus Ты видишь северную стену.
 ~
 ~
+~
+~
 Z 0 3750
 D2
 @eng You see the south wall.
 @rus Ты видишь южную стену.
+~
+~
 ~
 ~
 Z 0 3752
@@ -2669,16 +2979,22 @@ D1
 @rus Ты видишь северо-восточный угол.
 ~
 ~
+~
+~
 Z 0 3751
 D2
 @eng You see the center of the dungeon.
 @rus Ты видишь центр подземелья.
 ~
 ~
+~
+~
 Z 0 3748
 D3
 @eng You see the north west corner.
 @rus Ты видишь северо-западный угол.
+~
+~
 ~
 ~
 Z 0 3749
@@ -2696,10 +3012,14 @@ D2
 @rus Ты видишь восточную стену.
 ~
 ~
+~
+~
 Z 0 3753
 D3
 @eng You see the north wall.
 @rus Ты видишь северную стену.
+~
+~
 ~
 ~
 Z 0 3750
@@ -2717,16 +3037,22 @@ D0
 @rus Ты видишь северо-западный угол.
 ~
 ~
+~
+~
 Z 0 3749
 D1
 @eng You see the center of the dungeon.
 @rus Ты видишь центр подземелья.
 ~
 ~
+~
+~
 Z 0 3748
 D2
 @eng You see the south west corner.
 @rus Ты видишь юго-западный угол.
+~
+~
 ~
 ~
 Z 0 3754
@@ -2744,16 +3070,22 @@ D0
 @rus Ты видишь северо-восточный угол.
 ~
 ~
+~
+~
 Z 0 3751
 D2
 @eng You see the south east corner.
 @rus Ты видишь юго-восточный угол.
 ~
 ~
+~
+~
 Z 0 3756
 D3
 @eng You see the center of the dungeon.
 @rus Ты видишь цент подземелья.
+~
+~
 ~
 ~
 Z 0 3748
@@ -2771,10 +3103,14 @@ D0
 @rus Ты видишь северную стену.
 ~
 ~
+~
+~
 Z 0 3752
 D1
 @eng You see the south wall.
 @rus Ты видишь южную стену.
+~
+~
 ~
 ~
 Z 0 3755
@@ -2792,16 +3128,22 @@ D0
 @rus Ты видишь центр подземелья.
 ~
 ~
+~
+~
 Z 0 3748
 D1
 @eng You see the south east corner.
 @rus Ты видишь юго-восточный угол.
 ~
 ~
+~
+~
 Z 0 3756
 D3
 @eng You see the south-west corner.
 @rus Ты видишь юго-западный угол.
+~
+~
 ~
 ~
 Z 0 3754
@@ -2819,10 +3161,14 @@ D0
 @rus Ты видишь восточную стену.
 ~
 ~
+~
+~
 Z 0 3753
 D3
 @eng You see the south wall.
 @rus Ты видишь южную стену.
+~
+~
 ~
 ~
 Z 0 3755
@@ -2863,10 +3209,14 @@ D0
 @rus Следующая остановка в школе.
 ~
 ~
+~
+~
 Z 0 3701
 D1
 @eng You see Zump's Guild Room.  Go there to practice your skills.
 @rus Ты видишь гильдию Зуки. Иди туда, чтобы практиковать свои умения.
+~
+~
 ~
 ~
 Z 0 3759
@@ -2875,10 +3225,14 @@ D2
 @rus Ты видишь вход в школу.
 ~
 ~
+~
+~
 Z 0 3700
 D3
 @eng You see Furey's Training Room.  Go there to train your attributes.
 @rus Ты видишь комнату тренировок Фьюри. Иди туда, чтобы увеличить аттрибуты.
+~
+~
 ~
 ~
 Z 0 3758
@@ -2909,6 +3263,8 @@ the attribute you want increased.  Type 'help train' for more information.
 D1
 @eng You see the room you came from, and the room you should go to.
 @rus Ты видишь комнату из которой пришел и в которою будешь должен пойти.
+~
+~
 ~
 ~
 Z 0 3757
@@ -2945,6 +3301,8 @@ D3
 @rus Ты видишь комнату из которой пришел и в которою будешь должен пойти.
 ~
 ~
+~
+~
 Z 0 3757
 S
 #3760
@@ -2958,6 +3316,8 @@ You can rest here, and go up to go back to the Temple of Midgaard.
 D4
 @eng You see the Temple of Midgaard.
 @rus Ты видишь храм Мидгарда.
+~
+~
 ~
 ~
 Z 0 3001

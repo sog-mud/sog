@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Troll Den~
 VNUMs 2800 2899
 Credits Merc~
@@ -272,9 +272,13 @@ D0
 You reach civilization again.
 ~
 ~
+~
+~
 Z 0 6124
 D2
 You find the stench is stronger inside.
+~
+~
 ~
 ~
 Z 0 2803
@@ -299,6 +303,8 @@ You welcome the fresh breeze coming from the east, but wrinkle your nose when
 the stench bears down on you once more.
 ~
 ~
+~
+~
 Z 0 2803
 S
 #2803
@@ -314,10 +320,14 @@ D0
 @rus На север ведет путь, покрытый костяными обломками.
 ~
 ~
+~
+~
 Z 0 2801
 D1
 Good God!  You spy corpses all over the floor in there.  It looks like a
 virtual graveyard in there.
+~
+~
 ~
 ~
 Z 0 2804
@@ -326,10 +336,14 @@ Whoa!  You reel back from the stench.  You believe you have found the source
 of this bad smell.
 ~
 ~
+~
+~
 Z 0 2805
 D3
 You puke as you watch worms crawl between this room and the room west of here
 as they bore new holes into a corpse laying on the far wall of the west room.
+~
+~
 ~
 ~
 Z 0 2802
@@ -354,6 +368,8 @@ You welcome the fresh breeze coming from the west, but wrinkle your nose when
 the stench bears down on you once more.
 ~
 ~
+~
+~
 Z 0 2803
 S
 #2805
@@ -371,6 +387,8 @@ flattened by something.
 D0
 You welcome the fresh breeze coming from the north, but wrinkle your nose when
 the stench bears down on you once more.
+~
+~
 ~
 ~
 Z 0 2803

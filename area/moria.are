@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Moria~
 VNUMs 3900 4199
 Credits Alfa~
@@ -1194,10 +1194,14 @@ D0
 @rus Пыльная тропа на севере подходит вплотную к стене.
 ~
 ~
+~
+~
 Z -1 3901
 D2
 @eng The dusty trail leads to outside the west gate of Midgaard.
 @rus Пыльная тропа ведет к внешней стороне западных ворот Мидгаарда.
+~
+~
 ~
 ~
 Z -1 3052
@@ -1215,10 +1219,14 @@ D0
 @rus На севере тропа поворачивает, следуя вдоль городской стены.
 ~
 ~
+~
+~
 Z -1 3902
 D2
 @eng The dusty trail continues towards the south.
 @rus Пыльная тропа продолжается дальше на юг.
+~
+~
 ~
 ~
 Z -1 3900
@@ -1236,10 +1244,14 @@ D1
 @rus Пыльная тропа на севере подходит вплотную к городской стене Мидгаарда.
 ~
 ~
+~
+~
 Z -1 3903
 D2
 @eng The dusty trail leads south towards the gate.
 @rus Пыльная тропа на севере подходит вплотную к городской стене Мидгаарда.
+~
+~
 ~
 ~
 Z -1 3901
@@ -1256,10 +1268,14 @@ D1
 @rus Пыльная тропа продолжается дальше вдоль северной городской стены Мидгаарда.
 ~
 ~
+~
+~
 Z -1 3904
 D3
 @eng The dusty trail turns left around the corner of the wall, behind it Haon-Dor. 
 @rus Пыльная тропа поворачивает налево вдоль угла стены, позади - Haon Dor.
+~
+~
 ~
 ~
 Z -1 3902
@@ -1282,10 +1298,14 @@ D0
 @rus Маленькая тропа уводит в равнины.
 ~
 ~
+~
+~
 Z -1 300
 D1
 @eng The dusty trail is winding along the north wall of Midgaard. 
 @rus Пыльный путь вьется вдоль северной стены Мидгаарда.
+~
+~
 ~
 ~
 Z -1 3905
@@ -1294,10 +1314,14 @@ D2
 @rus Ты видишь северные ворота Мидгаарда.
 ~
 ~
+~
+~
 Z -1 3268
 D3
 @eng The dusty trail is winding along the north wall of Midgaard.
 @rus Пыльный путь вьется вдоль северной стены Мидгаарда.
+~
+~
 ~
 ~
 Z -1 3903
@@ -1316,10 +1340,14 @@ You notice some mountains in the distance.
 едва заметно виднеются горы.
 ~
 ~
+~
+~
 Z -1 3906
 D3
 @eng The dusty trail is winding along the north wall of Midgaard.
 @rus Пыльный путь вьется вдоль северной стены Мидгаарда.
+~
+~
 ~
 ~
 Z -1 3904
@@ -1338,10 +1366,14 @@ D2
 @rus Пыльная тропа ведет на юг, к воротам в город.
 ~
 ~
+~
+~
 Z -1 3907
 D3
 @eng The dusty trail winds close up to the north wall of Midgaard.
 @rus Пыльная тропа прижимается к северной стене Мидгаарда.
+~
+~
 ~
 ~
 Z -1 3905
@@ -1363,10 +1395,14 @@ D0
 стены.
 ~
 ~
+~
+~
 Z -1 3906
 D2
 @eng The dusty trail continues towards the south.
 @rus Пыльная тропа продолжается на юг.
+~
+~
 ~
 ~
 Z -1 3908
@@ -1386,10 +1422,14 @@ D0
 @rus Пыльная тропа прижимается к стене Мидгаарда.
 ~
 ~
+~
+~
 Z -1 3907
 D2
 @eng The dusty trail leads to outside the east gate of Midgaard.
 @rus Пыльная тропа ведет к внешней части восточных ворот Мидгаарда.
+~
+~
 ~
 ~
 Z -1 3053
@@ -1413,14 +1453,20 @@ make out the queen's mines from here.
 D0
 ~
 ~
+~
+~
 Z 0 4001
 D1
 @eng You see the mountains of the dwarven kingdom. 
 @rus Ты видишь горы королевства гномов.
 ~
 ~
+~
+~
 Z 0 6562
 D2
+~
+~
 ~
 ~
 Z 0 3500
@@ -1444,8 +1490,12 @@ distant mountains.
 D0
 ~
 ~
+~
+~
 Z 0 4002
 D2
+~
+~
 ~
 ~
 Z 0 4000
@@ -1508,8 +1558,12 @@ bushes кусты~
 D0
 ~
 ~
+~
+~
 Z 0 4010
 D2
+~
+~
 ~
 ~
 Z 0 4001
@@ -1545,8 +1599,12 @@ tombstone надгробная плита~
 D0
 ~
 ~
+~
+~
 Z 0 4011
 D2
+~
+~
 ~
 ~
 Z 0 4002
@@ -1566,8 +1624,12 @@ damp, stuffy tunnels. To the north the tunnel continues.
 D0
 ~
 ~
+~
+~
 Z 0 4014
 D2
+~
+~
 ~
 ~
 Z 0 4010
@@ -1584,8 +1646,12 @@ a cave.
 D0
 ~
 ~
+~
+~
 Z 0 4016
 D1
+~
+~
 ~
 ~
 Z 0 4013
@@ -1601,8 +1667,12 @@ covers the floor, making the air stuffy and dry.
 D1
 ~
 ~
+~
+~
 Z 0 4014
 D3
+~
+~
 ~
 ~
 Z 0 4012
@@ -1623,16 +1693,24 @@ is a branch of the tunnel going west.
 D0
 ~
 ~
+~
+~
 Z 0 4018
 D1
+~
+~
 ~
 ~
 Z 0 4015
 D2
 ~
 ~
+~
+~
 Z 0 4011
 D3
+~
+~
 ~
 ~
 Z 0 4013
@@ -1646,8 +1724,12 @@ S
 D0
 ~
 ~
+~
+~
 Z 0 4019
 D3
+~
+~
 ~
 ~
 Z 0 4014
@@ -1663,12 +1745,18 @@ you notice a small tunnel.
 D1
 ~
 ~
+~
+~
 Z 0 4017
 D2
 ~
 ~
+~
+~
 Z 0 4012
 D3
+~
+~
 ~
 ~
 Z 0 4023
@@ -1680,6 +1768,8 @@ S
 ~
 0 AD field
 D3
+~
+~
 ~
 ~
 Z 0 4016
@@ -1700,8 +1790,12 @@ pile bones куча костей~
 D0
 ~
 ~
+~
+~
 Z 0 4025
 D2
+~
+~
 ~
 ~
 Z 0 4014
@@ -1715,8 +1809,12 @@ S
 D0
 ~
 ~
+~
+~
 Z 0 4026
 D2
+~
+~
 ~
 ~
 Z 0 4015
@@ -1731,8 +1829,12 @@ S
 D0
 ~
 ~
+~
+~
 Z 0 4027
 D5
+~
+~
 ~
 ~
 Z 0 4064
@@ -1746,8 +1848,12 @@ S
 D1
 ~
 ~
+~
+~
 Z 0 4022
 D5
+~
+~
 ~
 ~
 Z 0 4115
@@ -1765,12 +1871,18 @@ there is a large cave.
 D0
 ~
 ~
+~
+~
 Z 0 4023
 D1
 ~
 ~
+~
+~
 Z 0 4024
 D3
+~
+~
 ~
 ~
 Z 0 4021
@@ -1785,8 +1897,12 @@ a damp tunnel.
 D1
 ~
 ~
+~
+~
 Z 0 4016
 D2
+~
+~
 ~
 ~
 Z 0 4022
@@ -1801,8 +1917,12 @@ S
 D2
 ~
 ~
+~
+~
 Z 0 4059
 D3
+~
+~
 ~
 ~
 Z 0 4022
@@ -1817,14 +1937,20 @@ S
 D1
 ~
 ~
+~
+~
 Z 0 4026
 D2
+~
+~
 ~
 ~
 Z 0 4018
 D5
 ~
 floor~
+the floor~
+~
 ABZ -1 16000
 S
 #4026
@@ -1836,16 +1962,24 @@ S
 D0
 ~
 ~
+~
+~
 Z 0 4028
 D1
+~
+~
 ~
 ~
 Z 0 4027
 D2
 ~
 ~
+~
+~
 Z 0 4019
 D3
+~
+~
 ~
 ~
 Z 0 4025
@@ -1861,12 +1995,18 @@ the west. From the north you sense the fresh air!
 D0
 ~
 ~
+~
+~
 Z 0 4029
 D2
 ~
 ~
+~
+~
 Z 0 4020
 D3
+~
+~
 ~
 ~
 Z 0 4026
@@ -1882,8 +2022,12 @@ to the north. You notice a strange smell from the north..
 D0
 ~
 ~
+~
+~
 Z 0 4030
 D2
+~
+~
 ~
 ~
 Z 0 4026
@@ -1900,8 +2044,12 @@ continue into the mountain.
 D0
 ~
 ~
+~
+~
 Z 0 4031
 D2
+~
+~
 ~
 ~
 Z 0 4027
@@ -1915,6 +2063,8 @@ the south may be the only way out to return.
 ~
 0 0 field
 D2
+~
+~
 ~
 ~
 Z 0 4028
@@ -1935,8 +2085,12 @@ cave пещера~
 D0
 ~
 ~
+~
+~
 Z 0 4032
 D2
+~
+~
 ~
 ~
 Z 0 4029
@@ -1952,8 +2106,12 @@ other side of the mountain.  The path continues north.
 D0
 ~
 ~
+~
+~
 Z 0 4033
 D2
+~
+~
 ~
 ~
 Z 0 4031
@@ -1969,12 +2127,18 @@ north and south or you can follow a trail east into the mountains.
 D0
 ~
 ~
+~
+~
 Z 0 4034
 D1
 ~
 ~
+~
+~
 Z 0 4037
 D2
+~
+~
 ~
 ~
 Z 0 4032
@@ -1992,12 +2156,18 @@ large rocks litter this area.  You can go north, west or south.
 D0
 ~
 ~
+~
+~
 Z 0 4035
 D2
 ~
 ~
+~
+~
 Z 0 4033
 D3
+~
+~
 ~
 ~
 Z 0 4042
@@ -2014,8 +2184,12 @@ here.
 D0
 ~
 ~
+~
+~
 Z 0 4036
 D2
+~
+~
 ~
 ~
 Z 0 4034
@@ -2032,8 +2206,12 @@ D0
 @eng The path to the Craggy Tor
 @rus Дорога в Craggy Tor
 ~
+the @@eng~
+~
 Z 0 30800
 D2
+~
+~
 ~
 ~
 Z 0 4035
@@ -2041,6 +2219,8 @@ D3
 ~
 @eng In the Borderlands
 @rus В Borderlands
+~
+the @@eng~
 ~
 Z 0 23114
 S
@@ -2053,8 +2233,12 @@ S
 D1
 ~
 ~
+~
+~
 Z 0 4038
 D3
+~
+~
 ~
 ~
 Z 0 4033
@@ -2068,8 +2252,12 @@ S
 D1
 ~
 ~
+~
+~
 Z 0 4039
 D3
+~
+~
 ~
 ~
 Z 0 4037
@@ -2083,8 +2271,12 @@ S
 D1
 ~
 ~
+~
+~
 Z 0 4040
 D3
+~
+~
 ~
 ~
 Z 0 4038
@@ -2098,14 +2290,20 @@ S
 D0
 ~
 ~
+~
+~
 Z 0 4041
 D1
 @eng It doesn't look safe this way.
 @rus Этот путь безопасным не выглядит...
 ~
 ~
+~
+~
 Z 0 7114
 D3
+~
+~
 ~
 ~
 Z 0 4039
@@ -2119,6 +2317,8 @@ S
 D2
 ~
 ~
+~
+~
 Z 0 4040
 S
 #4042
@@ -2130,8 +2330,12 @@ S
 D1
 ~
 ~
+~
+~
 Z 0 4034
 D3
+~
+~
 ~
 ~
 Z 0 4043
@@ -2145,8 +2349,12 @@ S
 D1
 ~
 ~
+~
+~
 Z 0 4042
 D3
+~
+~
 ~
 ~
 Z 0 4044
@@ -2160,6 +2368,8 @@ S
 D1
 ~
 ~
+~
+~
 Z 0 4043
 S
 #4050
@@ -2171,8 +2381,12 @@ S
 D1
 ~
 ~
+~
+~
 Z 0 4051
 D2
+~
+~
 ~
 ~
 Z 0 4053
@@ -2186,8 +2400,12 @@ S
 D1
 ~
 ~
+~
+~
 Z 0 4052
 D3
+~
+~
 ~
 ~
 Z 0 4050
@@ -2201,8 +2419,12 @@ S
 D2
 ~
 ~
+~
+~
 Z 0 4100
 D3
+~
+~
 ~
 ~
 Z 0 4051
@@ -2216,8 +2438,12 @@ S
 D0
 ~
 ~
+~
+~
 Z 0 4050
 D1
+~
+~
 ~
 ~
 Z 0 4054
@@ -2233,12 +2459,18 @@ the entire cave, to the east and west tunnels leads off.
 D1
 ~
 ~
+~
+~
 Z 0 4055
 D2
 ~
 ~
+~
+~
 Z 0 4056
 D3
+~
+~
 ~
 ~
 Z 0 4053
@@ -2251,6 +2483,8 @@ S
 ~
 0 AD forest
 D3
+~
+~
 ~
 ~
 Z 0 4054
@@ -2266,8 +2500,12 @@ The cave continues to the north and south.
 D0
 ~
 ~
+~
+~
 Z 0 4054
 D2
+~
+~
 ~
 ~
 Z 0 4061
@@ -2281,8 +2519,12 @@ S
 D1
 ~
 ~
+~
+~
 Z 0 4058
 D2
+~
+~
 ~
 ~
 Z 0 4062
@@ -2296,8 +2538,12 @@ S
 D2
 ~
 ~
+~
+~
 Z 0 4063
 D3
+~
+~
 ~
 ~
 Z 0 4057
@@ -2313,8 +2559,12 @@ tunnel leads slightly down.
 D0
 ~
 ~
+~
+~
 Z 0 4024
 D1
+~
+~
 ~
 ~
 Z 0 4060
@@ -2330,8 +2580,12 @@ to the east you see some light.
 D1
 ~
 ~
+~
+~
 Z 0 4061
 D3
+~
+~
 ~
 ~
 Z 0 4059
@@ -2345,8 +2599,12 @@ S
 D0
 ~
 ~
+~
+~
 Z 0 4056
 D3
+~
+~
 ~
 ~
 Z 0 4060
@@ -2360,8 +2618,12 @@ S
 D0
 ~
 ~
+~
+~
 Z 0 4057
 D1
+~
+~
 ~
 ~
 Z 0 4065
@@ -2375,8 +2637,12 @@ S
 D0
 ~
 ~
+~
+~
 Z 0 4058
 D1
+~
+~
 ~
 ~
 Z 0 4064
@@ -2390,8 +2656,12 @@ S
 D3
 ~
 ~
+~
+~
 Z 0 4063
 D4
+~
+~
 ~
 ~
 Z 0 4020
@@ -2405,8 +2675,12 @@ S
 D1
 ~
 ~
+~
+~
 Z 0 4066
 D3
+~
+~
 ~
 ~
 Z 0 4062
@@ -2420,12 +2694,18 @@ S
 D1
 ~
 ~
+~
+~
 Z 0 4067
 D2
 ~
 ~
+~
+~
 Z 0 4069
 D3
+~
+~
 ~
 ~
 Z 0 4065
@@ -2439,6 +2719,8 @@ S
 D3
 ~
 ~
+~
+~
 Z 0 4066
 S
 #4068
@@ -2450,8 +2732,12 @@ S
 D1
 ~
 ~
+~
+~
 Z 0 4069
 D2
+~
+~
 ~
 ~
 Z 0 4070
@@ -2467,12 +2753,18 @@ is a small damp tunnel.
 D0
 ~
 ~
+~
+~
 Z 0 4066
 D2
 ~
 ~
+~
+~
 Z 0 4071
 D3
+~
+~
 ~
 ~
 Z 0 4068
@@ -2486,8 +2778,12 @@ S
 D0
 ~
 ~
+~
+~
 Z 0 4068
 D1
+~
+~
 ~
 ~
 Z 0 4071
@@ -2503,12 +2799,18 @@ notice a small tunnel.
 D0
 ~
 ~
+~
+~
 Z 0 4069
 D1
 ~
 ~
+~
+~
 Z 0 4072
 D3
+~
+~
 ~
 ~
 Z 0 4070
@@ -2525,12 +2827,18 @@ cave.
 D1
 ~
 ~
+~
+~
 Z 0 4073
 D2
 ~
 ~
+~
+~
 Z 0 4074
 D3
+~
+~
 ~
 ~
 Z 0 4071
@@ -2542,6 +2850,8 @@ S
 ~
 0 AD forest
 D3
+~
+~
 ~
 ~
 Z 0 4072
@@ -2557,8 +2867,12 @@ or try your luck and leave down into the unknown!
 D0
 ~
 ~
+~
+~
 Z 0 4072
 D5
+~
+~
 ~
 ~
 Z 0 4171
@@ -2572,8 +2886,12 @@ S
 D0
 ~
 ~
+~
+~
 Z 0 4052
 D3
+~
+~
 ~
 ~
 Z 0 4101
@@ -2589,8 +2907,12 @@ wide at this point.
 D1
 ~
 ~
+~
+~
 Z 0 4100
 D3
+~
+~
 ~
 ~
 Z 0 4102
@@ -2606,8 +2928,12 @@ narrow to the west.
 D1
 ~
 ~
+~
+~
 Z 0 4101
 D3
+~
+~
 ~
 ~
 Z 0 4103
@@ -2623,12 +2949,18 @@ narrow at this point. You notice a small hole leading south.
 D1
 ~
 ~
+~
+~
 Z 0 4102
 D2
 ~
 ~
+~
+~
 Z 0 4106
 D3
+~
+~
 ~
 ~
 Z 0 4104
@@ -2644,8 +2976,12 @@ down towards the west.
 D1
 ~
 ~
+~
+~
 Z 0 4103
 D3
+~
+~
 ~
 ~
 Z 0 4152
@@ -2661,8 +2997,12 @@ light. The cave continues to the south and west.
 D2
 ~
 ~
+~
+~
 Z 0 4108
 D3
+~
+~
 ~
 ~
 Z 0 4106
@@ -2679,12 +3019,18 @@ tunnel.
 D0
 ~
 ~
+~
+~
 Z 0 4103
 D1
 ~
 ~
+~
+~
 Z 0 4105
 D2
+~
+~
 ~
 ~
 Z 0 4109
@@ -2699,8 +3045,12 @@ cave.
 D2
 ~
 ~
+~
+~
 Z 0 4113
 D3
+~
+~
 ~
 ~
 Z 0 4108
@@ -2717,12 +3067,18 @@ a small passage.
 D0
 ~
 ~
+~
+~
 Z 0 4105
 D1
 ~
 ~
+~
+~
 Z 0 4107
 D3
+~
+~
 ~
 ~
 Z 0 4109
@@ -2738,12 +3094,18 @@ light. The cave continues to the south, east and north.
 D0
 ~
 ~
+~
+~
 Z 0 4106
 D1
 ~
 ~
+~
+~
 Z 0 4108
 D2
+~
+~
 ~
 ~
 Z 0 4114
@@ -2757,6 +3119,8 @@ S
 D3
 ~
 ~
+~
+~
 Z 0 4111
 S
 #4111
@@ -2768,8 +3132,12 @@ S
 D1
 ~
 ~
+~
+~
 Z 0 4110
 D3
+~
+~
 ~
 ~
 Z 0 4112
@@ -2784,8 +3152,12 @@ S
 D1
 ~
 ~
+~
+~
 Z 0 4111
 D3
+~
+~
 ~
 ~
 Z 0 4113
@@ -2800,12 +3172,18 @@ you see a tunnel.
 D0
 ~
 ~
+~
+~
 Z 0 4107
 D1
 ~
 ~
+~
+~
 Z 0 4112
 D2
+~
+~
 ~
 ~
 Z 0 4116
@@ -2822,8 +3200,12 @@ passage.
 D0
 ~
 ~
+~
+~
 Z 0 4109
 D3
+~
+~
 ~
 ~
 Z 0 4115
@@ -2839,8 +3221,12 @@ a small hole, just big enough to pass through.
 D1
 ~
 ~
+~
+~
 Z 0 4114
 D4
+~
+~
 ~
 ~
 Z 0 4021
@@ -2855,8 +3241,12 @@ light to the south.
 D0
 ~
 ~
+~
+~
 Z 0 4113
 D2
+~
+~
 ~
 ~
 Z 0 4120
@@ -2868,6 +3258,8 @@ S
 ~
 0 AD forest
 D2
+~
+~
 ~
 ~
 Z 0 4122
@@ -2885,8 +3277,12 @@ To the north a small hole leads to a tunnel.
 D2
 ~
 ~
+~
+~
 Z 0 4123
 D3
+~
+~
 ~
 ~
 Z 0 4119
@@ -2902,12 +3298,18 @@ head fire lights the room. The cave continues to the east and south.
 D1
 ~
 ~
+~
+~
 Z 0 4118
 D2
 ~
 ~
+~
+~
 Z 0 4124
 D3
+~
+~
 ~
 ~
 Z 0 4121
@@ -2921,8 +3323,12 @@ S
 D0
 ~
 ~
+~
+~
 Z 0 4116
 D2
+~
+~
 ~
 ~
 Z 0 4125
@@ -2938,8 +3344,12 @@ approaching you as you continue west.
 D1
 ~
 ~
+~
+~
 Z 0 4119
 D3
+~
+~
 ~
 ~
 Z 0 4122
@@ -2954,8 +3364,12 @@ feeling.
 D0
 ~
 ~
+~
+~
 Z 0 4117
 D1
+~
+~
 ~
 ~
 Z 0 4121
@@ -2971,8 +3385,12 @@ head fire lights the room. The cave continues to the north and west.
 D0
 ~
 ~
+~
+~
 Z 0 4118
 D3
+~
+~
 ~
 ~
 Z 0 4124
@@ -2990,12 +3408,18 @@ To the west a passage leads north.
 D0
 ~
 ~
+~
+~
 Z 0 4119
 D1
 ~
 ~
+~
+~
 Z 0 4123
 D3
+~
+~
 ~
 ~
 Z 0 4125
@@ -3012,8 +3436,12 @@ the darkness.
 D0
 ~
 ~
+~
+~
 Z 0 4120
 D1
+~
+~
 ~
 ~
 Z 0 4124
@@ -3035,6 +3463,8 @@ The Balrog is ALIVE ...
 D2
 ~
 ~
+~
+~
 Z 0 4151
 S
 #4151
@@ -3048,12 +3478,18 @@ the south you see a large tunnel. The air is damp in this area.
 D0
 ~
 ~
+~
+~
 Z 0 4150
 D2
 ~
 ~
+~
+~
 Z 0 4156
 D3
+~
+~
 ~
 ~
 Z 0 4155
@@ -3067,8 +3503,12 @@ S
 D1
 ~
 ~
+~
+~
 Z 0 4104
 D2
+~
+~
 ~
 ~
 Z 0 4153
@@ -3084,12 +3524,18 @@ air is damp in the area.
 D0
 ~
 ~
+~
+~
 Z 0 4152
 D1
 ~
 ~
+~
+~
 Z 0 4154
 D2
+~
+~
 ~
 ~
 Z 0 4157
@@ -3105,8 +3551,12 @@ the floor is wet.
 D1
 ~
 ~
+~
+~
 Z 0 4155
 D3
+~
+~
 ~
 ~
 Z 0 4153
@@ -3122,8 +3572,12 @@ you notice a long tunnel. The air is damp in this area.
 D1
 ~
 ~
+~
+~
 Z 0 4151
 D3
+~
+~
 ~
 ~
 Z 0 4154
@@ -3137,8 +3591,12 @@ S
 D0
 ~
 ~
+~
+~
 Z 0 4151
 D2
+~
+~
 ~
 ~
 Z 0 4160
@@ -3154,12 +3612,18 @@ partly covered by water.
 D0
 ~
 ~
+~
+~
 Z 0 4153
 D1
 ~
 ~
+~
+~
 Z 0 4158
 D2
+~
+~
 ~
 ~
 Z 0 4161
@@ -3175,12 +3639,18 @@ and west. The floor is partly covered by water.
 D1
 ~
 ~
+~
+~
 Z 0 4159
 D2
 ~
 ~
+~
+~
 Z 0 4162
 D3
+~
+~
 ~
 ~
 Z 0 4157
@@ -3196,8 +3666,12 @@ and west. The air is damp in this maze.
 D2
 ~
 ~
+~
+~
 Z 0 4163
 D3
+~
+~
 ~
 ~
 Z 0 4158
@@ -3235,8 +3709,12 @@ dragon breathed poison gas; we are also going to die soon.
 D0
 ~
 ~
+~
+~
 Z 0 4156
 D2
+~
+~
 ~
 ~
 Z 0 4164
@@ -3251,8 +3729,12 @@ covered by water.
 D0
 ~
 ~
+~
+~
 Z 0 4157
 D2
+~
+~
 ~
 ~
 Z 0 4165
@@ -3268,12 +3750,18 @@ water, exits leads north, east and south.
 D0
 ~
 ~
+~
+~
 Z 0 4158
 D1
 ~
 ~
+~
+~
 Z 0 4163
 D2
+~
+~
 ~
 ~
 Z 0 4166
@@ -3289,12 +3777,18 @@ leads to the north and east.
 D0
 ~
 ~
+~
+~
 Z 0 4159
 D1
 ~
 ~
+~
+~
 Z 0 4164
 D3
+~
+~
 ~
 ~
 Z 0 4162
@@ -3310,12 +3804,18 @@ To the west you see a small maze.
 D0
 ~
 ~
+~
+~
 Z 0 4160
 D2
 ~
 ~
+~
+~
 Z 0 4168
 D3
+~
+~
 ~
 ~
 Z 0 4163
@@ -3330,8 +3830,12 @@ north and south.
 D0
 ~
 ~
+~
+~
 Z 0 4161
 D2
+~
+~
 ~
 ~
 Z 0 4169
@@ -3347,12 +3851,18 @@ by water. The maze continues to the north, east and south.
 D0
 ~
 ~
+~
+~
 Z 0 4162
 D1
 ~
 ~
+~
+~
 Z 0 4167
 D2
+~
+~
 ~
 ~
 Z 0 4170
@@ -3368,12 +3878,18 @@ maze continues east, west and south.
 D1
 ~
 ~
+~
+~
 Z 0 4168
 D2
 ~
 ~
+~
+~
 Z 0 4171
 D3
+~
+~
 ~
 ~
 Z 0 4166
@@ -3389,8 +3905,12 @@ The air is damp here.
 D0
 ~
 ~
+~
+~
 Z 0 4164
 D3
+~
+~
 ~
 ~
 Z 0 4167
@@ -3404,8 +3924,12 @@ S
 D0
 ~
 ~
+~
+~
 Z 0 4165
 D1
+~
+~
 ~
 ~
 Z 0 4170
@@ -3419,12 +3943,18 @@ S
 D0
 ~
 ~
+~
+~
 Z 0 4166
 D1
 ~
 ~
+~
+~
 Z 0 4172
 D3
+~
+~
 ~
 ~
 Z 0 4169
@@ -3440,8 +3970,12 @@ Above you a hole leads up.
 D0
 ~
 ~
+~
+~
 Z 0 4167
 D4
+~
+~
 ~
 ~
 Z 0 4074
@@ -3453,6 +3987,8 @@ S
 ~
 0 AD forest
 D3
+~
+~
 ~
 ~
 Z 0 4170

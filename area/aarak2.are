@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Aarakocran City~
 VNUMs 5600 5699
 Credits Slash~
@@ -1473,10 +1473,14 @@ are shifting, something very strange is going on below.
 D1
 ~
 ~
+~
+~
 Z -1 5602
 D5
 You see some strange things in the air below you.  Below, creatures
 mill about and the wind seems rather strange.
+~
+~
 ~
 ~
 Z -1 9258
@@ -1491,8 +1495,12 @@ location and adventuring ceases to interest you.
 D1
 ~
 ~
+~
+~
 Z -1 5678
 D5
+~
+~
 ~
 ~
 Z -1 5602
@@ -1507,12 +1515,18 @@ location and adventuring ceases to interest you.
 D1
 ~
 ~
+~
+~
 Z -1 5685
 D3
 ~
 ~
+~
+~
 Z -1 5600
 D4
+~
+~
 ~
 ~
 Z -1 5601
@@ -1525,6 +1539,8 @@ and trophies appear.
 0 D inside
 D1
 You see the sales counter.
+~
+~
 ~
 ~
 Z -1 5616
@@ -1555,9 +1571,13 @@ D0
 You see the guard shack.
 ~
 ~
+~
+~
 Z -1 5622
 D1
 You see the private chambers of the Chief shaman.
+~
+~
 ~
 ~
 Z -1 5699
@@ -1566,11 +1586,15 @@ You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
 ~
 ~
+~
+~
 Z -1 5653
 D5
 You see a narrow staircase has been cut into the rock here, to allow visiting
 traders access to the market.  (You sincerely hope that you don't slip, as you
 can see some wicked jagged rocks between breaks in the clouds below, GULP!)
+~
+~
 ~
 ~
 Z -1 5611
@@ -1590,11 +1614,15 @@ roll down the cliff if something really big and nasty was coming up at you.
 D0
 ~
 ~
+~
+~
 Z -1 5685
 D2
 A big stone blocks your path.
 ~
 stone~
+the stone~
+~
 ABZ -1 5695
 S
 #5606
@@ -1624,12 +1652,18 @@ You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
 ~
 ~
+~
+~
 Z -1 5671
 D1
 ~
 ~
+~
+~
 Z -1 5607
 D2
+~
+~
 ~
 ~
 Z -1 5629
@@ -1645,12 +1679,18 @@ You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
 ~
 ~
+~
+~
 Z -1 5672
 D1
 ~
 ~
+~
+~
 Z -1 5614
 D3
+~
+~
 ~
 ~
 Z -1 5606
@@ -1670,6 +1710,8 @@ to game!
 D1
 ~
 ~
+~
+~
 Z -1 5609
 S
 #5609
@@ -1680,12 +1722,18 @@ This stall is painted with strange gold runes, such as triangles and eyes.
 D1
 ~
 ~
+~
+~
 Z -1 5610
 D3
 ~
 ~
+~
+~
 Z -1 5608
 D5
+~
+~
 ~
 ~
 Z -1 5616
@@ -1699,12 +1747,18 @@ are hanging from racks all around you.
 D1
 ~
 ~
+~
+~
 Z -1 5611
 D3
 ~
 ~
+~
+~
 Z -1 5609
 D5
+~
+~
 ~
 ~
 Z -1 5617
@@ -1720,22 +1774,32 @@ side of the cliff city.
 D1
 ~
 ~
+~
+~
 Z -1 5612
 D2
 You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
 ~
 ~
+~
+~
 Z -1 5660
 D3
+~
+~
 ~
 ~
 Z -1 5610
 D4
 ~
 ~
+~
+~
 Z -1 5604
 D5
+~
+~
 ~
 ~
 Z -1 5618
@@ -1750,18 +1814,26 @@ D1
 You see the warrior's guild.
 ~
 ~
+~
+~
 Z -1 5613
 D2
 You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
 ~
 ~
+~
+~
 Z -1 5661
 D3
 ~
 ~
+~
+~
 Z -1 5611
 D5
+~
+~
 ~
 ~
 Z -1 5619
@@ -1776,8 +1848,12 @@ huge set of weights.
 D3
 ~
 ~
+~
+~
 Z -1 5612
 D5
+~
+~
 ~
 ~
 Z -1 5620
@@ -1793,12 +1869,18 @@ You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
 ~
 ~
+~
+~
 Z -1 5673
 D1
 ~
 ~
+~
+~
 Z -1 5615
 D3
+~
+~
 ~
 ~
 Z -1 5607
@@ -1814,12 +1896,18 @@ You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
 ~
 ~
+~
+~
 Z -1 5674
 D1
 ~
 ~
+~
+~
 Z -1 5628
 D3
+~
+~
 ~
 ~
 Z -1 5614
@@ -1845,10 +1933,14 @@ is a large gallery to the east.
 D1
 ~
 ~
+~
+~
 Z -1 5617
 D2
 You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
+~
+~
 ~
 ~
 Z -1 5665
@@ -1856,8 +1948,12 @@ D3
 You see a display gallery to the west.
 ~
 ~
+~
+~
 Z -1 5603
 D4
+~
+~
 ~
 ~
 Z -1 5609
@@ -1872,18 +1968,26 @@ stop to ask if he has anything newer under the counter.
 D1
 ~
 ~
+~
+~
 Z -1 5618
 D2
 You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
 ~
 ~
+~
+~
 Z -1 5666
 D3
 ~
 ~
+~
+~
 Z -1 5616
 D4
+~
+~
 ~
 ~
 Z -1 5610
@@ -1898,12 +2002,18 @@ and West, while dwellings lie to the Down.  To the South, you see a (Glowing)
 D1
 ~
 ~
+~
+~
 Z -1 5619
 D3
 ~
 ~
+~
+~
 Z -1 5617
 D4
+~
+~
 ~
 ~
 Z -1 5611
@@ -1920,6 +2030,8 @@ You think you can see jagged rocks through the clouds below, but you are not
 sure...
 ~
 ~
+~
+~
 Z -1 5625
 S
 #5619
@@ -1932,12 +2044,18 @@ attacking a dragon sitting on a huge pile of gold and gems.
 D1
 ~
 ~
+~
+~
 Z -1 5620
 D3
 ~
 ~
+~
+~
 Z -1 5618
 D4
+~
+~
 ~
 ~
 Z -1 5612
@@ -1953,9 +2071,13 @@ equipment.
 D3
 ~
 ~
+~
+~
 Z -1 5619
 D4
 You see the Warrior's guild.
+~
+~
 ~
 ~
 Z -1 5613
@@ -1967,6 +2089,8 @@ is a latrine in the southeast corner.
 ~
 0 0 mountain
 D1
+~
+~
 ~
 ~
 Z -1 5623
@@ -1982,6 +2106,8 @@ D2
 You see a temple.
 ~
 ~
+~
+~
 Z -1 5604
 S
 #5623
@@ -1993,14 +2119,20 @@ is a latrine in the southeast corner.
 D1
 ~
 ~
+~
+~
 Z -1 5624
 D2
 You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
 ~
 ~
+~
+~
 Z -1 5672
 D3
+~
+~
 ~
 ~
 Z -1 5621
@@ -2014,14 +2146,20 @@ is a latrine in the southeast corner.
 D1
 ~
 ~
+~
+~
 Z -1 5625
 D2
 You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
 ~
 ~
+~
+~
 Z -1 5673
 D3
+~
+~
 ~
 ~
 Z -1 5623
@@ -2036,18 +2174,26 @@ is nothing to the South.
 D1
 ~
 ~
+~
+~
 Z -1 5626
 D2
 You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
 ~
 ~
+~
+~
 Z -1 5674
 D3
 ~
 ~
+~
+~
 Z -1 5624
 D4
+~
+~
 ~
 ~
 Z -1 5618
@@ -2055,6 +2201,8 @@ D5
 You feel that you can jump from rock to rock and scale on your belly long
 enough to get to some small huts you see to the DownEast.  You can clearly
 see some wicked, jagged crags through a part in the clouds below.
+~
+~
 ~
 ~
 Z -1 5632
@@ -2068,14 +2216,20 @@ south wall, and using the north face of the canyon as the north wall.
 D1
 ~
 ~
+~
+~
 Z -1 5627
 D2
 You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
 ~
 ~
+~
+~
 Z -1 5675
 D3
+~
+~
 ~
 ~
 Z -1 5625
@@ -2089,8 +2243,12 @@ south wall, and using the north face of the canyon as the north wall.
 D3
 ~
 ~
+~
+~
 Z -1 5626
 D5
+~
+~
 ~
 ~
 Z -1 5634
@@ -2105,8 +2263,12 @@ the North.
 D0
 ~
 ~
+~
+~
 Z -1 5675
 D3
+~
+~
 ~
 ~
 Z -1 5615
@@ -2124,13 +2286,19 @@ yourself living in such splendor one day.
 D0
 ~
 ~
+~
+~
 Z -1 5606
 D1
+~
+~
 ~
 ~
 Z -1 5649
 D5
 It looks like there might be some very nice things down there.
+~
+~
 ~
 ~
 Z -1 5690
@@ -2147,10 +2315,14 @@ climb is too steep.
 D1
 ~
 ~
+~
+~
 Z -1 5631
 D2
 You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
+~
+~
 ~
 ~
 Z -1 5679
@@ -2169,12 +2341,18 @@ You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
 ~
 ~
+~
+~
 Z -1 5680
 D3
 ~
 ~
+~
+~
 Z -1 5630
 D5
+~
+~
 ~
 ~
 Z -1 5638
@@ -2191,12 +2369,18 @@ You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
 ~
 ~
+~
+~
 Z -1 5681
 D4
 ~
 ~
+~
+~
 Z -1 5625
 D5
+~
+~
 ~
 ~
 Z -1 5639
@@ -2271,6 +2455,8 @@ WALK INTO AN AGGRESSIVE AREA stealthily.  Use invisibility for this...
 D2
 ~
 ~
+~
+~
 ABZ -1 5640
 S
 #5634
@@ -2282,11 +2468,15 @@ You *might* be able to go down, but I wouldn't try it...
 D4
 ~
 ~
+~
+~
 Z -1 5627
 D5
 It looks a bit too steep...  You might be able to get down, though getting up
 is clearly impossible.  You have an excellent view of some buzzards circling
 around a large animal about 2000' feet down...
+~
+~
 ~
 ~
 Z -1 5641
@@ -2301,6 +2491,8 @@ point.
 ~
 0 0 mountain
 D5
+~
+~
 ~
 ~
 Z -1 5642
@@ -2318,6 +2510,8 @@ You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
 ~
 ~
+~
+~
 Z -1 5685
 S
 #5637
@@ -2333,8 +2527,12 @@ You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
 ~
 ~
+~
+~
 Z -1 5686
 D5
+~
+~
 ~
 ~
 Z -1 5644
@@ -2353,8 +2551,12 @@ You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
 ~
 ~
+~
+~
 Z -1 5687
 D4
+~
+~
 ~
 ~
 Z -1 5631
@@ -2368,14 +2570,20 @@ bend allows you to leave Up or continue East.  There is nothing to the South.
 D1
 ~
 ~
+~
+~
 Z -1 5640
 D2
 You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
 ~
 ~
+~
+~
 Z -1 5688
 D4
+~
+~
 ~
 ~
 Z -1 5632
@@ -2397,8 +2605,12 @@ fact, what you thought was the cliff face is a cave that is completely
 obscured.
 ~
 secret panel~
+@eng the secret@rus секретная дверь~
+@rus female~
 ABZ -1 5633
 D1
+~
+~
 ~
 ~
 Z -1 5641
@@ -2407,8 +2619,12 @@ You see the freedom of the air!  Ah, to soar again, free of all your cares
 gliding on thermals above the clouds...
 ~
 ~
+~
+~
 Z -1 5689
 D3
+~
+~
 ~
 ~
 Z -1 5639
@@ -2425,8 +2641,12 @@ keeping these huts together.
 D3
 ~
 ~
+~
+~
 Z -1 5640
 D5
+~
+~
 ~
 ~
 Z -1 5648
@@ -2441,8 +2661,12 @@ There is nothing to the south.
 D1
 ~
 ~
+~
+~
 Z -1 5643
 D4
+~
+~
 ~
 ~
 Z -1 5635
@@ -2458,8 +2682,12 @@ little less drab, though.  The cliff face looks impassible to the west.
 D1
 ~
 ~
+~
+~
 Z -1 5644
 D3
+~
+~
 ~
 ~
 Z -1 5642
@@ -2475,12 +2703,18 @@ little less drab, though.
 D1
 ~
 ~
+~
+~
 Z -1 5645
 D3
 ~
 ~
+~
+~
 Z -1 5643
 D4
+~
+~
 ~
 ~
 Z -1 5637
@@ -2497,8 +2731,12 @@ still see his sun bleached bones on a small outcropping about 1500' down...
 D1
 ~
 ~
+~
+~
 Z -1 5646
 D3
+~
+~
 ~
 ~
 Z -1 5644
@@ -2514,8 +2752,12 @@ little less drab, though.
 D1
 ~
 ~
+~
+~
 Z -1 5647
 D3
+~
+~
 ~
 ~
 Z -1 5645
@@ -2531,8 +2773,12 @@ little less drab, though.
 D1
 ~
 ~
+~
+~
 Z -1 5648
 D3
+~
+~
 ~
 ~
 Z -1 5646
@@ -2548,8 +2794,12 @@ doesn't snap off under the weight of your armor.
 D3
 ~
 ~
+~
+~
 Z -1 5647
 D4
+~
+~
 ~
 ~
 Z -1 5641
@@ -2563,13 +2813,19 @@ around, but nothing you can take home with you.
 D1
 ~
 ~
+~
+~
 Z -1 5650
 D3
+~
+~
 ~
 ~
 Z -1 5629
 D5
 It looks like there might be some very nice things down there.
+~
+~
 ~
 ~
 Z -1 5691
@@ -2583,13 +2839,19 @@ around, but nothing you can take home with you.
 D1
 ~
 ~
+~
+~
 Z -1 5651
 D3
+~
+~
 ~
 ~
 Z -1 5649
 D5
 It looks like there might be some very nice things down there.
+~
+~
 ~
 ~
 Z -1 5692
@@ -2603,13 +2865,19 @@ around, but nothing you can take home with you.
 D1
 ~
 ~
+~
+~
 Z -1 5652
 D3
+~
+~
 ~
 ~
 Z -1 5650
 D5
 It looks like there might be some very nice things down there.
+~
+~
 ~
 ~
 Z -1 5693
@@ -2621,6 +2889,8 @@ around, but nothing you can take home with you.  The corridor dead ends here.
 ~
 0 D city
 D3
+~
+~
 ~
 ~
 Z -1 5651
@@ -2636,12 +2906,18 @@ D0
 You see a bright white temple.
 ~
 ~
+~
+~
 Z -1 5604
 D2
 ~
 ~
+~
+~
 Z -1 5662
 D5
+~
+~
 ~
 ~
 Z -1 5660
@@ -2656,12 +2932,18 @@ obvious from your footprints that W leads out of this confusing area.
 D0
 ~
 ~
+~
+~
 Z -1 5658
 D1
 ~
 ~
+~
+~
 Z -1 5659
 D4
+~
+~
 ~
 ~
 Z -1 5676
@@ -2676,12 +2958,18 @@ obvious from your footprints that W leads out of this confusing area.
 D0
 ~
 ~
+~
+~
 Z -1 5668
 D1
 ~
 ~
+~
+~
 Z -1 5669
 D3
+~
+~
 ~
 ~
 Z -1 5676
@@ -2696,12 +2984,18 @@ obvious from your footprints that W leads out of this confusing area.
 D0
 ~
 ~
+~
+~
 Z -1 5670
 D1
 ~
 ~
+~
+~
 Z -1 5683
 D4
+~
+~
 ~
 ~
 Z -1 5677
@@ -2716,6 +3010,8 @@ obvious from your footprints that W leads out of this confusing area.
 D3
 ~
 ~
+~
+~
 Z -1 5677
 S
 #5658
@@ -2728,6 +3024,8 @@ obvious from your footprints that W leads out of this confusing area.
 D4
 ~
 ~
+~
+~
 Z -1 5654
 S
 #5659
@@ -2738,6 +3036,8 @@ obvious from your footprints that W leads out of this confusing area.
 ~
 0 D city
 D3
+~
+~
 ~
 ~
 Z -1 5654
@@ -2753,16 +3053,24 @@ D0
 You see the market square.
 ~
 ~
+~
+~
 Z -1 5611
 D1
+~
+~
 ~
 ~
 Z -1 5661
 D4
 ~
 ~
+~
+~
 Z -1 5653
 D5
+~
+~
 ~
 ~
 Z -1 5667
@@ -2777,8 +3085,12 @@ location and adventuring ceases to interest you.
 D0
 ~
 ~
+~
+~
 Z -1 5612
 D3
+~
+~
 ~
 ~
 Z -1 5660
@@ -2793,6 +3105,8 @@ walls.
 D0
 ~
 ~
+~
+~
 Z -1 5653
 S
 #5663
@@ -2805,12 +3119,18 @@ obvious from your footprints that W leads out of this confusing area.
 D0
 ~
 ~
+~
+~
 Z -1 5676
 D1
 ~
 ~
+~
+~
 Z -1 5677
 D3
+~
+~
 ~
 ~
 Z -1 5684
@@ -2825,8 +3145,12 @@ location and adventuring ceases to interest you.
 D1
 ~
 ~
+~
+~
 Z -1 5665
 D5
+~
+~
 ~
 ~
 Z -1 5671
@@ -2841,16 +3165,24 @@ location and adventuring ceases to interest you.
 D0
 ~
 ~
+~
+~
 Z -1 5616
 D1
+~
+~
 ~
 ~
 Z -1 5666
 D3
 ~
 ~
+~
+~
 Z -1 5664
 D5
+~
+~
 ~
 ~
 Z -1 5672
@@ -2865,16 +3197,24 @@ location and adventuring ceases to interest you.
 D0
 ~
 ~
+~
+~
 Z -1 5617
 D1
+~
+~
 ~
 ~
 Z -1 5667
 D3
 ~
 ~
+~
+~
 Z -1 5665
 D5
+~
+~
 ~
 ~
 Z -1 5673
@@ -2889,12 +3229,18 @@ location and adventuring ceases to interest you.
 D3
 ~
 ~
+~
+~
 Z -1 5666
 D4
 ~
 ~
+~
+~
 Z -1 5660
 D5
+~
+~
 ~
 ~
 Z -1 5674
@@ -2909,6 +3255,8 @@ obvious from your footprints that W leads out of this confusing area.
 D4
 ~
 ~
+~
+~
 Z -1 5655
 S
 #5669
@@ -2919,6 +3267,8 @@ obvious from your footprints that W leads out of this confusing area.
 ~
 0 D city
 D3
+~
+~
 ~
 ~
 Z -1 5655
@@ -2933,6 +3283,8 @@ obvious from your footprints that W leads out of this confusing area.
 D4
 ~
 ~
+~
+~
 Z -1 5656
 S
 #5671
@@ -2945,20 +3297,30 @@ location and adventuring ceases to interest you.
 D0
 ~
 ~
+~
+~
 Z -1 5621
 D1
+~
+~
 ~
 ~
 Z -1 5672
 D2
 ~
 ~
+~
+~
 Z -1 5606
 D4
 ~
 ~
+~
+~
 Z -1 5664
 D5
+~
+~
 ~
 ~
 Z -1 5678
@@ -2973,24 +3335,36 @@ location and adventuring ceases to interest you.
 D0
 ~
 ~
+~
+~
 Z -1 5623
 D1
+~
+~
 ~
 ~
 Z -1 5673
 D2
 ~
 ~
+~
+~
 Z -1 5607
 D3
+~
+~
 ~
 ~
 Z -1 5671
 D4
 ~
 ~
+~
+~
 Z -1 5665
 D5
+~
+~
 ~
 ~
 Z -1 5679
@@ -3005,24 +3379,36 @@ location and adventuring ceases to interest you.
 D0
 ~
 ~
+~
+~
 Z -1 5624
 D1
+~
+~
 ~
 ~
 Z -1 5674
 D2
 ~
 ~
+~
+~
 Z -1 5614
 D3
+~
+~
 ~
 ~
 Z -1 5672
 D4
 ~
 ~
+~
+~
 Z -1 5666
 D5
+~
+~
 ~
 ~
 Z -1 5680
@@ -3037,24 +3423,36 @@ location and adventuring ceases to interest you.
 D0
 ~
 ~
+~
+~
 Z -1 5625
 D1
+~
+~
 ~
 ~
 Z -1 5675
 D2
 ~
 ~
+~
+~
 Z -1 5615
 D3
+~
+~
 ~
 ~
 Z -1 5673
 D4
 ~
 ~
+~
+~
 Z -1 5667
 D5
+~
+~
 ~
 ~
 Z -1 5681
@@ -3069,16 +3467,24 @@ location and adventuring ceases to interest you.
 D0
 ~
 ~
+~
+~
 Z -1 5626
 D2
+~
+~
 ~
 ~
 Z -1 5628
 D3
 ~
 ~
+~
+~
 Z -1 5674
 D5
+~
+~
 ~
 ~
 Z -1 5682
@@ -3093,12 +3499,18 @@ obvious from your footprints that W leads out of this confusing area.
 D0
 ~
 ~
+~
+~
 Z -1 5654
 D1
 ~
 ~
+~
+~
 Z -1 5655
 D4
+~
+~
 ~
 ~
 Z -1 5663
@@ -3113,12 +3525,18 @@ obvious from your footprints that W leads out of this confusing area.
 D0
 ~
 ~
+~
+~
 Z -1 5656
 D1
 ~
 ~
+~
+~
 Z -1 5657
 D3
+~
+~
 ~
 ~
 Z -1 5663
@@ -3133,16 +3551,24 @@ location and adventuring ceases to interest you.
 D1
 ~
 ~
+~
+~
 Z -1 5679
 D3
+~
+~
 ~
 ~
 Z -1 5601
 D4
 ~
 ~
+~
+~
 Z -1 5671
 D5
+~
+~
 ~
 ~
 Z -1 5685
@@ -3157,20 +3583,30 @@ location and adventuring ceases to interest you.
 D0
 ~
 ~
+~
+~
 Z -1 5630
 D1
+~
+~
 ~
 ~
 Z -1 5680
 D3
 ~
 ~
+~
+~
 Z -1 5678
 D4
 ~
 ~
+~
+~
 Z -1 5672
 D5
+~
+~
 ~
 ~
 Z -1 5686
@@ -3185,20 +3621,30 @@ location and adventuring ceases to interest you.
 D0
 ~
 ~
+~
+~
 Z -1 5631
 D1
+~
+~
 ~
 ~
 Z -1 5681
 D3
 ~
 ~
+~
+~
 Z -1 5679
 D4
 ~
 ~
+~
+~
 Z -1 5673
 D5
+~
+~
 ~
 ~
 Z -1 5687
@@ -3213,20 +3659,30 @@ location and adventuring ceases to interest you.
 D0
 ~
 ~
+~
+~
 Z -1 5632
 D1
+~
+~
 ~
 ~
 Z -1 5682
 D3
 ~
 ~
+~
+~
 Z -1 5680
 D4
 ~
 ~
+~
+~
 Z -1 5674
 D5
+~
+~
 ~
 ~
 Z -1 5688
@@ -3241,12 +3697,18 @@ location and adventuring ceases to interest you.
 D3
 ~
 ~
+~
+~
 Z -1 5681
 D4
 ~
 ~
+~
+~
 Z -1 5675
 D5
+~
+~
 ~
 ~
 Z -1 5689
@@ -3261,6 +3723,8 @@ obvious from your footprints that W leads out of this confusing area.
 D3
 ~
 ~
+~
+~
 Z -1 5656
 S
 #5684
@@ -3272,8 +3736,12 @@ inconspicuous.
 D1
 ~
 ~
+~
+~
 Z -1 5663
 D3
+~
+~
 ~
 ~
 Z -1 5698
@@ -3288,20 +3756,30 @@ location and adventuring ceases to interest you.
 D0
 ~
 ~
+~
+~
 Z -1 5636
 D1
+~
+~
 ~
 ~
 Z -1 5686
 D2
 ~
 ~
+~
+~
 Z -1 5605
 D3
 ~
 ~
+~
+~
 Z -1 5602
 D4
+~
+~
 ~
 ~
 Z -1 5678
@@ -3316,16 +3794,24 @@ location and adventuring ceases to interest you.
 D0
 ~
 ~
+~
+~
 Z -1 5637
 D1
+~
+~
 ~
 ~
 Z -1 5687
 D3
 ~
 ~
+~
+~
 Z -1 5685
 D4
+~
+~
 ~
 ~
 Z -1 5679
@@ -3340,16 +3826,24 @@ location and adventuring ceases to interest you.
 D0
 ~
 ~
+~
+~
 Z -1 5638
 D1
+~
+~
 ~
 ~
 Z -1 5688
 D3
 ~
 ~
+~
+~
 Z -1 5686
 D4
+~
+~
 ~
 ~
 Z -1 5680
@@ -3364,16 +3858,24 @@ location and adventuring ceases to interest you.
 D0
 ~
 ~
+~
+~
 Z -1 5639
 D1
+~
+~
 ~
 ~
 Z -1 5689
 D3
 ~
 ~
+~
+~
 Z -1 5687
 D4
+~
+~
 ~
 ~
 Z -1 5681
@@ -3388,12 +3890,18 @@ location and adventuring ceases to interest you.
 D0
 ~
 ~
+~
+~
 Z -1 5640
 D3
 ~
 ~
+~
+~
 Z -1 5688
 D4
+~
+~
 ~
 ~
 Z -1 5682
@@ -3408,6 +3916,8 @@ comfort.
 D4
 ~
 ~
+~
+~
 Z -1 5629
 S
 #5691
@@ -3420,6 +3930,8 @@ comfort.
 D4
 ~
 ~
+~
+~
 Z -1 5649
 S
 #5692
@@ -3428,6 +3940,8 @@ It doesn't look like there are any valuables here.
 ~
 0 D city
 D4
+~
+~
 ~
 ~
 Z -1 5650
@@ -3440,8 +3954,12 @@ It doesn't look like there are any valuables here.
 D4
 ~
 ~
+~
+~
 Z -1 5651
 D5
+~
+~
 ~
 ~
 Z -1 5696
@@ -3453,6 +3971,8 @@ anyone could work without nice things around to bring peace and comfort.
 ~
 0 D city
 D1
+~
+~
 ~
 ~
 Z -1 5695
@@ -3472,12 +3992,18 @@ D0
 A big stone blocks your escape.
 ~
 stone~
+the stone~
+~
 ABZ -1 5605
 D1
 ~
 ~
+~
+~
 Z -1 5696
 D3
+~
+~
 ~
 ~
 Z -1 5694
@@ -3491,16 +4017,24 @@ To leave the cave complex, go Up.
 D2
 ~
 door~
+~
+~
 ABCFZ 5662 5698
 D3
+~
+~
 ~
 ~
 Z -1 5695
 D4
 ~
 ~
+~
+~
 Z -1 5693
 D5
+~
+~
 ~
 ~
 Z -1 5697
@@ -3515,6 +4049,8 @@ if they are not storing anything really valuable here.
 D4
 ~
 ~
+~
+~
 Z -1 5696
 S
 #5698
@@ -3526,11 +4062,15 @@ inconspicuous.
 D0
 ~
 door~
+~
+~
 ABCFZ 5662 5696
 D1
 There are some heavy footprints leading to the west, so I would suggest
 avoiding this area and turning around right now.
    You think you hear your mother calling you.
+~
+~
 ~
 ~
 Z -1 5684
@@ -3551,6 +4091,8 @@ mosaic is a piece of glass colored and cut so perfectly that you feel this is
 what heaven must be like.
 ~
 D3
+~
+~
 ~
 ~
 Z -1 5604

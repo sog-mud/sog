@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Kurgan Mount Doom~
 VNUMs 14700 14899
 Credits Yaegar~
@@ -1570,8 +1570,12 @@ fortress itself. Steeling yourself, you push on.
 D0
 ~
 ~
+~
+~
 Z -1 14704
 D2
+~
+~
 ~
 ~
 Z -1 6154
@@ -1589,8 +1593,12 @@ lurking nearby and you press on.
 D0
 ~
 ~
+~
+~
 Z -1 14708
 D1
+~
+~
 ~
 ~
 Z -1 14702
@@ -1608,12 +1616,18 @@ lurking nearby and you press on.
 D0
 ~
 ~
+~
+~
 Z -1 14709
 D1
 ~
 ~
+~
+~
 Z -1 14703
 D3
+~
+~
 ~
 ~
 Z -1 14701
@@ -1631,12 +1645,18 @@ lurking nearby and you press on.
 D0
 ~
 ~
+~
+~
 Z -1 14710
 D1
 ~
 ~
+~
+~
 Z -1 14704
 D3
+~
+~
 ~
 ~
 Z -1 14702
@@ -1654,16 +1674,24 @@ lurking nearby and you press on.
 D0
 ~
 ~
+~
+~
 Z -1 14711
 D1
+~
+~
 ~
 ~
 Z -1 14705
 D2
 ~
 ~
+~
+~
 Z -1 14700
 D3
+~
+~
 ~
 ~
 Z -1 14703
@@ -1681,12 +1709,18 @@ lurking nearby and you press on.
 D0
 ~
 ~
+~
+~
 Z -1 14712
 D1
 ~
 ~
+~
+~
 Z -1 14706
 D3
+~
+~
 ~
 ~
 Z -1 14704
@@ -1704,12 +1738,18 @@ lurking nearby and you press on.
 D0
 ~
 ~
+~
+~
 Z -1 14713
 D1
 ~
 ~
+~
+~
 Z -1 14707
 D3
+~
+~
 ~
 ~
 Z -1 14705
@@ -1727,8 +1767,12 @@ lurking nearby and you press on.
 D0
 ~
 ~
+~
+~
 Z -1 14714
 D3
+~
+~
 ~
 ~
 Z -1 14706
@@ -1746,12 +1790,18 @@ lurking nearby and you press on.
 D0
 ~
 ~
+~
+~
 Z -1 14715
 D1
 ~
 ~
+~
+~
 Z -1 14709
 D2
+~
+~
 ~
 ~
 Z -1 14701
@@ -1769,16 +1819,24 @@ screams.
 D0
 ~
 ~
+~
+~
 Z -1 14716
 D1
+~
+~
 ~
 ~
 Z -1 14710
 D2
 ~
 ~
+~
+~
 Z -1 14702
 D3
+~
+~
 ~
 ~
 Z -1 14708
@@ -1796,16 +1854,24 @@ screams.
 D0
 ~
 ~
+~
+~
 Z -1 14717
 D1
+~
+~
 ~
 ~
 Z -1 14711
 D2
 ~
 ~
+~
+~
 Z -1 14703
 D3
+~
+~
 ~
 ~
 Z -1 14709
@@ -1823,16 +1889,24 @@ screams.
 D0
 ~
 ~
+~
+~
 Z -1 14718
 D1
+~
+~
 ~
 ~
 Z -1 14712
 D2
 ~
 ~
+~
+~
 Z -1 14704
 D3
+~
+~
 ~
 ~
 Z -1 14710
@@ -1850,16 +1924,24 @@ screams.
 D0
 ~
 ~
+~
+~
 Z -1 14719
 D1
+~
+~
 ~
 ~
 Z -1 14713
 D2
 ~
 ~
+~
+~
 Z -1 14705
 D3
+~
+~
 ~
 ~
 Z -1 14711
@@ -1877,16 +1959,24 @@ screams.
 D0
 ~
 ~
+~
+~
 Z -1 14720
 D1
+~
+~
 ~
 ~
 Z -1 14714
 D2
 ~
 ~
+~
+~
 Z -1 14706
 D3
+~
+~
 ~
 ~
 Z -1 14712
@@ -1904,12 +1994,18 @@ lurking nearby and you press on.
 D0
 ~
 ~
+~
+~
 Z -1 14721
 D2
 ~
 ~
+~
+~
 Z -1 14707
 D3
+~
+~
 ~
 ~
 Z -1 14713
@@ -1927,12 +2023,18 @@ lurking nearby and you press on.
 D0
 ~
 ~
+~
+~
 Z -1 14722
 D1
 ~
 ~
+~
+~
 Z -1 14716
 D2
+~
+~
 ~
 ~
 Z -1 14708
@@ -1950,16 +2052,24 @@ screams.
 D0
 ~
 ~
+~
+~
 Z -1 14723
 D1
+~
+~
 ~
 ~
 Z -1 14717
 D2
 ~
 ~
+~
+~
 Z -1 14709
 D3
+~
+~
 ~
 ~
 Z -1 14715
@@ -1977,16 +2087,24 @@ been minor compared to those to come.
 D0
 ~
 ~
+~
+~
 Z -1 14724
 D1
+~
+~
 ~
 ~
 Z -1 14718
 D2
 ~
 ~
+~
+~
 Z -1 14710
 D3
+~
+~
 ~
 ~
 Z -1 14716
@@ -2007,16 +2125,24 @@ D0
 THE FORTRESS
 ~
 ~
+~
+~
 Z -1 14725
 D1
+~
+~
 ~
 ~
 Z -1 14719
 D2
 ~
 ~
+~
+~
 Z -1 14711
 D3
+~
+~
 ~
 ~
 Z -1 14717
@@ -2034,16 +2160,24 @@ been minor compared to those to come.
 D0
 ~
 ~
+~
+~
 Z -1 14726
 D1
+~
+~
 ~
 ~
 Z -1 14720
 D2
 ~
 ~
+~
+~
 Z -1 14712
 D3
+~
+~
 ~
 ~
 Z -1 14718
@@ -2061,16 +2195,24 @@ screams.
 D0
 ~
 ~
+~
+~
 Z -1 14727
 D1
+~
+~
 ~
 ~
 Z -1 14721
 D2
 ~
 ~
+~
+~
 Z -1 14713
 D3
+~
+~
 ~
 ~
 Z -1 14719
@@ -2088,12 +2230,18 @@ lurking nearby and you press on.
 D0
 ~
 ~
+~
+~
 Z -1 14728
 D2
 ~
 ~
+~
+~
 Z -1 14714
 D3
+~
+~
 ~
 ~
 Z -1 14720
@@ -2111,12 +2259,18 @@ lurking nearby and you press on.
 D0
 ~
 ~
+~
+~
 Z -1 14729
 D1
 ~
 ~
+~
+~
 Z -1 14723
 D2
+~
+~
 ~
 ~
 Z -1 14715
@@ -2134,16 +2288,24 @@ screams.
 D0
 ~
 ~
+~
+~
 Z -1 14730
 D1
+~
+~
 ~
 ~
 Z -1 14724
 D2
 ~
 ~
+~
+~
 Z -1 14716
 D3
+~
+~
 ~
 ~
 Z -1 14722
@@ -2163,17 +2325,25 @@ The Fortress lies directly east of here.
 D0
 ~
 ~
+~
+~
 Z -1 14731
 D1
 THE FORTRESSS
+~
+~
 ~
 ~
 Z -1 14725
 D2
 ~
 ~
+~
+~
 Z -1 14717
 D3
+~
+~
 ~
 ~
 Z -1 14723
@@ -2189,20 +2359,30 @@ permitted to go before Korgthar's forces combine and crush you.
 D0
 ~
 ~
+~
+~
 Z -1 14732
 D1
+~
+~
 ~
 ~
 Z -1 14726
 D2
 ~
 ~
+~
+~
 Z -1 14718
 D3
 ~
 ~
+~
+~
 Z -1 14724
 D4
+~
+~
 ~
 ~
 Z 0 14750
@@ -2222,16 +2402,24 @@ The Fortress lies due west of here.
 D0
 ~
 ~
+~
+~
 Z -1 14733
 D1
+~
+~
 ~
 ~
 Z -1 14727
 D2
 ~
 ~
+~
+~
 Z -1 14719
 D3
+~
+~
 ~
 ~
 Z -1 14725
@@ -2249,16 +2437,24 @@ screams.
 D0
 ~
 ~
+~
+~
 Z -1 14734
 D1
+~
+~
 ~
 ~
 Z -1 14728
 D2
 ~
 ~
+~
+~
 Z -1 14720
 D3
+~
+~
 ~
 ~
 Z -1 14726
@@ -2276,12 +2472,18 @@ lurking nearby and you press on.
 D0
 ~
 ~
+~
+~
 Z -1 14735
 D2
 ~
 ~
+~
+~
 Z -1 14721
 D3
+~
+~
 ~
 ~
 Z -1 14727
@@ -2299,12 +2501,18 @@ lurking nearby and you press on.
 D0
 ~
 ~
+~
+~
 Z -1 14736
 D1
 ~
 ~
+~
+~
 Z -1 14730
 D2
+~
+~
 ~
 ~
 Z -1 14722
@@ -2322,16 +2530,24 @@ screams.
 D0
 ~
 ~
+~
+~
 Z -1 14737
 D1
+~
+~
 ~
 ~
 Z -1 14731
 D2
 ~
 ~
+~
+~
 Z -1 14723
 D3
+~
+~
 ~
 ~
 Z -1 14729
@@ -2349,16 +2565,24 @@ been minor compared to those to come.
 D0
 ~
 ~
+~
+~
 Z -1 14738
 D1
+~
+~
 ~
 ~
 Z -1 14732
 D2
 ~
 ~
+~
+~
 Z -1 14724
 D3
+~
+~
 ~
 ~
 Z -1 14730
@@ -2378,8 +2602,12 @@ The Fortress lies due south of here.
 D0
 ~
 ~
+~
+~
 Z -1 14739
 D1
+~
+~
 ~
 ~
 Z -1 14733
@@ -2387,8 +2615,12 @@ D2
 THE FORTRESS
 ~
 ~
+~
+~
 Z -1 14725
 D3
+~
+~
 ~
 ~
 Z -1 14731
@@ -2406,16 +2638,24 @@ been minor compared to those to come.
 D0
 ~
 ~
+~
+~
 Z -1 14740
 D1
+~
+~
 ~
 ~
 Z -1 14734
 D2
 ~
 ~
+~
+~
 Z -1 14726
 D3
+~
+~
 ~
 ~
 Z -1 14732
@@ -2433,16 +2673,24 @@ screams.
 D0
 ~
 ~
+~
+~
 Z -1 14741
 D1
+~
+~
 ~
 ~
 Z -1 14735
 D2
 ~
 ~
+~
+~
 Z -1 14727
 D3
+~
+~
 ~
 ~
 Z -1 14733
@@ -2460,12 +2708,18 @@ lurking nearby and you press on.
 D0
 ~
 ~
+~
+~
 Z -1 14742
 D2
 ~
 ~
+~
+~
 Z -1 14728
 D3
+~
+~
 ~
 ~
 Z -1 14734
@@ -2483,12 +2737,18 @@ lurking nearby and you press on.
 D0
 ~
 ~
+~
+~
 Z -1 14743
 D1
 ~
 ~
+~
+~
 Z -1 14737
 D2
+~
+~
 ~
 ~
 Z -1 14729
@@ -2506,16 +2766,24 @@ screams.
 D0
 ~
 ~
+~
+~
 Z -1 14744
 D1
+~
+~
 ~
 ~
 Z -1 14738
 D2
 ~
 ~
+~
+~
 Z -1 14730
 D3
+~
+~
 ~
 ~
 Z -1 14736
@@ -2533,16 +2801,24 @@ screams.
 D0
 ~
 ~
+~
+~
 Z -1 14745
 D1
+~
+~
 ~
 ~
 Z -1 14739
 D2
 ~
 ~
+~
+~
 Z -1 14731
 D3
+~
+~
 ~
 ~
 Z -1 14737
@@ -2560,16 +2836,24 @@ screams.
 D0
 ~
 ~
+~
+~
 Z -1 14746
 D1
+~
+~
 ~
 ~
 Z -1 14740
 D2
 ~
 ~
+~
+~
 Z -1 14732
 D3
+~
+~
 ~
 ~
 Z -1 14738
@@ -2587,16 +2871,24 @@ screams.
 D0
 ~
 ~
+~
+~
 Z -1 14747
 D1
+~
+~
 ~
 ~
 Z -1 14741
 D2
 ~
 ~
+~
+~
 Z -1 14733
 D3
+~
+~
 ~
 ~
 Z -1 14739
@@ -2614,16 +2906,24 @@ screams.
 D0
 ~
 ~
+~
+~
 Z -1 14748
 D1
+~
+~
 ~
 ~
 Z -1 14742
 D2
 ~
 ~
+~
+~
 Z -1 14734
 D3
+~
+~
 ~
 ~
 Z -1 14740
@@ -2641,12 +2941,18 @@ lurking nearby and you press on.
 D0
 ~
 ~
+~
+~
 Z -1 14749
 D2
 ~
 ~
+~
+~
 Z -1 14735
 D3
+~
+~
 ~
 ~
 Z -1 14741
@@ -2664,8 +2970,12 @@ lurking nearby and you press on.
 D1
 ~
 ~
+~
+~
 Z -1 14744
 D2
+~
+~
 ~
 ~
 Z -1 14736
@@ -2683,12 +2993,18 @@ lurking nearby and you press on.
 D1
 ~
 ~
+~
+~
 Z -1 14745
 D2
 ~
 ~
+~
+~
 Z -1 14737
 D3
+~
+~
 ~
 ~
 Z -1 14743
@@ -2706,12 +3022,18 @@ lurking nearby and you press on.
 D1
 ~
 ~
+~
+~
 Z -1 14746
 D2
 ~
 ~
+~
+~
 Z -1 14738
 D3
+~
+~
 ~
 ~
 Z -1 14744
@@ -2729,12 +3051,18 @@ lurking nearby and you press on.
 D1
 ~
 ~
+~
+~
 Z -1 14747
 D2
 ~
 ~
+~
+~
 Z -1 14739
 D3
+~
+~
 ~
 ~
 Z -1 14745
@@ -2752,12 +3080,18 @@ lurking nearby and you press on.
 D1
 ~
 ~
+~
+~
 Z -1 14748
 D2
 ~
 ~
+~
+~
 Z -1 14740
 D3
+~
+~
 ~
 ~
 Z -1 14746
@@ -2775,12 +3109,18 @@ lurking nearby and you press on.
 D1
 ~
 ~
+~
+~
 Z -1 14749
 D2
 ~
 ~
+~
+~
 Z -1 14741
 D3
+~
+~
 ~
 ~
 Z -1 14747
@@ -2798,8 +3138,12 @@ lurking nearby and you press on.
 D2
 ~
 ~
+~
+~
 Z -1 14742
 D3
+~
+~
 ~
 ~
 Z -1 14748
@@ -2816,20 +3160,30 @@ inhabitants prior to its current ones.
 D0
 ~
 ~
+~
+~
 Z -1 14758
 D1
+~
+~
 ~
 ~
 Z -1 14751
 D2
 ~
 ~
+~
+~
 Z -1 14771
 D3
 ~
 ~
+~
+~
 Z -1 14763
 D5
+~
+~
 ~
 ~
 ABZ -1 14725
@@ -2845,16 +3199,24 @@ potentianl escapees...
 D0
 ~
 ~
+~
+~
 ABZ 0 14752
 D1
+~
+~
 ~
 ~
 Z 0 14754
 D2
 ~
 ~
+~
+~
 ABZ 0 14753
 D3
+~
+~
 ~
 ~
 Z -1 14750
@@ -2868,6 +3230,8 @@ The stench is actually quite horrendous and you find yourself eager to leave.
 D2
 ~
 ~
+~
+~
 ABZ 0 14751
 S
 #14753
@@ -2877,6 +3241,8 @@ The stench is actually quite horrendous and you find yourself eager to leave.
 ~
 0 AD inside
 D0
+~
+~
 ~
 ~
 ABZ 0 14751
@@ -2892,16 +3258,24 @@ potentianl escapees...
 D0
 ~
 ~
+~
+~
 ABZ 0 14755
 D1
+~
+~
 ~
 ~
 ABZ 0 14757
 D2
 ~
 ~
+~
+~
 ABZ 0 14756
 D3
+~
+~
 ~
 ~
 Z -1 14751
@@ -2915,6 +3289,8 @@ The stench is actually quite horrendous and you find yourself eager to leave.
 D2
 ~
 ~
+~
+~
 ABZ 0 14754
 S
 #14756
@@ -2924,6 +3300,8 @@ The stench is actually quite horrendous and you find yourself eager to leave.
 ~
 0 AD inside
 D0
+~
+~
 ~
 ~
 ABZ 0 14754
@@ -2937,6 +3315,8 @@ The stench is actually quite horrendous and you find yourself eager to leave.
 D3
 ~
 ~
+~
+~
 ABZ 0 14754
 S
 #14758
@@ -2948,8 +3328,12 @@ some of the many types of troops that serve Krothgar.
 D0
 ~
 ~
+~
+~
 ABZ 0 14759
 D2
+~
+~
 ~
 ~
 Z -1 14750
@@ -2964,16 +3348,24 @@ effectively soundproof.
 D0
 ~
 ~
+~
+~
 ABZ 0 14761
 D1
+~
+~
 ~
 ~
 ABZ 0 14762
 D2
 ~
 ~
+~
+~
 ABZ 0 14758
 D3
+~
+~
 ~
 ~
 ABZ 0 14760
@@ -2990,6 +3382,8 @@ values them highly.
 D1
 ~
 ~
+~
+~
 ABZ 0 14759
 S
 #14761
@@ -3001,6 +3395,8 @@ cover herself, slaying her slaves before moving to confront you.
 ~
 0 D inside
 D2
+~
+~
 ~
 ~
 ABZ 0 14759
@@ -3017,6 +3413,8 @@ values them highly.
 D3
 ~
 ~
+~
+~
 ABZ 0 14759
 S
 #14763
@@ -3028,8 +3426,12 @@ some of the many types of troops that serve Krothgar.
 D1
 ~
 ~
+~
+~
 Z 0 14750
 D3
+~
+~
 ~
 ~
 ABZ 0 14764
@@ -3043,12 +3445,18 @@ Krothgar's blackguard.
 D0
 ~
 ~
+~
+~
 Z -1 14767
 D1
 ~
 ~
+~
+~
 ABZ 0 14763
 D2
+~
+~
 ~
 ~
 ABZ 0 14765
@@ -3063,8 +3471,12 @@ He likes his job, and isn't about to let you hurt his mutants.
 D0
 ~
 ~
+~
+~
 ABZ 0 14764
 D5
+~
+~
 ~
 ~
 ABZ 0 14766
@@ -3079,6 +3491,8 @@ only to find your way blocked by several mutants...
 D4
 ~
 ~
+~
+~
 ABZ 0 14765
 S
 #14767
@@ -3090,8 +3504,12 @@ Krothgar's blackguard.
 D2
 ~
 ~
+~
+~
 Z 0 14764
 D3
+~
+~
 ~
 ~
 ABZ 0 14768
@@ -3106,12 +3524,18 @@ hang from hooks in the ceiling, evidently used as practice dummies.
 D0
 ~
 ~
+~
+~
 ABZ 0 14770
 D1
 ~
 ~
+~
+~
 ABZ 0 14767
 D2
+~
+~
 ~
 ~
 ABZ 0 14769
@@ -3119,8 +3543,12 @@ D3
 This door reads- "Upper level access. Authorised personnel only!
 ~
 door~
+~
+~
 ABCZ 14758 14779
 D5
+~
+~
 ~
 ~
 Z -1 14806
@@ -3135,6 +3563,8 @@ guards.
 D0
 ~
 ~
+~
+~
 ABZ 0 14768
 S
 #14770
@@ -3145,6 +3575,8 @@ guards.
 ~
 0 AD inside
 D2
+~
+~
 ~
 ~
 ABZ 0 14768
@@ -3159,8 +3591,12 @@ reside. They frown upon intruders...
 D0
 ~
 ~
+~
+~
 Z -1 14750
 D2
+~
+~
 ~
 ~
 Z -1 14772
@@ -3175,16 +3611,24 @@ reside. They frown upon intruders...
 D0
 ~
 ~
+~
+~
 Z -1 14771
 D1
+~
+~
 ~
 ~
 ABZ 0 14774
 D2
 ~
 ~
+~
+~
 Z -1 14775
 D3
+~
+~
 ~
 ~
 ABZ 0 14773
@@ -3199,6 +3643,8 @@ Krothgar's plans, and he is doing his best to impress his diabolical guests.
 D1
 ~
 ~
+~
+~
 ABZ 0 14772
 S
 #14774
@@ -3209,6 +3655,8 @@ Krothgar's plans, and he is doing his best to impress his diabolical guests.
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 ABZ 0 14772
@@ -3223,16 +3671,24 @@ reside. They frown upon intruders...
 D0
 ~
 ~
+~
+~
 Z -1 14772
 D1
+~
+~
 ~
 ~
 ABZ 0 14777
 D2
 ~
 ~
+~
+~
 ABZ 0 14778
 D3
+~
+~
 ~
 ~
 ABZ 0 14776
@@ -3247,6 +3703,8 @@ Krothgar's plans, and he is doing his best to impress his diabolical guests.
 D1
 ~
 ~
+~
+~
 ABZ 0 14775
 S
 #14777
@@ -3257,6 +3715,8 @@ Krothgar's plans, and he is doing his best to impress his diabolical guests.
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 ABZ 0 14775
@@ -3271,6 +3731,8 @@ Krothgar's plans, and he is doing his best to impress his diabolical guests.
 D0
 ~
 ~
+~
+~
 ABZ 0 14775
 S
 #14779
@@ -3282,16 +3744,24 @@ and a narrow passage stretches away to the west.
 D1
 ~
 ~
+~
+~
 ABCZ 14758 14768
 D3
+~
+~
 ~
 ~
 Z -1 14780
 D4
 ~
 ~
+~
+~
 Z -1 14793
 D5
+~
+~
 ~
 ~
 Z -1 14787
@@ -3305,8 +3775,12 @@ on the western wall of the fortress. A junction lies to the west.
 D1
 ~
 ~
+~
+~
 Z -1 14779
 D3
+~
+~
 ~
 ~
 Z -1 14781
@@ -3340,12 +3814,18 @@ The plaque reads-
 D0
 ~
 ~
+~
+~
 ABZ 0 14783
 D1
 ~
 ~
+~
+~
 Z -1 14780
 D2
+~
+~
 ~
 ~
 ABZ 0 14782
@@ -3357,6 +3837,8 @@ ruined his experiment. He's BOUND to be upset.
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 ABZ 0 14781
@@ -3372,16 +3854,24 @@ has recently gone berserk in here...
 D0
 ~
 ~
+~
+~
 Z -1 14785
 D1
+~
+~
 ~
 ~
 Z -1 14786
 D2
 ~
 ~
+~
+~
 ABZ 0 14781
 D3
+~
+~
 ~
 ~
 Z -1 14784
@@ -3397,6 +3887,8 @@ has recently gone berserk in here...
 D1
 ~
 ~
+~
+~
 Z -1 14783
 S
 #14785
@@ -3408,6 +3900,8 @@ has recently gone berserk in here...
 ~
 0 D inside
 D2
+~
+~
 ~
 ~
 Z -1 14783
@@ -3423,6 +3917,8 @@ has recently gone berserk in here...
 D3
 ~
 ~
+~
+~
 Z -1 14783
 S
 #14787
@@ -3435,12 +3931,18 @@ D1
 You see an ancient crypt
 ~
 crypt door~
+the crypt~
+~
 ABCZ 0 14788
 D2
 ~
 ~
+~
+~
 Z -1 14789
 D4
+~
+~
 ~
 ~
 Z -1 14779
@@ -3456,6 +3958,8 @@ better hope he stayed dead...
 D3
 ~
 crypt door~
+the crypt~
+~
 Z 0 14787
 S
 #14789
@@ -3469,16 +3973,24 @@ from their gods.
 D0
 ~
 ~
+~
+~
 Z -1 14787
 D1
+~
+~
 ~
 ~
 Z -1 14792
 D2
 ~
 ~
+~
+~
 Z -1 14791
 D3
+~
+~
 ~
 ~
 Z -1 14790
@@ -3497,6 +4009,8 @@ behind it, about to sacrifice another virgin.
 D1
 ~
 ~
+~
+~
 Z -1 14789
 S
 #14791
@@ -3510,8 +4024,12 @@ from their gods. Down from here lairs Jher, ally of Krogthar.
 D0
 ~
 ~
+~
+~
 Z -1 14789
 D5
+~
+~
 ~
 ~
 Z -1 32700
@@ -3526,6 +4044,8 @@ its lair save Krothgar or the high priest.
 D3
 ~
 ~
+~
+~
 Z -1 14789
 S
 #14793
@@ -3537,8 +4057,12 @@ multitude of towers that adorn the heights of the Fortress.
 D4
 ~
 ~
+~
+~
 Z -1 14794
 D5
+~
+~
 ~
 ~
 Z -1 14779
@@ -3552,24 +4076,36 @@ directions. The staircase continues its climb in the center.
 D0
 ~
 ~
+~
+~
 ABZ 0 14797
 D1
+~
+~
 ~
 ~
 ABZ 0 14798
 D2
 ~
 ~
+~
+~
 ABZ 0 14795
 D3
+~
+~
 ~
 ~
 ABZ 0 14796
 D4
 ~
 ~
+~
+~
 Z 0 14799
 D5
+~
+~
 ~
 ~
 Z 0 14793
@@ -3585,6 +4121,8 @@ search of an outfit.
 D0
 ~
 ~
+~
+~
 ABZ 0 14794
 S
 #14796
@@ -3596,6 +4134,8 @@ search of an outfit.
 ~
 0 D inside
 D1
+~
+~
 ~
 ~
 ABZ 0 14794
@@ -3611,6 +4151,8 @@ vanquished. He keeps their mortal remains here as trophies.
 D2
 ~
 ~
+~
+~
 ABZ 0 14794
 S
 #14798
@@ -3624,6 +4166,8 @@ search of an outfit.
 D3
 ~
 ~
+~
+~
 ABZ 0 14794
 S
 #14799
@@ -3635,8 +4179,12 @@ multitude of towers that adorn the heights of the Fortress.
 D4
 ~
 ~
+~
+~
 Z -1 14800
 D5
+~
+~
 ~
 ~
 Z -1 14794
@@ -3653,24 +4201,36 @@ in between them stand members of his elite guard, ready to defend their lord.
 D0
 ~
 ~
+~
+~
 Z -1 14801
 D1
+~
+~
 ~
 ~
 Z -1 14804
 D2
 ~
 ~
+~
+~
 Z -1 14803
 D3
+~
+~
 ~
 ~
 Z -1 14802
 D4
 ~
 ~
+~
+~
 Z -1 14805
 D5
+~
+~
 ~
 ~
 Z -1 14799
@@ -3684,6 +4244,8 @@ appreciate being disturbed by a mortal such as yourself...
 D2
 ~
 ~
+~
+~
 Z -1 14800
 S
 #14802
@@ -3693,6 +4255,8 @@ appreciate being disturbed by a mortal such as yourself...
 ~
 0 D inside
 D1
+~
+~
 ~
 ~
 Z -1 14800
@@ -3706,6 +4270,8 @@ appreciate being disturbed by a mortal such as yourself...
 D0
 ~
 ~
+~
+~
 Z -1 14800
 S
 #14804
@@ -3715,6 +4281,8 @@ appreciate being disturbed by a mortal such as yourself...
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 Z -1 14800
@@ -3728,6 +4296,8 @@ appreciate being disturbed by a mortal such as yourself...
 D5
 ~
 ~
+~
+~
 Z -1 14800
 S
 #14806
@@ -3737,6 +4307,8 @@ of Hel itself.
 ~
 0 AD inside
 D4
+~
+~
 ~
 ~
 Z -1 14768

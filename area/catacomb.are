@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Catacombs~
 VNUMs 2000 2099
 Credits Raff~
@@ -457,10 +457,14 @@ from the catacombs.
 D2
 ~
 ~
+~
+~
 Z -1 2002
 D4
 ~
 floorboard board~
+the floorboard~
+~
 ABZ -1 6524
 S
 #2002
@@ -478,8 +482,12 @@ paint recently.~
 D0
 ~
 ~
+~
+~
 Z -1 2001
 D2
+~
+~
 ~
 ~
 Z -1 2007
@@ -494,8 +502,12 @@ sturdy in fact.
 D1
 ~
 ~
+~
+~
 Z -1 2004
 D2
+~
+~
 ~
 ~
 Z -1 2008
@@ -510,8 +522,12 @@ teach the ancient art of prayer to the young pages.
 D1
 ~
 ~
+~
+~
 Z -1 2005
 D3
+~
+~
 ~
 ~
 Z -1 2003
@@ -526,12 +542,18 @@ sort.  To the east the tunnel leads back into the natural catacombs.
 D1
 ~
 ~
+~
+~
 Z -1 2006
 D2
 ~
 ~
+~
+~
 Z -1 2010
 D3
+~
+~
 ~
 ~
 Z -1 2004
@@ -545,8 +567,12 @@ looks awfully dark.
 D1
 ~
 ~
+~
+~
 Z -1 2007
 D3
+~
+~
 ~
 ~
 Z -1 2005
@@ -560,12 +586,18 @@ more natural to the south.  A passageway lined with paneling leads west.
 D0
 ~
 ~
+~
+~
 Z -1 2002
 D2
 ~
 ~
+~
+~
 Z -1 2012
 D3
+~
+~
 ~
 ~
 Z -1 2006
@@ -580,8 +612,12 @@ filled with books and papers of little interest.
 D0
 ~
 ~
+~
+~
 Z -1 2003
 D1
+~
+~
 ~
 ~
 Z -1 2009
@@ -596,8 +632,12 @@ south wall is labelled "Elders only!".
 D2
 ~
 ~
+~
+~
 Z -1 2013
 D3
+~
+~
 ~
 ~
 Z -1 2008
@@ -611,12 +651,18 @@ the east.  The decoration looks rather sparse here.
 D0
 ~
 ~
+~
+~
 Z -1 2005
 D1
 ~
 ~
+~
+~
 Z -1 2011
 D2
+~
+~
 ~
 ~
 Z 0 2014
@@ -631,6 +677,8 @@ as you can tell he would be a rank equivalent to a Sargeant.
 D3
 ~
 ~
+~
+~
 Z -1 2010
 S
 #2012
@@ -643,8 +691,12 @@ seems much more sterile.
 D0
 ~
 ~
+~
+~
 Z -1 2007
 D2
+~
+~
 ~
 ~
 Z -1 2019
@@ -665,12 +717,18 @@ trainees are kidnapped from the villages too!
 D0
 ~
 ~
+~
+~
 Z -1 2009
 D2
 ~
 ~
+~
+~
 Z -1 2016
 D3
+~
+~
 ~
 ~
 Z -1 2069
@@ -685,12 +743,18 @@ others.
 D0
 ~
 ~
+~
+~
 Z -1 2010
 D1
 ~
 ~
+~
+~
 Z -1 2015
 D2
+~
+~
 ~
 ~
 Z -1 2017
@@ -705,6 +769,8 @@ leaks.
 D3
 ~
 ~
+~
+~
 Z -1 2014
 S
 #2016
@@ -717,8 +783,12 @@ themselves.  They truly belive that cleanliness is next to godliness.
 D0
 ~
 ~
+~
+~
 Z -1 2013
 D2
+~
+~
 ~
 ~
 Z -1 2023
@@ -733,12 +803,18 @@ to the east looks like the lap of luxury.
 D0
 ~
 ~
+~
+~
 Z -1 2014
 D1
 ~
 ~
+~
+~
 Z -1 2018
 D2
+~
+~
 ~
 ~
 Z -1 2024
@@ -758,6 +834,8 @@ with a silvery blade.
 D3
 ~
 ~
+~
+~
 Z -1 2017
 S
 #2019
@@ -771,12 +849,18 @@ east.  The air is very humid and damp here.
 D0
 ~
 ~
+~
+~
 Z -1 2012
 D1
 ~
 ~
+~
+~
 Z -1 2020
 D2
+~
+~
 ~
 ~
 Z -1 2026
@@ -791,8 +875,12 @@ emanates from a place somewhere to the southeast in the grove.
 D1
 ~
 ~
+~
+~
 Z -1 2021
 D3
+~
+~
 ~
 ~
 Z -1 2019
@@ -808,16 +896,24 @@ place passage way for some reason heads north.
 D0
 ~
 ~
+~
+~
 Z -1 2068
 D1
+~
+~
 ~
 ~
 Z -1 2022
 D2
 ~
 ~
+~
+~
 Z -1 2027
 D3
+~
+~
 ~
 ~
 Z -1 2020
@@ -831,8 +927,12 @@ somewhere.
 D2
 ~
 ~
+~
+~
 Z -1 2028
 D3
+~
+~
 ~
 ~
 Z -1 2021
@@ -847,8 +947,12 @@ to the north. A hallway is to the east.
 D0
 ~
 ~
+~
+~
 Z -1 2016
 D1
+~
+~
 ~
 ~
 Z -1 2024
@@ -862,12 +966,18 @@ To the east lies a room which seems to glow with power and piety.
 D0
 ~
 ~
+~
+~
 Z -1 2017
 D1
 ~
 ~
+~
+~
 Z -1 2025
 D3
+~
+~
 ~
 ~
 Z -1 2023
@@ -879,6 +989,8 @@ rich.  There is an aura of great holiness about the room.
 ~
 0 DI inside
 D3
+~
+~
 ~
 ~
 Z -1 2024
@@ -893,8 +1005,12 @@ darker to the south.  The passage also leads back north.
 D0
 ~
 ~
+~
+~
 Z -1 2019
 D2
+~
+~
 ~
 ~
 Z -1 2030
@@ -908,8 +1024,12 @@ barely be heard.
 D0
 ~
 ~
+~
+~
 Z -1 2021
 D1
+~
+~
 ~
 ~
 Z -1 2028
@@ -925,13 +1045,19 @@ to the south.
 D0
 ~
 ~
+~
+~
 Z -1 2022
 D2
 a glowing forcefield with a small circular hole in it.
 ~
 glow glowing field forcefield door~
+the glow~
+~
 ABCFZ 2001 2032
 D3
+~
+~
 ~
 ~
 Z -1 2027
@@ -947,8 +1073,12 @@ west.
 D1
 ~
 ~
+~
+~
 Z -1 2030
 D3
+~
+~
 ~
 ~
 Z -1 2033
@@ -964,12 +1094,18 @@ everywhere in the room. . ..
 D0
 ~
 ~
+~
+~
 Z -1 2026
 D1
 ~
 ~
+~
+~
 Z -1 2031
 D3
+~
+~
 ~
 ~
 Z -1 2029
@@ -983,8 +1119,12 @@ Probing with a light source seems to reveal nothing but more darkness.
 D2
 ~
 ~
+~
+~
 Z -1 2034
 D3
+~
+~
 ~
 ~
 Z -1 2030
@@ -1001,6 +1141,8 @@ D0
 a glowing forcefield with a small circular hole in it.
 ~
 glow glowing field forcefield door~
+the glow~
+~
 ABCFZ 2001 2028
 S
 #2033
@@ -1014,8 +1156,12 @@ The mist gets denser to the south.
 D0
 ~
 ~
+~
+~
 Z -1 2029
 D2
+~
+~
 ~
 ~
 Z -1 2042
@@ -1031,12 +1177,18 @@ of many shiny crystals.
 D0
 ~
 ~
+~
+~
 Z -1 2031
 D1
 ~
 ~
+~
+~
 Z -1 2035
 D2
+~
+~
 ~
 ~
 Z -1 2044
@@ -1052,8 +1204,12 @@ of a wraith, and the dry clanking of bones.
 D1
 ~
 ~
+~
+~
 Z -1 2036
 D3
+~
+~
 ~
 ~
 Z -1 2034
@@ -1069,12 +1225,18 @@ east and west.
 D1
 ~
 ~
+~
+~
 Z -1 2037
 D2
 ~
 ~
+~
+~
 Z -1 2045
 D3
+~
+~
 ~
 ~
 Z -1 2035
@@ -1089,8 +1251,12 @@ that would wander near.
 D1
 ~
 ~
+~
+~
 Z -1 2038
 D3
+~
+~
 ~
 ~
 Z -1 2036
@@ -1105,8 +1271,12 @@ gruesome scene.
 D1
 ~
 ~
+~
+~
 Z -1 2039
 D3
+~
+~
 ~
 ~
 Z -1 2037
@@ -1121,8 +1291,12 @@ off a bit to the south.
 D2
 ~
 ~
+~
+~
 Z -1 2047
 D3
+~
+~
 ~
 ~
 Z -1 2038
@@ -1137,8 +1311,12 @@ here.  An icy wind blows from the south.
 D1
 ~
 ~
+~
+~
 Z -1 2041
 D2
+~
+~
 ~
 ~
 Z -1 2048
@@ -1154,8 +1332,12 @@ walls.
 D1
 ~
 ~
+~
+~
 Z -1 2042
 D3
+~
+~
 ~
 ~
 Z -1 2040
@@ -1169,12 +1351,18 @@ here despite the breeze.  The mist seems thick enough to be alive. . .
 D0
 ~
 ~
+~
+~
 Z -1 2033
 D1
 ~
 ~
+~
+~
 Z -1 2043
 D3
+~
+~
 ~
 ~
 Z -1 2041
@@ -1193,6 +1381,8 @@ The hole is much too high up for you to reach.
 D3
 ~
 ~
+~
+~
 Z -1 2042
 S
 #2044
@@ -1204,8 +1394,12 @@ twinkling phenomenon.
 D0
 ~
 ~
+~
+~
 Z -1 2034
 D2
+~
+~
 ~
 ~
 Z -1 2050
@@ -1219,6 +1413,8 @@ tombs of soldiers, now a battleground for the undead.
 ~
 0 AD mountain
 D2
+~
+~
 ~
 ~
 Z -1 2051
@@ -1238,8 +1434,12 @@ Surprisingly the stairs look sturdy enough.
 D1
 ~
 ~
+~
+~
 Z -1 2047
 D5
+~
+~
 ~
 ~
 Z -1 2052
@@ -1254,12 +1454,18 @@ further to the south.
 D0
 ~
 ~
+~
+~
 Z -1 2039
 D2
 ~
 ~
+~
+~
 Z -1 2053
 D3
+~
+~
 ~
 ~
 Z -1 2046
@@ -1275,12 +1481,18 @@ east and the main passage goes north and south.
 D0
 ~
 ~
+~
+~
 Z -1 2040
 D1
 ~
 ~
+~
+~
 Z -1 2049
 D2
+~
+~
 ~
 ~
 Z -1 2056
@@ -1295,8 +1507,12 @@ the east.
 D1
 ~
 ~
+~
+~
 Z -1 2050
 D3
+~
+~
 ~
 ~
 Z -1 2048
@@ -1314,16 +1530,24 @@ fabled and feared Prism Dragon.
 D0
 ~
 ~
+~
+~
 Z -1 2044
 D1
+~
+~
 ~
 ~
 Z -1 2058
 D2
 ~
 ~
+~
+~
 Z -1 2057
 D3
+~
+~
 ~
 ~
 Z -1 2049
@@ -1339,12 +1563,18 @@ the south.
 D0
 ~
 ~
+~
+~
 Z -1 2045
 D1
 ~
 ~
+~
+~
 Z -1 2052
 D2
+~
+~
 ~
 ~
 Z -1 2054
@@ -1359,8 +1589,12 @@ of stairs go up into the building and a broken window leads west.
 D3
 ~
 ~
+~
+~
 Z -1 2051
 D4
+~
+~
 ~
 ~
 Z -1 2046
@@ -1376,8 +1610,12 @@ of your neck to stand on end!
 D0
 ~
 ~
+~
+~
 Z -1 2047
 D2
+~
+~
 ~
 ~
 Z -1 2055
@@ -1392,12 +1630,18 @@ crack in the wall.
 D0
 ~
 ~
+~
+~
 Z -1 2051
 D1
 ~
 ~
+~
+~
 Z -1 2066
 D2
+~
+~
 ~
 ~
 Z -1 2059
@@ -1412,8 +1656,12 @@ undead to take over the world seem about ready to get underway.
 D0
 ~
 ~
+~
+~
 Z -1 2053
 D2
+~
+~
 ~
 ~
 Z -1 2062
@@ -1428,8 +1676,12 @@ north is seems cold.
 D0
 ~
 ~
+~
+~
 Z -1 2048
 D1
+~
+~
 ~
 ~
 Z -1 2057
@@ -1443,12 +1695,18 @@ the west.  An odd twinkling comes from the cave to the north.
 D0
 ~
 ~
+~
+~
 Z -1 2050
 D2
 ~
 ~
+~
+~
 Z -1 2066
 D3
+~
+~
 ~
 ~
 Z -1 2056
@@ -1462,8 +1720,12 @@ a feeling you get from this tunnel.  The tunnel east and west.
 D1
 ~
 ~
+~
+~
 Z -1 2059
 D3
+~
+~
 ~
 ~
 Z -1 2050
@@ -1478,12 +1740,18 @@ west and east.
 D0
 ~
 ~
+~
+~
 Z -1 2054
 D1
 ~
 ~
+~
+~
 Z -1 2060
 D3
+~
+~
 ~
 ~
 Z -1 2058
@@ -1497,8 +1765,12 @@ tunnel bends west and south.
 D2
 ~
 ~
+~
+~
 Z -1 2061
 D3
+~
+~
 ~
 ~
 Z -1 2059
@@ -1513,8 +1785,12 @@ east is an intersection.
 D0
 ~
 ~
+~
+~
 Z -1 2060
 D1
+~
+~
 ~
 ~
 Z -1 2062
@@ -1530,12 +1806,18 @@ smell a hint of fresh air.
 D0
 ~
 ~
+~
+~
 Z -1 2055
 D2
 ~
 ~
+~
+~
 Z -1 2063
 D3
+~
+~
 ~
 ~
 Z -1 2061
@@ -1549,8 +1831,12 @@ far to the south you sense light and smell a fresh breeze.
 D0
 ~
 ~
+~
+~
 Z -1 2062
 D2
+~
+~
 ~
 ~
 Z -1 2064
@@ -1564,8 +1850,12 @@ could be reached to the south.
 D0
 ~
 ~
+~
+~
 Z -1 2063
 D2
+~
+~
 ~
 ~
 Z -1 2065
@@ -1586,10 +1876,14 @@ from the catacombs.
 D0
 ~
 ~
+~
+~
 Z -1 2064
 D4
 ~
 floorboard board~
+the floorboard~
+~
 ABZ -1 6527
 S
 #2066
@@ -1602,8 +1896,12 @@ directions but you have a feeling that you are hopelessly lost.
 D1
 ~
 ~
+~
+~
 Z -1 2067
 D2
+~
+~
 ~
 ~
 Z -1 2068
@@ -1618,8 +1916,12 @@ directions but you have a feeling that you are hopelessly lost.
 D2
 ~
 ~
+~
+~
 Z -1 2069
 D3
+~
+~
 ~
 ~
 Z -1 2066
@@ -1634,8 +1936,12 @@ directions but you have a feeling that you are hopelessly lost.
 D0
 ~
 ~
+~
+~
 Z -1 2066
 D1
+~
+~
 ~
 ~
 Z -1 2069
@@ -1650,8 +1956,12 @@ directions but you have a feeling that you are hopelessly lost.
 D0
 ~
 ~
+~
+~
 Z -1 2067
 D3
+~
+~
 ~
 ~
 Z -1 2068

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name UnderDark~
 VNUMs 16000 16499
 Credits Silence~
@@ -3351,14 +3351,20 @@ complexity that only a god could understand what is being shown. ~
 D0
 ~
 map~
+the map~
+~
 ABZ -1 16349
 D4
 ~
 ceiling~
+the ceiling~
+~
 Z -1 4025
 D5
 ~
 floor~
+the floor~
+~
 ABZ -1 16482
 S
 #16001
@@ -3376,9 +3382,13 @@ D1
 Wyrm street goes on
 ~
 ~
+~
+~
 Z -1 16002
 D2
 Sunset road goes onwards
+~
+~
 ~
 ~
 Z -1 16022
@@ -3396,9 +3406,13 @@ D1
 Wyrm street goes on
 ~
 ~
+~
+~
 Z -1 16003
 D3
 Wyrm street goes on
+~
+~
 ~
 ~
 Z -1 16001
@@ -3416,9 +3430,13 @@ D1
 Wyrm street goes on
 ~
 ~
+~
+~
 Z -1 16004
 D3
 Wyrm street goes on
+~
+~
 ~
 ~
 Z -1 16002
@@ -3436,9 +3454,13 @@ D1
 Wyrm street goes on
 ~
 ~
+~
+~
 Z -1 16005
 D3
 Wyrm street goes on
+~
+~
 ~
 ~
 Z -1 16003
@@ -3456,9 +3478,13 @@ D1
 Wyrm street goes on
 ~
 ~
+~
+~
 Z -1 16006
 D3
 Wyrm street goes on
+~
+~
 ~
 ~
 Z -1 16004
@@ -3476,9 +3502,13 @@ D1
 Wyrm street goes on
 ~
 ~
+~
+~
 Z -1 16007
 D3
 Wyrm street goes on
+~
+~
 ~
 ~
 Z -1 16005
@@ -3496,9 +3526,13 @@ D1
 Wyrm street goes on
 ~
 ~
+~
+~
 Z -1 16008
 D3
 Wyrm street goes on
+~
+~
 ~
 ~
 Z -1 16006
@@ -3516,14 +3550,20 @@ D1
 Wyrm street goes on
 ~
 ~
+~
+~
 Z -1 16009
 D2
 Ruby Avenue goes south
 ~
 ~
+~
+~
 Z -1 16026
 D3
 Wyrm street goes on
+~
+~
 ~
 ~
 Z -1 16007
@@ -3541,9 +3581,13 @@ D1
 Wyrm street goes on
 ~
 ~
+~
+~
 Z -1 16010
 D3
 Wyrm street goes on
+~
+~
 ~
 ~
 Z -1 16008
@@ -3561,9 +3605,13 @@ D1
 Wyrm street goes on
 ~
 ~
+~
+~
 Z -1 16011
 D3
 Wyrm street goes on
+~
+~
 ~
 ~
 Z -1 16009
@@ -3581,14 +3629,20 @@ D1
 Wyrm street goes on
 ~
 ~
+~
+~
 Z -1 16012
 D2
 Moonlight Ave heads back to the centre of the city
 ~
 ~
+~
+~
 Z -1 16031
 D3
 Wyrm street goes on
+~
+~
 ~
 ~
 Z -1 16010
@@ -3606,9 +3660,13 @@ D1
 Wyrm street goes on
 ~
 ~
+~
+~
 Z -1 16013
 D3
 Wyrm street goes on
+~
+~
 ~
 ~
 Z -1 16011
@@ -3626,9 +3684,13 @@ D1
 Wyrm street goes on
 ~
 ~
+~
+~
 Z -1 16014
 D3
 Wyrm street goes on
+~
+~
 ~
 ~
 Z -1 16012
@@ -3646,9 +3708,13 @@ D1
 Wyrm street goes on
 ~
 ~
+~
+~
 Z -1 16015
 D3
 Wyrm street goes on
+~
+~
 ~
 ~
 Z -1 16013
@@ -3666,9 +3732,13 @@ D1
 Wyrm street goes on
 ~
 ~
+~
+~
 Z -1 16016
 D3
 Wyrm street goes on
+~
+~
 ~
 ~
 Z -1 16014
@@ -3686,9 +3756,13 @@ D1
 Wyrm street goes on
 ~
 ~
+~
+~
 Z -1 16017
 D3
 Wyrm street goes on
+~
+~
 ~
 ~
 Z -1 16015
@@ -3706,9 +3780,13 @@ D1
 Wyrm street goes on
 ~
 ~
+~
+~
 Z -1 16018
 D3
 Wyrm street goes on
+~
+~
 ~
 ~
 Z -1 16016
@@ -3726,9 +3804,13 @@ D1
 Wyrm street goes on
 ~
 ~
+~
+~
 Z -1 16019
 D3
 Wyrm street goes on
+~
+~
 ~
 ~
 Z -1 16017
@@ -3746,9 +3828,13 @@ D1
 Wyrm street goes on
 ~
 ~
+~
+~
 Z -1 16020
 D3
 Wyrm street goes on
+~
+~
 ~
 ~
 Z -1 16018
@@ -3770,9 +3856,13 @@ D2
 Sunrise will eventually lead to the way out
 ~
 ~
+~
+~
 Z -1 16033
 D3
 Wyrm street stretches to the west end of the city
+~
+~
 ~
 ~
 Z -1 16019
@@ -3798,14 +3888,20 @@ D0
 Moonlight continues
 ~
 ~
+~
+~
 Z -1 16031
 D1
 A door bars your entry to this dark building.
 ~
 door~
+~
+~
 ABZ -1 16274
 D2
 Moonlight goes on and on
+~
+~
 ~
 ~
 Z -1 16032
@@ -3825,9 +3921,13 @@ D0
 The northwest corner of the city is there
 ~
 ~
+~
+~
 Z -1 16001
 D2
 Sunset continues
+~
+~
 ~
 ~
 Z -1 16023
@@ -3849,9 +3949,13 @@ D0
 Sunset goes north
 ~
 ~
+~
+~
 Z -1 16022
 D2
 Sunset continues
+~
+~
 ~
 ~
 Z -1 16024
@@ -3871,9 +3975,13 @@ D0
 Sunset continues
 ~
 ~
+~
+~
 Z -1 16023
 D2
 Sunset continues
+~
+~
 ~
 ~
 Z -1 16036
@@ -3898,9 +4006,13 @@ D0
 A large door stands before you
 ~
 door~
+~
+~
 ABZ -1 16228
 D2
 The road sunset lies there
+~
+~
 ~
 ~
 Z -1 16039
@@ -3918,9 +4030,13 @@ D0
 Wyrm street
 ~
 ~
+~
+~
 Z -1 16008
 D2
 Ruby street
+~
+~
 ~
 ~
 Z -1 16027
@@ -3939,9 +4055,13 @@ D0
 Ruby street
 ~
 ~
+~
+~
 Z -1 16026
 D2
 Ruby street
+~
+~
 ~
 ~
 Z -1 16028
@@ -3962,14 +4082,20 @@ D0
 Ruby street
 ~
 ~
+~
+~
 Z -1 16027
 D1
 Sapphire street
 ~
 ~
+~
+~
 Z -1 16029
 D2
 Ruby street
+~
+~
 ~
 ~
 Z -1 16043
@@ -3987,9 +4113,13 @@ D1
 Sapphire street
 ~
 ~
+~
+~
 Z -1 16030
 D3
 Ruby street
+~
+~
 ~
 ~
 Z -1 16028
@@ -4014,14 +4144,20 @@ D0
 The door to The Gemstone
 ~
 door~
+~
+~
 ABZ -1 16246
 D1
 Moonlight Ave
 ~
 ~
+~
+~
 Z -1 16032
 D3
 Sapphire street
+~
+~
 ~
 ~
 Z -1 16029
@@ -4041,9 +4177,13 @@ D0
 Wyrm street
 ~
 ~
+~
+~
 Z -1 16011
 D2
 Moonlight Avenue
+~
+~
 ~
 ~
 Z -1 16021
@@ -4061,14 +4201,20 @@ D0
 Moonlight avenue
 ~
 ~
+~
+~
 Z -1 16021
 D2
 Moonlight avenue
 ~
 ~
+~
+~
 Z -1 16044
 D3
 Sapphire Street
+~
+~
 ~
 ~
 Z -1 16030
@@ -4087,9 +4233,13 @@ D0
 The northeastern corner of the Underdark
 ~
 ~
+~
+~
 Z -1 16020
 D2
 Sunrise
+~
+~
 ~
 ~
 Z -1 16034
@@ -4107,9 +4257,13 @@ D0
 Sunrise
 ~
 ~
+~
+~
 Z -1 16033
 D2
 Sunrise
+~
+~
 ~
 ~
 Z -1 16035
@@ -4127,9 +4281,13 @@ D0
 Sunrise
 ~
 ~
+~
+~
 Z -1 16034
 D2
 Sunrise
+~
+~
 ~
 ~
 Z -1 16058
@@ -4152,9 +4310,13 @@ D0
 Sunset
 ~
 ~
+~
+~
 Z -1 16024
 D1
 Sunset
+~
+~
 ~
 ~
 Z -1 16037
@@ -4162,6 +4324,8 @@ D2
 Door blocking your way into a home
 ~
 door~
+~
+~
 ABZ -1 16484
 S
 #16037
@@ -4181,14 +4345,20 @@ D1
 Sunset
 ~
 ~
+~
+~
 Z -1 16038
 D2
 Door blocking your way into a home
 ~
 door~
+~
+~
 ABZ -1 16485
 D3
 Sunset
+~
+~
 ~
 ~
 Z -1 16036
@@ -4210,14 +4380,20 @@ D1
 Sunset
 ~
 ~
+~
+~
 Z -1 16039
 D2
 Door blocking your way into a home
 ~
 door~
+~
+~
 ABZ -1 16486
 D3
 Sunset
+~
+~
 ~
 ~
 Z -1 16037
@@ -4240,9 +4416,13 @@ D0
 Before the huge dwelling
 ~
 ~
+~
+~
 Z -1 16025
 D1
 Sunset
+~
+~
 ~
 ~
 Z -1 16040
@@ -4250,9 +4430,13 @@ D2
 Door to a home
 ~
 door~
+~
+~
 ABZ -1 16487
 D3
 Sunset
+~
+~
 ~
 ~
 Z -1 16038
@@ -4270,14 +4454,20 @@ D1
 Ruby street
 ~
 ~
+~
+~
 Z -1 16041
 D2
 Sunset
 ~
 ~
+~
+~
 Z -1 16061
 D3
 Sunset
+~
+~
 ~
 ~
 Z -1 16039
@@ -4295,9 +4485,13 @@ D1
 Ruby street
 ~
 ~
+~
+~
 Z -1 16042
 D3
 Sunset
+~
+~
 ~
 ~
 Z -1 16040
@@ -4315,9 +4509,13 @@ D1
 Ruby street
 ~
 ~
+~
+~
 Z -1 16043
 D3
 Sunset
+~
+~
 ~
 ~
 Z -1 16041
@@ -4335,9 +4533,13 @@ D0
 Ruby street
 ~
 ~
+~
+~
 Z -1 16028
 D3
 Ruby street
+~
+~
 ~
 ~
 Z -1 16042
@@ -4355,9 +4557,13 @@ D0
 Moonlight Avenue
 ~
 ~
+~
+~
 Z -1 16032
 D2
 Moonlight Avenue
+~
+~
 ~
 ~
 Z -1 16045
@@ -4377,14 +4583,20 @@ D0
 Moonlight avenue
 ~
 ~
+~
+~
 Z -1 16044
 D1
 Diamond street
 ~
 ~
+~
+~
 Z -1 16046
 D2
 Moonlight avenue
+~
+~
 ~
 ~
 Z -1 16065
@@ -4403,9 +4615,13 @@ D1
 Diamond street
 ~
 ~
+~
+~
 Z -1 16047
 D3
 Moonlight Avenue
+~
+~
 ~
 ~
 Z -1 16045
@@ -4423,9 +4639,13 @@ D1
 Diamond street
 ~
 ~
+~
+~
 Z -1 16052
 D3
 Diamond street
+~
+~
 ~
 ~
 Z -1 16046
@@ -4443,9 +4663,13 @@ D1
 Diamond street
 ~
 ~
+~
+~
 Z -1 16049
 D2
 Diamond street
+~
+~
 ~
 ~
 Z -1 16052
@@ -4462,14 +4686,20 @@ D1
 Diamond street
 ~
 ~
+~
+~
 Z -1 16050
 D2
 Diamond street
 ~
 ~
+~
+~
 Z -1 16053
 D3
 Diamond street
+~
+~
 ~
 ~
 Z -1 16048
@@ -4486,14 +4716,20 @@ D1
 Diamond street
 ~
 ~
+~
+~
 Z -1 16051
 D2
 Diamond street
 ~
 ~
+~
+~
 Z -1 16054
 D3
 Diamond street
+~
+~
 ~
 ~
 Z -1 16049
@@ -4511,9 +4747,13 @@ D2
 Diamond street
 ~
 ~
+~
+~
 Z -1 16055
 D3
 Diamond street
+~
+~
 ~
 ~
 Z -1 16050
@@ -4532,9 +4772,13 @@ D0
 Diamond street
 ~
 ~
+~
+~
 Z -1 16048
 D1
 Diamond street
+~
+~
 ~
 ~
 Z -1 16053
@@ -4542,9 +4786,13 @@ D2
 Emerald street
 ~
 ~
+~
+~
 Z -1 16068
 D3
 Diamond street
+~
+~
 ~
 ~
 Z -1 16047
@@ -4562,14 +4810,20 @@ D0
 Diamond street
 ~
 ~
+~
+~
 Z -1 16049
 D1
 Diamond street
 ~
 ~
+~
+~
 Z -1 16054
 D3
 Diamond street
+~
+~
 ~
 ~
 Z -1 16052
@@ -4588,14 +4842,20 @@ D0
 Diamond street
 ~
 ~
+~
+~
 Z -1 16050
 D1
 Diamond street
 ~
 ~
+~
+~
 Z -1 16055
 D3
 Diamond street
+~
+~
 ~
 ~
 Z -1 16053
@@ -4613,14 +4873,20 @@ D0
 Diamond street
 ~
 ~
+~
+~
 Z -1 16051
 D1
 Diamond street
 ~
 ~
+~
+~
 Z -1 16056
 D3
 Diamond street
+~
+~
 ~
 ~
 Z -1 16054
@@ -4639,9 +4905,13 @@ D1
 Diamond street
 ~
 ~
+~
+~
 Z -1 16057
 D3
 Diamond street
+~
+~
 ~
 ~
 Z -1 16055
@@ -4660,9 +4930,13 @@ D1
 Sunrise
 ~
 ~
+~
+~
 Z -1 16059
 D3
 Diamond street
+~
+~
 ~
 ~
 Z -1 16056
@@ -4682,9 +4956,13 @@ D0
 Sunrise
 ~
 ~
+~
+~
 Z -1 16035
 D2
 Sunrise
+~
+~
 ~
 ~
 Z -1 16059
@@ -4703,14 +4981,20 @@ D0
 Sunrise
 ~
 ~
+~
+~
 Z -1 16058
 D2
 Sunrise
 ~
 ~
+~
+~
 Z -1 16071
 D3
 Diamond street
+~
+~
 ~
 ~
 Z -1 16057
@@ -4729,9 +5013,13 @@ D0
 Sunset
 ~
 ~
+~
+~
 Z -1 16040
 D2
 Sunset
+~
+~
 ~
 ~
 Z -1 16062
@@ -4749,9 +5037,13 @@ D0
 Sunset
 ~
 ~
+~
+~
 Z -1 16061
 D2
 Sunset
+~
+~
 ~
 ~
 Z -1 16063
@@ -4769,9 +5061,13 @@ D0
 Sunset
 ~
 ~
+~
+~
 Z -1 16062
 D2
 Sunset
+~
+~
 ~
 ~
 Z -1 16064
@@ -4792,9 +5088,13 @@ D0
 Sunset
 ~
 ~
+~
+~
 Z -1 16063
 D2
 Slaver's and Sunset
+~
+~
 ~
 ~
 Z -1 16078
@@ -4814,9 +5114,13 @@ D0
 Moonlight Avenue
 ~
 ~
+~
+~
 Z -1 16045
 D2
 Moonlight Avenue
+~
+~
 ~
 ~
 Z -1 16066
@@ -4836,9 +5140,13 @@ D0
 Moonlight Avenue
 ~
 ~
+~
+~
 Z -1 16065
 D2
 Moonlight Avenue
+~
+~
 ~
 ~
 Z -1 16067
@@ -4857,9 +5165,13 @@ D0
 Moonlight Avenue
 ~
 ~
+~
+~
 Z -1 16066
 D2
 Slaver's Route
+~
+~
 ~
 ~
 Z -1 16084
@@ -4877,9 +5189,13 @@ D0
 Diamond street
 ~
 ~
+~
+~
 Z -1 16052
 D2
 Emerald street
+~
+~
 ~
 ~
 Z -1 16069
@@ -4897,9 +5213,13 @@ D0
 Emerald street
 ~
 ~
+~
+~
 Z -1 16068
 D2
 Emerald street
+~
+~
 ~
 ~
 Z -1 16070
@@ -4919,9 +5239,13 @@ D0
 Emerald street
 ~
 ~
+~
+~
 Z -1 16069
 D2
 Slaver's Route
+~
+~
 ~
 ~
 Z -1 16087
@@ -4939,9 +5263,13 @@ D0
 Sunrise and Diamond
 ~
 ~
+~
+~
 Z -1 16059
 D2
 Sunrise
+~
+~
 ~
 ~
 Z -1 16072
@@ -4960,9 +5288,13 @@ D0
 Sunrise
 ~
 ~
+~
+~
 Z -1 16071
 D2
 Sunrise
+~
+~
 ~
 ~
 Z -1 16073
@@ -4982,9 +5314,13 @@ D0
 Sunrise
 ~
 ~
+~
+~
 Z -1 16072
 D2
 Slaver's Route
+~
+~
 ~
 ~
 Z -1 16093
@@ -5005,9 +5341,13 @@ D0
 A door blocks your entry
 ~
 door~
+~
+~
 ABZ -1 16488
 D1
 The Slaver's Route
+~
+~
 ~
 ~
 Z -1 16075
@@ -5015,6 +5355,8 @@ D2
 A door blocks your entry
 ~
 door~
+~
+~
 ABZ -1 16492
 S
 #16075
@@ -5035,9 +5377,13 @@ D0
 A door blocks your entry
 ~
 door~
+~
+~
 ABZ -1 16489
 D1
 The slaver's route
+~
+~
 ~
 ~
 Z -1 16076
@@ -5045,9 +5391,13 @@ D2
 A door hinders your passage
 ~
 door~
+~
+~
 ABZ -1 16493
 D3
 The slaver's route
+~
+~
 ~
 ~
 Z -1 16074
@@ -5070,9 +5420,13 @@ D0
 A door blocks your passage
 ~
 door~
+~
+~
 ABZ -1 16490
 D1
 The slaver's route
+~
+~
 ~
 ~
 Z -1 16077
@@ -5080,9 +5434,13 @@ D2
 A door is in your way
 ~
 door~
+~
+~
 ABZ -1 16494
 D3
 The slaver's route
+~
+~
 ~
 ~
 Z -1 16075
@@ -5105,14 +5463,20 @@ D1
 The slaver's route
 ~
 ~
+~
+~
 Z -1 16078
 D2
 The gathering space
 ~
 ~
+~
+~
 Z -1 16094
 D3
 The slaver's route
+~
+~
 ~
 ~
 Z -1 16076
@@ -5139,9 +5503,13 @@ D0
 Sunset
 ~
 ~
+~
+~
 Z -1 16064
 D1
 The slaver's route
+~
+~
 ~
 ~
 Z -1 16079
@@ -5149,9 +5517,13 @@ D2
 The gathering space
 ~
 ~
+~
+~
 Z -1 16095
 D3
 Slaver's route
+~
+~
 ~
 ~
 Z -1 16077
@@ -5175,14 +5547,20 @@ D0
 A massive door blocks your entry to Bodak's residence
 ~
 door~
+~
+~
 ABZ -1 16275
 D1
 Slaver's route
 ~
 ~
+~
+~
 Z -1 16080
 D3
 Slaver's route
+~
+~
 ~
 ~
 Z -1 16078
@@ -5202,9 +5580,13 @@ D1
 Slaver's route
 ~
 ~
+~
+~
 Z -1 16081
 D3
 Slaver's route
+~
+~
 ~
 ~
 Z -1 16079
@@ -5223,13 +5605,19 @@ D1
 Slaver's route
 ~
 ~
+~
+~
 Z -1 16082
 D2
+~
+~
 ~
 ~
 Z 0 95600
 D3
 Slaver's route
+~
+~
 ~
 ~
 Z -1 16080
@@ -5249,9 +5637,13 @@ D1
 Slaver's route
 ~
 ~
+~
+~
 Z -1 16083
 D3
 Slaver's route
+~
+~
 ~
 ~
 Z -1 16081
@@ -5270,14 +5662,20 @@ D1
 Slaver's route
 ~
 ~
+~
+~
 Z -1 16084
 D2
 Slave's square
 ~
 ~
+~
+~
 Z -1 16098
 D3
 Slaver's route
+~
+~
 ~
 ~
 Z -1 16082
@@ -5297,9 +5695,13 @@ D0
 Moonlight avenue
 ~
 ~
+~
+~
 Z -1 16067
 D1
 Slaver's route
+~
+~
 ~
 ~
 Z -1 16085
@@ -5307,9 +5709,13 @@ D2
 Slave's square
 ~
 ~
+~
+~
 Z -1 16099
 D3
 Slaver's route
+~
+~
 ~
 ~
 Z -1 16083
@@ -5336,14 +5742,20 @@ D0
 A door blocks your way to the whore house
 ~
 ~
+~
+~
 ABZ -1 16299
 D1
 Slaver's route
 ~
 ~
+~
+~
 Z -1 16086
 D3
 Slaver's route
+~
+~
 ~
 ~
 Z -1 16084
@@ -5363,9 +5775,13 @@ D1
 Slaver's route
 ~
 ~
+~
+~
 Z -1 16087
 D3
 Slaver's route
+~
+~
 ~
 ~
 Z -1 16085
@@ -5385,13 +5801,19 @@ D0
 Emerald street
 ~
 ~
+~
+~
 Z -1 16070
 D3
 Slaver's route
 ~
 ~
+~
+~
 Z -1 16086
 D5
+~
+~
 ~
 ~
 Z -1 16088
@@ -5418,9 +5840,13 @@ D0
 A door stands in the doorway to The Floating Eye
 ~
 door~
+~
+~
 ABZ -1 16305
 D1
 Slaver's route
+~
+~
 ~
 ~
 Z -1 16089
@@ -5428,9 +5854,13 @@ D3
 Slaver's route
 ~
 ~
+~
+~
 Z -1 16067
 D4
 Somewhere
+~
+~
 ~
 ~
 Z -1 16087
@@ -5455,14 +5885,20 @@ D1
 Slaver's route
 ~
 ~
+~
+~
 Z -1 16090
 D2
 Door to the guardian eye's H.Q.
 ~
 door~
+~
+~
 ABZ -1 16327
 D3
 Slaver's route
+~
+~
 ~
 ~
 Z -1 16088
@@ -5482,9 +5918,13 @@ D1
 Slaver's route
 ~
 ~
+~
+~
 Z -1 16091
 D3
 Slaver's route
+~
+~
 ~
 ~
 Z -1 16089
@@ -5512,9 +5952,13 @@ D1
 Slaver's route
 ~
 ~
+~
+~
 Z -1 16092
 D3
 Slaver's route
+~
+~
 ~
 ~
 Z -1 16090
@@ -5543,9 +5987,13 @@ D1
 Before the eastern entrance
 ~
 ~
+~
+~
 Z -1 16093
 D3
 Slaver's route
+~
+~
 ~
 ~
 Z -1 16091
@@ -5583,19 +6031,27 @@ D0
 Sunrise
 ~
 ~
+~
+~
 Z -1 16073
 D1
 A huge door blocks the way out
 ~
 door~
+~
+~
 ABZ -1 16227
 D2
 Sunrise
 ~
 ~
+~
+~
 Z -1 16102
 D3
 Slaver's route
+~
+~
 ~
 ~
 Z -1 16092
@@ -5618,14 +6074,20 @@ D0
 Slaver's route
 ~
 ~
+~
+~
 Z -1 16077
 D1
 Gathering place
 ~
 ~
+~
+~
 Z -1 16095
 D2
 Gathering place
+~
+~
 ~
 ~
 Z -1 16096
@@ -5646,14 +6108,20 @@ D0
 Slaver's route
 ~
 ~
+~
+~
 Z -1 16078
 D3
 Gathering place
 ~
 ~
+~
+~
 Z -1 16094
 D5
 Somewhere
+~
+~
 ~
 ~
 Z -1 16097
@@ -5672,14 +6140,20 @@ D0
 The gathering place
 ~
 ~
+~
+~
 Z -1 16094
 D1
 The gathering place
 ~
 ~
+~
+~
 Z -1 16097
 D2
 The street of the Gods
+~
+~
 ~
 ~
 Z -1 16111
@@ -5705,9 +6179,13 @@ D0
 The gathering place
 ~
 ~
+~
+~
 Z -1 16095
 D2
 The street of the gods
+~
+~
 ~
 ~
 Z -1 16112
@@ -5715,9 +6193,13 @@ D3
 The gathering place
 ~
 ~
+~
+~
 Z -1 16096
 D4
 Somewhere
+~
+~
 ~
 ~
 Z -1 16095
@@ -5749,14 +6231,20 @@ D0
 The slaver's route
 ~
 ~
+~
+~
 Z -1 16083
 D1
 The slave's square
 ~
 ~
+~
+~
 Z -1 16099
 D2
 The slave's square
+~
+~
 ~
 ~
 Z -1 16100
@@ -5776,14 +6264,20 @@ D0
 Slaver's route
 ~
 ~
+~
+~
 Z -1 16084
 D2
 The slave's square
 ~
 ~
+~
+~
 Z -1 16101
 D3
 The slave's square
+~
+~
 ~
 ~
 Z -1 16098
@@ -5809,9 +6303,13 @@ D0
 The slave's square
 ~
 ~
+~
+~
 Z -1 16098
 D1
 The slave's square
+~
+~
 ~
 ~
 Z -1 16101
@@ -5819,11 +6317,15 @@ D2
 The street of the gods
 ~
 ~
+~
+~
 Z -1 16117
 D3
 The door to the slave market
 ~
 door~
+~
+~
 Z -1 16319
 S
 #16101
@@ -5845,14 +6347,20 @@ D0
 The slave's square
 ~
 ~
+~
+~
 Z -1 16099
 D2
 The street of the gods
 ~
 ~
+~
+~
 Z -1 16118
 D3
 The slave's square
+~
+~
 ~
 ~
 Z -1 16100
@@ -5881,9 +6389,13 @@ D0
 The eastern entrance to the Underdark
 ~
 ~
+~
+~
 Z -1 16093
 D2
 Sunrise
+~
+~
 ~
 ~
 Z -1 16103
@@ -5916,14 +6428,20 @@ D0
 Sunrise
 ~
 ~
+~
+~
 Z -1 16102
 D2
 The cages
 ~
 door~
+~
+~
 ABZ -1 16438
 D3
 Sunrise
+~
+~
 ~
 ~
 Z -1 16104
@@ -5952,9 +6470,13 @@ D1
 Sunrise
 ~
 ~
+~
+~
 Z -1 16103
 D3
 Sunrise
+~
+~
 ~
 ~
 Z -1 16105
@@ -5975,9 +6497,13 @@ D1
 Sunrise
 ~
 ~
+~
+~
 Z -1 16104
 D2
 Sunrise
+~
+~
 ~
 ~
 Z -1 16106
@@ -5997,9 +6523,13 @@ D1
 Sunrise
 ~
 ~
+~
+~
 Z -1 16105
 D2
 Sunrise
+~
+~
 ~
 ~
 Z -1 16107
@@ -6024,9 +6554,13 @@ D0
 Sunrise
 ~
 ~
+~
+~
 Z -1 16106
 D2
 Sunrise
+~
+~
 ~
 ~
 Z -1 16144
@@ -6034,6 +6568,8 @@ D3
 The door to the guardian prisons
 ~
 door~
+~
+~
 ABZ -1 16337
 S
 #16108
@@ -6078,9 +6614,13 @@ D0
 A door blocks the way into the home
 ~
 door~
+~
+~
 ABZ -1 16497
 D1
 The street of the Gods
+~
+~
 ~
 ~
 Z -1 16109
@@ -6107,14 +6647,20 @@ D0
 A doorway to a house
 ~
 door~
+~
+~
 ABZ -1 16496
 D1
 The street of the Gods
 ~
 ~
+~
+~
 Z -1 16110
 D3
 The street of the Gods
+~
+~
 ~
 ~
 Z -1 16108
@@ -6154,9 +6700,13 @@ D0
 A door to a home
 ~
 door~
+~
+~
 ABZ -1 16495
 D1
 The street of the Gods
+~
+~
 ~
 ~
 Z -1 16111
@@ -6164,9 +6714,13 @@ D2
 Sunset
 ~
 ~
+~
+~
 Z -1 16124
 D3
 The street of the Gods
+~
+~
 ~
 ~
 Z -1 16109
@@ -6207,9 +6761,13 @@ D0
 The gathering place
 ~
 ~
+~
+~
 Z -1 16096
 D1
 The street of the Gods
+~
+~
 ~
 ~
 Z -1 16112
@@ -6217,9 +6775,13 @@ D2
 The darkened root
 ~
 ~
+~
+~
 Z -1 16360
 D3
 The street of the Gods
+~
+~
 ~
 ~
 Z -1 16110
@@ -6252,9 +6814,13 @@ D0
 The gathering place
 ~
 ~
+~
+~
 Z -1 16097
 D1
 The street of the gods
+~
+~
 ~
 ~
 Z -1 16113
@@ -6262,9 +6828,13 @@ D2
 The entrance to the Sparkling Jewel
 ~
 ~
+~
+~
 Z -1 16359
 D3
 The street of the gods
+~
+~
 ~
 ~
 Z -1 16111
@@ -6284,14 +6854,20 @@ D1
 The street of the gods
 ~
 ~
+~
+~
 Z -1 16114
 D2
 The Dented Shield
 ~
 ~
+~
+~
 Z -1 16358
 D3
 The street of the gods
+~
+~
 ~
 ~
 Z -1 16112
@@ -6311,14 +6887,20 @@ D1
 The street of the gods
 ~
 ~
+~
+~
 Z -1 16115
 D2
 The Cracked Sword
 ~
 ~
+~
+~
 Z -1 16357
 D3
 The street of the gods
+~
+~
 ~
 ~
 Z -1 16113
@@ -6337,14 +6919,20 @@ D1
 The street of the gods
 ~
 ~
+~
+~
 Z -1 16116
 D2
 The glowing hand
 ~
 ~
+~
+~
 Z -1 16356
 D3
 The street of the gods
+~
+~
 ~
 ~
 Z -1 16114
@@ -6382,9 +6970,13 @@ D0
 A door blocks your entry to the slave's market
 ~
 door~
+~
+~
 Z -1 16319
 D1
 The street of the gods
+~
+~
 ~
 ~
 Z -1 16117
@@ -6392,9 +6984,13 @@ D2
 Azurite street
 ~
 ~
+~
+~
 Z -1 16126
 D3
 The street of the gods
+~
+~
 ~
 ~
 Z -1 16115
@@ -6442,9 +7038,13 @@ D0
 The slave's square
 ~
 ~
+~
+~
 Z -1 16100
 D1
 The street of the gods
+~
+~
 ~
 ~
 Z -1 16118
@@ -6452,9 +7052,13 @@ D2
 The door to Shadow's Shadow
 ~
 door~
+~
+~
 Z -1 16348
 D3
 The street of the gods
+~
+~
 ~
 ~
 Z -1 16116
@@ -6483,14 +7087,20 @@ D0
 The gathering place
 ~
 ~
+~
+~
 Z -1 16101
 D1
 The street of the gods
 ~
 ~
+~
+~
 Z -1 16119
 D3
 The street of the gods
+~
+~
 ~
 ~
 Z -1 16117
@@ -6510,9 +7120,13 @@ D1
 The street of the gods
 ~
 ~
+~
+~
 Z -1 16120
 D3
 The street of the gods
+~
+~
 ~
 ~
 Z -1 16118
@@ -6539,9 +7153,13 @@ D2
 The street of the gods
 ~
 ~
+~
+~
 Z -1 16121
 D3
 The street of the gods
+~
+~
 ~
 ~
 Z -1 16119
@@ -6560,9 +7178,13 @@ D2
 The street of the gods
 ~
 ~
+~
+~
 Z -1 16122
 D3
 The street of the gods
+~
+~
 ~
 ~
 Z -1 16120
@@ -6588,14 +7210,20 @@ D0
 The street of the gods
 ~
 ~
+~
+~
 Z -1 16121
 D1
 The door to the guardian prisons
 ~
 door~
+~
+~
 ABZ -1 16338
 D2
 The street of the gods
+~
+~
 ~
 ~
 Z -1 16123
@@ -6615,9 +7243,13 @@ D0
 The street of the gods
 ~
 ~
+~
+~
 Z -1 16122
 D2
 The road of shadows
+~
+~
 ~
 ~
 Z -1 16139
@@ -6636,13 +7268,19 @@ D0
 Street of the gods
 ~
 ~
+~
+~
 Z -1 16110
 D2
 Sunset
 ~
 ~
+~
+~
 Z -1 16125
 D3
+~
+~
 ~
 ~
 ABZ 0 16361
@@ -6661,9 +7299,13 @@ D0
 Sunset
 ~
 ~
+~
+~
 Z -1 16124
 D2
 Sunset at the road of shadows
+~
+~
 ~
 ~
 Z -1 16128
@@ -6681,9 +7323,13 @@ D0
 Street of the gods
 ~
 ~
+~
+~
 Z -1 16116
 D2
 Azurite street
+~
+~
 ~
 ~
 Z -1 16127
@@ -6704,9 +7350,13 @@ D0
 Azurite street
 ~
 ~
+~
+~
 Z -1 16126
 D2
 Azurite and the road of shadows
+~
+~
 ~
 ~
 Z -1 16134
@@ -6724,14 +7374,20 @@ D0
 Sunset
 ~
 ~
+~
+~
 Z -1 16125
 D1
 Road of shadows
 ~
 ~
+~
+~
 Z -1 16129
 D2
 Sunset
+~
+~
 ~
 ~
 Z -1 16198
@@ -6750,9 +7406,13 @@ D1
 Road of shadows
 ~
 ~
+~
+~
 Z -1 16130
 D3
 Road of shadows
+~
+~
 ~
 ~
 Z -1 16128
@@ -6772,9 +7432,13 @@ D1
 Road of shadows
 ~
 ~
+~
+~
 Z -1 16131
 D3
 Road of shadows
+~
+~
 ~
 ~
 Z -1 16129
@@ -6793,9 +7457,13 @@ D1
 Road of shadows
 ~
 ~
+~
+~
 Z -1 16132
 D3
 Road of shadows
+~
+~
 ~
 ~
 Z -1 16130
@@ -6814,9 +7482,13 @@ D1
 The road of shadows
 ~
 ~
+~
+~
 Z -1 16133
 D3
 The road of shadows
+~
+~
 ~
 ~
 Z -1 16131
@@ -6836,9 +7508,13 @@ D1
 The road of shadows at Azurite street
 ~
 ~
+~
+~
 Z -1 16134
 D3
 The road of shadows
+~
+~
 ~
 ~
 Z -1 16132
@@ -6857,9 +7533,13 @@ D0
 Azurite street
 ~
 ~
+~
+~
 Z -1 16127
 D1
 The road of shadows
+~
+~
 ~
 ~
 Z -1 16135
@@ -6867,9 +7547,13 @@ D2
 Azurite street
 ~
 ~
+~
+~
 Z -1 16179
 D3
 The road of shadows
+~
+~
 ~
 ~
 Z -1 16133
@@ -6888,9 +7572,13 @@ D1
 Road of shadows
 ~
 ~
+~
+~
 Z -1 16136
 D3
 Road of shadows at azurite street
+~
+~
 ~
 ~
 Z -1 16134
@@ -6910,9 +7598,13 @@ D1
 The road of shadows
 ~
 ~
+~
+~
 Z -1 16137
 D3
 The road of shadows
+~
+~
 ~
 ~
 Z -1 16135
@@ -6944,14 +7636,20 @@ D1
 The road of shadows
 ~
 ~
+~
+~
 Z -1 16138
 D2
 A shadowy door stands in the dark
 ~
 ~
+~
+~
 ABZ -1 16369
 D3
 The road of shadows
+~
+~
 ~
 ~
 Z -1 16136
@@ -6970,9 +7668,13 @@ D1
 The road of shadows
 ~
 ~
+~
+~
 Z -1 16139
 D3
 The road of shadows
+~
+~
 ~
 ~
 Z -1 16137
@@ -6993,14 +7695,20 @@ D0
 The street of the gods
 ~
 ~
+~
+~
 Z -1 16123
 D1
 The road of shadows
 ~
 ~
+~
+~
 Z -1 16140
 D3
 The road of shadows
+~
+~
 ~
 ~
 Z -1 16138
@@ -7020,9 +7728,13 @@ D1
 The road of shadows
 ~
 ~
+~
+~
 Z -1 16141
 D3
 The road of shadows
+~
+~
 ~
 ~
 Z -1 16139
@@ -7041,9 +7753,13 @@ D1
 The road of shadows
 ~
 ~
+~
+~
 Z -1 16142
 D3
 The road of shadows
+~
+~
 ~
 ~
 Z -1 16140
@@ -7062,14 +7778,20 @@ D1
 Sunrise
 ~
 ~
+~
+~
 Z -1 16143
 D2
 Sunrise
 ~
 ~
+~
+~
 Z -1 16174
 D3
 The road of shadows
+~
+~
 ~
 ~
 Z -1 16141
@@ -7088,14 +7810,20 @@ D0
 Sunrise
 ~
 ~
+~
+~
 Z -1 16144
 D2
 Sunrise
 ~
 ~
+~
+~
 Z -1 16173
 D3
 Road of shadows
+~
+~
 ~
 ~
 Z -1 16142
@@ -7113,14 +7841,20 @@ D0
 Sunrise
 ~
 ~
+~
+~
 Z -1 16107
 D1
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16145
 D2
 Sunrise
+~
+~
 ~
 ~
 Z -1 16143
@@ -7139,9 +7873,13 @@ D1
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16146
 D3
 Sunrise
+~
+~
 ~
 ~
 Z -1 16144
@@ -7160,9 +7898,13 @@ D1
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16147
 D3
 The forgotten alley
+~
+~
 ~
 ~
 Z -1 16145
@@ -7180,9 +7922,13 @@ D1
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16148
 D3
 The forgotten alley
+~
+~
 ~
 ~
 Z -1 16146
@@ -7201,9 +7947,13 @@ D1
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16149
 D3
 The forgotten alley
+~
+~
 ~
 ~
 Z -1 16147
@@ -7222,9 +7972,13 @@ D1
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16150
 D3
 The forgotten alley
+~
+~
 ~
 ~
 Z -1 16148
@@ -7243,9 +7997,13 @@ D0
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16151
 D3
 The forgotten alley
+~
+~
 ~
 ~
 Z -1 16149
@@ -7264,9 +8022,13 @@ D0
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16152
 D2
 The forgotten alley
+~
+~
 ~
 ~
 Z -1 16150
@@ -7284,9 +8046,13 @@ D0
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16153
 D2
 The forgotten alley
+~
+~
 ~
 ~
 Z -1 16151
@@ -7303,9 +8069,13 @@ D1
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16154
 D2
 The forgotten alley
+~
+~
 ~
 ~
 Z -1 16152
@@ -7323,9 +8093,13 @@ D2
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16155
 D3
 The forgotten alley
+~
+~
 ~
 ~
 Z -1 16153
@@ -7343,9 +8117,13 @@ D0
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16154
 D2
 The forgotten alley
+~
+~
 ~
 ~
 Z -1 16156
@@ -7362,9 +8140,13 @@ D0
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16155
 D2
 The forgotten alley
+~
+~
 ~
 ~
 Z -1 16157
@@ -7381,9 +8163,13 @@ D0
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16156
 D2
 The forgotten alley
+~
+~
 ~
 ~
 Z -1 16159
@@ -7405,9 +8191,13 @@ D1
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16160
 D3
 A door blocks your way in
+~
+~
 ~
 ~
 ABZ -1 16424
@@ -7425,14 +8215,20 @@ D0
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 6000
 D2
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16161
 D3
 A dark entrance way
+~
+~
 ~
 ~
 Z -1 16159
@@ -7450,9 +8246,13 @@ D0
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16160
 D2
 The forgotten alley
+~
+~
 ~
 ~
 Z -1 16162
@@ -7470,9 +8270,13 @@ D0
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16161
 D3
 The forgotten alley
+~
+~
 ~
 ~
 Z -1 16163
@@ -7490,9 +8294,13 @@ D1
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16162
 D3
 The forgotten alley
+~
+~
 ~
 ~
 Z -1 16164
@@ -7509,9 +8317,13 @@ D1
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16163
 D3
 The forgotten alley
+~
+~
 ~
 ~
 Z -1 16165
@@ -7529,9 +8341,13 @@ D1
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16164
 D3
 The forgotten alley
+~
+~
 ~
 ~
 Z -1 16167
@@ -7550,9 +8366,13 @@ D0
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16169
 D2
 The forgotten alley
+~
+~
 ~
 ~
 Z -1 16168
@@ -7575,9 +8395,13 @@ D0
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16168
 D1
 The forgotten alley
+~
+~
 ~
 ~
 Z -1 16165
@@ -7585,6 +8409,8 @@ D3
 A dark door
 ~
 door~
+~
+~
 ABZ -1 16397
 S
 #16168
@@ -7600,9 +8426,13 @@ D0
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16166
 D2
 The forgotten alley
+~
+~
 ~
 ~
 Z -1 16167
@@ -7619,9 +8449,13 @@ D2
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16166
 D3
 The forgotten alley
+~
+~
 ~
 ~
 Z -1 16170
@@ -7639,9 +8473,13 @@ D1
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16169
 D3
 The forgotten alley
+~
+~
 ~
 ~
 Z -1 16172
@@ -7660,9 +8498,13 @@ D1
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16170
 D3
 Sunrise
+~
+~
 ~
 ~
 Z -1 16173
@@ -7679,14 +8521,20 @@ D0
 Sunrise
 ~
 ~
+~
+~
 Z -1 16143
 D1
 The forgotten alley
 ~
 ~
+~
+~
 Z -1 16172
 D3
 Sunrise
+~
+~
 ~
 ~
 Z -1 16174
@@ -7704,14 +8552,20 @@ D0
 The road of shadows
 ~
 ~
+~
+~
 Z -1 16142
 D1
 Sunrise
 ~
 ~
+~
+~
 Z -1 16173
 D2
 Sunrise
+~
+~
 ~
 ~
 Z -1 16175
@@ -7728,9 +8582,13 @@ D0
 Sunrise
 ~
 ~
+~
+~
 Z -1 16174
 D2
 Sunrise
+~
+~
 ~
 ~
 Z -1 16176
@@ -7748,9 +8606,13 @@ D0
 Sunrise
 ~
 ~
+~
+~
 Z -1 16175
 D2
 Sunrise
+~
+~
 ~
 ~
 Z -1 16177
@@ -7770,9 +8632,13 @@ D0
 Sunrise
 ~
 ~
+~
+~
 Z -1 16176
 D2
 Sunrise
+~
+~
 ~
 ~
 Z -1 16178
@@ -7800,9 +8666,13 @@ D0
 Sunrise
 ~
 ~
+~
+~
 Z -1 16177
 D2
 Death's lane
+~
+~
 ~
 ~
 Z -1 16192
@@ -7820,9 +8690,13 @@ D0
 Azurite at road of shadows
 ~
 ~
+~
+~
 Z -1 16134
 D2
 Azurite street
+~
+~
 ~
 ~
 Z -1 16180
@@ -7842,9 +8716,13 @@ D0
 Azurite street
 ~
 ~
+~
+~
 Z -1 16179
 D2
 Azurite street
+~
+~
 ~
 ~
 Z -1 16181
@@ -7868,13 +8746,19 @@ D0
 Azurite street
 ~
 ~
+~
+~
 Z -1 16180
 D1
 ~
 wall~
+the wall~
+~
 ABZ -1 16374
 D2
 Azurite street
+~
+~
 ~
 ~
 Z -1 16182
@@ -7893,9 +8777,13 @@ D0
 Azurite
 ~
 ~
+~
+~
 Z -1 16181
 D2
 Azurite
+~
+~
 ~
 ~
 Z -1 16183
@@ -7916,9 +8804,13 @@ D0
 Azurite street
 ~
 ~
+~
+~
 Z -1 16182
 D2
 Death's lane
+~
+~
 ~
 ~
 Z -1 16184
@@ -7938,9 +8830,13 @@ D0
 Azurite street
 ~
 ~
+~
+~
 Z -1 16183
 D1
 Death's lane
+~
+~
 ~
 ~
 Z -1 16185
@@ -7959,9 +8855,13 @@ D1
 Death's lane
 ~
 ~
+~
+~
 Z -1 16186
 D3
 Death's lane
+~
+~
 ~
 ~
 Z -1 16184
@@ -7980,9 +8880,13 @@ D1
 Death's lane
 ~
 ~
+~
+~
 Z -1 16187
 D3
 Death's lane
+~
+~
 ~
 ~
 Z -1 16185
@@ -8000,9 +8904,13 @@ D1
 Death's lane
 ~
 ~
+~
+~
 Z -1 16188
 D3
 Death's lane
+~
+~
 ~
 ~
 Z -1 16186
@@ -8022,9 +8930,13 @@ D1
 Death's lane
 ~
 ~
+~
+~
 Z -1 16189
 D3
 Death's lane
+~
+~
 ~
 ~
 Z -1 16187
@@ -8043,9 +8955,13 @@ D1
 Death's lane
 ~
 ~
+~
+~
 Z -1 16190
 D3
 Death's lane
+~
+~
 ~
 ~
 Z -1 16188
@@ -8063,9 +8979,13 @@ D1
 Death's lane
 ~
 ~
+~
+~
 Z -1 16191
 D3
 Death's lane
+~
+~
 ~
 ~
 Z -1 16189
@@ -8084,9 +9004,13 @@ D1
 Death's lane
 ~
 ~
+~
+~
 Z -1 16192
 D3
 Death's lane
+~
+~
 ~
 ~
 Z -1 16190
@@ -8104,14 +9028,20 @@ D0
 Sunrise
 ~
 ~
+~
+~
 Z -1 16178
 D2
 Death's lane
 ~
 ~
+~
+~
 Z -1 16193
 D3
 Death's lane
+~
+~
 ~
 ~
 Z -1 16191
@@ -8129,9 +9059,13 @@ D0
 Death's lane
 ~
 ~
+~
+~
 Z -1 16192
 D1
 Death's lane
+~
+~
 ~
 ~
 Z -1 16194
@@ -8150,9 +9084,13 @@ D1
 Death's lane
 ~
 ~
+~
+~
 Z -1 16195
 D3
 Death's lane
+~
+~
 ~
 ~
 Z -1 16193
@@ -8175,14 +9113,20 @@ D0
 A wall
 ~
 wall~
+the wall~
+~
 ABZ -1 16414
 D1
 Death's lane
 ~
 ~
+~
+~
 Z -1 16196
 D3
 Death's lane
+~
+~
 ~
 ~
 Z -1 16194
@@ -8201,10 +9145,14 @@ D2
 Death's lane
 ~
 ~
+~
+~
 Z -1 16197
 D3
 D1
 Death's lane
+~
+~
 ~
 ~
 Z -1 16195
@@ -8237,10 +9185,14 @@ D0
 Death's lane
 ~
 ~
+~
+~
 Z -1 16196
 D2
 ~
 wall~
+the wall~
+~
 ABZ -1 7399
 S
 #16198
@@ -8258,9 +9210,13 @@ D0
 Sunset at the road of shadows
 ~
 ~
+~
+~
 Z -1 16128
 D2
 Traveller's crescent
+~
+~
 ~
 ~
 Z -1 16201
@@ -8294,15 +9250,21 @@ D1
 Traveller's crescent
 ~
 ~
+~
+~
 Z -1 16200
 D2
 Traveller's crescent
+~
+~
 ~
 ~
 Z -1 16218
 D3
 ~
 wall~
+the wall~
+~
 ABZ -1 16222
 S
 #16200
@@ -8326,9 +9288,13 @@ D1
 Traveller's crescent
 ~
 ~
+~
+~
 Z -1 16201
 D3
 Traveller's crescent
+~
+~
 ~
 ~
 Z -1 16199
@@ -8347,14 +9313,20 @@ D0
 Sunrise
 ~
 ~
+~
+~
 Z -1 16198
 D1
 Traveller's crescent
 ~
 ~
+~
+~
 Z -1 16202
 D3
 Traveller's crescent
+~
+~
 ~
 ~
 Z -1 16200
@@ -8372,9 +9344,13 @@ D1
 Traveller's crescent
 ~
 ~
+~
+~
 Z -1 16203
 D3
 Traveller's crescent
+~
+~
 ~
 ~
 Z -1 16201
@@ -8392,9 +9368,13 @@ D1
 Traveller's crescent
 ~
 ~
+~
+~
 Z -1 16204
 D3
 Traveller's crescent
+~
+~
 ~
 ~
 Z -1 16202
@@ -8412,9 +9392,13 @@ D1
 Traveller's crescent
 ~
 ~
+~
+~
 Z -1 16205
 D3
 Traveller's crescent
+~
+~
 ~
 ~
 Z -1 16203
@@ -8433,9 +9417,13 @@ D2
 Traveller's crescent
 ~
 ~
+~
+~
 Z -1 16206
 D3
 Traveller's crescent
+~
+~
 ~
 ~
 Z -1 16204
@@ -8454,9 +9442,13 @@ D0
 Traveller's crescent
 ~
 ~
+~
+~
 Z -1 16205
 D2
 Traveller's crescent
+~
+~
 ~
 ~
 Z -1 16207
@@ -8475,9 +9467,13 @@ D0
 Traveller's crescent
 ~
 ~
+~
+~
 Z -1 16206
 D2
 Traveller's crescent
+~
+~
 ~
 ~
 Z -1 16208
@@ -8500,9 +9496,13 @@ D0
 Traveller's crescent
 ~
 ~
+~
+~
 Z -1 16207
 D2
 Traveller's crescent
+~
+~
 ~
 ~
 Z -1 16209
@@ -8510,6 +9510,8 @@ D3
 The entrance to the traveller's den
 ~
 door~
+~
+~
 ABZ -1 16442
 S
 #16209
@@ -8526,9 +9528,13 @@ D0
 Traveller's crescent
 ~
 ~
+~
+~
 Z -1 16208
 D3
 Traveller's crescent
+~
+~
 ~
 ~
 Z -1 16210
@@ -8546,9 +9552,13 @@ D1
 Traveller's crescent
 ~
 ~
+~
+~
 Z -1 16209
 D3
 Traveller's crescent
+~
+~
 ~
 ~
 Z -1 16211
@@ -8566,9 +9576,13 @@ D1
 Traveller's crescent
 ~
 ~
+~
+~
 Z -1 16210
 D3
 Traveller's crescent
+~
+~
 ~
 ~
 Z -1 16212
@@ -8586,9 +9600,13 @@ D1
 Traveller's crescent
 ~
 ~
+~
+~
 Z -1 16211
 D3
 Traveller's crescent
+~
+~
 ~
 ~
 Z -1 16213
@@ -8606,9 +9624,13 @@ D1
 Traveller's crescent
 ~
 ~
+~
+~
 Z -1 16212
 D3
 Traveller's crescent
+~
+~
 ~
 ~
 Z 0 16214
@@ -8627,9 +9649,13 @@ D1
 Traveller's crescent
 ~
 ~
+~
+~
 Z -1 16213
 D3
 Traveller's crescent
+~
+~
 ~
 ~
 Z -1 16215
@@ -8647,9 +9673,13 @@ D0
 Traveller's crescent
 ~
 ~
+~
+~
 Z -1 16216
 D1
 Traveller's crescent
+~
+~
 ~
 ~
 Z -1 16214
@@ -8667,9 +9697,13 @@ D0
 Traveller's crescent
 ~
 ~
+~
+~
 Z -1 16217
 D2
 Traveller's crescent
+~
+~
 ~
 ~
 Z -1 16215
@@ -8688,9 +9722,13 @@ D0
 Traveller's crescent
 ~
 ~
+~
+~
 Z -1 16218
 D2
 Traveller's crescent
+~
+~
 ~
 ~
 Z -1 16216
@@ -8709,9 +9747,13 @@ D0
 Traveller's crescent
 ~
 ~
+~
+~
 Z -1 16199
 D2
 Traveller's crescent
+~
+~
 ~
 ~
 Z -1 16217
@@ -8738,9 +9780,13 @@ D0
 a panel
 ~
 panel~
+the panel~
+~
 ABZ -1 9669
 D2
 To dark to see
+~
+~
 ~
 ~
 Z -1 16220
@@ -8765,9 +9811,13 @@ D0
 Your light does not shed any clue as to what lies there
 ~
 ~
+~
+~
 Z -1 16219
 D1
 You cannot pierce the darkness
+~
+~
 ~
 ~
 Z -1 16221
@@ -8787,9 +9837,13 @@ D1
 You can not see what lies in that direction
 ~
 ~
+~
+~
 Z -1 16222
 D3
 Your light cannot pierce the veil of darkness
+~
+~
 ~
 ~
 Z -1 16220
@@ -8816,9 +9870,13 @@ Underdark.  You then see the outline of the door into the Underdark. ~
 D1
 ~
 door~
+~
+~
 ABZ -1 16199
 D3
 The tunnel heads into pure darkness
+~
+~
 ~
 ~
 Z -1 16221
@@ -8836,9 +9894,13 @@ D4
 The sewers of Midgaard
 ~
 ~
+~
+~
 Z -1 7399
 D5
 The corridor descends
+~
+~
 ~
 ~
 Z -1 16224
@@ -8865,9 +9927,13 @@ D4
 The corridor
 ~
 ~
+~
+~
 Z -1 16223
 D5
 The vast corridor
+~
+~
 ~
 ~
 Z -1 16225
@@ -8892,14 +9958,20 @@ section of the wall is a small symbol, it looks like a demon's claw.
 D0
 ~
 wall~
+the wall~
+~
 ABZ -1 16456
 D4
 The vast corridor
 ~
 ~
+~
+~
 Z -1 16224
 D5
 The vast corridor
+~
+~
 ~
 ~
 Z -1 16226
@@ -8918,9 +9990,13 @@ D4
 The vast corridor
 ~
 ~
+~
+~
 Z -1 16225
 D5
 The vast corridor
+~
+~
 ~
 ~
 Z -1 16227
@@ -8962,9 +10038,13 @@ D3
 A huge door blocks your way into the Underdark.
 ~
 door~
+~
+~
 ABZ -1 16093
 D4
 The huge corridor leads upwards to freedom
+~
+~
 ~
 ~
 Z -1 16226
@@ -9003,9 +10083,13 @@ D0
 The hall goes on
 ~
 ~
+~
+~
 Z -1 16231
 D2
 The a door stands there
+~
+~
 ~
 ~
 ABZ -1 16025
@@ -9024,6 +10108,8 @@ The hall stretches to the east
 0 ADN city
 D1
 The hall goes onwards
+~
+~
 ~
 ~
 Z -1 16230
@@ -9048,14 +10134,20 @@ D1
 The hall continues
 ~
 ~
+~
+~
 Z -1 16231
 D2
 A beautiful door
 ~
 beautiful door~
+the beautiful~
+~
 ABZ -1 16237
 D3
 The hall goes on
+~
+~
 ~
 ~
 Z -1 16229
@@ -9073,14 +10165,20 @@ D1
 The hall goes on
 ~
 ~
+~
+~
 Z -1 16232
 D2
 The entrance lies in this direction
 ~
 ~
+~
+~
 Z -1 16228
 D3
 The hall continues
+~
+~
 ~
 ~
 Z -1 16230
@@ -9111,9 +10209,13 @@ D1
 The hall stretches onwards
 ~
 ~
+~
+~
 Z -1 16233
 D3
 The hall heads on
+~
+~
 ~
 ~
 Z -1 16231
@@ -9133,9 +10235,13 @@ D2
 A corridor makes it's way south
 ~
 ~
+~
+~
 Z -1 16234
 D3
 The hall stretches on
+~
+~
 ~
 ~
 Z -1 16232
@@ -9158,14 +10264,20 @@ D0
 The jaded hall
 ~
 ~
+~
+~
 Z -1 16233
 D1
 A door
 ~
 door~
+~
+~
 ABZ -1 16240
 D2
 The jaded corridor
+~
+~
 ~
 ~
 Z -1 16235
@@ -9173,6 +10285,8 @@ D3
 A door
 ~
 door~
+~
+~
 ABZ -1 16241
 S
 #16235
@@ -9194,16 +10308,22 @@ D0
 The jaded corridor
 ~
 ~
+~
+~
 Z -1 16234
 D1
 A door
 ~
 door~
+~
+~
 ABZ -1 16242
 D3
 A door
 ~
 door~
+~
+~
 ABZ -1 16243
 S
 #16236
@@ -9221,9 +10341,13 @@ D1
 The vast hall stretches onwards
 ~
 ~
+~
+~
 Z -1 16237
 D2
 The vast hall continues
+~
+~
 ~
 ~
 Z -1 16238
@@ -9248,14 +10372,20 @@ D0
 A beautiful door
 ~
 beautiful door~
+the beautiful~
+~
 ABZ -1 16230
 D2
 The hall stretches
 ~
 ~
+~
+~
 Z -1 16239
 D3
 The hall stretches onwards
+~
+~
 ~
 ~
 Z -1 16236
@@ -9282,9 +10412,13 @@ D0
 The hall stretches onwards
 ~
 ~
+~
+~
 Z -1 16236
 D1
 This huge hall spans farther in this direction
+~
+~
 ~
 ~
 Z -1 16239
@@ -9305,9 +10439,13 @@ D0
 The vast hall
 ~
 ~
+~
+~
 Z -1 16237
 D3
 The vast hall
+~
+~
 ~
 ~
 Z -1 16238
@@ -9330,6 +10468,8 @@ D3
 A door stands here
 ~
 door~
+~
+~
 ABZ -1 16234
 S
 #16241
@@ -9350,6 +10490,8 @@ D1
 A door blocks the way
 ~
 door~
+~
+~
 ABZ -1 16234
 S
 #16242
@@ -9371,6 +10513,8 @@ D3
 A well crafted door stands here
 ~
 door~
+~
+~
 ABZ -1 16235
 S
 #16243
@@ -9392,6 +10536,8 @@ D1
 A door stands here
 ~
 door~
+~
+~
 ABZ -1 16235
 S
 #16244
@@ -9410,9 +10556,13 @@ D2
 The tavern lies there
 ~
 ~
+~
+~
 Z -1 16246
 D3
 The tavern continues
+~
+~
 ~
 ~
 Z -1 16247
@@ -9431,9 +10581,13 @@ D0
 The tavern goes on in this direction
 ~
 ~
+~
+~
 Z -1 16247
 D1
 The tavern continues
+~
+~
 ~
 ~
 Z -1 16246
@@ -9459,14 +10613,20 @@ D0
 The tavern continues
 ~
 ~
+~
+~
 Z -1 16244
 D2
 A door blocks the way out
 ~
 door~
+~
+~
 ABZ -1 16030
 D3
 The tavern continues
+~
+~
 ~
 ~
 Z -1 16245
@@ -9492,9 +10652,13 @@ D1
 The tavern goes on
 ~
 ~
+~
+~
 Z -1 16244
 D2
 The tavern continues
+~
+~
 ~
 ~
 Z -1 16245
@@ -9514,9 +10678,13 @@ D0
 You can't tell
 ~
 ~
+~
+~
 Z -1 16249
 D1
 You can't tell
+~
+~
 ~
 ~
 Z -1 16254
@@ -9524,9 +10692,13 @@ D2
 You can't tell
 ~
 ~
+~
+~
 Z -1 16251
 D3
 The entrance is this way
+~
+~
 ~
 ~
 Z -1 16274
@@ -9550,11 +10722,15 @@ D2
 The main corridor of the warehouse
 ~
 ~
+~
+~
 Z -1 16248
 D3
 A small door
 ~
 door~
+~
+~
 ABZ -1 16250
 S
 #16250
@@ -9575,6 +10751,8 @@ D1
 A small door
 ~
 door~
+~
+~
 ABZ -1 16249
 S
 #16251
@@ -9599,16 +10777,22 @@ D0
 The main passage of the warehouse
 ~
 ~
+~
+~
 Z -1 16248
 D2
 A small door blocks your way
 ~
 door~
+~
+~
 ABZ -1 16253
 D3
 A wooden panel
 ~
 panel~
+the panel~
+~
 ABZ -1 16252
 S
 #16252
@@ -9628,6 +10812,8 @@ D1
 A wooden panel
 ~
 panel~
+the panel~
+~
 ABZ -1 16251
 S
 #16253
@@ -9647,6 +10833,8 @@ D0
 A small wooden door
 ~
 door~
+~
+~
 ABZ -1 16251
 S
 #16254
@@ -9670,9 +10858,13 @@ D0
 A sliding panel
 ~
 panel~
+the panel~
+~
 ABZ -1 16256
 D1
 The dark main corridor plunges deeper into this building 
+~
+~
 ~
 ~
 Z -1 16257
@@ -9680,9 +10872,13 @@ D2
 A broken wooden panel offers entry into a small room
 ~
 panel~
+the panel~
+~
 ABZ -1 16255
 D3
 The corridor leads eventually out
+~
+~
 ~
 ~
 Z -1 16248
@@ -9706,6 +10902,8 @@ D0
 A broken wooden panel allows you to pass into the main corridor 
 ~
 panel~
+the panel~
+~
 ABZ -1 16254
 S
 #16256
@@ -9726,6 +10924,8 @@ D2
 A wooden panel slides to give an exit
 ~
 panel~
+the panel~
+~
 ABZ -1 16254
 S
 #16257
@@ -9746,14 +10946,20 @@ D0
 A small dark wooden door
 ~
 door~
+~
+~
 ABZ -1 16258
 D2
 The cluttered way goes on
 ~
 ~
+~
+~
 Z -1 16259
 D3
 The corridor heads out
+~
+~
 ~
 ~
 Z -1 16254
@@ -9777,6 +10983,8 @@ D2
 A door blocks the way out
 ~
 door~
+~
+~
 ABZ -1 16257
 S
 #16259
@@ -9792,9 +11000,13 @@ D0
 The dark corridor continues
 ~
 ~
+~
+~
 Z -1 16257
 D1
 The corridor seems to clear up some
+~
+~
 ~
 ~
 Z -1 16260
@@ -9813,14 +11025,20 @@ D0
 The dark corridor becomes very chaotic
 ~
 ~
+~
+~
 Z -1 16262
 D1
 A door stands ready to be used
 ~
 ~
+~
+~
 ABZ -1 16261
 D3
 The corridor goes on
+~
+~
 ~
 ~
 Z -1 16259
@@ -9841,6 +11059,8 @@ D3
 A door lies here
 ~
 door~
+~
+~
 ABZ -1 16260
 S
 #16262
@@ -9860,14 +11080,20 @@ D0
 The corridor continues in disarray
 ~
 ~
+~
+~
 Z -1 16264
 D1
 A door stands here
 ~
 door~
+~
+~
 ABZ -1 16263
 D2
 The corridor seems to clear in this direction
+~
+~
 ~
 ~
 Z -1 16260
@@ -9889,6 +11115,8 @@ D3
 A door is here
 ~
 door~
+~
+~
 ABZ -1 16262
 S
 #16264
@@ -9904,9 +11132,13 @@ D1
 The corridor goes onwards
 ~
 ~
+~
+~
 Z -1 16265
 D2
 The corridor stretches
+~
+~
 ~
 ~
 Z -1 16262
@@ -9925,9 +11157,13 @@ D1
 The corridor plunges into darkness
 ~
 ~
+~
+~
 Z -1 16266
 D3
 The corridor disappears into the dark
+~
+~
 ~
 ~
 Z -1 16264
@@ -9950,14 +11186,20 @@ D1
 A door stands here
 ~
 door~
+~
+~
 ABZ -1 16267
 D2
 The corridor goes on
 ~
 ~
+~
+~
 Z -1 16268
 D3
 A weird glow comes from this direction
+~
+~
 ~
 ~
 Z -1 16265
@@ -9979,6 +11221,8 @@ D3
 A door stands here
 ~
 door~
+~
+~
 ABZ -1 16266
 S
 #16268
@@ -9998,15 +11242,21 @@ D0
 The corridor meanders through the building
 ~
 ~
+~
+~
 Z -1 16266
 D1
 The corridor continues on it's merry course
+~
+~
 ~
 ~
 Z -1 16270
 D2
 A door blocks your way
 door
+~
+~
 ~
 ~
 ABZ -1 16269
@@ -10034,6 +11284,8 @@ D0
 A door stands here
 ~
 door~
+~
+~
 ABZ -1 16268
 S
 #16270
@@ -10049,9 +11301,13 @@ D2
 The corridor is there also
 ~
 ~
+~
+~
 Z -1 16271
 D3
 The corridor plunges into the warehouse.
+~
+~
 ~
 ~
 Z -1 16268
@@ -10075,11 +11331,15 @@ D0
 The corridor goes on
 ~
 ~
+~
+~
 Z -1 16270
 D2
 A door stands here
 ~
 door~
+~
+~
 ABZ -1 16272
 S
 #16272
@@ -10100,11 +11360,15 @@ D0
 The door to the corridor
 ~
 door~
+~
+~
 ABZ -1 16271
 D3
 A door blocks your entry
 ~
 door~
+~
+~
 ABZ -1 16273
 S
 #16273
@@ -10129,6 +11393,8 @@ D1
 A door stands here
 ~
 door~
+~
+~
 ABZ -1 16272
 S
 #16274
@@ -10150,11 +11416,15 @@ D1
 The corridor plunges deep within the building
 ~
 ~
+~
+~
 Z -1 16248
 D3
 The exit door
 ~
 door~
+~
+~
 ABZ -1 16021
 S
 #16275
@@ -10175,11 +11445,15 @@ D1
 The main hall
 ~
 ~
+~
+~
 Z -1 16278
 D2
 A door blocks your passage out
 ~
 door~
+~
+~
 ABZ -1 16079
 S
 #16278
@@ -10197,14 +11471,20 @@ D0
 The hall heads onwards
 ~
 ~
+~
+~
 Z -1 16279
 D1
 The hall delves further into the mansion
 ~
 ~
+~
+~
 Z -1 16290
 D3
 You see the entrance hall
+~
+~
 ~
 ~
 Z -1 16275
@@ -10226,9 +11506,13 @@ D0
 The hallway continues
 ~
 ~
+~
+~
 Z -1 16281
 D2
 You see the main hall
+~
+~
 ~
 ~
 Z -1 16278
@@ -10236,6 +11520,8 @@ D3
 A door rests here
 ~
 door~
+~
+~
 ABZ -1 16280
 S
 #16280
@@ -10257,6 +11543,8 @@ D1
 A door stands ready
 ~
 door~
+~
+~
 ABZ -1 16279
 S
 #16281
@@ -10275,9 +11563,13 @@ D0
 The hallway continues
 ~
 ~
+~
+~
 Z -1 16286
 D1
 The hallway goes east
+~
+~
 ~
 ~
 Z -1 16283
@@ -10285,11 +11577,15 @@ D2
 The hallway continues
 ~
 ~
+~
+~
 Z -1 16279
 D3
 A door stands here
 ~
 door~
+~
+~
 ABZ -1 16282
 S
 #16282
@@ -10308,6 +11604,8 @@ D1
 A door stands in your way
 ~
 door~
+~
+~
 ABZ -1 16281
 S
 #16283
@@ -10327,9 +11625,13 @@ D2
 A door stands ready
 ~
 door~
+~
+~
 ABZ -1 16287
 D3
 The hallway goes west
+~
+~
 ~
 ~
 Z -1 16281
@@ -10351,6 +11653,8 @@ D1
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16286
 S
 #16285
@@ -10371,6 +11675,8 @@ D3
 A door blocks the way out
 ~
 door~
+~
+~
 ABZ -1 16286
 S
 #16286
@@ -10390,9 +11696,13 @@ D1
 A door stands here
 ~
 door~
+~
+~
 ABZ -1 16285
 D2
 The hall goes on
+~
+~
 ~
 ~
 Z -1 16281
@@ -10400,6 +11710,8 @@ D3
 A door stands here
 ~
 door~
+~
+~
 ABZ -1 16284
 S
 #16287
@@ -10419,6 +11731,8 @@ D0
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16283
 S
 #16288
@@ -10438,9 +11752,13 @@ you could push to open up a secret way.~
 D0
 ~
 painting~
+the painting~
+~
 ABZ -1 16289
 D3
 The dining hall goes on
+~
+~
 ~
 ~
 Z -1 16287
@@ -10457,10 +11775,14 @@ There are no obvious exits...
 D0
 ~
 wall~
+the wall~
+~
 ABZ -1 16296
 D2
 ~
 wall~
+the wall~
+~
 ABZ -1 16288
 S
 #16290
@@ -10482,9 +11804,13 @@ D1
 The hall goes on
 ~
 ~
+~
+~
 Z -1 16291
 D3
 The hall goes on
+~
+~
 ~
 ~
 Z -1 16278
@@ -10507,9 +11833,13 @@ D1
 The hall continues
 ~
 ~
+~
+~
 Z -1 16292
 D3
 The hall continues
+~
+~
 ~
 ~
 Z -1 16290
@@ -10533,9 +11863,13 @@ D0
 The hall goes on
 ~
 ~
+~
+~
 Z -1 16293
 D3
 The hall continues
+~
+~
 ~
 ~
 Z -1 16291
@@ -10560,9 +11894,13 @@ D0
 The hall goes on
 ~
 ~
+~
+~
 Z -1 16294
 D2
 The hall continues
+~
+~
 ~
 ~
 Z -1 16292
@@ -10584,9 +11922,13 @@ D0
 Huge double doors wait to be used
 ~
 door~
+~
+~
 ABZ -1 16295
 D2
 The hall continues
+~
+~
 ~
 ~
 Z -1 16293
@@ -10608,14 +11950,20 @@ D0
 The audience chamber
 ~
 ~
+~
+~
 Z -1 16297
 D2
 Huge double doors wait to be used
 ~
 door~
+~
+~
 ABZ -1 16294
 D3
 The audience chamber
+~
+~
 ~
 ~
 Z -1 16296
@@ -10639,15 +11987,21 @@ D0
 The audience chamber
 ~
 ~
+~
+~
 Z -1 16298
 D1
 The audience chamber
+~
+~
 ~
 ~
 Z -1 16295
 D2
 ~
 painting~
+the painting~
+~
 ABZ -1 16289
 S
 #16297
@@ -10664,9 +12018,13 @@ D2
 The audience chamber
 ~
 ~
+~
+~
 Z -1 16295
 D3
 The audience chamber
+~
+~
 ~
 ~
 Z -1 16298
@@ -10690,9 +12048,13 @@ D1
 The audience chamber
 ~
 ~
+~
+~
 Z -1 16297
 D2
 The audience chamber
+~
+~
 ~
 ~
 Z -1 16296
@@ -10713,16 +12075,22 @@ D0
 A door blocks your way into the whoring area
 ~
 door~
+~
+~
 ABZ -1 16301
 D1
 A door stands in the way to the paying room
 ~
 door~
+~
+~
 ABZ -1 16300
 D2
 A door offers the way out
 ~
 door~
+~
+~
 ABZ -1 16085
 S
 #16300
@@ -10750,6 +12118,8 @@ D3
 The door stands ready to be used
 ~
 door~
+~
+~
 ABZ -1 16299
 S
 #16301
@@ -10770,9 +12140,13 @@ D0
 The whoring area
 ~
 ~
+~
+~
 Z -1 16303
 D1
 The whoring area
+~
+~
 ~
 ~
 Z -1 16302
@@ -10780,6 +12154,8 @@ D2
 The door that leads out
 ~
 door~
+~
+~
 ABZ -1 16299
 S
 #16302
@@ -10796,9 +12172,13 @@ D0
 The room goes on
 ~
 ~
+~
+~
 Z -1 16304
 D3
 The room continues
+~
+~
 ~
 ~
 Z -1 16301
@@ -10818,9 +12198,13 @@ D1
 The room goes on
 ~
 ~
+~
+~
 Z -1 16304
 D2
 The room continues
+~
+~
 ~
 ~
 Z -1 16301
@@ -10840,9 +12224,13 @@ D2
 The room continues
 ~
 ~
+~
+~
 Z -1 16302
 D3
 The room goes on
+~
+~
 ~
 ~
 Z -1 16303
@@ -10863,11 +12251,15 @@ D0
 The inn is this way
 ~
 ~
+~
+~
 Z -1 16306
 D2
 A door stands here
 ~
 door~
+~
+~
 ABZ -1 16088
 S
 #16306
@@ -10887,14 +12279,20 @@ D0
 Door to the washroom
 ~
 door~
+~
+~
 ABZ -1 16307
 D1
 The common room
 ~
 ~
+~
+~
 Z -1 16308
 D2
 The entrance hall
+~
+~
 ~
 ~
 Z -1 16305
@@ -10916,6 +12314,8 @@ D2
 The door out
 ~
 door~
+~
+~
 ABZ -1 16306
 S
 #16308
@@ -10936,9 +12336,13 @@ D0
 The common room
 ~
 ~
+~
+~
 Z -1 16310
 D1
 The common room
+~
+~
 ~
 ~
 Z -1 16311
@@ -10946,9 +12350,13 @@ D2
 A door to a room
 ~
 door~
+~
+~
 ABZ -1 16309
 D3
 The entrance way
+~
+~
 ~
 ~
 Z -1 16306
@@ -10970,6 +12378,8 @@ D0
 The door leads out to the common room
 ~
 door~
+~
+~
 ABZ -1 16308
 S
 #16310
@@ -10986,9 +12396,13 @@ D1
 The common room and bar
 ~
 ~
+~
+~
 Z -1 16314
 D2
 The common room
+~
+~
 ~
 ~
 Z -1 16308
@@ -11010,19 +12424,27 @@ D0
 The common room
 ~
 ~
+~
+~
 Z -1 16314
 D1
 A door stands ready to be used
 ~
 door~
+~
+~
 ABZ -1 16313
 D2
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16312
 D3
 The common room
+~
+~
 ~
 ~
 Z -1 16308
@@ -11043,6 +12465,8 @@ D0
 The door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16311
 S
 #16313
@@ -11062,9 +12486,13 @@ D0
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16315
 D1
 The hallway continues
+~
+~
 ~
 ~
 Z -1 16317
@@ -11072,11 +12500,15 @@ D2
 A door stands ready
 ~
 door~
+~
+~
 ABZ -1 16316
 D3
 The door is ready to be used
 ~
 door~
+~
+~
 ABZ -1 16311
 S
 #16314
@@ -11092,9 +12524,13 @@ D2
 The common room
 ~
 ~
+~
+~
 Z -1 16311
 D3
 The common room
+~
+~
 ~
 ~
 Z -1 16310
@@ -11115,6 +12551,8 @@ D2
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16313
 S
 #16316
@@ -11134,6 +12572,8 @@ D0
 The door leads out to the hallway
 ~
 door~
+~
+~
 ABZ -1 16313
 S
 #16317
@@ -11151,9 +12591,13 @@ D2
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16318
 D3
 The hallway heads back towards the common room
+~
+~
 ~
 ~
 Z -1 16313
@@ -11174,6 +12618,8 @@ D0
 The door stands ready
 ~
 door~
+~
+~
 ABZ -1 16317
 S
 #16319
@@ -11197,19 +12643,27 @@ D0
 The bars can be opened like a door
 ~
 bars~
+the bars~
+~
 ABZ -1 16320
 D1
 A door waits to be used
 ~
 door~
+~
+~
 Z -1 16100
 D2
 A door waits to be used
 ~
 door~
+~
+~
 Z -1 16116
 D3
 The slave hall goes on
+~
+~
 ~
 ~
 Z -1 16321
@@ -11231,9 +12685,13 @@ D2
 The bars wait to allow you to leave
 ~
 bars~
+the bars~
+~
 ABZ -1 16319
 D3
 The cage continues
+~
+~
 ~
 ~
 Z -1 16322
@@ -11252,9 +12710,13 @@ D1
 The slave hall
 ~
 ~
+~
+~
 Z -1 16319
 D3
 The slave hall
+~
+~
 ~
 ~
 Z -1 16323
@@ -11273,9 +12735,13 @@ D1
 The cage continues
 ~
 ~
+~
+~
 Z -1 16320
 D3
 The cage goes on
+~
+~
 ~
 ~
 Z -1 16324
@@ -11294,9 +12760,13 @@ D1
 The slave hall
 ~
 ~
+~
+~
 Z -1 16321
 D3
 The slave hall
+~
+~
 ~
 ~
 Z -1 16325
@@ -11315,9 +12785,13 @@ D1
 The cage continues
 ~
 ~
+~
+~
 Z -1 16322
 D3
 The cage continues
+~
+~
 ~
 ~
 Z -1 16326
@@ -11341,9 +12815,13 @@ D0
 A door leads through the bars
 ~
 door~
+~
+~
 ABZ -1 16326
 D1
 The slave hall
+~
+~
 ~
 ~
 Z -1 16323
@@ -11365,11 +12843,15 @@ D1
 The slave cage
 ~
 ~
+~
+~
 Z -1 16324
 D2
 A door offers entrance to the slave hall
 ~
 door~
+~
+~
 ABZ -1 16325
 S
 #16327
@@ -11396,19 +12878,27 @@ D0
 A huge door that has no handle leads out
 ~
 door~
+~
+~
 ABZ -1 16089
 D1
 A barred door allows you into a prison cell
 ~
 barred door~
+the barred~
+~
 ABZ -1 16328
 D2
 The prison hall goes on
 ~
 ~
+~
+~
 Z -1 16330
 D3
 The prison hall goes on
+~
+~
 ~
 ~
 Z -1 16329
@@ -11431,6 +12921,8 @@ D3
 The prison door
 ~
 door~
+~
+~
 ABZ -1 16327
 S
 #16329
@@ -11446,9 +12938,13 @@ D1
 Before the northern entrance
 ~
 ~
+~
+~
 Z -1 16327
 D3
 The prison hall
+~
+~
 ~
 ~
 Z -1 16342
@@ -11471,14 +12967,20 @@ D0
 Before the northern entrance
 ~
 ~
+~
+~
 Z -1 16327
 D1
 A prison door
 ~
 door~
+~
+~
 ABZ -1 16331
 D2
 The prison hall
+~
+~
 ~
 ~
 Z -1 16333
@@ -11486,6 +12988,8 @@ D3
 A prison door
 ~
 door~
+~
+~
 ABZ -1 16332
 S
 #16331
@@ -11509,6 +13013,8 @@ D3
 The prison door
 ~
 door~
+~
+~
 ABZ -1 16330
 S
 #16332
@@ -11532,6 +13038,8 @@ D1
 The prison door
 ~
 door~
+~
+~
 ABZ -1 16330
 S
 #16333
@@ -11554,14 +13062,20 @@ D0
 The prison hall
 ~
 ~
+~
+~
 Z -1 16330
 D1
 A prison door
 ~
 door~
+~
+~
 ABZ -1 16335
 D2
 The prison hall
+~
+~
 ~
 ~
 Z -1 16336
@@ -11569,6 +13083,8 @@ D3
 A prison door
 ~
 door~
+~
+~
 ABZ -1 16334
 S
 #16334
@@ -11592,6 +13108,8 @@ D1
 The prison door
 ~
 door~
+~
+~
 ABZ -1 16333
 S
 #16335
@@ -11615,6 +13133,8 @@ D3
 The prison door
 ~
 door~
+~
+~
 ABZ -1 16333
 S
 #16336
@@ -11634,9 +13154,13 @@ D0
 The prison hall
 ~
 ~
+~
+~
 Z -1 16333
 D1
 Before the eastern entrance
+~
+~
 ~
 ~
 Z -1 16337
@@ -11644,9 +13168,13 @@ D2
 A prison door
 ~
 door~
+~
+~
 ABZ -1 16339
 D3
 Before the western entrance
+~
+~
 ~
 ~
 Z -1 16338
@@ -11675,14 +13203,20 @@ D1
 The entrance door
 ~
 door~
+~
+~
 ABZ -1 16107
 D2
 A prison door
 ~
 prison~
+the prison~
+~
 ABZ -1 16341
 D3
 The prison hall
+~
+~
 ~
 ~
 Z -1 16336
@@ -11712,16 +13246,22 @@ D1
 The prison hall
 ~
 ~
+~
+~
 Z -1 16336
 D2
 A prison door
 ~
 prison~
+the prison~
+~
 ABZ -1 16340
 D3
 The entrance door
 ~
 door~
+~
+~
 ABZ -1 16122
 S
 #16339
@@ -11745,6 +13285,8 @@ D0
 The prison door
 ~
 door~
+~
+~
 ABZ -1 16336
 S
 #16340
@@ -11768,6 +13310,8 @@ D0
 The prison door
 ~
 door~
+~
+~
 ABZ -1 16338
 S
 #16341
@@ -11791,6 +13335,8 @@ D0
 The prison door
 ~
 door~
+~
+~
 ABZ -1 16337
 S
 #16342
@@ -11811,14 +13357,20 @@ D1
 The prison hall
 ~
 ~
+~
+~
 Z -1 16329
 D2
 A prison door
 ~
 ~
+~
+~
 ABZ -1 16343
 D3
 The prison hall
+~
+~
 ~
 ~
 Z -1 16344
@@ -11845,6 +13397,8 @@ D0
 The prison door
 ~
 door~
+~
+~
 ABZ -1 16342
 S
 #16344
@@ -11864,14 +13418,20 @@ D1
 The prison hall
 ~
 ~
+~
+~
 Z -1 16342
 D2
 A prison door
 ~
 door~
+~
+~
 ABZ -1 16345
 D3
 The prison hall
+~
+~
 ~
 ~
 Z -1 16346
@@ -11897,6 +13457,8 @@ D0
 The prison door
 ~
 door~
+~
+~
 ABZ -1 16344
 S
 #16346
@@ -11917,11 +13479,15 @@ D1
 The prison hall
 ~
 ~
+~
+~
 Z -1 16344
 D2
 A huge iron door
 ~
 door~
+~
+~
 ABZ -1 16347
 S
 #16347
@@ -11943,6 +13509,8 @@ D0
 A huge iron door
 ~
 door~
+~
+~
 ABZ -1 16346
 S
 #16348
@@ -11961,9 +13529,13 @@ D0
 The door out
 ~
 door~
+~
+~
 Z -1 16117
 D2
 The tavern entrance hall
+~
+~
 ~
 ~
 Z -1 16349
@@ -11988,13 +13560,19 @@ D0
 Before the entrance door
 ~
 ~
+~
+~
 Z -1 16348
 D1
 The entrance hall
 ~
 ~
+~
+~
 Z -1 16350
 D2
+~
+~
 ~
 ~
 Z -1 16000
@@ -12013,9 +13591,13 @@ D1
 The common room
 ~
 ~
+~
+~
 Z -1 16351
 D3
 The entrance hall
+~
+~
 ~
 ~
 Z -1 16349
@@ -12034,14 +13616,20 @@ D0
 The dining area
 ~
 ~
+~
+~
 Z -1 16354
 D1
 The dining area
 ~
 ~
+~
+~
 Z -1 16352
 D3
 The entrance hall
+~
+~
 ~
 ~
 Z -1 16350
@@ -12064,9 +13652,13 @@ D0
 The dining area
 ~
 ~
+~
+~
 Z -1 16353
 D3
 The dining area
+~
+~
 ~
 ~
 Z -1 16351
@@ -12085,9 +13677,13 @@ D2
 The dining area
 ~
 ~
+~
+~
 Z -1 16352
 D3
 The dining area
+~
+~
 ~
 ~
 Z -1 16354
@@ -12110,9 +13706,13 @@ D1
 The dining area
 ~
 ~
+~
+~
 Z -1 16353
 D2
 The dining area
+~
+~
 ~
 ~
 Z -1 16351
@@ -12120,6 +13720,8 @@ D3
 The door to the washroom
 ~
 door~
+~
+~
 ABZ -1 16355
 S
 #16355
@@ -12139,6 +13741,8 @@ D1
 A door stands ready
 ~
 door~
+~
+~
 ABZ -1 16354
 S
 #16356
@@ -12153,6 +13757,8 @@ The only way out is north
 0 ADN city
 D0
 The street of the gods
+~
+~
 ~
 ~
 Z -1 16115
@@ -12172,6 +13778,8 @@ D0
 The street of the gods
 ~
 ~
+~
+~
 Z -1 16114
 S
 #16358
@@ -12187,6 +13795,8 @@ The sole exit is to the north
 0 ADN city
 D0
 The street of the gods
+~
+~
 ~
 ~
 Z -1 16113
@@ -12206,6 +13816,8 @@ D0
 The street of the gods
 ~
 ~
+~
+~
 Z -1 16112
 S
 #16360
@@ -12219,6 +13831,8 @@ The sole exit is to the north
 0 ADN city
 D0
 The street of the gods
+~
+~
 ~
 ~
 Z -1 16111
@@ -12240,9 +13854,13 @@ The door is short and made of oak reinforced with bands of iron. ~
 D1
 ~
 ~
+~
+~
 ABZ 0 16124
 D3
 The hallway
+~
+~
 ~
 ~
 Z -1 16362
@@ -12260,9 +13878,13 @@ D1
 The foyer
 ~
 ~
+~
+~
 Z -1 16361
 D2
 The hallway
+~
+~
 ~
 ~
 Z -1 16363
@@ -12285,14 +13907,20 @@ D0
 The hallway
 ~
 ~
+~
+~
 Z -1 16362
 D1
 A door
 ~
 door~
+~
+~
 ABZ -1 16364
 D2
 The hallway
+~
+~
 ~
 ~
 Z -1 16365
@@ -12315,6 +13943,8 @@ D3
 A door
 ~
 door~
+~
+~
 ABZ -1 16363
 S
 #16365
@@ -12334,14 +13964,20 @@ D0
 The hallway
 ~
 ~
+~
+~
 Z -1 16363
 D1
 A door
 ~
 door~
+~
+~
 ABZ -1 16366
 D2
 The hallway
+~
+~
 ~
 ~
 Z -1 16367
@@ -12367,6 +14003,8 @@ D3
 A door
 ~
 door~
+~
+~
 ABZ -1 16365
 S
 #16367
@@ -12386,11 +14024,15 @@ D0
 The hallway
 ~
 ~
+~
+~
 Z -1 16365
 D1
 A door
 ~
 door~
+~
+~
 ABZ -1 16368
 S
 #16368
@@ -12411,6 +14053,8 @@ D3
 A door
 ~
 door~
+~
+~
 ABZ -1 16367
 S
 #16369
@@ -12435,14 +14079,20 @@ D0
 The exit to the city
 ~
 exit~
+the exit~
+~
 ABZ -1 16137
 D1
 A door
 ~
 door~
+~
+~
 ABZ -1 16370
 D2
 The hallway
+~
+~
 ~
 ~
 Z -1 16372
@@ -12450,6 +14100,8 @@ D3
 A door
 ~
 door~
+~
+~
 ABZ -1 16371
 S
 #16370
@@ -12471,6 +14123,8 @@ D3
 A door
 ~
 door~
+~
+~
 ABZ -1 16369
 S
 #16371
@@ -12491,6 +14145,8 @@ D1
 A door
 ~
 door~
+~
+~
 ABZ -1 16369
 S
 #16372
@@ -12507,9 +14163,13 @@ D0
 The entrance hall
 ~
 ~
+~
+~
 Z -1 16369
 D1
 The hallway
+~
+~
 ~
 ~
 Z -1 16382
@@ -12517,9 +14177,13 @@ D2
 The hallway
 ~
 ~
+~
+~
 Z -1 16378
 D3
 The hallway
+~
+~
 ~
 ~
 Z -1 16373
@@ -12538,9 +14202,13 @@ D1
 The hallway
 ~
 ~
+~
+~
 Z -1 16372
 D3
 The hallway
+~
+~
 ~
 ~
 Z -1 16374
@@ -12572,9 +14240,13 @@ D0
 A door
 ~
 door~
+~
+~
 ABZ -1 16375
 D1
 The hallway
+~
+~
 ~
 ~
 Z -1 16373
@@ -12582,10 +14254,14 @@ D2
 A door
 ~
 door~
+~
+~
 ABZ -1 16376
 D3
 ~
 mural~
+the mural~
+~
 ABZ -1 16181
 S
 #16375
@@ -12605,6 +14281,8 @@ D2
 A door
 ~
 door~
+~
+~
 ABZ -1 16374
 S
 #16376
@@ -12625,6 +14303,8 @@ D0
 A door
 ~
 door~
+~
+~
 ABZ -1 16374
 S
 #16377
@@ -12644,6 +14324,8 @@ D1
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16378
 S
 #16378
@@ -12664,9 +14346,13 @@ D0
 The hallway
 ~
 ~
+~
+~
 Z -1 16372
 D2
 The hallway
+~
+~
 ~
 ~
 Z -1 16379
@@ -12674,6 +14360,8 @@ D3
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16377
 S
 #16379
@@ -12694,11 +14382,15 @@ D0
 The hallway
 ~
 ~
+~
+~
 Z -1 16378
 D3
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16380
 S
 #16380
@@ -12718,11 +14410,15 @@ D1
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16379
 D3
 A door stands ready
 ~
 door~
+~
+~
 ABZ -1 16381
 S
 #16381
@@ -12744,6 +14440,8 @@ D1
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16380
 S
 #16382
@@ -12762,14 +14460,20 @@ D1
 The hallway
 ~
 ~
+~
+~
 Z -1 16387
 D2
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16383
 D3
 The hallway
+~
+~
 ~
 ~
 Z -1 16372
@@ -12791,14 +14495,20 @@ D0
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16382
 D1
 The council chamber
 ~
 ~
+~
+~
 Z -1 16384
 D2
 The council chamber
+~
+~
 ~
 ~
 Z -1 16386
@@ -12818,9 +14528,13 @@ D2
 The council chamber
 ~
 ~
+~
+~
 Z -1 16385
 D3
 The council chamber
+~
+~
 ~
 ~
 Z -1 16383
@@ -12840,9 +14554,13 @@ D0
 The council chamber
 ~
 ~
+~
+~
 Z -1 16384
 D3
 The council chamber
+~
+~
 ~
 ~
 Z -1 16386
@@ -12862,9 +14580,13 @@ D0
 The council chamber
 ~
 ~
+~
+~
 Z -1 16383
 D1
 The council chamber
+~
+~
 ~
 ~
 Z -1 16385
@@ -12889,14 +14611,20 @@ D0
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16388
 D1
 The hallway
 ~
 ~
+~
+~
 Z -1 16389
 D3
 The hallway
+~
+~
 ~
 ~
 Z -1 16382
@@ -12918,6 +14646,8 @@ D2
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16387
 S
 #16389
@@ -12937,19 +14667,27 @@ D0
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16390
 D1
 A door stands ready
 ~
 door~
+~
+~
 ABZ -1 16391
 D2
 The hallway
 ~
 ~
+~
+~
 Z -1 16393
 D3
 The hallway
+~
+~
 ~
 ~
 Z -1 16387
@@ -12971,6 +14709,8 @@ D2
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16389
 S
 #16391
@@ -12990,11 +14730,15 @@ D0
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16392
 D3
 A door stands ready
 ~
 door~
+~
+~
 ABZ -1 16389
 S
 #16392
@@ -13019,6 +14763,8 @@ D2
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16391
 S
 #16393
@@ -13042,14 +14788,20 @@ D0
 The hallway
 ~
 ~
+~
+~
 Z -1 16389
 D1
 A door stands ready
 ~
 door~
+~
+~
 ABZ -1 16394
 D2
 The hallway
+~
+~
 ~
 ~
 Z -1 16395
@@ -13072,6 +14824,8 @@ D3
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16393
 S
 #16395
@@ -13100,11 +14854,15 @@ D0
 The hallway
 ~
 ~
+~
+~
 Z -1 16393
 D1
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16396
 S
 #16396
@@ -13127,6 +14885,8 @@ D3
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16395
 S
 #16397
@@ -13146,9 +14906,13 @@ D1
 The door out
 ~
 door~
+~
+~
 ABZ -1 16167
 D3
 The hallway
+~
+~
 ~
 ~
 Z -1 16398
@@ -13166,9 +14930,13 @@ D1
 The hallway
 ~
 ~
+~
+~
 Z -1 16397
 D2
 The hallway
+~
+~
 ~
 ~
 Z -1 16399
@@ -13186,9 +14954,13 @@ D0
 The hallway
 ~
 ~
+~
+~
 Z -1 16398
 D2
 The hallway
+~
+~
 ~
 ~
 Z -1 16400
@@ -13209,14 +14981,20 @@ D0
 The hallway
 ~
 ~
+~
+~
 Z -1 16399
 D1
 A dark door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16401
 D3
 The hallway
+~
+~
 ~
 ~
 Z -1 16414
@@ -13237,9 +15015,13 @@ D0
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16402
 D1
 The corridor
+~
+~
 ~
 ~
 Z -1 16404
@@ -13247,11 +15029,15 @@ D2
 A door stands ready to be employed
 ~
 door~
+~
+~
 ABZ -1 16403
 D3
 A door stands before you
 ~
 door~
+~
+~
 ABZ -1 16400
 S
 #16402
@@ -13270,6 +15056,8 @@ D2
 A door stands ready
 ~
 door~
+~
+~
 ABZ -1 16401
 S
 #16403
@@ -13292,6 +15080,8 @@ D0
 A door stands before you
 ~
 door~
+~
+~
 ABZ -1 16401
 S
 #16404
@@ -13309,9 +15099,13 @@ D0
 A door blocks you way
 ~
 door~
+~
+~
 ABZ -1 16406
 D1
 The corridor
+~
+~
 ~
 ~
 Z -1 16407
@@ -13319,9 +15113,13 @@ D2
 A door stands ready
 ~
 door~
+~
+~
 ABZ -1 16405
 D3
 The corridor
+~
+~
 ~
 ~
 Z -1 16401
@@ -13342,6 +15140,8 @@ D0
 A door stands waiting
 ~
 door~
+~
+~
 ABZ -1 16404
 S
 #16406
@@ -13364,6 +15164,8 @@ D2
 A door is ready to be used
 ~
 door~
+~
+~
 ABZ -1 16404
 S
 #16407
@@ -13382,19 +15184,27 @@ D0
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16408
 D1
 A door stands ready
 ~
 door~
+~
+~
 ABZ -1 16410
 D2
 The door waits
 ~
 door~
+~
+~
 ABZ -1 16409
 D3
 The corridor
+~
+~
 ~
 ~
 Z -1 16404
@@ -13415,6 +15225,8 @@ D2
 A door stands ready
 ~
 door~
+~
+~
 ABZ -1 16407
 S
 #16409
@@ -13433,6 +15245,8 @@ D0
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16407
 S
 #16410
@@ -13451,9 +15265,13 @@ D1
 The meeting chamber
 ~
 ~
+~
+~
 Z -1 16411
 D2
 The meeting chamber
+~
+~
 ~
 ~
 Z -1 16413
@@ -13461,6 +15279,8 @@ D3
 A door waits to be opened
 ~
 door~
+~
+~
 ABZ -1 16407
 S
 #16411
@@ -13476,9 +15296,13 @@ D2
 The meeting chamber
 ~
 ~
+~
+~
 Z -1 16412
 D3
 The meeting chamber
+~
+~
 ~
 ~
 Z -1 16410
@@ -13497,9 +15321,13 @@ D0
 The meeting chamber
 ~
 ~
+~
+~
 Z -1 16411
 D3
 The meeting chamber
+~
+~
 ~
 ~
 Z -1 16413
@@ -13518,9 +15346,13 @@ D0
 The meeting chamber
 ~
 ~
+~
+~
 Z -1 16410
 D1
 The meeting chamber
+~
+~
 ~
 ~
 Z -1 16412
@@ -13543,15 +15375,21 @@ D0
 The hallway
 ~
 ~
+~
+~
 Z -1 16415
 D1
 The hallway
+~
+~
 ~
 ~
 Z -1 16400
 D2
 ~
 wall~
+the wall~
+~
 ABZ -1 16195
 S
 #16415
@@ -13567,9 +15405,13 @@ D0
 The hallway
 ~
 ~
+~
+~
 Z -1 16416
 D2
 The hallway
+~
+~
 ~
 ~
 Z -1 16414
@@ -13591,9 +15433,13 @@ D0
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16417
 D1
 The hall
+~
+~
 ~
 ~
 Z -1 16420
@@ -13601,9 +15447,13 @@ D2
 The hallway
 ~
 ~
+~
+~
 Z -1 16415
 D3
 The hall
+~
+~
 ~
 ~
 Z -1 16418
@@ -13625,6 +15475,8 @@ D2
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16416
 S
 #16418
@@ -13642,9 +15494,13 @@ D0
 A door stands ready
 ~
 door~
+~
+~
 ABZ -1 16419
 D1
 The hall
+~
+~
 ~
 ~
 Z -1 16416
@@ -13666,6 +15522,8 @@ D2
 The door waits
 ~
 door~
+~
+~
 ABZ -1 16418
 S
 #16420
@@ -13683,14 +15541,20 @@ D0
 A door blocks your passage
 ~
 door~
+~
+~
 ABZ -1 16421
 D1
 The hall
 ~
 ~
+~
+~
 Z -1 16422
 D3
 The hall
+~
+~
 ~
 ~
 Z -1 16416
@@ -13712,6 +15576,8 @@ D2
 The door waits for you
 ~
 door~
+~
+~
 ABZ -1 16420
 S
 #16422
@@ -13732,9 +15598,13 @@ D0
 A door blocks the way in
 ~
 door~
+~
+~
 ABZ -1 16423
 D3
 The hall goes on
+~
+~
 ~
 ~
 Z -1 16420
@@ -13764,6 +15634,8 @@ D2
 A door blocks the way out
 ~
 door~
+~
+~
 ABZ -1 16422
 S
 #16424
@@ -13783,16 +15655,22 @@ D0
 A hall stretches on
 ~
 ~
+~
+~
 Z -1 16429
 D1
 A door blocks the way out
 ~
 door~
+~
+~
 ABZ -1 16159
 D3
 A door blocks your passage
 ~
 door~
+~
+~
 ABZ -1 16425
 S
 #16425
@@ -13811,6 +15689,8 @@ D1
 A door stands here ready
 ~
 door~
+~
+~
 ABZ -1 16424
 S
 #16429
@@ -13830,9 +15710,13 @@ D0
 The large hall
 ~
 ~
+~
+~
 Z -1 16432
 D1
 The large hall
+~
+~
 ~
 ~
 Z -1 16430
@@ -13840,11 +15724,15 @@ D2
 The entrance foyer
 ~
 ~
+~
+~
 Z -1 16424
 D3
 A door stands ready
 ~
 door~
+~
+~
 ABZ -1 16431
 S
 #16430
@@ -13861,9 +15749,13 @@ D0
 The large hall
 ~
 ~
+~
+~
 Z -1 16434
 D3
 The large hall
+~
+~
 ~
 ~
 Z -1 16429
@@ -13885,6 +15777,8 @@ D1
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16429
 S
 #16432
@@ -13908,9 +15802,13 @@ D1
 The large hall
 ~
 ~
+~
+~
 Z -1 16434
 D2
 The large hall
+~
+~
 ~
 ~
 Z -1 16429
@@ -13918,6 +15816,8 @@ D3
 A door stands here
 ~
 door~
+~
+~
 ABZ -1 16435
 S
 #16434
@@ -13937,14 +15837,20 @@ D0
 A door blocks your way
 ~
 door~
+~
+~
 ABZ -1 16436
 D2
 The hall goes on
 ~
 ~
+~
+~
 Z -1 16430
 D3
 The large hall
+~
+~
 ~
 ~
 Z -1 16432
@@ -13966,6 +15872,8 @@ D1
 A door stands here
 ~
 door~
+~
+~
 ABZ -1 16432
 S
 #16436
@@ -13985,11 +15893,15 @@ D0
 The experimentation room
 ~
 ~
+~
+~
 Z -1 16437
 D2
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16434
 S
 #16437
@@ -14005,6 +15917,8 @@ The room continues to the south
 0 ADN city
 D2
 The experimenting room
+~
+~
 ~
 ~
 Z -1 16436
@@ -14030,16 +15944,22 @@ D0
 A door stands ready
 ~
 door~
+~
+~
 ABZ -1 16103
 D2
 The cage door
 ~
 cage door~
+the cage~
+~
 ABZ -1 16440
 D3
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16439
 S
 #16439
@@ -14063,6 +15983,8 @@ D1
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16438
 S
 #16440
@@ -14083,9 +16005,13 @@ D0
 A door stands ready to be used
 ~
 door~
+~
+~
 ABZ -1 16438
 D3
 The cavern stretches onwards
+~
+~
 ~
 ~
 Z -1 16441
@@ -14101,6 +16027,8 @@ The cavern goes to the east
 0 ADN city
 D1
 The cavern extends in this direction
+~
+~
 ~
 ~
 Z -1 16440
@@ -14123,14 +16051,20 @@ D0
 The common room
 ~
 ~
+~
+~
 Z -1 16443
 D1
 The door out
 ~
 door~
+~
+~
 ABZ -1 16208
 D3
 The common room
+~
+~
 ~
 ~
 Z -1 16445
@@ -14155,9 +16089,13 @@ D2
 The common room
 ~
 ~
+~
+~
 Z -1 16442
 D3
 The common room
+~
+~
 ~
 ~
 Z -1 16444
@@ -14179,11 +16117,15 @@ D1
 The common room
 ~
 ~
+~
+~
 Z -1 16443
 D3
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16446
 S
 #16445
@@ -14201,9 +16143,13 @@ D0
 The common room
 ~
 ~
+~
+~
 Z -1 16444
 D1
 The common room
+~
+~
 ~
 ~
 Z -1 16442
@@ -14224,19 +16170,27 @@ D0
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16447
 D1
 A door leads to the common room
 ~
 door~
+~
+~
 ABZ -1 16444
 D2
 A door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16448
 D3
 The hallway continues
+~
+~
 ~
 ~
 Z -1 16449
@@ -14258,6 +16212,8 @@ D2
 A door leads back out
 ~
 ~
+~
+~
 ABZ -1 16446
 S
 #16448
@@ -14275,6 +16231,8 @@ door~
 The door is a solid oaken door~
 D0
 A door leads back out
+~
+~
 ~
 ~
 ABZ -1 16446
@@ -14295,9 +16253,13 @@ D0
 A door leads into a room
 ~
 door~
+~
+~
 ABZ -1 16451
 D1
 The hallway
+~
+~
 ~
 ~
 Z -1 16446
@@ -14305,9 +16267,13 @@ D2
 A door leads into a room
 ~
 door~
+~
+~
 ABZ -1 16450
 D3
 The hallway
+~
+~
 ~
 ~
 Z -1 16452
@@ -14329,6 +16295,8 @@ D0
 A door leads back out
 ~
 ~
+~
+~
 ABZ -1 16449
 S
 #16451
@@ -14346,6 +16314,8 @@ door~
 The door is a solid oaken door~
 D2
 A door leads back out
+~
+~
 ~
 ~
 ABZ -1 16449
@@ -14366,9 +16336,13 @@ D0
 A door leads to a room
 ~
 door~
+~
+~
 ABZ -1 16453
 D1
 The hallway
+~
+~
 ~
 ~
 Z -1 16449
@@ -14376,6 +16350,8 @@ D2
 A door leads to a room
 ~
 door~
+~
+~
 ABZ -1 16454
 S
 #16453
@@ -14393,6 +16369,8 @@ door~
 The door is a simple wooden door~
 D2
 A door leads back out
+~
+~
 ~
 ~
 ABZ -1 16452
@@ -14414,6 +16392,8 @@ D0
 A door leads back out
 ~
 ~
+~
+~
 ABZ -1 16452
 S
 #16456
@@ -14433,11 +16413,15 @@ D0
 The hallway goes on
 ~
 ~
+~
+~
 Z -1 16457
 D2
 The door blocks the way out
 ~
 door~
+~
+~
 ABZ -1 16225
 S
 #16457
@@ -14453,9 +16437,13 @@ D0
 The hallways
 ~
 ~
+~
+~
 Z -1 16458
 D2
 The hallways
+~
+~
 ~
 ~
 Z -1 16456
@@ -14473,14 +16461,20 @@ D1
 The hallway
 ~
 ~
+~
+~
 Z -1 16459
 D2
 The hallway
 ~
 ~
+~
+~
 Z -1 16457
 D3
 The hallway
+~
+~
 ~
 ~
 Z -1 16473
@@ -14502,19 +16496,27 @@ D0
 The hallway stretches on
 ~
 ~
+~
+~
 Z -1 16465
 D1
 A large iron door stands here
 ~
 door~
+~
+~
 ABZ -1 16460
 D2
 A large iron door waits to be used
 ~
 door~
+~
+~
 ABZ -1 16461
 D3
 The hallway goes on
+~
+~
 ~
 ~
 Z -1 16458
@@ -14537,6 +16539,8 @@ D3
 A door blocks the way to the hallway
 ~
 door~
+~
+~
 ABZ -1 16459
 S
 #16461
@@ -14557,14 +16561,20 @@ D0
 A large iron door
 ~
 door~
+~
+~
 ABZ -1 16459
 D1
 The summoning chamber
 ~
 ~
+~
+~
 Z -1 16462
 D2
 The summoning chamber
+~
+~
 ~
 ~
 Z -1 16464
@@ -14583,9 +16593,13 @@ D2
 The summoning chamber
 ~
 ~
+~
+~
 Z -1 16463
 D3
 The summoning chamber
+~
+~
 ~
 ~
 Z -1 16461
@@ -14604,9 +16618,13 @@ D0
 The summoning chamber
 ~
 ~
+~
+~
 Z -1 16462
 D3
 The summoning chamber
+~
+~
 ~
 ~
 Z -1 16464
@@ -14625,9 +16643,13 @@ D0
 The summoning chamber
 ~
 ~
+~
+~
 Z -1 16461
 D1
 The summoning chamber
+~
+~
 ~
 ~
 Z -1 16463
@@ -14649,14 +16671,20 @@ D0
 The hallway
 ~
 ~
+~
+~
 Z -1 16467
 D1
 A large iron door
 ~
 door~
+~
+~
 ABZ -1 16466
 D2
 The hallway
+~
+~
 ~
 ~
 Z -1 16459
@@ -14679,6 +16707,8 @@ D3
 A large iron door stands here
 ~
 door~
+~
+~
 ABZ -1 16465
 S
 #16467
@@ -14699,14 +16729,20 @@ D0
 The hallway
 ~
 ~
+~
+~
 Z -1 16469
 D1
 A large iron door
 ~
 door~
+~
+~
 ABZ -1 16468
 D2
 The hallway
+~
+~
 ~
 ~
 Z -1 16465
@@ -14729,6 +16765,8 @@ D3
 A door blocks the way to the hallway
 ~
 door~
+~
+~
 ABZ -1 16467
 S
 #16469
@@ -14748,14 +16786,20 @@ D0
 The hallway
 ~
 ~
+~
+~
 Z -1 16471
 D1
 A large iron door
 ~
 door~
+~
+~
 ABZ -1 16470
 D2
 The hallway
+~
+~
 ~
 ~
 Z -1 16467
@@ -14778,6 +16822,8 @@ D3
 A large iron door stands here
 ~
 door~
+~
+~
 ABZ -1 16469
 S
 #16471
@@ -14796,9 +16842,13 @@ D1
 A large iron door
 ~
 door~
+~
+~
 ABZ -1 16472
 D2
 The hallway
+~
+~
 ~
 ~
 Z -1 16469
@@ -14821,6 +16871,8 @@ D3
 A door blocks the way to the hallway
 ~
 door~
+~
+~
 ABZ -1 16471
 S
 #16473
@@ -14838,9 +16890,13 @@ D1
 A split in the hallway
 ~
 ~
+~
+~
 Z -1 16458
 D3
 The hallway
+~
+~
 ~
 ~
 Z -1 16474
@@ -14861,9 +16917,13 @@ D0
 The hallway
 ~
 ~
+~
+~
 Z -1 16479
 D1
 The hallway
+~
+~
 ~
 ~
 Z -1 16473
@@ -14871,6 +16931,8 @@ D2
 A large iron door
 ~
 door~
+~
+~
 ABZ -1 16475
 S
 #16475
@@ -14890,14 +16952,20 @@ D0
 A large iron door
 ~
 door~
+~
+~
 ABZ -1 16474
 D1
 The summoning chamber
 ~
 ~
+~
+~
 Z -1 16476
 D2
 The summoning chamber
+~
+~
 ~
 ~
 Z -1 16478
@@ -14916,9 +16984,13 @@ D2
 The summoning chamber
 ~
 ~
+~
+~
 Z -1 16477
 D3
 The summoning chamber
+~
+~
 ~
 ~
 Z -1 16475
@@ -14936,9 +17008,13 @@ D0
 The summoning chamber
 ~
 ~
+~
+~
 Z -1 16476
 D3
 The summoning chamber
+~
+~
 ~
 ~
 Z -1 16478
@@ -14957,9 +17033,13 @@ D0
 The summoning chamber
 ~
 ~
+~
+~
 Z -1 16475
 D1
 The summoning chamber
+~
+~
 ~
 ~
 Z -1 16477
@@ -14981,9 +17061,13 @@ D1
 A large iron door
 ~
 door~
+~
+~
 ABZ -1 16480
 D2
 The hallway
+~
+~
 ~
 ~
 Z -1 16474
@@ -15005,9 +17089,13 @@ D0
 The summoning room
 ~
 ~
+~
+~
 Z -1 16483
 D1
 The summoning room
+~
+~
 ~
 ~
 Z -1 16481
@@ -15015,6 +17103,8 @@ D3
 A large iron door
 ~
 door~
+~
+~
 ABZ -1 16479
 S
 #16481
@@ -15031,9 +17121,13 @@ D0
 The summoning room
 ~
 ~
+~
+~
 Z -1 16482
 D3
 The summoning room
+~
+~
 ~
 ~
 Z -1 16480
@@ -15053,9 +17147,13 @@ D2
 The summoning room
 ~
 ~
+~
+~
 Z -1 16481
 D3
 The summoning room
+~
+~
 ~
 ~
 Z -1 16483
@@ -15075,9 +17173,13 @@ D1
 The summoning room
 ~
 ~
+~
+~
 Z -1 16482
 D2
 The summoning room
+~
+~
 ~
 ~
 Z -1 16480
@@ -15098,6 +17200,8 @@ D0
 A door leads out
 ~
 door~
+~
+~
 ABZ -1 16036
 S
 #16485
@@ -15117,6 +17221,8 @@ D0
 The door leads back to the city
 ~
 door~
+~
+~
 ABZ -1 16037
 S
 #16486
@@ -15135,6 +17241,8 @@ D0
 A door leads out
 ~
 door~
+~
+~
 ABZ -1 16038
 S
 #16487
@@ -15154,6 +17262,8 @@ D0
 The door leads back to the city
 ~
 door~
+~
+~
 ABZ -1 16039
 S
 #16488
@@ -15172,6 +17282,8 @@ D2
 The door leads out to the city
 ~
 door~
+~
+~
 ABZ -1 16074
 S
 #16489
@@ -15187,6 +17299,8 @@ D2
 The door leads back to the city
 ~
 door~
+~
+~
 ABZ -1 16075
 S
 #16490
@@ -15206,6 +17320,8 @@ D2
 The door leads back to the city
 ~
 door~
+~
+~
 ABZ -1 16076
 S
 #16491
@@ -15224,6 +17340,8 @@ D2
 The door leads out to the city
 ~
 door~
+~
+~
 ABZ -1 16077
 S
 #16492
@@ -15242,6 +17360,8 @@ D0
 A door leads out
 ~
 door~
+~
+~
 ABZ -1 16074
 S
 #16493
@@ -15261,6 +17381,8 @@ D0
 The door leads back to the city
 ~
 door~
+~
+~
 ABZ -1 16075
 S
 #16494
@@ -15276,6 +17398,8 @@ D0
 The door leads back to the city
 ~
 door~
+~
+~
 ABZ -1 16076
 S
 #16495
@@ -15295,6 +17419,8 @@ D2
 The door leads back to the city
 ~
 door~
+~
+~
 ABZ -1 16110
 S
 #16496
@@ -15313,6 +17439,8 @@ D2
 The door leads out to the city
 ~
 door~
+~
+~
 ABZ -1 16109
 S
 #16497
@@ -15333,6 +17461,8 @@ D2
 A door leads out to the city
 ~
 door~
+~
+~
 ABZ -1 16108
 S
 #0

@@ -285,14 +285,14 @@ water fall still can light the enterance of the caven.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 5281
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 95401
 S
 #95401
@@ -307,14 +307,14 @@ looking over you before you moving on.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 95400
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 DZ -1 95402
 S
 #95402
@@ -328,14 +328,14 @@ there seems no way from the west of the caven.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 DZ -1 95401
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 95403
 S
 #95403
@@ -350,20 +350,20 @@ the south is something like a donation room.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 95405
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 95402
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 95404
 S
 #95404
@@ -382,8 +382,8 @@ magicians.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 95403
 S
 #95405
@@ -399,26 +399,26 @@ Gordall's weapon house, to the very south you see the donation room.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 95408
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 95406
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 95403
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 95407
 S
 #95406
@@ -434,14 +434,14 @@ the floor. You read the following on the wall:
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 95411
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 95405
 S
 #95407
@@ -456,8 +456,8 @@ daggers, swords and axes.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 95405
 S
 #95408
@@ -489,8 +489,8 @@ tablet~
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 95405
 S
 #95409
@@ -501,8 +501,8 @@ S
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 95410
 S
 #95410
@@ -516,8 +516,8 @@ S
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 95409
 S
 #95411
@@ -527,8 +527,8 @@ S
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 95406
 M 200 H 200
 S

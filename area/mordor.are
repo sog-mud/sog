@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Mordor~
 VNUMs 30000 30099
 Credits Kromt~
@@ -356,6 +356,8 @@ and evil.
 D0
 ~
 ~
+~
+~
 Z 0 30001
 S
 #30001
@@ -371,8 +373,12 @@ dangerous to inter inside.
 D0
 ~
 ~
+~
+~
 ABZ 0 30002
 D2
+~
+~
 ~
 ~
 Z 0 30000
@@ -390,12 +396,18 @@ relax during their duty.
 D0
 ~
 ~
+~
+~
 Z 0 30004
 D2
 ~
 gate~
+the gate~
+~
 ABZ 0 30001
 D3
+~
+~
 ~
 ~
 Z 0 30003
@@ -411,6 +423,8 @@ items. In the corner of the room i can see a case, locked by big lock.
 D1
 ~
 ~
+~
+~
 Z 0 30002
 S
 #30004
@@ -422,8 +436,12 @@ S
 D2
 ~
 ~
+~
+~
 Z 0 30002
 D3
+~
+~
 ~
 ~
 Z 0 30005
@@ -439,12 +457,18 @@ In corner of the room you see a strange door, locked by steel bar.
 D0
 ~
 ~
+~
+~
 Z 0 30007
 D1
 ~
 ~
+~
+~
 Z 0 30004
 D3
+~
+~
 ~
 ~
 ABCFGZ 0 30006
@@ -460,6 +484,8 @@ There are a lot of rats and bats in this room. Very cold...
 D1
 ~
 ~
+~
+~
 ABCFGZ 30007 30005
 S
 #30007
@@ -473,8 +499,12 @@ in front of you. You can heard quite voices of the GateKeepers.
 D0
 ~
 ~
+~
+~
 Z 0 30008
 D2
+~
+~
 ~
 ~
 Z 0 30005
@@ -486,8 +516,12 @@ S
 D2
 ~
 ~
+~
+~
 Z 0 30007
 D3
+~
+~
 ~
 ~
 Z 0 30009
@@ -499,8 +533,12 @@ S
 D1
 ~
 ~
+~
+~
 Z 0 30008
 D3
+~
+~
 ~
 ~
 Z 0 30010
@@ -512,8 +550,12 @@ S
 D1
 ~
 ~
+~
+~
 Z 0 30009
 D3
+~
+~
 ~
 ~
 Z 0 30011
@@ -525,12 +567,18 @@ S
 D0
 ~
 ~
+~
+~
 Z 0 30012
 D1
 ~
 ~
+~
+~
 Z 0 30010
 D3
+~
+~
 ~
 ~
 Z 0 30013
@@ -542,6 +590,8 @@ S
 D2
 ~
 ~
+~
+~
 Z 0 30011
 S
 #30013
@@ -551,12 +601,18 @@ S
 D0
 ~
 ~
+~
+~
 Z 0 30014
 D1
 ~
 ~
+~
+~
 Z 0 30011
 D2
+~
+~
 ~
 ~
 Z 0 30015
@@ -568,6 +624,8 @@ S
 D2
 ~
 ~
+~
+~
 Z 0 30013
 S
 #30015
@@ -575,6 +633,8 @@ S
 ~
 0 0 inside
 D0
+~
+~
 ~
 ~
 Z 0 30013

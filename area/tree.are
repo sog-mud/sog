@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Yggdrasil~
 VNUMs 2900 2999
 Credits Glop~
@@ -392,14 +392,20 @@ small tablet~
 D2
 ~
 ~
+~
+~
 Z -1 6346
 D4
 You see the trunk rising up into the sky.
 ~
 ~
+~
+~
 Z -1 2901
 D5
 You see the trunk descending down into the depths of the earth.
+~
+~
 ~
 ~
 Z -1 2907
@@ -414,9 +420,13 @@ D4
 The trunk continues to go up here.
 ~
 ~
+~
+~
 Z -1 2902
 D5
 The entrance to the tree is below.
+~
+~
 ~
 ~
 Z -1 2900
@@ -431,9 +441,13 @@ D0
 A limb branches off in this direction.
 ~
 ~
+~
+~
 Z -1 2903
 D1
 A limb branches off in this direction.
+~
+~
 ~
 ~
 Z -1 2906
@@ -441,9 +455,13 @@ D2
 A limb branches off in this direction.
 ~
 ~
+~
+~
 Z -1 2911
 D3
 A limb branches off in this direction.
+~
+~
 ~
 ~
 Z -1 2905
@@ -451,9 +469,13 @@ D4
 The trunk continues up the tree.
 ~
 ~
+~
+~
 Z -1 2917
 D5
 The way down the tree is this way.
+~
+~
 ~
 ~
 Z -1 2901
@@ -465,6 +487,8 @@ You are on a limb on the lower level of Yggdrasil.
 0 0 forest
 D2
 The main trunk is in this direction.
+~
+~
 ~
 ~
 Z -1 2902
@@ -479,6 +503,8 @@ D5
 The way down the trunk of Yggdrasil lies this way.
 ~
 ~
+~
+~
 Z -1 2918
 S
 #2905
@@ -490,6 +516,8 @@ D1
 The main trunk is in this direction.
 ~
 ~
+~
+~
 Z -1 2902
 S
 #2906
@@ -499,6 +527,8 @@ You are on a limb on the lower level of Yggdrasil.
 0 0 forest
 D3
 The main trunk is in this direction.
+~
+~
 ~
 ~
 Z -1 2902
@@ -514,9 +544,13 @@ D0
 The roots lead off in this direction.
 ~
 ~
+~
+~
 Z -1 2923
 D1
 The roots lead off in this direction.
+~
+~
 ~
 ~
 Z -1 2909
@@ -524,9 +558,13 @@ D2
 The roots lead off in this direction.
 ~
 ~
+~
+~
 Z -1 2908
 D3
 The roots lead off in this direction.
+~
+~
 ~
 ~
 Z -1 2910
@@ -534,9 +572,13 @@ D4
 The entrance to the tree is in this direction.
 ~
 ~
+~
+~
 Z -1 2900
 D5
 The deepest part of the tree is down here.
+~
+~
 ~
 ~
 Z -1 2912
@@ -551,6 +593,8 @@ D0
 The roots continue in this direction.
 ~
 ~
+~
+~
 Z -1 2907
 S
 #2909
@@ -561,6 +605,8 @@ can be seen and felt wandering in the area.
 0 0 forest
 D3
 The roots continue in this direction.
+~
+~
 ~
 ~
 Z -1 2907
@@ -575,6 +621,8 @@ D1
 The roots continue in this direction.
 ~
 ~
+~
+~
 Z -1 2907
 S
 #2911
@@ -584,6 +632,8 @@ You are on a limb on the lower level of Yggdrasil.
 0 0 forest
 D0
 The main trunk is in this direction.
+~
+~
 ~
 ~
 Z -1 2902
@@ -600,6 +650,8 @@ D4
 You see the roots of the tree continue in this direction.
 ~
 ~
+~
+~
 Z -1 2907
 S
 #2913
@@ -609,6 +661,8 @@ You are on a limb on the middle level of Yggdrasil.
 0 0 forest
 D1
 The main trunk is in this direction.
+~
+~
 ~
 ~
 Z -1 2917
@@ -622,6 +676,8 @@ D2
 The main trunk is in this direction.
 ~
 ~
+~
+~
 Z -1 2917
 S
 #2915
@@ -633,6 +689,8 @@ D3
 The main trunk is in this direction.
 ~
 ~
+~
+~
 Z -1 2917
 S
 #2916
@@ -642,6 +700,8 @@ You are on a limb on the middle level of Yggdrasil.
 0 0 forest
 D0
 The main trunk is in this direction.
+~
+~
 ~
 ~
 Z -1 2917
@@ -656,9 +716,13 @@ D0
 A limb branches off in this direction.
 ~
 ~
+~
+~
 Z -1 2914
 D1
 A limb branches off in this direction.
+~
+~
 ~
 ~
 Z -1 2915
@@ -666,9 +730,13 @@ D2
 A limb branches off in this direction.
 ~
 ~
+~
+~
 Z -1 2916
 D3
 A limb branches off in this direction.
+~
+~
 ~
 ~
 Z -1 2913
@@ -676,9 +744,13 @@ D4
 The trunk continues towards the heavens.
 ~
 ~
+~
+~
 Z -1 2918
 D5
 The way down the tree is this way.
+~
+~
 ~
 ~
 Z -1 2902
@@ -693,9 +765,13 @@ D0
 A limb branches off in this direction.
 ~
 ~
+~
+~
 Z -1 2921
 D1
 A limb branches off in this direction.
+~
+~
 ~
 ~
 Z -1 2922
@@ -703,9 +779,13 @@ D2
 A limb branches off in this direction.
 ~
 ~
+~
+~
 Z -1 2919
 D3
 A limb branches off in this direction.
+~
+~
 ~
 ~
 Z -1 2920
@@ -713,9 +793,13 @@ D4
 The top of the tree can be seen here.
 ~
 ~
+~
+~
 Z -1 2904
 D5
 The way down the tree is this way.
+~
+~
 ~
 ~
 Z -1 2917
@@ -729,6 +813,8 @@ D0
 The main trunk is in this direction.
 ~
 ~
+~
+~
 Z -1 2918
 S
 #2920
@@ -738,6 +824,8 @@ You are on a limb on the upper level of Yggdrasil.
 0 0 forest
 D1
 The main trunk is in this direction.
+~
+~
 ~
 ~
 Z -1 2918
@@ -751,6 +839,8 @@ D2
 The main trunk is in this direction.
 ~
 ~
+~
+~
 Z -1 2918
 S
 #2922
@@ -760,6 +850,8 @@ You are on a limb on the upper level of Yggdrasil.
 0 0 forest
 D3
 The main trunk is in this direction.
+~
+~
 ~
 ~
 Z -1 2918
@@ -772,6 +864,8 @@ can be seen and felt wandering in the area.
 0 0 forest
 D2
 The roots continue in this direction.
+~
+~
 ~
 ~
 Z -1 2907

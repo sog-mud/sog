@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Goblin Stronghold~
 VNUMs 29000 29099
 Credits Badaxe~
@@ -608,19 +608,27 @@ D1
 A Hallway in the Stronghold.
 ~
 ~
+~
+~
 Z -1 29019
 D2
 North end of the Great Hall.
 ~
 Great Doors~
+the great~
+~
 ABZ -1 29002
 D3
 A Hallway in the Stronghold.
 ~
 ~
+~
+~
 Z -1 29018
 D5
 The Goblin Headquarters.
+~
+~
 ~
 ~
 Z -1 3556
@@ -645,9 +653,13 @@ D0
 The Entry Hall to the Goblin Stronghold.
 ~
 Great Doors~
+the great~
+~
 ABZ -1 29001
 D1
 The Kitchen.
+~
+~
 ~
 ~
 Z -1 29023
@@ -655,9 +667,13 @@ D2
 South End of the Great Hall.
 ~
 ~
+~
+~
 Z -1 29003
 D3
 The Training Room.
+~
+~
 ~
 ~
 ABZ -1 29021
@@ -679,9 +695,13 @@ D0
 North End of the Great Hall.
 ~
 ~
+~
+~
 Z -1 29002
 D2
 King Grumm's Throne Room.
+~
+~
 ~
 ~
 Z -1 29004
@@ -703,9 +723,13 @@ D0
 South End of the Great Hall.
 ~
 ~
+~
+~
 Z -1 29003
 D1
 A Bedroom.
+~
+~
 ~
 ~
 ABZ -1 29006
@@ -713,9 +737,13 @@ D2
 Hidden Passage.
 ~
 Tapestry~
+the tapestry~
+~
 ABZ -1 29007
 D3
 A Bedroom.
+~
+~
 ~
 ~
 ABZ -1 29005
@@ -730,6 +758,8 @@ it, a desk and chair.
 0 D inside
 D1
 King Grumm's Throne Room.
+~
+~
 ~
 ~
 ABZ -1 29004
@@ -747,6 +777,8 @@ D3
 King Grumm's Throne Room.
 ~
 ~
+~
+~
 ABZ -1 29004
 S
 #29007
@@ -759,9 +791,13 @@ D0
 King Grumm's Throne Room.
 ~
 Tapestry~
+the tapestry~
+~
 ABZ -1 29004
 D2
 Hidden Passage.
+~
+~
 ~
 ~
 ABCZ 29020 29008
@@ -776,9 +812,13 @@ D0
 Hidden Passage.
 ~
 ~
+~
+~
 ABCZ 29020 29007
 D2
 Hidden Passage.
+~
+~
 ~
 ~
 ABCZ 29018 29009
@@ -793,9 +833,13 @@ D0
 Hidden Passage.
 ~
 ~
+~
+~
 ABCZ 29018 29008
 D2
 The Treasure Chamber of the Goblin Stronghold.
+~
+~
 ~
 ~
 ABCZ 29019 29010
@@ -808,6 +852,8 @@ jewelry. There are no exits, save the door you came through.
 0 D inside
 D0
 Hidden Passage.
+~
+~
 ~
 ~
 ABCZ 29019 29009
@@ -825,6 +871,8 @@ D5
 A Tiny Crawlspace.
 ~
 ~
+~
+~
 Z -1 29024
 S
 #29012
@@ -836,6 +884,8 @@ but you wouldn't want to live here.
 0 D inside
 D2
 A Hall in the Dungeon.
+~
+~
 ~
 ~
 ABCZ 29021 29025
@@ -851,6 +901,8 @@ D0
 A Hall in the Dungeon.
 ~
 ~
+~
+~
 ABCZ 29021 29025
 S
 #29014
@@ -862,6 +914,8 @@ but you wouldn't want to live here.
 0 D inside
 D2
 A Hall in the Dungeon.
+~
+~
 ~
 ~
 ABCZ 29021 29026
@@ -877,6 +931,8 @@ D0
 A Hall in the Dungeon.
 ~
 ~
+~
+~
 ABCZ 29021 29026
 S
 #29016
@@ -890,9 +946,13 @@ D3
 A Hall in the Dungeon.
 ~
 ~
+~
+~
 Z -1 29026
 D4
 A Hallway in the Stronghold.
+~
+~
 ~
 ~
 ABZ -1 29017
@@ -908,9 +968,13 @@ D1
 A Hallway in the Stronghold.
 ~
 ~
+~
+~
 Z -1 29018
 D2
 Goblin Barraks.
+~
+~
 ~
 ~
 Z -1 29027
@@ -918,6 +982,8 @@ D5
 A grate.
 ~
 grate~
+the grate~
+~
 ABZ -1 29016
 S
 #29018
@@ -932,14 +998,20 @@ D1
 The Entry Hall to the Goblin Stronghold.
 ~
 ~
+~
+~
 Z -1 29001
 D2
 The Goblin Training Room.
 ~
 ~
+~
+~
 Z -1 29021
 D3
 A Hallway in the Stronghold.
+~
+~
 ~
 ~
 Z -1 29017
@@ -955,14 +1027,20 @@ D1
 A Hallway in the Stronghold.
 ~
 ~
+~
+~
 Z -1 29020
 D2
 The Kitchen.
 ~
 ~
+~
+~
 Z -1 29023
 D3
 Entry Hall to the Goblin Stronghold.
+~
+~
 ~
 ~
 Z -1 29001
@@ -977,9 +1055,13 @@ D2
 Goblin Barraks.
 ~
 ~
+~
+~
 Z -1 29022
 D3
 A Hallway in the Stronghold.
+~
+~
 ~
 ~
 Z -1 29019
@@ -996,9 +1078,13 @@ D0
 A Hallway in the Stronghold.
 ~
 ~
+~
+~
 Z -1 29018
 D1
 South End of the Great Hall.
+~
+~
 ~
 ~
 ABZ -1 29002
@@ -1016,6 +1102,8 @@ D0
 A Hallway in the Stronghold.
 ~
 ~
+~
+~
 Z -1 29020
 S
 #29023
@@ -1029,9 +1117,13 @@ D0
 A Hallway in the Stronghold.
 ~
 ~
+~
+~
 Z -1 29019
 D3
 South End of the Great Hall.
+~
+~
 ~
 ~
 ABZ -1 29002
@@ -1043,6 +1135,8 @@ Below the cell there is a tiny crawlspace. There is a portal here.
 0 D inside
 D4
 A Small Cell in the Dungeon.
+~
+~
 ~
 ~
 ABCZ -1 29011
@@ -1058,9 +1152,13 @@ D0
 A Small Cell in the Dungeon.
 ~
 ~
+~
+~
 ABCZ 29021 29012
 D1
 A Hall in the Dungeon.
+~
+~
 ~
 ~
 Z -1 29026
@@ -1068,9 +1166,13 @@ D2
 A Small Cell in the Dungeon.
 ~
 ~
+~
+~
 ABCZ 29021 29013
 D3
 A Small Cell in the Dungeon.
+~
+~
 ~
 ~
 ABCZ 29021 29011
@@ -1086,9 +1188,13 @@ D0
 A Small Cell in the Dungeon.
 ~
 ~
+~
+~
 Z 29021 29014
 D1
 The Dungeon.
+~
+~
 ~
 ~
 Z -1 29016
@@ -1096,9 +1202,13 @@ D2
 A Small Cell in the Dungeon.
 ~
 ~
+~
+~
 Z 29021 29015
 D3
 A Hall in the Dungeon.
+~
+~
 ~
 ~
 Z -1 29025
@@ -1114,6 +1224,8 @@ north.
 0 D inside
 D0
 A Hallway in the Stronghold.
+~
+~
 ~
 ~
 Z -1 29017

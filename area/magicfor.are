@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Magic Forest~
 Builders azrael~
 VNUMs 1800 1899
@@ -1660,12 +1660,18 @@ D0
 ~
 secret door
 ~
+@eng the secret@rus секретная дверь~
+@rus female~
 ABZ -1 1892
 D1
 ~
 ~
+~
+~
 Z -1 1802
 D2
+~
+~
 ~
 ~
 Z -1 1809
@@ -1685,12 +1691,18 @@ tall.
 D1
 ~
 ~
+~
+~
 Z -1 1803
 D2
 ~
 ~
+~
+~
 Z -1 1810
 D3
+~
+~
 ~
 ~
 Z -1 1801
@@ -1708,12 +1720,18 @@ birds.
 D1
 ~
 ~
+~
+~
 Z -1 1804
 D2
 ~
 ~
+~
+~
 Z -1 1811
 D3
+~
+~
 ~
 ~
 Z -1 1802
@@ -1731,12 +1749,18 @@ above, you can hear birdsong.
 D1
 ~
 ~
+~
+~
 Z -1 1805
 D2
 ~
 ~
+~
+~
 Z -1 1812
 D3
+~
+~
 ~
 ~
 Z -1 1803
@@ -1754,12 +1778,18 @@ To the east the forest darkens.
 D1
 ~
 ~
+~
+~
 Z -1 1806
 D2
 ~
 ~
+~
+~
 Z -1 1813
 D3
+~
+~
 ~
 ~
 Z -1 1804
@@ -1779,12 +1809,18 @@ but not as thick as to the west.
 D1
 ~
 ~
+~
+~
 Z -1 1807
 D2
 ~
 ~
+~
+~
 Z -1 1814
 D3
+~
+~
 ~
 ~
 Z -1 1805
@@ -1804,12 +1840,18 @@ again here.
 D1
 ~
 ~
+~
+~
 Z -1 1808
 D2
 ~
 ~
+~
+~
 Z -1 1815
 D3
+~
+~
 ~
 ~
 Z -1 1806
@@ -1826,8 +1868,12 @@ foliage here is very thick, as is the canopy of leaves above you.
 D2
 ~
 ~
+~
+~
 Z -1 1816
 D3
+~
+~
 ~
 ~
 Z -1 1807
@@ -1847,12 +1893,18 @@ of birds.
 D0
 ~
 ~
+~
+~
 Z -1 1801
 D1
 ~
 ~
+~
+~
 Z -1 1810
 D2
+~
+~
 ~
 ~
 Z -1 1817
@@ -1868,16 +1920,24 @@ way to a glade of soft grass waving in the gentle breeze.
 D0
 ~
 ~
+~
+~
 Z -1 1802
 D1
+~
+~
 ~
 ~
 Z -1 1811
 D2
 ~
 ~
+~
+~
 Z -1 1818
 D3
+~
+~
 ~
 ~
 Z -1 1809
@@ -1893,16 +1953,24 @@ hear the songs of birds above you. To your west is a clearing.
 D0
 ~
 ~
+~
+~
 Z -1 1803
 D1
+~
+~
 ~
 ~
 Z -1 1812
 D2
 ~
 ~
+~
+~
 Z -1 1819
 D3
+~
+~
 ~
 ~
 Z -1 1810
@@ -1918,16 +1986,24 @@ through them. The trees are tall. From above you hear the chirping of birds.
 D0
 ~
 ~
+~
+~
 Z -1 1804
 D1
+~
+~
 ~
 ~
 Z -1 1813
 D2
 ~
 ~
+~
+~
 Z -1 1820
 D3
+~
+~
 ~
 ~
 Z -1 1811
@@ -1944,12 +2020,18 @@ birds.
 D0
 ~
 ~
+~
+~
 Z -1 1805
 D2
 ~
 ~
+~
+~
 Z -1 1821
 D3
+~
+~
 ~
 ~
 Z -1 1812
@@ -1967,12 +2049,18 @@ around you. You hear the faint song of birds to the west.
 D0
 ~
 ~
+~
+~
 Z -1 1806
 D1
 ~
 ~
+~
+~
 Z -1 1815
 D2
+~
+~
 ~
 ~
 Z -1 1822
@@ -1990,16 +2078,24 @@ songs of birds from the west.
 D0
 ~
 ~
+~
+~
 Z -1 1807
 D1
+~
+~
 ~
 ~
 Z -1 1816
 D2
 ~
 ~
+~
+~
 Z -1 1823
 D3
+~
+~
 ~
 ~
 Z -1 1814
@@ -2017,12 +2113,18 @@ out.
 D0
 ~
 ~
+~
+~
 Z -1 1808
 D2
 ~
 ~
+~
+~
 Z -1 1824
 D3
+~
+~
 ~
 ~
 Z -1 1815
@@ -2042,8 +2144,12 @@ by thick shrubs and thorny bushes.
 D0
 ~
 ~
+~
+~
 Z -1 1809
 D1
+~
+~
 ~
 ~
 Z -1 1818
@@ -2065,12 +2171,18 @@ white rocks line the perimeter of the pool. The glade continues to the north.
 D0
 ~
 ~
+~
+~
 Z -1 1810
 D1
 ~
 ~
+~
+~
 Z -1 1819
 D3
+~
+~
 ~
 ~
 Z -1 1817
@@ -2088,16 +2200,24 @@ the west you see a clearing, and you hear the sound of gurgling water.
 D0
 ~
 ~
+~
+~
 Z -1 1811
 D1
+~
+~
 ~
 ~
 Z -1 1820
 D2
 ~
 ~
+~
+~
 Z -1 1827
 D3
+~
+~
 ~
 ~
 Z -1 1818
@@ -2114,16 +2234,24 @@ of birds.
 D0
 ~
 ~
+~
+~
 Z -1 1812
 D1
+~
+~
 ~
 ~
 Z -1 1821
 D2
 ~
 ~
+~
+~
 Z -1 1828
 D3
+~
+~
 ~
 ~
 Z -1 1819
@@ -2143,12 +2271,18 @@ tangle of shrubs and vines.
 D0
 ~
 ~
+~
+~
 Z -1 1813
 D2
 ~
 ~
+~
+~
 Z -1 1829
 D3
+~
+~
 ~
 ~
 Z -1 1820
@@ -2167,12 +2301,18 @@ songs of birds.
 D0
 ~
 ~
+~
+~
 Z -1 1814
 D1
 ~
 ~
+~
+~
 Z -1 1823
 D2
+~
+~
 ~
 ~
 Z -1 1830
@@ -2190,16 +2330,24 @@ songs of birds from the west.
 D0
 ~
 ~
+~
+~
 Z -1 1815
 D1
+~
+~
 ~
 ~
 Z -1 1824
 D2
 ~
 ~
+~
+~
 Z -1 1831
 D3
+~
+~
 ~
 ~
 Z -1 1822
@@ -2219,12 +2367,18 @@ causing them.
 D0
 ~
 ~
+~
+~
 Z -1 1816
 D2
 ~
 ~
+~
+~
 Z -1 1832
 D3
+~
+~
 ~
 ~
 Z -1 1823
@@ -2244,8 +2398,12 @@ delights your ears.
 D1
 ~
 ~
+~
+~
 Z -1 1826
 D2
+~
+~
 ~
 ~
 Z -1 1833
@@ -2265,12 +2423,18 @@ hear the buzzing of bees as they visit the flowers here.
 D1
 ~
 ~
+~
+~
 Z -1 1827
 D2
 ~
 ~
+~
+~
 Z -1 1834
 D3
+~
+~
 ~
 ~
 Z -1 1825
@@ -2287,16 +2451,24 @@ trees above.
 D0
 ~
 ~
+~
+~
 Z -1 1819
 D1
+~
+~
 ~
 ~
 Z -1 1828
 D2
 ~
 ~
+~
+~
 Z -1 1835
 D3
+~
+~
 ~
 ~
 Z -1 1826
@@ -2314,16 +2486,24 @@ high, white with brown spots.
 D0
 ~
 ~
+~
+~
 Z -1 1820
 D1
+~
+~
 ~
 ~
 Z -1 1829
 D2
 ~
 ~
+~
+~
 Z -1 1836
 D3
+~
+~
 ~
 ~
 Z -1 1827
@@ -2341,12 +2521,18 @@ grass. To the east the way is impassable.
 D0
 ~
 ~
+~
+~
 Z -1 1821
 D2
 ~
 ~
+~
+~
 Z -1 1837
 D3
+~
+~
 ~
 ~
 Z -1 1828
@@ -2365,12 +2551,18 @@ wood.
 D0
 ~
 ~
+~
+~
 Z -1 1822
 D1
 ~
 ~
+~
+~
 Z -1 1831
 D2
+~
+~
 ~
 ~
 Z -1 1838
@@ -2389,12 +2581,18 @@ most of the light out. You hear the very faint songs of birds from the west.
 D0
 ~
 ~
+~
+~
 Z -1 1823
 D1
 ~
 ~
+~
+~
 Z -1 1832
 D2
+~
+~
 ~
 ~
 Z -1 1839
@@ -2412,12 +2610,18 @@ out.
 D0
 ~
 ~
+~
+~
 Z -1 1824
 D2
 ~
 ~
+~
+~
 Z -1 1840
 D3
+~
+~
 ~
 ~
 Z -1 1831
@@ -2438,12 +2642,18 @@ you hear the fluttering of wings, and birdsong delights your ears.
 D0
 ~
 ~
+~
+~
 Z -1 1825
 D1
 ~
 ~
+~
+~
 Z -1 1834
 D2
+~
+~
 ~
 ~
 Z -1 1843
@@ -2463,16 +2673,24 @@ wafts in from the north.
 D0
 ~
 ~
+~
+~
 Z -1 1826
 D1
+~
+~
 ~
 ~
 Z -1 1835
 D2
 ~
 ~
+~
+~
 Z -1 1844
 D3
+~
+~
 ~
 ~
 Z -1 1833
@@ -2488,16 +2706,24 @@ All around you are delicate trees with light green fern-like leaves.
 D0
 ~
 ~
+~
+~
 Z -1 1827
 D1
+~
+~
 ~
 ~
 Z -1 1836
 D2
 ~
 ~
+~
+~
 Z -1 1845
 D3
+~
+~
 ~
 ~
 Z -1 1834
@@ -2513,16 +2739,24 @@ circle of small grey mushrooms.
 D0
 ~
 ~
+~
+~
 Z -1 1828
 D1
+~
+~
 ~
 ~
 Z -1 1837
 D2
 ~
 ~
+~
+~
 Z -1 1846
 D3
+~
+~
 ~
 ~
 Z -1 1835
@@ -2542,16 +2776,24 @@ little flowers dot the grass.
 D0
 ~
 ~
+~
+~
 Z -1 1829
 D1
+~
+~
 ~
 ~
 Z -1 1838
 D2
 ~
 ~
+~
+~
 Z -1 1847
 D3
+~
+~
 ~
 ~
 Z -1 1836
@@ -2567,16 +2809,24 @@ the east you see pine trees, to the west a well and some fern-like trees.
 D0
 ~
 ~
+~
+~
 Z -1 1830
 D1
+~
+~
 ~
 ~
 Z -1 1839
 D2
 ~
 ~
+~
+~
 Z -1 1848
 D3
+~
+~
 ~
 ~
 Z -1 1837
@@ -2594,16 +2844,24 @@ you see a path.
 D0
 ~
 ~
+~
+~
 Z -1 1831
 D1
+~
+~
 ~
 ~
 Z -1 1840
 D2
 ~
 ~
+~
+~
 Z -1 1849
 D3
+~
+~
 ~
 ~
 Z -1 1838
@@ -2621,16 +2879,24 @@ ground is full of dead needles, brown and sharp.
 D0
 ~
 ~
+~
+~
 Z -1 1832
 D1
+~
+~
 ~
 ~
 Z -1 1841
 D2
 ~
 ~
+~
+~
 Z -1 1850
 D3
+~
+~
 ~
 ~
 Z -1 1839
@@ -2648,12 +2914,18 @@ very unnatural-looking.
 D1
 ~
 ~
+~
+~
 Z -1 1842
 D2
 ~
 ~
+~
+~
 Z -1 1851
 D3
+~
+~
 ~
 ~
 Z -1 1840
@@ -2668,8 +2940,12 @@ very unnatural-looking.
 D2
 ~
 ~
+~
+~
 Z -1 1852
 D3
+~
+~
 ~
 ~
 Z -1 1841
@@ -2684,12 +2960,18 @@ leaves.
 D0
 ~
 ~
+~
+~
 Z -1 1833
 D1
 ~
 ~
+~
+~
 Z -1 1844
 D2
+~
+~
 ~
 ~
 Z -1 1853
@@ -2705,16 +2987,24 @@ the overhanging bough of a thick birch.
 D0
 ~
 ~
+~
+~
 Z -1 1834
 D1
+~
+~
 ~
 ~
 Z -1 1845
 D2
 ~
 ~
+~
+~
 Z -1 1854
 D3
+~
+~
 ~
 ~
 Z -1 1843
@@ -2729,16 +3019,24 @@ are more golden-hued.
 D0
 ~
 ~
+~
+~
 Z -1 1835
 D1
+~
+~
 ~
 ~
 Z -1 1846
 D2
 ~
 ~
+~
+~
 Z -1 1855
 D3
+~
+~
 ~
 ~
 Z -1 1844
@@ -2754,16 +3052,24 @@ forest floor here.
 D0
 ~
 ~
+~
+~
 Z -1 1836
 D1
+~
+~
 ~
 ~
 Z -1 1847
 D2
 ~
 ~
+~
+~
 Z -1 1856
 D3
+~
+~
 ~
 ~
 Z -1 1845
@@ -2778,16 +3084,24 @@ needles.
 D0
 ~
 ~
+~
+~
 Z -1 1837
 D1
+~
+~
 ~
 ~
 Z -1 1848
 D2
 ~
 ~
+~
+~
 Z -1 1857
 D3
+~
+~
 ~
 ~
 Z -1 1846
@@ -2801,16 +3115,24 @@ trees, large healthy pine trees.
 D0
 ~
 ~
+~
+~
 Z -1 1838
 D1
+~
+~
 ~
 ~
 Z -1 1849
 D2
 ~
 ~
+~
+~
 Z -1 1858
 D3
+~
+~
 ~
 ~
 Z -1 1847
@@ -2824,16 +3146,24 @@ long, dark green needles.
 D0
 ~
 ~
+~
+~
 Z -1 1839
 D1
+~
+~
 ~
 ~
 Z -1 1850
 D2
 ~
 ~
+~
+~
 Z -1 1859
 D3
+~
+~
 ~
 ~
 Z -1 1848
@@ -2850,16 +3180,24 @@ has attacked their cores and is weakening them.
 D0
 ~
 ~
+~
+~
 Z -1 1840
 D1
+~
+~
 ~
 ~
 Z -1 1851
 D2
 ~
 ~
+~
+~
 Z -1 1860
 D3
+~
+~
 ~
 ~
 Z -1 1849
@@ -2876,16 +3214,24 @@ here.
 D0
 ~
 ~
+~
+~
 Z -1 1841
 D1
+~
+~
 ~
 ~
 Z -1 1852
 D2
 ~
 ~
+~
+~
 Z -1 1861
 D3
+~
+~
 ~
 ~
 Z -1 1850
@@ -2901,12 +3247,18 @@ or yellow and rotting.
 D0
 ~
 ~
+~
+~
 Z -1 1842
 D2
 ~
 ~
+~
+~
 Z -1 1862
 D3
+~
+~
 ~
 ~
 Z -1 1851
@@ -2921,12 +3273,18 @@ leaves.
 D0
 ~
 ~
+~
+~
 Z -1 1843
 D1
 ~
 ~
+~
+~
 Z -1 1854
 D2
+~
+~
 ~
 ~
 Z -1 1863
@@ -2942,16 +3300,24 @@ it for butchering their kills.
 D0
 ~
 ~
+~
+~
 Z -1 1844
 D1
+~
+~
 ~
 ~
 Z -1 1855
 D2
 ~
 ~
+~
+~
 Z -1 1864
 D3
+~
+~
 ~
 ~
 Z -1 1853
@@ -2965,16 +3331,24 @@ trees, to the west a small clearing surrounded by trees.
 D0
 ~
 ~
+~
+~
 Z -1 1845
 D1
+~
+~
 ~
 ~
 Z -1 1856
 D2
 ~
 ~
+~
+~
 Z -1 1865
 D3
+~
+~
 ~
 ~
 Z -1 1854
@@ -2989,16 +3363,24 @@ of a lighter green.
 D0
 ~
 ~
+~
+~
 Z -1 1846
 D1
+~
+~
 ~
 ~
 Z -1 1857
 D2
 ~
 ~
+~
+~
 Z -1 1866
 D3
+~
+~
 ~
 ~
 Z -1 1855
@@ -3012,16 +3394,24 @@ them eye level, with short light-green needles.
 D0
 ~
 ~
+~
+~
 Z -1 1847
 D1
+~
+~
 ~
 ~
 Z -1 1858
 D2
 ~
 ~
+~
+~
 Z -1 1867
 D3
+~
+~
 ~
 ~
 Z -1 1856
@@ -3035,16 +3425,24 @@ thick here.
 D0
 ~
 ~
+~
+~
 Z -1 1848
 D1
+~
+~
 ~
 ~
 Z -1 1859
 D2
 ~
 ~
+~
+~
 Z -1 1868
 D3
+~
+~
 ~
 ~
 Z -1 1857
@@ -3061,16 +3459,24 @@ and you feel an imposing evil coming from that direction.
 D0
 ~
 ~
+~
+~
 Z -1 1849
 D1
+~
+~
 ~
 ~
 Z -1 1860
 D2
 ~
 ~
+~
+~
 Z -1 1869
 D3
+~
+~
 ~
 ~
 Z -1 1858
@@ -3085,20 +3491,30 @@ appears to be rotted. A hillock is nearby to the southeast.
 D0
 ~
 ~
+~
+~
 Z -1 1850
 D1
+~
+~
 ~
 ~
 Z -1 1861
 D2
 ~
 ~
+~
+~
 Z -1 1870
 D3
 ~
 ~
+~
+~
 Z -1 1859
 D4
+~
+~
 ~
 ~
 Z -1 1878
@@ -3113,20 +3529,30 @@ the leaves not quite right...
 D0
 ~
 ~
+~
+~
 Z -1 1851
 D1
+~
+~
 ~
 ~
 Z -1 1862
 D2
 ~
 ~
+~
+~
 Z -1 1871
 D3
 ~
 ~
+~
+~
 Z -1 1860
 D5
+~
+~
 ~
 ~
 Z -1 1889
@@ -3142,12 +3568,18 @@ evil permeates the place.
 D0
 ~
 ~
+~
+~
 Z -1 1852
 D2
 ~
 ~
+~
+~
 Z -1 1872
 D3
+~
+~
 ~
 ~
 Z -1 1861
@@ -3162,12 +3594,18 @@ leaves.
 D0
 ~
 ~
+~
+~
 Z -1 1853
 D1
 ~
 ~
+~
+~
 Z -1 1864
 D2
+~
+~
 ~
 ~
 Z -1 1873
@@ -3187,16 +3625,24 @@ The sign reads: Ranger Station
 D0
 ~
 ~
+~
+~
 Z -1 1854
 D1
+~
+~
 ~
 ~
 Z -1 1865
 D3
 ~
 ~
+~
+~
 Z -1 1863
 D4
+~
+~
 ~
 ~
 Z 0 3757
@@ -3210,16 +3656,24 @@ the sounds of gurgling water coming from there. East of you are pine trees.
 D0
 ~
 ~
+~
+~
 Z -1 1855
 D1
+~
+~
 ~
 ~
 Z -1 1866
 D2
 ~
 ~
+~
+~
 Z -1 1875
 D3
+~
+~
 ~
 ~
 Z -1 1864
@@ -3237,12 +3691,18 @@ east comes the sound of gurgling water.
 D0
 ~
 ~
+~
+~
 Z -1 1856
 D1
 ~
 ~
+~
+~
 Z -1 1867
 D3
+~
+~
 ~
 ~
 Z -1 1865
@@ -3258,12 +3718,18 @@ needles out of the way before you drink from the clear stream.
 D0
 ~
 ~
+~
+~
 Z -1 1857
 D1
 ~
 ~
+~
+~
 Z -1 1868
 D3
+~
+~
 ~
 ~
 Z -1 1866
@@ -3279,12 +3745,18 @@ hear the sound of gurgling water from the west.
 D0
 ~
 ~
+~
+~
 Z -1 1858
 D1
 ~
 ~
+~
+~
 Z -1 1869
 D3
+~
+~
 ~
 ~
 Z -1 1867
@@ -3299,12 +3771,18 @@ away.
 D0
 ~
 ~
+~
+~
 Z -1 1859
 D1
 ~
 ~
+~
+~
 Z -1 1870
 D3
+~
+~
 ~
 ~
 Z -1 1868
@@ -3322,12 +3800,18 @@ this place. To the south is a wall, blackened like the trees.
 D0
 ~
 ~
+~
+~
 Z -1 1860
 D1
 ~
 ~
+~
+~
 Z -1 1871
 D3
+~
+~
 ~
 ~
 Z -1 1869
@@ -3343,12 +3827,18 @@ blackened. An aura of evilness permeates this place.
 D0
 ~
 ~
+~
+~
 Z -1 1861
 D1
 ~
 ~
+~
+~
 Z -1 1872
 D3
+~
+~
 ~
 ~
 Z -1 1870
@@ -3364,8 +3854,12 @@ floor here, but looking at it you can see some of the soil. It is black, too.
 D0
 ~
 ~
+~
+~
 Z -1 1862
 D3
+~
+~
 ~
 ~
 Z -1 1871
@@ -3381,8 +3875,12 @@ the herbs.
 D0
 ~
 ~
+~
+~
 Z -1 1863
 D1
+~
+~
 ~
 ~
 Z -1 1874
@@ -3399,8 +3897,12 @@ stair leading up.
 D3
 ~
 ~
+~
+~
 Z -1 1873
 D4
+~
+~
 ~
 ~
 Z -1 1890
@@ -3416,8 +3918,12 @@ doubt your eyes and credit your imagination.
 D0
 ~
 ~
+~
+~
 Z -1 1865
 D2
+~
+~
 ~
 ~
 Z -1 1876
@@ -3432,8 +3938,12 @@ see signs of life.
 D0
 ~
 ~
+~
+~
 Z -1 1875
 D2
+~
+~
 ~
 ~
 Z -1 1877
@@ -3448,8 +3958,12 @@ to keep to the path.
 D0
 ~
 ~
+~
+~
 Z -1 1876
 D1
+~
+~
 ~
 ~
 Z 0 40158
@@ -3466,8 +3980,12 @@ curtains.
 D4
 ~
 ~
+~
+~
 ABZ -1 1879
 D5
+~
+~
 ~
 ~
 Z -1 1860
@@ -3482,8 +4000,12 @@ frame them are frilly. Above the fireplace is a picture of a beautiful woman.
 D0
 ~
 ~
+~
+~
 Z -1 1880
 D5
+~
+~
 ~
 ~
 ABZ -1 1878
@@ -3501,8 +4023,12 @@ three chairs in the corner.
 D1
 ~
 ~
+~
+~
 Z -1 1881
 D2
+~
+~
 ~
 ~
 Z -1 1879
@@ -3516,8 +4042,12 @@ people. In the remaining space is a chest of drawers and a tall wardrobe.
 D2
 ~
 ~
+~
+~
 Z -1 1882
 D3
+~
+~
 ~
 ~
 Z -1 1880
@@ -3533,6 +4063,8 @@ sink. On the tables are flasks filled with different colored liquids.
 D0
 ~
 ~
+~
+~
 Z -1 1881
 S
 #1889
@@ -3543,6 +4075,8 @@ rather unpleasant up against your face.
 ~
 0 A forest
 D4
+~
+~
 ~
 ~
 Z -1 1861
@@ -3557,8 +4091,12 @@ down, and another one leading up.
 D4
 ~
 ~
+~
+~
 Z -1 1891
 D5
+~
+~
 ~
 ~
 Z -1 1874
@@ -3574,6 +4112,8 @@ The old ranger who runs the Station is here to help you learn.
 D5
 ~
 ~
+~
+~
 Z -1 1890
 S
 #1892
@@ -3586,11 +4126,15 @@ North is a barely visible path.
 D0
 ~
 ~
+~
+~
 Z -1 1893
 D2
 ~
 secret door
 ~
+@eng the secret@rus секретная дверь~
+@rus female~
 ABZ -1 1801
 S
 #1893
@@ -3603,8 +4147,12 @@ off the path.
 D2
 ~
 ~
+~
+~
 Z -1 1892
 D3
+~
+~
 ~
 ~
 Z -1 1894
@@ -3620,8 +4168,12 @@ up in the trees.
 D0
 ~
 ~
+~
+~
 Z -1 1895
 D1
+~
+~
 ~
 ~
 Z -1 1893
@@ -3636,8 +4188,12 @@ skin on the thorns and woody protuberances.
 D1
 ~
 ~
+~
+~
 Z -1 1896
 D2
+~
+~
 ~
 ~
 Z -1 1894
@@ -3653,8 +4209,12 @@ think you see a building.
 D0
 ~
 ~
+~
+~
 Z -1 1897
 D3
+~
+~
 ~
 ~
 Z -1 1895
@@ -3674,6 +4234,8 @@ closely at the crystaline columns which form the entrance, you think
 you see movement inside.
 ~
 D0
+~
+~
 ~
 ~
 Z -1 1896

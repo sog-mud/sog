@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Ofcol~
 VNUMs 5500 5599
 Credits Alfa~
@@ -20,9 +20,13 @@ D0
 You look up the village street noticing nothing special at all.
 ~
 ~
+~
+~
 Z -1 5551
 D2
 The wide road leads south here towards the T-crossing.
+~
+~
 ~
 ~
 Z -1 314
@@ -38,14 +42,20 @@ D0
 The village square is as usual not overcrowded.
 ~
 ~
+~
+~
 Z -1 5552
 D1
 The small alley looks relative peaceful.
 ~
 ~
+~
+~
 Z -1 5553
 D2
 You see the village street eventually becoming the wide road.
+~
+~
 ~
 ~
 Z -1 5550
@@ -62,14 +72,20 @@ D0
 You see a local inn called 'The Ofcol Local Inn'. Looks nice.
 ~
 ~
+~
+~
 Z -1 5556
 D2
 You see the village street of Ofcol.
 ~
 ~
+~
+~
 Z -1 5551
 D3
 A small shop with the sign 'Luxan's Mixed goods' hanging in front of it.
+~
+~
 ~
 ~
 Z -1 5555
@@ -84,14 +100,20 @@ D1
 You see a big intersection.
 ~
 ~
+~
+~
 Z 0 601
 D2
 It looks like the future site of a training room.
 ~
 ~
+~
+~
 Z -1 5554
 D3
 You notice nothing but the village street.
+~
+~
 ~
 ~
 Z -1 5551
@@ -104,6 +126,8 @@ leading to the small alley.
 0 D city
 D0
 You are able to see the small alley, really not very interesting.
+~
+~
 ~
 ~
 Z -1 5553
@@ -119,6 +143,8 @@ D1
 The village square is as usual not overcrowded.
 ~
 ~
+~
+~
 Z -1 5552
 S
 #5556
@@ -132,6 +158,8 @@ The only exit is south to the village square.
 0 D city
 D2
 The village square is as usual not overcrowded.
+~
+~
 ~
 ~
 Z -1 5552

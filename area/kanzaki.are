@@ -1,9 +1,9 @@
 #AREADATA
-Ver 1
-Name Rising Sun Land~
-Builders lothar~
+Ver 2
+Name Kanzaki village~
+Builders lothar megissogwon~
 VNUMs 47000 47999
-Credits Lothar~
+Credits Megissogwon~
 Security 9
 LevelRange 20 50
 ResetMessage @eng The ground suddenly trembles, then all goes quiet.@rus Земля под твоими ногами внезапно вздрагивает.~
@@ -2495,13 +2495,12 @@ fact.
 g @eng neutral@rus male~
 #47182
 kote gauntlets mithril коте мифрильные рукавицы~
-@eng a pait of mithril gauntlets, kote@rus ~~мифрильные~~ ~~рукавицы~~, коте~
+@eng a pair of mithril gauntlets, kote@rus ~~мифрильные~~ ~~рукавицы~~, коте~
 @eng A pair of gauntlets made from some bluish metal gleam dully here.@rus Рукавицы (gauntlets), сделанные из синеватого металла, тускло поблескивают здесь.~
 mithril~
 armor BGI 0 AH
 15 15 15 20 0
 43 15 30000 P
-S 'staff' 10 A
 S 'bow' 10 0
 S 'polearm' 10 0
 S 'sword' 10 0
@@ -2526,11 +2525,11 @@ that makes them hum softly.
 ~
 g @eng neutral@rus plural~
 #47183
-ring obsidian black кольцо обсидиан черное~
+ring obsidian black кольцо обсидиан черное withering~
 @eng a ring of black obsidian@rus ~~обсидиановое~~ ~~кольцо~~~
 @eng A ring of obsidian lies here, absorbing the light.@rus Обсидиановое кольцо (ring) лежит здесь, поглощая свет.~
 obsidian~
-jewelry CEGHMQ CE AB
+jewelry CEGHMQY CE AB
 0 0 0 0 0
 45 15 25000 P
 F A 0 0 K
@@ -2657,6 +2656,8 @@ behind it.
 За ней ты видишь открытую террасу.
 ~
 door~
+~
+~
 ABZ 0 47001
 S
 #47001
@@ -2677,6 +2678,8 @@ that big barrel in the corner is kinda eye-catching.
 Однако большая бочка в углу не может не привлечь внимания.
 ~
 door~
+~
+~
 ABZ 0 47000
 D5
 @eng You can't see the ground under those clouds.
@@ -2684,6 +2687,8 @@ D5
 Эй, осторожнее! Не упади!
 ~
 down~
+the down~
+none~
 Z 0 47002
 S
 #47002
@@ -2707,10 +2712,14 @@ right from the air. What is there ?
 воздуха. Интересно, что там?
 ~
 ~
+~
+~
 Z 0 47001
 D5
 @eng It looks like Midgaard...
 @rus Це ж Мидгард!
+~
+~
 ~
 ~
 Z 0 1220
@@ -2728,6 +2737,8 @@ a village) lay to the east.
 D0
 ~
 ~
+~
+~
 Z 0 47101
 S
 #47101
@@ -2741,8 +2752,12 @@ higher and higher, as you approach.
 D1
 ~
 ~
+~
+~
 Z 0 47102
 D2
+~
+~
 ~
 ~
 Z 0 47100
@@ -2758,12 +2773,18 @@ the northern path disappears among the grasses.
 D0
 ~
 ~
+~
+~
 Z 0 47103
 D1
 ~
 ~
+~
+~
 Z 0 47104
 D3
+~
+~
 ~
 ~
 Z 0 47101
@@ -2781,8 +2802,12 @@ up ahead of you, its basement surrounded by the forest.
 D0
 ~
 ~
+~
+~
 Z 0 47138
 D2
+~
+~
 ~
 ~
 Z 0 47102
@@ -2800,8 +2825,12 @@ quacking loudly.
 D1
 ~
 ~
+~
+~
 Z 0 47105
 D3
+~
+~
 ~
 ~
 Z 0 47102
@@ -2819,16 +2848,24 @@ the south.
 D0
 ~
 ~
+~
+~
 Z 0 47106
 D1
+~
+~
 ~
 ~
 Z 0 47108
 D2
 ~
 ~
+~
+~
 Z 0 47107
 D3
+~
+~
 ~
 ~
 Z 0 47104
@@ -2845,6 +2882,8 @@ drink.
 ~
 0 D inside
 D2
+~
+~
 ~
 ~
 Z 0 47105
@@ -2864,10 +2903,14 @@ hind the door, you consider the forge is there.
 D0
 ~
 ~
+~
+~
 Z 0 47105
 D2
 @eng An usual door leads to the forge.
 @rus Самая обычная дверь.
+~
+~
 ~
 ~
 ABZ 0 47129
@@ -2885,8 +2928,12 @@ leads out of village.
 D1
 ~
 ~
+~
+~
 Z 0 47109
 D3
+~
+~
 ~
 ~
 Z 0 47105
@@ -2902,12 +2949,18 @@ House of local daimyo, Saburo Kanzaki, is to the south.
 D1
 ~
 ~
+~
+~
 Z 0 47110
 D2
 ~
 ~
+~
+~
 Z 0 47117
 D3
+~
+~
 ~
 ~
 Z 0 47108
@@ -2923,16 +2976,24 @@ time, discuss weather, gossips and neighbors, and then go to their homes.
 D0
 ~
 ~
+~
+~
 ABZ 0 47111
 D1
+~
+~
 ~
 ~
 Z 0 47113
 D2
 ~
 ~
+~
+~
 ABZ 0 47120
 D3
+~
+~
 ~
 ~
 Z 0 47109
@@ -2948,8 +3009,12 @@ space to live for a small family.
 D0
 ~
 ~
+~
+~
 Z 0 47112
 D2
+~
+~
 ~
 ~
 ABZ 0 47110
@@ -2963,6 +3028,8 @@ her words, everything that can grow here, stuffed on a small area.
 ~
 0 0 field
 D2
+~
+~
 ~
 ~
 Z 0 47111
@@ -2980,16 +3047,24 @@ leads out of the village.
 D0
 ~
 ~
+~
+~
 ABZ 0 47118
 D1
+~
+~
 ~
 ~
 Z 0 47114
 D2
 ~
 ~
+~
+~
 ABZ 0 47115
 D3
+~
+~
 ~
 ~
 Z 0 47110
@@ -3007,8 +3082,12 @@ temple can be seen at the east.
 D1
 ~
 ~
+~
+~
 Z 0 47122
 D3
+~
+~
 ~
 ~
 Z 0 47113
@@ -3024,8 +3103,12 @@ space to live for a small family.
 D0
 ~
 ~
+~
+~
 ABZ 0 47113
 D2
+~
+~
 ~
 ~
 Z 0 47116
@@ -3039,6 +3122,8 @@ her words, everything that can grow here, stuffed on a small area.
 ~
 0 0 field
 D0
+~
+~
 ~
 ~
 Z 0 47115
@@ -3055,6 +3140,8 @@ time.
 D0
 ~
 ~
+~
+~
 Z 0 47109
 S
 #47118
@@ -3068,8 +3155,12 @@ space to live for a small family.
 D0
 ~
 ~
+~
+~
 Z 0 47119
 D2
+~
+~
 ~
 ~
 ABZ 0 47113
@@ -3085,6 +3176,8 @@ her words, everything that can grow here, stuffed on a small area.
 D2
 ~
 ~
+~
+~
 Z 0 47118
 S
 #47120
@@ -3098,8 +3191,12 @@ space to live for a small family.
 D0
 ~
 ~
+~
+~
 ABZ 0 47110
 D2
+~
+~
 ~
 ~
 Z 0 47121
@@ -3115,6 +3212,8 @@ her words, everything that can grow here, stuffed on a small area.
 D0
 ~
 ~
+~
+~
 Z 0 47120
 S
 #47122
@@ -3128,12 +3227,18 @@ one lies towards rice fields. A village is seen to the west.
 D0
 ~
 ~
+~
+~
 Z 0 47123
 D1
 ~
 ~
+~
+~
 Z 0 47124
 D3
+~
+~
 ~
 ~
 Z 0 47114
@@ -3152,8 +3257,12 @@ ther to northeast, you gain force to continue your path.
 D0
 ~
 ~
+~
+~
 Z 0 47130
 D2
+~
+~
 ~
 ~
 Z 0 47122
@@ -3171,8 +3280,12 @@ is just beautiful!
 D1
 ~
 ~
+~
+~
 Z 0 47125
 D3
+~
+~
 ~
 ~
 Z 0 47122
@@ -3192,8 +3305,12 @@ be nearby.
 D1
 ~
 ~
+~
+~
 Z 0 47128
 D3
+~
+~
 ~
 ~
 Z 0 47124
@@ -3213,8 +3330,12 @@ shifts. A door is set in the opposite wall, it is closed.
 D0
 ~
 ~
+~
+~
 ABZ 0 47166
 D2
+~
+~
 ~
 ~
 ABZ 0 47127
@@ -3231,6 +3352,8 @@ free space.
 ~
 0 ASX inside
 D0
+~
+~
 ~
 ~
 ABZ 0 47126
@@ -3252,6 +3375,8 @@ divine power.
 D3
 ~
 ~
+~
+~
 Z 0 47125
 S
 #47129
@@ -3267,6 +3392,8 @@ the anvil leave an impression of some strange dance.
 D0
 @eng The door leads back to the shop.
 @rus Эта дверь ведет обратно в лавку.
+~
+~
 ~
 ~
 ABZ 0 47107
@@ -3285,8 +3412,12 @@ ther to northeast, you gain force to continue your path.
 D0
 ~
 ~
+~
+~
 Z 0 47131
 D2
+~
+~
 ~
 ~
 Z 0 47123
@@ -3305,8 +3436,12 @@ ther to northeast, you gain force to continue your path.
 D0
 ~
 ~
+~
+~
 Z 0 47132
 D2
+~
+~
 ~
 ~
 Z 0 47130
@@ -3328,12 +3463,18 @@ though it is warm, due to the season.
 D0
 ~
 ~
+~
+~
 Z 0 47134
 D1
 ~
 ~
+~
+~
 Z 0 47133
 D2
+~
+~
 ~
 ~
 Z 0 47131
@@ -3355,12 +3496,18 @@ though it is warm, due to the season.
 D0
 ~
 ~
+~
+~
 Z 0 47136
 D1
 ~
 ~
+~
+~
 Z 0 47135
 D3
+~
+~
 ~
 ~
 Z 0 47132
@@ -3382,8 +3529,12 @@ though it is warm, due to the season.
 D1
 ~
 ~
+~
+~
 Z 0 47136
 D2
+~
+~
 ~
 ~
 Z 0 47132
@@ -3405,8 +3556,12 @@ though it is warm, due to the season.
 D0
 ~
 ~
+~
+~
 Z 0 47137
 D3
+~
+~
 ~
 ~
 Z 0 47133
@@ -3428,12 +3583,18 @@ though it is warm, due to the season.
 D1
 ~
 ~
+~
+~
 Z 0 47137
 D2
 ~
 ~
+~
+~
 Z 0 47133
 D3
+~
+~
 ~
 ~
 Z 0 47134
@@ -3459,16 +3620,24 @@ dive in. A bit further to the north you see a dense grove of bamboo.
 D0
 ~
 ~
+~
+~
 Z 0 47214
 D1
+~
+~
 ~
 ~
 Z 0 47215
 D2
 ~
 ~
+~
+~
 Z 0 47135
 D3
+~
+~
 ~
 ~
 Z 0 47136
@@ -3486,8 +3655,12 @@ up ahead of you, its basement surrounded by the forest.
 D0
 ~
 ~
+~
+~
 Z 0 47139
 D2
+~
+~
 ~
 ~
 Z 0 47103
@@ -3507,12 +3680,18 @@ right ahead of you.
 D0
 ~
 ~
+~
+~
 Z 0 47144
 D1
 ~
 ~
+~
+~
 Z 0 47140
 D2
+~
+~
 ~
 ~
 Z 0 47138
@@ -3532,12 +3711,18 @@ right ahead of you.
 D0
 ~
 ~
+~
+~
 Z 0 47143
 D1
 ~
 ~
+~
+~
 Z 0 47141
 D3
+~
+~
 ~
 ~
 Z 0 47139
@@ -3558,8 +3743,12 @@ mountain.
 D0
 ~
 ~
+~
+~
 Z 0 47142
 D3
+~
+~
 ~
 ~
 Z 0 47140
@@ -3580,16 +3769,24 @@ mountain.
 D0
 ~
 ~
+~
+~
 Z 0 47148
 D1
+~
+~
 ~
 ~
 Z 0 47145
 D2
 ~
 ~
+~
+~
 Z 0 47141
 D3
+~
+~
 ~
 ~
 Z 0 47143
@@ -3610,16 +3807,24 @@ mountain.
 D0
 ~
 ~
+~
+~
 Z 0 47149
 D1
+~
+~
 ~
 ~
 Z 0 47142
 D2
 ~
 ~
+~
+~
 Z 0 47140
 D3
+~
+~
 ~
 ~
 Z 0 47144
@@ -3642,12 +3847,18 @@ troubled by something.
 D0
 ~
 ~
+~
+~
 Z 0 47150
 D1
 ~
 ~
+~
+~
 Z 0 47143
 D2
+~
+~
 ~
 ~
 Z 0 47139
@@ -3669,8 +3880,12 @@ each other loudly, muffling all other sounds.
 D0
 ~
 ~
+~
+~
 Z 0 47146
 D3
+~
+~
 ~
 ~
 Z 0 47142
@@ -3692,16 +3907,24 @@ each other loudly, muffling all other sounds.
 D0
 ~
 ~
+~
+~
 Z 0 47147
 D1
+~
+~
 ~
 ~
 Z 0 47212
 D2
 ~
 ~
+~
+~
 Z 0 47145
 D3
+~
+~
 ~
 ~
 Z 0 47148
@@ -3723,8 +3946,12 @@ each other loudly, muffling all other sounds.
 D2
 ~
 ~
+~
+~
 Z 0 47146
 D3
+~
+~
 ~
 ~
 Z 0 47151
@@ -3744,16 +3971,24 @@ surrounding the mountain.
 D0
 ~
 ~
+~
+~
 Z 0 47151
 D1
+~
+~
 ~
 ~
 Z 0 47146
 D2
 ~
 ~
+~
+~
 Z 0 47142
 D3
+~
+~
 ~
 ~
 Z 0 47149
@@ -3776,16 +4011,24 @@ troubled by something.
 D0
 ~
 ~
+~
+~
 Z 0 47152
 D1
+~
+~
 ~
 ~
 Z 0 47148
 D2
 ~
 ~
+~
+~
 Z 0 47143
 D3
+~
+~
 ~
 ~
 Z 0 47150
@@ -3806,16 +4049,24 @@ over the forest.
 D0
 ~
 ~
+~
+~
 Z 0 47153
 D1
+~
+~
 ~
 ~
 Z 0 47149
 D2
 ~
 ~
+~
+~
 Z 0 47144
 D3
+~
+~
 ~
 ~
 Z 0 47157
@@ -3835,16 +4086,24 @@ surrounding the mountain.
 D0
 ~
 ~
+~
+~
 Z 0 47154
 D1
+~
+~
 ~
 ~
 Z 0 47147
 D2
 ~
 ~
+~
+~
 Z 0 47148
 D3
+~
+~
 ~
 ~
 Z 0 47152
@@ -3867,16 +4126,24 @@ troubled by something.
 D0
 ~
 ~
+~
+~
 Z 0 47155
 D1
+~
+~
 ~
 ~
 Z 0 47151
 D2
 ~
 ~
+~
+~
 Z 0 47149
 D3
+~
+~
 ~
 ~
 Z 0 47153
@@ -3897,16 +4164,24 @@ over the forest.
 D0
 ~
 ~
+~
+~
 Z 0 47156
 D1
+~
+~
 ~
 ~
 Z 0 47152
 D2
 ~
 ~
+~
+~
 Z 0 47150
 D3
+~
+~
 ~
 ~
 Z 0 47158
@@ -3926,8 +4201,12 @@ surrounding the mountain.
 D2
 ~
 ~
+~
+~
 Z 0 47151
 D3
+~
+~
 ~
 ~
 Z 0 47155
@@ -3950,12 +4229,18 @@ troubled by something.
 D1
 ~
 ~
+~
+~
 Z 0 47154
 D2
 ~
 ~
+~
+~
 Z 0 47152
 D3
+~
+~
 ~
 ~
 Z 0 47156
@@ -3976,16 +4261,24 @@ over the forest.
 D0
 ~
 ~
+~
+~
 Z 0 47213
 D1
+~
+~
 ~
 ~
 Z 0 47155
 D2
 ~
 ~
+~
+~
 Z 0 47153
 D3
+~
+~
 ~
 ~
 Z 0 47159
@@ -4013,12 +4306,18 @@ ding forest and absorb it.
 D0
 ~
 ~
+~
+~
 Z 0 47158
 D1
 ~
 ~
+~
+~
 Z 0 47150
 D3
+~
+~
 ~
 ~
 Z 0 47162
@@ -4046,12 +4345,18 @@ ding forest and absorb it.
 D0
 ~
 ~
+~
+~
 Z 0 47159
 D1
 ~
 ~
+~
+~
 Z 0 47153
 D2
+~
+~
 ~
 ~
 Z 0 47157
@@ -4079,12 +4384,18 @@ ding forest and absorb it.
 D0
 ~
 ~
+~
+~
 Z 0 47160
 D1
 ~
 ~
+~
+~
 Z 0 47156
 D2
+~
+~
 ~
 ~
 Z 0 47158
@@ -4117,12 +4428,18 @@ climbing up it.
 D1
 ~
 ~
+~
+~
 Z 0 47213
 D2
 ~
 ~
+~
+~
 Z 0 47159
 D4
+~
+~
 ~
 ~
 Z 0 47161
@@ -4146,8 +4463,12 @@ You wonder what he could be looking for.
 D3
 ~
 ~
+~
+~
 Z 0 47177
 D5
+~
+~
 ~
 ~
 Z 0 47160
@@ -4175,6 +4496,8 @@ ding forest and absorb it.
 D1
 ~
 ~
+~
+~
 Z 0 47157
 S
 #47163
@@ -4190,8 +4513,12 @@ towers above them, radiating power.
 D1
 ~
 ~
+~
+~
 Z 0 47164
 D3
+~
+~
 ~
 ~
 Z 0 47128
@@ -4211,16 +4538,24 @@ lected by stone walls..
 D0
 ~
 ~
+~
+~
 Z 0 47165
 D1
+~
+~
 ~
 ~
 Z 0 47169
 D2
 ~
 ~
+~
+~
 Z 0 47166
 D3
+~
+~
 ~
 ~
 Z 0 47163
@@ -4240,8 +4575,12 @@ lected by stone walls..
 D1
 ~
 ~
+~
+~
 Z 0 47167
 D2
+~
+~
 ~
 ~
 Z 0 47164
@@ -4265,12 +4604,18 @@ replace those at the gates.
 D0
 ~
 ~
+~
+~
 Z 0 47164
 D1
 ~
 ~
+~
+~
 Z 0 47168
 D2
+~
+~
 ~
 ~
 ABZ 0 47126
@@ -4290,8 +4635,12 @@ lected by stone walls..
 D2
 ~
 ~
+~
+~
 Z 0 47169
 D3
+~
+~
 ~
 ~
 Z 0 47165
@@ -4311,8 +4660,12 @@ lected by stone walls.
 D0
 ~
 ~
+~
+~
 Z 0 47169
 D3
+~
+~
 ~
 ~
 Z 0 47166
@@ -4335,16 +4688,24 @@ lected by stone walls.
 D0
 ~
 ~
+~
+~
 Z 0 47167
 D1
+~
+~
 ~
 ~
 Z 0 47170
 D2
 ~
 ~
+~
+~
 Z 0 47168
 D3
+~
+~
 ~
 ~
 Z 0 47164
@@ -4363,8 +4724,12 @@ ests approach him from time to time and he instructs them in a low voice.
 D1
 ~
 ~
+~
+~
 Z 0 47171
 D3
+~
+~
 ~
 ~
 Z 0 47169
@@ -4388,6 +4753,8 @@ D0
 @rus Неприметная дверь сливается по цвету с каменной стеной.
 ~
 secret~
+@eng the secret@rus секретная дверь~
+@eng none@rus female~
 ABZ 0 47172
 D1
 @eng Wooden door appears very strong. A not so small keyhole
@@ -4396,8 +4763,12 @@ is seen in one of them.
 В одной из створок видна скважина для небольших размеров ключа.
 ~
 doors~
+@eng the doors@rus двери~
+@eng none@rus plural~
 ABCFGZ 47172 47176
 D3
+~
+~
 ~
 ~
 Z 0 47170
@@ -4413,6 +4784,8 @@ inaudible here, and this silence is depressing.
 D1
 ~
 ~
+~
+~
 Z 0 47173
 D2
 @eng After searching the wall you find a trapdoor,
@@ -4423,6 +4796,8 @@ it leads to the main chapel.
 ведет назад, в главное помещение храма.
 ~
 secret~
+@eng the secret@rus секретная дверь~
+@eng none@rus female~
 ABZ 0 47171
 S
 #47173
@@ -4436,8 +4811,12 @@ before you, marking near exit and deep shadows hide everything to the west.
 D1
 ~
 ~
+~
+~
 Z 0 47174
 D3
+~
+~
 ~
 ~
 Z 0 47172
@@ -4455,8 +4834,12 @@ under open sky behind the doorway. You wonder why it is hidden such far.
 D1
 ~
 ~
+~
+~
 Z 0 47175
 D3
+~
+~
 ~
 ~
 Z 0 47173
@@ -4474,6 +4857,8 @@ und in deep meditation. High walls guard the garden from outside view.
 D3
 ~
 ~
+~
+~
 Z 0 47174
 S
 #47176
@@ -4489,6 +4874,8 @@ treasure took care about its safety, of course.
 ~
 0 ASX inside
 D3
+~
+~
 ~
 ~
 ABCFGZ 47172 47171
@@ -4510,8 +4897,12 @@ ses at you.
 D1
 ~
 ~
+~
+~
 Z 0 47161
 D3
+~
+~
 ~
 ~
 Z 0 47178
@@ -4533,8 +4924,12 @@ ses at you.
 D1
 ~
 ~
+~
+~
 Z 0 47177
 D3
+~
+~
 ~
 ~
 Z 0 47179
@@ -4558,8 +4953,12 @@ is further up the mountain.
 D1
 ~
 ~
+~
+~
 Z 0 47178
 D2
+~
+~
 ~
 ~
 Z 0 47180
@@ -4580,8 +4979,12 @@ here, breaking the silence with its wailing.
 D0
 ~
 ~
+~
+~
 Z 0 47179
 D2
+~
+~
 ~
 ~
 Z 0 47181
@@ -4603,8 +5006,12 @@ here, breaking the silence with its wailing.
 D0
 ~
 ~
+~
+~
 Z 0 47180
 D1
+~
+~
 ~
 ~
 Z 0 47182
@@ -4627,8 +5034,12 @@ the skies, seem to be the only living creatures here.
 D2
 ~
 ~
+~
+~
 Z 0 47183
 D3
+~
+~
 ~
 ~
 Z 0 47181
@@ -4651,8 +5062,12 @@ the skies, seem to be the only living creatures here.
 D0
 ~
 ~
+~
+~
 Z 0 47182
 D1
+~
+~
 ~
 ~
 Z 0 47184
@@ -4681,10 +5096,14 @@ to it with your hands.
 D3
 ~
 ~
+~
+~
 Z 0 47183
 D4
 @eng Don't even think about it! NO, you won't jump...
 @rus Нет, даже не думай! Ты не допрыгнешь...
+~
+~
 ~
 ~
 Z 0 47185
@@ -4716,6 +5135,8 @@ down вниз~
 D0
 ~
 ~
+~
+~
 Z 0 47186
 S
 #47186
@@ -4735,8 +5156,12 @@ ly bare - there isn't even moss growing at it.
 D0
 ~
 ~
+~
+~
 Z 0 47187
 D2
+~
+~
 ~
 ~
 Z 0 47185
@@ -4758,8 +5183,12 @@ isn't even moss growing at it.
 D2
 ~
 ~
+~
+~
 Z 0 47186
 D3
+~
+~
 ~
 ~
 Z 0 47188
@@ -4784,8 +5213,12 @@ to live at this height?
 D1
 ~
 ~
+~
+~
 Z 0 47187
 D3
+~
+~
 ~
 ~
 Z 0 47189
@@ -4807,8 +5240,12 @@ he is dashing against the walls, trying to break free.
 D1
 ~
 ~
+~
+~
 Z 0 47188
 D2
+~
+~
 ~
 ~
 Z 0 47190
@@ -4830,8 +5267,12 @@ is dashing against the walls, trying to break free.
 D0
 ~
 ~
+~
+~
 Z 0 47189
 D2
+~
+~
 ~
 ~
 Z 0 47191
@@ -4858,8 +5299,12 @@ see further than 50 feet.
 D0
 ~
 ~
+~
+~
 Z 0 47190
 D1
+~
+~
 ~
 ~
 Z 0 47192
@@ -4881,8 +5326,12 @@ decide to hurry up and move further.
 D3
 ~
 ~
+~
+~
 Z 0 47191
 D4
+~
+~
 ~
 ~
 Z 0 47193
@@ -4904,8 +5353,12 @@ air makes you feel giddy - you'd better hurry up.
 D0
 ~
 ~
+~
+~
 Z 0 47194
 D5
+~
+~
 ~
 ~
 Z 0 47192
@@ -4928,8 +5381,12 @@ cend back.
 D2
 ~
 ~
+~
+~
 Z 0 47193
 D4
+~
+~
 ~
 ~
 Z 0 47195
@@ -4959,6 +5416,8 @@ respect to the owner of such weapon.
 D5
 ~
 ~
+~
+~
 Z 0 47194
 S
 #47196
@@ -4984,8 +5443,12 @@ of the cave.
 D0
 ~
 ~
+~
+~
 Z 0 47188
 D1
+~
+~
 ~
 ~
 Z 0 47197
@@ -5011,6 +5474,8 @@ while ascending.
 ~
 0 ADN inside
 D3
+~
+~
 ~
 ~
 Z 0 47196
@@ -5051,8 +5516,12 @@ led with light smell of hagrance.
 D0
 ~
 ~
+~
+~
 ABZ 0 47117
 D2
+~
+~
 ~
 ~
 Z 0 47200
@@ -5070,14 +5539,20 @@ west and meditaton room to the east.
 D0
 ~
 ~
+~
+~
 Z 0 47199
 D1
 @eng This door leads to the meditations and prayers room.
 @rus Эта дверь ведет в комнату для медитаций и молитв.
 ~
 ~
+~
+~
 ABZ 0 47201
 D2
+~
+~
 ~
 ~
 Z 0 47203
@@ -5086,6 +5561,8 @@ D3
 outisders from entering.
 @rus Видимо, дверь закрыта именно затем, чтобы посторонние
 туда не входили.
+~
+~
 ~
 ~
 ABZ 0 47202
@@ -5100,6 +5577,8 @@ inhale and reach for the God.
 ~
 0 CDKW inside
 D3
+~
+~
 ~
 ~
 ABZ 0 47200
@@ -5117,6 +5596,8 @@ whole house tho.
 D1
 ~
 ~
+~
+~
 ABZ 0 47200
 S
 #47203
@@ -5130,12 +5611,18 @@ right which looks like dining hall.
 D0
 ~
 ~
+~
+~
 Z 0 47200
 D2
 ~
 ~
+~
+~
 Z 0 47205
 D3
+~
+~
 ~
 ~
 Z 0 47204
@@ -5151,8 +5638,12 @@ tamis. You can sense jingle of dishes and smell of food coming from the west.
 D1
 ~
 ~
+~
+~
 Z 0 47203
 D3
+~
+~
 ~
 ~
 ABZ 0 47206
@@ -5168,12 +5659,18 @@ to the left, leading to some private chambers.
 D0
 ~
 ~
+~
+~
 Z 0 47203
 D1
 ~
 ~
+~
+~
 ABZ 0 47207
 D2
+~
+~
 ~
 ~
 Z 0 47208
@@ -5191,6 +5688,8 @@ stomach rumble impatiently.
 D1
 ~
 ~
+~
+~
 ABZ 0 47204
 S
 #47207
@@ -5202,6 +5701,8 @@ covered bed and some other marks you consider it has regular use.
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 ABZ 0 47205
@@ -5219,16 +5720,24 @@ wife's room and to the left lives Miyu, their daughter.
 D0
 ~
 ~
+~
+~
 Z 0 47205
 D1
+~
+~
 ~
 ~
 ABZ 0 47209
 D2
 ~
 ~
+~
+~
 ABZ 0 47210
 D3
+~
+~
 ~
 ~
 ABZ 0 47211
@@ -5246,6 +5755,8 @@ to youth. Everything you can imagine is decorated with flowers.
 D3
 ~
 ~
+~
+~
 ABZ 0 47208
 S
 #47210
@@ -5258,6 +5769,8 @@ in the room.
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 ABZ 0 47208
@@ -5276,6 +5789,8 @@ to sleep at make all the furniture.
 D1
 ~
 ~
+~
+~
 ABZ 0 47208
 S
 #47212
@@ -5292,6 +5807,8 @@ from each other, obviously for training purposes.
 ~
 0 0 forest
 D3
+~
+~
 ~
 ~
 Z 0 47146
@@ -5320,8 +5837,12 @@ for a while and end up trading places.
 D2
 ~
 ~
+~
+~
 Z 0 47156
 D3
+~
+~
 ~
 ~
 Z 0 47160
@@ -5344,8 +5865,12 @@ aren't the first person to find it out.
 D1
 ~
 ~
+~
+~
 Z 0 47216
 D2
+~
+~
 ~
 ~
 Z 0 47137
@@ -5366,8 +5891,12 @@ of small fishes, swimming around your feet.
 D0
 ~
 ~
+~
+~
 Z 0 47216
 D3
+~
+~
 ~
 ~
 Z 0 47137
@@ -5392,8 +5921,12 @@ dense and you can't see further than six feet.
 D2
 ~
 ~
+~
+~
 Z 0 47215
 D3
+~
+~
 ~
 ~
 Z 0 47214
@@ -5420,8 +5953,12 @@ drag you away.
 D2
 ~
 ~
+~
+~
 Z 0 47218
 D4
+~
+~
 ~
 ~
 Z 0 47216
@@ -5448,8 +5985,12 @@ drag you away.
 D0
 ~
 ~
+~
+~
 Z 0 47217
 D4
+~
+~
 ~
 ~
 Z 0 47215
@@ -5474,6 +6015,8 @@ you sense someone else lurking there and staring back at you.
 ~
 0 A inside
 D1
+~
+~
 ~
 ~
 Z 0 47218
@@ -5648,7 +6191,7 @@ P 0 47175 2 47174 2	* a black ninjitsu gi: a razor-sharp shuriken
 M 0 47133 1 47174 1	* brother Toshiro (Entrance to the sacred garden)
 E 0 47178 0 20		*	a sharp ivory-hilted wakizashi: second wielded
 E 0 47177 0 16		*	an ancient ivory-hilted sword: wielded
-E 0 47182 0 9		*	a pait of mithril gauntlets, kote: on the hands
+E 0 47182 0 9		*	a pair of mithril gauntlets, kote: on the hands
 O 0 47127 0 47175	* {gbodhi tree{x (The sacred garden)
 O 0 47170 0 47176	* an iron bound chest (The temple treasury)
 P 0 47173 1 47170 1	* an iron bound chest: a large pile of gold and jewels
@@ -5752,7 +6295,7 @@ O 47178 2	* a sharp ivory-hilted wakizashi
 O 47179 2	* a shield of blue dragonscales
 O 47180 1	* Heart of the Storms
 O 47181 1	* the Hammer of Thunder
-O 47182 2	* a pait of mithril gauntlets, kote
+O 47182 2	* a pair of mithril gauntlets, kote
 O 47183 1	* a ring of black obsidian
 O 47184 1	* sharp talons of a demon
 O 47185 1	* a huge charred horn

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Quifael's~
 VNUMs 6900 6999
 Credits Quifael~
@@ -16,6 +16,8 @@ windows whatsoever.  A virtual ladder leads upwards.
 0 DJ inside
 D4
 The ladder leads to the laboratory.
+~
+~
 ~
 ~
 Z -1 6902
@@ -52,6 +54,8 @@ D2
 The corridor leads south to the hall.
 ~
 ~
+~
+~
 Z -1 6904
 S
 #6902
@@ -80,14 +84,20 @@ D1
 To the east is the magical portal.
 ~
 ~
+~
+~
 Z -1 6903
 D3
 To the west is the hall.
 ~
 ~
+~
+~
 Z -1 6904
 D5
 The virtual ladder leads down to the monster pen.
+~
+~
 ~
 ~
 Z -1 6900
@@ -133,6 +143,8 @@ D3
 The magical portal is to the west.
 ~
 ~
+~
+~
 Z -1 6902
 S
 #6904
@@ -150,9 +162,13 @@ D0
 The study is to the north.
 ~
 ~
+~
+~
 Z -1 6901
 D1
 The laboratory is to the east.
+~
+~
 ~
 ~
 Z -1 6902
@@ -160,11 +176,15 @@ D2
 The kitchen is to the south.
 ~
 ~
+~
+~
 Z -1 6905
 D4
 The front door leads to Park Road.
 ~
 door~
+~
+~
 AFZ 3301 3126
 S
 #6905
@@ -174,6 +194,8 @@ You are in an old-fashioned kitchen.
 0 DJ inside
 D0
 The hall is to the north.
+~
+~
 ~
 ~
 Z -1 6904

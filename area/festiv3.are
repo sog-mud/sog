@@ -3497,14 +3497,14 @@ enter the town.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 36336
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 40166
 S
 #36301
@@ -3523,26 +3523,26 @@ small, shimmering rainbows.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36302
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36304
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36306
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36308
 S
 #36302
@@ -3561,26 +3561,26 @@ across the lawn and at the edge of the fountain.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36311
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36303
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36301
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36309
 S
 #36303
@@ -3599,14 +3599,14 @@ across the lawn and at the edge of the fountain.
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36304
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36302
 S
 #36304
@@ -3625,26 +3625,26 @@ across the lawn and at the edge of the fountain.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36303
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36315
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36305
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36301
 S
 #36305
@@ -3663,14 +3663,14 @@ across the lawn and at the edge of the fountain.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36304
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36306
 S
 #36306
@@ -3689,26 +3689,26 @@ across the lawn and at the edge of the fountain.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36301
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36305
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36319
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36307
 S
 #36307
@@ -3727,14 +3727,14 @@ across the lawn and at the edge of the fountain.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36308
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36306
 S
 #36308
@@ -3753,26 +3753,26 @@ across the lawn and at the edge of the fountain.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36309
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36301
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36307
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36323
 S
 #36309
@@ -3791,14 +3791,14 @@ across the lawn and at the edge of the fountain.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36302
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36308
 S
 #36310
@@ -3819,14 +3819,14 @@ food and drink.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36311
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36325
 S
 #36311
@@ -3853,20 +3853,20 @@ ABZ -1 36326
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36312
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36302
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36310
 S
 #36312
@@ -3887,14 +3887,14 @@ food and drink.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36313
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36311
 S
 #36313
@@ -3915,14 +3915,14 @@ food and drink.
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36314
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36312
 S
 #36314
@@ -3943,14 +3943,14 @@ food and drink.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36313
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36315
 S
 #36315
@@ -3971,8 +3971,8 @@ food and drink.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36314
 D1
 ~
@@ -3983,14 +3983,14 @@ ABZ -1 36327
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36316
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36304
 S
 #36316
@@ -4011,14 +4011,14 @@ food and drink.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36315
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36317
 S
 #36317
@@ -4039,14 +4039,14 @@ food and drink.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36316
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36318
 S
 #36318
@@ -4067,14 +4067,14 @@ food and drink.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36317
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36319
 S
 #36319
@@ -4095,26 +4095,26 @@ food and drink.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36306
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36318
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36328
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36320
 S
 #36320
@@ -4135,14 +4135,14 @@ food and drink.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36319
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36321
 S
 #36321
@@ -4163,14 +4163,14 @@ food and drink.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36322
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36320
 S
 #36322
@@ -4191,14 +4191,14 @@ food and drink.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36323
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36321
 S
 #36323
@@ -4219,20 +4219,20 @@ food and drink.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36324
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36308
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36322
 D3
 ~
@@ -4259,14 +4259,14 @@ food and drink.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36325
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36323
 S
 #36325
@@ -4287,14 +4287,14 @@ food and drink.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36310
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36324
 S
 #36326
@@ -4309,14 +4309,14 @@ to the Festival Lawn.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36398
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ -1 36311
 S
 #36327
@@ -4330,14 +4330,14 @@ show their abilities.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36383
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ -1 36315
 S
 #36328
@@ -4353,8 +4353,8 @@ South you can return back to the streets.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36319
 D2
 ~
@@ -4385,8 +4385,8 @@ ABZ -1 36323
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36373
 S
 #36330
@@ -4406,26 +4406,26 @@ the northern part of the town.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36439
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36345
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36331
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36344
 S
 #36331
@@ -4445,26 +4445,26 @@ the northern part of the town.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36330
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36347
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36332
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36346
 S
 #36332
@@ -4482,26 +4482,26 @@ The Clock Tower is in the middle of the square.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36331
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36338
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36333
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36337
 S
 #36333
@@ -4521,26 +4521,26 @@ the northern part of the town.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36332
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ -1 36349
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36334
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ -1 36348
 S
 #36334
@@ -4560,26 +4560,26 @@ the northern part of the town.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36333
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36351
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36449
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36350
 S
 #36335
@@ -4595,14 +4595,14 @@ and invite to the town.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36450
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36336
 S
 #36336
@@ -4618,14 +4618,14 @@ to the entrance.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36335
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 36300
 S
 #36337
@@ -4649,14 +4649,14 @@ end massive stone chimneys brackets the walls at either end.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36332
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36339
 S
 #36338
@@ -4676,14 +4676,14 @@ yard through gaps in the trees.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36352
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36332
 S
 #36339
@@ -4699,20 +4699,20 @@ you can get in the Office, north lies a bedroom.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36342
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36337
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36340
 S
 #36340
@@ -4727,14 +4727,14 @@ southern wall. West you see a door to the treasure room.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36339
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ -1 36341
 S
 #36341
@@ -4746,8 +4746,8 @@ S
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ -1 36340
 S
 #36342
@@ -4763,14 +4763,14 @@ bedroom, south you can get back to the entrance.
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36339
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABCFGZ 36376 36343
 S
 #36343
@@ -4786,8 +4786,8 @@ the room.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABCFGZ 36376 36342
 S
 #36344
@@ -4809,8 +4809,8 @@ It's locked.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36330
 S
 #36345
@@ -4831,8 +4831,8 @@ fill a quiver hanging on the back wall.
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36330
 S
 #36346
@@ -4846,8 +4846,8 @@ it is really a home of a great warrior.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36331
 S
 #36347
@@ -4859,8 +4859,8 @@ S
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36331
 S
 #36348
@@ -4872,8 +4872,8 @@ S
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ -1 36333
 S
 #36349
@@ -4887,8 +4887,8 @@ with witch's brew are everywhere.
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ -1 36333
 S
 #36350
@@ -4902,8 +4902,8 @@ shelves and hanging on the walls.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36334
 S
 #36351
@@ -4918,8 +4918,8 @@ what you want. But someone has been here just before you...
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36334
 S
 #36352
@@ -4936,26 +4936,26 @@ see a great Dining Hall. West you can get back outdoors.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ -1 36354
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36353
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36338
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36356
 S
 #36353
@@ -4975,20 +4975,20 @@ Mayor's office.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36352
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ -1 36360
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ -1 36359
 S
 #36354
@@ -5008,20 +5008,20 @@ Mayor's apartments. Probably you aren't allowed there.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ -1 36357
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ -1 36352
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ -1 36355
 S
 #36355
@@ -5041,8 +5041,8 @@ room.
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ -1 36354
 S
 #36356
@@ -5060,8 +5060,8 @@ hurries preparing a festival dinner.
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36352
 S
 #36357
@@ -5078,8 +5078,8 @@ ever written. Come on and find what you want!
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ -1 36354
 S
 #36358
@@ -5123,8 +5123,8 @@ A huge table stands in the middle of the room.
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ -1 36353
 S
 #36360
@@ -5141,8 +5141,8 @@ shelves.
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ -1 36353
 S
 #36361
@@ -5158,8 +5158,8 @@ position. They compete for the Grand Pris.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36362
 S
 #36362
@@ -5177,14 +5177,14 @@ northern.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36363
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36361
 S
 #36363
@@ -5202,14 +5202,14 @@ northern.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36364
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36362
 S
 #36364
@@ -5227,20 +5227,20 @@ northern.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36365
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36377
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36363
 S
 #36365
@@ -5258,14 +5258,14 @@ northern.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36366
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36364
 S
 #36366
@@ -5283,14 +5283,14 @@ northern.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36367
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36365
 S
 #36367
@@ -5307,8 +5307,8 @@ you see here safe the trees and grass?
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36366
 S
 #36368
@@ -5322,8 +5322,8 @@ you see here safe the trees and grass?
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36372
 S
 #36369
@@ -5341,8 +5341,8 @@ animals and suddenly a small tent gets your attention.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36375
 S
 #36370
@@ -5359,26 +5359,26 @@ interesting, especially if you can get your own part in it.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36371
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36373
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36375
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36377
 S
 #36371
@@ -5395,20 +5395,20 @@ interesting, especially if you can get your own part in it.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36372
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36370
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36378
 S
 #36372
@@ -5425,20 +5425,20 @@ interesting, especially if you can get your own part in it.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36368
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36373
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36371
 S
 #36373
@@ -5455,26 +5455,26 @@ interesting, especially if you can get your own part in it.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36372
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36329
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36374
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36370
 S
 #36374
@@ -5491,14 +5491,14 @@ interesting, especially if you can get your own part in it.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36373
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36375
 S
 #36375
@@ -5515,26 +5515,26 @@ interesting, especially if you can get your own part in it.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36370
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36374
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36369
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36376
 S
 #36376
@@ -5551,14 +5551,14 @@ interesting, especially if you can get your own part in it.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36377
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36375
 S
 #36377
@@ -5575,26 +5575,26 @@ interesting, especially if you can get your own part in it.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36378
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36370
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36376
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36364
 S
 #36378
@@ -5611,14 +5611,14 @@ interesting, especially if you can get your own part in it.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36371
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36377
 S
 #36379
@@ -5634,8 +5634,8 @@ see a lit hill.
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36380
 S
 #36380
@@ -5650,14 +5650,14 @@ can see only the sands.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36379
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36381
 S
 #36381
@@ -5672,14 +5672,14 @@ can see only the sands.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36380
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36382
 S
 #36382
@@ -5694,20 +5694,20 @@ can see only the sands.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36381
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36397
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36383
 S
 #36383
@@ -5722,20 +5722,20 @@ can see only the sands.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36382
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36384
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36327
 S
 #36384
@@ -5750,20 +5750,20 @@ can see only the sands.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36383
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36395
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36385
 S
 #36385
@@ -5778,14 +5778,14 @@ can see only the sands.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36384
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36386
 S
 #36386
@@ -5800,14 +5800,14 @@ can see only the sands.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36385
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36387
 S
 #36387
@@ -5821,8 +5821,8 @@ you have left just now. South you can see Festival Town.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36386
 S
 #36388
@@ -5851,26 +5851,26 @@ tournament lawn. South-east lies Festival Town.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36390
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36392
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36394
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36396
 D5
 A rock blocks the way down.
@@ -5893,20 +5893,20 @@ small animals run away you approaching.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36391
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36389
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36397
 S
 #36391
@@ -5922,14 +5922,14 @@ small animals run away you approaching.
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36392
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36390
 S
 #36392
@@ -5945,20 +5945,20 @@ small animals run away you approaching.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36391
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36393
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36389
 S
 #36393
@@ -5974,14 +5974,14 @@ small animals run away you approaching.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36392
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36394
 S
 #36394
@@ -5997,20 +5997,20 @@ small animals run away you approaching.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36389
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36393
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36395
 S
 #36395
@@ -6026,26 +6026,26 @@ small animals run away you approaching.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36396
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36394
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 36388
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36384
 S
 #36396
@@ -6061,20 +6061,20 @@ small animals run away you approaching.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36397
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36389
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36395
 S
 #36397
@@ -6090,20 +6090,20 @@ small animals run away you approaching.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36390
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36396
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36382
 S
 #36398
@@ -6115,14 +6115,14 @@ S
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36399
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36326
 S
 #36399
@@ -6150,8 +6150,8 @@ ABZ -1 36389
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36401
 S
 #36401
@@ -6165,14 +6165,14 @@ climb back to the daylight.
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36402
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36400
 S
 #36402
@@ -6189,14 +6189,14 @@ D1
 D
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36401
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36403
 S
 #36403
@@ -6213,14 +6213,14 @@ east you see a light streaming from nowhere.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36402
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36404
 S
 #36404
@@ -6237,14 +6237,14 @@ east you see a light streaming from nowhere.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36403
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36405
 S
 #36405
@@ -6262,26 +6262,26 @@ catching your eyes flows just from this place.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36406
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36404
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36420
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36422
 S
 #36406
@@ -6297,20 +6297,20 @@ Bats screams above you as you disturb them.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36407
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36405
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36423
 S
 #36407
@@ -6327,14 +6327,14 @@ Bats screams above you as you disturb them.
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36406
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36408
 S
 #36408
@@ -6351,20 +6351,20 @@ Bats screams above you as you disturb them.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36407
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36423
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36409
 S
 #36409
@@ -6381,20 +6381,20 @@ Bats screams above you as you disturb them.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36408
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36424
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36410
 S
 #36410
@@ -6411,20 +6411,20 @@ Bats screams above you as you disturb them.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36409
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36425
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36411
 S
 #36411
@@ -6441,14 +6441,14 @@ Bats screams above you as you disturb them.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36410
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36412
 S
 #36412
@@ -6465,20 +6465,20 @@ Bats screams above you as you disturb them.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36411
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36425
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36413
 S
 #36413
@@ -6495,20 +6495,20 @@ Bats screams above you as you disturb them.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36412
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36426
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36414
 S
 #36414
@@ -6525,20 +6525,20 @@ Bats screams above you as you disturb them.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36413
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36427
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36415
 S
 #36415
@@ -6555,14 +6555,14 @@ Bats screams above you as you disturb them.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36414
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36416
 S
 #36416
@@ -6579,20 +6579,20 @@ Bats screams above you as you disturb them.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36427
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36417
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36415
 S
 #36417
@@ -6609,20 +6609,20 @@ Bats screams above you as you disturb them.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36428
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36418
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36416
 S
 #36418
@@ -6639,20 +6639,20 @@ Bats screams above you as you disturb them.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36421
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36419
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36417
 S
 #36419
@@ -6669,14 +6669,14 @@ Bats screams above you as you disturb them.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36420
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36418
 S
 #36420
@@ -6693,20 +6693,20 @@ Bats screams above you as you disturb them.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36405
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36419
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36421
 S
 #36421
@@ -6722,32 +6722,32 @@ someone is hidden amidst this beauty!
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36422
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36420
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36418
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36428
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36434
 S
 #36422
@@ -6764,32 +6764,32 @@ someone is hidden amidst this beauty!
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36423
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36405
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36421
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36429
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36433
 S
 #36423
@@ -6806,32 +6806,32 @@ someone is hidden amidst this beauty!
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36408
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36406
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36422
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36424
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36432
 S
 #36424
@@ -6848,32 +6848,32 @@ someone is hidden amidst this beauty!
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36409
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36423
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36429
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36425
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36431
 S
 #36425
@@ -6890,32 +6890,32 @@ someone is hidden amidst this beauty!
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36410
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36424
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36426
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36412
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36438
 S
 #36426
@@ -6932,32 +6932,32 @@ someone is hidden amidst this beauty!
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36425
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36429
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36427
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36413
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36437
 S
 #36427
@@ -6974,32 +6974,32 @@ someone is hidden amidst this beauty!
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36426
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36428
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36416
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36414
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36436
 S
 #36428
@@ -7016,32 +7016,32 @@ someone is hidden amidst this beauty!
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36429
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36421
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36417
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36427
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36435
 S
 #36429
@@ -7058,32 +7058,32 @@ down. Probably there is another way home? Who knows...
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36424
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36422
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36428
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36426
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36430
 S
 #36430
@@ -7099,38 +7099,38 @@ is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36431
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36433
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36435
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36437
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36301
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36429
 S
 #36431
@@ -7147,26 +7147,26 @@ is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36432
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36430
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36438
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36424
 S
 #36432
@@ -7183,20 +7183,20 @@ is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36433
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36431
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36423
 S
 #36433
@@ -7213,26 +7213,26 @@ is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36432
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36434
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36430
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36422
 S
 #36434
@@ -7249,20 +7249,20 @@ is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36433
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36435
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36421
 S
 #36435
@@ -7279,26 +7279,26 @@ is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36430
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36434
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36436
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36428
 S
 #36436
@@ -7315,20 +7315,20 @@ is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36437
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36435
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36427
 S
 #36437
@@ -7345,26 +7345,26 @@ is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36438
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36430
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36436
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36426
 S
 #36438
@@ -7381,20 +7381,20 @@ is a deep gleaming lake. Up ahead you feel a flow of fresh air.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36431
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36437
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36425
 S
 #36439
@@ -7414,14 +7414,14 @@ the northern part of the town.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36440
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36330
 S
 #36440
@@ -7444,20 +7444,20 @@ ABZ -1 36328
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36443
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36439
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36441
 S
 #36441
@@ -7470,20 +7470,20 @@ S
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36440
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36446
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36442
 S
 #36442
@@ -7496,14 +7496,14 @@ S
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36441
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36445
 S
 #36443
@@ -7516,20 +7516,20 @@ S
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36444
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36447
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36440
 S
 #36444
@@ -7542,14 +7542,14 @@ S
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36448
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36443
 S
 #36445
@@ -7564,8 +7564,8 @@ and a simple fireplace stand here.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36442
 S
 #36446
@@ -7580,8 +7580,8 @@ S
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36441
 S
 #36447
@@ -7596,8 +7596,8 @@ S
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36443
 S
 #36448
@@ -7612,8 +7612,8 @@ S
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36444
 S
 #36449
@@ -7633,14 +7633,14 @@ the northern part of the town.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36334
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36450
 S
 #36450
@@ -7656,26 +7656,26 @@ the 1st Line continues. South you can return to the gates.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36449
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36451
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36335
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36453
 S
 #36451
@@ -7690,20 +7690,20 @@ houses are on the northern side of the street.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36457
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36452
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36450
 S
 #36452
@@ -7718,14 +7718,14 @@ houses are on the northern side of the street.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36458
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36451
 S
 #36453
@@ -7740,20 +7740,20 @@ houses are on the northern side of the street.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36456
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36450
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36454
 S
 #36454
@@ -7768,14 +7768,14 @@ houses are on the northern side of the street.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36455
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36453
 S
 #36455
@@ -7790,8 +7790,8 @@ S
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36454
 S
 #36456
@@ -7806,8 +7806,8 @@ S
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36453
 S
 #36457
@@ -7822,8 +7822,8 @@ S
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36451
 S
 #36458
@@ -7838,8 +7838,8 @@ S
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 36452
 S
 #0

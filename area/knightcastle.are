@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Knight~
 VNUMs 95200 95299
 Credits Chronos~
@@ -336,8 +336,12 @@ the other one is on the west wall.
 D0
 ~
 ~
+~
+~
 Z 0 95219
 D2
+~
+~
 ~
 ~
 Z 0 7663
@@ -357,16 +361,24 @@ bright knight armors hung, indicating that this a protected area.
 D0
 ~
 ~
+~
+~
 Z -1 95204
 D1
+~
+~
 ~
 ~
 Z -1 95202
 D3
 ~
 ~
+~
+~
 Z -1 95203
 D5
+~
+~
 ~
 ~
 Z 0 95207
@@ -383,8 +395,12 @@ room is the squire traniee room.
 D1
 ~
 ~
+~
+~
 Z -1 95205
 D3
+~
+~
 ~
 ~
 Z -1 95201
@@ -401,6 +417,8 @@ wars or for helping young knights.
 ~
 0 DKX inside
 D1
+~
+~
 ~
 ~
 Z -1 95201
@@ -420,6 +438,8 @@ material.
 D2
 ~
 ~
+~
+~
 Z -1 95201
 S
 #95205
@@ -433,6 +453,8 @@ room is the used for maintainance of horses for Knights.
 ~
 0 DKMX inside
 D3
+~
+~
 ~
 ~
 Z -1 95202
@@ -458,8 +480,12 @@ your duties call you for struggle with the evil ones!
 D2
 ~
 ~
+~
+~
 Z 0 95222
 D4
+~
+~
 ~
 ~
 Z 0 95201
@@ -471,6 +497,8 @@ Before the castle~
 D0
 ~
 ~
+~
+~
 Z 0 95211
 S
 #95211
@@ -480,12 +508,18 @@ Entrance to the castle~
 D1
 ~
 ~
+~
+~
 Z 0 95212
 D2
 ~
 ~
+~
+~
 Z 0 95210
 D3
+~
+~
 ~
 ~
 DZ 0 95214
@@ -497,8 +531,12 @@ Between the wall and moat~
 D1
 ~
 ~
+~
+~
 Z 0 95213
 D3
+~
+~
 ~
 ~
 Z 0 95211
@@ -510,6 +548,8 @@ Stables~
 D3
 ~
 ~
+~
+~
 Z 0 95212
 S
 #95214
@@ -519,8 +559,12 @@ Between the wall and moat~
 D0
 ~
 ~
+~
+~
 Z 0 95215
 D1
+~
+~
 ~
 ~
 DZ 0 95211
@@ -532,12 +576,18 @@ Inner yard~
 D0
 ~
 ~
+~
+~
 Z 0 95216
 D2
 ~
 ~
+~
+~
 Z 0 95214
 D3
+~
+~
 ~
 ~
 ABZ 0 95218
@@ -549,8 +599,12 @@ Dinner hall~
 D0
 ~
 ~
+~
+~
 Z 0 95217
 D2
+~
+~
 ~
 ~
 Z 0 95215
@@ -562,6 +616,8 @@ Altar~
 D2
 ~
 ~
+~
+~
 Z 0 95216
 S
 #95218
@@ -571,8 +627,12 @@ In the guardtower~
 D0
 ~
 ~
+~
+~
 Z 0 95215
 D1
+~
+~
 ~
 ~
 Z 0 95214
@@ -592,8 +652,12 @@ swords, maces and lances hanging along the east and west walls.
 D0
 ~
 ~
+~
+~
 Z 0 95220
 D2
+~
+~
 ~
 ~
 Z 0 95200
@@ -613,8 +677,12 @@ swords, maces and lances hanging along the east and west walls.
 D0
 ~
 ~
+~
+~
 Z 0 95221
 D2
+~
+~
 ~
 ~
 Z 0 95219
@@ -634,8 +702,12 @@ swords, maces and lances hanging along the east and west walls.
 D0
 ~
 ~
+~
+~
 Z 0 95222
 D2
+~
+~
 ~
 ~
 Z 0 95220
@@ -655,8 +727,12 @@ swords, maces and lances hanging along the east and west walls.
 D0
 ~
 ~
+~
+~
 Z 0 95207
 D2
+~
+~
 ~
 ~
 Z 0 95221

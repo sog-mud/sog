@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Freeport~
 VNUMs 29200 29299
 Credits Lok~
@@ -918,9 +918,13 @@ D1
 On the rock jetty
 ~
 ~
+~
+~
 Z -1 29202
 D3
 Land Ho!!
+~
+~
 ~
 ~
 Z -1 14501
@@ -936,9 +940,13 @@ D2
 On the rock jetty
 ~
 ~
+~
+~
 Z -1 29203
 D3
 On the rock jetty
+~
+~
 ~
 ~
 Z -1 29201
@@ -954,9 +962,13 @@ D0
 On the rock jetty
 ~
 ~
+~
+~
 Z -1 29202
 D2
 On the rock jetty
+~
+~
 ~
 ~
 Z -1 29204
@@ -972,14 +984,20 @@ D0
 On the rock jetty
 ~
 ~
+~
+~
 Z -1 29203
 D1
 On the wharf
 ~
 ~
+~
+~
 Z -1 29206
 D2
 Wharf road
+~
+~
 ~
 ~
 Z -1 29205
@@ -995,9 +1013,13 @@ D0
 On the rock jetty
 ~
 ~
+~
+~
 Z -1 29204
 D1
 Wharf road
+~
+~
 ~
 ~
 Z -1 29207
@@ -1013,14 +1035,20 @@ D1
 On the wharf
 ~
 ~
+~
+~
 Z -1 29208
 D2
 Wharf road
 ~
 ~
+~
+~
 Z -1 29207
 D3
 On the jetty
+~
+~
 ~
 ~
 Z -1 29204
@@ -1036,14 +1064,20 @@ D0
 On the wharf
 ~
 ~
+~
+~
 Z -1 29206
 D1
 Wharf road
 ~
 ~
+~
+~
 Z -1 29209
 D3
 You see the wharf
+~
+~
 ~
 ~
 Z -1 29205
@@ -1059,14 +1093,20 @@ D1
 On the wharf
 ~
 ~
+~
+~
 Z -1 29212
 D2
 Wharf road
 ~
 ~
+~
+~
 Z -1 29209
 D3
 On the jetty
+~
+~
 ~
 ~
 Z -1 29206
@@ -1082,9 +1122,13 @@ D0
 On the wharf
 ~
 ~
+~
+~
 Z -1 29208
 D1
 Wharf road
+~
+~
 ~
 ~
 Z -1 29213
@@ -1092,9 +1136,13 @@ D2
 On the rock jetty
 ~
 ~
+~
+~
 Z -1 29210
 D3
 Wharf road
+~
+~
 ~
 ~
 Z -1 29207
@@ -1110,9 +1158,13 @@ D0
 Wharf road
 ~
 ~
+~
+~
 Z -1 29209
 D1
 On the rock jetty
+~
+~
 ~
 ~
 Z -1 29214
@@ -1128,9 +1180,13 @@ D1
 On the wharf
 ~
 ~
+~
+~
 Z -1 29217
 D2
 On the wharf
+~
+~
 ~
 ~
 Z -1 29212
@@ -1146,9 +1202,13 @@ D0
 On the wharf
 ~
 ~
+~
+~
 Z -1 29211
 D1
 Wharf road
+~
+~
 ~
 ~
 Z -1 29218
@@ -1156,9 +1216,13 @@ D2
 Wharf road
 ~
 ~
+~
+~
 Z -1 29213
 D3
 On the wharf
+~
+~
 ~
 ~
 Z -1 29208
@@ -1174,9 +1238,13 @@ D0
 On the wharf
 ~
 ~
+~
+~
 Z -1 29212
 D1
 Wharf road
+~
+~
 ~
 ~
 Z -1 29219
@@ -1184,9 +1252,13 @@ D2
 On the rock jetty
 ~
 ~
+~
+~
 Z -1 29214
 D3
 Wharf road
+~
+~
 ~
 ~
 Z -1 29209
@@ -1202,14 +1274,20 @@ D0
 Wharf road
 ~
 ~
+~
+~
 Z -1 29213
 D2
 Widow's Cape
 ~
 ~
+~
+~
 Z -1 29215
 D3
 On the Rock Jetty
+~
+~
 ~
 ~
 Z -1 29210
@@ -1225,6 +1303,8 @@ D0
 On the rock jetty
 ~
 ~
+~
+~
 Z -1 29214
 S
 #29216
@@ -1237,9 +1317,13 @@ D1
 On the wharf
 ~
 ~
+~
+~
 Z -1 29221
 D2
 On the wharf
+~
+~
 ~
 ~
 Z -1 29217
@@ -1255,9 +1339,13 @@ D0
 On the wharf
 ~
 ~
+~
+~
 Z -1 29216
 D1
 Wharf road
+~
+~
 ~
 ~
 Z -1 29222
@@ -1265,9 +1353,13 @@ D2
 Wharf road
 ~
 ~
+~
+~
 Z -1 29218
 D3
 On the wharf
+~
+~
 ~
 ~
 Z -1 29211
@@ -1283,9 +1375,13 @@ D0
 On the wharf
 ~
 ~
+~
+~
 Z -1 29217
 D1
 Wharf road
+~
+~
 ~
 ~
 Z -1 29223
@@ -1293,9 +1389,13 @@ D2
 Wharf road
 ~
 ~
+~
+~
 Z -1 29219
 D3
 On the wharf
+~
+~
 ~
 ~
 Z -1 29212
@@ -1311,14 +1411,20 @@ D0
 Wharf road
 ~
 ~
+~
+~
 Z -1 29218
 D1
 Freeport village
 ~
 ~
+~
+~
 Z -1 29224
 D3
 Wharf road
+~
+~
 ~
 ~
 Z -1 29213
@@ -1334,9 +1440,13 @@ D1
 On the rock jetty
 ~
 ~
+~
+~
 Z -1 29226
 D2
 Wharf road
+~
+~
 ~
 ~
 Z -1 29221
@@ -1352,9 +1462,13 @@ D0
 On the wharf
 ~
 ~
+~
+~
 Z -1 29220
 D1
 Shipyards
+~
+~
 ~
 ~
 Z -1 29227
@@ -1362,9 +1476,13 @@ D2
 Wharf road
 ~
 ~
+~
+~
 Z -1 29222
 D3
 On the wharf
+~
+~
 ~
 ~
 Z -1 29216
@@ -1380,9 +1498,13 @@ D0
 Wharf road
 ~
 ~
+~
+~
 Z -1 29221
 D1
 The road to the city of Freeport
+~
+~
 ~
 ~
 Z -1 29228
@@ -1390,9 +1512,13 @@ D2
 Wharf road
 ~
 ~
+~
+~
 Z -1 29223
 D3
 On the wharf
+~
+~
 ~
 ~
 Z -1 29217
@@ -1408,9 +1534,13 @@ D0
 Wharf road
 ~
 ~
+~
+~
 Z -1 29222
 D1
 Warehouse
+~
+~
 ~
 ~
 Z -1 29229
@@ -1418,9 +1548,13 @@ D2
 Freeport village
 ~
 ~
+~
+~
 Z -1 29224
 D3
 Wharf road
+~
+~
 ~
 ~
 Z -1 29218
@@ -1439,14 +1573,20 @@ D0
 Wharf road
 ~
 ~
+~
+~
 Z -1 29223
 D1
 Freeport village
 ~
 ~
+~
+~
 Z -1 29243
 D3
 Wharf road
+~
+~
 ~
 ~
 Z -1 29219
@@ -1462,9 +1602,13 @@ D0
 On the Rock Jetty
 ~
 ~
+~
+~
 Z -1 29237
 D2
 On the rock jetty
+~
+~
 ~
 ~
 Z -1 29226
@@ -1480,9 +1624,13 @@ D0
 On the rock jetty
 ~
 ~
+~
+~
 Z -1 29225
 D1
 On the rock jetty
+~
+~
 ~
 ~
 Z -1 29230
@@ -1490,9 +1638,13 @@ D2
 Shipyards
 ~
 ~
+~
+~
 Z -1 29227
 D3
 On the wharf
+~
+~
 ~
 ~
 Z -1 29220
@@ -1511,9 +1663,13 @@ D0
 On the rock jetty
 ~
 ~
+~
+~
 Z -1 29226
 D1
 On the rock jetty
+~
+~
 ~
 ~
 Z -1 29231
@@ -1521,9 +1677,13 @@ D2
 On the rode to Freeport city
 ~
 ~
+~
+~
 Z -1 29228
 D3
 Wharf road
+~
+~
 ~
 ~
 Z -1 29221
@@ -1541,9 +1701,13 @@ D0
 The shipyards
 ~
 ~
+~
+~
 Z -1 29227
 D1
 Freeport village
+~
+~
 ~
 ~
 Z -1 29232
@@ -1551,14 +1715,20 @@ D2
 The mercantile warehouse
 ~
 ~
+~
+~
 Z -1 29229
 D3
 Wharf road
 ~
 ~
+~
+~
 Z -1 29222
 D4
 The city gates
+~
+~
 ~
 ~
 Z -1 29246
@@ -1577,9 +1747,13 @@ D0
 The road to the city of Freeport
 ~
 ~
+~
+~
 Z -1 29228
 D3
 Wharf road
+~
+~
 ~
 ~
 Z -1 29223
@@ -1595,9 +1769,13 @@ D2
 On the rock jetty
 ~
 ~
+~
+~
 Z -1 29231
 D3
 On the rock jetty
+~
+~
 ~
 ~
 Z -1 29226
@@ -1613,9 +1791,13 @@ D0
 On the rock jetty
 ~
 ~
+~
+~
 Z -1 29230
 D1
 On the rock jetty
+~
+~
 ~
 ~
 Z -1 29233
@@ -1623,9 +1805,13 @@ D2
 Freeport village
 ~
 ~
+~
+~
 Z -1 29232
 D3
 Shipyards
+~
+~
 ~
 ~
 Z -1 29227
@@ -1644,14 +1830,20 @@ D0
 On the rock jetty
 ~
 ~
+~
+~
 Z -1 29231
 D2
 Freeport village
 ~
 ~
+~
+~
 Z -1 29245
 D3
 The road to Freeport city
+~
+~
 ~
 ~
 Z -1 29228
@@ -1667,9 +1859,13 @@ D1
 On the rock jetty
 ~
 ~
+~
+~
 Z -1 29234
 D3
 On the rock jetty
+~
+~
 ~
 ~
 Z -1 29231
@@ -1685,9 +1881,13 @@ D2
 On the rock jetty
 ~
 ~
+~
+~
 Z -1 29235
 D3
 On the rock jetty
+~
+~
 ~
 ~
 Z -1 29233
@@ -1703,9 +1903,13 @@ D0
 On the rock jetty
 ~
 ~
+~
+~
 Z -1 29234
 D1
 On the rock jetty
+~
+~
 ~
 ~
 Z -1 29236
@@ -1728,9 +1932,13 @@ D1
 The corner of the World
 ~
 ~
+~
+~
 Z -1 14001
 D3
 On the rock jetty
+~
+~
 ~
 ~
 Z -1 29235
@@ -1746,9 +1954,13 @@ D2
 On the Rock Jetty
 ~
 ~
+~
+~
 Z -1 29225
 D3
 On the rock jetty
+~
+~
 ~
 ~
 Z -1 29238
@@ -1764,9 +1976,13 @@ D0
 On the rock jetty
 ~
 ~
+~
+~
 Z -1 29239
 D1
 On the rock jetty
+~
+~
 ~
 ~
 Z -1 29237
@@ -1782,9 +1998,13 @@ D2
 On the rock jetty
 ~
 ~
+~
+~
 Z -1 29238
 D3
 On the rock jetty
+~
+~
 ~
 ~
 Z -1 29240
@@ -1800,9 +2020,13 @@ D1
 On the rock jetty
 ~
 ~
+~
+~
 Z -1 29239
 D3
 On the rock jetty
+~
+~
 ~
 ~
 Z -1 29241
@@ -1818,9 +2042,13 @@ D0
 On the rock jetty
 ~
 ~
+~
+~
 Z -1 29242
 D1
 On the rock jetty
+~
+~
 ~
 ~
 Z -1 29240
@@ -1835,6 +2063,8 @@ would rapidly erode.
 0 0 mountain
 D2
 On the rock jetty
+~
+~
 ~
 ~
 Z -1 29241
@@ -1853,9 +2083,13 @@ D1
 Freeport village
 ~
 ~
+~
+~
 Z -1 29244
 D3
 Freeport village
+~
+~
 ~
 ~
 Z -1 29224
@@ -1872,9 +2106,13 @@ D0
 Freeport village
 ~
 ~
+~
+~
 Z -1 29245
 D3
 Freeport village
+~
+~
 ~
 ~
 Z -1 29243
@@ -1893,9 +2131,13 @@ D0
 Freeport village
 ~
 ~
+~
+~
 Z -1 29232
 D2
 Freeport village
+~
+~
 ~
 ~
 Z -1 29244
@@ -1914,9 +2156,13 @@ D2
 Commerce lane
 ~
 gates bronze~
+the gates~
+~
 Z -1 29247
 D5
 The road to the island
+~
+~
 ~
 ~
 Z -1 29228
@@ -1934,9 +2180,13 @@ D0
 The gates of Freeport
 ~
 ~
+~
+~
 Z -1 29246
 D1
 The Sunken Pirate
+~
+~
 ~
 ~
 Z -1 29248
@@ -1944,9 +2194,13 @@ D2
 Commerce Street
 ~
 ~
+~
+~
 Z -1 29250
 D3
 The Emporium
+~
+~
 ~
 ~
 Z -1 29249
@@ -1966,6 +2220,8 @@ D3
 Commerce Street
 ~
 ~
+~
+~
 Z -1 29247
 S
 #29249
@@ -1978,6 +2234,8 @@ their customers.
 0 D inside
 D1
 Commerce Street
+~
+~
 ~
 ~
 Z -1 29247
@@ -1995,9 +2253,13 @@ D0
 Commerce Street
 ~
 ~
+~
+~
 Z -1 29247
 D1
 The Bronze Scabbard
+~
+~
 ~
 ~
 Z -1 29251
@@ -2005,9 +2267,13 @@ D2
 The town square
 ~
 ~
+~
+~
 Z -1 29253
 D3
 The Mystic Eye
+~
+~
 ~
 ~
 Z -1 29252
@@ -2025,6 +2291,8 @@ D3
 Commerce Street
 ~
 ~
+~
+~
 Z -1 29250
 S
 #29252
@@ -2037,6 +2305,8 @@ the counter.
 0 D inside
 D1
 Commerce Street
+~
+~
 ~
 ~
 Z -1 29250
@@ -2056,9 +2326,13 @@ D0
 Commerce Street
 ~
 ~
+~
+~
 Z -1 29250
 D1
 Naval Street
+~
+~
 ~
 ~
 Z -1 29254
@@ -2066,9 +2340,13 @@ D2
 Town hall
 ~
 ~
+~
+~
 Z -1 29256
 D3
 Shippers lane
+~
+~
 ~
 ~
 Z -1 29255
@@ -2085,14 +2363,20 @@ D1
 Naval Street
 ~
 ~
+~
+~
 Z -1 29276
 D2
 The Crew's Quarters
 ~
 ~
+~
+~
 Z -1 29257
 D3
 Town square
+~
+~
 ~
 ~
 Z -1 29253
@@ -2108,13 +2392,19 @@ D1
 Town square
 ~
 ~
+~
+~
 Z -1 29253
 D2
+~
+~
 ~
 ~
 Z 0 29258
 D3
 Shipper's lane
+~
+~
 ~
 ~
 Z -1 29259
@@ -2142,11 +2432,15 @@ D0
 Town square
 ~
 ~
+~
+~
 Z -1 29253
 D5
 A secret passage
 ~
 statue~
+the statue~
+~
 ABCZ 29201 29264
 S
 #29257
@@ -2163,6 +2457,8 @@ D0
 Naval Street
 ~
 ~
+~
+~
 Z -1 29254
 S
 #29258
@@ -2174,6 +2470,8 @@ the amount of gilding inside the building.
 ~
 0 CD inside
 D0
+~
+~
 ~
 ~
 Z 0 29255
@@ -2189,14 +2487,20 @@ D0
 The mercantile school
 ~
 ~
+~
+~
 Z -1 29260
 D1
 Shipper's lane
 ~
 ~
+~
+~
 Z -1 29255
 D2
 The merchant's guild
+~
+~
 ~
 ~
 Z -1 29261
@@ -2212,6 +2516,8 @@ economic dominance of Freeport of world trade.
 0 D inside
 D2
 Shipper's Lane
+~
+~
 ~
 ~
 Z -1 29259
@@ -2235,6 +2541,8 @@ D0
 Shipper's Lane
 ~
 ~
+~
+~
 Z -1 29259
 S
 #29262
@@ -2249,6 +2557,8 @@ and under contract to the Merchants guild.
 0 D inside
 D2
 Naval Street
+~
+~
 ~
 ~
 Z -1 29276
@@ -2269,6 +2579,8 @@ D0
 Naval Street
 ~
 ~
+~
+~
 Z -1 29276
 S
 #29264
@@ -2287,11 +2599,15 @@ D2
 On a secret staircase
 ~
 ~
+~
+~
 Z -1 29265
 D4
 Through the secret door
 ~
 statue~
+the statue~
+~
 ABCZ 29201 29256
 S
 #29265
@@ -2305,9 +2621,13 @@ D0
 On a secret staircase
 ~
 ~
+~
+~
 Z -1 29264
 D2
 On a secret staircase
+~
+~
 ~
 ~
 Z -1 29267
@@ -2324,14 +2644,20 @@ D0
 On a secret staircase
 ~
 ~
+~
+~
 Z -1 29265
 D1
 In the hidden cavern
 ~
 ~
+~
+~
 Z -1 29269
 D2
 In the hidden cavern
+~
+~
 ~
 ~
 Z -1 29268
@@ -2352,14 +2678,20 @@ D0
 In the hidden cavern
 ~
 ~
+~
+~
 Z -1 29267
 D1
 In the hidden harbor
 ~
 ~
+~
+~
 Z -1 29275
 D2
 In the hidden cavern
+~
+~
 ~
 ~
 Z -1 29273
@@ -2381,9 +2713,13 @@ D0
 Through the guarded door
 ~
 door~
+~
+~
 ABZ -1 29270
 D1
 In the hidden cavern
+~
+~
 ~
 ~
 Z -1 29271
@@ -2391,9 +2727,13 @@ D2
 In the hidden harbor
 ~
 ~
+~
+~
 Z -1 29275
 D3
 In the hidden cavern
+~
+~
 ~
 ~
 Z -1 29267
@@ -2414,6 +2754,8 @@ D2
 Through the door
 ~
 door~
+~
+~
 Z -1 29269
 S
 #29271
@@ -2432,9 +2774,13 @@ D2
 In the hidden cavern
 ~
 ~
+~
+~
 Z -1 29272
 D3
 In the hidden cavern
+~
+~
 ~
 ~
 Z -1 29269
@@ -2455,14 +2801,20 @@ D0
 In the hidden cavern
 ~
 ~
+~
+~
 Z -1 29271
 D2
 In the hidden cavern
 ~
 ~
+~
+~
 Z -1 29274
 D3
 In the hidden harbor
+~
+~
 ~
 ~
 Z -1 29275
@@ -2485,6 +2837,8 @@ D0
 In the hidden cavern
 ~
 ~
+~
+~
 Z -1 29268
 S
 #29274
@@ -2501,6 +2855,8 @@ are they doing here?
 ~
 D0
 In the hidden cavern
+~
+~
 ~
 ~
 Z -1 29272
@@ -2521,14 +2877,20 @@ D0
 On the docks
 ~
 ~
+~
+~
 Z -1 29269
 D1
 On the docks
 ~
 ~
+~
+~
 Z -1 29272
 D3
 On the docks
+~
+~
 ~
 ~
 Z -1 29268
@@ -2546,14 +2908,20 @@ D0
 The naval academy
 ~
 ~
+~
+~
 Z -1 29262
 D2
 The Captains guild
 ~
 ~
+~
+~
 Z -1 29263
 D3
 Naval Street
+~
+~
 ~
 ~
 Z -1 29254

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Hell~
 VNUMs 10400 10599
 Credits Strahd~
@@ -1705,9 +1705,13 @@ Brought to you by Strahd
 D0
 ~
 ~
+~
+~
 Z -1 22049
 D3
 It's too dark to see.
+~
+~
 ~
 ~
 Z -1 10402
@@ -1725,14 +1729,20 @@ D1
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10401
 D3
 You see an ancient shrine.
 ~
 ~
+~
+~
 Z -1 10418
 D5
 You see a dark stairway.
+~
+~
 ~
 ~
 Z -1 10403
@@ -1749,9 +1759,13 @@ D3
 It's too dark to see.
 ~
 ~
+~
+~
 Z -1 10404
 D4
 You see a dark stairway.
+~
+~
 ~
 ~
 Z -1 10402
@@ -1776,11 +1790,15 @@ D1
 It's too dark to see.
 ~
 ~
+~
+~
 Z -1 10403
 D3
 You see the Gates of Hell
 ~
 gates~
+the gates~
+~
 ABZ -1 10405
 S
 #10405
@@ -1801,19 +1819,27 @@ D0
 It's too smoky to see.
 ~
 ~
+~
+~
 Z -1 10416
 D1
 The Gates of Hell
 ~
 gates~
+the gates~
+~
 ABZ -1 10404
 D2
 It's too smoky to see.
 ~
 ~
+~
+~
 Z -1 10426
 D3
 It's too smoky to see.
+~
+~
 ~
 ~
 Z -1 10406
@@ -1830,9 +1856,13 @@ D0
 It's too smoky to see.
 ~
 ~
+~
+~
 Z -1 10415
 D1
 It's too smoky to see.
+~
+~
 ~
 ~
 Z -1 10405
@@ -1840,9 +1870,13 @@ D2
 It's too smoky to see.
 ~
 ~
+~
+~
 Z -1 10425
 D3
 It's too smoky to see.
+~
+~
 ~
 ~
 Z -1 10407
@@ -1859,9 +1893,13 @@ D0
 It's too smoky to see.
 ~
 ~
+~
+~
 Z -1 10414
 D1
 It's too smoky to see.
+~
+~
 ~
 ~
 Z -1 10406
@@ -1869,9 +1907,13 @@ D2
 It's too smoky to see.
 ~
 ~
+~
+~
 Z -1 10424
 D3
 It's too smoky to see.
+~
+~
 ~
 ~
 Z -1 10408
@@ -1888,9 +1930,13 @@ D0
 It's too smoky to see.
 ~
 ~
+~
+~
 Z -1 10413
 D1
 It's too smoky to see.
+~
+~
 ~
 ~
 Z -1 10407
@@ -1898,9 +1944,13 @@ D2
 It's too smoky to see.
 ~
 ~
+~
+~
 Z -1 10423
 D3
 It's too smoky to see.
+~
+~
 ~
 ~
 Z -1 10409
@@ -1917,9 +1967,13 @@ D0
 It's too smoky to see.
 ~
 ~
+~
+~
 Z -1 10412
 D1
 It's too smoky to see.
+~
+~
 ~
 ~
 Z -1 10408
@@ -1927,9 +1981,13 @@ D2
 It's too smoky to see.
 ~
 ~
+~
+~
 Z -1 10422
 D3
 It's too smoky to see.
+~
+~
 ~
 ~
 Z -1 10410
@@ -1937,6 +1995,8 @@ D5
 You see a dark stairway leading down.
 ~
 stairs~
+the stairs~
+~
 Z -1 10421
 S
 #10410
@@ -1951,9 +2011,13 @@ D0
 It's too smoky to see.
 ~
 ~
+~
+~
 Z -1 10411
 D1
 It's too smoky to see.
+~
+~
 ~
 ~
 Z -1 10409
@@ -1969,9 +2033,13 @@ D1
 It's too smoky to see.
 ~
 ~
+~
+~
 Z -1 10412
 D2
 It's too smoky to see.
+~
+~
 ~
 ~
 Z -1 10410
@@ -1987,14 +2055,20 @@ D1
 It's too smoky to see.
 ~
 ~
+~
+~
 Z -1 10413
 D2
 It's too smoky to see.
 ~
 ~
+~
+~
 Z -1 10409
 D3
 It's too smoky to see.
+~
+~
 ~
 ~
 Z -1 10411
@@ -2010,14 +2084,20 @@ D1
 It's too smoky to see.
 ~
 ~
+~
+~
 Z -1 10414
 D2
 It's too smoky to see.
 ~
 ~
+~
+~
 Z -1 10408
 D3
 It's too smoky to see.
+~
+~
 ~
 ~
 Z -1 10412
@@ -2034,14 +2114,20 @@ D1
 It's too smoky to see.
 ~
 ~
+~
+~
 Z -1 10415
 D2
 It's too smoky to see.
 ~
 ~
+~
+~
 Z -1 10407
 D3
 It's too smoky to see.
+~
+~
 ~
 ~
 Z -1 10413
@@ -2058,14 +2144,20 @@ D1
 It's too smoky to see.
 ~
 ~
+~
+~
 Z -1 10416
 D2
 It's too smoky to see.
 ~
 ~
+~
+~
 Z -1 10406
 D3
 It's too smoky to see.
+~
+~
 ~
 ~
 Z -1 10414
@@ -2083,14 +2175,20 @@ D1
 You see a bedroom door.
 ~
 door~
+~
+~
 ABZ -1 10417
 D2
 It's too smoky to see.
 ~
 ~
+~
+~
 Z -1 10405
 D3
 It's too smoky to see.
+~
+~
 ~
 ~
 Z -1 10415
@@ -2108,6 +2206,8 @@ D3
 You see a bedroom door.
 ~
 door~
+~
+~
 ABZ -1 10416
 S
 #10418
@@ -2124,6 +2224,8 @@ D1
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10402
 S
 #10419
@@ -2137,9 +2239,13 @@ D1
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10420
 D2
 It is too dark to see.
+~
+~
 ~
 ~
 Z -1 10429
@@ -2155,9 +2261,13 @@ D2
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10430
 D3
 It is too dark to see.
+~
+~
 ~
 ~
 Z -1 10419
@@ -2174,9 +2284,13 @@ D4
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10409
 D5
 It is too dark to see.
+~
+~
 ~
 ~
 Z -1 10431
@@ -2191,9 +2305,13 @@ D0
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10409
 D1
 It is too dark to see.
+~
+~
 ~
 ~
 Z -1 10423
@@ -2214,14 +2332,20 @@ D0
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10408
 D1
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10424
 D3
 It is too dark to see.
+~
+~
 ~
 ~
 Z -1 10422
@@ -2242,14 +2366,20 @@ D0
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10407
 D1
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10425
 D3
 It is too dark to see.
+~
+~
 ~
 ~
 Z -1 10423
@@ -2266,14 +2396,20 @@ D0
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10406
 D1
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10426
 D3
 It is too dark to see.
+~
+~
 ~
 ~
 Z -1 10424
@@ -2288,14 +2424,20 @@ D0
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10405
 D1
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10427
 D3
 It is too dark to see.
+~
+~
 ~
 ~
 Z -1 10425
@@ -2310,9 +2452,13 @@ D1
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10428
 D3
 It is too dark to see.
+~
+~
 ~
 ~
 Z -1 10426
@@ -2328,9 +2474,13 @@ D1
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10429
 D3
 It is too dark to see.
+~
+~
 ~
 ~
 Z -1 10427
@@ -2346,14 +2496,20 @@ D0
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10419
 D1
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10430
 D3
 It is too dark to see.
+~
+~
 ~
 ~
 Z -1 10428
@@ -2370,9 +2526,13 @@ D0
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10420
 D3
 It is too dark to see.
+~
+~
 ~
 ~
 Z -1 10429
@@ -2387,6 +2547,8 @@ There is a hallway to the east.
 0 AD inside
 D1
 It is too dark to see.
+~
+~
 ~
 ~
 Z -1 10432
@@ -2404,9 +2566,13 @@ D2
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10442
 D3
 It is too dark to see.
+~
+~
 ~
 ~
 Z -1 10431
@@ -2422,6 +2588,8 @@ D2
 You see bars
 ~
 bars~
+the bars~
+~
 ABZ -1 10443
 S
 #10434
@@ -2437,9 +2605,13 @@ D1
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10435
 D2
 It is too dark to see.
+~
+~
 ~
 ~
 Z -1 10444
@@ -2457,14 +2629,20 @@ D1
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10436
 D2
 You see the steel bars of a cell.
 ~
 bars~
+the bars~
+~
 ABZ -1 10445
 D3
 It is too dark to see.
+~
+~
 ~
 ~
 Z -1 10434
@@ -2482,9 +2660,13 @@ D2
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10446
 D3
 It is too dark to see.
+~
+~
 ~
 ~
 Z -1 10435
@@ -2500,6 +2682,8 @@ D2
 You see bars
 ~
 bars~
+the bars~
+~
 ABZ -1 10447
 S
 #10438
@@ -2515,9 +2699,13 @@ D1
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10439
 D3
 It is too dark to see.
+~
+~
 ~
 ~
 Z -1 10448
@@ -2535,19 +2723,27 @@ D1
 You see the steel bars to a cell.
 ~
 bars~
+the bars~
+~
 ABZ -1 10440
 D2
 You see the steel bars to a cell.
 ~
 bars~
+the bars~
+~
 ABZ -1 10449
 D3
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10438
 D5
 You see a dark stairway down....
+~
+~
 ~
 ~
 Z -1 10450
@@ -2563,6 +2759,8 @@ D3
 You see bars
 ~
 bars~
+the bars~
+~
 ABZ -1 10439
 S
 #10441
@@ -2574,6 +2772,8 @@ hi tech torture devices and for sentimental reasons wasn't thrown away.
 0 AD inside
 D2
 It's too dark to see.
+~
+~
 ~
 ~
 Z -1 10451
@@ -2591,9 +2791,13 @@ D0
 It's too dark to see.
 ~
 ~
+~
+~
 Z -1 10432
 D1
 It's too dark to see.
+~
+~
 ~
 ~
 Z -1 10443
@@ -2612,14 +2816,20 @@ D0
 You see bars to a cell.
 ~
 bars~
+the bars~
+~
 ABZ -1 10433
 D1
 It's too dark to see.
 ~
 ~
+~
+~
 Z -1 10444
 D3
 It's too dark to see.
+~
+~
 ~
 ~
 Z -1 10442
@@ -2637,9 +2847,13 @@ D0
 It's too dark to see.
 ~
 ~
+~
+~
 Z -1 10434
 D3
 It's too dark to see.
+~
+~
 ~
 ~
 Z -1 10443
@@ -2655,6 +2869,8 @@ D0
 You see bars
 ~
 bars~
+the bars~
+~
 ABZ -1 10435
 S
 #10446
@@ -2670,9 +2886,13 @@ D0
 It's too dark to see.
 ~
 ~
+~
+~
 Z -1 10436
 D1
 It's too dark to see.
+~
+~
 ~
 ~
 Z -1 10447
@@ -2691,14 +2911,20 @@ D0
 You see bars to a cell.
 ~
 bars~
+the bars~
+~
 ABZ -1 10437
 D1
 It's too dark to see.
 ~
 ~
+~
+~
 Z -1 10448
 D3
 It's too dark to see.
+~
+~
 ~
 ~
 Z -1 10446
@@ -2716,9 +2942,13 @@ D0
 It's too dark to see.
 ~
 ~
+~
+~
 Z -1 10438
 D3
 It's too dark to see.
+~
+~
 ~
 ~
 Z -1 10447
@@ -2734,6 +2964,8 @@ D0
 You see bars
 ~
 bars~
+the bars~
+~
 ABZ -1 10439
 S
 #10450
@@ -2749,9 +2981,13 @@ D4
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10439
 D5
 It is too dark to see.
+~
+~
 ~
 ~
 Z -1 10461
@@ -2769,9 +3005,13 @@ D0
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10441
 D3
 It is too dark to see.
+~
+~
 ~
 ~
 Z -1 10450
@@ -2790,14 +3030,20 @@ D1
 You see a hall of fire.
 ~
 ~
+~
+~
 Z -1 10453
 D2
 You see the Foreman's office.
 ~
 ~
+~
+~
 ABZ -1 10462
 D5
 You see a dark stairway down.
+~
+~
 ~
 ~
 Z -1 10463
@@ -2817,9 +3063,13 @@ D1
 You see a hall of fire.
 ~
 ~
+~
+~
 Z -1 10454
 D3
 You see a stone archway.
+~
+~
 ~
 ~
 Z -1 10452
@@ -2838,9 +3088,13 @@ D2
 You see a hall of fire.
 ~
 ~
+~
+~
 Z -1 10464
 D3
 You see a stone archway.
+~
+~
 ~
 ~
 Z -1 10453
@@ -2858,9 +3112,13 @@ D1
 You see a construction area.
 ~
 ~
+~
+~
 Z -1 10456
 D2
 You see a construction area.
+~
+~
 ~
 ~
 Z -1 10465
@@ -2878,9 +3136,13 @@ D1
 You see a construction area.
 ~
 ~
+~
+~
 Z -1 10457
 D2
 You see a construction area.
+~
+~
 ~
 ~
 Z -1 10455
@@ -2898,9 +3160,13 @@ D2
 You see a construction area.
 ~
 ~
+~
+~
 Z -1 10467
 D3
 You see a construction area.
+~
+~
 ~
 ~
 Z -1 10456
@@ -2919,9 +3185,13 @@ D1
 You see a hall of fire.
 ~
 ~
+~
+~
 Z -1 10459
 D2
 You see a hall of fire.
+~
+~
 ~
 ~
 Z -1 10468
@@ -2942,14 +3212,20 @@ D1
 You see a room full of fire pits.
 ~
 ~
+~
+~
 Z -1 10460
 D2
 You see a wall of fire.
 ~
 ~
+~
+~
 Z -1 10469
 D3
 You see a hall of fire.
+~
+~
 ~
 ~
 Z -1 10458
@@ -2967,9 +3243,13 @@ D2
 You see a lake of fire.
 ~
 ~
+~
+~
 Z -1 10470
 D3
 You see a hall of fire.
+~
+~
 ~
 ~
 Z -1 10459
@@ -2989,6 +3269,8 @@ D2
 You see a stone hallway.
 ~
 ~
+~
+~
 Z -1 10471
 S
 #10462
@@ -3001,6 +3283,8 @@ construction plaque that reads, "4th DEMONsion Contruction"
 0 AD inside
 D0
 You see the door to the office.
+~
+~
 ~
 ~
 ABZ -1 10452
@@ -3017,9 +3301,13 @@ D4
 It is too dark to see.
 ~
 ~
+~
+~
 Z -1 10452
 D5
 It is too dark to see.
+~
+~
 ~
 ~
 Z -1 10472
@@ -3038,9 +3326,13 @@ D0
 You see a hall of fire.
 ~
 ~
+~
+~
 Z -1 10454
 D1
 You see a wall of fire.
+~
+~
 ~
 ~
 Z -1 10465
@@ -3059,14 +3351,20 @@ D0
 You see a construction area.
 ~
 ~
+~
+~
 Z -1 10455
 D1
 You see a construction area.
 ~
 ~
+~
+~
 Z -1 10466
 D3
 You see a Hall of fire.
+~
+~
 ~
 ~
 Z -1 10464
@@ -3084,9 +3382,13 @@ D1
 You see a construction area.
 ~
 ~
+~
+~
 Z -1 10467
 D3
 You see a construction area.
+~
+~
 ~
 ~
 Z -1 10465
@@ -3105,14 +3407,20 @@ D0
 You see a construction area.
 ~
 ~
+~
+~
 Z -1 10457
 D1
 You see a hall of fire.
 ~
 ~
+~
+~
 Z -1 10468
 D3
 You see a construction area.
+~
+~
 ~
 ~
 Z -1 10466
@@ -3132,9 +3440,13 @@ D0
 You see a hall of fire.
 ~
 ~
+~
+~
 Z -1 10458
 D3
 You see a construction area.
+~
+~
 ~
 ~
 Z -1 10467
@@ -3158,9 +3470,13 @@ D0
 You see a hall of fire.
 ~
 ~
+~
+~
 Z -1 10459
 D1
 You see a Lake of fire.
+~
+~
 ~
 ~
 Z -1 10470
@@ -3176,14 +3492,20 @@ D0
 It is too smoky to see.
 ~
 ~
+~
+~
 Z -1 10460
 D1
 It is too smoky to see.
 ~
 ~
+~
+~
 Z -1 10471
 D3
 It is too smoky to see.
+~
+~
 ~
 ~
 Z -1 10469
@@ -3198,9 +3520,13 @@ D0
 You see a Mural Room.
 ~
 ~
+~
+~
 Z -1 10461
 D3
 It is too smoky to see.
+~
+~
 ~
 ~
 Z -1 10470
@@ -3215,6 +3541,8 @@ To the east you see a room of ice.
 0 AD inside
 D1
 You see a room of ice.
+~
+~
 ~
 ~
 Z -1 10541
@@ -3232,9 +3560,13 @@ D2
 You see a room of ice.
 ~
 ~
+~
+~
 Z -1 10483
 D3
 You see a room of ice.
+~
+~
 ~
 ~
 Z -1 10541
@@ -3252,9 +3584,13 @@ D1
 You see more of the Meat locker
 ~
 ~
+~
+~
 Z -1 10475
 D2
 You see more of the Meat locker
+~
+~
 ~
 ~
 Z -1 10484
@@ -3273,9 +3609,13 @@ D1
 You see a freezer door.
 ~
 freezer~
+the freezer~
+~
 ABZ -1 10476
 D2
 You see more of the Meat locker
+~
+~
 ~
 ~
 Z -1 10485
@@ -3294,9 +3634,13 @@ D1
 You see lots and lots of ice.
 ~
 ~
+~
+~
 Z -1 10477
 D2
 You see lots and lots of ice.
+~
+~
 ~
 ~
 Z -1 10486
@@ -3304,6 +3648,8 @@ D3
 You see a freezer door.
 ~
 door freezer~
+~
+~
 ABZ -1 10475
 S
 #10477
@@ -3319,9 +3665,13 @@ D2
 You see lots and lots of ice.
 ~
 ~
+~
+~
 Z -1 10487
 D3
 You see lots and lots of ice.
+~
+~
 ~
 ~
 Z -1 10476
@@ -3337,9 +3687,13 @@ D1
 You see lots of ice-cream machines.
 ~
 ~
+~
+~
 Z -1 10479
 D2
 You see lots of ice-cream machines.
+~
+~
 ~
 ~
 Z -1 10488
@@ -3357,14 +3711,20 @@ D1
 You see a steel door.
 ~
 door steel~
+~
+~
 ABZ -1 10480
 D2
 You see lots of ice-cream machines.
 ~
 ~
+~
+~
 Z -1 10489
 D3
 You see lots of ice-cream machines.
+~
+~
 ~
 ~
 Z -1 10478
@@ -3382,11 +3742,15 @@ D2
 You see a marble hallway.
 ~
 ~
+~
+~
 Z -1 10490
 D3
 You see a steel door.
 ~
 door steel~
+~
+~
 ABZ -1 10479
 S
 #10481
@@ -3398,6 +3762,8 @@ The only exit is east.
 0 AD inside
 D1
 You see a room of ice.
+~
+~
 ~
 ~
 Z -1 10482
@@ -3415,14 +3781,20 @@ D0
 You see a room of ice.
 ~
 ~
+~
+~
 Z -1 10541
 D1
 You see a room of ice.
 ~
 ~
+~
+~
 Z -1 10483
 D3
 You see a room full of refrigerators.
+~
+~
 ~
 ~
 Z -1 10481
@@ -3440,14 +3812,20 @@ D0
 You see a room of ice.
 ~
 ~
+~
+~
 Z -1 10473
 D1
 You see a freezer door.
 ~
 door freezer~
+~
+~
 ABZ -1 10484
 D3
 You see a room of ice.
+~
+~
 ~
 ~
 Z -1 10482
@@ -3465,9 +3843,13 @@ D0
 You see more of the Meat locker
 ~
 ~
+~
+~
 Z -1 10474
 D1
 You see more of the Meat locker
+~
+~
 ~
 ~
 Z -1 10485
@@ -3475,6 +3857,8 @@ D3
 You see a freezer door.
 ~
 door freezer~
+~
+~
 ABZ -1 10483
 S
 #10485
@@ -3487,9 +3871,13 @@ D0
 You see more of the Meat locker
 ~
 ~
+~
+~
 Z -1 10475
 D3
 You see more of the Meat locker
+~
+~
 ~
 ~
 Z -1 10484
@@ -3507,9 +3895,13 @@ D0
 You see lots and lots of ice.
 ~
 ~
+~
+~
 Z -1 10476
 D1
 You see lots and lots of ice.
+~
+~
 ~
 ~
 Z -1 10487
@@ -3528,9 +3920,13 @@ D0
 You see lots and lots of ice.
 ~
 ~
+~
+~
 Z -1 10477
 D1
 You see a dark passageway.
+~
+~
 ~
 ~
 Z -1 10488
@@ -3548,14 +3944,20 @@ D0
 You see lots of ice-cream machines.
 ~
 ~
+~
+~
 Z -1 10478
 D1
 You see lots of ice-cream machines.
 ~
 ~
+~
+~
 Z -1 10489
 D3
 You see a dark passageway.
+~
+~
 ~
 ~
 Z -1 10487
@@ -3571,9 +3973,13 @@ D0
 You see lots of ice-cream machines.
 ~
 ~
+~
+~
 Z -1 10479
 D3
 You see lots of ice-cream machines.
+~
+~
 ~
 ~
 Z -1 10488
@@ -3592,9 +3998,13 @@ D0
 You see a white marble hallway.
 ~
 ~
+~
+~
 Z -1 10480
 D2
 You see an office.
+~
+~
 ~
 ~
 Z -1 10500
@@ -3609,6 +4019,8 @@ The records room continues to the east.
 0 AD inside
 D1
 You see rows and rows of records.
+~
+~
 ~
 ~
 Z -1 10492
@@ -3626,14 +4038,20 @@ D1
 You see rows and rows of records.
 ~
 ~
+~
+~
 Z -1 10493
 D2
 You see the Halls of Judgement.
 ~
 ~
+~
+~
 Z -1 10502
 D3
 You see rows and rows of records.
+~
+~
 ~
 ~
 Z -1 10491
@@ -3650,9 +4068,13 @@ D1
 You see rows and rows of records.
 ~
 ~
+~
+~
 Z -1 10494
 D3
 You see rows and rows of records.
+~
+~
 ~
 ~
 Z -1 10492
@@ -3667,6 +4089,8 @@ The records room continues to the west.
 0 AD inside
 D3
 You see rows and rows of records.
+~
+~
 ~
 ~
 Z -1 10493
@@ -3691,6 +4115,8 @@ D1
 You see a blackened hallway.
 ~
 ~
+~
+~
 Z -1 10496
 S
 #10496
@@ -3706,14 +4132,20 @@ D1
 You see a stone door.
 ~
 door stone~
+~
+~
 ABZ -1 10497
 D2
 You see a blackened hall.
 ~
 ~
+~
+~
 Z -1 10506
 D3
 You see a prayer room.
+~
+~
 ~
 ~
 Z -1 10495
@@ -3730,6 +4162,8 @@ D3
 You see a stone door.
 ~
 door stone~
+~
+~
 ABZ -1 10496
 S
 #10498
@@ -3744,9 +4178,13 @@ D1
 You see a blackened hall.
 ~
 ~
+~
+~
 Z -1 10499
 D2
 You see a blackened hall.
+~
+~
 ~
 ~
 Z -1 10508
@@ -3764,9 +4202,13 @@ D1
 You see a glass door.
 ~
 door glass~
+~
+~
 ABZ -1 10500
 D3
 You see a blackened hall.
+~
+~
 ~
 ~
 Z -1 10498
@@ -3796,21 +4238,29 @@ D0
 You see a marble hall.
 ~
 ~
+~
+~
 Z -1 10490
 D2
 You see a metal door.
 ~
 door metal~
+~
+~
 ABZ -1 10510
 D3
 You see a glass door.
 ~
 door glass~
+~
+~
 ABZ -1 10499
 D5
 You see a stairway down.
 ~
 stairway~
+the stairway~
+~
 Z -1 10509
 S
 #10501
@@ -3827,9 +4277,13 @@ D1
 You see the Halls of Judgement.
 ~
 ~
+~
+~
 Z -1 10502
 D2
 You see the Court of Hell.
+~
+~
 ~
 ~
 Z -1 10511
@@ -3847,14 +4301,20 @@ D0
 You see the Hall of Records.
 ~
 ~
+~
+~
 Z -1 10492
 D1
 You see the Halls of Judgement.
 ~
 ~
+~
+~
 Z -1 10503
 D3
 You see the Halls of Judgement.
+~
+~
 ~
 ~
 Z -1 10501
@@ -3872,14 +4332,20 @@ D1
 You see the Halls of Judgement.
 ~
 ~
+~
+~
 Z -1 10504
 D2
 You see the Office of Complaints.
 ~
 ~
+~
+~
 Z -1 10513
 D3
 You see the Halls of Judgement.
+~
+~
 ~
 ~
 Z -1 10502
@@ -3896,9 +4362,13 @@ D1
 You see the Halls of Judgement.
 ~
 ~
+~
+~
 Z -1 10505
 D3
 You see the Halls of Judgement.
+~
+~
 ~
 ~
 Z -1 10503
@@ -3915,9 +4385,13 @@ D1
 You see the Halls of Judgement.
 ~
 ~
+~
+~
 Z -1 10506
 D3
 You see the Halls of Judgement.
+~
+~
 ~
 ~
 Z -1 10504
@@ -3934,9 +4408,13 @@ D0
 You see a blackened hall.
 ~
 ~
+~
+~
 Z -1 10496
 D1
 You see a blackened hall.
+~
+~
 ~
 ~
 Z -1 10507
@@ -3944,9 +4422,13 @@ D2
 You see the hallway of the Mall from Hell .
 ~
 ~
+~
+~
 Z -1 10516
 D3
 You see the Halls of Judgement.
+~
+~
 ~
 ~
 Z -1 10505
@@ -3963,9 +4445,13 @@ D1
 You see a blackened hall.
 ~
 ~
+~
+~
 Z -1 10508
 D3
 You see a blackened hall.
+~
+~
 ~
 ~
 Z -1 10506
@@ -3982,9 +4468,13 @@ D0
 You see a blackened hall.
 ~
 ~
+~
+~
 Z -1 10498
 D3
 You see a blackened hall.
+~
+~
 ~
 ~
 Z -1 10507
@@ -4001,6 +4491,8 @@ D5
 You see the eternal darkness of the Abyss.
 ~
 ~
+~
+~
 Z -1 10518
 S
 #10510
@@ -4015,9 +4507,13 @@ D0
 You see a steel door.
 ~
 door steel~
+~
+~
 ABZ -1 10500
 D2
 You see a maintenance walkway.
+~
+~
 ~
 ~
 Z -1 10520
@@ -4037,9 +4533,13 @@ D0
 You see the Halls of Judgement.
 ~
 ~
+~
+~
 Z -1 10501
 D2
 You see a large wooden door.
+~
+~
 ~
 ~
 Z -1 10521
@@ -4059,9 +4559,13 @@ D1
 You see the Office of Complaints.
 ~
 ~
+~
+~
 Z -1 10513
 D2
 You see a courtyard.
+~
+~
 ~
 ~
 Z -1 10522
@@ -4080,9 +4584,13 @@ D0
 You see the Halls of Judgement.
 ~
 ~
+~
+~
 Z -1 10503
 D3
 You see a lawyers office
+~
+~
 ~
 ~
 Z -1 10512
@@ -4102,6 +4610,8 @@ D1
 You see the Mall from Hell.
 ~
 ~
+~
+~
 Z -1 10515
 S
 #10515
@@ -4117,14 +4627,20 @@ D1
 You see the Mall from Hell.
 ~
 ~
+~
+~
 Z -1 10516
 D2
 You see the Mall from Hell.
 ~
 ~
+~
+~
 Z -1 10525
 D3
 You see Hiramoto's Buy & Sell.
+~
+~
 ~
 ~
 Z -1 10514
@@ -4142,14 +4658,20 @@ D0
 You see a blackened hall.
 ~
 ~
+~
+~
 Z -1 10506
 D1
 You see the office of Big Mouth.
 ~
 ~
+~
+~
 Z -1 10517
 D3
 You see the hallways of the Mall from Hell.
+~
+~
 ~
 ~
 Z -1 10515
@@ -4167,11 +4689,15 @@ D3
 You see the hallways of the Mall from Hell.
 ~
 ~
+~
+~
 Z -1 10516
 D5
 You see Big Mouth's mouth.
 ~
 mouth big mouth's~
+the mouth~
+~
 Z -1 10526
 S
 #10518
@@ -4184,6 +4710,8 @@ punished.
 0 AD inside
 D5
 You see the eternal darkness of the Abyss.
+~
+~
 ~
 ~
 Z -1 10527
@@ -4199,9 +4727,13 @@ D1
 You see a maintenance walkway.
 ~
 ~
+~
+~
 Z -1 10520
 D2
 You see a maintenance walkway.
+~
+~
 ~
 ~
 Z -1 10529
@@ -4217,9 +4749,13 @@ D0
 You see a maintenance walkway.
 ~
 ~
+~
+~
 Z -1 10510
 D3
 You see a maintenance walkway.
+~
+~
 ~
 ~
 Z -1 10519
@@ -4234,6 +4770,8 @@ torchlight.
 0 D inside
 D0
 You see the Courtroom of Hell.
+~
+~
 ~
 ~
 Z -1 10511
@@ -4251,14 +4789,20 @@ D0
 You see a lawyers office.
 ~
 ~
+~
+~
 Z -1 10512
 D1
 You see a more of the courtyard.
 ~
 ~
+~
+~
 Z -1 10523
 D2
 You see a more of the courtyard.
+~
+~
 ~
 ~
 Z -1 10532
@@ -4276,14 +4820,20 @@ D1
 You see Stanley's Magical Steeds store.
 ~
 ~
+~
+~
 Z -1 10524
 D2
 You see a more of the courtyard.
 ~
 ~
+~
+~
 Z -1 10533
 D3
 You see a more of the courtyard.
+~
+~
 ~
 ~
 Z -1 10522
@@ -4303,9 +4853,13 @@ D2
 You see a hallway of the Mall from Hell.
 ~
 ~
+~
+~
 Z -1 10534
 D3
 You see an abandon courtyard.
+~
+~
 ~
 ~
 Z -1 10523
@@ -4321,9 +4875,13 @@ D0
 You see a hall of the Mall from Hell.
 ~
 ~
+~
+~
 Z -1 10515
 D2
 You see a hall of the Mall from Hell.
+~
+~
 ~
 ~
 Z -1 10535
@@ -4339,6 +4897,8 @@ D4
 You see Big Mouth's throat.
 ~
 mouth big mouth's throat~
+the mouth~
+~
 Z -1 10517
 S
 #10527
@@ -4351,6 +4911,8 @@ punished.
 0 AD inside
 D5
 You see the eternal darkness of the Abyss.
+~
+~
 ~
 ~
 Z -1 10536
@@ -4369,9 +4931,13 @@ D1
 You see a maintenance room.
 ~
 ~
+~
+~
 Z -1 10529
 D2
 You see stairs down to the reactor floor.
+~
+~
 ~
 ~
 Z -1 10538
@@ -4391,9 +4957,13 @@ D0
 You see a maintenance walkway.
 ~
 ~
+~
+~
 Z -1 10519
 D1
 You see a break room.
+~
+~
 ~
 ~
 Z -1 10530
@@ -4401,9 +4971,13 @@ D2
 You see the secondary control room.
 ~
 ~
+~
+~
 Z -1 10539
 D3
 You see the reactor control room.
+~
+~
 ~
 ~
 Z -1 10528
@@ -4421,9 +4995,13 @@ D2
 You see the chief engineers office.
 ~
 ~
+~
+~
 Z -1 10540
 D3
 You see the primary maintenance room.
+~
+~
 ~
 ~
 Z -1 10529
@@ -4441,6 +5019,8 @@ D1
 You see an abandon courtyard.
 ~
 ~
+~
+~
 Z -1 10532
 S
 #10532
@@ -4456,14 +5036,20 @@ D0
 You see more of the courtyard.
 ~
 ~
+~
+~
 Z -1 10522
 D1
 You see a more of the courtyard.
 ~
 ~
+~
+~
 Z -1 10533
 D3
 You see a kitchen.
+~
+~
 ~
 ~
 Z -1 10531
@@ -4480,9 +5066,13 @@ D0
 You see more of the courtyard.
 ~
 ~
+~
+~
 Z -1 10523
 D3
 You see a more of the courtyard.
+~
+~
 ~
 ~
 Z -1 10532
@@ -4499,9 +5089,13 @@ D0
 You see Stanley's Magic Steeds.
 ~
 ~
+~
+~
 Z -1 10524
 D1
 You see a hall of the Mall from Hell.
+~
+~
 ~
 ~
 Z -1 10535
@@ -4517,9 +5111,13 @@ D0
 You see a hall of the Mall from Hell.
 ~
 ~
+~
+~
 Z -1 10525
 D3
 You see a hall of the Mall from Hell.
+~
+~
 ~
 ~
 Z -1 10534
@@ -4534,6 +5132,8 @@ sign....now what did it say again?......
 ~
 0 D inside
 D5
+~
+~
 ~
 ~
 Z -1 5250
@@ -4551,6 +5151,8 @@ D1
 You see a maintenance hatch.
 ~
 hatch maintenance reactor core~
+the hatch~
+~
 ABZ -1 10538
 S
 #10538
@@ -4567,11 +5169,15 @@ D0
 You see the stairs to the control room.
 ~
 ~
+~
+~
 Z -1 10528
 D3
 You see a reactor core maintence hatch.
 ~
 hatch maintenance reactor core~
+the hatch~
+~
 ABZ -1 10537
 S
 #10539
@@ -4584,6 +5190,8 @@ working order.
 0 AD inside
 D0
 You see the primary maintenance room.
+~
+~
 ~
 ~
 Z -1 10529
@@ -4601,6 +5209,8 @@ D0
 You see the break room.
 ~
 ~
+~
+~
 Z -1 10530
 S
 #10541
@@ -4614,14 +5224,20 @@ D1
 You see a room of ice.
 ~
 ~
+~
+~
 Z -1 10473
 D2
 You see a room of ice.
 ~
 ~
+~
+~
 Z -1 10482
 D3
 You see a room of ice.
+~
+~
 ~
 ~
 Z -1 10472

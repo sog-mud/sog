@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Sands of Sorrow~
 VNUMs 5000 5099
 Credits Anon~
@@ -582,8 +582,12 @@ the mountains by the river.
 D1
 ~
 ~
+~
+~
 Z 0 5002
 D3
+~
+~
 ~
 ~
 Z 0 3205
@@ -596,12 +600,18 @@ The tunnel branches off north.
 D0
 ~
 ~
+~
+~
 Z 0 5008
 D1
 ~
 ~
+~
+~
 Z 0 5003
 D3
+~
+~
 ~
 ~
 Z 0 5001
@@ -614,12 +624,18 @@ The tunnel branches off south.
 D1
 ~
 ~
+~
+~
 Z 0 5004
 D2
 ~
 ~
+~
+~
 Z 0 5017
 D3
+~
+~
 ~
 ~
 Z 0 5002
@@ -632,12 +648,18 @@ The tunnel branches off to the south.
 D1
 ~
 ~
+~
+~
 Z 0 5005
 D2
 ~
 ~
+~
+~
 Z 0 5018
 D3
+~
+~
 ~
 ~
 Z 0 5003
@@ -653,16 +675,24 @@ a tunnel south.
 D0
 ~
 ~
+~
+~
 Z 0 5016
 D1
+~
+~
 ~
 ~
 Z 0 5006
 D2
 ~
 ~
+~
+~
 Z 0 5023
 D3
+~
+~
 ~
 ~
 Z 0 5004
@@ -675,8 +705,12 @@ The tunnel rises sharply to the east.
 D1
 ~
 ~
+~
+~
 Z 0 5007
 D3
+~
+~
 ~
 ~
 Z 0 5005
@@ -690,8 +724,12 @@ down into a bright light.
 D1
 ~
 ~
+~
+~
 Z 0 5027
 D3
+~
+~
 ~
 ~
 Z 0 5006
@@ -705,9 +743,13 @@ rockslide.
 D2
 ~
 ~
+~
+~
 Z 0 5002
 D5
 You can easily slide down the rocks without getting hurt.
+~
+~
 ~
 ~
 Z 0 5009
@@ -721,12 +763,18 @@ off to the north and east.
 D0
 ~
 ~
+~
+~
 Z 0 5010
 D1
 ~
 ~
+~
+~
 Z 0 5012
 D4
+~
+~
 ~
 ~
 Z 0 5008
@@ -740,9 +788,13 @@ deeper into the darkness.
 D2
 ~
 ~
+~
+~
 Z 0 5009
 D5
 You look down into the cave. Bones are strewn about everywhere.
+~
+~
 ~
 ~
 Z 0 5011
@@ -756,6 +808,8 @@ Bones of previous adventurers lie strewn on the cavern floor.
 D4
 ~
 ~
+~
+~
 Z 0 5010
 S
 #5012
@@ -766,8 +820,12 @@ The tunnel turns to the south and west.
 D2
 ~
 ~
+~
+~
 Z 0 5013
 D3
+~
+~
 ~
 ~
 Z 0 5009
@@ -780,8 +838,12 @@ You are standing in a large cave. Many furs are spread out on the floor.
 D0
 ~
 ~
+~
+~
 Z 0 5012
 D1
+~
+~
 ~
 ~
 Z 0 5014
@@ -795,8 +857,12 @@ D1
 You hear drops of water.
 ~
 ~
+~
+~
 Z 0 5015
 D3
+~
+~
 ~
 ~
 Z 0 5013
@@ -809,8 +875,12 @@ You are wading in a knee deep pool of lime-water.
 D2
 ~
 ~
+~
+~
 Z 0 5016
 D3
+~
+~
 ~
 ~
 Z 0 5014
@@ -825,8 +895,12 @@ D0
 You hear drops of water.
 ~
 ~
+~
+~
 Z 0 5015
 D2
+~
+~
 ~
 ~
 Z 0 5005
@@ -840,13 +914,19 @@ halfling to walk through.
 D0
 ~
 ~
+~
+~
 Z 0 5003
 D1
+~
+~
 ~
 ~
 Z 0 5018
 D2
 You smell the fragrant odor of fungus.
+~
+~
 ~
 ~
 Z 0 5019
@@ -860,8 +940,12 @@ almost any dwarf.
 D0
 ~
 ~
+~
+~
 Z 0 5004
 D3
+~
+~
 ~
 ~
 Z 0 5017
@@ -875,9 +959,13 @@ spores. You can hardly breathe.
 D0
 ~
 ~
+~
+~
 Z 0 5017
 D1
 The fragrant smell of fungus spores continues to the east
+~
+~
 ~
 ~
 Z 0 5020
@@ -892,9 +980,13 @@ D2
 A giant mushroom temple stands to the south.
 ~
 ~
+~
+~
 Z 0 5021
 D3
 The fragrant smell of spores continues to the west.
+~
+~
 ~
 ~
 Z 0 5019
@@ -908,8 +1000,12 @@ is decorated in the fashion of a temple.
 D0
 ~
 ~
+~
+~
 Z 0 5020
 D1
+~
+~
 ~
 ~
 Z 0 5022
@@ -922,8 +1018,12 @@ You follow a path sloping down from the fungus temple.
 D3
 ~
 ~
+~
+~
 Z 0 5021
 D5
+~
+~
 ~
 ~
 Z 0 5023
@@ -937,8 +1037,12 @@ D0
 You hear sounds of trickling water.
 ~
 ~
+~
+~
 Z 0 5005
 D4
+~
+~
 ~
 ~
 Z 0 5022
@@ -953,9 +1057,13 @@ D0
 Sand as far as the eye can see.
 ~
 ~
+~
+~
 Z 0 5030
 D1
 Sand as far as the eye can see.
+~
+~
 ~
 ~
 Z 0 5025
@@ -963,9 +1071,13 @@ D2
 Sand as far as the eye can see.
 ~
 ~
+~
+~
 Z 0 5027
 D3
 Sand as far as the eye can see.
+~
+~
 ~
 ~
 Z 0 5026
@@ -986,9 +1098,13 @@ D0
 You see a nomad camp by an oasis.
 ~
 ~
+~
+~
 Z 0 5056
 D1
 Sand as far as the eye can see.
+~
+~
 ~
 ~
 Z 0 5026
@@ -996,9 +1112,13 @@ D2
 Sand as far as the eye can see.
 ~
 ~
+~
+~
 Z 0 5028
 D3
 Sand as far as the eye can see.
+~
+~
 ~
 ~
 Z 0 5024
@@ -1013,9 +1133,13 @@ D0
 Sand as far as the eye can see.
 ~
 ~
+~
+~
 Z 0 5032
 D1
 Sand as far as the eye can see.
+~
+~
 ~
 ~
 Z 0 5024
@@ -1023,9 +1147,13 @@ D2
 Sand as far as the eye can see.
 ~
 ~
+~
+~
 Z 0 5029
 D3
 Sand as far as the eye can see.
+~
+~
 ~
 ~
 Z 0 5025
@@ -1040,9 +1168,13 @@ D0
 Sand as far as the eye can see.
 ~
 ~
+~
+~
 Z 0 5024
 D1
 Sand as far as the eye can see.
+~
+~
 ~
 ~
 Z 0 5028
@@ -1050,9 +1182,13 @@ D2
 Sand as far as the eye can see.
 ~
 ~
+~
+~
 Z 0 5030
 D3
 You see a river flowing into the mountain.
+~
+~
 ~
 ~
 Z 0 5007
@@ -1067,9 +1203,13 @@ D0
 Sand as far as the eye can see.
 ~
 ~
+~
+~
 Z 0 5025
 D1
 Sand as far as the eye can see.
+~
+~
 ~
 ~
 Z 0 5029
@@ -1077,9 +1217,13 @@ D2
 Sand as far as the eye can see.
 ~
 ~
+~
+~
 Z 0 5031
 D3
 Sand as far as the eye can see.
+~
+~
 ~
 ~
 Z 0 5027
@@ -1094,9 +1238,13 @@ D0
 Sand as far as the eye can see.
 ~
 ~
+~
+~
 Z 0 5026
 D1
 The sand is glowing in this direction.
+~
+~
 ~
 ~
 Z 0 5062
@@ -1104,9 +1252,13 @@ D2
 Sand as far as the eye can see.
 ~
 ~
+~
+~
 Z 0 5032
 D3
 Sand as far as the eye can see.
+~
+~
 ~
 ~
 Z 0 5028
@@ -1121,9 +1273,13 @@ D0
 Sand as far as the eye can see.
 ~
 ~
+~
+~
 Z 0 5027
 D1
 Sand as far as the eye can see.
+~
+~
 ~
 ~
 Z 0 5031
@@ -1131,9 +1287,13 @@ D2
 Sand as far as the eye can see.
 ~
 ~
+~
+~
 Z 0 5024
 D3
 Sand as far as the eye can see.
+~
+~
 ~
 ~
 Z 0 5032
@@ -1148,9 +1308,13 @@ D0
 Sand as far as the eye can see.
 ~
 ~
+~
+~
 Z 0 5028
 D1
 Sand as far as the eye can see.
+~
+~
 ~
 ~
 Z 0 5032
@@ -1158,9 +1322,13 @@ D2
 Sand as far as the eye can see.
 ~
 ~
+~
+~
 Z 0 5063
 D3
 Sand as far as the eye can see.
+~
+~
 ~
 ~
 Z 0 5030
@@ -1175,9 +1343,13 @@ D0
 Sand as far as the eye can see.
 ~
 ~
+~
+~
 Z 0 5029
 D1
 Sand as far as the eye can see.
+~
+~
 ~
 ~
 Z 0 5030
@@ -1185,9 +1357,13 @@ D2
 You see a tiny ledge.
 ~
 ~
+~
+~
 Z 0 5026
 D3
 Sand as far as the eye can see.
+~
+~
 ~
 ~
 Z 0 5031
@@ -1204,14 +1380,20 @@ D0
 You see ill-tempered camels.
 ~
 ~
+~
+~
 Z 0 5058
 D1
 You see inside one of the tents a huddled mass of people, probably slaves.
 ~
 ~
+~
+~
 Z 0 5057
 D2
 Sand as far as the eye can see.
+~
+~
 ~
 ~
 Z 0 5025
@@ -1227,9 +1409,13 @@ D1
 Waving in the heat over the sand you see a HUGE pyramid.
 ~
 ~
+~
+~
 Z -1 8700
 D3
 You see the center of the nomad camp.
+~
+~
 ~
 ~
 Z 0 5056
@@ -1246,14 +1432,20 @@ This tent seems to be the temporary abode of the nomad leader. You make a
 mental note to visit it before you leave.
 ~
 ~
+~
+~
 Z 0 5060
 D1
 In this tent there are very large men, all carrying weapons.
 ~
 ~
+~
+~
 Z 0 5059
 D2
 You see the center of the nomad camp.
+~
+~
 ~
 ~
 Z 0 5056
@@ -1268,6 +1460,8 @@ D3
 Outside you see some peaceful camels.
 ~
 ~
+~
+~
 Z 0 5058
 S
 #5060
@@ -1280,9 +1474,13 @@ walls.
 D1
 ~
 ~
+~
+~
 Z 0 5061
 D2
 You see some peaceful camels.
+~
+~
 ~
 ~
 Z 0 5058
@@ -1298,6 +1496,8 @@ D3
 You see the entrance to this tent.
 ~
 ~
+~
+~
 Z 0 5060
 S
 #5062
@@ -1307,13 +1507,10 @@ you.  But this patch of desert looks different...the sand glows.  You see a
 futuristic city to the south.
 ~
 0 CD mountain
-D2
-You see a futuristic city.
-~
-~
-Z 0 8001
 D3
 Sand as far as the eye can see.
+~
+~
 ~
 ~
 Z 0 5029
@@ -1329,9 +1526,13 @@ D0
 Sand as far as the eye can see.
 ~
 ~
+~
+~
 Z 0 5031
 D3
 You see a dark cave.
+~
+~
 ~
 ~
 Z 0 5064
@@ -1347,8 +1548,12 @@ D1
 Outside is lighter and very windy.
 ~
 ~
+~
+~
 Z 0 5063
 D3
+~
+~
 ~
 ~
 Z 0 5065
@@ -1364,10 +1569,14 @@ narrows out into a tunnel to the west.
 D1
 ~
 ~
+~
+~
 Z 0 5064
 D3
 ~
 door~
+~
+~
 ABCFZ 5024 5066
 S
 #5066
@@ -1379,8 +1588,12 @@ feel your way along the walls.
 D1
 ~
 door~
+~
+~
 ABCFZ 5024 5065
 D3
+~
+~
 ~
 ~
 Z 0 5067
@@ -1394,8 +1607,12 @@ The floor seems to level off a little.
 D1
 ~
 ~
+~
+~
 Z 0 5066
 D2
+~
+~
 ~
 ~
 Z 0 5068
@@ -1409,8 +1626,12 @@ move in to meet you.
 D0
 ~
 ~
+~
+~
 Z 0 5067
 D3
+~
+~
 ~
 ~
 Z 0 5069
@@ -1424,8 +1645,12 @@ in the east wall. The floor now slopes upwards.
 D0
 ~
 ~
+~
+~
 Z 0 5070
 D1
+~
+~
 ~
 ~
 Z 0 5068
@@ -1439,8 +1664,12 @@ large enough for one person. Back south is the cavern.
 D2
 ~
 ~
+~
+~
 Z 0 5069
 D4
+~
+~
 ~
 ~
 Z 0 5009

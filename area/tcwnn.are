@@ -2955,36 +2955,36 @@ D0
 The Interior of the Temple
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 31001
 D1
 Victory Parade East
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31005
 D2
 Glory Avenue
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31004
 D3
 Victory Parade West
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31003
 D5
 The Chamber of Donations
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31002
 S
 #31001
@@ -3002,15 +3002,15 @@ if you look at him.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 5216
 D2
 The Temple of Anon
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 31000
 S
 #31002
@@ -3027,29 +3027,29 @@ D1
 Weapon Donations
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31164
 D2
 Armor Donations
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31163
 D3
 Magical Donations
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31165
 D4
 The Temple of Anon
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31000
 S
 #31003
@@ -3064,15 +3064,15 @@ D1
 The Temple of Anon
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31000
 D3
 Victory Parade West
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31006
 S
 #31004
@@ -3088,29 +3088,29 @@ D0
 The Temple of Anon
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31000
 D1
 The Book Shoppe.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ 0 31321
 D2
 Glory Avenue
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31007
 D3
 The Locksmith.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ 0 31322
 S
 #31005
@@ -3125,15 +3125,15 @@ D1
 Victory Parade East
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31008
 D3
 The Temple of Anon
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31000
 S
 #31006
@@ -3148,29 +3148,29 @@ D0
 Liberty Lane
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31038
 D1
 Victory Parade West
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31003
 D2
 Liberty Lane
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31040
 D3
 Victory Parade West
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31009
 S
 #31007
@@ -3184,29 +3184,29 @@ D0
 Glory Avenue
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31004
 D1
 Valiant Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31067
 D2
 Glory Avenue
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31010
 D3
 Valiant Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31065
 S
 #31008
@@ -3221,29 +3221,29 @@ D0
 Liberty Lane
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31042
 D1
 Victory Parade East
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31011
 D2
 Liberty Lane
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31044
 D3
 Victory Parade East
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31005
 S
 #31009
@@ -3261,29 +3261,29 @@ D0
 Alix the Thaumaturgist can be seen disposing of cursed items.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31199
 D1
 Victory Parade West
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31006
 D2
 Clea the Artificer is reclining on a couch, while she enchants a stave.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31320
 D3
 Victory Parade West
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31012
 S
 #31010
@@ -3298,15 +3298,15 @@ D0
 Glory Avenue
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31007
 D2
 Outside the Dryad Guild
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31034
 S
 #31011
@@ -3327,21 +3327,21 @@ D1
 Victory Parade East
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31013
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31323
 D3
 Victory Parade East
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31008
 S
 #31012
@@ -3357,22 +3357,22 @@ A small cafe lies to the north.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31191
 D1
 Victory Parade West
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31009
 D3
 Victory Parade West
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31014
 S
 #31013
@@ -3390,21 +3390,21 @@ D1
 Victory Parade East
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31015
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 31085 31195
 D3
 Victory Parade East
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31011
 S
 #31014
@@ -3418,15 +3418,15 @@ D1
 Victory Parade West
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31012
 D3
 The Victory Parade West Gate
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31016
 S
 #31015
@@ -3442,15 +3442,15 @@ D1
 The Victory Parade East Gate
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31017
 D3
 Victory Parade East
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31013
 S
 #31016
@@ -3469,28 +3469,28 @@ gatehouse.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ 0 31200
 D1
 Victory Parade West
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31014
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ 0 31201
 D3
 Outside the Gates
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 31000 31018
 S
 #31017
@@ -3509,28 +3509,28 @@ gatehouse.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ 0 31212
 D1
 Outside the Gates
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 31000 31019
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ 0 31213
 D3
 Victory Parade East
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31015
 S
 #31018
@@ -3548,28 +3548,28 @@ D0
 The Circuit Road
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31020
 D1
 Victory Parade West
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 31000 31016
 D2
 The Circuit Road
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31033
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 24118
 S
 #31019
@@ -3587,29 +3587,29 @@ D0
 The Circuit Road
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31026
 D1
 Dark Passage
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 9588
 D2
 The Circuit Road
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31027
 D3
 Victory Parade East
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 31000 31017
 S
 #31020
@@ -3623,15 +3623,15 @@ D0
 Northwest Corner of the City
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31021
 D2
 Outside the Victory Parade West Gates
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31018
 S
 #31021
@@ -3645,15 +3645,15 @@ D1
 The Circuit Road
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31022
 D2
 The Circuit Road
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31020
 S
 #31022
@@ -3667,15 +3667,15 @@ D1
 A Path to the Plains
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31023
 D3
 Northwest corner of the Circuit Road
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31021
 S
 #31023
@@ -3688,15 +3688,15 @@ D1
 The Circuit Road
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31024
 D3
 The Circuit Road
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31022
 S
 #31024
@@ -3710,15 +3710,15 @@ D1
 Northeast Corner of the Circuit Road
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31025
 D3
 A Path to the Plains
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31023
 S
 #31025
@@ -3732,15 +3732,15 @@ D2
 The Circuit Road
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31026
 D3
 The Circuit Road
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31024
 S
 #31026
@@ -3754,15 +3754,15 @@ D0
 Northeast Corner of the City
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31025
 D2
 Outside the Victory Parade East Gates
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31019
 S
 #31027
@@ -3776,15 +3776,15 @@ D0
 Outside the Victory Parade East Gates
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31019
 D2
 Southeast Corner of the City
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31028
 S
 #31028
@@ -3800,22 +3800,22 @@ D0
 The Circuit Road
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31027
 D2
 The dock of Anon
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31275
 D3
 The Circuit Road
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31029
 S
 #31029
@@ -3829,15 +3829,15 @@ D1
 southeast Corner of the Circuit Road
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31028
 D3
 A Path to the South
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31030
 S
 #31030
@@ -3851,15 +3851,15 @@ D1
 The Circuit Road
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31029
 D3
 The Circuit Road
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31031
 S
 #31031
@@ -3873,15 +3873,15 @@ D1
 A Path to the South
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31030
 D3
 Southwest Corner of the Circuit Road
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31032
 S
 #31032
@@ -3895,15 +3895,15 @@ D0
 The Circuit Road
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31033
 D1
 The Circuit Road
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31031
 S
 #31033
@@ -3917,15 +3917,15 @@ D0
 Outside the Victory Parade West Gates
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31018
 D2
 The Circuit Road
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31032
 S
 #31034
@@ -3940,15 +3940,15 @@ D0
 Glory Avenue
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31010
 D2
 Inside the Dryad Guild
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 31035
 S
 #31035
@@ -3967,22 +3967,22 @@ D0
 Outside the Dryad Guild
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 31034
 D1
 The Dryad Bar
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31037
 D3
 The Guildmaster
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31036
 S
 #31036
@@ -3998,8 +3998,8 @@ D1
 Inside the Dryad Guild
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31035
 S
 #31037
@@ -4014,8 +4014,8 @@ D3
 Inside the Dryad Guild
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31035
 S
 #31038
@@ -4029,22 +4029,22 @@ D0
 Justice Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31046
 D2
 Victory Parade
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31006
 D3
 Castellan's Office
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 31039
 S
 #31039
@@ -4058,8 +4058,8 @@ D1
 Liberty Lane
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 31038
 S
 #31040
@@ -4074,22 +4074,22 @@ D0
 Victory Parade
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31006
 D2
 Corner of Liberty Lane and Valiant Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31062
 D3
 The Smithy
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31041
 S
 #31041
@@ -4108,15 +4108,15 @@ D1
 Liberty Lane
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31040
 D4
 Chippy
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31190
 S
 #31042
@@ -4130,22 +4130,22 @@ D0
 Corner of Justice Street and Stalwart Lane
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31054
 D1
 The Armory
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31043
 D2
 Victory Parade
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31008
 S
 #31043
@@ -4160,8 +4160,8 @@ D3
 Stalwart Lane
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31042
 S
 #31044
@@ -4176,22 +4176,22 @@ D0
 Victory Parade
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31008
 D1
 The Weaponsmith
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31045
 D2
 Corner of Stalwart Lane and Valiant Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31069
 S
 #31045
@@ -4206,8 +4206,8 @@ D3
 Liberty Lane
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31044
 S
 #31046
@@ -4221,29 +4221,29 @@ D0
 mercenaries
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31047
 D1
 Justice Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31049
 D2
 Liberty Lane
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31038
 D3
 Illithid Guild
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31086
 S
 #31047
@@ -4256,8 +4256,8 @@ D2
 Justice Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31046
 S
 #31048
@@ -4285,22 +4285,22 @@ D0
 The Magic Shop
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31050
 D1
 Corner of Honor Avenue and Justice Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31051
 D3
 Corner of Justice Street and Liberty Lane
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31046
 S
 #31050
@@ -4316,8 +4316,8 @@ D2
 Justice Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31049
 S
 #31051
@@ -4333,22 +4333,22 @@ D0
 Honor Avenue
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31057
 D1
 Justice Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31052
 D3
 Justice Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31049
 S
 #31052
@@ -4363,22 +4363,22 @@ D0
 The Sage
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31053
 D1
 Corner of Honor Avenue and Justice Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31054
 D3
 Justice Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31051
 S
 #31053
@@ -4394,8 +4394,8 @@ D2
 Justice Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31052
 S
 #31054
@@ -4410,29 +4410,29 @@ D0
 The Pet Shop
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31055
 D1
 Justice Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31093
 D2
 Stalwart Lane
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31042
 D3
 Justice Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31052
 S
 #31055
@@ -4447,8 +4447,8 @@ D2
 Justice Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31054
 S
 #31056
@@ -4477,15 +4477,15 @@ D0
 The Elven Guild
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31058
 D2
 Corner of Honor Avenue and Justice Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31051
 S
 #31058
@@ -4500,22 +4500,22 @@ D2
 Honor Avenue
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31057
 D4
 The Offices of the Guild
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31059
 D5
 The Elven Bar
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31061
 S
 #31059
@@ -4531,15 +4531,15 @@ D4
 The Office of the Guildmaster
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31060
 D5
 The Elven Guild
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31058
 S
 #31060
@@ -4556,8 +4556,8 @@ D5
 The offices of the guild
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31059
 S
 #31061
@@ -4572,8 +4572,8 @@ D4
 The Elven Guild
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31058
 S
 #31062
@@ -4587,29 +4587,29 @@ D0
 Liberty Lane
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31040
 D1
 Valiant Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31065
 D2
 The Bank
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31063
 D3
 Valiant Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31072
 S
 #31063
@@ -4625,15 +4625,15 @@ D0
 Corner of Valiant Street and Liberty Lane
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31062
 D4
 The ATM
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31064
 S
 #31064
@@ -4666,8 +4666,8 @@ D5
 The Bank
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31063
 S
 #31065
@@ -4681,22 +4681,22 @@ D1
 Corner of Valiant Street and Glory Avenue
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31007
 D2
 The Grocery Store
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31066
 D3
 Corner of Valiant Street and Liberty Lane
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31062
 S
 #31066
@@ -4712,8 +4712,8 @@ D0
 Valiant Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31065
 S
 #31067
@@ -4727,22 +4727,22 @@ D1
 Corner of Stalwart Street and Glory Avenue
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31069
 D2
 The Bakery
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31068
 D3
 Corner of Valiant Street and Glory Avenue
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31007
 S
 #31068
@@ -4759,8 +4759,8 @@ D0
 Valiant Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31067
 S
 #31069
@@ -4774,29 +4774,29 @@ D0
 Stalwart Lane
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31044
 D1
 Valiant Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31079
 D2
 The Bar
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31070
 D3
 Valiant Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31067
 S
 #31070
@@ -4811,15 +4811,15 @@ D0
 Corner of Valiant Street and Stalwart Lane
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31069
 D2
 Private Booths
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31071
 S
 #31071
@@ -4834,8 +4834,8 @@ D0
 The Bar
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31070
 S
 #31072
@@ -4849,15 +4849,15 @@ D1
 Corner of Valiant Street and Liberty Lane
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31062
 D3
 Valiant Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31073
 S
 #31073
@@ -4871,15 +4871,15 @@ D1
 Valiant Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31072
 D3
 A Bend in Valiant Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31074
 S
 #31074
@@ -4894,15 +4894,15 @@ D1
 Valiant Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31073
 D2
 Outside the Dungeon
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31075
 S
 #31075
@@ -4916,15 +4916,15 @@ D0
 Valiant Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31074
 D2
 The Dwarven Guild
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 31076
 S
 #31076
@@ -4939,22 +4939,22 @@ D0
 Valiant Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 31075
 D1
 The Dwarven Bar
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31078
 D2
 The Guildmaster
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31077
 S
 #31077
@@ -4968,8 +4968,8 @@ D0
 The Guild training yard
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31076
 S
 #31078
@@ -4985,8 +4985,8 @@ D3
 The Guild training yard
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31076
 S
 #31079
@@ -5002,15 +5002,15 @@ D1
 Valiant Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31080
 D3
 Corner of Stalwart Lane and Valiant Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31069
 S
 #31080
@@ -5028,15 +5028,15 @@ D1
 A Bend in Valiant Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31081
 D3
 Valiant Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31079
 S
 #31081
@@ -5050,15 +5050,15 @@ D2
 Outside the Kender Guild
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31082
 D3
 Valiant Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31080
 D5
 A Grate leading to the Sewer
@@ -5080,8 +5080,8 @@ D0
 Valiant Street above the Sewer
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31081
 D2
 A Curtained Archway
@@ -5102,22 +5102,22 @@ D0
 Valiant Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 31082
 D2
 The Guildmaster
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31084
 D3
 Bar
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 31085
 S
 #31084
@@ -5132,8 +5132,8 @@ D0
 Inside the Guild
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31083
 S
 #31085
@@ -5148,8 +5148,8 @@ D1
 Inside the Guild
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31083
 S
 #31086
@@ -5165,22 +5165,22 @@ D0
 The Illithid Guild
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31090
 D1
 Justice Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31046
 D3
 It's the Darkling Guild.
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31192
 S
 #31087
@@ -5197,22 +5197,22 @@ D0
 The Guildmaster
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31088
 D2
 The Relaxation Room
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31089
 D3
 Justice Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31095
 S
 #31088
@@ -5226,8 +5226,8 @@ D2
 The Human Guild
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31087
 S
 #31089
@@ -5243,8 +5243,8 @@ D0
 The Human Guild
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31087
 S
 #31090
@@ -5258,22 +5258,22 @@ D0
 The Guildmaster
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31092
 D2
 Justice Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31086
 D3
 The Bar
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31091
 S
 #31091
@@ -5290,8 +5290,8 @@ D1
 The Guild
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31090
 S
 #31092
@@ -5306,8 +5306,8 @@ D2
 The Guild
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31090
 S
 #31093
@@ -5322,15 +5322,15 @@ D1
 Justice Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31094
 D3
 Corner of Justice Street and Stalwart Lane
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31054
 S
 #31094
@@ -5344,15 +5344,15 @@ D1
 Justice Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31095
 D3
 Justice Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31093
 S
 #31095
@@ -5366,22 +5366,22 @@ D0
 Outside the Tower
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31096
 D1
 The Guild
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31087
 D3
 Justice Street
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31094
 S
 #31096
@@ -5396,15 +5396,15 @@ D0
 Inside the Tower
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31097
 D2
 Outside the Dojo
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31095
 S
 #31097
@@ -5417,22 +5417,22 @@ D2
 Outside the Tower
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31096
 D4
 The Aerie
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31099
 D5
 The Bar
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31098
 S
 #31098
@@ -5447,8 +5447,8 @@ D4
 Inside the Tower
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31097
 S
 #31099
@@ -5461,8 +5461,8 @@ D5
 Inside the Tower
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31097
 S
 #31163
@@ -5474,8 +5474,8 @@ D0
 The Chamber of Donations
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31002
 S
 #31164
@@ -5487,8 +5487,8 @@ D3
 The Chamber of Donations
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31002
 S
 #31165
@@ -5500,8 +5500,8 @@ D1
 The Chamber of Donations
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31002
 S
 #31190
@@ -5519,8 +5519,8 @@ By the way, EVERYTHING is fried.
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31041
 S
 #31191
@@ -5535,8 +5535,8 @@ table.
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31012
 S
 #31192
@@ -5550,14 +5550,14 @@ been traversed for decades.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31086
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31193
 S
 #31193
@@ -5570,14 +5570,14 @@ serves as a perfect example of this.
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31194
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31192
 S
 #31194
@@ -5590,8 +5590,8 @@ his presence.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31193
 S
 #31195
@@ -5603,26 +5603,26 @@ world of Anon. Proceed carefully, for you travel at your own risk!
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABCZ 31085 31013
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31196
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31197
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31198
 S
 #31196
@@ -5635,8 +5635,8 @@ scattered about on the floor.
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31195
 S
 #31197
@@ -5649,8 +5649,8 @@ substance imbedded in it, as well as numerous flashing lights.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31195
 S
 #31198
@@ -5664,8 +5664,8 @@ very difficult.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31195
 S
 #31199
@@ -5679,8 +5679,8 @@ place!
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 31009
 S
 #0

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Marsh~
 VNUMs 8300 8399
 Credits Generic Old Marsh~
@@ -407,10 +407,14 @@ D0
 @rus Тропа там более сухая.
 ~
 ~
+~
+~
 Z -1 6125
 D2
 @eng A broken road leading southward into the marsh.
 @rus Разбитая дорога, ведущая на юг в болото.
+~
+~
 ~
 ~
 Z -1 8302
@@ -430,16 +434,22 @@ the sounds stop.
 D0
 ~
 ~
+~
+~
 Z -1 8301
 D1
 @eng To the east lies a series of bogs and shallows that look rather threatening.
 @rus На востоке довольно угрожающая местность.
 ~
 ~
+~
+~
 Z -1 8303
 D2
 @eng You notice a large hill rising out of the marsh to the south.
 @rus Ты обращаешь внимание на большой холм, поднимающийся из болота на юге.
+~
+~
 ~
 ~
 Z -1 8304
@@ -473,11 +483,15 @@ D1
 @rus В восточном направлении - густая трясина болота...
 ~
 ~
+~
+~
 Z -1 8305
 D3
 @eng Westward lies the remanents of a broken and shattered roadway being swallowed
 by the marsh.
 @rus На западе то что некогда было дорогой ныне проглочено болотом.
+~
+~
 ~
 ~
 Z -1 8302
@@ -495,16 +509,22 @@ D0
 @rus На севере находится влажное нарушенное шоссе.
 ~
 ~
+~
+~
 Z -1 8302
 D1
 @eng A dark pool congeals to the east.
 @rus Темный водоем виден на востоке.
 ~
 ~
+~
+~
 Z -1 8309
 D2
 @eng A gloomy path leads down the hill into the swamp.
 @rus Мрачная дорожка ведет вниз с холма в болото.
+~
+~
 ~
 ~
 Z -1 8310
@@ -534,10 +554,14 @@ D1
 @rus В восточном направлении орда отвратительных монстров.
 ~
 ~
+~
+~
 Z -1 8306
 D3
 @eng Westward lies a marshy area.
 @rus На запад находится болотистая область.
+~
+~
 ~
 ~
 Z -1 8303
@@ -561,6 +585,8 @@ D3
 @rus Ты видишь большое дерево, которое легко отодвинуть.
 ~
 limb~
+the limb~
+~
 Z -1 8305
 S
 #8307
@@ -580,6 +606,8 @@ E
 D3
 @eng A pool of quick sand lies to the west.
 @rus Зыбучий песок находится на западе.
+~
+~
 ~
 ~
 Z -1 8308
@@ -610,16 +638,22 @@ D1
 @rus Пещера Болотной Твари.
 ~
 ~
+~
+~
 Z -1 8307
 D2
 @eng A murky bog.
 @rus Темная трясина.
 ~
 ~
+~
+~
 Z -1 8314
 D3
 @eng A dark pool lies to the west.
 @rus Темный водоем находится на западе.
+~
+~
 ~
 ~
 Z -1 8309
@@ -643,16 +677,22 @@ D1
 @rus Большая полоса зыбучих песков на востоке.
 ~
 ~
+~
+~
 Z -1 8308
 D2
 @eng You see a cloud of darkness to the south.
 @rus Ты видишь облако тьмы на юге.
 ~
 ~
+~
+~
 Z -1 8311
 D3
 @eng A hill rises out of the swamp to the east.
 @rus Холм встает из болота на западе.
+~
+~
 ~
 ~
 Z -1 8304
@@ -696,10 +736,14 @@ D0
 @rus На севере холм высовывается из болота.
 ~
 ~
+~
+~
 Z -1 8304
 D2
 @eng To the south a huge mass of vegetation seems to quiver with life.
 @rus На юге огромная масса растительности.
+~
+~
 ~
 ~
 Z -1 8312
@@ -717,10 +761,14 @@ D0
 @rus Темный водоем находится на севере.
 ~
 ~
+~
+~
 Z -1 8309
 D2
 @eng An obelisk lies to the south.
 @rus Обелиск находится на юге.
+~
+~
 ~
 ~
 Z -1 8313
@@ -744,10 +792,14 @@ D0
 @rus На север - мрачная дорожка через болото.
 ~
 ~
+~
+~
 Z -1 8310
 D1
 @eng Eastward is a large, black stone monolith.
 @rus В восточном направлении - большой, черный каменный монолит.
+~
+~
 ~
 ~
 Z -1 8313
@@ -774,16 +826,22 @@ D0
 @rus На север - облако самого темного зла.
 ~
 ~
+~
+~
 Z -1 8311
 D1
 @eng Eastward lies a murky bog.
 @rus В восточном направлении находится темная трясина.
 ~
 ~
+~
+~
 Z -1 8314
 D3
 @eng Near Vegetation from Hell.
 @rus Около Адских Трав.
+~
+~
 ~
 ~
 Z -1 8312
@@ -809,16 +867,22 @@ D0
 @rus На севере зыбучие пески.
 ~
 ~
+~
+~
 Z -1 8308
 D1
 @eng To the east the marsh turns into a small lake.
 @rus На востоке болото превращается в маленькое озеро.
 ~
 ~
+~
+~
 Z -1 8315
 D3
 @eng Westward a large monolith awaits adventurers.
 @rus На западе большой монолит ждет путников.
+~
+~
 ~
 ~
 Z -1 8313
@@ -839,10 +903,14 @@ D2
 @rus Южная часть озера находится на юге. :-)
 ~
 ~
+~
+~
 Z -1 8316
 D3
 @eng To the west lies a murky bog.
 @rus На западе находится темная трясина.
+~
+~
 ~
 ~
 Z -1 8314
@@ -868,10 +936,14 @@ D0
 @rus Северная сторона озера.
 ~
 ~
+~
+~
 Z -1 8315
 D3
 @eng To the west is a beach where your boat can land.
 @rus На западе берег, где лодка может причалить.
+~
+~
 ~
 ~
 Z -1 8317
@@ -895,10 +967,14 @@ D1
 @rus На востоке находится южная часть маленького озера.
 ~
 ~
+~
+~
 Z -1 8316
 D3
 @eng The great gates.
 @rus Большие ворота.
+~
+~
 ~
 ~
 Z -1 8318
@@ -916,6 +992,8 @@ and you decide not to continue onward.
 D1
 @eng To the east is a marshy beach.
 @rus На востоке болотистый берег.
+~
+~
 ~
 ~
 Z -1 8317

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Limbo~
 VNUMs 1 99
 Credits Diku~
@@ -1604,6 +1604,8 @@ You are floating in nothing.
 D4
 ~
 ~
+~
+~
 Z 0 3001
 S
 #2
@@ -1615,6 +1617,8 @@ darkness around you without any trace of edges or shadow.
 ~
 0 ADKNT city
 D4
+~
+~
 ~
 ~
 Z -1 3001

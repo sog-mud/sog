@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Ruler~
 VNUMs 95100 95199
 Credits Chronos~
@@ -146,8 +146,12 @@ light of the sun coming from the windows.
 D0
 ~
 ~
+~
+~
 DZ -1 95101
 D2
+~
+~
 ~
 ~
 Z 0 697
@@ -167,16 +171,24 @@ the rulers. And to the west you see the chapel.
 D0
 ~
 ~
+~
+~
 Z -1 95102
 D1
+~
+~
 ~
 ~
 Z -1 95104
 D2
 ~
 ~
+~
+~
 DZ -1 95100
 D3
+~
+~
 ~
 ~
 Z -1 95103
@@ -193,6 +205,8 @@ laws are written in a book that stands inside of the bookstand.
 ~
 0 DKX inside
 D2
+~
+~
 ~
 ~
 Z -1 95101
@@ -212,6 +226,8 @@ each side of the room. The mystical air freshens your mind.
 D1
 ~
 ~
+~
+~
 Z -1 95101
 S
 #95104
@@ -225,6 +241,8 @@ the Shades of Gray, you think that they need such kind of rooms.
 ~
 0 DKX inside
 D3
+~
+~
 ~
 ~
 Z -1 95101

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Dragon Tower~
 VNUMs 2200 2299
 Credits Wench~
@@ -760,9 +760,13 @@ D0
 You see a large steel gate.  Beyond is the Foyer of the Tower.
 ~
 gate steel~
+the gate~
+~
 ABCZ 2231 2202
 D1
 The shadows cloud your vision.
+~
+~
 ~
 ~
 Z 0 1304
@@ -783,9 +787,13 @@ D0
 You see a long hallway. 
 ~
 ~
+~
+~
 Z -1 2203
 D2
 You see the gate. 
+~
+~
 ~
 ~
 Z -1 2201
@@ -800,9 +808,13 @@ D0
 The hall continues. 
 ~
 ~
+~
+~
 Z -1 2204
 D2
 You see the foyer. 
+~
+~
 ~
 ~
 Z -1 2202
@@ -824,14 +836,20 @@ D0
 The hall continues. 
 ~
 ~
+~
+~
 Z -1 2207
 D1
 You see a door.  You notice a sign. 
 ~
 door~
+~
+~
 Z -1 2205
 D2
 The hall continues.
+~
+~
 ~
 ~
 Z -1 2203
@@ -839,6 +857,8 @@ D3
 You see an oak door.  There is an inscription on it. 
 ~
 oak~
+the oak~
+~
 Z -1 2206
 S
 #2205
@@ -851,9 +871,13 @@ D1
 You see a large stone door.
 ~
 door stone~
+~
+~
 AFZ 2297 2223
 D3
 You see the hallway. 
+~
+~
 ~
 ~
 Z -1 2204
@@ -871,11 +895,15 @@ D1
 You see the hallway. 
 ~
 ~
+~
+~
 Z -1 2204
 D5
 You see nothing special. 
 ~
 trapdoor~
+the trapdoor~
+~
 Z -1 2208
 S
 #2207
@@ -895,9 +923,13 @@ D2
 The hall continues. 
 ~
 ~
+~
+~
 Z -1 2204
 D4
 The second floor.
+~
+~
 ~
 ~
 Z -1 2210
@@ -912,11 +944,15 @@ D2
 A large grey door.
 ~
 grey~
+the grey~
+~
 Z 2234 2209
 D4
 You see the storage room. 
 ~
 door trap trapdoor~
+~
+~
 Z -1 2206
 S
 #2209
@@ -930,11 +966,15 @@ D0
 You see nothing special. 
 ~
 grey~
+the grey~
+~
 AFZ 2234 2208
 D3
 You see a ruby door!
 ~
 door ruby~
+~
+~
 ABCFZ 2232 2218
 S
 #2210
@@ -947,9 +987,13 @@ D2
 You see the court.
 ~
 ~
+~
+~
 Z 1 2211
 D5
 You see the first floor.
+~
+~
 ~
 ~
 Z -1 2207
@@ -964,14 +1008,20 @@ D0
 You see nothing special.
 ~
 ~
+~
+~
 Z -1 2210
 D1
 You see a wooden door. 
 ~
 door wooden~
+~
+~
 Z -1 2212
 D2
 You see the court.
+~
+~
 ~
 ~
 Z -1 2213
@@ -986,6 +1036,8 @@ D3
 You see the Court.
 ~
 ~
+~
+~
 Z -1 2211
 S
 #2213
@@ -997,14 +1049,20 @@ D0
 You see the court.
 ~
 ~
+~
+~
 Z -1 2211
 D1
 You see a black door.
 ~
 door black~
+~
+~
 Z 2240 2214
 D2
 You see the court.
+~
+~
 ~
 ~
 Z -1 2216
@@ -1012,6 +1070,8 @@ D3
 You see a white door.
 ~
 door white~
+~
+~
 Z 2233 2215
 S
 #2214
@@ -1024,6 +1084,8 @@ D3
 You see the court.
 ~
 door black~
+~
+~
 Z 2240 2213
 S
 #2215
@@ -1036,6 +1098,8 @@ D1
 You see the Court.
 ~
 door white~
+~
+~
 Z 2233 2213
 S
 #2216
@@ -1049,9 +1113,13 @@ D0
 You see the court.
 ~
 ~
+~
+~
 Z -1 2213
 D1
 You see a private chamber.
+~
+~
 ~
 ~
 Z -1 2217
@@ -1063,6 +1131,8 @@ This is the personal room of the draconian king.  It is not empty.
 0 D city
 D3
 You see Court.
+~
+~
 ~
 ~
 Z -1 2216
@@ -1077,9 +1147,13 @@ D1
 You see the Treasure Vault.
 ~
 door ruby~
+~
+~
 ABCFZ 2232 2209
 D3
 You see the Crypt.
+~
+~
 ~
 ~
 Z -1 2219
@@ -1095,9 +1169,13 @@ D1
 You see the entrance.
 ~
 ~
+~
+~
 Z -1 2218
 D3
 You see nothing special.
+~
+~
 ~
 ~
 Z -1 2222
@@ -1112,6 +1190,8 @@ D2
 You the cave opening.
 ~
 ~
+~
+~
 Z 0 2235
 S
 #2221
@@ -1122,6 +1202,8 @@ as though it is amused by your presence.
 0 D city
 D0
 You the cave opening.
+~
+~
 ~
 ~
 Z 0 2241
@@ -1140,10 +1222,14 @@ D1
 You see the Crypt.
 ~
 ~
+~
+~
 Z -1 2219
 D3
 ~
 coffin~
+the coffin~
+~
 ABCZ 0 2232
 S
 #2223
@@ -1157,11 +1243,15 @@ D1
 The Hall continues.
 ~
 ~
+~
+~
 Z -1 2224
 D3
 You see the Nursery.
 ~
 door stone~
+~
+~
 Z 2297 2205
 S
 #2224
@@ -1174,9 +1264,13 @@ D0
 You see a narrow passageway.
 ~
 ~
+~
+~
 Z -1 2225
 D1
 You see the Hall.
+~
+~
 ~
 ~
 Z -1 2229
@@ -1190,9 +1284,13 @@ D0
 You see a large Lair.  It looks dangerous.
 ~
 ~
+~
+~
 Z -1 2226
 D2
 You see the great hall.
+~
+~
 ~
 ~
 Z -1 2224
@@ -1208,11 +1306,15 @@ D2
 The narrow passageway.
 ~
 ~
+~
+~
 Z -1 2225
 D5
 You see a trap door.
 ~
 door trap trapdoor~
+~
+~
 Z -1 2227
 S
 #2227
@@ -1225,11 +1327,15 @@ D0
 You see the tunnel.
 ~
 ~
+~
+~
 Z -1 2228
 D4
 You see the red dragon's lair.
 ~
 door trap trapdoor~
+~
+~
 Z -1 2226
 S
 #2228
@@ -1239,6 +1345,8 @@ This tunnel has come to a dead end.  You feel nervous about being trapped here.
 0 ACD field
 D2
 You see the tunnel.
+~
+~
 ~
 ~
 Z -1 2227
@@ -1259,9 +1367,13 @@ D1
 You see a great golden door.
 ~
 door great golden~
+~
+~
 ABCFZ 2299 2230
 D3
 You see the hall.
+~
+~
 ~
 ~
 Z -1 2224
@@ -1275,6 +1387,8 @@ D3
 You see a great golden door.
 ~
 door golden great~
+~
+~
 ABCFZ 2299 2229
 S
 #2231
@@ -1285,6 +1399,8 @@ dragon.  You suddenly realize that you have SERIOUS problems...
 0 D field
 D2
 You see the top of the mountain.
+~
+~
 ~
 ~
 AFZ 2241 2243
@@ -1299,9 +1415,13 @@ D1
 The crypt
 ~
 ~
+~
+~
 Z 0 2222
 D5
 A wine cellar
+~
+~
 ~
 ~
 Z 0 2233
@@ -1317,9 +1437,13 @@ D1
 A tunnel
 ~
 ~
+~
+~
 Z 0 2234
 D4
 The stairwell
+~
+~
 ~
 ~
 Z 0 2232
@@ -1336,14 +1460,20 @@ D0
 A cave opening
 ~
 ~
+~
+~
 Z 0 2235
 D1
 A tunnel
 ~
 ~
+~
+~
 Z 0 2236
 D3
 A tunnel
+~
+~
 ~
 ~
 Z 0 2233
@@ -1360,9 +1490,13 @@ D0
 The lair
 ~
 ~
+~
+~
 Z 0 2220
 D2
 The tunnel
+~
+~
 ~
 ~
 Z 0 2234
@@ -1378,14 +1512,20 @@ D2
 bridge
 ~
 ~
+~
+~
 Z 0 2237
 D3
 The tunnel
 ~
 ~
+~
+~
 Z 0 2234
 D4
 trapdoor
+~
+~
 ~
 ~
 Z 0 2202
@@ -1401,9 +1541,13 @@ D0
 The tunnel end
 ~
 ~
+~
+~
 Z 0 2236
 D2
 A small opening
+~
+~
 ~
 ~
 Z 0 2238
@@ -1419,9 +1563,13 @@ D0
 bridge
 ~
 ~
+~
+~
 Z 0 2237
 D2
 clearing
+~
+~
 ~
 ~
 Z 0 2239
@@ -1450,14 +1598,20 @@ D0
 the small opening
 ~
 ~
+~
+~
 Z 0 2238
 D4
 A path
 ~
 ~
+~
+~
 Z 0 2240
 D5
 The well
+~
+~
 ~
 ~
 Z 0 2244
@@ -1472,14 +1626,20 @@ D3
 cave opening
 ~
 ~
+~
+~
 Z 0 2241
 D4
 the path continues
 ~
 ~
+~
+~
 Z 0 2242
 D5
 clearing
+~
+~
 ~
 ~
 Z 0 2239
@@ -1495,9 +1655,13 @@ D1
 the path
 ~
 ~
+~
+~
 Z 0 2240
 D2
 A lair
+~
+~
 ~
 ~
 Z 0 2221
@@ -1512,9 +1676,13 @@ D4
 top of the mountain
 ~
 ~
+~
+~
 Z 0 2243
 D5
 path
+~
+~
 ~
 ~
 Z 0 2240
@@ -1537,9 +1705,13 @@ D0
 The platinum door
 ~
 door platinum~
+~
+~
 ABCFZ 2241 2231
 D5
 The path continues
+~
+~
 ~
 ~
 Z 0 2242

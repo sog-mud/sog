@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Midgaard~
 VNUMs 3000 3399
 Credits Diku~
@@ -5902,16 +5902,22 @@ D0
 @rus Северная часть храмового зала украшена статуей и большим алтарем.
 ~
 ~
+~
+~
 Z -1 3054
 D2
 @eng You see the temple square.
 @rus Ты видишь соборную площадь.
 ~
 ~
+~
+~
 Z -1 3005
 D4
 @eng You see the entrance to Mud School.
 @rus Ты видишь вход в МУД школу.
+~
+~
 ~
 ~
 Z 0 3700
@@ -5933,12 +5939,16 @@ D1
 @rus Ты видишь свое любимое место, бар клериков.
 ~
 ~
+~
+~
 Z -1 3003
 D5
 @eng You can't see what is down there, it is too dark.  Looks like it would be
 impossible to climb back up.
 @rus Ты не видишь ничего внизу, там очень темно. Похоже оттуда нельзя будет 
 поднятся назад наверх.
+~
+~
 ~
 ~
 Z -1 7026
@@ -5970,10 +5980,14 @@ D2
 @rus Ты видишь выход.
 ~
 ~
+~
+~
 Z -1 3004
 D3
 @eng You see the inner sanctum.
 @rus Ты видишь внутренний кабинет.
+~
+~
 ~
 ~
 Z -1 3002
@@ -5993,10 +6007,14 @@ D0
 @rus Ты видишь бар, богато украшенный модной обстановкой.
 ~
 ~
+~
+~
 Z -1 3003
 D1
 @eng You see the Temple Square.
 @rus Ты видишь соборную площадь.
+~
+~
 ~
 ~
 Z -1 3005
@@ -6018,10 +6036,14 @@ D0
 @rus Ты видишь храм.
 ~
 all~
+the all~
+~
 Z -1 3001
 D1
 @eng You see the good old Grunting Boar Inn.
 @rus Ты видишь старую добрую таверну "Хрюкающий кабан".
+~
+~
 ~
 ~
 Z -1 3006
@@ -6030,16 +6052,22 @@ D2
 @rus Ты видишь рыночную площадь.
 ~
 ~
+~
+~
 Z -1 3014
 D3
 @eng You see the entrance to the Clerics Guild.
 @rus Ты видишь вход в гильдию клериков.
 ~
 ~
+~
+~
 Z -1 3004
 D4
 @eng You see the air.
 @rus Ты видишь небо.
+~
+~
 ~
 ~
 Z -1 3057
@@ -6059,16 +6087,22 @@ D1
 @rus Сюрприз! Ты видишь бар.
 ~
 ~
+~
+~
 Z -1 3007
 D3
 @eng You see the temple square.
 @rus Ты видишь соборную площадь.
 ~
 ~
+~
+~
 Z -1 3005
 D4
 @eng You see the defunct reception room.
 @rus Ты видишь заброшенную приемную.
+~
+~
 ~
 ~
 Z -1 3008
@@ -6114,10 +6148,14 @@ D2
 @rus Вы видите бар самураев.
 ~
 ~
+~
+~
 Z -1 3075
 D3
 @eng You see the exit to the entrance hall.
 @rus Вы видите вход в зал.
+~
+~
 ~
 ~
 Z -1 3006
@@ -6133,6 +6171,8 @@ down to the entrance hall.
 D5
 @eng You see the entrance hall.
 @rus Ты видишь входной зал.
+~
+~
 ~
 ~
 Z -1 3006
@@ -6177,6 +6217,8 @@ D2
 @rus Ты видишь Главную улицу.
 ~
 ~
+~
+~
 Z -1 3013
 S
 #3010
@@ -6210,6 +6252,8 @@ D1
 @rus Ты видишь главную дорогу.
 ~
 ~
+~
+~
 Z -1 3067
 S
 #3011
@@ -6239,6 +6283,8 @@ D2
 @rus Ты видишь Главную улицу.
 ~
 ~
+~
+~
 Z -1 3016
 S
 #3012
@@ -6258,10 +6304,14 @@ D0
 @rus Ты видишь магазин магических вещей.
 ~
 ~
+~
+~
 Z -1 3033
 D1
 @eng You see the main street.
 @rus Ты видишь Главную дорогу.
+~
+~
 ~
 ~
 Z -1 3013
@@ -6270,10 +6320,14 @@ D2
 @rus Ты видишь вход в гильдию магов.
 ~
 ~
+~
+~
 Z -1 3017
 D3
 @eng You see the city gate.
 @rus Ты видишь городские ворота.
+~
+~
 ~
 ~
 Z -1 3040
@@ -6293,10 +6347,14 @@ D0
 @rus Ты видишь пекарню.
 ~
 ~
+~
+~
 Z -1 3009
 D1
 @eng You see the market square.
 @rus Ты видишь рыночную площадь.
+~
+~
 ~
 ~
 Z -1 3014
@@ -6305,10 +6363,14 @@ D2
 @rus Ты видишь арсенал.
 ~
 ~
+~
+~
 Z -1 3020
 D3
 @eng You see the main street.
 @rus Ты видишь Главную дорогу.
+~
+~
 ~
 ~
 Z -1 3012
@@ -6335,10 +6397,14 @@ D0
 @rus Ты видишь соборную площадь.
 ~
 ~
+~
+~
 Z -1 3005
 D1
 @eng You see the main street.
 @rus Ты видишь Главную улицу.
+~
+~
 ~
 ~
 Z -1 3015
@@ -6347,10 +6413,14 @@ D2
 @rus Главная дорога идет к Общей площади.
 ~
 ~
+~
+~
 Z -1 3065
 D3
 @eng You see the main street.
 @rus Ты видишь Главную улицу.
+~
+~
 ~
 ~
 Z -1 3013
@@ -6371,10 +6441,14 @@ D0
 @rus Ты видишь вход в Святой храм.
 ~
 ~
+~
+~
 Z -1 3063
 D1
 @eng You see Main Street.
 @rus Ты видишь Главную улицу.
+~
+~
 ~
 ~
 Z -1 3016
@@ -6383,10 +6457,14 @@ D2
 @rus Ты видишь ювелирный магазин.
 ~
 ~
+~
+~
 Z -1 3034
 D3
 @eng You see the market square.
 @rus Ты видишь рыночную площадь.
+~
+~
 ~
 ~
 Z -1 3014
@@ -6406,10 +6484,14 @@ D0
 @rus Ты видишь оружейный магазин.
 ~
 ~
+~
+~
 Z -1 3011
 D1
 @eng You see the city gate.
 @rus Ты видишь городские ворота.
+~
+~
 ~
 ~
 Z -1 3041
@@ -6418,10 +6500,14 @@ D2
 @rus Ты видишь гильдию мечников.
 ~
 ~
+~
+~
 Z -1 3021
 D3
 @eng You see the main street leading to the market square.
 @rus Ты видишь Главную улицу, уходящую к рыночной площади.
+~
+~
 ~
 ~
 Z -1 3015
@@ -6437,10 +6523,14 @@ D0
 @rus Ты видишь Главную улицу.
 ~
 ~
+~
+~
 Z -1 3012
 D2
 @eng You see your favorite place, the Mage's Bar.
 @rus Ты видишь ваше любимое место, бар магов.
+~
+~
 ~
 ~
 Z -1 3018
@@ -6458,10 +6548,14 @@ D0
 @rus Ты видишь вестибюль.
 ~
 ~
+~
+~
 Z -1 3017
 D1
 @eng You see the laboratory.
 @rus Ты видишь лабораторию.
+~
+~
 ~
 ~
 Z -1 3019
@@ -6489,12 +6583,16 @@ D3
 @rus Ты видишь бар.
 ~
 ~
+~
+~
 Z -1 3018
 D5
 @eng You can't see what is down there, it is too dark.  Looks like it would be
 impossible to climb back up.
 @rus Ты ничего не видишь там внизу, там очень темно. Похоже ты не сможешь 
 вернуться оттуда назад наверх.
+~
+~
 ~
 ~
 Z -1 7017
@@ -6535,6 +6633,8 @@ D0
 @rus Ты видишь Главную улицу.
 ~
 ~
+~
+~
 Z -1 3013
 S
 #3021
@@ -6551,10 +6651,14 @@ D0
 @rus Ты видишь Главную улицу.
 ~
 ~
+~
+~
 Z -1 3016
 D1
 @eng You see the swordsmen's bar, many noises comes from there.
 @rus Ты видишь бар мечников, откуда слышится много шума.
+~
+~
 ~
 ~
 Z -1 3022
@@ -6574,10 +6678,14 @@ D2
 @rus Ты видишь двор для тренировок.
 ~
 ~
+~
+~
 Z -1 3023
 D3
 @eng You see the entrance hall to the thieves guild.
 @rus Ты видишь вход в гильдию мечников.
+~
+~
 ~
 ~
 Z -1 3021
@@ -6595,12 +6703,16 @@ D0
 @rus Ты видишь бар.
 ~
 ~
+~
+~
 Z -1 3022
 D5
 @eng You can't see what is down there, it is too dark.  Looks like it would be
 impossible to climb back up.
 @rus Ты не видишь ничего вниз, там очень темно. Похоже ты не сможешь выбраться 
 оттуда назад наверх.
+~
+~
 ~
 ~
 Z -1 7048
@@ -6620,10 +6732,14 @@ D0
 @rus Ты видишь магазин карт Меланхолика.
 ~
 ~
+~
+~
 Z -1 3160
 D1
 @eng You see the common square.
 @rus Ты видишь Общую площадь.
+~
+~
 ~
 ~
 Z -1 3025
@@ -6632,10 +6748,14 @@ D2
 @rus Ты видишь таверну.
 ~
 ~
+~
+~
 Z -1 3048
 D3
 @eng You see the poor alley.
 @rus Ты видишь переулок бедняков.
+~
+~
 ~
 ~
 Z -1 3044
@@ -6657,10 +6777,14 @@ D0
 @rus Ты видишь главную дорогу, ведущую на рыночную площадь.
 ~
 ~
+~
+~
 Z -1 3067
 D1
 @eng You see the dark alley.
 @rus Ты видишь темную аллею.
+~
+~
 ~
 ~
 Z -1 3026
@@ -6669,10 +6793,14 @@ D2
 @rus Ты видишь городскую свалку.
 ~
 ~
+~
+~
 Z -1 3030
 D3
 @eng You see the poor alley.
 @rus Ты видишь переулок бедняков.
+~
+~
 ~
 ~
 Z -1 3024
@@ -6698,10 +6826,14 @@ D0
 @rus Ты видишь противно пахнущий притон моряков.
 ~
 ~
+~
+~
 Z -1 3352
 D1
 @eng The alley continues east.
 @rus Переулок заканчивается на востоке(east).
+~
+~
 ~
 ~
 Z -1 3045
@@ -6710,10 +6842,14 @@ D2
 @rus Ты видишь вход в гильдию воров.
 ~
 ~
+~
+~
 Z -1 3027
 D3
 @eng You see the common square.
 @rus Ты видишь общую площадь.
+~
+~
 ~
 ~
 Z -1 3025
@@ -6733,10 +6869,14 @@ D0
 @rus Ты видишь переулок.
 ~
 ~
+~
+~
 Z -1 3026
 D1
 @eng You see the thieves bar, where everything disappears.
 @rus Ты видишь бар воров, где все исчезает.
+~
+~
 ~
 ~
 Z -1 3028
@@ -6763,10 +6903,14 @@ D2
 @rus Ты видишь секретное место.
 ~
 ~
+~
+~
 Z -1 3029
 D3
 @eng You see the entrance hall to the thieves guild.
 @rus Ты видишь входной зал гильдии воров.
+~
+~
 ~
 ~
 Z -1 3027
@@ -6784,12 +6928,16 @@ D0
 @rus Ты видишь бар.
 ~
 ~
+~
+~
 Z -1 3028
 D5
 @eng You can't see what is down there, it is too dark.  Looks like it would be
 impossible to climb back up.
 @rus Ты ничего не видишь внизу, там очень темно. Похоже ты не сможешь выбратся 
 оттуда обратно наверх.
+~
+~
 ~
 ~
 Z -1 7043
@@ -6811,6 +6959,8 @@ D0
 @rus Ты видишь Общую площадь.
 ~
 ~
+~
+~
 Z -1 3025
 D2
 @eng You see a river between northern and southern Midgaard.  A small bridge
@@ -6819,10 +6969,14 @@ spans the flow.
 соединяет берега.
 ~
 ~
+~
+~
 Z -1 3254
 D5
 @eng You see the sewers.
 @rus Ты видишь канализацию.
+~
+~
 ~
 ~
 Z -1 7030
@@ -6863,6 +7017,8 @@ sign~
 D2
 @eng You see the Alley.
 @rus Ты видишь переулок.
+~
+~
 ~
 ~
 Z -1 3045
@@ -6910,6 +7066,8 @@ D2
 @rus Ты видишь Главную улицу.
 ~
 ~
+~
+~
 Z -1 3012
 S
 #3034
@@ -6954,6 +7112,8 @@ sign~
 D0
 @eng You see Main Street.
 @rus Ты видишь Главную улицу.
+~
+~
 ~
 ~
 Z -1 3015
@@ -7010,6 +7170,8 @@ D2
 You see the alley.
 ~
 ~
+~
+~
 Z -1 3044
 S
 #3040
@@ -7048,10 +7210,14 @@ D0
 @rus Дорога идет вдоль внутренней городской стены на север.
 ~
 ~
+~
+~
 Z -1 3257
 D1
 @eng You see Main Street.
 @rus Ты видишь Главную дорогу.
+~
+~
 ~
 ~
 Z -1 3012
@@ -7061,12 +7227,16 @@ that it is called Wall Road.
 @rus Ты видишь дорогу, уходящую вдоль внутренней городской стены.
 ~
 ~
+~
+~
 Z -1 3042
 D3
 @eng The city gate is to the west.
 @rus Городские ворота находятся на западе.
 ~
 gate~
+the gate~
+~
 Z 3379 3052
 S
 #3041
@@ -7115,22 +7285,30 @@ D0
 @rus Дорога проходит вдоль городской стены.
 ~
 ~
+~
+~
 Z -1 3267
 D1
 @eng You see the city gate.
 @rus Ты видишь городские ворота.
 ~
 gate~
+the gate~
+~
 Z 3379 3053
 D2
 @eng Wall road heads south towards the poor section of town.
 @rus Дорога уходит на юг в бедные районы города.
 ~
 ~
+~
+~
 Z 0 3250
 D3
 @eng You see Main Street.
 @rus Ты видишь Главную улицу.
+~
+~
 ~
 ~
 Z -1 3016
@@ -7157,16 +7335,22 @@ D0
 @rus Ты видишь городские ворота.
 ~
 ~
+~
+~
 Z -1 3040
 D1
 @eng There is an ornate doorway to the east.
 @rus Ты видишь резную дверь на востоке.
 ~
 ~
+~
+~
 Z -1 3170
 D2
 @eng The road continues further south.
 @rus Дорога продолжается на юг.
+~
+~
 ~
 ~
 Z -1 3043
@@ -7198,10 +7382,14 @@ D0
 @rus Дорога продолжается на север.
 ~
 ~
+~
+~
 Z -1 3042
 D1
 @eng The alley leads east.
 @rus Переулок ведет на восток.
+~
+~
 ~
 ~
 Z -1 3044
@@ -7210,10 +7398,14 @@ D2
 @rus Дорога продолжается на юг.
 ~
 ~
+~
+~
 Z -1 3047
 D3
 @eng The Great Chessboard of Midgaard.
 @rus Великая Шахматная Доска Мидгаарда.
+~
+~
 ~
 ~
 Z -1 4200
@@ -7230,9 +7422,13 @@ D0
 The leather shop is to the north.
 ~
 ~
+~
+~
 Z -1 3035
 D1
 The alley leads east.
+~
+~
 ~
 ~
 Z -1 3024
@@ -7240,9 +7436,13 @@ D2
 An unholy temple rises up to the south.
 ~
 ~
+~
+~
 Z -1 3060
 D3
 The alley leads west.
+~
+~
 ~
 ~
 Z -1 3043
@@ -7261,10 +7461,14 @@ D0
 @rus Ты видишь, слышишь и обоняешь зоомагазин.
 ~
 ~
+~
+~
 Z 0 3031
 D1
 @eng The alley leads east.
 @rus Переулок уходит на восток.
+~
+~
 ~
 ~
 Z -1 3046
@@ -7273,10 +7477,14 @@ D2
 @rus Ты видишь набережную.
 ~
 ~
+~
+~
 Z -1 3049
 D3
 @eng The alley leads west.
 @rus Переулок уходит на запад.
+~
+~
 ~
 ~
 Z -1 3026
@@ -7298,10 +7506,14 @@ D0
 @rus Ты видишь магазин микстур.
 ~
 ~
+~
+~
 Z 0 3056
 D1
 @eng You see wall road, running a north-south loop around the city.
 @rus Ты видишь дорогу вокруг городской стены, идущая с севера на юг вокруг города.
+~
+~
 ~
 ~
 Z -1 3251
@@ -7310,10 +7522,14 @@ D2
 @rus Ты видишь склад.
 ~
 ~
+~
+~
 Z -1 3050
 D3
 @eng You see the alley.
 @rus Ты видишь переулок.
+~
+~
 ~
 ~
 Z -1 3045
@@ -7342,16 +7558,22 @@ D0
 @rus Ты видишь мостовую.
 ~
 ~
+~
+~
 Z -1 3043
 D1
 @eng You see the purple-and-orange Mob Factory.  Someone has no taste.
 @rus Ты видишь лилово-оранжевую Фабрику Мобов. Какая бесвкусица!
 ~
 ~
+~
+~
 Z -1 9400
 D2
 @eng You see the bridge.
 @rus Ты видишь мост.
+~
+~
 ~
 ~
 Z -1 3051
@@ -7369,12 +7591,16 @@ D0
 @rus Ты видишь переулок.
 ~
 ~
+~
+~
 Z -1 3024
 D5
 @eng You see a trapdoor.
 @rus В полу ты видишь люк (trapdoor).
 ~
 trapdoor~
+the trapdoor~
+~
 ABZ -1 3062
 S
 #3049
@@ -7393,10 +7619,14 @@ D0
 @rus Ты видишь переулок.
 ~
 ~
+~
+~
 Z -1 3045
 D2
 @eng You see the river flowing west.
 @rus Ты видишь реку, протекающую на запад.
+~
+~
 ~
 ~
 Z -1 3203
@@ -7416,10 +7646,14 @@ D0
 @rus Ты видишь переулок.
 ~
 ~
+~
+~
 Z -1 3046
 D4
 @eng You see machine dreams and taste violet phosphor.
 @rus Ты видишь обрывки миражей, плавающих в фиолетовом сиянии.
+~
+~
 ~
 ~
 Z 0 8604
@@ -7456,15 +7690,21 @@ D0
 You see the road.
 ~
 ~
+~
+~
 Z -1 3047
 D2
 You see the Concourse.
+~
+~
 ~
 ~
 Z -1 3100
 D5
 @eng You see the flowing river.
 @rus Ты видишь стремительные воды реки.
+~
+~
 ~
 ~
 Z 0 3200
@@ -7507,16 +7747,22 @@ D0
 @rus Тропинка идет вокруг города Мидгаарда.
 ~
 ~
+~
+~
 Z -1 3900
 D1
 @eng The city gate is to the east.
 @rus Городские ворота находятся на востоке.
 ~
 gate~
+the gate~
+~
 Z 3379 3040
 D3
 @eng The forest edge is to the west.
 @rus Опушка леса находится на западе.
+~
+~
 ~
 ~
 Z -1 6000
@@ -7560,10 +7806,14 @@ D0
 @rus Тропинка проходит вокруг города Мидгаарда.
 ~
 ~
+~
+~
 Z -1 3908
 D1
 @eng You see the plains.
 @rus Ты видишь равнины.
+~
+~
 ~
 ~
 Z -1 3503
@@ -7572,6 +7822,8 @@ D3
 @rus Вы видите городские ворота.
 ~
 gate~
+the gate~
+~
 Z 3133 3041
 S
 #3054
@@ -7597,16 +7849,22 @@ D0
 @rus Ты видишь комнату жреца.
 ~
 door~
+~
+~
 Z -1 3077
 D2
 @eng You see the southern end of the temple.
 @rus Ты видишь южную часть храма.
 ~
 ~
+~
+~
 Z -1 3001
 D4
 @eng Bifrost, the Rainbow Bridge, hangs in the sky above you.
 @rus Бифрост, Радужный Мост, висит в небе над вами.
+~
+~
 ~
 ~
 Z -1 1215
@@ -7627,6 +7885,8 @@ D2
 @rus Вы видите западную часть переулка.
 ~
 ~
+~
+~
 Z -1 3046
 S
 #3057
@@ -7640,10 +7900,14 @@ D4
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1017
 D5
 @eng Back down on the earth where you should be!
 @rus Родная земля.
+~
+~
 ~
 ~
 Z 0 3005
@@ -7666,10 +7930,14 @@ D0
 храм Тьмы.
 ~
 ~
+~
+~
 Z -1 3044
 D1
 @eng The room looks to be a practice yard.
 @rus Комната выглядит как тренировочный зал.
+~
+~
 ~
 ~
 Z -1 3061
@@ -7694,6 +7962,8 @@ D3
 @rus Выход в храмовый зал на западе отсюда.
 ~
 ~
+~
+~
 Z -1 3060
 S
 #3062
@@ -7712,12 +7982,16 @@ around.
 D2
 ~
 ~
+~
+~
 Z 0 3078
 D4
 @eng The trapdoor leads back to the Grubby Inn.
 @rus Люк ведет назад, в грязную таверну.
 ~
 trapdoor~
+the trapdoor~
+~
 ABZ -1 3048
 S
 #3063
@@ -7741,10 +8015,14 @@ D1
 @rus Комната уходит в большую святыню.
 ~
 ~
+~
+~
 Z -1 3064
 D2
 @eng You see Main Street.
 @rus Ты видишь Главную улицу.
+~
+~
 ~
 ~
 Z -1 3015
@@ -7766,6 +8044,8 @@ D3
 @rus На западе ты видишь большой зал храма.
 ~
 ~
+~
+~
 Z -1 3063
 S
 #3065
@@ -7785,16 +8065,22 @@ D0
 @rus Ты видишь большую площадь.
 ~
 ~
+~
+~
 Z -1 3014
 D1
 @eng A wooden door leads to the Butcher's shop.
 @rus Деревянная дверь ведет в мясной магазин.
 ~
 ~
+~
+~
 Z -1 3066
 D2
 @eng The road continues to the south.
 @rus Дорога заканчивается на юге.
+~
+~
 ~
 ~
 Z -1 3067
@@ -7816,6 +8102,8 @@ selections. The High Road lies to the west.
 D3
 @eng You see the High Road.
 @rus Ты видишь главную дорогу.
+~
+~
 ~
 ~
 Z -1 3065
@@ -7842,16 +8130,22 @@ D0
 @rus Дорога заканчивается.
 ~
 ~
+~
+~
 Z -1 3065
 D2
 @eng You see the Common Square.
 @rus Ты видишь Общую площадь.
 ~
 ~
+~
+~
 Z -1 3025
 D3
 @eng The sign reads: General Store
 @rus Вывеска гласит: Центральный склад.
+~
+~
 ~
 ~
 Z -1 3010
@@ -7874,8 +8168,12 @@ D1
 @rus Ступени спускаются к Храмовой площади.
 ~
 ~
+~
+~
 Z -1 3069
 D4
+~
+~
 ~
 ~
 Z 0 3757
@@ -7897,16 +8195,22 @@ D0
 @rus Ты видишь Парковую аллею.
 ~
 ~
+~
+~
 Z -1 3135
 D2
 @eng The stairs lead up to the Nacya's chamber of altar.
 @rus Ступени ведут наверх, к алтарю в комнате Наси.
 ~
 ~
+~
+~
 Z -1 3070
 D3
 @eng The resting chambers of Temple of Sun is at the end of stairs.
 @rus Храмовые покои, куда ведет мраморная лестница, видны на западе.
+~
+~
 ~
 ~
 Z -1 3068
@@ -7953,6 +8257,8 @@ D0
 @rus Ты видишь лестницу, ведущую вниз, к Храмовой площади.
 ~
 ~
+~
+~
 Z -1 3069
 S
 #3071
@@ -7975,14 +8281,20 @@ D1
 @rus На востоке находится алтарь.
 ~
 ~
+~
+~
 Z -1 3072
 D3
 @eng This way leads out to the park road.
 @rus К западу лежит Парковая аллея.
 ~
 ~
+~
+~
 Z -1 3126
 D4
+~
+~
 ~
 ~
 Z 0 3757
@@ -8001,6 +8313,8 @@ to cast a fitful light over the dark enterprise.
 D3
 ~
 ~
+~
+~
 Z -1 3071
 S
 #3073
@@ -8015,10 +8329,14 @@ D0
 @rus Ты видишь чисто мужские лаборатории.
 ~
 ~
+~
+~
 Z -1 3074
 D3
 @eng Tavern in midgaard..
 @rus Мидгаардская таверна.
+~
+~
 ~
 ~
 Z -1 3352
@@ -8046,12 +8364,16 @@ D2
 @rus Ты видишь бар.
 ~
 ~
+~
+~
 Z -1 3073
 D5
 @eng You can't see what is down there, it is too dark.  Looks like it would be
 impossible to climb back up.
 @rus Ты ничего не видишь там внизу, там очень темно. Похоже ты не сможешь
 вернуться оттуда назад наверх.
+~
+~
 ~
 ~
 Z -1 7017
@@ -8069,10 +8391,14 @@ D0
 @rus Ты видишь таверну 'Хрюкающий кабан'.
 ~
 ~
+~
+~
 Z -1 3007
 D3
 @eng You see the practice yard of samruais..
 @rus Ты видишь тренировочную площадку самураев.
+~
+~
 ~
 ~
 Z -1 3076
@@ -8093,6 +8419,8 @@ wall.
 D1
 @eng To the east you see the bar..
 @rus На востоке ты видишь бар.
+~
+~
 ~
 ~
 Z -1 3075
@@ -8116,6 +8444,8 @@ D2
 @rus У алтаря.
 ~
 door~
+~
+~
 Z -1 3054
 M 150 H 100
 S
@@ -8135,8 +8465,12 @@ around.
 D0
 ~
 ~
+~
+~
 Z 0 3062
 D5
+~
+~
 ~
 ~
 Z 0 7017
@@ -8156,10 +8490,14 @@ D0
 @rus Ты видишь мост.
 ~
 ~
+~
+~
 Z -1 3051
 D1
 @eng You see the promenade.
 @rus Ты видишь бульвар.
+~
+~
 ~
 ~
 Z -1 3101
@@ -8168,10 +8506,14 @@ D2
 @rus Площадь Собраний раскинулась у стен города.
 ~
 ~
+~
+~
 Z -1 3270
 D3
 @eng You see a small square befor the prison gates.
 @rus Ты видишь площадку перед воротами тюрьмы.
+~
+~
 ~
 ~
 Z -1 32000
@@ -8191,16 +8533,22 @@ D1
 @rus Бульвар.
 ~
 ~
+~
+~
 Z -1 3102
 D2
 @eng Park Road leads south.
 @rus Парковая Аллея.
 ~
 ~
+~
+~
 Z -1 3131
 D3
 @eng You see the Concourse.
 @rus Площадь Собраний.
+~
+~
 ~
 ~
 Z -1 3100
@@ -8226,10 +8574,14 @@ D0
 @rus Старый шаткий мостик ведет к городской свалке.
 ~
 ~
+~
+~
 Z -1 3254
 D1
 @eng You see people moving in and out of Kate's Diner.
 @rus Ты видишь, как люди входят и выходят из закусочной Кэти.
+~
+~
 ~
 ~
 Z -1 3103
@@ -8238,10 +8590,14 @@ D2
 @rus Вход в парк.
 ~
 ~
+~
+~
 Z -1 3105
 D3
 @eng You see the promenade.
 @rus Бульвар.
+~
+~
 ~
 ~
 Z -1 3101
@@ -8267,10 +8623,14 @@ D0
 @rus До тебя доносятся запахи закусочной Кэти.
 ~
 ~
+~
+~
 Z -1 3150
 D1
 @eng You see the Concourse.
 @rus Площадь Собраний.
+~
+~
 ~
 ~
 Z -1 3104
@@ -8279,10 +8639,14 @@ D2
 @rus Дорога ведет на юг.
 ~
 ~
+~
+~
 Z -1 3132
 D3
 @eng You see the promenade.
 @rus Бульвар.
+~
+~
 ~
 ~
 Z -1 3102
@@ -8312,16 +8676,22 @@ D0
 @rus Крепкий каменный мост соединяет берега реки.
 ~
 ~
+~
+~
 Z -1 3253
 D2
 @eng The Concourse continues south, towards an intersection with Penny Lane.
 @rus Площадь Собраний продолжается на юг, ты видишь пересечение с Пенни-Лэйн.
 ~
 ~
+~
+~
 Z -1 3272
 D3
 @eng You Austral Square.
 @rus Астральная площадь.
+~
+~
 ~
 ~
 Z -1 3103
@@ -8341,16 +8711,22 @@ D0
 @rus Ты видишь бульвар.
 ~
 ~
+~
+~
 Z -1 3102
 D1
 @eng You see Park Cafe.
 @rus Ты видишь парковую таверну.
 ~
 ~
+~
+~
 Z -1 3106
 D2
 @eng You see the park.
 @rus Ты видишь парк.
+~
+~
 ~
 ~
 Z -1 3108
@@ -8372,6 +8748,8 @@ D3
 @rus Ты видишь вход в парк.
 ~
 ~
+~
+~
 Z -1 3105
 S
 #3107
@@ -8385,8 +8763,12 @@ south and east.
 D1
 ~
 ~
+~
+~
 Z -1 3108
 D2
+~
+~
 ~
 ~
 Z -1 3113
@@ -8406,12 +8788,18 @@ D0
 @rus Ты видишь северный вход в парк.
 ~
 ~
+~
+~
 Z -1 3105
 D1
 ~
 ~
+~
+~
 Z -1 3109
 D3
+~
+~
 ~
 ~
 Z -1 3107
@@ -8436,8 +8824,12 @@ entrance to this attracting place, you guess, is just north-west from here.
 D2
 ~
 ~
+~
+~
 Z -1 3115
 D3
+~
+~
 ~
 ~
 Z -1 3108
@@ -8455,12 +8847,16 @@ D1
 @rus Ты видишь Парковую аллею.
 ~
 door~
+~
+~
 Z -1 3111
 D3
 @eng You see a sign saying 'KEEP OUT'.
 @rus {R "НЕ ВХОДИТЬ!"{x
 ~
 door~
+~
+~
 ABCZ 3120 3142
 S
 #3111
@@ -8484,14 +8880,20 @@ building door sign~
 D0
 ~
 ~
+~
+~
 Z -1 3131
 D1
 @eng You see the park entrance.
 @rus Ты видишь вход в парк.
 ~
 ~
+~
+~
 Z -1 3112
 D2
+~
+~
 ~
 ~
 Z -1 3118
@@ -8500,6 +8902,8 @@ D3
 @rus Ты видишь штаб-квартиру городской стражи.
 ~
 door~
+~
+~
 Z -1 3110
 S
 #3112
@@ -8513,8 +8917,12 @@ into the park and going west through the entrance you will reach Park Road.
 D1
 ~
 ~
+~
+~
 Z -1 3113
 D3
+~
+~
 ~
 ~
 Z -1 3111
@@ -8530,16 +8938,22 @@ park entrance and to the east you see a small pond.
 D0
 ~
 ~
+~
+~
 Z -1 3107
 D1
 @eng You see the pond.
 @rus Ты видишь пруд.
 ~
 ~
+~
+~
 Z -1 3114
 D3
 @eng You see the western park entrance.
 @rus Ты видишь западный вход в парк.
+~
+~
 ~
 ~
 Z -1 3112
@@ -8555,14 +8969,20 @@ back on the path from the eastern and western end of the pond.
 D1
 ~
 ~
+~
+~
 Z -1 3115
 D2
 @eng Outside the Midgaard Zoo.
 @rus Ты видишь площадку перед зоопарком Мидгаарда.
 ~
 ~
+~
+~
 Z -1 8200
 D3
+~
+~
 ~
 ~
 Z -1 3113
@@ -8578,10 +8998,14 @@ park entrance and to the west you see a small pond.
 D0
 ~
 ~
+~
+~
 Z -1 3109
 D1
 @eng You see the eastern park entrance.
 @rus Ты видишь восточный вход в парк.
+~
+~
 ~
 ~
 Z -1 3116
@@ -8590,10 +9014,14 @@ D3
 @rus Ты видишь пруд.
 ~
 ~
+~
+~
 Z -1 3114
 D4
 @eng Outside the Midgaard Zoo.
 @rus На холме ты видишь зоопарк Мидгаарда.
+~
+~
 ~
 ~
 Z -1 8200
@@ -8610,8 +9038,12 @@ Avenue.
 D1
 ~
 ~
+~
+~
 Z -1 3117
 D3
+~
+~
 ~
 ~
 Z -1 3115
@@ -8628,16 +9060,24 @@ the park entrance and to the east is the not very big Town Hall of Midgaard.
 D0
 ~
 ~
+~
+~
 Z -1 3132
 D1
+~
+~
 ~
 ~
 Z -1 3137
 D2
 ~
 ~
+~
+~
 Z -1 3119
 D3
+~
+~
 ~
 ~
 Z -1 3116
@@ -8651,8 +9091,12 @@ S
 D0
 ~
 ~
+~
+~
 Z -1 3111
 D2
+~
+~
 ~
 ~
 Z -1 3135
@@ -8670,18 +9114,26 @@ town.
 D0
 ~
 ~
+~
+~
 Z -1 3117
 D1
 @eng You see some dangerous looking slums...just the right place for a gang.
 @rus Ты видишь весьма негостеприимно выглядящие кварталы. Там заправляют банды.
 ~
 ~
+~
+~
 Z -1 2101
 D2
 ~
 ~
+~
+~
 Z 0 4401
 D3
+~
+~
 ~
 ~
 Z -1 3133
@@ -8733,22 +9185,32 @@ powerful magic to hold such a chain in place.
 D0
 ~
 ~
+~
+~
 Z -1 3133
 D1
+~
+~
 ~
 ~
 Z -1 3136
 D2
 ~
 ~
+~
+~
 Z -1 3134
 D3
+~
+~
 ~
 ~
 Z -1 3135
 D4
 @eng The chain disappears in the clouds.
 @rus Цепь исчезает в облаках.
+~
+~
 ~
 ~
 Z -1 7914
@@ -8764,8 +9226,12 @@ east.
 D1
 ~
 ~
+~
+~
 Z -1 3134
 D2
+~
+~
 ~
 ~
 Z -1 3125
@@ -8781,12 +9247,18 @@ here.
 D0
 ~
 ~
+~
+~
 Z -1 3136
 D1
 ~
 ~
+~
+~
 Z -1 3123
 D2
+~
+~
 ~
 ~
 Z -1 3126
@@ -8802,8 +9274,12 @@ in eastward direction.
 D1
 ~
 ~
+~
+~
 Z -1 3124
 D3
+~
+~
 ~
 ~
 Z -1 3122
@@ -8850,9 +9326,13 @@ D0
 You see the beginnings of Midgaard's bad neighborhoods.
 ~
 ~
+~
+~
 Z -1 3144
 D1
 You see the concourse.
+~
+~
 ~
 ~
 Z -1 3273
@@ -8860,8 +9340,12 @@ D2
 Through the solid iron bars you see the graveyard.
 ~
 grate~
+the grate~
+~
 ABCZ 3121 3600
 D3
+~
+~
 ~
 ~
 Z -1 3123
@@ -8877,8 +9361,12 @@ The Concourse is south of here.
 D0
 ~
 ~
+~
+~
 Z -1 3121
 D2
+~
+~
 ~
 ~
 Z -1 3128
@@ -8892,14 +9380,20 @@ S
 D0
 ~
 ~
+~
+~
 Z -1 3122
 D1
 @eng A Temple rises up to the east.
 @rus Перед тобой возвышается храм.
 ~
 ~
+~
+~
 Z -1 3071
 D2
+~
+~
 ~
 ~
 Z -1 3129
@@ -8915,8 +9409,12 @@ both north and east.
 D0
 ~
 ~
+~
+~
 Z -1 3271
 D1
+~
+~
 ~
 ~
 Z -1 3128
@@ -8937,14 +9435,20 @@ D0
 @rus Изумрудный проспект простирается на север.
 ~
 ~
+~
+~
 Z -1 3125
 D1
 @eng You can see the heavily guarded southern gate of Midgaard.
 @rus Ты видишь хорошо охраняемые южные ворота Мидгаарда.
 ~
 ~
+~
+~
 Z -1 3255
 D3
+~
+~
 ~
 ~
 Z -1 3127
@@ -8962,14 +9466,20 @@ the city wall is east.
 D0
 ~
 ~
+~
+~
 Z -1 3126
 D1
+~
+~
 ~
 ~
 Z -1 3130
 D3
 @eng You see the south gate of Midgaard.
 @rus Ты видишь южные ворота Мидгаарда.
+~
+~
 ~
 ~
 Z -1 3255
@@ -8985,8 +9495,12 @@ both north and west.
 D0
 ~
 ~
+~
+~
 Z -1 3273
 D3
+~
+~
 ~
 ~
 Z -1 3129
@@ -9000,8 +9514,12 @@ S
 D0
 ~
 ~
+~
+~
 Z -1 3101
 D2
+~
+~
 ~
 ~
 Z -1 3111
@@ -9017,12 +9535,18 @@ Austral Square and Kate's Diner, to the east is the small street Penny Lane.
 D0
 ~
 ~
+~
+~
 Z -1 3103
 D1
 ~
 ~
+~
+~
 Z -1 3139
 D2
+~
+~
 ~
 ~
 Z -1 3117
@@ -9038,8 +9562,12 @@ and to the south is the Road Crossing.
 D1
 ~
 ~
+~
+~
 Z -1 3119
 D2
+~
+~
 ~
 ~
 Z -1 3120
@@ -9055,8 +9583,12 @@ and to the north is the Road Crossing.
 D0
 ~
 ~
+~
+~
 Z -1 3120
 D3
+~
+~
 ~
 ~
 Z -1 3121
@@ -9074,14 +9606,20 @@ under the ground, forming a wall.
 D0
 ~
 ~
+~
+~
 Z -1 3118
 D1
+~
+~
 ~
 ~
 Z -1 3120
 D2
 @eng The white temple of sun, is located at the south.
 @rus Белый Храм Солнца расположен к югу.
+~
+~
 ~
 ~
 Z -1 3069
@@ -9097,8 +9635,12 @@ west is the Road Crossing.
 D2
 ~
 ~
+~
+~
 Z -1 3122
 D3
+~
+~
 ~
 ~
 Z -1 3120
@@ -9116,10 +9658,14 @@ D1
 @rus Что-то вроде кабинета...
 ~
 ~
+~
+~
 Z -1 3138
 D3
 @eng The exit west leads to Emerald Avenue.
 @rus Выход на Изумрудный Проспект.
+~
+~
 ~
 ~
 Z -1 3117
@@ -9145,6 +9691,8 @@ D3
 @rus Приемная.
 ~
 ~
+~
+~
 Z -1 3137
 S
 #3139
@@ -9158,8 +9706,12 @@ continues in eastward direction.
 D1
 ~
 ~
+~
+~
 Z -1 3140
 D3
+~
+~
 ~
 ~
 Z -1 3132
@@ -9176,14 +9728,20 @@ the concourse intersects this street to the east.
 D0
 ~
 ~
+~
+~
 Z -1 3141
 D1
 @eng You see the concourse.
 @rus Ты видишь площадь Собраний.
 ~
 ~
+~
+~
 Z -1 3272
 D3
+~
+~
 ~
 ~
 Z -1 3139
@@ -9196,6 +9754,8 @@ S
 ~
 0 S city
 D2
+~
+~
 ~
 ~
 Z -1 3140
@@ -9219,12 +9779,16 @@ D1
 @rus Ты видишь штаб-квартиру городской стражи.
 ~
 door~
+~
+~
 ABCZ 3120 3110
 D2
 @eng You see the heavy steel door.
 @rus Ты видишь тяжелую стальную дверь.
 ~
 door~
+~
+~
 ABCZ 3137 3143
 S
 #3143
@@ -9248,6 +9812,8 @@ D0
 @rus Ты видишь тяжелую стальную дверь.
 ~
 door~
+~
+~
 ABCZ 3137 3142
 S
 #3144
@@ -9266,10 +9832,14 @@ D1
 @rus Ты видишь грязные трущобы.
 ~
 ~
+~
+~
 Z -1 2160
 D2
 @eng Elm street continues towards a graveyard.
 @rus Улица Вязов продолжается на юг. Чуть дальше видно кладбище.
+~
+~
 ~
 ~
 Z -1 3124
@@ -9321,16 +9891,22 @@ D0
 @rus Небольшой причал для лодок позволяет пристать к закусочной.
 ~
 ~
+~
+~
 Z -1 3203
 D2
 @eng You see Austral Square.
 @rus Ты видишь Астральную площадь.
 ~
 ~
+~
+~
 Z -1 3103
 D4
 @eng You see the far-off halls of Valhalla.
 @rus Ты видишь чертоги Валгаллы.
+~
+~
 ~
 ~
 Z -1 1219
@@ -9372,10 +9948,14 @@ D0
 @rus Знак гласит: {R"ПОСТОРОННИМ ВХОД ВОСПРЕЩЕН!"{x
 ~
 door~
+~
+~
 ABCFZ 3161 3161
 D2
 @eng To the south is the Poor Alley.  Across the alley, you see the Grubby Inn.
 @rus На юге - переулок Бедняков. На лругой стороне переулка - Грязная Таверна.
+~
+~
 ~
 ~
 Z -1 3024
@@ -9406,8 +9986,12 @@ D2
 @rus Маленькая дверь ведет в лавку.
 ~
 door~
+~
+~
 ABCFZ 3161 3160
 D4
+~
+~
 ~
 ~
 Z -1 1219
@@ -9430,8 +10014,12 @@ D3
 The Wall Road is to the west.
 ~
 ~
+~
+~
 Z -1 3042
 D4
+~
+~
 ~
 ~
 Z -1 1219
@@ -9454,10 +10042,14 @@ some kind of mortar.  Looks pretty solid.
 D1
 ~
 ~
+~
+~
 Z -1 3201
 D3
 @eng You see the river flowing west into the Forest of Haon-Dor.
 @rus Ты видишь, как река течет дальше на запад, в лес Хаон-Дор.
+~
+~
 ~
 ~
 Z -1 9772
@@ -9473,8 +10065,12 @@ river flows west towards the bridge.  The riverbanks are too steep to climb.
 D1
 ~
 ~
+~
+~
 Z -1 3202
 D3
+~
+~
 ~
 ~
 Z -1 3200
@@ -9492,8 +10088,12 @@ dump to the promenade.
 D1
 ~
 ~
+~
+~
 Z -1 3203
 D3
+~
+~
 ~
 ~
 Z -1 3201
@@ -9509,8 +10109,12 @@ Diner is to the south.  The river flows in an east west direction.
 D0
 ~
 ~
+~
+~
 Z -1 3049
 D1
+~
+~
 ~
 ~
 Z -1 3204
@@ -9519,8 +10123,12 @@ D2
 @rus Ты видишь причал позади закусочной Кэти.
 ~
 ~
+~
+~
 Z -1 3150
 D3
+~
+~
 ~
 ~
 Z -1 3202
@@ -9538,8 +10146,12 @@ levee are west, in the direction of the current.
 D1
 ~
 ~
+~
+~
 Z -1 3205
 D3
+~
+~
 ~
 ~
 Z -1 3203
@@ -9562,8 +10174,12 @@ bars
 города. За ними ты видишь темный туннель.
 ~
 ~
+~
+~
 Z -1 5001
 D3
+~
+~
 ~
 ~
 Z -1 3204
@@ -9584,10 +10200,14 @@ D0
 @rus Ты видишь Восточные Ворота города.
 ~
 ~
+~
+~
 Z -1 3041
 D2
 @eng You see an intersection with a dark alley.
 @rus Ты видишь перекресток с темным переулком.
+~
+~
 ~
 ~
 Z -1 3251
@@ -9609,10 +10229,14 @@ D0
 @rus Дорога у Стены ведет к Восточным Воротам города.
 ~
 ~
+~
+~
 Z -1 3250
 D2
 @eng Wall road continues to the south, towards a bridge over the Midgaard river.
 @rus Дорога у Стены ведет к мосту через реку.
+~
+~
 ~
 ~
 Z -1 3252
@@ -9620,6 +10244,8 @@ D3
 @eng A dirty, unlight alley lies to the west...it looks like a perfect spot for a
 mugging.
 @rus Грязная, неосвещенная улочка ведет на запад. Неплохое место, чтобы устроить засаду.
+~
+~
 ~
 ~
 Z -1 3046
@@ -9641,10 +10267,14 @@ D0
 @rus Ты видишь перекресток с темным переулком.
 ~
 ~
+~
+~
 Z -1 3251
 D2
 @eng The eastern bridge crosses the river to the south.
 @rus Восточный мост пересекает реку.
+~
+~
 ~
 ~
 Z -1 3253
@@ -9675,16 +10305,22 @@ D0
 @rus Дорога у стены продолжается на север.
 ~
 ~
+~
+~
 Z -1 3252
 D2
 @eng The concourse stretches around the southern parts of Midgaard.
 @rus Открытое пространство простирается вокруг южных кварталов Мидгаарда.
 ~
 ~
+~
+~
 Z -1 3104
 D5
 @eng You see the flowing river.
 @rus Ты видишь стремительные воды реки.
+~
+~
 ~
 ~
 Z 0 3205
@@ -9708,16 +10344,22 @@ D0
 @rus Ты видишь завалы городской свалки.
 ~
 ~
+~
+~
 Z 0 3030
 D2
 @eng The beautiful promenade lies along the river.  What a romantic place to visit!
 @rus Бульвар расположен вдоль реки. Какое романтическое место!
 ~
 ~
+~
+~
 Z -1 3102
 D5
 @eng You see the flowing river.
 @rus Ты видишь стремительные воды реки.
+~
+~
 ~
 ~
 Z 0 3202
@@ -9739,16 +10381,22 @@ D1
 @rus Площадь Собраний лежит к востоку вдоль стен города.
 ~
 ~
+~
+~
 Z -1 3129
 D2
 @eng You see the southern gate.
 @rus Ты видишь южные ворота.
 ~
 ~
+~
+~
 Z 3133 3256
 D3
 @eng The concourse heads west along the inside of the city wall.
 @rus Площадь Собраний лежит к западу вдоль стен города.
+~
+~
 ~
 ~
 Z -1 3128
@@ -9772,11 +10420,15 @@ D0
 @rus Ты видишь южные ворота.
 ~
 ~
+~
+~
 Z 3133 3255
 D2
 @eng The green forests of the Miden'nir are south, hiding countless goblin warriors.
 @rus Зеленые леса Миден'нира простираются к югу, скрывая неисчислимые орды
 гоблинов.
+~
+~
 ~
 ~
 Z -1 3505
@@ -9796,10 +10448,14 @@ D0
 @rus Ты видишь оживленный перекресток с улицей Ремесленников.
 ~
 ~
+~
+~
 Z -1 3258
 D2
 @eng The west gate of the city lies south.
 @rus Западные ворота Мадгаарда лежат к югу.
+~
+~
 ~
 ~
 Z -1 3040
@@ -9819,16 +10475,22 @@ D0
 @rus Дорога продолжается по направлению к северо-западному углу стены.
 ~
 ~
+~
+~
 Z -1 3259
 D1
 @eng You see the shops and clan halls of Clan Road.
 @rus На восток идет вереница магазинов ремесленного квартала.
 ~
 ~
+~
+~
 Z -1 3301
 D2
 @eng Wall road continues alongside the western wall, heading towards the west gate.
 @rus Дорога продолжается вдоль западной стены, приводя к западным воротам города.
+~
+~
 ~
 ~
 Z -1 3257
@@ -9849,10 +10511,14 @@ D0
 @rus Ты видишь северо-западный угол городской стены.
 ~
 ~
+~
+~
 Z -1 3260
 D2
 @eng To the south, wall road intersects with a crowded Clan street.
 @rus Ты видишь оживленный перекресток с улицей Ремесленников.
+~
+~
 ~
 ~
 Z -1 3258
@@ -9872,10 +10538,14 @@ D1
 @rus Дорога лежит вдоль северной стены города.
 ~
 ~
+~
+~
 Z -1 3261
 D2
 @eng Wall road continues along the western wall of the city.
 @rus Дорога лежит вдоль западной стены города.
+~
+~
 ~
 ~
 Z -1 3259
@@ -9894,10 +10564,14 @@ D1
 @rus Дорога продолжается на восток, к северным воротам.
 ~
 ~
+~
+~
 Z -1 3262
 D3
 @eng You can see the northwest corner of the city wall to the west.
 @rus Ты видишь северо-западный угол стены.
+~
+~
 ~
 ~
 Z -1 3260
@@ -9924,16 +10598,22 @@ D0
 @rus За воротами простираются Северные Равнины.
 ~
 ~
+~
+~
 Z 3133 3268
 D1
 @eng Wall road continues to the east, alongside the northern wall.
 @rus Дорога продолжается на восток вдоль северной стены.
 ~
 ~
+~
+~
 Z -1 3263
 D3
 @eng Wall road continues to the west, alongside the northern wall.
 @rus Дорога продолжается на запад вдоль северной стены.
+~
+~
 ~
 ~
 Z -1 3261
@@ -9951,9 +10631,13 @@ D1
 You see the northeastern corner of the city walls.
 ~
 ~
+~
+~
 Z -1 3264
 D3
 The northern gate of the city lies east.
+~
+~
 ~
 ~
 Z -1 3262
@@ -9973,10 +10657,14 @@ D2
 @rus Дорога у стены идет на юг вдоль восточной стены города.
 ~
 ~
+~
+~
 Z -1 3265
 D3
 @eng Wall road continues to the west, along the northern wall of the city.
 @rus Дорога вдоль стены продолжается на запад вдоль северной стены города.
+~
+~
 ~
 ~
 Z -1 3263
@@ -9996,10 +10684,14 @@ D0
 @rus Ты видишь северо-восточный угол городской стены.
 ~
 ~
+~
+~
 Z -1 3264
 D2
 @eng You see an intersection with a crowded street.
 @rus Ты видишь перекресток с оживленной улицей.
+~
+~
 ~
 ~
 Z -1 3266
@@ -10022,16 +10714,22 @@ D0
 @rus Дорога у Стены продолжается к северу вдоль восточной стены города.
 ~
 ~
+~
+~
 Z -1 3265
 D2
 @eng Wall road continues to the south, towards the east gate of Midgaard.
 @rus Дорога у Стены продолжается к югу вдоль восточной стены города.
 ~
 ~
+~
+~
 Z -1 3267
 D3
 @eng You see a mass of people heading down Clan Road.
 @rus Ты видишь толпы народа, заполняющие улицу Ремесленников.
+~
+~
 ~
 ~
 Z -1 3316
@@ -10051,10 +10749,14 @@ D0
 @rus Ты видишь перекресток с шумной улицей ремесленников.
 ~
 ~
+~
+~
 Z -1 3266
 D2
 @eng You see the well-guarded east gate of Midgaard.
 @rus Ты видишь хорошо охраняемые Восточные Ворота города.
+~
+~
 ~
 ~
 Z -1 3041
@@ -10076,10 +10778,14 @@ D0
 @rus Ты видишь пыльную тропинку, идущую в обход городских стен.
 ~
 ~
+~
+~
 Z -1 3904
 D2
 @eng You see the north gate of Midgaard.
 @rus Ты видишь северные ворота Мидгаарда.
+~
+~
 ~
 ~
 Z 3133 3262
@@ -10099,10 +10805,14 @@ D0
 @rus Площадь Собраний продолжается на север вдоль стен города.
 ~
 ~
+~
+~
 Z -1 3100
 D2
 @eng The concourse heads south, passing by a beautiful park.
 @rus Площадь Собраний продолжается на юг вдоль парка.
+~
+~
 ~
 ~
 Z -1 3271
@@ -10122,10 +10832,14 @@ D0
 @rus Площадь Собраний простирается к северу, проходя через зеленый парк.
 ~
 ~
+~
+~
 Z -1 3270
 D2
 @eng You can see the southwest corner of the city wall.
 @rus Ты видишь юго-западный угол стены.
+~
+~
 ~
 ~
 Z -1 3127
@@ -10147,16 +10861,22 @@ D0
 @rus Площадь Собраний продолжается к северу по направлению к восточному мосту.
 ~
 ~
+~
+~
 Z -1 3104
 D2
 @eng The concourse continues south, towards an intersection with Elm Street.
 @rus Площадь Собраний продолжается к югу по направлению к улице Вязов.
 ~
 ~
+~
+~
 Z -1 3273
 D3
 @eng You see Penny Lane.
 @rus Ты видишь улицу Старых Монеток.
+~
+~
 ~
 ~
 Z -1 3140
@@ -10178,6 +10898,8 @@ D0
 Старых Монеток.
 ~
 ~
+~
+~
 Z -1 3272
 D2
 @eng The concourse continues to the south, towards the southeast corner of the wall.
@@ -10185,10 +10907,14 @@ D2
 городской стены.
 ~
 ~
+~
+~
 Z -1 3130
 D3
 @eng You see Elm Street and the graveyard entrance.
 @rus Ты видишь улицу Вязов и вход на кладбище.
+~
+~
 ~
 ~
 Z -1 3124
@@ -10209,10 +10935,14 @@ D1
 @rus Улица Ремесленников продолжается на восток.
 ~
 ~
+~
+~
 Z -1 3302
 D3
 @eng Wall Road is to the west.
 @rus Ты видишь Дорогу у Стены.
+~
+~
 ~
 ~
 Z -1 3258
@@ -10230,16 +10960,22 @@ D1
 @rus Улица Ремесленников продолжается на восток.
 ~
 ~
+~
+~
 Z -1 3303
 D2
 @eng The money changer is to the south.
 @rus Покосившаяся вывеска гласит: {R"Ото меняла"{x.
 ~
 ~
+~
+~
 Z -1 3334
 D3
 @eng Clan Road continues west.
 @rus Улица Ремесленников продолжается на запад.
+~
+~
 ~
 ~
 Z -1 3301
@@ -10257,10 +10993,14 @@ D1
 @rus Улица Ремесленников продолжается на восток.
 ~
 ~
+~
+~
 Z -1 3314
 D3
 @eng Clan Road continues to the west.
 @rus Улица Ремесленников продолжается на запад.
+~
+~
 ~
 ~
 Z -1 3302
@@ -10280,6 +11020,8 @@ a finely crafted sword. A few minutes, and it will be done.
 D2
 ~
 ~
+~
+~
 Z 0 3314
 S
 #3314
@@ -10293,16 +11035,22 @@ to the east and west. North you here some noises of a smithery.
 D0
 ~
 ~
+~
+~
 Z 0 3313
 D1
 @eng Clan Road continues to the east.
 @rus Улица Ремесленников продолжается на восток.
 ~
 ~
+~
+~
 Z -1 3315
 D3
 @eng Clan Road continues to the west.
 @rus Улица Ремесленников продолжается на запад.
+~
+~
 ~
 ~
 Z -1 3303
@@ -10325,16 +11073,22 @@ D1
 @rus Улица Ремесленников продолжается на восток.
 ~
 ~
+~
+~
 Z -1 3316
 D2
 @eng A busy pub is to the south.
 @rus Шумная таверна лежит к югу.
 ~
 ~
+~
+~
 Z -1 3356
 D3
 @eng Clan Road continues to the west.
 @rus Улица Ремесленников продолжается на запад.
+~
+~
 ~
 ~
 Z -1 3314
@@ -10354,10 +11108,14 @@ D1
 @rus Дорога у стены пролегает к востоку отсюда.
 ~
 ~
+~
+~
 Z -1 3266
 D3
 @eng Clan Road continues to the west.
 @rus Улица Ремесленников продолжается на запад.
+~
+~
 ~
 ~
 Z -1 3315
@@ -10395,6 +11153,8 @@ D0
 Clan Road is to the north.
 ~
 ~
+~
+~
 Z -1 3302
 S
 #3352
@@ -10427,10 +11187,14 @@ D1
 @rus Ты видишь вход в гильдию варлоков.
 ~
 ~
+~
+~
 Z -1 3073
 D2
 @eng A dark alley is to the south.
 @rus Темный переулок на юге отсюда.
+~
+~
 ~
 ~
 Z 0 3026
@@ -10455,10 +11219,14 @@ D1
 @rus Другая половина зала.
 ~
 ~
+~
+~
 Z -1 3356
 D2
 @eng The bar is to the south of you.
 @rus Бар находится к югу от тебя.
+~
+~
 ~
 ~
 Z -1 3357
@@ -10488,10 +11256,14 @@ D0
 @rus Улица ремесленников видна через открытые двери.
 ~
 ~
+~
+~
 Z -1 3315
 D2
 @eng The bar is to your south.
 @rus Бар находится к югу от тебя.
+~
+~
 ~
 ~
 Z -1 3358
@@ -10500,10 +11272,14 @@ D3
 @rus Следующее помещение таверны.
 ~
 ~
+~
+~
 Z -1 3355
 D4
 @eng A set of stairs leads up to the reception area.
 @rus Лестница ведет наверх, к столику регистратора гостиницы.
+~
+~
 ~
 ~
 Z -1 3359
@@ -10535,8 +11311,12 @@ D0
 @rus Собственно таверна к северу отсюда.
 ~
 ~
+~
+~
 Z -1 3355
 D1
+~
+~
 ~
 ~
 Z 0 3358
@@ -10566,8 +11346,12 @@ D0
 The pub proper is to the north.
 ~
 ~
+~
+~
 Z -1 3356
 D3
+~
+~
 ~
 ~
 Z 0 3357
@@ -10592,6 +11376,8 @@ probably waiting for you to ask him for a room.
 D5
 @eng The stairs lead back down to the pub.
 @rus Ступени ведут вниз, обратно в таверну.
+~
+~
 ~
 ~
 Z -1 3356

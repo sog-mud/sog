@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Clock Tower~
 VNUMs 4900 4999
 Credits Kami Agrael~
@@ -1192,8 +1192,12 @@ you hear sounds of the square.
 D3
 ~
 ~
+~
+~
 Z 0 4999
 D4
+~
+~
 ~
 ~
 Z -1 4994
@@ -1212,6 +1216,8 @@ You cannot go back, so keep moving!
 D1
 ~
 ~
+~
+~
 Z -1 4902
 S
 #4902
@@ -1226,6 +1232,8 @@ You cannot go back, so keep moving!
 ~
 0 0 air
 D5
+~
+~
 ~
 ~
 Z -1 4903
@@ -1244,6 +1252,8 @@ You cannot go back, so keep moving!
 D5
 ~
 ~
+~
+~
 Z -1 4904
 S
 #4904
@@ -1258,6 +1268,8 @@ You cannot go back, so keep moving!
 ~
 0 0 air
 D5
+~
+~
 ~
 ~
 Z -1 4905
@@ -1276,6 +1288,8 @@ You cannot go back, so keep moving!
 D3
 ~
 ~
+~
+~
 Z -1 4906
 S
 #4906
@@ -1290,6 +1304,8 @@ You cannot go back, so keep moving!
 ~
 0 0 air
 D3
+~
+~
 ~
 ~
 Z -1 4907
@@ -1308,6 +1324,8 @@ You cannot go back, so keep moving!
 D3
 ~
 ~
+~
+~
 Z -1 4908
 S
 #4908
@@ -1322,6 +1340,8 @@ You cannot go back, so keep moving!
 ~
 0 0 air
 D4
+~
+~
 ~
 ~
 Z -1 4909
@@ -1340,6 +1360,8 @@ You cannot go back, so keep moving!
 D4
 ~
 ~
+~
+~
 Z -1 4910
 S
 #4910
@@ -1354,6 +1376,8 @@ You cannot go back, so keep moving!
 ~
 0 0 air
 D4
+~
+~
 ~
 ~
 Z -1 4911
@@ -1372,6 +1396,8 @@ You cannot go back, so keep moving!
 D1
 ~
 ~
+~
+~
 Z -1 4912
 S
 #4912
@@ -1388,8 +1414,12 @@ You cannot go back, so keep moving!
 D1
 ~
 ~
+~
+~
 Z -1 4901
 D5
+~
+~
 ~
 ~
 Z -1 4949
@@ -1408,6 +1438,8 @@ You cannot go back, so keep moving!
 D2
 ~
 ~
+~
+~
 Z -1 4914
 S
 #4914
@@ -1422,6 +1454,8 @@ You cannot go back, so keep moving!
 ~
 0 0 air
 D5
+~
+~
 ~
 ~
 Z -1 4915
@@ -1440,6 +1474,8 @@ You cannot go back, so keep moving!
 D5
 ~
 ~
+~
+~
 Z -1 4916
 S
 #4916
@@ -1454,6 +1490,8 @@ You cannot go back, so keep moving!
 ~
 0 0 air
 D5
+~
+~
 ~
 ~
 Z -1 4917
@@ -1472,6 +1510,8 @@ You cannot go back, so keep moving!
 D0
 ~
 ~
+~
+~
 Z -1 4918
 S
 #4918
@@ -1486,6 +1526,8 @@ You cannot go back, so keep moving!
 ~
 0 0 air
 D0
+~
+~
 ~
 ~
 Z -1 4919
@@ -1504,6 +1546,8 @@ You cannot go back, so keep moving!
 D0
 ~
 ~
+~
+~
 Z -1 4920
 S
 #4920
@@ -1518,6 +1562,8 @@ You cannot go back, so keep moving!
 ~
 0 0 air
 D4
+~
+~
 ~
 ~
 Z -1 4921
@@ -1536,6 +1582,8 @@ You cannot go back, so keep moving!
 D4
 ~
 ~
+~
+~
 Z -1 4922
 S
 #4922
@@ -1550,6 +1598,8 @@ You cannot go back, so keep moving!
 ~
 0 0 air
 D4
+~
+~
 ~
 ~
 Z -1 4923
@@ -1568,6 +1618,8 @@ You cannot go back, so keep moving!
 D2
 ~
 ~
+~
+~
 Z -1 4924
 S
 #4924
@@ -1584,8 +1636,12 @@ You cannot go back, so keep moving!
 D2
 ~
 ~
+~
+~
 Z -1 4913
 D5
+~
+~
 ~
 ~
 Z -1 4950
@@ -1604,6 +1660,8 @@ You cannot go back, so keep moving!
 D3
 ~
 ~
+~
+~
 Z -1 4926
 S
 #4926
@@ -1618,6 +1676,8 @@ You cannot go back, so keep moving!
 ~
 0 0 air
 D5
+~
+~
 ~
 ~
 Z -1 4927
@@ -1636,6 +1696,8 @@ You cannot go back, so keep moving!
 D5
 ~
 ~
+~
+~
 Z -1 4928
 S
 #4928
@@ -1650,6 +1712,8 @@ You cannot go back, so keep moving!
 ~
 0 0 air
 D5
+~
+~
 ~
 ~
 Z -1 4929
@@ -1668,6 +1732,8 @@ You cannot go back, so keep moving!
 D1
 ~
 ~
+~
+~
 Z -1 4930
 S
 #4930
@@ -1682,6 +1748,8 @@ You cannot go back, so keep moving!
 ~
 0 0 air
 D1
+~
+~
 ~
 ~
 Z -1 4931
@@ -1700,6 +1768,8 @@ You cannot go back, so keep moving!
 D1
 ~
 ~
+~
+~
 Z -1 4932
 S
 #4932
@@ -1714,6 +1784,8 @@ You cannot go back, so keep moving!
 ~
 0 0 air
 D4
+~
+~
 ~
 ~
 Z -1 4933
@@ -1732,6 +1804,8 @@ You cannot go back, so keep moving!
 D4
 ~
 ~
+~
+~
 Z -1 4934
 S
 #4934
@@ -1746,6 +1820,8 @@ You cannot go back, so keep moving!
 ~
 0 0 air
 D4
+~
+~
 ~
 ~
 Z -1 4935
@@ -1764,6 +1840,8 @@ You cannot go back, so keep moving!
 D3
 ~
 ~
+~
+~
 Z -1 4936
 S
 #4936
@@ -1780,8 +1858,12 @@ You cannot go back, so keep moving!
 D3
 ~
 ~
+~
+~
 Z -1 4925
 D5
+~
+~
 ~
 ~
 Z -1 4951
@@ -1800,6 +1882,8 @@ You cannot go back, so keep moving!
 D0
 ~
 ~
+~
+~
 Z -1 4938
 S
 #4938
@@ -1814,6 +1898,8 @@ You cannot go back, so keep moving!
 ~
 0 0 air
 D5
+~
+~
 ~
 ~
 Z -1 4939
@@ -1832,6 +1918,8 @@ You cannot go back, so keep moving!
 D5
 ~
 ~
+~
+~
 Z -1 4940
 S
 #4940
@@ -1846,6 +1934,8 @@ You cannot go back, so keep moving!
 ~
 0 0 air
 D5
+~
+~
 ~
 ~
 Z -1 4941
@@ -1864,6 +1954,8 @@ You cannot go back, so keep moving!
 D2
 ~
 ~
+~
+~
 Z -1 4942
 S
 #4942
@@ -1878,6 +1970,8 @@ You cannot go back, so keep moving!
 ~
 0 0 air
 D2
+~
+~
 ~
 ~
 Z -1 4943
@@ -1896,6 +1990,8 @@ You cannot go back, so keep moving!
 D2
 ~
 ~
+~
+~
 Z -1 4944
 S
 #4944
@@ -1910,6 +2006,8 @@ You cannot go back, so keep moving!
 ~
 0 0 air
 D4
+~
+~
 ~
 ~
 Z -1 4945
@@ -1928,6 +2026,8 @@ You cannot go back, so keep moving!
 D4
 ~
 ~
+~
+~
 Z -1 4946
 S
 #4946
@@ -1942,6 +2042,8 @@ You cannot go back, so keep moving!
 ~
 0 0 air
 D4
+~
+~
 ~
 ~
 Z -1 4947
@@ -1960,6 +2062,8 @@ You cannot go back, so keep moving!
 D0
 ~
 ~
+~
+~
 Z -1 4948
 S
 #4948
@@ -1976,8 +2080,12 @@ You cannot go back, so keep moving!
 D0
 ~
 ~
+~
+~
 Z -1 4937
 D5
+~
+~
 ~
 ~
 Z -1 4952
@@ -1999,8 +2107,12 @@ and long, points at these figures.
 D0
 ~
 ~
+~
+~
 Z -1 4975
 D5
+~
+~
 ~
 ~
 Z -1 4906
@@ -2022,8 +2134,12 @@ and long, points at these figures.
 D1
 ~
 ~
+~
+~
 Z -1 4965
 D5
+~
+~
 ~
 ~
 Z -1 4918
@@ -2045,8 +2161,12 @@ and long, points at these figures.
 D2
 ~
 ~
+~
+~
 Z -1 4957
 D5
+~
+~
 ~
 ~
 Z -1 4930
@@ -2068,8 +2188,12 @@ and long, points at these figures.
 D3
 ~
 ~
+~
+~
 Z -1 4967
 D5
+~
+~
 ~
 ~
 Z -1 4942
@@ -2090,20 +2214,30 @@ as a pendulum knocks with a strong regularity.
 D0
 ~
 ~
+~
+~
 Z 0 4971
 D1
+~
+~
 ~
 ~
 Z -1 4954
 D2
 ~
 ~
+~
+~
 Z -1 4962
 D3
 ~
 ~
+~
+~
 Z 0 4974
 D4
+~
+~
 ~
 ~
 Z 0 4968
@@ -2124,8 +2258,12 @@ as a pendulum knocks with a strong regularity.
 D1
 ~
 ~
+~
+~
 Z -1 4955
 D3
+~
+~
 ~
 ~
 Z -1 4953
@@ -2146,16 +2284,24 @@ as a pendulum knocks with a strong regularity.
 D2
 ~
 ~
+~
+~
 Z -1 4964
 D3
+~
+~
 ~
 ~
 Z -1 4954
 D4
 ~
 ~
+~
+~
 Z 0 4964
 D5
+~
+~
 ~
 ~
 Z 0 4964
@@ -2176,8 +2322,12 @@ as a pendulum knocks with a strong regularity.
 D1
 ~
 ~
+~
+~
 Z -1 4957
 D4
+~
+~
 ~
 ~
 Z -1 4959
@@ -2198,12 +2348,18 @@ as a pendulum knocks with a strong regularity.
 D0
 ~
 ~
+~
+~
 Z -1 4951
 D1
 ~
 ~
+~
+~
 Z -1 4958
 D3
+~
+~
 ~
 ~
 Z -1 4956
@@ -2224,12 +2380,18 @@ as a pendulum knocks with a strong regularity.
 D2
 ~
 ~
+~
+~
 Z -1 4967
 D3
 ~
 ~
+~
+~
 Z -1 4957
 D5
+~
+~
 ~
 ~
 Z 0 4968
@@ -2250,8 +2412,12 @@ as a pendulum knocks with a strong regularity.
 D2
 ~
 ~
+~
+~
 Z -1 4968
 D5
+~
+~
 ~
 ~
 Z -1 4956
@@ -2272,20 +2438,30 @@ as a pendulum knocks with a strong regularity.
 D1
 ~
 ~
+~
+~
 Z -1 4961
 D2
+~
+~
 ~
 ~
 Z -1 4969
 D3
 ~
 ~
+~
+~
 Z 0 4961
 D4
 ~
 ~
+~
+~
 Z 0 4960
 D5
+~
+~
 ~
 ~
 Z 0 4960
@@ -2306,20 +2482,30 @@ as a pendulum knocks with a strong regularity.
 D1
 ~
 ~
+~
+~
 Z 0 4960
 D2
+~
+~
 ~
 ~
 Z -1 4970
 D3
 ~
 ~
+~
+~
 Z -1 4960
 D4
 ~
 ~
+~
+~
 Z 0 4961
 D5
+~
+~
 ~
 ~
 Z 0 4961
@@ -2340,12 +2526,18 @@ as a pendulum knocks with a strong regularity.
 D0
 ~
 ~
+~
+~
 Z -1 4953
 D1
 ~
 ~
+~
+~
 Z -1 4963
 D4
+~
+~
 ~
 ~
 Z 0 4970
@@ -2366,8 +2558,12 @@ as a pendulum knocks with a strong regularity.
 D3
 ~
 ~
+~
+~
 Z -1 4962
 D5
+~
+~
 ~
 ~
 Z -1 4993
@@ -2388,16 +2584,24 @@ as a pendulum knocks with a strong regularity.
 D0
 ~
 ~
+~
+~
 Z -1 4955
 D2
+~
+~
 ~
 ~
 Z -1 4973
 D4
 ~
 ~
+~
+~
 Z 0 4955
 D5
+~
+~
 ~
 ~
 Z 0 4955
@@ -2418,20 +2622,30 @@ as a pendulum knocks with a strong regularity.
 D1
 ~
 ~
+~
+~
 Z -1 4966
 D2
+~
+~
 ~
 ~
 Z -1 4974
 D3
 ~
 ~
+~
+~
 Z -1 4950
 D4
 ~
 ~
+~
+~
 Z 0 4965
 D5
+~
+~
 ~
 ~
 Z 0 4965
@@ -2452,16 +2666,24 @@ as a pendulum knocks with a strong regularity.
 D2
 ~
 ~
+~
+~
 Z -1 4975
 D3
+~
+~
 ~
 ~
 Z -1 4965
 D4
 ~
 ~
+~
+~
 Z 0 4966
 D5
+~
+~
 ~
 ~
 Z 0 4966
@@ -2482,12 +2704,18 @@ as a pendulum knocks with a strong regularity.
 D0
 ~
 ~
+~
+~
 Z -1 4958
 D1
 ~
 ~
+~
+~
 Z -1 4952
 D2
+~
+~
 ~
 ~
 Z -1 4976
@@ -2508,20 +2736,30 @@ as a pendulum knocks with a strong regularity.
 D0
 ~
 ~
+~
+~
 Z -1 4959
 D1
+~
+~
 ~
 ~
 Z -1 4969
 D3
 ~
 ~
+~
+~
 Z 0 4970
 D4
 ~
 ~
+~
+~
 Z 0 4958
 D5
+~
+~
 ~
 ~
 Z 0 4953
@@ -2542,8 +2780,12 @@ as a pendulum knocks with a strong regularity.
 D0
 ~
 ~
+~
+~
 Z -1 4960
 D3
+~
+~
 ~
 ~
 Z -1 4968
@@ -2564,16 +2806,24 @@ as a pendulum knocks with a strong regularity.
 D0
 ~
 ~
+~
+~
 Z -1 4961
 D1
+~
+~
 ~
 ~
 Z 0 4968
 D2
 ~
 ~
+~
+~
 Z -1 4979
 D5
+~
+~
 ~
 ~
 Z 0 4962
@@ -2594,12 +2844,18 @@ as a pendulum knocks with a strong regularity.
 D1
 ~
 ~
+~
+~
 Z -1 4972
 D2
 ~
 ~
+~
+~
 Z 0 4953
 D4
+~
+~
 ~
 ~
 Z -1 4974
@@ -2620,8 +2876,12 @@ as a pendulum knocks with a strong regularity.
 D1
 ~
 ~
+~
+~
 Z -1 4973
 D3
+~
+~
 ~
 ~
 Z -1 4971
@@ -2642,16 +2902,24 @@ as a pendulum knocks with a strong regularity.
 D0
 ~
 ~
+~
+~
 Z -1 4964
 D3
+~
+~
 ~
 ~
 Z -1 4972
 D4
 ~
 ~
+~
+~
 Z 0 4973
 D5
+~
+~
 ~
 ~
 Z 0 4973
@@ -2672,12 +2940,18 @@ as a pendulum knocks with a strong regularity.
 D0
 ~
 ~
+~
+~
 Z -1 4965
 D1
 ~
 ~
+~
+~
 Z 0 4953
 D5
+~
+~
 ~
 ~
 Z -1 4971
@@ -2698,12 +2972,18 @@ as a pendulum knocks with a strong regularity.
 D0
 ~
 ~
+~
+~
 Z -1 4966
 D1
 ~
 ~
+~
+~
 Z -1 4976
 D2
+~
+~
 ~
 ~
 Z -1 4949
@@ -2724,16 +3004,24 @@ as a pendulum knocks with a strong regularity.
 D0
 ~
 ~
+~
+~
 Z -1 4967
 D3
+~
+~
 ~
 ~
 Z -1 4975
 D4
 ~
 ~
+~
+~
 Z 0 4976
 D5
+~
+~
 ~
 ~
 Z 0 4976
@@ -2754,16 +3042,24 @@ as a pendulum knocks with a strong regularity.
 D0
 ~
 ~
+~
+~
 Z 0 4977
 D1
+~
+~
 ~
 ~
 Z -1 4978
 D2
 ~
 ~
+~
+~
 Z 0 4977
 D4
+~
+~
 ~
 ~
 Z -1 4980
@@ -2784,24 +3080,36 @@ as a pendulum knocks with a strong regularity.
 D0
 ~
 ~
+~
+~
 Z 0 4978
 D1
+~
+~
 ~
 ~
 Z -1 4979
 D2
 ~
 ~
+~
+~
 Z 0 4978
 D3
+~
+~
 ~
 ~
 Z -1 4977
 D4
 ~
 ~
+~
+~
 Z 0 4978
 D5
+~
+~
 ~
 ~
 Z 0 4978
@@ -2822,16 +3130,24 @@ as a pendulum knocks with a strong regularity.
 D0
 ~
 ~
+~
+~
 Z -1 4970
 D3
+~
+~
 ~
 ~
 Z -1 4978
 D4
 ~
 ~
+~
+~
 Z 0 4979
 D5
+~
+~
 ~
 ~
 Z 0 4979
@@ -2849,16 +3165,24 @@ and nose. You want acquisitively to run away from here!
 D0
 ~
 ~
+~
+~
 Z 0 4981
 D1
+~
+~
 ~
 ~
 Z 0 4983
 D4
 ~
 ~
+~
+~
 Z -1 4984
 D5
+~
+~
 ~
 ~
 Z -1 4977
@@ -2876,12 +3200,18 @@ and nose. You want acquisitively to run away from here!
 D1
 ~
 ~
+~
+~
 Z 0 4982
 D2
 ~
 ~
+~
+~
 Z 0 4980
 D4
+~
+~
 ~
 ~
 Z -1 4984
@@ -2899,12 +3229,18 @@ and nose. You want acquisitively to run away from here!
 D2
 ~
 ~
+~
+~
 Z 0 4983
 D3
 ~
 ~
+~
+~
 Z 0 4981
 D4
+~
+~
 ~
 ~
 Z -1 4984
@@ -2922,12 +3258,18 @@ and nose. You want acquisitively to run away from here!
 D0
 ~
 ~
+~
+~
 Z 0 4982
 D3
 ~
 ~
+~
+~
 Z 0 4980
 D4
+~
+~
 ~
 ~
 Z -1 4984
@@ -2941,6 +3283,8 @@ and spiders. But who is hidden in the corner?
 ~
 0 ACD inside
 D4
+~
+~
 ~
 ~
 ABZ -1 4985
@@ -2960,24 +3304,36 @@ asleep.
 D0
 ~
 ~
+~
+~
 Z -1 4986
 D1
+~
+~
 ~
 ~
 Z -1 4987
 D2
 ~
 ~
+~
+~
 Z -1 4988
 D3
+~
+~
 ~
 ~
 Z -1 4989
 D4
 ~
 ~
+~
+~
 Z -1 4990
 D5
+~
+~
 ~
 ~
 ABZ -1 4984
@@ -2997,6 +3353,8 @@ And when the wind blows, it seems that you can fly!
 D2
 ~
 ~
+~
+~
 Z -1 4985
 S
 #4987
@@ -3012,6 +3370,8 @@ And when the wind blows, it seems that you can fly!
 ~
 0 0 city
 D3
+~
+~
 ~
 ~
 Z -1 4985
@@ -3031,6 +3391,8 @@ And when the wind blows, it seems that you can fly!
 D0
 ~
 ~
+~
+~
 Z -1 4985
 S
 #4989
@@ -3048,6 +3410,8 @@ And when the wind blows, it seems that you can fly!
 D1
 ~
 ~
+~
+~
 Z -1 4985
 S
 #4990
@@ -3062,8 +3426,12 @@ not? Better think...
 D4
 ~
 ~
+~
+~
 Z -1 4991
 D5
+~
+~
 ~
 ~
 Z -1 4985
@@ -3083,8 +3451,12 @@ spire.
 D4
 ~
 ~
+~
+~
 Z -1 4992
 D5
+~
+~
 ~
 ~
 Z -1 4990
@@ -3100,6 +3472,8 @@ of a whole countryside.
 ~
 0 0 city
 D5
+~
+~
 ~
 ~
 Z -1 4991
@@ -3119,8 +3493,12 @@ wambles about.
 D4
 ~
 ~
+~
+~
 Z -1 4963
 D5
+~
+~
 ~
 ~
 Z -1 4998
@@ -3140,8 +3518,12 @@ grown and you can barely see small creaturs.
 D4
 ~
 ~
+~
+~
 Z -1 4995
 D5
+~
+~
 ~
 ~
 Z -1 4900
@@ -3161,8 +3543,12 @@ grown and you can barely see small creaturs.
 D4
 ~
 ~
+~
+~
 Z -1 4996
 D5
+~
+~
 ~
 ~
 Z -1 4994
@@ -3182,8 +3568,12 @@ grown and you can barely see small creaturs.
 D4
 ~
 ~
+~
+~
 Z -1 4997
 D5
+~
+~
 ~
 ~
 Z -1 4995
@@ -3203,8 +3593,12 @@ grown and you can barely see small creaturs.
 D4
 ~
 ~
+~
+~
 Z -1 4998
 D5
+~
+~
 ~
 ~
 Z -1 4996
@@ -3224,8 +3618,12 @@ grown and you can barely see small creaturs.
 D4
 ~
 ~
+~
+~
 Z -1 4993
 D5
+~
+~
 ~
 ~
 Z -1 4997
@@ -3247,6 +3645,8 @@ tablet~
 Agrael built this Tower in June, 1999.
 ~
 D1
+~
+~
 ~
 ~
 Z 0 4900

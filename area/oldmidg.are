@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Old Midgaard~
 Builders hlodvig~
 VNUMs 5300 5499
@@ -1521,6 +1521,8 @@ D1
 печалят тебя.
 ~
 ~
+~
+~
 Z -1 5356
 D3
 @eng You see happiness everywhere. Houses cover your vision. You see strange cute
@@ -1529,6 +1531,8 @@ beasts walking hand in hand with people.
 закрывают почти весь обзор. Там, в городе, ты видишь как люди ходят рука
 под руку с какими-то странными, неведомыми но привлекательными и похоже 
 сообразительными животными.
+~
+~
 ~
 ~
 Z 0 5301
@@ -1553,10 +1557,14 @@ D0
 @rus Перед тобой растилается мощеная булыжником улица.
 ~
 ~
+~
+~
 Z 0 5339
 D1
 @eng The entrance to the city lies this way.
 @rus В той стороне находится вход в город.
+~
+~
 ~
 ~
 Z 0 5300
@@ -1565,10 +1573,14 @@ D2
 @rus Перед тобой растилается мощеная булыжником улица.
 ~
 ~
+~
+~
 Z 0 5355
 D3
 @eng Main Street lies this way.
 @rus На запад идет Главная Улица.
+~
+~
 ~
 ~
 Z 0 5302
@@ -1595,9 +1607,13 @@ D0
 @rus Там находится какой-то склад.
 ~
 ~
+~
+~
 Z 0 5336
 D1
 Main Street continues back east.
+~
+~
 ~
 ~
 Z 0 5301
@@ -1605,9 +1621,13 @@ D2
 The main building in the city, the City Hall is there.
 ~
 ~
+~
+~
 Z 0 5332
 D3
 A lush, green garden path lies this way.
+~
+~
 ~
 ~
 Z 0 5303
@@ -1629,9 +1649,13 @@ D0
 The garden path continues around the building.
 ~
 ~
+~
+~
 Z 0 5304
 D1
 This is the main street leading to the city's entrance.
+~
+~
 ~
 ~
 Z 0 5302
@@ -1639,9 +1663,13 @@ D2
 The garden path continues around the building.
 ~
 ~
+~
+~
 Z 0 5306
 D3
 You can hear music coming from within the temple.
+~
+~
 ~
 ~
 Z 0 5350
@@ -1663,14 +1691,20 @@ D0
 A side street leads off to the northern half of the city.
 ~
 ~
+~
+~
 Z 0 5311
 D2
 The garden path continues around the building.
 ~
 ~
+~
+~
 Z 0 5303
 D3
 The garden path continues around the building.
+~
+~
 ~
 ~
 Z 0 5305
@@ -1692,9 +1726,13 @@ D1
 The garden path continues around the building.
 ~
 ~
+~
+~
 Z 0 5304
 D2
 You can hear music coming from within the temple.
+~
+~
 ~
 ~
 Z 0 5350
@@ -1716,9 +1754,13 @@ D0
 The garden path continues around the building.
 ~
 ~
+~
+~
 Z 0 5303
 D2
 A small side street leads to the southern half of the city.
+~
+~
 ~
 ~
 Z 0 5312
@@ -1737,14 +1779,20 @@ D0
 A small table is here, laden with fine jewelery and gems sold by the jeweler.
 ~
 ~
+~
+~
 Z 0 5325
 D2
 Fruits and vegetables are piled on boxes waiting to be sold and eaten.
 ~
 ~
+~
+~
 Z 0 5320
 D3
 The market place continues.
+~
+~
 ~
 ~
 Z 0 5308
@@ -1764,14 +1812,20 @@ Beautiful carpets and enormous bales of silk are being stared with awe by
 the citizens.
 ~
 ~
+~
+~
 Z 0 5322
 D1
 The center of the market lies this way.
 ~
 ~
+~
+~
 Z 0 5307
 D2
 >From the great smell, the meat and poultry stand must be south!
+~
+~
 ~
 ~
 Z 0 5317
@@ -1790,12 +1844,18 @@ playing games in the distance catch your attention.
 D1
 ~
 ~
+~
+~
 Z 0 5343
 D2
 ~
 ~
+~
+~
 Z 0 5310
 D3
+~
+~
 ~
 ~
 Z 0 5328
@@ -1815,18 +1875,26 @@ buildings line the street.
 D0
 ~
 ~
+~
+~
 Z 0 5309
 D1
 A small doorway leads into a little humble dwelling.
+~
+~
 ~
 ~
 Z -1 5344
 D2
 ~
 ~
+~
+~
 Z 0 5311
 D3
 A small clay dwelling sits here.
+~
+~
 ~
 ~
 Z 0 5326
@@ -1844,9 +1912,13 @@ a friendly hello. You almost feel like home here.
 D0
 ~
 ~
+~
+~
 Z 0 5310
 D1
 An unusually tall dwelling stands looming over you.
+~
+~
 ~
 ~
 Z 0 5337
@@ -1854,9 +1926,13 @@ D2
 A garden path circles around the temple.
 ~
 ~
+~
+~
 Z 0 5304
 D3
 Here lies a small stone house with a thatched roof.
+~
+~
 ~
 ~
 Z 0 5327
@@ -1879,20 +1955,28 @@ D0
 A small garden path encircles the temple.
 ~
 ~
+~
+~
 Z 0 5306
 D1
 You see what is most definitely city hall.  This building is the most
 elaborate of all the building here in Thalos.
 ~
 ~
+~
+~
 Z -1 5332
 D2
+~
+~
 ~
 ~
 Z 0 5313
 D3
 Inside the building you see long pieces of metal, an oven, and some
 anvils.  Obviously a smithy.
+~
+~
 ~
 ~
 Z 0 5321
@@ -1911,6 +1995,8 @@ to a small friendly tavern. The street continues north and south.
 D0
 ~
 ~
+~
+~
 Z 0 5312
 D1
 From the looks of it, this is a very impressive two story abode.
@@ -1918,14 +2004,20 @@ The entire first floor is covered with a huge marble bar with merry men
 telling tall tales and drinking their fill.
 ~
 ~
+~
+~
 Z 0 5330
 D2
+~
+~
 ~
 ~
 Z 0 5314
 D3
 This seems to be the only guild house in the entire city. You feel uneasy
 about this building.  For some reason it seems not to belong.
+~
+~
 ~
 ~
 Z 0 5319
@@ -1941,16 +2033,24 @@ A long alley runs east and west.
 D0
 ~
 ~
+~
+~
 Z 0 5313
 D1
+~
+~
 ~
 ~
 Z 0 5351
 D2
 ~
 ~
+~
+~
 Z 0 5329
 D3
+~
+~
 ~
 ~
 Z 0 5318
@@ -1967,12 +2067,18 @@ city from invaders. You get the feeling of safety here in Thalos.
 D0
 ~
 ~
+~
+~
 Z 0 5316
 D1
 ~
 ~
+~
+~
 Z 0 5318
 D4
+~
+~
 ~
 ~
 Z 0 5347
@@ -1991,9 +2097,13 @@ D0
 You see the back-side of the market place meat stand.
 ~
 ~
+~
+~
 Z 0 5317
 D2
 A tall watchtower stands a silent vigil over the city.
+~
+~
 ~
 ~
 Z 0 5315
@@ -2011,14 +2121,20 @@ D0
 The market place lies this way.
 ~
 ~
+~
+~
 Z 0 5308
 D1
 This is a cart full of fresh vegetables and fruits.  You are almost
 tempted to take some.
 ~
 ~
+~
+~
 Z 0 5320
 D2
+~
+~
 ~
 ~
 Z 0 5316
@@ -2033,9 +2149,13 @@ D1
 A small side street welcomes you.
 ~
 ~
+~
+~
 Z 0 5314
 D3
 A tall watchtower stands a silent vigil over the city.
+~
+~
 ~
 ~
 Z 0 5315
@@ -2052,6 +2172,8 @@ D1
 A small side street runs past the building.
 ~
 ~
+~
+~
 Z 0 5313
 S
 #5320
@@ -2065,9 +2187,13 @@ D0
 The market place is jammed packed with people scurrying about.
 ~
 ~
+~
+~
 Z 0 5307
 D3
 A strong aromatic smell emanates from the meat stand next to you.
+~
+~
 ~
 ~
 Z 0 5317
@@ -2082,6 +2208,8 @@ D1
 A small side street runs past the building.
 ~
 ~
+~
+~
 Z 0 5312
 S
 #5322
@@ -2094,14 +2222,20 @@ awe at how much work must have been put into these cloths.
 D0
 ~
 ~
+~
+~
 Z 0 5323
 D1
 A fine jewelry stand lies majestically next to you.
 ~
 ~
+~
+~
 Z 0 5325
 D2
 The market place is swarming with people scurrying about.
+~
+~
 ~
 ~
 Z 0 5308
@@ -2116,8 +2250,12 @@ D0
 A tall watchtower stands a silent vigil over the city.
 ~
 ~
+~
+~
 Z 0 5324
 D2
+~
+~
 ~
 ~
 Z 0 5322
@@ -2131,13 +2269,19 @@ the city from invaders.  You know that you are safe from any danger.
 D1
 ~
 ~
+~
+~
 Z 0 5328
 D2
+~
+~
 ~
 ~
 Z 0 5323
 D4
 Above you stands a tall watchtower.
+~
+~
 ~
 ~
 Z 0 5346
@@ -2153,9 +2297,13 @@ The market place is packed with people scurrying about doing their
 business.
 ~
 ~
+~
+~
 Z 0 5307
 D3
 Next to you is a stand full of fine clothes and expensive rugs.
+~
+~
 ~
 ~
 Z 0 5322
@@ -2171,6 +2319,8 @@ D1
 Outside is a small side street.
 ~
 ~
+~
+~
 Z 0 5310
 S
 #5327
@@ -2184,6 +2334,8 @@ D1
 A small side street runs past the house.
 ~
 ~
+~
+~
 Z 0 5311
 S
 #5328
@@ -2195,8 +2347,12 @@ a small side street.
 D1
 ~
 ~
+~
+~
 Z 0 5309
 D3
+~
+~
 ~
 ~
 Z 0 5324
@@ -2211,6 +2367,8 @@ flutters in the wind.
 0 D city
 D0
 A small side street runs past the shop.
+~
+~
 ~
 ~
 Z 0 5314
@@ -2228,6 +2386,8 @@ D3
 A small side street runs past the tavern.
 ~
 ~
+~
+~
 Z 0 5313
 S
 #5331
@@ -2243,8 +2403,12 @@ D0
 The long hallway leads back to the main reception area of the city hall.
 ~
 ~
+~
+~
 Z 0 5332
 D1
+~
+~
 ~
 ~
 Z 0 5334
@@ -2261,9 +2425,13 @@ D0
 Main street runs past the city hall.
 ~
 ~
+~
+~
 Z 0 5302
 D1
 A hallway leads to the east wing of the city hall.
+~
+~
 ~
 ~
 Z 0 5333
@@ -2271,8 +2439,12 @@ D2
 A hallway leads to the south wing of the city hall.
 ~
 ~
+~
+~
 Z 0 5331
 D3
+~
+~
 ~
 ~
 Z -1 5312
@@ -2289,8 +2461,12 @@ courtyard.
 D2
 ~
 ~
+~
+~
 Z 0 5334
 D3
+~
+~
 ~
 ~
 Z 0 5332
@@ -2307,8 +2483,12 @@ north and west lead back into the city hall.
 D0
 ~
 ~
+~
+~
 Z 0 5333
 D3
+~
+~
 ~
 ~
 Z 0 5331
@@ -2324,6 +2504,8 @@ D1
 The alley runs by this building.
 ~
 ~
+~
+~
 Z 0 5355
 S
 #5336
@@ -2335,6 +2517,8 @@ he is the commander of the guard.
 0 0 city
 D2
 Main street runs past this dwelling.
+~
+~
 ~
 ~
 Z 0 5302
@@ -2349,14 +2533,20 @@ D1
 Another room in the library is here.
 ~
 ~
+~
+~
 Z 0 5338
 D3
 A small side street winds past this building.
 ~
 ~
+~
+~
 Z 0 5311
 D4
 You see a second floor to the library.
+~
+~
 ~
 ~
 Z 0 5345
@@ -2372,6 +2562,8 @@ D3
 The main room of the library is there.
 ~
 ~
+~
+~
 Z 0 5337
 S
 #5339
@@ -2384,9 +2576,13 @@ D0
 You see a mighty watchtower north.
 ~
 ~
+~
+~
 Z 0 5340
 D2
 Main street runs past here.
+~
+~
 ~
 ~
 Z 0 5301
@@ -2402,9 +2598,13 @@ D0
 A tall watchtower stands a silent vigil over the city.
 ~
 ~
+~
+~
 Z 0 5341
 D2
 The cobbled alley continues on.
+~
+~
 ~
 ~
 Z 0 5339
@@ -2418,13 +2618,19 @@ south and a sturdy ladder leads up into the tower.
 D2
 ~
 ~
+~
+~
 Z 0 5340
 D3
+~
+~
 ~
 ~
 Z 0 5343
 D4
 You see up the powerful watchtower.
+~
+~
 ~
 ~
 Z 0 5348
@@ -2441,9 +2647,13 @@ D0
 A cobbled alley is there.
 ~
 ~
+~
+~
 Z 0 5343
 D3
 Another resting room is here.
+~
+~
 ~
 ~
 Z 0 5344
@@ -2459,14 +2669,20 @@ D1
 A watchtower stands a silent vigil over the city.
 ~
 ~
+~
+~
 Z 0 5341
 D2
 You hear laughter and splashing.
 ~
 ~
+~
+~
 Z 0 5342
 D3
 A side street greets you.
+~
+~
 ~
 ~
 Z 0 5309
@@ -2482,9 +2698,13 @@ east wall.
 D1
 ~
 ~
+~
+~
 Z 0 5342
 D3
 A small side street runs past the building.
+~
+~
 ~
 ~
 Z 0 5310
@@ -2498,6 +2718,8 @@ a nearby bay.  Birds fly by your window.
 D5
 ~
 ~
+~
+~
 Z 0 5337
 S
 #5346
@@ -2509,6 +2731,8 @@ confident nothing can touch this tower.
 0 0 city
 D5
 The city lies below.
+~
+~
 ~
 ~
 Z 0 5324
@@ -2525,6 +2749,8 @@ D5
 The city lies below.
 ~
 ~
+~
+~
 Z 0 5315
 S
 #5348
@@ -2538,6 +2764,8 @@ D5
 The city lies below.
 ~
 ~
+~
+~
 Z 0 5341
 S
 #5349
@@ -2548,8 +2776,12 @@ You are in Junksellers room.
 D0
 ~
 ~
+~
+~
 Z 0 8102
 D5
+~
+~
 ~
 ~
 Z 0 10405
@@ -2568,9 +2800,13 @@ D0
 A side street leads to the northern half of the city.
 ~
 ~
+~
+~
 Z 0 5305
 D1
 Main street leads out to the main gate of the city.
+~
+~
 ~
 ~
 Z 0 5303
@@ -2585,9 +2821,13 @@ D1
 A tall watchtower stands a silent vigil over the city.
 ~
 ~
+~
+~
 Z 0 5352
 D3
 A small side street greets you.
+~
+~
 ~
 ~
 Z 0 5314
@@ -2601,12 +2841,18 @@ from invaders.  From the looks of things, its doing a great job.
 D0
 ~
 ~
+~
+~
 Z 0 5353
 D3
 ~
 ~
+~
+~
 Z 0 5351
 D4
+~
+~
 ~
 ~
 Z 0 5354
@@ -2620,9 +2866,13 @@ D0
 The alley continues to the north.
 ~
 ~
+~
+~
 Z 0 5355
 D2
 A tall watchtower stands a silent vigil over the city.
+~
+~
 ~
 ~
 Z 0 5352
@@ -2638,6 +2888,8 @@ D5
 The city lies below.
 ~
 ~
+~
+~
 Z 0 5352
 S
 #5355
@@ -2650,13 +2902,19 @@ D0
 You see main street.
 ~
 ~
+~
+~
 Z 0 5301
 D2
+~
+~
 ~
 ~
 Z 0 5353
 D3
 You see a little building.
+~
+~
 ~
 ~
 Z 0 5335
@@ -2672,9 +2930,13 @@ D1
 You see the trail.
 ~
 ~
+~
+~
 Z 0 5357
 D3
 You see Thalos!
+~
+~
 ~
 ~
 Z 0 5300
@@ -2689,9 +2951,13 @@ D1
 You see the bend ahead of you.
 ~
 ~
+~
+~
 Z 0 5358
 D3
 You see the trail continue on.
+~
+~
 ~
 ~
 Z 0 5356
@@ -2706,14 +2972,20 @@ D0
 You see the trail bend north.
 ~
 ~
+~
+~
 Z 0 5359
 D3
 You see the trail bend west.
 ~
 ~
+~
+~
 Z 0 5357
 D5
 You hear some mystical words from downwards.
+~
+~
 ~
 ~
 Z -1 12300
@@ -2728,9 +3000,13 @@ D0
 You see the trail continue north.
 ~
 ~
+~
+~
 Z 0 5360
 D2
 You see the trail continue south.
+~
+~
 ~
 ~
 Z 0 5358
@@ -2745,9 +3021,13 @@ D0
 You see the trail continue north.
 ~
 ~
+~
+~
 Z 0 5361
 D2
 You see the trail continue south.
+~
+~
 ~
 ~
 Z 0 5359
@@ -2762,9 +3042,13 @@ D0
 You see the trail continue north.
 ~
 ~
+~
+~
 Z 0 5362
 D2
 You see the trail continue south.
+~
+~
 ~
 ~
 Z 0 5360
@@ -2779,16 +3063,24 @@ the dwarven forest.  To the north is a very desolate trail.
 D0
 ~
 ~
+~
+~
 Z 0 5363
 D1
+~
+~
 ~
 ~
 Z 0 5369
 D2
 ~
 ~
+~
+~
 Z 0 5361
 D3
+~
+~
 ~
 ~
 Z 0 5364
@@ -2803,8 +3095,12 @@ serenity. You can follow the road north or south.
 D0
 ~
 ~
+~
+~
 Z 0 5365
 D2
+~
+~
 ~
 ~
 Z 0 5362
@@ -2820,8 +3116,12 @@ surrounded by building foundations of unfinished shops, houses, and temple.
 D1
 ~
 ~
+~
+~
 Z 0 5362
 D3
+~
+~
 ~
 ~
 Z 0 5385
@@ -2841,8 +3141,12 @@ D0
 You see the gateway to Solace.
 ~
 ~
+~
+~
 Z 10306 10201
 D2
+~
+~
 ~
 ~
 Z 0 5363
@@ -2850,10 +3154,14 @@ D3
 ~
 The Path to the Keep
 ~
+the the~
+~
 Z 0 15700
 D5
 ~
 door~
+~
+~
 ABZ -1 3603
 S
 #5366
@@ -2868,9 +3176,13 @@ D1
 The path wind its way through the tall trees, disappearing out of sight.
 ~
 ~
+~
+~
 Z -1 5367
 D2
 The path wind its way through the tall trees, disappearing out of sight.
+~
+~
 ~
 ~
 Z -1 5369
@@ -2886,15 +3198,21 @@ D1
 The path wind its way through the tall trees, towards a clearing faintly seen.
 ~
 ~
+~
+~
 Z -1 5368
 D2
 The path wind its way through the tall trees, towards an open area barely
 visible in the distance.
 ~
 ~
+~
+~
 Z -1 5370
 D3
 The path wind its way through the tall trees, disappearing out of sight.
+~
+~
 ~
 ~
 Z -1 5366
@@ -2911,15 +3229,21 @@ A small, narrow path winds north, and is quickly lost in the bushes. It
 looks quite a wilderness there!
 ~
 ~
+~
+~
 Z -1 5375
 D2
 There is a path winding its way south through the tall poplars, disappearing
 out of sight some 100 yds. away.
 ~
 ~
+~
+~
 Z -1 5371
 D3
 There is a friendly-looking path leading west through the tall trees.
+~
+~
 ~
 ~
 Z -1 5367
@@ -2937,9 +3261,13 @@ D0
 The path wind its way through the tall trees, disappearing out of sight.
 ~
 ~
+~
+~
 Z -1 5366
 D1
 The path wind its way through the tall trees, towards a clearing faintly seen.
+~
+~
 ~
 ~
 Z -1 5370
@@ -2947,10 +3275,14 @@ D2
 The path wind its way through the tall trees, into the grove.
 ~
 ~
+~
+~
 Z -1 5372
 D3
 Through the trees, you can see the Midgaard road. Far to the west, You can
 barely glimpse the construction of the city itself.
+~
+~
 ~
 ~
 Z -1 5362
@@ -2970,9 +3302,13 @@ D0
 The path wind its way north, disappearing through the tall trees.
 ~
 ~
+~
+~
 Z -1 5367
 D1
 The path wind its way through the tall trees, disappearing out of sight.
+~
+~
 ~
 ~
 Z -1 5371
@@ -2981,9 +3317,13 @@ To the south, a wide, sunny field stretch out, sloping down towards a brightly
 glittering lake.
 ~
 ~
+~
+~
 Z -1 5373
 D3
 The path wind its way west between stately poplars and oaks.
+~
+~
 ~
 ~
 Z -1 5369
@@ -3008,6 +3348,8 @@ D0
 The path wind its way through the tall trees, disappearing out of sight.
 ~
 ~
+~
+~
 Z -1 5368
 D2
 To the south, just beyond the trees, you can see a wide green lawn, and past
@@ -3015,9 +3357,13 @@ the lawn, a softly shimmering, rainbow-colored dome covering the foundation
 for a structure.
 ~
 ~
+~
+~
 Z -1 5374
 D3
 The path wind its way through the tall trees, disappearing out of sight.
+~
+~
 ~
 ~
 Z -1 5370
@@ -3044,12 +3390,16 @@ The path leading north is soon lost out of sight amongst the ancient oaks and
 poplars.
 ~
 ~
+~
+~
 Z -1 5369
 D1
 To the east, the path leads out into a wide, sunny summer's field, sloping
 south towards a beautiful lake. Past the field You can see the construction
 of a large foundation for a structure shimmering gently in all the rainbow's
 colours.
+~
+~
 ~
 ~
 Z -1 5373
@@ -3077,9 +3427,13 @@ D0
 There is a path leading north towards the sacred glade.
 ~
 ~
+~
+~
 Z -1 5370
 D3
 There is a small path leading into the woods to the west.
+~
+~
 ~
 ~
 Z -1 5372
@@ -3105,6 +3459,8 @@ D0
 To the north, the winding stone path leads into the holy grove.
 ~
 ~
+~
+~
 Z -1 5371
 S
 #5375
@@ -3121,9 +3477,13 @@ D1
 You see stars.
 ~
 ~
+~
+~
 Z 0 5378
 D2
 You see a fuzzy portal of some sort and a little green.
+~
+~
 ~
 ~
 Z 0 5368
@@ -3131,14 +3491,20 @@ D3
 You see stars.
 ~
 ~
+~
+~
 Z 0 5378
 D4
 You see stars.
 ~
 ~
+~
+~
 Z 0 5376
 D5
 You see stars.
+~
+~
 ~
 ~
 Z 0 5376
@@ -3156,9 +3522,13 @@ D0
 You see stars.
 ~
 ~
+~
+~
 Z 0 5377
 D1
 You see stars.
+~
+~
 ~
 ~
 Z 0 5376
@@ -3166,9 +3536,13 @@ D2
 You see stars.
 ~
 ~
+~
+~
 Z 0 5377
 D3
 You see stars.
+~
+~
 ~
 ~
 Z 0 5376
@@ -3176,9 +3550,13 @@ D4
 You see stars.
 ~
 ~
+~
+~
 Z 0 5375
 D5
 You see stars.
+~
+~
 ~
 ~
 Z 0 5375
@@ -3196,9 +3574,13 @@ D0
 You see stars.
 ~
 ~
+~
+~
 Z 0 5376
 D1
 You see stars.
+~
+~
 ~
 ~
 Z 0 5377
@@ -3206,9 +3588,13 @@ D2
 You see stars.
 ~
 ~
+~
+~
 Z 0 5376
 D3
 You see stars.
+~
+~
 ~
 ~
 Z 0 5377
@@ -3216,9 +3602,13 @@ D4
 You see stars.
 ~
 ~
+~
+~
 Z 0 5378
 D5
 You see stars.
+~
+~
 ~
 ~
 Z 0 5378
@@ -3237,9 +3627,13 @@ D1
 You see stars.
 ~
 ~
+~
+~
 Z 0 5375
 D2
 You see a fuzzy portal of some sort and a little green.
+~
+~
 ~
 ~
 Z 0 8903
@@ -3247,14 +3641,20 @@ D3
 You see stars.
 ~
 ~
+~
+~
 Z 0 5375
 D4
 You see stars.
 ~
 ~
+~
+~
 Z 0 5377
 D5
 You see stars.
+~
+~
 ~
 ~
 Z 0 5377
@@ -3280,9 +3680,13 @@ D0
 At the northern end of the temple hall is a statue and a huge altar.
 ~
 ~
+~
+~
 Z -1 5386
 D2
 You see the temple square.
+~
+~
 ~
 ~
 Z -1 5380
@@ -3290,8 +3694,12 @@ D4
 You see the newbie zone.
 ~
 ~
+~
+~
 Z -1 18600
 D5
+~
+~
 ~
 ~
 Z 0 3757
@@ -3308,9 +3716,13 @@ D0
 You see the temple.
 ~
 ~
+~
+~
 Z -1 5379
 D2
 You see the Market Square.
+~
+~
 ~
 ~
 Z -1 5381
@@ -3332,9 +3744,13 @@ D0
 You see the temple square.
 ~
 ~
+~
+~
 Z -1 5380
 D1
 You see the main street.
+~
+~
 ~
 ~
 Z -1 5382
@@ -3342,9 +3758,13 @@ D2
 The Bank
 ~
 ~
+~
+~
 Z 0 5400
 D3
 You see the main street.
+~
+~
 ~
 ~
 Z -1 5398
@@ -3359,9 +3779,13 @@ D0
 You see the Bakery.
 ~
 ~
+~
+~
 Z -1 5387
 D1
 You see Main Street.
+~
+~
 ~
 ~
 Z -1 5383
@@ -3369,9 +3793,13 @@ D2
 You see the general store.
 ~
 ~
+~
+~
 Z -1 5388
 D3
 You see the market square.
+~
+~
 ~
 ~
 Z -1 5381
@@ -3386,9 +3814,13 @@ D0
 You see the weaponshop.
 ~
 ~
+~
+~
 Z -1 5389
 D1
 You see the city gate.
+~
+~
 ~
 ~
 Z -1 5384
@@ -3396,9 +3828,13 @@ D2
 You see the armourery.
 ~
 ~
+~
+~
 Z -1 5390
 D3
 You see the main street leading to the market square.
+~
+~
 ~
 ~
 Z -1 5382
@@ -3435,9 +3871,13 @@ D1
 You see the city gate.
 ~
 gate~
+the gate~
+~
 Z 3133 5385
 D3
 You see Main Street.
+~
+~
 ~
 ~
 Z -1 5383
@@ -3474,11 +3914,15 @@ D1
 You see the plains.
 ~
 ~
+~
+~
 Z -1 5364
 D3
 You see the city gate.
 ~
 gate~
+the gate~
+~
 Z 3133 5384
 S
 #5386
@@ -3503,9 +3947,13 @@ single block of white virgin marble.
 D0
 ~
 ~
+~
+~
 Z -1 5397
 D2
 You see the southern end of the temple.
+~
+~
 ~
 ~
 Z -1 5379
@@ -3540,6 +3988,8 @@ D2
 You see the main street.
 ~
 ~
+~
+~
 Z -1 5382
 S
 #5388
@@ -3563,6 +4013,8 @@ D0
 You see the High Road .
 ~
 ~
+~
+~
 Z -1 5382
 S
 #5389
@@ -3583,6 +4035,8 @@ The note reads:
 ~
 D2
 You see the main street.
+~
+~
 ~
 ~
 Z -1 5383
@@ -3608,6 +4062,8 @@ You can use these commands for trading:
 ~
 D0
 You see the main street.
+~
+~
 ~
 ~
 Z -1 5383
@@ -3638,6 +4094,8 @@ powders while others contain body parts of various animals.
 ~
 D2
 You see the main street.
+~
+~
 ~
 ~
 Z -1 5398
@@ -3672,6 +4130,8 @@ D0
 You see Main Street.
 ~
 ~
+~
+~
 Z -1 5398
 S
 #5393
@@ -3684,9 +4144,13 @@ D1
 You see the laboratories of males..
 ~
 ~
+~
+~
 Z -1 5394
 D2
 Main street.
+~
+~
 ~
 ~
 Z -1 5399
@@ -3706,10 +4170,14 @@ D3
 You see the bar.
 ~
 ~
+~
+~
 Z -1 5393
 D5
 You can't see what is down there, it is too dark.  Looks like it would be
 impossible to climb back up.
+~
+~
 ~
 ~
 Z -1 7017
@@ -3724,9 +4192,13 @@ D0
 You see the main street.
 ~
 ~
+~
+~
 Z -1 5399
 D3
 You see the laboratory of vampires.
+~
+~
 ~
 ~
 Z -1 5396
@@ -3746,6 +4218,8 @@ D1
 To the east you see the bar..
 ~
 ~
+~
+~
 Z -1 5395
 S
 #5397
@@ -3759,6 +4233,8 @@ praying with the templeman.
 0 D inside
 D2
 By the temple altar.
+~
+~
 ~
 ~
 Z -1 5386
@@ -3775,16 +4251,24 @@ square is at east. To the west no roads.
 D0
 ~
 ~
+~
+~
 Z -1 5391
 D1
+~
+~
 ~
 ~
 Z -1 5381
 D2
 ~
 ~
+~
+~
 Z -1 5392
 D3
+~
+~
 ~
 ~
 Z -1 5399
@@ -3800,12 +4284,18 @@ square is at east. To the west no roads.
 D0
 ~
 ~
+~
+~
 Z -1 5393
 D1
 ~
 ~
+~
+~
 Z -1 5398
 D2
+~
+~
 ~
 ~
 Z -1 5395
@@ -3818,6 +4308,8 @@ ceilings. A long counter lies through the room.
 0 DKU inside
 D0
 The Bank
+~
+~
 ~
 ~
 Z 0 5381

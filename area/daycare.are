@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Day Care~
 VNUMs 6600 6699
 Credits Sandman~
@@ -274,9 +274,13 @@ This is an area for newbies, so have fun.  -- Sandman
 D0
 ~
 ~
+~
+~
 Z -1 6500
 D2
 You see a large room full of noisy brats.
+~
+~
 ~
 ~
 Z -1 6602
@@ -291,9 +295,13 @@ D0
 You see the drop off.
 ~
 ~
+~
+~
 Z -1 6601
 D1
 You see an extremely messy kitchen.
+~
+~
 ~
 ~
 Z -1 6626
@@ -301,9 +309,13 @@ D2
 You see a large room full of noisy brats.
 ~
 ~
+~
+~
 Z -1 6604
 D3
 You see a large room full of noisy brats.
+~
+~
 ~
 ~
 Z -1 6603
@@ -318,14 +330,20 @@ D1
 You see a large room full of noisy brats.
 ~
 ~
+~
+~
 Z -1 6602
 D2
 You see a large room full of noisy brats.
 ~
 ~
+~
+~
 Z -1 6605
 D3
 You see a messy bathroom.
+~
+~
 ~
 ~
 Z -1 6606
@@ -340,14 +358,20 @@ D0
 You see a large room full of noisy brats.
 ~
 ~
+~
+~
 Z -1 6602
 D1
 You see the playground.
 ~
 ~
+~
+~
 Z -1 6610
 D3
 You see a large room full of noisy brats.
+~
+~
 ~
 ~
 Z -1 6605
@@ -362,14 +386,20 @@ D0
 You see a large room full of noisy brats.
 ~
 ~
+~
+~
 Z -1 6603
 D1
 You see a large room full of noisy brats.
 ~
 ~
+~
+~
 Z -1 6604
 D3
 You see a staircase leading down.
+~
+~
 ~
 ~
 Z -1 6607
@@ -386,6 +416,8 @@ D1
 You see a large room full of noisy brats.
 ~
 ~
+~
+~
 Z -1 6603
 S
 #6607
@@ -400,9 +432,13 @@ D1
 You see a large room full of noisy brats.
 ~
 ~
+~
+~
 Z -1 6605
 D5
 You see the entrance to something.
+~
+~
 ~
 ~
 Z -1 6612
@@ -416,9 +452,13 @@ D1
 You see the playground.
 ~
 ~
+~
+~
 Z -1 6609
 D2
 You see the playground.
+~
+~
 ~
 ~
 Z -1 6610
@@ -432,9 +472,13 @@ D2
 You see the playground.
 ~
 ~
+~
+~
 Z -1 6611
 D3
 You see the playground.
+~
+~
 ~
 ~
 Z -1 6608
@@ -448,14 +492,20 @@ D0
 You see the playground.
 ~
 ~
+~
+~
 Z -1 6608
 D1
 You see the playground.
 ~
 ~
+~
+~
 Z -1 6611
 D3
 You see a large room full of noisy brats.
+~
+~
 ~
 ~
 Z -1 6604
@@ -469,9 +519,13 @@ D0
 You see the playground.
 ~
 ~
+~
+~
 Z -1 6609
 D3
 You see the playground.
+~
+~
 ~
 ~
 Z -1 6610
@@ -487,9 +541,13 @@ that you don't get lost.
 D1
 ~
 ~
+~
+~
 Z -1 6613
 D4
 You see some stairs.
+~
+~
 ~
 ~
 Z -1 6607
@@ -503,12 +561,18 @@ S
 D1
 ~
 ~
+~
+~
 Z -1 6614
 D2
 ~
 ~
+~
+~
 Z -1 6615
 D3
+~
+~
 ~
 ~
 Z -1 6612
@@ -522,8 +586,12 @@ S
 D2
 ~
 ~
+~
+~
 Z -1 6616
 D3
+~
+~
 ~
 ~
 Z -1 6613
@@ -536,8 +604,12 @@ You are in a small passage that looks just like every other one.
 D0
 ~
 ~
+~
+~
 Z -1 6613
 D1
+~
+~
 ~
 ~
 Z -1 6616
@@ -551,12 +623,18 @@ S
 D0
 ~
 ~
+~
+~
 Z -1 6614
 D2
 ~
 ~
+~
+~
 Z -1 6624
 D3
+~
+~
 ~
 ~
 Z -1 6615
@@ -575,8 +653,12 @@ area, but congrats for getting this far - Sandman
 D0
 ~
 ~
+~
+~
 Z -1 6616
 D2
+~
+~
 ~
 ~
 Z -1 6631
@@ -591,6 +673,8 @@ D3
 You see a large room full of noisy brats.
 ~
 ~
+~
+~
 Z -1 6602
 S
 #6631
@@ -600,6 +684,8 @@ dragon (actually an overgrown brat with a Halloween mask).
 ~
 0 AD field
 D0
+~
+~
 ~
 ~
 Z -1 6624

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Elvenhame~
 Builders stark~
 VNUMs 40100 40199
@@ -2120,8 +2120,12 @@ itself.
 D1
 ~
 ~
+~
+~
 Z 0 318
 D3
+~
+~
 ~
 ~
 Z 0 40101
@@ -2141,8 +2145,12 @@ with sparkling runes engraved upon it.
 D1
 ~
 ~
+~
+~
 Z 0 40100
 D3
+~
+~
 ~
 ~
 Z 0 40102
@@ -2160,8 +2168,12 @@ small lavender flowers. To the east is the East Gate.
 D1
 ~
 ~
+~
+~
 Z -1 40101
 D3
+~
+~
 ~
 ~
 Z -1 40103
@@ -2179,12 +2191,18 @@ small lavender flowers.
 D1
 ~
 ~
+~
+~
 Z -1 40102
 D2
 ~
 ~
+~
+~
 ABZ -1 40196
 D3
+~
+~
 ~
 ~
 Z -1 40104
@@ -2202,8 +2220,12 @@ small lavender flowers.
 D1
 ~
 ~
+~
+~
 Z -1 40103
 D3
+~
+~
 ~
 ~
 Z -1 40105
@@ -2221,16 +2243,24 @@ intersection is one of the busiest in Elvenhame.
 D0
 ~
 ~
+~
+~
 Z -1 40108
 D1
+~
+~
 ~
 ~
 Z -1 40104
 D2
 ~
 ~
+~
+~
 Z -1 40111
 D3
+~
+~
 ~
 ~
 Z -1 40106
@@ -2248,8 +2278,12 @@ small lavender flowers.
 D1
 ~
 ~
+~
+~
 Z -1 40105
 D3
+~
+~
 ~
 ~
 Z -1 40107
@@ -2268,8 +2302,12 @@ small lavender flowers.
 D1
 ~
 ~
+~
+~
 Z -1 40106
 D3
+~
+~
 ~
 ~
 Z -1 40121
@@ -2288,16 +2326,24 @@ the Necromancers' Guild.
 D0
 ~
 ~
+~
+~
 Z -1 40109
 D1
+~
+~
 ~
 ~
 Z -1 40116
 D2
 ~
 ~
+~
+~
 Z -1 40105
 D3
+~
+~
 ~
 ~
 Z -1 40115
@@ -2326,12 +2372,18 @@ sign~
 D0
 ~
 ~
+~
+~
 Z -1 40110
 D1
 ~
 ~
+~
+~
 ABZ -1 40167
 D2
+~
+~
 ~
 ~
 Z -1 40108
@@ -2347,12 +2399,18 @@ trees and lavender flowers.
 D0
 ~
 ~
+~
+~
 Z -1 40169
 D1
 ~
 ~
+~
+~
 Z -1 40191
 D2
+~
+~
 ~
 ~
 Z -1 40109
@@ -2368,16 +2426,24 @@ trees and lavender flowers.
 D0
 ~
 ~
+~
+~
 Z -1 40105
 D1
+~
+~
 ~
 ~
 Z -1 40118
 D2
 ~
 ~
+~
+~
 Z -1 40112
 D3
+~
+~
 ~
 ~
 Z -1 40117
@@ -2393,8 +2459,12 @@ trees and lavender flowers.
 D0
 ~
 ~
+~
+~
 Z -1 40111
 D2
+~
+~
 ~
 ~
 Z -1 40113
@@ -2410,16 +2480,24 @@ trees and lavender flowers.
 D0
 ~
 ~
+~
+~
 Z -1 40112
 D1
+~
+~
 ~
 ~
 Z -1 40120
 D2
 ~
 ~
+~
+~
 Z -1 40114
 D3
+~
+~
 ~
 ~
 Z -1 40119
@@ -2433,6 +2511,8 @@ trees and small lavender flowers.
 ~
 0 0 city
 D0
+~
+~
 ~
 ~
 Z -1 40113
@@ -2455,6 +2535,8 @@ Undeath...
 D1
 ~
 ~
+~
+~
 Z -1 40108
 S
 #40116
@@ -2468,6 +2550,8 @@ the table.
 ~
 0 DK inside
 D3
+~
+~
 ~
 ~
 Z -1 40108
@@ -2484,6 +2568,8 @@ room.
 ~
 0 D inside
 D1
+~
+~
 ~
 ~
 Z -1 40111
@@ -2510,6 +2596,8 @@ Tordril  Thedrilson,  the  Guildmaster,  knows  all  weapons  and  all
 D3
 ~
 ~
+~
+~
 Z -1 40111
 S
 #40119
@@ -2527,6 +2615,8 @@ a divan...
 ~
 0 D inside
 D1
+~
+~
 ~
 ~
 Z -1 40113
@@ -2549,6 +2639,8 @@ torture method.
 D3
 ~
 ~
+~
+~
 Z -1 40113
 S
 #40121
@@ -2567,8 +2659,12 @@ D1
 * Looking east on Main Road
 ~
 ~
+~
+~
 Z -1 40107
 D3
+~
+~
 ~
 ~
 Z -1 40122
@@ -2588,16 +2684,24 @@ native strain.
 D0
 ~
 ~
+~
+~
 Z -1 40140
 D1
+~
+~
 ~
 ~
 Z -1 40121
 D2
 ~
 ~
+~
+~
 Z -1 40143
 D3
+~
+~
 ~
 ~
 Z -1 40123
@@ -2617,16 +2721,24 @@ native strain.
 D0
 ~
 ~
+~
+~
 Z -1 40141
 D1
+~
+~
 ~
 ~
 Z -1 40122
 D2
 ~
 ~
+~
+~
 Z -1 40142
 D3
+~
+~
 ~
 ~
 Z -1 40124
@@ -2643,16 +2755,24 @@ city.
 D0
 ~
 ~
+~
+~
 Z -1 40132
 D1
+~
+~
 ~
 ~
 Z -1 40123
 D2
 ~
 ~
+~
+~
 Z -1 40128
 D3
+~
+~
 ~
 ~
 Z -1 40125
@@ -2678,12 +2798,18 @@ it.
 D1
 ~
 ~
+~
+~
 Z -1 40124
 D2
 ~
 ~
+~
+~
 Z -1 40146
 D3
+~
+~
 ~
 ~
 Z -1 40126
@@ -2703,16 +2829,24 @@ penetrate and kiss the road.
 D0
 ~
 ~
+~
+~
 Z -1 40179
 D1
+~
+~
 ~
 ~
 Z -1 40125
 D2
 ~
 ~
+~
+~
 Z -1 40149
 D3
+~
+~
 ~
 ~
 Z -1 40127
@@ -2732,16 +2866,24 @@ penetrate and kiss the road.
 D0
 ~
 ~
+~
+~
 Z -1 40180
 D1
+~
+~
 ~
 ~
 Z -1 40126
 D2
 ~
 ~
+~
+~
 Z -1 40182
 D3
+~
+~
 ~
 ~
 Z -1 40151
@@ -2758,16 +2900,24 @@ the bases of the trees are tiny blood-red flowers.
 D0
 ~
 ~
+~
+~
 Z -1 40124
 D1
+~
+~
 ~
 ~
 Z -1 40142
 D2
 ~
 ~
+~
+~
 Z -1 40129
 D3
+~
+~
 ~
 ~
 Z -1 40146
@@ -2785,16 +2935,24 @@ Brush flowers, a native strain.
 D0
 ~
 ~
+~
+~
 Z -1 40128
 D1
+~
+~
 ~
 ~
 Z -1 40145
 D2
 ~
 ~
+~
+~
 Z -1 40130
 D3
+~
+~
 ~
 ~
 Z -1 40147
@@ -2814,16 +2972,24 @@ among them.
 D0
 ~
 ~
+~
+~
 Z -1 40129
 D1
+~
+~
 ~
 ~
 Z -1 40136
 D2
 ~
 ~
+~
+~
 Z -1 40131
 D3
+~
+~
 ~
 ~
 Z -1 40137
@@ -2839,12 +3005,18 @@ shrubbery.
 D0
 ~
 ~
+~
+~
 Z -1 40130
 D1
 ~
 ~
+~
+~
 Z -1 40177
 D2
+~
+~
 ~
 ~
 Z -1 40159
@@ -2862,16 +3034,24 @@ rainbow. You even recognize some herbs among them.
 D0
 ~
 ~
+~
+~
 Z -1 40133
 D1
+~
+~
 ~
 ~
 Z -1 40141
 D2
 ~
 ~
+~
+~
 Z -1 40124
 D3
+~
+~
 ~
 ~
 Z -1 40150
@@ -2889,12 +3069,18 @@ rainbow. You even recognize some herbs among them.
 D0
 ~
 ~
+~
+~
 Z -1 40134
 D1
 ~
 ~
+~
+~
 Z -1 40138
 D2
+~
+~
 ~
 ~
 Z -1 40132
@@ -2912,12 +3098,18 @@ rainbow. You even recognize some herbs among them.
 D0
 ~
 ~
+~
+~
 Z -1 40162
 D1
 ~
 ~
+~
+~
 Z -1 40135
 D2
+~
+~
 ~
 ~
 Z -1 40133
@@ -2938,8 +3130,12 @@ improve the looks of the place.
 D2
 ~
 ~
+~
+~
 Z -1 40138
 D3
+~
+~
 ~
 ~
 Z -1 40134
@@ -2963,8 +3159,12 @@ lesson in the ways of the gods and their magic.
 D0
 ~
 ~
+~
+~
 Z -1 40145
 D3
+~
+~
 ~
 ~
 Z -1 40130
@@ -2986,8 +3186,12 @@ aware of your presence and awaiting your request for another lesson.
 D0
 ~
 ~
+~
+~
 Z -1 40147
 D1
+~
+~
 ~
 ~
 Z -1 40130
@@ -3008,16 +3212,24 @@ feet is of light marble.
 D0
 ~
 ~
+~
+~
 Z -1 40135
 D1
+~
+~
 ~
 ~
 Z -1 40139
 D2
 ~
 ~
+~
+~
 Z -1 40141
 D3
+~
+~
 ~
 ~
 Z -1 40133
@@ -3045,8 +3257,12 @@ donations for the poor is located near the altar.
 D2
 ~
 ~
+~
+~
 Z -1 40140
 D3
+~
+~
 ~
 ~
 Z -1 40138
@@ -3067,12 +3283,18 @@ feet is of light marble.
 D0
 ~
 ~
+~
+~
 Z -1 40139
 D2
 ~
 ~
+~
+~
 Z -1 40122
 D3
+~
+~
 ~
 ~
 Z -1 40141
@@ -3090,16 +3312,24 @@ encased by white quartz. The stone beneath your feet is light marble.
 D0
 ~
 ~
+~
+~
 Z -1 40138
 D1
+~
+~
 ~
 ~
 Z -1 40140
 D2
 ~
 ~
+~
+~
 Z -1 40123
 D3
+~
+~
 ~
 ~
 Z -1 40132
@@ -3121,16 +3351,24 @@ blows it in your face.
 D0
 ~
 ~
+~
+~
 Z -1 40123
 D1
+~
+~
 ~
 ~
 Z -1 40143
 D2
 ~
 ~
+~
+~
 Z -1 40145
 D3
+~
+~
 ~
 ~
 Z -1 40128
@@ -3152,12 +3390,18 @@ what it does, but nowhere is there a guide to pronunciation.
 D0
 ~
 ~
+~
+~
 Z -1 40122
 D2
 ~
 ~
+~
+~
 Z -1 40144
 D3
+~
+~
 ~
 ~
 Z -1 40142
@@ -3188,8 +3432,12 @@ of which you see sparks and tiny bolts of lightning.
 D0
 ~
 ~
+~
+~
 Z -1 40143
 D3
+~
+~
 ~
 ~
 Z -1 40145
@@ -3211,16 +3459,24 @@ what it does, but nowhere is there a guide to pronunciation.
 D0
 ~
 ~
+~
+~
 Z -1 40142
 D1
+~
+~
 ~
 ~
 Z -1 40144
 D2
 ~
 ~
+~
+~
 Z -1 40136
 D3
+~
+~
 ~
 ~
 Z -1 40129
@@ -3238,16 +3494,24 @@ basalt, and the whole place reeks of evil.
 D0
 ~
 ~
+~
+~
 Z -1 40125
 D1
+~
+~
 ~
 ~
 Z -1 40128
 D2
 ~
 ~
+~
+~
 Z -1 40147
 D3
+~
+~
 ~
 ~
 Z -1 40149
@@ -3267,16 +3531,24 @@ against members of the goodly races, and demons laughing -- at you?
 D0
 ~
 ~
+~
+~
 Z -1 40146
 D1
+~
+~
 ~
 ~
 Z -1 40129
 D2
 ~
 ~
+~
+~
 Z -1 40137
 D3
+~
+~
 ~
 ~
 Z -1 40148
@@ -3303,8 +3575,12 @@ pit, into which you really do not want to fall...
 D0
 ~
 ~
+~
+~
 Z -1 40149
 D1
+~
+~
 ~
 ~
 Z -1 40147
@@ -3327,12 +3603,18 @@ anyway...
 D0
 ~
 ~
+~
+~
 Z -1 40126
 D1
 ~
 ~
+~
+~
 Z -1 40146
 D2
+~
+~
 ~
 ~
 Z -1 40148
@@ -3348,6 +3630,8 @@ there retrieves it.
 ~
 0 D inside
 D1
+~
+~
 ~
 ~
 Z -1 40132
@@ -3367,16 +3651,24 @@ penetrate and kiss the road.
 D0
 ~
 ~
+~
+~
 Z -1 40184
 D1
+~
+~
 ~
 ~
 Z -1 40127
 D2
 ~
 ~
+~
+~
 Z -1 40186
 D3
+~
+~
 ~
 ~
 Z -1 40152
@@ -3396,16 +3688,24 @@ penetrate and kiss the road.
 D0
 ~
 ~
+~
+~
 Z -1 40188
 D1
+~
+~
 ~
 ~
 Z -1 40151
 D2
 ~
 ~
+~
+~
 Z -1 40190
 D3
+~
+~
 ~
 ~
 Z -1 40153
@@ -3425,16 +3725,24 @@ penetrate and kiss the road.
 D0
 ~
 ~
+~
+~
 Z -1 40192
 D1
+~
+~
 ~
 ~
 Z -1 40152
 D2
 ~
 ~
+~
+~
 Z -1 40194
 D3
+~
+~
 ~
 ~
 Z -1 40154
@@ -3454,8 +3762,12 @@ penetrate and kiss the road.
 D1
 ~
 ~
+~
+~
 Z -1 40153
 D3
+~
+~
 ~
 ~
 Z -1 40155
@@ -3475,8 +3787,12 @@ penetrate and kiss the road.
 D1
 ~
 ~
+~
+~
 Z -1 40154
 D3
+~
+~
 ~
 ~
 Z -1 40156
@@ -3498,8 +3814,12 @@ canopy of leaves.
 D1
 ~
 ~
+~
+~
 Z -1 40155
 D3
+~
+~
 ~
 ~
 Z -1 40157
@@ -3519,8 +3839,12 @@ and engraved with sparkling runes.
 D1
 ~
 ~
+~
+~
 Z -1 40156
 D3
+~
+~
 ~
 ~
 Z -1 40158
@@ -3538,8 +3862,12 @@ civilization as the elves know it.
 D1
 ~
 ~
+~
+~
 Z -1 40157
 D3
+~
+~
 ~
 ~
 Z 0 1877
@@ -3557,8 +3885,12 @@ dominate, but you also see purples and reds and the occasional blues.
 D0
 ~
 ~
+~
+~
 Z -1 40131
 D2
+~
+~
 ~
 ~
 Z -1 40160
@@ -3576,8 +3908,12 @@ dominate, but you also see purples and reds and the occasional blues.
 D0
 ~
 ~
+~
+~
 Z -1 40159
 D2
+~
+~
 ~
 ~
 Z -1 40161
@@ -3595,6 +3931,8 @@ the city of Elvenhame.
 D0
 ~
 ~
+~
+~
 Z -1 40160
 S
 #40162
@@ -3610,8 +3948,12 @@ rainbow. You even recognize some herbs among them.
 D0
 ~
 ~
+~
+~
 Z -1 40163
 D2
+~
+~
 ~
 ~
 Z -1 40134
@@ -3629,16 +3971,24 @@ rainbow. You even recognize some herbs among them.
 D0
 ~
 ~
+~
+~
 Z -1 40164
 D1
+~
+~
 ~
 ~
 Z -1 40187
 D2
 ~
 ~
+~
+~
 Z -1 40162
 D3
+~
+~
 ~
 ~
 Z -1 40189
@@ -3656,8 +4006,12 @@ rainbow. You even recognize some herbs among them.
 D0
 ~
 ~
+~
+~
 Z -1 40165
 D2
+~
+~
 ~
 ~
 Z -1 40163
@@ -3674,8 +4028,12 @@ upon it. To the north is wilderness, to the south elven civilization.
 D0
 ~
 ~
+~
+~
 Z -1 40166
 D2
+~
+~
 ~
 ~
 Z -1 40164
@@ -3691,8 +4049,12 @@ the city of the elves. To the north is wilderness.
 D0
 ~
 ~
+~
+~
 Z 0 36300
 D2
+~
+~
 ~
 ~
 Z -1 40165
@@ -3709,8 +4071,12 @@ is much too busy fashioning yet another violin.
 D3
 ~
 ~
+~
+~
 ABZ -1 40109
 D4
+~
+~
 ~
 ~
 Z -1 40168
@@ -3731,6 +4097,8 @@ violins.
 D5
 ~
 ~
+~
+~
 Z -1 40167
 S
 #40169
@@ -3745,12 +4113,18 @@ trees and lavender flowers.
 D0
 ~
 ~
+~
+~
 Z -1 40170
 D1
 ~
 ~
+~
+~
 Z -1 40193
 D2
+~
+~
 ~
 ~
 Z -1 40110
@@ -3766,12 +4140,18 @@ trees and lavender flowers.
 D0
 ~
 ~
+~
+~
 Z -1 40171
 D1
 ~
 ~
+~
+~
 Z 0 40195
 D2
+~
+~
 ~
 ~
 Z -1 40169
@@ -3787,8 +4167,12 @@ trees and lavender flowers.
 D0
 ~
 ~
+~
+~
 Z -1 40172
 D2
+~
+~
 ~
 ~
 Z -1 40170
@@ -3804,8 +4188,12 @@ trees and lavender flowers.
 D0
 ~
 ~
+~
+~
 Z -1 40173
 D2
+~
+~
 ~
 ~
 Z -1 40171
@@ -3823,8 +4211,12 @@ Observatory of the Astrologers.
 D1
 ~
 ~
+~
+~
 Z -1 40174
 D2
+~
+~
 ~
 ~
 Z -1 40172
@@ -3843,8 +4235,12 @@ sky.
 D3
 ~
 ~
+~
+~
 Z -1 40173
 D4
+~
+~
 ~
 ~
 Z -1 40175
@@ -3870,8 +4266,12 @@ below the dome of stars.
 D4
 ~
 ~
+~
+~
 Z -1 40176
 D5
+~
+~
 ~
 ~
 Z -1 40174
@@ -3892,6 +4292,8 @@ the civilized world as they know it.
 D5
 ~
 ~
+~
+~
 Z -1 40175
 S
 #40177
@@ -3907,8 +4309,12 @@ teller is available for your financial transaction.
 D3
 ~
 ~
+~
+~
 Z -1 40131
 D5
+~
+~
 ~
 ~
 Z -1 40178
@@ -3920,6 +4326,8 @@ S
 ~
 0 AD inside
 D4
+~
+~
 ~
 ~
 Z -1 40177
@@ -3961,6 +4369,8 @@ These laws be subject to change without notice.
 D2
 ~
 ~
+~
+~
 Z -1 40126
 S
 #40180
@@ -3976,8 +4386,12 @@ get their paychecks here.
 D0
 ~
 ~
+~
+~
 Z -1 40181
 D2
+~
+~
 ~
 ~
 Z -1 40127
@@ -3997,6 +4411,8 @@ room is cluttered with stuff.
 ~
 0 Db inside
 D2
+~
+~
 ~
 ~
 Z -1 40180
@@ -4022,8 +4438,12 @@ door to the back room.
 D0
 ~
 ~
+~
+~
 Z -1 40127
 D2
+~
+~
 ~
 ~
 Z -1 40183
@@ -4043,6 +4463,8 @@ adorn the walls.
 D0
 ~
 ~
+~
+~
 Z -1 40182
 S
 #40184
@@ -4056,6 +4478,8 @@ the mercenaries have been schooled in the finer arts of serving others.
 ~
 0 DM inside
 D2
+~
+~
 ~
 ~
 Z -1 40151
@@ -4103,6 +4527,8 @@ parchment~
 D0
 ~
 ~
+~
+~
 Z -1 40151
 S
 #40187
@@ -4125,6 +4551,8 @@ here and that there is nothing to steal or harm.
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 Z -1 40163
@@ -4166,6 +4594,8 @@ parchment~
 D2
 ~
 ~
+~
+~
 Z -1 40152
 S
 #40189
@@ -4188,6 +4618,8 @@ here and that there is nothing to steal or harm.
 ~
 0 D inside
 D1
+~
+~
 ~
 ~
 Z -1 40163
@@ -4219,6 +4651,8 @@ card small~
 D0
 ~
 ~
+~
+~
 Z -1 40152
 S
 #40191
@@ -4241,6 +4675,8 @@ here and that there is nothing to steal or harm.
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 Z -1 40110
@@ -4277,6 +4713,8 @@ card small~
 D2
 ~
 ~
+~
+~
 Z -1 40153
 S
 #40193
@@ -4299,6 +4737,8 @@ here and that there is nothing to steal or harm.
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 Z -1 40169
@@ -4332,6 +4772,8 @@ card small~
 D0
 ~
 ~
+~
+~
 Z -1 40153
 S
 #40195
@@ -4347,6 +4789,8 @@ nothing to steal or harm.
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 Z -1 40170
@@ -4374,6 +4818,8 @@ card small~
             To learn what is sold here, type list
 ~
 D0
+~
+~
 ~
 ~
 ABZ -1 40103

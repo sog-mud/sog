@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Setepios II~
 VNUMs 95800 95899
 Credits Setepios~
@@ -111,6 +111,8 @@ icon~
 D1
 ~
 ~
+~
+~
 Z 0 3700
 S
 #95810
@@ -124,6 +126,8 @@ seems to be somewhere else...
 ~
 0 CDNSX city
 D3
+~
+~
 ~
 ~
 Z 0 3007

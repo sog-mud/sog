@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Drakyri Isle~
 VNUMs 11800 11899
 Credits Ydri~
@@ -3356,9 +3356,13 @@ D0
 The path enters a dark forest to the north.
 ~
 ~
+~
+~
 Z -1 6017
 D2
 A grove of trees is visible to the south.
+~
+~
 ~
 ~
 Z -1 11801
@@ -3380,9 +3384,13 @@ D0
 A path leads northward between the trees.
 ~
 ~
+~
+~
 Z -1 11800
 D4
 Silvery gates.
+~
+~
 ~
 ~
 Z -1 11802
@@ -3403,9 +3411,13 @@ D1
 As you glance at the gates, the pattern seems to writhe and shift.
 ~
 gates double mithril silvery~
+the gates~
+~
 ABZ -1 11803
 D5
 Strange grow.
+~
+~
 ~
 ~
 Z -1 11801
@@ -3422,9 +3434,13 @@ D0
 A narrow path winds northward through the trees.
 ~
 ~
+~
+~
 Z -1 11804
 D1
 The pathway continues east.
+~
+~
 ~
 ~
 Z -1 11808
@@ -3432,11 +3448,15 @@ D2
 A narrow path winds southward through the trees.
 ~
 ~
+~
+~
 Z -1 11807
 D3
 The pathway ends at tall silvery gates to the west.
 ~
 gates double mithril silvery~
+the gates~
+~
 ABZ -1 11802
 S
 #11804
@@ -3450,9 +3470,13 @@ D1
 The path continues east.
 ~
 ~
+~
+~
 Z -1 11805
 D2
 The path intersects a larger pathway to the south.
+~
+~
 ~
 ~
 Z -1 11803
@@ -3467,9 +3491,13 @@ D0
 The path continues north.
 ~
 ~
+~
+~
 Z -1 11806
 D3
 The path continues west.
+~
+~
 ~
 ~
 Z -1 11804
@@ -3487,9 +3515,13 @@ D0
 A blue stone courtyard is visible to the north.
 ~
 ~
+~
+~
 Z -1 11819
 D2
 A narrow path winds through the trees to the south.
+~
+~
 ~
 ~
 Z -1 11805
@@ -3502,6 +3534,8 @@ an inscription in gold inlay:
                         ((-*-))
 ~
 door white oak~
+~
+~
 ABZ -1 11836
 S
 #11807
@@ -3524,6 +3558,8 @@ D0
 The path leads north to a larger pathway.
 ~
 ~
+~
+~
 Z -1 11803
 D2
 A bronze door leads into the jade house to the south.  Lettered in
@@ -3534,6 +3570,8 @@ gold above the doorway is the inscription:
                          -(+)-
 ~
 door bronze~
+~
+~
 ABZ -1 11890
 S
 #11808
@@ -3546,9 +3584,13 @@ D1
 The pathway continues east.
 ~
 ~
+~
+~
 Z -1 11809
 D3
 The pathway continues west.
+~
+~
 ~
 ~
 Z -1 11803
@@ -3565,9 +3607,13 @@ A large tree towers over the northern edge of the pathway.  The faint
 outline of a doorway is barely visible in the craggy bark.
 ~
 tree~
+the tree~
+~
 ABZ -1 11817
 D1
 The pathway continues east.
+~
+~
 ~
 ~
 Z -1 11813
@@ -3575,9 +3621,13 @@ D2
 A narrow path winds southward.
 ~
 ~
+~
+~
 Z -1 11810
 D3
 The pathway continues west.
+~
+~
 ~
 ~
 Z -1 11808
@@ -3593,9 +3643,13 @@ D0
 The path intersects a wider pathway to the north.
 ~
 ~
+~
+~
 Z -1 11809
 D2
 The path continues south.
+~
+~
 ~
 ~
 Z -1 11811
@@ -3607,6 +3661,8 @@ of the gateway is the inscription:
                        Myr'vale Xaek   ][+][
 ~
 gates wrought iron~
+the gates~
+~
 Z -1 11880
 S
 #11811
@@ -3619,9 +3675,13 @@ D0
 The path continues north.
 ~
 ~
+~
+~
 Z -1 11810
 D1
 Huge black gates are visible to the east.
+~
+~
 ~
 ~
 Z -1 11853
@@ -3638,6 +3698,8 @@ D5
 A rope ladder descends to the pathway below.
 ~
 ~
+~
+~
 Z -1 11813
 S
 #11813
@@ -3651,14 +3713,20 @@ D1
 A grey tower is visible to the east.
 ~
 ~
+~
+~
 Z -1 11814
 D3
 The pathway continues west.
 ~
 ~
+~
+~
 Z -1 11809
 D4
 A strange ladder dangles here, apparently without support.
+~
+~
 ~
 ~
 Z -1 11812
@@ -3673,9 +3741,13 @@ D3
 The pathway continues west.
 ~
 ~
+~
+~
 Z -1 11813
 D4
 Marble steps ascend into the tower.
+~
+~
 ~
 ~
 Z -1 11815
@@ -3694,9 +3766,13 @@ Double silver doors are set into the wall above, fitting seemlessly as
 if carved there.
 ~
 doors double silver~
+@eng the doors@rus двери~
+@rus plural~
 ABCFZ 11805 11816
 D5
 The marble staircase descends.
+~
+~
 ~
 ~
 Z -1 11814
@@ -3723,6 +3799,8 @@ D5
 Double silver doors open onto a descending marble stairwell.
 ~
 doors double silver~
+@eng the doors@rus двери~
+@rus plural~
 ABCFZ 11805 11815
 S
 #11817
@@ -3736,11 +3814,15 @@ D1
 A black oaken door leads into a grey building to the east.
 ~
 door black oaken~
+~
+~
 ABZ -1 11870
 D2
 The lane ends to the south at a huge tree.
 ~
 tree~
+the tree~
+~
 ABZ -1 11809
 S
 #11818
@@ -3783,9 +3865,13 @@ Double silver doors lead north into a huge house.  A glittering
 symbol is visible above the archway.
 ~
 doors double silver~
+@eng the doors@rus двери~
+@rus plural~
 ABZ -1 11820
 D2
 Wide stone steps descend to a wide clearing to the south.
+~
+~
 ~
 ~
 Z -1 11806
@@ -3803,9 +3889,13 @@ D0
 A stairwell is visible in the distance to the north.
 ~
 ~
+~
+~
 Z -1 11824
 D1
 An archway open onto a large hall to the east.
+~
+~
 ~
 ~
 Z -1 11822
@@ -3813,9 +3903,13 @@ D2
 Double silver doors gleam beneath a black stone archway.
 ~
 doors double silver~
+@eng the doors@rus двери~
+@rus plural~
 ABZ -1 11819
 D3
 An archway opens onto a large room to the west.
+~
+~
 ~
 ~
 Z -1 11821
@@ -3838,6 +3932,8 @@ D1
 A blue corridor is visible through the archway to the east.
 ~
 ~
+~
+~
 Z -1 11820
 S
 #11822
@@ -3858,9 +3954,13 @@ D1
 The odors and sounds of cooking drift through the swinging door to the east.
 ~
 swinging door~
+the swinging~
+~
 ABZ -1 11823
 D3
 A blue corridor is visible through the archway to the west.
+~
+~
 ~
 ~
 Z -1 11820
@@ -3880,6 +3980,8 @@ A swinging door opens into the west wall.  Through the window in the
 upper portion of the door, a large hall is visible.
 ~
 swinging door~
+the swinging~
+~
 ABZ -1 11822
 S
 #11824
@@ -3897,9 +3999,13 @@ D0
 You see a spiral stairwell.
 ~
 ~
+~
+~
 Z -1 11825
 D2
 The corridor continues south.
+~
+~
 ~
 ~
 Z -1 11820
@@ -3915,14 +4021,20 @@ D2
 The corridor continues south.
 ~
 ~
+~
+~
 Z -1 11824
 D4
 The stairwell disappears above.
 ~
 ~
+~
+~
 Z -1 11830
 D5
 The stairwell disappears below.
+~
+~
 ~
 ~
 Z -1 11826
@@ -3944,9 +4056,13 @@ D1
 Several tall crates stand against the east wall.
 ~
 crate crates~
+the crate~
+~
 ABZ -1 11827
 D4
 Light filters down the stairwell from above.
+~
+~
 ~
 ~
 Z -1 11825
@@ -3971,17 +4087,23 @@ D1
 A long bookshelf lines the eastern wall, filled with books.
 ~
 bookshelf shelf~
+the bookshelf~
+~
 ABZ -1 11828
 D2
 A long table stands against the southern wall.
 ~
 table wall~
+the table~
+~
 ABZ -1 11829
 D3
 Long shelves line the western wall, stacked with sheets of parchment
 and vellum.
 ~
 shelves~
+the shelves~
+~
 ABZ -1 11826
 S
 #11828
@@ -3996,6 +4118,8 @@ D3
 A workbench leans against the western wall.
 ~
 workbench bench~
+the workbench~
+~
 ABZ -1 11827
 S
 #11829
@@ -4020,6 +4144,8 @@ D0
 A long stone shelf runs along the north wall.
 ~
 shelf stone~
+the shelf~
+~
 ABZ -1 11827
 S
 #11830
@@ -4044,6 +4170,8 @@ the ornate inscription:
                 She'vale Deriki Tyrena Na'deia
 ~
 oaken door ruby~
+the oaken~
+~
 ABZ -1 11834
 D1
 A starlike sapphire is inset into the redwood door to the east.
@@ -4052,6 +4180,8 @@ Beneath the gem, ornate lettering reads:
                 She'vale Deriki Daeman Ira'deian
 ~
 redwood door sapphire~
+the redwood~
+~
 ABZ -1 11833
 D2
 Tiny amethysts form a starburst pattern in the white oak door to the
@@ -4060,6 +4190,8 @@ south.  Below the pattern is the inscription:
                 She'vale Deriki Ykandres Ira'deian
 ~
 white oak door amethyst~
+@eng the white@rus белый~
+~
 ABZ -1 11832
 D3
 Set into the black oak door to the west is a gleaming emerald.
@@ -4068,6 +4200,8 @@ Beneath the gem are the words:
                 She'vale Deriki Nalyss Ira'deia
 ~
 black oak door emerald~
+@eng the black@rus черный~
+~
 ABZ -1 11831
 D4
 The stairwell ascends above.  Halfway up, diamond inlay in the oak
@@ -4080,9 +4214,13 @@ railing forms the inscription:
                 She'vale Deriki Noriek Deiayan
 ~
 ~
+~
+~
 Z -1 11835
 D5
 The staircase disappears below.
+~
+~
 ~
 ~
 Z -1 11825
@@ -4105,6 +4243,8 @@ D1
 A black oak door exits the suite to the east.
 ~
 black oak door emerald~
+@eng the black@rus черный~
+~
 ABZ -1 11830
 S
 #11832
@@ -4125,6 +4265,8 @@ D0
 A white oak door exits the suite to the north.
 ~
 white oak door amethyst~
+@eng the white@rus белый~
+~
 ABZ -1 11830
 S
 #11833
@@ -4146,6 +4288,8 @@ D3
 A redwood door exits the suite to the west.
 ~
 redwood door sapphire~
+the redwood~
+~
 ABZ -1 11830
 S
 #11834
@@ -4166,6 +4310,8 @@ D2
 A redwood door exits the suite to the south.
 ~
 redwood door ruby~
+the redwood~
+~
 ABZ -1 11830
 S
 #11835
@@ -4189,6 +4335,8 @@ Glittering diamond picks out an inscription against the dark stone:
 ~
 D5
 A spiral stairwell leads down.
+~
+~
 ~
 ~
 Z -1 11830
@@ -4220,14 +4368,20 @@ D0
 A large room is visible to the north.
 ~
 ~
+~
+~
 Z -1 11837
 D1
 You see the huge white oak entrance door.
 ~
 white oak door~
+@eng the white@rus белый~
+~
 ABZ -1 11806
 D3
 A hallway leads west.
+~
+~
 ~
 ~
 Z -1 11838
@@ -4254,6 +4408,8 @@ D2
 An ivory foyer is visible through the southern archway.
 ~
 ~
+~
+~
 Z -1 11836
 S
 #11838
@@ -4272,14 +4428,20 @@ D1
 A white foyer is visible to the east.
 ~
 ~
+~
+~
 Z -1 11836
 D2
 A large hall is visible to the south.
 ~
 ~
+~
+~
 Z -1 11839
 D3
 The hallway continues west.
+~
+~
 ~
 ~
 Z -1 11840
@@ -4295,6 +4457,8 @@ D0
 A marble hallway is visible to the north.
 ~
 ~
+~
+~
 Z -1 11838
 S
 #11840
@@ -4308,14 +4472,20 @@ D0
 A circular chamber is visible to the north.
 ~
 ~
+~
+~
 Z -1 11841
 D1
 The hallway continues east.
 ~
 ~
+~
+~
 Z -1 11838
 D3
 A spiral staircase is visible to the west.
+~
+~
 ~
 ~
 Z -1 11844
@@ -4331,9 +4501,13 @@ D2
 A hallway is visible to the south.
 ~
 ~
+~
+~
 Z -1 11840
 D4
 A spiral staircase ascends.
+~
+~
 ~
 ~
 Z -1 11842
@@ -4353,14 +4527,20 @@ A glass tunnel crosses the gap between the tower and the second floor
 of the house to the west.
 ~
 ~
+~
+~
 Z -1 11852
 D4
 The staircase winds upwards.
 ~
 ~
+~
+~
 Z -1 11843
 D5
 The staircase winds downwards.
+~
+~
 ~
 ~
 Z -1 11841
@@ -4379,6 +4559,8 @@ D5
 The staircase winds downwards.
 ~
 ~
+~
+~
 Z -1 11842
 S
 #11844
@@ -4391,9 +4573,13 @@ D1
 The hallway continues east.
 ~
 ~
+~
+~
 Z -1 11840
 D4
 The staircase disappears above.
+~
+~
 ~
 ~
 Z -1 11845
@@ -4418,6 +4604,8 @@ inscription:
               She'vale Treniste Denylis Deiayan
 ~
 oak door~
+the oak~
+~
 ABZ -1 11850
 D2
 An inscription is engraved in the mahogany door to the south:
@@ -4425,14 +4613,20 @@ An inscription is engraved in the mahogany door to the south:
               She'vale Treniste Lyrene Na'deia
 ~
 mahogany door~
+the mahogany~
+~
 ABZ -1 11846
 D3
 The hallway continues west.
 ~
 ~
+~
+~
 Z -1 11847
 D5
 The staircase disappears below.
+~
+~
 ~
 ~
 Z -1 11844
@@ -4462,6 +4656,8 @@ center of the door reads:
                     (heir to Treniste)
 ~
 mahogany door~
+the mahogany~
+~
 ABZ -1 11845
 S
 #11847
@@ -4476,9 +4672,13 @@ Inscribed in the oaken door to the north are the words:
               She'vale Treniste Rodwen Ira'deia
 ~
 oaken dark door~
+the oaken~
+~
 ABZ -1 11849
 D1
 The hallway continues east.
+~
+~
 ~
 ~
 Z -1 11845
@@ -4488,6 +4688,8 @@ Inscribed in the ashwood door to the west are the words:
               She'vale Treniste Josreke Ira'deian
 ~
 ashwood door~
+the ashwood~
+~
 ABZ -1 11848
 S
 #11848
@@ -4521,6 +4723,8 @@ Inscribed in the ashwood door to the east are the words:
               She'vale Treniste Josreke Ira'deian
 ~
 ashwood door~
+the ashwood~
+~
 ABZ -1 11847
 S
 #11849
@@ -4553,6 +4757,8 @@ Inscribed in the dark oaken door to the south are the words:
                She'vale Treniste Rodwen Ira'deia
 ~
 oaken dark door~
+the oaken~
+~
 ABZ -1 11847
 S
 #11850
@@ -4574,16 +4780,22 @@ marble above the doors:
                           ((-*-))
 ~
 golden double doors pair~
+@eng the golden@rus золотистый~
+~
 ABZ -1 11851
 D1
 A sliding door opens east into a glass enclosed tunnel.
 ~
 sliding door~
+the sliding~
+~
 ABZ -1 11852
 D2
 An oaken door opens southward.
 ~
 door oak~
+~
+~
 ABZ -1 11845
 S
 #11851
@@ -4621,6 +4833,8 @@ An inscription in the golden doors to the south reads:
               She'vale Treniste Denylis Deiayan
 ~
 golden double doors pair~
+@eng the golden@rus золотистый~
+~
 ABZ -1 11850
 S
 #11852
@@ -4635,9 +4849,13 @@ D1
 The tunnel enters a white tower to the east.
 ~
 ~
+~
+~
 Z -1 11842
 D3
 A sliding glass door opens west into a large white walled room.
+~
+~
 ~
 ~
 ABZ -1 11850
@@ -4662,9 +4880,13 @@ D1
 Black gates cut across the path to the east.
 ~
 gates black~
+the gates~
+~
 ABZ -1 11854
 D3
 A shimmering path is visible to the west.
+~
+~
 ~
 ~
 Z -1 11811
@@ -4686,11 +4908,15 @@ D1
 A dark archway opens east.
 ~
 ~
+~
+~
 Z -1 11855
 D3
 Black gates open west.
 ~
 gates black~
+the gates~
+~
 ABZ -1 11853
 S
 #11855
@@ -4705,14 +4931,20 @@ D0
 A dark corridor is visible to the north.
 ~
 ~
+~
+~
 Z -1 11862
 D2
 A dark tunnel leads southward.
 ~
 ~
+~
+~
 Z -1 11856
 D3
 Huge black gates are visible to the west.
+~
+~
 ~
 ~
 Z -1 11854
@@ -4728,9 +4960,13 @@ D0
 A domed room is visible to the north.
 ~
 ~
+~
+~
 Z -1 11855
 D1
 A deep niche is visible to the east.
+~
+~
 ~
 ~
 Z -1 11857
@@ -4738,9 +4974,13 @@ D2
 A deep niche is visible to the south.
 ~
 ~
+~
+~
 Z -1 11859
 D3
 A deep niche is visible to the west.
+~
+~
 ~
 ~
 Z -1 11858
@@ -4763,6 +5003,8 @@ D3
 A dark tunnel is visible to the west.
 ~
 ~
+~
+~
 Z -1 11856
 S
 #11858
@@ -4781,6 +5023,8 @@ of something very like dried blood..
 ~
 D1
 A dark tunnel is visible to the east.
+~
+~
 ~
 ~
 Z -1 11856
@@ -4809,11 +5053,15 @@ D0
 A dark tunnel is visible to the north.
 ~
 ~
+~
+~
 Z -1 11856
 D5
 Scuff marks are visible in the ground around the pedestal.
 ~
 pedestal marble~
+the pedestal~
+~
 ABCFZ 11801 11860
 S
 #11860
@@ -4832,11 +5080,15 @@ eerie by the streaks of blood spattering the handles and running down
 the faces of the doors.
 ~
 doors black double~
+@eng the doors@rus двери~
+@rus plural~
 ABCFZ 11802 11861
 D4
 A square shaped opening is visible above.
 ~
 pedestal square opening~
+the pedestal~
+~
 ABCFZ 11801 11859
 S
 #11861
@@ -4863,6 +5115,8 @@ D0
 Huge black double doors loom to the north.
 ~
 doors black double~
+@eng the doors@rus двери~
+@rus plural~
 ABCFZ 11802 11860
 S
 #11862
@@ -4876,9 +5130,13 @@ D1
 The corridor continues east.
 ~
 ~
+~
+~
 Z -1 11863
 D2
 A large circular room is visible through the archway to the south.
+~
+~
 ~
 ~
 Z -1 11855
@@ -4897,9 +5155,13 @@ from the crest of the door frame:
                   She'vale Reykaris Loryn Ira'deia
 ~
 oak door~
+the oak~
+~
 ABZ -1 11865
 D1
 The corridor continues east.
+~
+~
 ~
 ~
 Z -1 11866
@@ -4910,9 +5172,13 @@ the top of the door frame reads:
                   She'vale Reykaris Sorina Ira'deia
 ~
 ash door~
+the ash~
+~
 ABZ -1 11864
 D3
 The corridor continues west.
+~
+~
 ~
 ~
 Z -1 11862
@@ -4944,6 +5210,8 @@ Lettering above the doorway reads:
                   She'vale Reykaris Sorina Ira'deia
 ~
 ash door~
+the ash~
+~
 ABZ -1 11863
 S
 #11865
@@ -4970,6 +5238,8 @@ A golden inscription above the door reads:
                   She'vale Reykaris Loryn Ira'deia
 ~
 oak door~
+the oak~
+~
 ABZ -1 11863
 S
 #11866
@@ -4999,6 +5269,8 @@ the doorway are the words:
                   She'vale Reykaris Kranali Na'deian
 ~
 mahogany door~
+the mahogany~
+~
 ABZ -1 11868
 D1
 Towering black steel doors loom to the east.  Around the skull above
@@ -5007,6 +5279,8 @@ the doorway is the inscription:
    She'vale Reykaris Rachal Deia  ->*<-  She'vale Reykaris Toryan Deiayan
 ~
 doors double black steel~
+@eng the doors@rus двери~
+@rus plural~
 ABZ -1 11869
 D2
 Above the ash door to the south is the inscription:
@@ -5014,9 +5288,13 @@ Above the ash door to the south is the inscription:
                   She'vale Reykaris Chake Ira'deian
 ~
 ash door~
+the ash~
+~
 ABZ -1 11867
 D3
 The corridor continues west.
+~
+~
 ~
 ~
 Z -1 11863
@@ -5051,6 +5329,8 @@ The inscription above the door reads:
                   She'vale Reykaris Chake Ira'deian
 ~
 ash door~
+the ash~
+~
 ABZ -1 11866
 S
 #11868
@@ -5074,6 +5354,8 @@ Inscribed above the doorway are the words:
                   She'vale Reykaris Kranali Na'deian
 ~
 mahogany door~
+the mahogany~
+~
 ABZ -1 11866
 S
 #11869
@@ -5106,6 +5388,8 @@ Above the dark doorway is the inscription:
                                        She'vale Reykaris Toryan Deiayan
 ~
 doors black steel double~
+@eng the doors@rus двери~
+@rus plural~
 ABZ -1 11866
 S
 #11870
@@ -5133,14 +5417,20 @@ D0
 A small alcove is visible to the north.
 ~
 ~
+~
+~
 Z -1 11871
 D1
 A small alcove is visible to the east.
 ~
 ~
+~
+~
 Z -1 11872
 D2
 A small alcove is visible to the south.
+~
+~
 ~
 ~
 Z -1 11873
@@ -5157,6 +5447,8 @@ Twining around the archway is an inscription:
                    - flight of the dagger -
 ~
 door black oaken~
+~
+~
 ABZ -1 11817
 S
 #11871
@@ -5167,6 +5459,8 @@ Benches line the north, west, and east walls, and an archway leads south.
 0 D inside
 D2
 A quiet foyer is visible to the south.
+~
+~
 ~
 ~
 Z -1 11870
@@ -5181,6 +5475,8 @@ D3
 A quiet foyer is visible to the west.
 ~
 ~
+~
+~
 Z -1 11870
 S
 #11873
@@ -5193,11 +5489,15 @@ D0
 A quiet foyer is visible to the north.
 ~
 ~
+~
+~
 Z -1 11870
 D5
 A square shaped crack is barely visible in the stone at your feet.
 ~
 stone square crack~
+the stone~
+~
 ABZ -1 11874
 S
 #11874
@@ -5219,11 +5519,15 @@ You notice a seam in the wall behind one of the targets affixed to the
 east wall.
 ~
 wall target~
+the wall~
+~
 ABZ -1 11875
 D4
 Light from above picks out a square shaped crack in the ceiling.
 ~
 stone square crack~
+the stone~
+~
 ABZ -1 11873
 S
 #11875
@@ -5242,21 +5546,29 @@ D0
 A stalking panther is engraved in the northern wall.
 ~
 panther wall~
+the panther~
+~
 ABZ -1 11876
 D1
 A depiction of a lynx is engraved in the eastern wall.
 ~
 lynx wall~
+the lynx~
+~
 ABZ -1 11878
 D3
 Intricate engravings wind through the western wall.
 ~
 engravings wall~
+the engravings~
+~
 ABZ -1 11874
 D5
 An engraving of a stooping hawk dominates the center of the floor.
 ~
 hawk floor~
+the hawk~
+~
 ABZ -1 11879
 S
 #11876
@@ -5272,6 +5584,8 @@ A stalking panther is engraved in the east wall.  Above the panther,
 you notice the slim form of a flying dagger.
 ~
 dagger wall~
+the dagger~
+~
 ABZ -1 11877
 D2
 Carved above the leaping panther, you notice the inscription:
@@ -5279,6 +5593,8 @@ Carved above the leaping panther, you notice the inscription:
                      Myr'vale Myrxes Nyxi Ira'deia
 ~
 door~
+~
+~
 ABZ -1 11875
 S
 #11877
@@ -5311,11 +5627,15 @@ D2
 You see smooth grey streaked black marble.
 ~
 wall~
+the wall~
+~
 ABZ -1 11878
 D3
 You see smooth grey streaked black marble.
 ~
 wall~
+the wall~
+~
 ABZ -1 11876
 S
 #11878
@@ -5330,6 +5650,8 @@ D0
 The northern wall is formed of polished black onyx.
 ~
 wall~
+the wall~
+~
 ABZ -1 11877
 D3
 Carved beneath the leaping lynx, you notice the inscription:
@@ -5337,6 +5659,8 @@ Carved beneath the leaping lynx, you notice the inscription:
                    Myr'vale Myrxes Delise Ira'deia
 ~
 door~
+~
+~
 ABZ -1 11875
 S
 #11879
@@ -5362,6 +5686,8 @@ D4
 Darkness shrouds the gleam of the onyx ceiling above.
 ~
 ceiling onyx~
+the ceiling~
+~
 ABZ -1 11875
 S
 #11880
@@ -5377,6 +5703,8 @@ bars are wrought into the shape of a sword in one gate and a shield in the
 other.
 ~
 gates wrought iron~
+the gates~
+~
 Z -1 11810
 D3
 A tall oaken door opens into the mansion to the west.  Carven in the
@@ -5385,6 +5713,8 @@ face of the door is a design:
                        Myr'vale Xaek   ][+][
 ~
 door oaken~
+~
+~
 ABZ -1 11881
 S
 #11881
@@ -5398,14 +5728,20 @@ D0
 Huge stone doors are visible in the distance.
 ~
 ~
+~
+~
 Z -1 11888
 D1
 An oaken door carved with the crest of house Xaek opens east.
 ~
 door oaken~
+~
+~
 ABZ -1 11880
 D2
 The hallway continues south.
+~
+~
 ~
 ~
 Z -1 11882
@@ -5413,6 +5749,8 @@ D3
 Double steel doors are set into the western wall.
 ~
 doors double steel~
+@eng the doors@rus двери~
+@rus plural~
 ABZ -1 11884
 S
 #11882
@@ -5425,11 +5763,15 @@ D0
 The hallway continues north.
 ~
 ~
+~
+~
 Z -1 11881
 D2
 A thick steel door opens south.
 ~
 door thick steel~
+~
+~
 ABZ -1 11883
 S
 #11883
@@ -5444,6 +5786,8 @@ D0
 A thick steel door is set into the north wall.
 ~
 door thick steel~
+~
+~
 ABZ -1 11882
 S
 #11884
@@ -5459,21 +5803,29 @@ D0
 A plain oak door enters the building to the north.
 ~
 door oak~
+~
+~
 ABZ -1 11885
 D1
 Double steel doors are set into the wall to the east.
 ~
 doors double steel~
+@eng the doors@rus двери~
+@rus plural~
 ABZ -1 11881
 D2
 A plain mahogany door opens southward.
 ~
 door mahogany~
+~
+~
 ABZ -1 11887
 D3
 An beechwood door opens westward.
 ~
 door beech beechwood~
+~
+~
 ABZ -1 11886
 S
 #11885
@@ -5498,6 +5850,8 @@ Above the doorway, a bronze inscription reads:
                   Myr'vale Xaek Rakael Sequas
 ~
 door oak~
+~
+~
 ABZ -1 11884
 S
 #11886
@@ -5521,6 +5875,8 @@ Carved in bronze are the words:
                   Myr'vale Xaek Nyxil Sh'aya
 ~
 door beech beechwood~
+~
+~
 ABZ -1 11884
 S
 #11887
@@ -5543,6 +5899,8 @@ inscription:
                   Myr'vale Xaek Yeven Treye
 ~
 door mahogany~
+~
+~
 ABZ -1 11884
 S
 #11888
@@ -5569,9 +5927,13 @@ an inscription:
    Myr'vale Xaek Dyana Deia    ][+][    Myr'vale Xaek Ryke Deiayan
 ~
 doors double granite~
+@eng the doors@rus двери~
+@rus plural~
 ABZ -1 11889
 D2
 The hallway continues south.
+~
+~
 ~
 ~
 Z -1 11881
@@ -5600,6 +5962,8 @@ D2
 Double granite doors lead out of the chamber to the south.
 ~
 doors double granite~
+@eng the doors@rus двери~
+@rus plural~
 ABZ -1 11888
 S
 #11890
@@ -5620,9 +5984,13 @@ Carved into the archway above the door is the inscription:
                    House of Healing
 ~
 door bronze~
+~
+~
 ABZ -1 11807
 D2
 A jade corridor leads south.
+~
+~
 ~
 ~
 Z -1 11891
@@ -5640,6 +6008,8 @@ D0
 A jade entry hall is visible to the north.
 ~
 ~
+~
+~
 Z -1 11890
 D1
 Set into the eastern wall is a tall white door of varnished ashwood.
@@ -5647,15 +6017,21 @@ Engraved above the doorway is a depiction of an open hand centered over
 a glowing ring.
 ~
 door white ashwood~
+~
+~
 ABZ -1 11892
 D2
 Through the glass door to the south, you can make out the green of
 a garden.
 ~
 door glass~
+~
+~
 ABZ -1 11893
 D3
 The corridor continues west.
+~
+~
 ~
 ~
 Z -1 11895
@@ -5674,6 +6050,8 @@ A white ashwood door opens westward.  Engraved in the face of the door
 is the crest of house Noriva.
 ~
 ~
+~
+~
 ABZ -1 11891
 M 115 H 115
 S
@@ -5690,9 +6068,13 @@ D0
 To the north, a glass door opens into the house.
 ~
 door glass~
+~
+~
 ABZ -1 11891
 D2
 The path terminates to the south at a large white gazebo.
+~
+~
 ~
 ~
 Z -1 11894
@@ -5707,6 +6089,8 @@ a narrow path winds up to a large white house.
 0 0 city
 D0
 A garden path winds north towards a large house.
+~
+~
 ~
 ~
 Z -1 11893
@@ -5725,9 +6109,13 @@ face of the door forms a short inscription:
                     Myr'vale Noriva Dryna Ira'deia
 ~
 door ashwood~
+~
+~
 ABZ -1 11896
 D1
 The corridor continues east.
+~
+~
 ~
 ~
 Z -1 11891
@@ -5738,6 +6126,8 @@ door are the letters:
                    Myr'vale Noriva Voryl Ira'deian
 ~
 door redwood~
+~
+~
 ABZ -1 11898
 D3
 A door made of teakwood is set into the western wall.  An inscription
@@ -5746,6 +6136,8 @@ in the face of the door reads:
                    Myr'vale Noriva Yllyra Na'deia
 ~
 door teakwood~
+~
+~
 ABZ -1 11897
 D4
 Double white oaken doors are visible above.  Engraved in the marble
@@ -5758,6 +6150,8 @@ archway framing the doors is the inscription:
                  Myr'vale Noriva Nerael Deiayan
 ~
 doors double white oaken~
+@eng the doors@rus двери~
+@rus plural~
 ABZ -1 11899
 S
 #11896
@@ -5790,6 +6184,8 @@ above the door reads:
                  Myr'vale Noriva Dryna Ira'deia
 ~
 door ashwood~
+~
+~
 ABZ -1 11895
 S
 #11897
@@ -5815,6 +6211,8 @@ Above the teakwood door to the east is an inscription:
                  Myr'vale Noriva Yllyra Na'deia
 ~
 door teakwood~
+~
+~
 ABZ -1 11895
 S
 #11898
@@ -5836,6 +6234,8 @@ Above the redwood door to the north is the inscription:
                  Myr'vale Noriva Voryl Ira'deian
 ~
 door redwood~
+~
+~
 ABZ -1 11895
 S
 #11899
@@ -5861,6 +6261,8 @@ Engraved in gold across the face of the doors is the inscription:
                  Myr'vale Noriva Nerael Deiayan
 ~
 doors double white oaken~
+@eng the doors@rus двери~
+@rus plural~
 ABZ -1 11895
 S
 #0

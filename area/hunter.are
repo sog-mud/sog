@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Hunter~
 VNUMs 95700 95799
 Credits Asena~
@@ -168,8 +168,12 @@ the well mouth. A golden aura fills your body.
 D2
 ~
 ~
+~
+~
 Z 0 9783
 D5
+~
+~
 ~
 ~
 ABZ 0 95701
@@ -184,8 +188,12 @@ The guardians are  keeping the hunters from enemies.
 D0
 ~
 ~
+~
+~
 DZ -1 95702
 D4
+~
+~
 ~
 ~
 ABZ 0 95700
@@ -201,16 +209,24 @@ find their way.
 D0
 ~
 ~
+~
+~
 Z -1 95703
 D1
+~
+~
 ~
 ~
 Z -1 95702
 D2
 ~
 ~
+~
+~
 DZ -1 95701
 D3
+~
+~
 ~
 ~
 Z -1 95702
@@ -223,6 +239,8 @@ north wall is a large skin sheet with blood script on it.
 ~
 0 ADK inside
 D2
+~
+~
 ~
 ~
 Z -1 95702

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Chessboard of Midgaard~
 VNUMs 4200 4299
 Credits Exxon~
@@ -989,10 +989,14 @@ D1
 @rus Дома Мидраарда.
 ~
 ~
+~
+~
 Z -1 3043
 D3
 @eng The huge chessboard opens up to the west.
 @rus Шахматная Арена.
+~
+~
 ~
 ~
 Z -1 4232
@@ -1010,10 +1014,14 @@ D1
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4202
 D2
 @eng A black square lies to the south.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4209
@@ -1031,16 +1039,22 @@ D1
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4203
 D2
 @eng A white square lies to the south.
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4210
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4201
@@ -1058,16 +1072,22 @@ D1
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4204
 D2
 @eng A black square lies to the south.
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4211
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4202
@@ -1085,10 +1105,14 @@ D1
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4205
 D2
 @eng A white square lies to the south.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4212
@@ -1097,10 +1121,14 @@ D3
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4203
 D5
 ~
 marble square~
+the marble~
+~
 ABCFZ 4214 4265
 S
 #4205
@@ -1116,16 +1144,22 @@ D1
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4206
 D2
 @eng A black square lies to the south.
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4213
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4204
@@ -1143,16 +1177,22 @@ D1
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4207
 D2
 @eng A white square lies to the south.
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4214
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4205
@@ -1170,16 +1210,22 @@ D1
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4208
 D2
 @eng A black square lies to the south.
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4215
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4206
@@ -1197,10 +1243,14 @@ D2
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4216
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4207
@@ -1218,16 +1268,22 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4201
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4210
 D2
 @eng A white square lies to the south.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4217
@@ -1245,10 +1301,14 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4202
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4211
@@ -1257,10 +1317,14 @@ D2
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4218
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4209
@@ -1278,10 +1342,14 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4203
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4212
@@ -1290,10 +1358,14 @@ D2
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4219
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4210
@@ -1311,10 +1383,14 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4204
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4213
@@ -1323,10 +1399,14 @@ D2
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4220
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4211
@@ -1344,10 +1424,14 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4205
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4214
@@ -1356,10 +1440,14 @@ D2
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4221
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4212
@@ -1377,10 +1465,14 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4206
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4215
@@ -1389,10 +1481,14 @@ D2
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4222
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4213
@@ -1410,10 +1506,14 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4207
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка. 
+~
+~
 ~
 ~
 Z -1 4216
@@ -1422,10 +1522,14 @@ D2
 @rus Белая Клетка. 
 ~
 ~
+~
+~
 Z -1 4223
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4214
@@ -1443,16 +1547,22 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4208
 D2
 @eng A black square lies to the south.
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4224
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4215
@@ -1468,16 +1578,22 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4209
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4218
 D2
 @eng A black square lies to the south.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4225
@@ -1493,10 +1609,14 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4210
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4219
@@ -1505,10 +1625,14 @@ D2
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4226
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4217
@@ -1524,10 +1648,14 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4211
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4220
@@ -1536,10 +1664,14 @@ D2
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4227
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4218
@@ -1555,10 +1687,14 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4212
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4221
@@ -1567,10 +1703,14 @@ D2
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4228
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4219
@@ -1586,10 +1726,14 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4213
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4222
@@ -1598,10 +1742,14 @@ D2
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4229
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4220
@@ -1617,10 +1765,14 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4214
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4223
@@ -1629,10 +1781,14 @@ D2
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4230
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4221
@@ -1648,10 +1804,14 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4215
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4224
@@ -1660,10 +1820,14 @@ D2
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4231
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4222
@@ -1681,16 +1845,22 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4216
 D2
 @eng A white square lies to the south.
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4232
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4223
@@ -1706,16 +1876,22 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4217
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4226
 D2
 @eng A white square lies to the south.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4233
@@ -1731,10 +1907,14 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4218
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4227
@@ -1743,10 +1923,14 @@ D2
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4234
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4225
@@ -1762,10 +1946,14 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4219
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4228
@@ -1774,10 +1962,14 @@ D2
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4235
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4226
@@ -1793,10 +1985,14 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4220
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4229
@@ -1805,10 +2001,14 @@ D2
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4236
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4227
@@ -1824,10 +2024,14 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4221
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4230
@@ -1836,10 +2040,14 @@ D2
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4237
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4228
@@ -1855,10 +2063,14 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4222
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4231
@@ -1867,10 +2079,14 @@ D2
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4238
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4229
@@ -1888,10 +2104,14 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4223
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4232
@@ -1900,10 +2120,14 @@ D2
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4239
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4230
@@ -1921,10 +2145,14 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4224
 D1
 @eng The gate to the chessboard is just to the east.
 @rus Выход с Шахматной Арены.
+~
+~
 ~
 ~
 Z -1 4200
@@ -1933,10 +2161,14 @@ D2
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4240
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4231
@@ -1952,16 +2184,22 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4225
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4234
 D2
 @eng A black square lies to the south.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4241
@@ -1977,10 +2215,14 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4226
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4235
@@ -1989,10 +2231,14 @@ D2
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4242
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4233
@@ -2008,10 +2254,14 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4227
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4236
@@ -2020,10 +2270,14 @@ D2
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4243
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4234
@@ -2039,10 +2293,14 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4228
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4237
@@ -2051,10 +2309,14 @@ D2
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4244
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4235
@@ -2070,10 +2332,14 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4229
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4238
@@ -2082,10 +2348,14 @@ D2
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4245
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4236
@@ -2101,10 +2371,14 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4230
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4239
@@ -2113,10 +2387,14 @@ D2
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4246
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4237
@@ -2132,10 +2410,14 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4231
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4240
@@ -2144,10 +2426,14 @@ D2
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4247
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4238
@@ -2165,16 +2451,22 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4232
 D2
 @eng A white square lies to the south.
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4248
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4239
@@ -2190,16 +2482,22 @@ D0
 @rus Белая клетка.
 ~
 ~
+~
+~
 Z -1 4233
 D1
 @eng A white square lies to the east.
 @rus Белая клетка.
 ~
 ~
+~
+~
 Z -1 4242
 D2
 @eng A white square lies to the south.
 @rus Белая клетка.
+~
+~
 ~
 ~
 Z -1 4249
@@ -2215,10 +2513,14 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4234
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4243
@@ -2227,10 +2529,14 @@ D2
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4250
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4241
@@ -2246,10 +2552,14 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4235
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4244
@@ -2258,10 +2568,14 @@ D2
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4251
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4242
@@ -2277,10 +2591,14 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4236
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4245
@@ -2289,10 +2607,14 @@ D2
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4252
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4243
@@ -2308,10 +2630,14 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4237
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4246
@@ -2320,10 +2646,14 @@ D2
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4253
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4244
@@ -2339,10 +2669,14 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4238
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4247
@@ -2351,10 +2685,14 @@ D2
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4254
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4245
@@ -2370,10 +2708,14 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4239
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4248
@@ -2382,10 +2724,14 @@ D2
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4255
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4246
@@ -2401,16 +2747,22 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4240
 D2
 @eng A black square lies to the south.
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4256
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4247
@@ -2428,16 +2780,22 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4241
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4250
 D2
 @eng A black square lies to the south.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4257
@@ -2455,10 +2813,14 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4242
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4251
@@ -2467,10 +2829,14 @@ D2
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4258
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4249
@@ -2488,10 +2854,14 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4243
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4252
@@ -2500,10 +2870,14 @@ D2
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4259
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4250
@@ -2521,10 +2895,14 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4244
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4253
@@ -2533,10 +2911,14 @@ D2
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4260
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4251
@@ -2554,10 +2936,14 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4245
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4254
@@ -2566,10 +2952,14 @@ D2
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4261
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4252
@@ -2587,10 +2977,14 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4246
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4255
@@ -2599,10 +2993,14 @@ D2
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4262
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4253
@@ -2620,10 +3018,14 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4247
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4256
@@ -2632,10 +3034,14 @@ D2
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4263
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4254
@@ -2653,16 +3059,22 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4248
 D2
 @eng A white square lies to the south.
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4264
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4255
@@ -2680,10 +3092,14 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4249
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4258
@@ -2701,16 +3117,22 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4250
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4259
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4257
@@ -2728,16 +3150,22 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4251
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4260
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4258
@@ -2755,10 +3183,14 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4252
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4261
@@ -2767,10 +3199,14 @@ D3
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4259
 D5
 ~
 marble~
+the marble~
+~
 ABCFZ 4215 4266
 S
 #4261
@@ -2786,16 +3222,22 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4253
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4262
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4260
@@ -2813,16 +3255,22 @@ D0
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4254
 D1
 @eng A black square lies to the east.
 @rus Черная Клетка.
 ~
 ~
+~
+~
 Z -1 4263
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4261
@@ -2840,16 +3288,22 @@ D0
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4255
 D1
 @eng A white square lies to the east.
 @rus Белая Клетка.
 ~
 ~
+~
+~
 Z -1 4264
 D3
 @eng A white square lies to the west.
 @rus Белая Клетка.
+~
+~
 ~
 ~
 Z -1 4262
@@ -2867,10 +3321,14 @@ D0
 @rus Черня Клетка.
 ~
 ~
+~
+~
 Z -1 4256
 D3
 @eng A black square lies to the west.
 @rus Черная Клетка.
+~
+~
 ~
 ~
 Z -1 4263
@@ -2888,6 +3346,8 @@ D4
 @rus Маленькая лестница, ведущая наверх.
 ~
 marble square~
+the marble~
+~
 ABCFZ 4214 4204
 S
 #4266
@@ -2903,6 +3363,8 @@ D4
 @rus Небольшая лестница, ведущая наверх.
 ~
 marble square~
+the marble~
+~
 ABCFZ 4215 4260
 S
 #0

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Pyramid~
 VNUMs 8700 8799
 Credits Andersen~
@@ -816,9 +816,13 @@ D0
 Nothing but sand as far as the eye can see.
 ~
 ~
+~
+~
 Z -1 8700
 D1
 The sands of the desert continue onward towards the pyramid.
+~
+~
 ~
 ~
 Z -1 8701
@@ -826,9 +830,13 @@ D2
 Nothing but sand as far as the eye can see.
 ~
 ~
+~
+~
 Z -1 8700
 D3
 Across the hot burning sands you see a small oasis and some tents.
+~
+~
 ~
 ~
 Z -1 5057
@@ -849,9 +857,13 @@ D3
 To the east you see the hot sands of the Great Eastern Desert.
 ~
 ~
+~
+~
 Z -1 8700
 D4
 The steep slope of the pyramid rises up before you.
+~
+~
 ~
 ~
 Z -1 8702
@@ -871,9 +883,13 @@ D0
 If you are daring you could try to skirt around to the northern side.
 ~
 ~
+~
+~
 Z -1 8703
 D2
 If you are daring you could try to skirt around to the southern side.
+~
+~
 ~
 ~
 Z -1 8704
@@ -881,9 +897,13 @@ D4
 It looks too dangerous to try to climb any higher.
 ~
 ~
+~
+~
 Z -1 8707
 D5
 Far below you are the burning sands of the desert.
+~
+~
 ~
 ~
 Z -1 8701
@@ -903,9 +923,13 @@ D1
 If you are daring you could try to skirt around to the eastern side.
 ~
 ~
+~
+~
 Z -1 8705
 D3
 If you are daring you could try to skirt around to the western side.
+~
+~
 ~
 ~
 Z -1 8702
@@ -913,9 +937,13 @@ D4
 It looks too dangerous to try to climb any higher.
 ~
 ~
+~
+~
 Z -1 8707
 D5
 This side of the pyramid has a dangerous drop before the sandy floor.
+~
+~
 ~
 ~
 Z -1 8707
@@ -935,9 +963,13 @@ D1
 If you are daring you could try to skirt around to the eastern side.
 ~
 ~
+~
+~
 Z -1 8705
 D3
 If you are daring you could try to skirt around to the western side.
+~
+~
 ~
 ~
 Z -1 8702
@@ -945,9 +977,13 @@ D4
 It looks too dangerous to try to climb any higher.
 ~
 ~
+~
+~
 Z -1 8707
 D5
 This side of the pyramid has a dangerous drop before the sandy floor.
+~
+~
 ~
 ~
 Z -1 8707
@@ -968,18 +1004,26 @@ D0
 If you are daring you could try to skirt around to the northern side.
 ~
 ~
+~
+~
 Z -1 8703
 D2
 If you are daring you could try to skirt around to the southern side.
+~
+~
 ~
 ~
 Z -1 8704
 D4
 ~
 ~
+~
+~
 Z -1 8717
 D5
 This side of the pyramid has a dangerous drop before the sandy floor.
+~
+~
 ~
 ~
 Z -1 8707
@@ -1008,9 +1052,13 @@ The north side of the pyramid slopes down into the sands.
 It looks really dangerous.  I wouldn't go that way.
 ~
 ~
+~
+~
 Z -1 8707
 D1
 The east side of the pyramid slopes down into the sands.
+~
+~
 ~
 ~
 Z -1 8705
@@ -1019,10 +1067,14 @@ The south side of the pyramid slopes down into the sands.
 It looks really dangerous.  I wouldn't go that way.
 ~
 ~
+~
+~
 Z -1 8707
 D3
 The west side of the pyramid slopes down into the sands.
 It looks really dangerous.  I wouldn't go that way.
+~
+~
 ~
 ~
 Z -1 8707
@@ -1030,6 +1082,8 @@ D5
 You see some sandy stones pressed closely together to form a hard surface.
 ~
 stones~
+the stones~
+~
 ABZ -1 8708
 S
 #8707
@@ -1060,9 +1114,13 @@ D4
 You see the sandy stones of the ceiling.
 ~
 stones~
+the stones~
+~
 ABZ -1 8706
 D5
 You see a small dusty chamber.
+~
+~
 ~
 ~
 Z -1 8709
@@ -1092,9 +1150,13 @@ D0
 You see a tiny crawlway raised about three feet off the ground.
 ~
 ~
+~
+~
 Z -1 8712
 D1
 A dust-covered hallway leads off to the east.
+~
+~
 ~
 ~
 Z -1 8739
@@ -1102,14 +1164,20 @@ D2
 You see a small crack in the wall through which you might be able to slide.
 ~
 ~
+~
+~
 Z -1 8724
 D3
 You see a large stone door, covered in sigils and hieroglyphs.
 ~
 door stone~
+~
+~
 ABZ -1 8710
 D4
 A small rickety ladder leads up.
+~
+~
 ~
 ~
 Z -1 8708
@@ -1126,9 +1194,13 @@ D1
 You see a large stone door.
 ~
 door stone~
+~
+~
 ABZ -1 8709
 D3
 You see a small chamber filled with fire.
+~
+~
 ~
 ~
 Z -1 8711
@@ -1144,6 +1216,8 @@ D1
 The pool of fire ends to the east.
 ~
 ~
+~
+~
 Z -1 8710
 S
 #8712
@@ -1157,14 +1231,20 @@ D0
 The crawlway continues to the north.
 ~
 ~
+~
+~
 Z -1 8713
 D2
 The crawlway ends to the south in a musty chamber.
 ~
 ~
+~
+~
 Z -1 8709
 D4
 A small hole above your head leads into a dank chamber.
+~
+~
 ~
 ~
 Z -1 8737
@@ -1180,9 +1260,13 @@ D2
 The crawlway continues to the south.
 ~
 ~
+~
+~
 Z -1 8712
 D3
 The crawlway continues to the west.
+~
+~
 ~
 ~
 Z -1 8714
@@ -1198,9 +1282,13 @@ D1
 The crawlway continues to the east.
 ~
 ~
+~
+~
 Z -1 8713
 D3
 The crawlway gets a little tighter to the west.
+~
+~
 ~
 ~
 Z -1 8715
@@ -1217,14 +1305,20 @@ D1
 The crawlway gets a little larger to the east.
 ~
 ~
+~
+~
 Z -1 8714
 D2
 The crawlway continues to diminish in size to the south.
 ~
 ~
+~
+~
 Z -1 8716
 D5
 The hole looks very slippery and very dark.
+~
+~
 ~
 ~
 Z -1 8717
@@ -1239,6 +1333,8 @@ crawlway to the north.
 0 AD inside
 D0
 The crawlway gets a little larger to the north.
+~
+~
 ~
 ~
 Z -1 8715
@@ -1267,8 +1363,12 @@ D4
 You see a rocky crevasse that proceeds deep under the pyramid.
 ~
 ~
+~
+~
 Z -1 8715
 D5
+~
+~
 ~
 ~
 Z -1 8705
@@ -1293,6 +1393,8 @@ D2
 You see a rocky crevasse that proceeds deep under the pyramid.
 ~
 ~
+~
+~
 Z -1 8719
 S
 #8719
@@ -1310,14 +1412,20 @@ D0
 You see a small stone chamber littered with bones.
 ~
 ~
+~
+~
 Z -1 8718
 D2
 You see the flickering light of a small fire.
 ~
 ~
+~
+~
 Z -1 8720
 D5
 The crevasse continues downward into total darkness.
+~
+~
 ~
 ~
 Z -1 8721
@@ -1341,6 +1449,8 @@ D0
 You see a massive crevasse that plunges into darkness.
 ~
 ~
+~
+~
 Z -1 8719
 S
 #8721
@@ -1354,9 +1464,13 @@ D4
 It is too dark for you to see any further along the crevasse.
 ~
 ~
+~
+~
 Z -1 8719
 D5
 It is too dark for you to see any further along the crevasse.
+~
+~
 ~
 ~
 Z -1 8722
@@ -1387,9 +1501,13 @@ D2
 You see a strange-looking black shape.
 ~
 sesame~
+the sesame~
+~
 ABCFZ 8723 8723
 D4
 It is too dark for you to see anything along the crevasse.
+~
+~
 ~
 ~
 Z -1 8721
@@ -1414,6 +1532,8 @@ D0
 Through the jaws of the tiger you see the blackness of the crevasse.
 ~
 ~
+~
+~
 ABCFZ 8723 8722
 S
 #8724
@@ -1427,9 +1547,13 @@ D0
 You see a musty chamber.
 ~
 ~
+~
+~
 Z -1 8709
 D2
 You see a tomb.
+~
+~
 ~
 ~
 Z -1 8725
@@ -1445,14 +1569,20 @@ D0
 You see a small crack in the wall through which you might be able to slide.
 ~
 ~
+~
+~
 Z -1 8724
 D1
 To the east is another tomb.
 ~
 ~
+~
+~
 Z -1 8733
 D3
 To the west is another tomb.
+~
+~
 ~
 ~
 Z -1 8726
@@ -1483,11 +1613,15 @@ D1
 To the east is another tomb.
 ~
 ~
+~
+~
 Z -1 8725
 D3
 You see a large stone coffin.
 ~
 coffin lid~
+the coffin~
+~
 ABCFZ 8712 8727
 S
 #8727
@@ -1510,9 +1644,13 @@ D1
 You see the backside of the coffin lid, featureless stone.
 ~
 coffin lid~
+the coffin~
+~
 ABCFZ -1 8726
 D5
 It is too dark to see down the stairway.
+~
+~
 ~
 ~
 Z -1 8728
@@ -1528,9 +1666,13 @@ D4
 It is too dark to see up the stairway.
 ~
 ~
+~
+~
 Z -1 8727
 D5
 It is too dark to see down the stairway.
+~
+~
 ~
 ~
 Z -1 8729
@@ -1550,9 +1692,13 @@ D2
 You see a seam in the stone wall.
 ~
 stone~
+the stone~
+~
 ABZ -1 8730
 D4
 It is too dark to see up the stairway.
+~
+~
 ~
 ~
 Z -1 8728
@@ -1574,9 +1720,13 @@ D0
 You see a seam in the stone wall.
 ~
 stone~
+the stone~
+~
 ABZ -1 8729
 D2
 You see a small raised dais.
+~
+~
 ~
 ~
 Z -1 8731
@@ -1599,11 +1749,15 @@ D0
 You cannot see past the steps of the dais.
 ~
 ~
+~
+~
 Z -1 8730
 D5
 You see a seam in the stone floor.
 ~
 tomb~
+the tomb~
+~
 ABZ -1 8732
 S
 #8732
@@ -1615,6 +1769,8 @@ D4
 That leads back the way you came.
 ~
 tomb~
+the tomb~
+~
 ABZ -1 8731
 S
 #8733
@@ -1627,9 +1783,13 @@ D1
 To the east is a low-ceilinged tunnel.
 ~
 ~
+~
+~
 Z -1 8734
 D3
 To the west is another tomb.
+~
+~
 ~
 ~
 Z -1 8725
@@ -1643,9 +1803,13 @@ D1
 You cannot see into the darkness of the low tunnel.
 ~
 ~
+~
+~
 Z -1 8735
 D3
 You see a tomb.
+~
+~
 ~
 ~
 Z -1 8733
@@ -1664,14 +1828,20 @@ D1
 You cannot see into the darkness of the low tunnel.
 ~
 ~
+~
+~
 Z -1 8736
 D3
 You cannot see into the darkness of the low tunnel.
 ~
 ~
+~
+~
 Z -1 8734
 D5
 Through the hole you see rubble and sand.
+~
+~
 ~
 ~
 Z -1 8746
@@ -1686,9 +1856,13 @@ D0
 The mouth of the tunnel is stone that has been torn away by looters.
 ~
 ~
+~
+~
 Z -1 8742
 D3
 You cannot see into the darkness of the low tunnel.
+~
+~
 ~
 ~
 Z -1 8735
@@ -1704,9 +1878,13 @@ D1
 You see a spiral stone stairway.
 ~
 ~
+~
+~
 Z -1 8738
 D3
 You see only blackness through the hole in the floor.
+~
+~
 ~
 ~
 Z -1 8712
@@ -1721,9 +1899,13 @@ D4
 The stairs spiral up into a dank chamber.
 ~
 ~
+~
+~
 Z -1 8737
 D5
 The stairs spiral down into a dusty hallway.
+~
+~
 ~
 ~
 Z -1 8741
@@ -1739,9 +1921,13 @@ D1
 The hallway proceeds to the east towards a strange smell.
 ~
 ~
+~
+~
 Z -1 8740
 D3
 The hallway proceeds towards the west towards a musty smell.
+~
+~
 ~
 ~
 Z -1 8709
@@ -1757,9 +1943,13 @@ D1
 You see a dusty hallway.
 ~
 ~
+~
+~
 Z -1 8741
 D3
 You a dusty hallway.
+~
+~
 ~
 ~
 Z -1 8739
@@ -1775,14 +1965,20 @@ D1
 The hallway turns to the north.
 ~
 ~
+~
+~
 Z -1 8742
 D3
 You smell something peculiar over there.
 ~
 ~
+~
+~
 Z -1 8740
 D4
 A tightly spiralling stone stairway leads up.
+~
+~
 ~
 ~
 Z -1 8738
@@ -1799,14 +1995,20 @@ D0
 The hallway ends to the north.
 ~
 ~
+~
+~
 Z -1 8743
 D2
 The tunnel is dark.
 ~
 ~
+~
+~
 Z -1 8736
 D3
 The dust-covered hallway continues to the west.
+~
+~
 ~
 ~
 Z -1 8741
@@ -1827,11 +2029,15 @@ D2
 The dusty hall continues to the south.
 ~
 ~
+~
+~
 Z -1 8742
 D5
 The floor is quite dusty, and made of stone.  You see some cracks.
 ~
 floor~
+the floor~
+~
 ABZ -1 8744
 S
 #8744
@@ -1856,11 +2062,15 @@ D0
 You see the tomb of the pharoahs.
 ~
 tomb~
+the tomb~
+~
 ABZ -1 8745
 D4
 The stone ceiling has some cracks in it, through which a dim light streams.
 ~
 ceiling~
+the ceiling~
+~
 ABZ -1 8743
 S
 #8745
@@ -1880,6 +2090,8 @@ D2
 That way leads back out of the tomb.
 ~
 tomb~
+the tomb~
+~
 ABZ -1 8744
 S
 #8746
@@ -1895,9 +2107,13 @@ D2
 You see a sandstone crypt.
 ~
 ~
+~
+~
 Z -1 8747
 D4
 >From here you see only darkness.
+~
+~
 ~
 ~
 Z -1 8735
@@ -1914,14 +2130,20 @@ D0
 The arched hallway collapses into rubble shortly to the north.
 ~
 ~
+~
+~
 Z -1 8746
 D1
 You see a beautifully arched hallway.
 ~
 ~
+~
+~
 Z -1 8748
 D2
 You see a lot of sand.
+~
+~
 ~
 ~
 Z -1 8753
@@ -1939,9 +2161,13 @@ D1
 The arched hall proceeds to the east, making a sharp southward turn.
 ~
 ~
+~
+~
 Z -1 8749
 D3
 The arched hall proceeds into a sandstone crypt.
+~
+~
 ~
 ~
 Z -1 8747
@@ -1958,14 +2184,20 @@ D0
 The arched hall proceeds to the north, making a sharp westward turn.
 ~
 ~
+~
+~
 Z -1 8748
 D1
 A small golden crypt lies to the east.
 ~
 ~
+~
+~
 Z -1 8750
 D2
 The arched hall proceeds to the south.
+~
+~
 ~
 ~
 Z -1 8751
@@ -1991,6 +2223,8 @@ D3
 You see an arched hall.
 ~
 ~
+~
+~
 Z -1 8749
 S
 #8751
@@ -2004,9 +2238,13 @@ D0
 The arched hall continues to the north.
 ~
 ~
+~
+~
 Z -1 8749
 D2
 You see a small vault from which a shining light issues.
+~
+~
 ~
 ~
 Z -1 8752
@@ -2028,6 +2266,8 @@ D0
 You see a hall with a beautifully arched ceiling.
 ~
 ~
+~
+~
 Z -1 8751
 S
 #8753
@@ -2047,9 +2287,13 @@ D0
 You see a small hole leading back into the pyramid.
 ~
 ~
+~
+~
 Z -1 8747
 D2
 You see only a wall of whirling, blowing, dry sand.
+~
+~
 ~
 ~
 Z -1 8754
@@ -2070,9 +2314,13 @@ D0
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
+~
+~
 Z -1 8753
 D1
 You see only a wall of whirling, blowing, dry sand.
+~
+~
 ~
 ~
 Z -1 8754
@@ -2080,9 +2328,13 @@ D2
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
+~
+~
 Z -1 8755
 D3
 You see only a wall of whirling, blowing, dry sand.
+~
+~
 ~
 ~
 Z -1 8754
@@ -2103,9 +2355,13 @@ D0
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
+~
+~
 Z -1 8754
 D1
 You see only a wall of whirling, blowing, dry sand.
+~
+~
 ~
 ~
 Z -1 8755
@@ -2113,9 +2369,13 @@ D2
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
+~
+~
 Z -1 8756
 D3
 You see only a wall of whirling, blowing, dry sand.
+~
+~
 ~
 ~
 Z -1 8755
@@ -2136,9 +2396,13 @@ D0
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
+~
+~
 Z -1 8755
 D1
 You see only a wall of whirling, blowing, dry sand.
+~
+~
 ~
 ~
 Z -1 8756
@@ -2146,9 +2410,13 @@ D2
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
+~
+~
 Z -1 8757
 D3
 You see only a wall of whirling, blowing, dry sand.
+~
+~
 ~
 ~
 Z -1 8756
@@ -2169,9 +2437,13 @@ D0
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
+~
+~
 Z -1 8756
 D1
 You see only a wall of whirling, blowing, dry sand.
+~
+~
 ~
 ~
 Z -1 8757
@@ -2179,9 +2451,13 @@ D2
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
+~
+~
 Z -1 8758
 D3
 You see only a wall of whirling, blowing, dry sand.
+~
+~
 ~
 ~
 Z -1 8757
@@ -2213,12 +2489,16 @@ D0
 You see only a wall of whirling, blowing, dry sand.
 ~
 ~
+~
+~
 Z -1 8757
 D2
 On the southern side of the sand dune is a small hole in the sand.
 For some reason you seem unable to get to it.
 ~
 riddle~
+the riddle~
+~
 ABCFZ 8717 8759
 S
 #8759
@@ -2230,6 +2510,8 @@ the small sandy slope down which you slid.
 0 ACD inside
 D4
 You see a sand dune.
+~
+~
 ~
 ~
 Z -1 8753

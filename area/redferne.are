@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Redferne's~
 VNUMs 7900 7999
 Credits Diku~
@@ -108,14 +108,20 @@ D0
 You see a HUGE arched gate leading into this magnificent building.
 ~
 gate door huge arched~
+the gate~
+~
 ABFZ -1 7901
 D2
 You see some pretty clouds!
 ~
 ~
+~
+~
 Z 0 9101
 D5
 You see a Huge Chain that anchors the Mansion of Naris to the ground.
+~
+~
 ~
 ~
 Z -1 7918
@@ -148,12 +154,16 @@ The hallway continues that way. You can see more doorways under the
 wooden staircase in that direction.
 ~
 ~
+~
+~
 Z -1 7904
 D1
 You see there a tall oak door. It looks quite tightly closed to you.
 On it little runes are chiselled into the wood.
 ~
 oak tall east oakdoor talldoor eastdoor~
+the oak~
+~
 ABFZ -1 7910
 D2
 Here you see a REAL door. It would be more proper to call this a
@@ -161,6 +171,8 @@ Here you see a REAL door. It would be more proper to call this a
 sign with very large letters spelling : "EMERGENCY EXIT".
 ~
 gate~
+the gate~
+~
 ABFZ -1 7900
 D3
 This looks like a "door" in the meaning of the word. The ashen wood
@@ -168,10 +180,14 @@ is painted in a peculiar yellow colour. Small letters are written
 with black on it.
 ~
 ashen ash door west yellow~
+the ashen~
+~
 ABFZ -1 7902
 D4
 You see the staircase extending upwards into the very high tower.
 It ends in what seems like a large bedroom up there.
+~
+~
 ~
 ~
 Z -1 7909
@@ -230,6 +246,8 @@ D1
 You can see an old ashen door, painted in a peculiar yellow colour.
 ~
 door ash ashen east~
+~
+~
 ABFZ -1 7901
 S
 #7903
@@ -253,6 +271,8 @@ metal door. To the west there is a large aspenwood door.
 D0
 ~
 ~
+~
+~
 Z -1 7906
 D1
 You see a huge metal door. From it a foul stench emanates. The smell is the
@@ -261,9 +281,13 @@ terrible stench and into your mind : "Monsters", you feel BAD about opening
 that door.
 ~
 steel metal huge~
+the steel~
+~
 ABFZ -1 7913
 D2
 The rest of the hall lies in that direction, and so does the exit.
+~
+~
 ~
 ~
 Z -1 7901
@@ -272,6 +296,8 @@ The door has "SITTING ROOM" written on it. It is made from Aspenwood and
 is beautifully carven with small elves as main issue of sculpture.
 ~
 aspen asp~
+the aspen~
+~
 ABFZ -1 7905
 S
 #7905
@@ -291,6 +317,8 @@ The door seems to be a very HEAVY door, carved completely from the trunk of
 an Aspen tree.
 ~
 asp aspen door heavy~
+the asp~
+~
 ABFZ -1 7904
 S
 #7906
@@ -306,14 +334,20 @@ D0
 It's dark in there,  but the sounds from there are unmistakably from rats.
 ~
 larder wooden cupboard~
+the larder~
+~
 ABFZ -1 7907
 D1
 You can see the fridge from here. In it are drinks all over.
 ~
 fridge~
+the fridge~
+~
 ABFZ -1 7908
 D2
 You can see the northern end of the hall.
+~
+~
 ~
 ~
 Z -1 7904
@@ -327,6 +361,8 @@ scuttering around, nibbling pieces off the heaps here and there.
 D2
 ~
 door wooden larder exit~
+~
+~
 ABFZ -1 7906
 S
 #7908
@@ -337,6 +373,8 @@ This place is LOADED with drink, water and booze.
 D3
 ~
 door exit fridge~
+~
+~
 ABFZ -1 7906
 S
 #7909
@@ -349,8 +387,12 @@ bedroom of Redferne, and Down leads to the Southern end of the hall.
 D4
 ~
 ~
+~
+~
 Z -1 7911
 D5
+~
+~
 ~
 ~
 Z -1 7901
@@ -364,6 +406,8 @@ D3
 You see a tall oak door.
 ~
 door oak tall~
+~
+~
 ABFZ -1 7901
 S
 #7911
@@ -380,8 +424,12 @@ D2
 The sun seems to shine out there, warmly and comforting.
 ~
 doors~
+@eng the doors@rus двери~
+@rus plural~
 ABZ -1 7912
 D5
+~
+~
 ~
 ~
 Z -1 7909
@@ -398,6 +446,8 @@ You see the comfortable bedroom of Naris, the mansion of Redferne the Greater
 God.
 ~
 doors~
+@eng the doors@rus двери~
+@rus plural~
 ABFZ -1 7911
 S
 #7913
@@ -412,6 +462,8 @@ D3
 This looks like the only exit from here.
 ~
 door cage metal pen~
+~
+~
 ABFZ -1 7904
 S
 #7914
@@ -426,9 +478,13 @@ D4
 Up the way you see the chain disappearing into the clouds above.
 ~
 ~
+~
+~
 Z -1 7916
 D5
 Down below you see the huge chain anchored to the ground in the Road Crossing.
+~
+~
 ~
 ~
 Z -1 3120
@@ -445,8 +501,12 @@ D4
 There seems to be only one way from here and that's up.
 ~
 ~
+~
+~
 Z -1 7918
 D5
+~
+~
 ~
 ~
 Z -1 7914
@@ -465,8 +525,12 @@ You see the sunny top of the clouds. Beyond these, the Mansion towers before
 your eyes. Beautiful!!
 ~
 ~
+~
+~
 Z -1 7900
 D5
+~
+~
 ~
 ~
 Z -1 7916

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Goblin Nation~
 VNUMs 9900 9999
 Credits Mort~
@@ -351,8 +351,12 @@ north shore of the river to your east.
 D1
 ~
 ~
+~
+~
 Z -1 14588
 D3
+~
+~
 ~
 ~
 Z -1 9902
@@ -369,8 +373,12 @@ the river.
 D1
 ~
 ~
+~
+~
 Z -1 9901
 D3
+~
+~
 ~
 ~
 Z -1 9903
@@ -384,8 +392,12 @@ aroma of growing things is strong here in the middle of nowhere.
 D1
 ~
 ~
+~
+~
 Z -1 9902
 D3
+~
+~
 ~
 ~
 Z -1 9904
@@ -401,8 +413,12 @@ light green to golden brown.
 D1
 ~
 ~
+~
+~
 Z -1 9903
 D3
+~
+~
 ~
 ~
 Z -1 9905
@@ -416,8 +432,12 @@ have replaced the grasses growing along the river bank.
 D1
 ~
 ~
+~
+~
 Z -1 9904
 D3
+~
+~
 ~
 ~
 Z -1 9906
@@ -432,8 +452,12 @@ to push their way towards you.
 D1
 ~
 ~
+~
+~
 Z -1 9905
 D3
+~
+~
 ~
 ~
 Z -1 9907
@@ -448,8 +472,12 @@ high grass waving with the day's breeze.
 D1
 ~
 ~
+~
+~
 Z -1 9906
 D3
+~
+~
 ~
 ~
 Z -1 9908
@@ -463,8 +491,12 @@ birds flit about you because you are disturbing their habitats.
 D1
 ~
 ~
+~
+~
 Z -1 9907
 D3
+~
+~
 ~
 ~
 Z -1 9909
@@ -481,8 +513,12 @@ the light.
 D1
 ~
 ~
+~
+~
 Z -1 9908
 D3
+~
+~
 ~
 ~
 Z -1 9910
@@ -497,8 +533,12 @@ in spots along the bank.
 D1
 ~
 ~
+~
+~
 Z -1 9909
 D3
+~
+~
 ~
 ~
 Z -1 9911
@@ -513,8 +553,12 @@ dominates the area as it pokes it's head out of the tall grass.
 D1
 ~
 ~
+~
+~
 Z -1 9910
 D3
+~
+~
 ~
 ~
 Z -1 9912
@@ -531,12 +575,18 @@ D0
 A grass wall circles this area.
 ~
 grass~
+the grass~
+~
 ABZ -1 9916
 D1
 ~
 ~
+~
+~
 Z -1 9911
 D2
+~
+~
 ~
 ~
 Z -1 9913
@@ -551,8 +601,12 @@ feet over the river creating a set of natural caves.
 D0
 ~
 ~
+~
+~
 Z -1 9912
 D3
+~
+~
 ~
 ~
 Z -1 9914
@@ -567,8 +621,12 @@ terrain about you.
 D1
 ~
 ~
+~
+~
 Z -1 9913
 D2
+~
+~
 ~
 ~
 Z -1 9915
@@ -582,8 +640,12 @@ flows quickly in a western direction.
 D0
 ~
 ~
+~
+~
 Z -1 9914
 D3
+~
+~
 ~
 ~
 Z -1 9796
@@ -598,11 +660,15 @@ grasses leads to danger.
 D0
 ~
 ~
+~
+~
 Z -1 9917
 D2
 A grass wall surrounds the area.
 ~
 grass~
+the grass~
+~
 ABZ -1 9912
 S
 #9917
@@ -617,8 +683,12 @@ D2
 A grass wall surrounds the area.
 ~
 grass~
+the grass~
+~
 Z -1 9916
 D3
+~
+~
 ~
 ~
 Z -1 9918
@@ -633,8 +703,12 @@ voices, metal on metal, screams of agony float through grass.
 D0
 ~
 ~
+~
+~
 Z -1 9919
 D1
+~
+~
 ~
 ~
 Z -1 9917
@@ -649,8 +723,12 @@ Bald Mountain to the northeast of your present position.
 D0
 ~
 ~
+~
+~
 Z -1 9920
 D2
+~
+~
 ~
 ~
 Z -1 9918
@@ -664,8 +742,12 @@ and hear other activities associated with a small village.
 D2
 ~
 ~
+~
+~
 Z -1 9919
 D3
+~
+~
 ~
 ~
 Z -1 9921
@@ -680,8 +762,12 @@ only admit two or three persons at a time.
 D1
 ~
 ~
+~
+~
 Z -1 9920
 D3
+~
+~
 ~
 ~
 Z -1 9922
@@ -699,12 +785,18 @@ shallow waters.
 D0
 ~
 ~
+~
+~
 Z -1 9923
 D1
 ~
 ~
+~
+~
 Z -1 9921
 D3
+~
+~
 ~
 ~
 Z -1 9933
@@ -719,8 +811,12 @@ bodies and poor sanitation.
 D0
 ~
 ~
+~
+~
 Z -1 9924
 D2
+~
+~
 ~
 ~
 Z -1 9922
@@ -736,8 +832,12 @@ this hut like a dark shadow.
 D2
 ~
 ~
+~
+~
 Z -1 9923
 D3
+~
+~
 ~
 ~
 Z -1 9925
@@ -752,16 +852,24 @@ has matted into a disgusting heap.
 D0
 ~
 ~
+~
+~
 Z -1 9927
 D1
+~
+~
 ~
 ~
 Z -1 9924
 D2
 ~
 ~
+~
+~
 Z -1 9926
 D3
+~
+~
 ~
 ~
 Z -1 9930
@@ -773,6 +881,8 @@ clothing and broken pottery litter the floor.
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 Z -1 9925
@@ -787,8 +897,12 @@ west and east.  That path seems to be little travelled.
 D1
 ~
 ~
+~
+~
 Z -1 9928
 D2
+~
+~
 ~
 ~
 Z -1 9925
@@ -804,6 +918,8 @@ set on fire.
 D3
 ~
 ~
+~
+~
 Z -1 9927
 S
 #9929
@@ -814,6 +930,8 @@ several different fruits but blueberry is the dominant color.
 ~
 0 D inside
 D2
+~
+~
 ~
 ~
 Z -1 9930
@@ -830,16 +948,24 @@ in the sky
 D0
 ~
 ~
+~
+~
 Z -1 9929
 D1
+~
+~
 ~
 ~
 Z -1 9925
 D2
 ~
 ~
+~
+~
 Z -1 9931
 D3
+~
+~
 ~
 ~
 Z -1 9940
@@ -854,12 +980,18 @@ trail leads to the west.
 D0
 ~
 ~
+~
+~
 Z -1 9930
 D2
 ~
 ~
+~
+~
 Z -1 9932
 D3
+~
+~
 ~
 ~
 Z -1 9939
@@ -874,16 +1006,24 @@ by seven foot high walls of living grass.
 D0
 ~
 ~
+~
+~
 Z -1 9931
 D1
+~
+~
 ~
 ~
 Z -1 9933
 D2
 ~
 ~
+~
+~
 Z -1 9934
 D3
+~
+~
 ~
 ~
 Z -1 9937
@@ -898,8 +1038,12 @@ leading to the west.
 D1
 ~
 ~
+~
+~
 Z -1 9922
 D3
+~
+~
 ~
 ~
 Z -1 9932
@@ -919,12 +1063,18 @@ appears to be an Elven skull.~
 D0
 ~
 ~
+~
+~
 Z -1 9932
 D1
 ~
 ~
+~
+~
 Z -1 9936
 D2
+~
+~
 ~
 ~
 Z -1 9935
@@ -943,6 +1093,8 @@ dead children of Malo Village.~
 D0
 ~
 ~
+~
+~
 Z -1 9934
 S
 #9936
@@ -957,6 +1109,8 @@ The "sticks" are actually bones.  They appear to be the bones
 of several different races.  Looking closely you can see that
 they have been gnawed.~
 D3
+~
+~
 ~
 ~
 Z -1 9934
@@ -976,16 +1130,24 @@ your feet is a huge cavern.~
 D0
 ~
 ~
+~
+~
 Z -1 9939
 D1
+~
+~
 ~
 ~
 Z -1 9932
 D2
 ~
 ~
+~
+~
 Z -1 9938
 D3
+~
+~
 ~
 ~
 Z -1 9947
@@ -1005,6 +1167,8 @@ are still embedded into the frame of the hut.~
 D0
 ~
 ~
+~
+~
 Z -1 9937
 S
 #9939
@@ -1016,12 +1180,18 @@ makes a hollow sound when you tread on it.
 D0
 ~
 ~
+~
+~
 Z -1 9940
 D1
 ~
 ~
+~
+~
 Z -1 9931
 D2
+~
+~
 ~
 ~
 Z -1 9937
@@ -1036,12 +1206,18 @@ view of anything beyond it.
 D1
 ~
 ~
+~
+~
 Z -1 9930
 D2
 ~
 ~
+~
+~
 Z -1 9939
 D3
+~
+~
 ~
 ~
 Z -1 9941
@@ -1055,16 +1231,24 @@ of a body or the source of the blood.
 D0
 ~
 ~
+~
+~
 Z -1 9951
 D1
+~
+~
 ~
 ~
 Z -1 9940
 D2
 ~
 ~
+~
+~
 Z -1 9942
 D3
+~
+~
 ~
 ~
 Z -1 9943
@@ -1076,6 +1260,8 @@ everywhere; on the floor, walls and ceiling.
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 Z -1 9941
@@ -1090,12 +1276,18 @@ a high grass wall which blocks that direction.
 D1
 ~
 ~
+~
+~
 Z -1 9941
 D2
 ~
 ~
+~
+~
 Z -1 9944
 D3
+~
+~
 ~
 ~
 Z -1 9948
@@ -1110,12 +1302,18 @@ of Bald Mountain.
 D0
 ~
 ~
+~
+~
 Z -1 9943
 D2
 ~
 ~
+~
+~
 Z -1 9946
 D3
+~
+~
 ~
 ~
 Z -1 9945
@@ -1131,6 +1329,8 @@ like beds, are lying about the floor.
 D1
 ~
 ~
+~
+~
 Z -1 9944
 S
 #9946
@@ -1144,8 +1344,12 @@ too far away.
 D0
 ~
 ~
+~
+~
 Z -1 9944
 D1
+~
+~
 ~
 ~
 Z -1 9947
@@ -1159,8 +1363,12 @@ in their circuit of the village.  It is heavily patrolled.
 D1
 ~
 ~
+~
+~
 Z -1 9937
 D3
+~
+~
 ~
 ~
 Z -1 9946
@@ -1175,8 +1383,12 @@ however, so continue with care.
 D0
 ~
 ~
+~
+~
 Z -1 9949
 D1
+~
+~
 ~
 ~
 Z -1 9943
@@ -1190,12 +1402,18 @@ west is a Goblin hut while to your east is a huge grass wall.
 D0
 ~
 ~
+~
+~
 Z -1 9955
 D2
 ~
 ~
+~
+~
 Z -1 9948
 D3
+~
+~
 ~
 ~
 Z -1 9950
@@ -1210,6 +1428,8 @@ the heat of the day.
 D1
 ~
 ~
+~
+~
 Z -1 9949
 S
 #9951
@@ -1222,8 +1442,12 @@ huts to the north.
 D0
 ~
 ~
+~
+~
 Z -1 9952
 D2
+~
+~
 ~
 ~
 Z -1 9941
@@ -1238,12 +1462,18 @@ in a southern direction.
 D0
 ~
 ~
+~
+~
 Z -1 9953
 D2
 ~
 ~
+~
+~
 Z -1 9951
 D3
+~
+~
 ~
 ~
 Z -1 9954
@@ -1256,6 +1486,8 @@ fashioned into walls and ceiling.
 ~
 0 D inside
 D2
+~
+~
 ~
 ~
 Z -1 9952
@@ -1271,8 +1503,12 @@ no one steps on these symbols.
 D1
 ~
 ~
+~
+~
 Z -1 9952
 D3
+~
+~
 ~
 ~
 Z -1 9955
@@ -1287,16 +1523,24 @@ see a hut at the end of the dirt path.
 D0
 ~
 ~
+~
+~
 Z -1 9956
 D1
+~
+~
 ~
 ~
 Z -1 9954
 D2
 ~
 ~
+~
+~
 Z -1 9949
 D3
+~
+~
 ~
 ~
 Z -1 9957
@@ -1315,6 +1559,8 @@ of the forbidden fruit.  She's a real siren.~
 D2
 ~
 ~
+~
+~
 Z -1 9955
 S
 #9957
@@ -1330,12 +1576,18 @@ you discover that they are teeth!~
 D0
 ~
 ~
+~
+~
 Z -1 9973
 D1
 ~
 ~
+~
+~
 Z -1 9955
 D3
+~
+~
 ~
 ~
 Z -1 9958
@@ -1350,12 +1602,18 @@ appear to be goblin made.
 D0
 ~
 ~
+~
+~
 Z -1 9972
 D1
 ~
 ~
+~
+~
 Z -1 9957
 D3
+~
+~
 ~
 ~
 Z -1 9959
@@ -1370,16 +1628,24 @@ To the south of you is a large pit.  To the west a small hut.
 D0
 ~
 ~
+~
+~
 Z -1 9970
 D1
+~
+~
 ~
 ~
 Z -1 9958
 D2
 ~
 ~
+~
+~
 Z -1 9960
 D3
+~
+~
 ~
 ~
 Z -1 9967
@@ -1401,8 +1667,12 @@ You cannot see the refuge from here.~
 D0
 ~
 ~
+~
+~
 Z -1 9959
 D3
+~
+~
 ~
 ~
 Z -1 9961
@@ -1416,12 +1686,18 @@ towards the large hut to the south of you.
 D0
 ~
 ~
+~
+~
 Z -1 9967
 D1
 ~
 ~
+~
+~
 Z -1 9960
 D2
+~
+~
 ~
 ~
 Z -1 9962
@@ -1444,12 +1720,18 @@ slit and his toes and fingers cut off.~
 D0
 ~
 ~
+~
+~
 Z -1 9961
 D2
 ~
 ~
+~
+~
 Z -1 9963
 D3
+~
+~
 ~
 ~
 Z -1 9966
@@ -1491,8 +1773,12 @@ if the nature of the quest and the identity of this body.~
 D0
 ~
 ~
+~
+~
 Z -1 9962
 D3
+~
+~
 ~
 ~
 Z -1 9964
@@ -1506,12 +1792,18 @@ of you is a large hut, built from the wood of a sailing ship.
 D0
 ~
 ~
+~
+~
 Z -1 9966
 D1
 ~
 ~
+~
+~
 Z -1 9963
 D2
+~
+~
 ~
 ~
 Z -1 9965
@@ -1539,6 +1831,8 @@ shaped mountain.~
 D0
 ~
 ~
+~
+~
 Z -1 9964
 S
 #9966
@@ -1551,8 +1845,12 @@ how crudely the wall was constructed.
 D1
 ~
 ~
+~
+~
 Z -1 9962
 D2
+~
+~
 ~
 ~
 Z -1 9964
@@ -1567,16 +1865,24 @@ built in that direction.
 D0
 ~
 ~
+~
+~
 Z -1 9969
 D1
+~
+~
 ~
 ~
 Z -1 9959
 D2
 ~
 ~
+~
+~
 Z -1 9961
 D3
+~
+~
 ~
 ~
 Z -1 9968
@@ -1590,6 +1896,8 @@ in blood, while others look brand new.
 ~
 0 D inside
 D1
+~
+~
 ~
 ~
 Z -1 9967
@@ -1606,8 +1914,12 @@ from the summit.
 D1
 ~
 ~
+~
+~
 Z -1 9970
 D2
+~
+~
 ~
 ~
 Z -1 9967
@@ -1621,16 +1933,24 @@ like the touch of silk thread.
 D0
 ~
 ~
+~
+~
 Z -1 9971
 D1
+~
+~
 ~
 ~
 Z -1 9972
 D2
 ~
 ~
+~
+~
 Z -1 9959
 D3
+~
+~
 ~
 ~
 Z -1 9969
@@ -1646,6 +1966,8 @@ breeze.
 D2
 ~
 ~
+~
+~
 Z -1 9970
 S
 #9972
@@ -1658,16 +1980,24 @@ as the edge of a sword.
 D0
 ~
 ~
+~
+~
 Z -1 9974
 D1
+~
+~
 ~
 ~
 Z -1 9973
 D2
 ~
 ~
+~
+~
 Z -1 9958
 D3
+~
+~
 ~
 ~
 Z -1 9970
@@ -1682,8 +2012,12 @@ small village.
 D2
 ~
 ~
+~
+~
 Z -1 9957
 D3
+~
+~
 ~
 ~
 Z -1 9972
@@ -1697,8 +2031,12 @@ you could have easily overlooked it.
 D0
 ~
 ~
+~
+~
 Z -1 9975
 D2
+~
+~
 ~
 ~
 Z -1 9972
@@ -1712,12 +2050,18 @@ huts in this area appear to be very old.  Some are falling down.
 D0
 ~
 ~
+~
+~
 Z -1 9976
 D1
 ~
 ~
+~
+~
 Z -1 9977
 D2
+~
+~
 ~
 ~
 Z -1 9974
@@ -1732,6 +2076,8 @@ other three walls have fallen.
 D2
 ~
 ~
+~
+~
 Z -1 9975
 S
 #9977
@@ -1743,8 +2089,12 @@ village.  Several of the huts in this area have fallen down.
 D1
 ~
 ~
+~
+~
 Z -1 9978
 D3
+~
+~
 ~
 ~
 Z -1 9975
@@ -1759,12 +2109,18 @@ never have guessed that this was a path.
 D0
 ~
 ~
+~
+~
 Z -1 9980
 D2
 ~
 ~
+~
+~
 Z -1 9979
 D3
+~
+~
 ~
 ~
 Z -1 9977
@@ -1782,6 +2138,8 @@ Made by the children of Malo Village.~
 D0
 ~
 ~
+~
+~
 Z -1 9978
 S
 #9980
@@ -1794,12 +2152,18 @@ view of the grass prairie surrounding the village.
 D0
 ~
 ~
+~
+~
 Z -1 9981
 D1
 ~
 ~
+~
+~
 Z -1 9982
 D2
+~
+~
 ~
 ~
 Z -1 9978
@@ -1811,6 +2175,8 @@ past disaster.  The floor is littered with bones.
 ~
 0 0 field
 D2
+~
+~
 ~
 ~
 Z -1 9980
@@ -1825,12 +2191,18 @@ heated water is seaping through the ground.
 D1
 ~
 ~
+~
+~
 Z -1 9984
 D2
 ~
 ~
+~
+~
 Z -1 9983
 D3
+~
+~
 ~
 ~
 Z -1 9980
@@ -1847,6 +2219,8 @@ The hands are from several small children of different races.~
 D0
 ~
 ~
+~
+~
 Z -1 9982
 S
 #9984
@@ -1858,8 +2232,12 @@ following the wall.  There are several private huts back here.
 D2
 ~
 ~
+~
+~
 Z -1 9985
 D3
+~
+~
 ~
 ~
 Z -1 9982
@@ -1873,8 +2251,12 @@ your footing very slippery.
 D0
 ~
 ~
+~
+~
 Z -1 9984
 D2
+~
+~
 ~
 ~
 Z -1 9986
@@ -1888,12 +2270,18 @@ have to travel in singlefile to get by.
 D0
 ~
 ~
+~
+~
 Z -1 9985
 D1
 ~
 ~
+~
+~
 Z -1 9988
 D3
+~
+~
 ~
 ~
 Z -1 9987
@@ -1908,6 +2296,8 @@ were stolen from Malo Village.
 D1
 ~
 ~
+~
+~
 Z -1 9986
 S
 #9988
@@ -1920,12 +2310,18 @@ your face as you walk under them.
 D1
 ~
 ~
+~
+~
 Z -1 9990
 D2
 ~
 ~
+~
+~
 Z -1 9989
 D3
+~
+~
 ~
 ~
 Z -1 9986
@@ -1942,6 +2338,8 @@ come from?  Where are they going?  What are they doing here?
 D0
 ~
 ~
+~
+~
 Z -1 9988
 S
 #9990
@@ -1953,12 +2351,18 @@ of the grass indicates that few Goblins come in this direction.
 D1
 ~
 ~
+~
+~
 Z -1 9991
 D2
 ~
 ~
+~
+~
 Z -1 9992
 D3
+~
+~
 ~
 ~
 Z -1 9988
@@ -1977,6 +2381,8 @@ which it came:   "The Squid".~
 D3
 ~
 ~
+~
+~
 Z -1 9990
 S
 #9992
@@ -1988,8 +2394,12 @@ that the path enters a dark cave in the side of the mountain.
 D0
 ~
 ~
+~
+~
 Z -1 9990
 D1
+~
+~
 ~
 ~
 Z -1 9993
@@ -2004,8 +2414,12 @@ Checking the ground you find that it's almost too hot to touch.
 D1
 ~
 ~
+~
+~
 Z -1 9994
 D3
+~
+~
 ~
 ~
 Z -1 9992
@@ -2019,8 +2433,12 @@ pushes it's way through the earth and connects to Bald Mountain.
 D1
 ~
 ~
+~
+~
 Z -1 9995
 D3
+~
+~
 ~
 ~
 Z -1 9993
@@ -2036,12 +2454,18 @@ the Goblins built their village here.
 D0
 ~
 ~
+~
+~
 Z -1 9997
 D1
 ~
 ~
+~
+~
 Z -1 9996
 D3
+~
+~
 ~
 ~
 Z -1 9994
@@ -2057,12 +2481,18 @@ grass dolls.
 D1
 ~
 ~
+~
+~
 Z -1 9999
 D2
 ~
 ~
+~
+~
 Z -1 9998
 D3
+~
+~
 ~
 ~
 Z -1 9995
@@ -2074,6 +2504,8 @@ question of "where are their possessions?" comes to mind.
 ~
 0 D inside
 D2
+~
+~
 ~
 ~
 Z -1 9995
@@ -2088,6 +2520,8 @@ at the hut is hard to do...the light is so bright.
 D0
 ~
 ~
+~
+~
 Z -1 9996
 S
 #9999
@@ -2098,6 +2532,8 @@ rear of the room is a door.  A door which doesn't open.
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 Z -1 9996

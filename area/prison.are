@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Prison~
 VNUMs 32000 32099
 Credits Flar~
@@ -1236,9 +1236,13 @@ send chills down your spine.
 D0
 ~
 ~
+~
+~
 Z -1 32001
 D1
 Prison of midgaard
+~
+~
 ~
 ~
 Z -1 3100
@@ -1262,8 +1266,12 @@ D0
 a rusty gate
 ~
 gate~
+the gate~
+~
 ABCFZ 32000 32002
 D2
+~
+~
 ~
 ~
 Z -1 32000
@@ -1277,16 +1285,24 @@ east  and west while to the north a dark hallway extends.
 D0
 ~
 ~
+~
+~
 Z -1 32003
 D1
+~
+~
 ~
 ~
 Z -1 32026
 D2
 ~
 ~
+~
+~
 Z -1 32001
 D3
+~
+~
 ~
 ~
 Z -1 32011
@@ -1300,16 +1316,24 @@ the east and west of here. The hallway continues north and south.
 D0
 ~
 ~
+~
+~
 Z -1 32004
 D1
+~
+~
 ~
 ~
 Z -1 32052
 D2
 ~
 ~
+~
+~
 Z -1 32002
 D3
+~
+~
 ~
 ~
 Z -1 32041
@@ -1323,12 +1347,18 @@ The hallway continues north.
 D0
 ~
 ~
+~
+~
 Z -1 32005
 D1
 ~
 ~
+~
+~
 Z -1 32084
 D2
+~
+~
 ~
 ~
 Z -1 32003
@@ -1342,8 +1372,12 @@ south.
 D0
 ~
 ~
+~
+~
 Z -1 32006
 D2
+~
+~
 ~
 ~
 Z -1 32004
@@ -1357,12 +1391,18 @@ here. The hallway continues to the north and south.
 D0
 ~
 ~
+~
+~
 Z -1 32007
 D2
 ~
 ~
+~
+~
 Z -1 32005
 D3
+~
+~
 ~
 ~
 Z -1 32086
@@ -1376,8 +1416,12 @@ south.
 D0
 ~
 ~
+~
+~
 Z -1 32008
 D2
+~
+~
 ~
 ~
 Z -1 32006
@@ -1391,20 +1435,30 @@ south.  You can see a yard of sorts to the east and west.
 D0
 ~
 ~
+~
+~
 Z -1 32009
 D1
+~
+~
 ~
 ~
 Z -1 32063
 D2
 ~
 ~
+~
+~
 Z -1 32007
 D3
 ~
 ~
+~
+~
 Z -1 32073
 D4
+~
+~
 ~
 ~
 ABZ -1 32010
@@ -1419,6 +1473,8 @@ head from the body. The stench is overwhelming here.
 D2
 ~
 ~
+~
+~
 Z -1 32008
 S
 #32010
@@ -1428,6 +1484,8 @@ religious artifacts on the walls here. This is a very peaceful room.
 ~
 0 0 inside
 D5
+~
+~
 ~
 ~
 Z -1 32008
@@ -1445,8 +1503,12 @@ the  bottom of the painting are the words: THE MAYOR IS A FINK!!~
 D1
 ~
 ~
+~
+~
 Z -1 32002
 D3
+~
+~
 ~
 ~
 Z -1 32012
@@ -1459,12 +1521,18 @@ You are standing in a quiet hallway. There is a door to the south here.
 D1
 ~
 ~
+~
+~
 Z -1 32011
 D2
 ~
 ~
+~
+~
 Z -1 32013
 D3
+~
+~
 ~
 ~
 Z -1 32014
@@ -1479,6 +1547,8 @@ stacked on a shelf behind the counter.
 D0
 ~
 ~
+~
+~
 Z -1 32012
 S
 #32014
@@ -1489,8 +1559,12 @@ You are standing in a quiet hallway. The hallway continues to the east and west.
 D1
 ~
 ~
+~
+~
 Z -1 32012
 D3
+~
+~
 ~
 ~
 Z -1 32015
@@ -1504,16 +1578,24 @@ drinking fountain here. The administration Hallway leads to the south.
 D0
 ~
 ~
+~
+~
 Z -1 32016
 D1
+~
+~
 ~
 ~
 Z -1 32014
 D2
 ~
 ~
+~
+~
 Z -1 32020
 D3
+~
+~
 ~
 ~
 Z -1 32017
@@ -1527,6 +1609,8 @@ ends stacked on the shelves here.
 D2
 ~
 ~
+~
+~
 ABZ -1 32015
 S
 #32017
@@ -1538,8 +1622,12 @@ the pungent odor of Cannibus burning here.
 D1
 ~
 ~
+~
+~
 Z -1 32015
 D4
+~
+~
 ~
 ~
 Z -1 32018
@@ -1553,8 +1641,12 @@ You are in a spiral staircase made of stone. You hear people laughing above you,
 D4
 ~
 ~
+~
+~
 Z -1 32019
 D5
+~
+~
 ~
 ~
 Z -1 32017
@@ -1568,6 +1660,8 @@ in here.  Man.....aren't there ANY windows?
 D5
 ~
 ~
+~
+~
 Z -1 32018
 S
 #32020
@@ -1579,8 +1673,12 @@ the north and south.
 D0
 ~
 ~
+~
+~
 Z -1 32015
 D2
+~
+~
 ~
 ~
 Z -1 32021
@@ -1594,8 +1692,12 @@ the north and south
 D0
 ~
 ~
+~
+~
 Z -1 32020
 D2
+~
+~
 ~
 ~
 Z -1 32022
@@ -1609,8 +1711,12 @@ the north and south.
 D0
 ~
 ~
+~
+~
 Z -1 32021
 D2
+~
+~
 ~
 ~
 Z -1 32023
@@ -1624,8 +1730,12 @@ clicking of a typewriter to the south.
 D0
 ~
 ~
+~
+~
 Z -1 32022
 D2
+~
+~
 ~
 ~
 Z -1 32024
@@ -1638,8 +1748,12 @@ You are in the receptionist's office.It smells like pot pourri in here.
 D0
 ~
 ~
+~
+~
 Z -1 32023
 D3
+~
+~
 ~
 ~
 Z -1 32025
@@ -1652,6 +1766,8 @@ the floor as well.
 ~
 0 0 inside
 D1
+~
+~
 ~
 ~
 Z -1 32024
@@ -1669,8 +1785,12 @@ disemboweling for fun.~
 D1
 ~
 ~
+~
+~
 Z -1 32027
 D3
+~
+~
 ~
 ~
 Z -1 32002
@@ -1683,12 +1803,18 @@ You are standing in a quiet hallway. There is a door to the south here.
 D1
 ~
 ~
+~
+~
 Z -1 32029
 D2
 ~
 ~
+~
+~
 Z -1 32028
 D3
+~
+~
 ~
 ~
 Z -1 32026
@@ -1703,6 +1829,8 @@ behind  the counter here.
 D0
 ~
 ~
+~
+~
 Z -1 32027
 S
 #32029
@@ -1714,12 +1842,18 @@ the  south and a dimly lit hallway to the east.
 D1
 ~
 ~
+~
+~
 Z -1 32030
 D2
 ~
 ~
+~
+~
 Z -1 32035
 D3
+~
+~
 ~
 ~
 Z -1 32027
@@ -1733,12 +1867,18 @@ ought to check on these lights in here.
 D0
 ~
 ~
+~
+~
 Z -1 32031
 D1
 ~
 ~
+~
+~
 Z -1 32032
 D3
+~
+~
 ~
 ~
 Z -1 32029
@@ -1752,6 +1892,8 @@ here.  Go figure?!?
 D2
 ~
 ~
+~
+~
 Z -1 32030
 S
 #32032
@@ -1763,8 +1905,12 @@ smell tobacco wafting down from above.
 D3
 ~
 ~
+~
+~
 Z -1 32030
 D4
+~
+~
 ~
 ~
 Z -1 32033
@@ -1778,8 +1924,12 @@ from above.
 D4
 ~
 ~
+~
+~
 Z -1 32034
 D5
+~
+~
 ~
 ~
 Z -1 32032
@@ -1794,6 +1944,8 @@ being sit upon for the nightly poker game.
 D5
 ~
 ~
+~
+~
 Z -1 32033
 S
 #32035
@@ -1805,8 +1957,12 @@ other manly stuff in the air.
 D0
 ~
 ~
+~
+~
 Z -1 32029
 D2
+~
+~
 ~
 ~
 Z -1 32036
@@ -1820,8 +1976,12 @@ manly stuff.
 D0
 ~
 ~
+~
+~
 Z -1 32035
 D2
+~
+~
 ~
 ~
 Z -1 32037
@@ -1835,8 +1995,12 @@ manly stuff.
 D0
 ~
 ~
+~
+~
 Z -1 32036
 D2
+~
+~
 ~
 ~
 Z -1 32038
@@ -1857,8 +2021,12 @@ mgmnt.~
 D0
 ~
 ~
+~
+~
 Z -1 32037
 D2
+~
+~
 ~
 ~
 Z -1 32039
@@ -1872,8 +2040,12 @@ and cases of Environmental Chemical Corporation aerosols here.
 D0
 ~
 ~
+~
+~
 Z -1 32038
 D1
+~
+~
 ~
 ~
 Z -1 32040
@@ -1887,6 +2059,8 @@ middle of the room. You have an overwhelming sense of forboding here.
 D3
 ~
 ~
+~
+~
 Z -1 32039
 S
 #32041
@@ -1898,8 +2072,12 @@ the west.
 D1
 ~
 ~
+~
+~
 Z -1 32003
 D3
+~
+~
 ~
 ~
 ABCFZ 32025 32042
@@ -1914,16 +2092,24 @@ to the north and south.
 D0
 ~
 ~
+~
+~
 ABZ -1 32050
 D1
+~
+~
 ~
 ~
 AFZ -1 32041
 D2
 ~
 ~
+~
+~
 Z -1 32051
 D3
+~
+~
 ~
 ~
 Z -1 32043
@@ -1938,16 +2124,24 @@ cells to the north and south.
 D0
 ~
 ~
+~
+~
 Z -1 32048
 D1
+~
+~
 ~
 ~
 Z -1 32042
 D2
 ~
 ~
+~
+~
 Z -1 32049
 D3
+~
+~
 ~
 ~
 Z -1 32044
@@ -1962,16 +2156,24 @@ and south. A small alcove leads to the west.
 D0
 ~
 ~
+~
+~
 ABZ -1 32046
 D1
+~
+~
 ~
 ~
 Z -1 32043
 D2
 ~
 ~
+~
+~
 Z -1 32047
 D3
+~
+~
 ~
 ~
 Z -1 32045
@@ -1982,6 +2184,8 @@ This room is absolutely barren.........
 ~
 0 AN inside
 D1
+~
+~
 ~
 ~
 Z -1 32044
@@ -1995,6 +2199,8 @@ crude drawings on the wall.
 D2
 ~
 ~
+~
+~
 ABZ -1 32044
 S
 #32047
@@ -2004,6 +2210,8 @@ some crude drawings on the wall.
 ~
 0 AN inside
 D0
+~
+~
 ~
 ~
 ABZ -1 32044
@@ -2017,6 +2225,8 @@ drawings on the wall.
 D2
 ~
 ~
+~
+~
 ABZ -1 32043
 S
 #32049
@@ -2026,6 +2236,8 @@ drawings on the wall.
 ~
 0 AN inside
 D0
+~
+~
 ~
 ~
 Z -1 32043
@@ -2039,6 +2251,8 @@ drawings on the wall.
 D2
 ~
 ~
+~
+~
 ABZ -1 32042
 S
 #32051
@@ -2048,6 +2262,8 @@ drawings on the wall.
 ~
 0 AN inside
 D0
+~
+~
 ~
 ~
 ABZ -1 32042
@@ -2061,8 +2277,12 @@ the east.
 D1
 ~
 ~
+~
+~
 ABCFZ 32025 32053
 D3
+~
+~
 ~
 ~
 Z -1 32003
@@ -2077,16 +2297,24 @@ the north and south.
 D0
 ~
 ~
+~
+~
 ABZ -1 32057
 D1
+~
+~
 ~
 ~
 Z -1 32054
 D2
 ~
 ~
+~
+~
 Z -1 32058
 D3
+~
+~
 ~
 ~
 ABCFZ -1 32052
@@ -2101,16 +2329,24 @@ the north and south.
 D0
 ~
 ~
+~
+~
 Z -1 32059
 D1
+~
+~
 ~
 ~
 Z -1 32055
 D2
 ~
 ~
+~
+~
 Z -1 32060
 D3
+~
+~
 ~
 ~
 Z -1 32053
@@ -2125,16 +2361,24 @@ the north and south. A small alcove leads to the east.
 D0
 ~
 ~
+~
+~
 ABZ -1 32061
 D1
+~
+~
 ~
 ~
 ABZ -1 32056
 D2
 ~
 ~
+~
+~
 ABZ -1 32062
 D3
+~
+~
 ~
 ~
 Z -1 32054
@@ -2148,6 +2392,8 @@ of feces are in the corners and the smell of urine overpowers you.
 D3
 ~
 ~
+~
+~
 Z -1 32055
 S
 #32057
@@ -2157,6 +2403,8 @@ crude drawings on the wall.
 ~
 0 AN inside
 D2
+~
+~
 ~
 ~
 ABZ -1 32053
@@ -2170,6 +2418,8 @@ crude drawings on the wall.
 D0
 ~
 ~
+~
+~
 ABZ -1 32053
 S
 #32059
@@ -2179,6 +2429,8 @@ crude drawings on the wall.
 ~
 0 AN inside
 D2
+~
+~
 ~
 ~
 ABZ -1 32054
@@ -2192,6 +2444,8 @@ crude drawings on the wall.
 D0
 ~
 ~
+~
+~
 Z -1 32054
 S
 #32061
@@ -2203,6 +2457,8 @@ crude drawings on the wall.
 D2
 ~
 ~
+~
+~
 Z -1 32055
 S
 #32062
@@ -2212,6 +2468,8 @@ drawings on the wall.
 ~
 0 AN inside
 D0
+~
+~
 ~
 ~
 Z -1 32055
@@ -2226,12 +2484,18 @@ prisoners whispers.
 D1
 ~
 ~
+~
+~
 Z -1 32064
 D2
 ~
 ~
+~
+~
 Z -1 32072
 D3
+~
+~
 ~
 ~
 Z -1 32008
@@ -2245,8 +2509,12 @@ Bloodstains on the wall here.
 D2
 ~
 ~
+~
+~
 Z -1 32065
 D3
+~
+~
 ~
 ~
 Z -1 32063
@@ -2260,12 +2528,18 @@ all around the yard.
 D0
 ~
 ~
+~
+~
 Z -1 32064
 D2
 ~
 ~
+~
+~
 Z -1 32066
 D3
+~
+~
 ~
 ~
 Z -1 32072
@@ -2279,12 +2553,18 @@ east. Prisoners are in little groups all over the yard here.
 D0
 ~
 ~
+~
+~
 Z -1 32065
 D2
 ~
 ~
+~
+~
 Z -1 32067
 D3
+~
+~
 ~
 ~
 Z -1 32071
@@ -2298,12 +2578,18 @@ to the east. there are groups of prisoners all over the yard.
 D0
 ~
 ~
+~
+~
 Z -1 32066
 D2
 ~
 ~
+~
+~
 Z -1 32068
 D3
+~
+~
 ~
 ~
 Z -1 32070
@@ -2316,8 +2602,12 @@ You are standing in the southeastern corner of the yard.
 D0
 ~
 ~
+~
+~
 Z -1 32067
 D3
+~
+~
 ~
 ~
 Z -1 32069
@@ -2331,12 +2621,18 @@ in little groups all around the yard.
 D0
 ~
 ~
+~
+~
 Z -1 32070
 D1
 ~
 ~
+~
+~
 Z -1 32068
 D3
+~
+~
 ~
 ~
 Z -1 32079
@@ -2349,16 +2645,24 @@ You are standing in the middle of the exercise yard.
 D0
 ~
 ~
+~
+~
 Z -1 32071
 D1
+~
+~
 ~
 ~
 Z -1 32067
 D2
 ~
 ~
+~
+~
 Z -1 32069
 D3
+~
+~
 ~
 ~
 Z -1 32080
@@ -2371,16 +2675,24 @@ You are standing in the middle of the exercise yard.
 D0
 ~
 ~
+~
+~
 Z -1 32072
 D1
+~
+~
 ~
 ~
 Z -1 32066
 D2
 ~
 ~
+~
+~
 Z -1 32070
 D3
+~
+~
 ~
 ~
 Z -1 32081
@@ -2393,16 +2705,24 @@ You are standing in the middle of the exercise yard.
 D0
 ~
 ~
+~
+~
 Z -1 32063
 D1
+~
+~
 ~
 ~
 Z -1 32065
 D2
 ~
 ~
+~
+~
 Z -1 32071
 D3
+~
+~
 ~
 ~
 Z -1 32082
@@ -2417,12 +2737,18 @@ prisoners whispers.
 D1
 ~
 ~
+~
+~
 Z -1 32008
 D2
 ~
 ~
+~
+~
 Z -1 32082
 D3
+~
+~
 ~
 ~
 Z -1 32074
@@ -2437,8 +2763,12 @@ outsider here.
 D1
 ~
 ~
+~
+~
 Z -1 32073
 D2
+~
+~
 ~
 ~
 Z -1 32075
@@ -2452,12 +2782,18 @@ prisoners huddled all over the yard.
 D0
 ~
 ~
+~
+~
 Z -1 32074
 D1
 ~
 ~
+~
+~
 Z -1 32082
 D2
+~
+~
 ~
 ~
 Z -1 32076
@@ -2471,12 +2807,18 @@ huddled together all over the yard. To the south you can hear a commotion.
 D0
 ~
 ~
+~
+~
 Z -1 32075
 D1
 ~
 ~
+~
+~
 Z -1 32081
 D2
+~
+~
 ~
 ~
 Z -1 32077
@@ -2490,16 +2832,24 @@ hole in the wall to the west.
 D0
 ~
 ~
+~
+~
 Z -1 32076
 D1
+~
+~
 ~
 ~
 Z -1 32080
 D2
 ~
 ~
+~
+~
 Z -1 32078
 D3
+~
+~
 ~
 ~
 Z -1 32083
@@ -2513,8 +2863,12 @@ must take place as evident by the corpses hanging on the wall.
 D0
 ~
 ~
+~
+~
 Z -1 32077
 D1
+~
+~
 ~
 ~
 Z -1 32079
@@ -2528,12 +2882,18 @@ in little groups all around the yard.
 D0
 ~
 ~
+~
+~
 Z -1 32080
 D1
 ~
 ~
+~
+~
 Z -1 32069
 D3
+~
+~
 ~
 ~
 Z -1 32078
@@ -2547,16 +2907,24 @@ prisoners all around the yard.
 D0
 ~
 ~
+~
+~
 Z -1 32081
 D1
+~
+~
 ~
 ~
 Z -1 32070
 D2
 ~
 ~
+~
+~
 Z -1 32079
 D3
+~
+~
 ~
 ~
 Z -1 32077
@@ -2570,16 +2938,24 @@ prisoners all around the yard.
 D0
 ~
 ~
+~
+~
 Z -1 32082
 D1
+~
+~
 ~
 ~
 Z -1 32071
 D2
 ~
 ~
+~
+~
 Z -1 32080
 D3
+~
+~
 ~
 ~
 Z -1 32076
@@ -2593,16 +2969,24 @@ prisoners all around the yard.
 D0
 ~
 ~
+~
+~
 Z -1 32073
 D1
+~
+~
 ~
 ~
 Z -1 32072
 D2
 ~
 ~
+~
+~
 Z -1 32081
 D3
+~
+~
 ~
 ~
 Z -1 32075
@@ -2617,6 +3001,8 @@ not around!
 D1
 ~
 ~
+~
+~
 Z -1 32077
 S
 #32084
@@ -2628,8 +3014,12 @@ slimy here. You can smell fear and decay......better leave now.
 D1
 ~
 ~
+~
+~
 Z -1 32085
 D3
+~
+~
 ~
 ~
 Z -1 32004
@@ -2649,6 +3039,8 @@ If you are thirsty you could probably drink from it.~
 D3
 ~
 ~
+~
+~
 Z -1 32084
 S
 #32086
@@ -2661,8 +3053,12 @@ EXTREMELY offensive.
 D0
 ~
 ~
+~
+~
 Z -1 32087
 D1
+~
+~
 ~
 ~
 Z -1 32006
@@ -2675,6 +3071,8 @@ prisoners are long since gone.
 ~
 0 0 inside
 D2
+~
+~
 ~
 ~
 Z -1 32086

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Circus~
 VNUMs 4400 4499
 Credits Binky~
@@ -1102,8 +1102,12 @@ of the crazy Klawson Klowns!!
 D0
 ~
 ~
+~
+~
 Z 0 3119
 D2
+~
+~
 ~
 ~
 Z 0 4402
@@ -1123,8 +1127,12 @@ You will need a ticket to enter the Big Top.
 D0
 ~
 ~
+~
+~
 Z 0 4401
 D2
+~
+~
 ~
 ~
 Z 0 4403
@@ -1144,16 +1152,24 @@ east and west you see games booths.
 D0
 ~
 ~
+~
+~
 Z 0 4402
 D1
+~
+~
 ~
 ~
 Z 0 4405
 D2
 ~
 ~
+~
+~
 Z 0 4406
 D3
+~
+~
 ~
 ~
 Z 0 4404
@@ -1172,6 +1188,8 @@ you are there, and he is ignoring you on purpose.
 D1
 ~
 ~
+~
+~
 Z 0 4403
 S
 #4405
@@ -1186,6 +1204,8 @@ you are there, and he is ignoring you on purpose.
 ~
 0 0 city
 D3
+~
+~
 ~
 ~
 Z 0 4403
@@ -1205,16 +1225,24 @@ east you see the freak shows.  To the west you see a vendor.
 D0
 ~
 ~
+~
+~
 Z 0 4403
 D1
+~
+~
 ~
 ~
 Z 0 4408
 D2
 ~
 ~
+~
+~
 Z 0 4414
 D3
+~
+~
 ~
 ~
 Z 0 4407
@@ -1228,6 +1256,8 @@ eating too much, all that sugar may make you hyper.
 ~
 0 0 city
 D1
+~
+~
 ~
 ~
 Z 0 4406
@@ -1250,13 +1280,19 @@ D1
 You see the Bearded Lady's tent.
 ~
 ~
+~
+~
 Z 0 4409
 D2
 You see the Strongman's tent.
 ~
 ~
+~
+~
 Z 0 4413
 D3
+~
+~
 ~
 ~
 Z 0 4406
@@ -1278,13 +1314,19 @@ D1
 You see the Illusionist's tent.
 ~
 ~
+~
+~
 Z 0 4410
 D2
 You see the Sword Swallower's tent.
 ~
 ~
+~
+~
 Z 0 4412
 D3
+~
+~
 ~
 ~
 Z 0 4408
@@ -1316,9 +1358,13 @@ D2
 You see the Midget's tent.
 ~
 ~
+~
+~
 Z 0 4411
 D3
 You see the Bearded Lady's tent.
+~
+~
 ~
 ~
 Z 0 4409
@@ -1340,9 +1386,13 @@ D0
 You see the Illusionist's Tent.
 ~
 ~
+~
+~
 Z 0 4410
 D3
 You see the Sword Swallower's Tent.
+~
+~
 ~
 ~
 Z 0 4412
@@ -1360,14 +1410,20 @@ D0
 You see the Bearded Lady's Tent.
 ~
 ~
+~
+~
 Z 0 4409
 D1
 You see the Midget's Tent.
 ~
 ~
+~
+~
 Z 0 4411
 D3
 You see the Strongman's Tent.
+~
+~
 ~
 ~
 Z 0 4413
@@ -1388,9 +1444,13 @@ D0
 You see the Entrance to the Freak Shows.
 ~
 ~
+~
+~
 Z 0 4408
 D1
 You see the Sword Swallower's Tent.
+~
+~
 ~
 ~
 Z 0 4412
@@ -1410,9 +1470,13 @@ east and west you see games booths.
 D0
 ~
 ~
+~
+~
 Z 0 4406
 D2
 You see the Entrance to the Big Top.
+~
+~
 ~
 ~
 Z 0 4415
@@ -1430,10 +1494,14 @@ unlock the magic of The Circus that lies inside.
 D0
 ~
 ~
+~
+~
 Z 0 4414
 D2
 ~
 door~
+~
+~
 ABCFZ 4400 4416
 S
 #4416
@@ -1450,9 +1518,13 @@ D0
 You see the Entrance to the Big Top.
 ~
 door~
+~
+~
 ABCFZ 4400 4415
 D1
 You see under the stands.
+~
+~
 ~
 ~
 Z 0 4417
@@ -1460,9 +1532,13 @@ D2
 You see your first good look at the Big Top ahead.
 ~
 ~
+~
+~
 Z 0 4419
 D3
 You see under the stands.
+~
+~
 ~
 ~
 Z 0 4421
@@ -1476,8 +1552,12 @@ You can climb up the supports into the stands from here.
 D3
 ~
 ~
+~
+~
 Z 0 4416
 D4
+~
+~
 ~
 ~
 Z 0 4418
@@ -1493,8 +1573,12 @@ get a good look at the Big Top.
 D3
 ~
 ~
+~
+~
 Z 0 4419
 D5
+~
+~
 ~
 ~
 Z 0 4417
@@ -1517,8 +1601,12 @@ D0
 You see the Entryway.
 ~
 ~
+~
+~
 Z 0 4416
 D1
+~
+~
 ~
 ~
 Z 0 4418
@@ -1526,8 +1614,12 @@ D2
 You see the 2nd Ring.
 ~
 ~
+~
+~
 Z 0 4422
 D3
+~
+~
 ~
 ~
 Z 0 4420
@@ -1543,8 +1635,12 @@ get a good look at the Big Top.
 D1
 ~
 ~
+~
+~
 Z 0 4419
 D5
+~
+~
 ~
 ~
 Z 0 4421
@@ -1558,8 +1654,12 @@ You can climb up the supports into the stands from here.
 D1
 ~
 ~
+~
+~
 Z 0 4416
 D4
+~
+~
 ~
 ~
 Z 0 4420
@@ -1578,21 +1678,31 @@ be fairly suicidal.  It is a good thing it is locked!
 D0
 ~
 ~
+~
+~
 Z 0 4419
 D1
+~
+~
 ~
 ~
 Z 0 4423
 D3
 ~
 door~
+~
+~
 ABCFZ 4436 4424
 D4
+~
+~
 ~
 ~
 Z 0 4427
 D5
 You can't see into the car, you'll just have to go in.
+~
+~
 ~
 ~
 Z 0 4444
@@ -1606,6 +1716,8 @@ only exit is to the 2nd Ring to the west.
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 Z 0 4422
@@ -1622,10 +1734,14 @@ YOU ARE IN HERE WITH THE LIONS!!!  YOU'D BETTER RUN!!!!!!
 D1
 ~
 door~
+~
+~
 ABCFZ 4436 4422
 D5
 ~
 hole~
+the hole~
+~
 ABCFZ 4414 4469
 S
 #4425
@@ -1641,13 +1757,19 @@ your west.
 D1
 ~
 ~
+~
+~
 Z 0 4426
 D3
+~
+~
 ~
 ~
 Z 0 4428
 D5
 The Lion's Cage.  A suicidal move.
+~
+~
 ~
 ~
 Z 0 4424
@@ -1663,8 +1785,12 @@ really do have a nice view, of a very long wire.  You still have a ways to go.
 D1
 ~
 ~
+~
+~
 Z 0 4427
 D3
+~
+~
 ~
 ~
 Z 0 4425
@@ -1680,8 +1806,12 @@ did survive the fall, you probably wouldn't feel like adventuring again.
 D3
 ~
 ~
+~
+~
 Z 0 4426
 D5
+~
+~
 ~
 ~
 Z 0 4422
@@ -1696,10 +1826,14 @@ the noises of animals outside the Big Top.  Below you is the trapdoor.
 D1
 ~
 ~
+~
+~
 Z 0 4425
 D5
 ~
 trapdoor~
+the trapdoor~
+~
 ABZ 0 4429
 S
 #4429
@@ -1715,19 +1849,27 @@ D1
 You see the Row of Trailers.
 ~
 ~
+~
+~
 Z 0 4434
 D2
 You see the Animal Pens.
+~
+~
 ~
 ~
 Z 0 4430
 D3
 ~
 ~
+~
+~
 Z 0 4445
 D4
 ~
 door~
+~
+~
 ABZ 0 4428
 S
 #4430
@@ -1753,18 +1895,26 @@ the Horse Corral to the east.  Or you may return north.
 D0
 ~
 ~
+~
+~
 Z 0 4429
 D1
 ~
 door~
+~
+~
 ABZ 0 4433
 D2
 ~
 door~
+~
+~
 ABZ 0 4432
 D3
 ~
 door~
+~
+~
 ABZ 0 4431
 S
 #4431
@@ -1777,6 +1927,8 @@ you should leave to the north?
 D1
 ~
 door~
+~
+~
 ABZ 0 4430
 S
 #4432
@@ -1791,6 +1943,8 @@ for it.
 D0
 ~
 door~
+~
+~
 ABZ 0 4430
 S
 #4433
@@ -1802,6 +1956,8 @@ performing.  It is rather small for the amount of horses that are kept here.
 D3
 ~
 door~
+~
+~
 ABZ 0 4430
 S
 #4434
@@ -1814,16 +1970,24 @@ Trailer.  You may also continue east or west.
 D0
 ~
 door~
+~
+~
 ABZ 0 4435
 D1
+~
+~
 ~
 ~
 Z 0 4438
 D2
 ~
 door~
+~
+~
 ABZ 0 4436
 D3
+~
+~
 ~
 ~
 Z 0 4429
@@ -1838,6 +2002,8 @@ to consider leaving before Ivan returns.
 D2
 ~
 door~
+~
+~
 ABZ 0 4434
 S
 #4436
@@ -1851,6 +2017,8 @@ through that stuff like it is water.
 D0
 ~
 door~
+~
+~
 ABZ 0 4434
 S
 #4437
@@ -1863,6 +2031,8 @@ case.
 D2
 ~
 door~
+~
+~
 ABZ 0 4438
 S
 #4438
@@ -1875,16 +2045,24 @@ Trailer.  You may also continue east or west.
 D0
 ~
 door~
+~
+~
 ABZ 0 4437
 D1
+~
+~
 ~
 ~
 Z 0 4440
 D2
 ~
 door~
+~
+~
 ABZ 0 4439
 D3
+~
+~
 ~
 ~
 Z 0 4434
@@ -1902,6 +2080,8 @@ large guard dog in his trailer to discourage visitors.
 D0
 ~
 door~
+~
+~
 ABZ 0 4438
 S
 #4440
@@ -1914,16 +2094,24 @@ Trailer.  You may also go back to the west, or enter a trailer to the east.
 D0
 ~
 door~
+~
+~
 ABZ 0 4441
 D1
 ~
 door~
+~
+~
 ABZ 0 4448
 D2
 ~
 door~
+~
+~
 ABZ 0 4442
 D3
+~
+~
 ~
 ~
 Z 0 4438
@@ -1941,6 +2129,8 @@ is a chair.  It appears the Illusionist tries to fool even himself sometimes.
 D2
 ~
 door~
+~
+~
 ABZ 0 4440
 S
 #4442
@@ -1955,10 +2145,14 @@ and there is even a medium sized icebox to keep the Owner's food fresh.
 D0
 ~
 door~
+~
+~
 ABZ 0 4440
 D2
 ~
 icebox~
+the icebox~
+~
 ABZ 0 4443
 S
 #4443
@@ -1973,6 +2167,8 @@ take the coins.  Most things here you couldn't sell easily, except the artwork.
 D0
 ~
 secret~
+@eng the secret@rus секретная дверь~
+@rus female~
 Z 0 4442
 S
 #4444
@@ -1983,6 +2179,8 @@ is very hot.  That doesn't surprise you, as it is filled with clowns.
 ~
 0 AD inside
 D4
+~
+~
 ~
 ~
 Z 0 4422
@@ -1997,8 +2195,12 @@ to take much notice of you.
 D1
 ~
 ~
+~
+~
 Z 0 4429
 D3
+~
+~
 ~
 ~
 Z 0 4446
@@ -2013,8 +2215,12 @@ to take much notice of you.
 D1
 ~
 ~
+~
+~
 Z 0 4445
 D3
+~
+~
 ~
 ~
 Z 0 4447
@@ -2029,6 +2235,8 @@ to take much notice of you.
 D1
 ~
 ~
+~
+~
 Z 0 4446
 S
 #4448
@@ -2041,6 +2249,8 @@ hammocks, that you probably couldn't even fit in.
 D3
 ~
 door~
+~
+~
 ABZ 0 4440
 S
 #4469

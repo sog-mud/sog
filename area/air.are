@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name In the Air~
 VNUMs 1000 1099
 Credits Copper~
@@ -77,16 +77,22 @@ D1
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1006
 D2
 @eng More of the same.
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1002
 D4
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1021
@@ -105,10 +111,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1001
 D1
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1007
@@ -117,10 +127,14 @@ D2
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1003
 D4
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1022
@@ -139,10 +153,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1002
 D1
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1008
@@ -151,10 +169,14 @@ D2
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1004
 D4
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1023
@@ -174,10 +196,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1003
 D1
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1009
@@ -186,10 +212,14 @@ D2
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1005
 D4
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1024
@@ -209,16 +239,22 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1004
 D1
 @eng More of the same.
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1010
 D4
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1025
@@ -238,10 +274,14 @@ D1
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1011
 D2
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1007
@@ -250,10 +290,14 @@ D3
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1001
 D4
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1026
@@ -273,10 +317,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1006
 D1
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1012
@@ -285,16 +333,22 @@ D2
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1008
 D3
 @eng More of the same.
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1002
 D4
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1027
@@ -314,10 +368,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1007
 D1
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1013
@@ -326,16 +384,22 @@ D2
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1009
 D3
 @eng More of the same.
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1003
 D4
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1028
@@ -355,10 +419,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1008
 D1
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1014
@@ -367,16 +435,22 @@ D2
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1010
 D3
 @eng More of the same.
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1004
 D4
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1029
@@ -395,10 +469,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1009
 D1
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1015
@@ -407,10 +485,14 @@ D3
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1005
 D4
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1030
@@ -429,10 +511,14 @@ D1
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1016
 D2
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1012
@@ -441,10 +527,14 @@ D3
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1006
 D4
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1031
@@ -463,10 +553,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1011
 D1
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1017
@@ -475,16 +569,22 @@ D2
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1013
 D3
 @eng More of the same.
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1007
 D4
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1032
@@ -504,10 +604,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1012
 D1
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1018
@@ -516,16 +620,22 @@ D2
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1014
 D3
 @eng More of the same.
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1008
 D4
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1033
@@ -544,10 +654,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1013
 D1
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1019
@@ -556,16 +670,22 @@ D2
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1015
 D3
 @eng More of the same.
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1009
 D4
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1034
@@ -584,10 +704,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1014
 D1
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1020
@@ -596,10 +720,14 @@ D3
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1010
 D4
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1035
@@ -619,16 +747,22 @@ D2
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1017
 D3
 @eng More of the same.
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1011
 D4
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1036
@@ -647,10 +781,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1016
 D2
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1018
@@ -659,16 +797,22 @@ D3
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1012
 D4
 @eng More of the same.
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1037
 D5
 @eng More of the same
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 3057
@@ -688,10 +832,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1017
 D2
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1019
@@ -700,10 +848,14 @@ D3
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1013
 D4
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1038
@@ -722,10 +874,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1018
 D2
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1020
@@ -734,10 +890,14 @@ D3
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1014
 D4
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1039
@@ -756,16 +916,22 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1019
 D3
 @eng More of the same.
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1015
 D4
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1040
@@ -785,16 +951,22 @@ D1
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1026
 D2
 @eng More of the same.
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1022
 D5
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1001
@@ -813,10 +985,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1021
 D1
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1027
@@ -825,10 +1001,14 @@ D2
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1023
 D5
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1002
@@ -848,10 +1028,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1022
 D1
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1028
@@ -860,10 +1044,14 @@ D2
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1024
 D5
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1003
@@ -883,10 +1071,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1023
 D1
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1029
@@ -895,10 +1087,14 @@ D2
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1025
 D5
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1004
@@ -918,16 +1114,22 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1024
 D1
 @eng More of the same.
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1030
 D5
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1005
@@ -947,10 +1149,14 @@ D1
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1031
 D2
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1027
@@ -959,10 +1165,14 @@ D3
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1021
 D5
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1006
@@ -982,10 +1192,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1026
 D1
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1032
@@ -994,16 +1208,22 @@ D2
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1028
 D3
 @eng More of the same.
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1022
 D5
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1007
@@ -1023,10 +1243,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1027
 D1
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1033
@@ -1035,16 +1259,22 @@ D2
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1029
 D3
 @eng More of the same.
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1023
 D5
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1008
@@ -1064,10 +1294,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1028
 D1
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1034
@@ -1076,16 +1310,22 @@ D2
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1030
 D3
 @eng More of the same.
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1024
 D5
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1009
@@ -1104,10 +1344,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1029
 D1
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1035
@@ -1116,10 +1360,14 @@ D3
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1025
 D5
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1010
@@ -1139,10 +1387,14 @@ D1
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1036
 D2
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1032
@@ -1151,10 +1403,14 @@ D3
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1026
 D5
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1011
@@ -1174,10 +1430,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1031
 D1
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1037
@@ -1186,16 +1446,22 @@ D2
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1033
 D3
 @eng More of the same.
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1027
 D5
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1012
@@ -1215,10 +1481,14 @@ D0
 @rus Tо же самое.
 ~
 ~
+~
+~
 Z 0 1032
 D1
 @eng More of the same.
 @rus Tо же самое.
+~
+~
 ~
 ~
 Z 0 1038
@@ -1227,16 +1497,22 @@ D2
 @rus Tо же самое.
 ~
 ~
+~
+~
 Z 0 1034
 D3
 @eng More of the same.
 @rus Tо же самое.
 ~
 ~
+~
+~
 Z 0 1028
 D5
 @eng More of the same.
 @rus Tо же самое.
+~
+~
 ~
 ~
 Z 0 1013
@@ -1255,10 +1531,14 @@ D0
 @rus Tо же самое.
 ~
 ~
+~
+~
 Z 0 1033
 D1
 @eng More of the same.
 @rus Tо же самое.
+~
+~
 ~
 ~
 Z 0 1039
@@ -1267,16 +1547,22 @@ D2
 @rus Tо же самое.
 ~
 ~
+~
+~
 Z 0 1035
 D3
 @eng More of the same.
 @rus Tо же самое.
 ~
 ~
+~
+~
 Z 0 1029
 D5
 @eng More of the same.
 @rus Tо же самое.
+~
+~
 ~
 ~
 Z 0 1014
@@ -1295,10 +1581,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1034
 D1
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1040
@@ -1307,10 +1597,14 @@ D3
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1030
 D5
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1015
@@ -1330,10 +1624,14 @@ D2
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1037
 D3
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1031
@@ -1343,10 +1641,14 @@ It looks safe to travel on.
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 7700
 D5
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1016
@@ -1366,10 +1668,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1036
 D2
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1038
@@ -1378,10 +1684,14 @@ D3
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1032
 D5
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1017
@@ -1401,10 +1711,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1037
 D2
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1039
@@ -1413,10 +1727,14 @@ D3
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1033
 D5
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1018
@@ -1436,10 +1754,14 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1038
 D2
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1040
@@ -1448,10 +1770,14 @@ D3
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1034
 D5
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1019
@@ -1471,16 +1797,22 @@ D0
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1039
 D3
 @eng More of the same.
 @rus То же самое.
 ~
 ~
+~
+~
 Z 0 1035
 D5
 @eng More of the same.
 @rus То же самое.
+~
+~
 ~
 ~
 Z 0 1020

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Arborn's home~
 Builders hlodvig solmyr azrael~
 VNUMs 36100 36199
@@ -1294,6 +1294,8 @@ Shooting place~
 D2 large
 ~
 ~
+~
+~
 Z 0 36102
 S
 #36102
@@ -1303,8 +1305,12 @@ Shooting place~
 D0
 ~
 ~
+~
+~
 Z 0 36101
 D2
+~
+~
 ~
 ~
 Z 0 36103
@@ -1316,8 +1322,12 @@ Shooting place~
 D0
 ~
 ~
+~
+~
 Z 0 36102
 D2
+~
+~
 ~
 ~
 Z 0 36104
@@ -1329,8 +1339,12 @@ Shooting place~
 D0
 ~
 ~
+~
+~
 Z 0 36103
 D2
+~
+~
 ~
 ~
 Z 0 36105
@@ -1342,8 +1356,12 @@ Shooting place~
 D0
 ~
 ~
+~
+~
 Z 0 36104
 D2
+~
+~
 ~
 ~
 Z 0 36106
@@ -1355,8 +1373,12 @@ Shooting place~
 D0
 ~
 ~
+~
+~
 Z 0 36105
 D2
+~
+~
 ~
 ~
 Z 0 36107
@@ -1368,8 +1390,12 @@ Shooting place~
 D0
 ~
 ~
+~
+~
 Z 0 36106
 D2
+~
+~
 ~
 ~
 Z 0 36108
@@ -1381,8 +1407,12 @@ Shooting place~
 D0
 ~
 ~
+~
+~
 Z 0 36107
 D2
+~
+~
 ~
 ~
 Z 0 36109
@@ -1394,8 +1424,12 @@ Shooting place~
 D0
 ~
 ~
+~
+~
 Z 0 36108
 D2
+~
+~
 ~
 ~
 Z 0 36110
@@ -1407,8 +1441,12 @@ Shooting place~
 D0
 ~
 ~
+~
+~
 Z 0 36109
 D2
+~
+~
 ~
 ~
 Z 0 36111
@@ -1418,6 +1456,8 @@ At the targets~
 ~
 0 0 inside
 D0
+~
+~
 ~
 ~
 Z 0 36110

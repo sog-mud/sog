@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Cannabis~
 VNUMs 30200 30299
 Credits Garth~
@@ -242,8 +242,12 @@ You have been warned. You try being creative after a few screwdrivers.
 D0
 ~
 ~
+~
+~
 Z -1 30233
 D2
+~
+~
 ~
 ~
 Z -1 18024
@@ -260,8 +264,12 @@ are feeling invite you to explore further.
 D2
 ~
 ~
+~
+~
 Z -1 30232
 D4
+~
+~
 ~
 ~
 Z -1 30234
@@ -276,24 +284,36 @@ with a sweet fragrance which relaxes you and enhances your senses.
 D0
 ~
 ~
+~
+~
 Z -1 30250
 D1
+~
+~
 ~
 ~
 Z -1 30236
 D2
 ~
 ~
+~
+~
 Z -1 30253
 D3
+~
+~
 ~
 ~
 Z -1 30235
 D4
 ~
 ~
+~
+~
 Z -1 30241
 D5
+~
+~
 ~
 ~
 Z -1 30233
@@ -308,8 +328,12 @@ you see is sheer beauty. If only real life could be this perfect.
 D1
 ~
 ~
+~
+~
 Z -1 30234
 D3
+~
+~
 ~
 ~
 Z -1 30239
@@ -324,8 +348,12 @@ you see is sheer beauty. If only real life could be this perfect.
 D1
 ~
 ~
+~
+~
 Z -1 30237
 D3
+~
+~
 ~
 ~
 Z -1 30234
@@ -340,8 +368,12 @@ you see is sheer beauty. If only real life could be this perfect.
 D1
 ~
 ~
+~
+~
 Z -1 30238
 D3
+~
+~
 ~
 ~
 Z -1 30236
@@ -356,6 +388,8 @@ you see is sheer beauty. If only real life could be this perfect.
 D3
 ~
 ~
+~
+~
 Z -1 30237
 S
 #30239
@@ -368,8 +402,12 @@ you see is sheer beauty. If only real life could be this perfect.
 D1
 ~
 ~
+~
+~
 Z -1 30235
 D3
+~
+~
 ~
 ~
 Z -1 30240
@@ -384,6 +422,8 @@ you see is sheer beauty. If only real life could be this perfect.
 D1
 ~
 ~
+~
+~
 Z -1 30239
 S
 #30241
@@ -396,24 +436,36 @@ with a sweet fragrance which relaxes you and enhances your senses.
 D0
 ~
 ~
+~
+~
 Z -1 30256
 D1
+~
+~
 ~
 ~
 Z -1 30244
 D2
 ~
 ~
+~
+~
 Z -1 30258
 D3
+~
+~
 ~
 ~
 Z -1 30242
 D4
 ~
 ~
+~
+~
 Z -1 30246
 D5
+~
+~
 ~
 ~
 Z -1 30234
@@ -428,8 +480,12 @@ you see is sheer beauty. If only real life could be this perfect.
 D1
 ~
 ~
+~
+~
 Z -1 30241
 D3
+~
+~
 ~
 ~
 Z -1 30243
@@ -444,6 +500,8 @@ you see is sheer beauty. If only real life could be this perfect.
 D1
 ~
 ~
+~
+~
 Z -1 30242
 S
 #30244
@@ -456,8 +514,12 @@ you see is sheer beauty. If only real life could be this perfect.
 D1
 ~
 ~
+~
+~
 Z -1 30245
 D3
+~
+~
 ~
 ~
 Z -1 30241
@@ -472,6 +534,8 @@ you see is sheer beauty. If only real life could be this perfect.
 D3
 ~
 ~
+~
+~
 Z -1 30244
 S
 #30246
@@ -484,24 +548,36 @@ with a sweet fragrance which relaxes you and enhances your senses.
 D0
 ~
 ~
+~
+~
 Z -1 30260
 D1
+~
+~
 ~
 ~
 Z -1 30247
 D2
 ~
 ~
+~
+~
 Z -1 30261
 D3
+~
+~
 ~
 ~
 Z -1 30248
 D4
 ~
 ~
+~
+~
 Z -1 30249
 D5
+~
+~
 ~
 ~
 Z -1 30241
@@ -516,6 +592,8 @@ you see is sheer beauty. If only real life could be this perfect.
 D3
 ~
 ~
+~
+~
 Z -1 30246
 S
 #30248
@@ -526,6 +604,8 @@ you see is sheer beauty. If only real life could be this perfect.
 ~
 0 0 forest
 D1
+~
+~
 ~
 ~
 Z -1 30246
@@ -541,6 +621,8 @@ experiences?
 D5
 ~
 ~
+~
+~
 Z -1 30246
 S
 #30250
@@ -553,8 +635,12 @@ you see is sheer beauty. If only real life could be this perfect.
 D0
 ~
 ~
+~
+~
 Z -1 30251
 D2
+~
+~
 ~
 ~
 Z -1 30234
@@ -569,8 +655,12 @@ you see is sheer beauty. If only real life could be this perfect.
 D0
 ~
 ~
+~
+~
 Z -1 30252
 D2
+~
+~
 ~
 ~
 Z -1 30250
@@ -585,6 +675,8 @@ you see is sheer beauty. If only real life could be this perfect.
 D2
 ~
 ~
+~
+~
 Z -1 30251
 S
 #30253
@@ -597,8 +689,12 @@ you see is sheer beauty. If only real life could be this perfect.
 D0
 ~
 ~
+~
+~
 Z -1 30234
 D2
+~
+~
 ~
 ~
 Z -1 30254
@@ -613,8 +709,12 @@ you see is sheer beauty. If only real life could be this perfect.
 D0
 ~
 ~
+~
+~
 Z -1 30253
 D2
+~
+~
 ~
 ~
 Z -1 30255
@@ -629,6 +729,8 @@ you see is sheer beauty. If only real life could be this perfect.
 D0
 ~
 ~
+~
+~
 Z -1 30254
 S
 #30256
@@ -641,8 +743,12 @@ you see is sheer beauty. If only real life could be this perfect.
 D0
 ~
 ~
+~
+~
 Z -1 30257
 D2
+~
+~
 ~
 ~
 Z -1 30241
@@ -657,6 +763,8 @@ you see is sheer beauty. If only real life could be this perfect.
 D2
 ~
 ~
+~
+~
 Z -1 30256
 S
 #30258
@@ -669,8 +777,12 @@ you see is sheer beauty. If only real life could be this perfect.
 D0
 ~
 ~
+~
+~
 Z -1 30241
 D2
+~
+~
 ~
 ~
 Z -1 30259
@@ -685,6 +797,8 @@ you see is sheer beauty. If only real life could be this perfect.
 D0
 ~
 ~
+~
+~
 Z -1 30258
 S
 #30260
@@ -697,6 +811,8 @@ you see is sheer beauty. If only real life could be this perfect.
 D2
 ~
 ~
+~
+~
 Z -1 30246
 S
 #30261
@@ -707,6 +823,8 @@ you see is sheer beauty. If only real life could be this perfect.
 ~
 0 0 forest
 D0
+~
+~
 ~
 ~
 Z -1 30246

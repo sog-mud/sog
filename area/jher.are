@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Lair of Jher~
 VNUMs 32700 32799
 Credits Garth~
@@ -471,12 +471,18 @@ neck stands on end.
 D1
 ~
 ~
+~
+~
 Z -1 32702
 D2
 ~
 ~
+~
+~
 Z -1 32701
 D4
+~
+~
 ~
 ~
 Z -1 14791
@@ -488,6 +494,8 @@ creates an urge to explore further.
 ~
 0 A forest
 D0
+~
+~
 ~
 ~
 Z -1 32700
@@ -502,8 +510,12 @@ are among the strong will you continue.
 D3
 ~
 ~
+~
+~
 Z -1 32700
 D5
+~
+~
 ~
 ~
 Z -1 32703
@@ -519,12 +531,18 @@ passes from a young warg's glowing eyes to his drooling mouth.
 D2
 ~
 ~
+~
+~
 Z -1 32704
 D3
 ~
 ~
+~
+~
 Z -1 32706
 D4
+~
+~
 ~
 ~
 Z -1 32702
@@ -540,11 +558,15 @@ see the traces of a trapdoor underneath.
 D0
 ~
 ~
+~
+~
 Z -1 32703
 D5
 A trapdoor is buried under a pile of bones.
 ~
 trapdoor~
+the trapdoor~
+~
 ABZ -1 32705
 S
 #32705
@@ -556,6 +578,8 @@ the pile of gold, you notice the snakes slithering up and around your legs.
 ~
 0 AD field
 D4
+~
+~
 ~
 ~
 ABZ -1 32704
@@ -571,12 +595,18 @@ through to the south.  You hear the sound of bats flapping overhead.
 D1
 ~
 ~
+~
+~
 Z -1 32703
 D2
 ~
 ~
+~
+~
 Z -1 32707
 D3
+~
+~
 ~
 ~
 Z -1 32712
@@ -592,8 +622,12 @@ things that may be swimming or growing in it.
 D0
 ~
 ~
+~
+~
 Z -1 32706
 D3
+~
+~
 ~
 ~
 Z -1 32708
@@ -608,12 +642,18 @@ attract.
 D1
 ~
 ~
+~
+~
 Z -1 32707
 D2
 ~
 ~
+~
+~
 Z -1 32709
 D3
+~
+~
 ~
 ~
 Z -1 32711
@@ -626,8 +666,12 @@ You are waist deep in muck.  The stench is overwhelming.
 D0
 ~
 ~
+~
+~
 Z -1 32708
 D3
+~
+~
 ~
 ~
 Z -1 32710
@@ -640,8 +684,12 @@ You are waist deep in muck.  The stench is overwhelming.
 D0
 ~
 ~
+~
+~
 Z -1 32711
 D1
+~
+~
 ~
 ~
 Z -1 32709
@@ -654,8 +702,12 @@ You are waist deep in muck.  The stench is overwhelming.
 D1
 ~
 ~
+~
+~
 Z -1 32708
 D2
+~
+~
 ~
 ~
 Z -1 32710
@@ -670,8 +722,12 @@ most hideous thing you have ever seen.
 D1
 ~
 ~
+~
+~
 Z -1 32706
 D3
+~
+~
 ~
 ~
 Z -1 32713
@@ -686,16 +742,24 @@ sound which brings you to the border of insanity.
 D0
 ~
 ~
+~
+~
 ABCZ 32701 32715
 D1
+~
+~
 ~
 ~
 Z -1 32712
 D2
 ~
 ~
+~
+~
 ABCZ 32701 32714
 D3
+~
+~
 ~
 ~
 Z -1 32716
@@ -711,6 +775,8 @@ wargs.  You may have just provided them with both.
 D0
 ~
 ~
+~
+~
 ABZ 32701 32713
 S
 #32715
@@ -722,6 +788,8 @@ you, they try to remember when the last time they ate was.
 ~
 0 AD field
 D2
+~
+~
 ~
 ~
 ABZ -1 32713
@@ -736,8 +804,12 @@ southward.
 D1
 ~
 ~
+~
+~
 Z -1 32713
 D2
+~
+~
 ~
 ~
 Z -1 32717
@@ -752,8 +824,12 @@ you have at least made it this far alive.
 D0
 ~
 ~
+~
+~
 Z -1 32716
 D5
+~
+~
 ~
 ~
 Z -1 32718
@@ -769,8 +845,12 @@ To get by, you will either have to kill them or sneak by and pick the lock.
 D0
 ~
 ~
+~
+~
 ABCZ 32707 32719
 D4
+~
+~
 ~
 ~
 Z -1 32717
@@ -785,8 +865,12 @@ suffer.
 D0
 ~
 ~
+~
+~
 Z -1 32720
 D2
+~
+~
 ~
 ~
 ABZ -1 32718
@@ -801,8 +885,12 @@ for Jher sits on the throne.
 D0
 ~
 ~
+~
+~
 ABCFZ 32709 32721
 D2
+~
+~
 ~
 ~
 Z -1 32719
@@ -819,8 +907,12 @@ room.
 D2
 ~
 ~
+~
+~
 ABFZ -1 32720
 D4
+~
+~
 ~
 ~
 Z -1 32722
@@ -834,8 +926,12 @@ After the climb up here, it levels off and turns south.
 D2
 ~
 ~
+~
+~
 Z -1 32723
 D5
+~
+~
 ~
 ~
 Z -1 32721
@@ -849,8 +945,12 @@ its upkeep.  You have to crawl now, and as you crawl, you seem to be ascending.
 D0
 ~
 ~
+~
+~
 Z -1 32722
 D2
+~
+~
 ~
 ~
 Z -1 32724

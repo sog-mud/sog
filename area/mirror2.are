@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Mirror of Realm~
 VNUMs 19000 19199
 Credits Merri~
@@ -3206,8 +3206,12 @@ That's about it.  Have fun! :-)~
 D1
 ~
 ~
+~
+~
 Z -1 19002
 D3
+~
+~
 ~
 ~
 Z -1 3500
@@ -3224,8 +3228,12 @@ left.
 D1
 ~
 ~
+~
+~
 Z -1 19003
 D3
+~
+~
 ~
 ~
 Z -1 19001
@@ -3242,8 +3250,12 @@ appears to lead to a pair of doors set right into the mountain's face.
 D0
 ~
 ~
+~
+~
 Z -1 19004
 D3
+~
+~
 ~
 ~
 Z -1 19002
@@ -3266,8 +3278,12 @@ To the East  -- The Volcano~
 D0
 ~
 ~
+~
+~
 Z -1 19005
 D2
+~
+~
 ~
 ~
 Z -1 19003
@@ -3294,8 +3310,12 @@ foundering in a storm.~
 D0
 ~
 door doors~
+~
+~
 ABZ -1 19006
 D2
+~
+~
 ~
 ~
 Z -1 19004
@@ -3315,10 +3335,14 @@ with a glittering black tower rising in front of the mountain's eastern rim.
 D0
 ~
 ~
+~
+~
 Z -1 19007
 D2
 ~
 door doors~
+~
+~
 ABZ -1 19005
 S
 #19007
@@ -3333,8 +3357,12 @@ a castle partially hidden behind a low rock wall.
 D0
 ~
 ~
+~
+~
 Z -1 19008
 D2
+~
+~
 ~
 ~
 Z -1 19006
@@ -3349,16 +3377,24 @@ you from being sure whether or not anyone is inside.
 D0
 ~
 ~
+~
+~
 Z -1 19011
 D1
+~
+~
 ~
 ~
 Z -1 19010
 D2
 ~
 ~
+~
+~
 Z -1 19007
 D3
+~
+~
 ~
 ~
 Z -1 19009
@@ -3376,10 +3412,14 @@ iron knob.
 D1
 ~
 ~
+~
+~
 Z -1 19008
 D5
 ~
 hatch door knob~
+the hatch~
+~
 Z -1 19044
 S
 #19010
@@ -3394,8 +3434,12 @@ floor.
 D3
 ~
 ~
+~
+~
 Z -1 19008
 D5
+~
+~
 ~
 ~
 Z -1 19107
@@ -3411,8 +3455,12 @@ the entranceway and the castle's high towers.
 D0
 ~
 ~
+~
+~
 Z -1 19030
 D2
+~
+~
 ~
 ~
 Z -1 19008
@@ -3430,17 +3478,25 @@ cresting a deep blue wave; the others are too far away to see clearly.
 D0
 ~
 ~
+~
+~
 Z -1 19015
 D1
 You see the dark corner of the Great Hall.
+~
+~
 ~
 ~
 Z -1 19013
 D2
 ~
 ~
+~
+~
 Z -1 19041
 D4
+~
+~
 ~
 ~
 Z -1 19022
@@ -3456,14 +3512,20 @@ to your left, flecked with greens and reds.
 D0
 ~
 ~
+~
+~
 Z -1 19014
 D3
 You see the entrance to the Great Hall.
 
 ~
 ~
+~
+~
 Z -1 19012
 D4
+~
+~
 ~
 ~
 Z -1 19023
@@ -3479,17 +3541,25 @@ pit so that the young beggar can hold on as the king pulls him to safety.
 D0
 ~
 ~
+~
+~
 Z -1 19019
 D2
 The tapestry blocks your vision to the south.
+~
+~
 ~
 ~
 Z -1 19013
 D3
 ~
 ~
+~
+~
 Z -1 19015
 D4
+~
+~
 ~
 ~
 Z -1 19024
@@ -3514,20 +3584,30 @@ the pit that holds the trapped child.
 D0
 ~
 ~
+~
+~
 Z -1 19018
 D1
+~
+~
 ~
 ~
 Z -1 19014
 D2
 ~
 ~
+~
+~
 Z -1 19012
 D3
 ~
 ~
+~
+~
 Z -1 19016
 D4
+~
+~
 ~
 ~
 Z -1 19025
@@ -3544,12 +3624,18 @@ frenzied unicorn in the center.
 D0
 ~
 ~
+~
+~
 Z -1 19017
 D1
 ~
 ~
+~
+~
 Z -1 19015
 D4
+~
+~
 ~
 ~
 Z -1 19026
@@ -3566,13 +3652,19 @@ battle between good and evil--perhaps a battle over the sword itself.
 D1
 ~
 ~
+~
+~
 Z -1 19018
 D2
 The tapestry blocks your vision to the south.
 ~
 ~
+~
+~
 Z -1 19016
 D4
+~
+~
 ~
 ~
 Z -1 19027
@@ -3588,20 +3680,30 @@ Darkness lies in every other direction.
 D0
 ~
 ~
+~
+~
 Z -1 19020
 D1
+~
+~
 ~
 ~
 Z -1 19019
 D2
 ~
 ~
+~
+~
 Z -1 19015
 D3
 ~
 ~
+~
+~
 Z -1 19017
 D4
+~
+~
 ~
 ~
 Z -1 19028
@@ -3617,12 +3719,18 @@ while an intricate design of converging lines forms a picture of a rising sun.
 D2
 ~
 ~
+~
+~
 Z -1 19014
 D3
 ~
 ~
+~
+~
 Z -1 19018
 D4
+~
+~
 ~
 ~
 Z -1 19029
@@ -3639,6 +3747,8 @@ that split his land in two.
 D2
 ~
 ~
+~
+~
 Z -1 19018
 S
 #19021
@@ -3653,8 +3763,12 @@ lies both ahead of you and to your right.
 D0
 ~
 ~
+~
+~
 Z -1 19026
 D1
+~
+~
 ~
 ~
 Z -1 19022
@@ -3678,16 +3792,24 @@ they also seem smaller and more heavily buffeted by the high seas.~
 D0
 ~
 ~
+~
+~
 Z -1 19025
 D1
+~
+~
 ~
 ~
 Z -1 19023
 D3
 ~
 ~
+~
+~
 Z -1 19021
 D5
+~
+~
 ~
 ~
 Z -1 19012
@@ -3701,12 +3823,18 @@ blue and brown tapestries continue upwards.
 D0
 ~
 ~
+~
+~
 Z -1 19024
 D3
 ~
 ~
+~
+~
 Z -1 19022
 D5
+~
+~
 ~
 ~
 Z -1 19013
@@ -3722,21 +3850,31 @@ seems barely aware of the robe that the king is lowering down to him.
 D0
 ~
 ~
+~
+~
 Z -1 19029
 D1
 The tapestry is somewhat translucent to the east.
 ~
 tapestry~
+the tapestry~
+~
 ABZ -1 19043
 D2
+~
+~
 ~
 ~
 Z -1 19023
 D3
 ~
 ~
+~
+~
 Z -1 19025
 D5
+~
+~
 ~
 ~
 Z -1 19014
@@ -3752,20 +3890,30 @@ see what it is from here, though.
 D0
 ~
 ~
+~
+~
 Z -1 19028
 D1
+~
+~
 ~
 ~
 Z -1 19024
 D2
 ~
 ~
+~
+~
 Z -1 19022
 D3
 ~
 ~
+~
+~
 Z -1 19026
 D5
+~
+~
 ~
 ~
 Z -1 19015
@@ -3782,20 +3930,30 @@ brush, his face is set and determined.
 D0
 ~
 ~
+~
+~
 Z -1 19027
 D1
+~
+~
 ~
 ~
 Z -1 19025
 D2
 ~
 ~
+~
+~
 Z -1 19021
 D3
 ~
 tapestry~
+the tapestry~
+~
 ABZ -1 19042
 D5
+~
+~
 ~
 ~
 Z -1 19016
@@ -3812,12 +3970,18 @@ a circle of bone.
 D1
 ~
 ~
+~
+~
 Z -1 19028
 D2
 ~
 ~
+~
+~
 Z -1 19026
 D5
+~
+~
 ~
 ~
 Z -1 19017
@@ -3834,16 +3998,24 @@ of some sort, with his arms raised up in the air.
 D1
 ~
 ~
+~
+~
 Z -1 19029
 D2
+~
+~
 ~
 ~
 Z -1 19025
 D3
 ~
 ~
+~
+~
 Z -1 19027
 D5
+~
+~
 ~
 ~
 Z -1 19018
@@ -3860,12 +4032,18 @@ light in every direction.
 D2
 ~
 ~
+~
+~
 Z -1 19024
 D3
 ~
 ~
+~
+~
 Z -1 19028
 D5
+~
+~
 ~
 ~
 Z -1 19019
@@ -3885,8 +4063,12 @@ word words door doors~
 D0
 ~
 ~
+~
+~
 ABZ -1 19031
 D2
+~
+~
 ~
 ~
 Z -1 19011
@@ -3903,8 +4085,12 @@ disoriented, however.
 D0
 ~
 ~
+~
+~
 Z -1 19032
 D2
+~
+~
 ~
 ~
 Z -1 19030
@@ -3918,16 +4104,24 @@ in every direction.
 D0
 ~
 ~
+~
+~
 Z -1 19036
 D1
+~
+~
 ~
 ~
 Z -1 19033
 D2
 ~
 ~
+~
+~
 Z -1 19031
 D3
+~
+~
 ~
 ~
 Z -1 19034
@@ -3941,12 +4135,18 @@ in every direction.
 D0
 ~
 ~
+~
+~
 Z -1 19035
 D1
 ~
 ~
+~
+~
 Z -1 19034
 D3
+~
+~
 ~
 ~
 Z -1 19032
@@ -3960,12 +4160,18 @@ in every direction.
 D0
 ~
 ~
+~
+~
 Z -1 19037
 D1
 ~
 ~
+~
+~
 Z -1 19032
 D3
+~
+~
 ~
 ~
 Z -1 19033
@@ -3979,16 +4185,24 @@ in every direction.
 D0
 ~
 ~
+~
+~
 Z -1 19038
 D1
+~
+~
 ~
 ~
 Z -1 19037
 D2
 ~
 ~
+~
+~
 Z -1 19033
 D3
+~
+~
 ~
 ~
 Z -1 19036
@@ -4002,16 +4216,24 @@ in every direction.
 D0
 ~
 ~
+~
+~
 Z -1 19040
 D1
+~
+~
 ~
 ~
 Z -1 19035
 D2
 ~
 ~
+~
+~
 Z -1 19032
 D3
+~
+~
 ~
 ~
 Z -1 19037
@@ -4025,16 +4247,24 @@ in every direction.
 D0
 ~
 ~
+~
+~
 Z -1 19039
 D1
+~
+~
 ~
 ~
 Z -1 19036
 D2
 ~
 ~
+~
+~
 Z -1 19034
 D3
+~
+~
 ~
 ~
 Z -1 19035
@@ -4048,12 +4278,18 @@ in every direction.
 D1
 ~
 ~
+~
+~
 Z -1 19039
 D2
 ~
 ~
+~
+~
 Z -1 19035
 D3
+~
+~
 ~
 ~
 Z -1 19040
@@ -4067,12 +4303,18 @@ in every direction.
 D1
 ~
 ~
+~
+~
 Z -1 19040
 D2
 ~
 ~
+~
+~
 Z -1 19037
 D3
+~
+~
 ~
 ~
 Z -1 19038
@@ -4086,16 +4328,24 @@ in every direction.
 D0
 ~
 ~
+~
+~
 Z -1 19041
 D1
+~
+~
 ~
 ~
 Z -1 19038
 D2
 ~
 ~
+~
+~
 Z -1 19036
 D3
+~
+~
 ~
 ~
 Z -1 19039
@@ -4112,12 +4362,18 @@ joints lack the smooth ruts that you'd expect to see in a well-used stairway.
 D0
 ~
 ~
+~
+~
 Z -1 19012
 D2
 ~
 ~
+~
+~
 Z -1 19040
 D4
+~
+~
 ~
 ~
 Z -1 19149
@@ -4132,6 +4388,8 @@ the ground below a hard wooden plank set into a recess in the wall.
 D1
 ~
 tapestry~
+the tapestry~
+~
 ABZ -1 19026
 S
 #19043
@@ -4144,6 +4402,8 @@ side of the wall; a thin blanket covers half its rough surface.
 D3
 ~
 tapestry~
+the tapestry~
+~
 Z -1 19024
 S
 #19044
@@ -4158,8 +4418,12 @@ a small handle attached to the hatchway above.
 D4
 ~
 hatch hatchway door handle~
+the hatch~
+~
 Z -1 19009
 D5
+~
+~
 ~
 ~
 Z -1 19045
@@ -4178,8 +4442,12 @@ You see a rainbow in a circle of ivy, the sign of the Light.~
 D3
 ~
 door~
+~
+~
 ABZ -1 19048
 D4
+~
+~
 ~
 ~
 Z -1 19044
@@ -4195,12 +4463,18 @@ glimpse of some sort of animal.
 D0
 ~
 ~
+~
+~
 Z -1 19047
 D2
 ~
 ~
+~
+~
 Z -1 19134
 D3
+~
+~
 ~
 ~
 Z -1 19056
@@ -4216,12 +4490,18 @@ blocked by the towering mountain wall.
 D0
 ~
 ~
+~
+~
 Z -1 19048
 D2
 ~
 ~
+~
+~
 Z -1 19046
 D3
+~
+~
 ~
 ~
 Z -1 19055
@@ -4240,16 +4520,24 @@ vision--and your path--to the east.
 D0
 ~
 ~
+~
+~
 Z -1 19049
 D1
 ~
 door~
+~
+~
 ABZ -1 19045
 D2
 ~
 ~
+~
+~
 Z -1 19047
 D3
+~
+~
 ~
 ~
 Z -1 19066
@@ -4269,16 +4557,24 @@ by the mountain wall.
 D0
 ~
 ~
+~
+~
 Z -1 19050
 D1
+~
+~
 ~
 ~
 Z -1 19156
 D2
 ~
 ~
+~
+~
 Z -1 19048
 D3
+~
+~
 ~
 ~
 Z -1 19052
@@ -4294,8 +4590,12 @@ as well, rising up against the high northern mountain wall.
 D2
 ~
 ~
+~
+~
 Z -1 19049
 D3
+~
+~
 ~
 ~
 Z -1 19051
@@ -4311,8 +4611,12 @@ be an option.
 D1
 ~
 ~
+~
+~
 Z -1 19050
 D3
+~
+~
 ~
 ~
 Z -1 19060
@@ -4328,12 +4632,18 @@ of the pond lies to the south, just below a white gazebo covered with vines.
 D1
 ~
 ~
+~
+~
 Z -1 19049
 D2
 ~
 ~
+~
+~
 Z -1 19054
 D3
+~
+~
 ~
 ~
 Z -1 19059
@@ -4349,16 +4659,24 @@ gazebo's bottom.
 D0
 ~
 ~
+~
+~
 Z -1 19059
 D1
+~
+~
 ~
 ~
 Z -1 19054
 D2
 ~
 ~
+~
+~
 Z -1 19058
 D5
+~
+~
 ~
 ~
 Z -1 19161
@@ -4374,12 +4692,18 @@ high enough to prevent you from leaving the pond by the eastern bank.
 D0
 ~
 ~
+~
+~
 Z -1 19052
 D2
 ~
 ~
+~
+~
 Z -1 19055
 D3
+~
+~
 ~
 ~
 Z -1 19053
@@ -4394,12 +4718,18 @@ crosses the pond to the north, leading to a round gazebo covered with vines.
 D0
 ~
 ~
+~
+~
 Z -1 19054
 D1
 ~
 ~
+~
+~
 Z -1 19047
 D3
+~
+~
 ~
 ~
 Z -1 19058
@@ -4415,12 +4745,18 @@ so you'll have to find a different path if you want to go swimming....
 D1
 ~
 ~
+~
+~
 Z -1 19046
 D2
 ~
 ~
+~
+~
 Z -1 19133
 D3
+~
+~
 ~
 ~
 Z -1 19057
@@ -4438,20 +4774,30 @@ the pond lies to the north.
 D0
 ~
 ~
+~
+~
 Z -1 19058
 D1
+~
+~
 ~
 ~
 Z -1 19056
 D2
 ~
 ~
+~
+~
 Z -1 19132
 D3
 ~
 ~
+~
+~
 Z -1 19065
 D4
+~
+~
 ~
 ~
 Z -1 19130
@@ -4468,16 +4814,24 @@ can't see what any of them might hold.
 D0
 ~
 ~
+~
+~
 Z -1 19053
 D1
+~
+~
 ~
 ~
 Z -1 19055
 D2
 ~
 ~
+~
+~
 Z -1 19057
 D3
+~
+~
 ~
 ~
 Z -1 19064
@@ -4493,12 +4847,18 @@ smaller goldfish nip at it almost endlessly.
 D1
 ~
 ~
+~
+~
 Z -1 19052
 D2
 ~
 ~
+~
+~
 Z -1 19053
 D3
+~
+~
 ~
 ~
 Z -1 19062
@@ -4514,8 +4874,12 @@ east, while the path bends just west of here.
 D1
 ~
 ~
+~
+~
 Z -1 19051
 D3
+~
+~
 ~
 ~
 Z -1 19061
@@ -4532,8 +4896,12 @@ walls must be made of transparent glass.
 D1
 ~
 ~
+~
+~
 Z -1 19060
 D2
+~
+~
 ~
 ~
 Z -1 19062
@@ -4549,12 +4917,18 @@ they wave gently as the breeze blows through them.
 D0
 ~
 ~
+~
+~
 Z -1 19061
 D1
 ~
 ~
+~
+~
 Z -1 19059
 D2
+~
+~
 ~
 ~
 Z -1 19063
@@ -4571,16 +4945,24 @@ here and there.
 D0
 ~
 ~
+~
+~
 Z -1 19062
 D1
+~
+~
 ~
 ~
 Z -1 19067
 D2
 ~
 ~
+~
+~
 Z -1 19064
 D3
+~
+~
 ~
 ~
 Z -1 19068
@@ -4599,12 +4981,18 @@ mountain wall itself.
 D0
 ~
 ~
+~
+~
 Z -1 19063
 D1
 ~
 ~
+~
+~
 Z -1 19058
 D2
+~
+~
 ~
 ~
 Z -1 19065
@@ -4620,12 +5008,18 @@ side.
 D0
 ~
 ~
+~
+~
 Z -1 19064
 D1
 ~
 ~
+~
+~
 Z -1 19057
 D2
+~
+~
 ~
 ~
 Z -1 19131
@@ -4640,8 +5034,12 @@ below, splashing at the surface as they hunt for food.
 D1
 ~
 ~
+~
+~
 Z -1 19048
 D3
+~
+~
 ~
 ~
 Z -1 19067
@@ -4658,8 +5056,12 @@ well made, and are close enough together to prevent you from getting wet.
 D1
 ~
 ~
+~
+~
 Z -1 19066
 D3
+~
+~
 ~
 ~
 Z -1 19063
@@ -4667,6 +5069,8 @@ D4
 Ivy nearly covers a small panel set into the gazebo's roof.
 ~
 panel~
+the panel~
+~
 ABFZ -1 19152
 S
 #19068
@@ -4682,16 +5086,24 @@ by a narrow moat; the garden lies to the east.
 D0
 ~
 ~
+~
+~
 Z -1 19074
 D1
+~
+~
 ~
 ~
 Z -1 19063
 D2
 ~
 ~
+~
+~
 Z -1 19069
 D3
+~
+~
 ~
 ~
 Z -1 19078
@@ -4715,16 +5127,24 @@ The sign on the west says,                 The sign on the east says,
 D0
 ~
 ~
+~
+~
 Z -1 19068
 D1
+~
+~
 ~
 ~
 Z -1 19070
 D2
 ~
 ~
+~
+~
 Z -1 19073
 D3
+~
+~
 ~
 ~
 Z -1 19071
@@ -4759,6 +5179,8 @@ says,
 D3
 ~
 ~
+~
+~
 Z -1 19069
 S
 #19071
@@ -4774,12 +5196,18 @@ A small wooden staircase leads upwards to the bedrooms.
 D0
 ~
 ~
+~
+~
 Z -1 19072
 D1
 ~
 ~
+~
+~
 Z -1 19069
 D4
+~
+~
 ~
 ~
 Z -1 19164
@@ -4802,6 +5230,8 @@ Felix, tucked away in two separate corners.~
 D2
 ~
 ~
+~
+~
 Z -1 19071
 S
 #19073
@@ -4814,6 +5244,8 @@ each corner must help to cool the air.
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 Z -1 19069
@@ -4836,16 +5268,24 @@ The sign to the west says,                  The sign to the east says,
 D0
 ~
 ~
+~
+~
 Z -1 19077
 D1
+~
+~
 ~
 ~
 Z -1 19075
 D2
 ~
 ~
+~
+~
 Z -1 19068
 D3
+~
+~
 ~
 ~
 Z -1 19076
@@ -4862,6 +5302,8 @@ have titles like "Luggage" and "Rations".
 D3
 ~
 ~
+~
+~
 Z -1 19074
 S
 #19076
@@ -4876,6 +5318,8 @@ including histories of Midgaard and the Mirror Realm.
 D1
 ~
 ~
+~
+~
 Z -1 19074
 S
 #19077
@@ -4888,6 +5332,8 @@ things mostly clean and neat.
 ~
 0 D inside
 D2
+~
+~
 ~
 ~
 Z -1 19074
@@ -4905,8 +5351,12 @@ form of defense.
 D1
 ~
 ~
+~
+~
 Z -1 19068
 D3
+~
+~
 ~
 ~
 Z -1 19079
@@ -4922,8 +5372,12 @@ a closed hatch in the ceiling.
 D1
 ~
 ~
+~
+~
 Z -1 19078
 D4
+~
+~
 ~
 ~
 ABZ -1 19080
@@ -4945,8 +5399,12 @@ You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 D4
 ~
 ~
+~
+~
 ABCFZ 19159 19081
 D5
+~
+~
 ~
 ~
 Z -1 19079
@@ -4967,8 +5425,12 @@ You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 D4
 ~
 ~
+~
+~
 ABCFZ 19160 19082
 D5
+~
+~
 ~
 ~
 AFZ 19159 19080
@@ -4987,8 +5449,12 @@ You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 D4
 ~
 ~
+~
+~
 ABCFZ 19161 19083
 D5
+~
+~
 ~
 ~
 AFZ 19160 19081
@@ -5008,8 +5474,12 @@ You see the Sign of the Light, a rainbow surrounded in a circle of ivy.~
 D4
 ~
 ~
+~
+~
 ABCFZ 19162 19084
 D5
+~
+~
 ~
 ~
 AFZ 19161 19082
@@ -5030,8 +5500,12 @@ You see the Sign of the Light, a rainbow inside a circle of ivy.~
 D4
 ~
 ~
+~
+~
 ABCFZ 19163 19085
 D5
+~
+~
 ~
 ~
 AFZ 19162 19083
@@ -5053,8 +5527,12 @@ You see the Sign of the Light, a rainbow surrounded by a circle of ivy.~
 D4
 ~
 ~
+~
+~
 ABCFZ 19164 19086
 D5
+~
+~
 ~
 ~
 AFZ 19163 19084
@@ -5076,6 +5554,8 @@ You see the Sign of the Light, a rainbow surrounded by a circle of ivy.~
 D5
 ~
 ~
+~
+~
 AFZ 19164 19085
 S
 #19087
@@ -5089,12 +5569,18 @@ up to your hips if you try and stand on it.
 D0
 ~
 ~
+~
+~
 Z -1 19088
 D1
 ~
 ~
+~
+~
 Z -1 19096
 D2
+~
+~
 ~
 ~
 Z -1 19139
@@ -5111,12 +5597,18 @@ path to the west.
 D0
 ~
 ~
+~
+~
 Z -1 19089
 D1
 ~
 ~
+~
+~
 Z -1 19095
 D2
+~
+~
 ~
 ~
 Z -1 19087
@@ -5134,16 +5626,24 @@ dull and gray.
 D0
 ~
 ~
+~
+~
 Z -1 19090
 D1
+~
+~
 ~
 ~
 Z -1 19120
 D2
 ~
 ~
+~
+~
 Z -1 19088
 D3
+~
+~
 ~
 ~
 Z -1 19108
@@ -5162,16 +5662,24 @@ it in two.
 D0
 ~
 ~
+~
+~
 Z -1 19091
 D1
+~
+~
 ~
 ~
 Z -1 19093
 D2
 ~
 ~
+~
+~
 Z -1 19089
 D3
+~
+~
 ~
 ~
 Z -1 19160
@@ -5187,8 +5695,12 @@ brown stems.
 D1
 ~
 ~
+~
+~
 Z -1 19092
 D2
+~
+~
 ~
 ~
 Z -1 19090
@@ -5204,8 +5716,12 @@ need a light to find your way.
 D1
 ~
 ~
+~
+~
 Z -1 19097
 D3
+~
+~
 ~
 ~
 Z -1 19091
@@ -5223,12 +5739,18 @@ northern end of the pond.
 D1
 ~
 ~
+~
+~
 Z -1 19098
 D2
 ~
 ~
+~
+~
 Z -1 19094
 D3
+~
+~
 ~
 ~
 Z -1 19090
@@ -5246,12 +5768,18 @@ the mire below.
 D0
 ~
 ~
+~
+~
 Z -1 19093
 D1
 ~
 ~
+~
+~
 Z -1 19099
 D2
+~
+~
 ~
 ~
 Z -1 19095
@@ -5267,12 +5795,18 @@ of the pond.
 D0
 ~
 ~
+~
+~
 Z -1 19094
 D1
 ~
 ~
+~
+~
 Z -1 19100
 D3
+~
+~
 ~
 ~
 Z -1 19088
@@ -5288,12 +5822,18 @@ almost completely black beyond the treeline.
 D1
 ~
 ~
+~
+~
 Z -1 19101
 D2
 ~
 ~
+~
+~
 Z -1 19140
 D3
+~
+~
 ~
 ~
 Z -1 19087
@@ -5309,8 +5849,12 @@ make it down through the gloom.
 D1
 ~
 ~
+~
+~
 Z -1 19102
 D3
+~
+~
 ~
 ~
 Z -1 19092
@@ -5326,12 +5870,18 @@ several of its gray boards have fallen into the waters below.
 D1
 ~
 ~
+~
+~
 Z -1 19103
 D2
 ~
 ~
+~
+~
 Z -1 19099
 D3
+~
+~
 ~
 ~
 Z -1 19093
@@ -5350,12 +5900,18 @@ and appear to be happily munching away.
 D0
 ~
 ~
+~
+~
 Z -1 19098
 D2
 ~
 ~
+~
+~
 Z -1 19100
 D3
+~
+~
 ~
 ~
 Z -1 19094
@@ -5372,16 +5928,24 @@ likely preventing anyone from calling it their home.
 D0
 ~
 ~
+~
+~
 Z -1 19099
 D1
+~
+~
 ~
 ~
 Z -1 19105
 D2
 ~
 ~
+~
+~
 Z -1 19101
 D3
+~
+~
 ~
 ~
 Z -1 19095
@@ -5398,20 +5962,30 @@ dark grove of trees to grow high into the air.
 D0
 ~
 ~
+~
+~
 Z -1 19100
 D1
+~
+~
 ~
 ~
 Z -1 19106
 D2
 ~
 ~
+~
+~
 Z -1 19141
 D3
 ~
 ~
+~
+~
 Z -1 19096
 D4
+~
+~
 ~
 ~
 Z -1 19148
@@ -5428,8 +6002,12 @@ quite as much now.....
 D2
 ~
 ~
+~
+~
 Z -1 19103
 D3
+~
+~
 ~
 ~
 Z -1 19097
@@ -5444,12 +6022,18 @@ it heads towards a darker area just before the northern mountain wall.
 D0
 ~
 ~
+~
+~
 Z -1 19102
 D2
 ~
 ~
+~
+~
 Z -1 19104
 D3
+~
+~
 ~
 ~
 Z -1 19098
@@ -5465,16 +6049,24 @@ of the buildings, heading towards a glittering black tower.
 D0
 ~
 ~
+~
+~
 Z -1 19103
 D1
+~
+~
 ~
 ~
 Z -1 19109
 D2
 ~
 ~
+~
+~
 Z -1 19105
 D3
+~
+~
 ~
 ~
 Z -1 19121
@@ -5491,12 +6083,18 @@ a dark forest rises in the distance to the south.
 D0
 ~
 ~
+~
+~
 Z -1 19104
 D2
 ~
 ~
+~
+~
 Z -1 19106
 D3
+~
+~
 ~
 ~
 Z -1 19100
@@ -5512,12 +6110,18 @@ whatever may lie inside.
 D0
 ~
 ~
+~
+~
 Z -1 19105
 D2
 ~
 ~
+~
+~
 Z -1 19143
 D3
+~
+~
 ~
 ~
 Z -1 19101
@@ -5533,8 +6137,12 @@ enough light for you to see a small handle attached to the hatchway above.
 D4
 ~
 ~
+~
+~
 Z -1 19010
 D5
+~
+~
 ~
 ~
 Z -1 19108
@@ -5554,8 +6162,12 @@ the rock above the door.~
 D1
 ~
 ~
+~
+~
 ABZ -1 19089
 D4
+~
+~
 ~
 ~
 Z -1 19107
@@ -5573,16 +6185,24 @@ mire of the swamp to its west.
 D0
 ~
 ~
+~
+~
 Z -1 19115
 D1
+~
+~
 ~
 ~
 Z -1 19119
 D2
 ~
 ~
+~
+~
 Z -1 19110
 D3
+~
+~
 ~
 ~
 Z -1 19104
@@ -5607,16 +6227,24 @@ The sign to the west reads:                     The sign to the east reads:
 D0
 ~
 ~
+~
+~
 Z -1 19109
 D1
+~
+~
 ~
 ~
 Z -1 19111
 D2
 ~
 ~
+~
+~
 Z -1 19114
 D3
+~
+~
 ~
 ~
 Z -1 19112
@@ -5635,8 +6263,12 @@ below you.
 D0
 ~
 ~
+~
+~
 Z -1 19113
 D3
+~
+~
 ~
 ~
 Z -1 19110
@@ -5657,6 +6289,8 @@ tingling faintly and beginning to stand on end.~
 D1
 ~
 ~
+~
+~
 Z -1 19110
 S
 #19113
@@ -5672,6 +6306,8 @@ have fallen victim to the same fight that took out most of the bar.
 D2
 ~
 ~
+~
+~
 Z -1 19111
 S
 #19114
@@ -5682,6 +6318,8 @@ light.
 ~
 0 AD inside
 D0
+~
+~
 ~
 ~
 Z -1 19110
@@ -5696,16 +6334,24 @@ west is empty.
 D0
 ~
 ~
+~
+~
 Z -1 19118
 D1
+~
+~
 ~
 ~
 Z -1 19116
 D2
 ~
 ~
+~
+~
 Z -1 19109
 D3
+~
+~
 ~
 ~
 Z -1 19117
@@ -5719,6 +6365,8 @@ scourges and battles swept through the town.
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 Z -1 19115
@@ -5736,6 +6384,8 @@ even the staircase to the second floor have been torn apart.
 D1
 ~
 ~
+~
+~
 Z -1 19115
 S
 #19118
@@ -5748,6 +6398,8 @@ of...something....
 ~
 0 AD inside
 D2
+~
+~
 ~
 ~
 Z -1 19115
@@ -5765,8 +6417,12 @@ slimy waters.
 D1
 ~
 ~
+~
+~
 Z -1 19122
 D3
+~
+~
 ~
 ~
 Z -1 19109
@@ -5782,8 +6438,12 @@ barely stick out above the water's surface.
 D1
 ~
 ~
+~
+~
 Z -1 19121
 D3
+~
+~
 ~
 ~
 Z -1 19089
@@ -5801,8 +6461,12 @@ place.
 D1
 ~
 ~
+~
+~
 Z -1 19104
 D3
+~
+~
 ~
 ~
 Z -1 19120
@@ -5816,8 +6480,12 @@ dirty air.  Save for a staircase leading upwards, the room is entirely empty.
 D3
 ~
 ~
+~
+~
 Z -1 19119
 D4
+~
+~
 ~
 ~
 Z -1 19123
@@ -5835,8 +6503,12 @@ painted in dull black on the shiny black wall.
 D4
 ~
 ~
+~
+~
 ABFZ -1 19124
 D5
+~
+~
 ~
 ~
 AFZ -1 19122
@@ -5853,8 +6525,12 @@ white against the bright white background.
 D4
 ~
 ~
+~
+~
 ABFZ -1 19125
 D5
+~
+~
 ~
 ~
 AFZ -1 19123
@@ -5872,8 +6548,12 @@ painted in dull black on the shiny black wall.
 D4
 ~
 ~
+~
+~
 ABFZ -1 19126
 D5
+~
+~
 ~
 ~
 AFZ -1 19124
@@ -5890,8 +6570,12 @@ white against the bright white background.
 D4
 ~
 ~
+~
+~
 ABFZ -1 19127
 D5
+~
+~
 ~
 ~
 AFZ -1 19125
@@ -5904,6 +6588,8 @@ sign of the Dark, suspended somewhere in the distance.
 ~
 0 D inside
 D5
+~
+~
 ~
 ~
 AFZ -1 19126
@@ -5958,6 +6644,8 @@ hooks and a fishing pole locked to the bottom shelf with a thick chain.
 D5
 ~
 ~
+~
+~
 Z -1 19057
 S
 #19131
@@ -5971,8 +6659,12 @@ in and out of one hollow tree, probably hiding his nuts for winter.
 D0
 ~
 ~
+~
+~
 Z -1 19065
 D1
+~
+~
 ~
 ~
 Z -1 19132
@@ -5988,16 +6680,24 @@ anyone or anything that might be nearby.
 D0
 ~
 ~
+~
+~
 Z -1 19057
 D1
+~
+~
 ~
 ~
 Z -1 19133
 D2
 ~
 ~
+~
+~
 Z -1 19137
 D3
+~
+~
 ~
 ~
 Z -1 19131
@@ -6014,16 +6714,24 @@ soil.
 D0
 ~
 ~
+~
+~
 Z -1 19056
 D1
+~
+~
 ~
 ~
 Z -1 19134
 D2
 ~
 ~
+~
+~
 Z -1 19136
 D3
+~
+~
 ~
 ~
 Z -1 19132
@@ -6039,12 +6747,18 @@ as well, meeting up with a neat gravel pathway as it enters a clearing.
 D0
 ~
 ~
+~
+~
 Z -1 19046
 D2
 ~
 ~
+~
+~
 Z -1 19135
 D3
+~
+~
 ~
 ~
 Z -1 19133
@@ -6061,12 +6775,18 @@ upper branches.
 D0
 ~
 ~
+~
+~
 Z -1 19134
 D3
 ~
 ~
+~
+~
 Z -1 19136
 D4
+~
+~
 ~
 ~
 Z -1 19138
@@ -6086,16 +6806,24 @@ to the ground.
 D0
 ~
 ~
+~
+~
 Z -1 19133
 D1
+~
+~
 ~
 ~
 Z -1 19135
 D2
 ~
 ~
+~
+~
 Z -1 19163
 D3
+~
+~
 ~
 ~
 Z -1 19137
@@ -6117,14 +6845,20 @@ the mountain wall.~
 D0
 ~
 ~
+~
+~
 Z -1 19132
 D1
+~
+~
 ~
 ~
 Z -1 19136
 D5
 ~
 rock~
+the rock~
+~
 ABZ -1 19155
 S
 #19138
@@ -6147,8 +6881,12 @@ The space in the ceiling looks large enough to pass through, but you'd have to
 move the netting.
 ~
 netting door~
+the netting~
+~
 ABZ -1 19153
 D5
+~
+~
 ~
 ~
 Z -1 19135
@@ -6165,12 +6903,18 @@ bubbling mud to the faint raspy breathing of some sort of animal.
 D0
 ~
 ~
+~
+~
 Z -1 19087
 D1
 ~
 ~
+~
+~
 Z -1 19140
 D2
+~
+~
 ~
 ~
 Z -1 19144
@@ -6188,16 +6932,24 @@ little more light to shine through.
 D0
 ~
 ~
+~
+~
 Z -1 19096
 D1
+~
+~
 ~
 ~
 Z -1 19141
 D2
 ~
 ~
+~
+~
 Z -1 19145
 D3
+~
+~
 ~
 ~
 Z -1 19139
@@ -6213,16 +6965,24 @@ by the ivy and wisteria dangling from the low-hanging branches.
 D0
 ~
 ~
+~
+~
 Z -1 19101
 D1
+~
+~
 ~
 ~
 Z -1 19143
 D2
 ~
 ~
+~
+~
 Z -1 19146
 D3
+~
+~
 ~
 ~
 Z -1 19140
@@ -6239,6 +6999,8 @@ northeast.
 D5
 ~
 ~
+~
+~
 Z -1 19144
 S
 #19143
@@ -6252,8 +7014,12 @@ gloom that surrounds this land.
 D0
 ~
 ~
+~
+~
 Z -1 19106
 D3
+~
+~
 ~
 ~
 Z -1 19141
@@ -6269,12 +7035,18 @@ light to reach the forest floor.
 D0
 ~
 ~
+~
+~
 Z -1 19139
 D1
 ~
 ~
+~
+~
 Z -1 19145
 D4
+~
+~
 ~
 ~
 Z -1 19142
@@ -6291,12 +7063,18 @@ west, beyond the mountain wall that separates this valley from the next.
 D0
 ~
 ~
+~
+~
 Z -1 19140
 D1
 ~
 ~
+~
+~
 Z -1 19146
 D3
+~
+~
 ~
 ~
 Z -1 19144
@@ -6313,8 +7091,12 @@ its top.
 D0
 ~
 ~
+~
+~
 Z -1 19141
 D3
+~
+~
 ~
 ~
 Z -1 19145
@@ -6342,6 +7124,8 @@ so do you.
 D0
 ~
 ~
+~
+~
 Z -1 19095
 S
 #19149
@@ -6355,8 +7139,12 @@ to see the intersection below and the continuing staircase above you.
 D4
 ~
 ~
+~
+~
 Z -1 19150
 D5
+~
+~
 ~
 ~
 Z -1 19041
@@ -6371,8 +7159,12 @@ appears to lie above you, while the staircase continues downwards below you.
 D4
 ~
 ~
+~
+~
 Z -1 19151
 D5
+~
+~
 ~
 ~
 Z -1 19149
@@ -6389,6 +7181,8 @@ by some sort of bird....
 D5
 ~
 ~
+~
+~
 Z -1 19150
 S
 #19152
@@ -6401,6 +7195,8 @@ shiny brass hinges.
 ~
 0 C city
 D5
+~
+~
 ~
 ~
 AFZ -1 19067
@@ -6416,8 +7212,12 @@ the hive before you....
 D0
 ~
 ~
+~
+~
 Z -1 19154
 D5
+~
+~
 ~
 ~
 Z -1 19138
@@ -6433,6 +7233,8 @@ honey whose sweet, sticky scent fills the air.
 ~
 0 C city
 D2
+~
+~
 ~
 ~
 Z -1 19153
@@ -6451,6 +7253,8 @@ to lie.
 D4
 ~
 ~
+~
+~
 Z -1 19137
 S
 #19156
@@ -6464,8 +7268,12 @@ to the north, a doorway still provides access to another room.
 D0
 ~
 ~
+~
+~
 Z -1 19157
 D3
+~
+~
 ~
 ~
 Z -1 19049
@@ -6483,12 +7291,18 @@ by a thick iron grate.
 D0
 ~
 grate fire fireplace~
+the grate~
+~
 ABZ -1 19158
 D1
 ~
 oven door~
+the oven~
+~
 ABZ -1 19159
 D2
+~
+~
 ~
 ~
 Z -1 19156
@@ -6507,6 +7321,8 @@ to be far hotter and larger than it seemed from the outside.
 D2
 ~
 ~
+~
+~
 Z -1 19157
 S
 #19159
@@ -6521,10 +7337,14 @@ at the other.
 D1
 ~
 panel~
+the panel~
+~
 Z -1 19160
 D3
 ~
 oven door~
+the oven~
+~
 Z -1 19157
 S
 #19160
@@ -6539,10 +7359,14 @@ shut, it probably once provided the heat for this small room.
 D1
 ~
 ~
+~
+~
 Z -1 19090
 D3
 ~
 panel~
+the panel~
+~
 ABZ -1 19159
 S
 #19161
@@ -6557,8 +7381,12 @@ see what appears to be some sort of cave lying just ahead.
 D0
 ~
 ~
+~
+~
 Z -1 19162
 D4
+~
+~
 ~
 ~
 Z -1 19053
@@ -6577,6 +7405,8 @@ the room.
 D2
 ~
 ~
+~
+~
 Z -1 19161
 S
 #19163
@@ -6591,6 +7421,8 @@ nest of green branches.
 D0
 ~
 branch tree~
+the branch~
+~
 ABZ -1 19136
 S
 #19164
@@ -6603,16 +7435,24 @@ the section up ahead.
 D0
 ~
 ~
+~
+~
 Z -1 19167
 D1
 ~
 door~
+~
+~
 Z -1 19166
 D3
 ~
 door~
+~
+~
 Z -1 19165
 D5
+~
+~
 ~
 ~
 Z -1 19071
@@ -6628,6 +7468,8 @@ near the bed.
 D1
 ~
 door~
+~
+~
 Z -1 19164
 S
 #19166
@@ -6642,6 +7484,8 @@ lyrics for various sorts of blues and jazz.
 D3
 ~
 door~
+~
+~
 Z -1 19164
 S
 #19167
@@ -6654,12 +7498,18 @@ the door to the east holds a plaque that reads "Honeymoon Suite."
 D1
 ~
 door~
+~
+~
 Z -1 19169
 D2
 ~
 ~
+~
+~
 Z -1 19164
 D3
+~
+~
 ~
 ~
 Z -1 19168
@@ -6675,6 +7525,8 @@ the bed.
 D1
 ~
 ~
+~
+~
 Z -1 19167
 S
 #19169
@@ -6688,6 +7540,8 @@ some privacy...
 ~
 0 0 inside
 D3
+~
+~
 ~
 ~
 AFZ 19166 19167

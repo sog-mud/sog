@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name The Unholy Abbey~
 VNUMs 30800 30899
 Credits Yaegar~
@@ -916,8 +916,12 @@ a dead tree that hangs over the rock.
 D0
 ~
 ~
+~
+~
 Z -1 30801
 D2
+~
+~
 ~
 ~
 Z -1 4036
@@ -932,8 +936,12 @@ a casual interest in you. The path bends sharply to the east at this point.
 D1
 ~
 ~
+~
+~
 Z -1 30802
 D2
+~
+~
 ~
 ~
 Z -1 30800
@@ -948,8 +956,12 @@ base, and you wonder how you will pass it.
 D0
 ~
 ~
+~
+~
 Z -1 30805
 D3
+~
+~
 ~
 ~
 Z -1 30801
@@ -965,8 +977,12 @@ shape is still hovering atop it.
 D0
 ~
 ~
+~
+~
 Z -1 30808
 D1
+~
+~
 ~
 ~
 Z -1 30804
@@ -982,12 +998,18 @@ shape is still hovering atop it.
 D0
 ~
 ~
+~
+~
 Z -1 30809
 D1
 ~
 ~
+~
+~
 Z -1 30805
 D3
+~
+~
 ~
 ~
 Z -1 30803
@@ -1004,16 +1026,24 @@ abbey.
 D0
 ~
 ~
+~
+~
 Z -1 30810
 D1
+~
+~
 ~
 ~
 Z -1 30806
 D2
 ~
 ~
+~
+~
 Z -1 30802
 D3
+~
+~
 ~
 ~
 Z -1 30804
@@ -1029,12 +1059,18 @@ shape is still hovering atop it.
 D0
 ~
 ~
+~
+~
 Z -1 30811
 D1
 ~
 ~
+~
+~
 Z -1 30807
 D3
+~
+~
 ~
 ~
 Z -1 30805
@@ -1050,8 +1086,12 @@ shape is still hovering atop it.
 D0
 ~
 ~
+~
+~
 Z -1 30812
 D3
+~
+~
 ~
 ~
 Z -1 30806
@@ -1067,12 +1107,18 @@ shape is still hovering atop it.
 D0
 ~
 ~
+~
+~
 Z -1 30813
 D1
 ~
 ~
+~
+~
 Z -1 30809
 D2
+~
+~
 ~
 ~
 Z -1 30803
@@ -1087,20 +1133,30 @@ the abbey to the north.
 D0
 ~
 ~
+~
+~
 Z -1 30814
 D1
+~
+~
 ~
 ~
 Z -1 30810
 D2
 ~
 ~
+~
+~
 Z -1 30804
 D3
 ~
 ~
+~
+~
 Z -1 30808
 D5
+~
+~
 ~
 ~
 Z -1 30820
@@ -1115,20 +1171,30 @@ the abbey to the north. You hear what sounds like a dragon roaring far below.
 D0
 ~
 ~
+~
+~
 Z -1 30815
 D1
+~
+~
 ~
 ~
 Z -1 30811
 D2
 ~
 ~
+~
+~
 Z -1 30805
 D3
 ~
 ~
+~
+~
 Z -1 30809
 D5
+~
+~
 ~
 ~
 Z -1 30821
@@ -1143,20 +1209,30 @@ the abbey to the north.
 D0
 ~
 ~
+~
+~
 Z -1 30816
 D1
+~
+~
 ~
 ~
 Z -1 30812
 D2
 ~
 ~
+~
+~
 Z -1 30806
 D3
 ~
 ~
+~
+~
 Z -1 30810
 D5
+~
+~
 ~
 ~
 Z -1 30822
@@ -1172,12 +1248,18 @@ shape is still hovering atop it.
 D0
 ~
 ~
+~
+~
 Z -1 30817
 D2
 ~
 ~
+~
+~
 Z -1 30807
 D3
+~
+~
 ~
 ~
 Z -1 30811
@@ -1189,6 +1271,8 @@ but to turn back.
 ~
 0 0 hills
 D2
+~
+~
 ~
 ~
 Z -1 30808
@@ -1203,8 +1287,12 @@ exit. Baffled, you move on.
 D1
 ~
 ~
+~
+~
 Z -1 30815
 D2
+~
+~
 ~
 ~
 Z -1 30809
@@ -1219,16 +1307,24 @@ exit. You can fly up to the roof from here if you wish, though.
 D1
 ~
 ~
+~
+~
 Z -1 30816
 D2
+~
+~
 ~
 ~
 Z -1 30810
 D3
 ~
 ~
+~
+~
 Z -1 30814
 D4
+~
+~
 ~
 ~
 Z -1 30818
@@ -1243,8 +1339,12 @@ exit. Baffled, you move on.
 D2
 ~
 ~
+~
+~
 Z -1 30811
 D3
+~
+~
 ~
 ~
 Z -1 30815
@@ -1256,6 +1356,8 @@ but to turn back.
 ~
 0 0 hills
 D2
+~
+~
 ~
 ~
 Z -1 30812
@@ -1271,8 +1373,12 @@ perched atop the roof.
 D4
 ~
 ~
+~
+~
 Z -1 30819
 D5
+~
+~
 ~
 ~
 Z -1 30815
@@ -1287,6 +1393,8 @@ want of a better word. Have fun.
 D5
 ~
 ~
+~
+~
 Z -1 30818
 S
 #30820
@@ -1297,6 +1405,8 @@ hear a dread howling that echoes about you.
 ~
 0 0 hills
 D1
+~
+~
 ~
 ~
 Z -1 30821
@@ -1312,12 +1422,18 @@ you and bright red eyes glare sullenly at you from within!
 D0
 ~
 ~
+~
+~
 Z -1 30823
 D1
 ~
 ~
+~
+~
 Z -1 30822
 D3
+~
+~
 ~
 ~
 Z -1 30820
@@ -1332,6 +1448,8 @@ hear a dread howling that echoes about you.
 D3
 ~
 ~
+~
+~
 Z -1 30821
 S
 #30823
@@ -1344,8 +1462,12 @@ be heard, louder than ever. It appears to be emanating from the north.
 D0
 ~
 ~
+~
+~
 Z -1 30824
 D2
+~
+~
 ~
 ~
 Z -1 30821
@@ -1363,8 +1485,12 @@ A greenish glow is coming from the north.
 D0
 ~
 ~
+~
+~
 Z -1 30825
 D2
+~
+~
 ~
 ~
 Z -1 30823
@@ -1379,10 +1505,14 @@ green padlock depending from the grate. Do you have a key?
 D2
 ~
 ~
+~
+~
 Z -1 30824
 D4
 ~
 grate~
+the grate~
+~
 ABCFZ 30825 30826
 S
 #30826
@@ -1393,6 +1523,8 @@ The portal is flowing right in front of you. You may enter it if you wish.
 D5
 ~
 grate~
+the grate~
+~
 ABCFZ 30825 30825
 S
 #30827
@@ -1405,8 +1537,12 @@ the east. A grate with a red lock blocks access upward to the red portal.
 D1
 ~
 ~
+~
+~
 Z -1 30828
 D4
+~
+~
 ~
 ~
 ABCZ 30848 30838
@@ -1421,16 +1557,24 @@ glowing portal to the west.
 D0
 ~
 ~
+~
+~
 ABZ 0 30829
 D1
+~
+~
 ~
 ~
 Z -1 30831
 D2
 ~
 ~
+~
+~
 ABZ 0 30830
 D3
+~
+~
 ~
 ~
 Z -1 30827
@@ -1446,6 +1590,8 @@ outside.
 D2
 ~
 ~
+~
+~
 ABZ 0 30828
 S
 #30830
@@ -1457,6 +1603,8 @@ outside.
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 ABZ 0 30828
@@ -1471,16 +1619,24 @@ glowing portal to the west.
 D0
 ~
 ~
+~
+~
 ABZ 0 30832
 D1
+~
+~
 ~
 ~
 ABZ -1 30834
 D2
 ~
 ~
+~
+~
 ABZ 0 30833
 D3
+~
+~
 ~
 ~
 Z -1 30828
@@ -1495,6 +1651,8 @@ condition, but appear to be perfectly ordinary.
 D2
 ~
 ~
+~
+~
 ABZ -1 30831
 S
 #30833
@@ -1505,6 +1663,8 @@ condition, but appear to be perfectly ordinary.
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 ABZ -1 30831
@@ -1519,10 +1679,14 @@ in the chamber.
 D3
 ~
 ~
+~
+~
 ABZ 0 30831
 D5
 ~
 throne~
+the throne~
+~
 ABZ 0 30835
 S
 #30835
@@ -1534,8 +1698,12 @@ allowing you to descend. The air is damp and chill, and you shiver.
 D4
 ~
 ~
+~
+~
 ABZ 0 30834
 D5
+~
+~
 ~
 ~
 Z -1 30836
@@ -1554,8 +1722,12 @@ The runes read- "RELEASE NOT THE SPIRIT THAT SHALL SLAY US ALL"
 D1
 ~
 ~
+~
+~
 ABZ -1 30837
 D4
+~
+~
 ~
 ~
 Z -1 30835
@@ -1570,6 +1742,8 @@ wasn't such a good idea releasing him...
 D3
 ~
 ~
+~
+~
 ABZ 0 30836
 S
 #30838
@@ -1578,6 +1752,8 @@ The red portal floats in front of you. Enter it to continue...
 ~
 0 D inside
 D5
+~
+~
 ~
 ~
 ABZ 30848 30827
@@ -1592,20 +1768,30 @@ of this chamber in all directions.
 D0
 ~
 ~
+~
+~
 ABZ 0 30840
 D1
+~
+~
 ~
 ~
 ABZ 0 30841
 D2
 ~
 ~
+~
+~
 ABZ 0 30843
 D3
 ~
 ~
+~
+~
 ABZ 0 30842
 D4
+~
+~
 ~
 ~
 ABCZ 30857 30882
@@ -1619,8 +1805,12 @@ thing! You think you can feel a door to the north.
 D0
 ~
 ~
+~
+~
 ABZ 0 30844
 D2
+~
+~
 ~
 ~
 ABZ 0 30839
@@ -1634,8 +1824,12 @@ thing! You think you can feel a door to the east.
 D1
 ~
 ~
+~
+~
 ABZ 0 30847
 D3
+~
+~
 ~
 ~
 ABZ 0 30839
@@ -1649,8 +1843,12 @@ thing! You think you can feel a door to the west.
 D1
 ~
 ~
+~
+~
 ABZ 0 30839
 D3
+~
+~
 ~
 ~
 ABZ 0 30845
@@ -1664,8 +1862,12 @@ thing! You think you can feel a door to the south.
 D0
 ~
 ~
+~
+~
 ABZ 0 30839
 D2
+~
+~
 ~
 ~
 ABZ 0 30846
@@ -1680,12 +1882,18 @@ Perhaps you'll be lucky and find none...
 D1
 ~
 ~
+~
+~
 ABZ 0 30848
 D2
 ~
 ~
+~
+~
 ABZ 0 30840
 D3
+~
+~
 ~
 ~
 ABZ 0 30852
@@ -1700,12 +1908,18 @@ Perhaps you'll be lucky and find none...
 D0
 ~
 ~
+~
+~
 ABZ 0 30853
 D1
 ~
 ~
+~
+~
 ABZ 0 30842
 D2
+~
+~
 ~
 ~
 ABZ 0 30854
@@ -1722,12 +1936,18 @@ comfort.
 D0
 ~
 ~
+~
+~
 ABZ -1 30843
 D1
 ~
 ~
+~
+~
 ABZ 0 30856
 D3
+~
+~
 ~
 ~
 ABZ 0 30855
@@ -1742,12 +1962,18 @@ sits in front of them, though it doesn't look as if it gets much use.
 D0
 ~
 ~
+~
+~
 ABZ 0 30857
 D2
 ~
 ~
+~
+~
 ABZ 0 30858
 D3
+~
+~
 ~
 ~
 ABZ 0 30841
@@ -1761,8 +1987,12 @@ slowly and carefully.
 D1
 ~
 ~
+~
+~
 Z -1 30849
 D3
+~
+~
 ~
 ~
 ABZ 0 30844
@@ -1777,12 +2007,18 @@ right here...
 D1
 ~
 ~
+~
+~
 Z -1 30850
 D3
 ~
 ~
+~
+~
 Z 0 30848
 D5
+~
+~
 ~
 ~
 Z -1 30851
@@ -1796,8 +2032,12 @@ slowly and carefully. You feel a door to the east.
 D1
 ~
 ~
+~
+~
 ABZ -1 30859
 D3
+~
+~
 ~
 ~
 Z 0 30849
@@ -1812,6 +2052,8 @@ the stench and hear the growling...
 D4
 ~
 ~
+~
+~
 Z -1 30849
 S
 #30852
@@ -1823,8 +2065,12 @@ slowly and carefully. A door lies to the east.
 D1
 ~
 ~
+~
+~
 ABZ -1 30844
 D3
+~
+~
 ~
 ~
 Z 0 30860
@@ -1838,8 +2084,12 @@ slowly and carefully. A door can be felt to the south.
 D0
 ~
 ~
+~
+~
 Z -1 30864
 D2
+~
+~
 ~
 ~
 ABZ 0 30845
@@ -1853,8 +2103,12 @@ slowly and carefully. A door can be felt to the north.
 D0
 ~
 ~
+~
+~
 ABZ -1 30845
 D2
+~
+~
 ~
 ~
 Z 0 30866
@@ -1868,8 +2122,12 @@ slowly and carefully. A door can be felt to the east.
 D1
 ~
 ~
+~
+~
 ABZ -1 30846
 D3
+~
+~
 ~
 ~
 Z 0 30868
@@ -1883,8 +2141,12 @@ slowly and carefully. A door can be felt to the west.
 D1
 ~
 ~
+~
+~
 Z -1 30871
 D3
+~
+~
 ~
 ~
 ABZ 0 30846
@@ -1898,8 +2160,12 @@ slowly and carefully. A door can be felt to the south.
 D0
 ~
 ~
+~
+~
 Z -1 30873
 D2
+~
+~
 ~
 ~
 ABZ 0 30847
@@ -1913,8 +2179,12 @@ slowly and carefully. A door can be felt to the north.
 D0
 ~
 ~
+~
+~
 ABZ -1 30847
 D2
+~
+~
 ~
 ~
 Z 0 30875
@@ -1929,8 +2199,12 @@ sits in front of them, though it doesn't look as if it gets much use.
 D2
 ~
 ~
+~
+~
 ABZ 0 30874
 D3
+~
+~
 ~
 ~
 ABZ 0 30850
@@ -1944,8 +2218,12 @@ slowly and carefully.
 D1
 ~
 ~
+~
+~
 Z -1 30852
 D3
+~
+~
 ~
 ~
 Z 0 30861
@@ -1959,8 +2237,12 @@ slowly and carefully. A door can be felt to the west.
 D1
 ~
 ~
+~
+~
 Z -1 30860
 D3
+~
+~
 ~
 ~
 ABZ 0 30862
@@ -1975,8 +2257,12 @@ sits in front of them, though it doesn't look as if it gets much use.
 D1
 ~
 ~
+~
+~
 ABZ 0 30861
 D2
+~
+~
 ~
 ~
 ABZ 0 30863
@@ -1990,8 +2276,12 @@ slowly and carefully. There is a door to the north.
 D0
 ~
 ~
+~
+~
 ABZ -1 30862
 D2
+~
+~
 ~
 ~
 Z 0 30864
@@ -2006,12 +2296,18 @@ beneath your feet...
 D0
 ~
 ~
+~
+~
 Z -1 30863
 D2
 ~
 ~
+~
+~
 Z 0 30853
 D5
+~
+~
 ~
 ~
 Z -1 30865
@@ -2027,6 +2323,8 @@ eaten away by acid!
 D4
 ~
 ~
+~
+~
 Z -1 30864
 S
 #30866
@@ -2038,8 +2336,12 @@ slowly and carefully.
 D0
 ~
 ~
+~
+~
 Z -1 30854
 D2
+~
+~
 ~
 ~
 Z 0 30867
@@ -2053,8 +2355,12 @@ slowly and carefully. A door lies to the south.
 D0
 ~
 ~
+~
+~
 Z -1 30866
 D2
+~
+~
 ~
 ~
 ABZ 0 30870
@@ -2068,8 +2374,12 @@ slowly and carefully.
 D1
 ~
 ~
+~
+~
 Z -1 30855
 D3
+~
+~
 ~
 ~
 Z 0 30869
@@ -2083,8 +2393,12 @@ slowly and carefully. A door lies to the west.
 D1
 ~
 ~
+~
+~
 Z -1 30868
 D3
+~
+~
 ~
 ~
 ABZ 0 30870
@@ -2099,8 +2413,12 @@ sits in front of them, though it doesn't look as if it gets much use.
 D0
 ~
 ~
+~
+~
 ABZ 0 30867
 D1
+~
+~
 ~
 ~
 ABZ 0 30869
@@ -2114,8 +2432,12 @@ slowly and carefully.
 D1
 ~
 ~
+~
+~
 Z -1 30872
 D3
+~
+~
 ~
 ~
 Z 0 30856
@@ -2129,8 +2451,12 @@ slowly and carefully. A door lies to the east.
 D1
 ~
 ~
+~
+~
 ABZ -1 30878
 D3
+~
+~
 ~
 ~
 Z 0 30871
@@ -2144,8 +2470,12 @@ slowly and carefully.
 D0
 ~
 ~
+~
+~
 Z -1 30874
 D2
+~
+~
 ~
 ~
 Z 0 30857
@@ -2159,8 +2489,12 @@ slowly and carefully. A door can be vaguely made out to the north.
 D0
 ~
 ~
+~
+~
 ABZ -1 30859
 D2
+~
+~
 ~
 ~
 Z 0 30873
@@ -2174,12 +2508,18 @@ slowly and carefully. Suddenly your feet cease to find floor beneath them...
 D0
 ~
 ~
+~
+~
 Z -1 30858
 D2
 ~
 ~
+~
+~
 Z 0 30877
 D5
+~
+~
 ~
 ~
 Z -1 30876
@@ -2194,6 +2534,8 @@ HOT in here!
 D4
 ~
 ~
+~
+~
 Z -1 30875
 S
 #30877
@@ -2205,8 +2547,12 @@ slowly and carefully. You see a door to the south.
 D0
 ~
 ~
+~
+~
 Z -1 30875
 D2
+~
+~
 ~
 ~
 ABZ 0 30878
@@ -2222,12 +2568,18 @@ west and north.
 D0
 ~
 ~
+~
+~
 ABZ 0 30877
 D1
 ~
 ~
+~
+~
 ABZ 0 30879
 D3
+~
+~
 ~
 ~
 ABZ 0 30872
@@ -2242,12 +2594,18 @@ creators are scared of them.
 D0
 ~
 ~
+~
+~
 ABZ 0 30880
 D2
 ~
 ~
+~
+~
 ABZ 0 30881
 D3
+~
+~
 ~
 ~
 ABZ 0 30878
@@ -2261,6 +2619,8 @@ bone. Whatever lives here certainly has bad domestic habits.
 D2
 ~
 ~
+~
+~
 ABZ 0 30879
 S
 #30881
@@ -2272,6 +2632,8 @@ bone. Whatever lives here certainly has bad domestic habits.
 D0
 ~
 ~
+~
+~
 ABZ 0 30879
 S
 #30882
@@ -2281,6 +2643,8 @@ turning back now!
 ~
 0 AD inside
 D5
+~
+~
 ~
 ~
 ABCZ 30848 30839
@@ -2297,16 +2661,24 @@ Arched hallways run east, south and north, while a door bars passage westward.
 D0
 ~
 ~
+~
+~
 Z -1 30884
 D1
+~
+~
 ~
 ~
 Z -1 30889
 D2
 ~
 ~
+~
+~
 Z -1 30894
 D3
+~
+~
 ~
 ~
 ABZ 0 30899
@@ -2321,8 +2693,12 @@ of a large bell. You hear more chanting, then a terrible scream. Oh dear...
 D0
 ~
 ~
+~
+~
 Z -1 30886
 D2
+~
+~
 ~
 ~
 Z -1 30883
@@ -2335,6 +2711,8 @@ peer in that direction and- OH MY GOD!
 ~
 0 AD inside
 D1
+~
+~
 ~
 ~
 Z -1 30886
@@ -2350,12 +2728,18 @@ demons and devils.
 D0
 ~
 ~
+~
+~
 Z -1 30888
 D2
 ~
 ~
+~
+~
 Z -1 30884
 D3
+~
+~
 ~
 ~
 Z -1 30885
@@ -2373,6 +2757,8 @@ travel, to rid the world of this evil!
 D2
 ~
 ~
+~
+~
 Z -1 30886
 S
 #30889
@@ -2385,8 +2771,12 @@ the upcoming battle if you desire.
 D1
 ~
 ~
+~
+~
 ABZ 0 30890
 D3
+~
+~
 ~
 ~
 Z -1 30883
@@ -2402,16 +2792,24 @@ to the south and a massive bedchamber to the north.
 D0
 ~
 ~
+~
+~
 Z -1 30891
 D1
+~
+~
 ~
 ~
 Z -1 30893
 D2
 ~
 ~
+~
+~
 Z -1 30892
 D3
+~
+~
 ~
 ~
 ABZ 0 30889
@@ -2424,6 +2822,8 @@ his fancy. At present it appears to be deserted...
 ~
 0 D inside
 D2
+~
+~
 ~
 ~
 Z -1 30890
@@ -2439,6 +2839,8 @@ room, near a fireplace which burns magically without requiring fuel.
 D0
 ~
 ~
+~
+~
 Z -1 30890
 S
 #30893
@@ -2449,6 +2851,8 @@ foul place.
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 Z -1 30890
@@ -2463,8 +2867,12 @@ with a fair deal of caution, not knowing of what mein the laborers may be.
 D0
 ~
 ~
+~
+~
 Z -1 30883
 D2
+~
+~
 ~
 ~
 Z -1 30896
@@ -2479,6 +2887,8 @@ with a fair deal of caution, not knowing of what mein the laborers may be.
 D1
 ~
 ~
+~
+~
 Z -1 30896
 S
 #30896
@@ -2491,16 +2901,24 @@ with a fair deal of caution, not knowing of what mein the laborers may be.
 D0
 ~
 ~
+~
+~
 Z -1 30894
 D1
+~
+~
 ~
 ~
 Z -1 30897
 D2
 ~
 ~
+~
+~
 Z -1 30898
 D3
+~
+~
 ~
 ~
 Z -1 30895
@@ -2515,6 +2933,8 @@ with a fair deal of caution, not knowing of what mein the laborers may be.
 D3
 ~
 ~
+~
+~
 Z -1 30896
 S
 #30898
@@ -2527,6 +2947,8 @@ with a fair deal of caution, not knowing of what mein the laborers may be.
 D0
 ~
 ~
+~
+~
 Z -1 30896
 S
 #30899
@@ -2537,6 +2959,8 @@ the one you entered. Strange...
 ~
 0 ACD inside
 D1
+~
+~
 ~
 ~
 Z 0 30883

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Mausoleum~
 VNUMs 4600 4699
 Credits Khagghar~
@@ -843,10 +843,14 @@ warned.
 D0
 ~
 ~
+~
+~
 Z 0 3419
 D2
 ~
 door~
+~
+~
 Z 4600 4602
 S
 #4601
@@ -860,6 +864,8 @@ A door leads back out to the south.
 D2
 ~
 door~
+~
+~
 ABZ 0 4605
 S
 #4602
@@ -876,10 +882,14 @@ purpose. You have an urge to leave this place now.
 D0
 ~
 door~
+~
+~
 ABCZ 4600 4600
 D2
 ~
 door~
+~
+~
 ABZ 0 4606
 S
 #4603
@@ -893,6 +903,8 @@ A door to the south leaves this carnage.
 D2
 ~
 door~
+~
+~
 ABZ 0 4607
 S
 #4604
@@ -907,10 +919,14 @@ out to the main mausoleum area.
 D1
 ~
 door~
+~
+~
 ABZ 0 4605
 D2
 ~
 door~
+~
+~
 ABCZ 4600 4610
 S
 #4605
@@ -925,18 +941,26 @@ east and south.
 D0
 ~
 door~
+~
+~
 ABZ 0 4601
 D1
+~
+~
 ~
 ~
 Z 0 4606
 D2
 ~
 ~
+~
+~
 Z 0 4611
 D3
 ~
 door~
+~
+~
 ABZ 0 4604
 S
 #4606
@@ -951,16 +975,24 @@ and south.
 D0
 ~
 door~
+~
+~
 ABZ 0 4602
 D1
+~
+~
 ~
 ~
 Z 0 4607
 D2
 ~
 ~
+~
+~
 Z 0 4612
 D3
+~
+~
 ~
 ~
 Z 0 4605
@@ -977,16 +1009,24 @@ west and south.
 D0
 ~
 door~
+~
+~
 ABZ 0 4603
 D1
 ~
 door~
+~
+~
 ABZ 0 4608
 D2
 ~
 ~
+~
+~
 Z 0 4613
 D3
+~
+~
 ~
 ~
 Z 0 4606
@@ -1003,10 +1043,14 @@ out to the main mausoleum area.
 D2
 ~
 door~
+~
+~
 ABCZ 4600 4614
 D3
 ~
 door~
+~
+~
 ABZ 0 4607
 S
 #4609
@@ -1014,6 +1058,8 @@ The Kharzandra's coffin room~
 ~
 0 ADN inside
 D1
+~
+~
 ~
 ~
 ABZ 0 4610
@@ -1025,8 +1071,12 @@ The workroom of Kharzandra.~
 D0
 ~
 door~
+~
+~
 ABCZ 4600 4604
 D3
+~
+~
 ~
 ~
 Z 0 4609
@@ -1043,12 +1093,18 @@ and south.
 D0
 ~
 ~
+~
+~
 Z 0 4605
 D1
 ~
 ~
+~
+~
 Z 0 4612
 D2
+~
+~
 ~
 ~
 Z 0 4617
@@ -1064,16 +1120,24 @@ The mausoleum extends to the west, east, north and south.
 D0
 ~
 ~
+~
+~
 Z 0 4606
 D1
+~
+~
 ~
 ~
 Z 0 4613
 D2
 ~
 ~
+~
+~
 Z 0 4618
 D3
+~
+~
 ~
 ~
 Z 0 4611
@@ -1090,12 +1154,18 @@ and south.
 D0
 ~
 ~
+~
+~
 Z 0 4607
 D2
 ~
 ~
+~
+~
 Z 0 4619
 D3
+~
+~
 ~
 ~
 Z 0 4612
@@ -1111,8 +1181,12 @@ obviously a very organized, however twisted, individual.
 D0
 ~
 door~
+~
+~
 ABCZ 4600 4608
 D1
+~
+~
 ~
 ~
 Z 0 4634
@@ -1127,6 +1201,8 @@ the rancid odor coming from the opened crypts nearby.
 D1
 ~
 hidden~
+the hidden~
+~
 Z 0 4616
 S
 #4616
@@ -1138,10 +1214,14 @@ the evil and accursed relics strewn about.
 D1
 ~
 door~
+~
+~
 ABCZ 4600 4617
 D3
 ~
 hidden~
+the hidden~
+~
 Z 0 4615
 S
 #4617
@@ -1154,18 +1234,26 @@ sort of important room in the building.
 D0
 ~
 ~
+~
+~
 Z 0 4611
 D1
+~
+~
 ~
 ~
 Z 0 4618
 D2
 ~
 ~
+~
+~
 Z 0 4622
 D3
 ~
 door~
+~
+~
 ABCZ 4600 4616
 S
 #4618
@@ -1179,16 +1267,24 @@ The mausoleum extends to the west, east, north and south.
 D0
 ~
 ~
+~
+~
 Z 0 4612
 D1
+~
+~
 ~
 ~
 Z 0 4619
 D2
 ~
 ~
+~
+~
 Z 0 4623
 D3
+~
+~
 ~
 ~
 Z 0 4617
@@ -1203,16 +1299,24 @@ sort of important room in the building.
 D0
 ~
 ~
+~
+~
 Z 0 4613
 D1
 ~
 door~
+~
+~
 ABCZ 4600 4620
 D2
 ~
 ~
+~
+~
 Z 0 4624
 D3
+~
+~
 ~
 ~
 Z 0 4618
@@ -1226,6 +1330,8 @@ around outside. Maybe this would be a good place to rest.
 D3
 ~
 door~
+~
+~
 ABCZ 4600 4619
 S
 #4621
@@ -1238,10 +1344,14 @@ place to the dead bodies which lie piled up in the corner.
 D2
 ~
 door~
+~
+~
 ABCZ 4600 4626
 D3
 ~
 hidden~
+the hidden~
+~
 Z 0 4636
 S
 #4622
@@ -1256,12 +1366,18 @@ and south.
 D0
 ~
 ~
+~
+~
 Z 0 4617
 D1
 ~
 ~
+~
+~
 Z 0 4623
 D2
+~
+~
 ~
 ~
 Z 0 4627
@@ -1277,16 +1393,24 @@ The mausoleum extends to the west, east, north and south.
 D0
 ~
 ~
+~
+~
 Z 0 4618
 D1
+~
+~
 ~
 ~
 Z 0 4624
 D2
 ~
 ~
+~
+~
 Z 0 4628
 D3
+~
+~
 ~
 ~
 Z 0 4622
@@ -1303,12 +1427,18 @@ and south.
 D0
 ~
 ~
+~
+~
 Z 0 4619
 D2
 ~
 ~
+~
+~
 Z 0 4629
 D3
+~
+~
 ~
 ~
 Z 0 4623
@@ -1322,10 +1452,14 @@ raising a small force of undead troops to please it's master.
 D1
 ~
 hidden~
+the hidden~
+~
 ABZ 0 4637
 D2
 ~
 door~
+~
+~
 ABCZ 4600 4630
 S
 #4626
@@ -1340,10 +1474,14 @@ out to the main mausoleum area.
 D0
 ~
 door~
+~
+~
 ABCZ 4600 4621
 D1
 ~
 door~
+~
+~
 ABZ 0 4627
 S
 #4627
@@ -1358,18 +1496,26 @@ east and north.
 D0
 ~
 ~
+~
+~
 Z 0 4622
 D1
+~
+~
 ~
 ~
 Z 0 4628
 D2
 ~
 door~
+~
+~
 ABZ 0 4631
 D3
 ~
 door~
+~
+~
 ABZ 0 4626
 S
 #4628
@@ -1383,16 +1529,24 @@ The mausoleum extends to the west, east, north and south.
 D0
 ~
 ~
+~
+~
 Z 0 4623
 D1
+~
+~
 ~
 ~
 Z 0 4629
 D2
 ~
 ~
+~
+~
 Z 0 4632
 D3
+~
+~
 ~
 ~
 Z 0 4627
@@ -1409,16 +1563,24 @@ west and north.
 D0
 ~
 ~
+~
+~
 Z 0 4624
 D1
 ~
 door~
+~
+~
 ABZ 0 4630
 D2
 ~
 door~
+~
+~
 ABZ 0 4633
 D3
+~
+~
 ~
 ~
 Z 0 4628
@@ -1435,10 +1597,14 @@ out to the main mausoleum area.
 D0
 ~
 door~
+~
+~
 ABCZ 4600 4625
 D3
 ~
 door~
+~
+~
 ABZ 0 4629
 S
 #4631
@@ -1452,6 +1618,8 @@ A door leads back out to the nouth.
 D0
 ~
 door~
+~
+~
 ABZ 0 4627
 S
 #4632
@@ -1462,6 +1630,8 @@ a large crater is vaguely visible through the patches of fog and smoke.
 ~
 0 ADN inside
 D0
+~
+~
 ~
 ~
 Z 0 4628
@@ -1477,6 +1647,8 @@ A door leads back out to the nouth.
 D0
 ~
 door~
+~
+~
 ABZ 0 4629
 S
 #4634
@@ -1486,6 +1658,8 @@ Shadar Lunn's coffin room~
 D3
 ~
 ~
+~
+~
 ABZ 0 4614
 S
 #4635
@@ -1493,6 +1667,8 @@ Lost in the graveyard fog.~
 ~
 0 ADN inside
 D0
+~
+~
 ~
 ~
 Z 0 4632
@@ -1508,6 +1684,8 @@ heard of.
 D1
 ~
 hidden~
+the hidden~
+~
 ABZ 0 4621
 S
 #4637
@@ -1520,6 +1698,8 @@ far corner of the room, 3 huddled, burnt corpses lie resting.
 D3
 ~
 hidden~
+the hidden~
+~
 Z 0 4625
 S
 #0

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Galaxy~
 VNUMs 9300 9399
 Credits Doctor~
@@ -901,8 +901,12 @@ D3
 The shadows cloud your vision.
 ~
 ~
+~
+~
 Z -1 1306
 D5
+~
+~
 ~
 ~
 Z -1 9302
@@ -915,6 +919,8 @@ choice but to go forward.
 ~
 0 0 field
 D0
+~
+~
 ~
 ~
 Z -1 9303
@@ -930,16 +936,24 @@ fantasy zone.  Exits lie virtually in all directions.
 D0
 ~
 ~
+~
+~
 Z -1 9304
 D1
+~
+~
 ~
 ~
 Z -1 9308
 D2
 ~
 ~
+~
+~
 Z -1 9302
 D3
+~
+~
 ~
 ~
 Z -1 9321
@@ -953,12 +967,18 @@ visitors like you.  The walkway continues north and a small exit lies west.
 D0
 ~
 ~
+~
+~
 Z -1 9305
 D2
 ~
 ~
+~
+~
 Z -1 9303
 D3
+~
+~
 ~
 ~
 Z -1 9322
@@ -973,16 +993,24 @@ To the east lies a bridge.
 D0
 ~
 ~
+~
+~
 Z -1 9306
 D1
+~
+~
 ~
 ~
 Z -1 9309
 D2
 ~
 ~
+~
+~
 Z -1 9304
 D3
+~
+~
 ~
 ~
 Z -1 9323
@@ -996,8 +1024,12 @@ is around.
 D2
 ~
 ~
+~
+~
 Z -1 9305
 D3
+~
+~
 ~
 ~
 Z -1 9324
@@ -1013,12 +1045,18 @@ the east lies the Milky Way.
 D0
 ~
 ~
+~
+~
 Z -1 9331
 D1
 ~
 ~
+~
+~
 Z -1 9312
 D3
+~
+~
 ~
 ~
 Z -1 9303
@@ -1033,12 +1071,18 @@ a throne room.
 D0
 ~
 ~
+~
+~
 Z -1 9310
 D1
 ~
 ~
+~
+~
 Z -1 9314
 D3
+~
+~
 ~
 ~
 Z -1 9305
@@ -1053,6 +1097,8 @@ the King has gone, maybe he is hiding from you?
 D2
 ~
 ~
+~
+~
 Z -1 9309
 S
 #9312
@@ -1065,8 +1111,12 @@ here ... luckily you haven't fallen yet!
 D0
 ~
 ~
+~
+~
 Z -1 9313
 D3
+~
+~
 ~
 ~
 Z -1 9308
@@ -1080,12 +1130,18 @@ opening to the east.
 D0
 ~
 ~
+~
+~
 Z -1 9314
 D1
 ~
 ~
+~
+~
 Z -1 9317
 D2
+~
+~
 ~
 ~
 Z -1 9312
@@ -1099,12 +1155,18 @@ the end of it.  West leads to a bridge and east leads to somewhere else.
 D1
 ~
 ~
+~
+~
 Z -1 9318
 D2
 ~
 ~
+~
+~
 Z -1 9313
 D3
+~
+~
 ~
 ~
 Z -1 9309
@@ -1118,8 +1180,12 @@ living creature nearby.
 D0
 ~
 ~
+~
+~
 Z -1 9318
 D3
+~
+~
 ~
 ~
 Z -1 9313
@@ -1133,12 +1199,18 @@ is a path which leads down.
 D2
 ~
 ~
+~
+~
 Z -1 9317
 D3
 ~
 ~
+~
+~
 Z -1 9314
 D5
+~
+~
 ~
 ~
 Z -1 9319
@@ -1153,16 +1225,24 @@ better leave.
 D0
 ~
 ~
+~
+~
 Z -1 9320
 D1
+~
+~
 ~
 ~
 Z -1 9320
 D2
 ~
 ~
+~
+~
 Z -1 9320
 D3
+~
+~
 ~
 ~
 Z -1 9320
@@ -1186,8 +1266,12 @@ and nothing else.  You eyes become pretty hurt as you look at them.
 D0
 ~
 ~
+~
+~
 Z -1 9322
 D1
+~
+~
 ~
 ~
 Z -1 9303
@@ -1200,12 +1284,18 @@ This is another uninhabited place.  Exits lie north, east and south.
 D0
 ~
 ~
+~
+~
 Z -1 9323
 D1
 ~
 ~
+~
+~
 Z -1 9304
 D2
+~
+~
 ~
 ~
 Z -1 9321
@@ -1219,12 +1309,18 @@ courses now prove worthless.  Well who told you to take one at the start?
 D0
 ~
 ~
+~
+~
 Z -1 9324
 D1
 ~
 ~
+~
+~
 Z -1 9305
 D2
+~
+~
 ~
 ~
 Z -1 9322
@@ -1238,12 +1334,18 @@ you can sense darkness engulfing you.  You'd better get out quick.
 D0
 ~
 ~
+~
+~
 Z -1 9325
 D1
 ~
 ~
+~
+~
 Z -1 9306
 D2
+~
+~
 ~
 ~
 Z -1 9323
@@ -1264,8 +1366,12 @@ This is where the famous Seven Sisters live.  You'd better not disturb them.
 D1
 ~
 ~
+~
+~
 Z -1 9329
 D2
+~
+~
 ~
 ~
 Z -1 9327
@@ -1279,12 +1385,18 @@ directions except west.
 D0
 ~
 ~
+~
+~
 Z -1 9326
 D1
 ~
 ~
+~
+~
 Z -1 9330
 D2
+~
+~
 ~
 ~
 Z -1 9328
@@ -1298,8 +1410,12 @@ Scattered on the floor is the famous hunting equipment used by him.
 D0
 ~
 ~
+~
+~
 Z -1 9327
 D1
+~
+~
 ~
 ~
 Z -1 9331
@@ -1313,12 +1429,18 @@ directions except north.
 D1
 ~
 ~
+~
+~
 Z -1 9332
 D2
 ~
 ~
+~
+~
 Z -1 9330
 D3
+~
+~
 ~
 ~
 Z -1 9326
@@ -1334,24 +1456,36 @@ Below you recognize the temple of Thalos.
 D0
 ~
 ~
+~
+~
 Z -1 9329
 D1
+~
+~
 ~
 ~
 Z -1 9333
 D2
 ~
 ~
+~
+~
 Z -1 9331
 D3
+~
+~
 ~
 ~
 Z -1 9327
 D4
 ~
 ~
+~
+~
 Z -1 9339
 D5
+~
+~
 ~
 ~
 Z -1 5250
@@ -1366,16 +1500,24 @@ Universe.
 D0
 ~
 ~
+~
+~
 Z -1 9330
 D1
+~
+~
 ~
 ~
 Z -1 9334
 D2
 ~
 ~
+~
+~
 Z -1 9308
 D3
+~
+~
 ~
 ~
 Z -1 9328
@@ -1389,8 +1531,12 @@ that he got from the Ten Labours.
 D2
 ~
 ~
+~
+~
 Z -1 9333
 D3
+~
+~
 ~
 ~
 Z -1 9329
@@ -1404,12 +1550,18 @@ directions except east.
 D0
 ~
 ~
+~
+~
 Z -1 9332
 D2
 ~
 ~
+~
+~
 Z -1 9334
 D3
+~
+~
 ~
 ~
 Z -1 9330
@@ -1423,8 +1575,12 @@ Maybe he has gone to get Pegasus to save Andromeda?
 D0
 ~
 ~
+~
+~
 Z -1 9333
 D3
+~
+~
 ~
 ~
 Z -1 9331
@@ -1439,16 +1595,24 @@ you from going further upwards.
 D0
 ~
 ~
+~
+~
 Z -1 9348
 D1
+~
+~
 ~
 ~
 Z -1 9351
 D2
 ~
 ~
+~
+~
 Z -1 9342
 D3
+~
+~
 ~
 ~
 Z -1 9345
@@ -1456,8 +1620,12 @@ D4
 You see the forcefield of Spring.
 ~
 forcefield~
+the forcefield~
+~
 ABCFZ 9324 9354
 D5
+~
+~
 ~
 ~
 Z -1 9330
@@ -1471,12 +1639,18 @@ that Spring has descended upon you.
 D0
 ~
 ~
+~
+~
 Z -1 9339
 D1
 ~
 ~
+~
+~
 Z -1 9353
 D3
+~
+~
 ~
 ~
 Z -1 9343
@@ -1490,8 +1664,12 @@ there are no Matadors around.  Maybe they are all dead?
 D1
 ~
 ~
+~
+~
 Z -1 9342
 D3
+~
+~
 ~
 ~
 Z -1 9344
@@ -1506,6 +1684,8 @@ two Gemini?
 D1
 ~
 ~
+~
+~
 Z -1 9343
 S
 #9345
@@ -1517,8 +1697,12 @@ hidden forms which could be camouflaged crabs.
 D1
 ~
 ~
+~
+~
 Z -1 9339
 D3
+~
+~
 ~
 ~
 Z -1 9346
@@ -1532,6 +1716,8 @@ overgrowth you think you glimpse a pair of menacing eyes.
 D1
 ~
 ~
+~
+~
 Z -1 9345
 S
 #9347
@@ -1541,6 +1727,8 @@ It's a double bed and there is only room for one more!  Well, what now ... ?
 ~
 0 D city
 D3
+~
+~
 ~
 ~
 Z -1 9348
@@ -1555,12 +1743,18 @@ and feel yourself exposed, just like the trees in Autumn.
 D1
 ~
 ~
+~
+~
 Z -1 9347
 D2
 ~
 ~
+~
+~
 Z -1 9339
 D3
+~
+~
 ~
 ~
 Z -1 9349
@@ -1574,8 +1768,12 @@ heat you see the hazy outline of a giant scorpion ... is this a mirage?
 D1
 ~
 ~
+~
+~
 Z -1 9348
 D3
+~
+~
 ~
 ~
 Z -1 9350
@@ -1589,6 +1787,8 @@ hide yourself before you become the 'center attraction'!
 D1
 ~
 ~
+~
+~
 Z -1 9349
 S
 #9351
@@ -1600,8 +1800,12 @@ clouds below you.  One of the clouds resembles a goat-like form.
 D1
 ~
 ~
+~
+~
 Z -1 9352
 D3
+~
+~
 ~
 ~
 Z -1 9339
@@ -1615,6 +1819,8 @@ that the water is being poured out of a vessel of mind-boggling proportions!
 D3
 ~
 ~
+~
+~
 Z -1 9351
 S
 #9353
@@ -1624,6 +1830,8 @@ You suspect something fishy is going on in here.
 ~
 0 0 mountain
 D3
+~
+~
 ~
 ~
 Z -1 9342
@@ -1639,9 +1847,13 @@ D4
 You see the forcefield of Summer.
 ~
 forcefield~
+the forcefield~
+~
 ABCFZ 9325 9355
 D5
 You see the forcefield of Spring.
+~
+~
 ~
 ~
 AFZ 9324 9339
@@ -1655,8 +1867,12 @@ is made of, you feel the ground move.
 D0
 ~
 ~
+~
+~
 Z -1 9356
 D5
+~
+~
 ~
 ~
 AFZ 9325 9354
@@ -1671,8 +1887,12 @@ actually flying now!
 D0
 ~
 ~
+~
+~
 Z -1 9357
 D2
+~
+~
 ~
 ~
 Z -1 9355
@@ -1686,8 +1906,12 @@ you can reach to the inner galaxy is by going all the way to the head.
 D0
 ~
 ~
+~
+~
 Z -1 9358
 D2
+~
+~
 ~
 ~
 Z -1 9356
@@ -1702,8 +1926,12 @@ distant stars.
 D0
 ~
 ~
+~
+~
 Z -1 9359
 D2
+~
+~
 ~
 ~
 Z -1 9357
@@ -1718,8 +1946,12 @@ D1
 You see the forcefield of Autumn.
 ~
 forcefield~
+the forcefield~
+~
 ABCFZ 9326 9360
 D2
+~
+~
 ~
 ~
 Z -1 9358
@@ -1733,8 +1965,12 @@ of something as the forceful gusts sweep you away.
 D1
 ~
 ~
+~
+~
 Z -1 9361
 D3
+~
+~
 ~
 ~
 AFZ 9326 9359
@@ -1748,8 +1984,12 @@ beyond into the darkness.
 D2
 ~
 ~
+~
+~
 Z -1 9362
 D3
+~
+~
 ~
 ~
 Z -1 9360
@@ -1763,8 +2003,12 @@ endless.
 D0
 ~
 ~
+~
+~
 Z -1 9361
 D3
+~
+~
 ~
 ~
 Z -1 9363
@@ -1779,11 +2023,15 @@ If only the head were here ...
 D1
 ~
 ~
+~
+~
 Z -1 9362
 D2
 You see the forcefield of Winter.
 ~
 forcefield~
+the forcefield~
+~
 ABCFZ 9327 9364
 S
 #9364
@@ -1797,12 +2045,18 @@ D0
 You see the forcefield of Winter.
 ~
 forcefield~
+the forcefield~
+~
 AFZ 9327 9363
 D2
 ~
 ~
+~
+~
 Z -1 9365
 D3
+~
+~
 ~
 ~
 Z -1 9366
@@ -1816,8 +2070,12 @@ every star and constellation in the Universe.
 D0
 ~
 ~
+~
+~
 Z -1 9364
 D3
+~
+~
 ~
 ~
 Z -1 9367
@@ -1830,8 +2088,12 @@ You see stars around you but nothing of special interest.
 D1
 ~
 ~
+~
+~
 Z -1 9364
 D2
+~
+~
 ~
 ~
 Z -1 9367
@@ -1845,12 +2107,18 @@ every star and constellation in the Universe.
 D0
 ~
 ~
+~
+~
 Z -1 9366
 D1
 ~
 ~
+~
+~
 Z -1 9365
 D2
+~
+~
 ~
 ~
 Z -1 9368
@@ -1863,8 +2131,12 @@ You see stars around you but nothing of special interest.
 D0
 ~
 ~
+~
+~
 Z -1 9367
 D3
+~
+~
 ~
 ~
 Z -1 9369
@@ -1877,8 +2149,12 @@ You see stars around you but nothing of special interest.
 D1
 ~
 ~
+~
+~
 Z -1 9368
 D2
+~
+~
 ~
 ~
 Z -1 9370
@@ -1893,8 +2169,12 @@ if Polaris could lie here.
 D0
 ~
 ~
+~
+~
 Z -1 9369
 D2
+~
+~
 ~
 ~
 Z -1 9371
@@ -1908,6 +2188,8 @@ You feel you have come to end of your search in this galaxy ...
 ~
 0 0 city
 D0
+~
+~
 ~
 ~
 Z 0 9370

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Ciquala's Lair~
 VNUMs 13400 13499
 Credits Binky~
@@ -649,10 +649,14 @@ small tablet~
 D2
 ~
 hole~
+the hole~
+~
 Z 1 6153
 D5
 ~
 trapdoor~
+the trapdoor~
+~
 ABZ -1 13401
 S
 #13401
@@ -664,8 +668,12 @@ is only darkness, from which a frigid breeze blows.
 D4
 ~
 trapdoor~
+the trapdoor~
+~
 ABZ -1 13400
 D5
+~
+~
 ~
 ~
 Z -1 13402
@@ -679,8 +687,12 @@ dark.  Below is only darkness, from which a frigid breeze blows.
 D4
 ~
 ~
+~
+~
 Z -1 13401
 D5
+~
+~
 ~
 ~
 Z -1 13403
@@ -696,12 +708,18 @@ some footprints in the dust, and looking up, you see who they belong to!
 D1
 ~
 ~
+~
+~
 Z -1 13404
 D3
 ~
 door~
+~
+~
 ABZ -1 13409
 D4
+~
+~
 ~
 ~
 Z -1 13402
@@ -748,8 +766,12 @@ believe you could step into the pool, and appear in Lord British's castle.
 D1
 ~
 ~
+~
+~
 Z -1 13405
 D3
+~
+~
 ~
 ~
 Z -1 13403
@@ -764,16 +786,24 @@ You think that drinking the contents of any might have undesireable effects.
 D0
 ~
 celldoor~
+the celldoor~
+~
 ABCFZ 13404 13408
 D1
 ~
 celldoor~
+the celldoor~
+~
 ABCFZ 13404 13407
 D2
 ~
 door~
+~
+~
 ABZ -1 13406
 D3
+~
+~
 ~
 ~
 Z -1 13404
@@ -791,6 +821,8 @@ from behind one of the crates.
 D0
 ~
 door~
+~
+~
 ABZ -1 13405
 S
 #13407
@@ -803,6 +835,8 @@ the experiments they are working on.
 D3
 ~
 celldoor~
+the celldoor~
+~
 ABCFZ 13404 13405
 S
 #13408
@@ -815,6 +849,8 @@ the experiments they are working on.
 D2
 ~
 celldoor~
+the celldoor~
+~
 ABCFZ 13404 13405
 S
 #13409
@@ -827,10 +863,14 @@ are doors to both the east and west.
 D1
 ~
 door~
+~
+~
 ABZ -1 13403
 D3
 ~
 door~
+~
+~
 ABZ -1 13410
 S
 #13410
@@ -843,18 +883,26 @@ room is also as cold as all the others were.
 D0
 ~
 door~
+~
+~
 ABCFZ 13405 13411
 D1
 ~
 door~
+~
+~
 ABZ -1 13409
 D2
 ~
 door~
+~
+~
 ABZ -1 13412
 D3
 ~
 door~
+~
+~
 ABZ -1 13413
 S
 #13411
@@ -874,6 +922,8 @@ against people snooping in her Lair.
 D2
 ~
 door~
+~
+~
 ABCFZ 13405 13410
 S
 #13412
@@ -886,6 +936,8 @@ for the world in general.
 D0
 ~
 door~
+~
+~
 ABZ -1 13410
 S
 #13413
@@ -898,18 +950,26 @@ There are also doors leading all directions but west.
 D0
 ~
 door~
+~
+~
 ABZ -1 13415
 D1
 ~
 door~
+~
+~
 ABZ -1 13410
 D2
 ~
 door~
+~
+~
 ABZ -1 13416
 D5
 ~
 grate~
+the grate~
+~
 ABZ -1 13414
 S
 #13414
@@ -923,6 +983,8 @@ of problems for Midgaard.
 D4
 ~
 grate~
+the grate~
+~
 ABZ -1 13413
 S
 #13415
@@ -936,6 +998,8 @@ room.
 D2
 ~
 door~
+~
+~
 ABZ -1 13413
 S
 #13416
@@ -950,8 +1014,12 @@ rather regal and stately, but undoubtedly evil.
 D0
 ~
 door~
+~
+~
 ABZ -1 13413
 D2
+~
+~
 ~
 ~
 Z -1 13417
@@ -968,10 +1036,14 @@ you as you face the Lich, Ciquala!
 D0
 ~
 ~
+~
+~
 Z -1 13416
 D2
 ~
 tapestry~
+the tapestry~
+~
 ABCFZ 13406 13418
 S
 #13418
@@ -989,11 +1061,15 @@ The paving stone seems to be masking a passage down into a pit below this room.
 D0
 ~
 tapestry~
+the tapestry~
+~
 ABCFZ 13406 13417
 D5
 The stone appears to hide a secret passage going down.
 ~
 stone~
+the stone~
+~
 ABZ -1 13419
 S
 #13419
@@ -1005,6 +1081,8 @@ Unfortunately, they all seem to be out of their crypts right now.
 D4
 ~
 stone~
+the stone~
+~
 ABZ -1 13418
 S
 #0

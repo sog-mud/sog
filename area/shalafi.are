@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Shalafi~
 VNUMs 95300 95399
 Credits Asena~
@@ -227,12 +227,18 @@ it gives off a soft purple radiance.
 D1
 ~
 ~
+~
+~
 Z -1 95307
 D3
 ~
 ~
+~
+~
 Z -1 95308
 D5
+~
+~
 ~
 ~
 Z -1 95301
@@ -254,8 +260,12 @@ it.
 D4
 ~
 ~
+~
+~
 Z -1 95300
 D5
+~
+~
 ~
 ~
 Z -1 95302
@@ -272,8 +282,12 @@ eternity and power of the magic. The mist itself thickens to the up.
 D4
 ~
 ~
+~
+~
 Z -1 95301
 D5
+~
+~
 ~
 ~
 Z -1 95303
@@ -293,8 +307,12 @@ light. A flight of stairs lead up and down.
 D4
 ~
 ~
+~
+~
 Z -1 95302
 D5
+~
+~
 ~
 ~
 Z -1 95304
@@ -313,8 +331,12 @@ Arcane Arts.
 D2
 ~
 ~
+~
+~
 Z -1 95305
 D4
+~
+~
 ~
 ~
 Z -1 95303
@@ -337,8 +359,12 @@ universe has been used to create this tower.
 D0
 ~
 ~
+~
+~
 Z -1 95304
 D2
+~
+~
 ~
 ~
 DZ -1 95306
@@ -357,12 +383,18 @@ Arts.
 D0
 ~
 ~
+~
+~
 DZ -1 95305
 D2
 ~
 ~
+~
+~
 Z 0 95309
 D5
+~
+~
 ~
 ~
 DZ 0 95310
@@ -384,6 +416,8 @@ you to find some materials to create powerful wands and staves.
 D3
 ~
 ~
+~
+~
 Z -1 95300
 S
 #95308
@@ -403,6 +437,8 @@ you to find some materials to create powerful wands and staves.
 D1
 ~
 ~
+~
+~
 Z -1 95300
 S
 #95309
@@ -416,8 +452,12 @@ S
 D0
 ~
 ~
+~
+~
 Z 0 95306
 D2
+~
+~
 ~
 ~
 Z 0 1480
@@ -435,8 +475,12 @@ S
 D0
 ~
 ~
+~
+~
 Z 0 95311
 D4
+~
+~
 ~
 ~
 DZ 0 95306
@@ -453,6 +497,8 @@ S
 ~
 0 ADKX inside
 D2
+~
+~
 ~
 ~
 Z 0 95310

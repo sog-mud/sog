@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Warders~
 VNUMs 96000 96099
 Credits ParAvoz~
@@ -169,6 +169,8 @@ You don't know do you understand everything or not.Maybe return?
 D0
 ~
 ~
+~
+~
 Z 0 96001
 S
 #96001
@@ -186,16 +188,24 @@ How nature will show you invisible face?
 D0
 ~
 ~
+~
+~
 Z 0 96002
 D1
+~
+~
 ~
 ~
 Z 0 96001
 D2
 ~
 ~
+~
+~
 Z 0 96000
 D3
+~
+~
 ~
 ~
 Z 0 96001
@@ -215,16 +225,24 @@ How nature will show you invisible face?
 D0
 ~
 ~
+~
+~
 Z 0 96003
 D1
+~
+~
 ~
 ~
 Z 0 96002
 D2
 ~
 ~
+~
+~
 Z 0 96001
 D3
+~
+~
 ~
 ~
 Z 0 96002
@@ -244,16 +262,24 @@ How nature will show you invisible face?
 D0
 ~
 ~
+~
+~
 Z 0 96004
 D1
+~
+~
 ~
 ~
 Z 0 96003
 D2
 ~
 ~
+~
+~
 Z 0 96002
 D3
+~
+~
 ~
 ~
 Z 0 96003
@@ -273,16 +299,24 @@ How nature will show you invisible face?
 D0
 ~
 ~
+~
+~
 Z 0 96005
 D1
+~
+~
 ~
 ~
 Z 0 96004
 D2
 ~
 ~
+~
+~
 Z 0 96003
 D3
+~
+~
 ~
 ~
 Z 0 96004
@@ -301,16 +335,24 @@ If all intuders never die
 D1
 ~
 ~
+~
+~
 Z 0 96005
 D2
+~
+~
 ~
 ~
 Z 0 96004
 D3
 ~
 ~
+~
+~
 Z 0 96005
 D4
+~
+~
 ~
 ~
 Z 0 96006
@@ -328,12 +370,18 @@ Will paint everything we knew
 D1
 ~
 ~
+~
+~
 Z 0 96007
 D4
 ~
 ~
+~
+~
 Z 0 96008
 D5
+~
+~
 ~
 ~
 Z 0 96005
@@ -351,6 +399,8 @@ The law of nature tells us that
 D3
 ~
 ~
+~
+~
 Z 0 96006
 S
 #96008
@@ -366,6 +416,8 @@ We'll never loose the nature link
 D5
 ~
 ~
+~
+~
 Z 0 96006
 S
 #96009
@@ -379,6 +431,8 @@ you see everything.
 D5
 ~
 ~
+~
+~
 Z 0 96005
 S
 #96010
@@ -389,16 +443,24 @@ Sands...Sands...Sands...
 D0
 ~
 ~
+~
+~
 Z 0 96010
 D1
+~
+~
 ~
 ~
 Z 0 96010
 D2
 ~
 ~
+~
+~
 Z 0 96010
 D3
+~
+~
 ~
 ~
 Z 0 96010

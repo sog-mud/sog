@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Forest of Nowhere~
 Builders tranto~
 VNUMs 22450 22699
@@ -929,6 +929,8 @@ groups of one-sorted trees.In the far south west you can see a high mountain.
 D3
 ~
 ~
+~
+~
 Z 0 22452
 S
 #22452
@@ -943,20 +945,30 @@ see a high mountain.And nearly you can see a hole leading down.
 D0
 ~
 ~
+~
+~
 Z 0 22454
 D1
+~
+~
 ~
 ~
 Z 0 22451
 D2
 ~
 ~
+~
+~
 Z 0 22453
 D3
 ~
 ~
+~
+~
 Z 0 22456
 D5
+~
+~
 ~
 ~
 Z 0 22462
@@ -970,6 +982,8 @@ prepare they food on it.You think you are to tired and need rest here.
 ~
 0 0 forest
 D0
+~
+~
 ~
 ~
 Z 0 22452
@@ -987,12 +1001,18 @@ see a high mountain.And nearly you can see a hole leading down.
 D2
 ~
 ~
+~
+~
 Z 0 22452
 D3
 ~
 ~
+~
+~
 Z 0 22455
 D5
+~
+~
 ~
 ~
 Z 0 22461
@@ -1009,20 +1029,30 @@ see a high mountain.And nearly you can see a hole leading down.
 D0
 ~
 ~
+~
+~
 Z 0 22502
 D1
+~
+~
 ~
 ~
 Z 0 22454
 D2
 ~
 ~
+~
+~
 Z 0 22456
 D3
 ~
 ~
+~
+~
 Z 0 22457
 D5
+~
+~
 ~
 ~
 Z 0 22463
@@ -1039,16 +1069,24 @@ see a high mountain. And nearly you can see a hole leading down.
 D0
 ~
 ~
+~
+~
 Z 0 22455
 D1
+~
+~
 ~
 ~
 Z 0 22452
 D3
 ~
 ~
+~
+~
 Z 0 22458
 D5
+~
+~
 ~
 ~
 Z 0 22464
@@ -1065,16 +1103,24 @@ see a high mountain.And nearly you can see a hole leading down.
 D1
 ~
 ~
+~
+~
 Z 0 22455
 D2
+~
+~
 ~
 ~
 Z 0 22458
 D3
 ~
 ~
+~
+~
 Z 0 22459
 D5
+~
+~
 ~
 ~
 Z 0 22465
@@ -1091,16 +1137,24 @@ see a high mountain.And nearly you can see a hole leading down.
 D0
 ~
 ~
+~
+~
 Z 0 22457
 D1
+~
+~
 ~
 ~
 Z 0 22456
 D3
 ~
 ~
+~
+~
 Z 0 22460
 D5
+~
+~
 ~
 ~
 Z 0 22466
@@ -1117,20 +1171,30 @@ see a high mountain.And nearly you can see a hole leading down.
 D0
 ~
 ~
+~
+~
 Z 0 22506
 D1
+~
+~
 ~
 ~
 Z 0 22457
 D2
 ~
 ~
+~
+~
 Z 0 22460
 D3
 ~
 ~
+~
+~
 Z 0 22469
 D5
+~
+~
 ~
 ~
 Z 0 22467
@@ -1147,16 +1211,24 @@ see a high mountain.And nearly you can see a hole leading down.
 D0
 ~
 ~
+~
+~
 Z 0 22459
 D1
+~
+~
 ~
 ~
 Z 0 22458
 D3
 ~
 ~
+~
+~
 Z 0 22470
 D5
+~
+~
 ~
 ~
 Z 0 22468
@@ -1173,12 +1245,18 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D2
 ~
 ~
+~
+~
 Z 0 22462
 D3
 ~
 ~
+~
+~
 Z 0 22463
 D4
+~
+~
 ~
 ~
 Z 0 22454
@@ -1195,12 +1273,18 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D0
 ~
 ~
+~
+~
 Z 0 22461
 D3
 ~
 ~
+~
+~
 Z 0 22464
 D4
+~
+~
 ~
 ~
 Z 0 22452
@@ -1217,16 +1301,24 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D1
 ~
 ~
+~
+~
 Z 0 22461
 D2
+~
+~
 ~
 ~
 Z 0 22464
 D3
 ~
 ~
+~
+~
 Z 0 22465
 D4
+~
+~
 ~
 ~
 Z 0 22455
@@ -1243,16 +1335,24 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D0
 ~
 ~
+~
+~
 Z 0 22463
 D1
+~
+~
 ~
 ~
 Z 0 22462
 D3
 ~
 ~
+~
+~
 Z 0 22466
 D4
+~
+~
 ~
 ~
 Z 0 22456
@@ -1269,16 +1369,24 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D1
 ~
 ~
+~
+~
 Z 0 22463
 D2
+~
+~
 ~
 ~
 Z 0 22466
 D3
 ~
 ~
+~
+~
 Z 0 22467
 D4
+~
+~
 ~
 ~
 Z 0 22457
@@ -1295,16 +1403,24 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D0
 ~
 ~
+~
+~
 Z 0 22465
 D1
+~
+~
 ~
 ~
 Z 0 22464
 D3
 ~
 ~
+~
+~
 Z 0 22468
 D4
+~
+~
 ~
 ~
 Z 0 22458
@@ -1321,16 +1437,24 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D1
 ~
 ~
+~
+~
 Z 0 22465
 D2
+~
+~
 ~
 ~
 Z 0 22468
 D3
 ~
 ~
+~
+~
 Z 0 22477
 D4
+~
+~
 ~
 ~
 Z 0 22459
@@ -1347,16 +1471,24 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D0
 ~
 ~
+~
+~
 Z 0 22467
 D1
+~
+~
 ~
 ~
 Z 0 22466
 D3
 ~
 ~
+~
+~
 Z 0 22478
 D4
+~
+~
 ~
 ~
 Z 0 22460
@@ -1373,16 +1505,24 @@ see a high mountain.And nearly you can see a hole leading down.
 D1
 ~
 ~
+~
+~
 Z 0 22459
 D2
+~
+~
 ~
 ~
 Z 0 22470
 D3
 ~
 ~
+~
+~
 Z 0 22471
 D5
+~
+~
 ~
 ~
 Z 0 22477
@@ -1399,16 +1539,24 @@ see a high mountain.And nearly you can see a hole leading down.
 D0
 ~
 ~
+~
+~
 Z 0 22469
 D1
+~
+~
 ~
 ~
 Z 0 22460
 D3
 ~
 ~
+~
+~
 Z 0 22472
 D5
+~
+~
 ~
 ~
 Z 0 22478
@@ -1425,20 +1573,30 @@ see a high mountain.And nearly you can see a hole leading down.
 D0
 ~
 ~
+~
+~
 Z 0 22517
 D1
+~
+~
 ~
 ~
 Z 0 22469
 D2
 ~
 ~
+~
+~
 Z 0 22472
 D3
 ~
 ~
+~
+~
 Z 0 22473
 D5
+~
+~
 ~
 ~
 Z 0 22479
@@ -1455,16 +1613,24 @@ see a high mountain.And nearly you can see a hole leading down.
 D0
 ~
 ~
+~
+~
 Z 0 22471
 D1
+~
+~
 ~
 ~
 Z 0 22470
 D3
 ~
 ~
+~
+~
 Z 0 22474
 D5
+~
+~
 ~
 ~
 Z 0 22480
@@ -1481,16 +1647,24 @@ see a high mountain.And nearly you can see a hole leading down.
 D1
 ~
 ~
+~
+~
 Z 0 22471
 D2
+~
+~
 ~
 ~
 Z 0 22474
 D3
 ~
 ~
+~
+~
 Z 0 22475
 D5
+~
+~
 ~
 ~
 Z 0 22481
@@ -1507,16 +1681,24 @@ see a high mountain.And nearly you can see a hole leading down.
 D0
 ~
 ~
+~
+~
 Z 0 22473
 D1
+~
+~
 ~
 ~
 Z 0 22472
 D3
 ~
 ~
+~
+~
 Z 0 22476
 D5
+~
+~
 ~
 ~
 Z 0 22482
@@ -1533,20 +1715,30 @@ see a high mountain.And nearly you can see a hole leading down.
 D0
 ~
 ~
+~
+~
 Z 0 22516
 D1
+~
+~
 ~
 ~
 Z 0 22473
 D2
 ~
 ~
+~
+~
 Z 0 22476
 D3
 ~
 ~
+~
+~
 Z 0 22495
 D5
+~
+~
 ~
 ~
 Z 0 22483
@@ -1563,16 +1755,24 @@ see a high mountain.And nearly you can see a hole leading down.
 D0
 ~
 ~
+~
+~
 Z 0 22475
 D1
+~
+~
 ~
 ~
 Z 0 22474
 D3
 ~
 ~
+~
+~
 Z 0 22494
 D5
+~
+~
 ~
 ~
 Z 0 22484
@@ -1589,16 +1789,24 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D1
 ~
 ~
+~
+~
 Z 0 22467
 D2
+~
+~
 ~
 ~
 Z 0 22478
 D3
 ~
 ~
+~
+~
 Z 0 22479
 D4
+~
+~
 ~
 ~
 Z 0 22469
@@ -1615,16 +1823,24 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D0
 ~
 ~
+~
+~
 Z 0 22477
 D1
+~
+~
 ~
 ~
 Z 0 22468
 D3
 ~
 ~
+~
+~
 Z 0 22480
 D4
+~
+~
 ~
 ~
 Z 0 22470
@@ -1641,16 +1857,24 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D1
 ~
 ~
+~
+~
 Z 0 22477
 D2
+~
+~
 ~
 ~
 Z 0 22480
 D3
 ~
 ~
+~
+~
 Z 0 22481
 D4
+~
+~
 ~
 ~
 Z 0 22471
@@ -1667,20 +1891,30 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D0
 ~
 ~
+~
+~
 Z 0 22479
 D1
+~
+~
 ~
 ~
 Z 0 22478
 D2
 ~
 ~
+~
+~
 Z 0 22530
 D3
 ~
 ~
+~
+~
 Z 0 22482
 D4
+~
+~
 ~
 ~
 Z 0 22472
@@ -1697,16 +1931,24 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D1
 ~
 ~
+~
+~
 Z 0 22479
 D2
+~
+~
 ~
 ~
 Z 0 22482
 D3
 ~
 ~
+~
+~
 Z 0 22483
 D4
+~
+~
 ~
 ~
 Z 0 22473
@@ -1723,16 +1965,24 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D0
 ~
 ~
+~
+~
 Z 0 22481
 D1
+~
+~
 ~
 ~
 Z 0 22480
 D3
 ~
 ~
+~
+~
 Z 0 22484
 D4
+~
+~
 ~
 ~
 Z 0 22474
@@ -1749,16 +1999,24 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D1
 ~
 ~
+~
+~
 Z 0 22481
 D2
+~
+~
 ~
 ~
 Z 0 22484
 D3
 ~
 ~
+~
+~
 Z 0 22487
 D4
+~
+~
 ~
 ~
 Z 0 22475
@@ -1775,16 +2033,24 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D0
 ~
 ~
+~
+~
 Z 0 22483
 D1
+~
+~
 ~
 ~
 Z 0 22482
 D3
 ~
 ~
+~
+~
 Z 0 22486
 D4
+~
+~
 ~
 ~
 Z 0 22476
@@ -1798,6 +2064,8 @@ You think you enter in the unlike situation ...
 ~
 0 ANX inside
 D1
+~
+~
 ~
 ~
 ABLZ 0 22553
@@ -1814,16 +2082,24 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D0
 ~
 ~
+~
+~
 Z 0 22487
 D1
+~
+~
 ~
 ~
 Z 0 22484
 D3
 ~
 ~
+~
+~
 Z 0 22488
 D4
+~
+~
 ~
 ~
 Z 0 22494
@@ -1840,16 +2116,24 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D1
 ~
 ~
+~
+~
 Z 0 22483
 D2
+~
+~
 ~
 ~
 Z 0 22486
 D3
 ~
 ~
+~
+~
 Z 0 22489
 D4
+~
+~
 ~
 ~
 Z 0 22495
@@ -1866,16 +2150,24 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D0
 ~
 ~
+~
+~
 Z 0 22489
 D1
+~
+~
 ~
 ~
 Z 0 22486
 D3
 ~
 ~
+~
+~
 Z 0 22490
 D4
+~
+~
 ~
 ~
 Z 0 22496
@@ -1892,16 +2184,24 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D1
 ~
 ~
+~
+~
 Z 0 22487
 D2
+~
+~
 ~
 ~
 Z 0 22488
 D3
 ~
 ~
+~
+~
 Z 0 22491
 D4
+~
+~
 ~
 ~
 Z 0 22497
@@ -1918,16 +2218,24 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D0
 ~
 ~
+~
+~
 Z 0 22491
 D1
+~
+~
 ~
 ~
 Z 0 22488
 D3
 ~
 ~
+~
+~
 Z 0 22492
 D4
+~
+~
 ~
 ~
 Z 0 22498
@@ -1944,16 +2252,24 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D1
 ~
 ~
+~
+~
 Z 0 22489
 D2
+~
+~
 ~
 ~
 Z 0 22490
 D3
 ~
 ~
+~
+~
 Z 0 22493
 D4
+~
+~
 ~
 ~
 Z 0 22499
@@ -1970,12 +2286,18 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D0
 ~
 ~
+~
+~
 Z 0 22493
 D1
 ~
 ~
+~
+~
 Z 0 22490
 D4
+~
+~
 ~
 ~
 Z 0 22500
@@ -1992,12 +2314,18 @@ In the floor of tunnel you see lot of sorts of mushrooms and molds.
 D1
 ~
 ~
+~
+~
 Z 0 22491
 D2
 ~
 ~
+~
+~
 Z 0 22492
 D4
+~
+~
 ~
 ~
 Z 0 22501
@@ -2014,16 +2342,24 @@ see a high mountain.And nearly you can see a hole leading down.
 D0
 ~
 ~
+~
+~
 Z 0 22495
 D1
+~
+~
 ~
 ~
 Z 0 22476
 D3
 ~
 ~
+~
+~
 Z 0 22496
 D5
+~
+~
 ~
 ~
 Z 0 22486
@@ -2040,16 +2376,24 @@ see a high mountain.And nearly you can see a hole leading down.
 D1
 ~
 ~
+~
+~
 Z 0 22475
 D2
+~
+~
 ~
 ~
 Z 0 22494
 D3
 ~
 ~
+~
+~
 Z 0 22497
 D5
+~
+~
 ~
 ~
 Z 0 22487
@@ -2066,16 +2410,24 @@ see a high mountain.And nearly you can see a hole leading down.
 D0
 ~
 ~
+~
+~
 Z 0 22497
 D1
+~
+~
 ~
 ~
 Z 0 22494
 D3
 ~
 ~
+~
+~
 Z 0 22498
 D5
+~
+~
 ~
 ~
 Z 0 22488
@@ -2092,16 +2444,24 @@ see a high mountain.And nearly you can see a hole leading down.
 D1
 ~
 ~
+~
+~
 Z 0 22495
 D2
+~
+~
 ~
 ~
 Z 0 22496
 D3
 ~
 ~
+~
+~
 Z 0 22499
 D5
+~
+~
 ~
 ~
 Z 0 22489
@@ -2118,16 +2478,24 @@ see a high mountain.And nearly you can see a hole leading down.
 D0
 ~
 ~
+~
+~
 Z 0 22499
 D1
+~
+~
 ~
 ~
 Z 0 22496
 D3
 ~
 ~
+~
+~
 Z 0 22500
 D5
+~
+~
 ~
 ~
 Z 0 22490
@@ -2144,16 +2512,24 @@ see a high mountain.And nearly you can see a hole leading down.
 D1
 ~
 ~
+~
+~
 Z 0 22497
 D2
+~
+~
 ~
 ~
 Z 0 22498
 D3
 ~
 ~
+~
+~
 Z 0 22501
 D5
+~
+~
 ~
 ~
 Z 0 22491
@@ -2170,12 +2546,18 @@ see a high mountain.And nearly you can see a hole leading down.
 D0
 ~
 ~
+~
+~
 Z 0 22501
 D1
 ~
 ~
+~
+~
 Z 0 22498
 D5
+~
+~
 ~
 ~
 Z 0 22492
@@ -2192,16 +2574,24 @@ see a high mountain.And nearly you can see a hole leading down.
 D0
 ~
 ~
+~
+~
 Z 0 22527
 D1
+~
+~
 ~
 ~
 Z 0 22499
 D2
 ~
 ~
+~
+~
 Z 0 22500
 D5
+~
+~
 ~
 ~
 Z 0 22493
@@ -2218,8 +2608,12 @@ see a high mountain.
 D0
 ~
 ~
+~
+~
 Z 0 22503
 D2
+~
+~
 ~
 ~
 Z 0 22455
@@ -2236,8 +2630,12 @@ see a high mountain.
 D2
 ~
 ~
+~
+~
 Z 0 22502
 D3
+~
+~
 ~
 ~
 Z 0 22504
@@ -2254,8 +2652,12 @@ see a high mountain.
 D1
 ~
 ~
+~
+~
 Z 0 22503
 D3
+~
+~
 ~
 ~
 Z 0 22505
@@ -2272,16 +2674,24 @@ see a high mountain.
 D0
 ~
 ~
+~
+~
 Z 0 22507
 D1
+~
+~
 ~
 ~
 Z 0 22504
 D2
 ~
 ~
+~
+~
 Z 0 22506
 D3
+~
+~
 ~
 ~
 Z 0 22519
@@ -2298,8 +2708,12 @@ see a high mountain.
 D0
 ~
 ~
+~
+~
 Z 0 22505
 D2
+~
+~
 ~
 ~
 Z 0 22459
@@ -2316,8 +2730,12 @@ see a high mountain.
 D0
 ~
 ~
+~
+~
 Z 0 22508
 D2
+~
+~
 ~
 ~
 Z 0 22505
@@ -2334,12 +2752,18 @@ see a high mountain.
 D1
 ~
 ~
+~
+~
 Z 0 22509
 D2
 ~
 ~
+~
+~
 Z 0 22507
 D3
+~
+~
 ~
 ~
 Z 0 22510
@@ -2356,6 +2780,8 @@ see a high mountain.
 D3
 ~
 ~
+~
+~
 Z 0 22508
 S
 #22510
@@ -2370,12 +2796,18 @@ see a high mountain.In the north you see a small hut,blending in the forest.
 D0
 ~
 ~
+~
+~
 ABLZ 0 22528
 D1
 ~
 ~
+~
+~
 Z 0 22508
 D3
+~
+~
 ~
 ~
 Z 0 22511
@@ -2392,8 +2824,12 @@ see a high mountain.
 D1
 ~
 ~
+~
+~
 Z 0 22510
 D3
+~
+~
 ~
 ~
 Z 0 22512
@@ -2410,12 +2846,18 @@ see a high mountain.
 D0
 ~
 ~
+~
+~
 ABLZ 0 22529
 D1
 ~
 ~
+~
+~
 Z 0 22511
 D3
+~
+~
 ~
 ~
 Z 0 22513
@@ -2432,8 +2874,12 @@ see a high mountain.
 D1
 ~
 ~
+~
+~
 Z 0 22512
 D2
+~
+~
 ~
 ~
 Z 0 22514
@@ -2450,12 +2896,18 @@ see a high mountain.
 D0
 ~
 ~
+~
+~
 Z 0 22513
 D2
 ~
 ~
+~
+~
 Z 0 22515
 D3
+~
+~
 ~
 ~
 Z 0 22520
@@ -2472,8 +2924,12 @@ see a high mountain.
 D0
 ~
 ~
+~
+~
 Z 0 22514
 D2
+~
+~
 ~
 ~
 Z 0 22516
@@ -2490,8 +2946,12 @@ see a high mountain.
 D0
 ~
 ~
+~
+~
 Z 0 22515
 D2
+~
+~
 ~
 ~
 Z 0 22475
@@ -2508,8 +2968,12 @@ see a high mountain.
 D0
 ~
 ~
+~
+~
 Z 0 22518
 D2
+~
+~
 ~
 ~
 Z 0 22471
@@ -2526,8 +2990,12 @@ see a high mountain.
 D1
 ~
 ~
+~
+~
 Z 0 22519
 D2
+~
+~
 ~
 ~
 Z 0 22517
@@ -2544,8 +3012,12 @@ see a high mountain.
 D1
 ~
 ~
+~
+~
 Z 0 22505
 D3
+~
+~
 ~
 ~
 Z 0 22518
@@ -2562,8 +3034,12 @@ see a high mountain.
 D1
 ~
 ~
+~
+~
 Z 0 22514
 D3
+~
+~
 ~
 ~
 Z 0 22521
@@ -2580,12 +3056,18 @@ see a high mountain.
 D0
 ~
 ~
+~
+~
 Z 0 22522
 D1
 ~
 ~
+~
+~
 Z 0 22520
 D3
+~
+~
 ~
 ~
 Z 0 22523
@@ -2602,6 +3084,8 @@ see a high mountain.
 D2
 ~
 ~
+~
+~
 Z 0 22521
 S
 #22523
@@ -2616,12 +3100,18 @@ see a high mountain.
 D1
 ~
 ~
+~
+~
 Z 0 22521
 D2
 ~
 ~
+~
+~
 Z 0 22525
 D3
+~
+~
 ~
 ~
 Z 0 22524
@@ -2638,6 +3128,8 @@ see a high mountain.
 D1
 ~
 ~
+~
+~
 Z 0 22523
 S
 #22525
@@ -2652,8 +3144,12 @@ see a high mountain.
 D0
 ~
 ~
+~
+~
 Z 0 22523
 D2
+~
+~
 ~
 ~
 Z 0 22526
@@ -2670,8 +3166,12 @@ see a high mountain.
 D0
 ~
 ~
+~
+~
 Z 0 22525
 D3
+~
+~
 ~
 ~
 Z 0 22527
@@ -2688,8 +3188,12 @@ see a high mountain.
 D1
 ~
 ~
+~
+~
 Z 0 22526
 D2
+~
+~
 ~
 ~
 Z 0 22501
@@ -2705,6 +3209,8 @@ nearly western wall.
 D2
 ~
 door~
+~
+~
 ABLZ 0 22510
 S
 #22529
@@ -2718,6 +3224,8 @@ nearly eastern wall.But you sense a evil feeling in this room.
 D2
 ~
 ~
+~
+~
 ABLZ 0 22512
 S
 #22530
@@ -2727,8 +3235,12 @@ S
 D0
 ~
 ~
+~
+~
 Z 0 22480
 D2
+~
+~
 ~
 ~
 Z 0 22531
@@ -2740,14 +3252,18 @@ S
 D0
 ~
 ~
+~
+~
 Z 0 22530
 D5
+~
+~
 ~
 ~
 Z 0 22532
 S
 #22532
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -2756,16 +3272,20 @@ disappeared and you see torch on the wall.You see strange smell here
 ~
 0 AX inside
 D2
+~
+~
 ~
 ~
 Z 0 22533
 D4
 ~
 ~
+~
+~
 Z 0 22531
 S
 #22533
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -2774,16 +3294,20 @@ disappeared and you see torch on the wall.You see strange smell here
 ~
 0 AX inside
 D0
+~
+~
 ~
 ~
 Z 0 22532
 D2
 ~
 ~
+~
+~
 Z 0 22534
 S
 #22534
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -2792,20 +3316,26 @@ disappeared and you see torch on the wall.You see strange smell here
 ~
 0 AX inside
 D0
+~
+~
 ~
 ~
 Z 0 22533
 D1
 ~
 ~
+~
+~
 Z 0 22545
 D3
+~
+~
 ~
 ~
 Z 0 22535
 S
 #22535
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -2814,16 +3344,20 @@ disappeared and you see torch on the wall.You see strange smell here
 ~
 0 AX inside
 D1
+~
+~
 ~
 ~
 Z 0 22534
 D3
 ~
 ~
+~
+~
 Z 0 22536
 S
 #22536
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -2832,16 +3366,20 @@ disappeared and you see torch on the wall.You see strange smell here
 ~
 0 AX inside
 D1
+~
+~
 ~
 ~
 Z 0 22535
 D2
 ~
 ~
+~
+~
 Z 0 22537
 S
 #22537
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -2850,20 +3388,32 @@ disappeared and you see torch on the wall.You see strange smell here
 ~
 0 AX inside
 D0
+~
+~
 ~
 ~
 Z 0 22536
 D1
 ~
 ~
+~
+~
 Z 0 22541
+D2
+~
+~
+~
+~
+Z 0 22566
 D3
+~
+~
 ~
 ~
 Z 0 22538
 S
 #22538
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -2872,16 +3422,20 @@ disappeared and you see torch on the wall.You see strange smell here
 ~
 0 AX inside
 D1
+~
+~
 ~
 ~
 Z 0 22537
 D3
 ~
 ~
+~
+~
 Z 0 22539
 S
 #22539
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -2892,14 +3446,24 @@ disappeared and you see torch on the wall.You see strange smell here
 D1
 ~
 ~
+~
+~
 Z 0 22538
+D2
+~
+~
+~
+~
+Z 0 22561
 D3
+~
+~
 ~
 ~
 Z 0 22540
 S
 #22540
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -2908,16 +3472,20 @@ disappeared and you see torch on the wall.You see strange smell here
 ~
 0 AX inside
 D1
+~
+~
 ~
 ~
 Z 0 22539
 D3
 ~
 ~
+~
+~
 Z 0 22544
 S
 #22541
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -2926,16 +3494,20 @@ disappeared and you see torch on the wall.You see strange smell here
 ~
 0 AX inside
 D1
+~
+~
 ~
 ~
 Z 0 22542
 D3
 ~
 ~
+~
+~
 Z 0 22537
 S
 #22542
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -2946,18 +3518,24 @@ disappeared and you see torch on the wall.You see strange smell here
 D1
 ~
 ~
+~
+~
 Z 0 22543
 D2
+~
+~
 ~
 ~
 Z 0 22546
 D3
 ~
 ~
+~
+~
 Z 0 22541
 S
 #22543
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -2966,20 +3544,26 @@ disappeared and you see torch on the wall.You see strange smell here
 ~
 0 AX inside
 D0
+~
+~
 ~
 ~
 Z 0 22545
 D1
 ~
 ~
+~
+~
 Z 0 22544
 D3
+~
+~
 ~
 ~
 Z 0 22542
 S
 #22544
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -2990,10 +3574,12 @@ disappeared and you see torch on the wall.You see strange smell here
 D3
 ~
 ~
+~
+~
 Z 0 22543
 S
 #22545
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -3004,14 +3590,18 @@ disappeared and you see torch on the wall.You see strange smell here
 D2
 ~
 ~
+~
+~
 Z 0 22543
 D3
+~
+~
 ~
 ~
 Z 0 22534
 S
 #22546
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -3020,16 +3610,20 @@ disappeared and you see torch on the wall.You see strange smell here
 ~
 0 AX inside
 D0
+~
+~
 ~
 ~
 Z 0 22542
 D2
 ~
 ~
+~
+~
 Z 0 22547
 S
 #22547
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -3038,16 +3632,20 @@ disappeared and you see torch on the wall.You see strange smell here
 ~
 0 AX inside
 D0
+~
+~
 ~
 ~
 Z 0 22546
 D2
 ~
 ~
+~
+~
 Z 0 22548
 S
 #22548
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -3058,14 +3656,18 @@ disappeared and you see torch on the wall.You see strange smell here
 D0
 ~
 ~
+~
+~
 Z 0 22547
 D1
+~
+~
 ~
 ~
 Z 0 22549
 S
 #22549
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -3074,16 +3676,20 @@ disappeared and you see torch on the wall.You see strange smell here
 ~
 0 AX inside
 D1
+~
+~
 ~
 ~
 Z 0 22550
 D3
 ~
 ~
+~
+~
 Z 0 22548
 S
 #22550
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -3094,14 +3700,18 @@ disappeared and you see torch on the wall.You see strange smell here
 D1
 ~
 ~
+~
+~
 Z 0 22551
 D3
+~
+~
 ~
 ~
 Z 0 22549
 S
 #22551
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -3110,20 +3720,26 @@ disappeared and you see torch on the wall.You see strange smell here
 ~
 0 AX inside
 D0
+~
+~
 ~
 ~
 Z 0 22554
 D2
 ~
 ~
+~
+~
 Z 0 22552
 D3
+~
+~
 ~
 ~
 Z 0 22550
 S
 #22552
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -3132,16 +3748,20 @@ disappeared and you see torch on the wall.You see strange smell here
 ~
 0 AX inside
 D0
+~
+~
 ~
 ~
 Z 0 22551
 D2
 ~
 ~
+~
+~
 Z 0 22553
 S
 #22553
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -3150,16 +3770,20 @@ disappeared and you see torch on the wall.You see strange smell here
 ~
 0 AX inside
 D0
+~
+~
 ~
 ~
 Z 0 22552
 D3
 ~
 door~
+~
+~
 ABLZ 0 22485
 S
 #22554
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -3168,16 +3792,20 @@ disappeared and you see torch on the wall.You see strange smell here
 ~
 0 AX inside
 D0
+~
+~
 ~
 ~
 Z 0 22555
 D2
 ~
 ~
+~
+~
 Z 0 22551
 S
 #22555
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -3188,14 +3816,18 @@ disappeared and you see torch on the wall.You see strange smell here
 D1
 ~
 ~
+~
+~
 Z 0 22556
 D2
+~
+~
 ~
 ~
 Z 0 22554
 S
 #22556
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -3206,18 +3838,24 @@ disappeared and you see torch on the wall.You see strange smell here
 D0
 ~
 ~
+~
+~
 Z 0 22557
 D1
+~
+~
 ~
 ~
 Z 0 22536
 D3
 ~
 ~
+~
+~
 Z 0 22555
 S
 #22557
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -3226,16 +3864,20 @@ disappeared and you see torch on the wall.You see strange smell here
 ~
 0 AX inside
 D0
+~
+~
 ~
 ~
 Z 0 22558
 D2
 ~
 ~
+~
+~
 Z 0 22556
 S
 #22558
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -3244,16 +3886,20 @@ disappeared and you see torch on the wall.You see strange smell here
 ~
 0 AX inside
 D0
+~
+~
 ~
 ~
 Z 0 22559
 D2
 ~
 ~
+~
+~
 Z 0 22557
 S
 #22559
-In the dar deep tunnel~
+In the dark deep tunnel~
 You stand in the dark tunnel under high mountain .The walls maded from 
 colossal blocks of stone and covered by strange graffiti.But you think
 that blocks not maded buy humans hands.Sometime a darkness in tunnel was
@@ -3264,12 +3910,18 @@ disappeared and you see torch on the wall.You see strange smell here
 D0
 ~
 ~
+~
+~
 Z 0 22537
 D1
 ~
 ~
+~
+~
 Z 0 22560
 D2
+~
+~
 ~
 ~
 Z 0 22558
@@ -3281,7 +3933,185 @@ S
 D3
 ~
 ~
+~
+~
 Z 0 22559
+S
+#22561
+In the dark deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D0
+~
+~
+~
+~
+Z 0 22539
+D2
+~
+~
+~
+~
+Z 0 22562
+S
+#22562
+In the dark deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D0
+~
+~
+~
+~
+Z 0 22561
+D1
+~
+~
+~
+~
+Z 0 22566
+D2
+~
+~
+~
+~
+Z 0 22563
+S
+#22563
+In the dark deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D0
+~
+~
+~
+~
+Z 0 22562
+D2
+~
+~
+~
+~
+Z 0 22545
+D3
+~
+~
+~
+~
+Z 0 22564
+S
+#22564
+In the dark deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+and you remmembers this smell - smell of water and blood.Nearly west you 
+see a edge of small lake.
+~
+0 AX inside
+D1
+~
+~
+~
+~
+Z 0 22563
+D3
+~
+~
+~
+~
+Z 0 22565
+S
+#22565
+Near the small lake~
+You standing before small but deep underground lake with clear water.You 
+sense strange feeling surrounded this lake - neither good nor bad.Yoyu drink
+some dips of water - it looks cold , clear and tasty.But you don't know ,
+what monsters live in the deep ...
+~
+0 0 inside
+D1
+~
+~
+~
+~
+Z 0 22564
+S
+#22566
+In the dark deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D1
+~
+~
+~
+~
+Z 0 22567
+D3
+~
+~
+~
+~
+Z 0 22562
+S
+#22567
+In the dark deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D0
+~
+~
+~
+~
+Z 0 22568
+D3
+~
+~
+~
+~
+Z 0 22566
+S
+#22568
+In the dark deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D2
+~
+~
+~
+~
+Z 0 22567
 S
 #0
 
@@ -3297,7 +4127,7 @@ D 0 22510 0 1	* In the Forest of Nowhere: door to the north: closed
 D 0 22512 0 1	* In the Forest of Nowhere: door to the north: closed
 D 0 22528 2 1	* Inside a small hut: door to the south: closed
 D 0 22529 2 1	* Inside a small hut: door to the south: closed
-D 0 22553 3 1	* In the dar deep tunnel: door to the west: closed
+D 0 22553 3 1	* In the dark deep tunnel: door to the west: closed
 O 0 22454 0 22451	* a small sign (Entrance into Forest)
 M 0 22451 8 22452 1	* tiny guard (In the Forest of Nowhere)
 E 0 22456 0 16		*	wooden training mace: wielded

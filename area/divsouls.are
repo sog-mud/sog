@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Divided Souls~
 VNUMs 11600 11799
 Credits Ydri~
@@ -4577,9 +4577,13 @@ D0
 The pebbled path follows the hedges north.
 ~
 ~
+~
+~
 Z -1 11601
 D1
 A well rises from the center of a clearing in the hedges to the east.
+~
+~
 ~
 ~
 Z -1 11622
@@ -4587,9 +4591,13 @@ D2
 Tendrils of mist snake across the path to the south.
 ~
 ~
+~
+~
 Z -1 11624
 D3
 Fluffy clouds are visible through a gap in the hedges to the west.
+~
+~
 ~
 ~
 Z -1 9101
@@ -4605,14 +4613,20 @@ D0
 The hedges part to reveal a colorful garden to the north.
 ~
 ~
+~
+~
 Z -1 11603
 D2
 The pebbled path continues south.
 ~
 ~
+~
+~
 Z -1 11600
 D3
 Bushes dot the bright clearing to the west
+~
+~
 ~
 ~
 Z -1 11602
@@ -4626,6 +4640,8 @@ reminiscient of a child's daydreams.
 0 0 city
 D1
 A white pebbled path is visible to the east.
+~
+~
 ~
 ~
 Z -1 11601
@@ -4642,14 +4658,20 @@ D1
 The dirt path winds east through the flower beds.
 ~
 ~
+~
+~
 Z -1 11604
 D2
 A pebbled path winds south between the hedges.
 ~
 ~
+~
+~
 Z -1 11601
 D3
 The dirt path winds west through the flower beds.
+~
+~
 ~
 ~
 Z -1 11610
@@ -4667,14 +4689,20 @@ D0
 The dirt path winds north around the gazebo.
 ~
 ~
+~
+~
 Z -1 11605
 D1
 A strange white form is visible in the clearing to the east.
 ~
 ~
+~
+~
 Z -1 11612
 D3
 The dirt path winds west around the gazebo.
+~
+~
 ~
 ~
 Z -1 11603
@@ -4691,9 +4719,13 @@ D0
 The dirt path continues north around through the flower beds.
 ~
 ~
+~
+~
 Z -1 11606
 D2
 The dirt path continues south around through the flower beds.
+~
+~
 ~
 ~
 Z -1 11604
@@ -4710,15 +4742,21 @@ D2
 The dirt path continues south around the gazebo.
 ~
 ~
+~
+~
 Z -1 11605
 D3
 The dirt path continues west around the gazebo.
+~
+~
 ~
 ~
 Z -1 11607
 D5
 ~
 boulder stone~
+the boulder~
+~
 ABZ -1 11615
 S
 #11607
@@ -4744,15 +4782,21 @@ D1
 The dirt path continues east around the gazebo.
 ~
 ~
+~
+~
 Z -1 11606
 D2
 Steps enter a white gazebo to the south.  Some vague forms are visible within
 the gazebo.
 ~
 ~
+~
+~
 Z -1 11611
 D3
 The dirt path continues west around the gazebo.
+~
+~
 ~
 ~
 Z -1 11608
@@ -4769,9 +4813,13 @@ D0
 Redwood steps lead up to a large platform to the north.
 ~
 ~
+~
+~
 Z -1 11617
 D1
 The dirt path winds east through the garden.
+~
+~
 ~
 ~
 Z -1 11607
@@ -4779,9 +4827,13 @@ D2
 The dirt path winds south through the garden.
 ~
 ~
+~
+~
 Z -1 11609
 D3
 You see a large tree to the west.
+~
+~
 ~
 ~
 Z -1 11618
@@ -4798,9 +4850,13 @@ D0
 The dirt path continues north around the gazebo.
 ~
 ~
+~
+~
 Z -1 11608
 D2
 The dirt path continues south around the gazebo.
+~
+~
 ~
 ~
 Z -1 11610
@@ -4817,9 +4873,13 @@ D0
 The dirt path continues north around the gazebo.
 ~
 ~
+~
+~
 Z -1 11609
 D1
 The dirt path continues east around the gazebo.
+~
+~
 ~
 ~
 Z -1 11603
@@ -4836,9 +4896,13 @@ D0
 To the north, marble steps open into a lush garden.
 ~
 ~
+~
+~
 Z -1 11607
 D4
 You can make out the form of a wide tunnel through the mist.
+~
+~
 ~
 ~
 Z -1 11668
@@ -4855,9 +4919,13 @@ D3
 A dirt path winds around a white gazebo to the west.
 ~
 ~
+~
+~
 Z -1 11604
 D5
 A dirt path winds around a white gazebo to the down.
+~
+~
 ~
 ~
 Z -1 11613
@@ -4878,10 +4946,14 @@ The writhing bones of the floor part in the center, leaving a large hole.
 A white bone ladder disappears into the darkness.
 ~
 ~
+~
+~
 Z -1 11612
 D5
 The writhing bones of the floor part in the center, leaving a large hole.
 A white bone ladder disappears into the darkness.
+~
+~
 ~
 ~
 Z -1 11614
@@ -4901,9 +4973,13 @@ D4
 A bone ladder leads up.
 ~
 ~
+~
+~
 Z -1 11613
 D5
 A hole drops away into a churning void below.
+~
+~
 ~
 ~
 Z -1 11685
@@ -4919,11 +4995,15 @@ D0
 A large cave is visible to the north.
 ~
 ~
+~
+~
 Z -1 11616
 D4
 Light filters through a hole in the low ceiling.
 ~
 stone boulder~
+the stone~
+~
 ABZ -1 11606
 S
 #11616
@@ -4935,6 +5015,8 @@ clear, flat pool in the center of the cavern.
 0 AD inside
 D2
 A narrow tunnel leads south.
+~
+~
 ~
 ~
 Z -1 11615
@@ -4979,6 +5061,8 @@ D2
 Steps lead down into the garden to the south.
 ~
 ~
+~
+~
 Z -1 11608
 S
 #11618
@@ -4995,14 +5079,20 @@ D1
 The dirt path winds east through the flower beds.
 ~
 ~
+~
+~
 Z -1 11608
 D2
 To the south, the dirt path disappears into a grove of trees.
 ~
 ~
+~
+~
 Z -1 11619
 D4
 The huge oak rises skyward.  Its lower branches appear sturdy and climbable.
+~
+~
 ~
 ~
 Z -1 11620
@@ -5016,6 +5106,8 @@ A narrow dirt path exits the grove to the north.
 0 0 field
 D0
 A dirt path disappears north into a lush garden.
+~
+~
 ~
 ~
 Z -1 11618
@@ -5036,9 +5128,13 @@ D3
 An opening in the birdfeeder is visible to the west.
 ~
 ~
+~
+~
 Z -1 11621
 D5
 A lush green garden is visible below.
+~
+~
 ~
 ~
 Z -1 11618
@@ -5064,6 +5160,8 @@ D1
 A huge doorway opens onto the branch of a large oak tree.
 ~
 ~
+~
+~
 Z -1 11620
 S
 #11622
@@ -5081,9 +5179,13 @@ D3
 A pebbled path is visible to the west.
 ~
 ~
+~
+~
 Z -1 11600
 D5
 A ladder affixed to the side of the well descends into darkness.
+~
+~
 ~
 ~
 Z -1 11623
@@ -5105,6 +5207,8 @@ D4
 A wooden ladder leads to the edge of the well above.
 ~
 ~
+~
+~
 Z -1 11622
 S
 #11624
@@ -5118,9 +5222,13 @@ D0
 The path disappears between tall hedges to the north.
 ~
 ~
+~
+~
 Z -1 11600
 D2
 The path widens to the south into a mist covered lakeshore.
+~
+~
 ~
 ~
 Z -1 11625
@@ -5136,9 +5244,13 @@ D0
 A white pebbled path leads north.
 ~
 ~
+~
+~
 Z -1 11624
 D2
 The lake shore dips gently into the lake to the south here.
+~
+~
 ~
 ~
 Z -1 11626
@@ -5165,9 +5277,13 @@ D0
 You can exit the lake to the north.
 ~
 ~
+~
+~
 Z -1 11625
 D2
 An opening between clumps of boulders is visible to the south.
+~
+~
 ~
 ~
 Z -1 11628
@@ -5176,6 +5292,8 @@ A clump of large bushes is nestled between the boulders to the west.  There
 appears to be an opening behind the bushes.
 ~
 bushes~
+the bushes~
+~
 ABZ -1 11627
 S
 #11627
@@ -5194,6 +5312,8 @@ D1
 The misty lake is visible through the bushes to the east.
 ~
 bushes~
+the bushes~
+~
 ABZ -1 11626
 S
 #11628
@@ -5207,14 +5327,20 @@ D0
 The lake floor continues north.
 ~
 ~
+~
+~
 Z -1 11626
 D1
 A path leads east along the lake bottom.
 ~
 ~
+~
+~
 Z -1 11629
 D3
 A path leads west along the lake bottom.
+~
+~
 ~
 ~
 Z -1 11631
@@ -5229,9 +5355,13 @@ D2
 A misty pool is visible to the south.
 ~
 ~
+~
+~
 Z -1 11630
 D3
 The lake floor continues west.
+~
+~
 ~
 ~
 Z -1 11628
@@ -5254,8 +5384,12 @@ D0
 The lake of mist is visible to the north.
 ~
 ~
+~
+~
 Z -1 11629
 D2
+~
+~
 ~
 ~
 Z -1 11662
@@ -5270,9 +5404,13 @@ D1
 The misty lake continues east.
 ~
 ~
+~
+~
 Z -1 11628
 D2
 The dark mouth of a shadowy tunnel enters the lake wall to the south.
+~
+~
 ~
 ~
 Z -1 11632
@@ -5289,9 +5427,13 @@ D0
 A lake of mist is visible through the opening to the north.
 ~
 ~
+~
+~
 Z -1 11631
 D3
 To the west, the tunnel widens into a dark cave.
+~
+~
 ~
 ~
 Z -1 11633
@@ -5307,8 +5449,12 @@ D1
 A dark, misty tunnel exits the cave to the east.
 ~
 ~
+~
+~
 Z -1 11632
 D2
+~
+~
 ~
 ~
 Z -1 11721
@@ -5324,14 +5470,20 @@ D0
 The onyx hallway continues north.
 ~
 ~
+~
+~
 Z -1 11658
 D1
 An oaken door is set into the east wall.
 ~
 oaken door~
+the oaken~
+~
 ABZ -1 11656
 D2
 The hallway continues south.
+~
+~
 ~
 ~
 Z -1 11635
@@ -5347,9 +5499,13 @@ D0
 The hallway continues north.
 ~
 ~
+~
+~
 Z -1 11634
 D2
 A dark corridor crosses the hallway to the south.
+~
+~
 ~
 ~
 Z -1 11637
@@ -5357,6 +5513,8 @@ D3
 A forbidding black door opens into the west wall.
 ~
 black door~
+@eng the black@rus черный~
+~
 ABZ -1 11636
 S
 #11636
@@ -5370,6 +5528,8 @@ D1
 A black door is set into the east wall.
 ~
 black door~
+@eng the black@rus черный~
+~
 ABZ -1 11635
 S
 #11637
@@ -5383,14 +5543,20 @@ D0
 An onyx hallway leads north.
 ~
 ~
+~
+~
 Z -1 11635
 D1
 The corridor continues east.
 ~
 ~
+~
+~
 Z -1 11644
 D3
 The corridor continues west.
+~
+~
 ~
 ~
 Z -1 11638
@@ -5405,9 +5571,13 @@ D1
 The corridor continues east.
 ~
 ~
+~
+~
 Z -1 11637
 D2
 The corridor continues south.
+~
+~
 ~
 ~
 Z -1 11639
@@ -5422,9 +5592,13 @@ D0
 The corridor continues north.
 ~
 ~
+~
+~
 Z -1 11638
 D2
 The corridor continues south.
+~
+~
 ~
 ~
 Z -1 11640
@@ -5440,9 +5614,13 @@ D0
 The corridor continues north.
 ~
 ~
+~
+~
 Z -1 11639
 D1
 The corridor continues east.
+~
+~
 ~
 ~
 Z -1 11641
@@ -5450,11 +5628,15 @@ D2
 A pair of huge black steel doors are set into the southern wall.
 ~
 black steel double doors~
+@eng the black@rus черный~
+~
 ABZ -1 11651
 D3
 A stone archway opens onto a large hall to the west.
 ~
 stone archway~
+the stone~
+~
 Z -1 11652
 S
 #11641
@@ -5467,14 +5649,20 @@ D0
 Streaks of dried blood spatter the bronze doors to the north.
 ~
 bloodstained bronze doors~
+the bloodstained~
+~
 Z -1 11645
 D1
 The corridor continues east.
 ~
 ~
+~
+~
 Z -1 11642
 D3
 The corridor continues west.
+~
+~
 ~
 ~
 Z -1 11640
@@ -5490,9 +5678,13 @@ D0
 The corridor continues north.
 ~
 ~
+~
+~
 Z -1 11643
 D3
 The corridor continues west.
+~
+~
 ~
 ~
 Z -1 11641
@@ -5500,6 +5692,8 @@ D4
 A skeleton lies embedded in the ceiling above.
 ~
 humanoid skeleton~
+the humanoid~
+~
 Z -1 11649
 S
 #11643
@@ -5511,9 +5705,13 @@ D0
 The corridor continues north.
 ~
 ~
+~
+~
 Z -1 11644
 D2
 The corridor continues south.
+~
+~
 ~
 ~
 Z -1 11642
@@ -5528,14 +5726,20 @@ D1
 A twisting black figure is visible through the archway to the east.
 ~
 marble archway~
+the marble~
+~
 Z -1 11646
 D2
 The corridor continues south.
 ~
 ~
+~
+~
 Z -1 11643
 D3
 The corridor intersects an onyx hallway to the west.
+~
+~
 ~
 ~
 Z -1 11637
@@ -5552,9 +5756,13 @@ D2
 A pair of bronze doors open south.
 ~
 bloodstained bronze doors~
+the bloodstained~
+~
 Z -1 11641
 D5
 A blood slicked ladder descends into the pit.
+~
+~
 ~
 ~
 Z -1 11670
@@ -5572,6 +5780,8 @@ D3
 A narrow marble archway opens west onto a dark corridor.
 ~
 marble archway~
+the marble~
+~
 Z -1 11644
 S
 #11647
@@ -5586,6 +5796,8 @@ D4
 A rope leads up to an opening above.
 ~
 weighted rope opening~
+the weighted~
+~
 Z -1 11648
 S
 #11648
@@ -5599,9 +5811,13 @@ D4
 The rope disappears into a multicolored void above.
 ~
 ~
+~
+~
 Z -1 11692
 D5
 The rope descends to a dark cavern below.
+~
+~
 ~
 ~
 Z -1 11647
@@ -5617,11 +5833,15 @@ D2
 The passage continues south.
 ~
 ~
+~
+~
 Z -1 11650
 D5
 The white bones of a skeleton gleam sharply against the dark stone floor.
 ~
 skeleton~
+the skeleton~
+~
 Z -1 11642
 S
 #11650
@@ -5634,6 +5854,8 @@ exits the cave to the north.
 0 AD inside
 D0
 A passage leads north out of the cave.
+~
+~
 ~
 ~
 Z -1 11649
@@ -5663,6 +5885,8 @@ D0
 Black steel doors loom to the north.
 ~
 black steel double doors~
+@eng the black@rus черный~
+~
 ABZ -1 11640
 S
 #11652
@@ -5690,9 +5914,13 @@ D0
 The dining hall continues northward.
 ~
 ~
+~
+~
 Z -1 11653
 D1
 A stone archway opens east onto a dark corridor.
+~
+~
 ~
 ~
 Z -1 11640
@@ -5700,6 +5928,8 @@ D5
 A trapdoor is set into the floor.
 ~
 trap trapdoor~
+the trap~
+~
 ABZ -1 11654
 S
 #11653
@@ -5714,6 +5944,8 @@ D2
 A long black hall is visible through the doorway to the south.
 ~
 ~
+~
+~
 Z -1 11652
 S
 #11654
@@ -5726,9 +5958,13 @@ D4
 The stairwell ends at a trapdoor above.
 ~
 ~
+~
+~
 ABZ -1 11652
 D5
 The stairwell continues down into darkness.
+~
+~
 ~
 ~
 Z -1 11655
@@ -5746,6 +5982,8 @@ anymore about the contents..
 D4
 A slimy stairwell leasd up into darkness.  A faint light is visible farther
 up.
+~
+~
 ~
 ~
 Z -1 11654
@@ -5768,11 +6006,15 @@ D3
 A thick oaken door is set into the west wall.
 ~
 oaken door~
+the oaken~
+~
 ABZ -1 11634
 D4
 The square outline of a trapdoor is visible in the ceiling.
 ~
 trapdoor square~
+the trapdoor~
+~
 ABZ -1 11657
 S
 #11657
@@ -5785,6 +6027,8 @@ D5
 A trapdoor opens into the floor.
 ~
 trapdoor square~
+the trapdoor~
+~
 ABZ -1 11656
 S
 #11658
@@ -5797,9 +6041,13 @@ D0
 A courtyard is visible through the archway to the north.
 ~
 ~
+~
+~
 Z -1 11659
 D2
 The hallway continues south.
+~
+~
 ~
 ~
 Z -1 11634
@@ -5817,10 +6065,14 @@ The hills to the north seem somehow grey and dead.  A path disappears into
 their midst.
 ~
 ~
+~
+~
 Z -1 11660
 D2
 A huge, dark building looms to the south.  An open archway enters the building
 from the southern end of the courtyard.
+~
+~
 ~
 ~
 Z -1 11658
@@ -5841,14 +6093,20 @@ D0
 The path continues deeper into the hills to the north.
 ~
 ~
+~
+~
 Z -1 11662
 D2
 A forbidding stone courtyard is visible to the south.
 ~
 ~
+~
+~
 Z -1 11659
 D3
 The path enters a sheltered clearing to the west.
+~
+~
 ~
 ~
 Z -1 11661
@@ -5865,6 +6123,8 @@ D1
 A narrow path leads out of the valley to the east.
 ~
 ~
+~
+~
 Z -1 11660
 S
 #11662
@@ -5877,9 +6137,13 @@ continues south out of the hills.
 D0
 ~
 ~
+~
+~
 Z -1 11630
 D1
 The path continues east.
+~
+~
 ~
 ~
 Z -1 11663
@@ -5887,9 +6151,13 @@ D2
 The path continues south.
 ~
 ~
+~
+~
 Z -1 11660
 D3
 The path continues west.
+~
+~
 ~
 ~
 Z -1 11665
@@ -5905,9 +6173,13 @@ D0
 The path continues north.
 ~
 ~
+~
+~
 Z -1 11664
 D3
 The path continues west.
+~
+~
 ~
 ~
 Z -1 11662
@@ -5922,6 +6194,8 @@ south out of the clearing.
 0 AN hills
 D2
 A path exits the clearing to the south.
+~
+~
 ~
 ~
 Z -1 11663
@@ -5942,9 +6216,13 @@ One of the boulders near the bottom appears to be slightly separate from the
 others.
 ~
 boulder stone huge~
+the boulder~
+~
 ABZ -1 11666
 D1
 The path returns east.
+~
+~
 ~
 ~
 Z -1 11662
@@ -5959,9 +6237,13 @@ D2
 A boulder leans against an opening to the south.
 ~
 boulder stone huge~
+the boulder~
+~
 ABZ -1 11665
 D3
 The cave continues west.
+~
+~
 ~
 ~
 Z -1 11667
@@ -5974,6 +6256,8 @@ if a vacuum..  A glimmer of light is visible to the east.
 0 AD inside
 D1
 A glimmer of light filters through an opening to the east.
+~
+~
 ~
 ~
 Z -1 11666
@@ -5990,9 +6274,13 @@ D1
 The tunnel opens into a large white room to the east.
 ~
 ~
+~
+~
 Z -1 11669
 D5
 You see a white gazebo.
+~
+~
 ~
 ~
 Z -1 11611
@@ -6013,6 +6301,8 @@ D3
 A tunnel exits the globe to the west.
 ~
 ~
+~
+~
 Z -1 11668
 S
 #11670
@@ -6026,9 +6316,13 @@ D3
 Dim light is visible to the west.
 ~
 ~
+~
+~
 Z -1 11671
 D4
 The ladder disappears through the tunnel ceiling.
+~
+~
 ~
 ~
 Z -1 11645
@@ -6051,6 +6345,8 @@ D1
 The mouth of a narrow tunnel is barely visible to the east.
 ~
 ~
+~
+~
 Z -1 11670
 S
 #11672
@@ -6065,9 +6361,13 @@ D0
 A dirt path winds into the trees to the north.
 ~
 ~
+~
+~
 Z -1 11673
 D1
 A dirt path winds into the forest to the east.
+~
+~
 ~
 ~
 Z -1 11674
@@ -6081,6 +6381,8 @@ dirt path exits the thicket to the south.
 0 A forest
 D2
 A dirt path winds into the shadows to the south.
+~
+~
 ~
 ~
 Z -1 11672
@@ -6104,9 +6406,13 @@ A thin crack, barely visible in the rough tree bark, outlines a rectangular
 area in the face of the large pine to the north.
 ~
 tree pine crack rectangular rectangle~
+the tree~
+~
 ABZ -1 11681
 D2
 The path continues south through the forest.
+~
+~
 ~
 ~
 Z -1 11676
@@ -6114,9 +6420,13 @@ D3
 To the west, the path opens onto a shadowy clearing.
 ~
 ~
+~
+~
 Z -1 11672
 D4
 The lower branches of the large pine appear climbable.
+~
+~
 ~
 ~
 Z -1 11675
@@ -6136,6 +6446,8 @@ D5
 A narrow path is visible through the branches below.
 ~
 ~
+~
+~
 Z -1 11674
 S
 #11676
@@ -6148,9 +6460,13 @@ D0
 The path continues north.
 ~
 ~
+~
+~
 Z -1 11674
 D1
 The path continues east.
+~
+~
 ~
 ~
 Z -1 11677
@@ -6170,11 +6486,15 @@ D3
 The path continues west.
 ~
 ~
+~
+~
 Z -1 11676
 D5
 Scratches and light footprints mark the earth around the stump.
 ~
 huge oak stump~
+the huge~
+~
 ABZ -1 11678
 S
 #11678
@@ -6188,12 +6508,16 @@ D1
 A dark chamber is visible to the east.
 ~
 ~
+~
+~
 Z -1 11679
 D4
 A huge stump leans against an opening in the ceiling above.  A wooden ladder
 affixed to the northern wall of the tunnel leads up to the opening.
 ~
 huge oak stump~
+the huge~
+~
 ABZ -1 11677
 S
 #11679
@@ -6220,12 +6544,16 @@ D3
 You see a narrow tunnel to the west.
 ~
 ~
+~
+~
 Z -1 11678
 D5
 You notice the dark edges of an opening beneath the round base of the
 stone table.
 ~
 table stone~
+the table~
+~
 ABZ -1 11680
 S
 #11680
@@ -6242,6 +6570,8 @@ base of the nest.
 ~
 D4
 You see a dark opening in the ceiling above.
+~
+~
 ~
 ~
 ABZ -1 11679
@@ -6261,9 +6591,13 @@ D2
 Light filters through a rectangular opening in the trunk wall to the south.
 ~
 tree pine crack rectangular rectangle opening~
+the tree~
+~
 ABZ -1 11674
 D4
 A wooden platform is visible above.
+~
+~
 ~
 ~
 Z -1 11682
@@ -6271,6 +6605,8 @@ D5
 You see nothing special there.
 ~
 trapdoor trap door~
+the trapdoor~
+~
 ABZ -1 11703
 S
 #11682
@@ -6283,6 +6619,8 @@ to one side of the platform allows descent to the earthen floor below.
 0 AD air
 D5
 The hollow base of the tree is visible far below.
+~
+~
 ~
 ~
 Z -1 11681
@@ -6309,14 +6647,20 @@ A wide ribbon of light twists north into the churning void.  Despite its
 form, the light appears quite solid enough to walk on.
 ~
 ~
+~
+~
 Z -1 11684
 D1
 A white painted outhouse stands on the east side of the road.
 ~
 ~
+~
+~
 Z -1 11695
 D3
 A signpost is visible to the west.
+~
+~
 ~
 ~
 Z -1 11686
@@ -6334,9 +6678,13 @@ D2
 A brick road is visible to the south.
 ~
 ~
+~
+~
 Z -1 11683
 D3
 The ribbon continues west.
+~
+~
 ~
 ~
 Z -1 11685
@@ -6363,9 +6711,13 @@ Though apparently made solely of white light, the ribbon appears sturdy
 enough to walk on.
 ~
 ~
+~
+~
 Z -1 11684
 D4
 A rip in the fabric of the void shimmers overhead.
+~
+~
 ~
 ~
 Z -1 11614
@@ -6382,14 +6734,20 @@ D1
 Twisting red brick road.
 ~
 ~
+~
+~
 Z -1 11683
 D2
 Twisting red brick road.
 ~
 ~
+~
+~
 Z -1 11687
 D3
 Twisting red brick road.
+~
+~
 ~
 ~
 Z -1 11689
@@ -6405,9 +6763,13 @@ D0
 A red brick road runs north.
 ~
 ~
+~
+~
 Z -1 11686
 D1
 The farm continues east.
+~
+~
 ~
 ~
 Z -1 11688
@@ -6425,6 +6787,8 @@ D3
 The farm continues west.
 ~
 ~
+~
+~
 Z -1 11687
 S
 #11689
@@ -6436,9 +6800,13 @@ D1
 A signpost is visible to the east.
 ~
 ~
+~
+~
 Z -1 11686
 D2
 The road continues south.
+~
+~
 ~
 ~
 Z -1 11690
@@ -6455,9 +6823,13 @@ D0
 More brick road.
 ~
 ~
+~
+~
 Z -1 11689
 D2
 You see a small white office.
+~
+~
 ~
 ~
 Z -1 11694
@@ -6465,9 +6837,13 @@ D3
 More brick road.
 ~
 ~
+~
+~
 Z -1 11691
 D5
 A dark hole leads beneath the road.
+~
+~
 ~
 ~
 Z -1 11697
@@ -6481,9 +6857,13 @@ D1
 You see an intersection to the east.
 ~
 ~
+~
+~
 Z -1 11690
 D2
 The road enters a wide, checkered clearing to the south.
+~
+~
 ~
 ~
 Z -1 11692
@@ -6500,9 +6880,13 @@ D0
 A twisting red brick road leads north.
 ~
 ~
+~
+~
 Z -1 11691
 D3
 The clearing continues west.
+~
+~
 ~
 ~
 Z -1 11693
@@ -6518,6 +6902,8 @@ D1
 The clearing continues east.
 ~
 ~
+~
+~
 Z -1 11692
 S
 #11694
@@ -6528,6 +6914,8 @@ void outside.  A long leather couch dominates the center of the office.
 0 0 city
 D0
 You see a twisting red brick road to the north.
+~
+~
 ~
 ~
 Z -1 11690
@@ -6543,9 +6931,13 @@ D3
 A red brick road leads west.
 ~
 ~
+~
+~
 Z -1 11683
 D5
 so that's what I had for lunch..
+~
+~
 ~
 ~
 Z -1 11696
@@ -6561,6 +6953,8 @@ D4
 You see the toilet seat above.
 ~
 ~
+~
+~
 Z -1 11695
 S
 #11697
@@ -6573,9 +6967,13 @@ D0
 The mole hole continues north.
 ~
 ~
+~
+~
 Z -1 11698
 D4
 You see the red brick road above.
+~
+~
 ~
 ~
 Z -1 11690
@@ -6590,6 +6988,8 @@ the center of the room.
 0 D inside
 D2
 A tunnel exits the room to the south.
+~
+~
 ~
 ~
 Z -1 11697
@@ -6635,6 +7035,8 @@ D1
 A plaque above the doorway reads:  "Elite Pets Counter".
 ~
 ~
+~
+~
 Z -1 11701
 S
 #11700
@@ -6665,6 +7067,8 @@ D3
 You see the entrance room to the west.
 ~
 ~
+~
+~
 Z -1 11699
 S
 #11702
@@ -6683,11 +7087,15 @@ D1
 The tunnel continues eastward.
 ~
 ~
+~
+~
 Z -1 11704
 D4
 An opening is visible above.
 ~
 trapdoor trap door~
+the trapdoor~
+~
 ABZ -1 11681
 S
 #11704
@@ -6700,9 +7108,13 @@ D2
 The tunnel darkens to the south.
 ~
 ~
+~
+~
 Z -1 11705
 D3
 The tunnel continues west.
+~
+~
 ~
 ~
 Z -1 11703
@@ -6716,11 +7128,15 @@ D0
 The tunnel continues northward.
 ~
 ~
+~
+~
 Z -1 11704
 D1
 The faint outline of a doorway is visible in the stone wall to the east.
 ~
 stone door~
+the stone~
+~
 ABCFZ 11702 11706
 S
 #11706
@@ -6734,9 +7150,13 @@ D1
 The hallway continues east.
 ~
 ~
+~
+~
 Z -1 11707
 D2
 The hallway continues south.
+~
+~
 ~
 ~
 Z -1 11709
@@ -6744,6 +7164,8 @@ D3
 The outline of an opening is visible in the rock wall to the west.
 ~
 stone door~
+the stone~
+~
 ABCFZ 11702 11705
 S
 #11707
@@ -6756,9 +7178,13 @@ D0
 A plain wooden door opens northward.
 ~
 door wooden~
+~
+~
 ABZ -1 11708
 D3
 The hallway continues west.
+~
+~
 ~
 ~
 Z -1 11706
@@ -6783,6 +7209,8 @@ D2
 A plain wooden door is set into the south wall.
 ~
 door wooden~
+~
+~
 ABZ -1 11707
 S
 #11709
@@ -6795,9 +7223,13 @@ D0
 The hallway continues north.
 ~
 ~
+~
+~
 Z -1 11706
 D1
 The hallway continues east.
+~
+~
 ~
 ~
 Z -1 11712
@@ -6805,6 +7237,8 @@ D3
 A plain wooden door opens westward.
 ~
 door wooden~
+~
+~
 ABZ -1 11710
 S
 #11710
@@ -6829,9 +7263,13 @@ D1
 A plain wooden door is set into the eastern wall.
 ~
 door wooden~
+~
+~
 ABZ -1 11709
 D2
 The room continues south.
+~
+~
 ~
 ~
 Z -1 11711
@@ -6857,6 +7295,8 @@ D0
 The chamber continues north.
 ~
 ~
+~
+~
 Z -1 11710
 S
 #11712
@@ -6871,14 +7311,20 @@ D1
 The hallway continues east.
 ~
 ~
+~
+~
 Z -1 11716
 D2
 A charred oaken door is set into the south wall.
 ~
 door charred oaken~
+~
+~
 ABZ -1 11713
 D3
 The hallway continues west.
+~
+~
 ~
 ~
 Z -1 11709
@@ -6901,16 +7347,22 @@ D0
 An oaken door is set into the north wall.
 ~
 door charred oaken~
+~
+~
 ABZ -1 11712
 D2
 A plain wood door opens southward.
 ~
 door wood~
+~
+~
 ABZ -1 11714
 D3
 Books line the low bookcase to the west.
 ~
 bookcase book case~
+the bookcase~
+~
 ABZ -1 11715
 S
 #11714
@@ -6928,6 +7380,8 @@ D0
 A plain wood door is set into the north wall.
 ~
 door wood~
+~
+~
 ABZ -1 11713
 S
 #11715
@@ -6952,6 +7406,8 @@ D1
 A tall bookcase fills the eastern wall.
 ~
 bookcase book case~
+the bookcase~
+~
 ABZ -1 11713
 S
 #11716
@@ -6964,9 +7420,13 @@ D0
 An oak door opens northward.
 ~
 door oak~
+~
+~
 ABZ -1 11717
 D1
 The hallway continues east.
+~
+~
 ~
 ~
 Z -1 11721
@@ -6974,9 +7434,13 @@ D2
 A dark mahogany door opens southward.
 ~
 door dark mahogany~
+~
+~
 ABZ -1 11719
 D3
 The hallway continues west.
+~
+~
 ~
 ~
 Z -1 11712
@@ -6996,11 +7460,15 @@ D1
 A plain wooden door is set into the eastern wall.
 ~
 door wooden~
+~
+~
 ABZ -1 11718
 D2
 An oak door opens southward.
 ~
 door oak~
+~
+~
 ABZ -1 11716
 S
 #11718
@@ -7020,6 +7488,8 @@ D3
 A wooden door opens westward.
 ~
 door wooden~
+~
+~
 ABZ -1 11717
 S
 #11719
@@ -7036,11 +7506,15 @@ D0
 A dark mahogany door opens northward.
 ~
 door dark mahogany~
+~
+~
 ABZ -1 11716
 D2
 A narrow steel door opens southward.
 ~
 door steel~
+~
+~
 ABCFZ 11703 11720
 S
 #11720
@@ -7060,6 +7534,8 @@ D0
 A narrow steel door leads north.
 ~
 door steel~
+~
+~
 ABCFZ 11703 11719
 S
 #11721
@@ -7070,9 +7546,13 @@ The hallway forks east, west, and south here.
 D0
 ~
 ~
+~
+~
 Z -1 11633
 D1
 The hallway continues east.
+~
+~
 ~
 ~
 Z -1 11722
@@ -7080,9 +7560,13 @@ D2
 The hallway continues south.
 ~
 ~
+~
+~
 Z -1 11729
 D3
 The hallway continues west.
+~
+~
 ~
 ~
 Z -1 11716
@@ -7098,14 +7582,20 @@ An oak door opens northward.  Carved above the doorknob is a
 depiction of a stiletto.
 ~
 door oak~
+~
+~
 ABZ -1 11723
 D1
 The hallway continues east.
 ~
 ~
+~
+~
 Z -1 11725
 D3
 The hallway continues west.
+~
+~
 ~
 ~
 Z -1 11721
@@ -7126,11 +7616,15 @@ D0
 The chamber continues northward.
 ~
 ~
+~
+~
 Z -1 11724
 D2
 An oak door opens south.
 ~
 door oak~
+~
+~
 ABZ -1 11722
 S
 #11724
@@ -7149,6 +7643,8 @@ D2
 The chamber continues south.
 ~
 ~
+~
+~
 Z -1 11723
 S
 #11725
@@ -7162,21 +7658,29 @@ An oak door carved with the depiction of a shortsword is set into the
 north wall.  The black paint of the carving glistens wetly, like poison.
 ~
 door oak~
+~
+~
 ABZ -1 11726
 D1
 The mahogany door to the east bears a depiction of a dark, slender
 dagger.
 ~
 door mahogany~
+~
+~
 ABZ -1 11728
 D2
 A dark ashwood door carved with the depiction of a shortsword is set into
 the north wall.  The black paint of the carving glistens wetly, like poison.
 ~
 door ashwood~
+~
+~
 ABZ -1 11727
 D3
 The hallway continues west.
+~
+~
 ~
 ~
 Z -1 11722
@@ -7196,6 +7700,8 @@ D2
 An oak door is set into the southern wall.
 ~
 door oak~
+~
+~
 ABZ -1 11725
 S
 #11727
@@ -7213,6 +7719,8 @@ D0
 An ashwood door is set into the northern wall.
 ~
 door ashwood~
+~
+~
 ABZ -1 11725
 S
 #11728
@@ -7230,6 +7738,8 @@ D3
 A dark mahogany door is set into the west wall.
 ~
 door mahogany~
+~
+~
 ABZ -1 11725
 S
 #11729
@@ -7242,14 +7752,20 @@ D0
 The hallway continues north.
 ~
 ~
+~
+~
 Z -1 11721
 D1
 A thick steel door is set into the eastern wall.
 ~
 door thick steel~
+~
+~
 ABZ -1 11730
 D2
 The hallway continues south.
+~
+~
 ~
 ~
 Z -1 11731
@@ -7271,6 +7787,8 @@ D3
 A thick steel door is set into the western wall of the chamber.
 ~
 door thick steel~
+~
+~
 ABZ -1 11729
 S
 #11731
@@ -7283,15 +7801,21 @@ D0
 The hallway continues north.
 ~
 ~
+~
+~
 Z -1 11729
 D1
 The mahogany door to the east bears a depiction of a dark, slender
 dagger.
 ~
 door mahogany~
+~
+~
 ABZ -1 11732
 D2
 The hallway continues south.
+~
+~
 ~
 ~
 Z -1 11733
@@ -7311,6 +7835,8 @@ D3
 An ashwood door is set into the western wall of the chamber.
 ~
 door ashwood~
+~
+~
 ABZ -1 11731
 S
 #11733
@@ -7323,21 +7849,29 @@ D0
 The hallway continues north.
 ~
 ~
+~
+~
 Z -1 11731
 D1
 An oaken door is set into the east wall.
 ~
 door oaken~
+~
+~
 ABCFZ 11704 11736
 D2
 An ashwood door is set into the south wall.
 ~
 door ashwood~
+~
+~
 ABZ -1 11735
 D3
 A dark mahogany door is set into the west wall.
 ~
 door dark mahogany~
+~
+~
 ABZ -1 11734
 S
 #11734
@@ -7351,6 +7885,8 @@ D1
 A dark mahogany door opens eastward.
 ~
 door dark mahogany~
+~
+~
 ABZ -1 11733
 S
 #11735
@@ -7364,6 +7900,8 @@ D0
 An ashwood door opens northward.
 ~
 door ashwood~
+~
+~
 ABZ -1 11733
 S
 #11736
@@ -7381,11 +7919,15 @@ D1
 The corridor continues east.
 ~
 ~
+~
+~
 Z -1 11737
 D3
 An oaken door is set into the west wall.
 ~
 door oaken~
+~
+~
 ABCFZ 11704 11733
 S
 #11737
@@ -7430,14 +7972,20 @@ A chill tingles the back of your neck.
 
 ~
 door redwood~
+~
+~
 ABZ -1 11740
 D2
 A black oak door is set into the south wall of the corridor.
 ~
 door black oak~
+~
+~
 ABCFZ 11705 11738
 D3
 The corridor continues west.
+~
+~
 ~
 ~
 Z -1 11736
@@ -7452,11 +8000,15 @@ D0
 A black oak door is set into the north wall.
 ~
 door black oak~
+~
+~
 ABCFZ 11705 11737
 D2
 Double adamantite doors open into the southern wall.
 ~
 doors double adamantite~
+@eng the doors@rus двери~
+@rus plural~
 ABCFZ 11706 11739
 S
 #11739
@@ -7485,6 +8037,8 @@ D0
 Double adamantite doors exit the chamber to the north.
 ~
 doors double adamantite~
+@eng the doors@rus двери~
+@rus plural~
 ABCFZ 11706 11738
 S
 #11740
@@ -7515,6 +8069,8 @@ D3
 A redwood door exits the chamber to the west.
 ~
 door redwood~
+~
+~
 ABZ -1 11737
 S
 #0

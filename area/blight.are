@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Blight~
 VNUMs 23000 24099
 Credits Stile~
@@ -928,18 +928,26 @@ D0
 The remains of the kingdom of Malkeri lie to the north.
 ~
 ~
+~
+~
 Z -1 23002
 D1
 The Blight Continues on to the east.
+~
+~
 ~
 ~
 Z -1 24077
 D2
 ~
 ~
+~
+~
 Z -1 23113
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23006
@@ -959,9 +967,13 @@ D0
 The Seven towers lay a few miles ahead, rising like broken hills.
 ~
 ~
+~
+~
 Z -1 23003
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 24078
@@ -969,9 +981,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23001
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23007
@@ -990,9 +1006,13 @@ D0
 Directly to the north lay the Seven Towers, thier power broken.
 ~
 ~
+~
+~
 Z -1 23004
 D1
 The Blight continues on ot the east.
+~
+~
 ~
 ~
 Z -1 24079
@@ -1000,9 +1020,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23002
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23008
@@ -1024,9 +1048,13 @@ D0
 Over the hills to the north the Blight stretches on.
 ~
 ~
+~
+~
 Z -1 23005
 D1
 To the east is a breach in one of the Seven Towers walls.
+~
+~
 ~
 ~
 Z -1 23061
@@ -1034,9 +1062,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23003
 D3
 To the west is a breach in one of the Seven Towers' wall.
+~
+~
 ~
 ~
 Z -1 24012
@@ -1054,9 +1086,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 24083
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 24081
@@ -1064,9 +1100,13 @@ D2
 The Seven broken towers now lay behind you to the south.
 ~
 ~
+~
+~
 Z -1 23004
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23010
@@ -1084,9 +1124,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23007
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23001
@@ -1094,9 +1138,13 @@ D2
 The borderland kingdom of Shienar lies to the south.
 ~
 ~
+~
+~
 Z -1 23112
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23011
@@ -1114,9 +1162,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23008
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23002
@@ -1124,9 +1176,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23006
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23012
@@ -1142,9 +1198,13 @@ D0
 To the north black waters stir with movement.
 ~
 ~
+~
+~
 Z -1 23009
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23003
@@ -1152,9 +1212,13 @@ D2
 The Blight continues to the south.
 ~
 ~
+~
+~
 Z -1 23007
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23013
@@ -1176,14 +1240,20 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23010
 D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23008
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23014
@@ -1201,9 +1271,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 24084
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23005
@@ -1211,9 +1285,13 @@ D2
 To the south black waters stir with movement.
 ~
 ~
+~
+~
 Z -1 23009
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23015
@@ -1231,9 +1309,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23012
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23006
@@ -1241,9 +1323,13 @@ D2
 The borderland kingdom of Shienar lies to the south.
 ~
 ~
+~
+~
 Z -1 23111
 D3
 As you look more closely to the west you see a small trail of smoke.
+~
+~
 ~
 ~
 Z -1 23016
@@ -1261,9 +1347,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23013
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23007
@@ -1271,9 +1361,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23011
 D3
 The blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23017
@@ -1291,9 +1385,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23014
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23008
@@ -1301,9 +1399,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23012
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23018
@@ -1321,9 +1423,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23015
 D1
 To the east black waters stir with movement.
+~
+~
 ~
 ~
 Z -1 23009
@@ -1331,9 +1437,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23013
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23019
@@ -1351,9 +1461,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 24085
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23010
@@ -1361,9 +1475,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23014
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23020
@@ -1380,9 +1498,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23017
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23011
@@ -1390,9 +1512,13 @@ D2
 The borderland kingdom of Arafel lies to the south.
 ~
 ~
+~
+~
 Z -1 23110
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23021
@@ -1410,9 +1536,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23018
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23012
@@ -1420,9 +1550,13 @@ D2
 As you look more closely to the south you see a small trail of smoke.
 ~
 ~
+~
+~
 Z -1 23016
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23022
@@ -1440,9 +1574,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23019
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23013
@@ -1450,9 +1588,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23017
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23023
@@ -1470,9 +1612,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23020
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23014
@@ -1480,9 +1626,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23018
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23024
@@ -1500,9 +1650,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 24086
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23015
@@ -1510,9 +1664,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23019
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23025
@@ -1530,9 +1688,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23022
 D1
 As you look more closely to the east you see a small trail of smoke.
+~
+~
 ~
 ~
 Z -1 23016
@@ -1540,9 +1702,13 @@ D2
 The borderland kingdom of Arafel lies to the south.
 ~
 ~
+~
+~
 Z -1 23109
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23026
@@ -1560,9 +1726,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23023
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23017
@@ -1570,9 +1740,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23021
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23027
@@ -1590,9 +1764,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23024
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23018
@@ -1600,9 +1778,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23022
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23028
@@ -1618,9 +1800,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23025
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23019
@@ -1628,9 +1814,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23023
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23029
@@ -1648,9 +1838,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 24087
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23020
@@ -1658,9 +1852,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23024
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23030
@@ -1678,9 +1876,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23027
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23021
@@ -1688,9 +1890,13 @@ D2
 The borderland kingdom of Arafel lies to the south.
 ~
 ~
+~
+~
 Z -1 23108
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23031
@@ -1708,9 +1914,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23028
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23022
@@ -1718,9 +1928,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23026
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23032
@@ -1737,9 +1951,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23029
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23023
@@ -1747,9 +1965,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23027
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23033
@@ -1767,9 +1989,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23030
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23024
@@ -1777,9 +2003,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23028
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23034
@@ -1797,9 +2027,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 24088
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23025
@@ -1807,9 +2041,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23029
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23035
@@ -1827,9 +2065,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23032
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23026
@@ -1837,9 +2079,13 @@ D2
 The borderland kingdom of Kandor lies to the south.
 ~
 ~
+~
+~
 Z -1 23107
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23036
@@ -1857,9 +2103,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23033
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23027
@@ -1867,9 +2117,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23031
 D3
 As you look more closely to the west you see a small trail of smoke.
+~
+~
 ~
 ~
 Z -1 23037
@@ -1887,9 +2141,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23034
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23028
@@ -1897,9 +2155,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23032
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23038
@@ -1917,9 +2179,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23035
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23029
@@ -1927,9 +2193,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23033
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23039
@@ -1948,9 +2218,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 24089
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23030
@@ -1958,9 +2232,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23034
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23040
@@ -1978,9 +2256,13 @@ D0
 As you look more closely to the north you see a small trail of smoke.
 ~
 ~
+~
+~
 Z -1 23037
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23031
@@ -1988,9 +2270,13 @@ D2
 The borderland kingdom of Kandor lies to the south.
 ~
 ~
+~
+~
 Z -1 23106
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23041
@@ -2007,9 +2293,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23038
 D1
 The Blight contimues on to the east.
+~
+~
 ~
 ~
 Z -1 23032
@@ -2017,9 +2307,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23036
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23042
@@ -2037,9 +2331,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23039
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23033
@@ -2047,9 +2345,13 @@ D2
 As you look more closely to the south you see a small trail of smoke.
 ~
 ~
+~
+~
 Z -1 23037
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23043
@@ -2067,9 +2369,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23040
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23034
@@ -2077,9 +2383,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23038
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23044
@@ -2097,9 +2407,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 24090
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23035
@@ -2107,9 +2421,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23039
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23045
@@ -2127,9 +2445,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23042
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23036
@@ -2137,9 +2459,13 @@ D2
 The borderland kingdom of Kandor lies to the south.
 ~
 ~
+~
+~
 Z -1 23105
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23046
@@ -2157,9 +2483,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23043
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23037
@@ -2167,9 +2497,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23041
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23047
@@ -2185,9 +2519,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23044
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23038
@@ -2195,9 +2533,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23042
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23048
@@ -2215,9 +2557,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23045
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23039
@@ -2225,9 +2571,13 @@ D2
 The Blight continues on to the west.
 ~
 ~
+~
+~
 Z -1 23043
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23049
@@ -2245,9 +2595,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 24091
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23040
@@ -2255,9 +2609,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23044
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23050
@@ -2275,9 +2633,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23047
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23041
@@ -2285,9 +2647,13 @@ D2
 The borderland kingdom of Saldaea lies to the south.
 ~
 ~
+~
+~
 Z -1 23104
 D3
 As you look more closely to the west you see a small trail of smoke.
+~
+~
 ~
 ~
 Z -1 23051
@@ -2305,9 +2671,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23048
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23042
@@ -2315,9 +2685,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23046
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23052
@@ -2335,9 +2709,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23049
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23043
@@ -2345,9 +2723,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23047
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23053
@@ -2365,9 +2747,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23050
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23044
@@ -2375,9 +2761,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23048
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23054
@@ -2395,9 +2785,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 24092
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23045
@@ -2405,9 +2799,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23049
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23055
@@ -2424,9 +2822,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23052
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23046
@@ -2434,9 +2836,13 @@ D2
 The borderland kingdom of Saldaea lies to the south.
 ~
 ~
+~
+~
 Z -1 23103
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23056
@@ -2454,9 +2860,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23053
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23047
@@ -2464,9 +2874,13 @@ D2
 As you look moe closely to the south you see a small trail of smoke.
 ~
 ~
+~
+~
 Z -1 23051
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23057
@@ -2485,9 +2899,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23054
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23048
@@ -2495,9 +2913,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23052
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23058
@@ -2513,9 +2935,13 @@ D0
 The Blight contimues on to the north.
 ~
 ~
+~
+~
 Z -1 23055
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23049
@@ -2523,9 +2949,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23053
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23059
@@ -2543,9 +2973,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 24093
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23050
@@ -2553,9 +2987,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23054
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23060
@@ -2573,9 +3011,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23057
 D1
 As you look more closely to the east you see a small trail of smoke.
+~
+~
 ~
 ~
 Z -1 23051
@@ -2583,9 +3025,13 @@ D2
 The borderland kingdom of Saldaea lies to the south.
 ~
 ~
+~
+~
 Z -1 23102
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23100
@@ -2603,9 +3049,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23058
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23052
@@ -2613,9 +3063,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23056
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 24099
@@ -2633,9 +3087,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23059
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23053
@@ -2643,9 +3101,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23057
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 24098
@@ -2663,9 +3125,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 23060
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23054
@@ -2673,9 +3139,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23058
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 24097
@@ -2693,9 +3163,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 24094
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 23055
@@ -2703,14 +3177,20 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23059
 D3
 The Blight continues on to the west.
 ~
 ~
+~
+~
 Z -1 24096
 D5
 The air here seems shimmer as you gaze downward.
+~
+~
 ~
 ~
 Z -1 24063
@@ -2728,9 +3208,13 @@ D1
 A hallway lies to the east.
 ~
 ~
+~
+~
 Z -1 23062
 D3
 The Blight lies to the west.
+~
+~
 ~
 ~
 Z -1 23004
@@ -2747,14 +3231,20 @@ D1
 The hallway continues to the east.
 ~
 ~
+~
+~
 Z -1 23063
 D2
 A set of stairs lies to the south.
 ~
 ~
+~
+~
 Z -1 23065
 D3
 A breach in the tower wall is west from here.
+~
+~
 ~
 ~
 Z -1 23061
@@ -2772,9 +3262,13 @@ D0
 The stables lie to the north.
 ~
 ~
+~
+~
 Z -1 23067
 D1
 The hallway continues to the east.
+~
+~
 ~
 ~
 Z -1 23064
@@ -2782,9 +3276,13 @@ D2
 A large yard lies to the south.
 ~
 ~
+~
+~
 Z -1 23068
 D3
 The hallway continues to the west.
+~
+~
 ~
 ~
 Z -1 23062
@@ -2801,9 +3299,13 @@ D2
 A set of stairs lies to the south.
 ~
 ~
+~
+~
 Z -1 23066
 D3
 The hallway continues to the west.
+~
+~
 ~
 ~
 Z -1 23063
@@ -2820,9 +3322,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 23062
 D4
 The stairs lead up to the second floor.
+~
+~
 ~
 ~
 Z -1 23072
@@ -2839,9 +3345,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 23064
 D5
 A set of stairs leads down into the tower.
+~
+~
 ~
 ~
 Z -1 23098
@@ -2860,6 +3370,8 @@ D2
 A hallway lies to the south.
 ~
 ~
+~
+~
 Z -1 23063
 S
 #23068
@@ -2876,9 +3388,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 23063
 D2
 The smashed remains of a once stout door lies to the south.
+~
+~
 ~
 ~
 Z -1 23069
@@ -2899,14 +3415,20 @@ D0
 A large yard lies to the north.
 ~
 ~
+~
+~
 Z -1 23068
 D1
 A small door lies to the east.
 ~
 ~
+~
+~
 ABCZ 23002 23071
 D3
 A small door leads to the west.
+~
+~
 ~
 ~
 ABCZ 23002 23070
@@ -2924,6 +3446,8 @@ D1
 A small door lies to the east.
 ~
 ~
+~
+~
 ABCZ 23002 23069
 S
 #23071
@@ -2937,6 +3461,8 @@ beds and chests line the walls undisturbed.
 0 AD inside
 D3
 A small door lies to the west.
+~
+~
 ~
 ~
 ABCZ 23002 23069
@@ -2953,9 +3479,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 23073
 D5
 A set of stairs leads down into the tower.
+~
+~
 ~
 ~
 Z -1 23065
@@ -2972,9 +3502,13 @@ D1
 The hallway continues to the east.
 ~
 ~
+~
+~
 Z -1 23074
 D2
 A set of stairs lies to the south.
+~
+~
 ~
 ~
 Z -1 23072
@@ -2992,9 +3526,13 @@ D0
 A darkened room lies to the north.
 ~
 ~
+~
+~
 Z -1 23077
 D1
 The hallway continues to the east.
+~
+~
 ~
 ~
 Z -1 23075
@@ -3002,9 +3540,13 @@ D2
 A darkened room lies to the south.
 ~
 ~
+~
+~
 Z -1 23079
 D3
 The hallway continues to the west.
+~
+~
 ~
 ~
 Z -1 23073
@@ -3021,9 +3563,13 @@ D2
 A set of stairs lies to the south.
 ~
 ~
+~
+~
 Z -1 23076
 D3
 The hallway continues to the west.
+~
+~
 ~
 ~
 Z -1 23074
@@ -3040,9 +3586,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 23075
 D4
 A set of stairs leads up into the tower.
+~
+~
 ~
 ~
 Z -1 23080
@@ -3058,9 +3608,13 @@ D1
 A small door is here.
 ~
 ~
+~
+~
 ABZ -1 23078
 D2
 A hallway lies to the south.
+~
+~
 ~
 ~
 Z -1 23074
@@ -3078,6 +3632,8 @@ D3
 The towers kitchens lie to the west.
 ~
 ~
+~
+~
 ABZ -1 23077
 S
 #23079
@@ -3090,6 +3646,8 @@ by the Trolloc armies that defeated the tower.
 0 AD inside
 D0
 A hallway lies to the north.
+~
+~
 ~
 ~
 Z -1 23074
@@ -3106,9 +3664,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 23081
 D5
 A set of stairs leads down into the tower.
+~
+~
 ~
 ~
 Z -1 23076
@@ -3125,14 +3687,20 @@ D0
 A door leads off into the tower.
 ~
 ~
+~
+~
 ABZ -1 23087
 D2
 A set of stairs lies to the south.
 ~
 ~
+~
+~
 Z -1 23080
 D3
 The hallway continues to the west.
+~
+~
 ~
 ~
 Z -1 23082
@@ -3150,14 +3718,20 @@ D1
 The hallway continues to the east.
 ~
 ~
+~
+~
 Z -1 23081
 D2
 A door stands in the southern wall.
 ~
 ~
+~
+~
 Z -1 23089
 D3
 The hallway continues to the west.
+~
+~
 ~
 ~
 Z -1 23083
@@ -3175,9 +3749,13 @@ D0
 A door leads off into the tower to the north.
 ~
 ~
+~
+~
 Z -1 23086
 D1
 The hallway continues to the east.
+~
+~
 ~
 ~
 Z -1 23082
@@ -3185,9 +3763,13 @@ D2
 A door leads off into the tower to the south.
 ~
 ~
+~
+~
 Z -1 23088
 D3
 The hallway continues to the west.
+~
+~
 ~
 ~
 Z -1 23084
@@ -3204,9 +3786,13 @@ D1
 The hallway continues to the east.
 ~
 ~
+~
+~
 Z -1 23083
 D2
 A set of stairs can be seen to the south.
+~
+~
 ~
 ~
 Z -1 23085
@@ -3223,9 +3809,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 23084
 D4
 A set of stairs leads up into the tower.
+~
+~
 ~
 ~
 Z -1 23090
@@ -3243,6 +3833,8 @@ D2
 A hallway lies to the south.
 ~
 ~
+~
+~
 Z -1 23083
 S
 #23087
@@ -3254,6 +3846,8 @@ padding, and the skeletons of the long dead servants themselves.
 0 AD inside
 D2
 A hallway lies to the south.
+~
+~
 ~
 ~
 ABZ -1 23081
@@ -3270,6 +3864,8 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 23083
 S
 #23089
@@ -3281,6 +3877,8 @@ this room, although for what, or if they found it is a mystery...
 0 AD inside
 D0
 A hallway lies to the north.
+~
+~
 ~
 ~
 Z -1 23082
@@ -3297,9 +3895,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 23091
 D5
 A set of stairs leads down into the tower.
+~
+~
 ~
 ~
 Z -1 23085
@@ -3316,9 +3918,13 @@ D1
 The hallway continues to the east.
 ~
 ~
+~
+~
 Z -1 23092
 D2
 A set of stairs can be seen to the south.
+~
+~
 ~
 ~
 Z -1 23090
@@ -3337,9 +3943,13 @@ D0
 An archway leads into another part of the tower.
 ~
 ~
+~
+~
 Z -1 23095
 D1
 The hallway continues to the east.
+~
+~
 ~
 ~
 Z -1 23093
@@ -3347,9 +3957,13 @@ D2
 A large gilded door stands to the south.
 ~
 ~
+~
+~
 ABCFZ 23014 23096
 D3
 The hallway continues to the west.
+~
+~
 ~
 ~
 Z -1 23091
@@ -3366,9 +3980,13 @@ D2
 A set of stairs can be seen to the south.
 ~
 ~
+~
+~
 Z -1 23094
 D3
 The hallway continues to the west.
+~
+~
 ~
 ~
 Z -1 23092
@@ -3385,9 +4003,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 23093
 D4
 The battlements of the tower lie above you.
+~
+~
 ~
 ~
 Z -1 23097
@@ -3406,6 +4028,8 @@ D2
 An archway leads into darkness to the south.
 ~
 ~
+~
+~
 Z -1 23092
 S
 #23096
@@ -3420,6 +4044,8 @@ stubborn lot.
 0 D inside
 D0
 A great gilded door lies to the north.
+~
+~
 ~
 ~
 ABCFZ 23014 23092
@@ -3437,6 +4063,8 @@ D5
 Below you stairs lead down into the tower.
 ~
 ~
+~
+~
 Z -1 23094
 S
 #23098
@@ -3451,9 +4079,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 23099
 D4
 A set of stairs leads up into the tower.
+~
+~
 ~
 ~
 Z -1 23066
@@ -3471,14 +4103,20 @@ D0
 A door adorned with crossed swords, now fouled with blood is to the north.
 ~
 ~
+~
+~
 ABZ -1 24004
 D2
 A set of stairs lies to the south.
 ~
 ~
+~
+~
 Z -1 23098
 D3
 The hallway continues to the west.
+~
+~
 ~
 ~
 Z -1 24000
@@ -3497,14 +4135,20 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 24099
 D1
 The Blight continues on to the east.
 ~
 ~
+~
+~
 Z -1 23056
 D2
 The Borderland kingdom of Saldaea lies to the south.
+~
+~
 ~
 ~
 Z -1 23101
@@ -3522,9 +4166,13 @@ D0
 The Blight stretches northward.
 ~
 ~
+~
+~
 Z -1 23100
 D1
 The border continues to the east.
+~
+~
 ~
 ~
 Z -1 23102
@@ -3542,14 +4190,20 @@ D0
 The Blight stretches northward.
 ~
 ~
+~
+~
 Z -1 23056
 D1
 The border continues to the east.
 ~
 ~
+~
+~
 Z -1 23103
 D3
 The border continues to the west.
+~
+~
 ~
 ~
 Z -1 23101
@@ -3567,14 +4221,20 @@ D0
 The Blight stretches northward.
 ~
 ~
+~
+~
 Z -1 23051
 D1
 The border continues to the east.
 ~
 ~
+~
+~
 Z -1 23104
 D3
 The border continues ot the west.
+~
+~
 ~
 ~
 Z -1 23102
@@ -3592,14 +4252,20 @@ D0
 The Blight stretches northward.
 ~
 ~
+~
+~
 Z -1 23046
 D1
 The border continues to the east.
 ~
 ~
+~
+~
 Z -1 23105
 D3
 The border continues to the west.
+~
+~
 ~
 ~
 Z -1 23103
@@ -3617,14 +4283,20 @@ D0
 The Blight stretches northward.
 ~
 ~
+~
+~
 Z -1 23041
 D1
 The border continues to the east.
 ~
 ~
+~
+~
 Z -1 23106
 D3
 The border continues to the west.
+~
+~
 ~
 ~
 Z -1 23104
@@ -3642,14 +4314,20 @@ D0
 The Blight stretches northward.
 ~
 ~
+~
+~
 Z -1 23036
 D1
 The border continues ot the east.
 ~
 ~
+~
+~
 Z -1 23107
 D3
 The border continues ot the west.
+~
+~
 ~
 ~
 Z -1 23105
@@ -3667,14 +4345,20 @@ D0
 The Blight stretches northward.
 ~
 ~
+~
+~
 Z -1 23031
 D1
 The border continues to the east.
 ~
 ~
+~
+~
 Z -1 23108
 D3
 The border continues to the west.
+~
+~
 ~
 ~
 Z -1 23106
@@ -3692,14 +4376,20 @@ D0
 The Blight strecthes northward.
 ~
 ~
+~
+~
 Z -1 23026
 D1
 The border continues to the east.
 ~
 ~
+~
+~
 Z -1 23109
 D3
 The border continues to the west.
+~
+~
 ~
 ~
 Z -1 23107
@@ -3717,14 +4407,20 @@ D0
 The Blight stretches northward.
 ~
 ~
+~
+~
 Z -1 23021
 D1
 The border continues to the east.
 ~
 ~
+~
+~
 Z -1 23110
 D3
 The border continues to the west.
+~
+~
 ~
 ~
 Z -1 23108
@@ -3742,14 +4438,20 @@ D0
 The Blight stretches northward.
 ~
 ~
+~
+~
 Z -1 23016
 D1
 The border continues to the east.
 ~
 ~
+~
+~
 Z -1 23111
 D3
 The border continues to the west.
+~
+~
 ~
 ~
 Z -1 23109
@@ -3767,14 +4469,20 @@ D0
 The Blight stretches northward.
 ~
 ~
+~
+~
 Z -1 23011
 D1
 The border continues to the east.
 ~
 ~
+~
+~
 Z -1 23112
 D3
 The border continues to the west.
+~
+~
 ~
 ~
 Z -1 23110
@@ -3792,14 +4500,20 @@ D0
 The Blight stretches northward.
 ~
 ~
+~
+~
 Z -1 23006
 D1
 The border continues to the east.
 ~
 ~
+~
+~
 Z -1 23113
 D3
 The border continues to the west.
+~
+~
 ~
 ~
 Z -1 23111
@@ -3817,14 +4531,20 @@ D0
 The Blight stretches northward.
 ~
 ~
+~
+~
 Z -1 23001
 D1
 The border continues to the east.
 ~
 ~
+~
+~
 Z -1 23114
 D3
 The border continues to the west.
+~
+~
 ~
 ~
 Z -1 23112
@@ -3842,13 +4562,19 @@ D0
 The Blight stretches northward.
 ~
 ~
+~
+~
 Z -1 24077
 D1
+~
+~
 ~
 ~
 Z -1 4036
 D3
 The border continues to the west.
+~
+~
 ~
 ~
 Z -1 23113
@@ -3867,6 +4593,8 @@ D2
 The Blight stretches on to the south.
 ~
 circle~
+the circle~
+~
 ABCFZ 23025 24090
 S
 #24000
@@ -3882,14 +4610,20 @@ D1
 The hallway continues to the east.
 ~
 ~
+~
+~
 Z -1 23099
 D2
 A large sturdy door stands in the southern wall.
 ~
 ~
+~
+~
 ABZ -1 24005
 D3
 The hallway continues to the west.
+~
+~
 ~
 ~
 Z -1 24001
@@ -3906,14 +4640,20 @@ D0
 A small door is set in the northern wall.
 ~
 ~
+~
+~
 ABZ -1 24003
 D1
 The hallway continues to the east.
 ~
 ~
+~
+~
 Z -1 24000
 D2
 A set of stairs lies to the south.
+~
+~
 ~
 ~
 Z -1 24002
@@ -3930,9 +4670,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 24001
 D5
 A set of stairs leads down into the tower.
+~
+~
 ~
 ~
 Z -1 24006
@@ -3950,9 +4694,13 @@ D2
 A hallway lies to the south.
 ~
 ~
+~
+~
 ABZ -1 24001
 D3
 A small duct leads into one of the Hundred Lakes.
+~
+~
 ~
 ~
 Z -1 23009
@@ -3970,6 +4718,8 @@ D2
 The Hallway is south from here.
 ~
 ~
+~
+~
 ABZ -1 23099
 S
 #24005
@@ -3983,6 +4733,8 @@ rotting leather.
 0 AD inside
 D0
 A hallway lies to the north.
+~
+~
 ~
 ~
 ABZ -1 24000
@@ -3999,9 +4751,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 24007
 D4
 A set of stairs leads up into the tower.
+~
+~
 ~
 ~
 Z -1 24002
@@ -4019,14 +4775,20 @@ D0
 A stout door is set in the northern wall.
 ~
 ~
+~
+~
 ABCZ 23003 24009
 D1
 The hallway continues to the east.
 ~
 ~
+~
+~
 Z -1 24008
 D2
 A set of stairs lies to the south.
+~
+~
 ~
 ~
 Z -1 24006
@@ -4043,9 +4805,13 @@ D2
 A stout door is set in the southern wall.
 ~
 ~
+~
+~
 ABCZ 23004 24011
 D3
 The hallway continues to the west.
+~
+~
 ~
 ~
 Z -1 24007
@@ -4062,9 +4828,13 @@ D1
 A small door lies to the east.
 ~
 ~
+~
+~
 ABZ -1 24010
 D2
 A stout door is set in the southern wall.
+~
+~
 ~
 ~
 ABCZ 23003 24007
@@ -4079,6 +4849,8 @@ room to the west.
 0 AD inside
 D3
 A small door is set into the western wall.
+~
+~
 ~
 ~
 ABZ -1 24009
@@ -4097,6 +4869,8 @@ D0
 A stout door is set in the northern wall.
 ~
 ~
+~
+~
 ABCZ 23004 24008
 S
 #24012
@@ -4112,9 +4886,13 @@ D1
 The Blight lies outside to the east.
 ~
 ~
+~
+~
 Z -1 23004
 D3
 A hallway lies to the west.
+~
+~
 ~
 ~
 Z -1 24013
@@ -4131,14 +4909,20 @@ D1
 There is a breach in the tower's wall to the east.
 ~
 ~
+~
+~
 Z -1 24012
 D2
 A set of stairs lies to the south.
 ~
 ~
+~
+~
 Z -1 24014
 D3
 The hallway continues to the west.
+~
+~
 ~
 ~
 Z -1 24015
@@ -4155,9 +4939,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 24013
 D5
 A set of stairs leads down into the tower.
+~
+~
 ~
 ~
 Z -1 24049
@@ -4175,9 +4963,13 @@ D0
 The stables lie to the north.
 ~
 ~
+~
+~
 Z -1 24018
 D1
 The hallway continues to the east.
+~
+~
 ~
 ~
 Z -1 24013
@@ -4185,9 +4977,13 @@ D2
 A large yard lies to the south.
 ~
 ~
+~
+~
 Z -1 24019
 D3
 The hallway continues to the west.
+~
+~
 ~
 ~
 Z -1 24016
@@ -4204,9 +5000,13 @@ D1
 The hallway continues to the east.
 ~
 ~
+~
+~
 Z -1 24015
 D2
 A set of stairs lies to the south.
+~
+~
 ~
 ~
 Z -1 24017
@@ -4223,9 +5023,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 24016
 D4
 A set of stairs leads up into the tower.
+~
+~
 ~
 ~
 Z -1 24023
@@ -4244,6 +5048,8 @@ D2
 A hallway lies to the south.
 ~
 ~
+~
+~
 Z -1 24015
 S
 #24019
@@ -4260,9 +5066,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 24015
 D2
 A gatehouse can be seen to the south.
+~
+~
 ~
 ~
 Z -1 24020
@@ -4283,14 +5093,20 @@ D0
 A large yard lies to the north.
 ~
 ~
+~
+~
 Z -1 24019
 D1
 A small door lies to the east.
 ~
 ~
+~
+~
 ABCZ 23005 24022
 D3
 A small door lies to the west.
+~
+~
 ~
 ~
 ABCZ 23005 24021
@@ -4308,6 +5124,8 @@ D1
 A small door lies to the east.
 ~
 ~
+~
+~
 ABCZ 23005 24020
 S
 #24022
@@ -4321,6 +5139,8 @@ beds and chests line the walls undisturbed.
 0 AD inside
 D3
 A small door lies to the west.
+~
+~
 ~
 ~
 ABCZ 23005 24020
@@ -4337,9 +5157,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 24024
 D5
 A set of stairs leads down into the tower.
+~
+~
 ~
 ~
 Z -1 24017
@@ -4356,9 +5180,13 @@ D1
 The hallway continues to the east.
 ~
 ~
+~
+~
 Z -1 24025
 D2
 A set of stairs lies to the south.
+~
+~
 ~
 ~
 Z -1 24023
@@ -4376,9 +5204,13 @@ D0
 A darkened room lies to the north.
 ~
 ~
+~
+~
 Z -1 24028
 D1
 The hallway continues to the east.
+~
+~
 ~
 ~
 Z -1 24026
@@ -4386,9 +5218,13 @@ D2
 A darkened room lies to the south.
 ~
 ~
+~
+~
 Z -1 24030
 D3
 The hallway continues to the west.
+~
+~
 ~
 ~
 Z -1 24024
@@ -4405,9 +5241,13 @@ D2
 A set of stairs lies to the south.
 ~
 ~
+~
+~
 Z -1 24027
 D3
 The hallway continues to the west.
+~
+~
 ~
 ~
 Z -1 24025
@@ -4424,9 +5264,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 24026
 D4
 A set of stairs leads up into the tower.
+~
+~
 ~
 ~
 Z -1 24031
@@ -4442,9 +5286,13 @@ D1
 A small door lies to the east.
 ~
 ~
+~
+~
 ABZ -1 24029
 D2
 A hallway lies to the south.
+~
+~
 ~
 ~
 Z -1 24025
@@ -4462,6 +5310,8 @@ D3
 The tower's kitchen lies to the west.
 ~
 ~
+~
+~
 ABZ -1 24028
 S
 #24030
@@ -4474,6 +5324,8 @@ by the Trolloc armies that defeated the tower.
 0 AD inside
 D0
 A hallway lies to the north.
+~
+~
 ~
 ~
 Z -1 24025
@@ -4490,9 +5342,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 24032
 D5
 A set of stairs leads down into the tower.
+~
+~
 ~
 ~
 Z -1 24027
@@ -4509,14 +5365,20 @@ D0
 A small door lies to the north.
 ~
 ~
+~
+~
 ABZ -1 24038
 D2
 A set of stairs lies to the south.
 ~
 ~
+~
+~
 Z -1 24031
 D3
 The hallway continues on to the west.
+~
+~
 ~
 ~
 Z -1 24033
@@ -4534,14 +5396,20 @@ D1
 The hallway continues to the east.
 ~
 ~
+~
+~
 Z -1 24032
 D2
 A small door lies to the south.
 ~
 ~
+~
+~
 Z -1 24040
 D3
 The hallway continues to the west.
+~
+~
 ~
 ~
 Z -1 24034
@@ -4559,9 +5427,13 @@ D0
 A large door stands in the northern wall.
 ~
 ~
+~
+~
 Z -1 24037
 D1
 The hallway continues to the east.
+~
+~
 ~
 ~
 Z -1 24033
@@ -4569,9 +5441,13 @@ D2
 A door lies to the south.
 ~
 ~
+~
+~
 Z -1 24039
 D3
 The hallway continues to the west.
+~
+~
 ~
 ~
 Z -1 24035
@@ -4588,9 +5464,13 @@ D1
 The hallway continues to the east.
 ~
 ~
+~
+~
 Z -1 24034
 D2
 A set of stairs lies to the south.
+~
+~
 ~
 ~
 Z -1 24036
@@ -4607,9 +5487,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 24035
 D4
 A set of stairs leads up into the tower.
+~
+~
 ~
 ~
 Z -1 24041
@@ -4627,6 +5511,8 @@ D2
 A large door lies to the south.
 ~
 ~
+~
+~
 Z -1 24034
 S
 #24038
@@ -4638,6 +5524,8 @@ padding, and the skeletons of the long dead servants themselves.
 0 AD inside
 D2
 A small door lies to the south.
+~
+~
 ~
 ~
 ABZ -1 24032
@@ -4654,6 +5542,8 @@ D0
 A door lies to the north.
 ~
 ~
+~
+~
 Z -1 24034
 S
 #24040
@@ -4665,6 +5555,8 @@ this room, although for what, or if they found it is a mystery...
 0 AD inside
 D0
 A small door lies to the north.
+~
+~
 ~
 ~
 Z -1 24033
@@ -4681,9 +5573,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 24042
 D5
 A set of stairs leads down into the tower.
+~
+~
 ~
 ~
 Z -1 24036
@@ -4700,9 +5596,13 @@ D1
 The hallway continues to the east.
 ~
 ~
+~
+~
 Z -1 24043
 D2
 A set of stairs lies to the south.
+~
+~
 ~
 ~
 Z -1 24041
@@ -4721,9 +5621,13 @@ D0
 An archway leads into another part of the tower.
 ~
 ~
+~
+~
 Z -1 24046
 D1
 The hallway continues to the east.
+~
+~
 ~
 ~
 Z -1 24044
@@ -4731,9 +5635,13 @@ D2
 A large gilded door lies to the south.
 ~
 ~
+~
+~
 ABCFZ 23013 24047
 D3
 The hallway continues to the west.
+~
+~
 ~
 ~
 Z -1 24042
@@ -4750,9 +5658,13 @@ D2
 A set of stairs lies to the south.
 ~
 ~
+~
+~
 Z -1 24045
 D3
 The hallway continues to the west.
+~
+~
 ~
 ~
 Z -1 24043
@@ -4769,9 +5681,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 24044
 D4
 A set of stairs leads up to the tower's battlements.
+~
+~
 ~
 ~
 Z -1 24048
@@ -4790,6 +5706,8 @@ D2
 A hallway lies to the south.
 ~
 ~
+~
+~
 Z -1 24043
 S
 #24047
@@ -4804,6 +5722,8 @@ stubborn lot.
 0 D inside
 D0
 A large golden door is set in the northern wall.
+~
+~
 ~
 ~
 ABCFZ 23013 24043
@@ -4821,6 +5741,8 @@ D5
 A set of stairs leads down into the tower.
 ~
 ~
+~
+~
 Z -1 24045
 S
 #24049
@@ -4835,9 +5757,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 24050
 D4
 A set of stairs leads up into the tower.
+~
+~
 ~
 ~
 Z -1 24014
@@ -4855,14 +5781,20 @@ D0
 A set of doors adorned with crossed swords lies to the north.
 ~
 ~
+~
+~
 ABZ -1 24055
 D2
 A Stairwell is south from here.
 ~
 ~
+~
+~
 Z -1 24049
 D3
 The hallway continues to west.
+~
+~
 ~
 ~
 Z -1 24051
@@ -4880,14 +5812,20 @@ D1
 The hallway continues to the east.
 ~
 ~
+~
+~
 Z -1 24050
 D2
 A stout door is set in the southern wall.
 ~
 ~
+~
+~
 ABZ -1 24056
 D3
 The hallway continues to the west.
+~
+~
 ~
 ~
 Z -1 24052
@@ -4904,14 +5842,20 @@ D0
 A small door lies to the north.
 ~
 ~
+~
+~
 ABZ -1 24054
 D1
 The hallway continues to the east.
 ~
 ~
+~
+~
 Z -1 24051
 D2
 A set of stairs lies to the south.
+~
+~
 ~
 ~
 Z -1 24053
@@ -4928,9 +5872,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 24052
 D5
 A set of stairs leads down into the tower.
+~
+~
 ~
 ~
 Z -1 24057
@@ -4948,9 +5896,13 @@ D2
 A hallway lies to the south.
 ~
 ~
+~
+~
 ABZ -1 24052
 D3
 A duct leads to on of the Hundred Lakes.
+~
+~
 ~
 ~
 Z -1 23009
@@ -4968,6 +5920,8 @@ D2
 A hallway lies to the south.
 ~
 ~
+~
+~
 ABZ -1 24050
 S
 #24056
@@ -4981,6 +5935,8 @@ rotting leather.
 0 AD inside
 D0
 A hallway lies to the north.
+~
+~
 ~
 ~
 ABZ -1 24051
@@ -4997,9 +5953,13 @@ D0
 A hallway lies to the north.
 ~
 ~
+~
+~
 Z -1 24058
 D4
 A set of stairs leads up into the tower.
+~
+~
 ~
 ~
 Z -1 24053
@@ -5017,14 +5977,20 @@ D0
 A stout door is set in the northern wall.
 ~
 ~
+~
+~
 ABCZ 23006 24060
 D1
 The hallway continues to the west.
 ~
 ~
+~
+~
 Z -1 24059
 D2
 A set of stairs lies to the south.
+~
+~
 ~
 ~
 Z -1 24057
@@ -5041,9 +6007,13 @@ D2
 A stout door is set in the southern wall.
 ~
 ~
+~
+~
 ABCZ 23007 24062
 D3
 The hallway continues to the west.
+~
+~
 ~
 ~
 Z -1 24058
@@ -5060,9 +6030,13 @@ D1
 A door lies to the east.
 ~
 ~
+~
+~
 ABZ -1 24061
 D2
 A hallway lies to the south.
+~
+~
 ~
 ~
 ABCZ 23006 24058
@@ -5077,6 +6051,8 @@ room to the west.
 0 AD inside
 D3
 A door lies to the west.
+~
+~
 ~
 ~
 ABZ -1 24060
@@ -5095,6 +6071,8 @@ D0
 A stout door is set in the northern wall.
 ~
 ~
+~
+~
 ABCZ 23007 24059
 S
 #24063
@@ -5109,9 +6087,13 @@ D0
 You cannot pierce the shimmering air.
 ~
 ~
+~
+~
 Z -1 24064
 D1
 You cannot pierce the shimmering air.
+~
+~
 ~
 ~
 Z -1 24067
@@ -5119,9 +6101,13 @@ D2
 You cannot pierce the shimmering air.
 ~
 ~
+~
+~
 Z -1 24065
 D3
 You cannot pierce the shimmering air.
+~
+~
 ~
 ~
 Z -1 24066
@@ -5129,9 +6115,13 @@ D4
 You sense a great evil above you.
 ~
 ~
+~
+~
 Z -1 23060
 D5
 Things seem clearer downward.
+~
+~
 ~
 ~
 Z -1 24068
@@ -5151,6 +6141,8 @@ D2
 The air is still shimmering to the south.
 ~
 ~
+~
+~
 Z -1 24063
 S
 #24065
@@ -5168,6 +6160,8 @@ D0
 The air is still shimmering to the north.
 ~
 ~
+~
+~
 Z -1 24063
 S
 #24066
@@ -5183,6 +6177,8 @@ some strange plate before him.
 0 ADN inside
 D1
 The air is still shimmering to the east.
+~
+~
 ~
 ~
 Z -1 24063
@@ -5203,6 +6199,8 @@ D3
 The air still shimmers to the west.
 ~
 ~
+~
+~
 Z -1 24063
 S
 #24068
@@ -5217,9 +6215,13 @@ D0
 The Northern Yard
 ~
 ~
+~
+~
 Z -1 24073
 D1
 The Eastern Yard
+~
+~
 ~
 ~
 Z -1 24071
@@ -5227,14 +6229,20 @@ D2
 The Southern Yard
 ~
 ~
+~
+~
 Z -1 24069
 D3
 The Western Yard
 ~
 ~
+~
+~
 Z -1 24075
 D4
 The air is shimmering directly above you.
+~
+~
 ~
 ~
 Z -1 24063
@@ -5252,14 +6260,20 @@ D0
 The center of the yard is to the north.
 ~
 ~
+~
+~
 Z -1 24068
 D1
 The southeast corner of the yard is to the east.
 ~
 ~
+~
+~
 Z -1 24070
 D3
 The southwest corner of the yard is to the west.
+~
+~
 ~
 ~
 Z -1 24076
@@ -5276,9 +6290,13 @@ D0
 The eastern wall of the yard is to the north.
 ~
 ~
+~
+~
 Z -1 24071
 D3
 The southern wall of the yard is to the west.
+~
+~
 ~
 ~
 Z -1 24069
@@ -5296,14 +6314,20 @@ D0
 The northeast corner of the yard is to the north.
 ~
 ~
+~
+~
 Z -1 24072
 D2
 The southeast corner of the yard is to the south.
 ~
 ~
+~
+~
 Z -1 24070
 D3
 The center of the yard is to the west.
+~
+~
 ~
 ~
 Z -1 24068
@@ -5320,9 +6344,13 @@ D2
 The east wall of the yard is to the south.
 ~
 ~
+~
+~
 Z -1 24071
 D3
 The north wall of the yard is to the west.
+~
+~
 ~
 ~
 Z -1 24073
@@ -5340,14 +6368,20 @@ D1
 The northeast corner of the yard is to the east.
 ~
 ~
+~
+~
 Z -1 24072
 D2
 The center of the yard is to the south.
 ~
 ~
+~
+~
 Z -1 24068
 D3
 The northwest corner of the yard is to the west.
+~
+~
 ~
 ~
 Z -1 24074
@@ -5364,9 +6398,13 @@ D1
 The north wall of the yard is to the east.
 ~
 ~
+~
+~
 Z -1 24073
 D2
 The west wall of the yard is the south.
+~
+~
 ~
 ~
 Z -1 24075
@@ -5384,14 +6422,20 @@ D0
 The northwest corner of the yard is to the north.
 ~
 ~
+~
+~
 Z -1 24074
 D1
 The center of the yard is to the east.
 ~
 ~
+~
+~
 Z -1 24068
 D2
 The southwest corner of the yard is to the south.
+~
+~
 ~
 ~
 Z -1 24076
@@ -5408,9 +6452,13 @@ D0
 The west wall of the yard is to the north.
 ~
 ~
+~
+~
 Z -1 24075
 D1
 The south wall of the yard is to the east.
+~
+~
 ~
 ~
 Z -1 24069
@@ -5428,14 +6476,20 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 24078
 D2
 The borderland kingdom of Shienar lies ot he south.
 ~
 ~
+~
+~
 Z -1 23114
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23001
@@ -5453,14 +6507,20 @@ D0
 The Blight Continues on to the north.
 ~
 ~
+~
+~
 Z -1 24079
 D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 24077
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23002
@@ -5478,14 +6538,20 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 24080
 D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 24078
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23003
@@ -5503,9 +6569,13 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 24081
 D2
 The Blight continues on to the south.
+~
+~
 ~
 ~
 Z -1 24079
@@ -5523,14 +6593,20 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 24082
 D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 24080
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 23005
@@ -5550,9 +6626,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 24081
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 24083
@@ -5569,14 +6649,20 @@ D1
 The Blight continues on to the east.
 ~
 ~
+~
+~
 Z -1 24082
 D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23005
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 24084
@@ -5593,14 +6679,20 @@ D1
 The Blight continues on to the east.
 ~
 ~
+~
+~
 Z -1 24083
 D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23010
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 24085
@@ -5617,14 +6709,20 @@ D1
 The Blight continues on to the east.
 ~
 ~
+~
+~
 Z -1 24084
 D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23015
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 24086
@@ -5641,14 +6739,20 @@ D1
 The Blight continues on to the east.
 ~
 ~
+~
+~
 Z -1 24085
 D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23020
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 24087
@@ -5665,14 +6769,20 @@ D1
 The Blight continues on to the east.
 ~
 ~
+~
+~
 Z -1 24086
 D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23025
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 24088
@@ -5689,14 +6799,20 @@ D1
 The Blight continues on to the east.
 ~
 ~
+~
+~
 Z -1 24087
 D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23030
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 24089
@@ -5713,14 +6829,20 @@ D1
 The Blight continues on to the east.
 ~
 ~
+~
+~
 Z -1 24088
 D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23035
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 24090
@@ -5737,9 +6859,13 @@ D0
 You just see mountains.
 ~
 circle~
+the circle~
+~
 ABCFZ 23025 23115
 D1
 The Blight continues on to the east.
+~
+~
 ~
 ~
 Z -1 24089
@@ -5747,9 +6873,13 @@ D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23040
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 24091
@@ -5766,14 +6896,20 @@ D1
 The Blight continues on to the east.
 ~
 ~
+~
+~
 Z -1 24090
 D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23045
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 24092
@@ -5790,14 +6926,20 @@ D1
 The Blight continues on to the east.
 ~
 ~
+~
+~
 Z -1 24091
 D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23050
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 24093
@@ -5814,14 +6956,20 @@ D1
 The Blight continues on to the east.
 ~
 ~
+~
+~
 Z -1 24092
 D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23055
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 24094
@@ -5838,14 +6986,20 @@ D1
 The Blight continues on to the east.
 ~
 ~
+~
+~
 Z -1 24093
 D2
 The Blight continues on to the south.
 ~
 ~
+~
+~
 Z -1 23060
 D3
 The Blight continues on to the west.
+~
+~
 ~
 ~
 Z -1 24095
@@ -5866,9 +7020,13 @@ D1
 The Blight continues on to the east.
 ~
 ~
+~
+~
 Z -1 24094
 D2
 The Blight continues on to the south.
+~
+~
 ~
 ~
 Z -1 24096
@@ -5887,14 +7045,20 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 24095
 D1
 The Blight continues on to the east.
 ~
 ~
+~
+~
 Z -1 23060
 D2
 The Blight continues on to the south.
+~
+~
 ~
 ~
 Z -1 24097
@@ -5913,14 +7077,20 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 24096
 D1
 The Blight continues on to the east.
 ~
 ~
+~
+~
 Z -1 23059
 D2
 The Blight continues on to the south.
+~
+~
 ~
 ~
 Z -1 24098
@@ -5939,14 +7109,20 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 24097
 D1
 The Blight continues on to the east.
 ~
 ~
+~
+~
 Z -1 23058
 D2
 The Blight continues on to the south.
+~
+~
 ~
 ~
 Z -1 24099
@@ -5965,14 +7141,20 @@ D0
 The Blight continues on to the north.
 ~
 ~
+~
+~
 Z -1 24098
 D1
 The Blight continues on to the east.
 ~
 ~
+~
+~
 Z -1 23057
 D2
 The Blight continues on to the south.
+~
+~
 ~
 ~
 Z -1 23100

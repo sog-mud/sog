@@ -459,20 +459,20 @@ small tablet~
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8801
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 7860
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8855
 S
 #8801
@@ -486,14 +486,14 @@ you can't shake the feeling that you're being watched.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8802
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8800
 S
 #8802
@@ -507,14 +507,14 @@ you can't shake the feeling that you're being watched.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8803
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8801
 S
 #8803
@@ -527,20 +527,20 @@ you involuntarily jump.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8804
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8802
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8820
 S
 #8804
@@ -554,14 +554,14 @@ impression that it has been recently cleared.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8805
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8803
 S
 #8805
@@ -574,20 +574,20 @@ to the south the trail becomes significantly narrower, and overgrown.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8806
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8808
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8804
 S
 #8806
@@ -600,14 +600,14 @@ it still looms large ahead of you.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8807
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8805
 S
 #8807
@@ -620,8 +620,8 @@ due east toward the west gate of the distant fortress.
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8806
 S
 #8808
@@ -634,14 +634,14 @@ be any quick end to it either.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8805
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8809
 S
 #8809
@@ -655,20 +655,20 @@ You spy a rope ladder ascending to a platform in a nearby tree.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8808
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8811
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8810
 S
 #8810
@@ -682,8 +682,8 @@ reception if there is a guard present...
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8809
 S
 #8811
@@ -698,20 +698,20 @@ to be a little less overgrown.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8809
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8813
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8812
 S
 #8812
@@ -723,8 +723,8 @@ guess you had better turn back...
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8811
 S
 #8813
@@ -737,14 +737,14 @@ only occasionally to hack away an overhanging branch or vine.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8814
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8811
 S
 #8814
@@ -757,14 +757,14 @@ only occasionally to hack away an overhanging branch or vine.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8815
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8813
 S
 #8815
@@ -775,14 +775,14 @@ You have reached a point where the path bends to the north.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8816
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8814
 S
 #8816
@@ -795,14 +795,14 @@ north.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8817
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8815
 S
 #8817
@@ -816,20 +816,20 @@ Another path runs to the east of here.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8819
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8818
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8816
 S
 #8818
@@ -841,8 +841,8 @@ clear water. You feel strangely at ease here.
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8817
 S
 #8819
@@ -856,14 +856,14 @@ peace.
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8817
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8904
 S
 #8820
@@ -876,20 +876,20 @@ eastern side of the road.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8803
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8822
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8821
 S
 #8821
@@ -903,8 +903,8 @@ reception if there is a guard present...
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8820
 S
 #8822
@@ -915,14 +915,14 @@ The path bends to the north here, running for some distance toward a stream.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8823
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8820
 S
 #8823
@@ -934,14 +934,14 @@ previous paths. There is a wide stream dead ahead.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8824
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8822
 S
 #8824
@@ -953,20 +953,20 @@ spell. Mind you, you could always whip out your rod and start angling :)
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8825
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8866
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8823
 S
 #8825
@@ -979,20 +979,20 @@ A broad, tree-lined path runs to the east.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8826
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8856
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8824
 S
 #8826
@@ -1004,20 +1004,20 @@ choice. You still have the feeling you're being watched...
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8830
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8825
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8827
 S
 #8827
@@ -1029,14 +1029,14 @@ beautiful valley below.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8826
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8828
 S
 #8828
@@ -1048,14 +1048,14 @@ beautiful valley below.
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8827
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8829
 S
 #8829
@@ -1067,14 +1067,14 @@ above.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 7800
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8828
 S
 #8830
@@ -1086,20 +1086,20 @@ previous paths. There is a narrow path to the east.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8832
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8831
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8826
 S
 #8831
@@ -1111,8 +1111,8 @@ through Mirkwood. Up ahead the path ends in a dead end.
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8830
 S
 #8832
@@ -1124,14 +1124,14 @@ previous paths.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8833
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8830
 S
 #8833
@@ -1143,14 +1143,14 @@ previous paths. There is a broad junction to the north.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8834
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8832
 S
 #8834
@@ -1163,20 +1163,20 @@ sickly-looking, dying trees of unidentifiable type.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8835
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8841
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8833
 S
 #8835
@@ -1190,14 +1190,14 @@ branches obscures your view.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8836
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8834
 S
 #8836
@@ -1211,14 +1211,14 @@ branches obscures your view.
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8835
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8837
 S
 #8837
@@ -1233,14 +1233,14 @@ The dying screams of some animal can be heard.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8836
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8838
 S
 #8838
@@ -1257,20 +1257,20 @@ To the north you see a shadowy area of the forest.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 6137
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8837
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8839
 S
 #8839
@@ -1286,14 +1286,14 @@ gash in the side of a grey cliff face.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8838
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8840
 S
 #8840
@@ -1305,8 +1305,8 @@ you should continue into the inky darkness beyond...
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8839
 S
 #8841
@@ -1317,14 +1317,14 @@ You reach a bend in the path, where you can head north or west.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8842
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8834
 S
 #8842
@@ -1335,14 +1335,14 @@ You reach a bend in the path, where you can head south or east.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8843
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8841
 S
 #8843
@@ -1355,20 +1355,20 @@ becomes significantly narrower, and overgrown.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8845
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8844
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8842
 S
 #8844
@@ -1380,14 +1380,14 @@ from a nearby oak tree, disappearing in its bushy branches above.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8843
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8846
 S
 #8845
@@ -1400,20 +1400,20 @@ runs to the north.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8868
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8847
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8843
 S
 #8846
@@ -1427,8 +1427,8 @@ reception if there is a guard present...
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8844
 S
 #8847
@@ -1441,20 +1441,20 @@ into the forest.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8848
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8849
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8845
 S
 #8848
@@ -1466,8 +1466,8 @@ a small watch-tower near a wide stream.
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8847
 S
 #8849
@@ -1480,14 +1480,14 @@ far off to the south.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8847
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8850
 S
 #8850
@@ -1500,14 +1500,14 @@ far off to the south.
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8851
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8849
 S
 #8851
@@ -1521,14 +1521,14 @@ To the south is a particularly dark patch of forest.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8850
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8852
 S
 #8852
@@ -1540,14 +1540,14 @@ mountain range. far in the distance looms Firetop Mountain.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8853
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8851
 S
 #8853
@@ -1559,14 +1559,14 @@ distant peak.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8854
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8852
 S
 #8854
@@ -1579,14 +1579,14 @@ D0
 It is entrance to Firetop Mountain 
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 5735
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8853
 S
 #8855
@@ -1598,14 +1598,14 @@ abruptly turns to the north and you continue.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8800
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 338
 S
 #8856
@@ -1619,14 +1619,14 @@ However, intruders are frowned upon here, so be on your guard.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8857
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8825
 S
 #8857
@@ -1641,14 +1641,14 @@ The entrance is directly before you.
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABCZ 8813 8858
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8856
 S
 #8858
@@ -1662,20 +1662,20 @@ The enchantments here prohibit spellcasting of any form.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8859
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8864
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABCZ 8813 8857
 S
 #8859
@@ -1688,14 +1688,14 @@ natives are hostile...
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ 0 8860
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8858
 S
 #8860
@@ -1707,20 +1707,20 @@ be happy to see you. You fancy you can hear muffled cries for help.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABCZ 8812 8867
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ 0 8861
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ 0 8859
 S
 #8861
@@ -1734,14 +1734,14 @@ them down to Lake Town.
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ 0 8860
 D5
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ 0 8862
 S
 #8862
@@ -1753,14 +1753,14 @@ and eventually to Lake Town.
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8863
 D4
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ 0 8861
 S
 #8863
@@ -1772,14 +1772,14 @@ and eventually to Lake Town.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8862
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8866
 S
 #8864
@@ -1792,14 +1792,14 @@ natives are hostile...
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z 0 8858
 D1
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ 0 8865
 S
 #8865
@@ -1812,8 +1812,8 @@ Dour guards glare at you on all sides.
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABZ 0 8864
 S
 #8866
@@ -1825,14 +1825,14 @@ and eventually to Lake Town.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8863
 D3
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8824
 S
 #8867
@@ -1844,8 +1844,8 @@ single inhabitant.
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 ABCZ 0 8860
 S
 #8868
@@ -1857,14 +1857,14 @@ section of the woods.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8869
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8845
 S
 #8869
@@ -1876,14 +1876,14 @@ see some sort of clearing.
 D0
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 9001
 D2
 ~
 ~
-@eng the door@rus дверь~
-@eng none@rus female~
+~
+~
 Z -1 8868
 S
 #0

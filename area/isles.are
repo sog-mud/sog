@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Isles~
 VNUMs 17000 17299
 Credits Lok~
@@ -1613,14 +1613,20 @@ D0
 The jungle
 ~
 ~
+~
+~
 Z -1 17175
 D1
 The plains
 ~
 ~
+~
+~
 Z -1 335
 D3
 The jungle
+~
+~
 ~
 ~
 Z -1 17172
@@ -1642,9 +1648,13 @@ D0
 The jungle
 ~
 ~
+~
+~
 Z -1 17174
 D1
 The beach
+~
+~
 ~
 ~
 Z -1 17171
@@ -1666,8 +1676,12 @@ D1
 The jungle
 ~
 ~
+~
+~
 Z -1 17174
 D5
+~
+~
 ~
 ~
 Z -1 17183
@@ -1683,14 +1697,20 @@ D1
 The jungle
 ~
 ~
+~
+~
 Z -1 17175
 D2
 The jungle
 ~
 ~
+~
+~
 Z -1 17172
 D3
 The jungle
+~
+~
 ~
 ~
 Z -1 17173
@@ -1710,14 +1730,20 @@ D0
 The jungle
 ~
 ~
+~
+~
 Z -1 17176
 D2
 The jungle
 ~
 ~
+~
+~
 Z -1 17171
 D3
 The jungle
+~
+~
 ~
 ~
 Z -1 17174
@@ -1738,14 +1764,20 @@ D0
 The jungle
 ~
 ~
+~
+~
 Z -1 17178
 D1
 The thorn thicket
 ~
 barricade thicket~
+the barricade~
+~
 ABZ 0 17177
 D2
 The jungle
+~
+~
 ~
 ~
 Z -1 17175
@@ -1765,9 +1797,13 @@ D3
 The jungle
 ~
 barricade thorn thicket~
+the barricade~
+~
 ABZ 0 17176
 D4
 The cave
+~
+~
 ~
 ~
 Z -1 17183
@@ -1787,9 +1823,13 @@ D2
 The jungle
 ~
 ~
+~
+~
 Z -1 17176
 D3
 The jungle
+~
+~
 ~
 ~
 Z -1 17179
@@ -1809,14 +1849,20 @@ D1
 The Jungle
 ~
 ~
+~
+~
 Z -1 17178
 D2
 The savage camp
 ~
 ~
+~
+~
 Z -1 17180
 D3
 The savage camp
+~
+~
 ~
 ~
 Z -1 17182
@@ -1836,9 +1882,13 @@ D0
 The savage camp
 ~
 ~
+~
+~
 Z -1 17179
 D3
 The savage camp
+~
+~
 ~
 ~
 Z -1 17181
@@ -1857,9 +1907,13 @@ D0
 The savage camp
 ~
 ~
+~
+~
 Z -1 17182
 D1
 The savage camp
+~
+~
 ~
 ~
 Z -1 17180
@@ -1878,9 +1932,13 @@ D1
 The savage camp
 ~
 ~
+~
+~
 Z -1 17179
 D2
 The savage camp
+~
+~
 ~
 ~
 Z -1 17181
@@ -1897,9 +1955,13 @@ D0
 The entryway
 ~
 ~
+~
+~
 Z -1 17184
 D1
 Inside the cave
+~
+~
 ~
 ~
 Z -1 17187
@@ -1907,13 +1969,19 @@ D2
 The entryway
 ~
 ~
+~
+~
 Z -1 17185
 D4
+~
+~
 ~
 ~
 Z -1 17173
 D5
 Down the trail
+~
+~
 ~
 ~
 Z -1 17177
@@ -1929,9 +1997,13 @@ D1
 Inside the cave
 ~
 ~
+~
+~
 Z -1 17186
 D2
 The entryway
+~
+~
 ~
 ~
 Z -1 17183
@@ -1947,9 +2019,13 @@ D0
 The entryway
 ~
 ~
+~
+~
 Z -1 17183
 D1
 Inside the cave
+~
+~
 ~
 ~
 Z -1 17188
@@ -1965,14 +2041,20 @@ D1
 Inside the cave
 ~
 ~
+~
+~
 Z -1 17189
 D2
 Inside the cave
 ~
 ~
+~
+~
 Z -1 17187
 D3
 The entryway
+~
+~
 ~
 ~
 Z -1 17184
@@ -1988,9 +2070,13 @@ D0
 Inside the cave
 ~
 ~
+~
+~
 Z -1 17186
 D1
 Inside the cave
+~
+~
 ~
 ~
 Z -1 17190
@@ -1998,9 +2084,13 @@ D2
 Inside the cave
 ~
 ~
+~
+~
 Z -1 17188
 D3
 The entryway
+~
+~
 ~
 ~
 Z -1 17183
@@ -2016,14 +2106,20 @@ D0
 Inside the cave
 ~
 ~
+~
+~
 Z -1 17187
 D1
 Inside the cave
 ~
 ~
+~
+~
 Z -1 17191
 D3
 The entryway
+~
+~
 ~
 ~
 Z -1 17185
@@ -2039,9 +2135,13 @@ D2
 Inside the cave
 ~
 ~
+~
+~
 Z -1 17190
 D3
 Inside the cave
+~
+~
 ~
 ~
 Z -1 17186
@@ -2062,9 +2162,13 @@ D0
 Inside the cave
 ~
 ~
+~
+~
 Z -1 17189
 D2
 Inside the cave
+~
+~
 ~
 ~
 Z -1 17191
@@ -2072,9 +2176,13 @@ D3
 Inside the cave
 ~
 ~
+~
+~
 Z -1 17187
 D4
 Up the iron rungs
+~
+~
 ~
 ~
 Z -1 17193
@@ -2082,6 +2190,8 @@ D5
 Into the dark hole
 ~
 carpet oriental rug secret trap door~
+the carpet~
+~
 ABZ 0 17192
 S
 #17191
@@ -2095,12 +2205,18 @@ D0
 Inside the cave
 ~
 ~
+~
+~
 Z -1 17190
 D2
 ~
 ~
+~
+~
 Z -1 17195
 D3
+~
+~
 ~
 ~
 Z -1 17188
@@ -2116,6 +2232,8 @@ D4
 Out of the hole
 ~
 trapdoor trap door rug oriental carpet~
+the trapdoor~
+~
 ABZ 0 17190
 S
 #17193
@@ -2129,6 +2247,8 @@ the fires.
 0 0 mountain
 D5
 Down the iron rungs
+~
+~
 ~
 ~
 Z -1 17190
@@ -2148,9 +2268,13 @@ on the bottom.
 D0
 ~
 ~
+~
+~
 Z 0 17235
 D2
 Into the cave
+~
+~
 ~
 ~
 Z -1 17211
@@ -2165,14 +2289,20 @@ looms. The sand is soft, and your feet sink deeply into its warmth.
 D0
 ~
 ~
+~
+~
 Z -1 17191
 D2
 The mountain
 ~
 ~
+~
+~
 Z -1 17197
 D3
 The beach
+~
+~
 ~
 ~
 Z -1 17196
@@ -2189,9 +2319,13 @@ D1
 The beach
 ~
 ~
+~
+~
 Z -1 17195
 D2
 The beach
+~
+~
 ~
 ~
 Z -1 17203
@@ -2214,9 +2348,13 @@ D0
 The beach
 ~
 ~
+~
+~
 Z -1 17195
 D1
 The mountain
+~
+~
 ~
 ~
 Z -1 17198
@@ -2224,9 +2362,13 @@ D2
 The mountain
 ~
 ~
+~
+~
 Z -1 17205
 D3
 The beach
+~
+~
 ~
 ~
 Z -1 17203
@@ -2242,14 +2384,20 @@ D1
 The mountain
 ~
 ~
+~
+~
 Z -1 17199
 D2
 Over the rim
 ~
 ~
+~
+~
 Z -1 17210
 D3
 The mountain
+~
+~
 ~
 ~
 Z -1 17197
@@ -2266,9 +2414,13 @@ D0
 The lava flows
 ~
 ~
+~
+~
 Z -1 17200
 D1
 The lava flows
+~
+~
 ~
 ~
 Z -1 17202
@@ -2276,9 +2428,13 @@ D2
 The mountain
 ~
 ~
+~
+~
 Z -1 17209
 D3
 The mountain
+~
+~
 ~
 ~
 Z -1 17198
@@ -2298,9 +2454,13 @@ D1
 The lava flows
 ~
 ~
+~
+~
 Z -1 17201
 D2
 Up the mountain
+~
+~
 ~
 ~
 Z -1 17199
@@ -2317,14 +2477,20 @@ deafening roar.
 D1
 ~
 ~
+~
+~
 Z 0 17247
 D2
 The lava flows
 ~
 ~
+~
+~
 Z -1 17202
 D3
 The lava flows
+~
+~
 ~
 ~
 Z -1 17200
@@ -2345,9 +2511,13 @@ D0
 The lava flows
 ~
 ~
+~
+~
 Z -1 17201
 D3
 Up the mountain
+~
+~
 ~
 ~
 Z -1 17199
@@ -2365,14 +2535,20 @@ D0
 The beach
 ~
 ~
+~
+~
 Z -1 17196
 D1
 The mountain
 ~
 ~
+~
+~
 Z -1 17197
 D2
 The beach
+~
+~
 ~
 ~
 Z -1 17204
@@ -2388,14 +2564,20 @@ D0
 The beach
 ~
 ~
+~
+~
 Z -1 17203
 D1
 The mountain
 ~
 ~
+~
+~
 Z -1 17205
 D3
 On the seas surrounding an atoll
+~
+~
 ~
 ~
 Z -1 17221
@@ -2412,9 +2594,13 @@ D0
 The mountain
 ~
 ~
+~
+~
 Z -1 17197
 D1
 Over the rim
+~
+~
 ~
 ~
 Z -1 17210
@@ -2422,9 +2608,13 @@ D2
 The mountain
 ~
 ~
+~
+~
 Z -1 17206
 D3
 The beach
+~
+~
 ~
 ~
 Z -1 17204
@@ -2442,9 +2632,13 @@ D0
 The mountain
 ~
 ~
+~
+~
 Z -1 17205
 D1
 The mountain
+~
+~
 ~
 ~
 Z -1 17207
@@ -2462,14 +2656,20 @@ D0
 The crater
 ~
 ~
+~
+~
 Z -1 17210
 D1
 The mountain
 ~
 ~
+~
+~
 Z -1 17208
 D3
 The mountain
+~
+~
 ~
 ~
 Z -1 17206
@@ -2486,9 +2686,13 @@ D0
 The mountain
 ~
 ~
+~
+~
 Z -1 17209
 D3
 The mountain
+~
+~
 ~
 ~
 Z -1 17207
@@ -2506,14 +2710,20 @@ D0
 The mountain
 ~
 ~
+~
+~
 Z -1 17199
 D2
 The mountain
 ~
 ~
+~
+~
 Z -1 17208
 D3
 Over the rim
+~
+~
 ~
 ~
 Z -1 17210
@@ -2530,11 +2740,15 @@ D2
 Up the southern path
 ~
 ~
+~
+~
 Z -1 17207
 D5
 Down a shaft
 ~
 hatch~
+the hatch~
+~
 Z 0 17218
 S
 #17211
@@ -2554,9 +2768,13 @@ D0
 The cove
 ~
 ~
+~
+~
 Z -1 17194
 D4
 Up the stairs
+~
+~
 ~
 ~
 Z -1 17212
@@ -2574,9 +2792,13 @@ D1
 Caverns
 ~
 ~
+~
+~
 Z -1 17213
 D2
 In the Pirates Cavern
+~
+~
 ~
 ~
 Z -1 17215
@@ -2584,9 +2806,13 @@ D3
 Caverns
 ~
 gate~
+the gate~
+~
 ABCZ 17021 17214
 D5
 Down the winding stone staircase
+~
+~
 ~
 ~
 Z -1 17211
@@ -2608,6 +2834,8 @@ D3
 Caverns
 ~
 ~
+~
+~
 Z -1 17212
 S
 #17214
@@ -2622,6 +2850,8 @@ D1
 Caverns
 ~
 gate~
+the gate~
+~
 ABCZ 17021 17212
 S
 #17215
@@ -2643,9 +2873,13 @@ D0
 Caverns
 ~
 ~
+~
+~
 Z -1 17212
 D2
 Caverns
+~
+~
 ~
 ~
 Z -1 17216
@@ -2662,9 +2896,13 @@ D0
 Caverns
 ~
 ~
+~
+~
 Z -1 17215
 D1
 Caverns
+~
+~
 ~
 ~
 Z -1 17217
@@ -2682,9 +2920,13 @@ D2
 Caverns
 ~
 ~
+~
+~
 Z -1 17218
 D3
 Caverns
+~
+~
 ~
 ~
 Z -1 17216
@@ -2702,9 +2944,13 @@ scurry when you enter the room.
 D0
 ~
 ~
+~
+~
 Z 0 17217
 D1
 The barracks
+~
+~
 ~
 ~
 Z -1 17219
@@ -2712,9 +2958,13 @@ D3
 A dark cavern
 ~
 gate~
+the gate~
+~
 ABCZ 17021 17220
 D4
 A winding staircase
+~
+~
 ~
 ~
 Z -1 17210
@@ -2729,6 +2979,8 @@ fresh and free of insects.
 0 D inside
 D3
 The hall
+~
+~
 ~
 ~
 Z -1 17218
@@ -2749,6 +3001,8 @@ D1
 The hall
 ~
 gate~
+the gate~
+~
 ABCZ 17021 17218
 S
 #17221
@@ -2769,9 +3023,13 @@ D1
 On the black sand beach
 ~
 ~
+~
+~
 Z -1 17204
 D2
 Sailing around the atoll
+~
+~
 ~
 ~
 Z -1 17222
@@ -2795,9 +3053,13 @@ D0
 Sailing around the atoll
 ~
 ~
+~
+~
 Z -1 17221
 D3
 Sailing around the atoll
+~
+~
 ~
 ~
 Z -1 17223
@@ -2821,9 +3083,13 @@ D1
 Sailing around the atoll
 ~
 ~
+~
+~
 Z -1 17222
 D3
 Sailing around the atoll
+~
+~
 ~
 ~
 Z -1 17224
@@ -2847,9 +3113,13 @@ D0
 Sailing around the atoll
 ~
 ~
+~
+~
 Z -1 17225
 D1
 Sailing around the atoll
+~
+~
 ~
 ~
 Z -1 17223
@@ -2873,9 +3143,13 @@ D2
 Sailing around the atoll
 ~
 ~
+~
+~
 Z -1 17224
 D3
 Sailing around the atoll
+~
+~
 ~
 ~
 Z -1 17226
@@ -2899,9 +3173,13 @@ D0
 Sailing around the atoll
 ~
 ~
+~
+~
 Z -1 17227
 D1
 Sailing around the atoll
+~
+~
 ~
 ~
 Z -1 17225
@@ -2925,9 +3203,13 @@ D0
 Sailing around the atoll
 ~
 ~
+~
+~
 Z -1 17228
 D2
 Sailing around the atoll
+~
+~
 ~
 ~
 Z -1 17226
@@ -2951,9 +3233,13 @@ D1
 Sailing around the atoll
 ~
 ~
+~
+~
 Z -1 17229
 D2
 Sailing around the atoll
+~
+~
 ~
 ~
 Z -1 17227
@@ -2984,9 +3270,13 @@ D0
 Sailing around the atoll
 ~
 ~
+~
+~
 Z -1 17230
 D3
 Sailing around the atoll
+~
+~
 ~
 ~
 Z -1 17228
@@ -3010,9 +3300,13 @@ D1
 The lagoon entrance
 ~
 ~
+~
+~
 Z -1 17231
 D2
 Sailing around the atoll
+~
+~
 ~
 ~
 Z -1 17229
@@ -3036,14 +3330,20 @@ D1
 Sailing around the atoll
 ~
 ~
+~
+~
 Z -1 17232
 D2
 Into the lagoon
 ~
 ~
+~
+~
 Z -1 17236
 D3
 Sailing around the atoll
+~
+~
 ~
 ~
 Z -1 17230
@@ -3067,9 +3367,13 @@ D2
 Sailing around the atoll
 ~
 ~
+~
+~
 Z -1 17233
 D3
 Sailing around the atoll
+~
+~
 ~
 ~
 Z -1 17231
@@ -3093,9 +3397,13 @@ D0
 Sailing around the atoll
 ~
 ~
+~
+~
 Z -1 17232
 D1
 Sailing around the atoll
+~
+~
 ~
 ~
 Z -1 17234
@@ -3119,9 +3427,13 @@ D2
 Sailing around the atoll
 ~
 ~
+~
+~
 Z -1 17235
 D3
 Sailing around the atoll
+~
+~
 ~
 ~
 Z -1 17233
@@ -3145,8 +3457,12 @@ D0
 Sailing around the atoll
 ~
 ~
+~
+~
 Z -1 17234
 D2
+~
+~
 ~
 ~
 Z 0 17194
@@ -3164,9 +3480,13 @@ D0
 Out of the lagoon
 ~
 ~
+~
+~
 Z -1 17231
 D2
 The shacks on stilts
+~
+~
 ~
 ~
 Z -1 17237
@@ -3185,9 +3505,13 @@ D0
 The docks
 ~
 ~
+~
+~
 Z -1 17236
 D1
 The barracks
+~
+~
 ~
 ~
 Z -1 17238
@@ -3195,9 +3519,13 @@ D2
 The house on stilts
 ~
 ~
+~
+~
 ABZ -1 17240
 D3
 The barred shack
+~
+~
 ~
 ~
 ABZ -1 17239
@@ -3214,6 +3542,8 @@ D3
 The central shack
 ~
 ~
+~
+~
 Z -1 17237
 S
 #17239
@@ -3226,6 +3556,8 @@ to the wooden frame of the hut. Flies buzz around in lazy circles.
 0 0 inside
 D1
 The central shack
+~
+~
 ~
 ~
 ABZ -1 17237
@@ -3246,6 +3578,8 @@ D0
 The central shack
 ~
 ~
+~
+~
 ABZ -1 17237
 S
 #17241
@@ -3259,9 +3593,13 @@ D0
 In the air
 ~
 ~
+~
+~
 Z -1 17244
 D1
 In the air
+~
+~
 ~
 ~
 Z -1 17242
@@ -3269,9 +3607,13 @@ D2
 In the air
 ~
 ~
+~
+~
 Z -1 17244
 D3
 In the air
+~
+~
 ~
 ~
 Z -1 17243
@@ -3279,9 +3621,13 @@ D4
 In the air
 ~
 ~
+~
+~
 Z -1 17245
 D5
 On the water
+~
+~
 ~
 ~
 Z -1 6114
@@ -3297,9 +3643,13 @@ D0
 In the air
 ~
 ~
+~
+~
 Z -1 17245
 D1
 In the air
+~
+~
 ~
 ~
 Z -1 17243
@@ -3307,9 +3657,13 @@ D2
 In the air
 ~
 ~
+~
+~
 Z -1 17245
 D3
 In the air
+~
+~
 ~
 ~
 Z -1 17241
@@ -3317,9 +3671,13 @@ D4
 In the air
 ~
 ~
+~
+~
 Z -1 17246
 D5
 In the air
+~
+~
 ~
 ~
 Z -1 17244
@@ -3335,9 +3693,13 @@ D0
 In the air
 ~
 ~
+~
+~
 Z -1 17246
 D1
 In the air
+~
+~
 ~
 ~
 Z -1 17241
@@ -3345,9 +3707,13 @@ D2
 In the air
 ~
 ~
+~
+~
 Z -1 17246
 D3
 In the air
+~
+~
 ~
 ~
 Z -1 17242
@@ -3355,9 +3721,13 @@ D4
 In the air
 ~
 ~
+~
+~
 Z -1 17244
 D5
 In the air
+~
+~
 ~
 ~
 Z -1 17245
@@ -3373,9 +3743,13 @@ D0
 In the air
 ~
 ~
+~
+~
 Z -1 17241
 D1
 In the air
+~
+~
 ~
 ~
 Z -1 17245
@@ -3383,9 +3757,13 @@ D2
 In the air
 ~
 ~
+~
+~
 Z -1 17241
 D3
 In the air
+~
+~
 ~
 ~
 Z -1 17246
@@ -3393,9 +3771,13 @@ D4
 In the air
 ~
 ~
+~
+~
 Z -1 17242
 D5
 In the air
+~
+~
 ~
 ~
 Z -1 17243
@@ -3411,9 +3793,13 @@ D0
 In the air
 ~
 ~
+~
+~
 Z -1 17242
 D1
 In the air
+~
+~
 ~
 ~
 Z -1 17246
@@ -3421,9 +3807,13 @@ D2
 In the air
 ~
 ~
+~
+~
 Z -1 17242
 D3
 In the air
+~
+~
 ~
 ~
 Z -1 17244
@@ -3431,9 +3821,13 @@ D4
 In the air
 ~
 ~
+~
+~
 Z -1 17243
 D5
 In the air
+~
+~
 ~
 ~
 Z -1 17241
@@ -3449,9 +3843,13 @@ D0
 In the air
 ~
 ~
+~
+~
 Z -1 17243
 D1
 In the air
+~
+~
 ~
 ~
 Z -1 17244
@@ -3459,9 +3857,13 @@ D2
 In the air
 ~
 ~
+~
+~
 Z -1 17243
 D3
 In the air
+~
+~
 ~
 ~
 Z -1 17245
@@ -3469,9 +3871,13 @@ D4
 In the calm air
 ~
 ~
+~
+~
 Z -1 17247
 D5
 In the air
+~
+~
 ~
 ~
 Z -1 17242
@@ -3488,18 +3894,26 @@ D0
 In the calm air
 ~
 ~
+~
+~
 Z -1 17248
 D1
 In the calm air
+~
+~
 ~
 ~
 Z -1 17250
 D3
 ~
 ~
+~
+~
 Z 0 17201
 D5
 In the turbulent air
+~
+~
 ~
 ~
 Z -1 17246
@@ -3532,9 +3946,13 @@ D1
 In the calm air
 ~
 ~
+~
+~
 Z -1 17249
 D2
 In the calm air
+~
+~
 ~
 ~
 Z -1 17247
@@ -3550,14 +3968,20 @@ D2
 In the calm air
 ~
 ~
+~
+~
 Z -1 17250
 D3
 In the calm air
 ~
 ~
+~
+~
 Z -1 17248
 D4
 Up the rope ladder
+~
+~
 ~
 ~
 Z -1 17251
@@ -3574,9 +3998,13 @@ D0
 In the calm air
 ~
 ~
+~
+~
 Z -1 17249
 D3
 In the calm air
+~
+~
 ~
 ~
 Z -1 17247
@@ -3593,13 +4021,19 @@ D0
 On the flying island
 ~
 ~
+~
+~
 Z -1 17252
 D2
 Taking the winch all the way down to the sea
 ~
 winch ladder rope~
+the winch~
+~
 Z -1 6118
 D5
+~
+~
 ~
 ~
 Z -1 17249
@@ -3616,9 +4050,13 @@ D0
 On the flying island
 ~
 ~
+~
+~
 Z -1 17256
 D1
 On the flying island
+~
+~
 ~
 ~
 Z -1 17253
@@ -3626,9 +4064,13 @@ D2
 On the flying island
 ~
 ~
+~
+~
 Z -1 17251
 D3
 On the flying island
+~
+~
 ~
 ~
 Z -1 17254
@@ -3646,9 +4088,13 @@ D0
 On the flying island
 ~
 ~
+~
+~
 Z -1 17258
 D3
 On the flying island
+~
+~
 ~
 ~
 Z -1 17252
@@ -3666,9 +4112,13 @@ D0
 On the flying island
 ~
 ~
+~
+~
 Z -1 17255
 D1
 On the flying island
+~
+~
 ~
 ~
 Z -1 17252
@@ -3686,9 +4136,13 @@ D1
 On the flying island
 ~
 ~
+~
+~
 Z -1 17256
 D2
 On the flying island
+~
+~
 ~
 ~
 Z -1 17254
@@ -3704,9 +4158,13 @@ D0
 On the flying island
 ~
 ~
+~
+~
 Z -1 17257
 D1
 On the flying island
+~
+~
 ~
 ~
 Z -1 17258
@@ -3714,14 +4172,20 @@ D2
 On the flying island
 ~
 ~
+~
+~
 Z -1 17252
 D3
 On the flying island
 ~
 ~
+~
+~
 Z -1 17255
 D4
 Up the ramp to the keep
+~
+~
 ~
 ~
 Z -1 17259
@@ -3739,6 +4203,8 @@ D2
 On the flying island
 ~
 ~
+~
+~
 Z -1 17256
 S
 #17258
@@ -3754,9 +4220,13 @@ D2
 On the flying island
 ~
 ~
+~
+~
 Z -1 17253
 D3
 On the flying island
+~
+~
 ~
 ~
 Z -1 17256
@@ -3779,9 +4249,13 @@ D2
 Inside the keep
 ~
 door~
+~
+~
 ABZ 0 17260
 D5
 Down the ramp
+~
+~
 ~
 ~
 Z -1 17256
@@ -3797,14 +4271,20 @@ D0
 Outside the keep
 ~
 door~
+~
+~
 ABZ -1 17259
 D1
 A room
 ~
 door~
+~
+~
 ABZ -1 17261
 D2
 Down the hall
+~
+~
 ~
 ~
 Z -1 17263
@@ -3812,6 +4292,8 @@ D3
 A room
 ~
 door~
+~
+~
 ABZ -1 17262
 S
 #17261
@@ -3827,6 +4309,8 @@ D3
 A door
 ~
 door~
+~
+~
 ABZ -1 17260
 S
 #17262
@@ -3842,6 +4326,8 @@ D1
 A door
 ~
 door~
+~
+~
 ABZ -1 17260
 S
 #17263
@@ -3855,14 +4341,20 @@ D0
 Up the hall
 ~
 ~
+~
+~
 Z -1 17260
 D1
 A room
 ~
 door~
+~
+~
 ABZ -1 17264
 D2
 Down the hall
+~
+~
 ~
 ~
 Z -1 17266
@@ -3870,6 +4362,8 @@ D3
 A room
 ~
 door~
+~
+~
 ABZ -1 17265
 S
 #17264
@@ -3885,6 +4379,8 @@ D3
 A door
 ~
 door~
+~
+~
 ABZ -1 17263
 S
 #17265
@@ -3900,6 +4396,8 @@ D1
 A door
 ~
 door~
+~
+~
 ABZ -1 17263
 S
 #17266
@@ -3914,21 +4412,29 @@ D0
 Up the hall
 ~
 ~
+~
+~
 Z -1 17263
 D1
 A room
 ~
 door~
+~
+~
 ABZ -1 17267
 D2
 Through the double doors
 ~
 doors double~
+@eng the doors@rus двери~
+@rus plural~
 ABCZ 17041 17269
 D3
 A room
 ~
 door~
+~
+~
 ABZ -1 17268
 S
 #17267
@@ -3944,6 +4450,8 @@ D3
 A door
 ~
 door~
+~
+~
 ABZ -1 17266
 S
 #17268
@@ -3959,6 +4467,8 @@ D1
 A door
 ~
 door~
+~
+~
 Z -1 17266
 S
 #17269
@@ -3975,9 +4485,13 @@ D0
 Into the hallway
 ~
 door double~
+~
+~
 ABCZ 17261 17266
 D4
 Up the stairs
+~
+~
 ~
 ~
 Z -1 17270
@@ -3995,6 +4509,8 @@ D5
 Down the stairs
 ~
 ~
+~
+~
 Z -1 17269
 S
 #17271
@@ -4009,9 +4525,13 @@ D0
 The sea of ice
 ~
 ~
+~
+~
 Z -1 17272
 D2
 The sea of ice
+~
+~
 ~
 ~
 Z -1 3201
@@ -4028,9 +4548,13 @@ D1
 The sea of ice
 ~
 ~
+~
+~
 Z -1 17273
 D2
 The sea of ice
+~
+~
 ~
 ~
 Z -1 17271
@@ -4047,9 +4571,13 @@ D1
 The sea of ice
 ~
 ~
+~
+~
 Z -1 17274
 D3
 The sea of ice
+~
+~
 ~
 ~
 Z -1 17272
@@ -4066,9 +4594,13 @@ D2
 The sea of ice
 ~
 ~
+~
+~
 Z -1 17275
 D3
 The sea of ice
+~
+~
 ~
 ~
 Z -1 17273
@@ -4085,9 +4617,13 @@ D0
 The sea of ice
 ~
 ~
+~
+~
 Z -1 17274
 D2
 The sea of ice
+~
+~
 ~
 ~
 Z -1 17276
@@ -4104,9 +4640,13 @@ D0
 The sea of ice
 ~
 ~
+~
+~
 Z -1 17275
 D3
 The sea of ice
+~
+~
 ~
 ~
 Z -1 17277
@@ -4123,9 +4663,13 @@ D0
 Into the cave
 ~
 ~
+~
+~
 Z -1 17278
 D1
 The sea of ice
+~
+~
 ~
 ~
 Z -1 17276
@@ -4144,11 +4688,15 @@ D2
 The sea of ice
 ~
 ~
+~
+~
 Z -1 17277
 D5
 Through the trap door
 ~
 ice trap door~
+the ice~
+~
 ABZ -1 17279
 S
 #17279
@@ -4160,6 +4708,8 @@ around.
 0 ADS inside
 D3
 The icy shoot
+~
+~
 ~
 ~
 Z -1 17280
@@ -4175,6 +4725,8 @@ D2
 The icy shoot
 ~
 ~
+~
+~
 Z -1 17281
 S
 #17281
@@ -4186,6 +4738,8 @@ around.
 0 ADQ inside
 D1
 The icy shoot
+~
+~
 ~
 ~
 Z -1 17282
@@ -4201,6 +4755,8 @@ D5
 The icy shoot
 ~
 ~
+~
+~
 Z -1 17283
 S
 #17283
@@ -4212,6 +4768,8 @@ around.
 0 ADR inside
 D2
 The icy shoot
+~
+~
 ~
 ~
 Z -1 17284
@@ -4227,6 +4785,8 @@ D1
 The icy shoot
 ~
 ~
+~
+~
 Z -1 17285
 S
 #17285
@@ -4238,6 +4798,8 @@ around.
 0 ADP inside
 D0
 The icy shoot
+~
+~
 ~
 ~
 Z -1 17286
@@ -4253,6 +4815,8 @@ D5
 The icy shoot
 ~
 ~
+~
+~
 Z -1 17287
 S
 #17287
@@ -4264,6 +4828,8 @@ around.
 0 ADR inside
 D2
 The icy shoot
+~
+~
 ~
 ~
 Z -1 17288
@@ -4279,6 +4845,8 @@ D1
 The icy shoot
 ~
 ~
+~
+~
 Z -1 17289
 S
 #17289
@@ -4290,6 +4858,8 @@ around.
 0 ADP inside
 D0
 The icy shoot
+~
+~
 ~
 ~
 Z -1 17290
@@ -4305,9 +4875,13 @@ D0
 In the great ice cavern
 ~
 ~
+~
+~
 Z -1 17291
 D1
 In the great ice cavern
+~
+~
 ~
 ~
 Z -1 17295
@@ -4323,14 +4897,20 @@ D0
 In the great ice cavern
 ~
 ~
+~
+~
 Z -1 17292
 D1
 In the great ice cavern
 ~
 ~
+~
+~
 Z -1 17294
 D2
 In the great ice cavern
+~
+~
 ~
 ~
 Z -1 17290
@@ -4346,9 +4926,13 @@ D1
 In the great ice cavern
 ~
 ~
+~
+~
 Z -1 17293
 D2
 In the great ice cavern
+~
+~
 ~
 ~
 Z -1 17291
@@ -4364,14 +4948,20 @@ D1
 In the great ice cavern
 ~
 ~
+~
+~
 Z -1 17296
 D2
 In the great ice cavern
 ~
 ~
+~
+~
 Z -1 17294
 D3
 In the great ice cavern
+~
+~
 ~
 ~
 Z -1 17292
@@ -4390,9 +4980,13 @@ D0
 In the great ice cavern
 ~
 ~
+~
+~
 Z -1 17293
 D1
 In the great ice cavern
+~
+~
 ~
 ~
 Z -1 17297
@@ -4400,9 +4994,13 @@ D2
 In the great ice cavern
 ~
 ~
+~
+~
 Z -1 17295
 D3
 In the great ice cavern
+~
+~
 ~
 ~
 Z -1 17291
@@ -4418,14 +5016,20 @@ D0
 In the great ice cavern
 ~
 ~
+~
+~
 Z -1 17294
 D1
 In the great ice cavern
 ~
 ~
+~
+~
 Z -1 17298
 D3
 In the great ice cavern
+~
+~
 ~
 ~
 Z -1 17290
@@ -4441,9 +5045,13 @@ D2
 In the great ice cavern
 ~
 ~
+~
+~
 Z -1 17297
 D3
 In the great ice cavern
+~
+~
 ~
 ~
 Z -1 17293
@@ -4459,19 +5067,27 @@ D0
 In the great ice cavern
 ~
 ~
+~
+~
 Z -1 17296
 D1
 A thin sheet of ice
 ~
 ice~
+the ice~
+~
 ABCFZ -1 17299
 D2
 In the great ice cavern
 ~
 ~
+~
+~
 Z -1 17298
 D3
 In the great ice cavern
+~
+~
 ~
 ~
 Z -1 17294
@@ -4491,9 +5107,13 @@ D0
 In the great ice cavern
 ~
 ~
+~
+~
 Z -1 17297
 D3
 In the great ice cavern
+~
+~
 ~
 ~
 Z -1 17295
@@ -4516,11 +5136,15 @@ D1
 Inside the iceberg
 ~
 ~
+~
+~
 Z -1 17278
 D3
 A thin sheet of ice
 ~
 ice~
+the ice~
+~
 ABCFZ -1 17297
 S
 #0

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name The Village of Anon~
 VNUMs 24100 24199
 Credits Yaegar~
@@ -996,16 +996,24 @@ resides. Paths stretch out to the east, south and west from here.
 D0
 ~
 ~
+~
+~
 Z 0 24101
 D1
+~
+~
 ~
 ~
 Z -1 24104
 D2
 ~
 ~
+~
+~
 Z -1 24103
 D3
+~
+~
 ~
 ~
 Z -1 24102
@@ -1022,6 +1030,8 @@ serving as focii for the shaman's mystic powers.
 D2
 ~
 ~
+~
+~
 Z 0 24100
 S
 #24102
@@ -1035,8 +1045,12 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
+~
+~
 Z -1 24100
 D3
+~
+~
 ~
 ~
 Z -1 24105
@@ -1050,8 +1064,12 @@ Shaman's hut.
 D0
 ~
 ~
+~
+~
 Z -1 24100
 D2
+~
+~
 ~
 ~
 Z -1 24106
@@ -1067,8 +1085,12 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
+~
+~
 Z -1 24107
 D3
+~
+~
 ~
 ~
 Z -1 24100
@@ -1084,16 +1106,24 @@ a hot meal and a comfortable bed this evening.
 D0
 ~
 ~
+~
+~
 Z -1 24137
 D1
+~
+~
 ~
 ~
 Z -1 24102
 D2
 ~
 ~
+~
+~
 Z -1 24139
 D3
+~
+~
 ~
 ~
 Z -1 24108
@@ -1109,16 +1139,24 @@ a hot meal and a comfortable bed this evening.
 D0
 ~
 ~
+~
+~
 Z -1 24103
 D1
+~
+~
 ~
 ~
 Z -1 24163
 D2
 ~
 ~
+~
+~
 Z -1 24109
 D3
+~
+~
 ~
 ~
 Z -1 24161
@@ -1134,16 +1172,24 @@ a hot meal and a comfortable bed this evening.
 D0
 ~
 ~
+~
+~
 Z -1 24141
 D1
+~
+~
 ~
 ~
 Z -1 24110
 D2
 ~
 ~
+~
+~
 Z -1 24143
 D3
+~
+~
 ~
 ~
 Z -1 24104
@@ -1159,8 +1205,12 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
+~
+~
 Z -1 24105
 D3
+~
+~
 ~
 ~
 Z -1 24111
@@ -1177,8 +1227,12 @@ the Shaman's hut lies a short way to the north of here.
 D0
 ~
 ~
+~
+~
 Z -1 24106
 D2
+~
+~
 ~
 ~
 Z -1 24133
@@ -1194,8 +1248,12 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
+~
+~
 Z -1 24112
 D3
+~
+~
 ~
 ~
 Z -1 24107
@@ -1211,8 +1269,12 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
+~
+~
 Z -1 24108
 D3
+~
+~
 ~
 ~
 Z -1 24113
@@ -1230,8 +1292,12 @@ unfathomable to you.
 D1
 ~
 ~
+~
+~
 Z -1 24114
 D3
+~
+~
 ~
 ~
 Z -1 24110
@@ -1246,8 +1312,12 @@ concentration of residences and shops is nearer to the center of the village.
 D1
 ~
 ~
+~
+~
 Z -1 24111
 D3
+~
+~
 ~
 ~
 Z -1 24115
@@ -1262,8 +1332,12 @@ concentration of residences and shops is nearer to the center of the village.
 D1
 ~
 ~
+~
+~
 Z -1 24116
 D3
+~
+~
 ~
 ~
 Z -1 24112
@@ -1279,8 +1353,12 @@ a cursory nod as they go about their duties.
 D1
 ~
 ~
+~
+~
 Z -1 24113
 D3
+~
+~
 ~
 ~
 Z 24100 24117
@@ -1296,8 +1374,12 @@ a cursory nod as they go about their duties.
 D1
 ~
 ~
+~
+~
 Z 24100 24118
 D3
+~
+~
 ~
 ~
 Z -1 24114
@@ -1313,12 +1395,18 @@ the south.
 D0
 ~
 ~
+~
+~
 Z -1 24119
 D1
 ~
 ~
+~
+~
 Z 24100 24115
 D2
+~
+~
 ~
 ~
 Z -1 24132
@@ -1334,16 +1422,24 @@ the south.
 D0
 ~
 ~
+~
+~
 Z -1 24125
 D1
+~
+~
 ~
 ~
 Z -1 31018
 D2
 ~
 ~
+~
+~
 Z -1 24126
 D3
+~
+~
 ~
 ~
 Z 24100 24116
@@ -1359,8 +1455,12 @@ the larger structures within.
 D0
 ~
 ~
+~
+~
 Z -1 24120
 D2
+~
+~
 ~
 ~
 Z -1 24117
@@ -1376,8 +1476,12 @@ the larger structures within.
 D1
 ~
 ~
+~
+~
 Z -1 24121
 D2
+~
+~
 ~
 ~
 Z -1 24119
@@ -1393,8 +1497,12 @@ the larger structures within.
 D1
 ~
 ~
+~
+~
 Z -1 24122
 D3
+~
+~
 ~
 ~
 Z -1 24120
@@ -1412,8 +1520,12 @@ There is a path running up a hill here which you may ascend.
 D1
 ~
 ~
+~
+~
 Z -1 24123
 D3
+~
+~
 ~
 ~
 Z -1 24121
@@ -1429,8 +1541,12 @@ the larger structures within.
 D1
 ~
 ~
+~
+~
 Z -1 24124
 D3
+~
+~
 ~
 ~
 Z -1 24122
@@ -1446,8 +1562,12 @@ the larger structures within.
 D2
 ~
 ~
+~
+~
 Z -1 24125
 D3
+~
+~
 ~
 ~
 Z -1 24123
@@ -1463,8 +1583,12 @@ the larger structures within.
 D0
 ~
 ~
+~
+~
 Z -1 24124
 D2
+~
+~
 ~
 ~
 Z -1 24118
@@ -1480,8 +1604,12 @@ the larger structures within.
 D0
 ~
 ~
+~
+~
 Z -1 24118
 D2
+~
+~
 ~
 ~
 Z -1 24127
@@ -1497,8 +1625,12 @@ the larger structures within.
 D0
 ~
 ~
+~
+~
 Z -1 24126
 D3
+~
+~
 ~
 ~
 Z -1 24128
@@ -1514,8 +1646,12 @@ the larger structures within.
 D1
 ~
 ~
+~
+~
 Z -1 24127
 D3
+~
+~
 ~
 ~
 Z -1 24129
@@ -1531,8 +1667,12 @@ the larger structures within.
 D1
 ~
 ~
+~
+~
 Z -1 24128
 D3
+~
+~
 ~
 ~
 Z -1 24130
@@ -1548,8 +1688,12 @@ the larger structures within.
 D1
 ~
 ~
+~
+~
 Z -1 24129
 D3
+~
+~
 ~
 ~
 Z -1 24131
@@ -1565,8 +1709,12 @@ the larger structures within.
 D0
 ~
 ~
+~
+~
 Z -1 24132
 D1
+~
+~
 ~
 ~
 Z -1 24130
@@ -1582,8 +1730,12 @@ the larger structures within.
 D0
 ~
 ~
+~
+~
 Z -1 24117
 D2
+~
+~
 ~
 ~
 Z -1 24131
@@ -1599,8 +1751,12 @@ upon the doors of this hut marks it as the Horse Clan hut.
 D0
 ~
 ~
+~
+~
 Z -1 24109
 D2
+~
+~
 ~
 ~
 Z 0 24134
@@ -1616,12 +1772,18 @@ what your profession is all about, really. Intruding.
 D0
 ~
 ~
+~
+~
 Z 0 24133
 D1
 ~
 ~
+~
+~
 Z -1 24136
 D3
+~
+~
 ~
 ~
 Z -1 24135
@@ -1637,6 +1799,8 @@ conversation for a while.
 D1
 ~
 ~
+~
+~
 Z -1 24134
 S
 #24136
@@ -1647,6 +1811,8 @@ occasional shout or cuff on the ear.
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 Z -1 24134
@@ -1664,12 +1830,18 @@ The chieftain's lodge lies to the west of here.
 D0
 ~
 ~
+~
+~
 Z -1 24145
 D2
 ~
 ~
+~
+~
 Z -1 24105
 D3
+~
+~
 ~
 ~
 Z 0 24138
@@ -1683,6 +1855,8 @@ up to thirty, residing in three room lodges.
 ~
 0 D inside
 D1
+~
+~
 ~
 ~
 Z 0 24137
@@ -1700,12 +1874,18 @@ The flint-knepper practices his trade to the west of here.
 D0
 ~
 ~
+~
+~
 Z -1 24105
 D2
 ~
 ~
+~
+~
 Z -1 24160
 D3
+~
+~
 ~
 ~
 Z -1 24140
@@ -1724,6 +1904,8 @@ visitors this village attracts, and his forge shows evidence of this.
 D1
 ~
 ~
+~
+~
 Z -1 24139
 S
 #24141
@@ -1737,12 +1919,18 @@ a hot meal and a comfortable bed this evening.
 D0
 ~
 ~
+~
+~
 Z -1 24153
 D1
 ~
 ~
+~
+~
 Z -1 24142
 D2
+~
+~
 ~
 ~
 Z -1 24107
@@ -1755,6 +1943,8 @@ bales of hay and coils of hemp rope.
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 Z -1 24141
@@ -1770,12 +1960,18 @@ a hot meal and a comfortable bed this evening.
 D0
 ~
 ~
+~
+~
 Z -1 24107
 D1
 ~
 ~
+~
+~
 Z -1 24144
 D2
+~
+~
 ~
 ~
 Z -1 24165
@@ -1788,6 +1984,8 @@ acquire the rare metal weapons he has bought with him from the south.
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 Z -1 24143
@@ -1803,16 +2001,24 @@ a hot meal and a comfortable bed this evening.
 D0
 ~
 ~
+~
+~
 Z -1 24146
 D1
+~
+~
 ~
 ~
 Z -1 24148
 D2
 ~
 ~
+~
+~
 Z -1 24137
 D3
+~
+~
 ~
 ~
 Z -1 24181
@@ -1825,6 +2031,8 @@ sum of gold should you wish to.
 ~
 0 DM inside
 D2
+~
+~
 ~
 ~
 Z -1 24145
@@ -1851,12 +2059,18 @@ The witchdoctor's hut is to the north of here.
 D0
 ~
 ~
+~
+~
 Z -1 24149
 D1
 ~
 ~
+~
+~
 Z -1 24150
 D3
+~
+~
 ~
 ~
 Z -1 24145
@@ -1872,6 +2086,8 @@ smiles sweetly and welcomes you to her hut.
 D2
 ~
 ~
+~
+~
 Z -1 24148
 S
 #24150
@@ -1885,12 +2101,18 @@ a hot meal and a comfortable bed this evening.
 D0
 ~
 ~
+~
+~
 Z -1 24156
 D1
 ~
 ~
+~
+~
 Z -1 24151
 D3
+~
+~
 ~
 ~
 Z -1 24148
@@ -1908,12 +2130,18 @@ The wise woman's hut is to the north.
 D0
 ~
 ~
+~
+~
 Z -1 24152
 D1
 ~
 ~
+~
+~
 Z -1 24153
 D3
+~
+~
 ~
 ~
 Z -1 24150
@@ -1926,6 +2154,8 @@ of items of all types (there's no other reason to come here, really).
 ~
 0 CD inside
 D2
+~
+~
 ~
 ~
 Z -1 24151
@@ -1943,16 +2173,24 @@ The beastmaster's hut is to the north.
 D0
 ~
 ~
+~
+~
 Z -1 24154
 D1
+~
+~
 ~
 ~
 Z -1 24188
 D2
 ~
 ~
+~
+~
 Z -1 24141
 D3
+~
+~
 ~
 ~
 Z -1 24151
@@ -1966,6 +2204,8 @@ suggest.
 ~
 0 DM inside
 D2
+~
+~
 ~
 ~
 Z -1 24153
@@ -1995,8 +2235,12 @@ upon the doors of this hut marks it as the Bear Clan hut.
 D0
 ~
 ~
+~
+~
 Z -1 24157
 D2
+~
+~
 ~
 ~
 Z -1 24150
@@ -2012,12 +2256,18 @@ what your profession is all about, really. Intruding.
 D1
 ~
 ~
+~
+~
 Z -1 24158
 D2
 ~
 ~
+~
+~
 Z -1 24156
 D3
+~
+~
 ~
 ~
 Z -1 24159
@@ -2033,6 +2283,8 @@ conversation for a while.
 D3
 ~
 ~
+~
+~
 Z -1 24157
 S
 #24159
@@ -2043,6 +2295,8 @@ occasional shout or cuff on the ear.
 ~
 0 D inside
 D1
+~
+~
 ~
 ~
 Z -1 24157
@@ -2058,12 +2312,18 @@ a hot meal and a comfortable bed this evening.
 D0
 ~
 ~
+~
+~
 Z -1 24139
 D1
 ~
 ~
+~
+~
 Z -1 24161
 D3
+~
+~
 ~
 ~
 Z -1 24167
@@ -2081,12 +2341,18 @@ A trapper is selling his goods to the south.
 D1
 ~
 ~
+~
+~
 Z -1 24106
 D2
 ~
 ~
+~
+~
 Z -1 24162
 D3
+~
+~
 ~
 ~
 Z -1 24160
@@ -2099,6 +2365,8 @@ usually rather low, as the villagers quickly buy up for the winter.
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 Z -1 24161
@@ -2116,12 +2384,18 @@ Food is in fact available to the south of here, though it isn't hot.
 D1
 ~
 ~
+~
+~
 Z -1 24165
 D2
 ~
 ~
+~
+~
 Z -1 24164
 D3
+~
+~
 ~
 ~
 Z -1 24106
@@ -2134,6 +2408,8 @@ You may purchase supplies for your travels here.
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 Z -1 24163
@@ -2151,16 +2427,24 @@ The brewer's hut is south of here.
 D0
 ~
 ~
+~
+~
 Z -1 24143
 D1
+~
+~
 ~
 ~
 Z -1 24174
 D2
 ~
 ~
+~
+~
 Z -1 24166
 D3
+~
+~
 ~
 ~
 Z -1 24163
@@ -2173,6 +2457,8 @@ donation is in order.
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 Z -1 24165
@@ -2188,8 +2474,12 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
+~
+~
 Z -1 24160
 D3
+~
+~
 ~
 ~
 Z -1 24168
@@ -2205,8 +2495,12 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
+~
+~
 Z -1 24167
 D3
+~
+~
 ~
 ~
 Z -1 24169
@@ -2222,8 +2516,12 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
+~
+~
 Z -1 24168
 D2
+~
+~
 ~
 ~
 Z -1 24170
@@ -2239,8 +2537,12 @@ upon the doors of this hut marks it as the Eagle Clan hut.
 D0
 ~
 ~
+~
+~
 Z -1 24169
 D2
+~
+~
 ~
 ~
 Z 0 24171
@@ -2256,12 +2558,18 @@ what your profession is all about, really. Intruding.
 D0
 ~
 ~
+~
+~
 Z 0 24170
 D1
 ~
 ~
+~
+~
 Z -1 24173
 D3
+~
+~
 ~
 ~
 Z -1 24172
@@ -2277,6 +2585,8 @@ conversation for a while.
 D1
 ~
 ~
+~
+~
 Z -1 24171
 S
 #24173
@@ -2287,6 +2597,8 @@ occasional shout or cuff on the ear.
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 Z -1 24171
@@ -2302,8 +2614,12 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
+~
+~
 Z -1 24175
 D3
+~
+~
 ~
 ~
 Z -1 24165
@@ -2319,8 +2635,12 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
+~
+~
 Z -1 24176
 D3
+~
+~
 ~
 ~
 Z -1 24174
@@ -2336,8 +2656,12 @@ a hot meal and a comfortable bed this evening.
 D2
 ~
 ~
+~
+~
 Z -1 24177
 D3
+~
+~
 ~
 ~
 Z -1 24175
@@ -2353,8 +2677,12 @@ upon the doors of this hut marks it as the Wolf Clan hut.
 D0
 ~
 ~
+~
+~
 Z -1 24176
 D2
+~
+~
 ~
 ~
 Z 0 24178
@@ -2370,12 +2698,18 @@ what your profession is all about, really. Intruding.
 D0
 ~
 ~
+~
+~
 Z 0 24177
 D1
 ~
 ~
+~
+~
 Z -1 24179
 D3
+~
+~
 ~
 ~
 Z -1 24180
@@ -2388,6 +2722,8 @@ occasional shout or cuff on the ear.
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 Z -1 24178
@@ -2403,6 +2739,8 @@ conversation for a while.
 D1
 ~
 ~
+~
+~
 Z -1 24178
 S
 #24181
@@ -2416,8 +2754,12 @@ upon the doors of this hut marks it as the Boar Clan hut.
 D0
 ~
 ~
+~
+~
 Z -1 24185
 D1
+~
+~
 ~
 ~
 Z -1 24145
@@ -2431,12 +2773,18 @@ enjoy each other's company. Feel free to stay as long as you wish.
 D0
 ~
 ~
+~
+~
 Z -1 24183
 D2
 ~
 ~
+~
+~
 Z -1 24184
 D3
+~
+~
 ~
 ~
 Z -1 24190
@@ -2450,6 +2798,8 @@ enjoy each other's company. Feel free to stay as long as you wish.
 D2
 ~
 ~
+~
+~
 Z -1 24182
 S
 #24184
@@ -2459,6 +2809,8 @@ enjoy each other's company. Feel free to stay as long as you wish.
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 Z -1 24182
@@ -2474,12 +2826,18 @@ what your profession is all about, really. Intruding.
 D1
 ~
 ~
+~
+~
 Z -1 24187
 D2
 ~
 ~
+~
+~
 Z -1 24181
 D3
+~
+~
 ~
 ~
 Z -1 24186
@@ -2495,6 +2853,8 @@ conversation for a while.
 D1
 ~
 ~
+~
+~
 Z -1 24185
 S
 #24187
@@ -2505,6 +2865,8 @@ occasional shout or cuff on the ear.
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 Z -1 24185
@@ -2520,8 +2882,12 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
+~
+~
 Z -1 24189
 D3
+~
+~
 ~
 ~
 Z -1 24153
@@ -2537,8 +2903,12 @@ a hot meal and a comfortable bed this evening.
 D1
 ~
 ~
+~
+~
 Z -1 24190
 D3
+~
+~
 ~
 ~
 Z -1 24188
@@ -2556,12 +2926,18 @@ The Common Halls lie to the east.
 D0
 ~
 ~
+~
+~
 Z -1 24191
 D1
 ~
 ~
+~
+~
 Z -1 24182
 D3
+~
+~
 ~
 ~
 Z -1 24189
@@ -2577,8 +2953,12 @@ upon the doors of this hut marks it as the Deer Clan hut.
 D0
 ~
 ~
+~
+~
 Z -1 24192
 D2
+~
+~
 ~
 ~
 Z -1 24190
@@ -2594,12 +2974,18 @@ what your profession is all about, really. Intruding.
 D1
 ~
 ~
+~
+~
 Z -1 24194
 D2
 ~
 ~
+~
+~
 Z -1 24191
 D3
+~
+~
 ~
 ~
 Z -1 24193
@@ -2615,6 +3001,8 @@ conversation for a while.
 D1
 ~
 ~
+~
+~
 Z -1 24192
 S
 #24194
@@ -2625,6 +3013,8 @@ occasional shout or cuff on the ear.
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 Z -1 24192

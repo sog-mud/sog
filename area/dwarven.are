@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Dwarven Kingdom~
 VNUMs 6500 6599
 Credits Anon~
@@ -524,14 +524,20 @@ D0
 The path continues.
 ~
 ~
+~
+~
 Z -1 6501
 D2
 You hear the patter of little feet.
 ~
 ~
+~
+~
 Z -1 6601
 D3
 A rocky road leads back to Midgaard and the mines of Moria.
+~
+~
 ~
 ~
 Z -1 6562
@@ -546,9 +552,13 @@ D0
 The path continues up the mountain.
 ~
 ~
+~
+~
 Z -1 6502
 D2
 The path heads toward the main city.
+~
+~
 ~
 ~
 Z -1 6500
@@ -563,9 +573,13 @@ D0
 The top of the mountain is easily seen from here.
 ~
 ~
+~
+~
 Z -1 6503
 D2
 The base of the mountain is near.
+~
+~
 ~
 ~
 Z -1 6501
@@ -581,14 +595,20 @@ D1
 An entrance to the mountain which seems to lead underground.
 ~
 ~
+~
+~
 Z -1 6540
 D2
 The path leads down the mountain to the main city.
 ~
 ~
+~
+~
 Z -1 6502
 D3
 There is an entrance to the mountain.
+~
+~
 ~
 ~
 Z -1 6505
@@ -603,8 +623,12 @@ to the south, and continues to the north.
 D0
 ~
 ~
+~
+~
 Z -1 6506
 D2
+~
+~
 ~
 ~
 Z -1 6540
@@ -618,10 +642,14 @@ and you can hear noise coming from within.
 D1
 ~
 ~
+~
+~
 Z -1 6503
 D3
 ~
 door~
+~
+~
 ABCFZ 6502 6513
 S
 #6506
@@ -638,8 +666,12 @@ They hang over the road in the most ominous of ways.
 D1
 ~
 ~
+~
+~
 Z -1 6507
 D2
+~
+~
 ~
 ~
 Z -1 6504
@@ -652,8 +684,12 @@ This path is very narrow, and it continues to the north and west.
 D0
 ~
 ~
+~
+~
 Z -1 6508
 D3
+~
+~
 ~
 ~
 Z -1 6506
@@ -667,8 +703,12 @@ door, and to the south the path continues.
 D0
 ~
 ~
+~
+~
 Z -1 6509
 D2
+~
+~
 ~
 ~
 Z -1 6507
@@ -682,12 +722,18 @@ and the path continues to the west and south.
 D1
 ~
 door~
+~
+~
 ABCFZ 6502 6510
 D2
 ~
 ~
+~
+~
 Z -1 6508
 D3
+~
+~
 ~
 ~
 Z -1 6522
@@ -701,10 +747,14 @@ continues north to the castle, and there is a door on the western wall.
 D0
 ~
 ~
+~
+~
 Z -1 6511
 D3
 ~
 door~
+~
+~
 ABCFZ 6502 6509
 S
 #6511
@@ -717,8 +767,12 @@ continues to the north and south.
 D0
 ~
 ~
+~
+~
 Z -1 6512
 D2
+~
+~
 ~
 ~
 Z -1 6510
@@ -737,8 +791,12 @@ standing on end.  A sign says:
 D1
 ~
 door~
+~
+~
 ABCFZ 6514 6525
 D2
+~
+~
 ~
 ~
 Z -1 6511
@@ -753,14 +811,20 @@ D0
 The little underground path continues to the north.
 ~
 ~
+~
+~
 Z -1 6514
 D1
 The path leads outside the entrance.
 ~
 door~
+~
+~
 ABCFZ 6502 6505
 D3
 This looks like an entrance to some type of store room.
+~
+~
 ~
 ~
 Z -1 6526
@@ -774,8 +838,12 @@ and south to the corner of the area.
 D0
 ~
 ~
+~
+~
 Z -1 6515
 D2
+~
+~
 ~
 ~
 Z -1 6513
@@ -789,9 +857,13 @@ path continues to the south.
 D2
 ~
 ~
+~
+~
 Z -1 6514
 D3
 The Hide & Tooth shop is seen to the west.
+~
+~
 ~
 ~
 Z -1 6516
@@ -805,8 +877,12 @@ weapons and armors. The path continues to the north and east.
 D0
 ~
 ~
+~
+~
 Z -1 6517
 D1
+~
+~
 ~
 ~
 Z -1 6515
@@ -820,12 +896,18 @@ to the north, and there is Granite Head's bakery to the west.
 D0
 ~
 ~
+~
+~
 Z -1 6518
 D2
 ~
 ~
+~
+~
 Z -1 6516
 D3
+~
+~
 ~
 ~
 Z -1 6535
@@ -839,8 +921,12 @@ south you can see the shops.
 D1
 ~
 ~
+~
+~
 Z -1 6519
 D2
+~
+~
 ~
 ~
 Z -1 6517
@@ -854,12 +940,18 @@ to the east to the barracks, and to the west.
 D0
 ~
 ~
+~
+~
 Z -1 6534
 D1
 ~
 ~
+~
+~
 Z -1 6520
 D3
+~
+~
 ~
 ~
 Z -1 6518
@@ -872,8 +964,12 @@ Here the path continues west, and east to the barracks.
 D1
 ~
 ~
+~
+~
 Z -1 6521
 D3
+~
+~
 ~
 ~
 Z -1 6519
@@ -887,8 +983,12 @@ the path continues to the west.
 D2
 ~
 door~
+~
+~
 ABZ -1 6523
 D3
+~
+~
 ~
 ~
 Z -1 6520
@@ -906,6 +1006,8 @@ There is a wall poster of a nude Minne Pearl.
 D1
 ~
 ~
+~
+~
 Z -1 6509
 S
 #6523
@@ -918,8 +1020,12 @@ to the north.
 D0
 ~
 door~
+~
+~
 ABZ -1 6521
 D2
+~
+~
 ~
 ~
 Z -1 6524
@@ -933,10 +1039,14 @@ of beds here, and there is a stench that is unbearable.
 D0
 ~
 ~
+~
+~
 Z -1 6523
 D5
 ~
 floorboards boards~
+the floorboards~
+~
 ABZ -1 2001
 S
 #6525
@@ -949,8 +1059,12 @@ up, and the door leads out of the castle to the west.
 D3
 ~
 door~
+~
+~
 ABCFZ 6514 6512
 D4
+~
+~
 ~
 ~
 Z -1 6528
@@ -969,10 +1083,14 @@ D1
 A lighted area that looks like a well worn path.
 ~
 ~
+~
+~
 Z -1 6513
 D5
 ~
 trapdoor~
+the trapdoor~
+~
 ABZ 0 6527
 S
 #6527
@@ -984,10 +1102,14 @@ a wine cellar at one time.
 D4
 ~
 ~
+~
+~
 ABZ -1 6526
 D5
 ~
 floorboards boards~
+the floorboards~
+~
 ABZ -1 2065
 S
 #6528
@@ -998,8 +1120,12 @@ The stairs continue to circle up and down here.
 D4
 ~
 ~
+~
+~
 Z -1 6529
 D5
+~
+~
 ~
 ~
 Z -1 6525
@@ -1014,8 +1140,12 @@ around.  The stairs continue up and down.
 D4
 ~
 ~
+~
+~
 Z -1 6530
 D5
+~
+~
 ~
 ~
 Z -1 6528
@@ -1029,8 +1159,12 @@ to the east, and the stairs lead down.
 D1
 ~
 ~
+~
+~
 Z -1 6531
 D5
+~
+~
 ~
 ~
 Z -1 6529
@@ -1046,8 +1180,12 @@ bedroom is to the north, and you can see stairs to the west.
 D0
 ~
 door~
+~
+~
 ABFZ 6502 6532
 D3
+~
+~
 ~
 ~
 Z -1 6530
@@ -1064,6 +1202,8 @@ A note has been scrawled in lipstick on the mirror:
 D2
 ~
 door~
+~
+~
 ABFZ 6502 6531
 S
 #6534
@@ -1073,6 +1213,8 @@ alcohol, and there is blood all over the walls.
 ~
 0 D inside
 D2
+~
+~
 ~
 ~
 Z -1 6519
@@ -1086,6 +1228,8 @@ the pastries dissolving in your mouth.
 D1
 ~
 ~
+~
+~
 Z -1 6517
 S
 #6540
@@ -1097,12 +1241,18 @@ east, while the path continues to the north and west.
 D0
 ~
 ~
+~
+~
 Z -1 6504
 D1
 ~
 door~
+~
+~
 ABCFZ 6502 6541
 D3
+~
+~
 ~
 ~
 Z -1 6503
@@ -1116,8 +1266,12 @@ continues to the west.
 D3
 ~
 door~
+~
+~
 ABCFZ 6502 6540
 D5
+~
+~
 ~
 ~
 Z -1 6542
@@ -1132,8 +1286,12 @@ down and up.
 D4
 ~
 ~
+~
+~
 Z -1 6541
 D5
+~
+~
 ~
 ~
 Z -1 6554
@@ -1147,8 +1305,12 @@ path continues to the east, and leads to the mineshaft to the west.
 D1
 ~
 ~
+~
+~
 Z -1 6544
 D3
+~
+~
 ~
 ~
 Z -1 6554
@@ -1162,16 +1324,24 @@ and the path continues to the south, east, and west.
 D0
 ~
 door~
+~
+~
 ABCFZ 6502 6546
 D1
+~
+~
 ~
 ~
 Z -1 6545
 D2
 ~
 ~
+~
+~
 Z -1 6551
 D3
+~
+~
 ~
 ~
 Z -1 6543
@@ -1186,6 +1356,8 @@ supports are very rickety.
 D3
 ~
 ~
+~
+~
 Z -1 6544
 S
 #6546
@@ -1197,10 +1369,14 @@ can see some inscriptions, and you can exit to the south.
 D1
 ~
 ~
+~
+~
 Z -1 6547
 D2
 ~
 door~
+~
+~
 ABCFZ 6502 6544
 S
 #6547
@@ -1211,8 +1387,12 @@ You are inside the maze, but not far enough in that you could get lost.
 D0
 ~
 ~
+~
+~
 Z -1 6548
 D3
+~
+~
 ~
 ~
 Z -1 6546
@@ -1225,8 +1405,12 @@ You are in a maze.
 D0
 ~
 ~
+~
+~
 Z -1 6549
 D2
+~
+~
 ~
 ~
 Z -1 6547
@@ -1239,8 +1423,12 @@ You are in a maze.
 D0
 ~
 ~
+~
+~
 Z -1 6550
 D3
+~
+~
 ~
 ~
 Z -1 6548
@@ -1253,8 +1441,12 @@ You are in a maze.
 D2
 ~
 ~
+~
+~
 Z -1 6549
 D3
+~
+~
 ~
 ~
 Z -1 6552
@@ -1267,6 +1459,8 @@ not many miners actually use any equipment.
 ~
 0 AD inside
 D0
+~
+~
 ~
 ~
 Z -1 6544
@@ -1284,8 +1478,12 @@ To the north, you see the maze.  There is a sign above the south exit:
 D1
 ~
 ~
+~
+~
 Z -1 6550
 D3
+~
+~
 ~
 ~
 Z -1 6553
@@ -1300,6 +1498,8 @@ things like 'the queen shall suffer' and 'Catholics Rule'.
 D1
 ~
 ~
+~
+~
 Z -1 6552
 S
 #6554
@@ -1311,8 +1511,12 @@ it is very hard to breath.  The mineshaft leads up and east.
 D1
 ~
 ~
+~
+~
 Z -1 6543
 D4
+~
+~
 ~
 ~
 Z -1 6542
@@ -1330,9 +1534,13 @@ D1
 The dwarven kingdom awaits!
 ~
 ~
+~
+~
 Z -1 6500
 D3
 You see the foothills of this mighty mountain range.
+~
+~
 ~
 ~
 Z -1 4000

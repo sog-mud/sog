@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name Old Troya~
 VNUMs 29500 29699
 Credits Yaegar~
@@ -966,12 +966,18 @@ of the deep sea, sailing toward whatever adventures may wait.
 D0
 ~
 ~
+~
+~
 Z -1 29505
 D1
 ~
 ~
+~
+~
 Z -1 29501
 D4
+~
+~
 ~
 ~
 Z -1 923
@@ -986,12 +992,18 @@ of the deep sea, sailing toward whatever adventures may wait.
 D0
 ~
 ~
+~
+~
 Z -1 29506
 D1
 ~
 ~
+~
+~
 Z -1 29502
 D3
+~
+~
 ~
 ~
 Z -1 29500
@@ -1009,12 +1021,18 @@ set ashore.
 D0
 ~
 ~
+~
+~
 Z -1 29507
 D1
 ~
 ~
+~
+~
 Z -1 29503
 D3
+~
+~
 ~
 ~
 Z -1 29501
@@ -1029,12 +1047,18 @@ of the deep sea, sailing toward whatever adventures may wait.
 D0
 ~
 ~
+~
+~
 Z -1 29508
 D1
 ~
 ~
+~
+~
 Z -1 29504
 D3
+~
+~
 ~
 ~
 Z -1 29502
@@ -1049,8 +1073,12 @@ of the deep sea, sailing toward whatever adventures may wait.
 D0
 ~
 ~
+~
+~
 Z -1 29509
 D3
+~
+~
 ~
 ~
 Z -1 29503
@@ -1065,12 +1093,18 @@ of the deep sea, sailing toward whatever adventures may wait.
 D0
 ~
 ~
+~
+~
 Z -1 29510
 D1
 ~
 ~
+~
+~
 Z -1 29506
 D2
+~
+~
 ~
 ~
 Z -1 29500
@@ -1085,16 +1119,24 @@ of the deep sea, sailing toward whatever adventures may wait.
 D0
 ~
 ~
+~
+~
 Z -1 29511
 D1
+~
+~
 ~
 ~
 Z -1 29507
 D2
 ~
 ~
+~
+~
 Z -1 29501
 D3
+~
+~
 ~
 ~
 Z -1 29505
@@ -1109,16 +1151,24 @@ of the deep sea, sailing toward whatever adventures may wait.
 D0
 ~
 ~
+~
+~
 Z -1 29512
 D1
+~
+~
 ~
 ~
 Z -1 29508
 D2
 ~
 ~
+~
+~
 Z -1 29502
 D3
+~
+~
 ~
 ~
 Z -1 29506
@@ -1133,16 +1183,24 @@ of the deep sea, sailing toward whatever adventures may wait.
 D0
 ~
 ~
+~
+~
 Z -1 29513
 D1
+~
+~
 ~
 ~
 Z -1 29509
 D2
 ~
 ~
+~
+~
 Z -1 29503
 D3
+~
+~
 ~
 ~
 Z -1 29507
@@ -1157,12 +1215,18 @@ of the deep sea, sailing toward whatever adventures may wait.
 D0
 ~
 ~
+~
+~
 Z -1 29514
 D2
 ~
 ~
+~
+~
 Z -1 29504
 D3
+~
+~
 ~
 ~
 Z -1 29508
@@ -1177,12 +1241,18 @@ of the deep sea, sailing toward whatever adventures may wait.
 D0
 ~
 ~
+~
+~
 Z -1 29515
 D1
 ~
 ~
+~
+~
 Z -1 29511
 D2
+~
+~
 ~
 ~
 Z -1 29505
@@ -1197,16 +1267,24 @@ of the deep sea, sailing toward whatever adventures may wait.
 D0
 ~
 ~
+~
+~
 Z -1 29516
 D1
+~
+~
 ~
 ~
 Z -1 29512
 D2
 ~
 ~
+~
+~
 Z -1 29506
 D3
+~
+~
 ~
 ~
 Z -1 29510
@@ -1221,16 +1299,24 @@ of the deep sea, sailing toward whatever adventures may wait.
 D0
 ~
 ~
+~
+~
 Z -1 29517
 D1
+~
+~
 ~
 ~
 Z -1 29513
 D2
 ~
 ~
+~
+~
 Z -1 29507
 D3
+~
+~
 ~
 ~
 Z -1 29511
@@ -1245,16 +1331,24 @@ of the deep sea, sailing toward whatever adventures may wait.
 D0
 ~
 ~
+~
+~
 Z -1 29518
 D1
+~
+~
 ~
 ~
 Z -1 29514
 D2
 ~
 ~
+~
+~
 Z -1 29508
 D3
+~
+~
 ~
 ~
 Z -1 29512
@@ -1269,12 +1363,18 @@ of the deep sea, sailing toward whatever adventures may wait.
 D0
 ~
 ~
+~
+~
 Z -1 29519
 D2
 ~
 ~
+~
+~
 Z -1 29509
 D3
+~
+~
 ~
 ~
 Z -1 29513
@@ -1289,12 +1389,18 @@ of the deep sea, sailing toward whatever adventures may wait.
 D0
 ~
 ~
+~
+~
 Z -1 29520
 D1
 ~
 ~
+~
+~
 Z -1 29516
 D2
+~
+~
 ~
 ~
 Z -1 29510
@@ -1309,16 +1415,24 @@ of the deep sea, sailing toward whatever adventures may wait.
 D0
 ~
 ~
+~
+~
 Z -1 29521
 D1
+~
+~
 ~
 ~
 Z -1 29517
 D2
 ~
 ~
+~
+~
 Z -1 29511
 D3
+~
+~
 ~
 ~
 Z -1 29515
@@ -1333,16 +1447,24 @@ of the deep sea, sailing toward whatever adventures may wait.
 D0
 ~
 ~
+~
+~
 Z -1 29522
 D1
+~
+~
 ~
 ~
 Z -1 29518
 D2
 ~
 ~
+~
+~
 Z -1 29512
 D3
+~
+~
 ~
 ~
 Z -1 29516
@@ -1357,16 +1479,24 @@ of the deep sea, sailing toward whatever adventures may wait.
 D0
 ~
 ~
+~
+~
 Z -1 29523
 D1
+~
+~
 ~
 ~
 Z -1 29519
 D2
 ~
 ~
+~
+~
 Z -1 29513
 D3
+~
+~
 ~
 ~
 Z -1 29517
@@ -1381,12 +1511,18 @@ of the deep sea, sailing toward whatever adventures may wait.
 D0
 ~
 ~
+~
+~
 Z -1 29524
 D2
 ~
 ~
+~
+~
 Z -1 29514
 D3
+~
+~
 ~
 ~
 Z -1 29518
@@ -1401,12 +1537,18 @@ of the deep sea, sailing toward whatever adventures may wait.
 D0
 ~
 ~
+~
+~
 Z -1 29525
 D1
 ~
 ~
+~
+~
 Z -1 29521
 D2
+~
+~
 ~
 ~
 Z -1 29515
@@ -1423,16 +1565,24 @@ The coastline is visible from here, though there is no place to land.
 D0
 ~
 ~
+~
+~
 Z -1 29526
 D1
+~
+~
 ~
 ~
 Z -1 29522
 D2
 ~
 ~
+~
+~
 Z -1 29516
 D3
+~
+~
 ~
 ~
 Z -1 29520
@@ -1449,12 +1599,18 @@ The coastline is visible from here, though there is no place to land.
 D1
 ~
 ~
+~
+~
 Z -1 29523
 D2
 ~
 ~
+~
+~
 Z -1 29517
 D3
+~
+~
 ~
 ~
 Z -1 29521
@@ -1472,16 +1628,24 @@ moored to the north.
 D0
 ~
 ~
+~
+~
 Z -1 29528
 D1
+~
+~
 ~
 ~
 Z -1 29524
 D2
 ~
 ~
+~
+~
 Z -1 29518
 D3
+~
+~
 ~
 ~
 Z -1 29522
@@ -1498,8 +1662,12 @@ The coastline is visible from here, though there is no place to land.
 D2
 ~
 ~
+~
+~
 Z -1 29519
 D3
+~
+~
 ~
 ~
 Z -1 29523
@@ -1514,12 +1682,18 @@ of the deep sea, sailing toward whatever adventures may wait.
 D0
 ~
 ~
+~
+~
 Z -1 29527
 D1
 ~
 ~
+~
+~
 Z -1 29526
 D2
+~
+~
 ~
 ~
 Z -1 29520
@@ -1536,8 +1710,12 @@ The coastline is visible from here, though there is no place to land.
 D2
 ~
 ~
+~
+~
 Z -1 29521
 D3
+~
+~
 ~
 ~
 Z -1 29525
@@ -1555,8 +1733,12 @@ east near the walls of a great city.
 D1
 ~
 ~
+~
+~
 Z -1 29529
 D2
+~
+~
 ~
 ~
 Z -1 29525
@@ -1572,8 +1754,12 @@ place here.
 D0
 ~
 ~
+~
+~
 Z -1 29533
 D2
+~
+~
 ~
 ~
 Z -1 29523
@@ -1589,8 +1775,12 @@ convenient disemarkation point.
 D3
 ~
 ~
+~
+~
 Z -1 29527
 D4
+~
+~
 ~
 ~
 Z -1 29530
@@ -1606,8 +1796,12 @@ Below lies the wine-dark sea.
 D1
 ~
 ~
+~
+~
 Z -1 29594
 D5
+~
+~
 ~
 ~
 Z -1 29529
@@ -1623,8 +1817,12 @@ everywhere, housing the many soldiers that currently call this place home.
 D0
 ~
 ~
+~
+~
 Z -1 29534
 D1
+~
+~
 ~
 ~
 Z -1 29532
@@ -1640,12 +1838,18 @@ everywhere, housing the many soldiers that currently call this place home.
 D0
 ~
 ~
+~
+~
 Z -1 29535
 D1
 ~
 ~
+~
+~
 Z -1 29533
 D3
+~
+~
 ~
 ~
 Z -1 29531
@@ -1661,12 +1865,18 @@ everywhere, housing the many soldiers that currently call this place home.
 D0
 ~
 ~
+~
+~
 Z -1 29536
 D2
 ~
 ~
+~
+~
 Z -1 29528
 D3
+~
+~
 ~
 ~
 Z -1 29532
@@ -1682,6 +1892,8 @@ warrior.
 D2
 ~
 ~
+~
+~
 Z -1 29531
 S
 #29535
@@ -1691,6 +1903,8 @@ prefers to be out fighting or in the wine tent drinking.
 ~
 0 D inside
 D2
+~
+~
 ~
 ~
 Z -1 29532
@@ -1706,12 +1920,18 @@ everywhere, housing the many soldiers that currently call this place home.
 D0
 ~
 ~
+~
+~
 Z -1 29544
 D1
 ~
 ~
+~
+~
 Z -1 29537
 D2
+~
+~
 ~
 ~
 Z -1 29533
@@ -1727,16 +1947,24 @@ everywhere, housing the many soldiers that currently call this place home.
 D0
 ~
 ~
+~
+~
 Z -1 29538
 D1
+~
+~
 ~
 ~
 Z -1 29540
 D2
 ~
 ~
+~
+~
 Z -1 29539
 D3
+~
+~
 ~
 ~
 Z -1 29536
@@ -1751,6 +1979,8 @@ he is not one of the more influential.
 D2
 ~
 ~
+~
+~
 Z -1 29537
 S
 #29539
@@ -1761,6 +1991,8 @@ fixing up his little equine surprise for the Trojans...
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 Z -1 29537
@@ -1776,16 +2008,24 @@ everywhere, housing the many soldiers that currently call this place home.
 D0
 ~
 ~
+~
+~
 Z -1 29541
 D1
+~
+~
 ~
 ~
 Z -1 29543
 D2
 ~
 ~
+~
+~
 Z -1 29542
 D3
+~
+~
 ~
 ~
 Z -1 29537
@@ -1801,6 +2041,8 @@ Greece to some remote Turkish city for 9 years.
 D2
 ~
 ~
+~
+~
 Z -1 29540
 S
 #29542
@@ -1814,6 +2056,8 @@ nine years in this tent, and the stress is starting to show.
 D0
 ~
 ~
+~
+~
 Z -1 29540
 S
 #29543
@@ -1823,6 +2067,8 @@ wounded. They will even tend your injuries, for a fee.
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 Z -1 29540
@@ -1838,12 +2084,18 @@ everywhere, housing the many soldiers that currently call this place home.
 D0
 ~
 ~
+~
+~
 Z -1 29548
 D2
 ~
 ~
+~
+~
 Z -1 29536
 D3
+~
+~
 ~
 ~
 Z -1 29545
@@ -1859,8 +2111,12 @@ everywhere, housing the many soldiers that currently call this place home.
 D1
 ~
 ~
+~
+~
 Z -1 29544
 D3
+~
+~
 ~
 ~
 Z -1 29546
@@ -1876,8 +2132,12 @@ for discus and shotput, and a ring for boxing.
 D1
 ~
 ~
+~
+~
 Z -1 29545
 D3
+~
+~
 ~
 ~
 Z -1 29547
@@ -1893,6 +2153,8 @@ for discus and shotput, and a ring for boxing.
 D1
 ~
 ~
+~
+~
 Z -1 29546
 S
 #29548
@@ -1906,16 +2168,24 @@ everywhere, housing the many soldiers that currently call this place home.
 D0
 ~
 ~
+~
+~
 Z -1 29556
 D1
+~
+~
 ~
 ~
 Z -1 29555
 D2
 ~
 ~
+~
+~
 Z -1 29544
 D3
+~
+~
 ~
 ~
 Z -1 29549
@@ -1931,16 +2201,24 @@ everywhere, housing the many soldiers that currently call this place home.
 D0
 ~
 ~
+~
+~
 Z -1 29550
 D1
+~
+~
 ~
 ~
 Z -1 29548
 D2
 ~
 ~
+~
+~
 Z -1 29551
 D3
+~
+~
 ~
 ~
 Z -1 29552
@@ -1955,6 +2233,8 @@ by the Achaeans.
 D2
 ~
 ~
+~
+~
 Z -1 29549
 S
 #29551
@@ -1965,6 +2245,8 @@ room description.
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 Z -1 29549
@@ -1980,16 +2262,24 @@ everywhere, housing the many soldiers that currently call this place home.
 D0
 ~
 ~
+~
+~
 Z -1 29553
 D1
+~
+~
 ~
 ~
 Z -1 29549
 D2
 ~
 ~
+~
+~
 Z -1 29554
 D3
+~
+~
 ~
 ~
 Z -1 29557
@@ -2004,6 +2294,8 @@ Notice how all these Achaeans have names ending with 's'?
 D2
 ~
 ~
+~
+~
 Z -1 29552
 S
 #29554
@@ -2014,6 +2306,8 @@ competition even as we speak.
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 Z -1 29552
@@ -2029,6 +2323,8 @@ choice for the lure...
 D3
 ~
 ~
+~
+~
 Z -1 29548
 S
 #29556
@@ -2042,8 +2338,12 @@ everywhere, housing the many soldiers that currently call this place home.
 D0
 ~
 ~
+~
+~
 Z -1 29558
 D2
+~
+~
 ~
 ~
 Z -1 29548
@@ -2059,6 +2359,8 @@ troops.
 D1
 ~
 ~
+~
+~
 Z -1 29552
 S
 #29558
@@ -2072,16 +2374,24 @@ weapons, armor and bones littered all about here.
 D0
 ~
 ~
+~
+~
 Z -1 29565
 D1
+~
+~
 ~
 ~
 Z -1 29561
 D2
 ~
 ~
+~
+~
 Z -1 29556
 D3
+~
+~
 ~
 ~
 Z -1 29560
@@ -2097,8 +2407,12 @@ weapons, armor and bones littered all about here.
 D0
 ~
 ~
+~
+~
 Z -1 29563
 D1
+~
+~
 ~
 ~
 Z -1 29560
@@ -2114,12 +2428,18 @@ weapons, armor and bones littered all about here.
 D0
 ~
 ~
+~
+~
 Z -1 29564
 D1
 ~
 ~
+~
+~
 Z -1 29558
 D3
+~
+~
 ~
 ~
 Z -1 29559
@@ -2135,12 +2455,18 @@ weapons, armor and bones littered all about here.
 D0
 ~
 ~
+~
+~
 Z -1 29566
 D1
 ~
 ~
+~
+~
 Z -1 29562
 D3
+~
+~
 ~
 ~
 Z -1 29558
@@ -2156,8 +2482,12 @@ weapons, armor and bones littered all about here.
 D0
 ~
 ~
+~
+~
 Z -1 29567
 D3
+~
+~
 ~
 ~
 Z -1 29561
@@ -2173,12 +2503,18 @@ weapons, armor and bones littered all about here.
 D0
 ~
 ~
+~
+~
 Z -1 29568
 D1
 ~
 ~
+~
+~
 Z -1 29564
 D2
+~
+~
 ~
 ~
 Z -1 29559
@@ -2196,12 +2532,18 @@ The City of Troy lies directly to the north.
 D1
 ~
 ~
+~
+~
 Z -1 29565
 D2
 ~
 ~
+~
+~
 Z -1 29560
 D3
+~
+~
 ~
 ~
 Z -1 29563
@@ -2219,16 +2561,24 @@ The City of Troy lies directly to the north.
 D0
 ~
 ~
+~
+~
 Z -1 29572
 D1
+~
+~
 ~
 ~
 Z -1 29566
 D2
 ~
 ~
+~
+~
 Z -1 29558
 D3
+~
+~
 ~
 ~
 Z -1 29564
@@ -2246,12 +2596,18 @@ The City of Troy lies directly to the north.
 D1
 ~
 ~
+~
+~
 Z -1 29567
 D2
 ~
 ~
+~
+~
 Z -1 29561
 D3
+~
+~
 ~
 ~
 Z -1 29565
@@ -2267,12 +2623,18 @@ weapons, armor and bones littered all about here.
 D0
 ~
 ~
+~
+~
 Z -1 29570
 D2
 ~
 ~
+~
+~
 Z -1 29562
 D3
+~
+~
 ~
 ~
 Z -1 29566
@@ -2290,8 +2652,12 @@ The City of Troy lies directly to the east.
 D0
 ~
 ~
+~
+~
 Z -1 29569
 D2
+~
+~
 ~
 ~
 Z -1 29563
@@ -2309,6 +2675,8 @@ The City of Troy lies directly to the east.
 D2
 ~
 ~
+~
+~
 Z -1 29568
 S
 #29570
@@ -2324,8 +2692,12 @@ The City of Troy lies directly to the west.
 D0
 ~
 ~
+~
+~
 Z -1 29571
 D2
+~
+~
 ~
 ~
 Z -1 29567
@@ -2343,6 +2715,8 @@ The City of Troy lies directly to the west.
 D2
 ~
 ~
+~
+~
 Z -1 29570
 S
 #29572
@@ -2355,8 +2729,12 @@ the Achaean never thought to turn the handle...;)
 D0
 ~
 ~
+~
+~
 Z 0 29573
 D2
+~
+~
 ~
 ~
 Z -1 29565
@@ -2373,16 +2751,24 @@ The city gates lie to the south.
 D0
 ~
 ~
+~
+~
 Z -1 29580
 D1
+~
+~
 ~
 ~
 Z -1 29576
 D2
 ~
 ~
+~
+~
 Z 0 29572
 D3
+~
+~
 ~
 ~
 Z -1 29575
@@ -2400,8 +2786,12 @@ repel any foe, though.
 D0
 ~
 ~
+~
+~
 Z -1 29578
 D1
+~
+~
 ~
 ~
 Z -1 29575
@@ -2419,12 +2809,18 @@ repel any foe, though.
 D0
 ~
 ~
+~
+~
 Z -1 29579
 D1
 ~
 ~
+~
+~
 Z -1 29573
 D3
+~
+~
 ~
 ~
 Z -1 29574
@@ -2442,12 +2838,18 @@ repel any foe, though.
 D0
 ~
 ~
+~
+~
 Z -1 29581
 D1
 ~
 ~
+~
+~
 Z -1 29577
 D3
+~
+~
 ~
 ~
 Z -1 29573
@@ -2465,8 +2867,12 @@ repel any foe, though.
 D0
 ~
 ~
+~
+~
 Z -1 29582
 D3
+~
+~
 ~
 ~
 Z -1 29576
@@ -2484,8 +2890,12 @@ repel any foe, though.
 D0
 ~
 ~
+~
+~
 Z -1 29583
 D2
+~
+~
 ~
 ~
 Z -1 29574
@@ -2499,6 +2909,8 @@ holding a bronze urn near the doorway.
 ~
 0 D inside
 D2
+~
+~
 ~
 ~
 Z -1 29575
@@ -2516,8 +2928,12 @@ repel any foe, though. The palace lies to the north of here.
 D0
 ~
 ~
+~
+~
 Z -1 29584
 D2
+~
+~
 ~
 ~
 Z -1 29573
@@ -2531,6 +2947,8 @@ holding a bronze urn near the doorway.
 ~
 0 D inside
 D2
+~
+~
 ~
 ~
 Z -1 29576
@@ -2548,8 +2966,12 @@ repel any foe, though.
 D0
 ~
 ~
+~
+~
 Z -1 29585
 D2
+~
+~
 ~
 ~
 Z -1 29577
@@ -2567,8 +2989,12 @@ repel any foe, though.
 D0
 ~
 ~
+~
+~
 Z -1 29586
 D2
+~
+~
 ~
 ~
 Z -1 29578
@@ -2587,8 +3013,12 @@ north.
 D0
 ~
 ~
+~
+~
 Z -1 29588
 D2
+~
+~
 ~
 ~
 Z -1 29580
@@ -2606,8 +3036,12 @@ repel any foe, though.
 D0
 ~
 ~
+~
+~
 Z -1 29590
 D2
+~
+~
 ~
 ~
 Z -1 29582
@@ -2625,12 +3059,18 @@ repel any foe, though.
 D0
 ~
 ~
+~
+~
 Z -1 29591
 D1
 ~
 ~
+~
+~
 Z -1 29587
 D2
+~
+~
 ~
 ~
 Z -1 29583
@@ -2644,6 +3084,8 @@ holding a bronze urn near the doorway.
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 Z -1 29586
@@ -2662,8 +3104,12 @@ you.
 D0
 ~
 ~
+~
+~
 Z -1 29592
 D2
+~
+~
 ~
 ~
 Z -1 29584
@@ -2677,6 +3123,8 @@ holding a bronze urn near the doorway.
 ~
 0 D inside
 D1
+~
+~
 ~
 ~
 Z -1 29590
@@ -2694,12 +3142,18 @@ repel any foe, though.
 D0
 ~
 ~
+~
+~
 Z -1 29593
 D2
 ~
 ~
+~
+~
 Z -1 29585
 D3
+~
+~
 ~
 ~
 Z -1 29589
@@ -2716,8 +3170,12 @@ However, you may climb the wall here at a weak point should you wish to.
 D2
 ~
 ~
+~
+~
 Z -1 29586
 D4
+~
+~
 ~
 ~
 Z -1 29594
@@ -2732,8 +3190,12 @@ be fairly deserted compared to the rest of the city.
 D0
 ~
 ~
+~
+~
 Z -1 29597
 D2
+~
+~
 ~
 ~
 Z 0 29588
@@ -2748,6 +3210,8 @@ of Ilium.
 D2
 ~
 ~
+~
+~
 Z -1 29590
 S
 #29594
@@ -2760,12 +3224,18 @@ for the last nine years. To the west lies the wine-dark sea.
 D2
 ~
 ~
+~
+~
 Z -1 29595
 D3
 ~
 ~
+~
+~
 Z -1 29530
 D5
+~
+~
 ~
 ~
 Z -1 29591
@@ -2780,8 +3250,12 @@ for the last nine years. To the west lies the wine-dark sea.
 D0
 ~
 ~
+~
+~
 Z -1 29594
 D2
+~
+~
 ~
 ~
 Z -1 29596
@@ -2799,6 +3273,8 @@ section of the city has been hard-pressed in the siege.
 D0
 ~
 ~
+~
+~
 Z -1 29595
 S
 #29597
@@ -2811,16 +3287,24 @@ of his family.
 D0
 ~
 ~
+~
+~
 Z -1 29600
 D1
+~
+~
 ~
 ~
 Z -1 29598
 D2
 ~
 ~
+~
+~
 Z -1 29592
 D3
+~
+~
 ~
 ~
 Z -1 29599
@@ -2836,6 +3320,8 @@ Even in times of war, the rich citizens of Ilium live well.
 D3
 ~
 ~
+~
+~
 Z -1 29597
 S
 #29599
@@ -2849,6 +3335,8 @@ Even in times of war, the rich citizens of Ilium live well.
 D1
 ~
 ~
+~
+~
 Z -1 29597
 S
 #29600
@@ -2860,6 +3348,8 @@ Even in times of war, the rich citizens of Ilium live well.
 ~
 0 D inside
 D2
+~
+~
 ~
 ~
 Z -1 29597

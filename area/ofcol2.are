@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name New Ofcol~
 VNUMs 600 699
 Credits Hatchet~
@@ -1471,6 +1471,8 @@ D1
 You see the storage shed.
 ~
 door~
+~
+~
 ABZ -1 616
 S
 #601
@@ -1488,9 +1490,13 @@ D0
 Impy Way continues north.
 ~
 ~
+~
+~
 Z 0 625
 D1
 Raff Way continues east.
+~
+~
 ~
 ~
 Z 0 666
@@ -1498,9 +1504,13 @@ D2
 Impy Way continues south.
 ~
 ~
+~
+~
 Z 0 602
 D3
 Raff Way continues west.
+~
+~
 ~
 ~
 Z 0 5553
@@ -1519,9 +1529,13 @@ D0
 You see the big intersection.
 ~
 ~
+~
+~
 Z 0 601
 D1
 You see the leather shop.
+~
+~
 ~
 ~
 Z 0 604
@@ -1529,9 +1543,13 @@ D2
 Impy Way continues south.
 ~
 ~
+~
+~
 Z 0 605
 D3
 You see the blacksmith.
+~
+~
 ~
 ~
 Z 0 603
@@ -1551,6 +1569,8 @@ D1
 You see Impy Way.
 ~
 ~
+~
+~
 Z 0 602
 S
 #604
@@ -1563,6 +1583,8 @@ entrance.  The exit is west.
 0 DS inside
 D3
 You see Impy Way.
+~
+~
 ~
 ~
 Z 0 602
@@ -1582,9 +1604,13 @@ D0
 Impy Way continues North.
 ~
 ~
+~
+~
 Z 0 602
 D1
 You see the Meat Store.
+~
+~
 ~
 ~
 Z 0 607
@@ -1592,9 +1618,13 @@ D2
 Impy Way continues south.
 ~
 ~
+~
+~
 Z 0 608
 D3
 You see the Pawn Shop.
+~
+~
 ~
 ~
 Z 0 606
@@ -1614,6 +1644,8 @@ D1
 You see Impy Way.
 ~
 ~
+~
+~
 Z 0 605
 S
 #607
@@ -1625,6 +1657,8 @@ It smells like meat here (which is not a good smell).  The exit is west.
 0 DS inside
 D3
 You see Impy Way.
+~
+~
 ~
 ~
 Z 0 605
@@ -1644,9 +1678,13 @@ D0
 Impy Way continues north.
 ~
 ~
+~
+~
 Z 0 605
 D1
 You see the Farmer's Market.
+~
+~
 ~
 ~
 Z 0 610
@@ -1654,9 +1692,13 @@ D2
 You see the end of Impy Way.
 ~
 ~
+~
+~
 Z 0 611
 D3
 You see Nyles' House of Ale.
+~
+~
 ~
 ~
 Z 0 609
@@ -1670,6 +1712,8 @@ Nyles, who offers you a quart of ale too.
 0 DS inside
 D1
 You see Impy Way.
+~
+~
 ~
 ~
 Z 0 608
@@ -1686,6 +1730,8 @@ is west.
 0 DS inside
 D3
 You see Impy Way.
+~
+~
 ~
 ~
 Z 0 608
@@ -1705,14 +1751,20 @@ D0
 Impy Way continues north.
 ~
 ~
+~
+~
 Z 0 608
 D1
 You see the dirt road.
 ~
 ~
+~
+~
 Z 0 668
 D3
 You see the fields.
+~
+~
 ~
 ~
 Z 0 612
@@ -1734,9 +1786,13 @@ D0
 You think you see a building north of here.
 ~
 ~
+~
+~
 Z 0 616
 D1
 You remember that the end of Impy Way is east.
+~
+~
 ~
 ~
 Z 0 611
@@ -1744,9 +1800,13 @@ D2
 You can make a path to the fields south.
 ~
 ~
+~
+~
 Z 0 613
 D3
 You can make a path to the fields west.
+~
+~
 ~
 ~
 Z 0 615
@@ -1766,9 +1826,13 @@ D0
 You see the corn fields.
 ~
 ~
+~
+~
 Z 0 612
 D3
 You see the vegetable fields.
+~
+~
 ~
 ~
 Z 0 614
@@ -1787,9 +1851,13 @@ D0
 You see the wheat fields.
 ~
 ~
+~
+~
 Z 0 615
 D1
 You see the fruit trees.
+~
+~
 ~
 ~
 Z 0 613
@@ -1810,9 +1878,13 @@ D1
 You see the corn fields.
 ~
 ~
+~
+~
 Z 0 612
 D2
 You see the vegetable patches.
+~
+~
 ~
 ~
 Z 0 614
@@ -1832,11 +1904,15 @@ D2
 You see the corn fields.
 ~
 ~
+~
+~
 Z 0 612
 D3
 You see the door.
 ~
 door~
+~
+~
 ABZ -1 600
 S
 #617
@@ -1852,6 +1928,8 @@ D3
 You see the dirt road.
 ~
 ~
+~
+~
 Z 0 668
 S
 #618
@@ -1864,9 +1942,13 @@ D0
 You see the dirt road.
 ~
 ~
+~
+~
 Z 0 668
 D1
 You see the barn.
+~
+~
 ~
 ~
 Z 0 620
@@ -1874,9 +1956,13 @@ D2
 You see the chicken coop.
 ~
 coop~
+the coop~
+~
 ABZ -1 619
 D3
 You see the dirt road.
+~
+~
 ~
 ~
 Z 0 621
@@ -1891,6 +1977,8 @@ D0
 You can sense the fresh air.
 ~
 ~
+~
+~
 ABZ -1 618
 S
 #620
@@ -1901,6 +1989,8 @@ Milk is milked and bottled here.  You see the exit west.
 0 DS inside
 D3
 You see the dirt road.
+~
+~
 ~
 ~
 Z 0 618
@@ -1915,9 +2005,13 @@ D0
 You see some grass fields.
 ~
 ~
+~
+~
 Z 0 622
 D1
 You see the dirt road.
+~
+~
 ~
 ~
 Z 0 618
@@ -1925,9 +2019,13 @@ D2
 You see some grass fields.
 ~
 ~
+~
+~
 Z 0 623
 D3
 You see the pigsty.
+~
+~
 ~
 ~
 Z 0 624
@@ -1942,6 +2040,8 @@ D2
 You see the dirt road.
 ~
 ~
+~
+~
 Z 0 621
 S
 #623
@@ -1954,6 +2054,8 @@ D0
 You see the dirt road.
 ~
 ~
+~
+~
 Z 0 621
 S
 #624
@@ -1964,6 +2066,8 @@ muck.  To realize your senses and notice the dirt road is to the east.
 0 S field
 D1
 You see the dry dirt road.
+~
+~
 ~
 ~
 Z 0 621
@@ -1983,14 +2087,20 @@ D0
 Impy Way continues north.
 ~
 ~
+~
+~
 Z 0 632
 D1
 You see a big house.
 ~
 door~
+~
+~
 ABCZ 665 626
 D2
 You see a big intersection.
+~
+~
 ~
 ~
 Z 0 601
@@ -1998,6 +2108,8 @@ D3
 You see a big house.
 ~
 door~
+~
+~
 ABCZ 665 629
 S
 #626
@@ -2015,14 +2127,20 @@ D1
 You see the kitchen.
 ~
 ~
+~
+~
 Z 0 628
 D3
 You see Impy Way.
 ~
 door~
+~
+~
 ABCZ 665 625
 D4
 You see the bedroom.
+~
+~
 ~
 ~
 Z 0 627
@@ -2037,6 +2155,8 @@ D5
 You see the main room of the house.
 ~
 ~
+~
+~
 Z 0 626
 S
 #628
@@ -2049,6 +2169,8 @@ is west of here.
 0 DS inside
 D3
 You see the main room of the house.
+~
+~
 ~
 ~
 Z 0 626
@@ -2068,14 +2190,20 @@ D1
 You see Impy Way.
 ~
 door~
+~
+~
 ABCZ 665 625
 D3
 You see the kitchen.
 ~
 ~
+~
+~
 Z 0 631
 D4
 You see the bedroom.
+~
+~
 ~
 ~
 Z 0 630
@@ -2090,6 +2218,8 @@ D5
 You see the main room of the house.
 ~
 ~
+~
+~
 Z 0 629
 S
 #631
@@ -2102,6 +2232,8 @@ is west of here.
 0 DS inside
 D1
 You see the main room of the house.
+~
+~
 ~
 ~
 Z 0 629
@@ -2121,14 +2253,20 @@ D0
 Impy Way continues north.
 ~
 ~
+~
+~
 Z 0 637
 D1
 You see a house.
 ~
 door~
+~
+~
 ABZ -1 633
 D2
 Impy Way continues south.
+~
+~
 ~
 ~
 Z 0 625
@@ -2136,6 +2274,8 @@ D3
 You see a house.
 ~
 door~
+~
+~
 ABZ -1 635
 S
 #633
@@ -2148,11 +2288,15 @@ D2
 You see the bedroom.
 ~
 ~
+~
+~
 Z 0 634
 D3
 You see Impy Way.
 ~
 door~
+~
+~
 ABZ -1 632
 S
 #634
@@ -2163,6 +2307,8 @@ and a dresser.  The main room of the house is north of here.
 0 DS inside
 D0
 You see the main room of the house.
+~
+~
 ~
 ~
 Z 0 633
@@ -2177,9 +2323,13 @@ D1
 You see Impy Way.
 ~
 door~
+~
+~
 ABZ -1 632
 D2
 You see the bedroom.
+~
+~
 ~
 ~
 Z 0 636
@@ -2192,6 +2342,8 @@ and a dresser.  The main room of the house is north of here.
 0 DS inside
 D0
 You see the main room of the house.
+~
+~
 ~
 ~
 Z 0 635
@@ -2207,14 +2359,20 @@ D0
 You see a big intersection.
 ~
 ~
+~
+~
 Z 0 642
 D1
 You see a house.
 ~
 door~
+~
+~
 ABZ -1 638
 D2
 Impy Way continues south.
+~
+~
 ~
 ~
 Z 0 632
@@ -2222,6 +2380,8 @@ D3
 You see a house.
 ~
 door~
+~
+~
 ABZ -1 640
 S
 #638
@@ -2234,11 +2394,15 @@ D2
 You see the bedroom.
 ~
 ~
+~
+~
 Z 0 639
 D3
 You see Impy Way.
 ~
 door~
+~
+~
 ABZ -1 637
 S
 #639
@@ -2249,6 +2413,8 @@ and a dresser.  The main room of the house is north of here.
 0 DS inside
 D0
 You see the main room of the house.
+~
+~
 ~
 ~
 Z 0 638
@@ -2263,9 +2429,13 @@ D1
 You see Impy Way.
 ~
 door~
+~
+~
 ABZ -1 637
 D2
 You see the bedroom.
+~
+~
 ~
 ~
 Z 0 641
@@ -2278,6 +2448,8 @@ and a dresser.  The main room of the house is north of here.
 0 DS inside
 D0
 You see the main room of the house.
+~
+~
 ~
 ~
 Z 0 640
@@ -2293,9 +2465,13 @@ D0
 You see the big house.
 ~
 door~
+~
+~
 ABCZ 665 643
 D1
 Swiftest Way continues east.
+~
+~
 ~
 ~
 Z 0 646
@@ -2303,9 +2479,13 @@ D2
 Impy Way continues south.
 ~
 ~
+~
+~
 Z 0 637
 D3
 Swiftest Way continues west.
+~
+~
 ~
 ~
 Z 0 649
@@ -2322,14 +2502,20 @@ D0
 You see the kitchen.
 ~
 ~
+~
+~
 Z 0 645
 D2
 You see Impy Way.
 ~
 door~
+~
+~
 ABCZ 665 642
 D4
 You see the bedroom.
+~
+~
 ~
 ~
 Z 0 644
@@ -2344,6 +2530,8 @@ D5
 You see the main room of the house.
 ~
 ~
+~
+~
 Z 0 643
 S
 #645
@@ -2354,6 +2542,8 @@ is east of here.
 0 DS inside
 D2
 You see the main room of the house.
+~
+~
 ~
 ~
 Z 0 643
@@ -2369,9 +2559,13 @@ D0
 You see a small house.
 ~
 ~
+~
+~
 Z 0 652
 D1
 Swiftest Way continues east.
+~
+~
 ~
 ~
 Z 0 647
@@ -2379,9 +2573,13 @@ D2
 You see a small house.
 ~
 ~
+~
+~
 Z 0 653
 D3
 You see a big intersection.
+~
+~
 ~
 ~
 Z 0 642
@@ -2396,9 +2594,13 @@ D0
 You see a small house.
 ~
 ~
+~
+~
 Z 0 654
 D1
 You see the end of Swiftest Way.
+~
+~
 ~
 ~
 Z 0 648
@@ -2406,9 +2608,13 @@ D2
 You see a small house.
 ~
 ~
+~
+~
 Z 0 655
 D3
 Swiftest Way continues west.
+~
+~
 ~
 ~
 Z 0 646
@@ -2423,9 +2629,13 @@ D0
 You see a small house.
 ~
 ~
+~
+~
 Z 0 656
 D1
 You see a small house.
+~
+~
 ~
 ~
 Z 0 657
@@ -2433,9 +2643,13 @@ D2
 You see a small house.
 ~
 ~
+~
+~
 Z 0 658
 D3
 Swiftest Way continues west.
+~
+~
 ~
 ~
 Z 0 647
@@ -2451,9 +2665,13 @@ D0
 You see a small house.
 ~
 ~
+~
+~
 Z 0 659
 D1
 You see the big intersection.
+~
+~
 ~
 ~
 Z 0 642
@@ -2461,9 +2679,13 @@ D2
 You see a small house.
 ~
 ~
+~
+~
 Z 0 660
 D3
 Swiftest Way continues west.
+~
+~
 ~
 ~
 Z 0 650
@@ -2478,9 +2700,13 @@ D0
 You see a small house.
 ~
 ~
+~
+~
 Z 0 661
 D1
 Swiftest Way continues east.
+~
+~
 ~
 ~
 Z 0 649
@@ -2488,9 +2714,13 @@ D2
 You see a small house.
 ~
 ~
+~
+~
 Z 0 662
 D3
 You see the end of Swiftest Way.
+~
+~
 ~
 ~
 Z 0 651
@@ -2505,9 +2735,13 @@ D0
 You see a small house.
 ~
 ~
+~
+~
 Z 0 663
 D1
 Swiftest Way continues east.
+~
+~
 ~
 ~
 Z 0 650
@@ -2515,9 +2749,13 @@ D2
 You see a small house.
 ~
 ~
+~
+~
 Z 0 664
 D3
 You see a small house.
+~
+~
 ~
 ~
 Z 0 665
@@ -2533,6 +2771,8 @@ D2
 You see Swiftest Way.
 ~
 ~
+~
+~
 Z 0 646
 S
 #653
@@ -2544,6 +2784,8 @@ of stuff here.  The exit is to the north.
 0 DS inside
 D0
 You see Swiftest Way.
+~
+~
 ~
 ~
 Z 0 646
@@ -2559,6 +2801,8 @@ D2
 You see Swiftest Way.
 ~
 ~
+~
+~
 Z 0 647
 S
 #655
@@ -2570,6 +2814,8 @@ of stuff here.  The exit is to the north.
 0 DS inside
 D0
 You see Swiftest Way.
+~
+~
 ~
 ~
 Z 0 647
@@ -2585,6 +2831,8 @@ D2
 You see the end of Swiftest Way.
 ~
 ~
+~
+~
 Z 0 648
 S
 #657
@@ -2596,6 +2844,8 @@ of stuff here.  The exit is to the west.
 0 DS inside
 D3
 You see the end of Swiftest Way.
+~
+~
 ~
 ~
 Z 0 648
@@ -2611,6 +2861,8 @@ D0
 You see the end of Swiftest Way.
 ~
 ~
+~
+~
 Z 0 648
 S
 #659
@@ -2622,6 +2874,8 @@ of stuff here.  The exit is to the south.
 0 DS inside
 D2
 You see Swiftest Way.
+~
+~
 ~
 ~
 Z 0 649
@@ -2637,6 +2891,8 @@ D0
 You see Swiftest Way.
 ~
 ~
+~
+~
 Z 0 649
 S
 #661
@@ -2648,6 +2904,8 @@ of stuff here.  The exit is to the south.
 0 DS inside
 D2
 You see Swiftest Way.
+~
+~
 ~
 ~
 Z 0 650
@@ -2663,6 +2921,8 @@ D0
 You see Swiftest Way.
 ~
 ~
+~
+~
 Z 0 650
 S
 #663
@@ -2674,6 +2934,8 @@ of stuff here.  The exit is to the south.
 0 DS inside
 D2
 You see the end of Swiftest Way.
+~
+~
 ~
 ~
 Z 0 651
@@ -2689,6 +2951,8 @@ D0
 You see the end of Swiftest Way.
 ~
 ~
+~
+~
 Z 0 651
 S
 #665
@@ -2700,6 +2964,8 @@ of stuff here.  The exit is to the east.
 0 DS inside
 D1
 You see the end of Swiftest Way.
+~
+~
 ~
 ~
 Z 0 651
@@ -2716,9 +2982,13 @@ D1
 Raff Way continues east.
 ~
 ~
+~
+~
 Z 0 667
 D3
 You see the big intersection.
+~
+~
 ~
 ~
 Z 0 601
@@ -2735,9 +3005,13 @@ D1
 You see the entrance of the Golden Citadel.
 ~
 ~
+~
+~
 Z 0 699
 D3
 Raff Way continues west.
+~
+~
 ~
 ~
 Z 0 666
@@ -2757,14 +3031,20 @@ D1
 You see the large building with the bad smell.
 ~
 ~
+~
+~
 Z 0 617
 D2
 The dirt road continues south.
 ~
 ~
+~
+~
 Z 0 618
 D3
 You see the end of Impy Way.
+~
+~
 ~
 ~
 Z 0 611
@@ -2780,16 +3060,24 @@ richer than you are.  Exits lead to the anterooms in the cardinal directions.
 D0
 ~
 ~
+~
+~
 Z 0 670
 D1
+~
+~
 ~
 ~
 Z 0 672
 D2
 ~
 ~
+~
+~
 Z 0 673
 D3
+~
+~
 ~
 ~
 Z 0 671
@@ -2804,12 +3092,18 @@ the south, and to the north is a hallway.  A stairways leads up.
 D0
 ~
 ~
+~
+~
 Z 0 675
 D2
 ~
 ~
+~
+~
 Z 0 669
 D4
+~
+~
 ~
 ~
 Z 0 686
@@ -2824,12 +3118,18 @@ the east, and to the west is a hallway.  A stairways leads up.
 D1
 ~
 ~
+~
+~
 Z 0 669
 D3
 ~
 ~
+~
+~
 Z 0 679
 D4
+~
+~
 ~
 ~
 Z 0 687
@@ -2844,12 +3144,18 @@ the west, and to the east is a hallway.  A stairways leads up.
 D1
 ~
 ~
+~
+~
 Z 0 680
 D3
 ~
 ~
+~
+~
 Z 0 669
 D4
+~
+~
 ~
 ~
 Z 0 689
@@ -2864,12 +3170,18 @@ the north, and to the south is a hallway.  A stairways leads up.
 D0
 ~
 ~
+~
+~
 Z 0 669
 D2
 ~
 ~
+~
+~
 Z 0 684
 D4
+~
+~
 ~
 ~
 Z 0 690
@@ -2884,8 +3196,12 @@ by peaceably.  Exits lead east and south.
 D1
 ~
 ~
+~
+~
 Z 0 675
 D2
+~
+~
 ~
 ~
 Z 0 677
@@ -2900,12 +3216,18 @@ by peaceably.  Exits lead east, west, and south.
 D1
 ~
 ~
+~
+~
 Z 0 676
 D2
 ~
 ~
+~
+~
 Z 0 670
 D3
+~
+~
 ~
 ~
 Z 0 674
@@ -2920,8 +3242,12 @@ by peaceably.  Exits lead west and south.
 D2
 ~
 ~
+~
+~
 Z 0 678
 D3
+~
+~
 ~
 ~
 Z 0 675
@@ -2936,8 +3262,12 @@ by peaceably.  Exits lead north and south.
 D0
 ~
 ~
+~
+~
 Z 0 674
 D2
+~
+~
 ~
 ~
 Z 0 679
@@ -2952,8 +3282,12 @@ by peaceably.  Exits lead north and south.
 D0
 ~
 ~
+~
+~
 Z 0 676
 D2
+~
+~
 ~
 ~
 Z 0 680
@@ -2969,16 +3303,24 @@ toward the Temple of Ofcol, and west leading toward the City of Ofcol.
 D0
 ~
 ~
+~
+~
 Z 0 677
 D1
+~
+~
 ~
 ~
 Z 0 671
 D2
 ~
 ~
+~
+~
 Z 0 681
 D3
+~
+~
 ~
 ~
 Z 0 698
@@ -2993,12 +3335,18 @@ by peaceably.  Exits lead west, north and south.
 D0
 ~
 ~
+~
+~
 Z 0 678
 D2
 ~
 ~
+~
+~
 Z 0 682
 D3
+~
+~
 ~
 ~
 Z 0 672
@@ -3013,8 +3361,12 @@ by peaceably.  Exits lead north and south.
 D0
 ~
 ~
+~
+~
 Z 0 679
 D2
+~
+~
 ~
 ~
 Z 0 683
@@ -3029,8 +3381,12 @@ by peaceably.  Exits lead north and south.
 D0
 ~
 ~
+~
+~
 Z 0 680
 D2
+~
+~
 ~
 ~
 Z 0 685
@@ -3045,8 +3401,12 @@ by peaceably.  Exits lead north and east.
 D0
 ~
 ~
+~
+~
 Z 0 681
 D1
+~
+~
 ~
 ~
 Z 0 684
@@ -3061,12 +3421,18 @@ by peaceably.  Exits lead east, west, and north.
 D0
 ~
 ~
+~
+~
 Z 0 673
 D1
 ~
 ~
+~
+~
 Z 0 685
 D3
+~
+~
 ~
 ~
 Z 0 683
@@ -3081,8 +3447,12 @@ by peaceably.  Exits lead west and north.
 D0
 ~
 ~
+~
+~
 Z 0 682
 D3
+~
+~
 ~
 ~
 Z 0 684
@@ -3099,12 +3469,18 @@ standing in a gem.  Stairways lead up and down, and the hall leads south.
 D2
 ~
 ~
+~
+~
 Z 0 688
 D4
 ~
 ~
+~
+~
 Z 0 691
 D5
+~
+~
 ~
 ~
 Z 0 670
@@ -3121,12 +3497,18 @@ standing in a gem.  Stairways lead up and down, and the hall leads east.
 D1
 ~
 ~
+~
+~
 Z 0 688
 D4
 ~
 ~
+~
+~
 Z 0 692
 D5
+~
+~
 ~
 ~
 Z 0 671
@@ -3143,16 +3525,24 @@ you to join them in lunch.  Exits lead to the cardinal directions.
 D0
 ~
 ~
+~
+~
 Z 0 686
 D1
+~
+~
 ~
 ~
 Z 0 689
 D2
 ~
 ~
+~
+~
 Z 0 690
 D3
+~
+~
 ~
 ~
 Z 0 687
@@ -3169,12 +3559,18 @@ standing in a gem.  Stairways lead up and down, and the hall leads west.
 D3
 ~
 ~
+~
+~
 Z 0 688
 D4
 ~
 ~
+~
+~
 Z 0 694
 D5
+~
+~
 ~
 ~
 Z 0 672
@@ -3191,12 +3587,18 @@ standing in a gem.  Stairways lead up and down, and the hall leads north.
 D0
 ~
 ~
+~
+~
 Z 0 688
 D4
 ~
 ~
+~
+~
 Z 0 695
 D5
+~
+~
 ~
 ~
 Z 0 673
@@ -3213,8 +3615,12 @@ case leads back down, and a doorway leads south.
 D2
 ~
 ~
+~
+~
 Z 0 693
 D5
+~
+~
 ~
 ~
 Z 0 686
@@ -3232,8 +3638,12 @@ wall.
 D1
 ~
 ~
+~
+~
 Z 0 693
 D5
+~
+~
 ~
 ~
 Z 0 687
@@ -3251,20 +3661,30 @@ cardinal directions to the anterooms.
 D0
 ~
 ~
+~
+~
 Z 0 691
 D1
+~
+~
 ~
 ~
 Z 0 694
 D2
 ~
 ~
+~
+~
 Z 0 695
 D3
 ~
 ~
+~
+~
 Z 0 692
 D4
+~
+~
 ~
 ~
 Z 0 696
@@ -3281,8 +3701,12 @@ case leads back down, and a doorway leads west.
 D3
 ~
 ~
+~
+~
 Z 0 693
 D5
+~
+~
 ~
 ~
 Z 0 689
@@ -3299,8 +3723,12 @@ case leads back down, and a doorway leads north.
 D0
 ~
 ~
+~
+~
 Z 0 693
 D5
+~
+~
 ~
 ~
 Z 0 690
@@ -3315,8 +3743,12 @@ through.  This shaft leads up and down.
 D4
 ~
 ~
+~
+~
 Z 0 697
 D5
+~
+~
 ~
 ~
 Z 0 693
@@ -3331,8 +3763,12 @@ currently, the way out is sealed by a layer of diamond that looks impenetrable.
 D0
 ~
 ~
+~
+~
 Z 0 95100
 D5
+~
+~
 ~
 ~
 Z 0 696
@@ -3347,12 +3783,18 @@ to the west, while the citadel itself is to the east.
 D1
 ~
 ~
+~
+~
 Z 0 679
 D3
 ~
 gate~
+the gate~
+~
 Z 651 699
 D4
+~
+~
 ~
 ~
 Z 0 3757
@@ -3367,8 +3809,12 @@ back west to Raff Way.
 D1
 ~
 ~
+~
+~
 Z 651 698
 D3
+~
+~
 ~
 ~
 Z 0 667

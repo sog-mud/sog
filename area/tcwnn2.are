@@ -1,5 +1,5 @@
 #AREADATA
-Ver 1
+Ver 2
 Name The Walls of Anon~
 VNUMs 31200 31399
 Credits Yaegar~
@@ -889,8 +889,12 @@ escaping through a small shaft that runs up one side of the turret.
 D2
 ~
 ~
+~
+~
 Z 0 31016
 D4
+~
+~
 ~
 ~
 Z -1 31202
@@ -910,8 +914,12 @@ spiral staircase winds its way up to the next floor in one corner.
 D0
 ~
 ~
+~
+~
 Z 0 31016
 D4
+~
+~
 ~
 ~
 Z -1 31207
@@ -926,12 +934,18 @@ gatehouse proper. A staircase winds its way up to the next floor.
 D0
 ~
 ~
+~
+~
 Z 0 31203
 D2
 ~
 ~
+~
+~
 Z 0 31216
 D4
+~
+~
 ~
 ~
 Z -1 31226
@@ -951,8 +965,12 @@ A door leads south into the north tower, west gatehouse.
 D0
 ~
 ~
+~
+~
 Z -1 31204
 D2
+~
+~
 ~
 ~
 Z 0 31202
@@ -970,8 +988,12 @@ claustrophobic.
 D0
 ~
 ~
+~
+~
 Z -1 31205
 D2
+~
+~
 ~
 ~
 Z -1 31203
@@ -991,8 +1013,12 @@ A door leads north into the northwest tower.
 D0
 ~
 ~
+~
+~
 Z -1 31206
 D2
+~
+~
 ~
 ~
 Z -1 31204
@@ -1011,16 +1037,24 @@ through the tower.
 D1
 ~
 ~
+~
+~
 Z 0 31230
 D2
+~
+~
 ~
 ~
 Z 0 31205
 D4
 ~
 ~
+~
+~
 Z -1 31256
 D5
+~
+~
 ~
 ~
 Z -1 31252
@@ -1036,12 +1070,18 @@ old weapons lies in one corner, waiting to me removed.
 D0
 ~
 ~
+~
+~
 Z 0 31216
 D2
 ~
 ~
+~
+~
 Z 0 31208
 D4
+~
+~
 ~
 ~
 Z -1 31227
@@ -1061,8 +1101,12 @@ A door leads north into the south tower, west gatehouse.
 D0
 ~
 ~
+~
+~
 Z 0 31207
 D2
+~
+~
 ~
 ~
 Z -1 31209
@@ -1080,8 +1124,12 @@ claustrophobic.
 D0
 ~
 ~
+~
+~
 Z -1 31208
 D2
+~
+~
 ~
 ~
 Z -1 31210
@@ -1101,8 +1149,12 @@ A door leads south into the northwest tower.
 D0
 ~
 ~
+~
+~
 Z -1 31209
 D2
+~
+~
 ~
 ~
 Z 0 31211
@@ -1124,16 +1176,24 @@ sudden wave of heat, as if from a furnace.
 D0
 ~
 ~
+~
+~
 Z 0 31210
 D1
+~
+~
 ~
 ~
 Z 0 31241
 D4
 ~
 ~
+~
+~
 Z -1 31258
 D5
+~
+~
 ~
 ~
 Z -1 31254
@@ -1154,8 +1214,12 @@ side of the turret.
 D2
 ~
 ~
+~
+~
 Z 0 31017
 D4
+~
+~
 ~
 ~
 Z -1 31214
@@ -1175,8 +1239,12 @@ side of the turret. A small cat purrs contentedly near the fire.
 D0
 ~
 ~
+~
+~
 Z 0 31017
 D4
+~
+~
 ~
 ~
 Z -1 31215
@@ -1193,12 +1261,18 @@ blood.
 D0
 ~
 ~
+~
+~
 Z 0 31218
 D2
 ~
 ~
+~
+~
 Z 0 31217
 D4
+~
+~
 ~
 ~
 Z -1 31228
@@ -1230,12 +1304,18 @@ The writing says-
 D0
 ~
 ~
+~
+~
 Z 0 31217
 D2
 ~
 ~
+~
+~
 Z 0 31222
 D4
+~
+~
 ~
 ~
 Z -1 31229
@@ -1253,8 +1333,12 @@ western Anon, and beyond them an impenetrable mountain range.
 D0
 ~
 ~
+~
+~
 Z 0 31202
 D2
+~
+~
 ~
 ~
 Z 0 31207
@@ -1272,8 +1356,12 @@ of blood.
 D0
 ~
 ~
+~
+~
 Z 0 31214
 D2
+~
+~
 ~
 ~
 Z 0 31215
@@ -1293,8 +1381,12 @@ A door leads south into the north tower, east gatehouse.
 D0
 ~
 ~
+~
+~
 Z -1 31219
 D2
+~
+~
 ~
 ~
 Z 0 31214
@@ -1312,8 +1404,12 @@ claustrophobic.
 D0
 ~
 ~
+~
+~
 Z -1 31220
 D2
+~
+~
 ~
 ~
 Z -1 31218
@@ -1333,8 +1429,12 @@ A door leads north into northeast tower.
 D0
 ~
 ~
+~
+~
 Z -1 31221
 D2
+~
+~
 ~
 ~
 Z -1 31219
@@ -1353,16 +1453,24 @@ through the tower.
 D2
 ~
 ~
+~
+~
 Z 0 31220
 D3
+~
+~
 ~
 ~
 Z 0 31240
 D4
 ~
 ~
+~
+~
 Z -1 31257
 D5
+~
+~
 ~
 ~
 Z -1 31253
@@ -1382,8 +1490,12 @@ A door leads south into the north tower, east gatehouse.
 D0
 ~
 ~
+~
+~
 Z 0 31215
 D2
+~
+~
 ~
 ~
 Z -1 31223
@@ -1401,8 +1513,12 @@ claustrophobic.
 D0
 ~
 ~
+~
+~
 Z -1 31222
 D2
+~
+~
 ~
 ~
 Z -1 31224
@@ -1422,8 +1538,12 @@ A door leads south into southeast tower.
 D0
 ~
 ~
+~
+~
 Z -1 31223
 D2
+~
+~
 ~
 ~
 Z -1 31225
@@ -1442,16 +1562,24 @@ through the tower.
 D0
 ~
 ~
+~
+~
 Z 0 31224
 D3
+~
+~
 ~
 ~
 Z 0 31251
 D4
 ~
 ~
+~
+~
 Z -1 31259
 D5
+~
+~
 ~
 ~
 Z -1 31255
@@ -1466,16 +1594,24 @@ onto the battlements.
 D0
 ~
 ~
+~
+~
 Z 0 31270
 D2
+~
+~
 ~
 ~
 Z 0 31268
 D4
 ~
 ~
+~
+~
 Z -1 31260
 D5
+~
+~
 ~
 ~
 Z -1 31202
@@ -1490,16 +1626,24 @@ onto the battlements.
 D0
 ~
 ~
+~
+~
 Z 0 31268
 D2
+~
+~
 ~
 ~
 Z 0 31271
 D4
 ~
 ~
+~
+~
 Z -1 31261
 D5
+~
+~
 ~
 ~
 Z -1 31207
@@ -1514,16 +1658,24 @@ onto the battlements.
 D0
 ~
 ~
+~
+~
 Z 0 31272
 D2
+~
+~
 ~
 ~
 Z 0 31269
 D4
 ~
 ~
+~
+~
 Z -1 31262
 D5
+~
+~
 ~
 ~
 Z -1 31214
@@ -1538,16 +1690,24 @@ onto the battlements.
 D0
 ~
 ~
+~
+~
 Z 0 31269
 D2
+~
+~
 ~
 ~
 Z 0 31273
 D4
 ~
 ~
+~
+~
 Z -1 31263
 D5
+~
+~
 ~
 ~
 Z -1 31215
@@ -1565,8 +1725,12 @@ A door leads west into northwest tower.
 D1
 ~
 ~
+~
+~
 Z -1 31231
 D3
+~
+~
 ~
 ~
 Z 0 31206
@@ -1582,8 +1746,12 @@ intervals, and regularly patrolled by squads of crossbowmen.
 D1
 ~
 ~
+~
+~
 Z -1 31232
 D3
+~
+~
 ~
 ~
 Z -1 31230
@@ -1599,8 +1767,12 @@ intervals, and regularly patrolled by squads of crossbowmen.
 D1
 ~
 ~
+~
+~
 Z -1 31233
 D3
+~
+~
 ~
 ~
 Z -1 31231
@@ -1616,8 +1788,12 @@ intervals, and regularly patrolled by squads of crossbowmen.
 D1
 ~
 ~
+~
+~
 Z -1 31234
 D3
+~
+~
 ~
 ~
 Z -1 31232
@@ -1633,8 +1809,12 @@ intervals, and regularly patrolled by squads of crossbowmen.
 D1
 ~
 ~
+~
+~
 Z -1 31235
 D3
+~
+~
 ~
 ~
 Z -1 31233
@@ -1650,8 +1830,12 @@ intervals, and regularly patrolled by squads of crossbowmen.
 D1
 ~
 ~
+~
+~
 Z -1 31236
 D3
+~
+~
 ~
 ~
 Z -1 31234
@@ -1667,8 +1851,12 @@ intervals, and regularly patrolled by squads of crossbowmen.
 D1
 ~
 ~
+~
+~
 Z -1 31237
 D3
+~
+~
 ~
 ~
 Z -1 31235
@@ -1684,8 +1872,12 @@ intervals, and regularly patrolled by squads of crossbowmen.
 D1
 ~
 ~
+~
+~
 Z -1 31238
 D3
+~
+~
 ~
 ~
 Z -1 31236
@@ -1701,8 +1893,12 @@ intervals, and regularly patrolled by squads of crossbowmen.
 D1
 ~
 ~
+~
+~
 Z -1 31239
 D3
+~
+~
 ~
 ~
 Z -1 31237
@@ -1718,8 +1914,12 @@ intervals, and regularly patrolled by squads of crossbowmen.
 D1
 ~
 ~
+~
+~
 Z -1 31240
 D3
+~
+~
 ~
 ~
 Z -1 31238
@@ -1737,8 +1937,12 @@ A door leads east into northeast tower.
 D1
 ~
 ~
+~
+~
 Z -1 31221
 D3
+~
+~
 ~
 ~
 Z -1 31239
@@ -1756,8 +1960,12 @@ A door leads west into southwest tower.
 D1
 ~
 ~
+~
+~
 Z -1 31242
 D3
+~
+~
 ~
 ~
 Z 0 31211
@@ -1773,8 +1981,12 @@ intervals, and regularly patrolled by squads of crossbowmen.
 D1
 ~
 ~
+~
+~
 Z -1 31243
 D3
+~
+~
 ~
 ~
 Z -1 31241
@@ -1790,8 +2002,12 @@ intervals, and regularly patrolled by squads of crossbowmen.
 D1
 ~
 ~
+~
+~
 Z -1 31244
 D3
+~
+~
 ~
 ~
 Z -1 31242
@@ -1807,8 +2023,12 @@ intervals, and regularly patrolled by squads of crossbowmen.
 D1
 ~
 ~
+~
+~
 Z -1 31245
 D3
+~
+~
 ~
 ~
 Z -1 31243
@@ -1824,8 +2044,12 @@ intervals, and regularly patrolled by squads of crossbowmen.
 D1
 ~
 ~
+~
+~
 Z -1 31246
 D3
+~
+~
 ~
 ~
 Z -1 31244
@@ -1841,8 +2065,12 @@ intervals, and regularly patrolled by squads of crossbowmen.
 D1
 ~
 ~
+~
+~
 Z -1 31247
 D3
+~
+~
 ~
 ~
 Z -1 31245
@@ -1858,8 +2086,12 @@ intervals, and regularly patrolled by squads of crossbowmen.
 D1
 ~
 ~
+~
+~
 Z -1 31248
 D3
+~
+~
 ~
 ~
 Z -1 31246
@@ -1875,8 +2107,12 @@ intervals, and regularly patrolled by squads of crossbowmen.
 D1
 ~
 ~
+~
+~
 Z -1 31249
 D3
+~
+~
 ~
 ~
 Z -1 31247
@@ -1892,8 +2128,12 @@ intervals, and regularly patrolled by squads of crossbowmen.
 D1
 ~
 ~
+~
+~
 Z -1 31250
 D3
+~
+~
 ~
 ~
 Z -1 31248
@@ -1909,8 +2149,12 @@ intervals, and regularly patrolled by squads of crossbowmen.
 D1
 ~
 ~
+~
+~
 Z -1 31251
 D3
+~
+~
 ~
 ~
 Z -1 31249
@@ -1928,8 +2172,12 @@ A door to the east leads into southeast tower.
 D1
 ~
 ~
+~
+~
 Z -1 31225
 D3
+~
+~
 ~
 ~
 Z -1 31250
@@ -1945,6 +2193,8 @@ There are no visible exits, besides the staircase back up.
 D4
 ~
 ~
+~
+~
 Z -1 31206
 S
 #31253
@@ -1956,6 +2206,8 @@ looks like scrolls scattered about, though.
 ~
 0 ACD inside
 D4
+~
+~
 ~
 ~
 Z -1 31221
@@ -1970,6 +2222,8 @@ guards. He may even repair yours.
 D4
 ~
 ~
+~
+~
 Z -1 31211
 S
 #31255
@@ -1979,6 +2233,8 @@ recently. Wonder what it will be used for...?
 ~
 0 ACD inside
 D4
+~
+~
 ~
 ~
 Z -1 31225
@@ -1993,16 +2249,24 @@ east and south out onto the battlements.
 D1
 ~
 ~
+~
+~
 Z 0 31286
 D2
+~
+~
 ~
 ~
 Z 0 31276
 D4
 ~
 ~
+~
+~
 Z -1 31308
 D5
+~
+~
 ~
 ~
 Z -1 31206
@@ -2017,8 +2281,12 @@ leading up. How odd...
 D2
 ~
 ~
+~
+~
 Z 0 31285
 D3
+~
+~
 ~
 ~
 Z 0 31296
@@ -2026,8 +2294,12 @@ D4
 As you look closer, you notice the door is lined with silver runes...
 ~
 door trapdoor up~
+~
+~
 Z 31224 31311
 D5
+~
+~
 ~
 ~
 Z -1 31221
@@ -2042,16 +2314,24 @@ east and north out onto the battlements.
 D0
 ~
 ~
+~
+~
 Z 0 31279
 D1
+~
+~
 ~
 ~
 Z 0 31297
 D4
 ~
 ~
+~
+~
 Z -1 31309
 D5
+~
+~
 ~
 ~
 Z -1 31211
@@ -2066,16 +2346,24 @@ west and north out onto the battlements.
 D0
 ~
 ~
+~
+~
 Z 0 31282
 D3
+~
+~
 ~
 ~
 Z 0 31307
 D4
 ~
 ~
+~
+~
 Z -1 31310
 D5
+~
+~
 ~
 ~
 Z -1 31225
@@ -2091,8 +2379,12 @@ leads up the the roof of the tower.
 D4
 ~
 ~
+~
+~
 Z 0 31264
 D5
+~
+~
 ~
 ~
 Z -1 31226
@@ -2108,8 +2400,12 @@ leads up the the roof of the tower.
 D4
 ~
 ~
+~
+~
 Z 0 31265
 D5
+~
+~
 ~
 ~
 Z -1 31227
@@ -2125,8 +2421,12 @@ leads up the the roof of the tower.
 D4
 ~
 ~
+~
+~
 Z 0 31267
 D5
+~
+~
 ~
 ~
 Z -1 31228
@@ -2142,8 +2442,12 @@ leads up the the roof of the tower.
 D4
 ~
 ~
+~
+~
 Z 0 31266
 D5
+~
+~
 ~
 ~
 Z -1 31229
@@ -2161,6 +2465,8 @@ Anon.
 D5
 ~
 ~
+~
+~
 Z 0 31260
 S
 #31265
@@ -2174,6 +2480,8 @@ Anon.
 ~
 0 0 city
 D5
+~
+~
 ~
 ~
 Z 0 31261
@@ -2191,6 +2499,8 @@ Anon.
 D5
 ~
 ~
+~
+~
 Z 0 31263
 S
 #31267
@@ -2206,6 +2516,8 @@ Anon.
 D5
 ~
 ~
+~
+~
 Z 0 31262
 S
 #31268
@@ -2218,8 +2530,12 @@ travellers making their way into and out of the city.
 D0
 ~
 ~
+~
+~
 Z 0 31226
 D2
+~
+~
 ~
 ~
 Z 0 31227
@@ -2236,8 +2552,12 @@ wonder if there is another raiding party coming.
 D0
 ~
 ~
+~
+~
 Z 0 31228
 D2
+~
+~
 ~
 ~
 Z 0 31229
@@ -2255,8 +2575,12 @@ A door to the south leads into the north tower, western gatehouse.
 D0
 ~
 ~
+~
+~
 Z -1 31274
 D2
+~
+~
 ~
 ~
 Z 0 31226
@@ -2274,8 +2598,12 @@ A door to the north leads into the southern tower, western gatehouse.
 D0
 ~
 ~
+~
+~
 Z 0 31227
 D2
+~
+~
 ~
 ~
 Z -1 31277
@@ -2294,8 +2622,12 @@ A door to the south leads into the northern tower, eastern gatehouse.
 D0
 ~
 ~
+~
+~
 Z -1 31283
 D2
+~
+~
 ~
 ~
 Z 0 31228
@@ -2314,8 +2646,12 @@ A door to the north leads into the southern tower, eastern gatehouse.
 D0
 ~
 ~
+~
+~
 Z 0 31229
 D2
+~
+~
 ~
 ~
 Z -1 31280
@@ -2331,8 +2667,12 @@ Shire.
 D0
 ~
 ~
+~
+~
 Z -1 31276
 D2
+~
+~
 ~
 ~
 Z -1 31270
@@ -2347,12 +2687,18 @@ very large.
 D0
 ~
 ~
+~
+~
 Z -1 31028
 D2
 ~
 ~
+~
+~
 Z -1 31278
 D3
+~
+~
 ~
 ~
 Z -1 31281
@@ -2370,8 +2716,12 @@ A door leads into northwest tower north of here.
 D0
 ~
 ~
+~
+~
 Z -1 31256
 D2
+~
+~
 ~
 ~
 Z -1 31274
@@ -2387,8 +2737,12 @@ their work.
 D0
 ~
 ~
+~
+~
 Z 0 31271
 D2
+~
+~
 ~
 ~
 Z -1 31279
@@ -2401,6 +2755,8 @@ one of the scows. They grunt in greeting as you watch.
 ~
 0 0 city
 D0
+~
+~
 ~
 ~
 Z -1 31275
@@ -2418,8 +2774,12 @@ A door to the south leads into southwest tower.
 D0
 ~
 ~
+~
+~
 Z 0 31277
 D2
+~
+~
 ~
 ~
 Z -1 31258
@@ -2436,8 +2796,12 @@ to the south wall, heading off into a thick forest.
 D0
 ~
 ~
+~
+~
 Z -1 31273
 D2
+~
+~
 ~
 ~
 Z -1 31282
@@ -2451,8 +2815,12 @@ empty. However, there is one to the south that appears to be still in use.
 D1
 ~
 ~
+~
+~
 Z -1 31275
 D2
+~
+~
 ~
 ~
 Z 31238 31284
@@ -2471,8 +2839,12 @@ A door to the south leads into southeast tower.
 D0
 ~
 ~
+~
+~
 Z 0 31280
 D2
+~
+~
 ~
 ~
 Z -1 31259
@@ -2489,8 +2861,12 @@ Charming terrain.
 D0
 ~
 ~
+~
+~
 Z -1 31285
 D2
+~
+~
 ~
 ~
 Z -1 31272
@@ -2503,6 +2879,8 @@ spices and dried meats. There is a sweet aroma in the air.
 ~
 0 AD inside
 D0
+~
+~
 ~
 ~
 Z 31238 31281
@@ -2522,8 +2900,12 @@ D0
 The sign reads- "KEEP OUT! By order of the Marshal"
 ~
 door sign~
+~
+~
 Z -1 31257
 D2
+~
+~
 ~
 ~
 Z 0 31283
@@ -2543,8 +2925,12 @@ A door leads west into northwest tower.
 D1
 ~
 ~
+~
+~
 Z -1 31287
 D3
+~
+~
 ~
 ~
 Z 0 31256
@@ -2562,8 +2948,12 @@ may be found in there...?
 D1
 ~
 ~
+~
+~
 Z -1 31288
 D3
+~
+~
 ~
 ~
 Z -1 31286
@@ -2581,8 +2971,12 @@ may be found in there...?
 D1
 ~
 ~
+~
+~
 Z -1 31289
 D3
+~
+~
 ~
 ~
 Z -1 31287
@@ -2600,8 +2994,12 @@ may be found in there...?
 D1
 ~
 ~
+~
+~
 Z -1 31290
 D3
+~
+~
 ~
 ~
 Z -1 31288
@@ -2619,8 +3017,12 @@ may be found in there...?
 D1
 ~
 ~
+~
+~
 Z -1 31291
 D3
+~
+~
 ~
 ~
 Z -1 31289
@@ -2638,8 +3040,12 @@ may be found in there...?
 D1
 ~
 ~
+~
+~
 Z -1 31292
 D3
+~
+~
 ~
 ~
 Z -1 31290
@@ -2657,8 +3063,12 @@ may be found in there...?
 D1
 ~
 ~
+~
+~
 Z -1 31293
 D3
+~
+~
 ~
 ~
 Z -1 31291
@@ -2676,8 +3086,12 @@ may be found in there...?
 D1
 ~
 ~
+~
+~
 Z -1 31294
 D3
+~
+~
 ~
 ~
 Z -1 31292
@@ -2695,8 +3109,12 @@ may be found in there...?
 D1
 ~
 ~
+~
+~
 Z -1 31295
 D3
+~
+~
 ~
 ~
 Z -1 31293
@@ -2714,8 +3132,12 @@ may be found in there...?
 D1
 ~
 ~
+~
+~
 Z -1 31296
 D3
+~
+~
 ~
 ~
 Z -1 31294
@@ -2736,8 +3158,12 @@ D1
 The sign says- "Keep Out! By order of the Marshal"
 ~
 door sign~
+~
+~
 Z -1 31257
 D3
+~
+~
 ~
 ~
 Z -1 31295
@@ -2756,8 +3182,12 @@ A door to the west leads into southwest tower.
 D1
 ~
 ~
+~
+~
 Z -1 31298
 D3
+~
+~
 ~
 ~
 Z 0 31258
@@ -2774,8 +3204,12 @@ wall. You smile, relax and enjoy the walk.
 D1
 ~
 ~
+~
+~
 Z -1 31299
 D3
+~
+~
 ~
 ~
 Z -1 31297
@@ -2792,8 +3226,12 @@ wall. You smile, relax and enjoy the walk.
 D1
 ~
 ~
+~
+~
 Z -1 31300
 D3
+~
+~
 ~
 ~
 Z -1 31298
@@ -2810,8 +3248,12 @@ wall. You smile, relax and enjoy the walk.
 D1
 ~
 ~
+~
+~
 Z -1 31301
 D3
+~
+~
 ~
 ~
 Z -1 31299
@@ -2828,8 +3270,12 @@ wall. You smile, relax and enjoy the walk.
 D1
 ~
 ~
+~
+~
 Z -1 31302
 D3
+~
+~
 ~
 ~
 Z -1 31300
@@ -2846,8 +3292,12 @@ wall. You smile, relax and enjoy the walk.
 D1
 ~
 ~
+~
+~
 Z -1 31303
 D3
+~
+~
 ~
 ~
 Z -1 31301
@@ -2864,8 +3314,12 @@ wall. You smile, relax and enjoy the walk.
 D1
 ~
 ~
+~
+~
 Z -1 31304
 D3
+~
+~
 ~
 ~
 Z -1 31302
@@ -2882,8 +3336,12 @@ wall. You smile, relax and enjoy the walk.
 D1
 ~
 ~
+~
+~
 Z -1 31305
 D3
+~
+~
 ~
 ~
 Z -1 31303
@@ -2900,8 +3358,12 @@ wall. You smile, relax and enjoy the walk.
 D1
 ~
 ~
+~
+~
 Z -1 31306
 D3
+~
+~
 ~
 ~
 Z -1 31304
@@ -2918,8 +3380,12 @@ wall. You smile, relax and enjoy the walk.
 D1
 ~
 ~
+~
+~
 Z -1 31307
 D3
+~
+~
 ~
 ~
 Z -1 31305
@@ -2938,8 +3404,12 @@ A door to the east leads into southeast tower.
 D1
 ~
 ~
+~
+~
 Z -1 31259
 D3
+~
+~
 ~
 ~
 Z -1 31306
@@ -2955,8 +3425,12 @@ and a throw rug lies near the staircase.
 D4
 ~
 ~
+~
+~
 Z -1 31312
 D5
+~
+~
 ~
 ~
 Z -1 31256
@@ -2973,8 +3447,12 @@ from Lenny.
 D4
 ~
 ~
+~
+~
 Z -1 31314
 D5
+~
+~
 ~
 ~
 Z -1 31258
@@ -2990,8 +3468,12 @@ and a throw rug lies near the staircase.
 D4
 ~
 ~
+~
+~
 Z -1 31316
 D5
+~
+~
 ~
 ~
 Z -1 31259
@@ -3007,8 +3489,12 @@ get the distinct feeling that this place is haunted.
 D4
 ~
 ~
+~
+~
 Z -1 31318
 D5
+~
+~
 ~
 ~
 Z 31224 31257
@@ -3024,8 +3510,12 @@ fortune to a collector, but useless to you. Then again, maybe not...
 D4
 ~
 ~
+~
+~
 Z 0 31313
 D5
+~
+~
 ~
 ~
 Z -1 31308
@@ -3041,6 +3531,8 @@ magazines.
 D5
 ~
 ~
+~
+~
 Z 0 31312
 S
 #31314
@@ -3054,8 +3546,12 @@ none of them are magical.
 D4
 ~
 ~
+~
+~
 Z 0 31315
 D5
+~
+~
 ~
 ~
 Z -1 31309
@@ -3071,6 +3567,8 @@ the fabled elemental canyon.
 D5
 ~
 ~
+~
+~
 Z 0 31314
 S
 #31316
@@ -3083,8 +3581,12 @@ injuries as well, for a fee. Such is the way of Lenny.
 D4
 ~
 ~
+~
+~
 Z 0 31317
 D5
+~
+~
 ~
 ~
 Z -1 31310
@@ -3100,6 +3602,8 @@ You feel totally at ease in this place.
 D5
 ~
 ~
+~
+~
 Z 0 31316
 S
 #31318
@@ -3113,8 +3617,12 @@ get the distinct feeling that this place is haunted.
 D4
 ~
 ~
+~
+~
 Z 31224 31319
 D5
+~
+~
 ~
 ~
 Z 31224 31311
@@ -3130,6 +3638,8 @@ is truly a cursed place.
 D5
 ~
 ~
+~
+~
 Z 31224 31318
 S
 #31320
@@ -3141,6 +3651,8 @@ owners. You feel quite comfortable in this simple yet pleasant workshop.
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 Z -1 31009
@@ -3157,6 +3669,8 @@ versions of some of the greatest works of Anonian literature.
 D3
 ~
 ~
+~
+~
 ABZ 0 31004
 S
 #31322
@@ -3169,6 +3683,8 @@ You marvel at all the strange technology about you.
 D1
 ~
 ~
+~
+~
 ABZ 0 31004
 S
 #31323
@@ -3179,6 +3695,8 @@ There are several degrees and diplomas affixed to the walls here.
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 Z -1 31011
