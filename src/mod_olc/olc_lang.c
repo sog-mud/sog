@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_lang.c,v 1.20 1999-09-08 10:40:05 fjoe Exp $
+ * $Id: olc_lang.c,v 1.21 1999-10-17 08:55:45 fjoe Exp $
  */
 
 #include "olc.h"
@@ -55,11 +55,11 @@ olc_cmd_t olc_cmds_lang[] =
 	{ "show",	langed_show					},
 	{ "list",	langed_list					},
 
-	{ "name",	langed_name,		validate_langname	},
-	{ "flags",	langed_flags,		lang_flags		},
+	{ "name",	langed_name,	validate_langname		},
+	{ "flags",	langed_flags,	NULL,		lang_flags	},
 	{ "slangof",	langed_slangof					},
-	{ "filename",	langed_filename,	validate_filename	},
-	{ "ruleclass",	langed_rulecl					},
+	{ "filename",	langed_filename,validate_filename		},
+	{ "ruleclass",	langed_rulecl,	validate_filename, rulecl_flags	},
 
 	{ "commands",	show_commands					},
 	{ NULL }

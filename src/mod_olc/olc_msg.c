@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.35 1999-09-08 10:40:05 fjoe Exp $
+ * $Id: olc_msg.c,v 1.36 1999-10-17 08:55:45 fjoe Exp $
  */
 
 #include "olc.h"
@@ -44,19 +44,19 @@ DECLARE_OLC_FUN(msged_del	);
 
 olc_cmd_t olc_cmds_msg[] =
 {
-	{ "create",	msged_create			},
-	{ "edit",	msged_edit			},
-	{ "",		msged_save			},
-	{ "touch",	msged_touch			},
-	{ "show",	msged_show			},
-	{ "list",	msged_list			},
+	{ "create",	msged_create				},
+	{ "edit",	msged_edit				},
+	{ "",		msged_save				},
+	{ "touch",	msged_touch				},
+	{ "show",	msged_show				},
+	{ "list",	msged_list				},
 
-	{ "msg",	msged_msg			},
-	{ "gender",	msged_gender,	gender_table	},
-	{ "delete_ms",	olced_spell_out			},
-	{ "delete_msg",	msged_del			},
+	{ "msg",	msged_msg				},
+	{ "gender",	msged_gender,	NULL,	gender_table	},
+	{ "delete_ms",	olced_spell_out				},
+	{ "delete_msg",	msged_del				},
 
-	{ "commands",	show_commands			},
+	{ "commands",	show_commands				},
 	{ NULL }
 };
 

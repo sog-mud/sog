@@ -47,6 +47,14 @@ Form 3 -ут~
 End
 
 #RULE
+Name подошел~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name предполагал~
 BaseLen 10
 Form 1 -ла~
@@ -100,6 +108,14 @@ BaseLen 6
 Form 1 -ет~
 Form 2 -ет~
 Form 3 -ют~
+End
+
+#RULE
+Name оглянулся~
+BaseLen 6
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
 End
 
 #RULE
@@ -789,6 +805,14 @@ Form 3 они~
 End
 
 #RULE
+Name видел~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name размыкает~
 BaseLen 7
 Form 1 -ет~
@@ -1074,6 +1098,14 @@ BaseLen 9
 Form 1 -ет~
 Form 2 -ет~
 Form 3 -ют~
+End
+
+#RULE
+Name научился~
+BaseLen 5
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
 End
 
 #RULE

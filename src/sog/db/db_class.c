@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.21 1999-10-06 09:56:15 fjoe Exp $
+ * $Id: db_class.c,v 1.22 1999-10-17 08:55:53 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -50,17 +50,22 @@ DBINIT_FUN(init_class)
 {
 	if (DBDATA_VALID(dbdata))
 		db_set_arg(dbdata, "POSE", NULL);
+	else {
+		hash_init(&classes, NAME_HASH_SIZE, sizeof(class_t),
+			  (varr_e_init_t) class_init,
+			  (varr_e_destroy_t) class_destroy);
+		classes.k_hash = name_hash;
+		classes.ke_cmp = name_struct_cmp;
+		classes.e_cpy = (hash_e_cpy_t) class_cpy;
+	}
 }
 
 DBLOAD_FUN(load_class)
 {
 	int i;
-	class_t *class = class_new();
-	class->file_name = get_filename(filename);
-	db_set_arg(dbdata, "POSE", class);
+	class_t class;
 
-	for (i = 0; i < MAX_LEVEL+1; i++)
-		class->titles[i][0] = class->titles[i][1] = str_empty;
+	class_init(&class);
 
 	for (;;) {
 		char *word = feof(fp) ? "End" : fread_word(fp);
@@ -68,77 +73,84 @@ DBLOAD_FUN(load_class)
 
 		switch(UPPER(word[0])) {
 		case 'A':
-			KEY("AddExp", class->points, fread_number(fp));
+			KEY("AddExp", class.points, fread_number(fp));
 			break;
 		case 'D':
-			KEY("DeathLimit", class->death_limit,
+			KEY("DeathLimit", class.death_limit,
 			    fread_number(fp));
 			break;
 		case 'E':
 			if (!str_cmp(word, "End")) {
-				if (IS_NULLSTR(class->name)) {
+				class_t *cl;
+
+				if (IS_NULLSTR(class.name)) {
 					db_error("load_class",
 						 "class name undefined");
-					class_free(class);
-					classes.nused--;
+				} else if ((cl = hash_insert(&classes,
+						class.name, &class)) == NULL) {
+					db_error("load_class",
+						 "duplicate class name");
+				} else {
+					varr_qsort(&cl->guilds, cmpint);
+					db_set_arg(dbdata, "POSE", cl);
 				}
-				varr_qsort(&class->guilds, cmpint);
+				class_destroy(&class);
 				return;
 			}
 		case 'F':
-			KEY("Flags", class->class_flags,
+			KEY("Flags", class.class_flags,
 			    fread_fstring(class_flags, fp));
 			break;
 		case 'G':
 			if (!str_cmp(word, "GuildRoom")) {
 				int vnum = fread_number(fp);
-				int *pvnum = varr_enew(&class->guilds);
+				int *pvnum = varr_enew(&class.guilds);
 				*pvnum = vnum;
 				fMatch = TRUE;
 			}
 			break;
 		case 'H':
-			KEY("HPRate", class->hp_rate, fread_number(fp));
+			KEY("HPRate", class.hp_rate, fread_number(fp));
 			break;
 		case 'M':
-			KEY("ManaRate", class->mana_rate, fread_number(fp));
+			KEY("ManaRate", class.mana_rate, fread_number(fp));
 			break;
 		case 'N':
-			SKEY("Name", class->name, fread_string(fp));
+			SKEY("Name", class.name, fread_string(fp));
 			break;
 		case 'P':
-			KEY("PrimeStat", class->attr_prime,
+			KEY("PrimeStat", class.attr_prime,
 			    fread_fword(stat_names, fp));
 			break;
 		case 'R':
-			KEY("RestrictAlign", class->restrict_align,
+			KEY("RestrictAlign", class.restrict_align,
 			    fread_fstring(ralign_names, fp));
-			KEY("RestrictSex", class->restrict_sex,
+			KEY("RestrictSex", class.restrict_sex,
 			    fread_fstring(sex_table, fp));
-			KEY("RestrictEthos", class->restrict_ethos,
+			KEY("RestrictEthos", class.restrict_ethos,
 			    fread_fstring(ethos_table, fp));
 			break;
 		case 'S':
-			KEY("SchoolWeapon", class->weapon,
+			KEY("SchoolWeapon", class.weapon,
 			    fread_number(fp));
-			SKEY("SkillSpec", class->skill_spec,
+			SKEY("SkillSpec", class.skill_spec,
 			     fread_name(fp, &specs, "load_class"));
 			if (!str_cmp(word, "ShortName")) {
 				const char *p = fread_string(fp);
-				strnzcpy(class->who_name,
-					 sizeof(class->who_name), p);
+				strnzcpy(class.who_name,
+					 sizeof(class.who_name), p);
 				free_string(p);
 				fMatch = TRUE;
 			}
 			if (!str_cmp(word, "StatMod")) {
 				for (i = 0; i < MAX_STATS; i++)
-					class->stats[i] = fread_number(fp);
+					class.stats[i] = fread_number(fp);
 				fMatch = TRUE;
 			}
 			break;
 		case 'T':
-			KEY("Thac0_00", class->thac0_00, fread_number(fp));
-			KEY("Thac0_32", class->thac0_32, fread_number(fp));
+			KEY("Thac0_00", class.thac0_00, fread_number(fp));
+			KEY("Thac0_32", class.thac0_32, fread_number(fp));
 			if (!str_cmp(word, "Title")) {
 				int level;
 				int sex;
@@ -154,8 +166,7 @@ DBLOAD_FUN(load_class)
 					db_error("load_class", "invalid sex");
 					continue;
 				}
-				class->titles[level][sex-1] =
-							fread_string(fp);
+				class.titles[level][sex-1] = fread_string(fp);
 				fMatch = TRUE;
 			}
 			break;

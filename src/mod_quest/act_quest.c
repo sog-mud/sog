@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.124 1999-10-06 09:55:56 fjoe Exp $
+ * $Id: act_quest.c,v 1.125 1999-10-17 08:55:42 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -471,10 +471,8 @@ static void quest_list(CHAR_DATA *ch, char *arg)
 {
 	CHAR_DATA *questor;
 	qitem_t *qitem;
-	class_t *cl;
 
-	if ((questor = questor_lookup(ch)) == NULL
-	||  (cl = class_lookup(ch->class)) == NULL)
+	if ((questor = questor_lookup(ch)) == NULL)
 		return;
 
 	act("$n asks $N for list of quest items.", ch, NULL, questor, TO_ROOM);
@@ -484,7 +482,7 @@ static void quest_list(CHAR_DATA *ch, char *arg)
 	char_puts("Current Quest Items available for Purchase:\n", ch);
 	for (qitem = qitem_table; qitem->name; qitem++) {
 		if (qitem->restrict_class != NULL
-		&&  !is_name(cl->name, qitem->restrict_class))
+		&&  !is_name(ch->class, qitem->restrict_class))
 			continue;
 
 		if (arg[0] != '\0' && !is_name(arg, qitem->name))
@@ -500,10 +498,8 @@ static void quest_buy(CHAR_DATA *ch, char *arg)
 {
 	CHAR_DATA *questor;
 	qitem_t *qitem;
-	class_t *cl;
 
-	if ((questor = questor_lookup(ch)) == NULL
-	||  (cl = class_lookup(ch->class)) == NULL)
+	if ((questor = questor_lookup(ch)) == NULL)
 		return;
 
 	if (arg[0] == '\0') {
@@ -516,7 +512,7 @@ static void quest_buy(CHAR_DATA *ch, char *arg)
 			bool buy_ok = FALSE;
 
 			if (qitem->restrict_class != NULL
-			&&  !is_name(cl->name, qitem->restrict_class))
+			&&  !is_name(ch->class, qitem->restrict_class))
 				continue;
 
 			if (PC(ch)->questpoints < qitem->price) {
@@ -590,7 +586,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		||  (ch->level < 51 && (diff > 4 || diff < -1))
 		||  (ch->level > 50 && (diff > 6 || diff < 0))
 		||  victim->pMobIndex->pShop
-		||  victim->race == ch->race
+		||  IS_RACE(victim->race, ch->race)
 		||  victim->invis_level
 		||  victim->incog_level
 		||  (IS_EVIL(victim) && IS_EVIL(ch))
@@ -801,10 +797,8 @@ static void quest_trouble(CHAR_DATA *ch, char *arg)
 {
 	CHAR_DATA *questor;
 	qitem_t *qitem;
-	class_t *cl;
 
-	if ((questor = questor_lookup(ch)) == NULL
-	||  (cl = class_lookup(ch->class)) == NULL)
+	if ((questor = questor_lookup(ch)) == NULL)
 		return;
 
 	if (arg[0] == '\0') {
@@ -814,7 +808,7 @@ static void quest_trouble(CHAR_DATA *ch, char *arg)
 
 	for (qitem = qitem_table; qitem->name; qitem++) {
 		if (qitem->restrict_class != NULL
-		&&  !is_name(cl->name, qitem->restrict_class))
+		&&  !is_name(ch->class, qitem->restrict_class))
 			continue;
 
 		if (qitem->vnum && is_name(arg, qitem->name)) {

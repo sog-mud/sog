@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.32 1999-10-06 09:56:02 fjoe Exp $
+ * $Id: olc_clan.c,v 1.33 1999-10-17 08:55:45 fjoe Exp $
  */
 
 #include "olc.h"
@@ -58,14 +58,14 @@ olc_cmd_t olc_cmds_clan[] =
 	{ "show",	claned_show					},
 	{ "list",	claned_list					},
 
-	{ "name",	claned_name,		validate_name	 	},
-	{ "filename",	claned_filename,	validate_filename	},
-	{ "recall",	claned_recall,		validate_room_vnum	},
-	{ "flags",	claned_flags,		clan_flags		},
+	{ "name",	claned_name,	validate_name	 		},
+	{ "filename",	claned_filename,validate_filename		},
+	{ "recall",	claned_recall,	validate_room_vnum		},
+	{ "flags",	claned_flags,	NULL,		clan_flags	},
 	{ "item",	claned_item					},
 	{ "mark",	claned_mark					},
 	{ "altar", 	claned_altar					},
-	{ "skillspec",	claned_skillspec,	validate_skill_spec	},
+	{ "skillspec",	claned_skillspec,validate_skill_spec		},
 	{ "plist",	claned_plist					},
 
 	{ "commands",	show_commands					},

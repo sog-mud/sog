@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.127 1999-10-06 09:56:09 fjoe Exp $
+ * $Id: save.c,v 1.128 1999-10-17 08:55:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -220,13 +220,13 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 	fprintf(fp, "Ethos %s\n", flag_string(ethos_table, ch->ethos));
 
 	if (ch->clan) 
-		fprintf(fp, "ClanW '%s'\n", clan_name(ch->clan));
+		fprintf(fp, "Clan '%s'\n", clan_name(ch->clan));
 
 	fwrite_string(fp, "Desc", mlstr_mval(&ch->description));
 
-	fprintf(fp, "RaceW '%s'\n", race_name(ch->race));
+	fprintf(fp, "Race '%s'\n", ch->race);
 	fprintf(fp, "Sex  %d\n", ch->sex);
-	fprintf(fp, "ClassW '%s'\n", class_name(ch));
+	fprintf(fp, "Class '%s'\n", ch->class);
 	fprintf(fp, "Levl %d\n", ch->level);
 	fprintf(fp, "Room %d\n",
 		(ch->in_room == get_room_index(ROOM_VNUM_LIMBO) &&
@@ -308,7 +308,7 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 		if (ch->clan)
 			fprintf(fp, "ClanStatus %d\n", pc->clan_status);
 		else if (pc->petition)
-			fprintf(fp, "PetiW '%s'\n",
+			fprintf(fp, "Peti '%s'\n",
 				      clan_name(pc->petition));
 
 		fprintf(fp, "Relig %d\n", pc->religion);
@@ -328,8 +328,8 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 		if (pc->trust)
 			fprintf(fp, "Trust %s\n", format_flags(pc->trust));
 
-		if (pc->race != ch->race)
-			fprintf(fp, "OrgRaceW '%s'\n", race_name(pc->race));
+		if (!IS_RACE(pc->race, ch->race))
+			fprintf(fp, "OrgRace '%s'\n", pc->race);
 		if (pc->plevels > 0)
 			fprintf(fp, "PLev %d\n", pc->plevels);
 		fprintf(fp, "Plyd %d\n",
@@ -413,15 +413,15 @@ fwrite_pet(CHAR_DATA * pet, FILE * fp, int flags)
 	fprintf(fp, "Vnum %d\n", pet->pMobIndex->vnum);
 	fwrite_string(fp, "Name", pet->name);
 	if (pet->clan)
-		fprintf(fp, "ClanW '%s'\n", clan_name(pet->clan));
+		fprintf(fp, "Clan '%s'\n", clan_name(pet->clan));
 	if (mlstr_cmp(&pet->short_descr, &pet->pMobIndex->short_descr) != 0)
 		mlstr_fwrite(fp, "ShD", &pet->short_descr);
 	if (mlstr_cmp(&pet->long_descr, &pet->pMobIndex->long_descr) != 0)
 		mlstr_fwrite(fp, "LnD", &pet->short_descr);
 	if (mlstr_cmp(&pet->description, &pet->pMobIndex->description) != 0)
 		mlstr_fwrite(fp, "Desc", &pet->short_descr);
-	if (pet->race != pet->pMobIndex->race)	/* serdar ORG_RACE */
-		fprintf(fp, "RaceW '%s'\n", race_name(pet->race));
+	if (!IS_RACE(pet->race, pet->pMobIndex->race))	/* serdar ORG_RACE */
+		fprintf(fp, "Race '%s'\n", pet->race);
 	fprintf(fp, "Sex  %d\n", pet->sex);
 	if (pet->level != pet->pMobIndex->level)
 		fprintf(fp, "Levl %d\n", pet->level);
@@ -750,8 +750,8 @@ CHAR_DATA *char_load(const char *name, int flags)
 	PC(ch)->plr_flags = PLR_NOSUMMON | PLR_NOCANCEL;
 	ch->comm = COMM_COMBINE | COMM_PROMPT;
 
-	ch->race = rn_lookup("human");
-	PC(ch)->race = ch->race;
+	ch->race = str_dup("human");
+	PC(ch)->race = str_qdup(ch->race);
 	PC(ch)->clan_status = CLAN_COMMONER;
 	PC(ch)->condition[COND_THIRST] = 48;
 	PC(ch)->condition[COND_FULL] = 48;
@@ -799,23 +799,23 @@ CHAR_DATA *char_load(const char *name, int flags)
 	fclose(fp);
 
 	/* initialize race */
-	if (ORG_RACE(ch) == 0)
-		SET_ORG_RACE(ch, rn_lookup("human"));
-	if (ch->race == 0)
-		ch->race = rn_lookup("human");
+	if (IS_NULLSTR(ORG_RACE(ch)))
+		SET_ORG_RACE(ch, "human");
+	if (IS_NULLSTR(ch->race))
+		ch->race = str_dup("human");
 
-	r = RACE(ch->race);
+	if ((r = race_lookup(ch->race)) != NULL) {
+		if (!IS_NPC(ch))
+			ch->size = r->race_pcdata->size;
 
-	if (!IS_NPC(ch))
-		ch->size = r->race_pcdata->size;
-
-	ch->damtype = str_dup("punch");
-	ch->affected_by = ch->affected_by | r->aff;
-	ch->imm_flags = ch->imm_flags | r->imm;
-	ch->res_flags = ch->res_flags | r->res;
-	ch->vuln_flags = ch->vuln_flags | r->vuln;
-	ch->form = r->form;
-	ch->parts = r->parts;
+		ch->damtype = str_dup("punch");
+		ch->affected_by = ch->affected_by | r->aff;
+		ch->imm_flags = ch->imm_flags | r->imm;
+		ch->res_flags = ch->res_flags | r->res;
+		ch->vuln_flags = ch->vuln_flags | r->vuln;
+		ch->form = r->form;
+		ch->parts = r->parts;
+	}
 	affect_check(ch, -1, -1);
 
 	if (PC(ch)->condition[COND_BLOODLUST] < 48
@@ -924,17 +924,12 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'C':
-			KEY("ClassW", ch->class, cn_lookup(fread_word(fp)));
-			if (!str_cmp(word, "Class")) {
-				const char *cl = fread_string(fp);
-				ch->class = cn_lookup(cl);
-				free_string(cl);
-				fMatch = TRUE;
-				break;
-			}
-			KEY("Cla", ch->class, fread_number(fp));
+			KEY("Class", ch->class,
+			    fread_name(fp, &classes, "fread_char"));
+			KEY("ClassW", ch->class,
+			    fread_name(fp, &classes, "fread_char"));
+			KEY("Clan", ch->clan, cln_lookup(fread_word(fp)));
 			KEY("ClanW", ch->clan, cln_lookup(fread_word(fp)));
-			KEY("Clan", ch->clan, fread_clan(fp));
 			KEY("ClanStatus", PC(ch)->clan_status,
 			    fread_number(fp));
 			if (!str_cmp(word, "Condition")
@@ -1124,19 +1119,16 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'O':
-			KEY("OrgRaceW", PC(ch)->race, rn_lookup(fread_word(fp)));
-			if (!str_cmp(word, "OrgRace")) {
-				const char *race = fread_string(fp);
-				PC(ch)->race = rn_lookup(race);
-				free_string(race);
-				fMatch = TRUE;
-				break;
-			}
+			SKEY("OrgRace", PC(ch)->race,
+			     fread_name(fp, &races, "fread_char"));
+			SKEY("OrgRaceW", PC(ch)->race,
+			     fread_name(fp, &races, "fread_char"));
 			break;
 		case 'P':
+			KEY("Peti", PC(ch)->petition,
+			    cln_lookup(fread_word(fp)));
 			KEY("PetiW", PC(ch)->petition,
 			    cln_lookup(fread_word(fp)));
-			KEY("Peti", PC(ch)->petition, fread_clan(fp));
 			KEY("PLev", PC(ch)->plevels, fread_number(fp));
 			SKEY("Password", PC(ch)->pwd, fread_string(fp));
 			SKEY("Pass", PC(ch)->pwd, fread_string(fp));
@@ -1160,18 +1152,12 @@ fread_char(CHAR_DATA * ch, FILE * fp, int flags)
 
 		case 'R':
 			KEY("Relig", PC(ch)->religion, fread_number(fp));
-			if (!str_cmp(word, "RaceW")) {
-				ch->race = rn_lookup(fread_word(fp));
-				PC(ch)->race = ch->race;
+			if (!str_cmp(word, "Race")
+			||  !str_cmp(word, "RaceW")) {
+				free_string(ch->race);
+				ch->race = fread_name(fp, &races, "fread_char");
+				SET_ORG_RACE(ch, ch->race);
 				fMatch = TRUE;
-			}
-			if (!str_cmp(word, "Race")) {
-				const char *race = fread_string(fp);
-				ch->race = rn_lookup(race);
-				PC(ch)->race = ch->race;
-				free_string(race);
-				fMatch = TRUE;
-				break;
 			}
 			if (!str_cmp(word, "Room")) {
 				int room = fread_number(fp);
@@ -1321,8 +1307,8 @@ fread_pet(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'C':
+			KEY("Clan", pet->clan, cln_lookup(fread_word(fp)));
 			KEY("ClanW", pet->clan, cln_lookup(fread_word(fp)));
-			KEY("Clan", pet->clan, fread_clan(fp));
 			KEY("Comm", pet->comm, fread_flags(fp));
 			break;
 
@@ -1391,14 +1377,10 @@ fread_pet(CHAR_DATA * ch, FILE * fp, int flags)
 			break;
 
 		case 'R':
-			KEY("RaceW", pet->race, rn_lookup(fread_word(fp)));
-			if (!str_cmp(word, "Race")) {
-				const char *race = fread_string(fp);
-				pet->race = rn_lookup(race);
-				free_string(race);
-				fMatch = TRUE;
-				break;
-			}
+			SKEY("Race", pet->race,
+			     fread_name(fp, &races, "fread_pet"));
+			SKEY("RaceW", pet->race,
+			     fread_name(fp, &races, "fread_pet"));
 			break;
 
 		case 'S':

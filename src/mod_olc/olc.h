@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.46 1999-10-06 09:56:01 fjoe Exp $
+ * $Id: olc.h,v 1.47 1999-10-17 08:55:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -87,6 +87,7 @@ struct olc_cmd_t
 {
 	char *		name;
 	OLC_FUN *	olc_fun;
+	VALIDATE_FUN *	validator;
 	void*		arg1;
 };
 
@@ -149,6 +150,8 @@ bool olced_vform_add	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, rule_t *r);
 bool olced_vform_del	(CHAR_DATA *ch, const char *argument,
 			 olc_cmd_t *cmd, rule_t *r);
+bool olced_ival		(CHAR_DATA *ch, const char *argument,
+			 olc_cmd_t *cmd, int *);
 
 DECLARE_VALIDATE_FUN(validate_filename);
 DECLARE_VALIDATE_FUN(validate_room_vnum);

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.66 1999-10-12 13:56:24 avn Exp $
+ * $Id: recycle.c,v 1.67 1999-10-17 08:55:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -664,7 +664,7 @@ MOB_INDEX_DATA *new_mob_index(void)
 
 	pMob->name		= str_dup(str_empty);
 	pMob->act		= ACT_NPC;
-	pMob->race		= rn_lookup("human");
+	pMob->race		= str_dup("human");
 	pMob->material		= str_dup("unknown");
 	pMob->size		= SIZE_MEDIUM;
 	pMob->start_pos		= POS_STANDING;

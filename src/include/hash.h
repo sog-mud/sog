@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.h,v 1.1 1999-10-06 09:55:58 fjoe Exp $
+ * $Id: hash.h,v 1.2 1999-10-17 08:55:43 fjoe Exp $
  */
 
 #ifndef _HASH_H_
@@ -71,6 +71,12 @@ void		name_destroy(void*);
 int		name_hash(const void *k, size_t hsize);
 int		name_struct_cmp(const void *k, const void *e);
 const char *	fread_name(FILE *fp, hash_t *h, const char *id);
+
+/*
+ * search elem by name prefix
+ */
+void *		name_search_cb(void *p, void *d);
+void *		name_search(hash_t *h, const char *name);
 
 #define NAME_STRICT_CHECKS
 #if defined(NAME_STRICT_CHECKS)

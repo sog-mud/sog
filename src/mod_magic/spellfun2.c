@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.141 1999-10-12 13:56:30 avn Exp $
+ * $Id: spellfun2.c,v 1.142 1999-10-17 08:55:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1754,6 +1754,7 @@ void spell_golden_aura(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 void spell_blue_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
+#if 0
 	AFFECT_DATA af;
 	int race;
 
@@ -1795,11 +1796,13 @@ void spell_blue_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	affect_to_char(ch, &af);
 
 	ch->hit += ch->max_hit/3;
+#endif
 }
 
 
 void spell_green_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
+#if 0
 	AFFECT_DATA af;
 	int race;
 
@@ -1841,10 +1844,12 @@ void spell_green_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	affect_to_char(ch, &af);
 
 	ch->hit += ch->max_hit/5;
+#endif
 }
 
 void spell_white_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
+#if 0
 	AFFECT_DATA af;
 	int race;
 
@@ -1886,10 +1891,12 @@ void spell_white_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	affect_to_char(ch, &af);
 
 	ch->hit += ch->max_hit/4;
+#endif
 }
 
 void spell_black_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
+#if 0
 	AFFECT_DATA af;
 	int race;
 
@@ -1932,10 +1939,12 @@ void spell_black_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	affect_to_char(ch, &af);
 
 	ch->hit += ch->max_hit/4;
+#endif
 }
 
 void spell_red_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
+#if 0
 	AFFECT_DATA af;
 	int race;
 
@@ -1982,6 +1991,7 @@ void spell_red_dragon(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	affect_to_char(ch, &af);
 
 	ch->hit += ch->max_hit/2;
+#endif
 }
 
 void spell_dragonplate(const char *sn, int level, CHAR_DATA *ch, void *vo)	
@@ -3437,10 +3447,8 @@ void spell_fear(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
-	class_t *vcl;
 
-	if ((vcl = class_lookup(victim->class))
-	&&  !CAN_FLEE(victim, vcl)) {
+	if (!can_flee(victim)) {
 		if (victim == ch)
 			char_puts("You are beyond this power.\n", ch);
 		else
@@ -4660,6 +4668,7 @@ void spell_mysterious_dream(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 void spell_polymorph(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
+#if 0
 	AFFECT_DATA af;
 	int race;
 	race_t *r;
@@ -4696,10 +4705,12 @@ void spell_polymorph(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	act("$n polymorphes $mself to $t.", ch, r->name, NULL, TO_ROOM);
 	act("You polymorph yourself to $t.", ch, r->name, NULL, TO_CHAR);
+#endif
 }
 
 void spell_deathen(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
+#if 0
         AFFECT_DATA af;
         CHAR_DATA *victim = (CHAR_DATA *) vo;
         int race;
@@ -4734,10 +4745,12 @@ void spell_deathen(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
         act("$n's flesh starts to decay.", victim, NULL, NULL, TO_ROOM);
         act("Your flesh starts to decay.", victim, NULL, NULL, TO_CHAR);
+#endif
 }
 
 void spell_lich(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
+#if 0
 	AFFECT_DATA af;
 	int race;
 	race_t *r;
@@ -4782,6 +4795,7 @@ void spell_lich(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	    ch, r->name, NULL, TO_ROOM);
 	act("You deathen yourself, turning into $t.",
 	    ch, r->name, NULL, TO_CHAR);
+#endif
 }
 
 void spell_plant_form(const char *sn, int level, CHAR_DATA *ch, void *vo)
@@ -4999,7 +5013,8 @@ void spell_control_undead(const char *sn, int level, CHAR_DATA *ch, void *vo)
  		return;
  	}
  
- 	r = RACE(victim->race);
+ 	if ((r = race_lookup(victim->race)) == NULL)
+		return;
   
  	if  ((!IS_NPC(victim) || !IS_SET(victim->pMobIndex->act, ACT_UNDEAD)) 
              && (!IS_SET(r->form, FORM_UNDEAD))) {

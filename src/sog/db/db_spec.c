@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_spec.c,v 1.1 1999-10-06 09:56:15 fjoe Exp $
+ * $Id: db_spec.c,v 1.2 1999-10-17 08:55:53 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -62,7 +62,6 @@ DBINIT_FUN(init_specs)
 
 DBLOAD_FUN(load_spec)
 {
-	spec_t *psp;
 	spec_t sp;
 
 	spec_init(&sp);
@@ -74,6 +73,8 @@ DBLOAD_FUN(load_spec)
 		switch (UPPER(word[0])) {
 		case 'E':
 			if (!str_cmp(word, "End")) {
+				race_t *psp;
+
 				if (IS_NULLSTR(sp.spec_name)) {
 					db_error("load_spec",
 						 "spec name undefined");
@@ -83,12 +84,6 @@ DBLOAD_FUN(load_spec)
 						 "duplicate spec name");
 				} else {
 					db_set_arg(dbdata, "SKILL", psp);
-					varr_init(&psp->spec_skills,
-						  sizeof(spec_skill_t), 4);
-					psp->spec_skills.e_init =
-						(varr_e_init_t) spec_skill_init;
-					psp->spec_skills.e_destroy =
-						name_destroy;
 				}
 				spec_destroy(&sp);
 				return;

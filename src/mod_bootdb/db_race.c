@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.10 1999-10-06 09:56:15 fjoe Exp $
+ * $Id: db_race.c,v 1.11 1999-10-17 08:55:53 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -49,13 +49,20 @@ DBINIT_FUN(init_race)
 {
 	if (DBDATA_VALID(dbdata))
 		db_set_arg(dbdata, "PCRACE", NULL);
+	else {
+		hash_init(&races, NAME_HASH_SIZE, sizeof(race_t),
+			  (varr_e_init_t) race_init,
+			  (varr_e_destroy_t) race_destroy);
+		races.k_hash = name_hash;
+		races.ke_cmp = name_struct_cmp;
+		races.e_cpy = (hash_e_cpy_t) race_cpy;
+	}
 }
 
 DBLOAD_FUN(load_race)
 {
-	race_t *race = race_new();
-	race->file_name = get_filename(filename);
-	db_set_arg(dbdata, "PCRACE", race);
+	race_t r;
+	race_init(&r);
 
 	for (;;) {
 		char *word = feof(fp) ? "End" : fread_word(fp);
@@ -63,50 +70,48 @@ DBLOAD_FUN(load_race)
 
 		switch(UPPER(word[0])) {
 		case 'A':
-			KEY("Aff", race->aff,
-			    fread_fstring(affect_flags, fp));
-			KEY("Act", race->act,
-			    fread_fstring(act_flags, fp));
+			KEY("Aff", r.aff, fread_fstring(affect_flags, fp));
+			KEY("Act", r.act, fread_fstring(act_flags, fp));
 			break;
 		case 'E':
 			if (!str_cmp(word, "End")) {
-				if (IS_NULLSTR(race->name)) {
+				race_t *pr;
+
+				if (IS_NULLSTR(r.name)) {
 					db_error("load_race",
 						 "race name undefined");
-					race_free(race);
-					races.nused--;
+				} else if ((pr = hash_insert(&races, r.name,
+							     &r)) == NULL) {
+					db_error("load_race",
+						 "duplicate race name");
+				} else {
+					db_set_arg(dbdata, "PCRACE", pr);
 				}
+				race_destroy(&r);
 				return;
 			}
 			break;
 		case 'F':
-			KEY("Form", race->form,
-			    fread_fstring(form_flags, fp));
-			KEY("Flags", race->race_flags,
-			    fread_fstring(race_flags, fp));
+			KEY("Form", r.form, fread_fstring(form_flags, fp));
+			KEY("Flags", r.race_flags, fread_fstring(race_flags, fp));
 			break;
 		case 'I':
-			KEY("Imm", race->imm,
-			    fread_fstring(imm_flags, fp));
+			KEY("Imm", r.imm, fread_fstring(imm_flags, fp));
 			break;
 		case 'N':
-			SKEY("Name", race->name, fread_string(fp));
+			SKEY("Name", r.name, fread_string(fp));
 			break;
 		case 'O':
-			KEY("Off", race->off,
-			    fread_fstring(off_flags, fp));
+			KEY("Off", r.off, fread_fstring(off_flags, fp));
 			break;
 		case 'P':
-			KEY("Parts", race->parts,
-			    fread_fstring(part_flags, fp));
+			KEY("Parts", r.parts, fread_fstring(part_flags, fp));
 			break;
 		case 'R':
-			KEY("Res", race->res,
-			    fread_fstring(res_flags, fp));
+			KEY("Res", r.res, fread_fstring(res_flags, fp));
 			break;
 		case 'V':
-			KEY("Vuln", race->vuln,
-			    fread_fstring(vuln_flags, fp));
+			KEY("Vuln", r.vuln, fread_fstring(vuln_flags, fp));
 			break;
 		}
 

@@ -1,0 +1,17 @@
+#AREADATA
+Name New school~
+VNUMs 50200 50399
+Credits Arborn~
+Security 1
+LevelRange 1 5
+End
+
+#ROOMS
+#50200
+@eng Entrance to MUD school@rus У входа в школу~
+~
+0 0 inside
+S
+#0
+
+#$

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.183 1999-10-12 13:56:28 avn Exp $
+ * $Id: spellfun.c,v 1.184 1999-10-17 08:55:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3433,21 +3433,19 @@ void spell_word_of_recall(const char *sn, int level, CHAR_DATA *ch,void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	ROOM_INDEX_DATA *location;
-	class_t *vcl;
 	CHAR_DATA *pet;
 
 	if (IS_NPC(victim))
 		return;
 
 	if (victim->fighting
-	&&  (vcl = class_lookup(victim->class))
-	&&  !CAN_FLEE(victim, vcl)) {
+	&&  !can_flee(victim)) {
 		if (victim == ch)
 			char_puts("Your honour doesn't let you recall!.\n", ch);
 		else
 			char_printf(ch, "You can't cast this spell to a "
 					"honourable fighting %s!\n",
-				    vcl->name);
+				    victim->class);
 		return;
 	}
 

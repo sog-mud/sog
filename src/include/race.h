@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.12 1999-10-06 09:56:00 fjoe Exp $
+ * $Id: race.h,v 1.13 1999-10-17 08:55:44 fjoe Exp $
  */
 
 #ifndef _RACE_H_
@@ -34,8 +34,7 @@
 
 struct race_t
 {
-	const char *	name;		/* call name of the race	*/
-	const char *	file_name;	/* filename			*/
+	const char *	name;		/* name of the race		*/
 	flag64_t	act;		/* act bits			*/
 	flag64_t	aff;		/* aff bits			*/
 	flag32_t	off;		/* off bits			*/
@@ -73,19 +72,20 @@ struct rclass_t {
 	int		mult;		/* exp multiplier */
 };
 
-extern varr races;
+extern hash_t races;
 
-#define RACE(i)		((race_t*) VARR_GET(&races, i))
-#define race_lookup(i)	((race_t*) varr_get(&races, i))
-#define rclass_lookup(race, name) \
-	((rclass_t*) varr_bsearch(&race->race_pcdata->classes, &name, cmpstr))
+#define race_lookup(rn)	((race_t*) hash_lookup(&races, (rn)))
+#define race_search(rn) ((race_t*) name_search(&races, (rn)))
+#define rclass_lookup(r, cn) \
+	((rclass_t*) varr_bsearch(&r->race_pcdata->classes, &cn, cmpstr))
 
-race_t *	race_new(void);
-pcrace_t *	pcrace_new(void);
-void		race_free(race_t*);
+#define IS_RACE(r1, r2)		(!str_cmp(r1, r2))
+
+void	race_init	(race_t *r);
+race_t *race_cpy	(race_t *dst, race_t *src);
+void	race_destroy	(race_t *r);
+
+pcrace_t *	pcrace_new();
 void		pcrace_free(pcrace_t*);
-
-const char *	race_name(int);
-int		rn_lookup(const char*);
 
 #endif

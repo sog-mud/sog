@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.76 1999-10-12 13:56:24 avn Exp $
+ * $Id: skills.c,v 1.77 1999-10-17 08:55:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -152,14 +152,14 @@ void check_improve(CHAR_DATA *ch, const char *sn, bool success, int multiplier)
 /*
  * simply adds sn to ch's known skills (if skill is not already known).
  */
-void set_skill_raw(CHAR_DATA *ch, const char *sn, int percent, bool replace)
+void _set_skill(CHAR_DATA *ch, const char *sn, int percent, bool replace)
 {
 	pc_skill_t *pc_sk;
 
 	if (IS_NULLSTR(sn))
 		return;
 
-	NAME_CHECK(&skills, sn, "set_skill_raw");
+	NAME_CHECK(&skills, sn, "_set_skill");
 
 	if ((pc_sk = pc_skill_lookup(ch, sn))) {
 		if (replace || pc_sk->percent < percent)
@@ -174,7 +174,7 @@ void set_skill_raw(CHAR_DATA *ch, const char *sn, int percent, bool replace)
 
 void set_skill(CHAR_DATA *ch, const char *sn, int percent)
 {
-	set_skill_raw(ch, sn, percent, TRUE);
+	_set_skill(ch, sn, percent, TRUE);
 }
 
 /* for returning skill information */
@@ -230,26 +230,6 @@ int get_skill(CHAR_DATA *ch, const char *sn)
 	return UMAX(0, skill ? (skill+add) : teach ? add : 0);
 }
 
-static void *
-skill_search_cb(void *p, void *d)
-{
-	skill_t *sk = (skill_t*) p;
-	const char *psn = (const char *) d;
-	if (!str_prefix(psn, sk->name))
-		return p;
-	return NULL;
-}
-
-/*
- * skill_search -- lookup skill by prefix
- */
-skill_t *skill_search(const char *psn)
-{
-	if (IS_NULLSTR(psn))
-		return NULL;
-	return hash_foreach(&skills, skill_search_cb, (void*) psn);
-}
-
 /*
  * Lookup skill by prefix in varr.
  * First field of structure assumed to be sn
@@ -258,7 +238,7 @@ void *skill_vsearch(varr *v, const char *psn)
 {
 	if (IS_NULLSTR(psn))
 		return NULL;
-	return varr_foreach(v, skill_search_cb, (void*) psn);
+	return varr_foreach(v, name_search_cb, (void*) psn);
 }
 
 /* for returning weapon information */

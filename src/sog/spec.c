@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spec.c,v 1.2 1999-10-07 18:22:25 fjoe Exp $
+ * $Id: spec.c,v 1.3 1999-10-17 08:55:50 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -46,9 +46,6 @@
 
 /*-------------------------------------------------------------------
  * funcs for hashing
- *
- * spec->spec_skills is not initialized/copied/destroyed
- * this behavior is intentional
  */
 
 hash_t specs;
@@ -58,8 +55,16 @@ spec_init(spec_t *spec)
 {
 	spec->spec_name = str_empty;
 	spec->spec_class = 0;
+
+	varr_init(&spec->spec_skills, sizeof(spec_skill_t), 4);
+	spec->spec_skills.e_init = (varr_e_init_t) spec_skill_init;
+	spec->spec_skills.e_destroy = name_destroy;
 }
 
+/*
+ * spec->spec_skills is not copied
+ * this behavior is intentional
+ */
 spec_t *
 spec_cpy(spec_t *dst, const spec_t *src)
 {
@@ -72,6 +77,7 @@ void
 spec_destroy(spec_t *spec)
 {
 	free_string(spec->spec_name);
+	varr_destroy(&spec->spec_skills);
 }
 
 void spec_skill_init(spec_skill_t *spec_sk)
@@ -114,7 +120,7 @@ add_one_skill_cb(void *p, void *d)
 	}
 
 	if (level <= u->ch->level)
-		set_skill_raw(u->ch, spec_sk->sn, percent, FALSE);
+		_set_skill(u->ch, spec_sk->sn, percent, FALSE);
 	return NULL;
 }
 

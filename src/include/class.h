@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.19 1999-10-06 09:55:57 fjoe Exp $
+ * $Id: class.h,v 1.20 1999-10-17 08:55:43 fjoe Exp $
  */
 
 #ifndef _CLASS_H_
@@ -34,7 +34,6 @@
  */
 struct class_t {
 	const char *	name;		/* full name */
-	const char *	file_name;
 	char		who_name[4];	/* three-letter name for 'who' */
 	int		attr_prime;	/* primary stat */
 	int		weapon;		/* school weapon vnum */
@@ -65,18 +64,20 @@ struct pose_t {
 #define CLASS_NOCH		(B)	/* can't live in common hometowns */
 #define CLASS_CHANGED		(Z)	/* OLC internal flag */
 
-extern varr classes;
+extern hash_t classes;
 
-#define CLASS(i)		((class_t*) VARR_GET(&classes, i))
-#define class_lookup(i)		((class_t*) varr_get(&classes, i))
+#define class_lookup(cn)	((class_t*) hash_lookup(&classes, (cn)))
+#define class_search(cn)	((class_t*) name_search(&classes, (cn)))
 
-class_t *	class_new(void);
-void		class_free(class_t*);
-const char *	class_name(CHAR_DATA *ch);
+#define IS_CLASS(cl1, cl2)	(!str_cmp(cl1, cl2))
+
+void	class_init	(class_t *cl);
+class_t *class_cpy	(class_t *dst, class_t *src);
+void	class_destroy	(class_t *cl);
+
 const char *	class_who_name(CHAR_DATA *ch);
-
-int		cn_lookup(const char *name);
 const char *	title_lookup(CHAR_DATA *ch);
+bool		can_flee(CHAR_DATA *ch);
 
 #endif
 

@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.206 1999-10-12 13:56:21 avn Exp $
+ * $Id: fight.c,v 1.207 1999-10-17 08:55:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -231,8 +231,8 @@ void check_assist(CHAR_DATA *ch, CHAR_DATA *victim)
 			continue;
 
 		if (IS_SET(rch->pMobIndex->off_flags, ASSIST_ALL)
-		||  (rch->race == ch->race &&
-		     IS_SET(rch->pMobIndex->off_flags, ASSIST_RACE))
+		||  (IS_SET(rch->pMobIndex->off_flags, ASSIST_RACE) &&
+		     IS_RACE(rch->race, ch->race))
 		||  (rch->pMobIndex == ch->pMobIndex &&
 		     IS_SET(rch->pMobIndex->off_flags, ASSIST_VNUM))
 		||  (IS_SET(rch->pMobIndex->off_flags, ASSIST_ALIGN) &&
@@ -1108,7 +1108,6 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 		&& (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM)) 
 		&& IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA);
 	OBJ_DATA *corpse;
-	class_t *cl;
 
 	if (is_affected(victim, "resurrection")) {
 		raw_kill(ch, victim);
@@ -1188,10 +1187,10 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 
 	/* Die too much and is deleted ... :( */
-	if ((cl = class_lookup(victim->class))
-	&&  !CAN_FLEE(ch, cl)) {
+	if (!can_flee(ch)) {
+		class_t *cl = class_lookup(ch->class);
 		victim->perm_stat[STAT_CHA]--;
-		if (vpc->death > cl->death_limit) {
+		if (cl && vpc->death > cl->death_limit) {
 			char msg[MAX_STRING_LENGTH];
 
 			snprintf(msg, sizeof(msg),
@@ -1200,12 +1199,10 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 			delete_player(victim, msg);
 			return;
 		}
-	}
-	else if (--victim->perm_stat[STAT_CON] < 3) {
+	} else if (--victim->perm_stat[STAT_CON] < 3) {
 		delete_player(victim, "lack of CON");
 		return;
-	}
-	else
+	} else
 		char_puts("You feel your life power has decreased "
 			  "with this death.\n", victim);
 }

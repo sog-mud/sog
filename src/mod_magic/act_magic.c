@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.6 1999-10-06 09:55:54 fjoe Exp $
+ * $Id: act_magic.c,v 1.7 1999-10-17 08:55:41 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -47,9 +47,8 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	int chance = 0;
 	skill_t *spell;
 	class_t *cl;
-	CHAR_DATA *familiar=NULL;
+	CHAR_DATA *familiar = NULL;
 	CHAR_DATA *gch;
-
 
 	CHAR_DATA *bch;		/* char to check spellbane on */
 	int bane_chance;	/* spellbane chance */

@@ -7334,6 +7334,17 @@ Form 6 -ую~
 End
 
 #RULE
+Name пушка~
+BaseLen 4
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+Form 6 -у~
+End
+
+#RULE
 Name порхающий~
 BaseLen 7
 Form 1 -его~

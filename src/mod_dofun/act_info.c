@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.274 1999-10-12 13:56:07 avn Exp $
+ * $Id: act_info.c,v 1.275 1999-10-17 08:55:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1053,7 +1053,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 
 	const char *clan_names = str_empty;
 	const char *race_names = str_empty;
-	const char *clanames = str_empty;
+	const char *class_names = str_empty;
 	char *p;
 
 	/*
@@ -1061,6 +1061,8 @@ void do_who(CHAR_DATA *ch, const char *argument)
 	 */
 	nNumber = 0;
 	for (;;) {
+		race_t *r;
+		class_t *cl;
 		int i;
 		char arg[MAX_INPUT_LENGTH];
 
@@ -1096,8 +1098,8 @@ void do_who(CHAR_DATA *ch, const char *argument)
 			continue;
 		}
 
-		if ((i = rn_lookup(arg)) > 0 && RACE(i)->race_pcdata) {
-			name_add(&race_names, RACE(i)->name, NULL, NULL);
+		if ((r = race_search(arg)) != NULL && r->race_pcdata) {
+			name_add(&race_names, r->name, NULL, NULL);
 			SET_BIT(flags, WHO_F_RRACE);
 			continue;
 		}
@@ -1113,10 +1115,11 @@ void do_who(CHAR_DATA *ch, const char *argument)
 			continue;
 		}
 
-		if (!IS_IMMORTAL(ch)) continue;
+		if (!IS_IMMORTAL(ch))
+			continue;
 
-		if ((i = cn_lookup(arg)) >= 0) {
-			name_add(&clanames, CLASS(i)->name, NULL, NULL);
+		if ((cl = class_search(arg)) != 0) {
+			name_add(&class_names, cl->name, NULL, NULL);
 			SET_BIT(flags, WHO_F_RCLASS);
 			continue;
 		}
@@ -1164,8 +1167,6 @@ void do_who(CHAR_DATA *ch, const char *argument)
 		CHAR_DATA *wch;
 
 		clan_t *clan;
-		race_t *race;
-		class_t *class;
 
 		if (d->connected != CON_PLAYING)
 			continue;
@@ -1199,17 +1200,13 @@ void do_who(CHAR_DATA *ch, const char *argument)
 				continue;
 		}
 
-		if (IS_SET(flags, WHO_F_RRACE)) {
-			if ((race = race_lookup(wch->race)) == NULL
-			||  !is_name(race->name, race_names))
-				continue;
-		}
+		if (IS_SET(flags, WHO_F_RRACE)
+		&&  !_is_name(PC(wch)->race, race_names, str_cmp))
+			continue;
 
-		if (IS_SET(flags, WHO_F_RCLASS)) {
-			if ((class = class_lookup(wch->class)) == NULL
-			||  !is_name(class->name, clanames))
-				continue;
-		}
+		if (IS_SET(flags, WHO_F_RCLASS)
+		&&  !_is_name(wch->class, class_names, str_cmp))
+			continue;
 
 		count++;
 		do_who_raw(ch, wch, output);
@@ -1222,7 +1219,7 @@ void do_who(CHAR_DATA *ch, const char *argument)
 
 bail_out:
 	free_string(clan_names);
-	free_string(clanames);
+	free_string(class_names);
 	free_string(race_names);
 }
 
@@ -1591,10 +1588,8 @@ void do_wimpy(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	int wimpy;
-	class_t *cl;
 
-	if ((cl = class_lookup(ch->class))
-	&&  !CAN_FLEE(ch, cl)) {
+	if (!can_flee(ch)) {
 		char_printf(ch, "You don't deal with wimpies, "
 				"or such feary things.\n");
 		if (ch->wimpy)
@@ -1939,8 +1934,6 @@ void do_hometown(CHAR_DATA *ch, const char *argument)
 {
 	int amount;
 	int htn;
-	race_t *r;
-	class_t *cl;
 	PC_DATA *pc;
 
 	if (IS_NPC(ch)) {
@@ -1948,11 +1941,6 @@ void do_hometown(CHAR_DATA *ch, const char *argument)
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
-
-	if ((r = race_lookup(ORG_RACE(ch))) == NULL
-	||  !r->race_pcdata
-	||  (cl = class_lookup(ch->class)) == NULL)
-		return;
 
 	if (!IS_SET(ch->in_room->room_flags, ROOM_REGISTRY)) {
 		act_puts("You have to be in the Registry "
@@ -2249,12 +2237,8 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	const char *name;
 	int ekle = 0;
 	int delta;
-	class_t *cl;
 	BUFFER *output;
-	bool can_flee;
-
-	if ((cl = class_lookup(ch->class)) == NULL)
-		return;
+	bool _can_flee;
 
 	output = buf_new(GET_LANG(ch));
 	buf_add(output, "\n      {G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/~~\\{x\n");
@@ -2280,7 +2264,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	format_stat(buf2, sizeof(buf2), ch, STAT_INT);
 	buf_printf(output,
 "     {G| {RRace : {x%-11.11s  {C| {RInt: {x%-11.11s {C| {RPractice  : {x%-3d        {G|{x\n",
-		race_name(ch->race),
+		ch->race,
 		buf2,
 		IS_NPC(ch) ? 0 : PC(ch)->practice);
 
@@ -2296,7 +2280,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	format_stat(buf2, sizeof(buf2), ch, STAT_DEX);
 	buf_printf(output,
 "     {G| {RClass: {x%-12.12s {C| {RDex: {x%-11.11s {C| {RQuest Pnts: {x%-5d      {G|{x\n",
-		IS_NPC(ch) ? "mobile" : cl->name,
+		IS_NPC(ch) ? "mobile" : ch->class,
 		buf2,
 		IS_NPC(ch) ? 0 : PC(ch)->questpoints);
 
@@ -2307,14 +2291,14 @@ void do_score(CHAR_DATA *ch, const char *argument)
 		buf2,
 		IS_NPC(ch) ? "Quest?" : (IS_ON_QUEST(ch) ? "Quest Time" : "Next Quest"),
 		IS_NPC(ch) ? 0 : abs(PC(ch)->questtime));
-	can_flee = CAN_FLEE(ch, cl);
+	_can_flee = can_flee(ch);
 	format_stat(buf2, sizeof(buf2), ch, STAT_CHA);
 	buf_printf(output,
 "     {G| {REthos: {x%-12.12s {C| {RCha: {x%-11.11s {C| {R%s     : {x%-5d      {G|{x\n",
 		IS_NPC(ch) ? "mobile" : flag_string(ethos_table, ch->ethos),
 		buf2,
-		can_flee ? "Wimpy" : "Death",
-		can_flee ? ch->wimpy : PC(ch)->death);
+		_can_flee ? "Wimpy" : "Death",
+		_can_flee ? ch->wimpy : PC(ch)->death);
 
 	snprintf(buf2, sizeof(buf2), "%s %s.",
 		 GETMSG("You are", GET_LANG(ch)),
@@ -2433,13 +2417,9 @@ void do_score(CHAR_DATA *ch, const char *argument)
 
 void do_oscore(CHAR_DATA *ch, const char *argument)
 {
-	class_t *cl;
 	char buf2[MAX_STRING_LENGTH];
 	int i;
 	BUFFER *output;
-
-	if ((cl = class_lookup(ch->class)) == NULL)
-		return;
 
 	output = buf_new(GET_LANG(ch));
 
@@ -2455,9 +2435,9 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 	buf_printf(output,
 		"Race: {c%s{x  Sex: {c%s{x  Class: {c%s{x  "
 		"Hometown: {c%s{x\n",
-		race_name(ch->race),
+		ch->race,
 		ch->sex == 0 ? "sexless" : ch->sex == 1 ? "male" : "female",
-		IS_NPC(ch) ? "mobile" : cl->name,
+		IS_NPC(ch) ? "mobile" : ch->class,
 		IS_NPC(ch) ? "Midgaard" : hometown_name(PC(ch)->hometown));
 
 	buf_printf(output,
@@ -2527,7 +2507,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 					"Quest Time" : "Next Quest"),
 			IS_NPC(ch) ? 0 : abs(PC(ch)->questtime));
 
-	if (CAN_FLEE(ch, cl))
+	if (can_flee(ch))
 		buf_printf(output, "Wimpy set to {c%d{x hit points.",
 			   ch->wimpy);
 	else
@@ -3565,8 +3545,8 @@ void do_control(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((r = race_lookup(ORG_RACE(victim))) <=0 
-	|| !IS_SET(r->form, FORM_ANIMAL)) {
+	if ((r = race_lookup(ORG_RACE(victim))) == NULL 
+	||  !IS_SET(r->form, FORM_ANIMAL)) {
 		char_puts("You should try this on animals?\n", ch);
 		return;
 	}
@@ -4403,9 +4383,9 @@ static void show_char_to_char_1(CHAR_DATA *victim, CHAR_DATA *ch)
 		gain_condition(ch, COND_BLOODLUST, -1);
 
 	if (!IS_IMMORTAL(doppel)) {
-		char_printf(ch, "(%s) ", race_name(doppel->race));
+		char_printf(ch, "(%s) ", doppel->race);
 		if (!IS_NPC(doppel)) 
-			char_printf(ch, "(%s) ", class_name(doppel));
+			char_printf(ch, "(%s) ", doppel->class);
 		char_printf(ch, "(%s) ", flag_string(sex_table, doppel->sex));
 	}
 

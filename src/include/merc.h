@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.237 1999-10-12 13:56:16 avn Exp $
+ * $Id: merc.h,v 1.238 1999-10-17 08:55:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1220,7 +1220,7 @@ struct mob_index_data
 	flag32_t		start_pos;
 	flag32_t		default_pos;
 	flag32_t		sex;
-	int			race;
+	const char *		race;		/* race */
 	int			wealth;
 	flag32_t		form;
 	flag32_t		parts;
@@ -1296,8 +1296,8 @@ struct char_data
 	mlstring		long_descr;
 	mlstring		description;
 	flag32_t		sex;
-	int			class;
-	int			race;
+	const char *		class;
+	const char *		race;
 	int			clan;
 	int			ethos;
 	int			level;
@@ -1412,7 +1412,7 @@ struct pc_data
 	qtrouble_t *		qtrouble;
 	ROOM_INDEX_DATA *	questroom;
 
-	int			race;
+	const char *		race;
 	int			pc_killed;
 
 	int			clan_status;
@@ -1757,9 +1757,7 @@ int trust_level(CHAR_DATA *ch);
 
 #define IS_AFFECTED(ch, bit)	(IS_SET((ch)->affected_by, (bit)))
 
-#define ORG_RACE(ch)		(IS_NPC(ch) ?				\
-					(ch)->pMobIndex->race :		\
-					PC(ch)->race)
+#define ORG_RACE(ch)		(IS_NPC(ch) ? (ch)->pMobIndex->race : PC(ch)->race)
 
 #define LEVEL(ch)		((ch)->level + (ch)->drain_level)
 
@@ -1821,8 +1819,6 @@ void SET_ORG_RACE(CHAR_DATA *ch, int race);
 
 #define IS_EXTRACTED(ch)	(!mem_is(ch, MT_CHAR) || \
 				 ch->last_death_time >= current_time)
-#define CAN_FLEE(ch, cl)	((cl)->death_limit < 0 || \
-				 (ch)->level < LEVEL_PK)
 /*
  * Object macros.
  */

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.c,v 1.10 1999-10-06 09:56:12 fjoe Exp $
+ * $Id: varr.c,v 1.11 1999-10-17 08:55:51 fjoe Exp $
  */
 
 #include <stdlib.h>
@@ -40,14 +40,59 @@ void varr_init(varr *v, size_t nsize, size_t nstep)
 {
 	v->nsize = nsize;
 	v->nstep = nstep;
+
+	v->p = NULL;
+	v->nused = NULL;
+	v->nalloc = NULL;
+
 	v->e_init = NULL;
+	v->e_cpy = NULL;
 	v->e_destroy = NULL;
+}
+
+typedef struct _varr_cpy_t {
+	varr *v;
+	int i;
+} _varr_cpy_t;
+
+static void *
+varr_cpy_cb(void *p, void *d)
+{
+	_varr_cpy_t *vc = (_varr_cpy_t *) d;
+
+	vc->v->e_cpy(VARR_GET(vc->v, vc->i++), p);
+	return NULL;
+}
+
+varr *
+varr_cpy(varr *dst, varr *src)
+{
+	dst->nsize = src->nsize;
+	dst->nstep = src->nstep;
+
+	dst->nused = src->nused;
+	dst->nalloc = src->nalloc;
+
+	dst->e_init = src->e_init;
+	dst->e_cpy = src->e_cpy;
+	dst->e_destroy = src->e_destroy;
+
+	dst->p = malloc(dst->nsize * dst->nalloc);
+	if (dst->e_cpy) {
+		_varr_cpy_t vc;
+
+		vc.v = dst;
+		vc.i = 0;
+		varr_foreach(src, varr_cpy_cb, &vc);
+	} else
+		memcpy(dst->p, src->p, dst->nsize * dst->nused);
+	return dst;
 }
 
 static void *
 varr_destroy_cb(void *p, void *d)
 {
-	void (*e_destroy)(void *p) = (void (*)(void*)) d;
+	varr_e_destroy_t e_destroy = (varr_e_destroy_t) d;
 	e_destroy(p);
 	return NULL;
 }

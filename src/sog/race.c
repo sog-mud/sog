@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.c,v 1.6 1999-10-06 09:56:09 fjoe Exp $
+ * $Id: race.c,v 1.7 1999-10-17 08:55:49 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,65 +31,68 @@
 
 #include "merc.h"
 
-varr races = { sizeof(race_t), 8 };
+hash_t races;
 
-race_t *race_new(void)
+void
+race_init(race_t *r)
 {
-	return varr_enew(&races);
+	r->name = str_empty;
+	r->act = 0;
+	r->aff = 0;
+	r->off = 0;
+	r->imm = 0;
+	r->res = 0;
+	r->vuln = 0;
+	r->form = 0;
+	r->parts = 0;
+	r->race_flags = 0;
+	r->race_pcdata = NULL;
 }
 
-pcrace_t *pcrace_new(void)
+/*
+ * r->race_pcdata is not copied intentionally
+ */
+race_t *
+race_cpy(race_t *dst, race_t *src)
+{
+	dst->name = str_qdup(src->name);
+	dst->act = src->act;
+	dst->aff = src->aff;
+	dst->off = src->off;
+	dst->imm = src->imm;
+	dst->res = src->res;
+	dst->vuln = src->vuln;
+	dst->form = src->form;
+	dst->race_flags = src->race_flags;
+	return dst;
+}
+
+void
+race_destroy(race_t *r)
+{
+	free_string(r->name);
+	if (r->race_pcdata)
+		pcrace_free(r->race_pcdata);
+}
+
+pcrace_t *
+pcrace_new(void)
 {
 	pcrace_t *pcr;
 	pcr = calloc(1, sizeof(*pcr));
 	pcr->skill_spec = str_empty;
 	varr_init(&pcr->classes, sizeof(rclass_t), 4);
+	pcr->classes.e_init = name_init;
+	pcr->classes.e_destroy = name_destroy;
 	return pcr;
 }
 
-void race_free(race_t *r)
+void
+pcrace_free(pcrace_t *pcr)
 {
-	if (r->race_pcdata)
-		pcrace_free(r->race_pcdata);
-	free_string(r->name);
-	free_string(r->file_name);
-}
-
-void pcrace_free(pcrace_t *pcr)
-{
-	int i;
-
-	for (i = 0; i < pcr->classes.nused; i++) {
-		rclass_t *rcl = VARR_GET(&pcr->classes, i);
-		free_string(rcl->name);
-	}
 	varr_destroy(&pcr->classes);
 	free_string(pcr->skill_spec);
 	free_string(pcr->bonus_skills);
 	free(pcr);
-}
-
-const char *race_name(int i)
-{
-	race_t *r = race_lookup(i);
-
-	if (r == NULL)
-		return "unique";
-	return r->name;
-}
-
-int rn_lookup(const char *name)
-{
-	int num;
- 
-	for (num = 0; num < races.nused; num++) {
-		race_t *r = RACE(num);
-
-		if (LOWER(name[0]) == LOWER(r->name[0])
-		&&  !str_prefix(name, (r->name)))
-			return num;
-	}
- 
-	return -1;
 }
 

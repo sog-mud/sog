@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.57 1999-10-12 13:56:19 avn Exp $
+ * $Id: olc_obj.c,v 1.58 1999-10-17 08:55:45 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -73,7 +73,7 @@ DECLARE_VALIDATE_FUN(validate_condition);
 
 olc_cmd_t olc_cmds_obj[] =
 {
-/*	{ command	function		arg			}, */
+/*	{ command	function	validator	arg		}, */
 
 	{ "create",	objed_create					},
 	{ "edit",	objed_edit					},
@@ -100,15 +100,15 @@ olc_cmd_t olc_cmds_obj[] =
 	{ "weight",	objed_weight					},
 	{ "limit",	objed_limit					},
 
-	{ "extra",	objed_extra,		extra_flags		},
-	{ "wear",	objed_wear,		wear_flags		},
-	{ "type",	objed_type,		item_types		},
+	{ "extra",	objed_extra,	NULL,		extra_flags	},
+	{ "wear",	objed_wear,	NULL,		wear_flags	},
+	{ "type",	objed_type,	NULL,		item_types	},
 	{ "material",	objed_material 					},
 	{ "level",	objed_level					},
-	{ "condition",	objed_condition,	validate_condition	},
+	{ "condition",	objed_condition,validate_condition		},
 	{ "clan",	objed_clan					},
 	{ "clone",	objed_clone					},
-	{ "gender",	objed_gender,		gender_table		},
+	{ "gender",	objed_gender,	NULL,		gender_table	},
 
 	{ "version",	show_version					},
 	{ "commands",	show_commands					},
@@ -239,10 +239,12 @@ OLC_FUN(objed_show)
 	pArea = area_vnum_lookup(pObj->vnum);
 
 	output = buf_new(-1);
-	buf_printf(output, "Name:        [%s]\nArea:        [%5d] %s\n",
+	buf_printf(output, "Name:        [%s]\n"
+			   "Area:        [%5d] %s\n",
 		pObj->name, pArea->vnum, pArea->name);
 
-	buf_printf(output, "Vnum:        [%5d]  Gender: [%s]\n"
+	buf_printf(output, "Vnum:        [%5d]\n"
+			   "Gender:      [%s]\n"
 			   "Type:        [%s]\n",
 		pObj->vnum,
 		flag_string(gender_table, pObj->gender),
@@ -464,13 +466,12 @@ OLC_FUN(objed_del)
 OLC_FUN(objed_addaffect)
 {
 	where_t *w;
-	const char *type;
-	int location;
-	int modifier = -1;
+	vo_t location;
+	int modifier = 0;
 	flag32_t where;
-	flag64_t bitvector;
+	flag64_t bitvector = 0;
 	OBJ_INDEX_DATA *pObj;
-	AFFECT_DATA *pAf;
+	AFFECT_DATA *paf;
 	char arg1[MAX_STRING_LENGTH];
 	char arg2[MAX_STRING_LENGTH];
 
@@ -505,7 +506,7 @@ OLC_FUN(objed_addaffect)
 	}
 
 	/*
-	 * set `type', `location' and initialize `modifier'
+	 * set `location' and initialize `modifier'
 	 */
 	switch (where) {
 	case TO_SKILLS: {
@@ -520,23 +521,20 @@ OLC_FUN(objed_addaffect)
 			return FALSE;
 		}
 
-		type = sk->name;
-		location = 0;
-		modifier = 0;
+		location = sk->name;
 		argument = one_argument(argument, arg2, sizeof(arg2));
 		break;
-		}
+	}
 	default:
-		type = str_empty;
-		if (!str_cmp(arg2, "none"))
+		if (!str_cmp(arg2, "none")) {
 			location = APPLY_NONE;
-		else {
-			if ((location = flag_value(apply_flags, arg2)) < 0) {
+			modifier = -1;
+		} else {
+			if ((location.i = flag_value(apply_flags, arg2)) < 0) {
 				char_puts("Valid locations are:\n", ch);
 				show_flags(ch, apply_flags);
 				return FALSE;
 			}
-			modifier = 0;
 			argument = one_argument(argument, arg2, sizeof(arg2));
 		}
 		break;
@@ -561,23 +559,32 @@ OLC_FUN(objed_addaffect)
 	/*
 	 * set `bitvector'
 	 */
-	if ((bitvector = flag_value(w->table, argument)) == 0) {
+	if (w
+	&&  argument[0] != '\0'
+	&&  (bitvector = flag_value(w->table, argument)) == 0) {
 		char_printf(ch, "Valid '%s' bitaffect flags are:\n",
 			    flag_string(apply_types, where));
 		show_flags(ch, w->table);
 		return FALSE;
 	}
 
-	pAf             = aff_new();
-	pAf->location   = location;
-	pAf->modifier   = modifier;
-	pAf->where	= where;
-	pAf->type       = str_qdup(type);
-	pAf->duration   = -1;
-	pAf->bitvector  = bitvector;
-	pAf->level      = pObj->level;
-	pAf->next       = pObj->affected;
-	pObj->affected  = pAf;
+	paf             = aff_new();
+	switch (where) {
+	case TO_SKILLS:
+		paf->location.s = str_dup(location.s);
+		break;
+	default:
+		paf->location = location;
+		break;
+	}
+	paf->modifier   = modifier;
+	paf->where	= where;
+	paf->type       = str_empty;
+	paf->duration   = -1;
+	paf->bitvector  = bitvector;
+	paf->level      = pObj->level;
+	paf->next       = pObj->affected;
+	pObj->affected  = paf;
 
 	char_puts("Affect added.\n", ch);
 	return TRUE;

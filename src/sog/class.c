@@ -23,36 +23,121 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.18 1999-10-12 13:56:20 avn Exp $
+ * $Id: class.c,v 1.19 1999-10-17 08:55:46 fjoe Exp $
  */
 
 #include <stdio.h>
 
 #include "merc.h"
 
-varr	classes = { sizeof(class_t), 4 };
+hash_t classes;
 
-class_t *class_new(void)
+void
+class_init(class_t *cl)
 {
-	class_t *class;
+	int i;
 
-	class = varr_enew(&classes);
-	varr_init(&class->poses, sizeof(pose_t), 4);
-	varr_init(&class->guilds, sizeof(int), 4);
-	class->skill_spec = str_empty;
-	class->hp_rate = 100;
-	class->mana_rate = 100;
-	class->restrict_sex = -1;
-	class->death_limit = -1;
+	cl->name = str_empty;
+	cl->who_name[0] = '\0';
+	cl->attr_prime = 0;
+	cl->weapon = 0;
+	cl->thac0_00 = 0;
+	cl->thac0_32 = 0;
+	cl->hp_rate = 100;
+	cl->mana_rate = 100;
+	cl->class_flags = 0;
+	cl->points = 0;
+	cl->restrict_align = -1;
+	cl->restrict_sex = -1;
+	cl->restrict_ethos = -1;
+	cl->death_limit = -1;
+	cl->skill_spec = str_empty;
 
-	return class;
+	varr_init(&cl->guilds, sizeof(int), 4);
+	varr_init(&cl->poses, sizeof(pose_t), 4);
+
+	for (i = 0; i < MAX_STAT; i++)
+		cl->stats[i] = 0;
+
+	for (i = 0; i < MAX_LEVEL+1; i++)
+		cl->titles[i][0] = cl->titles[i][1] = str_empty;
 }
 
-void class_free(class_t *class)
+/*
+ * poses are not copied intentionally
+ */
+class_t *
+class_cpy(class_t *dst, class_t *src)
 {
-	free_string(class->skill_spec);
-	varr_destroy(&class->poses);
-	varr_destroy(&class->guilds);
+	int i;
+
+	dst->name = str_dup(src->name);
+	strnzcpy(dst->who_name, sizeof(dst->who_name), src->who_name);
+	dst->attr_prime = src->attr_prime;
+	dst->weapon = src->weapon;
+	dst->thac0_00 = src->thac0_00;
+	dst->thac0_32 = src->thac0_32;
+	dst->hp_rate = src->hp_rate;
+	dst->mana_rate = src->mana_rate;
+	dst->class_flags = src->class_flags;
+	dst->points = src->points;
+	dst->restrict_align = src->restrict_align;
+	dst->restrict_sex = src->restrict_sex;
+	dst->restrict_ethos = src->restrict_ethos;
+	dst->death_limit = src->death_limit;
+	dst->skill_spec = str_qdup(src->skill_spec);
+
+	varr_cpy(&dst->guilds, &src->guilds);
+
+	for (i = 0; i < MAX_STAT; i++)
+		dst->stats[i] = src->stats[i];
+
+	for (i = 0; i < MAX_LEVEL+1; i++) {
+		dst->titles[i][0] = str_qdup(src->titles[i][0]);
+		dst->titles[i][1] = str_qdup(src->titles[i][1]);
+	}
+
+	return dst;
+}
+
+void
+class_destroy(class_t *cl)
+{
+	int i;
+
+	free_string(cl->skill_spec);
+	varr_destroy(&cl->poses);
+	varr_destroy(&cl->guilds);
+
+	for (i = 0; i < MAX_LEVEL+1; i++) {
+		free_string(cl->titles[i][0]);
+		free_string(cl->titles[i][1]);
+	}
+}
+
+typedef struct _guild_ok_t {
+	int vnum;
+	const char *	cn;
+	const char *	cn_found;
+} _guild_ok_t;
+
+static void *
+guild_ok_cb(void *p, void *d)
+{
+	class_t *cl = (class_t *) p;
+	_guild_ok_t *g = (_guild_ok_t *) d;
+
+	int iGuild;
+
+	for (iGuild = 0; iGuild < cl->guilds.nused; iGuild++) {
+	    	if (g->vnum == *(int *) VARR_GET(&cl->guilds, iGuild)) {
+			if (IS_CLASS(cl->name, g->cn))
+				return p;
+			g->cn_found = cl->name;
+		}
+	}
+
+	return NULL;
 }
 
 /*
@@ -60,25 +145,19 @@ void class_free(class_t *class)
  */
 int guild_ok(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 {
-	int class = -1;
-	int iClass, iGuild;
+	_guild_ok_t g;
 
 	if (!IS_SET(room->room_flags, ROOM_GUILD)
 	||  IS_IMMORTAL(ch))
 		return TRUE;
 
-	for (iClass = 0; iClass < classes.nused; iClass++) {
-		class_t *cl = CLASS(iClass);
-		for (iGuild = 0; iGuild < cl->guilds.nused; iGuild++) {
-		    	if (room->vnum == *(int*)VARR_GET(&cl->guilds, iGuild)) {
-				if (iClass == ch->class)
-					return TRUE;
-				class = iClass;
-			}
-		}
-	}
+	g.vnum = room->vnum;
+	g.cn = ch->class;
+	g.cn_found = str_empty;
+	if (hash_foreach(&classes, guild_ok_cb, &g))
+		return TRUE;
 
-	if (class < 0) {
+	if (IS_NULLSTR(g.cn_found)) {
 		/*
 		 * room was not found in the list of guild rooms
 		 * of all classes
@@ -91,15 +170,6 @@ int guild_ok(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 	return FALSE;
 }
 
-const char *class_name(CHAR_DATA *ch)
-{
-	class_t *cl;
-
-	if (IS_NPC(ch) || (cl = class_lookup(ch->class)) == NULL)
-		return "Mobile";
-	return cl->name;
-}
-
 const char *class_who_name(CHAR_DATA *ch)
 {
 	class_t *cl;
@@ -107,20 +177,6 @@ const char *class_who_name(CHAR_DATA *ch)
 	if (IS_NPC(ch) || (cl = class_lookup(ch->class)) == NULL)
 		return "Mob";
 	return cl->who_name;
-}
-
-/* returns class number */
-int cn_lookup(const char *name)
-{
-	int num;
- 
-	for (num = 0; num < classes.nused; num++) {
-		if (LOWER(name[0]) == LOWER(CLASS(num)->name[0])
-		&&  !str_prefix(name, (CLASS(num)->name)))
-			return num;
-	}
- 
-	return -1;
 }
 
 /* command for retrieving stats */
@@ -156,11 +212,24 @@ int get_max_train(CHAR_DATA *ch, int stat)
 
 const char *title_lookup(CHAR_DATA *ch)
 {
-	class_t *class;
+	class_t *cl;
 
-	if ((class = class_lookup(ch->class)) == NULL
+	if ((cl = class_lookup(ch->class)) == NULL
 	||  (ch->level < 0 || ch->level > MAX_LEVEL))
 		return str_empty;
 
-	return class->titles[ch->level][URANGE(1, ch->sex, 2)-1];
+	return cl->titles[ch->level][URANGE(1, ch->sex, 2)-1];
 }
+
+bool can_flee(CHAR_DATA *ch)
+{
+	class_t *cl;
+
+	if (ch->level < LEVEL_PK
+	||  (cl = class_lookup(ch->class)) == NULL
+	||  cl->death_limit < 0)
+		return TRUE;
+
+	return FALSE;
+}
+

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.15 1999-09-15 11:15:51 fjoe Exp $
+ * $Id: olc_rule.c,v 1.16 1999-10-17 08:55:46 fjoe Exp $
  */
 
 #include "olc.h"
@@ -92,41 +92,41 @@ DECLARE_OLC_FUN(eruleed_list	);
 
 olc_cmd_t olc_cmds_expl[] =
 {
-	{ "create",		ruleed_create,	&rops_expl	},
-	{ "edit",		ruleed_edit,	&rops_expl	},
-	{ "",			ruleed_save,	&rops_expl	},
-	{ "touch",		ruleed_touch,	&rops_expl	},
-	{ "show",		ruleed_show,	&rops_expl	},
-	{ "list",		ruleed_list,	&rops_expl	},
+	{ "create",	ruleed_create,	NULL,		&rops_expl	},
+	{ "edit",	ruleed_edit,	NULL,		&rops_expl	},
+	{ "",		ruleed_save,	NULL,		&rops_expl	},
+	{ "touch",	ruleed_touch,	NULL,		&rops_expl	},
+	{ "show",	ruleed_show,	NULL,		&rops_expl	},
+	{ "list",	ruleed_list,	NULL,		&rops_expl	},
 
-	{ "name",		eruleed_name			},
-	{ "base",		ruleed_base			},
-	{ "add",		ruleed_add			},
-	{ "del",		ruleed_del			},
-	{ "delete_rul",		olced_spell_out			},
-	{ "delete_rule",	ruleed_delete,	&rops_expl	},
+	{ "name",	eruleed_name					},
+	{ "base",	ruleed_base					},
+	{ "add",	ruleed_add					},
+	{ "del",	ruleed_del					},
+	{ "delete_rul",	olced_spell_out					},
+	{ "delete_rule",ruleed_delete,	NULL,		&rops_expl	},
 
-	{ "commands",		show_commands			},
+	{ "commands",	show_commands					},
 	{ NULL }
 };
 
 olc_cmd_t olc_cmds_impl[] =
 {
-	{ "create",		ruleed_create,	&rops_impl	},
-	{ "edit",		ruleed_edit,	&rops_impl	},
-	{ "",			ruleed_save,	&rops_impl	},
-	{ "touch",		ruleed_touch,	&rops_impl	},
-	{ "show",		ruleed_show,	&rops_impl	},
-	{ "list",		ruleed_list,	&rops_impl	},
+	{ "create",	ruleed_create,	NULL,		&rops_impl	},
+	{ "edit",	ruleed_edit,	NULL,		&rops_impl	},
+	{ "",		ruleed_save,	NULL,		&rops_impl	},
+	{ "touch",	ruleed_touch,	NULL,		&rops_impl	},
+	{ "show",	ruleed_show,	NULL,		&rops_impl	},
+	{ "list",	ruleed_list,	NULL,		&rops_impl	},
 
-	{ "name",		iruleed_name			},
-	{ "arg",		ruleed_arg			},
-	{ "add",		ruleed_add			},
-	{ "del",		ruleed_del			},
-	{ "delete_rul",		olced_spell_out			},
-	{ "delete_rule",	ruleed_delete,	&rops_impl	},
+	{ "name",	iruleed_name					},
+	{ "arg",	ruleed_arg					},
+	{ "add",	ruleed_add					},
+	{ "del",	ruleed_del					},
+	{ "delete_rul",	olced_spell_out					},
+	{ "delete_rule",ruleed_delete,	NULL,		&rops_impl	},
 
-	{ "commands",		show_commands			},
+	{ "commands",	show_commands					},
 	{ NULL }
 };
 

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.159 1999-10-12 13:56:25 avn Exp $
+ * $Id: update.c,v 1.160 1999-10-17 08:55:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -97,8 +97,8 @@ void advance_level(CHAR_DATA *ch)
 	}
 
 	if ((cl = class_lookup(ch->class)) == NULL) {
-		log("advance_level", "%s: unknown class %d",
-			   ch->name, ch->class);
+		log("advance_level: %s: unknown class %s",
+		    ch->name, ch->class);
 		return;
 	}
 
@@ -245,10 +245,6 @@ int hit_gain(CHAR_DATA *ch)
 {
 	int gain;
 	int number;
-	class_t *cl;
-
-	if (ch->in_room == NULL || (cl = class_lookup(ch->class)) == NULL)
-		return 0;
 
 	if (IS_NPC(ch)) {
 		gain =  5 + ch->level;
@@ -261,8 +257,12 @@ int hit_gain(CHAR_DATA *ch)
 		case POS_RESTING:				break;
 		case POS_FIGHTING:	gain /= 3;		break;
  		}
-	}
-	else {
+	} else {
+		class_t *cl;
+
+		if ((cl = class_lookup(ch->class)) == NULL)
+			return 0;
+
 		gain = UMAX(3, 2 * get_curr_stat(ch, STAT_CON) +
 			       (7 * ch->level) / 4); 
 		gain = (gain * cl->hp_rate) / 100;
@@ -323,10 +323,6 @@ int mana_gain(CHAR_DATA *ch)
 {
 	int gain;
 	int number;
-	class_t *cl;
-
-	if (ch->in_room == NULL || (cl = class_lookup(ch->class)) == NULL)
-		return 0;
 
 	if (IS_NPC(ch)) {
 		gain = 5 + ch->level;
@@ -336,8 +332,12 @@ int mana_gain(CHAR_DATA *ch)
 		case POS_RESTING:				break;
 		case POS_FIGHTING:	gain /= 3;		break;
 		}
-	}
-	else {
+	} else {
+		class_t *cl;
+
+		if ((cl = class_lookup(ch->class)) == NULL)
+			return 0;
+
 		gain = get_curr_stat(ch, STAT_WIS) +
 		       (2 * get_curr_stat(ch, STAT_INT)) + ch->level;
 		gain = (gain * cl->mana_rate) / 100;
@@ -635,7 +635,7 @@ void mobile_update(void)
 
 		if (IS_AFFECTED(ch, AFF_REGENERATION) && ch->in_room != NULL) {
 			ch->hit = UMIN(ch->hit + ch->level / 10, ch->max_hit);
-			if (ch->race == 18 /* troll */)
+			if (IS_RACE(ch->race, "troll"))
 				ch->hit = UMIN(ch->hit + ch->level / 10,
 					       ch->max_hit);
 			if (ch->hit != ch->max_hit)
@@ -1222,7 +1222,6 @@ void char_update(void)
 						 TO_CHAR, POS_DEAD);
 
 				check_one_event(ch, paf, EVENT_CHAR_TIMEOUT);
-
 				if (IS_EXTRACTED(ch))
 					break;
 

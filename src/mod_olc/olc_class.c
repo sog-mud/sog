@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.5 1999-10-06 09:56:02 fjoe Exp $
+ * $Id: olc_class.c,v 1.6 1999-10-17 08:55:45 fjoe Exp $
  */
 
 #include "olc.h"
@@ -39,7 +39,6 @@ DECLARE_OLC_FUN(classed_show		);
 DECLARE_OLC_FUN(classed_list		);
 
 DECLARE_OLC_FUN(classed_name		);
-DECLARE_OLC_FUN(classed_filename	);
 DECLARE_OLC_FUN(classed_whoname		);
 DECLARE_OLC_FUN(classed_titles		);
 DECLARE_OLC_FUN(classed_primary		);
@@ -75,9 +74,8 @@ olc_cmd_t olc_cmds_class[] =
 	{ "list",	classed_list					},
 
 	{ "name",	classed_name,		validate_name		},
-	{ "filename",	classed_filename,	validate_filename	},
 	{ "whoname",	classed_whoname,	validate_whoname	},
-	{ "primary",	classed_primary,	stat_names		},
+	{ "primary",	classed_primary,	NULL,	stat_names	},
 	{ "weapon",	classed_weapon					},
 	{ "thac00",	classed_thac00					},
 	{ "thac32",	classed_thac32					},
@@ -85,10 +83,10 @@ olc_cmd_t olc_cmds_class[] =
 	{ "manarate",	classed_manarate				},
 	{ "points",	classed_points					},
 	{ "deaths",	classed_deaths					},
-	{ "flags",	classed_flags,		class_flags		},
-	{ "align",	classed_align,		ralign_names		},
-	{ "ethos",	classed_ethos,		ethos_table		},
-	{ "sex",	classed_sex,		sex_table		},
+	{ "flags",	classed_flags,		NULL,	class_flags	},
+	{ "align",	classed_align,		NULL,	ralign_names	},
+	{ "ethos",	classed_ethos,		NULL,	ethos_table	},
+	{ "sex",	classed_sex,		NULL,	sex_table	},
 	{ "stats",	classed_stats					},
 	{ "titles",	classed_titles					},
 	{ "poses",	classed_poses					},
@@ -100,13 +98,17 @@ olc_cmd_t olc_cmds_class[] =
 	{ NULL }
 };
 
-static void save_class(CHAR_DATA *ch, class_t *class);
+typedef struct _save_class_t {
+	CHAR_DATA *	ch;
+	bool		found;
+} _save_class_t;
+static void * save_class_cb(void *p, void *d);
 
 OLC_FUN(classed_create)
 {
-	int cn;
-	class_t *class;
-	char arg[MAX_STRING_LENGTH];
+	class_t *cl;
+	class_t class;
+	char arg[MAX_INPUT_LENGTH];
 
 	if (PC(ch)->security < SECURITY_CLASS) {
 		char_puts("ClassEd: Insufficient security for creating classes\n",
@@ -120,26 +122,34 @@ OLC_FUN(classed_create)
 		return FALSE;
 	}
 
-	if ((cn = cn_lookup(arg)) >= 0) {
-		char_printf(ch, "ClassEd: %s: already exists.\n",
-			    CLASS(cn)->name);
+	if ((cl = class_lookup(arg)) != 0) {
+		char_printf(ch, "ClassEd: %s: already exists.\n", cl->name);
 		return FALSE;
 	}
 
-	class		= class_new();
-	class->name	= str_dup(arg);
-	class->file_name= str_printf("class%02d.class", classes.nused-1);
+	if (olced_busy(ch, ED_CLASS, NULL, NULL))
+		return FALSE;
 
-	ch->desc->pEdit	= (void *)class;
+	class_init(&class);
+	class.name	= str_dup(arg);
+	cl = hash_insert(&classes, class.name, &class);
+	class_destroy(&class);
+
+	if (cl == NULL) {
+		char_puts("ClassEd: hash_insert failed.\n", ch);
+		return FALSE;
+	}
+
+	ch->desc->pEdit	= cl;
 	OLCED(ch)	= olced_lookup(ED_CLASS);
-	touch_class(class);
+	touch_class(cl);
 	char_puts("Class created.\n",ch);
 	return FALSE;
 }
 
 OLC_FUN(classed_edit)
 {
-	int cn;
+	class_t *cl;
 
 	if (PC(ch)->security < SECURITY_CLASS) {
 		char_puts("ClassEd: Insufficient security.\n", ch);
@@ -151,40 +161,25 @@ OLC_FUN(classed_edit)
 		return FALSE;
 	}
 
-	if ((cn = cn_lookup(argument)) < 0) {
+	if ((cl = class_search(argument)) == NULL) {
 		char_printf(ch, "ClassEd: %s: No such class.\n", argument);
 		return FALSE;
 	}
 
-	ch->desc->pEdit	= CLASS(cn);
+	ch->desc->pEdit	= cl;
 	OLCED(ch)	= olced_lookup(ED_CLASS);
 	return FALSE;
 }
 
 OLC_FUN(classed_save)
 {
-	int i;
-	FILE *fp;
-	bool found = FALSE;
-
-	fp = olc_fopen(CLASSES_PATH, CLASS_LIST, ch, SECURITY_CLASS);
-	if (fp == NULL)
-		return FALSE;
+	_save_class_t sc;
 
 	olc_printf(ch, "Saved classes:");
-
-	for (i = 0; i < classes.nused; i++) {
-		fprintf(fp, "%s\n", CLASS(i)->file_name);
-		if (IS_SET(CLASS(i)->class_flags, RACE_CHANGED)) {
-			save_class(ch, CLASS(i));
-			found = TRUE;
-		}
-	}
-
-	fprintf(fp, "$\n");
-	fclose(fp);
-
-	if (!found)
+	sc.ch = ch;
+	sc.found = FALSE;
+	hash_foreach(&classes, save_class_cb, &sc);
+	if (!sc.found)
 		olc_printf(ch, "    None.");
 	return FALSE;
 }
@@ -211,19 +206,17 @@ OLC_FUN(classed_show)
 			dofun("help", ch, "'OLC ASHOW'");
 			return FALSE;
 		}
-	}
-	else {
-		if ((i = cn_lookup(argument)) < 0) {
-			char_printf(ch, "ClassEd: %s: No such class.\n", argument);
+	} else {
+		if ((class = class_search(argument)) == NULL) {
+			char_printf(ch, "ClassEd: %s: No such class.\n",
+				    argument);
 			return FALSE;
 		}
-		class = CLASS(i);
 	}
 
 	output = buf_new(-1);
 	buf_printf(output, "Name:           [%3s] [%s]\n",
 		   class->who_name, class->name);
-	buf_printf(output, "Filename:       [%s]\n", class->file_name);
 	buf_printf(output, "Primary attr:   [%s]\n",
 		   flag_string(stat_names, class->attr_prime));
 	if (!IS_NULLSTR(class->skill_spec))
@@ -270,12 +263,8 @@ OLC_FUN(classed_show)
 
 OLC_FUN(classed_list)
 {
-	int i;
-	BUFFER	*buffer;
-
-	buffer = buf_new(-1);
-	for (i = 0; i < classes.nused; i++)
-		buf_printf(buffer, "[%2d] %s\n", i, CLASS(i)->name);
+	BUFFER *buffer = buf_new(-1);
+	hash_print_names(&classes, buffer);
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);
 	return FALSE;
@@ -284,15 +273,12 @@ OLC_FUN(classed_list)
 OLC_FUN(classed_name)
 {
 	class_t *class;
+
+	if (olced_busy(ch, ED_CLASS, NULL, NULL))
+		return FALSE;
+
 	EDIT_CLASS(ch, class);
 	return olced_str(ch, argument, cmd, &class->name);
-}
-
-OLC_FUN(classed_filename)
-{
-	class_t *class;
-	EDIT_CLASS(ch, class);
-	return olced_str(ch, argument, cmd, &class->file_name);
 }
 
 OLC_FUN(classed_whoname)
@@ -314,7 +300,7 @@ OLC_FUN(classed_whoname)
 OLC_FUN(classed_titles)
 {
 	class_t *class;
-	char arg[MAX_STRING_LENGTH];
+	char arg[MAX_INPUT_LENGTH];
 	int lev;
 	char *endptr;
 	const flag_t *sex;
@@ -433,7 +419,7 @@ OLC_FUN(classed_flags		)
 OLC_FUN(classed_stats)
 {
 	class_t *class;
-        char arg[MAX_STRING_LENGTH];
+        char arg[MAX_INPUT_LENGTH];
 	char *endptr;
 	int i, val;
 	bool st = FALSE;
@@ -484,7 +470,7 @@ OLC_FUN(classed_sex		)
 OLC_FUN(classed_poses)
 {
 	class_t *class;
-	char arg[MAX_STRING_LENGTH];
+	char arg[MAX_INPUT_LENGTH];
 	pose_t *pose;
 
 	EDIT_CLASS(ch, class);
@@ -583,7 +569,7 @@ OLC_FUN(classed_skillspec)
 OLC_FUN(classed_guilds)
 {
 	class_t *class;
-	char arg[MAX_STRING_LENGTH];
+	char arg[MAX_INPUT_LENGTH];
 	int vnum;
 	ROOM_INDEX_DATA *room;
 
@@ -670,105 +656,126 @@ bool touch_class(class_t *class)
 
 static VALIDATE_FUN(validate_name)
 {
-	int i;
-	class_t *class;
-	EDIT_CLASS(ch, class);
+	class_t *cl;
+	class_t *cl2;
 
-	for (i = 0; i < classes.nused; i++)
-		if (CLASS(i) != class
-		&&  !str_cmp(CLASS(i)->name, arg)) {
-			char_printf(ch, "ClassEd: %s: duplicate class name.\n",
-				    arg);
-			return FALSE;
-		}
+	EDIT_CLASS(ch, cl);
+	if ((cl2 = class_lookup(arg)) != NULL
+	&&  cl2 != cl) {
+		char_printf(ch, "ClassEd: %s: duplicate class name.\n", arg);
+		return FALSE;
+	}
 
+	d2rename(CLASSES_PATH, smash_spaces(cl->name),
+		 CLASSES_PATH, smash_spaces(arg));
 	return TRUE;
+}
+
+static void *
+whoname_cb(void *p, void *d)
+{
+	class_t *cl = (class_t *) p;
+
+	if (!str_cmp(cl->who_name, d))
+		return p;
+
+	return NULL;
 }
 
 static VALIDATE_FUN(validate_whoname)
 {
-	int i;
-	class_t *class;
-	EDIT_CLASS(ch, class);
+	class_t *cl;
+	class_t *cl2;
+
+	EDIT_CLASS(ch, cl);
 
 	if (strlen(arg) > 3 || strlen(arg) < 1) {
 		char_puts("ClassEd: whoname should be 1..3 symbols long.\n", ch);
 		return FALSE;
 	}
-	for (i = 0; i < classes.nused; i++)
-		if (CLASS(i) != class
-		&&  !str_cmp(CLASS(i)->who_name, arg)) {
-			char_printf(ch, "ClassEd: %s: duplicate class whoname.\n",
-				    arg);
-			return FALSE;
-		}
+
+	if ((cl2 = hash_foreach(&classes, whoname_cb, (void*) arg)) != NULL
+	&&  cl2 != cl) {
+		char_printf(ch, "ClassEd: %s: duplicate class whoname.\n", arg);
+		return FALSE;
+	}
+
 	return TRUE;
 }
 
 #define PROC_STR(s)	((s) ? (s) : (str_empty))
-static void save_class(CHAR_DATA *ch, class_t *class)
+
+static void *
+save_class_cb(void *p, void *d)
 {
+	class_t *cl = (class_t *) p;
+	_save_class_t *sc = (_save_class_t *) d;
+
 	int i;
 	FILE *fp;
+	char buf[PATH_MAX];
 
-	if ((fp = olc_fopen(CLASSES_PATH, class->file_name, ch, -1)) == NULL)
-		return;
+	snprintf(buf, sizeof(buf), "%s.%s", smash_spaces(cl->name), CLASS_EXT);
+	if ((fp = olc_fopen(CLASSES_PATH, buf, sc->ch, -1)) == NULL)
+		return NULL;
 
-	REMOVE_BIT(class->class_flags, RACE_CHANGED);
+	REMOVE_BIT(cl->class_flags, RACE_CHANGED);
 	fprintf(fp, "#CLASS\n");
-	fprintf(fp, "Name %s~\n", class->name);
-	fprintf(fp, "ShortName %s~\n", class->who_name);
-	fprintf(fp, "PrimeStat %s\n", flag_string(stat_names, class->attr_prime));
-	if (!IS_NULLSTR(class->skill_spec))
-		fprintf(fp, "SkillSpec '%s'\n", class->skill_spec);
-	fprintf(fp, "SchoolWeapon %d\n", class->weapon);
-	for (i = 0; i < class->guilds.nused; i++)
-		if (*(int*)VARR_GET(&class->guilds, i) != 0)
-			fprintf(fp, "GuildRoom %d\n", *(int*)VARR_GET(&class->guilds, i));
-	fprintf(fp, "Thac0_00 %d\n", class->thac0_00);
-	fprintf(fp, "Thac0_32 %d\n", class->thac0_32);
-	fprintf(fp, "HPRate %d\n", class->hp_rate);
-	fprintf(fp, "ManaRate %d\n", class->mana_rate);
-	if (class->class_flags)
+	fprintf(fp, "Name %s~\n", cl->name);
+	fprintf(fp, "ShortName %s~\n", cl->who_name);
+	fprintf(fp, "PrimeStat %s\n", flag_string(stat_names, cl->attr_prime));
+	if (!IS_NULLSTR(cl->skill_spec))
+		fprintf(fp, "SkillSpec '%s'\n", cl->skill_spec);
+	fprintf(fp, "SchoolWeapon %d\n", cl->weapon);
+	for (i = 0; i < cl->guilds.nused; i++)
+		if (*(int*)VARR_GET(&cl->guilds, i) != 0)
+			fprintf(fp, "GuildRoom %d\n", *(int*)VARR_GET(&cl->guilds, i));
+	fprintf(fp, "Thac0_00 %d\n", cl->thac0_00);
+	fprintf(fp, "Thac0_32 %d\n", cl->thac0_32);
+	fprintf(fp, "HPRate %d\n", cl->hp_rate);
+	fprintf(fp, "ManaRate %d\n", cl->mana_rate);
+	if (cl->class_flags)
 		fprintf(fp, "Flags %s~\n",
-			flag_string(class_flags, class->class_flags));
-	if (class->points)
-		fprintf(fp, "AddExp %d\n", class->points);
+			flag_string(class_flags, cl->class_flags));
+	if (cl->points)
+		fprintf(fp, "AddExp %d\n", cl->points);
 	fprintf(fp, "StatMod");
 	for (i = 0; i < MAX_STATS; i++)
-		fprintf(fp, " %d",
-			   class->stats[i]);
+		fprintf(fp, " %d", cl->stats[i]);
 	fprintf(fp, "\n");
-	if (class->restrict_align)
+	if (cl->restrict_align)
 		fprintf(fp, "RestrictAlign %s~\n",
-			flag_string(ralign_names, class->restrict_align));
-	if (class->restrict_sex != -1)
+			flag_string(ralign_names, cl->restrict_align));
+	if (cl->restrict_sex != -1)
 		fprintf(fp, "RestrictSex %s~\n",
-			flag_string(sex_table, class->restrict_sex));
-	if (class->restrict_ethos)
+			flag_string(sex_table, cl->restrict_sex));
+	if (cl->restrict_ethos)
 		fprintf(fp, "RestrictEthos %s~\n",
-			flag_string(ethos_table, class->restrict_ethos));
-	if (class->death_limit != -1)
-		fprintf(fp, "DeathLimit %d\n", class->death_limit);
+			flag_string(ethos_table, cl->restrict_ethos));
+	if (cl->death_limit != -1)
+		fprintf(fp, "DeathLimit %d\n", cl->death_limit);
 	for (i = 0; i < MAX_LEVEL + 1; i++) {
 		fprintf(fp, "Title %d male %s~\n",
-			i, PROC_STR(class->titles[i][0]));
+			i, PROC_STR(cl->titles[i][0]));
 		fprintf(fp, "Title %d female %s~\n",
-			i, PROC_STR(class->titles[i][1]));
+			i, PROC_STR(cl->titles[i][1]));
 	}
 	fprintf(fp, "End\n\n");
 
-	for (i = 0; i < class->poses.nused; i++) {
-		pose_t *pose = VARR_GET(&class->poses, i);
+	for (i = 0; i < cl->poses.nused; i++) {
+		pose_t *pose = VARR_GET(&cl->poses, i);
 		if (IS_NULLSTR(pose->self) && IS_NULLSTR(pose->others))
 			continue;
 		fprintf(fp, "#POSE\n");
-		fprintf(fp, "Self %s~\n", pose->self);
-		fprintf(fp, "Others %s~\n", pose->others);
+		fwrite_string(fp, "Self", pose->self);
+		fwrite_string(fp, "Others", pose->others);
 		fprintf(fp, "End\n\n");
 	}
 
 	fprintf(fp, "#$\n");
 	fclose(fp);
-	olc_printf(ch, "    %s (%s)", class->name, class->file_name);
+
+	sc->found = TRUE;
+	olc_printf(sc->ch, "    %s (%s)", cl->name, buf);
+	return NULL;
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.10 1999-09-08 10:40:06 fjoe Exp $
+ * $Id: olc_social.c,v 1.11 1999-10-17 08:55:46 fjoe Exp $
  */
 
 #include "olc.h"
@@ -53,29 +53,29 @@ static DECLARE_VALIDATE_FUN(validate_name);
 
 olc_cmd_t olc_cmds_soc[] =
 {
-	{ "create",		soced_create				},
-	{ "edit",		soced_edit				},
-	{ "",			soced_save				},
-	{ "touch",		soced_touch				},
-	{ "show",		soced_show				},
-	{ "list",		soced_list				},
+	{ "create",	soced_create					},
+	{ "edit",	soced_edit					},
+	{ "",		soced_save					},
+	{ "touch",	soced_touch					},
+	{ "show",	soced_show					},
+	{ "list",	soced_list					},
 
-	{ "name",		soced_name,		validate_name 	},
-	{ "minpos",		soced_minpos,		position_table	},
+	{ "name",	soced_name,	validate_name 			},
+	{ "minpos",	soced_minpos,	NULL,		position_table	},
 
-	{ "found_char", 	soced_found_char			},
-	{ "found_vict",		soced_found_vict			},
-	{ "found_notvict",	soced_found_notvict			},
+	{ "found_char",	soced_found_char				},
+	{ "found_vict",	soced_found_vict				},
+	{ "found_notvict",soced_found_notvict				},
 
-	{ "noarg_char",		soced_noarg_char			},
-	{ "noarg_room",		soced_noarg_room			},
+	{ "noarg_char",	soced_noarg_char				},
+	{ "noarg_room",	soced_noarg_room				},
 
-	{ "self_char",		soced_self_char				},
-	{ "self_room",		soced_self_room				},
+	{ "self_char",	soced_self_char					},
+	{ "self_room",	soced_self_room					},
 
-	{ "notfound_char",	soced_notfound_char			},
+	{ "notfound_char",soced_notfound_char				},
 
-	{ "commands",		show_commands				},
+	{ "commands",	show_commands					},
 	{ NULL }
 };
 

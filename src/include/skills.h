@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.18 1999-10-12 13:56:18 avn Exp $
+ * $Id: skills.h,v 1.19 1999-10-17 08:55:44 fjoe Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -101,9 +101,7 @@ void		check_events		(CHAR_DATA *ch, AFFECT_DATA *list,
 
 /* fast skill lookup by precise name */
 #define skill_lookup(sn)	((skill_t*) hash_lookup(&skills, (sn)))
-
-/* lookup skill by prefix */
-skill_t	*	skill_search	(const char *sn);
+#define skill_search(sn)	((skill_t*) name_search(&skills, (sn)))
 
 /* lookup skill by prefix in skill list */
 void *		skill_vsearch	(varr *v, const char *sn);
@@ -119,7 +117,7 @@ const char *	skill_slot_lookup(int slot);
 
 int		get_skill	(CHAR_DATA *ch, const char *sn);
 void		set_skill	(CHAR_DATA *ch, const char *sn, int value);
-void		set_skill_raw	(CHAR_DATA *ch, const char *sn,
+void		_set_skill	(CHAR_DATA *ch, const char *sn,
 				 int value, bool repl);
 
 void		say_spell	(CHAR_DATA *ch, const char *sn);

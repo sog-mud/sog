@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.44 1999-10-06 09:56:02 fjoe Exp $
+ * $Id: olc_mob.c,v 1.45 1999-10-17 08:55:45 fjoe Exp $
  */
 
 #include "olc.h"
@@ -83,56 +83,56 @@ DECLARE_VALIDATE_FUN(validate_fvnum	);
 
 olc_cmd_t olc_cmds_mob[] =
 {
-/*	{ command	function		args		}, */
-	{ "create",	mobed_create				},
-	{ "edit",	mobed_edit				},
-	{ "",		NULL					},
-	{ "touch",	mobed_touch				},
-	{ "show",	mobed_show				},
-	{ "list",	mobed_list				},
+/*	{ command	function	validator	args		}, */
+	{ "create",	mobed_create					},
+	{ "edit",	mobed_edit					},
+	{ "",		NULL						},
+	{ "touch",	mobed_touch					},
+	{ "show",	mobed_show					},
+	{ "list",	mobed_list					},
 
-	{ "alignment",	mobed_align				},
-	{ "desc",	mobed_desc				},
-	{ "level",	mobed_level				},
-	{ "long",	mobed_long				},
-	{ "name",	mobed_name				},
-	{ "shop",	mobed_shop				},
-	{ "short",	mobed_short				},
-	{ "spec",	mobed_spec				},
+	{ "alignment",	mobed_align					},
+	{ "desc",	mobed_desc					},
+	{ "level",	mobed_level					},
+	{ "long",	mobed_long					},
+	{ "name",	mobed_name					},
+	{ "shop",	mobed_shop					},
+	{ "short",	mobed_short					},
+	{ "spec",	mobed_spec					},
 
-	{ "sex",	mobed_sex,		sex_table	},
-	{ "act",	mobed_act,		act_flags	},
-	{ "affect",	mobed_affect,		affect_flags	},
-	{ "prac",	mobed_prac,		skill_groups	},
-	{ "armor",	mobed_ac				},
-	{ "form",	mobed_form,		form_flags	},
-	{ "part",	mobed_part,		part_flags	},
-	{ "imm",	mobed_imm,		imm_flags	},
-	{ "res",	mobed_res,		res_flags	},
-	{ "vuln",	mobed_vuln,		vuln_flags	},
-	{ "material",	mobed_material				},
-	{ "off",	mobed_off,		off_flags	},
-	{ "size",	mobed_size,		size_table	},
-	{ "hitdice",	mobed_hitdice				},
-	{ "manadice",	mobed_manadice				},
-	{ "damdice",	mobed_damdice				},
-	{ "race",	mobed_race				},
-	{ "startpos",	mobed_startpos,		position_table	},
-	{ "defaultpos",	mobed_defaultpos,	position_table	},
-	{ "wealth",	mobed_gold				},
-	{ "hitroll",	mobed_hitroll				},
-	{ "damtype",	mobed_damtype				},
-	{ "group",	mobed_group				},
-	{ "clan",	mobed_clan				},
-	{ "trigadd",	mobed_trigadd				},
-	{ "trigdel",	mobed_trigdel				},
-	{ "clone",	mobed_clone				},
-	{ "invis",	mobed_invis				},
-	{ "incog",	mobed_incog				},
-	{ "fvnum",	mobed_fvnum,		validate_fvnum	},
+	{ "sex",	mobed_sex,	NULL,		sex_table	},
+	{ "act",	mobed_act,	NULL,		act_flags	},
+	{ "affect",	mobed_affect,	NULL,		affect_flags	},
+	{ "prac",	mobed_prac,	NULL,		skill_groups	},
+	{ "armor",	mobed_ac					},
+	{ "form",	mobed_form,	NULL,		form_flags	},
+	{ "part",	mobed_part,	NULL,		part_flags	},
+	{ "imm",	mobed_imm,	NULL,		imm_flags	},
+	{ "res",	mobed_res,	NULL,		res_flags	},
+	{ "vuln",	mobed_vuln,	NULL,		vuln_flags	},
+	{ "material",	mobed_material					},
+	{ "off",	mobed_off,	NULL,		off_flags	},
+	{ "size",	mobed_size,	NULL,		size_table	},
+	{ "hitdice",	mobed_hitdice					},
+	{ "manadice",	mobed_manadice					},
+	{ "damdice",	mobed_damdice					},
+	{ "race",	mobed_race					},
+	{ "startpos",	mobed_startpos,	NULL,		position_table	},
+	{ "defaultpos",	mobed_defaultpos,NULL,		position_table	},
+	{ "wealth",	mobed_gold					},
+	{ "hitroll",	mobed_hitroll					},
+	{ "damtype",	mobed_damtype					},
+	{ "group",	mobed_group					},
+	{ "clan",	mobed_clan					},
+	{ "trigadd",	mobed_trigadd					},
+	{ "trigdel",	mobed_trigdel					},
+	{ "clone",	mobed_clone					},
+	{ "invis",	mobed_invis					},
+	{ "incog",	mobed_incog					},
+	{ "fvnum",	mobed_fvnum,	validate_fvnum			},
 
-	{ "commands",	show_commands				},
-	{ "version",	show_version				},
+	{ "commands",	show_commands					},
+	{ "version",	show_version					},
 
 	{ NULL }
 };
@@ -264,7 +264,7 @@ OLC_FUN(mobed_show)
 	buf_printf(buf, "Vnum:        [%5d] Sex:   [%s]   Race: [%s]\n",
 		pMob->vnum,
 		flag_string(sex_table, pMob->sex),
-		race_name(pMob->race));
+		pMob->race);
 
 	if (pMob->clan && (clan = clan_lookup(pMob->clan))) 
 		buf_printf(buf, "Clan:        [%s]\n", clan->name);
@@ -898,15 +898,14 @@ OLC_FUN(mobed_damdice)
 OLC_FUN(mobed_race)
 {
 	MOB_INDEX_DATA *pMob;
-	int race = 0;
+	race_t *r;
 
 	if (argument[0]
-	&&  (race = rn_lookup(argument)) >= 0) {
-		race_t *r;
+	&&  (r = race_search(argument)) != NULL) {
 		EDIT_MOB(ch, pMob);
 
-		pMob->race = race;
-		r = RACE(race);
+		free_string(pMob->race);
+		pMob->race = str_qdup(r->name);
 		pMob->act	  = r->act;
 		pMob->affected_by = r->aff;
 		pMob->off_flags   = r->off;
@@ -921,19 +920,15 @@ OLC_FUN(mobed_race)
 	}
 
 	if (argument[0] == '?') {
-		char_puts("Available races are:", ch);
-
-		for (race = 0; race < races.nused; race++) {
-			if ((race % 3) == 0)
-				char_puts("\n", ch);
-			char_printf(ch, " %-15s", RACE(race)->name);
-		}
-
-		char_puts("\n", ch);
+		BUFFER *buf = buf_new(-1);
+		buf_add(buf, "Available races are:\n");
+		hash_print_names(&races, buf);
+		page_to_char(buf_string(buf), ch);
+		buf_free(buf);
 		return FALSE;
 	}
 
-	char_puts("Syntax:  race [race]\n"
+	char_puts("Syntax: race [race]\n"
 		  "Type 'race ?' for a list of races.\n", ch);
 	return FALSE;
 }
@@ -1170,7 +1165,6 @@ OLC_FUN(mobed_clone)
 	pMob->start_pos		= pFrom->start_pos;
 	pMob->default_pos	= pFrom->default_pos;
 	pMob->sex		= pFrom->sex;
-	pMob->race		= pFrom->race;
 	pMob->wealth		= pFrom->wealth;
 	pMob->form		= pFrom->form;
 	pMob->parts		= pFrom->parts;
@@ -1180,6 +1174,9 @@ OLC_FUN(mobed_clone)
 	pMob->invis_level	= pFrom->invis_level;
 	pMob->incog_level	= pFrom->incog_level;
 	pMob->fvnum		= pFrom->fvnum;
+
+	free_string(pMob->race);
+	pMob->race		= str_qdup(pFrom->race);
 
 	for (i = 0; i < 3; i++)
 		pMob->hit[i]	= pFrom->hit[i];

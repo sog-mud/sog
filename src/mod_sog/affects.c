@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.2 1999-10-12 13:56:20 avn Exp $
+ * $Id: affects.c,v 1.3 1999-10-17 08:55:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -170,6 +170,7 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	case APPLY_SAVING_BREATH:	ch->saving_throw	+= mod;	break;
 	case APPLY_SAVING_SPELL:	ch->saving_throw	+= mod;	break;
 
+#if 0		/* XXX */
 	case APPLY_RACE: {
 		int from;
 		int to;
@@ -212,6 +213,7 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 		spec_update(ch);
 		break;
 	}
+#endif
 	default:
 		if (IS_NPC(ch)) {
 			log("affect_modify: vnum %d: in room %d: "

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: name_edit.c,v 1.1 1999-10-06 09:56:08 fjoe Exp $
+ * $Id: name_edit.c,v 1.2 1999-10-17 08:55:48 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -42,7 +42,7 @@
 /*
  * See if a string is one of the names of an object.
  */
-bool is_name_raw(const char *str, const char *namelist,
+bool _is_name(const char *str, const char *namelist,
 		 int (*cmpfun)(const char*, const char*))
 {
 	char name[MAX_INPUT_LENGTH], part[MAX_INPUT_LENGTH];
@@ -80,7 +80,7 @@ bool is_name_raw(const char *str, const char *namelist,
 
 bool is_name(const char *str, const char *namelist)
 {
-	return is_name_raw(str, namelist, str_prefix);
+	return _is_name(str, namelist, str_prefix);
 }
 
 void cat_name(char *buf, const char *name, size_t len)

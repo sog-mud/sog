@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.38 1999-09-08 10:40:05 fjoe Exp $
+ * $Id: olc_help.c,v 1.39 1999-10-17 08:55:45 fjoe Exp $
  */
 
 #include "olc.h"
@@ -43,20 +43,20 @@ DECLARE_OLC_FUN(helped_text		);
 
 olc_cmd_t olc_cmds_help[] =
 {
-	{ "create",		helped_create	},
-	{ "edit",		helped_edit	},
-	{ "",			NULL		},
-	{ "touch",		helped_touch	},
-	{ "show",		helped_show	},
-	{ "list",		helped_list	},
-	{ "delete_hel",		olced_spell_out	},
-	{ "delete_help",	helped_del	},
+	{ "create",	helped_create					},
+	{ "edit",	helped_edit					},
+	{ "",		NULL						},
+	{ "touch",	helped_touch					},
+	{ "show",	helped_show					},
+	{ "list",	helped_list					},
+	{ "delete_hel",	olced_spell_out					},
+	{ "delete_help",helped_del					},
 
-	{ "level",		helped_level	},
-	{ "keywords",		helped_keyword	},
-	{ "text",		helped_text	},
+	{ "level",	helped_level,	NULL,		level_table	},
+	{ "keywords",	helped_keyword					},
+	{ "text",	helped_text					},
 
-	{ "commands",		show_commands	},
+	{ "commands",	show_commands					},
 	{ NULL }
 };
 
@@ -219,7 +219,7 @@ OLC_FUN(helped_level)
 {
 	HELP_DATA *pHelp;
 	EDIT_HELP(ch, pHelp);
-	return olced_number(ch, argument, cmd, &pHelp->level);
+	return olced_ival(ch, argument, cmd, &pHelp->level);
 }
 
 OLC_FUN(helped_keyword)

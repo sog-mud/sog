@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.c,v 1.1 1999-10-06 09:56:07 fjoe Exp $
+ * $Id: hash.c,v 1.2 1999-10-17 08:55:48 fjoe Exp $
  */
 
 #include <limits.h>
@@ -212,6 +212,25 @@ const char *fread_name(FILE *fp, hash_t *h, const char *id)
 	const char *name = str_dup(fread_word(fp));
 	NAME_CHECK(h, name, id);
 	return name;
+}
+
+void *
+name_search_cb(void *p, void *d)
+{
+	if (!str_prefix((const char *) d, *(const char **) p))
+		return p;
+	return NULL;
+}
+
+/*
+ * skill_search -- lookup skill by prefix
+ */
+void *
+name_search(hash_t *h, const char *name)
+{
+	if (IS_NULLSTR(name))
+		return NULL;
+	return hash_foreach(h, name_search_cb, (void*) name);
 }
 
 /*-------------------------------------------------------------------

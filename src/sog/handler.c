@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.186 1999-10-12 13:56:22 avn Exp $
+ * $Id: handler.c,v 1.187 1999-10-17 08:55:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3110,8 +3110,7 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 		buf_add(output, "{x");
 		if (ch && IS_IMMORTAL(ch))
 			buf_add(output, "  ");
-	}
-	else {
+	} else {
 		buf_printf(output, "%5.5s", r->race_pcdata->who_name);
 
 		if (ch && IS_IMMORTAL(ch))

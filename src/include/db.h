@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.50 1999-10-12 13:56:16 avn Exp $
+ * $Id: db.h,v 1.51 1999-10-17 08:55:43 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -128,18 +128,23 @@ void	reset_area      (AREA_DATA * pArea);
 void	reset_room	(ROOM_INDEX_DATA *pRoom, int flags);
 
 char *		fix_string	(const char *s);
+const char *	smash_spaces	(const char *s);
 
 const char *	fread_string	(FILE *fp);
-void		fwrite_string	(FILE *fp, const char *name, const char *str);
-
 char		fread_letter	(FILE *fp);
 int		fread_number	(FILE *fp);
 flag64_t 	fread_flags	(FILE *fp);
 void		fread_to_eol	(FILE *fp);
 char *		fread_word	(FILE *fp);
 flag64_t	fread_fword	(const flag_t *table, FILE *fp); 
+void		fwrite_ival	(FILE *fp, const flag_t *table,
+				 const char *name, int);
 flag64_t	fread_fstring	(const flag_t *table, FILE *fp);
 int		fread_clan	(FILE *fp);
+
+void		fwrite_string	(FILE *fp, const char *name, const char *str);
+void		fwrite_word	(FILE *fp, const char *name, const char *w);
+void		fwrite_number	(FILE *fp, const char *name, int num);
 
 extern char	filename	[PATH_MAX];
 extern int	line_number;
@@ -217,14 +222,19 @@ extern const char PLAYER_PATH	[];
 extern const char GODS_PATH	[];
 extern const char NOTES_PATH	[];
 extern const char ETC_PATH	[];
-extern const char CLASSES_PATH	[];
 extern const char CLANS_PATH	[];
-extern const char RACES_PATH	[];
 extern const char AREA_PATH	[];
 extern const char LANG_PATH	[];
 extern const char PLISTS_PATH	[];
 extern const char MODULES_PATH	[];
+
+extern const char CLASSES_PATH	[];
+extern const char RACES_PATH	[];
 extern const char SPEC_PATH	[];
+
+extern const char CLASS_EXT	[];
+extern const char RACE_EXT	[];
+extern const char SPEC_EXT	[];
 
 extern const char TMP_FILE	[];
 extern const char NULL_FILE	[];
@@ -242,8 +252,6 @@ extern const char AREA_LIST	[];
 extern const char CLAN_LIST	[];
 extern const char CLASS_LIST	[];
 extern const char LANG_LIST	[];
-extern const char RACE_LIST	[];
-extern const char SPEC_LIST	[];
 
 extern const char NOTE_FILE	[];
 extern const char IDEA_FILE	[];

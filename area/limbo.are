@@ -23,7 +23,6 @@ A 0 0 0
 stand stand none 0
 0 0 medium unknown
 F for AHMV
-F par ABCDEFGHIJK
 I 100
 #10
 shadow %s~
@@ -544,7 +543,7 @@ G male
 #19
 lock-pick picklock отмычка~
 @eng lock-pick@rus отмычка~
-@eng A small steell needle lies here.@rus Маленькая стальная игла блестит в пыли.~
+@eng A small steel needle lies here.@rus Маленькая стальная игла блестит в пыли.~
 steel~
 trash h AO
 0 0 0 0 0

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.51 1999-10-12 13:56:18 avn Exp $
+ * $Id: olc_area.c,v 1.52 1999-10-17 08:55:44 fjoe Exp $
  */
 
 #include "olc.h"
@@ -61,33 +61,33 @@ DECLARE_VALIDATE_FUN(validate_move	);
 
 olc_cmd_t olc_cmds_area[] =
 {
-/*	{   command	function	arg			}, */
+/*	{   command	function	validator		arg	}, */
 
-	{ "create",	areaed_create				},
-	{ "edit",	areaed_edit				},
-	{ "",		areaed_save				},
-	{ "touch",	areaed_touch				},
-	{ "show",	areaed_show				},
-	{ "list",	areaed_list				},
+	{ "create",	areaed_create					},
+	{ "edit",	areaed_edit					},
+	{ "",		areaed_save					},
+	{ "touch",	areaed_touch					},
+	{ "show",	areaed_show					},
+	{ "list",	areaed_list					},
 
-	{ "name",	areaed_name				},
-	{ "filename",	areaed_file,	validate_filename	},
-	{ "area",	areaed_flags,	area_flags		},
-	{ "age",	areaed_age				},
-	{ "reset",	areaed_reset				},
-	{ "security",	areaed_security, validate_security	},
-	{ "builders",	areaed_builders				},
-	{ "resetmsg",	areaed_resetmsg				},
-	{ "minvnum",	areaed_minvnum,	validate_minvnum	},
-	{ "maxvnum",	areaed_maxvnum,	validate_maxvnum	},
-	{ "move",	areaed_move,	validate_move		},
-	{ "credits",	areaed_credits				},
-	{ "minlevel",	areaed_minlevel				},
-	{ "maxlevel",	areaed_maxlevel				},
-	{ "clan",	areaed_clan				},
+	{ "name",	areaed_name					},
+	{ "filename",	areaed_file,	validate_filename		},
+	{ "area",	areaed_flags,	NULL,		area_flags	},
+	{ "age",	areaed_age					},
+	{ "reset",	areaed_reset					},
+	{ "security",	areaed_security,validate_security		},
+	{ "builders",	areaed_builders					},
+	{ "resetmsg",	areaed_resetmsg					},
+	{ "minvnum",	areaed_minvnum,	validate_minvnum		},
+	{ "maxvnum",	areaed_maxvnum,	validate_maxvnum		},
+	{ "move",	areaed_move,	validate_move			},
+	{ "credits",	areaed_credits					},
+	{ "minlevel",	areaed_minlevel					},
+	{ "maxlevel",	areaed_maxlevel					},
+	{ "clan",	areaed_clan					},
 
-	{ "commands",	show_commands				},
-	{ "version",	show_version				},
+	{ "commands",	show_commands					},
+	{ "version",	show_version					},
 
 	{ NULL }
 };
@@ -818,7 +818,7 @@ static void save_mobile(FILE *fp, MOB_INDEX_DATA *pMobIndex)
 	flag64_t temp;
 
 	if (r == NULL) {
-		wizlog("save_mobile: vnum %d: %d: unknown race",
+		wizlog("save_mobile: vnum %d: %s: unknown race",
 		       pMobIndex->vnum, pMobIndex->race);
 		return;
 	}
@@ -1477,8 +1477,8 @@ static void save_helps(FILE *fp, AREA_DATA *pArea)
 	fprintf(fp, "#HELPS\n");
 
 	for (; pHelp; pHelp = pHelp->next_in_area) {
-		fprintf(fp, "%d %s~\n",
-			pHelp->level, fix_string(pHelp->keyword));
+		fwrite_ival(fp, level_table, NULL, pHelp->level);
+		fprintf(fp, " %s~\n", fix_string(pHelp->keyword));
 		mlstr_fwrite(fp, NULL, &pHelp->text);
 	}
 

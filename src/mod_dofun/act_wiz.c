@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.188 1999-10-12 13:56:14 avn Exp $
+ * $Id: act_wiz.c,v 1.189 1999-10-17 08:55:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1219,7 +1219,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	buf_printf(output, 
 		"Vnum: %d  Race: %s (%s)  Group: %d  Sex: %s  Room: %d\n",
 		IS_NPC(victim) ? victim->pMobIndex->vnum : 0,
-		race_name(victim->race), race_name(ORG_RACE(victim)),
+		victim->race, ORG_RACE(victim),
 		IS_NPC(victim) ? victim->pMobIndex->group : 0,
 		flag_string(sex_table, victim->sex),
 		victim->in_room == NULL ? 0 : victim->in_room->vnum);
@@ -1264,7 +1264,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		"Lv: %d + %d  Class: %s  Align: %s  Gold: %ld  Silver: %ld  Exp: %d\n",
 		victim->level,
 		victim->drain_level,
-		class_name(victim),
+		victim->class,
 		buf,
 		victim->gold, victim->silver, GET_EXP(victim));
 
@@ -2503,8 +2503,8 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 	}
 
 	value = atoi(arg3);
-	if (value < 0 || value > 100) {
-		char_puts("Value range is 0 to 100.\n", ch);
+	if (value < 0) {
+		char_puts("Value should not be negative.\n", ch);
 		return;
 	}
 
@@ -2513,16 +2513,20 @@ void do_sset(CHAR_DATA *ch, const char *argument)
 		hash_foreach(&skills, sset_cb, &_s);
 		char_puts("Ok.\n", ch);
 	} else {
+		const char *sn;
 		skill_t *sk;
 
 		if ((sk = skill_search(arg2)) == NULL) {
-			char_puts("No such skill or spell.\n", ch);
-			return;
-		}
+			if (value) {
+				char_puts("do_sset: Cannot set non-zero value for unknown skill.\n", ch);
+				return;
+			}
+			sn = arg2;
+		} else
+			sn = sk->name;
 
-		set_skill(victim, sk->name, value);
-		char_printf(ch, "do_sset: '%s': %d%%\n",
-			    sk->name, value);
+		set_skill(victim, sn, value);
+		char_printf(ch, "do_sset: '%s': %d%%\n", sn, value);
 	}
 	update_skills(victim);
 }
@@ -3309,18 +3313,12 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!str_prefix(arg2, "sex"))
-	{
-		if (value < 0 || value > 2)
-		{
+	if (!str_prefix(arg2, "sex")) {
+		if (value < 0 || value > 2) {
 		    char_puts("Sex range is 0 to 2.\n", ch);
 		    return;
 		}
-		if ((victim->class == 0) || (victim->class == 8))
-		{
-		    char_puts("You can't change their sex.\n", ch);
-		    return;
-		}
+
 		victim->sex = value;
 		if (!IS_NPC(victim))
 		    PC(victim)->true_sex = value;
@@ -3328,33 +3326,24 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_prefix(arg2, "class")) {
-		int cl;
+		class_t *cl;
 
 		if (IS_NPC(victim)) {
 			char_puts("Mobiles have no class.\n", ch);
 			return;
 		}
 
-		cl = cn_lookup(arg3);
-		if (cl < 0) {
-			BUFFER *output;
-
-			output = buf_new(-1);
-
+		if ((cl = class_search(arg3)) == NULL) {
+			BUFFER *output = buf_new(-1);
 			buf_add(output, "Possible classes are: ");
-	    		for (cl = 0; cl < classes.nused; cl++) {
-	        		if (cl > 0)
-	                		buf_add(output, " ");
-	        		buf_add(output, CLASS(cl)->name);
-	    		}
-	        	buf_add(output, ".\n");
-
+			hash_print_names(&classes, output);
 			send_to_char(buf_string(output), ch);
 			buf_free(output);
 			return;
 		}
 
-		victim->class = cl;
+		free_string(victim->class);
+		victim->class = str_qdup(cl->name);
 		spec_update(victim);
 		PC(victim)->exp = exp_for_level(victim, victim->level);
 		PC(victim)->exp_tl = 0;
@@ -3602,27 +3591,26 @@ void do_mset(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_prefix(arg2, "race")) {
-		int race;
+		race_t *r;
 
 		if (IS_NPC(victim)) {
 			char_puts("Not on NPC.\n", ch);
 			return;
 		}
 
-		race = rn_lookup(arg3);
-
-		if (race == -1) {
+		if ((r = race_search(arg3)) == NULL) {
 			char_puts("That is not a valid race.\n",ch);
 			return;
 		}
 
-		if (!IS_NPC(victim) && !RACE(race)->race_pcdata) {
+		if (!IS_NPC(victim) && !r->race_pcdata) {
 			char_puts("That is not a valid player race.\n",ch);
 			return;
 		}
 
-		victim->race = race;
-		SET_ORG_RACE(victim, race);
+		free_string(victim->race);
+		victim->race = str_qdup(r->name);
+		SET_ORG_RACE(victim, r->name);
 		spec_update(victim);
 		PC(victim)->exp = exp_for_level(victim, victim->level);
 		PC(victim)->exp_tl = 0;

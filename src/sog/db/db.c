@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.171 1999-10-12 13:56:26 avn Exp $
+ * $Id: db.c,v 1.172 1999-10-17 08:55:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -115,7 +115,9 @@ const char LANG_PATH		[] = "lang";
 const char MODULES_PATH		[] = "modules";
 const char SPEC_PATH		[] = "specs";
 
-const char SPEC_MASK		[] = "*.spec";
+const char RACE_EXT		[] = "race";
+const char CLASS_EXT		[] = "class";
+const char SPEC_EXT		[] = "spec";
 
 #if defined (WIN32)
 const char PLISTS_PATH		[] = "clans\\plists";
@@ -138,9 +140,7 @@ const char DAMTYPE_CONF		[] = "damtype.conf";	/* damtypes */
 
 const char AREA_LIST		[] = "area.lst";	/* list of areas */
 const char CLAN_LIST		[] = "clan.lst";	/* list of clans */
-const char CLASS_LIST		[] = "class.lst";	/* list of classes */
 const char LANG_LIST		[] = "lang.lst";	/* list of languages */
-const char RACE_LIST		[] = "race.lst";	/* list of races */
 
 const char BUG_FILE		[] = "bugs.txt";	/* 'bug' and bug() */
 const char TYPO_FILE		[] = "typos.txt";	/* 'typo' */
@@ -322,17 +322,21 @@ void db_load_file(DBDATA *dbdata, const char *path, const char *file)
 	db_parse_file(dbdata, path, file);
 }
 
-void db_load_dir(DBDATA *dbdata, const char *path, const char *mask)
+void db_load_dir(DBDATA *dbdata, const char *path, const char *ext)
 {
 	struct dirent *dp;
 	DIR *dirp;
-	if (!dbdata->tab_sz)
-		dbdata_init(dbdata);
+	char mask[PATH_MAX];
 
 	if ((dirp = opendir(path)) == NULL) {
 		db_error("db_load_dir", "%s: %s", path, strerror(errno));
 		return;
 	}
+
+	if (!dbdata->tab_sz)
+		dbdata_init(dbdata);
+
+	snprintf(mask, sizeof(mask), "*.%s", ext);
 
 	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
 #if defined (LINUX) || defined (WIN32)
@@ -440,11 +444,11 @@ void boot_db(void)
 	db_load_file(&db_socials, ETC_PATH, SOCIALS_CONF);
 
 	db_load_file(&db_skills, ETC_PATH, SKILLS_CONF);
-	db_load_dir(&db_spec, SPEC_PATH, SPEC_MASK);
+	db_load_dir(&db_spec, SPEC_PATH, SPEC_EXT);
 	db_load_file(&db_damtype, ETC_PATH, DAMTYPE_CONF);
 
-	db_load_list(&db_races, RACES_PATH, RACE_LIST);
-	db_load_list(&db_classes, CLASSES_PATH, CLASS_LIST);
+	db_load_dir(&db_races, RACES_PATH, RACE_EXT);
+	db_load_dir(&db_classes, CLASSES_PATH, CLASS_EXT);
 	db_load_list(&db_clans, CLANS_PATH, CLAN_LIST);
 	db_load_list(&db_areas, AREA_PATH, AREA_LIST);
 	db_load_file(&db_hometowns, ETC_PATH, HOMETOWNS_CONF);
@@ -1018,7 +1022,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 	mlstr_cpy(&mob->short_descr, &pMobIndex->short_descr);
 	mlstr_cpy(&mob->long_descr, &pMobIndex->long_descr);
 	mlstr_cpy(&mob->description, &pMobIndex->description);
-	mob->class	= 0;
+	mob->class = str_empty;
 
 	if (pMobIndex->wealth) {
 		long wealth;
@@ -1037,7 +1041,8 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 	mob->res_flags		= pMobIndex->res_flags;
 	mob->vuln_flags		= pMobIndex->vuln_flags;
 	mob->position		= pMobIndex->start_pos;
-	mob->race		= pMobIndex->race;
+	free_string(mob->race);
+	mob->race			= str_qdup(pMobIndex->race);
 	mob->form		= pMobIndex->form;
 	mob->parts		= pMobIndex->parts;
 	mob->size		= pMobIndex->size;
@@ -1208,8 +1213,10 @@ void clone_mob(CHAR_DATA *parent, CHAR_DATA *clone)
 	mlstr_cpy(&clone->long_descr, &parent->long_descr);
 	mlstr_cpy(&clone->description, &parent->description);
 	clone->sex		= parent->sex;
-	clone->class		= parent->class;
-	clone->race		= parent->race;
+	free_string(clone->class);
+	clone->class		= str_qdup(parent->class);
+	free_string(clone->race);
+	clone->race		= str_qdup(parent->race);
 	clone->level		= parent->level;
 	clone->wait		= parent->wait;
 	clone->hit		= parent->hit;
@@ -1476,7 +1483,7 @@ char *fix_string(const char *s)
 	if (IS_NULLSTR(s))
 		return str_empty;
 
-	for (p = buf; *s && p-buf < sizeof(buf)-2; s++)
+	for (p = buf; *s && p-buf < sizeof(buf)-2; s++) {
 		switch (*s) {
 		case '\r':
 			break;
@@ -1489,9 +1496,55 @@ char *fix_string(const char *s)
 			*p++ = *s;
 			break;
 		}
+	}
 
 	*p = '\0';
 	return buf;
+}
+
+const char *
+fix_word(const char *w)
+{
+	static char buf[MAX_STRING_LENGTH];
+
+	if (IS_NULLSTR(w))
+		return "''";
+
+	if (strpbrk(w, " \t") == NULL)
+		return w;
+
+	snprintf(buf, sizeof(buf), "'%s'", w);
+	return buf;
+}
+
+const char *
+smash_spaces(const char *s)
+{
+	static char buf[2][MAX_STRING_LENGTH];
+	static int ind = 0;
+	char *p;
+
+	if (IS_NULLSTR(s))
+		return str_empty;
+
+	if (strpbrk(s, " \t") == NULL)
+		return s;
+
+	ind = (ind + 1) % 2;
+	for (p = buf[ind]; *s && p-buf[ind] < sizeof(buf[0])-1; p++, s++) {
+		switch (*s) {
+		case ' ':
+			*p = '_';
+			break;
+
+		default:
+			*p = *s;
+			break;
+		}
+	}
+
+	*p = '\0';
+	return buf[ind];
 }
 
 const char *fread_string(FILE *fp)
@@ -1546,14 +1599,6 @@ const char *fread_string(FILE *fp)
 		}
 		c = xgetc(fp);
 	}
-}
-
-void fwrite_string(FILE *fp, const char *name, const char *str)
-{
-	if (IS_NULLSTR(name))
-		fprintf(fp, "%s~\n", fix_string(str));
-	else if (!IS_NULLSTR(str))
-		fprintf(fp, "%s %s~\n", name, fix_string(str));
 }
 
 /*
@@ -1736,6 +1781,26 @@ char *fread_word(FILE *fp)
 
 	db_error("fread_word", "word too long");
 	return NULL;
+}
+
+void fwrite_string(FILE *fp, const char *name, const char *str)
+{
+	if (IS_NULLSTR(name))
+		fprintf(fp, "%s~\n", fix_string(str));
+	else if (!IS_NULLSTR(str))
+		fprintf(fp, "%s %s~\n", name, fix_string(str));
+}
+
+void fwrite_word(FILE *fp, const char *name, const char *w)
+{
+	if (!IS_NULLSTR(w))
+		fprintf(fp, "%s %s\n", name, fix_word(w));
+}
+
+void fwrite_number(FILE *fp, const char *name, int num)
+{
+	if (num)
+		fprintf(fp, "%s %d\n", name, num);
 }
 
 /*
@@ -2233,6 +2298,22 @@ flag64_t fread_fword(const flag_t *table, FILE *fp)
 		return atoi(name);
 
 	return flag_value(table, name);
+}
+
+void fwrite_ival(FILE *fp, const flag_t *table, const char *name, int val)
+{
+	const flag_t *f;
+
+	if (!IS_NULLSTR(name))
+		fprintf(fp, "%s ", name);
+
+	if ((f = flag_ilookup(table, val)) != NULL)
+		fprintf(fp, "'%s'", f->name);
+	else
+		fprintf(fp, "%d", val);
+
+	if (!IS_NULLSTR(name))
+		fputc('\n', fp);
 }
 
 flag64_t fread_fstring(const flag_t *table, FILE *fp)

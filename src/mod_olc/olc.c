@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.71 1999-10-06 09:56:00 fjoe Exp $
+ * $Id: olc.c,v 1.72 1999-10-17 08:55:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -255,7 +255,6 @@ bool olced_number(CHAR_DATA *ch, const char *argument,
 	int val;
 	char *endptr;
 	char arg[MAX_STRING_LENGTH];
-	VALIDATE_FUN *validator;
 
 	one_argument(argument, arg, sizeof(arg));
 	val = strtol(arg, &endptr, 0);
@@ -264,7 +263,7 @@ bool olced_number(CHAR_DATA *ch, const char *argument,
 		return FALSE;
 	}
 
-	if ((validator = cmd->arg1) && !validator(ch, &val))
+	if (cmd->validator && !cmd->validator(ch, &val))
 		return FALSE;
 
 	*pInt = val;
@@ -275,7 +274,6 @@ bool olced_number(CHAR_DATA *ch, const char *argument,
 bool olced_name(CHAR_DATA *ch, const char *argument,
 		olc_cmd_t *cmd, const char **pStr)
 {
-	VALIDATE_FUN *validator;
 	bool changed;
 	char arg[MAX_INPUT_LENGTH];
 
@@ -285,7 +283,7 @@ bool olced_name(CHAR_DATA *ch, const char *argument,
 		return FALSE;
 	}
 
-	if ((validator = cmd->arg1) && !validator(ch, argument))
+	if (cmd->validator && !cmd->validator(ch, argument))
 		return FALSE;
 
 	changed = FALSE;
@@ -305,14 +303,12 @@ bool olced_name(CHAR_DATA *ch, const char *argument,
 bool olced_str(CHAR_DATA *ch, const char *argument,
 	       olc_cmd_t *cmd, const char **pStr)
 {
-	VALIDATE_FUN *validator;
-
 	if (IS_NULLSTR(argument)) {
 		char_printf(ch, "Syntax: %s string\n", cmd->name);
 		return FALSE;
 	}
 
-	if ((validator = cmd->arg1) && !validator(ch, argument))
+	if (cmd->validator && !cmd->validator(ch, argument))
 		return FALSE;
 
 	free_string(*pStr);
@@ -693,19 +689,16 @@ bool olced_rulecl(CHAR_DATA *ch, const char *argument,
 	}
 
 	if (!str_prefix(arg2, "implicit")) {
-		cmd->arg1 = validate_filename;
 		return olced_str(ch, argument, cmd,
 				 &l->rules[rulecl].file_impl);
 	}
 
 	if (!str_prefix(arg2, "explicit")) {
-		cmd->arg1 = validate_filename;
 		return olced_str(ch, argument, cmd,
 				 &l->rules[rulecl].file_expl);
 	}
 
 	if (!str_prefix(arg2, "flags")) {
-		cmd->arg1 = rulecl_flags;
 		return olced_flag32(ch, argument, cmd,
 				    &l->rules[rulecl].rcl_flags);
 	}
@@ -748,6 +741,14 @@ bool olced_vform_del(CHAR_DATA *ch, const char *argument,
 	vform_del(r->f, fnum);
 	char_puts("Form deleted.\n", ch);
 	return TRUE;
+}
+
+bool olced_ival(CHAR_DATA *ch, const char *argument,
+		olc_cmd_t *cmd, int *pInt)
+{
+	if (is_number(argument))
+		return olced_number(ch, argument, cmd, pInt);
+	return olced_flag32(ch, argument, cmd, pInt);
 }
 
 VALIDATE_FUN(validate_filename)

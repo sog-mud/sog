@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.60 1999-10-12 13:56:27 avn Exp $
+ * $Id: db_area.c,v 1.61 1999-10-17 08:55:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -255,7 +255,7 @@ DBLOAD_FUN(load_helps)
 	}
 
 	for (; ;) {
-		level		= fread_number(fp);
+		level		= fread_fword(level_table, fp);
 		keyword		= fread_string(fp);
 	
 		if (keyword[0] == '$')
@@ -278,7 +278,6 @@ DBLOAD_FUN(load_old_mob)
 {
 	MOB_INDEX_DATA *pMobIndex;
 	/* for race updating */
-	int race;
 	char name[MAX_STRING_LENGTH];
 
 	if (!area_current) {  /* OLC */
@@ -287,6 +286,7 @@ DBLOAD_FUN(load_old_mob)
 	}
 
 	for (; ;) {
+		race_t *r;
 		int vnum;
 		char letter;
 		int iHash;
@@ -360,14 +360,12 @@ DBLOAD_FUN(load_old_mob)
 		/* compute the race BS */
 		one_argument(pMobIndex->name, name, sizeof(name));
  
-		if (name[0] == '\0' || (race =  rn_lookup(name)) < 0) {
-			race_t *r;
-
-			/* fill in with blanks */
-			pMobIndex->race = rn_lookup("human");
-			r = RACE(pMobIndex->race);
+		if ((r =  race_lookup(name)) == NULL) {
+			free_string(pMobIndex->race);
+			pMobIndex->race = str_dup("human");
+			r = race_lookup(pMobIndex->race);
 			pMobIndex->affected_by = pMobIndex->affected_by |
-						 r->aff;
+						 (r ? r->aff : 0);
 			pMobIndex->off_flags = OFF_DODGE | OFF_DISARM |
 				OFF_TRIP | ASSIST_VNUM;
 			pMobIndex->imm_flags = 0;
@@ -377,11 +375,9 @@ DBLOAD_FUN(load_old_mob)
 				FORM_BIPED | FORM_MAMMAL;
 			pMobIndex->parts = PART_HEAD | PART_ARMS | PART_LEGS |
 				PART_HEART | PART_BRAINS | PART_GUTS;
-		}
-		else {
-			race_t *r = RACE(race);
-
-			pMobIndex->race = race;
+		} else {
+			free_string(pMobIndex->race);
+			pMobIndex->race = str_qdup(r->name);
 			pMobIndex->affected_by = 
 				pMobIndex->affected_by | r->aff;
 			pMobIndex->off_flags = OFF_DODGE | OFF_DISARM |
@@ -1157,11 +1153,14 @@ DBLOAD_FUN(load_mobiles)
         mlstr_fread(fp, &pMobIndex->short_descr);
         mlstr_fread(fp, &pMobIndex->long_descr);
         mlstr_fread(fp, &pMobIndex->description);
-	pMobIndex->race		 	= rn_lookup(fread_string(fp));
-	r = RACE(pMobIndex->race);
+	free_string(pMobIndex->race);
+	pMobIndex->race		 	= fread_string(fp);
+	NAME_CHECK(&races, pMobIndex->race, "load_mob");
+	r = race_lookup(pMobIndex->race);
 
-        pMobIndex->act                  = fread_flags(fp) | ACT_NPC | r->act;
-        pMobIndex->affected_by          = fread_flags(fp) | r->aff;
+        pMobIndex->act                  = fread_flags(fp) | ACT_NPC |
+					  (r ? r->act : 0);
+        pMobIndex->affected_by          = fread_flags(fp) | (r ? r->aff : 0);
 
 	pMobIndex->practicer		= 0;
         pMobIndex->pShop                = NULL;
@@ -1202,10 +1201,10 @@ DBLOAD_FUN(load_mobiles)
 	pMobIndex->ac[AC_EXOTIC]	= fread_number(fp) * 10;
 
 	/* read flags and add in data from the race table */
-	pMobIndex->off_flags		= fread_flags(fp) | r->off;
-	pMobIndex->imm_flags		= fread_flags(fp) | r->imm;
-	pMobIndex->res_flags		= fread_flags(fp) | r->res;
-	pMobIndex->vuln_flags		= fread_flags(fp) | r->vuln;
+	pMobIndex->off_flags		= fread_flags(fp) | (r ? r->off : 0);
+	pMobIndex->imm_flags		= fread_flags(fp) | (r ? r->imm : 0);
+	pMobIndex->res_flags		= fread_flags(fp) | (r ? r->res : 0);
+	pMobIndex->vuln_flags		= fread_flags(fp) | (r ? r->vuln : 0);
 
 	/* vital statistics */
 	pMobIndex->start_pos		= flag_value(position_table,
@@ -1216,8 +1215,8 @@ DBLOAD_FUN(load_mobiles)
 
 	pMobIndex->wealth		= fread_number(fp);
 
-	pMobIndex->form			= fread_flags(fp) | r->form;
-	pMobIndex->parts		= fread_flags(fp) | r->parts;
+	pMobIndex->form			= fread_flags(fp) | (r ? r->form : 0);
+	pMobIndex->parts		= fread_flags(fp) | (r ? r->parts : 0);
 	/* size */
 	pMobIndex->size			= fread_fword(size_table, fp);
 	free_string(pMobIndex->material);

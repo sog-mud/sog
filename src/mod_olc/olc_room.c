@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.59 1999-10-12 13:56:19 avn Exp $
+ * $Id: olc_room.c,v 1.60 1999-10-17 08:55:46 fjoe Exp $
  */
 
 #include "olc.h"
@@ -60,39 +60,39 @@ DECLARE_OLC_FUN(roomed_clone		);
 
 olc_cmd_t olc_cmds_room[] =
 {
-/*	{ command	function			}, */
+/*	{ command	function					}, */
 
-	{ "create",	roomed_create			},
-	{ "edit",	roomed_edit			},
-	{ "",		NULL				},
-	{ "touch",	roomed_touch			},
-	{ "show",	roomed_show			},
-	{ "list",	roomed_list			},
+	{ "create",	roomed_create					},
+	{ "edit",	roomed_edit					},
+	{ "",		NULL						},
+	{ "touch",	roomed_touch					},
+	{ "show",	roomed_show					},
+	{ "list",	roomed_list					},
 
-	{ "desc",	roomed_desc			},
-	{ "exd",	roomed_exd			},
-	{ "name",	roomed_name			},
-	{ "heal",	roomed_heal			},
-	{ "mana",	roomed_mana			},
-	{ "clan",	roomed_clan			},
-	{ "clone",	roomed_clone			},
+	{ "desc",	roomed_desc					},
+	{ "exd",	roomed_exd					},
+	{ "name",	roomed_name					},
+	{ "heal",	roomed_heal					},
+	{ "mana",	roomed_mana					},
+	{ "clan",	roomed_clan					},
+	{ "clone",	roomed_clone					},
 
-	{ "north",	roomed_north,	size_table	},
-	{ "south",	roomed_south,	size_table	},
-	{ "east",	roomed_east,	size_table	},
-	{ "west",	roomed_west,	size_table	},
-	{ "up",		roomed_up,	size_table	},
-	{ "down",	roomed_down,	size_table	},
+	{ "north",	roomed_north					},
+	{ "south",	roomed_south					},
+	{ "east",	roomed_east					},
+	{ "west",	roomed_west					},
+	{ "up",		roomed_up					},
+	{ "down",	roomed_down					},
 
 /* New reset commands. */
-	{ "mreset",	roomed_mreset			},
-	{ "oreset",	roomed_oreset			},
-	{ "room",	roomed_room,	room_flags	},
-	{ "sector",	roomed_sector,	sector_types	},
-	{ "reset",	roomed_reset			},
+	{ "mreset",	roomed_mreset					},
+	{ "oreset",	roomed_oreset					},
+	{ "room",	roomed_room,	NULL,		room_flags	},
+	{ "sector",	roomed_sector,	NULL,		sector_types	},
+	{ "reset",	roomed_reset					},
 
-	{ "commands",	show_commands			},
-	{ "version",	show_version			},
+	{ "commands",	show_commands					},
+	{ "version",	show_version					},
 
 	{ NULL }
 };

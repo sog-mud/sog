@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.92 1999-10-12 13:56:25 avn Exp $
+ * $Id: tables.c,v 1.93 1999-10-17 08:55:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1258,16 +1258,16 @@ flag_t level_table[] =
 {
 	{ "",			TABLE_INTVAL,			},
 
-	{ "imp",		LEVEL_IMP,			},
-	{ "cre",		LEVEL_CRE,			},
-	{ "dei",		LEVEL_DEI,			},
-	{ "god",		LEVEL_GOD,			},
-	{ "immortal",		LEVEL_IMMORTAL,			},
-	{ "ava",		LEVEL_AVA,			},
+	{ "imp",		LEVEL_IMP,		TRUE	},
+	{ "cre",		LEVEL_CRE,		TRUE	},
+	{ "dei",		LEVEL_DEI,		TRUE	},
+	{ "god",		LEVEL_GOD,		TRUE	},
+	{ "immortal",		LEVEL_IMMORTAL,		TRUE	},
+	{ "ava",		LEVEL_AVA,		TRUE	},
 
-	{ "hero",		LEVEL_HERO,			},
-	{ "newbie",		LEVEL_NEWBIE,			},
-	{ "pk",			LEVEL_PK,			},
+	{ "hero",		LEVEL_HERO,		TRUE	},
+	{ "newbie",		LEVEL_NEWBIE,		TRUE	},
+	{ "pk",			LEVEL_PK,		TRUE	},
 
 	{ NULL }
 };

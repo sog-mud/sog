@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.201 1999-10-06 09:56:13 fjoe Exp $
+ * $Id: comm.c,v 1.202 1999-10-17 08:55:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -98,7 +98,7 @@
 #include "db.h"
 #include "string_edit.h"
 
-bool class_ok(CHAR_DATA *ch , int class);
+bool class_ok(CHAR_DATA *ch , class_t *cl);
 
 struct codepage {
 	char* name;
@@ -1686,6 +1686,50 @@ static void print_hometown(CHAR_DATA *ch)
 	ch->desc->connected = CON_PICK_HOMETOWN;
 }
 
+typedef struct _print_t {
+	CHAR_DATA *ch;
+	int col;
+} _print_t;
+
+static void
+print_cb(_print_t *pd, const char *s)
+{
+	if (pd->col > 60) {
+		char_puts("\n  ", pd->ch);
+		pd->col = 0;
+	}
+
+	char_printf(pd->ch, "(%s) ", s);
+	pd->col += strlen(s) + 3;
+}
+
+static void *
+print_race_cb(void *p, void *d)
+{
+	race_t *r = (race_t *) p;
+	_print_t *pd = (_print_t *) d;
+
+        if (!r->race_pcdata
+	||  r->race_pcdata->classes.nused == 0)
+		return NULL;
+
+	print_cb(pd, r->name);
+	return NULL;
+}
+
+static void *
+print_class_cb(void *p, void *d)
+{
+	class_t *cl = (class_t *) p;
+	_print_t *pd = (_print_t *) d;
+
+	if (!class_ok(pd->ch, cl))
+		return NULL;
+
+	print_cb(pd, cl->name);
+	return NULL;
+}
+
 /*
  * Deal with sockets that haven't logged in yet.
  */
@@ -1695,10 +1739,12 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *ch;
 	char *pwdnew;
-	int cl, race, i;
+	int i;
 	int nextquest = 0;
 	int size;
 	race_t *r;
+	class_t *cl;
+	_print_t pd;
 
 	while (isspace(*argument))
 		argument++;
@@ -1982,30 +2028,24 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			break;
 		}
 
-		race = rn_lookup(argument);
-		r = RACE(race);
-
-		if (race <= 0
+		r = race_search(argument);
+		if (r == NULL
 		||  !r->race_pcdata
 		||  r->race_pcdata->classes.nused == 0) {
+			pd.ch = ch;
+			pd.col = 0;
+
 			char_puts("That is not a valid race.\n", ch);
 			char_puts("The following races are available:\n  ", ch);
-			for (race = 1; race < races.nused; race++) {
-				r = RACE(race);
-		        	if (!r->race_pcdata
-				||  r->race_pcdata->classes.nused == 0)
-	        	        	continue;
-				if (race == 8 || race == 14)
-					char_puts("\n  ", ch);
-				char_printf(ch, "(%s) ", r->name);
-	        	}
+			hash_foreach(&races, print_race_cb, &pd);
 			char_puts("\n", ch);
 			char_puts("What is your race ('help <race>' for more information)? ", ch);
 			break;
 		}
 
-		SET_ORG_RACE(ch, race);
-		ch->race = race;
+		SET_ORG_RACE(ch, r->name);
+		free_string(ch->race);
+		ch->race = str_qdup(r->name);
 		for (i = 0; i < MAX_STATS;i++)
 			ch->mod_stat[i] = 0;
 
@@ -2034,7 +2074,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		d->connected = CON_GET_NEW_SEX;
 		break;
 
-	case CON_GET_NEW_SEX:
+	case CON_GET_NEW_SEX: 
 		switch (argument[0]) {
 		case 'm': case 'M':
 			ch->sex = PC(ch)->true_sex = SEX_MALE;
@@ -2051,20 +2091,15 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		dofun("help", ch, "'CLASS HELP'");
 
 		char_puts("The following classes are available:\n", ch);
-		for (cl = 0; cl < classes.nused; cl++) {
-			if (!class_ok(ch, cl))
-				continue;
-			if (cl == 8 || cl == 14)
-				char_puts("\n  ", ch);
-			char_printf(ch, "(%s) ", CLASS(cl)->name);
-	        }
+		pd.ch = ch;
+		pd.col = 0;
+		hash_foreach(&classes, print_class_cb, &pd);
 	        char_puts("\n", ch);
 		char_puts("What is your class ('help <class>' for more information)? ", ch);
 		d->connected = CON_GET_NEW_CLASS;
 		break;
 
 	case CON_GET_NEW_CLASS:
-		cl = cn_lookup(argument);
 		argument = one_argument(argument, arg, sizeof(arg));
 
 		if (!str_prefix(arg, "help")) {
@@ -2076,7 +2111,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			return;
 		}
 
-		if (cl == -1) {
+		if ((cl = class_search(argument)) == NULL) {
 			char_puts("That's not a class.\n", ch);
 			char_puts("What IS your class? ", ch);
 			return;
@@ -2088,9 +2123,9 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			return;
 		}
 
-		ch->class = cl;
-		PC(ch)->points += CLASS(cl)->points;
-		act("You are now $t.", ch, CLASS(cl)->name, NULL, TO_CHAR);
+		ch->class = str_qdup(cl->name);
+		PC(ch)->points += cl->points;
+		act("You are now $t.", ch, cl->name, NULL, TO_CHAR);
 
 		dofun("help", ch, "STATS");
 		char_puts("Now rolling for your stats (10-20+).\n", ch);
@@ -2363,7 +2398,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				obj_to_char(create_obj(map, 0), ch);
 
 			if ((wield = get_eq_char(ch, WEAR_WIELD)))
-				set_skill_raw(ch, get_weapon_sn(wield),
+				_set_skill(ch, get_weapon_sn(wield),
 					      40, FALSE);
 
 			dofun("help", ch, "NEWBIE INFO");
@@ -2630,13 +2665,11 @@ void log_area_popularity(void)
 	fclose(fp);
 }
 
-bool class_ok(CHAR_DATA *ch, int class)
+bool class_ok(CHAR_DATA *ch, class_t *cl)
 {
 	race_t *r;
-	class_t *cl;
 
-	if ((cl = class_lookup(class)) == NULL
-	||  (r = race_lookup(ORG_RACE(ch))) == NULL
+	if ((r = race_lookup(ORG_RACE(ch))) == NULL
 	||  !r->race_pcdata)
 		return FALSE;
 
@@ -2649,28 +2682,30 @@ bool class_ok(CHAR_DATA *ch, int class)
 
 int align_restrict(CHAR_DATA *ch)
 {
+	class_t *cl;
 	race_t *r;
 
-	if ((r = race_lookup(ORG_RACE(ch))) == NULL
+	if ((cl = class_lookup(ch->class)) == NULL
+	||  (r = race_lookup(ORG_RACE(ch))) == NULL
 	||  !r->race_pcdata)
 		return RA_NONE;
 
 	if (r->race_pcdata->restrict_align == RA_GOOD
-	||  CLASS(ch->class)->restrict_align == RA_GOOD) {
+	||  cl->restrict_align == RA_GOOD) {
 		char_puts("Your character has good tendencies.\n", ch);
 		ch->alignment = 1000;
 		return RA_GOOD;
 	}
 
 	if (r->race_pcdata->restrict_align == RA_NEUTRAL
-	||  CLASS(ch->class)->restrict_align == RA_NEUTRAL) {
+	||  cl->restrict_align == RA_NEUTRAL) {
 		char_puts("Your character has neutral tendencies.\n", ch);
 		ch->alignment = 0;
 		return RA_NEUTRAL;
 	}
 
 	if (r->race_pcdata->restrict_align == RA_EVIL
-	||  CLASS(ch->class)->restrict_align == RA_EVIL) {
+	||  cl->restrict_align == RA_EVIL) {
 		char_puts("Your character has evil tendencies.\n", ch);
 		ch->alignment = -1000;
 		return RA_EVIL;

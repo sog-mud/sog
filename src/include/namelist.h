@@ -23,14 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: namelist.h,v 1.1 1999-10-06 09:56:00 fjoe Exp $
+ * $Id: namelist.h,v 1.2 1999-10-17 08:55:43 fjoe Exp $
  */
 
 #ifndef _NAMELIST_H_
 #define _NAMELIST_H_
 
 bool	is_name 	(const char *str, const char *namelist);
-bool	is_name_raw	(const char *str, const char *namelist,
+bool	_is_name	(const char *str, const char *namelist,
 			 int (*cmpfun)(const char*, const char*));
 bool	name_add	(const char **namelist, const char *name,
 			 CHAR_DATA *ch, const char *editor_name);

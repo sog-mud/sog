@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.116 1999-10-07 12:37:16 kostik Exp $
+ * $Id: martial_art.c,v 1.117 1999-10-17 08:55:41 fjoe Exp $
  */
 
 /***************************************************************************
@@ -213,7 +213,6 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 	ROOM_INDEX_DATA *now_in;
 	CHAR_DATA *victim;
 	int attempt;
-	class_t *cl;
 
 	if (RIDDEN(ch)) {
 		char_puts("You should ask to your rider!\n", ch);
@@ -230,8 +229,7 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((cl = class_lookup(ch->class))
-	&&  !CAN_FLEE(ch, cl)) {
+	if (!can_flee(ch)) {
 		 char_puts("Your honour doesn't let you flee, "
 			   "try dishonoring yourself.\n", ch);
 		 return;
@@ -443,15 +441,15 @@ void do_breath(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (ch->race == rn_lookup("blue dragon")) 
+	if (IS_RACE(ch->race, "blue dragon"))
 		spell = "lightning breath";
-	else if (ch->race == rn_lookup("red dragon"))
+	else if (IS_RACE(ch->race, "red dragon"))
 		spell = "fire breath";
-	else if (ch->race == rn_lookup("white dragon"))
+	else if (IS_RACE(ch->race, "white dragon"))
 		spell = "frost breath";
-	else if (ch->race == rn_lookup("black dragon"))
+	else if (IS_RACE(ch->race, "black dragon"))
 		spell = "acid breath";
-	else if (ch->race == rn_lookup("green dragon"))
+	else if (IS_RACE(ch->race, "green dragon"))
 		spell = "gas breath";
 	else {
 		act("You are not a dragon.", ch, NULL, NULL, TO_CHAR);

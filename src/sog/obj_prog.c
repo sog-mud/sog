@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.67 1999-10-06 09:56:08 fjoe Exp $
+ * $Id: obj_prog.c,v 1.68 1999-10-17 08:55:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1073,10 +1073,7 @@ int fight_prog_shockwave(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 int wear_prog_ranger_staff(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	class_t *cl;
-
-	if ((cl = class_lookup(ch->class)) == NULL
-	||  str_cmp(cl->name, "ranger")) {
+	if (!IS_CLASS(ch->class, "ranger")) {
 		char_puts("You don't know to use this thing.\n", ch);
 		unequip_char(ch, obj);
 		char_puts("Ranger staff slides off from your hand.\n", ch);

@@ -23,13 +23,14 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.7 1999-10-06 09:56:00 fjoe Exp $
+ * $Id: varr.h,v 1.8 1999-10-17 08:55:44 fjoe Exp $
  */
 
 #ifndef _VARR_H_
 #define _VARR_H_
 
 typedef void (*varr_e_init_t)(void *);
+typedef void *(*varr_e_cpy_t)(void *, void *);
 typedef void (*varr_e_destroy_t)(void *);
 
 typedef struct varr varr;
@@ -43,10 +44,12 @@ struct varr {
 	size_t nalloc;			/* elems allocated */
 
 	varr_e_init_t e_init;		/* init elem */
+	varr_e_cpy_t e_cpy;		/* copy elem */
 	varr_e_destroy_t e_destroy;	/* destroy elem */
 };
 
 void	varr_init	(varr*, size_t nsize, size_t nstep);
+varr *	varr_cpy	(varr* dst, varr *src);
 void	varr_destroy	(varr*);
 
 void *	varr_touch	(varr*, size_t i);
