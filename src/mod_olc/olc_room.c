@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.57 1999-09-08 10:40:06 fjoe Exp $
+ * $Id: olc_room.c,v 1.57.2.1 1999-12-01 11:08:43 fjoe Exp $
  */
 
 #include "olc.h"
@@ -721,7 +721,6 @@ OLC_FUN(roomed_oreset)
 		reset_add(pReset, pRoom, 0);
 
 		olevel  = URANGE(0, to_mob->level - 2, LEVEL_HERO);
-		 newobj = create_obj(pObjIndex, 0);
 
 		if (to_mob->pMobIndex->pShop) {	/* Shop-keeper? */
 			switch (pObjIndex->item_type) {
@@ -742,8 +741,7 @@ OLC_FUN(roomed_oreset)
 			newobj = create_obj(pObjIndex, 0);
 			if (pReset->arg2 == WEAR_NONE)
 			SET_BIT(newobj->extra_flags, ITEM_INVENTORY);
-		}
-		else
+		} else
 			newobj = create_obj(pObjIndex, 0);
 
 		obj_to_char(newobj, to_mob);
