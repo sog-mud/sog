@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.305 2000-06-08 18:09:12 fjoe Exp $
+ * $Id: merc.h,v 1.306 2000-08-04 14:12:45 cs Exp $
  */
 
 /***************************************************************************
@@ -958,6 +958,7 @@ struct spec_type
 #define APPLY_SAVING_BREATH	23
 #define APPLY_SAVING_SPELL	24
 #define APPLY_SIZE		26
+#define APPLY_LUCK		27
 
 /*
  * Skillaffects flags
@@ -1429,6 +1430,9 @@ struct char_data
 	int			perm_stat[MAX_STAT];
 	int			mod_stat[MAX_STAT];
 
+	int 			luck;
+	int			luck_mod;
+
 	/* resistances */
 	int16_t			resists[MAX_RESIST];
 
@@ -1867,6 +1871,8 @@ int trust_level(CHAR_DATA *ch);
 #define GET_DAMROLL(ch) \
 		(((ch)->shapeform) ? ((ch)->shapeform->damroll) : ((ch)->damroll+str_app[get_curr_stat(ch,STAT_STR)].todam))
 
+#define GET_LUCK(ch) URANGE(0, (ch)->luck+(ch)->luck_mod, 100)
+
 #define IS_OUTSIDE(ch)	(!IS_SET((ch)->in_room->room_flags, ROOM_INDOORS))
 
 #define WAIT_STATE(ch, npulse)	((ch)->wait = IS_IMMORTAL(ch) ?	\
@@ -2107,6 +2113,7 @@ const char *	first_arg	(const char *argument, char *arg_first, size_t,
 				 bool fCase);
 
 int  	get_resist	(CHAR_DATA *ch, int dam_class);
+int	get_luck	(CHAR_DATA *ch);
 void	yell		(CHAR_DATA *victim, CHAR_DATA *ch, const char * argument);
 
 /*
@@ -2218,6 +2225,8 @@ int	number_door	(void);
 int	number_bits	(int width);
 long	number_mm	(void);
 int	dice		(int number, int size);
+int 	dice_wlb	(int number, int dice, CHAR_DATA *ch, CHAR_DATA *victim);
+/* Dice with luck bonus */
 int	interpolate	(int level, int value_00, int value_32);
 char *	capitalize	(const char *str);
 void	append_file	(CHAR_DATA *ch, const char *file, const char *str);

@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.103 2000-06-07 08:56:00 fjoe Exp $
+ * $Id: recycle.c,v 1.104 2000-08-04 14:12:48 cs Exp $
  */
 
 /***************************************************************************
@@ -270,6 +270,9 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 		ch->perm_stat[i] = 15;
 		ch->mod_stat[i] = 0;
 	}
+
+	ch->luck		= 50;
+	ch->luck_mod		= 0;
 
 	varr_init(&ch->sk_affected, &v_sk_affected);
 

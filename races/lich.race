@@ -9,12 +9,13 @@ Resist pierce 35
 Resist slash 25
 Resist cold 100
 Resist lightning 100
-Resist holy -50
-Resist negative 100
-Resist disease 100
 Resist poison 100
+Resist negative 100
+Resist holy -50
+Resist disease 100
 Resist charm 100
 Damtype drain
+LuckBonus 0
 End
 
 #PCRACE

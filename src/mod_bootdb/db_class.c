@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_class.c,v 1.32 2000-04-16 09:22:03 fjoe Exp $
+ * $Id: db_class.c,v 1.33 2000-08-04 14:12:50 cs Exp $
  */
 
 #include <stdio.h>
@@ -115,6 +115,9 @@ DBLOAD_FUN(load_class)
 			break;
 		case 'H':
 			KEY("HPRate", class.hp_rate, fread_number(fp));
+			break;
+		case 'L':
+			KEY("LuckBonus", class.luck_bonus, fread_number(fp));
 			break;
 		case 'M':
 			KEY("ManaRate", class.mana_rate, fread_number(fp));

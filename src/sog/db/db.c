@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.226 2000-06-07 08:56:08 fjoe Exp $
+ * $Id: db.c,v 1.227 2000-08-04 14:12:50 cs Exp $
  */
 
 /***************************************************************************
@@ -1135,6 +1135,7 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 			else
 				mob->resists[i] = 100;
 		}
+		mob->luck 	+= r-> luck_bonus;
 	}
 
 	mob->form		= pMobIndex->form;
@@ -1799,6 +1800,49 @@ int dice(int number, int size)
 
 	return sum;
 }
+
+/*
+ * Roll some dice with luck bonus.
+ * ch wants roll to be bigger, victim wants roll to be smaller.
+ */ 
+
+ int dice_wlb(int number, int size, CHAR_DATA *ch, CHAR_DATA *victim)
+ {
+ 	int idice;
+	int sum;
+
+	int luck_diff;
+
+	luck_diff = ((ch == NULL) ? 50 : GET_LUCK(ch)) -
+		 ((victim == NULL) ? 50 : GET_LUCK(victim));
+	
+	switch (size) {
+	case 0: 
+		return 0;
+	case 1: 
+		return number;
+	}
+
+	for (idice = 0, sum = 0; idice < number; idice++) {
+		int cand;
+		int num;
+		if (luck_diff >= 0) {
+			num = luck_diff / 20 + 1 +
+				(number_range(0, 19) < luck_diff % 20) ? 1 : 0;
+			
+			for (cand=0; num; num--) 
+				cand = UMAX(cand, number_range(1, size));
+		} else {
+			num = (-luck_diff) / 20 + 1 +
+				(number_range(0, 19) < (-luck_diff) % 20) ? 1 : 0;
+			
+			for (cand=0; num; num--) 
+				cand = UMIN(cand, number_range(1, size));
+		}
+		sum += cand;
+	}
+	return sum;
+ }
 
 /*
  * Simple linear interpolation.

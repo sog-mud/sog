@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.142 2000-06-05 12:06:26 fjoe Exp $
+ * $Id: tables.c,v 1.143 2000-08-04 14:12:49 cs Exp $
  */
 
 /***************************************************************************
@@ -643,6 +643,7 @@ flaginfo_t apply_flags[] =
 	{ "savingbreath",	APPLY_SAVING_BREATH,	TRUE	},
 	{ "savingspell",	APPLY_SAVING_SPELL,	TRUE	},
 	{ "size",		APPLY_SIZE,		TRUE	},
+	{ "luck",		APPLY_LUCK,		TRUE	},
 
 	{ NULL }
 };

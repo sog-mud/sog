@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.c,v 1.28 2000-02-10 14:08:45 fjoe Exp $
+ * $Id: class.c,v 1.29 2000-08-04 14:12:48 cs Exp $
  */
 
 #include <stdio.h>
@@ -65,6 +65,7 @@ class_init(class_t *cl)
 	cl->restrict_sex = str_empty;
 	cl->restrict_ethos = 0;
 	cl->death_limit = -1;
+	cl->luck_bonus = 0;
 	cl->skill_spec = str_empty;
 
 	varr_init(&cl->guilds, &v_guilds);
@@ -93,6 +94,7 @@ class_cpy(class_t *dst, const class_t *src)
 	dst->restrict_ethos = src->restrict_ethos;
 	dst->death_limit = src->death_limit;
 	dst->skill_spec = str_qdup(src->skill_spec);
+	dst->luck_bonus	= src->luck_bonus;
 
 	varr_cpy(&dst->guilds, &src->guilds);
 	varr_cpy(&dst->poses, &src->poses);

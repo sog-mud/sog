@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.165 2000-06-14 17:54:31 fjoe Exp $
+ * $Id: save.c,v 1.166 2000-08-04 14:12:49 cs Exp $
  */
 
 /***************************************************************************
@@ -293,6 +293,10 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 		ch->perm_stat[STAT_DEX],
 		ch->perm_stat[STAT_CON],
 		ch->perm_stat[STAT_CHA]);
+
+	fprintf(fp, "Luck %d", ch->luck);
+	if (ch->luck_mod)
+		fprintf(fp, "LuckMod %d", ch->luck_mod);
 
 	if (IS_NPC(ch)) {
 		fprintf(fp, "Vnum %d\n", ch->pMobIndex->vnum);
@@ -804,6 +808,8 @@ fread_char(CHAR_DATA * ch, rfile_t * fp, int flags)
 			KEY("Levl", ch->level, fread_number(fp));
 			KEY("LogO", PC(ch)->logoff, fread_number(fp));
 			KEY("Lang", PC(ch)->dvdata->lang, fread_number(fp));
+			KEY("Luck", ch->luck, fread_number(fp));
+			KEY("LuckMod", ch->luck_mod, fread_number(fp));
 			break;
 
 		case 'N':

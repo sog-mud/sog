@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_race.c,v 1.35 2000-04-16 09:21:47 fjoe Exp $
+ * $Id: olc_race.c,v 1.36 2000-08-04 14:12:47 cs Exp $
  */
 
 #include "olc.h"
@@ -67,6 +67,7 @@ DECLARE_OLC_FUN(raceed_ethos		);
 DECLARE_OLC_FUN(raceed_class		);
 DECLARE_OLC_FUN(raceed_addaffect	);
 DECLARE_OLC_FUN(raceed_delaffect	);
+DECLARE_OLC_FUN(raceed_luckbonus	);
 
 DECLARE_OLC_FUN(olc_skill_update	);
 
@@ -116,6 +117,7 @@ olc_cmd_t olc_cmds_race[] =
 	{ "class",	raceed_class					},
 	{ "addaffect",	raceed_addaffect				},
 	{ "delaffect",	raceed_delaffect				},
+	{ "luckbonus", 	raceed_luckbonus				},
 
 	{ "update",	olc_skill_update				},
 	{ "commands",	show_commands					},
@@ -250,6 +252,8 @@ OLC_FUN(raceed_show)
 			   flag_string(race_flags, r->race_flags));
 	if (str_cmp(r->damtype, "punch"))
 		buf_printf(output, "Damage type:   [%s]\n", r->damtype);
+	
+	buf_printf(output, "Luck bonus:	   [%d]\n", r->luck_bonus);		
 
 	for (i = 0, j = 0; i < MAX_RESIST; i++) {
 		if (r->resists[i]) {
@@ -571,6 +575,13 @@ OLC_FUN(raceed_hpbonus)
 	race_t *race;
 	EDIT_RACE(ch, race);
 	return olced_number(ch, argument, cmd, &race->race_pcdata->hp_bonus);
+}
+
+OLC_FUN(raceed_luckbonus)
+{
+	race_t *race;
+	EDIT_RACE(ch, race);
+	return olced_number(ch, argument, cmd, &race->luck_bonus);
 }
 
 OLC_FUN(raceed_manabonus)
@@ -895,6 +906,8 @@ save_race_cb(void *p, va_list ap)
 
 	if (strcmp(r->damtype, "punch"))
 		fprintf(fp, "Damtype %s\n", r->damtype);
+	
+	fprintf(fp, "LuckBonus %d\n", r->luck_bonus);
 
 	aff_fwrite_list("Affc", r->affected, fp);
 

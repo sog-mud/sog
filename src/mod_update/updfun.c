@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.11 2000-07-25 12:02:24 fjoe Exp $
+ * $Id: updfun.c,v 1.12 2000-08-04 14:12:48 cs Exp $
  */
 
 #include <sys/types.h>
@@ -575,6 +575,19 @@ char_update_cb(void *vo, va_list ap)
 			act("$n falls to the ground flat on $s face.", ch, NULL, NULL, TO_ROOM);
 			affect_strip(ch, "thumbling");
 		}
+	}
+
+	if (number_percent() < 20) {
+		// Ajust luck
+		class_t* cl;
+		int nominal_luck = 50 + r->luck_bonus;
+		if ((cl = class_lookup(ch->class)) != NULL)
+			nominal_luck += cl->luck_bonus;
+
+		if (ch->luck > nominal_luck) 
+			ch->luck--;
+		else if (ch->luck < nominal_luck)
+			ch->luck++;
 	}
 
 	if (ch->position >= POS_STUNNED) {

@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.43 2000-06-07 08:55:54 fjoe Exp $
+ * $Id: affects.c,v 1.44 2000-08-04 14:12:48 cs Exp $
  */
 
 /***************************************************************************
@@ -322,6 +322,7 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	case APPLY_SAVING_PETRI:	ch->saving_throw	+= mod;	break;
 	case APPLY_SAVING_BREATH:	ch->saving_throw	+= mod;	break;
 	case APPLY_SAVING_SPELL:	ch->saving_throw	+= mod;	break;
+	case APPLY_LUCK:		ch->luck_mod		+= mod; break;
 
 	default:
 		if (IS_NPC(ch)) {

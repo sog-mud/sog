@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.214 2000-06-09 12:17:44 fjoe Exp $
+ * $Id: act_obj.c,v 1.215 2000-08-04 14:12:45 cs Exp $
  */
 
 /***************************************************************************
@@ -3008,21 +3008,19 @@ void do_second_wield(CHAR_DATA * ch, const char *argument)
 		char_puts("You can't wield that as your second weapon.\n", ch);
 		return;
 	}
-	if ((get_eq_char(ch, WEAR_SHIELD) != NULL) ||
-	    (get_eq_char(ch, WEAR_HOLD) != NULL)) {
-		char_puts("You cannot use a secondary weapon while using a shield or holding an item.\n", ch);
+
+	if (free_hands(ch) < 1 && !get_eq_char(ch, WEAR_SECOND_WIELD)) {
+		act("But your hands are both busy.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
-	if (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS|WEAPON_NO_OFFHAND)) {
+
+	if (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS|WEAPON_NO_OFFHAND) 
+	|| WEAPON_IS_LONG(obj)) {
 		char_puts("You can't dual wield this weapon!\n", ch);
 		return;
 	}
 	if ((wield = get_eq_char(ch, WEAR_WIELD)) == NULL) {
 		char_puts("You need to wield a primary weapon, before using a secondary one!\n", ch);
-		return;
-	}
-	if (WEAPON_IS(wield, WEAPON_STAFF)) {
-		char_puts("You can't use second weapon while wielding a staff.\n", ch);
 		return;
 	}
 	if (get_obj_weight(obj) > str_app[get_curr_stat(ch, STAT_STR)].wield / 2) {

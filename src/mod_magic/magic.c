@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic.c,v 1.24 2000-06-08 19:43:56 fjoe Exp $
+ * $Id: magic.c,v 1.25 2000-08-04 14:12:47 cs Exp $
  */
 
 #include <stdio.h>
@@ -256,7 +256,7 @@ saves_spell(int level, CHAR_DATA *victim, int dam_type)
 	&&  IS_SET(vcl->class_flags, CLASS_MAGIC))
 		save = 9 * save / 10;
 	save = URANGE(5, save, 95);
-	return number_percent() < save;
+	return dice_wlb(1, 100, NULL, victim) < save;
 }
 
 /*

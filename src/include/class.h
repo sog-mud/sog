@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.28 2000-04-16 09:21:35 fjoe Exp $
+ * $Id: class.h,v 1.29 2000-08-04 14:12:45 cs Exp $
  */
 
 #ifndef _CLASS_H_
@@ -50,6 +50,7 @@ struct class_t {
 	flag_t		restrict_ethos;		/* ethos restrictions */
 	varr		poses;			/* varr of class poses */
 	int		death_limit;		/* death limit */
+	int		luck_bonus;		/* class luck bonus */
 	const char *	skill_spec;		/* skills spec for this class */
 };
 

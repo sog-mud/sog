@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.247 2000-07-27 08:11:15 fjoe Exp $
+ * $Id: act_wiz.c,v 1.248 2000-08-04 14:12:46 cs Exp $
  */
 
 /***************************************************************************
@@ -1159,11 +1159,12 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		get_curr_stat(victim,STAT_CHA));
 
 
-	buf_printf(output, "Hp: %d/%d  Mana: %d/%d  Move: %d/%d  Practices: %d\n",
+	buf_printf(output, "Hp: %d/%d  Mana: %d/%d  Move: %d/%d  Practices: %d Luck: %d\n", 
 		victim->hit,         victim->max_hit,
 		victim->mana,        victim->max_mana,
 		victim->move,        victim->max_move,
-		IS_NPC(ch) ? 0 : PC(victim)->practice);
+		IS_NPC(ch) ? 0 : PC(victim)->practice,
+		GET_LUCK(victim));
 		
 	if (IS_NPC(victim))
 		snprintf(buf, sizeof(buf), "%d", victim->alignment);

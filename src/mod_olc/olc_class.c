@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_class.c,v 1.21 2000-04-16 09:21:46 fjoe Exp $
+ * $Id: olc_class.c,v 1.22 2000-08-04 14:12:47 cs Exp $
  */
 
 #include "olc.h"
@@ -54,6 +54,7 @@ DECLARE_OLC_FUN(classed_sex		);
 DECLARE_OLC_FUN(classed_stats		);
 DECLARE_OLC_FUN(classed_poses		);
 DECLARE_OLC_FUN(classed_skillspec	);
+DECLARE_OLC_FUN(classed_luckbonus	);
 DECLARE_OLC_FUN(classed_guilds		);
 
 DECLARE_OLC_FUN(olc_skill_update	);
@@ -89,6 +90,7 @@ olc_cmd_t olc_cmds_class[] =
 	{ "poses",	classed_poses					},
 	{ "skillspec",	classed_skillspec,	validate_skill_spec	},
 	{ "guilds",	classed_guilds					},
+	{ "luckbonus", 	classed_luckbonus				},
 
 	{ "update",	olc_skill_update				},
 	{ "commands",	show_commands					},
@@ -214,6 +216,10 @@ OLC_FUN(classed_show)
 			   flag_string(class_flags, class->class_flags));
 	if (class->points)
 		buf_printf(output, "Exp points:     [%d]\n", class->points);
+	
+	buf_printf(output, "Luck bonus:     [%d]\n", class->luck_bonus);
+	
+
 
 	for (i = 0, found = FALSE; i < MAX_STAT; i++)
 		if (class->mod_stat[i]) found = TRUE;
@@ -291,6 +297,13 @@ OLC_FUN(classed_weapon		)
 		return FALSE;
 	}
 	return olced_number(ch, argument, cmd, &class->weapon);
+}
+
+OLC_FUN(classed_luckbonus	)
+{
+	class_t *class;
+	EDIT_CLASS(ch, class);
+	return olced_number(ch, argument, cmd, &class->luck_bonus);
 }
 
 OLC_FUN(classed_thac00		)
@@ -640,6 +653,7 @@ save_class_cb(void *p, va_list ap)
 	fprintf(fp, "Thac0_00 %d\n", cl->thac0_00);
 	fprintf(fp, "Thac0_32 %d\n", cl->thac0_32);
 	fprintf(fp, "HPRate %d\n", cl->hp_rate);
+	fprintf(fp, "LuckBonus %d\n", cl->luck_bonus);
 	fprintf(fp, "ManaRate %d\n", cl->mana_rate);
 	if (cl->class_flags)
 		fprintf(fp, "Flags %s~\n",

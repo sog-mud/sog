@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_race.c,v 1.27 2000-04-16 09:22:03 fjoe Exp $
+ * $Id: db_race.c,v 1.28 2000-08-04 14:12:50 cs Exp $
  */
 
 #include <stdio.h>
@@ -117,6 +117,9 @@ DBLOAD_FUN(load_race)
 			break;
 		case 'I':
 			KEY("Inv", r.has_invis, fread_fstring(id_flags, fp));
+			break;
+		case 'L':
+			KEY("LuckBonus", r.luck_bonus, fread_number(fp));
 			break;
 		case 'N':
 			SKEY("Name", r.name, fread_string(fp));
