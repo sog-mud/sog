@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.105 1999-02-20 11:34:50 fjoe Exp $
+ * $Id: update.c,v 1.106 1999-02-22 04:27:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1187,7 +1187,8 @@ void char_update(void)
 				&&  paf->type > 0
 				&&  (sk = skill_lookup(paf->type))
 				&&  !IS_NULLSTR(sk->msg_off)) 
-					char_printf(ch, "%s\n", sk->msg_off);
+					act_puts(sk->msg_off, ch, NULL, NULL,
+						 TO_CHAR, POS_DEAD);
 				affect_remove(ch, paf);
 			}
 		}

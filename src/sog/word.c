@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: word.c,v 1.18 1999-02-21 19:19:29 fjoe Exp $
+ * $Id: word.c,v 1.19 1999-02-22 04:27:40 fjoe Exp $
  */
 
 #include <limits.h>
@@ -41,12 +41,22 @@
 const char* word_form_lookup(varr *hash, const char *word, int num);
 static int cmpword(const void *p1, const void *p2);
 
-WORD_DATA *word_new(void)
+void word_init(WORD_DATA *w)
 {
-	WORD_DATA *w = calloc(1, sizeof(WORD_DATA));
+	memset(w, 0, sizeof(*w));
 	w->f.nsize = sizeof(char*);
 	w->f.nstep = 4;
-	return w;
+}
+
+void word_clear(WORD_DATA *w)
+{
+	int i;
+
+	free_string(w->name);
+	w->name = NULL;
+
+	for (i = 0; i < w->f.nused; i++) 
+		free_string(VARR_GET(&w->f, i));
 }
 
 WORD_DATA *word_add(varr *hash, WORD_DATA *w)
@@ -78,8 +88,7 @@ void word_del(varr *hash, const char *name)
 	v = hash+wordhash(name);
 	if ((w = varr_bsearch(v, &name, cmpword)) == NULL)
 		return;
-	word_free(w);
-	w->name = NULL;
+	word_clear(w);
 	varr_qsort(v, cmpword);
 	v->nused--;
 }
@@ -105,16 +114,6 @@ void word_form_del(WORD_DATA *w, int fnum)
 	if (*p)
 		free_string(*p);
 	*p = NULL;
-}
-
-void word_free(WORD_DATA *w)
-{
-	int i;
-
-	free_string(w->name);
-
-	for (i = 0; i < w->f.nused; i++) 
-		free_string(VARR_GET(&w->f, i));
 }
 
 const char *word_gender(int lang, const char *word, int gender)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_lang.c,v 1.10 1999-02-18 13:34:33 fjoe Exp $
+ * $Id: db_lang.c,v 1.11 1999-02-22 04:27:40 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -140,8 +140,9 @@ DBLOAD_FUN(load_lang)
 DBLOAD_FUN(load_word)
 {
 	varr *hash = arg;
-	WORD_DATA *w = word_new();
+	WORD_DATA w;
 
+	word_init(&w);
 	for (;;) {
 		char *word = feof(fp) ? "End" : fread_word(fp);
 		bool fMatch = FALSE;
@@ -153,19 +154,19 @@ DBLOAD_FUN(load_word)
 				fMatch = TRUE;
 				break;
 			}
-			KEY("BaseLen", w->base_len, fread_number(fp));
+			KEY("BaseLen", w.base_len, fread_number(fp));
 			break;
 
 		case 'E':
 			if (!str_cmp(word, "End")) {
-				if (IS_NULLSTR(w->name)) {
+				if (IS_NULLSTR(w.name)) {
 					db_error("load_word",
 						 "word name undefined");
-					word_free(w);
+					word_clear(&w);
 					return;
 				}
-				if (!word_add(hash, w)) {
-					word_free(w);
+				if (!word_add(hash, &w)) {
+					word_clear(&w);
 					return;
 				}
 				return;
@@ -176,14 +177,14 @@ DBLOAD_FUN(load_word)
 			if (!str_cmp(word, "Form")) {
 				int fnum = fread_number(fp);
 				const char *fstring = fread_string(fp);
-				word_form_add(w, fnum, fstring);
+				word_form_add(&w, fnum, fstring);
 				free_string(fstring);
 				fMatch = TRUE;
 			}
 			break;
 
 		case 'N':
-			SKEY("Name", w->name);
+			SKEY("Name", w.name);
 			break;
 		}
 

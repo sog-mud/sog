@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_form.c,v 1.17 1999-02-20 16:29:19 fjoe Exp $
+ * $Id: olc_form.c,v 1.18 1999-02-22 04:27:40 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -74,7 +74,7 @@ OLC_CMD_DATA olc_cmds_form[] =
 
 OLC_FUN(formed_create)
 {
-	WORD_DATA *w;
+	WORD_DATA wnew;
 	LANG_DATA *l = NULL;
 	char arg[MAX_STRING_LENGTH];
 	const char *type;
@@ -125,10 +125,10 @@ OLC_FUN(formed_create)
 		return FALSE;
 	}
 
-	w = word_new();
-	w->name = str_dup(argument);
+	word_init(&wnew);
+	wnew.name = str_dup(argument);
 	ch->desc->editor = type;
-	ch->desc->pEdit = word_add(hash, w);
+	ch->desc->pEdit = word_add(hash, &wnew);
 	ch->desc->pEdit2 = l; 
 	touch_lang(l, type);
 	char_puts("FormEd: word created.\n", ch);
@@ -333,6 +333,7 @@ OLC_FUN(formed_list)
 OLC_FUN(formed_name)
 {
 	WORD_DATA *w;
+	WORD_DATA wnew;
 	LANG_DATA *l;
 	varr *hash;
 
@@ -351,9 +352,9 @@ OLC_FUN(formed_name)
 	}
 
 	word_del(hash, w->name);
-	free_string(w->name);
-	w->name = str_dup(argument);
-	ch->desc->pEdit = word_add(hash, w);
+	word_init(&wnew);
+	wnew.name = str_dup(argument);
+	ch->desc->pEdit = word_add(hash, &wnew);
 	return TRUE;
 }
 
