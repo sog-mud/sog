@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.170 1999-11-22 14:54:27 fjoe Exp $
+ * $Id: update.c,v 1.171 1999-11-27 08:24:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -782,10 +782,14 @@ void mobile_update(void)
 						if (ch->hit < ch->max_hit*0.5
 						&&  cl > 3) {
 							quaff_obj(ch, obj);
+							if (IS_EXTRACTED(ch))
+								break;
 							continue;
 						}
 						if (ch->hit < ch->max_hit*0.7) {
 							quaff_obj(ch, obj);
+							if (IS_EXTRACTED(ch))
+								break;
 							continue;
 						}
 					}
@@ -794,18 +798,24 @@ void mobile_update(void)
 				if (IS_AFFECTED(ch, AFF_POISON)
 				&&  is_potion(obj, "cure poison")) {
 					quaff_obj(ch, obj);
+					if (IS_EXTRACTED(ch))
+						break;
 					continue;
 				}
 
 				if (IS_AFFECTED(ch, AFF_PLAGUE)
 				&&  is_potion(obj, "cure disease")) {
 					quaff_obj(ch, obj);
+					if (IS_EXTRACTED(ch))
+						break;
 					continue;
 				}
 
 				if (IS_AFFECTED(ch, AFF_BLIND)
 				&&  is_potion(obj, "cure blindness")) {
 					quaff_obj(ch, obj);
+					if (IS_EXTRACTED(ch))
+						break;
 					continue;
 				}
 
@@ -815,28 +825,39 @@ void mobile_update(void)
 					if (ch->level - ch->fighting->level < 7
 					&&  al > 3) {
 						quaff_obj(ch, obj);
+						if (IS_EXTRACTED(ch))
+							break;
 						continue;
 					}
 
 					if (ch->level - ch->fighting->level < 8
 					&&  al > 2) {
 						quaff_obj(ch, obj);
+						if (IS_EXTRACTED(ch))
+							break;
 						continue;
 					}
 
 					if (ch->level - ch->fighting->level < 9
 					&&  al > 1) {
 						quaff_obj(ch, obj);
+						if (IS_EXTRACTED(ch))
+							break;
 						continue;
 					}
 
 					if (ch->level - ch->fighting->level < 10
 					&&  al > 0) {
 						quaff_obj(ch, obj);
+						if (IS_EXTRACTED(ch))
+							break;
 						continue;
 					}
-				}
-			}
+				} /* if (ch->fighting) */
+			} /* for */
+
+			if (IS_EXTRACTED(ch))
+				continue;
 		}
 
 /* That's all for sleeping / busy monster, and empty zones */
