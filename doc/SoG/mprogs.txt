@@ -1,5 +1,5 @@
 #
-# $Id: mprogs.txt,v 1.28 2004-02-19 12:16:52 sg Exp $
+# $Id: mprogs.txt,v 1.29 2004-02-20 00:28:42 sg Exp $
 #
 
 MPC code style
@@ -489,7 +489,14 @@ ID_TRUESEEN, ID_GOOD, ID_TREEFORM, ID_ALL_INVIS
 bool has_invis(Char ch, int f)
   есть ли на чаре невидимость f (значения см в has_detect)
 
-int has_sp(Char ch, string spn, string spn_add, string spn_rm)
+bool has_sp(Char ch, string spn, string spn_rm, string spn_add)
+  если у чара ch отнять спеку spn_rm и добавить спеку (спеки) spn_add,
+  будет ли он обладать спекой (из набора) spn
+ex.: has_sp(ch, "major_necromancy minor_necromancy", rm, add)
+
+bool has_spec(Char ch, string spn)
+   есть ли у чара спека spn
+ex.: has_sp(ch, "class_thief")
 
 inflict_effect(string effect, Char ch, int num, int dam)
   вешает (пытается повесить) на чара ch эффект effect
@@ -628,7 +635,12 @@ set_obj_owner(Obj p, Char ch)
 social_char(string name, Char ch, Char victim)
   делается social name (e.g "smile") чаром ch чару victim
 
-spclass_count(Char ch, string spn, string spn_add, string spn_rm)
+spclass_count(Char ch, string spclass, string spn_rm, string spn_add)
+  если у чара ch отнять спеку spn_rm и добавить спеку (спеки) spn_add,
+  сколько у него будет спек класса spclass 
+  spclass -- одно из "class", "race", "clan", "weapon", 
+	             "form", "major_school", "minor_school"
+ex.: spclass_count(ch, "weapon", rm, add)
 
 spellfun(string fn, string sn, int level, Char ch, any vo)
   зовется спеллфункция fn уровня level на аргумент vo (Char/Obj)
