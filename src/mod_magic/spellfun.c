@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.296 2002-08-15 14:29:30 tatyana Exp $
+ * $Id: spellfun.c,v 1.297 2002-10-23 07:20:09 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1675,7 +1675,6 @@ SPELL_FUN(spell_locate_object, sn, level, ch, vo)
 
 		if (buffer == NULL)
 			buffer = buf_new(0);
-		number++;
 
 		for (in_obj = obj; in_obj->in_obj != NULL;
 						in_obj = in_obj->in_obj)
@@ -1685,16 +1684,22 @@ SPELL_FUN(spell_locate_object, sn, level, ch, vo)
 		&&  can_see(ch, in_obj->carried_by)) {
 			buf_printf(buffer, BUF_END, "One is carried by %s\n",
 			    PERS(in_obj->carried_by, ch, GET_LANG(ch), ACT_FORMSH));
+			number++;
 		} else {
+			if (obj->in_room == NULL)
+				continue;
+
 			if (IS_IMMORTAL(ch) && in_obj->in_room != NULL) {
 				buf_printf(buffer, BUF_END, "One is in %s [Room %d]\n",
 					   mlstr_cval(&in_obj->in_room->name, ch),
 					   in_obj->in_room->vnum);
+				number++;
 			} else {
 				buf_printf(buffer, BUF_END, "One is in %s\n",
 					   in_obj->in_room == NULL ?
 					   "somewhere" :
 					   mlstr_cval(&in_obj->in_room->name, ch));
+				number++;
 			}
 		}
 
@@ -1702,7 +1707,7 @@ SPELL_FUN(spell_locate_object, sn, level, ch, vo)
 			break;
 	}
 
-	if (buffer == NULL)
+	if (number == 0)
 		act_char("Nothing like that in heaven or earth.", ch);
 	else {
 		page_to_char(buf_string(buffer),ch);
