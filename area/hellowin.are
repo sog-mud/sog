@@ -363,6 +363,15 @@ key 0 0
 0 0 0 0 0
 1 1 100 P
 G male
+#34421
+hive wasp осиное гнездо~
+@eng humming wasp hive@rus ~~жужжащее~~ ~~осиное~~ ~~гнездо~~~
+@eng You see the humming wasp hive here.@rus Ты видишь жужжащее очиное гнездо (hive).~
+unknown~
+container RTij AO
+0 0 0 0 0
+0 1 15000 P
+G none
 #34449
 mace дубина~
 @eng wooden mace@rus ~~массивная~~ ~~дубина~~~
@@ -968,6 +977,7 @@ say I know nothing about it.
 #0
 
 #OMPROGS
+O 34421 fight_prog fight_prog_wasp_hive	* `humming wasp hive'
 O 34449 wear_prog wear_prog_excalibur	* `wooden mace'
 O 34459 wear_prog wear_prog_excalibur	* `butcher's knife'
 S
