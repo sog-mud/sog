@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.11 2000-03-28 11:02:56 fjoe Exp $
+ * $Id: spellfun2.c,v 1.139.2.12 2000-03-28 12:45:30 osya Exp $
  */
 
 /***************************************************************************
@@ -5923,7 +5923,7 @@ void spell_crypt_thing(int sn, int level, CHAR_DATA *ch, void *vo)
 	        undead->damroll  = number_range(1, level/3);
 	        undead->master = NULL;
 		undead->leader = NULL;
-		NPC(undead)->target = ch;
+		NPC(undead)->mprog_target = ch;
 
                 for (obj2 = obj->contains; obj2; obj2 = next) {
                         next = obj2->next_content;

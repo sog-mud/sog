@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.15 2000-03-28 11:08:25 fjoe Exp $
+ * $Id: update.c,v 1.157.2.16 2000-03-28 12:45:54 osya Exp $
  */
 
 /***************************************************************************
@@ -1868,7 +1868,7 @@ void aggr_update(void)
 			&&  !IS_AFFECTED(ch, AFF_SCREAM | AFF_CALM)) {
 				act_yell(ch, "$i! Now you die!", wch, NULL);
 				wch = check_guard(wch, ch); 
-				multi_hit(ch, wch, TYPE_UNDEFINED);
+				dofun("murder", ch, wch->name);
 				continue;
 			}
 
