@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.169.2.8 2000-04-10 15:27:19 fjoe Exp $
+ * $Id: db.c,v 1.169.2.9 2000-04-10 15:46:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -142,7 +142,6 @@ const char PENALTY_FILE		[] = "penal.not";
 const char NEWS_FILE		[] = "news.not";
 const char CHANGES_FILE		[] = "chang.not";
 const char SHUTDOWN_FILE	[] = "shutdown";	/* For 'shutdown' */
-const char EQCHECK_FILE		[] = "eqcheck";		/* limited eq checks */
 const char EQCHECK_SAVE_ALL_FILE[] = "eqcheck_save_all";/* limited eq checks */
 const char BAN_FILE		[] = "ban.txt";
 const char MAXON_FILE		[] = "maxon.txt";
@@ -1935,17 +1934,10 @@ void scan_pfiles()
 {
 	struct dirent *dp;
 	DIR *dirp;
-	bool eqcheck = dfexist(TMP_PATH, EQCHECK_FILE);
 	bool eqcheck_save_all = dfexist(TMP_PATH, EQCHECK_SAVE_ALL_FILE);
 
-	log("scan_pfiles: start (eqcheck: %s, save all: %s)",
-		   eqcheck ? "active" : "inactive",
-		   eqcheck_save_all ? "yes" : "no");
-
-	if (eqcheck
-	&&  dunlink(TMP_PATH, EQCHECK_FILE) < 0)
-		log("scan_pfiles: unable to deactivate eq checker (%s)",
-		    strerror(errno));
+	log("scan_pfiles: start (save all: %s)",
+	    eqcheck_save_all ? "yes" : "no");
 
 	if (eqcheck_save_all
 	&&  dunlink(TMP_PATH, EQCHECK_SAVE_ALL_FILE) < 0)
@@ -1994,7 +1986,6 @@ void scan_pfiles()
 			obj->pObjIndex->count++;
 
 			if (obj->pObjIndex->limit < 0
-			||  !eqcheck
 			||  !should_clear)
 				continue;
 
@@ -2023,8 +2014,7 @@ void scan_pfiles()
 	}
 	closedir(dirp);
 
-	log("scan_pfiles: end (eqcheck: %s, save all: %s)",
-	    dfexist(TMP_PATH, EQCHECK_FILE) ? "active" : "inactive",
+	log("scan_pfiles: end (save all: %s)",
 	    dfexist(TMP_PATH, EQCHECK_SAVE_ALL_FILE) ? "on" : "off");
 }
 
