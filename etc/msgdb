@@ -1945,7 +1945,7 @@ Quest staff waits patiently to return.~
 :li <num> <str>  - insert <str> before line #num
 :lr <num> <str>  - replace line #num with <str>
 @@, ~~, :x, :wq    - finish editing (save changes)
-:q!              - abort editing (do not save changes)@rus Комманды пишутся с новой строки:
+:q!              - abort editing (do not save changes)@rus Команды пишутся с новой строки:
 :r 'старая' 'новая'  -- заменить подстроку (первое вхождение)
 :R 'старая' 'новая'  -- заменить подстроку (все вхождения)
                         (требуются '', "")
@@ -3866,8 +3866,8 @@ Return to questmaster before your time runs out!@rus Ты почти $gn{выполнил} свое
 @eng good@rus хорошо~
 @eng goods@rus добрых~
 @eng grant: cmd min level cannot be higher than yours.@rus grant: минимальный уровень дарованных команд не может быть больше, чем твой уровень.~
-@eng grant: granted level cannot be higher than yours.@rus grant: пожалованный уровень комманд не может быть больше твоего.~
-@eng grant: granted level must be at least $j@rus grant: уровень пожалованных комманд должен быть минимум $j.~
+@eng grant: granted level cannot be higher than yours.@rus grant: пожалованный уровень команд не может быть больше твоего.~
+@eng grant: granted level must be at least $j@rus grant: уровень пожалованных команд должен быть минимум $j.~
 @eng healing spell@rus заживление ран~
 @eng highly resistant against@rus высокая сопротивляемость~
 @eng hints          $t@rus подсказки                  $t~
