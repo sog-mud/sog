@@ -1,5 +1,5 @@
 /*
- * $Id: mob_prog.c,v 1.50.2.5 2000-03-28 10:35:31 osya Exp $
+ * $Id: mob_prog.c,v 1.50.2.6 2000-04-19 08:40:55 osya Exp $
  */
 
 /***************************************************************************
@@ -654,66 +654,68 @@ int cmd_eval(int vnum, const char *line, int check,
 		one_argument(line, buf, sizeof(buf));
 		rval = atoi(buf);
 	}
-    }
+    
 
-    switch(check)
-    {
-	case CHK_VNUM:
-	    switch(code)
-            {
-                default :
-                case 'i':
-                case 'n':
-                case 't':
-                case 'r':
-		case 'q':
-                    if(lval_char != NULL && IS_NPC(lval_char))
-                        lval = lval_char->pMobIndex->vnum;
-                    break;
-                case 'o':
-                case 'p':
-                     if (lval_obj != NULL)
-                        lval = lval_obj->pObjIndex->vnum;
-            }
-            break;
-	case CHK_HPCNT:
-	    if (lval_char != NULL) lval = (lval_char->hit * 100)/(UMAX(1,lval_char->max_hit)); break;
-	case CHK_ROOM:
-	    if (lval_char != NULL && lval_char->in_room != NULL)
-		lval = lval_char->in_room->vnum; break;
-        case CHK_SEX:
-	    if (lval_char != NULL) lval = lval_char->sex; break;
-        case CHK_LEVEL:
-            if (lval_char != NULL) lval = lval_char->level; break;
-	case CHK_ALIGN:
-            if (lval_char != NULL) lval = lval_char->alignment; break;
-	case CHK_MONEY:  /* Money is converted to silver... */
-	    if (lval_char != NULL) 
-		lval = lval_char->gold + (lval_char->silver * 100); break;
-	case CHK_OBJVAL0:
-            if (lval_obj != NULL) lval = lval_obj->value[0]; break;
-        case CHK_OBJVAL1:
-            if (lval_obj != NULL) lval = lval_obj->value[1]; break;
-        case CHK_OBJVAL2: 
-            if (lval_obj != NULL) lval = lval_obj->value[2]; break;
-        case CHK_OBJVAL3:
-            if (lval_obj != NULL) lval = lval_obj->value[3]; break;
-	case CHK_OBJVAL4:
-	    if (lval_obj != NULL) lval = lval_obj->value[4]; break;
-	case CHK_GRPSIZE:
-	    if (lval_char != NULL) lval = count_people_room(lval_char, 4);
-	    break;
-	case CHK_STR:
-	case CHK_INT:
-	case CHK_WIS:
-	case CHK_DEX:
-	case CHK_CON:
-	case CHK_CHA:
-	    if (lval_char != NULL)
-		lval = get_curr_stat(lval_char, check - CHK_STR);
-	    break;
-	default:;
-    }
+	    switch(check)
+	    {
+		case CHK_VNUM:
+		    switch(code)
+	            {
+	                default :
+	                case 'i':
+	                case 'n':
+	                case 't':
+	                case 'r':
+			case 'q':
+	                    if(lval_char != NULL && IS_NPC(lval_char))
+	                        lval = lval_char->pMobIndex->vnum;
+	                    break;
+	                case 'o':
+	                case 'p':
+	                     if (lval_obj != NULL)
+	                        lval = lval_obj->pObjIndex->vnum;
+	            }
+	            break;
+		case CHK_HPCNT:
+		    if (lval_char != NULL) lval = (lval_char->hit * 100)/(UMAX(1,lval_char->max_hit)); break;
+		case CHK_ROOM:
+		    if (lval_char != NULL && lval_char->in_room != NULL)
+			lval = lval_char->in_room->vnum; break;
+	        case CHK_SEX:
+		    if (lval_char != NULL) lval = lval_char->sex; break;
+	        case CHK_LEVEL:
+	            if (lval_char != NULL) lval = lval_char->level; break;
+		case CHK_ALIGN:
+	            if (lval_char != NULL) lval = lval_char->alignment; break;
+		case CHK_MONEY:  /* Money is converted to silver... */
+		    if (lval_char != NULL) 
+			lval = lval_char->gold + (lval_char->silver * 100); break;
+		case CHK_OBJVAL0:
+	            if (lval_obj != NULL) lval = lval_obj->value[0]; break;
+	        case CHK_OBJVAL1:
+	            if (lval_obj != NULL) lval = lval_obj->value[1]; break;
+	        case CHK_OBJVAL2: 
+	            if (lval_obj != NULL) lval = lval_obj->value[2]; break;
+	        case CHK_OBJVAL3:
+	            if (lval_obj != NULL) lval = lval_obj->value[3]; break;
+		case CHK_OBJVAL4:
+		    if (lval_obj != NULL) lval = lval_obj->value[4]; break;
+		case CHK_GRPSIZE:
+		    if (lval_char != NULL) lval = count_people_room(lval_char, 4);
+		    break;
+		case CHK_STR:
+		case CHK_INT:
+		case CHK_WIS:
+		case CHK_DEX:
+		case CHK_CON:
+		case CHK_CHA:
+		    if (lval_char != NULL)
+			lval = get_curr_stat(lval_char, check - CHK_STR);
+		    break;
+		default:;
+	    }
+		return(num_eval(lval, oper, rval));
+	}	
     /*
      * Case 6: Keyword, actor and actor
      */
@@ -764,7 +766,7 @@ int cmd_eval(int vnum, const char *line, int check,
 	   return FALSE;
      }
 
-    return(num_eval(lval, oper, rval));
+    return FALSE;
 }
 
 /*
