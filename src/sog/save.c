@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.23 1998-06-16 16:56:48 fjoe Exp $
+ * $Id: save.c,v 1.24 1998-06-17 07:31:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -855,7 +855,7 @@ void fread_char(CHAR_DATA *ch, FILE *fp)
 
 
 	sprintf(buf,"Loading %s.",ch->name);
-	log_string(buf);
+	log(buf);
 	ch->pcdata->bank_s = 0;
 	ch->pcdata->bank_g = 0;
 

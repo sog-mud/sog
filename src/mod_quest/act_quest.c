@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.34 1998-06-17 04:54:27 fjoe Exp $
+ * $Id: act_quest.c,v 1.35 1998-06-17 07:31:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -505,9 +505,6 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 	CHAR_DATA *mobs[MAX_QMOB_COUNT];
 	size_t mob_count;
 	CHAR_DATA *victim = NULL;
-	ROOM_INDEX_DATA* room = NULL; /* disable gcc
-					 'might be used uninitialized'
-					 warning */
 	CHAR_DATA *questor;
 
 	if ((questor = questor_lookup(ch)) == NULL)
@@ -542,44 +539,25 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		||  (ch->level < 51 && (diff > 4 || diff < -1))
 		||  (ch->level > 50 && (diff > 6 || diff < 0))
 		||  victim->pIndexData->pShop != NULL
+		||  (IS_EVIL(victim) && IS_EVIL(ch))
+		||  (IS_GOOD(victim) && IS_GOOD(ch))
 		||  IS_SET(victim->pIndexData->act, ACT_TRAIN)
 		||  IS_SET(victim->pIndexData->act, ACT_PRACTICE)
 		||  IS_SET(victim->pIndexData->act, ACT_IS_HEALER)
 		||  IS_SET(victim->pIndexData->act, ACT_NOTRACK)
 		||  IS_SET(victim->pIndexData->imm_flags, IMM_SUMMON)
 		||  questor->pIndexData == victim->pIndexData
+		||  victim->in_room == NULL
 		||  (IS_SET(victim->pIndexData->act, ACT_SENTINEL) &&
-		     IS_SET(victim->in_room->room_flags, ROOM_SAFE)))
+		     IS_SET(victim->in_room->room_flags, ROOM_SAFE))
+		||  IS_SET(victim->in_room->area->area_flag, AREA_HOMETOWN))
 			continue;
 		mobs[mob_count++] = victim;
 		if (mob_count >= MAX_QMOB_COUNT)
 			break;
 	}
 
-	log_printf("quest_generate: %s, %d mobs found", ch->name, mob_count);
-
-	/*
-	 * randomly select mob vnum
-	 */
-	for(i = 0; i < mob_count; i++) {
-		CHAR_DATA* vch;
-		int idx;
-
-		idx = number_range(0, mob_count-1);
-		if ((vch = mobs[idx]) != NULL
-		&&  ((IS_EVIL(vch) && !IS_EVIL(ch)) ||
-		     (!IS_EVIL(vch) && !IS_GOOD(ch)))
-		&&  (vch = get_char_world(ch, vch->pIndexData->player_name)) 
-							!= NULL
-		&&  vch->hunter == NULL
-		&&  (room = find_location(ch, vch->name)) != NULL
-		&&  !IS_SET(room->area->area_flag, AREA_HOMETOWN)) {
-			victim = vch;
-			break;
-		}
-	}
-
-	if (victim == NULL) {
+	if (mob_count == 0) {
 		log_printf("quest_generate: no quests for %s", ch->name);
 		quest_tell(ch, questor, msg(QUEST_DONT_HAVE_QUESTS, ch));
 		quest_tell(ch, questor, msg(QUEST_TRY_AGAIN_LATER, ch));
@@ -587,11 +565,12 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		return;
 	}
 
+	victim = mobs[number_range(0, mob_count-1)];
 	log_printf("quest_generate: quest for %s (%d): %s (%d, %d), %s (%d)\n",
 		   ch->name, ch->level,
 		   victim->name, victim->level, victim->pIndexData->vnum,
-		   room->name, room->vnum);
-	ch->pcdata->questroom = room;
+		   victim->in_room->name, victim->in_room->vnum);
+	ch->pcdata->questroom = victim->in_room;
 
 	if (chance(40)) { /* Quest to find an obj */
 		OBJ_DATA *eyed;
@@ -625,7 +604,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		eyed->cost = 0;
 		eyed->timer = 30;
 
-		obj_to_room(eyed, room);
+		obj_to_room(eyed, victim->in_room);
 		ch->pcdata->questobj = eyed->pIndexData->vnum;
 
 		quest_tell(ch, questor, msg(QUEST_VILE_PILFERERS, ch),
@@ -650,7 +629,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		}
 
 		quest_tell(ch, questor, msg(QUEST_SEEK_S_OUT, ch),
-			   victim->short_descr, room->name);
+			   victim->short_descr, victim->in_room->name);
 
 		ch->pcdata->questmob = victim->pIndexData->vnum;
 		victim->hunter = ch;
@@ -662,7 +641,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 	 * to comment these next two lines. - Vassago
 	 */
 	quest_tell(ch, questor, msg(QUEST_LOCATION_IS_IN_AREA, ch),
-		   room->area->name, room->name);
+		   victim->in_room->area->name, victim->in_room->name);
 
 	ch->pcdata->questgiver = questor->pIndexData->vnum;
 	ch->pcdata->questtime = number_range(15, 30);

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.24 1998-06-16 18:42:24 efdi Exp $
+ * $Id: interp.c,v 1.25 1998-06-17 07:31:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -611,9 +611,9 @@ void interpret( CHAR_DATA *ch, char *argument, bool is_order )
 	||   fLogAll
 	||   cmd_table[cmd].log == LOG_ALWAYS ) && logline[0] != '\0' 
 	&&   logline[0] != '\n' ) {
-		sprintf(log_buf, "Log %s: %s", ch->name, logline);
-		wiznet(log_buf, ch, NULL, WIZ_SECURE, 0, get_trust(ch));
-		log_string(log_buf);
+		log_printf("Log %s: %s", ch->name, logline);
+		wiznet_printf(ch, NULL, WIZ_SECURE, 0, get_trust(ch),
+				"Log %s: %s", ch->name, logline);
 	}
 
 	if (ch->desc != NULL && ch->desc->snoop_by != NULL) {

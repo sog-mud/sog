@@ -1,5 +1,5 @@
 /*
- * $Id: act_hera.c,v 1.19 1998-06-13 19:14:05 fjoe Exp $
+ * $Id: act_hera.c,v 1.20 1998-06-17 07:31:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,7 @@
 ***************************************************************************/
 
 /*
- * $Id: act_hera.c,v 1.19 1998-06-13 19:14:05 fjoe Exp $
+ * $Id: act_hera.c,v 1.20 1998-06-17 07:31:29 fjoe Exp $
  */
 #include <sys/types.h>
 #include <sys/time.h>
@@ -870,7 +870,7 @@ void do_hunt(CHAR_DATA *ch, char *argument)
    */
   if (IS_NPC (ch) && number_percent () > 75)        /* NPC @ 25% */
 	{
-	log_string("Do PC hunt");
+	log("Do PC hunt");
 	ok=FALSE;
 	for(i=0;i<6;i++) {
 		if (ch->in_room->exit[direction]!=NULL) {
@@ -888,7 +888,7 @@ void do_hunt(CHAR_DATA *ch, char *argument)
 	    || (ch->in_room->exit[direction]->u1.to_room == NULL));
 	}
 else {
-	  log_string("Do hunt, player hunt, no exits from room!");
+	  log("Do hunt, player hunt, no exits from room!");
   	  ch->hunting=NULL;
   	  send_to_char("Your room has not exits!!!!\n\r",ch);
   	  return;
@@ -938,12 +938,12 @@ void hunt_victim(CHAR_DATA *ch)
 
 	if(!found || !can_see(ch, ch->hunting)) {
 		if (get_char_area(ch, ch->hunting->name) != NULL) {
-	    		log_string("mob portal");
+	    		log("mob portal");
 	    		doprintf(do_cast, ch, "portal %s", ch->hunting->name);
-	    		log_string("do_enter1");
+	    		log("do_enter1");
 	    		do_enter(ch, "portal");
 			hunt_victim_attack(ch);
-			log_string("done1");  
+			log("done1");  
 		} 
 		else { 
 			do_say(ch, "Ahhhh!  My prey is gone!!");
@@ -959,12 +959,12 @@ void hunt_victim(CHAR_DATA *ch)
 		/* 1 */ 
 		if (get_char_area(ch, ch->hunting->name) != NULL  
 		&&  ch->level > 35) {
-			log_string("mob portal");
+			log("mob portal");
 			doprintf(do_cast, ch, "portal %s", ch->hunting->name);
-			log_string("do_enter2");
+			log("do_enter2");
 			do_enter(ch, "portal");
 			hunt_victim_attack(ch);
-			log_string("done2"); 
+			log("done2"); 
 			}
 		else { 
 			doprintf(do_say, ch,
@@ -982,7 +982,7 @@ void hunt_victim(CHAR_DATA *ch)
 	}
 
 	if (!ch->in_room->exit[dir]) {
-		log_string("BUG:  hunt through null door");
+		log("BUG:  hunt through null door");
 		ch->hunting = NULL;
 		return;
 	}
@@ -1002,7 +1002,7 @@ void hunt_victim_old(CHAR_DATA *ch)
 	if (IS_NPC(ch))
 	  {
 		if ((ROOM_INDEX_DATA*)ch->logon!=ch->in_room)
-		log_string("HUNT: Return creature to original home!");
+		log("HUNT: Return creature to original home!");
 	   	act("\n\rA glowing portal appears.",ch,NULL,NULL,TO_ROOM);	    	
 		act("$n steps through a glowing portal.\n\r",ch,NULL,NULL,TO_ROOM);
 	   	char_from_room(ch);
@@ -1023,9 +1023,9 @@ void hunt_victim_old(CHAR_DATA *ch)
 /*1 */  if(get_char_world(ch, ch->hunting->name) != NULL  
 	        && ch-> level > 35)
 	    {
-	       log_string("mob portal");
+	       log("mob portal");
 	       doprintf(do_cast, ch, "portal %s", ch->hunting->name);
-	       log_string("do_enter1");
+	       log("do_enter1");
 	       do_enter(ch, "portal");
   /* Deth...this shouldn't have to be here..but it got
   here in a core file with ch->hunting==null.. */
@@ -1042,7 +1042,7 @@ void hunt_victim_old(CHAR_DATA *ch)
 	  ch->hunting = NULL;
 	  return;
 	}  
-	   log_string("done1");  
+	   log("done1");  
 	   	return;
 	    } 
 	   else { 
@@ -1050,7 +1050,7 @@ void hunt_victim_old(CHAR_DATA *ch)
 	 {
 	      if ((ROOM_INDEX_DATA*)ch->logon!=ch->in_room) 
 	      {
-	 	   log_string("HUNT: Send mob home");
+	 	   log("HUNT: Send mob home");
 		   act("\n\rA glowing portal appears.",ch,NULL,NULL,TO_ROOM);	    	
 		   act("$n steps through a glowing portal.\n\r",ch,NULL,NULL,TO_ROOM); 
 	   	   char_from_room(ch);
@@ -1075,9 +1075,9 @@ void hunt_victim_old(CHAR_DATA *ch)
 	if(get_char_area(ch, ch->hunting->name) != NULL  
 	    && ch-> level > 35)
 	{
-	  log_string("mob portal");
+	  log("mob portal");
 	  doprintf(do_cast, ch, "portal %s", ch->hunting->name);
-	  log_string("do_enter2");
+	  log("do_enter2");
 	  do_enter(ch, "portal");
   /* Deth...this shouldn't have to be here..but it got
   here in a core file with ch->hunting==null.. */
@@ -1094,7 +1094,7 @@ void hunt_victim_old(CHAR_DATA *ch)
 	  ch->hunting = NULL;
 	  return;
 	}  
-	  log_string("done2"); 
+	  log("done2"); 
 	  return;
 	}
 	else
@@ -1103,7 +1103,7 @@ void hunt_victim_old(CHAR_DATA *ch)
 	   {
 		if ((ROOM_INDEX_DATA*)ch->logon!=ch->in_room)
 	    {  
-	      log_string("HUNT: return creature to original room");
+	      log("HUNT: return creature to original room");
 	  act("\n\rA glowing portal appears.",ch,NULL,NULL,TO_ROOM);	    	
 	  act("$n steps through a glowing portal.\n\r",ch,NULL,NULL,TO_ROOM);
 	  char_from_room(ch);
@@ -1138,7 +1138,7 @@ void hunt_victim_old(CHAR_DATA *ch)
 	    || (ch->in_room->exit[dir]->u1.to_room == NULL));
 	   }
 	  else {
-	  log_string("Do hunt, player hunt, no exits from room!");
+	  log("Do hunt, player hunt, no exits from room!");
   	  ch->hunting=NULL;
   	  send_to_char("Your room has not exits!!!!\n\r",ch);
   	  return;
@@ -1153,7 +1153,7 @@ void hunt_victim_old(CHAR_DATA *ch)
 	  return;
 	}
 	if (!ch->in_room->exit[dir]) {
-		log_string("BUG:  hunt through null door");
+		log("BUG:  hunt through null door");
 		return;
 		}
   move_char(ch, dir, FALSE);

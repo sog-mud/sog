@@ -2,7 +2,7 @@
 #define _DB_H_
 
 /*
- * $Id: db.h,v 1.6 1998-06-16 16:56:47 fjoe Exp $
+ * $Id: db.h,v 1.7 1998-06-17 07:31:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -98,7 +98,7 @@ bool	str_suffix	(const char *astr, const char *bstr);
 char *	capitalize	(const char *str);
 void	append_file	(CHAR_DATA *ch, char *file, char *str);
 void	bug		(const char *str, int param);
-#define log_string(str) log_printf(str)
+#define log(str) log_printf(str)
 void	log_printf	(const char *str, ...);
 void	tail_chain	(void);
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.21 1998-06-16 16:56:45 fjoe Exp $
+ * $Id: act_wiz.c,v 1.22 1998-06-17 07:31:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -5220,26 +5220,23 @@ void do_affrooms(CHAR_DATA *ch, char *argument)
 
 void do_find(CHAR_DATA *ch, char *argument)
 {
+	char* path;
 	ROOM_INDEX_DATA *location;
-	char buf[MAX_STRING_LENGTH];
-	char lbuf[MAX_STRING_LENGTH];
 
-	if (argument[0] == '\0')
-	{
+	if (argument[0] == '\0') {
 		send_to_char("Ok. But what I should find?\n\r", ch);
 		return;
 	}
 
-	if ((location = find_location(ch, argument)) == NULL)
-	{
+	if ((location = find_location(ch, argument)) == NULL) {
 		send_to_char("No such location.\n\r", ch);
 		return;
 	}
 
-	sprintf(buf,"%s.\n\r",find_way(ch,ch->in_room,location));
-	send_to_char(buf,ch);
-	sprintf(lbuf,"From %d to %d: %s",ch->in_room->vnum,location->vnum,buf);
-	log_string(lbuf);
+	path = find_way(ch, ch->in_room, location);
+	char_printf(ch, "%s.\n\r", path);
+	log_printf("From %d to %d: %s.\n\r",
+		   ch->in_room->vnum, location->vnum, path);
 	return;
 }
 
@@ -5301,8 +5298,7 @@ void reboot_anatolia(void)
 	extern bool merc_down;
 	DESCRIPTOR_DATA *d,*d_next;
 
-	sprintf(log_buf, "Rebooting ANATOLIA.");
-	log_string(log_buf);
+	log("Rebooting ANATOLIA.");
 	for (d = descriptor_list; d != NULL; d = d_next)
 	{
 		d_next = d->next;

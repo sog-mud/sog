@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.15 1998-06-15 14:19:24 efdi Exp $
+ * $Id: handler.c,v 1.16 1998-06-17 07:31:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4329,9 +4329,8 @@ void path_to_track(CHAR_DATA *ch, CHAR_DATA *victim, int door)
         if ((pExit = temp->exit[opdoor]) == NULL
 	    || (temp = pExit->u1.to_room) == NULL)
 	{
-	 sprintf(log_buf,"Path to track: Range: %d Room: %d opdoor:%d",
+	 log_printf("[*****] Path to track: Range: %d Room: %d opdoor:%d",
 		range,temp->vnum,opdoor); 
-	 bug(log_buf,0);
 	 return;
 	}
        }

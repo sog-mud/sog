@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.44 1998-06-16 16:56:45 fjoe Exp $
+ * $Id: act_comm.c,v 1.45 1998-06-17 07:31:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -103,7 +103,8 @@ void do_music(CHAR_DATA *ch, char *argument)
 
 		victim = d->original ? d->original : d->character;
 
-		if (d->connected == CON_PLAYING && d->character != ch) {
+		if (d->connected == CON_PLAYING && d->character != ch
+		&&  !IS_SET(d->character->comm, COMM_NOMUSIC)) {
 			strcpy(trans, translate(ch,d->character,buf));
 			act_puts("$n music '{W$t{x'",
 		        	 ch, trans, d->character, TO_VICT, POS_DEAD);
@@ -149,7 +150,8 @@ void do_gossip(CHAR_DATA *ch, char *argument)
 
 		victim = d->original ? d->original : d->character;
 
-		if (d->connected == CON_PLAYING && d->character != ch) {
+		if (d->connected == CON_PLAYING && d->character != ch
+		&&  !IS_SET(d->character->comm, COMM_NOGOSSIP)) {
 			strcpy(trans, translate(ch,d->character,buf));
 			act_puts("$n gossips '{Y$t{x'",
 		        	 ch, trans, d->character, TO_VICT, POS_DEAD);

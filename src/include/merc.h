@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.29 1998-06-16 16:56:47 fjoe Exp $
+ * $Id: merc.h,v 1.30 1998-06-17 07:31:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -569,7 +569,6 @@ struct	class_type
 
 
 enum class_names {
-	CLASS_NONE,
 	CLASS_WITCH,
 	CLASS_CLERIC,
 	CLASS_THIEF,
@@ -582,7 +581,8 @@ enum class_names {
 	CLASS_SAMURAI,
 	CLASS_VAMPIRE,
 	CLASS_NECROMANCER,
-	CLASS_DUMMY
+	CLASS_DUMMY,
+	CLASS_NONE = -1
 };
 
 #define LANG_COMMON	     0

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.21 1998-06-12 14:25:58 fjoe Exp $
+ * $Id: db.c,v 1.22 1998-06-17 07:31:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -111,7 +111,6 @@ NOTE_DATA *		note_free;
 char			bug_buf		[2*MAX_INPUT_LENGTH];
 CHAR_DATA *		char_list;
 char *			help_greeting;
-char			log_buf		[2*MAX_INPUT_LENGTH];
 KILL_DATA		kill_table	[MAX_LEVEL];
 NOTE_DATA *		note_list;
 OBJ_DATA *		object_list;
@@ -3825,7 +3824,7 @@ void bug(const char *str, int param)
 
 	strcpy(buf, "[*****] BUG: ");
 	sprintf(buf + strlen(buf), str, param);
-	log_string(buf);
+	log(buf);
 /* RT removed due to bug-file spamming 
 	fclose(fpReserve);
 	if ((fp = fopen(BUG_FILE, "a")) != NULL)
