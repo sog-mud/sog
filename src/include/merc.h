@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.224 1999-07-22 09:10:55 avn Exp $
+ * $Id: merc.h,v 1.225 1999-07-30 05:18:19 avn Exp $
  */
 
 /***************************************************************************
@@ -93,6 +93,7 @@
 #include "class.h"
 #include "clan.h"
 #include "skills.h"
+#include "raffects.h"
 #include "religion.h"
 
 /*
@@ -344,9 +345,8 @@ struct room_affect_data
 	int			duration;
 	int			location;
 	int			modifier;
-	flag64_t		bitvector;
-	int			event;
-	EVENT_FUN *		event_fun;
+	flag32_t		bitvector;
+	flag32_t		events;
 };
 
 /* where definitions */
@@ -366,16 +366,6 @@ struct where_t
 };
 
 where_t *where_lookup(flag32_t where);
-
-/* where definitions for room */
-#define TO_ROOM_AFFECTS 0
-#define TO_ROOM_CONST	1
-#define TO_ROOM_FLAGS	2
-
-/* room applies */
-#define APPLY_ROOM_NONE 	0
-#define APPLY_ROOM_HEAL 	1
-#define APPLY_ROOM_MANA 	2
 
 /***************************************************************************
  *									   *
@@ -706,20 +696,24 @@ where_t *where_lookup(flag32_t where);
 #define AFF_BLEND		(ww)	/* Forest blending */
 #define AFF_AWARENESS		(xx)	/* Detect blend and camouflage */
 #define AFF_TURNED		(yy)	/* Character is turned into other creature */
+
+/* where definitions for room */
+#define TO_ROOM_AFFECTS 0
+#define TO_ROOM_CONST	1
+#define TO_ROOM_FLAGS	2
+
+/* room applies */
+#define APPLY_ROOM_NONE 	0
+#define APPLY_ROOM_HEAL 	1
+#define APPLY_ROOM_MANA 	2
+#define APPLY_ROOM_SECT 	3
+
 /*
  * *AFF* bits for rooms
  */
 #define RAFF_RANDOMIZER		(A)
 #define RAFF_ESPIRIT		(B)
 #define RAFF_CURSE		(C)
-
-/*
- * EVENTs for room affects
- */
-#define EVENT_NONE		0
-#define EVENT_ENTER		1
-#define EVENT_LEAVE		2
-#define EVENT_UPDATE		3
 
 /* AC types */
 #define AC_PIERCE			0
@@ -1658,6 +1652,7 @@ struct room_index_data
 	ROOM_HISTORY_DATA * 	history;
 	ROOM_AFFECT_DATA *	affected;
 	flag32_t		affected_by;
+	flag32_t		events;
 };
 
 /*
@@ -2096,11 +2091,7 @@ void		free_exit		(EXIT_DATA *pExit);
 ROOM_INDEX_DATA *new_room_index		(void);
 void		free_room_index		(ROOM_INDEX_DATA *pRoom);
 AFFECT_DATA	*aff_new		(void);
-ROOM_AFFECT_DATA *raff_new		(void);
 void		aff_free		(AFFECT_DATA* pAf);
-void	 	raff_free		(ROOM_AFFECT_DATA *raf);
-void		check_room_affects	(CHAR_DATA *ch, ROOM_INDEX_DATA *room,
-					 int event);
 SHOP_DATA	*new_shop		(void);
 void		free_shop		(SHOP_DATA *pShop);
 OBJ_INDEX_DATA	*new_obj_index		(void);

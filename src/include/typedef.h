@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.28 1999-06-29 10:57:03 fjoe Exp $
+ * $Id: typedef.h,v 1.29 1999-07-30 05:18:20 avn Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -80,6 +80,8 @@ typedef struct cskill_t			cskill_t;
 typedef struct rskill_t			rskill_t;
 typedef struct clskill_t		clskill_t;
 typedef struct pcskill_t		pcskill_t;
+
+typedef struct rspell_t			rspell_t;
 
 typedef struct where_t			where_t;
 typedef struct namedp_t			namedp_t;

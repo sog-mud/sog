@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.126 1999-07-21 06:40:58 avn Exp $
+ * $Id: spellfun2.c,v 1.127 1999-07-30 05:18:27 avn Exp $
  */
 
 /***************************************************************************
@@ -453,7 +453,7 @@ void spell_demon_summon(int sn, int level, CHAR_DATA *ch, void *vo)
 	demon->hit = demon->max_hit;
 	demon->max_mana = IS_NPC(ch)? ch->max_mana : ch->pcdata->perm_mana;
 	demon->mana = demon->max_mana;
-	demon->level = ch->level;
+	demon->level = level;
 	for (i=0; i < 3; i++)
 	demon->armor[i] = interpolate(demon->level,100,-100);
 	demon->armor[3] = interpolate(demon->level,100,0);
@@ -766,7 +766,7 @@ void spell_nightwalker(int sn, int level, CHAR_DATA *ch, void *vo)
 	walker->hit = walker->max_hit;
 	walker->max_mana = ch->max_mana;
 	walker->mana = walker->max_mana;
-	walker->level = ch->level;
+	walker->level = level;
 	for (i = 0; i < 3; i++)
 		walker->armor[i] = interpolate(walker->level, 100, -100);
 	walker->armor[3] = interpolate(walker->level, 100, 0);
@@ -1097,7 +1097,7 @@ void spell_amnesia(int sn, int level, CHAR_DATA *ch, void *vo)
 	if (IS_NPC(victim))
 		return;
 
-	for (i = 0; i < ch->pcdata->learned.nused; i++) {
+	for (i = 0; i < victim->pcdata->learned.nused; i++) {
 		pcskill_t *ps = VARR_GET(&victim->pcdata->learned, i);
 		ps->percent /= 2;
 	}
@@ -1112,9 +1112,9 @@ void spell_chaos_blade(int sn, int level, CHAR_DATA *ch, void *vo)
 	AFFECT_DATA af;
 	
 	blade = create_obj(get_obj_index(OBJ_VNUM_CHAOS_BLADE), 0);
-	blade->level = ch->level;
+	blade->level = level;
 	blade->timer = level * 2;
-	blade->value[2] = (ch->level / 10) + 3;  
+	blade->value[2] = (level / 10) + 3;  
 
 	char_puts("You create a blade of chaos!\n",ch);
 	act("$n creates a blade of chaos!",ch,NULL,NULL,TO_ROOM);
@@ -1535,7 +1535,7 @@ void spell_shadowlife(int sn, int level, CHAR_DATA *ch, void *vo)
 	shadow->max_mana = (3 * ch->max_mana) / 4;
 	shadow->mana = shadow->max_mana;
 	shadow->alignment = ch->alignment;
-	shadow->level = ch->level;
+	shadow->level = level;
 	for (i=0; i < 3; i++)
 	shadow->armor[i] = interpolate(shadow->level,100,-100);
 	shadow->armor[3] = interpolate(shadow->level,100,0);
@@ -2749,8 +2749,8 @@ void spell_animate_dead(int sn, int level, CHAR_DATA *ch, void *vo)
 
 		af.where     = TO_AFFECTS;
 		af.type      = sn;
-		af.level     = ch->level;
-		af.duration  = (ch->level / 10);
+		af.level     = level;
+		af.duration  = level / 10;
 		af.modifier  = 0;
 		af.bitvector = 0;
 		af.location  = APPLY_NONE;
@@ -3663,7 +3663,7 @@ void spell_knock (int sn, int level, CHAR_DATA *ch, void *vo)
 	if (IS_SET(pexit->exit_info, EX_NOPASS))
 	    { char_puts("A mystical shield protects the exit.\n",ch); 
 	      return; }
-	chance = ch->level / 5 + get_curr_stat(ch,STAT_INT) + get_skill(ch,sn) / 5;
+	chance = level / 5 + get_curr_stat(ch,STAT_INT) + get_skill(ch,sn) / 5;
 
 	act("You knock $d, and try to open $d.",
 	    ch, NULL, pexit->keyword, TO_CHAR);
@@ -3720,7 +3720,7 @@ void spell_magic_resistance (int sn, int level, CHAR_DATA *ch, void *vo)
 	  af.where = TO_RESIST;
 	  af.type = sn;
 	  af.duration = level / 10;
-	  af.level = ch->level;
+	  af.level = level;
 	  af.bitvector = RES_MAGIC;
 	  af.location = 0;
 	  af.modifier = 0;
@@ -3860,8 +3860,7 @@ void spell_mind_light(int sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = level * 3 / 2;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.event     = EVENT_NONE;
-	af.event_fun = NULL;
+	af.events    = 0;
 	affect_to_room(ch->in_room, &af);
 
 	af2.where     = TO_AFFECTS;
@@ -4003,7 +4002,7 @@ void spell_randomizer(int sn, int level, CHAR_DATA *ch, void *vo)
 		"to work on it.\n", ch);
 	return;
 	}
-	if (is_affected_room(ch->in_room, sn))
+	if (IS_AFFECTED(ch->in_room, RAFF_RANDOMIZER))
 	{
 	char_puts("This room has already been randomized.\n",ch);
 	return;
@@ -4014,7 +4013,7 @@ void spell_randomizer(int sn, int level, CHAR_DATA *ch, void *vo)
 	  char_puts("Despite your efforts, the universe resisted chaos.\n",ch);
 	  af2.where     = TO_AFFECTS;
 	  af2.type      = sn;
-	  af2.level	    = ch->level;
+	  af2.level	= level;
 	  af2.duration  = level / 10;
 	  af2.modifier  = 0;
 	  af2.location  = APPLY_NONE;
@@ -4025,19 +4024,18 @@ void spell_randomizer(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	af.where     = TO_ROOM_AFFECTS;
 	af.type      = sn;
-	af.level     = ch->level;
+	af.level     = level;
 	af.duration  = level / 2;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = RAFF_RANDOMIZER;
 	af.owner     = ch;
-	af.event     = EVENT_NONE;
-	af.event_fun = NULL;
+	af.events    = 0;
 	affect_to_room(ch->in_room, &af);
 
 	af2.where     = TO_AFFECTS;
 	af2.type      = sn;
-	af2.level     = ch->level;
+	af2.level     = level;
 	af2.duration  = level / 5;
 	af2.modifier  = 0;
 	af2.location  = APPLY_NONE;
@@ -4112,7 +4110,7 @@ void spell_resilience(int sn, int level, CHAR_DATA *ch, void *vo)
 	  af.where = TO_RESIST;
 	  af.type = sn;
 	  af.duration = level / 10;
-	  af.level = ch->level;
+	  af.level = level;
 	  af.bitvector = RES_ENERGY;
 	  af.location = 0;
 	  af.modifier = 0;
@@ -4160,27 +4158,39 @@ void spell_group_heal(int sn, int level, CHAR_DATA *ch, void *vo)
 
 void spell_restoring_light(int sn, int level, CHAR_DATA *ch, void *vo)
 {
-	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	ROOM_AFFECT_DATA raf;
+	AFFECT_DATA af;
 
-	if (IS_AFFECTED(victim, AFF_BLIND))
-		spellfun_call("cure blindness", level, ch, victim);
-	if (IS_AFFECTED(victim, AFF_CURSE))
-		spellfun_call("remove curse", level, ch, victim);
-	if (IS_AFFECTED(victim, AFF_POISON))
-		spellfun_call("cure poison", level, ch, victim);
-	if (IS_AFFECTED(victim, AFF_PLAGUE))
-		spellfun_call("cure disease", level, ch, victim);
-
-	char_puts("A warm feeling fills your body.\n", victim);
-	if (victim->hit != victim->max_hit) {
-		int mana_add;
-		mana_add = UMIN((victim->max_hit - victim->hit), ch->mana);
-		victim->hit = UMIN(victim->hit + mana_add, victim->max_hit);
-		update_pos(victim);
-		ch->mana -= mana_add;
+	if (is_affected_room(ch->in_room, sn)) {
+		char_puts("This room is already lit with magic light.\n", ch);
+		return;
 	}
-	if (ch != victim)
-		char_puts("Ok.\n", ch);
+	if (is_affected(ch, sn)) {
+		char_puts("Rest a while, you're tired from previous one.\n", ch);
+		return;
+	}
+	raf.where     = TO_ROOM_AFFECTS;
+	raf.type      = sn;
+	raf.level     = level;
+	raf.duration  = level / 25;
+	raf.location  = APPLY_NONE;
+	raf.modifier  = 0;
+	raf.bitvector = 0;
+	raf.owner     = ch;
+	raf.events    = EVENT_UPDATE | EVENT_ENTER;
+	affect_to_room(ch->in_room, &raf);
+
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= level / 10;
+	af.location	= APPLY_NONE;
+	af.modifier	= 0;
+	af.bitvector	= 0;
+	affect_to_char(ch, &af);
+
+	act("The room becomes lit with warm light.", ch, NULL, NULL, TO_ROOM);
+	char_puts("Ok.\n", ch);
 }
 
 void spell_lesser_golem(int sn, int level, CHAR_DATA *ch, void *vo)	
@@ -4216,7 +4226,7 @@ void spell_lesser_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 	golem = create_mob(get_mob_index(MOB_VNUM_LESSER_GOLEM));
 
 	for (i = 0; i < MAX_STATS; i ++)
-	   golem->perm_stat[i] = UMIN(25,15 + ch->level/10);
+	   golem->perm_stat[i] = UMIN(25,15 + level/10);
 	        
 	golem->perm_stat[STAT_STR] += 3;
 	golem->perm_stat[STAT_INT] -= 1;
@@ -4227,7 +4237,7 @@ void spell_lesser_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 	golem->hit = golem->max_hit;
 	golem->max_mana = IS_NPC(ch)? ch->max_mana : ch->pcdata->perm_mana;
 	golem->mana = golem->max_mana;
-	golem->level = ch->level;
+	golem->level = level;
 	for (i=0; i < 3; i++)
 	golem->armor[i] = interpolate(golem->level,100,-100);
 	golem->armor[3] = interpolate(golem->level,100,0);
@@ -4235,7 +4245,7 @@ void spell_lesser_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 	golem->timer = 0;
 	golem->damage[DICE_NUMBER] = 3;   
 	golem->damage[DICE_TYPE] = 10;
-	golem->damage[DICE_BONUS] = ch->level / 2;
+	golem->damage[DICE_BONUS] = level / 2;
 
 	char_puts("You created a lesser golem!\n",ch);
 	act("$n creates a lesser golem!",ch,NULL,NULL,TO_ROOM);
@@ -4287,7 +4297,7 @@ void spell_stone_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 
 
 	for (i = 0; i < MAX_STATS; i ++)
-	   golem->perm_stat[i] = UMIN(25,15 + ch->level/10);
+	   golem->perm_stat[i] = UMIN(25,15 + level/10);
 	        
 	golem->perm_stat[STAT_STR] += 3;
 	golem->perm_stat[STAT_INT] -= 1;
@@ -4298,7 +4308,7 @@ void spell_stone_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 	golem->hit = golem->max_hit;
 	golem->max_mana = IS_NPC(ch)? ch->max_mana : ch->pcdata->perm_mana;
 	golem->mana = golem->max_mana;
-	golem->level = ch->level;
+	golem->level = level;
 	for (i=0; i < 3; i++)
 	golem->armor[i] = interpolate(golem->level,100,-100);
 	golem->armor[3] = interpolate(golem->level,100,0);
@@ -4306,7 +4316,7 @@ void spell_stone_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 	golem->timer = 0;
 	golem->damage[DICE_NUMBER] = 8;   
 	golem->damage[DICE_TYPE] = 4;
-	golem->damage[DICE_BONUS] = ch->level / 2;
+	golem->damage[DICE_BONUS] = level / 2;
 
 	char_puts("You created a stone golem!\n",ch);
 	act("$n creates a stone golem!",ch,NULL,NULL,TO_ROOM);
@@ -4354,7 +4364,7 @@ void spell_iron_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 	golem = create_mob(get_mob_index(MOB_VNUM_IRON_GOLEM));
 
 	for (i = 0; i < MAX_STATS; i ++)
-	   golem->perm_stat[i] = UMIN(25,15 + ch->level/10);
+	   golem->perm_stat[i] = UMIN(25,15 + level/10);
 	        
 	golem->perm_stat[STAT_STR] += 3;
 	golem->perm_stat[STAT_INT] -= 1;
@@ -4365,7 +4375,7 @@ void spell_iron_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 	golem->hit = golem->max_hit;
 	golem->max_mana = IS_NPC(ch)? ch->max_mana : ch->pcdata->perm_mana;
 	golem->mana = golem->max_mana;
-	golem->level = ch->level;
+	golem->level = level;
 	for (i=0; i < 3; i++)
 	golem->armor[i] = interpolate(golem->level,100,-100);
 	golem->armor[3] = interpolate(golem->level,100,0);
@@ -4373,7 +4383,7 @@ void spell_iron_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 	golem->timer = 0;
 	golem->damage[DICE_NUMBER] = 11;   
 	golem->damage[DICE_TYPE] = 5;
-	golem->damage[DICE_BONUS] = ch->level / 2 + 10;
+	golem->damage[DICE_BONUS] = level / 2 + 10;
 
 	char_puts("You created an iron golem!\n",ch);
 	act("$n creates an iron golem!",ch,NULL,NULL,TO_ROOM);
@@ -4421,7 +4431,7 @@ void spell_adamantite_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 	golem = create_mob(get_mob_index(MOB_VNUM_ADAMANTITE_GOLEM));
 
 	for (i = 0; i < MAX_STATS; i ++)
-	   golem->perm_stat[i] = UMIN(25,15 + ch->level/10);
+	   golem->perm_stat[i] = UMIN(25,15 + level/10);
 	        
 	golem->perm_stat[STAT_STR] += 3;
 	golem->perm_stat[STAT_INT] -= 1;
@@ -4432,7 +4442,7 @@ void spell_adamantite_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 	golem->hit = golem->max_hit;
 	golem->max_mana = IS_NPC(ch)? ch->max_mana : ch->pcdata->perm_mana;
 	golem->mana = golem->max_mana;
-	golem->level = ch->level;
+	golem->level = level;
 	for (i=0; i < 3; i++)
 	golem->armor[i] = interpolate(golem->level,100,-100);
 	golem->armor[3] = interpolate(golem->level,100,0);
@@ -4440,7 +4450,7 @@ void spell_adamantite_golem(int sn, int level, CHAR_DATA *ch, void *vo)
 	golem->timer = 0;
 	golem->damage[DICE_NUMBER] = 13;   
 	golem->damage[DICE_TYPE] = 9;
-	golem->damage[DICE_BONUS] = ch->level / 2 + 10;
+	golem->damage[DICE_BONUS] = level / 2 + 10;
 
 	char_puts("You created an Adamantite golem!\n",ch);
 	act("$n creates an Adamantite golem!",ch,NULL,NULL,TO_ROOM);
@@ -4517,14 +4527,13 @@ void spell_deadly_venom(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	af.where     = TO_ROOM_AFFECTS;
 	af.type      = sn;
-	af.level     = ch->level;
+	af.level     = level;
 	af.duration  = level / 15;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.event     = EVENT_UPDATE;
-	af.event_fun = get_event_fun(sn, EVENT_UPDATE);
+	af.events    = EVENT_UPDATE;
 	affect_to_room(ch->in_room, &af);
 
 	char_puts("The room starts to be filled by poison.\n",ch);   
@@ -4540,7 +4549,7 @@ void spell_cursed_lands(int sn, int level, CHAR_DATA *ch, void *vo)
 	  char_puts("This room is protected by gods.\n",ch);
 	  return;
 	}
-	if (is_affected_room(ch->in_room, sn))
+	if (IS_AFFECTED(ch->in_room, RAFF_CURSE))
 	{
 	 char_puts("This room has already been cursed.\n",ch);
 	 return;
@@ -4548,14 +4557,13 @@ void spell_cursed_lands(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	af.where     = TO_ROOM_AFFECTS;
 	af.type      = sn;
-	af.level     = ch->level;
+	af.level     = level;
 	af.duration  = level / 15;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = RAFF_CURSE;
 	af.owner     = ch;
-	af.event     = EVENT_NONE;
-	af.event_fun = NULL;
+	af.events    = 0;
 	affect_to_room(ch->in_room, &af);
 
 	char_puts("The gods has forsaken the room.\n",ch);   
@@ -4579,19 +4587,13 @@ void spell_lethargic_mist(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	af.where     = TO_ROOM_AFFECTS;
 	af.type      = sn;
-	af.level     = ch->level;
+	af.level     = level;
 	af.duration  = level / 15;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.event     = EVENT_UPDATE;
-	af.event_fun = get_event_fun(sn, EVENT_UPDATE);
-	affect_to_room(ch->in_room, &af);
-
-	af.bitvector = 0;
-	af.event     = EVENT_ENTER;
-	af.event_fun = get_event_fun(sn, EVENT_ENTER);
+	af.events    = EVENT_UPDATE | EVENT_ENTER;
 	affect_to_room(ch->in_room, &af);
 
 	char_puts("The air in the room makes you slowing down.\n",ch);   
@@ -4615,14 +4617,13 @@ void spell_black_death(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	af.where     = TO_ROOM_AFFECTS;
 	af.type      = sn;
-	af.level     = ch->level;
+	af.level     = level;
 	af.duration  = level / 15;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.event     = EVENT_UPDATE;
-	af.event_fun = get_event_fun(sn, EVENT_UPDATE);
+	af.events    = EVENT_UPDATE;
 	affect_to_room(ch->in_room, &af);
 
 	char_puts("The room starts to be filled by disease.\n",ch);   
@@ -4646,19 +4647,13 @@ void spell_mysterious_dream(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	af.where     = TO_ROOM_AFFECTS;
 	af.type      = sn;
-	af.level     = ch->level;
+	af.level     = level;
 	af.duration  = level / 15;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.event     = EVENT_UPDATE;
-	af.event_fun = get_event_fun(sn, EVENT_UPDATE);
-	affect_to_room(ch->in_room, &af);
-
-	af.bitvector = 0;
-	af.event     = EVENT_ENTER;
-	af.event_fun = get_event_fun(sn, EVENT_ENTER);
+	af.events    = EVENT_UPDATE | EVENT_ENTER;
 	affect_to_room(ch->in_room, &af);
 
 	char_puts("The room starts to be seen good place to sleep.\n",ch);   
@@ -4845,7 +4840,7 @@ void spell_protection_negative (int sn, int level, CHAR_DATA *ch, void *vo)
 	  af.where = TO_IMMUNE;
 	  af.type = sn;
 	  af.duration = level / 4;
-	  af.level = ch->level;
+	  af.level = level;
 	  af.bitvector = IMM_NEGATIVE;
 	  af.location = 0;
 	  af.modifier = 0;
@@ -4867,7 +4862,7 @@ void spell_ruler_aura(int sn, int level, CHAR_DATA *ch, void *vo)
 	  af.where = TO_IMMUNE;
 	  af.type = sn;
 	  af.duration = level / 4;
-	  af.level = ch->level;
+	  af.level = level;
 	  af.bitvector = IMM_CHARM;
 	  af.location = 0;
 	  af.modifier = 0;
@@ -4906,7 +4901,7 @@ void spell_evil_spirit(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	af2.where	= TO_AFFECTS;
 	af2.type	= sn;
-	af2.level	= ch->level;
+	af2.level	= level;
 	af2.duration	= level / 5;
 	af2.modifier	= 0;
 	af2.location	= APPLY_NONE;
@@ -4915,14 +4910,13 @@ void spell_evil_spirit(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	af.where     = TO_ROOM_AFFECTS;
 	af.type      = sn;
-	af.level     = ch->level;
+	af.level     = level;
 	af.duration  = level / 25;
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = RAFF_ESPIRIT;
 	af.owner     = ch;
-	af.event     = EVENT_UPDATE;
-	af.event_fun = get_event_fun(sn, EVENT_UPDATE);
+	af.events    = EVENT_UPDATE;
 
 	for (i=pArea->min_vnum; i<pArea->max_vnum; i++)  
 	{
@@ -5012,7 +5006,7 @@ void spell_control_undead(int sn, int level, CHAR_DATA *ch, void *vo)
  
  	if (IS_NPC(victim) && !IS_NPC(ch)) {
  		victim->last_fought=ch;
- 		if (number_percent() < (4 + (victim->level - ch->level)) * 10)
+ 		if (number_percent() < (4 + (LEVEL(victim) - LEVEL(ch))) * 10)
  		 	add_mind(victim, ch->name);
  		else if (victim->in_mind == NULL) {
  			snprintf(buf, sizeof(buf), "%d", victim->in_room->vnum);
@@ -5116,7 +5110,7 @@ void spell_summon_shadow(int sn, int level, CHAR_DATA *ch, void *vo)
 	shadow->hit = shadow->max_hit;
 	shadow->max_mana = IS_NPC(ch)? ch->max_mana : ch->pcdata->perm_mana;
 	shadow->mana = shadow->max_mana;
-	shadow->level = ch->level;
+	shadow->level = level;
 	for (i=0; i < 3; i++)
 	shadow->armor[i] = interpolate(shadow->level,100,-100);
 	shadow->armor[3] = interpolate(shadow->level,100,0);

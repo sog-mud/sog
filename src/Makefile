@@ -1,10 +1,10 @@
 #
-# $Id: Makefile,v 1.54 1999-06-28 10:13:02 fjoe Exp $
+# $Id: Makefile,v 1.55 1999-07-30 05:18:12 avn Exp $
 #
 
 .include "Makefile.inc"
 
-SUBDIR = core dofun sog spellfun olc
+SUBDIR = core dofun sog spellfun olc rspells
 
 ctags:
 	ctags -dtw include/*.h sog/comm/*.[ch] sog/db/*.[ch] sog/*.[ch]\

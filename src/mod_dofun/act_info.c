@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.267 1999-07-22 09:10:51 avn Exp $
+ * $Id: act_info.c,v 1.268 1999-07-30 05:18:13 avn Exp $
  */
 
 /***************************************************************************
@@ -2762,7 +2762,7 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 
 	if (ch->in_room != NULL
 	&& IS_SET(ch->in_room->room_flags, ROOM_NOMOB)) {
-		char_puts("No lions can listen you.\n", ch);
+		char_puts("No lions hear you.\n", ch);
 		return;
 	}
 
@@ -2789,7 +2789,7 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 
 	if (number_percent() > chance) {
 		check_improve(ch, sn, FALSE, 1);
-		char_puts("No lions listen you.\n", ch);
+		char_puts("No lions hear you.\n", ch);
 		return;
 	}
 
@@ -3416,8 +3416,7 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 	raf.modifier	= 2 * LEVEL(ch);
 	raf.location	= APPLY_ROOM_HEAL;
 	raf.owner	= ch;
-	raf.event	= EVENT_NONE;
-	raf.event_fun	= NULL;
+	raf.events	= 0;
 	affect_to_room(ch->in_room, &raf);
 
 	raf.modifier	= LEVEL(ch);

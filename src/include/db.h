@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.47 1999-06-28 09:04:16 fjoe Exp $
+ * $Id: db.h,v 1.48 1999-07-30 05:18:18 avn Exp $
  */
 
 #ifndef _DB_H_
@@ -99,6 +99,7 @@ extern DBDATA db_langs;
 extern DBDATA db_msg;
 extern DBDATA db_races;
 extern DBDATA db_skills;
+extern DBDATA db_rspells;
 extern DBDATA db_socials;
 extern DBDATA db_system;
 

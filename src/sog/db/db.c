@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.166 1999-07-19 13:25:17 avn Exp $
+ * $Id: db.c,v 1.167 1999-07-30 05:18:24 avn Exp $
  */
 
 /***************************************************************************
@@ -120,6 +120,7 @@ const char TMP_FILE		[] = "romtmp";
 
 const char HOMETOWNS_CONF	[] = "hometowns.conf";	/* hometowns */
 const char SKILLS_CONF		[] = "skills.conf";	/* skills */
+const char RSPELLS_CONF		[] = "rspells.conf";	/* room affects */
 const char SOCIALS_CONF		[] = "socials.conf";	/* socials */
 const char SYSTEM_CONF		[] = "system.conf";	/* system conf */
 const char LANG_CONF		[] = "lang.conf";	/* lang definitions */
@@ -403,6 +404,7 @@ void boot_db(void)
 
 	db_load_file(&db_skills, ETC_PATH, SKILLS_CONF);
 	namedp_check(gsn_table);
+	db_load_file(&db_rspells, ETC_PATH, RSPELLS_CONF);
 
 	db_load_list(&db_races, RACES_PATH, RACE_LIST);
 	db_load_list(&db_classes, CLASSES_PATH, CLASS_LIST);
@@ -426,7 +428,6 @@ void boot_db(void)
 	 * Reset all areas once.
 	 * Load up the songs, notes and ban files.
 	 */
-	init_raff_table();
 	fix_exits();
 	check_mob_progs();
 	scan_pfiles();

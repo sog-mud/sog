@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.40 1999-06-28 09:04:16 fjoe Exp $
+ * $Id: const.h,v 1.41 1999-07-30 05:18:18 avn Exp $
  */
 
 #ifndef _CONST_H_
@@ -72,6 +72,7 @@ extern const char NULL_FILE	[];
 
 extern const char HOMETOWNS_CONF[];
 extern const char SKILLS_CONF	[];
+extern const char RSPELLS_CONF	[];
 extern const char SOCIALS_CONF	[];
 extern const char SYSTEM_CONF	[];
 extern const char LANG_CONF	[];

@@ -23,45 +23,56 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: raffect.h,v 1.3 1999-07-30 05:18:20 avn Exp $
+ * $Id: rspellfn.c,v 1.1 1999-07-30 05:18:21 avn Exp $
  */
 
-#ifndef _RAFFECTS_H_
-#define _RAFFECTS_H_
+#include <stdio.h>
+#include <dlfcn.h>
 
-#include "merc.h"
-/*
- * EVENTs for room affects
- */
-#define EVENT_ENTER		(A)
-#define EVENT_LEAVE		(B)
-#define EVENT_UPDATE		(C)
+#include "typedef.h"
+#include "varr.h"
+#include "raffects.h"
+#include "log.h"
 
-struct rspell_t {
-	const char *	name;
-	const char *	enter_fun_name;
-	const char *	update_fun_name;
-	const char *	leave_fun_name;
-	EVENT_FUN *	enter_fun;
-	EVENT_FUN *	update_fun;
-	EVENT_FUN *	leave_fun;
-	int		sn;
-	flag32_t	events;
-};
+#include "module.h"
 
-extern varr rspells;
+int _module_load(module_t* m)
+{
+	int rsn;
 
-#define RSPELL(sn)		((rspell_t*) VARR_GET(&rspells, sn))
-#define rspell_lookup(sn)	((rspell_t*) varr_get(&rspells, sn))
+	for (rsn = 0; rsn < rspells.nused; rsn++) {
+		rspell_t *rsp = RSPELL(rsn);
 
-int		rsn_lookup	(int sn);
+		if (IS_SET(rsp->events, EVENT_ENTER)) {
+			rsp->enter_fun = dlsym(m->dlh, rsp->enter_fun_name);
+			if (rsp->enter_fun == NULL) 
+				wizlog("_module_load(rspells): %s", dlerror());
+		}
+		if (IS_SET(rsp->events, EVENT_LEAVE)) {
+			rsp->leave_fun = dlsym(m->dlh, rsp->leave_fun_name);
+			if (rsp->leave_fun == NULL) 
+				wizlog("_module_load(rspells): %s", dlerror());
+		}
+		if (IS_SET(rsp->events, EVENT_UPDATE)) {
+			rsp->update_fun = dlsym(m->dlh, rsp->update_fun_name);
+			if (rsp->update_fun == NULL) 
+				wizlog("_module_load(rspells): %s", dlerror());
+		}
+	}
 
-ROOM_AFFECT_DATA *raff_new		(void);
-void	 	raff_free		(ROOM_AFFECT_DATA *raf);
-void		check_room_affects	(CHAR_DATA *ch, ROOM_INDEX_DATA *room,
-					 int event);
-void		raffect_to_char		(ROOM_INDEX_DATA *room, CHAR_DATA *ch);
-void		raffect_back_char	(ROOM_INDEX_DATA *room, CHAR_DATA *ch);
-bool		is_safe_rspell		(ROOM_AFFECT_DATA *raf, CHAR_DATA *victim);
+	return 0;
+}
 
-#endif
+int _module_unload(module_t *m)
+{
+	int rsn;
+
+	for (rsn = 0; rsn < rspells.nused; rsn++) {
+		rspell_t *rsp = RSPELL(rsn);
+
+		rsp->enter_fun = NULL;
+		rsp->leave_fun = NULL;
+		rsp->update_fun = NULL;
+	}
+	return 0;
+}

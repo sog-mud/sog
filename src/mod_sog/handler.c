@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.173 1999-07-05 18:18:32 fjoe Exp $
+ * $Id: handler.c,v 1.174 1999-07-30 05:18:21 avn Exp $
  */
 
 /***************************************************************************
@@ -399,6 +399,8 @@ int can_carry_w(CHAR_DATA *ch)
 		if (IS_SET(ch->pIndexData->act, ACT_PET))
 			return 0;
 		if (ch->pIndexData->spec_fun == spec_janitor)
+			return -1;
+		if (IS_SET(ch->pIndexData->act, ACT_CHANGER))
 			return -1;
 	}
 
@@ -1076,12 +1078,14 @@ void affect_join(CHAR_DATA *ch, AFFECT_DATA *paf)
 void char_from_room(CHAR_DATA *ch)
 {
 	OBJ_DATA *obj;
-	ROOM_INDEX_DATA *prev_room = ch->in_room;
 
 	if (ch->in_room == NULL) {
 		bug("Char_from_room: NULL.", 0);
 		return;
 	}
+
+	if (ch->in_room->affected)
+		  check_room_affects(ch, ch->in_room, EVENT_LEAVE);
 
 	if (!IS_NPC(ch))
 		--ch->in_room->area->nplayer;
@@ -1126,9 +1130,6 @@ void char_from_room(CHAR_DATA *ch)
 	 ch->mount->riding	= FALSE;
 	 ch->riding		= FALSE;
 	}
-
-	if (prev_room && prev_room->affected_by)
-		  check_room_affects(ch, prev_room, EVENT_LEAVE);
 
 	return;
 }

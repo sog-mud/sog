@@ -1,50 +1,52 @@
 /*
- * $Id: raffect.c,v 1.28 1999-06-28 09:04:18 fjoe Exp $
+ * Copyright (c) 1999 Arborn <avn@iclub.nsu.ru>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHOR AND CONTRIBUTORS ``AS IS'' AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
+ *
+ * $Id: raffect.c,v 1.29 1999-07-30 05:18:23 avn Exp $
  */
-
-/***************************************************************************
- *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *	
- *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
- *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *
- *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *	
- *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *	
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *	
- *     By using this code, you have agreed to follow the terms of the      *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence             *	
- ***************************************************************************/
-
-/***************************************************************************
- *  Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,        *
- *  Michael Seifert, Hans Henrik St{rfeldt, Tom Madsen, and Katja Nyboe.   *
- *                                                                         *
- *  Merc Diku Mud improvments copyright (C) 1992, 1993 by Michael          *
- *  Chastain, Michael Quan, and Mitchell Tse.                              *
- *                                                                         *
- *  In order to use any part of this Merc Diku Mud, you must comply with   *
- *  both the original Diku license in 'license.doc' as well the Merc       *
- *  license in 'license.txt'.  In particular, you may not remove either of *
- *  these copyright notices.                                               *
- *                                                                         *
- *  Much time and thought has gone into this software and you are          *
- *  benefitting.  We hope that you share your changes too.  What goes      *
- *  around, comes around.                                                  *
- ***************************************************************************/
-
-/***************************************************************************
-*	ROM 2.4 is copyright 1993-1995 Russ Taylor			   *
-*	ROM has been brought to you by the ROM consortium		   *
-*	    Russ Taylor (rtaylor@pacinfo.com)				   *
-*	    Gabrielle Taylor (gtaylor@pacinfo.com)			   *
-*	    Brian Moore (rom@rom.efn.org)				   *
-*	By using this code, you have agreed to follow the terms of the	   *
-*	ROM license, in the file Rom24/doc/rom.license			   *
-***************************************************************************/
 
 #include <sys/time.h>
 #include <stdio.h>
 
 #include "merc.h"
 #include "fight.h"
+#include "raffects.h"
+
+varr rspells = { sizeof(rspell_t), 8 };
+
+/*
+ * Update room affect events
+ */
+void check_room_events(ROOM_INDEX_DATA *room)
+{
+	ROOM_AFFECT_DATA *raf;
+
+	if (!room->affected) return;
+	room->events = 0;
+	for (raf = room->affected; raf; raf = raf->next)
+		room->events |= raf->events;
+}
 
 /*
  * Apply or remove an affect to a room.
@@ -92,9 +94,11 @@ void affect_modify_room(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf, bool fAdd)
 		return;
 
 	case APPLY_ROOM_NONE:					break;
-	case APPLY_ROOM_HEAL:	room->heal_rate += mod;		break;
-	case APPLY_ROOM_MANA:	room->mana_rate += mod;		break;
+	case APPLY_ROOM_HEAL:	room->heal_rate   += mod;	break;
+	case APPLY_ROOM_MANA:	room->mana_rate   += mod;	break;
+	case APPLY_ROOM_SECT:	room->sector_type += mod;	break;
 	}
+	check_room_events(room);
 }
 
 /*
@@ -130,7 +134,7 @@ void affect_to_room(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf)
 	paf_new->next	= room->affected;
 	room->affected	= paf_new;
 
-	affect_modify_room(room , paf_new, TRUE);
+	affect_modify_room(room, paf_new, TRUE);
 }
 
 void affect_check_room(ROOM_INDEX_DATA *room,int where,int vector)
@@ -229,6 +233,7 @@ void affect_remove_room(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf)
 	raff_free(paf);
 
 	affect_check_room(room,where,vector);
+	check_room_events(room);
 }
 
 /*
@@ -267,9 +272,7 @@ bool is_affected_room(ROOM_INDEX_DATA *room, int sn)
 void affect_join_room(ROOM_INDEX_DATA *room, ROOM_AFFECT_DATA *paf)
 {
 	ROOM_AFFECT_DATA *paf_old;
-	bool found;
 
-	found = FALSE;
 	for (paf_old = room->affected; paf_old != NULL; paf_old = paf_old->next) {
 		if (paf_old->type == paf->type) {
 			paf->level = (paf->level += paf_old->level) / 2;
@@ -296,22 +299,27 @@ bool is_safe_rspell(ROOM_AFFECT_DATA *raf, CHAR_DATA *victim)
 {
   if (is_safe_rspell_nom(raf,victim))
 	{
-	  act("The gods protect you from the spell of room.",victim,NULL,NULL,TO_CHAR);
+	  act("The gods protect you from the spell of room.",
+	      victim, NULL, NULL, TO_CHAR);
 	  return TRUE;
 	}
   else return FALSE;
 }
 
-void check_room_affects(CHAR_DATA *ch, ROOM_INDEX_DATA *room, int event)
+#define SAFE_RSPELL_CALL(fun) if (fun) (fun)(room, ch, raf); else return;
+
+void check_room_affects(CHAR_DATA *ch, ROOM_INDEX_DATA *room, flag32_t event)
 {
 	ROOM_AFFECT_DATA *raf, *raf_next;
+	rspell_t *rsp;
+	int rsn;
 
-	if (!room->affected || event == EVENT_NONE) return;
+	if (!IS_SET(room->events, event)) return;
 
 	for (raf = room->affected; raf != NULL; raf = raf_next) {
 		raf_next = raf->next;
 
-		if (raf->event != event)
+		if (!IS_SET(raf->events, event))
 			continue;
 
 		if (!raf->owner) {
@@ -319,15 +327,38 @@ void check_room_affects(CHAR_DATA *ch, ROOM_INDEX_DATA *room, int event)
 			continue;
 		}
 
-		if (raf->event_fun == NULL) {
-			log("[*****] BUG: check_room_affects: "
-				   "no event_fun for %d event", event);
-			continue;
-		}
+		rsn = rsn_lookup(raf->type);
+		if (rsn == -1) return;
 
-		raf->event_fun(room, ch, raf);
+		rsp = RSPELL(rsn);
+
+		switch (event) {
+			default:
+				log("[*****] BUG: no such event %d", event);
+				return;
+			case EVENT_ENTER:
+				SAFE_RSPELL_CALL(rsp->enter_fun);
+				break;
+			case EVENT_LEAVE:
+				SAFE_RSPELL_CALL(rsp->leave_fun);
+				break;
+			case EVENT_UPDATE:
+				SAFE_RSPELL_CALL(rsp->update_fun);
+				break;
+		}
 		if (IS_EXTRACTED(ch))
 			break;
 	}
 }
 	  
+int rsn_lookup(int sn)
+{
+	int i;
+	rspell_t *rsp;
+
+	for (i = 0; i < rspells.nused; i++) {
+		rsp = RSPELL(i);
+		if (rsp->sn == sn) return i;
+	}
+	return -1;
+}

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.194 1999-07-21 03:34:21 kostik Exp $
+ * $Id: act_move.c,v 1.195 1999-07-30 05:18:16 avn Exp $
  */
 
 /***************************************************************************
@@ -3288,8 +3288,7 @@ void do_settraps(CHAR_DATA *ch, const char *argument)
 	  af.modifier  = 0;
 	  af.bitvector = 0;
 	  af.owner     = ch;
-	  af.event     = EVENT_ENTER;
-	  af.event_fun = get_event_fun(gsn_settraps, EVENT_ENTER);
+	  af.events    = EVENT_ENTER;
 	  affect_to_room(ch->in_room, &af);
 
 	  af2.where     = TO_AFFECTS;

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.178 1999-07-21 03:34:26 kostik Exp $
+ * $Id: spellfun.c,v 1.179 1999-07-30 05:18:26 avn Exp $
  */
 
 /***************************************************************************
@@ -632,8 +632,7 @@ void spell_healing_light(int sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = level * 3 / 2;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.event     = EVENT_NONE;
-	af.event_fun = NULL;
+	af.events    = 0;
 	affect_to_room(ch->in_room, &af);
 
 	af2.where     = TO_AFFECTS;
@@ -799,7 +798,7 @@ void spell_create_food(int sn, int level, CHAR_DATA *ch, void *vo)
 	mushroom = create_obj(get_obj_index(OBJ_VNUM_MUSHROOM), 0);
 	mushroom->value[0] = level / 2;
 	mushroom->value[1] = level;
-	mushroom->level = ch->level;
+	mushroom->level = level;
 	obj_to_room(mushroom, ch->in_room);
 	act("$p suddenly appears.", ch, mushroom, NULL, TO_ROOM);
 	act("$p suddenly appears.", ch, mushroom, NULL, TO_CHAR);
@@ -1341,7 +1340,7 @@ void spell_dispel_evil(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (victim->hit > (LEVEL(ch) * 4))
+	if (victim->hit > (level * 4))
 	  dam = dice(level, 4);
 	else
 	  dam = UMAX(victim->hit, dice(level,4));
@@ -1370,7 +1369,7 @@ void spell_dispel_good(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (victim->hit > (ch->level * 4))
+	if (victim->hit > (level * 4))
 	  dam = dice(level, 4);
 	else
 	  dam = UMAX(victim->hit, dice(level,4));
@@ -2186,7 +2185,7 @@ void spell_iceball(int sn, int level, CHAR_DATA *ch, void *vo)
 	int movedam;
 
 	dam = dice(level , 12);
-	movedam     = number_range(LEVEL(ch), 2 * LEVEL(ch));
+	movedam     = number_range(level, 2 * level);
 
 	for (vch = ch->in_room->people; vch; vch = vch_next) {
 		vch_next = vch->next_in_room;
@@ -2303,9 +2302,9 @@ void spell_floating_disc(int sn, int level,CHAR_DATA *ch,void *vo)
 	}
 
 	disc = create_obj(get_obj_index(OBJ_VNUM_DISC), 0);
-	disc->value[0]	= LEVEL(ch) * 10; /* 10 pounds per level capacity */
-	disc->value[3]	= LEVEL(ch) * 5; /* 5 pounds per level max per item */
-	disc->timer	= LEVEL(ch) / 2 - number_range(0, level / 4); 
+	disc->value[0]	= level * 10; /* 10 pounds per level capacity */
+	disc->value[3]	= level * 5; /* 5 pounds per level max per item */
+	disc->timer	= level / 2 - number_range(0, level / 4); 
 
 	af.where	= TO_AFFECTS;
 	af.type		= sn;
@@ -2564,7 +2563,7 @@ void spell_holy_hammer(int sn, int level, CHAR_DATA *ch, void *vo)
 	hammer = create_obj(get_obj_index(OBJ_VNUM_HOLY_HAMMER), 0);
 	hammer->level = ch->level;
 	hammer->timer = level * 3;
-	hammer->value[2] = (LEVEL(ch)/10)+1;
+	hammer->value[2] = (level/10)+1;
 
 	af.where 	= TO_OBJECT;
 	af.type  	= sn;
@@ -4205,13 +4204,7 @@ void spell_lightning_shield(int sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = 0;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.event     = EVENT_ENTER;
-	af.event_fun = get_event_fun(sn, EVENT_ENTER);
-	affect_to_room(ch->in_room, &af);
-
-	af.bitvector = 0;
-	af.event     = EVENT_LEAVE;
-	af.event_fun = get_event_fun(sn, EVENT_LEAVE);
+	af.events    = EVENT_ENTER | EVENT_LEAVE;
 	affect_to_room(ch->in_room, &af);
 
 	af2.where     = TO_AFFECTS;
@@ -4252,8 +4245,7 @@ void spell_shocking_trap(int sn, int level, CHAR_DATA *ch, void *vo)
 	af.modifier  = 0;
 	af.bitvector = 0;
 	af.owner     = ch;
-	af.event     = EVENT_ENTER;
-	af.event_fun = get_event_fun(sn, EVENT_ENTER);
+	af.events     = EVENT_ENTER;
 	affect_to_room(ch->in_room, &af);
 
 	af2.where     = TO_AFFECTS;
@@ -4289,8 +4281,8 @@ void spell_etheral_fist(int sn, int level, CHAR_DATA *ch, void *vo)
 	dam = dice(level, 12);
 	if (saves_spell(level, victim, DAM_ENERGY))
 		dam /= 2;
-	act("A fist of black, otherworldly ether rams into $N, leaving $M looking stunned!"
-			,ch,NULL,victim,TO_NOTVICT);
+	act("A fist of black, otherworldly ether rams into $N, leaving $M looking stunned!",
+	    ch,NULL,victim,TO_NOTVICT);
 	damage(ch, victim, dam, sn,DAM_ENERGY,TRUE);
 }
 
