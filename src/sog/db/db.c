@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.218 2000-04-06 05:41:02 fjoe Exp $
+ * $Id: db.c,v 1.219 2000-04-10 14:14:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1855,8 +1855,6 @@ void scan_pfiles()
 	DIR *dirp;
 	bool eqcheck = dfexist(TMP_PATH, EQCHECK_FILE);
 	bool eqcheck_save_all = dfexist(TMP_PATH, EQCHECK_SAVE_ALL_FILE);
-	bool should_clear, pet;
-	char fullname [PATH_MAX];
 
 	log(LOG_INFO, "scan_pfiles: start (eqcheck: %s, save all: %s)",
 		   eqcheck ? "active" : "inactive",
@@ -1878,8 +1876,10 @@ void scan_pfiles()
 	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
 		CHAR_DATA *ch;
 		OBJ_DATA *obj, *obj_next;
-		bool changed;
+		bool changed = FALSE;
 		struct stat s;
+		bool should_clear = FALSE;
+		bool pet = FALSE;
 
 #if defined (LINUX) || defined (WIN32)
 		if (strlen(dp->d_name) < 3)
@@ -1892,20 +1892,12 @@ void scan_pfiles()
 		||  (ch = char_load(dp->d_name, LOAD_F_NOCREATE)) == NULL)
 			continue;
 
-		changed = FALSE;
-		should_clear = FALSE;
-
 		/* Remove limited eq from the pfile if it's two weeks old */
+		if (stat(dp->d_name, &s) < 0) {
+			log(LOG_ERROR, "scan_pfiles: unable to stat %s.", dp->d_name);
+		} else
+			should_clear = (current_time - s.st_mtime) > 60*60*24*14;
 
-		snprintf(fullname, sizeof(fullname), "%s%c%s", PLAYER_PATH, 
-			PATH_SEPARATOR, dp->d_name);
-		if (stat(fullname, &s) < 0) {
-			log(LOG_ERROR, "scan_pfiles: unable to stat %s.", fullname);
-		} else {
-			should_clear = (time(NULL) - s.st_mtime) > 60*60*24*14;
-		}
-
-		pet = FALSE;
 		for (obj = ch->carrying; obj; obj = obj_next) {
 			obj_next = obj->next_content;
 
@@ -1917,7 +1909,8 @@ void scan_pfiles()
 			obj->pObjIndex->count++;
 
 			if (obj->pObjIndex->limit < 0
-			|| !should_clear)
+			||  !eqcheck
+			||  !should_clear)
 				continue;
 
 			changed = TRUE;

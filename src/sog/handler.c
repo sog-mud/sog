@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.245 2000-03-30 16:05:50 fjoe Exp $
+ * $Id: handler.c,v 1.246 2000-04-10 14:14:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -502,6 +502,15 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 		--ch->in_room->light;
 
 	oprog_call(OPROG_REMOVE, obj, ch, NULL);
+
+	if ((obj = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL) {
+		act_puts("You wield your second weapon as your first!.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		act("$n wields $s second weapon as first!",
+		    ch, NULL, NULL, TO_ROOM);
+		unequip_char(ch, obj);
+		equip_char(ch, obj, WEAR_WIELD);
+	}
 }
 
 /*
@@ -3538,18 +3547,26 @@ int free_hands(CHAR_DATA *ch)
 {
 	int free_hands = 2;
 	OBJ_DATA *weapon;
-	weapon=get_eq_char(ch, WEAR_WIELD);
+
+	weapon = get_eq_char(ch, WEAR_WIELD);
 	if (weapon) {
 		free_hands--;
 		if (IS_WEAPON_STAT(weapon, WEAPON_TWO_HANDS)
-		&& ch->size<SIZE_LARGE)
-			free_hands=0;
+		&&  ch->size < SIZE_LARGE)
+			free_hands = 0;
 		if (WEAPON_IS(weapon, WEAPON_STAFF)) 
-			free_hands=0;
+			free_hands = 0;
 	}
-	if (get_eq_char(ch, WEAR_SECOND_WIELD)) free_hands--;
-	if (get_eq_char(ch, WEAR_SHIELD)) free_hands--;
-	if (get_eq_char(ch, WEAR_HOLD)) free_hands--;
+
+	if (get_eq_char(ch, WEAR_SECOND_WIELD))
+		free_hands--;
+
+	if (get_eq_char(ch, WEAR_SHIELD))
+		free_hands--;
+
+	if (get_eq_char(ch, WEAR_HOLD))
+		free_hands--;
+
 	return UMAX(0, free_hands);
 }
 
@@ -3943,7 +3960,8 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 			return;
 
 		if (!free_hands(ch)) {
-			char_puts("Your hands are full.\n", ch);
+			act_puts("Your hands are full.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			return;
 		}
 
@@ -3965,7 +3983,8 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 			return;
 
 		if (!free_hands(ch)) {
-			char_puts("Your hands are full.\n", ch);
+			act_puts("Your hands are full.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			return;
 		}
 		
@@ -4034,7 +4053,8 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 			return;
 
 		if (!free_hands(ch)) {
-			char_puts("Your hands are full.\n", ch);
+			act_puts("Your hands are full.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 			return;
 		}
 

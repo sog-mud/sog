@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.269 2000-04-06 05:40:58 fjoe Exp $
+ * $Id: fight.c,v 1.270 2000-04-10 14:14:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -139,14 +139,13 @@ int num_enemies(CHAR_DATA *ch)
 	return num;
 }
 
-
 void secondary_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt) 
 {
 	int chance;
 	AFFECT_DATA *paf;
 	
 	if ((paf = is_affected(ch, "entanglement")) 
-	&& (INT(paf->location) == APPLY_NONE)) 
+	&&  (INT(paf->location) == APPLY_NONE)) 
 			return;
 		
 	if (get_eq_char(ch, WEAR_SECOND_WIELD) != NULL) {
@@ -290,6 +289,8 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, const char *dt)
 		if (ch->fighting != victim)
 			return;
 		secondary_hit(ch, victim, dt);
+		if (ch->fighting != victim)
+			return;
 	}
 
 	chance = get_skill(ch, "third attack") / 3;

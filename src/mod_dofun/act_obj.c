@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.206 2000-03-05 17:14:41 avn Exp $
+ * $Id: act_obj.c,v 1.207 2000-04-10 14:14:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1063,6 +1063,12 @@ void do_drink(CHAR_DATA * ch, const char *argument)
 	int		i;
 	liquid_t	*lq;
 
+	if (ch->fighting != NULL) {
+		act_puts("You can't drink while fighting.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
+	}
+
 	if (is_affected(ch, "bellyache")) {
 		act("You aren't able to drink anything.",
 			ch, NULL, NULL, TO_CHAR);
@@ -1194,13 +1200,18 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 			return;
 		}
 	}
+
+	if (obj->item_type == ITEM_FOOD
+	&&  ch->fighting != NULL) {
+		act_puts("You can't eat while fighting.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
+	}
+
 	act("$n eats $p.", ch, obj, NULL, TO_ROOM);
 	act_puts("You eat $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
-	if (ch->fighting != NULL)
-		WAIT_STATE(ch, 3 * get_pulse("violence"));
 
 	switch (obj->item_type) {
-
 	case ITEM_FOOD:
 		if (!IS_NPC(ch)) {
 			int             condition;
@@ -1256,6 +1267,9 @@ void do_eat(CHAR_DATA * ch, const char *argument)
 		break;
 
 	case ITEM_PILL:
+		if (ch->fighting != NULL)
+			WAIT_STATE(ch, 3 * get_pulse("violence"));
+
 		obj_cast_spell(obj->value[1].s, INT(obj->value[0]), ch, ch);
 		if (IS_EXTRACTED(ch))
 			break;
