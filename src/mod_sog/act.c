@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.28 1999-06-21 15:56:46 fjoe Exp $
+ * $Id: act.c,v 1.29 1999-06-21 16:31:55 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -280,6 +280,16 @@ door_name(const char *name)
 		break;						\
 	}
 
+#define CHAR_ARG(ch, to, opt)					\
+	{							\
+		if (ch == NULL) {				\
+			i = GETMSG("Noone", opt->to_lang);	\
+		} else {					\
+			CHECK_TYPE(ch, MT_CHAR);		\
+			i = PERS2(ch, to, opt->act_flags);	\
+		}						\
+	}
+
 /*
  * vch is (CHAR_DATA*) arg2
  * vch1 is (CHAR_DATA*) arg1
@@ -490,23 +500,19 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 
 /* char arguments */
 			case 'n':
-				CHECK_TYPE(ch, MT_CHAR);
-				i = PERS2(ch, to, opt->act_flags);
+				CHAR_ARG(ch, to, opt);
 				break;
 
 			case 'N':
-				CHECK_TYPE(vch, MT_CHAR);
-				i = PERS2(vch, to, opt->act_flags);
+				CHAR_ARG(vch, to, opt);
 				break;
 
 			case 'i':
-				CHECK_TYPE(vch1, MT_CHAR);
-				i = PERS2(vch1, to, opt->act_flags);
+				CHAR_ARG(vch1, to, opt);
 				break;
 
 			case 'I':
-				CHECK_TYPE(vch3, MT_CHAR);
-				i = PERS2(vch3, to, opt->act_flags);
+				CHAR_ARG(vch3, to, opt);
 				break;
 
 /* numeric arguments */

@@ -1,5 +1,5 @@
 /*
- * $Id: auction_impl.c,v 1.39 1999-06-17 19:28:02 fjoe Exp $
+ * $Id: auction_impl.c,v 1.40 1999-06-21 16:31:54 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -268,8 +268,6 @@ void auction_update(void)
         }
 } 
 
-#define get_name(s)	(s)?((s)->name):("noone")
-
 void do_auction(CHAR_DATA *ch, const char *argument)
 {
 	int tax;
@@ -290,19 +288,25 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	if (arg1[0] == '\0')
 		if (auction.item != NULL) {
 			/* show item data here */
-			if (IS_IMMORTAL(ch))
-				char_printf(ch, "Sold by: %s   Last bet by: %s\n",
-					get_name(auction.seller),
-					get_name(auction.buyer));
-			if (auction.bet > 0)
-				char_printf(ch, "Current bet on this item is "
-						"%d gold.\n",auction.bet);
-			else
-				char_printf(ch,
-					    "Starting price for this item is "
-					    "%d gold.\n"
-					    "No bets on this item have been "
-					    "received.\n", auction.starting);
+			if (IS_IMMORTAL(ch)) {
+				act_puts("Sold by: $i, Last bet by: $N.", 
+					 ch, auction.seller, auction.buyer,
+					 TO_CHAR, POS_DEAD);
+			}
+			if (auction.bet > 0) {
+				act_puts("Current bet on this item is "
+					 "$j gold.", ch,
+					 (const void*) auction.bet, NULL,
+					 TO_CHAR, POS_DEAD);
+			} else {
+				act_puts("Starting price for this item is "
+					 "$j gold.", ch,
+					 (const void*) auction.bet, NULL,
+					 TO_CHAR, POS_DEAD);
+				act_puts("No bets on this item have been "
+					 "received", ch, NULL, NULL,
+					 TO_CHAR, POS_DEAD);
+			}
 			spell_identify(0, 0, ch, auction.item, 0);
 			return;
 		}
