@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.90 1998-10-09 15:34:32 fjoe Exp $
+ * $Id: merc.h,v 1.91 1998-10-10 04:36:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1518,7 +1518,7 @@ struct obj_data
 	int			timer;
 	int 			value	[5];
 	int 			progtypes;
-	const char *		from;
+	const char *		owner;
 	int 			altar;
 	int 			pit;
 	bool			extracted;
@@ -1994,6 +1994,9 @@ bool	saves_dispel	(int dis_level, int spell_level, int duration);
 bool remove_obj (CHAR_DATA * ch, int iWear, bool fReplace);
 void wear_obj   (CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace);
 
+bool	check_blind	(CHAR_DATA *ch);
+bool	check_blind_raw	(CHAR_DATA *ch);
+
 /* interp.c */
 void	interpret	(CHAR_DATA *ch, const char *argument);
 void	interpret_raw	(CHAR_DATA *ch, const char *argument, bool is_order);
@@ -2110,10 +2113,8 @@ void 		do_tell_raw	(CHAR_DATA *ch, CHAR_DATA *victim,
 #define	is_same_group(ach, bch) (leader_lookup(ach) == leader_lookup(bch))
 
 /* act_info.c */
-void	set_title(CHAR_DATA *ch, const char *title);
-char	*get_cond_alias(OBJ_DATA *obj);
-void	do_date(CHAR_DATA* ch, const char *argument);
-bool	check_blind_raw(CHAR_DATA *ch);
+void	set_title	(CHAR_DATA *ch, const char *title);
+char	*get_cond_alias	(OBJ_DATA *obj);
 
 /* act_move.h */
 void move_char(CHAR_DATA *ch, int door, bool follow);

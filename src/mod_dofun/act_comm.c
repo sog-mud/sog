@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.94 1998-10-08 13:27:53 fjoe Exp $
+ * $Id: act_comm.c,v 1.95 1998-10-10 04:36:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1161,8 +1161,6 @@ void do_quit_org(CHAR_DATA *ch, const char *argument, bool Count)
 	}
 }
 
-
-
 void do_save(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch))
@@ -1174,7 +1172,6 @@ void do_save(CHAR_DATA *ch, const char *argument)
 	}
 	save_char_obj(ch, FALSE);
 	WAIT_STATE(ch, PULSE_VIOLENCE);
-	return;
 }
 
 void do_follow(CHAR_DATA *ch, const char *argument)
@@ -1223,7 +1220,6 @@ void do_follow(CHAR_DATA *ch, const char *argument)
 	add_follower(ch, victim);
 }
 
-
 void add_follower(CHAR_DATA *ch, CHAR_DATA *master)
 {
 	if (ch->master != NULL) {
@@ -1266,8 +1262,6 @@ void stop_follower(CHAR_DATA *ch)
 	ch->master = NULL;
 	ch->leader = NULL;
 }
-
-
 
 /* nukes charmed monsters and pets */
 void nuke_pets(CHAR_DATA *ch)

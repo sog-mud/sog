@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.141 1998-10-09 13:42:35 fjoe Exp $
+ * $Id: act_info.c,v 1.142 1998-10-10 04:36:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -69,7 +69,6 @@ DECLARE_DO_FUN(do_look		);
 DECLARE_DO_FUN(do_help		);
 DECLARE_DO_FUN(do_affects	);
 DECLARE_DO_FUN(do_murder	);
-DECLARE_DO_FUN(do_scan2 	);
 
 char *get_stat_alias(CHAR_DATA *ch, int which);
 
@@ -110,7 +109,6 @@ void	show_list_to_char	(OBJ_DATA *list, CHAR_DATA *ch,
 void	show_char_to_char_0	(CHAR_DATA *victim, CHAR_DATA *ch);
 void	show_char_to_char_1	(CHAR_DATA *victim, CHAR_DATA *ch);
 void	show_char_to_char	(CHAR_DATA *list, CHAR_DATA *ch);
-bool	check_blind		(CHAR_DATA *ch);
 void	show_affects		(CHAR_DATA *ch, BUFFER *output);
 
 #define strend(s) (strchr(s, '\0'))
@@ -503,7 +501,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			if (victim->fighting == NULL)
 				buf_add(output, "thin air??");
 			else if (victim->fighting == ch)
-				buf_add(output, MSG(" YOU!", ch->lang));
+				buf_add(output, MSG("YOU!", ch->lang));
 			else if (victim->in_room == victim->fighting->in_room)
 				buf_printf(output, "%s.",
 					   PERS(victim->fighting, ch));
@@ -693,27 +691,6 @@ void show_char_to_char(CHAR_DATA *list, CHAR_DATA *ch)
 			    life_count, (life_count == 1) ? "form" : "forms");
 }
 
-bool check_blind_raw(CHAR_DATA *ch)
-{
-	if (!IS_NPC(ch) && IS_SET(ch->act,PLR_HOLYLIGHT))
-		return TRUE;
-
-	if (IS_AFFECTED(ch, AFF_BLIND))
-		return FALSE;
-
-	return TRUE;
-}
-
-bool check_blind(CHAR_DATA *ch)
-{
-	bool can_see = check_blind_raw(ch);
-
-	if (!can_see)
-		char_puts("You can't see a thing!\n\r", ch);
-
-	return can_see;
-}
-
 void do_clear(CHAR_DATA *ch, const char *argument)
 {
 	if (!IS_NPC(ch))
@@ -850,11 +827,11 @@ void do_autoexit(CHAR_DATA *ch, const char *argument)
 
 	if (IS_SET(ch->act,PLR_AUTOEXIT)) {
 		char_puts("Exits will no longer be displayed.\n\r",ch);
-		REMOVE_BIT(ch->act,PLR_AUTOEXIT);
+		REMOVE_BIT(ch->act, PLR_AUTOEXIT);
 	}
 	else {
 		char_puts("Exits will now be displayed.\n\r",ch);
-		SET_BIT(ch->act,PLR_AUTOEXIT);
+		SET_BIT(ch->act, PLR_AUTOEXIT);
 	}
 }
 
@@ -1195,7 +1172,7 @@ void do_look(CHAR_DATA *ch, const char *argument)
 			do_exits(ch, "auto");
 		}
 	    } else 
-		char_puts("It is pitch black ...\n\r", ch);
+		char_puts("It is pitch black...\n\r", ch);
 
 		show_list_to_char(ch->in_room->contents, ch, FALSE, FALSE);
 		show_char_to_char(ch->in_room->people, ch);
@@ -1432,9 +1409,6 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 
 	fAuto  = !str_cmp(argument, "auto");
 
-	if (!check_blind(ch))
-		return;
-
 	if (fAuto)
 		char_puts("{C[Exits:", ch);
 	else if (IS_IMMORTAL(ch))
@@ -1444,17 +1418,38 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 		char_puts("Obvious exits:\n\r", ch);
 
 	found = FALSE;
-	for (door = 0; door <= 5; door++) {
+	for (door = 0; door < MAX_DIR; door++) {
 		if ((pexit = ch->in_room->exit[door]) != NULL
 		&&  pexit->u1.to_room != NULL
-		&&  can_see_room(ch,pexit->u1.to_room)
-		&&  !IS_SET(pexit->exit_info, EX_CLOSED)) {
+		&&  can_see_room(ch, pexit->u1.to_room)
+		&&  check_blind_raw(ch)) { 
+			bool show_closed = FALSE;
+
+			if (IS_SET(pexit->exit_info, EX_CLOSED)) {
+				int chance;
+
+				if (IS_IMMORTAL(ch))
+					show_closed = TRUE;
+				else if (!fAuto &&
+					 (chance = get_skill(ch, gsn_perception))) {
+					 if (number_percent() < chance) {
+						check_improve(ch, gsn_perception,
+							      TRUE, 5);
+						show_closed = TRUE;
+					}
+				}
+				if (!show_closed)
+					continue;
+			}
+
 			found = TRUE;
 			if (fAuto)
-				char_printf(ch, " %s", dir_name[door]);
+				char_printf(ch, " %s%s", dir_name[door],
+					    show_closed ? "*" : str_empty);
 			else {
-				char_printf(ch, "{C%-5s{x - %s",
+				char_printf(ch, "{C%-5s%s{x - %s",
 					    capitalize(dir_name[door]),
+					    show_closed ? "*" : str_empty,
 					    room_dark(pexit->u1.to_room) ?
 					    MSG("Too dark to tell", ch->lang) :
 					    mlstr_cval(pexit->u1.to_room->name,
@@ -1463,29 +1458,6 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 					char_printf(ch, " (room %d)",
 						    pexit->u1.to_room->vnum);
 				char_puts("\n\r", ch);
-			}
-		}
-
-		if (number_percent() < get_skill(ch,gsn_perception)
-		&&  (pexit = ch->in_room->exit[door]) != NULL
-		&&  pexit->u1.to_room != NULL
-		&&  can_see_room(ch,pexit->u1.to_room)
-		&&   IS_SET(pexit->exit_info, EX_CLOSED)) {
-			check_improve(ch,gsn_perception, TRUE, 5);
-			found = TRUE;
-
-			if (fAuto)
-				char_printf(ch, " %s*", dir_name[door]);
-			else {
-				char_printf(ch, "%-5s * (%s)",
-					    capitalize(dir_name[door]),
-					    pexit->keyword);
-
-				if (IS_IMMORTAL(ch))
-					char_printf(ch, " (room %d)\n\r",
-						    pexit->u1.to_room->vnum);
-				else
-					char_puts("\n\r", ch);
 			}
 		}
 	}
@@ -2311,12 +2283,53 @@ void do_password(CHAR_DATA *ch, const char *argument)
 	return;
 }
 
-/* RT configure command */
+void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch, 
+		int depth, int door)
+{
+	CHAR_DATA *rch;
+
+	if (scan_room == NULL) 
+		return;
+	for (rch = scan_room->people; rch != NULL; rch = rch->next_in_room) {
+		if (rch == ch || 
+		    (!IS_NPC(rch) && rch->invis_level > get_trust(ch)))
+			continue;
+		if (can_see(ch, rch)) 
+			char_printf(ch, "	%s.\n\r", PERS(rch, ch));
+	}
+}
+
+void do_scan2(CHAR_DATA *ch, const char *argument)
+{
+	extern char *const dir_name[];
+	EXIT_DATA *pExit;
+	int door;
+
+	act("$n looks all around.", ch, NULL, NULL, TO_ROOM);
+	if (!check_blind(ch))
+		return;
+
+	char_puts("Looking around you see:\n\r", ch);
+
+	char_puts("{Chere{x:\n\r", ch);
+	scan_list(ch->in_room, ch, 0, -1);
+	for (door = 0; door < 6; door++) {
+		if ((pExit = ch->in_room->exit[door]) == NULL
+		|| !pExit->u1.to_room
+		|| !can_see_room(ch,pExit->u1.to_room))
+			continue;
+		char_printf(ch, "{C%s{x:\n\r", dir_name[door]);
+		if (IS_SET(pExit->exit_info, EX_CLOSED)) {
+			char_puts("	You see closed door.\n\r", ch);
+			continue;
+		}
+		scan_list(pExit->u1.to_room, ch, 1, door);
+	}
+}
 
 void do_scan(CHAR_DATA *ch, const char *argument)
 {
 	char dir[MAX_INPUT_LENGTH];
-	char *dir2;
 	ROOM_INDEX_DATA *in_room;
 	ROOM_INDEX_DATA *to_room;
 	EXIT_DATA *exit;	/* pExit */
@@ -2337,43 +2350,38 @@ void do_scan(CHAR_DATA *ch, const char *argument)
 	case 'N':
 	case 'n':
 		door = 0;
-		dir2 = "north";
 		break;
 	case 'E':
 	case 'e':
 		door = 1;
-		dir2 = "east";
 		break;
 	case 'S':
 	case 's':
 		door = 2;
-		dir2 = "south";
 		break;
 	case 'W':
 	case 'w':
 		door = 3;
-		dir2 = "west";
 		break;
 	case 'U':
 	case 'u':
 		door = 4;
-		dir2 = "up";
 		break;
 	case 'D':
 	case 'd':
 		door = 5;
-		dir2 = "down";
 		break;
 	default:
 		char_puts("Wrong direction.\n\r", ch);
 		return;
 	}
 
-	char_printf(ch, "You scan %s.\n\r",  dir2);
-	act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING, "$n scans %s.", dir2);
-
+	act("$n scans $t.", ch, dir_name[door], NULL, TO_ROOM | TRANS_TEXT);
 	if (!check_blind(ch))
 		return;
+
+	act_puts("You scan $t.", ch, dir_name[door], NULL, TO_CHAR | TRANS_TEXT,
+		 POS_DEAD);
 
 	range = 1 + ch->level/10;
 

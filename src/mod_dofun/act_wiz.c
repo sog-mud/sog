@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.72 1998-10-09 15:34:32 fjoe Exp $
+ * $Id: act_wiz.c,v 1.73 1998-10-10 04:36:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1110,7 +1110,8 @@ void do_ostat(CHAR_DATA *ch, const char *argument)
 
 	output = buf_new(0);
 	buf_printf(output, "Name(s): %s\n\r", obj->name);
-
+	if (!IS_NULLSTR(obj->owner))
+		buf_printf(output, "Owner: [%s]\n\r", obj->owner);
 	buf_printf(output, "Vnum: %d  Type: %s  Resets: %d\n\r",
 		obj->pIndexData->vnum,
 		flag_string(item_types, obj->pIndexData->item_type),
@@ -2844,7 +2845,7 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 		char_puts("  set obj <object> <field> <value>\n\r",ch);
 		char_puts("Field being one of:\n\r", ch);
 		char_puts("value0 value1 value2 value3 value4 (v1-v4)\n\r", ch);
-		char_puts("    level cost timer\n\r",	ch);
+		char_puts("owner level cost timer\n\r",	ch);
 		return;
 	}
 
@@ -2898,6 +2899,11 @@ void do_oset(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 		
+	if (!str_prefix(arg2, "owner")) {
+		free_string(obj->owner);
+		obj->owner = str_dup(arg3);
+	}
+
 	/*
 	 * Generate usage message.
 	 */

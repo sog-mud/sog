@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.66 1998-10-09 15:34:32 fjoe Exp $
+ * $Id: handler.c,v 1.67 1998-10-10 04:36:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3120,5 +3120,26 @@ bool check_dispel(int dis_level, CHAR_DATA *victim, int sn)
 	    }
 	}
 	return FALSE;
+}
+
+bool check_blind_raw(CHAR_DATA *ch)
+{
+	if (!IS_NPC(ch) && IS_SET(ch->act, PLR_HOLYLIGHT))
+		return TRUE;
+
+	if (IS_AFFECTED(ch, AFF_BLIND))
+		return FALSE;
+
+	return TRUE;
+}
+
+bool check_blind(CHAR_DATA *ch)
+{
+	bool can_see = check_blind_raw(ch);
+
+	if (!can_see)
+		char_puts("You can't see a thing!\n\r", ch);
+
+	return can_see;
 }
 

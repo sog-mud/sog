@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.13 1998-10-08 12:39:36 fjoe Exp $
+ * $Id: util.c,v 1.14 1998-10-10 04:36:25 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -85,11 +85,6 @@ const char *get_filename(const char *name)
 int cmpint(const void *p1, const void *p2)
 {
 	return *(int*) p1 - *(int*) p2;
-}
-
-int cmpstrp(const void *p1, const void *p2)
-{
-	return str_cmp(*(char**)p1, *(char**) p2);
 }
 
 size_t cstrlen(const char *cstr)

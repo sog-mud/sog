@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.65 1998-10-09 15:34:33 fjoe Exp $
+ * $Id: save.c,v 1.66 1998-10-10 04:36:25 fjoe Exp $
  */
 
 /***************************************************************************
@@ -432,17 +432,14 @@ fwrite_obj(CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest)
 		return;
 	}
 
-/* FIXX ME
-	if (obj->pIndexData->vnum == QUEST_ITEM1
-		|| obj->pIndexData->vnum == QUEST_ITEM2
-		|| obj->pIndexData->vnum == QUEST_ITEM3
-		|| obj->pIndexData->vnum == OBJ_VNUM_EYED_SWORD)
-	if (strstr(mlstr_mval(obj->short_descr), ch->name) == NULL) {
-		act("$p vanishes!",ch,obj,NULL,TO_CHAR);
+/* do not save named objs if ch is not owner */
+	if (!IS_NULLSTR(obj->owner)
+	&&  str_cmp(obj->owner, ch->name)) {
+		log_printf("%s: %s of %s", ch->name, obj->name, obj->owner);
+		act("$p vanishes!", ch, obj, NULL, TO_CHAR);
 		extract_obj(obj);
 		return;
 	}
-*/
 
 	fprintf(fp, "#O\n");
 	fprintf(fp, "Vnum %d\n", obj->pIndexData->vnum);
@@ -1344,8 +1341,12 @@ fread_obj(CHAR_DATA * ch, FILE * fp)
 				fMatch = TRUE;
 			}
 			if (!str_cmp(word, "End")) {
+				if (IS_SET(obj->pIndexData->extra_flags,
+					   ITEM_QUEST))
+					obj->owner = str_dup(ch->name);
 				if (enchanted)
-					SET_BIT(obj->extra_flags, ITEM_ENCHANTED);
+					SET_BIT(obj->extra_flags,
+						ITEM_ENCHANTED);
 				if (!fNest
 				||  (fVnum && obj->pIndexData == NULL)) {
 					bug("Fread_obj: incomplete object.", 0);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.78 1998-10-09 15:34:31 fjoe Exp $
+ * $Id: act_obj.c,v 1.79 1998-10-10 04:36:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -79,7 +79,7 @@ bool can_loot(CHAR_DATA * ch, OBJ_DATA * obj)
 	 */
 	if (obj->in_room != NULL
 	&& IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA)
-	&& obj->from != NULL && str_cmp(ch->name, obj->from))
+	&& obj->owner != NULL && str_cmp(ch->name, obj->owner))
 		return FALSE;
 
 	return TRUE;
@@ -96,8 +96,8 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container)
 	||  (obj->pIndexData->item_type == ITEM_CORPSE_PC &&
 	     obj->in_room != NULL &&
 	     IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA) &&
-	     obj->from != NULL &&
-	     str_cmp(ch->name, obj->from))) {
+	     !IS_NULLSTR(obj->owner) &&
+	     str_cmp(ch->name, obj->owner))) {
 		char_puts("You can't take that.\n\r", ch);
 		return;
 	}
@@ -352,7 +352,8 @@ bool put_obj(CHAR_DATA *ch, OBJ_DATA *container, OBJ_DATA *obj, int* count)
 		else
 			obj->timer = number_range(100, 200);
 
-	if (obj->pIndexData->limit != -1) {
+	if (obj->pIndexData->limit != -1
+	||  IS_SET(obj->pIndexData->extra_flags, ITEM_QUEST)) {
 		act_puts("This unworthy container won't hold $p.",
 			 ch, obj, NULL, TO_CHAR, POS_DEAD);
 		return TRUE;
@@ -819,6 +820,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 			return;
 		}
 	}
+
 	obj_from_char(obj);
 	obj_to_char(obj, victim);
 	act("$n gives $p to $N.", ch, obj, victim, TO_NOTVICT | NO_TRIGGER);

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.43 1998-10-08 13:27:54 fjoe Exp $
+ * $Id: martial_art.c,v 1.44 1998-10-10 04:36:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1850,7 +1850,7 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_NULLSTR(part->from)) {
+	if (IS_NULLSTR(part->owner)) {
 		char_puts("Invalid body part.\n\r", ch);
 		return;
 	}
@@ -1870,7 +1870,7 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 			level = UMIN(part->level + 5, MAX_LEVEL);
  
 			trophy = create_named_obj(get_obj_index(trophy_vnum),
-						     level, part->from);
+						     level, part->owner);
 			trophy->timer = ch->level * 2;
 			trophy->cost  = 0;
 			trophy->level = ch->level;
@@ -2488,16 +2488,17 @@ int critical_strike(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
 	}   
 	else if (diceroll > 75 && diceroll < 95) {   
 		act_puts("You are blinded by $n's attack!", ch, NULL, victim, 
-			TO_VICT ,POS_RESTING);
+			TO_VICT, POS_RESTING);
 		act_puts("You blind $N with your attack!", ch, NULL, victim, 
-			TO_CHAR,POS_RESTING);
+			TO_CHAR, POS_RESTING);
 		check_improve(ch, gsn_critical, TRUE, 4);
-		if (!IS_AFFECTED(victim,AFF_BLIND)) {
+		if (!IS_AFFECTED(victim, AFF_BLIND)) {
+			baf.where = TO_AFFECTS;
 			baf.type = gsn_dirt;
 			baf.level = ch->level; 
 			baf.location = APPLY_HITROLL; 
 			baf.modifier = -4;
-			baf.duration = number_range(1,5); 
+			baf.duration = number_range(1, 5); 
 			baf.bitvector = AFF_BLIND;
 			affect_to_char(victim, &baf);
 		}  

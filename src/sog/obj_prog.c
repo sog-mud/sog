@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.38 1998-10-09 13:42:42 fjoe Exp $
+ * $Id: obj_prog.c,v 1.39 1998-10-10 04:36:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -443,61 +443,60 @@ bool death_prog_ranger_staff(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	return 0;
 }
 
-
 int get_prog_spec_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg) 
 {
-	if (obj->ed == NULL)
-		return 0;
+	if (!str_cmp(obj->owner, ch->name)) {
+		if (IS_AFFECTED(ch, AFF_POISON) && (dice(1,5)==1))  {
+			char_puts("Your weapon glows blue.", ch);
+			act("$n's weapon glows blue.", ch, NULL, NULL, TO_ROOM);
+			spell_cure_poison(gsn_cure_poison, 30, ch, ch, TARGET_CHAR);
+			return 0;
+		}
 
-	if (strstr(mlstr_mval(obj->ed->description), ch->name) != NULL)  {
-	if (IS_AFFECTED(ch, AFF_POISON) && (dice(1,5)==1))  {
-	  char_puts("Your weapon glows blue.", ch);
-	  act("$n's weapon glows blue.", ch, NULL, NULL, TO_ROOM);
-	  spell_cure_poison(gsn_cure_poison, 30, ch, ch, TARGET_CHAR);
-	 return 0;
+		if (IS_AFFECTED(ch, AFF_CURSE) && (dice(1,5)==1))  {
+			char_puts("Your weapon glows blue.", ch);
+			act("$n's weapon glows blue.", ch, NULL, NULL, TO_ROOM);
+			spell_remove_curse(gsn_remove_curse, 30, ch, ch, TARGET_CHAR);
+			return 0;
+		}
+		char_puts("Your weapon's humming gets lauder.\n\r", ch);
+		return 0;
 	}
-	if (IS_AFFECTED(ch, AFF_CURSE) && (dice(1,5)==1))  {
-	  char_puts("Your weapon glows blue.", ch);
-	  act("$n's weapon glows blue.", ch, NULL, NULL, TO_ROOM);
-	  spell_remove_curse(gsn_remove_curse, 30, ch, ch, TARGET_CHAR);
-	 return 0;
-	}
-	char_puts("Your weapon's humming gets lauder.\n\r", ch);
-	return 0;
-	}
+
 	act("You are zapped by $p and drop it.", ch, obj, NULL, TO_CHAR);
 
 	obj_from_char(obj);
 	obj_to_room(obj, ch->in_room);
 
-	switch(dice(1, 10))  {
+	switch(dice(1, 10)) {
 	case 1:
-	spell_curse(gsn_curse, ch->level < 10? 1 : ch->level-9, ch, ch, TARGET_CHAR);
-	break;
+		spell_curse(gsn_curse, ch->level < 10 ? 1 : ch->level-9,
+			    ch, ch, TARGET_CHAR);
+		break;
 	case 2:
-	spell_poison(gsn_poison, ch->level < 10? 1 : ch->level-9, ch, ch, TARGET_CHAR);
-	break;
+		spell_poison(gsn_poison, ch->level < 10 ? 1 : ch->level-9,
+			     ch, ch, TARGET_CHAR);
+		break;
 	}
 	return 0;
 }
 
 int get_prog_quest_obj(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg) 
 {
-	if (obj->ed == NULL)
-		return 0;
-
-	if (strstr(mlstr_mval(obj->ed->description), ch->name) != NULL) {
+	if (!str_cmp(obj->owner, ch->name)) {
 		if (IS_AFFECTED(ch, AFF_POISON) && (dice(1, 5) == 1)) {
-			char_puts("Your weapon glows blue.", ch);
-			act("$n's weapon glows blue.", ch, NULL, NULL, TO_ROOM);
+			act("$p glows blue.", ch, obj, NULL, TO_ROOM);
+			act_puts("$p glows blue.", ch, obj, NULL, TO_CHAR,
+				 POS_DEAD);
 			spell_cure_poison(gsn_cure_poison, 30,
 					  ch, ch, TARGET_CHAR);
 			return 0;
 		}
 
 		if (IS_AFFECTED(ch, AFF_CURSE) && (dice(1, 5) == 1)) {
-			char_puts("Your weapon glows blue.", ch);
-			act("$n's weapon glows blue.", ch, NULL, NULL, TO_ROOM);
+			act("$p glows blue.", ch, obj, NULL, TO_ROOM);
+			act_puts("$p glows blue.", ch, obj, NULL, TO_CHAR,
+				 POS_DEAD);
 			spell_remove_curse(gsn_remove_curse, 30,
 					   ch, ch, TARGET_CHAR);
 			return 0;
@@ -1030,7 +1029,6 @@ int fight_prog_golden_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	return 0;
 }
 
-
 int get_prog_heart(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (obj->timer == 0)
@@ -1316,6 +1314,7 @@ int remove_prog_wind_boots(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	}
 	return 0;
 }
+
 int wear_prog_boots_flying(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	AFFECT_DATA af;
@@ -1336,6 +1335,7 @@ int wear_prog_boots_flying(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	}
 	return 0;
 }
+
 int remove_prog_boots_flying(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	if (is_affected(ch, gsn_fly))
@@ -1346,7 +1346,6 @@ int remove_prog_boots_flying(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	}
 	return 0;
 }
-
 
 int wear_prog_arm_hercules(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
@@ -1409,6 +1408,7 @@ int remove_prog_girdle_giant(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	}
 	return 0;
 }
+
 int wear_prog_breastplate_strength(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
 	AFFECT_DATA af;
@@ -1438,7 +1438,6 @@ int remove_prog_breastplate_strength(OBJ_DATA *obj, CHAR_DATA *ch, const void *a
 	}
 	return 0;
 }
-
 
 int fight_prog_rose_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
@@ -1481,7 +1480,6 @@ int fight_prog_lion_claw(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 }
 return 0;
 }
-
 
 int speech_prog_ring_ra(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
@@ -1551,7 +1549,6 @@ int fight_prog_tattoo_goktengri(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	}
 	return 0;
 }
-
 
 int wear_prog_snake(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
@@ -1640,7 +1637,7 @@ int remove_prog_fire_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 int wear_prog_quest_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 {
-	if (strstr(mlstr_mval(obj->short_descr), ch->name) != NULL)  {
+	if (!str_cmp(obj->owner, ch->name))  {
 		char_puts("Your weapon starts glowing.\n\r",ch);
 		     if (                  ch->level <= 20) obj->value[2] = 3;
 		else if (ch->level > 20 && ch->level <= 30) obj->value[2] = 4;
@@ -1663,9 +1660,9 @@ int wear_prog_quest_weapon(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 
 int get_prog_quest_reward(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg) 
 {
-	if (strstr(mlstr_mval(obj->short_descr), ch->name) != NULL)  {
+	if (!str_cmp(obj->owner, ch->name))  {
 		act_puts("Your $p starts glowing.\n\r",
-			 ch,obj,NULL,TO_CHAR,POS_SLEEPING);
+			 ch, obj, NULL, TO_CHAR, POS_SLEEPING);
 		return 0;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.23 1998-10-06 13:18:26 fjoe Exp $
+ * $Id: interp.h,v 1.24 1998-10-10 04:36:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -144,6 +144,7 @@ DECLARE_DO_FUN(do_consider	);
 DECLARE_DO_FUN(do_count		);
 DECLARE_DO_FUN(do_crecall	);
 DECLARE_DO_FUN(do_credits	);
+DECLARE_DO_FUN(do_date		);
 DECLARE_DO_FUN(do_deaf		);
 DECLARE_DO_FUN(do_delet		);
 DECLARE_DO_FUN(do_delete	);

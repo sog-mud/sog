@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.80 1998-10-09 13:42:37 fjoe Exp $
+ * $Id: fight.c,v 1.81 1998-10-10 04:36:22 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1733,7 +1733,7 @@ void make_corpse(CHAR_DATA *ch)
 		    ch->gold = 0;
 		}
 		/* XXX */
-		corpse->from = str_dup(mlstr_mval(ch->short_descr));
+		corpse->owner = str_dup(mlstr_mval(ch->short_descr));
 		corpse->cost = 0;
 	}
 	else
@@ -1748,7 +1748,7 @@ void make_corpse(CHAR_DATA *ch)
 		corpse		= create_named_obj(get_obj_index(OBJ_VNUM_CORPSE_PC), ch->level, ch->name);
 		corpse->timer	= number_range(25, 40);
 		REMOVE_BIT(ch->act,PLR_CANLOOT);
-		corpse->from = str_dup(ch->name);
+		corpse->owner = str_dup(ch->name);
 		corpse->altar = hometown_table[ch->hometown].altar[i];
 		corpse->pit = hometown_table[ch->hometown].pit[i];
 
@@ -1875,7 +1875,7 @@ void death_cry_org(CHAR_DATA *ch, int part)
 		obj		= create_named_obj(get_obj_index(vnum), 0,
 					name);
 		obj->timer	= number_range(4, 7);
-		obj->from = str_dup(name);
+		obj->owner = str_dup(name);
 
 		if (obj->pIndexData->item_type == ITEM_FOOD) {
 			if (IS_SET(ch->form,FORM_POISON))

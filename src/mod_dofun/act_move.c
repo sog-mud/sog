@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.103 1998-10-09 13:42:36 fjoe Exp $
+ * $Id: act_move.c,v 1.104 1998-10-10 04:36:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -90,6 +90,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	bool room_has_pc;
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
+	int act_flags;
 
 	if (RIDDEN(ch) && !IS_NPC(ch->mount)) {
 		move_char(ch->mount,door,follow);
@@ -114,13 +115,13 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 		}
 	}
 
-	if (door < 0 || door > 5) {
+	if (door < 0 || door >= MAX_DIR) {
 		bug("Do_move: bad door %d.", door);
 		return;
 	}
 
-	if ((IS_AFFECTED(ch, AFF_HIDE) && !IS_AFFECTED(ch, AFF_SNEAK))  
-	|| (IS_AFFECTED(ch, AFF_FADE) && !IS_AFFECTED(ch, AFF_SNEAK)) ) {
+	if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE)
+	&&  !IS_AFFECTED(ch, AFF_SNEAK)) {
 		REMOVE_BIT(ch->affected_by, AFF_HIDE);
 		char_nputs(MSG_YOU_STEP_OUT_SHADOWS, ch);
 		act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
@@ -156,7 +157,7 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	in_room = ch->in_room;
 	if ((pexit = in_room->exit[door]) == NULL
 	||  (to_room = pexit->u1.to_room) == NULL 
-	||  !can_see_room(ch,pexit->u1.to_room)) {
+	||  !can_see_room(ch, pexit->u1.to_room)) {
 		char_puts("Alas, you cannot go that way.\n\r", ch);
 		return;
 	}
@@ -164,12 +165,12 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	if (IS_ROOM_AFFECTED(in_room, RAFF_RANDOMIZER)) {
 		int d0;
 		while (1) {
-			d0 = number_range(0, 5);
+			d0 = number_range(0, MAX_DIR-1);
 			if ((pexit = in_room->exit[d0]) == NULL
 			||  (to_room = pexit->u1.to_room) == NULL 
-			||  !can_see_room(ch,pexit->u1.to_room))
+			||  !can_see_room(ch, pexit->u1.to_room))
 				continue;	  
-			d0 = door;
+			door = d0;
 			break;
 		}
 	}
@@ -311,21 +312,23 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 
 	if (!IS_AFFECTED(ch, AFF_SNEAK)
 	&&  !IS_AFFECTED(ch, AFF_CAMOUFLAGE)
-	&&  ch->invis_level < LEVEL_HERO) {
-		if (!IS_NPC(ch)
-		&&  ch->in_room->sector_type != SECT_INSIDE
-		&&  ch->in_room->sector_type != SECT_CITY
-		&&  number_percent() < get_skill(ch, gsn_quiet_movement)) {
-			act(MOUNTED(ch) ? "$n leaves, riding on $N." :
-					  "$n leaves.",
-			    ch, NULL, MOUNTED(ch), TO_ROOM);
-			check_improve(ch,gsn_quiet_movement,TRUE,1);
-		}
-		else {
-			act(MOUNTED(ch) ? "$n leaves $t, riding on $N." :
-					  "$n leaves $t.",
-			    ch, dir_name[door], MOUNTED(ch), TO_ROOM);
-		}
+	&&  ch->invis_level < LEVEL_HERO) 
+		act_flags = TO_ROOM;
+	else
+		act_flags = TO_ROOM | SKIP_MORTAL;
+
+	if (!IS_NPC(ch)
+	&&  ch->in_room->sector_type != SECT_INSIDE
+	&&  ch->in_room->sector_type != SECT_CITY
+	&&  number_percent() < get_skill(ch, gsn_quiet_movement)) {
+		act(MOUNTED(ch) ? "$n leaves, riding on $N." : "$n leaves.",
+		    ch, NULL, MOUNTED(ch), act_flags);
+		check_improve(ch,gsn_quiet_movement,TRUE,1);
+	}
+	else {
+		act(MOUNTED(ch) ? "$n leaves $t, riding on $N." :
+				  "$n leaves $t.",
+		    ch, dir_name[door], MOUNTED(ch), act_flags | TRANS_TEXT);
 	}
 
 	if (IS_AFFECTED(ch, AFF_CAMOUFLAGE)
@@ -346,14 +349,13 @@ void move_char(CHAR_DATA *ch, int door, bool follow)
 	if (!IS_NPC(ch) && ch->in_room)
 		room_record(ch->name, in_room, door);
 
-	if (!IS_AFFECTED(ch, AFF_SNEAK) && ch->invis_level < LEVEL_HERO) {
-		if (mount)
-			act_nprintf(ch, NULL, mount, TO_ROOM, POS_RESTING,
-				    MSG_ARRIVED_RIDING);
-		else
-			act_nprintf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
-				    MSG_ARRIVED);
-	}
+	if (!IS_AFFECTED(ch, AFF_SNEAK) && ch->invis_level < LEVEL_HERO) 
+		act_flags = TO_ROOM;
+	else
+		act_flags = TO_ROOM | SKIP_MORTAL;
+
+	act_nprintf(ch, NULL, mount, act_flags, POS_RESTING,
+		    mount ? MSG_ARRIVED_RIDING : MSG_ARRIVED);
 
 	do_look(ch, "auto");
 
@@ -530,52 +532,6 @@ int find_door(CHAR_DATA *ch, char *arg)
 	}
 
 	return door;
-}
-
-/* scan.c */
-
-void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch, int depth, int door);
-
-void do_scan2(CHAR_DATA *ch, const char *argument)
-{
-	extern char *const dir_name[];
-	EXIT_DATA *pExit;
-	int door;
-
-	act("$n looks all around.", ch, NULL, NULL, TO_ROOM);
-	char_puts("Looking around you see:\n\r", ch);
-	char_puts("{Chere{x:\n\r", ch);
-	scan_list(ch->in_room, ch, 0, -1);
-	for (door = 0; door < 6; door++) {
-		if ((pExit = ch->in_room->exit[door]) == NULL
-		|| !pExit->u1.to_room
-		|| !can_see_room(ch,pExit->u1.to_room))
-			continue;
-		char_printf(ch, "{C%s{x:\n\r", dir_name[door]);
-		if (IS_SET(pExit->exit_info, EX_CLOSED)) {
-			char_puts("	You see closed door.\n\r", ch);
-			continue;
-		}
-		scan_list(pExit->u1.to_room, ch, 1, door);
-	}
-	return;
-}
-
-void scan_list(ROOM_INDEX_DATA *scan_room, CHAR_DATA *ch, 
-		int depth, int door)
-{
-	CHAR_DATA *rch;
-
-	if (scan_room == NULL) 
-		return;
-	for (rch = scan_room->people; rch != NULL; rch = rch->next_in_room) {
-		if (rch == ch || 
-		    (!IS_NPC(rch) && rch->invis_level > get_trust(ch)))
-			continue;
-		if (can_see(ch, rch)) 
-			char_printf(ch, "{W	%s{x.\n\r", PERS(rch, ch));
-	}
-	return;
 }
 
 void do_open(CHAR_DATA *ch, const char *argument)
