@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.76 1998-10-28 06:31:58 fjoe Exp $
+ * $Id: act_quest.c,v 1.77 1998-10-28 21:17:20 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -515,6 +515,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		||  victim->pIndexData->pShop != NULL
 		||  (IS_EVIL(victim) && IS_EVIL(ch))
 		||  (IS_GOOD(victim) && IS_GOOD(ch))
+		||  victim->pIndexData->vnum < 100
 		||  IS_SET(victim->pIndexData->act, ACT_TRAIN)
 		||  IS_SET(victim->pIndexData->act, ACT_PRACTICE)
 		||  IS_SET(victim->pIndexData->act, ACT_HEALER)

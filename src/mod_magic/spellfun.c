@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.75 1998-10-26 08:38:20 fjoe Exp $
+ * $Id: spellfun.c,v 1.76 1998-10-28 21:17:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -321,6 +321,9 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		break;
 	}
 
+	if (str_cmp(spell->name, "ventriloquate"))
+		say_spell(ch, sn);
+
 	if (!victim)
 		victim = ch;
 
@@ -348,9 +351,6 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 	       	}
 		return;
 	}
-
-	if (str_cmp(spell->name, "ventriloquate"))
-		say_spell(ch, sn);
 
 	if (number_percent() > chance) {
 		char_puts("You lost your concentration.\n\r", ch);
