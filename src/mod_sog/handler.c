@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.128 1999-03-17 15:27:34 kostik Exp $
+ * $Id: handler.c,v 1.129 1999-03-19 07:33:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1983,8 +1983,12 @@ CHAR_DATA *get_char_room_raw(CHAR_DATA *ch, const char *name, uint *number,
 			     ROOM_INDEX_DATA *room)
 {
 	CHAR_DATA *rch;
-	bool ugly = !str_cmp(name, "ugly");
+	bool ugly;
 
+	if (!str_cmp(name, "self"))
+		return ch;
+
+	ugly = !str_cmp(name, "ugly");
 	for (rch = room->people; rch; rch = rch->next_in_room) {
 		CHAR_DATA *vch;
 
@@ -1999,7 +2003,7 @@ CHAR_DATA *get_char_room_raw(CHAR_DATA *ch, const char *name, uint *number,
 		vch = (is_affected(rch, gsn_doppelganger) &&
 		       (IS_NPC(ch) || !IS_SET(ch->plr_flags, PLR_HOLYLIGHT))) ?
 					rch->doppel : rch;
-		if (!is_name(name, vch->name))
+		if (name[0] && !is_name(name, vch->name))
 			continue;
 
 		if (!--(*number))
@@ -2018,10 +2022,8 @@ CHAR_DATA *get_char_room(CHAR_DATA *ch, const char *argument)
 	uint number;
 
 	number = number_argument(argument, arg, sizeof(arg));
-	if (!number || arg[0] == '\0')
+	if (!number)
 		return NULL;
-	if (!str_cmp(arg, "self"))
-		return ch;
 
 	return get_char_room_raw(ch, arg, &number, ch->in_room);
 }
@@ -2033,13 +2035,14 @@ CHAR_DATA *get_char_area(CHAR_DATA *ch, const char *argument)
 	uint number;
 
 	number = number_argument(argument, arg, sizeof(arg));
-	if (!number || arg[0] == '\0')
+	if (!number)
 		return NULL;
-	if (!str_cmp(arg, "self"))
-		return ch;
 
 	if ((ach = get_char_room_raw(ch, arg, &number, ch->in_room)))
 		return ach;
+
+	if (arg[0] == '\0')
+		return NULL;
 
 	for (ach = char_list; ach; ach = ach->next) { 
 		if (!ach->in_room
@@ -2067,13 +2070,14 @@ CHAR_DATA *get_char_world(CHAR_DATA *ch, const char *argument)
 	uint number;
 
 	number = number_argument(argument, arg, sizeof(arg));
-	if (!number || arg[0] == '\0')
+	if (!number)
 		return NULL;
-	if (!str_cmp(arg, "self"))
-		return ch;
 
 	if ((wch = get_char_room_raw(ch, arg, &number, ch->in_room)))
 		return wch;
+
+	if (arg[0] == '\0')
+		return NULL;
 
 	for (wch = char_list; wch; wch = wch->next) {
 		if (!wch->in_room
@@ -2117,10 +2121,8 @@ CHAR_DATA *find_char(CHAR_DATA *ch, const char *argument, int door, int range)
 	char arg[MAX_INPUT_LENGTH];
 
 	number = number_argument(argument, arg, sizeof(arg));
-	if (!number || arg[0] == '\0')
+	if (!number)
 		return NULL;
-	if (!str_cmp(arg, "self"))
-		return ch;
 
 	if ((target = get_char_room_raw(ch, arg, &number, dest_room)))
 		return target;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.218 1999-03-17 15:27:31 kostik Exp $
+ * $Id: act_info.c,v 1.219 1999-03-19 07:33:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1600,6 +1600,7 @@ DO_FUN(do_who)
 	DESCRIPTOR_DATA *d;
 	flag32_t flags = 0;
 	flag32_t ralign = 0;
+	flag32_t rethos = 0;
 
 	int iLevelLower = 0;
 	int iLevelUpper = MAX_LEVEL;
@@ -1678,6 +1679,11 @@ DO_FUN(do_who)
 			continue;
 		}
 
+		if ((i = flag_value(ethos_table, arg))) {
+			SET_BIT(rethos, i);
+			continue;
+		}
+
 		if (is_number(arg)) {
 			switch (++nNumber) {
 			case 1:
@@ -1723,7 +1729,8 @@ DO_FUN(do_who)
 		||  (IS_SET(flags, WHO_F_IMM) && wch->level < LEVEL_IMMORTAL)
 		||  (IS_SET(flags, WHO_F_PK) && !in_PK(ch, wch))
 		||  (IS_SET(flags, WHO_F_CLAN) && !wch->clan)
-		||  (ralign && ((RALIGN(wch) & ralign) == 0)))
+		||  (ralign && ((RALIGN(wch) & ralign) == 0))
+		||  (rethos && ((wch->ethos & rethos) == 0)))
 			continue;
 
 		if (IS_SET(flags, WHO_F_TATTOO)) {

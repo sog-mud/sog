@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.153 1999-03-04 14:31:51 fjoe Exp $
+ * $Id: act_comm.c,v 1.154 1999-03-19 07:33:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1965,14 +1965,14 @@ struct toggle_t {
 	const char *name;	/* flag name				*/
 	const char *desc;	/* toggle description			*/
 	FLAG *f;		/* flag table				*/
-	flag32_t bit;		/* flag bit				*/
+	flag64_t bit;		/* flag bit				*/
 	const char *msg_on;	/* msg to print when flag toggled on	*/
 	const char *msg_off;	/* ---//--- off				*/
 };
 
 static toggle_t *toggle_lookup(const char *name);
 static void toggle_print(CHAR_DATA *ch, toggle_t *t);
-static flag32_t* toggle_bits(CHAR_DATA *ch, toggle_t *t);
+static flag64_t* toggle_bits(CHAR_DATA *ch, toggle_t *t);
 
 /*
  * alphabetize these table by name if you are adding new entries
@@ -2025,6 +2025,12 @@ toggle_t toggle_table[] =
 	  comm_flags,	COMM_NOENG,
 	  "You will not see english obj/mob names anymore.",
 	  "You will now see english obj/mob names."
+	},
+
+	{ "noflee",		"do not flee from combat in lost-link",
+	  comm_flags,	COMM_NOFLEE,
+	  "You will not flee automagically from combat in lost-link anymore.",
+	  "You will flee automagically from combat in lost-link."
 	},
 
 	{ "notelnet",		"no telnet parser",
@@ -2080,7 +2086,7 @@ DO_FUN(do_toggle)
 	}
 
 	for (; arg[0]; argument = one_argument(argument, arg, sizeof(arg))) {
-		flag32_t* bits;
+		flag64_t* bits;
 
 		if ((t = toggle_lookup(arg)) == NULL
 		||  (bits = toggle_bits(ch, t)) == NULL) {
@@ -2107,7 +2113,7 @@ static toggle_t *toggle_lookup(const char *name)
 static void toggle_print(CHAR_DATA *ch, toggle_t *t)
 {
 	char buf[MAX_STRING_LENGTH];
-	flag32_t *bits;
+	flag64_t *bits;
 
 	if ((bits = toggle_bits(ch, t)) < 0)
 		return;
@@ -2117,7 +2123,7 @@ static void toggle_print(CHAR_DATA *ch, toggle_t *t)
 	act_puts(buf, ch, t->desc, NULL, TO_CHAR | ACT_TRANS, POS_DEAD);
 }
 
-static flag32_t* toggle_bits(CHAR_DATA *ch, toggle_t *t)
+static flag64_t* toggle_bits(CHAR_DATA *ch, toggle_t *t)
 {
 	if (t->f == comm_flags)
 		return &ch->comm;

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.170 1999-03-17 15:27:37 kostik Exp $
+ * $Id: merc.h,v 1.171 1999-03-19 07:33:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1169,6 +1169,7 @@ enum {
 #define COMM_NOIAC		(cc)
 #define COMM_NOVERBOSE		(dd)
 #define COMM_NOBUST		(ee)
+#define COMM_NOFLEE		(ff)
 
 /* IAC replacement if COMM_NOIAC is set */
 /* COMM_NOIAC is useful to map 'Ñ' (IAC) to 'ñ' when using win1251 codepage */
@@ -1308,7 +1309,7 @@ struct char_data
 	int 			exp;	/* total exp */
 	int			exp_tl;	/* exp gained this level */
 	flag32_t		plr_flags;
-	flag32_t		comm;	/* RT added to pad the vector */
+	flag64_t		comm;	/* RT added to pad the vector */
 	flag32_t		imm_flags;
 	flag32_t		res_flags;
 	flag32_t		vuln_flags;

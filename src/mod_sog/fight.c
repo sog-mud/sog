@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.152 1999-03-17 15:27:34 kostik Exp $
+ * $Id: fight.c,v 1.153 1999-03-19 07:33:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1402,12 +1402,11 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	/*
 	 * Take care of link dead people.
 	 */
-	if (!IS_NPC(victim) && victim->desc == NULL) {
+	if (!IS_NPC(victim)
+	&&  victim->desc == NULL
+	&&  !IS_SET(victim->comm, COMM_NOFLEE)) {
 		if (number_range(0, victim->wait) == 0) {
-			if (victim->level < 10)
-				do_recall(victim, str_empty);
-			else
-				do_flee(victim, str_empty);
+			do_flee(victim, str_empty);
 			return TRUE;
 		}
 	}
