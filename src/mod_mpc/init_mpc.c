@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.3 2001-07-04 19:21:18 fjoe Exp $
+ * $Id: init_mpc.c,v 1.4 2001-07-08 17:16:27 fjoe Exp $
  */
 
 #include <setjmp.h>
@@ -44,8 +44,8 @@
 
 #if !defined(MPC)
 static dynafun_data_t local_dynafun_tab[] = {
-	{ "act_char",		MT_VOID, 2,	{ MT_CHAR, MT_STR }	},
-	{ "has_spec",		MT_INT, 4,
+	{ "act_char",		MT_VOID, 2,	{ MT_STR, MT_CHAR }	},
+	{ "has_sp",		MT_INT, 4,
 	  { MT_CHAR, MT_STR, MT_STR, MT_STR }				},
 	{ "level",		MT_INT, 1,	{ MT_CHAR }		},
 	{ "spclass_count",	MT_INT, 4,
