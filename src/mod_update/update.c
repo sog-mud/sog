@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.21 2000-04-21 07:05:52 osya Exp $
+ * $Id: update.c,v 1.157.2.22 2000-05-11 13:21:26 fjoe Exp $
  */
 
 /***************************************************************************
@@ -209,6 +209,8 @@ void advance(CHAR_DATA *victim, int level)
  */
 void gain_exp(CHAR_DATA *ch, int gain)
 {
+	int efl;
+
 	if (ch->level >= LEVEL_HERO)
 		return;
 
@@ -218,7 +220,11 @@ void gain_exp(CHAR_DATA *ch, int gain)
 	}
 
 	PC(ch)->exp += gain;
+	efl = exp_for_level(ch, ch->level);
+	PC(ch)->exp = UMAX(PC(ch)->exp, efl);
+
 	PC(ch)->exp_tl += gain;
+	PC(ch)->exp_tl = UMAX(PC(ch)->exp_tl, 0);
 
 	while (ch->level < LEVEL_HERO && exp_to_level(ch) <= 0) {
 		class_t *cl;
