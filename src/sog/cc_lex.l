@@ -1,5 +1,5 @@
-alpha	[a-zA-Z]
-alnum	[a-zA-Z0-9]
+alpha	[a-zA-Z_]
+alnum	[a-zA-Z0-9_]
 
 %option noyywrap
 %option prefix="cc_yy"
@@ -70,7 +70,10 @@ extern void yyerror(const char *);
 
 [!()]				return *yytext;
 [ \t\n]				;
-.				yyerror("unknown character");
+.				{ snprintf(buf, sizeof(buf),
+					   "%c: unknown character", *yytext);
+				  yyerror(buf);
+				}
 
 %%
 
@@ -84,6 +87,7 @@ expr_check_cb(void *p, va_list ap)
 	cc_ctx.val = FALSE;
 	cc_ctx.rcl = va_arg(ap, cc_eclass_t *);
 	cc_ctx.ap = va_arg(ap, va_list);
+	cc_ctx.stmt = e->expr;
 
 	yy_buf = yy_scan_string(e->expr);
 

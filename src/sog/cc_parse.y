@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cc_parse.y,v 1.6 1999-12-22 05:21:00 fjoe Exp $
+ * $Id: cc_parse.y,v 1.7 2000-01-06 15:52:31 fjoe Exp $
  */
 
 #include <setjmp.h>
@@ -99,7 +99,7 @@ expr:	FUN '(' STRING ')'	{ $$ = cc_fun_call(&cc_ctx, $1, $3);
 void
 yyerror(const char *s)
 {
-	log(s);
+	log("cc_yyerror: %s (%s)", s, cc_ctx.stmt);
 	longjmp(cc_jmpbuf, 1);
 }
 
