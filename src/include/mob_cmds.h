@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.h,v 1.5 1998-12-19 10:16:42 kostik Exp $
+ * $Id: mob_cmds.h,v 1.6 1999-02-03 10:01:14 kostik Exp $
  */
 
 /***************************************************************************
@@ -86,6 +86,6 @@ DECLARE_DO_FUN(do_mpflee	);
 DECLARE_DO_FUN(do_mpotransfer	);
 DECLARE_DO_FUN(do_mpremove	);
 DECLARE_DO_FUN(do_mpreligion	);
-
+DECLARE_DO_FUN(do_slay		);
 #endif
 

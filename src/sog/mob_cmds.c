@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.25 1998-12-23 16:11:17 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.26 1999-02-03 10:01:14 kostik Exp $
  */
 
 /***************************************************************************
@@ -84,6 +84,7 @@ const	struct	mob_cmd_type	mob_cmd_table	[] =
 	{	"flee",		do_mpflee	},
 	{	"remove",	do_mpremove	},
 	{	"religion",	do_mpreligion	},
+	{	"slay",		do_slay		},
 	{	str_empty,		0		}
 };
 
