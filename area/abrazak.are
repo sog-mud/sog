@@ -1,0 +1,112 @@
+#AREADATA
+Name Heaven~
+Builders All~
+VNUMs 15000 15199
+Credits abrazak~
+Security 1
+LevelRange 0 0
+End
+
+
+
+#MOBILES
+#15000
+Avatar~
+Avatar of abrazak~
+Avatar of abrazak is here.
+~
+You see a huge man. He looks very strong and wise. You'd better never mess with him.
+~
+human~
+ABGc H 0 0
+200 0 5d5000+5000 1d1+666 5d300+1 none
+0 0 0 0
+0 ABDFGIJLMOPQRTXYZ 0 0
+stand stand male 2147483647
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
+M BRIBE 15000 1~
+#0
+
+
+
+#OBJECTS
+#15000
+strange pill detection~
+strange pill~
+Someone has left a strange pill here.~
+unknown~
+pill ABG AOQ
+66 'detect invis' 'detect hidden' 'acute vision' 'improved detect'
+1 1 100000 P
+#0
+
+
+
+#ROOMS
+#15000
+Abrazak's Office~
+You are in Abrazak's office..  Hmmm...  It's very strange place.  
+~
+0 C 0
+S
+#0
+
+
+
+#SPECIALS
+S
+
+
+
+#RESETS
+M 0 15000 1 15000 1	* Avatar of abrazak (Abrazak's Office)
+M 0 15000 1 15000 1	* Avatar of abrazak (Abrazak's Office)
+S
+
+
+
+#SHOPS
+0
+
+
+
+#OLIMITS
+O 15000 0	* strange pill
+S
+
+
+
+#MOBPROGS
+#15000
+emote makes some orders.
+if mobexists junkseller
+smile
+else
+mob mload 50
+mob vforce 50 mob oload 15000
+mob vforce 50 mob goto 11740
+mob vforce 50 mob cast 'teleport'
+endif
+if random 10
+mob vforce 50 say I'm very sorry but I must go to other places.....
+mob vforce 50 wave
+mob vforce 50 mob goto 15000
+mob vforce 50 mob cast 'teleport'
+mob vforce 50 yell Hey! I have some funny junk for you !
+endif
+~
+#0
+
+#PRACTICERS
+S
+
+
+
+#OMPROGS
+S
+
+
+
+#$
