@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.23 1999-06-22 12:37:18 fjoe Exp $
+ * $Id: healer.c,v 1.24 1999-06-24 16:33:15 fjoe Exp $
  */
 
 /*-
@@ -35,8 +35,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include "merc.h"
-
-DECLARE_DO_FUN(	do_say	);
 
 typedef struct
 {

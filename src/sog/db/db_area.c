@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.54 1999-06-18 11:17:16 fjoe Exp $
+ * $Id: db_area.c,v 1.55 1999-06-24 16:33:21 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,6 @@
 #include "chquest.h"
 #include "obj_prog.h"
 #include "db.h"
-#include "olc/olc.h"
 
 DECLARE_DBLOAD_FUN(load_area);
 DECLARE_DBLOAD_FUN(load_areadata);
@@ -237,7 +236,7 @@ void cb_strip_nl(int lang, const char **p, void *arg)
 		strnzncpy(buf, sizeof(buf), *p, len);
 		free_string(*p);
 		*p = str_dup(buf);
-		touch_area((AREA_DATA*) arg);
+		TOUCH_AREA((AREA_DATA*) arg);
 	}
 }
 
@@ -494,7 +493,7 @@ DBLOAD_FUN(load_old_obj)
 
 		mlstr_fread(fp, &pObjIndex->description);
 		if (mlstr_stripnl(&pObjIndex->description))
-			touch_area(area_current);
+			TOUCH_AREA(area_current);
 
 		/* Action description */  fread_string(fp);
 		free_string(pObjIndex->material);
@@ -578,7 +577,7 @@ DBLOAD_FUN(load_old_obj)
 			if (pObjIndex->value[0] == WEAPON_SPEAR
 			&&  !IS_SET(pObjIndex->value[4], WEAPON_THROW)) {
 				SET_BIT(pObjIndex->value[4], WEAPON_THROW);
-				touch_area(area_current);
+				TOUCH_AREA(area_current);
 			}
 			break;
 		}
@@ -878,7 +877,7 @@ DBLOAD_FUN(load_rooms)
 
 				mlstr_fread(fp, &pexit->description);
 				if (mlstr_addnl(&pexit->description))
-					touch_area(area_current);
+					TOUCH_AREA(area_current);
 
 				pexit->keyword		= fread_string(fp);
 				pexit->exit_info	= 0;
@@ -1298,7 +1297,7 @@ DBLOAD_FUN(load_mobiles)
 
 	if (IS_SET(pMobIndex->affected_by, AFF_SANCTUARY)
 	&&  IS_EVIL(pMobIndex)) {
-		touch_vnum(pMobIndex->vnum);
+		TOUCH_VNUM(pMobIndex->vnum);
 		REMOVE_BIT(pMobIndex->affected_by, AFF_SANCTUARY);
 		SET_BIT(pMobIndex->affected_by, AFF_BLACK_SHROUD);
 	}
@@ -1356,7 +1355,7 @@ DBLOAD_FUN(load_objects)
 
         mlstr_fread(fp, &pObjIndex->description);
 	if (mlstr_stripnl(&pObjIndex->description))
-		touch_area(area_current);
+		TOUCH_AREA(area_current);
 
 	free_string(pObjIndex->material);
         pObjIndex->material		= fread_string(fp);
@@ -1520,7 +1519,7 @@ DBLOAD_FUN(load_objects)
 	&&  pObjIndex->value[0] == WEAPON_SPEAR
 	&&  !IS_SET(pObjIndex->value[4], WEAPON_THROW)) {
 		SET_BIT(pObjIndex->value[4], WEAPON_THROW);
-		touch_area(area_current);
+		TOUCH_AREA(area_current);
 	}
 
         iHash                   = vnum % MAX_KEY_HASH;
@@ -1682,7 +1681,7 @@ void convert_mobile(MOB_INDEX_DATA *pMobIndex)
 		SET_BIT(pMobIndex->affected_by, AFF_BLACK_SHROUD);
 	}
 
-	touch_vnum(pMobIndex->vnum);
+	TOUCH_VNUM(pMobIndex->vnum);
 	++newmobs;
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.40 1999-06-10 18:19:05 fjoe Exp $
+ * $Id: olc.h,v 1.41 1999-06-24 16:33:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -23,29 +23,10 @@
 #ifndef _OLC_H_
 #define _OLC_H_
 
-DECLARE_DO_FUN(do_help		);
-
 bool		run_olc_editor	(DESCRIPTOR_DATA *d);
 
-typedef struct olc_cmd_t olc_cmd_t;
 typedef	bool OLC_FUN(CHAR_DATA *ch, const char *argument, olc_cmd_t *cmd);
 typedef bool VALIDATE_FUN(CHAR_DATA *ch, const void *arg);
-
-/*
- * Structure for an OLC editor command.
- */
-struct olc_cmd_t
-{
-	char *		name;
-	OLC_FUN *	olc_fun;
-	void*		arg1;
-};
-
-struct olced_t {
-	const char *	id;
-	const char *	name;
-	olc_cmd_t *	cmd_table;
-};
 
 #define DECLARE_OLC_FUN(fun)		OLC_FUN		fun
 #define DECLARE_VALIDATE_FUN(fun)	VALIDATE_FUN	fun
@@ -82,8 +63,12 @@ extern const char ED_IMPL	[];
 extern const char ED_EXPL	[];
 extern const char ED_SOC	[];
 
-#define OLCED(ch) (ch->desc->olced)
-#define IS_EDIT(ch, ed_id) (OLCED(ch) && OLCED(ch)->id == ed_id)
+struct olc_cmd_t
+{
+	char *		name;
+	OLC_FUN *	olc_fun;
+	void*		arg1;
+};
 
 /*
  * Interpreter Table Prototypes
@@ -101,16 +86,6 @@ extern olc_cmd_t	olc_cmds_lang[];
 extern olc_cmd_t	olc_cmds_impl[];
 extern olc_cmd_t	olc_cmds_expl[];
 extern olc_cmd_t	olc_cmds_soc[];
-
-/*
- * Editor Commands.
- */
-DECLARE_DO_FUN(do_alist		);
-DECLARE_DO_FUN(do_asave		);
-DECLARE_DO_FUN(do_ashow		);
-DECLARE_DO_FUN(do_edit		);
-DECLARE_DO_FUN(do_create	);
-DECLARE_DO_FUN(do_resets	);
 
 bool olced_obj_busy(CHAR_DATA *ch);
 bool olced_busy(CHAR_DATA *ch, const char *id, void *edit, void *edit2);

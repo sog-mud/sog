@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_help.c,v 1.34 1999-06-10 18:19:05 fjoe Exp $
+ * $Id: olc_help.c,v 1.35 1999-06-24 16:33:11 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -75,7 +75,7 @@ OLC_FUN(helped_create)
 	}
 
 	if (argument[0] == '\0') {
-		do_help(ch, "'OLC CREATE'");
+		dofun("help", ch, "'OLC CREATE'");
 		return FALSE;
 	}
 
@@ -103,7 +103,7 @@ OLC_FUN(helped_create)
 
 	ch->desc->pEdit	= (void*) pHelp;
 	OLCED(ch)	= olced_lookup(ED_HELP);
-	touch_area(pArea);
+	TOUCH_AREA(pArea);
 	char_puts("Help created.\n",ch);
 	return FALSE;
 }
@@ -121,7 +121,7 @@ OLC_FUN(helped_edit)
 
 	num = number_argument(argument, keyword, sizeof(keyword));
 	if (keyword[0] == '\0') {
-		do_help(ch, "'OLC EDIT'");
+		dofun("help", ch, "'OLC EDIT'");
 		return FALSE;
 	}
 
@@ -140,7 +140,8 @@ OLC_FUN(helped_touch)
 {
 	HELP_DATA *pHelp;
 	EDIT_HELP(ch, pHelp);
-	return touch_area(pHelp->area);
+	TOUCH_AREA(pHelp->area);
+	return FALSE;
 }
 
 OLC_FUN(helped_show)
@@ -152,7 +153,7 @@ OLC_FUN(helped_show)
 		if (IS_EDIT(ch, ED_HELP))
 			EDIT_HELP(ch, pHelp);
 		else {
-			do_help(ch, "'OLC ASHOW'");
+			dofun("help", ch, "'OLC ASHOW'");
 			return FALSE;
 		}
 	}
@@ -162,7 +163,7 @@ OLC_FUN(helped_show)
 
 		num = number_argument(argument, keyword, sizeof(keyword));
 		if (keyword[0] == '\0') {
-			do_help(ch, OLCED(ch) ?  "'OLC EDIT'" : "'OLC ASHOW'");
+			dofun("help", ch, OLCED(ch) ?  "'OLC EDIT'" : "'OLC ASHOW'");
 			return FALSE;
 		}
 
@@ -197,7 +198,7 @@ OLC_FUN(helped_list)
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		if ((pArea = get_edited_area(ch)) == NULL) {
-			do_help(ch, "'OLC ALIST'");
+			dofun("help", ch, "'OLC ALIST'");
 			return FALSE;
 		}
 	}
@@ -254,7 +255,7 @@ OLC_FUN(helped_del)
 	if (olced_busy(ch, ED_HELP, pHelp, NULL))
 		return FALSE;
 
-	touch_area(pHelp->area);
+	TOUCH_AREA(pHelp->area);
 	help_free(pHelp);
 	char_puts("HelpEd: Help deleted.\n", ch);
 	edit_done(ch->desc);

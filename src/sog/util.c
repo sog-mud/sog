@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.c,v 1.21 1999-06-10 11:47:32 fjoe Exp $
+ * $Id: util.c,v 1.22 1999-06-24 16:33:18 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -46,17 +46,6 @@
 #if defined(WIN32)
 #define unlink	_unlink
 #endif
-
-void doprintf(DO_FUN *fn, CHAR_DATA* ch, const char* fmt, ...)
-{
-	char buf[MAX_STRING_LENGTH];
-	va_list ap;
-
-	va_start(ap, fmt);
-	vsnprintf(buf, sizeof(buf), fmt, ap);
-	fn(ch, buf);
-	va_end(ap);
-}
 
 FILE *dfopen(const char *dir, const char *file, const char *mode)
 {

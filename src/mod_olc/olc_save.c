@@ -1,5 +1,5 @@
 /*
- * $Id: olc_save.c,v 1.75 1999-06-10 18:19:06 fjoe Exp $
+ * $Id: olc_save.c,v 1.76 1999-06-24 16:33:12 fjoe Exp $
  */
 
 /**************************************************************************
@@ -31,9 +31,9 @@
 #include "merc.h"
 #include "obj_prog.h"
 #include "olc.h"
-#include "db/db.h"
-#include "db/lang.h"
-#include "db/socials.h"
+#include "db.h"
+#include "lang.h"
+#include "socials.h"
 
 #define DIF(a,b) (~((~a)|(b)))
 
@@ -1347,7 +1347,7 @@ void do_asave(CHAR_DATA *ch, const char *argument)
 {
 	if (argument[0] == '\0') {
 		if (ch)
-			do_help(ch, "'OLC ASAVE'");
+			dofun("help", ch, "'OLC ASAVE'");
 		return;
 	}
 

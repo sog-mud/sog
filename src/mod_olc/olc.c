@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.61 1999-06-10 18:19:05 fjoe Exp $
+ * $Id: olc.c,v 1.62 1999-06-24 16:33:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,7 +46,7 @@
 #include <time.h>
 #include "merc.h"
 #include "olc.h"
-#include "db/lang.h"
+#include "lang.h"
 
 /*
  * The version info.  Please use this info when reporting bugs.
@@ -98,7 +98,7 @@ olced_t olced_table[] = {
 	{ NULL }
 };
 
-static olc_cmd_t *	cmd_lookup(olc_cmd_t *cmd_table, const char *name);
+static olc_cmd_t *	olc_cmd_lookup(olc_cmd_t *cmd_table, const char *name);
 
 static void do_olc(CHAR_DATA *ch, const char *argument, int fun);
 
@@ -126,7 +126,7 @@ bool run_olc_editor(DESCRIPTOR_DATA *d)
 		return TRUE;
 	}
 
-	if ((cmd = cmd_lookup(olced->cmd_table+FUN_FIRST, command)) == NULL
+	if ((cmd = olc_cmd_lookup(olced->cmd_table+FUN_FIRST, command)) == NULL
 	||  cmd->olc_fun == NULL)
 		return FALSE;
 
@@ -331,7 +331,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 	argument = one_argument(argument, keyword, sizeof(keyword));
 
 	if (command[0] == '\0' || keyword[0] == '\0') {
-		do_help(ch, "'OLC EXD'");
+		dofun("help", ch, "'OLC EXD'");
 		return FALSE;
 	}
 
@@ -341,7 +341,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 
 		if (!mlstr_append(ch, &ed->description, argument)) {
 			ed_free(ed);
-			do_help(ch, "'OLC EXD'");
+			dofun("help", ch, "'OLC EXD'");
 			return FALSE;
 		}
 
@@ -389,7 +389,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 		}
 
 		if (!mlstr_append(ch, &ed->description, argument)) {
-			do_help(ch, "'OLC EXD'");
+			dofun("help", ch, "'OLC EXD'");
 			return FALSE;
 		}
 		return TRUE;
@@ -454,7 +454,7 @@ bool olced_exd(CHAR_DATA *ch, const char* argument,
 		return TRUE;
 	}
 
-	do_help(ch, "'OLC EXD'");
+	dofun("help", ch, "'OLC EXD'");
 	return FALSE;
 }
 
@@ -632,7 +632,7 @@ bool olced_rulecl(CHAR_DATA *ch, const char *argument,
 	argument = one_argument(argument, arg2, sizeof(arg2));
 
 	if (argument[0] == '\0') {
-		do_help(ch, "'OLC RULECLASS'");
+		dofun("help", ch, "'OLC RULECLASS'");
 		return FALSE;
 	}
 
@@ -660,7 +660,7 @@ bool olced_rulecl(CHAR_DATA *ch, const char *argument,
 				    &l->rules[rulecl].rcl_flags);
 	}
 
-	do_help(ch, "'OLC RULECLASS'");
+	dofun("help", ch, "'OLC RULECLASS'");
 	return FALSE;
 }
 
@@ -674,7 +674,7 @@ bool olced_vform_add(CHAR_DATA *ch, const char *argument,
 	if (argument[0] == '\0'
 	||  !is_number(arg)
 	||  (fnum = atoi(arg)) < 0) {
-		do_help(ch, "'OLC VFORM'");
+		dofun("help", ch, "'OLC VFORM'");
 		return FALSE;
 	}
 
@@ -691,7 +691,7 @@ bool olced_vform_del(CHAR_DATA *ch, const char *argument,
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (!is_number(arg) || (fnum = atoi(arg)) < 0) {
-		do_help(ch, "'OLC FORM'");
+		dofun("help", ch, "'OLC FORM'");
 		return FALSE;
 	}
 
@@ -789,18 +789,6 @@ AREA_DATA *get_edited_area(CHAR_DATA *ch)
 	return area_vnum_lookup(vnum);
 }
 
-bool touch_area(AREA_DATA *pArea)
-{
-	if (pArea)
-		SET_BIT(pArea->area_flags, AREA_CHANGED);
-	return FALSE;
-}
-
-bool touch_vnum(int vnum)
-{
-	return touch_area(area_vnum_lookup(vnum));
-}
-
 void edit_done(DESCRIPTOR_DATA *d)
 {
 	d->pEdit = NULL;
@@ -824,7 +812,7 @@ olced_t *olced_lookup(const char * id)
 }
 
 /* lookup cmd function by name */
-static olc_cmd_t *cmd_lookup(olc_cmd_t *cmd_table, const char *name)
+static olc_cmd_t *olc_cmd_lookup(olc_cmd_t *cmd_table, const char *name)
 {
 	for (; cmd_table->name; cmd_table++)
 		if (!str_prefix(name, cmd_table->name))
@@ -851,7 +839,7 @@ static void do_olc(CHAR_DATA *ch, const char *argument, int fun)
 
 	argument = one_argument(argument, command, sizeof(command));
 	if ((olced = olced_lookup(command)) == NULL) {
-        	do_help(ch, help_topics[fun]);
+        	dofun("help", ch, help_topics[fun]);
         	return;
 	}
 

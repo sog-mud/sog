@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_area.c,v 1.40 1999-06-10 14:33:35 fjoe Exp $
+ * $Id: olc_area.c,v 1.41 1999-06-24 16:33:11 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,7 +31,7 @@
 #include <stdlib.h>
 #include "merc.h"
 #include "olc.h"
-#include "db/db.h"
+#include "db.h"
 
 #define EDIT_AREA(ch, area)	(area = (AREA_DATA*) ch->desc->pEdit)
 
@@ -114,7 +114,7 @@ OLC_FUN(areaed_create)
 
 	ch->desc->pEdit	= (void*) pArea;
 	OLCED(ch)	= olced_lookup(ED_AREA);
-	touch_area(pArea);
+	TOUCH_AREA(pArea);
 	char_puts("AreaEd: Area created.\n", ch);
 	return FALSE;
 }
@@ -146,7 +146,8 @@ OLC_FUN(areaed_touch)
 {
 	AREA_DATA *pArea;
 	EDIT_AREA(ch, pArea);
-	return touch_area(pArea);
+	TOUCH_AREA(pArea);
+	return FALSE;
 }
 
 OLC_FUN(areaed_show)
@@ -300,7 +301,7 @@ OLC_FUN(areaed_builders)
 
 	one_argument(argument, name, sizeof(name));
 	if (name[0] == '\0') {
-		do_help(ch, "'OLC AREA BUILDER'");
+		dofun("help", ch, "'OLC AREA BUILDER'");
 		return FALSE;
 	}
 	name_toggle(&pArea->builders, name, ch, "AreaEd");
@@ -559,7 +560,7 @@ VALIDATE_FUN(validate_move)
 	}
 
 	pArea->max_vnum += delta;
-	touch_area(pArea);
+	TOUCH_AREA(pArea);
 
 	char_puts("AreaEd: Changed areas:\n", ch);
 	for (pArea = area_first; pArea; pArea = pArea->next)
@@ -610,7 +611,7 @@ static void move_mob(MOB_INDEX_DATA *mob, AREA_DATA *pArea, int delta)
 
 /* touch area if it is not area being moved */
 	if (touched && !IN_RANGE(old_vnum, pArea->min_vnum, pArea->max_vnum))
-		touch_vnum(old_vnum);
+		TOUCH_VNUM(old_vnum);
 }
 
 static void move_obj(OBJ_INDEX_DATA *obj, AREA_DATA *pArea, int delta)
@@ -635,7 +636,7 @@ static void move_obj(OBJ_INDEX_DATA *obj, AREA_DATA *pArea, int delta)
 
 /* touch area if it is not area being moved */
 	if (touched && !IN_RANGE(old_vnum, pArea->min_vnum, pArea->max_vnum))
-		touch_vnum(old_vnum);
+		TOUCH_VNUM(old_vnum);
 }
 
 static void move_room(ROOM_INDEX_DATA *room, AREA_DATA *pArea, int delta)
@@ -678,6 +679,6 @@ static void move_room(ROOM_INDEX_DATA *room, AREA_DATA *pArea, int delta)
 
 /* touch area if it is not area being moved */
 	if (touched && !IN_RANGE(old_vnum, pArea->min_vnum, pArea->max_vnum))
-		touch_vnum(old_vnum);
+		TOUCH_VNUM(old_vnum);
 }
 

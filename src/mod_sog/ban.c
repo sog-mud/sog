@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.35 1999-06-10 11:47:32 fjoe Exp $
+ * $Id: ban.c,v 1.36 1999-06-24 16:33:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,7 +58,7 @@
 
 #include "merc.h"
 #include "ban.h"
-#include "db/db.h"
+#include "db.h"
 
 ban_t*	new_ban	(void);
 void	free_ban(ban_t *ban);
@@ -82,7 +82,7 @@ void save_bans();
 void ban_add(CHAR_DATA *ch, const char *argument);
 void ban_delete(CHAR_DATA *ch, const char *argument);
 
-DO_FUN(do_ban)
+void do_ban(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
@@ -107,7 +107,7 @@ DO_FUN(do_ban)
 	else if (!str_prefix(arg, "delete"))
 		ban_delete(ch, argument);
 	else
-		do_help(ch, "'WIZ BAN'");
+		dofun("help", ch, "'WIZ BAN'");
 }
 
 const char *format_ban(ban_t *pban)
@@ -129,7 +129,7 @@ const char *format_ban(ban_t *pban)
 #define BAN_ERROR(ch, arg)			\
 {						\
 	if (ch)					\
-		do_help(ch, "'WIZ BAN'");	\
+		dofun("help", ch, "'WIZ BAN'");	\
 	else					\
 		log arg;			\
 }
@@ -218,7 +218,7 @@ void ban_delete(CHAR_DATA *ch, const char *argument)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (!is_number(arg)) {
-		do_help(ch, "'WIZ BAN'");
+		dofun("help", ch, "'WIZ BAN'");
 		return;
 	}
 

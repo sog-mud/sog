@@ -1,5 +1,5 @@
 /*
- * $Id: comm.h,v 1.29 1999-06-17 05:46:43 fjoe Exp $
+ * $Id: comm.h,v 1.30 1999-06-24 16:33:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,6 +46,7 @@
 void	show_string	(struct descriptor_data *d, char *input);
 void	close_descriptor(DESCRIPTOR_DATA *dclose);
 void	write_to_buffer	(DESCRIPTOR_DATA *d, const char *txt, size_t length);
+bool	write_to_descriptor	(int desc, const char *txt, uint length);
 void	write_to_snoop	(DESCRIPTOR_DATA *d, const char *txt, size_t len);
 void	bust_a_prompt	(CHAR_DATA *ch);
 

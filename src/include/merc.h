@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.213 1999-06-24 08:05:00 fjoe Exp $
+ * $Id: merc.h,v 1.214 1999-06-24 16:33:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -74,14 +74,15 @@
 #include "mlstring.h"
 #include "varr.h"
 #include "flag.h"
+#include "cmd.h"
 
 #include "tables.h"
-#include "comm/comm.h"
-#include "comm/comm_act.h"
-#include "db/memalloc.h"
-#include "db/gsn.h"
-#include "db/msg.h"
-#include "db/hometown.h"
+#include "comm.h"
+#include "comm_act.h"
+#include "memalloc.h"
+#include "gsn.h"
+#include "msg.h"
+#include "hometown.h"
 
 /* utils */
 #include "log.h"
@@ -209,6 +210,18 @@ typedef struct outbuf_t {
 	uint 	size;
 	uint 	top;
 } outbuf_t;
+
+/*
+ * Structure for an OLC editor command.
+ */
+struct olced_t {
+	const char *	id;
+	const char *	name;
+	olc_cmd_t *	cmd_table;
+};
+
+#define OLCED(ch) (ch->desc->olced)
+#define IS_EDIT(ch, ed_id) (OLCED(ch) && OLCED(ch)->id == ed_id)
 
 /*
  * Descriptor (channel) structure.
@@ -2103,6 +2116,13 @@ AREA_DATA *	area_lookup		(int vnum);
 AREA_DATA *	area_vnum_lookup	(int vnum);
 void		free_area		(AREA_DATA *pArea);
 
+#define TOUCH_AREA(pArea)						\
+	{								\
+		if (pArea != NULL)					\
+			SET_BIT((pArea)->area_flags, AREA_CHANGED);	\
+	}
+#define TOUCH_VNUM(vnum)	TOUCH_AREA(area_vnum_lookup(vnum))
+
 EXIT_DATA	*new_exit		(void);
 void		free_exit		(EXIT_DATA *pExit);
 ROOM_INDEX_DATA *new_room_index		(void);
@@ -2205,6 +2225,7 @@ char *format_flags(flag64_t flags);
  * Global Constants
  */
 extern	const char *			dir_name	[];
+extern	const char *			from_dir_name	[];
 extern	const	int			rev_dir		[];
 extern	const	struct spec_type	spec_table	[];
 extern	char				DEFAULT_PROMPT	[];
@@ -2220,22 +2241,18 @@ void		do_lang		(CHAR_DATA *ch, const char *argument);
 void		do_music	(CHAR_DATA *ch, const char *argument);
 void		do_gossip	(CHAR_DATA *ch, const char *argument);
 CHAR_DATA*	leader_lookup	(CHAR_DATA *ch);
+const char *	garble		(CHAR_DATA *ch, const char *txt);
 void 		do_tell_raw	(CHAR_DATA *ch, CHAR_DATA *victim,
 				 const char *msg);
 #define	is_same_group(ach, bch) (leader_lookup(ach) == leader_lookup(bch))
-
-/* act_info.c */
-void	set_title	(CHAR_DATA *ch, const char *title);
-char	*get_cond_alias	(OBJ_DATA *obj);
 void	do_who_raw	(CHAR_DATA *ch, CHAR_DATA *vch, BUFFER *output);
 
-/* act_move.h */
 void move_char(CHAR_DATA *ch, int door, bool follow);
-char *find_way(CHAR_DATA *ch, ROOM_INDEX_DATA *rstart, ROOM_INDEX_DATA *rend);
+bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge);
 bool guild_ok(CHAR_DATA *ch, ROOM_INDEX_DATA *room);
+int mount_success(CHAR_DATA *ch, CHAR_DATA *mount, int canattack);
 int	find_door	(CHAR_DATA *ch, char *arg);
 
-/* act_obj.h */
 bool can_loot		(CHAR_DATA *ch, OBJ_DATA *obj);
 void get_obj		(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *container,
 			 const char *msg_others);
@@ -2244,12 +2261,16 @@ bool may_float		(OBJ_DATA *obj);
 bool cant_float 	(OBJ_DATA *obj);
 void wear_obj		(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace);
 void quaff_obj		(CHAR_DATA *ch, OBJ_DATA *obj);
+void set_title		(CHAR_DATA *ch, const char *argument);
 
 /* act_wiz.h */
 void wiznet(const char *msg, CHAR_DATA *ch, const void *arg,
 	    flag32_t flag, flag32_t flag_skip, int min_level);
 void reboot_mud(void);
 ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, const char *argument);
+
+void substitute_alias(DESCRIPTOR_DATA *d, const char *argument);
+const char *get_cond_alias(OBJ_DATA *obj);
 
 #endif
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_social.c,v 1.6 1999-03-10 11:06:24 fjoe Exp $
+ * $Id: olc_social.c,v 1.7 1999-06-24 16:33:12 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,7 +31,7 @@
 
 #include "merc.h"
 #include "olc.h"
-#include "db/socials.h"
+#include "socials.h"
 
 #define EDIT_SOC(ch, soc)	(soc = (social_t*) ch->desc->pEdit)
 
@@ -93,7 +93,7 @@ OLC_FUN(soced_create)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		do_help(ch, "'OLC CREATE'");
+		dofun("help", ch, "'OLC CREATE'");
 		return FALSE;
 	}
 
@@ -123,7 +123,7 @@ OLC_FUN(soced_edit)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		do_help(ch, "'OLC EDIT'");
+		dofun("help", ch, "'OLC EDIT'");
 		return FALSE;
 	}
 
@@ -152,7 +152,7 @@ OLC_FUN(soced_show)
 		if (IS_EDIT(ch, ED_SOC))
 			EDIT_SOC(ch, soc);
 		else {
-			do_help(ch, "'OLC ASHOW'");
+			dofun("help", ch, "'OLC ASHOW'");
 			return FALSE;
 		}
 	}

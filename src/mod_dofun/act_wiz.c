@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.163 1999-06-24 08:04:59 fjoe Exp $
+ * $Id: act_wiz.c,v 1.164 1999-06-24 16:33:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -58,16 +58,14 @@
 #endif
 
 #include "merc.h"
-#include "interp.h"
 #include "update.h"
 #include "quest.h"
 #include "obj_prog.h"
 #include "fight.h"
 #include "quest.h"
 #include "chquest.h"
-#include "db/cmd.h"
-#include "db/db.h"
-#include "olc/olc.h"
+#include "cmd.h"
+#include "db.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_rstat	);
@@ -86,11 +84,7 @@ DECLARE_DO_FUN(do_save	);
 DECLARE_DO_FUN(do_look	);
 DECLARE_DO_FUN(do_stand	);
 DECLARE_DO_FUN(do_help	);
-
-qtrouble_t *qtrouble_lookup(CHAR_DATA *ch, int vnum);
-
-bool write_to_descriptor  (int desc, char *txt, int length);
-extern int rebooter;
+DECLARE_DO_FUN(do_replay);
 
 void do_objlist(CHAR_DATA *ch, const char *argument)
 {
@@ -125,7 +119,6 @@ void do_objlist(CHAR_DATA *ch, const char *argument)
 
 void do_limited(CHAR_DATA *ch, const char *argument)
 {
-	extern int top_obj_index;
 	OBJ_DATA *obj;
 	OBJ_INDEX_DATA *obj_index;
 	int	lCount = 0;
@@ -241,31 +234,6 @@ void do_wiznet(CHAR_DATA *ch, const char *argument)
 			    wiznet_table[flag].name);
 }
 
-void wiznet(const char *msg, CHAR_DATA *ch, const void *arg,
-	    flag32_t flag, flag32_t flag_skip, int min_level)
-{
-	DESCRIPTOR_DATA *d;
-
-	for (d = descriptor_list; d != NULL; d = d->next) {
-		CHAR_DATA *vch = d->original ? d->original : d->character;
-
-		if (d->connected != CON_PLAYING
-		||  !vch
-		||  vch->level < LEVEL_IMMORTAL
-		||  !IS_SET(vch->pcdata->wiznet, WIZ_ON)
-		||  (flag && !IS_SET(vch->pcdata->wiznet, flag))
-		||  (flag_skip && IS_SET(vch->pcdata->wiznet, flag_skip))
-		||  vch->level < min_level
-		||  vch == ch)
-			continue;
-
-		if (IS_SET(vch->pcdata->wiznet, WIZ_PREFIX))
-			act_puts("--> ", vch, NULL, NULL, TO_CHAR | ACT_NOLF,
-				 POS_DEAD);
-		act_puts(msg, vch, arg, ch, TO_CHAR | ACT_NOUCASE, POS_DEAD);
-	}
-}
-
 void do_tick(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
@@ -318,61 +286,6 @@ void do_tick(CHAR_DATA *ch, const char *argument)
 	}
 
 	do_tick(ch, str_empty);
-}
-
-/* equips a character */
-void do_outfit(CHAR_DATA *ch, const char *argument)
-{
-	OBJ_DATA *obj;
-	class_t *cl = class_lookup(ch->class);
-	int sn,vnum;
-
-	if ((ch->level > 5 && !IS_IMMORTAL(ch))
-	||  IS_NPC(ch) || cl == NULL) {
-		char_puts("Find it yourself!\n",ch);
-		return;
-	}
-
-	if ((obj = get_eq_char(ch, WEAR_LIGHT)) == NULL)
-	{
-	    obj = create_obj(get_obj_index(OBJ_VNUM_SCHOOL_BANNER), 0);
-		obj->cost = 0;
-		obj->condition = 100;
-	    obj_to_char(obj, ch);
-	    equip_char(ch, obj, WEAR_LIGHT);
-	}
-	
-	if ((obj = get_eq_char(ch, WEAR_BODY)) == NULL)
-	{
-		obj = create_obj(get_obj_index(OBJ_VNUM_SCHOOL_VEST), 0);
-		obj->cost = 0;
-		obj->condition = 100;
-	    obj_to_char(obj, ch);
-	    equip_char(ch, obj, WEAR_BODY);
-	}
-
-	/* do the weapon thing */
-	if ((obj = get_eq_char(ch,WEAR_WIELD)) == NULL) {
-		sn = 0; 
-		vnum = cl->weapon;
-		obj = create_obj(get_obj_index(vnum),0);
-		obj->condition = 100;
-	 	obj_to_char(obj,ch);
-		equip_char(ch,obj,WEAR_WIELD);
-	}
-
-	if (((obj = get_eq_char(ch,WEAR_WIELD)) == NULL 
-	||   !IS_WEAPON_STAT(obj,WEAPON_TWO_HANDS)) 
-	&&  (obj = get_eq_char(ch, WEAR_SHIELD)) == NULL)
-	{
-	    obj = create_obj(get_obj_index(OBJ_VNUM_SCHOOL_SHIELD), 0);
-		obj->cost = 0;
-		obj->condition = 100;
-	    obj_to_char(obj, ch);
-	    equip_char(ch, obj, WEAR_SHIELD);
-	}
-
-	char_puts("You have been equipped by gods.\n",ch);
 }
 
 void do_nonote(CHAR_DATA *ch, const char *argument)
@@ -697,23 +610,6 @@ void do_pecho(CHAR_DATA *ch, const char *argument)
 	char_printf(ch, "personal> %s\n", argument);
 }
 
-ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, const char *argument)
-{
-	CHAR_DATA *victim;
-	OBJ_DATA *obj;
-
-	if (is_number(argument))
-		return get_room_index(atoi(argument));
-
-	if ((victim = get_char_world(ch, argument)) != NULL)
-		return victim->in_room;
-
-	if ((obj = get_obj_world(ch, argument)) != NULL)
-		return obj->in_room;
-
-	return NULL;
-}
-
 void do_transfer(CHAR_DATA *ch, const char *argument)
 {
 	char arg1[MAX_INPUT_LENGTH];
@@ -736,7 +632,7 @@ void do_transfer(CHAR_DATA *ch, const char *argument)
 		    &&   d->character != ch
 		    &&   d->character->in_room != NULL
 		    &&   can_see(ch, d->character))
-			doprintf(do_transfer, ch,
+			doprintf("transfer", ch,
 				"%s %s", d->character->name, arg2);
 		return;
 	}
@@ -1509,7 +1405,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	buf_free(output);
 }
 
-DO_FUN(do_dstat)
+void do_dstat(CHAR_DATA *ch, const char *argument)
 {
 	BUFFER *output;
 	DESCRIPTOR_DATA *d;
@@ -1589,7 +1485,6 @@ void do_vnum(CHAR_DATA *ch, const char *argument)
 
 void do_mfind(CHAR_DATA *ch, const char *argument)
 {
-	extern int top_mob_index;
 	char arg[MAX_INPUT_LENGTH];
 	MOB_INDEX_DATA *pMobIndex;
 	int vnum;
@@ -1627,7 +1522,6 @@ void do_mfind(CHAR_DATA *ch, const char *argument)
 
 void do_ofind(CHAR_DATA *ch, const char *argument)
 {
-	extern int top_obj_index;
 	char arg[MAX_INPUT_LENGTH];
 	OBJ_INDEX_DATA *pObjIndex;
 	int vnum;
@@ -2031,7 +1925,7 @@ void do_return(CHAR_DATA *ch, const char *argument)
 }
 
 /* trust levels for load and clone */
-bool obj_check(CHAR_DATA *ch, OBJ_DATA *obj)
+static bool obj_check(CHAR_DATA *ch, OBJ_DATA *obj)
 {
 	if (IS_TRUSTED(ch, GOD)
 	|| (IS_TRUSTED(ch, IMMORTAL) && obj->level <= 20 && obj->cost <= 1000)
@@ -2043,7 +1937,7 @@ bool obj_check(CHAR_DATA *ch, OBJ_DATA *obj)
 		return FALSE;
 }
 
-bool mob_check(CHAR_DATA *ch, CHAR_DATA *mob)
+static bool mob_check(CHAR_DATA *ch, CHAR_DATA *mob)
 {
 	if ((mob->level > 20 && !IS_TRUSTED(ch, GOD))
 	||  (mob->level > 10 && !IS_TRUSTED(ch, IMMORTAL))
@@ -2056,7 +1950,7 @@ bool mob_check(CHAR_DATA *ch, CHAR_DATA *mob)
 }
 
 /* for clone, to insure that cloning goes many levels deep */
-void recursive_clone(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *clone)
+static void recursive_clone(CHAR_DATA *ch, OBJ_DATA *obj, OBJ_DATA *clone)
 {
 	OBJ_DATA *c_obj, *t_obj;
 	for (c_obj = obj->contains; c_obj != NULL; c_obj = c_obj->next_content)
@@ -3265,12 +3159,12 @@ void do_holylight(CHAR_DATA *ch, const char *argument)
 
 /* prefix command: it will put the string typed on each line typed */
 
-DO_FUN(do_prefi)
+void do_prefi(CHAR_DATA *ch, const char *argument)
 {
 	char_puts("You cannot abbreviate the prefix command.\n", ch);
 }
 
-DO_FUN(do_prefix)
+void do_prefixi(CHAR_DATA *ch, const char *argument)
 {
 	if (argument[0] == '\0') {
 		if (ch->prefix[0] == '\0') {
@@ -4292,6 +4186,45 @@ void do_affrooms(CHAR_DATA *ch, const char *argument)
 	}
 }
 
+static char *find_way(CHAR_DATA *ch, ROOM_INDEX_DATA *rstart,
+		      ROOM_INDEX_DATA *rend) 
+{
+	int direction;
+	static char buf[1024];
+	EXIT_DATA *pExit;
+	char buf2[2];
+
+	snprintf(buf, sizeof(buf), "Bul: ");
+	while (1) {
+		if ((rend == rstart))
+			return buf;
+
+		if ((direction = find_path(rstart->vnum, rend->vnum,
+					   ch, -40000, 0)) == -1) {
+			strnzcat(buf, sizeof(buf), " BUGGY");
+			return buf;
+		}
+
+		if (direction < 0 || direction > 5) {
+			strnzcat(buf, sizeof(buf), " VERY BUGGY");
+			return buf;
+		}
+
+		buf2[0] = dir_name[direction][0];
+		buf2[1] = '\0';
+		strnzcat(buf, sizeof(buf), buf2);
+
+		/* find target room */
+		pExit = rstart->exit[ direction ];
+		if (!pExit)  {
+			strnzcat(buf, sizeof(buf), " VERY VERY BUGGY");
+			return buf;
+		}
+		else
+			rstart = pExit->to_room.r;
+	}
+}	
+
 void do_find(CHAR_DATA *ch, const char *argument)
 {
 	char* path;
@@ -4359,34 +4292,7 @@ void do_reboot(CHAR_DATA *ch, const char *argument)
 	do_reboot(ch, "");   
 }
 
-void reboot_mud(void)
-{
-	extern bool merc_down;
-	DESCRIPTOR_DATA *d,*d_next;
-
-	log("Rebooting SoG");
-	for (d = descriptor_list; d != NULL; d = d_next) {
-		d_next = d->next;
-		write_to_buffer(d,"SoG is going down for rebooting NOW!\n\r",0);
-		if (d->character)
-			save_char_obj(d->character, SAVE_F_REBOOT);
-		close_descriptor(d);
-	}
-
-	if (!rebooter) {
-		FILE *fp = dfopen(TMP_PATH, EQCHECK_FILE, "w");
-		if (!fp)
-			log("reboot_mud: unable to activate eqcheck");
-		else {
-			log("reboot_mud: eqcheck activated");
-			fclose(fp);
-		}
-	}
-
-	merc_down = TRUE;    
-}
-
-DO_FUN(do_msgstat)
+void do_msgstat(CHAR_DATA *ch, const char *argument)
 {
 	varr *v;
 	msg_t *mp;
@@ -4425,17 +4331,14 @@ DO_FUN(do_msgstat)
 	buf_free(output);
 }
 
-extern int str_count;
-extern int str_real_count; /* XXX */
-
-DO_FUN(do_strstat)
+void do_strstat(CHAR_DATA *ch, const char *argument)
 {
 	char_printf(ch, "Strings: %d\n"
 			"Allocated: %d\n",
 		    str_count, str_real_count);
 }
 
-DO_FUN(do_grant)
+void do_grant(CHAR_DATA *ch, const char *argument)
 {
 	cmd_t *cmd;
 	char arg1[MAX_INPUT_LENGTH];
@@ -4466,6 +4369,7 @@ DO_FUN(do_grant)
 	}
 
 	if (is_number(arg2)) {
+		int i;
 		int lev = atoi(arg2);
 
 		if (lev < LEVEL_IMMORTAL) {
@@ -4479,7 +4383,9 @@ DO_FUN(do_grant)
 			return;
 		}
 
-		for (cmd = cmd_table; cmd->name; cmd++) {
+		for (i = 0; i < commands.nused; i++) {
+			cmd = VARR_GET(&commands, i);
+
 			if (cmd->level < LEVEL_HERO
 			||  cmd->level > lev)
 				continue;
@@ -4507,7 +4413,7 @@ DO_FUN(do_grant)
 	}
 }
 
-DO_FUN(do_disable)
+void do_disable(CHAR_DATA *ch, const char *argument)
 {
 	cmd_t *cmd;
 	char arg[MAX_INPUT_LENGTH];
@@ -4519,10 +4425,13 @@ DO_FUN(do_disable)
 	}
 
 	if (!str_cmp(arg, "?")) {
+		int i;
 		char_puts("Disabled commands:\n", ch);
-		for (cmd = cmd_table; cmd->name; cmd++)
+		for (i = 0; i < commands.nused; i++) {
+			cmd = VARR_GET(&commands, i);
 			if (IS_SET(cmd->cmd_flags, CMD_DISABLED))
 				char_printf(ch, "%s\n", cmd->name);
+		}
 		return;
 	}
 
@@ -4543,7 +4452,7 @@ DO_FUN(do_disable)
 	}
 }
 
-DO_FUN(do_enable)
+void do_enable(CHAR_DATA *ch, const char *argument)
 {
 	cmd_t *cmd;
 	char arg[MAX_INPUT_LENGTH];
@@ -4565,7 +4474,7 @@ DO_FUN(do_enable)
 	}
 }
 
-DO_FUN(do_qtarget)
+void do_qtarget(CHAR_DATA *ch, const char *argument)
 {
 	int low, high;
 	char arg[MAX_INPUT_LENGTH];

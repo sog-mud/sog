@@ -1,5 +1,5 @@
 /*
- * $Id: auction.h,v 1.3 1999-05-26 12:44:49 fjoe Exp $
+ * $Id: auction.h,v 1.4 1999-06-24 16:33:08 fjoe Exp $
  */
 
 /***************************************************************************
@@ -61,5 +61,11 @@ struct auction_data
 
 extern AUCTION_DATA auction;
 #define IS_AUCTIONED(obj) (auction.item == obj)
+
+void act_auction(const char *fmt,
+		 const void *arg1, const void *arg2, const void *arg3,
+		 int act_flags, int min_pos);
+int parsebet(const int currentbet, const char *argument);
+void auction_give_obj(CHAR_DATA* victim);
 
 #endif

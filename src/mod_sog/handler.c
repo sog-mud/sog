@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.165 1999-06-23 04:41:33 fjoe Exp $
+ * $Id: handler.c,v 1.166 1999-06-24 16:33:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,15 +50,10 @@
 #include "fight.h"
 #include "quest.h"
 #include "chquest.h"
-#include "db/db.h"
-#include "olc/olc.h"
-#include "db/lang.h"
-
-DECLARE_DO_FUN(do_raffects	);
-DECLARE_DO_FUN(do_return	);
-DECLARE_DO_FUN(do_say		);
-DECLARE_DO_FUN(do_track		);
-DECLARE_DO_FUN(do_look		);
+#include "db.h"
+#include "lang.h"
+#include "mob_prog.h"
+#include "auction.h"
 
 /*
  * Local functions.
@@ -1219,15 +1214,17 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 
 	if (pRoomIndex->affected)
 		if (IS_IMMORTAL(ch))
-			do_raffects(ch,str_empty);
+			dofun("raffects", ch, str_empty);
 		else {
 			check_room_affects(ch, ch->in_room, EVENT_ENTER);
 			if (IS_EXTRACTED(ch))
 				return;
 		}
 
+/*
 	if (ch->desc && OLCED(ch) && IS_EDIT(ch, ED_ROOM))
 		roomed_edit_room(ch, pRoomIndex, TRUE);
+ */
 }
 
 /*
@@ -1771,7 +1768,7 @@ void extract_char(CHAR_DATA *ch, int flags)
 		--ch->pIndexData->count;
 
 	if (ch->desc != NULL && ch->desc->original != NULL) {
-		do_return(ch, str_empty);
+		dofun("return", ch, str_empty);
 		ch->desc = NULL;
 	}
 
@@ -2752,7 +2749,7 @@ void remove_mind(CHAR_DATA *ch, const char *str)
  
 	free_string(ch->in_mind);
 	if (is_number(buf)) {
-		do_say(ch, "At last, I took my revenge!"); 
+		dofun("say", ch, "At last, I took my revenge!"); 
 		back_home(ch);
 		ch->in_mind = NULL;
 	}
@@ -2830,7 +2827,7 @@ void path_to_track(CHAR_DATA *ch, CHAR_DATA *victim, int door)
 		 return;
 		}
 	   }
-	do_track(victim,str_empty);
+	dofun("track", victim, str_empty);
   }
 }
 
@@ -2907,7 +2904,7 @@ void transfer_char(CHAR_DATA *ch, CHAR_DATA *vch, ROOM_INDEX_DATA *to_room,
 	char_to_room(ch, to_room);
 
 	if (!IS_EXTRACTED(ch))
-		do_look(ch, "auto");
+		dofun("look", ch, "auto");
 }
 
 void
@@ -2931,7 +2928,7 @@ void look_at(CHAR_DATA *ch, ROOM_INDEX_DATA *room)
 	}
 		
 	ch->in_room = room;
-	do_look(ch, str_empty);
+	dofun("look", ch, str_empty);
 	ch->in_room = was_in;
 
 	if (adjust_light)
@@ -3481,4 +3478,1811 @@ void set_leader(CHAR_DATA *ch, CHAR_DATA *lch)
 		}
 	}
 	ch->leader = lch;
+}
+
+void set_title(CHAR_DATA *ch, const char *title)
+{
+	char buf[MAX_TITLE_LENGTH];
+	static char nospace[] = "-.,!?':";
+
+	buf[0] = '\0';
+
+	if (title) {
+		if (strchr(nospace, *cstrfirst(title)) == NULL) {
+			buf[0] = ' ';
+			buf[1] = '\0';
+		}
+
+		strnzcat(buf, sizeof(buf), title);
+	}
+
+	free_string(ch->pcdata->title);
+	ch->pcdata->title = str_dup(buf);
+}
+
+const char *garble(CHAR_DATA *ch, const char *i)
+{
+	static char not_garbled[] = "?!()[]{},.:;'\" ";
+	static char buf[MAX_STRING_LENGTH];
+	char *o;
+
+	if (!is_affected(ch, gsn_garble))
+		return i;
+
+	for (o = buf; *i && o-buf < sizeof(buf)-1; i++, o++) {
+		if (strchr(not_garbled, *i))
+			*o = *i;
+		else
+			*o = number_range(' ', 254);
+	}
+	*o = '\0';
+	return buf;
+}
+
+void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
+{
+	if (ch == victim) {
+		char_puts("Talking to yourself, eh?\n", ch);
+		return;
+	}
+
+	if (IS_SET(ch->comm, COMM_NOTELL)) {
+		char_puts("Your message didn't get through.\n", ch);
+		return;
+	}
+
+	if (victim == NULL 
+	|| (IS_NPC(victim) && victim->in_room != ch->in_room)) {
+		char_puts("They aren't here.\n", ch);
+		return;
+	}
+
+	if (IS_SET(victim->comm, (COMM_QUIET | COMM_DEAF))
+	&&  !IS_IMMORTAL(ch) && !IS_IMMORTAL(victim)) {
+		act_puts("$E is not receiving tells.", ch, 0, victim,
+			 TO_CHAR, POS_DEAD);
+		return;
+	}
+
+	msg = garble(ch, msg);
+	act_puts("You tell $N '{G$t{x'",
+		 ch, msg, victim, TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
+	act_puts("$n tells you '{G$t{x'",
+		 ch, msg, victim,
+		 TO_VICT | ACT_TOBUF | ACT_NOTWIT | ACT_SPEECH(ch),
+		 POS_SLEEPING);
+
+	if (IS_NPC(ch))
+		return;
+
+	if (IS_NPC(victim)) {
+		if (HAS_TRIGGER(victim, TRIG_SPEECH))
+			mp_act_trigger(msg, victim, ch, NULL, NULL, TRIG_SPEECH);
+	}
+	else {
+		if (!IS_IMMORTAL(victim)
+		&&  !IS_IMMORTAL(ch)
+		&&  is_name(ch->name, victim->pcdata->twitlist))
+			return;
+
+		if (victim->desc == NULL)
+			act_puts("$N seems to have misplaced $S link but "
+				 "your tell will go through if $E returns.",
+				 ch, NULL, victim, TO_CHAR, POS_DEAD);
+		else if (IS_SET(victim->comm, COMM_AFK))
+			act_puts("$E is AFK, but your tell will go through "
+				 "when $E returns.",
+				 ch, NULL, victim, TO_CHAR, POS_DEAD);
+		victim->reply = ch;
+	}
+}
+
+void yell(CHAR_DATA *victim, CHAR_DATA* ch, const char* argument)
+{
+	if (IS_NPC(victim)
+	||  victim->in_room == NULL
+	||  victim->position <= POS_SLEEPING
+	||  IS_EXTRACTED(victim)
+	||  IS_SET(victim->plr_flags, PLR_GHOST))
+		return;
+
+	act_puts3("You yell '{M$b{x'",
+		  victim, argument, NULL, ch, TO_CHAR | ACT_SPEECH(ch),
+		  POS_DEAD);
+	act_yell("$n yells in panic '{M$b{x'", victim, argument, ch);
+}
+
+static void drop_objs(CHAR_DATA *ch, OBJ_DATA *obj_list)
+{
+	OBJ_DATA *obj, *obj_next;
+
+	/*
+	 * drop ITEM_QUIT_DROP/ITEM_CHQUEST/ITEM_CLAN items
+	 */
+	for (obj = obj_list; obj != NULL; obj = obj_next) {
+		int cn;
+		obj_next = obj->next_content;
+
+		if (obj->contains)
+			drop_objs(ch, obj->contains);
+
+		if (!IS_SET(obj->pIndexData->extra_flags,
+			    ITEM_CLAN | ITEM_QUIT_DROP | ITEM_CHQUEST))
+			continue;
+
+		if (obj->carried_by)
+			obj_from_char(obj);
+		else if (obj->in_obj)
+			obj_from_obj(obj);
+		else {
+			extract_obj(obj, 0);
+			continue;
+		}
+
+		if (!IS_SET(obj->pIndexData->extra_flags, ITEM_CLAN)) {
+			if (ch->in_room != NULL)
+				obj_to_room(obj, ch->in_room);
+			else
+				extract_obj(obj, 0);
+			continue;
+		}
+
+		for (cn = 0; cn < clans.nused; cn++)
+			if (obj == CLAN(cn)->obj_ptr) 
+				obj_to_room(obj, get_room_index(CLAN(cn)->altar_vnum));
+	}
+}
+
+void quit_char(CHAR_DATA *ch, int flags)
+{
+	DESCRIPTOR_DATA *d, *d_next;
+	CHAR_DATA *vch, *vch_next;
+	const char *name;
+
+	if (IS_NPC(ch))
+		return;
+
+	if (ch->position == POS_FIGHTING) {
+		char_puts("No way! You are fighting.\n", ch);
+		return;
+	}
+
+	if (ch->position < POS_STUNNED ) {
+		char_puts("You're not DEAD yet.\n", ch);
+		return;
+	}
+
+	if (IS_AFFECTED(ch, AFF_CHARM)) {
+		char_puts("You don't want to leave your master.\n", ch);
+		return;
+	}
+
+	if (IS_SET(ch->plr_flags, PLR_NOEXP)) {
+		char_puts("You don't want to lose your spirit.\n", ch);
+		return;
+	}
+
+	if (IS_AFFECTED(ch, AFF_SLEEP)) {
+		char_puts("You cannot quit, you are in deep sleep.\n", ch);
+		return;
+	}
+
+	if (auction.item != NULL
+	&&  ((ch == auction.buyer) || (ch == auction.seller))) {
+		char_puts("Wait till you have sold/bought the item "
+			  "on auction.\n",ch);
+		return;
+	}
+
+	if (!IS_IMMORTAL(ch)) {
+		if (IS_PUMPED(ch)) {
+			char_puts("Your adrenalin is gushing! You can't quit yet.\n", ch);
+			return;
+		}
+
+		if (is_affected(ch, gsn_witch_curse)) {
+			char_puts("You are cursed. Wait till you DIE!\n", ch);
+			return;
+		}
+
+		if (ch->in_room->area->clan
+		&&  ch->in_room->area->clan != ch->clan) {
+			char_puts("You can't quit here.\n", ch);
+			return;
+		}
+
+		if (ch->in_room && IS_RAFFECTED(ch->in_room, RAFF_ESPIRIT)) {
+			char_puts("Evil spirits in the area prevents you from leaving.\n", ch);
+			return;
+		}
+
+		if (!get_skill(ch, gsn_evil_spirit)
+		&&  is_affected(ch, gsn_evil_spirit)) {
+			char_puts("Evil spirits in you prevents you from leaving.\n", ch);
+			return;
+		}
+	}
+
+	char_puts("Alas, all good things must come to an end.\n", ch);
+	char_puts("You hit reality hard. Reality truth does unspeakable things to you.\n", ch);
+	act_puts("$n has left the game.", ch, NULL, NULL, TO_ROOM, POS_RESTING);
+	log("%s has quit.", ch->name);
+	wiznet("{W$N{x rejoins the real world.",
+		ch, NULL, WIZ_LOGINS, 0, ch->level);
+
+	drop_objs(ch, ch->carrying);
+
+	for (vch = char_list; vch; vch = vch_next) {
+		vch_next = vch->next;
+		if (is_affected(vch, gsn_doppelganger)
+		&&  vch->doppel == ch) {
+			char_puts("You shift to your true form as your victim leaves.\n",
+				  vch);
+			affect_strip(vch, gsn_doppelganger);
+		}
+
+		if (vch->guarding == ch) {
+			act("You stops guarding $N.", vch, NULL, ch, TO_CHAR);
+			act("$n stops guarding you.", vch, NULL, ch, TO_VICT);
+			act("$n stops guarding $N.", vch, NULL, ch, TO_NOTVICT);
+			vch->guarding  = NULL;
+			ch->guarded_by = NULL;
+		}
+
+		if (vch->last_fought == ch) {
+			vch->last_fought = NULL;
+			back_home(vch);
+		}
+		
+		if (vch->hunting == ch)
+			vch->hunting = NULL;
+
+		if (vch->hunter == ch)
+			vch->hunter = NULL;
+
+		if (vch->target == ch) {
+			if (IS_NPC(vch) 
+			  && vch->pIndexData->vnum == MOB_VNUM_SHADOW) {
+				act ("$n slowly fades away.",
+				vch, NULL, NULL, TO_ROOM);
+				extract_char(vch, 0);
+				continue;
+			}
+			if (IS_NPC(vch)
+			&& vch->pIndexData->vnum == MOB_VNUM_STALKER) {
+				act_clan(NULL, vch, "$I has left the realm, I have to leave too.", ch);
+				act ("$n slowly fades away.", vch, NULL, NULL,
+					TO_ROOM);
+				extract_char(vch, 0);
+			}
+		}
+	}
+
+	if (ch->guarded_by != NULL) {
+		ch->guarded_by->guarding = NULL;
+		ch->guarded_by = NULL;
+	}
+
+	/*
+	 * After extract_char the ch is no longer valid!
+	 */
+	save_char_obj(ch, 0);
+	name = str_qdup(ch->name);
+	d = ch->desc;
+	extract_char(ch, flags);
+
+	if (d)
+		close_descriptor(d);
+
+	/*
+	 * toast evil cheating bastards 
+	 *
+	 * Workaround against clone cheat --
+	 * Log in once, connect a second time and enter only name,
+	 * drop all and quit with first character, finish login
+	 * with second. This clones the player's inventory.
+	 */
+	for (d = descriptor_list; d; d = d_next) {
+		CHAR_DATA *tch;
+
+		d_next = d->next;
+		tch = d->original ? d->original : d->character;
+		if (tch && !str_cmp(name, tch->name)) {
+			if (d->connected == CON_PLAYING)
+				extract_char(tch, 0);
+			close_descriptor(d);
+		} 
+	}
+
+	free_string(name);
+}
+
+void add_follower(CHAR_DATA *ch, CHAR_DATA *master)
+{
+	if (ch->master)
+		stop_follower(ch);
+	ch->master = master;
+	ch->leader = NULL;
+
+	if (can_see(master, ch))
+		act_puts("$n now follows you.", ch, NULL, master, 
+			 TO_VICT, POS_RESTING);
+	act_puts("You now follow $N.", ch, NULL, master, 
+		 TO_CHAR, POS_RESTING);
+}
+
+void stop_follower(CHAR_DATA *ch)
+{
+	if (ch->master == NULL) {
+		bug("Stop_follower: null master.", 0);
+		return;
+	}
+
+	if (IS_AFFECTED(ch, AFF_CHARM)) {
+		REMOVE_BIT(ch->affected_by, AFF_CHARM);
+		affect_bit_strip(ch, TO_AFFECTS, AFF_CHARM);
+	}
+
+	if (can_see(ch->master, ch) && ch->in_room != NULL) {
+		act_puts("$n stops following you.",ch, NULL, ch->master, 
+			 TO_VICT, POS_RESTING);
+		act_puts("You stop following $N.", ch, NULL, ch->master, 
+			 TO_CHAR, POS_RESTING);
+	}
+
+	if (ch->master->pet == ch)
+		ch->master->pet = NULL;
+
+	ch->master = NULL;
+	ch->leader = NULL;
+}
+
+/* nukes charmed monsters and pets */
+void nuke_pets(CHAR_DATA *ch)
+{    
+	CHAR_DATA *pet;
+
+	if ((pet = ch->pet)) {
+		stop_follower(pet);
+		if (pet->in_room)
+			act("$n slowly fades away.", pet, NULL, NULL, TO_ROOM);
+		extract_char(pet, 0);
+	}
+	ch->pet = NULL;
+}
+
+void die_follower(CHAR_DATA *ch)
+{
+	CHAR_DATA *fch;
+	CHAR_DATA *fch_next;
+
+	if (ch->master != NULL)
+		stop_follower(ch);
+
+	ch->leader = NULL;
+
+	for (fch = char_list; fch != NULL; fch = fch_next) {
+		fch_next = fch->next;
+		if (fch->master == ch)
+			stop_follower(fch);
+		if (fch->leader == ch)
+			fch->leader = NULL;
+	}
+}
+
+CHAR_DATA* leader_lookup(CHAR_DATA* ch)
+{
+	CHAR_DATA* res;
+	for (res = ch; res->leader != NULL; res = res->leader)
+		;
+	return res;
+}
+
+void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
+{
+	clan_t *clan;
+	class_t *cl;
+	race_t *r;
+
+	if ((cl = class_lookup(wch->class)) == NULL
+	||  (r = race_lookup(wch->race)) == NULL
+	||  !r->pcdata)
+		return;
+
+	buf_add(output, "{x[");
+	if ((ch && (IS_IMMORTAL(ch) || ch == wch))
+	||  wch->level >= LEVEL_HERO || get_curr_stat(wch, STAT_CHA) < 18)
+		buf_printf(output, "%3d ", wch->level);
+	else
+		buf_add(output, "    ");
+
+	if (wch->level >= LEVEL_HERO) {
+		if (ch && IS_IMMORTAL(ch))
+			buf_add(output, "  ");
+		buf_add(output, "{G");
+		switch (wch->level) {
+		case IMPLEMENTOR:	buf_add(output, " IMP "); break;
+		case CREATOR:		buf_add(output, " CRE "); break;
+		case SUPREME:		buf_add(output, " SUP "); break;
+		case DEITY:		buf_add(output, " DEI "); break;
+		case GOD:		buf_add(output, " GOD "); break;
+		case IMMORTAL:		buf_add(output, " IMM "); break;
+		case DEMI:		buf_add(output, " DEM "); break;
+		case ANGEL:		buf_add(output, " ANG "); break;
+		case AVATAR:		buf_add(output, " AVA "); break;
+		case HERO:		buf_add(output, "HERO "); break;
+		}
+		buf_add(output, "{x");
+		if (ch && IS_IMMORTAL(ch))
+			buf_add(output, "  ");
+	}
+	else {
+		buf_printf(output, "%5.5s", r->pcdata->who_name);
+
+		if (ch && IS_IMMORTAL(ch))
+			buf_printf(output, " %3.3s", cl->who_name);
+	}
+	buf_add(output, "] ");
+
+	if (wch->clan
+	&&  (clan = clan_lookup(wch->clan))
+	&&  (!IS_SET(clan->clan_flags, CLAN_HIDDEN) ||
+	     (ch && (wch->clan == ch->clan || IS_IMMORTAL(ch)))))
+		buf_printf(output, "[{c%s{x] ", clan->name);
+
+	if (IS_SET(wch->comm, COMM_AFK))
+		buf_add(output, "{c[AFK]{x ");
+
+	if (wch->invis_level >= LEVEL_HERO)
+		buf_add(output, "[{WWizi{x] ");
+	if (wch->incog_level >= LEVEL_HERO)
+		buf_add(output, "[{DIncog{x] ");
+
+	if (ch && in_PK(ch, wch) && !IS_IMMORTAL(ch) && !IS_IMMORTAL(wch))
+		buf_add(output, "{r[{RPK{r]{x ");
+
+	if (IS_WANTED(wch))
+		buf_add(output, "{R(WANTED){x ");
+
+	if (IS_IMMORTAL(wch))
+		buf_printf(output, "{W%s{x", wch->name);
+	else
+		buf_add(output, wch->name);
+
+	buf_add(output, wch->pcdata->title);
+
+	buf_add(output, "\n");
+}
+
+static int movement_loss[SECT_MAX] =
+{
+	1, 2, 2, 3, 4, 6, 4, 1, 6, 10, 6
+};
+
+int mount_success(CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
+{
+	int	percent;
+	int	success;
+	int	chance;
+
+	if ((chance = get_skill(ch, gsn_riding)) == 0)
+		return FALSE;
+
+	percent = number_percent() + (ch->level < mount->level ? 
+		  (mount->level - ch->level) * 3 : 
+		  (mount->level - ch->level) * 2);
+
+	if (!ch->fighting)
+		percent -= 25;
+
+	if (!IS_NPC(ch) && IS_DRUNK(ch)) {
+		percent += chance / 2;
+		char_puts("Due to your being under the influence, riding seems "
+			  "a bit harder...\n", ch);
+	}
+
+	success = percent - chance;
+
+	if (success <= 0) { /* Success */
+		check_improve(ch, gsn_riding, TRUE, 1);
+		return TRUE;
+	}
+
+	check_improve(ch, gsn_riding, FALSE, 1);
+	if (success >= 10 && MOUNTED(ch) == mount) {
+		act_puts("You lose control and fall off of $N.",
+			 ch, NULL, mount, TO_CHAR, POS_DEAD);
+		act("$n loses control and falls off of $N.",
+		    ch, NULL, mount, TO_NOTVICT);
+		act_puts("$n loses control and falls off of you.",
+			 ch, NULL, mount, TO_VICT, POS_SLEEPING);
+
+		ch->riding = FALSE;
+		mount->riding = FALSE;
+		if (ch->position > POS_STUNNED) 
+			ch->position=POS_SITTING;
+	
+		ch->hit -= 5;
+		update_pos(ch);
+	}
+	if (success >= 40 && canattack) {
+		act_puts("$N doesn't like the way you've been treating $M.",
+			 ch, NULL, mount, TO_CHAR, POS_DEAD);
+		act("$N doesn't like the way $n has been treating $M.",
+		    ch, NULL, mount, TO_NOTVICT);
+		act_puts("You don't like the way $n has been treating you.",
+			 ch, NULL, mount, TO_VICT, POS_SLEEPING);
+
+		act_puts("$N snarls and attacks you!",
+			 mount, NULL, ch, TO_VICT, POS_DEAD);
+		act("$N snarls and attacks $n!",
+		    mount, NULL, ch, TO_NOTVICT);
+		act_puts("You snarl and attack $n!",
+			 mount, NULL, ch, TO_CHAR, POS_SLEEPING);
+
+		damage(mount, ch, number_range(1, mount->level),
+			gsn_kick, DAM_BASH, DAMF_SHOW);
+	}
+	return FALSE;
+}
+
+void move_char(CHAR_DATA *ch, int door, bool follow)
+{
+	move_char_org(ch, door, follow, FALSE);
+}
+
+bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
+{
+	CHAR_DATA *fch;
+	CHAR_DATA *fch_next;
+	CHAR_DATA *mount;
+	ROOM_INDEX_DATA *in_room;
+	ROOM_INDEX_DATA *to_room;
+	EXIT_DATA *pexit;
+	bool room_has_pc;
+	OBJ_DATA *obj;
+	OBJ_DATA *obj_next;
+	int act_flags;
+
+	if (RIDDEN(ch) && !IS_NPC(ch->mount)) 
+		return move_char_org(ch->mount,door,follow,is_charge);
+
+	if (IS_AFFECTED(ch, AFF_DETECT_WEB) 
+	|| (MOUNTED(ch) && IS_AFFECTED(ch->mount, AFF_DETECT_WEB))) {
+		WAIT_STATE(ch, PULSE_VIOLENCE);
+		if (number_percent() < str_app[IS_NPC(ch) ?
+			20 : get_curr_stat(ch,STAT_STR)].tohit * 5) {
+		 	affect_strip(ch, gsn_web);
+		 	REMOVE_BIT(ch->affected_by, AFF_DETECT_WEB);
+		 	act_puts("When you attempt to leave the room, you "
+				 "break the webs holding you tight.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		 	act_puts("$n struggles against the webs which hold $m "
+				 "in place, and break it.",
+				 ch, NULL, NULL, TO_ROOM, POS_RESTING);
+		}
+		else {
+			act_puts("You attempt to leave the room, but the webs "
+				 "hold you tight.",
+				 ch, NULL, NULL, TO_ROOM, POS_DEAD);
+			act("$n struggles vainly against the webs which "
+			    "hold $m in place.",
+			    ch, NULL, NULL, TO_ROOM);
+			return FALSE; 
+		}
+	}
+
+	for (fch = ch->in_room->people; fch; fch = fch->next_in_room) {
+		if (fch->target == ch
+		&&  IS_NPC(fch)
+		&&  fch->pIndexData->vnum == MOB_VNUM_SHADOW) {
+			char_puts("You attempt to leave your shadow alone,"
+				" but fail.\n", ch);
+			return FALSE;
+		}
+	}
+
+	if (door < 0 || door >= MAX_DIR) {
+		bug("move_char_org: bad door %d.", door);
+		return FALSE;
+	}
+
+	if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE)
+	&&  !IS_AFFECTED(ch, AFF_SNEAK)) {
+		REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
+		act_puts("You step out of shadows.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		act_puts("$n steps out of shadows.",
+			 ch, NULL, NULL, TO_ROOM, POS_RESTING);
+	}
+
+	if (IS_AFFECTED(ch, AFF_CAMOUFLAGE))  {
+		int chance;
+
+		if ((chance = get_skill(ch, gsn_camouflage_move)) == 0) {
+			REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
+			act_puts("You step out from your cover.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			act("$n steps out from $m's cover.",
+			    ch, NULL, NULL, TO_ROOM);
+		}	    
+		else if (number_percent() < chance)
+			check_improve(ch, gsn_camouflage_move, TRUE, 5);
+		else {
+			REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
+			act_puts("You step out from your cover.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			act("$n steps out from $m's cover.",
+			    ch, NULL, NULL, TO_ROOM);
+			check_improve(ch, gsn_camouflage_move, FALSE, 5);
+		}	    
+	}
+	if (IS_AFFECTED(ch, AFF_BLEND)) {
+		REMOVE_BIT(ch->affected_by, AFF_BLEND);
+		affect_bit_strip(ch, TO_AFFECTS, AFF_BLEND);
+		act_puts("You step out from your cover.",
+			ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		act("$n steps out from $m's cover.",
+			ch, NULL, NULL, TO_ROOM);
+	}
+
+	/*
+	 * Exit trigger, if activated, bail out. Only PCs are triggered.
+	 */
+	if (!IS_NPC(ch) && mp_exit_trigger(ch, door))
+		return FALSE;
+
+	in_room = ch->in_room;
+	if ((pexit = in_room->exit[door]) == NULL
+	||  (to_room = pexit->to_room.r) == NULL 
+	||  !can_see_room(ch, pexit->to_room.r)) {
+		char_puts("Alas, you cannot go that way.\n", ch);
+		return FALSE;
+	}
+
+	if (IS_ROOM_AFFECTED(in_room, RAFF_RANDOMIZER) && !is_charge) {
+		int d0;
+		while (1) {
+			d0 = number_range(0, MAX_DIR-1);
+			if ((pexit = in_room->exit[d0]) == NULL
+			||  (to_room = pexit->to_room.r) == NULL 
+			||  !can_see_room(ch, pexit->to_room.r))
+				continue;	  
+			door = d0;
+			break;
+		}
+	}
+
+	if (IS_SET(pexit->exit_info, EX_CLOSED) 
+	&&  (!IS_AFFECTED(ch, AFF_PASS_DOOR) ||
+	     IS_SET(pexit->exit_info, EX_NOPASS))
+	&&  !IS_TRUSTED(ch, ANGEL)) {
+		if (IS_AFFECTED(ch, AFF_PASS_DOOR)
+		&&  IS_SET(pexit->exit_info, EX_NOPASS)) {
+  			act_puts("You failed to pass through the $d.",
+				 ch, NULL, pexit->keyword, TO_CHAR, POS_DEAD);
+			act("$n tries to pass through the $d, but $e fails.",
+			    ch, NULL, pexit->keyword, TO_ROOM);
+		}
+		else {
+			act_puts("The $d is closed.",
+				 ch, NULL, pexit->keyword, TO_CHAR, POS_DEAD);
+		}
+		return FALSE;
+	}
+
+	if (IS_AFFECTED(ch, AFF_CHARM)
+	&&  ch->master != NULL
+	&&  in_room == ch->master->in_room) {
+		char_puts("What? And leave your beloved master?\n", ch);
+		return FALSE;
+	}
+
+/*    if (!is_room_owner(ch,to_room) && room_is_private(to_room))	*/
+	if (room_is_private(to_room)) {
+		char_puts("That room is private right now.\n", ch);
+		return FALSE;
+	}
+
+	if (MOUNTED(ch)) {
+		if (MOUNTED(ch)->position < POS_FIGHTING) {
+			char_puts("Your mount must be standing.\n", ch);
+			return FALSE; 
+		}
+		if (!mount_success(ch, MOUNTED(ch), FALSE)) {
+			char_puts("Your mount subbornly refuses to go that way.\n", ch);
+			return FALSE;
+		}
+	}
+
+	if (!IS_NPC(ch)) {
+		int move;
+
+		if (!IS_IMMORTAL(ch)) {
+			if (IS_SET(to_room->room_flags, ROOM_GUILD)
+			&&  !guild_ok(ch, to_room)) {
+				char_puts("You aren't allowed there.\n", ch);
+				return FALSE;
+			}
+
+			if (IS_PUMPED(ch)
+			&&  IS_SET(to_room->room_flags, ROOM_PEACE | ROOM_GUILD)
+			&&  !IS_SET(in_room->room_flags,
+				    ROOM_PEACE | ROOM_GUILD)) {
+				act_puts("You feel too bloody to go in there now.",
+					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+				return FALSE;
+			}
+		}
+
+		if (in_room->sector_type == SECT_AIR
+		||  to_room->sector_type == SECT_AIR) {
+			if (MOUNTED(ch)) {
+		        	if(!IS_AFFECTED(MOUNTED(ch), AFF_FLYING)) {
+		        		char_puts("You mount can't fly.\n", ch);
+						   return FALSE;
+				}
+			} 
+			else if (!IS_AFFECTED(ch, AFF_FLYING)
+			&& !IS_IMMORTAL(ch)) {
+				act_puts("You can't fly.",
+					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+				return FALSE;
+			} 
+		}
+
+		if ((in_room->sector_type == SECT_WATER_NOSWIM ||
+		     to_room->sector_type == SECT_WATER_NOSWIM)
+		&&  (MOUNTED(ch) && !IS_AFFECTED(MOUNTED(ch),AFF_FLYING))) {
+			act_puts("You can't take your mount there.\n",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			return FALSE;
+		}  
+
+		if ((in_room->sector_type == SECT_WATER_NOSWIM ||
+		     to_room->sector_type == SECT_WATER_NOSWIM)
+		&&  (!MOUNTED(ch) && !IS_AFFECTED(ch, AFF_FLYING))) {
+			OBJ_DATA *obj;
+			bool found;
+
+		    /*
+		     * Look for a boat.
+		     */
+		    found = FALSE;
+
+		    if (IS_IMMORTAL(ch))
+			found = TRUE;
+
+		    for (obj = ch->carrying; obj != NULL; obj = obj->next_content)
+		    {
+			if (obj->pIndexData->item_type == ITEM_BOAT)
+			{
+			    found = TRUE;
+			    break;
+			}
+		    }
+		    if (!found)
+		    {
+			char_puts("You need a boat to go there.\n", ch);
+			return FALSE;
+		    }
+		}
+
+		move = (movement_loss[UMIN(SECT_MAX-1, in_room->sector_type)]
+		     + movement_loss[UMIN(SECT_MAX-1, to_room->sector_type)])/2;
+
+		if (is_affected(ch, gsn_thumbling))
+			move *= 2;
+		else {
+			if (IS_AFFECTED(ch,AFF_FLYING)
+			|| IS_AFFECTED(ch,AFF_HASTE))
+				move /= 2;
+
+			if (IS_AFFECTED(ch,AFF_SLOW))
+				move *= 2;
+		}
+
+		if (!MOUNTED(ch)) {
+			if (ch->move < move) {
+				act_puts("You are too exhausted.",
+					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+				return FALSE;
+			}
+
+			ch->move -= move;
+
+			if (ch->in_room->sector_type == SECT_DESERT
+			||  IS_WATER(ch->in_room))
+				WAIT_STATE(ch, 2);
+			else
+				WAIT_STATE(ch, 1);
+		}
+	}
+
+	if (!IS_AFFECTED(ch, AFF_SNEAK)
+	&&  !IS_AFFECTED(ch, AFF_CAMOUFLAGE)
+	&&  ch->invis_level < LEVEL_HERO) 
+		act_flags = TO_ROOM;
+	else
+		act_flags = TO_ROOM | ACT_NOMORTAL;
+
+	if (!IS_NPC(ch)
+	&&  ch->in_room->sector_type != SECT_INSIDE
+	&&  ch->in_room->sector_type != SECT_CITY
+	&&  number_percent() < get_skill(ch, gsn_quiet_movement) 
+	&&  !is_charge) {
+		act(MOUNTED(ch) ? "$n leaves, riding on $N." : "$n leaves.",
+		    ch, NULL, MOUNTED(ch), act_flags);
+		check_improve(ch,gsn_quiet_movement,TRUE,1);
+	}
+	else if (is_charge) {
+		act("$n spurs $s $N, leaving $t.",
+		    ch, dir_name[door], ch->mount,  TO_ROOM);
+	}
+	else {
+		act(MOUNTED(ch) ? "$n leaves $t, riding on $N." :
+				  "$n leaves $t.",
+		    ch, dir_name[door], MOUNTED(ch), act_flags);
+	}
+
+	if (IS_AFFECTED(ch, AFF_CAMOUFLAGE)
+	&&  to_room->sector_type != SECT_FOREST
+	&&  to_room->sector_type != SECT_MOUNTAIN
+	&&  to_room->sector_type != SECT_HILLS) {
+		REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
+		act_puts("You step out from your cover.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		act("$n steps out from $m's cover.",
+		    ch, NULL, NULL, TO_ROOM);
+	}
+
+	/* room record for tracking */
+	if (!IS_NPC(ch))
+		room_record(ch->name, in_room, door);
+
+	/*
+	 * now, after all the checks are done we should
+	 * - take the char from the room
+	 * - print the message to chars in to_room about ch arrival
+	 * - put the char to to_room
+	 * - CHECK THAT CHAR IS NOT DEAD after char_to_room
+	 * - move all the followers and pull all the triggers
+	 */
+	mount = MOUNTED(ch);
+	char_from_room(ch);
+
+	if (!IS_AFFECTED(ch, AFF_SNEAK) && ch->invis_level < LEVEL_HERO) 
+		act_flags = TO_ALL;
+	else
+		act_flags = TO_ALL | ACT_NOMORTAL;
+
+	if (!is_charge) 
+		act(mount ? "$i has arrived, riding $N." : "$i has arrived.",
+	    	    to_room->people, ch, mount, act_flags);
+
+	char_to_room(ch, to_room);
+
+	if (mount) {
+		char_from_room(mount);
+		char_to_room(mount, to_room);
+  		ch->riding = TRUE;
+  		mount->riding = TRUE;
+	}
+
+	if (!IS_EXTRACTED(ch))
+		dofun("look", ch, "auto");
+
+	if (in_room == to_room) /* no circular follows */
+		return TRUE;
+
+	/*
+	 * move all the followers
+	 */
+	for (fch = in_room->people; fch; fch = fch_next) {
+		fch_next = fch->next_in_room;
+
+		if (fch->master != ch || fch->position != POS_STANDING
+		||  !can_see_room(fch, to_room))
+			continue;
+
+		if (IS_SET(to_room->room_flags, ROOM_LAW)
+		&&  IS_NPC(fch)
+		&&  IS_SET(fch->pIndexData->act, ACT_AGGRESSIVE)) {
+			act_puts("You can't bring $N into the city.",
+				 ch, NULL, fch, TO_CHAR, POS_DEAD);
+			act("You aren't allowed in the city.",
+			    fch, NULL, NULL, TO_CHAR);
+			continue;
+		}
+
+		act_puts("You follow $N.", fch, NULL, ch, TO_CHAR, POS_DEAD);
+		move_char(fch, door, TRUE);
+	}
+
+	if (IS_EXTRACTED(ch))
+		return TRUE;
+
+	room_has_pc = FALSE;
+	for (fch = to_room->people; fch != NULL; fch = fch_next) {
+		fch_next = fch->next_in_room;
+		if (!IS_NPC(fch)) {
+			room_has_pc = TRUE;
+			break;
+		}
+	}
+
+	if (!room_has_pc)
+		return TRUE;
+
+	/*
+	 * pull GREET and ENTRY triggers
+	 *
+	 * if someone is following the char, these triggers get activated
+	 * for the followers before the char, but it's safer this way...
+	 */
+	for (fch = to_room->people; fch; fch = fch_next) {
+		fch_next = fch->next_in_room;
+
+		/* greet progs for items carried by people in room */
+		for (obj = fch->carrying; obj; obj = obj_next) {
+			obj_next = obj->next_content;
+			oprog_call(OPROG_GREET, obj, ch, NULL);
+		}
+	}
+
+	for (obj = ch->in_room->contents; obj != NULL; obj = obj_next) {
+		obj_next = obj->next_content;
+		oprog_call(OPROG_GREET, obj, ch, NULL);
+	}
+
+	if (!IS_NPC(ch))
+    		mp_greet_trigger(ch);
+
+	for (obj = ch->carrying; obj; obj = obj_next) {
+		obj_next = obj->next_content;
+		oprog_call(OPROG_ENTRY, obj, NULL, NULL);
+	}
+
+	if (IS_NPC(ch) && HAS_TRIGGER(ch, TRIG_ENTRY))
+		mp_percent_trigger(ch, NULL, NULL, NULL, TRIG_ENTRY);
+
+	return TRUE;
+}
+
+int find_door(CHAR_DATA *ch, char *arg)
+{
+	EXIT_DATA *pexit;
+	int door;
+
+	     if (!str_cmp(arg, "n") || !str_cmp(arg, "north")) door = 0;
+	else if (!str_cmp(arg, "e") || !str_cmp(arg, "east" )) door = 1;
+	else if (!str_cmp(arg, "s") || !str_cmp(arg, "south")) door = 2;
+	else if (!str_cmp(arg, "w") || !str_cmp(arg, "west" )) door = 3;
+	else if (!str_cmp(arg, "u") || !str_cmp(arg, "up"   )) door = 4;
+	else if (!str_cmp(arg, "d") || !str_cmp(arg, "down" )) door = 5;
+	else {
+		for (door = 0; door <= 5; door++) {
+		    if ((pexit = ch->in_room->exit[door]) != NULL
+		    &&   IS_SET(pexit->exit_info, EX_ISDOOR)
+		    &&   pexit->keyword != NULL
+		    &&   is_name(arg, pexit->keyword))
+			return door;
+		}
+		act_puts("I see no $T here.", ch, NULL, arg, TO_CHAR, POS_DEAD);
+		return -1;
+	}
+
+	if ((pexit = ch->in_room->exit[door]) == NULL) {
+		act_puts("I see no door $T here.",
+			 ch, NULL, arg, TO_CHAR, POS_DEAD);
+		return -1;
+	}
+
+	if (!IS_SET(pexit->exit_info, EX_ISDOOR)) {
+		char_puts("You can't do that.\n", ch);
+		return -1;
+	}
+
+	return door;
+}
+
+/* RT part of the corpse looting code */
+bool can_loot(CHAR_DATA * ch, OBJ_DATA * obj)
+{
+	if (IS_IMMORTAL(ch))
+		return TRUE;
+
+	/*
+	 * PC corpses in the ROOM_BATTLE_ARENA rooms can be looted
+	 * only by owners
+	 */
+	if (obj->in_room
+	&&  IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA)
+	&&  !IS_OWNER(ch, obj))
+		return FALSE;
+
+	return TRUE;
+}
+
+void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container,
+	     const char *msg_others)
+{
+	/* variables for AUTOSPLIT */
+	CHAR_DATA      *gch;
+	int             members;
+	int		carry_w, carry_n;
+
+	if (!CAN_WEAR(obj, ITEM_TAKE)
+	||  (obj->pIndexData->item_type == ITEM_CORPSE_PC &&
+	     obj->in_room &&
+	     IS_SET(obj->in_room->room_flags, ROOM_BATTLE_ARENA) &&
+	     !IS_OWNER(ch, obj))) {
+		char_puts("You can't take that.\n", ch);
+		return;
+	}
+
+	/* can't even get limited eq which does not match alignment */
+	if (obj->pIndexData->limit != -1) {
+		if ((IS_OBJ_STAT(obj, ITEM_ANTI_EVIL) && IS_EVIL(ch))
+		||  (IS_OBJ_STAT(obj, ITEM_ANTI_GOOD) && IS_GOOD(ch))
+		||  (IS_OBJ_STAT(obj, ITEM_ANTI_NEUTRAL) && IS_NEUTRAL(ch))) {
+			act_puts("You are zapped by $p and drop it.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+			act("$n is zapped by $p and drops it.",
+			    ch, obj, NULL, TO_ROOM);
+			return;
+		}
+	}
+
+	if ((carry_n = can_carry_n(ch)) >= 0
+	&&  ch->carry_number + get_obj_number(obj) > carry_n) {
+		act_puts("$P: you can't carry that many items.",
+			 ch, NULL, obj, TO_CHAR, POS_DEAD);
+		return;
+	}
+
+	if ((carry_w = can_carry_w(ch)) >= 0
+	&&  get_carry_weight(ch) + get_obj_weight(obj) > carry_w) {
+		act_puts("$P: you can't carry that much weight.",
+			 ch, NULL, obj, TO_CHAR, POS_DEAD);
+		return;
+	}
+
+	if (obj->in_room != NULL) {
+		for (gch = obj->in_room->people; gch != NULL;
+		     gch = gch->next_in_room)
+			if (gch->on == obj) {
+				act_puts("$N appears to be using $p.",
+					 ch, obj, gch, TO_CHAR, POS_DEAD);
+				return;
+			}
+	}
+
+	if (obj->pIndexData->item_type == ITEM_MONEY) {
+		if (carry_w >= 0
+		&&  get_carry_weight(ch) + MONEY_WEIGHT(obj) > carry_w) {
+			act_puts("$d: you can't carry that much weight.",
+				 ch, NULL, obj->name, TO_CHAR, POS_DEAD);
+			return;
+		}
+	}
+
+	if (container) {
+		if (IS_SET(container->pIndexData->extra_flags, ITEM_PIT)
+		&&  !IS_OBJ_STAT(obj, ITEM_HAD_TIMER))
+			obj->timer = 0;
+		REMOVE_BIT(obj->extra_flags, ITEM_HAD_TIMER);
+
+		act_puts("You get $p from $P.",
+			 ch, obj, container, TO_CHAR, POS_DEAD);
+		act(msg_others == NULL ? "$n gets $p from $P." : msg_others,
+		    ch, obj, container,
+		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
+
+		obj_from_obj(obj);
+	}
+	else {
+		act_puts("You get $p.", ch, obj, container, TO_CHAR, POS_DEAD);
+		act(msg_others == NULL ? "$n gets $p." : msg_others,
+		    ch, obj, container,
+		    TO_ROOM | (IS_AFFECTED(ch, AFF_SNEAK) ? ACT_NOMORTAL : 0));
+
+		obj_from_room(obj);
+	}
+
+	if (obj->pIndexData->item_type == ITEM_MONEY) {
+		ch->silver += obj->value[0];
+		ch->gold += obj->value[1];
+		if (IS_SET(ch->plr_flags, PLR_AUTOSPLIT)) {
+			/* AUTOSPLIT code */
+			members = 0;
+			for (gch = ch->in_room->people; gch != NULL;
+			     gch = gch->next_in_room) {
+				if (!IS_AFFECTED(gch, AFF_CHARM)
+				    && is_same_group(gch, ch))
+					members++;
+			}
+
+			if (members > 1 && (obj->value[0] > 1
+					    || obj->value[1]))
+				dofun("split", ch, "%d %d", obj->value[0],
+				       obj->value[1]);
+		}
+		extract_obj(obj, 0);
+	} else {
+		obj_to_char(obj, ch);
+		oprog_call(OPROG_GET, obj, ch, NULL);
+	}
+}
+
+void quaff_obj(CHAR_DATA *ch, OBJ_DATA *obj)
+{
+	act("$n quaffs $p.", ch, obj, NULL, TO_ROOM);
+	act_puts("You quaff $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
+
+	obj_cast_spell(obj->value[1], obj->value[0], ch, ch);
+	obj_cast_spell(obj->value[2], obj->value[0], ch, ch);
+	obj_cast_spell(obj->value[3], obj->value[0], ch, ch);
+	obj_cast_spell(obj->value[4], obj->value[0], ch, ch);
+
+	if (IS_PUMPED(ch) || ch->fighting != NULL)
+		WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
+
+	extract_obj(obj, 0);
+	obj_to_char(create_obj(get_obj_index(OBJ_VNUM_POTION_VIAL), 0), ch);
+}
+
+/*
+ * Wear one object.
+ * Optional replacement of existing objects.
+ * Big repetitive code, ick.
+ */
+void wear_obj(CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace)
+{
+	int wear_level = get_wear_level(ch, obj);
+
+	if (wear_level < obj->level) {
+		char_printf(ch, "You must be level %d to use this object.\n",
+			    obj->level - wear_level + ch->level);
+		act("$n tries to use $p, but is too inexperienced.",
+		    ch, obj, NULL, TO_ROOM);
+		return;
+	}
+
+	if (obj->pIndexData->item_type == ITEM_LIGHT) {
+		if (!remove_obj(ch, WEAR_LIGHT, fReplace))
+			return;
+		act("$n lights $p and holds it.", ch, obj, NULL, TO_ROOM);
+		act_puts("You light $p and hold it.",
+			 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		equip_char(ch, obj, WEAR_LIGHT);
+		return;
+	}
+	if (CAN_WEAR(obj, ITEM_WEAR_FINGER)) {
+		if (get_eq_char(ch, WEAR_FINGER_L) != NULL
+		&&  get_eq_char(ch, WEAR_FINGER_R) != NULL
+		&&  !remove_obj(ch, WEAR_FINGER_L, fReplace)
+		&&  !remove_obj(ch, WEAR_FINGER_R, fReplace))
+			return;
+
+		if (get_eq_char(ch, WEAR_FINGER_L) == NULL) {
+			act("$n wears $p on $s left finger.",
+			    ch, obj, NULL, TO_ROOM);
+			act_puts("You wear $p on your left finger.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+			equip_char(ch, obj, WEAR_FINGER_L);
+			return;
+		}
+		if (get_eq_char(ch, WEAR_FINGER_R) == NULL) {
+			act("$n wears $p on $s right finger.",
+			    ch, obj, NULL, TO_ROOM);
+			act_puts("You wear $p on your right finger.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+			equip_char(ch, obj, WEAR_FINGER_R);
+			return;
+		}
+		bug("Wear_obj: no free finger.", 0);
+		char_puts("You already wear two rings.\n", ch);
+		return;
+	}
+	if (CAN_WEAR(obj, ITEM_WEAR_NECK)) {
+		if (get_eq_char(ch, WEAR_NECK_1) != NULL
+		    && get_eq_char(ch, WEAR_NECK_2) != NULL
+		    && !remove_obj(ch, WEAR_NECK_1, fReplace)
+		    && !remove_obj(ch, WEAR_NECK_2, fReplace))
+			return;
+
+		if (get_eq_char(ch, WEAR_NECK_1) == NULL) {
+			act("$n wears $p around $s neck.",
+			    ch, obj, NULL, TO_ROOM);
+			act_puts("You wear $p around your neck.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+			equip_char(ch, obj, WEAR_NECK_1);
+			return;
+		}
+		if (get_eq_char(ch, WEAR_NECK_2) == NULL) {
+			act("$n wears $p around $s neck.",
+			    ch, obj, NULL, TO_ROOM);
+			act_puts("You wear $p around your neck.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+			equip_char(ch, obj, WEAR_NECK_2);
+			return;
+		}
+		bug("Wear_obj: no free neck.", 0);
+		char_puts("You already wear two neck items.\n", ch);
+		return;
+	}
+	if (CAN_WEAR(obj, ITEM_WEAR_BODY)) {
+		if (!remove_obj(ch, WEAR_BODY, fReplace))
+			return;
+		act("$n wears $p on $s torso.", ch, obj, NULL, TO_ROOM);
+		act_puts("You wear $p on your torso.",
+			 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		equip_char(ch, obj, WEAR_BODY);
+		return;
+	}
+	if (CAN_WEAR(obj, ITEM_WEAR_HEAD)) {
+		if (!remove_obj(ch, WEAR_HEAD, fReplace))
+			return;
+		act("$n wears $p on $s head.", ch, obj, NULL, TO_ROOM);
+		act_puts("You wear $p on your head.",
+			 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		equip_char(ch, obj, WEAR_HEAD);
+		return;
+	}
+	if (CAN_WEAR(obj, ITEM_WEAR_LEGS)) {
+		if (!remove_obj(ch, WEAR_LEGS, fReplace))
+			return;
+		act("$n wears $p on $s legs.", ch, obj, NULL, TO_ROOM);
+		act_puts("You wear $p on your legs.",
+			 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		equip_char(ch, obj, WEAR_LEGS);
+		return;
+	}
+	if (CAN_WEAR(obj, ITEM_WEAR_FEET)) {
+		if (!remove_obj(ch, WEAR_FEET, fReplace))
+			return;
+		act("$n wears $p on $s feet.", ch, obj, NULL, TO_ROOM);
+		act_puts("You wear $p on your feet.",
+			 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		equip_char(ch, obj, WEAR_FEET);
+		return;
+	}
+	if (CAN_WEAR(obj, ITEM_WEAR_HANDS)) {
+		if (!remove_obj(ch, WEAR_HANDS, fReplace))
+			return;
+		act("$n wears $p on $s hands.", ch, obj, NULL, TO_ROOM);
+		act_puts("You wear $p on your hands.",
+			 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		equip_char(ch, obj, WEAR_HANDS);
+		return;
+	}
+	if (CAN_WEAR(obj, ITEM_WEAR_ARMS)) {
+		if (!remove_obj(ch, WEAR_ARMS, fReplace))
+			return;
+		act("$n wears $p on $s arms.", ch, obj, NULL, TO_ROOM);
+		act_puts("You wear $p on your arms.",
+			 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		equip_char(ch, obj, WEAR_ARMS);
+		return;
+	}
+	if (CAN_WEAR(obj, ITEM_WEAR_ABOUT)) {
+		if (!remove_obj(ch, WEAR_ABOUT, fReplace))
+			return;
+		act("$n wears $p on $s torso.", ch, obj, NULL, TO_ROOM);
+		act_puts("You wear $p on your torso.",
+			 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		equip_char(ch, obj, WEAR_ABOUT);
+		return;
+	}
+	if (CAN_WEAR(obj, ITEM_WEAR_WAIST)) {
+		if (!remove_obj(ch, WEAR_WAIST, fReplace))
+			return;
+		act("$n wears $p about $s waist.", ch, obj, NULL, TO_ROOM);
+		act_puts("You wear $p about your waist.",
+			 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		equip_char(ch, obj, WEAR_WAIST);
+		return;
+	}
+	if (CAN_WEAR(obj, ITEM_WEAR_WRIST)) {
+		if (get_eq_char(ch, WEAR_WRIST_L) != NULL
+		    && get_eq_char(ch, WEAR_WRIST_R) != NULL
+		    && !remove_obj(ch, WEAR_WRIST_L, fReplace)
+		    && !remove_obj(ch, WEAR_WRIST_R, fReplace))
+			return;
+
+		if (get_eq_char(ch, WEAR_WRIST_L) == NULL) {
+			act("$n wears $p around $s left wrist.",
+			    ch, obj, NULL, TO_ROOM);
+			act_puts("You wear $p around your left wrist.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+			equip_char(ch, obj, WEAR_WRIST_L);
+			return;
+		}
+		if (get_eq_char(ch, WEAR_WRIST_R) == NULL) {
+			act("$n wears $p around $s right wrist.",
+			    ch, obj, NULL, TO_ROOM);
+			act_puts("You wear $p around your right wrist.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+			equip_char(ch, obj, WEAR_WRIST_R);
+			return;
+		}
+		bug("Wear_obj: no free wrist.", 0);
+		char_puts("You already wear two wrist items.\n", ch);
+		return;
+	}
+	if (CAN_WEAR(obj, ITEM_WEAR_SHIELD)) {
+		OBJ_DATA       *weapon;
+		if (get_eq_char(ch, WEAR_SECOND_WIELD) != NULL) {
+			char_puts("You can't use a shield while using a second weapon.\n", ch);
+			return;
+		}
+		if (!remove_obj(ch, WEAR_SHIELD, fReplace))
+			return;
+
+		weapon = get_eq_char(ch, WEAR_WIELD);
+		if (weapon != NULL && ch->size < SIZE_LARGE
+		&&  IS_WEAPON_STAT(weapon, WEAPON_TWO_HANDS)) {
+			char_puts("Your hands are tied up with your weapon!\n", ch);
+			return;
+		}
+		act("$n wears $p as a shield.", ch, obj, NULL, TO_ROOM);
+		act_puts("You wear $p as a shield.",
+			 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		equip_char(ch, obj, WEAR_SHIELD);
+		return;
+	}
+	if (CAN_WEAR(obj, ITEM_WIELD)) {
+		int             skill;
+		OBJ_DATA       *dual;
+		if ((dual = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL)
+			unequip_char(ch, dual);
+
+		if (!remove_obj(ch, WEAR_WIELD, fReplace))
+			return;
+
+		if (!IS_NPC(ch)
+		&& get_obj_weight(obj) >
+			  str_app[get_curr_stat(ch, STAT_STR)].wield * 10) {
+			char_puts("It is too heavy for you to wield.\n", ch);
+			if (dual)
+				equip_char(ch, dual, WEAR_SECOND_WIELD);
+			return;
+		}
+		if (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS)
+		&&  ((!IS_NPC(ch) && ch->size < SIZE_LARGE &&
+		      get_eq_char(ch, WEAR_SHIELD) != NULL) ||
+		     get_eq_char(ch, WEAR_SECOND_WIELD) != NULL)) {
+			char_puts("You need two hands free for that weapon.\n", ch);
+			if (dual)
+				equip_char(ch, dual, WEAR_SECOND_WIELD);
+			return;
+		}
+		act("$n wields $p.", ch, obj, NULL, TO_ROOM);
+		act_puts("You wield $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
+		obj = equip_char(ch, obj, WEAR_WIELD);
+		if (dual)
+			equip_char(ch, dual, WEAR_SECOND_WIELD);
+
+		if (obj == NULL)
+			return;
+
+		skill = get_weapon_skill(ch, get_weapon_sn(obj));
+
+		if (skill >= 100)
+			act_puts("$p feels like a part of you!",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		else if (skill > 85)
+			act_puts("You feel quite confident with $p.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		else if (skill > 70)
+			act_puts("You are skilled with $p.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		else if (skill > 50)
+			act_puts("Your skill with $p is adequate.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		else if (skill > 25)
+			act_puts("$p feels a little clumsy in your hands.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		else if (skill > 1)
+			act_puts("You fumble and almost drop $p.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		else
+			act_puts("You don't even know which end is up on $p.",
+				 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		return;
+	}
+	if (CAN_WEAR(obj, ITEM_HOLD)) {
+		if (get_eq_char(ch, WEAR_SECOND_WIELD) != NULL) {
+			act_puts("You can't hold an item while using 2 weapons.",
+				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+			return;
+		}
+		if (!remove_obj(ch, WEAR_HOLD, fReplace))
+			return;
+		act("$n holds $p in $s hand.", ch, obj, NULL, TO_ROOM);
+		act_puts("You hold $p in your hand.",
+			 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		equip_char(ch, obj, WEAR_HOLD);
+		return;
+	}
+	if (CAN_WEAR(obj, ITEM_WEAR_FLOAT)) {
+		if (!remove_obj(ch, WEAR_FLOAT, fReplace))
+			return;
+		act("$n releases $p to float next to $m.",
+		    ch, obj, NULL, TO_ROOM);
+		act_puts("You release $p and it floats next to you.",
+			 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		equip_char(ch, obj, WEAR_FLOAT);
+		return;
+	}
+	if (CAN_WEAR(obj, ITEM_WEAR_TATTOO) && IS_IMMORTAL(ch)) {
+		if (!remove_obj(ch, WEAR_TATTOO, fReplace))
+			return;
+		act("$n now uses $p as tattoo of $s religion.",
+		    ch, obj, NULL, TO_ROOM);
+		act_puts("You now use $p as the tattoo of your religion.",
+			 ch, obj, NULL, TO_CHAR, POS_DEAD);
+		equip_char(ch, obj, WEAR_TATTOO);
+		return;
+	}
+	if (CAN_WEAR(obj, ITEM_WEAR_CLANMARK)) {
+		if (!remove_obj(ch, WEAR_CLANMARK, fReplace))
+			return;
+		act("$n now uses $p as $s clan mark.",
+		    ch, obj, NULL, TO_ROOM);
+		act_puts("You now use $p as  your clan mark.",
+		    ch, obj, NULL, TO_CHAR, POS_DEAD);
+		equip_char(ch, obj, WEAR_CLANMARK);
+		return;
+	}
+	if (fReplace)
+		char_puts("You can't wear, wield, or hold that.\n", ch);
+}
+
+void wiznet(const char *msg, CHAR_DATA *ch, const void *arg,
+	    flag32_t flag, flag32_t flag_skip, int min_level)
+{
+	DESCRIPTOR_DATA *d;
+
+	for (d = descriptor_list; d != NULL; d = d->next) {
+		CHAR_DATA *vch = d->original ? d->original : d->character;
+
+		if (d->connected != CON_PLAYING
+		||  !vch
+		||  vch->level < LEVEL_IMMORTAL
+		||  !IS_SET(vch->pcdata->wiznet, WIZ_ON)
+		||  (flag && !IS_SET(vch->pcdata->wiznet, flag))
+		||  (flag_skip && IS_SET(vch->pcdata->wiznet, flag_skip))
+		||  vch->level < min_level
+		||  vch == ch)
+			continue;
+
+		if (IS_SET(vch->pcdata->wiznet, WIZ_PREFIX))
+			act_puts("--> ", vch, NULL, NULL, TO_CHAR | ACT_NOLF,
+				 POS_DEAD);
+		act_puts(msg, vch, arg, ch, TO_CHAR | ACT_NOUCASE, POS_DEAD);
+	}
+}
+
+ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, const char *argument)
+{
+	CHAR_DATA *victim;
+	OBJ_DATA *obj;
+
+	if (is_number(argument))
+		return get_room_index(atoi(argument));
+
+	if ((victim = get_char_world(ch, argument)) != NULL)
+		return victim->in_room;
+
+	if ((obj = get_obj_world(ch, argument)) != NULL)
+		return obj->in_room;
+
+	return NULL;
+}
+
+void reboot_mud(void)
+{
+	extern bool merc_down;
+	DESCRIPTOR_DATA *d,*d_next;
+
+	log("Rebooting SoG");
+	for (d = descriptor_list; d != NULL; d = d_next) {
+		d_next = d->next;
+		write_to_buffer(d,"SoG is going down for rebooting NOW!\n\r",0);
+		if (d->character)
+			save_char_obj(d->character, SAVE_F_REBOOT);
+		close_descriptor(d);
+	}
+
+	if (!rebooter) {
+		FILE *fp = dfopen(TMP_PATH, EQCHECK_FILE, "w");
+		if (!fp)
+			log("reboot_mud: unable to activate eqcheck");
+		else {
+			log("reboot_mud: eqcheck activated");
+			fclose(fp);
+		}
+	}
+
+	merc_down = TRUE;    
+}
+
+/* object condition aliases */
+const char *get_cond_alias(OBJ_DATA *obj)
+{
+	char *stat;
+	int istat = obj->condition;
+
+	     if	(istat >= COND_EXCELLENT)	stat = "excellent";
+	else if (istat >= COND_FINE)		stat = "fine";
+	else if (istat >= COND_GOOD)		stat = "good";
+	else if (istat >= COND_AVERAGE)		stat = "average";
+	else if (istat >= COND_POOR)		stat = "poor";
+	else					stat = "fragile";
+
+	return stat;
+}
+
+void damage_to_obj(CHAR_DATA *ch, OBJ_DATA *wield, OBJ_DATA *worn, int damage) 
+{
+
+ 	if (damage == 0) return;
+
+ 	worn->condition -= damage;
+
+	act_puts("{gThe $p inflicts damage on {r$P{g.{x",
+		 ch, wield, worn, TO_ROOM, POS_RESTING);
+
+	if (worn->condition < 1) {
+		act_puts("{gThe {r$P{g breaks into pieces.{x",
+			 ch, wield, worn, TO_ROOM, POS_RESTING);
+		extract_obj(worn, 0);
+		return;
+	}
+ 
+	if (IS_SET(wield->extra_flags, ITEM_ANTI_EVIL) 
+	&&  IS_SET(wield->extra_flags, ITEM_ANTI_NEUTRAL)
+	&&  IS_SET(worn->extra_flags, ITEM_ANTI_EVIL) 
+	&&  IS_SET(worn->extra_flags, ITEM_ANTI_NEUTRAL)) {
+		act_puts("$p doesn't want to fight against $P.",
+			 ch, wield, worn, TO_ROOM, POS_RESTING);
+		act_puts("$p removes itself from you!",
+			 ch, wield, worn, TO_CHAR, POS_RESTING);
+		act_puts("$p removes itself from $n.",
+			 ch, wield, worn, TO_ROOM, POS_RESTING);
+		unequip_char(ch, wield);
+		return;
+ 	}
+
+	if (IS_SET(wield->extra_flags, ITEM_ANTI_EVIL) 
+	&&  IS_SET(worn->extra_flags, ITEM_ANTI_EVIL)) {
+		act_puts("The $p worries for the damage to $P.",
+			 ch, wield, worn, TO_ROOM, POS_RESTING);
+		return;
+	}
+}
+
+/*----------------------------------------------------------------------------
+ * eq damage functions
+ *	- the third parameter is the location of wielded weapon
+ *	  (must be WEAR_WIELD or WEAR_SECOND_WIELD), not the
+ *	  location of damaged eq
+ */
+
+void check_eq_damage(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
+{
+	OBJ_DATA *wield, *destroy;
+	int skill, chance=0, sn, i;
+
+	if (IS_NPC(victim) || number_percent() < 94)
+		return;
+
+	if ((wield = get_eq_char(ch, loc)) == NULL)
+		return;
+ 	sn = get_weapon_sn(wield);
+ 	skill = get_skill(ch, sn);
+
+	for (i = 0; i < MAX_WEAR; i++) {
+		if ((destroy = get_eq_char(victim,i)) == NULL 
+		||  number_percent() > 95
+		||  number_percent() > 94
+		||  ch->level < (victim->level - 10) 
+		||  check_material(destroy,"platinum") 
+		||  destroy->pIndexData->limit != -1
+		||  (i == WEAR_WIELD || i== WEAR_SECOND_WIELD ||
+		     i == WEAR_TATTOO || i == WEAR_STUCK_IN ||
+		     i == WEAR_CLANMARK ))
+			continue;
+	
+		if (is_metal(wield)) {
+	 		if (number_percent() > skill)
+				continue;
+
+			chance += 20;
+			if (check_material(wield, "platinium")
+			||  check_material(wield, "titanium"))
+	 			chance += 5;
+
+			if (is_metal(destroy))
+				chance -= 20;
+			else
+				chance += 20; 
+
+			chance += ((ch->level - victim->level) / 5);
+			chance += ((wield->level - destroy->level) / 2);
+		}
+		else {
+	 		if (number_percent() < skill)
+				continue;
+
+			chance += 10;
+
+			if (is_metal(destroy))
+				chance -= 20;
+			chance += (ch->level - victim->level);
+			chance += (wield->level - destroy->level);
+		}
+
+		/* sharpness */
+		if (IS_WEAPON_STAT(wield, WEAPON_SHARP))
+			chance += 10;
+
+		if (sn == gsn_axe)
+			chance += 10;
+
+		/* spell affects */
+		if (IS_OBJ_STAT(destroy, ITEM_BLESS))
+			chance -= 10;
+		if (IS_OBJ_STAT(destroy, ITEM_MAGIC))
+			chance -= 20;
+	 
+		chance += skill - 85;
+		chance += get_curr_stat(ch, STAT_STR);
+
+		if (number_percent() < chance && chance > 50) {
+			damage_to_obj(ch, wield, destroy, chance / 5);
+			break;
+		}
+	}
+}
+
+void check_shield_damage(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
+{
+	OBJ_DATA *wield, *destroy;
+	int skill, chance=0, sn;
+
+	if (IS_NPC(victim) || number_percent() < 94)
+		return;
+
+	if ((wield = get_eq_char(ch, loc)) == NULL)
+		return;
+ 	sn = get_weapon_sn(wield);
+ 	skill = get_skill(ch, sn);
+
+	if ((destroy = get_eq_char(victim, WEAR_SHIELD)) == NULL
+	||  number_percent() > 94
+	||  ch->level < (victim->level - 10) 
+	||  check_material(destroy, "platinum") 
+	||  destroy->pIndexData->limit != -1)
+		return;
+	
+	if (is_metal(wield)) {
+		if (number_percent() > skill)
+			return;
+
+		chance += 20;
+		if (check_material(wield, "platinium")
+		||  check_material(wield, "titanium"))
+			chance += 5;
+
+		if (is_metal(destroy))
+			chance -= 20;
+		else
+			chance += 20; 
+
+		chance += ((ch->level - victim->level) / 5);
+		chance += ((wield->level - destroy->level) / 2);
+	}
+	else {
+		if (number_percent() < skill)
+			return;
+
+		chance += 10;
+		if (is_metal(destroy))
+			chance -= 20;
+
+		chance += (ch->level - victim->level);
+		chance += (wield->level - destroy->level);
+	}
+
+	/* sharpness */
+	if (IS_WEAPON_STAT(wield, WEAPON_SHARP))
+		chance += 10;
+
+	if (sn == gsn_axe)
+		chance += 10;
+
+	/* spell affects */
+	if (IS_OBJ_STAT(destroy, ITEM_BLESS))
+		chance -= 10;
+	if (IS_OBJ_STAT(destroy, ITEM_MAGIC))
+		chance -= 20;
+	 
+ 	chance += skill - 85;
+ 	chance += get_curr_stat(ch, STAT_STR);
+
+	if (number_percent() < chance && chance > 20)
+		damage_to_obj(ch, wield, destroy, chance / 4);
+}
+
+void check_weapon_damage(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
+{
+	OBJ_DATA *wield, *destroy;
+	int skill, chance=0, sn;
+
+	if (IS_NPC(victim) || number_percent() < 94)
+		return;
+
+	if ((wield = get_eq_char(ch, loc)) == NULL)
+		return;
+ 	sn = get_weapon_sn(wield);
+ 	skill = get_skill(ch, sn);
+
+	if ((destroy = get_eq_char(victim, WEAR_WIELD)) == NULL
+	||  number_percent() > 94
+	||  ch->level < (victim->level - 10) 
+	||  check_material(destroy, "platinum") 
+	||  destroy->pIndexData->limit != -1)
+		return;
+	
+	if (is_metal(wield)) {
+		if (number_percent() > skill)
+			return;
+
+		chance += 20;
+		if (check_material(wield, "platinium")
+		||  check_material(wield, "titanium"))
+			chance += 5;
+
+		if (is_metal(destroy))
+			chance -= 20;
+		else
+			chance += 20; 
+
+		chance += ((ch->level - victim->level) / 5);
+		chance += ((wield->level - destroy->level) / 2);
+	}
+	else {
+		if (number_percent() < skill)
+			return;
+
+		chance += 10;
+
+		if (is_metal(destroy))
+			chance -= 20;
+
+		chance += (ch->level - victim->level);
+		chance += (wield->level - destroy->level);
+	}
+
+	/* sharpness */
+	if (IS_WEAPON_STAT(wield,WEAPON_SHARP))
+		chance += 10;
+
+	if (sn == gsn_axe)
+		chance += 10;
+
+	/* spell affects */
+	if (IS_OBJ_STAT(destroy, ITEM_BLESS))
+		chance -= 10;
+	if (IS_OBJ_STAT(destroy, ITEM_MAGIC))
+		chance -= 20;
+	 
+	chance += skill - 85 ;
+	chance += get_curr_stat(ch, STAT_STR);
+
+	if (number_percent() < (chance / 2) && chance > 20)
+		damage_to_obj(ch, wield, destroy, chance / 4);
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.68 1999-06-22 12:37:21 fjoe Exp $
+ * $Id: skills.c,v 1.69 1999-06-24 16:33:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,10 +49,6 @@
 #include "update.h"
 
 varr skills = { sizeof(skill_t), 8 };
-
-/* command procedures needed */
-DECLARE_DO_FUN(do_help		);
-DECLARE_DO_FUN(do_say		);
 
 int	ch_skill_nok	(CHAR_DATA *ch , int sn);
 
@@ -437,7 +433,7 @@ void set_skill(CHAR_DATA *ch, int sn, int percent)
 	set_skill_raw(ch, sn, percent, TRUE);
 }
 
-DO_FUN(do_glist)
+void do_glist(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	int col = 0;

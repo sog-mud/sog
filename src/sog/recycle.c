@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.56 1999-06-24 06:36:32 fjoe Exp $
+ * $Id: recycle.c,v 1.57 1999-06-24 16:33:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,7 +47,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "merc.h"
-#include "db/db.h"
+#include "db.h"
 
 /*
  * Globals

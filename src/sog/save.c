@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.121 1999-06-17 05:46:41 fjoe Exp $
+ * $Id: save.c,v 1.122 1999-06-24 16:33:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -53,7 +53,7 @@
 
 #include "merc.h"
 #include "quest.h"
-#include "db/db.h"
+#include "db.h"
 
 /*
  * Array of containers read for proper re-nesting of objects.
@@ -264,7 +264,6 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, int flags)
 	if (IS_NPC(ch)) {
 		fprintf(fp, "Vnum %d\n", ch->pIndexData->vnum);
 	} else {
-		qtrouble_t  *qt;
 		PC_DATA *pcdata = ch->pcdata;
 		int i;
 
@@ -273,9 +272,6 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, int flags)
 
 		if (pcdata->trust)
 			fprintf(fp, "Trust %s\n", format_flags(pcdata->trust));
-
-		for (qt = pcdata->qtrouble; qt; qt = qt->next)
-			fprintf(fp, "Qtrouble %d %d\n", qt->vnum, qt->count);
 
 		if (pcdata->race != ch->race)
 			fwrite_string(fp, "OrgRace",
@@ -1219,15 +1215,6 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 		case 'Q':
 			KEY("QuestTime", ch->pcdata->questtime, fread_number(fp));
 			KEY("QuestPnts", ch->pcdata->questpoints, fread_number(fp));
-
-			if (str_cmp(word, "Qtrouble") == 0) {
-				int             vnum;
-				int             count;
-				vnum = fread_number(fp);
-				count = fread_number(fp);
-				qtrouble_set(ch, vnum, count);
-				fMatch = TRUE;
-			}
 			break;
 
 		case 'R':

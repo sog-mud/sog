@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db.h,v 1.45 1999-06-10 23:39:53 fjoe Exp $
+ * $Id: db.h,v 1.46 1999-06-24 16:33:09 fjoe Exp $
  */
 
 #ifndef _DB_H_
@@ -198,6 +198,10 @@ extern int		top_reset;
 extern int		top_room;
 extern int		top_shop;
 extern int		social_count;
+extern int		str_count;
+extern int		str_real_count;
+extern int		top_player;
+extern int		rebooter;
 extern AREA_DATA *	area_first;
 extern AREA_DATA *	area_last;
 extern AREA_DATA *	area_current;

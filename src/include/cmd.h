@@ -23,11 +23,37 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.h,v 1.3 1999-06-10 14:33:33 fjoe Exp $
+ * $Id: cmd.h,v 1.4 1999-06-24 16:33:09 fjoe Exp $
  */
 
 #ifndef _CMD_H_
 #define _CMD_H_
+
+/*
+ * Command logging types.
+ */
+#define LOG_NORMAL	0
+#define LOG_ALWAYS	1
+#define LOG_NEVER	2
+
+/*
+ * cmd flags
+ */
+#define	CMD_KEEP_HIDE	(A)
+#define CMD_NOORDER	(B)
+#define CMD_CHARMED_OK	(C)
+#define CMD_HIDDEN	(D)
+#define CMD_DISABLED	(E)
+#define CMD_FROZEN_OK	(F)
+
+/*
+ * cmd classes
+ */
+enum {
+	CMD_ORDINARY,
+	CMD_CORE,
+	CMD_OLC
+};
 
 /*
  * Structure for a command in the command lookup table.
@@ -40,9 +66,14 @@ struct cmd_t
 	int		level;
 	int		log;
 	int		cmd_flags;
+	int		cmd_class;
 };
 
 cmd_t *	cmd_lookup(const char *name);
+
+void dofun(const char *name, CHAR_DATA *ch, const char *fmt, ...);
+
+extern varr commands;
 
 #endif
 

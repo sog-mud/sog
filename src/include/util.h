@@ -23,13 +23,11 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: util.h,v 1.16 1999-02-23 22:26:11 fjoe Exp $
+ * $Id: util.h,v 1.17 1999-06-24 16:33:10 fjoe Exp $
  */
 
 #ifndef _UTIL_H_
 #define _UTIL_H_
-
-void	doprintf(DO_FUN*, CHAR_DATA*, const char *fmt, ...);
 
 FILE *	dfopen	(const char *dir, const char *file, const char *mode);
 int	dunlink	(const char *dir, const char *file);

@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.22 1999-06-17 05:46:40 fjoe Exp $
+ * $Id: hunt.c,v 1.23 1999-06-24 16:33:15 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -12,11 +12,6 @@
 #include <string.h>
 #include "merc.h"
 #include "fight.h"
-
-DECLARE_DO_FUN(do_cast		);
-DECLARE_DO_FUN(do_enter		);
-DECLARE_DO_FUN(do_say		);
-DECLARE_DO_FUN(do_open		);
 
 /***************************************************************************
  *  Original idea from SillyMUD v1.1b (C)1993.                             *
@@ -582,7 +577,7 @@ void hunt_victim(CHAR_DATA *ch)
 	if(!found || !can_see(ch, ch->hunting)) {
 		if (get_char_area(ch, ch->hunting->name) != NULL) {
 	    		log("mob portal");
-	    		doprintf(do_cast, ch, "portal %s", ch->hunting->name);
+	    		dofun("cast", ch, "portal %s", ch->hunting->name);
 	    		log("do_enter1");
 	    		do_enter(ch, "portal");
 			hunt_victim_attack(ch);
@@ -603,7 +598,7 @@ void hunt_victim(CHAR_DATA *ch)
 		if (get_char_area(ch, ch->hunting->name) != NULL  
 		&&  ch->level > 35) {
 			log("mob portal");
-			doprintf(do_cast, ch, "portal %s", ch->hunting->name);
+			dofun("cast", ch, "portal %s", ch->hunting->name);
 			log("do_enter2");
 			do_enter(ch, "portal");
 			hunt_victim_attack(ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.75 1999-06-24 08:05:01 fjoe Exp $
+ * $Id: tables.c,v 1.76 1999-06-24 16:33:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -44,7 +44,7 @@
 #include <stdio.h>
 #include <time.h>
 #include "merc.h"
-#include "db/lang.h"
+#include "lang.h"
 #include "comm/ban.h"
 
 /*

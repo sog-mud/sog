@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.141 1999-06-17 19:28:05 fjoe Exp $
+ * $Id: update.c,v 1.142 1999-06-24 16:33:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -51,15 +51,6 @@
 #include "fight.h"
 #include "chquest.h"
 #include "auction.h"
-
-/* command procedures needed */
-DECLARE_DO_FUN(do_human		);
-DECLARE_DO_FUN(do_murder	);
-DECLARE_DO_FUN(do_rescue	);
-DECLARE_DO_FUN(do_stand		);
-DECLARE_DO_FUN(do_track		);
-DECLARE_DO_FUN(do_yell		);
-DECLARE_DO_FUN(do_asave		);
 
 void	back_home		(CHAR_DATA *ch);
 void	hatchout_dragon		(CHAR_DATA *ch, AFFECT_DATA *paf);
@@ -499,7 +490,8 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 			    ch, NULL, NULL, TO_ROOM);
 			if (ch->in_room && ch->in_room->people
 			&&  ch->fighting == NULL) {
-				if (!IS_AWAKE(ch)) do_stand(ch, str_empty);
+				if (!IS_AWAKE(ch))
+					dofun("stand", ch, str_empty);
 			        for (vch = ch->in_room->people;
 			       	     vch != NULL && ch->fighting == NULL;
 				     vch = vch_next) {
@@ -510,9 +502,9 @@ void gain_condition(CHAR_DATA *ch, int iCond, int value)
 
 			        	if (ch != vch && can_see(ch, vch)
 					&&  !is_safe_nomessage(ch, vch)) {
-						do_yell(ch,
-						        "BLOOD! I NEED BLOOD!");
-						do_murder(ch, vch->name);
+						dofun("yell", ch,
+						      "BLOOD! I NEED BLOOD!");
+						dofun("murder", ch, vch->name);
 						fdone = 1;
 					}
 			         }
@@ -1057,7 +1049,7 @@ void char_update(void)
 		if (is_affected(ch, gsn_vampire)
 		&&  (weather_info.sunlight == SUN_LIGHT ||
 		     weather_info.sunlight == SUN_RISE))
-			do_human(ch, str_empty);
+			dofun("human", ch, str_empty);
 
 		if (!IS_NPC(ch) && is_affected(ch, gsn_thumbling)) {
 			if (dice(5, 6) > get_curr_stat(ch, STAT_DEX)) {
@@ -1716,7 +1708,7 @@ void aggr_update(void)
 				if (wch != vch && can_see(wch,vch)
 				&&  !is_safe_nomessage(wch,vch)) {
 					act_puts("{RMORE BLOOD! MORE BLOOD! MORE BLOOD!!!{x", wch,NULL,NULL,TO_CHAR,POS_RESTING);
-					do_murder(wch, vch->name);
+					dofun("murder", wch, vch->name);
 					if (IS_EXTRACTED(wch))
 						continue;
 				}
@@ -1842,7 +1834,7 @@ void update_handler(void)
 		area_update();
 		room_update();
 		chquest_update();
-		do_asave(NULL, "rules");
+		dofun("asave", NULL, "rules");
 	}
 
 	if (--pulse_music <= 0) {
@@ -2041,7 +2033,7 @@ void track_update(void)
 
 		if (ch->last_fought != NULL
 		&&  ch->in_room != ch->last_fought->in_room) {
-			do_track(ch, ch->last_fought->name);
+			dofun("track", ch, ch->last_fought->name);
 			continue;
 		}
 
@@ -2153,5 +2145,30 @@ void hatchout_dragon(CHAR_DATA *coc, AFFECT_DATA *paf)
 	drag->master = drag->leader = ch;
 	char_to_room(drag, coc->in_room);
 	extract_char(coc, 0);
+}
+
+void quest_update(void)
+{
+	CHAR_DATA *ch, *ch_next;
+
+	for (ch = char_list; ch && !IS_NPC(ch); ch = ch_next) {
+		ch_next = ch->next;
+
+		if (ch->pcdata->questtime < 0) {
+			if (++ch->pcdata->questtime == 0) {
+				char_puts("{*You may now quest again.\n", ch);
+				return;
+			}
+		} else if (IS_ON_QUEST(ch)) {
+			if (--ch->pcdata->questtime == 0) {
+				char_puts("You have run out of time for your quest!\n", ch);
+				quest_cancel(ch);
+				ch->pcdata->questtime = -number_range(5, 10);
+			} else if (ch->pcdata->questtime < 6) {
+				char_puts("Better hurry, you're almost out of time for your quest!\n", ch);
+				return;
+			}
+		}
+	}
 }
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: str.c,v 1.13 1999-06-10 11:47:32 fjoe Exp $
+ * $Id: str.c,v 1.14 1999-06-24 16:33:18 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -35,7 +35,7 @@
 #include "typedef.h"
 #include "const.h"
 #include "str.h"
-#include "db/memalloc.h"
+#include "memalloc.h"
 
 #if defined (WIN32)
 #	define vsnprintf	_vsnprintf

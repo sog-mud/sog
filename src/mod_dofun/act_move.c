@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.184 1999-06-22 12:37:15 fjoe Exp $
+ * $Id: act_move.c,v 1.185 1999-06-24 16:33:03 fjoe Exp $
  */
 
 /***************************************************************************
@@ -50,460 +50,15 @@
 #include "obj_prog.h"
 #include "fight.h"
 
-const char *dir_name[] =
-{
-	"north", "east", "south", "west", "up", "down"
-};
-
-const char *from_dir_name[] =
-{
-	"the north", "the east", "the south", "the west", "the up", "the down"
-};
-
-const int rev_dir[] =
-{
-	2, 3, 0, 1, 5, 4
-};
-
-const int movement_loss[SECT_MAX] =
-{
-	1, 2, 2, 3, 4, 6, 4, 1, 6, 10, 6
-};
-
 DECLARE_DO_FUN(do_look		);
 DECLARE_DO_FUN(do_yell		);
 
 /*
  * Local functions.
  */
-int	find_door	(CHAR_DATA *ch, char *arg);
-int 	find_exit	(CHAR_DATA *ch, char *arg);
-bool	has_key		(CHAR_DATA *ch, int key);
-bool 	move_char_org	(CHAR_DATA *ch, int door, bool follow, bool is_charge);
-int	mount_success	(CHAR_DATA *ch, CHAR_DATA *mount, int canattack);
-
-void move_char(CHAR_DATA *ch, int door, bool follow)
-{
-	move_char_org(ch, door, follow, FALSE);
-}
-
-bool move_char_org(CHAR_DATA *ch, int door, bool follow, bool is_charge)
-{
-	CHAR_DATA *fch;
-	CHAR_DATA *fch_next;
-	CHAR_DATA *mount;
-	ROOM_INDEX_DATA *in_room;
-	ROOM_INDEX_DATA *to_room;
-	EXIT_DATA *pexit;
-	bool room_has_pc;
-	OBJ_DATA *obj;
-	OBJ_DATA *obj_next;
-	int act_flags;
-
-	if (RIDDEN(ch) && !IS_NPC(ch->mount)) 
-		return move_char_org(ch->mount,door,follow,is_charge);
-
-	if (IS_AFFECTED(ch, AFF_DETECT_WEB) 
-	|| (MOUNTED(ch) && IS_AFFECTED(ch->mount, AFF_DETECT_WEB))) {
-		WAIT_STATE(ch, PULSE_VIOLENCE);
-		if (number_percent() < str_app[IS_NPC(ch) ?
-			20 : get_curr_stat(ch,STAT_STR)].tohit * 5) {
-		 	affect_strip(ch, gsn_web);
-		 	REMOVE_BIT(ch->affected_by, AFF_DETECT_WEB);
-		 	act_puts("When you attempt to leave the room, you "
-				 "break the webs holding you tight.",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		 	act_puts("$n struggles against the webs which hold $m "
-				 "in place, and break it.",
-				 ch, NULL, NULL, TO_ROOM, POS_RESTING);
-		}
-		else {
-			act_puts("You attempt to leave the room, but the webs "
-				 "hold you tight.",
-				 ch, NULL, NULL, TO_ROOM, POS_DEAD);
-			act("$n struggles vainly against the webs which "
-			    "hold $m in place.",
-			    ch, NULL, NULL, TO_ROOM);
-			return FALSE; 
-		}
-	}
-
-	for (fch = ch->in_room->people; fch; fch = fch->next_in_room) {
-		if (fch->target == ch
-		&&  IS_NPC(fch)
-		&&  fch->pIndexData->vnum == MOB_VNUM_SHADOW) {
-			char_puts("You attempt to leave your shadow alone,"
-				" but fail.\n", ch);
-			return FALSE;
-		}
-	}
-
-	if (door < 0 || door >= MAX_DIR) {
-		bug("move_char_org: bad door %d.", door);
-		return FALSE;
-	}
-
-	if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE)
-	&&  !IS_AFFECTED(ch, AFF_SNEAK)) {
-		REMOVE_BIT(ch->affected_by, AFF_HIDE | AFF_FADE);
-		act_puts("You step out of shadows.",
-			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		act_puts("$n steps out of shadows.",
-			 ch, NULL, NULL, TO_ROOM, POS_RESTING);
-	}
-
-	if (IS_AFFECTED(ch, AFF_CAMOUFLAGE))  {
-		int chance;
-
-		if ((chance = get_skill(ch, gsn_camouflage_move)) == 0) {
-			REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
-			act_puts("You step out from your cover.",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			act("$n steps out from $m's cover.",
-			    ch, NULL, NULL, TO_ROOM);
-		}	    
-		else if (number_percent() < chance)
-			check_improve(ch, gsn_camouflage_move, TRUE, 5);
-		else {
-			REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
-			act_puts("You step out from your cover.",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			act("$n steps out from $m's cover.",
-			    ch, NULL, NULL, TO_ROOM);
-			check_improve(ch, gsn_camouflage_move, FALSE, 5);
-		}	    
-	}
-	if (IS_AFFECTED(ch, AFF_BLEND)) {
-		REMOVE_BIT(ch->affected_by, AFF_BLEND);
-		affect_bit_strip(ch, TO_AFFECTS, AFF_BLEND);
-		act_puts("You step out from your cover.",
-			ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		act("$n steps out from $m's cover.",
-			ch, NULL, NULL, TO_ROOM);
-	}
-
-	/*
-	 * Exit trigger, if activated, bail out. Only PCs are triggered.
-	 */
-	if (!IS_NPC(ch) && mp_exit_trigger(ch, door))
-		return FALSE;
-
-	in_room = ch->in_room;
-	if ((pexit = in_room->exit[door]) == NULL
-	||  (to_room = pexit->to_room.r) == NULL 
-	||  !can_see_room(ch, pexit->to_room.r)) {
-		char_puts("Alas, you cannot go that way.\n", ch);
-		return FALSE;
-	}
-
-	if (IS_ROOM_AFFECTED(in_room, RAFF_RANDOMIZER) && !is_charge) {
-		int d0;
-		while (1) {
-			d0 = number_range(0, MAX_DIR-1);
-			if ((pexit = in_room->exit[d0]) == NULL
-			||  (to_room = pexit->to_room.r) == NULL 
-			||  !can_see_room(ch, pexit->to_room.r))
-				continue;	  
-			door = d0;
-			break;
-		}
-	}
-
-	if (IS_SET(pexit->exit_info, EX_CLOSED) 
-	&&  (!IS_AFFECTED(ch, AFF_PASS_DOOR) ||
-	     IS_SET(pexit->exit_info, EX_NOPASS))
-	&&  !IS_TRUSTED(ch, ANGEL)) {
-		if (IS_AFFECTED(ch, AFF_PASS_DOOR)
-		&&  IS_SET(pexit->exit_info, EX_NOPASS)) {
-  			act_puts("You failed to pass through the $d.",
-				 ch, NULL, pexit->keyword, TO_CHAR, POS_DEAD);
-			act("$n tries to pass through the $d, but $e fails.",
-			    ch, NULL, pexit->keyword, TO_ROOM);
-		}
-		else {
-			act_puts("The $d is closed.",
-				 ch, NULL, pexit->keyword, TO_CHAR, POS_DEAD);
-		}
-		return FALSE;
-	}
-
-	if (IS_AFFECTED(ch, AFF_CHARM)
-	&&  ch->master != NULL
-	&&  in_room == ch->master->in_room) {
-		char_puts("What? And leave your beloved master?\n", ch);
-		return FALSE;
-	}
-
-/*    if (!is_room_owner(ch,to_room) && room_is_private(to_room))	*/
-	if (room_is_private(to_room)) {
-		char_puts("That room is private right now.\n", ch);
-		return FALSE;
-	}
-
-	if (MOUNTED(ch)) {
-		if (MOUNTED(ch)->position < POS_FIGHTING) {
-			char_puts("Your mount must be standing.\n", ch);
-			return FALSE; 
-		}
-		if (!mount_success(ch, MOUNTED(ch), FALSE)) {
-			char_puts("Your mount subbornly refuses to go that way.\n", ch);
-			return FALSE;
-		}
-	}
-
-	if (!IS_NPC(ch)) {
-		int move;
-
-		if (!IS_IMMORTAL(ch)) {
-			if (IS_SET(to_room->room_flags, ROOM_GUILD)
-			&&  !guild_ok(ch, to_room)) {
-				char_puts("You aren't allowed there.\n", ch);
-				return FALSE;
-			}
-
-			if (IS_PUMPED(ch)
-			&&  IS_SET(to_room->room_flags, ROOM_PEACE | ROOM_GUILD)
-			&&  !IS_SET(in_room->room_flags,
-				    ROOM_PEACE | ROOM_GUILD)) {
-				act_puts("You feel too bloody to go in there now.",
-					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-				return FALSE;
-			}
-		}
-
-		if (in_room->sector_type == SECT_AIR
-		||  to_room->sector_type == SECT_AIR) {
-			if (MOUNTED(ch)) {
-		        	if(!IS_AFFECTED(MOUNTED(ch), AFF_FLYING)) {
-		        		char_puts("You mount can't fly.\n", ch);
-						   return FALSE;
-				}
-			} 
-			else if (!IS_AFFECTED(ch, AFF_FLYING)
-			&& !IS_IMMORTAL(ch)) {
-				act_puts("You can't fly.",
-					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-				return FALSE;
-			} 
-		}
-
-		if ((in_room->sector_type == SECT_WATER_NOSWIM ||
-		     to_room->sector_type == SECT_WATER_NOSWIM)
-		&&  (MOUNTED(ch) && !IS_AFFECTED(MOUNTED(ch),AFF_FLYING))) {
-			act_puts("You can't take your mount there.\n",
-				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-			return FALSE;
-		}  
-
-		if ((in_room->sector_type == SECT_WATER_NOSWIM ||
-		     to_room->sector_type == SECT_WATER_NOSWIM)
-		&&  (!MOUNTED(ch) && !IS_AFFECTED(ch, AFF_FLYING))) {
-			OBJ_DATA *obj;
-			bool found;
-
-		    /*
-		     * Look for a boat.
-		     */
-		    found = FALSE;
-
-		    if (IS_IMMORTAL(ch))
-			found = TRUE;
-
-		    for (obj = ch->carrying; obj != NULL; obj = obj->next_content)
-		    {
-			if (obj->pIndexData->item_type == ITEM_BOAT)
-			{
-			    found = TRUE;
-			    break;
-			}
-		    }
-		    if (!found)
-		    {
-			char_puts("You need a boat to go there.\n", ch);
-			return FALSE;
-		    }
-		}
-
-		move = (movement_loss[UMIN(SECT_MAX-1, in_room->sector_type)]
-		     + movement_loss[UMIN(SECT_MAX-1, to_room->sector_type)])/2;
-
-		if (is_affected(ch, gsn_thumbling))
-			move *= 2;
-		else {
-			if (IS_AFFECTED(ch,AFF_FLYING)
-			|| IS_AFFECTED(ch,AFF_HASTE))
-				move /= 2;
-
-			if (IS_AFFECTED(ch,AFF_SLOW))
-				move *= 2;
-		}
-
-		if (!MOUNTED(ch)) {
-			if (ch->move < move) {
-				act_puts("You are too exhausted.",
-					 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-				return FALSE;
-			}
-
-			ch->move -= move;
-
-			if (ch->in_room->sector_type == SECT_DESERT
-			||  IS_WATER(ch->in_room))
-				WAIT_STATE(ch, 2);
-			else
-				WAIT_STATE(ch, 1);
-		}
-	}
-
-	if (!IS_AFFECTED(ch, AFF_SNEAK)
-	&&  !IS_AFFECTED(ch, AFF_CAMOUFLAGE)
-	&&  ch->invis_level < LEVEL_HERO) 
-		act_flags = TO_ROOM;
-	else
-		act_flags = TO_ROOM | ACT_NOMORTAL;
-
-	if (!IS_NPC(ch)
-	&&  ch->in_room->sector_type != SECT_INSIDE
-	&&  ch->in_room->sector_type != SECT_CITY
-	&&  number_percent() < get_skill(ch, gsn_quiet_movement) 
-	&&  !is_charge) {
-		act(MOUNTED(ch) ? "$n leaves, riding on $N." : "$n leaves.",
-		    ch, NULL, MOUNTED(ch), act_flags);
-		check_improve(ch,gsn_quiet_movement,TRUE,1);
-	}
-	else if (is_charge) {
-		act("$n spurs $s $N, leaving $t.",
-		    ch, dir_name[door], ch->mount,  TO_ROOM);
-	}
-	else {
-		act(MOUNTED(ch) ? "$n leaves $t, riding on $N." :
-				  "$n leaves $t.",
-		    ch, dir_name[door], MOUNTED(ch), act_flags);
-	}
-
-	if (IS_AFFECTED(ch, AFF_CAMOUFLAGE)
-	&&  to_room->sector_type != SECT_FOREST
-	&&  to_room->sector_type != SECT_MOUNTAIN
-	&&  to_room->sector_type != SECT_HILLS) {
-		REMOVE_BIT(ch->affected_by, AFF_CAMOUFLAGE);
-		act_puts("You step out from your cover.",
-			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
-		act("$n steps out from $m's cover.",
-		    ch, NULL, NULL, TO_ROOM);
-	}
-
-	/* room record for tracking */
-	if (!IS_NPC(ch))
-		room_record(ch->name, in_room, door);
-
-	/*
-	 * now, after all the checks are done we should
-	 * - take the char from the room
-	 * - print the message to chars in to_room about ch arrival
-	 * - put the char to to_room
-	 * - CHECK THAT CHAR IS NOT DEAD after char_to_room
-	 * - move all the followers and pull all the triggers
-	 */
-	mount = MOUNTED(ch);
-	char_from_room(ch);
-
-	if (!IS_AFFECTED(ch, AFF_SNEAK) && ch->invis_level < LEVEL_HERO) 
-		act_flags = TO_ALL;
-	else
-		act_flags = TO_ALL | ACT_NOMORTAL;
-
-	if (!is_charge) 
-		act(mount ? "$i has arrived, riding $N." : "$i has arrived.",
-	    	    to_room->people, ch, mount, act_flags);
-
-	char_to_room(ch, to_room);
-
-	if (mount) {
-		char_from_room(mount);
-		char_to_room(mount, to_room);
-  		ch->riding = TRUE;
-  		mount->riding = TRUE;
-	}
-
-	if (!IS_EXTRACTED(ch))
-		do_look(ch, "auto");
-
-	if (in_room == to_room) /* no circular follows */
-		return TRUE;
-
-	/*
-	 * move all the followers
-	 */
-	for (fch = in_room->people; fch; fch = fch_next) {
-		fch_next = fch->next_in_room;
-
-		if (fch->master != ch || fch->position != POS_STANDING
-		||  !can_see_room(fch, to_room))
-			continue;
-
-		if (IS_SET(to_room->room_flags, ROOM_LAW)
-		&&  IS_NPC(fch)
-		&&  IS_SET(fch->pIndexData->act, ACT_AGGRESSIVE)) {
-			act_puts("You can't bring $N into the city.",
-				 ch, NULL, fch, TO_CHAR, POS_DEAD);
-			act("You aren't allowed in the city.",
-			    fch, NULL, NULL, TO_CHAR);
-			continue;
-		}
-
-		act_puts("You follow $N.", fch, NULL, ch, TO_CHAR, POS_DEAD);
-		move_char(fch, door, TRUE);
-	}
-
-	if (IS_EXTRACTED(ch))
-		return TRUE;
-
-	room_has_pc = FALSE;
-	for (fch = to_room->people; fch != NULL; fch = fch_next) {
-		fch_next = fch->next_in_room;
-		if (!IS_NPC(fch)) {
-			room_has_pc = TRUE;
-			break;
-		}
-	}
-
-	if (!room_has_pc)
-		return TRUE;
-
-	/*
-	 * pull GREET and ENTRY triggers
-	 *
-	 * if someone is following the char, these triggers get activated
-	 * for the followers before the char, but it's safer this way...
-	 */
-	for (fch = to_room->people; fch; fch = fch_next) {
-		fch_next = fch->next_in_room;
-
-		/* greet progs for items carried by people in room */
-		for (obj = fch->carrying; obj; obj = obj_next) {
-			obj_next = obj->next_content;
-			oprog_call(OPROG_GREET, obj, ch, NULL);
-		}
-	}
-
-	for (obj = ch->in_room->contents; obj != NULL; obj = obj_next) {
-		obj_next = obj->next_content;
-		oprog_call(OPROG_GREET, obj, ch, NULL);
-	}
-
-	if (!IS_NPC(ch))
-    		mp_greet_trigger(ch);
-
-	for (obj = ch->carrying; obj; obj = obj_next) {
-		obj_next = obj->next_content;
-		oprog_call(OPROG_ENTRY, obj, NULL, NULL);
-	}
-
-	if (IS_NPC(ch) && HAS_TRIGGER(ch, TRIG_ENTRY))
-		mp_percent_trigger(ch, NULL, NULL, NULL, TRIG_ENTRY);
-
-	return TRUE;
-}
+static int 	find_exit	(CHAR_DATA *ch, char *arg);
+static bool	has_key		(CHAR_DATA *ch, int key);
+static bool	has_key_ground	(CHAR_DATA *ch, int key);
 
 void do_north(CHAR_DATA *ch, const char *argument)
 {
@@ -533,62 +88,6 @@ void do_up(CHAR_DATA *ch, const char *argument)
 void do_down(CHAR_DATA *ch, const char *argument)
 {
 	move_char(ch, DIR_DOWN, FALSE);
-}
-
-int find_exit(CHAR_DATA *ch, char *arg)
-{
-	int door;
-
-	     if (!str_cmp(arg, "n") || !str_cmp(arg, "north")) door = 0;
-	else if (!str_cmp(arg, "e") || !str_cmp(arg, "east" )) door = 1;
-	else if (!str_cmp(arg, "s") || !str_cmp(arg, "south")) door = 2;
-	else if (!str_cmp(arg, "w") || !str_cmp(arg, "west" )) door = 3;
-	else if (!str_cmp(arg, "u") || !str_cmp(arg, "up"   )) door = 4;
-	else if (!str_cmp(arg, "d") || !str_cmp(arg, "down" )) door = 5;
-	else {
-		act_puts("I see no exit $T here.",
-			 ch, NULL, arg, TO_CHAR, POS_DEAD);
-		return -1;
-	}
-
-	return door;
-}
-
-int find_door(CHAR_DATA *ch, char *arg)
-{
-	EXIT_DATA *pexit;
-	int door;
-
-	     if (!str_cmp(arg, "n") || !str_cmp(arg, "north")) door = 0;
-	else if (!str_cmp(arg, "e") || !str_cmp(arg, "east" )) door = 1;
-	else if (!str_cmp(arg, "s") || !str_cmp(arg, "south")) door = 2;
-	else if (!str_cmp(arg, "w") || !str_cmp(arg, "west" )) door = 3;
-	else if (!str_cmp(arg, "u") || !str_cmp(arg, "up"   )) door = 4;
-	else if (!str_cmp(arg, "d") || !str_cmp(arg, "down" )) door = 5;
-	else {
-		for (door = 0; door <= 5; door++) {
-		    if ((pexit = ch->in_room->exit[door]) != NULL
-		    &&   IS_SET(pexit->exit_info, EX_ISDOOR)
-		    &&   pexit->keyword != NULL
-		    &&   is_name(arg, pexit->keyword))
-			return door;
-		}
-		act_puts("I see no $T here.", ch, NULL, arg, TO_CHAR, POS_DEAD);
-		return -1;
-	}
-
-	if ((pexit = ch->in_room->exit[door]) == NULL) {
-		act_puts("I see no door $T here.",
-			 ch, NULL, arg, TO_CHAR, POS_DEAD);
-		return -1;
-	}
-
-	if (!IS_SET(pexit->exit_info, EX_ISDOOR)) {
-		char_puts("You can't do that.\n", ch);
-		return -1;
-	}
-
-	return door;
 }
 
 void do_open(CHAR_DATA *ch, const char *argument)
@@ -759,33 +258,6 @@ void do_close(CHAR_DATA *ch, const char *argument)
 		}
 		return;
 	}
-}
-
-/* 
- * Added can_see check. Kio.
- */
-bool has_key(CHAR_DATA *ch, int key)
-{
-	OBJ_DATA *obj;
-
-	for (obj = ch->carrying; obj; obj = obj->next_content)
-		if (obj->pIndexData->vnum == key
-		&&  can_see_obj(ch, obj))
-		    return TRUE;
-
-	return FALSE;
-}
-
-bool has_key_ground(CHAR_DATA *ch, int key)
-{
-	OBJ_DATA *obj;
-
-	for (obj = ch->in_room->contents; obj; obj = obj->next_content)
-		if (obj->pIndexData->vnum == key
-		&&  can_see_obj(ch, obj))
-		    return TRUE;
-
-	return FALSE;
 }
 
 void do_lock(CHAR_DATA *ch, const char *argument)
@@ -2016,7 +1488,7 @@ void do_track(CHAR_DATA *ch, const char *argument)
 			if ((pexit = ch->in_room->exit[d]) != NULL
 			&&  IS_SET(pexit->exit_info, EX_ISDOOR)
 			&&  pexit->keyword != NULL)
-				doprintf(do_open, ch, "%s", door[d]);
+				doprintf("open", ch, "%s", door[d]);
 			move_char(ch, rh->went, FALSE);
 			return;
 		}
@@ -2156,7 +1628,6 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 			 ch, NULL, victim, TO_CHAR, POS_DEAD);
 		return;
 	}
-
 
 	WAIT_STATE(ch, SKILL(gsn_vampiric_bite)->beats);
 
@@ -2465,8 +1936,7 @@ void do_kidnap(CHAR_DATA* ch, const char *argument)
 		check_improve(ch, sn, TRUE, 1);
 		yell(victim, ch, "Help! $I just kidnapped me!");
 		multi_hit(victim, ch, TYPE_UNDEFINED);
-	} else
-	{
+	} else {
 		act("You grab $N, but $E escaped.", 
 			ch, NULL, victim, TO_CHAR);
 		act("$n grabs you, but you manage to break free.",
@@ -2975,73 +2445,6 @@ void do_layhands(CHAR_DATA *ch, const char *argument)
 	check_improve(ch, sn, TRUE, 1);
 }
 
-int mount_success(CHAR_DATA *ch, CHAR_DATA *mount, int canattack)
-{
-	int	percent;
-	int	success;
-	int	chance;
-
-	if ((chance = get_skill(ch, gsn_riding)) == 0)
-		return FALSE;
-
-	percent = number_percent() + (ch->level < mount->level ? 
-		  (mount->level - ch->level) * 3 : 
-		  (mount->level - ch->level) * 2);
-
-	if (!ch->fighting)
-		percent -= 25;
-
-	if (!IS_NPC(ch) && IS_DRUNK(ch)) {
-		percent += chance / 2;
-		char_puts("Due to your being under the influence, riding seems "
-			  "a bit harder...\n", ch);
-	}
-
-	success = percent - chance;
-
-	if (success <= 0) { /* Success */
-		check_improve(ch, gsn_riding, TRUE, 1);
-		return TRUE;
-	}
-
-	check_improve(ch, gsn_riding, FALSE, 1);
-	if (success >= 10 && MOUNTED(ch) == mount) {
-		act_puts("You lose control and fall off of $N.",
-			 ch, NULL, mount, TO_CHAR, POS_DEAD);
-		act("$n loses control and falls off of $N.",
-		    ch, NULL, mount, TO_NOTVICT);
-		act_puts("$n loses control and falls off of you.",
-			 ch, NULL, mount, TO_VICT, POS_SLEEPING);
-
-		ch->riding = FALSE;
-		mount->riding = FALSE;
-		if (ch->position > POS_STUNNED) 
-			ch->position=POS_SITTING;
-	
-		ch->hit -= 5;
-		update_pos(ch);
-	}
-	if (success >= 40 && canattack) {
-		act_puts("$N doesn't like the way you've been treating $M.",
-			 ch, NULL, mount, TO_CHAR, POS_DEAD);
-		act("$N doesn't like the way $n has been treating $M.",
-		    ch, NULL, mount, TO_NOTVICT);
-		act_puts("You don't like the way $n has been treating you.",
-			 ch, NULL, mount, TO_VICT, POS_SLEEPING);
-
-		act_puts("$N snarls and attacks you!",
-			 mount, NULL, ch, TO_VICT, POS_DEAD);
-		act("$N snarls and attacks $n!",
-		    mount, NULL, ch, TO_NOTVICT);
-		act_puts("You snarl and attack $n!",
-			 mount, NULL, ch, TO_CHAR, POS_SLEEPING);
-
-		damage(mount, ch, number_range(1, mount->level),
-			gsn_kick, DAM_BASH, DAMF_SHOW);
-	}
-	return FALSE;
-}
-
 /*
  * It is not finished yet to implement all.
  */
@@ -3332,7 +2735,7 @@ static OBJ_DATA *find_arrow(CHAR_DATA *ch)
 	return NULL;
 }
 
-DO_FUN(do_charge) 
+void do_charge(CHAR_DATA *ch, const char *argument) 
 {
  	CHAR_DATA* victim;
 	OBJ_DATA* wield;
@@ -3436,7 +2839,7 @@ DO_FUN(do_charge)
 	yell(victim, ch, "Help! $I is attacking me!");
 }
 
-DO_FUN(do_shoot)
+void do_shoot(CHAR_DATA *ch, const char *argument)
 {
 	CHAR_DATA *victim;
 	OBJ_DATA *wield;
@@ -3549,44 +2952,6 @@ DO_FUN(do_shoot)
 	check_improve(ch, gsn_bow, TRUE, 1);
 	yell(victim, ch, "Help! $I is trying to shoot me!");
 }
-
-char *find_way(CHAR_DATA *ch,ROOM_INDEX_DATA *rstart, ROOM_INDEX_DATA *rend) 
-{
-	int direction;
-	static char buf[1024];
-	EXIT_DATA *pExit;
-	char buf2[2];
-
-	snprintf(buf, sizeof(buf), "Bul: ");
-	while (1) {
-		if ((rend == rstart))
-			return buf;
-
-		if ((direction = find_path(rstart->vnum, rend->vnum,
-					   ch, -40000, 0)) == -1) {
-			strnzcat(buf, sizeof(buf), " BUGGY");
-			return buf;
-		}
-
-		if (direction < 0 || direction > 5) {
-			strnzcat(buf, sizeof(buf), " VERY BUGGY");
-			return buf;
-		}
-
-		buf2[0] = dir_name[direction][0];
-		buf2[1] = '\0';
-		strnzcat(buf, sizeof(buf), buf2);
-
-		/* find target room */
-		pExit = rstart->exit[ direction ];
-		if (!pExit)  {
-			strnzcat(buf, sizeof(buf), " VERY VERY BUGGY");
-			return buf;
-		}
-		else
-			rstart = pExit->to_room.r;
-	}
-}	
 
 void do_human(CHAR_DATA *ch, const char *argument)
 {
@@ -4081,5 +3446,51 @@ void do_forest(CHAR_DATA* ch, const char* argument)
 	}
 
 	affect_to_char(ch, &af);
+}
+
+/*
+ * static functions
+ */
+static int find_exit(CHAR_DATA *ch, char *arg)
+{
+	int door;
+
+	     if (!str_cmp(arg, "n") || !str_cmp(arg, "north")) door = 0;
+	else if (!str_cmp(arg, "e") || !str_cmp(arg, "east" )) door = 1;
+	else if (!str_cmp(arg, "s") || !str_cmp(arg, "south")) door = 2;
+	else if (!str_cmp(arg, "w") || !str_cmp(arg, "west" )) door = 3;
+	else if (!str_cmp(arg, "u") || !str_cmp(arg, "up"   )) door = 4;
+	else if (!str_cmp(arg, "d") || !str_cmp(arg, "down" )) door = 5;
+	else {
+		act_puts("I see no exit $T here.",
+			 ch, NULL, arg, TO_CHAR, POS_DEAD);
+		return -1;
+	}
+
+	return door;
+}
+
+static bool has_key(CHAR_DATA *ch, int key)
+{
+	OBJ_DATA *obj;
+
+	for (obj = ch->carrying; obj; obj = obj->next_content)
+		if (obj->pIndexData->vnum == key
+		&&  can_see_obj(ch, obj))
+		    return TRUE;
+
+	return FALSE;
+}
+
+static bool has_key_ground(CHAR_DATA *ch, int key)
+{
+	OBJ_DATA *obj;
+
+	for (obj = ch->in_room->contents; obj; obj = obj->next_content)
+		if (obj->pIndexData->vnum == key
+		&&  can_see_obj(ch, obj))
+		    return TRUE;
+
+	return FALSE;
 }
 

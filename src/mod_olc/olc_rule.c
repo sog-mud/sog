@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.11 1999-06-10 14:33:36 fjoe Exp $
+ * $Id: olc_rule.c,v 1.12 1999-06-24 16:33:12 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,7 +31,7 @@
 
 #include "merc.h"
 #include "olc.h"
-#include "db/lang.h"
+#include "lang.h"
 
 #define EDIT_RULE(ch, r)	(r = (rule_t*) ch->desc->pEdit)
 #define EDIT_RCL(ch, rcl)	(rcl = (rulecl_t*) ch->desc->pEdit2)
@@ -136,7 +136,7 @@ OLC_FUN(ruleed_create)
 	if (impl)
 		argument = one_argument(argument, arg2, sizeof(arg2));
 	if (argument[0] == '\0' || (impl && !is_number(arg2))) {
-		do_help(ch, "'OLC CREATE'");
+		dofun("help", ch, "'OLC CREATE'");
 		return FALSE;
 	}
 
@@ -181,7 +181,7 @@ OLC_FUN(ruleed_edit)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (argument[0] == '\0') {
-		do_help(ch, "'OLC EDIT'");
+		dofun("help", ch, "'OLC EDIT'");
 		return FALSE;
 	}
 
@@ -233,7 +233,7 @@ OLC_FUN(ruleed_show)
 			EDIT_RCL(ch, rcl);
 		}
 		else {
-			do_help(ch, "'OLC ASHOW'");
+			dofun("help", ch, "'OLC ASHOW'");
 			return FALSE;
 		}
 	}
@@ -243,7 +243,7 @@ OLC_FUN(ruleed_show)
 
 		argument = one_argument(argument, arg, sizeof(arg));
 		if (argument[0] == '\0') {
-			do_help(ch, "'OLC ASHOW'");
+			dofun("help", ch, "'OLC ASHOW'");
 			return FALSE;
 		}
 
@@ -303,7 +303,7 @@ OLC_FUN(ruleed_list)
 		if (IS_EDIT(ch, ED_IMPL) || IS_EDIT(ch, ED_EXPL))
 			EDIT_RCL(ch, rcl);
 		else {
-			do_help(ch, "'OLC ALIST'");
+			dofun("help", ch, "'OLC ALIST'");
 			return FALSE;
 		}
 	}
@@ -313,7 +313,7 @@ OLC_FUN(ruleed_list)
 
 		argument = one_argument(argument, arg, sizeof(arg));
 		if (arg[0] == '\0') {
-			do_help(ch, "'OLC ALIST'");
+			dofun("help", ch, "'OLC ALIST'");
 			return FALSE;
 		}
 
@@ -336,7 +336,7 @@ OLC_FUN(ruleed_list)
 	}
 	else {
 		if (argument[0] == '\0') {
-			do_help(ch, "'OLC ALIST'");
+			dofun("help", ch, "'OLC ALIST'");
 			return FALSE;
 		}
 	
@@ -373,7 +373,7 @@ OLC_FUN(eruleed_name)
 	rulecl_t *rcl;
 
 	if (argument[0] == '\0') {
-		do_help(ch, "'OLC RULE'");
+		dofun("help", ch, "'OLC RULE'");
 		return FALSE;
 	}
 

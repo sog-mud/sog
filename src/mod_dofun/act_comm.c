@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.180 1999-06-23 09:27:54 fjoe Exp $
+ * $Id: act_comm.c,v 1.181 1999-06-24 16:32:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -56,8 +56,8 @@
 #include "mob_prog.h"
 #include "obj_prog.h"
 #include "auction.h"
-#include "db/lang.h"
-#include "db/gsn.h"
+#include "lang.h"
+#include "gsn.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_replay	);
@@ -109,10 +109,8 @@ void do_delete(CHAR_DATA *ch, const char *argument)
 	SET_BIT(ch->plr_flags, PLR_CONFIRM_DELETE);
 	wiznet("$N is contemplating deletion.", ch, NULL, 0, 0, ch->level);
 }
-		
 
 /* RT code to display channel status */
-
 void do_channels(CHAR_DATA *ch, const char *argument)
 {
 	/* lists all channels and their status */
@@ -185,7 +183,6 @@ void do_deaf(CHAR_DATA *ch, const char *argument)
 }
 
 /* RT quiet blocks out all communication */
-
 void do_quiet(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_SET(ch->comm,COMM_QUIET)) {
@@ -207,25 +204,6 @@ void do_replay(CHAR_DATA *ch, const char *argument)
 
 	page_to_char(buf_string(ch->pcdata->buffer), ch);
 	buf_clear(ch->pcdata->buffer);
-}
-
-static const char *garble(CHAR_DATA *ch, const char *i)
-{
-	static char not_garbled[] = "?!()[]{},.:;'\" ";
-	static char buf[MAX_STRING_LENGTH];
-	char *o;
-
-	if (!is_affected(ch, gsn_garble))
-		return i;
-
-	for (o = buf; *i && o-buf < sizeof(buf)-1; i++, o++) {
-		if (strchr(not_garbled, *i))
-			*o = *i;
-		else
-			*o = number_range(' ', 254);
-	}
-	*o = '\0';
-	return buf;
 }
 
 void do_say(CHAR_DATA *ch, const char *argument)
@@ -263,64 +241,6 @@ void do_say(CHAR_DATA *ch, const char *argument)
 	     char_obj = char_obj_next) {
 		char_obj_next = char_obj->next_content;
 		oprog_call(OPROG_SPEECH, char_obj, ch, argument);
-	}
-}
-
-void do_tell_raw(CHAR_DATA *ch, CHAR_DATA *victim, const char *msg)
-{
-	if (ch == victim) {
-		char_puts("Talking to yourself, eh?\n", ch);
-		return;
-	}
-
-	if (IS_SET(ch->comm, COMM_NOTELL)) {
-		char_puts("Your message didn't get through.\n", ch);
-		return;
-	}
-
-	if (victim == NULL 
-	|| (IS_NPC(victim) && victim->in_room != ch->in_room)) {
-		char_puts("They aren't here.\n", ch);
-		return;
-	}
-
-	if (IS_SET(victim->comm, (COMM_QUIET | COMM_DEAF))
-	&&  !IS_IMMORTAL(ch) && !IS_IMMORTAL(victim)) {
-		act_puts("$E is not receiving tells.", ch, 0, victim,
-			 TO_CHAR, POS_DEAD);
-		return;
-	}
-
-	msg = garble(ch, msg);
-	act_puts("You tell $N '{G$t{x'",
-		 ch, msg, victim, TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
-	act_puts("$n tells you '{G$t{x'",
-		 ch, msg, victim,
-		 TO_VICT | ACT_TOBUF | ACT_NOTWIT | ACT_SPEECH(ch),
-		 POS_SLEEPING);
-
-	if (IS_NPC(ch))
-		return;
-
-	if (IS_NPC(victim)) {
-		if (HAS_TRIGGER(victim, TRIG_SPEECH))
-			mp_act_trigger(msg, victim, ch, NULL, NULL, TRIG_SPEECH);
-	}
-	else {
-		if (!IS_IMMORTAL(victim)
-		&&  !IS_IMMORTAL(ch)
-		&&  is_name(ch->name, victim->pcdata->twitlist))
-			return;
-
-		if (victim->desc == NULL)
-			act_puts("$N seems to have misplaced $S link but "
-				 "your tell will go through if $E returns.",
-				 ch, NULL, victim, TO_CHAR, POS_DEAD);
-		else if (IS_SET(victim->comm, COMM_AFK))
-			act_puts("$E is AFK, but your tell will go through "
-				 "when $E returns.",
-				 ch, NULL, victim, TO_CHAR, POS_DEAD);
-		victim->reply = ch;
 	}
 }
 
@@ -528,21 +448,6 @@ void do_yell(CHAR_DATA *ch, const char *argument)
 	act_puts("You yell '{M$t{x'",
 		 ch, argument, NULL, TO_CHAR | ACT_SPEECH(ch), POS_DEAD);
 	act_yell("$n yells '{M$t{x'", ch, argument, NULL);
-}
-
-void yell(CHAR_DATA *victim, CHAR_DATA* ch, const char* argument)
-{
-	if (IS_NPC(victim)
-	||  victim->in_room == NULL
-	||  victim->position <= POS_SLEEPING
-	||  IS_EXTRACTED(victim)
-	||  IS_SET(victim->plr_flags, PLR_GHOST))
-		return;
-
-	act_puts3("You yell '{M$b{x'",
-		  victim, argument, NULL, ch, TO_CHAR | ACT_SPEECH(ch),
-		  POS_DEAD);
-	act_yell("$n yells in panic '{M$b{x'", victim, argument, ch);
 }
 
 void do_shout(CHAR_DATA *ch, const char *argument)
@@ -785,211 +690,6 @@ void do_quit(CHAR_DATA *ch, const char *argument)
 	quit_char(ch, 0);
 }
 
-void drop_objs(CHAR_DATA *ch, OBJ_DATA *obj_list)
-{
-	OBJ_DATA *obj, *obj_next;
-
-	/*
-	 * drop ITEM_QUIT_DROP/ITEM_CHQUEST/ITEM_CLAN items
-	 */
-	for (obj = obj_list; obj != NULL; obj = obj_next) {
-		int cn;
-		obj_next = obj->next_content;
-
-		if (obj->contains)
-			drop_objs(ch, obj->contains);
-
-		if (!IS_SET(obj->pIndexData->extra_flags,
-			    ITEM_CLAN | ITEM_QUIT_DROP | ITEM_CHQUEST))
-			continue;
-
-		if (obj->carried_by)
-			obj_from_char(obj);
-		else if (obj->in_obj)
-			obj_from_obj(obj);
-		else {
-			extract_obj(obj, 0);
-			continue;
-		}
-
-		if (!IS_SET(obj->pIndexData->extra_flags, ITEM_CLAN)) {
-			if (ch->in_room != NULL)
-				obj_to_room(obj, ch->in_room);
-			else
-				extract_obj(obj, 0);
-			continue;
-		}
-
-		for (cn = 0; cn < clans.nused; cn++)
-			if (obj == CLAN(cn)->obj_ptr) 
-				obj_to_room(obj, get_room_index(CLAN(cn)->altar_vnum));
-	}
-}
-
-void quit_char(CHAR_DATA *ch, int flags)
-{
-	DESCRIPTOR_DATA *d, *d_next;
-	CHAR_DATA *vch, *vch_next;
-	const char *name;
-
-	if (IS_NPC(ch))
-		return;
-
-	if (ch->position == POS_FIGHTING) {
-		char_puts("No way! You are fighting.\n", ch);
-		return;
-	}
-
-	if (ch->position < POS_STUNNED ) {
-		char_puts("You're not DEAD yet.\n", ch);
-		return;
-	}
-
-	if (IS_AFFECTED(ch, AFF_CHARM)) {
-		char_puts("You don't want to leave your master.\n", ch);
-		return;
-	}
-
-	if (IS_SET(ch->plr_flags, PLR_NOEXP)) {
-		char_puts("You don't want to lose your spirit.\n", ch);
-		return;
-	}
-
-	if (IS_AFFECTED(ch, AFF_SLEEP)) {
-		char_puts("You cannot quit, you are in deep sleep.\n", ch);
-		return;
-	}
-
-	if (auction.item != NULL
-	&&  ((ch == auction.buyer) || (ch == auction.seller))) {
-		char_puts("Wait till you have sold/bought the item "
-			  "on auction.\n",ch);
-		return;
-	}
-
-	if (!IS_IMMORTAL(ch)) {
-		if (IS_PUMPED(ch)) {
-			char_puts("Your adrenalin is gushing! You can't quit yet.\n", ch);
-			return;
-		}
-
-		if (is_affected(ch, gsn_witch_curse)) {
-			char_puts("You are cursed. Wait till you DIE!\n", ch);
-			return;
-		}
-
-		if (ch->in_room->area->clan
-		&&  ch->in_room->area->clan != ch->clan) {
-			char_puts("You can't quit here.\n", ch);
-			return;
-		}
-
-		if (ch->in_room && IS_RAFFECTED(ch->in_room, RAFF_ESPIRIT)) {
-			char_puts("Evil spirits in the area prevents you from leaving.\n", ch);
-			return;
-		}
-
-		if (!get_skill(ch, gsn_evil_spirit)
-		&&  is_affected(ch, gsn_evil_spirit)) {
-			char_puts("Evil spirits in you prevents you from leaving.\n", ch);
-			return;
-		}
-	}
-
-	char_puts("Alas, all good things must come to an end.\n", ch);
-	char_puts("You hit reality hard. Reality truth does unspeakable things to you.\n", ch);
-	act_puts("$n has left the game.", ch, NULL, NULL, TO_ROOM, POS_RESTING);
-	log("%s has quit.", ch->name);
-	wiznet("{W$N{x rejoins the real world.",
-		ch, NULL, WIZ_LOGINS, 0, ch->level);
-
-	drop_objs(ch, ch->carrying);
-
-	for (vch = char_list; vch; vch = vch_next) {
-		vch_next = vch->next;
-		if (is_affected(vch, gsn_doppelganger)
-		&&  vch->doppel == ch) {
-			char_puts("You shift to your true form as your victim leaves.\n",
-				  vch);
-			affect_strip(vch, gsn_doppelganger);
-		}
-
-		if (vch->guarding == ch) {
-			act("You stops guarding $N.", vch, NULL, ch, TO_CHAR);
-			act("$n stops guarding you.", vch, NULL, ch, TO_VICT);
-			act("$n stops guarding $N.", vch, NULL, ch, TO_NOTVICT);
-			vch->guarding  = NULL;
-			ch->guarded_by = NULL;
-		}
-
-		if (vch->last_fought == ch) {
-			vch->last_fought = NULL;
-			back_home(vch);
-		}
-		
-		if (vch->hunting == ch)
-			vch->hunting = NULL;
-
-		if (vch->hunter == ch)
-			vch->hunter = NULL;
-
-		if (vch->target == ch) {
-			if (IS_NPC(vch) 
-			  && vch->pIndexData->vnum == MOB_VNUM_SHADOW) {
-				act ("$n slowly fades away.",
-				vch, NULL, NULL, TO_ROOM);
-				extract_char(vch, 0);
-				continue;
-			}
-			if (IS_NPC(vch)
-			&& vch->pIndexData->vnum == MOB_VNUM_STALKER) {
-				act_clan(NULL, vch, "$I has left the realm, I have to leave too.", ch);
-				act ("$n slowly fades away.", vch, NULL, NULL,
-					TO_ROOM);
-				extract_char(vch, 0);
-			}
-		}
-	}
-
-	if (ch->guarded_by != NULL) {
-		ch->guarded_by->guarding = NULL;
-		ch->guarded_by = NULL;
-	}
-
-	/*
-	 * After extract_char the ch is no longer valid!
-	 */
-	save_char_obj(ch, 0);
-	name = str_qdup(ch->name);
-	d = ch->desc;
-	extract_char(ch, flags);
-
-	if (d)
-		close_descriptor(d);
-
-	/*
-	 * toast evil cheating bastards 
-	 *
-	 * Workaround against clone cheat --
-	 * Log in once, connect a second time and enter only name,
-	 * drop all and quit with first character, finish login
-	 * with second. This clones the player's inventory.
-	 */
-	for (d = descriptor_list; d; d = d_next) {
-		CHAR_DATA *tch;
-
-		d_next = d->next;
-		tch = d->original ? d->original : d->character;
-		if (tch && !str_cmp(name, tch->name)) {
-			if (d->connected == CON_PLAYING)
-				extract_char(tch, 0);
-			close_descriptor(d);
-		} 
-	}
-
-	free_string(name);
-}
-
 void do_save(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch))
@@ -1046,80 +746,6 @@ void do_follow(CHAR_DATA *ch, const char *argument)
 	REMOVE_BIT(ch->plr_flags, PLR_NOFOLLOW);
 	add_follower(ch, victim);
 }
-
-void add_follower(CHAR_DATA *ch, CHAR_DATA *master)
-{
-	if (ch->master)
-		stop_follower(ch);
-	ch->master = master;
-	ch->leader = NULL;
-
-	if (can_see(master, ch))
-		act_puts("$n now follows you.", ch, NULL, master, 
-			 TO_VICT, POS_RESTING);
-	act_puts("You now follow $N.", ch, NULL, master, 
-		 TO_CHAR, POS_RESTING);
-}
-
-void stop_follower(CHAR_DATA *ch)
-{
-	if (ch->master == NULL) {
-		bug("Stop_follower: null master.", 0);
-		return;
-	}
-
-	if (IS_AFFECTED(ch, AFF_CHARM)) {
-		REMOVE_BIT(ch->affected_by, AFF_CHARM);
-		affect_bit_strip(ch, TO_AFFECTS, AFF_CHARM);
-	}
-
-	if (can_see(ch->master, ch) && ch->in_room != NULL) {
-		act_puts("$n stops following you.",ch, NULL, ch->master, 
-			 TO_VICT, POS_RESTING);
-		act_puts("You stop following $N.", ch, NULL, ch->master, 
-			 TO_CHAR, POS_RESTING);
-	}
-
-	if (ch->master->pet == ch)
-		ch->master->pet = NULL;
-
-	ch->master = NULL;
-	ch->leader = NULL;
-}
-
-/* nukes charmed monsters and pets */
-void nuke_pets(CHAR_DATA *ch)
-{    
-	CHAR_DATA *pet;
-
-	if ((pet = ch->pet)) {
-		stop_follower(pet);
-		if (pet->in_room)
-			act("$n slowly fades away.", pet, NULL, NULL, TO_ROOM);
-		extract_char(pet, 0);
-	}
-	ch->pet = NULL;
-}
-
-void die_follower(CHAR_DATA *ch)
-{
-	CHAR_DATA *fch;
-	CHAR_DATA *fch_next;
-
-	if (ch->master != NULL)
-		stop_follower(ch);
-
-	ch->leader = NULL;
-
-	for (fch = char_list; fch != NULL; fch = fch_next) {
-		fch_next = fch->next;
-		if (fch->master == ch)
-			stop_follower(fch);
-		if (fch->leader == ch)
-			fch->leader = NULL;
-	}
-}
-
 
 void do_order(CHAR_DATA *ch, const char *argument)
 {
@@ -1185,14 +811,6 @@ void do_order(CHAR_DATA *ch, const char *argument)
 	}
 	else
 		char_puts("You have no followers here.\n", ch);
-}
-
-CHAR_DATA* leader_lookup(CHAR_DATA* ch)
-{
-	CHAR_DATA* res;
-	for (res = ch; res->leader != NULL; res = res->leader)
-		;
-	return res;
 }
 
 void do_group(CHAR_DATA *ch, const char *argument)
@@ -1493,7 +1111,7 @@ void do_speak(CHAR_DATA *ch, const char *argument)
 		    flag_string(slang_table, ch->slang));
 }
 
-DO_FUN(do_twit)
+void do_twit(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_STRING_LENGTH];
 
@@ -1513,7 +1131,7 @@ DO_FUN(do_twit)
 	name_toggle(&ch->pcdata->twitlist, arg, ch, "Twitlist");
 }
 
-DO_FUN(do_lang)
+void do_lang(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_STRING_LENGTH];
 	int lang;
@@ -1556,7 +1174,7 @@ DO_FUN(do_lang)
 	do_look(ch, str_empty);
 }
 
-DO_FUN(do_judge)
+void do_judge(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1594,7 +1212,7 @@ DO_FUN(do_judge)
 		    flag_string(align_names, NALIGN(victim)));
 }
 
-DO_FUN(do_trust)
+void do_trust(CHAR_DATA *ch, const char *argument)
 {	
 	char arg[MAX_INPUT_LENGTH];
 	
@@ -1663,7 +1281,7 @@ DO_FUN(do_trust)
 	char_puts("Syntax: trust {{ group | clan | all | none }\n", ch);
 }
 
-DO_FUN(do_wanted)
+void do_wanted(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
@@ -1847,7 +1465,7 @@ toggle_t toggle_table[] =
 	{ NULL }
 };
 
-DO_FUN(do_toggle)
+void do_toggle(CHAR_DATA *ch, const char *argument)
 {
 	toggle_t *t;
 	char arg[MAX_INPUT_LENGTH];

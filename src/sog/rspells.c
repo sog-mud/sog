@@ -1,5 +1,5 @@
 /*
- * $Id: rspells.c,v 1.5 1999-06-22 12:37:21 fjoe Exp $
+ * $Id: rspells.c,v 1.6 1999-06-24 16:33:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -46,8 +46,6 @@
 #include "merc.h"
 #include "fight.h"
 #include "rspells.h"
-
-DECLARE_DO_FUN(do_wake);
 
 typedef struct
 {
@@ -125,7 +123,7 @@ EVENT_FUN(event_enter_lshield)
 
 	char_puts("The protective shield of room blocks you.\n", ch);
 	act("$N has entered the room.", raf->owner, NULL, ch, TO_CHAR);
-	do_wake(raf->owner, str_empty);
+	dofun("wake", raf->owner, str_empty);
 
 	if (!is_safe_rspell(raf, ch)) 
 		{

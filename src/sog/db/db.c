@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.160 1999-06-24 08:11:47 fjoe Exp $
+ * $Id: db.c,v 1.161 1999-06-24 16:33:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -64,8 +64,7 @@
 #include "update.h"
 #include "db.h"
 #include "module.h"
-#include "db/lang.h"
-#include "olc/olc.h"
+#include "lang.h"
 
 #ifdef SUNOS
 #	include "compat.h"
@@ -197,8 +196,25 @@ int			obj_free_count;
 int			newmobs;
 int			newobjs;
 
+int			max_on;
+
 int	nAllocBuf;
 int	sAllocBuf;
+
+const char *dir_name[] =
+{
+	"north", "east", "south", "west", "up", "down"
+};
+
+const char *from_dir_name[] =
+{
+	"the north", "the east", "the south", "the west", "the up", "the down"
+};
+
+const int rev_dir[] =
+{
+	2, 3, 0, 1, 5, 4
+};
 
 /*
  * Semi-locals.
@@ -2379,7 +2395,7 @@ void convert_object(OBJ_INDEX_DATA *pObjIndex)
     }
 
     REMOVE_BIT(pObjIndex->extra_flags, ITEM_OLDSTYLE);
-    touch_vnum(pObjIndex->vnum);
+    TOUCH_VNUM(pObjIndex->vnum);
     ++newobjs;
 }
 

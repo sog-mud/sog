@@ -1,5 +1,5 @@
 /*
- * $Id: olc_mpcode.c,v 1.25 1999-03-08 13:56:08 fjoe Exp $
+ * $Id: olc_mpcode.c,v 1.26 1999-06-24 16:33:11 fjoe Exp $
  */
 
 /* The following code is based on ILAB OLC by Jason Dinkel */
@@ -52,7 +52,7 @@ OLC_FUN(mped_create)
 	one_argument(argument, arg, sizeof(arg));
 	value = atoi(arg);
 	if (!value) {
-		do_help(ch, "'OLC CREATE'");
+		dofun("help", ch, "'OLC CREATE'");
 		return FALSE;
 	}
 
@@ -78,7 +78,7 @@ OLC_FUN(mped_create)
 
 	ch->desc->pEdit	= (void*) mpcode;
 	OLCED(ch)	= olced_lookup(ED_MPCODE);
-	touch_area(pArea);
+	TOUCH_AREA(pArea);
 	char_puts("MPEd: mpcode created.\n", ch);
 	return FALSE;
 }
@@ -92,7 +92,7 @@ OLC_FUN(mped_edit)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		do_help(ch, "'OLC EDIT'");
+		dofun("help", ch, "'OLC EDIT'");
 		return FALSE;
 	}
 
@@ -118,7 +118,8 @@ OLC_FUN(mped_touch)
 {
 	MPCODE *mpcode;
 	EDIT_MPCODE(ch, mpcode);
-	return touch_vnum(mpcode->vnum);
+	TOUCH_VNUM(mpcode->vnum);
+	return FALSE;
 }
 
 OLC_FUN(mped_show)
@@ -131,7 +132,7 @@ OLC_FUN(mped_show)
 		if (IS_EDIT(ch, ED_MPCODE))
 			EDIT_MPCODE(ch, mpcode);
 		else {
-			do_help(ch, "'OLC ASHOW'");
+			dofun("help", ch, "'OLC ASHOW'");
 			return FALSE;
 		}
 	}

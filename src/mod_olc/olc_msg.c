@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.31 1999-06-10 18:19:06 fjoe Exp $
+ * $Id: olc_msg.c,v 1.32 1999-06-24 16:33:11 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,7 +31,7 @@
 
 #include "merc.h"
 #include "olc.h"
-#include "db/lang.h"
+#include "lang.h"
 
 #define EDIT_MSG(ch, mp)	(mp = (msg_t*) ch->desc->pEdit)
 
@@ -79,7 +79,7 @@ OLC_FUN(msged_create)
 	}
 
 	if (argument[0] == '\0') {
-		do_help(ch, "'OLC CREATE'");
+		dofun("help", ch, "'OLC CREATE'");
 		return FALSE;
 	}
 
@@ -114,7 +114,7 @@ OLC_FUN(msged_edit)
 	}
 
 	if (argument[0] == '\0') {
-		do_help(ch, "'OLC EDIT'");
+		dofun("help", ch, "'OLC EDIT'");
 		return FALSE;
 	}
 
@@ -137,7 +137,7 @@ OLC_FUN(msged_show)
 		if (IS_EDIT(ch, ED_MSG))
 			EDIT_MSG(ch, mp);
 		else {
-			do_help(ch, "'OLC ASHOW'");
+			dofun("help", ch, "'OLC ASHOW'");
 			return FALSE;
 		}
 	}
@@ -162,7 +162,7 @@ OLC_FUN(msged_list)
 	BUFFER *output = NULL;
 
 	if (argument[0] == '\0') {
-		do_help(ch, "'OLC ALIST'");
+		dofun("help", ch, "'OLC ALIST'");
 		return FALSE;
 	}
 	
@@ -208,7 +208,7 @@ OLC_FUN(msged_msg)
 	argument = one_argument(argument, arg, sizeof(arg));
 	lang = lang_lookup(arg);
 	if (lang < 0) {
-		do_help(ch, "'OLC MSG'");
+		dofun("help", ch, "'OLC MSG'");
 		return FALSE;
 	}
 

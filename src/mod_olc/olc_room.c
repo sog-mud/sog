@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.49 1999-06-10 22:29:52 fjoe Exp $
+ * $Id: olc_room.c,v 1.50 1999-06-24 16:33:12 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,7 +31,7 @@
 #include <stdlib.h>
 #include "merc.h"
 #include "olc.h"
-#include "db/db.h"
+#include "db.h"
 
 #define EDIT_ROOM(ch, room)	(room = (ROOM_INDEX_DATA*) ch->desc->pEdit)
 
@@ -117,7 +117,7 @@ OLC_FUN(roomed_create)
 	one_argument(argument, arg, sizeof(arg));
 	value = atoi(arg);
 	if (!value) {
-		do_help(ch, "'OLC CREATE'");
+		dofun("help", ch, "'OLC CREATE'");
 		return FALSE;
 	}
 
@@ -150,7 +150,7 @@ OLC_FUN(roomed_create)
 
 	ch->desc->pEdit		= (void *)pRoom;
 	OLCED(ch)		= olced_lookup(ED_ROOM);
-	touch_area(pArea);
+	TOUCH_AREA(pArea);
 	char_puts("RoomEd: Room created.\n", ch);
 	return FALSE;
 }
@@ -164,7 +164,7 @@ OLC_FUN(roomed_edit)
 	if (arg[0] == '\0')
 		pRoom = ch->in_room;
 	else if (!is_number(arg)) {
-		do_help(ch, "'OLC EDIT'");
+		dofun("help", ch, "'OLC EDIT'");
 		return FALSE;
 	}
 	else if ((pRoom = get_room_index(atoi(arg))) == NULL) {
@@ -180,7 +180,8 @@ OLC_FUN(roomed_touch)
 {
 	ROOM_INDEX_DATA *pRoom;
 	EDIT_ROOM(ch, pRoom);
-	return touch_vnum(pRoom->vnum);
+	TOUCH_VNUM(pRoom->vnum);
+	return FALSE;
 }
 
 OLC_FUN(roomed_show)
@@ -203,7 +204,7 @@ OLC_FUN(roomed_show)
 			pRoom = ch->in_room;
 	}
 	else if (!is_number(arg)) {
-		do_help(ch, OLCED(ch) ? "'OLC EDIT'" : "'OLC ASHOW'");
+		dofun("help", ch, OLCED(ch) ? "'OLC EDIT'" : "'OLC ASHOW'");
 		return FALSE;
 	}
 	else if ((pRoom = get_room_index(atoi(arg))) == NULL) {
@@ -804,7 +805,7 @@ OLC_FUN(roomed_clone)
 	}
 
 	if (!is_number(arg)) {
-		do_help(ch, "'OLC ROOM CLONE'");
+		dofun("help", ch, "'OLC ROOM CLONE'");
 		return FALSE;
 	}
 
@@ -961,7 +962,7 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		ROOM_INDEX_DATA *pToRoom;
 
 		if (arg[0] == '\0' || !is_number(arg)) {
-			do_help(ch, "'OLC EXITS'");
+			dofun("help", ch, "'OLC EXITS'");
 			return FALSE;
 		}
 
@@ -1395,7 +1396,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 	    }
 
 	    reset_free(pReset);
-	    touch_area(pRoom->area);
+	    TOUCH_AREA(pRoom->area);
 	    char_puts("Reset deleted.\n", ch);
 	}
 	else
@@ -1498,7 +1499,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		}
 	    }
 	    reset_add(pReset, pRoom, atoi(arg1));
-	    touch_area(pRoom->area);
+	    TOUCH_AREA(pRoom->area);
 	    char_puts("Reset added.\n", ch);
 	}
 	else
@@ -1515,7 +1516,7 @@ void do_resets(CHAR_DATA *ch, const char *argument)
 		pReset->arg2 = atoi(arg3);
 		reset_add(pReset, pRoom, atoi(arg1));
 
-		touch_area(pRoom->area);
+		TOUCH_AREA(pRoom->area);
 		char_puts("Random exits reset added.\n", ch);
 	}
 	else

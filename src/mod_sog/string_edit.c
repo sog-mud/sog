@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.32 1999-03-10 11:06:21 fjoe Exp $
+ * $Id: string_edit.c,v 1.33 1999-06-24 16:33:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -22,9 +22,6 @@
 #include <time.h>
 
 #include "merc.h"
-#include "olc/olc.h"
-
-DECLARE_DO_FUN(do_replay);
 
 const char *string_linedel(const char *, int);
 const char *string_lineadd(const char *, char *, int);
@@ -74,23 +71,24 @@ const char * string_replace(const char * orig, char * old, char * new)
 
 void string_add_exit(CHAR_DATA *ch, bool save)
 {
+	DESCRIPTOR_DATA *d = ch->desc;
+
 	if (!save) {
 		char_puts("No changes saved.\n", ch);
-		free_string(*ch->desc->pString);
-		*ch->desc->pString = ch->desc->backup;
+		free_string(*d->pString);
+		*d->pString = d->backup;
 	}
 	else {
-		olced_t *olced;
-
-		free_string(ch->desc->backup);
-		if ((olced = OLCED(ch)))
-			olced->cmd_table[FUN_TOUCH].olc_fun(ch, str_empty,
-					olced->cmd_table+FUN_TOUCH);
+		free_string(d->backup);
+		if (OLCED(ch)) {
+			strnzcpy(d->incomm, sizeof(d->incomm), "touch");
+			run_olc_editor(d);
+		}
 	}
 
-	ch->desc->pString = NULL;
+	d->pString = NULL;
 	if (IS_SET(ch->comm, COMM_QUIET_EDITOR))
-		do_replay(ch, str_empty);
+		dofun("replay", ch, str_empty);
 }
 
 /*****************************************************************************

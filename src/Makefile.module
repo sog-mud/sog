@@ -1,0 +1,12 @@
+#
+# $Id: Makefile.module,v 1.1 1999-06-24 16:32:59 fjoe Exp $
+#
+
+.include "../Makefile.inc"
+
+CFLAGS += $(SO_CFLAGS)
+LFLAGS += $(SO_LFLAGS)
+
+install: $(MODULE_NAME)
+	install $(INSTALL_FLAGS) $(MODULE_NAME) $(INSTALL_PATH)/modules
+

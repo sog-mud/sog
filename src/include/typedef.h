@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.25 1999-06-22 12:37:22 fjoe Exp $
+ * $Id: typedef.h,v 1.26 1999-06-24 16:33:10 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -87,6 +87,7 @@ typedef struct lang_t			lang_t;
 typedef struct cmd_t			cmd_t;
 typedef struct pose_t			pose_t;
 typedef struct rulecl_t			rulecl_t;
+typedef struct olc_cmd_t		olc_cmd_t;
 typedef struct olced_t 			olced_t;	
 typedef struct rule_t			rule_t;
 typedef union vo_t			vo_t;
@@ -109,15 +110,12 @@ typedef int	OPROG_FUN	(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg);
 typedef void	EVENT_FUN	(ROOM_INDEX_DATA *room, CHAR_DATA *ch,
 				 ROOM_AFFECT_DATA *raf);
 #define args(a) a
-#define DECLARE_DO_FUN(fun)	DO_FUN	  fun
 #define DECLARE_SPEC_FUN(fun) 	SPEC_FUN  fun
-#define DECLARE_SPELL_FUN(fun)	SPELL_FUN fun
+#define DECLARE_DO_FUN(fun) 	DO_FUN fun
 #define DECLARE_OPROG_FUN(fun)	OPROG_FUN fun
 #define DECLARE_EVENT_FUN(fun)	EVENT_FUN fun
 
-#define DO_FUN(fun)	void	fun(CHAR_DATA *ch, const char *argument)
 #define SPEC_FUN(fun)	bool	fun(CHAR_DATA *ch)
-#define SPELL_FUN(fun)	void	fun(int sn, int level, CHAR_DATA *ch, void *vo)
 #define OPROG_FUN(fun)	int	fun(OBJ_DATA *obj, CHAR_DATA *ch, void *arg);
 #define EVENT_FUN(fun)	void	fun(ROOM_INDEX_DATA *room, CHAR_DATA *ch, ROOM_AFFECT_DATA *raf)
 

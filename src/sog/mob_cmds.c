@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.37 1999-06-17 05:46:41 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.38 1999-06-24 16:33:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -45,9 +45,6 @@
 #include "mob_cmds.h"
 #include "mob_prog.h"
 #include "fight.h"
-
-DECLARE_DO_FUN(do_look		);
-DECLARE_DO_FUN(do_say		);
 
 /*
  * Command table.
@@ -704,7 +701,7 @@ void do_mptransfer(CHAR_DATA *ch, const char *argument)
 	{
 	    victim_next = victim->next_in_room;
 	    if (!IS_NPC(victim))
-		doprintf(do_mptransfer, ch, "%s %s", victim->name, arg2);
+		dofun("mob", ch, "transfer %s %s", victim->name, arg2);
 	}
 	return;
     }
@@ -740,7 +737,7 @@ void do_mptransfer(CHAR_DATA *ch, const char *argument)
     char_from_room(victim);
     char_to_room(victim, location);
     if (!IS_EXTRACTED(victim))
-    	do_look(victim, "auto");
+    	dofun("look", victim, "auto");
 }
 
 /*
@@ -771,7 +768,7 @@ void do_mpgtransfer(CHAR_DATA *ch, const char *argument)
     {
     	victim_next = victim->next_in_room;
     	if (is_same_group(who, victim))
-		doprintf(do_mptransfer, ch, "%s %s", victim->name, arg2);
+		dofun("mob", ch, "transfer %s %s", victim->name, arg2);
     }
 }
 
@@ -1265,8 +1262,8 @@ void do_mpreligion(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!correct) {
-		do_say(ch,
-		       "That religion doesn't match your ethos and alignment.");
+		dofun("say", ch,
+		      "That religion doesn't match your ethos and alignment.");
 		return;
 	}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_clan.c,v 1.28 1999-06-10 14:33:36 fjoe Exp $
+ * $Id: olc_clan.c,v 1.29 1999-06-24 16:33:11 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -91,7 +91,7 @@ OLC_FUN(claned_create)
 
 	first_arg(argument, arg, sizeof(arg), FALSE);
 	if (arg[0] == '\0') {
-		do_help(ch, "'OLC CREATE'");
+		dofun("help", ch, "'OLC CREATE'");
 		return FALSE;
 	}
 
@@ -124,7 +124,7 @@ OLC_FUN(claned_edit)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		do_help(ch, "'OLC EDIT'");
+		dofun("help", ch, "'OLC EDIT'");
 		return FALSE;
 	}
 
@@ -157,7 +157,7 @@ OLC_FUN(claned_show)
 		if (IS_EDIT(ch, ED_CLAN))
 			EDIT_CLAN(ch, clan);
 		else {
-			do_help(ch, "'OLC ASHOW'");
+			dofun("help", ch, "'OLC ASHOW'");
 			return FALSE;
 		}
 	}
@@ -276,7 +276,7 @@ OLC_FUN(claned_skill)
 	else if (!str_prefix(arg, "delete"))
 		return claned_skill_del(ch, argument, cmd);
 
-	do_help(ch, "'OLC CLAN SKILL'");
+	dofun("help", ch, "'OLC CLAN SKILL'");
 	return FALSE;
 }
 
@@ -298,7 +298,7 @@ OLC_FUN(claned_plist)
 		   one_argument(argument, arg2, sizeof(arg2));
 
 	if (arg1[0] == '\0') {
-		do_help(ch, "'OLC CLAN PLIST'");
+		dofun("help", ch, "'OLC CLAN PLIST'");
 		return FALSE;
 	}
 
@@ -348,7 +348,7 @@ OLC_FUN(claned_skill_add)
 		   one_argument(argument, arg3, sizeof(arg3));
 
 	if (arg1[0] == '\0' || arg2[0] == '\0' || arg3[0] == '\0') {
-		do_help(ch, "'OLC CLAN SKILL'");
+		dofun("help", ch, "'OLC CLAN SKILL'");
 		return FALSE;
 	}
 
@@ -394,7 +394,7 @@ OLC_FUN(claned_skill_del)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		do_help(ch, "'OLC CLAN SKILL'");
+		dofun("help", ch, "'OLC CLAN SKILL'");
 		return FALSE;
 	}
 

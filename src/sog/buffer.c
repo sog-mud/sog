@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.13 1999-06-17 05:46:39 fjoe Exp $
+ * $Id: buffer.c,v 1.14 1999-06-24 16:33:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -52,8 +52,8 @@
 #include "varr.h"
 #include "buffer.h"
 #include "log.h"
-#include "db/msg.h"
-#include "comm/comm_act.h"
+#include "msg.h"
+#include "comm_act.h"
 
 struct buf_data
 {

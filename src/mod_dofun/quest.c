@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.111 1999-06-10 20:05:28 fjoe Exp $
+ * $Id: quest.c,v 1.112 1999-06-24 16:33:07 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -231,34 +231,6 @@ void quest_cancel(CHAR_DATA *ch)
 	ch->pcdata->questmob = 0;
 	ch->pcdata->questobj = 0;
 	ch->pcdata->questroom = NULL;
-}
-
-/*
- * Called from update_handler() by pulse_area
- */
-void quest_update(void)
-{
-	CHAR_DATA *ch, *ch_next;
-
-	for (ch = char_list; ch && !IS_NPC(ch); ch = ch_next) {
-		ch_next = ch->next;
-
-		if (ch->pcdata->questtime < 0) {
-			if (++ch->pcdata->questtime == 0) {
-				char_puts("{*You may now quest again.\n", ch);
-				return;
-			}
-		} else if (IS_ON_QUEST(ch)) {
-			if (--ch->pcdata->questtime == 0) {
-				char_puts("You have run out of time for your quest!\n", ch);
-				quest_cancel(ch);
-				ch->pcdata->questtime = -number_range(5, 10);
-			} else if (ch->pcdata->questtime < 6) {
-				char_puts("Better hurry, you're almost out of time for your quest!\n", ch);
-				return;
-			}
-		}
-	}
 }
 
 void qtrouble_set(CHAR_DATA *ch, int vnum, int count)

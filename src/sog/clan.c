@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.44 1999-06-24 06:36:32 fjoe Exp $
+ * $Id: clan.c,v 1.45 1999-06-24 16:33:13 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -38,8 +38,6 @@
 #endif
 
 #include "merc.h"
-
-DECLARE_DO_FUN(do_asave);
 
 varr clans = { sizeof(clan_t), 4 };
 
@@ -61,7 +59,7 @@ void clan_free(clan_t *clan)
 void clan_save(clan_t *clan)
 {
 	SET_BIT(clan->clan_flags, CLAN_CHANGED);
-	do_asave(NULL, "clans");
+	dofun("asave", NULL, "clans");
 }
 
 int cln_lookup(const char *name)

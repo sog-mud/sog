@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.50 1999-06-22 12:37:21 fjoe Exp $
+ * $Id: special.c,v 1.51 1999-06-24 16:33:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,30 +47,6 @@
 #include <time.h>
 #include "merc.h"
 #include "fight.h"
-
-/* command procedures needed */
-DECLARE_DO_FUN(do_yell		);
-DECLARE_DO_FUN(do_open		);
-DECLARE_DO_FUN(do_close		);
-DECLARE_DO_FUN(do_say		);
-DECLARE_DO_FUN(do_backstab	);
-DECLARE_DO_FUN(do_flee		);
-DECLARE_DO_FUN(do_tell		);
-DECLARE_DO_FUN(do_track		);
-DECLARE_DO_FUN(do_murder	);
-DECLARE_DO_FUN(do_kill		);
-DECLARE_DO_FUN(do_unlock	);
-DECLARE_DO_FUN(do_lock		);
-DECLARE_DO_FUN(do_drop		);
-DECLARE_DO_FUN(do_get		);
-DECLARE_DO_FUN(do_north		);
-DECLARE_DO_FUN(do_south		);
-DECLARE_DO_FUN(do_east		);
-DECLARE_DO_FUN(do_west		);
-DECLARE_DO_FUN(do_sacrifice	);
-DECLARE_DO_FUN(do_give		);
-DECLARE_DO_FUN(do_rescue	);
-DECLARE_DO_FUN(do_assassinate	);
 
 /*
  * The following special functions are available for mobiles.
@@ -1434,7 +1410,7 @@ static void spec_cast(CHAR_DATA *ch, const char *spell_name, CHAR_DATA *victim)
 
 	if (ch->fighting == victim
 	&&  (target == TAR_CHAR_OFFENSIVE || target == TAR_OBJ_CHAR_OFF)) {
-		doprintf(interpret, ch, "cast '%s'", spell_name);
+		dofun("cast", ch, "'%s'", spell_name);
 		return;
 	}
 
@@ -1449,6 +1425,6 @@ static void spec_cast(CHAR_DATA *ch, const char *spell_name, CHAR_DATA *victim)
 	if (vch == NULL)
 		return;		/* can't happen */
 
-	doprintf(interpret, ch, "cast '%s' %d.'%s'", spell_name, num, name);
+	dofun("cast", ch, "'%s' %d.'%s'", spell_name, num, name);
 }
 

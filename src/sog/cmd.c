@@ -23,25 +23,49 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cmd.c,v 1.2 1999-04-16 15:52:22 fjoe Exp $
+ * $Id: cmd.c,v 1.3 1999-06-24 16:33:13 fjoe Exp $
  */
 
-#include <string.h>
+#include <stdarg.h>
+#include <stdio.h>
 
 #include "typedef.h"
-#include "cmd.h"
+#include "const.h"
 #include "str.h"
+#include "varr.h"
+#include "cmd.h"
+#include "log.h"
 
-extern cmd_t cmd_table[]; /* temporary fix before varr cmd impl */
+varr commands = { sizeof(cmd_t), 16 };
 
 cmd_t *cmd_lookup(const char *name)
 {
-	cmd_t *cmd;
+	int i;
 
-	for (cmd = cmd_table; cmd->name; cmd++)
+	for (i = 0; i < commands.nused; i++) {
+		cmd_t *cmd = VARR_GET(&commands, i);
 		if (!str_cmp(cmd->name, name))
 			return cmd;
+	}
 
 	return NULL;
+}
+
+void dofun(const char *name, CHAR_DATA *ch, const char *fmt, ...)
+{
+	cmd_t *cmd;
+	char buf[MAX_STRING_LENGTH];
+	va_list ap;
+
+	if ((cmd = cmd_lookup(name)) == NULL) {
+		bug("dofun: %s: unknown dofun", name);
+		return;
+	}
+
+	va_start(ap, fmt);
+	vsnprintf(buf, sizeof(buf), fmt, ap);
+	va_end(ap);
+
+	cmd->do_fun(ch, buf);
 }
 

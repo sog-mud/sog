@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.50 1999-06-22 12:37:23 fjoe Exp $
+ * $Id: olc_obj.c,v 1.51 1999-06-24 16:33:12 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -35,7 +35,7 @@
 #include "merc.h"
 #include "olc.h"
 #include "chquest.h"
-#include "db/db.h"
+#include "db.h"
 
 #define EDIT_OBJ(ch, obj)	(obj = (OBJ_INDEX_DATA*) ch->desc->pEdit)
 
@@ -135,7 +135,7 @@ OLC_FUN(objed_create)
 	one_argument(argument, arg, sizeof(arg));
 	value = atoi(arg);
 	if (!value) {
-		do_help(ch, "'OLC CREATE'");
+		dofun("help", ch, "'OLC CREATE'");
 		return FALSE;
 	}
 
@@ -167,7 +167,7 @@ OLC_FUN(objed_create)
 
 	ch->desc->pEdit		= (void *)pObj;
 	OLCED(ch)		= olced_lookup(ED_OBJ);
-	touch_area(pArea);
+	TOUCH_AREA(pArea);
 	char_puts("ObjEd: Object created.\n", ch);
 	return FALSE;
 }
@@ -181,7 +181,7 @@ OLC_FUN(objed_edit)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		do_help(ch, "'OLC EDIT'");
+		dofun("help", ch, "'OLC EDIT'");
 		return FALSE;
 	}
 
@@ -207,7 +207,8 @@ OLC_FUN(objed_touch)
 {
 	OBJ_INDEX_DATA *pObj;
 	EDIT_OBJ(ch, pObj);
-	return touch_vnum(pObj->vnum);
+	TOUCH_VNUM(pObj->vnum);
+	return FALSE;
 }
 
 OLC_FUN(objed_show)
@@ -225,7 +226,7 @@ OLC_FUN(objed_show)
 		if (IS_EDIT(ch, ED_OBJ))
 			EDIT_OBJ(ch, pObj);
 		else {
-			do_help(ch, "'OLC EDIT'");
+			dofun("help", ch, "'OLC EDIT'");
 			return FALSE;
 		}
 	}
@@ -327,7 +328,7 @@ OLC_FUN(objed_list)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		do_help(ch, "'OLC ALIST'");
+		dofun("help", ch, "'OLC ALIST'");
 		return FALSE;
 	}
 
@@ -437,7 +438,7 @@ OLC_FUN(objed_del)
 	}
 
 	if ((area = area_vnum_lookup(pObj->vnum)))
-		touch_area(area);
+		TOUCH_AREA(area);
 
 /* delete obj index itself */
 	i = pObj->vnum % MAX_KEY_HASH;
@@ -482,7 +483,7 @@ OLC_FUN(objed_addaffect)
 	argument = one_argument(argument, wh, sizeof(wh));
 
 	if (loc[0] == '\0') {
-		do_help(ch, "'OLC ADDAFFECT'");
+		dofun("help", ch, "'OLC ADDAFFECT'");
 		return FALSE;
 	}
 
@@ -500,7 +501,7 @@ OLC_FUN(objed_addaffect)
 		}
 
 		if (!is_number(mod)) {
-			do_help(ch, "'OLC ADDAFFECT'");
+			dofun("help", ch, "'OLC ADDAFFECT'");
 			return FALSE;
 		}
 		modifier = atoi(mod);

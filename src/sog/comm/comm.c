@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.189 1999-06-21 15:56:46 fjoe Exp $
+ * $Id: comm.c,v 1.190 1999-06-24 16:33:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -88,16 +88,14 @@
 #endif
 
 #include "merc.h"
-#include "interp.h"
 #include "quest.h"
 #include "update.h"
 #include "ban.h"
 #include "charset.h"
 #include "resolver.h"
-#include "olc/olc.h"
 #include "comm_info.h"
 #include "comm_colors.h"
-#include "db/lang.h"
+#include "lang.h"
 
 DESCRIPTOR_DATA	*	new_descriptor	(void);
 void			free_descriptor	(DESCRIPTOR_DATA *d);
@@ -176,7 +174,6 @@ void	process_who		(int port);
 void	init_descriptor		(int control);
 void	close_descriptor	(DESCRIPTOR_DATA *d);
 bool	read_from_descriptor	(DESCRIPTOR_DATA *d);
-bool	write_to_descriptor	(int desc, const char *txt, uint length);
 void	game_loop_unix		(void);
 #if !defined(WIN32)
 void	resolv_done		(void);
@@ -1662,7 +1659,7 @@ static void print_hometown(CHAR_DATA *ch)
 	}
 
 	char_puts("\n", ch);
-	do_help(ch, "HOMETOWN");
+	dofun("help", ch, "HOMETOWN");
 	hometown_print_avail(ch);
 	char_puts("? ", ch);
 	ch->desc->connected = CON_PICK_HOMETOWN;
@@ -1842,7 +1839,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			if (check_ban(d, BCL_NEWBIES))
 				return;
  	    
- 			do_help(ch, "NAME");
+ 			dofun("help", ch, "NAME");
 			char_puts("Do you accept? ", ch);
 			d->connected = CON_CONFIRM_NEW_NAME;
 			return;
@@ -1866,7 +1863,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 					continue;
 
 				if (d_old->original)
-					do_return(d_old->character, str_empty);
+					dofun("return", d_old->character,
+					      str_empty);
 				close_descriptor(d_old);
 			}
 
@@ -1940,7 +1938,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		write_to_descriptor(d->descriptor, (char *) echo_on_str, 0);
-		do_help(ch, "RACETABLE");
+		dofun("help", ch, "RACETABLE");
 		char_puts("What is your race ('help <race>' for more information)? ", ch);
 		d->connected = CON_GET_NEW_RACE;
 		break;
@@ -1951,9 +1949,9 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		if (!str_cmp(arg, "help")) {
 			argument = one_argument(argument, arg, sizeof(arg));
 			if (argument[0] == '\0')
-	  			do_help(ch,"RACETABLE");
+	  			dofun("help", ch,"RACETABLE");
 			else 
-				do_help(ch, argument);
+				dofun("help", ch, argument);
 			char_puts("What is your race ('help <race>' for more information)? ", ch);
 			break;
 		}
@@ -2023,7 +2021,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			return;
 		}
 	
-		do_help(ch, "'CLASS HELP'");
+		dofun("help", ch, "'CLASS HELP'");
 
 		char_puts("The following classes are available:\n", ch);
 		for (cl = 0; cl < classes.nused; cl++) {
@@ -2044,9 +2042,9 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		if (!str_prefix(arg, "help")) {
 			if (argument[0] == '\0')
-				do_help(ch, "'CLASS HELP'");
+				dofun("help", ch, "'CLASS HELP'");
 			else
-				do_help(ch, argument);
+				dofun("help", ch, argument);
 			char_puts("What is your class ('help <class>' for more information)? ", ch);
 			return;
 		}
@@ -2067,7 +2065,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		ch->pcdata->points += CLASS(cl)->points;
 		act("You are now $t.", ch, CLASS(cl)->name, NULL, TO_CHAR);
 
-		do_help(ch, "STATS");
+		dofun("help", ch, "STATS");
 		char_puts("Now rolling for your stats (10-20+).\n", ch);
 		char_puts("You don't get many trains, so choose well.\n", ch);
 
@@ -2091,7 +2089,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	case CON_ACCEPT_STATS:
 		switch(argument[0]) {
 		case 'H': case 'h': case '?':
-			do_help(ch, "STATS");
+			dofun("help", ch, "STATS");
 			break;
 		case 'y': case 'Y':	
 			for (i = 0; i < MAX_STATS; i++)
@@ -2176,7 +2174,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		if (!ch->endur) {
 			switch(argument[0]) {
 			case 'H': case 'h': case '?': 
-				do_help(ch, "ALIGNMENT");
+				dofun("help", ch, "ALIGNMENT");
 				return;
 				/* NOTREACHED */
 
@@ -2214,7 +2212,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 	case CON_CREATE_DONE:
 		log("%s@%s new player.", ch->name, d->host);
-		do_help(ch, "MOTD");
+		dofun("help", ch, "MOTD");
 		char_puts("[Hit Return to continue]", ch);
 		d->connected = CON_READ_MOTD;
 		break;
@@ -2254,8 +2252,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 	case CON_READ_IMOTD:
 		if (IS_IMMORTAL(ch))
-			do_help(ch, "IMOTD");
-		do_help(ch, "MOTD");
+			dofun("help", ch, "IMOTD");
+		dofun("help", ch, "MOTD");
 		d->connected = CON_READ_MOTD;
 
 		/* FALLTHRU */
@@ -2331,7 +2329,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				ch->perm_stat[STAT_WIS] = get_max_train(ch, STAT_WIS);
 				ch->perm_stat[STAT_INT] = get_max_train(ch, STAT_INT);
 				ch->perm_stat[STAT_DEX] = get_max_train(ch, STAT_DEX);
-				do_remove(ch, "all");
+				dofun("remove", ch, "all");
 				advance(ch, i-1);
 		 		ch->perm_stat[STAT_CON] = con;
 		 		ch->perm_stat[STAT_WIS] = wis;
@@ -2355,7 +2353,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 			set_title(ch, title_lookup(ch));
 
-			do_outfit(ch, str_empty);
+			dofun("outfit", ch, str_empty);
 
 			obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP), 0), ch);
 			obj_to_char(create_obj(get_obj_index(OBJ_VNUM_NMAP1), 0), ch);
@@ -2368,7 +2366,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 				set_skill_raw(ch, get_weapon_sn(wield),
 					      40, FALSE);
 
-			do_help(ch, "NEWBIE INFO");
+			dofun("help", ch, "NEWBIE INFO");
 			char_to_room(ch, get_room_index(ROOM_VNUM_SCHOOL));
 		}
 		else {
@@ -2401,8 +2399,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		}
 
 		if (!IS_EXTRACTED(ch)) {
-			do_look(ch, "auto");
-			do_unread(ch, "login");  
+			dofun("look", ch, "auto");
+			dofun("unread", ch, "login");  
 		}
 
 		break;

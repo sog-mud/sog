@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.184 1999-06-21 20:11:13 avn Exp $
+ * $Id: fight.c,v 1.185 1999-06-24 16:33:13 fjoe Exp $
  */
 
 /***************************************************************************
@@ -57,24 +57,6 @@
 #include "update.h"
 #include "mob_prog.h"
 #include "obj_prog.h"
-
-DECLARE_DO_FUN(do_crush		);
-DECLARE_DO_FUN(do_emote		);
-DECLARE_DO_FUN(do_dismount	);
-DECLARE_DO_FUN(do_bash		);
-DECLARE_DO_FUN(do_berserk	);
-DECLARE_DO_FUN(do_disarm	);
-DECLARE_DO_FUN(do_kick		);
-DECLARE_DO_FUN(do_dirt		);
-DECLARE_DO_FUN(do_trip		);
-DECLARE_DO_FUN(do_tail		);
-DECLARE_DO_FUN(do_look_in	);
-DECLARE_DO_FUN(do_get		);
-DECLARE_DO_FUN(do_sacrifice	);
-DECLARE_DO_FUN(do_visible	);
-DECLARE_DO_FUN(do_recall	);
-DECLARE_DO_FUN(do_flee		);
-DECLARE_DO_FUN(do_clan		);
 
 /*
  * Local functions.
@@ -223,7 +205,7 @@ void check_assist(CHAR_DATA *ch,CHAR_DATA *victim)
 		    if (!IS_NPC(ch) && IS_NPC(rch)
 		    &&  IS_SET(rch->pIndexData->off_flags, ASSIST_PLAYERS)
 		    &&	rch->level + 6 > victim->level) {
-			do_emote(rch, "screams and attacks!");
+			dofun("emote", rch, "screams and attacks!");
 			multi_hit(rch,victim,TYPE_UNDEFINED);
 			continue;
 		    }
@@ -280,7 +262,7 @@ void check_assist(CHAR_DATA *ch,CHAR_DATA *victim)
 
 			    if (target != NULL)
 			    {
-				do_emote(rch,"screams and attacks!");
+				dofun("emote", rch,"screams and attacks!");
 				multi_hit(rch,target,TYPE_UNDEFINED);
 			    }
 			}
@@ -307,7 +289,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 		|| victim->mount->fighting == ch)
 			victim = victim->mount;
 		else
-			do_dismount(victim->mount, str_empty);
+			dofun("dismount", victim->mount, str_empty);
 	}
 
 	if (IS_AFFECTED(ch,AFF_WEAK_STUN)) {
@@ -528,13 +510,13 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	switch (number_range(0, 7)) {
 	case 0:
 		if (IS_SET(off, OFF_BASH))
-			do_bash(ch, str_empty);
+			dofun("bash", ch, str_empty);
 		break;
 
 	case 1:
 		if (IS_SET(off, OFF_BERSERK)
 		&&  !IS_AFFECTED(ch, AFF_BERSERK))
-			do_berserk(ch, str_empty);
+			dofun("berserk", ch, str_empty);
 		break;
 
 
@@ -543,34 +525,34 @@ void mob_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 		||  IS_SET(act, ACT_WARRIOR | ACT_THIEF)) {
 			if (number_range(0, 1)
 			&&  get_eq_char(victim, WEAR_SECOND_WIELD))
-				do_disarm(ch, "second");
+				dofun("disarm", ch, "second");
 			else if (get_eq_char(victim, WEAR_WIELD))
-				do_disarm(ch, str_empty);
+				dofun("disarm", ch, str_empty);
 		}
 		break;
 
 	case 3:
 		if (IS_SET(off, OFF_KICK))
-			do_kick(ch, str_empty);
+			dofun("kick", ch, str_empty);
 		break;
 
 	case 4:
 		if (IS_SET(off, OFF_DIRT_KICK))
-			do_dirt(ch, str_empty);
+			dofun("dirt", ch, str_empty);
 		break;
 
 	case 5:
 		if (IS_SET(off, OFF_TAIL))
-			do_tail(ch, str_empty);
+			dofun("tail", ch, str_empty);
 		break;
 
 	case 6:
 		if (IS_SET(off, OFF_TRIP))
-			do_trip(ch, str_empty);
+			dofun("trip", ch, str_empty);
 		break;
 	case 7:
 		if (IS_SET(off, OFF_CRUSH))
-			do_crush(ch, str_empty);
+			dofun("crush", ch, str_empty);
 		break;
 	}
 }
@@ -1129,16 +1111,16 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 		}
 
 		if (IS_SET(ch->plr_flags, PLR_AUTOLOOK))
-			do_look_in(ch, "corpse");
+			dofun("examine", ch, "corpse");
 		if (corpse->contains)
 			/* corpse exists and not empty */
 			if (IS_SET(ch->plr_flags, PLR_AUTOLOOT))
-				do_get(ch, "all corpse");
+				dofun("get", ch, "all corpse");
 			else if (IS_SET(ch->plr_flags, PLR_AUTOGOLD))
 				get_gold_corpse(ch, corpse);
 
 		if (IS_SET(ch->plr_flags, PLR_AUTOSAC))
-			do_sacrifice(ch, "corpse");
+			dofun("sacrifice", ch, "corpse");
 	}
 
 	if (vnpc || victim->position == POS_STANDING)
@@ -1249,7 +1231,9 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	/*
 	 * No one in combat can hide, be invis or camoed.
 	 */
-	do_visible(ch, str_empty);
+	if (IS_AFFECTED(ch, AFF_HIDE | AFF_FADE | AFF_CAMOUFLAGE | AFF_BLEND |
+			    AFF_INVIS | AFF_IMP_INVIS))
+		dofun("visible", ch, str_empty);
 
 	/*
 	 * Damage modifiers.
@@ -1404,7 +1388,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	&&  victim->desc == NULL
 	&&  !IS_SET(victim->comm, COMM_NOFLEE)) {
 		if (number_range(0, victim->wait) == 0) {
-			do_flee(victim, str_empty);
+			dofun("flee", victim, str_empty);
 			return TRUE;
 		}
 	}
@@ -1421,7 +1405,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 		     victim->master->in_room != victim->in_room)
 		||  (IS_AFFECTED(victim, AFF_DETECT_FEAR) &&
 		     !IS_SET(act, ACT_NOTRACK))) {
-			do_flee(victim, str_empty);
+			dofun("flee", victim, str_empty);
 			victim->last_fought = NULL;
 		}
 	}
@@ -1430,7 +1414,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	&&  victim->hit > 0
 	&&  (victim->hit <= victim->wimpy || IS_AFFECTED(victim, AFF_DETECT_FEAR))
 	&&  victim->wait < PULSE_VIOLENCE / 2)
-		do_flee(victim, str_empty);
+		dofun("flee", victim, str_empty);
 
 	tail_chain();
 	return TRUE;
@@ -2772,7 +2756,7 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (MOUNTED(ch))
-		do_dismount(ch, str_empty);
+		dofun("dismount", ch, str_empty);
 
 	if ((victim = ch->fighting) == NULL) {
 		if (ch->position == POS_FIGHTING)
@@ -2998,7 +2982,7 @@ void do_dishonor(CHAR_DATA *ch, const char *argument)
 
 		stop_fighting(ch, TRUE);
 		if (MOUNTED(ch))
-			do_dismount(ch,str_empty);
+			dofun("dismount", ch, str_empty);
 
 		check_improve(ch, sn_dishonor, TRUE, 1);
 		return;

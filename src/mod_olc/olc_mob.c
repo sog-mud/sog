@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.40 1999-06-10 18:19:06 fjoe Exp $
+ * $Id: olc_mob.c,v 1.41 1999-06-24 16:33:11 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -31,7 +31,7 @@
 #include <stdlib.h>
 #include "merc.h"
 #include "olc.h"
-#include "db/db.h"
+#include "db.h"
 
 #define EDIT_MOB(ch, mob)	(mob = (MOB_INDEX_DATA*) ch->desc->pEdit)
 
@@ -154,7 +154,7 @@ OLC_FUN(mobed_create)
 	one_argument(argument, arg, sizeof(arg));
 	value = atoi(arg);
 	if (!value) {
-		do_help(ch, "'OLC CREATE'");
+		dofun("help", ch, "'OLC CREATE'");
 		return FALSE;
 	}
 
@@ -187,7 +187,7 @@ OLC_FUN(mobed_create)
 
 	ch->desc->pEdit		= (void*) pMob;
 	OLCED(ch)		= olced_lookup(ED_MOB);
-	touch_area(pArea);
+	TOUCH_AREA(pArea);
 	char_puts("MobEd: Mobile created.\n", ch);
 	return FALSE;
 }
@@ -201,7 +201,7 @@ OLC_FUN(mobed_edit)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		do_help(ch, "'OLC EDIT'");
+		dofun("help", ch, "'OLC EDIT'");
 		return FALSE;
 	}
 
@@ -226,7 +226,8 @@ OLC_FUN(mobed_touch)
 {
 	MOB_INDEX_DATA *pMob;
 	EDIT_MOB(ch, pMob);
-	return touch_vnum(pMob->vnum);
+	TOUCH_VNUM(pMob->vnum);
+	return FALSE;
 }
 
 OLC_FUN(mobed_show)
@@ -243,7 +244,7 @@ OLC_FUN(mobed_show)
 		if (IS_EDIT(ch, ED_MOB))
 			EDIT_MOB(ch, pMob);
 		else {
-			do_help(ch, "'OLC ASHOW'");
+			dofun("help", ch, "'OLC ASHOW'");
 			return FALSE;
 		}
 	}
@@ -420,7 +421,7 @@ OLC_FUN(mobed_list)
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		do_help(ch, "'OLC ALIST'");
+		dofun("help", ch, "'OLC ALIST'");
 		return FALSE;
 	}
 
