@@ -1018,7 +1018,7 @@ Use 'desc edit' to edit your description.
 @eng $n leaves, riding on $N.@rus $n удаляется верхом на $N.~
 @eng $n bites $N!@rus $n кусает $N!~
 @eng morning@rus утро~
-@eng fine@rus нормальное~
+@eng fine@rus отличное~
 @eng You lack the skill to draining touch.
 @rus Тебе не достает мастерства иссушающего касания.
 ~

@@ -47,10 +47,10 @@ horse warhorse~
 Це ж Сивка-бурка!
 ~
 horse~
-ATZ 0 1000 0
-50 300 100d100+10000 0d0+0 15d15+250 smash
+AJKTZbd DFHJNOTUclmt 1000 0
+50 300 100d100+10000 100d100+10000 15d15+250 smash
 -100 -100 -100 -100
-ADINO CD 0 0
+ACDINO CD 0 0
 stand stand male 0
 0 0 huge unknown
 #0
@@ -229,11 +229,11 @@ fountain Y 0
 0 1 1 P
 #47013
 axe battle urukhay~
-@eng Urukhay's battle axe@rus Боевой топор Урукхая~
+@eng {rUrukhay's battle axe{x@rus {rБоевой топор Урукхая{x~
 A large two-bladed battle axe lies on the ground, humming with might.~
 steel~
 weapon BHY AN
-axe 12 10 cleave ADFH
+axe 6 24 cleave DFH
 91 300 100 P
 A
 19 20
@@ -339,7 +339,7 @@ portal Y 0
 0 1 1 P
 E
 river~
-  Small ediies appear for a second, and, next moment,
+Small ediies appear for a second, and, next moment,
 are gone away. Sometimes a large fish swims up, and,
 swallowed a bug, dives back into the deep. You wonder
 what can be down there..
@@ -564,7 +564,7 @@ portal 0 0
 0 0 0 P
 E
 river~
-  Small ediies appear for a second, and, next moment,
+Small ediies appear for a second, and, next moment,
 are gone away. Sometimes a large fish swims up, and,
 swallowed a bug, dives back into the deep. You wonder
 what can be down there..
@@ -2882,7 +2882,7 @@ O 47009 1	* {Wwhite cape of the paladin{x
 O 47010 1	* {Wa blessing{x
 O 47011 1	* {Wamulet of purity{x
 O 47012 0	* {xBarrel of ale
-O 47013 1	* Urukhay's battle axe
+O 47013 1	* {rUrukhay's battle axe{x
 S
 
 #MOBPROGS

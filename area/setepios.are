@@ -85,7 +85,7 @@ bed~
 @eng Big Bed@rus {CБольшая удобная кровать{w~
 wood~
 furniture G P
-B EIJKN EHK DFGHIJ DFGHIJ
+B EIJKN EHK EIJKN EIJKN
 92 1 1 P
 #38002
 armchair~
@@ -143,6 +143,70 @@ unknown~
 armor AIc AK
 1000 1000 1000 1000 0
 0 10 10000 P
+#38007
+robe~
+@eng Black Robe of Setepios@rus Черная ряса Setepiosa~
+@eng Setepios Robe@rus Ряса Setepiosa~
+energy~
+armor CGHIM AD
+1000 1000 1000 1000 0
+92 1 1 P
+A
+19 1000
+A
+18 1000
+A
+12 30000
+A
+13 30000
+#38008
+girdle~
+@eng Dragon belt@rus Пояс из кожи Дракона~
+@eng Dragon belt lies here@rus пояс из кожи дракона~
+soul~
+armor CG AL
+0 0 0 0 0
+92 1 1 P
+#38009
+visitka визитка~
+@eng card of Setepios@rus Карточка Setepiosa~
+@eng Setepos Card@rus Визитная карточка Setepiosa~
+unknown~
+trash R A
+0 0 0 0 0
+0 1 1 P
+#38010
+pie~
+Heras pie~
+Heras pie~
+unknown~
+food AR A
+0 0 0 0 0
+5 1 10000 P
+A
+12 1000
+A
+13 1000
+#38011
+bow Safira~
+{CBow of Safira{x~
+Bow of Safira lies here~
+unknown~
+weapon ACI AN
+exotic 9 3 wrath H
+10 100 4000 P
+A
+19 4
+A
+18 7
+#38012
+pie hera~
+Heras POT pie~
+Heras Pot pie lies here.~
+unknown~
+food R A
+CE CE 0 A 0
+0 10 10 P
 #38095
 {rБольшой пионерский БАРАБАН{w~
 @eng drum@rus барабан~

@@ -700,6 +700,10 @@ To the south you stare into darkness.
 ~
 ~
 Z -1 9024
+D3
+~
+~
+Z 0 9039
 S
 #9026
 An intersection of passages~
@@ -930,10 +934,9 @@ To the north, you spy a small room
 ~
 Z -1 9040
 D1
-To the east, you see a quadruple junction
 ~
 ~
-Z -1 9025
+Z 0 9025
 D2
 To the south you see a small room
 ~

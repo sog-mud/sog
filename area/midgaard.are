@@ -516,6 +516,8 @@ FJNU 0 0 C
 stand stand female 0
 0 0 medium unknown
 M greet 3025 100~
+M bribe 3028 1000~
+M bribe 3027 1~
 #3066
 cat~
 an alley cat~
@@ -8247,6 +8249,14 @@ if rand 5
 yell I want a vacation!
 endif
 endif
+~
+#3027
+say Thank you for your kindness, $N.
+~
+#3028
+emote puts the coins into his beltpouch.
+thank $n
+say Sorry, I haven't got coppers for the exchange ;)
 ~
 #0
 

@@ -153,6 +153,7 @@ stand stand none 100000
 F for AHMV
 F par ABCDEFGHIJK
 M speech 33103 kill him~
+I 97
 #33201
 Diam~
 Diam~
@@ -193,8 +194,6 @@ ages~
 wand GT AO
 100 100 100 'pass door' 0
 50 1000 1000000 P
-A
-12 20000
 A
 13 100
 A
@@ -1638,8 +1637,6 @@ M 0 33104 1 33101 1	* {rChaos Demon{x (Entrance to the ruined city of chaos.)
 M 0 33200 1 33131 1	* Bell (Home , Sweet Home)
 M 0 33201 1 33131 1	* Diam (Home , Sweet Home)
 O 0 33110 0 33131	* The meaning of life (Home , Sweet Home)
-O 0 33102 0 33131	* {WMillennium{x (Home , Sweet Home)
-O 0 33200 0 33131	* satanic scroll (Home , Sweet Home)
 M 0 33103 1 33160 1	* professor Preobrazhenskii ()
 M 0 33105 1 33183 1	* Elder Warlock of Chaos (Science Magic)
 S
