@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.180 1999-04-16 20:49:43 fjoe Exp $
+ * $Id: merc.h,v 1.181 1999-04-17 06:56:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -450,6 +450,7 @@ where_t *where_lookup(flag32_t where);
 #define ACT_NOTRACK		(ee)
 #define ACT_CLAN_GUARD		(ff)
 #define ACT_SUMMONED		(gg)		/* summoned (golem etc.)*/
+#define ACT_SAGE		(hh)		/* sage (Otho etc.)	*/
 
 /* damage classes */
 #define DAM_NONE		0
@@ -1590,12 +1591,12 @@ struct area_data
 	int		max_vnum;
 	bool		empty;
 	int		clan;
-	const char *	builders;	/* OLC */ /* Listing of */
-	int		vnum;		/* OLC */ /* Area vnum  */
-	flag32_t	flags;		/* OLC */
-	int		security;	/* OLC */ /* Value 1-9  */
+	const char *	builders;	/* name list of builders	*/
+	int		vnum;		/* area vnum			*/
+	flag32_t	flags;
+	int		security;	/* area security (1..9)		*/
 	uint		count;
-	mlstring *	resetmsg;
+	mlstring *	resetmsg;	/* reset message		*/
 };
 
 struct room_history_data
@@ -1782,11 +1783,6 @@ void SET_ORG_RACE(CHAR_DATA *ch, int race);
 #define IS_DRUNK(ch)	(IS_NPC(ch)  ? \
 			      FALSE : ch->pcdata->condition[COND_DRUNK] > 10)
 
-#define IS_GOLEM(ch)		(IS_NPC(ch) &&\
-				(ch->pIndexData->vnum==MOB_VNUM_LESSER_GOLEM \
-				 || ch->pIndexData->vnum==MOB_VNUM_STONE_GOLEM \
-				 || ch->pIndexData->vnum==MOB_VNUM_IRON_GOLEM \
-				 || ch->pIndexData->vnum==MOB_VNUM_ADAMANTITE_GOLEM))
 #define JUST_KILLED(ch)		(ch->last_death_time >= current_time)
 #define CAN_FLEE(ch, cl)	((cl)->death_limit < 0 || \
 			         (ch)->level < MIN_PK_LEVEL)

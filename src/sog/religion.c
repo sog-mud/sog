@@ -1,5 +1,5 @@
 /*
- * $Id: religion.c,v 1.4 1998-11-18 05:20:40 fjoe Exp $
+ * $Id: religion.c,v 1.5 1999-04-17 06:56:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -42,6 +42,25 @@
 
 #include <stdio.h>
 #include "merc.h"
+
+/* vnums for tattoos */
+#define OBJ_VNUM_TATTOO_ATUM_RA 	51
+#define OBJ_VNUM_TATTOO_ZEUS		52
+#define OBJ_VNUM_TATTOO_SIEBELE 	53
+#define OBJ_VNUM_TATTOO_SHAMASH		54
+#define OBJ_VNUM_TATTOO_AHURAMAZDA	55
+#define OBJ_VNUM_TATTOO_EHRUMEN 	56
+#define OBJ_VNUM_TATTOO_DEIMOS		57
+#define OBJ_VNUM_TATTOO_PHOBOS		58
+#define OBJ_VNUM_TATTOO_ODIN		59
+#define OBJ_VNUM_TATTOO_TESHUB		60
+#define OBJ_VNUM_TATTOO_ARES		61
+#define OBJ_VNUM_TATTOO_GOKTENGRI	62
+#define OBJ_VNUM_TATTOO_HERA		63
+#define OBJ_VNUM_TATTOO_VENUS		64
+#define OBJ_VNUM_TATTOO_SETH		65
+#define OBJ_VNUM_TATTOO_ENKI		66
+#define OBJ_VNUM_TATTOO_EROS		67
 
 /* God's Name, name of religion, tattoo vnum  */
 const struct religion_type religion_table [] =

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.c,v 1.3 1999-04-16 15:52:24 fjoe Exp $
+ * $Id: hometown.c,v 1.4 1999-04-17 06:56:39 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -143,6 +143,11 @@ ROOM_INDEX_DATA *get_recall(CHAR_DATA *ch)
 	if (!IS_NPC(ch) && ch->pcdata->homepoint)
 		return ch->pcdata->homepoint;
 	return get_hometown(ch->hometown)->recall[NALIGN(ch)];
+}
+
+OBJ_INDEX_DATA *get_map(CHAR_DATA *ch)
+{
+	return get_hometown(ch->hometown)->map[NALIGN(ch)];
 }
 
 ROOM_INDEX_DATA *get_random_recall(void)

@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.58 1999-04-16 15:52:21 fjoe Exp $
+ * $Id: skills.c,v 1.59 1999-04-17 06:56:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -733,7 +733,18 @@ int get_skill(CHAR_DATA *ch, int sn)
 
 	if (!IS_NPC(ch) && ch->pcdata->condition[COND_DRUNK]  > 10)
 		skill = 9 * skill / 10;
-	return URANGE(0, skill, 100);
+	skill = URANGE(0, skill, 100);
+
+	if (skill != 0 && !IS_NPC(ch)) {
+		class_t *cl;
+		cskill_t *csk;
+
+		if ((cl = class_lookup(ch->class)) != NULL
+		&&  (csk = cskill_lookup(cl, sn)) != NULL)
+			skill = skill * csk->mod / 100;
+	}
+
+	return skill;
 }
 
 /*

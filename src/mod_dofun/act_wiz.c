@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.139 1999-04-16 15:52:16 fjoe Exp $
+ * $Id: act_wiz.c,v 1.140 1999-04-17 06:56:33 fjoe Exp $
  */
 
 /***************************************************************************
@@ -335,7 +335,6 @@ void do_outfit(CHAR_DATA *ch, const char *argument)
 	/* do the weapon thing */
 	if ((obj = get_eq_char(ch,WEAR_WIELD)) == NULL) {
 		sn = 0; 
-		vnum = OBJ_VNUM_SCHOOL_SWORD; /* just in case! */
 		vnum = cl->weapon;
 		obj = create_obj(get_obj_index(vnum),0);
 		obj->condition = 100;

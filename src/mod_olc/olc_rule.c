@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_rule.c,v 1.7 1999-04-16 15:52:25 fjoe Exp $
+ * $Id: olc_rule.c,v 1.8 1999-04-17 06:56:39 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -105,8 +105,8 @@ olc_cmd_t olc_cmds_impl[] =
 	{ "arg",		ruleed_arg			},
 	{ "add",		ruleed_add			},
 	{ "del",		ruleed_del			},
-	{ "rule_delet",		olced_spell_out			},
-	{ "rule_delete",	ruleed_delete,	&rops_impl	},
+	{ "delete_rul",		olced_spell_out			},
+	{ "delete_rule",	ruleed_delete,	&rops_impl	},
 
 	{ "commands",		show_commands			},
 	{ NULL }

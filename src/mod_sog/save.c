@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.112 1999-04-16 15:52:21 fjoe Exp $
+ * $Id: save.c,v 1.113 1999-04-17 06:56:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1112,12 +1112,12 @@ fread_pet(CHAR_DATA * ch, FILE * fp)
 		vnum = fread_number(fp);
 		if (get_mob_index(vnum) == NULL) {
 			bug("Fread_pet: bad vnum %d.", vnum);
-			pet = create_mob(get_mob_index(MOB_VNUM_FIDO));
+			pet = create_mob(get_mob_index(MOB_VNUM_KITTEN));
 		} else
 			pet = create_mob(get_mob_index(vnum));
 	} else {
 		bug("Fread_pet: no vnum in file.", 0);
-		pet = create_mob(get_mob_index(MOB_VNUM_FIDO));
+		pet = create_mob(get_mob_index(MOB_VNUM_KITTEN));
 	}
 
 	for (;;) {

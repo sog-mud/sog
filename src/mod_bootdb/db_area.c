@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.35 1999-04-16 15:52:23 fjoe Exp $
+ * $Id: db_area.c,v 1.36 1999-04-17 06:56:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -178,7 +178,6 @@ DBLOAD_FUN(load_areadata)
 	pArea->min_level	= 0;
 	pArea->max_level	= 0;          
 	pArea->resetmsg		= NULL;
-/*  pArea->recall       = ROOM_VNUM_TEMPLE;        ROM OLC */
  
 	for (; ;) {
 		word   = feof(fp) ? "End" : fread_word(fp);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.135 1999-04-16 15:52:15 fjoe Exp $
+ * $Id: act_obj.c,v 1.136 1999-04-17 06:56:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -291,8 +291,9 @@ void do_get(CHAR_DATA * ch, const char *argument)
 			if ((arg1[3] == '\0' || is_name(&arg1[4], obj->name))
 			    && can_see_obj(ch, obj)) {
 				found = TRUE;
-				if (container->pIndexData->vnum == OBJ_VNUM_PIT
-				    && !IS_IMMORTAL(ch)) {
+				if (IS_SET(container->pIndexData->extra_flags,
+					   ITEM_PIT)
+				&&  !IS_IMMORTAL(ch)) {
 					act_puts("Don't be so greedy!",
 						 ch, NULL, NULL, TO_CHAR,
 						 POS_DEAD);
@@ -325,12 +326,13 @@ bool put_obj(CHAR_DATA *ch, OBJ_DATA *container, OBJ_DATA *obj, int* count)
 		return FALSE;
 	}
 
-	if (container->pIndexData->vnum == OBJ_VNUM_PIT
-	&&  !CAN_WEAR(obj, ITEM_TAKE))
+	if (IS_SET(container->pIndexData->extra_flags, ITEM_PIT)
+	&&  !CAN_WEAR(obj, ITEM_TAKE)) {
 		if (obj->timer)
 			SET_BIT(obj->extra_flags, ITEM_HAD_TIMER);
 		else
 			obj->timer = number_range(100, 200);
+	}
 
 	if (obj->pIndexData->limit != -1
 	||  IS_SET(obj->pIndexData->extra_flags, ITEM_QUEST)) {

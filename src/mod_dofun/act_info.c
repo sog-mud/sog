@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.224 1999-04-16 15:52:14 fjoe Exp $
+ * $Id: act_info.c,v 1.225 1999-04-17 06:56:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2750,7 +2750,7 @@ void do_identify(CHAR_DATA *ch, const char *argument)
 	}
 
 	for (rch = ch->in_room->people; rch != NULL; rch = rch->next_in_room)
-		if (IS_NPC(rch) && rch->pIndexData->vnum == MOB_VNUM_SAGE)
+		if (IS_NPC(rch) && IS_SET(rch->pIndexData->act, ACT_SAGE))
 			break;
 
 	if (!rch) {
@@ -2764,7 +2764,7 @@ void do_identify(CHAR_DATA *ch, const char *argument)
 	else if (ch->gold < 1) {
 		act("$n resumes to identify by looking at $p.",
 		       rch, obj, 0, TO_ROOM);
-		char_puts(" You need at least 1 gold.\n", ch);
+		char_puts("You need at least 1 gold.\n", ch);
 		return;
 	}
 	else {

@@ -41,14 +41,14 @@ Skill 'caltrops' 36 1 100
 Skill 'counter' 28 1 100
 Skill 'critical strike' 62 1 100
 Skill 'disarm' 21 1 100
-Skill 'dodge' 15 1 120
+Skill 'dodge' 15 1 240
 Skill 'enchant sword' 42 1 100
 Skill 'enhanced damage' 8 1 100
 Skill 'explode' 46 1 100
 Skill 'hand to hand' 12 1 100
 Skill 'hara kiri' 25 1 100
 Skill 'kick' 2 1 100
-Skill 'parry' 1 1 120
+Skill 'parry' 1 1 240
 Skill 'hand block' 20 1 100
 Skill 'rescue' 23 1 100
 Skill 'shield cleave' 26 1 100

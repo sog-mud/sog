@@ -34,12 +34,12 @@ Skill 'concentrate' 59 1 100
 Skill 'counter' 28 1 100
 Skill 'dirt kicking' 8 1 100
 Skill 'disarm' 20 1 100
-Skill 'dodge' 13 1 120
+Skill 'dodge' 13 1 240
 Skill 'enhanced damage' 3 1 100
 Skill 'hand to hand' 9 1 100
 Skill 'hand block' 15 1 100
 Skill 'kick' 5 1 100
-Skill 'parry' 1 1 120
+Skill 'parry' 1 1 240
 Skill 'rescue' 1 1 100
 Skill 'shield cleave' 26 1 100
 Skill 'smithing' 50 1 100

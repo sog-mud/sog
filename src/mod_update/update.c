@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.119 1999-04-16 15:52:22 fjoe Exp $
+ * $Id: update.c,v 1.120 1999-04-17 06:56:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1601,7 +1601,7 @@ void update_one_obj(OBJ_DATA *obj)
 		}
 
 	if (obj->in_room && (rch = obj->in_room->people)
-	&&  !(obj->in_obj && IS_SET(obj->pIndexData->extra_flags, ITEM_PIT)))
+	&&  !IS_SET(obj->pIndexData->extra_flags, ITEM_PIT))
 		act(message, rch, obj, NULL, TO_ALL);
 
 	if (obj->pIndexData->item_type == ITEM_CORPSE_PC && obj->contains)

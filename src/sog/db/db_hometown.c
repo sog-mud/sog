@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_hometown.c,v 1.1 1999-03-10 17:30:35 fjoe Exp $
+ * $Id: db_hometown.c,v 1.2 1999-04-17 06:56:39 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -43,6 +43,7 @@ DBDATA db_hometowns = { dbfun_hometowns };
 
 static void fread_altar(hometown_t *h, FILE *fp);
 static void fread_recall(hometown_t *h, FILE *fp);
+static void fread_map(hometown_t *h, FILE *fp);
 static bool check_hometown(hometown_t *h);
 
 DBLOAD_FUN(load_hometown)
@@ -66,6 +67,12 @@ DBLOAD_FUN(load_hometown)
 				if (!check_hometown(h))
 					hometowns.nused--;
 				return;
+			}
+			break;
+		case 'M':
+			if (!str_cmp(word, "Map")) {
+				fread_map(h, fp);
+				fMatch = TRUE;
 			}
 			break;
 		case 'R':
@@ -125,6 +132,28 @@ static void fread_recall(hometown_t *h, FILE *fp)
 	}
 	else 
 		h->recall[anum] = room;
+}
+
+static void fread_map(hometown_t *h, FILE *fp)
+{
+	const char *align = fread_word(fp);
+	int anum;
+	int vnum;
+	OBJ_INDEX_DATA *obj;
+
+	if ((vnum = fread_number(fp)) == 0)
+		return;
+
+	obj = get_obj_index(vnum);
+	anum = flag_value(align_names, align);
+	if (anum < 0) {
+		int i;
+
+		for (i = 0; i < MAX_ANUM; i++)
+			h->map[i] = obj;
+	}
+	else 
+		h->map[anum] = obj;
 }
 
 static bool check_hometown(hometown_t *h)

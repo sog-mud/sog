@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.173 1999-04-16 15:52:22 fjoe Exp $
+ * $Id: comm.c,v 1.174 1999-04-17 06:56:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2288,6 +2288,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 		if (ch->level == 0) {
 			OBJ_DATA *wield;
+			OBJ_INDEX_DATA *map;
 
 			ch->level	= 1;
 			ch->exp		= base_exp(ch);
@@ -2306,20 +2307,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 			obj_to_char(create_obj(get_obj_index(OBJ_VNUM_NMAP1), 0), ch);
 			obj_to_char(create_obj(get_obj_index(OBJ_VNUM_NMAP2), 0), ch);
 
-			if (ch->hometown == 0 && IS_EVIL(ch))
-				obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP_SM), 0), ch);
-
-			if (ch->hometown == 1)
-				obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP_NT), 0), ch);
-
-			if (ch->hometown == 3)
-				obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP_OFCOL), 0), ch);
-
-			if (ch->hometown == 2)
-				obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP_TITAN), 0), ch);
-
-			if (ch->hometown == 4)
-				obj_to_char(create_obj(get_obj_index(OBJ_VNUM_MAP_OLD), 0), ch);
+			if ((map = get_map(ch)) != NULL)
+				obj_to_char(create_obj(map, 0), ch);
 
 			if ((wield = get_eq_char(ch, WEAR_WIELD)))
 				set_skill_raw(ch, get_weapon_sn(wield),

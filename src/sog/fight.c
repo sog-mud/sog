@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.160 1999-04-16 15:52:16 fjoe Exp $
+ * $Id: fight.c,v 1.161 1999-04-17 06:56:34 fjoe Exp $
  */
 
 /***************************************************************************
@@ -816,16 +816,8 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 	 */
 	if ((sk2 = get_skill(ch, gsn_enhanced_damage))
 	&&  (diceroll = number_percent()) <= sk2) {
-		class_t *cl;
-		cskill_t *csk;
-		int mul = 100;
-
 		check_improve(ch, gsn_enhanced_damage, TRUE, 6);
-
-		if ((cl = class_lookup(ch->class)) != NULL
-		&&  (csk = cskill_lookup(cl, gsn_enhanced_damage)))
-			mul = csk->mod;
-		dam += dam * mul / 100;
+		dam += dam * sk2 / 100;
 	}
 
 	if (sn == gsn_sword
@@ -1575,24 +1567,17 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	if (IS_NPC(victim))
 		chance	= UMIN(35, victim->level);
 	else {
-		class_t *vcl;
-		cskill_t *vcsk;
-
 		if (get_eq_char(victim, WEAR_WIELD) == NULL)
 			return FALSE;
 
 		chance = get_skill(victim, gsn_parry) / 2;
-		if ((vcl = class_lookup(victim->class)) != NULL
-		&&  (vcsk = cskill_lookup(vcl, gsn_parry))) 
-			chance = chance * vcsk->mod / 100;
 	}
 
 	if (check_forest(victim) == FOREST_DEFENCE
-	 && (number_percent() < get_skill(victim, gsn_forest_fighting))) {
+	&&  (number_percent() < get_skill(victim, gsn_forest_fighting))) {
 		chance = chance * 120 / 100;
 		check_improve (victim, gsn_forest_fighting, TRUE, 7);
 	}
-
 
 	if (number_percent() >= chance + LEVEL(victim) - LEVEL(ch))
 		return FALSE;
@@ -1602,7 +1587,7 @@ bool check_parry(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 
 	check_weapon_damage(ch, victim, loc);
 
-	if (number_percent() >  get_skill(victim,gsn_parry)) {
+	if (number_percent() > chance) {
 		/* size and weight */
 		chance += ch->carry_weight / 25;
 		chance -= victim->carry_weight / 20;
@@ -1695,16 +1680,9 @@ bool check_block(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 	if (IS_NPC(victim))
 		chance = 10;
 	else {
-		class_t *vcl;
-		cskill_t *vcsk;
-
-		if (get_skill(victim, gsn_shield_block) <= 1)
-			return FALSE;
 		chance = get_skill(victim, gsn_shield_block) / 2;
-
-		if ((vcl = class_lookup(victim->class)) != NULL
-		&&  (vcsk = cskill_lookup(vcl, gsn_shield_block))) 
-			chance = chance * vcsk->mod / 100;
+		if (chance <= 1)
+			return FALSE;
 	}	
 
 	if (check_forest(victim) == FOREST_DEFENCE 
@@ -1775,16 +1753,9 @@ bool check_dodge(CHAR_DATA *ch, CHAR_DATA *victim)
 	if (IS_NPC(victim))
 		 chance  = UMIN(30, victim->level);
 	else {
-		class_t *vcl;
-		cskill_t *vcsk;
-
 		chance  = get_skill(victim, gsn_dodge) / 2;
 		/* chance for high dex. */
 		chance += 2 * (get_curr_stat(victim,STAT_DEX) - 20);
-
-		if ((vcl = class_lookup(ch->class)) != NULL
-		&&  (vcsk = cskill_lookup(vcl, gsn_dodge))) 
-			chance = chance * vcsk->mod / 100;
 	}
 	
 	if (check_forest(victim) == FOREST_DEFENCE 
