@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.35 2003-09-30 01:24:58 fjoe Exp $
+ * $Id: martial_art.c,v 1.114.2.36 2003-09-30 01:36:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -57,8 +57,6 @@ DECLARE_DO_FUN(do_sit		);
 DECLARE_DO_FUN(do_bash_door	);
 DECLARE_DO_FUN(do_dismount	);
 
-static		bool	check_yell	(CHAR_DATA *ch, CHAR_DATA *victim,
-					 bool fighting);
 void			one_hit		(CHAR_DATA *ch, CHAR_DATA *victim,
 					 int dt, int loc); 
 void			set_fighting	(CHAR_DATA *ch, CHAR_DATA *victim);
@@ -3965,10 +3963,3 @@ do_hunters_trophy(CHAR_DATA *ch, const char *argument)
 
 	extract_obj(corpse, 0);
 }
-
-static bool check_yell(CHAR_DATA *ch, CHAR_DATA *victim, bool fighting)
-{
-	return (!IS_NPC(ch) && !IS_NPC(victim) &&
-		victim->position > POS_STUNNED && !fighting);
-}
-
