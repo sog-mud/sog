@@ -3261,7 +3261,7 @@ Merc Industries
 G male
 #3352
 mace standard merc стандартная палица~
-@eng a standard issue mace@rus стандартная палица~
+@eng a standard issue mace@rus ~~стандартная~~ ~~палица~~~
 @eng You see a standard issue mace here.@rus Вы видите стандартную палицу (mace).~
 iron~
 weapon G AN
@@ -4537,7 +4537,7 @@ map 0 A
 0 0 0 0 0
 5 5 1500 P
 E
-underdark~
+map underdark~
 *** The map of UNDERDARK ***
  
 Note: Not all doors and passes shown at this map - try to find them!

@@ -263,6 +263,8 @@ weapon BEIM AN
 dagger 7 7 pierce H
 50 50 2500 P
 A
+-255 20
+A
 18 3
 A
 19 3
@@ -329,7 +331,7 @@ the huge broadsword of Destruction~
 A powerful weapon of destruction lies here, waiting to be wielded.~
 adamantite~
 weapon ABM AN
-sword 8 7 slice C
+sword 10 7 slice C
 55 350 10000 P
 A
 13 25
@@ -375,6 +377,8 @@ armor AB AE
 8 8 8 8 8
 50 70 8000 P
 A
+8 1
+A
 19 4
 A
 2 -2
@@ -405,6 +409,8 @@ armor AB AG
 8 8 8 8 8
 50 50 8000 P
 A
+-276 30
+A
 19 5
 A
 2 -2
@@ -419,6 +425,12 @@ wool~
 armor B AD
 8 8 8 8 8
 45 50 8000 P
+F
+S 'cure poison' 80 A
+F
+S 'cure disease' 80 A
+F
+S 'cure blindness' 100 A
 A
 3 3
 A
@@ -432,7 +444,7 @@ the Hammer of Power~
 A Huge hammer draws your attention as it radiates power.~
 adamantite~
 weapon 0 AN
-mace 7 7 suction 0
+mace 8 7 suction F
 45 290 8000 P
 A
 1 4
@@ -477,6 +489,8 @@ copper~
 armor ABJK AE
 10 10 10 10 10
 50 70 8000 P
+F
+R 0 0 E
 A
 18 1
 A
@@ -493,9 +507,9 @@ armor ABJK AF
 8 9 8 10 10
 50 80 8000 P
 A
-18 3
+19 6
 A
-19 3
+18 3
 A
 13 15
 G none
@@ -507,6 +521,8 @@ copper~
 armor ABJK AG
 8 8 8 8 8
 50 80 8000 P
+A
+-306 25
 A
 18 4
 A
@@ -522,6 +538,8 @@ copper~
 armor A AC
 6 7 5 0 0
 50 20 8000 P
+F
+R 0 0 B
 A
 1 2
 A
@@ -549,6 +567,8 @@ armor B AM
 7 7 7 7 7
 45 40 8000 P
 A
+13 50
+A
 18 1
 A
 19 3
@@ -563,6 +583,8 @@ flesh~
 armor AJ AH
 5 5 5 5 5
 45 50 8000 P
+A
+13 20
 A
 19 3
 A
@@ -591,6 +613,8 @@ fur~
 armor A AC
 9 8 9 5 5
 40 150 9000 P
+F
+S 'camouflage' 50 A
 A
 2 2
 A
@@ -2258,23 +2282,19 @@ S
 O 13001 3	* the Barbed Dagger of Thiulor
 O 13002 2	* the cloak of stealth
 O 13003 2	* a Spy Mask
-O 13004 4	* the Banner of the Castle of Giants
 O 13005 4	* the Ring of Glory
 O 13006 1	* the huge broadsword of Destruction
-O 13007 6	* a small spiked ring
 O 13008 3	* a suit of spiked adamantite platemail
 O 13009 3	* a spiked adamantite battle helm
 O 13010 3	* some spiked adamantite battle leggings
 O 13011 3	* spiked adamantite battle boots
 O 13012 4	* Robe of the Healer
 O 13013 4	* the Hammer of Power
-O 13014 4	* the Captain's Signet Ring
-O 13015 3	* a suit of fine copper chainmail
 O 13016 3	* a fine copper helmet
 O 13017 3	* a set of fine copper leggings
 O 13018 3	* a pair of fine copper boots
 O 13019 4	* the Badge of Order
-O 13021 8	* a fine copper bracelet
+O 13021 2	* a fine copper bracelet
 O 13022 3	* some bloody gloves of elven skin
 O 13023 2	* Skin of the Giant Lord
 O 13024 6	* fine fur cloak

@@ -1,6 +1,5 @@
 #AREADATA
 Name Heaven~
-Builders arwen~
 VNUMs 15000 15199
 Credits abrazak~
 Security 7
@@ -381,13 +380,15 @@ drink CGRYa AOP
 1 0 0 P
 G none
 #15026
-no name~
-~
-~
+shtuchka~
+shtuchka~
+shtuchka~
 unknown~
-trash 0 0
-0 0 0 0 0
-0 0 0 P
+weapon 0 AN
+exotic 0 0 none 0
+10 0 0 P
+F
+S 'vampire' 100 A
 G none
 #15027
 elephant~

@@ -5,7 +5,7 @@ Credits Chronos~
 Security 9
 LevelRange 90 100
 Flags noquest update_always~
-Clan Ruler~
+Clan Rulers~
 End
 
 #MOBILES
@@ -29,7 +29,7 @@ stand stand male 5000
 0 0 medium unknown
 M grall 95100 100~
 M exall 95101 0~
-C Ruler~
+C Rulers~
 #95101
 healer cabal ruler~
 ~~лекарь~~~
@@ -48,7 +48,7 @@ ABWa DFHJVZ 0 0
 CEFNU AB C S
 stand stand male 0
 0 0 medium unknown
-C Ruler~
+C Rulers~
 #0
 
 #OBJECTS
@@ -227,7 +227,7 @@ S
 
 #MOBPROGS
 #95100
-if clan $n ruler 
+if clan $n rulers 
 bow $n
 end
 endif
@@ -249,7 +249,7 @@ clan We are attacked by $n!
 mob attack $n
 ~
 #95101
-if clan $n ruler
+if clan $n rulers
 or isimmort $n
 mob transfer $n 95101
 end

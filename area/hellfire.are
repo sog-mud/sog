@@ -336,7 +336,7 @@ fountain фонтан~
 @eng A small white fountain gushes forth here.@rus В центре площади стоит фонтан (fountain) наполненый кристально чистой водой.~
 marble~
 fountain A A
-1000000 1000000 'amontillado' 0 0
+2147483647 2147483647 'beer' 0 0
 0 1000000 0 P
 G none
 #18711
@@ -1621,6 +1621,8 @@ S
 #RESETS
 O 0 18710 0 18704	* town fountain (Town square)
 M 0 18703 1 18704 1	* ~староста~ ~Кейн~ (Town square)
+O 0 18710 0 18704	* town fountain (Town square)
+O 0 18710 0 18704	* town fountain (Town square)
 O 0 18710 0 18704	* town fountain (Town square)
 M 0 18704 1 18705 1	* healer Pepin (Drugstone)
 G 0 18703 0		*	potion of healing

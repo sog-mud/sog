@@ -6,7 +6,7 @@ Credits Chronos~
 Security 1
 LevelRange 90 100
 Flags noquest update_always~
-Clan Knight~
+Clan Knights~
 End
 
 #MOBILES
@@ -25,7 +25,7 @@ ABQVae DFH 1000 0
 FHIK ABC D 0
 stand stand male 1000
 0 0 medium unknown
-C Knight~
+C Knights~
 #95201
 knight protector guard~
 the protector~
@@ -43,7 +43,7 @@ stand stand male 5000
 0 0 medium unknown
 M grall 95200 100~
 M exall 95201 0~
-C Knight~
+C Knights~
 #95202
 knight shopkeeper mount~
 the stable keeper~
@@ -106,6 +106,10 @@ pegasus mount~
 the pegasus~
 A pegasus is flying here.
 ~
+@rus Замечательная белая лошадка с изящными копытцами
+грациозно изогнутой шейкой, трепещущими ноздрями и 
+большими белыми крыльями. Пегас косится на тебя недоверчиво
+и печально вздыхает.
 ~
 horse~
 ABIWZ BDFHJPTUV 1000 0
@@ -119,6 +123,11 @@ mount dragon golden~
 the golden dragon~
 A golden dragon is flying here.
 ~
+@rus Огромная золотая гора с четким рельефом мощных мускулов,
+жесткими перепонками могучих крыльев и сверкающим
+драгоценными каменьями хвостом. Ты утопаешь в бесконечной 
+мудрости его глаз, не в силах выдержать груз тысячелетий,
+мерцающих в этой бездне...
 ~
 horse~
 ABIWZ DFHJTUValt 1000 0
@@ -178,7 +187,7 @@ G none
 #95205
 fountain knight~
 @eng fountain@rus фонтан~
-@eng Marble fountain depicting a noble Knight who tears Invader's mouth stands here.@rus Мраморная скульптура Рыцаря, разрывающего пасть Захватчика.~
+@eng Marble fountain depicting a noble Knight who tears Invaders mouth.@rus Мраморная скульптура Рыцаря, разрывающего пасть Захватчика.~
 marble~
 fountain R 0
 100000 100000 'mead' 0 0
@@ -230,7 +239,7 @@ the other one is on the west wall.
 D0
 ~
 ~
-DZ 0 95207
+Z 0 95219
 D2
 ~
 ~
@@ -329,7 +338,7 @@ your duties call you for struggle with the evil ones!
 D2
 ~
 ~
-DZ 0 95200
+Z 0 95221
 D4
 ~
 ~
@@ -448,6 +457,86 @@ D1
 ~
 Z 0 95214
 S
+#95219
+@eng Gallery of Valour@rus Галерея Славы~
+@eng You go throu the long gallery, enlightened by a lot of candels.
+You see the small winter garden lying towards north. South
+leaves the entrance into the castle. All around you see many
+swords, maces and lances hanging along the east and west walls.
+@rus Ты идешь сквозь длинную галерею, освещенную множеством свечей.
+На севере ты видишь выход в маленький сад. Южнее виднеется
+выход из замка. Оглядываясь вокруг, ты видишь
+множество мечей, булав и алебард, висящих на стенах.
+~
+0 DKX inside
+D0
+~
+~
+Z 0 95220
+D2
+~
+~
+Z 0 95200
+O knight~
+S
+#95220
+@eng Gallery of Valour@rus Галерея Славы~
+@eng You go throu the long gallery, enlightened by a lot of candels.
+You see the small winter garden lying towards north. South
+leaves the entrance into the castle. All around you see many
+swords, maces and lances hanging along the east and west walls.
+@rus Ты идешь сквозь длинную галерею, освещенную множеством свечей.
+На севере ты видишь выход в маленький сад. Южнее виднеется
+выход из замка. Оглядываясь вокруг, ты видишь
+множество мечей, булав и алебард, висящих на стенах.
+~
+0 DKX inside
+D0
+~
+~
+Z 0 95221
+D2
+~
+~
+Z 0 95219
+O knight~
+S
+#95221
+@eng Gallery of Valour@rus Галерея Славы~
+@eng You go throu the long gallery, enlightened by a lot of candels.
+You see the small winter garden lying towards north. South
+leaves the entrance into the castle. All around you see many
+swords, maces and lances hanging along the east and west walls.
+@rus Ты идешь сквозь длинную галерею, освещенную множеством свечей.
+На севере ты видишь выход в маленький сад. Южнее виднеется
+выход из замка. Оглядываясь вокруг, ты видишь
+множество мечей, булав и алебард, висящих на стенах.
+~
+0 DKX inside
+D0
+~
+~
+Z 0 95207
+D2
+~
+~
+Z 0 95220
+O knight~
+S
+#95222
+@eng Gallery of Valour@rus Галерея Славы~
+@eng You go throu the long gallery, enlightened by a lot of candels.
+You see the small winter garden lying towards north. South
+leaves the entrance into the castle. All around you see many
+swords, maces and lances hanging along the east and west walls.
+@rus Ты идешь сквозь длинную галерею, освещенную множеством свечей.
+На севере ты видишь выход в маленький сад. Южнее виднеется
+выход из замка. Оглядываясь вокруг, ты видишь
+множество мечей, булав и алебард, висящих на стенах.
+~
+0 DKX inside
+O knight~
+S
 #0
 
 #SPECIALS
@@ -482,7 +571,7 @@ S
 
 #MOBPROGS
 #95200
-if clan $n knight 
+if clan $n knights 
 say Welcome, honorable one.
 end
 endif
@@ -509,9 +598,9 @@ clan We are attacked by $n!
 mob attack $n
 ~
 #95201
-if clan $n knight 
+if clan $n knights 
 or isimmort $n
-mob transfer $n 95207
+mob transfer $n 95219
 end
 endif
 mob attack $n

@@ -3648,7 +3648,7 @@ S
 
 #MOBPROGS
 #600
-if clan $n ruler 
+if clan $n rulers 
 bow $n
 end 
 endif

@@ -5,7 +5,7 @@ Credits Chronos~
 Security 9
 LevelRange 90 100
 Flags noquest update_always~
-Clan BattleRager~
+Clan Battleragers~
 End
 
 #MOBILES
@@ -30,7 +30,7 @@ stand stand male 0
 0 0 giant unknown
 M grall 95400 100~
 M exall 95401 3~
-C BattleRager~
+C Battleragers~
 #95401
 Gordall~
 @eng Gordall@rus Гордалл~
@@ -66,7 +66,7 @@ ABQVae DFH 1000 0
 FHIK ABC D 0
 stand stand male 5000
 0 0 medium unknown
-C BattleRager~
+C Battleragers~
 #95403
 urukhay troll~
 @eng Urukhay@rus Урукхай~
@@ -83,7 +83,7 @@ ACEFJK AB D 0
 stand stand male 0
 0 0 large unknown
 M grall 95402 100~
-C BattleRager~
+C Battleragers~
 #95404
 rock~
 rock~
@@ -169,7 +169,7 @@ wood~
 furniture IY P
 EIJKN ABCDEFGHIJKLMNOPQRSTUVWXYZabcde EHKN DGH DGH
 0 1000000000 0 P
-C BattleRager~
+C Battleragers~
 G none
 #95405
 dagger fine gordall~
@@ -453,7 +453,7 @@ S
 
 #MOBPROGS
 #95400
-if clan $n Battlerager
+if clan $n battleragers
 'Hail, brother!
 mob echoat $n $I snaps to attention, sharply saluting you!
 end
@@ -480,7 +480,7 @@ clan We are attacked by $n!
 mob attack $n
 ~
 #95401
-if clan $n battlerager
+if clan $n battleragers
 or isimmort $n
 mob transfer $n 95402
 end
@@ -500,7 +500,7 @@ say Иди отсюда мелочь пузатая! Нечего здесь тебе делать!
 mob transfer $n 5281
 end
 endif
-if clan $n Battlerager
+if clan $n battleragers
 say Здарова!
 end
 endif

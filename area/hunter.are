@@ -5,7 +5,7 @@ Credits Asena~
 Security 9
 LevelRange 90 100
 Flags noquest update_always~
-Clan Hunter~
+Clan Hunters~
 End
 
 #MOBILES
@@ -48,7 +48,7 @@ ABQVae DFH 0 0
 FHIK ABC D 0
 stand stand male 1000
 0 0 medium unknown
-C Hunter~
+C Hunters~
 #95702
 guardian keeper hunter~
 @eng the guardian@rus страж~
@@ -71,7 +71,7 @@ F aff c
 F res C
 M grall 95700 100~
 M exall 95701 0~
-C Hunter~
+C Hunters~
 #0
 
 #OBJECTS
@@ -205,7 +205,7 @@ S
 
 #MOBPROGS
 #95700
-if clan $n Hunter     
+if clan $n hunters     
 'Welcome, brother.     
 end
 endif
@@ -231,7 +231,7 @@ clan We are attacked by $n !
 mob attack $n
 ~
 #95701
-if clan $n hunter
+if clan $n hunters
 or isimmort $n
 mob transfer $n 95702
 else

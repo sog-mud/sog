@@ -2333,8 +2333,8 @@ one weighty collection.  It looks extremely valuable.
 G none
 #238
 dagger stick sword-stick палка меч~
-@eng a sword-stick@rus ~~палка~~-меч~
-@eng A sword-stick lies on the grass here.@rus Палка-меч (sword-stick) лежит в траве.~
+a sword-stick~
+A sword-stick lies on the grass here.~
 steel~
 weapon 0 AN
 dagger 8 2 stab 0
@@ -2353,7 +2353,7 @@ book cabinet~
 An ornate mahogany book cabinet sits in the corner of the room.~
 wood~
 container 0 0
-50 ACD 257 0 0
+50 AC 0 0 0
 30 100000 1000 A
 E
 bookcase cabinet~

@@ -32,6 +32,17 @@ Form 6 -его~
 End
 
 #RULE
+Name -щийся~
+BaseLen -4
+Form 1 -егося~
+Form 2 -емуся~
+Form 3 -ийся~
+Form 4 -имся~
+Form 5 -емся~
+Form 6 -егося~
+End
+
+#RULE
 Name -ой~
 BaseLen -2
 Form 1 -ого~

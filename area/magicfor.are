@@ -846,6 +846,8 @@ gold~
 weapon AHJ AN
 dagger 7 7 thrust B
 51 30 4800 P
+F
+S 'parry' 30 A
 A
 17 -4
 G none
@@ -904,6 +906,8 @@ silk~
 armor EIM AK
 11 11 11 11 0
 59 30 5999 P
+F
+S 'mastering spell' 30 A
 A
 7 4
 A
@@ -930,7 +934,7 @@ an oaken staff~
 A finely carved stick made of oak wood was left behind.~
 wood~
 staff I AO
-48 5 5 'lightning bolt' 0
+60 5 5 'lightning bolt' 0
 48 50 3400 P
 A
 6 2
@@ -950,6 +954,8 @@ armor BGI AG
 11 11 11 11 0
 50 50 3700 P
 A
+-276 50
+A
 3 1
 A
 13 20
@@ -964,7 +970,7 @@ a golden eye sword~
 A sword with an open eye inscribed on its blade seems to glare at you.~
 gold~
 weapon AGY AN
-sword 7 7 cleave B
+sword 7 10 cleave B
 52 50 4340 P
 A
 1 2
@@ -984,6 +990,8 @@ armor BJ AM
 9 9 9 9 0
 54 50 4100 P
 A
+8 2
+A
 1 2
 A
 5 1
@@ -1000,7 +1008,7 @@ a blue-tinted leather whip~
 A long blue-tinted leather whip is here.~
 leather~
 weapon BIM AN
-whip 10 3 thwack G
+whip 11 5 thwack G
 56 50 4400 P
 A
 1 -1
@@ -1025,6 +1033,8 @@ soft leather~
 armor 0 AD
 11 11 11 11 0
 58 50 4700 P
+A
+13 25
 A
 1 2
 A
@@ -1321,6 +1331,8 @@ velvet~
 armor ACEGHIJMY AK
 15 15 15 15 0
 60 50 50000 P
+F
+S 'mana transfer' 80 A
 A
 2 3
 A
@@ -3672,21 +3684,14 @@ S
 0
 
 #OLIMITS
-O 1809 6	* a red belt
-O 1810 6	* an orange robe
 O 1811 3	* a golden eye dagger
-O 1812 3	* Ring of the Witch
-O 1814 3	* an indigo robe
 O 1815 3	* a violet robe
 O 1816 4	* an oaken staff
 O 1817 6	* a pair of orange boots
 O 1818 3	* a golden eye sword
 O 1819 4	* a green wristband
 O 1820 3	* a blue-tinted leather whip
-O 1821 6	* an indigo tunic
-O 1822 3	* a pair of tight violet leggings
-O 1823 5	* a one-horned helm
-O 1851 7	* the Robe of the Warlock
+O 1851 3	* the Robe of the Warlock
 S
 
 #MOBPROGS

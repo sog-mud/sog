@@ -267,7 +267,7 @@ steel~
 armor J AD
 5 5 5 0 2
 10 75 600 G
-G none
+G female
 #4201
 armour white pawn кольчуга~
 @eng some white pawn armour@rus ~~кольчуга~~ белой пешки~
@@ -276,7 +276,7 @@ steel~
 armor K AD
 5 5 5 0 2
 10 75 600 G
-G none
+G female
 #4202
 axe black pawn боевой топор~
 @eng a Black Pawn's Axe@rus ~~боевой~~ ~~топор~~ черной пешки~
@@ -285,7 +285,7 @@ steel~
 weapon J AN
 axe 2 7 chomp 0
 10 100 750 G
-G none
+G male
 #4203
 axe white pawn топор~
 @eng a White Pawn's Axe@rus ~~боевой~~ ~~топор~~ белой пешки~
@@ -294,7 +294,7 @@ steel~
 weapon K AN
 axe 2 7 chomp 0
 10 100 750 G
-G none
+G male
 #4204
 armour black rook кольчуга~
 @eng some Black Rook Armour@rus ~~кольчуга~~ Черной Ладьи~
@@ -307,7 +307,7 @@ A
 17 2
 A
 5 1
-G none
+G female
 #4205
 armour white rook кольчуга~
 @eng some White Rook Armour@rus ~~кольчуга~~ Белой Ладьи~
@@ -320,7 +320,7 @@ A
 17 2
 A
 5 1
-G none
+G female
 #4206
 lance black knight копье~
 @eng the Lance of the Black Knight@rus ~~копье~~ Черного Рыцаря~
@@ -355,7 +355,7 @@ wood~
 staff GJL AO
 20 5 5 'energy drain' 0
 23 20 3523 P
-G none
+G male
 #4209
 staff white bishop посох~
 @eng the Staff of the White Bishop@rus ~~посох~~ Белого Епископа~
@@ -364,7 +364,7 @@ wood~
 staff GKL AO
 20 5 5 'sanctuary' 0
 23 20 3879 P
-G none
+G male
 #4210
 crown black queen корона~
 @eng the Crown of the Black Queen@rus ~~корона~~ черной владычицы~
@@ -377,7 +377,7 @@ A
 3 1
 A
 4 1
-G none
+G female
 #4211
 crown white queen корона~
 @eng the Crown of the White Queen@rus ~~корона~~ белой владычицы~
@@ -390,7 +390,7 @@ A
 3 1
 A
 4 1
-G none
+G female
 #4212
 sceptre black king скипетр~
 @eng the Black King's Sceptre@rus ~~скипетр~~ Черного Короля~
@@ -403,7 +403,7 @@ A
 1 1
 A
 18 1
-G none
+G male
 #4213
 sceptre white king скипетр~
 @eng the White King's Sceptre@rus ~~скипетр~~ Белого Короля~
@@ -416,7 +416,7 @@ A
 1 1
 A
 18 1
-G none
+G male
 #4214
 key black treasury ключ~
 @eng the Key to the Black Treasury@rus ~~ключ~~ к сокровищнице черной короны~
@@ -425,7 +425,7 @@ metal~
 key FH AO
 0 0 0 0 0
 6 20 1 G
-G none
+G male
 #4215
 key white treasury ключ~
 @eng the Key to the White Treasury@rus ~~ключ~~ к сокровищнице белой короны~
@@ -434,7 +434,7 @@ metal~
 key FH AO
 0 0 0 0 0
 6 20 1 G
-G none
+G male
 #4216
 coins gold black royal treasure монеты золото сокровище~
 @eng the Black Royal Treasure@rus ~~сокровище~~ черного королевского дома~
@@ -461,7 +461,7 @@ steel~
 weapon J AN
 flail 2 7 blast 0
 10 100 750 G
-G none
+G male
 #4219
 flail white pawn цеп~
 @eng a White Pawn's Flail@rus ~~цеп~~ белой пешки~
@@ -470,7 +470,7 @@ steel~
 weapon K AN
 flail 2 6 blast 0
 10 100 750 G
-G none
+G male
 #4220
 whip black pawn кнут~
 @eng a Black Pawn's Whip@rus ~~кнут~~ черной пешки~
@@ -479,7 +479,7 @@ steel~
 weapon J AN
 whip 2 7 whip 0
 10 100 750 G
-G none
+G male
 #4221
 whip white pawn кнут~
 @eng a White Pawn's Whip@rus ~~кнут~~ белой пешки~
@@ -488,7 +488,7 @@ steel~
 weapon K AN
 whip 2 6 whip 0
 10 100 750 G
-G none
+G male
 #4222
 spear black pawn копье~
 @eng a Black Pawn's Spear@rus ~~копье~~ черной пешки~
@@ -515,7 +515,7 @@ steel~
 weapon J AN
 polearm 2 7 pierce 0
 10 100 750 G
-G none
+G female
 #4225
 halberd white pawn алебарда~
 @eng a White Pawn's Halberd@rus ~~алебарда~~ белой пешки~
@@ -524,7 +524,7 @@ steel~
 weapon K AN
 polearm 2 7 pierce 0
 10 100 750 G
-G none
+G female
 #4226
 rapier black pawn рапира~
 @eng a Black Pawn's Rapier@rus ~~рапира~~ черной пешки~
@@ -533,7 +533,7 @@ steel~
 weapon J AN
 sword 2 7 pierce 0
 10 100 750 G
-G none
+G female
 #4227
 rapier white pawn рапира~
 @eng a White Pawn's Rapier@rus ~~рапира~~ белой пешки~
@@ -542,7 +542,7 @@ steel~
 weapon K AN
 sword 2 7 pierce 0
 10 100 750 G
-G none
+G female
 #4228
 kris black pawn кинжал~
 @eng a Black Pawn's Kris@rus ~~кривой~~ ~~кинжал~~ черной пешки~
@@ -551,7 +551,7 @@ steel~
 weapon J AN
 dagger 2 7 pierce 0
 10 100 750 G
-G none
+G male
 #4229
 kris white pawn кинжал~
 @eng a White Pawn's Kris@rus ~~кривой~~ ~~кинжал~~ белой пешки~
@@ -560,7 +560,7 @@ steel~
 weapon K AN
 dagger 2 7 pierce 0
 10 100 750 G
-G none
+G male
 #4230
 crossbow black pawn арбалет~
 @eng a Black Pawn's Crossbow@rus ~~арбалет~~ черной пешки~
@@ -569,7 +569,7 @@ steel~
 weapon J AN
 exotic 2 7 blast 0
 10 100 750 G
-G none
+G male
 #4231
 crossbow white pawn арбалет~
 @eng a White Pawn's Crossbow@rus ~~арбалет~~ белой пешки~
@@ -578,7 +578,7 @@ steel~
 weapon K AN
 exotic 2 7 blast 0
 10 100 750 G
-G none
+G male
 #4232
 shield black pawn щит~
 @eng a Black Pawn's Shield @rus ~~щит~~ черной пешки~
@@ -587,7 +587,7 @@ steel~
 armor J AJ
 8 7 7 2 2
 10 30 1210 P
-G none
+G male
 #4233
 shield white pawn щит~
 @eng a White Pawn's Shield @rus ~~щит~~ белой пешки~
@@ -596,7 +596,7 @@ steel~
 armor K AJ
 8 7 7 2 2
 10 30 1210 P
-G none
+G male
 #4234
 cloak black pawn платок~
 @eng a Black Pawn's Cloak@rus ~~шейный~~ ~~платок~~ черной пешки~
@@ -605,7 +605,7 @@ cloth~
 armor J AC
 5 7 7 1 1
 10 40 1510 P
-G none
+G male
 #4235
 cloak white pawn платок~
 @eng a White Pawn's Cloak@rus ~~шейный~~ ~~платок~~ белой пешки~
@@ -614,7 +614,7 @@ cloth~
 armor K AC
 5 7 7 1 1
 10 40 1510 P
-G none
+G male
 #4236
 helmet black pawn шлем~
 @eng a Black Pawn's Helmet@rus ~~шлем~~ черной пешки~
@@ -623,7 +623,7 @@ leather~
 armor J AE
 6 6 7 1 1
 10 50 1150 P
-G none
+G male
 #4237
 helmet white pawn шлем~
 @eng a White Pawn's Helmet@rus ~~шлем~~ белой пешки~
@@ -632,7 +632,7 @@ leather~
 armor K AE
 6 6 7 1 1
 10 50 1150 P
-G none
+G male
 #4238
 leggings black pawn гетры~
 @eng a pair of Black Pawn's Leggings@rus ~~гетры~~ черной пешки~
@@ -641,7 +641,7 @@ leather~
 armor J AF
 6 6 6 1 1
 10 30 1350 P
-G none
+G plural
 #4239
 leggings white pawn гетры~
 @eng a pair of White Pawn's Leggings@rus ~~гетры~~ белой пешки~
@@ -650,7 +650,7 @@ leather~
 armor K AF
 6 6 6 1 1
 10 30 1350 P
-G none
+G plural
 #4240
 boots black pawn ботинки~
 @eng a pair of Black Pawn's Boots@rus ~~ботинки~~ черной пешки~
@@ -659,7 +659,7 @@ leather~
 armor J AG
 7 6 7 1 1
 10 130 1450 P
-G none
+G plural
 #4241
 boots white pawn ботинки~
 @eng a pair of White Pawn's Boots@rus ~~ботинки~~ белой пешки~
@@ -668,7 +668,7 @@ leather~
 armor K AG
 7 6 7 1 1
 10 130 1450 P
-G none
+G plural
 #4242
 gloves black pawn перчатки~
 @eng a pair of Black Pawn's Gloves@rus ~~перчатки~~ черной пешки~
@@ -677,7 +677,7 @@ leather~
 armor J AH
 6 6 5 1 1
 10 80 950 P
-G none
+G plural
 #4243
 gloves white pawn перчатки~
 @eng a pair of White Pawn's Gloves@rus ~~перчатки~~ белой пешки~
@@ -686,7 +686,7 @@ leather~
 armor K AH
 6 6 5 1 1
 10 80 950 P
-G none
+G plural
 #4244
 sleeves black pawn нарукавники~
 @eng a pair of Black Pawn's Sleeves@rus ~~нарукавники~~ черной пешки~
@@ -695,7 +695,7 @@ leather~
 armor J AI
 6 5 6 1 1
 10 90 1150 P
-G none
+G plural
 #4245
 sleeves white pawn нарукавники~
 @eng a pair of White Pawn's Sleeves@rus ~~нарукавники~~ белой пешки~
@@ -704,7 +704,7 @@ leather~
 armor K AI
 6 5 6 1 1
 10 90 1150 P
-G none
+G plural
 #4246
 cape black pawn накидка~
 @eng a Black Pawn's Cape@rus ~~накидка~~ черной пешки~
@@ -713,7 +713,7 @@ cloth~
 armor J AK
 7 5 7 1 1
 10 80 1380 P
-G none
+G female
 #4247
 cape white pawn накидка~
 @eng a White Pawn's Cape@rus ~~накидка~~ белой пешки~
@@ -722,7 +722,7 @@ cloth~
 armor K AK
 7 5 7 1 1
 10 80 1380 P
-G none
+G female
 #4248
 belt black pawn пояс~
 @eng a Black Pawn's Belt@rus ~~пояс~~ черной пешки~
@@ -731,7 +731,7 @@ bronze~
 armor J AL
 4 6 6 1 1
 10 70 990 P
-G none
+G male
 #4249
 belt white pawn пояс~
 @eng a White Pawn's Belt@rus ~~пояс~~ белой пешки~
@@ -740,7 +740,7 @@ bronze~
 armor K AL
 4 6 6 1 1
 10 20 990 P
-G none
+G male
 #4250
 bracer black pawn браслет~
 @eng a Black Pawn's Bracer@rus ~~браслет~~ черной пешки~
@@ -749,7 +749,7 @@ bronze~
 armor J AM
 7 5 5 1 0
 10 60 1390 P
-G none
+G male
 #4251
 bracer white pawn браслет~
 @eng a White Pawn's Bracer@rus ~~браслет~~ белой пешки~
@@ -758,7 +758,7 @@ bronze~
 armor K AM
 7 5 5 1 0
 10 60 1390 P
-G none
+G male
 #4260
 small chessboard доска~
 @eng the Magic Chessboard@rus ~~магическая~~ ~~шахматная~~ ~~доска~~~
@@ -769,7 +769,7 @@ armor ABFJK AQ
 51 60 55390 P
 F
 A 13 95 AT
-G none
+G female
 #4261
 shield black pawn щит~
 @eng a Black Knight's Shield @rus ~~щит~~ Черного Рыцаря~
@@ -778,16 +778,16 @@ steel~
 armor J AJ
 8 9 9 2 2
 18 90 2210 P
-G none
+G male
 #4262
 shield white pawn щит~
-a White Knight's Shield ~
-You see a White Knight's shield here.~
+@eng a White Knight's Shield @rus ~~щит~~ Белого Рыцаря~
+@eng You see a White Knight's shield here.@rus Щит (shiled), оставленный Белым Рыцарем, лежит здесь.~
 steel~
 armor K AJ
 8 9 9 2 2
 18 90 2210 P
-G none
+G male
 #4263
 cloak black платок knight~
 @eng a Black Knight's Cloak@rus ~~шейный~~ ~~платок~~ Черного Рыцаря~
@@ -796,7 +796,7 @@ cloth~
 armor J AC
 6 8 7 1 1
 18 70 2610 P
-G none
+G male
 #4264
 cloak white knight платок~
 @eng a White Knight's Cloak@rus ~~шейный~~ ~~платок~~ Белого Рыцаря~
@@ -805,7 +805,7 @@ cloth~
 armor K AC
 6 8 7 1 1
 18 70 2610 P
-G none
+G male
 #4265
 helmet black knight шлем~
 @eng a Black Knight's Helmet@rus ~~шлем~~ Ченого Рыцаря~
@@ -814,7 +814,7 @@ leather~
 armor J AE
 7 7 8 1 1
 18 70 1950 P
-G none
+G male
 #4266
 helmet white knight шлем~
 @eng a White Knight's Helmet@rus ~~шлем~~ Белого Рыцаря~
@@ -823,7 +823,7 @@ leather~
 armor K AE
 7 7 8 1 1
 18 70 1950 P
-G none
+G male
 #4267
 leggings black knight гетры~
 @eng a pair of Black Knight's Leggings@rus ~~гетры~~ Черного Рыцаря~
@@ -832,7 +832,7 @@ leather~
 armor J AF
 7 7 7 1 1
 18 80 1350 P
-G none
+G plural
 #4268
 leggings white knight гетры~
 @eng a pair of White Knight's Leggings@rus ~~гетры~~ Белого Рыцаря~
@@ -841,7 +841,7 @@ leather~
 armor K AF
 7 7 7 1 1
 18 80 1350 P
-G none
+G plural
 #4269
 boots black knight ботинки~
 @eng a pair of Black Knight's Boots@rus ~~ботинки~~ Черного Рыцаря~
@@ -850,7 +850,7 @@ leather~
 armor J AG
 8 7 7 1 1
 18 110 2850 P
-G none
+G plural
 #4270
 boots white knight ботинки~
 @eng a pair of White Knight's Boots@rus ~~ботинки~~ Белого Рыцаря~
@@ -859,7 +859,7 @@ leather~
 armor K AG
 8 7 7 1 1
 18 110 2850 P
-G none
+G plural
 #4271
 gloves black knight перчатки~
 @eng a pair of Black Knight's Gloves@rus ~~перчатки~~ Черного Рыцаря~
@@ -868,7 +868,7 @@ leather~
 armor J AH
 6 7 6 1 1
 18 80 2250 P
-G none
+G plural
 #4272
 gloves white knight перчатки~
 @eng a pair of White Knight's Gloves@rus ~~перчатки~~ Белого Рыцаря~
@@ -877,7 +877,7 @@ leather~
 armor K AH
 6 7 6 1 1
 18 80 2250 P
-G none
+G plural
 #4273
 sleeves black knight нарукавники~
 @eng a pair of Black Knight's Sleeves@rus ~~нарукавники~~ Черного Рыцаря~
@@ -886,7 +886,7 @@ leather~
 armor J AI
 7 6 7 1 1
 18 100 2150 P
-G none
+G plural
 #4274
 sleeves white knight нарукавники~
 @eng a pair of White Knight's Sleeves@rus ~~нарукавники~~ Белого Рыцаря~
@@ -895,7 +895,7 @@ leather~
 armor K AI
 7 6 7 1 1
 18 100 2150 P
-G none
+G plural
 #4275
 cape black knight накидка~
 @eng a Black Knight's Cape@rus ~~накидка~~ Черного Рыцаря~
@@ -904,7 +904,7 @@ cloth~
 armor J AK
 7 7 7 1 1
 18 70 1380 P
-G none
+G female
 #4276
 cape white knight накидка~
 @eng a White Knight's Cape@rus ~~накидка~~ Белого Рыцаря~
@@ -913,7 +913,7 @@ cloth~
 armor K AK
 7 7 7 1 1
 18 70 1380 P
-G none
+G female
 #4277
 belt black knigh пояс~
 @eng a Black Knight's Belt@rus ~~пояс~~ Черного Рыцаря~
@@ -922,7 +922,7 @@ bronze~
 armor J AL
 6 6 6 1 1
 18 60 1990 P
-G none
+G male
 #4278
 belt white knight пояс~
 @eng a White Knight's Belt@rus ~~пояс~~ Белого Рыцаря~
@@ -931,7 +931,7 @@ bronze~
 armor K AL
 6 6 6 1 1
 18 60 1990 P
-G none
+G male
 #4279
 bracer black knight браслет~
 @eng a Black Knight's Bracer@rus ~~браслет~~ Черного Рыцаря~
@@ -940,7 +940,7 @@ bronze~
 armor J AM
 7 7 6 1 0
 18 40 2390 P
-G none
+G male
 #4280
 bracer white knight браслет~
 @eng a White Knight's Bracer@rus ~~браслет~~ Белого Рыцаря~
@@ -949,7 +949,7 @@ bronze~
 armor K AM
 7 7 6 1 0
 18 40 2390 P
-G none
+G male
 #0
 
 #ROOMS

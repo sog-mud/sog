@@ -509,6 +509,23 @@ weapon AGIKL AN
 mace 9 0 divine I
 0 0 0 P
 G male
+#19
+teeth зубы vampiric~
+@eng Vampiric teeth@rus ~~зубы~~ вампира~
+@eng Terrible vampiric teeth lies here.@rus Какой-то вампир забыл здесь свои зубы (teeth).~
+bone~
+treasure Yh AOP
+0 0 0 0 0
+10 1 10000 P
+F
+S 'vampiric bite' 100 A
+F
+S 'vampire' 100 A
+F
+S 'vampiric blast' 100 A
+F
+S 'vampiric touch' 100 A
+G plural
 #20
 mushroom грибок~
 @eng a Magic Mushroom@rus ~~Волшебный~~ ~~Мухомор~~~
@@ -544,6 +561,29 @@ energy~
 container GMPUYZ AQ
 0 E 0 0 0
 0 0 0 P
+G male
+#24
+tail dragon хвост~
+@eng Dragon's tail@rus ~~хвост~~ дракона~
+@eng Dragon's tail lies here.@rus Очень странно. Это самый натуральный драконий хвост (tail).~
+flesh~
+clothing Yh AFP
+0 0 0 0 0
+10 1 10000 P
+A
+19 20
+A
+18 20
+A
+12 200
+A
+13 200
+F
+S 'dragon skin' 100 A
+F
+S 'dragon breath' 100 A
+F
+S 'dragon strength' 100 A
 G male
 #25
 gate portal ворота врата~
@@ -585,6 +625,19 @@ weapon A AN
 spear 0 0 pierce 0
 0 160 0 P
 G male
+#29
+перчатки gloves~
+@eng black gloves@rus ~~черные~~ ~~перчатки~~~
+@eng Black gloves lie here.@rus Черные перчатки (gloves) валяются на земле.~
+unknown~
+armor Yh AHP
+-20 -20 -20 -20 0
+10 1 10000 P
+F
+S 'peek' 100 A
+F
+S 'steal' 100 A
+G plural
 #30
 dummy object~
 a dummy object~
@@ -762,6 +815,140 @@ potion G AO
 1 'bless' '' '' ''
 0 10 0 P
 G female
+#46
+cloud облако~
+@eng the small cloud@rus ~~маленькое~~ ~~облако~~~
+@eng The small cloud is floating around your head.@rus Маленькое облако (cloud) висит в воздухе прямо перед тобой.~
+energy~
+container GIYh APQ
+150 A 0 600 5
+10 5 10000 P
+F
+S 'control weather' 100 A
+F
+S 'call lightning' 100 A
+F
+S 'chain lightning' 100 A
+F
+S 'lightning bolt' 100 A
+F
+S 'lightning breath' 100 A
+A
+13 100
+A
+12 500
+A
+3 5
+A
+4 5
+A
+8 5
+A
+20 -10
+A
+19 10
+A
+18 10
+G none
+#47
+cloak плащ~
+@eng Cloak of The Lord Protector@rus ~~плащ~~ Лорда-Защитника~
+@eng The beautiful black cloak lies here.@rus Красивый плащ (cloak) из черной кожи лежит здесь.~
+skin~
+armor GIYh ADP
+-20 -20 -20 -20 0
+10 1 10000 P
+F
+S 'stone skin' 100 A
+F
+S 'dragon skin' 100 A
+F
+S 'bark skin' 100 A
+A
+2 5
+A
+12 100
+A
+13 100
+A
+20 -10
+A
+19 10
+A
+18 10
+F
+S 'enhanced armor' 100 A
+F
+S 'armor' 100 A
+F
+S 'sanctuary' 100 A
+F
+S 'shield' 100 A
+F
+S 'protection good' 100 A
+F
+S 'protection negative' 100 A
+F
+S 'protection heat' 100 A
+F
+S 'protection cold' 100 A
+F
+S 'protection evil' 100 A
+G male
+#48
+ring кольцо golden золотое колечко~
+@eng Golden Ring@rus ~~золотое~~ ~~колечко~~~
+@eng The golden ring lies here.@rus Кольцо (ring), сделанное из драгоценного металла, лежит здесь.~
+gold~
+jewelry Yh ABP
+0 0 0 0 0
+10 0 10000 P
+F
+A 13 100 P
+A
+12 100
+F
+S 'hide' 100 A
+F
+S 'camouflage' 100 A
+F
+S 'improved invis' 100 A
+F
+S 'invisibility' 100 A
+F
+S 'fade' 100 A
+G none
+#49
+ring кольцо silver серебряное колечко~
+@eng Silver Ring@rus ~~серебряное~~ ~~колечко~~~
+@eng Silver ring lies here.@rus Кольцо (ring), выкованное из серебра, лежит здесь.~
+silver~
+jewelry Yh ABP
+0 0 0 0 0
+10 0 0 P
+F
+A 13 10 s
+F
+A 13 10 t
+F
+A 13 10 t
+F
+A 13 10 n
+F
+A 13 10 m
+F
+A 13 10 l
+F
+A 13 10 G
+F
+A 13 10 F
+F
+A 13 10 D
+F
+A 13 10 C
+F
+A 13 10 E
+G none
 #50
 rug коврик~
 @eng a small magic rug@rus ~~магический~~ ~~коврик~~~
@@ -1011,14 +1198,14 @@ A
 18 5
 G none
 #83
-golden sword~
-a golden sword~
+golden sword меч~
+@eng a golden sword@rus ~~золотистый~~ ~~меч~~~
 @eng There is a shiny golden sword on the ground.@rus Блестящий золотистый меч (sword) лежит на земле.~
 gold~
 weapon AIPTW AN
 sword 10 1 pierce D
 20 80 0 P
-G none
+G male
 #84
 quest kio~
 quest staff of kio~
@@ -1089,14 +1276,14 @@ The letters '%s' is carved on the handle.
 ~
 G none
 #89
-kassandra~
-kassandra~
-A mystical green stone is here, flying in the air.~
+kassandra камушек камень~
+@eng kassandra@rus ~~кассандра~~~
+@eng A mystical green stone is here, flying in the air.@rus Мистический зеленый камушек (stone) привлек твое внимание.~
 stone~
 treasure ATUY AO
 0 0 -1 0 0
 0 0 0 P
-G none
+G female
 #90
 dress~
 dress~
