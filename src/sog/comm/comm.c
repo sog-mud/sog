@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.151 1999-02-26 13:27:00 fjoe Exp $
+ * $Id: comm.c,v 1.152 1999-02-27 08:46:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -858,49 +858,51 @@ bool read_from_descriptor(DESCRIPTOR_DATA *d)
 	if (iOld == iStart)
 		return TRUE;
 
-	for (p = d->inbuf+iOld; *p; p++) {
+	for (p = d->inbuf+iOld; *p;) {
+		if (*p != IAC
+		||  (d->connected == CON_PLAYING &&
+		     d->character &&
+		     IS_SET(d->character->comm, COMM_NOTELNET))) {
+			p++;
+			continue;
+		}
+
 		if (d->wait_for_se)
 			goto wse;
-		if (*p == IAC
-		&&  (d->connected != CON_PLAYING ||
-		     d->character == NULL ||
-		     !IS_SET(d->character->comm, COMM_NOTELNET))) {
-			switch (p[1]) {
-			case DONT:
-			case DO:
-			case WONT:
-			case WILL:
-				if (p[2] == '\0')
-					q = p+2;
-				else
-					q = p+3;
-				break;
 
-			wse:
-			case SB:   
-				q = strchr(p, SE);
-				if (q == NULL) {
-					q = strchr(p, '\0');
-					d->wait_for_se = 1; 
-				}
-				else {
-					q++; 
-					d->wait_for_se = 0; 
-				}
-				break;
-
-			case IAC:
-				q = p+1;
-				break;
-
-			default:
+		switch (p[1]) {
+		case DONT:
+		case DO:
+		case WONT:
+		case WILL:
+			if (p[2] == '\0')
 				q = p+2;
-				break;
+			else
+				q = p+3;
+			break;
+
+		wse:
+		case SB:   
+			q = strchr(p, SE);
+			if (q == NULL) {
+				q = strchr(p, '\0');
+				d->wait_for_se = 1; 
 			}
-			memcpy(p, q, strlen(q)+1);
-			if (*(p = q) == '\0')
-				break;
+			else {
+				q++; 
+				d->wait_for_se = 0; 
+			}
+			break;
+
+		case IAC:
+			q = p+1;
+			break;
+
+		default:
+			q = p+2;
+			break;
 		}
+		memcpy(p, q, strlen(q)+1);
 	} 
 
 	return TRUE;
