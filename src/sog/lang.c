@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.c,v 1.26 2001-01-08 20:21:26 fjoe Exp $
+ * $Id: lang.c,v 1.27 2001-06-21 16:16:59 avn Exp $
  */
 
 #include <string.h>
@@ -35,12 +35,16 @@
 #include "lang.h"
 #include "db.h"
 
+static void str_init(const char **p);
+static void str_destroy(const char **p);
+
+
 /*----------------------------------------------------------------------------
  * main language support functions
  */
 
 static const char*
-word_form_lookup(lang_t *l, rulecl_t *rcl, const char *word, int fnum)
+word_form_lookup(lang_t *l, rulecl_t *rcl, const char *word, uint fnum)
 {
 	rule_t *rule;
 	char **p;
@@ -60,7 +64,7 @@ word_form_lookup(lang_t *l, rulecl_t *rcl, const char *word, int fnum)
 		char *r;
 
 		/* copy prefix */
-		strnzncpy(buf2, sizeof(buf2), word, q-word);
+		strnzncpy(buf2, sizeof(buf2), word, (unsigned)(q-word));
 
 		/*
 		 * translate infix, translation must be done
@@ -70,7 +74,8 @@ word_form_lookup(lang_t *l, rulecl_t *rcl, const char *word, int fnum)
 		r = strchr(q+1, '~');
 		if (!r)
 			r = strchr(q+1, '\0');
-		strnzncpy(buf3, sizeof(buf3), q+1, *r ? r-q-1 : r-q);
+		strnzncpy(buf3, sizeof(buf3), q+1,
+			(unsigned)(*r ? r-q-1 : r-q));
 		strnzcat(buf2, sizeof(buf2),
 			 word_form_lookup(l, rcl, buf3, fnum));
 
@@ -110,12 +115,12 @@ word_form_lookup(lang_t *l, rulecl_t *rcl, const char *word, int fnum)
 	return buf;
 }
 
-const char *word_form(const char *word, int fnum, int lang, int rulecl)
+const char *word_form(const char *word, uint fnum, int lang, int rulecl)
 {
 	lang_t *l;
 
 	if ((rulecl < 0 || rulecl >= MAX_RULECL)
-	||  (l = varr_get(&langs, lang)) == NULL)
+	||  (l = varr_get(&langs, (unsigned)lang)) == NULL)
 		return word;
 
 	switch (rulecl) {
@@ -150,16 +155,16 @@ const char *word_form(const char *word, int fnum, int lang, int rulecl)
 /* reverse order (otherwise word_del will not work) */
 static int cmprule(const void *p1, const void *p2)
 {
-	return -str_cmp(((rule_t*) p1)->name, ((rule_t*) p2)->name);
+	return -str_cmp(((const rule_t*) p1)->name, ((const rule_t*) p2)->name);
 }
 
-void
+static void
 str_init(const char **p)
 {
 	*p = str_empty;
 }
 
-void
+static void
 str_destroy(const char **p)
 {
 	free_string(*p);
@@ -169,7 +174,8 @@ static varrdata_t v_forms =
 {
 	sizeof(char*), 4,
 	(e_init_t) str_init,
-	(e_init_t) str_destroy
+	(e_init_t) str_destroy,
+	NULL
 };
 
 void rule_init(rule_t *r)
@@ -246,7 +252,7 @@ rule_t *irule_lookup(rulecl_t *rcl, const char *num)
 
 rule_t *irule_find(rulecl_t *rcl, const char *word)
 {
-	int i;
+	size_t i;
 
 	for (i = 0; i < rcl->impl.nused; i++) {
 		rule_t *r = VARR_GET(&rcl->impl, i);
@@ -301,7 +307,8 @@ static varrdata_t v_rule =
 {
 	sizeof(rule_t), 4,
 	(e_init_t) rule_init,
-	(e_destroy_t) rule_destroy
+	(e_destroy_t) rule_destroy,
+	NULL
 };
 
 static void rulecl_init(lang_t *l, int rulecl)
@@ -343,7 +350,7 @@ int lang_lookup(const char *name)
 
 int lang_nlookup(const char *name, size_t len)
 {
-	int lang;
+	size_t lang;
 
 	if (IS_NULLSTR(name))
 		return -1;

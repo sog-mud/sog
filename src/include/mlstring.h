@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mlstring.h,v 1.25 2000-10-22 17:53:38 fjoe Exp $
+ * $Id: mlstring.h,v 1.26 2001-06-21 16:16:56 avn Exp $
  */
 
 #ifndef _MLSTRING_H_
@@ -41,7 +41,7 @@ typedef struct mlstring {
 		const char* str;
 		const char** lstr;
 	} u;
-	int nlang;
+	uint nlang;
 } mlstring;
 
 void		mlstr_init	(mlstring *ml);

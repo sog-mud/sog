@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.18 2001-06-16 18:40:09 fjoe Exp $
+ * $Id: varr.h,v 1.19 2001-06-21 16:16:56 avn Exp $
  */
 
 #ifndef _VARR_H_
@@ -85,8 +85,14 @@ void *	varr_arnforeach	(varr *, size_t i, foreach_cb_t, va_list ap);
 
 #define varr_enew(v)	(varr_touch((v), (v)->nused))
 #define VARR_GET(v, i)	((void *) (((char *) (v)->p) + (i)*(v)->v_data->nsize))
-#define varr_get(v, i)	((i) < 0 || (i) >= (v)->nused ? \
-			 NULL : VARR_GET((v), (i)))
+extern inline void *varr_get(varr *v, size_t i);
+extern inline void *varr_get(varr *v, size_t i)
+{
+	if (i >= v->nused)
+		return NULL;
+	else
+		return VARR_GET(v, i);
+}
 #define varr_index(v, q) ((((char*) q) - ((char*) (v)->p)) / (v)->v_data->nsize)
 #define varr_edelete(v, p) (varr_delete((v), varr_index((v), (p))))
 #define varr_isempty(v)	(!(v)->nused)

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.285 2001-06-20 09:54:26 avn Exp $
+ * $Id: handler.c,v 1.286 2001-06-21 16:16:58 avn Exp $
  */
 
 /***************************************************************************
@@ -65,6 +65,17 @@ static int		max_mana_gain	(CHAR_DATA *ch, class_t *cl);
 static int		min_mana_gain	(CHAR_DATA *ch, class_t *cl);
 static int		max_move_gain	(CHAR_DATA *ch);
 static int		min_move_gain	(CHAR_DATA *ch);
+
+static OBJ_DATA *get_obj_list_raw(CHAR_DATA *ch, const char *name, uint *number,
+			   OBJ_DATA *list, int flags);
+static OBJ_DATA *get_obj_here_raw(CHAR_DATA *ch, const char *name,
+				  uint *number);
+static CHAR_DATA *get_char_room_raw(CHAR_DATA *ch, const char *name,
+				    uint *number, ROOM_INDEX_DATA *room);
+static void strip_obj_affects(CHAR_DATA *ch, AFFECT_DATA *paf);
+#if 0
+static OBJ_DATA *get_stuck_eq(CHAR_DATA *ch, int wtype);
+#endif
 
 /*
  * Room record:
@@ -355,8 +366,10 @@ int apply_ac(OBJ_DATA *obj, int iWear, int type)
 	return 0;
 }
 
+/* XXX is not used now */
+#if 0
 /* find stuck-in objects of certain weapon type */
-OBJ_DATA *get_stuck_eq(CHAR_DATA *ch, int wtype)
+static OBJ_DATA *get_stuck_eq(CHAR_DATA *ch, int wtype)
 {
 	OBJ_DATA *obj;
 
@@ -370,6 +383,7 @@ OBJ_DATA *get_stuck_eq(CHAR_DATA *ch, int wtype)
 			return obj;
 	return NULL;
 }
+#endif
 
 /*
  * Find a piece of eq on a character.
@@ -465,7 +479,7 @@ equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 	return obj;
 }
 
-void strip_obj_affects(CHAR_DATA *ch, OBJ_DATA *obj, AFFECT_DATA *paf)
+static void strip_obj_affects(CHAR_DATA *ch, AFFECT_DATA *paf)
 {
 	for (; paf != NULL; paf = paf->next) {
 		affect_modify(ch, paf, FALSE);
@@ -492,11 +506,11 @@ void unequip_char(CHAR_DATA *ch, OBJ_DATA *obj)
 
 	for (i = 0; i < 4; i++)
 		ch->armor[i] += apply_ac(obj, obj->wear_loc,i);
-	obj->wear_loc = -1;
+	obj->wear_loc = WEAR_NONE;
 
 	if (!IS_OBJ_STAT(obj, ITEM_ENCHANTED))
-		strip_obj_affects(ch, obj, obj->pObjIndex->affected);
-	strip_obj_affects(ch, obj, obj->affected);
+		strip_obj_affects(ch, obj->pObjIndex->affected);
+	strip_obj_affects(ch, obj->affected);
 
 	if (obj->item_type == ITEM_LIGHT
 	&&  INT(obj->value[2]) != 0
@@ -872,8 +886,8 @@ void extract_char(CHAR_DATA *ch, int flags)
 /*
  * Find a char in the room.
  */
-CHAR_DATA *get_char_room_raw(CHAR_DATA *ch, const char *name, uint *number,
-			     ROOM_INDEX_DATA *room)
+static CHAR_DATA *get_char_room_raw(CHAR_DATA *ch, const char *name,
+				    uint *number, ROOM_INDEX_DATA *room)
 {
 	CHAR_DATA *rch;
 	bool ugly;
@@ -1081,7 +1095,7 @@ CHAR_DATA *get_char_spell(CHAR_DATA *ch, const char *argument,
 		return get_char_room(ch, argument);
 	}
 
-	strnzncpy(buf, sizeof(buf), argument, p-argument);
+	strnzncpy(buf, sizeof(buf), argument, (unsigned)(p-argument));
 	if ((*door = check_exit(buf)) < 0)
 		return get_char_room(ch, argument);
 
@@ -1091,8 +1105,8 @@ CHAR_DATA *get_char_spell(CHAR_DATA *ch, const char *argument,
 /*
  * Find an obj in a list.
  */
-OBJ_DATA *get_obj_list_raw(CHAR_DATA *ch, const char *name, uint *number,
-			   OBJ_DATA *list, int flags)
+static OBJ_DATA *get_obj_list_raw(CHAR_DATA *ch, const char *name,
+				  uint *number, OBJ_DATA *list, int flags)
 {
 	OBJ_DATA *obj;
 
@@ -1123,7 +1137,8 @@ OBJ_DATA *get_obj_list_raw(CHAR_DATA *ch, const char *name, uint *number,
 /*
  * Find an obj in the room or in eq/inventory.
  */
-OBJ_DATA *get_obj_here_raw(CHAR_DATA *ch, const char *name, uint *number)
+static OBJ_DATA *get_obj_here_raw(CHAR_DATA *ch, const char *name,
+				  uint *number)
 {
 	OBJ_DATA *obj;
 
@@ -1274,7 +1289,7 @@ OBJ_DATA *get_obj_world(CHAR_DATA *ch, const char *argument)
 /*
  * deduct cost from a character
  */
-void deduct_cost(CHAR_DATA *ch, uint cost)
+void deduct_cost(CHAR_DATA *ch, int cost)
 {
 	/*
 	 * price in silver. MUST BE signed for proper exchange operations
@@ -1304,12 +1319,9 @@ void deduct_cost(CHAR_DATA *ch, uint cost)
 } 
 
 static inline void
-money_form(int lang, char *buf, size_t len, int num, const char *name)
+money_form(int lang, char *buf, size_t len, uint num, const char *name)
 {
 	char tmp[MAX_STRING_LENGTH];
-
-	if (num < 0)
-		return;
 
 	strnzcpy(tmp, sizeof(tmp),
 		 word_form(GETMSG(name, lang), 1, lang, RULES_CASE));
@@ -1319,9 +1331,9 @@ money_form(int lang, char *buf, size_t len, int num, const char *name)
 static const char *
 money_descr_cb(int lang, const char **p, va_list ap)
 {
-	int num1 = va_arg(ap, int);
+	uint num1 = va_arg(ap, uint);
 	const char *name1 = va_arg(ap, const char *);
-	int num2 = va_arg(ap, int);
+	uint num2 = va_arg(ap, uint);
 	const char *name2 = va_arg(ap, const char *);
 
 	char buf1[MAX_STRING_LENGTH];
@@ -1364,7 +1376,7 @@ OBJ_DATA *create_money(int gold, int silver)
 		pObjIndex = get_obj_index(OBJ_VNUM_GOLD_SOME);
 		obj = create_obj(pObjIndex, 0);
 		mlstr_foreach(&obj->short_descr, money_descr_cb,
-			      gold, "gold coins", -1, NULL);
+			      (unsigned)gold, "gold coins", -1, NULL);
 		INT(obj->value[1]) = gold;
 		obj->cost	= 100*gold;
 		obj->weight	= gold/5;
@@ -1372,7 +1384,7 @@ OBJ_DATA *create_money(int gold, int silver)
 		pObjIndex = get_obj_index(OBJ_VNUM_SILVER_SOME);
 		obj = create_obj(pObjIndex, 0);
 		mlstr_foreach(&obj->short_descr, money_descr_cb,
-			      silver, "silver coins", -1, NULL);
+			      (unsigned)silver, "silver coins", -1, NULL);
 		INT(obj->value[0]) = silver;
 		obj->cost	= silver;
 		obj->weight	= silver/20;
@@ -1380,7 +1392,8 @@ OBJ_DATA *create_money(int gold, int silver)
 		pObjIndex = get_obj_index(OBJ_VNUM_COINS);
 		obj = create_obj(pObjIndex, 0);
 		mlstr_foreach(&obj->short_descr, money_descr_cb,
-			      silver, "silver coins", gold, "gold coins");
+			      (unsigned)silver, "silver coins",
+			      (unsigned)gold, "gold coins");
 		INT(obj->value[0]) = silver;
 		INT(obj->value[1]) = gold;
 		obj->cost	= 100*gold + silver;
@@ -2131,12 +2144,12 @@ bool check_blind_raw(CHAR_DATA *ch)
 
 bool check_blind(CHAR_DATA *ch)
 {
-	bool can_see = check_blind_raw(ch);
+	bool cansee = check_blind_raw(ch);
 
-	if (!can_see)
+	if (!cansee)
 		act_char("You can't see a thing!", ch);
 
-	return can_see;
+	return cansee;
 }
 
 /*
@@ -2146,7 +2159,7 @@ bool pc_name_ok(const char *name)
 {
 	const unsigned char *pc;
 	bool fIll,adjcaps = FALSE,cleancaps = FALSE;
- 	int total_caps = 0;
+ 	uint total_caps = 0;
 
 	/*
 	 * Reserved words.
@@ -2305,7 +2318,7 @@ const char *garble(CHAR_DATA *ch, const char *i)
 	if (!is_affected(ch, "garble"))
 		return i;
 
-	for (o = buf; *i && o-buf < sizeof(buf)-1; i++, o++) {
+	for (o = buf; *i && o < buf + sizeof(buf) - 1; i++, o++) {
 		if (strchr(not_garbled, *i))
 			*o = *i;
 		else
@@ -3488,23 +3501,23 @@ int need_hands(CHAR_DATA *ch, OBJ_DATA *weapon)
 
 int free_hands(CHAR_DATA *ch)
 {
-	int free_hands = 2;
+	int hands = 2;
 	OBJ_DATA *weapon;
 
 	weapon = get_eq_char(ch, WEAR_WIELD);
 	if (weapon)
-		free_hands -= need_hands(ch, weapon);
+		hands -= need_hands(ch, weapon);
 
 	if (get_eq_char(ch, WEAR_SECOND_WIELD))
-		free_hands--;
+		hands--;
 
 	if (get_eq_char(ch, WEAR_SHIELD))
-		free_hands--;
+		hands--;
 
 	if (get_eq_char(ch, WEAR_HOLD))
-		free_hands--;
+		hands--;
 
-	return UMAX(0, free_hands);
+	return UMAX(0, hands);
 }
 
 void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container,
@@ -4125,7 +4138,6 @@ ROOM_INDEX_DATA *find_location(CHAR_DATA *ch, const char *argument)
 
 void reboot_mud(void)
 {
-	extern bool merc_down;
 	DESCRIPTOR_DATA *d,*d_next;
 
 	log(LOG_INFO, "Rebooting SoG");
@@ -4155,7 +4167,7 @@ void reboot_mud(void)
 /* object condition aliases */
 const char *get_cond_alias(OBJ_DATA *obj)
 {
-	char *stat;
+	const char *stat;
 	int istat = obj->condition;
 
 	     if	(istat >= COND_EXCELLENT)	stat = "excellent";
@@ -4168,12 +4180,12 @@ const char *get_cond_alias(OBJ_DATA *obj)
 	return stat;
 }
 
-void damage_to_obj(CHAR_DATA *ch, OBJ_DATA *wield, OBJ_DATA *worn, int damage)
+void damage_to_obj(CHAR_DATA *ch, OBJ_DATA *wield, OBJ_DATA *worn, int dmg)
 {
-	if (damage == 0)
+	if (dmg == 0)
 		return;
 
-	worn->condition -= damage;
+	worn->condition -= dmg;
 
 	if (wield != NULL) {
 		act_puts("{g$p inflicts damage on {r$P{g.{x",

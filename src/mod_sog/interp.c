@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.176 2001-05-09 13:15:43 kostik Exp $
+ * $Id: interp.c,v 1.177 2001-06-21 16:16:59 avn Exp $
  */
 
 /***************************************************************************
@@ -90,9 +90,9 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	cmd_t *cmd = NULL;
 	social_t *soc = NULL;
 	int min_pos;
-	flag_t cmd_flags;
+	flag_t cmd_flg;
 	int cmd_log;
-	int i;
+	size_t i;
 	bool found = FALSE;
 	CHAR_DATA *vch;
 
@@ -226,12 +226,12 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 		}
 
 		min_pos = soc->min_pos;
-		cmd_flags = 0;
+		cmd_flg = 0;
 		cmd_log = LOG_NORMAL;
 	}
 	else {
 		min_pos = cmd->min_pos;
-		cmd_flags = cmd->cmd_flags;
+		cmd_flg = cmd->cmd_flags;
 		cmd_log = cmd->cmd_log;
 	}
 
@@ -248,7 +248,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	if (!IS_NPC(ch)) {
 		/* Come out of hiding for most commands */
 		if (HAS_INVIS(ch, ID_HIDDEN | ID_FADE)
-		&&  !IS_SET(cmd_flags, CMD_KEEP_HIDE)) {
+		&&  !IS_SET(cmd_flg, CMD_KEEP_HIDE)) {
 			REMOVE_INVIS(ch, ID_HIDDEN | ID_FADE);
 			act_puts("You step out of shadows.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
@@ -376,7 +376,7 @@ void interpret_social(social_t *soc, CHAR_DATA *ch, const char *argument)
 	}
 }
 
-static uint x_argument(const char *argument, char c, char *arg, size_t len)
+static uint x_argument(const char *argument, int c, char *arg, size_t len)
 {
 	char *p;
 	char *q;
@@ -452,7 +452,7 @@ const char *first_arg(const char *argument, char *arg_first, size_t len,
 	if (*argument == '\'' || *argument == '"')
         	cEnd = *argument++;
 
-	for (q = arg_first; *argument && q - arg_first + 1 < len; argument++) {
+	for (q = arg_first; *argument && q + 1 < arg_first + len; argument++) {
 		if ((!cEnd && isspace(*argument)) || *argument == cEnd) {
 			argument++;
 			break;

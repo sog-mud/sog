@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hometown.c,v 1.11 2001-01-23 21:47:00 fjoe Exp $
+ * $Id: hometown.c,v 1.12 2001-06-21 16:16:59 avn Exp $
  */
 
 #include <stdio.h>
@@ -39,7 +39,7 @@ varr hometowns;
  */
 int htn_lookup(const char *name)
 {
-	int i;
+	size_t i;
 
 	for (i = 0; i < hometowns.nused; i++) {
 		hometown_t *h = VARR_GET(&hometowns, i);
@@ -94,7 +94,7 @@ bool hometown_restrict(hometown_t *h, CHAR_DATA *ch)
  */
 void hometown_print_avail(CHAR_DATA *ch)
 {
-	int i;
+	size_t i;
 	int col = 0;
 
 	for (i = 0; i < hometowns.nused; i++) {
@@ -118,7 +118,7 @@ void hometown_print_avail(CHAR_DATA *ch)
 
 int hometown_permanent(CHAR_DATA *ch)
 {
-	int i;
+	size_t i;
 	int htn_perm = -1;
 
 	for (i = 0; i < hometowns.nused; i++) {
@@ -157,7 +157,7 @@ OBJ_INDEX_DATA *get_map(CHAR_DATA *ch)
 
 ROOM_INDEX_DATA *get_random_recall(void)
 {
-	return get_hometown(number_range(1, hometowns.nused-1))->recall[number_range(0, MAX_ANUM-1)];
+	return get_hometown(number_range(1, (signed)hometowns.nused-1))->recall[number_range(0, MAX_ANUM-1)];
 }
 
 /*
@@ -173,7 +173,9 @@ altar_t *get_altar(CHAR_DATA *ch)
  */
 static hometown_t* get_hometown(int htn)
 {
-	hometown_t *h = varr_get(&hometowns, htn);
+	if (htn < 0)
+		htn = 0;
+	hometown_t *h = varr_get(&hometowns, (unsigned)htn);
 	if (!h)
 		h = VARR_GET(&hometowns, 0);
 	return h;

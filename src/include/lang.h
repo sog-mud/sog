@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: lang.h,v 1.19 2000-10-21 19:41:05 fjoe Exp $
+ * $Id: lang.h,v 1.20 2001-06-21 16:16:55 avn Exp $
  */
 
 #ifndef _LANG_H_
@@ -34,7 +34,7 @@
  * (by gender, case or quantity)
  */
 
-const char *	word_form(const char* word, int form, int lang, int rulecl);
+const char *	word_form(const char* word, uint fnum, int lang, int rulecl);
 
 /*
  * rule_t: rules can be of two types

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.326 2001-06-20 09:54:25 avn Exp $
+ * $Id: merc.h,v 1.327 2001-06-21 16:16:55 avn Exp $
  */
 
 /***************************************************************************
@@ -2010,7 +2010,7 @@ OBJ_DATA *nth_obj(OBJ_DATA* obj, int n);
 /* handler.c */
 const char *get_stat_alias(CHAR_DATA *ch, int stat);
 int	count_users	(OBJ_DATA *obj);
-void	deduct_cost	(CHAR_DATA *ch, uint cost);
+void	deduct_cost	(CHAR_DATA *ch, int cost);
 int	check_exit	(const char *arg);
 
 int	get_hours	(CHAR_DATA *ch);
@@ -2133,6 +2133,10 @@ bool	check_blind	(CHAR_DATA *ch);
 bool	check_blind_raw	(CHAR_DATA *ch);
 
 void	set_leader(CHAR_DATA *ch, CHAR_DATA *lch);
+int	need_hands(CHAR_DATA *ch, OBJ_DATA *weapon);
+inline bool	has_boat(CHAR_DATA *ch);
+bool	is_leader(CHAR_DATA *ch, CHAR_DATA *lch);
+int	opposite_door(int door);
 
 /* interp.c */
 void	interpret	(CHAR_DATA *ch, const char *argument);
@@ -2337,5 +2341,8 @@ enum {
 				OLC_MODE_RAW) ? DL_COLOR : DL_NONE)
 
 const char *strdump	(const char *argument, int dump_level);
+
+/* rebooting flag */
+extern bool merc_down;
 
 #endif

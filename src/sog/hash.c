@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.c,v 1.15 2001-06-16 18:40:11 fjoe Exp $
+ * $Id: hash.c,v 1.16 2001-06-21 16:16:58 avn Exp $
  */
 
 #include <stdarg.h>
@@ -48,7 +48,7 @@ static void *hash_add(hash_t *h, const void *k, const void *e, int flags);
 void
 hash_init(hash_t *h, hashdata_t *h_data)
 {
-	int i;
+	size_t i;
 
 	h->h_data = h_data;
 	h->v = malloc(h_data->hsize * sizeof(varr));
@@ -60,7 +60,7 @@ hash_init(hash_t *h, hashdata_t *h_data)
 void
 hash_destroy(hash_t *h)
 {
-	int i;
+	size_t i;
 
 	for (i = 0; i < h->h_data->hsize; i++)
 		varr_destroy(h->v + i);
@@ -71,7 +71,7 @@ hash_destroy(hash_t *h)
 void
 hash_erase(hash_t *h)
 {
-	int i;
+	size_t i;
 
 	for (i = 0; i < h->h_data->hsize; i++)
 		varr_erase(h->v + i);
@@ -116,7 +116,7 @@ hash_update(hash_t *h, const void *k, const void *e)
 bool
 hash_isempty(hash_t *h)
 {
-	int i;
+	size_t i;
 
 	for (i = 0; i < h->h_data->hsize; i++) {
 		if (!varr_isempty(h->v+i))
@@ -127,19 +127,19 @@ hash_isempty(hash_t *h)
 }
 
 #if !defined(HASHTEST) && !defined(MPC)
+int number_range(int from, int to);
+
 void *
 hash_random_item(hash_t *h)
 {
-	extern int number_range(int min, int max);
-
 	if (hash_isempty(h))
 		return NULL;
 
 	for (;;) {
-		varr *v = h->v + number_range(0, h->h_data->hsize - 1);
+		varr *v = h->v + number_range(0, (signed)h->h_data->hsize - 1);
 		if (v->nused == 0)
 			continue;
-		return VARR_GET(v, number_range(0, v->nused - 1));
+		return VARR_GET(v, number_range(0, (signed)v->nused - 1));
 	}
 }
 #endif
@@ -151,7 +151,7 @@ hash_random_item(hash_t *h)
  */
 void *hash_foreach(hash_t *h, foreach_cb_t cb, ...)
 {
-	int i;
+	size_t i;
 	void *rv = NULL;
 	va_list ap;
 
@@ -173,7 +173,8 @@ static varrdata_t v_print =
 {
 	sizeof(const char *), 8,
 	strkey_init,
-	strkey_destroy
+	strkey_destroy,
+	NULL
 };
 
 void
@@ -195,7 +196,7 @@ hash_printall(hash_t *h, BUFFER *buf, foreach_cb_t addname_cb)
 static void *
 hash_search(hash_t *h, const void *k, varr *v)
 {
-	int i;
+	size_t i;
 
 	for (i = 0; i < v->nused; i++) {
 		void *e = VARR_GET(v, i);
@@ -231,11 +232,11 @@ hash_add(hash_t *h, const void *k, const void *e, int flags)
 int
 vnum_hash(const void *k, size_t hsize)
 {
-	return (*(int *) k) * 17 % hsize;
+	return (*(const int *) k) * 17 % hsize;
 }
 
 int
 vnum_ke_cmp(const void *k, const void *e)
 {
-	return *(int *) k - *(int *) e;
+	return *(const int *) k - *(const int *) e;
 }

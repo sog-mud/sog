@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: memalloc.h,v 1.11 2001-06-16 18:40:08 fjoe Exp $
+ * $Id: memalloc.h,v 1.12 2001-06-21 16:16:55 avn Exp $
  */
 
 #ifndef _MEMALLOC_H_
@@ -61,7 +61,6 @@ typedef struct memchunk_t {
 void *	mem_alloc2(int mem_type, size_t mem_len, size_t mem_prealloc);
 void	mem_free(const void *p);
 
-#define GET_CHUNK(p) ((memchunk_t*) (((char*) p) - sizeof(memchunk_t)))
 bool	mem_is(const void *p, int mem_type);
 
 void	mem_validate(const void *p);
