@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.174 1999-04-17 06:56:37 fjoe Exp $
+ * $Id: comm.c,v 1.175 1999-04-17 09:02:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1031,25 +1031,36 @@ void read_from_buffer(DESCRIPTOR_DATA *d)
 		if (d->incomm[0] != '!' && strcmp(d->incomm, d->inlast))
 			d->repeat = 0;
 		else {
-			if (++d->repeat >= 100) {
+			CHAR_DATA *ch = d->original ? d->original :
+						      d->character;
+			if (ch && ++d->repeat >= 100) {
+				char buf[MAX_STRING_LENGTH];
+
 				log_printf("%s input spamming!", d->host);
-	        		if (d->character) {
-					char buf[MAX_STRING_LENGTH];
-					snprintf(buf, sizeof(buf),
-						 "Inlast:[%s] Incomm:[%s]!",
-						 d->inlast, d->incomm);
+				snprintf(buf, sizeof(buf),
+					 "Inlast:[%s] Incomm:[%s]!",
+					 d->inlast, d->incomm);
 					
-					wiznet("SPAM SPAM SPAM $N spamming, and OUT!", d->character, NULL, WIZ_SPAM, 0, d->character->level);
-					wiznet("[$N]'s $t!", d->character, buf,
-						WIZ_SPAM, 0, d->character->level);
+				wiznet("SPAM SPAM SPAM $N spamming, and OUT!",
+					ch, NULL, WIZ_SPAM, 0, ch->level);
+				wiznet("[$N]'s $t!",
+					ch, buf, WIZ_SPAM, 0, ch->level);
 
-					d->repeat = 0;
-
-					write_to_descriptor(d->descriptor, "\n\r*** PUT A LID ON IT!!! ***\n\r", 0);
-/*		strnzcpy(d->incomm, sizeof(d->incomm), "quit");	*/
-					close_descriptor(d);	
-					return;
+				write_to_descriptor(d->descriptor, "\n\r*** PUT A LID ON IT!!! ***\n\r", 0);
+				d->repeat = 0;
+				if (d->showstr_point) {
+					if (d->showstr_head) {
+						free_string(d->showstr_head);
+						d->showstr_head = NULL;
+					}
+					d->showstr_point = NULL;
 				}
+				if (d->pString) {
+					free_string(*d->pString);
+					*d->pString = d->backup;
+					d->pString = NULL;
+				}
+				strnzcpy(d->incomm, sizeof(d->incomm), "quit");
 			}
 		}
 	}
