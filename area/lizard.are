@@ -9,7 +9,7 @@ End
 #MOBILES
 #22101
 lizard king~
-lizard kiing~
+lizard king~
 The Lizard King stands here.
 ~
 ~
@@ -236,7 +236,7 @@ Large lizard is protecting the palace.
 ~
 ~
 lizard~
-AGT D 0 0
+AGTW D 0 0
 55 0 50d10+6000 10d1+1000 10d5+28 'scratch'
 -25 -25 -25 -10
 FKMRT 0 0 0
@@ -2245,7 +2245,7 @@ S
 #22102
 Gate of the lizard town~
 ~
-0 0 city
+0 0 inside
 D1
 ~
 ~
@@ -2258,7 +2258,7 @@ S
 #22103
 Main Street before Temple of Five Serpents~
 ~
-0 0 city
+0 0 inside
 D0
 ~
 ~
@@ -2318,7 +2318,7 @@ S
 #22107
 Market~
 ~
-0 0 city
+0 0 inside
 D1
 ~
 ~
@@ -2331,7 +2331,7 @@ S
 #22108
 Market~
 ~
-0 0 city
+0 0 inside
 D0
 ~
 ~
@@ -2352,7 +2352,7 @@ S
 #22109
 Market~
 ~
-0 0 city
+0 0 inside
 D2
 ~
 ~
@@ -2365,7 +2365,7 @@ S
 #22110
 Market~
 ~
-0 0 city
+0 0 inside
 D0
 ~
 ~
@@ -2407,7 +2407,7 @@ S
 #22112
 Market~
 ~
-0 0 city
+0 0 inside
 D0
 ~
 ~
@@ -2428,7 +2428,7 @@ S
 #22113
 Market~
 ~
-0 0 city
+0 0 inside
 D0
 ~
 ~
@@ -2441,7 +2441,7 @@ S
 #22114
 Market~
 ~
-0 0 city
+0 0 inside
 D0
 ~
 ~
@@ -2462,7 +2462,7 @@ S
 #22115
 Market~
 ~
-0 0 city
+0 0 inside
 D0
 ~
 ~
@@ -2475,7 +2475,7 @@ S
 #22116
 King's street~
 ~
-0 0 city
+0 0 inside
 D0
 ~
 ~
@@ -2488,7 +2488,7 @@ S
 #22117
 King's street~
 ~
-0 0 city
+0 0 inside
 D0
 ~
 ~
@@ -2509,7 +2509,7 @@ S
 #22118
 King's street~
 ~
-0 0 city
+0 0 inside
 D0
 ~
 ~
@@ -2522,7 +2522,7 @@ S
 #22119
 King's street~
 ~
-0 0 city
+0 0 inside
 D0
 ~
 ~
@@ -2539,7 +2539,7 @@ S
 #22120
 King's street~
 ~
-0 0 city
+0 0 inside
 D2
 ~
 ~
@@ -2552,7 +2552,7 @@ S
 #22121
 King's street~
 ~
-0 0 city
+0 0 inside
 D0
 ~
 ~
@@ -2565,7 +2565,7 @@ S
 #22122
 King's street~
 ~
-0 0 city
+0 0 inside
 D0
 ~
 ~
@@ -2586,7 +2586,7 @@ S
 #22123
 King's street~
 ~
-0 0 city
+0 0 inside
 D0
 ~
 ~
@@ -2599,7 +2599,7 @@ S
 #22124
 King's street~
 ~
-0 0 city
+0 0 inside
 D0
 ~
 ~
@@ -2616,7 +2616,7 @@ S
 #22125
 King's street~
 ~
-0 0 city
+0 0 inside
 D0
 ~
 ~
@@ -2936,7 +2936,7 @@ S
 #22149
 Tribune~
 ~
-0 0 city
+0 0 inside
 D1
 ~
 ~
@@ -2953,7 +2953,7 @@ S
 #22150
 Tribune~
 ~
-0 0 city
+0 0 inside
 D0
 ~
 ~
@@ -2974,7 +2974,7 @@ S
 #22151
 Tribune~
 ~
-0 0 city
+0 0 inside
 D1
 ~
 ~
@@ -3004,7 +3004,7 @@ S
 #22153
 Arena of Death~
 ~
-0 0 city
+0 0 inside
 D1
 ~
 ~
@@ -3025,7 +3025,7 @@ S
 #22154
 Arena of Death~
 ~
-0 0 city
+0 0 inside
 D3
 ~
 ~
@@ -3038,7 +3038,7 @@ S
 #22155
 Arena of Death~
 ~
-0 0 city
+0 0 inside
 D0
 ~
 ~
@@ -5168,7 +5168,7 @@ S
 #0
 
 #RESETS
-M 0 22101 1 22135 1	* lizard kiing (Throne of the lizard king)
+M 0 22101 1 22135 1	* lizard king (Throne of the lizard king)
 E 0 22101 0 16		*	Lizard King Sceptre: wielded
 M 0 22112 1 22138 1	* knocker (Temple Square)
 E 0 22127 0 16		*	huge bone: wielded

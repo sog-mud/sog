@@ -577,13 +577,13 @@ A small figurine sits on the ground humming with power.~
 unknown~
 armor BGI AO
 20 20 20 9 0
-60 3 600 P
+45 3 600 P
 A
-24 -12
+12 25
+A
+24 -6
 A
 17 -15
-A
-12 50
 g none~
 #23020
 heron marked blade sword~
@@ -591,17 +591,23 @@ a Heron marked blade~
 The blade of a swordmaster lies at your feet.~
 iron~
 weapon GIM AN
-sword 10 7 'slash' DE
-60 12 600 P
+sword 10 6 'slash' DE
+45 12 600 P
+A
+18 5
+A
+19 8
+A
+13 25
 g none~
 #23021
 malkierian battle helm crane~
 a helm stylized into a golden crane~
-A mallkerian battle helm lies here.~
+A malkerian battle helm lies here.~
 unknown~
 armor AGK AE
 20 20 20 10 0
-60 12 600 P
+45 12 600 P
 A
 17 -10
 A
@@ -616,7 +622,7 @@ A suit of highly pollished armor lies here.~
 unknown~
 armor AGK AD
 20 21 20 9 0
-60 25 600 P
+45 25 600 P
 A
 17 -10
 A
@@ -630,8 +636,14 @@ a heartstone dagger~
 A dagger made of a strange material is here.~
 unknown~
 weapon GM AN
-dagger 10 7 'pierce' D
-60 10 600 P
+dagger 10 6 'pierce' D
+45 10 600 P
+A
+4 2
+A
+18 5
+A
+19 5
 g none~
 #23024
 lord sceptre~
@@ -640,7 +652,7 @@ A finely crafted sceptre lies on the ground.~
 unknown~
 armor AGK AO
 20 19 21 11 0
-60 10 600 P
+45 10 600 P
 A
 19 3
 A
@@ -745,9 +757,9 @@ A plain dress lies on the ground, strange symbols sewn into it's pannels.~
 unknown~
 armor GI AD
 12 13 14 7 0
-40 7 400 P
+35 7 400 P
 A
-13 50
+13 30
 A
 19 2
 A

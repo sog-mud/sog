@@ -117,7 +117,7 @@ stand stand male 500
 0 0 medium unknown
 #8307
 beast зверь~
-@eng a rather small beast@rus Небольшой зверь~
+@eng a rather small beast@rus ~~небольшой~~ ~~зверь~~~
 @eng A rather small beast cringes in terror as it notices you.
 @rus Небольшой зверь (beast) съеживается в ужасе при виде тебя.
 ~
@@ -133,7 +133,7 @@ EFNU 0 0 0
 stand stand male 25
 0 0 medium unknown
 #8308
-will will-o-wisp Уилл Уилл-оу-Висп~
+will-o-wisp Уилл Уилл-оу-Висп will~
 @eng the Will-O-Wisp@rus Уилл-оу-Висп~
 @eng A Will-O-Wisp darts hear and there, making fun of you.
 @rus Уилл-оу-Висп (Will) носится вокруг тебя. Он явно насмехается.
@@ -150,11 +150,11 @@ ACGH JP 0 0
 10 0 2d7+121 5d9+100 2d4+2 'none'
 1 1 1 8
 EFNU 0 0 0
-stand stand none 150
+stand stand male 150
 0 0 medium unknown
 #8309
 snake anaconda змея анаконда~
-@eng the monstrous snake@rus Чудовищная змея~
+@eng the monstrous snake@rus ~~чудовищная~~ ~~змея~~~
 @eng A monstrous snake slithers towards you, thinking 'breakfast'.
 @rus Чудовищная анаконда (snake) смотрит на тебя размышляя о завтраке.
 ~
@@ -166,11 +166,11 @@ ACFGH JPQ -100 0
 16 0 3d9+233 8d9+100 2d6+4 'none'
 -2 -2 -2 7
 EFNR 0 0 0
-stand stand male 500
+stand stand female 500
 0 0 medium unknown
 #8310
-snake python змея питон~
-@eng a large snake@rus Большая змея~
+python snake змея питон~
+@eng a large snake@rus питон~
 @eng A rather large python rests in a coil here.
 @rus Большой питон (python) свернулся кольцами и шипит на тебя.
 ~
@@ -184,16 +184,17 @@ ACFGH JPQ -100 0
 EFNR 0 0 0
 stand stand female 0
 0 0 medium unknown
+g @eng female@rus male~
 #8312
 hag ведьма~
-@eng the Marsh Hag@rus Болотная Ведьма~
+@eng the Marsh Hag@rus ~~болотная~~ ~~ведьма~~~
 @eng A Marsh Hag is here.
 @rus Болотная Ведьма (Hag) мерзко захихикала.
 ~
 @eng Yech!  She manages to make even Smurfette look attractive.  That's ok,
 because she thinks you stink too, and she's about to do something about it.
 @rus Фууу!!! ЫЫЫАГ!!! Даже помойная куча смотрится привлекательней!
-Это существо воняет! Тоесть, имеется в виду - ВОНЯЕТ!!!
+Это существо воняет! То есть, имеется в виду - ВОНЯЕТ!!!
 Экая гадость... Правда, она тоже не рада тебе,
 и возможно замыслила нечто плохое.
 ~
@@ -206,7 +207,7 @@ stand stand female 50
 0 0 medium unknown
 #8313
 slaad смерть~
-@eng a Death Slaad@rus Старуха Смерть~
+@eng a Death Slaad@rus ~~старуха~~ ~~Смерть~~~
 @eng A Death Slaad is standing here distraught.  He seems lost.
 @rus Старуха с косой (Death Slaad) стоит посреди болота. Кажется костлявая 
 потерялась...
@@ -224,7 +225,7 @@ stand stand male 700
 0 0 medium unknown
 #8314
 wolf волчица~
-@eng a marsh wolf@rus Болотная волчица~
+@eng a marsh wolf@rus ~~болотная~~ ~~волчица~~~
 @eng A marsh wolf sniffs the ground has followed your scent.
 @rus Болотная волчица (wolf) обнюхивает твои следы.
 ~
@@ -242,7 +243,7 @@ stand stand female 0
 0 0 medium unknown
 #8318
 mound shambling куст мутант~
-@eng a shambling mound@rus Куст мутант~
+@eng a shambling mound@rus куст~
 @eng A heap of garbage shambles towards you.
 @rus Куст мутант (mound) кидается на тебя.
 ~
@@ -254,11 +255,11 @@ ACG JQ -100 0
 13 0 2d10+170 6d9+100 2d5+3 'none'
 -1 -1 -1 8
 EFNU 0 0 0
-stand stand none 0
+stand stand male 0
 0 0 medium unknown
 #8319
 shaman orc орк шаман~
-@eng the orc shaman@rus Орк шаман~
+@eng the orc shaman@rus шаман~
 @eng An orc shaman stands before you holding a staff and wearing robes.
 @rus Орк-шаман (orc shaman) встает хватая посох и накидывая мантию.
 ~
@@ -277,7 +278,7 @@ stand stand male 17
 0 0 medium unknown
 #8320
 giant гигант~
-@eng a marsh giant@rus Болотный гигант~
+@eng a marsh giant@rus ~~болотный~~ ~~гигант~~~
 @eng A marsh giant stomps towards you.
 @rus Болотный Гигант (giant) топает к тебе.
 ~
@@ -293,7 +294,7 @@ stand stand male 600
 0 0 medium unknown
 #8321
 gargoyle гаргуль~
-@eng a gargoyle@rus Гаргуль~
+@eng a gargoyle@rus гаргуль~
 @eng A large gargoyle lands next to you, baring his fangs at you.
 @rus Большой гаргуль (gargoyle) обнажил клыки оскалившись на тебя.
 ~
@@ -305,7 +306,7 @@ ABCDFG DFJ -100 0
 12 0 2d10+150 6d9+100 1d10+3 'none'
 0 0 0 8
 EFNU 0 0 0
-stand stand none 100
+stand stand male 100
 0 0 medium unknown
 #0
 
@@ -327,7 +328,7 @@ g none~
 horned helmet рогатый шлем~
 @eng a dark horned helmet@rus ~~рогатый~~ ~~шлем~~~
 @eng A wicked looking horned helmet lies here.@rus Черный рогатый шлем (helmet) валяется на полу.~
-iron bone~
+iron~
 armor J AE
 6 6 5 2 0
 10 50 0 P
@@ -391,7 +392,7 @@ g @eng none@rus male~
 south, which is creeping slowly inland.  Several caved-in buildings sprawl
 here, torn apart both by battle and the elements.
 @rus Эта часть тропы медленно переходит в болото (swamp), испещренное кочками.
-Кое где стоят странные здания полуразрушенные сражениями.
+Кое-где стоят странные здания полуразрушенные сражениями.
 ~
 0 0 field
 E
@@ -850,9 +851,9 @@ S
 @eng You are floating on a calm section of blue crystal water.  You feel much more
 at ease then you were before in this area.  Then a wave of fear passes over
 you.  You are not alone.
-@rus Ты плывете по спокойной кристально-синей воде. Ты чувствуешь себя намного более
-непринужденно чем тогда, когда ты был на другой части озера. Волна опасения
-проходит. Тут ты замечаешь, что ты не один.
+@rus Ты плывете по спокойной кристально-синей воде.  Ты чувствуешь себя
+намного более непринужденно чем тогда, когда ты был на другой части озера. 
+Волна опасения проходит.  Тут ты замечаешь, что ты не один.  
 ~
 0 A noswim
 E

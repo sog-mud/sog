@@ -47,6 +47,14 @@ Form 3 -ут~
 End
 
 #RULE
+Name прошел~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name подошел~
 BaseLen 5
 Form 1 -ла~
@@ -103,11 +111,27 @@ Form 3 -ои~
 End
 
 #RULE
+Name нагнулся~
+BaseLen 5
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
 Name видимый~
 BaseLen 5
 Form 1 -ая~
 Form 2 -ое~
 Form 3 -ые~
+End
+
+#RULE
+Name осмотрел~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
 End
 
 #RULE
@@ -124,6 +148,14 @@ BaseLen 6
 Form 1 -лась~
 Form 2 -лось~
 Form 3 -лись~
+End
+
+#RULE
+Name удивлен~
+BaseLen 7
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
 End
 
 #RULE
@@ -159,6 +191,14 @@ Form 3 -ют~
 End
 
 #RULE
+Name зашел~
+BaseLen 3
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name начинает~
 BaseLen 6
 Form 1 -ет~
@@ -190,6 +230,14 @@ Form 3 -ли~
 End
 
 #RULE
+Name вошел~
+BaseLen 3
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name просит~
 BaseLen 4
 Form 1 -ит~
@@ -203,6 +251,22 @@ BaseLen 6
 Form 1 -ет~
 Form 2 -ет~
 Form 3 -ют~
+End
+
+#RULE
+Name обнаружил~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name рад~
+BaseLen 3
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
 End
 
 #RULE
@@ -286,6 +350,14 @@ Form 3 -ые~
 End
 
 #RULE
+Name заметил~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name кусает~
 BaseLen 4
 Form 1 -ет~
@@ -310,6 +382,14 @@ Form 3 -ют~
 End
 
 #RULE
+Name встретил~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name спит~
 BaseLen 2
 Form 1 -ит~
@@ -323,6 +403,14 @@ BaseLen 7
 Form 1 -лась~
 Form 2 -лось~
 Form 3 -лись~
+End
+
+#RULE
+Name навострил~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
 End
 
 #RULE
@@ -398,6 +486,14 @@ Form 3 -ли~
 End
 
 #RULE
+Name подслушал~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name втянул~
 BaseLen 5
 Form 1 -ла~
@@ -419,6 +515,14 @@ BaseLen 5
 Form 1 -ет~
 Form 2 -ет~
 Form 3 -ют~
+End
+
+#RULE
+Name готов~
+BaseLen 5
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
 End
 
 #RULE
@@ -461,6 +565,14 @@ Form 3 -ы~
 End
 
 #RULE
+Name прочитал~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name путешествовал~
 BaseLen 12
 Form 1 -ла~
@@ -479,6 +591,14 @@ End
 #RULE
 Name разложился~
 BaseLen 7
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
+Name обрадовался~
+BaseLen 8
 Form 1 -лась~
 Form 2 -лось~
 Form 3 -лись~
@@ -509,6 +629,14 @@ Form 3 -ют~
 End
 
 #RULE
+Name выглянул~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name прогорел~
 BaseLen 7
 Form 1 -ла~
@@ -517,10 +645,26 @@ Form 3 -ли~
 End
 
 #RULE
+Name остановился~
+BaseLen 8
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
 Name храбр~
 Form 1 храбра~
 Form 2 храбро~
 Form 3 храбры~
+End
+
+#RULE
+Name мог~
+BaseLen 3
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
 End
 
 #RULE
@@ -665,6 +809,14 @@ Form 3 -ют~
 End
 
 #RULE
+Name встречал~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name содержит~
 BaseLen 6
 Form 1 -ит~
@@ -775,6 +927,14 @@ Form 3 -их~
 End
 
 #RULE
+Name посмотрел~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name успел~
 BaseLen 4
 Form 1 -ла~
@@ -815,6 +975,14 @@ Form 3 -ли~
 End
 
 #RULE
+Name загляделся~
+BaseLen 7
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
 Name упал~
 BaseLen 4
 Form 1 -а~
@@ -828,6 +996,22 @@ BaseLen 7
 Form 1 -ет~
 Form 2 -ет~
 Form 3 -ют~
+End
+
+#RULE
+Name встряхнул~
+BaseLen 8
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name наклонился~
+BaseLen 7
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
 End
 
 #RULE
@@ -866,6 +1050,30 @@ BaseLen 7
 Form 1 -ла~
 Form 2 -ло~
 Form 3 -ли~
+End
+
+#RULE
+Name услышал~
+BaseLen 6
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name нашел~
+BaseLen 3
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
+Name наткнулся~
+BaseLen 6
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
 End
 
 #RULE
@@ -937,6 +1145,14 @@ BaseLen 7
 Form 1 -ет~
 Form 2 -ет~
 Form 3 -ют~
+End
+
+#RULE
+Name решил~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
 End
 
 #RULE
@@ -1012,11 +1228,27 @@ Form 3 -ые~
 End
 
 #RULE
+Name вгляделся~
+BaseLen 6
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
+End
+
+#RULE
 Name раздетый~
 BaseLen 6
 Form 1 -ая~
 Form 2 -ое~
 Form 3 -ые~
+End
+
+#RULE
+Name обернулся~
+BaseLen 6
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
 End
 
 #RULE
@@ -1049,6 +1281,14 @@ BaseLen 6
 Form 1 -ет~
 Form 2 -ет~
 Form 3 -ют~
+End
+
+#RULE
+Name утомлен~
+BaseLen 7
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
 End
 
 #RULE
@@ -1116,11 +1356,27 @@ Form 3 -и~
 End
 
 #RULE
+Name пришел~
+BaseLen 4
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name щелкает~
 BaseLen 5
 Form 1 -ет~
 Form 2 -ет~
 Form 3 -ют~
+End
+
+#RULE
+Name провел~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
 End
 
 #RULE
@@ -1161,6 +1417,14 @@ BaseLen 3
 Form 1 -ит~
 Form 2 -ит~
 Form 3 -ят~
+End
+
+#RULE
+Name спустился~
+BaseLen 6
+Form 1 -лась~
+Form 2 -лось~
+Form 3 -лись~
 End
 
 #RULE
@@ -1281,9 +1545,25 @@ Form 3 их~
 End
 
 #RULE
+Name приметил~
+BaseLen 7
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name ним~
 Form 1 ней~
 Form 3 ними~
+End
+
+#RULE
+Name забрел~
+BaseLen 5
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
 End
 
 #RULE

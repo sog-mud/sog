@@ -512,12 +512,11 @@ her favourite doll in hands, she stares at you dreamily,
 mouth slightly open from amazement.. maybe, she is trying
 to figure out where people like you come from and imagine
 what it is like - to live outside of her village.
-@rus Немного всклокоченная и чем-то перемазанная, она тем
-не менее удивительно симпатична... даже скорее благо-
-даря этому. Сжимая в руках свою любимую куклу, она
-смотрит на тебя, приоткрыв рот от удивления - навер-
-ное думает, откуда же ты пришел, пытаясь представить,
-каково это - жить за пределами деревни.
+@rus Немного всклокоченная и чем-то перемазанная, она тем не менее
+удивительно симпатична... даже скорее благодаря этому. Сжимая
+в руках свою любимую куклу, она смотрит на тебя, приоткрыв от
+удивления рот - наверное думает, откуда же ты пришел, пытаясь
+представить, каково это - жить за пределами деревни.
 ~
 human~
 AG 0 700 0
@@ -548,6 +547,177 @@ ABG 0 0 0
 FHIJNX 0 0 0
 stand stand male 1500
 0 ABCDEF medium unknown
+F for H
+#47124
+villager old man старик~
+@eng an old villager@rus ~~старик~~~
+@eng An old man is sitting here, dying of boredom.
+@rus Старик сидит тут, не зная чем заняться.
+~
+@eng He is too old for farming or any other work.. Although
+no one blames anything on him and relatives don't have
+any problems letting him spend these days in leisure,
+the thought of being decrepit and useless obviously is
+what gnaws at him from inside.
+@rus Он уже слишком стар для того, чтобы работать в поле или
+еще где-нибудь. Впрочем, никто его в этом не винит, и
+родственники не испытывают трудностей с его содержанием,
+но все же сознание собственной дряхлости и бесполезности
+явно гложет его.. незавидное состояние.
+~
+human~
+ABG 0 400 0
+20 7 2d30+400 0d0+0 5d4+5 'punch'
+-5 -5 -5 -5
+FJ 0 0 0
+stand stand male 500
+0 ABCF medium unknown
+F for H
+#47125
+peasant крестьянин~
+@eng a peasant@rus ~~крестьянин~~~
+@eng A peasant is heading towards rice fields.
+@rus Крестьянин неспеша идет в сторону полей.
+~
+@eng Probably, he went home to eat or rest, or check if
+all kids and old men are fine. He looks rested now,
+and obviously is in a quite good mood.
+@rus Наверное, он ходил домой поесть или проверить, как там
+старики да дети. Сейчас же он выглядит отдохнувшим и,
+похоже, находится в хорошем настроении.
+~
+human~
+AG 0 0 0
+25 10 2d50+500 0d0+0 5d6+10 'smash'
+-9 -9 -9 -9
+FHIJX 0 0 0
+stand stand none 300
+0 ABCF medium unknown
+F for H
+#47126
+peasant крестьянин~
+@eng a peasant@rus ~~крестьянин~~~
+@eng A peasant stands here, knee-deep in warm water.
+@rus Крестьянин стоит тут, по колено в теплой воде.
+~
+@eng This is one of the local peasants that work on their daimyo's
+rice fields in exchange for the houses and land given by him.
+He doesn't seem too tired, although sun burns hard and sometimes
+is unbearable.
+@rus Это один из местных крестьян, работающих на рисовых полях
+хозяина в качестве платы за предоставление им крова и соб-
+ственной земли. Он не выглядит слишком утомленным работой,
+хотя иногда солнце печет просто невыносимо.
+~
+human~
+AB 0 0 0
+25 10 2d50+500 0d0+0 5d6+10 'punch'
+-10 -10 -10 -10
+FHJNU 0 0 0
+stand stand male 1000
+0 ABCF medium unknown
+F for H
+#47127
+peasant woman крестьянка~
+@eng a peasant@rus ~~крестьянка~~~
+@eng A woman scurries around with a large basket.
+@rus Крестьянка ходит туда-сюда с большой корзиной в руках.
+~
+@eng She carries a large basket, bringing various items
+to other peasants and sometimes climbing into the water.
+@rus Эта женщина занята тем, что снует туда-сюда с корзиной,
+помогая мужчинам.
+~
+human~
+ABG 0 0 0
+25 8 2d50+500 0d0+0 5d6+8 'slap'
+-8 -8 -8 -8
+FHJ 0 0 0
+stand stand female 700
+0 ABCF medium unknown
+F for H
+#47128
+creature serpentine тварь змееподобная~
+@eng a serpent-like creature@rus ~~змееподобная~~ ~~тварь~~~
+@eng A huge serpentine creature lies coiled on the floor.
+@rus Огромная змееподобная тварь свернулась кольцами на дне.
+~
+@eng This ..thing looks rather like a dragon than a fish.. although
+it doesn't have any wings, and you never heard of any dragons
+living underwater.. you notice a pair of strong fins at its
+chest and a set of perfectly sharp teeth in its maw. It doesn't
+seem aggressive, probably waiting for you to leave peacefully,
+pretending you didn't see it.
+@rus Это не больно-то похоже на рыбу, скорей на дракона...
+хотя крыльев у нее не видно, зато видно мощные плавники
+на груди и множество острых зубов в приоткрытой пасти.
+Тварь не спешит нападать на тебя - наверное, ждет пока
+ты не уйдешь сам.. видимо, считая, что ты ее не видишь.
+~
+fish~
+AB FJQVcz -500 0
+35 30 2d50+1200 0d0+0 6d6+25 'bite'
+-15 -15 -15 -15
+ACFH 0 0 0
+stand stand neutral 0
+0 AFOQ huge unknown
+g @eng neutral@rus female~
+F vul HI
+#47129
+guard temple храмовый страж~
+@eng temple guard@rus ~~храмовый~~ ~~страж~~~
+@eng Strong and trained man stands here, guarding the peace.
+@rus Сильный и тренированный стражник стоит здесь, охраняя покой.
+~
+@eng He is one of the monks, specially trained to be guards or
+soldiers - they are also known as Sohei. He looks more than
+a worthy opponent to you, but, at the same time, doesn't
+tend to get pleasure out of fight - he rather regards weapon
+as an extreme measure when dealing with those who come to
+desecrate the temple.
+@rus Это один из монахов, специально тренированных для службы
+стражами или воинами - их еще называют Сохей. Он выглядит
+более чем достойным противником тебе, но непохоже, чтобы
+он получал удовольствие от сражения - скорей, оружие для
+него - крайнее средство в борьбе с теми, кто хочет осквер-
+нить покой храма.
+~
+human~
+ABGTe N 1000 0
+30 25 2d50+1000 0d0+0 6d6+30 'smash'
+-15 -15 -15 -15
+EFHKQUX AB MP 0
+stand stand male 5000
+0 ABCF medium unknown
+F for H
+#47130
+captain temple guard начальник страж~
+@eng captain of the guard@rus ~~начальник~~ ~~стражи~~~
+@eng A tall man clad in battle armor watches you attentively.
+@rus Высокий человек в боевых доспехах внимательно смотрит на тебя.
+~
+@eng This is the captain of temple guard, an elderly samurai,
+whose fame has reached places far outside the village.
+He has deserved this honorary post by loyal service to
+Saburo and valor shown in many battles. He gladly accep-
+ted his master's offer to become the captain of temple
+guard as his age was taking its own. Anyhow, he got
+enough duties these days, and training the younger guards
+is among them.
+@rus Это начальник стражи, немолодой уже самурай, заслуживший
+известность во всей провинции верной службой Сабуро и
+доблестью, проявленной в многочисленных сражениях. Теперь
+он уже староват для войн и с радостью согласился на эту
+почетную должность. Впрочем, без дела он не сидит - в его
+многочисленные обязанности входит и тренировка стражников.
+~
+human~
+ABGT DJNZ 1000 0
+40 25 2d100+1500 0d0+0 6d7+15 'pound'
+-20 -20 -20 -20
+AEFHKQX AB MP 0
+stand stand male 20000
+0 ABCF medium unknown
 F for H
 #47151
 ~
@@ -698,6 +868,7 @@ cloth~
 armor AKLS AK
 0 0 0 0 0
 46 0 0 P
+F A 0 0 b
 A
 35 100
 A
@@ -761,74 +932,6 @@ A
 A
 18 45
 g male~
-#47018
-garland~
-@eng a garland@rus гирлянда~
-@eng A glittering garland lies on the floor.@rus Гирлянда валяется на полу.~
-plastic~
-staff ARY AO
-1 10 10 'continual light' 0
-0 0 0 P
-g none~
-#47019
-petard~
-@eng a petard@rus петарда~
-@eng An unused petard lies here.@rus Еще целая петарда валяется тут.~
-unknown~
-pill GHRYZ A
-40 'haste' 'continual light' 'scream' 'fear'
-0 0 0 P
-E
-petard~
-Ого! Тут написана инструкция по применению :
- 
-1) Съесть петарду.
-2) ... Ну ты сначала съешь ;)
-~
-g none~
-#47020
-vodka glass paladinskaya~
-@eng A glass of "{WSpecial paladin's{x" vodka@rus Стопка "{WОсобой паладинской{x" водки~
-@eng A glass of vodka catches your eye, drink it!@rus Стопочка водки притягивает твой взгляд.~
-glass~
-potion HIRYZ A
-40 'garble' 'frenzy' 'slow' 'make arrow'
-10 0 0 P
-g none~
-#47021
-jar banka cucumbers huge~
-@eng Jar of cucumbers@rus Банка с огурцами~
-@eng A HUGE jar full of {gcucumbers{x stands on the table.@rus ОГРОМНАЯ банка с солеными {gогурцами{x стоит на столе.~
-glass~
-container RY 0
-100000 A 0 1000000 50
-0 0 0 P
-g none~
-#47022
-cucumber~
-@eng {gsalted cucumber{x@rus {gмалосольный огурчик{x~
-@eng Wow it's salted cucumber! Must be perfect with vodka!@rus Огурчик... соленый..!~
-meat~
-food 0 AN
-A A 0 0 0
-0 10 0 P
-g none~
-#47023
-box petards garlands large~
-@eng a box@rus Картонная коробка~
-@eng A large box stands here.@rus Большая картонная коробка стоит тут. Сбоку видна этикетка.~
-paper~
-container Y 0
-1000000 A 0 10000000 100
-0 0 0 P
-E
-label box large etiketka~
-Тут написано :
- 
-     Петарды, гирлянды и другие боеприпасы.
-        Веселого Нового Года!
-~
-g none~
 #47024
 champautomat fountain champagne~
 @eng Champautomat@rus Шампомат?~
@@ -879,14 +982,14 @@ stone~
 fountain RY P
 100000 100000 'water' 0 0
 0 1 1 P
-g male~
+g @eng neutral@rus male~
 #47102
 temple храмовые врата gate~
 @eng temple gate@rus ~~храмовые~~ ~~врата~~~
 @eng The temple gate are here, wide open.@rus Храмовые врата (gate) перед тобой, они открыты.~
 stone~
 portal BR P
-0 0 0 47163 0
+0 0 A 47163 0
 0 0 0 P
 g plural~
 #47103
@@ -895,7 +998,7 @@ cave mouth dark вход пещера~
 @eng Mouth of a cave gaps in the stone, making you shiver.@rus Вход в пещеру (cave) зияет темным провалом в камне.~
 stone~
 portal CY 0
-0 0 0 47196 0
+0 0 A 47196 0
 0 1 1 P
 E
 пещера~
@@ -1158,7 +1261,7 @@ wood~
 container Y 0
 10000 ACD 47149 10000 100
 30 1 1 P
-g male~
+g @eng neutral@rus male~
 #47120
 sign~
 @eng sign@rus ~~табличка~~~
@@ -1316,7 +1419,7 @@ g male~
 #47131
 штаны pants short короткие~
 @eng short pants@rus ~~короткие~~ ~~штаны~~~
-@eng Short and quite worn pants lie here.@rus Короткие и не слишком новые штаны лежат здесью~
+@eng Short and quite worn pants lie here.@rus Короткие и не слишком новые штаны лежат здесь.~
 cotton~
 clothing 0 AF
 0 0 0 0 0
@@ -1540,7 +1643,7 @@ key 0 AO
 g male~
 #47150
 armor suit ornate splintmail доспех пластинчатый изящный~
-@eng a suit of ornate splintmail armor@rus пластинчатый доспех отличной работы~
+@eng a suit of ornate splintmail armor@rus ~~пластинчатый~~ ~~доспех~~ отличной работы~
 @eng An ornate splintmail armor lies here, shining.@rus Изящный пластинчатый доспех сияет на солнце.~
 mithril~
 armor I AD
@@ -1554,7 +1657,7 @@ A
 2 2
 A
 17 -15
-g none~
+g @eng neutral@rus male~
 #47151
 kimono платье кимоно dress elegant элегантное~
 @eng a beutiful kimono of colour silk@rus ~~красивое~~ кимоно из цветного шелка~
@@ -1563,6 +1666,10 @@ silk~
 clothing I AD
 0 0 0 0 0
 30 4 20000 P
+A
+6 4
+A
+9 -5
 g none~
 #47152
 chest сундук~
@@ -1570,7 +1677,7 @@ chest сундук~
 @eng A medium-sized chest is standing near the wall.@rus Средних размеров сундук стоит у стены.~
 hardwood~
 container Y 0
-10000000 ACD 47153 100000000 0
+10000000 ACD 47153 100000000 100
 30 1000000 10000 P
 g male~
 #47153
@@ -1600,6 +1707,192 @@ trash 0 AO
 0 0 0 0 0
 10 10 50 P
 g female~
+#47156
+basket large корзина большая~
+@eng a large basket@rus ~~большая~~ ~~корзина~~~
+@eng A large basket lies here.@rus Большая плетеная корзина лежит здесь.~
+bamboo~
+container N AO
+500 0 0 100 10
+20 20 400 P
+g @eng neutral@rus female~
+#47157
+teeth necklace зубы ожерелье~
+@eng a necklace of sharp teeth@rus ~~ожерелье~~ из чьих-то острых зубов~
+@eng A bunch of some creature's sharp teeth, stringed on a thread, lies here.@rus Острые зубы какого-то существа, нанизанные на нить, лежат кучкой.~
+bone~
+jewelry QY AC
+0 0 0 0 0
+25 10 3000 P
+A
+13 10
+A
+20 -2
+A
+5 2
+A
+19 4
+A
+1 3
+E
+necklace teeth зубы ожерелье~
+@rus Если ты это наденешь, то будешь похож на какого-нибудь
+дикаря, щеголяющего нацепившего чьи-то зубы в качестве
+амулета из непонятных мистичечких соображений.
+~
+E
+necklace teeth зубы ожерелье~
+@eng You sure would look like a savage hunter if worn
+this amulet.
+~
+g @eng neutral@rus male~
+#47158
+ruby gem рубин~
+@eng a large ruby gem@rus ~~большой~~ ~~рубин~~~
+@eng A large uncut ruby is glittering on the ground.@rus Большой необработанный рубин сверкает на земле.~
+ruby~
+gem Q AO
+0 0 0 0 0
+30 3 50000 P
+E
+ruby рубин~
+@rus Интересно, откуда берется такая красотища? Как тебе
+сказали, этот камень был найден в желудке какой-то
+водяной змеи.
+~
+E
+ruby рубин~
+@eng You wonder where wonders like this come from. From
+what you were told, this particular gem was found
+in a stomach of some water serpent.
+~
+g @eng neutral@rus male~
+#47159
+ribbon silk лента шелковая~
+@eng {ca cyan silk ribbon{x@rus {c~~голубая~~ ~~шелковая~~ ~~лента~~{x~
+@eng A beautiful ribbon of cyan silk lies here forgotten by someone.@rus Красивая лента из голубого шелка кем-то забыта на земле.~
+silk~
+clothing 0 AE
+0 0 0 0 0
+10 2 5000 P
+g none~
+#47160
+haramaki light armor харамаки легкий доспех~
+@eng haramaki@rus харамаки~
+@eng A light leather armor lies on the ground.@rus Легкий кожаный доспех лежит на земле.~
+leather~
+armor 0 AD
+10 10 10 10 0
+25 10 8000 P
+A
+27 2
+A
+29 2
+A
+2 1
+g neutral~
+#47161
+naginata нагината шест pole blade long длинный~
+@eng naginata@rus нагината~
+@eng A wooden pole with long curved blade attached to its end lies here.@rus Деревянный шест с длинным изогнутым лезвием на конце лежит здесь.~
+steel~
+weapon I AN
+polearm 6 6 'slice' DF
+25 300 8000 P
+A
+19 2
+A
+18 4
+g @eng neutral@rus female~
+#47162
+helmet splinted ornate изящный пластинчатый шлем~
+@eng an ornate splinted helm@rus ~~изящный~~ ~~пластинчатый~~ ~~шлем~~~
+@eng An ornately designed splinted helm lies here.@rus Прихотливо изукрашенный пластинчатый шлем лежит здесь.~
+mithril~
+armor IK AE
+15 15 15 12 0
+35 15 20000 P
+A
+28 5
+A
+29 5
+A
+27 5
+A
+20 -5
+g @eng neutral@rus male~
+#47163
+armor splintmail ornate изящный пластинчатый доспех~
+@eng a suit of ornate splintmail armor@rus ~~изящный~~ ~~пластинчатый~~ ~~доспех~~~
+@eng A suit of ornately designed splintmail armor lies here.@rus Прихотливо изукрашенный пластинчатый доспех лежит здесь.~
+mithril~
+armor IK AD
+18 18 18 15 0
+35 30 25000 P
+A
+20 -7
+A
+28 7
+A
+29 7
+A
+27 7
+A
+5 1
+g @eng neutral@rus male~
+#47164
+splinted gauntlets ornate пластинчатые рукавицы~
+@eng a pair of ornate splinted gauntlets@rus ~~изящные~~ ~~пластинчатые~~ ~~рукавицы~~~
+@eng A pair of ornately designed splinted gauntlets lies here.@rus Прихотливо изукрашенные пластинчатые рукавицы лежат здесь.~
+mithril~
+armor IK AH
+15 15 15 12 0
+35 25 20000 P
+A
+28 3
+A
+29 3
+A
+27 3
+A
+20 -3
+A
+19 3
+g @eng neutral@rus plural~
+#47165
+boots splinted ornate ботинки пластинчатые~
+@eng a pair of ornate splinted boots@rus ~~изящные~~ ~~пластинчатые~~ ~~ботинки~~~
+@eng A pair of ornately designed splinted boots lies here.@rus Прихотливо изукрашенные пластинчатые ботинки лежат здесь.~
+mithril~
+armor IK AG
+15 15 15 12 0
+35 20 20000 P
+A
+14 30
+A
+28 4
+A
+29 4
+A
+27 4
+A
+20 -5
+g @eng neutral@rus plural~
+#47166
+naginata magical магическая нагината~
+@eng a magically enchanted naginata@rus ~~магическая~~ нагината~
+@eng A long pole crowned with sharp curved blade radiates a faint blue glow.@rus Длинный шест, увенчанный острым изогнутым лезвием, слегка светится голубым.~
+mithril~
+weapon GIK AN
+polearm 6 9 'slice' DFG
+35 300 25000 P
+A
+20 -5
+A
+18 3
+A
+19 5
+g @eng neutral@rus female~
 #47217
 river water~
 @eng River@rus ~~река~~~
@@ -4541,10 +4834,14 @@ O 0 47101 0 47110	* Well (By the well)
 M 0 47122 1 47111 1	* a village girl (A villager's house)
 E 0 47155 0 17		*	a wooden doll: held in the hands
 O 0 47123 0 47112	* plant (A small field behind the house)
-P 0 47124 0 47123 1	* plant: some fruits
+P 0 47124 1 47123 1	* plant: some fruits
 M 0 47121 1 47114 1	* a village boy (Eastern road)
+M 0 47124 1 47115 1	* an old villager (A villager's house)
+E 0 47135 0 5		*	a worn shirt: on the body
+E 0 47130 0 13		*	a worn belt: around the waist
+E 0 47131 0 7		*	short pants: on the legs
 O 0 47123 0 47116	* plant (A small field behind the house)
-P 0 47124 0 47123 1	* plant: some fruits
+P 0 47124 1 47123 1	* plant: some fruits
 O 0 47106 0 47117	* Wooden door (Before the old Kanzaki's house)
 M 0 47123 1 47119 1	* a peasant (A small field behind the house)
 E 0 47137 0 16		*	a fine sturdy hoe: wielded
@@ -4552,6 +4849,12 @@ M 0 47123 1 47121 1	* a peasant (A small field behind the house)
 E 0 47137 0 16		*	a fine sturdy hoe: wielded
 O 0 47125 0 47126	* wooden bench (Temple guards' barracks)
 O 0 47126 0 47126	* table (Temple guards' barracks)
+M 0 47130 1 47126 1	* captain of the guard (Temple guards' barracks)
+E 0 47162 0 6		*	an ornate splinted helm: over the head
+E 0 47163 0 5		*	a suit of ornate splintmail armor: on the body
+E 0 47164 0 9		*	a pair of ornate splinted gauntlets: on the hands
+E 0 47165 0 8		*	a pair of ornate splinted boots: on the feet
+E 0 47166 0 16		*	a magically enchanted naginata: wielded
 O 0 47102 0 47128	* temple gate (The temple courtyard)
 O 0 47109 0 47129	* a huge anvil (The forge)
 O 0 47110 0 47129	* Barrel of water (The forge)
@@ -4560,6 +4863,17 @@ M 0 47114 1 47129 1	* blacksmith (The forge)
 E 0 47143 0 16		*	a blacksmith's hammer: wielded
 G 0 47142 0		*	a chunk of iron
 O 0 47141 0 47129	* the blacksmith pincers (The forge)
+M 0 47125 1 47130 1	* a peasant (Path to the rice fields.)
+E 0 47130 0 13		*	a worn belt: around the waist
+E 0 47131 0 7		*	short pants: on the legs
+M 0 47126 6 47132 1	* a peasant (Rice fields)
+M 0 47126 6 47133 1	* a peasant (Rice fields)
+M 0 47126 6 47134 1	* a peasant (Rice fields)
+M 0 47126 6 47135 1	* a peasant (Rice fields)
+M 0 47127 1 47136 1	* a peasant (Rice fields)
+E 0 47156 0 17		*	a large basket: held in the hands
+M 0 47126 6 47136 1	* a peasant (Rice fields)
+M 0 47126 6 47137 1	* a peasant (Rice fields)
 M 0 47103 5 47139 1	* a grasshopper (The meadows)
 M 0 47103 5 47141 1	* a grasshopper (The meadows)
 M 0 47104 3 47141 1	* a bird (The meadows)
@@ -4591,23 +4905,22 @@ O 0 47115 0 47207	* Bed (Guest chamber)
 M 0 47116 3 47208 1	* a servant girl (End of the hallway)
 O 0 47116 0 47209	* Mirror (Miyu's room)
 O 0 47117 0 47209	* Vase with flowers (Miyu's room)
-P 0 47118 0 47117 1	* Vase with flowers: A bouquet of flowers
 M 0 47118 1 47209 1	* Miyu (Miyu's room)
 E 0 47148 0 5		*	a fine kimono: on the body
 O 0 47115 0 47209	* Bed (Miyu's room)
+P 0 47118 1 47117 1	* Vase with flowers: A bouquet of flowers
 O 0 47119 0 47210	* chest (Saburo Kanzaki's room)
+P 0 47150 1 47119 1	* chest: a suit of ornate splintmail armor
 M 0 47119 1 47210 1	* Saburo (Saburo Kanzaki's room)
 G 0 47149 0		*	a small key
-P 0 47150 0 47119 1	* chest: a suit of ornate splintmail armor
 O 0 47115 0 47210	* Bed (Saburo Kanzaki's room)
 O 0 47115 0 47211	* Bed (Mori's room)
 M 0 47120 1 47211 1	* Mori (Mori's room)
 E 0 47151 0 5		*	a beutiful kimono of colour silk: on the body
-O 0 47152 0 47211	* a chest (Mori's room)
 G 0 47153 0		*	a small key
-P 0 47151 0 47152 1	* a chest: a beutiful kimono of colour silk
-P 0 47154 0 47152 1	* a chest: a sharp hairpin
-P 0 47154 0 47152 1	* a chest: a sharp hairpin
+O 0 47152 0 47211	* a chest (Mori's room)
+P 0 47151 1 47152 1	* a chest: a beutiful kimono of colour silk
+P 0 47154 2 47152 2	* a chest: a sharp hairpin
 M 0 47105 1 47212 1	* apprentice (A small opening)
 E 0 47130 0 13		*	a worn belt: around the waist
 E 0 47131 0 7		*	short pants: on the legs
@@ -4624,9 +4937,13 @@ M 0 47108 3 47213 3	* a shaggy ape (By the hot spring)
 E 0 47136 0 12		*	a woolly hide of the ape: about the shoulders
 M 0 47108 3 47213 3	* a shaggy ape (By the hot spring)
 E 0 47136 0 12		*	a woolly hide of the ape: about the shoulders
+O 0 47159 0 47214	* {ca cyan silk ribbon{x (Bamboo grove near the river)
 O 0 47107 0 47215	* River (Shore of the river)
 O 0 47217 0 47216	* River (Shore of the river)
 O 0 47108 0 47218	* Cave mouth (In the river)
+M 0 47128 1 47219 1	* a serpent-like creature (Underwater cave)
+G 0 47157 0		*	a necklace of sharp teeth
+G 0 47158 0		*	a large ruby gem
 S
 
 #SHOPS
@@ -4641,6 +4958,12 @@ O 47134 5	* a long bamboo pole
 O 47136 5	* a woolly hide of the ape
 O 47143 10	* a blacksmith's hammer
 O 47150 10	* a suit of ornate splintmail armor
+O 47157 7	* a necklace of sharp teeth
+O 47162 5	* an ornate splinted helm
+O 47163 5	* a suit of ornate splintmail armor
+O 47164 5	* a pair of ornate splinted gauntlets
+O 47165 5	* a pair of ornate splinted boots
+O 47166 3	* a magically enchanted naginata
 S
 
 #MOBPROGS

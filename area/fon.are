@@ -237,7 +237,106 @@ AGRTW BDFJNPTUVcu -500 0
 ACDEFJK AB CIKMP 0
 stand stand female 1000
 AMX AC large unknown
+#22465
+tellias ranger guard~
+Tellias~
+Tellias Ranger Guard of FoN stands here.
+~
+Before you stand a tall man in light mithril chainmailand green cape.
+His black hair,blue piercing eyes and musculed arms are a testimony to
+his fighting prowess and physical fitness.In his hands you see ancient
+staff maded form blue ice crystall.
+~
+unique~
+AGJ DFHJVt 500 0
+45 30 2d40+2000 1d1+99 5d5+30 'wrath'
+-15 -15 -15 -15
+FJKX AB HI 0
+stand stand male 500
+AMV ACDEF large unknown
+#22466
+mifner captain burner~
+Mifner~
+Mifner Captain of forest burners stands here.
+~
+Before you stand a giant man in black and red armor.In his breastpate
+you see a sign : white skull surrounded red fire.He is look like brigand
+and in his red eyes you see a flame of evilness and hate of all forest
+creatures.
+~
+unique~
+AG DFJVu -500 0
+45 30 2d40+2000 1d1+99 5d5+30 'acbite'
+-15 -15 -15 -15
+DEFJK AB HIM 0
+stand stand male 500
+AMV ACDEF large unknown
+#22467
+large forest guard~
+large guard~
+A large forest guard prepares for fight with burners.
+~
+A young man dressed in superb leather armour and green stands here,
+longbow strapped comfortably over his back and a longsword by his
+side. He has dark black hair, and has features which are both kind
+and handsome while lacking in weakness. He notices you and smiles,
+while continues tending to a small deer which seems to have injured
+it's leg.
+~
+unique~
+ABG DJ 1000 0
+35 20 2d2+1500 1d1+99 6d6+35 'slash'
+-10 -10 -10 -10
+CFKN BJS B 0
+stand stand male 100
+AC 0 large unknown
+#22468
+giant guard~
+giant guard~
+A giant forest guard stand here ,prepates for battle with destroers.
+~
+This massive guard wearing green clothes flexing his muscules in preparation
+for upcoming battle to punish burners destroeres and his darkfriends.
+~
+unique~
+AGT DJ 1000 0
+46 15 25d10+2600 1d1+999 32d4+8 'claw'
+-12 -12 -12 -12
+CDEFIJKO 0 HIJ T
+stand stand male 150
+AHMV 0 giant unknown
+#22469
+forest burner man~
+forest burner~
+A tall man stand here burn forest.
+~
+A man with red armor stand here.In his arms you see a box of matches 
+and you see that hi wants to burn this beautiful forest.You can attack
+or help him but you think kill him is hard doing.
+~
+unique~
+ABG DJ -1000 0
+35 20 2d2+1500 1d1+99 6d6+35 'slash'
+-10 -10 -10 -10
+CFKN BJ BH I
+stand stand male 100
+AC 0 large unknown
 #22470
+name man destroer~
+forest destroer~
+A tall man stand here , prepare to destroy forest.
+~
+This massive man wearing black armor flexing his muscules in preparation
+for destroy forest by twin-bladed black axe which you see in his hands.
+~
+unique~
+AGT DJ 1000 0
+46 15 25d10+2600 1d1+999 32d4+8 'chop'
+-12 -12 -12 -12
+CDEFIJKO 0 HJ IT
+stand stand male 150
+AHMV 0 giant unknown
+#22479
 ~
 ~
 ~
@@ -277,14 +376,14 @@ on staff :"Satisfy Hunger".
 ~
 g none~
 #22453
-spring water~
-a magical spring~
-A spring is here,filled by cold water.~
-quartz~
-fountain GOR 0
-0 0 'water' 135141152 0
-0 0 0 P
-g female~
+water pool~
+pool of water~
+You see a pool on floor,collecting water.~
+moss~
+fountain GRY P
+100000 100000 'water' 135141152 0
+20 0 0 P
+g none~
 #22454
 sing plaque~
 a small sign~
@@ -602,6 +701,154 @@ skin~
 The skin on tail is very strong and you sense magical fluid ,
 from it.This skin have grey color and small scales.
 ~
+g none~
+#22475
+staff ice crystal blue~
+ice crystal staff~
+A long staff maded from blue ice crystall lies here.~
+crystal~
+weapon KSTY AN
+staff 17 2 'wrath' BDF
+45 20 0 P
+A
+30 10
+A
+31 10
+A
+17 -20
+A
+20 -10
+A
+19 4
+A
+18 4
+E
+staff~
+You see a long staff maded from blue ice crystall.You sense a aura of stange
+energy surrounded it.And sometimes this staff glows brighly in you hands.
+~
+g none~
+#22476
+ring signed fon~
+FoN signed ring~
+A ring with strange sign lies here.~
+energy~
+armor AIT AB
+10 10 10 10 0
+45 2 50000 P
+A
+36 10
+A
+35 10
+A
+20 -10
+A
+12 15
+A
+13 15
+E
+ring~
+You see a ring with blue crystall surrounded by energy.
+In the crystal you see stange sign such as 'F o N'.You think on this
+sign some time but don't know what is it...
+~
+g none~
+#22478
+bow composite darkslayer~
+Composite bow named "DarkSlayer"~
+A long beautiful bow maded from wood and horns lies here.~
+oak~
+weapon CTY AN
+bow 17 2 'flbite' D
+45 5 50000 P
+A
+19 5
+A
+18 5
+A
+20 -10
+A
+30 20
+E
+bow~
+You see a beatiful bow maded from composite of wood and horn ,probably
+from unicorn.On the bow you can see three strange runes on unknown dead
+language.But you can read it and translate but only one part :"...for
+steel and fire ...".
+~
+g none~
+#22479
+quiver skin~
+Ornately designed quiver~
+Ornately designed quiver lies here.~
+skin~
+container AC AK
+150 F 0 100 30
+45 5 0 P
+A
+31 10
+A
+13 20
+A
+19 5
+A
+18 2
+A
+20 -12
+E
+quiver~
+This quiver maded from skin of snow minotaur and encrusted by many sorts
+of gems such as ruby , tiger's eye's, saphyres and etc.
+~
+g none~
+#22480
+shield wooden~
+wooden shield fashhioned by fresh grass~
+Wooden disk lies in the grass catch your eye.~
+wood~
+armor 0 AJ
+10 10 10 9 0
+37 6 10000 P
+A
+4 -1
+A
+2 1
+A
+19 5
+A
+13 35
+g none~
+#22490
+box matches~
+box of matches~
+a box with picture of fire lies here,waiting his master.~
+wood~
+staff AC AO
+35 5 5 'fireball' 0
+33 1 150000 P
+A
+19 -3
+A
+18 -3
+A
+13 50
+A
+12 50
+g none~
+#22491
+twin bladed axe~
+twin-bladed axe~
+A large axe with twin blades lies here.~
+steel~
+weapon AC AN
+axe 8 4 'cleave' ADH
+0 15 15000 P
+A
+30 2
+A
+18 -5
+A
+19 8
 g none~
 #0
 
@@ -1360,6 +1607,10 @@ D1
 ~
 ~
 Z 0 22478
+D2
+~
+~
+Z 0 22530
 D3
 ~
 ~
@@ -1481,6 +1732,10 @@ and see in one dark corner strange figure surrounded by darkness.
 You think you enter in the unlike situation ...
 ~
 0 ANX inside
+D1
+~
+~
+ABLZ 0 22553
 S
 #22486
 In the dark tunnel under forest~
@@ -2044,9 +2299,13 @@ You standing in the great Forest of Nowhere.You surrounded a lots of trees.
 If you looks up you can see a sun, surrounded by multi-colored 
 rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
 and many small creatures living under you boots.In far south west you can
-see a high mountain.
+see a high mountain.In the north you see a small hut,blending in the forest.
 ~
 0 0 forest
+D0
+~
+~
+ABLZ 0 22528
 D1
 ~
 ~
@@ -2083,6 +2342,10 @@ and many small creatures living under you boots.In far south west you can
 see a high mountain.
 ~
 0 0 forest
+D0
+~
+~
+ABLZ 0 22529
 D1
 ~
 ~
@@ -2366,13 +2629,610 @@ D2
 ~
 Z 0 22501
 S
+#22528
+Inside a small hut~
+You stand in the small hut.In the walls you can see a lots of weapons,
+and some strange pictures mounted on the walls.So you see a maps  and
+pencils on the table and feel magical aura from a chests standing
+nearly western wall.
+~
+0 0 inside
+D2
+~
+door~
+ABLZ 0 22510
+S
+#22529
+Inside a small hut~
+You stand in the small hut.In the walls you can see a lots of weapons,
+and some strange pictures mounted on the walls.So you see a maps  and
+pencils on the table and feel magical aura from a chests standing
+nearly eastern wall.But you sense a evil feeling in this room.
+~
+0 0 inside
+D2
+~
+~
+ABLZ 0 22512
+S
+#22530
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 22480
+D2
+~
+~
+Z 0 22531
+S
+#22531
+~
+~
+0 0 inside
+D0
+~
+~
+Z 0 22530
+D5
+~
+~
+Z 0 22532
+S
+#22532
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D2
+~
+~
+Z 0 22533
+D4
+~
+~
+Z 0 22531
+S
+#22533
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D0
+~
+~
+Z 0 22532
+D2
+~
+~
+Z 0 22534
+S
+#22534
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D0
+~
+~
+Z 0 22533
+D1
+~
+~
+Z 0 22545
+D3
+~
+~
+Z 0 22535
+S
+#22535
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D1
+~
+~
+Z 0 22534
+D3
+~
+~
+Z 0 22536
+S
+#22536
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D1
+~
+~
+Z 0 22535
+D2
+~
+~
+Z 0 22537
+S
+#22537
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D0
+~
+~
+Z 0 22536
+D1
+~
+~
+Z 0 22541
+D3
+~
+~
+Z 0 22538
+S
+#22538
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D1
+~
+~
+Z 0 22537
+D3
+~
+~
+Z 0 22539
+S
+#22539
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D1
+~
+~
+Z 0 22538
+D3
+~
+~
+Z 0 22540
+S
+#22540
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D1
+~
+~
+Z 0 22539
+D3
+~
+~
+Z 0 22544
+S
+#22541
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D1
+~
+~
+Z 0 22542
+D3
+~
+~
+Z 0 22537
+S
+#22542
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D1
+~
+~
+Z 0 22543
+D2
+~
+~
+Z 0 22546
+D3
+~
+~
+Z 0 22541
+S
+#22543
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D0
+~
+~
+Z 0 22545
+D1
+~
+~
+Z 0 22544
+D3
+~
+~
+Z 0 22542
+S
+#22544
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D3
+~
+~
+Z 0 22543
+S
+#22545
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D2
+~
+~
+Z 0 22543
+D3
+~
+~
+Z 0 22534
+S
+#22546
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D0
+~
+~
+Z 0 22542
+D2
+~
+~
+Z 0 22547
+S
+#22547
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D0
+~
+~
+Z 0 22546
+D2
+~
+~
+Z 0 22548
+S
+#22548
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D0
+~
+~
+Z 0 22547
+D1
+~
+~
+Z 0 22549
+S
+#22549
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D1
+~
+~
+Z 0 22550
+D3
+~
+~
+Z 0 22548
+S
+#22550
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D1
+~
+~
+Z 0 22551
+D3
+~
+~
+Z 0 22549
+S
+#22551
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D0
+~
+~
+Z 0 22554
+D2
+~
+~
+Z 0 22552
+D3
+~
+~
+Z 0 22550
+S
+#22552
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D0
+~
+~
+Z 0 22551
+D2
+~
+~
+Z 0 22553
+S
+#22553
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D0
+~
+~
+Z 0 22552
+D3
+~
+door~
+ABLZ 0 22485
+S
+#22554
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D0
+~
+~
+Z 0 22555
+D2
+~
+~
+Z 0 22551
+S
+#22555
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D1
+~
+~
+Z 0 22556
+D2
+~
+~
+Z 0 22554
+S
+#22556
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D0
+~
+~
+Z 0 22557
+D1
+~
+~
+Z 0 22536
+D3
+~
+~
+Z 0 22555
+S
+#22557
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D0
+~
+~
+Z 0 22558
+D2
+~
+~
+Z 0 22556
+S
+#22558
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D0
+~
+~
+Z 0 22559
+D2
+~
+~
+Z 0 22557
+S
+#22559
+In the dar deep tunnel~
+You stand in the dark tunnel under high mountain .The walls maded from 
+colossal blocks of stone and covered by strange graffiti.But you think
+that blocks not maded buy humans hands.Sometime a darkness in tunnel was
+disappeared and you see torch on the wall.You see strange smell here
+ and you remmembers this smell - smell of water and blood.
+~
+0 AX inside
+D0
+~
+~
+Z 0 22537
+D1
+~
+~
+Z 0 22560
+D2
+~
+~
+Z 0 22558
+S
+#22560
+~
+~
+0 0 inside
+D3
+~
+~
+Z 0 22559
+S
 #0
 
 #SPECIALS
 M 22464 spec_breath_gas	* Queen of Nagas
+M 22465 spec_cast_cleric	* Tellias
+M 22466 spec_cast_mage	* Mifner
 S
 
 #RESETS
+D 0 22485 1 1	* A room of Queen: door to the east: closed
+D 0 22510 0 1	* In the Forest of Nowhere: door to the north: closed
+D 0 22512 0 1	* In the Forest of Nowhere: door to the north: closed
+D 0 22528 2 1	* Inside a small hut: door to the south: closed
+D 0 22529 2 1	* Inside a small hut: door to the south: closed
+D 0 22553 3 1	* In the dar deep tunnel: door to the west: closed
 O 0 22454 0 22451	* a small sign (Entrance into Forest)
 M 0 22451 8 22452 1	* tiny guard (In the Forest of Nowhere)
 E 0 22456 0 16		*	wooden training mace: wielded
@@ -2382,7 +3242,7 @@ M 0 22453 1 22453 1	* Bullroarer the Hobbit (Camp-In-The-Forest)
 G 0 22451 0		*	a seaweed
 G 0 22452 0		*	green staff
 G 0 22462 0		*	cooked mushroom
-O 0 22453 0 22453	* a magical spring (Camp-In-The-Forest)
+O 0 22453 0 22453	* pool of water (Camp-In-The-Forest)
 M 0 22451 8 22454 1	* tiny guard (In the Forest of Nowhere)
 E 0 22455 0 16		*	wooden training staff: wielded
 M 0 22452 8 22454 1	* tiny guard (In the Forest of Nowhere)
@@ -2512,6 +3372,52 @@ M 0 22461 8 22500 1	* medium guard (In the Forest of Nowhere)
 E 0 22473 0 16		*	leaf blade: wielded
 M 0 22460 8 22501 1	* medium guard (In the Forest of Nowhere)
 M 0 22461 8 22501 1	* medium guard (In the Forest of Nowhere)
+M 0 22467 8 22502 1	* large guard (In the Forest of Nowhere)
+M 0 22468 8 22502 1	* giant guard (In the Forest of Nowhere)
+E 0 22480 0 11		*	wooden shield fashhioned by fresh grass: as a shield
+M 0 22467 8 22504 1	* large guard (In the Forest of Nowhere)
+M 0 22468 8 22504 1	* giant guard (In the Forest of Nowhere)
+E 0 22480 0 11		*	wooden shield fashhioned by fresh grass: as a shield
+M 0 22467 8 22506 1	* large guard (In the Forest of Nowhere)
+M 0 22468 8 22506 1	* giant guard (In the Forest of Nowhere)
+M 0 22467 8 22508 1	* large guard (In the Forest of Nowhere)
+M 0 22468 8 22508 1	* giant guard (In the Forest of Nowhere)
+M 0 22469 8 22509 1	* forest burner (In the Forest of Nowhere)
+M 0 22470 8 22509 1	* forest destroer (In the Forest of Nowhere)
+E 0 22491 0 16		*	twin-bladed axe: wielded
+M 0 22467 8 22511 1	* large guard (In the Forest of Nowhere)
+M 0 22468 8 22511 1	* giant guard (In the Forest of Nowhere)
+M 0 22469 8 22512 1	* forest burner (In the Forest of Nowhere)
+E 0 22490 0 17		*	box of matches: held in the hands
+M 0 22470 8 22512 1	* forest destroer (In the Forest of Nowhere)
+M 0 22467 8 22513 1	* large guard (In the Forest of Nowhere)
+M 0 22468 8 22513 1	* giant guard (In the Forest of Nowhere)
+E 0 22480 0 11		*	wooden shield fashhioned by fresh grass: as a shield
+M 0 22469 8 22514 1	* forest burner (In the Forest of Nowhere)
+M 0 22470 8 22514 1	* forest destroer (In the Forest of Nowhere)
+E 0 22491 0 16		*	twin-bladed axe: wielded
+M 0 22469 8 22516 1	* forest burner (In the Forest of Nowhere)
+M 0 22470 8 22516 1	* forest destroer (In the Forest of Nowhere)
+M 0 22467 8 22517 1	* large guard (In the Forest of Nowhere)
+M 0 22468 8 22517 1	* giant guard (In the Forest of Nowhere)
+M 0 22467 8 22519 1	* large guard (In the Forest of Nowhere)
+M 0 22468 8 22519 1	* giant guard (In the Forest of Nowhere)
+M 0 22469 8 22522 1	* forest burner (In the Forest of Nowhere)
+E 0 22490 0 17		*	box of matches: held in the hands
+M 0 22470 8 22522 1	* forest destroer (In the Forest of Nowhere)
+M 0 22469 8 22524 1	* forest burner (In the Forest of Nowhere)
+M 0 22470 8 22524 1	* forest destroer (In the Forest of Nowhere)
+E 0 22491 0 16		*	twin-bladed axe: wielded
+M 0 22469 8 22525 1	* forest burner (In the Forest of Nowhere)
+M 0 22470 8 22525 1	* forest destroer (In the Forest of Nowhere)
+M 0 22469 8 22527 1	* forest burner (In the Forest of Nowhere)
+M 0 22470 8 22527 1	* forest destroer (In the Forest of Nowhere)
+M 0 22465 1 22528 1	* Tellias (Inside a small hut)
+E 0 22475 0 16		*	ice crystal staff: wielded
+E 0 22476 0 1		*	FoN signed ring: on the left finger
+M 0 22466 1 22529 1	* Mifner (Inside a small hut)
+E 0 22478 0 16		*	Composite bow named "DarkSlayer": wielded
+E 0 22479 0 12		*	Ornately designed quiver: about the shoulders
 S
 
 #SHOPS
@@ -2520,6 +3426,11 @@ S
 
 #OLIMITS
 O 22472 2	* claw of serpents
+O 22475 3	* ice crystal staff
+O 22476 2	* FoN signed ring
+O 22478 3	* Composite bow named "DarkSlayer"
+O 22479 5	* Ornately designed quiver
+O 22490 3	* box of matches
 S
 
 #$

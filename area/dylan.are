@@ -1,5 +1,5 @@
 #AREADATA
-Name Страна Дилана (Dylan Area)~
+Name Dylan's Area~
 VNUMs 9100 9199
 Credits Dylan~
 Security 9
@@ -9,7 +9,7 @@ End
 #MOBILES
 #9101
 harpy гарпия~
-@eng the screaming, filthy harpy@rus Грязная гарпия~
+@eng the screaming, filthy harpy@rus ~~грязная~~ ~~гарпия~~~
 @eng The screaming, filthy harpy claws madly at your face!
 @rus Кричащая, грязная гарпия (harpy) бешено царапает твое лицо!
 ~
@@ -29,17 +29,17 @@ stand stand female 1525
 0 0 medium unknown
 #9102
 harpy leader гарпия лидер~
-@eng the screaming harpy leader@rus Лидер грязных гарпий~
+@eng the screaming harpy leader@rus ~~предводительница~~ гарпий~
 @eng The screaming harpy leader tries to scratch your eyes out!
-@rus Лидер (leader) кричащих, грязных гарпий (harpy) пытается выцарапать твои глаза!
+@rus Предводительница (leader) грязных кричащих гарпий пытается выцарапать тебе глаза.
 ~
 @eng The harpy leader looks at you and grins menacingly.  She stretches
 her wings and you see insects crawling around them.  Her hair is
 matted and greasy and you are sickened by the stench that pervades
 her presence.
-@rus Лидер гарпий смотрит на тебя и угрожающе ухмыляется. Она расправляет свои
-крылья, и ты видишь насекомых, вьющихся вокруг них. Ее лицо матовое и
-засаленное, и ты чувствуешь тошноту от ее зловония.
+@rus Предводительница гарпий смотрит на тебя и угрожающе ухмыляется.  Она
+расправляет свои крылья, и ты видишь насекомых, вьющихся вокруг них.  Ее
+лицо матовое и засаленное, и ты чувствуешь тошноту от ее зловония.  
 ~
 human~
 ABCF DFJP -750 0
@@ -49,8 +49,8 @@ EFNU 0 0 0
 stand stand female 2125
 0 0 medium unknown
 #9103
-air elemental воздушный элементал~
-@eng the ghostly air elemental@rus Воздушный элементал~
+elemental air воздушный элементал~
+@eng the ghostly air elemental@rus ~~воздушный~~ ~~элементал~~~
 @eng The ghostly air elemental.
 @rus Призрачный воздушный элементал (air elemental).
 ~
@@ -64,17 +64,17 @@ ACF DFJPQ 0 0
 25 0 5d10+550 12d9+100 2d10+7 'none'
 -7 -7 -7 6
 EFNU 0 0 0
-stand stand none 50
+stand stand male 50
 0 0 medium unknown
 #9104
-mysterious efreeti таинственный~
-@eng the mysterious efreeti@rus Таинственный Ефрити~
+efreeti mysterious таинственный ифрит~
+@eng the mysterious efreeti@rus ~~таинственный~~ ~~ифрит~~~
 @eng The mysterious efreeti grins in delight at its new prey.
-@rus Таинственный (mysterious) Ефрити смотрит с радостью на свою новую добычу.
+@rus Таинственный ифрит (efreeti) смотрит с радостью на свою новую добычу.
 ~
 @eng The efreeti towers menacingly over you.  It is dressed in the
 finest ghostly silks and a headdress with an elaborate brooch.
-@rus Ефрити угрожающе возвышается над тобой. Он одет в прекрасные призрачные шелка
+@rus Ифрит угрожающе возвышается над тобой. Он одет в прекрасные призрачные шелка
 и головной убор с искусно сделанной брошью.
 ~
 human~
@@ -82,17 +82,18 @@ AC DHJP -100 0
 27 0 5d10+650 13d9+100 5d4+7 'none'
 -8 -8 -8 6
 EFNU 0 0 0
-stand stand none 2500
+stand stand male 2500
 0 0 medium unknown
 #9105
-roc~
-@eng the gigantic roc~
+roc рух птица~
+@eng the gigantic roc@rus ~~гигантская~~ ~~птица~~ Рух~
 @eng The gigantic roc.
-@rus 
+@rus Гигантская птица Рух (roc) сидит прямо перед тобой.
 ~
 @eng This bird has a wingspan that stretches several spear-lengths.  It
 moves surprisingly fast for something of its size.
-@rus 
+@rus Эта птица имеет размах крыльев в несколько длин копья. И движется она 
+неожиданно быстро для своих размеров.
 ~
 human~
 AG 0 50 0
@@ -102,10 +103,10 @@ EFNU 0 0 0
 stand stand female 0
 0 0 medium unknown
 #9106
-roc рок~
-@eng the gigantic roc@rus Гигантская птица Рок~
+roc рух птица~
+@eng the gigantic roc@rus ~~гигантская~~ ~~птица~~ Рух~
 @eng The gigantic roc stares menacingly at you.
-@rus Гигантская птица Рок (Roc)
+@rus Гигантская птица Рух (roc) сидит прямо перед тобой.
 ~
 @eng This bird has a wingspan that stretches several spear-lengths.  It
 moves surprisingly fast for something of its size.
@@ -121,7 +122,7 @@ stand stand male 2000
 0 0 medium unknown
 #9107
 wicked witch злая ведьма~
-@eng the ugly, wicked witch@rus Злая ведьма~
+@eng the ugly, wicked witch@rus ~~злая~~ ~~ведьма~~~
 @eng The ugly, wicked witch cackles maniacally.
 @rus Безобразная злая ведьма (wicked witch) безумно хихикает.
 ~
@@ -143,8 +144,8 @@ stand stand female 3000
 
 #OBJECTS
 #9101
-winged boots крылатые ботинки~
-@eng a pair of winged boots@rus пара крылатых ботинок~
+boots winged крылатые ботинки~
+@eng a pair of winged boots@rus ~~пара~~ крылатых ботинок~
 @eng A pair of winged boots flutters about@rus Пара крылатых ботинок (winged boots) порхает невдалеке.~
 leather~
 armor G AG
@@ -155,21 +156,21 @@ A
 A
 2 2
 F A 0 0 T
-g none~
+g plural~
 #9102
-bronze bracer бронзовый браслет~
-@eng A carved bronze bracer@rus резной бронзовый браслет~
-@eng A carved bronze bracer lies here.@rus Здесь лежит резной бронзовый браслет (bronze bracer)~
+bracer бронзовый браслет bronze~
+@eng A carved bronze bracer@rus ~~резной~~ ~~бронзовый~~ ~~браслет~~~
+@eng A carved bronze bracer lies here.@rus Здесь лежит резной бронзовый браслет (bronze bracer).~
 bronze~
 armor 0 AM
 3 6 6 2 0
 10 200 820 P
-g none~
+g male~
 #9103
-ornate brooch украшенная брошь~
-@eng an ornate brooch@rus украшенная брошь~
+brooch украшенная брошь ornate~
+@eng an ornate brooch@rus брошь~
 @eng An ornate brooch was carelessly left here.@rus Богато украшенная брошь (ornate brooch) небрежно брошена здесь.~
-ruby-silver-diamond~
+silver~
 jewelry F AC
 0 0 0 0 0
 7 100 1140 P
@@ -179,23 +180,23 @@ A
 3 1
 g none~
 #9104
-magenta potion фуксиновое зелье~
-@eng magenta potion@rus фуксиновое зелье~
-@eng Bright magenta potion gathers dust.@rus Яркое фуксиновое зелье (magenta potion) собирает пыль.~
+potion magenta красное зелье~
+@eng magenta potion@rus ~~красное~~ ~~зелье~~~
+@eng Bright magenta potion gathers dust.@rus Переливающееся красное зелье (potion) собирает пыль.~
 glass~
 potion J AO
 8 'armor' 'cure light' 'poison' ''
 3 20 320 P
 g none~
 #9105
-ancient parchment древний пергамент~
-@eng an ancient illustrated parchment@rus древний иллюстрированный пергамент~
-@eng An ancient illustrated parchment in the corner@rus Древний (ancient) иллюстрированный пергамент (parchment) лежит в углу~
+parchment ancient древний пергамент~
+@eng an ancient illustrated parchment@rus ~~древний~~ ~~иллюстрированный~~ ~~пергамент~~~
+@eng An ancient illustrated parchment in the corner@rus Древний иллюстрированный пергамент (parchment) лежит в углу.~
 vellum~
 scroll AH AO
 5 'blindness' 'curse' 'poison' ''
 12 50 1330 P
-g none~
+g male~
 #0
 
 #ROOMS
@@ -207,12 +208,11 @@ the distance as wisps of cloud blow over your face.
 A floating sign says:
 "Scubdu's Area--Tread carefully! Only high levels should attempt
 this place. Leave messages on the board if you have problems."
-@rus Ты стоишь на маленьком облаке. Облако под ногами похоже на губку. Ты находишь,
-что тут трудно увидеть что-нибудь на расстоянии, так как клочья облаков
-проплывают мимо твоего лица. Здесь есть знак (sign)
-Летающий знак сообщает:
-"Зона Скубду - двигайся осторожно! Только высоким уровням следует пробовать эту
-зону. Оставьте сообщение на стене, если будут проблемы."
+@rus Ты стоишь на маленьком облаке.  Облако под ногами похоже на губку.  Ты
+находишь, что тут трудно увидеть что-нибудь на расстоянии, так как клочья
+облаков проплывают мимо твоего лица.  Здесь есть знак (sign) Летающий знак
+сообщает: "Зона Скубду - двигайся осторожно!  Только высоким уровням следует
+пробовать эту зону.  Оставьте сообщение на стене, если будут проблемы."  
 ~
 0 C inside
 D0
@@ -243,9 +243,9 @@ S
 @eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
-@rus Ты стоишь на маленьком облаке. Облако под ногами похоже на губку. Ты находишь,
-что тут трудно увидеть что-нибудь на расстоянии, так как клочья облаков
-проплывают мимо твоего лица.
+@rus Ты стоишь на маленьком облаке.  Облако под ногами похоже на губку.  Ты
+находишь, что тут трудно увидеть что-нибудь на расстоянии, так как клочья
+облаков проплывают мимо твоего лица.  
 ~
 0 0 inside
 D1
@@ -266,9 +266,9 @@ S
 @eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
-@rus Ты стоишь на маленьком облаке. Облако под ногами похоже на губку. Ты находишь,
-что тут трудно увидеть что-нибудь на расстоянии, так как клочья облаков
-проплывают мимо твоего лица.
+@rus Ты стоишь на маленьком облаке.  Облако под ногами похоже на губку.  Ты
+находишь, что тут трудно увидеть что-нибудь на расстоянии, так как клочья
+облаков проплывают мимо твоего лица.  
 ~
 0 0 inside
 D0
@@ -295,7 +295,9 @@ S
 @eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
-@rus 
+@rus Ты стоишь на маленьком облаке.  Облако под ногами похоже на губку.  Ты
+находишь, что тут трудно увидеть что-нибудь на расстоянии, так как клочья
+облаков проплывают мимо твоего лица.  
 ~
 0 0 inside
 D0
@@ -316,9 +318,9 @@ S
 @eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
-@rus Ты стоишь на маленьком облаке. Облако под ногами похоже на губку. Ты находишь,
-что тут трудно увидеть что-нибудь на расстоянии, так как клочья облаков
-проплывают мимо твоего лица.
+@rus Ты стоишь на маленьком облаке.  Облако под ногами похоже на губку.  Ты
+находишь, что тут трудно увидеть что-нибудь на расстоянии, так как клочья
+облаков проплывают мимо твоего лица.  
 ~
 0 0 inside
 D1
@@ -335,13 +337,13 @@ D3
 Z -1 9104
 S
 #9106
-@eng A fluffy white cloud.@rus Пушистое белое облако.~
+@eng A fluffy white cloud.@rus Пушистое белое облако~
 @eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
-@rus Ты стоишь на маленьком облаке. Облако под ногами похоже на губку. Ты находишь,
-что тут трудно увидеть что-нибудь на расстоянии, так как клочья облаков
-проплывают мимо твоего лица.
+@rus Ты стоишь на маленьком облаке.  Облако под ногами похоже на губку.  Ты
+находишь, что тут трудно увидеть что-нибудь на расстоянии, так как клочья
+облаков проплывают мимо твоего лица.  
 ~
 0 0 inside
 D0
@@ -362,9 +364,9 @@ S
 @eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
-@rus Ты стоишь на маленьком облаке. Облако под ногами похоже на губку. Ты находишь,
-что тут трудно увидеть что-нибудь на расстоянии, так как клочья облаков
-проплывают мимо твоего лица.
+@rus Ты стоишь на маленьком облаке.  Облако под ногами похоже на губку.  Ты
+находишь, что тут трудно увидеть что-нибудь на расстоянии, так как клочья
+облаков проплывают мимо твоего лица.  
 ~
 0 0 inside
 D1
@@ -391,9 +393,9 @@ S
 @eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
-@rus Ты стоишь на маленьком облаке. Облако под ногами похоже на губку. Ты находишь,
-что тут трудно увидеть что-нибудь на расстоянии, так как клочья облаков
-проплывают мимо твоего лица.
+@rus Ты стоишь на маленьком облаке.  Облако под ногами похоже на губку.  Ты
+находишь, что тут трудно увидеть что-нибудь на расстоянии, так как клочья
+облаков проплывают мимо твоего лица.  
 ~
 0 0 inside
 D1
@@ -414,7 +416,9 @@ S
 @eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
-@rus 
+@rus Ты стоишь на маленьком облаке.  Облако под ногами похоже на губку.  Ты
+находишь, что тут трудно увидеть что-нибудь на расстоянии, так как клочья
+облаков проплывают мимо твоего лица.  
 ~
 0 0 inside
 D3
@@ -434,8 +438,8 @@ S
 @eng An ominous storm cloud.@rus Зловещая грозовая туча~
 @eng You find yourself in a storm.  Lightning flashes and thunder
 crashes, making you wish you were dry and warm.
-@rus Ты оказываешься посреди грозы. Вокруг сверкают молнии, и грохочет гром, и тебе
-хочется куда-нибудь, где сухо и тепло.
+@rus Ты оказываешься посреди грозы.  Вокруг сверкают молнии, и грохочет гром,
+и тебе хочется куда-нибудь, где сухо и тепло.  
 ~
 0 0 inside
 D1
@@ -501,8 +505,8 @@ S
 @eng Small valley.@rus Маленькая долина~
 @eng You are in a lush valley full of trees and other vegetation and the
 odd carcass or two.  The trail leads south and it leads up.
-@rus Ты находишься в пышной долине, заполненной деревьями и прочей растительностью,
-и с необычными развалинами или даже с двумя. Тропа ведет на юг и вверх.
+@rus Ты находишься в долине, заполненной деревьями и прочей растительностью,
+здесь же находятся какие-то странные развалины. Тропа ведет на юг и вверх.
 ~
 0 0 mountain
 D2
@@ -517,11 +521,9 @@ S
 #9114
 @eng Small valley.@rus Маленькая долина~
 @eng You are in a lush valley full of trees and other vegetation and the
-odd carcass or three.  The trail leads north and it leads down into
-a crevasse.Ты находишься в пышной долине, заполненной деревьями и прочей растительностью,
-и с необычными развалинами или даже с тремя. Тропа ведет на север и вниз в
-расселину.
-@rus 
+odd carcass or two.  The trail leads south and it leads up.
+@rus Ты находишься в долине, заполненной деревьями и прочей растительностью,
+здесь же находятся какие-то странные развалины. 
 ~
 0 0 mountain
 D0
@@ -567,10 +569,11 @@ crevice and trail you were following.  Below, you can just see the
 edge of a cliff through the mist.  There is no trail leading there,
 just a smooth, flat, dew-covered rock that almost resembles a
 slide ...
-@rus Расщелина становится все более и более скользкой. Ты очень нервничаешь и хочешь
-повернуть обратно. На востоке - расщелина и тропа по который ты идешь. Снизу 
-сквозь туман ты едва видишь край утеса. Туда не ведет никакая тропа, но есть 
-гладкая, плоская, покрытая влагой скала, очень напоминающая каток...
+@rus Расщелина становится все более и более скользкой.  Ты очень нервничаешь и
+хочешь повернуть обратно.  На востоке - расщелина и тропа по который ты
+идешь.  Снизу сквозь туман ты едва видишь край утеса.  Туда не ведет никакая
+тропа, но есть гладкая, плоская, покрытая влагой скала, очень напоминающая
+каток...  
 ~
 0 0 mountain
 D1
@@ -745,9 +748,9 @@ S
 @eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
-@rus Ты стоишь на маленьком облаке. Облако под ногами похоже на губку. Ты находишь,
-что тут трудно увидеть что-нибудь на расстоянии, так как клочья облаков
-проплывают мимо твоего лица.
+@rus Ты стоишь на маленьком облаке.  Облако под ногами похоже на губку.  Ты
+находишь, что тут трудно увидеть что-нибудь на расстоянии, так как клочья
+облаков проплывают мимо твоего лица.  
 ~
 0 0 inside
 D1
@@ -768,9 +771,9 @@ S
 @eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
-@rus Ты стоишь на маленьком облаке. Облако под ногами похоже на губку. Ты находишь,
-что тут трудно увидеть что-нибудь на расстоянии, так как клочья облаков
-проплывают мимо твоего лица.
+@rus Ты стоишь на маленьком облаке.  Облако под ногами похоже на губку.  Ты
+находишь, что тут трудно увидеть что-нибудь на расстоянии, так как клочья
+облаков проплывают мимо твоего лица.  
 ~
 0 0 inside
 D0
@@ -803,9 +806,9 @@ S
 @eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
-@rus Ты стоишь на маленьком облаке. Облако под ногами похоже на губку. Ты находишь,
-что тут трудно увидеть что-нибудь на расстоянии, так как клочья облаков
-проплывают мимо твоего лица.
+@rus Ты стоишь на маленьком облаке.  Облако под ногами похоже на губку.  Ты
+находишь, что тут трудно увидеть что-нибудь на расстоянии, так как клочья
+облаков проплывают мимо твоего лица.  
 ~
 0 0 inside
 D0
@@ -832,9 +835,9 @@ S
 @eng You find yourself standing on a small cloud.  The cloud feels kind
 of spongy beneath your feet.  You find it hard to see anything in
 the distance as wisps of cloud blow over your face.
-@rus Ты стоишь на маленьком облаке. Облако под ногами похоже на губку. Ты находишь,
-что тут трудно увидеть что-нибудь на расстоянии, так как клочья облаков
-проплывают мимо твоего лица.
+@rus Ты стоишь на маленьком облаке.  Облако под ногами похоже на губку.  Ты
+находишь, что тут трудно увидеть что-нибудь на расстоянии, так как клочья
+облаков проплывают мимо твоего лица.  
 ~
 0 0 inside
 D2
@@ -995,9 +998,9 @@ S
 @eng This cloud is too busy daydreaming to watch where its going.  It
 doesn't even notice you landing on it.  It looks like it couldn't
 figure its way out of an open box.
-@rus Это облако слишком занято своим дневным сном, чтоб смотреть, где оно находится.
-Оно даже не замечает, что ты стоишь на нем. Похоже, что оно не смогло бы
-выбраться даже из раскрытой коробки.
+@rus Это облако слишком занято своим дневным сном, чтоб смотреть, где оно
+находится.  Оно даже не замечает, что ты стоишь на нем.  Похоже, что оно не
+смогло бы выбраться даже из раскрытой коробки.  
 ~
 0 0 inside
 D1
@@ -1175,7 +1178,7 @@ S
 @eng On second glance, this cloud doesn't seem much like a raincloud.
 A balloon sticks out of the top and you think you hear it humming
 something like, 'Tut, tut!  It looks like rain!'
-@rus 
+@rus При ближайшем рассмотрении облако уже не выглядит дождевой тучей.
 ~
 0 0 inside
 D0
@@ -1507,8 +1510,8 @@ S
 @eng Yet another cloud@rus Еще одно облако~
 @eng You find yourself in yet another cloud.  Will the madness never
 end?  There is a rope ladder leading up.
-@rus Ты находишься на еще одном облаке. Почему это сумасшедствие никак не кончится?
-Веревочная лестница ведет вверх.
+@rus Ты находишься на еще одном облаке.  Почему это сумасшедствие никак не
+кончится?  Веревочная лестница ведет вверх.  
 ~
 0 0 inside
 D0
@@ -2006,9 +2009,9 @@ S
 @eng Here was the rehearsal and recital room for the residents of the
 estate.  There is a Steinway piano in the corner and various gilded
 instruments are on display in a glass cabinet.
-@rus Это репетиционная и концертная комната обитателей этого поместья. В углу стоит
-Steinway-новское пианино, и различные позолоченные инструменты выставлены в
-застекленном шкафу.
+@rus Это репетиционная и концертная комната обитателей этого поместья.  В углу
+стоит Steinway-новское пианино, и различные позолоченные инструменты
+выставлены в застекленном шкафу.  
 ~
 0 D inside
 D0
@@ -2087,7 +2090,7 @@ You've fallen, and you can't get up!!!
 утесу. Осознав свою глупую ошибку, ты безумно цепляешься за скалу, тщетно
 пытаясь за что-нибудь ухватиться и спасти свою никчемную шкуру. В следующий
 раз слушай свой внутренний голос.
-Ты упал и не можешь подняться!!!
+  Ты упал и не можешь подняться!!!
 ~
 0 C field
 S

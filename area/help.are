@@ -4566,7 +4566,7 @@ key <object vnum>  - makes specified object the vnum of the key required
 name <door name>   - makes the door's name/keywords = to the given name
 desc               - edit the description of the exit
 delete             - delete this exit
-flag               - toggle exit flag
+flags <flags list> - toggle exit flags
 
 The exit flags are presented in the following manner.  The capitalized
 flags are ones not included in the reset info.  i.e. closed is due to

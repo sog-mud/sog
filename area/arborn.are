@@ -190,6 +190,21 @@ AZ 0 0 0
 CDI 0 0 0
 stand stand none 0
 0 0 medium unknown
+#36125
+qqqq~
+~
+@rus ты $gn{{пришел}
+~
+@rus Ты $gn{{пришел}
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
 #36130
 balthazar~
 Balthazar~

@@ -2033,10 +2033,13 @@ You see the shaft.
 Z -1 1564
 S
 #1574
-Mine Shaft~
-You enter a part of the mine shaft where the torches have grown dim
+@eng Mine Shaft@rus Старый забой в шахте~
+@eng You enter a part of the mine shaft where the torches have grown dim
 and are almost ready to go out.  From what you can see, there are plenty
 of cobwebs on the walls and rats at your feet.
+@rus Ты входишь в старый забой, где факелы в стенах дымятся, и кажется, скоро
+потухнут. Насколько ты можешь видеть, углы затянуты паутиной, а по каменному
+полу бегают крысы.
 ~
 0 D field
 D0
@@ -2051,10 +2054,12 @@ You see a dark and nasty room.
 Z -1 1575
 S
 #1575
-Entrance to a Dungeon~
-The floor dips slightly as you walk into this dark and nasty place.  Your
+@eng Entrance to a Dungeon@rus Вход в подземелье~
+@eng The floor dips slightly as you walk into this dark and nasty place.  Your
 skin crawls as you look at the filth on the walls and see it move.  Most
 of the exits lead into jail cells.
+@rus Ты входишь в сырой, темный коридор. По сторонам коридора ты видишь двери
+в камеры для узников. Коридор продолжается на север и юг.
 ~
 0 D field
 D0
@@ -2079,10 +2084,13 @@ You see a cell.
 Z -1 1581
 S
 #1576
-A Dungeon~
-You are in the deepest and darkest part of the mine shafts.  The light from
+@eng A Dungeon@rus Подземелье~
+@eng You are in the deepest and darkest part of the mine shafts.  The light from
 the torches barely reaches to where you are.  Most directions from here
 lead to jail cells.
+@rus Ты добираешься до конца этого темного подземелья. Во все стороны, кроме
+севера, ведут двери в камеры для узников, на север можно вернуться по
+коридору. Под твоими ногами бегают крысы, здесь грязно, темно и сыро.
 ~
 0 D field
 D0
@@ -2107,9 +2115,12 @@ You see a cell.
 Z -1 1580
 S
 #1577
-A Jail Cell~
-You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
+@eng A Jail Cell@rus Тюремная камера~
+@eng You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
 The walls glisten with slime.  You see something stir in the straw.
+@rus Ты находишься в сырой, темной тюремной камере. Влажные, грязные потеки
+покрывают стены. Пол покрыт грязью и соломой, в дальнем углу камеры в
+соломе что-то шевелится.
 ~
 0 D field
 D3
@@ -2119,9 +2130,12 @@ You see a dark and nasty room.
 Z -1 1575
 S
 #1578
-The Jail Cell~
-You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
+@eng The Jail Cell@rus Тюремная камера~
+@eng You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
 The walls glisten with slime.  You see something stir in the straw.
+@rus Ты находишься в сырой, темной тюремной камере. Влажные, грязные потеки
+покрывают стены. Пол покрыт грязью и соломой, в дальнем углу камеры в
+соломе что-то шевелится.
 ~
 0 D field
 D3
@@ -2131,9 +2145,12 @@ You see a dark and nasty room.
 Z -1 1576
 S
 #1579
-The Jail Cell~
-You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
+@eng The Jail Cell@rus Тюремная камера~
+@eng You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
 The walls glisten with slime.  You see something stir in the straw.
+@rus Ты находишься в сырой, темной тюремной камере. Влажные, грязные потеки
+покрывают стены. Пол покрыт грязью и соломой, в дальнем углу камеры в
+соломе что-то шевелится.
 ~
 0 D field
 D0
@@ -2143,9 +2160,12 @@ You see a dark and nasty room.
 Z -1 1576
 S
 #1580
-The Jail Cell~
-You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
+@eng The Jail Cell@rus Тюремная камера~
+@eng You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
 The walls glisten with slime.  You see something stir in the straw.
+@rus Ты находишься в сырой, темной тюремной камере. Влажные, грязные потеки
+покрывают стены. Пол покрыт грязью и соломой, в дальнем углу камеры в
+соломе что-то шевелится.
 ~
 0 D field
 D1
@@ -2155,9 +2175,12 @@ You see a dark and nasty room.
 Z -1 1576
 S
 #1581
-The Jail Cell~
-You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
+@eng The Jail Cell@rus Тюремная камера~
+@eng You are in a musty, dark jail cell.  Wet and dirty straw covers the floor.
 The walls glisten with slime.  You see something stir in the straw.
+@rus Ты находишься в сырой, темной тюремной камере. Влажные, грязные потеки
+покрывают стены. Пол покрыт грязью и соломой, в дальнем углу камеры в
+соломе что-то шевелится.
 ~
 0 D field
 D1
@@ -2167,9 +2190,11 @@ You see a dark and nasty room.
 Z -1 1575
 S
 #1582
-Small Mine Shaft~
-You are in a small extension of the mine shaft.  The dust on the floor is
+@eng Small Mine Shaft@rus Маленькая шахта~
+@eng You are in a small extension of the mine shaft.  The dust on the floor is
 undisturbed by footprints.
+@rus Ты в небольшой щахте с низким потолком. Каменная пыль на полу нетронута,
+на ней нет отпечатков ничьих следов.
 ~
 0 D field
 D0
@@ -2184,10 +2209,12 @@ You see the shaft.
 Z -1 1563
 S
 #1583
-Hobgoblin Barracks~
-You are suddenly surrounded by a small army of hobgoblin guards.  The room
+@eng Hobgoblin Barracks@rus Бараки хобгоблинов~
+@eng You are suddenly surrounded by a small army of hobgoblin guards.  The room
 itself is a mess with clothes and armor everywhere.  The beds are unmade and
 stained.
+@rus Войдя сюда, ты встречаешь целую армию хобгоблинов. Комната представляет
+собой жуткий бардак из одежды и доспехов. Вокруг стоят простые кровати.
 ~
 0 D field
 D0
@@ -2207,9 +2234,11 @@ You see the mine shaft.
 Z -1 1564
 S
 #1584
-Hobgoblin Barracks~
-Yech!  As you continue forward, the smell just keeps getting worse.
+@eng Hobgoblin Barracks@rus Бараки хобгоблинов~
+@eng Yech!  As you continue forward, the smell just keeps getting worse.
 What are you DOING here?
+@rus Ага! Ты продолжаешь движение вглубь бараков хобгоблинов. Здесь все, как
+и в предыдущей комнате, только запах похуже. Что ТЫ здесь делаешь???
 ~
 0 D field
 D2
@@ -2219,10 +2248,14 @@ You see a large room
 Z -1 1583
 S
 #1585
-Mess Hall~
-You stand in the hobgoblin eating area.  There are a few rotting tables
+@eng Mess Hall@rus Столовая хобгоблинов~
+@eng You stand in the hobgoblin eating area.  There are a few rotting tables
 and many broken dishes scattered around the room.  You almost slip on a
 rotten piece of meat, but catch yourself just in time.
+@rus Ты стоишь в столовой хобгоблинов. Здесь имеется несколько грубых
+деревянных обеденных столов и стульев. Настолах лежат недоеденные куски
+мяса.
+lr 2 деревЯнных обеденных столов и стульев. На столах лежат недоеденные куски
 ~
 0 D field
 D0
@@ -2242,8 +2275,10 @@ You see a large room.
 Z -1 1583
 S
 #1586
-A Store Room~
-You stand in a small room filled with flour, grain, fruit, and bat droppings.
+@eng A Store Room@rus Кладовая~
+@eng You stand in a small room filled with flour, grain, fruit, and bat droppings.
+@rus Ты стоишь в небольшой комнате, полной всяких запасов - пшеница, фрукты...
+и следы от пролетавших летучих мышей.
 ~
 0 D city
 D2
@@ -2253,10 +2288,13 @@ You see the mess hall.
 Z -1 1585
 S
 #1587
-The Kitchen~
-This kitchen hasn't been cleaned since the creation of humans.  The trash and
+@eng The Kitchen@rus Кухня~
+@eng This kitchen hasn't been cleaned since the creation of humans.  The trash and
 spoiled food laying on the floor reach up to your knees.  Off to the side a
 pot is boiling over.  A human hand floats in it.
+@rus Эта кухня не убиралась с тех пор, как ее построили люди. Мусор и объедки
+покрывают пол слоем по щиколотку. В стороне кипит вода в большом чане. В
+воде плавает человеческая рука.
 ~
 0 D field
 D3
@@ -2266,9 +2304,11 @@ You see the mess hall.
 Z -1 1585
 S
 #1588
-A Small Mine Shaft~
-You come to a place in the mine shaft where a tunnel leads down.  The
+@eng A Small Mine Shaft@rus Небольшая шахта~
+@eng You come to a place in the mine shaft where a tunnel leads down.  The
 small passage continues north and south.
+@rus Ты идешь по невысокому туннелю, ведущему с юга на север. Ты замечаешь
+темный ход, ведущий куда-то вниз.
 ~
 0 D field
 D0
@@ -2288,10 +2328,12 @@ You see a hole.
 Z -1 1590
 S
 #1589
-Hermit's Lair~
-You are in a small section where the mine wall has collapsed to reveal a
+@eng Hermit's Lair@rus Пещерка отшельника~
+@eng You are in a small section where the mine wall has collapsed to reveal a
 tiny one-room cave.  The area is barely lit, but you can make out something
 moving towards you.
+@rus Ты в небольшой пещерке, образованной обвалом скальных пород. Здесь
+практически пусто, но ты замечаешь нечто маленькое, ползающее у твоих ног.
 ~
 0 D field
 D2
@@ -2301,8 +2343,9 @@ You see a small mine shaft.
 Z -1 1588
 S
 #1590
-A Hole~
-You are in a hole.
+@eng A Hole@rus Шурф в скале~
+@eng You are in a hole.
+@rus Ты в небольшом шурфе, выкопанном недавно.
 ~
 0 D forest
 D4

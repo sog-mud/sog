@@ -31,6 +31,14 @@ Form 3 -лись~
 End
 
 #RULE
+Name -шел~
+BaseLen -2
+Form 1 -ла~
+Form 2 -ло~
+Form 3 -ли~
+End
+
+#RULE
 Name -л~
 BaseLen -1
 Form 1 -ла~

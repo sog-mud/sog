@@ -21,8 +21,9 @@ A 0 0 0
 1000 0 5d5000+5000 1d1+666 5d300+1 'none'
 6 6 66 66
 YZ ABDFGIJLMOPQRTXYZ 0 0
-stand stand male 2147483647
+stand stand female 2147483647
 0 0 huge unknown
+g @eng female@rus male~
 M random 15000 2~
 M random 15000 1~
 M bribe 15000 1~
@@ -172,7 +173,7 @@ blood~
 fountain ABCEFI 0
 0 0 'vodka' 0 0
 0 0 0 P
-g none~
+g @eng none@rus male~
 #15003
 stats~
 stats~
@@ -619,7 +620,12 @@ S
 0 CDNSTX inside
 S
 #15010
-@eng {DThe room of Death{x@rus {DКомната Смерти{x~
+@eng In the air ...@rus В воздухе...~
+@eng You are flying!
+Currently you are about 40 meters above the ground north of the city.
+It seems like you can see forever!
+@rus   Ты летишь!  Внизу, метрах в сорока, виднеется северная окраина города.
+Никогда ты не забудешь этого божественного ощущения полета.
 ~
 0 CJNX inside
 S
@@ -660,7 +666,7 @@ M 0 15001 1 15002 1	* the prisoner (Cell)
 M 0 15002 1 15002 1	* cockroach (Cell)
 M 0 15003 1 15002 1	* a rat (Cell)
 O 0 15006 0 15002	* bed (Cell)
-M 0 15010 1 15010 1	* {DDevil{x ({DThe room of Death{x)
+M 0 15010 1 15010 1	* {DDevil{x (In the air ...)
 M 0 15016 1 15015 1	* pine (In the forest)
 M 0 15015 1 15016 1	* gray squirrel (In the forest)
 S

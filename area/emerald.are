@@ -3365,7 +3365,7 @@ hillock.  The village square lies to the north.
 @rus Тихая деревня Клеверякино очаровывает своей безмятежностью. Воздух
 чист, только ароматы цветов наполняют его. Ярко раскрашенные домики
 причудливо разбросаны по обеим сторонам дороги. С востока слышится
-звонкий смех, но небольшой бугорок скрывает смеющихся. На свере видна
+звонкий смех, но небольшой бугорок скрывает смеющихся. На севере видна
 центральная деревенская площадь.
 ~
 0 A field
@@ -3563,7 +3563,7 @@ plants and animals that cover the forest floor.  The twisted thorn trees
 groan at your approach, and you are aware of a slow hissing that seems
 to taunt you from the cover of darkness.  The forest stretches on for
 miles.
-@rus Ты попал в мрачные владения трех сестер-ведьм. Призрачные огоньки
+@rus Ты $gn{попал} в мрачные владения трех сестер-ведьм. Призрачные огоньки
 бледно мерцают на земле. Странные пугающие тени пляшут на растениях
 и животных, кишаших на земле. Кривые колючие деревья скрипят когда
 ты проходишь мимо них, а от шипения, доносящегося из темноты, кровь
@@ -3597,7 +3597,7 @@ plants and animals that cover the forest floor.  The twisted thorn trees
 groan at your approach, and you are aware of a slow hissing that seems
 to taunt you from the cover of darkness.  The forest stretches on for
 miles.
-@rus Ты попал в мрачные владения трех сестер-ведьм. Призрачные огоньки
+@rus Ты $gn{попал} в мрачные владения трех сестер-ведьм. Призрачные огоньки
 бледно мерцают на земле. Странные пугающие тени пляшут на растениях
 и животных, кишаших на земле. Кривые колючие деревья скрипят когда
 ты проходишь мимо них, а от шипения, доносящегося из темноты, кровь
@@ -3664,7 +3664,7 @@ plants and animals that cover the forest floor.  The twisted thorn trees
 groan at your approach, and you are aware of a slow hissing that seems
 to taunt you from the cover of darkness.  The forest stretches on for
 miles.
-@rus Ты попал в мрачные владения трех сестер-ведьм. Призрачные огоньки
+@rus Ты $gn{попал} в мрачные владения трех сестер-ведьм. Призрачные огоньки
 бледно мерцают на земле. Странные пугающие тени пляшут на растениях
 и животных, кишаших на земле. Кривые колючие деревья скрипят когда
 ты проходишь мимо них, а от шипения, доносящегося из темноты, кровь
@@ -3698,7 +3698,7 @@ plants and animals that cover the forest floor.  The twisted thorn trees
 groan at your approach, and you are aware of a slow hissing that seems
 to taunt you from the cover of darkness.  The forest stretches on for
 miles.
-@rus Ты попал в мрачные владения трех сестер-ведьм. Призрачные огоньки
+@rus Ты $gn{попал} в мрачные владения трех сестер-ведьм. Призрачные огоньки
 бледно мерцают на земле. Странные пугающие тени пляшут на растениях
 и животных, кишаших на земле. Кривые колючие деревья скрипят когда
 ты проходишь мимо них, а от шипения, доносящегося из темноты, кровь
@@ -3719,7 +3719,7 @@ palpable here.  Directly to your north is a wall of shifting shadows that
 your light cannot penetrate.  Tall reeds with thorny blades grow around
 a path that leads west into the mists.  The forest lies to your east and
 south.
-@rus Ты зашел далеко в Ведьмин лес. Зло, отравляющее его, здесь приобретает
+@rus Ты $gn{зашел} далеко в Ведьмин лес. Зло, отравляющее его, здесь приобретает
 едва ли не материальную форму. Прямо на север от тебя странная стена,
 состоящая из движущихся теней. Твой светильник не может осветить что-либо
 за этой стеной. Высокий тростник с острыми шипами растет по обе стороны
@@ -3760,8 +3760,8 @@ you writhing while they burn in black flames.  They bend their branches
 into a series of glyphs and runes, forming an archway across the entrance
 of a cavern to the east.  The voices stop suddenly, and you are once again
 all alone in the darkness.
-@rus Ты вошел в эту загадочную стену, и тотчас услышал сотни адских
-пронзительных криков. Твой светильник вспыхнул ярко, и ты увидел, что
+@rus Ты $gn{вошел} в эту загадочную стену, и тотчас $gn{услышал} сотни адских
+пронзительных криков. Твой светильник вспыхнул ярче, и ты $gn{увидел}, что
 деревья вокруг тебя извиваются, будто сгорая невидимым огнем. Их ветви
 изгибаются, образуя загадочные знаки и руны. Наконец, они останавливаются,
 и ты видишь, что они приняли форму огромных ворот, ведущих в пещеру
@@ -3789,7 +3789,7 @@ scrying pools lie placid while cauldrons gurgle awfully.  From a large
 rift in the ground infernal flames belch forth.  The heat in the cavern
 is almost unbearable and you begin to feel yourself passing out from
 the oppressive stench of brimstone.
-@rus Ты попал в логово Сестер-Ведьм. Виселицы свисают с потолка, магические
+@rus Ты $gn{попал} в логово Сестер-Ведьм. Виселицы свисают с потолка, магические
 зеркала-лужи лежат не шелохнувшись, тогда как котлы кипят и бурлят.
 Адское пламя вырывается из трещины (rift) в земле. Жара в пещере почти
 непереносима, и ты почти терЯешь сознание от едкого запаха горЯщей серы.
@@ -3817,7 +3817,7 @@ plants and animals that cover the forest floor.  The twisted thorn trees
 groan at your approach, and you are aware of a slow hissing that seems
 to taunt you from the cover of darkness.  The forest stretches on for
 miles.
-@rus Ты попал в мрачные владения трех сестер-ведьм. Призрачные огоньки
+@rus Ты $gn{попал} в мрачные владения трех сестер-ведьм. Призрачные огоньки
 бледно мерцают на земле. Странные пугающие тени пляшут на растениях
 и животных, кишаших на земле. Кривые колючие деревья скрипят когда
 ты проходишь мимо них, а от шипения, доносящегося из темноты, кровь
@@ -3851,7 +3851,7 @@ plants and animals that cover the forest floor.  The twisted thorn trees
 groan at your approach, and you are aware of a slow hissing that seems
 to taunt you from the cover of darkness.  The forest stretches on for
 miles.
-@rus Ты попал в мрачные владения трех сестер-ведьм. Призрачные огоньки
+@rus Ты $gn{попал} в мрачные владения трех сестер-ведьм. Призрачные огоньки
 бледно мерцают на земле. Странные пугающие тени пляшут на растениях
 и животных, кишаших на земле. Кривые колючие деревья скрипят когда
 ты проходишь мимо них, а от шипения, доносящегося из темноты, кровь
@@ -3885,7 +3885,7 @@ plants and animals that cover the forest floor.  The twisted thorn trees
 groan at your approach, and you are aware of a slow hissing that seems
 to taunt you from the cover of darkness.  The forest stretches on for
 miles.
-@rus Ты попал в мрачные владения трех сестер-ведьм. Призрачные огоньки
+@rus Ты $gn{попал} в мрачные владения трех сестер-ведьм. Призрачные огоньки
 бледно мерцают на земле. Странные пугающие тени пляшут на растениях
 и животных, кишаших на земле. Кривые колючие деревья скрипят когда
 ты проходишь мимо них, а от шипения, доносящегося из темноты, кровь
@@ -3925,7 +3925,7 @@ plants and animals that cover the forest floor.  The twisted thorn trees
 groan at your approach, and you are aware of a slow hissing that seems
 to taunt you from the cover of darkness.  To the south a fog rolls out
 onto a dead marsh.
-@rus Ты попал в мрачные владения трех сестер-ведьм. Призрачные огоньки
+@rus Ты $gn{попал} в мрачные владения трех сестер-ведьм. Призрачные огоньки
 бледно мерцают на земле. Странные пугающие тени пляшут на растениях
 и животных, кишаших на земле. Кривые колючие деревья скрипят когда
 ты проходишь мимо них, а от шипения, доносящегося из темноты, кровь
@@ -4004,7 +4004,7 @@ wind, falls at your feet.
 тропинка ответвляется на запад и уводит в густой колючий кустарник.
 Туман не дает тебе разглядеть, что происходит за кустарником, но ты
 чувствуешь сильное, древнее зло тянется оттуда к тебе холодными
-пальцами. К югу, лес становится гораздо светлее, и ты уже почти готов
+пальцами. К югу, лес становится гораздо светлее, и ты уже почти $gn{готов}
 пойти на юг, когда ветер дросает тебе под ноги какой-то старый
 свиток (parchment).
 ~
@@ -4075,7 +4075,7 @@ staying here forever.  Woodlarks are singing high in the boughs of trees
 while shafts of sunlight turn the forest floor into a carpet of gold and
 green.  The woodland trails running through this area of the forest seem
 well-kept, yet untravelled.
-@rus Красота этих зеленых лесов очаровывает тебя, и ты уже готов остаться здесь
+@rus Красота этих зеленых лесов очаровывает тебЯ, и ты уже $gn{готов} остатьсЯ здесь
 навсегда. Ласточки поют высоко, над кронами деревьев, сквозь которые проби-
 вается яркий солнечный свет, превращая землю под ногами в волшебный ковер из
 зеленых и золотых листьев. Тропинки, вьющиеся между деревьями, ухожены, хотя
@@ -4108,7 +4108,7 @@ staying here forever.  Woodlarks are singing high in the boughs of trees
 while shafts of sunlight turn the forest floor into a carpet of gold and
 green.  The woodland trails running through this area of the forest seem
 well-kept, yet untravelled.
-@rus Красота этих зеленых лесов очаровывает тебя, и ты уже готов остаться здесь
+@rus Красота этих зеленых лесов очаровывает тебЯ, и ты уже $gn{готов} остатьсЯ здесь
 навсегда. Ласточки поют высоко, над кронами деревьев, сквозь которые проби-
 вается яркий солнечный свет, превращая землю под ногами в волшебный ковер из
 зеленых и золотых листьев. Тропинки, вьющиеся между деревьями, ухожены, хотя
@@ -4143,7 +4143,7 @@ to be the woodkeepers' outpost.
 @rus Ты стоишь на перекрестке тропинок, ведущих на юг, запад и восток. На севере
 лес упирается в почти отвесный склон горы. Дорожка на восток уходит в покры-
 тый росой колючий кустарник, вдалеке ты видишь нескольких хранителей леса.
-Похоже, ты почти пришел на их заставу.
+Похоже, ты почти $gn{пришел} на их заставу.
 ~
 0 A forest
 D1
@@ -4166,129 +4166,175 @@ D3
 Z 0 207
 S
 #234
-The Woodkeepers' Outpost~
-Your fellow rangers hail you as you stride into this wide clearing.
+@eng The Woodkeepers' Outpost@rus Застава хранителей леса~
+@eng Your fellow rangers hail you as you stride into this wide clearing.
 Some are preparing to leave on their daily treks through the forest,
 while others are tending to injured woodland animals.  The Guildmaster's
 cabin lies to the north, while several smaller cabins lie to the south.
 A fair-sized lodge sits beneath a Redwood tree to your east.
+@rus Знакомый ренджер поприветствовал тебя как только ты вошел на поляну.
+Удивительно, как он сумел тебя заметить? Часть хранителей собираются
+уйти в свое ежедневное патрулирование по лесу, остальные оказывают
+помощь раненым животным. На севере ты видишь хижину мастера-лесника,
+на юге стоят несколько хижин поменьше. Нора достаточно большого размера
+уходит вглубь между корней огромной секвойи.
 ~
 0 AWX forest
 D0
-The Guildmaster's cabin lies to the north.
+@eng The Guildmaster's cabin lies to the north.
+@rus Хижина мастера-лесника.
 ~
 ~
 Z 0 235
 D1
-Smokey's Supplies is to the east.
+@eng Smokey's Supplies is to the east.
+@rus Магазин Смоки.
 ~
 ~
 Z 0 236
 D2
-A wood-keeper's cabin is to the south.
+@eng A wood-keeper's cabin is to the south.
+@rus Хижины хранителей леса.
 ~
 ~
 Z 0 296
 D3
-A well-used trail through the forest lies there.
+@eng A well-used trail through the forest lies there.
+@rus Протоптанная тропка убегает на запад.
 ~
 ~
 Z 0 233
 S
 #235
-The Guildmaster's Cabin~
-Built from the logs of sturdy cypress trees from the Vale of Clover,
+@eng The Guildmaster's Cabin@rus Хижина мастера-лесника~
+@eng Built from the logs of sturdy cypress trees from the Vale of Clover,
 the Guildmaster's cabin has a homely feel to it.  Oaks have grown their
 low branches across the roof of the cabin and any number of small forest
 animals race along the length of the porch.  Elesar of the Woods is here,
 instructing a young woodkeeper.
+@rus Построенная из прочных бревен кипариса, растущего рядом с долиной
+клевера, эта хижина удивительно уютна внутри. Могучие дубы протянули
+свои ветви над крышей хижины, несколько небольших животных греются и
+бегают рядом с небольшим крылечком. Элесар, Опекун Леса, что-то расска-
+зывает молодому неопытному хранителю.
 ~
 0 DWX inside
 D2
-The Wood-Keepers' Outpost is to the south.
+@eng The Wood-Keepers' Outpost is to the south.
+@rus Застава хранителей леса видна чуть южнее.
 ~
 ~
 Z 0 234
 S
 #236
-Smokey's Supplies~
-You enter a lodge which sits under the shade of an ancient Redwood tree.
+@eng Smokey's Supplies@rus Магазин Смоки~
+@eng You enter a lodge which sits under the shade of an ancient Redwood tree.
 All manner of supplies and equipment useful to rangers and woodkeepers
 are neatly stacked on shelves or stored in closets.  A parchment tacked
 on a wall lists the supplies which you may purchase from Smokey, the
 Ranger Bear who runs the supply store.
+@rus Ты $gn{спустился} в нору под корнями секвойи и $gn{попал}... в магазин! Все, что
+только может понадобится ренджеру в лесу, ты видишь на многочисленных
+полках и в витринах. На стене висит список цены на товары, которые пред-
+лагает Смоки, ренджер-медведь, хозяин магазина.
 ~
 0 DWX inside
 E
 sign parchment~
-Buy   - Buy an Item. *brrrrrrr*
+@eng Buy   - Buy an Item. *brrrrrrr*
   Sell  - Smokey needs nothing from ya!
   Value - *Brrrrrrrrrrrrrrrrrrrrrrrrrr*
 
   *** NO HAGGLING ALLOWED ***
 
+@rus Продажа - *грррррр*
+Покупка - Смоки не нужно ничего из того, что ты можешь предложить.
+Оценка - *грррррррррррррррррр*
+ 
+-=* НЕ ТОРГОВАТЬСЯ *=-
 ~
 D3
-The Wood-Keepers' Outpost is to the west.
+@eng The Wood-Keepers' Outpost is to the west.
+@rus Застава хранителей леса видна чуть западнее.
 ~
 ~
 Z 0 234
 S
 #237
-The Emerald Forest~
-All the lingering beauty of these green woods conspire to charm you into
+@eng The Emerald Forest@rus Изумрудный лес~
+@eng All the lingering beauty of these green woods conspire to charm you into
 staying here forever.  Woodlarks are singing high in the boughs of trees
 while shafts of sunlight turn the forest floor into a carpet of gold and
 green.  The woodland trails running through this area of the forest seem
 well-kept, yet untravelled.
+@rus Красота этих зеленых лесов очаровывает тебя, и ты уже $gn{готов} остаться здесь
+навсегда. Ласточки поют высоко, над кронами деревьев, сквозь которые проби-
+вается яркий солнечный свет, превращая землю под ногами в волшебный ковер из
+зеленых и золотых листьев. Тропинки, вьющиеся между деревьями, ухожены, хотя
+по ним, похоже, нечасто ходят.
 ~
 0 A forest
 D0
-The Emerald Forest!
+@eng The Emerald Forest!
+@rus Изумрудный лес!
 ~
 ~
 Z 0 232
 D1
-The Emerald Forest!
+@eng The Emerald Forest!
+@rus Изумрудный лес!
 ~
 ~
 Z 0 238
 D2
-The Emerald Forest!
+@eng The Emerald Forest!
+@rus Изумрудный лес!
 ~
 ~
 Z 0 245
 D3
-The Emerald Forest!
+@eng The Emerald Forest!
+@rus Изумрудный лес!
 ~
 ~
 Z 0 247
 S
 #238
-In the Emerald Forest~
-A circle of blue-capped mushrooms form an old faerie ring by the side
+@eng In the Emerald Forest@rus В Изумрудном лесу~
+@eng A circle of blue-capped mushrooms form an old faerie ring by the side
 of the path you are on.  On certain nights of the year, the faerie folk
 wander out into such rings for wild dances by the moonlight.  It is
 said that mortals who are drawn into the dancing circle on such nights
 can be held captive by faerie food or a faerie's kiss and made to dance
 on and on for a period of seven years.  You hear a titter of laughter
 from the branches of a tree, but when you look up you see nothing.
+@rus На обочине дороги ты замечаешь правильный круг, образованный
+неизвестными тебе грибами с ярко-синими шляпками. Иногда, ночами
+волшебный народец собирается в таких местах и отдается волшебному
+танцу. Предания гласят, что люди, оказавшиеся в такое время рядом,
+могут стать жертвой поцелуя кого-нибудь из фэйри, и тогда этот
+человек тоже начнет танцевать. И он не сможет остановиться семь
+лет и семь зим.
+   Сверху, из кроны дерева, раздается приглушенное хихиканье, но
+подняв голову, ты не $gn{увидел} никого.
 ~
 0 A forest
 D1
-A great tree lies to the east.
+@eng A great tree lies to the east.
+@rus Высокое раскидистое дерево стоит на востоке.
 ~
 ~
 Z 0 239
 D3
-The Emerald Forest!
+@eng The Emerald Forest!
+@rus Изумрудный лес!
 ~
 ~
 Z 0 237
 S
 #239
-Before the Great Tree~
-You stand at the perimeter of the largest, most incredible tree that
+@eng Before the Great Tree@rus Перед огромным деревом~
+@eng You stand at the perimeter of the largest, most incredible tree that
 you have ever laid eyes on.  It has gold-flecked leaves that are the
 size of small horses, with thick roots supporting a massive trunk that
 is easily twice the size of the grand fortress of the Templar Knights
@@ -4298,64 +4344,92 @@ the forest.  You long to inch closer, but cannot seem to move beyond
 an invisible barrier that keeps you about a hundred yards away.  You
 see movement and lights in and about the tree, but there seems to be
 no way you can get closer to it.
+@rus Ты стоишь рядом с самым огромным деревом, которое ты когда-либо
+видел. Его листья, зеленые в золотистую крапинку, достигают таких
+размеров, что за таким листиком может укрыться небольшой пони.
+Толстые корни поддерживают могучий ствол, который невозможно не
+только обхватить руками, но даже и измерить шагами будет весьма
+тяжело. Дерево уходит ввысь, и кажется, что его вершина скрывается
+где-то за облаками. Ты $gn{удивлен}, как ты $gn{мог} не заметить его
+раньше, ведь оно намного выше любого другого дерева в этом лесу.
+Ты хочешь подойти ближе, но на расстоянии около ста метров неви-
+димый барьер преграждает тебе путь. Рядом с деревом ты замечаешь
+какие-то движущиеся огоньки.
 ~
 0 A forest
 D2
-A faerie hill lies to the south.
+@eng A faerie hill lies to the south.
+@rus Волшебный холм виден на юге.
 ~
 ~
 Z 0 243
 D3
-The Emerald Forest!
+@eng The Emerald Forest!
+@rus Изумрудный лес!
 ~
 ~
 Z 0 238
 S
 #240
-The Lost Grotto~
-You follow the stream to a limpid pool where the waters lap gently
+@eng The Lost Grotto@rus Затерянный грот~
+@eng You follow the stream to a limpid pool where the waters lap gently
 against the rocks.  Large ferns provide shade from above and the petals
 of brightly-colored flowers float in the pool.  Sitting on the moss-
 covered rocks by the pool is a slim young girl dressed in green.  She
 has long black hair and elfin features, a yew bow slung across her back.
 She seems oblivious to your presence and hums softly as she passes her
 hand through the waters.
+@rus Поднявшись по течению ручья, ты добрался до прозрачного водоема.
+Вода в нем нежно омывает каменные берега. Высокие папоротники дают
+прохладную тень, и разноцветные лепестки цветов колышутся на воде.
+На покрытом мхом камне сидит стройная юная девушка, одетая в зеленое.
+Ее заостренные уши прикрыты каскадом великолепных черных волос, а
+из-за спины виден крепкий тисовый лук. Она, похоже, не замечает твоего
+присутствия и продолжает что-то негромко напевать, водя рукой по
+водной глади.
 ~
 0 A field
 D2
-A stream flows to the south.
+@eng A stream flows to the south.
+@rus Ручей течет на юг.
 ~
 ~
 Z 0 241
 S
 #241
-By a Stream~
-You stand by a wide stream that flows swiftly to the north.  Drawn by
+@eng By a Stream@rus Около ручья~
+@eng You stand by a wide stream that flows swiftly to the north.  Drawn by
 the sudden sound of musical laughter, you look over the tops of some
 lilac bushes and spy a group of nymphs frolicking in the stream.  It
 seems like a vision captured from some nature god's idyllic dream.  You
 hear the distant roar of a waterfall to your south.
+@rus Ты стоишь рядом с ручейком, который, звеня, резво течет на север.
+Услышав внезапный взрыв смеха, ты быстро $gn{обернулся}, и $gn{заметил} нимф,
+сидящих в кустах сирени и резвящихся в ручье. Картина напоминает
+сказочный сон какой-то лесной богини. С юга слышен шум водопада.
 ~
 0 A field
 D0
-A pool forms to the north.
+@eng A pool forms to the north.
+@rus Ручеек впадает в водоем на севере.
 ~
 ~
 Z 0 240
 D2
-A waterfall glade lies to the south.
+@eng A waterfall glade lies to the south.
 ~
 ~
 Z 0 242
 D3
-A faerie hill lies to the west.
+@eng A faerie hill lies to the west.
+@rus Волшебный холм возвышается на западе.
 ~
 ~
 Z 0 243
 S
 #242
-The Waterfall Glade~
-A majestic waterfall pours from high above the mountains to the south.
+@eng The Waterfall Glade@rus Водопад~
+@eng A majestic waterfall pours from high above the mountains to the south.
 Great torrents of water crash down on the rocks in a wide pool, and even
 where you stand in a shaded glade, the wind blows sprays of water into
 your face.  A profusion of flowering shrubs grow at the edge of the
@@ -4363,140 +4437,188 @@ pool.  In a large shaded retreat made by the overhanging branches of
 silver oak trees stands a likeness of Altariel, the Lady of the Woods.
 At the base of the waterfall, a rock pool with crystal clear water has
 formed.
+@rus Величественный водопад низвергается с вершин высоких гор, которые
+ты видишь на юге. Могучие потоки воды разбиваются о камни, и ветер
+до тебя мелкие водяные брызги. Разнообразные кусты цветут по берегам
+небольшого озера, выбитого водопадом в каменистой почве. В нише,
+образованной ветвями серебристого дуба ты $gn{заметил} кого-то, похожего
+на Алтариэль, Лесную Хозяйку.
 ~
 0 A field
 D0
-A stream flows to the north.
+@eng A stream flows to the north.
+@rus Ручей течет на север.
 ~
 ~
 Z 0 241
 S
 #243
-In the Emerald Forest~
-The path here runs around a low grassy mound.  Looking closer, you see
+@eng In the Emerald Forest@rus В Изумрудном лесу~
+@eng The path here runs around a low grassy mound.  Looking closer, you see
 the smallest of windows built into the mound.  It appears this is a
 faerie hill, from which the faerie Rades ride out in celebration
 through the wood paths of the Emerald Forest.  The angry face of a
 faerie suddenly stares out at you from the window and interrupts your
 scrutiny with a string of curses.
+@rus Тропинка проходит мимо невыского заросшего травой холмика.
+Присмотревшись, ты $gn{обнаружил}, что в этом холме есть окошки. Похоже,
+это тот самый магический холм, где живет фэйри Радес. Его рассерженное
+лицо на миг показалось в окошке и прервало твои мечтания грубым потоком
+проклятий.
 ~
 0 A forest
 D0
-You see a great tree there.
+@eng You see a great tree there.
+@rus Гигантское дерево стоит перед тобой.
 ~
 ~
 Z 0 239
 D1
-A stream flows to the east.
+@eng A stream flows to the east.
+@rus Поток воды звенит на востоке.
 ~
 ~
 Z 0 241
 D2
-A Woodland Trail.
+@eng A Woodland Trail.
+@rus Лесная тропа, извиваясь, уходит на юг.
 ~
 ~
 Z 0 261
 D3
-You see a three-way junction to the west.
+@eng You see a three-way junction to the west.
+@rus Перекресток виден на западе.
 ~
 ~
 Z 0 244
 S
 #244
-In the Emerald Forest~
-You are at a three-way junction in the middle of the woods.  Wild trumpet
+@eng In the Emerald Forest@rus В Изумрудном лесу~
+@eng You are at a three-way junction in the middle of the woods.  Wild trumpet
 creepers run along the footpaths here.  It would seem some mischievous
 pixie has drawn the vines across the path with the hope of tripping
 woodland travellers such as you.  You watch your step.
+@rus Ты стоишь на перекрестке трех дорог посреди леса. Ползучие лианы
+стелятся вдоль тропинок. Похоже, какой-то шаловливый пикси натянул
+их и теперь подсматривает из кустов, как путники будут спотыкаться.
+Помня об этом, ты ступаешь осторожно, стараясь не доставить этому
+шалуну повода посмеяться над тобой.
 ~
 0 A forest
 D1
-A faerie hill lies to the east.
+@eng A faerie hill lies to the east.
+@rus Магический холм возвышается на востоке.
 ~
 ~
 Z 0 243
 D2
-The Emerald Forest!
+@eng The Emerald Forest!
+@rus Изумрудный лес!
 ~
 ~
 Z 0 262
 D3
-The Emerald Forest!
+@eng The Emerald Forest!
+@rus Изумрудный лес!
 ~
 ~
 Z 0 245
 S
 #245
-The Emerald Forest~
-All the lingering beauty of these green woods conspire to charm you into
+@eng The Emerald Forest@rus Изумрудный лес~
+@eng All the lingering beauty of these green woods conspire to charm you into
 staying here forever.  Woodlarks are singing high in the boughs of trees
 while shafts of sunlight turn the forest floor into a carpet of gold and
 green.  The woodland trails running through this area of the forest seem
 well-kept, yet untravelled.
+@rus Красота этих зеленых лесов очаровывает тебя, и ты уже $gn{готов} остаться здесь
+навсегда. Ласточки поют высоко, над кронами деревьев, сквозь которые проби-
+вается яркий солнечный свет, превращая землю под ногами в волшебный ковер из
+зеленых и золотых листьев. Тропинки, вьющиеся между деревьями, ухожены, хотя
+по ним, похоже, нечасто ходят.
 ~
 0 A forest
 D0
-The Emerald Forest!
+@eng The Emerald Forest!
+@rus Изумрудный лес!
 ~
 ~
 Z 0 237
 D1
-You see a three-way junction to the east.
+@eng You see a three-way junction to the east.
+@rus Перекресток трех тропинок на востоке от тебя.
 ~
 ~
 Z 0 244
 D3
-You see a STUMP!
+@eng You see a STUMP!
+@rus В этом лесу ты видишь... ПЕНЬ!
 ~
 ~
 Z 0 246
 S
 #246
-The Only Stump in the Forest~
-In this small lonely clearing is an ancient stump.  Many years ago, a
+@eng The Only Stump in the Forest@rus Единственный пень в лесу~
+@eng In this small lonely clearing is an ancient stump.  Many years ago, a
 forester callously hewed down a tree here.  In retribution, Altariel,
 whose sanctuary the Emerald Forest is, transformed him into a poplar
 tree.  The poplar tree stands here beside the stump, its branches cut
 by the rangers of the forest whenever they are in need of wood.
+@rus Посреди этой небольшой поляны стоит древний пень. Много лет назад,
+один лесник бессердечно срубил на этом месте дерево. Тогда Алтариэль,
+Лесная Хозяйка, превратила его в тополь, который растет неподалеку.
+Ветви этого дерева обрублены - за дровами все ходят именно к этому
+тополю.
 ~
 0 A forest
 D0
-The Emerald Forest!
+@eng The Emerald Forest!
+@rus Изумрудный лес!
 ~
 ~
 Z 0 247
 D1
-The Emerald Forest!
+@eng The Emerald Forest!
+@rus Изумрудный лес!
 ~
 ~
 Z 0 245
 S
 #247
-The Emerald Forest~
-All the lingering beauty of these green woods conspire to charm you into
+@eng The Emerald Forest@rus Изумрудный лес~
+@eng All the lingering beauty of these green woods conspire to charm you into
 staying here forever.  Woodlarks are singing high in the boughs of trees
 while shafts of sunlight turn the forest floor into a carpet of gold and
 green.  The woodland trails running through this area of the forest seem
 well-kept, yet untravelled.
+@rus Красота этих зеленых лесов очаровывает тебя, и ты уже $gn{готов} остаться здесь
+навсегда. Ласточки поют высоко, над кронами деревьев, сквозь которые проби-
+вается яркий солнечный свет, превращая землю под ногами в волшебный ковер из
+зеленых и золотых листьев. Тропинки, вьющиеся между деревьями, ухожены, хотя
+по ним, похоже, нечасто ходят.
 ~
 0 A forest
 D0
-The Emerald Forest!
+@eng The Emerald Forest!
+@rus Изумрудный лес!
 ~
 ~
 Z 0 231
 D1
-The Emerald Forest!
+@eng The Emerald Forest!
+@rus Изумрудный лес!
 ~
 ~
 Z 0 237
 D2
-You see a STUMP!
+@eng You see a STUMP!
+@rus В этом лесу ты видишь... ПЕНЬ!
 ~
 ~
 Z 0 246
 D3
-A Forest Road
+@eng A Forest Road
+@rus Тропка в лесу
 ~
 ~
 Z 0 248
@@ -4661,7 +4783,7 @@ notice that the fog that covers the rest of the fens rolls away.  The
 weeds are dry at the edge of the mound and the grass that grows here is
 is lush and green.  A lone oak tree stands on the mound, like a beacon of
 goodness that repels the evil of the witches.
-@rus Ты наткнулся на невысокий холм посреди бескрайнего болота. По мере
+@rus Ты $gn{наткнулся} на невысокий холм посреди бескрайнего болота. По мере
 того как ты забираешься на него, ты замечаешь, что туман, покрывавший
 все остальное болото, пропадает. Растения тут живые, зеленые. Одинокий
 дуб стоит на холме, как маяк, словно отталкивая то зло, что населяет
@@ -4765,8 +4887,8 @@ D2
 Z 0 270
 S
 #257
-A Shady Bridge~
-You stand on the western end of a wooden bridge in the Emerald Forest.
+@eng A Shady Bridge@rus Тенистый Мост~
+@eng You stand on the western end of a wooden bridge in the Emerald Forest.
 It's origin is a mystery, but the fine detail and craftsmanship it bears
 would rival even the most cunning of woodsmiths.  The branches of the
 tall trees that grow on the banks of the stream cover the bridge in a
@@ -4774,44 +4896,61 @@ soft cool embrace while a breeze flows in from the north.  Huge salmon
 and rainbow trout weave their way amongst the rocks in the stream below.
 To the west the forest stretches on, while the sounds of laughter and
 play drift in softly from the south.
+@rus Ты стоишь на западном концу деревянного мостика.  Имя его строителя
+скрыто покровом старины, однако качество работы и красота резьбы может
+поспорить с лучшими образцами работ резчиков.  Ветви деревьев, растущих на
+берегу этого ручья окутывают мост приятной тенистой прохладой, легкий
+ветерок дует с севера.  Две большие рыбы, похожих на лососей проплывают
+между камнями в потоке, текущем под мостом.  Тропка теряется в лесу на
+западе и идет через мост на восток.  
 ~
 0 A field
 D1
-A shady bridge lies eastwards.
+@eng A shady bridge lies eastwards.
+@rus Тропинка идет по мосту
 ~
 ~
 Z 0 258
 D3
-You see a trail.
+@eng You see a trail.
+@rus Тропинка уходит в лес.
 ~
 ~
 Z 0 256
 S
 #258
-The Shady bridge~
-You stand on the eastern end of a finely crafted wooden bridge. It's
+@eng The Shady bridge@rus Тенистый мост~
+@eng You stand on the eastern end of a finely crafted wooden bridge. It's
 edges have small engraved runes carved into them, and the wood
 is probably a form of pine or oak from the Emerald Forest itself.
 Lacking the dull weathered tone and creaking of most wooden
 bridges, it spans across a fairly wide river flowing in a north-south
 direction. The height of the surrounding trees provide a pleasant
 shade from the noon-day sun.
+@rus Ты стоишь на восточном конце этого деревянного мостика. На его концах
+вырезаны руны, а сам мост сделан, похоже, из сосны или дуба. В отличие
+от большинства деревянных мостов, этот не скрипит под ногами и даже как-
+то сохранил цвет свежеобработанного дерева. Под мостом с севера на юг
+протекает достаточно широкий ручей. Высокие деревья вокруг создают прият-
+ную прохладную тень даже в полдень.
 ~
 0 A field
 D1
-A woodland trail continues eastwards.
+@eng A woodland trail continues eastwards.
+@rus Дорожка скрывается в лесу на востоке.
 ~
 ~
 Z 0 259
 D3
-You see a shady bridge.
+@eng You see a shady bridge.
+@rus Тенистый мост перед тобой.
 ~
 ~
 Z 0 257
 S
 #259
-A Woodland Trail~
-You are following a small woodland trail in the Emerald Forest. The
+@eng A Woodland Trail@rus Дорожка в лесу~
+@eng You are following a small woodland trail in the Emerald Forest. The
 hear the sound of moving water to the west, and squinting a bit
 intently you see a blurred outline of a small wooden bridge in the
 distance. Who built that bridge? And why? Only a few seasoned rangers
@@ -4819,94 +4958,122 @@ have ever come this deep into the enchanted wood, and none ever
 mentioned the existence of construction of a bridge. As far as you
 know, the forest has resisted gently but firmly all attempts at
 colonisation or lumbering, which makes it quite a curiousity.
+@rus Ты идешь по тропинке в Изумрудном лесу. Звук текущей воды доносится
+до тебя с запада и, присмотрешись, ты видишь вдалеке мостик. Кто его
+построил, когда, зачем? Самое удивительное, что никто из твоих знакомых
+хранителей леса никогда не упоминал о мосте в этой части леса. Этот лес
+всегда сопротивлялся попыткам его колонизации.
 ~
 0 A forest
 D0
-The Emerald Forest!
+@eng The Emerald Forest!
+@rus Изумрудный лес!
 ~
 ~
 Z 0 262
 D1
-A dense path lies to the east.
+@eng A dense path lies to the east.
+@rus Тропинка идет в густые заросли.
 ~
 ~
 Z 0 260
 D2
-You see a ragged trail.
+@eng You see a ragged trail.
+@rus Петляя, тропа идет на юг.
 ~
 ~
 Z 0 267
 D3
-A shady bridge lies to the west.
+@eng A shady bridge lies to the west.
+@rus Деревянный мост стоит к западу от тебя.
 ~
 ~
 Z 0 258
 S
 #260
-A Dense Path~
-You are walking deep in the Emerald Forest. The protective canopy of
+@eng A Dense Path@rus Путь в зарослях~
+@eng You are walking deep in the Emerald Forest. The protective canopy of
 the tall rosewood trees offer a welcomed protection against the sun's
 rays as well as providing a home for thousands of living things, some of
 whom chirp, sing or buzz their existence for all to know, while others
 remain silent, at least to your ears while the aroma of fresh woodland
 flowers fill the air.
+@rus Ты $gn{забрел} глубоко в Изумрудный лес. Высокие кроны деревьев словно
+пологом закрывают солнце. Кроме того, они служат домом тысячам созданий,
+которые кричат, чирикают и жужжат у тебя надо головой. Свежий лесной запах
+пропитывает все вокруг.
 ~
 0 A forest
 D0
-A woodland trail.
+@eng A woodland trail.
+@rus Тропинка в лесу.
 ~
 ~
 Z 0 261
 D2
-A clearing opens to the south.
+@eng A clearing opens to the south.
+@rus На юге видна небольшая поляна
 ~
 ~
 Z 0 266
 D3
-You see a woodland trail there.
+@eng You see a woodland trail there.
+@rus Тропинка в лесу.
 ~
 ~
 Z 0 259
 S
 #261
-A Woodland Trail~
-You are following a small woodland trail in the Emerald Forest.  Off in
+@eng A Woodland Trail@rus Лесная тропинка~
+@eng You are following a small woodland trail in the Emerald Forest.  Off in
 the distance to the east, you hear the sound of a roaring waterfall.
 The trail continues to the north and south.
+@rus Ты идешь по лесной тропинке в Изумрудном лесу. Далеко на востоке
+раздается шум падающего водопада. Тропинка идет с севера на юг.
 ~
 0 A forest
 D0
-A faerie hill lies to the north.
+@eng A faerie hill lies to the north.
+@rus Волщебный холм возвышается на севере.
 ~
 ~
 Z 0 243
 D2
-A dense path is to the south.
+@eng A dense path is to the south.
+@rus Густые заросли скрывают тропинку на юге.
 ~
 ~
 Z 0 260
 S
 #262
-In the Emerald Forest~
-You are walking deep in the Emerald Forest.  The tall oak trees all
+@eng In the Emerald Forest@rus Изумрудный лес~
+@eng You are walking deep in the Emerald Forest.  The tall oak trees all
 around you offer welcome shade and provide homes for innumerable
 woodland creatures.  You spot a brown squirrel darting away from the
 bole of a tree in an industrious search for more nuts and berries.
 The paths lead north, south and west.
+@rus Ты $gn{забрел} глубоко в Изумрудный лес. Высокие раскидистые дубы создают
+тень и дают обиталище для бессчетных лесных зверушек, птиц и насекомых.
+Ты $gn{заметил} белок, перелетающих с дерева на дерево в поиске орехов,
+ягод и всего, что можно запасти на зиму. Тропинки ведут на север, запад и
+на юг.
 ~
 0 A forest
 D0
-A three-way junction lies to the north.
+@eng A three-way junction lies to the north.
+@rus Перекресток тропинок на севере от тебя.
 ~
 ~
 Z 0 244
 D2
-A woodland trail is to the south.
+@eng A woodland trail is to the south.
+@rus Лесная тропка бежит на юг.
 ~
 ~
 Z 0 259
 D3
-The Emerald Forest!
+@eng The Emerald Forest!
+@rus Изумрудный лес!
 ~
 ~
 Z 0 263
@@ -5149,9 +5316,9 @@ of the flora here, with a wider and thicker range of herbs growing in
 wild abandon across the ground or in small cul-de-sacs formed at the
 roots of the oak trees.  You hear a rustle in the bushes, but staring
 intently without trying to look too obvious, you notice nothing.
-@rus Тропинка почти потихоньку пропадает тут. Очевидно, ты попал в ту часть
+@rus Тропинка почти потихоньку пропадает тут. Очевидно, ты $gn{попал} в ту часть
 леса, где редко ступает нога человека. Ты отмечаешь богатство флоры,
-многие из трав, которые растут здесь, ты не встречал больше нигде.
+многие из трав, которые растут здесь, ты не $gn{встречал} больше нигде.
 В кустах раздается какой-то шорох, но всматриваясь, ты не замечаешь
 там ничего.
 ~
@@ -5180,7 +5347,7 @@ the knights kill all the trolls, and nobody stays hungry. It's hard
 not to day dream, walking here.
 @rus Ты идешь по едва заметной тропинке в Изумрудном лесу. Ласточки и
 синешейки весело поют, перелетая с дерева на дерево. На ветке одного
-из дубов ты заметил красногрудую малиновку, она сидит почти неподвижно.
+из дубов ты $gn{заметил} красногрудую малиновку, она сидит почти неподвижно.
 Спокойствие этого леса восхищает, ты чувствуешь себя мирно и спокойно,
 как будто попал в сказку, где рыцари убивают злых троллей, принцессы
 спасены, и все сыты. Тяжело не замечтаться, прогуливаясь тут.
@@ -5438,7 +5605,7 @@ fashion on the ground, much the way seating chairs would be arranged
 should the speaker be in the middle of a circle. It's almost as though
 a little tribe of beavers just had a river-dam guild meeting and have
 left for lunch.
-@rus Ты забрел в небольшую тихую рощицу. Странно, звуки, веселыми трелями разносив-
+@rus Ты $gn{забрел} в небольшую тихую рощицу. Странно, звуки, веселыми трелями разносив-
 шиеся по всему лесу звучат глухо и наконец совсем затихают тут. Все, что ты
 слышишь, это шуршание прошлогодней листвы под твоими ногами. Но что еще более
 странно, эта почти абсолютная тишина не настораживает, а скорее настраивает на
@@ -5461,7 +5628,7 @@ while the forest streches on to the north and to the west. A fallen
 log lies here, softing morning due and rain spray clinging to it's
 sparkling bark. No rotting scent seems to come from it as most
 logs would emit.
-@rus Вы идете по южной границе Изумрудного леса. Отвесный склон горы не дает идти
+@rus Ты идешь по южной границе Изумрудного леса. Отвесный склон горы не дает идти
 дальше на юг или восток. Изумрудный лес весело шелестит листвой на севере и
 западе. Ствол упавшего дерева блестит от росы и недавнего дождя. Как ни
 странно, не чувствуется запах гнили. Что это - магия эльфов?
@@ -5917,7 +6084,7 @@ plants and animals that cover the forest floor.  The twisted thorn trees
 groan at your approach, and you are aware of a slow hissing that seems
 to taunt you from the cover of darkness.  To the south a fog rolls out
 onto a dead marsh.
-@rus Ты попал в мрачные владения трех сестер-ведьм. Призрачные огоньки
+@rus Ты $gn{попал} в мрачные владения трех сестер-ведьм. Призрачные огоньки
 бледно мерцают на земле. Странные пугающие тени пляшут на растениях
 и животных, кишаших на земле. Кривые колючие деревья скрипят когда
 ты проходишь мимо них, а от шипения, доносящегося из темноты, кровь
@@ -5985,7 +6152,7 @@ sketched portrait of a party of raiding ragers standing over a field of
 multilated bodies of mages and clerics.
 
 Someone with bad taste obviously lives here.
-@rus Ты попал в большую пещеру. На стенах нацарапаны бизоны, углем нарисована
+@rus Ты $gn{попал} в большую пещеру. На стенах нацарапаны бизоны, углем нарисована
 сцена какой-то битвы. Красивая мебель и старые египетские вазы, ковры
 и ткани - все словно подобрано, чтобы вызывать диссонанс. Владелец
 всего этого богатства явно не отличается хорошим вкусом.

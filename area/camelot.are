@@ -8,17 +8,17 @@ End
 
 #MOBILES
 #17301
-knight reknown рыцарь познания~
-@eng The knight of reknown@rus ~~Рыцарь~~ Познания~
-@eng A knight of reknown slaps you with his gauntlet and challenges you!
-@rus Рыцарь Познания (reknown) бросает тебе свою перчатку и вызывает на честный бой!
+knight рыцарь познания renown~
+@eng the knight of renown@rus ~~прославленный~~ ~~рыцарь~~~
+@eng 
+@rus A knight of renown slaps you with his gauntlet and challenges you!
 ~
-@eng The knight of reknown is mounted on a warhorse, uses a lance, and you can 
+@eng The knight of renown is mounted on a warhorse, uses a lance, and you can 
 see his morningstar on his horse. His colors fly from a banner carried by 
 his squire.
-@rus Рыцарь Познания восседает верхом на боевой лошади, использует рыцарское
-копье, а его булава привязана к седлу.  Стяг в руках его оруженосца выкрашен
-в цвета герба рыцаря.  
+@rus Рыцарь восседает на боевом коне, в его руке копье, а булава привязана
+к седлу. Стяг в руках его оруженосца развевается по ветру цветами его
+герба.
 ~
 human~
 A J 500 0
@@ -29,7 +29,7 @@ stand stand male 1000
 0 0 medium unknown
 #17302
 squire оруженосец~
-@eng The squire@rus оруженосец~
+@eng the squire@rus оруженосец~
 @eng A squire is here on an errand for his lord.
 @rus Оруженосец (squire) полон готовности служить своему хозяину.
 ~
@@ -46,10 +46,10 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17303
-knight quality рыцарь достоинства~
-@eng the knight of quality@rus ~~Рыцарь~~ Достоинства~
+knight quality рыцарь знатный~
+@eng the knight of quality@rus ~~знатный~~ ~~рыцарь~~~
 @eng A knight of quality looks down upon you from his mount.
-@rus Рыцарь Достоинства (quality) смотрит на тебя с высоты своего седла.
+@rus Знатный (quality) рыцарь смотрит на тебя свысока.
 ~
 @eng The knight is in full plate mail on a barded horse and carries a lance.
 @rus Рыцарь в полном комплекте брони на боевой лошади вооружен рыцарским копьем.
@@ -178,7 +178,7 @@ stand stand male 1000
 gawaine knight гавэйн рыцарь~
 @eng Sir Gawaine@rus ~~Сэр~~ ~~Гавэйн~~~
 @eng Sir Gawaine, the strong, is on a mission of vengeance!
-@rus Сэр Гавэйн (Gawaine), сильный, ищет мести.
+@rus Сэр Гавэйн (Gawaine) полон сил и ищет реванша.
 ~
 @eng Sir Gawaine, the red headed cousin of Arthur, is mounted, fully armored and 
 bears his longsword Galantine.
@@ -295,7 +295,7 @@ stand stand male 1000
 beast questing квестовое чудище~
 @eng the Questing Beast@rus ~~Квестовое~~ ~~Чудище~~~
 @eng A long necked, lion pawed, spotted, creature is here knawing on a femur.
-@rus Ты встречаешь чудище (beast) с длинным телом, когтями льва, сидящее на задних лапах.
+@rus Ты $gn{встретил} чудище с длинным телом, когтями льва, сидящее на задних лапах.
 ~
 @eng The Questing Beast *** NUKES *** you!
 The Questing Beast === OBLITERATES *** you!
@@ -356,10 +356,10 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17319
-charmed knight reknown завороженный рыцарь познания~
-@eng Charmed knight of reknown@rus ~~завороженный~~ ~~Рыцарь~~ Познания~
-@eng A charmed knight of reknown woodenly attacks you!
-@rus Завороженный Рыцарь Познания (reknown) недолго думая атакует тебя!
+charmed knight завороженный рыцарь познания renown~
+@eng charmed knight of renown@rus ~~завороженный~~ ~~прославленный~~ ~~рыцарь~~~
+@eng A charmed knight of renown woodenly attacks you!
+@rus Прославленный (renown) рыцарь, недолго думая, атакует тебя!
 ~
 @eng The knight is in rusty armor and bears a knotched sword. He has a disheveled 
 look to him and his eyes stare vacantly at you!
@@ -374,14 +374,14 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17320
-charmed knight quality завороженный рыцарь достоинства~
-@eng Charmed knight of quality@rus ~~завороженный~~ ~~Рыцарь~~ Достоинства~
+charmed knight quality завороженный рыцарь знатный~
+@eng charmed knight of quality@rus ~~завороженный~~ ~~знатный~~ ~~рыцарь~~~
 @eng A charmed knight of quality woodenly attacks you!
-@rus Завороженный Рыцарь Достоинства (quality) внезапно атакует тебя!
+@rus Завороженный знатный (quality) рыцарь внезапно атакует тебя!
 ~
 @eng A charmed knight of quality stands here in his rusted armor. His eyes are 
-vacant, his sword is knotched, and he is unkempt.
-@rus Завороженный Рыцарь Достоинства стоит здесь в ржавой броне. Его взгляд
+vacant, his sword is knotched, and he is unkept.
+@rus Завороженный знатный рыцарь стоит здесь в ржавой броне. Его взгляд
 блуждает вокруг, меч покрыт зазубринами, вид рыцаря несколько... гм...
 поношенный.
 ~
@@ -431,7 +431,7 @@ stand stand female 1000
 0 0 medium unknown
 #17323
 squire charmed завороженный оруженосец~
-@eng Charmed Squire@rus ~~завороженный~~ ~~оруженосец~~~
+@eng charmed squire@rus ~~завороженный~~ ~~оруженосец~~~
 @eng A charmed squire stands here woodenly
 @rus Завороженный оруженосец (squire) стоит здесь.
 ~
@@ -468,7 +468,7 @@ stand stand male 1000
 0 0 medium unknown
 #17325
 dagonet jester fool шут дагонет~
-@eng Dagonet (Arthur's Court Jester)@rus Дагонет~
+@eng Dagonet@rus Дагонет~
 @eng A fool in motley cavorts here!
 @rus Шут (jester) в шутовском наряде прикалывается над всеми.
 ~
@@ -506,7 +506,7 @@ stand stand male 1000
 0 0 medium unknown
 #17327
 perimones knight перимон рыцарь~
-@eng Perimones (the Red Knight)@rus Перимон~
+@eng Perimones@rus Перимон~
 @eng A knight dressed red shimmering armor faces you!
 @rus Рыцарь (knight) в красной броне вырастает перед тобой!
 ~
@@ -526,7 +526,7 @@ stand stand male 1000
 0 0 medium unknown
 #17328
 damsel lady woman distress женщина леди отчаяни~
-@eng A damsel in distress@rus ~~Леди~~ в отчаянии~
+@eng a damsel in distress@rus ~~Леди~~ в отчаянии~
 @eng A damsel in distress is here, screaming for help!
 @rus Леди (lady) в отчаянии просит о помощи!
 ~
@@ -545,7 +545,7 @@ stand stand female 1000
 0 0 medium unknown
 #17329
 nobleman вельможа~
-@eng A nobleman@rus вельможа~
+@eng a nobleman@rus вельможа~
 @eng A nobleman stands here in all his finery.
 @rus Вельможа (nobleman) стоит здесь во всей своей пышности.
 ~
@@ -565,7 +565,7 @@ stand stand male 1000
 0 0 medium unknown
 #17330
 serf мужик~
-@eng A serf@rus мужик~
+@eng a serf@rus мужик~
 @eng A dirty serf shuffles along here.
 @rus Грязный мужик (serf) тыняется тут.
 ~
@@ -581,7 +581,7 @@ stand stand male 1000
 0 0 medium unknown
 #17331
 merchant торговец~
-@eng A merchant@rus торговец~
+@eng a merchant@rus торговец~
 @eng A brightly clothed merchant hawks his goods to you!
 @rus Ярко одетый торговец (merchant) предлагает тебе свои товары.
 ~
@@ -597,7 +597,7 @@ stand stand male 1000
 0 0 medium unknown
 #17332
 monk монах~
-@eng A monk@rus монах~
+@eng a monk@rus монах~
 @eng A monk is here in his mumbling in Latin here.
 @rus Тут стоит монах (monk), бормоча что-то на латыни.
 ~
@@ -615,7 +615,7 @@ stand stand male 1000
 0 0 medium unknown
 #17333
 troubadour трубадур~
-@eng A troubadour@rus трубадур~
+@eng a troubadour@rus трубадур~
 @eng A troubadour is here, strumming a merry tune.
 @rus Трубадур (troubadour) играет веселую мелодию.
 ~
@@ -631,7 +631,7 @@ stand stand female 1000
 0 0 medium unknown
 #17334
 bard бард~
-@eng A bard@rus бард~
+@eng a bard@rus бард~
 @eng A bard is here, singing a sweet ballad.
 @rus Бард (bard) поет здесь любовную балладу.
 ~
@@ -648,12 +648,12 @@ stand stand male 1000
 0 0 medium unknown
 #17335
 entertainer актер~
-@eng An entertainer@rus актер~
+@eng an entertainer@rus актер~
 @eng An entertainer is here, leaping with great acrobatic prowess!
-@rus Актер показывает умопомрачительные акробатические номера.
+@rus Актер (entertainer) показывает умопомрачительные акробатические номера.
 ~
 @eng The entertainer is doing handsprings and backflips in a dizzying progression.
-@rus Актер (entertainer) показывает умопомрачительные акробатические номера.
+@rus Актер показывает умопомрачительные акробатические номера.
 ~
 human~
 ABC 0 100 0
@@ -664,12 +664,12 @@ stand stand male 1000
 0 0 medium unknown
 #17336
 servant слуга~
-@eng A servant@rus слуга~
+@eng a servant@rus слуга~
 @eng A servant is rushing by
-@rus Слуга спешит куда-то.
+@rus Слуга (servant) спешит куда-то.
 ~
 @eng The servant has a plate of hot food that looks delicious.
-@rus Слуга (servant) несет поднос с деликатесными кушаньями.
+@rus Слуга несет поднос с деликатесными кушаньями.
 ~
 human~
 AC JP 0 0
@@ -679,10 +679,10 @@ EFNU 0 0 0
 stand stand female 1000
 0 0 medium unknown
 #17337
-demon демон~
-@eng A towering, black scaled demon@rus ~~демон~~ ~~Аиграм~~~
+demon демон aigram аиграм~
+@eng Aigram the demon@rus ~~демон~~ ~~Аиграм~~~
 @eng A towering, black scaled demon has come to eat your soul!
-@rus Огромный чешуйчатый черный демон (demon) стоит здесь. Ты зря сюда пришел!..
+@rus Огромный чешуйчатый черный демон стоит здесь. Ты зря сюда $gn{пришел}!..
 ~
 @eng The demon stands 20' tall, has two heads, black scales, a mouthfull of 
 sharp teeth, 4 arms with long razorlike claws, and two muscular legs 
@@ -705,9 +705,9 @@ to encourage the downfall of Camelot (Morgana, Pict leader).
 ~
 unique~
 ABKe CDEFJKu -1000 0
-52 0 50d10+7750 5d5+5000 8d9+20 'charge'
+52 0 50d10+7750 5d5+5000 10d10+22 'charge'
 -22 -22 -22 0
-EFNU 0 HIJK F
+ACEFIJNOU 0 HIJK F
 stand stand none 1000
 AHMVZc ABCDEFGHIJKLPQUVX medium unknown
 #17338
@@ -746,7 +746,7 @@ stand stand male 1000
 0 0 medium unknown
 #17340
 horse riding лошадь~
-@eng A riding horse@rus лошадь~
+@eng a riding horse@rus лошадь~
 @eng A riding horse is here.
 @rus Здесь гарцует лошадь (horse).
 ~
@@ -763,7 +763,7 @@ stand stand male 1000
 0 0 medium unknown
 #17341
 warhorse medium боевая лошадь~
-@eng A medium warhorse@rus ~~боевая~~ ~~лошадь~~~
+@eng a medium warhorse@rus ~~боевая~~ ~~лошадь~~~
 @eng A medium warhorse is tethered here.
 @rus Здесь привязана боевая лошадь (horse).
 ~
@@ -779,7 +779,7 @@ stand stand female 1000
 0 0 medium unknown
 #17342
 warhorse heavy боевая лошадь тяжелая~
-@eng A heavy warhorse@rus ~~тяжелая~~ ~~боевая~~ ~~лошадь~~~
+@eng a heavy warhorse@rus ~~тяжелая~~ ~~боевая~~ ~~лошадь~~~
 @eng A heavy warhorse paws the ground and snorts in preparation for battle!
 @rus Тяжелая боевая лошадь (horse) стоит в полном броневом облачении.
 ~
@@ -795,7 +795,7 @@ stand stand male 1000
 0 0 medium unknown
 #17343
 raider saxon саксонский рейдер~
-@eng A Saxon raider@rus ~~саксонский~~ ~~рейдер~~~
+@eng a Saxon raider@rus ~~саксонский~~ ~~рейдер~~~
 @eng A Saxon raider is here, ready to take your head as a trophy
 @rus Саксонский рейдер (raider) готов заполучить твою голову в качестве трофея.
 ~
@@ -813,7 +813,7 @@ stand stand male 1000
 0 0 medium unknown
 #17344
 slave раб~
-@eng A slave@rus раб~
+@eng a slave@rus раб~
 @eng A slave is here, cringing from battle.
 @rus Мимо бежит раб (slave), спасаясь от битвы.
 ~
@@ -830,7 +830,7 @@ stand stand male 1000
 0 0 medium unknown
 #17345
 chief saxon render саксонский начальник~
-@eng A Saxon chief@rus ~~саксонский~~ ~~начальник~~~
+@eng a Saxon chief@rus ~~саксонский~~ ~~начальник~~~
 @eng A Saxon chief is here, leading his raiders into battle!
 @rus Саксонский начальник (chief) зовет своих воинов на битву!
 ~
@@ -848,7 +848,7 @@ stand stand male 1000
 0 0 medium unknown
 #17346
 guard border northern гвардеец~
-@eng A northern border guard@rus ~~гвардеец~~ северных границ~
+@eng a northern border guard@rus ~~гвардеец~~ северных границ~
 @eng A northern border guard is here, stoically holding the line against intruders.
 @rus Гвардеец северных границ стоически охраняет Камелот от захватчиков.
 ~
@@ -864,7 +864,7 @@ stand stand male 1000
 0 0 medium unknown
 #17347
 commander outpost командир поста~
-@eng The northern outpost commander@rus ~~командир~~ северного поста~
+@eng the northern outpost commander@rus ~~командир~~ северного поста~
 @eng The northern outpost commander is here, safe in the respect of his men.
 @rus Командир (commander) северного поста спокоен за своих людей.
 ~
@@ -881,7 +881,7 @@ stand stand male 1000
 0 0 medium unknown
 #17348
 clansman scot член клана шотландец~
-@eng A Scot clansman@rus шотландец~
+@eng a Scot clansmen@rus шотландец~
 @eng A Scot clansman is here, ready to seize your women and whiskey!
 @rus Член шотландского (Scot) клана готов отобрать у тебя женщин и виски!
 ~
@@ -900,7 +900,7 @@ stand stand male 1000
 0 0 medium unknown
 #17349
 chief clan scot глава клана~
-@eng The Scot clan chief@rus ~~глава~~ шотландского клана~
+@eng a Scot clan chief@rus ~~глава~~ шотландского клана~
 @eng The Scot clan chief is here, seizing his clansman's women and whiskey!
 @rus Этот шотландец (Scot) готов отобрать все, что уже у кого-то отобрали члены его клана!
 ~
@@ -922,7 +922,7 @@ stand stand male 1000
 0 0 medium unknown
 #17350
 serf busy занятый мужик~
-@eng A busy serf@rus ~~занятый~~ ~~мужик~~~
+@eng a busy serf@rus ~~занятый~~ ~~мужик~~~
 @eng A busy serf is here, tilling the fields for harvest.
 @rus Мужик (serf) занят уборкой урожая.
 ~
@@ -938,7 +938,7 @@ stand stand male 1000
 0 0 medium unknown
 #17351
 raider angle морской разбойник~
-@eng An Angle raider@rus ~~морской~~ ~~разбойник~~~
+@eng an Angle raider@rus ~~морской~~ ~~разбойник~~~
 @eng An Angle raider is here, burning huts and raping women!
 @rus Морской разбойник (raider) сжигает хижины и ловит женщин!
 ~
@@ -958,7 +958,7 @@ stand stand male 1000
 0 0 medium unknown
 #17352
 chief angle атаман разбойников~
-@eng The Angle chief@rus ~~атаман~~ разбойников~
+@eng an Angle chief@rus ~~атаман~~ разбойников~
 @eng The Angle chief is here, leading the massacre!
 @rus Атаман (chief) командует разбойным нападением!
 ~
@@ -975,12 +975,12 @@ EFNU 0 0 0
 stand stand male 1000
 0 0 medium unknown
 #17353
-calvary unit взвод кавалерии~
-@eng The calvary unit@rus ~~взвод~~ кавалерии~
-@eng A cavlary unit is here, flanking the enemy lines.
+unit взвод кавалерии cavalry~
+@eng the cavalry unit@rus ~~взвод~~ кавалерии~
+@eng A cavalry unit is here, flanking the enemy lines.
 @rus Кавалерия (unit) обходит вражеские линии.
 ~
-@eng The calvary unit consists of about 30 mounted knights on medium warhorses.
+@eng The cavalry unit consists of about 30 mounted knights on medium warhorses.
 @rus Взвод кавалеристов на тяжелых боевых лошадях.
 ~
 unique~
@@ -993,7 +993,7 @@ AHMV ABCDEFGHIJK huge unknown
 g @eng none@rus male~
 #17354
 infantry unit взвод пехоты~
-@eng The infantry unit@rus ~~взвод~~ пехоты~
+@eng the infantry unit@rus ~~взвод~~ пехоты~
 @eng An infantry unit is here, fighting the Pict hoards.
 @rus Взвод (unit) пехоты сражается здесь с ордами Пиктов.
 ~
@@ -1010,7 +1010,7 @@ AHMV ABCDEFGHIJK huge unknown
 g @eng none@rus male~
 #17355
 hoard pict picts орда пиктов~
-@eng The pict hoard@rus ~~орда~~ пиктов~
+@eng the pict hoard@rus ~~орда~~ пиктов~
 @eng A hoard of Picts is here, fighting the troops of Camelot.
 @rus Орда (hoard) пиктов сражается с войсками Камелота.
 ~
@@ -1028,7 +1028,7 @@ stand stand neutral 1000
 g @eng neutral@rus female~
 #17356
 leader pict лидер пиктов~
-@eng The Pict leader@rus ~~лидер~~ пиктов~
+@eng the pict leader@rus ~~лидер~~ пиктов~
 @eng The Pict leader is here, retreating from battle.
 @rus Лидер (leader) пиктов уносит ноги из битвы.
 ~
@@ -1100,7 +1100,7 @@ stand stand male 1000
 gaheris knight гахерис рыцарь~
 @eng Gaheris@rus Гахерис~
 @eng Gaheris (Gawaine's brother) is here putting down the raiders.
-@rus Гахерис (Gaheris), брат Гавэйна, повергает разбойников один за другим.
+@rus Гахерис (Gaheris), брат Гавэйна, повергает разбойников одного за другим.
 ~
 @eng Gaheris has long red hair, and a gray stallion. He is extremely angry with 
 the Angles and is cutting his way to the chief.
@@ -1116,7 +1116,7 @@ stand stand male 1000
 0 0 medium unknown
 #17361
 commander outpost southern командир поста~
-@eng The southern outpost commander@rus ~~командир~~ южного поста~
+@eng the southern outpost commander@rus ~~командир~~ южного поста~
 @eng The southern outpost commander is here, safe in the respect of his men.
 @rus Командир южного поста спокоен за своих людей.
 ~
@@ -1133,7 +1133,7 @@ stand stand male 1000
 0 0 medium unknown
 #17362
 guard border southern гвардеец~
-@eng A southern border guard@rus ~~гвардеец~~ южных границ~
+@eng a southern border guard@rus ~~гвардеец~~ южных границ~
 @eng A southern border guard is here, stoically holding the line against intruders.
 @rus Гвардеец южных границ стоически охраняет Камелот от захватчиков.
 ~
@@ -1149,7 +1149,7 @@ stand stand male 1000
 0 0 medium unknown
 #17363
 slave раб~
-@eng A slave@rus раб~
+@eng a slave@rus раб~
 @eng A slave is here, cringing from battle.
 @rus Раб (slave) бежит с битвы.
 ~
@@ -1246,7 +1246,7 @@ lance knight knight's копье~
 @eng An 18' pole is sunk into the ground here.@rus На земле лежит четырехметровое копье.~
 iron~
 weapon 0 AN
-lance 5 6 'stab' 0
+lance 5 4 'stab' 0
 25 15 1000 P
 A
 18 3
@@ -1597,7 +1597,7 @@ rune руны руна~
 @eng Persistant, huh? Well yes it seems like that mage buddy of yours once was 
 talking about rune wafers that could be eaten and have magical effects 
 happen. This looks like one of those.
-@rus Все понятно, правда?  Помните, тот маг с прибабахом рассказывал тебе о
+@rus Все понятно, правда?  Помнишь, тот маг с прибабахом рассказывал тебе о
 таких штучках, и насчет того, что если уж на чем-то маленьком и начертаны
 магические символы, значит это надо есть - и будет магический эффект. 
 Оп-па, а камни разве едят??  Гм...  Может, этот камешек спасет тебе жизнь
@@ -2061,419 +2061,743 @@ A
 A
 18 5
 g @eng none@rus male~
+#17358
+white cloak плащ белый~
+@eng white cloak@rus ~~белый~~ ~~плащ~~~
+@eng White cloak lies on the ground.@rus Красивый белый плащ аккуратно сложен на земле.~
+wool~
+armor G AK
+7 7 7 6 0
+0 0 0 P
+A
+14 30
+A
+20 -5
+A
+17 -15
+g @eng none@rus male~
+#17359
+fountain marble фонтан мрамор~
+@eng marble fountain@rus ~~мраморный~~ ~~фонтан~~~
+@eng Beatiful marble fountain decorated with statues springs forth.@rus Красивый мраморный фонтан, украшенный статуэтками, стоит посреди площади.~
+marble~
+fountain 0 0
+999 999 'water' 135142816 0
+0 10000 0 P
+g @eng none@rus male~
+#17360
+фляжка фляга золотая flask golden~
+@eng golden flask@rus ~~золотая~~ ~~фляжка~~~
+@eng Golden flask shines in the sun.@rus Красивая золотая фляжка лежит здесь.~
+gold~
+drink FV A
+50 50 'water' 0 0
+22 2 2000 P
+g @eng none@rus female~
+#17361
+фляжка фляга золотая flask golden~
+@eng golden flask@rus ~~золотая~~ ~~фляжка~~~
+@eng Golden flask shines in the sun.@rus Красивая золотая фляжка лежит здесь.~
+gold~
+drink FV A
+50 50 'water' 1 0
+22 2 2000 P
+g @eng none@rus female~
+#17362
+кинжал длинный узкий dagger slim~
+@eng long slim dagger@rus ~~длинный~~ ~~узкий~~ ~~кинжал~~~
+@eng Wickedly looking dagger rests on the floor.@rus Длинный, опасно выглядящий кинжал сверкает на земле.~
+mithril~
+weapon GHIMOV AN
+dagger 8 5 'pierce' 0
+24 5 3900 P
+A
+19 -2
+g @eng none@rus male~
+#17364
+scroll свиток~
+@eng old scroll@rus ~~старый~~ ~~свиток~~~
+@eng Old burnt scroll lies in the ash.@rus Старый обгоревший свиток лежит в золе.~
+paper~
+trash 0 0
+0 0 0 0 0
+1 1 0 P
+E
+scroll свиток~
+@eng This scroll is heavily burnt and only a small part avoided fire. Reading
+this fragile scroll, you discover:
+ 
+  --= by the name of the Evil Lord, those who are inintiated are demanded
+to give rights to the one who shows this letter to speak to the Great
+Aigram, making possible =--
+@rus Этот свиток сильно обгорел, и лишь часть его уцелела от огня.
+Развернув старый свиток, ты $gn{смог} различить лишь остатки надписи:
+ 
+-=именем Повелителя Зла, тому, кто посвящен, приказываю немедленно предъявителю
+сего письма выдать необходимые полномочия для контакта с Великим Аиграмом,
+дабы он имел возможность=---
+~
+g @eng none@rus male~
+#17365
+fireplace камин~
+@eng fireplace@rus ~~камин~~~
+@eng Remnants of a long-dead fireplace.@rus Старый, давно потухший камин.~
+ash~
+container 0 0
+10 0 0 1 0
+0 0 0 P
+E
+fireplace камин~
+@eng The fire has long since died out. All you see are old scraps of paper and
+wood in the fireplace.
+@rus Камин давно погас. Все, что ты видишь,- это угли дров и обгорелые обрывки
+бумаги.
+~
+g none~
+#17366
+chest big сундук большой~
+@eng big chest@rus ~~большой~~ ~~сундук~~~
+@eng Big gold-decorated chest is covered with rug.@rus Большой, инкрустированный золотом, покрытый ковром сундук стоит в углу.~
+iron~
+container 0 0
+250 ABCD 17367 100 0
+0 0 0 P
+g @eng none@rus male~
+#17367
+large key большой ключ~
+@eng large key@rus ~~большой~~ ~~ключ~~~
+@eng Large key of a strange shape lies here.@rus Большой странной формы ключ лежит здесь.~
+steel~
+key FV A
+0 0 0 0 0
+12 2 0 P
+g @eng none@rus male~
+#17368
+sword excalibur меч экскалибур~
+@eng sword named "Excalibur"@rus ~~меч~~ "Экскалибур"~
+@eng Wonderful sword with carvings upon its hilt.@rus Красивый меч с инкрустацией по рукояти лежит на земле.~
+adamantite~
+weapon ABGHMVZ AN
+sword 9 5 'slash' D
+42 15 8000 P
+A
+19 14
+A
+18 14
+A
+1 3
+g @eng none@rus male~
+#17369
+belt power пояс силы~
+@eng belt of power@rus ~~пояс~~ силы~
+@eng Black leather belt lies in the dust.@rus Черный пояс с серебром светится на земле.~
+leather~
+armor AGHJMZ AL
+-20 -20 -20 -20 0
+42 5 10000 P
+A
+12 60
+A
+13 80
+A
+19 15
+g @eng none@rus male~
+#17370
+portal stone glowing портал мерцающий камень~
+@eng glowing stone@rus ~~мерцающий~~ ~~камень~~~
+@eng A huge stone glows softly, inviting you in.@rus Огромный камень мягко мерцает, приглашая тебя войти в него.~
+unknown~
+portal A AO
+B DK D 0 0
+5 15000 0 P
+g @eng none@rus male~
+#17372
+amulet tiger амулет тигр~
+@eng amulet of the Tiger@rus ~~амулет~~ Тигра~
+@rus Изумрудный амулет с изображением тигриной морды из золота.~
+emerald~
+armor GIK AC
+0 0 0 0 0
+25 3 2400 P
+A
+17 -9
+A
+13 20
+A
+4 2
+A
+1 2
+g @eng none@rus male~
+#17373
+sword arondight меч арондит~
+@eng sword named "Arondight"@rus ~~меч~~ "Арондит"~
+@eng Deadly blade shines in the grass.@rus Смертельное лезвие блестит в траве.~
+unknown~
+weapon IKM AN
+sword 9 4 'slice' E
+40 25 8500 P
+S 'sword' 20 0
+A
+18 4
+A
+19 9
+g @eng none@rus male~
+#17374
+workbench рабочий стол~
+@eng workbench@rus ~~рабочий~~ ~~стол~~~
+@eng An old workbench is covered with webs.@rus Старый рабочий стол затянут паутиной.~
+wood~
+container 0 0
+0 0 0 30 0
+0 250 0 P
+E
+workbench рабочий стол~
+@eng The workbench is covered in glass tubing and vials of various colored
+liquids. Maybe you should leave it alone.
+@rus На столе разбросаны склянки и тубы с разными жидкостями и мазями. Пожалуй,
+все это лучше оставить как есть.
+~
+g @eng none@rus male~
+#17375
+potion yellow желтая жидкость~
+@eng yellow potion@rus ~~желтая~~ ~~жидкость~~~
+@eng A bottle of lemon-yellow potion sits on the floor.@rus Бутылка лимонно-желтой жидкости стоит на полу.~
+unknown~
+potion 0 0
+42 'acid blast' 'cure disease' 'frenzy' ''
+0 3 0 P
+g @eng none@rus female~
+#17376
+scroll свиток~
+@eng scroll@rus свиток~
+@eng Almost untouched by fire scroll lies here.@rus Почти нетронутый огнем свиток.~
+paper~
+trash 0 0
+0 0 0 0 0
+0 1 0 P
+E
+scroll свиток~
+@eng Scroll reads:
+Merlin, my love for Tristan is bountiless, yet my father forbids him
+to see me. Is there anything you can do?
+                   Isolde.
+@rus Свиток гласит:
+Мерлин, моя любовь к Тристану безгранична, но мой отец не разрешает
+ему видеть меня. Можешь ли ты чем-нибудь помочь нам?
+               Изольда.
+~
+g none~
 #0
 
 #ROOMS
 #17301
-Before the Forest Arden~
-Before you stretches the vast forest Arden, consisting of towering oaks 
+@eng Before the Forest Arden@rus Перед Арденнским лесом~
+@eng Before you stretches the vast forest Arden, consisting of towering oaks 
 and unknown wildlife. A path leads northwards into the forest. There is a 
 piece parchment nailed to an old oak, and a guilded plaque is affixed to a 
 boulder.
+@rus Ты подходишь к обширному лесу Арденн, где растут высокие дубы 
+и водится куча живности. Дорожка ведет на север в лес. К старому
+дубу рядом с тобой прибит старый кусок пергамента, а к поросшему
+мохом валуну прикреплена мемориальная доска.
 ~
 0 C forest
 E
-Parchment~
-The parchment reads:
+plaque доска мемориал~
+Camelot (C) 1994 by Lok
+Russian translation (C) 1999 by Dias
+~
+E
+Parchment пергамент~
+@eng The parchment reads:
 
 Let it be known that Arthur, King of the Britains seeks to form the company 
 of the Round Table. All knights of valor and virtue are summoned to this 
-august company in Camelot.~
-E
-Plaque~
-Camelot 1994 by Lok- There are lots of extras, so be sure to look at 
-keywords in rooms and at your objects to get the full picture of the 
-area. As with all bards of the round table, I have altered story elements 
-to suit my whim.
+august company in Camelot.@rus Пергамент гласит:
+ 
+Сим сообщается всем, что король Камелота Артур созывает всех благородных
+рыцарей на турнир Круглого Стола, который состоится в конце лета.
 ~
 D0
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17302
 D3
+@eng Dark forest.
+@rus Темный лес
 ~
 ~
 Z -1 312
 S
 #17302
-The Crossroads of Arden~
-You stand at the crossroads of two dusty paths. Dappled sunlight lights 
+@eng The Crossroads of Arden@rus Перекресток дорог Арденна~
+@eng You stand at the crossroads of two dusty paths. Dappled sunlight lights 
 the intersection and you notice horsesign in the dirt. The path continues 
 in the north, south, east and west directions.
+@rus Ты стоишь на перекрестке двух пыльных дорожек. Солнечный свет, проходя
+сквозь деревья, освещает пересечение, и ты замечаешь отпечатки подков в 
+грязи. Дорожка продолжается на север, юг, в восточном и западном направлениях.
 ~
 0 0 forest
 E
-horsesign~
-You bend down and look at the hoofprints. The main traffic leads down the 
+horsesign след~
+@eng You bend down and look at the hoofprints. The main traffic leads down the 
 easterly path and southerly path.
+@rus Ты $gn{нагнулся} посмотреть на следы подков и $gn{заметил}, что
+большинство следов ведет на восток и на юг.
 ~
 E
-dirt~
-You look carefully at the dirt and notice in addition to the horsesign, 
-there is a trail of strange claw marks heading to the west.~
+dirt грязь~
+@eng You look carefully at the dirt and notice in addition to the horsesign, 
+there is a trail of strange claw marks heading to the west.@rus Присмотревшись, ты $gn{заметил}, что кроме следов подков, на запад
+ведут также следы странных когтистых лап.
+~
 D0
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17305
 D1
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17306
 D2
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17301
 D3
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17303
 S
 #17303
-The Forest Arden~
-You are on a path in the great forest Arden. Boy you wish there wern't 
+@eng The Forest Arden@rus Арденнский лес~
+@eng You are on a path in the great forest Arden. Boy you wish there wern't 
 so many of those pesky knats. The trail leads south and east.
+@rus Ты на пути в Арденнский лес. Вокруг летает куча надоедливых насекомых,
+и тебе хотелось бы, чтобы их было поменьше. Дорога ведет на юг и восток.
 ~
 0 0 forest
 E
-knats~
-They sure are pesky!
+knats насекомые~
+@eng They sure are pesky!
+@rus УЖАСНО НАДОЕДЛИВЫЕ!
 ~
 D1
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17302
 D2
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17304
 S
 #17304
-Trail of Bones~
-The trail narrows and darkens and you notice a crunching sound. You look 
+@eng Trail of Bones@rus Дорога Костей~
+@eng The trail narrows and darkens and you notice a crunching sound. You look 
 down-BONES! The trail darkens to the west and lightens to the north.
+@rus Здесь становится темно и дорога сужается. Под ногами ты слышишь
+хрустящие звуки. Ты смотришь под ноги - кости! Путь становится
+темнее на западе и светлее на севере.
 ~
 0 0 forest
 E
-bones~
-You look at the bones. Most of them are human. You notice a beat up crest 
+bones кости~
+@eng You look at the bones. Most of them are human. You notice a beat up crest 
 of the house Pellinore. There bones get deeper to the west.
+@rus Ты смотришь на кости. В основном это кости человеческие.
+Также ты замечаешь среди костей остатки предметов с гербом дома Пеллинора.
+Костей становится еще больше на западе.
 ~
 D0
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17303
 D3
-Even more bones
+@eng Even more bones
+@rus Еще больше костей
 ~
 ~
 Z -1 17307
 S
 #17305
-A Hut in Forest Arden~
-You stand before a weathered thatch hut. There are weeds everywhere-
+@eng A Hut in Forest Arden@rus Хатка в Арденнском лесу~
+@eng You stand before a weathered thatch hut. There are weeds everywhere-
 obviously this place has been abandoned for some time. The door to the 
 hut lies to the west and a dirty trail leads south.
+@rus Ты стоишь возле небольшой бревенчатой покосившейся хатки. Судя по
+всему, она была заброшена много лет назад,- все затянуто дикими лианами.
+Дверь в хатку  - на западе, а грязная дорога на юге.
 ~
 0 0 forest
 E
-weeds~
-You get down on your hands and knees and examine the weeds. Most of them 
+weeds лианы~
+@eng You get down on your hands and knees and examine the weeds. Most of them 
 are herbs of one variety or another, and there is a tremendous variety of 
 them.
+@rus Опустившись на колени, ты $gn{осмотрел} растения. Такое разнообразие!
 ~
 D2
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17302
 D3
-Hut
+@eng Hut
+@rus Хатка
 ~
-door~
+door дверь~
 ABCFZ 17336 17308
 S
 #17306
-A Fork in the Dirty Trail~
-You are at a fork in the dirty trail in Forest Arden. There is horsesign 
+@eng A Fork in the Dirty Trail@rus Развилка на грязной дороге~
+@eng You are at a fork in the dirty trail in Forest Arden. There is horsesign 
 in the dirt, and the trail goes north, east, and west from here.
+@rus Ты стоишь на развилке в Арденнском лесу. В грязи видны следы множества 
+подков, а дорога продолжается на север, восток и запад.
 ~
 0 0 forest
 E
-horsesign~
-You bend down and look at the hoof marks in the dirt. The heavy traffic 
+horsesign след~
+@eng You bend down and look at the hoof marks in the dirt. The heavy traffic 
 goes to the north and west.
+@rus Ты $gn{нагнулся} посмотреть на отпечатки подков и копыт. Как видно, отсюда часто
+едут на север или на запад.
 ~
 D0
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17309
 D1
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17310
 D3
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17302
 S
 #17307
-Lair of the Questing Beast~
-You have found the lair of the questing beast! Bones are strewn everywhere.
+@eng Lair of the Questing Beast@rus Логово Квестового Чудовища~
+@eng You have found the lair of the questing beast! Bones are strewn everywhere.
 The only exit is to the east.
+@rus Ты $gn{нашел} логово Квестового Чудовища! Кости и остатки трупов повсюду.
+Единственных выход - на восток.
 ~
 0 A forest
 D1
-Trail of Bones
+@eng Trail of Bones
+@rus Дорога костей
 ~
 ~
 Z -1 17304
 S
 #17308
-Inside a Hut~
-You stand inside an old, abandonned hut. The ceiling is low, and the 
+@eng Inside a Hut@rus Внутри хатки~
+@eng You stand inside an old, abandonned hut. The ceiling is low, and the 
 rafters are covered in soot. There is a workbench and an old fireplace.
+@rus Ты внутри маленькой заброшенной хатки. Низкий потолок и стены в грязи 
+и паутине. Вокруг валяется разный мусор. Давно погасший камин и затянутый
+паутиной рабочий стол - вот и все, что привлекает твое внимание.
 ~
 0 D inside
 E
-Workbench~
-The workbench is covered in glass tubing and vials of various colored 
-liquids. Maybe you should leave it alone.
+rafters балки~
+@eng The rafters are darkened by smoke and strange yellow stains.
+@rus Балки покрыты копотью и странными желтыми пятнами.
 ~
 E
-fireplace fire~
-The fire has long since died out. All you see are old scraps of paper and 
-wood in the fireplace.
-~
-E
-paper scraps old~
-You pull out a torn scrap of paper. It says: Merlin, my love for Tristram 
-is bountiless, yet my father forbids him to see me. Is there anything you 
-can do?
-
-Isolde
-~
-E
-rafters~
-The rafters are darkened by smoke and strange yellow stains.
-~
-E
-yellow stains strange~
-You examine the yellow stains. They smell of sulfur.
+yellow stains strange желтые пятна~
+@eng You examine the yellow stains. They smell of sulfur.
+@rus Эти желтые пятна пахнут серой.
 ~
 D1
-A wooden door
+@eng A wooden door
+@rus Деревянная дверь
 ~
 ~
 ABCFZ 17336 17305
 S
 #17309
-Mists of Arden~
-You have steadily travelled downhill into a misty forested area. The tall 
+@eng Mists of Arden@rus Туман Арденна~
+@eng You have steadily travelled downhill into a misty forested area. The tall 
 black silhoettes of the towering oaks crowd your limited vision. You squint 
 at the dirty trail which leads north and south and notice horsesign.
+@rus Ты путешествуешь в туманном лесном районе. Высокие черные силуэты высоких
+дубов закрывают от тебЯ и без того ограниченное поле обзора. Ты опускаешь
+взгляд на следы, которые ведут на север и юг, и обращаешь внимание на
+многочисленные следы подков.
 ~
 0 A forest
 E
-horsesign~
-You look at the horsesign and see that many horses have travelled this path.
+horsesign след~
+@eng You look at the horsesign and see that many horses have travelled this path.
+@rus Да, немало лошадей уже прошло тут.
 ~
 D0
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17313
 D2
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17306
 S
 #17310
-Deep Woods~
-You are in a deeply wooded section of the forest Arden. Shadows lengthen 
+@eng Deep Woods@rus Дремучий лес~
+@eng You are in a deeply wooded section of the forest Arden. Shadows lengthen 
 and play in the breeze. The trail continues north, east, and west.
+@rus Ты в густом лесу Арденна. Тени от пробивающихся солнечных лучей
+создают причудливые световые узоры. Дорога продолжается на север,
+восток и запад.
 ~
 0 0 forest
 D0
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17311
 D1
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17312
 D3
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17306
 S
 #17311
-Cursed Glade~
-You have entered a glade where all the vegetation is dead. There is no 
+@eng Cursed Glade@rus Проклятое поле~
+@eng You have entered a glade where all the vegetation is dead. There is no 
 sounds of wildlife, and no light reaches here from above. There are bones 
 from previous visitors scattered about the glade. Maybe you should rest 
 for a while
+@rus Ты $gn{вступил} на поле, где всякая растительность засохла. Здесь не
+слышны звуки леса, и сюда не достигает солнечный свет. Кости предыдущих
+посетителей этого проклятого места лежат повсюду. Может быть, отдохнуть
+пока?
 ~
 0 AN forest
 E
-bones~
-Maybe you should rest a while...
+bones кости~
+@eng Maybe you should rest a while...
+@rus Может быть, все же стоит отдохнуть пока?
 ~
 D4
-the trees
+@eng the trees
+@rus Деревья
 ~
 ~
 Z -1 17312
 S
 #17312
-Dark Hollow~
-You have entered a dark hollow. The air is heavy, damp and oppressive 
+@eng Dark Hollow@rus Темное место~
+@eng You have entered a dark hollow. The air is heavy, damp and oppressive 
 broken only bye the cackling of a crow. To the west is a dusty trail.
+@rus Ты проходишь темное место. Воздух здесь тяжелый, влажный, здесь тихо,
+и слышно только, как где-то каркает ворон. На запад продолжается пыльная
+тропа.
 ~
 0 A forest
 E
-crow~
-Or was that a snicker?
+crow ворон~
+@eng Or was that a snicker?
+@rus Или это просто кто-то так хихикает? Бррр...
 ~
 D3
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17310
 S
 #17313
-The Forest Arden~
-You have entered a bright and cheerful section of the Forest Arden. 
+@eng The Forest Arden@rus Арденнский лес~
+@eng You have entered a bright and cheerful section of the Forest Arden. 
 Squirrels chase one and another around the ancient oaks, and butterfiles 
 dance in the dappled sunshine. The air smells sweet, the sun is on your 
 back, and the horsetrodden trail leads north, south, and east.
+@rus Ты $gn{вошел} в светлую и приятную часть Арденнского леса. Белки преследуют
+друг друга вокруг древних дубов, и бабочки летают повсюду. Воздух пахнет 
+приятно, солнце находится за вашей спиной, следы подков ведут на север, 
+юг и восток.
 ~
 0 CK forest
 E
-squirrels~
-Yes, they are mating.~
+squirrels белки~
+@eng Yes, they are mating.
+@rus Да, у них брачный период.
+~
 E
-trail horsesign sign~
-You discover horsesign. Most of the traffic heads east and south.
+trail horsesign sign тропа след~
+@eng You discover horsesign. Most of the traffic heads east and south.
+@rus Ты видишь, что следы в основном ведут на восток и на юг.
 ~
 D0
-A dusty trail
+@eng A dusty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17314
 D1
-A dusty trail
+@eng A dusty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17319
 D2
-A dusty trail
+@eng A dusty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17309
 S
 #17314
-A Creek in the Forest Arden~
-You have stopped for water at a little creek which cuts across the trail. 
+@eng A Creek in the Forest Arden@rus Ручей в лесу Арденна~
+@eng You have stopped for water at a little creek which cuts across the trail. 
 To the south the forest brightens. To the west the forest darkens. The 
 sky is blue and the sunlight flashes off the silvery waters.
+@rus Ты $gn{остановился} попить воды в небольшом ручье, который идет поперек дороги.
+На юг лес проясняется, на западе темнеет. Небо синее и солнечный свет 
+отблескивает от поверхности ручья.
 ~
 0 0 swim
 E
-silvery~
-You stoop down to peer at the shiny flashy creek and see submerged a knight.
+silvery creek ручей~
+@eng You stoop down to peer at the shiny flashy creek and see submerged a knight.
 The knight bears the crest of Camelot and appears to have been coldly 
 speared through the back.
+@rus Ты $gn{наклонился} и $gn{вгляделся} в серебристые воды ручья. Ой! Там отражается
+рыцарь с эмблемой Камелота, подло убитый ударом копья в спину...
 ~
 D2
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17313
 D3
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17315
 S
 #17315
-Battleplain of Arden~
-Before you stretches the grizzly battleplain of Arden. Countless centuries 
+@eng Battleplain of Arden@rus Поле битвы в Арденне~
+@eng Before you stretches the grizzly battleplain of Arden. Countless centuries 
 of war have littered the plain with bones and broken weapons of its 
 combattants. There are signs of a recent carnage with several knights 
 and their steeds lying in twisted heaps. A dirty trail continues to the 
 west and east, and a winding road heads north.
+@rus Ты входишь на поле битвы. Веками это поле усеивали останки сражающихся и
+сломанное оружие. Ты видишь свежие следы битвы рыцарей и кучи погнутого
+железа. Грязная дорога продолжается на восток и запад, на севере же 
+начинается дорога получше.
 ~
 0 0 field
 E
-heaps knights steeds bones~
-The sight sickens you.
+heaps knights steeds bones рыцари кости лошади кучи~
+@eng The sight sickens you.
+@rus Зрелище боя завораживающе и отвратительно одновременно.
 ~
 D0
-A winding road
+@eng A winding road
+@rus Хорошая дорога
 ~
 ~
 Z -1 17316
 D1
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17314
 D3
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17317
 S
 #17316
-Before Blackmoor~
-You stand before Blackmoor the keep of the evil Mordred. The curtain wall 
+@eng Before Blackmoor@rus Перед фортом Блэкмур~
+@eng You stand before Blackmoor the keep of the evil Mordred. The curtain wall 
 is some 25 feet high and towers flank the gate and corners. The breeze 
 brings a high pitched girlish laughter to you sending chills up your spine. 
 To the north lies the black iron gates of Blackmoor, and to the south 
 stretches a winding road.
+@rus Ты стоишь перед фортом Блэкмур, бастионом злых Мордредов. Каменная
+стена около 10 метров высотой, и башни венчают углы и ворота замка.
+К северу ты видишь черные металлические ворота Блэкмура, на юг
+идет дорога.
 ~
 0 0 field
 E
-gates iron black~
-The great iron gates have been forged from pig iron, and they are strangly  
+gates iron black черные ворота металл~
+@eng The great iron gates have been forged from pig iron, and they are strangly  
 without rust. The iron spirals with great craftsmanship, forming into faces 
 of distorted humans.
+@rus Ворота сделаны из черного металла, и странно, они выглядят как новые.
+Железные спирали-украшения складываются в лица людей на их поверхности.
 ~
 E
-humans~
-Actually they look like damned souls to you.
+humans люди~
+@eng Actually they look like damned souls to you.
+@rus Выглядят, как будто их души навеки прокляты.
 ~
 D0
-Black Iron Gate
+@eng Black Iron Gate
+@rus Черные ворота
 ~
-gate black iron~
+черные ворота black gate~
 ABZ -1 17327
 D2
-A winding road
+@eng A winding road
+@rus Хорошая дорога
 ~
 ~
 Z -1 17315
 S
 #17317
-Forest Blackmoor~
-You have entered Blackmoor, the forest of the damned. Thorns and crooked 
+@eng Forest Blackmoor@rus Лес Блэкмур~
+@eng You have entered Blackmoor, the forest of the damned. Thorns and crooked 
 trees scratch and tear at you, almost as if they were alive. The well worn 
 path has has vanished and you have lost your bearings.
+@rus Ты входишь в Блэкмурский лес, лес отщепенцев. 
+Шипы и колючие ветви деревьев царапают тебя, как будто они живые.
+Дорожка практически исчезла, и ты потихоньку теряешь ориентацию.
 ~
 0 AN forest
 D4
@@ -2486,1202 +2810,1566 @@ D5
 Z -1 17318
 S
 #17318
-Before an Inviting Hut~
-You stand in front of an inviting hut. Smoke curls from the chimney 
+@eng Before an Inviting Hut@rus Перед лесным домиком~
+@eng You stand in front of an inviting hut. Smoke curls from the chimney 
 bringing you the smell of fresh venison. Lamplight cuts through the 
 darkness and the windows. A delightful song can be heard from inside. 
 To the west is the door (adjar) to the hut, and a dirty trail leads 
 to the south.
+@rus Дым вьется из дымохода, слышен запах свежей жареной оленины. Окна
+домика озарены светом. Восхитительная песня слышится изнутри. На запад
+дверь хижины, грязная дорога ведет на юг.
 ~
 0 0 forest
 D2
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17317
 D3
-An inviting hut
+@eng An inviting hut
+@rus Лесной домик
 ~
-door~
+door дверь~
 ABZ -1 17323
 S
 #17319
-The Chasm~
-You stand before a deep chasm. You can see the fettered ends of an 
+@eng The Chasm@rus Пропасть~
+@eng You stand before a deep chasm. You can see the fettered ends of an 
 old rope bridge cut and hanging into the chasm. To the west is a 
 dirty trail, and the cut rope bridge leads down.
+@rus Ты стоишь перед глубокой пропастью. Ты можешь видеть кованные концы
+старого цепного моста, свешивающегося в пропасть. На запад - грязная дорога,
+а мост ведет вниз.
 ~
 0 0 mountain
 D3
-A dirty trail
+@eng A dirty trail
+@rus Грязная дорога
 ~
 ~
 Z -1 17313
 D5
-Down the dangling end of the rope bridge
+@eng Down the dangling end of the rope bridge
+@rus Вниз по цепному мосту
 ~
 ~
 Z -1 17320
 S
 #17320
-Hanging on the Rope Bridge~
-You are hanging at the tattered end of a rope bridge. Your grip is 
+@eng Hanging on the Rope Bridge@rus Вниз по цепному мосту~
+@eng You are hanging at the tattered end of a rope bridge. Your grip is 
 fairly strong. You can either try to swing east across the chasm to 
 the other loose part of the bridge, or you can climb up and out, or 
 you can let go into the yawning depths of the chasm.
+@rus Ты стоишь на качающемся цепном мосту. Он кажется достаточно крепким. Ты 
+можешь или пробовать идти на восток поперек пропасти к другому концу
+моста, или подниматься вверх, или опуститься в зияющие глубины пропасти.
 ~
 0 A mountain
 D1
-Hanging on the Rope Bridge
+@eng Hanging on the Rope Bridge
+@rus По цепному мосту
 ~
 ~
 Z -1 17321
 D4
-The chasm
+@eng The chasm
+@rus Пропасть
 ~
 ~
 Z -1 17319
 D5
-The Yawning Depths
+@eng The Yawning Depths
+@rus Дно пропасти
 ~
 ~
 Z -1 17324
 S
 #17321
 Hanging on the Rope Bridge~
-You are hanging on the frayed end of the rope bridge. You can either 
-attempt to swing to the east side, climb up the bridge, or go down 
+@eng You are hanging on the frayed end of the rope bridge. You can either 
+attempt to swing to the west side, climb up the bridge, or go down 
 into the yawning depths of the chasm.
+@rus Ты стоишь на дальнем конце моста. Ты можешь пытаться перейти к западной
+стороне моста, подняться вверх, или опуститься в зияющие глубины пропасти.
 ~
 0 A mountain
 D3
-Hanging on the Rope Bridge
+@eng Hanging on the Rope Bridge
+@rus Вниз по цепному мосту
 ~
 ~
 Z -1 17320
 D4
-The Chasm
+@eng The Chasm
+@rus Пропасть
 ~
 ~
 Z -1 17322
 D5
-The Yawning Depths
+@eng The Yawning Depths
+@rus Дно пропасти
 ~
 ~
 Z -1 17324
 S
 #17322
-The Chasm~
-You stand at the brink of a deep chasm. The rope bridge across it has 
+@eng The Chasm@rus Восточный конец цепного моста~
+@eng You stand at the brink of a deep chasm. The rope bridge across it has 
 been cut by some vile villian and lies hanging down into the chasm. 
 You can either climb down the bridge into the chasm or head to the 
 green field to the east.
+@rus Ты стоишь на краю глубокой пропасти. Мост поперек нее был перерезан 
+какими-то злоумышленниками и теперь висит одним концом вниз, в пропасть. 
+Ты можешь спуститьсЯ вниз в пропасть или идти к полю на восток.
 ~
 0 0 mountain
 D1
-A green field
+@eng A green field
+@rus Зеленое поле
 ~
 ~
 Z -1 17325
 D5
-Hanging on the Rope Bridge
+@eng Hanging on the Rope Bridge
+@rus По цепному мосту
 ~
 ~
 Z -1 17321
 S
 #17323
-Inside the Inviting Hut~
-You are inside an inviting hut. Around you is the comfortable interior, 
+@eng Inside the Inviting Hut@rus Внутри домика~
+@eng You are inside an inviting hut. Around you is the comfortable interior, 
 complete with feather bed and fireplace. A table of fresh meat and 
 vegatables has been set, and on it is an ornate chalice filled with 
 wine. A candle burns brightly and there is a single chair at the table.
+@rus Ты - внутри домика. Вокруг тебя - удобный интерьер, мебель и камин. Стол 
+полон яств, мяса и овощей, в центре стола - декоративная чаша, наполненная 
+вином. Свечи ярко горят, один только стул стоит за столом.
 ~
 0 DN inside
 E
-chalice~
-On closer inspection the chalice is not the holy grail.
+chalice чаша~
+@eng On closer inspection the chalice is not the holy grail.
+@rus При ближайшем рассмотрении она оказывается все же не Святым Граалем.
 ~
 E
-bed~
-The bed looks comfortable. Inviting.
+bed мебель~
+@eng The bed looks comfortable. Inviting.
+@rus Твое внимание привлекает кровать. Она красиво отделана и кажется очень
+удобной.
 ~
 E
-meat wine~
-The meat is juicy, the wine has a nice dry aroma and a deep red color.
+meat wine мясо вино~
+@eng The meat is juicy, the wine has a nice dry aroma and a deep red color.
+@rus Мясо истекает соком, тонкий аромат красного вина возбуждает аппетит.
 ~
 E
-candle~
-Its a black candle. What was that you remember about black candles? 
+candle свеча~
+@eng Its a black candle. What was that you remember about black candles? 
 Oh yeah, they are used by witches in black masses.
+@rus Что-то ты припоминаешь о черных свечах... Кто же и зачем их использует?
+Точно! Черные ведьмы для черных обрядов.
 ~
 E
-chair~
-Why don't you sit down for a while and have a nice meal?
+chair стул~
+@eng Why don't you sit down for a while and have a nice meal?
+@rus Почему бы не сесть и не поесть? Все так аппетитно выглядит...
 ~
 D1
-Before an Inviting Hut
+@eng Before an Inviting Hut
+@rus Выход из домика
 ~
 ~
 ABZ -1 17318
 S
 #17324
-The Yawning Depths~
-Blue...NO GREEN!
+@eng The Yawning Depths@rus Дно пропасти~
+@eng Blue...NO GREEN!
    AHHHHHHHHHHHHHHHH
        AHHHHHHHHHHHHHHHH
            AHHHHHHHHHHHHHHHH
 SPLAAAAT.
+@rus Ой! Ма-а-а-амочка....
+Летим.... летим.... летим.....
+БЭМЦ!!!
+Упали... лежим... выходов не видно... все болит... упс.
 ~
 0 AC mountain
 S
 #17325
-The Green Field Before Camelot~
-You stand under the open sky in the emerald green field before Camelot.
+@eng The Green Field Before Camelot@rus Зеленое поле возле Камелота~
+@eng You stand under the open sky in the emerald green field before Camelot.
 Camelot lies ontop of a hill overlooking the field. Flags and banners 
 snap in the fresh breeze from the proud towers of Camelot. You can either 
 head east to Camelot or west to the chasm.
+@rus Ты стоишь под открытым небом на зеленом поле возле Камелота. Сам
+Камелот находится наверху холма за полем. Флаги и знамена трепещут на 
+свежем бризе на гордых башнЯх Камелота. Ты можешь идти на восток к
+Камелоту, или к западу к пропасти.
 ~
 0 0 field
 D1
-The Eastern Gate of Camelot
+@eng The Eastern Gate of Camelot
+@rus Западные ворота Камелота
 ~
 ~
 Z -1 17326
 D3
-The Chasm
+@eng The Chasm
+@rus Пропасть
 ~
 ~
 Z -1 17322
 S
 #17326
-The Western Gate of Camelot~
-You stand at the gates to Camelot. You have a commanding view of the emerald 
+@eng The Western Gate of Camelot@rus Западные ворота Камелота~
+@eng You stand at the gates to Camelot. You have a commanding view of the emerald 
 plane below. White granite walls rise impressively into the air.
+@rus Ты стоишь возле западных ворот Камелота. Отсюда тебе виден широкий вид на
+зеленые поля и лес. Белые гранитные стены Камелота гордо поднимаются ввысь.
 ~
 0 C city
 D1
-The Western Gate
+@eng The Western Gate
+@rus Западные ворота
 ~
-gate eastern~
+gate eastern ворота западные~
 ABZ -1 17341
 D3
-A green field
+@eng A green field
+@rus Зеленое поле
 ~
 ~
 Z -1 17325
 S
 #17327
-Bailey of Blackmoor~
-You stand inside the bailey of Blackmoor. Murder holes line the walls and 
+@eng Bailey of Blackmoor@rus Замковый двор Блэкмура~
+@eng You stand inside the bailey of Blackmoor. Murder holes line the walls and 
 towers rise ahead. To the north and south are black iron gates.
+@rus Ты стоишь во внутреннем дворе форта Блэкмур. Стены вокруг испещрены бойницами,
+а впереди видны башни и внутренние ворота форта.
 ~
 0 A city
 E
-hole holes~
-Nobody seems to be looking at you through the murder holes
+hole holes бойницы~
+@eng Nobody seems to be looking at you through the murder holes
+@rus Похоже, сейчас через них никто на тебя не смотрит.
 ~
 D0
-Black Iron Gate
+@eng Black Iron Gate
+@rus Черные металлические ворота
 ~
 gate black iron~
 ABZ -1 17328
 D2
-Black Iron Gate
+@eng Black Iron Gate
+@rus Черные металлические ворота
 ~
 ~
 ABZ -1 17316
 S
 #17328
-Inside the Curtain Wall~
-You stand on a road inside the Curtain Wall of Blackmoor. The keep proper 
+@eng Inside the Curtain Wall@rus Внутри каменной стены~
+@eng You stand on a road inside the Curtain Wall of Blackmoor. The keep proper 
 is to your north. The road continues to the east and west, and a black iron 
 gate is to the south.
+@rus Ты стоишь на дороге, проходящей внутри стены Блэкмура. На север - собственно 
+форт Блэкмур. Дорога вокруг форта идет на восток и запад, а черные ворота
+остались на юге.
 ~
 0 A inside
 D1
-Inside the Curtain Wall
+@eng Inside the Curtain Wall
+@rus Внутри каменной стены
 ~
 ~
 Z -1 17329
 D2
-Black Iron Gate
+@eng Black Iron Gate
+@rus Черные металлические ворота
 ~
 ~
 ABZ -1 17327
 D3
-Inside the Curtain Wall
+@eng Inside the Curtain Wall
+@rus Внутри каменной стены
 ~
 ~
 Z -1 17330
 S
 #17329
-Inside the Curtain Wall~
-You stand on the road inside the curtain wall of Blackmoor. Stairs lead up 
+@eng Inside the Curtain Wall@rus Внутри каменной стены~
+@eng You stand on the road inside the curtain wall of Blackmoor. Stairs lead up 
 to the eastern bailey tower and the road continues to the north and west.
+@rus Ты стоишь внутри каменной стены форта Блэкмур. Ступени поднимаются к восточной
+башне внешней стены, а дорога продолжается на север и запад.
 ~
 0 A city
 D0
-Inside the Curtain Wall
+@eng Inside the Curtain Wall
+@rus Внутри каменной стены
 ~
 ~
 Z -1 17335
 D3
-Inside the Curtain Wall
+@eng Inside the Curtain Wall
+@rus Внутри каменной стены
 ~
 ~
 Z -1 17328
 D4
-The East Bailey Tower
+@eng The East Bailey Tower
+@rus Восточная башня
 ~
 ~
 Z -1 17339
 S
 #17330
-Inside the Curtain Wall~
-You stand on the road inside the curtain wall. Stairs lead up to the western 
+@eng Inside the Curtain Wall@rus Внутри каменной стены~
+@eng You stand on the road inside the curtain wall. Stairs lead up to the western 
 bailey tower, and the road continues north and east.
+@rus Ты стоишь внутри каменной стены форта Блэкмур. Ступени поднимаются к западной
+башне внешней стены, а дорога продолжается на север и восток.
 ~
 0 A city
 D0
-Inside the Curtain Wall
+@eng Inside the Curtain Wall
+@rus Внутри каменной стены
 ~
 ~
 Z -1 17331
 D1
-Inside the Curtain Wall
+@eng Inside the Curtain Wall
+@rus Внутри каменной стены
 ~
 ~
 Z -1 17328
 D4
-The West Bailey Tower
+@eng The West Bailey Tower
+@rus Западная башня
 ~
 ~
 Z -1 17338
 S
 #17331
-Inside the Curtain Wall~
-You stand on a road inside the curtain wall of Blackmoor. The keep proper 
+@eng Inside the Curtain Wall@rus Внутри каменной стены~
+@eng You stand on a road inside the curtain wall of Blackmoor. The keep proper 
 is to the east of you. The bloody road continues north and south.
+@rus Ты на дороге внутри стены Блэкмура. Форт на восток от Вас, а кровавая дорога
+продолжается на север и юг.
 ~
 0 A city
 E
-blood bloody road~
-You bend down and look at the blood in the road and find a piece of silk. 
+blood bloody road кровь кровавая дорога~
+@eng You bend down and look at the blood in the road and find a piece of silk. 
 You examine it and notice that it appears to be a favor of a lady in waiting 
 of Camelot.
+@rus Ты опускаешь взгляд и замечаешь кусок шелка в грязи. Ты осматриваешь его,
+и понимаешь, что это такой же платок, что носят леди в Камелоте, ожидающие
+возвращения своего рыцаря. Странно...
 ~
 D0
-Inside the Curtain Wall
+@eng Inside the Curtain Wall
+@rus Внутри каменной стены
 ~
 ~
 Z -1 17332
 D2
-Inside the Curtain Wall
+@eng Inside the Curtain Wall
+@rus Внутри каменной стены
 ~
 ~
 Z -1 17330
 S
 #17332
-Inside the Curtain Wall~
-You stand on a road inside the curtain wall of Blackmoor. Stairs lead up to 
+@eng Inside the Curtain Wall@rus Внутри каменной стены~
+@eng You stand on a road inside the curtain wall of Blackmoor. Stairs lead up to 
 the northwestern tower of blackmoor. The road continues to the south, and 
 to the east where the entrance to the keep proper is.
+@rus Ты на дороге внутри каменной стены форта Блэкмур. Ступени ведут в 
+северо-западную башню Блэкмура. Дорога продолжается на юг, а на востоке
+виден вход в форт.
 ~
 0 A city
 D1
-Entrance to the Keep Proper
+@eng Entrance to the Keep Proper
+@rus Вход в форт
 ~
 ~
 Z -1 17333
 D2
-Inside the Curtain Wall
+@eng Inside the Curtain Wall
+@rus Внутри каменной стены
 ~
 ~
 Z -1 17331
 D4
-The Northwestern Tower of Blackmoor
+@eng The Northwestern Tower of Blackmoor
+@rus Северо-западная башня
 ~
 ~
 Z -1 17336
 S
 #17333
-Entrance to the Keep Proper~
-You stand on a road inside the curtain wall of Blackmoor. To the south is 
+@eng Entrance to the Keep Proper@rus Вход в форт~
+@eng You stand on a road inside the curtain wall of Blackmoor. To the south is 
 a massive wooden door, from which you hear elfin laughter. The road 
 continues to the east and west.
+@rus Ты стоишь на дороге внутри стены Блэкмура. На юге ты видишь массивную дубовую
+дверь, из-за которой Вам слышится звонкий волшебный смех. Дорога продолжается
+на запад и восток.
 ~
 0 A city
 E
-door~
-Its huge! Hope you don't get a hernia opening it.~
+door дверь~
+@eng Its huge! Hope you don't get a hernia opening it.@rus Дверь огромна, и сделана из дубовых досок, так что даже и не думай ее
+выломать.
+~
 D1
-Inside the Curtain Wall
+@eng Inside the Curtain Wall
+@rus Внутри каменной стены
 ~
 ~
 Z -1 17334
 D2
-A Massive Wooden Door
+@eng A Massive Wooden Door
+@rus Массивная дубовая дверь
 ~
-door wooden massive~
+door wooden massive дверь деревянная~
 ABZ -1 17340
 D3
-Inside the Curtain Wall
+@eng Inside the Curtain Wall
+@rus Внутри каменной стены
 ~
 ~
 Z -1 17332
 S
 #17334
-Inside the Curtain Wall~
-You stand on a road inside the curtain wall of Blackmoor. Stairs lead up 
+@eng Inside the Curtain Wall@rus Внутри каменной стены~
+@eng You stand on a road inside the curtain wall of Blackmoor. Stairs lead up 
 to the northeastern tower of Blackmoor. The road continues to the south 
 and west, where the entrance to the keep proper is located.
+@rus Ты на дороге внутри каменной стены форта Блэкмур. Ступени ведут в 
+северо-восточную башню Блэкмура. Дорога продолжается на юг, а на западе
+виден вход в форт.
 ~
 0 A city
 D2
-Inside the Curtain Wall
+@eng Inside the Curtain Wall
+@rus Внутри каменной стены
 ~
 ~
 Z -1 17335
 D3
-Entrance to the Keep Proper
+@eng Entrance to the Keep Proper
+@rus Вход в форт
 ~
 ~
 Z -1 17333
 D4
-The Northeast Tower
+@eng The Northeast Tower
+@rus Северо-восточная башня
 ~
 ~
 Z -1 17337
 S
 #17335
-Inside the Curtain Wall~
-You stand on a road inside the curtain wall of Blackmoor. To the west 
+@eng Inside the Curtain Wall@rus Внутри каменной стены~
+@eng You stand on a road inside the curtain wall of Blackmoor. To the west 
 looms the keep proper. The road continues north and south.
+@rus Ты на дороге внутри стены Блэкмура. К западу виден вход в форт. Дорога
+продолжается на север и юг.
 ~
 0 A city
 D0
-Inside the Curtain Wall
+@eng Inside the Curtain Wall
+@rus Внутри каменной стены
 ~
 ~
 Z -1 17334
 D2
-Inside the Curtain Wall
+@eng Inside the Curtain Wall
+@rus Внутри каменной стены
 ~
 ~
 Z -1 17329
 S
 #17336
-The Northwest Tower of Blackmoor~
-You stand inside the northwestern tower. You have a commanding view of 
+@eng The Northwest Tower of Blackmoor@rus Северо-западная башня~
+@eng You stand inside the northwestern tower. You have a commanding view of 
 the keep and the moor itself. Stairs lead downward.
+@rus Ты стоишь в северо-западной башне. Ты видишь отсюда форт и пейзаж вокруг.
+Лестница ведет вниз.
 ~
 0 A inside
 E
-view moor~
-You look at the view. The moor rolls onward, and mist makes it difficult 
+view moor вид болото~
+@eng You look at the view. The moor rolls onward, and mist makes it difficult 
 to  see very far. You see black forms scuttling across the moor. For a 
 moment you are glad you are in a solid tower.
+@rus Ты осматриваешься вокруг. Туман, застилающий болото, не дает увидеть
+почти ничего. Все вокруг расплывается и движется. Ты $gn{рад}, что
+стоишь в твердой башне.
 ~
 D5
-Inside the Curtain Wall
+@eng Inside the Curtain Wall
+@rus Внутри каменной стены
 ~
 ~
 Z -1 17332
 S
 #17337
-The Northeastern Tower of Blackmoor~
-You stand inside the northeastern tower. You have a commanding view of 
+@eng The Northeastern Tower of Blackmoor@rus Северо-восточная башня~
+@eng You stand inside the northeastern tower. You have a commanding view of 
 the keep and the surrounding moor. Stairs lead down.
+@rus Ты стоишь в северо-восточной башне. Ты видишь отсюда форт и пейзаж вокруг.
+Лестница ведет вниз.
 ~
 0 A inside
 D5
-Inside the Curtain Wall
+@eng Inside the Curtain Wall
+@rus Внутри каменной стены
 ~
 ~
 Z -1 17334
 S
 #17338
-West Bailey Tower~
-You stand inside the western bailey tower. You have a great view of the 
+@eng West Bailey Tower@rus Западная полубашня~
+@eng You stand inside the western bailey tower. You have a great view of the 
 bailey and you could fire a ranged weapon through the murder hole. Stairs 
 lead down.
+@rus Ты стоишь в западной полубашне. Тебе отсюда хорошо виден окружающий
+пейзаж, отсюда неплохо стрелять сквозь бойницы вниз. Лестница ведет
+вниз.
 ~
 0 A inside
 E
-view hole bailey~
-You peek through the murder hole at the bailey as many have done before you.
+view hole bailey бойница~
+@eng You peek through the murder hole at the bailey as many have done before you.
+@rus Ты $gn{выглянул} в бойницу, как не раз уже делали защитники крепости.
 ~
 D5
-Inside the Curtain Wall
+@eng Inside the Curtain Wall
+@rus Внутри каменной стены
 ~
 ~
 Z -1 17330
 S
 #17339
-East Bailey Tower~
-You stand inside the eastern bailey tower. You have a commanding view of 
+@eng East Bailey Tower@rus Восточная полубашня~
+@eng You stand inside the eastern bailey tower. You have a commanding view of 
 the bailey and could fire uncontested through the murder hole. Stairs lead 
 down.
+@rus Ты стоишь в восточной полубашне. Тебе отсюда хорошо виден окружающий
+пейзаж, отсюда неплохо стрелять сквозь бойницы вниз. Лестница ведет
+вниз.
 ~
 0 A inside
 D5
-Inside the Curtain Wall
+@eng Inside the Curtain Wall
+@rus Внутри каменной стены
 ~
 ~
 Z -1 17329
 S
 #17340
-The Dark Hall of Mordred~
-You stand in the foul hall of Mordred. Smoke writhes upward to the rafters 
+@eng The Dark Hall of Mordred@rus Темный зал Мордреда~
+@eng You stand in the foul hall of Mordred. Smoke writhes upward to the rafters 
 from a firepit in the center. Armor from defeated knights is hung from 
 hooks on the wall. Knights sit in a circle about the fire staring woodenly 
 into the flames. A young elvin lad in golden armor laughs as he weaves a 
 dance amongst them.
+@rus Ты стоишь в темном зале Мордред. Дым поднимается вверх к стропилам от
+огненного озера в центре. Броня и доспехи побежденных рыцарей развешены
+на стене. Рыцари сидят в круге возле огня, неотрывно смотря в огонь
+безумными взглядами. Молодой похожий на эльфа парень в золотой броне
+волшебно смеется и танцует вокруг них мистический танец.
 ~
 0 A inside
 E
-firepit fire pit~
-You examine the fire pit. A large body is roasting here. It looks human!
+firepit fire pit огонь озеро~
+@eng You examine the fire pit. A large body is roasting here. It looks human!
+@rus Какое-то тело жарится там, оно похоже на человеческое.
 ~
 E
-lad elvin~
-You shake your head and look a second time. The lad disappears. A foul 
+lad elvin эльф парень~
+@eng You shake your head and look a second time. The lad disappears. A foul 
 spell has hold of you!
+@rus Ты $gn{ущипнул} себя и $gn{посмотрел} еще раз. Действительно,
+эльф исчез, а вместо него ты видишь Мордреда, завистливого и злого
+племянника короля Артура!
 ~
 D0
-Entrance to the Keep Proper
+@eng Entrance to the Keep Proper
+@rus Вход в форт
 ~
 ~
 ABZ -1 17333
 S
 #17341
-Victory Road and Knights Way~
-You stand on a marbled road inside the great walls of Camelot. Pinnons 
+@eng Victory Road and Knights Way@rus Пересечение Дороги Победы и Рыцарского пути~
+@eng You stand on a marbled road inside the great walls of Camelot. Pinnons 
 fly from high towers and the buildings gleam of white stone. Victory Road 
 contiues east into the keep, and Knights Way runs north and south.
+@rus Ты стоишь на дороге, выложенной мраморными болками, внутри большой стены
+Камелота. Здания, что видны впереди, сделаны также из белого мрамора. Дорога
+Победы продолжается на восток, а Рыцарский путь идет на север и юг.
 ~
 0 0 city
 D0
-Knights Way
+@eng Knights Way
+@rus Рыцарский путь
 ~
 ~
 Z -1 17342
 D1
-Victory Road
+@eng Victory Road
+@rus Дорога Победы
 ~
 ~
 Z -1 17343
 D2
-Knights Way
+@eng Knights Way
+@rus Рыцарский путь
 ~
 ~
 Z -1 17344
 D3
-West Gate of Camelot
+@eng West Gate of Camelot
+@rus Западные врата Камелота
 ~
 ~
 ABZ -1 17326
 S
 #17342
-Knights Way before the stables~
-You stand on the white marbled road, Knights Way. You smell horses to 
+@eng Knights Way before the stables@rus Рыцарский путь, возне конюшен~
+@eng You stand on the white marbled road, Knights Way. You smell horses to 
 the east. To the west the high walls of camelot rise. Knights way continues 
 to the north and south.
+@rus Ты стоишь на мраморной дороге Рыцарский путь. Ты чувствуешь неподалеку
+запах лошадей - на востоке расположена конюшня. На западе возвышаются
+высокие стены Камелота. Рыцарский путь продолжается на север и юг.
 ~
 0 0 city
 E
-stables~
-There are many horses and squires scurring about in the stables.~
+stables конюшня~
+@eng There are many horses and squires scurring about in the stables.
+@rus В конюшне ты видишь много лошадей и конюхов.
+~
 E
-high walls~
-The high walls tower above you, made from a gleaming white stone. The 
+high walls высокие стены~
+@eng The high walls tower above you, made from a gleaming white stone. The 
 blocks are huge- it must have taken a great engine to hoist them. Pennons 
 snap in  the breeze from the many towers of Camelot.
+@rus Высокие стены из белого камня возвышаются над тобой. Камни просто огромны,
+наверно, было непросто соорудить такие стены. Стяги развеваются на башнях
+Камелота.
 ~
 D0
-Knights Way
+@eng Knights Way
+@rus Рыцарский путь
 ~
 ~
 Z -1 17345
 D1
-Stables
+@eng Stables
+@rus Конюшни
 ~
 ~
 Z -1 17398
 D2
-Knights Way
+@eng Knights Way
+@rus Рыцарский путь
 ~
 ~
 Z -1 17341
 S
 #17343
-Victory Road~
-You stand on victory road. Knights pennons are stuck in the ground on 
+@eng Victory Road@rus Дорога Победы~
+@eng You stand on victory road. Knights pennons are stuck in the ground on 
 both sides of the road, with their coat of arms flapping in the breeze. 
 There are available slots for other coats of arms. Victory road continues 
 to the east and west.
+@rus Ты стоишь на Дороге Победы. Рыцарские знамена водружены по обеим сторонам 
+дороги, их треплет свежий ветер. Ты замечаешь, что в кое-где есть свободные
+места под новые знамена. Дорога Победы продолжается на восток и запад.
 ~
 0 0 city
 E
-coat coats arms~
-You look at the coats of arms. You recognize a few of the devices as that 
+coat coats arms знамена знамя~
+@eng You look at the coats of arms. You recognize a few of the devices as that 
 of Gawaine, Tristram, and of course Lancelot.
+@rus Среди множества знамен ты разглядел стяги Гавейна, Тристрама и, конечно,
+Ланселота.
 ~
 D1
-Victory Road
+@eng Victory Road
+@rus Дорога Победы
 ~
 ~
 Z -1 17347
 D3
-Victory Road and Knights Way
+@eng Victory Road and Knights Way
+@rus Дорога Победы и Рыцарский путь
 ~
 ~
 Z -1 17341
 S
 #17344
-Knights Way at the Armory~
-You stand on the white marbled Knights Way. To your west the towering 
+@eng Knights Way at the Armory@rus Рыцарский путь, возле оружейной мастерской~
+@eng You stand on the white marbled Knights Way. To your west the towering 
 walls of Camelot rise, and to the east is the armory of Camelot. Knights 
 Way continues north and south.
+@rus Ты стоишь на мраморной дороге Рыцарский путь. К западу возвышаются
+высокие стены Камелота, а на восток видна оружейная мастерская Камелота.
+Рыцарский путь продолжается на север и юг.
 ~
 0 0 city
 E
-high walls~
-The high walls tower above you, made from a gleaming white stone. The 
+high walls высокие стены~
+@eng The high walls tower above you, made from a gleaming white stone. The 
 blocks are huge- it must have taken a great engine to hoist them. Pennons 
 snap in  the breeze from the many towers of Camelot.
+@rus Высокие стены из белого камня возвышаются над тобой. Камни просто огромны,
+наверно, было непросто соорудить такие стены. Стяги развеваются на башнях
+Камелота.
 ~
 D0
-Victory Lane and Knights Way
+@eng Victory Lane and Knights Way
+@rus Дорога Победы и Рыцарский путь
 ~
 ~
 Z -1 17341
 D1
-The Armory
+@eng The Armory
+@rus Оружейная мастерская
 ~
 ~
 Z -1 17348
 D2
-Knights Way
+@eng Knights Way
+@rus Рыцарский путь
 ~
 ~
 Z -1 17349
 S
 #17345
-Corner of Knight's Way and Squire's Run~
-You stand at the corner of Knight's way and Squire's run. An arched 
+@eng Corner of Knight's Way and Squire's Run@rus Угол Рыцарского пути и Проспекта Оруженосцев~
+@eng You stand at the corner of Knight's way and Squire's run. An arched 
 doorway rises up into a stalwart tower. You can see lettering above the 
 arch.  Knight's way continues south, and Squire's Run heads east.
+@rus Ты стоишь на углу Рыцарского пути и Проспекта Оруженосцев. Красивая арка
+ведет в сторожевую башню. На арке ты видишь надпись. Рыцарский путь
+продолжается на юг, а Проспект Оруженосцев идет на восток.
 ~
 0 0 city
 E
-writing arch~
-You look at the engraved words:
+writing arch надпись арка~
+@eng You look at the engraved words:
 
-    FORWARD TO VICTORY~
+    {RFORWARD TO VICTORY{x
+@rus Ты видишь выбитые на мраморе слова:
+ 
+    {RВПЕРЕД, К ПОБЕДЕ!{x
+~
 D1
-Squire's Run
+@eng Squire's Run
+@rus Проспект Оруженосцев
 ~
 ~
 Z -1 17350
 D2
-Knight's Way
+@eng Knight's Way
+@rus Рыцарский путь
 ~
 ~
 Z -1 17342
 D4
-Tower of Valor
+@eng Tower of Valor
+@rus Сторожевая башня
 ~
 ~
 Z -1 17351
 S
 #17346
-Behind the Pict Lines~
-You have battled your way through the ranks of the Picts, and your 
+@eng Behind the Pict Lines@rus За линиями пиктов~
+@eng You have battled your way through the ranks of the Picts, and your 
 salley has placed you behind the Pict lines! To the east the battle 
 rages, and you see fleeing Picts headed this way.  A barbarian is winding 
 a horn with the recall signal.
+@rus Ты прокладываешь твой путь через ряды пиктов, и судьба занесла тебя к ним
+в тыл! На востоке слышен шум сражения, и ты видишь, что убегающий мимо пикт
+возглавлял их всех. Варвар держит в руке сигнальный рожок.
 ~
 0 0 field
 E
-barbarian horn~
-The barbarian sees you looking at you, and flees in terror!
+barbarian horn варвар пикт рог~
+@eng The barbarian sees you looking at him, and flees in terror!
+@rus Пикт заметил, что ты глядишь на него, и побежал еще быстрее!
 ~
 D1
-Into the raging battle
+@eng Into the raging battle
+@rus В хаосе битвы
 ~
 ranks~
 ABZ -1 17397
 S
 #17347
-Victory Road~
-Here Victory Road ends at the great Tourney Yard of Camelot. A podium 
+@eng Victory Road@rus Дорога Победы~
+@eng Here Victory Road ends at the great Tourney Yard of Camelot. A podium 
 for tourney winners is erected here- today it bears the coat of arms 
 of Lancelot. Flanking the road are the standards of the other knights 
 of the round table. A strange peace fills the air here. Victory road 
 continues to the west, and the Tourney Yard of Camelot is to the east.
+@rus Здесь Дорога Победы заканчивается, и ты видишь начало Великой Турнирной
+Арены Камелота. Подиум для победителей и зрителей водружен по центру -
+сейчас на нем развевается стяг Ланселота. Сейчас здесь лежит странная тишина.
+Дорога Победы продолжается на запад, а Турнирная Арена - на востоке.
 ~
 0 K city
 D1
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена
 ~
 ~
 Z -1 17352
 D3
-Victory Road
+@eng Victory Road
+@rus Дорога Победы
 ~
 ~
 Z -1 17343
 S
 #17348
-Armory~
-You stand in the Armory of Camelot. The master blacksmith and his 3 
+@eng Armory@rus Оружейная мастерская~
+@eng You stand in the Armory of Camelot. The master blacksmith and his 3 
 apprentices are busy fabricating a suit of armor for a knight. Various 
 pieces of armor are here in varying states of repair. There is a large  
 weapons rack on the eastern wall. To the west is Knight's Way.
+@rus Ты стоишь в оружейной мастерской Камелота. Мастер-оружейник и его
+трое помощников заняты, изготавливая различное оружие для рыцарей.
+Много видов брони и доспехов разложено на полках и верстаках, возле
+восточной стены ты видишь огромный шкаф для хранения оружия. На
+западе  - Рыцарский путь.
 ~
 0 0 inside
 E
-armor~
-The armor pieces are made from fine hammered steel.
+armor броня~
+@eng The armor pieces are made from fine hammered steel.
+@rus Части брони изготовлены из тщательно прокованной стали.
 ~
 E
-weapons rack~
-The weapons rack contains several daggers, a few lances, and some maces.
+weapons rack шкаф оружие~
+@eng The weapons rack contains several daggers, a few lances, and some maces.
+@rus В шкафу ты видишь кинжалы, копья и шестоперы.
 ~
 D3
-Knight's Way
+@eng Knight's Way
+@rus Рыцарский путь
 ~
 ~
 Z -1 17344
 S
 #17349
-Corner of Knight's Way and Noble Road~
-You stand at the corner of Knights Way and Noble Road. A tower rises up 
+@eng Corner of Knight's Way and Noble Road@rus Угол Рыцарского пути и дороги Вельмож~
+@eng You stand at the corner of Knights Way and Noble Road. A tower rises up 
 from here by a winding staircase. There is an inscription above the archway 
 to the tower. Knights way continues north and Noble Road goes east.
+@rus Ты стоишь на углу Рыцарского пути и дороги Вельмож. Над тобой возвышается
+огромная башня, на арке выбита надпись. Рыцарский путь продолжается на
+север, а дорога Вельмож - на восток.
 ~
 0 0 inside
 E
-inscription arch tower~
-You look at the inscription. It reads:
+inscription arch tower надпись арка башня~
+@eng You look at the inscription. It reads:
 
-       HONOR SEPERATES THE KNIGHT FROM THE CRIMINAL~
+       {BHONOR SEPERATES THE KNIGHT FROM THE CRIMINAL{x
+@rus Ты $gn{прочитал} надпись, она гласит:
+ 
+      {BЧЕСТЬ ОТЛИЧАЕТ РЫЦАРЯ ОТ ПРЕСТУПНИКА{x
+~
 D0
-Knight's Way
+@eng Knight's Way
+@rus Рыцарский путь
 ~
 ~
 Z -1 17344
 D1
-Noble Road
+@eng Noble Road
+@rus Дорога Вельмож
 ~
 ~
 Z -1 17354
 D4
-Tower of Honor
+@eng Tower of Honor
+@rus Башня Чести
 ~
 ~
 Z -1 17353
 S
 #17350
-Squire's Run~
-You stand on Squire's Run. Squires bustle up and down the road on various 
+@eng Squire's Run@rus Проспект Оруженосцев~
+@eng You stand on Squire's Run. Squires bustle up and down the road on various 
 errands for their lords. You notice a scroll lying on the ground. Squire's
 Run contines east and west.
+@rus Ты стоишь на проспекте Оруженосцев. Оруженосцы и слуги снуют туда и сюда,
+выполняя различные приказы своих хозяев. Проспект Оруженосцев продолжается
+на запад и восток. На земле ты видишь кем-то брошенный свиток.
 ~
 0 0 city
 E
-scroll~
-You look at the scroll. It is torn and badly smeared. You can make out:
+scroll свиток~
+@eng You look at the scroll. It is torn and badly smeared. You can make out:
 
   .... I wandered through the Forest of Blackmoor, lost and without hope, 
   until I found a hut. I looked through the window and there stood the  
   Grail on a table. A beautiful woman beckoned to me, and at that moment 
   my mount spooked, racing into the forest.....
-  ~
+  @rus Ты разворачиваешь свиток и читаешь:
+ 
+   Я шел по Блэкмурскому лесу, заблудившись, и уже было потерял
+всяческую надежду, и вдруг я наткнулся на небольшой домик. Я заглянул
+в окошко, и увидел Грааль, стоящий на столе! Прекрасная женщина
+улыбнулась мне, и на мгновение я потерял дар речи, а потом....
+~
 D1
-Squire's Run
+@eng Squire's Run
+@rus Проспект Оруженосцев
 ~
 ~
 Z -1 17355
 D3
-Corner of Knight's Way and Squire's Run
+@eng Corner of Knight's Way and Squire's Run
+@rus Угол Рыцарского пути и Проспекта Оруженосцев
 ~
 ~
 Z -1 17345
 S
 #17351
-Tower of Valor~
-You stand in the tower of valor. The walls bear murals of battle scenes, 
+@eng Tower of Valor@rus Башня Доблести~
+@eng You stand in the tower of valor. The walls bear murals of battle scenes, 
 of knights fighting knights and various unearthly beasts. There is a hollow 
 in one of the walls in which a fire takes the edge off the cold of the room. 
 The smoke puts you in a strange daze in which the MURALS seem to come to 
 life. Stairs lead down to the street below.
+@rus Ты стоишь в сторожевой башне. Стены разрисованы сценами из различных битв,
+где рыцари сражаются с рыцарями или страшными неземными монстрами.
+В одной из стен ты видишь камин, отапливающий помещение. Ступени ведут
+вниз на улицу.
 ~
 0 0 inside
 E
-murals~
-You look at a mural of Saint George and the Dragon. George's armor gleams 
+murals сцены рисунки~
+@eng You look at a mural of Saint George and the Dragon. George's armor gleams 
 in the sun, and from his lance flies his standard. George signals the 
 dragon and charges across the verdant green. The dragon raises its 
 serpentine head and inhales a mighty breath. George and mount thunder 
 though the tall grass. The dragon-
              You snap out of your vision
+@rus Ты $gn{загляделся} на барельеф, изображающий битву Святого Георгия и дракона.
+Броня рыцаря сияет на солнце, а на его копье трепещет его штандарт. Святой
+Георгий салютует и мчится навстречу зеленой рептилии. Дракон поднимает свою
+змееподобную голову и извергает поток пламени. С грохотом, Георгий и его
+скакун мчатся в высокой траве. Дракон ...
+ 
+Ты $gn{встряхнул} головой, и видение рассеялось...
 ~
 D5
-Corner of Knight's Way and Squire's Run
+@eng Corner of Knight's Way and Squire's Run
+@rus Угол Рыцарского пути и Проспекта Оруженосцев
 ~
 ~
 Z -1 17345
 S
 #17352
-Tourney Yard of Camelot~
-You stand in the reknowned tourney yard of Camelot. Here knights challenge 
+@eng Tourney Yard of Camelot@rus Турнирная Арена Камелота~
+@eng You stand in the reknowned tourney yard of Camelot. Here knights challenge 
 one and another for a claim to a seat on the round table. You can make out 
 several contests underway- perhaps you would like to joust?
+@rus Ты стоишь на знаменитой Турнирной Арене Камелота. Здесь рыцари
+соревнуются друг с другом за право сидеть за Круглым Столом.
+Не хочешь ли попробовать свои силы в соревновании?
 ~
 0 0 field
 D0
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена Камелота
 ~
 ~
 Z -1 17360
 D1
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена Камелота
 ~
 ~
 Z -1 17359
 D2
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена Камелота
 ~
 ~
 Z -1 17358
 D3
-Victory Road
+@eng Victory Road
+@rus Дорога Победы
 ~
 ~
 Z -1 17347
 S
 #17353
-Tower of Honor~
-You stand in the tower of honor. MURALS cover the walls and domed ceiling.
+@eng Tower of Honor@rus Башня Чести~
+@eng You stand in the tower of honor. MURALS cover the walls and domed ceiling.
 Smoke rolls out in an erie caress from the fire hollow in the walls. A 
 strange tingling sensation rushes through your body. Stairs lead to the 
 street below.
+@rus Ты стоишь в башне Чести. Красивые фрески покрывают стены и пол здания.
+Дым от факелов, торчащих в стенах, поднимается вверх. Странное чувство
+посещает Вас. Ступени ведут вниз на улицу.
 ~
 0 0 inside
 E
-murals~
-You look at the mural of Lancelot, Gwenivere, and Arthur on a picnic. A 
+murals фрески рисунки~
+@eng You look at the mural of Lancelot, Gwenivere, and Arthur on a picnic. A 
 page arrives and hands Arthur a scroll. Arthur reads the scroll and mounts 
 his charger, racing back along the road. Lancelot turns to mount his 
 charger, but a feminine hand restrains him, beckoning to the cool shade 
 under the oaks. Lancelot turns to face Gwenivere-
       You snap out of your vision
+@rus Ты $gn{загляделся} на фреску, изображающую Ланселота, Гвениверу и Артура
+на небольшой полянке в лесу. На взмыленном коне, из-за деревьев вылетает паж
+и вручает Артуру какой-то свитой. Прочитав его, Артур вскакивает на скакуна
+и на полном скаку удаляется. Ланселот собирается тоже уйти, но женская рука
+останавливает его и показывает в сторону прохладной тени под кроной дуба.
+Ланселот поворачивается к Гвенивере, ...
+ 
+Ты $gn{встряхнул} головой, и видение рассеялось...
 ~
 D5
-Corner of Knight's Way and Noble Road
+@eng Corner of Knight's Way and Noble Road
+@rus Угол Рыцарского пути и дороги Вельмож
 ~
 ~
 Z -1 17349
 S
 #17354
-Noble Road~
-You stand on Noble Road. The street is paved in yellow stone, giving the 
+@eng Noble Road@rus Дорога Вельмож~
+@eng You stand on Noble Road. The street is paved in yellow stone, giving the 
 impression of gold in the wet sections. A statue of Uther Pendragon is 
 here. The road continues east and west.
+@rus Ты стоишь на дороге Вельмож. Мостовая выложена желтоватыми камнями,
+так что кажется, что улица вся в золоте. Статуя Утера Пендрагона стоит у 
+обочины. Дорога продолжается на восток и запад.
 ~
 0 0 city
 E
-statue uther pendragon~
-You look at the statue. Uther Pendragon wears chain mail and bears a 
+statue uther pendragon статуя утера пендрагона~
+@eng You look at the statue. Uther Pendragon wears chain mail and bears a 
 giant axe. His beard flows along his lines, and his eyes bore into you 
-with an uneasy intensity.~
+with an uneasy intensity. 
+@rus Ты смотришь на статую. Утер Пендрагон одет в кольчугу и вооружен огромным
+топором. Его глаза беспокойно смотрят на тебя.
+~
 D1
-Noble Road
+@eng Noble Road
+@rus Дорога Вельмож
 ~
 ~
 Z -1 17361
 D3
-Corner of Knight's Way and Noble Road
+@eng Corner of Knight's Way and Noble Road
+@rus Угол Рыцарского пути и дороги Вельмож
 ~
 ~
 Z -1 17349
 S
 #17355
-Squire's Run at the North Gate~
-You stand on Squire's run. A steady stream of traffic is coming and going 
+@eng Squire's Run at the North Gate@rus Проспект Оруженосцев возле северных врат~
+@eng You stand on Squire's run. A steady stream of traffic is coming and going 
 to the south, where the squire's barracks is. To the north is the Great 
 Northern Gate of Camelot. Squire's run continues to the west, and the 
 Tourney Yard of Camelot is to the west. At your feet sits a beggar holding 
 a cup.
+@rus Ты стоишь на проспекте Оруженосцев. Слуги в основном идут в южном 
+направлении, где расположены бараки слуг. К северу ты видишь большие 
+Северные врата Камелота. Проспект Оруженосцев продолжается на запад,
+на востоке начинается Турнирная Арена. Возле обочины сидит нищий и
+просит монетку.
 ~
 0 0 city
 E
-beggar cup~
-You toss a coin to the beggar. He smiles at you and whispers "Beware of 
+beggar cup нищий~
+@eng You toss a coin to the beggar. He smiles at you and whispers "Beware of 
 Sir Garlon, the Invisible Knight in the area outside the west gate". 
 With a groan and a grovel the beggar shuffles off to the discard pile.
+@rus Ты даешь нищему монетку. Он улыбается тебе и говорит: "Берегитесь
+сэра Гарлона, Невидимого рыцаря, он должен встретиться тебе где-то
+за западными вратами". Затем нищий, собрав нехитрый скарб, куда-то
+убегает.
 ~
 D0
-The Great Northern Gate of Camelot
+@eng The Great Northern Gate of Camelot
+@rus Великие Северные врата Камелота
 ~
-gate~
+gate врата~
 ABZ -1 17356
 D1
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена Камелота
 ~
 ~
 Z -1 17362
 D2
-Squire's Barracks
+@eng Squire's Barracks
+@rus Бараки оруженосцев
 ~
-door~
-Z -1 17357
+door дверь~
+ABZ -1 17357
 D3
-Squire's Run
+@eng Squire's Run
+@rus Проспект Оруженосцев
 ~
 ~
 Z -1 17350
 S
 #17356
-The Great Northern Gate of Camelot~
-You stand before the great northern gate of Camelot. A dirt road winds 
+@eng The Great Northern Gate of Camelot@rus Великие Северные врата Камелота~
+@eng You stand before the great northern gate of Camelot. A dirt road winds 
 down the hill upon which Camelot rests into the rolling grass hills of 
 the north. To the south is Squire's Run.
+@rus Ты стоишь у Великих Северных врат Камелота. Грязная дорога спускается 
+за ними вниз с Камелотского холма и вьется в зеленых полях на севере.
+На юге - проспект Оруженосцев.
 ~
 0 C city
 D0
-A winding dirt road
+@eng A winding dirt road
+@rus Грязная дорога в чистом поле
 ~
 ~
 Z -1 17382
 D2
-Squire's Run
+@eng Squire's Run
+@rus Проспект Оруженосцев
 ~
 ~
 ABZ -1 17355
 S
 #17357
-Squire's Barracks~
-You stand in the squire's barracks. It is here that all of the lackeys 
+@eng Squire's Barracks@rus Бараки оруженосцев~
+@eng You stand in the squire's barracks. It is here that all of the lackeys 
 of the knights of the round table reside while their lords are in court. 
 The place is a jumble of beds, lockers, and tables. Activity swirls 
 around the long wooden benches and tables where at present people are 
 eating. There is a rudimentry camp kitchin, with a roster of the day 
 (your name is not on it).
+@rus Ты стоишь возле бараков, предназначенных для оруженосцев. Это место, где
+живут все оруженосцы рыцарей ордена Круглого Стола, пока их господа
+сражаются на Арене. Бараков много, они представляют собой деревянные 
+сараи, покрытые досками. Здесь людно от пробегающих туда и сюда слуг.
+По центру грязного двора устроено нечто вроде мангала, где в большом котле
+на огне варится пища.
 ~
 0 D inside
 D0
-Squire's Run at the North Gate
+@eng Squire's Run at the North Gate
+@rus Проспект Оруженосцев возле Северных врат
 ~
 ~
-Z -1 17355
+ABZ -1 17355
 S
 #17358
-Tourney Yard of Camelot~
-You stand in the reknowned tourney yard of Camelot. Here knights challenge 
+@eng Tourney Yard of Camelot@rus Турнирная Арена~
+@eng You stand in the reknowned tourney yard of Camelot. Here knights challenge 
 one and another for a claim to a seat on the round table. You can make out 
 several contests underway- perhaps you would like to joust?
+@rus Ты стоишь на знаменитой Турнирной Арене Камелота. Здесь рыцари
+соревнуются друг с другом за право сидеть за Круглым Столом.
+Не хочешь ли попробовать свои силы в соревновании?
 ~
 0 0 inside
 D0
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена
 ~
 ~
 Z -1 17352
 D1
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена
 ~
 ~
 Z -1 17363
 D2
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена
 ~
 ~
 Z -1 17364
 S
 #17359
-Tourney Yard of Camelot~
-You stand in the reknowned tourney yard of Camelot. Here knights challenge 
+@eng Tourney Yard of Camelot@rus Турнирная Арена~
+@eng You stand in the reknowned tourney yard of Camelot. Here knights challenge 
 one and another for a claim to a seat on the round table. You can make out 
 several contests underway- perhaps you would like to joust?
+@rus Ты стоишь на знаменитой Турнирной Арене Камелота. Здесь рыцари
+соревнуются друг с другом за право сидеть за Круглым Столом.
+Не хочешь ли попробовать свои силы в соревновании?
 ~
 0 0 inside
 D0
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена
 ~
 ~
 Z -1 17365
 D1
-You see the Court of Camelot
+@eng You see the Court of Camelot
+@rus Трибуны Турнирной Арены Камелота
 ~
 ~
 Z -1 17370
 D2
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена
 ~
 ~
 Z -1 17363
 D3
-Victory Road
+@eng Victory Road
+@rus Дорога Победы
 ~
 ~
 Z -1 17352
 S
 #17360
-Tourney Yard of Camelot~
-You stand in the reknowned tourney yard of Camelot. Here knights challenge 
+@eng Tourney Yard of Camelot@rus Турнирная Арена~
+@eng You stand in the reknowned tourney yard of Camelot. Here knights challenge 
 one and another for a claim to a seat on the round table. You can make out 
 several contests underway- perhaps you would like to joust?
+@rus Ты стоишь на знаменитой Турнирной Арене Камелота. Здесь рыцари
+соревнуются друг с другом за право сидеть за Круглым Столом.
+Не хочешь ли попробовать свои силы в соревновании?
 ~
 0 0 inside
 D0
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена
 ~
 ~
 Z -1 17362
 D1
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена
 ~
 ~
 Z -1 17365
 D2
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена
 ~
 ~
 Z -1 17352
 S
 #17361
-Noble Road at the South Gate~
-You stand at on Noble road at the Great Southern Gate of Camelot. To the 
+@eng Noble Road at the South Gate@rus Дорога Вельмож возле Южных врат~
+@eng You stand at on Noble road at the Great Southern Gate of Camelot. To the 
 north lies the Noble quarters, where visiting nobility reside. The 
 tournament yard is to the east and Noble Road continues west. There is a 
 statue here of a knight.
+@rus Ты стоишь на дороге Вельмож возле Великих Южных врат Камелота. К северу
+ты видишь Квартал Вельмож, где селятся приезжие вельможи и знаменитости.
+Турнирная Арена к востоку отсюда, а на запад продолжается дорога Вельмож.
+Возле дороги стоит статуя рыцаря.
 ~
 0 0 city
 E
-statue knight~
-The statue is of a mounted knight, riding forth to the southern gate. He 
+statue knight статуя рыцарь~
+@eng The statue is of a mounted knight, riding forth to the southern gate. He 
 bears a pennon in one hand, a lance in the other, and wears full armor. 
 The horse which he rides rears in the air, signifying death in combat. 
 There is a small inscription here.
+@rus Статуя изображает конного рыцаря, несущегося к южным вратам. В одной
+руке его штандарт, другая крепко сжимает копье. С ног до головы он
+закован в броню. Его лошадь встает на дыбы, что означает достойную
+смерть в бою. На пьедестале надпись.
 ~
 E
-inscription~
-Here stands our rememberance of Miles O' the Lands, knight of quality, of 
+inscription надпись~
+@eng Here stands our rememberance of Miles O' the Lands, knight of quality, of 
 the Round Table. He fought valiantly defending the queen in the Battleplain 
 of Arden.
+@rus В память о Сэре Майлзе, достойном рыцаре Круглого Стола. Он доблестно
+сражался за королеву Гвиневеру на поле боя в Арденнах.
 ~
 D0
-Noble's Quarters
+@eng Noble's Quarters
+@rus Квартал Вельмож
 ~
 door~
 ABZ -1 17366
 D1
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена
 ~
 ~
 Z -1 17364
 D2
-The Great Southern Gate
+@eng The Great Southern Gate
+@rus Великие Южные Врата
 ~
 gate~
 ABZ -1 17367
 D3
-Noble Road
+@eng Noble Road
+@rus Дорога Вельмож
 ~
 ~
 Z -1 17354
 S
 #17362
-Tourney Yard of Camelot~
-You stand in the reknowned tourney yard of Camelot. Here knights challenge 
+@eng Tourney Yard of Camelot@rus Турнирная Арена~
+@eng You stand in the reknowned tourney yard of Camelot. Here knights challenge 
 one and another for a claim to a seat on the round table. You can make out 
 several contests underway- perhaps you would like to joust?
+@rus Ты стоишь на знаменитой Турнирной Арене Камелота. Здесь рыцари
+соревнуются друг с другом за право сидеть за Круглым Столом.
+Не хочешь ли попробовать свои силы в соревновании?
 ~
 0 0 inside
 D1
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена
 ~
 ~
 Z -1 17368
 D2
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена
 ~
 ~
 Z -1 17360
 D3
-Squire's Run at the North Gate
+@eng Squire's Run at the North Gate
+@rus Проспект Оруженосцев возле Северных Врат
 ~
 ~
 Z -1 17355
 S
 #17363
-Tourney Yard of Camelot~
-You stand in the reknowned tourney yard of Camelot. Here knights challenge 
+@eng Tourney Yard of Camelot@rus Турнирная Арена~
+@eng You stand in the reknowned tourney yard of Camelot. Here knights challenge 
 one and another for a claim to a seat on the round table. You can make out 
 several contests underway- perhaps you would like to joust?
+@rus Ты стоишь на знаменитой Турнирной Арене Камелота. Здесь рыцари
+соревнуются друг с другом за право сидеть за Круглым Столом.
+Не хочешь ли попробовать свои силы в соревновании?
 ~
 0 0 inside
 D0
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена
 ~
 ~
 Z -1 17359
 D3
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена
 ~
 ~
 Z -1 17358
 S
 #17364
-Tourney Yard of Camelot~
-You stand in the reknowned tourney yard of Camelot. Here knights challenge 
+@eng Tourney Yard of Camelot@rus Турнирная Арена~
+@eng You stand in the reknowned tourney yard of Camelot. Here knights challenge 
 one and another for a claim to a seat on the round table. You can make out 
 several contests underway- perhaps you would like to joust?
+@rus Ты стоишь на знаменитой Турнирной Арене Камелота. Здесь рыцари
+соревнуются друг с другом за право сидеть за Круглым Столом.
+Не хочешь ли попробовать свои силы в соревновании?
 ~
 0 0 inside
 D0
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена
 ~
 ~
 Z -1 17358
 D3
-Noble Run at the South Gate
+@eng Noble Run at the South Gate
+@rus Дорога Вельмож возле Южных Врат
 ~
 ~
 Z -1 17361
 S
 #17365
-Tourney Yard of Camelot~
-You stand in the reknowned tourney yard of Camelot. Here knights challenge 
+@eng Tourney Yard of Camelot@rus Турнирная Арена~
+@eng You stand in the reknowned tourney yard of Camelot. Here knights challenge 
 one and another for a claim to a seat on the round table. You can make out 
 several contests underway- perhaps you would like to joust?
+@rus Ты стоишь на знаменитой Турнирной Арене Камелота. Здесь рыцари
+соревнуются друг с другом за право сидеть за Круглым Столом.
+Не хочешь ли попробовать свои силы в соревновании?
 ~
 0 0 inside
 D0
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена
 ~
 ~
 Z -1 17368
 D2
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена
 ~
 ~
 Z -1 17359
 D3
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена
 ~
 ~
 Z -1 17360
 S
 #17366
-Noble's Quarters~
-You are inside the quarters in which visiting nobleman reside.
+@eng Noble's Quarters@rus Квартал Вельмож~
+@eng You are inside the quarters in which visiting nobleman reside.
 There is a courtyard with a fountain where you stand, and there are several 
 individual chambers shooting off of the courtyard.
+@rus Ты находишься в квартале Вельмож, где, как ясно из названия, живут
+вельможи и знаменитости. Недольшой дворик украшен красивым мраморным
+фонтаном. Вокруг ты видишь несколько богато украшенных домов.
 ~
 0 0 inside
 E
-fountain~
-The fountain has has flowing water from a statue of a girl holding an urn.
+fountain фонтан~
+@eng The fountain has has flowing water from a statue of a girl holding an urn.
 The water drops into a tile lined pool, where fish swim. Some coins have 
 been tossed in the fountain.
+@rus Фонтан представляет собой статую девушки, держащую в руках кувшин. Из
+него серебристой звенящей струйкой течет вода, падая в выложенный
+изразцами бассейн. В бассейне плавают рыбки. На дне лежат несколько
+монет.
 ~
 E
-fish~
-The fish are small minnow like fish, mostly bottom feeders.
+fish рыба рыбка~
+@eng The fish are small minnow like fish, mostly bottom feeders.
+@rus Похоже, это пескари.
 ~
 E
-coins~
-You really dont want to bother getting the coins out. It would be in poor 
+coins монеты~
+@eng You really dont want to bother getting the coins out. It would be in poor 
 taste.
+@rus Нет! будет признаком очень плохого вкуса лезть в фонтан за монетами!
 ~
 E
-girl statue~
-The statue depicts a girl in a tunic-like dress. She is chubby and has 
+girl statue девушка статуя~
+@eng The statue depicts a girl in a tunic-like dress. She is chubby and has 
 shoulder length hair.
+@rus Туника мягкими волнами струится с ее плеч, а ее круглое лицо обрамляет
+изумительная шевелюра слегка вьющихся волос длиной по плечи.
 ~
 D0
-Noble Chamber
+@eng Noble Chamber
+@rus Покои вельможи
 ~
-door~
+door дверь~
 ABZ -1 17378
 D1
-Noble Chamber
+@eng Noble Chamber
+@rus Покои вельможи
 ~
-door~
+door дверь~
 Z -1 17379
 D2
-Noble Road at the South Gate
+@eng Noble Road at the South Gate
+@rus Дорога Вельмож возле Южных Врат
 ~
 ~
 ABZ -1 17361
 D3
-Noble Chamber
+@eng Noble Chamber
+@rus Покои вельможи
 ~
-door~
+door дверь~
 ABCZ 17338 17380
 S
 #17367
-The Great Southern Gate~
-You stand before the great southern gate of Camelot. Southwards a cobbled 
+@eng The Great Southern Gate@rus За Великими Южными Вратами Камелота~
+@eng You stand before the great southern gate of Camelot. Southwards a cobbled 
 road winds through fertile cultivated plains. Serfs are tilling the field 
 with horse drawn ploughs. Corn, wheat, and beans are growing. Your vantage 
 is fantastic, and the breeze clears your nose of the city smells.
+@rus Ты стоишь возле Великих Южных Врат. На юг начинается дорога, петляющая
+в плодородных полях. Отсюда видны люди, работающие в полях с лошадьми
+и плугами. Бриз освобождает тебя от запаха города.
 ~
 0 C city
 D0
-The Great Southern Gate gate
+@eng The Great Southern Gate gate
+@rus Великие Южные Врата
 ~
 ~
 Z -1 17361
 D2
-A Cobblestone Road
+@eng A Cobblestone Road
+@rus Дорога из гравия
 ~
 ~
 Z -1 17391
 S
 #17368
-Tourney Yard of Camelot~
-You stand in the reknowned tourney yard of Camelot. Here knights challenge 
+@eng Tourney Yard of Camelot@rus Турнирная Арена~
+@eng You stand in the reknowned tourney yard of Camelot. Here knights challenge 
 one and another for a claim to a seat on the round table. You can make out 
 several contests underway- perhaps you would like to joust?
+@rus Ты стоишь на знаменитой Турнирной Арене Камелота. Здесь рыцари
+соревнуются друг с другом за право сидеть за Круглым Столом.
+Не хочешь ли попробовать свои силы в соревновании?
 ~
 0 0 inside
 D2
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена
 ~
 ~
 Z -1 17365
 D3
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена
 ~
 ~
 Z -1 17362
 S
 #17369
-Tourney Yard of Camelot~
-You stand in the reknowned tourney yard of Camelot. Here knights challenge
+@eng Tourney Yard of Camelot@rus Турнирная Арена~
+@eng You stand in the reknowned tourney yard of Camelot. Here knights challenge
 one and another for a claim to a seat on the round table. You can make out
 several contests underway- perhaps you would like to joust?
+@rus Ты стоишь на знаменитой Турнирной Арене Камелота. Здесь рыцари
+соревнуются друг с другом за право сидеть за Круглым Столом.
+Не хочешь ли попробовать свои силы в соревновании?
 ~
 0 0 field
 D0
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена
 ~
 ~
 Z -1 17363
 D3
-Tourney Yard of Camelot
+@eng Tourney Yard of Camelot
+@rus Турнирная Арена
 ~
 ~
 Z -1 17364
 S
 #17370
-The Court of Camelot~
-You stand in the fabled court of Camelot. Here in the sunny courtyard noblemen
+@eng The Court of Camelot@rus Трибуны Турнирной Арены Камелота~
+@eng You stand in the fabled court of Camelot. Here in the sunny courtyard noblemen
 and knights walk barefoot in the grass discussing chivalry and wars to come.
 Troubadours play ballads on their lutes and entertainers hop and leap into the
 air all for a chance of earning the kings favor. Ladies in waiting play their
@@ -3690,11 +4378,21 @@ better place here, where friendship thrives and the high ideals of chivalry
 breathe.  You have a commanding vantage of the Tourney Yard of Camelot from
 here.  Exits lead to the knights barracks, the round table, the feast hall,
 and the tourney yard of Camelot.
+@rus Ты стоишь на Трибунах турнирной арены Камелота, это огромный шатер,
+красиво сделанный из шелков и цветных материй, с деревянным постаментом.
+Здесь собирается знать, правители и рыцари Камелота, чтобы посмотреть
+на соревнования, обсудить новости. Галантность и сражения - дух
+разговоров, царящих здесь. Трубадуры играют прекрасные баллады о любви
+и сражениях, циркачи и шуты неподалеку показывают свои номера, чтобы
+заслужить похвалу короля. Прекрасные леди играют в свои любовные игры
+и плетут интриги. Здесь, кажется, лучшее место на всей земле, где витают
+идеи рыцарства, галантности и великодушия. Отсюда можно выйти к корпусу
+рыцарей, залу Круглого Стола, праздничному холлу и на Арену.
 ~
 0 0 field
 E
-yard tourney~
-You watch two knights across the tourney yard. To the left is a knight
+yard tourney турнирная арена~
+@eng You watch two knights across the tourney yard. To the left is a knight
 in full armor and a bright orange plume. To the right is a knight in chain 
 mail and a trailing black cape. Arthur signal's the knights with a short wave.
 The both knights spur their warhorses into a full gallop. To your right you
@@ -3706,686 +4404,944 @@ the shield of the black caped knight. The black caped knight connects with a
 hard shot to the center of the shield of the orange knight. You watch the 
 orange knight fly and land with a sickening crash on the yard. The black
 knight circles and raises his lance in a salute to Arthur.
+@rus Ты видишь двух рыцарей на турнирной арене. Слева от тебя рыцарь в
+полной броне с оранжевым плюмажем. Справа - рыцарь в кольчуге и
+развевающейся черной накидке. Артур подает сигнал резким взмахом руки,
+и оба рыцаря пришпоривают своих скакунов, посылая их галопом. Справа
+от тебя раздается крик восхищения одного из зрителей. Рыцарь в черной
+накидке несется, слегка привстав на стременах и нагнувшись вперед. Оба
+рыцаря столкнулись в центре поля с громким звуком. Ты $gn{заметил}, что
+рыцарь с оранжевым плюмажем ударил по верхней части щита и его копье,
+скользнув, ушло вверх; тогда как рыцарь в черном попал точно в центр щита
+противника. Оранжевый рыцарь вылетел из седля и, со скрежетом доспехов,
+упал на траву. Рыцарь в черной накидке, развернув коня, поднял копье
+и салютует зрителям.
 ~
 E
-spectator~
-The lady in waiting is weeping, as her knight was the orange knight. She
+spectator зритель~
+@eng The lady in waiting is weeping, as her knight was the orange knight. She
 quickly recovers and tosses her favor to the black knight.
+@rus Леди незаметно вытирает слезу, - ее рыцарь был побежден. Однако, быстро
+собравшись, она кидает свой шелковый платок рыцарю в черном.
 ~
 D0
-The Knights Barracks
+@eng The Knights Barracks
+@rus Корпус рыцарей
 ~
-door~
+door дверь~
 ABZ -1 17374
 D1
-The Round Table
+@eng The Round Table
+@rus Зал Круглого Стола
 ~
-door~
+door дверь~
 ABZ -1 17376
 D2
-The Feast Hall
+@eng The Feast Hall
+@rus Праздничный Холл
 ~
 ~
 Z -1 17371
 D3
-The Tourney Yard of Camelot
+@eng The Tourney Yard of Camelot
+@rus Турнирная Арена Камелота
 ~
 ~
 Z -1 17359
 S
 #17371
-The Feast Hall~
-You have arrived in the feast hall of Camelot. You are in luck. A feast is 
+@eng The Feast Hall@rus Праздничный холл~
+@eng You have arrived in the feast hall of Camelot. You are in luck. A feast is 
 in progress. There are many open bench type tables with sevants scurrying 
 too and fro. Some tables hold knights, while others have ladies. A bards 
 song adds to the festive air of celebration. A huge fire rages in a great 
 stone hearth, over which a whole boar is being slowly cooked to perfection. 
 Exits are north to the court of Camelot, and south to the ladies' chambers.
+@rus Ты входишь в праздничный холл. Ты ощущаешь счастье. Празднование продолжается.
+Здесь стоит много красиво оформленных столов с яствами, украшенных цветами,
+вокруг стоят удобные кресла. Некоторые места заняты рыцарями, а некоторые - 
+прекрасными леди. Барды поют песни и баллады, наполняя воздух праздничными
+звуками. На больших кострах здесь же жарятся целые олени, кабаны и дичь.
+Выходы ведут на север к трибунам и на юг к Женским Палатам.
 ~
 0 0 inside
 D0
-You see the Court of Camelot
+@eng You see the Court of Camelot
+@rus Трибуны Турнирной Арены Камелота
 ~
 ~
 Z -1 17370
 D2
-The Ladies Chambers door
+@eng The Ladies Chambers door
+@rus Дверь в Женские Палаты
 ~
 ~
 ABZ -1 17372
 S
 #17372
-The Ladies' Chambers~
-You are in the ladies' chambers. I hope you are a lady, for you are in big 
+@eng The Ladies' Chambers@rus Женские Палаты~
+@eng You are in the ladies' chambers. I hope you are a lady, for you are in big 
 trouble if you are not! There are many many rooms here, some occupied, some 
 not, but there certainly is a lot of activity. A young girl stands in sorrow 
 here weeping, and you notice a group of ladies off in the corner. There is 
 a door north of here leading to the feast hall, and a staircase winding up 
 to a tower.
+@rus Ты находишься в Женских Палатах. Наверное, ты женщина, потому что если это
+не так,- у тебя проблемы! Здесь не может находиться мужчина!
+Здесь ты видишь много-много комнат, некоторые заняты, некоторые нет, 
+но здесь ты видишь большую активность - девушки, леди, служанки двигаются
+по своим делам в разных направлениях, и ты замечаешь группу празднично 
+одетых леди в углу зала. Это леди в ожидании. Отсюда ведет выход в 
+праздничный холл, и ступени ведут наверх, в башню.
 ~
 0 0 inside
 E
-girl young~
-You talk to the girl. She is upset because Lancelot wont pay attention to 
+girl young девушка~
+@eng You talk to the girl. She is upset because Lancelot wont pay attention to 
 her.
+@rus Ты говоришь с девушкой, и она, плача, рассказывает тебе, что Ланселот
+уже который раз прошел мимо и не обратил на нее внимания.
 ~
 E
-ladies group~
-You perk up your ears and listen in on the group of ladies. You overhear :
+ladies group леди группа~
+@eng You perk up your ears and listen in on the group of ladies. You overhear :
 "...it is terrible. The poor girl was captured on her way to her wedding 
 by that foul Mordred. Her father has offered a considerable sum for her 
 safe return. I think my Gawaine can surely claim it...."
+@rus Ты $gn{навострил} уши и $gn{подслушал} разговор леди:
+" ... это ужасно! Бедная девушка была украдена прямо из экипажа,
+везущего ее на свадьбу. Этот проклятый Мордред совсем обнаглел!
+Ее отец назначил весьма немаленькую сумму за ее возвращение, и я
+думаю, мой славный Гавэйн скорее всего ее получит..."
 ~
 D0
-The Feast Hall door
+@eng The Feast Hall door
+@rus Дверь праздничного холла
 ~
 ~
 ABZ -1 17371
 D4
-A staircase winding upwards
+@eng A staircase winding upwards
+@rus Винтовая лестница наверх
 ~
 ~
 Z -1 17373
 S
 #17373
-The Maiden's Tower~
-Oh yes, it is here that the virginal maidens of the court reside, pining 
+@eng The Maiden's Tower@rus Девичья Башня~
+@eng Oh yes, it is here that the virginal maidens of the court reside, pining 
 away for their knights who travel far and wide on Arthurs missions. The 
 main activity here is tapestry making, and presently there are 3 tapestries 
 under construction.
+@rus Это башня, где молодые невинные девушки ждут своих возлюбленных,
+которые должны вернуться с заданий, данных им королем. Ожидая их,
+девушки ткут гобелены. Три из них висят тут.
 ~
 0 0 inside
 E
-tapestry tapestries~
-Two of the tapestries are finished enough to recognize. One depicts a 
+tapestry tapestries гобелены~
+@eng Two of the tapestries are finished enough to recognize. One depicts a 
 battle between knights and the other is of a hunt in the Forest Arden.
+@rus Два из них уже почти закончены, и можно рассмотреть, что на них
+изображено. На одном ты видишь поединок двух рыцарей, на другом -
+охоту в Арденнском лесу.
 ~
 D5
-A staircase winding downwards
+@eng A staircase winding downwards
+@rus Ступени, ведущие вниз
 ~
 ~
 Z -1 17372
 S
 #17374
-Knight's Barracks~
-You have entered the knights barracks. Cots and armor stands fill the room.
+@eng Knight's Barracks@rus Рыцарский корпус~
+@eng You have entered the knights barracks. Cots and armor stands fill the room.
 Some knights are here sleeping and healing from their war wounds. A simple 
 wash stand is at the end of the quarters, and the windows are shaded to 
 darken the room. The only conversation is in hushed tones. There is a door 
 leading south to the court of Camelot, and a staircase winds its way upwards 
 to a tower.
+@rus Ты входишь в здание, где живут благородные рыцари. Броня и доспехи
+лежат здесь во множестве. Некоторые рыцари спят или отдыхают, излечивают
+свои боевые раны. Здесь стоит небольшая ванна с водой; окна затемнены
+тканью. Дверь на юг ведет на трибуны Арены, а вверх поднимаются ступени, 
+ведущие в башню.
 ~
 0 A inside
 D2
-You see the Court of Camelot
+@eng You see the Court of Camelot
+@rus Трибуны Арены
 ~
 ~
 ABZ -1 17370
 D4
-A staircase winding upwards
+@eng A staircase winding upwards
+@rus Ступени в башню
 ~
 ~
 Z -1 17375
 S
 #17375
-Merlin's Tower~
-You have found Merlin's tower. It is a jumbled mess of books, scrolls, 
+@eng Merlin's Tower@rus Башня Мерлина~
+@eng You have found Merlin's tower. It is a jumbled mess of books, scrolls, 
 wands, staves, etc. There are rickety worn out tables and chairs upon 
 which a variety of curiosities rest. Merlin also has several animals 
 and specimens of this and that in crocks on wooden shelves. You take a 
 glimpse out the open window of Merlin's tower and see the rolling hills 
 of Camelot as far as you gaze. But most of all you notice the large 
 pulsating pentagram in the center of the room which throbs and humms 
-in time to your heartbeat. There is also a SIGN here with unearthly 
+in time to your heartbeat. There is also a {MSIGN{x here with unearthly
 glowing red lettering which blinks over and over the message "LOOK AT ME"
+@rus Ты входишь в башню Великого Мерлина. Это невообразимая мешанина
+книг, свитков, палочек и волшебных предметов, приборов и амулетов.
+По центру стоит каменный стол и огромное кресло из хрусталя, на столе и
+вокруг него в беспорядке валяются различные странные предметы,
+описания которым ты не находишь. На полках стоят заспиртованные
+животные и их части. Небольшое окно недостаточно снабжает светом
+эту магическую лабораторию, и здесь царит полумрак. Но больше всего
+привлекает Ваше внимание огромная пульсирующая голубым светом
+пентаграмма на полу в дальней части комнаты, в углах которой горит
+и шумит волнами синее пламя. На стене рядом ты видишь {MТАБЛИЧКУ{x,
+котораЯ светится красным светом.
 ~
 0 0 inside
 E
-books scrolls wands staves~
-You sift through Merlin's books, scrolls, wands, and staves. All are 
-inscribed in a strange runic language which you can't even begin to fathom.
-~
-E
-animals~
-Merlin has a crow, a cat, and a toad. All watch your every move.
-~
-E
-sign the me at~
-You look at the sign. At first you can't understand it, but then the 
+sign табличка~
+@eng You look at the sign. At first you can't understand it, but then the 
 lettering adjusts to a language you understand. It says:
-BEWARE OF DEMON! I have imprisoned a FOUL, NASTY, EXTREMELY POWERFUL 
-demon in this pentagram. To those inside, there are NO EXITS or WAYS 
+ 
+BEWARE OF DEMON! I have imprisoned a FOUL, NASTY, EXTREMELY POWERFUL
+demon in this pentagram. To those inside, there are NO EXITS or WAYS
 TO MAGICALLY RECALL. Even Lancelot would certainly die in the pentagram. 
-THERE IS NOTHING OF WORTH IN THE PENTAGRAM, ONLY DEATH, and nothing short 
+THERE IS NOTHING OF WORTH IN THE PENTAGRAM, ONLY DEATH, and nothing short
 of DIRECT DIVINE INTERVENTION will get you out of it. - Merlin
+@rus Ты смотришь на табличку. Первый твой взгляд на нее дает тебе понять,
+что надпись написана неизвестными тебе иероглифами, но через пару секунд
+ты замечаешь, что буквы сами по себе преобразовались в понятный тебе
+текст. Он гласит:
+ 
+БЕРЕГИТЕСЬ ДЕМОНА! Я пленил в этой пентаграмме ОГРОМНОГО, ОПАСНОГО,
+ОЧЕНЬ СИЛЬНОГО ДЕМОНА! Для того, кто войдет внутрь, НЕТ ВЫХОДА и
+НЕТ ПУТЕЙ МАГИЧЕСКОГО ВОЗВРАТА. Даже сэр Ланселот однажды едва не умер 
+внутри этой пентаграммы. НИЧЕГО ХОРОШЕГО ВАС ТАМ НЕ ЖДЕТ, ТОЛЬКО СМЕРТЬ.
+ 
+           Мерлин.
 ~
 E
-crocks shelves~
-You fumble through Merlins crockery, and all you accomplish is getting a 
+books scrolls wands staves книги свитки жезлы посохи~
+@eng You sift through Merlin's books, scrolls, wands, and staves. All are 
+inscribed in a strange runic language which you can't even begin to fathom.
+@rus Ты просматриваешь собрание книг, свитков и прочих магических
+артефактов, но все они подписаны рунами, разобрать которые нет ни
+малейшего шанса.
+~
+E
+animals животные~
+@eng Merlin has a crow, a cat, and a toad. All watch your every move.
+@rus У Мерлина живут ворона, кошка и жаба. Все они внимательно следят
+за каждым твоим движением.
+~
+E
+crocks shelves полки колбы~
+@eng You fumble through Merlins crockery, and all you accomplish is getting a 
 black resiny substance which itches all over your fingers and clothing.
+@rus Ты пошарил по колбам, принадлежащим Мерлину, но все, что ты нашел,-
+это клейкая черная масса, намертво приставшая к твоим рукам и одежде.
 ~
 E
-pentagram pulsating~
-Your inner coice, which has always served you well so far, screams at you 
+pentagram pulsating пентаграмма пульсирующая~
+@eng Your inner coice, which has always served you well so far, screams at you 
 to LEAVE IT ALONE!
+@rus Твой внутренний голос кричит Вам на ухо: "{RОСТАВЬ ЕЕ В ПОКОЕ!!!{x"
 ~
 D4
-Into the pulsating pentagram
+@rus Пентаграмма!
 ~
 ~
-Z -1 17381
+Z 0 17380
 D5
-A staircase winding down
+@eng A staircase winding down
+@rus Ступени, ведущие вниз
 ~
 ~
 Z -1 17374
 S
 #17376
-The Round Table~
-You have entered the Round Table, where warcouncil is held between Arthur 
+@eng The Round Table@rus Круглый Стол~
+@eng You have entered the Round Table, where warcouncil is held between Arthur 
 and his companions. The Round Table is 30' in diameter, and made of polished 
 cherry. Around it are 50 chairs. The room which houses the table is also 
 round and far above you see the domed ceiling. Light streams down in long 
 rays to hit the gold and crystal candelabra, where it is broken into a 
 brilliant prismatic spray. A door leads west to the court of Camelot, and 
 a staircase winds upward.
+@rus Ты входишь в зал Круглого Стола, зал рыцарской славы, где заседает военный 
+совет короля Артура и его помощников. Круглый Стол около 10 метров в 
+диаметре, и сделан из полированной вишни. Вокруг него равномерно расставлены
+50 кресел, украшенных золотом. Свет от сотен свеч в хрустальных канделябрах
+струится сверху. Дверь ведет на трибуну Арены, а ступени ведут наверх.
 ~
 0 0 inside
 E
-candelabra crystal gold~
-You consider lifting the candelabra but decide against it, as you probably 
+candelabra crystal gold подсвечник канделябр свечи хрусталь золото~
+@eng You consider lifting the candelabra but decide against it, as you probably 
 would get very tired fast, and attract every knight in the kingdom.
+@rus Такой канделябр чистого золота, стоит, наверно, бешеных денег. Но,
+поразмыслив, ты $gn{решил} оставить его на месте. Во-первых, он ОЧЕНЬ
+тяжелый, а во-вторых, тебя будут преследовать все рыцари и все охотники
+за добычей.
 ~
 D3
-You see the Court of Camelot
+@eng You see the Court of Camelot
+@rus Трибуны Арены
 ~
 ~
 ABZ -1 17370
 D4
-A staircase winding upward
+@eng A staircase winding upward
+@rus Винтовая лестница уходит вверх
 ~
 ~
 Z -1 17377
 S
 #17377
-Arthur's Chambers~
-You have entered the private chambers of King Arthur. A dragon banner serves 
+@eng Arthur's Chambers@rus Покои короля Артура~
+@eng You have entered the private chambers of King Arthur. A dragon banner serves 
 as a canopy and curtains for his large four posted bed. He has a marble 
 basin and a cherry desk and chair. A huge ermine rug lies on the floor. A 
 staircase winds downwards. Tapestries depicting him pulling Excalibur from 
 the stone, and his campaigns of unification adorn the walls.
+@rus Ты входишь в приватные покои короля. Ткань с изображением дракона служит
+пологом большой кровати с балдахином. В углу стоит мраморная раковина. Ты
+видишь также стол и стул из полированного вишневого дерева. Пушистый ковер
+лежит на полу. Гобелены изображают короля, достающего меч из камня м его
+славные дела, посвященные объединению Британии.
 ~
 0 0 inside
 D5
-A staircase winding downwards
+@eng A staircase winding downwards
+@rus Ступени, ведущие вниз
 ~
 ~
 Z -1 17376
 S
 #17378
-Noble's Chambers~
-You are tresspassing in a Nobles chamber. He negligently forgot to lock his 
+@eng Noble's Chambers@rus Комнаты Вельмож~
+@eng You are tresspassing in a Nobles chamber. He negligently forgot to lock his 
 door, relying upon the honor of all within Camelot to protect his posessions.
 The chambers consist of a common room, several bed chambers, and a servant 
 area.
+@rus Ты входишь в комнаты Вельможи. Кто-то, похоже, забыл закрыть дверь,
+уходя. Или хозяин надеялся, что в городе благородных рыцарей его вещи
+в безопасности даже с открытой дверью. Здание поделено на гостиную,
+спальню и место для прислуги.
 ~
 0 0 inside
 E
-possessions~
-Nothing here you really need.
+possessions вещи~
+@eng Nothing here you really need.
+@rus Ничего из этого тебе не нужно.
 ~
 D2
-Noble's Quarters
+@eng Noble's Quarters
+@rus Квартал Вельмож
 ~
-~
+дверь~
 ABZ 17338 17366
 S
 #17379
-Noble's Chambers~
-You are standing in vacated chambers. Perhaps you will stay a while and 
+@eng Noble's Chambers@rus Комнаты Вельмож~
+@eng You are standing in vacated chambers. Perhaps you will stay a while and 
 visit the court? The chambers consist of several bed chambers, a sitting 
 room, and a small garden.
+@rus Ты стоишь в одной из незанятых комнат. Может, ты хочешь остановиться здесь, 
+чтобы понаблюдать за соревнованиями на Арене? Этот номер состоим из
+спальни, гостиной и небольшого зимнего садика.
 ~
 0 0 inside
 E
-garden~
-Some fresh vegetables and flowers are growing here.
+garden садик~
+@eng Some fresh vegetables and flowers are growing here.
+@rus Какие-то овощи и цветы растут здесь.
 ~
 D3
-Noble's Quarters
+@eng Noble's Quarters
+@rus Квартал Вельмож
 ~
-door~
+door дверь~
 Z -1 17366
 S
 #17380
-Noble's Chambers~
-You are tresspassing in a Noble's chamber. This noble locked his door, 
+@eng Noble's Chambers@rus Комнаты Вельмож~
+@eng You are tresspassing in a Noble's chamber. This noble locked his door, 
 anticipating intrusion from scum like you. The chambers consist of a common 
 room, several bed chambers, and a servant area.
+@rus Ты зашел в чужую комнату! Хотя ее хозяин и закрыл дверь, уходя, ты
+все же вошел сюда! Оставь все как есть и немедленно выйди!
 ~
 0 0 inside
 D1
-Noble's Quarters
+@eng Noble's Quarters
+@rus Квартал Вельмож
 ~
-door~
+door дверь~
 ABCFZ -1 17366
 S
 #17381
-The Pentagram~
-Well you have done it. You have stepped into the pentagram. You are blasted 
+@eng The Pentagram@rus Пентаграмма~
+@eng Well you have done it. You have stepped into the pentagram. You are blasted 
 by a hellish heat, and cackling assails you from all sides. Your entire body 
 is wracked in pain, and you hear yourself screaming in and endless cry of 
 horror. 
+@rus Значит, ты все же сделал это. Ты находишься в пентаграмме, тебя обдает
+адским пламенем, и громкие квакающие звуки раздаются со всех сторон.
+Твое тело скрутила боль, и ты слышишь свой вопль ужаса!
+Вокруг беспросветная чернота и клубящийся туман.
 ~
-0 ACJ inside
-D5
-~
-~
-Z -1 17375
+0 ACJN inside
 S
 #17382
-The Rolling Hills~
-You have spent the day travelling a road through the rolling hills north of
+@eng The Rolling Hills@rus Холмы~
+@eng You have spent the day travelling a road through the rolling hills north of
 Camelot. You have gone through several villages. The people you have met 
 are generally a happy lot. You presently stand at a crossroads. To the 
 north, the road continues through the rolling hills. To the east the road 
 goes into a grassy plain. To the south the road goes to Camelot.
+@rus Ты проводишь день, путешествуя через холмистую местность к северу от Камелота.
+Ты проходишь несколько деревень. Люди, которых ты встречаешь - счастливы.
+Ты теперь стоишь на перекрестке. На север дорога продолжается через холмистую 
+местность, на восток дорога идет в заросшую травой равнину. Южная дорога идет 
+к Камелоту.
 ~
 0 0 hills
 D0
-The rolling hills
+@eng The rolling hills
+@rus Холмы
 ~
 ~
 Z -1 17383
 D1
-The grassy plain
+@eng The grassy plain
+@rus Травянистые равнины
 ~
 ~
 Z -1 17384
 D2
-A winding road
+@eng A winding road
+@rus Дорога ведет к Камелоту
 ~
 ~
 Z -1 17356
 S
 #17383
-The Rolling Hills~
-You have spent the day travelling a road through the rolling hills north of
+@eng The Rolling Hills@rus Холмы~
+@eng You have spent the day travelling a road through the rolling hills north of
 Camelot. You have gone through several villages. The people you have met are 
 generally a happy lot. To the north, the road winds upwards into the 
 highlands. The road continues south into the rolling hills.
+@rus Ты $gn{провел} день, путешествуя через холмистую местность к северу от Камелота.
+Ты $gn{прошел} несколько деревень. Люди, которых ты $gn{встретил} - счастливы. Ты 
+можешь выбрать: на север дорога продолжает петлять среди холмов, на юге
+прямая дорога идет к Камелоту.
 ~
 0 0 hills
 D0
-The highlands
+@eng The highlands
+@rus Плоскогорье
 ~
 ~
 Z -1 17385
 D2
-A winding road
+@eng A winding road
+@rus Прямая дорога
 ~
 ~
 Z -1 17382
 S
 #17384
-The Grassy Plains~
-You spend a week travelling through a great grassy plain. You have crossed 
+@eng The Grassy Plains@rus Травянистые равнины~
+@eng You spend a week travelling through a great grassy plain. You have crossed 
 several baronies in you travels. You have encounterd knights and pilgrims 
 on your journey, and slept in many a hayloft and haystack. The farmland is 
 productive here, and there have been many horse ranches, in which the fine 
 steeds of Camelot are produced. At present you stand in a strange stone 
 formation in the vast plain. The road stretches west to the rolling hills, 
 and east to the rocky coast.
+@rus Ты проводишь день, путешествуя через большую травянистую равнину. Ты 
+пересек несколько оврагов, встретил рыцарей и паломников на дороге, 
+и спал на сеновалах и в стогах сена. Сельские угодья очень плодородны 
+здесь, и ты заметил много коневодческих хозяйств, в которых выращивают
+прекрасных коней Камелота. В настоящее время ты стоишь в странном 
+каменном круге в обширной равнине. Дорога на запад ведет к холмистой 
+местности, и к востоку - к скалистому побережью.
 ~
 0 0 field
 E
-stone strange formation~
-You look at the stone formation. The stones stand about 15' tall an are 
+stone strange formation камни странный круг~
+@eng You look at the stone formation. The stones stand about 15' tall an are 
 arranged in a circular series of frames, with two stones stacked on end 
 and one laid across the tops of the other two. There is a stone table in 
 the center of the formation, upon which the first light of day is striking.
+@rus Ты видишь странную конструкцию из камней. Пятиметровые камни расставлены
+в круг группами, по три камня. Два из них стоят вертикально, а один,
+плашмя, лежит на них сверху. Посреди круга стоит каменный стол, и первый
+утренний луч солнца упадет на него, ты это знаешь.
 ~
 E
-table~
-You walk up to the table and examine it. It has rusty brown stains on it-
+table стол~
+@eng You walk up to the table and examine it. It has rusty brown stains on it-
 BLOOD! You examine the ground around the table and find fleece. Obviously 
 this is an altar. You can just make out some lettering on the stone.
+@rus Ты $gn{подошел} к столу и $gn{осмотрел} его. На камне остались ржаво-
+коричневые пятна, а невдалеке на земле лежит шкурка. Несомненно, это
+алтарь. Ты видишь надпись на нем.
 ~
 E
-lettering~
-The lettering says:
+lettering надпись~
+@eng The lettering says:
 
  LACNOGIRANDUTOS ROYU AYLGPIN LILSK SI BLAMMENEDOC
+@rus Надпись гласит:
+ 
+LACNOGIRANDUTOS ROYU AYLGPIN LILSK SI BLAMMENEDOC
 ~
 D1
-The rocky coast
+@eng The rocky coast
+@rus Каменистое побережье
 ~
 ~
 Z -1 17386
 D3
-The rolling hills
+@eng The rolling hills
+@rus Холмы
 ~
 ~
 Z -1 17382
 S
 #17385
-The Highlands~
-You have spent the day travelling in the highlands, and you are very tired.
+@eng The Highlands@rus Плоскогорье~
+@eng You have spent the day travelling in the highlands, and you are very tired.
 You stand at an old Wall that runs east and west through the hills. Not 
 many trees grow here, as all has been cleared north of the wall. South of 
 the wall stretches a winding road. North of the wall is the untamed Scottish 
 highlands. There is an outpost to the east.
+@rus Ты $gn{провел} день, путешествуя в горной местности, и ты очень $gn{утомлен}. Ты 
+стоишь у старой стены, которая когда-то проходила с востока на запад. 
+Не очень много деревьев растет здесь, поскольку все было очищено к северу 
+от стены. К югу от стены ты видишь вьющуюся дорогу. К северу от стены - 
+Шотландская горная местность. Вооруженная застава видна на востоке.
 ~
 0 0 hills
 E
-wall~
-You look at the wall. There is lettering on it.
+wall стена~
+@eng You look at the wall. There is lettering on it.
+@rus На ней есть надпись.
 ~
 E
-lettering~
-The lettering says: HADRIANUS
+lettering надпись~
+@eng The lettering says: HADRIANUS
+@rus Надпись гласит: HADRIANUS
 ~
 D0
-The Scottish highlands
+@eng The Scottish highlands
+@rus Шотландская горная местность
 ~
-gate~
+gate врата~
 ABZ -1 17387
 D1
-An outpost
+@eng An outpost
+@rus Застава
 ~
-door~
+door дверь~
 ABZ -1 17388
 D3
-A winding road
+@eng A winding road
+@rus Открытая дорога
 ~
 ~
 Z -1 17383
 S
 #17386
-The Rocky Coast~
-You have picked your way through the rocky coast. The weather has been 
+@eng The Rocky Coast@rus Каменистое побережье~
+@eng You have picked your way through the rocky coast. The weather has been 
 foul, which has influenced your mood. The road vanished 2 days ago. Now 
 you stand on a cliff overlooking the vast ocean. The mist obscures your 
 view of the horizon, but you know its there- somewhere. Far below you is 
 a rocky beach.
+@rus Ты продолжаешь свой путь по скалистому побережью. Погода плохая, она влияет
+и на твое настроение. Дорога исчезла еще 2 дня назад. Теперь ты стоишь 
+на утесе, с которого можно обозреть обширный океан. Туман мешает смотреть 
+на горизонт, но ты знаешь, что он - где-то там. Заметно ниже тебя - скалистый 
+берег.
 ~
 0 0 inside
 E
-beach~
-You look at the beach, and you are glad you did. You see smoke coming up 
+beach берег~
+@eng You look at the beach, and you are glad you did. You see smoke coming up 
 from the beach and now as you look closer you see the dwellings of a 
 barbaric people. The beach is definitly inhabited.
+@rus Ты $gn{посмотрел} на берег и $gn{обрадовался}, что $gn{сделал} это. Ты
+$gn{заметил} дым, идущий с берега, а посмотрев внимательнее, $gn{обнаружил}
+и хижины какого-то варварского племени, обитающего там.
 ~
 D3
-More rocks and rain
+@eng More rocks and rain
+@rus Горы, дождь...
 ~
 ~
 Z -1 17384
 D5
-The rocky beach
+@eng The rocky beach
+@rus Каменистый берег
 ~
 ~
 Z -1 17389
 S
 #17387
-The Scottish Highlands~
-You have spent several days wandering in the Scottish highlands. You have 
+@eng The Scottish Highlands@rus Шотландские горы~
+@eng You have spent several days wandering in the Scottish highlands. You have 
 spied the lassies tending the sheep, and several bands of wandering Scot 
 raiders, which you have sensibly evaded. Up ahead, on the bluff rises a keep.
 You are not certain you should go in.
+@rus Ты $gn{провел} несколько дней, блуждая по Шотландским горам. Ты $gn{приметил}
+несколько стад овец и несколько отрядов шотландских налетчиков, 
+от боя с которыми ты $gn{уклонился}. Тебе недосуг драться с разбойниками.
 ~
 0 0 inside
 D2
-More lassies and highlands
+@eng More lassies and highlands
+@rus Снова горы...
 ~
 ~
 Z -1 17385
 D4
-The keep on the bluff
+@eng The keep on the bluff
+@rus Форт
 ~
 ~
 Z -1 17390
 S
 #17388
-An Outpost~
-You are in the outpost for the wall. It is a stone keep, with little in the 
+@eng An Outpost@rus Застава~
+@eng You are in the outpost for the wall. It is a stone keep, with little in the 
 way of creatur comforts. There are barracks and a main hall. Guards are 
 posted along the wall. Your arrival has been a source of great interest, 
 as these bordermen don't see many people.
+@rus Ты находишься в форте заставы. Это каменное здание, без признаков комфорта.
+Здесь есть бараки и главный зал. Охрана расставлена у стен. Ваше прибытие
+было источником большого интереса, поскольку эти воины не видят новых людей 
+месяцами.
 ~
 0 0 inside
 D3
-At the gate door
+@eng At the gate door
+@rus У ворот
 ~
 ~
 ABZ -1 17385
 S
 #17389
-The rocky beach~
-You stand on the rocky beach wishing you had a boat. You had a tough climb 
+@eng The rocky beach@rus Каменистый берег~
+@eng You stand on the rocky beach wishing you had a boat. You had a tough climb 
 down through all of those crevices. There are several caves and grottos 
 here.
+@rus Ты стоишь на каменистом берегу, и вокруг замечаешь несколько гротов и пещер.
+Величественный пейзаж океана предстает перед тобой. Небо темное, и волны
+тяжело бьются о камни. Скалы делают берег неприступным на юге, подняв голову,
+ты видишь над ними гордые башни Камелотского замка. Единственный путь по
+берегу среди камней лежит на север. Вверх в гору идет подьем к дороге на
+Камелот.
 ~
 0 0 hills
 E
-grotto grottos~
-The surf is crashing hard in the grottos. You can taste the salt spray.
+grotto grottos гроты~
+@eng The surf is crashing hard in the grottos. You can taste the salt spray.
+@rus Прибой шумит, омывая входы в гроты. Ты чувствуешь привкус морской соли
+от брызг, летящих в воздух.
 ~
 E
-cave caves~
-You look at the caves- smoke! This place is inhabited!
+cave caves пещеры~
+@eng You look at the caves- smoke! This place is inhabited!
+@rus Из пещеры идет дым - похоже, там кто-то живет.
 ~
 D4
-A tough climb that you would rather not do
+@eng A tough climb that you would rather not do
+@rus Карабкаясь по камням
 ~
 ~
 Z -1 17386
 S
 #17390
-Scots Keep~
-You are in the speldor of a Scots keep. Walls are draped with animal hides.
+@eng Scots Keep@rus Лагерь шотландцев~
+@eng You are in the speldor of a Scots keep. Walls are draped with animal hides.
 Women and children are sprawled among pallets of skins and hides. A great 
 roaring fire blazes in a huge stone hearth, taking the chill from your 
 bones. The men were doing a dance involving leaping over swords, but they 
 have stopped since you are here. There is a big iron pot warming from a 
 chain in the fire.
+@rus Ты находишься в лагере шотландцев. Стены покрыты шкурами животных.
+Женщины и дети прячутся под кожами. Большой огонь сверкает в огромном 
+каменном очаге, согревая и освещая все вокруг. Люди танцуют боевые
+танцы, прыгая с мечами, но они остановились, так как ты - здесь. 
+Ты видишь большой железный котел, висящий на огне.
 ~
 0 0 inside
 E
-iron pot~
-The iron pot contains a mix of potatoes, roots, and what appears to be boar.
+iron pot котел железный~
+@eng The iron pot contains a mix of potatoes, roots, and what appears to be boar.
+@rus В котле варится смесь картошки, каких-то корешков и чья-то нога. Похоже,
+что все-же кабанья.
 ~
 D5
-The Scottish Highlands
+@eng The Scottish Highlands
+@rus Шотландское плоскогорье
 ~
 ~
 Z -1 17387
 S
 #17391
-Farms~
-You have spent a day travelling though the breadbasket of Camelot, following 
+@eng Farms@rus Фермы~
+@eng You have spent a day travelling though the breadbasket of Camelot, following 
 a cobble stone road. The fields are producing well this year, and the 
 peasants are out harvesting a bountiful crop. Soon the harvest end festivals 
 will begin and all will celebrate another fine year. In fact you have 3 
 invitations for various festivals from the people you have met along the 
 way.
+@rus Ты $gn{провел} день путешествуя из Камелота, по дороге из булыжника. Поля
+хорошо уродили в этом году, и крестьяне заняты сбором обильного урожая. 
+Скоро сбор урожая будет закончен, и начнется праздник Осени. У тебя уже
+три приглашения на различные фестивали от людей, которых ты $gn{встретил}
+по пути.
 ~
 0 0 field
 D0
-A cobblestone road
+@eng A cobblestone road
+@rus Дорога, вымощенная булыжником
 ~
 ~
 Z -1 17367
 D2
-A cobblestone road
+@eng A cobblestone road
+@rus Дорога, вымощенная булыжником
 ~
 ~
 Z -1 17392
 D3
-A cobblestone road
+@eng A cobblestone road
+@rus Дорога, вымощенная булыжником
 ~
 ~
 Z -1 17393
 S
 #17392
-Farms~
-You have spent a day travelling though the breadbasket of Camelot, following 
+@eng Farms@rus Фермы~
+@eng You have spent a day travelling though the breadbasket of Camelot, following 
 a cobble stone road. The fields are producing well this year, and the 
 peasants are out harvesting a bountiful crop. Soon the harvest end festivals 
 will begin and all will celebrate another fine year. Your pleasant mood is 
 interrupted by the sight of smoke and the sounds of screams from the south.
+@rus Ты $gn{провел} день путешествуя из Камелота, по дороге из булыжника. Поля
+хорошо уродили в этом году, и крестьяне заняты сбором обильного урожая. 
+Скоро сбор урожая будет закончен, и начнется праздник Осени. Странно, ты
+слышишь крики и видишь дым на юге.
 ~
 0 0 field
 E
-smoke screams~
-You can make out the cries of 'To Arms! To Arms! The Angle raiders are here!
+smoke screams дым крики~
+@eng You can make out the cries of 'To Arms! To Arms! The Angle raiders are here!
+@rus Ты слышишь крики "К оружию! К оружию! Энглы, разбойники!"
 ~
 D0
-A cobblestone road
+@eng A cobblestone road
+@rus Каменная дорога
 ~
 ~
 Z -1 17391
 D2
-Towards the smoke
+@eng Towards the smoke
+@rus Поле боя
 ~
 ~
 Z -1 17395
 D3
-A cobblestone road
+@eng A cobblestone road
+@rus Каменная дорога
 ~
 ~
 Z -1 17394
 S
 #17393
-Farms~
-You have spent a day travelling though the breadbasket of Camelot, 
+@eng Farms@rus Фермы~
+@eng You have spent a day travelling though the breadbasket of Camelot, 
 following a cobble stone road. The fields are producing well this year, 
 and the peasants are out harvesting a bountiful crop. Soon the harvest 
 end festivals will begin and all will celebrate another fine year. In fact 
 you have 2 invitations for various festivals from the people you have met 
 along the way.
+@rus Ты $gn{провел} день, путешествуя из Камелота, по дороге из булыжника. Поля
+хорошо уродили в этом году, и крестьяне заняты сбором обильного урожая. 
+Скоро сбор урожая будет закончен, и начнется праздник Осени. Ты имеешь
+уже два приглашения на различные фестивали от людей, которых ты $gn{встретил}
+по пути.
 ~
 0 0 field
 D1
-A cobblestone road
+@eng A cobblestone road
+@rus Каменная дорога
 ~
 ~
 Z -1 17391
 D2
-A cobblestone road
+@eng A cobblestone road
+@rus Каменная дорога
 ~
 ~
 Z -1 17394
 S
 #17394
-Farms~
-You have spent a day travelling though the breadbasket of Camelot, 
+@eng Farms@rus Фермы~
+@eng You have spent a day travelling though the breadbasket of Camelot, 
 following a cobble stone road. This paticular section of farms is not 
 doing as well, as signs of raiding and pillaging abound here. The peasants 
 seem to be bouncing back, and the fields are once again with crop. To 
 the west is a heavily travelled muddy road, and the fields continue to 
 the east and north.
+@rus Ты $gn{провел} день, путешествуя по дороге из камня. Эти фермы не такие, как
+те, что ты $gn{видел} прежде, поскольку видны признаки совершения набегов
+и разбоя. Крестьяне, кажется, попрятались, и поля стоят с неубранным
+урожаем. На запад - грязная дорога, а поля продолжаются на восток и север.
 ~
 0 0 field
 D0
-A cobblestone road
+@eng A cobblestone road
+@rus Каменная дорога
 ~
 ~
 Z -1 17393
 D1
-A cobblestone road
+@eng A cobblestone road
+@rus Каменная дорога
 ~
 ~
 Z -1 17392
 D3
-A muddy road
+@eng A muddy road
+@rus Грязная дорога
 ~
 ~
 Z -1 17396
 S
 #17395
-Angle Raid!~
-You are in the whirling chaos of an Angle raid on this farming village.
+@eng Angle Raid!@rus Нападение разбойников!~
+@eng You are in the whirling chaos of an Angle raid on this farming village.
 Farmers are defending themselves from the raiders with their farm tools.
 Women are gathering the children and running north. Some unlucky women 
 are being raped by the brutish Angles, who are so named for the long 
 angled polearm they use. The village is on fire, and you can make out 
 the raider ship on the shore to the west.
+@rus Ты находишься в хаосе набега на деревню. Фермеры защищаются от налетчиков,
+держа в руках подручные инструменты. Женщины собирают детей и убегают на
+север. Некоторым женщинам не повезло, и их уже насилуют разбойники-энглы.
+Их называют так по имени длинного кривого меча в форме крюка, который
+они используют. Деревня в огне, и ты видишь судно налетчиков возле берега
+на западе.
 ~
 0 0 field
 D0
-To where everybody else is fleeing
+@eng To where everybody else is fleeing
+@rus Туда бегут все, кто не сражается
 ~
 ~
 Z -1 17392
 S
 #17396
-An Outpost~
-You have reached a fortified outpost. Your boots sink in the mud which 
+@eng An Outpost@rus Застава~
+@eng You have reached a fortified outpost. Your boots sink in the mud which 
 is rutted and groved by the supply wagons which come her.
 You talk to the guards and they warn you of the merciless Picts to the 
 west, with whom Camelot is at war. The men are hardened by warfare, and 
 stare at you with eyes that have seen terrible atrocity. To the east are 
 farms, and to the west you hear the terrible clash of war.
+@rus Ты $gn{достиг} укрепленной заставы. Твои ботинки погружаются в грязь, которая 
+изрыта колеями фургонов. Ты говоришь с охраной, и воины предупреждают тебя 
+о беспощадных пиктах на западе, с которым Камелот находится в состоянии 
+войны. Люди привыкли к войне, и смотрят на тебя глазами, которые видели 
+ужасные злодеяния. На восток - фермы, а на западе ты слышишь ужасные 
+звуки боя.
 ~
 0 0 field
 D1
-A muddy road
+@eng A muddy road
+@rus Грязная дорога
 ~
 ~
 Z -1 17394
 D3
-The clamor of battle
+@eng The clamor of battle
+@rus Поле боя
 ~
 ~
 Z -1 17397
 S
 #17397
-Battle!~
-You have boldly entered the heart of a raging battle between the knights 
+@eng Battle!@rus Битва!~
+@eng You have boldly entered the heart of a raging battle between the knights 
 of Camelot and the barbaric Picts. The knights have set up a skirmish 
 line across the field, spreading out the Picts, while two calvary units 
 are sweeping around the ends in a pincher like move. Holding the center 
 of the line are several knights of reknown. The Picts are faring badly, 
 as their leader has already left the field in cowardly retreat.
+@rus Ты смело $gn{вступил} в самую гущу бушующего сражения между рыцарями Камелота 
+и варваров-пиктов. Рыцари образовали линию сражения поперек поля, рассеивая
+пиктов, в то время как два отряда кавалерии обходят разбойников с фланга.
+В центре сражаются несколько известных рыцарей. Пикты чувствуют себя не
+лучшим образом, поскольку их лидер уже трусливо оставил поле боя.
 ~
 0 0 field
 D1
-An outpost
+@eng An outpost
+@rus Застава
 ~
 ~
 Z -1 17396
 D3
-Behind the Pict lines
+@eng Behind the Pict lines
+@rus За линиями пиктов
 ~
 ranks~
 ABZ -1 17346
 S
 #17398
-Stables~
-You stand in the vast stables of Camelot. Row upon row of stalls greet 
+@eng Stables@rus Конюшня Камелота~
+@eng You stand in the vast stables of Camelot. Row upon row of stalls greet 
 your eye. Smells of horse sweat and fresh straw combine in a pleasant mix. 
 Stable hands are busy currying animals, shoeing horses, and feeding the 
 magnificant chargers of Camelot. Light filters in through the rafters. 
 To your west is Knight's Way.
+@rus Ты стоишь в обширных конюшнях Камелота. Ты видишь ряды со стойлами. Запахи 
+лошадей и свежей соломы витают в воздухе. Свет просачивается через стропила.
+На западе - Рыцарский путь.
 ~
 0 M inside
 D3
-Knight's Way
+@eng Knight's Way
+@rus Рыцарский путь
 ~
 ~
 Z -1 17342
 S
 #17399
-Pet Storage for Stables~
-This is actual stables where the horses are kept to be sold.
+@eng Pet Storage for Stables@rus Стойла конюшен Камелота~
+@eng This is actual stables where the horses are kept to be sold.
+@rus Здесь ты видишь прекрасные экземпляры лошадей, которые используются в армии
+Камелота.
 ~
 0 CM inside
 S
 #0
 
 #SPECIALS
-M 17301 spec_guard	* The knight of reknown
+M 17301 spec_guard	* the knight of renown
 M 17303 spec_guard	* the knight of quality
 M 17306 spec_guard	* Sir Galahad
 M 17312 spec_guard	* Sir Lancelot du Lake
@@ -4393,7 +5349,7 @@ M 17313 spec_cast_mage	* Merlin
 M 17314 spec_cast_mage	* Morgan Le Fey
 M 17316 spec_breath_lightning	* the Questing Beast
 M 17318 spec_thief	* Mordred
-M 17337 spec_breath_fire	* A towering, black scaled demon
+M 17337 spec_breath_fire	* Aigram the demon
 S
 
 #RESETS
@@ -4411,7 +5367,9 @@ D 0 17340 0 1	* The Dark Hall of Mordred: door to the north: closed
 D 0 17341 3 1	* Victory Road and Knights Way: door to the west: closed
 D 0 17346 1 1	* Behind the Pict Lines: door to the east: closed
 D 0 17355 0 1	* Squire's Run at the North Gate: door to the north: closed
+D 0 17355 2 1	* Squire's Run at the North Gate: door to the south: closed
 D 0 17356 2 1	* The Great Northern Gate of Camelot: door to the south: closed
+D 0 17357 0 1	* Squire's Barracks: door to the north: closed
 D 0 17361 0 1	* Noble Road at the South Gate: door to the north: closed
 D 0 17361 2 1	* Noble Road at the South Gate: door to the south: closed
 D 0 17366 0 1	* Noble's Quarters: door to the north: closed
@@ -4431,154 +5389,178 @@ D 0 17388 3 1	* An Outpost: door to the west: closed
 D 0 17397 3 1	* Battle!: door to the west: closed
 M 0 17307 1 17302 1	* the black knight (The Crossroads of Arden)
 E 0 17318 0 7		*	a pair of blackened steel greaves: on the legs
+E 0 17356 0 16		*	two-handed knight's sword: wielded
 M 0 17315 1 17303 1	* King Pellinore (The Forest Arden)
 G 0 17321 0		*	a key with the letter "P" on it
-M 0 17330 4 17305 1	* A serf (A Hut in Forest Arden)
+E 0 17356 0 16		*	two-handed knight's sword: wielded
+M 0 17330 4 17305 1	* a serf (A Hut in Forest Arden)
 M 0 17316 1 17307 1	* the Questing Beast (Lair of the Questing Beast)
 O 0 17324 0 17307	* a pile of bones (Lair of the Questing Beast)
 O 0 17325 0 17307	* a human skull (Lair of the Questing Beast)
 O 0 17326 0 17307	* a small black rock (Lair of the Questing Beast)
+O 0 17374 0 17308	* workbench (Inside a Hut)
+P 0 17375 3 17374 1	* workbench: yellow potion
+O 0 17365 0 17308	* fireplace (Inside a Hut)
+P 0 17364 1 17365 1	* fireplace: old scroll
+P 0 17376 1 17365 1	* fireplace: scroll
+M 0 17366 1 17308 1	* small ghost (Inside a Hut)
 M 0 17309 1 17312 1	* Sir Garlon (Dark Hollow)
 E 0 17312 0 10		*	garlon's invisible armbands: on the arms
+E 0 17356 0 16		*	two-handed knight's sword: wielded
 M 0 17303 9 17314 1	* the knight of quality (A Creek in the Forest Arden)
 E 0 17303 0 16		*	a knight's lance: wielded
-M 0 17323 7 17314 1	* Charmed Squire (A Creek in the Forest Arden)
+M 0 17323 7 17314 1	* charmed squire (A Creek in the Forest Arden)
 M 0 17306 1 17315 1	* Sir Galahad (Battleplain of Arden)
 E 0 17306 0 14		*	a white bracer: on the left wrist
 E 0 17307 0 17		*	the holy grail: held in the hands
+E 0 17356 0 16		*	two-handed knight's sword: wielded
 M 0 17326 1 17315 1	* Turquine (Battleplain of Arden)
 E 0 17334 0 6		*	a wolf helm: over the head
-M 0 17319 5 17315 1	* Charmed knight of reknown (Battleplain of Arden)
-M 0 17320 3 17315 1	* Charmed knight of quality (Battleplain of Arden)
-M 0 17323 7 17316 1	* Charmed Squire (Before Blackmoor)
+E 0 17356 0 16		*	two-handed knight's sword: wielded
+M 0 17319 5 17315 1	* charmed knight of renown (Battleplain of Arden)
+M 0 17320 3 17315 1	* charmed knight of quality (Battleplain of Arden)
+E 0 17303 0 16		*	a knight's lance: wielded
+M 0 17323 7 17316 1	* charmed squire (Before Blackmoor)
 M 0 17305 1 17317 1	* Sir Benlad de Haudtesert (the green knight) (Forest Blackmoor)
 E 0 17304 0 5		*	a suit of green armor: on the body
 E 0 17305 0 16		*	benlad's axe: wielded
-M 0 17319 5 17318 1	* Charmed knight of reknown (Before an Inviting Hut)
-M 0 17327 1 17322 1	* Perimones (the Red Knight) (The Chasm)
+M 0 17319 5 17318 1	* charmed knight of renown (Before an Inviting Hut)
+M 0 17327 1 17322 1	* Perimones (The Chasm)
 E 0 17335 0 5		*	a suit of shimmering red armor: on the body
+E 0 17356 0 16		*	two-handed knight's sword: wielded
 M 0 17314 1 17323 1	* Morgan Le Fey (Inside the Inviting Hut)
 E 0 17319 0 17		*	a marble rod with a white hot tip: held in the hands
-M 0 17320 3 17327 1	* Charmed knight of quality (Bailey of Blackmoor)
-M 0 17323 7 17330 1	* Charmed Squire (Inside the Curtain Wall)
-M 0 17323 7 17332 1	* Charmed Squire (Inside the Curtain Wall)
-M 0 17323 7 17335 1	* Charmed Squire (Inside the Curtain Wall)
-M 0 17319 5 17336 1	* Charmed knight of reknown (The Northwest Tower of Blackmoor)
-M 0 17328 1 17337 1	* A damsel in distress (The Northeastern Tower of Blackmoor)
+M 0 17320 3 17327 1	* charmed knight of quality (Bailey of Blackmoor)
+E 0 17303 0 16		*	a knight's lance: wielded
+M 0 17323 7 17330 1	* charmed squire (Inside the Curtain Wall)
+M 0 17323 7 17332 1	* charmed squire (Inside the Curtain Wall)
+M 0 17323 7 17335 1	* charmed squire (Inside the Curtain Wall)
+M 0 17319 5 17336 1	* charmed knight of renown (The Northwest Tower of Blackmoor)
+M 0 17328 1 17337 1	* a damsel in distress (The Northeastern Tower of Blackmoor)
 G 0 17337 0		*	the reward
-M 0 17319 5 17338 1	* Charmed knight of reknown (West Bailey Tower)
-M 0 17323 7 17339 1	* Charmed Squire (East Bailey Tower)
+M 0 17319 5 17338 1	* charmed knight of renown (West Bailey Tower)
+M 0 17323 7 17339 1	* charmed squire (East Bailey Tower)
 M 0 17318 1 17340 1	* Mordred (The Dark Hall of Mordred)
 E 0 17328 0 5		*	a suit of golden armor: on the body
 E 0 17329 0 16		*	a spear glowing in an unholy dark light: wielded
-M 0 17319 5 17340 1	* Charmed knight of reknown (The Dark Hall of Mordred)
-M 0 17320 3 17340 1	* Charmed knight of quality (The Dark Hall of Mordred)
-M 0 17323 7 17340 1	* Charmed Squire (The Dark Hall of Mordred)
-M 0 17302 9 17341 1	* The squire (Victory Road and Knights Way)
+M 0 17319 5 17340 1	* charmed knight of renown (The Dark Hall of Mordred)
+M 0 17320 3 17340 1	* charmed knight of quality (The Dark Hall of Mordred)
+E 0 17303 0 16		*	a knight's lance: wielded
+M 0 17323 7 17340 1	* charmed squire (The Dark Hall of Mordred)
+M 0 17323 1 17340 1	* charmed squire (The Dark Hall of Mordred)
+M 0 17302 9 17341 1	* the squire (Victory Road and Knights Way)
 E 0 17301 0 16		*	a squire's dagger: wielded
 M 0 17303 9 17341 1	* the knight of quality (Victory Road and Knights Way)
 E 0 17303 0 16		*	a knight's lance: wielded
 M 0 17303 9 17341 1	* the knight of quality (Victory Road and Knights Way)
 E 0 17303 0 16		*	a knight's lance: wielded
-M 0 17302 9 17346 1	* The squire (Behind the Pict Lines)
+M 0 17302 9 17346 1	* the squire (Behind the Pict Lines)
 E 0 17301 0 16		*	a squire's dagger: wielded
-M 0 17356 1 17346 1	* The Pict leader (Behind the Pict Lines)
+M 0 17356 1 17346 1	* the pict leader (Behind the Pict Lines)
 E 0 17345 0 17		*	a rod of command: held in the hands
-M 0 17302 9 17348 1	* The squire (Armory)
+M 0 17302 9 17348 1	* the squire (Armory)
 E 0 17301 0 16		*	a squire's dagger: wielded
-M 0 17330 4 17348 1	* A serf (Armory)
+M 0 17330 4 17348 1	* a serf (Armory)
 M 0 17338 1 17348 1	* Iron Jack (Armory)
 G 0 17301 0		*	a squire's dagger
 G 0 17302 0		*	a knight's mace
 G 0 17303 0		*	a knight's lance
-M 0 17332 2 17349 1	* A monk (Corner of Knight's Way and Noble Road)
+M 0 17332 2 17349 1	* a monk (Corner of Knight's Way and Noble Road)
+E 0 17355 0 16		*	monk's staff: wielded
 M 0 17308 1 17351 1	* Sir Gareth (Tower of Valor)
 E 0 17308 0 12		*	a many colored cloak: about the shoulders
 E 0 17309 0 11		*	a shield of many colors: as a shield
-M 0 17302 9 17352 1	* The squire (Tourney Yard of Camelot)
+M 0 17302 9 17352 1	* the squire (Tourney Yard of Camelot)
 E 0 17301 0 16		*	a squire's dagger: wielded
-M 0 17301 9 17353 1	* The knight of reknown (Tower of Honor)
+M 0 17301 9 17353 1	* the knight of renown (Tower of Honor)
 E 0 17302 0 16		*	a knight's mace: wielded
-M 0 17331 2 17354 1	* A merchant (Noble Road)
-M 0 17301 9 17355 1	* The knight of reknown (Squire's Run at the North Gate)
+M 0 17331 2 17354 1	* a merchant (Noble Road)
+M 0 17301 9 17355 1	* the knight of renown (Squire's Run at the North Gate)
 E 0 17302 0 16		*	a knight's mace: wielded
-M 0 17301 9 17355 1	* The knight of reknown (Squire's Run at the North Gate)
+M 0 17301 9 17355 1	* the knight of renown (Squire's Run at the North Gate)
 E 0 17302 0 16		*	a knight's mace: wielded
-M 0 17331 2 17355 1	* A merchant (Squire's Run at the North Gate)
-M 0 17302 9 17357 1	* The squire (Squire's Barracks)
+M 0 17331 2 17355 1	* a merchant (Squire's Run at the North Gate)
+M 0 17302 9 17357 1	* the squire (Squire's Barracks)
 E 0 17301 0 16		*	a squire's dagger: wielded
-M 0 17302 9 17357 1	* The squire (Squire's Barracks)
+M 0 17302 9 17357 1	* the squire (Squire's Barracks)
 E 0 17301 0 16		*	a squire's dagger: wielded
-M 0 17302 9 17357 1	* The squire (Squire's Barracks)
+M 0 17302 9 17357 1	* the squire (Squire's Barracks)
 E 0 17301 0 16		*	a squire's dagger: wielded
 M 0 17303 9 17358 1	* the knight of quality (Tourney Yard of Camelot)
 E 0 17303 0 16		*	a knight's lance: wielded
 M 0 17312 1 17359 1	* Sir Lancelot du Lake (Tourney Yard of Camelot)
 E 0 17315 0 9		*	gauntlets of bravery: on the hands
+E 0 17373 0 16		*	sword named "Arondight": wielded
 M 0 17324 1 17361 1	* Barant Les Apres (King of the Hundred Knights) (Noble Road at the South Gate)
 E 0 17332 0 16		*	a massive spiked ball and chain: wielded
-M 0 17301 9 17361 1	* The knight of reknown (Noble Road at the South Gate)
+E 0 17358 0 12		*	white cloak: about the shoulders
+M 0 17301 9 17361 1	* the knight of renown (Noble Road at the South Gate)
 E 0 17302 0 16		*	a knight's mace: wielded
-M 0 17301 9 17361 1	* The knight of reknown (Noble Road at the South Gate)
+M 0 17301 9 17361 1	* the knight of renown (Noble Road at the South Gate)
 E 0 17302 0 16		*	a knight's mace: wielded
-M 0 17302 9 17362 1	* The squire (Tourney Yard of Camelot)
+M 0 17302 9 17362 1	* the squire (Tourney Yard of Camelot)
 E 0 17301 0 16		*	a squire's dagger: wielded
 M 0 17303 9 17365 1	* the knight of quality (Tourney Yard of Camelot)
 E 0 17303 0 16		*	a knight's lance: wielded
-M 0 17301 9 17366 1	* The knight of reknown (Noble's Quarters)
+M 0 17301 9 17366 1	* the knight of renown (Noble's Quarters)
 E 0 17302 0 16		*	a knight's mace: wielded
-M 0 17336 8 17366 1	* A servant (Noble's Quarters)
+M 0 17336 8 17366 1	* a servant (Noble's Quarters)
 M 0 17310 1 17368 1	* Sir Gawaine (Tourney Yard of Camelot)
 E 0 17313 0 6		*	gawaine's horned helm: over the head
+E 0 17357 0 16		*	longsword named "Galantine": wielded
 M 0 17317 1 17369 1	* Sir Tristram of Lyoness (Tourney Yard of Camelot)
 G 0 17327 0		*	a love letter
 M 0 17304 1 17370 1	* King Arthur (The Court of Camelot)
 E 0 17311 0 13		*	arthur's scabbard: around the waist
 E 0 17310 0 16		*	excalibur: wielded
-M 0 17325 1 17370 1	* Dagonet (Arthur's Court Jester) (The Court of Camelot)
+E 0 17353 0 5		*	King Arthur's platemail: on the body
+E 0 17354 0 6		*	King Arthur's crown: over the head
+M 0 17325 1 17370 1	* Dagonet (The Court of Camelot)
 E 0 17333 0 6		*	fool's motley: over the head
 M 0 17321 7 17370 1	* a lady in waiting (The Court of Camelot)
 E 0 17330 0 17		*	a silken favor: held in the hands
-M 0 17333 1 17370 1	* A troubadour (The Court of Camelot)
-M 0 17335 1 17370 1	* An entertainer (The Court of Camelot)
-M 0 17301 9 17371 1	* The knight of reknown (The Feast Hall)
+M 0 17333 1 17370 1	* a troubadour (The Court of Camelot)
+M 0 17335 1 17370 1	* an entertainer (The Court of Camelot)
+M 0 17301 9 17371 1	* the knight of renown (The Feast Hall)
 E 0 17302 0 16		*	a knight's mace: wielded
-M 0 17302 9 17371 1	* The squire (The Feast Hall)
+M 0 17302 9 17371 1	* the squire (The Feast Hall)
 E 0 17301 0 16		*	a squire's dagger: wielded
 M 0 17303 9 17371 1	* the knight of quality (The Feast Hall)
 E 0 17303 0 16		*	a knight's lance: wielded
 M 0 17321 7 17371 1	* a lady in waiting (The Feast Hall)
 E 0 17330 0 17		*	a silken favor: held in the hands
-M 0 17329 1 17371 1	* A nobleman (The Feast Hall)
+M 0 17329 1 17371 1	* a nobleman (The Feast Hall)
 G 0 17339 0		*	a rather heavy looking purse
 G 0 17331 0		*	an emerald necklace
-M 0 17330 4 17371 1	* A serf (The Feast Hall)
-M 0 17334 1 17371 1	* A bard (The Feast Hall)
-M 0 17336 8 17371 1	* A servant (The Feast Hall)
-M 0 17336 8 17371 1	* A servant (The Feast Hall)
+M 0 17330 4 17371 1	* a serf (The Feast Hall)
+M 0 17334 1 17371 1	* a bard (The Feast Hall)
+M 0 17336 8 17371 1	* a servant (The Feast Hall)
+M 0 17336 8 17371 1	* a servant (The Feast Hall)
 M 0 17321 7 17372 1	* a lady in waiting (The Ladies' Chambers)
 E 0 17330 0 17		*	a silken favor: held in the hands
-M 0 17336 8 17372 1	* A servant (The Ladies' Chambers)
+M 0 17336 8 17372 1	* a servant (The Ladies' Chambers)
+M 0 17364 1 17373 1	* beautiful woman (The Maiden's Tower)
+E 0 17362 0 16		*	long slim dagger: wielded
 M 0 17321 7 17373 1	* a lady in waiting (The Maiden's Tower)
 E 0 17330 0 17		*	a silken favor: held in the hands
 M 0 17321 7 17373 1	* a lady in waiting (The Maiden's Tower)
 E 0 17330 0 17		*	a silken favor: held in the hands
 M 0 17321 7 17373 1	* a lady in waiting (The Maiden's Tower)
 E 0 17330 0 17		*	a silken favor: held in the hands
-M 0 17332 2 17373 1	* A monk (The Maiden's Tower)
-M 0 17336 8 17373 1	* A servant (The Maiden's Tower)
-M 0 17336 8 17373 1	* A servant (The Maiden's Tower)
+M 0 17332 2 17373 1	* a monk (The Maiden's Tower)
+M 0 17336 8 17373 1	* a servant (The Maiden's Tower)
+M 0 17336 8 17373 1	* a servant (The Maiden's Tower)
 M 0 17311 1 17374 1	* Sir Lamorak (Knight's Barracks)
 E 0 17314 0 8		*	lamorak's spurs: on the feet
-M 0 17301 9 17374 1	* The knight of reknown (Knight's Barracks)
+M 0 17301 9 17374 1	* the knight of renown (Knight's Barracks)
 E 0 17302 0 16		*	a knight's mace: wielded
-M 0 17301 9 17374 1	* The knight of reknown (Knight's Barracks)
+M 0 17301 9 17374 1	* the knight of renown (Knight's Barracks)
 E 0 17302 0 16		*	a knight's mace: wielded
 M 0 17303 9 17374 1	* the knight of quality (Knight's Barracks)
 E 0 17303 0 16		*	a knight's lance: wielded
 M 0 17303 9 17374 1	* the knight of quality (Knight's Barracks)
 E 0 17303 0 16		*	a knight's lance: wielded
-M 0 17336 8 17374 1	* A servant (Knight's Barracks)
+M 0 17336 8 17374 1	* a servant (Knight's Barracks)
 M 0 17313 1 17375 1	* Merlin (Merlin's Tower)
 E 0 17316 0 1		*	the Incubus crest ring: on the left finger
 E 0 17317 0 17		*	merlin's staff: held in the hands
@@ -4587,49 +5569,55 @@ M 0 17303 9 17376 1	* the knight of quality (The Round Table)
 E 0 17303 0 16		*	a knight's lance: wielded
 M 0 17322 1 17377 1	* Queen Gwenivere (Arthur's Chambers)
 E 0 17331 0 4		*	an emerald necklace: around the neck (2)
-M 0 17336 8 17378 1	* A servant (Noble's Chambers)
+O 0 17366 0 17377	* big chest (Arthur's Chambers)
+P 0 17368 1 17366 1	* big chest: sword named "Excalibur"
+M 0 17336 8 17378 1	* a servant (Noble's Chambers)
 O 0 17339 0 17380	* a rather heavy looking purse (Noble's Chambers)
-M 0 17337 1 17381 1	* A towering, black scaled demon (The Pentagram)
-M 0 17346 2 17388 1	* A northern border guard (An Outpost)
-M 0 17347 1 17388 1	* The northern outpost commander (An Outpost)
+M 0 17337 1 17381 1	* Aigram the demon (The Pentagram)
+E 0 17352 0 3		*	devilish amulet of Demon: around the neck (1)
+E 0 17369 0 13		*	belt of power: around the waist
+G 0 17370 0		*	glowing stone
+M 0 17346 2 17388 1	* a northern border guard (An Outpost)
+M 0 17347 1 17388 1	* the northern outpost commander (An Outpost)
 E 0 17341 0 16		*	a commander's steel broad sword: wielded
-M 0 17343 1 17389 1	* A Saxon raider (The rocky beach)
-M 0 17344 2 17389 1	* A slave (The rocky beach)
-M 0 17345 1 17389 1	* A Saxon chief (The rocky beach)
+M 0 17343 1 17389 1	* a Saxon raider (The rocky beach)
+M 0 17344 2 17389 1	* a slave (The rocky beach)
+M 0 17345 1 17389 1	* a Saxon chief (The rocky beach)
 E 0 17340 0 12		*	a lice infested cloak: about the shoulders
-M 0 17363 2 17389 1	* A slave (The rocky beach)
-M 0 17348 2 17390 1	* A Scot clansman (Scots Keep)
-M 0 17349 1 17390 1	* The Scot clan chief (Scots Keep)
+M 0 17363 2 17389 1	* a slave (The rocky beach)
+M 0 17348 2 17390 1	* a Scot clansmen (Scots Keep)
+M 0 17349 1 17390 1	* a Scot clan chief (Scots Keep)
 G 0 17342 0		*	a skin of whiskey
-M 0 17350 9 17391 1	* A busy serf (Farms)
-M 0 17350 9 17392 1	* A busy serf (Farms)
-M 0 17350 9 17393 1	* A busy serf (Farms)
-M 0 17350 9 17394 1	* A busy serf (Farms)
-M 0 17351 2 17395 1	* An Angle raider (Angle Raid!)
-M 0 17352 1 17395 1	* The Angle chief (Angle Raid!)
+M 0 17350 9 17391 1	* a busy serf (Farms)
+M 0 17350 9 17392 1	* a busy serf (Farms)
+M 0 17350 9 17393 1	* a busy serf (Farms)
+M 0 17350 9 17394 1	* a busy serf (Farms)
+M 0 17351 2 17395 1	* an Angle raider (Angle Raid!)
+M 0 17352 1 17395 1	* an Angle chief (Angle Raid!)
 E 0 17344 0 16		*	an angle: wielded
 O 0 17343 0 17395	* a dragon ship (Angle Raid!)
 M 0 17360 1 17395 1	* Gaheris (Angle Raid!)
 E 0 17349 0 16		*	an enormous axe: wielded
-M 0 17362 2 17396 1	* A southern border guard (An Outpost)
-M 0 17361 1 17396 1	* The southern outpost commander (An Outpost)
+M 0 17362 2 17396 1	* a southern border guard (An Outpost)
+M 0 17361 1 17396 1	* the southern outpost commander (An Outpost)
 E 0 17341 0 16		*	a commander's steel broad sword: wielded
-M 0 17353 1 17397 1	* The calvary unit (Battle!)
-M 0 17354 1 17397 1	* The infantry unit (Battle!)
-M 0 17355 1 17397 1	* The pict hoard (Battle!)
+M 0 17353 1 17397 1	* the cavalry unit (Battle!)
+M 0 17354 1 17397 1	* the infantry unit (Battle!)
+M 0 17355 1 17397 1	* the pict hoard (Battle!)
 M 0 17357 1 17397 1	* Persante of Inde (the blue knight) (Battle!)
 E 0 17346 0 0		*	the blue war banner of Persante of Inde: as a light
+E 0 17351 0 5		*	blue armor of Persante of Inde: on the body
 M 0 17358 1 17397 1	* Dodinas le Savage (Battle!)
 E 0 17347 0 16		*	lifecutter: wielded
 M 0 17359 1 17397 1	* Lionel (Battle!)
 E 0 17348 0 5		*	a suit of full plate armor: on the body
 M 0 17321 7 17398 1	* a lady in waiting (Stables)
 E 0 17330 0 17		*	a silken favor: held in the hands
-M 0 17330 4 17398 1	* A serf (Stables)
+M 0 17330 4 17398 1	* a serf (Stables)
 M 0 17339 1 17398 1	* Stirrup (Stables)
-M 0 17340 1 17399 1	* A riding horse (Pet Storage for Stables)
-M 0 17341 1 17399 1	* A medium warhorse (Pet Storage for Stables)
-M 0 17342 1 17399 1	* A heavy warhorse (Pet Storage for Stables)
+M 0 17340 1 17399 1	* a riding horse (Pet Storage for Stables)
+M 0 17341 1 17399 1	* a medium warhorse (Pet Storage for Stables)
+M 0 17342 1 17399 1	* a heavy warhorse (Pet Storage for Stables)
 S
 
 #SHOPS
@@ -4641,6 +5629,9 @@ S
 O 17352 1	* devilish amulet of Demon
 O 17353 2	* King Arthur's platemail
 O 17357 1	* longsword named "Galantine"
+O 17368 1	* sword named "Excalibur"
+O 17369 1	* belt of power
+O 17373 1	* sword named "Arondight"
 S
 
 #MOBPROGS
@@ -4655,7 +5646,7 @@ endif
 #0
 
 #PRACTICERS
-M 17337 attack~	* A towering, black scaled demon
+M 17337 attack~	* Aigram the demon
 S
 
 #$

@@ -1303,6 +1303,21 @@ weapon 0 AN
 sword 1000 100 'magic' BDI
 46 10 100000 P
 g none~
+#22400
+bracer~
+bracer~
+bracer~
+unknown~
+armor 0 AM
+10000 10000 10000 10000 0
+46 0 0 P
+A
+8 100
+A
+13 10000
+A
+12 10000
+g none~
 #0
 
 #ROOMS
@@ -3610,11 +3625,16 @@ E 0 22321 0 11		*	the Shield of Deflection: as a shield
 M 0 22301 12 22311 2	* Green Glutton Ghost (The End of Passage)
 G 0 22352 0		*	a huge piece of beef
 M 0 22301 12 22312 2	* Green Glutton Ghost (A Narrow Passage)
+G 0 22352 0		*	a huge piece of beef
 M 0 22301 12 22313 2	* Green Glutton Ghost (A Narrow Passage)
+G 0 22352 0		*	a huge piece of beef
 O 0 22399 0 22314	* battlaxe  (The Hall of the Crypts)
 M 0 22301 12 22315 2	* Green Glutton Ghost (A Narrow Passage)
+G 0 22352 0		*	a huge piece of beef
 M 0 22301 12 22316 2	* Green Glutton Ghost (A Narrow Passage)
+G 0 22352 0		*	a huge piece of beef
 M 0 22301 12 22317 2	* Green Glutton Ghost (The End of Passage)
+G 0 22352 0		*	a huge piece of beef
 O 0 22315 0 22318	* the tomb (A Crypt)
 M 0 22305 1 22318 1	* Chu-gun the Guard of Pa-Ra-Voz (A Crypt)
 E 0 22318 0 16		*	the Axel of Pa-Ra-Voz: wielded
@@ -3760,8 +3780,16 @@ S
 #MOBPROGS
 #22300
 say OH!! You bring it for me?! You so pleased!
-, eat the huge piece of beef
+, eats the huge piece of beef
 mob purge $o
+say I think that I can allow you to pass in Treasure Keep.
+say But you should be carefull. There are no exit from there.
+mob gtransfer $n 22404
+~
+#22301
+say You want to pass?  Ok, I allow you to pass.
+mob echo Itangast teleports you.
+mob transfer 22404
 ~
 #0
 

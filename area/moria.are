@@ -1,5 +1,5 @@
 #AREADATA
-Name Мория (Moria)~
+Name Moria~
 VNUMs 3900 4199
 Credits Alfa~
 Security 9
@@ -9,7 +9,7 @@ End
 #MOBILES
 #4000
 python snake питон толстый~
-@eng the huge python@rus Толстый питон~
+@eng the huge python@rus ~~толстый~~ ~~питон~~~
 @eng The huge python rears its head and hisses at you.
 @rus Толстый питон (huge pythton) поворачивает голову к тебе и угрожающе шипит.
 ~
@@ -22,11 +22,11 @@ ABF D -200 0
 11 2 11d9+110 1d1+99 3d4+2 'bite'
 -1 0 3 6
 FHNOR 0 F 0
-stand stand either 0
+stand stand male 0
 0 0 large unknown
 #4001
 garter snake змейка садовая~
-@eng the garter snake@rus Садовая змейка~
+@eng the garter snake@rus ~~садовая~~ ~~змейка~~~
 @eng A small green garter snake slithers along the floor.
 @rus Маленькая зеленая садовая змейка (garter snake) извивается на полу.
 ~
@@ -42,7 +42,7 @@ stand stand either 0
 0 0 small unknown
 #4002
 centipede сороконожка~
-@eng the centipede@rus Сороконожка~
+@eng the centipede@rus сороконожка~
 @eng A small centipede here is looking for vegetation.
 @rus Маленькая сороконожка (centipede) ищет что-нибудь растительное на пропитание.
 ~
@@ -56,9 +56,10 @@ ABU J 100 0
 FR 0 0 0
 stand stand none 0
 0 0 tiny unknown
+g @eng none@rus female~
 #4003
 kobold кобольд~
-@eng the kobold@rus Кобольд~
+@eng the kobold@rus кобольд~
 @eng An ugly kobold mumbles something under its breath.
 @rus Уродливый кобольд (kobold) невнятно что-то бормочет.
 ~
@@ -74,7 +75,7 @@ stand stand either 18
 0 0 small unknown
 #4004
 orc орк~
-@eng the orc@rus Орк~
+@eng the orc@rus орк~
 @eng This orc is frothing around the mouth.  Better stay away.
 @rus Из пасти орка (orc) исходит тяжелое зловоние. От него лучше держаться подальше.
 ~
@@ -90,7 +91,7 @@ stand stand male 60
 B 0 medium unknown
 #4005
 large orc большой орк~
-@eng the large orc@rus Большой орк~
+@eng the large orc@rus ~~большой~~ ~~орк~~~
 @eng This large orc is looking for someone small to pick on.
 @rus Большой орк (large orc) ищет кого-нибудь маленького, чтобы придраться к нему.
 ~
@@ -102,11 +103,11 @@ ACGT 0 -500 0
 7 1 6d7+70 1d1+99 1d8+2 'punch'
 4 5 5 8
 CJR 0 0 0
-stand stand either 120
+stand stand male 120
 0 0 medium unknown
 #4050
 warrior воин высокий~
-@eng the warrior@rus Высокий воин~
+@eng the warrior@rus ~~высокий~~ ~~воин~~~
 @eng This tall warrior has more scars than even you!
 @rus Высокий воин (warrior) имеет большее количество шрамов чем ты можешь счесть!
 ~
@@ -122,7 +123,7 @@ stand stand male 300
 0 0 medium unknown
 #4051
 warrior старый воин~
-@eng the warrior@rus Старый воин~
+@eng the warrior@rus ~~старый~~ ~~воин~~~
 @eng This veteran warrior is old enough to be your father.
 @rus Этот старый воин (warrior) достаточно стар, чтобы быть твоим отцом.
 ~
@@ -139,7 +140,7 @@ stand stand male 140
 0 0 medium unknown
 #4052
 hobgoblin хобгоблин~
-@eng the hobgoblin@rus Хобгоблин~
+@eng the hobgoblin@rus хоб~~гоблин~~~
 @eng A small beat-up hobgoblin cringes in the corner.
 @rus Маленький забитый хобгоблин (hobgoblin) съежился в углу.
 ~
@@ -158,7 +159,7 @@ stand stand male 12
 0 0 medium unknown
 #4053
 snake змея~
-@eng the snake@rus Змея~
+@eng the snake@rus змея~
 @eng A sickly brown snake watches you with caution.
 @rus Тощая коричневая змея (snake) флегматично наблюдает за тобой.
 ~
@@ -171,11 +172,12 @@ ABFU J -600 0
 10 1 4d10+100 1d1+99 2d6+1 'bite'
 0 2 2 5
 FGNR 0 EF 0
-stand stand either 0
+stand stand none 0
 0 0 medium unknown
+g @eng none@rus female~
 #4054
 centipede многоножка~
-@eng the centipede@rus Многоножка~
+@eng the centipede@rus многоножка~
 @eng A white centipede crawls along the cave floors randomly.
 @rus Белая многоножка (centipede) беспорядочно ползает по полу пещеры.
 ~
@@ -189,9 +191,10 @@ ABU J -100 0
 FR 0 0 0
 stand stand none 0
 0 0 small unknown
+g @eng none@rus female~
 #4055
 hobgoblin большой хобгоблин~
-@eng the large hobgoblin@rus Большой хобгоблин~
+@eng the large hobgoblin@rus ~~большой~~ хоб~~гоблин~~~
 @eng A large hobgoblin is here wondering if he should tear you apart.
 @rus Большой хобгоблин (large hobgoblin) раздумывает, глядя на тебя - не тебя
 ли он порвал недавно?
@@ -210,7 +213,7 @@ stand stand male 210
 0 0 medium unknown
 #4056
 orc орк~
-@eng the orc@rus Орк~
+@eng the orc@rus орк~
 @eng An orc is here, looking for something (or perhaps someone) to eat.
 @rus Орк (orc) рыщет здесь в поисках чего-то (или кого-то) съестного.
 ~
@@ -224,11 +227,11 @@ ACFGT 0 -800 0
 8 1 3d10+90 1d1+99 1d8+2 'beating'
 3 3 2 5
 CNR 0 0 0
-stand stand either 60
+stand stand male 60
 0 0 medium unknown
 #4057
 lion mountain горный лев~
-@eng the mountain lion@rus Горный лев~
+@eng the mountain lion@rus ~~горный~~ ~~лев~~~
 @eng A mountain lion bears its teeth at the sight of more food.
 @rus Горный лев (mountain lion) оскалился при виде такого количества продовольствия.
 ~
@@ -242,11 +245,12 @@ AFG 0 -100 0
 9 2 4d10+100 1d1+99 2d6+1 'claw'
 0 0 0 4
 ER 0 E 0
-stand stand either 0
+stand stand none 0
 0 0 large unknown
+g @eng none@rus male~
 #4058
 giant hill гигант холмов~
-@eng the hill giant@rus Гигант с холмов~
+@eng the hill giant@rus ~~гигант~~ с холмов~
 @eng A hill giant is here tossing rocks around.  Marbles perhaps?
 @rus Гигант c холмов (hill giant) расшвыривает камни. Похоже, мрамор...
 ~
@@ -266,7 +270,7 @@ stand stand male 500
 0 0 huge unknown
 #4100
 mage Маг~
-@eng the Mage@rus Маг~
+@eng the Mage@rus маг~
 @eng A small intelligent looking mage is standing here. It looks like he
 knows his way with magic. 
 @rus Здесь  стоит маленький, симпатично выглядящий волшебник (Mage). Его вещи 
@@ -283,14 +287,14 @@ FQ 0 C 0
 stand stand male 400
 0 0 medium unknown
 #4101
-troll троль~
-@eng the troll@rus Троль~
+troll тролль~
+@eng the troll@rus тролль~
 @eng This large mean-looking troll wants to take a closer look at you.
-@rus Большой озадаченный троль (troll) хочет рассмотреть тебя поближе.
+@rus Большой озадаченный тролль (troll) хочет рассмотреть тебя поближе.
 ~
 @eng Whilst you look at this troll, you realize he is trying to
 figure just how tender you are.
-@rus Пока ты рассматриваешь троля, он пытается скопировать твою фигуру.
+@rus Пока ты рассматриваешь тролля, он пытается скопировать твою фигуру.
 ~
 troll~
 ABCFT 0 -800 0
@@ -301,7 +305,7 @@ stand stand male 200
 0 0 large unknown
 #4102
 guardian snake сторожевая змея~
-@eng the guardian snake@rus Cторожевая змея~
+@eng the guardian snake@rus ~~сторожевая~~ ~~змея~~~
 @eng A large green snake is guardian for something.
 @rus Большая зеленая змея (guardian snake) сторожит тут что-то.
 ~
@@ -315,11 +319,11 @@ ABCF J -700 0
 10 2 4d10+100 1d1+99 2d6+1 'bite'
 0 0 2 6
 HMNOR 0 F G
-stand stand either 0
+stand stand female 0
 0 0 medium unknown
 #4103
 thief вор~
-@eng the thief@rus Вор~
+@eng the thief@rus вор~
 @eng A thief, all dressed in black.
 @rus Вор (thief), одетый во все черное.
 ~
@@ -331,11 +335,11 @@ ACHS JPQ -100 0
 8 1 6d8+80 1d1+99 1d5+1 'punch'
 2 4 3 7
 EFJN 0 0 0
-stand stand either 100
+stand stand male 100
 0 0 medium unknown
 #4104
 orc орк~
-@eng the orc@rus Орк~
+@eng the orc@rus орк~
 @eng An ugly orc is standing here waiting for someone to practice on.
 @rus Уродливый орк (orc) торчит тут, ждет кого-нибудь, чтобы попрактиковаться...
 ~
@@ -351,7 +355,7 @@ stand stand male 150
 0 0 medium unknown
 #4105
 centipede сороконожка~
-@eng a centipede@rus Сороконожка~
+@eng a centipede@rus сороконожка~
 @eng A small harmless centipede is here looking for some vegetation to eat.
 @rus Маленькая  безобидная  многоножка (centipede)  ищет  здесь какую-нибудь
 растительность, чтобы поесть.
@@ -369,7 +373,7 @@ stand stand none 0
 0 0 small unknown
 #4106
 warrior воин~
-@eng the Warrior@rus Воин~
+@eng the Warrior@rus воин~
 @eng A human warrior grins an evil grin in your face.
 @rus Воин-человек (warrior) усмехается тебе злой усмешкой.
 ~
@@ -385,7 +389,7 @@ stand stand male 300
 0 0 medium unknown
 #4107
 kobold green кобольд зеленый~
-@eng the green kobold@rus Зеленый кобольд~
+@eng the green kobold@rus ~~зеленый~~ ~~кобольд~~~
 @eng A green kobold hobbles along the cave walls puking periodically.
 @rus Зеленый кобольд (green kobold) хромает по пещере, периодически (фу!) пукая.
 ~
@@ -397,11 +401,11 @@ ACFGT 0 -100 0
 7 1 8d4+50 1d1+99 2d4+1 'claw'
 5 5 5 10
 NR 0 0 0
-stand stand either 25
+stand stand male 25
 0 0 small unknown
 #4150
 bat blue синяя летучая мышь~
-@eng the blue bat@rus Синяя летучая мышь~
+@eng the blue bat@rus ~~синяя~~ ~~летучая~~ ~~мышь~~~
 @eng A blue bat flies in circles while electrical charges arc here and there.
 @rus Синяя летучая мышь (blue bat) появляется то тут, то там, возникая в рое искр.
 ~
@@ -413,11 +417,12 @@ ABF J -100 0
 7 1 3d10+70 1d1+99 1d9+1 'shbite'
 4 4 4 6
 R J 0 RYZ
-stand stand either 0
+stand stand none 0
 0 0 tiny unknown
+g @eng none@rus female~
 #4151
 bat red красная летучая мышь~
-@eng the red bat@rus Красная летучая мышь~
+@eng the red bat@rus ~~красная~~ ~~летучая~~ ~~мышь~~~
 @eng A red bat hangs upside down from the ceiling, glowing.
 @rus Красная летучая мышь (red bat), светясь, свешивается с потолка.
 ~
@@ -430,11 +435,12 @@ ABF J -100 0
 7 1 3d10+70 1d1+99 1d9+1 'flbite'
 4 4 4 6
 R H 0 IR
-stand stand either 0
+stand stand none 0
 0 0 tiny unknown
+g @eng none@rus female~
 #4152
 bat green зеленая летучая мышь~
-@eng the green bat@rus Зеленая летучая мышь~
+@eng the green bat@rus ~~зеленая~~ ~~летучая~~ ~~мышь~~~
 @eng A green bat flies from wall to wall leaving an awful smell.
 @rus Зеленая  летучая мышь (green bat) мечется от стенки к стенке, оставляя за
 собой ужасный запах.
@@ -447,11 +453,12 @@ ABF J -100 0
 7 1 3d10+70 1d1+99 1d9+1 'bite'
 4 4 4 6
 R L 0 0
-stand stand either 0
+stand stand none 0
 B 0 tiny unknown
+g @eng none@rus female~
 #4153
 bat white белая летучая мышь~
-@eng the white bat@rus Белая летучая мышь~
+@eng the white bat@rus ~~белая~~ ~~летучая~~ ~~мышь~~~
 @eng A white bat rests on the ceiling.  You wonder where the cold is coming from.
 @rus Белая летучая мышь (white bat) висит на потолке. Невольно возникает
 вопрос - откуда идет такой холод?
@@ -464,11 +471,12 @@ ABF J -100 0
 7 1 3d10+70 1d1+99 1d9+1 'frbite'
 4 4 4 6
 R I 0 H
-stand stand either 0
+stand stand none 0
 0 0 tiny unknown
+g @eng none@rus female~
 #4154
 bat black черная летучая мышь~
-@eng the black bat@rus Черная летучая мышь~
+@eng the black bat@rus ~~черная~~ ~~летучая~~ ~~мышь~~~
 @eng A black bat flies from wall to wall leaving something hissing behind.
 @rus Тут летает черная летучая мышь (black bat), издавая какой-то странный звук.
 ~
@@ -480,11 +488,12 @@ ABF J -100 0
 7 1 3d10+70 1d1+99 1d9+1 'acbite'
 4 4 4 6
 R K 0 0
-stand stand either 0
+stand stand none 0
 0 0 tiny unknown
+g @eng none@rus female~
 #4155
 thief вор~
-@eng the thief@rus Вор~
+@eng the thief@rus вор~
 @eng A sneaky thief appears and disappears within the shadows.
 @rus Трусливый вор (thief) появляется и исчезает среди теней.
 ~
@@ -500,7 +509,7 @@ stand stand male 500
 0 0 medium unknown
 #4156
 troll троль~
-@eng the troll@rus Тролль~
+@eng the troll@rus тролль~
 @eng A large ugly troll is here mumbling something.
 @rus Большой уродливый тролль (troll) бормочет тут что-то себе под нос.
 ~
@@ -516,7 +525,7 @@ stand stand male 1000
 0 0 huge unknown
 #4157
 mage маг~
-@eng the Mage@rus Маг~
+@eng the Mage@rus маг~
 @eng A small man is here researching magical incantations.
 @rus Маленький человечек (mage) исследует здесь волшебные заклинания.
 ~
@@ -534,7 +543,7 @@ stand stand male 200
 0 0 medium unknown
 #4158
 snake змея~
-@eng the snake@rus Змея~
+@eng the snake@rus змея~
 @eng A brown snake hisses at you.
 @rus Коричневая змея (snake) шипит на тебя.
 ~
@@ -548,11 +557,11 @@ ABFU J 200 0
 9 1 2d10+100 1d1+99 1d12+1 'bite'
 1 3 3 6
 FGNR 0 EF 0
-fight fight either 0
+fight fight female 0
 0 0 medium unknown
 #4159
 troll small троль маленький~
-@eng the small troll@rus Маленький троль~
+@eng the small troll@rus ~~маленький~~ ~~тролль~~~
 @eng A 'small' troll is here happily dancing.  Trala-la-la.  La-la.
 @rus "Маленький" тролль (small troll) весело танцует тут. Тра-ля-ля, тра-ля-ля...
 ~
@@ -568,7 +577,7 @@ stand stand male 100
 0 0 large unknown
 #4160
 orc орк~
-@eng the orc@rus Орк~
+@eng the orc@rus орк~
 @eng A large orc growls in your face.
 @rus Большой орк (orc) рычит тебе в лицо.
 ~
@@ -580,14 +589,14 @@ ACFGT 0 -200 0
 9 1 3d10+100 1d1+99 1d8+2 'beating'
 2 2 1 5
 CJNR 0 0 0
-stand stand either 150
+stand stand male 150
 0 0 medium unknown
 #0
 
 #OBJECTS
 #4000
 ring yellow green желто-зеленое кольцо~
-@eng a yellow and green ring@rus желто-зеленое кольцо~
+@eng a yellow and green ring@rus ~~желто-зеленое~~ ~~кольцо~~~
 @eng A ring, with yellow and green ornamentation. It looks very old.@rus Ты видишь кольцо с желто-зеленым орнаментом (yellow and green ring).~
 copper~
 treasure 0 AB
@@ -616,19 +625,19 @@ still clutches a partially digested map...
 @rus Эх. Это, наверное, картограф, который пропал в Мории.
 Его разложившиеся руки до сих пор сжимают остатки карты...
 ~
-g none~
+g @eng none@rus male~
 #4002
 coins монеты~
-@eng some coins@rus несколько монет~
+@eng some coins@rus ~~кучка~~ монет~
 @eng A small pile of coins.@rus Несколько монет (coins) лежат тут.~
 silver~
 money 0 A
 200 3 0 0 0
 0 5000 0 P
-g none~
+g @eng none@rus female~
 #4003
 dagger rusty ржавый кинжал~
-@eng a rusty dagger@rus ржавый кинжал~
+@eng a rusty dagger@rus ~~ржавый~~ ~~кинжал~~~
 @eng A worn and rusty dagger is here.@rus Источенный старый кинжал (rusty dagger) брошен тут.~
 iron~
 weapon 0 AN
@@ -641,7 +650,7 @@ dagger кинжал~
 @eng It's old and rusted, but it still has a good edge.
 @rus Он очень стар, от чиго и поржавел, но кажется он хорош и так.
 ~
-g none~
+g @eng none@rus male~
 #4004
 bullwhip whip кнут~
 @eng a bullwhip@rus кнут~
@@ -652,10 +661,10 @@ whip 1 7 'whip' 0
 3 30 240 G
 A
 18 1
-g none~
+g @eng none@rus male~
 #4005
 club tree huge палица~
-@eng a huge club@rus громадная палица~
+@eng a huge club@rus ~~громадная~~ ~~палица~~~
 @eng An uprooted tree leans against the wall.@rus Вырванное с корнем дерево (huge club) прислонено к стене.~
 wood~
 weapon 0 AN
@@ -669,10 +678,10 @@ club tree палица~
 trim the roots off the end.
 @rus Эта громадина похоже была выкорчевана с корнем каким-то гигантом.
 ~
-g none~
+g @eng none@rus female~
 #4006
 furs smelly вонючий мех~
-@eng some smelly furs@rus вонючие меха~
+@eng some smelly furs@rus ~~вонючий~~ ~~мех~~~
 @eng A heap of smelly furs sit here.@rus Куча вонючих мехов (smelly furs) брошена тут.~
 fur~
 armor 0 AK
@@ -687,10 +696,10 @@ like good armor.
 @rus Она очень тяжелая, к тому-же очень воняет, но с другой стороны выглядит как
 хорошая броня.
 ~
-g none~
+g @eng none@rus male~
 #4050
 potion purple фиолетовая микстура~
-@eng a purple potion@rus фиолетовая микстура~
+@eng a purple potion@rus ~~фиолетовая~~ ~~микстура~~~
 @eng A purple potion is here.@rus Фиолетовая микстура (purple potion) лежит тут.~
 glass~
 potion 0 AO
@@ -701,10 +710,10 @@ potion purple фиолетовая микстура~
 @eng It looks rather strange!
 @rus Выглядит как-то странно!
 ~
-g none~
+g @eng none@rus female~
 #4051
 helmet metal шлем металл~
-@eng a metal helmet@rus металлический шлем~
+@eng a metal helmet@rus ~~металлический~~ ~~шлем~~~
 @eng A metal helmet is here.@rus Металлический шлем (metal helmet) лежит тут.~
 iron~
 armor G AE
@@ -726,10 +735,10 @@ mushroom мухомор~
 @eng Let's put it this way - I wouldn't eat it !
 @rus На твоем месте я бы его не трогал - пусть растет. И тем более не ел.
 ~
-g none~
+g @eng none@rus male~
 #4053
 dirk нож~
-@eng a thieves dirk@rus воровской нож~
+@eng a thieves dirk@rus ~~воровской~~ ~~нож~~~
 @eng A beautifully crafted dirk is lying here.@rus Красиво украшенный нож (thieves dirk) воткнут  тут.~
 steel~
 weapon G AN
@@ -747,10 +756,10 @@ thieves weapon.
 @rus Средних размеров, прекрасно изготовлен из серой аллои, двойное лезвие
 причем очень сильно заточеное ... выглядит хорошим оружием для вора.
 ~
-g none~
+g @eng none@rus male~
 #4054
 axe war топор боевой~
-@eng a war axe@rus боевой топор~
+@eng a war axe@rus ~~боевой~~ ~~топор~~~
 @eng A razor-sharp war axe rests on the ground.@rus Острый как бритва топор (war axe) лежит на земле.~
 steel~
 weapon G AN
@@ -764,10 +773,10 @@ axe топор~
 @rus Этот топор зточен так, буд-то ты с одного маху смог бы срубить дерево.
 Ты не капельки не жалеешь, что нашел его здеcь.
 ~
-g none~
+g @eng none@rus male~
 #4055
 sword broad широкий меч~
-@eng a broad sword@rus широкий меч~
+@eng a broad sword@rus ~~широкий~~ ~~меч~~~
 @eng A well-polished broadsword sits here.@rus Хорошо отполированный меч (broad sword) лежит здесь.~
 steel~
 weapon 0 AN
@@ -778,10 +787,10 @@ sword~
 @eng It's much heavier than a long sword, but not as well balanced.
 @rus Он гораздо тяжелее длинного меча, но его балансировка... Она никуда не годится.
 ~
-g none~
+g @eng none@rus male~
 #4056
 flail two two-headed цеп двухголовый~
-@eng a two-headed flail@rus двухголовый цеп~
+@eng a two-headed flail@rus ~~двухголовый~~ ~~цеп~~~
 @eng A flail with two heavy, spiked heads is here.@rus Цеп с двумя тяжелыми, зубчатыми главами (two-headed flail) лежит тут.~
 iron~
 weapon 0 AN
@@ -791,10 +800,10 @@ A
 17 1
 A
 19 2
-g none~
+g @eng none@rus male~
 #4057
 mace heavy тяжелая булава~
-@eng a heavy iron mace@rus тяжелая мулава~
+@eng a heavy iron mace@rus ~~тяжелая~~ ~~булава~~~
 @eng A large iron mace with a wicked head rests on the ground.@rus Большая железная булава (heavy iron mace) со злой головой лежит на земле.~
 iron~
 weapon 0 AN
@@ -802,7 +811,7 @@ mace 2 4 'pound' 0
 6 100 390 G
 A
 19 1
-g none~
+g @eng none@rus male~
 #4058
 falchion sword ятаган~
 @eng a falchion@rus ятаган~
@@ -828,10 +837,10 @@ polearm 2 6 'slash' F
 10 120 520 A
 A
 17 -1
-g none~
+g @eng none@rus female~
 #4100
 blade black demon черный клинок демон~
-@eng the black demon blade@rus черный клинок демон~
+@eng the black demon blade@rus ~~черный~~ ~~клинок~~~
 @eng An evil black demon blade is here.@rus Здесь лежит излучающий зло черный демонический клинок (black demon blade).~
 adamantite~
 weapon GJL AN
@@ -842,10 +851,10 @@ blade~
 @eng You'll become as evil as the weapon, if you use it!
 @rus Ты станешь таким же злым, как и это оружие, если будешь использовать его!
 ~
-g none~
+g @eng none@rus male~
 #4101
 gloves перчатки~
-@eng swordsman's gloves@rus боевые перчатки~
+@eng swordsman's gloves@rus ~~боевые~~ ~~перчатки~~~
 @eng Some gloves are here. They look like the right equipment for fighting.@rus Перчатки (swordsman's gloves), лежащие тут, производят впечатление боевых.~
 leather~
 armor G AH
@@ -855,10 +864,10 @@ A
 19 1
 A
 18 1
-g none~
+g @eng none@rus plural~
 #4102
 scroll ysafg свиток~
-@eng a scroll which reads "ysafg"@rus свиток с надписью "ysafg"~
+@eng a scroll which reads "ysafg"@rus ~~свиток~~ с надписью "ysafg"~
 @eng A scroll which reads "ysafg", it looks very fragile and quite old.@rus Старый свиток (scroll), на котором виднеется надпись "ysafg".~
 parchment~
 scroll G AO
@@ -869,10 +878,10 @@ scroll свиток~
 @eng It looks informative.
 @rus Он выглядит многозначительно...
 ~
-g none~
+g @eng none@rus male~
 #4103
 slime mold комок слизь~
-@eng a green slime mold@rus зеленый комок слизи~
+@eng a green slime mold@rus ~~зеленый~~ ~~комок~~ слизи~
 @eng A green slime mold is here. It smells REAL bad.@rus Зеленый комок слизи (green slime mold) лежит тут. Он действительно ВОНЯЕТ.~
 food~
 food P A
@@ -883,10 +892,10 @@ slime mold комок слизь~
 @eng It wasn't meant to be food, - Certainly not for humans.
 @rus Это НЕ МОЖЕТ БЫТЬ пищей! Во всяком случае, не для человека.
 ~
-g none~
+g @eng none@rus male~
 #4104
 slime mold комок слизи~
-@eng a green slime mold@rus зеленый комок слизи~
+@eng a green slime mold@rus ~~зеленый~~ ~~комок~~ слизи~
 @eng A green slime mold is here. It smells REAL bad.@rus Зеленый комок слизи (green slime mold) лежит тут. Он действительно ВОНЯЕТ.~
 food~
 food P A
@@ -897,10 +906,10 @@ slime mold комок слизи~
 @eng It wasn't meant to be food, - Certainly not for humans.
 @rus Это НЕ МОЖЕТ БЫТЬ пищей! Во всяком случае, не для человека.
 ~
-g none~
+g @eng none@rus male~
 #4105
 staff iron iron-shod посох~
-@eng an iron-shod staff@rus посох с железным наконечником~
+@eng an iron-shod staff@rus ~~посох~~ с железным наконечником~
 @eng A long staff capped with iron leans against a wall.@rus Длинный посох с железным наконечником (iron-shod staff) лежит вдоль стены.~
 iron~
 weapon 0 AN
@@ -908,10 +917,10 @@ spear 2 5 'pound' F
 10 60 630 G
 A
 17 -2
-g none~
+g male~
 #4150
 black potion черное зелье~
-@eng a black potion@rus черное зелье~
+@eng a black potion@rus ~~черное~~ ~~зелье~~~
 @eng A thick black potion is here.@rus Толстая банка с зельем (black potion) стоит тут.~
 glass~
 potion G AO
@@ -925,7 +934,7 @@ potion black черное зелье~
 g none~
 #4151
 staff oak тяжелый дубовый посох~
-@eng a heavy oak staff@rus тяжелый дубовый посох~
+@eng a heavy oak staff@rus ~~тяжелый~~ ~~дубовый~~ ~~посох~~~
 @eng A ancient heavy oak staff is here.@rus Древний дубовый посох (heavy oak staff) стоит тут.~
 wood~
 staff G AO
@@ -941,10 +950,10 @@ E
 staff oak~
 You see it has some sort of runes on it.
 ~
-g none~
+g @eng none@rus male~
 #4152
 dagger light silver кинжал светлого серебра~
-@eng a light silver dagger@rus кинжал из светлого серебра~
+@eng a light silver dagger@rus ~~кинжал~~ из светлого серебра~
 @eng A light silver dagger is here.@rus Кинжал из светлого серебра (light silver dagger) лежит тут.~
 silver~
 weapon 0 AN
@@ -959,10 +968,10 @@ dagger light silver кинжал~
 @eng It looks like an excellent weapon for thieves.
 @rus Смотрится как превосходное оружие для воров.
 ~
-g none~
+g @eng none@rus male~
 #4153
 star morning morningstar утренняя звезда~
-@eng a morning star@rus утренняя звезда~
+@eng a morning star@rus ~~утренняя~~ ~~звезда~~~
 @eng A heavy, spiked morning star is here.@rus Тяжелая, зубчатая утренняя звезда (morning star) лежит тут.~
 iron~
 weapon 0 AN
@@ -977,10 +986,10 @@ star morning утренняя звезда~
 It's a huge length of wood studded with iron spikes and bands. You wouldn't
 want to meet this in a dark alley...
 ~
-g none~
+g @eng none@rus female~
 #4154
 map moria second карта второй уровень мория~
-@eng a map of the second level of Moria@rus карта второго уровня Мории~
+@eng a map of the second level of Moria@rus ~~карта~~ второго уровня Мории~
 @eng A rolled up map is here.@rus Свернутая карта (map of the second level of Moria) лежит тут.~
 paper~
 map 0 A
@@ -1006,10 +1015,10 @@ Maze--Maze--Maze--Maze
                    *Hole
                   (Map 3)
 ~
-g none~
+g @eng none@rus female~
 #4155
 map moria third карта третий уровень мория~
-@eng a map of the third level of Moria@rus карта третьего уровня Мории~
+@eng a map of the third level of Moria@rus ~~карта~~ третьего уровня Мории~
 @eng A rolled up map is here.@rus Свернутая карта (map of the third level of Moria) лежит тут.~
 paper~
 map 0 A
@@ -1051,7 +1060,7 @@ map moria third~
                        Maze*
                       (Map 2)
 ~
-g none~
+g @eng none@rus female~
 #0
 
 #ROOMS
