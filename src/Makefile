@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.1 1998-06-06 10:55:10 fjoe Exp $
+# $Id: Makefile,v 1.2 1998-06-06 12:35:26 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -26,8 +26,8 @@ OFILES = act_comm.o act_hera.o act_info.o act_move.o act_obj.o act_wiz.o \
 
 #
 # for Unixware 2.x
-#CFLAGS += -DSVR4
-#OFILES += -lsocket -lnsl
+#CFLAGS += -DSVR4 -DOLD_RAND
+#LFLAGS += -lsocket -lnsl -lcrypt
 #OFILES += strsep.o
 
 muddy: $(OFILES)

@@ -1,13 +1,11 @@
 #include <stdarg.h>
+#include <stdio.h>
+#include <sys/types.h>
 #include "compat.h"
 
 /*
- * $Id: snprintf.c,v 1.1 1998-06-06 10:51:57 fjoe Exp $
+ * $Id: snprintf.c,v 1.2 1998-06-06 12:35:26 fjoe Exp $
  */
-
-#ifdef SUNOS
-#	include <stdio.h>
-#endif
 
 int snprintf(char* buf, size_t size, const char* fmt, ...)
 {
