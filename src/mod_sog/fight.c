@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.120 1999-01-21 12:23:39 kostik Exp $
+ * $Id: fight.c,v 1.121 1999-01-26 07:08:21 kostik Exp $
  */
 
 /***************************************************************************
@@ -1072,6 +1072,9 @@ void delete_player(CHAR_DATA *victim, char* msg)
 void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	bool vnpc = IS_NPC(victim);
+	bool is_duel = (!IS_NPC(victim)) 
+		&& (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM)) 
+		&& (IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA));
 	OBJ_DATA *corpse;
 
 	group_gain(ch, victim);
@@ -1117,7 +1120,7 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 
 	/* Dying penalty: 2/3 way back. */
-	if (IS_SET(victim->plr_flags, PLR_WANTED) && victim->level > 1) {
+	if (IS_SET(victim->plr_flags, PLR_WANTED) && victim->level > 1 && !is_duel) {
 		REMOVE_BIT(victim->plr_flags, PLR_WANTED);
 		victim->level--;
 		victim->pcdata->plevels++;
@@ -1128,6 +1131,8 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 		if (victim->exp_tl > 0)
 			gain_exp(victim, -victim->exp_tl*2/3);
 	}
+	
+	if (is_duel) return;
 
 	if ((++victim->pcdata->death % 3) != 2)
 		return;

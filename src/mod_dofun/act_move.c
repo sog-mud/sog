@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.129 1999-01-03 13:54:34 fjoe Exp $
+ * $Id: act_move.c,v 1.130 1999-01-26 07:08:21 kostik Exp $
  */
 
 /***************************************************************************
@@ -2281,7 +2281,7 @@ void do_vanish(CHAR_DATA *ch, const char *argument)
 	}
 
 	for (; ;) {
-		if ((pRoomIndex = get_room_index(number_range(0, 65535))) == NULL)
+		if ((pRoomIndex = get_room_index(number_range(ch->in_room->area->min_vnum, ch->in_room->area->max_vnum))) == NULL)
 			continue;
 		if ((ch->in_room->vnum < 500 || ch->in_room->vnum > 600)
 		&&  (pRoomIndex->vnum > 500 && pRoomIndex->vnum < 600))
