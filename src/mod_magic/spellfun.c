@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.53 1998-09-22 18:07:15 fjoe Exp $
+ * $Id: spellfun.c,v 1.54 1998-09-24 06:37:46 kostik Exp $
  */
 
 /***************************************************************************
@@ -1254,6 +1254,9 @@ void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 		char_puts("You like yourself even better!\n\r", ch);
 		return;
 	}
+
+	if (!IS_NPC(victim) && !IS_NPC(ch)) 
+		level+=get_curr_stat(ch,STAT_CHA)-get_curr_stat(victim,STAT_CHA); 
 
 	if (IS_AFFECTED(victim, AFF_CHARM)
 	||  IS_AFFECTED(ch, AFF_CHARM)
