@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.88 1999-12-04 10:34:57 fjoe Exp $
+ * $Id: olc.c,v 1.89 1999-12-11 11:23:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -84,8 +84,8 @@ const char ED_EXPL[]	= "explicit";
 const char ED_SOCIAL[]	= "socials";
 const char ED_CMD[]	= "cmds";
 const char ED_SKILL[]	= "skills";
-const char ED_RACE[]	= "race";
-const char ED_CLASS[]	= "class";
+const char ED_RACE[]	= "races";
+const char ED_CLASS[]	= "classes";
 const char ED_MATERIAL[]= "materials";
 const char ED_LIQUID[]	= "liquids";
 
