@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.124 1999-05-19 08:05:36 fjoe Exp $
+ * $Id: update.c,v 1.125 1999-05-19 11:14:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -635,8 +635,11 @@ void mobile_update(void)
 			continue;
 
 		act = ch->pIndexData->act;
-		if (IS_SET(act, ACT_HUNTER) && ch->hunting)
+		if (IS_SET(act, ACT_HUNTER) && ch->hunting) {
 			hunt_victim(ch);
+			if (IS_EXTRACTED(ch))
+				continue;
+		}
 
 		if (ch->in_room->area->empty
 		&&  !IS_SET(act, ACT_UPDATE_ALWAYS))
@@ -1120,8 +1123,7 @@ void char_update(void)
 		if (ch->position == POS_STUNNED)
 			update_pos(ch);
 
-		if (!IS_NPC(ch) && ch->level < LEVEL_IMMORTAL
-		&&  ch->in_room != NULL) {
+		if (!IS_NPC(ch) && ch->level < LEVEL_IMMORTAL) {
 			OBJ_DATA *obj;
 
 			if ((obj = get_eq_char(ch, WEAR_LIGHT))
@@ -1171,6 +1173,8 @@ void char_update(void)
 					gain_condition(ch, COND_THIRST, -1);
 				gain_condition(ch, COND_HUNGER, 
 					     ch->size > SIZE_MEDIUM ? -2 : -1);
+				if (IS_EXTRACTED(ch))
+					continue;
 			}
 		}
 
