@@ -1912,11 +1912,9 @@ Syntax: cast 'frost breath'     <victim>
 Syntax: cast 'gas breath'
 Syntax: cast 'lightning breath' <victim>
 
-These spells are for the use of dragons.  Acid, fire, frost, and lightning
-damage one victim, whereas gas damages every PC in the room.  Fire and
-frost can break objects, and acid can damage armor.
-
-High level mages may learn and cast these spells as well.
+These spells are for the use of dragons.  Acid and lightning damage one victim,
+whereas fire, frost and gas damage everyone in the room. Fire, lightning and
+frost breath can break objects, and acid can damage armor.
 ~
 -1 'RACE HELP' RACE RACES 'RACE HELP'~
 The culturally diverse realm of Muddy MUD is home to 18 different races.

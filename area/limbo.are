@@ -1067,7 +1067,7 @@ matter, surrounded by swirling glowing light, which fades into the relative
 darkness around you without any trace of edges or shadow.
    There is a "No Tipping" notice pinned to the darkness.
 ~
-0 DKNT city
+0 ADKNT city
 D4
 ~
 ~
@@ -1181,13 +1181,13 @@ O 61 fight_prog fight_prog_tattoo_ares	* `tattoo of ares, God of War'
 O 62 fight_prog fight_prog_tattoo_goktengri	* `tattoo of goktengri, God of Honor'
 O 63 fight_prog fight_prog_tattoo_hera	* `tattoo of hera, god of hate'
 O 64 fight_prog fight_prog_tattoo_venus	* `tattoo of venus, god of beauty'
-O 65 fight_prog fight_prog_tattoo_seth	* `tattoo of set, god of anger'
+O 65 fight_prog fight_prog_tattoo_seth	* `tattoo of seth, god of anger'
 O 66 fight_prog fight_prog_tattoo_enki	* `tattoo of enki, god of knowledge'
 O 67 fight_prog fight_prog_tattoo_eros	* `tattoo of eros, god of love'
-O 71 wear_prog wear_prog_ruler_shield
-O 72 wear_prog wear_prog_ruler_shield
-O 73 wear_prog wear_prog_ruler_shield
-O 74 wear_prog wear_prog_ruler_shield
+O 71 wear_prog wear_prog_ruler_shield	* `Rulers' Buckler'
+O 72 wear_prog wear_prog_ruler_shield	* `Rulers' Great Shield'
+O 73 wear_prog wear_prog_ruler_shield	* `Rulers' Kite Shield'
+O 74 wear_prog wear_prog_ruler_shield	* `Rulers' Tower Shield'
 O 80 fight_prog fight_prog_golden_weapon	* `a golden dagger'
 O 80 death_prog death_prog_golden_weapon	* `a golden dagger'
 O 81 fight_prog fight_prog_golden_weapon	* `a golden mace'

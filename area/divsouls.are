@@ -2544,7 +2544,7 @@ The sharp chisel of a master sculptor lies here.~
 diamond~
 weapon 0 AN
 dagger 9 8 pierce D
-68 400 4500 P
+68 250 4500 P
 A
 19 3
 A
@@ -2805,7 +2805,7 @@ A sharp dagger gleams with fresh blood.~
 obsidian~
 weapon AJ AN
 dagger 7 10 pierce D
-65 380 2550 P
+65 250 2550 P
 A
 19 4
 A
@@ -2855,7 +2855,7 @@ The bloody fang of a vampire lies here.~
 bone~
 weapon B AN
 dagger 8 10 pierce CD
-70 440 4300 P
+70 250 4300 P
 A
 19 4
 A
@@ -3053,7 +3053,7 @@ A sliver of darkness glimmers here.~
 shadow~
 weapon C AN
 dagger 13 6 pierce D
-70 410 6230 P
+70 250 6230 P
 A
 19 4
 A

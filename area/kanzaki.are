@@ -233,15 +233,53 @@ axe battle urukhay~
 A large two-bladed battle axe lies on the ground, humming with might.~
 steel~
 weapon BHY AN
-axe 6 24 cleave DFH
-91 300 100 P
+axe 11 12 cleave DFH
+91 500 100 P
 A
 19 20
 A
 18 20
+#47014
+flamberge blaze sword~
+{YFlamberge Blaze{x~
+A huge wavy blade lies here, enshrouded in flames.~
+adamantite~
+weapon BHKLP AN
+sword 12 10 chop ADFI
+91 500 10000 P
+A
+19 20
+A
+18 20
+#47015
+flaming sword~
+{Yflaming sword{x~
+A longsword enshrouded in flames lies here.~
+steel~
+weapon AH AN
+sword 12 10 slash AD
+91 100 0 P
+A
+18 20
+A
+19 20
+#47016
+shroud shadows myrxes~
+a -=+)> shroud~
+Deep shadows absorb the light.~
+unknown~
+container CF AK
+100 0 0 600 10
+91 10 10000 P
+A
+19 7
+A
+18 6
+A
+13 50
 #47100
 tablet wooden~
-@eng Wooden tablet@rus Дереванная табличка~
+@eng {xWooden tablet@rus Дереванная табличка~
 @eng (Humming)(Glowing) A wooden tablet stands near the path.@rus Деревянная табличка стоит около дороги.~
 wood~
 trash RY P
@@ -2841,7 +2879,7 @@ O 0 47003 0 47001	* A small tree (The terrace)
 M 0 47000 1 47001 1	* The statue (The terrace)
 E 0 47004 0 16		*	Sword of Enforcement: wielded
 O 0 47005 0 47002	* {YThe sun{x (Аbove the clouds)
-O 0 47100 0 47100	* Wooden tablet (Dusty road)
+O 0 47100 0 47100	* {xWooden tablet (Dusty road)
 O 0 47120 0 47106	* Sign (Village pub)
 O 0 47121 0 47106	* bench (Village pub)
 O 0 47122 0 47106	* Table (Village pub)
@@ -2883,6 +2921,9 @@ O 47010 1	* {Wa blessing{x
 O 47011 1	* {Wamulet of purity{x
 O 47012 0	* {xBarrel of ale
 O 47013 1	* {rUrukhay's battle axe{x
+O 47014 1	* {YFlamberge Blaze{x
+O 47015 1	* {Yflaming sword{x
+O 47016 1	* a -=+)> shroud
 S
 
 #MOBPROGS

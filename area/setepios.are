@@ -188,12 +188,12 @@ A
 A
 13 1000
 #38011
-bow Safira~
-{CBow of Safira{x~
-Bow of Safira lies here~
+sword safira~
+Sword of Safira~
+Sword of Safira lies here.~
 unknown~
-weapon ACI AN
-exotic 9 3 wrath H
+weapon CIc AN
+sword 8 6 slash C
 10 100 4000 P
 A
 19 4
@@ -207,6 +207,46 @@ unknown~
 food R A
 CE CE 0 A 0
 0 10 10 P
+#38013
+weapon~
+Third Power~
+Third Power lies here.~
+energy~
+weapon CI AN
+exotic 1000 1000 divine ABCDGH
+92 1 1 P
+A
+6 15
+A
+5 15
+A
+2 15
+A
+3 15
+A
+4 15
+A
+1 15
+A
+17 -9999
+#38014
+armchair~
+armchair~
+Soft Armchair is here.~
+unknown~
+furniture C A
+A 0 FI DFGHIJ DFGHIJ
+10 1 1 P
+#38015
+tattoo~
+@eng {rHeras Angel Tattoo{x@rus {rТатуровка Ангела Геры{x~
+tattoo~
+unknown~
+armor CHIM AR
+0 0 0 0 0
+0 0 0 P
+A
+14 28000
 #38095
 {rБольшой пионерский БАРАБАН{w~
 @eng drum@rus барабан~

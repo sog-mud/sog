@@ -2598,6 +2598,226 @@ map olympus~
                             /
                       Mountain
 ~
+#3169
+map graveyard~
+Map of graveyard~
+A rolled up map lies here.~
+paper~
+map 0 A
+0 0 0 0 0
+0 5 1500 P
+E
+graveyard~
+ 
+(5 10) Created by ALFA      N U
+**********************      |/
+*  Map of Graveyard  *   W-- --E
+**********************     /|
+                          D S      #
+ # - Exit                          |
+                     Gravel-----Gravel------Gravel
+                      Path       Road        Path
+                       /|          |          /|
+                      / |          |         / |
+                  Dusty |          |     Dusty |
+                  Tomb  |          |     Tomb  |
+                        |          |           |
+         Gravel------Gravel      Gravel      Gravel------Gravel
+          Path        Path        Road        Path        Path
+           /|          /            |          /           /|
+          / |         /             |         /           / |
+      Dusty |     Dusty             |     Dusty       Dusty |
+      Tomb  |     Tomb              |     Tomb        Tomb  |
+            |                       |                       |
+ In a----Gravel------Gravel      Gravel      Gravel------Gravel
+ SHED     Path        Path        Road        Path        Path
+                       /|           |          /|          /
+                      / |           |         / |         /
+                  Dusty |           |     Dusty |     Dusty
+                  Tomb  |           |     Tomb  |     Tomb
+                        |           |           |
+                     Gravel      Gravel      Gravel
+                      Path        Road        Path
+                       /|           |          /|
+                      / |           |         / |
+                  Dusty |           |     Dusty |
+                  Tomb  |           |     Tomb  |
+                        |           |           |
+                     Gravel------In front-----Gravel
+                      Path    of the Chapel   Path
+                       /            |          /
+                      /             #         /
+                  Dusty                   Dusty
+                  Tomb                    Tomb
+ 
+~
+#3170
+map smurfville~
+Map of the Smurf village~
+A rolled up map lies here.~
+paper~
+map 0 A
+0 0 0 0 0
+5 5 1500 P
+E
+smurfville~
+ 
+(1 10) Created by Generic     N U
+*************************     |/
+* Map of  Smurf Village *  W-- --E
+*************************    /|
+                            D S
+  Gargamel's
+    Castle
+      |
+    Outside
+  Gargamel's
+    Castle
+      |
+    Path to
+  Gargamel's
+    Castle
+      |
+    Smurfy----Smurfy----Smurfy----Smurfberry
+     Road      Road      Road       Path
+      |                   |           |
+  Jokey Smurf's           |           |
+     Home                 |           |
+                          |           |
+    Grumpy-----Stone----Smurfy----Smurfberry
+   Smurf's     Path      Road       Path
+    Home         |        |           |
+               Papa       |           |
+              Smurf's     |           |
+               Home       |           |
+                          |           |
+          Smurfette's---Smurfy----Smurfberry
+             House       Road       Path
+                          |
+   Sleepy                 |
+   Smurf's----Smurfy----Smurfy----Handy Smurf's
+    Home       Road      Road        Home
+                |         |                Brainy Smurf's
+                |         |                   Home
+                |         |                    |
+              Smurfy----Smurfy---------------Smurfy
+               Road      Road                 Road
+                |         |
+                |         |
+             Hefty    Entrance to
+            Smurf's  Smurf Village
+             Home         |
+                          |
+                      Dimly Lit
+                        Path
+                          |
+                          |
+                      Dimly Lit
+                        Path
+                          |
+                          |
+                      Dimly Lit
+                        Path
+ 
+~
+#3171
+map emerald forest~
+Map of the Emerald Forest~
+a rolled up map lies here.~
+paper~
+map 0 A
+0 0 0 0 0
+5 5 1500 P
+E
+forest emerald~
+ 
+           O oooo         The Map of Emerald Forest
+           (    )                as pawed by
+            \   |    Smokey,  Ranger Bear extrordinaire
+             (  )
+ 
+                /---                             =-\
+               |    --/==========\                  \             N
+                \--- <            >          /------\\            ^
+                      \  CLOVER  /        _/         \           -|-
+    /-----\            \\      /         |            \           |
+    /      \             \- /--|        /              \\
+    /  The  \             /           /                  \
+    /        /          /           /                     \\
+   -/ Witch    --------|-----------|---\                    \\
+  //         -         |                \         /=====>     \
+  -   Woods  |         |                 \--------<  MY |      \\\\\\\\
+   |         |         |                          \ HOME|
+   /\\-|-\\--|\        |                           \====>
+  |    |       \       |
+  |  The DEAD  //      |    E M E R A L D
+  |         ///        |
+  | MOORS  /           |           F O R E S T
+  \       /-          ---
+   -\\---/             |        /---\\
+                       |      // The  \\\
+                        \-----/          \
+                              \  Bonanza   \
+                               \\--===\\\\\\\
+ 
+~
+#3172
+map midennir~
+Map of Miden'nir~
+A rolled up map lies here.~
+paper~
+map 0 A
+0 0 0 0 0
+5 5 1500 P
+E
+midennir map~
+ 
+                ///Miden'nir\\\
+              Generated by Baubau
+ 
+Original map was a bit too wide, so I had to cut it apart ;)
+ 
+The left part :
+                               The Bar    North of the Inn
+                                  |               |
+              The Bard's----The Woodsman------The Front-------->
+                Table             |            the Inn
+                          A Quieter Section       |
+                             of the Inn           |
+                                                  |
+            Garbage Dump---Behind the Inn--South of the Inn
+                                                  |
+           On the Trail of-On the Trail of--The Ambush
+            the Horsemen    the Horsemen       Point
+                 |
+A Dead End-On the Trail of
+  Trail     the Horsemen
+ 
+..right one :
+ 
+                        Outside the
+                   South Gate of Midgaard
+                             |
+>------------------------The Trail-----The Miden`nir----At The Foot of
+                       to  Miden`nir         |          The  Mountains
+                             |               |                |
+                             |               |                |
+                             |               |                |
+    On a small path----The Miden`nir   The Miden`nir----The Miden`nir
+          |                  |               |                |
+  (1)-The Trail         A  Crossroads----Deep Forest-----The Miden`nir--Forest Clearing
+          |                  |               |                               \
+          |                  |               |                                \
+    Light Forest-------Muddy Ground--Near of Mountains                     (to Faerie Ring)
+          |                  |               |
+    The Fading Trail  The Dark Path---The Dark Forest
+          |                  |               |
+   Deep in the Forest----Carnage------The Dark Forest--The Deep in the
+       of Miden`nir                                    Forest of Miden`nir
+                                                                |
+                                                     (to Goblin Stronghold)
+ 
+~
 #3200
 juke box music~
 the juke~
@@ -4042,6 +4262,89 @@ Chamber--Gardens--Pathway  Floor--Floor---Floor--River
                               Canyon     /             Darkest Darkest Earth    
                                        To the          Cave----Cave----Chamber  
                                      Mountain Path                              
+~
+#3399
+map underdark under dark~
+map of Underdark~
+A rolled up map lies here.~
+paper~
+map 0 A
+0 0 0 0 0
+5 5 1500 P
+E
+underdark~
+ 
+                  *** The map of UNDERDARK ***
+ 
+Note: Not all doors and passes shown at this map - try to find them!
+ 
+ =       - Door                                                N U
+[Merlin] - to the Temple of Merlin                             |/
+[1]      - to Moonlight (1)                                 W-- --E
+[2]      - exit - hidden path to New Thalos (west Gate)       /|
+[3]      - exit (teleport to edge of the forest)             D S
+[4]      - to Gathering Place (4)
+[5]      - to Gathering Place (5)
+[6]      - to Dark Entrance Way (6)
+[7]      - Traveller's Den Inn
+[8]      - to summoning room
+[9]      - to Demon Clan Hallway
+[10]     - Cave, Tunnels, Maze
+ 
+                 W  r  y  m      S  t  r  e  e  t
+  S*--*--*--*---*---*--*---*---*---*--*--*--*--*---*--*--*--*--*--*
+   |                       |          |                           |
+  u|    Jadded Hall       R| Gemstone |   Abandoned Warehouse     |S
+   *  *--*--*---*--*       *  tavern  *M                          *
+  n|     |  |      |      u|    *--*  |  *--*  *      *--*--*     |
+   |  *--*  *      *       |    |  |  |o    |  |      |     |     |u
+  s*  |  |  =      |      b*    *--*  *--*--*--*---*  *--*  *--*  *
+   |  *--*  |   *--*--*    |       |  |o    |  |   |  |        |  |
+  e|        *             y|Sappire=  |  *--*  *   *--*--*     *  |n
+   *        |              *---*---*--*n    |                  |  *
+  t| Sunset =      R u b y |          |     *               *--*  |
+   *--*--*--*---*---*--*---* Audience *l          Diamond         *r
+   =  =  =  =   |              *---*  |         *--*--*--*        |
+   |  |  |  |  S|   Mansion  Ch|amb|er|i        |  |  |  |        |
+   *  *  *  *  u*   *--*---*   *---*  *--*--*---*--*--*--*--*--*--*i
+ Home of       n|      |       |   |  |g        |                 |
+ Denizen       s|   *--*--(*   *   *  * Whoring *E                *
+               e*      |   |   |   |  |h *--*   |m   Traveller's  |s
+               t|   *--*   *)--*   *  |  |Ar|ea |e      Den       |
+ Home of        *      |           |  *t *--*   *r  *  *--*  *    *
+ Denizen        |   *--*---*---*---*  |  |      |a  |  |  |  |    |e
+   *  *  *      *   |                (1) *--*   *l  *--*--*--*--* *
+   |  |  | S l a|v e|r   R o u t e    |  |      |d  |  |  |  |  | |
+   *--*--*--*---*---*--*---*---*---*--*--*--*---*  (7) *  *  *  * |
+   |  |  |  |   |                  |  |h       /                  |
+   *  *  *  |   |                  |  |    [7]/ Slaver  Route     |
+ Home of    |   |                  |  |     |/                    | Eastern
+ Denizen Gat|her|ing               |  | [1]-*--------*---*--*--*--*=Entrance
+           P|lac|e                 |  |t  Before     |            |
+            |   |               Sla|ve|    inn       |            |S
+            *--[5]               Sq|ua|re       P r i|s o n       |
+            |  /"                  *--*  *--*--*--*--*--*         |u
+            |(4)|                  |  |  |  |  |     |            |
+ Home of    |   | (5)              |  |  *  * /*/    |            *n
+ Denizen    |   | /   Slave Market |  |              |            |
+   *  *  *  *--[4]  *--*---*---*---*--*              *--*         |r
+   |  |  |  |   |              |   |  |              |            |      *--*
+   |  | S| t| r |e  e  t   o  f|   |G |O  D  S       |            |i     |  |
+   *--*--*--*---*---*--*---*---*---*--*---*----*     *--*         |      |  |
+         |  |   |   |  |   |   |a  |           |     |            |s     *  *
+        S|  |   *   |  *   |   |z  *dining*--* |  Pri|son  *---*--*      |  |
+        u*  |Jewelir|Weapon|   *u  | area |  | | Entr|ance |S     =e     |  |
+        n|  *       *      *   |r  *--*---*--* |west | east|   *-=*      *  *
+        s| Food  Armory Glowing|i  |           *=-*--*--*-=*u Cage=      |  |
+        e|               Hands |t  |[10]       |  |  |  |  |   *--*      |  *
+        t|  Shops in           |e  |/          |  *  *  *  |n            |  |
+         *  Underdark   *--(8) *   * Chamber   *           *-*-*--*-*-*--* [6]
+         |              |   |  |  / of Silence |           |r  Forgotten Alley
+         |         [9]-=*---*  |[8]            |           |
+         |                     |               |           |i
+         *--*---*---*--*---*---*---*--*--*--*--*--*--*--*--*               [3]
+         |       R o a d   o f |  S h a d|o w s         |  |s      Dark     |
+     Begin of                  |         |              |  |    Entrance way|
 ~
 #0
 
@@ -8116,6 +8419,10 @@ S
 3160 0 0 0 0 0 100 100 0 23
 3164 0 0 0 0 0 100 100 7 21
 0
+
+#OLIMITS
+O 3170 0	* Map of the Smurf village
+S
 
 #MOBPROGS
 #3000

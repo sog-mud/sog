@@ -304,6 +304,14 @@ chaos~
 treasure CEMYZ AO
 0 0 0 0 0
 2 0 0 P
+#33169
+slot empty~
+~
+~
+paper~
+trash 0 A
+0 0 0 0 0
+5 0 1500 P
 #33200
 scroll~
 satanic scroll~

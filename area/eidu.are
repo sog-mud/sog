@@ -63,7 +63,7 @@ mat~
 @eng A soft and comfortable mat lying here.@rus Мягкая циновка лежит здесь.~
 straw~
 furniture R 0
-A EIJKN DG 0 0
+A EIJKN EH 0 0
 0 0 0 P
 #44002
 low table~
@@ -105,7 +105,7 @@ fountain R 0
 #44000
 @eng The grand samurai's house@rus Хата главного самурая~
 ~
-0 C inside
+0 C forest
 D1
 ~
 ~

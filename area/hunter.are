@@ -47,7 +47,7 @@ After joining so many safaris, the guardian know implements what he
 learned as guarding this palace for very very much amounts of gold. 
 ~
 human~
-ABWe DFHJVZ -1000 0
+ABKWe DFHJVZ -1000 0
 92 40 2d500+22000 1d200+600 5d35+50 slash
 -77 -77 -77 -32
 CEFKNU AB 0 S
@@ -167,6 +167,10 @@ E 0 572 0 17		*	a gray bone: held in the hands
 M 0 571 1 573 1	* the cleric (Main chambers of Hunt)
 O 0 570 0 573	* the golden sign (Main chambers of Hunt)
 P 0 571 1 570 1	* the golden sign: the golden tattoo
+S
+
+#PRACTICERS
+M 572 clan~	* the guardian
 S
 
 #$

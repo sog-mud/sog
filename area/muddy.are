@@ -8,13 +8,14 @@ End
 
 #HELPS
 -1 WIZLIST~
+ 
         ________            *********************           ________
-      /+_+_+_+_+_\        **  The Gods of Muddy   **      /+_+_+_+_+_\
+      /+_+_+_+_+_\        **  The Gods of Muddy  **       /+_+_+_+_+_\
       \__________/          *********************         \__________/
         |::XXXX|                                            |::XXXX|
         |X::XXX|              Implementors [100]            |X::XXX|
         |XX::XX|              *****************             |XX::XX|
-        |::XXXX|                Iluvatar, Eros              |::XXXX|
+        |::XXXX|                   Iluvatar                 |::XXXX|
         |::XXXX|                                            |::XXXX|
         |::XXXX|                                            |::XXXX|
         |X::XXX|                Creators [99]               |X::XXX|
@@ -37,7 +38,7 @@ End
        | .//\.  |                                          | .//\.  |
        |.  /\ . |              Immortals [95]              |.  /  . |
        | .//\.  |              **************              | .//\.  |
-       |.  /  . |               Duncan McLeod              |.  /  . |
+       |.  /  . |               Duncan, Leon               |.  /  . |
        | .//\.  |                                          | .//\.  |
        |.  /  . |               DemiGods [94]              |.  /  . |
        | .//\.  |               *************              | .//\.  |
@@ -55,9 +56,9 @@ End
          \ /. /                 *************                \ /. /
           \ //                                                \ //
            \/                 Oleg, Arnx, Anri                 \/
-                                Kelter, Thorn  
-                                    Holod
-                                   Urukhay
+                                Kelter, Thorn
+                            Holod, Urukhay, Lilit
+ 
 ~
 -1 ANATOLIA~
 . 
@@ -317,7 +318,7 @@ to help make the mud run more smoothly, power trips are strictly verbotten.
 
 Not fulfilling the roles of your office can result in demotion or deletion.
 ~
-92 COMMANDMENTS LAWS 'GOD RULES' GODS~
+92 COMMANDMENTS 'GOD RULES' GODS~
 .
                           The Rules of ANATOLIA 
  
