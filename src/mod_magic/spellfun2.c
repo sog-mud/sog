@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.75 1999-02-12 10:33:28 kostik Exp $
+ * $Id: spellfun2.c,v 1.76 1999-02-15 15:34:30 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1960,45 +1960,42 @@ void spell_entangle(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	int dam;
 	
-	if (ch->in_room->sector_type == SECT_INSIDE || 
-	  ch->in_room->sector_type == SECT_CITY || 
-	  ch->in_room->sector_type == SECT_DESERT || 
-	  ch->in_room->sector_type == SECT_AIR)
-	{
-	  char_puts("No plants can grow here.\n", ch);
-	  return;
+	if (ch->in_room->sector_type == SECT_INSIDE
+	||  ch->in_room->sector_type == SECT_CITY
+	||  ch->in_room->sector_type == SECT_DESERT
+	||  ch->in_room->sector_type == SECT_AIR) {
+		char_puts("No plants can grow here.\n", ch);
+		return;
 	}
 	  
 	dam = number_range(level, 4 * level);
 	if (saves_spell(level, victim, DAM_PIERCE))
-	dam /= 2;
+		dam /= 2;
 	
-	damage(ch,victim,ch->level,gsn_entangle,DAM_PIERCE, TRUE);
+	damage(ch, victim, dam, sn, DAM_PIERCE, TRUE);
 	if (JUST_KILLED(victim))
 		return;
 	
-	act("The thorny plants spring up around $n, entangling $s legs!", victim, 
-	  NULL, NULL, TO_ROOM);
-	act("The thorny plants spring up around you, entangling your legs!", victim,
-	  NULL, NULL, TO_CHAR);
+	act("The thorny plants spring up around $n, entangling $s legs!",
+	    victim, NULL, NULL, TO_ROOM);
+	act("The thorny plants spring up around you, entangling your legs!",
+	    victim, NULL, NULL, TO_CHAR);
 
-	if (saves_spell(level-2, victim, DAM_PIERCE))
+	if (saves_spell(level+2, victim, DAM_PIERCE))
 		victim->move = victim->move / 3;
 	else 
 		victim->move = 0;
 
-	if (!is_affected(victim,gsn_entangle))
-	{
-	  AFFECT_DATA todex;
+	if (!is_affected(victim, sn)) {
+		AFFECT_DATA todex;
 	  
-	  todex.type = gsn_entangle;
-	  todex.level = level;
-	  todex.duration = level / 10;
-	  todex.location = APPLY_DEX;
-	  todex.modifier = -1;
-	  todex.bitvector = 0;
-	  affect_to_char(victim, &todex);
-	  
+		todex.type	= sn;
+		todex.level	= level;
+		todex.duration	= level / 10;
+		todex.location	= APPLY_DEX;
+		todex.modifier	= -1;
+		todex.bitvector	= 0;
+		affect_to_char(victim, &todex);
 	}
 }
 
@@ -2193,33 +2190,34 @@ void spell_honor_shield(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 }
 	
 void spell_acute_vision(int sn, int level, CHAR_DATA *ch, void *vo, int target)
- {
+{
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
 
-	if (IS_AFFECTED(victim, AFF_ACUTE_VISION))
-	{
-	    if (victim == ch)
-	      char_puts("Your vision is already acute. \n",ch);
-	    else
-	      act("$N already sees acutely.",ch,NULL,victim,TO_CHAR);
-	    return;
+	if (IS_AFFECTED(victim, AFF_ACUTE_VISION)) {
+		if (victim == ch)
+			char_puts("Your vision is already acute. \n",ch);
+		else
+			act("$N already sees acutely.",
+			    ch, NULL, victim, TO_CHAR);
+		return;
 	}
-	af.where		= TO_AFFECTS;
-	af.type      = sn;
-	af.level     = level;
-	af.duration  = level;
-	af.location  = APPLY_NONE;
-	af.modifier  = 0;
-	af.bitvector = AFF_ACUTE_VISION;
+
+	af.where	= TO_AFFECTS;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= 3 + level / 5;
+	af.location	= APPLY_NONE;
+	af.modifier	= 0;
+	af.bitvector	= AFF_ACUTE_VISION;
 	affect_to_char(victim, &af);
 	char_puts("Your vision sharpens.\n", victim);
 	if (ch != victim)
 		char_puts("Ok.\n", ch);
-	return;
 }
 
-void spell_dragons_breath(int sn,int level,CHAR_DATA *ch, void *vo, int target) 
+void spell_dragons_breath(int sn, int level, CHAR_DATA *ch,
+			  void *vo, int target) 
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	CHAR_DATA *vch, *vch_next;
