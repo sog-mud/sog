@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.112 1998-11-18 07:49:46 fjoe Exp $
+ * $Id: act_comm.c,v 1.113 1998-11-20 10:12:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1759,3 +1759,93 @@ DO_FUN(do_lang)
 	do_lang(ch, str_empty);
 	do_look(ch, str_empty);
 }
+
+DO_FUN(do_judge)
+{
+	char arg[MAX_INPUT_LENGTH];
+	CHAR_DATA *victim;
+
+	if (!HAS_SKILL(ch, gsn_ruler_badge)) {
+		char_puts("Huh?\n\r", ch);
+		return;
+	}
+
+	argument = one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		char_puts("Judge whom?\n\r", ch);
+		return;
+	}
+
+	if ((victim = get_char_world(ch, arg)) == NULL) {
+		char_puts("They aren't here.\n\r", ch);
+		return;
+	}
+
+	if (IS_NPC(victim)) {
+		char_puts("Not a mobile, of course.\n\r", ch);
+		return;
+	}
+
+	if (IS_IMMORTAL(victim) && !IS_IMMORTAL(ch)) {
+		char_puts("You do not have the power to judge Immortals.\n\r",
+			  ch);
+		return;
+	}
+
+	char_printf(ch, "%s is %s-%s.\n\r",
+		    PERS(victim, ch),
+		    flag_string(ethos_table, victim->ethos),
+		    IS_GOOD(victim)	? "good" :
+		    IS_EVIL(victim)	? "evil" :
+		    IS_NEUTRAL(victim)	? "neutral" :
+					  "unknown");
+}
+
+DO_FUN(do_wanted)
+{
+	char arg[MAX_INPUT_LENGTH];
+	CHAR_DATA *victim;
+ 
+	if (!HAS_SKILL(ch, gsn_ruler_badge)) {
+		char_puts("Huh?\n\r", ch);
+		return;
+	}
+
+	argument = one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		char_puts("Toggle wanted whom?\n\r", ch);
+		return;
+	}
+
+	if ((victim = get_char_world(ch, arg)) == NULL) {
+		char_puts("They aren't here.\n\r", ch);
+		return;
+	}
+
+	if (IS_NPC(victim)) {
+		char_puts("Not a mobile, of course.\n\r", ch);
+		return;
+	}
+
+	if (ch->level < victim->level) {
+		act("You do not have the power to arrest $N.",
+		    ch, NULL, victim, TO_CHAR);
+		return;
+	}
+    
+	if (victim == ch) {
+		char_puts( "You cannot do that to yourself.\n\r", ch);
+		return;
+	}
+
+	TOGGLE_BIT(victim->act, PLR_WANTED);
+	if (IS_SET(victim->act, PLR_WANTED)) {
+		act("$n is now WANTED!!!", victim, NULL, NULL, TO_ROOM);
+		char_puts("You are now WANTED!!!\n\r", victim);
+	}
+	else {
+		act("$n is no longer wanted.", victim, NULL, NULL, TO_ROOM);
+		char_puts("You are no longer wanted.\n\r", victim);
+	}
+}
+

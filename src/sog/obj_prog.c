@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.47 1998-11-18 05:20:39 fjoe Exp $
+ * $Id: obj_prog.c,v 1.48 1998-11-20 10:12:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -138,6 +138,7 @@ DECLARE_OPROG(fight_prog_lion_claw);
 
 DECLARE_OPROG(speech_prog_ring_ra);
 DECLARE_OPROG(wear_prog_eyed_sword);
+DECLARE_OPROG(wear_prog_ruler_shield);
 DECLARE_OPROG(wear_prog_katana_sword);
 
 DECLARE_OPROG(wear_prog_snake);
@@ -239,6 +240,7 @@ OPROG_DATA oprog_table[] = {
 	{ "fight_prog_lion_claw", fight_prog_lion_claw },
 	{ "speech_prog_ring_ra", speech_prog_ring_ra },
 	{ "wear_prog_eyed_sword", wear_prog_eyed_sword },
+	{ "wear_prog_ruler_shield", wear_prog_ruler_shield },
 	{ "wear_prog_katana_sword", wear_prog_katana_sword },
 	{ "wear_prog_snake", wear_prog_snake },
 	{ "remove_prog_snake", remove_prog_snake },
@@ -666,8 +668,8 @@ int fight_prog_tattoo_ahuramazda(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		break;
 	case 1:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
-		spell_demonfire(gsn_demonfire, ch->level,
-				ch, ch->fighting, TARGET_CHAR);
+		spell_dispel_evil(sn_lookup("dispel evil"), ch->level,
+				  ch, ch->fighting, TARGET_CHAR);
 		break;
 	}
 	return 0;
@@ -713,8 +715,8 @@ int fight_prog_tattoo_ehrumen(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 		break;
 	case 2:
 		char_puts("The tattoo on your shoulder glows {Rred{x.\n\r", ch);
-		spell_dispel_evil(sn_lookup("dispel evil"), ch->level,
-				  ch, ch->fighting, TARGET_CHAR);
+		spell_demonfire(gsn_demonfire, ch->level,
+				ch, ch->fighting, TARGET_CHAR);
 		break;
 	}
 	return 0;
@@ -1701,3 +1703,18 @@ int get_prog_quest_reward(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
 	return 0;
 }
 
+int wear_prog_ruler_shield(OBJ_DATA *obj, CHAR_DATA *ch, const void *arg)
+{
+	CLAN_DATA *clan = clan_lookup(ch->clan);
+
+	if (!clan || str_cmp(clan->name, "ruler")) {
+		act("You are zapped by $p and drop it.",
+		    ch, obj, NULL, TO_CHAR);
+		act("$n is zapped by $p and drops it.",
+		    ch, obj, NULL, TO_ROOM);
+		obj_from_char(obj);
+		obj_to_room(obj, ch->in_room);
+	}
+
+	return 0;
+}

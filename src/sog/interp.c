@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.88 1998-11-07 11:26:22 fjoe Exp $
+ * $Id: interp.c,v 1.89 1998-11-20 10:12:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -284,6 +284,10 @@ CMD_DATA cmd_table[] =
     { "train",		do_train,	POS_RESTING,	 0,  LOG_NORMAL	},
     { "visible",	do_visible,	POS_SLEEPING,	 0,  LOG_NORMAL	},
     { "where",		do_where,	POS_RESTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
+
+    { "judge",		do_judge,	POS_RESTING,	0, LOG_NORMAL },
+    { "wanted",		do_wanted,	POS_STANDING,	0, LOG_ALWAYS, CMD_NOORDER },
+
     /*
      * Object manipulation commands.
      */

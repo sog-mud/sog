@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.55 1998-11-14 09:01:11 fjoe Exp $
+ * $Id: spellfun2.c,v 1.56 1998-11-20 10:12:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -572,6 +572,52 @@ void spell_manacles(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	}
 }
 
+void spell_shield_of_ruler(int sn, int level,
+			   CHAR_DATA *ch, void *vo, int target) 
+{
+	int shield_vnum;
+	OBJ_DATA *shield;
+	AFFECT_DATA af;
+
+	if (level >= 71)
+		shield_vnum = OBJ_VNUM_RULER_SHIELD4;
+	else if (level >= 51)
+		shield_vnum = OBJ_VNUM_RULER_SHIELD3;
+	else if (level >= 31)
+		shield_vnum = OBJ_VNUM_RULER_SHIELD2;
+	else
+		shield_vnum = OBJ_VNUM_RULER_SHIELD1;
+
+	shield = create_obj(get_obj_index(shield_vnum), level);
+	shield->timer = level;
+	shield->cost  = 0;
+	obj_to_char(shield, ch);
+  
+	af.where	= TO_OBJECT;
+	af.type		= sn;
+	af.level	= level;
+	af.duration	= -1;
+	af.modifier	= level / 8;
+	af.bitvector	= 0;
+
+	af.location	= APPLY_HITROLL;
+	affect_to_obj(shield, &af);
+
+	af.location	= APPLY_DAMROLL;
+	affect_to_obj(shield, &af);
+
+	af.modifier	= -level/2;
+	af.location	= APPLY_AC;
+	affect_to_obj(shield, &af);
+
+	af.modifier	= UMAX(1, level / 30);
+	af.location	= APPLY_CHA;
+	affect_to_obj(shield, &af);
+
+	act("You create $p!", ch, shield, NULL, TO_CHAR);
+	act("$n creates $p!", ch, shield, NULL, TO_ROOM);
+}
+ 
 void spell_guard_call(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 {
 	CHAR_DATA *gch;

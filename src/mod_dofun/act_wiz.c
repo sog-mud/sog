@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.89 1998-11-18 10:44:33 fjoe Exp $
+ * $Id: act_wiz.c,v 1.90 1998-11-20 10:12:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1296,11 +1296,12 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 	if (IS_NPC(victim))
 		snprintf(buf, sizeof(buf), "%d", victim->alignment);
 	else  {
-		snprintf(buf, sizeof(buf), "%s%s", 
+		snprintf(buf, sizeof(buf), "%s-%s", 
 			 flag_string(ethos_table, victim->ethos),
-			 IS_GOOD(victim)	? "Good" :
-			 IS_NEUTRAL(victim)	? "Neut" :
-			 IS_EVIL(victim)	? "Evil" : "Other");
+			 IS_GOOD(victim)	? "good" :
+			 IS_NEUTRAL(victim)	? "neutral" :
+			 IS_EVIL(victim)	? "evil" :
+						  "unknown");
 	}
 
 	buf_printf(output,

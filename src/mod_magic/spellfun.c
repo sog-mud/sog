@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.85 1998-11-17 05:29:55 fjoe Exp $
+ * $Id: spellfun.c,v 1.86 1998-11-20 10:12:20 fjoe Exp $
  */
 
 /***************************************************************************
@@ -89,12 +89,14 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 
 	if (HAS_SKILL(ch, gsn_spellbane)) {
-		char_puts("You are Battle Rager, not the filthy magician.\n\r",ch);
+		char_puts("You are Battle Rager, not the filthy magician.\n\r",
+			  ch);
 		return;
 	}
 
 	if (is_affected(ch, gsn_shielding)) {
-		char_puts("You reach for the True Source and feel something stopping you.\n\r", ch);
+		char_puts("You reach for the True Source and feel something "
+			  "stopping you.\n\r", ch);
 		return;
 	}
 
@@ -357,10 +359,9 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 			    ch, NULL, victim, TO_VICT);
 			act("$N deflects $n's spell!",
 			    ch, NULL, victim, TO_NOTVICT);
-			damage(victim, ch, 3 * victim->level, gsn_spellbane,
-			       DAM_NEGATIVE, TRUE);
 			if (!is_safe(victim, ch))
-				multi_hit(victim, ch, TYPE_UNDEFINED);
+				damage(victim, ch, 3 * victim->level,
+				       gsn_spellbane, DAM_NEGATIVE, TRUE);
 	       	}
 		return;
 	}
@@ -544,10 +545,9 @@ void obj_cast_spell(int sn, int level,
 			    ch, NULL, victim, TO_VICT);
 			act("$N deflects $n's spell!",
 			    ch, NULL, victim, TO_NOTVICT);
-			damage(victim, ch, 10 * victim->level, gsn_spellbane,
-			       DAM_NEGATIVE, TRUE);
 			if (!is_safe(victim, ch))
-				multi_hit(victim, ch, TYPE_UNDEFINED);
+				damage(victim, ch, 10 * victim->level,
+				       gsn_spellbane, DAM_NEGATIVE, TRUE);
 	        }
 	        return;
 	}

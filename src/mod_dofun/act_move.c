@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.114 1998-11-11 05:46:55 fjoe Exp $
+ * $Id: act_move.c,v 1.115 1998-11-20 10:12:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3657,3 +3657,4 @@ void do_thumbling(CHAR_DATA *ch, const char *argument)
 
 	check_improve(ch, gsn_thumbling, TRUE, 3);
 }
+
