@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.69 1998-09-22 18:07:15 fjoe Exp $
+ * $Id: interp.c,v 1.70 1998-09-24 12:30:11 kostik Exp $
  */
 
 /***************************************************************************
@@ -187,6 +187,7 @@ const	struct	cmd_type	cmd_table	[] =
     { "gtell",		do_gtell,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { ";",		do_gtell,	POS_DEAD,	 0,  LOG_NORMAL, 0, CMD_GHOST },
     { "note",		do_note,	POS_SLEEPING,	 0,  LOG_NORMAL, 1, CMD_KEEP_HIDE|CMD_GHOST },
+    { "petitio",	do_petitio,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "petition",	do_petition,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "pose",		do_pose,	POS_RESTING,	 0,  LOG_NORMAL, 1, CMD_GHOST },
     { "promote",	do_promote,	POS_DEAD,	 0,  LOG_NORMAL, 1, CMD_GHOST },

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.20 1998-09-17 15:51:19 fjoe Exp $
+ * $Id: interp.h,v 1.21 1998-09-24 12:30:12 kostik Exp $
  */
 
 /***************************************************************************
@@ -260,6 +260,7 @@ DECLARE_DO_FUN(do_peace		);
 DECLARE_DO_FUN(do_pecho		);
 DECLARE_DO_FUN(do_penalty	);
 DECLARE_DO_FUN(do_permban	);
+DECLARE_DO_FUN(do_petitio	);
 DECLARE_DO_FUN(do_petition	);
 DECLARE_DO_FUN(do_pick		);
 DECLARE_DO_FUN(do_poison_smoke	);

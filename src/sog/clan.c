@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.c,v 1.15 1998-09-22 18:07:15 fjoe Exp $
+ * $Id: clan.c,v 1.16 1998-09-24 12:30:11 kostik Exp $
  */
 
 #include <sys/syslimits.h>
@@ -57,6 +57,11 @@ const char *clan_name(int cn)
 	if (clan)
 		return clan->name;
 	return "None";
+}
+
+void do_petitio(CHAR_DATA *ch, const char *argument)
+{
+	char_puts("You must enter full command to petition.\n\r",ch);
 }
 
 void do_petition(CHAR_DATA *ch, const char *argument)
