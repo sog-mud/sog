@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.382 2001-12-08 00:08:33 tatyana Exp $
+ * $Id: merc.h,v 1.383 2001-12-10 21:50:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1274,6 +1274,28 @@ enum {
 #define WIZ_OLC			(U)
 #define WIZ_WIZLOG		(V)
 
+#define VAR_PERSISTENT		(A)
+
+/*
+ * object variable
+ */
+struct var_t {
+	const char *name;		/* variable name		*/
+	int type_tag;			/* data type tag		*/
+	vo_t value;			/* data value			*/
+	int var_flags;			/* variable flags		*/
+};
+
+void	var_init(var_t *var);
+void	var_destroy(var_t *var);
+
+var_t *	var_get(avltree_t *vars, const char *name, int type_tag, int var_flags);
+#define VAR_GET(o, name, type_tag, var_flags)				\
+	var_lookup(&(o)->vars, name, type_tag, var_flags)
+
+void	fread_var(avltree_t *vars, rfile_t *fp);
+void	fwrite_vars(avltree_t *vars, FILE *fp);
+
 /*
  * Prototype for a mob.
  */
@@ -1446,6 +1468,8 @@ struct char_data
 
 	int			slang;		/* spoken language */
 	mlstring		gender;
+
+	avltree_t		vars;		/* var_t		*/
 };
 
 /*
@@ -1552,7 +1576,6 @@ struct pc_data
 /*
  * PC learned skill
  */
-typedef struct pc_skill_t pc_skill_t;
 struct pc_skill_t {
 	const char *sn;	/* skill name				*/
 	int percent;	/* skill percentage			*/
@@ -1566,9 +1589,9 @@ struct pc_skill_t {
  */
 struct ed_data
 {
-	ED_DATA *	next;		/* Next in list		    */
-	const char *	keyword;	/* Keyword in look/examine  */
-	mlstring	description;	/* What to see		    */
+	ED_DATA *	next;		/* Next in list			*/
+	const char *	keyword;	/* Keyword in look/examine	*/
+	mlstring	description;	/* What to see			*/
 };
 
 /*
@@ -1635,6 +1658,7 @@ struct obj_data
 	mlstring		owner;
 	altar_t *		altar;
 	int			water_float;
+	avltree_t		vars;		/* var_t		*/
 };
 
 /*
@@ -1746,6 +1770,7 @@ struct room_index_data
 	AFFECT_DATA *		affected;
 	flag_t			affected_by;
 	varr			mp_trigs;
+	avltree_t		vars;		/* var_t		*/
 };
 
 #define GET_HEAL_RATE(r)	((r)->heal_rate + (r)->heal_rate_mod)
@@ -2251,7 +2276,7 @@ extern varr_info_t c_info_socials;
 #define social_search(name)	((social_t *) c_strkey_search(&socials, (name)))
 
 /*----------------------------------------------------------------------
- * socials stuff
+ * auction stuff
  */
 
 struct auction_data

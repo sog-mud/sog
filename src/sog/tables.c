@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.183 2001-12-08 00:08:45 tatyana Exp $
+ * $Id: tables.c,v 1.184 2001-12-10 21:50:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1524,6 +1524,16 @@ flaginfo_t mt_types[] =
 	{ "int *",		MT_PINT,			FALSE	},
 	{ "spec_skill_t *",	MT_SPEC_SKILL,			FALSE	},
 	{ "uint",		MT_UINT,			FALSE	},
+
+	{ NULL, 0, FALSE }
+};
+
+flaginfo_t type_tags[] =
+{
+	{ "",			TABLE_INTVAL,			FALSE	},
+
+	{ "int",		MT_INT,				FALSE	},
+	{ "str",		MT_STR,				FALSE	},
 
 	{ NULL, 0, FALSE }
 };

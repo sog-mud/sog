@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.141 2001-11-30 21:18:04 fjoe Exp $
+ * $Id: recycle.c,v 1.142 2001-12-10 21:50:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -41,6 +41,7 @@
 ***************************************************************************/
 
 #include <sys/time.h>
+#include <assert.h>
 #include <regex.h>
 #include <stdio.h>
 #include <string.h>
@@ -297,6 +298,126 @@ ed_fwrite(FILE *fp, ED_DATA *ed)
 }
 
 /*--------------------------------------------------------------------
+ * var_t
+ */
+
+avltree_info_t c_info_vars =
+{
+	&avltree_ops,
+
+	(e_init_t) var_init,
+	(e_destroy_t) var_destroy,
+
+	MT_PVOID, sizeof(var_t), ke_cmp_str
+};
+
+void
+var_init(var_t *var)
+{
+	var->name = str_empty;
+	var->type_tag = MT_INT;
+	var->value.i = 0;
+	var->var_flags = 0;
+}
+
+void
+var_destroy(var_t *var)
+{
+	switch (var->type_tag) {
+	case MT_STR:
+		free_string(var->value.s);
+		break;
+	}
+}
+
+var_t *
+var_get(avltree_t *vars, const char *name, int type_tag, int var_flags)
+{
+	var_t *var;
+
+	/*
+	 * check type
+	 */
+	if (type_tag != MT_INT
+	&&  type_tag != MT_STR)
+		return NULL;
+
+	if ((var = (var_t *) c_lookup(vars, name)) == NULL) {
+		var = c_insert(vars, name);
+		assert(var != NULL);
+
+		var->name = str_dup(name);
+		var->type_tag = type_tag;
+		return NULL;
+	} else if (var->type_tag != type_tag)
+		return NULL;
+
+	var->var_flags = var_flags;
+	return var;
+}
+
+void
+fread_var(avltree_t *vars, rfile_t *fp)
+{
+	int type_tag = fread_fword(type_tags, fp);
+	const char *name = fread_sword(fp);
+	var_t *var;
+
+	var = var_get(vars, name, type_tag, VAR_PERSISTENT);
+	free_string(name);
+
+	switch (type_tag) {
+	case MT_INT:
+		if (var == NULL) {
+			fread_to_eol(fp);
+			return;
+		}
+		var->value.i = fread_number(fp);
+		break;
+
+	case MT_STR:
+		if (var == NULL) {
+			free_string(fread_string(fp));
+			return;
+		}
+		var->value.s = fread_string(fp);
+		break;
+
+	default:
+		assert(0);
+		break;
+	}
+}
+
+void
+fwrite_vars(avltree_t *vars, FILE *fp)
+{
+	var_t *var;
+
+	C_FOREACH(var, vars) {
+		if (!IS_SET(var->var_flags, VAR_PERSISTENT))
+			continue;
+
+		fprintf(fp, "Var %s '%s' ",
+			flag_string(type_tags, var->type_tag), var->name);
+
+		switch (var->type_tag) {
+		case MT_INT:
+			fprintf(fp, "%d", var->value.i);
+			break;
+
+		case MT_STR:
+			fwrite_string(fp, NULL, var->value.s);
+			break;
+
+		default:
+			assert(0);
+			break;
+		}
+	}
+}
+
+/*--------------------------------------------------------------------
  * OBJ_DATA
  */
 
@@ -323,6 +444,7 @@ new_obj(void)
 
 	memset(obj, 0, sizeof(*obj));
 	obj->label = str_empty;
+	c_init(&obj->vars, &c_info_vars);
 	return obj;
 }
 
@@ -355,6 +477,8 @@ free_obj(OBJ_DATA *obj)
 	obj->material = NULL;
 
 	objval_destroy(obj->item_type, obj->value);
+
+	c_destroy(&obj->vars);
 
 	obj->next = free_obj_list;
 	free_obj_list = obj;
@@ -450,6 +574,7 @@ static int month_stat_mods[17][MAX_STAT] = {
 	{  0,  0,  3,  0,  0,  0 },	// the Ancient Darkness
 	{  3, -2,  0,  0,  0, -3 }	// the Great Evil
 };
+
 static int day_stat_mods[7][MAX_STAT] = {
 	{  0,  0,  1,  0,  0,  1 },	// the Moon
 	{  2, -2, -1, -1,  2, -1 },	// the Bull
@@ -524,6 +649,8 @@ char_new(MOB_INDEX_DATA *pMobIndex)
 	ch->luck_mod		= 0;
 
 	c_init(&ch->sk_affected, &c_info_sk_affected);
+
+	c_init(&ch->vars, &c_info_vars);
 
 	if (pMobIndex) {
 		ch->pMobIndex = pMobIndex;
@@ -645,6 +772,8 @@ char_free(CHAR_DATA *ch)
 
 	free(ch->shapeform);
 	ch->shapeform = NULL;
+
+	c_destroy(&ch->vars);
 
 	ch->next = *free_list;
 	*free_list = ch;
@@ -864,6 +993,7 @@ new_room_index(void)
 	pRoom->heal_rate = 100;
 	pRoom->mana_rate = 100;
 	trig_init_list(&pRoom->mp_trigs);
+	c_init(&pRoom->vars, &c_info_vars);
 
         room_count++;
 	return pRoom;
@@ -893,6 +1023,8 @@ free_room_index(ROOM_INDEX_DATA *pRoom)
 
 	trig_destroy_list(&pRoom->mp_trigs);
 	x_room_del(pRoom);
+
+	c_destroy(&pRoom->vars);
 
 	room_count--;
 	mem_free(pRoom);

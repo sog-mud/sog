@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: typedef.h,v 1.64 2001-12-03 22:28:20 fjoe Exp $
+ * $Id: typedef.h,v 1.65 2001-12-10 21:50:38 fjoe Exp $
  */
 
 #ifndef _TYPEDEF_H_
@@ -110,6 +110,8 @@ typedef struct avltree_t		avltree_t;
 typedef struct container_t		container_t;
 typedef struct vo_iter_t		vo_iter_t;
 typedef struct hint_t			hint_t;
+typedef struct var_t			var_t;
+typedef struct pc_skill_t		pc_skill_t;
 
 #if !defined(NO_MMAP)
 typedef struct rfile_t			rfile_t;

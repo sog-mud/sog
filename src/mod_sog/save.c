@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.197 2001-12-03 22:28:42 fjoe Exp $
+ * $Id: save.c,v 1.198 2001-12-10 21:50:42 fjoe Exp $
  */
 
 /***************************************************************************
@@ -338,6 +338,7 @@ fwrite_char(CHAR_DATA *ch, FILE *fp, int flags)
 		aff_fwrite(paf, fp, 0);
 	}
 
+	fwrite_vars(&ch->vars, fp);
 	fprintf(fp, "End\n\n");
 }
 
@@ -393,6 +394,7 @@ fwrite_pet(CHAR_DATA *pet, FILE *fp, int flags)
 		pet->armor[0], pet->armor[1], pet->armor[2], pet->armor[3]);
 
 	aff_fwrite_list("Affc", NULL, pet->affected, fp, 0);
+	fwrite_vars(&pet->vars, fp);
 	fprintf(fp, "End\n\n");
 }
 
@@ -486,6 +488,7 @@ fwrite_obj(CHAR_DATA *ch, OBJ_DATA *obj, FILE *fp, int iNest)
 		mlstr_fwrite(fp, NULL, &ed->description);
 	}
 
+	fwrite_vars(&obj->vars, fp);
 	fprintf(fp, "End\n\n");
 
 	if (obj->contains != NULL)
@@ -844,6 +847,10 @@ fread_char(CHAR_DATA *ch, rfile_t *fp, int flags)
 			break;
 
 		case 'V':
+			if (IS_TOKEN(fp, "Var")) {
+				fread_var(&ch->vars, fp);
+				fMatch = TRUE;
+			}
 			KEY("Vers", PC(ch)->version, fread_number(fp));
 			break;
 
@@ -995,6 +1002,13 @@ fread_pet(CHAR_DATA *ch, rfile_t *fp, int flags)
 			MLSKEY("SSex", pet->gender);
 			MLSKEY("ShD", pet->short_descr);
 			KEY("Silv", pet->silver, fread_number(fp));
+			break;
+
+		case 'V':
+			if (IS_TOKEN(fp, "Var")) {
+				fread_var(&ch->vars, fp);
+				fMatch = TRUE;
+			}
 			break;
 		}
 
@@ -1153,6 +1167,10 @@ fread_obj(CHAR_DATA *ch, CHAR_DATA *obj_to, rfile_t *fp, int flags)
 				if (obj->item_type == ITEM_WEAPON
 				&&  INT(obj->value[0]) == 0)
 					obj->value[0] = obj->pObjIndex->value[0];
+				fMatch = TRUE;
+			}
+			if (IS_TOKEN(fp, "Var")) {
+				fread_var(&obj->vars, fp);
 				fMatch = TRUE;
 			}
 			break;
