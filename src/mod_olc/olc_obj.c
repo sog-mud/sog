@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_obj.c,v 1.75 1999-12-16 07:10:10 fjoe Exp $
+ * $Id: olc_obj.c,v 1.76 1999-12-16 11:40:52 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -1321,7 +1321,7 @@ int set_obj_values(BUFFER *output, OBJ_INDEX_DATA *pObj,
 		case 2: 
 			if (!str_cmp(argument, "?")
 			||  (liq = liquid_search(argument)) == NULL) {
-				strkey_printall(&liquids, output);
+				mlstrkey_printall(&liquids, output);
 				return 2;
 			}
 

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.97 1999-12-16 05:34:35 fjoe Exp $
+ * $Id: olc.c,v 1.98 1999-12-16 11:40:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -261,9 +261,10 @@ OLC_FUN(olced_spell_out)
 
 OLC_FUN(olced_strkey)
 {
-	void *p, *q;
 	char arg[MAX_INPUT_LENGTH];
+	const char *old_key;
 	olced_strkey_t *o;
+	void *q;
 
 	one_argument(argument, arg, sizeof(arg));
 	if (IS_NULLSTR(arg)) {
@@ -274,29 +275,38 @@ OLC_FUN(olced_strkey)
 	if (olced_busy(ch, OLCED(ch)->id, NULL, NULL))
 		return FALSE;
 
-	p = ch->desc->pEdit;
-	if (!str_cmp(*(const char **)p, arg)) {
+	old_key = *(const char **) ch->desc->pEdit;
+	if (!str_cmp(old_key, arg)) {
+		/*
+		 * nothing to change
+		 */
 		char_puts("Ok.\n", ch);
 		return FALSE;
 	}
 
 	o = (olced_strkey_t *) cmd->arg1;
-	if ((q = hash_insert(o->h, arg, p)) == NULL) {
+	if ((q = hash_insert(o->h, arg, ch->desc->pEdit)) == NULL) {
 		char_printf(ch, "%s: %s: duplicate name.\n",
 			    OLCED(ch)->name, arg);
 		return FALSE;
 	}
 
+	free_string(*(const char **) q);
+	*(const char **) q = str_dup(arg);
+
 	if (o->path) {
-		d2rename(o->path, strkey_filename(*(const char**) p, o->ext),
+		d2rename(o->path, strkey_filename(old_key, o->ext),
 			 o->path, strkey_filename(arg, o->ext));
 	}
 
-	hash_delete(o->h, p);
-	ch->desc->pEdit = q;
+	hash_delete(o->h, old_key);
+	ch->desc->pEdit = hash_lookup(o->h, arg);
+	if (ch->desc->pEdit == NULL) {
+		char_printf(ch, "%s: %s: not found.\n", OLCED(ch)->name, arg);
+		edit_done(ch->desc);
+		return FALSE;
+	}
 
-	free_string(*(const char **) q);
-	*(const char **) q = str_dup(arg);
 	char_puts("Ok.\n", ch);
 	return TRUE;
 }
@@ -306,57 +316,80 @@ OLC_FUN(olced_mlstrkey)
 	char arg[MAX_INPUT_LENGTH];
 	int lang;
 	const char **pp;
-	void *p;
+	const char *old_key;
+	void *q;
+	olced_strkey_t *o;
 
-	one_argument(argument, arg, sizeof(arg));
+	argument = one_argument(argument, arg, sizeof(arg));
 	if (IS_NULLSTR(arg) || IS_NULLSTR(argument)) {
 		char_printf(ch, "Syntax: %s <lang> <string>\n", cmd->name);
 		return FALSE;
 	}
 
-	if ((lang = lang_lookup(arg)) < 0) {
+	if (!str_cmp(arg, "all"))
+		lang = -1;
+	else if ((lang = lang_lookup(arg)) < 0) {
 		char_printf(ch, "%s: %s: unknown language\n",
 			    OLCED(ch)->name, arg);
 		return FALSE;
 	}
 
-	p = ch->desc->pEdit;
+	q = ch->desc->pEdit;
+	old_key = mlstr_mval((mlstring *) q);
+	o = (olced_strkey_t *) cmd->arg1;
 
-	if (!lang) {
-		void *q;
-		olced_strkey_t *o;
-
-		/* gonna change key */
+	if (lang <= 0) {
+		/*
+		 * gonna change key
+		 */
 		if (olced_busy(ch, OLCED(ch)->id, NULL, NULL))
 			return FALSE;
 
-		if (!str_cmp(mlstr_mval((mlstring *) p), argument)) {
+		if (!str_cmp(old_key, argument)) {
+			/*
+			 * key remain unchanged
+			 *
+			 * possibly changing to the same mlstring
+			 * but too lazy to check this
+			 */
+
+			pp = mlstr_convert((mlstring *) q, lang);
+			free_string(*pp);
+			*pp = str_dup(argument);
 			char_puts("Ok.\n", ch);
-			return FALSE;
+			return TRUE;
 		}
 
-		o = (olced_strkey_t *) cmd->arg1;
-		if ((q = hash_insert(o->h, argument, p)) == NULL) {
+		if ((q = hash_insert(o->h, argument, q)) == NULL) {
 			char_printf(ch, "%s: %s: duplicate name.\n",
 				    OLCED(ch)->name, argument);
 			return FALSE;
 		}
-
-		if (o->path) {
-			d2rename(o->path,
-				 strkey_filename(mlstr_mval((mlstring*) p),
-						 o->ext),
-				 o->path,
-				 strkey_filename(argument, o->ext));
-		}
-
-		hash_delete(o->h, p);
-		p = ch->desc->pEdit = q;
 	}
 
-	pp = mlstr_convert((mlstring *) p, lang);
+	/*
+	 * make the change
+	 */
+	pp = mlstr_convert((mlstring *) q, lang);
 	free_string(*pp);
 	*pp = str_dup(argument);
+
+	if (lang <= 0) {
+		if (o->path) {
+			d2rename(o->path, strkey_filename(old_key, o->ext),
+				 o->path, strkey_filename(argument, o->ext));
+		}
+
+		hash_delete(o->h, old_key);
+		ch->desc->pEdit = hash_lookup(o->h, argument);
+		if (ch->desc->pEdit == NULL) {
+			char_printf(ch, "%s: %s: not found.\n",
+				    OLCED(ch)->name, arg);
+			edit_done(ch->desc);
+			return FALSE;
+		}
+	}
+
 	char_puts("Ok.\n", ch);
 	return TRUE;
 }

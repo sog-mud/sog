@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.10 1999-12-16 10:39:28 fjoe Exp $
+ * $Id: olc_skill.c,v 1.11 1999-12-16 11:40:52 fjoe Exp $
  */
 
 #include "olc.h"
@@ -268,7 +268,7 @@ OLC_FUN(skilled_list)
 	BUFFER	*buffer;
 
 	buffer = buf_new(-1);
-	strkey_printall(&skills, buffer);
+	mlstrkey_printall(&skills, buffer);
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);
 	return FALSE;

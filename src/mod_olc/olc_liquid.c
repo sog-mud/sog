@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_liquid.c,v 1.6 1999-12-16 05:34:36 fjoe Exp $
+ * $Id: olc_liquid.c,v 1.7 1999-12-16 11:40:52 fjoe Exp $
  */
 
 #include "olc.h"
@@ -215,7 +215,7 @@ OLC_FUN(liqed_list)
 	BUFFER	*buffer;
 
 	buffer = buf_new(-1);
-	strkey_printall(&liquids, buffer);
+	mlstrkey_printall(&liquids, buffer);
 	page_to_char(buf_string(buffer), ch);
 	buf_free(buffer);
 	return FALSE;
@@ -272,7 +272,7 @@ OLC_FUN(liqed_delete)
 	liquid_t *lq;
 
 	EDIT_LIQ(ch, lq);
-	hash_delete(&liquids, lq);
+	hash_delete(&liquids, gmlstr_mval(&lq->lq_name));
 	edit_done(ch->desc);
 	return TRUE;
 }
