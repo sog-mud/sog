@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.219 1999-12-17 12:59:00 fjoe Exp $
+ * $Id: act_wiz.c,v 1.220 1999-12-18 06:55:44 avn Exp $
  */
 
 /***************************************************************************
@@ -1247,7 +1247,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		buf_printf(output, "Damage: %dd%d  Message:  %s\n",
 			   NPC(victim)->dam.dice_number,
 			   NPC(victim)->dam.dice_type,
-			   damtype_noun(victim->damtype));
+			   victim->damtype);
 	}
 
 	buf_printf(output, "Fighting: %s Deaths: %d Carry number: %d  Carry weight: %ld\n",

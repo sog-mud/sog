@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: objval.c,v 1.1 1999-12-17 12:40:36 fjoe Exp $
+ * $Id: objval.c,v 1.2 1999-12-18 06:55:45 avn Exp $
  */
 
 #include <stdarg.h>
@@ -435,6 +435,7 @@ void objval_show(BUFFER *output, flag_t item_type, vo_t *v)
 		break;
 
 	case ITEM_DRINK_CON:
+	case ITEM_FOUNTAIN:
 		buf_printf(output,
 			    "[v0] Liquid Total: [%d]\n"
 			    "[v1] Liquid Left:  [%d]\n"
@@ -446,16 +447,6 @@ void objval_show(BUFFER *output, flag_t item_type, vo_t *v)
 			    INT(v[3]) ? "Yes" : "No");
 		break;
 
-	case ITEM_FOUNTAIN:
-		buf_printf(output,
-			    "[v0] Liquid Total: [%d]\n"
-			    "[v1] Liquid Left:  [%d]\n"
-			    "[v2] Liquid:       %s\n",
-			    INT(v[0]),
-			    INT(v[1]),
-			    STR(v[2]));
-		break;
-			    
 	case ITEM_FOOD:
 		buf_printf(output,
 			"[v0] Food hours: [%d]\n"
