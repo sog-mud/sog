@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.39 1999-02-25 14:27:25 fjoe Exp $
+ * $Id: olc_room.c,v 1.40 1999-02-27 06:45:35 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -336,7 +336,9 @@ OLC_FUN(roomed_list)
 	int vnum;
 	int  col = 0;
 
-	pArea = ch->in_room->area;
+	if ((pArea = get_edited_area(ch)) == NULL)
+		pArea = ch->in_room->area;
+
 	buffer = buf_new(-1);
 	found   = FALSE;
 
