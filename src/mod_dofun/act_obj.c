@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.165.2.41 2002-09-09 19:26:30 tatyana Exp $
+ * $Id: act_obj.c,v 1.165.2.42 2002-10-16 11:58:05 tatyana Exp $
  */
 
 /***************************************************************************
@@ -4067,7 +4067,8 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 				 TO_CHAR, POS_SLEEPING);
 			break;
 		}
-
+		/* FALLTHRU */
+	case ITEM_CONTAINER:
 		if (obj->contains) {
 			act_puts("You can auction only empty containers.",
 				 ch, NULL, NULL, TO_CHAR, POS_DEAD);
@@ -4075,7 +4076,6 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 		}
 
 		/* FALLTHRU */
-
 	case ITEM_LIGHT:
 	case ITEM_WEAPON:
 	case ITEM_ARMOR:
@@ -4087,6 +4087,15 @@ void do_auction(CHAR_DATA *ch, const char *argument)
 	case ITEM_FURNITURE:
 	case ITEM_FOOD:
 	case ITEM_FISH:
+	case ITEM_SCROLL:
+	case ITEM_BOAT:
+	case ITEM_POTION:
+	case ITEM_PILL:
+	case ITEM_MAP:
+	case ITEM_CLOTHING:
+	case ITEM_DRINK_CON:
+	case ITEM_WARP_STONE:
+	case ITEM_FISHING_POLE:
 		tax = (auction.starting * 20) / 100;
 		if (PC(ch)->bank_g < tax && ch->gold < tax) {
 			act_puts("You do not have enough gold to pay "
