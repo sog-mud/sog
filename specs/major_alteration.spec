@@ -95,7 +95,7 @@ Max 100
 End
 
 #SKILL
-Skill 'fly'
+Skill 'levitation'
 Level 17
 Rating 1
 Min 1

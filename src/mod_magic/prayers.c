@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.33 2002-03-26 14:35:06 kostik Exp $
+ * $Id: prayers.c,v 1.34 2002-08-02 09:35:55 tatyana Exp $
  */
 
 /***************************************************************************
@@ -134,6 +134,9 @@ DECLARE_SPELL_FUN(prayer_air_elemental);
 DECLARE_SPELL_FUN(prayer_wall_of_thorns);
 DECLARE_SPELL_FUN(prayer_obscuring_mist);
 DECLARE_SPELL_FUN(prayer_treeform);
+DECLARE_SPELL_FUN(prayer_fly);
+DECLARE_SPELL_FUN(prayer_mist_walk);
+DECLARE_SPELL_FUN(prayer_air_walk);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -2720,4 +2723,95 @@ can_cast_sanctuary(CHAR_DATA *ch, CHAR_DATA *victim)
 	}
 
 	return TRUE;
+}
+
+SPELL_FUN(prayer_fly, sn, level, ch, vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA *paf;
+
+	if (IS_AFFECTED(victim, AFF_FLYING)
+	||  is_sn_affected(victim, sn)) {
+		if (victim == ch)
+			act_char("You are already have flying ability.", ch);
+		else {
+			act("$N doesn't need your help to fly.",
+			    ch,NULL,victim,TO_CHAR);
+		}
+		return;
+	}
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level;
+	paf->bitvector	= AFF_FLYING;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
+	act_char("You start to fly.", victim);
+	act("$n starts to fly.", victim, NULL, NULL, TO_ROOM);
+}
+
+static inline void
+mist_walk(CHAR_DATA *ch, CHAR_DATA *victim)
+{
+	teleport_char(ch, NULL, victim->in_room,
+		      "$n dissolves into a cloud of glowing mist, "
+		      "then vanishes!",
+		      "You dissolve into a cloud of glowing mist, then "
+		      "flow to your target.",
+		      "A cloud of glowing mist engulfs you, then withdraws "
+		      "to unveil $n!");
+}
+
+SPELL_FUN(prayer_mist_walk, sn, level, ch, vo)
+{
+	CHAR_DATA *victim;
+	CHAR_DATA *pet = NULL;
+
+	if ((victim = get_char_world(ch, target_name)) == NULL
+	||  LEVEL(victim) >= level
+	||  saves_spell(level, victim, DAM_OTHER)
+	||  !can_gate(ch, victim)) {
+		act_char("You cann't reach your target.", ch);
+		return;
+	}
+
+	pet = GET_PET(ch);
+	if (pet && pet->in_room != ch->in_room)
+		pet = NULL;
+
+	mist_walk(ch, victim);
+	if (pet && !IS_AFFECTED(pet, AFF_SLEEP)) {
+		if (pet->position != POS_STANDING)
+			dofun("stand", pet, str_empty);
+		mist_walk(ch, victim);
+	}
+}
+
+SPELL_FUN(prayer_air_walk, sn, level, ch, vo)
+{
+	CHAR_DATA *victim = (CHAR_DATA *) vo;
+	AFFECT_DATA *paf;
+
+	if (IS_AFFECTED(victim, AFF_FLYING)
+	||  is_sn_affected(victim, sn)) {
+		if (victim == ch)
+			act_char("You are already stand on the air.", ch);
+		else {
+			act("$N already stands on the air.",
+			    ch, NULL, victim, TO_CHAR);
+		}
+		return;
+	}
+
+	paf = aff_new(TO_AFFECTS, sn);
+	paf->level	= level;
+	paf->duration	= level;
+	paf->bitvector	= AFF_FLYING;
+	affect_to_char(victim, paf);
+	aff_free(paf);
+
+	act_char("Air became solid and you now can stand on it.", victim);
+	act("Impossible! $n now stands on the air!", victim, NULL, NULL, TO_ROOM);
 }

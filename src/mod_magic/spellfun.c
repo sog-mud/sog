@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.291 2002-03-26 14:35:06 kostik Exp $
+ * $Id: spellfun.c,v 1.292 2002-08-02 09:35:56 tatyana Exp $
  */
 
 /***************************************************************************
@@ -80,7 +80,7 @@ DECLARE_SPELL_FUN(spell_fireproof);
 DECLARE_SPELL_FUN(spell_faerie_fire);
 DECLARE_SPELL_FUN(spell_faerie_fog);
 DECLARE_SPELL_FUN(spell_floating_disc);
-DECLARE_SPELL_FUN(spell_fly);
+DECLARE_SPELL_FUN(spell_levitation);
 DECLARE_SPELL_FUN(spell_gate);
 DECLARE_SPELL_FUN(spell_giant_strength);
 DECLARE_SPELL_FUN(spell_haste);
@@ -124,7 +124,6 @@ DECLARE_SPELL_FUN(spell_magnetic_thrust);
 DECLARE_SPELL_FUN(spell_quantum_spike);
 DECLARE_SPELL_FUN(spell_hand_of_undead);
 DECLARE_SPELL_FUN(spell_astral_walk);
-DECLARE_SPELL_FUN(spell_mist_walk);
 DECLARE_SPELL_FUN(spell_helical_flow);
 DECLARE_SPELL_FUN(spell_corruption);
 DECLARE_SPELL_FUN(spell_hurricane);
@@ -324,7 +323,7 @@ static spell_dispel_t dispel_tab[] = {
 	{ "detect invis",	NULL					},
 	{ "detect magic",	NULL					},
 	{ "faerie fire",	"$n's outline fades."			},
-	{ "fly",		"$n falls to the ground!"		},
+	{ "levitation",		"$n falls to the ground!"		},
 	{ "frenzy",		"$n no longer looks so wild."		},
 	{ "giant strength",	"$n no longer looks so mighty."		},
 	{ "haste",		"$n is no longer moving so quickly."	},
@@ -1395,7 +1394,7 @@ SPELL_FUN(spell_floating_disc, sn, level, ch, vo)
 	equip_char(ch, disc, WEAR_FLOAT);
 }
 
-SPELL_FUN(spell_fly, sn, level, ch, vo)
+SPELL_FUN(spell_levitation, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA *paf;
@@ -1403,9 +1402,9 @@ SPELL_FUN(spell_fly, sn, level, ch, vo)
 	if (IS_AFFECTED(victim, AFF_FLYING)
 	||  is_sn_affected(victim, sn)) {
 		if (victim == ch)
-			act_char("You are already airborne.", ch);
+			act_char("You are already flying.", ch);
 		else {
-			act("$N doesn't need your help to fly.",
+			act("$N doesn't need your help to levitation.",
 			    ch,NULL,victim,TO_CHAR);
 		}
 		return;
@@ -1418,8 +1417,8 @@ SPELL_FUN(spell_fly, sn, level, ch, vo)
 	affect_to_char(victim, paf);
 	aff_free(paf);
 
-	act_char("Your feet rise off the ground.", victim);
-	act("$n's feet rise off the ground.", victim, NULL, NULL, TO_ROOM);
+	act_char("You rise off the ground.", victim);
+	act("$n rises off the ground.", victim, NULL, NULL, TO_ROOM);
 }
 
 static inline void
@@ -2830,24 +2829,6 @@ SPELL_FUN(spell_astral_walk, sn, level, ch, vo)
 	}
 }
 
-/* vampire version astral walk */
-SPELL_FUN(spell_mist_walk, sn, level, ch, vo)
-{
-	CHAR_DATA *victim;
-
-	if ((victim = get_char_world(ch, target_name)) == NULL
-	||  LEVEL(victim) >= level - 5
-	||  saves_spell(level, victim, DAM_OTHER)
-	||  !can_gate(ch, victim)) {
-		act_char("You failed.", ch);
-		return;
-	}
-
-	teleport_char(ch, NULL, victim->in_room,
-		      "$n dissolves into a cloud of glowing mist, then vanishes!",
-		      "You dissolve into a cloud of glowing mist, then flow to your target.",
-		      "A cloud of glowing mist engulfs you, then withdraws to unveil $n!");
-}
 
 /* travel via astral plains */
 SPELL_FUN(spell_helical_flow, sn, level, ch, vo)
