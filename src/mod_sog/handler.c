@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.377 2004-01-26 20:46:20 sg Exp $
+ * $Id: handler.c,v 1.378 2004-01-26 23:21:46 sg Exp $
  */
 
 /***************************************************************************
@@ -1843,8 +1843,8 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 	&& !CAN_FLY(ch)
 	&& !MOUNTED(ch)
 	&& number_percent() > get_curr_stat(ch, STAT_DEX)) {
-		act_char("You slipped on a grease in the room and fall down.", ch);
-		act("$n tries to leave through $d, but slips on the grease and fall down.",
+		act_char("You slipped into a greasy pool.", ch);
+		act("$n tries to leave through $d, but slipped into a greasy pool.",
 			ch, &pexit->short_descr, NULL, TO_ROOM);
 		ch->position = POS_RESTING;
 		WAIT_STATE(ch, get_pulse("violence"));

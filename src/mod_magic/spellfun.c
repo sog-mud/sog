@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.310 2004-01-26 20:46:19 sg Exp $
+ * $Id: spellfun.c,v 1.311 2004-01-26 23:21:45 sg Exp $
  */
 
 /***************************************************************************
@@ -7986,8 +7986,7 @@ SPELL_FUN(spell_grease, sn, level, ch, vo)
 	affect_to_room(ch->in_room, paf);
 	aff_free(paf);
 
-	act_char("The room starts to be filled with grease.", ch);
-	act("The room starts to be filled with grease.",
-	    ch, NULL, NULL, TO_ROOM);
+	act("The ground turns into a squashy slush.",
+	    ch, NULL, NULL, TO_ALL);
 }
 
