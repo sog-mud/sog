@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.57 1998-07-09 12:01:35 fjoe Exp $
+ * $Id: act_comm.c,v 1.58 1998-07-09 13:41:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -63,6 +63,7 @@
 #include "obj_prog.h"
 #include "buffer.h"
 #include "auction.h"
+#include "lookup.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_quit	);
@@ -71,7 +72,6 @@ DECLARE_DO_FUN(do_quit_count);
 void do_quit_org	args((CHAR_DATA *ch, char *argument, bool Count));
 bool proper_order	args((CHAR_DATA *ch, char *argument));
 char *translate(CHAR_DATA *ch, CHAR_DATA *victim, char *argument);
-int lang_lookup		args((const char *name));
 
 void do_music(CHAR_DATA *ch, char *argument)
 {
@@ -164,35 +164,6 @@ void do_gossip(CHAR_DATA *ch, char *argument)
 	}
 
 	return;
-}
-
-void do_lang(CHAR_DATA *ch, char *argument)
-{
-	int i;
-
-	if(*argument == '\0') {
-		if (ch->lang >= nlang) {
-			char_puts(msg(COMM_INTERFACE_LANGUAGE_UNDEFINED, ch),
-				  ch);
-			return;
-		}
-		char_printf(ch, msg(COMM_SHOW_LANGUAGE, ch),
-			    lang_table[ch->lang]);
-		return;
-	}
-
-	for (i = 0; lang_table[i] != NULL; i++)
-		if (!str_prefix(argument, lang_table[i])) {
-			ch->lang = i;
-			char_printf(ch, msg(COMM_SHOW_LANGUAGE, ch),
-				    lang_table[i]);
-			return;
-		}
-
-	char_puts(msg(COMM_LANGUAGE_USAGE_PRE, ch), ch);
-	for (i = 0; lang_table[i] != NULL; i++)
-		char_printf(ch, "%s%s", i == 0 ? "" : " | ", lang_table[i]);
-	char_puts(msg(COMM_LANGUAGE_USAGE_POST, ch), ch);
 }
 
 /* RT code to delete yourself */
@@ -1850,7 +1821,7 @@ void do_speak(CHAR_DATA *ch, char *argument)
 		return;
 	}
 
-	language = lang_lookup(arg);
+	language = slang_lookup(arg);
 
 	if (language == -1)
 		{

@@ -2,14 +2,14 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.81 1998-07-09 12:01:37 fjoe Exp $
+ * $Id: resource.h,v 1.82 1998-07-09 13:41:32 fjoe Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
 char* vmsg(int msgid, CHAR_DATA *ch, CHAR_DATA *victim);
 char* exact_msg(int msgid, int lang, int sex);
 void msgdb_load();
-
+int lang_lookup(char*);
 extern char** lang_table;
 extern nlang;
 
@@ -67,10 +67,9 @@ enum {
 	YOU_ARE_USING,
 	IS_USING,
 	YOU_PEEK_AT_THE_INVENTORY,
-	COMM_INTERFACE_LANGUAGE_UNDEFINED,
-	COMM_SHOW_LANGUAGE,
-	COMM_LANGUAGE_USAGE_PRE,
-	COMM_LANGUAGE_USAGE_POST,
+	INTERFACE_LANGUAGE_IS,
+	LANG_USAGE_PRE,
+	LANG_USAGE_POST,
 	COND_EXCELLENT,
 	COND_GOOD,
 	COND_FINE,

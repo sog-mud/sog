@@ -1,5 +1,5 @@
 /*
- * $Id: resource.c,v 1.22 1998-07-09 12:01:37 fjoe Exp $
+ * $Id: resource.c,v 1.23 1998-07-09 13:41:32 fjoe Exp $
  */
 
 #include <limits.h>
@@ -69,6 +69,46 @@ char *vmsg(int msgid, CHAR_DATA *ch, CHAR_DATA *victim)
 	}
 	else
 		return (char*)m->p;
+}
+
+int lang_lookup(char *name)
+{
+	int lang;
+
+	for (lang = 0; lang < nlang; lang++)
+		if (str_cmp(lang_table[lang], name) == 0)
+			return lang;
+	return -1;
+}
+
+void do_lang(CHAR_DATA *ch, char *argument)
+{
+	char arg[MAX_STRING_LENGTH];
+	int lang;
+
+	argument = one_argument(argument, arg);
+
+	if (*arg == '\0') {
+		if (ch->lang >= nlang) {
+			log_printf("do_lang: %s: lang == %d\n",
+				   ch->name, ch->lang);
+			ch->lang = 0;
+		}
+		char_nprintf(ch, INTERFACE_LANGUAGE_IS, lang_table[ch->lang]);
+		return;
+	}
+
+	lang = lang_lookup(arg);
+	if (lang < 0) {
+		char_nputs(LANG_USAGE_PRE, ch);
+		for (i = 0; lang_table[i] != NULL; i++)
+			char_printf(ch, "%s%s",
+				    i == 0 ? "" : " | ", lang_table[i]);
+		char_nputs(LANG_USAGE_POST, ch);
+		return;
+	}
+
+	ch->lang = lang;
 }
 
 /*

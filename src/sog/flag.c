@@ -1,5 +1,5 @@
 /*
- * $Id: flag.c,v 1.2 1998-07-03 15:18:40 fjoe Exp $
+ * $Id: flag.c,v 1.3 1998-07-09 13:41:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -143,6 +143,8 @@ int flag_value( const struct flag_type *flag_table, char *argument)
             SET_BIT( marked, bit );
             found = TRUE;
         }
+	else
+	    return NO_FLAG;
     }
 
     if ( found )

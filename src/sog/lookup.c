@@ -1,5 +1,5 @@
 /*
- * $Id: lookup.c,v 1.7 1998-07-09 12:01:36 fjoe Exp $
+ * $Id: lookup.c,v 1.8 1998-07-09 13:41:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -89,7 +89,7 @@ int size_lookup (const char *name)
    return 0;
 }
 
-int lang_lookup (const char *name)
+int slang_lookup (const char *name)
 {
    int lang;
 
