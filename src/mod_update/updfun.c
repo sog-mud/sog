@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.67 2004-02-27 19:27:08 tatyana Exp $
+ * $Id: updfun.c,v 1.68 2004-03-03 15:37:31 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -278,6 +278,7 @@ UPDATE_FOREACH_FUN(mobile_update_foreach, vo)
 
 	if (ch->in_room && ch->in_room->sector_type == SECT_UNDERWATER
 	&&  !is_sn_affected(ch, "water breathing")
+	&&  !is_sn_affected(ch, "breath under water")
 	&&  !IS_IMMORTAL(ch)) {
 		act("$n gasps for fresh air, but inhales water.",
 		    ch, NULL, NULL, TO_ROOM);

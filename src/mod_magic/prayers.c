@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.70 2004-03-03 14:40:51 tatyana Exp $
+ * $Id: prayers.c,v 1.71 2004-03-03 15:37:30 tatyana Exp $
  */
 
 /***************************************************************************
@@ -160,6 +160,8 @@ DECLARE_SPELL_FUN(prayer_wind_blow);
 DECLARE_SPELL_FUN(prayer_tornado);
 DECLARE_SPELL_FUN(prayer_ice_sphere);
 DECLARE_SPELL_FUN(prayer_cloak_of_death);
+DECLARE_SPELL_FUN(prayer_water_walk);
+DECLARE_SPELL_FUN(prayer_breath_under_water);
 
 static void
 hold(CHAR_DATA *ch, CHAR_DATA *victim, int duration, int dex_modifier, int
@@ -3882,4 +3884,36 @@ SPELL_FUN(prayer_cloak_of_death, sn, level, ch, vo)
 		    ch, NULL, NULL, TO_CHAR);
 	} else
 		act_char("Power of your god is already with you.", ch);
+}
+SPELL_FUN(prayer_water_walk, sn, level, ch, vo)
+{
+	if (!is_sn_affected(ch, sn)) {
+		AFFECT_DATA *paf;
+
+		paf = aff_new(TO_AFFECTS, sn);
+		paf->duration	= level;
+		paf->level	= level;
+		affect_to_char(ch, paf);
+		aff_free(paf);
+
+		act("Now water will be solid for you.",
+		    ch, NULL, NULL, TO_CHAR);
+	} else
+		act_char("You are already have water walking ability.", ch);
+}
+SPELL_FUN(prayer_breath_under_water, sn, level, ch, vo)
+{
+	if (!is_sn_affected(ch, sn)) {
+		AFFECT_DATA *paf;
+
+		paf = aff_new(TO_AFFECTS, sn);
+		paf->duration	= level;
+		paf->level	= level;
+		affect_to_char(ch, paf);
+		aff_free(paf);
+
+		act("Your God grants you ability to breath under water.",
+		    ch, NULL, NULL, TO_CHAR);
+	} else
+		act_char("You are already can breath under water.", ch);
 }

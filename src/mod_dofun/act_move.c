@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.302 2004-02-19 17:16:42 fjoe Exp $
+ * $Id: act_move.c,v 1.303 2004-03-03 15:37:29 tatyana Exp $
  */
 
 /***************************************************************************
@@ -2845,6 +2845,11 @@ DO_FUN(do_forest, ch, argument)
 DO_FUN(do_breathhold, ch, argument)
 {
 	if (is_sn_affected(ch, "water breathing")) {
+		act_char("You already can breath under water.", ch);
+		return;
+	}
+
+	if (is_sn_affected(ch, "breath under water")) {
 		act_char("You already can breath under water.", ch);
 		return;
 	}

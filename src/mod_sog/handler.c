@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.395 2004-02-27 19:36:55 tatyana Exp $
+ * $Id: handler.c,v 1.396 2004-03-03 15:37:30 tatyana Exp $
  */
 
 /***************************************************************************
@@ -1696,7 +1696,7 @@ get_eq_char(CHAR_DATA *ch, int iWear)
 	return NULL;
 }
 
-#define CAN_SWIM(ch)	(IS_IMMORTAL(ch) || number_percent() < get_skill(ch, "swimming"))
+#define CAN_SWIM(ch)	(IS_IMMORTAL(ch) || number_percent() < get_skill(ch, "swimming") || is_sn_affected(ch, "water walk"))
 #define CAN_FLY(ch)	(IS_IMMORTAL(ch) || IS_AFFECTED(ch, AFF_FLYING))
 
 static int movement_loss[MAX_SECT] =
@@ -2108,7 +2108,8 @@ move_char(CHAR_DATA *ch, int door, flag_t flags)
 		||  to_room->sector_type == SECT_UNDERWATER) {
 			if (MOUNTED(ch)
 			&& (!CAN_SWIM(MOUNTED(ch))
-			    || !is_sn_affected(MOUNTED(ch), "water breathing"))) {
+			    || !is_sn_affected(MOUNTED(ch), "water breathing")
+			    || !is_sn_affected(MOUNTED(ch), "breath under water"))) {
 				act_char("Your mount refuses to dive.", ch);
 				return FALSE;
 			}
