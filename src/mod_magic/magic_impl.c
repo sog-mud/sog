@@ -23,11 +23,10 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic_impl.c,v 1.12 2001-11-10 11:39:39 avn Exp $
+ * $Id: magic_impl.c,v 1.13 2001-11-12 09:43:37 kostik Exp $
  */
 
 #include <stdio.h>
-#include <string.h>
 
 #include <merc.h>
 
@@ -146,7 +145,7 @@ get_cpdata(CHAR_DATA *ch, const char *argument, int skill_type, cpdata_t *cp)
 
 	if (skill_type == ST_SPELL
 	&&  (cp->chance = get_skill(ch, "shadow magic"))
-	&&  !strcmp(arg1, "shadow")) {
+	&&  !str_cmp(arg1, "shadow")) {
 		cp->shadow = TRUE;
 		target_name = one_argument(target_name, arg1, sizeof(arg1));
 		cp->sk = skill_search(arg1);

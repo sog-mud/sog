@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.275 2001-11-09 16:09:13 kostik Exp $
+ * $Id: spellfun.c,v 1.276 2001-11-12 09:43:38 kostik Exp $
  */
 
 /***************************************************************************
@@ -6950,11 +6950,11 @@ SPELL_FUN(spell_lich, sn, level, ch, vo)
 		return;
 	}
 
-	if (!strcmp(r->name, "undead"))
+	if (!str_cmp(r->name, "undead"))
 		lev = 0;
-	else if (!strcmp(r->name, "zombie"))
+	else if (!str_cmp(r->name, "zombie"))
 		lev = MAX_LEVEL / 2 ;
-	else if (!strcmp(r->name, "lich"))
+	else if (!str_cmp(r->name, "lich"))
 		lev = MAX_LEVEL * 2 / 3;
 
 	if (ch->level < lev) {

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_spec.c,v 1.26 2001-09-13 16:22:00 fjoe Exp $
+ * $Id: db_spec.c,v 1.27 2001-11-12 09:43:35 kostik Exp $
  */
 
 #include <stdio.h>
@@ -78,6 +78,12 @@ DBLOAD_FUN(load_spec)
 
 			KEY("Class", sp->spec_class,
 			    fread_fword(spec_classes, fp));
+			break;
+
+		case 'F':
+			CHECK_VAR(sp, "Name");
+			KEY("Flags", sp->spec_flags,
+			    fread_fstring(spec_flags, fp));
 			break;
 
 		case 'N':

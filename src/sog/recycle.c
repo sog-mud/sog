@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.138 2001-09-25 14:27:17 kostik Exp $
+ * $Id: recycle.c,v 1.139 2001-11-12 09:43:39 kostik Exp $
  */
 
 /***************************************************************************
@@ -1274,6 +1274,7 @@ spec_init(spec_t *spec)
 {
 	spec->spec_name = str_empty;
 	spec->spec_class = 0;
+	spec->spec_flags = 0;
 
 	c_init(&spec->spec_skills, &c_info_spec_skills);
 	trig_init(&spec->mp_trig);

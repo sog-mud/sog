@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.270 2001-10-21 22:13:20 fjoe Exp $
+ * $Id: act_obj.c,v 1.271 2001-11-12 09:43:36 kostik Exp $
  */
 
 /***************************************************************************
@@ -1360,7 +1360,7 @@ DO_FUN(do_sacrifice, ch, argument)
 	OBJ_DATA       *obj;
 	OBJ_DATA       *r_next_cont;
 
-	if (!strcmp(argument, "all")) {
+	if (!str_cmp(argument, "all")) {
 		for (obj = ch->in_room->contents; obj; obj = r_next_cont) {
 			r_next_cont = obj->next_content;
 			sac_obj(ch, obj);
