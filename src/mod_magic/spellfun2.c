@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.94 1999-03-10 17:23:29 fjoe Exp $
+ * $Id: spellfun2.c,v 1.95 1999-03-25 13:12:26 kostik Exp $
  */
 
 /***************************************************************************
@@ -4448,7 +4448,7 @@ void spell_polymorph(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		return;
 	}
 
-	if (target_name == NULL) {
+	if (target_name == NULL || target_name[0]=='\0') {
 		char_puts("Usage: cast 'polymorph' <pcracename>.\n",ch); 
 		return;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.114 1999-03-19 18:55:25 fjoe Exp $
+ * $Id: update.c,v 1.115 1999-03-25 13:12:28 kostik Exp $
  */
 
 /***************************************************************************
@@ -75,6 +75,7 @@ void	weather_update	(void);
 void	char_update	(void);
 void	obj_update	(void);
 void	aggr_update	(void);
+void 	clan_item_update(void);
 int	potion_cure_level	(OBJ_DATA *potion);
 int	potion_arm_level	(OBJ_DATA *potion);
 bool	potion_cure_blind	(OBJ_DATA *potion);
@@ -1860,6 +1861,7 @@ void update_handler(void)
 		char_update();
 		quest_update(); 
 		obj_update();
+		clan_item_update();
 		check_reboot();
 
 		/* room counting */
@@ -2297,6 +2299,46 @@ void track_update(void)
 			doprintf(do_yell, ch,
 			         "So we meet again, %s", vch->name);
 			do_murder(ch, vch->name);
+		}
+	}
+}
+
+void clan_item_update(void)
+{	
+	CLAN_DATA *clan;
+	OBJ_DATA *obj;
+	bool put_back;
+	int i;
+	int j;
+
+	if (time_info.hour != 0) 
+		return;
+
+	for (i=0; i<clans.nused; i++) {
+		put_back = FALSE;
+		if ((clan=clan_lookup(i))->obj_ptr == NULL) 
+			continue;
+		for (obj=clan->obj_ptr; obj->in_obj; obj=obj->in_obj);
+		if (obj->carried_by) 
+			put_back = TRUE;
+
+		else if (obj->in_room) 
+			for(j=0; j<clans.nused; j++) 
+				if (!(put_back=(obj->in_room->vnum != clan_lookup(j)->altar_vnum)))
+					break;
+
+		if(put_back) {
+			if(clan->obj_ptr->in_obj)
+				obj_from_obj(clan->obj_ptr);
+			if(clan->obj_ptr->carried_by)
+				obj_from_char(clan->obj_ptr);
+			if(clan->obj_ptr->in_room)
+				obj_from_room(clan->obj_ptr);
+
+			if(clan->altar_ptr) 
+				obj_to_obj(clan->obj_ptr, clan->altar_ptr);
+			else 
+				bug("clan_item_update: no altar_ptr for clan %d", i);
 		}
 	}
 }

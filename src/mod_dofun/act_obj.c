@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.132 1999-03-16 10:30:31 fjoe Exp $
+ * $Id: act_obj.c,v 1.133 1999-03-25 13:12:23 kostik Exp $
  */
 
 /***************************************************************************
@@ -413,7 +413,9 @@ void do_put(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if (IS_SET(container->value[1], CONT_CLOSED)) {
+	if (IS_SET(container->value[1], CONT_CLOSED) 
+	    && (!ch->clan 
+	       || clan_lookup(ch->clan)->altar_ptr!=container)) {
 		act_puts("The $d is closed.",
 			 ch, NULL, container->name, TO_CHAR, POS_DEAD);
 		return;

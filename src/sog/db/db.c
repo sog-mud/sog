@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.123 1999-03-22 09:52:24 fjoe Exp $
+ * $Id: db.c,v 1.124 1999-03-25 13:12:29 kostik Exp $
  */
 
 /***************************************************************************
@@ -766,6 +766,7 @@ void reset_room(ROOM_INDEX_DATA *pRoom)
 		if (clan != NULL && clan->obj_ptr == NULL) {
 			pObj = create_obj(pObjIndex, number_fuzzy(LastObj->level));
 			clan->obj_ptr = pObj;
+			clan->altar_ptr = LastObj;
 			obj_to_obj(pObj,LastObj);
 		}
 		continue;

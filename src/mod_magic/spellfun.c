@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.135 1999-03-17 15:27:35 kostik Exp $
+ * $Id: spellfun.c,v 1.136 1999-03-25 13:12:25 kostik Exp $
  */
 
 /***************************************************************************
@@ -111,6 +111,7 @@ bool spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage)
 			if (!is_safe(bch, ch))
 				damage(bch, ch, bane_damage, gsn_spellbane,
 				       DAM_NEGATIVE, TRUE);
+			check_improve(bch, gsn_spellbane, TRUE, 8);
 	        }
 	        return TRUE;
 	}

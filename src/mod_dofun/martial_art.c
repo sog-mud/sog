@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.76 1999-03-22 09:52:19 fjoe Exp $
+ * $Id: martial_art.c,v 1.77 1999-03-25 13:12:27 kostik Exp $
  */
 
 /***************************************************************************
@@ -1769,9 +1769,8 @@ void do_bloodthirst(CHAR_DATA *ch, const char *argument)
 void do_spellbane(CHAR_DATA *ch, const char *argument)
 {
 	AFFECT_DATA af;
-	int chance;
 
-	if ((chance = get_skill(ch, gsn_spellbane)) == 0) {
+	if (get_skill(ch, gsn_spellbane) == 0) {
 		char_puts("Huh?\n", ch);
 		return;
 	}
@@ -1796,7 +1795,6 @@ void do_spellbane(CHAR_DATA *ch, const char *argument)
 	act("Your hatred of magic surrounds you.", ch, NULL, NULL, TO_CHAR);
 	act("$n fills the air with $s hatred of magic.",
 	    ch, NULL, NULL, TO_ROOM);
-	check_improve(ch, gsn_spellbane, TRUE, 1);
 }
 
 void do_resistance(CHAR_DATA *ch, const char *argument)

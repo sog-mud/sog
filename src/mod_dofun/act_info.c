@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.221 1999-03-19 18:55:19 fjoe Exp $
+ * $Id: act_info.c,v 1.222 1999-03-25 13:12:22 kostik Exp $
  */
 
 /***************************************************************************
@@ -1016,7 +1016,9 @@ void do_look_in(CHAR_DATA* ch, const char *argument)
 	case ITEM_CONTAINER:
 	case ITEM_CORPSE_NPC:
 	case ITEM_CORPSE_PC:
-		if (IS_SET(obj->value[1], CONT_CLOSED)) {
+		if (IS_SET(obj->value[1], CONT_CLOSED) 
+		&& (!ch->clan ||
+		clan_lookup(ch->clan)->altar_ptr != obj)) {
 			char_puts("It is closed.\n", ch);
 			break;
 		}

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: clan.h,v 1.15 1999-02-25 14:27:16 fjoe Exp $
+ * $Id: clan.h,v 1.16 1999-03-25 13:12:25 kostik Exp $
  */
 
 #ifndef _CLAN_H_
@@ -57,7 +57,8 @@ struct clan_data
 	int 		altar_vnum;	/* vnum of room with clan item */
 	int	 	obj_vnum;	/* vnum of clan item */
 	int		mark_vnum;	/* vnum of clan mark */
-	OBJ_DATA *	obj_ptr;
+	OBJ_DATA *	obj_ptr;	/* pointer to clan item */
+	OBJ_DATA *	altar_ptr;	/* pointer to altar (obj with clan item)*/
 	const char *	leader_list;	/* list of leaders */
 	const char *	member_list;	/* list of members */
 	const char *	second_list;	/* list of secondaries */
