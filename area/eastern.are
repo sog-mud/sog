@@ -594,7 +594,7 @@ D3
 Z 0 3205
 S
 #5002
-@eng A long tunnel@rus Длинный тунель~
+@eng A long tunnel@rus Длинный туннель~
 @eng The tunnel branches off north.
 @rus Здесь туннель разветвляется - справа от тебя темнеет проход.
 ~
@@ -697,7 +697,7 @@ S
 @eng A wide tunnel@rus Широкий туннель~
 @eng The tunnel continues east and west. To the east the tunnel dives
 down into a bright light.
-@rus Туннель тянется с востока, заметно сужаясь к западу.  На востоке всве
+@rus Туннель тянется с востока, заметно сужаясь к западу. На востоке все
 тонет в ярких лучах солнца.  
 ~
 0 AD mountain
@@ -723,7 +723,7 @@ D2
 Z 0 5002
 D5
 @eng You can easily slide down the rocks without getting hurt.
-@rus Похоже здесь можно спустится вниз неразбившись.
+@rus Похоже здесь можно спустится вниз не разбившись.
 ~
 ~
 Z 0 5009
@@ -773,7 +773,7 @@ S
 @eng This cavern overwhelms you. The walls and ceiling seem miles away.
 Bones of previous adventurers lie strewn on the cavern floor.
 @rus Это пещера ошеломляет.  Кажется что стены и свод в милях от тебя.  Кости
-твоих предшетственников усеивают пол.  
+твоих предшественников усеивают пол.  
 ~
 0 AD mountain
 D4
@@ -1001,7 +1001,7 @@ You feel lost.
 0 N desert
 E
 flower~
-Магическое цветение, благодоря воле Богов проросло своими корнями в Песках
+Магическое цветение, благодаря воле Богов проросло своими корнями в Песках
 Горя. Это награда старику Баргану за его многолетние молитвы сильным мира сего.
 Возвышенные чувства охватывают тебя и ты склоняешь голову.
 ~

@@ -84,7 +84,7 @@ tumbu yumbu black man негр~
 @eng "Such a pity that you forget your bag! Your would be able to gather
 some memories about my life." - says Tumbu-Yumbu and smiles at you.
 @rus "Какая жалость, что ты не захватил с собой большую сумку! Ты
-мог бы собрать большую колекцию моих воспоминаний." - говорит
+мог бы собрать большую коллекцию моих воспоминаний." - говорит
 Тумбу-Юмбу и улыбается тебе.
 ~
 human~
@@ -105,7 +105,7 @@ northern edge of the lawn. His dark clothes shine brightly for being
 polished.
 @rus Тебе повезло! К счастью, он атакует не тебя, а мишень на
 северном краю поляны. Его темные доспехи сверкают на солнце,
-тщательно отполированые.
+тщательно отполированные.
 ~
 human~
 AGT Oa -300 0
@@ -1335,7 +1335,7 @@ G male
 #36313
 boots black scale dragon сапоги~
 @eng black dragon boots@rus ~~черные~~ ~~сапоги~~~
-@eng A pair of scale dragon boots sits here.@rus Драконьи морды грозно поглядавают на тебя с носков черных сапог (boots).~
+@eng A pair of scale dragon boots sits here.@rus Драконьи морды грозно поглядывают на тебя с носков черных сапог (boots).~
 black dragonscale~
 armor ABCEG AG
 31 28 31 20 0
@@ -2162,7 +2162,7 @@ sword 6 6 pierce 0
 G male
 #36372
 axe tournament топор~
-@eng tournament axe@rus {D~~турнирый~~ ~~топор~~{x~
+@eng tournament axe@rus {D~~турнирный~~ ~~топор~~{x~
 @eng A HUGE axe lies here.@rus ЗДОРОВЕННЫЙ топор (axe) лежит на земле.~
 iron~
 weapon 0 AN
@@ -2359,7 +2359,7 @@ book~
 все, кто верит в окончательное торжество Зла. Кровь, слезы, мучения
 и смерти невинных -- лучшая для него пища. Он не забывает награждать
 тех, кто снабжает его всем этим в достатке. Несмотря на всю свою
-злобность и кроважадность, для своих подопечных из ордена Шалафи он
+злобность и кровожадность, для своих подопечных из ордена Шалафи он
 не делает различия на злой-добрый. Все те, кто посвятил себя служению
 поистине Высшей Магии, равны для него. Помимо покровительства магам
 ордена Шалафи он занимается всеми вопросами, связанными с кланами.
@@ -3129,7 +3129,7 @@ G female
 #36439
 shackles foot iron band chain pair кандалы~
 @eng A pair of heavy iron foot shackles@rus Тяжелые железные кандалы~
-@eng A pair of heavy iron bands attached to a strong chain lies here.@rus Пара тяжелых железных обручей, соединенных крепкой цепью, лежит на замле.~
+@eng A pair of heavy iron bands attached to a strong chain lies here.@rus Пара тяжелых железных обручей, соединенных крепкой цепью, лежит на земле.~
 iron~
 treasure CEHIPUY AG
 0 0 0 0 0
@@ -4665,7 +4665,7 @@ you see here safe the trees and grass?
 @rus Ты входишь под тень деревьев и расслабляешься.
 Посреди травы и деревьев ты замечаешь какие-то
 круглые щиты, разрисованные красными и белыми полосками.
-  "ВВЖЖЖЖЖЖМЦ" Стрела прожужала над твоим ухом
+  "ВВЖЖЖЖЖЖМЦ" Стрела прожужжала над твоим ухом
 и со звучным чмоком впилась в мишень.
 ~
 0 0 forest
@@ -4929,7 +4929,7 @@ S
 @eng A dark hill, filled with a black magic, covered with fairy
 mists, shows you a deserted line to the south. Far you can
 see a lit hill.
-@rus Черная скала пронизанна черной магией и покрыта
+@rus Черная скала пронизана черной магией и покрыта
 колдовским туманом. На юге лежит выжженная линия.
 Вдалеке виднеется светлый холм.
 ~
@@ -6362,7 +6362,7 @@ S
 @eng You are at the intersection of the 2nd Line and Main street.
 A smart grate blocks path northward, south lies the central
 part of the town. East and west 2nd Line continues.
-@rus Ты находишся на пересечении Второй Линии и Главной улицы.
+@rus Ты находишься на пересечении Второй Линии и Главной улицы.
 Маленькая калитка загораживает путь на север, южнее
 расположена центральная часть города. К востоку и западу
 продолжается Вторая Линия.

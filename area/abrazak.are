@@ -113,8 +113,8 @@ stand stand male 0
 #15015
 белочка серая squirrel~
 @eng gray squirrel@rus ~~серая~~ ~~белочка~~~
-@eng A small squirell is sitting here.
-@rus Маленькая серая белочка (squirell) сидит здесь, чего-то ожидая.
+@eng A small squirrel is sitting here.
+@rus Маленькая серая белочка (squirrel) сидит здесь, чего-то ожидая.
 ~
 @eng A small gray squirrel.
 @rus Маленький серый зверек с большими влажными глазами и очень пушистым 
@@ -256,7 +256,7 @@ ABE ABCDEFGHIJKLMNOPQRSTUVWXYZabcde BEK DFGHIJ DFGHIJ
 G none
 #15007
 bottle vodka absolute~
-@eng a bottle of crystal clear vodka@rus литровый пузырь кристалльно чистой водки~
+@eng a bottle of crystal clear vodka@rus литровый пузырь кристально чистой водки~
 @eng A bottle of crystal clear vodka has been left here.@rus Темный властелин оставил здесь пузырь водки.~
 glass~
 drink ABCEHJLMORYZ AO
@@ -593,7 +593,7 @@ G none
 #15037
 box~
 @eng {ra box of chocolate sweets{x@rus {rкоробка шоколадных конфет{x~
-@eng Box of chocolate sweets is here.@rus Коробка шоколадных кофет лежит тут.~
+@eng Box of chocolate sweets is here.@rus Коробка шоколадных конфет лежит тут.~
 картон~
 container GRYa AOP
 100 0 0 0 0

@@ -15,7 +15,7 @@ End
 ~
 @eng Oberon appears as a tall, regal man with shoulder length, light blonde 
 hair, eyes of forest green and golden skin.  His every feature 
-exemplefies what it is to be nobility.  He is the embodyment of the 
+exemplifies what it is to be nobility.  He is the embodiment of the 
 Seelie way, light, love, celebration, honor and wisdom.
 @rus Высокий импозантный мужчина со светлыми волосами до плеч, глазами цвета 
 лесной зелени и золотистой кожей. Каждая его черточка говорит о его
@@ -90,18 +90,18 @@ stand stand male 500
 #12004
 king gwyn nudd~
 @eng Gwyn ap Nudd@rus Гвин-ап-~~Надд~~~
-Gwyn ap Nudd, soverign of the Unseelie Court stands before you.
+Gwyn ap Nudd, sovereign of the Unseelie Court stands before you.
 ~
 @eng The King of night, the dead, winter and ice, Gwyn ap Nudd is the 
 complete opposite of his brother Oberon.  His hair is raven black, his 
 skin a pale white, his eyes an ice blue.  His stare fills your soul with 
-a chill and yet you get a strange feeling of exhillaration.  Gwyn 
+a chill and yet you get a strange feeling of exhilaration.  Gwyn 
 embodies not only the terror of death but the seductive beauty of night.
-@rus Король ночи, повелитель смерти, зимы и холодаб он полная 
+@rus Король ночи, повелитель смерти, зимы и холода, он полная 
 противоположность своего брата Оберона. Его волосы цвета
-воронова крыла, а глаза ярко-голубого цвета с кристаликами
+воронова крыла, а глаза ярко-голубого цвета с кристалликами
 льда в них. Они мрачно сияют на фоне бледной белой кожи.
-Но Гвин олицитворение не только террора и смерти, но и 
+Но Гвин олицетворение не только террора и смерти, но и 
 обольстительной красоты ночи.
 ~
 elf~
@@ -119,7 +119,7 @@ morrigan queen морриган~
 ~
 @eng The Morrigan is the Queen of the Unseelie and the most destructive of all 
 the Fae.  She is the most feared of all the creatures of the night, for 
-while the Puck may be harmfull the Morrigan is deadly.
+while the Puck may be harmful the Morrigan is deadly.
 @rus Морриган -- королева Запределья. Самая невоздержанная из фейри. Она
 самое пугающие создание ночи, ее повелительница.
 ~
@@ -206,7 +206,7 @@ stand stand male 500
 sidhe guard сид-охранник~
 @eng a sidhe guard@rus ~~сид-охранник~~~
 @eng A sidhe guard captain stands here guarding his homeland.
-@rus Сид-охранник (gusrd) стоит здесь, охраняя свою родную землю.
+@rus Сид-охранник (guard) стоит здесь, охраняя свою родную землю.
 ~
 @eng This captain leads his men with all the charisma and natural born 
 leadership that graces all of the sidhe.
@@ -226,7 +226,7 @@ guard сид-охранник sidhe~
 @eng A sidhe guard captain stands here protecting what is his.
 @rus Статный сид (guard) стоит здесь, обещая защиту.
 ~
-@eng This captain leads his men with a cunning and skill that is immpossible 
+@eng This captain leads his men with a cunning and skill that is impossible 
 not to admire.
 @rus Капитан. Он руководит своими людьми железной рукой, постоянно заставляя
 совершенствовать воинское искусство. Хотя оно и так поистине заслуживает 
@@ -245,9 +245,9 @@ sidhe knight рыцарь сид~
 @eng A noble sidhe knight of the Seelie court is here on a quest.
 @rus Благородный сид-рыцарь (sidhe) выполняет свое задание.
 ~
-@eng This knight is the epitome of chivalry.  The embodyment of honor, 
+@eng This knight is the epitome of chivalry.  The embodiment of honor, 
 loyalty, courage and skill in battle.
-@rus Этот сид -- олицитворение рыцарства. Соединение чести, лояльности, 
+@rus Этот сид -- олицетворение рыцарства. Соединение чести, лояльности, 
 храбрости, мужества, отваги и умения драться.
 ~
 elf~
@@ -263,9 +263,9 @@ sidhe knight рыцарь сид~
 @eng A noble sidhe knight of the Seelie court is here on a quest.
 @rus Благородный сид-рыцарь (sidhe) выполняет свое задание.
 ~
-@eng This knight is the epitome of chivalry.  The embodyment of honor,
+@eng This knight is the epitome of chivalry.  The embodiment of honor,
 loyalty, courage and skill in battle.
-@rus Этот сид -- олицитворение рыцарства. Соединение чести, лояльности, 
+@rus Этот сид -- олицетворение рыцарства. Соединение чести, лояльности, 
 храбрости, мужества, отваги и умения драться.
 ~
 elf~
@@ -281,9 +281,9 @@ sidhe knight сид рыцарь~
 @eng A noble sidhe knight of the Unseelie court is here on a quest.
 @rus Благородный сид-рыцарь (sidhe) выполняет свое задание.
 ~
-@eng This knight is the epitome of chivalry.  The embodyment of power and 
+@eng This knight is the epitome of chivalry.  The embodiment of power and 
 skill in battle.
-@rus Этот сид -- олицитворение рыцарства. Соединение чести, лояльности, 
+@rus Этот сид -- олицетворение рыцарства. Соединение чести, лояльности, 
 храбрости, мужества, отваги и умения драться.
 ~
 elf~
@@ -299,9 +299,9 @@ sidhe knight сид рыцарь~
 @eng A noble sidhe knight of the Unseelie court is here on a quest.
 @rus Благородный сид-рыцарь (sidhe) выполняет свое задание.
 ~
-@eng This knight is the epitome of chivalry.  The embodyment of power and 
+@eng This knight is the epitome of chivalry.  The embodiment of power and 
 skill in battle.
-@rus Этот сид -- олицитворение рыцарства. Соединение чести, лояльности, 
+@rus Этот сид -- олицетворение рыцарства. Соединение чести, лояльности, 
 храбрости, мужества, отваги и умения драться.
 ~
 elf~
@@ -317,9 +317,9 @@ sidhe knight сид рыцарь~
 @eng A noble sidhe knight stands here looking bored.
 @rus Благородный сид-рыцарь (sidhe) выполняет свое задание.
 ~
-@eng This knight is the epitome of chivalry.  The embodyment of honor,
+@eng This knight is the epitome of chivalry.  The embodiment of honor,
 loyalty, courage and skill in battle.
-@rus Этот сид -- олицитворение рыцарства. Соединение чести, лояльности, 
+@rus Этот сид -- олицетворение рыцарства. Соединение чести, лояльности, 
 храбрости, мужества, отваги и умения драться.
 ~
 elf~
@@ -335,9 +335,9 @@ sidhe knight сид рыцарь~
 @eng A sidhe knight is here embroiled within the affairs of the court.
 @rus Благородный сид-рыцарь (sidhe) выполняет свое задание.
 ~
-@eng This knight is the epitome of chivalry.  The embodyment of power and 
+@eng This knight is the epitome of chivalry.  The embodiment of power and 
 skill in battle.
-@rus Этот сид -- олицитворение рыцарства. Соединение чести, лояльности, 
+@rus Этот сид -- олицетворение рыцарства. Соединение чести, лояльности, 
 храбрости, мужества, отваги и умения драться.
 ~
 elf~
@@ -353,9 +353,9 @@ sidhe knight сид рыцарь~
 @eng A noble sidhe knight is attempting to win the favor of a beautiful patron.
 @rus Благородный сид-рыцарь (sidhe) выполняет свое задание.
 ~
-@eng This knight is the epitome of chivalry.  The embodyment of power and 
+@eng This knight is the epitome of chivalry.  The embodiment of power and 
 skill in battle. 
-@rus Этот сид -- олицитворение рыцарства. Соединение чести, лояльности, 
+@rus Этот сид -- олицетворение рыцарства. Соединение чести, лояльности, 
 храбрости, мужества, отваги и умения драться.
 ~
 elf~
@@ -373,7 +373,7 @@ troll guard тролль охранник~
 ~
 @eng This troll stands about 9 feet tall and looks as if he was made of 
 stone.  Once the rulers of Arcadia trolls such as this one now serve the 
-sidhe as faithfull warriors.
+sidhe as faithful warriors.
 @rus Этот тролль ростом около девяти футов. Он кажется сделанным из
 камня. В качестве охранников Аркадии, обучавшихся у сидов, они
 заслужили репутацию хороших воинов.
@@ -393,7 +393,7 @@ troll guard тролль охранник~
 ~
 @eng This troll stands about 9 feet tall and looks as if he was made of
 stone.  Once the rulers of Arcadia trolls such as this one now serve the
-sidhe as faithfull warriors.
+sidhe as faithful warriors.
 @rus Этот тролль ростом около девяти футов. Он кажется сделанным из
 камня. В качестве охранников Аркадии, обучавшихся у сидов, они
 заслужили репутацию хороших воинов.
@@ -434,7 +434,7 @@ a pooka jester~
 ~
 @eng Dressed in a garishly bright, multi-colored, clashing, frilly lace
 jump-suit, it hurts just to look at him.  This pooka is a master of making
-fun of people.  You don't ever realy know if his jokes are truly just for 
+fun of people.  You don't ever really know if his jokes are truly just for 
 fun....
 @rus Одетый в разноцветный колпак с колокольчиками и неуклюжий костюм, он
 непроизвольно вызывает улыбку. Он мастер смешить людей, но не верится
@@ -452,7 +452,7 @@ stand stand male 500
 satyr drinker drunk сатир~
 @eng a satyr drinker@rus ~~пьяница~~-~~сатир~~~
 @eng A satyr is sitting here with a bottle on one side and a woman on the other.
-@rus Сатир (satyp) сидит здесь, прижимая к себе с одной стороны бутылку, а с другой женщину.
+@rus Сатир (satyr) сидит здесь, прижимая к себе с одной стороны бутылку, а с другой женщину.
 ~
 Half-man, half-goat satyrs are the party animals of the Fae.  Renowned 
 for their great stamina they can drink more than almost any other being.
@@ -502,7 +502,7 @@ satyr lusty~
 a lusty satyr~
 A satyr is here chasing after a young nymph.
 ~
-This satyr seems totaly obsessed with catching the beautiful woodland 
+This satyr seems totally obsessed with catching the beautiful woodland 
 nymph.  You can tell by the look in his eyes that it would be a BAD idea 
 to get in his way.
 ~
@@ -569,7 +569,7 @@ eshu storyteller эшу~
 outrageous lies you have ever heard or he is one hell of a lot more 
 experienced than you will ever be.
 @rus Мужчина с темной кожей, одетый в летящий плащ пурпурного цвета. Он
-расскаывает различные истории о землях, про которые ты даже раньше не
+рассказывает различные истории о землях, про которые ты даже раньше не
 слышал.
 ~
 human~
@@ -733,7 +733,7 @@ dryad дриада~
 @eng This beautiful brown skinned maiden with dark eyes, clothed in a few 
 leaves runs among the trees darting in and out of sight.
 @rus Красивая молодая девушка с золотистой кожей и темными глазами, одетая в
-наряд из лестных листьев, резвится среди деревьев, то скрываять с глаз, то
+наряд из лестных листьев, резвится среди деревьев, то скрываясь с глаз, то
 снова появляясь в поле зрения.
 ~
 elf~
@@ -873,7 +873,7 @@ catsidhe pet котасид~
 @rus Большая белая кошка (CatSidhe) с красными глазами.
 ~
 @eng This cat is all white with red ears.  In it's eyes you can see 
-inteligence.
+intelligence.
 @rus Полностью белая кошка с красными глазами, в которых светится интеллект.
 ~
 cat~
@@ -936,7 +936,7 @@ G male
 #12003
 opal bracelet браслет~
 @eng an opal bracelet@rus ~~опаловый~~ ~~браслет~~~
-@eng A gleeming opal bracelet shines faintly from the floor.@rus Переливающийся опаловый браслет (bracelet) сверкает у твоих ног.~
+@eng A gleaming opal bracelet shines faintly from the floor.@rus Переливающийся опаловый браслет (bracelet) сверкает у твоих ног.~
 silver~
 armor AG AM
 10 7 9 0 0
@@ -1151,7 +1151,7 @@ G male
 #12021
 axe unfinished секира~
 @eng An unfinished axe@rus ~~незаконченная~~ ~~секира~~~
-@eng A large, impressive axe that seems just a little unbalanced.@rus Большая, острая секира (axe), которая лишь слегка незбалансирована, лежит здесь.~
+@eng A large, impressive axe that seems just a little unbalanced.@rus Большая, острая секира (axe), которая лишь слегка несбалансирована, лежит здесь.~
 unknown~
 weapon 0 AN
 axe 5 10 chop 0
@@ -1300,8 +1300,8 @@ E
 page2~
 The change of nature does not cause the change of court nor does the 
 change of court cause the change in nature.  With the fae such things as 
-cause are irrelevent, they simply are.  It is one of the things that make 
-the fae so able to facinate mortals. 
+cause are irrelevant, they simply are.  It is one of the things that make 
+the fae so able to fascinate mortals. 
 ~
 E
 page1~
@@ -1329,7 +1329,7 @@ page2~
 The Fool seems to also ignore the house differences.  He seems to owe no 
 particular alliegence to either court and seems to retain full use of his 
 seemingly addled faculties throughout the year despite the seasonal 
-variences that so affect his kind.
+variances that so affect his kind.
 ~
 E
 page1~
@@ -1418,7 +1418,7 @@ G none
 #12039
 oath ring~
 An oath ring~
-A brightly gleeming ring with a small inscription on the inside.~
+A brightly gleaming ring with a small inscription on the inside.~
 unknown~
 treasure G AB
 0 0 0 0 0
@@ -1480,7 +1480,7 @@ A
 14 50
 G none
 #12045
-sidhe braceers~
+sidhe bracers~
 An engraved sidhe bracer~
 A light metal bracer of intricate design.~
 unknown~
@@ -1582,7 +1582,7 @@ G none
 #12053
 robe~
 A poet's robe~
-A heay blue poet's robe.~
+A heavy blue poet's robe.~
 unknown~
 armor G AK
 25 25 25 18 0
@@ -1814,7 +1814,7 @@ field or east around the hill.  To the north brambles block all movement.
 и уже совсем не видно призрачных очертаний замка, прячущегося в тумане.
 Ты можешь пойти на юг -- вверх по склону холма, либо на запад, где
 колышется травяное море, либо на восток в обход холма. Дорогу на север
-прекраждают пышные густые заросли куманики.
+преграждают пышные густые заросли куманики.
 ~
 0 0 hills
 D1
@@ -1846,7 +1846,7 @@ field or west around the hill.  To the north brambles block all movement.
 и уже совсем не видно призрачных очертаний замка, прячущегося в тумане.
 Ты можешь пойти на юг -- вверх по склону холма, либо на запад, где
 колышется травяное море, либо на восток в обход холма. Дорогу на север
-прекраждают пышные густые заросли куманики.
+преграждают пышные густые заросли куманики.
 ~
 0 0 hills
 D1
@@ -1969,7 +1969,7 @@ S
 #12007
 @eng Further up the Hillside@rus Вверх по склону~
 @eng You are almost to the top of this hill.  Above you is the top of the
-hill and in all other directions the hill extends. You could't find a
+hill and in all other directions the hill extends. You couldn't find a
 path to the up.@rus Вот уже и почти вершина, она находится прямо над тобой. А во все стороны
 простираются пологие склоны холма. Вершина-то она, конечно, совсем рядом, 
 но что-то здесь совсем не видно дороги наверх.
@@ -2064,7 +2064,7 @@ S
 #12010
 @eng Further up the Hillside@rus Вверх по склону~
 @eng You are almost to the top of this hill.  Above you is the top of the
-hill and in all other directions the hill extends. You could't find a
+hill and in all other directions the hill extends. You couldn't find a
 path to the up.@rus Вот уже и почти вершина, она находится прямо над тобой. А во все стороны
 простираются пологие склоны холма. Вершина-то она, конечно, совсем рядом, 
 но что-то здесь совсем не видно дороги наверх.
@@ -2098,7 +2098,7 @@ S
 #12011
 @eng Further up the Hillside@rus Вверх по склону~
 @eng You are almost to the top of this hill.  Above you is the top of the
-hill and in all other directions the hill extends. You could't find a
+hill and in all other directions the hill extends. You couldn't find a
 path to the up.@rus Вот уже и почти вершина, она находится прямо над тобой. А во все стороны
 простираются пологие склоны холма. Вершина-то она, конечно, совсем рядом, 
 но что-то здесь совсем не видно дороги наверх.
@@ -2395,7 +2395,7 @@ movement.
 западе возвышается величественный холм, вершина которого скрыта серебрящимся
 туманом. Там, среди живых искрящихся капелек, мелькают очертания чего-то
 весьма похожего на большой замок. На севере и на западе колышется море
-трав. А догогу на восток и юг преграждают густые заросли колючего кустарника.
+трав. А дорогу на восток и юг преграждают густые заросли колючего кустарника.
 ~
 0 0 field
 D0
@@ -2420,9 +2420,9 @@ not castle here.  There is however a small standing stone with some worn
 engravings on it.  The only exit is down.
 @rus Ты стоишь на самой вершине холма.  То, что издали казалось прекрасным
 замком, на деле оказалось игрой света и твоего воображения.  Единственное,
-что здесь есть, это небольшой проский камень с выгравированными на нем
+что здесь есть, это небольшой плоский камень с выгравированными на нем
 странными письменами.  Единственная дорога ведет вниз.  И стоило так
-страдать при подьеме сюда.  
+страдать при подъеме сюда.  
 ~
 0 0 field
 E
@@ -2441,12 +2441,12 @@ S
 @eng Along the path@rus Вдоль дороги~
 @eng You are standing on the path of dark grass. The path continues to 
 the west and south but all other directions are hazy.
-@rus Ты стоишь на тропинке, по обеим сторонам которой колышится темная трава.
+@rus Ты стоишь на тропинке, по обеим сторонам которой колышется темная трава.
 Тропинка убегает дальше на запад, петляя среди кустов.
 ~
 0 VW field
 D2
-@eng The Begining of the Path
+@eng The Beginning of the Path
 @rus Тропинка.
 ~
 ~
@@ -2658,8 +2658,8 @@ S
 @eng You are standing on the path of dark grass. The path continues to
 the south but all other directions are hazy. To the west brambles block 
 all movement.
-@rus Ты стоинь на тропинке, по обеим сторонам которой колышется темная трава. Сама
-тропинка убегает дальше на юг. На востоке дорогк перегораживают густые 
+@rus Ты стоишь на тропинке, по обеим сторонам которой колышется темная трава. Сама
+тропинка убегает дальше на юг. На востоке дорогу перегораживают густые 
 заросли куманики.
 ~
 0 VW field
@@ -2681,8 +2681,8 @@ S
 @eng You are standing on the path of dark grass. The path continues to
 the south but all other directions are hazy. To the west brambles block 
 all movement.
-@rus Ты стоинь на тропинке, по обеим сторонам которой колышется темная трава. Сама
-тропинка убегает дальше на юг. На востоке дорогк перегораживают густые 
+@rus Ты стоишь на тропинке, по обеим сторонам которой колышется темная трава. Сама
+тропинка убегает дальше на юг. На востоке дорогу перегораживают густые 
 заросли куманики.
 ~
 0 VW field
@@ -2897,7 +2897,7 @@ S
 #12041
 @eng The Deep end of the Lake@rus Озеро~
 @eng You are in the depths of a lake of crystal blue waters.  The cool 
-waters carress and soothe your aches.  The water seems so peaceful that 
+waters caress and soothe your aches.  The water seems so peaceful that 
 you don't ever want to leave.  The lake extends to the north and east 
 while a rock face borders it to the west and south.
 @rus Ты заплыл в самую глубь этого удивительного заповедного озера. Холодная
@@ -2954,7 +2954,7 @@ S
 @eng All around you are massive trees with emerald leaves and silver 
 bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
 filters softly through the canopy above lighting the world with a soft 
-difused glow.
+diffused glow.
 @rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
 листьями и серебристой корой. Землю сплошным ковром покрывают самые
 разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
@@ -2982,7 +2982,7 @@ S
 @eng All around you are massive trees with emerald leaves and silver 
 bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
 filters softly through the canopy above lighting the world with a soft 
-difused glow.
+diffused glow.
 @rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
 листьями и серебристой корой. Землю сплошным ковром покрывают самые
 разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
@@ -3015,7 +3015,7 @@ S
 @eng All around you are massive trees with emerald leaves and silver 
 bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
 filters softly through the canopy above lighting the world with a soft 
-difused glow.
+diffused glow.
 @rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
 листьями и серебристой корой. Землю сплошным ковром покрывают самые
 разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
@@ -3043,7 +3043,7 @@ S
 @eng All around you are massive trees with emerald leaves and silver 
 bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
 filters softly through the canopy above lighting the world with a soft 
-difused glow.
+diffused glow.
 @rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
 листьями и серебристой корой. Землю сплошным ковром покрывают самые
 разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
@@ -3071,7 +3071,7 @@ S
 @eng All around you are massive trees with emerald leaves and silver 
 bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
 filters softly through the canopy above lighting the world with a soft 
-difused glow.
+diffused glow.
 @rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
 листьями и серебристой корой. Землю сплошным ковром покрывают самые
 разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
@@ -3094,7 +3094,7 @@ S
 @eng All around you are massive trees with emerald leaves and silver 
 bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
 filters softly through the canopy above lighting the world with a soft 
-difused glow.
+diffused glow.
 @rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
 листьями и серебристой корой. Землю сплошным ковром покрывают самые
 разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
@@ -3122,7 +3122,7 @@ S
 @eng All around you are massive trees with emerald leaves and silver 
 bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
 filters softly through the canopy above lighting the world with a soft 
-difused glow.
+diffused glow.
 @rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
 листьями и серебристой корой. Землю сплошным ковром покрывают самые
 разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
@@ -3155,7 +3155,7 @@ S
 @eng All around you are massive trees with emerald leaves and silver 
 bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
 filters softly through the canopy above lighting the world with a soft 
-difused glow.
+diffused glow.
 @rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
 листьями и серебристой корой. Землю сплошным ковром покрывают самые
 разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
@@ -3188,7 +3188,7 @@ S
 @eng All around you are massive trees with emerald leaves and silver 
 bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
 filters softly through the canopy above lighting the world with a soft 
-difused glow.
+diffused glow.
 @rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
 листьями и серебристой корой. Землю сплошным ковром покрывают самые
 разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
@@ -3221,7 +3221,7 @@ S
 @eng All around you are massive trees with emerald leaves and silver 
 bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
 filters softly through the canopy above lighting the world with a soft 
-difused glow.
+diffused glow.
 @rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
 листьями и серебристой корой. Землю сплошным ковром покрывают самые
 разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
@@ -3259,7 +3259,7 @@ shore and the Forest lies east..
 Вода столь прозрачна, что на дне ясно видны самые мелкие камушки. Волны,
 набегающие на берег, нежно лижут твои ноги. Магия озера манит и зовет тебя
 дальше и дальше в глубину озера. Магический заповедный лес подходит здесь
-к самой воде. Старые ивы тихонько перешептываютя, склонив к самой воде свои
+к самой воде. Старые ивы тихонько перешептываются, склонив к самой воде свои
 ветви.
 ~
 0 0 swim
@@ -3287,7 +3287,7 @@ S
 #12055
 @eng The Deep end of the Lake@rus Озеро~
 @eng You are in the depths of a lake of crystal blue waters.  The cool
-waters carress and soothe your aches.  The water seems so peaceful that
+waters caress and soothe your aches.  The water seems so peaceful that
 you don't ever want to leave.  The lake extends to the north, south and east
 while a rock face borders it to the west.
 @rus Ты заплыл в самую глубь этого удивительного заповедного озера. Холодная 
@@ -3322,7 +3322,7 @@ movement to the east is more of the shore and the Forest is north.
 Вода столь прозрачна, что на дне ясно видны самые мелкие камушки. Волны,
 набегающие на берег, нежно лижут твои ноги. Магия озера манит и зовет тебя
 дальше и дальше в глубину озера. Магический заповедный лес подходит здесь
-к самой воде. Старые ивы тихонько перешептываютя, склонив к самой воде свои
+к самой воде. Старые ивы тихонько перешептываются, склонив к самой воде свои
 ветви.
 ~
 0 0 swim
@@ -3352,7 +3352,7 @@ to the north and east.
 Вода столь прозрачна, что на дне ясно видны самые мелкие камушки. Волны,
 набегающие на берег, нежно лижут твои ноги. Магия озера манит и зовет тебя
 дальше и дальше в глубину озера. Магический заповедный лес подходит здесь
-к самой воде. Старые ивы тихонько перешептываютя, склонив к самой воде свои
+к самой воде. Старые ивы тихонько перешептываются, склонив к самой воде свои
 ветви.
 ~
 0 0 swim
@@ -3382,7 +3382,7 @@ S
 @eng All around you are massive trees with emerald leaves and silver 
 bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
 filters softly through the canopy above lighting the world with a soft 
-difused glow.
+diffused glow.
 @rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
 листьями и серебристой корой. Землю сплошным ковром покрывают самые
 разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
@@ -3415,7 +3415,7 @@ S
 @eng All around you are massive trees with emerald leaves and silver 
 bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
 filters softly through the canopy above lighting the world with a soft 
-difused glow.
+diffused glow.
 @rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
 листьями и серебристой корой. Землю сплошным ковром покрывают самые
 разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
@@ -3448,7 +3448,7 @@ S
 @eng All around you are massive trees with emerald leaves and silver 
 bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
 filters softly through the canopy above lighting the world with a soft 
-difused glow.
+diffused glow.
 @rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
 листьями и серебристой корой. Землю сплошным ковром покрывают самые
 разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
@@ -3481,7 +3481,7 @@ S
 @eng All around you are massive trees with emerald leaves and silver 
 bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
 filters softly through the canopy above lighting the world with a soft 
-difused glow.
+diffused glow.
 @rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
 листьями и серебристой корой. Землю сплошным ковром покрывают самые
 разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
@@ -3514,7 +3514,7 @@ S
 @eng All around you are massive trees with emerald leaves and silver 
 bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
 filters softly through the canopy above lighting the world with a soft 
-difused glow.
+diffused glow.
 @rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
 листьями и серебристой корой. Землю сплошным ковром покрывают самые
 разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
@@ -3708,7 +3708,7 @@ S
 @eng All around you are massive trees with emerald leaves and silver 
 bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
 filters softly through the canopy above lighting the world with a soft 
-difused glow.
+diffused glow.
 @rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
 листьями и серебристой корой. Землю сплошным ковром покрывают самые
 разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
@@ -3741,7 +3741,7 @@ S
 @eng All around you are massive trees with emerald leaves and silver 
 bark.  The forest floor is covered in flowers and soft mosses.  Sunlight 
 filters softly through the canopy above lighting the world with a soft 
-difused glow.
+diffused glow.
 @rus Вокруг тебя возвышается множество прекраснейших деревьев с изумрудными
 листьями и серебристой корой. Землю сплошным ковром покрывают самые
 разные цветы и мягкий мох. Солнечные лучи, проникая сквозь кроны деревьев,
@@ -4089,13 +4089,13 @@ S
 #12081
 @eng Before the Castle Gates@rus Перед замковыми воротами~
 @eng The glowing gates of the Sidhe Castle stand open before you and from 
-inside you hear the sounds of laughter and revalry.  To the south you can 
+inside you hear the sounds of laughter and revelry.  To the south you can 
 see a meadow that extends into a forest even farther south and to the 
 north you glimpse far off mountain peaks. A dirt road extends to the west 
 toward what looks to be an inn.
 @rus Светящиеся ворота прекраснейшего замка сидов высятся прямо над тобой. Из-за
 них доносятся шутки, веселый смех и пение. На юге колышется травяное море,
-расстелающееся до самого леса на горизонте, вдали на севере белеют пики
+расстилающееся до самого леса на горизонте, вдали на севере белеют пики
 заснеженных гор. Дорога продолжается на запад, там же виднеется таверна.
 ~
 0 0 field
@@ -4185,7 +4185,7 @@ S
 #12084
 The Dog Tail Inn~
 This bustling inn is full of inhabitants.  There are several tables 
-full of customers but you can't seem to find the proprieter.  The only 
+full of customers but you can't seem to find the proprietor.  The only 
 exit is back to the east.
 ~
 0 D inside
@@ -4395,7 +4395,7 @@ top. To the north mountains rise sharply out of the ground.
 зеленью травы создают необычайно красивый узор. Цветочные ароматы,
 витающие в воздухе, столь сильны, что вызывают головокружение. На 
 юге виден холм, на вершине которого расположен какой-то замок. А на
-севере по напрвлению к небу свои пики протянули острые скалы.
+севере по направлению к небу свои пики протянули острые скалы.
 ~
 0 0 field
 D2
@@ -4420,7 +4420,7 @@ top. To the north mountains rise sharply out of the ground.
 зеленью травы создают необычайно красивый узор. Цветочные ароматы,
 витающие в воздухе, столь сильны, что вызывают головокружение. На 
 юге виден холм, на вершине которого расположен какой-то замок. А на
-севере по напрвлению к небу свои пики протянули острые скалы.
+севере по направлению к небу свои пики протянули острые скалы.
 ~
 0 0 field
 D1
@@ -4450,7 +4450,7 @@ top. To the north a steep path winds up the mountain.
 зеленью травы создают необычайно красивый узор.  Цветочные ароматы, витающие
 в воздухе, столь сильны, что вызывают головокружение.  На юге виден холм, на
 вершине которого расположен какой-то замок.  А на севере ясно можно
-различить дорогу сквозь небольшой горный массив, рассположенный там.  
+различить дорогу сквозь небольшой горный массив, расположенный там.  
 ~
 0 0 field
 D0
@@ -4485,7 +4485,7 @@ top. To the north a steep path winds up the mountain.
 зеленью травы создают необычайно красивый узор.  Цветочные ароматы, витающие
 в воздухе, столь сильны, что вызывают головокружение.  На юге виден холм, на
 вершине которого расположен какой-то замок.  А на севере ясно можно
-различить дорогу сквозь небольшой горный массив, рассположенный там.  
+различить дорогу сквозь небольшой горный массив, расположенный там.  
 ~
 0 0 field
 D0
@@ -4520,7 +4520,7 @@ top. To the north a steep path winds up the mountain.
 зеленью травы создают необычайно красивый узор.  Цветочные ароматы, витающие
 в воздухе, столь сильны, что вызывают головокружение.  На юге виден холм, на
 вершине которого расположен какой-то замок.  А на севере ясно можно
-различить дорогу сквозь небольшой горный массив, рассположенный там.  
+различить дорогу сквозь небольшой горный массив, расположенный там.  
 ~
 0 0 field
 D0
@@ -4555,7 +4555,7 @@ top. To the north mountains rise sharply out of the ground.
 зеленью травы создают необычайно красивый узор. Цветочные ароматы,
 витающие в воздухе, столь сильны, что вызывают головокружение. На 
 юге виден холм, на вершине которого расположен какой-то замок. А на
-севере по напрвлению к небу свои пики протянули острые скалы.
+севере по направлению к небу свои пики протянули острые скалы.
 ~
 0 0 field
 D1
@@ -4585,7 +4585,7 @@ top. To the north mountains rise sharply out of the ground.
 зеленью травы создают необычайно красивый узор. Цветочные ароматы,
 витающие в воздухе, столь сильны, что вызывают головокружение. На 
 юге виден холм, на вершине которого расположен какой-то замок. А на
-севере по напрвлению к небу свои пики протянули острые скалы.
+севере по направлению к небу свои пики протянули острые скалы.
 ~
 0 0 field
 D1
@@ -4750,7 +4750,7 @@ S
 A Storage Room~
 This room is filled with shelves and chests containing cloth and 
 pins and patterns.  There are small boxes on several shelves that contain 
-several little metal tols you can't even identify.
+several little metal tools you can't even identify.
 ~
 0 D inside
 D3
@@ -4843,7 +4843,7 @@ The Trophy Room~
 In dusty, locked cases all around the room you get glimpses of the 
 finest sets of armor, weapons, clothing, and gems you have ever seen.  
 Woven tapestries of immortal battles lie rotting in the cases beside 
-still gleaming swords in scabards covered in myriad patters of 
+still gleaming swords in scabbards covered in myriad patters of 
 interlocking spiral beadwork.  The treasured creations of some of the 
 realm's finest craftsmen lay in these cases just beyond your grasp.  To 
 the north is a bedroom and to the south you hear sounds of metalworking.
@@ -4867,7 +4867,7 @@ Z -1 12101
 S
 #12110
 A Small Bedroom~
-The rooms seems to be in a great state of dissarray.  The bed is 
+The rooms seems to be in a great state of disarray.  The bed is 
 unmade and dirty clothes are strewn all about.  A deck of cards is 
 scattered about the room and several layers of dust cover everything.  
 The inhabitant of this room must never sleep.
@@ -4881,7 +4881,7 @@ Z -1 12109
 S
 #12111
 A Small Bedroom~
-The rooms seems to be in a great state of dissarray.  The bed is
+The rooms seems to be in a great state of disarray.  The bed is
 unmade and dirty clothes are strewn all about.  A deck of cards is
 scattered about the room and several layers of dust cover everything.
 The inhabitant of this room must never sleep.
@@ -4945,7 +4945,7 @@ The Forbidden Room.
 ABZ 0 12115
 S
 #12115
-The Forbiden Room~
+The Forbidden Room~
 There are strange symbols drawn in several colors (one of them the 
 color of dried blood) on all of the walls.  There is a pile of rags in 
 one corner and some papers with scrawled markings on them on the floor.  
@@ -5041,7 +5041,7 @@ S
 #12120
 The East Tower~
 This room is obviously a guard barracks.  The soldiers seem to be 
-wel disiplined ones because the room is in perfect order.  All the beds 
+well disciplined ones because the room is in perfect order.  All the beds 
 are made and the tables clear.  There is a stairway up into the tower and 
 a door to the west.
 ~
@@ -5092,7 +5092,7 @@ S
 #12123
 The Entryway~
 The castle's entryway is adorned with many colorful tapestries 
-depicting beautiful nymphs, saytrs, sprites and Sidhe dancing in glades, 
+depicting beautiful nymphs, satyrs, sprites and Sidhe dancing in glades, 
 ponds, caves and castles.  The castle hallway extends to the north and 
 back south to the gates.
 ~
@@ -5165,7 +5165,7 @@ Z -1 12124
 S
 #12126
 The Hall of Autumn~
-The smell of fallen leaves and aproaching rain drifts sweetly through 
+The smell of fallen leaves and approaching rain drifts sweetly through 
 your senses.  Around you you see all the colors of autumn, bright reds, 
 orange, yellows, browns and pale green.  Soft rain drizzles in from the 
 clouded grey sky above this chamber. There is a soft quiet sense to this room,
@@ -5202,7 +5202,7 @@ The Hall of Winter~
 This hall is carpeted in deep, light snow that seems to be falling 
 in from the ceiling.  Small ice statues can be seen in the distance and 
 the treelike branches above are covered to near breaking with ice.  A cold 
-wind blows with a shrill sound through the hall.  Totaly unmoved by the 
+wind blows with a shrill sound through the hall.  Totally unmoved by the 
 wind is a bright white tapestry on the west wall that shows an old couple 
 whose faces show infinite wisdom and complacency.  You are entranced by 
 the wisdom that the old couple wears like a mantle and you suddenly 
@@ -5234,7 +5234,7 @@ ABZ 0 12151
 S
 #12128
 A Hallway Intersection~
-This large chamber is well apointed with tapestries and paintings 
+This large chamber is well appointed with tapestries and paintings 
 along the walls.  To the north is a large courtyard and to the east and 
 west are large chambers. From the south a chill wind blows in.
 ~
@@ -5436,8 +5436,8 @@ Z -1 12135
 S
 #12137
 The Base of the Eastern Tower~
-This guard tower seems unussually well ordered.  These are clearly 
-not ordinary soldiers.  The walls of the tower are bright and sparkiling 
+This guard tower seems unusually well ordered.  These are clearly 
+not ordinary soldiers.  The walls of the tower are bright and sparkling 
 golden.  To the west is a hallway leading to the main chambers of the 
 castle and there is a staircase going up the tower.
 ~
@@ -5663,7 +5663,7 @@ S
 #12149
 The Hidden Court~
 This is the hidden court of the Unseelie Fae during the seasonal 
-reign of the Seelie. The room is dark and cold, totaly unlike the rest of 
+reign of the Seelie. The room is dark and cold, totally unlike the rest of 
 the currently Seelie castle. There is a large dark throne cloaked in darkness
 here. You can't quite make out if it is occupied.  To the south is more 
 of the Dark court.
@@ -5683,7 +5683,7 @@ S
 #12150
 The Hidden Court~
 This is the hidden court of the Unseelie Fae during the seasonal
-reign of the Seelie. The room is dark and cold, totaly unlike the rest of
+reign of the Seelie. The room is dark and cold, totally unlike the rest of
 the currently Seelie castle. There is a large dark throne cloaked in darkness
 here. You can't quite make out if it is occupied.  To the north is more
 of the Dark court.
@@ -5802,7 +5802,7 @@ S
 #12154
 Eternal Spring~
 The power of eternal spring grips you and you find yourself overcome 
-with youth and clildish pleasure.  Your limbs have shortened and you are 
+with youth and childish pleasure.  Your limbs have shortened and you are 
 no longer as tall as you once were.  It doesn't matter though because you 
 are young and you don't ever want to grow old.  You can stay here and be 
 young forever.
@@ -6109,10 +6109,10 @@ E 0 12010 0 6		*	A red cap: over the head
 M 0 12032 4 12114 1	* a savage redcap (More Darkness and Slime)
 E 0 12011 0 16		*	A blood stained club: wielded
 E 0 12010 0 6		*	A red cap: over the head
-O 0 12028 0 12115	* slime pool (The Forbiden Room)
+O 0 12028 0 12115	* slime pool (The Forbidden Room)
 P 0 12029 0 12028 1	* slime pool: A bit of slime
 P 0 12061 0 12028 1	* slime pool: A bit of slime
-M 0 12035 2 12115 1	* a sluagh guardian (The Forbiden Room)
+M 0 12035 2 12115 1	* a sluagh guardian (The Forbidden Room)
 G 0 12067 0		*	A small Black key
 E 0 12008 0 16		*	A dull kris blade: wielded
 M 0 12020 5 12116 1	* a troll guard (Top of the Western Guard Tower)

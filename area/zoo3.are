@@ -40,7 +40,7 @@ his clothes, you guess that he rarely goes near the animals here himself.
 @rus Это хранитель всемирно известного зоопарка Мидгаарда. В его 
 ответственность входит следить за животными и за работой всего 
 зоопарка в целом. У него прилизанные седые волосы, а по состоянию
-его одежды, вы понимаете, что он редко посещяет своих зверей сам.
+его одежды, вы понимаете, что он редко посещает своих зверей сам.
 ~
 human~
 AB F 0 0
@@ -143,7 +143,7 @@ bear медведь~
 @eng This bear is one of the largest you have ever seen. The thought of what its 
 huge claws can do to your face makes you shudder     
 @rus Это самый большой медведь из всех, кого вы когда-либо видели.
-яьтЕго огромные габариты, острые клыки и когти заставляют вас
+Его огромные габариты, острые клыки и когти заставляют вас
 задрожать.
 ~
 bear~
@@ -164,7 +164,7 @@ he burps and a cloud of smoke comes outa of his mouth.
 @rus Перед вами детеныш настоящего дракона. В его глазах легко прочитать
 страх и одиночество, но даже эти чувства не могут скрыть ярости, 
 которая определяет сущность его племени. Вообще-то он здорово
-смахивает на обьевшуюся ящерицу, но, в отличии от нее, он может
+смахивает на объевшуюся ящерицу, но, в отличии от нее, он может
 постоять за себя.
 ~
 dragon~
@@ -181,7 +181,7 @@ elephant слон~
 @rus Перед тобой стоит большой серый слон (elephant).
 ~
 @eng A gray elephant with big ears.
-@rus Серый слон с большими ушами и деревоподобными ногами. Ничего 
+@rus Серый слон с большими ушами и древоподобными ногами. Ничего 
 особенного.
 ~
 dragon~
@@ -322,7 +322,7 @@ donkey ослик sad sorry~
 ~
 @eng The donkey looks sad and miserable. Its eyes have sleep in the corners and 
 its right ears has a chunk missing from it.
-@rus Ослик выглядит очень виновато, его глаза слезяться, а из 
+@rus Ослик выглядит очень виновато, его глаза слезятся, а из 
 правого уха выдран кусок.
 ~
 dog~
@@ -361,7 +361,7 @@ the parrot, fixed to its perch is a name plaque. The plaque reads 'Harvey the
 talking parrot, please mind your fingers'.
 @rus Этот зеленый попугай сидит на своей жердочке. Он наблюдает за
 всеми твоими действиями. Перед ним закреплена табличка. На ней 
-написанно "Харви -- говорящий попугай, клешнями не трогать!"
+написано "Харви -- говорящий попугай, клешнями не трогать!"
 ~
 song bird~
 AB 0 0 0
@@ -507,7 +507,7 @@ gate of the zoo of Midgaard. To the west you can see a small pond and a small
 path leads of to the east. To the south are two turnstiles. One leading into 
 the zoo and one leading back out.
 @rus Ты находишься в конце парковой тропинки. Ты стоишь перед главными 
-воротами зоопарка Мидгаарда. На западе виднеется маленкий пруд, а 
+воротами зоопарка Мидгаарда. На западе виднеется маленький пруд, а 
 на восток ведет узенькая тропинка. На юге расположены два турникета: 
 один ведет в зоопарк, а другой назад в парк.
 ~
@@ -591,7 +591,7 @@ S
 @eng You are standing on a small path in the zoo. To the west is a small 
 important looking building and to both the north and south the path continues.
 @rus Вы стоите на маленькой тенистой тропинке, бегущей по территории 
-зоопарка. На западе виднеется маленькое, важно выглядещее здание, 
+зоопарка. На западе виднеется маленькое, важно выглядящее здание, 
 а тропинка продолжается  и на север и на юг.
 ~
 0 0 city
@@ -603,7 +603,7 @@ D0
 Z -1 8201
 D2
 @eng You can see a crossroads.
-@rus Вы видите прекресток.
+@rus Вы видите перекресток.
 ~
 ~
 Z -1 8207
@@ -620,7 +620,7 @@ S
 Why anyone one would want an 'I've been to Midgaard Zoo' Tee-shirt is beyond 
 you. North leads through a turnstile to the out side world and east leads back 
 into the zoo. A sign sits on the shop counter. 
-@rus На стенах друг на друге висят различные товары, относящиееся к 
+@rus На стенах друг на друге висят различные товары, относящиеся к 
 зоопарку. Например, кто-нибудь может захотеть футболку "Я был в 
 зоопарке Мидгаарда", которая висит позади тебя. Через турникет на 
 севере вы можете покинуть зоопарк, а на востоке расположен 
@@ -894,7 +894,7 @@ S
 @eng The crocodile cage@rus Клетка с крокодилами~
 @eng You are standing in the zoo's crocodile cage. Most of the cage if taken up 
 with a large pool of water. A door out of the cage is to the south.
-@rus Вы стоите в клетке с крокодилами. Болбшую часть клетки занимает
+@rus Вы стоите в клетке с крокодилами. Большую часть клетки занимает
 бассейн с мутной водой. Единственная дверь ведет на юг.
 ~
 0 0 swim
@@ -909,7 +909,7 @@ S
 @eng The dolphins cage@rus Бассейн с дельфинами~
 @eng You are in the zoo's dolphin cage. You are swimming in a pool of water. 
 A door out of the cage is to the north.
-@rus Вы плаваете в бассейне вметсе с дельфинами. Дверь наружу находится
+@rus Вы плаваете в бассейне вместе с дельфинами. Дверь наружу находится
 на севере.
 ~
 0 0 swim
@@ -924,7 +924,7 @@ S
 @eng A path between cages@rus Тропинка между клетками~
 @eng You are standing in a path inside the famous midgaarrd zoo. To the east 
 and south there are cages. The path leads back north.
-@rus Вы стоите на на тропинке, ведушей между клеток, которые находятся 
+@rus Вы стоите на тропинке, ведущей между клеток, которые находятся 
 на юге и на востоке. Сама тропинка ведет только назад на север.
 ~
 0 0 city
@@ -1021,8 +1021,8 @@ S
 a enclosure containing goats, and to the south there is a pig pen. The path 
 continues to the east and the entrance is west.
 @rus Вы стоите на узкой тропинке, бегущей через Детский зоопарк.
-На севере -- вальер, содержащий коз, а на севере -- яма со свиньями.
-Тропинка продолжается на востоке, а на западе располежен вход.
+На севере -- вольер, содержащий коз, а на севере -- яма со свиньями.
+Тропинка продолжается на востоке, а на западе расположен вход.
 ~
 0 0 city
 D0
@@ -1086,7 +1086,7 @@ S
 a large aviry and to the south there is a small stable. The path leads back 
 west.
 @rus Вы стоите на маленькой тропинке в Детском зоопарке. На севере
-расположены большие клетки, а на юге -- миниатюрая конюшня.
+расположены большие клетки, а на юге -- миниатюрная конюшня.
 Тропинка ведет назад на запад.
 ~
 0 0 city

@@ -79,7 +79,7 @@ an Antharian citizen~
 An Antharian citizen is standing here.
 ~
 All Antharians share a standard trait: curiosity.  Instead of
-being frightened of you, a foriegner, the Antharian will study you --
+being frightened of you, a foreigner, the Antharian will study you --
 looking at every detail.
     This Antharian seems to be a simple citizen, going about with her
 daily schedule.
@@ -231,7 +231,7 @@ Cyrtpea, sorceress of Antharia, is here staring into your soul.
 ~
 Cyrtpea is one of the few Antharians that still have any knowledge of
 Antharian magic.  Most of their magic was lost in the Great
-Transformation, and Cyrtpea and her colleages work hard to recover as
+Transformation, and Cyrtpea and her colleagues work hard to recover as
 much of this lost magic as possible.
 ~
 human~
@@ -289,7 +289,7 @@ stand stand female 1000
 #12363
 Antharian Representative~
 an antharian representative~
-An atharian beaurocrat is standing here.
+An atharian bureaucracy is standing here.
 ~
 A young Antharian is standing here looking for you.  He is the
 representative from the Antharian government here to answer questions
@@ -525,7 +525,7 @@ A
 G none
 #12312
 synthetic fin~
-a apir of synthetic fins~
+a pair of synthetic fins~
 A pair of fins, of Antharian make, are here.~
 copper~
 armor I AF
@@ -820,7 +820,7 @@ Salvation mounted on top of it.  The Gem looks, from here, to be a
 huge red stone mounted in a golden tripod.  There is a faint, but
 visible ray of light that emits from the gem, blanketing the city in a
 protective aura.  The sheer power that emits from the gem is awesome
-in iteslf, the wizards of ancient Antharia must have been akin to
+in itself, the wizards of ancient Antharia must have been akin to
 gods.
     The street continues north from here to the Temple, or south back
 to the Sea.
@@ -913,7 +913,7 @@ its building.  You can only imagine at the amount of labor force it
 took to build something of this magnitude.  Now, with the Gem of
 Salvation mounted on the top of the temple, it is even more
 impressive.  The temple seems to be a focus of tremendous power, you
-feel that if you could just get inside, you could aquire some of that
+feel that if you could just get inside, you could acquire some of that
 power.  
     The road continues to the north and south.
 ~
@@ -955,7 +955,7 @@ S
 Temple Circle at Kaer's Bridge~
 You are standing just north of the Temple of Anthar, and just
 south of Kaer's Bridge.  According to Antharian history, Kaer was a
-king just prior to the catastrophy that forced Antharia underwater.
+king just prior to the catastrophe that forced Antharia underwater.
 Wanting to be remembered for all time, he had this bridge built in his
 name.  It is a bridge made of the same material as the Temple --
 something that we have no knowledge of today.  However, you can feel
@@ -1011,7 +1011,7 @@ its building.  You can only imagine at the amount of labor it took to
 build something of this magnitude.  Now, with the Gem of Salvation
 mounted on the top of the temple, it is even more impressive.  The
 temple seems to be a focus of tremendous power, you fell that if you
-could just get inside, you could aquire some of that power.
+could just get inside, you could acquire some of that power.
 ~
 0 0 underwater
 D0
@@ -1290,7 +1290,7 @@ S
 #12320
 Main Road of Antharia~
 Walking along this road is never boring.  Even though it is very
-symetrical in form, the houses and people that you pass never leave
+symmetrical in form, the houses and people that you pass never leave
 you with nothing to study.  Just the fact that this city could have
 survived at all under these conditions is amazing in itself, but for
 their artwork and architecture to survive is a miracle.
@@ -1468,10 +1468,10 @@ Zoo Gate~
 You are standing at the gate of the zoo of Antharia.  Looking
 through the gate, you get a glimpse of known and unknown animals
 contained therein.  According to the Antharians, the zoo was built
-before the catastophy -- as hard as that might be to believe.  It is
+before the catastrophe -- as hard as that might be to believe.  It is
 said that the Council of Clerics at that time insisted that the zoo be
 one of the protected areas.  They wished to preserve the endangered and
-unusual animals that they had aquired through the generations.  Now,
+unusual animals that they had acquired through the generations.  Now,
 this is the most extensive and important zoo in the world, as it
 contains animals that is found nowhere else.
     As with many of aspects of the Antharian culture, this zoo is not
@@ -1489,7 +1489,7 @@ S
 #12332
 Main Road of Antharia~
 Walking along this road is never boring.  Even though it is very
-symetrical in form, the houses and people that you pass never leave
+symmetrical in form, the houses and people that you pass never leave
 you with nothing to study.  Just the fact that this city could have
 survived at all under these conditions is amazing in itself, but for
 their artwork and architecture to survive is a miracle.
@@ -1598,7 +1598,7 @@ Antharian food coming from the north.
 ~
 0 0 underwater
 D0
-MAin road of Antharia.
+Main road of Antharia.
 ~
 ~
 Z -1 12335
@@ -1616,7 +1616,7 @@ Every so often you can hear the cry of an infant Antharian coming from
 these houses.  Although they are different from the other races, they
 still have a lot in common with them.  Moreover, the Antharian seem
 content with their lives underwater, showing no signs of resentment
-that their once great empire was completely forgotton on the surface.
+that their once great empire was completely forgotten on the surface.
     The road continues from here to the west and to the east.
 ~
 0 0 underwater
@@ -1639,7 +1639,7 @@ himself is studying a new piece of artwork that he found in the ruins
 of Grand Antharia.  Zaertses is the only person allowed, at this point
 in time, to visit those ruins north of current Antharia.  Some of the
 things he displays here in his shop, very few (of which there are
-many) he sells, and the most valuble objects are displayed in a museum
+many) he sells, and the most valuable objects are displayed in a museum
 Antharians are convinced is located in the heart of the Temple of
 Anthar.
 ~
@@ -1669,7 +1669,7 @@ Z -1 12335
 S
 #12344
 Ertuvia's Weapon Shop~
-You are standing in the shop of the distingushed Antharian,
+You are standing in the shop of the distinguished Antharian,
 Ertuvia.  Ertuvia is considered, by the Antharians, to be a
 artist -- and he commands respect from them.  There are weapons lining
 the walls, of every shape and form.  There are also certain weapons
@@ -1946,7 +1946,7 @@ S
 Forgotten Room~
 This room is full of cobwebs and dust..as no one has been here in
 such a long time.   You have obviously stumbled upon a part of
-Antharian history, as the room still looks like it did 2000 yrs ago.
+Antharian history, as the room still looks like it did 2000 years ago.
 ~
 0 CK underwater
 S
@@ -2003,7 +2003,7 @@ E 0 12340 0 17		*	a net: held in the hands
 M 0 12318 4 12302 1	* an Antharian Knight (Temple of Anthar)
 E 0 12306 0 1		*	an Antharian signet ring: on the left finger
 E 0 12339 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12312 0 7		*	a apir of synthetic fins: on the legs
+E 0 12312 0 7		*	a pair of synthetic fins: on the legs
 E 0 12315 0 6		*	an Antharian helmet: over the head
 E 0 12318 0 16		*	a sparkling trident: wielded
 E 0 12340 0 17		*	a net: held in the hands
@@ -2063,7 +2063,7 @@ G 0 12301 0		*	a green gem
 M 0 12318 4 12318 1	* an Antharian Knight (Kaer's Bridge)
 E 0 12306 0 1		*	an Antharian signet ring: on the left finger
 E 0 12309 0 14		*	Antharian plate mail: on the left wrist
-E 0 12312 0 7		*	a apir of synthetic fins: on the legs
+E 0 12312 0 7		*	a pair of synthetic fins: on the legs
 E 0 12315 0 6		*	an Antharian helmet: over the head
 E 0 12318 0 16		*	a sparkling trident: wielded
 E 0 12340 0 17		*	a net: held in the hands
@@ -2108,7 +2108,7 @@ E 0 12340 0 17		*	a net: held in the hands
 M 0 12318 4 12326 1	* an Antharian Knight (Small Intersection)
 E 0 12306 0 1		*	an Antharian signet ring: on the left finger
 E 0 12339 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12312 0 7		*	a apir of synthetic fins: on the legs
+E 0 12312 0 7		*	a pair of synthetic fins: on the legs
 E 0 12315 0 6		*	an Antharian helmet: over the head
 E 0 12318 0 16		*	a sparkling trident: wielded
 E 0 12340 0 17		*	a net: held in the hands
@@ -2178,14 +2178,14 @@ E 0 12330 0 12		*	an Antharian robe: about the shoulders
 M 0 12318 4 12352 1	* an Antharian Knight (Guild Street)
 E 0 12306 0 1		*	an Antharian signet ring: on the left finger
 E 0 12339 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12312 0 7		*	a apir of synthetic fins: on the legs
+E 0 12312 0 7		*	a pair of synthetic fins: on the legs
 E 0 12315 0 6		*	an Antharian helmet: over the head
 E 0 12318 0 16		*	a sparkling trident: wielded
 E 0 12340 0 17		*	a net: held in the hands
 M 0 12318 4 12354 1	* an Antharian Knight (Guild Street)
 E 0 12306 0 1		*	an Antharian signet ring: on the left finger
 E 0 12339 0 14		*	an Antharian style bracer: on the left wrist
-E 0 12312 0 7		*	a apir of synthetic fins: on the legs
+E 0 12312 0 7		*	a pair of synthetic fins: on the legs
 E 0 12315 0 6		*	an Antharian helmet: over the head
 E 0 12318 0 16		*	a sparkling trident: wielded
 E 0 12340 0 17		*	a net: held in the hands
@@ -2213,10 +2213,10 @@ This is taken from the latest edition of the Barren Realms High
 School History textbook..
 
 	The kingdom of Antharia, one the new discoveries of the modern
-world, has a very intestesting history.  Being one of the oldest races
+world, has a very interesting history.  Being one of the oldest races
 of beings in existence, they have much knowledge that we do not, and
 much knowledge that they no longer posess.  We can see this more
-clearly by studing a bit of the history of the capital city, Antharia. 
+clearly by studying a bit of the history of the capital city, Antharia. 
 	About a thousand years ago, Antharia was a very productive and
 thriving kingdom, so old that many problems that face most kingdoms
 had been solved.  The Realm was ruled by what they called a
@@ -2228,19 +2228,19 @@ made Antharia one of the best places to live. It was these councils
 who made the discovery that would change the lives of every Antharian.
 	It was discovered that there was going to be a major upheaval
 of the world's outer crust, which would make the whole country of
-Antharia, which was actually a big island, in essense, sink into the ocean. 
+Antharia, which was actually a big island, in essence, sink into the ocean. 
 Fearing for the lives of their citizens, the councils worked quickly
 to come up with a solution to the disaster.  
 	After many months of searching, it was decided that there was
 only solution:  the wizards would have to combine their power to
-create a "Gem of Salvation".  This gem would, in essense, keep the
+create a "Gem of Salvation".  This gem would, in essence, keep the
 whole city of Antharia with air, even underwater -- a dome, if you
 will.  However, this also forced the government to make the decisions
 of who would be able to live and who would die...the city could only
 hold so many people.  
 	
-	The Antharians are very hesistant to talk about this time in
-their history.  Understandbly, it was very hard to make those
+	The Antharians are very hesitant to talk about this time in
+their history.  Understandably, it was very hard to make those
 decisions; therefore, much of the next few decades are lost to us.
 However, there was to be an even more dramatic change in the lives of
 the Antharians.
@@ -2263,7 +2263,7 @@ loving memory.
 
 	We are lucky that these wizards took time to teach their
 students the way to take care of the Gem.  It was altered to simply
-provide stable gravity and protection from preditors and falling
+provide stable gravity and protection from predators and falling
 debris.  The gem is still functioning to this day.
 ~
 -1 $~

@@ -13,7 +13,7 @@ Alice~
 Alice raises her eyebrows and says "Curiouser and curiouser!"
 ~
 In her amazement she has completely forgotten proper English. As if the
-inrecdible sights of Wonderland weren't enough, now she has encountered you,
+incredible sights of Wonderland weren't enough, now she has encountered you,
 a strange being clad in dozens of different types of armor with no regard for
 fashion. Small wonder she is both amazed and afraid of you!
 ~
@@ -36,7 +36,7 @@ A smartly dressed white rabbit scurries by, muttering to himself.
 "I'm late! I'm late!" he seems to be saying, which is impossible as rabbits
 don't talk. Or do they? He was certainly very well dressed for a rabbit, or
 for anyone for that matter. Perhaps you'd fancy acquiring some of his
-accoutrements? After all, how hard could he be to slay?
+accouterments? After all, how hard could he be to slay?
 ~
 rabbit~
 AGHT HJNPT 400 0
@@ -273,7 +273,7 @@ a guinea pig~
 A guinea pig stands here holding a length of rope.
 ~
 He and his fellow are preparing to lower poor Bill down the chimney to see
-what it is inside that is causing such a clamour.
+what it is inside that is causing such a glamour.
 ~
 pig~
 ABGHT 0 400 0
@@ -311,7 +311,7 @@ M act 21023 leaves.~
 #21014
 caterpillar~
 the caterpillar~
-The caterpiller puffs on its hookah and says languidly "Who are YOU?"
+The caterpillar puffs on its hookah and says languidly "Who are YOU?"
 ~
 The caterpillar stands and stretches himself to his full height of three
 inches and patiently awaits an answer. He is an infuriating conversationalist.
@@ -697,7 +697,7 @@ the King of Hearts~
 The King of Hearts strolls proudly past.
 ~
 The King is here to play croquet with the court. Although he is King, he
-defers to his overbearing wife in most matters. He strngly resembles the
+defers to his overbearing wife in most matters. He strongly resembles the
 Kings you see on playing cards.
 ~
 human~
@@ -788,7 +788,7 @@ a hedgehog~
 A hedgehog jumps up and scampers off after being hit by a flamingo.
 ~
 The croquet players are using these unassuming creatures as balls in their
-bizarre version of the clasic game of nobility.
+bizarre version of the classic game of nobility.
 ~
 human~
 AGHT 0 0 0
@@ -1617,7 +1617,7 @@ G none
 #21064
 hessian sack~
 a hessian sack~
-A hessian sack, used for supressing, lies here.~
+A hessian sack, used for suppressing, lies here.~
 copper~
 container 0 A
 150 A 0 0 0
@@ -1865,7 +1865,7 @@ ABCDZ 21013 21006
 S
 #21013
 Outside the Rabbit's House~
-You are stanbing outside the house, which apparently belongs to the rabbit
+You are standing outside the house, which apparently belongs to the rabbit
 you were following. Indeed, he stops to demand that you find his gloves and
 fan for him at once, and keeps calling you Mary Ann, before dashing off
 once more. How odd!
@@ -1887,7 +1887,7 @@ Z -1 21012
 S
 #21014
 Inside the Rabbit's House~
-You are inside a small, tidy house with antique oak furniture in marvellous
+You are inside a small, tidy house with antique oak furniture in marvelous
 condition. A sitting room lies to the west, while to the east a door leads
 out into the garden.
 
@@ -2979,7 +2979,7 @@ say I really must be getting home. The night air doesn't suit my throat.
 emote runs about in circles.
 ~
 #21014
-say Hold your tonuge ma! You're enough to try the patience of an oyster!
+say Hold your tongue ma! You're enough to try the patience of an oyster!
 ~
 #21015
 say Ah my dear! Let this be a lesson to you to never lose your temper!

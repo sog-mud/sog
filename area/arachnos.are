@@ -155,7 +155,7 @@ hermit~
 the Hermit~
 The Hermit sits here and warns, "Go back before it's too late!"
 ~
-A dishevelled veteran warrior in disguise is what he is, but he
+A disheveled veteran warrior in disguise is what he is, but he
 means well.
 ~
 human~
@@ -333,7 +333,7 @@ potion G A
 10 20 700 P
 E
 potion blue~
-It has a nice sky blue colour and a smell like peppermint.
+It has a nice sky blue color and a smell like peppermint.
 ~
 G none
 #0
@@ -545,7 +545,7 @@ S
 A Split in the Path~
 As always, there is a split in the road.  One road is strewn
 with cricket feelers.  The other is well-kept and suitable for smooth
-travelling.  The webbing that was prevalent in earlier rooms is almost
+traveling.  The webbing that was prevalent in earlier rooms is almost
 non-existent now.
 ~
 0 0 field

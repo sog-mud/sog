@@ -96,7 +96,7 @@ S
 @eng You are flying!
 Currently you are about 20 meters above the inside wall of West Midgaard.
 It seems like you can see forever!
-@rus   Ты летишь!  Внизу, метрах в двадцати, виден западный Мидгаард.
+@rus   Ты летишь!  Внизу, метрах в двадцати, виден западный Мидгард.
 Никогда ты не забудешь этого божественного ощущения полета.
 ~
 0 0 air
@@ -130,7 +130,7 @@ S
 @eng You are flying!
 Currently you are about 20 meters above the west gate of Midgaard.
 It seems like you can see forever!
-@rus Ты летишь!  В двадцати метрах под тобой находятся западные ворота Мидгаарда.
+@rus Ты летишь!  В двадцати метрах под тобой находятся западные ворота Мидгарда.
 Никогда ты не забудешь этого божественного ощущения полета.
 ~
 0 0 air
@@ -229,7 +229,7 @@ S
 Currently you are about 40 meters above the ground north of Midgaard.
 It seems like you can see forever!
 @rus Ты летишь!  Сейчас ты пролетаешь в сорока метрах над северной окраиной
-Мидгаарда.
+Мидгарда.
   Никогда ты не забудешь этого божественного ощущения полета.
 ~
 0 0 air
@@ -420,7 +420,7 @@ S
 @eng You are flying!
 Currently you are about 40 meters above the ground north of Midgaard.
 It seems like you can see forever!
-@rus Ты летишь!  В сорока метрах под тобой проносятся дома северного Мидгаарда.
+@rus Ты летишь!  В сорока метрах под тобой проносятся дома северного Мидгарда.
 Никогда ты не забудешь этого божественного ощущения полета.
 ~
 0 0 air
@@ -533,7 +533,7 @@ S
 #1014
 @eng In the air ...@rus В воздухе...~
 @eng You are flying!
-Currently you are about 20 meters above Armoury.
+Currently you are about 20 meters above Armory.
 It seems like you can see forever!
 @rus Ты летишь!  В двадцати метрах под тобой видно помещение городского арсенала.
 Никогда ты не забудешь этого божественного ощущения полета.
@@ -610,7 +610,7 @@ S
 Currently you are about 10 meters above the temple spire of Midgaard
 It seems like you can see forever!
 @rus Ты летишь!  В десяти метрах под тобой виден шпиль одного их храмов
-Мидгаарда.
+Мидгарда.
   Никогда ты не забудешь этого божественного ощущения полета.
 ~
 0 0 air
@@ -769,8 +769,8 @@ S
 @eng You are flying!
 Currently you are about 60 meters above the ground just north of Midgaard.
 It seems like you can see forever!
-@rus Ты летишь!  Ты прлетаешь в шестидесяти метрах над северной окраиной 
-Мидгаарда.
+@rus Ты летишь!  Ты пролетаешь в шестидесяти метрах над северной окраиной 
+Мидгарда.
   Никогда ты не забудешь этого божественного ощущения полета.
 ~
 0 0 air
@@ -798,7 +798,7 @@ S
 @eng You are flying!
 Currently you are about 40 meters above the west gate of Midgaard.
 It seems like you can see forever!
-@rus Ты летишь!  В шестидесяти метрах под собой ты видишь западные ворота Мидгаарда.
+@rus Ты летишь!  В шестидесяти метрах под собой ты видишь западные ворота Мидгарда.
 Никогда ты не забудешь этого божественного ощущения полета.
 ~
 0 0 air
@@ -833,7 +833,7 @@ S
 Currently you are about 60 meters above west gate of Midgaard.
 It seems like you can see forever!
 @rus Ты летишь!  В шестидесяти метрах под собой ты видишь западные ворота
-Мидгаарда.
+Мидгарда.
   Никогда ты не забудешь этого божественного ощущения полета.
 ~
 0 0 air
@@ -932,7 +932,7 @@ S
 Currently you are about 60 meters above the ground north of Midgaard.
 It seems like you can see forever!
 @rus Ты летишь!  В шестидесяти метрах под собой ты видишь дома северной окраины
-Мидгаарда.
+Мидгарда.
   Никогда ты не забудешь этого божественного ощущения полета.
 ~
 0 0 air
@@ -1124,7 +1124,7 @@ S
 Currently you are about 60 meters above the ground north of Midgaard.
 It seems like you can see forever!
 @rus Ты летишь!  Ты пролетаешь в шестидесяти метрах над северной окраиной 
-Мидгаарда.
+Мидгарда.
   Никогда ты не забудешь этого божественного ощущения полета.
 ~
 0 0 air
@@ -1159,7 +1159,7 @@ S
 Currently you are about 40 meters above bakery and cleric guild.
 It seems like you can see forever!
 @rus Ты летишь!  В сорока метрах под тобой находятся булочная и здание, 
-пренадлежащее гильдии жрецов.
+принадлежащее гильдии жрецов.
   Никогда ты не забудешь этого божественного ощущения полета.
 ~
 0 0 air
@@ -1238,7 +1238,7 @@ S
 #1034
 @eng In the air ...@rus В воздухе...~
 @eng You are flying!
-Currently you are about 40 meters above the armoury.
+Currently you are about 40 meters above the armory.
 It seems like you can see forever!
 @rus Ты летишь!  В шестидесяти метрах под собой ты видишь здание арсенала города.
 Никогда ты не забудешь этого божественного ощущения полета.
@@ -1315,7 +1315,7 @@ S
 Currently you are about 30 meters above the temple spire.
 It seems like you can see forever!
 @rus Ты летишь!  В тридцати метрах под тобой виден шпиль одного из храмов 
-Мидгаарда.
+Мидгарда.
   Никогда ты не забудешь этого божественного ощущения полета.
 ~
 0 0 air
@@ -1350,8 +1350,8 @@ S
 @eng You are flying!
 Currently you are about 60 meters above the temple square.
 It seems like you can see forever!
-@rus Ты летишь!  Ты пролетаешь в шестидясети метрах над площадью перед 
-центральным храмом Мидгаарда.
+@rus Ты летишь!  Ты пролетаешь в шестидесяти метрах над площадью перед 
+центральным храмом Мидгарда.
   Никогда ты не забудешь этого божественного ощущения полета.
 ~
 0 0 air
@@ -1386,7 +1386,7 @@ S
 Currently you are about 60 meters above market square.
 It seems like you can see forever!
 @rus Ты летишь! И сейчас ты пролетаешь в шестидесяти метрах над базарной  
-площадью Мидгаарда.
+площадью Мидгарда.
   Никогда ты не забудешь этого божественного ощущения полета.
 ~
 0 0 air

@@ -1275,7 +1275,7 @@ to the next station, go 'WEST'.
 'CONSIDER' для сравнения себя с монстром. Избегай драться с заведомо сильным
 противником.
 
-Второй урок на подходе. Винизу (down) сидит сильный монстр, но сам он на тебя
+Второй урок на подходе. Внизу (down) сидит сильный монстр, но сам он на тебя
 не нападет. Так что иди вниз (down), потом используй 'CONSIDER' и 'KILL'. А
 потом убегай от него с помощью команды 'FLEE'.
 
@@ -1335,7 +1335,7 @@ sign~
 @eng Welcome to the next station.  Here, you will actually fight real monsters,
 without fleeing!  Kill every mob, since they hold some equipment you need.
 To start, go down.
-@rus Добро подаловать в следубщую комнату. Тут ты сможешь сразиться с настоящими
+@rus Добро пожаловать в следующую комнату. Тут ты сможешь сразиться с настоящими
 монстрами, без надобности убегать. Убей каждого из них, они зажимают некоторые
 вещи, которые тебе пригодятся. Если готов - иди вниз (down).
 
@@ -1440,7 +1440,7 @@ sign~
 @eng There is an aggressive monster in this room.  Kill him and get out of here
 fast!  Remember to loot and sacrifice the corpse.
 @rus Здесь сидит агрессивный монстр. Убей его и уходи отсюда скорее. Не забудь
-оборать труп и принести его в жертву.
+обобрать труп и принести его в жертву.
 ~
 D2
 @eng You see the Cage Room.
@@ -1461,7 +1461,7 @@ E
 sign~
 @eng There is a wimpy, aggressive monster in this room.  Kill him and get out of
 here fast!  Remember to loot and sacrifice the corpse.
-@rus Тут сидит нападющий от страха монстр. Убей его и уходи отсюда скорее. Не забудь
+@rus Тут сидит нападающий от страха монстр. Убей его и уходи отсюда скорее. Не забудь
 обобрать труп и принести его в жертву.
 ~
 D1
@@ -1484,7 +1484,7 @@ sign~
 @eng There is a wimpy monster in this room.  Kill him and get out of here fast!
 Remember to loot and sacrifice the corpse.
 @rus Здесь сидит трусливый монстр. Убей его и уходи отсюда скорее. Не забудь
-оборать труп и принести его в жертву.
+обобрать труп и принести его в жертву.
 ~
 D0
 @eng You see the Cage Room.
@@ -2722,7 +2722,7 @@ going north.
 
 If you are a new character, you should go 'WEST' from here, train your
 abilities, and then come back here and go 'NORTH'.
-@rus Чтобы посмотреть свои аттрибуты набери 'score'. Ты можешь увеличить их
+@rus Чтобы посмотреть свои атрибуты набери 'score'. Ты можешь увеличить их
 в тренировочной комнате Фьюри на западе (west), или ты можешь совершенствовать
 свои навыки в гильдии Зуки на востоке (east). На севере ты видишь коридор
 ведущий в глубину школы.
@@ -2752,7 +2752,7 @@ D2
 Z 0 3700
 D3
 @eng You see Furey's Training Room.  Go there to train your attributes.
-@rus Ты видишь комнату тренировок Фьюри. Иди туда, чтобы увеличить аттрибуты.
+@rus Ты видишь комнату тренировок Фьюри. Иди туда, чтобы увеличить атрибуты.
 ~
 ~
 Z 0 3758

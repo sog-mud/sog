@@ -15,7 +15,7 @@ eyes fixed dead upon you!
 ~
 The Demi-Lich is, perhaps, the single most powerful undead creature known
 to exist.  Greatly resembling a wight or mummy, and being gaunt and skeletal
-in form. It is, nevertheless a being of forboding might. Its eye sockets are 
+in form. It is, nevertheless a being of foreboding might. Its eye sockets are 
 black and empty, save for the fierce pinpoints of light which serve as eyes. 
 An aura of cold and darkness radiates from it, which makes it an ominous and 
 fearsome sight. Despite the wasted, rotten flesh it is garbed in the rich 
@@ -31,16 +31,16 @@ stand stand male 1265
 #25001
 keftab~
 Keftab, the Ancient One~
-Keftab, the Ancient One stands here, calmly searching ceaslessly.
+Keftab, the Ancient One stands here, calmly searching ceaselessly.
 ~
 A writhing, quivering mass of horrific, unspeakable flesh-like material, this
-ancient one stares coldly about through its many multifacted eyes, viscious, 
+ancient one stares coldly about through its many multifacted eyes, vicious, 
 vile smelling liquid seeps through its flesh in many places, originating from 
 the ghastly, crater like pores which pepper his body. Disgustingly, large 
 portions of its flesh seem to bubble with an alien life of their own. 
 The surface of its body, where not oozing, is covered with mottled, grey, 
 mossy protrusions, like some strange malignant blemishes. It emits low, 
-gutteral mewlings from its fange, quivering oriface.
+gutteral mewlings from its fange, quivering orifice.
 ~
 human~
 ABC DJP -1000 0
@@ -70,7 +70,7 @@ mist daemon~
 A Mist Daemon~
 A mist daemon stands here, in a cloud of grey mist.
 ~
-A large demon like creature hovers abover you, in a cloud of grey mist.
+A large demon like creature hovers above you, in a cloud of grey mist.
 Its winged form stares down at you in utter hatred.
 ~
 human~
@@ -86,7 +86,7 @@ a Black Slayer~
 A huge, shadowy figure materializes from the shadows around you.
 ~
 The black slayer is a shadowy figure, about 7 feet in height. Garbed in
-a heavey, black cloak, in his right hand, he wields a wicked dagger.
+a heaved, black cloak, in his right hand, he wields a wicked dagger.
 ~
 human~
 ABCF DJP -1000 0
@@ -114,7 +114,7 @@ storm giant~
 a Storm Giant~
 A storm giant stands here, angered by your presence.
 ~
-This huge creature is approximatly 18 feet tall, He grasps a huge bolt
+This huge creature is approximately 18 feet tall, He grasps a huge bolt
 of lightning it his right hand.... He doesnt look happy to see you.
 ~
 giant~
@@ -204,8 +204,8 @@ stand stand male 0
 #25012
 githyanki~
 a Githyanki~
-A disgusting creature of etheral nature stands here, its body completely
-wraped in bandages..
+A disgusting creature of ethereal nature stands here, its body completely
+wrapped in bandages..
 ~
 This man sized creature has bandages wrapped all about its body. Its eyes
 glow with a brilliant red fire, in its right hand he grasps a an extremely
@@ -225,7 +225,7 @@ Kalas, the guardian and knight of the castle stands here preparing himself for
 battle.
 ~
 He is a large, muscular man of undead nature. He is clad in rather magical
-looking suit of armor, his sword burning fiercly.
+looking suit of armor, his sword burning fiercely.
 ~
 human~
 ABF Ju -1000 0
@@ -355,7 +355,7 @@ king goblin~
 The goblin king~
 The goblin king is here.
 ~
-He looks like david bowie.
+He looks like David bowie.
 ~
 goblin~
 A D -351 0
@@ -409,7 +409,7 @@ stand stand either 754
 #25026
 acid blob giant~
 A giant acid blob~
-A gaint acid blob is here
+A giant acid blob is here
 ~
 He looks like a huge blob of acid
 ~
@@ -525,7 +525,7 @@ a Black Slayer~
 A huge, shadowy figure materializes from the shadows around you.
 ~
 The black slayer is a shadowy figure, about 7 feet in height. Garbed in
-a heavey, black cloak, in his right hand, he wields a wicked dagger.
+a heaved, black cloak, in his right hand, he wields a wicked dagger.
 ~
 human~
 ABCF DJP -1000 0
@@ -541,7 +541,7 @@ a Black Slayer~
 A huge, shadowy figure materializes from the shadows around you.
 ~
 The black slayer is a shadowy figure, about 7 feet in height. Garbed in
-a heavey, black cloak, in his right hand, he wields a wicked dagger.
+a heaved, black cloak, in his right hand, he wields a wicked dagger.
 ~
 human~
 ABCF DJP -1000 0
@@ -1109,7 +1109,7 @@ The Mountain Path~
 You find yourself standing in a heavily wooded area, overgrown with brush,
 and gnarled trees. To the north, you see a neglected, twisted path,
 disappearing far into the mountains.
-     There is a small (Glowing) (Huming) tablet.
+     There is a small (Glowing) (Humming) tablet.
 ~
 0 C mountain
 E
@@ -1120,9 +1120,9 @@ small tablet~
 +               and adapted in rain, cold week, july'96              +
 +    by jaceks and errors has been modified by mandrake              +
 +                                                                    +
-+     PS. prepare to die - it is extremly hard {30 50} area          +
-+                          with aggro mobs                           +
-+                     only armed personel allowed                    +
++     PS. prepare to die - it is extremely hard {30 50} area          +
++                          with aggry mobs                           +
++                     only armed personal allowed                    +
 +                                                                    +
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ~
@@ -1192,7 +1192,7 @@ Gateway to the Abyss~
 As you enter the jagged opening, you feel the coldness of the rock against 
 your skin. As you look into the darkness ahead, you are striken by 
 an overwhelming sense of evil. You dread the thought of what lies ahead.
-     There is a small (Glowing) (Huming) tablet.
+     There is a small (Glowing) (Humming) tablet.
 ~
 0 AN forest
 E
@@ -1203,9 +1203,9 @@ small tablet~
 +               and adapted in rain, cold week, july'96              +
 +                             by jaceks                              +
 +                                                                    +
-+     PS. prepare to die - it is extremly hard {30 50} area          +
-+                          with aggro mobs                           +
-+                     only armed personel allowed                    +
++     PS. prepare to die - it is extremely hard {30 50} area          +
++                          with aggry mobs                           +
++                     only armed personal allowed                    +
 +                                                                    +
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ~
@@ -1242,7 +1242,7 @@ Z -1 25004
 S
 #25006
 Cavern of Lost Souls~
-You wander into a dimly lit, caverous room. You are overpowered by
+You wander into a dimly lit, cavernous room. You are overpowered by
 a strong sense of death, here. The darkness seems to come alive at
 your presence. Visions of gruesome death, dance before your eyes...
 so real... as if they were alive... The souls of evil, banished from
@@ -1294,7 +1294,7 @@ Z -1 25011
 S
 #25009
 Misty Cavern~
-As you enter the cavern you are surronded by a strange mist
+As you enter the cavern you are surrounded by a strange mist
 filling the cavern. You are overpowered by the feeling of
 death and despair. Through the mist you can just barely make
 out what looks like a door to the west.
@@ -1330,8 +1330,8 @@ S
 #25011
 The Gate~
 As you enter this room, your eyes become fixed upon a large
-black object, in the center of the room. After carefull obse-
-rvation, you find that it resembeles some sort of window.
+black object, in the center of the room. After careful obse-
+rvation, you find that it resembles some sort of window.
 The sounds you have been hearing appear to be coming from inside
 you start to recall the crashing sounds of the waves...and
 suddenly you realize you have stumbled upon there source.
@@ -1364,7 +1364,7 @@ S
 The Other Side~
 As you step through the window, you are instantly transported
 to find yourself here. Just to the north is what appears to be
-the shore of a lareg ocean.
+the shore of a large ocean.
 ~
 0 ADN forest
 D0
@@ -1376,7 +1376,7 @@ S
 Ocean Shore~
 Here, though you are underground (or so you believe) there seems
 to be a sky of some sort, it is dark, and above you are black,
-constantly moveing clouds, as black as the waves of the ocean which
+constantly moving clouds, as black as the waves of the ocean which
 flows before you.
 ~
 0 ACN forest
@@ -1389,7 +1389,7 @@ S
 On the Ocean of Despair~
 As you float on the jet-black waters of the ocean, occasionally
 something will stick its head above the surface. You try to focus
-your eyes upon the image, but unfortuantely it is too dark to make
+your eyes upon the image, but unfortunately it is too dark to make
 out exactly what the creature is.
 ~
 0 AN noswim
@@ -1413,7 +1413,7 @@ S
 #25016
 On the Ocean of Despair~
 As you go farther and farther out into the see you lose sight of
-all land. The thing that was back toword the shore appears to be
+all land. The thing that was back toward the shore appears to be
 following you. You begin to wonder what lies ahead.
 ~
 0 AN noswim
@@ -1485,7 +1485,7 @@ S
 #25020
 A Small Path in the Twisted Forest~
 This faint path appears to have been neglected. You get
-the feeling that this path has not been treaded uopn for quite
+the feeling that this path has not been treaded upon for quite
 some time. As you continue down the path a large, twisted tree
 blocks the northern path. After taking a closer look you are
 able to make out what appears to be a flat clear land to the south.
@@ -1556,7 +1556,7 @@ Z -1 25024
 S
 #25024
 The Smouldering Trail~
-As you continue down the trail, you notive parts of the
+As you continue down the trail, you notice parts of the
 trail are still burning. You appear to be catching up with
 whatever made this trail.
 ~
@@ -1796,7 +1796,7 @@ S
 The Stair Well~
 You set foot down the descending passage. The stairs are
 made of stone and appear to be quite solid. There is a strong
-steanch coming from below, you begin to feel sick as you
+stench coming from below, you begin to feel sick as you
 continue to descend the stairs.
 ~
 0 ADN city
@@ -1815,7 +1815,7 @@ Upon entering, you discover that this may have been
 once been a small crypt of some sort. What looks to be the
 remains of several adventures... perhaps a large party...
 You wonder what could have done away with them. A strange
-feeling comes over you, you sench you are not alone.
+feeling comes over you, you sence you are not alone.
 ~
 0 ADN city
 D4
@@ -1828,7 +1828,7 @@ The Central Courtyard~
 As you come to the center of the courtyard, you notice
 a large fountain... it looks very old and weathered, but a
 constant stream of clear liquid continues to flow from a
-small statue in the ceter of the fountain. The castle
+small statue in the center of the fountain. The castle
 drawbridge lies just to the north of you.
 ~
 0 AN field
@@ -1867,8 +1867,8 @@ S
 #25042
 In The Bottomless Pit~
 As you begin to climb down the side of the pit, you begin to
-lose your footing. Desperatly you try to regain any hold you can,
-but unfortunatly you can not find any and you begin to fall! After
+lose your footing. Desperately you try to regain any hold you can,
+but unfortunately you can not find any and you begin to fall! After
 several minutes, you begin to wonder if there is any end to this
 seemingly bottomless pit into which you have fallen. Just as you
 decide that there must be no end and that you will fall eternally,
@@ -1888,8 +1888,8 @@ As you step inside the castle, you are overpowered by the
 darkness, the shadows seem to come alive at your presence. The
 whole castle is pitch black, as your light cuts through the darkness
 you notice a large banner hanging upon the wall. There are exits in
-nearly every direction, to the north a large staircase asecnds
-upwords into the darkness.
+nearly every direction, to the north a large staircase ascends
+upwards into the darkness.
 ~
 0 ADN city
 D0
@@ -2034,7 +2034,7 @@ S
 The Vault~
 You now stand within the lich's treasure vault, a huge treasure
 lies in the center of the room. The room is decorated with many marble
-columns, in the far corner you can make out a shimering portal........
+columns, in the far corner you can make out a shimmering portal........
 through which you can see a path along a vast mountain range.
 ~
 0 AD field
@@ -2046,7 +2046,7 @@ ABCFZ 25056 25050
 S
 #25052
 The Grand Hallway~
-You stand just to the east of the castke entrance. Many statues
+You stand just to the east of the castle entrance. Many statues
 of gargoyles and other strange creatures line each side of the hall
  a little farther down the hall, you can make our a huge set of double
 doors, you hear a strange sound to the east.
@@ -2119,7 +2119,7 @@ ABZ 25053 25054
 S
 #25056
 The Castle Pantry~
-Shelves line the walls, many differnt goods lay in piles
+Shelves line the walls, many different goods lay in piles
 on top of them. The floors are covered with the remains of broken
 shelves and other various items which were once stored on them.
 There are exits to the west and south.
@@ -2188,7 +2188,7 @@ S
 #25060
 Base of the Tower~
 This room appears to be the base of a large watch tower, stairs
-ascend upword twords the top of the tower.. Several strange runes are
+ascend upward the top of the tower.. Several strange runes are
 etched into each stair, the feeling of evil is strong in the air. You
 hear footsteps behind you as the door suddenly slams shut! The only
 exit, now that the door has been sealed are a set of stairs going up
@@ -2224,7 +2224,7 @@ S
 #25062
 The Tower Staircase~
 You have entered a small room near the top of the tower.
-Stairs continue upword to the top of the tower, the room is deathly
+Stairs continue upward to the top of the tower, the room is deathly
 quiet, you wander what could have made the strange sounds which
 you heard from below.
 ~
@@ -2267,7 +2267,7 @@ The Central Chamber~
 You are in a large chamber, from the looks of the room, it
 appears that this is the place where the prisoners are executed.
 A large pit lies in the center of the room, huge flames erupt
-upwords from its firey depths.
+upwards from its fiery depths.
 ~
 0 ADN inside
 D4
@@ -2297,7 +2297,7 @@ D5
 Z -1 25077
 S
 #25077
-Beneath the Sacraficial Pit~
+Beneath the Sacrificial Pit~
 As you near the base of the illusionary blaze, you notice
 several figures emerge from the flames. A large door lies to
 the west, while the exit from the pit lies directly overhead.
@@ -2316,7 +2316,7 @@ S
 Entrance to the Sanctuary~
 You stand in the doorway of some sort of sanctuary.
 A small altar lies in the center of the room, bloodstained
-from recent sacrafices that have been made upon it. The
+from recent sacrifices that have been made upon it. The
 only exits from the room are east and west.
 ~
 0 ADN hills
@@ -2582,7 +2582,7 @@ entirely of silver set against the south wall. A gruesome thing
 lies in the center of the room, some disgusting green liquid
 oozes from many small bubbles on the creatures flesh. The sight
 of the horrible creature nearly makes you sick. The creature
-slowly begins to make its way toword you.......
+slowly begins to make its way toward you.......
 ~
 0 AD inside
 D0
@@ -2698,7 +2698,7 @@ D 0 25057 2 2	* The Castle Store Room: door to the south: closed and locked
 D 0 25058 0 2	* Castle Barracks: door to the north: closed and locked
 D 0 25058 2 1	* Castle Barracks: door to the south: closed
 D 0 25059 1 1	* Guest Room: door to the east: closed
-D 0 25077 3 1	* Beneath the Sacraficial Pit: door to the west: closed
+D 0 25077 3 1	* Beneath the Sacrificial Pit: door to the west: closed
 D 0 25078 1 1	* Entrance to the Sanctuary: door to the east: closed
 D 0 25084 2 1	* Sanctuary Guard Post: door to the south: closed
 D 0 25085 0 1	* Chamber of Kalas: door to the north: closed

@@ -72,10 +72,10 @@ stand stand none 125
 toad rock жаба~
 @eng the Rock Toad@rus ~~каменная~~ ~~жаба~~~
 @eng A rather large rock toad sits here, croaking loudly.
-@rus БольшаЯ каменнаЯ жаба (toad) сидит здесь, громко квакаЯ.
+@rus Большая каменная жаба (toad) сидит здесь, громко квакая.
 ~
 @eng A grey toad. Its about the size of a cow. Small horns grow all over its body.
-@rus СераЯ жаба. Размером похожа на корову. Маленькие рожки покрывают
+@rus серая жаба. Размером похожа на корову. Маленькие рожки покрывают
 все ее тело.
 ~
 human~
@@ -207,7 +207,7 @@ stand stand male 945
 chief chieftain ogre шеф~
 @eng the Ogre Chieftain@rus Огр-шеф~
 @eng The ogre chieftain is here, observing his subjects.
-@rus Огр-шеф (chief) занимаетсЯ здесь своими делами.
+@rus Огр-шеф (chief) занимается здесь своими делами.
 ~
 @eng This is the biggest ogre you have ever seen. He is heavily equipped and looks
 quite formidable. He towers high above you and growls menacingly.
@@ -377,7 +377,7 @@ stand stand male 1417
 girl haremgirl harem slave девушка~
 @eng the Harem Girl@rus ~~девушка~~~
 @eng A harem girl cowers here in fear.
-@rus ГаремнаЯ девушка (girl) испугана и пытается спрятаться.
+@rus Гаремная девушка (girl) испугана и пытается спрятаться.
 ~
 @eng She looks quite attractive. Her low cut gown reveals why she was chosen to be
 in the harem.
@@ -545,12 +545,12 @@ stand stand male 1417
 mahn-tor minotaur grand master ман-тор~
 @eng Mahn-Tor@rus Ман-тор~
 @eng Mahn-Tor, the minotaur grand master, is here looking down at you.
-@rus Ман-тор (Mahn-Tor), великий мастер минотавров смотрит на тебЯ свысока.
+@rus Ман-тор (Mahn-Tor), великий мастер минотавров смотрит на тебя свысока.
 ~
 @eng Mahn-Tor towers above you. He is simply huge. Mahn-Tor is clad in the best of
 armor and robes. He wields the largest axe you have ever seen. You can see why
 Mahn-Tor is the leader of the minotaurs. He is awe-inspiring.
-@rus Ман-тор возвашается над тобой. Он просто-напросто огромен.
+@rus Ман-тор возвышается над тобой. Он просто-напросто огромен.
 На него надета броня и роба. Вооружен он самой большой секирой
 из тех, что ты когда-либо видел. Теперь ты понимаешь, почему он-лидер. 
 ~
@@ -1188,7 +1188,7 @@ A
 E
 plate ethereal suit~
 @eng You can almost see through it.
-@rus Ты почти можешь видить через этот полупрозрачный, мерцающий доспех.
+@rus Ты почти можешь видеть через этот полупрозрачный, мерцающий доспех.
 ~
 G none
 #2347
@@ -1738,7 +1738,7 @@ The path winds north and south into darkness.
 @rus Ты смело вошел в темный лес и теперь твой путь лежит через
 тьму леса. Огромные деревья, лишенные листьев, стоят по краям дороги,
 и около башни над тобой. Немногие лучи света, пробившиеся сквозь
-сплетеные ветви, образуют тоненикие пятнышки света, которые лишь
+сплетенные ветви, образуют тоненькие пятнышки света, которые лишь
 подчеркивают величество и власть тьмы здесь. Путь ведет на север
 и на юг -- во тьму.
 ~
@@ -1761,7 +1761,7 @@ provides sanctuary in this land of darkness.
 Something has been scrawled in the dirt in blood here.
 @rus Лесной путь разбивается здесь на три маленьких тропки. Они ведут на
 восток, север, и юг. Ветки деревьев пропускают достаточно света,
-что осветить тропу. Тебе кажется, что ты находишся в кругу света,
+что осветить тропу. Тебе кажется, что ты находишься в кругу света,
 который дарует тебе убежище.
 Что-то написано кровью(blood) на земле
 ~
@@ -1906,7 +1906,7 @@ S
 @eng The path here winds among the low rocky hills. The long trek up and down the
 hills begins to tire you greatly. Looking east, you see a small clearing. More
 hills are to the north of here.
-@rus Трпопа здесь петляет среди низких каменистых холмов. Долгое хождение
+@rus Тропа здесь петляет среди низких каменистых холмов. Долгое хождение
 вверх и вниз быстро выматывает тебя. На востоке ты видишь маленький
 просвет, а на севере -- еще больше холмов.
 ~
@@ -1928,7 +1928,7 @@ hills. Smoother ground is to the east, but the path seems to lead into a dark
 forest in that direction.
 @rus Здесь тропа очень камениста и ведет в гору под крутым углом, такой
 большой наклон заставляет тебя часто скользить и падать. На юге
-тропа ведет еще дальше в холмы, а на севере землЯ более пологаЯ.
+тропа ведет еще дальше в холмы, а на севере земля более пологая.
 Однако тропа ведет в темный лес в этом направлении.
 ~
 0 0 hills
@@ -1952,7 +1952,7 @@ S
 small boulders bounce and fall down below you. Looking to the east and west,
 you see more stable ground. The hillside itself goes on higher to the south
 and it drops away to the north.
-@rus Ты карабкаешьсЯ по камениcтому склону холма. При малейшем неосторожном
+@rus Ты карабкаешься по камениcтому склону холма. При малейшем неосторожном
 движение множество пыли и камней вокруг тебя срывается вниз. На
 востоке и на западе ты видишь более ровную землю, сам холм
 продолжается на юг, а на севере -- обрыв.
@@ -2007,7 +2007,7 @@ climb down.
 @rus Ты стоишь на краю плоскогорья. Взглянув вниз, ты видишь темный лес.
 Он наполнен смертью и разложением, даже сюда ветер доносит запах.
 Отсюда ты можешь пойти на юг и дальше лезть на плоскогорье или
-спуститьсЯ по дорожке на западе.
+спуститься по дорожке на западе.
 ~
 0 0 hills
 D2
@@ -2024,7 +2024,7 @@ S
 @eng You are in a barren set of foothills. Looking around, all you see are dead
 plants and boulders. From the south, you get a whiff of salty air. Barren paths
 lead east, north, and south into more barren hills.
-@rus Ты находишся в небольшом скоплении холмов. Оглядевшись, ты видишь
+@rus Ты находишься в небольшом скоплении холмов. Оглядевшись, ты видишь
 только мертвые растения. С юга дует солоноватый ветер. Тропа между 
 холмами ведет на восток, север и запад к большим скоплениям.
 ~
@@ -2052,8 +2052,8 @@ through its old feeble branches. The hills themselves lead in all directions.
 @rus Ты входишь в большой круг из булыжников. Окруженный этими гигантами,
 маленький росточек пробивается наружу. В центре этого скопления стоит
 огромное дерево. Похоже, что оно немало натерпелось от сил природы:
-на его скрюченных ветвЯх не осталось ни одного листика, a ветер
- раскачиваЯ его, вызывает хруст и скрип. Все выходы отсюда ведут в холмы.
+на его скрюченных ветвях не осталось ни одного листика, a ветер
+ раскачивая его, вызывает хруст и скрип. Все выходы отсюда ведут в холмы.
  
 ~
 0 0 hills
@@ -2116,7 +2116,7 @@ towards the west.
 можешь дышать. Оглядевшись, ты понимаешь, что какое-то ужасное
 чудовище использует эту пещеру как свой дом. Остатки скелетов повсюду.
 Несколько полусъеденных трупов медленно гниют в густой тьме пещеры.
-В дальнем углу пещеры ты замесаешь большую кучу ткани и металла.
+В дальнем углу пещеры ты замечаешь большую кучу ткани и металла.
 Свет и безопасность манят тебя на запад.
 ~
 0 AD inside
@@ -2137,7 +2137,7 @@ made their nests here in the rocks and you are heartened by the presence of
 life here. It is possible to climb down to the shore here. The hills
 themselves are to the north. The edge of the hills leads to the east along the
 shoreline.
-@rus Стоя на краю холма, ты можешь постмотреть вниз и увидеть каменистое
+@rus Стоя на краю холма, ты можешь посмотреть вниз и увидеть каменистое
 побережье. Неприветливый океан лежит к югу. Морские птицы обосновали
 свои гнезда в местных скалах, и ты можешь догадаться об их присутствии
 по гомону. Отсюда возможно спуститься вниз, но сами холмы расположены
@@ -2199,12 +2199,12 @@ blows hard across the rocks here and they have been worn smooth with time.
 Looking around, you notice that you can safely climb down towards the shore.
 The hills themselves stretch towards the north. The rough summit you stand
 upon leads west along the shoreline.
-@rus Ты стоишь на каменистом уступе и рассматриваешь раскинувшеесЯ перед
+@rus Ты стоишь на каменистом уступе и рассматриваешь раскинувшееся перед
 тобой побережье. Морской ветер дует здесь очень сильно и его работа
-хорошо видна: камни вокруг гладкие и обтесанные. ПриглЯдевшись,
+хорошо видна: камни вокруг гладкие и обтесанные. Приглядевшись,
 ты замечаешь что можешь безопасно спуститься вниз, к побережью.
 Сами холмы продолжаются на север, а уступ, на котором ты стоишь, 
-ведет на запад вдоль побережьЯ.
+ведет на запад вдоль побережья.
 ~
 0 0 hills
 D0
@@ -2227,7 +2227,7 @@ see a rocky shore. To the southeast, you see a small altar of some sorts that
 glows with an eerie blue light. It is possible to climb up into the hills here.
 @rus Ты находишься у подножия скалистых холмов. Вглядываясь на юг и на
 восток ты видишь скалистое побережье. На юго-востоке ты замечаешь
-некое подобие алтарЯ, сиЯющего Ярко-синим светом. Отсюда возможно
+некое подобие алтаря, сияющего Ярко-синим светом. Отсюда возможно
 взобраться на холмы.
 ~
 0 0 field
@@ -2250,7 +2250,7 @@ S
 whistles among the rocks. You see an altar of some sort built on the shore to
 the south. The shore itself leads east and west. Looking up, you see foothills
 and rocky crags.
-@rus Ты находишься на скалах, которые очерчивают линию побкрежья.
+@rus Ты находишься на скалах, которые очерчивают линию побережья.
 Колючий ветер мечется и завывает среди скал. Некое подобие алтаря видно
 на юге. Само побережье ведет на запад и на восток. Взглянув
 наверх, ты видишь холмы и обломки скал.
@@ -2281,7 +2281,7 @@ that glows with a eerie blue light. The shore stretches out to the south and
 west. It is possible to climb up into the hills here.
 @rus Ты стоишь у подножия холмов, где они встречаются с прибрежными
  скалами. Море на юге. Бросив взгляд на юго-запад, ты замечаешь
-яьщмаленький алтарь, сияющий ровным голубым светом. Побережье видно
+маленький алтарь, сияющий ровным голубым светом. Побережье видно
 как на юге, так и на западе. Также отсюда возможно вскарабкаться
  наверх в холмы.
 ~
@@ -2305,7 +2305,7 @@ S
 you look out across it. You notice a small altar that glows with blue light
 to the east. The shore itself extends north away from the water's edge.
 @rus Ты шагаешь по краю воды. Безбрежность океана во всей своей мощи
-яьщнадвигается на тебя. Ты замечаешь маленький алтарь, сияющий голубым
+надвигается на тебя. Ты замечаешь маленький алтарь, сияющий голубым
 светом. Побережье появляется на севере и ведет подальше от моря
 ~
 0 0 field
@@ -2369,7 +2369,7 @@ slippery rocks that make up the shore. To the west you see a small altar that
 radiates blue light. The shore extends north away from the water's edge.
 @rus Ты идешь вдоль кромки воды, тебе кажется, что уровень воды повысился.
 Маленькие ленточки водорослей выброшены приливом га берег. Ты скользишь
-и материшься, пытаясь пробраться по скользким кпмням, образующим
+и материшься, пытаясь пробраться по скользким камням, образующим
 побережье. На западе ты видишь алтарь, излучающий синий свет.
 Побережье продолжается на север.
 ~
@@ -2411,7 +2411,7 @@ out all light and stifle the wind. You smell swamp gas and hear damp squashing
 sounds all around you. The path leads east deeper into the swamp. You also see
 a dark forest to the west.
 @rus Этот затопленный путь ведет в темноту и топь. Деревья над ним
-закрывают доступ свету и блокируют ветер. Ты чуствуешь запах болотного
+закрывают доступ свету и блокируют ветер. Ты чувствуешь запах болотного
 газа и слышишь кваканье и чавканье вокруг. Путь ведет на восток,
 углубляясь все дальше в болото. Также ты видишь темный лес на западе.
 ~
@@ -2433,7 +2433,7 @@ teeming with life. Some of it is harmless, some is not. The path leads east
 and west into more swamp.
 @rus Тебе становится легче пробираться через вонючее болото. Вокруг
 ты видишь множество луж, в которых гниют водоросли и плещутся головастики.
-В отличие от темного леса на западе, это болото наполнено жьзнью.
+В отличие от темного леса на западе, это болото наполнено жизнью.
 Одни ее представители опасны, другие нет. Тропа ведет на запад и на
 восток в более глубокую топь.
 ~
@@ -2494,7 +2494,7 @@ S
 @eng You tread lightly through the mirky water and sludge that makes up the path
 you follow. To the east, there is a thick wall of mist. You can see nothing
 within it. Harder ground rises to the north.
-@rus Ты продираешься через мутную воду и грязь, которая устилает твой путь.
+@rus Ты продираешься через мутную воду и грязь, которая устилают твой путь.
 На востоке липкая стена тумана, через которую ты не можешь видеть.
 На севере возвышается твердая почва.
 ~
@@ -2731,8 +2731,8 @@ undergrowth line both sides of the trail. Looking north, you see a thin line
 of smoke rising up above the tree line. You also notice a crude wooden gate
 farther north on the trail. The trail itself leads south into murky territory.
 @rus Тропа ведет на север через редкий лес. Деревья здесь широки и высоки,
-и, несмотря на их редкость, ты ничего не визишь за ними. На севере
-ты замечаешь тоненькую ниточку дыма, струящуюся вверх из-за деревьв.
+и, несмотря на их редкость, ты ничего не видишь за ними. На севере
+ты замечаешь тоненькую ниточку дыма, струящуюся вверх из-за деревьев.
 Также на севере виднеются грубые деревянные ворота. Сам путь ведет
 на юг в молочно-белый туман.
 ~
@@ -2794,7 +2794,7 @@ it, there appears to be a hut of sorts. Small paths lead east and west among
 the crude huts. The gates to the south provide an exit from the village.
 @rus Ты стоишь на севере от ворот деревни. Оглядевшись, ты видишь много
 неуклюжих хижин и костров. На севере ты видишь громадный очаг.
-Позади него расположены ранообразные хижины. Маленький тропки ведут
+Позади него расположены разнообразные хижины. Маленький тропки ведут
 на запад и на восток между хижинами, а ворота на юге обеспечивают
 выход отсюда.
 ~
@@ -2823,7 +2823,7 @@ surround you. Every so often, you can hear grunts and snarls inside the huts.
 The smell here is unbearable. You wonder what type of creature could possibly
 live in such squalor. Small paths lead west and north here.
 @rus Ты идешь через примитивную деревню. Маленькие хижины, сделанные из
-дерева, окружают тебя. Доволно часто ты можешь слышать фырканье и
+дерева, окружают тебя. Довольно часто ты можешь слышать фырканье и
 хрюканье, доносящееся из хижин. Здесь стоит невыносимая вонь. Ты
 очень долго гадаешь, как же живое существо может жить в такой помойке
 как эта. Маленькие тропки ведут на запад и на север.
@@ -2845,8 +2845,8 @@ and has a raised mound in the center that contains a crude throne. The ground
 in front of the throne is quite worn, as if it is sat on quite often. You get
 the impression that this place is a crude sort of auditorium. Small paths lead
 east and south.
-@rus Похоже, что огры мспользуют это место для сборов. Поляна достаточно
-велика, а в центре находится возвыщение, в центре которого стоит трон.
+@rus Похоже, что огры используют это место для сборов. Поляна достаточно
+велика, а в центре находится возвышение, в центре которого стоит трон.
 Земля перед троном достаточно сильно утоптана, что наводит тебя на
 мысль о том, что это место используют довольно часто. Маленькие тропки
 ведут на юг и на восток.
@@ -2954,7 +2954,7 @@ south.
 @rus Похоже, это -- частные апартаменты шефа огров. Огромная куча меха
 лежит в дальнем углу. Большие сундуки стоят повсюду в комнате.
 На каждом из них -- тяжелый и крепкий замок. Комната заполнена
-чучелами мертвых врагов. Комната украшана немного более изысканно,
+чучелами мертвых врагов. Комната украшена немного более изысканно,
 чем можно бы ожидать от огра. Большой дверной проем расположен
 юге.
 ~
@@ -3863,8 +3863,8 @@ S
 fill the room. The lighting is dim, but the room is very warm. You can hear
 music playing quietly from somewhere. Beaded doorways lead north and east.
 @rus Эта комната, похоже, является гаремом хранителя. Огромные подушки
-и кровати заполнЯют комнату. Свет неЯркий, но в комнате очень тепло.
-Откуда-то доноситсЯ тихаЯ музыка. Дверные проемы есть на севере
+и кровати заполняют комнату. Свет неяркий, но в комнате очень тепло.
+Откуда-то доносится тихая музыка. Дверные проемы есть на севере
 и на востоке.
 ~
 0 D inside

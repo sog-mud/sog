@@ -326,7 +326,7 @@ CEIR 0 0 0
 stand stand male 0
 0 0 medium unknown
 #5621
-bird aarakocra aarakocran armorer armourer~
+bird aarakocra aarakocran armorer armorer~
 the armorer~
 An Aarakocran armorer is hammering out a bit of plate.
 ~
@@ -1037,7 +1037,7 @@ G none
 #5654
 boots~
 a pair of open-toe boots~
-You see a pair of Aarakocran-mangufacture boots here.~
+You see a pair of Aarakocran-manufacture boots here.~
 brass~
 armor B AG
 5 3 4 3 1
@@ -1238,7 +1238,7 @@ G none
 #5671
 boots~
 a pair of open-toe boots~
-You see a pair of Aarakocran-mangufacture boots here.~
+You see a pair of Aarakocran-manufacture boots here.~
 brass~
 armor 0 AG
 5 6 7 1 1

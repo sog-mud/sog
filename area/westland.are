@@ -192,7 +192,7 @@ he has at his use. This beast is very deadly. They call them
 heart hounds since when they attack they lunge at your heart.
 Others say they can hear your heart beating.
 @rus Беспощадное чудовище, пришедшее из мира смерти, чтобы нести разрушение и
-сееять смерть в этом мире. Неясно, что оно может и есть ли предел его 
+сеять смерть в этом мире. Неясно, что оно может и есть ли предел его 
 способностям -- и от этого вдвойне страшно. Говорят, они охотятся, 
 ориентируясь на стук сердца жертвы.
 ~
@@ -209,8 +209,8 @@ speaker оратор~
 @eng There is a speaker giving a speech to the crowd of listeners.
 @rus Оратор (speaker) собрал вокруг себя кружок единомышленников.
 ~
-@eng He is a tall man who appears to have a great athority over the
-villagers. He is giving a great speach about fire and the deadly
+@eng He is a tall man who appears to have a great authority over the
+villagers. He is giving a great speech about fire and the deadly
 losses of it. He is wearing white pants and shirt. He doesn't
 look like an evil person. He speech seems to bore you and you
 want to get on your way.
@@ -234,7 +234,7 @@ villager селянин счастливый happy~
 @rus Селянин (villager) улыбается, глядя в твою сторону.
 ~
 @eng As you pass by this villager he says "Hello" and gives you a big
-kiss. you beging to wonder if he is drunk or just plain out of
+kiss. you begging to wonder if he is drunk or just plain out of
 his mind! 
 @rus Действительно счастливый человек. При твоем приближении он весело крикнул
 тебе привет и одарил горячим поцелуем. Это было столь странным для тебя, 
@@ -244,7 +244,7 @@ human~
 AFGT UVZb 1000 0
 60 0 50d10+6750 10d10+4000 8d6+28 smash
 -30 -30 -30 0
-BCDEFGHIKN A 0 0
+BCDEFGHIKNO A 0 0
 stand stand male 300
 0 0 medium unknown
 #10013
@@ -258,7 +258,7 @@ beautiful long hair and is wearing a white dress that reaches
 down to the floor. Her head is held up high and she has a nice
 smile on her face.
 @rus Высокая стройная женщина с прекрасными длинными волосами, одетая в белое
-платье, нисподающее до земли мягкими складками. На ее лице играет улыбка
+платье, ниспадающее до земли мягкими складками. На ее лице играет улыбка
 и ты начинаешь улыбаться вместе с ней.
 ~
 human~
@@ -275,7 +275,7 @@ warden страж границы boundary~
 @rus Мрачный страж (warden) занят своим нелегким делом.
 ~
 @eng You see one of the toughest, strongest, and tallest man you have
-ever seen. He is about 7'6 inches and is 8 times your wieght. He
+ever seen. He is about 7'6 inches and is 8 times your weight. He
 is clad with weapons and armor and looks prepared for battle. It
 is a good thing that he has a friendly character.
 @rus Ты первый раз видишь человека такого могучего телосложения. Он просто склад
@@ -297,7 +297,7 @@ thief воришка~
 ~
 @eng You see a little thief that is all dressed in black ready to
 steal your money when your not looking. He is wearing black pants
-and boots and is barely noticable in the shadows of the
+and boots and is barely noticeable in the shadows of the
 buildings.
 @rus Маленький невзрачный человек, одетый во все черное, чтобы слиться с тенью.
 В его глазах горит нешуточная жажда наживы и он только и ждет, чтобы 
@@ -345,7 +345,7 @@ will not give it to you so I guess you're going to have to fight
 her for it!
 @rus Глаза этой женщины необычайно белые, каких не увидишь у обыкновенного
 человека. Видимо, она слепая, но это не мешает ей ощущать твое присутствие
-и следить за передвежениями. На шее у нее необычное костяное ожерелье.
+и следить за передвижениями. На шее у нее необычное костяное ожерелье.
 ~
 human~
 ABR CDEFJTV 1000 0
@@ -430,7 +430,7 @@ bad to get on its evil side for it is far, far bigger then other
 dragons. The dragon is clad in heavy scales that cover every
 ounce of his body. He looks far tougher than any monster you have
 or will ever see.
-@rus Очень крупный дракон с массивными когтями и огроиными крыльями. Он выглядит 
+@rus Очень крупный дракон с массивными когтями и огромными крыльями. Он выглядит 
 очень могучим, но также голодным и злобным. Это самое большое из виденных
 тобой живых существ.
 ~
@@ -467,7 +467,7 @@ tender бармен человечек толстый маленький bar~
 @eng He is a short guy with a long beard. He seems quite stupid
 though, his shoes are on the wrong feet. He is wearing torn pants
 and looks to be quite poor, yet he runs this bar.
-@rus Маленький коротышка с длинной бородой. Двольно рассеянный, если судить по 
+@rus Маленький коротышка с длинной бородой. Довольно рассеянный, если судить по 
 тому что он перепутал левый и правый ботинки. 
 ~
 human~
@@ -597,7 +597,7 @@ devoter последователь~
 @rus Последователь Даркена Рала (devoter) настороженно глядит на тебя.
 ~
 @eng This devoter is chanting words about Darken Rahl. He seems to
-belive thatt Darken Rahl is good and not evil. Better stay away
+belive that Darken Rahl is good and not evil. Better stay away
 from this person also.
 @rus Фанатичный последователь Даркена Рала восторженно рассказывает тебе о своем
 кумире. Он не желает слышать твоих слов и не признает, что его идол вовсе не
@@ -818,7 +818,7 @@ G none
 #10010
 tunic warden плащ boundary~
 @eng boundary warden's tunic@rus ~~плащ~~ стража границы~
-@eng A tunic made from good leather has been left here.@rus Плащ (tunic), сделанный из хорошей кожы, оставлен здесь своим хозаином.~
+@eng A tunic made from good leather has been left here.@rus Плащ (tunic), сделанный из хорошей кожи, оставлен здесь своим хозяином.~
 unknown~
 armor BC AK
 20 20 20 10 0
@@ -852,8 +852,8 @@ A
 G none
 #10013
 legging warden leggings штаны boundary~
-@eng boundary warden leggins@rus ~~штаны~~ стража границы~
-@eng A pair of leggings have been left here.@rus Какие-то черные штаны (leggins) оставлены здесь.~
+@eng boundary warden leggings@rus ~~штаны~~ стража границы~
+@eng A pair of leggings have been left here.@rus Какие-то черные штаны (leggings) оставлены здесь.~
 unknown~
 armor BC AF
 20 20 20 10 0
@@ -1192,7 +1192,7 @@ clear. There is a fresh breeze in the air and the trees are
 rocking freely. You feel as though you are entering a new world
 but you're still in Shades of Gray. The lake to your right is crystal
 clear and calm. There are a family of ducks floating by seeming
-not to notice you. The woods around you are flled with deer,
+not to notice you. The woods around you are filled with deer,
 birds, and other animals. The trees are tall and lush, leaving
 not much room for the sun to enter into these sacred lands. The
 path continues to the north and, of course, where you came from,
@@ -1281,7 +1281,7 @@ shining upon you and you start to feel hot. The road continues
 north and south.
 @rus Дорога минует озеро и снова углубляется в лес. По обеим ее сторонам 
 возвышаются огромные вековые деревья, отбрасывающие длинные тени.
-Солнце наконец-то вышло из-за скрывавшех его ранее тучек, и принялось
+Солнце наконец-то вышло из-за скрывавших его ранее тучек, и принялось
 весело играться с каплями росы на травке и листьях деревьев. 
 ~
 0 0 forest
@@ -1303,8 +1303,8 @@ S
 @eng As you walk down the road you come across a path leading up
 into the mountains. Since going north will lead right into the
 lake you must go west up into the mountains. There is a little
-rabbit drinking from a small pond infront of you. You wonder
-where such a beeatiful creature came from. You could still go
+rabbit drinking from a small pond in front of you. You wonder
+where such a beautiful creature came from. You could still go
 back south to the turn in the road. 
 @rus Дорога плавно сворачивает к западу и постепенно озеро совсем скрывается
 из вида. Местность тоже начинает потихоньку меняться. На смену равнине
@@ -1331,15 +1331,15 @@ S
 @eng A path to the mountains@rus На возвышенности~
 @eng As you approach the mountains, you leave the forest behind
 to open air space. The wind here is blowing more swiftly and the
-sun is even hotter. You notice the giant waywarrd pines that loom
+sun is even hotter. You notice the giant wayward pines that loom
 overhead. You wonder where such wonderous trees came from. The
 path up the mountain looks like a nice and easy one to take. You
-could retrun to the east or go up the mountain.
+could return to the east or go up the mountain.
 @rus Лес кончился и больше не скроешься в нежной лесной тени от палящих
 лучей дневного светила. Однако, после многочасового блуждания по
 лесу, вдвойне приятно видеть открытый горизонт, а не бесконечные
 стволы деревьев. Нежный ветерок приятно холодит кожу, и все кажется
-приятным и легковыполнимым. 
+приятным и легко выполнимым. 
 ~
 0 0 mountain
 D1
@@ -1364,11 +1364,11 @@ The path look quite clear and easy to pass. The rocks are warm in
 the suns' rays and is just gleaming with the heated mirage.  You
 may go north or down.
 @rus Вот тропинка и привела тебя на вершину холма. Нельзя сказать, что
-подьем был очень легким, но и тяжелым его назвать нелься. С места,
+подьем был очень легким, но и тяжелым его назвать нельзя. С места,
 где ты стоишь открывается великолепный вид на окрестности. Где-то
-вдалеке окруженная зеленью леса поблескивает гладь Трантого озера. 
+вдалеке окруженная зеленью леса поблескивает гладь Трантово озера. 
 Впереди тебя за еще одним небольшим лесным массивом виднеется город. 
-А лучи заходящего солнца придают какую-то сказачную прелесть 
+А лучи заходящего солнца придают какую-то сказочную прелесть 
 открывшемуся твоему взору пейзажу.
 ~
 0 0 mountain
@@ -1392,13 +1392,13 @@ The path leads back into another forest and seems appealing to
 you to get out of the sun. The forest is filled with trees and
 shrubs all changed colors by the on comming season. The gold and
 bronze colors of the leaves are quite beautiful and look as if
-they are each worth morth then life itself. The mountaint air is
-freash and cooling and makes you feel like you want to sit down
+they are each worth morth then life itself. The mountain air is
+fresh and cooling and makes you feel like you want to sit down
 and rest. You may go down or south.
 @rus Тропинка бежит вперед, петляя среди больших и маленьких валунов, и вот 
 уже приводит тебя к опушке Охотничьего леса. Некоторое время она идет
 параллельно лесу, но постепенно начинает уходить в его глубь. Снова
-вогруг тебя возносятся ввысь вековые деревья. А ветер поет в их ветвях
+вокруг тебя возносятся ввысь вековые деревья. А ветер поет в их ветвях
 свои свистящие песенки.
 ~
 0 0 mountain
@@ -1422,7 +1422,7 @@ path is outlined with bright yellow flowers and little purple
 plants. There is a little shack to the east that doesn't look to
 welcoming. The forest isn't very thick and you can see all around
 you. There are wild ferns and other plants that you have never
-seen before. You see one plant you recconize, but it is from a
+seen before. You see one plant you recognize, but it is from a
 book. This forest seems to be quite a sanctuary. The trail goes
 north to the outskirts of Hartland or up back to the mountain. 
 @rus Лес. Тот самый лес, что окружает Хартленд -- один из важнейших городов
@@ -1450,7 +1450,7 @@ S
 @eng You are on the out skirts of a little town called Hartland.
 The road you walk on is dry and dust covered. Its seems like it
 hasn't rained for quite sometime. Up ahead you can see the town
-begining to form. The town has many people in the streets
+beginning to form. The town has many people in the streets
 gathering for some kind of bizzard but there is nothing for sale
 here. All the villagers are gathering around a speaker who is
 giving a speech about fire. The city looks like its full of happy
@@ -1483,7 +1483,7 @@ S
 @eng You have walked into the town of Hartand. Everyone here
 seems to be happy and joyful. They all seem to be listening to a
 speech about fire which doesn't interest you. You see how the
-speaker talks and catches his audiance and it shows that he has
+speaker talks and catches his audience and it shows that he has
 some great deal of authority. You wonder why such a small man
 could have so much power over all these people. There are little
 homes all around but seem un-welcoming. You can go north to the
@@ -1491,7 +1491,7 @@ paths in the fields or south back to the woods.
 @rus В центре этого города располагается небольшая площадь, окруженная со
 всех сторон ухоженными домами. На ней стоит какая-то непонятного вида
 статуя, возле которой и собрались те люди, которых ты заметил еще
-раньше. Теперь уже слышно о чем идеть речь. Как и следовало ожидать,
+раньше. Теперь уже слышно о чем идет речь. Как и следовало ожидать,
 о различных нуждах и проблемах жителей городка, совсем тебя не волнующих.
 ~
 0 0 city
@@ -1513,11 +1513,11 @@ S
 @eng You have entered the fields outside of the town and are on
 your way to South Haven. Near South Haven is where the Narrows
 are. In order to get to South Haven you must cross the swamps on
-the way. The air here is suprizingly still and peaceful. There
+the way. The air here is surprisingly still and peaceful. There
 are few trees around and even fewer animals. The trail leads
 south to a swamp that steals your breath away with stench, and
 north back to the town you came from.
-@rus За городом расстилаются поистине бесконечные сельскохозяйственные угодия.
+@rus За городом расстилаются поистине бесконечные сельскохозяйственные угодья.
 До самого горизонта поля, поля, поля... Сколько же времени занимает
 их обработка? Наверное, много. Даже при поверхностном осмотре видно
 как много труда было сюда вложено. Ни одного сорняка не мешает росту
@@ -1603,11 +1603,11 @@ S
 @eng The path at the swamp@rus Тропа через топи~
 @eng You have arrived at the swamp at the same time as the heart
 hounds. The heart hound will not enter the swamp so it must be
-your only choice..or fight. The swamp looks univiting and you
+your only choice..or fight. The swamp looks uninviting and you
 don't know what sort of creatures live under the murky waters.
 There is a small island in the center of the swamp that seems
 deserted. The waters in the swamp are shallow enough to pass by
-foot. You better make diside fast, fight or get to the island.
+foot. You better make decide fast, fight or get to the island.
 The exits are back east or west.
 @rus Мрачно и холодно. Солнечные лучи совсем не проникают сюда, а от земли
 поднимается неприятное зловоние. Под ногами хлюпает вода, и надо быть
@@ -1635,7 +1635,7 @@ S
 #10016
 @eng Over the swamp waters@rus В воде~
 @eng As you are crossing the waters you notice that the hounds don't follow
-you.  The water is refreashing and cool.  The island is just up ahead and
+you.  The water is refreshing and cool.  The island is just up ahead and
 you can't wait to get there.  You notice the water starts to move and then
 you see them.  Snakes.  Little yellow deadly snakes.  All over the place. 
 You start to run as fast as you can towards the island.  You could go east
@@ -1723,7 +1723,7 @@ S
 #10019
 @eng On the shore again@rus На берегу~
 @eng Now that you have reached the shore you breath a sigh of
-reliefe that the hounds have gone away. You look down to the
+relief that the hounds have gone away. You look down to the
 south towards SouthHaven and you can hear the faint sounds of the
 city life. You continue your hike to SouthHaven. You may go back
 to the swamps (north) or continue south.
@@ -1786,7 +1786,7 @@ of ale. You may go north to the forest or south into the village.
 @rus Южное Пристанище. Маленькая глухая деревушка, затерявшаяся в не менее
 глухой местности, вдали от городов и торговых троп, у самой Границы.
 Окованные железом ворота распахнуты, но готовы сомкнуться при первых
-же признаках орасности. Вся деревушка обнесена бревенчатым частоколом.
+же признаках опасности. Вся деревушка обнесена бревенчатым частоколом.
 Но разве дерево является преградой для бестелесных обитателей мира смерти.
 ~
 0 0 city
@@ -1863,7 +1863,7 @@ S
 @eng The trail to the narrows@rus Тропинка у Границы.~
 @eng This is a long trail that leads up to the narrows where you
 will need to cross into D'Hara. The path is wide and quite
-visable. There are little animals running around in the woods all
+visible. There are little animals running around in the woods all
 about. You notice that the trees are thicker and a lot greener.
 The humidity begins to rise and it starts to feel hotter. Your
 legs start to get tired when you see the Bone Woman's shack up
@@ -1914,7 +1914,7 @@ D0
 Z 0 10026
 D1
 @eng The path to the Narrows.
-@rus Затеряная тропа.
+@rus Затерянная тропа.
 ~
 ~
 Z 0 10027
@@ -1932,11 +1932,11 @@ a nice warm fireplace sitting in the corner giving off heat and
 light. A oil lamp is hanging from a beam in the roof and gives
 the room an eerie glow. There are bones in little piles on the
 floors and an old lady stands in the center of the room. She has
-a big smile on her face and offerse you to stay in her home for
+a big smile on her face and offers you to stay in her home for
 as long as you wish.
 @rus Небольшая уютная комнатка, возле стен и в углах которой навалено огромное
 количество всевозможных костей. В камине весело трещит огонь, согревая
-своим теплом все вокруг. Маслянная лампа, стоящая на столе, распростроняет
+своим теплом все вокруг. Маслянная лампа, стоящая на столе, распространяет
 вокруг мягкий свет. Возле стола стоит хозяйка этого странного места. На
 ее лице играет улыбка, но слишком уж странен взгляд ее белых глаз. 
 ~
@@ -1993,7 +1993,7 @@ D1
 ~
 Z 0 10029
 D3
-@eng Back to the enterance of the Narrows.
+@eng Back to the entrance of the Narrows.
 @rus Проход.
 ~
 ~
@@ -2011,7 +2011,7 @@ the way you want to go.
 смыкаются и тебе с трудом удается протискиваться вперед. Тени мертвых
 подбираются все ближе и ближе к тебе. Еще немного и ты ощутишь их холодное
 прикосновение. А чуть в стороне появились еще какие-то странные твари, 
-сплошь утыканые шипами.
+сплошь утыканные шипами.
 ~
 0 0 desert
 D1
@@ -2085,7 +2085,7 @@ S
 #10032
 @eng The Azrith plains@rus Равнины Азрита~
 @eng Welcome to D'Hara! You have successfully passed through the
-narrows and are standing infront of the Azrith Plains. The plains
+narrows and are standing in front of the Azrith Plains. The plains
 are quite massive and reach as far as your eyes can see. In the
 distance, you see the home of Darken Rahl, the Peoples Palace.
 You have to cross the Azrith Plains in order to get to Darken
@@ -2115,7 +2115,7 @@ S
 @eng The path through the plains@rus Дорога через равнины~
 @eng You have found a path that is quite long but leads to Darken
 Rahl's Palace. The path is covered with stones and there is an
-occassional tree here and there. The sky is bright and clear and
+occasional tree here and there. The sky is bright and clear and
 it is a hot day. You start to be thirsty and you feel sort of
 tired. Your only choice is to go ahead onto the Peoples Palace
 and stop Darken Ralh then steel a drink and a bite to eat. The
@@ -2234,7 +2234,7 @@ S
 @eng The long hallway@rus В коридоре~
 @eng You enter the Palace and head down a long hallway. There are
 many people wandering about this castle and others are praying or
-chanting about Darken Ralh. You pass one Devotion Room afilled
+chanting about Darken Ralh. You pass one Devotion Room filled
 with these people. You decide not to stop and keep on going. The
 exits are to the north, south and to the east there is a room
 filled with devoters.
@@ -2242,7 +2242,7 @@ filled with devoters.
 внутренних помещений. Бесчисленные залы с мраморными изваяниями, огромные 
 изысканно украшенные комнаты, многолюдные площадки для посвящений, мраморные 
 лестницы и темные коридоры. И повсюду огромное количество людей, занятых своими
-делами и необращающих на тебя никакого внимания. До тебя долетают обрывки 
+делами и не обращающих на тебя никакого внимания. До тебя долетают обрывки 
 разговоров о Магистре Рале, повелителе этих мест. Среди празднично одетых людей
 выделяются молодые женщины в кожаных одеяниях. Это Морд-Сит -- одни из самых
 верных слуг Магистра.
@@ -2278,7 +2278,7 @@ west.
 @rus Огромная комната с мраморными колоннами и затейливо украшенным лепниной
 потолком.  Пол выложен разноцветными плитками, а в ее центре -- огромный
 бассейн, наполненный кристально чистой водой.  Помещение полно
-коленоприклоненных людей, распевно произносящих какие-то слова. 
+коленопреклоненных людей, распевно произносящих какие-то слова. 
 Прислушавшись, ты понимаешь что именно они говорят.  Это слова посвящения
 Магистру Ралу.  
 ~
@@ -2298,12 +2298,12 @@ Z 0 10038
 S
 #10040
 @eng The room of the Mord-Siths@rus Комната Морд-Сит~
-@eng This room is filled with the horid smell of blood and sweat
+@eng This room is filled with the horrid smell of blood and sweat
 combined. There are people chained to beams and women dressed in
 red leather torturing them. The floors are covered in blood. The
 moment you enter this room you regret it. The Mord-Siths have
 spotted you and are heading in your direction. Better run FAST!
-@rus Кажется все в комнате прпиталось запахом крови и пота прикованных к стене
+@rus Кажется все в комнате пропиталось запахом крови и пота прикованных к стене
 узников. Прямо-таки физически ощущается как их страдание, так и наслаждение 
 мучающих их женщин в красных кожанных одеяниях. Выложенный мраморной плиткой
 пол сплошь покрыт лужами крови. Ты еще не $gn{успел} зайти, а Морд-сит уже обратили
@@ -2355,13 +2355,13 @@ in beds, with walkways winding through. Beyond the flowers are
 small trees, short stone walls with vines covering them, and
 well-tended plants completing the landscaping. Except for the
 windows overhead, this room mimics an outdoor garden. In the
-centre of this expansive room is an area of lawn that sweeps
+center of this expansive room is an area of lawn that sweeps
 around almost into a circle, the grass ring broken by a wedge of
 white stone, upon which sits a slab of granite, smooth but for
 grooves carved near the edge of the top, leading to a small well
 in one corner. It is held up by two short fluted pedestals.
 Beyond the slab stands a polished stone block set next to a fire
-pit.  In the centre of the lawn lies a round area of white
+pit.  In the center of the lawn lies a round area of white
 sorcerer's sand, ringed with torches that burn with fluid flames.
 
 @rus Огромная пещероподобная комната, вся наполненная зеленью. Солнечные лучи,
@@ -2369,7 +2369,7 @@ sorcerer's sand, ringed with torches that burn with fluid flames.
 с цветами, собранными со всех концов света, проложены песочные дорожки.
 Среди этого цветущего великолепия в художественном беспорядке разбросаны
 небольшие деревца и мраморные статуи, обвитые виноградной лозой. В центре
-сада небольная зеленая лужайка со свежевыкошенной травой. Там, из-под земли
+сада небольшая зеленая лужайка со свежевыкошенной травой. Там, из-под земли
 бьет источник с кристально чистой водой.
   Среди цветущего великолепия этого сада кажется неуместным белый мраморный
 алтарь, с выгравированными на нем непонятными символами и круг белого 
@@ -2405,7 +2405,7 @@ M 0 10005 4 10005 4	* a quad assassin (A turn in the road)
 M 0 10014 2 10006 1	* a boundary warden (A path to the mountains)
 E 0 10012 0 1		*	a boundary warden's ring: on the left finger
 E 0 10012 0 2		*	a boundary warden's ring: on the right finger
-E 0 10013 0 7		*	boundary warden leggins: on the legs
+E 0 10013 0 7		*	boundary warden leggings: on the legs
 M 0 10010 1 10008 1	* a heart hound (The edge of upper ven)
 E 0 10015 0 3		*	a heart hound collar: around the neck (1)
 M 0 10010 1 10008 1	* a heart hound (The edge of upper ven)

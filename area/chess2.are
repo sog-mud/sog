@@ -15,7 +15,7 @@ pawn черная пешка black~
 ~
 @eng The Black Pawn looks quite like a small knight without his powerful steed.
 His armor is shiny and black. He stands ready to give his life for the Crown.
-@rus Черная Пешка выглядит совсем как маленький рыцать, только без его
+@rus Черная Пешка выглядит совсем как маленький рыцарь, только без его
 боевого коня. Ее черные доспехи блестят и переливаются под солнцем. 
 Этот отважный воин в любой момент готов отдать свою жизнь за своих 
 повелителей.
@@ -93,7 +93,7 @@ knight черный рыцарь black~
 @rus Могучий рыцарь (Knight) темного королевства стоит рядом с тобой.
 ~
 @eng The Black Knight is here, riding his ebony black war horse.  His eyes
-flash behind his visor in vengence.
+flash behind his visor in vengeance.
 @rus Перед тобой на лошади цвета черного дерева восседает могучий всадник с
 горящим взором.
 ~
@@ -245,7 +245,7 @@ caliph omar ghost призрак омар халиф~
 @eng Caliph Omar was person who sanctions chess for islamic people. 
 His ghost is here small, and looks like made from smoke.
 @rus Халиф Омар был тем человеком, который впервые показал людям игру в шахматы.
-Перед тобой колышится маленькое привидение, прозрачное и как будто сотканное
+Перед тобой колышется маленькое привидение, прозрачное и как будто сотканное
 из многочисленных искорок.
 ~
 ghost~
@@ -780,7 +780,7 @@ G male
 #4262
 shield white pawn щит~
 @eng a White Knight's Shield @rus ~~щит~~ Белого Рыцаря~
-@eng You see a White Knight's shield here.@rus Щит (shiled), оставленный Белым Рыцарем, лежит здесь.~
+@eng You see a White Knight's shield here.@rus Щит (shield), оставленный Белым Рыцарем, лежит здесь.~
 steel~
 armor K AJ
 8 9 9 2 2
@@ -888,7 +888,7 @@ G plural
 #4274
 sleeves white knight нарукавники~
 @eng a pair of White Knight's Sleeves@rus ~~нарукавники~~ Белого Рыцаря~
-@eng You see a pair of White Knight's Sleeves here.@rus Белые кожаные нарукавники (sleeves) валябтся в пыли.~
+@eng You see a pair of White Knight's Sleeves here.@rus Белые кожаные нарукавники (sleeves) валяются в пыли.~
 leather~
 armor K AI
 7 6 7 1 1
@@ -913,7 +913,7 @@ armor K AK
 18 70 1380 P
 G female
 #4277
-belt black knigh пояс~
+belt black k-nigh пояс~
 @eng a Black Knight's Belt@rus ~~пояс~~ Черного Рыцаря~
 @eng You see a Black Knight's Belt here.@rus Пояс (belt) Черного Рыцаря валяется никому не нужный.~
 bronze~
@@ -952,13 +952,13 @@ G male
 
 #ROOMS
 #4200
-@eng The Great Chessboard Of Midgaard@rus Большая Шахматная Арена Мидгаарда.~
+@eng The Great Chessboard Of Midgaard@rus Большая Шахматная Арена Мидгарда.~
 @eng You stand in the archway of the Chessboard of Midgaard.  The giant
 wooden gate is rusted open.
    A narrow dirt path leads eastwards into the thick grass and the
 chessboard opens up to the west.
-     There is a small (Glowing) (Huming) tablet.
-@rus Ты стоишь под аркой, ведущей на Шахматную Арену Мидгаарда. Гигантские
+     There is a small (Glowing) (Humming) tablet.
+@rus Ты стоишь под аркой, ведущей на Шахматную Арену Мидгарда. Гигантские
 деревянные ворота всегда открыты и пройти могут все желающие. Узкая
 тропинка, приведшая тебя сюда, смело устремляется прямиком через ворота
 на Арену.
@@ -981,7 +981,7 @@ small tablet~
 ~
 D1
 @eng A dirt path leads away through the great field north of Midgaard.
-@rus Дома Мидраарда.
+@rus Дома Мидгарда.
 ~
 ~
 Z -1 3043
@@ -2859,7 +2859,7 @@ of the White King's Rook.
 0 0 city
 D0
 @eng A black square lies to the north.
-@rus Черня Клетка.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4256

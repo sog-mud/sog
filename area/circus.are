@@ -137,7 +137,7 @@ Illusionist mage фокусник~
 ~
 @eng He puts on quite a show.  If you couldn't see the wires on half of his 
 creations, you might actually be amazed.
-@rus Он явно новечок в своем деле ... Хотя, если бы не было видно, что у него под 
+@rus Он явно новичок в своем деле ... Хотя, если бы не было видно, что у него под 
 столом, возможно было бы интересно.
 ~
 elf~
@@ -189,7 +189,7 @@ swallower мечеглотатель~
 ~
 @eng This guy has eaten more swords than you have even seen.  He probably knows how
 to use his sword as well.
-@rus Этот парень съел мечей гораздо больше, чем ты видил. Возможно он так же 
+@rus Этот парень съел мечей гораздо больше, чем ты видел. Возможно он так же 
 и не плохо им махает.
 ~
 human~
@@ -237,11 +237,11 @@ stand stand male 20
 clown big клоун~
 @eng a clown with big shoes@rus клоун~
 @eng A clown with big shoes is trying to get into a small car.
-@rus Клоун (Clown) в большуших ботинках пытается перепрыгнуть через голову.
+@rus Клоун (Clown) в большущих ботинках пытается перепрыгнуть через голову.
 ~
 @eng The clown is trying to fit his shoes into the carriage.  It will be a tight 
 fit.
-@rus Клоун пытается одеть свои ботинуи так, чтоб они пришлись ему в пору ...
+@rus Клоун пытается одеть свои ботинки так, чтоб они пришлись ему в пору ...
 Кажется, что для этого ему надо одеть их боком.
 ~
 dwarf~
@@ -259,7 +259,7 @@ clown big клоун гигант~
 ~
 @eng The big clown has a bucket full of confetti.  Or is it water?  Better stay 
 away from him until you know.
-@rus Большой клоун вооружен хлопушками с конфети !!! Лучше не попадаться ему 
+@rus Большой клоун вооружен хлопушками с конфетти !!! Лучше не попадаться ему 
 под руку.
 ~
 giant~
@@ -1089,7 +1089,7 @@ G none
 @eng You hear music and laughter coming from ahead of you.  Posters hang 
 from the trees, advertisements for the Circus that has just arrived in town.
 @rus Где-то совсем близко играет музыка и смеются дети. На деревьях
-расклеены афиши приехавего на гастроли цирка.
+расклеены афиши приехавшего на гастроли цирка.
 ~
 0 0 city
 E
@@ -1135,9 +1135,9 @@ a good time.  Everyone that is, except the people waiting in line for the
 Big Top.  They seem annoyed at you as you push your way past them.  To the
 east and west you see games booths.  
 @rus Эта тропа, ведущая под навес заполнена людьми. Кажется они хорошо проводят
-время ... Все кроме тех, кто стоит в очереди. Ожидающие раздраженны тем, что
+время ... Все кроме тех, кто стоит в очереди. Ожидающие раздражены тем, что
 вы расталкиваете их в стороны пробиваясь вперед без всякой очереди. На
-западе и востоке вас ждут палатки с атракционами и игрищами.
+западе и востоке вас ждут палатки с аттракционами и игрищами.
 ~
 0 0 city
 D0
@@ -1165,7 +1165,7 @@ Mayor and City council.  He makes it a point to let you know that he knows
 you are there, and he is ignoring you on purpose.
 @rus Это место кажется пустым. Лишь несколько палаток и перевернутых столов 
 предстает вашему взору. Циркач уселся на прилавок и ругает Мэра
-на чем чвет стоит.
+на чем свет стоит.
 ~
 0 0 city
 D1
@@ -1180,7 +1180,7 @@ Circus employee you see is sitting on a counter, muttering obscenities at the
 Mayor and City council.  He makes it a point to let you know that he knows 
 you are there, and he is ignoring you on purpose.
 @rus Это место кажеться пустым. Только несколько закрытых и перевернутых палаток
-предвстает вашему взору. Один из циркачей сидит на прилавке и ругает Мэра на
+предстает вашему взору. Один из циркачей сидит на прилавке и ругает Мэра на
 чем свет стоит. Он хоть и заметил тебя, но сделал вид, что вовсе не видит тебя.
 ~
 0 0 city
@@ -1197,7 +1197,7 @@ Big Top.  They seem annoyed at you as you push your way past them.  To the
 east you see the freak shows.  To the west you see a vendor.  
 @rus Эта дорожка ведет в шапито. Она полна людей и всякого сброда. Вроде они не
 плохо проводят время, но твое поведение раздражает их (ты распихиваешь очередь)
-На востоке расположенны причудливые шоу, а на западе торгуют
+На востоке расположены причудливые шоу, а на западе торгуют
 сувенирами и прочим хламом.
 ~
 0 0 city
@@ -1219,10 +1219,10 @@ D3
 Z 0 4407
 S
 #4407
-@eng The Cotton Candy Vendor@rus Торовая палатка~
+@eng The Cotton Candy Vendor@rus Торговая палатка~
 @eng The smell of cotton candy makes your mouth water.  Be careful about
 eating too much, all that sugar may make you hyper.
-@rus От запаха кофет и леденцов ты глотаешь слюнки. Буть осторожней !
+@rus От запаха конфет и леденцов ты глотаешь слюнки. Будь осторожней !
 Много сладкого не пойдет тебе на пользу.
 ~
 0 0 city
@@ -1238,10 +1238,10 @@ to offer to the curious.  You are invited to watch feats of strength from the
 strong man, gasp as a man swallows a sword, see a real, Bearded Lady, 
 be amazed by the midget's feats of acrobatics, and be dazzled by the great
 magical powers of the Illusionist.
-@rus Это место полно афиш и объявлений с описаниями атракционов предлагаемых в
-цирке. Вас приглашают взлянуть на даму с бородой, помериться силенкой с
-атлетом, посмотреть шоу фокусников и акрабатов, удивиться их ловкости, про
-ворности и умению ! Похлопать и поопладировать им, но и конечно внизу 
+@rus Это место полно афиш и объявлений с описаниями аттракционов предлагаемых в
+цирке. Вас приглашают взглянуть на даму с бородой, помериться силенкой с
+атлетом, посмотреть шоу фокусников и акробатов, удивиться их ловкости, про
+верности и умению ! Похлопать и поаплодировать им, но и конечно внизу 
 виднеется список цен. Да ... наверное они не плохо зарабатывают.
 ~
 0 0 city
@@ -1270,7 +1270,7 @@ The place is deserted of spectators.
 @rus В этой комнате стоит стул для посетителей, а перед ним небольшая сцена из
 дерева. Вы услышали скрип сцены и сразу поняли почему, когда заметили
 кто на ней ! Она с бородой. С большой. Просто с громадной ! Вроде ты уселся
-без затруднений. Посетителей много и увех челюсть ниже подбородка.
+без затруднений. Посетителей много и у всех челюсть ниже подбородка.
 ~
 0 D inside
 D1
@@ -1299,7 +1299,7 @@ its mouth, but does not attack.  Instead it just laughs at you mercilessly.
 The Dragon snorts a cloud of smoke at you.
 @rus Эта палатка затемнена, но с твоим приходом мягкий свет начал наполнять
 это место, хотя светильника не видно. Звуки дыхания и ветра наполняют твой
-слух. Кажеться, что кто-то дышит тебе в спину. Ты обернулся и увидил огромное
+слух. Кажеться, что кто-то дышит тебе в спину. Ты обернулся и увидел огромное
 чудовище !!! Это ДРАКОН. Он слегка приоткрыл свою пасть но не спалил тебя, а
 только выпустил облако пара и рассмеялся.
 ~
@@ -1329,8 +1329,8 @@ acrobatics.  You overhear another member of the audience telling his friend,
 'I'd watch out for that Midget.  I hear that a new rash of robberies broke out
 right after the Circus came to town.  Wouldn't surprise me if he is the one
 responsible.'
-@rus В этой палатке подвешан маленький коврик. Наверное тут и проходят акр
-рабатические шоу. Ты услышал, как один из зрителей сказал своему 
+@rus В этой палатке подвешен маленький коврик. Наверное тут и проходят
+акробатические шоу. Ты услышал, как один из зрителей сказал своему 
 другу:Я бы с удовольствием посмотрел на карликов. говорят, что их шоу
 самое лучшее в цирке."
 ~
@@ -1377,7 +1377,7 @@ S
 is decorated with pictures and drawings of huge men lifting huger weights.
 You see heavy objects at the front of the room, that must be part of the act.
 If Ivan the Strongman can lift those, then he really must be strong.
-@rus Это второя по велечине палатка в цирке (после шапито). Тут полно плакатов с
+@rus Это вторая по величине палатка в цирке (после шапито). Тут полно плакатов с
 изображениями силачей, которые поднимают всякие тяжести. На полу лежит
 несколько огромных снарядов... должно быть это часть шоу. Силач Иван может
 поднять их все сразу. Он наверное очень силен.

@@ -52,7 +52,7 @@ captain капитан кентавр~
 @eng This massive centaur is flexing it's muscles in preperation for the upcoming
 battle to drive back the anti-rangers and their darkfriends.
 @rus Этот мощный кентавр разминает мускулы, готовясь к сражению против Темных
-Ренджеров и их друзей. Время от веремени он подгоняет других кентавров,
+Ренджеров и их друзей. Время от времени он подгоняет других кентавров,
 заставляя работать их быстрее.
  
 ~
@@ -85,7 +85,7 @@ stand stand male 7000
 anti-ranger anti ренджер~
 @eng an anti-ranger@rus ~~Темный~~ ~~Ренджер~~~
 @eng An anti-ranger is here preparing to destroy the forest.
-@rus Темный Ренджер (anti-ranger) готовитьсЯ уничтожить лес.
+@rus Темный Ренджер (anti-ranger) готовится уничтожить лес.
 ~
 @eng Mean and pure evil, this ranger has fallen under the influence of the darkness.
 Rather than live and nuture the forest he has turned on it and now seeks only
@@ -140,7 +140,7 @@ stand stand none 0
 tree медагар medagar~
 @eng Medagar@rus Медагар~
 @eng A huge tree is here making some horrible hissing sounds.
-@rus Гигантское дерево (tree) издает ужастные звуки.
+@rus Гигантское дерево (tree) издает ужасные звуки.
 ~
 @eng This is the greater demon Medagar, one of the Abyss's nature demons. Wherever
 there is destruction of nature It will try to be there to feed off the death
@@ -182,7 +182,7 @@ elemental Metagar earth~
 @eng This elemental is a mockey of true elementals. In realist it is the demon
 Metagar's mortal form as it seeks to destroy nature wherever it finds it.
 @rus Этот элементал является воплощением великого демона Метагара на земле.
-Он ищет еще сохранивщиеся островки живого в этом погибающем лесу чтобы 
+Он ищет еще сохранившиеся островки живого в этом погибающем лесу чтобы 
 уничтожить их.
 ~
 giant~
@@ -294,7 +294,7 @@ troll marauder тролль~
 now it seeks food...
 @rus Это существо явно из самой неприятной расы - Тролль. Очень злое и агрессивное 
 создание...ты смотришь на него и в твое храброе сердце прокрадывается страх.
-Этот тролль явно голоден! Не ты ли будешь следуюшей жертвой?
+Этот тролль явно голоден! Не ты ли будешь следующей жертвой?
 ~
 troll~
 AGK DE -1000 0
@@ -309,7 +309,7 @@ stand stand either 0
 #24300
 armguards armguard перчатки centaur arm~
 @eng a pair of centaur armguards@rus ~~перчатки~~ кентавра~
-@eng A set of centaur armguards have been left here.@rus Пара перчаток (armguards) из поселениЯ кентавров лежит здесь.~
+@eng A set of centaur armguards have been left here.@rus Пара перчаток (armguards) из поселения кентавров лежит здесь.~
 steel~
 armor K AI
 7 5 6 0 0
@@ -322,7 +322,7 @@ G plural
 #24301
 bracer браслет стальной centaur steel~
 @eng a steel centaur bracer@rus ~~стальной~~ ~~браслет~~~
-@eng A steel bracer have been left here.@rus Стальной браслет (bracer) из поселениЯ кентавров забыли здесь.~
+@eng A steel bracer have been left here.@rus Стальной браслет (bracer) из поселения кентавров забыли здесь.~
 steel~
 armor 0 AM
 5 4 5 0 0
@@ -459,7 +459,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -481,7 +481,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -503,7 +503,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -529,7 +529,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -551,7 +551,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -573,7 +573,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -599,7 +599,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -621,7 +621,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -647,7 +647,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -669,7 +669,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -691,7 +691,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -713,7 +713,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -739,7 +739,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -761,7 +761,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -787,7 +787,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -809,7 +809,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -835,7 +835,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -857,7 +857,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -886,7 +886,7 @@ that direction.
 совсем умер, но они совсем слабы и незаметны. Вокруг себя ты замечаешь
 следы молодых побегов, начавших расти, но погибших. Видимо, что-то или
 кто-то, ненавидящее живую природу, убило их.
-  Лес продалжается на юг, и там он еще полон жизни. Оттуда доносятся
+  Лес продолжается на юг, и там он еще полон жизни. Оттуда доносятся
 различные шорохи и отзвуки птичьего пения, говорящие о том, что жизнь
 продолжается и еще не все потеряно.
 ~
@@ -906,7 +906,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -928,7 +928,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -950,7 +950,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -976,7 +976,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -1002,7 +1002,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -1028,7 +1028,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -1050,7 +1050,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -1072,7 +1072,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -1094,7 +1094,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -1116,7 +1116,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -1142,7 +1142,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -1164,7 +1164,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -1186,7 +1186,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -1208,7 +1208,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -1230,7 +1230,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -1953,7 +1953,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -1975,7 +1975,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -2001,7 +2001,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -2023,7 +2023,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то
@@ -2041,7 +2041,7 @@ S
 Wildlife can be heard, but it is muted and scarce. Around you there are signs
 of small bushfires that have been started but somehow stopped before getting
 out of hand.
-@rus Лес выглядет очень странно. Чувствуется, что он находится на последней
+@rus Лес выглядит очень странно. Чувствуется, что он находится на последней
 стадии своего существования. Еще слышны разные шорохи, говорящие о том,
 что жизнь еще не кончилась, но они совсем слабы и незаметны. Вокруг
 себя ты замечаешь следы побегов, которые начали расти, но увяли. Что-то

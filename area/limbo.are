@@ -88,7 +88,7 @@ A Nightwalker~
 A Nightwalker from the shadows lurks around.
 ~
 This is a Nightwalker summoned from the shadows. Bloody eyes seem glowing.
-This creature has a horible look.
+This creature has a horrible look.
 ~
 human~
 AOTc DFJS -750 0
@@ -162,7 +162,7 @@ stand stand male 0
 #19
 lion~
 a lion~
-A honoured looking lion is here.
+A honored looking lion is here.
 ~
 You see nothing special about it.
 ~
@@ -234,7 +234,7 @@ stand stand male 0
 0 0 medium unknown
 #24
 golem adamantite~
-@eng an adamantite golem@rus ~~адамантитовый~~ ~~голем~~~
+@eng an adamantite golem@rus ~~адаматитовый~~ ~~голем~~~
 An adamantite golem stands here looking very dangerous.
 ~
 It seems to be forged of dark metal.  It looks strong and durable,
@@ -250,7 +250,7 @@ stand stand male 0
 #25
 lion~
 a lion~
-A honoured looking lion is here.
+A honored looking lion is here.
 ~
 You see nothing special about it.
 ~
@@ -276,10 +276,10 @@ N M 0 0
 stand stand male 0
 0 0 medium unknown
 #27
-cocoon~
+cocoon кокон~
 @eng cocoon@rus ~~кокон~~~
 @eng Half-burrowed cocoon can be spotted here.
-@rus Полузарытый в землю кокон едва виден здесь.
+@rus Полузарытый в землю кокон (cocoon) едва виден здесь.
 ~
 @eng One more creation of black magic. What the hell will hatch out of
 this?
@@ -440,7 +440,7 @@ bow 1 1 blast 0
 1 5 10 P
 G male
 #8
-cross крест распятье~
+cross крест распятие~
 A cross of %s~
 Torn remains of %s are here on the cross.~
 flesh~
@@ -563,7 +563,7 @@ G male
 #19
 lock-pick picklock отмычка~
 @eng lock-pick@rus отмычка~
-@eng A small steell needle lies here.@rus Маленькая стальная игла блестит в пыли.~
+@eng A small steel needle lies here.@rus Маленькая стальная игла блестит в пыли.~
 steel~
 trash h AO
 0 0 0 0 0
@@ -1193,7 +1193,7 @@ G male
 #70
 badge значок~
 @eng silver enforcer badge@rus ~~серебрянный~~ ~~значок~~ Охранника Порядка~
-@eng A silver bagde shines on the ground.@rus Серебрянный значок (badge) с надписью "Закон и Порядок" блестит на земле.~
+@eng A silver badge shines on the ground.@rus Серебрянный значок (badge) с надписью "Закон и Порядок" блестит на земле.~
 silver~
 treasure MOTWZ A
 0 0 0 0 0
@@ -1202,7 +1202,7 @@ F A 0 0 F
 G male
 #71
 buckler enforcer shield~
-@eng Enforcers' Buckler@rus ~~круглый~~ ~~щит~~ Рулера~
+@eng Enforcers' Buckler@rus ~~круглый~~ ~~щит~~ блюстителя порядка~
 @eng A buckler of a Enforcer is on the ground.@rus Круглый щит (shield) с гербом клана Enforcer лежит на земле.~
 steel~
 armor GIRYZ AJ
@@ -1211,7 +1211,7 @@ armor GIRYZ AJ
 G male
 #72
 great enforcer shield щит~
-@eng Enforcers' Great Shield@rus ~~большой~~ ~~щит~~ Рулера~
+@eng Enforcers' Great Shield@rus ~~большой~~ ~~щит~~ блюстителя порядка~
 @eng There is a Great Enforcer Shield on the ground.@rus Большой щит (shield) с гербом клана Enforcer лежит на земле.~
 steel~
 armor GIRYZ AJ
@@ -1235,7 +1235,7 @@ A
 G none
 #74
 tower enforcer shield щит~
-@eng Enforcers' Tower Shield@rus ~~огромный~~ ~~щит~~ Рулера~
+@eng Enforcers' Tower Shield@rus ~~огромный~~ ~~щит~~ блюстителя порядка~
 @eng A very big shield with a symbol of Enforcer covers the ground.@rus ОГРОМНЫЙ щит (shield) с гербом клана Enforcer лежит на земле.~
 steel~
 armor GIRYZ AJ
@@ -1703,7 +1703,7 @@ O 59 fight_prog fight_prog_tattoo_throrgrim	* `tattoo of Throrgrim, God of Retri
 O 60 fight_prog fight_prog_tattoo_irian		* `tattoo of Irian, Goddess of True Chaos'
 O 61 fight_prog fight_prog_tattoo_stivrosh	* `tattoo of Stivrosh, God of War'
 O 62 fight_prog fight_prog_tattoo_gwinnerai	* `tattoo of Gwinnerai, Goddess of Honor'
-O 63 fight_prog fight_prog_tattoo_trussk	* `tattoo of Trussk, God of Desease and Suffering'
+O 63 fight_prog fight_prog_tattoo_trussk	* `tattoo of Trussk, God of Disease and Suffering'
 O 64 fight_prog fight_prog_tattoo_lessa		* `tattoo of Lessa, Goddess of Magic'
 O 65 fight_prog fight_prog_tattoo_vilirna	* `tattoo of Vilirna, Goddess of Life'
 O 66 fight_prog fight_prog_tattoo_calamir	* `tattoo of Calamir, God of Delusion'
