@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.230 2000-01-31 08:23:30 kostik Exp $
+ * $Id: act_move.c,v 1.231 2000-02-02 09:58:24 kostik Exp $
  */
 
 /***************************************************************************
@@ -406,7 +406,7 @@ void do_unlock(CHAR_DATA *ch, const char *argument)
 	if ((obj = get_obj_here(ch, arg)) != NULL) {
  	/* portal stuff */
 		if (obj->item_type == ITEM_PORTAL) {
-		    if (IS_SET(INT(obj->value[1]),EX_ISDOOR)) {
+		    if (!IS_SET(INT(obj->value[1]),EX_ISDOOR)) {
 			char_puts("You can't do that.\n", ch);
 			return;
 		    }

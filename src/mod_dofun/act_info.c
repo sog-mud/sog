@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.326 2000-01-31 08:23:29 kostik Exp $
+ * $Id: act_info.c,v 1.327 2000-02-02 09:58:23 kostik Exp $
  */
 
 /***************************************************************************
@@ -91,8 +91,8 @@ static int show_order[] = {
 	WEAR_LIGHT,
 	WEAR_FINGER_L,
 	WEAR_FINGER_R,
-	WEAR_NECK_1,
-	WEAR_NECK_2,
+	WEAR_NECK,
+	WEAR_FACE,
 	WEAR_BODY,
 	WEAR_HEAD,
 	WEAR_LEGS,
@@ -4310,7 +4310,7 @@ static char* wear_loc_names[] =
 	"<worn on finger>    $t",
 	"<worn on finger>    $t",
 	"<worn around neck>  $t",
-	"<worn around neck>  $t",
+	"<worn on face>      $t",
 	"<worn on torso>     $t",
 	"<worn on head>      $t",
 	"<worn on legs>      $t",
