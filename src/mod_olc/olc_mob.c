@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_mob.c,v 1.93 2003-04-19 16:12:38 fjoe Exp $
+ * $Id: olc_mob.c,v 1.94 2003-04-19 16:30:05 fjoe Exp $
  */
 
 #include "olc.h"
@@ -236,6 +236,8 @@ OLC_FUN(mobed_show)
 	MOB_INDEX_DATA	*pMob;
 	AREA_DATA	*pArea;
 	BUFFER *buf;
+	int *gr;
+	bool found;
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -357,14 +359,17 @@ OLC_FUN(mobed_show)
 	buf_printf(buf, BUF_END, "Expierence multiplier: [%d%%]\n",
 	    pMob->xp_multiplier);
 
-	if (!c_isempty(&pMob->practicer)) {
-		int *gr;
-
-		buf_printf(buf, BUF_END, "Practicer:   [");
-		C_FOREACH(gr, &pMob->practicer)
-			buf_append(buf, flag_string(skill_groups, *gr));
-		buf_append(buf, "]\n");
+        found = FALSE;
+	C_FOREACH(gr, &pMob->practicer) {
+		if (!found) {
+			buf_printf(buf, BUF_END, "Practicer:   [");
+			found = TRUE;
+		} else
+			buf_append(buf, " ");
+		buf_append(buf, flag_string(skill_groups, *gr));
 	}
+	if (found)
+		buf_append(buf, "]\n");
 
 	dump_resists(buf, pMob->resists);
 	aff_dump_list(pMob->affected, buf);
@@ -514,7 +519,7 @@ OLC_FUN(mobed_shop)
 		act_char("         shop profit [#xbuying%] [#xselling%]", ch);
 		act_char("         shop type [#x0-4] [item type]", ch);
 		act_char("         shop assign", ch);
-		act_char("         shop remove", ch);
+		act_char("         shop {{ remove | delete }", ch);
 		return FALSE;
 	}
 
@@ -621,7 +626,8 @@ OLC_FUN(mobed_shop)
 		return TRUE;
 	}
 
-	if (!str_prefix(command, "remove")) {
+	if (!str_prefix(command, "remove")
+	||  !str_prefix(command, "delete")) {
 		SHOP_DATA *pShop;
 
 		pShop		= pMob->pShop;
@@ -712,21 +718,23 @@ OLC_FUN(mobed_prac)
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	argument = one_argument(argument, arg2, sizeof(arg2));
-	if (arg[0] == '\0' || arg2[0] == '\0') {
+	if (arg[0] == '\0') {
 		dofun("help", ch, "'OLC MOB PRAC'");
 		return FALSE;
 	}
 
 	if (!str_prefix(arg, "add"))
 		add = TRUE;
-	else if (!str_prefix(arg, "remove"))
+	else if (!str_prefix(arg, "remove") || !str_prefix(arg, "delete"))
 		add = FALSE;
-	else
+	else if (!str_cmp(arg, "?")) {
+		show_flags(ch, skill_groups);
+		return FALSE;
+	} else
 		return cmd->olc_fun(ch, "", cmd);
 
-
-	if (!str_cmp(arg2, "?")) {
-		show_flags(ch, skill_groups);
+	if (arg2[0] == '\0') {
+		dofun("help", ch, "'OLC MOB PRAC'");
 		return FALSE;
 	}
 
