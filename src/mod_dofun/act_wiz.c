@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.9 1998-05-08 19:10:39 fjoe Exp $
+ * $Id: act_wiz.c,v 1.10 1998-05-18 12:56:32 efdi Exp $
  */
 
 /***************************************************************************
@@ -56,6 +56,7 @@
 #include "act_wiz.h"
 #include "hometown.h"
 #include "magic.h"
+#include "resource.h"
 
 /* command procedures needed */
 DECLARE_DO_FUN(do_rstat		);
@@ -4383,7 +4384,7 @@ void do_advance(CHAR_DATA *ch, char *argument)
 
     for (iLevel = victim->level ; iLevel < level; iLevel++)
     {
-	send_to_char("\a{CYou raise a level!!{x  ", victim);
+	send_to_char(msg(UPDATE_YOU_RAISE_A_LEVEL, victim), victim);
 	victim->exp += exp_to_level(victim,victim->pcdata->points);
 	victim->level += 1;
 	advance_level(victim);

@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.42 1998-05-17 05:00:25 efdi Exp $
+ * $Id: resource.h,v 1.43 1998-05-18 12:56:33 efdi Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -391,6 +391,11 @@ enum {
 	MOVE_YOU_ARE_ALREADY_ON_GROUND,
 	MOVE_TYPE_WITH_UP_OR_DOWN,
 	MOB_PROGS_I_DO_NOT_GET_PAID_ENOUGH,
+	UPDATE_YOUR_GAIN_IS,
+	UPDATE_YOU_RAISE_A_LEVEL,
+	COMM_TELLS_YOU,
+	COMM_YOU_TELL,
+	COMM_YOUR_MESSAGE_DIDNT_GET_THROUGH,
 };
 
 #endif

@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.15 1998-05-08 19:25:44 fjoe Exp $
+ * $Id: update.c,v 1.16 1998-05-18 12:56:33 efdi Exp $
  */
 
 /***************************************************************************
@@ -156,12 +156,9 @@ void advance_level(CHAR_DATA *ch)
 	ch->pcdata->perm_mana += add_mana;
 	ch->pcdata->perm_move += add_move;
 
-	char_printf(ch, "Your gain is: %d/%d hp, %d/%d mana, %d/%d mv %d/%d "
-			"prac.\n\r",
-		    add_hp, ch->max_hit,
-		    add_mana, ch->max_mana,
-	            add_move, ch->max_move,
-	            add_prac, ch->practice);
+	char_printf(ch, "%s {C%d{x hp, {C%d{x mana, {C%d{x mv {C%d{x"
+			" prac.\n\r", msg(UPDATE_YOUR_GAIN_IS, ch),
+			add_hp, add_mana, add_move, add_prac);
 	return;
 }   
 
@@ -184,7 +181,7 @@ void gain_exp(CHAR_DATA *ch, int gain)
 	ch->exp = UMAX(base_exp(ch, ch->pcdata->points), ch->exp + gain);
 	while (ch->level < LEVEL_HERO &&
 	       exp_to_level(ch, ch->pcdata->points) <= 0) {
-		send_to_char("{*{CYou raise a level!!{x  ", ch);
+		send_to_char(msg(UPDATE_YOU_RAISE_A_LEVEL, ch), ch);
 		ch->level += 1;
 
 		/* added for samurais by chronos */

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.16 1998-05-11 19:23:32 fjoe Exp $
+ * $Id: act_comm.c,v 1.17 1998-05-18 12:56:31 efdi Exp $
  */
 
 /***************************************************************************
@@ -392,13 +392,13 @@ void do_tell_raw(CHAR_DATA *ch, char *msg, CHAR_DATA *victim)
 	char buf[MAX_STRING_LENGTH];
 
 	if (IS_SET(ch->comm, COMM_NOTELL)) {
-		send_to_char("Your message didn't get through.\n\r", ch);
+		send_to_char(msg(COMM_YOUR_MESSAGE_DIDNT_GET_THROUGH, ch), ch);
 		return;
 	}
 
 	if (victim == NULL 
 	|| (IS_NPC(victim) && victim->in_room != ch->in_room)) {
-		send_to_char("They aren't here.\n\r", ch);
+		send_to_char(msg(MOVE_THEY_ARENT_HERE, ch), ch);
 		return;
 	}
 
@@ -434,10 +434,9 @@ void do_tell_raw(CHAR_DATA *ch, char *msg, CHAR_DATA *victim)
 	}
 
 	if (!is_affected(ch, gsn_deafen))
-		act_puts("You tell {W$N{x '{G$t{x'",
-			 ch, buf, victim, TO_CHAR, POS_SLEEPING);
-	act_puts("{W$n{x tells you '{G$t{x'",
-		 ch, buf, victim, TO_VICT, POS_SLEEPING);
+		act_printf(ch, buf, victim, TO_CHAR, 
+				POS_SLEEPING, COMM_YOU_TELL);
+	act_printf(ch, buf, victim, TO_VICT, POS_SLEEPING, COMM_TELLS_YOU);
 
 	victim->reply = ch;
 

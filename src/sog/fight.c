@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.11 1998-05-17 09:39:08 efdi Exp $
+ * $Id: fight.c,v 1.12 1998-05-18 12:56:32 efdi Exp $
  */
 
 /***************************************************************************
@@ -1442,7 +1442,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim, int dam, int dt, int dam_type, boo
 			  if (victim->perm_stat[STAT_CON] < 3)  {
 			  char strsave[160];
 			    send_to_char(
-"You became a ghost permenantly and leave the earth realm.\n\r",
+"You became a ghost permanently and leave the earth realm.\n\r",
 				victim);
 			    act("$n is dead, and will not rise again.\n\r",victim,NULL,NULL,TO_ROOM);
 			    victim->last_fight_time = -1;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.12 1998-05-17 09:39:08 efdi Exp $
+ * $Id: act_quest.c,v 1.13 1998-05-18 12:56:33 efdi Exp $
  */
 
 /***************************************************************************
@@ -204,22 +204,11 @@ void do_quest(CHAR_DATA *ch, char *argument)
 
     ch->pcdata->questgiver = questman->pIndexData->vnum;
 
-/* And, of course, you will need to change the following lines for YOUR
-   quest item information. Quest items on Moongate are unbalanced, very
-   very nice items, and no one has one yet, because it takes awhile to
-   build up quest points :> Make the item worth their while. */
 
     if (!strcmp(arg1, "list"))
     {
 	act("$n asks $N for a list of quest items.", ch, NULL, questman, TO_ROOM);
 	act ("You ask $N for a list of quest items.",ch, NULL, questman, TO_CHAR);
-/*
-1000qp.........The COMFY CHAIR!!!!!!\n\r\
-850qp..........Sword of Vassago\n\r\
-750qp..........Amulet of Vassago\n\r\
-750qp..........Shield of Vassago\n\r\
-550qp..........Decanter of Endless Water\n\r\
-*/
 	bufvampire[0] = '\0';
 	if (ch->class == CLASS_VAMPIRE)
 	sprintf(bufvampire,"  50qp...........Vampire skill\n\r");
