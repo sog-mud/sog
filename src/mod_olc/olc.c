@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc.c,v 1.138 2001-08-22 20:45:47 fjoe Exp $
+ * $Id: olc.c,v 1.139 2001-08-25 04:53:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -47,6 +47,7 @@
 
 #include <lang.h>
 #include <module.h>
+#include <mprog.h>
 
 DECLARE_MODINIT_FUN(_module_load);
 DECLARE_MODINIT_FUN(_module_unload);
@@ -107,7 +108,7 @@ olced_t olced_table[] = {
 	{ ED_MOB,	"MobEd",	olc_cmds_mob	},
 #if 0
 	XXX MPC
-	{ ED_MPCODE,	"MPEd",		olc_cmds_mpcode	},
+	{ ED_MPCODE,	"MProgEd",	olc_cmds_mprog	},
 #endif
 	{ ED_HELP,	"HelpEd",	olc_cmds_help	},
 	{ ED_MSG,	"MsgEd",	olc_cmds_msg	},
@@ -1313,6 +1314,7 @@ olced_trigadd(CHAR_DATA *ch, const char *argument, varr *v)
 	char arg2[MAX_INPUT_LENGTH];
 	int trig_type;
 	trig_t *trig;
+	mprog_t *mp;
 
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
@@ -1333,11 +1335,16 @@ olced_trigadd(CHAR_DATA *ch, const char *argument, varr *v)
 		 return FALSE;
 	}
 
-	/* XXX MPC lookup program and complain if there is no such program */
+	if ((mp = mprog_lookup(arg2)) == NULL) {
+		act_puts("$t: $T: no such mprog.",
+			 ch, OLCED(ch)->name, arg2,
+			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
+		return FALSE;
+	}
 
 	trig = varr_enew(v);
 	trig->trig_type = trig_type;
-	trig->trig_prog = str_dup(arg2); /* XXX MPC str_qdup(prog->name) */
+	trig->trig_prog = str_qdup(mp->name);
 	log_setchar(ch);
 	trig_set_arg(trig, str_dup(argument));
 	log_unsetchar();
@@ -1360,7 +1367,7 @@ olced_trigdel(CHAR_DATA *ch, const char *argument, varr *v)
 
 	num = atoi(arg);
 	if (varr_get(v, num) == NULL) {
-		act_puts("$t: $T: no such trigger",
+		act_puts("$t: $T: no such trigger.",
 			 ch, OLCED(ch)->name, arg,
 			 TO_CHAR | ACT_NOTRANS | ACT_NOUCASE, POS_DEAD);
 		return FALSE;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.1 2001-08-22 20:45:51 fjoe Exp $
+ * $Id: trig.c,v 1.2 2001-08-25 04:54:00 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -32,7 +32,11 @@
 #include <regex.h>
 
 #include <merc.h>
+#include <mprog.h>
 #include <rwfile.h>
+
+static int pull_one_trigger(trig_t *trig, int mp_type, va_list ap);
+static int pull_trigger_list(int trig_type, varr *v, int mp_type, va_list ap);
 
 void
 trig_init(trig_t *trig)
@@ -218,33 +222,81 @@ trig_set_arg(trig_t *trig, const char *arg)
 }
 
 int
-pull_one_trigger(trig_t *trig, ...)
+pull_trigger(trig_t *trig, int mp_type, ...)
 {
-	/* XXX MPC */
+	int rv;
+	va_list ap;
 
-	UNUSED_ARG(trig);
+	if (trig->trig_type == TRIG_NONE)
+		return MPC_ERR_NOTFOUND;
 
-	return -1;
+	va_start(ap, mp_type);
+	rv = pull_one_trigger(trig, mp_type, ap);
+	va_end(ap);
+
+	return rv;
 }
 
 int
 pull_mob_trigger(int trig_type, CHAR_DATA *ch, ...)
 {
-	/* XXX MPC */
+	int rv;
+	va_list ap;
 
-	UNUSED_ARG(trig_type);
-	UNUSED_ARG(ch);
+	if (!IS_NPC(ch))
+		return MPC_ERR_NOTFOUND;
 
-	return -1;
+	va_start(ap, ch);
+	rv = pull_trigger_list(
+	    trig_type, &ch->pMobIndex->mp_trigs, MP_T_MOB, ap);
+	va_end(ap);
+
+	return rv;
 }
 
 int
 pull_obj_trigger(int trig_type, OBJ_DATA *obj, ...)
 {
-	/* XXX MPC */
+	int rv;
+	va_list ap;
 
-	UNUSED_ARG(trig_type);
-	UNUSED_ARG(obj);
+	va_start(ap, obj);
+	rv = pull_trigger_list(
+	    trig_type, &obj->pObjIndex->mp_trigs, MP_T_OBJ, ap);
+	va_end(ap);
 
-	return -1;
+	return rv;
+}
+
+/*--------------------------------------------------------------------
+ * local functions
+ */
+
+static int
+pull_one_trigger(trig_t *trig, int mp_type, va_list ap)
+{
+	mprog_t *mp;
+
+	if (mprog_execute == NULL)
+		return MPC_ERR_UNLOADED;
+
+	if ((mp = mprog_lookup(trig->trig_prog)) == NULL)
+		return MPC_ERR_NOTFOUND;
+
+	if (mp->type != mp_type)
+		return MPC_ERR_TYPE_MISMATCH;
+
+	return mprog_execute(mp, ap);
+}
+
+static int
+pull_trigger_list(int trig_type, varr *v, int mp_type, va_list ap)
+{
+	trig_t *trig;
+
+	trig = varr_bsearch(v, &trig_type, cmpint);
+	if (trig == NULL)
+		return MPC_ERR_NOTFOUND;
+
+	return pull_one_trigger(trig, mp_type, ap);
 }

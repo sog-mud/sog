@@ -23,23 +23,35 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_bootdb.c,v 1.3 2001-08-13 18:23:20 fjoe Exp $
+ * $Id: init_bootdb.c,v 1.4 2001-08-25 04:53:53 fjoe Exp $
  */
 
+#include <sys/stat.h>
+#include <sys/types.h>
 #include <errno.h>
+#include <dirent.h>
 #include <stdio.h>
 #include <string.h>
+
+#if defined(BSD44)
+#	include <fnmatch.h>
+#else
+#	include <compat/fnmatch.h>
+#endif
 
 #include <merc.h>
 #include <db.h>
 #include <lang.h>
 #include <rwfile.h>
+#include <mprog.h>
 
 DECLARE_MODINIT_FUN(_module_load);
 DECLARE_MODINIT_FUN(_module_unload);
 
 static void load_msgdb(void);
 static void load_hints(void);
+static void load_mprogs(void);
+
 static void fix_resets(void);
 static void fix_exits(void);
 
@@ -70,6 +82,7 @@ MODINIT_FUN(_module_load, m)
 	db_load_file(&db_forms, ETC_PATH, FORMS_CONF);
 
 	load_hints();
+	load_mprogs();
 
 	if (bootdb_errors != 0) {
 		log(LOG_ERROR, "%d errors found", bootdb_errors);
@@ -159,6 +172,93 @@ load_hints(void)
 	}
 
 	rfile_close(fp);
+}
+
+static void
+load_mprog(const char *name)
+{
+	char *q;
+	rfile_t *fp;
+	mprog_t mp;
+	mprog_t *p;
+	struct stat s;
+
+	if (dstat(MPC_PATH, name, &s) < 0) {
+		log(LOG_ERROR, "load_mprog: stat: %s: %s",
+		    name, strerror(errno));
+		return;
+	}
+
+	fp = rfile_open(MPC_PATH, name);
+	if (fp == NULL) {
+		log(LOG_ERROR, "load_mprog: fopen: %s: %s",
+		    name, strerror(errno));
+		return;
+	}
+
+	/*
+	 * find rightmost '.'
+	 */
+	q = strrchr(name, '.');
+	if (q == NULL)
+		q = strchr(name, '\0');
+
+	mprog_init(&mp);
+	mp.name = str_ndup(name, q - name);
+
+	/*
+	 * try to find '#type'
+	 */
+	fread_word(fp);
+	if (!!strcmp(rfile_tok(fp), "#type")) {
+		log(LOG_ERROR, "load_mprog: %s: missing #type directive", name);
+		mprog_destroy(&mp);
+		goto bailout;
+	}
+
+	mp.type = fread_fword(mprog_types, fp);
+	fread_to_eol(fp);
+
+	if ((p = (mprog_t *) hash_insert(&mprogs, mp.name, &mp)) == NULL) {
+		fprintf(stderr, "load_mprog: %s: duplicate mprog", mp.name);
+		mprog_destroy(&mp);
+		goto bailout;
+	}
+
+	p->text = str_ndup(fp->p + fp->pos, fp->len - fp->pos);
+
+bailout:
+	rfile_close(fp);
+}
+
+static void
+load_mprogs()
+{
+	struct dirent *dp;
+	DIR *dirp;
+	char mask[PATH_MAX];
+
+	hash_init(&mprogs, &h_mprogs);
+
+	if ((dirp = opendir(MPC_PATH)) == NULL) {
+		log(LOG_ERROR, "load_mprogs: %s: %s",
+		    MPC_PATH, strerror(errno));
+		return;
+	}
+
+	snprintf(mask, sizeof(mask), "*%s", MPC_EXT);		// notrans
+
+	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
+		if (dp->d_type != DT_REG)
+			continue;
+
+		if (fnmatch(mask, dp->d_name, 0) == FNM_NOMATCH)
+			continue;
+
+		load_mprog(dp->d_name);
+	}
+
+	closedir(dirp);
 }
 
 static void

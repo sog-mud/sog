@@ -25,7 +25,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc.y,v 1.22 2001-08-14 16:06:58 fjoe Exp $
+ * $Id: mpc.y,v 1.23 2001-08-25 04:53:54 fjoe Exp $
  */
 
 /*
@@ -59,6 +59,7 @@
 #include <log.h>
 #include <util.h>
 #include <flag.h>
+#include <mprog.h>
 
 #if defined(MPC)
 #include <module.h>
@@ -68,8 +69,8 @@
 #include "mpc_const.h"
 #include "mpc_iter.h"
 
-#define YYPARSE_PARAM prog
-#define YYPARSE_PARAM_TYPE prog_t *
+#define YYPARSE_PARAM mpc
+#define YYPARSE_PARAM_TYPE mpcode_t *
 
 #if 0
 #if defined(MPC)
@@ -78,13 +79,16 @@
 #endif
 
 #undef yylex
-#define yylex() mpc_lex(prog)
+#define yylex() mpc_lex(mpc)
 
 #undef yyerror
-#define yyerror(a) mpc_error(prog, a)
+#define yyerror(a) mpc_error(mpc, a)
 
 #define yysslim mpc_sslim
 #define yystacksize mpc_stacksize
+
+int _mprog_compile(mprog_t *mp);
+int _mprog_execute(mprog_t *mp, va_list ap);
 
 /*--------------------------------------------------------------------
  * argtype stack manipulation functions
@@ -94,9 +98,9 @@
  * Push argument type on argument type stack
  */
 static void
-argtype_push(prog_t *prog, int type_tag)
+argtype_push(mpcode_t *mpc, int type_tag)
 {
-	int *t = varr_enew(&prog->args);
+	int *t = varr_enew(&mpc->args);
 	*t = type_tag;
 }
 
@@ -104,19 +108,19 @@ argtype_push(prog_t *prog, int type_tag)
  * Pop n arguments from argument type stack
  */
 static void
-argtype_popn(prog_t *prog, size_t n)
+argtype_popn(mpcode_t *mpc, size_t n)
 {
-	assert(varr_size(&prog->args) >= n);
-	varr_size(&prog->args) -= n;
+	assert(varr_size(&mpc->args) >= n);
+	varr_size(&mpc->args) -= n;
 }
 
 /**
  * Get argument type from argument type stack
  */
 static int
-argtype_get(prog_t *prog, int n, int idx)
+argtype_get(mpcode_t *mpc, int n, int idx)
 {
-	int *t = varr_get(&prog->args, varr_size(&prog->args) - n + idx);
+	int *t = varr_get(&mpc->args, varr_size(&mpc->args) - n + idx);
 	if (t == NULL)
 		return MT_NONE;
 	return *t;
@@ -130,10 +134,10 @@ argtype_get(prog_t *prog, int n, int idx)
  * Append opcode to program (compiled) text
  */
 static int
-code(prog_t *prog, const void *opcode)
+code(mpcode_t *mpc, const void *opcode)
 {
-	int old_ip = varr_size(&prog->code);
-	const void **o = varr_enew(&prog->code);
+	int old_ip = varr_size(&mpc->code);
+	const void **o = varr_enew(&mpc->code);
 	*o = opcode;
 	return old_ip;
 }
@@ -142,22 +146,22 @@ code(prog_t *prog, const void *opcode)
  * Append two opcodes to program (compiled) text
  */
 static inline void
-code2(prog_t *prog, const void *opcode1, const void *opcode2)
+code2(mpcode_t *mpc, const void *opcode1, const void *opcode2)
 {
-	code(prog, opcode1);
-	code(prog, opcode2);
+	code(mpc, opcode1);
+	code(mpc, opcode2);
 }
 
 /**
  * Append three opcodes to program (compiled) text
  */
 static inline void
-code3(prog_t *prog,
+code3(mpcode_t *mpc,
       const void *opcode1, const void *opcode2, const void *opcode3)
 {
-	code(prog, opcode1);
-	code(prog, opcode2);
-	code(prog, opcode3);
+	code(mpc, opcode1);
+	code(mpc, opcode2);
+	code(mpc, opcode3);
 }
 
 #define SYM_LOOKUP(sym, ident, symtype)					\
@@ -165,14 +169,14 @@ code3(prog_t *prog,
 		/*							\
 		 * lookup symbol					\
 		 */							\
-		if ((sym = sym_lookup(prog, (ident))) == NULL) {	\
-			compile_error(prog,				\
+		if ((sym = sym_lookup(mpc, (ident))) == NULL) {		\
+			compile_error(mpc,				\
 			    "%s: unknown identifier", (ident));		\
 			YYERROR;					\
 		}							\
 									\
 		if (sym->type != (symtype)) {				\
-			compile_error(prog,				\
+			compile_error(mpc,				\
 			    "%s: not a %d", (ident), (symtype));	\
 			YYERROR;					\
 		}							\
@@ -180,7 +184,7 @@ code3(prog_t *prog,
 
 #define OP_INVALID_OPERAND(opname, type_tag)				\
 	do {								\
-		compile_error(prog,					\
+		compile_error(mpc,					\
 		    "invalid operand for '%s' (type '%s')",		\
 		    (opname), flag_string(mpc_types, (type_tag)));	\
 		YYERROR;						\
@@ -190,7 +194,7 @@ code3(prog_t *prog,
 	do {								\
 		switch (type_tag) {					\
 		case MT_INT:						\
-			code(prog, c_fun);				\
+			code(mpc, c_fun);				\
 			break;						\
 									\
 		default:						\
@@ -202,7 +206,7 @@ code3(prog_t *prog,
 #define BOP_CHECK_TYPES(opname, type_tag1, type_tag2)			\
 	do {								\
 		if ((type_tag1) != (type_tag2)) {			\
-			compile_error(prog,				\
+			compile_error(mpc,				\
 			    "invalid operand types for '%s' ('%s' and '%s')",\
 			    (opname),					\
 			    flag_string(mpc_types, (type_tag1)),	\
@@ -229,23 +233,23 @@ code3(prog_t *prog,
 		sym_t *sym;						\
 		SYM_LOOKUP(sym, (ident), SYM_VAR);			\
 		INT_UOP((opname), c_uop_fun, sym->s.var.type_tag, (rv));\
-		code(prog, sym->name);					\
+		code(mpc, sym->name);					\
 	} while (0)
 
 #define PUSH_EXPLICIT(addr)						\
 	do {								\
-		int *p = (int *) varr_enew(&prog->cstack);		\
+		int *p = (int *) varr_enew(&mpc->cstack);		\
 		*p = addr;						\
 	} while (0)
 
-#define PUSH_ADDR()	PUSH_EXPLICIT(varr_size(&prog->code))
+#define PUSH_ADDR()	PUSH_EXPLICIT(varr_size(&mpc->code))
 
-#define PEEK_ADDR(addr)						\
+#define PEEK_ADDR(addr)							\
 	do {								\
 		int *p = (int *) varr_get(				\
-		    &prog->cstack, varr_size(&prog->cstack) - 1);	\
+		    &mpc->cstack, varr_size(&mpc->cstack) - 1);		\
 		if (p == NULL) {					\
-			compile_error(prog, "compiler stack underflow");\
+			compile_error(mpc, "compiler stack underflow");	\
 			YYERROR;					\
 		}							\
 		addr = *p;						\
@@ -254,10 +258,10 @@ code3(prog_t *prog,
 #define POP_ADDR(addr)						\
 	do {								\
 		PEEK_ADDR(addr);					\
-		varr_size(&prog->cstack)--;				\
+		varr_size(&mpc->cstack)--;				\
 	} while (0)
 
-#define CODE(addr)	((int *) VARR_GET(&prog->code, (addr)))
+#define CODE(addr)	((int *) VARR_GET(&mpc->code, (addr)))
 
 #define DELIMITER_ADDR	-2
 
@@ -314,7 +318,7 @@ stmt:	';'
 		sym.type = SYM_VAR;
 		sym.s.var.type_tag = $1;
 		sym.s.var.is_const = FALSE;
-		sym.s.var.block = prog->curr_block;
+		sym.s.var.block = mpc->curr_block;
 
 		switch ($1) {
 		case MT_STR:
@@ -327,14 +331,14 @@ stmt:	';'
 			break;
 		};
 
-		if ((p = hash_insert(&prog->syms, sym.name, &sym)) == NULL) {
+		if ((p = hash_insert(&mpc->syms, sym.name, &sym)) == NULL) {
 			sym_destroy(&sym);
-			compile_error(prog, "%s: duplicate symbol", sym.name);
+			compile_error(mpc, "%s: duplicate symbol", sym.name);
 			YYERROR;
 		}
 
-		code3(prog, c_declare, sym.name, (void *) sym.s.var.type_tag);
-		code(prog, (void *) sym.s.var.block);
+		code3(mpc, c_declare, sym.name, (void *) sym.s.var.type_tag);
+		code(mpc, (void *) sym.s.var.block);
 
 		sym_destroy(&sym);
 	}
@@ -343,7 +347,7 @@ stmt:	';'
 		sym_t sym;
 
 		if ($1 != $4) {
-			compile_error(prog, "type mismatch (%d vs. %d)",
+			compile_error(mpc, "type mismatch (%d vs. %d)",
 				      $1, $4);
 			YYERROR;
 		}
@@ -352,17 +356,17 @@ stmt:	';'
 		sym.type = SYM_VAR;
 		sym.s.var.type_tag = $1;
 		sym.s.var.is_const = FALSE;
-		sym.s.var.block = prog->curr_block;
+		sym.s.var.block = mpc->curr_block;
 
-		if ((p = hash_insert(&prog->syms, sym.name, &sym)) == NULL) {
+		if ((p = hash_insert(&mpc->syms, sym.name, &sym)) == NULL) {
 			sym_destroy(&sym);
-			compile_error(prog, "%s: duplicate symbol", sym.name);
+			compile_error(mpc, "%s: duplicate symbol", sym.name);
 			YYERROR;
 		}
 
-		code3(prog,
+		code3(mpc,
 		    c_declare_assign, sym.name, (void *) sym.s.var.type_tag);
-		code(prog, (void *) sym.s.var.block);
+		code(mpc, (void *) sym.s.var.block);
 
 		sym_destroy(&sym);
 	}
@@ -370,16 +374,16 @@ stmt:	';'
 		/*
 		 * pop calculated value from stack
 		 */
-		code2(prog, c_pop, (void *) $1);
+		code2(mpc, c_pop, (void *) $1);
 	}
 	| label
 	| if | switch | case_label | default | break | foreach | continue
 	| return
 	| '{' {
-		prog->curr_block++;
+		mpc->curr_block++;
 	} stmt_list '}' {
-		code2(prog, c_cleanup_syms, (void *) prog->curr_block);
-		cleanup_syms(prog, prog->curr_block--);
+		code2(mpc, c_cleanup_syms, (void *) mpc->curr_block);
+		cleanup_syms(mpc, mpc->curr_block--);
 	}
 	;
 
@@ -389,11 +393,11 @@ label:	L_IDENT ':' {
 
 		sym.name = str_dup($1);
 		sym.type = SYM_LABEL;
-		sym.s.label.addr = varr_size(&prog->code);
+		sym.s.label.addr = varr_size(&mpc->code);
 
-		if ((p = hash_insert(&prog->syms, sym.name, &sym)) == NULL) {
+		if ((p = hash_insert(&mpc->syms, sym.name, &sym)) == NULL) {
 			sym_destroy(&sym);
-			compile_error(prog, "%s: duplicate symbol", sym.name);
+			compile_error(mpc, "%s: duplicate symbol", sym.name);
 			YYERROR;
 		}
 		sym_destroy(&sym);
@@ -401,27 +405,27 @@ label:	L_IDENT ':' {
 	;
 
 if:	L_IF {
-		code(prog, c_if);
+		code(mpc, c_if);
 		PUSH_ADDR();
 		/* next stmt, then, else */
-		code(prog, (void *) INVALID_ADDR);
-		code2(prog, (void *) INVALID_ADDR, (void *) INVALID_ADDR);
+		code(mpc, (void *) INVALID_ADDR);
+		code2(mpc, (void *) INVALID_ADDR, (void *) INVALID_ADDR);
 	} '(' comma_expr ')' {
 		int addr;
 
-		code(prog, c_stop);
+		code(mpc, c_stop);
 
 		/* store then addr */
 		PEEK_ADDR(addr);
-		CODE(addr)[1] = varr_size(&prog->code);
+		CODE(addr)[1] = varr_size(&mpc->code);
 	} stmt optional_else {
 		int addr;
 
 		/* store next stmt addr */
 		POP_ADDR(addr);
-		CODE(addr)[0] = varr_size(&prog->code);
+		CODE(addr)[0] = varr_size(&mpc->code);
 
-		code2(prog, c_cleanup_syms, (void *) (prog->curr_block + 1));
+		code2(mpc, c_cleanup_syms, (void *) (mpc->curr_block + 1));
 	}
 	;
 
@@ -432,10 +436,10 @@ optional_else: /* empty */
 		PEEK_ADDR(addr);
 
 		/* jmp to next stmt */
-		code2(prog, c_jmp_addr, (void *) addr);
+		code2(mpc, c_jmp_addr, (void *) addr);
 
 		/* store else addr */
-		CODE(addr)[2] = varr_size(&prog->code);
+		CODE(addr)[2] = varr_size(&mpc->code);
 	} stmt
 	;
 
@@ -443,28 +447,28 @@ switch:	L_SWITCH {
 		varr *jumptab;
 		swjump_t *jump;
 
-		code(prog, c_switch);
+		code(mpc, c_switch);
 
 		PUSH_ADDR();
-		PUSH_EXPLICIT(prog->curr_break_addr);
-		PUSH_EXPLICIT(prog->curr_jumptab);
+		PUSH_EXPLICIT(mpc->curr_break_addr);
+		PUSH_EXPLICIT(mpc->curr_jumptab);
 
 		/* jumptab[0] reserved for 'default:' */
 		jumptab = (varr *) varr_get(
-		    &prog->jumptabs, ++prog->curr_jumptab);
+		    &mpc->jumptabs, ++mpc->curr_jumptab);
 		if (jumptab == NULL)
-			jumptab = varr_enew(&prog->jumptabs);
+			jumptab = varr_enew(&mpc->jumptabs);
 		else
 			varr_erase(jumptab);
 		jump = varr_enew(jumptab);
 		jump->addr = INVALID_ADDR;
 
 		/* next_addr, jt_offset */
-		code(prog, (void *) DELIMITER_ADDR);
-		prog->curr_break_addr = varr_size(&prog->code) - 1;
-		code(prog, (void *) prog->curr_jumptab);
+		code(mpc, (void *) DELIMITER_ADDR);
+		mpc->curr_break_addr = varr_size(&mpc->code) - 1;
+		code(mpc, (void *) mpc->curr_jumptab);
 	} '(' expr ')' {
-		code(prog, c_stop);
+		code(mpc, c_stop);
 	} stmt {
 		int addr;
 		int next_break_addr;
@@ -474,29 +478,29 @@ switch:	L_SWITCH {
 		 * emit `break'
 		 * (if last case label/default does not have break)
 		 */
-		code(prog, c_jmp);
-		code(prog, (void *) prog->curr_break_addr);
-		prog->curr_break_addr = varr_size(&prog->code) - 1;
+		code(mpc, c_jmp);
+		code(mpc, (void *) mpc->curr_break_addr);
+		mpc->curr_break_addr = varr_size(&mpc->code) - 1;
 
 		/*
 		 * traverse linked list of break addresses
 		 * and emit address to jump
 		 */
-		for (; prog->curr_break_addr != DELIMITER_ADDR;
-		     prog->curr_break_addr = next_break_addr) {
-			next_break_addr = CODE(prog->curr_break_addr)[0];
-			CODE(prog->curr_break_addr)[0] = varr_size(&prog->code);
+		for (; mpc->curr_break_addr != DELIMITER_ADDR;
+		     mpc->curr_break_addr = next_break_addr) {
+			next_break_addr = CODE(mpc->curr_break_addr)[0];
+			CODE(mpc->curr_break_addr)[0] = varr_size(&mpc->code);
 		}
 
 		/* qsort jumptab */
-		jumptab = varr_get(&prog->jumptabs, prog->curr_jumptab);
+		jumptab = varr_get(&mpc->jumptabs, mpc->curr_jumptab);
 		if (jumptab == NULL) {
-			compile_error(prog, "invalid jumptab");
+			compile_error(mpc, "invalid jumptab");
 			YYERROR;
 		}
 
 		if (jumptab->nused < 2) {
-			compile_error(prog,
+			compile_error(mpc,
 			     "switch without case labels");
 			YYERROR;
 		}
@@ -504,13 +508,13 @@ switch:	L_SWITCH {
 		qsort(((char *) jumptab->p) + jumptab->v_data->nsize,
 		    jumptab->nused - 1, jumptab->v_data->nsize, cmpint);
 
-		POP_ADDR(prog->curr_jumptab);
-		POP_ADDR(prog->curr_break_addr);
+		POP_ADDR(mpc->curr_jumptab);
+		POP_ADDR(mpc->curr_break_addr);
 		POP_ADDR(addr);
 
 		/* store next addr */
-		CODE(addr)[0] = varr_size(&prog->code);
-		code2(prog, c_cleanup_syms, (void *) (prog->curr_block + 1));
+		CODE(addr)[0] = varr_size(&mpc->code);
+		code2(mpc, c_cleanup_syms, (void *) (mpc->curr_block + 1));
 	}
 	;
 
@@ -518,21 +522,21 @@ case_label: L_CASE int_const ':' {
 		varr *jumptab;
 		swjump_t *jump;
 
-		if (prog->curr_jumptab < 0) {
-			compile_error(prog,
+		if (mpc->curr_jumptab < 0) {
+			compile_error(mpc,
 			    "case label outside of switch");
 			YYERROR;
 		}
 
-		jumptab = varr_get(&prog->jumptabs, prog->curr_jumptab);
+		jumptab = varr_get(&mpc->jumptabs, mpc->curr_jumptab);
 		if (jumptab == NULL) {
-			compile_error(prog, "jumptab not found");
+			compile_error(mpc, "jumptab not found");
 			YYERROR;
 		}
 
 		jump = (swjump_t *) varr_enew(jumptab);
 		jump->val.i = $2;
-		jump->addr = varr_size(&prog->code);
+		jump->addr = varr_size(&mpc->code);
 	}
 	;
 
@@ -540,32 +544,32 @@ default: L_DEFAULT ':' {
 		varr *jumptab;
 		swjump_t *jump;
 
-		if (prog->curr_jumptab < 0) {
-			compile_error(prog,
+		if (mpc->curr_jumptab < 0) {
+			compile_error(mpc,
 			    "default: label outside of switch");
 			YYERROR;
 		}
 
-		jumptab = varr_get(&prog->jumptabs, prog->curr_jumptab);
+		jumptab = varr_get(&mpc->jumptabs, mpc->curr_jumptab);
 		if (jumptab == NULL) {
-			compile_error(prog, "jumptab not found");
+			compile_error(mpc, "jumptab not found");
 			YYERROR;
 		}
 
 		jump = (swjump_t *) VARR_GET(jumptab, 0);
-		jump->addr = varr_size(&prog->code);
+		jump->addr = varr_size(&mpc->code);
 	}
 	;
 
 break: L_BREAK ';' {
-		if (prog->curr_break_addr == INVALID_ADDR) {
-			compile_error(prog,
+		if (mpc->curr_break_addr == INVALID_ADDR) {
+			compile_error(mpc,
 			    "break outside of switch or loop");
 			YYERROR;
 		}
 
-		code2(prog, c_jmp, (void *) prog->curr_break_addr);
-		prog->curr_break_addr = varr_size(&prog->code) - 1;
+		code2(mpc, c_jmp, (void *) mpc->curr_break_addr);
+		mpc->curr_break_addr = varr_size(&mpc->code) - 1;
 	}
 	| L_BREAK L_IDENT ';' {
 		sym_t *sym;
@@ -574,22 +578,22 @@ break: L_BREAK ';' {
 		if (CODE(sym->s.label.addr)[0] != (int) c_if
 		&&  CODE(sym->s.label.addr)[0] != (int) c_switch
 		&&  CODE(sym->s.label.addr)[0] != (int) c_foreach) {
-			compile_error(prog,
+			compile_error(mpc,
 			    "break outside of if or switch or loop");
 			YYERROR;
 		}
 
-		code2(prog, c_jmp_addr, (void *) (sym->s.label.addr + 1));
+		code2(mpc, c_jmp_addr, (void *) (sym->s.label.addr + 1));
 	}
 	;
 
 foreach: L_FOREACH {
 		/* emit `foreach' */
-		code(prog, c_foreach);
+		code(mpc, c_foreach);
 		PUSH_ADDR();
 
 		/* next addr, body */
-		code2(prog, (void *) INVALID_ADDR, (void *) INVALID_ADDR);
+		code2(mpc, (void *) INVALID_ADDR, (void *) INVALID_ADDR);
 	 } '(' L_IDENT ',' L_ITER '(' expr_list ')' ')' {
 		int i;
 		sym_t *sym;
@@ -602,7 +606,7 @@ foreach: L_FOREACH {
 		 * check number of arguments
 		 */
 		if ($6->init.nargs != $8) {
-			compile_error(prog,
+			compile_error(mpc,
 			    "%s: invalid number of arguments %d (%d expected)",
 			    $6->init.name, $8, $6->init.nargs);
 			YYERROR;
@@ -612,9 +616,9 @@ foreach: L_FOREACH {
 		 * check argument types
 		 */
 		for (i = 0; i < $6->init.nargs; i++) {
-			int got_type = argtype_get(prog, $8, i);
+			int got_type = argtype_get(mpc, $8, i);
 			if (got_type != $6->init.argtype[i].type_tag) {
-				compile_error(prog,
+				compile_error(mpc,
 				    "%s: invalid arg[%d] type '%s' ('%s' expected)",
 				    $6->init.name, i+1,
 				    flag_string(mpc_types, got_type),
@@ -624,34 +628,34 @@ foreach: L_FOREACH {
 		}
 
 		/* emit `foreach_next' */
-		code(prog, c_stop);
+		code(mpc, c_stop);
 
 		PEEK_ADDR(addr);
 
-		PUSH_EXPLICIT(prog->curr_continue_addr);
-		PUSH_EXPLICIT(prog->curr_break_addr);
+		PUSH_EXPLICIT(mpc->curr_continue_addr);
+		PUSH_EXPLICIT(mpc->curr_break_addr);
 		PUSH_ADDR();
 
-		prog->curr_continue_addr = DELIMITER_ADDR;
-		prog->curr_break_addr = DELIMITER_ADDR;
+		mpc->curr_continue_addr = DELIMITER_ADDR;
+		mpc->curr_break_addr = DELIMITER_ADDR;
 
-		id = (iterdata_t *) varr_enew(&prog->iterdata);
+		id = (iterdata_t *) varr_enew(&mpc->iterdata);
 		id->iter = $6;
-		code2(prog, c_cleanup_syms, (void *) (prog->curr_block + 1));
-		code(prog, c_foreach_next);
-		code3(prog, (void *) INVALID_ADDR, sym->name, id);
+		code2(mpc, c_cleanup_syms, (void *) (mpc->curr_block + 1));
+		code(mpc, c_foreach_next);
+		code3(mpc, (void *) INVALID_ADDR, sym->name, id);
 
 		/* body addr */
-		CODE(addr)[1] = varr_size(&prog->code);
+		CODE(addr)[1] = varr_size(&mpc->code);
 	} stmt {
 		int addr;
 		int body_addr;
 		int next_continue_addr;
 
 		/* emit `continue' */
-		code(prog, c_jmp);
-		code(prog, (void *) prog->curr_continue_addr);
-		prog->curr_continue_addr = varr_size(&prog->code) - 1;
+		code(mpc, c_jmp);
+		code(mpc, (void *) mpc->curr_continue_addr);
+		mpc->curr_continue_addr = varr_size(&mpc->code) - 1;
 
 		POP_ADDR(body_addr);
 
@@ -659,56 +663,56 @@ foreach: L_FOREACH {
 		 * traverse linked list of continue addresses
 		 * and emit address to jump
 		 */
-		for (; prog->curr_continue_addr != DELIMITER_ADDR;
-		     prog->curr_continue_addr = next_continue_addr) {
-			next_continue_addr = CODE(prog->curr_continue_addr)[0];
-			CODE(prog->curr_continue_addr)[0] = body_addr;
+		for (; mpc->curr_continue_addr != DELIMITER_ADDR;
+		     mpc->curr_continue_addr = next_continue_addr) {
+			next_continue_addr = CODE(mpc->curr_continue_addr)[0];
+			CODE(mpc->curr_continue_addr)[0] = body_addr;
 		}
 
-		POP_ADDR(prog->curr_break_addr);
-		POP_ADDR(prog->curr_continue_addr);
+		POP_ADDR(mpc->curr_break_addr);
+		POP_ADDR(mpc->curr_continue_addr);
 
 		/* store next stmt addr */
 		POP_ADDR(addr);
-		CODE(addr)[0] = varr_size(&prog->code);
-		CODE(body_addr)[3] = varr_size(&prog->code);
+		CODE(addr)[0] = varr_size(&mpc->code);
+		CODE(body_addr)[3] = varr_size(&mpc->code);
 
-		code2(prog, c_cleanup_syms, (void *) (prog->curr_block + 1));
+		code2(mpc, c_cleanup_syms, (void *) (mpc->curr_block + 1));
 	}
 	;
 
 continue: L_CONTINUE ';' {
-		if (prog->curr_continue_addr == INVALID_ADDR) {
-			compile_error(prog, "continue outside of loop");
+		if (mpc->curr_continue_addr == INVALID_ADDR) {
+			compile_error(mpc, "continue outside of loop");
 			YYERROR;
 		}
 
 		/* emit `continue' */
-		code2(prog, c_jmp, (void *) prog->curr_continue_addr);
-		prog->curr_continue_addr = varr_size(&prog->code) - 1;
+		code2(mpc, c_jmp, (void *) mpc->curr_continue_addr);
+		mpc->curr_continue_addr = varr_size(&mpc->code) - 1;
 	}
 	| L_CONTINUE L_IDENT ';' {
 		sym_t *sym;
 		SYM_LOOKUP(sym, $2, SYM_LABEL);
 
 		if (CODE(sym->s.label.addr)[0] != (int) c_foreach) {
-			compile_error(prog,
+			compile_error(mpc,
 			    "continue outside of loop");
 			YYERROR;
 		}
 
-		code2(prog, c_jmp, (void *) (sym->s.label.addr + 2));
+		code2(mpc, c_jmp, (void *) (sym->s.label.addr + 2));
 	}
 	;
 
 return:	L_RETURN comma_expr ';' {
 		if ($2 != MT_INT) {
-			compile_error(prog,
+			compile_error(mpc,
 			    "integer expression expected");
 			YYERROR;
 		}
 
-		code3(prog, c_pop, (void *) $2, c_return);
+		code3(mpc, c_pop, (void *) $2, c_return);
 	}
 	;
 
@@ -731,13 +735,13 @@ int_const: L_INT
 		if ($3)
 			$$ = $1 % $3;
 		else
-			compile_error(prog, "modulo by zero");
+			compile_error(mpc, "modulo by zero");
 	}
 	| int_const '/' int_const {
 		if ($3)
 			$$ = $1 / $3;
 		else
-			compile_error(prog, "division by zero");
+			compile_error(mpc, "division by zero");
 	}
 	| int_const L_LOR int_const	{ $$ = $1 || $3; }
 	| int_const L_LAND int_const	{ $$ = $1 && $3; }
@@ -756,13 +760,13 @@ expr:	L_IDENT assign expr %prec '=' {
 
 		SYM_LOOKUP(sym, $1, SYM_VAR);
 		if (sym->s.var.type_tag != $3) {
-			compile_error(prog, "type mismatch ('%s' vs. '%s')",
+			compile_error(mpc, "type mismatch ('%s' vs. '%s')",
 			    flag_string(mpc_types, sym->s.var.type_tag),
 			    flag_string(mpc_types, $3));
 			YYERROR;
 		}
 
-		code2(prog, $2, sym->name);
+		code2(mpc, $2, sym->name);
 		$$ = sym->s.var.type_tag;
 	}
 	| L_IDENT '(' expr_list ')' {
@@ -772,7 +776,7 @@ expr:	L_IDENT assign expr %prec '=' {
 
 		SYM_LOOKUP(sym, $1, SYM_FUNC);
 		if ((d = dynafun_data_lookup(sym->name)) == NULL) {
-			compile_error(prog, "%s: no such dynafun", sym->name);
+			compile_error(mpc, "%s: no such dynafun", sym->name);
 			YYERROR;
 		}
 
@@ -780,7 +784,7 @@ expr:	L_IDENT assign expr %prec '=' {
 		 * check number of arguments
 		 */
 		if (d->nargs != $3) {
-			compile_error(prog,
+			compile_error(mpc,
 			    "%s: invalid number of arguments %d (%d expected)",
 			    $1, $3, d->nargs);
 			YYERROR;
@@ -789,21 +793,21 @@ expr:	L_IDENT assign expr %prec '=' {
 		/*
 		 * check argument types
 		 */
-		code2(prog, c_push_retval, sym->name);
-		code2(prog, (void *) d->rv_tag, (void *) d->nargs);
+		code2(mpc, c_push_retval, sym->name);
+		code2(mpc, (void *) d->rv_tag, (void *) d->nargs);
 
 		for (i = 0; i < d->nargs; i++) {
-			int got_type = argtype_get(prog, $3, i);
+			int got_type = argtype_get(mpc, $3, i);
 			if (got_type != d->argtype[i].type_tag
 			&&  d->argtype[i].type_tag != MT_PVOID) {
-				compile_error(prog,
+				compile_error(mpc,
 				    "%s: invalid arg[%d] type '%s' (%s expected)",
 				    $1, i+1,
 				    flag_string(mpc_types, got_type),
 				    flag_string(mpc_types, d->argtype[i].type_tag));
 				YYERROR;
 			}
-			code(prog, (void *) d->argtype[i].type_tag);
+			code(mpc, (void *) d->argtype[i].type_tag);
 		}
 
 		$$ = d->rv_tag;
@@ -811,80 +815,82 @@ expr:	L_IDENT assign expr %prec '=' {
 		/*
 		 * pop argtypes from stack
 		 */
-		argtype_popn(prog, $3);
+		argtype_popn(mpc, $3);
 	}
 	| L_IDENT {
 		sym_t *sym;
 
 		SYM_LOOKUP(sym, $1, SYM_VAR);
-		code2(prog, c_push_var, sym->name);
+		code2(mpc, c_push_var, sym->name);
 		$$ = sym->s.var.type_tag;
 	}
 	| L_STRING {
-		code2(prog, c_push_const, $1);
+		code2(mpc, c_push_const, $1);
 		$$ = MT_STR;
 	}
 	| L_INT {
-		code2(prog, c_push_const, (void *) $1);
+		code2(mpc, c_push_const, (void *) $1);
 		$$ = MT_INT;
 	}
 	| expr '?' {
-		code(prog, c_quecolon);
+		code(mpc, c_quecolon);
 
 		PUSH_ADDR();
 		/* next_addr, else_addr */
-		code2(prog, (void *) INVALID_ADDR, (void *) INVALID_ADDR);
+		code2(mpc, (void *) INVALID_ADDR, (void *) INVALID_ADDR);
 	} expr {
 		int addr;
 
-		code(prog, c_stop);
+		code(mpc, c_stop);
 
 		/* else_addr */
 		PEEK_ADDR(addr);
-		CODE(addr)[1] = varr_size(&prog->code);
+		CODE(addr)[1] = varr_size(&mpc->code);
 	} ':' expr %prec '?' {
 		int addr;
 
 		POP_ADDR(addr);
 
 		if ($1 != $7) {
-			compile_error(prog,
+			compile_error(mpc,
 			    "different operand types for '?:' (%d and %d)",
 			    $1, $7);
 			YYERROR;
 		}
 
 		/* next_addr */
-		CODE(addr)[0] = varr_size(&prog->code);
+		CODE(addr)[0] = varr_size(&mpc->code);
 	}
 	| expr L_LOR {
 		INT_OP("||", $1, c_bop_lor);
 		PUSH_ADDR();
-		code(prog, (void *) INVALID_ADDR);
+		code(mpc, (void *) INVALID_ADDR);
 	} expr {
 		int addr;
 
-		POP_ADDR(addr);
-		CODE(addr)[0] = varr_size(&prog->code);
-
 		BOP_CHECK_TYPES("||", $1, $4);
 
-		code(prog, c_stop);
+		code(mpc, c_stop);
+
+		POP_ADDR(addr);
+		CODE(addr)[0] = varr_size(&mpc->code);
+
 		$$ = MT_INT;
 	}
 	| expr L_LAND {
 		INT_OP("&&", $1, c_bop_land);
 		PUSH_ADDR();
-		code(prog, (void *) INVALID_ADDR);
+		code(mpc, (void *) INVALID_ADDR);
 	} expr {
 		int addr;
 
-		POP_ADDR(addr);
-		CODE(addr)[0] = varr_size(&prog->code);
-
 		BOP_CHECK_TYPES("&&", $1, $4);
 
-		code(prog, c_stop);
+		code(mpc, c_stop);
+
+		POP_ADDR(addr);
+		CODE(addr)[0] = varr_size(&mpc->code);
+
 		$$ = MT_INT;
 	}
 	| expr '|' expr {
@@ -901,11 +907,11 @@ expr:	L_IDENT assign expr %prec '=' {
 
 		switch ($1) {
 		case MT_INT:
-			code(prog, c_bop_eq);
+			code(mpc, c_bop_eq);
 			break;
 
 		case MT_STR:
-			code(prog, c_bop_eq_string);
+			code(mpc, c_bop_eq_string);
 			break;
 
 		default:
@@ -919,11 +925,11 @@ expr:	L_IDENT assign expr %prec '=' {
 
 		switch ($1) {
 		case MT_INT:
-			code(prog, c_bop_ne);
+			code(mpc, c_bop_ne);
 			break;
 
 		case MT_STR:
-			code(prog, c_bop_ne_string);
+			code(mpc, c_bop_ne_string);
 			break;
 
 		default:
@@ -991,7 +997,7 @@ expr:	L_IDENT assign expr %prec '=' {
 	;
 
 comma_expr: expr	{ $$ = $1; }
-	| comma_expr	{ code2(prog, c_pop, (void *) $1);
+	| comma_expr	{ code2(mpc, c_pop, (void *) $1);
 	} ',' expr	{ $$ = $4; }
 	;
 
@@ -1012,8 +1018,8 @@ expr_list:	/* empty */	{ $$ = 0; }
 	| expr_list_ne		{ $$ = $1; }
 	;
 
-expr_list_ne: expr		{ argtype_push(prog, $1); $$ = 1; }
-	| expr_list_ne ',' expr	{ argtype_push(prog, $3); $$ = $1 + 1; }
+expr_list_ne: expr		{ argtype_push(mpc, $1); $$ = 1; }
+	| expr_list_ne ',' expr	{ argtype_push(mpc, $3); $$ = $1 + 1; }
 	;
 
 %%
@@ -1098,12 +1104,12 @@ codeinfo_lookup(void *p)
 	    &p, codetab, CODETAB_SZ, sizeof(codeinfo_t), cmpint);
 }
 
-int	mpc_parse(prog_t *prog);
+int	mpc_parse(mpcode_t *mpc);
 
 static int
-mpc_error(prog_t *prog, const char *errmsg)
+mpc_error(mpcode_t *mpc, const char *errmsg)
 {
-	compile_error(prog, "%s", errmsg);
+	compile_error(mpc, "%s", errmsg);
 	return 1;
 }
 
@@ -1190,155 +1196,49 @@ varrdata_t v_vos = {
 };
 
 void
-prog_init(prog_t *prog)
+mpcode_init(mpcode_t *mpc)
 {
-	prog->name = NULL;
-	prog->type = MP_T_MOB;
-	prog->status = MP_S_DIRTY;
+	mpc->name = str_empty;
+	mpc->mp = NULL;
+	mpc->lineno = 0;
 
-	prog->text = NULL;
-	prog->textlen = 0;
+	hash_init(&mpc->strings, &h_strings);
+	hash_init(&mpc->syms, &h_syms);
 
-	prog->cp = prog->text;
-	prog->errbuf = buf_new(0);
-	prog->lineno = 0;
+	varr_init(&mpc->cstack, &v_ints);
+	varr_init(&mpc->args, &v_ints);
+	mpc->curr_block = 0;
 
-	hash_init(&prog->strings, &h_strings);
-	hash_init(&prog->syms, &h_syms);
+	mpc->curr_jumptab = -1;
+	mpc->curr_break_addr = INVALID_ADDR;
+	mpc->curr_continue_addr = INVALID_ADDR;
 
-	varr_init(&prog->cstack, &v_ints);
-	varr_init(&prog->args, &v_ints);
-	prog->curr_block = 0;
+	mpc->ip = 0;
+	varr_init(&mpc->code, &v_ints);
 
-	prog->curr_jumptab = -1;
-	prog->curr_break_addr = INVALID_ADDR;
-	prog->curr_continue_addr = INVALID_ADDR;
+	varr_init(&mpc->jumptabs, &v_jumptabs);
+	varr_init(&mpc->iterdata, &v_iterdata);
 
-	prog->ip = 0;
-	varr_init(&prog->code, &v_ints);
-
-	varr_init(&prog->jumptabs, &v_jumptabs);
-	varr_init(&prog->iterdata, &v_iterdata);
-
-	varr_init(&prog->data, &v_vos);
+	varr_init(&mpc->data, &v_vos);
 }
 
 void
-prog_destroy(prog_t *prog)
+mpcode_destroy(mpcode_t *mpc)
 {
-	free_string(prog->name);
+	free_string(mpc->name);
 
-	free((void *) (uintptr_t) prog->text);
+	hash_destroy(&mpc->strings);
+	hash_destroy(&mpc->syms);
 
-	buf_free(prog->errbuf);
+	varr_destroy(&mpc->cstack);
+	varr_destroy(&mpc->args);
 
-	hash_destroy(&prog->strings);
-	hash_destroy(&prog->syms);
+	varr_destroy(&mpc->code);
 
-	varr_destroy(&prog->cstack);
-	varr_destroy(&prog->args);
+	varr_destroy(&mpc->jumptabs);
+	varr_destroy(&mpc->iterdata);
 
-	varr_destroy(&prog->code);
-
-	varr_destroy(&prog->jumptabs);
-	varr_destroy(&prog->iterdata);
-
-	varr_destroy(&prog->data);
-}
-
-static void
-var_add(prog_t *prog, const char *name, int type_tag)
-{
-	sym_t sym;
-	sym_t *s;
-
-	sym.name = str_dup(name);
-	sym.type = SYM_VAR;
-	sym.s.var.type_tag = type_tag;
-	sym.s.var.is_const = FALSE;
-	sym.s.var.block = -1;
-	sym.s.var.data.i = 0;
-
-	if ((s = (sym_t *) hash_insert(&prog->syms, sym.name, &sym)) == NULL) {
-		sym_destroy(&sym);
-		compile_error(prog, "%s: duplicate symbol", sym.name);
-		return;
-	}
-	sym_destroy(&sym);
-}
-
-int
-prog_compile(prog_t *prog)
-{
-	prog->status = MP_S_DIRTY;
-	prog->cp = prog->text;
-
-	buf_clear(prog->errbuf);
-	prog->lineno = 1;
-
-	hash_erase(&prog->strings);
-	hash_erase(&prog->syms);
-
-	varr_erase(&prog->cstack);
-	varr_erase(&prog->args);
-	prog->curr_block = 0;
-
-	varr_erase(&prog->code);
-
-	varr_erase(&prog->jumptabs);
-	varr_erase(&prog->iterdata);
-
-	prog->curr_jumptab = -1;
-	prog->curr_break_addr = INVALID_ADDR;
-	prog->curr_continue_addr = INVALID_ADDR;
-
-	var_add(prog, "$_", MT_INT);
-	switch (prog->type) {
-	case MP_T_MOB:
-	case MP_T_OBJ:
-	case MP_T_ROOM:
-		break;
-
-	case MP_T_SPEC:
-		var_add(prog, "$n", MT_CHAR);
-		var_add(prog, "$rm", MT_STR);
-		var_add(prog, "$add", MT_STR);
-		break;
-	}
-
-	if (mpc_parse(prog) < 0
-	||  !IS_NULLSTR(buf_string(prog->errbuf)))
-		return -1;
-
-	cleanup_syms(prog, 0);
-	prog->status = MP_S_READY;
-	return 0;
-}
-
-int
-prog_execute(prog_t *prog, int *errcode)
-{
-	sym_t *sym;
-
-	if (prog->status != MP_S_READY) {
-		*errcode = -2;
-		return 0;
-	}
-
-	if ((*errcode = setjmp(prog->jmpbuf)) == 0)
-		execute(prog, 0);
-
-	if ((sym = (sym_t *) hash_lookup(&prog->syms, "$_")) == NULL) {
-		fprintf(stderr, "Runtime error: %s: %s: symbol not found\n",
-			__FUNCTION__, "$_");
-		*errcode = -1;
-		return 0;
-	}
-	if (sym->type != SYM_VAR) {
-		fprintf(stderr, "Runtime error: %s: not a %d (got symtype %d)\n",
-			sym->name, SYM_VAR, sym->type);
-	}
-	return sym->s.var.data.i;
+	varr_destroy(&mpc->data);
 }
 
 static
@@ -1351,11 +1251,11 @@ FOREACH_CB_FUN(print_swjump_cb, p, ap)
 }
 
 void
-prog_dump(prog_t *prog)
+mpcode_dump(mpcode_t *mpc)
 {
 	size_t ip;
 
-	for (ip = 0; ip < varr_size(&prog->code); ip++) {
+	for (ip = 0; ip < varr_size(&mpc->code); ip++) {
 		void *p = (void *) CODE(ip)[0];
 		codeinfo_t *ci;
 
@@ -1382,7 +1282,7 @@ prog_dump(prog_t *prog)
 			int jt_offset = CODE(ip)[2];
 			varr *jumptab;
 
-			jumptab = varr_get(&prog->jumptabs, jt_offset);
+			jumptab = varr_get(&mpc->jumptabs, jt_offset);
 			if (jumptab != NULL)
 				varr_foreach(jumptab, print_swjump_cb);
 		} else if (p == c_quecolon) {
@@ -1416,27 +1316,27 @@ prog_dump(prog_t *prog)
 }
 
 void
-execute(prog_t *prog, int ip)
+execute(mpcode_t *mpc, int ip)
 {
 	c_fun *c;
 
-	prog->ip = ip;
-	while ((c = (c_fun *) varr_get(&prog->code, prog->ip++)) != NULL) {
+	mpc->ip = ip;
+	while ((c = (c_fun *) varr_get(&mpc->code, mpc->ip++)) != NULL) {
 		if (*c == c_stop)
 			break;
-		(*c)(prog);
+		(*c)(mpc);
 	}
 }
 
 sym_t *
-sym_lookup(prog_t *prog, const char *name)
+sym_lookup(mpcode_t *mpc, const char *name)
 {
 	sym_t *sym;
 
 	if ((sym = (sym_t *) hash_lookup(&glob_syms, name)) != NULL)
 		return sym;
 
-	return (sym_t *) hash_lookup(&prog->syms, name);
+	return (sym_t *) hash_lookup(&mpc->syms, name);
 }
 
 static void *
@@ -1452,25 +1352,23 @@ find_block_cb(void *p, va_list ap)
 }
 
 void
-cleanup_syms(prog_t *prog, int block)
+cleanup_syms(mpcode_t *mpc, int block)
 {
 	for (; ;) {
 		sym_t *sym;
 
-		sym = (sym_t *) hash_foreach(&prog->syms, find_block_cb, block);
+		sym = (sym_t *) hash_foreach(&mpc->syms, find_block_cb, block);
 		if (sym == NULL)
 			break;
 
-#if 0
 		log(LOG_INFO, "%s: %s (%d)",
 		    __FUNCTION__, sym->name, sym->s.var.block);
-#endif
-		hash_delete(&prog->syms, sym->name);
+		hash_delete(&mpc->syms, sym->name);
 	}
 }
 
 void
-compile_error(prog_t *prog, const char *fmt, ...)
+compile_error(mpcode_t *mpc, const char *fmt, ...)
 {
 	char buf[MAX_STRING_LENGTH];
 	va_list ap;
@@ -1479,17 +1377,267 @@ compile_error(prog_t *prog, const char *fmt, ...)
 	vsnprintf(buf, sizeof(buf), fmt, ap);
 	va_end(ap);
 
-	buf_printf(prog->errbuf, BUF_END, "%s:%d: %s\n",
-		   prog->name, prog->lineno, buf);
+	buf_printf(mpc->mp->errbuf, BUF_END, "%s:%d: %s\n",
+		   mpc->name, mpc->lineno, buf);
 }
 
 const char *
-alloc_string(prog_t *prog, const char *s)
+alloc_string(mpcode_t *mpc, const char *s)
 {
-	const char **p = hash_lookup(&prog->strings, s);
-	if (p == NULL)
-		p = hash_insert(&prog->strings, s, &s);
+	const char **p;
+
+	if (IS_NULLSTR(s))
+		return str_empty;
+
+	if ((p = hash_lookup(&mpc->strings, s)) == NULL)
+		p = hash_insert(&mpc->strings, s, &s);
 	return *p;
+}
+
+static int
+var_add(mpcode_t *mpc, const char *name, int type_tag)
+{
+	sym_t sym;
+	sym_t *s;
+
+	sym.name = str_dup(name);
+	sym.type = SYM_VAR;
+	sym.s.var.type_tag = type_tag;
+	sym.s.var.is_const = FALSE;
+	sym.s.var.block = -1;
+	sym.s.var.data.i = 0;
+
+	if ((s = (sym_t *) hash_insert(&mpc->syms, sym.name, &sym)) == NULL) {
+		sym_destroy(&sym);
+		compile_error(mpc, "%s: duplicate symbol", sym.name);
+		return -1;
+	}
+	sym_destroy(&sym);
+
+	return 0;
+}
+
+static sym_t *
+var_lookup(mpcode_t *mpc, const char *name, int type_tag)
+{
+	sym_t *sym;
+
+	if ((sym = sym_lookup(mpc, name)) == NULL) {
+		fprintf(stderr, "Runtime error: %s: %s: symbol not found\n",
+			mpc->name, name);
+		return NULL;
+	}
+
+	if (sym->type != SYM_VAR) {
+		fprintf(stderr, "%s: not a %d", name, SYM_VAR);
+		return NULL;
+	}
+
+	if (sym->s.var.type_tag != type_tag) {
+		fprintf(stderr, "%s: type mismatch (got %d, expected %d)\n",
+			name, sym->s.var.type_tag, type_tag);
+		return NULL;
+	}
+
+	return sym;
+}
+
+static int
+str_var_assign(mpcode_t *mpc, const char *name, const char *s)
+{
+	sym_t *sym;
+
+	if ((sym = var_lookup(mpc, name, MT_STR)) == NULL)
+		return -1;
+
+	log(LOG_INFO, "%s: (string) '%s'", name, s);
+	sym->s.var.data.s = alloc_string(mpc, s);
+	return 0;
+}
+
+static int
+mob_var_assign(mpcode_t *mpc, const char *name, CHAR_DATA *ch)
+{
+	sym_t *sym;
+
+	if ((sym = var_lookup(mpc, name, MT_CHAR)) == NULL)
+		return -1;
+
+	log(LOG_INFO, "%s: (mob) %p", name, ch);
+	sym->s.var.data.ch = ch;
+	return 0;
+}
+
+static int
+obj_var_assign(mpcode_t *mpc, const char *name, OBJ_DATA *obj)
+{
+	sym_t *sym;
+
+	if ((sym = var_lookup(mpc, name, MT_OBJ)) == NULL)
+		return -1;
+
+	log(LOG_INFO, "%s: (obj) %p", name, obj);
+	sym->s.var.data.obj = obj;
+	return 0;
+}
+
+int
+_mprog_compile(mprog_t *mp)
+{
+	mpcode_t *mpc;
+
+	mp->status = MP_S_DIRTY;
+	if (mp->errbuf == NULL)
+		mp->errbuf = buf_new(-1);
+	else
+		buf_clear(mp->errbuf);
+
+	if ((mpc = mpcode_lookup(mp->name)) == NULL) {
+		mpcode_t mpcode;
+
+		mpcode_init(&mpcode);
+		mpcode.name = str_qdup(mp->name);
+		if ((mpc = (mpcode_t *) hash_insert(&mpcodes, mpcode.name, &mpcode)) == NULL) {
+			log(LOG_ERROR, "compile_mprog: %s: mpcode already exists",
+			    mpcode.name);
+			mpcode_destroy(&mpcode);
+			return MPC_ERR_INTERNAL;
+		}
+	}
+
+	mpc->mp = mp;
+	mpc->cp = mpc->mp->text;
+
+	mpc->lineno = 1;
+
+	hash_erase(&mpc->strings);
+	hash_erase(&mpc->syms);
+
+	varr_erase(&mpc->cstack);
+	varr_erase(&mpc->args);
+	mpc->curr_block = 0;
+
+	varr_erase(&mpc->code);
+
+	varr_erase(&mpc->jumptabs);
+	varr_erase(&mpc->iterdata);
+
+	mpc->curr_jumptab = -1;
+	mpc->curr_break_addr = INVALID_ADDR;
+	mpc->curr_continue_addr = INVALID_ADDR;
+
+	if (var_add(mpc, "$_", MT_INT) < 0)
+		return MPC_ERR_COMPILE;
+
+	switch (mpc->mp->type) {
+	case MP_T_MOB:
+	case MP_T_OBJ:
+	case MP_T_ROOM:
+		break;
+
+	case MP_T_SPEC:
+		if (var_add(mpc, "$n", MT_CHAR) < 0)
+			return MPC_ERR_COMPILE;
+		if (var_add(mpc, "$rm", MT_STR) < 0)
+			return MPC_ERR_COMPILE;
+		if (var_add(mpc, "$add", MT_STR) < 0)
+			return MPC_ERR_COMPILE;
+		break;
+	}
+
+	if (mpc_parse(mpc) < 0
+	||  !IS_NULLSTR(buf_string(mpc->mp->errbuf)))
+		return MPC_ERR_COMPILE;
+
+	buf_free(mpc->mp->errbuf);
+	mpc->mp->errbuf = NULL;
+
+	cleanup_syms(mpc, 0);
+	mpc->mp->status = MP_S_READY;
+	mpc->cp = str_empty;
+	mpc->mp = NULL;
+
+	mpcode_dump(mpc);
+	return 0;
+}
+
+#define execerr(errcode)				\
+	do {						\
+		rv = errcode;				\
+		goto err;				\
+	} while (0)
+
+int
+_mprog_execute(mprog_t *mp, va_list ap)
+{
+	sym_t *sym;
+	mpcode_t *mpc;
+	int rv;
+
+	if ((mpc = mpcode_lookup(mp->name)) == NULL) {
+		fprintf(stderr, "Runtime error: %s: %s: symbol not found\n",
+			__FUNCTION__, "$_");
+	}
+
+	mpc->mp = mp;
+	if (mpc->mp->status != MP_S_READY)
+		execerr(MPC_ERR_DIRTY);
+
+	switch (mpc->mp->type) {
+	case MP_T_MOB:
+		if (mob_var_assign(mpc, "$n", va_arg(ap, CHAR_DATA *)) < 0)
+			execerr(MPC_ERR_RUNTIME);
+		break;
+
+	case MP_T_OBJ:
+		if (obj_var_assign(mpc, "$o", va_arg(ap, OBJ_DATA *)) < 0)
+			execerr(MPC_ERR_RUNTIME);
+		break;
+
+	case MP_T_ROOM:
+		break;
+
+	case MP_T_SPEC:
+		if (mob_var_assign(mpc, "$n", va_arg(ap, CHAR_DATA *)) < 0)
+			execerr(MPC_ERR_RUNTIME);
+
+		if (str_var_assign(mpc, "$rm", va_arg(ap, const char *)) < 0)
+			execerr(MPC_ERR_RUNTIME);
+
+		if (str_var_assign(mpc, "$add", va_arg(ap, const char *)) < 0)
+			execerr(MPC_ERR_RUNTIME);
+		break;
+	}
+
+	if ((rv = setjmp(mpc->jmpbuf)) == 0)
+		execute(mpc, 0);
+	else if (rv < 0)
+		goto err;
+
+	if ((sym = (sym_t *) hash_lookup(&mpc->syms, "$_")) == NULL) {
+		fprintf(stderr, "Runtime error: %s: %s: symbol not found\n",
+			__FUNCTION__, "$_");
+		execerr(MPC_ERR_RUNTIME);
+	}
+
+	if (sym->type != SYM_VAR) {
+		fprintf(stderr, "Runtime error: %s: not a %d (got symtype %d)\n",
+			sym->name, SYM_VAR, sym->type);
+		execerr(MPC_ERR_RUNTIME);
+	}
+
+	if (sym->s.var.data.i < 0) {
+		fprintf(stderr, "Error: %s: %s: return value < 0",
+			__FUNCTION__, mpc->name);
+		execerr(MPC_ERR_RUNTIME);
+	}
+
+	rv = sym->s.var.data.i;
+
+err:
+	cleanup_syms(mpc, 0);
+	mpc->mp = NULL;
+	return rv;
 }
 
 #if defined(MPC)

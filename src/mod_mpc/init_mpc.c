@@ -23,29 +23,22 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_mpc.c,v 1.12 2001-08-14 16:06:58 fjoe Exp $
+ * $Id: init_mpc.c,v 1.13 2001-08-25 04:53:54 fjoe Exp $
  */
 
-#include <sys/stat.h>
 #include <dlfcn.h>
 #include <errno.h>
-#include <dirent.h>
 #include <setjmp.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
 #include <limits.h>
 
-#if defined(BSD44)
-#	include <fnmatch.h>
-#else
-#	include <compat/fnmatch.h>
-#endif
-
 #include <merc.h>
 #include <dynafun.h>
 #include <module.h>
 #include <rwfile.h>
+#include <mprog.h>
 
 #undef MODULE_NAME
 #define MODULE_NAME MOD_MPC
@@ -59,8 +52,6 @@
 #if !defined(MPC)
 DECLARE_MODINIT_FUN(_module_load);
 DECLARE_MODINIT_FUN(_module_unload);
-
-static void load_mudprogs(void);
 
 static dynafun_data_t local_dynafun_tab[] = {
 	DECLARE_FUN4(int, has_sp,
@@ -91,11 +82,13 @@ static dynafun_data_t core_dynafun_tab[] = {
 };
 
 #if !defined(MPC)
-hashdata_t h_progs = {
-	sizeof(prog_t), 4,
+hash_t mpcodes;
 
-	(e_init_t) prog_init,
-	(e_destroy_t) prog_destroy,
+hashdata_t h_mpcodes = {
+	sizeof(mpcode_t), 4,
+
+	(e_init_t) mpcode_init,
+	(e_destroy_t) mpcode_destroy,
 	NULL,
 
 	STRKEY_HASH_SIZE,
@@ -103,10 +96,34 @@ hashdata_t h_progs = {
 	ke_cmp_str
 };
 
-hash_t progs;
+static
+FOREACH_CB_FUN(compile_mprog_cb, p, ap)
+{
+	mprog_t *mp = (mprog_t *) p;
+
+	if (mprog_compile(mp) < 0) {
+		log(LOG_INFO, "load_mprog: %s (%s)",
+		    mp->name, flag_string(mprog_types, mp->type));
+		fprintf(stderr, "%s", buf_string(mp->errbuf));
+	}
+
+	return NULL;
+}
 
 MODINIT_FUN(_module_load, m)
 {
+	mprog_compile = dlsym(m->dlh, "_mprog_compile");	// notrans
+	if (mprog_compile == NULL) {
+		log(LOG_INFO, "_module_load(mod_mpc): %s", dlerror());
+		return -1;
+	}
+
+	mprog_execute = dlsym(m->dlh, "_mprog_execute");	// notrans
+	if (mprog_execute == NULL) {
+		log(LOG_INFO, "_module_load(mod_mpc): %s", dlerror());
+		return -1;
+	}
+
 	if (iter_init(m) < 0)
 		return -1;
 
@@ -115,14 +132,18 @@ MODINIT_FUN(_module_load, m)
 
 	dynafun_tab_register(local_dynafun_tab, m);
 
-	hash_init(&progs, &h_progs);
-	load_mudprogs();
+	hash_init(&mpcodes, &h_mpcodes);
+	hash_foreach(&mprogs, compile_mprog_cb);
+
 	return 0;
 }
 
 MODINIT_FUN(_module_unload, m)
 {
-	hash_destroy(&progs);
+	mprog_compile = NULL;
+	mprog_execute = NULL;
+
+	hash_destroy(&mpcodes);
 
 	dynafun_tab_unregister(local_dynafun_tab);
 	mpc_fini();
@@ -220,118 +241,3 @@ mpc_fini()
 {
 	dynafun_tab_unregister(core_dynafun_tab);
 }
-
-#if !defined(MPC)
-static void load_mp(const char *name);
-
-static void
-load_mudprogs()
-{
-	struct dirent *dp;
-	DIR *dirp;
-	char mask[PATH_MAX];
-
-	if ((dirp = opendir(MPC_PATH)) == NULL) {
-		log(LOG_ERROR, "load_mudprogs: %s: %s",
-		    MPC_PATH, strerror(errno));
-		return;
-	}
-
-	snprintf(mask, sizeof(mask), "*%s", MPC_EXT);		// notrans
-
-	for (dp = readdir(dirp); dp != NULL; dp = readdir(dirp)) {
-		if (dp->d_type != DT_REG)
-			continue;
-
-		if (fnmatch(mask, dp->d_name, 0) == FNM_NOMATCH)
-			continue;
-
-		load_mp(dp->d_name);
-	}
-
-	closedir(dirp);
-}
-
-flaginfo_t mp_types[] =
-{
-	{ "",			TABLE_INTVAL,		FALSE	},
-
-	{ "mob",		MP_T_MOB,		TRUE	},
-	{ "obj",		MP_T_OBJ,		TRUE	},
-	{ "room",		MP_T_ROOM,		TRUE	},
-	{ "spec",		MP_T_SPEC,		TRUE	},
-
-	{ NULL, 0, FALSE }
-};
-
-static void
-load_mp(const char *name)
-{
-	char *q;
-	rfile_t *fp;
-	prog_t prog;
-	prog_t *p;
-	struct stat s;
-
-	if (dstat(MPC_PATH, name, &s) < 0) {
-		log(LOG_ERROR, "load_mp: stat: %s: %s", name, strerror(errno));
-		return;
-	}
-
-	fp = rfile_open(MPC_PATH, name);
-	if (fp == NULL) {
-		log(LOG_ERROR, "load_mp: fopen: %s: %s", name, strerror(errno));
-		return;
-	}
-
-	/*
-	 * find rightmost '.'
-	 */
-	q = strrchr(name, '.');
-	if (q == NULL)
-		q = strchr(name, '\0');
-
-	prog_init(&prog);
-	prog.name = str_ndup(name, q - name);
-
-	/*
-	 * try to find '#type'
-	 */
-	fread_word(fp);
-	if (!!strcmp(rfile_tok(fp), "#type")) {
-		log(LOG_ERROR, "load_mp: %s: missing #type directive", name);
-		prog_destroy(&prog);
-		goto bailout;
-	}
-
-	prog.type = fread_fword(mp_types, fp);
-	fread_to_eol(fp);
-
-	prog.textlen = s.st_size - rfile_ftello(fp);
-	prog.text = malloc(s.st_size + 1);
-	if (prog.text == NULL) {
-		fprintf(stderr, "load_mp: malloc: %s\n", strerror(errno));
-		prog_destroy(&prog);
-		goto bailout;
-	}
-
-	rfile_fread((void *) (uintptr_t) prog.text, prog.textlen, 1, fp);
-	((char *) (uintptr_t) prog.text)[prog.textlen] = '\0';
-
-	if ((p = (prog_t *) hash_insert(&progs, prog.name, &prog)) == NULL) {
-		fprintf(stderr, "load_mp: %s: duplicate mp", name);
-		prog_destroy(&prog);
-		goto bailout;
-	}
-
-	if (prog_compile(p) < 0) {
-		log(LOG_INFO, "load_mp: %s (%s)",
-		    p->name, flag_string(mp_types, p->type));
-		fprintf(stderr, "%s", buf_string(prog.errbuf));
-	}
-
-bailout:
-	rfile_close(fp);
-}
-
-#endif

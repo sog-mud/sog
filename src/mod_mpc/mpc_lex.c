@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_lex.c,v 1.11 2001-08-14 16:07:00 fjoe Exp $
+ * $Id: mpc_lex.c,v 1.12 2001-08-25 04:53:56 fjoe Exp $
  */
 
 #include <ctype.h>
@@ -38,6 +38,7 @@
 #include <memalloc.h>
 #include <dynafun.h>
 #include <flag.h>
+#include <mprog.h>
 
 #include "mpc_impl.h"
 #include "mpc_iter.h"
@@ -48,48 +49,48 @@
  */
 
 static int
-mpc_getc(prog_t *prog)
+mpc_getc(mpcode_t *mpc)
 {
-	if (prog->cp - prog->text >= (int) prog->textlen)
+	if (*mpc->cp == '\0')
 		return EOF;
 
-	return *prog->cp++;
+	return *mpc->cp++;
 }
 
 static void
-mpc_ungetc(int ch __attribute__((unused)), prog_t *prog)
+mpc_ungetc(int ch __attribute__((unused)), mpcode_t *mpc)
 {
-	if (prog->cp > prog->text)
-		prog->cp--;
+	if (mpc->cp > mpc->mp->text)
+		mpc->cp--;
 }
 
 static bool
-gobble(prog_t *prog, int ch)
+gobble(mpcode_t *mpc, int ch)
 {
-	int c = mpc_getc(prog);
+	int c = mpc_getc(mpc);
 	if (c == ch)
 		return TRUE;
 
-	mpc_ungetc(c, prog);
+	mpc_ungetc(c, mpc);
 	return FALSE;
 }
 
 static void
-skip_comment(prog_t *prog)
+skip_comment(mpcode_t *mpc)
 {
 	for (; ;) {
-		switch (mpc_getc(prog)) {
+		switch (mpc_getc(mpc)) {
 		case EOF:
-			compile_error(prog, "unterminated comment");
+			compile_error(mpc, "unterminated comment");
 			return;
 			/* NOTREACHED */
 
 		case '\n':
-			prog->lineno++;
+			mpc->lineno++;
 			break;
 
 		case '*':
-			if (gobble(prog, '/'))
+			if (gobble(mpc, '/'))
 				return;
 			break;
 		}
@@ -97,18 +98,18 @@ skip_comment(prog_t *prog)
 }
 
 static void
-skip_line(prog_t *prog)
+skip_line(mpcode_t *mpc)
 {
 	for (; ;) {
 		int ch;
 
-		switch ((ch = mpc_getc(prog))) {
+		switch ((ch = mpc_getc(mpc))) {
 		case EOF:
 			return;
 			/* NOTREACHED */
 
 		case '\n':
-			mpc_ungetc(ch, prog);
+			mpc_ungetc(ch, mpc);
 			return;
 			/* NOTREACHED */
 		}
@@ -117,14 +118,14 @@ skip_line(prog_t *prog)
 
 #define TRY(c, rv)							\
 	do {								\
-		if (gobble(prog, (c)))					\
+		if (gobble(mpc, (c)))					\
 			return (rv);					\
 	} while (0)
 
 #define STORE(c)							\
 	do {								\
 		if (yyp - yytext >= (int) sizeof(yytext)) {		\
-			compile_error(prog, "Line too long");		\
+			compile_error(mpc, "Line too long");		\
 			goto nextch;					\
 		}							\
 									\
@@ -181,7 +182,7 @@ struct flaginfo_t mpc_types[] =
 };
 
 int
-mpc_lex(prog_t *prog)
+mpc_lex(mpcode_t *mpc)
 {
 	int ch;
 	static char yytext[MAX_IDENT_LEN];
@@ -193,13 +194,13 @@ mpc_lex(prog_t *prog)
 		iter_t *iter;
 		int type_tag;
 
-		switch ((ch = mpc_getc(prog))) {
+		switch ((ch = mpc_getc(mpc))) {
 		case EOF:
 			return -1;
 			/* NOTREACHED */
 
 		case '\n':
-			prog->lineno++;
+			mpc->lineno++;
 			break;
 
 		case ' ':
@@ -238,7 +239,7 @@ mpc_lex(prog_t *prog)
 			/* NOTREACHED */
 
 		case '<':
-			if (gobble(prog, '<')) {
+			if (gobble(mpc, '<')) {
 				TRY('=', L_SHL_EQ);
 				return L_SHL;
 			}
@@ -247,7 +248,7 @@ mpc_lex(prog_t *prog)
 			/* NOTREACHED */
 
 		case '>':
-			if (gobble(prog, '>')) {
+			if (gobble(mpc, '>')) {
 				TRY('=', L_SHR_EQ);
 				return L_SHR;
 			}
@@ -266,11 +267,11 @@ mpc_lex(prog_t *prog)
 			/* NOTREACHED */
 
 		case '/':
-			if (gobble(prog, '*')) {
-				skip_comment(prog);
+			if (gobble(mpc, '*')) {
+				skip_comment(mpc);
 				break;
-			} else if (gobble(prog, '/')) {
-				skip_line(prog);
+			} else if (gobble(mpc, '/')) {
+				skip_line(mpc);
 				break;
 			}
 
@@ -310,9 +311,9 @@ mpc_lex(prog_t *prog)
 			yyp = yytext;
 
 			for (; ; ) {
-				ch = mpc_getc(prog);
+				ch = mpc_getc(mpc);
 				if (ch == EOF) {
-					compile_error(prog,
+					compile_error(mpc,
 					    "EOF while parsing string");
 					break;
 				}
@@ -321,9 +322,9 @@ mpc_lex(prog_t *prog)
 					break;
 
 				if (ch == '\\') {
-					ch = mpc_getc(prog);
+					ch = mpc_getc(mpc);
 					if (ch == EOF) {
-						compile_error(prog,
+						compile_error(mpc,
 						    "EOF while parsing string");
 						break;
 					}
@@ -335,7 +336,7 @@ mpc_lex(prog_t *prog)
 			}
 
 			STORE('\0');
-			mpc_lval.string = alloc_string(prog, yytext);
+			mpc_lval.string = alloc_string(mpc, yytext);
 			return L_STRING;
 			/* NOTREACHED */
 
@@ -345,24 +346,24 @@ mpc_lex(prog_t *prog)
 			is_hex = FALSE;
 
 			STORE(ch);
-			if (ch == '0' && gobble(prog, 'x')) {
+			if (ch == '0' && gobble(mpc, 'x')) {
 				STORE('x');
 				is_hex = TRUE;
 			}
 
 			for (; ;) {
-				ch = mpc_getc(prog);
+				ch = mpc_getc(mpc);
 				if (is_hex ? !isxdigit(ch) : !isdigit(ch))
 					break;
 
 				STORE(ch);
 			}
-			mpc_ungetc(ch, prog);
+			mpc_ungetc(ch, mpc);
 			STORE('\0');
 
 			mpc_lval.number = strtol(yytext, &yyp, 0);
 			if (*yyp != '\0') {
-				compile_error(prog,
+				compile_error(mpc,
 				    "Invalid number '%s'", yytext);
 				return L_INT;
 			}
@@ -378,13 +379,13 @@ mpc_lex(prog_t *prog)
 
 			STORE(ch);
 			for (; ;) {
-				ch = mpc_getc(prog);
+				ch = mpc_getc(mpc);
 				if (!IS_IDENT_CH(ch) && !isnumber(ch))
 					break;
 
 				STORE(ch);
 			}
-			mpc_ungetc(ch, prog);
+			mpc_ungetc(ch, mpc);
 			STORE('\0');
 
 			if ((k = keyword_lookup(yytext)) != NULL)
@@ -400,7 +401,7 @@ mpc_lex(prog_t *prog)
 				return L_ITER;
 			}
 
-			mpc_lval.string = alloc_string(prog, yytext);
+			mpc_lval.string = alloc_string(mpc, yytext);
 			return L_IDENT;
 			/* NOTREACHED */
 		}
@@ -409,7 +410,7 @@ nextch:
 	}
 
 badch:
-	compile_error(prog,
+	compile_error(mpc,
 	    "Illegal character (0x%02x) '%c'", (unsigned) ch, (char) ch);
 	return ' ';
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_c.c,v 1.15 2001-08-14 16:06:58 fjoe Exp $
+ * $Id: mpc_c.c,v 1.16 2001-08-25 04:53:55 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -37,31 +37,34 @@
 #include <hash.h>
 #include <dynafun.h>
 #include <util.h>
+#include <flag.h>
 
 #include "mpc_impl.h"
 #include "mpc_iter.h"
 
-static void push(prog_t *prog, vo_t vo);
-static vo_t *pop(prog_t *prog);
-static vo_t *peek(prog_t *prog, size_t depth);
+static void push(mpcode_t *mpc, vo_t vo);
+static vo_t *pop(mpcode_t *mpc);
+static vo_t *peek(mpcode_t *mpc, size_t depth);
 
-static void *code_get(prog_t *prog);
-#define CODE_GET(t, prog)	((t) (const void *) code_get(prog))
+static void *code_get(mpcode_t *mpc);
+#define CODE_GET(t, mpc)	((t) (const void *) code_get(mpc))
 
-static sym_t *sym_get(prog_t *prog, symtype_t symtype);
+static sym_t *sym_get(mpcode_t *mpc, symtype_t symtype);
 
-static void mpc_assert(prog_t *prog, const char *ctx, int e,
+static void mpc_assert(mpcode_t *mpc, const char *ctx, int e,
 		       const char *fmt, ...)
 	__attribute__ ((format(printf, 4, 5)));
 
-#if 0
+static void dumpvar(mpcode_t *mpc, sym_t *sym);
+
+#if 1
 #define TRACE log(LOG_INFO, __FUNCTION__)
 #else
 #define TRACE
 #endif
 
 void
-c_pop(prog_t *prog)
+c_pop(mpcode_t *mpc)
 {
 	sym_t *sym;
 	vo_t *v;
@@ -69,53 +72,45 @@ c_pop(prog_t *prog)
 
 	TRACE;
 
-	v = pop(prog);
-	type_tag = CODE_GET(int, prog);
+	v = pop(mpc);
+	type_tag = CODE_GET(int, mpc);
 
-	sym = (sym_t *) hash_lookup(&prog->syms, "$_");
-	mpc_assert(prog, __FUNCTION__,
+	sym = (sym_t *) hash_lookup(&mpc->syms, "$_");
+	mpc_assert(mpc, __FUNCTION__,
 	    sym != NULL, "$_: symbol not found");
-	mpc_assert(prog, __FUNCTION__,
+	mpc_assert(mpc, __FUNCTION__,
 	    sym->type == SYM_VAR, "$_: not a %d (got symtype %d)",
 	    SYM_VAR, sym->type);
 
 	sym->s.var.type_tag = type_tag;
 	sym->s.var.data = *v;
 
-	switch (type_tag) {
-	case MT_INT:
-		/* fprintf(stderr, "got: %d\n", v->i); */
-		break;
-
-	default:
-		/* fprintf(stderr, "got: (type '%s')\n",
-			flag_string(mpc_types, type_tag)); */
-		break;
-	}
+	// dumpvar(mpc, sym);
 }
 
 void
-c_push_const(prog_t *prog)
+c_push_const(mpcode_t *mpc)
 {
 	vo_t vo;
 
 	TRACE;
-	vo.s = code_get(prog);
-	push(prog, vo);
+	vo.s = code_get(mpc);
+	push(mpc, vo);
 }
 
 void
-c_push_var(prog_t *prog)
+c_push_var(mpcode_t *mpc)
 {
 	sym_t *sym;
 
 	TRACE;
-	sym = sym_get(prog, SYM_VAR);
-	push(prog, sym->s.var.data);
+	sym = sym_get(mpc, SYM_VAR);
+	push(mpc, sym->s.var.data);
+	dumpvar(mpc, sym);
 }
 
 void
-c_push_retval(prog_t *prog)
+c_push_retval(mpcode_t *mpc)
 {
 	int i;
 	sym_t *sym;
@@ -128,17 +123,17 @@ c_push_retval(prog_t *prog)
 
 	TRACE;
 
-	sym = sym_get(prog, SYM_FUNC);
+	sym = sym_get(mpc, SYM_FUNC);
 
 	/*
 	 * get function info
 	 */
-	rv_tag = CODE_GET(int, prog);
-	nargs = CODE_GET(int, prog);
-	argtype = (int *) VARR_GET(&prog->code, prog->ip);
-	prog->ip += nargs;
-	mpc_assert(prog, __FUNCTION__,
-	    (size_t) prog->ip <= varr_size(&prog->code), "program code exhausted");
+	rv_tag = CODE_GET(int, mpc);
+	nargs = CODE_GET(int, mpc);
+	argtype = (int *) VARR_GET(&mpc->code, mpc->ip);
+	mpc->ip += nargs;
+	mpc_assert(mpc, __FUNCTION__,
+	    (size_t) mpc->ip <= varr_size(&mpc->code), "program code exhausted");
 
 #if 0
 	/*
@@ -154,28 +149,28 @@ c_push_retval(prog_t *prog)
 	 */
 	log(LOG_INFO, "%s: dumping arguments", __FUNCTION__);
 	for (i = 0; i < nargs; i++)
-		log(LOG_INFO, "\t%d", peek(prog, i)->i);
+		log(LOG_INFO, "\t%d", peek(mpc, i)->i);
 #endif
 
 	/*
 	 * lookup dynafun
 	 */
 	d = dynafun_data_lookup(sym->name);
-	mpc_assert(prog, __FUNCTION__, d != NULL, "%s: not found", sym->name);
-	mpc_assert(prog, __FUNCTION__, d->fun != NULL, "%s: NULL fun", d->name);
+	mpc_assert(mpc, __FUNCTION__, d != NULL, "%s: not found", sym->name);
+	mpc_assert(mpc, __FUNCTION__, d->fun != NULL, "%s: NULL fun", d->name);
 
 	/*
 	 * check dynafun args and retval
 	 */
-	mpc_assert(prog, __FUNCTION__,
+	mpc_assert(mpc, __FUNCTION__,
 	    nargs == d->nargs, "%s: called with %d args (expected %d)",
 	    d->name, nargs, d->nargs);
-	mpc_assert(prog, __FUNCTION__,
+	mpc_assert(mpc, __FUNCTION__,
 	    d->rv_tag == rv_tag,
 	    "%s: rv type mismatch (want %d, got %d)",
 	    d->name, rv_tag, d->rv_tag);
 	for (i = 0; i < nargs; i++) {
-		mpc_assert(prog, __FUNCTION__,
+		mpc_assert(mpc, __FUNCTION__,
 		    argtype[i] == d->argtype[i].type_tag,
 		    "%s: invalid arg %d type (want %d, got %d)",
 		    d->name, i+1, argtype[i], d->argtype[i].type_tag);
@@ -185,10 +180,10 @@ c_push_retval(prog_t *prog)
 	 * This code is highly non-portable (see dynafun.c/dynafun_build_args)
 	 */
 	args = (dynafun_args_t *) VARR_GET(
-	    &prog->data, varr_size(&prog->data) - nargs);
-	mpc_assert(prog, __FUNCTION__,
-	    varr_size(&prog->data) >= (size_t) nargs, "data stack underflow");
-	varr_size(&prog->data) -= nargs;
+	    &mpc->data, varr_size(&mpc->data) - nargs);
+	mpc_assert(mpc, __FUNCTION__,
+	    varr_size(&mpc->data) >= (size_t) nargs, "data stack underflow");
+	varr_size(&mpc->data) -= nargs;
 
 	if (rv_tag == MT_VOID) {
 		vo.s = NULL;
@@ -199,34 +194,34 @@ c_push_retval(prog_t *prog)
 	/*
 	 * push the result
 	 */
-	push(prog, vo);
+	push(mpc, vo);
 }
 
 void
-c_jmp(prog_t *prog)
+c_jmp(mpcode_t *mpc)
 {
 	TRACE;
 
-	prog->ip = CODE_GET(int, prog);
+	mpc->ip = CODE_GET(int, mpc);
 }
 
 void
-c_jmp_addr(prog_t *prog)
+c_jmp_addr(mpcode_t *mpc)
 {
 	int addr;
 	int *jmp_addr;
 
 	TRACE;
 
-	addr = CODE_GET(int, prog);
-	jmp_addr = varr_get(&prog->code, addr);
-	mpc_assert(prog, __FUNCTION__, jmp_addr != NULL,
+	addr = CODE_GET(int, mpc);
+	jmp_addr = varr_get(&mpc->code, addr);
+	mpc_assert(mpc, __FUNCTION__, jmp_addr != NULL,
 		   "program code exhausted");
-	prog->ip = *jmp_addr;
+	mpc->ip = *jmp_addr;
 }
 
 void
-c_if(prog_t *prog)
+c_if(mpcode_t *mpc)
 {
 	int next_addr;
 	int then_addr;
@@ -235,25 +230,25 @@ c_if(prog_t *prog)
 
 	TRACE;
 
-	next_addr = CODE_GET(int, prog);
-	then_addr = CODE_GET(int, prog);
-	else_addr = CODE_GET(int, prog);
+	next_addr = CODE_GET(int, mpc);
+	then_addr = CODE_GET(int, mpc);
+	else_addr = CODE_GET(int, mpc);
 
-	execute(prog, prog->ip);
-	v = pop(prog);
+	execute(mpc, mpc->ip);
+	v = pop(mpc);
 
 	if (v->i) {
 		/* execute then */
-		prog->ip = then_addr;
+		mpc->ip = then_addr;
 	} else if (else_addr != INVALID_ADDR) {
 		/* execute else */
-		prog->ip = else_addr;
+		mpc->ip = else_addr;
 	} else
-		prog->ip = next_addr;
+		mpc->ip = next_addr;
 }
 
 void
-c_switch(prog_t *prog)
+c_switch(mpcode_t *mpc)
 {
 	vo_t *v;
 
@@ -266,21 +261,21 @@ c_switch(prog_t *prog)
 
 	TRACE;
 
-	next_addr = CODE_GET(int, prog);
-	jt_offset = CODE_GET(int, prog);
+	next_addr = CODE_GET(int, mpc);
+	jt_offset = CODE_GET(int, mpc);
 
 	/*
 	 * get jumptab and its size
 	 */
-	jumptab = varr_get(&prog->jumptabs, jt_offset);
-	mpc_assert(prog, __FUNCTION__,
+	jumptab = varr_get(&mpc->jumptabs, jt_offset);
+	mpc_assert(mpc, __FUNCTION__,
 	    jumptab != NULL, "jt_offset outside jumptab");
 	default_jump = varr_get(jumptab, 0);
-	mpc_assert(prog, __FUNCTION__,
+	mpc_assert(mpc, __FUNCTION__,
 	    default_jump != NULL, "invalid jumptab");
 
-	execute(prog, prog->ip);
-	v = pop(prog);
+	execute(mpc, mpc->ip);
+	v = pop(mpc);
 
 	/*
 	 * lookup value in jumptab
@@ -288,14 +283,14 @@ c_switch(prog_t *prog)
 	jump = (swjump_t *) bsearch(
 	    &v->i, ((char *) jumptab->p) + jumptab->v_data->nsize,
 	    jumptab->nused - 1, jumptab->v_data->nsize, cmpint);
-	prog->ip =
+	mpc->ip =
 	    jump != NULL ? jump->addr :
 	    default_jump->addr != INVALID_ADDR ? default_jump->addr :
 	    next_addr;
 }
 
 void
-c_quecolon(prog_t *prog)
+c_quecolon(mpcode_t *mpc)
 {
 	vo_t *v0;
 	int next_addr;
@@ -303,19 +298,19 @@ c_quecolon(prog_t *prog)
 
 	TRACE;
 
-	next_addr = CODE_GET(int, prog);
-	else_addr = CODE_GET(int, prog);
+	next_addr = CODE_GET(int, mpc);
+	else_addr = CODE_GET(int, mpc);
 
-	v0 = pop(prog);
+	v0 = pop(mpc);
 	if (v0->i) {
-		execute(prog, prog->ip);
-		prog->ip = next_addr;
+		execute(mpc, mpc->ip);
+		mpc->ip = next_addr;
 	} else
-		prog->ip = else_addr;
+		mpc->ip = else_addr;
 }
 
 void
-c_foreach(prog_t *prog)
+c_foreach(mpcode_t *mpc)
 {
 	int next_addr;
 	int body_addr;
@@ -327,50 +322,50 @@ c_foreach(prog_t *prog)
 
 	TRACE;
 
-	next_addr = CODE_GET(int, prog);
-	body_addr = CODE_GET(int, prog);
+	next_addr = CODE_GET(int, mpc);
+	body_addr = CODE_GET(int, mpc);
 
 	/* push iter args onto stack */
-	execute(prog, prog->ip);
+	execute(mpc, mpc->ip);
 
 	/* c_cleanup_syms, block */
-	code_get(prog);
-	code_get(prog);
+	code_get(mpc);
+	code_get(mpc);
 
 	/* c_foreach_next, next_addr */
-	code_get(prog);
-	code_get(prog);
+	code_get(mpc);
+	code_get(mpc);
 
-	sym = sym_get(prog, SYM_VAR);
-	id = (iterdata_t *) code_get(prog);
+	sym = sym_get(mpc, SYM_VAR);
+	id = (iterdata_t *) code_get(mpc);
 	iter = id->iter;
 
 	/*
 	 * This code is highly non-portable (see dynafun.c/dynafun_build_args)
 	 */
 	v.s = (const char *) &sym->s.var.data;
-	push(prog, v);
+	push(mpc, v);
 
 	v.s = (const char *) id;
-	push(prog, v);
+	push(mpc, v);
 
 	args = (dynafun_args_t *) VARR_GET(
-	    &prog->data, varr_size(&prog->data) - (iter->init.nargs + 2));
-	mpc_assert(prog, __FUNCTION__,
-	    varr_size(&prog->data) >= (size_t) (iter->init.nargs + 2),
+	    &mpc->data, varr_size(&mpc->data) - (iter->init.nargs + 2));
+	mpc_assert(mpc, __FUNCTION__,
+	    varr_size(&mpc->data) >= (size_t) (iter->init.nargs + 2),
 	    "data stack underflow");
 	iter->init.fun(*args);
-	varr_size(&prog->data) -= iter->init.nargs + 2;
+	varr_size(&mpc->data) -= iter->init.nargs + 2;
 
 	/* execute loop body */
 	if (iter->cond(&sym->s.var.data, id))
-		prog->ip = body_addr;
+		mpc->ip = body_addr;
 	else
-		prog->ip = next_addr;
+		mpc->ip = next_addr;
 }
 
 void
-c_foreach_next(prog_t *prog)
+c_foreach_next(mpcode_t *mpc)
 {
 	sym_t *sym;
 	iterdata_t *id;
@@ -379,30 +374,30 @@ c_foreach_next(prog_t *prog)
 
 	TRACE;
 
-	next_addr = CODE_GET(int, prog);
-	sym = sym_get(prog, SYM_VAR);
-	id = (iterdata_t *) code_get(prog);
+	next_addr = CODE_GET(int, mpc);
+	sym = sym_get(mpc, SYM_VAR);
+	id = (iterdata_t *) code_get(mpc);
 	iter = id->iter;
 
 	/* get next */
 	iter->next(&sym->s.var.data, id);
 	if (!iter->cond(&sym->s.var.data, id))
-		prog->ip = next_addr;
+		mpc->ip = next_addr;
 }
 
 void
-c_declare(prog_t *prog)
+c_declare(mpcode_t *mpc)
 {
 	sym_t sym;
 	void *p;
 
 	TRACE;
 
-	sym.name = str_dup(code_get(prog));
+	sym.name = str_dup(code_get(mpc));
 	sym.type = SYM_VAR;
-	sym.s.var.type_tag = CODE_GET(int, prog);
+	sym.s.var.type_tag = CODE_GET(int, mpc);
 	sym.s.var.is_const = FALSE;
-	sym.s.var.block = CODE_GET(int, prog);
+	sym.s.var.block = CODE_GET(int, mpc);
 
 	switch (sym.s.var.type_tag) {
 	case MT_STR:
@@ -415,16 +410,16 @@ c_declare(prog_t *prog)
 		break;
 	};
 
-	p = hash_insert(&prog->syms, sym.name, &sym);
+	p = hash_insert(&mpc->syms, sym.name, &sym);
 	if (p == NULL)
 		sym_destroy(&sym);
-	mpc_assert(prog, __FUNCTION__,
+	mpc_assert(mpc, __FUNCTION__,
 	    p != NULL, "%s: duplicate symbol", sym.name);
 	sym_destroy(&sym);
 }
 
 void
-c_declare_assign(prog_t *prog)
+c_declare_assign(mpcode_t *mpc)
 {
 	sym_t sym;
 	sym_t *s;
@@ -432,40 +427,41 @@ c_declare_assign(prog_t *prog)
 
 	TRACE;
 
-	sym.name = str_dup(code_get(prog));
+	sym.name = str_dup(code_get(mpc));
 	sym.type = SYM_VAR;
-	sym.s.var.type_tag = CODE_GET(int, prog);
+	sym.s.var.type_tag = CODE_GET(int, mpc);
 	sym.s.var.is_const = FALSE;
-	sym.s.var.block = CODE_GET(int, prog);
+	sym.s.var.block = CODE_GET(int, mpc);
+	log(LOG_INFO, "%s: block %d", __FUNCTION__, sym.s.var.block);
 
-	s = (sym_t *) hash_insert(&prog->syms, sym.name, &sym);
+	s = (sym_t *) hash_insert(&mpc->syms, sym.name, &sym);
 	if (s == NULL)
 		sym_destroy(&sym);
-	mpc_assert(prog, __FUNCTION__,
+	mpc_assert(mpc, __FUNCTION__,
 	    s != NULL, "%s: duplicate symbol", sym.name);
 	sym_destroy(&sym);
 
-	v = pop(prog);
+	v = pop(mpc);
 	s->s.var.data = *v;
 }
 
 void
-c_cleanup_syms(prog_t *prog)
+c_cleanup_syms(mpcode_t *mpc)
 {
 	int block;
 
 	TRACE;
 
-	block = CODE_GET(int, prog);
-	cleanup_syms(prog, block);
+	block = CODE_GET(int, mpc);
+	cleanup_syms(mpc, block);
 }
 
 void
-c_return(prog_t *prog)
+c_return(mpcode_t *mpc)
 {
 	TRACE;
 
-	prog->ip = INVALID_ADDR;
+	mpc->ip = INVALID_ADDR;
 }
 
 /*--------------------------------------------------------------------
@@ -478,16 +474,16 @@ c_return(prog_t *prog)
 									\
 	TRACE;								\
 									\
-	v2 = pop(prog);							\
-	v1 = pop(prog)
+	v2 = pop(mpc);							\
+	v1 = pop(mpc)
 
 #define INT_BOP_TAIL(op)						\
 	v.i = v1->i op v2->i;						\
-	push(prog, v)
+	push(mpc, v)
 
 #define INT_BOP(c_bop_fun, op)						\
 	void								\
-	c_bop_fun(prog_t *prog)						\
+	c_bop_fun(mpcode_t *mpc)						\
 	{								\
 		INT_BOP_HEAD;						\
 		INT_BOP_TAIL(op);					\
@@ -497,51 +493,51 @@ c_return(prog_t *prog)
  * special case - '||' and '&&'
  */
 void
-c_bop_lor(prog_t *prog)
+c_bop_lor(mpcode_t *mpc)
 {
 	vo_t *v1;
 	vo_t v;
 	int next_addr;
 
-	next_addr = CODE_GET(int, prog);
+	next_addr = CODE_GET(int, mpc);
 
-	v1 = pop(prog);
+	v1 = pop(mpc);
 	if (v1->i) {
 		v.i = 1;
-		prog->ip = next_addr;
+		mpc->ip = next_addr;
 	} else {
 		vo_t *v2;
 
-		execute(prog, prog->ip);
-		v2 = pop(prog);
+		execute(mpc, mpc->ip);
+		v2 = pop(mpc);
 		v.i = v1->i || v2->i;
 	}
 
-	push(prog, v);
+	push(mpc, v);
 }
 
 void
-c_bop_land(prog_t *prog)
+c_bop_land(mpcode_t *mpc)
 {
 	vo_t *v1;
 	vo_t v;
 	int next_addr;
 
-	next_addr = CODE_GET(int, prog);
+	next_addr = CODE_GET(int, mpc);
 
-	v1 = pop(prog);
+	v1 = pop(mpc);
 	if (!v1->i) {
 		v.i = 0;
-		prog->ip = next_addr;
+		mpc->ip = next_addr;
 	} else {
 		vo_t *v2;
 
-		execute(prog, prog->ip);
-		v2 = pop(prog);
+		execute(mpc, mpc->ip);
+		v2 = pop(mpc);
 		v.i = v1->i && v2->i;
 	}
 
-	push(prog, v);
+	push(mpc, v);
 }
 
 INT_BOP(c_bop_or, |)
@@ -566,23 +562,23 @@ INT_BOP(c_bop_mul, *)
  * '/' and '%' require additional checks
  */
 void
-c_bop_mod(prog_t *prog)
+c_bop_mod(mpcode_t *mpc)
 {
 	INT_BOP_HEAD;
-	mpc_assert(prog, __FUNCTION__, v2->i != 0, "division by zero");
+	mpc_assert(mpc, __FUNCTION__, v2->i != 0, "division by zero");
 	INT_BOP_TAIL(%);
 }
 
 void
-c_bop_div(prog_t *prog)
+c_bop_div(mpcode_t *mpc)
 {
 	INT_BOP_HEAD;
-	mpc_assert(prog, __FUNCTION__, v2->i != 0, "division by zero");
+	mpc_assert(mpc, __FUNCTION__, v2->i != 0, "division by zero");
 	INT_BOP_TAIL(/);
 }
 
 void
-c_bop_ne_string(prog_t *prog)
+c_bop_ne_string(mpcode_t *mpc)
 {
 	vo_t *v1;
 	vo_t *v2;
@@ -590,15 +586,15 @@ c_bop_ne_string(prog_t *prog)
 
 	TRACE;
 
-	v2 = pop(prog);
-	v1 = pop(prog);
+	v2 = pop(mpc);
+	v1 = pop(mpc);
 
 	v.i = str_cscmp(v1->s, v2->s);
-	push(prog, v);
+	push(mpc, v);
 }
 
 void
-c_bop_eq_string(prog_t *prog)
+c_bop_eq_string(mpcode_t *mpc)
 {
 	vo_t *v1;
 	vo_t *v2;
@@ -606,11 +602,11 @@ c_bop_eq_string(prog_t *prog)
 
 	TRACE;
 
-	v2 = pop(prog);
-	v1 = pop(prog);
+	v2 = pop(mpc);
+	v1 = pop(mpc);
 
 	v.i = !str_cscmp(v1->s, v2->s);
-	push(prog, v);
+	push(mpc, v);
 }
 
 /*--------------------------------------------------------------------
@@ -619,16 +615,16 @@ c_bop_eq_string(prog_t *prog)
 
 #define INT_UOP(c_uop_fun, op)						\
 	void								\
-	c_uop_fun(prog_t *prog)						\
+	c_uop_fun(mpcode_t *mpc)						\
 	{								\
 		vo_t *v1;						\
 		vo_t v;							\
 									\
 		TRACE;							\
 									\
-		v1 = pop(prog);						\
+		v1 = pop(mpc);						\
 		v.i = op v1->i;						\
-		push(prog, v);						\
+		push(mpc, v);						\
 	}
 
 INT_UOP(c_uop_not, !)
@@ -641,16 +637,16 @@ INT_UOP(c_uop_minus, -)
 
 #define INT_INCDEC(c_incdec_fun, preop, postop)				\
 	void								\
-	c_incdec_fun(prog_t *prog)					\
+	c_incdec_fun(mpcode_t *mpc)					\
 	{								\
 		sym_t *sym;						\
 		vo_t v;							\
 									\
 		TRACE;							\
 									\
-		sym = sym_get(prog, SYM_VAR);				\
+		sym = sym_get(mpc, SYM_VAR);				\
 		v.i = preop sym->s.var.data.i postop;			\
-		push(prog, v);						\
+		push(mpc, v);						\
 	}
 
 INT_INCDEC(c_postinc, , ++)
@@ -668,27 +664,27 @@ INT_INCDEC(c_predec, --, )
 									\
 	TRACE;								\
 									\
-	sym = sym_get(prog, SYM_VAR);					\
-	vo = pop(prog)
+	sym = sym_get(mpc, SYM_VAR);					\
+	vo = pop(mpc)
 
 #define INT_ASSIGN_TAIL(op)						\
 	sym->s.var.data.i op vo->i;					\
-	push(prog, sym->s.var.data)
+	push(mpc, sym->s.var.data)
 
 #define INT_ASSIGN(c_assign_fun, op)					\
 	void								\
-	c_assign_fun(prog_t *prog)					\
+	c_assign_fun(mpcode_t *mpc)					\
 	{								\
 		ASSIGN_HEAD;						\
 		INT_ASSIGN_TAIL(op);					\
 	}
 
 void
-c_assign(prog_t *prog)
+c_assign(mpcode_t *mpc)
 {
 	ASSIGN_HEAD;
 	sym->s.var.data = *vo;
-	push(prog, sym->s.var.data);
+	push(mpc, sym->s.var.data);
 }
 
 INT_ASSIGN(c_add_eq, +=)
@@ -704,18 +700,18 @@ INT_ASSIGN(c_shr_eq, >>=)
  * /= and %= require additional checks
  */
 void
-c_div_eq(prog_t *prog)
+c_div_eq(mpcode_t *mpc)
 {
 	ASSIGN_HEAD;
-	mpc_assert(prog, __FUNCTION__, vo->i != 0, "division by zero");
+	mpc_assert(mpc, __FUNCTION__, vo->i != 0, "division by zero");
 	INT_ASSIGN_TAIL(/=);
 }
 
 void
-c_mod_eq(prog_t *prog)
+c_mod_eq(mpcode_t *mpc)
 {
 	ASSIGN_HEAD;
-	mpc_assert(prog, __FUNCTION__, vo->i != 0, "division by zero");
+	mpc_assert(mpc, __FUNCTION__, vo->i != 0, "division by zero");
 	INT_ASSIGN_TAIL(%=);
 }
 
@@ -724,51 +720,51 @@ c_mod_eq(prog_t *prog)
  */
 
 static void
-push(prog_t *prog, vo_t vo)
+push(mpcode_t *mpc, vo_t vo)
 {
-	vo_t *v = varr_enew(&prog->data);
+	vo_t *v = varr_enew(&mpc->data);
 	*v = vo;
 }
 
 static vo_t *
-pop(prog_t *prog)
+pop(mpcode_t *mpc)
 {
-	vo_t *vo = peek(prog, 0);
-	varr_size(&prog->data)--;
+	vo_t *vo = peek(mpc, 0);
+	varr_size(&mpc->data)--;
 	return vo;
 }
 
 static vo_t *
-peek(prog_t *prog, size_t depth)
+peek(mpcode_t *mpc, size_t depth)
 {
 	vo_t *vo = (vo_t *) varr_get(
-	    &prog->data, varr_size(&prog->data) - 1 - depth);
-	mpc_assert(prog, __FUNCTION__, vo != NULL, "data stack underflow");
+	    &mpc->data, varr_size(&mpc->data) - 1 - depth);
+	mpc_assert(mpc, __FUNCTION__, vo != NULL, "data stack underflow");
 	return vo;
 }
 
 static void *
-code_get(prog_t *prog)
+code_get(mpcode_t *mpc)
 {
-	void **p = varr_get(&prog->code, prog->ip);
-	mpc_assert(prog, __FUNCTION__, p != NULL, "program code exhausted");
-	prog->ip++;
+	void **p = varr_get(&mpc->code, mpc->ip);
+	mpc_assert(mpc, __FUNCTION__, p != NULL, "program code exhausted");
+	mpc->ip++;
 	return *p;
 }
 
 static sym_t *
-sym_get(prog_t *prog, symtype_t symtype)
+sym_get(mpcode_t *mpc, symtype_t symtype)
 {
 	const char *symname;
 	sym_t *sym;
 
-	symname = code_get(prog);
+	symname = code_get(mpc);
 /*	log(LOG_INFO, "%s: '%s'", __FUNCTION__, symname); */
 
-	sym = sym_lookup(prog, symname);
-	mpc_assert(prog, __FUNCTION__,
+	sym = sym_lookup(mpc, symname);
+	mpc_assert(mpc, __FUNCTION__,
 	    sym != NULL, "%s: symbol not found", symname);
-	mpc_assert(prog, __FUNCTION__,
+	mpc_assert(mpc, __FUNCTION__,
 	    sym->type == symtype, "symbol type mismatch (want %d, got %d)",
 	    symtype, sym->type);
 
@@ -776,7 +772,7 @@ sym_get(prog_t *prog, symtype_t symtype)
 }
 
 static void
-mpc_assert(prog_t *prog, const char *ctx, int e, const char *fmt, ...)
+mpc_assert(mpcode_t *mpc, const char *ctx, int e, const char *fmt, ...)
 {
 	if (!e) {
 		char buf[MAX_STRING_LENGTH];
@@ -788,6 +784,29 @@ mpc_assert(prog_t *prog, const char *ctx, int e, const char *fmt, ...)
 
 		fprintf(stderr, "Runtime error: %s: %s\n", ctx, buf);
 
-		longjmp(prog->jmpbuf, -1);
+		longjmp(mpc->jmpbuf, -1);
+	}
+}
+
+static void
+dumpvar(mpcode_t *mpc, sym_t *sym)
+{
+	UNUSED_ARG(mpc);
+
+	switch (sym->s.var.type_tag) {
+	case MT_INT:
+		fprintf(stderr, "%s: (int) %d\n", sym->name, sym->s.var.data.i);
+		break;
+
+	case MT_STR:
+		fprintf(stderr, "%s: (string) '%s'\n",
+			sym->name, sym->s.var.data.s);
+		break;
+
+	default:
+		fprintf(stderr, "%s: (%s) %p\n",
+			sym->name, flag_string(mpc_types, sym->s.var.type_tag),
+			sym->s.var.data.ch);
+		break;
 	}
 }

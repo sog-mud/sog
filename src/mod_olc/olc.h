@@ -1,5 +1,5 @@
 /*
- * $Id: olc.h,v 1.83 2001-08-22 20:45:47 fjoe Exp $
+ * $Id: olc.h,v 1.84 2001-08-25 04:53:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -98,7 +98,7 @@ extern olc_cmd_t	olc_cmds_area[];
 extern olc_cmd_t	olc_cmds_room[];
 extern olc_cmd_t	olc_cmds_obj[];
 extern olc_cmd_t	olc_cmds_mob[];
-extern olc_cmd_t	olc_cmds_mpcode[];
+extern olc_cmd_t	olc_cmds_mprog[];
 extern olc_cmd_t	olc_cmds_help[];
 extern olc_cmd_t	olc_cmds_clan[];
 extern olc_cmd_t	olc_cmds_msg[];

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.h,v 1.1 2001-08-22 20:45:44 fjoe Exp $
+ * $Id: trig.h,v 1.2 2001-08-25 04:53:51 fjoe Exp $
  */
 
 #ifndef _TRIG_H_
@@ -151,9 +151,9 @@ void trig_dump_list(varr *v, BUFFER *buf);
 void trig_set_arg(trig_t *trig, const char *arg);
 
 /**
- * Pull one trigger
+ * Pull trigger
  */
-int pull_one_trigger(trig_t *trig, ...);
+int pull_trigger(trig_t *trig, int mp_type, ...);
 
 /**
  * Pull mob trigger of specified type

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.159 2001-08-22 20:45:51 fjoe Exp $
+ * $Id: tables.c,v 1.160 2001-08-25 04:54:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -49,6 +49,7 @@
 #include <note.h>
 #include <module_decl.h>
 #include <vo_iter.h>
+#include <mprog.h>
 
 /*
  * first element of each flaginfo_t[] table describes type of values
@@ -1546,6 +1547,18 @@ flaginfo_t mptrig_flags[] =
 
 	{ "case-sensitive",	TRIG_F_CASEDEP,		FALSE	},
 	{ "regexp",		TRIG_F_REGEXP,		FALSE	},
+
+	{ NULL, 0, FALSE }
+};
+
+flaginfo_t mprog_types[] =
+{
+	{ "",			TABLE_INTVAL,		FALSE	},
+
+	{ "mob",		MP_T_MOB,		TRUE	},
+	{ "obj",		MP_T_OBJ,		TRUE	},
+	{ "room",		MP_T_ROOM,		TRUE	},
+	{ "spec",		MP_T_SPEC,		TRUE	},
 
 	{ NULL, 0, FALSE }
 };

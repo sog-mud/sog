@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_impl.h,v 1.15 2001-08-14 16:06:59 fjoe Exp $
+ * $Id: mpc_impl.h,v 1.16 2001-08-25 04:53:55 fjoe Exp $
  */
 
 #ifndef _MPC_IMPL_H_
@@ -86,34 +86,12 @@ struct swjump_t {
 };
 typedef struct swjump_t swjump_t;
 
-/**
- * Program types
- */
-enum {
-	MP_T_MOB,
-	MP_T_OBJ,
-	MP_T_ROOM,
-	MP_T_SPEC,
-};
-
-/**
- * Program status
- */
-enum {
-	MP_S_DIRTY,		/**< program was not compiled */
-	MP_S_READY,		/**< program compiled ok */
-};
-
-struct prog_t {
+struct mpcode_t {
 	const char *name;	/**< program name			*/
-	int type;		/**< program type			*/
-	int status;		/**< program status			*/
 
-	const char *text;	/**< program text			*/
-	size_t textlen;		/**< program text len			*/
+	mprog_t *mp;		/**< mprog (text, errbuf)		*/
 
 	const char *cp;		/**< current position (for lexer)	*/
-	BUFFER *errbuf;		/**< error msg buffer			*/
 	int lineno;		/**< current line number		*/
 
 	hash_t strings;		/**< (const char *) string space	*/
@@ -132,45 +110,35 @@ struct prog_t {
 	int ip;			/**< program instruction pointer	*/
 	varr code;		/**< (void *) program code		*/
 
-	varr jumptabs;		/**< (varr ) 'switch' jump tables	*/
+	varr jumptabs;		/**< (varr) 'switch' jump tables	*/
 	varr iterdata;		/**< (iterdata_t) 'foreach' iter data	*/
 
 	jmp_buf jmpbuf;		/**< jmp buf				*/
 	varr data;		/**< data stack				*/
 };
-typedef struct prog_t prog_t;
+typedef struct mpcode_t mpcode_t;
 
-extern hash_t progs;
+extern hash_t mpcodes;
 
 /**
  * Initialize program
  */
 void
-prog_init(prog_t *prog);
+mpcode_init(mpcode_t *mpc);
 
 /**
  * Destroy program
  */
 void
-prog_destroy(prog_t *prog);
+mpcode_destroy(mpcode_t *mpc);
 
-/**
- * Compile program
- */
-int
-prog_compile(prog_t *prog);
-
-/**
- * Execute program
- */
-int
-prog_execute(prog_t *prog, int *errcode);
+#define mpcode_lookup(name)	((mpcode_t *) hash_lookup(&mpcodes, (name)))
 
 /**
  * Dump program
  */
 void
-prog_dump(prog_t *prog);
+mpcode_dump(mpcode_t *mpc);
 
 /**
  * Initialize mpc
@@ -187,84 +155,84 @@ mpc_fini(void);
 /**
  * Lexer
  */
-int mpc_lex(prog_t *prog);
+int mpc_lex(mpcode_t *mpc);
 
 /**
  * Lookup symbol by name
  */
 sym_t *
-sym_lookup(prog_t *prog, const char *name);
+sym_lookup(mpcode_t *mpc, const char *name);
 
 /**
  * Remove symbols with block >= specified
  */
 void
-cleanup_syms(prog_t *prog, int block);
+cleanup_syms(mpcode_t *mpc, int block);
 
 /**
  * Handle compilation error
  */
 void
-compile_error(prog_t *prog, const char *fmt, ...)
+compile_error(mpcode_t *mpc, const char *fmt, ...)
 	__attribute__ ((format(printf, 2, 3)));
 
 /**
  * Make sure the string is allocated in program string space
  */
-const char *alloc_string(prog_t *prog, const char *s);
+const char *alloc_string(mpcode_t *mpc, const char *s);
 
 /**
  * Execute program from specified position
  */
-void execute(prog_t *prog, int ip);
+void execute(mpcode_t *mpc, int ip);
 
 /*--------------------------------------------------------------------
  * direct data stack manipulation opcodes
  */
 
-typedef void (*c_fun)(prog_t *prog);
+typedef void (*c_fun)(mpcode_t *mpc);
 
 /**
  * Pop value from data stack
  */
-void	c_pop(prog_t *prog);
+void	c_pop(mpcode_t *mpc);
 
 /**
  * Push constant on data stack
  *
  * Expects next opcode to be const value to push.
  */
-void	c_push_const(prog_t *prog);
+void	c_push_const(mpcode_t *mpc);
 
 /**
  * Push variable on data stack
  *
  * Expects next opcode to be variable name.
  */
-void	c_push_var(prog_t *prog);
+void	c_push_var(mpcode_t *mpc);
 
 /**
  * Push function return value on data stack
  *
  * Expects next opcode to be 'func_t *'.
  */
-void	c_push_retval(prog_t *prog);
+void	c_push_retval(mpcode_t *mpc);
 
 #define c_stop 0
 #define INVALID_ADDR -1
 
-void	c_jmp(prog_t *prog);		/* jmp */
-void	c_jmp_addr(prog_t *prog);	/* jmp addr */
-void	c_if(prog_t *prog);		/* if */
-void	c_switch(prog_t *prog);		/* switch */
-void	c_quecolon(prog_t *prog);	/* ?: */
-void	c_foreach(prog_t *prog);	/* foreach */
-void	c_foreach_next(prog_t *prog);	/* foreach_next */
-void	c_declare(prog_t *prog);	/* declare variable */
-void	c_declare_assign(prog_t *prog);	/* declare variable and assign */
+void	c_jmp(mpcode_t *mpc);		/* jmp */
+void	c_jmp_addr(mpcode_t *mpc);	/* jmp addr */
+void	c_if(mpcode_t *mpc);		/* if */
+void	c_switch(mpcode_t *mpc);	/* switch */
+void	c_quecolon(mpcode_t *mpc);	/* ?: */
+void	c_foreach(mpcode_t *mpc);	/* foreach */
+void	c_foreach_next(mpcode_t *mpc);	/* foreach_next */
+void	c_declare(mpcode_t *mpc);	/* declare variable */
+void	c_declare_assign(mpcode_t *mpc);/* declare variable and assign */
 					/* initial value */
-void	c_cleanup_syms(prog_t *prog);	/* cleanup symbols */
-void	c_return(prog_t *prog);		/* return */
+void	c_cleanup_syms(mpcode_t *mpc);	/* cleanup symbols */
+void	c_return(mpcode_t *mpc);	/* return */
 
 /*--------------------------------------------------------------------
  * binary operations
@@ -272,39 +240,39 @@ void	c_return(prog_t *prog);		/* return */
  * all of them pop two arguments from data stack and push the result back.
  */
 
-void	c_bop_lor(prog_t *prog);	/* || */
-void	c_bop_land(prog_t *prog);	/* && */
-void	c_bop_or(prog_t *prog);		/* | */
-void	c_bop_xor(prog_t *prog);	/* ^ */
-void	c_bop_and(prog_t *prog);	/* & */
+void	c_bop_lor(mpcode_t *mpc);	/* || */
+void	c_bop_land(mpcode_t *mpc);	/* && */
+void	c_bop_or(mpcode_t *mpc);	/* | */
+void	c_bop_xor(mpcode_t *mpc);	/* ^ */
+void	c_bop_and(mpcode_t *mpc);	/* & */
 
-void	c_bop_ne(prog_t *prog);		/* == */
-void	c_bop_eq(prog_t *prog);		/* != */
+void	c_bop_ne(mpcode_t *mpc);	/* == */
+void	c_bop_eq(mpcode_t *mpc);	/* != */
 
-void	c_bop_gt(prog_t *prog);		/* > */
-void	c_bop_ge(prog_t *prog);		/* >= */
-void	c_bop_lt(prog_t *prog);		/* < */
-void	c_bop_le(prog_t *prog);		/* <= */
+void	c_bop_gt(mpcode_t *mpc);	/* > */
+void	c_bop_ge(mpcode_t *mpc);	/* >= */
+void	c_bop_lt(mpcode_t *mpc);	/* < */
+void	c_bop_le(mpcode_t *mpc);	/* <= */
 
-void	c_bop_shl(prog_t *prog);	/* << */
-void	c_bop_shr(prog_t *prog);	/* >> */
-void	c_bop_add(prog_t *prog);	/* + */
-void	c_bop_sub(prog_t *prog);	/* - */
-void	c_bop_mul(prog_t *prog);	/* * */
-void	c_bop_mod(prog_t *prog);	/* % */
-void	c_bop_div(prog_t *prog);	/* / */
+void	c_bop_shl(mpcode_t *mpc);	/* << */
+void	c_bop_shr(mpcode_t *mpc);	/* >> */
+void	c_bop_add(mpcode_t *mpc);	/* + */
+void	c_bop_sub(mpcode_t *mpc);	/* - */
+void	c_bop_mul(mpcode_t *mpc);	/* * */
+void	c_bop_mod(mpcode_t *mpc);	/* % */
+void	c_bop_div(mpcode_t *mpc);	/* / */
 
-void	c_bop_ne_string(prog_t *prog);	/* == for strings (case-sensitive) */
-void	c_bop_eq_string(prog_t *prog);	/* != for strings (case-sensitive) */
+void	c_bop_ne_string(mpcode_t *mpc);	/* == for strings (case-sensitive) */
+void	c_bop_eq_string(mpcode_t *mpc);	/* != for strings (case-sensitive) */
 
 /*--------------------------------------------------------------------
  * unary operations
  *
  * all of them pop one argument from data stack and push the result back.
  */
-void	c_uop_not(prog_t *prog);	/* ! */
-void	c_uop_compl(prog_t *prog);	/* ~ */
-void	c_uop_minus(prog_t *prog);	/* - (unary) */
+void	c_uop_not(mpcode_t *mpc);	/* ! */
+void	c_uop_compl(mpcode_t *mpc);	/* ~ */
+void	c_uop_minus(mpcode_t *mpc);	/* - (unary) */
 
 /*--------------------------------------------------------------------
  * incdec operations
@@ -312,10 +280,10 @@ void	c_uop_minus(prog_t *prog);	/* - (unary) */
  * all of them expect next opcode to be variable name.
  * push the result on data stack.
  */
-void	c_postinc(prog_t *prog);	/* post ++ */
-void	c_postdec(prog_t *prog);	/* post -- */
-void	c_preinc(prog_t *prog);		/* pre ++ */
-void	c_predec(prog_t *prog);		/* pre -- */
+void	c_postinc(mpcode_t *mpc);	/* post ++ */
+void	c_postdec(mpcode_t *mpc);	/* post -- */
+void	c_preinc(mpcode_t *mpc);	/* pre ++ */
+void	c_predec(mpcode_t *mpc);	/* pre -- */
 
 /*--------------------------------------------------------------------
  * assign operations
@@ -324,16 +292,16 @@ void	c_predec(prog_t *prog);		/* pre -- */
  * next op is expected to be variable name.
  */
 
-void	c_assign(prog_t *prog);		/* = */
-void	c_add_eq(prog_t *prog);		/* += */
-void	c_sub_eq(prog_t *prog);		/* -= */
-void	c_div_eq(prog_t *prog);		/* /= */
-void	c_mul_eq(prog_t *prog);		/* *= */
-void	c_mod_eq(prog_t *prog);		/* %= */
-void	c_and_eq(prog_t *prog);		/* &= */
-void	c_or_eq(prog_t *prog);		/* |= */
-void	c_xor_eq(prog_t *prog);		/* ^= */
-void	c_shl_eq(prog_t *prog);		/* <<= */
-void	c_shr_eq(prog_t *prog);		/* >>= */
+void	c_assign(mpcode_t *mpc);	/* = */
+void	c_add_eq(mpcode_t *mpc);	/* += */
+void	c_sub_eq(mpcode_t *mpc);	/* -= */
+void	c_div_eq(mpcode_t *mpc);	/* /= */
+void	c_mul_eq(mpcode_t *mpc);	/* *= */
+void	c_mod_eq(mpcode_t *mpc);	/* %= */
+void	c_and_eq(mpcode_t *mpc);	/* &= */
+void	c_or_eq(mpcode_t *mpc);		/* |= */
+void	c_xor_eq(mpcode_t *mpc);	/* ^= */
+void	c_shl_eq(mpcode_t *mpc);	/* <<= */
+void	c_shr_eq(mpcode_t *mpc);	/* >>= */
 
 #endif /* _MPC_IMPL_H_ */

@@ -23,63 +23,61 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_sog.c,v 1.7 2001-08-25 04:53:58 fjoe Exp $
+ * $Id: mprog.h,v 1.1 2001-08-25 04:53:50 fjoe Exp $
  */
 
-#include <stdio.h>
-#include <stdarg.h>
-#include <dlfcn.h>
+#ifndef _MPROG_H_
+#define _MPROG_H_
 
-#include <merc.h>
+/**
+ * Program types
+ */
+enum {
+	MP_T_MOB,
+	MP_T_OBJ,
+	MP_T_ROOM,
+	MP_T_SPEC,
+};
 
-#include <module.h>
-#define MODULE_INIT MOD_SOG
-#include <sog.h>
+/**
+ * Program status
+ */
+enum {
+	MP_S_DIRTY,		/**< program was not compiled */
+	MP_S_READY,		/**< program compiled ok */
+};
 
-#include "handler_impl.h"
+/**
+ * Program
+ */
+struct mprog_t {
+	const char *name;	/**< program name			*/
+	int type;		/**< program type			*/
+	int status;		/**< program status			*/
+	const char *text;	/**< program text			*/
+	BUFFER *errbuf;		/**< buffer for error messages		*/
+};
 
-DECLARE_MODINIT_FUN(_module_load);
-DECLARE_MODINIT_FUN(_module_unload);
-DECLARE_MODINIT_FUN(_module_boot);
+extern hash_t mprogs;
+extern hashdata_t h_mprogs;
 
-static char_logger_t old_logger;
+void mprog_init(mprog_t *);
+void mprog_destroy(mprog_t *);
 
-MODINIT_FUN(_module_load, m)
-{
-	run_game = dlsym(m->dlh, "_run_game");			// notrans
-	if (run_game == NULL) {
-		log(LOG_INFO, "_module_load(mod_sog): %s", dlerror());
-		return -1;
-	}
+#define mprog_lookup(name)	((mprog_t *) hash_lookup(&mprogs, (name)))
 
-	run_game_bottom = dlsym(m->dlh, "_run_game_bottom");	// notrans
-	if (run_game_bottom == NULL) {
-		log(LOG_INFO, "_module_load(mod_sog): %s", dlerror());
-		return -1;
-	}
+extern int (*mprog_compile)(mprog_t *mp);
+extern int (*mprog_execute)(mprog_t *mp, va_list ap);
 
-	dynafun_tab_register(__mod_tab(MODULE), m);
-	old_logger = char_logger_set(act_char_logger);
-	return 0;
-}
+/**
+ * mprog_execute error codes
+ */
+#define MPC_ERR_INTERNAL	(-1)	/* mpc internal error		*/
+#define MPC_ERR_COMPILE		(-2)	/* compile error		*/
+#define MPC_ERR_RUNTIME		(-3)	/* runtime error		*/
+#define MPC_ERR_DIRTY		(-4)	/* program is not compiled	*/
+#define MPC_ERR_NOTFOUND	(-5)	/* trigger/program not found	*/
+#define MPC_ERR_UNLOADED	(-6)	/* mod_mpc is not loaded	*/
+#define MPC_ERR_TYPE_MISMATCH	(-7)	/* mprog type mismatch		*/
 
-extern bool do_longjmp;
-
-MODINIT_FUN(_module_unload, m)
-{
-	run_game_bottom = NULL;
-	run_game = NULL;
-
-	dynafun_tab_unregister(__mod_tab(MODULE));
-
-	char_logger_set(old_logger);
-
-	do_longjmp = TRUE;
-	return 0;
-}
-
-MODINIT_FUN(_module_boot, m)
-{
-	load_bans();
-	return 0;
-}
+#endif /* _MPROG_H_ */

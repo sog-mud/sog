@@ -23,63 +23,51 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: init_sog.c,v 1.7 2001-08-25 04:53:58 fjoe Exp $
+ * $Id: mprog.c,v 1.1 2001-08-25 04:53:59 fjoe Exp $
  */
 
-#include <stdio.h>
 #include <stdarg.h>
-#include <dlfcn.h>
+#include <stdlib.h>
 
-#include <merc.h>
+#include <typedef.h>
+#include <str.h>
+#include <varr.h>
+#include <hash.h>
+#include <strkey_hash.h>
+#include <mprog.h>
+#include <buffer.h>
 
-#include <module.h>
-#define MODULE_INIT MOD_SOG
-#include <sog.h>
+hash_t mprogs;
 
-#include "handler_impl.h"
+int (*mprog_compile)(mprog_t *mp);
+int (*mprog_execute)(mprog_t *mp, va_list ap);
 
-DECLARE_MODINIT_FUN(_module_load);
-DECLARE_MODINIT_FUN(_module_unload);
-DECLARE_MODINIT_FUN(_module_boot);
+hashdata_t h_mprogs = {
+	sizeof(mprog_t), 8,
+	(e_init_t) mprog_init,
+	(e_destroy_t) mprog_destroy,
+	NULL,
 
-static char_logger_t old_logger;
+	STRKEY_HASH_SIZE,
+	k_hash_str,
+	ke_cmp_str
+};
 
-MODINIT_FUN(_module_load, m)
+void
+mprog_init(mprog_t *mp)
 {
-	run_game = dlsym(m->dlh, "_run_game");			// notrans
-	if (run_game == NULL) {
-		log(LOG_INFO, "_module_load(mod_sog): %s", dlerror());
-		return -1;
-	}
-
-	run_game_bottom = dlsym(m->dlh, "_run_game_bottom");	// notrans
-	if (run_game_bottom == NULL) {
-		log(LOG_INFO, "_module_load(mod_sog): %s", dlerror());
-		return -1;
-	}
-
-	dynafun_tab_register(__mod_tab(MODULE), m);
-	old_logger = char_logger_set(act_char_logger);
-	return 0;
+	mp->name = str_empty;
+	mp->type = MP_T_MOB;
+	mp->status = MP_S_DIRTY;
+	mp->text = str_empty;
+	mp->errbuf = NULL;
 }
 
-extern bool do_longjmp;
-
-MODINIT_FUN(_module_unload, m)
+void
+mprog_destroy(mprog_t *mp)
 {
-	run_game_bottom = NULL;
-	run_game = NULL;
-
-	dynafun_tab_unregister(__mod_tab(MODULE));
-
-	char_logger_set(old_logger);
-
-	do_longjmp = TRUE;
-	return 0;
-}
-
-MODINIT_FUN(_module_boot, m)
-{
-	load_bans();
-	return 0;
+	free_string(mp->name);
+	free_string(mp->text);
+	if (mp->errbuf != NULL)
+		buf_free(mp->errbuf);
 }

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: mpc_dynafun.c,v 1.5 2001-08-14 16:06:58 fjoe Exp $
+ * $Id: mpc_dynafun.c,v 1.6 2001-08-25 04:53:55 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -99,7 +99,7 @@ spclass_count(CHAR_DATA *ch, const char *spclass_name,
 	int spclass;
 	spec_t *spec;
 
-	if ((spclass = flag_value(spec_classes, spclass_name)) < 0)
+	if ((spclass = flag_svalue(spec_classes, spclass_name)) < 0)
 		return 0;
 
 	if ((spec = spec_lookup(spn_add)) != NULL
@@ -107,6 +107,8 @@ spclass_count(CHAR_DATA *ch, const char *spclass_name,
 		count++;
 
 	varr_foreach(&PC(ch)->specs, spclass_count_cb, spclass, spn_rm, &count);
+	log(LOG_INFO, "spclass_count: %s (%s): %d",
+	    spclass_name, flag_string(spec_classes, spclass), count);
 	return count;
 }
 
