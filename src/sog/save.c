@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.6 1998-04-21 11:48:11 fjoe Exp $
+ * $Id: save.c,v 1.7 1998-04-21 15:57:41 efdi Exp $
  */
 
 /***************************************************************************
@@ -680,6 +680,8 @@ bool load_char_obj( DESCRIPTOR_DATA *d, char *name )
     ch->pcdata->condition[COND_HUNGER]	= 48;
     ch->pcdata->condition[COND_BLOODLUST]	= 48;
     ch->pcdata->condition[COND_DESIRE]	= 48;
+
+    ch->i_lang = LANG_ENG;
 
     ch->pcdata->nextquest = 0;
     ch->pcdata->questpoints = 0; 
