@@ -2109,3 +2109,17 @@ Text
 -- работает {{\ (см. help color)
       Arborn
 ~
+Sender  Arborn~
+Date    Thu Jul  1 17:49:40 1999~
+Stamp   930826180
+To      imm~
+Subject last changes~
+Text
+mwhere/owhere теперь понимают vnum как аргумент (owhere 3068 например)
+invis/teleport снесены - пользуйтесь wizi/transfer
+msgstat и mpstat теперь вызываются через stat msg и stat mp
+strstat удален - memory это и так показывает
+баг с guard'ом пофиксен
+под slow теперь перемещение медленнее в два раза (2 микротика так, 4 на лодке)
+#Arborn
+~
