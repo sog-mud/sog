@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.66 1999-12-05 07:07:20 avn Exp $
+ * $Id: olc_room.c,v 1.67 1999-12-05 09:15:03 avn Exp $
  */
 
 #include "olc.h"
@@ -840,6 +840,28 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		return TRUE;
 	}
 
+	if (!str_cmp(command, "name")) {
+		bool ok;
+
+		if (argument[0] == '\0') {
+			char_printf(ch, "Syntax: %s name [string]\n"
+					"        %s name none\n",
+				    cmd->name, cmd->name);
+			return FALSE;
+		}
+
+		if (!pRoom->exit[door]) {
+			char_puts("RoomEd: Exit does not exist.\n",ch);
+			return FALSE;
+		}
+
+		ok = olced_name(ch, argument, cmd, &pRoom->exit[door]->keyword);
+
+		if (ok)
+			char_puts("Exit name set.\n", ch);
+		return ok;
+	}
+
 	argument = one_argument(argument, arg, sizeof(arg));
 
 	if (command[0] == '?') {
@@ -994,29 +1016,6 @@ static bool olced_exit(CHAR_DATA *ch, const char *argument,
 		pRoom->exit[door]->key = value;
 
 		char_puts("Exit key set.\n", ch);
-		return TRUE;
-	}
-
-	if (!str_cmp(command, "name")) {
-		if (arg[0] == '\0') {
-			char_printf(ch, "Syntax: %s name [string]\n"
-					"        %s name none\n",
-				    cmd->name, cmd->name);
-			return FALSE;
-		}
-
-		if (!pRoom->exit[door]) {
-			char_puts("RoomEd: Exit does not exist.\n",ch);
-			return FALSE;
-		}
-
-		free_string(pRoom->exit[door]->keyword);
-		if (!str_cmp(arg, "none"))
-			pRoom->exit[door]->keyword = str_dup(str_empty);
-		else
-			pRoom->exit[door]->keyword = str_dup(arg);
-
-		char_puts("Exit name set.\n", ch);
 		return TRUE;
 	}
 
