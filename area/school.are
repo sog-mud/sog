@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name MUD School~
 VNUMs 3700 3799
 Credits Hatchet~
@@ -326,7 +326,7 @@ priest cleric жрец~
 @rus Он большой и вредный. Отстань от него!
 ~
 human~
-BCJQTV D H 0 K 1000 0
+BCJQTV BC H 0 K 1000 0
 30 10 1d1+999 1d1+999 2d4+30 'beating'
 -15 -15 -15 -15
 ACEFHIKN
@@ -3203,7 +3203,15 @@ S
 0
 
 #PRACTICERS
-M 3719 AELMNPSWX	* the priest of Circe
+M 3719 weaponsmaster	* the priest of Circe
+M 3719 combat	* the priest of Circe
+M 3719 harmful	* the priest of Circe
+M 3719 healing	* the priest of Circe
+M 3719 illusion	* the priest of Circe
+M 3719 protective	* the priest of Circe
+M 3719 fightmaster	* the priest of Circe
+M 3719 defensive	* the priest of Circe
+M 3719 wizard	* the priest of Circe
 S
 
 #$

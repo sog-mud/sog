@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name Prison~
 Builders orail~
 VNUMs 32000 32099
@@ -303,7 +303,7 @@ this time and place. He makes do with the clothes on his back and the
 hope that more and more worthy people like you will come and visit.
 ~
 human~
-BG D HN 0 0 1000 0
+BG BC HN 0 0 1000 0
 45 0 50d10+2500 5d5+5000 11d5+35 'pound'
 -20 -20 -20 -15
 CDEFHIJK
@@ -3334,6 +3334,10 @@ O 32034 2	* a titanium shield
 O 32036 5	* a pitch black ring
 O 32043 3	* a pair of coveralls
 O 32052 1	* an axe of destruction
+S
+
+#PRACTICERS
+M 32019 none	* The Muslim Cleric
 S
 
 #$

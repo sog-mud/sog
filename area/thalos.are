@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name Thalos~
 VNUMs 5200 5299
 Credits Drkside~
@@ -17,7 +17,7 @@ eyestalks atop the round body which can do anything from charm you
 to disintegrate you.  Beholders are not known for their personality.
 ~
 human~
-BHJRe D 0 0 A -870 0
+BHJRe 0 0 0 A -870 0
 25 10 5d10+2500 25d9+100 4d4+16 'none'
 -16 -16 -16 -2
 F
@@ -2690,10 +2690,6 @@ S
 
 #OLIMITS
 O 5208 1	* a sturdy iron shield
-S
-
-#PRACTICERS
-M 5200 C	* The mighty beholder
 S
 
 #$

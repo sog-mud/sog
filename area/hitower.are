@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name High Tower~
 VNUMs 1300 1499
 Credits Skylar~
@@ -488,7 +488,7 @@ the Enchanter~
 The Enchanter is here placing a dweomer upon well made sword.~
 ~
 human~
-BGJRe D 0 0 A 0 0
+BGJRe BC 0 0 A 0 0
 43 30 5d100+6400 23d9+100 2d8+35 'none'
 -35 -35 -35 -23
 F
@@ -531,7 +531,7 @@ the master summoner~
 The master summoner is here holding gateways open to other planes.~
 ~
 human~
-BGHR D 0 0 A -200 0
+BGHR BC 0 0 A -200 0
 22 0 4d10+360 22d9+100 2d7+5 'none'
 -5 -5 -5 3
 FU
@@ -549,7 +549,7 @@ The master charmer utters the words, 'uuuzzldctz'.~
 The master charmer sizes you up, always looking for a new pet.
 ~
 human~
-BR D 0 0 AN -400 0
+BR BC 0 0 AN -400 0
 50 0 20d20+400 23d9+100 2d8+5 'none'
 -70 -70 -70 -100
 FU
@@ -684,7 +684,7 @@ The image of an ugly dragon flickers slightly, and where the dragon was
 now stands a small harmless looking old man.
 ~
 human~
-BCGJRe D 0 0 ABKLM 150 0
+BCGJRe BC 0 0 ABKLM 150 0
 101 50 1d99+29333 21d9+5100 12d47+60 'magic'
 -104 -104 -104 -53
 F
@@ -926,7 +926,7 @@ youthful appearance through the use of strong magics.
 The Grand Master pets her familiar and smiles at you in confidence.
 ~
 human~
-BGJRe D H 0 A 0 0
+BGJRe BC H 0 A 0 0
 50 0 50d10+4000 50d9+100 6d6+17 'none'
 -19 -19 -19 -4
 FU
@@ -6327,11 +6327,14 @@ O 1399 10	* a ward major
 S
 
 #PRACTICERS
-M 1334 Je	* the Enchanter
-M 1337 ab	* the master summoner
-M 1338 Je	* the master charmer
-M 1348 N	* the master of illusions
-M 1364 Q	* The Grand Mistress
+M 1334 enchantment	* the Enchanter
+M 1334 charm	* the Enchanter
+M 1337 conjuration	* the master summoner
+M 1337 summoning	* the master summoner
+M 1338 enchantment	* the master charmer
+M 1338 charm	* the master charmer
+M 1348 illusion	* the master of illusions
+M 1364 transportation	* The Grand Mistress
 S
 
 #$

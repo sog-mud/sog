@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name New Ofcol~
 VNUMs 600 699
 Credits Hatchet~
@@ -36,7 +36,7 @@ is the hardest metal she can find.  She is willing to defend Ofcol to her
 death.
 ~
 human~
-BJQe D HN 0 A 1000 0
+BJQe BC HN 0 A 1000 0
 33 16 10d73+487 33d10+100 5d11+19 'none'
 -10 -10 -10 -5
 EIKU
@@ -437,7 +437,7 @@ with the world.  She devotes all her time to help teach you the ways of her
 god, Bahamut.  The dragon symbol around her neck looks almost alive.
 ~
 human~
-BJe D HN 0 0 1000 0
+BJe BC HN 0 0 1000 0
 29 20 10d56+405 29d10+100 5d10+15 'none'
 -8 -8 -8 -3
 EFNU
@@ -3936,8 +3936,8 @@ S
 0
 
 #PRACTICERS
-M 601 O	* Marshall Diana
-M 628 M	* the Priestess of Ofcol
+M 601 maladictions	* Marshall Diana
+M 628 healing	* the Priestess of Ofcol
 S
 
 #$

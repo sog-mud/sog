@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name Arkham~
 VNUMs 700 899
 Credits Ceran~
@@ -139,7 +139,7 @@ A librarian is stamping books.~
 The librarian yells at you to shut up.
 ~
 human~
-BEGJRTYce DI N 0 0 300 0
+BEGJRTYce I N 0 0 300 0
 50 0 1d1+30000 23d10+100 40d40+100 'slash'
 -4 -4 -4 2
 EFKNU
@@ -984,7 +984,7 @@ little, its
 by its large fangs that it is capable of inflicting great misery.
 ~
 wyvern~
-BGT D JN 0 0 -1000 0
+BGT BC JN 0 0 -1000 0
 34 12 10d78+505 34d10+100 5d11+21 'claw'
 -11 -11 -11 0
 ENQU
@@ -1066,7 +1066,7 @@ a knife an throws it at you. It lands the wall next to your left ear. We
 will now begin, is all he says.
 ~
 elf~
-BJTVe BCD 0 0 AB -100 0
+BJTVe BC 0 0 AB -100 0
 40 15 1d1+30000 1d1+99 1d4+10 'digestion'
 -15 -15 -15 -15
 BEFHJKN
@@ -1096,7 +1096,7 @@ Your guildmaster stands here.~
 A smaller man dressed in nothing but a tunic stands here waiting to train you.
 ~
 human~
-BJTVe BCD 0 0 AB 0 0
+BJTVe BC 0 0 AB 0 0
 40 20 1d1+30000 1d1+99 2d4+30 'digestion'
 -15 -15 -15 -15
 ACEFHIK
@@ -1126,7 +1126,7 @@ Your guildmaster stands here.~
 An older man wrapped in purple, long-flowing robes meditates here.
 ~
 human~
-BJQVe BCD H 0 AB 250 0
+BJQVe BC H 0 AB 250 0
 40 10 1d1+30000 1d1+499 6d7+8 'bite'
 -15 -15 -15 -15
 EFGIK
@@ -1156,7 +1156,7 @@ Your guildmaster stands here.~
 An old man peering through ancient tomes rests here.
 ~
 human~
-BJRVe BCD 0 0 AB 0 0
+BJRVe BC 0 0 AB 0 0
 40 10 1d1+30000 1d1+499 5d8+5 'pierce'
 -15 -15 -15 -15
 FHN
@@ -1206,7 +1206,7 @@ forest brown leathers and green cloak, he is currently practicing
 the use of his staff.
 ~
 human~
-BGJe D 0 0 0 0 0
+BGJe BC 0 0 0 0 0
 60 20 2d1+10000 1d1+99 5d6+150 'beating'
 -19 -19 -19 -19
 FK
@@ -1237,7 +1237,7 @@ charismatic.  He is still wearing his bright body armor, even at a very
 safe place like this. He has a long, two-handed sword next to him.
 ~
 human~
-BJRVe D 0 0 ABL 1000 0
+BJRVe BC 0 0 ABL 1000 0
 50 0 1d1+10000 1d1+999 1d1+100 'slash'
 -80 -80 -80 -40
 FG
@@ -1265,7 +1265,7 @@ Your guildmaster stands here.~
 An old man peering through ancient tomes rests here.
 ~
 human~
-BJRVe BCD 0 0 AB 0 0
+BJRVe BC 0 0 AB 0 0
 40 10 1d1+30000 1d1+499 5d8+5 'pierce'
 -15 -15 -15 -15
 FHN
@@ -1295,7 +1295,7 @@ Your guildmaster stands here.~
 An old man peering through ancient tomes rests here.
 ~
 human~
-BJRVe BCD 0 0 AB 0 0
+BJRVe BC 0 0 AB 0 0
 40 10 1d1+30000 1d1+499 5d8+5 'pierce'
 -15 -15 -15 -15
 FHN
@@ -7251,6 +7251,18 @@ O 714 3	* bastard sword
 O 719 8	* straight razor
 O 720 20	* thornblade
 O 763 12	* the two-handed sword named "Blasphemy"
+S
+
+#PRACTICERS
+M 771 none	* a wyrm
+M 801 none	* the guildmaster
+M 803 none	* the guildmaster
+M 805 none	* the guildmaster
+M 807 none	* the guildmaster
+M 811 none	* the ranger guildmaster
+M 813 none	* the guildmaster
+M 815 none	* the guildmaster
+M 817 none	* the guildmaster
 S
 
 #$

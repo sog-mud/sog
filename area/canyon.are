@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name Elemental Canyon~
 Builders akmal~
 VNUMs 9200 9299
@@ -133,7 +133,7 @@ he begins and the rock wall ends.
 нается скала.
 ~
 human~
-BJQe D H 0 H 0 0
+BJQe BC H 0 H 0 0
 30 0 6d12+853 30d9+100 5d4+8 'none'
 -9 -9 -9 4
 EIKU
@@ -150,7 +150,7 @@ fire elemental ruler повелитель воплощение огонь~
 @rus Ты видишь фигуру, окруженную языками пламени, восседающую на троне.
 ~
 human~
-BJe D H 0 0 0 0
+BJe BC H 0 0 0 0
 30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNU
@@ -167,7 +167,7 @@ air elemental ruler повелитель воплощение воздух~
 @rus Смотря на него, ты словно смотришь на само небо.
 ~
 human~
-BJe D H 0 0 0 0
+BJe BC H 0 0 0 0
 30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNU
@@ -186,7 +186,7 @@ You rub your eyes and look and the ruler is there grinning at you.
 себя ты видишь ухмыляющегося элементаля -- повелителя молний.
 ~
 human~
-BJe D H 0 0 0 0
+BJe BC H 0 0 0 0
 30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNU
@@ -206,7 +206,7 @@ as you get scared, it reforms in elemental form.
 обратно к форме элементаля.
 ~
 water fowl~
-BJe D H 0 0 0 0
+BJe BC H 0 0 0 0
 30 0 6d12+853 15d9+100 4d6+8 'none'
 -9 -9 -9 6
 EFNR
@@ -596,7 +596,7 @@ The elemental magician has come here in search of the fabled
 Stone of Surrender which can be used to render opponents senseless.
 ~
 human~
-BGJRe D 0 0 A -50 0
+BGJRe BC 0 0 A -50 0
 46 30 3d9+8233 17d9+4100 10d12+33 'none'
 -12 -12 -12 -4
 F
@@ -2493,12 +2493,12 @@ O 9205 2	* the wind boots
 S
 
 #PRACTICERS
-M 9208 I	* the Earth Ruler
-M 9209 I	* the Fire Ruler
-M 9210 I	* The Air Ruler
-M 9211 I	* The Lightning Ruler
-M 9212 I	* The Water Ruler
-M 9239 E	* The Combat Magician
+M 9208 draconian	* the Earth Ruler
+M 9209 draconian	* the Fire Ruler
+M 9210 draconian	* The Air Ruler
+M 9211 draconian	* The Lightning Ruler
+M 9212 draconian	* The Water Ruler
+M 9239 combat	* The Combat Magician
 S
 
 #$

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name Midgaard~
 VNUMs 3000 3399
 Credits Diku~
@@ -20,7 +20,7 @@ rings and bracelets.
 на его руки одеты великолепные кольца и браслеты.
 ~
 human~
-BJVe D HN 0 A 900 0
+BJVe BC HN 0 A 900 0
 83 5 25d10+28800 1d1+1999 10d12+62 'magic'
 -95 -95 -95 -75
 AF
@@ -38,7 +38,7 @@ body.
 @rus Все тело пекаря покрывают шрамы, но несмотря на это он выглядит счастливым.
 ~
 human~
-BJVe D HN 0 0 900 0
+BJVe BC HN 0 0 900 0
 60 10 20d10+18800 1d1+999 6d10+45 'beating'
 -65 -65 -65 -25
 CDF
@@ -327,7 +327,7 @@ and you notice that she is surrounded by a blue shimmering aura.
 одежды, и ты замечаешь, что ее окружает мерцающая голубая аура.
 ~
 elf~
-BJRVe D 0 0 ABL 1000 0
+BJRVe BC 0 0 ABL 1000 0
 96 0 1d1+29099 1d1+999 43d48+64 'magic'
 -65 -65 -65 -35
 FG
@@ -348,7 +348,7 @@ a peaceful, loving look. You notice that he is surrounded by a white aura.
 любящий взгляд... Ты замечаешь, что он окружен белой аурой.
 ~
 human~
-BJQVe D H 0 ABKL 1000 0
+BJQVe BC H 0 ABKL 1000 0
 96 0 1d1+29099 1d1+999 43d48+64 'divine'
 -65 -65 -65 -35
 EFHIK
@@ -369,7 +369,7 @@ human@rus Ты никак не можешь уследить за тем, как двигается твой наставник - нас
 вор. Он одет в бедное платье, выдавая себя за обычного жителя города.
 ~
 human~
-BGSe D 0 0 0 1000 0
+BGSe BC 0 0 0 1000 0
 96 0 1d1+29099 1d1+199 43d48+64 'stab'
 -65 -65 -65 -35
 0
@@ -387,7 +387,7 @@ He has a calm look on his face.
 Он смотрит на тебя успокаивающе.
 ~
 dwarf~
-BJTVe D 0 0 AB 1000 0
+BJTVe BC 0 0 AB 1000 0
 96 0 1d1+29099 1d1+199 43d48+64 'beating'
 -60 -60 -60 -40
 ACDEIK
@@ -1390,7 +1390,7 @@ the altar, and concentrating, to cure the others wounds.
 ее души. Она стоит позади алтаря, готовая излечить раны и помочь страждущим.
 ~
 human~
-BJQRVe DHI H 0 ABL 1000 0
+BJQRVe HI H 0 ABL 1000 0
 120 0 1d1+1700 1d1+2000 7d4+50 'divine'
 0 0 0 0
 FG
@@ -1411,7 +1411,7 @@ safe place like this. He has a long, two-handed sword next to him.
 безопасность этого места. У него большой двуручный меч...
 ~
 human~
-BJRVe D 0 0 ABL 1000 0
+BJRVe BC 0 0 ABL 1000 0
 96 0 1d1+29099 1d1+999 20d48+64 'slash'
 -80 -80 -80 -40
 FG
@@ -1430,7 +1430,7 @@ over his body,  and carries strange equipment tied on his belt.
 одежды, а на поясе носит какие-то странные приспособления.
 ~
 human~
-BJRVe D 0 0 ABL 0 0
+BJRVe BC 0 0 ABL 0 0
 96 0 1d1+29099 1d1+999 20d48+64 'slash'
 -80 -80 -80 -30
 FG
@@ -1453,7 +1453,7 @@ willing to practice you, as long as you serve the evil.
 если ты служишь Злу.
 ~
 dark-elf~
-BJRVe D 0 0 ABL -300 0
+BJRVe BC 0 0 ABL -300 0
 96 0 1d1+29099 1d1+999 20d50+64 'slash'
 -80 -80 -80 -40
 FG
@@ -1474,7 +1474,7 @@ and you notice that she is surrounded by a blue shimmering aura.
 одежды, и ты замечаешь вокруг нее мерцающую голубую ауру.
 ~
 elf~
-BJRVe D 0 0 ABL 0 0
+BJRVe BC 0 0 ABL 0 0
 96 0 1d1+29099 1d1+999 20d48+64 'magic'
 -85 -85 -85 -35
 FG
@@ -1495,7 +1495,7 @@ safe place like this.
 безопасном месте.
 ~
 human~
-BJRVe D 0 0 ABL 1000 0
+BJRVe BC 0 0 ABL 1000 0
 96 0 1d1+29099 1d1+999 20d48+64 'slash'
 -80 -80 -80 -40
 FG
@@ -1512,7 +1512,7 @@ Although very handsome, the templeman serves for IMMORTALS and GODS.
 help 'religion' to see a listing of religions available.
 ~
 human~
-BJQVe D H 0 AB 1000 0
+BJQVe BC H 0 AB 1000 0
 80 10 1d1+25999 1d1+999 12d44+60 'divine'
 -95 -95 -95 -15
 FHIK
@@ -10844,8 +10844,18 @@ S
 0
 
 #PRACTICERS
-M 3000 X	* the wizard
-M 3172 D	* the templeman
+M 3000 wizard	* the wizard
+M 3001 none	* the baker
+M 3020 none	* the guildmaster
+M 3021 none	* the guildmaster
+M 3022 none	* the guildmaster
+M 3023 none	* the guildmaster
+M 3167 none	* the guildmaster
+M 3168 none	* the guildmaster
+M 3169 none	* the guildmaster
+M 3170 none	* the guildmaster
+M 3171 none	* the guildmaster
+M 3172 benedictions	* the templeman
 S
 
 #$

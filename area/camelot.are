@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name Camelot~
 VNUMs 17300 17499
 Credits Lok~
@@ -211,7 +211,7 @@ armor. His visor is up, and his lance raised in salute to you.
 броню. Его забрало откинуто, и его копье салютует тебе.
 ~
 human~
-B CD HN 0 AB 1000 0
+B BC HN 0 AB 1000 0
 44 0 25d10+2750 5d5+1000 8d4+15 'crush'
 -15 -15 -15 2
 EFNU
@@ -650,7 +650,7 @@ to encourage the downfall of Camelot (Morgana, Pict leader).
 Моргана.  
 ~
 unique~
-Be D JK 0 ABHKL -1000 0
+Be BC JK 0 ABHKL -1000 0
 52 0 50d10+7750 5d5+5000 10d10+22 'charge'
 -22 -22 -22 0
 ACEFIJNOU
@@ -805,7 +805,7 @@ comes from a life of leading men in endless battle.
 @rus Командир северного поста  - это закаленный в боях ветеран с большим опытом.
 ~
 human~
-B D N 0 AB 500 0
+B BC N 0 AB 500 0
 25 0 5d10+550 5d5+1000 2d10+7 'pound'
 -7 -7 -7 4
 EFNU
@@ -1029,7 +1029,7 @@ comes from a life of leading men in endless battle.
 @rus Командир (commander) южного поста  - это закаленный в боях ветеран с большим опытом.
 ~
 human~
-B D N 0 AB 500 0
+B BC N 0 AB 500 0
 25 0 5d10+550 5d5+1000 2d10+7 'punch'
 -7 -7 -7 4
 EFNU
@@ -5790,7 +5790,10 @@ O 17373 1	* sword named "Arondight"
 S
 
 #PRACTICERS
-M 17337 B	* Aigram the demon
+M 17312 none	* Sir Lancelot du Lake
+M 17337 attack	* Aigram the demon
+M 17347 none	* the northern outpost commander
+M 17361 none	* the southern outpost commander
 S
 
 #$

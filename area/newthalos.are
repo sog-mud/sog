@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name New Thalos~
 Builders alister~
 VNUMs 9500 9799
@@ -16,7 +16,7 @@ Your guildmaster stands here.~
 An old man peering through ancient tomes rests here.
 ~
 human~
-BJRV BCD 0 0 AB 0 0
+BJRV BC 0 0 AB 0 0
 40 10 1d1+30000 1d1+499 5d8+5 'pierce'
 -15 -15 -15 -15
 FHN
@@ -31,7 +31,7 @@ Your guildmaster stands here.~
 An older man wrapped in purple, long-flowing robes meditates here.
 ~
 human~
-BJQV BCD H 0 AB 250 0
+BJQV BC H 0 AB 250 0
 40 10 1d1+30000 1d1+499 6d7+8 'bite'
 -15 -15 -15 -15
 EFGIK
@@ -46,7 +46,7 @@ Your guildmaster stands here.~
 A smaller man dressed in nothing but a tunic stands here waiting to train you.
 ~
 human~
-BJTVe BCD 0 0 AB 0 0
+BJTVe BC 0 0 AB 0 0
 40 20 1d1+30000 1d1+99 2d4+30 'digestion'
 -15 -15 -15 -15
 ACEFHIK
@@ -63,7 +63,7 @@ a knife an throws it at you. It lands the wall next to your left ear. We
 will now begin, is all he says.
 ~
 elf~
-BJTV BCD 0 0 AB -100 0
+BJTV BC 0 0 AB -100 0
 40 15 1d1+30000 1d1+99 1d4+10 'digestion'
 -15 -15 -15 -15
 BEFHJKN
@@ -1367,7 +1367,7 @@ in years. He is still wearing his old body armor, even at a very safe place
 like this.
 ~
 human~
-BJRVe D 0 0 ABL 1000 0
+BJRVe BC 0 0 ABL 1000 0
 96 100 1d1+29099 1d1+3999 43d48+64 'slash'
 -100 -100 -100 -60
 FG
@@ -8504,7 +8504,11 @@ S
 0
 
 #PRACTICERS
-M 9594 A	* The Samurai Weaponsmaster
+M 9500 none	* the guildmaster
+M 9501 none	* the guildmaster
+M 9502 none	* the guildmaster
+M 9503 none	* the guildmaster
+M 9594 weaponsmaster	* The Samurai Weaponsmaster
 S
 
 #$

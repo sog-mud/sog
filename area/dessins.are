@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name Dessins d'enfants~
 Builders grothendieck~
 VNUMs 51000 51099
@@ -879,16 +879,16 @@ M 0 51000 1 51000 1	* Bell (Fano Threefold)
 S
 
 #PRACTICERS
-M 51001 I	* the black dragon
-M 51002 I	* the white dragon
-M 51003 I	* the red dragon
-M 51004 I	* the green dragon
-M 51005 I	* the blue dragon
-M 51006 I	* the brass dragon
-M 51007 I	* the copper dragon
-M 51008 I	* the bronze dragon
-M 51009 I	* the silver dragon
-M 51010 I	* the gold dragon
+M 51001 draconian	* the black dragon
+M 51002 draconian	* the white dragon
+M 51003 draconian	* the red dragon
+M 51004 draconian	* the green dragon
+M 51005 draconian	* the blue dragon
+M 51006 draconian	* the brass dragon
+M 51007 draconian	* the copper dragon
+M 51008 draconian	* the bronze dragon
+M 51009 draconian	* the silver dragon
+M 51010 draconian	* the gold dragon
 S
 
 #$

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name Dying Forest~
 VNUMs 24300 24399
 Credits Ceran~
@@ -269,7 +269,7 @@ now it seeks food...
 Этот тролль явно голоден! Не ты ли будешь следующей жертвой?
 ~
 troll~
-G D 0 0 AL -1000 0
+G BC 0 0 AL -1000 0
 30 1 6d12+1000 1d1+100 4d6+9 'claw'
 -10 -10 -10 -3
 CEFKNU
@@ -2495,6 +2495,10 @@ O 24306 8	* a circlet of braided centaur hair
 O 24308 10	* a blackened bastard sword
 O 24309 3	* Fist of the Earth
 O 24312 4	* a casing of ebonwood bark
+S
+
+#PRACTICERS
+M 24316 none	* a marauder troll
 S
 
 #$

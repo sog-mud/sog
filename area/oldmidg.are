@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name Old Midgaard~
 VNUMs 5300 5499
 Credits Kahn~
@@ -651,7 +651,7 @@ vast amount of knowledge she possesses. She is wearing fine magic clothing,
 and you notice that she is surrounded by a blue shimmering aura.
 ~
 elf~
-BJRVe D 0 0 ABL -1000 0
+BJRVe BC 0 0 ABL -1000 0
 96 0 1d1+29099 1d1+999 3d8+24 'magic'
 -65 -65 -65 -35
 FG
@@ -668,7 +668,7 @@ You are in no doubt that this guildmaster is truly close to your god; he has
 a peaceful, loving look. You notice that he is surrounded by a white aura.
 ~
 human~
-BJQVe D 0 0 ABKL -1000 0
+BJQVe BC 0 0 ABKL -1000 0
 96 0 1d1+29099 1d1+999 3d8+24 'divine'
 -65 -65 -65 -35
 EFHIK
@@ -4395,5 +4395,10 @@ S
 5340 8 30 32 33 0 110 100 0 23
 5346 0 0 0 0 0 100 100 0 23
 0
+
+#PRACTICERS
+M 5343 none	* the guildmaster
+M 5344 none	* the guildmaster
+S
 
 #$

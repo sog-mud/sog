@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name Aarakocran City~
 VNUMs 5600 5699
 Credits Slash~
@@ -334,7 +334,7 @@ The shaman's plumage is generally a drab grey, but there is a tremendous
 orange and yellow starburst on her chest.
 ~
 song bird~
-BGJ D H 0 0 0 0
+BGJ BC H 0 0 0 0
 30 0 10d10+1200 1d1+99 5d9+16 'crush'
 -25 -25 -25 -25
 CEIKR
@@ -350,7 +350,7 @@ Your guildmaster is picking a *HUGE* (Glowing) Mithral lock.~
 well, COUNT your money!
 ~
 song bird~
-BGJSe D 0 0 H 0 0
+BGJSe BC 0 0 H 0 0
 19 0 10d10+400 1d8+20 10d5+10 'crush'
 -25 -25 -25 -25
 EIKNR
@@ -368,7 +368,7 @@ muscles rippling down his legs, wings, and chest.  He has an air of command and
 military discipline.
 ~
 song bird~
-BJT D 0 0 0 0 0
+BJT BC 0 0 0 0 0
 30 0 1d1+1500 1d8+200 5d9+15 'crush'
 -25 -25 -25 -25
 CDEIJKR
@@ -4209,6 +4209,12 @@ O 5639 5	* a wicked, spiked shield
 O 5644 5	* a pair of talon extenders
 O 5650 5	* a wicked, spiked shield
 O 5655 5	* a pair of talon extenders
+S
+
+#PRACTICERS
+M 5622 none	* the holy aarakocran guildmaster
+M 5623 none	* the sneaky aarakocran guildmaster
+M 5624 none	* the strong aarakocran guildmaster
 S
 
 #$

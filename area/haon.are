@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name Haon Dor~
 VNUMs 6000 6199
 Credits Diku~
@@ -225,7 +225,7 @@ still hang over his clothes from last camouflage.
 маскировки в лесу.
 ~
 human~
-BJRV D 0 0 ABL 1000 0
+BJRV BC 0 0 ABL 1000 0
 66 0 1d1+24999 1d1+999 6d18+24 'chop'
 -90 -90 -90 -70
 F
@@ -3540,6 +3540,10 @@ G 0 6111 0		*	the huge, green dragon: a large round shield
 M 0 6116 1 6155 1	* the elder druid (The cultist temple.)
 E 0 6155 0 16		*	the elder druid<wielded>: the morning star
 M 0 6117 1 6157 1	* the guildmaster (Ranger Training Room)
+S
+
+#PRACTICERS
+M 6117 none	* the guildmaster
 S
 
 #$

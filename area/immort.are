@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name Valhalla~
 VNUMs 1200 1299
 Credits Diku~
@@ -19,7 +19,7 @@ leaves his side, and shall remain unwinded until the dread ship Naglfar sails
 towards Valhalla on the dawn of Ragnarok.
 ~
 human~
-BJTVe D 0 0 ABHK 1000 0
+BJTVe BC 0 0 ABHK 1000 0
 97 30 1d1+19999 1d1+499 5d4+40 'crush'
 -20 -20 -20 -10
 ACDEFHIKLNOT
@@ -787,7 +787,8 @@ M 0 1200 1 1221 1	* Heimdall (The End of the Rainbow Bridge)
 S
 
 #PRACTICERS
-M 1200 SW	* Heimdall
+M 1200 fightmaster	* Heimdall
+M 1200 defensive	* Heimdall
 S
 
 #$

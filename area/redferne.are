@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name Redferne's~
 VNUMs 7900 7999
 Credits Diku~
@@ -17,7 +17,7 @@ white, blue and silver. He looks VERY strong, as he stands here, ready to
 help the innocent.
 ~
 human~
-GJQe D H 0 A 1000 0
+GJQe BC H 0 A 1000 0
 29 0 6d12+778 29d9+100 5d14+18 'none'
 -9 -9 -9 4
 EIKU
@@ -579,7 +579,7 @@ P 0 7208 6 0 1	* a wooden chest: a small stick
 S
 
 #PRACTICERS
-M 7900 G	* the Grand Knight of paladins
+M 7900 curative	* the Grand Knight of paladins
 S
 
 #$

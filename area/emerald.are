@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name Emerald Forest~
 Builders dias~
 VNUMs 200 299
@@ -237,7 +237,7 @@ forest brown leathers and green cloak, he is currently practicing
 the use of his staff.
 ~
 unique~
-BGJ D 0 0 0 0 0
+BGJ BC 0 0 0 0 0
 60 20 2d1+10000 1d1+99 5d6+150 'beating'
 -19 -19 -19 -19
 FK
@@ -7417,6 +7417,10 @@ O 201 6	* an ancient Ranger Lord's Stetson
 O 264 10	* the whipping tail of a manticore
 O 265 3	* the dagger of Yog-Sothoth
 O 285 1	* sneakers
+S
+
+#PRACTICERS
+M 212 none	* the Ancient Ranger Guildmaster
 S
 
 #$

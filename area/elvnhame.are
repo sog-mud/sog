@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name Elvenhame~
 Builders stark lorelea astonix~
 VNUMs 40100 40199
@@ -428,7 +428,7 @@ giving people some training if they'll keep those gold pieces
 coming and enjoy the drinks.
 ~
 elf~
-BGHTV D H 0 0 0 0
+BGHTV BC H 0 0 0 0
 35 0 10d10+1300 1d1+400 4d7+11 'none'
 -11 -11 -11 -11
 BCEFHIJN
@@ -999,7 +999,7 @@ see of her is illusion, covering the fact that she is a
 lichdrow.
 ~
 elf~
-BGJRV D JNUc 0 A -1000 0
+BGJRV BC JNUc 0 A -1000 0
 51 0 50d10+4500 1d1+400 5d8+14 'acbite'
 -40 -40 -40 -40
 AFHK
@@ -4864,7 +4864,8 @@ S
 0
 
 #PRACTICERS
-M 40151 Y	* The Necromancer-Alchemist
+M 40119 none	* Blane the Tavernkeeper
+M 40151 necromancy	* The Necromancer-Alchemist
 S
 
 #$

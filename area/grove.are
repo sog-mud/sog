@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name Holy Grove~
 VNUMs 8900 8999
 Credits Alfa~
@@ -17,7 +17,7 @@ clear blue eyes you can see that He is aware of the world, and wise to its
 traps and pitfalls.
 ~
 human~
-GHJQe D HN 0 A 1000 0
+GHJQe BC HN 0 A 1000 0
 20 0 3d9+1033 20d9+100 2d7+10 'none'
 -4 -4 -4 6
 EIKU
@@ -1048,7 +1048,7 @@ G 0 8916 0		*	a druid: some grayish herbs
 S
 
 #PRACTICERS
-M 8900 U	* The Hierophant
+M 8900 meditation	* The Hierophant
 S
 
 #HELPS

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name New school~
 VNUMs 50200 50399
 Credits Phrinn~
@@ -452,7 +452,8 @@ M 0 50200 1 50206 1	* The Teacher (The 6th floor)
 S
 
 #PRACTICERS
-M 50200 AX	* The Teacher
+M 50200 weaponsmaster	* The Teacher
+M 50200 wizard	* The Teacher
 S
 
 #$

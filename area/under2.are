@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name UnderDark~
 VNUMs 16000 16499
 Credits Silence~
@@ -1386,7 +1386,7 @@ increase in ability and skill.  He is also the only member of the guild who
 is stronger than the leader.
 ~
 dark-elf~
-BS D N 0 A 0 0
+BS BC N 0 A 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 'slash'
 -20 -20 -20 0
 EIKN
@@ -1532,7 +1532,7 @@ This is a figure of extreme power.  He can defeat anything that walks the
 land and is mortal.
 ~
 human~
-B D N 0 AH 0 0
+B BC N 0 AH 0 0
 50 0 50d10+4250 5d5+5000 5d8+19 'pound'
 -20 -20 -20 0
 EIKN
@@ -17933,6 +17933,11 @@ O 16081 1	* Dragon tattoo
 O 16082 9	* A diamond helm
 O 16083 4	* The keeper's shield
 O 16089 1	* Demon fire
+S
+
+#PRACTICERS
+M 16090 none	* The trainer
+M 16100 none	* The trainer
 S
 
 #$

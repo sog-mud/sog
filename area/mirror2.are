@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name Mirror of Realm~
 VNUMs 19000 19199
 Credits Merri~
@@ -587,7 +587,7 @@ bows to you as you approach, and motions with his hands, inviting you to
 train with him.
 ~
 human~
-BG CD HN 0 AB 1000 0
+BG BC HN 0 AB 1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 'pound'
 -15 -15 -15 2
 CDEFIJKN
@@ -639,7 +639,7 @@ The proprietor is a thin, tired old man; the adventurers' business isn't doing
 so well right now, what with the land being completely closed off and all.
 ~
 human~
-BGe CD N 0 AB 1000 0
+BGe BC N 0 AB 1000 0
 45 0 25d10+3000 5d5+1000 8d4+16 'pound'
 -15 -15 -15 2
 FIJ
@@ -8257,6 +8257,11 @@ O 19071 10	* a kendo
 O 19110 1	* an eclipse sword
 O 19127 1	* a blood-red dagger
 O 19157 1	* the sword Taliesin
+S
+
+#PRACTICERS
+M 19028 none	* Master Dunn
+M 19029 none	* the proprietor
 S
 
 #$

@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name Magic Forest~
 Builders astonix~
 VNUMs 1800 1899
@@ -726,7 +726,7 @@ Ranger Station.
 готовым к походу в чащу за пределами егерской станции.
 ~
 human~
-BGJT BCD HV 0 0 0 0
+BGJT BC HV 0 0 0 0
 48 1 25d10+3750 3d400+580 5d8+19 'slash'
 -25 -25 -25 -25
 CEFHIJKV
@@ -4826,6 +4826,10 @@ O 1818 3	* a golden eye sword
 O 1819 4	* a green wristband
 O 1820 3	* a blue-tinted leather whip
 O 1851 3	* the Robe of the Warlock
+S
+
+#PRACTICERS
+M 1828 none	* the ranger guildmaster
 S
 
 #$

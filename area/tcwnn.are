@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name The City of Anon~
 VNUMs 31000 31199
 Credits Yaegar~
@@ -18,7 +18,7 @@ wilst have to pay... To see how I may help thee, type HEAL, which will also
 show you the cost of each service".
 ~
 human~
-BGJe D HN 0 0 1000 0
+BGJe BC HN 0 0 1000 0
 80 5 50d10+23500 5d5+5000 13d9+50 'divine'
 -60 -60 -60 -13
 FHKN
@@ -174,7 +174,7 @@ a skill or spell that is within my area of expertise, simply type PRAC
 spells you may learn here".
 ~
 elf~
-BG D HN 0 0 1000 0
+BG BC HN 0 0 1000 0
 10 0 2d7+121 5d5+100 2d4+2 'pound'
 1 1 1 7
 F
@@ -439,7 +439,7 @@ train hard, and dedicate yourself to the higher disciplines of the martial
 arts".
 ~
 human~
-BG D HN 0 0 1000 0
+BG BC HN 0 0 1000 0
 10 0 2d7+121 5d5+100 2d4+2 'pound'
 1 1 1 7
 F
@@ -5844,7 +5844,9 @@ S
 0
 
 #PRACTICERS
-M 31000 P	* Gath the Healer
+M 31000 protective	* Gath the Healer
+M 31009 none	* the Elven Guildmaster
+M 31027 none	* the Human Guildmaster
 S
 
 #HELPS

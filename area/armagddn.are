@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name Armageddon~
 VNUMs 36500 36699
 Credits Lok~
@@ -778,7 +778,7 @@ lamb агнец~
 посланных на всю землю.
 ~
 unique~
-BJTc CD HNTWd A ABHKL 1000 0
+BJTc BC HNTWd A ABHKL 1000 0
 100 0 90d20+30000 91d10+9500 18d16+90 'divine'
 -150 -150 -150 -150
 FGHKLO
@@ -8574,6 +8574,10 @@ O 36526 2	* Hidden manna
 O 36529 1	* A white stone
 O 36530 3	* The sharp, two-edged sword of the mouth
 O 36541 1	* A golden bowl of incense
+S
+
+#PRACTICERS
+M 36538 none	* The Lamb
 S
 
 #HELPS

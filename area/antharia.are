@@ -1,5 +1,5 @@
 #AREADATA
-Ver 7
+Ver 8
 Name Antharia~
 VNUMs 12300 12399
 Credits Amadeus~
@@ -317,7 +317,7 @@ A young elf is here looking at you.  She is the representative from
 the elven race here in Antharia.
 ~
 elf~
-B D 0 0 0 0 0
+B BC 0 0 0 0 0
 40 0 15d10+1850 5d5+1000 4d8+13 'pound'
 -13 -13 -13 3
 CEFIJK
@@ -2370,6 +2370,10 @@ S
 12345 0 0 0 0 0 125 75 4 20
 12348 0 0 0 0 0 125 75 4 20
 0
+
+#PRACTICERS
+M 12364 none	* an elven representative
+S
 
 #HELPS
 0 ANTHARIA~
