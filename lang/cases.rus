@@ -4476,6 +4476,17 @@ Form 6 -~
 End
 
 #RULE
+Name высокий~
+BaseLen 5
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ий~
+Form 4 -им~
+Form 5 -ом~
+Form 6 -ого~
+End
+
+#RULE
 Name старуха~
 BaseLen 6
 Form 1 -и~
@@ -7853,6 +7864,7 @@ End
 
 #RULE
 Name часов~
+BaseLen 3
 Form 1 -ов~
 Form 2 -ам~
 Form 3 -ов~

@@ -806,6 +806,9 @@ found on many other muds. The following options are usable:
 {cnote post{x       : post a new note. This MUST be done to post a note.
 {cnote forward{x    : forward note
 {cnote quote{x      : quote note
+{cnote + <str>{x    : add string to note
+{cnote + [<num>]{x  : delete string number <num> from note
+                : if <num> is omitted last line will be deleted
 
 'note cancel' is a synonim for 'note clear'
 'note reply' is a synonim for 'note quote'
@@ -846,6 +849,9 @@ note list можно использовать с расширенным синтаксисом для фильтрования
 {cnote forward num{x: пересылает обьявление другому получателю
 {cnote quote num{x  : аналогично note forward, но все оригинальные строки
                 : помечаются символом '>'
+{cnote + <str>{x    : добавляет строку
+{cnote - [<num>]{x  : удаляет строку с номером <num>
+                : при отсутствии параметра <num> удаляется последняя строка
 
 'note cancel' является синонимом для 'note clear'
 'note reply' является синонимом для 'note quote'
