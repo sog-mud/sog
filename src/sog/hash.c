@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: hash.c,v 1.10 1999-12-18 11:01:41 fjoe Exp $
+ * $Id: hash.c,v 1.11 1999-12-28 08:58:54 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -34,6 +34,8 @@
 #include "typedef.h"
 #include "varr.h"
 #include "hash.h"
+#include "str.h"
+#include "strkey_hash.h"
 
 /*
  * hash_add flags
@@ -153,6 +155,25 @@ void *hash_foreach(hash_t *h, foreach_cb_t cb, ...)
 	va_end(ap);
 
 	return rv;
+}
+
+static varrdata_t v_print =
+{
+	sizeof(const char *), 8,
+	strkey_init,
+	strkey_destroy
+};
+
+void
+hash_printall(hash_t *h, BUFFER *buf, foreach_cb_t addname_cb)
+{
+	varr v;
+
+	varr_init(&v, &v_print);
+	hash_foreach(h, addname_cb, &v);
+	varr_qsort(&v, cmpstr);
+	vstr_dump(&v, buf);
+	varr_destroy(&v);
 }
 
 /*-------------------------------------------------------------------

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: varr.h,v 1.15 1999-12-18 11:01:39 fjoe Exp $
+ * $Id: varr.h,v 1.16 1999-12-28 08:58:54 fjoe Exp $
  */
 
 #ifndef _VARR_H_
@@ -84,10 +84,12 @@ void *	varr_anforeach	(varr *, size_t i, foreach_cb_t, va_list ap);
  * `vstr_search' does `vstr_lookup', if not found prefix search (str_prefix)
  * is performed
  */
-void *	vstr_lookup_cb(void *p, va_list ap);
-void *	vstr_search_cb(void *p, va_list ap);
+void *	vstr_lookup_cb	(void *p, va_list ap);
+void *	vstr_search_cb	(void *p, va_list ap);
 
-void *	vstr_lookup(varr *v, const char *name);
-void *	vstr_search(varr *v, const char *name);
+void *	vstr_lookup	(varr *v, const char *name);
+void *	vstr_search	(varr *v, const char *name);
+
+void	vstr_dump	(varr *v, BUFFER *buf);
 
 #endif

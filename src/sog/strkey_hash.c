@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: strkey_hash.c,v 1.12 1999-12-20 08:31:22 fjoe Exp $
+ * $Id: strkey_hash.c,v 1.13 1999-12-28 08:58:54 fjoe Exp $
  */
 
 #include <limits.h>
@@ -163,46 +163,6 @@ const char *fread_strkey(rfile_t *fp, hash_t *h, const char *id)
 	return name;
 }
 
-static void *
-print_name_cb(void *p, va_list ap)
-{
-	BUFFER *buf = va_arg(ap, BUFFER *);
-	int *pcol = va_arg(ap, int *);
-
-	buf_printf(buf, "%-19.18s", *(const char**) p);
-	if (++(*pcol) % 4 == 0)
-		buf_add(buf, "\n");
-	return NULL;
-}
-
-void strkey_printall(hash_t *h, BUFFER *buf)
-{
-	int col = 0;
-	hash_foreach(h, print_name_cb, buf, &col);
-	if (col % 4)
-		buf_add(buf, "\n");
-}
-
-static void *
-print_mlname_cb(void *p, va_list ap)
-{
-	BUFFER *buf = va_arg(ap, BUFFER *);
-	int *pcol = va_arg(ap, int *);
-
-	buf_printf(buf, "%-19.18s", mlstr_mval((mlstring *) p));
-	if (++(*pcol) % 4 == 0)
-		buf_add(buf, "\n");
-	return NULL;
-}
-
-void mlstrkey_printall(hash_t *h, BUFFER *buf)
-{
-	int col = 0;
-	hash_foreach(h, print_mlname_cb, buf, &col);
-	if (col % 4)
-		buf_add(buf, "\n");
-}
-
 char *
 strkey_filename(const char *name, const char *ext)
 {
@@ -232,3 +192,22 @@ strkey_filename(const char *name, const char *ext)
 		strnzcat(buf[ind], sizeof(buf[ind]), ext);
 	return buf[ind];
 }
+
+void *
+add_strname_cb(void *p, va_list ap)
+{
+	varr *v = va_arg(ap, varr *);
+	const char **q = varr_enew(v);
+	*q = str_dup(*(const char **) p);
+	return NULL;
+}
+
+void *
+add_mlstrname_cb(void *p, va_list ap)
+{
+	varr *v = va_arg(ap, varr *);
+	const char **q = varr_enew(v);
+	*q = str_dup(mlstr_mval((mlstring *) p));
+	return NULL;
+}
+

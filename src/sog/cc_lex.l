@@ -59,7 +59,7 @@ extern void yyerror(const char *);
 				  yylval.s = str_dup(buf);
 				  return STRING;
 				}
-<X_STRING>.			{ *s++ = *yytext; }
+<X_STRING>.			{ COPYOUT(*yytext); }
 
 "&&"				return AND;
 "||"				return OR;
