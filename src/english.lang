@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.55 1998-06-20 18:38:32 fjoe Exp $
+# $Id: english.lang,v 1.56 1998-06-21 00:32:53 efdi Exp $
 #
 
 NOTHING		"Nothing.\n\r"
@@ -762,3 +762,24 @@ YOU_WEAR_P_RIGHT_WRIST	"You wear $p around your right wrist."
 ALREADY_WEAR_TWO_WRIST	"You already wear two wrist items.\n\r"
 CANT_USE_SHIELD_SECOND_WEAPON	"You can't use a shield while using a second weapon.\n\r"
 YOUR_HANDS_TIRED_WEAPON	"Your hands are tied up with your weapon!\n\r"
+N_WEARS_P_SHIELD	"$n wears $p as a shield."
+YOU_WEAR_P_SHIELD	"You wear $p as a shield."
+TOO_HEAVY_WIELD		"It is too heavy for you to wield.\n\r"
+NEED_TWO_HANDS		"You need two hands free for that weapon.\n\r"
+N_WIELDS_P		"$n wields $p."
+YOU_WIELD_P		"You wield $p."
+P_LIKE_PART_OF_YOU	"$p feels like a part of you!"
+QUITE_CONFIDENT_P	"You feel quite confident with $p."
+SKILLED_WITH_P		"You are skilled with $p."
+SKILL_P_ADEQUATE	"Your skill with $p is adequate."
+P_FEELS_CLUMSY		"$p feels a little clumsy in your hands."
+ALMOST_DROP_P		"You fumble and almost drop $p."
+DONT_KNOW_THE_END	"You don't even know which end is up on $p."
+CANT_HOLD_WHILE_2_WEAPONS  "You can't hold an item while using 2 weapons.\n\r"
+N_HOLDS_P_HAND		"$n holds $p in $s hand."
+YOU_HOLD_P_HAND		"You hold $p in your hand."
+N_FLOAT_P		"$n releases $p to float next to $m."
+YOU_FLOAT_P		"You release $p and it floats next to you."
+N_USES_TATTOO		"$n now uses $p as tattoo of $s religion."
+YOU_USE_TATTOO		"You now use $p as the tattoo of your religion."
+CANT_WEAR_IT		"You can't wear, wield, or hold that.\n\r"

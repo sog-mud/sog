@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.27 1998-06-20 20:53:25 fjoe Exp $
+ * $Id: act_obj.c,v 1.28 1998-06-21 00:33:43 efdi Exp $
  */
 
 /***************************************************************************
@@ -1791,116 +1791,120 @@ void wear_obj(CHAR_DATA *ch, OBJ_DATA *obj, bool fReplace)
 		if (weapon != NULL && ch->size < SIZE_LARGE 
 		&&  IS_WEAPON_STAT(weapon,WEAPON_TWO_HANDS)) {
 			char_nputs(YOUR_HANDS_TIRED_WEAPON, ch);
+			return;
+		}
+
+		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+			    N_WEARS_P_SHIELD);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+			    YOU_WEAR_P_SHIELD);
+		equip_char(ch, obj, WEAR_SHIELD);
 		return;
 	}
 
-	act("$n wears $p as a shield.", ch, obj, NULL, TO_ROOM);
-	act("You wear $p as a shield.", ch, obj, NULL, TO_CHAR);
-	equip_char(ch, obj, WEAR_SHIELD);
-	return;
-	  }
+	if (CAN_WEAR(obj, ITEM_WIELD)) {
+		int sn, skill;
+		OBJ_DATA *dual;
 
-	  if (CAN_WEAR(obj, ITEM_WIELD))
-	  {
-	int sn,skill;
-	OBJ_DATA *dual;
+		if ((dual = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL)
+			unequip_char(ch, dual);
 
-	if ((dual = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL)
-	  unequip_char(ch,dual);
+		if (!remove_obj(ch, WEAR_WIELD, fReplace))
+			return;
 
-	if (!remove_obj(ch, WEAR_WIELD, fReplace))
-		return;
+		if (!IS_NPC(ch) && get_obj_weight(obj) 
+			 > (str_app[get_curr_stat(ch, STAT_STR)].wield  * 10)) {
+			char_nputs(TOO_HEAVY_WIELD, ch);
+			if (dual) 
+				equip_char(ch, dual, WEAR_SECOND_WIELD);
+			return;
+		}
 
-	if (!IS_NPC(ch) 
-	&& get_obj_weight(obj) > (str_app[get_curr_stat(ch,STAT_STR)].wield  
-		* 10))
-	{
-		send_to_char("It is too heavy for you to wield.\n\r", ch);
-		if (dual) equip_char(ch,dual,WEAR_SECOND_WIELD);
-		return;
-	}
+		if (IS_WEAPON_STAT(obj, WEAPON_TWO_HANDS)
+		&& ((!IS_NPC(ch) && ch->size < SIZE_LARGE
+		    && get_eq_char(ch, WEAR_SHIELD) != NULL)
+		|| get_eq_char(ch, WEAR_SECOND_WIELD) !=NULL)) {
+			char_nputs(NEED_TWO_HANDS, ch);
+			if (dual)
+				equip_char(ch, dual, WEAR_SECOND_WIELD);
+			return;
+		}
 
-	if (IS_WEAPON_STAT(obj,WEAPON_TWO_HANDS) &&
-		((!IS_NPC(ch) && ch->size < SIZE_LARGE
-			  && get_eq_char(ch,WEAR_SHIELD) != NULL)
-		 || get_eq_char(ch,WEAR_SECOND_WIELD) !=NULL))
-	{
-		send_to_char("You need two hands free for that weapon.\n\r",ch);
-		if (dual) equip_char(ch,dual,WEAR_SECOND_WIELD);
-		return;
-	}
+		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, N_WIELDS_P);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_WIELD_P);
+		equip_char(ch, obj, WEAR_WIELD);
+		if (dual)
+			equip_char(ch, dual, WEAR_SECOND_WIELD);
 
-	act("$n wields $p.", ch, obj, NULL, TO_ROOM);
-	act("You wield $p.", ch, obj, NULL, TO_CHAR);
-	equip_char(ch, obj, WEAR_WIELD);
-	if (dual) equip_char(ch,dual,WEAR_SECOND_WIELD);
+		sn = get_weapon_sn(ch);
 
-		  sn = get_weapon_sn(ch);
+		if (sn == gsn_hand_to_hand)
+			return;
 
-	if (sn == gsn_hand_to_hand)
-	   return;
-
-		  skill = get_weapon_skill(ch,sn);
+		skill = get_weapon_skill(ch, sn);
  
-		  if (skill >= 100)
-		      act("$p feels like a part of you!",ch,obj,NULL,TO_CHAR);
-		  else if (skill > 85)
-		      act("You feel quite confident with $p.",ch,obj,NULL,TO_CHAR);
-		  else if (skill > 70)
-		      act("You are skilled with $p.",ch,obj,NULL,TO_CHAR);
-		  else if (skill > 50)
-		      act("Your skill with $p is adequate.",ch,obj,NULL,TO_CHAR);
-		  else if (skill > 25)
-		      act("$p feels a little clumsy in your hands.",ch,obj,NULL,TO_CHAR);
-		  else if (skill > 1)
-		      act("You fumble and almost drop $p.",ch,obj,NULL,TO_CHAR);
-		  else
-		      act("You don't even know which end is up on $p.",
-		          ch,obj,NULL,TO_CHAR);
+		if (skill >= 100)
+			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+				    P_LIKE_PART_OF_YOU);
+		else if (skill > 85)
+			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+				    QUITE_CONFIDENT_P);
+		else if (skill > 70)
+			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+				    SKILLED_WITH_P);
+		else if (skill > 50)
+			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+				    SKILL_P_ADEQUATE);
+		else if (skill > 25)
+			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+				    P_FEELS_CLUMSY);
+		else if (skill > 1)
+			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+				    ALMOST_DROP_P);
+		else
+			act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD,
+				    DONT_KNOW_THE_END);
 
-	return;
-	  }
-
-	  if (CAN_WEAR(obj, ITEM_HOLD))
-	  {
-	if (get_eq_char(ch, WEAR_SECOND_WIELD) != NULL)
-	 {
-	  send_to_char("You can't hold an item while using 2 weapons.\n\r",ch);
-	  return;
-	 }
-	if (!remove_obj(ch, WEAR_HOLD, fReplace))
 		return;
-	act("$n holds $p in $s hand.",   ch, obj, NULL, TO_ROOM);
-	act("You hold $p in your hand.", ch, obj, NULL, TO_CHAR);
-	equip_char(ch, obj, WEAR_HOLD);
-	return;
-	  }
+	}
 
-
-	  if (CAN_WEAR(obj,ITEM_WEAR_FLOAT))
-	  {
-	if (!remove_obj(ch,WEAR_FLOAT, fReplace))
+	if (CAN_WEAR(obj, ITEM_HOLD)) {
+		if (get_eq_char(ch, WEAR_SECOND_WIELD) != NULL) {
+			char_nputs(CANT_HOLD_WHILE_2_WEAPONS, ch);
+			return;
+		}
+		if (!remove_obj(ch, WEAR_HOLD, fReplace))
+			return;
+		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING,
+			    N_HOLDS_P_HAND);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_HOLD_P_HAND);
+		equip_char(ch, obj, WEAR_HOLD);
 		return;
-	act("$n releases $p to float next to $m.",ch,obj,NULL,TO_ROOM);
-	act("You release $p and it floats next to you.",ch,obj,NULL,TO_CHAR);
-	equip_char(ch,obj,WEAR_FLOAT);
-	return;
-	  }
+	}
 
-	  if (CAN_WEAR(obj,ITEM_WEAR_TATTOO)  && IS_IMMORTAL (ch))
-	  {
-	if (!remove_obj(ch,WEAR_TATTOO, fReplace))
+
+	if (CAN_WEAR(obj, ITEM_WEAR_FLOAT)) {
+		if (!remove_obj(ch,WEAR_FLOAT, fReplace))
+			return;
+		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, N_FLOAT_P);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_FLOAT_P);
+		equip_char(ch, obj, WEAR_FLOAT);
 		return;
-	act("$n now uses $p as tattoo of $s religion.",ch,obj,NULL,TO_ROOM);
-	act("You now use $p as the tattoo of your religion.",ch,obj,NULL,TO_CHAR);
-	equip_char(ch,obj,WEAR_TATTOO);
+	}
+
+	if (CAN_WEAR(obj, ITEM_WEAR_TATTOO) && IS_IMMORTAL (ch)) {
+		if (!remove_obj(ch,WEAR_TATTOO, fReplace))
+			return;
+		act_nprintf(ch, obj, NULL, TO_ROOM, POS_RESTING, N_USES_TATTOO);
+		act_nprintf(ch, obj, NULL, TO_CHAR, POS_DEAD, YOU_USE_TATTOO);
+		equip_char(ch, obj, WEAR_TATTOO);
+		return;
+	}
+
+	if (fReplace)
+		char_nputs(CANT_WEAR_IT, ch);
+
 	return;
-	  }
-
-	  if (fReplace)
-	send_to_char("You can't wear, wield, or hold that.\n\r", ch);
-
-	  return;
 }
 
 
