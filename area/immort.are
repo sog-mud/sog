@@ -25,6 +25,20 @@ stand stand male 0
 #0
 
 #OBJECTS
+
+#1200
+nobody coffin~
+Nobody's coffin~
+A strange black coffin lies here.~
+wood~
+furniture CEJRY A
+0 2 L 0 100
+5 500 5000000 P
+E
+coffin~
+On the top of this coffin you can see a sign. The sign reads: 
+			"Here lies Nobody."
+~
 #0
 
 #ROOMS
