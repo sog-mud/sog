@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.13 1999-02-22 15:57:09 kostik Exp $
+ * $Id: gsn.c,v 1.14 1999-02-23 07:55:42 kostik Exp $
  */
 
 #include <stdio.h>
@@ -49,6 +49,7 @@ int gsn_third_attack;
 int gsn_blindness;
 int gsn_charm_person;
 int gsn_curse;
+int gsn_anathema;
 int gsn_remove_curse;
 int gsn_invisibility;
 int gsn_mass_invis;
@@ -255,6 +256,7 @@ NAMEDP gsn_table[] =
 	{ "gsn_blindness",		&gsn_blindness			},
 	{ "gsn_charm_person",		&gsn_charm_person		},
 	{ "gsn_curse",			&gsn_curse			},
+	{ "gsn_anathema",		&gsn_anathema			},
 	{ "gsn_remove_curse",		&gsn_remove_curse		},
 	{ "gsn_invisibility",		&gsn_invisibility		},
 	{ "gsn_mass_invis",		&gsn_mass_invis			},

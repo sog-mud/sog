@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spellfn.h,v 1.10 1999-01-21 12:23:52 kostik Exp $
+ * $Id: spellfn.h,v 1.11 1999-02-23 07:55:42 kostik Exp $
  */
 
 #ifndef _SPELLFN_H_
@@ -64,6 +64,7 @@ DECLARE_SPELL_FUN(spell_cure_light);
 DECLARE_SPELL_FUN(spell_cure_poison);
 DECLARE_SPELL_FUN(spell_cure_serious);
 DECLARE_SPELL_FUN(spell_curse);
+DECLARE_SPELL_FUN(spell_anathema);
 DECLARE_SPELL_FUN(spell_demonfire);
 DECLARE_SPELL_FUN(spell_detect_evil);
 DECLARE_SPELL_FUN(spell_detect_good);

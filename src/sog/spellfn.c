@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: spellfn.c,v 1.10 1999-01-21 12:23:52 kostik Exp $
+ * $Id: spellfn.c,v 1.11 1999-02-23 07:55:42 kostik Exp $
  */
 
 #include <stdio.h>
@@ -63,6 +63,7 @@ NAMEDP spellfn_table[] =
 	{ "spell_cure_poison",		spell_cure_poison		},
 	{ "spell_cure_serious",		spell_cure_serious		},
 	{ "spell_curse",		spell_curse			},
+	{ "spell_anathema",		spell_anathema			},
 	{ "spell_demonfire",		spell_demonfire			},
 	{ "spell_detect_evil",		spell_detect_evil		},
 	{ "spell_detect_good",		spell_detect_good		},

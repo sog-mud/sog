@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.126 1999-02-22 15:56:55 kostik Exp $
+ * $Id: spellfun.c,v 1.127 1999-02-23 07:55:34 kostik Exp $
  */
 
 /***************************************************************************
@@ -53,6 +53,8 @@
 DECLARE_DO_FUN(do_yell		);
 DECLARE_DO_FUN(do_look		);
 DECLARE_DO_FUN(do_stand		);
+
+extern int gsn_anathema;
 
 /*
  * for casting different rooms 
@@ -480,6 +482,14 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 		if (!IS_NPC(ch) && get_curr_stat(ch, STAT_INT) > 21)
 			slevel += get_curr_stat(ch,STAT_INT) - 21;
+
+		if (IS_AFFECTED(ch, AFF_CURSE)) {
+			AFFECT_DATA* paf;
+			for (paf = ch->affected; paf; paf = paf->next) 
+				if (paf->type == gsn_anathema
+				&& paf->location == APPLY_CHA)
+					slevel -= paf->modifier * 3;
+		}
 
 		if (slevel < 1)
 			slevel = 1;
@@ -1700,6 +1710,60 @@ void spell_curse(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 }
 
 
+void spell_anathema(int sn, int level, CHAR_DATA *ch, void *vo, int target)
+{
+	AFFECT_DATA af;
+	CHAR_DATA* victim = (CHAR_DATA*) vo;
+	int strength = 0;
+
+	if (IS_GOOD(victim))
+		strength = IS_EVIL(ch) ? 2 : (IS_GOOD(ch) ? 0 : 1);
+	else if (IS_EVIL(victim))
+		strength = IS_GOOD(ch) ? 2 : (IS_EVIL(ch) ? 0 : 1);
+	else 
+		strength = (IS_GOOD(ch) || IS_EVIL(ch)) ? 1:0;
+
+	if (!strength) {
+		act("Oh, no. Your god seems to like $N", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	if (is_affected(victim, sn)) {
+		act("$N is already cursed.", ch, NULL, victim, TO_CHAR);
+		return;
+	}
+
+	level += (strength - 1) * 3;
+
+	if (saves_spell(level, victim, DAM_HOLY)) {
+		char_puts("You failed.\n", ch);
+		return;
+	}
+
+	af.where 	= TO_AFFECTS;
+	af.type  	= sn;
+	af.level 	= level;
+	af.duration	= (8 + level/10);
+	af.location	= APPLY_HITROLL;
+	af.modifier	= - level/5 * strength;
+	af.bitvector	= AFF_CURSE;
+
+	affect_to_char(victim, &af);
+	
+	af.location	= APPLY_SAVING_SPELL;
+	af.modifier	= level/5 * strength;
+
+	affect_to_char(victim, &af);
+
+	af.location	= APPLY_CHA;
+	af.modifier	= strength;
+
+	affect_to_char(victim, &af);
+	
+	act("$n looks very uncomfortable.", victim, NULL, NULL, TO_ROOM);
+	char_puts("You feel unclean.\n", victim);
+	return;
+}
 /* RT replacement demonfire spell */
 
 void spell_demonfire(int sn, int level, CHAR_DATA *ch, void *vo, int target)

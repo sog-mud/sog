@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.53 1999-02-17 18:58:04 fjoe Exp $
+ * $Id: skills.c,v 1.54 1999-02-23 07:55:35 kostik Exp $
  */
 
 /***************************************************************************
@@ -48,6 +48,7 @@
 #include "merc.h"
 #include "update.h"
 
+extern int gsn_anathema;
 varr skills = { sizeof(SKILL_DATA), 8 };
 
 /* command procedures needed */
@@ -708,6 +709,16 @@ int get_skill(CHAR_DATA *ch, int sn)
 			skill = 10 + 3 * ch->level;
 		else 
 			skill = 0;
+	}
+
+	if (IS_AFFECTED(ch, AFF_CURSE)) {
+		AFFECT_DATA* paf;
+		for (paf = ch->affected; paf; paf=paf->next) {
+			if (paf->type == gsn_anathema 
+			  && paf->location == APPLY_CHA) {
+				skill = skill * 4 / (4+paf->modifier);
+			  }
+		}
 	}
 
 	if (ch->daze > 0) {
