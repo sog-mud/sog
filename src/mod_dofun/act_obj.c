@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.142 1999-05-20 07:18:20 fjoe Exp $
+ * $Id: act_obj.c,v 1.143 1999-05-20 07:27:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2246,7 +2246,9 @@ void do_zap(CHAR_DATA * ch, const char *argument)
 			}
 			else {
 				act("$n zaps $N with $p.",
-				    ch, wand, victim, TO_ROOM);
+				    ch, wand, victim, TO_NOTVICT);
+				act("$n zaps you with $p.",
+				    ch, wand, victim, TO_VICT);
 				act("You zap $N with $p.",
 				    ch, wand, victim, TO_CHAR);
 			}
