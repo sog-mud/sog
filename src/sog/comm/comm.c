@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.192 1999-06-28 09:04:19 fjoe Exp $
+ * $Id: comm.c,v 1.193 1999-06-29 03:07:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -666,11 +666,8 @@ void game_loop_unix(void)
 					show_string(d, d->incomm);
 				else if (d->pString)
 					string_add(d->character, d->incomm);
-				else if (d->connected == CON_PLAYING) {
-					if (olc_interpret == NULL
-					||  !olc_interpret(d, d->incomm))
-			    			substitute_alias(d, d->incomm);
-				}
+				else if (d->connected == CON_PLAYING)
+			    		substitute_alias(d, d->incomm);
 				else
 					nanny(d, d->incomm);
 

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.161 1999-06-28 09:04:18 fjoe Exp $
+ * $Id: interp.c,v 1.162 1999-06-29 03:07:23 fjoe Exp $
  */
 
 /***************************************************************************
@@ -496,53 +496,59 @@ const char *first_arg(const char *argument, char *arg_first, size_t len,
 /* does aliasing and other fun stuff */
 void substitute_alias(DESCRIPTOR_DATA *d, const char *argument)
 {
-    CHAR_DATA *ch;
-    char buf[MAX_STRING_LENGTH],prefix[MAX_INPUT_LENGTH],name[MAX_INPUT_LENGTH];
-    const char *point;
-    int alias;
+	CHAR_DATA *ch;
+	char buf[MAX_STRING_LENGTH];
+	char prefix[MAX_INPUT_LENGTH];
 
-    ch = d->original ? d->original : d->character;
+	ch = d->original ? d->original : d->character;
 
-    /* check for prefix */
-    if (ch->prefix[0] != '\0' && str_prefix("prefix",argument))
-    {
-	if (strlen(ch->prefix) + strlen(argument) > MAX_INPUT_LENGTH)
-	    char_puts("Line to long, prefix not processed.\n",ch);
-	else
-	{
-	    snprintf(prefix, sizeof(prefix), "%s %s",ch->prefix,argument);
-	    argument = prefix;
+	/* check for prefix */
+	if (ch->prefix[0] != '\0' && str_prefix("prefix", argument)) {
+		if (strlen(ch->prefix)+strlen(argument)+2 > MAX_INPUT_LENGTH)
+			char_puts("Line to long, prefix not processed.\n", ch);
+		else {
+			snprintf(prefix, sizeof(prefix), "%s %s",
+				 ch->prefix, argument);
+			argument = prefix;
+		}
 	}
-    }
 
-    if (IS_NPC(ch) || ch->pcdata->alias[0] == NULL
-    ||	!str_prefix("alias",argument) || !str_prefix("una",argument) 
-    ||  !str_prefix("prefix",argument)) {
-	interpret(d->character, argument);
-	return;
-    }
+	if (!IS_NPC(ch)
+	&&  ch->pcdata->alias[0] != NULL
+	&&  str_prefix("alias", argument)
+	&&  str_prefix("una", argument) 
+	&&  str_prefix("prefix", argument)) {
+		int alias;
 
-    strnzcpy(buf, sizeof(buf), argument);
+		/* go through the aliases */
+		for (alias = 0; alias < MAX_ALIAS; alias++) {
+			const char *point;
 
-    for (alias = 0; alias < MAX_ALIAS; alias++)	 /* go through the aliases */
-    {
-	if (ch->pcdata->alias[alias] == NULL)
-	    break;
+			if (ch->pcdata->alias[alias] == NULL)
+				break;
 
-	if (!str_prefix(ch->pcdata->alias[alias],argument))
-	{
-	    point = one_argument(argument, name, sizeof(name));
-	    if (!strcmp(ch->pcdata->alias[alias],name)) {
-		snprintf(buf, sizeof(buf), "%s %s",
-			 ch->pcdata->alias_sub[alias], point);
-		break;
-	    }
-	    if (strlen(buf) > MAX_INPUT_LENGTH)
-	    {
-		char_puts("Alias substitution too long. Truncated.\n",ch);
-		buf[MAX_INPUT_LENGTH -1] = '\0';
-	    }
+			if (str_prefix(ch->pcdata->alias[alias], argument))
+				continue;
+
+			point = one_argument(argument, buf, sizeof(buf));
+			if (strcmp(ch->pcdata->alias[alias], buf))
+				continue;
+
+			/*
+			 * found an alias
+			 */
+			snprintf(buf, sizeof(buf), "%s %s",
+				 ch->pcdata->alias_sub[alias], point);
+			if (strlen(buf) > MAX_INPUT_LENGTH) {
+				char_puts("Alias substitution too long. "
+					  "Truncated.\n", ch);
+				buf[MAX_INPUT_LENGTH -1] = '\0';
+			}
+			argument = buf;
+			break;
+		}
 	}
-    }
-    interpret(d->character, buf);
+
+	if (olc_interpret == NULL || !olc_interpret(d, argument))
+		interpret(d->character, argument);
 }
