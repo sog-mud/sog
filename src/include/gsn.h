@@ -23,7 +23,7 @@
 * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 * SUCH DAMAGE.
 *
-* $Id: gsn.h,v 1.30.2.7 2000-04-19 11:52:08 osya Exp $
+* $Id: gsn.h,v 1.30.2.8 2000-04-24 09:17:57 osya Exp $
 */
 
 #ifndef _GSN_H_
@@ -83,7 +83,7 @@ extern int gsn_fade;
 extern int gsn_garble;
 extern int gsn_confuse;
 extern int gsn_track;
-extern int gsn_chaos_blade;
+extern int gsn_chaos_weapon;
 extern int gsn_wrath;
 extern int gsn_stalker;
 extern int gsn_tesseract;
@@ -97,7 +97,7 @@ extern int gsn_remove_badge;
 extern int gsn_dragon_strength;
 extern int gsn_dragon_breath;
 extern int gsn_warcry;
-extern int gsn_dragonsword;
+extern int gsn_dragon_weapon;
 extern int gsn_guard;
 extern int gsn_guard_call;
 extern int gsn_love_potion;

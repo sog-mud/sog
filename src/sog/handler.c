@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.26 2000-04-21 07:05:50 osya Exp $
+ * $Id: handler.c,v 1.182.2.27 2000-04-24 09:18:03 osya Exp $
  */
 
 /***************************************************************************
@@ -1754,6 +1754,8 @@ void extract_char(CHAR_DATA *ch, int flags)
 	for (wch = npc_list; wch; wch = wch->next) {
 		if (NPC(wch)->mprog_target == ch)
 			NPC(wch)->mprog_target = NULL;
+	if (wch->pMobIndex->vnum == MOB_VNUM_CRYPT_THING)
+		NPC(wch)->timer = 1; 
 	}
 
 	if (ch == char_list) {

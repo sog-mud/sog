@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: gsn.c,v 1.32.2.8 2000-04-19 11:52:14 osya Exp $
+ * $Id: gsn.c,v 1.32.2.9 2000-04-24 09:18:02 osya Exp $
  */
 
 #include <stdio.h>
@@ -81,7 +81,7 @@ int gsn_fade;
 int gsn_garble;
 int gsn_confuse;
 int gsn_track;
-int gsn_chaos_blade;
+int gsn_chaos_weapon;
 int gsn_wrath;
 int gsn_stalker;
 int gsn_tesseract;
@@ -95,7 +95,7 @@ int gsn_remove_badge;
 int gsn_dragon_strength;
 int gsn_dragon_breath;
 int gsn_warcry;
-int gsn_dragonsword;
+int gsn_dragon_weapon;
 int gsn_guard;
 int gsn_guard_call;
 int gsn_love_potion;
@@ -304,7 +304,7 @@ namedp_t gsn_table[] =
 	{ "gsn_garble",			&gsn_garble			},
 	{ "gsn_confuse",		&gsn_confuse			},
 	{ "gsn_track",			&gsn_track			},
-	{ "gsn_chaos_blade",		&gsn_chaos_blade		},
+	{ "gsn_chaos_weapon",		&gsn_chaos_weapon		},
 	{ "gsn_wrath",			&gsn_wrath			},
 	{ "gsn_stalker",		&gsn_stalker			},
 	{ "gsn_tesseract",		&gsn_tesseract			},
@@ -318,7 +318,7 @@ namedp_t gsn_table[] =
 	{ "gsn_dragon_strength",	&gsn_dragon_strength		},
 	{ "gsn_dragon_breath",		&gsn_dragon_breath		},
 	{ "gsn_warcry",			&gsn_warcry			},
-	{ "gsn_dragonsword",		&gsn_dragonsword		},
+	{ "gsn_dragon_weapon",		&gsn_dragon_weapon		},
 	{ "gsn_guard",			&gsn_guard			},
 	{ "gsn_guard_call",		&gsn_guard_call			},
 	{ "gsn_love_potion",		&gsn_love_potion		},

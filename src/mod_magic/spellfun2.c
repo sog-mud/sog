@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.139.2.20 2000-04-22 02:58:56 osya Exp $
+ * $Id: spellfun2.c,v 1.139.2.21 2000-04-24 09:17:58 osya Exp $
  */
 
 /***************************************************************************
@@ -1101,12 +1101,12 @@ void spell_amnesia(int sn, int level, CHAR_DATA *ch, void *vo)
 	act("$n gets a blank look on $s face.",victim,NULL,NULL,TO_ROOM);
 }
 
-void spell_chaos_blade(int sn, int level, CHAR_DATA *ch, void *vo)
+void spell_chaos_weapon(int sn, int level, CHAR_DATA *ch, void *vo)
 {
 	OBJ_DATA *blade;
 	AFFECT_DATA af;
 	
-	blade = create_obj(get_obj_index(OBJ_VNUM_CHAOS_BLADE), 0);
+	blade = create_obj(get_obj_index(OBJ_VNUM_CHAOS_WEAPON), 0);
 	blade->level = level;
 	blade->timer = level * 2;
 	blade->value[2] = (level / 10) + 3;  
@@ -1128,8 +1128,8 @@ void spell_chaos_blade(int sn, int level, CHAR_DATA *ch, void *vo)
 			blade->value[0] = WEAPON_DAGGER;
 			break;
 	}
-	char_puts("You create a blade of chaos!\n",ch);
-	act("$n creates a blade of chaos!",ch,NULL,NULL,TO_ROOM);
+	char_puts("You create a weapon of chaos!\n",ch);
+	act("$n creates a weapon of chaos!",ch,NULL,NULL,TO_ROOM);
 
 	af.where        = TO_OBJECT;
 	af.type         = sn;
@@ -2023,7 +2023,7 @@ void spell_squire(int sn, int level, CHAR_DATA *ch, void *vo)
 	char_to_room(squire,ch->in_room);
 }
 
-void spell_dragonsword(int sn, int level, CHAR_DATA *ch, void *vo)	
+void spell_dragon_weapon(int sn, int level, CHAR_DATA *ch, void *vo)	
 {
 	int sword_vnum;
 	OBJ_DATA *sword;
@@ -2043,7 +2043,7 @@ void spell_dragonsword(int sn, int level, CHAR_DATA *ch, void *vo)
 	sword_vnum = OBJ_VNUM_DRAGONLANCE;
 	else
 	{
-	  char_puts("You can't make a DragonSword like that!", ch);
+	  char_puts("You can't make a Dragon Weapon like that!", ch);
 	  return;
 	}
 
