@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.56 2003-09-30 01:25:29 fjoe Exp $
+ * $Id: update.c,v 1.157.2.57 2004-02-19 17:20:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1640,7 +1640,12 @@ save_corpse_contents(OBJ_DATA *corpse)
 		for (obj = corpse->contains; obj; obj = obj_next) {
 			obj_next = obj->next_content;
 			obj_from_obj(obj);
-			obj_to_char(obj, corpse->carried_by);
+			if (obj->pObjIndex->item_type == ITEM_MONEY) {
+				corpse->carried_by->silver += obj->value[0];
+				corpse->carried_by->gold += obj->value[1];
+				extract_obj(obj, 0);
+			} else
+				obj_to_char_check(obj, corpse->carried_by);
 		}
 		return;
 	}
@@ -2459,36 +2464,28 @@ sell_item(bmitem_t *item)
 {
 
 	CHAR_DATA *seller, *buyer;
-	bool no_seller, no_buyer, loaded_seller, loaded_buyer;
-
-	no_seller = no_buyer = loaded_seller = loaded_buyer = FALSE;
+	bool loaded_seller = FALSE, loaded_buyer = FALSE;
 
 	if (IS_NULLSTR(item->buyer)) {
 		if ((seller = get_char_world(NULL, item->seller)) == NULL) {
-			if ((seller = char_load(item->seller, LOAD_F_NOCREATE)) == NULL)
-				no_seller = TRUE;
-			else
+			if ((seller = char_load(item->seller, LOAD_F_NOCREATE)) != NULL)
 				loaded_seller = TRUE;
 		}
-		if (!no_seller && !IS_NPC(seller))
+		if (seller != NULL && !IS_NPC(seller))
 			send_notice(seller, item, NOTICE_SELLER);
 		extract_obj(item->obj, 0);
 		if (loaded_seller)
 			char_nuke(seller);
 	} else {
 		if ((seller = get_char_world(NULL, item->seller)) == NULL) {
-			if ((seller = char_load(item->seller, LOAD_F_NOCREATE)) == NULL)
-				no_seller = TRUE;
-			else
+			if ((seller = char_load(item->seller, LOAD_F_NOCREATE)) != NULL)
 				loaded_seller = TRUE;
 		}
 		if ((buyer = get_char_world(NULL, item->buyer)) == NULL) {
-			if ((buyer = char_load(item->buyer, LOAD_F_NOCREATE)) == NULL)
-				no_buyer = TRUE;
-			else
+			if ((buyer = char_load(item->buyer, LOAD_F_NOCREATE)) != NULL)
 				loaded_buyer = TRUE;
 		}
-		if (!no_seller && !IS_NPC(seller)) {
+		if (seller != NULL && !IS_NPC(seller)) {
 			PC(seller)->bank_g += item->bet;
 			send_notice(seller, item, NOTICE_SELLER);
 			if (loaded_seller) {
@@ -2496,8 +2493,7 @@ sell_item(bmitem_t *item)
 				char_nuke(seller);
 			}
 		}
-
-		if (!no_buyer && !IS_NPC(buyer)) {
+		if (buyer != NULL && !IS_NPC(buyer)) {
 			send_notice(buyer, item, NOTICE_BUYER);
 			obj_to_char(item->obj, buyer);
 			if (loaded_buyer) {

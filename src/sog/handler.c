@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.182.2.74 2004-02-19 14:30:20 fjoe Exp $
+ * $Id: handler.c,v 1.182.2.75 2004-02-19 17:20:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -335,6 +335,20 @@ int can_carry_n(CHAR_DATA *ch)
 	return MAX_WEAR + get_curr_stat(ch,STAT_DEX) - 10 + ch->size;
 }
 
+static bool
+can_carry_x(CHAR_DATA *ch, int (*can_carry)(CHAR_DATA *), int n)
+{
+	int capacity;
+
+	return (capacity = can_carry(ch)) < 0 || n <= capacity;
+}
+
+bool
+can_carry_more_n(CHAR_DATA *ch, int n)
+{
+	return can_carry_x(ch, can_carry_n, get_carry_number(ch) + n);
+}
+
 /*
  * Retrieve a character's carry capacity.
  */
@@ -353,6 +367,12 @@ int can_carry_w(CHAR_DATA *ch)
 	}
 
 	return str_app[get_curr_stat(ch,STAT_STR)].carry * 10 + ch->level * 25;
+}
+
+bool
+can_carry_more_w(CHAR_DATA *ch, int w)
+{
+	return can_carry_x(ch, can_carry_w, get_carry_weight(ch) + w);
 }
 
 /*---------------------------------------------------------------------------
@@ -734,20 +754,24 @@ void affect_modify(CHAR_DATA *ch, AFFECT_DATA *paf, bool fAdd)
 	if (!IS_NPC(ch)
 	&&  ch->in_room != NULL
 	&&  (wield = get_eq_char(ch, WEAR_WIELD)) != NULL
-	&&  get_obj_weight(wield) > (str_app[get_curr_stat(ch,STAT_STR)].wield*10))
-	{
+	&&  get_obj_weight(wield) > (str_app[get_curr_stat(ch,STAT_STR)].wield*10)) {
 		static int depth;
 
 		if (depth == 0) {
-		    depth++;
-		    act("You drop $p.", ch, wield, NULL, TO_CHAR);
-		    act("$n drops $p.", ch, wield, NULL, TO_ROOM);
-		    obj_from_char(wield);
-		    if (IS_SET(ch->in_room->room_flags, ROOM_BATTLE_ARENA))
-			    obj_to_char(wield, ch);
-		    else
-			    obj_to_room(wield, ch->in_room);
-		    depth--;
+			depth++;
+			obj_from_char(wield);
+			if (IS_SET(ch->in_room->room_flags, ROOM_BATTLE_ARENA)) {
+				act("$n stops using $p.",
+				    ch, wield, NULL, TO_ROOM);
+				act_puts("You stop using $p.",
+					 ch, wield, NULL, TO_CHAR, POS_DEAD);
+				obj_to_char_check(wield, ch);
+			} else {
+				act("You drop $p.", ch, wield, NULL, TO_CHAR);
+				act("$n drops $p.", ch, wield, NULL, TO_ROOM);
+				obj_to_room(wield, ch->in_room);
+			}
+			depth--;
 		}
 	}
 }
@@ -1221,6 +1245,33 @@ void obj_to_char(OBJ_DATA *obj, CHAR_DATA *ch)
 
 	ch->carry_number	+= get_obj_number(obj);
 	ch->carry_weight	+= get_obj_weight(obj);
+}
+
+/*
+ * Give an obj to a char, checking can_carry_w and can_carry_n.
+ */
+void
+obj_to_char_check(OBJ_DATA *obj, CHAR_DATA *ch)
+{
+	if (!can_carry_more_n(ch, get_obj_number(obj))) {
+		act("You have your hands full and drop $p.",
+		    ch, obj, NULL, TO_CHAR);
+		act("$n has $s hands full and drops $p.",
+		    ch, obj, NULL, TO_ROOM);
+		obj_to_room(obj, ch->in_room);
+		return;
+	}
+
+	if (!can_carry_more_w(ch, get_obj_weight(obj))) {
+		act("You can't carry that much weight and drop $p.",
+		    ch, obj, NULL, TO_CHAR);
+		act("$n can't carry that much weight and drops $p.",
+		    ch, obj, NULL, TO_ROOM);
+		obj_to_room(obj, ch->in_room);
+		return;
+	}
+
+	obj_to_char(obj, ch);
 }
 
 /*
@@ -4638,7 +4689,6 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container,
 	/* variables for AUTOSPLIT */
 	CHAR_DATA      *gch;
 	int             members;
-	int		carry_w, carry_n;
 
 	if (!CAN_WEAR(obj, ITEM_TAKE)
 	||  (obj->pObjIndex->item_type == ITEM_CORPSE_PC &&
@@ -4662,15 +4712,13 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container,
 		}
 	}
 
-	if ((carry_n = can_carry_n(ch)) >= 0
-	&&  ch->carry_number + get_obj_number(obj) > carry_n) {
+	if (!can_carry_more_n(ch, get_obj_number(obj))) {
 		act_puts("$P: you can't carry that many items.",
 			 ch, NULL, obj, TO_CHAR, POS_DEAD);
 		return;
 	}
 
-	if ((carry_w = can_carry_w(ch)) >= 0
-	&&  get_carry_weight(ch) + get_obj_weight(obj) > carry_w) {
+	if (!can_carry_more_w(ch, get_obj_weight(obj))) {
 		act_puts("$P: you can't carry that much weight.",
 			 ch, NULL, obj, TO_CHAR, POS_DEAD);
 		return;
@@ -4687,8 +4735,7 @@ void get_obj(CHAR_DATA * ch, OBJ_DATA * obj, OBJ_DATA * container,
 	}
 
 	if (obj->pObjIndex->item_type == ITEM_MONEY) {
-		if (carry_w >= 0
-		&&  get_carry_weight(ch) + MONEY_WEIGHT(obj) > carry_w) {
+		if (!can_carry_more_w(ch, MONEY_WEIGHT(obj))) {
 			act_puts("$d: you can't carry that much weight.",
 				 ch, NULL, obj->name, TO_CHAR, POS_DEAD);
 			return;
@@ -4752,7 +4799,8 @@ void quaff_obj(CHAR_DATA *ch, OBJ_DATA *obj)
 	if (IS_PUMPED(ch) || ch->fighting != NULL)
 		WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
 
-	obj_to_char(create_obj(get_obj_index(OBJ_VNUM_POTION_VIAL), 0), ch);
+	obj_to_char_check(
+	    create_obj(get_obj_index(OBJ_VNUM_POTION_VIAL), 0), ch);
 
 	obj_cast_spell(obj->value[1], obj->value[0], ch, ch);
 
@@ -4806,9 +4854,10 @@ bool remove_obj(CHAR_DATA * ch, int iWear, bool fReplace)
                 WAIT_STATE(ch, 4);
 		return TRUE;
 	}
-	unequip_char(ch, obj);
+	obj_from_char(obj);
 	act("$n stops using $p.", ch, obj, NULL, TO_ROOM);
 	act_puts("You stop using $p.", ch, obj, NULL, TO_CHAR, POS_DEAD);
+	obj_to_char_check(obj, ch);
 
 	if (iWear == WEAR_WIELD
 	    && (obj = get_eq_char(ch, WEAR_SECOND_WIELD)) != NULL) {
