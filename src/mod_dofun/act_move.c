@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.193 1999-07-19 13:25:15 avn Exp $
+ * $Id: act_move.c,v 1.194 1999-07-21 03:34:21 kostik Exp $
  */
 
 /***************************************************************************
@@ -1114,8 +1114,8 @@ void do_sneak(CHAR_DATA *ch, const char *argument)
 		check_improve(ch, gsn_sneak, TRUE, 3);
 		af.where     = TO_AFFECTS;
 		af.type      = gsn_sneak;
-		af.level     = ch->level; 
-		af.duration  = ch->level;
+		af.level     = LEVEL(ch); 
+		af.duration  = LEVEL(ch);
 		af.location  = APPLY_NONE;
 		af.modifier  = 0;
 		af.bitvector = AFF_SNEAK;
@@ -1528,7 +1528,7 @@ void do_vampire(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	level = ch->level;
+	level = LEVEL(ch);
 	duration = level / 10 + 5;
 
 	af.type      = gsn_vampire;
@@ -1638,7 +1638,7 @@ void do_vbite(CHAR_DATA *ch, const char *argument)
 	if (!IS_AWAKE(victim)
 	&&  (IS_NPC(ch) ||
 	     number_percent() < ((chance * 7 / 10) +
-		(2 * (ch->level - victim->level)) ))) {
+		(2 * (LEVEL(ch) - LEVEL(victim))) ))) {
 		check_improve(ch,gsn_vampiric_bite,TRUE,1);
 		one_hit(ch, victim, gsn_vampiric_bite, WEAR_WIELD);
 	}
@@ -2038,7 +2038,7 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 		af.type = sn;
 		af.where = TO_AFFECTS;
 		af.level = ch->level;
-		af.duration = ch->level / 20 + 1;
+		af.duration = LEVEL(ch) / 20 + 1;
 		af.location = APPLY_NONE;
 		af.modifier = 0;
 		af.bitvector = AFF_SLEEP;
@@ -2851,7 +2851,7 @@ void do_shoot(CHAR_DATA *ch, const char *argument)
 	char arg1[512],arg2[512];
 	bool success;
 	int chance, direction;
-	int range = (ch->level / 10) + 1;
+	int range = (LEVEL(ch) / 10) + 1;
 	
 	if (IS_NPC(ch))
 		return; /* Mobs can't use bows */
@@ -2978,7 +2978,7 @@ void do_throw_weapon(CHAR_DATA *ch, const char *argument)
 	char arg1[512],arg2[512];
 	bool success;
 	int chance, chance2, direction, sn;
-	int range = (ch->level / 10) + 1;
+	int range = (LEVEL(ch) / 10) + 1;
 
 	if (IS_NPC(ch) || (chance = get_skill(ch, gsn_throw_weapon)) == 0) {
 		char_puts("You don't know how to use throwing weapons.\n",ch);

@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.177 1999-07-17 09:40:59 avn Exp $
+ * $Id: act_wiz.c,v 1.178 1999-07-21 03:34:23 kostik Exp $
  */
 
 /***************************************************************************
@@ -3870,7 +3870,7 @@ void do_rename(CHAR_DATA* ch, const char *argument)
 				mlstr_init(&obj->owner, new_name);
 			}
 
-		dunlink(PLAYER_PATH, capitalize(old_name)); 
+		dunlink(PLAYER_PATH, capitalize(victim->name)); 
 	}
 /*
  * NOTE: Players who are level 1 do NOT get saved under a new name 

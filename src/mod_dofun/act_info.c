@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.264 1999-07-05 18:48:12 fjoe Exp $
+ * $Id: act_info.c,v 1.265 1999-07-21 03:34:18 kostik Exp $
  */
 
 /***************************************************************************
@@ -2025,8 +2025,8 @@ void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 
 	af.where     = TO_AFFECTS;
 	af.type      = sn;
-	af.level     = ch->level;
-	af.duration  = ch->level;
+	af.level     = LEVEL(ch);
+	af.duration  = LEVEL(ch);
 	af.location  = APPLY_NONE;
 	af.modifier  = 0;
 	af.bitvector = AFF_DETECT_HIDDEN;
@@ -3412,14 +3412,14 @@ void do_camp(CHAR_DATA *ch, const char *argument)
 	raf.level	= ch->level;
 	raf.duration	= ch->level / 20;
 	raf.bitvector	= 0;
-	raf.modifier	= 2 * ch->level;
+	raf.modifier	= 2 * LEVEL(ch);
 	raf.location	= APPLY_ROOM_HEAL;
 	raf.owner	= ch;
 	raf.event	= EVENT_NONE;
 	raf.event_fun	= NULL;
 	affect_to_room(ch->in_room, &raf);
 
-	raf.modifier	= ch->level;
+	raf.modifier	= LEVEL(ch);
 	raf.location	= APPLY_ROOM_MANA;
 	affect_to_room(ch->in_room, &raf);
 }
@@ -3460,7 +3460,7 @@ void do_demand(CHAR_DATA *ch, const char *argument)
 
 	chance = IS_EVIL(victim) ? 10 : IS_GOOD(victim) ? -5 : 0;
 	chance += (get_curr_stat(ch,STAT_CHA) - 15) * 10;
-	chance += ch->level - victim->level;
+	chance += LEVEL(ch) - LEVEL(victim);
 
 	chance = (get_skill(ch, gsn_demand))*chance/100;
 
@@ -3666,7 +3666,7 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 	char_puts("You start to make arrows!\n",ch);
 	act("$n starts to make arrows!", ch, NULL, NULL, TO_ROOM);
 	pObjIndex = get_obj_index(vnum);
-	for(count = 0; count < ch->level / 5; count++) {
+	for(count = 0; count < LEVEL(ch) / 5; count++) {
 		if (number_percent() > chance * color_chance / 100) {
 			char_puts("You failed to make the arrow, "
 				  "and broke it.\n", ch);
@@ -3682,15 +3682,15 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 
 		arrow = create_obj(pObjIndex, 0);
 		arrow->level = ch->level;
-		arrow->value[1] = 4 + ch->level / 10;
-		arrow->value[2] = 4 + ch->level / 10;
+		arrow->value[1] = 4 + LEVEL(ch) / 10;
+		arrow->value[2] = 4 + LEVEL(ch) / 10;
 
 		af.where	 = TO_OBJECT;
 		af.type		 = sn;
 		af.level	 = ch->level;
 		af.duration	 = -1;
 		af.location	 = APPLY_HITROLL;
-		af.modifier	 = ch->level / 10;
+		af.modifier	 = LEVEL(ch) / 10;
 		af.bitvector 	 = 0;
 		affect_to_obj(arrow, &af);
 
@@ -3699,7 +3699,7 @@ void do_make_arrow(CHAR_DATA *ch, const char *argument)
 		af.level	= ch->level;
 		af.duration	= -1;
 		af.location	= APPLY_DAMROLL;
-		af.modifier	= ch->level / 10;
+		af.modifier	= LEVEL(ch) / 10;
 		af.bitvector	= 0;
 		affect_to_obj(arrow, &af);
 
@@ -3760,7 +3760,7 @@ void do_make_bow(CHAR_DATA *ch, const char *argument)
 	af.level	= ch->level;
 	af.duration	= -1;
 	af.location	= APPLY_HITROLL;
-	af.modifier	= ch->level / 10;
+	af.modifier	= LEVEL(ch) / 10;
 	af.bitvector 	= 0;
 	affect_to_obj(bow, &af);
 
@@ -3769,7 +3769,7 @@ void do_make_bow(CHAR_DATA *ch, const char *argument)
 	af.level	= ch->level;
 	af.duration	= -1;
 	af.location	= APPLY_DAMROLL;
-	af.modifier	= ch->level / 10;
+	af.modifier	= LEVEL(ch) / 10;
 	af.bitvector 	= 0;
 	affect_to_obj(bow, &af);
 

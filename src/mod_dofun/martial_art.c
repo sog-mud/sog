@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.106 1999-07-05 12:47:44 kostik Exp $
+ * $Id: martial_art.c,v 1.107 1999-07-21 03:34:25 kostik Exp $
  */
 
 /***************************************************************************
@@ -117,7 +117,7 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 	if ((chance = get_skill(ch, gsn_mortal_strike))
 	&&  get_eq_char(ch, WEAR_WIELD)) {
 		chance /= 30;
-		chance += 1 + (ch->level - victim->level) / 2;
+		chance += 1 + (LEVEL(ch) - LEVEL(victim)) / 2;
 		if (number_percent() < chance) {
 			act_puts("Your flash strike instantly slays $N!",
 				 ch, NULL, victim, TO_CHAR, POS_RESTING);
@@ -189,7 +189,7 @@ void do_murder(CHAR_DATA *ch, const char *argument)
 	if ((chance = get_skill(ch, gsn_mortal_strike))
 	&&  get_eq_char(ch, WEAR_WIELD)) {
 		chance /= 30;
-		chance += 1 + (ch->level - victim->level) / 2;
+		chance += 1 + (LEVEL(ch) - LEVEL(victim)) / 2;
 		if (number_percent() < chance) {
 			act_puts("Your flash strike instantly slays $N!",
 				 ch, NULL, victim, TO_CHAR, POS_RESTING);
@@ -1431,7 +1431,7 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 		af.where	= TO_AFFECTS;
 		af.type 	= gsn_nerve;
 		af.level 	= ch->level;
-		af.duration	= ch->level * PULSE_VIOLENCE/PULSE_TICK;
+		af.duration	= LEVEL(ch) * PULSE_VIOLENCE/PULSE_TICK;
 		af.location	= APPLY_STR;
 		af.modifier	= -3;
 		af.bitvector	= 0;
@@ -1889,7 +1889,7 @@ void do_strangle(CHAR_DATA *ch, const char *argument)
 		af.type = gsn_strangle;
 		af.where = TO_AFFECTS;
 		af.level = ch->level;
-		af.duration = ch->level / 20 + 1;
+		af.duration = LEVEL(ch) / 20 + 1;
 		af.location = APPLY_NONE;
 		af.modifier = 0;
 		af.bitvector = AFF_SLEEP;
@@ -1979,7 +1979,7 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 		af.type		= gsn_blackjack;
 		af.where	= TO_AFFECTS;
 		af.level	= ch->level;
-		af.duration	= ch->level / 15 + 1;
+		af.duration	= LEVEL(ch) / 15 + 1;
 		af.location	= APPLY_NONE;
 		af.modifier	= 0;
 		af.bitvector	= AFF_SLEEP;
@@ -1991,7 +1991,7 @@ void do_blackjack(CHAR_DATA *ch, const char *argument)
 			do_dismount(RIDDEN(victim), str_empty);
 	}
 	else {
-		damage(ch, victim, ch->level/2, gsn_blackjack, DAM_NONE, TRUE);
+		damage(ch, victim, LEVEL(ch)/2, gsn_blackjack, DAM_NONE, TRUE);
 		check_improve(ch, gsn_blackjack, FALSE, 1);
 		yell(victim, ch, "Help! I'm being blackjacked by $I!");
 	}
@@ -2050,7 +2050,7 @@ void do_bloodthirst(CHAR_DATA *ch, const char *argument)
 		af.location	= APPLY_DAMROLL;
 		affect_to_char(ch, &af);
 
-		af.modifier	= - UMIN(ch->level - 5, 35);
+		af.modifier	= - UMIN(LEVEL(ch) - 5, 35);
 		af.location	= APPLY_AC;
 		affect_to_char(ch, &af);
 	}
@@ -2091,7 +2091,7 @@ void do_resistance(CHAR_DATA *ch, const char *argument)
 		af.where	= TO_AFFECTS;
 		af.type 	= gsn_resistance;
 		af.level 	= ch->level;
-		af.duration	= ch->level / 6;
+		af.duration	= LEVEL(ch) / 6;
 		af.location	= APPLY_SAVES;
 		af.modifier	= -LEVEL(ch)/4;
 		af.bitvector	= 0;
@@ -2206,12 +2206,12 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 			af.level	= level;
 			af.duration	= -1;
 			af.location	= APPLY_DAMROLL;
-			af.modifier  = ch->level / 5;
+			af.modifier  = LEVEL(ch) / 5;
 			af.bitvector	= 0;
 			affect_to_obj(trophy, &af);
 
 			af.location	= APPLY_HITROLL;
-			af.modifier  = ch->level / 5;
+			af.modifier  = LEVEL(ch) / 5;
 			af.bitvector	= 0;
 			affect_to_obj(trophy, &af);
 
@@ -2223,10 +2223,10 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 			af.modifier	= level>20?2:1;
 			affect_to_obj(trophy, &af);
 
-			trophy->value[0] = ch->level;
-			trophy->value[1] = ch->level;
-			trophy->value[2] = ch->level;
-			trophy->value[3] = ch->level;
+			trophy->value[0] = LEVEL(ch);
+			trophy->value[1] = LEVEL(ch);
+			trophy->value[2] = LEVEL(ch);
+			trophy->value[3] = LEVEL(ch);
 
 			
 			obj_to_char(trophy, ch);
@@ -2271,7 +2271,7 @@ void do_truesight(CHAR_DATA *ch, const char *argument)
 		af.where    = TO_AFFECTS;
 		af.type     = gsn_truesight;
 		af.level    = ch->level;
-		af.duration = ch->level/2 + 5;
+		af.duration = LEVEL(ch)/2 + 5;
 		af.location = APPLY_NONE;
 		af.modifier = 0;
 		af.bitvector = AFF_DETECT_HIDDEN;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: cast.c,v 1.1 1999-06-28 09:04:15 fjoe Exp $
+ * $Id: cast.c,v 1.2 1999-07-21 03:34:25 kostik Exp $
  */
 
 #include <stdio.h>
@@ -387,7 +387,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 
 		ch->mana -= mana;
 		check_improve(ch, sn, TRUE, 1);
-		if (bch && spellbane(bch, ch, bane_chance, 3 * bch->level))
+		if (bch && spellbane(bch, ch, bane_chance, 3 * LEVEL(bch)))
 			return;
 		spell->fun(sn, IS_NPC(ch) ? ch->level : slevel, ch, vo);
 		if (victim && IS_EXTRACTED(victim))
@@ -422,7 +422,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 static int allowed_other(CHAR_DATA *ch, int sn)
 {
 	if (IS_SET(SKILL(sn)->skill_flags, SKILL_RANGE))
-		return ch->level / 20 + 1;
+		return LEVEL(ch) / 20 + 1;
 	return 0;
 }
 

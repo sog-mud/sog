@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.177 1999-07-20 06:26:54 avn Exp $
+ * $Id: spellfun.c,v 1.178 1999-07-21 03:34:26 kostik Exp $
  */
 
 /***************************************************************************
@@ -265,10 +265,10 @@ void spell_calm(int sn, int level, CHAR_DATA *ch, void *vo)
 		{
 		    count++;
 		    if (IS_NPC(vch))
-		      mlevel += vch->level;
+		      mlevel += LEVEL(vch);
 		    else
-		      mlevel += vch->level/2;
-		    high_level = UMAX(high_level,vch->level);
+		      mlevel += LEVEL(vch)/2;
+		    high_level = UMAX(high_level, LEVEL(vch));
 		}
 	}
 
@@ -671,7 +671,7 @@ void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo)
 	if (IS_AFFECTED(victim, AFF_CHARM)
 	||  IS_AFFECTED(ch, AFF_CHARM)
 	||  !IS_AWAKE(victim)
-	||  level+ladj < victim->level
+	||  level+ladj < LEVEL(victim)
 	||  IS_SET(victim->imm_flags, IMM_CHARM)
 	||  saves_spell(level, victim, DAM_CHARM) 
 	||  (IS_NPC(victim) && victim->pIndexData->pShop != NULL)
@@ -700,7 +700,7 @@ void spell_charm_person(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (IS_NPC(victim) && !IS_NPC(ch)) {
 		victim->last_fought=ch;
-		if (number_percent() < (4 + (victim->level - ch->level)) * 10)
+		if (number_percent() < (4 + (LEVEL(victim) - LEVEL(ch))) * 10)
 		 	add_mind(victim, ch->name);
 		else if (victim->in_mind == NULL) {
 			snprintf(buf, sizeof(buf), "%d", victim->in_room->vnum);
@@ -1341,7 +1341,7 @@ void spell_dispel_evil(int sn, int level, CHAR_DATA *ch, void *vo)
 		return;
 	}
 
-	if (victim->hit > (ch->level * 4))
+	if (victim->hit > (LEVEL(ch) * 4))
 	  dam = dice(level, 4);
 	else
 	  dam = UMAX(victim->hit, dice(level,4));
@@ -1524,7 +1524,7 @@ void spell_dispel_magic(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (IS_AFFECTED(victim,AFF_SANCTUARY) 
-	&&  !saves_dispel(level, victim->level,-1)
+	&&  !saves_dispel(level, LEVEL(victim), -1)
 	&&  !is_affected(victim, gsn_sanctuary)) {
 		REMOVE_BIT(victim->affected_by,AFF_SANCTUARY);
 		act("The white aura around $n's body vanishes.",
@@ -1533,7 +1533,7 @@ void spell_dispel_magic(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
  
 	if (IS_AFFECTED(victim, AFF_BLACK_SHROUD)
-	&&  !saves_dispel(level, victim->level, -1)
+	&&  !saves_dispel(level, LEVEL(victim), -1)
 	&&  !is_affected(victim, gsn_black_shroud)) {
 		REMOVE_BIT(victim->affected_by, AFF_BLACK_SHROUD);
 		act("The black aura around $n's body vanishes.",
@@ -2186,7 +2186,7 @@ void spell_iceball(int sn, int level, CHAR_DATA *ch, void *vo)
 	int movedam;
 
 	dam = dice(level , 12);
-	movedam     = number_range(ch->level, 2 * ch->level);
+	movedam     = number_range(LEVEL(ch), 2 * LEVEL(ch));
 
 	for (vch = ch->in_room->people; vch; vch = vch_next) {
 		vch_next = vch->next_in_room;
@@ -2303,9 +2303,9 @@ void spell_floating_disc(int sn, int level,CHAR_DATA *ch,void *vo)
 	}
 
 	disc = create_obj(get_obj_index(OBJ_VNUM_DISC), 0);
-	disc->value[0]	= ch->level * 10; /* 10 pounds per level capacity */
-	disc->value[3]	= ch->level * 5; /* 5 pounds per level max per item */
-	disc->timer	= ch->level / 2 - number_range(0, level / 4); 
+	disc->value[0]	= LEVEL(ch) * 10; /* 10 pounds per level capacity */
+	disc->value[3]	= LEVEL(ch) * 5; /* 5 pounds per level max per item */
+	disc->timer	= LEVEL(ch) / 2 - number_range(0, level / 4); 
 
 	af.where	= TO_AFFECTS;
 	af.type		= sn;
@@ -2417,7 +2417,7 @@ void spell_gate(int sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *pet = NULL;
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
-	||  victim->level >= level + 3
+	||  LEVEL(victim) >= level + 3
 	||  saves_spell(level, victim, DAM_OTHER)
 	||  !can_gate(ch, victim)) {
 		char_puts("You failed.\n", ch);
@@ -2564,7 +2564,7 @@ void spell_holy_hammer(int sn, int level, CHAR_DATA *ch, void *vo)
 	hammer = create_obj(get_obj_index(OBJ_VNUM_HOLY_HAMMER), 0);
 	hammer->level = ch->level;
 	hammer->timer = level * 3;
-	hammer->value[2] = (ch->level/10)+1;
+	hammer->value[2] = (LEVEL(ch)/10)+1;
 
 	af.where 	= TO_OBJECT;
 	af.type  	= sn;
@@ -3009,7 +3009,7 @@ void spell_magic_missile(int sn, int level, CHAR_DATA *ch,void *vo)
 	int dam;
 
 	if (is_affected(victim, gsn_protective_shield))  {
-		const char *text = ch->level > 4 ? "missiles" : "missile";
+		const char *text = LEVEL(ch) > 4 ? "missiles" : "missile";
 
 		act("Your magic $t fizzle out near your victim.",
 		    ch, NULL, victim, TO_CHAR);
@@ -3020,7 +3020,7 @@ void spell_magic_missile(int sn, int level, CHAR_DATA *ch,void *vo)
 
 	level = UMIN(level, sizeof(dam_each)/sizeof(dam_each[0]) - 1);
 	level = UMAX(0, level);
-	if (ch->level > 50)
+	if (LEVEL(ch) > 50)
 		dam = level / 4;
 	else
 		dam = number_range(dam_each[level] / 2, dam_each[level] * 2);
@@ -3029,25 +3029,25 @@ void spell_magic_missile(int sn, int level, CHAR_DATA *ch,void *vo)
 		dam /= 2;
 	damage(ch, victim, dam, sn, DAM_ENERGY ,TRUE);
 
-	if (ch->level > 4)  {
+	if (LEVEL(ch) > 4)  {
 		dam = number_range(dam_each[level] / 2, dam_each[level] * 2);
 		if (saves_spell(level, victim, DAM_ENERGY))
 			dam /= 2;
 		damage(ch, victim, dam, sn, DAM_ENERGY ,TRUE);
 	}
-	if (ch->level > 8)  {
+	if (LEVEL(ch) > 8)  {
 		dam = number_range(dam_each[level] / 2, dam_each[level] * 2);
 		if (saves_spell(level, victim,DAM_ENERGY))
 			dam /= 2;
 		damage(ch, victim, dam, sn, DAM_ENERGY ,TRUE);
 	}
-	if (ch->level > 12)  {
+	if (LEVEL(ch) > 12)  {
 		dam = number_range(dam_each[level] / 2, dam_each[level] * 2);
 		if (saves_spell(level, victim,DAM_ENERGY))
 			dam /= 2;
 		damage(ch, victim, dam, sn, DAM_ENERGY ,TRUE);
 	}
-	if (ch->level > 16)  {
+	if (LEVEL(ch) > 16)  {
 		dam = number_range(dam_each[level] / 2, dam_each[level] * 2);
 		if (saves_spell(level, victim,DAM_ENERGY))
 			dam /= 2;
@@ -3593,7 +3593,7 @@ void spell_shocking_grasp(int sn, int level,CHAR_DATA *ch,void *vo)
 
 	level	= UMIN(level, sizeof(dam_each)/sizeof(dam_each[0]) - 1);
 	level	= UMAX(0, level);
-		if (ch->level > 50)
+		if (LEVEL(ch) > 50)
 	dam 	= level / 2 ;
 		else
 	dam		= number_range(dam_each[level] / 2, dam_each[level] * 2);
@@ -3609,7 +3609,6 @@ void spell_sleep(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	if (IS_AFFECTED(victim, AFF_SLEEP)
 	||  (IS_NPC(victim) && IS_SET(victim->pIndexData->act, ACT_UNDEAD))
-	||  level < victim->level
 	||  saves_spell(level, victim, DAM_CHARM))
 		return;
 
@@ -3709,7 +3708,7 @@ void spell_summon(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if (victim == ch
-	||  victim->level >= level + 3
+	||  LEVEL(victim) >= level + 3
 	||  victim->fighting != NULL
 	||  !can_see_room(ch, victim->in_room)
 	||  IS_SET(ch->in_room->room_flags, ROOM_SAFE | ROOM_NORECALL |
@@ -4140,7 +4139,7 @@ void spell_find_object(int sn, int level, CHAR_DATA *ch, void *vo)
 	for (obj = object_list; obj != NULL; obj = obj->next) {
 		if (!can_see_obj(ch, obj) || !is_name(target_name, obj->name)
 		||  number_percent() > 2 * level
-		||  ch->level < obj->level
+		||  LEVEL(ch) < obj->level
 		||  (IS_SET(obj->pIndexData->extra_flags, ITEM_CHQUEST) &&
 		     chquest_carried_by(obj) == NULL))
 			continue;
@@ -4217,7 +4216,7 @@ void spell_lightning_shield(int sn, int level, CHAR_DATA *ch, void *vo)
 
 	af2.where     = TO_AFFECTS;
 	af2.type      = sn;
-	af2.level	 = ch->level;
+	af2.level     = ch->level;
 	af2.duration  = level / 10;
 	af2.modifier  = 0;
 	af2.location  = APPLY_NONE;
@@ -4488,7 +4487,7 @@ void spell_astral_walk(int sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *pet = NULL;
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
-	||  victim->level >= level + 3
+	||  LEVEL(victim) >= level + 3
 	||  saves_spell(level, victim, DAM_OTHER)
 	||  !can_gate(ch, victim)) {
 		char_puts("You failed.\n", ch);
@@ -4512,7 +4511,7 @@ void spell_mist_walk(int sn, int level, CHAR_DATA *ch, void *vo)
 	CHAR_DATA *victim;
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
-	||  victim->level >= level - 5
+	||  LEVEL(victim) >= level - 5
 	||  saves_spell(level, victim, DAM_OTHER)
 	||  !can_gate(ch, victim)) {
 		char_puts("You failed.\n", ch);
@@ -4536,7 +4535,7 @@ void spell_solar_flight(int sn, int level, CHAR_DATA *ch, void *vo)
 	}
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
-	||  victim->level >= level + 1
+	||  LEVEL(victim) >= level + 1
 	||  saves_spell(level, victim, DAM_OTHER)
 	||  !can_gate(ch, victim)) {
 		char_puts("You failed.\n", ch);
@@ -4556,7 +4555,7 @@ void spell_helical_flow(int sn, int level, CHAR_DATA *ch, void *vo)
 
 
 	if ((victim = get_char_world(ch, target_name)) == NULL
-	||  victim->level >= level + 3
+	||  LEVEL(victim) >= level + 3
 	||  saves_spell(level, victim, DAM_OTHER)
 	||  !can_gate(ch, victim)) {
 		char_puts("You failed.\n", ch);

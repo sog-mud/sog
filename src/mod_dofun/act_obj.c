@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.162 1999-07-20 06:26:54 avn Exp $
+ * $Id: act_obj.c,v 1.163 1999-07-21 03:34:22 kostik Exp $
  */
 
 /***************************************************************************
@@ -721,8 +721,8 @@ void do_envenom(CHAR_DATA * ch, const char *argument)
 		if (percent < chance) {
 			af.where = TO_WEAPON;
 			af.type = gsn_poison;
-			af.level = ch->level * percent / 100;
-			af.duration = ch->level * percent / 100;
+			af.level = LEVEL(ch) * percent / 100;
+			af.duration = LEVEL(ch) * percent / 100;
 			af.location = 0;
 			af.modifier = 0;
 			af.bitvector = WEAPON_POISON;
@@ -1832,7 +1832,7 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 		char_puts("You can't afford it.\n", ch);
 		return;
 	}
-	if (ch->level < pet->level) {
+	if (LEVEL(ch) < LEVEL(pet)) {
 		char_puts("You're not powerful enough "
 			     "to master this pet.\n", ch);
 		return;
@@ -2246,15 +2246,15 @@ void do_herbs(CHAR_DATA * ch, const char *argument)
 			char_puts("You feel better.\n", victim);
 			act("$n looks better.", victim, NULL, NULL, TO_ROOM);
 		}
-		victim->hit = UMIN(victim->max_hit, victim->hit + 5 * ch->level);
+		victim->hit = UMIN(victim->max_hit, victim->hit + 5 * LEVEL(ch));
 		check_improve(ch, gsn_herbs, TRUE, 1);
 		if (is_affected(victim, gsn_plague))
-			if (check_dispel(ch->level, victim, gsn_plague)) {
+			if (check_dispel(LEVEL(ch), victim, gsn_plague)) {
 				act("$n looks relieved as $s sores vanish.",
 				    victim, NULL, NULL, TO_ROOM);
 			}
 		if (is_affected(victim, gsn_poison))
-			if (check_dispel(ch->level, victim, gsn_poison)) {
+			if (check_dispel(LEVEL(ch), victim, gsn_poison)) {
 				act("$n does not look so green anymore.",
 				    victim, NULL, NULL, TO_ROOM);
 			}
@@ -2614,8 +2614,7 @@ void do_crucify(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (IS_PUMPED(ch) 
-	|| IS_AFFECTED(ch, AFF_BERSERK) 
+	if (IS_AFFECTED(ch, AFF_BERSERK) 
 	|| is_affected(ch, gsn_frenzy)) {
 		char_puts("Calm down first.\n", ch);
 		return;
@@ -2981,7 +2980,7 @@ void do_enchant(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 	ch->mana -= 100;
-	spellfun_call("enchant weapon", ch->level, ch, obj);
+	spellfun_call("enchant weapon", LEVEL(ch), ch, obj);
 	check_improve(ch, sn, TRUE, 2);
 }
 
