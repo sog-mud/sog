@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.64 1998-06-10 06:53:01 efdi Exp $
+ * $Id: act_info.c,v 1.65 1998-06-10 11:36:27 efdi Exp $
  */
 
 /***************************************************************************
@@ -1378,13 +1378,12 @@ void do_examine(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (ch->position < POS_SLEEPING) {
-		send_to_char("You can't see anything but stars!\n\r", ch);
+		send_to_char(msg(INFO_CANT_SEE_BUT_STARS, ch), ch);
 		return;
 	}
 
 	if (ch->position == POS_SLEEPING) {
-		send_to_char("You can't see anything, you're sleeping!\n\r",
-			     ch);
+		send_to_char(msg(INFO_CANT_SEE_SLEEPING, ch), ch);
 		return;
 	}
 
@@ -1392,7 +1391,7 @@ void do_examine(CHAR_DATA *ch, char *argument)
 		return;
 
 	if (arg[0] == '\0') {
-		send_to_char("Examine what?\n\r", ch);
+		send_to_char(msg(INFO_EXA_WHAT, ch), ch);
 		return;
 	}
 
@@ -1403,29 +1402,28 @@ void do_examine(CHAR_DATA *ch, char *argument)
 		case ITEM_MONEY:
 			if (obj->value[0] == 0) {
 				if (obj->value[1] == 0)
-					char_puts("Odd...there's no coins "
-						  "in the pile.\n\r", ch);
+					char_puts(msg(INFO_NO_COINS_PILE, ch),
+							 ch);
 				else if (obj->value[1] == 1)
-					char_puts("Wow. One gold coin.\n\r",
+					char_puts(msg(INFO_ONE_GOLD_COIN, ch),
 						  ch);
 				else
-					char_printf(ch, "There are %d gold "
-						    "coins in the pile.\n\r",
+					char_printf(ch, 
+						    msg(INFO_D_GOLD_COINS, ch),
 						    obj->value[1]);
 			}
 			else if (obj->value[1] == 0) {
 				if (obj->value[0] == 1)
-					char_puts("Wow. One silver coin.\n\r",
-						  ch);
+					char_puts(msg(INFO_ONE_SILVER_COIN, ch),
+							 ch);
 				else
-					char_printf(ch, "There are %d silver "
-						    "coins in the pile.\n\r",
-						    obj->value[0]);
+					char_printf(ch, 
+						   msg(INFO_D_SILVER_COINS, ch),
+						   obj->value[0]);
 			}
 			else
-				char_printf(ch, "There are %d gold and "
-						"%d silver coins "
-						"in the pile.\n\r",
+				char_printf(ch, 
+					    msg(INFO_D_SILVER_AND_D_GOLD, ch), 
 					    obj->value[1],obj->value[0]);
 			break;
 

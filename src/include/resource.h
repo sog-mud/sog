@@ -2,7 +2,7 @@
 #define _RESOURCE_H_
 
 /*
- * $Id: resource.h,v 1.63 1998-06-10 06:53:04 efdi Exp $
+ * $Id: resource.h,v 1.64 1998-06-10 11:36:29 efdi Exp $
  */
 
 #define msg(msgid, ch) vmsg(msgid, ch, ch)
@@ -616,6 +616,13 @@ enum {
 	INFO_ONLY_SEE_D_THOSE,
 	INFO_NOTHING_SPECIAL_THERE,
 	INFO_THE_D_IS_OPEN,
+	INFO_EXA_WHAT,
+	INFO_NO_COINS_PILE,
+	INFO_ONE_GOLD_COIN,
+	INFO_D_GOLD_COINS,
+	INFO_ONE_SILVER_COIN,
+	INFO_D_SILVER_COINS,
+	INFO_D_SILVER_AND_D_GOLD,
 };
 
 #endif

@@ -1,5 +1,5 @@
 #
-# $Id: english.lang,v 1.41 1998-06-10 06:50:40 efdi Exp $
+# $Id: english.lang,v 1.42 1998-06-10 11:36:48 efdi Exp $
 #
 
 INFO_NOTHING		"Nothing.\n\r"
@@ -592,7 +592,7 @@ INFO_DARK		"({DDark{x) "
 INFO_MAGICAL		"({MMagical{x) "
 INFO_GLOWING		"({WGlowing{x) "
 INFO_HUMMING		"({YHumming{x) "
-INFO_GLOWING_RED_EYES	"You see {Rglowing red eyes{x watching {CYOU{x!"
+INFO_GLOWING_RED_EYES	"You see {Rglowing red eyes{x watching {CYOU{x!\n\r"
 INFO_FEEL_MORE_LIVES	"You feel %d more life %s in the room.\n\r"
 INFO_CANT_SEE_THING	"You can't see a thing!\n\r"
 INFO_HERE_RIDING	" is here, riding %s."
@@ -613,3 +613,11 @@ INFO_ONLY_SEE_ONE_S	"You only see one %s here.\n\r"
 INFO_ONLY_SEE_D_THOSE	"You only see %d of those here.\n\r"
 INFO_NOTHING_SPECIAL_THERE	"Nothing special there.\n\r"
 INFO_THE_D_IS_OPEN	"The $d is open."
+INFO_EXA_WHAT		"Examine what?\n\r"
+INFO_NO_COINS_PILE	"Odd...there's no coins in the pile.\n\r"
+INFO_ONE_GOLD_COIN	"Wow. One gold coin.\n\r"
+INFO_D_GOLD_COINS	"There are %d gold coins in the pile.\n\r"
+INFO_ONE_SILVER_COIN	"Wow. One silver coin.\n\r"
+INFO_D_SILVER_COINS	"There are %d silver coins in the pile.\n\r"
+INFO_D_SILVER_AND_D_GOLD
+		"There are %d gold and %d silver coins in the pile.\n\r"
