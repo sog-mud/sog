@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.122 1999-02-05 09:22:06 kostik Exp $
+ * $Id: fight.c,v 1.123 1999-02-08 16:33:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1072,10 +1072,12 @@ void delete_player(CHAR_DATA *victim, char* msg)
 void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 {
 	bool vnpc = IS_NPC(victim);
-	bool is_duel = (!IS_NPC(victim)) 
+	ROOM_INDEX_DATA *vroom = victim->in_room;
+	bool is_duel = !IS_NPC(victim) 
 		&& (!IS_NPC(ch) || IS_AFFECTED(ch, AFF_CHARM)) 
-		&& (IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA));
+		&& IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA);
 	OBJ_DATA *corpse;
+	CLASS_DATA *cl;
 
 	group_gain(ch, victim);
 
@@ -1093,7 +1095,7 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 	raw_kill(ch, victim);
 
 	/* RT new auto commands */
-	if (!IS_NPC(ch) && vnpc
+	if (!IS_NPC(ch) && vnpc && vroom == ch->in_room
 	&&  (corpse = get_obj_list(ch, "corpse", ch->in_room->contents))) {
 		if (HAS_SKILL(ch, gsn_vampire)) {
 			act_puts("$n suck {Rblood{x from $N's corpse!!",
@@ -1120,40 +1122,46 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 		return;
 
 	/* Dying penalty: 2/3 way back. */
-	if (IS_SET(victim->plr_flags, PLR_WANTED) && victim->level > 1 && !is_duel) {
+	if (IS_SET(victim->plr_flags, PLR_WANTED)
+	&&  victim->level > 1
+	&&  !is_duel) {
 		REMOVE_BIT(victim->plr_flags, PLR_WANTED);
 		victim->level--;
 		victim->pcdata->plevels++;
 		victim->exp = exp_for_level(victim, victim->level);
 		victim->exp_tl = 0;
 	}
-	else {
+	else 
 		if (victim->exp_tl > 0)
 			gain_exp(victim, -victim->exp_tl*2/3);
-	}
 	
-	if (is_duel) return;
+	if (is_duel)
+		return;
 
 	if ((++victim->pcdata->death % 3) != 2)
 		return;
 
 	/* Die too much and is deleted ... :( */
-	if (victim->class == CLASS_SAMURAI) {
+	if ((cl = class_lookup(victim->class))
+	&&  !CAN_FLEE(ch, cl)) {
 		victim->perm_stat[STAT_CHA]--;
-		if (victim->pcdata->death > 10) {
-			delete_player(victim, "10 deaths limit for Samurai");
+		if (victim->pcdata->death > cl->death_limit) {
+			char msg[MAX_STRING_LENGTH];
+
+			snprintf(msg, sizeof(msg),
+				 "%d deaths limit for %s",
+				 cl->death_limit, cl->name);
+			delete_player(victim, msg);
 			return;
 		}
 	}
-	else {
-		if (--victim->perm_stat[STAT_CON] < 3) {
-			delete_player(victim, "lack of CON");
-			return;
-		}
-		else
-			char_puts("You feel your life power has decreased "
-				     "with this death.\n", victim);
+	else if (--victim->perm_stat[STAT_CON] < 3) {
+		delete_player(victim, "lack of CON");
+		return;
 	}
+	else
+		char_puts("You feel your life power has decreased "
+			  "with this death.\n", victim);
 }
 
 /*
@@ -2615,6 +2623,7 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 	ROOM_INDEX_DATA *now_in;
 	CHAR_DATA *victim;
 	int attempt;
+	CLASS_DATA *cl;
 
 	if (RIDDEN(ch)) {
 		char_puts("You should ask to your rider!\n", ch);
@@ -2622,7 +2631,7 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (MOUNTED(ch))
-		do_dismount(ch,str_empty);
+		do_dismount(ch, str_empty);
 
 	if ((victim = ch->fighting) == NULL) {
 		if (ch->position == POS_FIGHTING)
@@ -2631,7 +2640,8 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((ch->class == CLASS_SAMURAI) && (ch->level >= 10)) {
+	if ((cl = class_lookup(ch->class))
+	&&  !CAN_FLEE(ch, cl)) {
 		 char_puts("Your honour doesn't let you flee, "
 			   "try dishonoring yourself.\n", ch);
 		 return;

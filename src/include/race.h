@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: race.h,v 1.1 1998-10-30 07:02:24 fjoe Exp $
+ * $Id: race.h,v 1.2 1999-02-08 16:34:03 fjoe Exp $
  */
 
 #ifndef _RACE_H_
@@ -61,6 +61,7 @@ struct race_pcdata
 	int	slang;			/* spoken language		*/
 	int	restrict_align;		/* alignment restrictions	*/
 	int	restrict_sex;		/* sex restrictions		*/
+	const char *restrict_hometown;	/* hometown restrictions	*/
 };
 
 /* additional data for available classes for race */

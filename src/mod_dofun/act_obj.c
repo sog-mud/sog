@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.110 1999-02-02 15:50:21 kostik Exp $
+ * $Id: act_obj.c,v 1.111 1999-02-08 16:33:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2492,7 +2492,7 @@ uint get_cost(CHAR_DATA * keeper, OBJ_DATA * obj, bool fBuy)
 
 void do_buy_pet(CHAR_DATA * ch, const char *argument)
 {
-	uint		cost, roll;
+	int		cost, roll;
 	char            arg[MAX_INPUT_LENGTH];
 	CHAR_DATA	*pet;
 	flag_t		act;
@@ -2593,7 +2593,7 @@ void do_buy_pet(CHAR_DATA * ch, const char *argument)
 
 void do_buy(CHAR_DATA * ch, const char *argument)
 {
-	uint		cost, roll;
+	int		cost, roll;
 	CHAR_DATA      *keeper;
 	OBJ_DATA       *obj, *t_obj;
 	char            arg[MAX_INPUT_LENGTH];
@@ -2792,7 +2792,7 @@ void do_sell(CHAR_DATA * ch, const char *argument)
 	char            arg[MAX_INPUT_LENGTH];
 	CHAR_DATA      *keeper;
 	OBJ_DATA       *obj;
-	uint		cost, roll;
+	int		cost, roll;
 	uint		gold, silver;
 
 	one_argument(argument, arg);
@@ -3316,9 +3316,9 @@ void do_butcher(CHAR_DATA * ch, const char *argument)
 
 void do_balance(CHAR_DATA * ch, const char *argument)
 {
-	char            buf[160];
-	uint            bank_g;
-	uint            bank_s;
+	char buf[160];
+	int bank_g;
+	int bank_s;
 
 	if (IS_NPC(ch)) {
 		char_puts("You don't have a bank account.\n", ch);
@@ -3350,7 +3350,7 @@ void do_balance(CHAR_DATA * ch, const char *argument)
 void do_withdraw(CHAR_DATA * ch, const char *argument)
 {
 	int	amount;
-	uint	fee;
+	int	fee;
 	bool	silver = FALSE;
 	char	arg[MAX_INPUT_LENGTH];
 

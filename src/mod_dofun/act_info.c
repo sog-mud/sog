@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.183 1999-01-21 13:36:33 kostik Exp $
+ * $Id: act_info.c,v 1.184 1999-02-08 16:33:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2180,11 +2180,13 @@ void do_wimpy(CHAR_DATA *ch, const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	int wimpy;
+	CLASS_DATA *cl;
 
-	if ((ch->class == CLASS_SAMURAI) && (ch->level >=10)) {
+	if ((cl = class_lookup(ch->class))
+	&&  !CAN_FLEE(ch, cl)) {
 		char_printf(ch, "You don't deal with wimpies, "
 				"or such feary things.\n");
-		if (ch->wimpy != 0)
+		if (ch->wimpy)
 			ch->wimpy = 0;
 		return;
 	}
@@ -2511,28 +2513,29 @@ void do_hometown(CHAR_DATA *ch, const char *argument)
 {
 	int i;
 	int amount;
+	RACE_DATA *r;
+	CLASS_DATA *cl;
+	const char *p;
 
 	if (IS_NPC(ch)) {
 		char_puts("You can't change your hometown!\n", ch);
 		return;
 	}
 
-	if (ORG_RACE(ch) == 11 || ORG_RACE(ch) == 12
-	||  ORG_RACE(ch) == 13 || ORG_RACE(ch) == 14) {
-		char_puts("Your hometown is permanently Titan Valley!\n",
-			     ch);
+	if ((r = race_lookup(ch->race)) == NULL
+	||  !r->pcdata
+	||  (cl = class_lookup(ch->class)) == NULL)
 		return;
-	}
 
-	if (ch->class == CLASS_VAMPIRE || ch->class == CLASS_NECROMANCER) {
-		char_puts("Your hometown is permanently Old Midgaard!\n",
-			     ch);
+	if ((p = r->pcdata->restrict_hometown)
+	||  (p = cl->restrict_hometown)) {
+		char_printf(ch, "Your hometown is permanently %s!\n", p);
 		return;
 	}
 
 	if (!IS_SET(ch->in_room->room_flags, ROOM_REGISTRY)) {
 		char_puts("You have to be in the Registry "
-			     "to change your hometown.\n", ch);
+			  "to change your hometown.\n", ch);
 		return;
 	}
 
@@ -2779,6 +2782,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	int delta;
 	CLASS_DATA *cl;
 	BUFFER *output;
+	bool can_flee;
 
 	if ((cl = class_lookup(ch->class)) == NULL)
 		return;
@@ -2830,13 +2834,14 @@ void do_score(CHAR_DATA *ch, const char *argument)
 		ch->perm_stat[STAT_CON], get_curr_stat(ch,STAT_CON),
 		IS_NPC(ch) ? "Quest?" : (IS_ON_QUEST(ch) ? "Quest Time" : "Next Quest"),
 		IS_NPC(ch) ? 0 : abs(ch->pcdata->questtime));
+	can_flee = CAN_FLEE(ch, cl);
 	buf_printf(output,
 "     {G| {REthos:  {x%-12.12s {C|  {RCha:  {x%2d (%2d) {C| {R%s     :  {x%4d       {G|{x\n",
 		IS_NPC(ch) ? "mobile" : ch->ethos == 1 ? "lawful" :
 	ch->ethos == 2 ? "neutral" : ch->ethos == 3 ? "chaotic" : "none",
 		ch->perm_stat[STAT_CHA], get_curr_stat(ch,STAT_CHA),
-		ch->class == CLASS_SAMURAI ? "Death" : "Wimpy" ,
-		ch->class == CLASS_SAMURAI ? ch->pcdata->death : ch->wimpy);
+		can_flee ? "Wimpy" : "Death",
+		can_flee ? ch->wimpy : ch->pcdata->death);
 
 	snprintf(buf2, sizeof(buf2), "%s %s.",
 		 GETMSG("You are", ch->lang),
@@ -3044,18 +3049,20 @@ DO_FUN(do_oscore)
 					"Quest Time" : "Next Quest"),
 			IS_NPC(ch) ? 0 : abs(ch->pcdata->questtime));
 
-	if ((ch->class == CLASS_SAMURAI) && (ch->level >= 10))
-		buf_printf(output, "Total {c%d{x deaths up to now.",
-			ch->pcdata->death);
+	if (CAN_FLEE(ch, cl))
+		buf_printf(output, "Wimpy set to {c%d{x hit points.",
+			   ch->wimpy);
 	else
-		buf_printf(output, "Wimpy set to {c%d{x hit points.", ch->wimpy);
+		buf_printf(output, "Total {c%d{x deaths up to now.",
+			   ch->pcdata->death);
 
-	if (ch->guarding != NULL)
-		buf_printf(output, "  You are guarding: {W%s{x", ch->guarding->name);
+	if (ch->guarding)
+		buf_printf(output, "  You are guarding: {W%s{x",
+			   ch->guarding->name);
 
-	if (ch->guarded_by != NULL)
+	if (ch->guarded_by)
 		buf_printf(output, "  You are guarded by: {W%s{x",
-			ch->guarded_by->name);
+			   ch->guarded_by->name);
 	buf_add(output, "\n");
 
 	if (!IS_NPC(ch)) {

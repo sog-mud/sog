@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.135 1999-02-08 08:48:07 fjoe Exp $
+ * $Id: merc.h,v 1.136 1999-02-08 16:34:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1276,8 +1276,8 @@ struct char_data
 	int 			max_mana;
 	int 			move;
 	int 			max_move;
-	uint			gold;
-	uint			silver;
+	int			gold;
+	int			silver;
 	int 			exp;	/* total exp */
 	int			exp_tl;	/* exp gained this level */
 	sflag_t			plr_flags;
@@ -1357,8 +1357,8 @@ struct pc_data
 	const char *		alias[MAX_ALIAS];
 	const char *		alias_sub[MAX_ALIAS];
 	int 			security;	/* OLC */ /* Builder security */
-	uint			bank_s;
-	uint			bank_g;
+	int			bank_s;
+	int			bank_g;
 	int 			death;
 	int 			played;
 	int 			anti_killed;
@@ -1753,7 +1753,8 @@ void SET_ORG_RACE(CHAR_DATA *ch, int race);
 				 || ch->pIndexData->vnum==MOB_VNUM_IRON_GOLEM \
 				 || ch->pIndexData->vnum==MOB_VNUM_ADAMANTITE_GOLEM))
 #define JUST_KILLED(ch)		(ch->last_death_time >= current_time)
-
+#define CAN_FLEE(ch, cl)	((cl)->death_limit < 0 || \
+			         (ch)->level < PK_MIN_LEVEL)
 /*
  * Object macros.
  */

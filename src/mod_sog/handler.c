@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.104 1999-02-08 13:55:01 fjoe Exp $
+ * $Id: handler.c,v 1.105 1999-02-08 16:33:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2114,6 +2114,43 @@ CHAR_DATA *find_char(CHAR_DATA *ch, const char *argument, int door, int range)
 	return NULL;
 }
 
+int check_exit(char *arg)
+{
+	int door = -1;
+
+	     if (!str_cmp(arg, "n") || !str_cmp(arg, "north")) door = 0;
+	else if (!str_cmp(arg, "e") || !str_cmp(arg, "east" )) door = 1;
+	else if (!str_cmp(arg, "s") || !str_cmp(arg, "south")) door = 2;
+	else if (!str_cmp(arg, "w") || !str_cmp(arg, "west" )) door = 3;
+	else if (!str_cmp(arg, "u") || !str_cmp(arg, "up"   )) door = 4;
+	else if (!str_cmp(arg, "d") || !str_cmp(arg, "down" )) door = 5;
+
+	return door;
+}
+
+/*
+ * Find a char for range casting.
+ * argument must specify target in form '[d.][n.]name' where
+ * 'd' - direction
+ * 'n' - number
+ */
+CHAR_DATA *get_char_spell(CHAR_DATA *ch, const char *argument,
+			  int *door, int range)
+{
+	char buf[MAX_INPUT_LENGTH];
+	char *p;
+
+	p = strchr(argument, '.');
+	if (!p)
+		return get_char_room(ch, argument);
+
+	strnzcpy(buf, argument, UMIN(p-argument+1, sizeof(buf)));
+	if ((*door = check_exit(buf)) < 0)
+		return get_char_room(ch, argument);
+
+	return find_char(ch, p+1, *door, range);
+}
+
 /*
  * Find some object with a given index data.
  * Used by area-reset 'P' command.
@@ -2319,15 +2356,16 @@ OBJ_DATA *get_obj_world(CHAR_DATA *ch, const char *argument)
 	return NULL;
 }
 
-/* deduct cost from a character */
-
+/*
+ * deduct cost from a character
+ */
 void deduct_cost(CHAR_DATA *ch, uint cost)
 {
 	/*
 	 * price in silver. MUST BE signed for proper exchange operations
 	 */
 	int silver = UMIN(ch->silver, cost); 
-	uint gold = 0;
+	int gold = 0;
 
 	if (silver < cost) {
 		gold = (cost - silver + 99) / 100;
@@ -2802,38 +2840,6 @@ void back_home(CHAR_DATA *ch)
 		char_to_room(ch, location);
 		act("$n appears in the room.",ch,NULL,NULL,TO_ROOM);
 	}
-}
-
-int check_exit(char *arg)
-{
-	int door = -1;
-
-	     if (!str_cmp(arg, "n") || !str_cmp(arg, "north")) door = 0;
-	else if (!str_cmp(arg, "e") || !str_cmp(arg, "east" )) door = 1;
-	else if (!str_cmp(arg, "s") || !str_cmp(arg, "south")) door = 2;
-	else if (!str_cmp(arg, "w") || !str_cmp(arg, "west" )) door = 3;
-	else if (!str_cmp(arg, "u") || !str_cmp(arg, "up"   )) door = 4;
-	else if (!str_cmp(arg, "d") || !str_cmp(arg, "down" )) door = 5;
-
-	return door;
-}
-
-/*
- * Find a char for spell usage.
- */
-CHAR_DATA *get_char_spell(CHAR_DATA *ch, const char *argument, int *door, int range)
-{
- char buf[MAX_INPUT_LENGTH];
- int i;
-
- for(i=0;argument[i] != '\0' && argument[i] != '.';i++)
-   buf[i] = argument[i];
- buf[i] = '\0';
-
- if (i == 0 || (*door = check_exit(buf)) == -1)
-		return get_char_room(ch,argument);
-
- return find_char(ch,(argument+i+1),*door,range);   
 }
 
 void path_to_track(CHAR_DATA *ch, CHAR_DATA *victim, int door)

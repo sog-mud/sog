@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: class.h,v 1.8 1998-11-18 05:20:39 fjoe Exp $
+ * $Id: class.h,v 1.9 1999-02-08 16:33:58 fjoe Exp $
  */
 
 #ifndef _CLASS_H_
@@ -55,9 +55,11 @@ struct class_data {
 	int		stats[MAX_STATS];	/* stat modifiers */
 	int		restrict_align;		/* alignment restrictions */
 	int		restrict_sex;		/* sex restrictions */
+	const char *	restrict_hometown;	/* hometown restrictions */
 	varr		skills;			/* varr of class skills */
 	const char *	titles[MAX_LEVEL+1][2];	/* titles */
 	varr		poses;			/* varr of class poses */
+	int		death_limit;		/* death limit */
 };
 
 struct pose_data {

@@ -1,5 +1,5 @@
 /*
- * $Id: healer.c,v 1.17 1998-12-21 08:06:26 fjoe Exp $
+ * $Id: healer.c,v 1.18 1999-02-08 16:33:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -54,7 +54,7 @@ void do_heal(CHAR_DATA *ch, const char *argument)
     CHAR_DATA *mob;
     char arg[MAX_INPUT_LENGTH];
     int sn;
-    uint cost;
+    int cost;
     SPELL_FUN *spell;
     char *words;	
 
