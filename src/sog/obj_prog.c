@@ -1,5 +1,5 @@
 /*
- * $Id: obj_prog.c,v 1.7 1998-06-02 21:49:19 fjoe Exp $
+ * $Id: obj_prog.c,v 1.8 1998-06-05 22:08:50 efdi Exp $
  */
 
 /***************************************************************************
@@ -1186,7 +1186,7 @@ void fight_prog_tattoo_eros(OBJ_DATA *obj, CHAR_DATA *ch)
 		break;
 	case 2:
 		char_nputs(TATTOO_GLOWS_BLUE, ch);
-		obj_cast_spell(skill_lookup("mass healing"),
+		obj_cast_spell(skill_lookup("group heal"),
 			       ch->level, ch, ch, obj);
 		break;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.45 1998-06-03 20:44:04 fjoe Exp $
+ * $Id: act_move.c,v 1.46 1998-06-05 22:08:50 efdi Exp $
  */
 
 /***************************************************************************
@@ -3417,43 +3417,45 @@ void do_dismount(CHAR_DATA *ch, char *argument)
   }
 } 
 
-int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow , int door, int chance ,int bonus) 
+int send_arrow(CHAR_DATA *ch, CHAR_DATA *victim,OBJ_DATA *arrow, 
+	       int door, int chance ,int bonus) 
 {
-		EXIT_DATA *pExit;
-		ROOM_INDEX_DATA *dest_room;
-		char buf[512];
-		  AFFECT_DATA *paf;
-		  int damroll=0,hitroll=0,sn;
-		AFFECT_DATA af;
+	EXIT_DATA *pExit;
+	ROOM_INDEX_DATA *dest_room;
+	char buf[512];
+	AFFECT_DATA *paf;
+	int damroll = 0, hitroll = 0, sn;
+	AFFECT_DATA af;
 
-		if (arrow->value[0] == WEAPON_SPEAR)  sn = gsn_spear;
-		else sn = gsn_arrow;
-		
-		  for (paf = arrow->affected; paf != NULL; paf = paf->next)
-		   {
- 	   if (paf->location == APPLY_DAMROLL)
-		      damroll += paf->modifier;
-		   if (paf->location == APPLY_HITROLL)
-		      hitroll += paf->modifier;
-		   }
+	if (arrow->value[0] == WEAPON_SPEAR)  
+		sn = gsn_spear;
+	else 
+		sn = gsn_arrow;
 
-		dest_room = ch->in_room;
-		chance += (hitroll + str_app[get_curr_stat(ch,STAT_STR)].tohit
-				+ (get_curr_stat(ch,STAT_DEX) - 18)) * 2;
-		damroll *= 10;
-		while (1)
-		{
-		 chance -= 10;
-		 if (victim->in_room == dest_room) 
-		 {
-		  if (number_percent() < chance)
-		  { 
-		   if (check_obj_dodge(ch,victim,arrow,chance))
-			return 0;
-		   act("$p strikes you!", victim, arrow, NULL, TO_CHAR);
-		   act("Your $p strikes $N!", ch, arrow, victim, TO_CHAR);
-		   if (ch->in_room == victim->in_room)
-		      act("$n's $p strikes $N!", ch, arrow, victim, TO_NOTVICT);
+	for (paf = arrow->affected; paf != NULL; paf = paf->next) {
+		if (paf->location == APPLY_DAMROLL)
+			damroll += paf->modifier;
+		if (paf->location == APPLY_HITROLL)
+				hitroll += paf->modifier;
+	}
+
+	dest_room = ch->in_room;
+	chance += (hitroll + str_app[get_curr_stat(ch,STAT_STR)].tohit
+		   + (get_curr_stat(ch,STAT_DEX) - 18)) * 2;
+	damroll *= 10;
+	while (1) {
+		chance -= 10;
+		if (victim->in_room == dest_room) {
+			if (number_percent() < chance) { 
+				if (check_obj_dodge(ch,victim,arrow,chance))
+					return 0;
+				act_nprintf(victim, arrow, NULL, TO_CHAR, 
+					    POS_RESTING, MOVE_P_STRIKES_YOU);
+				act_nprintf(ch, arrow, victim, TO_CHAR, 
+					    POS_DEAD, MOVE_YOU_P_STRIKES_N);
+				if (ch->in_room == victim->in_room)
+				    act_nprintf(ch, arrow, victim, TO_NOTVICT, 
+					       POS_RESTING, MOVE_N_P_STRIKES_N);
 		   else 
 		   {
 		     act("$n's $p strikes $N!", ch, arrow, victim, TO_ROOM);
