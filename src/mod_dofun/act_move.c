@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.250 2001-01-23 21:46:54 fjoe Exp $
+ * $Id: act_move.c,v 1.251 2001-02-11 14:35:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1348,7 +1348,7 @@ void do_acute(CHAR_DATA *ch, const char *argument)
 	int chance, mana;
 
 	if (HAS_DETECT(ch, ID_CAMOUFLAGE)) {
-		act_char("Your vision is already acute. ", ch);
+		act_char("Your vision is already acute.", ch);
 		return;
 	}
 
@@ -1494,7 +1494,7 @@ void do_train(CHAR_DATA *ch, const char *argument)
 	pc = PC(ch);
 	stat = flag_svalue(stat_aliases, argument);
 	if (stat < 0) {
-		act_puts("You have $j training sessions.",
+		act_puts("You have $j training $qj{sessions}.",
 			 ch, (const void *) pc->train, NULL,
 			 TO_CHAR, POS_DEAD);
 		snprintf(buf, sizeof(buf),
@@ -3297,7 +3297,7 @@ void do_enter(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (IS_SET(INT(portal->value[2]), GATE_NORMAL_EXIT)) {
-		act_puts3(mount ? "$i has arrived, riding $I" :
+		act_puts3(mount ? "$i has arrived, riding $I." :
 				  "$i has arrived.",
 			  location->people, ch, portal, mount,
 			  TO_ROOM, POS_RESTING);

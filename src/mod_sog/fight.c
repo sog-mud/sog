@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.287 2001-01-23 21:46:57 fjoe Exp $
+ * $Id: fight.c,v 1.288 2001-02-11 14:35:40 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1355,7 +1355,7 @@ raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 		victim->mana	= victim->max_mana;
 		victim->move	= victim->max_move;
 		update_pos(victim);
-	        if (!saves_spell(victim->level,ch,DAM_NEGATIVE)) {
+	        if (!saves_spell(victim->level, ch, DAM_NEGATIVE)) {
 			act_char("Your muscles stop responding.", ch);
 			DAZE_STATE(ch, victim->level);
 		}
@@ -1410,7 +1410,8 @@ raw_kill(CHAR_DATA *ch, CHAR_DATA *victim)
 	}
 
 	SET_BIT(PC(victim)->plr_flags, PLR_GHOST);
-	act_char("You turn into an invincible ghost for a few minutes.", ch);
+	act_char("You turn into an invincible ghost for a few minutes.",
+		 victim);
 
 	extract_char(victim, XC_F_INCOMPLETE);
 
@@ -3085,4 +3086,3 @@ critical_strike(CHAR_DATA *ch, CHAR_DATA *victim, int dam)
 	dam += dam * number_range(2, 5);			
 	return dam;
 }  
-

@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.365 2001-01-23 21:46:53 fjoe Exp $
+ * $Id: act_info.c,v 1.366 2001-02-11 14:35:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -494,10 +494,10 @@ static void do_look_room(CHAR_DATA *ch, int flags)
 
 		name = mlstr_cval(&ch->in_room->name, ch);
 		engname = mlstr_mval(&ch->in_room->name);
-		act_puts("{W$t", ch, name, NULL,
+		act_puts("{W$t", ch, name, NULL, 		// notrans
 			 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 		if (GET_LANG(ch) && name != engname) {
-			act_puts(" ($t){x", ch, engname, NULL,
+			act_puts(" ($t){x", ch, engname, NULL,	// notrans
 				 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 		} else {
 			send_to_char("{x", ch);
@@ -855,7 +855,8 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 				    dir_name[door],
 				    show_closed ? "*" : str_empty); // notrans
 			} else {
-				buf_printf(buf, BUF_END, "{C%-5s%s{x - %s",
+				buf_printf(buf, BUF_END,
+				    "{C%-5s%s{x - %s",		// notrans	
 				    capitalize(dir_name[door]),
 				    show_closed ?
 					"*" : str_empty,	// notrans
@@ -881,7 +882,7 @@ void do_exits(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (fAuto)
-		buf_append(buf, "]{x\n");
+		buf_append(buf, "]{x\n");		// notrans
 
 	send_to_char(buf_string(buf), ch);
 	buf_free(buf);
@@ -1455,7 +1456,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 					    TO_CHAR | ACT_NOLF, POS_DEAD);
 				}
 
-				act_puts("$f-28{$N} $t", ch,
+				act_puts("$f-28{$N} $t", ch,	// notrans
 					 mlstr_mval(&victim->in_room->name),
 					 victim,
 					 TO_CHAR | ACT_NOTRANS | ACT_FORMSH,
@@ -1472,7 +1473,7 @@ void do_where(CHAR_DATA *ch, const char *argument)
 			&&  can_see(ch, victim)
 			&&  is_name(arg, victim->name)) {
 				found = TRUE;
-				act_puts("$f-28{$N} $t", ch,
+				act_puts("$f-28{$N} $t", ch,	// notrans
 					 mlstr_mval(&victim->in_room->name),
 					 victim,
 					 TO_CHAR | ACT_NOTRANS | ACT_FORMSH,
@@ -1874,7 +1875,7 @@ void do_request(CHAR_DATA *ch, const char *argument)
 		unequip_char(victim, obj);
 
 	if (!can_drop_obj(ch, obj)) {
-		do_say(victim, "Sorry, I can't let go of it.  It's cursed.");
+		do_say(victim, "Sorry, I can't let go of it. It's cursed.");
 		return;
 	}
 
@@ -2012,7 +2013,7 @@ void do_detect_hidden(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (HAS_DETECT(ch, ID_HIDDEN)) {
-		act_char("You are already as alert as you can be. ", ch);
+		act_char("You are already as alert as you can be.", ch);
 		return;
 	}
 
@@ -2235,7 +2236,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	bool _can_flee;
 
 	output = buf_new(GET_LANG(ch));
-	buf_append(output, "\n      {G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/~~\\{x\n");
+	buf_append(output, "\n      {G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/~~\\{x\n");	// notrans
 
 	strnzcpy(title, sizeof(title),
 		 IS_NPC(ch) ? " Believer of Chronos." : PC(ch)->title);
@@ -2246,7 +2247,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	snprintf(buf2, sizeof(buf2), "     {G|{x   %%s%%-%ds {Y%%3d years old   {G|____|{x\n", 33+delta);
 	buf_printf(output, BUF_END, buf2, name, title, get_age(ch));
 
-	buf_append(output, "     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x\n");
+	buf_append(output, "     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x\n");		// notrans
 
 	format_stat(buf2, sizeof(buf2), ch, STAT_STR);
 	buf_printf(output, BUF_END, "     {G| {RLevel: {x%-3d (%+3d)    {C| {RStr: {x%-11.11s {C| {RAvatara   : {x%-10.10s {G|{x\n",
@@ -2281,7 +2282,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 "     {G| {RAlign: {x%-12.12s {C| {RCon: {x%-11.11s {C| {R%-10.10s: {x%-3d        {G|{x\n",
 		flag_string(align_names, NALIGN(ch)),
 		buf2,
-		IS_NPC(ch) ? "Quest?" : (IS_ON_QUEST(ch) ? "Quest Time" : "Next Quest"),
+		IS_NPC(ch) ? "Quest?" : (IS_ON_QUEST(ch) ? "Quest Time" : "Next Quest"),	// notrans
 		IS_NPC(ch) ? 0 : abs(PC(ch)->questtime));
 	_can_flee = can_flee(ch);
 	format_stat(buf2, sizeof(buf2), ch, STAT_CHA);
@@ -2300,7 +2301,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 		IS_NPC(ch) ? "Midgaard" : hometown_name(PC(ch)->hometown),
 		buf2);
 
-	buf_append(output, "     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x{x\n");
+	buf_append(output, "     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x{x\n");	// notrans
 
 	if (!IS_NPC(ch)) {
 		CHAR_DATA *vch;
@@ -2366,7 +2367,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 
 	if (ekle)
 		buf_append(output,
-"     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x\n");
+"     {G|{C+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+---+{G|{x\n");		// notrans
 
 	buf_printf(output, BUF_END,
 "     {G| {RItems Carried : {x%9d/%-9d {RArmor vs magic  : {x%5d     {G|{x\n",
@@ -2399,8 +2400,8 @@ void do_score(CHAR_DATA *ch, const char *argument)
 	buf_printf(output, BUF_END,
 "     {G| {RDamroll       : {x%9d           {RMove: {x%5d/%-5d           {G|{x\n",
 		    GET_DAMROLL(ch), ch->move, ch->max_move);
-	buf_append(output, "  {G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/   |{x\n");
-	buf_append(output, "  {G\\________________________________________________________________\\__/{x\n");
+	buf_append(output, "  {G/~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~/   |{x\n");	// notrans
+	buf_append(output, "  {G\\________________________________________________________________\\__/{x\n");	// notrans
 
 	if (IS_SET(ch->comm, COMM_SHOWAFF))
 		show_affects(ch, ch, output);
@@ -2541,7 +2542,7 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 			buf_append(output, "You are {cghost{x.\n");
 	}
 
-	buf_printf(output, BUF_END, "%s %s.\n",
+	buf_printf(output, BUF_END, "%s %s.\n",			// notrans
 		   GETMSG("You are", GET_LANG(ch)),
 		   GETMSG(flag_string(position_names, ch->position),
 			  GET_LANG(ch)));
@@ -2933,7 +2934,7 @@ void do_practice(CHAR_DATA *ch, const char *argument)
 			||  pc_sk->percent >= spec_sk.adept)
 				continue;
 
-			buf_printf(output, BUF_END, "%-19s %3d%%  ",
+			buf_printf(output, BUF_END, "%-19s %3d%%  ", // notrans
 				   pc_sk->sn,
 				   UMAX(100 * pc_sk->percent / spec_sk.adept, 1));
 			if (++col % 3 == 0)
@@ -3306,7 +3307,8 @@ static void list_spells(flag_t type, CHAR_DATA *ch, const char *argument)
 			buf_printf(list[lev], BUF_END,
 				   "\nLevel %2d: %s", lev, buf);
 		} else
-			buf_printf(list[lev], BUF_END, "\n          %s", buf);
+			buf_printf(list[lev], BUF_END,
+				   "\n          %s", buf);	// notrans
 	}
 
 	/* return results */
@@ -3415,7 +3417,7 @@ glist_cb(void *p, va_list ap)
 
 	if (group == sk->group) {
 		const char *sn = gmlstr_mval(&sk->sk_name);
-		act_puts("$t$f-18{$T}", ch,
+		act_puts("$t$f-18{$T}", ch,		           // notrans	
 			 pc_skill_lookup(ch, sn) ?  "*" : " ", sn, // notrans
 			 TO_CHAR | ACT_NOTRANS | ACT_NOLF, POS_DEAD);
 		if (*pcol)
@@ -4264,8 +4266,8 @@ static void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 			buf_append(output, "({gBlending{x) ");
 		if (IS_SET(ch->comm, COMM_SHOWRACE)) {
 			buf_act(output, BUF_END,
-				"({c$t{x) ", ch, victim->race, NULL, NULL,
-				 TO_CHAR | ACT_NOLF);
+				"({c$t{x) ", ch, victim->race, 	// notrans
+				  NULL, NULL, TO_CHAR | ACT_NOLF);	
 		}
 	} else {
 		static char FLAGS[] = "{x[{y.{D.{m.{c.{M.{D.{G.{b.{R.{Y.{W.{y.{g.{g."; // notrans
@@ -4690,7 +4692,7 @@ void do_commands(CHAR_DATA *ch, const char *argument)
 		if (cmd->min_level < LEVEL_HERO
 		&&  cmd->min_level <= ch->level 
 		&&  !IS_SET(cmd->cmd_flags, CMD_HIDDEN)) {
-			act_puts("$f-12{$t}", ch, cmd->name, NULL,
+			act_puts("$f-12{$t}", ch, cmd->name, NULL,   // notrans	
 				 TO_CHAR | ACT_NOTRANS | ACT_NOLF | ACT_NOUCASE,
 				 POS_DEAD);
 			if (++col % 6 == 0)
@@ -4729,7 +4731,7 @@ void do_wizhelp(CHAR_DATA *ch, const char *argument)
 		&&  !is_name(cmd->name, PC(ch)->granted))
 			continue;
 
-		act_puts("$f-12{$t}", ch, cmd->name, NULL,
+		act_puts("$f-12{$t}", ch, cmd->name, NULL,	// notrans
 			 TO_CHAR | ACT_NOTRANS | ACT_NOLF | ACT_NOUCASE,
 			 POS_DEAD);
 		if (++col % 6 == 0)
@@ -4754,7 +4756,7 @@ show_clanlist(CHAR_DATA *ch, clan_t *clan,
 	output = buf_new(-1);
 	buf_printf(output, BUF_END, "List of %s of %s:\n", name_list, clan->name);
 	buf_append(output, "Status   Level Race  Class   Ethos-align   Name\n");
-	buf_append(output, "-------- ----- ----- ----- --------------- -------------\n");
+	buf_append(output, "-------- ----- ----- ----- --------------- -------------\n");	// notrans
 
 	list = first_arg(list, name, sizeof(name), FALSE);
 	for (; name[0]; list = first_arg(list, name, sizeof(name), FALSE)) {
@@ -4901,11 +4903,12 @@ void do_rating(CHAR_DATA *ch, const char *argument)
 	int i;
 
 	act_char("Name                    | PC's killed", ch);
-	act_char("------------------------+------------", ch);
+	act_char("------------------------+------------", ch);	// notrans
+
 	for (i = 0; i < RATING_TABLE_SIZE; i++) {
 		if (rating_table[i].name == NULL)
 			continue;
-		act_puts("$f-24{$T}| $j", ch,
+		act_puts("$f-24{$T}| $j", ch,		// notrans
 			 (const void *) rating_table[i].pc_killed,
 			 rating_table[i].name,
 			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
@@ -4966,7 +4969,7 @@ void do_areas(CHAR_DATA *ch, const char *argument)
 			   pArea1->credits);
 
 		if (pArea2 != NULL) 
-			buf_printf(output, BUF_END,"{{%2d %3d} {B%-20.20s{x %8.8s",
+			buf_printf(output, BUF_END,"{{%2d %3d} {B%-20.20s{x %8.8s",	// notrans
 				pArea2->min_level, pArea2->max_level,
 				pArea2->name,
 				pArea2->credits);

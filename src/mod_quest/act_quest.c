@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_quest.c,v 1.147 2001-01-23 21:46:58 fjoe Exp $
+ * $Id: act_quest.c,v 1.148 2001-02-11 14:35:43 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -458,7 +458,7 @@ static void quest_list(CHAR_DATA *ch, char *arg)
 		if (arg[0] != '\0' && !is_name(arg, qitem->name))
 			continue;
 
-		act_puts("$F5{$j}qp...........$T",
+		act_puts("$F5{$j}qp...........$T",		// notrans
 			 ch, (const void *) qitem->price, qitem->name,
 			 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 	}

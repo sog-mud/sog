@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: core.c,v 1.17 2001-01-23 21:46:53 fjoe Exp $
+ * $Id: core.c,v 1.18 2001-02-11 14:35:36 fjoe Exp $
  */
 
 #include <errno.h>
@@ -103,10 +103,10 @@ do_modules(CHAR_DATA *ch, const char *argument)
 
 		buf = buf_new(-1);
 		buf_append(buf, "  Module  Prio          Load time         Deps\n");
-		buf_append(buf, "--------- ---- -------------------------- -----------------------------------\n");
+		buf_append(buf, "--------- ---- -------------------------- -----------------------------------\n");	// notrans
 		for (i = 0; i < modules.nused; i++) {
 			module_t *m = VARR_GET(&modules, i);
-			buf_printf(buf, BUF_END, "%9s %4d [%24s] %s\n",
+			buf_printf(buf, BUF_END, "%9s %4d [%24s] %s\n", // notrans
 				   m->name,
 				   m->mod_prio,
 				   m->last_reload ? 
@@ -160,7 +160,7 @@ do_shutdown(CHAR_DATA *ch, const char *argument)
 				return;
 			}
 			fclose(fp);
-			wiznet("$N has activated shutdown", ch, NULL, 0, 0, 0);
+			wiznet("$N has activated shutdown.", ch, NULL, 0, 0, 0);
 			act_char("Shutdown activated.", ch);
 		}
 		else
@@ -178,7 +178,7 @@ do_shutdown(CHAR_DATA *ch, const char *argument)
 					 TO_CHAR | ACT_NOTRANS, POS_DEAD);
 				return;
 			}
-			wiznet("$N has deactivated shutdown",
+			wiznet("$N has deactivated shutdown.",
 				ch, NULL, 0, 0, 0);
 			act_char("Shutdown deactivated.", ch);
 		}

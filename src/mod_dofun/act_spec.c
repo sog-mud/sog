@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_spec.c,v 1.12 2001-01-23 21:46:55 fjoe Exp $
+ * $Id: act_spec.c,v 1.13 2001-02-11 14:35:38 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -130,29 +130,29 @@ void do_specialize(CHAR_DATA* ch, const char* argument)
 
 	if (!str_prefix(argument, "maces")) {
 		weapon = "weapon_mace";
-		output = "mace";
+		output = "mace";				// notrans
 	} else if (!str_prefix(argument, "swords")) {
 		weapon = "weapon_sword";
-		output = "sword";
+		output = "sword";				// notrans
 	} else if (!str_prefix(argument, "axes")) {
 		weapon = "weapon_axe";
-		output = "axe";
+		output = "axe";					// notrans
 	} else if (!str_prefix(argument, "hands")) {
 		weapon = "weapon_hands";
-		output = "hand to hand";
+		output = "hand to hand";			// notrans
 	} else if (!str_prefix(argument, "daggers")) {
 		weapon = "weapon_dagger";
-		output = "dagger";
+		output = "dagger";				// notrans
 	} else if (!str_prefix(argument, "whips")
 		|| !str_prefix(argument, "flails")) {
 		weapon = "weapon_whip";
-		output = "whip/flail";
+		output = "whip/flail";				// notrans
 	} else if (!str_prefix(argument, "staves")
 		|| !str_prefix(argument, "staff")
 		|| !str_prefix(argument, "polearms")
 		|| !str_prefix(argument, "spears")) {
 		weapon = "weapon_spear";
-		output = "spear/staff/polearm";
+		output = "spear/staff/polearm";			// notrans
 	} else {
 		dofun("help", ch, "'SPECIALIZE'");
 		return;
@@ -209,12 +209,12 @@ void do_magicschool(CHAR_DATA *ch, const char *argument)
 	if (!str_prefix(argument, "abjuration")) {
 		major_school 	= "major_abjuration";
 		minor_school 	= "minor_abjuration";
-		school_name 	= "abjuration";
+		school_name 	= "abjuration";			// notrans	
 	} else if (!str_prefix(argument, "alteration")
 		|| !str_prefix(argument, "transmutation")) {
 		major_school 	= "major_alteration";
 		minor_school 	= "minor_alteration";
-		school_name	= "alteration";
+		school_name	= "alteration";			// notrans
 	} else if (!str_prefix(argument, "divination")) {
 		minor_school 	= "minor_divination";
 		if (major) {
@@ -222,25 +222,25 @@ void do_magicschool(CHAR_DATA *ch, const char *argument)
 				ch, NULL, NULL, TO_CHAR);
 			return;
 		}
-		school_name	= "divination";  
+		school_name	= "divination"; 	 	// notrans
 	} else if (!str_prefix(argument, "charm")
 		|| !str_prefix(argument, "enchantment")) {
 		minor_school 	= "minor_charm";
 		major_school	= "major_charm";
-		school_name	= "enchantment/charm";
+		school_name	= "enchantment/charm";		// notrans
 	} else if (!str_prefix(argument, "conjuration")
 		|| !str_prefix(argument, "summonning")) {
 		minor_school	= "minor_summonning";
 		major_school	= "major_summonning";
-		school_name	= "conjuration/summonning";
+		school_name	= "conjuration/summonning";	// notrans
 	} else if (!str_prefix(argument, "illusion")) {
 		minor_school	= "minor_illusion";
 		major_school	= "major_illusion";
-		school_name	= "illusion";
+		school_name	= "illusion";			// notrans
 	} else if (!str_prefix(argument, "necromancy")) {
 		minor_school 	= "minor_necromancy";
 		major_school	= "major_necromancy";
-		school_name	= "necromancy";
+		school_name	= "necromancy";			// notrans
 	} else {
 		act("No such magic school.", ch, NULL, NULL, TO_CHAR);
 		return;

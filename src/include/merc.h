@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.318 2001-01-28 11:39:48 cs Exp $
+ * $Id: merc.h,v 1.319 2001-02-11 14:35:35 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2321,8 +2321,8 @@ const char *get_cond_alias(OBJ_DATA *obj);
 /*
  * `advance' and `gain_exp' assume !IS_NPC(victim)
  */
-void advance		(CHAR_DATA *ch, int level);
 void gain_exp		(CHAR_DATA *ch, int gain);
+void advance_level	(CHAR_DATA *ch);
 void delevel		(CHAR_DATA *ch);
 
 bool (*olc_interpret)(DESCRIPTOR_DATA *d, const char *argument);

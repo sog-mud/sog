@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.33 2001-01-23 21:46:55 fjoe Exp $
+ * $Id: hunt.c,v 1.34 2001-02-11 14:35:39 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -539,11 +539,11 @@ void hunt_victim_attack(CHAR_DATA* ch)
 		return;
 
 	if (ch->in_room == ch->hunting->in_room) {
-		act("$n glares at $N and says, '{GYe shall DIE!{x'.",
+		act("$n glares at $N and says, '{GYe shall DIE!{x'",
 		    ch, NULL, ch->hunting, TO_NOTVICT);
-		act("$n glares at you and says, '{GYe shall DIE!{x'.",
+		act("$n glares at you and says, '{GYe shall DIE!{x'",
 		    ch, NULL, ch->hunting, TO_VICT);
-		act("You glare at $N and say, '{GYe shall DIE!{x'.",
+		act("You glare at $N and say, '{GYe shall DIE!{x'",
 		    ch, NULL, ch->hunting, TO_CHAR);
 		multi_hit(ch, ch->hunting, NULL);
 		ch->hunting = NULL;

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.172 2001-01-23 21:46:56 fjoe Exp $
+ * $Id: martial_art.c,v 1.173 2001-02-11 14:35:39 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2104,7 +2104,7 @@ void do_kick(CHAR_DATA *ch, const char *argument)
 	WAIT_STATE(ch, skill_beats("kick"));
 	if (IS_NPC(ch) || number_percent() < chance) {
 		kick_dam = number_range(1, LEVEL(ch));
-		if (has_spec(ch, "class_samurai")
+		if (has_spec(ch, "class_samurai")		// notrans
 		&&  (get_eq_char(ch, WEAR_FEET) == NULL))
 			kick_dam *= 2;
 		kick_dam += ch->damroll / 2;
@@ -2716,7 +2716,7 @@ void do_throw(CHAR_DATA *ch, const char *argument)
 	}
 #if 0
 	if (IS_AFFECTED(ch, AFF_FLYING)) {
-		act_char("Your feet should touch the ground to balance", ch);
+		act_char("Your feet should touch the ground to balance.", ch);
 		return;
 	}
 #endif
@@ -3263,7 +3263,7 @@ void do_trophy(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (number_percent() < chance * 2 / 3) {
-		act_char("You failed and destroyed it.", ch);
+		act_char("You destroyed it.", ch);
 		extract_obj(part, 0);
 		return;
 	}
@@ -4112,7 +4112,7 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 	if (number_percent() < (chance / 4)) {
 		act("$n sends you sprawling with a powerful tail!",
 		    ch, NULL, victim, TO_VICT);
-		act("You sprawle $N with your tail , and send $M flying!",
+		act("You sprawle $N with your tail, and send $M flying!",
 		    ch, NULL, victim, TO_CHAR);
 		act("$n sends $N sprawling with a powerful tail.",
 		    ch, NULL, victim, TO_NOTVICT);

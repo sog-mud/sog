@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.264 2001-01-23 21:46:55 fjoe Exp $
+ * $Id: act_wiz.c,v 1.265 2001-02-11 14:35:38 fjoe Exp $
  */
 
 /***************************************************************************
@@ -92,6 +92,8 @@ DECLARE_DO_FUN(do_look	);
 DECLARE_DO_FUN(do_stand	);
 DECLARE_DO_FUN(do_help	);
 DECLARE_DO_FUN(do_replay);
+
+static void advance(CHAR_DATA *victim, int level);
 
 void do_objlist(CHAR_DATA *ch, const char *argument)
 {
@@ -228,15 +230,15 @@ void do_wiznet(CHAR_DATA *ch, const char *argument)
 			   IS_SET(PC(vch)->wiznet, WIZ_ON) ? "ON" : "OFF");
 
 		buf_append(output, "\nchannel    | status");
-		buf_append(output, "\n-----------|-------\n");
+		buf_append(output, "\n-----------|-------\n");	// notrans
 		for (flag = 0; wiznet_table[flag].name != NULL; flag++)
-			buf_printf(output, BUF_END, "%-11s|  %s\n",
+			buf_printf(output, BUF_END, "%-11s|  %s\n", // notrans
 				   wiznet_table[flag].name,
 				   wiznet_table[flag].level > vch->level ?
 				   "N/A" :		// notrans
 				   IS_SET(PC(vch)->wiznet,
 					  wiznet_table[flag].flag) ?
-				   "ON" : "OFF");	// notrans
+				   "ON" : "OFF");	
 		page_to_char(buf_string(output), ch);
 		buf_free(output);
 		return;
@@ -305,12 +307,12 @@ void do_nonote(CHAR_DATA *ch, const char *argument)
 	if (!IS_SET(victim->comm, COMM_NONOTE)) {
 		act_char("You may write notes again.", victim);
 		act_char("NONOTE removed.", ch);
-		wiznet("$N grants $i right to write notes",
+		wiznet("$N grants $i right to write notes.",
 			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
 	} else {
 		act_char("Your notes will be sent to Abyss now.", victim);
 		act_char("NONOTE set.", ch);
-		wiznet("$N revokes $i's right to write notes",
+		wiznet("$N revokes $i's right to write notes.",
 			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
 	}
 
@@ -355,7 +357,7 @@ void do_nochannels(CHAR_DATA *ch, const char *argument)
 	if (!IS_SET(victim->chan, CHAN_NOCHANNELS)) {
 		act_char("The gods have restored your channel priviliges.", victim);
 		act_char("NOCHANNELS removed.", ch);
-		wiznet("$N restores channels to $i",
+		wiznet("$N restores channels to $i.",
 			ch, victim, WIZ_PENALTIES, WIZ_SECURE, 0);
 	} else {
 		act_char("The gods have revoked your channel priviliges.", victim);
@@ -1239,7 +1241,7 @@ void do_mstat(CHAR_DATA *ch, const char *argument)
 		buf_printf(output, BUF_END, "It belives the religion of %s.\n",
 			religion_table[PC(victim)->religion].leader);
 */
-		snprintf(buf, sizeof(buf), "%s-%s", 
+		snprintf(buf, sizeof(buf), "%s-%s", 		// notrans
 			 flag_string(ethos_table, victim->ethos),
 			 flag_string(align_names, NALIGN(victim)));
 	}
@@ -1515,7 +1517,7 @@ void do_mfind(CHAR_DATA *ch, const char *argument)
 			if (buf == NULL)
 				buf = buf_new(-1);
 
-			buf_printf(buf, BUF_END, "[%5d] %s\n",
+			buf_printf(buf, BUF_END, "[%5d] %s\n",	// notrans
 				   mob_index->vnum,
 				   mlstr_mval(&mob_index->short_descr));
 		}
@@ -1551,7 +1553,7 @@ void do_ofind(CHAR_DATA *ch, const char *argument)
 			if (buf == NULL)
 				buf = buf_new(-1);
 
-			buf_printf(buf, BUF_END, "[%5d] %s\n",
+			buf_printf(buf, BUF_END, "[%5d] %s\n", 	// notrans
 				   obj_index->vnum,
 				   mlstr_mval(&obj_index->short_descr));
 		}
@@ -3287,7 +3289,7 @@ do_mset(CHAR_DATA *ch, const char *argument)
 
 		if ((cl = class_search(arg3)) == NULL) {
 			BUFFER *output = buf_new(-1);
-			buf_append(output, "Possible classes are: ");
+			buf_append(output, "Possible classes are:\n");
 			strkey_printall(&classes, output);
 			send_to_char(buf_string(output), ch);
 			buf_free(output);
@@ -4503,7 +4505,7 @@ void do_dump(CHAR_DATA *ch, const char *argument)
 	FILE *fp;
 	int vnum,nMatch = 0;
 
-	if ((fp = dfopen(TMP_PATH, "mem.dmp", "w")) == NULL)
+	if ((fp = dfopen(TMP_PATH, "mem.dmp", "w")) == NULL)	// notrans
 		return;
 
 	/* report use of data structures */
@@ -4634,7 +4636,7 @@ void do_shapeshift(CHAR_DATA *ch, const char *argument)
 	one_argument(argument, arg, sizeof(arg));
 
 	if (arg[0] == '\0') {
-		act_char("Shapeshift into what?.", ch);
+		act_char("Shapeshift into what?", ch);
 		return;
 	}
 
@@ -4724,3 +4726,68 @@ do_maxrnd(CHAR_DATA *ch, const char *argument)
 	act_puts("Current max_rnd_cnt = $j",
 		 ch, (const void *) max_rnd_cnt, NULL, TO_CHAR, POS_DEAD);
 }
+
+/*--------------------------------------------------------------------
+ * static functions
+ */
+
+/*
+ * assumes !IS_NPC(victim)
+ */
+static void
+advance(CHAR_DATA *victim, int level)
+{
+	int iLevel;
+	int tra;
+	int pra;
+
+	tra = PC(victim)->train;
+	pra = PC(victim)->practice;
+	PC(victim)->plevels = 0;
+
+	/*
+	 * Lower level:
+	 *   Reset to level 1.
+	 *   Then raise again.
+	 *   Currently, an imp can lower another imp.
+	 *   -- Swiftest
+	 */
+	if (level <= victim->level) {
+		int temp_prac;
+		int delta;
+
+		act_char("**** OOOOHHHHHHHHHH  NNNNOOOO ****", victim);
+		temp_prac = PC(victim)->practice;
+		victim->level = 1;
+		PC(victim)->exp	= base_exp(victim);
+
+		delta = 20 - victim->perm_hit;
+		victim->perm_hit += delta;
+		victim->max_hit += delta;
+
+		delta = 100 - victim->perm_mana;
+		victim->perm_mana += delta;
+		victim->max_mana += delta;
+
+		delta = 100 - victim->perm_move;
+		victim->perm_move += delta;
+		victim->max_move += delta;
+
+		advance_level(victim);
+		PC(victim)->practice= temp_prac;
+	} else 
+		act_char("**** OOOOHHHHHHHHHH  YYYYEEEESSS ****", victim);
+
+	for (iLevel = victim->level; iLevel < level; iLevel++) {
+		act_puts("{CYou raise a level!!{x ",
+			 victim, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
+		PC(victim)->exp += exp_to_level(victim);
+		victim->level++;
+		advance_level(victim);
+	}
+
+	update_skills(victim);
+	PC(victim)->train	= tra;
+	PC(victim)->practice	= pra;
+}
+

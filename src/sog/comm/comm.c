@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.239 2001-01-23 21:47:02 fjoe Exp $
+ * $Id: comm.c,v 1.240 2001-02-11 14:35:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -803,7 +803,7 @@ static void charset_print(DESCRIPTOR_DATA* d)
 
 	write_to_buffer(d, "\n\r", 0);				// notrans
 	for (i = 0; i < NCODEPAGES; i++) {
-		snprintf(buf, sizeof(buf), "%s%d. %s",		//notrans
+		snprintf(buf, sizeof(buf), "%s%d. %s",		// notrans
 			 i ? " " : "", i+1, codepages[i].name);
 		write_to_buffer(d, buf, 0);
 	}
@@ -2684,7 +2684,7 @@ void log_area_popularity(void)
 	        str_boot_time);
 
 	for (area = area_first; area != NULL; area = area->next)
-		fprintf(fp,"%-60s %u\n",area->name,area->count);
+		fprintf(fp,"%-60s %u\n",area->name,area->count); // notrans
 
 	fclose(fp);
 }

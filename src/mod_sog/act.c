@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.67 2001-01-23 21:47:02 fjoe Exp $
+ * $Id: act.c,v 1.68 2001-02-11 14:35:44 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -220,7 +220,7 @@ static char *translate(CHAR_DATA *ch, CHAR_DATA *victim, const char *i)
 		return trans;
 	}
 
-	snprintf(trans, sizeof(trans), "[%s] ",
+	snprintf(trans, sizeof(trans), "[%s] ",		// notrans
 		 flag_string(slang_table, ch->slang));
 	o = strchr(trans, '\0');
 	for (; *i && o-trans < sizeof(trans)-1; i++, o++) {
@@ -596,6 +596,10 @@ void act_buf(const char *format, CHAR_DATA *ch, CHAR_DATA *to,
 				
 			case '{':
 				i = "{{";		// notrans
+				break;
+
+			case '}':
+				i = "}";		// notrans
 				break;
 
 /* text arguments */

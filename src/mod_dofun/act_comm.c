@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.224 2001-01-23 21:46:53 fjoe Exp $
+ * $Id: act_comm.c,v 1.225 2001-02-11 14:35:36 fjoe Exp $
  */
 
 /***************************************************************************
@@ -114,7 +114,7 @@ void do_channels(CHAR_DATA *ch, const char *argument)
 {
 	/* lists all channels and their status */
 	act_char("   channel     status", ch);
-	act_char("---------------------", ch);			// notrans
+	act_char("---------------------", ch);
 	act_puts("music          $t",
 		 ch, !IS_SET(ch->chan, CHAN_NOMUSIC) ? "ON" : "OFF", NULL,
 		 TO_CHAR | ACT_NOUCASE, POS_DEAD);
@@ -133,7 +133,7 @@ void do_channels(CHAR_DATA *ch, const char *argument)
 		 ch, !IS_SET(ch->chan, COMM_DEAF) ? "ON" : "OFF", NULL,
 		 TO_CHAR | ACT_NOUCASE, POS_DEAD);
 	if (!IS_NPC(ch)) {
-		act_puts("hints           $t",
+		act_puts("hints          $t",
 			 ch, flag_string(hint_levels, PC(ch)->hints_level), NULL,
 			 TO_CHAR | ACT_NOUCASE, POS_DEAD);
 	}
@@ -435,9 +435,9 @@ void do_immtalk(CHAR_DATA *ch, const char *argument)
 	if (argument[0] == '\0') {
 		TOGGLE_BIT(orig->chan, CHAN_NOWIZ);
 		if (IS_SET(orig->chan, CHAN_NOWIZ))
-			act_char("Immortal channel is now OFF", ch);
+			act_char("Immortal channel is now OFF.", ch);
 		else
-			act_char("Immortal channel is now ON", ch);
+			act_char("Immortal channel is now ON.", ch);
 		return;
 	}
 
@@ -450,7 +450,8 @@ void do_immtalk(CHAR_DATA *ch, const char *argument)
 		do_immtalk(ch, str_empty);
 
 	flags = ACT_SPEECH(orig) & ~(ACT_STRANS | ACT_NODEAF);
-	act_puts("$n: {C$t{x", orig, argument, NULL, TO_CHAR | flags, POS_DEAD);
+	act_puts("$n: {C$t{x", orig, argument,			// notrans
+		 NULL, TO_CHAR | flags, POS_DEAD);
 
 	for (vch = char_list; vch != NULL && !IS_NPC(vch); vch = vch_next) {
 		CHAR_DATA *victim = GET_ORIGINAL(vch);
@@ -460,7 +461,7 @@ void do_immtalk(CHAR_DATA *ch, const char *argument)
 		||  IS_SET(victim->comm, CHAN_NOWIZ))
 			continue;
 
-		act_puts("$n: {C$t{x", orig, argument, vch,
+		act_puts("$n: {C$t{x", orig, argument, vch,	// notrans
 			 TO_VICT | ACT_TOBUF | flags, POS_DEAD);
 	}
 }
@@ -1283,7 +1284,8 @@ void do_judge(CHAR_DATA *ch, const char *argument)
 		  TO_CHAR | ACT_NOTRANS | ACT_FORMSH, POS_DEAD);
 }
 
-void do_trust(CHAR_DATA *ch, const char *argument)
+void
+do_trust(CHAR_DATA *ch, const char *argument)
 {	
 	char arg[MAX_INPUT_LENGTH];
 	PC_DATA *pc;
@@ -1351,7 +1353,7 @@ void do_trust(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	act_char("Syntax: trust {{ group | clan | all | none }", ch);
+	act_char("Syntax: trust {{ group | clan | all | none $}", ch);
 }
 
 void do_wanted(CHAR_DATA *ch, const char *argument)
@@ -2210,7 +2212,7 @@ toggle_print(CHAR_DATA *ch, toggle_t *t)
 	if ((bits = toggle_bits(ch, t)) == 0)
 		return;
 
-	snprintf(buf, sizeof(buf), "  %-11.11s - %-3.3s ($t)",
+	snprintf(buf, sizeof(buf), "  %-11.11s - %-3.3s ($t)",	// notrans
 		 t->name, IS_SET(*bits, t->bit) ? "ON" : "OFF");
 	act_puts(buf, ch, t->desc, NULL, TO_CHAR, POS_DEAD);
 }

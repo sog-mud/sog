@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.30 2001-01-12 15:33:51 cs Exp $
+ * $Id: act_magic.c,v 1.31 2001-02-11 14:35:41 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -388,7 +388,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		if (familiar
 		&&  number_percent() < 20
 		&&  familiar->mana > mana) {
-			act("You take some energy of your $N and power of your spell increases", ch, NULL, familiar, TO_CHAR);
+			act("You take some energy of your $N and power of your spell increases.", ch, NULL, familiar, TO_CHAR);
 			slevel += number_range(1, 3);
 			familiar->mana -= mana/2;
 		}
@@ -421,7 +421,7 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		if (victim && victim != ch &&
 		   is_affected(victim, "globe of invulnerability")) {
 			act("Your spell cannot pass through the sphere "
-			    "protecting $n", ch, victim, NULL, TO_CHAR);
+			    "protecting $n.", ch, victim, NULL, TO_CHAR);
 			act("Your globe protects you from $n's spell.",
 			    ch, victim, NULL, TO_VICT);
 			return;

@@ -1,5 +1,5 @@
 /*
- * $Id: affect.c,v 1.48 2001-01-23 21:46:59 fjoe Exp $
+ * $Id: affect.c,v 1.49 2001-02-11 14:35:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -424,7 +424,7 @@ void affect_check(CHAR_DATA *ch, int where, flag_t vector)
  */
 void affect_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
 {
-	AFFECT_DATA *paf_new = aff_dup(paf), *paf2;
+	AFFECT_DATA *paf_new, *paf2;
 
 	STRKEY_CHECK(&skills, paf->type, "affect_to_char");	// notrans
 
@@ -439,6 +439,7 @@ void affect_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
 		}
 	}
 
+	paf_new = aff_dup(paf);
 	paf_new->next = ch->affected;
 	ch->affected = paf_new;
 
@@ -448,7 +449,7 @@ void affect_to_char(CHAR_DATA *ch, AFFECT_DATA *paf)
 /* give an affect to an object */
 void affect_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 {
-	AFFECT_DATA *paf_new = aff_dup(paf), *paf2;
+	AFFECT_DATA *paf_new, *paf2;
 
 	STRKEY_CHECK(&skills, paf->type, "affect_to_obj");	// notrans
 
@@ -463,6 +464,7 @@ void affect_to_obj(OBJ_DATA *obj, AFFECT_DATA *paf)
 		}
 	}
 
+	paf_new		= aff_dup(paf);
 	paf_new->next	= obj->affected;
 	obj->affected	= paf_new;
 
@@ -634,7 +636,7 @@ void affect_strip(CHAR_DATA *ch, const char *sn)
 	AFFECT_DATA *paf;
 	AFFECT_DATA *paf_next;
 
-	STRKEY_CHECK(&skills, sn, "affect_strip");
+	STRKEY_CHECK(&skills, sn, "affect_strip");		// notrans
 
 	for (paf = ch->affected; paf; paf = paf_next) {
 		paf_next = paf->next;
@@ -781,8 +783,7 @@ affect_to_room(ROOM_INDEX_DATA *room, AFFECT_DATA *paf)
 		top_affected_room = room;
 	}
 
-	paf_new = aff_new();
-	*paf_new	= *paf;
+	paf_new		= aff_dup(paf);
 	paf_new->next	= room->affected;
 	room->affected	= paf_new;
 	affect_modify_room(room, paf_new, TRUE);
@@ -929,31 +930,33 @@ void show_name(CHAR_DATA *ch, BUFFER *output,
 	char *aff_type;
 	
 	if (IS_NULLSTR(paf->type))
-		aff_type = "Item";
+		aff_type = "Item:";
 	else if ((aff = skill_lookup(paf->type)) != NULL) {
 		switch(aff->skill_type) {
 		case ST_SPELL:
-			aff_type = "Spell";
+			aff_type = "Spell:";
 			break;
 		case ST_SKILL:
-			aff_type = "Skill";
+			aff_type = "Skill:";
 			break;
 		case ST_PRAYER:
-			aff_type = "Prayer";
+			aff_type = "Prayer:";
 			break;
 		default:
-			aff_type = "Something";
+			aff_type = "???:";			// notrans
 		}
 	} else 
-		aff_type = "Something";
+		aff_type = "???:";				// notrans
 
-	if (paf_last && IS_SKILL(paf->type, paf_last->type))
+	if (paf_last && IS_SKILL(paf->type, paf_last->type)) {
 		if (ch && ch->level < MAX_LEVEL / 3)
 			return;
 		else
-			buf_append(output, "                           ");
-	else
-		buf_printf(output, BUF_END, "%-9s: {c%-16s{x", aff_type, paf->type);
+			buf_append(output, "                        ");
+	} else {
+		buf_printf(output, BUF_END, "%-7s {c%-16s{x",
+			   GETMSG(aff_type, buf_lang(output)), paf->type);
+	}
 }
 
 void show_duration(BUFFER *output, AFFECT_DATA *paf)
@@ -1146,10 +1149,11 @@ aff_dump_list(AFFECT_DATA *paf, BUFFER *output)
 
 		if (cnt == 0) {
 			buf_append(output, "Number Skill          Affects Modifier Affects Bitvector\n");
-			buf_append(output, "------ --------- ------------ -------- ------- --------------------------------\n");
+			buf_append(output, "------ --------- ------------ -------- ------- --------------------------------\n");		// notrans
 		}
-		buf_printf(output, BUF_END, "[%4d] %9.9s %12.12s %8d %7.7s %s"
-				   "\n",
+		buf_printf(output, BUF_END,
+			   "[%4d] %9.9s %12.12s %8d %7.7s %s"	// notrans
+			   "\n",
 			   cnt,
 			   paf->type,
 			   paf->where == TO_SKILLS ||

@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.279 2001-01-28 11:39:49 cs Exp $
+ * $Id: handler.c,v 1.280 2001-02-11 14:35:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -57,6 +57,15 @@
 #include "update.h"
 #include "quest.h"
 
+static const char *	format_hmv	(int hp, int mana, int move);
+
+static int		max_hit_gain	(CHAR_DATA *ch, class_t *cl);
+static int		min_hit_gain	(CHAR_DATA *ch, class_t *cl);
+static int		max_mana_gain	(CHAR_DATA *ch, class_t *cl);
+static int		min_mana_gain	(CHAR_DATA *ch, class_t *cl);
+static int		max_move_gain	(CHAR_DATA *ch);
+static int		min_move_gain	(CHAR_DATA *ch);
+
 /*
  * Room record:
  * For less than 5 people in room create a new record.
@@ -113,16 +122,6 @@ int age_to_num(int age)
 }
 
 DECLARE_SPEC_FUN(spec_janitor);
-
-static
-const char *
-format_hmv(int hp, int mana, int move)
-{
-	static char buf[MAX_STRING_LENGTH];
-	snprintf(buf, sizeof(buf), "{C%d{x hp, {C%d{x mana, {C%d{x mv",
-		 hp, mana, move);
-	return buf;
-}
 
 /*
  * Retrieve a character's carry capacity.
@@ -262,7 +261,7 @@ void char_to_room(CHAR_DATA *ch, ROOM_INDEX_DATA *pRoomIndex)
 	if (ch->desc != NULL
 	&&  (olced = OLCED(ch)) != NULL
 	&&  !str_cmp(olced->id, "rooms"))
-		dofun("edit", ch, "rooms dropout");
+		dofun("edit", ch, "rooms dropout");		// notrans
 }
 
 /*
@@ -2778,7 +2777,8 @@ void do_who_raw(CHAR_DATA* ch, CHAR_DATA *wch, BUFFER* output)
 	buf_append(output, "{x");
 	if (ch) {
 		if (IS_IMMORTAL(ch)) {
-			buf_printf(output, BUF_END, "[%3d %5.5s %3.3s] ",
+			buf_printf(output, BUF_END, 
+				   "[%3d %5.5s %3.3s] ",	// notrans
 				   wch->level,
 				   r->race_pcdata->who_name,
 				   cl->who_name);
@@ -4336,46 +4336,10 @@ flag_t wiznet_lookup(const char *name)
 }
 
 /*
- * Following functions assume !IS_NPC(ch).
- */
-int max_hit_gain(CHAR_DATA *ch, class_t *cl)
-{
-	return (con_app[get_max_train(ch, STAT_CON)].hitp + 2) *
-		cl->hp_rate / 100;
-}
-
-int min_hit_gain(CHAR_DATA *ch, class_t *cl)
-{
-	return (con_app[get_curr_stat(ch, STAT_CON)].hitp - 3) *
-		cl->hp_rate / 100;
-}
-
-int max_mana_gain(CHAR_DATA *ch, class_t *cl)
-{
-	return (get_max_train(ch, STAT_WIS) + get_max_train(ch, STAT_INT) + 5) *
-		cl->mana_rate / 200;
-}
-
-int min_mana_gain(CHAR_DATA *ch, class_t *cl)
-{
-	return (get_curr_stat(ch, STAT_WIS) + get_curr_stat(ch, STAT_INT) - 3) *
-		cl->mana_rate / 200;
-}
-
-int min_move_gain(CHAR_DATA *ch)
-{
-	return UMAX(6, get_curr_stat(ch, STAT_DEX)/5 + get_curr_stat(ch, STAT_CON)/7);
-}
-
-int max_move_gain(CHAR_DATA *ch)
-{
-	return UMAX(6, get_max_train(ch, STAT_DEX)/4+get_max_train(ch, STAT_CON)/6);
-}
-
-/*
  * assumes !IS_NPC(ch)
  */
-void advance_level(CHAR_DATA *ch)
+void
+advance_level(CHAR_DATA *ch)
 {
 	int add_hp;
 	int add_mana;
@@ -4420,7 +4384,8 @@ void advance_level(CHAR_DATA *ch)
 		 TO_CHAR, POS_DEAD);
 }
 
-void delevel(CHAR_DATA *ch)
+void
+delevel(CHAR_DATA *ch)
 {
 	int lost_hitp;
 	int lost_mana;
@@ -4472,66 +4437,6 @@ void delevel(CHAR_DATA *ch)
 		    ch, NULL, NULL, TO_CHAR);
 		delete_player(ch, "lack of move");
 	}
-}
-
-/*
- * assumes !IS_NPC(victim)
- */
-void advance(CHAR_DATA *victim, int level)
-{
-	int iLevel;
-	int tra;
-	int pra;
-
-	tra = PC(victim)->train;
-	pra = PC(victim)->practice;
-	PC(victim)->plevels = 0;
-
-	/*
-	 * Lower level:
-	 *   Reset to level 1.
-	 *   Then raise again.
-	 *   Currently, an imp can lower another imp.
-	 *   -- Swiftest
-	 */
-	if (level <= victim->level) {
-		int temp_prac;
-		int delta;
-
-		act_char("**** OOOOHHHHHHHHHH  NNNNOOOO ****", victim);
-		temp_prac = PC(victim)->practice;
-		victim->level = 1;
-		PC(victim)->exp	= base_exp(victim);
-
-		delta = 20 - victim->perm_hit;
-		victim->perm_hit += delta;
-		victim->max_hit += delta;
-
-		delta = 100 - victim->perm_mana;
-		victim->perm_mana += delta;
-		victim->max_mana += delta;
-
-		delta = 100 - victim->perm_move;
-		victim->perm_move += delta;
-		victim->max_move += delta;
-
-		advance_level(victim);
-		PC(victim)->practice= temp_prac;
-	} else 
-		act_char("**** OOOOHHHHHHHHHH  YYYYEEEESSS ****", victim);
-
-	for (iLevel = victim->level; iLevel < level; iLevel++) {
-		act_puts("{CYou raise a level!!{x ",
-			 victim, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
-		PC(victim)->exp += exp_to_level(victim);
-		victim->level++;
-		advance_level(victim);
-	}
-
-	update_skills(victim);
-	PC(victim)->train	= tra;
-	PC(victim)->practice= pra;
-	char_save(victim, 0);
 }
 
 /*
@@ -4630,4 +4535,60 @@ label_add(OBJ_DATA *obj, const char *label)
 	const char *p = obj->label;
 	obj->label = str_printf("%s %s", obj->label, label);
 	free_string(p);
+}
+
+/*--------------------------------------------------------------------
+ * static functions
+ */
+
+static const char *
+format_hmv(int hp, int mana, int move)
+{
+	static char buf[MAX_STRING_LENGTH];
+	snprintf(buf, sizeof(buf), "{C%d{x hp, {C%d{x mana, {C%d{x mv",
+		 hp, mana, move);
+	return buf;
+}
+
+/*
+ * Following functions assume !IS_NPC(ch).
+ */
+static int
+max_hit_gain(CHAR_DATA *ch, class_t *cl)
+{
+	return (con_app[get_max_train(ch, STAT_CON)].hitp + 2) *
+		cl->hp_rate / 100;
+}
+
+static int
+min_hit_gain(CHAR_DATA *ch, class_t *cl)
+{
+	return (con_app[get_curr_stat(ch, STAT_CON)].hitp - 3) *
+		cl->hp_rate / 100;
+}
+
+static int
+max_mana_gain(CHAR_DATA *ch, class_t *cl)
+{
+	return (get_max_train(ch, STAT_WIS) + get_max_train(ch, STAT_INT) + 5) *
+		cl->mana_rate / 200;
+}
+
+static int
+min_mana_gain(CHAR_DATA *ch, class_t *cl)
+{
+	return (get_curr_stat(ch, STAT_WIS) + get_curr_stat(ch, STAT_INT) - 3) *
+		cl->mana_rate / 200;
+}
+
+static int
+max_move_gain(CHAR_DATA *ch)
+{
+	return UMAX(6, get_max_train(ch, STAT_DEX)/4+get_max_train(ch, STAT_CON)/6);
+}
+
+static int
+min_move_gain(CHAR_DATA *ch)
+{
+	return UMAX(6, get_curr_stat(ch, STAT_DEX)/5 + get_curr_stat(ch, STAT_CON)/7);
 }

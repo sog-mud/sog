@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.238 2001-01-24 18:15:17 fjoe Exp $
+ * $Id: db.c,v 1.239 2001-02-11 14:35:45 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1590,7 +1590,7 @@ ROOM_INDEX_DATA *get_room_index(int vnum)
 }
 
 /*
- * smash '\r', dup '~'
+ * duplicate '~'
  */
 char *fix_string(const char *s)
 {
@@ -1603,11 +1603,8 @@ char *fix_string(const char *s)
 	if (*s == '.' || isspace(*s))
 		*p++ = '.';
 
-	for (;*s && p-buf < sizeof(buf)-2; s++) {
+	for (; *s && p-buf < sizeof(buf)-2; s++) {
 		switch (*s) {
-		case '\r':
-			break;
-
 		case '~':
 			*p++ = *s;
 			/* FALLTHRU */

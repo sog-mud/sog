@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_msg.c,v 1.48 2000-10-22 17:53:44 fjoe Exp $
+ * $Id: olc_msg.c,v 1.49 2001-02-11 14:35:42 fjoe Exp $
  */
 
 #include "olc.h"
@@ -127,20 +127,37 @@ OLC_FUN(msged_edit)
 }
 
 static void *
+msged_add_cb(void *p, va_list ap)
+{
+	const char *mval = mlstr_mval((mlstring *) p);
+	varr *v = va_arg(ap, varr *);
+	const char **str;
+
+	if (IS_NULLSTR(mval))
+		return NULL;
+	str = varr_enew(v);
+	*str = mval;
+	return NULL;
+}
+
+static void *
 msged_save_cb(void *p, va_list ap)
 {
 	FILE *fp = va_arg(ap, FILE *);
+	mlstring *ml = msg_lookup(*(const char **) p);
 
-	if (IS_NULLSTR(mlstr_mval((mlstring *) p)))
-		return NULL;
-
-	mlstr_fwrite(fp, NULL, (mlstring *) p);
+	mlstr_fwrite(fp, NULL, ml);
 	return NULL;
 }
+
+static varrdata_t v_msgdb = {
+	sizeof(const char *), 64
+};
 
 OLC_FUN(msged_save)
 {
 	FILE *fp;
+	varr v;
 
 	if (!IS_SET(changed_flags, CF_MSGDB)) {
 		olc_printf(ch, "Msgdb is not changed.");
@@ -150,7 +167,12 @@ OLC_FUN(msged_save)
 	if ((fp = olc_fopen(ETC_PATH, MSGDB_FILE, ch, SECURITY_MSGDB)) == NULL)
 		return FALSE;
 
-	hash_foreach(&msgdb, msged_save_cb, fp);
+	varr_init(&v, &v_msgdb);
+	hash_foreach(&msgdb, msged_add_cb, &v);
+	varr_qsort(&v, cscmpstr);
+	varr_foreach(&v, msged_save_cb, fp);
+	varr_destroy(&v);
+
 	fprintf(fp, "$~\n");
 	fclose(fp);
 	REMOVE_BIT(changed_flags, CF_MSGDB);
@@ -294,6 +316,9 @@ static const char *atomsg(const char *argument)
 	static char buf[MAX_STRING_LENGTH];
 	const char *i;
 	int o;
+
+	if (argument[0] == '.')
+		argument++;
 
 	for (o = 0, i = argument; o < sizeof(buf)-1 && *i; i++, o++) {
 		if (*i == '\\' && *(i+1)) {

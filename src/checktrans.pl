@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: checktrans.pl,v 1.7 2001-01-23 21:22:18 fjoe Exp $
+# $Id: checktrans.pl,v 1.8 2001-02-11 14:35:35 fjoe Exp $
 #
 # Usage: checktrans.pl [-u] [-d] [-F] files...
 # Options:
@@ -47,6 +47,17 @@ my %msgdb_nonl;
 #
 # notfound: messages not found in sources without translation (same as %msgdb)
 my %msgdb_notfound;
+
+#
+# byfile: byfile statistics
+# key - filename
+# value - hash
+#	key - msg, special keys:
+#		'@total' => total number of messages
+#		'@untranslated' => number untranslated messages
+#		
+#	value - array of line numbers of untranslated messages
+my %byfile;
 
 #
 # messages to skip (messages which are keys of this hash are not checked
@@ -184,7 +195,10 @@ sub process_file
 	close(INPUT);
 
 	my @strings = keys %file_strings;
-	my $found = 0;
+	$byfile{$filename} = {
+		'@total' => $#strings + 1,
+		'@untranslated' => 0
+	};
 	foreach my $i (@strings) {
 		my $nonl = $i;
 		$nonl =~ s/\\n$//;
@@ -196,17 +210,10 @@ sub process_file
 			%{$msgdb_nl{$nonl}}->{$filename} = \@{$file_strings{$i}};
 		} else {
 			%{$msgdb_notfound{$i}}->{$filename} = \@{$file_strings{$i}};
-			if (!$opt_F) {
-				if (!$found) {
-					$found = 1;
-					my $usage_count = $#strings + 1;
-					print BYFILE "File $filename (${usage_count}):\n";
-				}
-				print BYFILE "\t[$i]: @{$file_strings{$i}}\n";
-			}
+			%{$byfile{$filename}}->{'@untranslated'}++;
+			%{$byfile{$filename}}->{$i} = \@{$file_strings{$i}};
 		}
 	}
-	print BYFILE "\n" if ($found && !$opt_F);
 }
 
 sub usage_count
@@ -331,7 +338,7 @@ close(IN);
 
 #
 # read specs
-open(IN, "grep -h '^Name ' $sog_root/specs/*|");
+open(IN, "grep -h '^Name ' $sog_root/specs/*.spec|");
 while (<IN>) {
 	chomp;
 	$skip{$_} = 1 if (s/^Name (.*)~$/$1/);
@@ -356,6 +363,16 @@ while (<IN>) {
 }
 close(IN);
 
+#
+# read clans
+open(IN, "cat $sog_root/clans/*.clan|");
+while (<IN>) {
+	chomp;
+	$skip{$_} = 1 if (s/^Name (.*)~$/$1/);
+	$skip{$_} = 1 if (s/^SkillSpec '(.*)'$/$1/);
+}
+close(IN);
+
 if ($opt_d) {
 	my @msgdb_eng = keys %msgdb;
 	print STDERR "All english msgdb messages:\n";
@@ -366,18 +383,36 @@ if ($opt_d) {
 
 #
 # process input files and generate byfile statistics
-rename($byfile_filename, "${byfile_filename}.old")
-	if ( -f $byfile_filename );
-open(BYFILE, ">$byfile_filename");
-
 foreach my $i (@ARGV) {
 	process_file($i);
 }
 
-close(BYFILE);
+if (!$opt_F) {
+	print STDERR "Generating byfile statistics\n";
+	rename($byfile_filename, "${byfile_filename}.old")
+		if ( -f $byfile_filename );
+	open(BYFILE, ">$byfile_filename");
+
+	my @files = sort { $a cmp $b } keys %byfile;
+	foreach my $file (@files) {
+		my $untranslated = $byfile{$file}{'@untranslated'};
+		my $total = $byfile{$file}{'@total'};
+		next if $untranslated == 0;
+
+		my $translated = $total - $untranslated;
+		print BYFILE "File $file (+$total-$translated=$untranslated):\n";
+		foreach my $msg (keys %{$byfile{$file}}) {
+			next if $msg eq '@untranslated' || $msg eq '@total';
+			print BYFILE "\t[$msg]: @{$byfile{$file}->{$msg}}\n";
+		}
+		print BYFILE "\n";
+	}
+	close(BYFILE);
+}
 
 #
 # generate overall statistics
+print STDERR "Generating overall statistics\n";
 rename($checktrans_filename, "${checktrans_filename}.old")
 	if ( -f $checktrans_filename );
 open(CHECKTRANS, ">$checktrans_filename");

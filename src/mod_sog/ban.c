@@ -1,5 +1,5 @@
 /*
- * $Id: ban.c,v 1.43 2001-01-23 21:47:02 fjoe Exp $
+ * $Id: ban.c,v 1.44 2001-02-11 14:35:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -91,26 +91,26 @@ void ban_add(CHAR_DATA *ch, const char *argument)
 	 */
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (!is_number(arg)) {
-		BAN_ERROR(ch, (LOG_WARN, "do_ban: 'num' argument must be an integer"));
+		BAN_ERROR(ch, (LOG_WARN, "do_ban: 'num' argument must be an integer"));	// notrans
 		return;
 	}
 	ban_num = atoi(arg);
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if ((ban_action = flag_value(ban_actions, arg)) < 0) {
-		BAN_ERROR(ch, (LOG_WARN, "do_ban: %s: unknown ban action", arg));
+		BAN_ERROR(ch, (LOG_WARN, "do_ban: %s: unknown ban action", arg)); // notrans
 		return;
 	}
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if ((ban_class = flag_value(ban_classes, arg)) < 0) {
-		BAN_ERROR(ch, (LOG_WARN, "do_ban: %s: unknown ban class", arg));
+		BAN_ERROR(ch, (LOG_WARN, "do_ban: %s: unknown ban class", arg)); // notrans
 		return;
 	}
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
-		BAN_ERROR(ch, (LOG_WARN, "do_ban: no ban mask specified"));
+		BAN_ERROR(ch, (LOG_WARN, "do_ban: no ban mask specified")); // notrans
 		return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: buffer.c,v 1.25 2000-10-07 10:58:05 fjoe Exp $
+ * $Id: buffer.c,v 1.26 2001-02-11 14:35:43 fjoe Exp $
  */
 
 /***************************************************************************
@@ -79,7 +79,8 @@ static bool buf_resize(BUFFER *buffer, const char *string);
 static bool buf_copy(BUFFER *buffer, int where, const char *string);
 static int get_size (int val);
 
-BUFFER *buf_new(int lang)
+BUFFER *
+buf_new(int lang)
 {
 	BUFFER *buffer;
  
@@ -102,7 +103,8 @@ BUFFER *buf_new(int lang)
 	return buffer;
 }
 
-void buf_free(BUFFER *buffer)
+void
+buf_free(BUFFER *buffer)
 {
 	sAllocBuf -= buffer->size;
 
@@ -115,7 +117,8 @@ void buf_free(BUFFER *buffer)
 	mem_invalidate(buffer);
 }
 
-bool buf_prepend(BUFFER *buffer, const char *string)
+bool
+buf_prepend(BUFFER *buffer, const char *string)
 {
 	if (IS_NULLSTR(string))
 		return TRUE;
@@ -124,7 +127,8 @@ bool buf_prepend(BUFFER *buffer, const char *string)
 				string : GETMSG(string, buffer->lang));
 }
 
-bool buf_append(BUFFER *buffer, const char *string)
+bool
+buf_append(BUFFER *buffer, const char *string)
 {
 	if (IS_NULLSTR(string))
 		return TRUE;
@@ -133,7 +137,8 @@ bool buf_append(BUFFER *buffer, const char *string)
 				string : GETMSG(string, buffer->lang));
 }
 
-bool buf_printf(BUFFER *buffer, int where, const char *format, ...)
+bool
+buf_printf(BUFFER *buffer, int where, const char *format, ...)
 {
 	char buf[MAX_STRING_LENGTH];
 	va_list ap;
@@ -146,9 +151,9 @@ bool buf_printf(BUFFER *buffer, int where, const char *format, ...)
 	return buf_copy(buffer, where, buf);
 }
 
-bool buf_act(BUFFER *buffer, int where, const char *format, CHAR_DATA *ch,
-	     const void *arg1, const void *arg2, const void *arg3,
-	     int act_flags)
+bool
+buf_act(BUFFER *buffer, int where, const char *format, CHAR_DATA *ch,
+	const void *arg1, const void *arg2, const void *arg3, int act_flags)
 {
 	actopt_t opt;
 	char tmp[MAX_STRING_LENGTH];
@@ -160,15 +165,23 @@ bool buf_act(BUFFER *buffer, int where, const char *format, CHAR_DATA *ch,
 	return buf_copy(buffer, where, tmp);
 }
 
-void buf_clear(BUFFER *buffer)
+void
+buf_clear(BUFFER *buffer)
 {
 	buffer->string[0] = '\0';
 	mem_untag(buffer, BUF_OFLOW);
 }
 
-char* buf_string(BUFFER *buffer)
+char *
+buf_string(BUFFER *buffer)
 {
 	return buffer->string;
+}
+
+int
+buf_lang(BUFFER *buffer)
+{
+	return buffer->lang;
 }
 
 /*----------------------------------------------------------------------------
@@ -183,7 +196,8 @@ static const int buf_size[BUF_LIST_MAX] =
 
 /* local procedure for finding the next acceptable size */
 /* -1 indicates out-of-boundary error */
-static int get_size (int val)
+static int
+get_size (int val)
 {
 	int i;
 

@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.230 2001-01-23 21:46:54 fjoe Exp $
+ * $Id: act_obj.c,v 1.231 2001-02-11 14:35:37 fjoe Exp $
  */
 
 /***************************************************************************
@@ -551,12 +551,12 @@ void do_give(CHAR_DATA * ch, const char *argument)
 
 			if (change < 1 && can_see(victim, ch)) {
 				do_tell_raw(victim, ch, "I'm sorry, you did not give me enough to change.");
-				dofun("give", victim, "%d %s %s",
+				dofun("give", victim, "%d %s %s", // notrans
 				      amount, silver ? "silver" : "gold",
 				      ch->name);
 			}
 			else if (can_see(victim, ch)) {
-				dofun("give", victim, "%d %s %s",
+				dofun("give", victim, "%d %s %s", // notrans
 				      change, silver ? "gold" : "silver",
 				      ch->name);
 				if (silver)
@@ -800,7 +800,7 @@ void do_feed(CHAR_DATA *ch, const char *argument)
 		}
 
 		what = number_percent();
-		act("$n hungrily devours $P", vch, NULL, obj, TO_ROOM);
+		act("$n hungrily devours $P.", vch, NULL, obj, TO_ROOM);
 		af.type		= "bone dragon";
 		af.level	= obj->level;
 		af.modifier	= 0;
@@ -2128,7 +2128,8 @@ void do_list(CHAR_DATA * ch, const char *argument)
 					buf = buf_new(GET_LANG(ch));
 					buf_append(buf, "Pets for sale:\n");
 				}
-				buf_printf(buf, BUF_END, "[%2d] %8d - %s\n",
+				buf_printf(buf, BUF_END,
+					   "[%2d] %8d - %s\n",	// notrans
 					   pet->level,
 					   10 * pet->level * pet->level,
 					   PERS(pet, ch));
@@ -2167,7 +2168,7 @@ void do_list(CHAR_DATA * ch, const char *argument)
 
 				if (IS_OBJ_STAT(obj, ITEM_INVENTORY))
 					buf_printf(buf, BUF_END,
-						   "[%2d %5d -- ] %s\n",
+						   "[%2d %5d -- ] %s\n", // notrans
 						   obj->level, cost,
 						   format_short(&obj->short_descr, obj->pObjIndex->name, ch));
 				else {
@@ -2597,7 +2598,7 @@ void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 			}
 		}
 
-		buf_printf(output, BUF_END, "%s.\n",
+		buf_printf(output, BUF_END, "%s.\n",		// notrans
 		    flag_string(weapon_class, INT(v0)));
 
 		buf_printf(output, BUF_END, "Damage is %dd%d (average %d).\n",
