@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: const.h,v 1.59 2000-03-05 17:14:40 avn Exp $
+ * $Id: const.h,v 1.60 2000-03-30 16:05:44 fjoe Exp $
  */
 
 #ifndef _CONST_H_
@@ -239,6 +239,7 @@ extern const char TYPO_FILE	[];
 #define OBJ_VNUM_RULER_SHIELD2		72
 #define OBJ_VNUM_RULER_SHIELD3		73
 #define OBJ_VNUM_RULER_SHIELD4		74
+#define OBJ_VNUM_RENEGADE_MARK		76
 
 #define OBJ_VNUM_CHAOS_BLADE		97
 

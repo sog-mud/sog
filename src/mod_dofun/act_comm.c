@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.202 2000-03-30 07:00:54 fjoe Exp $
+ * $Id: act_comm.c,v 1.203 2000-03-30 16:05:46 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1614,13 +1614,17 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 			act("They are not a member of $t anymore.",
 			    ch, clan->name, NULL, TO_CHAR);
 			v_changed = TRUE;
-			if (!loaded)
+			if (!loaded) {
 				act("You are not a member of $t anymore.",
 				    victim, clan->name, NULL, TO_CHAR);
+			}
 
 			if ((mark = get_eq_char(victim, WEAR_CLANMARK))) {
 				obj_from_char(mark);
 				extract_obj(mark, 0);
+				mark = create_obj(get_obj_index(OBJ_VNUM_RENEGADE_MARK), 0);
+				obj_to_char(mark, victim);
+				equip_char(victim, mark, WEAR_CLANMARK);
 			}
 
 			goto cleanup;
@@ -1724,7 +1728,15 @@ void do_petition(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!IS_NULLSTR(ch->clan)) {
-		char_puts("You cannot leave your clan this way.\n", ch);
+		act_puts("You cannot leave your clan this way.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
+		return;
+	}
+
+	if ((mark = get_eq_char(ch, WEAR_CLANMARK)) != NULL
+	&&  mark->pObjIndex->vnum == OBJ_VNUM_RENEGADE_MARK) {
+		act_puts("You are renegade and cannot join clans anymore.",
+			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		return;
 	}
 
