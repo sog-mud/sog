@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.240 1999-05-24 11:12:54 fjoe Exp $
+ * $Id: act_info.c,v 1.241 1999-05-24 21:16:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2953,7 +2953,7 @@ void do_score(CHAR_DATA *ch, const char *argument)
 		 ch->silver,GET_AC(ch,AC_SLASH));
 
 	buf_printf(output,
-"     {G| {RCurrent exp   :   {x%-6d            {RSaves vs Spell  : {x%5d     {G|{x\n",
+"     {G| {RCurrent exp   :   {x%-7d           {RSaves vs Spell  : {x%5d     {G|{x\n",
 		ch->exp,ch->saving_throw);
 
 	buf_printf(output,
