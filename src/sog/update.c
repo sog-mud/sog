@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.58 2004-02-20 14:34:23 fjoe Exp $
+ * $Id: update.c,v 1.157.2.59 2004-02-24 10:42:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -719,12 +719,14 @@ void mobile_update(void)
 			bust_prompt = TRUE;
 		}
 
-		if (ch->desc
+		if (ch->desc != NULL
 		&&  bust_prompt
 		&&  !ch->desc->pString
 		&&  !ch->desc->showstr_point
-		&&  !IS_SET(ch->comm, COMM_NOBUST))
+		&&  !IS_SET(ch->comm, COMM_NOBUST)) {
+			ch->desc->incomm_from_qbuf = TRUE;
 			char_puts(str_empty, ch);
+		}
 
 		/*
 		 * that's all for PCs and charmed mobiles
@@ -1226,13 +1228,15 @@ void char_update(void)
 			else
 				ch->move = ch->max_move;
 
-			if (ch->desc
+			if (ch->desc != NULL
 			&&  (old_hit != ch->hit || old_mana != ch->mana ||
 			     old_move != ch->move)
 			&&  !ch->desc->pString
 			&&  !ch->desc->showstr_point
-			&&  !IS_SET(ch->comm, COMM_NOBUST))
+			&&  !IS_SET(ch->comm, COMM_NOBUST)) {
+				ch->desc->incomm_from_qbuf = TRUE;
 				char_puts(str_empty, ch);
+			}
 		}
 
 		if (ch->position == POS_STUNNED)
