@@ -282,7 +282,7 @@ m mob_fight @ 100~
 if (number_bits(1) == 0)
         return 0;
  
-char victim = get_random_fighting($n);
+Char victim = get_random_fighting(mob);
 if (victim == NULL)
         return 0;
  
@@ -310,7 +310,7 @@ default:
         return 0;
 }
  
-cast_char(spell, $n, victim);
+cast_char(spell, mob, victim);
 return 0;
 ~
 #22316
@@ -501,28 +501,28 @@ AGK
 stand stand male 0
 0 0 gargantuan unknown
 m mob_bribe @ 1000~
-room r = get_room_index(22404);
+Room r = get_room_index(22404);
 if (r == NULL)
        return 0;
 
-dofun("emote", $n, "thinks deeply.");
-dofun("say", $n, "I think that you can visit the Treasure Keep.");
-transfer_char($N, r);
+dofun("emote", mob, "thinks deeply.");
+dofun("say", mob, "I think that you can visit the Treasure Keep.");
+transfer_char(actor, r);
 return 0;
 ~
 m mob_fight mob_fight_breath_fire 100~
 m mob_give @ 22352~
-extract_obj($p, 0);
-dofun("say", $n, "OH!! You bring it for me?! You so pleased!");
-dofun("emote", $n, "eats the huge piece of beef.");
+extract_obj(obj, 0);
+dofun("say", mob, "OH!! You bring it for me?! You so pleased!");
+dofun("emote", mob, "eats the huge piece of beef.");
 
-room r = get_room_index(22404);
+Room r = get_room_index(22404);
 if (r == NULL) 
         return 0;
 
-dofun("say", $n, "I think that I can allow you to pass in Treasure Keep.");
-dofun("say", $n, "But you should be careful. There are no exits from there.");
-transfer_group($N, r);
+dofun("say", mob, "I think that I can allow you to pass in Treasure Keep.");
+dofun("say", mob, "But you should be careful. There are no exits from there.");
+transfer_group(actor, r);
 return 0;
 ~
 #22328

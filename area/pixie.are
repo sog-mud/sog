@@ -36,65 +36,65 @@ m mob_greet @ all~
 if (number_percent() < 70)
 	return 0;
 
-if ($N->race != "felar")
+if (actor->race != "felar")
         return 0;
  
-act("$n tells you:", $n, NULL, $N, TO_VICT);
-act("        Young felar?", $n, NULL, $N, TO_VICT);
-social_char("smile", $n, $N);
-act("$n tells you:", $n, NULL, $N, TO_VICT);
+act("$n tells you:", mob, NULL, actor, TO_VICT);
+act("        Young felar?", mob, NULL, actor, TO_VICT);
+social_char("smile", mob, actor);
+act("$n tells you:", mob, NULL, actor, TO_VICT);
 act("        You can find pretty amulet in this forest. It gives defence",
-    $n, NULL, $N, TO_VICT);
+    mob, NULL, actor, TO_VICT);
 act("        against fire.  I suppose you need it.  Or has anyone found",
-    $n, NULL, $N, TO_VICT);
+    mob, NULL, actor, TO_VICT);
 act("        already this amulet? Anyway, you have a chance.",
-    $n, NULL, $N, TO_VICT);
+    mob, NULL, actor, TO_VICT);
 return 0;
 ~
 m mob_kill @ 100~
-if (is_immortal($N))
+if (is_immortal(actor))
         return 0;
 
 act("{RYou have violated Gods' order. You will be punished!!!{x",
-    $N, NULL, NULL, TO_CHAR);
+    actor, NULL, NULL, TO_CHAR);
 act("{R$n has violated God's order and will be punished!!!{x",
-    $N, NULL, NULL, TO_ROOM);
-raw_kill($n, $N);
+    actor, NULL, NULL, TO_ROOM);
+raw_kill(mob, actor);
 return 0;
 ~
 m mob_tell @ leaf~
-if (get_obj_carry($n, $N, "35469") != NULL
-||  get_obj_carry($n, $N, "35468") != NULL
-||  get_obj_carry($n, $N, "35467") != NULL)
+if (get_obj_carry(mob, actor, "35469") != NULL
+||  get_obj_carry(mob, actor, "35468") != NULL
+||  get_obj_carry(mob, actor, "35467") != NULL)
         return 1;
  
-obj leaf = load_obj($n, 35469);
+Obj leaf = load_obj(mob, 35469);
 if (leaf == NULL)
         return 1;
  
-tell_char($n, $N, "You may take it.");
-give_obj($n, $N, leaf);
+tell_char(mob, actor, "You may take it.");
+give_obj(mob, actor, leaf);
 return 1;
 ~
 m mob_tell @ ~
-if (get_obj_carry($n, $N, "35468") != NULL
-||  get_obj_carry($n, $N, "35469") != NULL
-||  get_obj_carry($n, $N, "35467") != NULL) {
-        tell_char($n, $N, "Good day, adventure.");
+if (get_obj_carry(mob, actor, "35468") != NULL
+||  get_obj_carry(mob, actor, "35469") != NULL
+||  get_obj_carry(mob, actor, "35467") != NULL) {
+        tell_char(mob, actor, "Good day, adventure.");
         return 0;
 }
  
-tell_char($n, $N, "Ah, adventure! Our forest need help. Evil imp stealed oak sapling and small tree will die, if nobody take it from imp and plant.");
+tell_char(mob, actor, "Ah, adventure! Our forest need help. Evil imp stealed oak sapling and small tree will die, if nobody take it from imp and plant.");
 return 0;
 ~
 m mob_tell @ help~
-if (get_obj_carry($n, $N, "35469") != NULL
-||  get_obj_carry($n, $N, "35468") != NULL
-||  get_obj_carry($n, $N, "35467") != NULL)
+if (get_obj_carry(mob, actor, "35469") != NULL
+||  get_obj_carry(mob, actor, "35468") != NULL
+||  get_obj_carry(mob, actor, "35467") != NULL)
         return 1;
  
-tell_char($n, $N, "Do you wish to help us?");
-tell_char($n, $N, "It's nice!");
+tell_char(mob, actor, "Do you wish to help us?");
+tell_char(mob, actor, "It's nice!");
 return 1;
 ~
 #35470
@@ -119,34 +119,34 @@ F par BCHJKU
 r charm 100
 m mob_death @ 100~
 act("{WAs $n breathes its last and collapses with a thud,{x",
-    $n, NULL, NULL, TO_ROOM);
+    mob, NULL, NULL, TO_ROOM);
 act("{WYou notice one of its long, curved claws has fallen loose.{x",
-    $n, NULL, NULL, TO_ROOM);
+    mob, NULL, NULL, TO_ROOM);
 
-obj wear = get_eq_char($n, WEAR_WIELD);
+Obj wear = get_eq_char(mob, WEAR_WIELD);
 if (wear != NULL && wear->vnum == 35480)
         return 0;
  
-obj claw = create_obj(35471, 0);
-obj_to_room(claw, $n->in_room);
+Obj claw = create_obj(35471, 0);
+obj_to_room(claw, mob->in_room);
 return 0;
 ~
 m mob_fight @ 15~
-char victim = get_random_fighting($n);
-obj claw = get_eq_char($n, WEAR_WIELD);
+Char victim = get_random_fighting(mob);
+Obj claw = get_eq_char(mob, WEAR_WIELD);
 
 if (victim == NULL)
         return 0;
 
 act("{W$n spreads its jaws wide and nearly roars you backwards!{x",
-    $n, NULL, victim, TO_VICT);
+    mob, NULL, victim, TO_VICT);
  
 int dam;
 if (claw != NULL)
         dam = number_range(40, 55);        
 else
         dam = number_range(15, 25);        
-damage($n, victim, dam, "+scream", DAM_F_NONE);
+damage(mob, victim, dam, "+scream", DAM_F_NONE);
 return 0;
 ~
 m mob_random mob_random_fido 100~
@@ -167,13 +167,13 @@ stand stand either 400
 0 ADEF small unknown
 m mob_death @ 100~
 act("{WAs the small creature plunges to the surface, a wing is torn off.{x",
-    $n, NULL, NULL, TO_ROOM);
-obj wings = create_obj(35472, 0);
-obj_to_room(wings, $n->in_room);
+    mob, NULL, NULL, TO_ROOM);
+Obj wings = create_obj(35472, 0);
+obj_to_room(wings, mob->in_room);
 return 0;
 ~
 m mob_fight @ 15~
-char victim = get_random_fighting($n);
+Char victim = get_random_fighting(mob);
 
 if (number_bits(1) == 0
 &&  victim != NULL) {
@@ -181,24 +181,24 @@ if (number_bits(1) == 0
             victim, NULL, NULL, TO_CHAR);
         act("{MSpray of magic dust whirls around $n.{x",
             victim, NULL, NULL, TO_ROOM);
-        damage($n, victim, number_range(10, 15), "+magic", DAM_F_NONE);
+        damage(mob, victim, number_range(10, 15), "+magic", DAM_F_NONE);
 } else {
         act("{W$n shrieks wildly through the air, trying to avoid harm.{x",
-            $n, NULL, NULL, TO_ROOM); 
-        spellfun("cure critical wounds", NULL, $n->level, $n, $n);
-        spellfun("heal", NULL, MAX_LEVEL, $n, $n);
+            mob, NULL, NULL, TO_ROOM); 
+        spellfun("cure critical wounds", NULL, mob->level, mob, mob);
+        spellfun("heal", NULL, MAX_LEVEL, mob, mob);
 }
  
 return 0;
 ~
 m mob_random @ 2~
-if (get_char_here($n, "35469") != NULL)
+if (get_char_here(mob, "35469") != NULL)
         return 0;
 
 if (number_bits(1) == 0)
-        mob_interpret($n, "smile");
+        mob_interpret(mob, "smile");
 else
-        mob_interpret($n, "giggle");
+        mob_interpret(mob, "giggle");
  
 return 0;
 ~
@@ -221,34 +221,34 @@ D 0 medium unknown
 r charm 100
 m mob_death @ 100~
 act("{DAs the foul imp perishes, a small object slips its grasp...{x",
-    $n, NULL, NULL, TO_ROOM);
+    mob, NULL, NULL, TO_ROOM);
  
-obj wear = get_eq_char($n, WEAR_HOLD);
+Obj wear = get_eq_char(mob, WEAR_HOLD);
 if (wear != NULL && wear->vnum == 35477) 
         return 0;
  
-obj pearl = create_obj(35470, 0);
-obj_to_room(pearl, $n->in_room);
+Obj pearl = create_obj(35470, 0);
+obj_to_room(pearl, mob->in_room);
 return 0;
 ~
 m mob_fight @ 20~
-char victim = get_random_fighting($n);
+Char victim = get_random_fighting(mob);
 if (victim == NULL)
        return 0;
 
 act("{DA $n's shriek resounds through the cave!{x",
-    $n, NULL, NULL, TO_ROOM);
-damage($n, victim, number_range(50, 80), "+scream", DAM_F_NONE);
+    mob, NULL, NULL, TO_ROOM);
+damage(mob, victim, number_range(50, 80), "+scream", DAM_F_NONE);
 return 0;
 ~
 m mob_give @ 35468~
-extract_obj($p, 0);
+extract_obj(obj, 0);
  
-dofun("say", $n, "Is it your payment for oak sapling?");
-dofun("say", $n, "Nice gem... Go and look for the tree in my chest");
+dofun("say", mob, "Is it your payment for oak sapling?");
+dofun("say", mob, "Nice gem... Go and look for the tree in my chest");
  
-obj oak = create_obj(35467, 0);
-obj chest = create_obj(35461, 0);
+Obj oak = create_obj(35467, 0);
+Obj chest = create_obj(35461, 0);
 if (oak == NULL
 ||  chest == NULL)
         return 1;
@@ -261,29 +261,29 @@ obj_to_obj(oak, chest);
 return 1;
 ~
 m mob_give @ all~
-if ($p->item_type == ITEM_GEM) {
-        dofun("say", $n, "Nice gem...");
-        dofun("say", $n, "I'll take it, but it's not enough payment for the oak sapling.");
-        extract_obj($p, 0);
+if (obj->item_type == ITEM_GEM) {
+        dofun("say", mob, "Nice gem...");
+        dofun("say", mob, "I'll take it, but it's not enough payment for the oak sapling.");
+        extract_obj(obj, 0);
         return 0;
 }
  
-dofun("say", $n, "I don't need it. Take it back.");
-give_obj($n, $N, $p);
+dofun("say", mob, "I don't need it. Take it back.");
+give_obj(mob, actor, obj);
 return 0;
 ~
 m mob_greet @ all~
-if (get_obj_carry($n, $N, "35468") == NULL)
+if (get_obj_carry(mob, actor, "35468") == NULL)
         return 0;
  
-act_say($n, "I see you have nice emerald, $N.", $N);
-dofun("say", $n, "I can change it to sapling if you wish.");
+act_say(mob, "I see you have nice emerald, $N.", actor);
+dofun("say", mob, "I can change it to sapling if you wish.");
 return 0;
 ~
 m mob_tell @ sapling~
-act_say($n, "You want my sapling for nothing, $N?", $N);
-mob_interpret($n, "giggle");
-dofun("say", $n, "I think I cann't you give it, but I can exchange.");
+act_say(mob, "You want my sapling for nothing, $N?", actor);
+mob_interpret(mob, "giggle");
+dofun("say", mob, "I think I cann't you give it, but I can exchange.");
 return 1;
 ~
 #35473
@@ -302,28 +302,28 @@ stand stand either 500
 0 0 small unknown
 m mob_death @ 100~
 act("{B$n collapses into the water, forming a circle of liquid.{x",
-    $n, NULL, NULL, TO_ROOM);
+    mob, NULL, NULL, TO_ROOM);
 
-obj wear = get_eq_char($n, WEAR_FINGER_L);
+Obj wear = get_eq_char(mob, WEAR_FINGER_L);
 if (wear != NULL && wear->vnum == 35478)
         return 0;
  
-wear = get_eq_char($n, WEAR_FINGER_R);
+wear = get_eq_char(mob, WEAR_FINGER_R);
 if (wear != NULL && wear->vnum == 35478)
         return 0;
 
-obj ring = create_obj(35473, 0);
-obj_to_room(ring, $n->in_room);
+Obj ring = create_obj(35473, 0);
+obj_to_room(ring, mob->in_room);
 return 0;
 ~
 m mob_fight @ 15~
-char victim = get_random_fighting($n);
+Char victim = get_random_fighting(mob);
 if (victim == NULL)
         return 0;
 
 act("{C$n releases a lash of iced-filled water from its outstretched hand!{x",
-    $n, NULL, NULL, TO_ROOM);
-damage($n, victim, number_range(30, 50), "+chill", DAM_F_NONE);
+    mob, NULL, NULL, TO_ROOM);
+damage(mob, victim, number_range(30, 50), "+chill", DAM_F_NONE);
 return 0;
 ~
 #35474
@@ -345,57 +345,57 @@ r weapon 33
 r magic 33
 m mob_death @ 100~
 act("{WAs the small creature plunges to the surface, a wing is torn off.{x",
-    $n, NULL, NULL, TO_ROOM);
+    mob, NULL, NULL, TO_ROOM);
  
-obj wear = get_eq_char($n, WEAR_ARMS);
+Obj wear = get_eq_char(mob, WEAR_ARMS);
 
 if (wear != NULL && wear->vnum == 35479)
         return 0;
  
-obj wings = create_obj(35472, 0);
-obj_to_room(wings, $n->in_room);
+Obj wings = create_obj(35472, 0);
+obj_to_room(wings, mob->in_room);
 return 0;
 ~
 m mob_fight @ 15~
-char victim = get_random_fighting($n);
+Char victim = get_random_fighting(mob);
 
 if (victim != NULL
 &&  number_bits(1) == 0) {
         act("{MSpray of magic dust whirls around $N.{x",
-            $n, NULL, victim, TO_NOTVICT);
+            mob, NULL, victim, TO_NOTVICT);
         act("{MSpray of magic dust whirls around you.{x",
-            $n, NULL, victim, TO_VICT);
-        damage($n, victim, number_range(30, 50), "+magic", DAM_F_SHOW);
+            mob, NULL, victim, TO_VICT);
+        damage(mob, victim, number_range(30, 50), "+magic", DAM_F_SHOW);
         return 0;
 }
  
-act("{WBrightly light surrounds $n.{x", $n, NULL, NULL, TO_ROOM);
-spellfun("heal", NULL, MAX_LEVEL, $n, $n);
-spellfun("cure critical wounds", NULL, $n->level, $n, $n);
-spellfun("cure critical wounds", NULL, $n->level, $n, $n);
+act("{WBrightly light surrounds $n.{x", mob, NULL, NULL, TO_ROOM);
+spellfun("heal", NULL, MAX_LEVEL, mob, mob);
+spellfun("cure critical wounds", NULL, mob->level, mob, mob);
+spellfun("cure critical wounds", NULL, mob->level, mob, mob);
 return 0;
 ~
 m mob_give @ 35469~
-room r = get_room_index(35469);
+Room r = get_room_index(35469);
 if (r == NULL)
         return 1;
 
-mob_interpret($n, "giggle");
-tell_char($n, $N, "I hope you have enough money for greedy leprechaun.");
-transfer_group($N, r);
-dofun("say", $n, "I hope $N has enough gold coins.");
-extract_obj($p, 0);
+mob_interpret(mob, "giggle");
+tell_char(mob, actor, "I hope you have enough money for greedy leprechaun.");
+transfer_group(actor, r);
+dofun("say", mob, "I hope $N has enough gold coins.");
+extract_obj(obj, 0);
 return 1;
 ~
 m mob_give @ all~
-dofun("say", $n, "Wah! I don't need this silly thing. Take it back.");
-give_obj($n, $N, $p);
+dofun("say", mob, "Wah! I don't need this silly thing. Take it back.");
+give_obj(mob, actor, obj);
 return 0;
 ~
 m mob_greet @ all~
-if (get_obj_carry($n, $N, "35469") != NULL)
+if (get_obj_carry(mob, actor, "35469") != NULL)
         return 0;
-tell_char($n, $N, "Do you have a leaf?");
+tell_char(mob, actor, "Do you have a leaf?");
 return 0;
 ~
 #35475
@@ -432,29 +432,29 @@ e 0 0 G 0 0 0
 stand stand none 100
 D 0 small unknown
 m mob_bribe @ 10000~
-act("$n puts gold coins into pot", $n, NULL, NULL, TO_ROOM);
+act("$n puts gold coins into pot", mob, NULL, NULL, TO_ROOM);
  
-if (get_obj_carry($n, $N, "35468") != NULL)
-       dofun("say", $n, "You are already have a beautiful gem..");
+if (get_obj_carry(mob, actor, "35468") != NULL)
+       dofun("say", mob, "You are already have a beautiful gem..");
 else if (number_percent() < 35)
-        dofun("say", $n, "Go away, go away...");
+        dofun("say", mob, "Go away, go away...");
 else {
-        dofun("say", $n, "Gem.. I'll give you nice emerald...");
-        obj emerald = load_obj($n, 35468);
-        give_obj($n, $N, emerald);
-        dofun("say", $n, "Go away now...");
+        dofun("say", mob, "Gem.. I'll give you nice emerald...");
+        Obj emerald = load_obj(mob, 35468);
+        give_obj(mob, actor, emerald);
+        dofun("say", mob, "Go away now...");
 }
  
 int location = number_range(35470, 35487); 
-room r = get_room_index(location);
+Room r = get_room_index(location);
 if (r == NULL)
         return 1;
-transfer_group($N, r);
+transfer_group(actor, r);
 return 1;
 ~
 m mob_random @ 5~
-dofun("say", $n, "Give me 100 gold and I'll transfer you out from here.");
-dofun("say", $n, "And may be I'll preset you a gem.");
+dofun("say", mob, "Give me 100 gold and I'll transfer you out from here.");
+dofun("say", mob, "And may be I'll preset you a gem.");
 return 0;
 ~
 #35477
@@ -478,29 +478,29 @@ r charm 100
 m mob_death mob_death_tree 100~
 m mob_death @ 100~
 act("{y$n dissapears. Only peace of wooden bark remains on the ground.{x",
-    $n, NULL, NULL, TO_ROOM);
+    mob, NULL, NULL, TO_ROOM);
  
-obj wear = get_eq_char($n, WEAR_BODY);
+Obj wear = get_eq_char(mob, WEAR_BODY);
 if (wear != NULL && wear->vnum == 35482)
         return 0;
 
-obj bark = create_obj(35465, 0);
-obj_to_room(bark, $n->in_room);
+Obj bark = create_obj(35465, 0);
+obj_to_room(bark, mob->in_room);
  
 return 0;
 ~
 m mob_fight @ 30~
-char victim = get_random_fighting($n);
-int level = $n->level;
+Char victim = get_random_fighting(mob);
+int level = mob->level;
 
 if (is_sn_affected(victim, "hold person")
 &&  is_affected(victim, AFF_SLOW))
         return 0;
  
 act("{y$n's branches wind you and slow down your movements.{x",
-    $n, NULL, victim, TO_VICT);
+    mob, NULL, victim, TO_VICT);
 act("{y$n's branches wind $N and slow down $gN{his} movements.{x",
-    $n, NULL, victim, TO_NOTVICT);
+    mob, NULL, victim, TO_NOTVICT);
 
 if (!is_sn_affected(victim, "hold person")) {
         affect_char(victim, TO_AFFECTS, "hold person", level, 1,
@@ -515,33 +515,33 @@ if (!is_affected(victim, AFF_SLOW)) {
 return 0;
 ~
 m mob_greet @ north west~
-if ($n->in_room->vnum != 35477)
+if (mob->in_room->vnum != 35477)
         return 0;
 
-obj object = get_obj_carry($n, $N, "35467");
+Obj object = get_obj_carry(mob, actor, "35467");
 if (object == NULL)
         return 0;
  
-obj window = get_obj_room($n, $n->in_room, "35462");
+Obj window = get_obj_room(mob, mob->in_room, "35462");
 if (window != NULL) {
-	act_say($n,
+	act_say(mob,
 		"You have $P, so if you wish you may visit a secret glade.",
 		object);
-	act("$n points at $p.", $n, window, NULL, TO_ROOM);
-	act_say($n, "Go through this $P for it.", window); 
+	act("$n points at $p.", mob, window, NULL, TO_ROOM);
+	act_say(mob, "Go through this $P for it.", window); 
 	return 0;
 }
 
-obj portal = create_obj(35462, 0);
+Obj portal = create_obj(35462, 0);
 if (portal == NULL)
 	return 0;
 
 portal->timer = 2;
-obj_to_room(portal, $n->in_room);
+obj_to_room(portal, mob->in_room);
 
-act_say($n, "You have $P, so if you wish you may visit a secret glade.", object);
-act("$n points at $p.", $n, portal, NULL, TO_ROOM);
-act_say($n, "Go through this $P for it.", portal); 
+act_say(mob, "You have $P, so if you wish you may visit a secret glade.", object);
+act("$n points at $p.", mob, portal, NULL, TO_ROOM);
+act_say(mob, "Go through this $P for it.", portal); 
  
 return 0;
 ~
@@ -566,13 +566,14 @@ portal 0 0 0
 A 0 0 35468 0
 0 0 0 P
 m obj_enter @ 100~
-obj sapling = get_obj_carry($n, $n, "35467");
+Obj sapling = get_obj_carry(actor, actor, "35467");
 if (sapling != NULL)
         return 0;
  
-act("You haven't sapling, so cann't go trough $p.", $n, $p, NULL, TO_CHAR);
-act("$p dissapears.", $n, $p, NULL, TO_ALL);
-extract_obj($p, 0);
+act("You do not have sapling, so can't go trough $p.",
+    actor, obj, NULL, TO_CHAR);
+act("$p dissapears.", actor, obj, NULL, TO_ALL);
+extract_obj(obj, 0);
 return 1;
 ~
 #35463
@@ -625,7 +626,7 @@ key 0 0 A
 0 0 0 0 0
 1 1 100 P
 m obj_get @ 100~
-obj chest = get_obj_room($n, $n->in_room, "35461");
+Obj chest = get_obj_room(actor, actor->in_room, "35461");
 if (chest == NULL)
         return 0;
  
@@ -753,30 +754,30 @@ armor AGKQ 0 AI
 f object hp 50 0
 f affects none 0 V
 m obj_wear @ 100~
-if (is_affected($n, AFF_FLYING))
+if (is_affected(actor, AFF_FLYING))
         return 0;
 
-if ($n->size > SIZE_SMALL) {
+if (actor->size > SIZE_SMALL) {
         act("You are too big and heavy. These small wings can't get you up.",
-            $n, NULL, NULL, TO_CHAR);
+            actor, NULL, NULL, TO_CHAR);
 } else {
         act("As you wear $p, you run up. Your are flying!",
-            $n, $p, NULL, TO_CHAR);
+            actor, obj, NULL, TO_CHAR);
         act("As $n wears $p, $gn{he} runs up. $n is flying!",
-            $n, $p, NULL, TO_ROOM);
-        affect_char($n, TO_AFFECTS, "fly", $n->level, -2,
+            actor, obj, NULL, TO_ROOM);
+        affect_char(actor, TO_AFFECTS, "fly", actor->level, -2,
                     0, 0, AFF_FLYING);
 }
  
 return 0;
 ~
 m obj_remove @ 100~
-if (!is_sn_affected($n, "fly"))
+if (!is_sn_affected(actor, "fly"))
         return 0;
  
-affect_strip($n, "fly");
+affect_strip(actor, "fly");
 act("As you remove $p, you slowly touch down.",
-    $n, $p, NULL, TO_CHAR);
+    actor, obj, NULL, TO_CHAR);
  
 return 0;
 ~
@@ -851,24 +852,24 @@ D1
 ~
 Z 0 35477
 m room_cmd @ plant~
-obj sapling = get_obj_carry($n, $n, "35467");
+Obj sapling = get_obj_carry(actor, actor, "35467");
 if (sapling == NULL) {
-        act("You have nothing to plant.", $n, NULL, NULL, TO_CHAR);
+        act("You have nothing to plant.", actor, NULL, NULL, TO_CHAR);
         return 0;
 }
 
-act("You've plant $p successfully.", $n, sapling, NULL, TO_CHAR);
-act("$n plans $p.", $n, sapling, NULL, TO_ROOM);
+act("You've plant $p successfully.", actor, sapling, NULL, TO_CHAR);
+act("$n plans $p.", actor, sapling, NULL, TO_ROOM);
 extract_obj(sapling, 0);
 
-obj cloak = create_obj(35464, 0);
+Obj cloak = create_obj(35464, 0);
 if (cloak == NULL)
         return 0;
  
-obj stump = get_obj_room($n, get_room_index(35468), "stump");
+Obj stump = get_obj_room(actor, get_room_index(35468), "stump");
 obj_to_obj(cloak, stump);
 act("You hear as someone said: 'Seek your reward in the stump, $n.'",
-    $n, NULL, NULL, TO_CHAR);
+    actor, NULL, NULL, TO_CHAR);
 return 0;
 ~
 S

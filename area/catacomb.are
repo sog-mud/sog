@@ -303,33 +303,33 @@ f object hitroll 3 0
 m obj_wear obj_wear_excalibur 100~
 m obj_remove obj_remove_excalibur 100~
 m obj_sac @ 100~
-if (is_npc($n))
+if (is_npc(actor))
 	return 1;
-act("The gods are infuriated!", $n, NULL, NULL, TO_ALL);
-int hit = $n->hit;
-damage($n, $n, hit - 1 > 1000 ? 1000 : hit - 1, "+divine", DAM_F_SHOW);
-$n->gold = 0;
-$n->silver = 0;
+act("The gods are infuriated!", actor, NULL, NULL, TO_ALL);
+int hit = actor->hit;
+damage(actor, actor, hit - 1 > 1000 ? 1000 : hit - 1, "+divine", DAM_F_SHOW);
+actor->gold = 0;
+actor->silver = 0;
 return 1;
 ~
 m obj_death @ 25~
-$n->hit = $n->max_hit;
-act("$p starts to glow with a blue aura.", $n, $p, NULL, TO_ALL);
-act_char("You feel much better.", $n);
-act("$n looks much better.", $n, NULL, NULL, TO_ROOM);
+actor->hit = actor->max_hit;
+act("$p starts to glow with a blue aura.", actor, obj, NULL, TO_ALL);
+act_char("You feel much better.", actor);
+act("$n looks much better.", actor, NULL, NULL, TO_ROOM);
 return 1;
 ~
 m obj_speech @ sword of acid~
-if (room_is($n->in_room, ROOM_NOMAGIC))
+if (room_is(actor->in_room, ROOM_NOMAGIC))
         return 0;
 
-char victim = $n->fighting;
+Char victim = actor->fighting;
 if (victim != NULL
-&&  ((get_eq_char($n, WEAR_WIELD) == $p) ||
-      get_eq_char($n, WEAR_SECOND_WIELD) == $p)) {
-        act("Acid sprays from $p!", $n, $p, NULL, TO_ALL);
-        spellfun("acid blast", NULL, $n->level, $n, victim);
-        wait_state($n, 2 * get_pulse("violence"));
+&&  ((get_eq_char(actor, WEAR_WIELD) == obj) ||
+      get_eq_char(actor, WEAR_SECOND_WIELD) == obj)) {
+        act("Acid sprays from $p!", actor, obj, NULL, TO_ALL);
+        spellfun("acid blast", NULL, actor->level, actor, victim);
+        wait_state(actor, 2 * get_pulse("violence"));
 }
 return 0;
 ~

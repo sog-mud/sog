@@ -1,10 +1,10 @@
 /*
- * $Id: obj_wear_hero_only.mpc,v 1.2 2003-04-25 12:53:01 fjoe Exp $
+ * $Id: obj_wear_hero_only.mpc,v 1.3 2003-07-21 23:46:11 fjoe Exp $
  */
 
-if ($n->real_level < LEVEL_HERO) {
+if (actor->real_level < LEVEL_HERO) {
         act("Боги создали эту вещь только для героев.",
-            $n, NULL, NULL, TO_CHAR);
+            actor, NULL, NULL, TO_CHAR);
         return 1;
 }
 return 0;

@@ -31,18 +31,18 @@ r silver 100
 r weapon 100
 r magic 100
 m mob_look @ 100~
-persistent int $N[avatara_look_count];
+persistent int actor[avatara_look_count];
  
-$N[avatara_look_count]++;
-act_char("---", $N);
+actor[avatara_look_count]++;
+act_char("---", actor);
 act("You looked at me $j $qj{times}.",
-    $N, $N[avatara_look_count], NULL, TO_CHAR);
-act_char("---", $N);
+    actor, actor[avatara_look_count], NULL, TO_CHAR);
+act_char("---", actor);
 
-obj o;
-foreach(o, obj_in_room($n->in_room))
-        act("$p is here.", $N, o, NULL, TO_CHAR);
-act_char("---", $N);
+Obj o;
+foreach(o, obj_in_room(mob->in_room))
+        act("$p is here.", actor, o, NULL, TO_CHAR);
+act_char("---", actor);
 return 0;
 ~
 #15001
@@ -251,10 +251,10 @@ f resists holy 75 0
 f object damroll 10000 0
 f object level 2000 0
 m obj_wear @ 100~
-if ($n->race == "lich" || $n->race == "human")
+if (actor->race == "lich" || actor->race == "human")
         return 0;
  
-act("Your race can't use $p.", $n, $p, NULL, TO_CHAR);
+act("Your race can't use $p.", actor, obj, NULL, TO_CHAR);
 return 1;
 ~
 g @rus none~

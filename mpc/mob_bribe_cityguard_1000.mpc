@@ -1,6 +1,6 @@
 /*
- * $Id: mob_bribe_cityguard_1000.mpc,v 1.1 2001-09-17 19:18:40 fjoe Exp $
+ * $Id: mob_bribe_cityguard_1000.mpc,v 1.2 2003-07-21 23:46:09 fjoe Exp $
  */
 
-dofun("say", $n, "Trying to bribe me, eh? It'll cost ya more than that.");
+dofun("say", mob, "Trying to bribe me, eh? It'll cost ya more than that.");
 return 0;

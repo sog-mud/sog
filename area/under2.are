@@ -2991,15 +2991,15 @@ f object damroll 6 0
 m obj_wear obj_wear_hands_warm 100~
 m obj_remove obj_remove_hands_cool 100~
 m obj_fight @ 15~
-char victim = $n->fighting;
-act("A magical hole appears in your $p!", $n, $p, NULL, TO_CHAR);
-act("Your $p burns $N's face!", $n, $p, victim, TO_CHAR);
-act("$n's $p burns $N's face!", $n, $p, victim, TO_NOTVICT);
-act("$n's $p burns your face!", $n, $p, victim, TO_VICT);
+Char victim = actor->fighting;
+act("A magical hole appears in your $p!", actor, obj, NULL, TO_CHAR);
+act("Your $p burns $N's face!", actor, obj, victim, TO_CHAR);
+act("$n's $p burns $N's face!", actor, obj, victim, TO_NOTVICT);
+act("$n's $p burns your face!", actor, obj, victim, TO_VICT);
  
-int dam = number_percent()/2 + 5 * $n->level;
-damage($n, victim, dam, "demonfire", DAM_F_SHOW);
-inflict_effect("fire", victim, $p->level, dam);
+int dam = number_percent()/2 + 5 * actor->level;
+damage(actor, victim, dam, "demonfire", DAM_F_SHOW);
+inflict_effect("fire", victim, obj->level, dam);
 return 0;
 ~
 g @rus none~

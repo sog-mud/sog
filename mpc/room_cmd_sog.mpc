@@ -1,9 +1,9 @@
 /*
- * $Id: room_cmd_sog.mpc,v 1.2 2003-04-25 12:53:01 fjoe Exp $
+ * $Id: room_cmd_sog.mpc,v 1.3 2003-07-21 23:46:11 fjoe Exp $
  */
 
-act("{gThe SoG Matrix contain:{x", $n, NULL, NULL, TO_CHAR);
-char victim;
+act("{gThe SoG Matrix contain:{x", actor, NULL, NULL, TO_CHAR);
+Char victim;
 foreach (victim, char_in_world()) {
         if (is_npc(victim))
                 continue;
@@ -13,6 +13,6 @@ foreach (victim, char_in_world()) {
                 str = "{x  [$j] {W$N{x";
         else
                 str = "{x  [$j] $N{x";
-        act(str, $n, victim->real_level, victim, TO_CHAR);
+        act(str, actor, victim->real_level, victim, TO_CHAR);
 }
 return 0;

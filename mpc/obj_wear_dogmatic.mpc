@@ -1,6 +1,6 @@
 /*
- * $Id: obj_wear_dogmatic.mpc,v 1.1 2003-04-19 13:21:01 tatyana Exp $
+ * $Id: obj_wear_dogmatic.mpc,v 1.2 2003-07-21 23:46:11 fjoe Exp $
  */
 
-act("Now you knew nothing about everything.",$n,$p,NULL,TO_CHAR);
+act("Now you knew nothing about everything.", actor, obj, NULL, TO_CHAR);
 return 0;

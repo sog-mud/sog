@@ -48,23 +48,23 @@ r charm 100
 r weapon 33
 r magic 33
 m mob_greet @ all~
-social_char("bow", $n, $N);
-dofun("say", $n, "Would you like to taste a big pot pie today?");
+social_char("bow", mob, actor);
+dofun("say", mob, "Would you like to taste a big pot pie today?");
 
-if ($N->sex != SEX_FEMALE || number_percent() < 90)
+if (actor->sex != SEX_FEMALE || number_percent() < 90)
         return 0;
 
-act_say($n, "You're looking so beautiful today, $N!", $N);
-obj o = load_obj($n, 3009);
-if (!give_obj($n, $N, o))
+act_say(mob, "You're looking so beautiful today, $N!", actor);
+Obj o = load_obj(mob, 3009);
+if (!give_obj(mob, actor, o))
         return 0;
  
-dofun("say", $n, "It's tasty.");
+dofun("say", mob, "It's tasty.");
 return 0;
 
 ~
 m mob_random @ 5~
-dofun("say", $n, "Do you like to try some tasty pies?");
+dofun("say", mob, "Do you like to try some tasty pies?");
 return 0;
 ~
 #3002
@@ -85,18 +85,18 @@ r charm 100
 r weapon 33
 r magic 33
 m mob_greet @ all~
-if (is_npc($N)
-||  is_immortal($N))
+if (is_npc(actor)
+||  is_immortal(actor))
         return 0;
  
-if ($n->hometown != $N->hometown)
-        dofun("say", $n, "Welcome to my Store, traveler!");
+if (mob->hometown != actor->hometown)
+        dofun("say", mob, "Welcome to my Store, traveler!");
 else
-        act_say($n, "Welcome to my Store, $N!", $N);
+        act_say(mob, "Welcome to my Store, $N!", actor);
 return 0;
 ~
 m mob_random @ 5~
-dofun("say", $n, "Can I interest you in a lantern today?");
+dofun("say", mob, "Can I interest you in a lantern today?");
 return 0;
 ~
 #3003
@@ -135,16 +135,16 @@ r charm 100
 r weapon 33
 r magic 33
 m mob_greet @ all~
-if (is_immortal($N))
+if (is_immortal(actor))
         return 0;
  
-mob_interpret($n, "smile");
-dofun("say", $n, "Welcome to my Armoury!");
-dofun("say", $n, "What can I interest you in?");
-dofun("say", $n, "I have the finest armour in my store!");
-dofun("emote", $n, "beams with pride.");
+mob_interpret(mob, "smile");
+dofun("say", mob, "Welcome to my Armoury!");
+dofun("say", mob, "What can I interest you in?");
+dofun("say", mob, "I have the finest armour in my store!");
+dofun("emote", mob, "beams with pride.");
 if (number_percent() < 2)
-        dofun("say", $n, "Now it's time to repair the equipment.");
+        dofun("say", mob, "Now it's time to repair the equipment.");
 return 0;
 ~
 #3005
@@ -276,8 +276,8 @@ m mob_greet @ all~
 if (number_percent() < 90)
 	return 0;
 
-if (can_see($n, $N) && $N->quest_time == 0)
-        tell_char($n, $N, "Don't you want a quest?");
+if (can_see(mob, actor) && actor->quest_time == 0)
+        tell_char(mob, actor, "Don't you want a quest?");
 return 0;
 ~
 #3012
@@ -652,30 +652,30 @@ if (number_percent() < 10)
  
 switch (number_bits(3)) {
 case 0:
-        mob_interpret($n, "grumble");
+        mob_interpret(mob, "grumble");
         break;
  
 case 1:
-        dofun("say", $n, "Litterbugs.");
+        dofun("say", mob, "Litterbugs.");
         break;
  
 case 2:
-        dofun("say", $n, "I do not get paid enough.");
+        dofun("say", mob, "I do not get paid enough.");
         break;
  
 case 3:
-        dofun("say", $n, "All I do each day is cleanup other people's 
+        dofun("say", mob, "All I do each day is cleanup other people's 
 messes.");
         break;
  
 case 4:
-        dofun("say", $n, "Day in, day out. This is all I do in 24 hours a 
+        dofun("say", mob, "Day in, day out. This is all I do in 24 hours a 
 day.");
         break;
  
 case 5:
         if (number_percent() < 5)
-                dofun("yell", $n, "I want a vacation!");
+                dofun("yell", mob, "I want a vacation!");
         break;
 }
  
@@ -713,11 +713,11 @@ stand stand male 18
 0 0 medium unknown
 r magic -50
 m mob_death @ 100~
-dofun("emote", $n, "throws back his head and cackles with insane glee!");
+dofun("emote", mob, "throws back his head and cackles with insane glee!");
 return 0;
 ~
 m mob_random @ 10~
-dofun("say", $n, "Kill! Blood! Gore!");
+dofun("say", mob, "Kill! Blood! Gore!");
 return 0;
 ~
 #3064
@@ -736,27 +736,27 @@ stand stand male 65
 0 0 medium unknown
 r magic -50
 m mob_bribe @ 100~
-dofun("say", $n, "Ahh! More Spirits! Good Spirits!");
-mob_interpret($n, "sing");
+dofun("say", mob, "Ahh! More Spirits! Good Spirits!");
+mob_interpret(mob, "sing");
 return 0;
 ~
 m mob_greet @ all~
 if (number_percent() > 5)
         return 0;
  
-if (is_npc($N)
-||  is_immortal($N))
+if (is_npc(actor)
+||  is_immortal(actor))
         return 0;
  
-dofun("yell", $n, "Monster! I found a monster! Kill! Kill!");
-multi_hit($n, $N, NULL);
+dofun("yell", mob, "Monster! I found a monster! Kill! Kill!");
+multi_hit(mob, actor, NULL);
 return 0;
 ~
 m mob_random @ 10~
 if (dice(1, 3) == 1)
-        mob_interpret($n, "dance");
+        mob_interpret(mob, "dance");
 else
-        mob_interpret($n, "sing");
+        mob_interpret(mob, "sing");
 return 0;
 ~
 #3065
@@ -775,40 +775,40 @@ stand stand female 0
 0 0 medium unknown
 r magic -50
 m mob_bribe @ 500~
-mob_interpret($n, "dance");
-social_char("french", $n, $N);
+mob_interpret(mob, "dance");
+social_char("french", mob, actor);
 return 1;
 ~
 m mob_bribe @ 100~
-dofun("say", $n, "Oh, my God! Thank you! Thank you!");
-social_char("french", $n, $N);
+dofun("say", mob, "Oh, my God! Thank you! Thank you!");
+social_char("french", mob, actor);
 return 1;
 ~
 m mob_bribe @ 10~
-dofun("say", $n, "Wow! Thank you! Thank you!");
+dofun("say", mob, "Wow! Thank you! Thank you!");
 return 1;
 ~
 m mob_bribe @ 1~
-act_say($n, "Thank you for your kindness, $N.", $N);
+act_say(mob, "Thank you for your kindness, $N.", actor);
 return 1;
 ~
 m mob_death @ 100~
 if (number_percent() < 50)
-        act_say($n, "Now I go to a better place.", NULL);
+        act_say(mob, "Now I go to a better place.", NULL);
 else
-        act_say($n, "Forgive me God for I have sinned...", NULL);
+        act_say(mob, "Forgive me God for I have sinned...", NULL);
 return 0;
 ~
 m mob_fight @ 100~
-if ($n->hit < $n->max_hit * 45 / 100
-||  $n->hit > $n->max_hit * 55 / 100)
+if (mob->hit < mob->max_hit * 45 / 100
+||  mob->hit > mob->max_hit * 55 / 100)
         return 0;
  
-dofun("say", $n, "Halfway to death...");
+dofun("say", mob, "Halfway to death...");
 return 0;
 ~
 m mob_greet @ all~
-act_say($n, "Beg $N! Spare some gold?", $N);
+act_say(mob, "Beg $N! Spare some gold?", actor);
 return 0;
 ~
 #3066
@@ -902,7 +902,7 @@ r weapon 33
 r magic 33
 m mob_fight mob_fight_cast_mage 100~
 m mob_greet @ all~
-dofun("say", $n, "Would you like to buy a nice love potion?");
+dofun("say", mob, "Would you like to buy a nice love potion?");
 return 0;
 ~
 #3071
@@ -1233,7 +1233,7 @@ stand stand male 14
 0 0 medium unknown
 r magic -50
 m mob_speech @ ~
-dofun("say", $n, "My girlfriend left me...");
+dofun("say", mob, "My girlfriend left me...");
 return 0;
 ~
 #3150

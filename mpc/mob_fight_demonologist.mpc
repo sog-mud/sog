@@ -1,11 +1,11 @@
 /*
- * $Id: mob_fight_demonologist.mpc,v 1.2 2003-04-25 12:52:52 fjoe Exp $
+ * $Id: mob_fight_demonologist.mpc,v 1.3 2003-07-21 23:46:10 fjoe Exp $
  */
  
 if (number_bits(2) != 0)
         return 0;
  
-char victim = get_random_fighting($n);
+Char victim = get_random_fighting(mob);
 if (victim == NULL)
         return 0;
  
@@ -13,7 +13,7 @@ int bonus = 3;
 string spell;
 string msg = "$n raises his hands and blood runes etched into the floor explode!";
 
-if ($n->level >= 25) {
+if (mob->level >= 25) {
         switch (number_range(1, 10)) {
         case 1:
                spell = "blindness";
@@ -52,8 +52,8 @@ if ($n->level >= 25) {
  
 if (spell == "") {
 
-        char servant;
-        foreach (servant, char_in_room($n->in_room)) {
+        Char servant;
+        foreach (servant, char_in_room(mob->in_room)) {
                 if (is_npc(servant) && servant->vnum == 34403)
                         break;
         }
@@ -61,16 +61,16 @@ if (spell == "") {
         if (servant != NULL)
                 return 0;
 
-        servant = load_mob($n, 34403);
+        servant = load_mob(mob, 34403);
         if (servant == NULL)
                 return 0;
 
-        act(msg, $n, NULL, NULL, TO_ROOM);
-        act("A gate opens up and $N steps forth.", $n, NULL, servant, TO_ROOM);
+        act(msg, mob, NULL, NULL, TO_ROOM);
+        act("A gate opens up and $N steps forth.", mob, NULL, servant, TO_ROOM);
         one_hit(servant, victim, NULL, WEAR_WIELD);
         return 0;
 }
  
-act(msg, $n, NULL, NULL, TO_ROOM);
-spellfun(spell, NULL, $n->level + bonus, $n, victim);
+act(msg, mob, NULL, NULL, TO_ROOM);
+spellfun(spell, NULL, mob->level + bonus, mob, victim);
 return 0;

@@ -1,8 +1,8 @@
 /*
- * $Id: obj_death_obj_disappears.mpc,v 1.2 2001-09-15 17:27:42 fjoe Exp $
+ * $Id: obj_death_obj_disappears.mpc,v 1.3 2003-07-21 23:46:10 fjoe Exp $
  */
 
-act("Your $p disappears.", $n, $p, NULL, TO_CHAR);
-act("$n's $p disappears.", $n, $p, NULL, TO_ROOM);
-extract_obj($p, 0);
+act("Your $p disappears.", actor, obj, NULL, TO_CHAR);
+act("$n's $p disappears.", actor, obj, NULL, TO_ROOM);
+extract_obj(obj, 0);
 return 0;

@@ -1,17 +1,17 @@
 /*
- * $Id: mob_random_executioner.mpc,v 1.2 2003-04-25 12:52:58 fjoe Exp $
+ * $Id: mob_random_executioner.mpc,v 1.3 2003-07-21 23:46:10 fjoe Exp $
  */
 
-char victim;
-foreach (victim, char_in_room($n->in_room)) {
-        if (is_wanted(victim) && can_see($n, victim))
+Char victim;
+foreach (victim, char_in_room(mob->in_room)) {
+        if (is_wanted(victim) && can_see(mob, victim))
                 break;
 }
  
 if (victim == NULL)
         return 0;
  
-act_yell($n, "$lu{$N} is a CRIMINAL!  PROTECT THE INNOCENT!  MORE BLOOOOD!!!",
+act_yell(mob, "$lu{$N} is a CRIMINAL!  PROTECT THE INNOCENT!  MORE BLOOOOD!!!",
          victim, NULL);
-multi_hit($n, victim, NULL);
+multi_hit(mob, victim, NULL);
 return 1;

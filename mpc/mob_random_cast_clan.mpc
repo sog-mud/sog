@@ -1,10 +1,10 @@
 /*
- * $Id: mob_random_cast_clan.mpc,v 1.2 2003-04-25 12:52:56 fjoe Exp $
+ * $Id: mob_random_cast_clan.mpc,v 1.3 2003-07-21 23:46:10 fjoe Exp $
  */
 
-char victim;
-foreach (victim, char_in_room($n->in_room)) {
-        if (can_see($n, victim)
+Char victim;
+foreach (victim, char_in_room(mob->in_room)) {
+        if (can_see(mob, victim)
         &&  number_bits(1) == 0
         &&  !is_npc(victim))
                 break;
@@ -47,6 +47,6 @@ default:
         return 0;
 }
  
-say_spell($n, spell);
-spellfun(spell, NULL, $n->level, $n, victim);
+say_spell(mob, spell);
+spellfun(spell, NULL, mob->level, mob, victim);
 return 0;

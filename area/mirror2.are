@@ -67,35 +67,36 @@ stand stand male 0
 0 0 medium unknown
 m mob_fight mob_fight_cast_mage 100~
 m mob_fight @ 40~
-act("'Guards! Guards!' shouts Loranhir hoarsely.", $n, NULL, $N, TO_ROOM);
+act("'Guards! Guards!' shouts Loranhir hoarsely.", mob, NULL, actor, TO_ROOM);
 if (dice(1,2) == 1)
 	return 0;
-act("You see a faint glitter from your left as an armored figure approaches.", $n, NULL, $N, TO_ROOM);
-act("A mirror guardian silently begins his attack!", $n, NULL, $N, TO_ALL);
-char guard = load_mob($n, 19001);
+act("You see a faint glitter from your left as an armored figure approaches.",
+    mob, NULL, actor, TO_ROOM);
+act("A mirror guardian silently begins his attack!", mob, NULL, actor, TO_ALL);
+Char guard = load_mob(mob, 19001);
 dofun("rescue", guard, "loranhir");
 return 0;
 ~
 m mob_give @ 19129~
-obj taliesin = load_obj($n, 19157);
+Obj taliesin = load_obj(mob, 19157);
 if (taliesin == NULL)
 	return 1;
 
-social_char("bow", $n, $N);
-act_say($N, "You have proven your worthiness...here is the sword Taliesin.", NULL);
-give_obj($n, $N, taliesin);
-extract_obj($p, 0);
+social_char("bow", mob, actor);
+act_say(actor, "You have proven your worthiness...here is the sword Taliesin.", NULL);
+give_obj(mob, actor, taliesin);
+extract_obj(obj, 0);
 return 0;
 ~
 m mob_give @ 19128~
-obj sunrise = load_obj($n, 19158);
+Obj sunrise = load_obj(mob, 19158);
 if(sunrise == NULL)
 	return 1;
 
-social_char("bow", $n, $N);
-act_say($N, "You have proven your worthiness...here is the Sunrise Shield.", NULL);
-give_obj($n, $N, sunrise);
-extract_obj($p, 0);
+social_char("bow", mob, actor);
+act_say(actor, "You have proven your worthiness...here is the Sunrise Shield.", NULL);
+give_obj(mob, actor, sunrise);
+extract_obj(obj, 0);
 return 0;
 ~
 m mob_greet @ all~
@@ -103,11 +104,14 @@ m mob_greet @ all~
  * Вместо say поставил псевдо-tell
  *                     Grothendieck
  */
-act("$n sighs gently.", $n, NULL, $N, TO_ROOM);
-act("$n tells you:", $n, NULL, $N, TO_VICT);
-act("        Do you desire the sword Taliesin and the Sunrise Shield?", $n, NULL, $N, TO_VICT);
-act("        If you do, you must bring me the two Sigils of the Light and Dark.....", $n, NULL, $N, TO_VICT);
-act("        Only then will you have proven yourself worthy....", $n, NULL, $N, TO_VICT);
+act("$n sighs gently.", mob, NULL, actor, TO_ROOM);
+act("$n tells you:", mob, NULL, actor, TO_VICT);
+act("        Do you desire the sword Taliesin and the Sunrise Shield?",
+    mob, NULL, actor, TO_VICT);
+act("        If you do, you must bring me the two Sigils of the Light and Dark.....",
+    mob, NULL, actor, TO_VICT);
+act("        Only then will you have proven yourself worthy....",
+    mob, NULL, actor, TO_VICT);
 
 return 0;
 ~
@@ -127,30 +131,30 @@ CDEFIJK
 stand stand male 0
 0 0 medium unknown
 m mob_bribe @ 5000~
-social_char("smile", $n, $N);
-act_say($n, "Thank you....here is a gift of protection in return.", $N);
-dofun("zap", $n, "$N");
+social_char("smile", mob, actor);
+act_say(mob, "Thank you....here is a gift of protection in return.", actor);
+dofun("zap", mob, "$N");
 return 0;
 ~
 m mob_bribe @ 100~
-social_char("smile", $n, $N);
-social_char("thank", $n, $N); 
+social_char("smile", mob, actor);
+social_char("thank", mob, actor); 
 return 0;
 ~
 m mob_bribe @ 100000~
-social_char("kneel", $n, $N);
-tell_char($n, $N, "You have done more than you know....I will tell you this:");
-tell_char($n, $N, "To win the Sunrise Shield and the Sword Taliesin...");
-tell_char($n, $N, "...you must visit both towers in our realm.");
-social_char("bow", $n, $N);
+social_char("kneel", mob, actor);
+tell_char(mob, actor, "You have done more than you know....I will tell you this:");
+tell_char(mob, actor, "To win the Sunrise Shield and the Sword Taliesin...");
+tell_char(mob, actor, "...you must visit both towers in our realm.");
+social_char("bow", mob, actor);
 return 0;
 ~
 m mob_fight mob_fight_cast_cleric 100~
 m mob_greet @ 70~
-if (is_good($N))
-        social_char("smile", $n, $N);
+if (is_good(actor))
+        social_char("smile", mob, actor);
 else
-        social_char("frown", $n, $N);
+        social_char("frown", mob, actor);
 return 0;
 
 ~
@@ -204,16 +208,16 @@ stand stand none 0
 0 0 medium unknown
 m mob_fight @ 100~
 if (dice(1, 10) < 4) {
-	act("$n whinnies in terror.", $n, NULL, $N, TO_ROOM);
-	dofun("kick", $n, "");
+	act("$n whinnies in terror.", mob, NULL, actor, TO_ROOM);
+	dofun("kick", mob, "");
 }
 
 if (dice(1, 10) < 4) {
 	act("$n charges at you, lowering its horn at your heart!",
-            $n, NULL, $N, TO_VICT);
+            mob, NULL, actor, TO_VICT);
 	act("$n charges at $N, lowering its horn at $gN{his} heart!",
-            $n, NULL, $N, TO_NOTVICT);
-	damage($n, $N, dice($n->level, 10), "+stab", DAM_F_SHOW);
+            mob, NULL, actor, TO_NOTVICT);
+	damage(mob, actor, dice(mob->level, 10), "+stab", DAM_F_SHOW);
 }
 
 return 0;
@@ -235,7 +239,7 @@ stand stand male 0
 0 0 medium unknown
 m mob_random @ 20~
 act("The watchman's robe swirls gently in the breeze.",
-    $n, NULL, NULL, TO_ROOM);
+    mob, NULL, NULL, TO_ROOM);
 return 0;
 ~
 #19009
@@ -318,10 +322,12 @@ stand stand none 0
 0 0 medium unknown
 m mob_fight mob_fight_poison_bite 100~
 m mob_fight @ 40~
-act("The Grey Mare stares you right in the eye....", $n, NULL, $N, TO_VICT);
-act("The Grey Mare stares $N right in the eye....", $n, NULL, $N, TO_NOTVICT);
-act("You are rooted to the spot!", $n, NULL, $N, TO_VICT);
-dofun("crush", $n, "");
+act("The Grey Mare stares you right in the eye....",
+    mob, NULL, actor, TO_VICT);
+act("The Grey Mare stares $N right in the eye....",
+    mob, NULL, actor, TO_NOTVICT);
+act("You are rooted to the spot!", mob, NULL, actor, TO_VICT);
+dofun("crush", mob, "");
 return 0;
 ~
 #19014
@@ -340,10 +346,10 @@ F
 stand stand female 0
 0 0 medium unknown
 m mob_random @ 10~
-char groom = get_char_room($n, $n->in_room, "19015");
+Char groom = get_char_room(mob, mob->in_room, "19015");
 if (groom == NULL)
 	return 1;
-social_char("nudge", $n, groom);
+social_char("nudge", mob, groom);
 return 0;
 ~
 #19015
@@ -363,11 +369,11 @@ stand stand male 0
 0 0 medium unknown
 m mob_random @ 100~
 if(number_percent() < 15)
-        act("$n turns green.", $n, NULL, NULL, TO_ROOM);
+        act("$n turns green.", mob, NULL, NULL, TO_ROOM);
 if (number_percent() < 20)
-        act("$n turns blue.", $n, NULL, NULL, TO_ROOM);
+        act("$n turns blue.", mob, NULL, NULL, TO_ROOM);
 if (number_percent() < 25)
-        act("$n turns white.", $n, NULL, NULL, TO_ROOM);
+        act("$n turns white.", mob, NULL, NULL, TO_ROOM);
 return 0;
 ~
 #19016
@@ -513,11 +519,11 @@ stand stand male 0
 0 0 medium unknown
 m mob_fight mob_fight_cast_mage 100~
 m mob_greet @ 100~
-act_say($n, "Welcome, $N!", $N);
+act_say(mob, "Welcome, $N!", actor);
 return 0;
 ~
 m mob_random @ 30~
-mob_interpret($n, "giggle");
+mob_interpret(mob, "giggle");
 return 0;
 ~
 #19025
@@ -539,13 +545,13 @@ int chance = number_percent();
 
 if (chance<10) {
 	act("$n collects all the balls, sets up a new rack, and breaks.",
-            $n, NULL, NULL, TO_ROOM);
+            mob, NULL, NULL, TO_ROOM);
 } else if (chance < 25)
-	act("$n sinks a combination shot.", $n, NULL, NULL, TO_ROOM);
+	act("$n sinks a combination shot.", mob, NULL, NULL, TO_ROOM);
 else if (chance < 45)
-	act("$n misses a bank shot.", $n, NULL, NULL, TO_ROOM);
+	act("$n misses a bank shot.", mob, NULL, NULL, TO_ROOM);
 else if (chance < 70)
-	act("$n makes a straight shot.", $n, NULL, NULL, TO_ROOM);
+	act("$n makes a straight shot.", mob, NULL, NULL, TO_ROOM);
 return 0;
 ~
 #19026
@@ -594,41 +600,41 @@ CDEFIJKN
 stand stand male 0
 0 0 medium unknown
 m mob_fight @ 100~
-room r = get_room_index(19069);
+Room r = get_room_index(19069);
 if (r == NULL)
         return 0;
 
 int chance = number_percent();
-char vict = get_random_fighting($n);
+Char vict = get_random_fighting(mob);
 if (chance < 35) {
-        act("$n throws $N out of the room!", $n, NULL, $N, TO_NOTVICT);
-        act("$n throws you out of the room!", $n, NULL, $N, TO_VICT);
-        transfer_char($n, r);
+        act("$n throws $N out of the room!", mob, NULL, actor, TO_NOTVICT);
+        act("$n throws you out of the room!", mob, NULL, actor, TO_VICT);
+        transfer_char(mob, r);
         act("You land with a thump on the hard dirt ground.",
-            $N, NULL, $N, TO_VICT);
+            actor, NULL, actor, TO_VICT);
         act("$N lands with a thump on the hard dirt ground.",
-            $N, NULL, $N, TO_NOTVICT);
+            actor, NULL, actor, TO_NOTVICT);
 } else if (chance < 45) {
-        act("$n screams 'HATAI!'", $n, NULL, NULL, TO_ROOM);
-        damage($n, vict, 57, "bash", DAM_F_SHOW);
+        act("$n screams 'HATAI!'", mob, NULL, NULL, TO_ROOM);
+        damage(mob, vict, 57, "bash", DAM_F_SHOW);
         wait_state(vict, dice(1, 4) * get_pulse("violence"));
 } else if (chance < 60) {
-        act("$n screams 'YOTAH!'", $n, NULL, NULL, TO_ROOM);
-        damage($n, vict, dice(2, 3), "dirt kicking", DAM_F_SHOW);
+        act("$n screams 'YOTAH!'", mob, NULL, NULL, TO_ROOM);
+        damage(mob, vict, dice(2, 3), "dirt kicking", DAM_F_SHOW);
         if (!is_affected(vict, AFF_BLIND)) {
                 affect_char(vict, TO_AFFECTS, "dirt kicking",
-                    $n->level, 0, APPLY_HITROLL, -5, AFF_BLIND);
+                    mob->level, 0, APPLY_HITROLL, -5, AFF_BLIND);
         }
 } else if (chance < 85) {
-        act("$n screams 'AIYIII!'", $n, NULL, NULL, TO_ROOM);
-        damage($n, vict, 3 * number_range(1, $n->level),
+        act("$n screams 'AIYIII!'", mob, NULL, NULL, TO_ROOM);
+        damage(mob, vict, 3 * number_range(1, mob->level),
             "kick", DAM_F_SHOW);
 }
 
 return 0;
 ~
 m mob_greet @ 100~
-social_char("bow", $n, $N);
+social_char("bow", mob, actor);
 return 0;
 ~
 #19029
@@ -663,7 +669,7 @@ stand stand male 0
 0 0 medium unknown
 m mob_greet @ 50~
 act("$n peers at you over her half-moon reading glasses.",
-    $n, NULL, $N, TO_VICT);
+    mob, NULL, actor, TO_VICT);
 return 0;
 ~
 #19031
@@ -732,21 +738,21 @@ FIK
 stand stand male 0
 0 0 medium unknown
 m mob_fight @ 100~
-char vict = get_random_fighting($n);
+Char vict = get_random_fighting(mob);
 if (number_percent() < 30 && !is_affected(vict, AFF_BLIND)) {
-	damage($n, vict, dice(2,3), "dirt kicking", DAM_F_SHOW);
-        affect_char(vict, TO_AFFECTS, "dirt kicking", $n->level, 0,
+	damage(mob, vict, dice(2,3), "dirt kicking", DAM_F_SHOW);
+        affect_char(vict, TO_AFFECTS, "dirt kicking", mob->level, 0,
             APPLY_HITROLL, -5, AFF_BLIND);
 }
 
 if (number_percent() < 50) {
-	damage($n, $N, dice($n->level, 7), "+stab", DAM_F_SHOW);
+	damage(mob, actor, dice(mob->level, 7), "+stab", DAM_F_SHOW);
 }
 return 0;
 ~
 m mob_greet @ 100~
-if (can_backstab($n))
-	backstab_char($n, $N);
+if (can_backstab(mob))
+	backstab_char(mob, actor);
 return 0;
 ~
 #19035
@@ -766,11 +772,11 @@ stand stand male 0
 0 0 medium unknown
 m mob_fight mob_fight_cast_mage 100~
 m mob_greet @ 70~
-social_char("smirk", $n, $N);
+social_char("smirk", mob, actor);
 return 0;
 ~
 m mob_random @ 50~
-mob_interpret($n, "snicker");
+mob_interpret(mob, "snicker");
 return 0;
 ~
 #19036
@@ -818,11 +824,11 @@ stand stand male 0
 m mob_greet @ 70~
 if (number_percent() < 25) {
         act("$n reels in his line, detaches the fish from the end, and casts.",
-            $n, NULL, NULL, TO_ROOM);
-        load_obj($n, 19165);
+            mob, NULL, NULL, TO_ROOM);
+        load_obj(mob, 19165);
 } else {
         act("$n reels in his empty line, sighs, and recasts.",
-            $n, NULL, NULL, TO_ROOM);
+            mob, NULL, NULL, TO_ROOM);
 }
 return 0;
 ~
@@ -889,57 +895,57 @@ F
 stand stand male 0
 0 0 medium unknown
 m mob_bribe @ 1000~
-act("$n takes the Ace of Spades and two queens from a deck, turning them down.", $n, NULL, $N, TO_ROOM);
-act("$n mixes the cards.", $n, NULL, $N, TO_ROOM);
-act_say($n, "OK....where is the ace of spades? Say 'one', 'two', or 'three'.", $N);
+act("$n takes the Ace of Spades and two queens from a deck, turning them down.", mob, NULL, actor, TO_ROOM);
+act("$n mixes the cards.", mob, NULL, actor, TO_ROOM);
+act_say(mob, "OK....where is the ace of spades? Say 'one', 'two', or 'three'.", actor);
 return 0;
 ~
 m mob_greet @ 70~
-tell_char($n, $N, "Hi, kid...care to play?");
-tell_char($n, $N, "A round of three-card monte for just 10 gold coins!");
+tell_char(mob, actor, "Hi, kid...care to play?");
+tell_char(mob, actor, "A round of three-card monte for just 10 gold coins!");
 return 0;
 ~
 m mob_random mob_random_thief 100~
 m mob_speech @ one~
-if ($n->silver + 10 * $n->gold < 1000) {
-	act_say($n, "First of all, $N, give me 10 gold coins.", $N);
+if (mob->silver + 10 * mob->gold < 1000) {
+	act_say(mob, "First of all, $N, give me 10 gold coins.", actor);
 	return 1;
 }
 
-$n->gold = 0;
-$n->silver = 0;
-act_say($n, "Nope!", NULL);
-act("$n turns over the second card.", $n, NULL, NULL, TO_ROOM);
-act_say($n, "There it was......waiting for you!", NULL);
-act("$n picks up the cards and shuffles.", $n, NULL, NULL, TO_ROOM);
+mob->gold = 0;
+mob->silver = 0;
+act_say(mob, "Nope!", NULL);
+act("$n turns over the second card.", mob, NULL, NULL, TO_ROOM);
+act_say(mob, "There it was......waiting for you!", NULL);
+act("$n picks up the cards and shuffles.", mob, NULL, NULL, TO_ROOM);
 return 0;
 ~
 m mob_speech @ two~
-if ($n->silver + 10 * $n->gold < 1000) {
-	act_say($n, "First of all, $N, give me 10 gold coins.", $N);
+if (mob->silver + 10 * mob->gold < 1000) {
+	act_say(mob, "First of all, $N, give me 10 gold coins.", actor);
 	return 1;
 }
 
-$n->gold = 0;
-$n->silver = 0;
-act_say($n, "Nope!", NULL);
-act("$n turns over the first card.", $n, NULL, NULL, TO_ROOM);
-act_say($n, "There it was......waiting for you!", NULL);
-act("$n picks up the cards and shuffles.", $n, NULL, NULL, TO_ROOM);
+mob->gold = 0;
+mob->silver = 0;
+act_say(mob, "Nope!", NULL);
+act("$n turns over the first card.", mob, NULL, NULL, TO_ROOM);
+act_say(mob, "There it was......waiting for you!", NULL);
+act("$n picks up the cards and shuffles.", mob, NULL, NULL, TO_ROOM);
 return 0;
 ~
 m mob_speech @ three~
-if ($n->silver + 10 * $n->gold < 1000) {
-	act_say($n, "First of all, $N, give me 10 gold coins.", $N);
+if (mob->silver + 10 * mob->gold < 1000) {
+	act_say(mob, "First of all, $N, give me 10 gold coins.", actor);
 	return 1;
 }
 
-$n->gold = 0;
-$n->silver = 0;
-act_say($n, "Nope!", NULL);
-act("$n turns over the first card.", $n, NULL, NULL, TO_ROOM);
-act_say($n, "There it was......waiting for you!", NULL);
-act("$n picks up the cards and shuffles.", $n, NULL, NULL, TO_ROOM);
+mob->gold = 0;
+mob->silver = 0;
+act_say(mob, "Nope!", NULL);
+act("$n turns over the first card.", mob, NULL, NULL, TO_ROOM);
+act_say(mob, "There it was......waiting for you!", NULL);
+act("$n picks up the cards and shuffles.", mob, NULL, NULL, TO_ROOM);
 return 0;
 ~
 #19043
@@ -1109,8 +1115,8 @@ F
 stand stand male 0
 0 0 medium unknown
 m mob_greet @ 70~
-if ($N->sex == SEX_MALE)
-	social_char("wink", $n, $N);
+if (actor->sex == SEX_MALE)
+	social_char("wink", mob, actor);
 return 0;
 ~
 m mob_random mob_random_thief 100~
@@ -1159,34 +1165,34 @@ CDEFHK
 stand stand male 0
 0 0 medium unknown
 m mob_death @ 100~
-room r = get_room_index(19147);
-room r2 = get_room_index(19081);
+Room r = get_room_index(19147);
+Room r2 = get_room_index(19081);
 if (r == NULL || r2 == NULL)
         return 0;
 
-act_say($n, "You have defeated me...and you may pass.", NULL);
-act("$n disappears in a flash of golden light!", $n, NULL, NULL, TO_ROOM);
-transfer_char($n, r);
-transfer_char($N, r2);
+act_say(mob, "You have defeated me...and you may pass.", NULL);
+act("$n disappears in a flash of golden light!", mob, NULL, NULL, TO_ROOM);
+transfer_char(mob, r);
+transfer_char(actor, r2);
 return 0;
 ~
 m mob_fight mob_fight_breath_fire 100~
 m mob_give @ 19144~
-social_char("bow", $n, $N);
-act_say($n, "You truly know this land, $N.", $N);
-obj key = load_obj($n, 19159);
-unlock_door($n, "up");
-open_door($n, "up");
-dofun("wear", $n, "sigil");
-give_obj($n, $N, key);
+social_char("bow", mob, actor);
+act_say(mob, "You truly know this land, $N.", actor);
+Obj key = load_obj(mob, 19159);
+unlock_door(mob, "up");
+open_door(mob, "up");
+dofun("wear", mob, "sigil");
+give_obj(mob, actor, key);
 return 0;
 ~
 m mob_greet @ 100~
-tell_char($n, $N, "I expect you have come questing for Taliesin and the Sunrise
+tell_char(mob, actor, "I expect you have come questing for Taliesin and the Sunrise
 Shield...");
-tell_char($n, $N, "To pass, you must either defeat me, or prove that you know
+tell_char(mob, actor, "To pass, you must either defeat me, or prove that you know
 this land...");
-tell_char($n, $N, "Bring me the Ruby Sigil....or kill me!");
+tell_char(mob, actor, "Bring me the Ruby Sigil....or kill me!");
 return 0;
 ~
 m mob_exit mob_exit_up_light_tower up~
@@ -1205,34 +1211,34 @@ CDEFHK
 stand stand male 0
 0 0 medium unknown
 m mob_death @ 100~
-room r = get_room_index(19147);
-room r2 = get_room_index(19082);
+Room r = get_room_index(19147);
+Room r2 = get_room_index(19082);
 if (r == NULL || r2 == NULL)
         return 0;
 
-act_say($n, "You have defeated me...and you may pass.", NULL);
-act("$n disappears in a flash of golden light!", $n, NULL, NULL, TO_ROOM);
-transfer_char($n, r);
-transfer_char($N, r2);
+act_say(mob, "You have defeated me...and you may pass.", NULL);
+act("$n disappears in a flash of golden light!", mob, NULL, NULL, TO_ROOM);
+transfer_char(mob, r);
+transfer_char(actor, r2);
 return 0;
 ~
 m mob_fight mob_fight_breath_gas 100~
 m mob_give @ 19149~
-social_char("bow", $n, $N);
-act_say($n, "You truly know this land, $N.", $N);
-obj key = load_obj($n, 19160);
-unlock_door($n, "up");
-open_door($n, "up");
-dofun("wear", $n, "sigil");
-give_obj($n, $N, key);
+social_char("bow", mob, actor);
+act_say(mob, "You truly know this land, $N.", actor);
+Obj key = load_obj(mob, 19160);
+unlock_door(mob, "up");
+open_door(mob, "up");
+dofun("wear", mob, "sigil");
+give_obj(mob, actor, key);
 return 0;
 ~
 m mob_greet @ 100~
-tell_char($n, $N, "I expect you have come questing for Taliesin and the Sunrise
+tell_char(mob, actor, "I expect you have come questing for Taliesin and the Sunrise
 Shield...");
-tell_char($n, $N, "To pass, you must either defeat me, or prove that you know
+tell_char(mob, actor, "To pass, you must either defeat me, or prove that you know
 this land...");
-tell_char($n, $N, "Bring me the Amber Sigil....or kill me!");
+tell_char(mob, actor, "Bring me the Amber Sigil....or kill me!");
 return 0;
 ~
 m mob_exit mob_exit_up_light_tower up~
@@ -1251,34 +1257,34 @@ CDEFHK
 stand stand male 0
 0 0 medium unknown
 m mob_death @ 100~
-room r = get_room_index(19147);
-room r2 = get_room_index(19084);
+Room r = get_room_index(19147);
+Room r2 = get_room_index(19084);
 if (r == NULL || r2 == NULL)
         return 0;
 
-act_say($n, "You have defeated me...and you may pass.", NULL);
-act("$n disappears in a flash of golden light!", $n, NULL, NULL, TO_ROOM);
-transfer_char($n, r);
-transfer_char($N, r2);
+act_say(mob, "You have defeated me...and you may pass.", NULL);
+act("$n disappears in a flash of golden light!", mob, NULL, NULL, TO_ROOM);
+transfer_char(mob, r);
+transfer_char(actor, r2);
 return 0;
 ~
 m mob_fight mob_fight_breath_acid 100~
 m mob_give @ 19148~
-social_char("bow", $n, $N);
-act_say($n, "You truly know this land, $N.", $N);
-obj key = load_obj($n, 19162);
-unlock_door($n, "up");
-open_door($n, "up");
-dofun("wear", $n, "sigil");
-give_obj($n, $N, key);
+social_char("bow", mob, actor);
+act_say(mob, "You truly know this land, $N.", actor);
+Obj key = load_obj(mob, 19162);
+unlock_door(mob, "up");
+open_door(mob, "up");
+dofun("wear", mob, "sigil");
+give_obj(mob, actor, key);
 return 0;
 ~
 m mob_greet @ 100~
-tell_char($n, $N, "I expect you have come questing for Taliesin and the Sunrise
+tell_char(mob, actor, "I expect you have come questing for Taliesin and the Sunrise
 Shield...");
-tell_char($n, $N, "To pass, you must either defeat me, or prove that you know
+tell_char(mob, actor, "To pass, you must either defeat me, or prove that you know
 this land...");
-tell_char($n, $N, "Bring me the Emerald Sigil....or kill me!");
+tell_char(mob, actor, "Bring me the Emerald Sigil....or kill me!");
 return 0;
 ~
 m mob_exit mob_exit_up_light_tower up~
@@ -1297,34 +1303,34 @@ CDEFHK
 stand stand male 0
 0 0 medium unknown
 m mob_death @ 100~
-room r = get_room_index(19147);
-room r2 = get_room_index(19085);
+Room r = get_room_index(19147);
+Room r2 = get_room_index(19085);
 if (r == NULL || r2 == NULL)
         return 0;
 
-act_say($n, "You have defeated me...and you may pass.", NULL);
-act("$n disappears in a flash of golden light!", $n, NULL, NULL, TO_ROOM);
-transfer_char($n, r);
-transfer_char($N, r2);
+act_say(mob, "You have defeated me...and you may pass.", NULL);
+act("$n disappears in a flash of golden light!", mob, NULL, NULL, TO_ROOM);
+transfer_char(mob, r);
+transfer_char(actor, r2);
 return 0;
 ~
 m mob_fight mob_fight_breath_frost 100~
 m mob_give @ 19145~
-social_char("bow", $n, $N);
-act_say($n, "You truly know this land, $N.", $N);
-obj key = load_obj($n, 19163);
-unlock_door($n, "up");
-open_door($n, "up");
-dofun("wear", $n, "sigil");
-give_obj($n, $N, key);
+social_char("bow", mob, actor);
+act_say(mob, "You truly know this land, $N.", actor);
+Obj key = load_obj(mob, 19163);
+unlock_door(mob, "up");
+open_door(mob, "up");
+dofun("wear", mob, "sigil");
+give_obj(mob, actor, key);
 return 0;
 ~
 m mob_greet @ 100~
-tell_char($n, $N, "I expect you have come questing for Taliesin and the Sunrise
+tell_char(mob, actor, "I expect you have come questing for Taliesin and the Sunrise
 Shield...");
-tell_char($n, $N, "To pass, you must either defeat me, or prove that you know
+tell_char(mob, actor, "To pass, you must either defeat me, or prove that you know
 this land...");
-tell_char($n, $N, "Bring me the Sapphire Sigil....or kill me!");
+tell_char(mob, actor, "Bring me the Sapphire Sigil....or kill me!");
 return 0;
 ~
 m mob_exit mob_exit_up_light_tower up~
@@ -1343,34 +1349,34 @@ CDEFHK
 stand stand male 0
 0 0 medium unknown
 m mob_death @ 100~
-room r = get_room_index(19147);
-room r2 = get_room_index(19086);
+Room r = get_room_index(19147);
+Room r2 = get_room_index(19086);
 if (r == NULL || r2 == NULL)
         return 0;
 
-act_say($n, "You have defeated me...and you may pass.", NULL);
-act("$n disappears in a flash of golden light!", $n, NULL, NULL, TO_ROOM);
-transfer_char($n, r);
-transfer_char($N, r2);
+act_say(mob, "You have defeated me...and you may pass.", NULL);
+act("$n disappears in a flash of golden light!", mob, NULL, NULL, TO_ROOM);
+transfer_char(mob, r);
+transfer_char(actor, r2);
 return 0;
 ~
 m mob_fight mob_fight_breath_gas 100~
 m mob_give @ 19142~
-social_char("bow", $n, $N);
-act_say($n, "You truly know this land, $N.", $N);
-obj key = load_obj($n, 19164);
-unlock_door($n, "up");
-open_door($n, "up");
-dofun("wear", $n, "sigil");
-give_obj($n, $N, key);
+social_char("bow", mob, actor);
+act_say(mob, "You truly know this land, $N.", actor);
+Obj key = load_obj(mob, 19164);
+unlock_door(mob, "up");
+open_door(mob, "up");
+dofun("wear", mob, "sigil");
+give_obj(mob, actor, key);
 return 0;
 ~
 m mob_greet @ 100~
-tell_char($n, $N, "I expect you have come questing for Taliesin and the Sunrise
+tell_char(mob, actor, "I expect you have come questing for Taliesin and the Sunrise
 Shield...");
-tell_char($n, $N, "To pass, you must either defeat me, or prove that you know
+tell_char(mob, actor, "To pass, you must either defeat me, or prove that you know
 this land...");
-tell_char($n, $N, "Bring me the Amethyst Sigil....or kill me!");
+tell_char(mob, actor, "Bring me the Amethyst Sigil....or kill me!");
 return 0;
 ~
 m mob_exit mob_exit_up_light_tower up~
@@ -1389,34 +1395,34 @@ CDEFHK
 stand stand male 0
 0 0 medium unknown
 m mob_death @ 100~
-room r = get_room_index(19147);
-room r2 = get_room_index(19083);
+Room r = get_room_index(19147);
+Room r2 = get_room_index(19083);
 if (r == NULL || r2 == NULL)
         return 0;
 
-act_say($n, "You have defeated me...and you may pass.", NULL);
-act("$n disappears in a flash of golden light!", $n, NULL, NULL, TO_ROOM);
-transfer_char($n, r);
-transfer_char($N, r2);
+act_say(mob, "You have defeated me...and you may pass.", NULL);
+act("$n disappears in a flash of golden light!", mob, NULL, NULL, TO_ROOM);
+transfer_char(mob, r);
+transfer_char(actor, r2);
 return 0;
 ~
 m mob_fight mob_fight_breath_lightning 100~
 m mob_give @ 19140~
-social_char("bow", $n, $N);
-act_say($n, "You truly know this land, $N.", $N);
-obj key = load_obj($n, 19161);
-unlock_door($n, "up");
-open_door($n, "up");
-dofun("wear", $n, "sigil");
-give_obj($n, $N, key);
+social_char("bow", mob, actor);
+act_say(mob, "You truly know this land, $N.", actor);
+Obj key = load_obj(mob, 19161);
+unlock_door(mob, "up");
+open_door(mob, "up");
+dofun("wear", mob, "sigil");
+give_obj(mob, actor, key);
 return 0;
 ~
 m mob_greet @ 100~
-tell_char($n, $N, "I expect you have come questing for Taliesin and the Sunrise
+tell_char(mob, actor, "I expect you have come questing for Taliesin and the Sunrise
 Shield...");
-tell_char($n, $N, "To pass, you must either defeat me, or prove that you know
+tell_char(mob, actor, "To pass, you must either defeat me, or prove that you know
 this land...");
-tell_char($n, $N, "Bring me the Topaz Sigil....or kill me!");
+tell_char(mob, actor, "Bring me the Topaz Sigil....or kill me!");
 return 0;
 ~
 m mob_exit mob_exit_up_light_tower up~
@@ -1441,9 +1447,9 @@ stand stand none 0
 0 0 medium unknown
 m mob_fight mob_fight_breath_any 100~
 m mob_greet @ 100~
-tell_char($n, $N, "Congratulations on surviving the tower to this point.");
-tell_char($n, $N, "Now you have come to your final challenge:");
-tell_char($n, $N, "defeat me in combat!");
+tell_char(mob, actor, "Congratulations on surviving the tower to this point.");
+tell_char(mob, actor, "Now you have come to your final challenge:");
+tell_char(mob, actor, "defeat me in combat!");
 return 0;
 ~
 #19062
@@ -1463,21 +1469,21 @@ FH
 stand stand none 0
 0 0 medium unknown
 m mob_death @ 100~
-room r = get_room_index(19147);
+Room r = get_room_index(19147);
 if (r == NULL)
         return 0;
 
-char phoenix = load_mob($n, 19062);
+Char phoenix = load_mob(mob, 19062);
 if (phoenix == NULL)
         return 0;
 
 act("$n begins to glow...and then suddenly explodes in a fireball!",
-    $n, NULL, NULL, TO_ROOM);
-act("A pile of ashes drifts to the floor....", $n, NULL, NULL, TO_ROOM);
+    mob, NULL, NULL, TO_ROOM);
+act("A pile of ashes drifts to the floor....", mob, NULL, NULL, TO_ROOM);
 act("As you peer closer, you see a small phoenix amidst the ashes.",
-    $n, NULL, NULL, TO_ROOM);
-act("$n screeches loudly...and attacks!", $n,  NULL, NULL, TO_ROOM);
-transfer_char($n, r);
+    mob, NULL, NULL, TO_ROOM);
+act("$n screeches loudly...and attacks!", mob,  NULL, NULL, TO_ROOM);
+transfer_char(mob, r);
 return 0;
 ~
 m mob_fight mob_fight_breath_any 100~
@@ -1498,7 +1504,7 @@ FK
 stand stand male 0
 0 0 medium unknown
 m mob_greet @ 40~
-act("$n puffs his bees with smoke.", $n, NULL, $N, TO_ROOM);
+act("$n puffs his bees with smoke.", mob, NULL, actor, TO_ROOM);
 return 0;
 ~
 #19064

@@ -1,11 +1,11 @@
 /*
- * $Id: mob_death_smurf.mpc,v 1.2 2003-04-25 12:52:52 fjoe Exp $
+ * $Id: mob_death_smurf.mpc,v 1.3 2003-07-21 23:46:09 fjoe Exp $
  */
 
 int i;
-char smurf;
+Char smurf;
 foreach (smurf, npc_in_world()) {
-        if ($n == smurf)
+        if (mob == smurf)
                 continue;
  
         if (smurf->vnum >= 101 && smurf->vnum <= 110)
@@ -15,6 +15,6 @@ foreach (smurf, npc_in_world()) {
 if (i != 0)
        return 0;
  
-act("The last smurf has died.", $n, NULL, NULL, TO_ROOM);
-act("Gargamel will be happy to know about it.", $n, NULL, NULL, TO_ROOM);
+act("The last smurf has died.", mob, NULL, NULL, TO_ROOM);
+act("Gargamel will be happy to know about it.", mob, NULL, NULL, TO_ROOM);
 return 0;

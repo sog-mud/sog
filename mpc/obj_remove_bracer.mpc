@@ -1,10 +1,10 @@
 /*
- * $Id: obj_remove_bracer.mpc,v 1.2 2001-09-12 08:20:47 fjoe Exp $
+ * $Id: obj_remove_bracer.mpc,v 1.3 2003-07-21 23:46:11 fjoe Exp $
  */
 
-if (!is_sn_affected($n, "haste"))
+if (!is_sn_affected(actor, "haste"))
         return 0;
  
-affect_strip($n, "haste");
-act_char("Your hands and arms feel heavy again.", $n);
+affect_strip(actor, "haste");
+act_char("Your hands and arms feel heavy again.", actor);
 return 0;

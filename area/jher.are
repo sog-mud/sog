@@ -272,14 +272,14 @@ r silver 100
 r weapon 100
 r magic 100
 m mob_bribe @ 10000~
-room r = get_room_index(8102);
+Room r = get_room_index(8102);
 if (r == NULL)
         return 1;
 
-act_say($n, "Hey, $N... You wanna get out of here... Ok, I'll help you...", $N);
-mob_interpret($n, "giggle");
-act("A small statue has teleported you.", NULL, NULL, $N, TO_VICT);
-transfer_char($N, r);
+act_say(mob, "Hey, $N... You wanna get out of here... Ok, I'll help you...", actor);
+mob_interpret(mob, "giggle");
+act("A small statue has teleported you.", NULL, NULL, actor, TO_VICT);
+transfer_char(actor, r);
 return 1;
 ~
 #0

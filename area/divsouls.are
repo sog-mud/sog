@@ -1708,7 +1708,7 @@ EFK
 stand stand female 5000
 0 0 medium unknown
 m mob_greet @ all~
-dofun("say", $n, "Welcome to Zeinia International!  How may I help you?");
+dofun("say", mob, "Welcome to Zeinia International!  How may I help you?");
 return 0;
 ~
 #11696

@@ -1,13 +1,13 @@
 /*
- * $Id: obj_get_quest_reward.mpc,v 1.3 2003-04-25 12:53:01 fjoe Exp $
+ * $Id: obj_get_quest_reward.mpc,v 1.4 2003-07-21 23:46:10 fjoe Exp $
  */
 
-if (is_owner($p, $n)) {
-        act("Your $p starts glowing.", $n, $p, NULL, TO_CHAR);
+if (is_owner(obj, actor)) {
+        act("Your $p starts glowing.", actor, obj, NULL, TO_CHAR);
         return 0;
 }
  
-act("You are zapped by $p and drop it.", $n, $p, NULL, TO_CHAR);
-act("$n is zapped by $p and drops it.", $n, $p, NULL, TO_ROOM);
-obj_to_room($p, $n->in_room);
+act("You are zapped by $p and drop it.", actor, obj, NULL, TO_CHAR);
+act("$n is zapped by $p and drops it.", actor, obj, NULL, TO_ROOM);
+obj_to_room(obj, actor->in_room);
 return 0;

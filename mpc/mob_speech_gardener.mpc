@@ -1,6 +1,0 @@
-/*
- * $Id: mob_speech_gardener.mpc,v 1.2 2001-09-12 08:20:39 fjoe Exp $
- */
-
-dofun("emote", $n, "stares at two accusingly.");
-return 0;

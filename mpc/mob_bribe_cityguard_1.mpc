@@ -1,7 +1,7 @@
 /*
- * $Id: mob_bribe_cityguard_1.mpc,v 1.1 2001-09-17 19:18:40 fjoe Exp $
+ * $Id: mob_bribe_cityguard_1.mpc,v 1.2 2003-07-21 23:46:09 fjoe Exp $
  */
 
-dofun("say", $n, "You cheapskate!!!");
-multi_hit($n, $N, NULL);
+dofun("say", mob, "You cheapskate!!!");
+multi_hit(mob, actor, NULL);
 return 0;

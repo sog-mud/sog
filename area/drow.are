@@ -339,9 +339,10 @@ whip 6 6 'whip' 0
 f object damroll 7 0
 f object hitroll 5 0
 m obj_wear @ 100~
-act("Snakes of whip starts to breath a poisonous air.", $n, NULL, NULL, TO_ALL);
+act("Snakes of whip starts to breath a poisonous air.",
+    actor, NULL, NULL, TO_ALL);
 
-int level = $n->level;
+int level = actor->level;
 int dice_type;
 if (level <= 10)
         dice_type = 3;
@@ -353,41 +354,42 @@ else if (level <= 40)
         dice_type = 6;
 else
         dice_type = 7;
-$p->v_dice_type = dice_type;
+obj->v_dice_type = dice_type;
 return 0;
 ~
 m obj_remove @ 100~
-act("Snakes of whip slowly melds to non-living skin.", $n, NULL, NULL, TO_ALL);
+act("Snakes of whip slowly melds to non-living skin.",
+    actor, NULL, NULL, TO_ALL);
 return 0;
 ~
 m obj_fight @ 100~
-char victim = $n->fighting;
+Char victim = actor->fighting;
 
 switch (number_bits(7)) {
 case 0:
         act("One of the snake heads on your whip bites $N!",
-	    $n, NULL, victim, TO_CHAR);
+	    actor, NULL, victim, TO_CHAR);
         act("A snake from $n's whip strikes out and bites you!",
-	    $n, NULL, victim, TO_VICT);
+	    actor, NULL, victim, TO_VICT);
         act("A snake from $n's whip strikes out and bites $N!",
-	    $n, NULL, victim, TO_NOTVICT);
-        spellfun("poison", NULL, $n->level, $n, victim);
+	    actor, NULL, victim, TO_NOTVICT);
+        spellfun("poison", NULL, actor->level, actor, victim);
         break;
 
 case 1:
         act("One of the snake heads on your whip bites $N!",
-	    $n, NULL, victim, TO_CHAR);
+	    actor, NULL, victim, TO_CHAR);
         act("A snake from $n's whip strikes out and bites you!",
-	    $n, NULL, victim, TO_VICT);
+	    actor, NULL, victim, TO_VICT);
         act("A snake from $n's whip strikes out and bites $N!",
-	    $n, NULL, victim, TO_NOTVICT);
-        spellfun("weaken", NULL, $n->level, $n, victim);
+	    actor, NULL, victim, TO_NOTVICT);
+        spellfun("weaken", NULL, actor->level, actor, victim);
         break;
 }
 return 0;
 ~
 m obj_get @ 100~
-act("You feel as if snakes of whip moved.", $n, NULL, NULL, TO_ALL);
+act("You feel as if snakes of whip moved.", actor, NULL, NULL, TO_ALL);
 return 0;
 ~
 g @rus none~

@@ -178,23 +178,23 @@ EFNU
 stand stand male 505
 0 0 tiny unknown
 m mob_random @ 3~
-dofun("say", $n, "Whom am I making this dress for?");
+dofun("say", mob, "Whom am I making this dress for?");
 return 0;
 ~
 m mob_speech @ keeper~
-if (get_obj_carry($n, $N, "90"))
+if (get_obj_carry(mob, actor, "90"))
         return 0;
 
-dofun("emote", $n, "fashions a white gown for the Keeper.");
+dofun("emote", mob, "fashions a white gown for the Keeper.");
 
-obj o;
-if ((o = get_obj_carry($n, $n, "90")) == NULL)
-	o = load_obj($n, 90);
+Obj o;
+if ((o = get_obj_carry(mob, mob, "90")) == NULL)
+	o = load_obj(mob, 90);
 
-if (!give_obj($n, $N, o))
+if (!give_obj(mob, actor, o))
         return 0;
  
-dofun("say", $n, "Here is a dress for the Keeper.");
+dofun("say", mob, "Here is a dress for the Keeper.");
 return 0;
 ~
 #9512

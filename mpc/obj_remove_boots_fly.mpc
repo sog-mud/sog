@@ -1,11 +1,11 @@
 /*
- * $Id: obj_remove_boots_fly.mpc,v 1.2 2001-09-12 08:20:47 fjoe Exp $
+ * $Id: obj_remove_boots_fly.mpc,v 1.3 2003-07-21 23:46:11 fjoe Exp $
  */
 
-if (!is_sn_affected($n, "fly"))
+if (!is_sn_affected(actor, "fly"))
         return 0;
  
-affect_strip($n, "fly");
-act_char("You fall down to the ground. Ouch!", $n);
-act_char("You start to walk again instead of flying!", $n);
+affect_strip(actor, "fly");
+act_char("You fall down to the ground. Ouch!", actor);
+act_char("You start to walk again instead of flying!", actor);
 return 0;

@@ -128,24 +128,24 @@ r light -50
 r sound 100
 r iron -50
 m mob_random @ 5~
-dofun("emote", $n, "plucks the strings of her harp.");
+dofun("emote", mob, "plucks the strings of her harp.");
 return 0;
 ~
 m mob_random @ 2~
-dofun("emote", $n, "sings 'Came he from a mage's guild,'");
-dofun("emote", $n, "sings 'In high magics he was skilled,'");
-dofun("emote", $n, "sings 'Upon his spells power he'd build...'");
-dofun("emote", $n, "plucks the strings of her harp.");
-dofun("emote", $n, "sings 'A magic-less knight had him killed,'");
-dofun("emote", $n, "sings 'Promises now unfulfilled,'");
-dofun("emote", $n, "sings 'Magic blood in the forest spilled.'");
+dofun("emote", mob, "sings 'Came he from a mage's guild,'");
+dofun("emote", mob, "sings 'In high magics he was skilled,'");
+dofun("emote", mob, "sings 'Upon his spells power he'd build...'");
+dofun("emote", mob, "plucks the strings of her harp.");
+dofun("emote", mob, "sings 'A magic-less knight had him killed,'");
+dofun("emote", mob, "sings 'Promises now unfulfilled,'");
+dofun("emote", mob, "sings 'Magic blood in the forest spilled.'");
 return 0;
 ~
 m mob_random @ 2~
-dofun("emote", $n, "sings 'The stranger came from way out east'");
-dofun("emote", $n, "sings 'To magic wood to kill a beast,'");
-dofun("emote", $n, "sings 'His sole intent to have a feast,'");
-dofun("emote", $n, "sings 'Some fresh meat at the very least.'");
+dofun("emote", mob, "sings 'The stranger came from way out east'");
+dofun("emote", mob, "sings 'To magic wood to kill a beast,'");
+dofun("emote", mob, "sings 'His sole intent to have a feast,'");
+dofun("emote", mob, "sings 'Some fresh meat at the very least.'");
 return 0;
 ~
 #1805
@@ -346,8 +346,8 @@ r holy -50
 r wood -50
 m mob_fight mob_fight_cast_mage 100~
 m mob_random @ 12~
-dofun("emote", $n, "pours an effervescent liquid into the cauldron.");
-dofun("say", $n, "Boil, bubble, toil and trouble...");
+dofun("emote", mob, "pours an effervescent liquid into the cauldron.");
+dofun("say", mob, "Boil, bubble, toil and trouble...");
 return 0;
 ~
 #1814
@@ -376,8 +376,8 @@ r holy -50
 r wood -50
 m mob_fight mob_fight_cast_mage 100~
 m mob_random @ 12~
-dofun("emote", $n, "drops a tiny orb into the pot.");
-dofun("say", $n, "...eye of newt...");
+dofun("emote", mob, "drops a tiny orb into the pot.");
+dofun("say", mob, "...eye of newt...");
 return 0;
 ~
 #1815
@@ -407,8 +407,8 @@ r holy -50
 r wood -50
 m mob_fight mob_fight_cast_mage 100~
 m mob_random @ 12~
-dofun("emote", $n, "drops a tiny green digital appendage into the pot.");
-dofun("say", $n, "...and toe of frog!");
+dofun("emote", mob, "drops a tiny green digital appendage into the pot.");
+dofun("say", mob, "...and toe of frog!");
 return 0;
 ~
 #1816
@@ -510,12 +510,12 @@ r holy -50
 r wood -50
 m mob_fight mob_fight_cast_mage 100~
 m mob_greet @ all~
-if ($N->sex == SEX_MALE) {
-        social_char("pinch", $n, $N);
-        mob_interpret($n, "innocent");
+if (actor->sex == SEX_MALE) {
+        social_char("pinch", mob, actor);
+        mob_interpret(mob, "innocent");
 } else {
-        mob_interpret($n, "sigh");
-        dofun("say", $n, "There's never a man around when you need one.");
+        mob_interpret(mob, "sigh");
+        dofun("say", mob, "There's never a man around when you need one.");
 }
 return 0;
 ~
@@ -687,11 +687,11 @@ r holy -50
 r wood -50
 m mob_fight mob_fight_cast_mage 100~
 m mob_greet @ all~
-if ($N->sex == SEX_FEMALE) {
-        social_char("wink", $n, $N);
-        dofun("say", $n, "Let's have a kiss, eh, cutie?");
+if (actor->sex == SEX_FEMALE) {
+        social_char("wink", mob, actor);
+        dofun("say", mob, "Let's have a kiss, eh, cutie?");
 } else
-        social_char("spit", $n, $N);
+        social_char("spit", mob, actor);
 return 0;
 ~
 #1827
@@ -865,9 +865,9 @@ g @eng either@rus male~
 r lightning 33
 r energy -50
 m mob_random @ 1~
-dofun("emote", $n, "swoops down to the ground to catch an insect.");
-dofun("emote", $n, "eats an insect.");
-dofun("emote", $n, "flies back to its tree.");
+dofun("emote", mob, "swoops down to the ground to catch an insect.");
+dofun("emote", mob, "eats an insect.");
+dofun("emote", mob, "flies back to its tree.");
 return 0;
 ~
 #1835
@@ -912,9 +912,9 @@ g @eng either@rus male~
 r lightning 33
 r energy -50
 m mob_get @ 1842~
-act("$n screeches at you.", $n, NULL, $N, TO_VICT);
-act("$n screeches at $N.", $n, NULL, $N, TO_NOTVICT);
-multi_hit($n, $N, NULL);
+act("$n screeches at you.", mob, NULL, actor, TO_VICT);
+act("$n screeches at $N.", mob, NULL, actor, TO_NOTVICT);
+multi_hit(mob, actor, NULL);
 return 0;
 ~
 #1837
@@ -939,9 +939,9 @@ O 0 tiny unknown
 r lightning 33
 r energy -50
 m mob_get @ 1838~
-act("$n dives down upon you.", $n, NULL, $N, TO_VICT);
-act("$n dives down upon $N.", $n, NULL, $N, TO_NOTVICT);
-multi_hit($n, $N, NULL);
+act("$n dives down upon you.", mob, NULL, actor, TO_VICT);
+act("$n dives down upon $N.", mob, NULL, actor, TO_NOTVICT);
+multi_hit(mob, actor, NULL);
 return 0;
 ~
 #1838

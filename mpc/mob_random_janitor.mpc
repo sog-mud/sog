@@ -1,19 +1,19 @@
 /*
- * $Id: mob_random_janitor.mpc,v 1.3 2003-04-25 12:52:58 fjoe Exp $
+ * $Id: mob_random_janitor.mpc,v 1.4 2003-07-21 23:46:10 fjoe Exp $
  */
 
-obj trash;
-foreach (trash, obj_in_room($n->in_room)) {
+Obj trash;
+foreach (trash, obj_in_room(mob->in_room)) {
 	int item_type = trash->item_type;
         if (!can_wear(trash, ITEM_TAKE)
-        ||  !can_loot($n, trash)
+        ||  !can_loot(mob, trash)
 	||  item_type == ITEM_CORPSE_PC)
                 continue;
  
         if (item_type == ITEM_DRINK_CON
         ||  item_type == ITEM_TRASH
         ||  trash->cost < 10) {
-                if (get_obj($n, trash, NULL, "$n picks up some trash."))
+                if (get_obj(mob, trash, NULL, "$n picks up some trash."))
                         return 1;
         }
 }

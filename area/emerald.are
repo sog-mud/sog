@@ -564,15 +564,15 @@ r iron -50
 r wood -50
 r silver -50
 m mob_speech @ irin~
-room r = get_room_index(298);
+Room r = get_room_index(298);
 if (r == NULL)
         return 0;
 
 act("Irin looked at you and her eyes flashed with a bright green light.",
-    NULL, NULL, $N, TO_VICT);
+    NULL, NULL, actor, TO_VICT);
 act("You feel yourself transported to another place.",
-    NULL, NULL, $N, TO_VICT);
-transfer_char($N, r);
+    NULL, NULL, actor, TO_VICT);
+transfer_char(actor, r);
 return 0;
 ~
 m mob_speech mob_speech_irin ирин~

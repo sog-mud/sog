@@ -1,19 +1,19 @@
 /*
- * $Id: obj_fight_claw.mpc,v 1.2 2003-04-25 12:53:00 fjoe Exp $
+ * $Id: obj_fight_claw.mpc,v 1.3 2003-07-21 23:46:10 fjoe Exp $
  */
 
-act_char("The nails of your claw appear from its fingers.", $n);
+act_char("The nails of your claw appear from its fingers.", actor);
 act("The nails of $n's claw appear for an instant.",
-    $n, NULL, NULL, TO_ROOM);
+    actor, NULL, NULL, TO_ROOM);
  
-char victim = $n->fighting;
-int wear_loc = $p->wear_loc;
-one_hit($n, victim, NULL, wear_loc);
-one_hit($n, victim, NULL, wear_loc);
-one_hit($n, victim, NULL, wear_loc);
-one_hit($n, victim, NULL, wear_loc);
+Char victim = actor->fighting;
+int wear_loc = obj->wear_loc;
+one_hit(actor, victim, NULL, wear_loc);
+one_hit(actor, victim, NULL, wear_loc);
+one_hit(actor, victim, NULL, wear_loc);
+one_hit(actor, victim, NULL, wear_loc);
 
-act_char("The nails of your claw disappear.", $n);
+act_char("The nails of your claw disappear.", actor);
 act("The nails of $n's claw disappear suddenly.",
-    $n, NULL, NULL, TO_ROOM);
+    actor, NULL, NULL, TO_ROOM);
 return 0;

@@ -1,13 +1,13 @@
 /*
- * $Id: room_cmd_room.mpc,v 1.2 2003-04-25 12:53:01 fjoe Exp $
+ * $Id: room_cmd_room.mpc,v 1.3 2003-07-21 23:46:11 fjoe Exp $
  */
 
-act("Players in this room:", $n, NULL, NULL, TO_CHAR);
-char victim;
-foreach (victim, char_in_room($n->in_room)) {
+act("Players in this room:", actor, NULL, NULL, TO_CHAR);
+Char victim;
+foreach (victim, char_in_room(actor->in_room)) {
         if (is_npc(victim))
-                act("  [{cnpc{x]$N", $n, NULL, victim, TO_CHAR);
+                act("  [{cnpc{x]$N", actor, NULL, victim, TO_CHAR);
         else
-                act("  [{c pc{x]$N", $n, NULL, victim, TO_CHAR);
+                act("  [{c pc{x]$N", actor, NULL, victim, TO_CHAR);
 }
 return 0;

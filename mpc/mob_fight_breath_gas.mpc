@@ -1,9 +1,9 @@
 /*
- * $Id: mob_fight_breath_gas.mpc,v 1.1 2001-09-14 18:08:00 fjoe Exp $
+ * $Id: mob_fight_breath_gas.mpc,v 1.2 2003-07-21 23:46:09 fjoe Exp $
  */
 
 if (number_bits(3) != 0)
         return 0;
 
-cast("gas breath", $n, "");
+cast("gas breath", mob, "");
 return 0;

@@ -753,18 +753,18 @@ jewelry BG 0 AB
 f object damroll 5 0
 f object ac 20 0
 m obj_speech @ punish~
-if (room_is($n->in_room, ROOM_NOMAGIC))
+if (room_is(actor->in_room, ROOM_NOMAGIC))
         return 0;
 
-char victim = $n->fighting;
-if ((get_eq_char($n, WEAR_FINGER_R) != $p &&
-     get_eq_char($n, WEAR_FINGER_L) != $p)
+Char victim = actor->fighting;
+if ((get_eq_char(actor, WEAR_FINGER_R) != obj &&
+     get_eq_char(actor, WEAR_FINGER_L) != obj)
 ||  victim == NULL)
         return 0;
 
-act("An electrical arc sprays from $p.", $n, $p, NULL, TO_ALL);
-spellfun("lightning breath", NULL, $n->level, $n, victim);
-wait_state($n, 2 * get_pulse("violence"));
+act("An electrical arc sprays from $p.", actor, obj, NULL, TO_ALL);
+spellfun("lightning breath", NULL, actor->level, actor, victim);
+wait_state(actor, 2 * get_pulse("violence"));
 return 0;
 ~
 E

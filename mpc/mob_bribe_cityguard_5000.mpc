@@ -1,7 +1,7 @@
 /*
- * $Id: mob_bribe_cityguard_5000.mpc,v 1.1 2001-09-17 19:18:40 fjoe Exp $
+ * $Id: mob_bribe_cityguard_5000.mpc,v 1.2 2003-07-21 23:46:09 fjoe Exp $
  */
 
-social_char("smile", $n, $N);
-dofun("sleep", $n, "");
+social_char("smile", mob, actor);
+dofun("sleep", mob, "");
 return 0;

@@ -1,31 +1,31 @@
 /*
- * $Id: mob_random_guard.mpc,v 1.3 2003-04-25 12:52:58 fjoe Exp $
+ * $Id: mob_random_guard.mpc,v 1.4 2003-07-21 23:46:10 fjoe Exp $
  */
 
-char victim;
+Char victim;
 
-foreach (victim, char_in_room($n->in_room)) {
+foreach (victim, char_in_room(mob->in_room)) {
         if (!is_immortal(victim)
         &&  is_wanted(victim)
-        &&  can_see($n, victim))
+        &&  can_see(mob, victim))
                 break;
 }
 if (victim != NULL) {
-        act_yell($n, "$lu{$N} is a CRIMINAL! PROTECT THE INNOCENT!",
+        act_yell(mob, "$lu{$N} is a CRIMINAL! PROTECT THE INNOCENT!",
                  victim, NULL);
-        multi_hit($n, victim, NULL);
+        multi_hit(mob, victim, NULL);
         return 0;
 }
 
-foreach (victim, char_in_room($n->in_room)) {
+foreach (victim, char_in_room(mob->in_room)) {
         if (victim->fighting != NULL 
-        &&  can_see($n, victim)) {
+        &&  can_see(mob, victim)) {
 		break;
         }
 }
 	
-if (victim != NULL && victim->fighting != $n) {
-	char target = victim->fighting;
+if (victim != NULL && victim->fighting != mob) {
+	Char target = victim->fighting;
 
         int bad = ((is_npc(victim) && is_act(victim, ACT_AGGRESSIVE)) +
             (is_npc(victim) && is_act(victim, ACT_AGGRESSIVE)) +
@@ -51,15 +51,15 @@ if (victim != NULL && victim->fighting != $n) {
         } else if (worst > bad)
 	        victim = target;
 
-        act("$n screams 'PROTECT THE INNOCENT!'", $n, NULL, NULL, TO_ROOM);
-        multi_hit($n, victim, NULL);
+        act("$n screams 'PROTECT THE INNOCENT!'", mob, NULL, NULL, TO_ROOM);
+        multi_hit(mob, victim, NULL);
 	return 0;
 }
 
-foreach (victim, char_in_room($n->in_room)) {
+foreach (victim, char_in_room(mob->in_room)) {
         if (!is_immortal(victim)
         &&  !is_npc(victim)
-        &&  can_see($n, victim)
+        &&  can_see(mob, victim)
         &&  victim->fighting == NULL
         &&  number_percent() < 2)
                 break;
@@ -68,11 +68,11 @@ foreach (victim, char_in_room($n->in_room)) {
 if (victim == NULL)
         return 0;
 
-act_say($n, "Do I know you, $lu{$N}?", victim);
-if (victim->hometown != $n->hometown)
-      	dofun("say", $n, "I don't remember you. Go away!");
+act_say(mob, "Do I know you, $lu{$N}?", victim);
+if (victim->hometown != mob->hometown)
+      	dofun("say", mob, "I don't remember you. Go away!");
 else {
-       	dofun("say", $n, "Ok, my dear! I have just remembered.");
-       	social_char("smile", $n, victim);
+       	dofun("say", mob, "Ok, my dear! I have just remembered.");
+       	social_char("smile", mob, victim);
 }
 return 0;

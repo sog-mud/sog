@@ -1,13 +1,13 @@
 /*
- * $Id: mob_fight_breath_fire.mpc,v 1.1 2001-09-14 18:07:56 fjoe Exp $
+ * $Id: mob_fight_breath_fire.mpc,v 1.2 2003-07-21 23:46:09 fjoe Exp $
  */
 
 if (number_bits(3) != 0)
         return 0;
 
-char victim = get_random_fighting($n);
+Char victim = get_random_fighting(mob);
 if (victim == NULL)
         return 0;
 
-cast_char("fire breath", $n, victim);
+cast_char("fire breath", mob, victim);
 return 0;

@@ -1,23 +1,23 @@
 /*
- * $Id: room_cmd_search_amulet.mpc,v 1.1 2001-10-21 22:25:12 fjoe Exp $
+ * $Id: room_cmd_search_amulet.mpc,v 1.2 2003-07-21 23:46:11 fjoe Exp $
  */
 
 if (number_percent() < 20) {
         act("You feel something behind spreading bush.",
-            $n, NULL, NULL, TO_CHAR);
+            actor, NULL, NULL, TO_CHAR);
         act("$n searches something inside spreading bush. Strange people...",
-            $n, NULL, NULL, TO_ROOM);
+            actor, NULL, NULL, TO_ROOM);
         return 0;
 }
 
-room r = get_room_index(35467);
+Room r = get_room_index(35467);
 if (r == NULL)
        return 0;
 
 act("You notice very small glade behind spreading bush and go there.",
-    $n, NULL, NULL, TO_CHAR);
+    actor, NULL, NULL, TO_CHAR);
 act("$n notices very small glade behind spreading bush and goes there.",
-    $n, NULL, NULL, TO_ROOM);
+    actor, NULL, NULL, TO_ROOM);
  
-transfer_group($n, r);
+transfer_group(actor, r);
 return 0;

@@ -247,7 +247,7 @@ axe 2 6 'chop' F
 8 100 820 P
 m obj_wear @ 100~
 act("$n's eyes shine brightly as $gn{he} searches for the nearest hapless tree.",
-    $n, NULL, NULL, TO_ROOM);
+    actor, NULL, NULL, TO_ROOM);
 return 0;
 ~
 E
@@ -2939,21 +2939,21 @@ advance...
 0 CD forest
 m room_greet @ all~
 act("A huge, poisonous spider drops from above!",
-    $n, NULL, NULL, TO_CHAR);
+    actor, NULL, NULL, TO_CHAR);
 act("A huge, poisonous spider drops from above!",
-    $n, NULL, NULL, TO_CHAR);
+    actor, NULL, NULL, TO_CHAR);
 act("A huge, poisonous spider drops from above!",
-    $n, NULL, NULL, TO_CHAR);
-act("", $n, NULL, NULL, TO_CHAR);
+    actor, NULL, NULL, TO_CHAR);
+act("", actor, NULL, NULL, TO_CHAR);
 act("The huge, poisonous spider stings you! You resist the poison!",
-    $n, NULL, NULL, TO_CHAR);
+    actor, NULL, NULL, TO_CHAR);
 act("The huge, poisonous spider stings you! You are poisoned!",
-    $n, NULL, NULL, TO_CHAR);
+    actor, NULL, NULL, TO_CHAR);
 act("The huge, poisonous spider stings you! You are poisoned!",
-    $n, NULL, NULL, TO_CHAR);
-act("", $n, NULL, NULL, TO_CHAR);
+    actor, NULL, NULL, TO_CHAR);
+act("", actor, NULL, NULL, TO_CHAR);
 act("You've fallen, and you can't get up!!!!!",
-    $n, NULL, NULL, TO_CHAR);
+    actor, NULL, NULL, TO_CHAR);
 return 0;
 ~
 S

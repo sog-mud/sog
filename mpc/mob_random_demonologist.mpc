@@ -1,14 +1,14 @@
 /*
- * $Id: mob_random_demonologist.mpc,v 1.2 2003-04-25 12:52:58 fjoe Exp $
+ * $Id: mob_random_demonologist.mpc,v 1.3 2003-07-21 23:46:10 fjoe Exp $
  */
 
-char victim;
-foreach (victim, char_in_room($n->in_room)) {
+Char victim;
+foreach (victim, char_in_room(mob->in_room)) {
 
         if (!is_npc(victim)
         &&  !is_immortal(victim)
-        &&  !is_safe_nomessage($n, victim)
-        &&  can_see($n, victim))
+        &&  !is_safe_nomessage(mob, victim)
+        &&  can_see(mob, victim))
                 break;
 }
  
@@ -17,7 +17,7 @@ if (victim == NULL
         return 0;
  
 act("$n intones a word of death and the pentagram flares up!",
-    $n, NULL, NULL, TO_ROOM);
+    mob, NULL, NULL, TO_ROOM);
  
-spellfun("fireball", NULL, $n->level + 4, $n, victim);
+spellfun("fireball", NULL, mob->level + 4, mob, victim);
 return 0;

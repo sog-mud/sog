@@ -272,28 +272,28 @@ stand stand male 1499
 r weapon -50
 m mob_fight mob_fight_cast_mage 100~
 m mob_give @ 90~
-dofun("say", $n, "Finally, the dress I sent for!");
-dofun("emote", $n, "tucks the dress away under her desk.");
-extract_obj($p, 0);
+dofun("say", mob, "Finally, the dress I sent for!");
+dofun("emote", mob, "tucks the dress away under her desk.");
+extract_obj(obj, 0);
  
-if (get_obj_carry($n, $N, "91")) {
-        dofun("say", $n, "I suppose you'll want to see the FireFlash right now.");
-        dofun("say", $n, "Be careful, he's been in a nasty mood.");
-        unlock_door($n, "door");
-        open_door($n, "door");
+if (get_obj_carry(mob, actor, "91")) {
+        dofun("say", mob, "I suppose you'll want to see the FireFlash right now.");
+        dofun("say", mob, "Be careful, he's been in a nasty mood.");
+        unlock_door(mob, "door");
+        open_door(mob, "door");
 } else {
-        dofun("say", $n, "It doesn't look like you have any business with the FireFlash.");
-        dofun("say", $n, "I suggest you leave and find something before coming here again.");
+        dofun("say", mob, "It doesn't look like you have any business with the FireFlash.");
+        dofun("say", mob, "I suggest you leave and find something before coming here again.");
 }
 return 1;
 ~
 m mob_give @ all~
-dofun("say", $n, "Why do I need this?");
-give_obj($n, $N, $p);
+dofun("say", mob, "Why do I need this?");
+give_obj(mob, actor, obj);
 return 0;
 ~
 m mob_greet @ all~
-dofun("say", $n, "What business do you have here? Is it that dress I ordered?");
+dofun("say", mob, "What business do you have here? Is it that dress I ordered?");
 return 0;
 ~
 #2413
@@ -313,53 +313,53 @@ stand stand male 1499
 r weapon -50
 m mob_fight mob_fight_breath_any 100~
 m mob_give @ 91~
-extract_obj($p, 0);
+extract_obj(obj, 0);
 
-dofun("say", $n, "What a wonderful rug! Let's see... where shall I put it?");
-dofun("emote", $n, "starts wandering about the room, mumbling to himself.");
-dofun("emote", $n, "sticks his hands in his pockets.");
-dofun("say", $n, "What is it? A key?");
+dofun("say", mob, "What a wonderful rug! Let's see... where shall I put it?");
+dofun("emote", mob, "starts wandering about the room, mumbling to himself.");
+dofun("emote", mob, "sticks his hands in his pockets.");
+dofun("say", mob, "What is it? A key?");
 
-obj o;
-if ((o = get_obj_carry($n, $n, "2438")) == NULL)
-	o = load_obj($n, 2438);
-if (!give_obj($n, $N, o))
+Obj o;
+if ((o = get_obj_carry(mob, mob, "2438")) == NULL)
+	o = load_obj(mob, 2438);
+if (!give_obj(mob, actor, o))
         return 1;
 
-dofun("say", $n, "Here, you can have it.");
-dofun("emote", $n, "absently pushes the rug under a chair.");
+dofun("say", mob, "Here, you can have it.");
+dofun("emote", mob, "absently pushes the rug under a chair.");
 return 1;
 ~
 m mob_give @ all~
-dofun("say", $n, "How interesting!.. what's it for?");
-mob_interpret($n, "giggle");
-give_obj($n, $N, $p);
+dofun("say", mob, "How interesting!.. what's it for?");
+mob_interpret(mob, "giggle");
+give_obj(mob, actor, obj);
 return 0;
 ~
 m mob_greet @ all~
-if (get_obj_carry($n, $N, "91") != NULL)
+if (get_obj_carry(mob, actor, "91") != NULL)
         return 0;
 
-dofun("say", $n, "I don't see that worthless rug anywhere near me.");
-dofun("say", $n, "Don't you give it to that silly Green sister from Tear?");
+dofun("say", mob, "I don't see that worthless rug anywhere near me.");
+dofun("say", mob, "Don't you give it to that silly Green sister from Tear?");
  
-obj o = get_obj_room($n, $n->in_room, "2436");
+Obj o = get_obj_room(mob, mob->in_room, "2436");
 if (o == NULL)
         return 0;
  
-obj papers = get_obj_obj($n, o, "2437");
+Obj papers = get_obj_obj(mob, o, "2437");
 if (papers == NULL)
-        papers = load_obj($n, 2437);
+        papers = load_obj(mob, 2437);
 else
-        get_obj($n, papers, o, NULL);
+        get_obj(mob, papers, o, NULL);
  
-dofun("say", $n, "These papers might help you.");
-act("$n sneers at you.", $n, NULL, $N, TO_VICT);
-act("You sneer at $N.", $n, NULL, $N, TO_CHAR);
-act("$n sneers at $N.", $n, NULL, $N, TO_NOTVICT);
-give_obj($n, $N, papers);
-close_obj($n, o);
-lock_obj($n, o);
+dofun("say", mob, "These papers might help you.");
+act("$n sneers at you.", mob, NULL, actor, TO_VICT);
+act("You sneer at $N.", mob, NULL, actor, TO_CHAR);
+act("$n sneers at $N.", mob, NULL, actor, TO_NOTVICT);
+give_obj(mob, actor, papers);
+close_obj(mob, o);
+lock_obj(mob, o);
 return 0;
 ~
 #2414

@@ -1,31 +1,31 @@
 /*
- * $Id: mob_random_thief.mpc,v 1.2 2003-04-25 12:52:59 fjoe Exp $
+ * $Id: mob_random_thief.mpc,v 1.3 2003-07-21 23:46:10 fjoe Exp $
  */
 
-char victim;
-foreach (victim, char_in_room($n->in_room)) {
+Char victim;
+foreach (victim, char_in_room(mob->in_room)) {
 
         if (is_npc(victim)
         ||  is_immortal(victim)
-        ||  !can_see($n, victim)
+        ||  !can_see(mob, victim)
         ||  number_bits(4) != 0)
                 continue;
  
-        int level = $n->level;
+        int level = mob->level;
         if (is_awake(victim) && number_range(0, level) == 0) {
                 act("You discover $n's hands in your wallet!",
-                    $n, NULL, victim, TO_VICT);
+                    mob, NULL, victim, TO_VICT);
                 act("$N discovers $n's hands in $gN{his} wallet!",
-                    $n, NULL, victim, TO_NOTVICT);
+                    mob, NULL, victim, TO_NOTVICT);
                 return 0;
         } else {
                 int gold = umin(victim->gold / 20, level);
                 victim->gold -= gold;
-                $n->gold += gold;
+                mob->gold += gold;
 
                 int silver = umin(victim->silver / 10, level * level);
                 victim->silver -= silver;
-                $n->silver += silver;
+                mob->silver += silver;
                 return 0;
         }
 }

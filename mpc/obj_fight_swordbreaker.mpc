@@ -1,31 +1,31 @@
 /*
- * $Id: obj_fight_swordbreaker.mpc,v 1.3 2003-04-25 12:53:00 fjoe Exp $
+ * $Id: obj_fight_swordbreaker.mpc,v 1.4 2003-07-21 23:46:10 fjoe Exp $
  */
 
-char victim = $n->fighting;
-obj wield = get_eq_char(victim, WEAR_WIELD);
-obj second_wield = get_eq_char(victim, WEAR_SECOND_WIELD);
+Char victim = actor->fighting;
+Obj wield = get_eq_char(victim, WEAR_WIELD);
+Obj second_wield = get_eq_char(victim, WEAR_SECOND_WIELD);
  
 if (wield == NULL)
         return 0;
  
 if (weapon_is(wield, WEAPON_SWORD)) {
         act("You {Wcleaved{x $N's $p into two.",
-            $n, wield, victim, TO_CHAR);
+            actor, wield, victim, TO_CHAR);
         act("$n {Wcleaved{x your $p into two.",
-            $n, wield, victim, TO_VICT);
+            actor, wield, victim, TO_VICT);
         act("$n {Wcleaved{x $N's $p into two.",
-            $n, wield, victim, TO_NOTVICT);
+            actor, wield, victim, TO_NOTVICT);
         extract_obj(wield, 0);
         return 0;
 } else if (second_wield != NULL
        &&  weapon_is(second_wield, WEAPON_SWORD)) {
         act("You {Wcleaved{x $N's $p into two.",
-            $n, second_wield, victim, TO_CHAR);
+            actor, second_wield, victim, TO_CHAR);
         act("$n {Wcleaved{x your $p into two.",
-            $n, second_wield, victim, TO_VICT);
+            actor, second_wield, victim, TO_VICT);
         act("$n {Wcleaved{x $N's $p into two.",
-            $n, second_wield, victim, TO_NOTVICT);
+            actor, second_wield, victim, TO_NOTVICT);
         extract_obj(second_wield, 0);
 }
 return 0;

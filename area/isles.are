@@ -966,22 +966,22 @@ armor AGQ 0 AI
 64 5 1000 P
 f object hp 100 0
 m obj_wear @ 100~
-act("Your arms warm up by $p.", $n, $p, NULL, TO_CHAR);
+act("Your arms warm up by $p.", actor, obj, NULL, TO_CHAR);
 return 0;
 ~
 m obj_remove @ 100~
-act_char("Your arms cool down again.", $n);
+act_char("Your arms cool down again.", actor);
 return 0;
 ~
 m obj_fight @ 20~
-char victim = $n->fighting;
-act("Your $p burns $N's face!", $n, $p, victim, TO_CHAR);
-act("$n's $p burns $N's face!", $n, $p, victim, TO_NOTVICT);
-act("$n's $p burns your face!", $n, $p, victim, TO_VICT);
+Char victim = actor->fighting;
+act("Your $p burns $N's face!", actor, obj, victim, TO_CHAR);
+act("$n's $p burns $N's face!", actor, obj, victim, TO_NOTVICT);
+act("$n's $p burns your face!", actor, obj, victim, TO_VICT);
  
-int dam = number_percent()/2 + 30 + 5 * $n->level;
-damage($n, victim, dam, "burning hands", DAM_F_SHOW);
-inflict_effect("fire", victim, $p->level/2, dam);
+int dam = number_percent()/2 + 30 + 5 * actor->level;
+damage(actor, victim, dam, "burning hands", DAM_F_SHOW);
+inflict_effect("fire", victim, obj->level/2, dam);
 return 0;
 ~
 E

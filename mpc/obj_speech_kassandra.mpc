@@ -1,9 +1,9 @@
 /*
- * $Id: obj_speech_kassandra.mpc,v 1.2 2003-04-25 12:53:01 fjoe Exp $
+ * $Id: obj_speech_kassandra.mpc,v 1.3 2003-07-21 23:46:11 fjoe Exp $
  */
 
-if (get_eq_char($n, WEAR_HOLD) != $p)
+if (get_eq_char(actor, WEAR_HOLD) != obj)
        return 0;
  
-spellfun("kassandra", NULL, $n->level, $n, $n);
+spellfun("kassandra", NULL, actor->level, actor, actor);
 return 0;

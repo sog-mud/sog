@@ -1,11 +1,15 @@
-obj key1 = load_obj($n, 19159);
-obj key2 = load_obj($n, 19160);
-obj key3 = load_obj($n, 19161);
-obj key4 = load_obj($n, 19162);
-obj key5 = load_obj($n, 19163);
-obj key6 = load_obj($n, 19164);
-close_door($n, "up");
-lock_door($n, "up");
+/*
+ * $Id: mob_exit_up_light_tower.mpc,v 1.2 2003-07-21 23:46:09 fjoe Exp $
+ */
+
+Obj key1 = load_obj(mob, 19159);
+Obj key2 = load_obj(mob, 19160);
+Obj key3 = load_obj(mob, 19161);
+Obj key4 = load_obj(mob, 19162);
+Obj key5 = load_obj(mob, 19163);
+Obj key6 = load_obj(mob, 19164);
+close_door(mob, "up");
+lock_door(mob, "up");
 extract_obj(key1, 0);
 extract_obj(key2, 0);
 extract_obj(key3, 0);

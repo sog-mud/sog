@@ -1060,14 +1060,14 @@ f object hitroll 10 0
 f object damroll 10 0
 f object saving_spell -10 0
 m obj_fight @ 10~
-char victim = $n->fighting;
-obj shield = get_eq_char(victim, WEAR_SHIELD);
+Char victim = actor->fighting;
+Obj shield = get_eq_char(victim, WEAR_SHIELD);
 if (shield == NULL)
        return 0;
  
-act("You {Wcleaved{x $N's $p into two.", $n, shield, victim, TO_CHAR);
-act("$n {Wcleaved{x your $p into two.", $n, shield, victim, TO_VICT);
-act("$n {Wcleaved{x $N's $p into two.", $n, shield, victim, TO_NOTVICT);
+act("You {Wcleaved{x $N's $p into two.", actor, shield, victim, TO_CHAR);
+act("$n {Wcleaved{x your $p into two.", actor, shield, victim, TO_VICT);
+act("$n {Wcleaved{x $N's $p into two.", actor, shield, victim, TO_NOTVICT);
 extract_obj(shield, 0);
 return 0;
 ~
@@ -1188,9 +1188,9 @@ f object hitroll 4 0
 f object damroll 1 0
 f object mana -50 0
 m obj_greet @ 87~
-if (!has_spec($n, "class_wizard"))
+if (!has_spec(actor, "class_wizard"))
         return 0;
-act("$p glows and pulses.", $n, $p, NULL, TO_ALL);
+act("$p glows and pulses.", actor, obj, NULL, TO_ALL);
 return 1;
 ~
 E

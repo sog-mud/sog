@@ -25,14 +25,14 @@ g @eng none@rus male~
 F for AHMV
 F par FGHIJK
 m mob_greet @ all~
-act_say($n, "Are you ready to pass test, $N?", $N);
+act_say(mob, "Are you ready to pass test, $N?", actor);
 return 0;
 ~
 m mob_random mob_random_secretary 100~
 m mob_look @ 100~
-act_say($n, "If you are ready, pass in necessarying room, $N.", $N);
-dofun("unlock", $n, "south");
-dofun("open", $n, "south");
+act_say(mob, "If you are ready, pass in necessarying room, $N.", actor);
+dofun("unlock", mob, "south");
+dofun("open", mob, "south");
 return 0;
 ~
 #51302
@@ -53,7 +53,7 @@ F par FGHIJK
 x 0
 m mob_random mob_random_secretary 100~
 m mob_exit @ west~
-act_say($n, "Guild master very occupied person, $N.", $N);
+act_say(mob, "Guild master very occupied person, $N.", actor);
 return 0;
 ~
 #51303
@@ -70,17 +70,17 @@ stand stand none 0
 0 0 medium unknown
 g @eng none@rus male~
 m mob_greet @ all~
-obj portal;
-foreach (portal, obj_in_room($n->in_room)) {
+Obj portal;
+foreach (portal, obj_in_room(mob->in_room)) {
         if (portal->item_type != ITEM_PORTAL)
                 continue;
         extract_obj(portal, XO_F_NORECURSE);
 }
 
-close_door($n, "north");
-lock_door($n, "north");
-act("The elf closes disguiseded manhole.", $N, NULL, NULL, TO_CHAR);
-act_say($n, "Read rules, writing at the board, $N!", $N);
+close_door(mob, "north");
+lock_door(mob, "north");
+act("The elf closes disguiseded manhole.", actor, NULL, NULL, TO_CHAR);
+act_say(mob, "Read rules, writing at the board, $N!", actor);
 return 0;
 ~
 #0
@@ -162,9 +162,9 @@ trash 0 0 0
 0 0 0 0 0
 0 0 0 P
 m obj_look @ 100~
-dofun("look", $n, "self");
+dofun("look", actor, "self");
 if (number_percent() < 10)
-        dofun("emote", $n, " поправляет прическу.");
+        dofun("emote", actor, " поправляет прическу.");
 return 0;
 ~
 E
@@ -194,43 +194,43 @@ trash 0 0 0
 0 0 0 0 0
 0 0 0 P
 m obj_look @ 100~
-obj portal;
-foreach (portal, obj_in_room($n->in_room)) {
+Obj portal;
+foreach (portal, obj_in_room(actor->in_room)) {
         if (portal->item_type != ITEM_PORTAL)
                 continue;
         extract_obj(portal, XO_F_NORECURSE);
 }
 
-act("The elf opens disguiseded manhole.", $n, NULL, NULL, TO_CHAR);
+act("The elf opens disguiseded manhole.", actor, NULL, NULL, TO_CHAR);
 
-if ($n->real_level < 11 && $n->real_level > 5) {
+if (actor->real_level < 11 && actor->real_level > 5) {
         portal = create_obj(51310, 0);
-        obj_to_room(portal, $n->in_room);
+        obj_to_room(portal, actor->in_room);
 }
 
-if ($n->real_level < 21 && $n->real_level > 10) {
+if (actor->real_level < 21 && actor->real_level > 10) {
         portal = create_obj(51311, 0);
-        obj_to_room(portal, $n->in_room);
+        obj_to_room(portal, actor->in_room);
 }
 
-if ($n->real_level < 31 && $n->real_level > 20) {
+if (actor->real_level < 31 && actor->real_level > 20) {
         portal = create_obj(51312, 0);
-        obj_to_room(portal, $n->in_room);
+        obj_to_room(portal, actor->in_room);
 }
 
-if ($n->real_level < 41 && $n->real_level > 30) {
+if (actor->real_level < 41 && actor->real_level > 30) {
         portal = create_obj(51313, 0);
-        obj_to_room(portal, $n->in_room);
+        obj_to_room(portal, actor->in_room);
 }
 
-if ($n->real_level < 45 && $n->real_level > 40) {
+if (actor->real_level < 45 && actor->real_level > 40) {
         portal = create_obj(51314, 0);
-        obj_to_room(portal, $n->in_room);
+        obj_to_room(portal, actor->in_room);
 }
 
-if ($n->real_level > 44) {
+if (actor->real_level > 44) {
         portal = create_obj(51315, 0);
-        obj_to_room(portal, $n->in_room);
+        obj_to_room(portal, actor->in_room);
 }
 return 0;
 ~

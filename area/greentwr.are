@@ -152,7 +152,7 @@ mace 6 9 'crush' 0
 33 180 4323 P
 f object damroll 10 0
 m obj_fight @ 100~
-char victim = $n->fighting;
+Char victim = actor->fighting;
  
 if (is_immortal(victim))
         return 0;
@@ -160,18 +160,18 @@ if (is_immortal(victim))
 if (!char_form_is(victim, FORM_UNDEAD))
         return 0;
  
-if (saves_spell($n->level, victim, DAM_ENERGY)
-||  saves_spell($n->level, victim, DAM_OTHER))
+if (saves_spell(actor->level, victim, DAM_ENERGY)
+||  saves_spell(actor->level, victim, DAM_OTHER))
         return 0;
  
 if (number_percent() < 95)
         return 0;
  
-act("$N's body explodes under $n's $p.", $n, $p, victim, TO_NOTVICT);
-act("$N's body explodes under your $p.", $n, $p, victim, TO_CHAR);
-act("Your body explodes under $n's $p.", $n, $p, victim, TO_VICT);
+act("$N's body explodes under $n's $p.", actor, obj, victim, TO_NOTVICT);
+act("$N's body explodes under your $p.", actor, obj, victim, TO_CHAR);
+act("Your body explodes under $n's $p.", actor, obj, victim, TO_VICT);
  
-handle_death($n, victim);
+handle_death(actor, victim);
 return 0;
 ~
 #26562

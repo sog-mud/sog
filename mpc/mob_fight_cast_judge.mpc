@@ -1,13 +1,13 @@
 /*
- * $Id: mob_fight_cast_judge.mpc,v 1.2 2002-03-11 14:07:18 cs Exp $
+ * $Id: mob_fight_cast_judge.mpc,v 1.3 2003-07-21 23:46:09 fjoe Exp $
  */
 
 if (number_bits(2) != 0)
         return 0;
 
-char victim = get_random_fighting($n);
+Char victim = get_random_fighting(mob);
 if (victim == NULL)
         return 0;
 
-cast_char("magic missile", $n, victim);
+cast_char("magic missile", mob, victim);
 return 0;

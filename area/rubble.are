@@ -31,12 +31,12 @@ int n = number_range(1,10);
 
 switch (n) {
 case 1:
-        load_obj($n, 51201);
+        load_obj(mob, 51201);
         return 0;
 case 10:
         return 0;
 default:
-        load_obj($n, 51212 + n);
+        load_obj(mob, 51212 + n);
         return 0;
 };
 
@@ -71,13 +71,13 @@ stand stand male 0
 0 P medium unknown
 F aff U
 m mob_greet @ all~
-act_say($n, "Это тупик!" , NULL);
-backstab_char($n, $N);
-room rr = get_room_index(15002);
-act_say($n, "А не свалить ли тебе отсюда..." , "");
-act_char("", $N); // free string - a to slivaetsa
-dofun("peace", $n, "");
-transfer_char($N, rr);
+act_say(mob, "Это тупик!" , NULL);
+backstab_char(mob, actor);
+Room rr = get_room_index(15002);
+act_say(mob, "А не свалить ли тебе отсюда..." , "");
+act_char("", actor); // free string - a to slivaetsa
+dofun("peace", mob, "");
+transfer_char(actor, rr);
 return 0;
 ~
 #51203
@@ -121,31 +121,31 @@ g @eng none@rus male~
 F for AHMV
 F par ABCDEFGHIJK
 m mob_give @ 51223~
-extract_obj($p, 0);
-act_say($n, "О! возможно это поможет мне ...", NULL);
-if (get_obj_carry($n, $N, "51226"))
+extract_obj(obj, 0);
+act_say(mob, "О! возможно это поможет мне ...", NULL);
+if (get_obj_carry(mob, actor, "51226"))
         return 0;
-obj o;
-if ((o = get_obj_carry($n, $n, "51226")) == NULL)
-        o = load_obj($n, 51226);
-if (!give_obj($n, $N, o))
+Obj o;
+if ((o = get_obj_carry(mob, mob, "51226")) == NULL)
+        o = load_obj(mob, 51226);
+if (!give_obj(mob, actor, o))
         return 0;
 return 0;
 ~
 m mob_give @ 51228~
-extract_obj($p, 0);
-act_say($n, "О! это должно мне помочь...", NULL);
-if (get_obj_carry($n, $N, "51227"))
+extract_obj(obj, 0);
+act_say(mob, "О! это должно мне помочь...", NULL);
+if (get_obj_carry(mob, actor, "51227"))
         return 0;
-obj o;
-if ((o = get_obj_carry($n, $n, "51227")) == NULL)
-        o = load_obj($n, 51227);
-if (!give_obj($n, $N, o))
+Obj o;
+if ((o = get_obj_carry(mob, mob, "51227")) == NULL)
+        o = load_obj(mob, 51227);
+if (!give_obj(mob, actor, o))
          return 0;
 return 0;
 ~
 m mob_look @ 100~
-act_say($n, "Здравствуй герой! Всю свою жизнь я потратил на то что бы понять магию зла, но так и не нашел ответа. Может ты мне поможешь?", NULL);
+act_say(mob, "Здравствуй герой! Всю свою жизнь я потратил на то что бы понять магию зла, но так и не нашел ответа. Может ты мне поможешь?", NULL);
 return 0;
 ~
 #51205
@@ -170,31 +170,31 @@ g @eng none@rus male~
 F for AHMV
 F par ABCDEFGHIJK
 m mob_give @ 51223~
-extract_obj($p, 0);
-act_say($n, "О! это должно мне помочь...", NULL);
-if (get_obj_carry($n, $N, "51230"))
+extract_obj(obj, 0);
+act_say(mob, "О! это должно мне помочь...", NULL);
+if (get_obj_carry(mob, actor, "51230"))
         return 0;
-obj o;
-if ((o = get_obj_carry($n, $n, "51230")) == NULL)
-        o = load_obj($n, 51230);
-if (!give_obj($n, $N, o))
+Obj o;
+if ((o = get_obj_carry(mob, mob, "51230")) == NULL)
+        o = load_obj(mob, 51230);
+if (!give_obj(mob, actor, o))
         return 0;
 return 0;
 ~
 m mob_give @ 51228~
-extract_obj($p, 0);
-act_say($n, "О! возможно это поможет мне ...", NULL);
-if (get_obj_carry($n, $N, "51229"))
+extract_obj(obj, 0);
+act_say(mob, "О! возможно это поможет мне ...", NULL);
+if (get_obj_carry(mob, actor, "51229"))
         return 0;
-obj o;
-if ((o = get_obj_carry($n, $n, "51229")) == NULL)
-        o = load_obj($n, 51229);
-if (!give_obj($n, $N, o))
+Obj o;
+if ((o = get_obj_carry(mob, mob, "51229")) == NULL)
+        o = load_obj(mob, 51229);
+if (!give_obj(mob, actor, o))
         return 0;
 return 0;
 ~
 m mob_look @ 100~
-act_say($n, "Здравствуй герой! Всю свою жизнь я потратил на то, что бы понять магию добра, но так и не нашел ответа. Может ты мне поможешь?", NULL);
+act_say(mob, "Здравствуй герой! Всю свою жизнь я потратил на то, что бы понять магию добра, но так и не нашел ответа. Может ты мне поможешь?", NULL);
 return 0;
 ~
 #51298
@@ -240,8 +240,8 @@ portal 0 CL 0
 0 0 A 51201 0
 0 0 0 P
 m obj_enter @ 100~
-int l = $n->level;
-inflict_effect("shock", $n, l, l);
+int l = actor->level;
+inflict_effect("shock", actor, l, l);
 return 0;
 ~
 E
@@ -264,31 +264,31 @@ m obj_look @ 100~
  * при лук на камушек - эта часть выводится с "истинным" зрением (c)krol
  */
 
-if (is_immortal($n) || is_sn_affected($n, "detect invis")) {
-        act("{x", $n, NULL, NULL, TO_CHAR);
+if (is_immortal(actor) || is_sn_affected(actor, "detect invis")) {
+        act("{x", actor, NULL, NULL, TO_CHAR);
         act("Ты всматриваешься повнимательнее и замечаешь еще одну надпись:",
-            $n, NULL, NULL, TO_CHAR);
-        act("{x         {CRFVFCENHF{x", $n, NULL, NULL, TO_CHAR);
+            actor, NULL, NULL, TO_CHAR);
+        act("{x         {CRFVFCENHF{x", actor, NULL, NULL, TO_CHAR);
 }
 
-obj small = get_obj_carry($n, $n, "51202");
-obj middle = get_obj_carry($n, $n, "51203");
-obj big = get_obj_carry($n, $n, "51204");
+Obj small = get_obj_carry(actor, actor, "51202");
+Obj middle = get_obj_carry(actor, actor, "51203");
+Obj big = get_obj_carry(actor, actor, "51204");
  
 if (small == NULL || middle == NULL || big == NULL)
         return 0;
 
-act("{x", $n, NULL, NULL, TO_CHAR);
+act("{x", actor, NULL, NULL, TO_CHAR);
 extract_obj(small, 0);
 extract_obj(middle, 0);
 extract_obj(big, 0);
 act("Ты вспомнил, что у тебя есть камни с такими же рунами.",
-    $n, NULL, NULL, TO_CHAR);
+    actor, NULL, NULL, TO_CHAR);
 act("Твой внутренний голос подсказал тебе попробовать сложить их.",
-    $n, NULL, NULL, TO_CHAR);
+    actor, NULL, NULL, TO_CHAR);
 act("У тебя получилась отличная каменная булава! Такой можно убить одним ударом!",
-    $n, NULL, NULL, TO_CHAR);
-load_obj($n, 51205);
+    actor, NULL, NULL, TO_CHAR);
+load_obj(actor, 51205);
 return 0;
 ~
 E
@@ -310,14 +310,15 @@ m obj_look @ 100~
  * маленький камушек из квеста (c)krol
  */
 
-if (is_immortal($n)) {
+if (is_immortal(actor)) {
         act("mprog: {Cто что далее пишетсЯ только чарам AFF_DETECT_INVIS и иммам.{x",
-            $n, NULL, NULL, TO_CHAR);
+            actor, NULL, NULL, TO_CHAR);
 }
 
-if (is_immortal($n) || is_sn_affected($n, "detect invis")) {
-        act("Древние руны на камушке гласят:", $n, NULL, NULL, TO_CHAR);
-        act("{x                               {CRFV{x", $n, NULL, NULL, TO_CHAR);
+if (is_immortal(actor) || is_sn_affected(actor, "detect invis")) {
+        act("Древние руны на камушке гласят:", actor, NULL, NULL, TO_CHAR);
+        act("{x                               {CRFV{x",
+	    actor, NULL, NULL, TO_CHAR);
 }
 
 return 0;
@@ -336,14 +337,15 @@ m obj_look @ 100~
  * средний камушек из квеста (c)krol
  */
   
-if (is_immortal($n)) {
+if (is_immortal(actor)) {
         act("mprog: {Cто что далее пишетсЯ только чарам AFF_DETECT_INVIS и иммам.{x",
-            $n, NULL, NULL, TO_CHAR);
+            actor, NULL, NULL, TO_CHAR);
 }
 
-if (is_immortal($n) || is_sn_affected($n, "detect invis")) {
-        act("Древние руны на камушке гласЯт:", $n, NULL, NULL, TO_CHAR);
-        act("                               {CFCE{x", $n, NULL, NULL, TO_CHAR);
+if (is_immortal(actor) || is_sn_affected(actor, "detect invis")) {
+        act("Древние руны на камушке гласЯт:", actor, NULL, NULL, TO_CHAR);
+        act("                               {CFCE{x",
+	    actor, NULL, NULL, TO_CHAR);
 }
 
 return 0;
@@ -362,14 +364,15 @@ m obj_look @ 100~
  * большой камушек из квеста (c)krol
  */
 
-if (is_immortal($n)) {
-        act("mprog: {Cто что далее пишетсЯ только чарам AFF_DETECT_INVIS и иммам.{x",
-             $n, NULL, NULL, TO_CHAR);
+if (is_immortal(actor)) {
+        act("mprog: {Cто что далее пишется только чарам AFF_DETECT_INVIS и иммам.{x",
+             actor, NULL, NULL, TO_CHAR);
 }
 
-if (is_immortal($n) || is_sn_affected($n, "detect invis")) {
-        act("Древние руны на камушке гласЯт:", $n, NULL, NULL, TO_CHAR);
-        act("                               {CNHF{x", $n, NULL, NULL, TO_CHAR);
+if (is_immortal(actor) || is_sn_affected(actor, "detect invis")) {
+        act("Древние руны на камушке гласЯт:", actor, NULL, NULL, TO_CHAR);
+        act("                               {CNHF{x",
+	    actor, NULL, NULL, TO_CHAR);
 }
 return 0;
 ~
@@ -654,7 +657,7 @@ treasure 0 0 0
 0 0 0 0 0
 0 0 0 P
 m obj_look @ 100~
-dofun("look", $n, "self");
+dofun("look", actor, "self");
 return 0;
 ~
 #51294
@@ -703,25 +706,25 @@ g @eng none@rus male~
 #51299
 armatura арматура~
 {Dарматура{x~
-Кем то припрятанная {DАрматура {xлежит сдесь.~
+Кем то припрятанная {DАрматура{x лежит сдесь.~
 plasma~
 weapon I BCL AN
 sword 1 1 'cleave' CDEI
 0 1 0 P
 m obj_fight @ 100~
 // типа handle_death()
-char victim =  $n->fighting;
+Char victim = actor->fighting;
 if (is_immortal(victim)) {
-        dofun("peace", $n, "");
+        dofun("peace", actor, "");
         return 0;
 }
 act("{gТы проникаешь в матрицу этого мира и уничтожаешь ссылку на $N.{x",
-    $n, NULL, victim, TO_CHAR);
+    actor, NULL, victim, TO_CHAR);
 act("{g$n проникает в матрицу этого мира и уничтожает ссылку на $N.{x",
-    $n, NULL, victim, TO_NOTVICT);
+    actor, NULL, victim, TO_NOTVICT);
 act("{g$n проникает в матрицу этого мира и уничтожает ссылку на тебя.{x",
-    $n, NULL, NULL, TO_VICT);
-handle_death($n, victim);
+    actor, NULL, NULL, TO_VICT);
+handle_death(actor, victim);
 return 0;
 ~
 g @eng none@rus female~
@@ -2420,34 +2423,34 @@ Z 0 51299
 m room_cmd room_cmd_sog sog~
 m room_cmd @ do_kick~
 // аналог do_kick, почти аналог, нет некоторых функций
-int chance = get_skill($n, "kick");
+int chance = get_skill(actor, "kick");
 if (chance == 0) {
-        act_char("You better leave the martial arts to fighters.", $n);
+        act_char("You better leave the martial arts to fighters.", actor);
         return 0;
 }
 
-char victim = $n->fighting;
+Char victim = actor->fighting;
 if (victim == NULL) {
-        act_char("You aren't fighting anyone.", $n);
+        act_char("You aren't fighting anyone.", actor);
         return 0;
 }
 
-char pet;
-foreach (pet, char_in_room($n->in_room)) {
+Char pet;
+foreach (pet, char_in_room(actor->in_room)) {
         if (is_npc(pet)) {
-                if (is_mount($n, pet)) {
-                        act_char("You can't kick while riding!", $n);
+                if (is_mount(actor, pet)) {
+                        act_char("You can't kick while riding!", actor);
                         return 0;
                 }
         }
 }
 
-if (is_affected($n, AFF_FLYING))
+if (is_affected(actor, AFF_FLYING))
         chance = chance * 110 / 100;
 
 if (number_percent() < chance) {
-        int kick_dam = number_range(1, $n->level);
-        damage($n, victim, kick_dam, "kick", DAM_F_SHOW);
+        int kick_dam = number_range(1, actor->level);
+        damage(actor, victim, kick_dam, "kick", DAM_F_SHOW);
 }
 
 return 0;

@@ -1,8 +1,8 @@
 /*
- * $Id: mob_fight_nasty.mpc,v 1.3 2003-04-25 12:52:52 fjoe Exp $
+ * $Id: mob_fight_nasty.mpc,v 1.4 2003-07-21 23:46:10 fjoe Exp $
  */
 
-char victim = get_random_fighting($n);
+Char victim = get_random_fighting(mob);
 if (victim == NULL)
         return 0;
 
@@ -10,21 +10,21 @@ switch (number_bits(2)) {
 case 1:
 	if (victim->gold > 10) {
    	        act("$n rips apart your coin purse, spilling your gold!",
-	            $n, NULL, victim, TO_VICT);
+	            mob, NULL, victim, TO_VICT);
                 act("You slash apart $N's coin purse and gather his gold.",
-                    $n, NULL, victim, TO_CHAR);
+                    mob, NULL, victim, TO_CHAR);
                 act("$N's coin purse is ripped apart!",
-                    $n, NULL, victim, TO_NOTVICT);
+                    mob, NULL, victim, TO_NOTVICT);
  
                 int gold = victim->gold / 10;
                 victim->gold -= gold;
-                $n->gold += gold;
+                mob->gold += gold;
                 break;
 	}
 	/* FALLTHRU */
 
 case 2:
-        dofun("flee", $n, "");
+        dofun("flee", mob, "");
         break;
 }
 

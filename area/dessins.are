@@ -28,7 +28,7 @@ stand stand male 0
 r weapon 100
 r magic 100
 m mob_cmd @ погладить белика~
-social_char("lick", $n, $N);
+social_char("lick", mob, actor);
 return 0;
 ~
 #51001
@@ -189,9 +189,9 @@ m mob_random @ 4~
  */
  
 string msg;
-char victim;
+Char victim;
 
-foreach (victim, char_in_room($n->in_room)) {
+foreach (victim, char_in_room(mob->in_room)) {
         if (victim->gold < 50 || is_npc(victim))
                 continue;
 
@@ -204,7 +204,7 @@ foreach (victim, char_in_room($n->in_room)) {
                 break;
         }
 
-        act_say($n, msg, $N);
+        act_say(mob, msg, actor);
         break;
 }
 
@@ -261,11 +261,11 @@ m obj_greet @ all~
  * банановая прога
  */
 
-obj banan;
+Obj banan;
 int found = FALSE;
 
-foreach (banan, obj_in_room($n->in_room)) {
-        if (banan == $p) {
+foreach (banan, obj_in_room(actor->in_room)) {
+        if (banan == obj) {
                 found = TRUE;
                 break;
         }
@@ -274,10 +274,12 @@ foreach (banan, obj_in_room($n->in_room)) {
 if (!found)
         return 0;
 
-act("$n $gn{подскользнулся} на $c5{$p} и $gn{упал}.", $n, $p, NULL, TO_ROOM);
-act("Ты $gn{подскользнулся} на $c5{$p} и $gn{упал}.", $n, $p, NULL, TO_CHAR);
-inflict_effect("shock", $n, $n->level, $p->level);
-extract_obj($p, 0);
+act("$n $gn{подскользнулся} на $c5{$p} и $gn{упал}.",
+    actor, obj, NULL, TO_ROOM);
+act("Ты $gn{подскользнулся} на $c5{$p} и $gn{упал}.",
+    actor, obj, NULL, TO_CHAR);
+inflict_effect("shock", actor, actor->level, obj->level);
+extract_obj(obj, 0);
 
 return 0;
 ~
@@ -500,16 +502,16 @@ m obj_look @ 100~
  * камнедробильная прога
  */
 
-obj chip = load_obj($n, 51021);
+Obj chip = load_obj(actor, 51021);
 if (chip == NULL)
         return 0;
 
 act("$p looks really beautiful! You decide to chip a part of it.",
-    $n, $p, NULL, TO_CHAR);
+    actor, obj, NULL, TO_CHAR);
 act("You chip off a small stone from the larger one.",
-    $n, $p, NULL, TO_CHAR);
+    actor, obj, NULL, TO_CHAR);
 act("$n chips off a small stone from the boulder.",
-    $n, $p, NULL, TO_ROOM);
+    actor, obj, NULL, TO_ROOM);
 
 return 0;
 ~
@@ -534,23 +536,25 @@ m obj_drop @ 100~
 int index; int sector; int times;
 
 times = 1;
-sector = $n->in_room->sector_type;
+sector = actor->in_room->sector_type;
 
 if (sector != SECT_WATER_SWIM && sector != SECT_WATER_NOSWIM)
         return 0;
 
-act("You skip $p by the ocean...", $n, $p, NULL, TO_CHAR);
-act("$n skipped $p by the ocean...", $n, $p, NULL, TO_ROOM);
-foreach (index, range(1, $n->real_level)) {
-        if (number_percent() < $n->level)
+act("You skip $p by the ocean...", actor, obj, NULL, TO_CHAR);
+act("$n skipped $p by the ocean...", actor, obj, NULL, TO_ROOM);
+foreach (index, range(1, actor->real_level)) {
+        if (number_percent() < actor->level)
                 times++;
 }
 
 if (times > 1)
-        act("Wow! $p skipped $K $qK{times}", $n, $p, times, TO_ALL);
-else
-        act("Дурацкий булыжник! Даже прыгать не умеет!", $n, $p, NULL, TO_CHAR);
-extract_obj($p, 0);
+        act("Wow! $p skipped $K $qK{times}", actor, obj, times, TO_ALL);
+else {
+        act("Дурацкий булыжник! Даже прыгать не умеет!",
+	    actor, obj, NULL, TO_CHAR);
+}
+extract_obj(obj, 0);
 return 0;
 ~
 g @eng none@rus male~

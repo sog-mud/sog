@@ -127,11 +127,11 @@ EFNU
 stand stand male 1000
 0 0 medium unknown
 m mob_greet @ all~
-if (is_ghost($N) || is_immortal($N))
+if (is_ghost(actor) || is_immortal(actor))
         return 0;
  
-dofun("say", $n, "NONE SHALL PASS!");
-multi_hit($n, $N, NULL);
+dofun("say", mob, "NONE SHALL PASS!");
+multi_hit(mob, actor, NULL);
 return 0;
 ~
 #17308

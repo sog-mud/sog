@@ -603,9 +603,9 @@ f object hitroll 2 0
 f object damroll 2 0
 m obj_wear @ 100~
 act("Flaming sword flares brightly as $n wields the sorcerous blade.",
-    $n, NULL, NULL, TO_ROOM);
+    actor, NULL, NULL, TO_ROOM);
 act("Flaming sword flares brightly as you wield the sorcerous blade.",
-    $n, NULL, NULL, TO_CHAR);
+    actor, NULL, NULL, TO_CHAR);
 return 0;
 ~
 E

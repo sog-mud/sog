@@ -341,14 +341,14 @@ m mob_fight @ 100~
 if (number_bits(2) != 0)
         return 0;
 
-char victim = get_random_fighting($n);
+Char victim = get_random_fighting(mob);
 if (victim == NULL)
         return 0;
 
-if ($n->level > 36)
-	cast_char("lightning breath", $n, victim);
+if (mob->level > 36)
+	cast_char("lightning breath", mob, victim);
 else
-	cast_char("lightning bolt", $n, victim);
+	cast_char("lightning bolt", mob, victim);
 
 return 0;
 ~
@@ -744,21 +744,21 @@ weapon A 0 AN
 staff 0 0 'pierce' F
 0 160 0 P
 m obj_wear @ 100~
-if (has_spec($n, "class_ranger"))
+if (has_spec(actor, "class_ranger"))
        return 0;
 
-act("You don't know how to use this thing.", $n, NULL, NULL, TO_CHAR);
-act("$p slides off from your hand.", $n, $p, NULL, TO_CHAR);
-obj_to_room($p, $n->in_room);
+act("You don't know how to use this thing.", actor, NULL, NULL, TO_CHAR);
+act("$p slides off from your hand.", actor, obj, NULL, TO_CHAR);
+obj_to_room(obj, actor->in_room);
 return 1;
 ~
 m obj_fight @ 100~
 if (number_percent() < 90)
         return 0;
  
-act("Your $p glows blue!", $n, $p, NULL, TO_CHAR);
-act("$n's $p glows blue!", $n, $p, NULL, TO_ROOM);
-spellfun("cure critical wounds", NULL, $n->level, $n, $n);
+act("Your $p glows blue!", actor, obj, NULL, TO_CHAR);
+act("$n's $p glows blue!", actor, obj, NULL, TO_ROOM);
+spellfun("cure critical wounds", NULL, actor->level, actor, actor);
 return 0;
 ~
 m obj_death obj_death_obj_disappears 100~
@@ -941,13 +941,13 @@ switch (number_bits(5)) {
 case 0:
 case 1:
        act("The tattoo on your shoulder glows {Cblue{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("cure critical wounds", NULL, $n->level, $n, $n);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("cure critical wounds", NULL, actor->level, actor, actor);
        break;
 case 2:
        act("The tattoo on your shoulder glows {Rred{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("holy word", NULL, $n->level, $n, $n);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("holy word", NULL, actor->level, actor, actor);
        break;
 }
 return 0;
@@ -967,24 +967,24 @@ case 0:
 case 1:
 case 2:
        act("The tattoo on your shoulder glows {Cblue{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("cure critical wounds", NULL, $n->level, $n, $n);
-       if (is_affected($n, AFF_PLAGUE))
-               spellfun("cure disease", NULL, MAX_LEVEL, $n, $n);
-       if (is_affected($n, AFF_POISON))
-               spellfun("cure poison", NULL, MAX_LEVEL, $n, $n);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("cure critical wounds", NULL, actor->level, actor, actor);
+       if (is_affected(actor, AFF_PLAGUE))
+               spellfun("cure disease", NULL, MAX_LEVEL, actor, actor);
+       if (is_affected(actor, AFF_POISON))
+               spellfun("cure poison", NULL, MAX_LEVEL, actor, actor);
        break;
 case 3:
 case 4:
-        if (is_affected($n, AFF_PLAGUE)) {
+        if (is_affected(actor, AFF_PLAGUE)) {
                act("The tattoo on your shoulder glows {Cblue{x.",
-                   $n, NULL, NULL, TO_CHAR);
-               spellfun("cure disease", NULL, MAX_LEVEL, $n, $n);
+                   actor, NULL, NULL, TO_CHAR);
+               spellfun("cure disease", NULL, MAX_LEVEL, actor, actor);
         }
-        if (is_affected($n, AFF_POISON)) {
+        if (is_affected(actor, AFF_POISON)) {
                act("The tattoo on your shoulder glows {Cblue{x.",
-                   $n, NULL, NULL, TO_CHAR);
-               spellfun("cure poison", NULL, MAX_LEVEL, $n, $n);
+                   actor, NULL, NULL, TO_CHAR);
+               spellfun("cure poison", NULL, MAX_LEVEL, actor, actor);
         }
         break;
 }
@@ -1003,13 +1003,13 @@ m obj_fight @ 100~
 switch (number_bits(4)) {
 case 0:
        act("The tattoo on your shoulder glows {Cblue{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("cure critical wounds", NULL, $n->level, $n, $n);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("cure critical wounds", NULL, actor->level, actor, actor);
        break;
 case 1:
        act("The tattoo on your shoulder glows {Rred{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("bluefire", NULL, $n->level, $n, $n->fighting);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("bluefire", NULL, actor->level, actor, actor->fighting);
        break;
 }
 return 0;
@@ -1029,14 +1029,14 @@ case 0:
 case 1:
 case 2:
        act("The tattoo on your shoulder glows {Cblue{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("cure critical wounds", NULL, $n->level, $n, $n);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("cure critical wounds", NULL, actor->level, actor, actor);
        break;
 case 3:
        act("The tattoo on your shoulder glows {Rred{x.",
-           $n, NULL, NULL, TO_CHAR);
-       dofun("yell", $n, "And justice for all!....");
-       spellfun("scream", NULL, $n->level, $n, $n->fighting);
+           actor, NULL, NULL, TO_CHAR);
+       dofun("yell", actor, "And justice for all!....");
+       spellfun("scream", NULL, actor->level, actor, actor->fighting);
        break;
 }
 return 0;
@@ -1055,13 +1055,13 @@ switch (number_bits(5)) {
 case 0:
 case 1:
        act("The tattoo on your shoulder glows {Cblue{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("cure critical wounds", NULL, $n->level, $n, $n);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("cure critical wounds", NULL, actor->level, actor, actor);
        break;
 case 2:
        act("The tattoo on your shoulder glows {Rred{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("ray of truth", NULL, $n->level, $n, $n->fighting);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("ray of truth", NULL, actor->level, actor, actor->fighting);
        break;
 }
 return 0;
@@ -1081,8 +1081,8 @@ case 0:
 case 1:
 case 2:
        act("The tattoo on your shoulder glows {Rred{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("demonfire", NULL, $n->level, $n, $n->fighting);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("demonfire", NULL, actor->level, actor, actor->fighting);
        break;
 }
 return 0;
@@ -1100,8 +1100,8 @@ m obj_fight @ 100~
 switch (number_bits(5)) {
 case 0:
        act("The tattoo on your shoulder glows {Rred{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("acid blast", NULL, $n->level, $n, $n->fighting);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("acid blast", NULL, actor->level, actor, actor->fighting);
        break;
 }
 return 0;
@@ -1121,8 +1121,8 @@ case 0:
 case 1:
 case 2:
        act("The tattoo on your shoulder glows {Rred{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("fireball", NULL, $n->level, $n, $n->fighting);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("fireball", NULL, actor->level, actor, actor->fighting);
        break;
 }
 return 0;
@@ -1142,13 +1142,13 @@ case 0:
 case 1:
 case 2:
        act("The tattoo on your shoulder glows {Cblue{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("cure critical wounds", NULL, $n->level, $n, $n);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("cure critical wounds", NULL, actor->level, actor, actor);
        break;
 case 3:
        act("The tattoo on your shoulder glows {Rred{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("faerie fire", NULL, $n->level + 35, $n, $n->fighting);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("faerie fire", NULL, actor->level + 35, actor, actor->fighting);
        break;
 }
 return 0;
@@ -1166,20 +1166,20 @@ m obj_fight @ 100~
 switch (number_bits(5)) {
 case 0:
        act("The tattoo on your shoulder glows {Cblue{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("haste", NULL, $n->level, $n, $n);
-       spellfun("shield", NULL, $n->level, $n, $n);
-       spellfun("stone skin", NULL, $n->level, $n, $n);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("haste", NULL, actor->level, actor, actor);
+       spellfun("shield", NULL, actor->level, actor, actor);
+       spellfun("stone skin", NULL, actor->level, actor, actor);
        break;
 case 1:
        act("The tattoo on your shoulder glows {Cblue{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("bless", NULL, $n->level, $n, $n);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("bless", NULL, actor->level, actor, actor);
        break;
 case 2:
        act("The tattoo on your shoulder glows {Cblue{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("cure critical wounds", NULL, $n->level, $n, $n);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("cure critical wounds", NULL, actor->level, actor, actor);
        break;
 }
 return 0;
@@ -1196,23 +1196,23 @@ tattoo AUY C AR
 m obj_fight @ 100~
 switch (number_bits(4)) {
 case 0:
-       if (is_affected($n, AFF_BERSERK)
-           || is_sn_affected($n, "berserk")
-           || is_sn_affected($n, "frenzy")) {
+       if (is_affected(actor, AFF_BERSERK)
+           || is_sn_affected(actor, "berserk")
+           || is_sn_affected(actor, "frenzy")) {
                act("Tattoo on your shoulder glows {Wwhite{x.",
-                   $n, NULL, NULL, TO_CHAR);
-               act("You get a little madder.", $n, NULL, NULL, TO_CHAR);
+                   actor, NULL, NULL, TO_CHAR);
+               act("You get a little madder.", actor, NULL, NULL, TO_CHAR);
                return 0;
        }
        act("Tattoo on your shoulder glows {Wwhite{x.",
-           $n, NULL, NULL, TO_CHAR);
+           actor, NULL, NULL, TO_CHAR);
 
-       int level = $n->level;
-       affect_char($n, TO_AFFECTS, "berserk", level, umax(1, level / 3),
+       int level = actor->level;
+       affect_char(actor, TO_AFFECTS, "berserk", level, umax(1, level / 3),
                    APPLY_HITROLL, umax(1, level / 5), AFF_BERSERK);
-       affect_char($n, TO_AFFECTS, "berserk", level, umax(1, level / 3),
+       affect_char(actor, TO_AFFECTS, "berserk", level, umax(1, level / 3),
                    APPLY_DAMROLL, umax(1, level / 5), AFF_BERSERK);
-       affect_char($n, TO_AFFECTS, "berserk", level, umax(1, level / 3),
+       affect_char(actor, TO_AFFECTS, "berserk", level, umax(1, level / 3),
                    APPLY_AC, 10 * (level / 10), AFF_BERSERK);
        break;
 }
@@ -1232,9 +1232,9 @@ switch (number_bits(4)) {
 case 0:
 case 1:
        act("The tattoo on your shoulder glows {Wwhite{x.",
-           $n, NULL, NULL, TO_CHAR);
-       dofun("say", $n, "My honour is my life.");
-       one_hit($n, $n->fighting, NULL, WEAR_WIELD);
+           actor, NULL, NULL, TO_CHAR);
+       dofun("say", actor, "My honour is my life.");
+       one_hit(actor, actor->fighting, NULL, WEAR_WIELD);
        break;
 }
 return 0;
@@ -1249,39 +1249,39 @@ tattoo AUY C AR
 0 0 -1 0 0
 0 0 0 P
 m obj_fight @ 100~
-int level = $n->level + 3;
-char victim = $n->fighting;
+int level = actor->level + 3;
+Char victim = actor->fighting;
 
 switch (number_bits(5)) {
 case 0:
        act("The tattoo on your shoulder glows {Rred{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("poison", NULL, level, $n, victim);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("poison", NULL, level, actor, victim);
        break;
 case 1:
        act("The tattoo on your shoulder glows {Rred{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("weaken", NULL, level, $n, victim);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("weaken", NULL, level, actor, victim);
        break;
 case 2:
        act("The tattoo on your shoulder glows {Rred{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("slow", NULL, level, $n, victim);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("slow", NULL, level, actor, victim);
        break;
 case 3:
        act("The tattoo on your shoulder glows {Rred{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("energy drain", NULL, level, $n, victim);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("energy drain", NULL, level, actor, victim);
        break;
 case 4:
        act("The tattoo on your shoulder glows {Rred{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("blindness", NULL, level, $n, victim);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("blindness", NULL, level, actor, victim);
        break;
 case 5:
        act("The tattoo on your shoulder glows {Rred{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("curse", NULL, level, $n, victim);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("curse", NULL, level, actor, victim);
        break;
 }
 return 0;
@@ -1300,18 +1300,18 @@ switch (number_bits(5)) {
 case 0:
 case 1:
        act("The tattoo on your shoulder glows {Cblue{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("cure critical wounds", NULL, $n->level, $n, $n);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("cure critical wounds", NULL, actor->level, actor, actor);
        break;
 case 2:
        act("The tattoo on your shoulder glows {Cblue{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("mana restore", NULL, $n->level, $n, $n);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("mana restore", NULL, actor->level, actor, actor);
        break;
 case 3:
        act("The tattoo on your shoulder glows {Cblue{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("bless", NULL, $n->level, $n, $n);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("bless", NULL, actor->level, actor, actor);
        break;
 }
 return 0;
@@ -1329,15 +1329,15 @@ m obj_fight @ 100~
 switch (number_bits(5)) {
 case 0:
        act("The tattoo on your shoulder glows {Cblue{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("dragon strength", NULL, $n->level, $n, $n);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("dragon strength", NULL, actor->level, actor, actor);
        break;
 case 1:
 case 2:
 case 3:
        act("The tattoo on your shoulder glows {Rred{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("dragon breath", NULL, $n->level, $n, $n->fighting);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("dragon breath", NULL, actor->level, actor, actor->fighting);
        break;
 }
 return 0;
@@ -1356,13 +1356,13 @@ switch (number_bits(5)) {
 case 0:
 case 1:
        act("The tattoo on your shoulder glows {Cblue{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("cure critical wounds", NULL, $n->level, $n, $n);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("cure critical wounds", NULL, actor->level, actor, actor);
        break;
 case 2:
        act("The tattoo on your shoulder glows {Rred{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("flamestrike", NULL, $n->level, $n, $n->fighting);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("flamestrike", NULL, actor->level, actor, actor->fighting);
        break;
 }
 return 0;
@@ -1381,13 +1381,13 @@ switch (number_bits(5)) {
 case 0:
 case 1:
        act("The tattoo on your shoulder glows {Cblue{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("cure critical wounds", NULL, $n->level, $n, $n);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("cure critical wounds", NULL, actor->level, actor, actor);
        break;
 case 2:
        act("The tattoo on your shoulder glows {Cblue{x.",
-           $n, NULL, NULL, TO_CHAR);
-       spellfun("heal", NULL, $n->level, $n, $n);
+           actor, NULL, NULL, TO_CHAR);
+       spellfun("heal", NULL, actor->level, actor, actor);
        break;
 }
 return 0;
@@ -1472,21 +1472,21 @@ armor GPUY 0 AJ
 20 20 20 20 2
 0 50 10000 P
 m obj_wear @ 100~
-if (is_sn_affected($n, "cold shield"))
+if (is_sn_affected(actor, "cold shield"))
         return 0;
  
 act("As you wear $p, you became resistive to cold.",
-    $n, $p, NULL, TO_CHAR);
-affect_char($n, TO_RESISTS, "cold shield", $n->level,
+    actor, obj, NULL, TO_CHAR);
+affect_char(actor, TO_RESISTS, "cold shield", actor->level,
             -2, DAM_COLD, 50, 0);
 return 0;
 ~
 m obj_remove @ 100~
-if (!is_sn_affected($n, "cold shield"))
+if (!is_sn_affected(actor, "cold shield"))
        return 0;
  
-affect_strip($n, "cold shield");
-act_char("You have become normal to cold attacks.", $n);
+affect_strip(actor, "cold shield");
+act_char("You have become normal to cold attacks.", actor);
 return 0;
 ~
 E
@@ -1602,9 +1602,9 @@ exotic 10 1 'pierce' D
 f object hitroll 20 0
 f object cha 1 0
 m obj_wear @ 100~
-act("$p's eye opens.", $n, $p, NULL, TO_ALL);
+act("$p's eye opens.", actor, obj, NULL, TO_ALL);
  
-int level = $n->level;
+int level = actor->level;
 int dice_type;
 if (level <= 10)
         dice_type = 3;
@@ -1616,37 +1616,37 @@ else if (level <= 40)
         dice_type = 6;
 else
         dice_type = 7;
-$p->v_dice_type = dice_type;
-$p->level = level;
+obj->v_dice_type = dice_type;
+obj->level = level;
 return 0;
 ~
 m obj_get @ 100~
-if (is_owner($p, $n)) {
-        if (is_affected($n , AFF_POISON)
+if (is_owner(obj, actor)) {
+        if (is_affected(actor , AFF_POISON)
         &&  dice(1, 5) == 1) {
-                 act("Your $p glows blue.", $n, $p, NULL, TO_CHAR);
-                 spellfun("cure poison", NULL, 30, $n, $n);
+                 act("Your $p glows blue.", actor, obj, NULL, TO_CHAR);
+                 spellfun("cure poison", NULL, 30, actor, actor);
                  return 0;
         }
-        if (is_affected($n , AFF_CURSE)
+        if (is_affected(actor , AFF_CURSE)
         &&  dice(1, 5) == 1) {
-                 act("Your $p glows blue.", $n, $p, NULL, TO_CHAR);
-                 spellfun("remove curse", NULL, 30, $n, $n);
+                 act("Your $p glows blue.", actor, obj, NULL, TO_CHAR);
+                 spellfun("remove curse", NULL, 30, actor, actor);
                  return 0;
         }
-        act("Your $p's humming gets lauder.", $n, $p, NULL, TO_CHAR);
+        act("Your $p's humming gets lauder.", actor, obj, NULL, TO_CHAR);
         return 0;
 }
  
-act("You are zapped by $p and drop it.", $n, $p, NULL, TO_CHAR);
-obj_to_room($p, $n->in_room);
+act("You are zapped by $p and drop it.", actor, obj, NULL, TO_CHAR);
+obj_to_room(obj, actor->in_room);
  
 switch (dice(1, 10)) {
 case 1:
-       spellfun("curse", NULL, $n->level, $n, $n);
+       spellfun("curse", NULL, actor->level, actor, actor);
        break;
 case 2:
-       spellfun("poison", NULL, $n->level, $n, $n);
+       spellfun("poison", NULL, actor->level, actor, actor);
        break;
 }
 return 0;
@@ -1697,21 +1697,21 @@ armor GPUY 0 AJ
 20 20 20 20 2
 0 50 10000 P
 m obj_wear @ 100~
-if (is_sn_affected($n, "fire shield"))
+if (is_sn_affected(actor, "fire shield"))
         return 0;
 
 act("As you wear $p, you became resistive to fire.",
-    $n, $p, NULL, TO_CHAR);
-affect_char($n, TO_RESISTS, "fire shield", $n->level,
+    actor, obj, NULL, TO_CHAR);
+affect_char(actor, TO_RESISTS, "fire shield", actor->level,
             -2, DAM_FIRE, 50, 0);
 return 0;
 ~
 m obj_remove @ 100~
-if (!is_sn_affected($n, "fire shield"))
+if (!is_sn_affected(actor, "fire shield"))
        return 0;
 
-affect_strip($n, "fire shield");
-act_char("You have become normal to fire attacks.", $n);
+affect_strip(actor, "fire shield");
+act_char("You have become normal to fire attacks.", actor);
 return 0;
 ~
 E
@@ -1804,22 +1804,22 @@ f object cha 2 0
 m obj_fight @ 100~
 switch (number_bits(6)) {
 case 0:
-       act("The $p trembles violently!", $n, $p, NULL, TO_ROOM);
-       act("Your $p trembles violently!", $n, $p, NULL, TO_CHAR);
-       spellfun("mirror", NULL, $n->level, $n, $n);
-       wait_state($n, 2 * get_pulse("violence"));
+       act("The $p trembles violently!", actor, obj, NULL, TO_ROOM);
+       act("Your $p trembles violently!", actor, obj, NULL, TO_CHAR);
+       spellfun("mirror", NULL, actor->level, actor, actor);
+       wait_state(actor, 2 * get_pulse("violence"));
        break;
 case 1:
-       act("The $p shakes a bit.", $n, $p, NULL, TO_ROOM);
-       act("Your $p shakes a bit.", $n, $p, NULL, TO_CHAR);
-       spellfun("garble", NULL, $n->level, $n, $n->fighting);
-       wait_state($n, 2 * get_pulse("violence"));
+       act("The $p shakes a bit.", actor, obj, NULL, TO_ROOM);
+       act("Your $p shakes a bit.", actor, obj, NULL, TO_CHAR);
+       spellfun("garble", NULL, actor->level, actor, actor->fighting);
+       wait_state(actor, 2 * get_pulse("violence"));
        break;
 case 2:
-       act("The $p shivers uncontrollably!", $n, $p, NULL, TO_ROOM);
-       act("Your $p shivers uncontrollably!", $n, $p, NULL, TO_CHAR);
-       spellfun("confuse", NULL, $n->level, $n, $n->fighting);
-       wait_state($n, 2 * get_pulse("violence"));
+       act("The $p shivers uncontrollably!", actor, obj, NULL, TO_ROOM);
+       act("Your $p shivers uncontrollably!", actor, obj, NULL, TO_CHAR);
+       spellfun("confuse", NULL, actor->level, actor, actor->fighting);
+       wait_state(actor, 2 * get_pulse("violence"));
        break;
 }
 return 0;
@@ -1835,10 +1835,10 @@ weapon 0 F AN
 sword 10 1 'slash' DJ
 15 60 0 P
 m obj_wear @ 100~
-if (!is_owner($p, $n))
+if (!is_owner(obj, actor))
         return 0;
  
-int level = $n->level;
+int level = actor->level;
 int dice_type;
 if (level <= 10)
         dice_type = 3;
@@ -1851,9 +1851,9 @@ else if (level <= 40)
 else
         dice_type = 7;
  
-$p->v_dice_type = dice_type;
-$p->level = level;
-act("You feel your $p like a part of you!", $n, $p, NULL, TO_CHAR);
+obj->v_dice_type = dice_type;
+obj->level = level;
+act("You feel your $p like a part of you!", actor, obj, NULL, TO_CHAR);
 return 0;
 ~
 E

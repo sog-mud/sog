@@ -1,3 +1,7 @@
-act("$n prevents you from leaving up.", $n, NULL, $N, TO_VICT);
-damage($n, $N, 100, "touch", DAM_F_SHOW);
+/*
+ * $Id: mob_exit_up_dark_tower.mpc,v 1.3 2003-07-21 23:46:09 fjoe Exp $
+ */
+
+act("$n prevents you from leaving up.", mob, NULL, actor, TO_VICT);
+damage(mob, actor, 100, "touch", DAM_F_SHOW);
 return 0;

@@ -1,10 +1,10 @@
 /*
- * $Id: obj_remove_giant_str.mpc,v 1.2 2001-09-12 08:20:48 fjoe Exp $
+ * $Id: obj_remove_giant_str.mpc,v 1.3 2003-07-21 23:46:11 fjoe Exp $
  */
 
-if (!is_sn_affected($n, "giant strength"))
+if (!is_sn_affected(actor, "giant strength"))
         return 0;
  
-affect_strip($n, "giant strength");
-act_char("Your muscles regain its original value.", $n);
+affect_strip(actor, "giant strength");
+act_char("Your muscles regain its original value.", actor);
 return 0;

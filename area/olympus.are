@@ -457,17 +457,17 @@ f object hitroll 5 0
 f object damroll 5 0
 f object wis -1 0
 m obj_fight @ 100~
-char victim = $n->fighting;
+Char victim = actor->fighting;
 
 switch (number_bits(6)) {
 case 0:
         act("A bolt of lightning arcs out from your bolt, hitting $N!",
-	    $n, NULL, victim, TO_CHAR);
+	    actor, NULL, victim, TO_CHAR);
        	act("A bolt of lightning crackles along $n's bolt and arcs towards you!",
-	    $n, NULL, victim, TO_VICT);
+	    actor, NULL, victim, TO_VICT);
         act("A bolt of lightning shoots out from $n's bolt, arcing towards $N!",
-	    $n, NULL, victim, TO_NOTVICT);
-        spellfun("lightning bolt", NULL, $n->level, $n, victim);
+	    actor, NULL, victim, TO_NOTVICT);
+        spellfun("lightning bolt", NULL, actor->level, actor, victim);
         break;
 }
 return 0;
@@ -548,19 +548,19 @@ f object hp 25 0
 m obj_wear obj_wear_hands_warm 100~
 m obj_remove obj_remove_hands_cool 100~
 m obj_fight @ 50~
-if (get_eq_char($n, WEAR_WIELD) != NULL
-||  get_eq_char($n, WEAR_SECOND_WIELD) != NULL)
+if (get_eq_char(actor, WEAR_WIELD) != NULL
+||  get_eq_char(actor, WEAR_SECOND_WIELD) != NULL)
         return 0;
  
-char victim = $n->fighting;
+Char victim = actor->fighting;
 
-act("Your $p burns $N's face!", $n, $p, victim, TO_CHAR);
-act("$n's $p burns $N's face!", $n, $p, victim, TO_NOTVICT);
-act("$n's $p burns your face!", $n, $p, victim, TO_VICT);
+act("Your $p burns $N's face!", actor, obj, victim, TO_CHAR);
+act("$n's $p burns $N's face!", actor, obj, victim, TO_NOTVICT);
+act("$n's $p burns your face!", actor, obj, victim, TO_VICT);
 
-int dam = number_percent()/4 + 15 + $n->level;
-damage($n, victim, dam, "burning hands", DAM_F_SHOW);
-inflict_effect("fire", victim, $p->level/2, dam);
+int dam = number_percent()/4 + 15 + actor->level;
+damage(actor, victim, dam, "burning hands", DAM_F_SHOW);
+inflict_effect("fire", victim, obj->level/2, dam);
 return 0;
 ~
 g @rus plural~
@@ -716,23 +716,23 @@ f object cha 3 0
 m obj_wear obj_wear_excalibur 100~
 m obj_remove obj_remove_excalibur 100~
 m obj_fight @ 2~
-char victim = $n->fighting;
+Char victim = actor->fighting;
 if (is_immortal(victim))
         return 0;
  
 act("$p swings at $N's neck without control!",
-    $n, $p, victim, TO_CHAR);
+    actor, obj, victim, TO_CHAR);
 
 if (number_percent() < 80)
         return 0;
  
 act("$p makes a huge arc in the air, chopping $N's head OFF!",
-    $n, $p, victim, TO_CHAR);
+    actor, obj, victim, TO_CHAR);
 act("$n's $p whistles in the air, chopping your head OFF!",
-    $n, $p, victim, TO_VICT);
+    actor, obj, victim, TO_VICT);
 act("$n's $p whistles in the air, chopping $N's head OFF!",
-    $n, $p, victim, TO_NOTVICT);
-handle_death($n, victim);
+    actor, obj, victim, TO_NOTVICT);
+handle_death(actor, victim);
 return 0;
 ~
 g @rus male~
