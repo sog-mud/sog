@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_material.c,v 1.1 1999-10-18 18:08:06 avn Exp $
+ * $Id: olc_material.c,v 1.2 1999-10-18 18:53:37 avn Exp $
  */
 
 #include "olc.h"
@@ -175,13 +175,13 @@ OLC_FUN(mated_show)
 			return FALSE;
 		}
 	
-	char_printf(ch, "Name %s~\n", mat->name);
+	char_printf(ch, "Name %s\n", mat->name);
 	if (mat->float_time)
 		char_printf(ch, "Float %d\n", mat->float_time);
 	if (mat->dam_class != DAM_NONE)
-		char_printf(ch, "Damc %s~\n", flag_string(dam_classes, mat->dam_class));
+		char_printf(ch, "Damc %s\n", flag_string(dam_classes, mat->dam_class));
 	if (mat->mat_flags)
-		char_printf(ch, "Flags %s~\n", flag_string(material_flags, mat->mat_flags));
+		char_printf(ch, "Flags %s\n", flag_string(material_flags, mat->mat_flags));
 	return FALSE;
 }
 
