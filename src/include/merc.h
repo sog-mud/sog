@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.16 1998-05-17 05:00:24 efdi Exp $
+ * $Id: merc.h,v 1.17 1998-05-17 09:39:08 efdi Exp $
  */
 
 /***************************************************************************
@@ -2085,7 +2085,7 @@ struct	char_data
     CHAR_DATA	*	mount;
     sh_int		language;
     sh_int		i_lang; /* interface language */
-    char *		hunter_name;	/* who quested to slay */
+    CHAR_DATA *		hunter;	/* who quested to slay */
 };
 
 

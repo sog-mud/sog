@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.36 1998-05-17 05:00:23 efdi Exp $
+ * $Id: act_info.c,v 1.37 1998-05-17 09:39:07 efdi Exp $
  */
 
 /***************************************************************************
@@ -310,7 +310,7 @@ void show_char_to_char_0(CHAR_DATA *victim, CHAR_DATA *ch)
 
 	if (!IS_NPC(ch) && IS_NPC(victim) && ch->pcdata->questmob > 0
 /*	  &&  victim->pIndexData->vnum == ch->pcdata->questmobi */
-	&&  victim->hunter_name == ch->name) /* changed by Indra */
+	&&  victim->hunter == ch)
 		strcat(buf, "{R[TARGET]{x ");
 
 /*

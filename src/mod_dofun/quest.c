@@ -1,5 +1,5 @@
 /*
- * $Id: quest.c,v 1.11 1998-05-17 05:00:25 efdi Exp $
+ * $Id: quest.c,v 1.12 1998-05-17 09:39:08 efdi Exp $
  */
 
 /***************************************************************************
@@ -956,7 +956,7 @@ void generate_quest(CHAR_DATA *ch, CHAR_DATA *questman)
 	do_tell_quest(ch,questman,buf);
      }
      ch->pcdata->questmob = victim->pIndexData->vnum;
-     victim->hunter_name = ch->name; /*added by Indra*/
+     victim->hunter = ch;
     }
     return;
 }

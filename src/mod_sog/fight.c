@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.10 1998-05-17 05:00:24 efdi Exp $
+ * $Id: fight.c,v 1.11 1998-05-17 09:39:08 efdi Exp $
  */
 
 /***************************************************************************
@@ -2265,12 +2265,19 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 	else gch = ch;
 	if (!IS_NPC(gch) && IS_QUESTOR(gch) && IS_NPC(victim))
 	{
-		if (victim->hunter_name == gch->name)
-  /* gch->pcdata->questmob == victim->pIndexData->vnum) */  /* changed by Indra */
-		{
-			send_to_char("You have almost completed your QUEST!\n\r",gch);
-			send_to_char("Return to questmaster before your time runs out!\n\r",gch);
-			gch->pcdata->questmob = -1;
+		if (victim->hunter == gch) {
+			send_to_char("You have almost completed your QUEST!\n\r",victim->hunter);
+			send_to_char("Return to questmaster before your time runs out!\n\r",victim->hunter);
+			victim->hunter->pcdata->questmob = -1;
+		} else if (victim->hunter) {
+			send_to_char("You have completed someone's quest.\n\r", gch);
+			send_to_char("Someone has completed your quest.\n\r", victim->hunter);
+			REMOVE_BIT(victim->hunter->act, PLR_QUESTOR);
+			victim->hunter->pcdata->questgiver = 0;
+			victim->hunter->pcdata->countdown = 0;
+			victim->hunter->pcdata->questmob = 0;
+			victim->hunter->pcdata->questobj = 0;
+			victim->hunter->pcdata->nextquest = 5;
 		}
 	}
 /* end quest */
