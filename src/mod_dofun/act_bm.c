@@ -31,7 +31,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_bm.c,v 1.1.2.3 2002-10-18 07:50:00 tatyana Exp $
+ * $Id: act_bm.c,v 1.1.2.4 2002-10-18 18:38:40 tatyana Exp $
  */
 
 #include <stdio.h>
@@ -333,6 +333,8 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 
 	if (!str_cmp(arg, "propose") || !str_cmp(arg, "sell")) {
 		OBJ_DATA *obj;
+		int limit;
+		int price;
 
 		if (!IS_HUNTER(ch)) {
 			act("{D[BLACK MARKET]{x You can't sell anything "
@@ -341,11 +343,13 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 		}
 
 		argument = one_argument(argument, arg, sizeof(arg));
+
 		if (arg[0] == '\0') {
 			act("{D[BLACK MARKET]{x What do you like to sell?",
 			    ch, NULL, NULL, TO_CHAR);
 			return;
 		}
+
 		obj = get_obj_carry(ch, arg);
 
 		if (obj == NULL) {
@@ -403,13 +407,24 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 			break;
 		}
 
-		act("{D[BLACK MARKET]{x You propose {D$p{x for sale.",
-		    ch, obj, NULL, TO_CHAR);
+		price = advatoi(argument);
+		if (price == 0) {
+			act("Incorrect price.", ch, NULL, NULL, TO_CHAR);
+			return;
+		}
+
+		price = ((obj->level * 20) >= price ? price : obj->level * 20);
+		act_puts3("{D[BLACK MARKET]{x You propose {D$P{x for sale. "
+			  "Starting price is $J gold.",
+			  ch, NULL, obj, (const void *) price,
+			  TO_CHAR, POS_DEAD);
 
 		obj_from_char(obj);
 
+		limit = obj->pObjIndex->limit;
 		item = bmitem_new();
 		item->seller = str_dup(ch->name);
+		item->bet = price;
 		item->obj = obj;
 		item->next = bmitem_list;
 		bmitem_list = item;
@@ -418,7 +433,7 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 	}
 
 	if (!str_cmp(arg, "show")) {
-/* sell item */
+/* show item */
 		uint number;
 		bool found = FALSE;
 		BUFFER *output;
@@ -459,6 +474,13 @@ void do_bm(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
+	if (!str_cmp(arg, "stop")) {
+		if (!IS_IMMORTAL(ch)) {
+			act("You can't stop selling.", ch, NULL, NULL, TO_CHAR);
+			return;
+		}
+		return;
+	}
 	do_help(ch, "'BLACK MARKET'");
 
 }
