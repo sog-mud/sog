@@ -2328,23 +2328,19 @@ S
 #1501
 if mobexists hobgoblin king
 if level $n <= 15
-if isgood $n
 mob echoat $n The chief gnome tells you:
 mob echoat $n {w       Hello, welcome to our village! But, be careful, hobgoblins from{x
 mob echoat $n {w       abandoned mines are very dangerous. For long time we can't free{x
 mob echoat $n {w       out vallage of theirs raids. If only they lost leader and king...{x
 endif
 endif
-endif
 ~
 #1502
-if isgood $n
 if level $n <= 15
 mob echoat $n The chief gnome tells you:
 mob echoat $n {w       This is very good news. Take this flower as reward for your help.{x
 mob oload 1526
 give lilia $n
-endif
 endif
 mob junk heart
 ~
