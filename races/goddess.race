@@ -1,0 +1,16 @@
+#RACE
+Name goddess~
+Aff infrared sneak~
+Imm charm magic weapon~
+Parts head arms legs heart brains guts hands feet fingers ear eye~
+End
+
+#PCRACE
+Shortname Goddess~
+Points 100
+Stats 0 0 0 0 0 0 
+MaxStats 25 25 25 25 25 25 
+Size medium
+End
+
+#$
