@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.202 1999-06-17 07:32:18 fjoe Exp $
+ * $Id: merc.h,v 1.203 1999-06-17 08:37:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1215,7 +1215,6 @@ where_t *where_lookup(flag32_t where);
 #define COMM_NOVERBOSE		(dd)
 #define COMM_NOBUST		(ee)
 #define COMM_NOFLEE		(ff)
-#define COMM_ZMUD3		(gg)
 
 /* IAC replacement if COMM_NOIAC is set */
 /* COMM_NOIAC is useful to map 'Ñ' (IAC) to 'ñ' when using win1251 codepage */
