@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: magic_impl.c,v 1.13 2001-11-12 09:43:37 kostik Exp $
+ * $Id: magic_impl.c,v 1.14 2001-12-03 22:39:15 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -76,7 +76,7 @@ spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage)
 			act("$n's spellbane deflects the spell!",
 			    ch, NULL, NULL, TO_ROOM);
 			damage(ch, ch, bane_damage, "spellbane",
-			       DAM_NEGATIVE, DAMF_SHOW);
+			       DAM_NEGATIVE, DAM_F_SHOW);
 		} else {
 			check_improve(bch, "spellbane", TRUE, 8);
 			act_puts("$N deflects your spell!",
@@ -87,7 +87,7 @@ spellbane(CHAR_DATA *bch, CHAR_DATA *ch, int bane_chance, int bane_damage)
 			    ch, NULL, bch, TO_NOTVICT);
 			if (!is_safe(bch, ch) && !is_safe(ch, bch)) {
 				damage(bch, ch, bane_damage, "spellbane",
-				       DAM_NEGATIVE, DAMF_SHOW);
+				       DAM_NEGATIVE, DAM_F_SHOW);
 			}
 	        }
 	        return TRUE;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.39 2001-10-21 22:13:22 fjoe Exp $
+ * $Id: eventfun.c,v 1.40 2001-12-03 22:39:13 fjoe Exp $
  */
 
 #include <sys/time.h>
@@ -86,7 +86,7 @@ EVENT_FUN(event_enter_lshield, ch, af)
 		ROOM_INDEX_DATA *room = ch->in_room;
 
 		damage(af->owner, ch, dice(af->level, 4) + 12,
-		       af->type, DAM_LIGHTNING, DAMF_SHOW | DAMF_TRAP_ROOM);
+		       af->type, DAM_LIGHTNING, DAM_F_SHOW | DAM_F_TRAP_ROOM);
 		affect_remove_room(room , af);
 	}
 }
@@ -125,7 +125,7 @@ EVENT_FUN(event_enter_shocking, ch, af)
 		act("Shocking waves in this room shock you!",
 			ch, NULL, NULL, TO_CHAR);
 		damage(ch, ch, dice(af->level, 4) + 12,
-		       NULL, DAM_LIGHTNING, DAMF_SHOW | DAMF_TRAP_ROOM);
+		       NULL, DAM_LIGHTNING, DAM_F_SHOW | DAM_F_TRAP_ROOM);
 		show_owner(ch, af);
 		affect_remove_room(room , af);
 	}
@@ -142,7 +142,7 @@ EVENT_FUN(event_enter_thieftrap, ch, af)
 		ROOM_INDEX_DATA *room = ch->in_room;
 
 		damage(ch, ch, dice(af->level, 5) + 12,
-		       NULL, DAM_PIERCE, DAMF_SHOW | DAMF_TRAP_ROOM);
+		       NULL, DAM_PIERCE, DAM_F_SHOW | DAM_F_TRAP_ROOM);
 		show_owner(ch, af);
 		affect_remove_room(room , af);
 	}
@@ -302,10 +302,10 @@ EVENT_FUN(event_updatechar_plague, ch, af)
 	dam = UMIN(ch->level, af->level/5 + 1);
 	ch->mana -= dam;
 	ch->move -= dam;
-	damage(ch, ch, dam, "plague", DAM_DISEASE, DAMF_NONE);
+	damage(ch, ch, dam, "plague", DAM_DISEASE, DAM_F_NONE);
 	if (number_range(1, 100) < 70) {
 		damage(ch, ch, UMAX(ch->max_hit/20, 50),
-		       "plague", DAM_DISEASE, DAMF_NONE);
+		       "plague", DAM_DISEASE, DAM_F_NONE);
 	}
 }
 
@@ -315,7 +315,7 @@ EVENT_FUN(event_updatechar_poison, ch, af)
 
 	act("$n shivers and suffers.", ch, NULL, NULL, TO_ROOM);
 	act_char("You shiver and suffer.", ch);
-	damage(ch, ch, af->level/10 + 1, "poison", DAM_POISON, DAMF_NONE);
+	damage(ch, ch, af->level/10 + 1, "poison", DAM_POISON, DAM_F_NONE);
 }
 
 EVENT_FUN(event_updatefast_entangle, ch, af)
@@ -364,7 +364,7 @@ EVENT_FUN(event_updatechar_crippled_hands, ch, af)
 	|| get_eq_char(ch, WEAR_HOLD)) {
 		act_char("The pain pulses in your crippled hands.", ch);
 		damage(ch, ch, ch->level/2, "crippled hands",
-		       DAM_HARM, DAMF_NONE);
+		       DAM_HARM, DAM_F_NONE);
 	}
 }
 

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_fight_astral_guardian.mpc,v 1.1 2001-09-23 16:51:10 fjoe Exp $
+ * $Id: mob_fight_astral_guardian.mpc,v 1.2 2001-12-03 22:35:54 fjoe Exp $
  */
 
 char victim = get_random_fighting($n);
@@ -20,5 +20,5 @@ act("$n chants a strange phrase and points at $N...",
     $n, NULL, victim, TO_NOTVICT);
 
 int dam = 100;
-damage($n, victim, dam, NULL, DAM_NONE, DAMF_NONE);
+damage($n, victim, dam, NULL, DAM_NONE, DAM_F_NONE);
 return 0;

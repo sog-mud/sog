@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: sog.h,v 1.31 2001-11-07 13:09:12 kostik Exp $
+ * $Id: sog.h,v 1.32 2001-12-03 22:39:04 fjoe Exp $
  */
 
 #ifndef _SOG_H_
@@ -480,15 +480,15 @@ DECLARE_PROC3(format_obj_affects,
 /*
  * damage() flags
  */
-#define DAMF_NONE	(0)
-#define DAMF_SHOW	(A)	/* show dam message */
-#define DAMF_SECOND	(B)	/* damage inflicted by second weapon */
-#define DAMF_HIT	(C)	/* damage by hit */
-#define DAMF_HUNGER	(D)	/* damage by hunger */
-#define DAMF_NOREDUCE	(E)	/* damage should not be reduced */
-#define DAMF_THIRST	(F)	/* damage by thirst */
-#define DAMF_LIGHT_V	(G)	/* light in room */
-#define DAMF_TRAP_ROOM	(H)	/* room trap damage */
+#define DAM_F_NONE	(0)
+#define DAM_F_SHOW	(A)	/* show dam message */
+#define DAM_F_SECOND	(B)	/* damage inflicted by second weapon */
+#define DAM_F_HIT	(C)	/* damage by hit */
+#define DAM_F_HUNGER	(D)	/* damage by hunger */
+#define DAM_F_NOREDUCE	(E)	/* damage should not be reduced */
+#define DAM_F_THIRST	(F)	/* damage by thirst */
+#define DAM_F_LIGHT_V	(G)	/* light in room */
+#define DAM_F_TRAP_ROOM	(H)	/* room trap damage */
 
 DECLARE_PROC4(one_hit,
 	      ARG(CHAR_DATA), ch, ARG(CHAR_DATA), victim,

@@ -1,5 +1,5 @@
 /*
- * $Id: mob_fight_air_sprite_main.mpc,v 1.1 2001-09-17 19:18:41 fjoe Exp $
+ * $Id: mob_fight_air_sprite_main.mpc,v 1.2 2001-12-03 22:35:54 fjoe Exp $
  */
 
 char victim = get_random_fighting($n);
@@ -11,7 +11,7 @@ if (victim != NULL
         act("{MSpray of magic dust whirls around you.{x",
             $n, NULL, victim, TO_VICT);
         damage($n, victim, number_range(30, 50), NULL,
-               DAM_MAGIC, DAMF_SHOW);
+               DAM_MAGIC, DAM_F_SHOW);
         return 0;
 }
  

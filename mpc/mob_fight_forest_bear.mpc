@@ -1,5 +1,5 @@
 /*
- * $Id: mob_fight_forest_bear.mpc,v 1.1 2001-09-17 19:18:42 fjoe Exp $
+ * $Id: mob_fight_forest_bear.mpc,v 1.2 2001-12-03 22:35:56 fjoe Exp $
  */
 
 char victim = get_random_fighting($n);
@@ -16,5 +16,5 @@ if (claw != NULL)
         dam = number_range(40, 55);        
 else
         dam = number_range(15, 25);        
-damage($n, victim, dam, NULL, DAM_SOUND, DAMF_NONE);
+damage($n, victim, dam, NULL, DAM_SOUND, DAM_F_NONE);
 return 0;

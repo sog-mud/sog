@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.206 2001-11-21 14:33:27 kostik Exp $
+ * $Id: martial_art.c,v 1.207 2001-12-03 22:39:09 fjoe Exp $
  */
 
 /***************************************************************************
@@ -200,7 +200,7 @@ check_reversal(CHAR_DATA *ch, CHAR_DATA *victim)
 
 			damage(victim, ch,
 			    (LEVEL(victim) + get_curr_stat(victim, STAT_STR)),
-			    "throw", DAM_BASH, DAMF_SHOW);
+			    "throw", DAM_BASH, DAM_F_SHOW);
 			return TRUE;
 		default:
 			act("You foresee $N's maneuver and meet $M well "
@@ -365,7 +365,7 @@ DO_FUN(do_kill, ch, argument)
 			act_puts("$n flash strike instantly slays you!",
 				 ch, NULL, victim, TO_VICT, POS_DEAD);
 			damage(ch, victim, (victim->hit + 1),
-			       "mortal strike", DAM_NONE, DAMF_SHOW);
+			       "mortal strike", DAM_NONE, DAM_F_SHOW);
 			check_improve(ch, "mortal strike", TRUE, 1);
 			return;
 		} else
@@ -431,7 +431,7 @@ DO_FUN(do_murder, ch, argument)
 			act_puts("$n flash strike instantly slays you!",
 				 ch, NULL, victim, TO_VICT, POS_DEAD);
 			damage(ch, victim, (victim->hit + 1),
-			       "mortal strike", DAM_NONE, DAMF_SHOW);
+			       "mortal strike", DAM_NONE, DAM_F_SHOW);
 			check_improve(ch, "mortal strike", TRUE, 1);
 			return;
 		} else
@@ -580,7 +580,7 @@ DO_FUN(do_pound, ch, argument)
 	attack = (victim != ch->fighting) && (victim->fighting != ch);
 
 	if ((number_percent() > chance) || distance_check(ch, victim)) {
-		damage(ch, victim, 0, "pound", DAM_BASH, DAMF_SHOW);
+		damage(ch, victim, 0, "pound", DAM_BASH, DAM_F_SHOW);
 		check_improve(ch, "pound", FALSE, 3);
 	} else {
 		int wear_loc;
@@ -902,7 +902,7 @@ DO_FUN(do_cut, ch, argument)
 
 	if (WEAPON_IS(weapon, WEAPON_SWORD)) {
 		if ((number_percent() > chance) || distance_check(ch, victim)) {
-			damage(ch, victim, 0, "cut", DAM_SLASH, DAMF_SHOW);
+			damage(ch, victim, 0, "cut", DAM_SLASH, DAM_F_SHOW);
 			check_improve(ch, "cut", FALSE, 3);
 		} else {
 			act("You attempt to cut $N with your weapon.",
@@ -923,7 +923,7 @@ DO_FUN(do_cut, ch, argument)
 
 	if (second_weap && WEAPON_IS(second_weap, WEAPON_SWORD)) {
 		if ((number_percent() > chance) || distance_check(ch, victim)) {
-			damage(ch, victim, 0, "cut", DAM_SLASH, DAMF_SHOW);
+			damage(ch, victim, 0, "cut", DAM_SLASH, DAM_F_SHOW);
 			check_improve(ch, "cut", FALSE, 3);
 		} else {
 			act("You attempt to cut $N with your weapon.",
@@ -1022,7 +1022,7 @@ DO_FUN(do_whirl, ch, argument)
 	attack = (victim != ch->fighting) && (victim->fighting != ch);
 
 	if ((number_percent() > chance) || distance_check(ch, victim)) {
-		damage(ch, victim, 0, "whirl", DAM_BASH, DAMF_SHOW);
+		damage(ch, victim, 0, "whirl", DAM_BASH, DAM_F_SHOW);
 		check_improve(ch, "whirl", FALSE, 3);
 	} else {
 		int wear_loc;
@@ -1407,10 +1407,10 @@ DO_FUN(do_bash, ch, argument)
 		victim->position = POS_RESTING;
 		damage_bash = (ch->damroll / 2) +
 			      number_range(4, 4 + 4* ch->size + chance/10);
-		damage(ch, victim, damage_bash, "bash", DAM_BASH, DAMF_SHOW);
+		damage(ch, victim, damage_bash, "bash", DAM_BASH, DAM_F_SHOW);
 		check_downstrike(victim);
 	} else {
-		damage(ch, victim, 0, "bash", DAM_BASH, DAMF_SHOW);
+		damage(ch, victim, 0, "bash", DAM_BASH, DAM_F_SHOW);
 		act_puts("You fall flat on your face!",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act("$n falls flat on $s face.",
@@ -1552,9 +1552,9 @@ DO_FUN(do_dirt, ch, argument)
 		aff_free(paf);
 
 		damage(ch, victim, number_range(2, 5),
-		       "dirt kicking", DAM_NONE, DAMF_SHOW);
+		       "dirt kicking", DAM_NONE, DAM_F_SHOW);
 	} else {
-		damage(ch, victim, 0, "dirt kicking", DAM_NONE, DAMF_SHOW);
+		damage(ch, victim, 0, "dirt kicking", DAM_NONE, DAM_F_SHOW);
 		check_improve(ch, "dirt kicking", FALSE, 2);
 	}
 
@@ -1676,10 +1676,10 @@ DO_FUN(do_trip, ch, argument)
 		WAIT_STATE(ch, beats);
 		victim->position = POS_RESTING;
 		damage(ch, victim, number_range(2, 2 + 2*victim->size),
-		       "trip", DAM_BASH, DAMF_SHOW);
+		       "trip", DAM_BASH, DAM_F_SHOW);
 		check_downstrike(victim);
 	} else {
-		damage(ch, victim, 0, "trip", DAM_BASH, DAMF_SHOW);
+		damage(ch, victim, 0, "trip", DAM_BASH, DAM_F_SHOW);
 		WAIT_STATE(ch, beats * 2 / 3);
 		check_improve(ch, "trip", FALSE, 1);
 		check_downstrike(ch);
@@ -1767,7 +1767,7 @@ DO_FUN(do_knife, ch, argument)
 	if (number_percent() < chance) {
 		one_hit(ch, victim, "knife", WEAR_WIELD);
 	} else {
-		damage(ch, victim, 0, "knife",  DAM_NONE, DAMF_SHOW);
+		damage(ch, victim, 0, "knife",  DAM_NONE, DAM_F_SHOW);
 		check_improve(ch, "knife", FALSE, 1);
 	}
 	yell(victim, ch, "Die, $N! You're backstabbing scum!");
@@ -1846,7 +1846,7 @@ DO_FUN(do_cleave, ch, argument)
 	}
 	else {
 		check_improve(ch, "cleave", FALSE, 1);
-		damage(ch, victim, 0, "cleave", DAM_NONE, DAMF_SHOW);
+		damage(ch, victim, 0, "cleave", DAM_NONE, DAM_F_SHOW);
 	}
 	yell(victim, ch, "Die, $N, you butchering fool!");
 }
@@ -1919,7 +1919,7 @@ DO_FUN(do_impale, ch, argument)
 	}
 	else {
 		check_improve(ch, "impale", FALSE, 1);
-		damage(ch, victim, 0, "impale", DAM_NONE, DAMF_SHOW);
+		damage(ch, victim, 0, "impale", DAM_NONE, DAM_F_SHOW);
 	}
 	yell(victim, ch, "Help! $lu{$N} just tried to impale me!");
 }
@@ -1983,7 +1983,7 @@ DO_FUN(do_ambush, ch, argument)
 		one_hit(ch, victim, "ambush", WEAR_WIELD);
 	} else {
 		check_improve(ch, "ambush", FALSE, 1);
-		damage(ch, victim, 0, "ambush", DAM_NONE, DAMF_SHOW);
+		damage(ch, victim, 0, "ambush", DAM_NONE, DAM_F_SHOW);
 	}
 	yell(victim, ch, "Help! I've been ambushed by $N!");
 }
@@ -2090,7 +2090,7 @@ DO_FUN(do_kick, ch, argument)
 		&&  (get_eq_char(ch, WEAR_FEET) == NULL))
 			kick_dam *= 2;
 		kick_dam += ch->damroll / 2;
-		damage(ch, victim, kick_dam, "kick", DAM_BASH, DAMF_SHOW);
+		damage(ch, victim, kick_dam, "kick", DAM_BASH, DAM_F_SHOW);
 		check_improve(ch, "kick", TRUE, 1);
                 if((chance = get_skill(ch, "follow through")) != 0){
 			chance += get_curr_stat(ch, STAT_DEX);
@@ -2103,13 +2103,13 @@ DO_FUN(do_kick, ch, argument)
                                 kick_dam /= 2;
 				kick_dam += number_range(1, LEVEL(ch))/2;
                                 damage(ch, victim, kick_dam,
-				       "kick", DAM_BASH, DAMF_SHOW);
+				       "kick", DAM_BASH, DAM_F_SHOW);
                                 chance /= 5;
                              }
 			check_improve(ch, "follow through", TRUE, 6);
 		}
 	} else {
-		damage(ch, victim, 0, "kick", DAM_BASH, DAMF_SHOW);
+		damage(ch, victim, 0, "kick", DAM_BASH, DAM_F_SHOW);
 		check_improve(ch, "kick", FALSE, 1);
 	}
 }
@@ -2157,7 +2157,7 @@ DO_FUN(do_circle, ch, argument)
 	if (number_percent() < chance) {
 		one_hit(ch, victim, "circle", WEAR_WIELD);
 	} else {
-		damage(ch, victim, 0, "circle", DAM_NONE, DAMF_SHOW);
+		damage(ch, victim, 0, "circle", DAM_NONE, DAM_F_SHOW);
 		check_improve(ch, "circle", FALSE, 1);
 	}
 }
@@ -2587,7 +2587,7 @@ DO_FUN(do_assassinate, ch, argument)
 		one_hit(ch, victim, "assassinate", WEAR_WIELD);
 	else {
 		check_improve(ch, "assassinate", FALSE, 1);
-		damage(ch, victim, 0, "assassinate", DAM_NONE, DAMF_SHOW);
+		damage(ch, victim, 0, "assassinate", DAM_NONE, DAM_F_SHOW);
 	}
 	yell(victim, ch, "Help! $lu{$N} tries to assassinate me!");
 }
@@ -2618,12 +2618,12 @@ DO_FUN(do_caltrops, ch, argument)
 	WAIT_STATE(ch, skill_beats("caltrops"));
 
 	if (!IS_NPC(ch) && number_percent() >= chance) {
-		damage(ch, victim, 0, "caltrops", DAM_PIERCE, DAMF_SHOW);
+		damage(ch, victim, 0, "caltrops", DAM_PIERCE, DAM_F_SHOW);
 		check_improve(ch, "caltrops", FALSE, 1);
 		return;
 	}
 
-	damage(ch, victim, LEVEL(ch), "caltrops", DAM_PIERCE, DAMF_SHOW);
+	damage(ch, victim, LEVEL(ch), "caltrops", DAM_PIERCE, DAM_F_SHOW);
 	if (IS_EXTRACTED(victim))
 		return;
 
@@ -2753,7 +2753,7 @@ DO_FUN(do_throw, ch, argument)
 
 		damage(ch, victim,
 		(LEVEL(ch) + get_curr_stat(ch, STAT_STR)) * free_hands(ch),
-	       "throw", DAM_BASH, DAMF_SHOW);
+	       "throw", DAM_BASH, DAM_F_SHOW);
 		check_improve(ch, "throw", TRUE, 1);
 		check_downstrike(victim);
 	}
@@ -2849,7 +2849,7 @@ DO_FUN(do_strangle, ch, argument)
 		if (RIDDEN(victim))
 			do_dismount(RIDDEN(victim), str_empty);
 	} else {
-		damage(ch,victim, 0, "strangle", DAM_NONE, DAMF_SHOW);
+		damage(ch,victim, 0, "strangle", DAM_NONE, DAM_F_SHOW);
 		check_improve(ch, "strangle", FALSE, 1);
 		yell(victim, ch, "Help! I'm being strangled by $N!");
 	}
@@ -2917,7 +2917,7 @@ DO_FUN(do_headcrush, ch, argument)
 	if (number_percent() > chance
 	|| IS_IMMORTAL(victim)
 	|| IS_CLAN_GUARD(victim)) {
-		damage(ch, victim, 0, "head crush", DAM_NONE, DAMF_SHOW);
+		damage(ch, victim, 0, "head crush", DAM_NONE, DAM_F_SHOW);
 		check_improve(ch, "head crush", FALSE, 2);
 		yell(victim, ch, "Help! $lu{$N} just tried to shatter my skull!");
 		return;
@@ -3053,7 +3053,7 @@ DO_FUN(do_blackjack, ch, argument)
 			do_dismount(RIDDEN(victim), str_empty);
 	} else {
 		damage(ch, victim, LEVEL(ch)/2,
-		       "blackjack", DAM_NONE, DAMF_SHOW);
+		       "blackjack", DAM_NONE, DAM_F_SHOW);
 		check_improve(ch, "blackjack", FALSE, 1);
 		yell(victim, ch, "Help! I'm being blackjacked by $N!");
 	}
@@ -3496,10 +3496,10 @@ explode_cb(void *vo, va_list ap)
 
 	if (vch == victim) { /* full damage */
 		fire_effect(vch, LEVEL(ch), dam);
-		damage(ch, vch, dam, "explode", DAM_FIRE, DAMF_SHOW);
+		damage(ch, vch, dam, "explode", DAM_FIRE, DAM_F_SHOW);
 	} else { /* partial damage */
 		fire_effect(vch, LEVEL(ch)/2, dam/4);
-		damage(ch, vch, dam/2, "explode", DAM_FIRE, DAMF_SHOW);
+		damage(ch, vch, dam/2, "explode", DAM_FIRE, DAM_F_SHOW);
 	}
 
 	if (attack)
@@ -3550,7 +3550,7 @@ DO_FUN(do_explode, ch, argument)
 	act("Burn them all!", ch, NULL, NULL, TO_CHAR);
 
 	if (number_percent() >= chance) {
-		damage(ch, victim, 0, "explode", DAM_FIRE, DAMF_SHOW);
+		damage(ch, victim, 0, "explode", DAM_FIRE, DAM_F_SHOW);
 		check_improve(ch, "explode", FALSE, 1);
 		return;
 	}
@@ -3566,7 +3566,7 @@ DO_FUN(do_explode, ch, argument)
 
 	if (number_percent() >= chance) {
 		fire_effect(ch, LEVEL(ch)/4, dam/10);
-		damage(ch, ch, (ch->hit / 10), "explode", DAM_FIRE, DAMF_SHOW);
+		damage(ch, ch, (ch->hit / 10), "explode", DAM_FIRE, DAM_F_SHOW);
 	}
 }
 
@@ -4061,10 +4061,10 @@ DO_FUN(do_tail, ch, argument)
 		victim->position = POS_RESTING;
 		damage_tail = ch->damroll +
 			(2 * number_range(4,4 + 10* ch->size + chance/10));
-		damage(ch, victim, damage_tail, "tail", DAM_BASH, DAMF_SHOW);
+		damage(ch, victim, damage_tail, "tail", DAM_BASH, DAM_F_SHOW);
 		check_downstrike(victim);
 	} else {
-		damage(ch, victim, 0, "tail", DAM_BASH, DAMF_SHOW);
+		damage(ch, victim, 0, "tail", DAM_BASH, DAM_F_SHOW);
 		act("You lost your position and fall down!",
 		    ch, NULL, victim, TO_CHAR);
 		act("$n lost $gn{his} position and fall down!",
@@ -4377,10 +4377,10 @@ DO_FUN(do_crush, ch, argument)
 		victim->position = POS_RESTING;
 		damage_crush = (ch->damroll / 2) +
 				number_range(4, 4 + 4*ch->size + chance/10);
-		damage(ch, victim, damage_crush, "crush", DAM_BASH, DAMF_SHOW);
+		damage(ch, victim, damage_crush, "crush", DAM_BASH, DAM_F_SHOW);
 		check_downstrike(victim);
 	} else {
-		damage(ch, victim, 0, "crush", DAM_BASH, DAMF_SHOW);
+		damage(ch, victim, 0, "crush", DAM_BASH, DAM_F_SHOW);
 		act_puts("You fall flat on your face!",
 			 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 		act("$n falls flat on $s face.",
@@ -4763,10 +4763,10 @@ DO_FUN(do_rake, ch, argument)
 		victim->position = POS_RESTING;
 		damage(ch, victim, get_curr_stat(ch, STAT_STR) +
 		    number_range(1, GET_DAMROLL(ch)), "rake",
-		    DAM_BASH, DAMF_SHOW);
+		    DAM_BASH, DAM_F_SHOW);
 		check_downstrike(victim);
 	} else {
-		damage(ch, victim, 0, "rake", DAM_SLASH, DAMF_SHOW);
+		damage(ch, victim, 0, "rake", DAM_SLASH, DAM_F_SHOW);
 		check_improve(ch, "rake", FALSE, 1);
 		WAIT_STATE(ch, skill_beats("rake"));
 	}

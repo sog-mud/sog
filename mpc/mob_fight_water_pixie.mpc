@@ -1,5 +1,5 @@
 /*
- * $Id: mob_fight_water_pixie.mpc,v 1.1 2001-09-17 19:18:43 fjoe Exp $
+ * $Id: mob_fight_water_pixie.mpc,v 1.2 2001-12-03 22:35:57 fjoe Exp $
  */
 
 char victim = get_random_fighting($n);
@@ -8,5 +8,5 @@ if (victim == NULL)
 
 act("{C$n releases a lash of iced-filled water from its outstretched hand!{x",
     $n, NULL, NULL, TO_ROOM);
-damage($n, victim, number_range(30, 50), NULL, DAM_COLD, DAMF_NONE);
+damage($n, victim, number_range(30, 50), NULL, DAM_COLD, DAM_F_NONE);
 return 0;

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: update.c,v 1.207 2001-12-03 22:28:45 fjoe Exp $
+ * $Id: update.c,v 1.208 2001-12-03 22:39:32 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -222,7 +222,7 @@ gain_condition(CHAR_DATA *ch, int iCond, int value)
 			if (!damage_hunger)
 				damage_hunger = 1;
 			damage(ch, ch, damage_hunger, NULL,
-			       DAM_NONE, DAMF_HUNGER);
+			       DAM_NONE, DAM_F_HUNGER);
 			if (ch->position == POS_SLEEPING)
 				return;
 			break;
@@ -234,7 +234,7 @@ gain_condition(CHAR_DATA *ch, int iCond, int value)
 			if (!damage_hunger)
 				damage_hunger = 1;
 			damage(ch, ch, damage_hunger, NULL,
-			       DAM_NONE, DAMF_THIRST);
+			       DAM_NONE, DAM_F_THIRST);
 			if (ch->position == POS_SLEEPING)
 				return;
 			break;
@@ -257,7 +257,7 @@ gain_condition(CHAR_DATA *ch, int iCond, int value)
 			if (!damage_hunger)
 				damage_hunger = 1;
 			damage(ch, ch, damage_hunger, NULL,
-			       DAM_NONE, DAMF_HUNGER);
+			       DAM_NONE, DAM_F_HUNGER);
 			if (ch->position == POS_SLEEPING)
 				return;
 			break;

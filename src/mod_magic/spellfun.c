@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.279 2001-12-03 22:28:27 fjoe Exp $
+ * $Id: spellfun.c,v 1.280 2001-12-03 22:39:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -257,7 +257,7 @@ SPELL_FUN(spell_acid_blast, sn, level, ch, vo)
 	dam = dice(level, 12);
 	if (saves_spell(level, victim, DAM_ACID))
 		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_ACID, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_ACID, DAM_F_SHOW);
 }
 
 SPELL_FUN(spell_armor, sn, level, ch, vo)
@@ -323,7 +323,7 @@ SPELL_FUN(spell_burning_hands, sn, level, ch, vo)
 	dam = dice(level , 2) + 7;
 	if (saves_spell(level, victim, DAM_FIRE))
 		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_FIRE, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_FIRE, DAM_F_SHOW);
 }
 
 typedef struct spell_dispel_t spell_dispel_t;
@@ -468,7 +468,7 @@ chain_lightning_cb(void *vo, va_list ap)
 	dam = dice(*plevel, 6);
 	if (saves_spell(*plevel, vch, DAM_LIGHTNING))
 		dam /= 3;
-	damage(ch, vch, dam, sn, DAM_LIGHTNING, DAMF_SHOW);
+	damage(ch, vch, dam, sn, DAM_LIGHTNING, DAM_F_SHOW);
 	*plevel -= 4;  /* decrement damage */
 
 	if (*plevel <= 0)
@@ -496,7 +496,7 @@ SPELL_FUN(spell_chain_lightning, sn, level, ch, vo)
 	dam = dice(level, 6);
 	if (saves_spell(level, victim, DAM_LIGHTNING))
 		dam /= 3;
-	damage(ch, victim, dam, sn, DAM_LIGHTNING, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_LIGHTNING, DAM_F_SHOW);
 	level -= 4;   /* decrement damage */
 
 	while (level > 0) {
@@ -526,7 +526,7 @@ SPELL_FUN(spell_chain_lightning, sn, level, ch, vo)
 		dam = dice(level, 6);
 		if (saves_spell(level, ch, DAM_LIGHTNING))
 			dam /= 3;
-		damage(ch, ch, dam, sn, DAM_LIGHTNING, DAMF_SHOW);
+		damage(ch, ch, dam, sn, DAM_LIGHTNING, DAM_F_SHOW);
 		level -= 4;  /* decrement damage */
 	} /* now go back and find more victims */
 }
@@ -616,7 +616,7 @@ SPELL_FUN(spell_chill_touch, sn, level, ch, vo)
 	} else
 		dam /= 2;
 
-	damage(ch, victim, dam, sn, DAM_COLD, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_COLD, DAM_F_SHOW);
 }
 
 SPELL_FUN(spell_colour_spray, sn, level, ch, vo)
@@ -630,7 +630,7 @@ SPELL_FUN(spell_colour_spray, sn, level, ch, vo)
 	else
 		spellfun_call("blindness", NULL, level/2, ch, (void *) victim);
 
-	damage(ch, victim, dam, sn, DAM_LIGHT, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_LIGHT, DAM_F_SHOW);
 }
 
 #define OBJ_VNUM_LIGHT_BALL		21
@@ -1221,7 +1221,7 @@ SPELL_FUN(spell_energy_drain, sn, level, ch, vo)
 
 	act_char("You feel your life slipping away!", victim);
 	act_char("Wow....what a rush!", ch);
-	damage(ch, victim, dam, sn, DAM_NEGATIVE, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_NEGATIVE, DAM_F_SHOW);
 }
 
 SPELL_FUN(spell_mana_drain, sn, level, ch, vo)
@@ -1265,7 +1265,7 @@ SPELL_FUN(spell_draining_touch, sn, level, ch, vo)
 	act("$n touches $N with $s fingers.", ch, NULL, victim, TO_NOTVICT);
 	act("$n touches you with $s fingers.", ch, NULL, victim, TO_VICT);
 
-	damage(ch, victim, dam, sn, DAM_NEGATIVE, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_NEGATIVE, DAM_F_SHOW);
 	if (IS_EXTRACTED(victim))
 		return;
 
@@ -1288,7 +1288,7 @@ SPELL_FUN(spell_draining_touch, sn, level, ch, vo)
 SPELL_FUN(spell_hellfire, sn, level, ch, vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
-	damage(ch, victim, dice(level, 7), sn, DAM_FIRE, DAMF_SHOW);
+	damage(ch, victim, dice(level, 7), sn, DAM_FIRE, DAM_F_SHOW);
 }
 
 static void *
@@ -1311,7 +1311,7 @@ iceball_cb(void *vo, va_list ap)
 	if (saves_spell(level, vch, DAM_COLD))
 		*pdam /= 2;
 	vch->move -= UMIN(vch->move, movedam);
-	damage(ch, vch, *pdam, sn, DAM_COLD, DAMF_SHOW);
+	damage(ch, vch, *pdam, sn, DAM_COLD, DAM_F_SHOW);
 	return NULL;
 }
 
@@ -1330,7 +1330,7 @@ SPELL_FUN(spell_fireball, sn, level, ch, vo)
 	dam = dice(level, 11);
 	if (saves_spell(level, victim, DAM_FIRE))
 		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_FIRE, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_FIRE, DAM_F_SHOW);
 }
 
 SPELL_FUN(spell_fireproof, sn, level, ch, vo)
@@ -1770,31 +1770,31 @@ SPELL_FUN(spell_magic_missile, sn, level, ch, vo)
 
 	if (saves_spell(level, victim, DAM_ENERGY))
 		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_ENERGY, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_ENERGY, DAM_F_SHOW);
 
 	if (LEVEL(ch) > 4)  {
 		dam = number_range(dam_each[level] / 2, dam_each[level] * 2);
 		if (saves_spell(level, victim, DAM_ENERGY))
 			dam /= 2;
-		damage(ch, victim, dam, sn, DAM_ENERGY, DAMF_SHOW);
+		damage(ch, victim, dam, sn, DAM_ENERGY, DAM_F_SHOW);
 	}
 	if (LEVEL(ch) > 8)  {
 		dam = number_range(dam_each[level] / 2, dam_each[level] * 2);
 		if (saves_spell(level, victim,DAM_ENERGY))
 			dam /= 2;
-		damage(ch, victim, dam, sn, DAM_ENERGY, DAMF_SHOW);
+		damage(ch, victim, dam, sn, DAM_ENERGY, DAM_F_SHOW);
 	}
 	if (LEVEL(ch) > 12)  {
 		dam = number_range(dam_each[level] / 2, dam_each[level] * 2);
 		if (saves_spell(level, victim,DAM_ENERGY))
 			dam /= 2;
-		damage(ch, victim, dam, sn, DAM_ENERGY, DAMF_SHOW);
+		damage(ch, victim, dam, sn, DAM_ENERGY, DAM_F_SHOW);
 	}
 	if (LEVEL(ch) > 16)  {
 		dam = number_range(dam_each[level] / 2, dam_each[level] * 2);
 		if (saves_spell(level, victim,DAM_ENERGY))
 			dam /= 2;
-		damage(ch, victim, dam, sn, DAM_ENERGY, DAMF_SHOW);
+		damage(ch, victim, dam, sn, DAM_ENERGY, DAM_F_SHOW);
 	}
 }
 
@@ -2093,7 +2093,7 @@ SPELL_FUN(spell_shocking_grasp, sn, level, ch, vo)
 	dam		= number_range(dam_each[level] / 2, dam_each[level] * 2);
 	if (saves_spell(level, victim,DAM_LIGHTNING))
 		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_LIGHTNING, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_LIGHTNING, DAM_F_SHOW);
 }
 
 SPELL_FUN(spell_sleep, sn, level, ch, vo)
@@ -2358,10 +2358,10 @@ SPELL_FUN(spell_acid_breath, sn, level, ch, vo)
 
 	if (saves_spell(level, victim, DAM_ACID)) {
 		acid_effect(victim, level/2, dam/4);
-		damage(ch,victim, dam/2, sn, DAM_ACID, DAMF_SHOW);
+		damage(ch,victim, dam/2, sn, DAM_ACID, DAM_F_SHOW);
 	} else {
 		acid_effect(victim, level, dam);
-		damage(ch, victim, dam, sn, DAM_ACID, DAMF_SHOW);
+		damage(ch, victim, dam, sn, DAM_ACID, DAM_F_SHOW);
 	}
 }
 
@@ -2384,18 +2384,18 @@ fire_breath_cb(void *vo, va_list ap)
 	if (vch == victim) { /* full damage */
 		if (saves_spell(level, vch, DAM_FIRE)) {
 			fire_effect(vch, level/2, dam/4);
-			damage(ch, vch, dam/2, sn, DAM_FIRE, DAMF_SHOW);
+			damage(ch, vch, dam/2, sn, DAM_FIRE, DAM_F_SHOW);
 		} else {
 			fire_effect(vch, level, dam);
-			damage(ch, vch, dam, sn, DAM_FIRE, DAMF_SHOW);
+			damage(ch, vch, dam, sn, DAM_FIRE, DAM_F_SHOW);
 		}
 	} else { /* partial damage */
 		if (saves_spell(level - 2, vch, DAM_FIRE)) {
 			fire_effect(vch, level/4, dam/8);
-			damage(ch, vch, dam/4, sn, DAM_FIRE, DAMF_SHOW);
+			damage(ch, vch, dam/4, sn, DAM_FIRE, DAM_F_SHOW);
 		} else {
 			fire_effect(vch, level/2, dam/4);
-			damage(ch, vch, dam/2, sn, DAM_FIRE, DAMF_SHOW);
+			damage(ch, vch, dam/2, sn, DAM_FIRE, DAM_F_SHOW);
 		}
 	}
 
@@ -2439,18 +2439,18 @@ frost_breath_cb(void *vo, va_list ap)
 	if (vch == victim) { /* full damage */
 		if (saves_spell(level, vch, DAM_COLD)) {
 			cold_effect(vch, level/2, dam/4);
-			damage(ch, vch, dam/2, sn, DAM_COLD, DAMF_SHOW);
+			damage(ch, vch, dam/2, sn, DAM_COLD, DAM_F_SHOW);
 		} else {
 			cold_effect(vch, level, dam);
-			damage(ch, vch, dam, sn, DAM_COLD, DAMF_SHOW);
+			damage(ch, vch, dam, sn, DAM_COLD, DAM_F_SHOW);
 		}
 	} else {
 		if (saves_spell(level - 2, vch, DAM_COLD)) {
 			cold_effect(vch, level/4, dam/8);
-			damage(ch, vch, dam/4, sn, DAM_COLD, DAMF_SHOW);
+			damage(ch, vch, dam/4, sn, DAM_COLD, DAM_F_SHOW);
 		} else {
 			cold_effect(vch, level/2, dam/4);
-			damage(ch, vch, dam/2, sn, DAM_COLD, DAMF_SHOW);
+			damage(ch, vch, dam/2, sn, DAM_COLD, DAM_F_SHOW);
 		}
 	}
 
@@ -2494,10 +2494,10 @@ gas_breath_cb(void *vo, va_list ap)
 
 	if (saves_spell(level, vch, DAM_POISON)) {
 		poison_effect(vch, level/2, dam/4);
-		damage(ch, vch, dam/2, sn, DAM_POISON, DAMF_SHOW);
+		damage(ch, vch, dam/2, sn, DAM_POISON, DAM_F_SHOW);
 	} else {
 		poison_effect(vch, level, dam);
-		damage(ch, vch, dam, sn, DAM_POISON, DAMF_SHOW);
+		damage(ch, vch, dam, sn, DAM_POISON, DAM_F_SHOW);
 	}
 
 	return NULL;
@@ -2536,10 +2536,10 @@ SPELL_FUN(spell_lightning_breath, sn, level, ch, vo)
 
 	if (saves_spell(level, victim, DAM_LIGHTNING)) {
 		shock_effect(victim, level/2, dam/4);
-		damage(ch, victim, dam/2, sn, DAM_LIGHTNING, DAMF_SHOW);
+		damage(ch, victim, dam/2, sn, DAM_LIGHTNING, DAM_F_SHOW);
 	} else {
 		shock_effect(victim, level, dam);
-		damage(ch, victim, dam, sn, DAM_LIGHTNING, DAMF_SHOW);
+		damage(ch, victim, dam, sn, DAM_LIGHTNING, DAM_F_SHOW);
 	}
 }
 
@@ -2554,7 +2554,7 @@ SPELL_FUN(spell_general_purpose, sn, level, ch, vo)
 	dam = number_range(25, 100);
 	if (saves_spell(level, victim, DAM_PIERCE))
 		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_PIERCE, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_PIERCE, DAM_F_SHOW);
 }
 
 SPELL_FUN(spell_high_explosive, sn, level, ch, vo)
@@ -2565,7 +2565,7 @@ SPELL_FUN(spell_high_explosive, sn, level, ch, vo)
 	dam = number_range(30, 120);
 	if (saves_spell(level, victim, DAM_PIERCE))
 		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_PIERCE, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_PIERCE, DAM_F_SHOW);
 }
 
 SPELL_FUN(spell_find_object, sn, level, ch, vo)
@@ -2704,7 +2704,7 @@ SPELL_FUN(spell_acid_arrow, sn, level, ch, vo)
 	dam = dice(level, 8);
 	if (saves_spell(level, victim, DAM_ACID))
 		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_ACID, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_ACID, DAM_F_SHOW);
 }
 
 SPELL_FUN(spell_spectral_furor, sn, level, ch, vo)
@@ -2717,7 +2717,7 @@ SPELL_FUN(spell_spectral_furor, sn, level, ch, vo)
 		dam /= 2;
 	act("The fabric of the cosmos strains in fury about $N!",
 	    ch, NULL, victim, TO_NOTVICT);
-	damage(ch, victim, dam, sn, DAM_LIGHT, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_LIGHT, DAM_F_SHOW);
 }
 
 SPELL_FUN(spell_disruption, sn, level, ch, vo)
@@ -2730,7 +2730,7 @@ SPELL_FUN(spell_disruption, sn, level, ch, vo)
 		dam /= 2;
 	act("A weird energy encompasses $N, causing you to question $S continued existence.",
 	    ch, NULL, victim, TO_NOTVICT);
-	damage(ch, victim, dam, sn, DAM_NEGATIVE, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_NEGATIVE, DAM_F_SHOW);
 }
 
 SPELL_FUN(spell_sonic_resonance, sn, level, ch, vo)
@@ -2743,7 +2743,7 @@ SPELL_FUN(spell_sonic_resonance, sn, level, ch, vo)
 		dam /= 2;
 	act("A cylinder of kinetic energy enshrouds $N causing $S to resonate.",
 	    ch, NULL, victim, TO_NOTVICT);
-	damage(ch, victim, dam, sn, DAM_SOUND, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_SOUND, DAM_F_SHOW);
 }
 
 /* acid */
@@ -2757,7 +2757,7 @@ SPELL_FUN(spell_sulfurus_spray, sn, level, ch, vo)
 		dam /= 2;
 	act("A stinking spray of sulfurous liquid rains down on $N." ,
 	    ch, NULL, victim, TO_NOTVICT);
-	damage(ch, victim, dam, sn, DAM_ACID, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_ACID, DAM_F_SHOW);
 }
 
 SPELL_FUN(spell_caustic_font, sn, level, ch, vo)
@@ -2770,7 +2770,7 @@ SPELL_FUN(spell_caustic_font, sn, level, ch, vo)
 		dam /= 2;
 	act("A fountain of caustic liquid forms below $N. The smell of $S degenerating tissues is revolting!",
 	    ch, NULL, victim, TO_NOTVICT);
-	damage(ch, victim, dam, sn, DAM_ACID, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_ACID, DAM_F_SHOW);
 }
 
 SPELL_FUN(spell_acetum_primus, sn, level, ch, vo)
@@ -2783,7 +2783,7 @@ SPELL_FUN(spell_acetum_primus, sn, level, ch, vo)
 		dam /= 2;
 	act("A cloak of primal acid enshrouds $N, sparks form as it consumes all it touches.",
 	    ch, NULL, victim, TO_NOTVICT);
-	damage(ch, victim, dam, sn, DAM_ACID, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_ACID, DAM_F_SHOW);
 }
 
 /*  Electrical  */
@@ -2797,7 +2797,7 @@ SPELL_FUN(spell_galvanic_whip, sn, level, ch, vo)
 		dam /= 2;
 	act("$n conjures a whip of ionized particles, which lashes ferociously at $N.",
 	    ch, NULL, victim, TO_NOTVICT);
-	damage(ch, victim, dam, sn, DAM_LIGHTNING, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_LIGHTNING, DAM_F_SHOW);
 }
 
 SPELL_FUN(spell_magnetic_trust, sn, level, ch, vo)
@@ -2810,7 +2810,7 @@ SPELL_FUN(spell_magnetic_trust, sn, level, ch, vo)
 		dam /= 2;
 	act("An unseen energy moves nearby, causing your hair to stand on end!",
 	    ch, NULL, victim, TO_NOTVICT);
-	damage(ch, victim, dam, sn, DAM_LIGHTNING, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_LIGHTNING, DAM_F_SHOW);
 }
 
 SPELL_FUN(spell_quantum_spike, sn, level, ch, vo)
@@ -2823,7 +2823,7 @@ SPELL_FUN(spell_quantum_spike, sn, level, ch, vo)
 		dam /= 2;
 	act("$N seems to dissolve into tiny unconnected particles, then is painfully reassembled.",
 	    ch, NULL, victim, TO_NOTVICT);
-	damage(ch, victim, dam, sn, DAM_LIGHTNING, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_LIGHTNING, DAM_F_SHOW);
 }
 
 /* negative */
@@ -2854,7 +2854,7 @@ SPELL_FUN(spell_hand_of_undead, sn, level, ch, vo)
 	act_char("You feel your life slipping away!", victim);
 	act("$N is grasped by an incomprehensible hand of undead!",
 	    ch, NULL, victim, TO_NOTVICT);
-	damage(ch, victim, dam, sn, DAM_NEGATIVE, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_NEGATIVE, DAM_F_SHOW);
 }
 
 static inline void
@@ -2999,9 +2999,9 @@ hurricane_cb(void *vo, va_list ap)
 		*pdam = *pdam / 2;
 
 	if (saves_spell(level, vch, DAM_AIR))
-		damage(ch, vch, *pdam/2, sn, DAM_AIR, DAMF_SHOW);
+		damage(ch, vch, *pdam/2, sn, DAM_AIR, DAM_F_SHOW);
 	else
-		damage(ch, vch, *pdam, sn, DAM_AIR, DAMF_SHOW);
+		damage(ch, vch, *pdam, sn, DAM_AIR, DAM_F_SHOW);
 	return NULL;
 }
 
@@ -3237,7 +3237,7 @@ SPELL_FUN(spell_disintegrate, sn, level, ch, vo)
 	||  IS_CLAN_GUARD(victim)
 	||  IS_SET(victim->in_room->room_flags, ROOM_BATTLE_ARENA)) {
 		dam = dice(level, 20) ;
-		damage(ch, victim, dam, sn, DAM_ENERGY, DAMF_SHOW);
+		damage(ch, victim, dam, sn, DAM_ENERGY, DAM_F_SHOW);
 		return;
 	}
 
@@ -3415,7 +3415,7 @@ SPELL_FUN(spell_mana_transfer, sn, level, ch, vo)
 
 	if (ch->hit > 50)
 		victim->mana = UMIN(victim->max_mana, victim->mana + number_range(20,120));
-	damage(ch, ch, 50, sn, DAM_NONE, DAMF_SHOW);
+	damage(ch, ch, 50, sn, DAM_NONE, DAM_F_SHOW);
 }
 
 SPELL_FUN(spell_mental_knife, sn, level, ch, vo)
@@ -3432,7 +3432,7 @@ SPELL_FUN(spell_mental_knife, sn, level, ch, vo)
 
 	if (saves_spell(level, victim, DAM_MENTAL))
 	      dam /= 2;
-	damage(ch, victim, dam, sn, DAM_MENTAL, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_MENTAL, DAM_F_SHOW);
 	if (IS_EXTRACTED(victim))
 		return;
 
@@ -3563,7 +3563,7 @@ scourge_cb(void *vo, va_list ap)
 
 	if (saves_spell(level, vch, DAM_FIRE))
 		dam /= 2;
-	damage(ch, vch, dam, sn, DAM_FIRE, DAMF_SHOW);
+	damage(ch, vch, dam, sn, DAM_FIRE, DAM_F_SHOW);
 	return NULL;
 }
 
@@ -4085,7 +4085,7 @@ SPELL_FUN(spell_matandra, sn, level, ch, vo)
 
 	dam = dice(level, 7);
 
-	damage(ch, victim, dam, sn, DAM_HOLY, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_HOLY, DAM_F_SHOW);
 }
 
 SPELL_FUN(spell_amnesia, sn, level, ch, vo)
@@ -4585,7 +4585,7 @@ SPELL_FUN(spell_dragon_breath, sn, level, ch, vo)
 	if (!is_safe_spell(ch, victim, TRUE)) {
 		if (saves_spell(level, victim, DAM_FIRE))
 			dam /= 2;
-		damage(ch, victim, dam, sn, DAM_FIRE, DAMF_SHOW);
+		damage(ch, victim, dam, sn, DAM_FIRE, DAM_F_SHOW);
 	}
 }
 
@@ -5023,7 +5023,7 @@ SPELL_FUN(spell_entangle, sn, level, ch, vo)
 	if (saves_spell(level, victim, DAM_PIERCE))
 		dam /= 2;
 
-	damage(ch, victim, dam, sn, DAM_PIERCE, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_PIERCE, DAM_F_SHOW);
 	if (IS_EXTRACTED(victim))
 		return;
 
@@ -5263,10 +5263,10 @@ sand_storm_cb(void *vo, va_list ap)
 
 	if (saves_spell(level, vch, DAM_COLD)) {
 		sand_effect(vch, level/2, dam/4);
-		damage(ch, vch, dam/2, sn, DAM_COLD, DAMF_SHOW);
+		damage(ch, vch, dam/2, sn, DAM_COLD, DAM_F_SHOW);
 	} else {
 		sand_effect(vch, level, dam);
-		damage(ch, vch, dam, sn, DAM_COLD, DAMF_SHOW);
+		damage(ch, vch, dam, sn, DAM_COLD, DAM_F_SHOW);
 	}
 
 	return NULL;
@@ -5805,7 +5805,7 @@ SPELL_FUN(spell_power_word_kill, sn, level, ch, vo)
 	} else if (saves_mental || saves_nega) {
 		dam = dice(level , 20) ;
 		damage(ch, victim , dam , sn,
-			saves_nega ? DAM_MENTAL : DAM_NEGATIVE,  DAMF_SHOW);
+			saves_nega ? DAM_MENTAL : DAM_NEGATIVE,  DAM_F_SHOW);
 	} else
 		raw_kill(ch, victim);
 }
@@ -6166,7 +6166,7 @@ SPELL_FUN(spell_witch_curse, sn, level, ch, vo)
 
 	if (IS_IMMORTAL(victim)
 	||  IS_CLAN_GUARD(victim)) {
-		damage(ch, victim, dice(level, 8), sn, DAM_NEGATIVE, DAMF_SHOW);
+		damage(ch, victim, dice(level, 8), sn, DAM_NEGATIVE, DAM_F_SHOW);
 		return;
 	}
 
@@ -6388,7 +6388,7 @@ SPELL_FUN(spell_vampiric_blast, sn, level, ch, vo)
 	dam = dice(level, 12);
 	if (saves_spell(level, victim, DAM_ACID))
 		dam /= 2;
-	damage(ch, victim, dam, sn, DAM_ACID, DAMF_SHOW);
+	damage(ch, victim, dam, sn, DAM_ACID, DAM_F_SHOW);
 }
 
 SPELL_FUN(spell_dragon_skin, sn, level, ch, vo)
@@ -7409,7 +7409,7 @@ SPELL_FUN(spell_hunger_weapon, sn, level, ch, vo)
 	||  IS_OBJ_STAT(obj, ITEM_ANTI_EVIL)) {
 		act("The gods are infuriated!", ch, NULL, NULL, TO_ALL);
 		damage(ch, ch, (ch->hit - 1) > 1000 ? 1000 : (ch->hit - 1),
-		       NULL, DAM_HOLY, DAMF_SHOW);
+		       NULL, DAM_HOLY, DAM_F_SHOW);
 		return;
 	}
 
@@ -7733,7 +7733,7 @@ death_ripple_cb(void *vo, va_list ap)
 	(*pcounter)++;
 	if (saves_spell(level, vch, DAM_NEGATIVE))
 		dam /= 2;
-	damage(ch, vch, dam, sn, DAM_NEGATIVE, DAMF_SHOW);
+	damage(ch, vch, dam, sn, DAM_NEGATIVE, DAM_F_SHOW);
 
 	if (door != -1 && IS_NPC(vch))
 		path_to_track(ch, vch, door);
@@ -7907,7 +7907,7 @@ SPELL_FUN(spell_phantasmal_force, sn, level, ch, vo)
 				  "bee swarm",			// notrans
 				  TO_CHAR, POS_DEAD);
 			damage(ch, victim, dam_total, NULL, DAM_MENTAL,
-				DAMF_NOREDUCE);
+				DAM_F_NOREDUCE);
 			return;
 		case 2:
 			act("Group of goblins jumps out their ambush towards you!", ch, NULL, victim, TO_VICT);
@@ -7925,7 +7925,7 @@ SPELL_FUN(spell_phantasmal_force, sn, level, ch, vo)
 				  "troop of goblins",		// notrans
 				  TO_CHAR, POS_DEAD);
 			damage(ch, victim, dam_total, NULL, DAM_MENTAL,
-				DAMF_NOREDUCE);
+				DAM_F_NOREDUCE);
 			return;
 		case 1:
 			act("Large troll has arrived.",
@@ -7943,7 +7943,7 @@ SPELL_FUN(spell_phantasmal_force, sn, level, ch, vo)
 				  ch, vp_dam_alias(dam_total), victim,
 				  "troll", TO_CHAR, POS_DEAD);
 			damage(ch, victim, dam_total, NULL, DAM_MENTAL,
-				DAMF_NOREDUCE);
+				DAM_F_NOREDUCE);
 			return;
 		case 0:
 		default:
@@ -7959,7 +7959,7 @@ SPELL_FUN(spell_phantasmal_force, sn, level, ch, vo)
 				  ch, vp_dam_alias(dam), victim,
 				  "fire breath", TO_CHAR, POS_DEAD);
 			damage(ch, victim, dam_total, NULL, DAM_MENTAL,
-				DAMF_NOREDUCE);
+				DAM_F_NOREDUCE);
 			fire_effect((void *)victim, level, 0);
 			return;
 		}
@@ -7976,7 +7976,7 @@ SPELL_FUN(spell_phantasmal_force, sn, level, ch, vo)
 				  ch, vp_dam_alias(dam), victim,
 				  "fireball", TO_CHAR, POS_DEAD);
 			damage(ch, victim, dam_total, NULL, DAM_MENTAL,
-				DAMF_NOREDUCE);
+				DAM_F_NOREDUCE);
 			return;
 		case 2:
 			act("The earth trembles beneath your feet.",
@@ -7989,7 +7989,7 @@ SPELL_FUN(spell_phantasmal_force, sn, level, ch, vo)
 				  ch, vp_dam_alias(dam), victim,
 				  "earthquake", TO_CHAR, POS_DEAD);
 			damage(ch, victim, dam_total, NULL, DAM_MENTAL,
-				DAMF_NOREDUCE);
+				DAM_F_NOREDUCE);
 			return;
 
 		case 1:
@@ -8009,7 +8009,7 @@ SPELL_FUN(spell_phantasmal_force, sn, level, ch, vo)
 				  "demon prince",		// notrans
 				  TO_CHAR, POS_DEAD);
 			damage(ch, victim, dam_total, NULL, DAM_MENTAL,
-			       DAMF_NOREDUCE);
+			       DAM_F_NOREDUCE);
 			return;
 
 		case 0:

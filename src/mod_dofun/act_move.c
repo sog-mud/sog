@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.283 2001-11-21 14:33:25 kostik Exp $
+ * $Id: act_move.c,v 1.284 2001-12-03 22:39:07 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1420,7 +1420,7 @@ DO_FUN(do_vbite, ch, argument)
 		}
 	} else {
 		check_improve(ch, "vampiric bite", FALSE, 1);
-		damage(ch, victim, 0, "vampiric bite", DAM_NONE, DAMF_SHOW);
+		damage(ch, victim, 0, "vampiric bite", DAM_NONE, DAM_F_SHOW);
 	}
 	if (!IS_NPC(victim) && victim->position == POS_FIGHTING)
 		yell(victim, ch, "Help! $lu{$N} tried to bite me!");
@@ -1556,7 +1556,7 @@ DO_FUN(do_bash_door, ch, argument)
 		WAIT_STATE(ch, beats * 3 / 2);
 		damage_bash = ch->damroll +
 			      number_range(4,4 + 4* ch->size + chance/5);
-		damage(ch, ch, damage_bash, "bash door", DAM_BASH, DAMF_SHOW);
+		damage(ch, ch, damage_bash, "bash door", DAM_BASH, DAM_F_SHOW);
 	}
 }
 
@@ -1823,7 +1823,7 @@ DO_FUN(do_vtouch, ch, argument)
 		if (IS_AWAKE(victim))
 			victim->position = POS_SLEEPING;
 	} else {
-		damage(ch, victim, 0, "vampiric touch", DAM_NONE, DAMF_SHOW);
+		damage(ch, victim, 0, "vampiric touch", DAM_NONE, DAM_F_SHOW);
 		check_improve(ch, "vampiric touch", FALSE, 1);
 	}
 	yell(victim, ch, "Help! $lu{$N} tried to touch me!");
@@ -2436,7 +2436,7 @@ send_arrow(CHAR_DATA *ch, CHAR_DATA *victim, OBJ_DATA *arrow,
 				obj_to_room(arrow,victim->in_room);
 
 			damage(ch, victim, dam, sn,
-				damtype_class(arrow->value[3].s), DAMF_SHOW);
+				damtype_class(arrow->value[3].s), DAM_F_SHOW);
 			if (!IS_EXTRACTED(victim))
 				path_to_track(ch, victim, door);
 		    }
@@ -2560,7 +2560,7 @@ DO_FUN(do_charge, ch, argument)
 		WAIT_STATE(victim, beats * 2);
 		WAIT_STATE(ch, beats);
 	} else {
-		damage(ch, victim, 0, "charge", DAM_NONE, DAMF_SHOW);
+		damage(ch, victim, 0, "charge", DAM_NONE, DAM_F_SHOW);
 		check_improve(ch, "charge", FALSE, 1);
 		if (number_percent() > get_skill(ch, "riding")) {
 			if ((pexit=ch->in_room->exit[direction]) == NULL

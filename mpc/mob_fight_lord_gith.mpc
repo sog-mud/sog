@@ -1,5 +1,5 @@
 /*
- * $Id: mob_fight_lord_gith.mpc,v 1.1 2001-09-23 16:51:10 fjoe Exp $
+ * $Id: mob_fight_lord_gith.mpc,v 1.2 2001-12-03 22:35:57 fjoe Exp $
  */
 
 char victim = get_random_fighting($n);
@@ -11,5 +11,5 @@ act("{rWith unparalleled rage, $n summons forth a torrent of acid!{x",
 
 /* damage as in two 'acid blast' */
 int dam = 2 * dice(char_level($n), 12);
-damage($n, victim, dam, NULL, DAM_ACID, DAMF_NONE);
+damage($n, victim, dam, NULL, DAM_ACID, DAM_F_NONE);
 return 0;
