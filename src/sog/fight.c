@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.167 1999-05-15 10:32:41 fjoe Exp $
+ * $Id: fight.c,v 1.168 1999-05-17 14:10:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2204,7 +2204,7 @@ void group_gain(CHAR_DATA *ch, CHAR_DATA *victim)
 	||  victim->leader)
 		return;
 
-	lch = ch->leader ? ch->leader : ch;
+	lch = leader_lookup(ch);
 
 	members = 0;
 	group_levels = 0;

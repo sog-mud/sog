@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.137 1999-05-15 11:28:34 avn Exp $
+ * $Id: handler.c,v 1.138 1999-05-17 14:10:16 fjoe Exp $
  */
 
 /***************************************************************************
@@ -3742,3 +3742,35 @@ void SET_ORG_RACE(CHAR_DATA *ch, int race)
 		ch->pcdata->race = race;
 }
 #endif
+
+/*
+ * returns TRUE if lch is one of the leaders of ch
+ */
+bool is_leader(CHAR_DATA *ch, CHAR_DATA *lch)
+{
+	for (ch = ch->leader; ch; ch = ch->leader) {
+		if (ch == lch)
+			return TRUE;
+	}
+
+	return FALSE;
+}
+
+void set_leader(CHAR_DATA *ch, CHAR_DATA *lch)
+{
+	/*
+	 * This code must prevent ->leader cycling
+	 */
+	if (is_leader(lch, ch)) {
+		CHAR_DATA *tch;
+		CHAR_DATA *tch_next;
+
+		for (tch = lch; tch && tch != ch; tch = tch_next) {
+			tch_next = tch->leader;
+			log_printf("set_leader: removing cycle: %s", tch->name);
+			tch->leader = NULL;
+			stop_follower(tch);
+		}
+	}
+	ch->leader = lch;
+}

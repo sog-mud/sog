@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.162 1999-05-15 10:32:38 fjoe Exp $
+ * $Id: act_comm.c,v 1.163 1999-05-17 14:10:11 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1052,22 +1052,15 @@ void do_follow(CHAR_DATA *ch, const char *argument)
 	}
 
 	REMOVE_BIT(ch->plr_flags, PLR_NOFOLLOW);
-	
-	if (ch->master != NULL)
-		stop_follower(ch);
-
 	add_follower(ch, victim);
 }
 
 void add_follower(CHAR_DATA *ch, CHAR_DATA *master)
 {
-	if (ch->master != NULL) {
-		bug("Add_follower: null master.", 0);
-		return;
-	}
-
-	ch->master        = master;
-	ch->leader        = NULL;
+	if (ch->master)
+		stop_follower(ch);
+	ch->master = master;
+	ch->leader = NULL;
 
 	if (can_see(master, ch))
 		act_puts("$n now follows you.", ch, NULL, master, 

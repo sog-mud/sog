@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.186 1999-05-15 13:01:29 fjoe Exp $
+ * $Id: merc.h,v 1.187 1999-05-17 14:10:19 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2036,6 +2036,8 @@ bool	check_blind_raw	(CHAR_DATA *ch);
 
 void	show_affects(CHAR_DATA *ch, BUFFER *output);
 
+void	set_leader(CHAR_DATA *ch, CHAR_DATA *lch);
+
 /* interp.c */
 void	interpret	(CHAR_DATA *ch, const char *argument);
 void	interpret_raw	(CHAR_DATA *ch, const char *argument, bool is_order);
@@ -2175,10 +2177,10 @@ extern	const	int			rev_dir		[];
 extern	const	struct spec_type	spec_table	[];
 extern	char				DEFAULT_PROMPT	[];
 
-/* act_comm.c */
-void		check_sex	(CHAR_DATA *ch);
 void		add_follower	(CHAR_DATA *ch, CHAR_DATA *master);
 void		stop_follower	(CHAR_DATA *ch);
+
+void		check_sex	(CHAR_DATA *ch);
 void		nuke_pets	(CHAR_DATA *ch);
 void		die_follower	(CHAR_DATA *ch);
 void		do_afk		(CHAR_DATA *ch, const char *argument);

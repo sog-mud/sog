@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.137 1999-05-15 09:28:23 fjoe Exp $
+ * $Id: interp.c,v 1.138 1999-05-17 14:10:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -141,7 +141,6 @@ cmd_t cmd_table[] =
     { "compare",	do_compare,	POS_RESTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "consider",	do_consider,	POS_RESTING,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "concentrate",	do_concentrate,	POS_STANDING,	 0,  LOG_NORMAL	},
-    { "count",		do_count,	POS_SLEEPING,	HE,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "credits",	do_credits,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "date",		do_date,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "deposit",	do_deposit,	POS_STANDING,	 0,  LOG_NORMAL	},
@@ -332,7 +331,7 @@ cmd_t cmd_table[] =
     { "bashdoor",	do_bash_door,	POS_FIGHTING,    0,  LOG_NORMAL	},
     { "bs",		do_backstab,	POS_STANDING,	 0,  LOG_NORMAL, CMD_HIDDEN },
     { "bite",		do_vbite,	POS_STANDING,	 0,  LOG_NORMAL, CMD_HIDDEN },
-    { "blindness",	do_blindness_dust,POS_FIGHTING,	 0,  LOG_ALWAYS	},
+    { "blindness",	do_blindness_dust,POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "touch",		do_vtouch,	POS_STANDING,	 0,  LOG_NORMAL, CMD_HIDDEN },
     { "berserk",	do_berserk,	POS_FIGHTING,	 0,  LOG_NORMAL	},
     { "bloodthirst",	do_bloodthirst,	POS_FIGHTING,	 0,  LOG_NORMAL	},
@@ -355,7 +354,7 @@ cmd_t cmd_table[] =
     { "make",           do_make,        POS_STANDING,    0,  LOG_NORMAL	},
     { "mount",          do_mount,       POS_STANDING,    0,  LOG_NORMAL	},
     { "murde",		do_murde,	POS_FIGHTING,	 0,  LOG_NORMAL, CMD_HIDDEN },
-    { "murder",		do_murder,	POS_FIGHTING,	 0,  LOG_ALWAYS },
+    { "murder",		do_murder,	POS_FIGHTING,	 0,  LOG_NORMAL },
     { "nerve",          do_nerve,       POS_FIGHTING,    0,  LOG_NORMAL	},
     { "poison",		do_poison_smoke,POS_FIGHTING,	 0,  LOG_ALWAYS	},
     { "rescue",		do_rescue,	POS_FIGHTING,	 0,  LOG_NORMAL	},

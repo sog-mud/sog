@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.229 1999-05-15 10:32:38 fjoe Exp $
+ * $Id: act_info.c,v 1.230 1999-05-17 14:10:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1124,10 +1124,8 @@ void do_look(CHAR_DATA *ch, const char *argument)
 
 			affect_strip(ch, gsn_love_potion);
 
-			if (ch->master)
-				stop_follower(ch);
 			add_follower(ch, victim);
-			ch->leader = victim;
+			set_leader(ch, victim);
 
 			af.where = TO_AFFECTS;
 			af.type = gsn_charm_person;
@@ -1612,7 +1610,6 @@ DO_FUN(do_who)
 	OBJ_DATA *obj;
 
 	int nNumber;
-	int nMatch = 0;
 	int count = 0;
 
 	const char *clan_names = str_empty;
@@ -1726,7 +1723,6 @@ DO_FUN(do_who)
 
 		if (d->connected != CON_PLAYING)
 			continue;
-		count++;
 
 		wch = d->original ? d->original : d->character;
 		if (!wch || !can_see(ch, wch))
@@ -1769,13 +1765,12 @@ DO_FUN(do_who)
 				continue;
 		}
 
-		nMatch++;
+		count++;
 		do_who_raw(ch, wch, output);
 	}
 
-	max_on = UMAX(count, max_on);
 	buf_printf(output, "{x\nPlayers found: %d. Most so far today: %d.\n",
-		   nMatch, max_on);
+		   count, max_on);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
 
@@ -1791,6 +1786,7 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 	char arg[MAX_INPUT_LENGTH];
 	BUFFER *output = NULL;
 	DESCRIPTOR_DATA *d;
+	int count = 0;
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -1811,9 +1807,10 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 
 		wch = (d->original != NULL) ? d->original : d->character;
 
-		if (!can_see(ch,wch))
+		if (!can_see(ch, wch))
 			continue;
 
+		count++;
 		if (!str_prefix(arg,wch->name)) {
 			if (output == NULL)
 				output = buf_new(-1);
@@ -1826,30 +1823,10 @@ void do_whois(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	buf_add(output, "{x");
+	buf_printf(output, "{x\nPlayers found: %d. Most so far today: %d.\n",
+		   count, max_on);
 	page_to_char(buf_string(output), ch);
 	buf_free(output);
-}
-
-void do_count(CHAR_DATA *ch, const char *argument)
-{
-	int count;
-	DESCRIPTOR_DATA *d;
-
-	count = 0;
-
-	for (d = descriptor_list; d != NULL; d = d->next)
-		if (d->connected == CON_PLAYING && can_see(ch, d->character))
-			count++;
-
-	max_on = UMAX(count,max_on);
-
-	char_printf(ch, "There are %d characters on, ", count);
-	if (max_on == count)
-		char_puts("the most so far today", ch);
-	else
-		char_printf(ch, "the most on today was %d", max_on);
-	char_puts(".\n", ch);
 }
 
 void do_inventory(CHAR_DATA *ch, const char *argument)

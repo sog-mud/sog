@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.47 1999-05-15 09:28:23 fjoe Exp $
+ * $Id: interp.h,v 1.48 1999-05-17 14:10:17 fjoe Exp $
  */
 
 /***************************************************************************
@@ -109,7 +109,6 @@ DECLARE_DO_FUN(do_commands	);
 DECLARE_DO_FUN(do_compare	);
 DECLARE_DO_FUN(do_concentrate	);
 DECLARE_DO_FUN(do_consider	);
-DECLARE_DO_FUN(do_count		);
 DECLARE_DO_FUN(do_crecall	);
 DECLARE_DO_FUN(do_credits	);
 DECLARE_DO_FUN(do_crucify	);

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.100 1999-05-15 10:32:41 fjoe Exp $
+ * $Id: spellfun2.c,v 1.101 1999-05-17 14:10:18 fjoe Exp $
  */
 
 /***************************************************************************
@@ -4862,14 +4862,8 @@ void spell_control_undead(int sn, int level, CHAR_DATA *ch, void *vo, int target
  	if (is_safe(ch, victim))
  		return;
  
- 	if (victim->master)
- 		stop_follower(victim);
  	add_follower(victim, ch);
- 
- 	if (ch->leader == victim) 
- 		ch->leader = NULL;
- 
- 	victim->leader = ch;
+	set_leader(victim, ch);
  
  	af.where	= TO_AFFECTS;
  	af.type		= sn;
@@ -5076,7 +5070,6 @@ void spell_mirror(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	AFFECT_DATA af;
 	int mirrors, new_mirrors;
 	CHAR_DATA *gch;
-	CHAR_DATA *tmp_vict;
 	int order;
 
 	if (IS_NPC(victim)) {
@@ -5105,9 +5098,6 @@ void spell_mirror(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	af.location	= 0;
 	af.bitvector	= 0;
 
-	for (tmp_vict = victim; is_affected(tmp_vict, gsn_doppelganger);
-	     tmp_vict = tmp_vict->doppel);
-
 	order = number_range(0, level/5 - mirrors);
 
 	for (new_mirrors = 0; mirrors + new_mirrors < level/5; new_mirrors++) {
@@ -5116,13 +5106,13 @@ void spell_mirror(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		mlstr_free(gch->short_descr);
 		mlstr_free(gch->long_descr);
 		mlstr_free(gch->description);
-		gch->name = str_qdup(tmp_vict->name);
-		gch->short_descr = mlstr_dup(tmp_vict->short_descr);
+		gch->name = str_qdup(victim->name);
+		gch->short_descr = mlstr_dup(victim->short_descr);
 		gch->long_descr = mlstr_printf(gch->pIndexData->long_descr,
-					       tmp_vict->name,
-					       tmp_vict->pcdata->title);
-		gch->description = mlstr_dup(tmp_vict->description);
-		gch->sex = tmp_vict->sex;
+					       victim->name,
+					       victim->pcdata->title);
+		gch->description = mlstr_dup(victim->description);
+		gch->sex = victim->sex;
     
 		af.type = gsn_doppelganger;
 		af.duration = level;
