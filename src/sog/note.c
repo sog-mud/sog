@@ -1,5 +1,5 @@
 /*
- * $Id: note.c,v 1.12 1998-07-11 20:55:13 fjoe Exp $
+ * $Id: note.c,v 1.13 1998-07-13 10:27:18 efdi Exp $
  */
 
 /***************************************************************************
@@ -186,13 +186,9 @@ void save_notes(int type)
 
     fclose(fpReserve);
     if ((fp = fopen(name, "w")) == NULL)
-    {
 	perror(name);
-    }
-    else
-    {
-	for (; pnote != NULL; pnote = pnote->next)
-	{
+    else {
+	for (; pnote != NULL; pnote = pnote->next) {
 	    fprintf(fp, "Sender  %s~\n", pnote->sender);
 	    fprintf(fp, "Date    %s~\n", pnote->date);
 	    fprintf(fp, "Stamp   %ld\n", pnote->date_stamp);
@@ -205,6 +201,7 @@ void save_notes(int type)
    	return;
     }
 }
+
 void load_notes(void)
 {
     load_thread(NOTE_FILE,&note_list, NOTE_NOTE, 14*24*60*60);
@@ -324,19 +321,15 @@ void append_note(NOTE_DATA *pnote)
 
     if (*list == NULL)
 	*list = pnote;
-    else
-    {
+    else {
 	for (last = *list; last->next != NULL; last = last->next);
 	last->next = pnote;
     }
 
     fclose(fpReserve);
     if ((fp = fopen(name, "a")) == NULL)
-    {
         perror(name);
-    }
-    else
-    {
+    else {
         fprintf(fp, "Sender  %s~\n", pnote->sender);
         fprintf(fp, "Date    %s~\n", pnote->date);
         fprintf(fp, "Stamp   %ld\n", pnote->date_stamp);
@@ -368,8 +361,6 @@ bool is_note_to(CHAR_DATA *ch, NOTE_DATA *pnote)
     return FALSE;
 }
 
-
-
 void note_attach(CHAR_DATA *ch, int type)
 {
     NOTE_DATA *pnote;
@@ -389,8 +380,6 @@ void note_attach(CHAR_DATA *ch, int type)
     ch->pnote		= pnote;
     return;
 }
-
-
 
 void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool delete)
 {
@@ -474,7 +463,7 @@ void note_remove(CHAR_DATA *ch, NOTE_DATA *pnote, bool delete)
     return;
 }
 
-bool hide_note (CHAR_DATA *ch, NOTE_DATA *pnote)
+bool hide_note(CHAR_DATA *ch, NOTE_DATA *pnote)
 {
     time_t last_read;
 
@@ -553,6 +542,7 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
     char *list_name;
     int vnum;
     int anum;
+    DESCRIPTOR_DATA *d;
 
     if (IS_NPC(ch))
 	return;
@@ -843,6 +833,16 @@ void parse_note(CHAR_DATA *ch, const char *argument, int type)
 	ch->pnote->date_stamp		= current_time;
 
 	append_note(ch->pnote);
+
+	/* Show new note message */
+	for (d = descriptor_list; d; d = d->next) {
+		CHAR_DATA *fch = d->character;
+		if (is_note_to(fch, ch->pnote)
+		&&  fch != ch
+		&&  d->connected == CON_PLAYING)
+			char_puts("You have new note.\n\r", fch);
+	}
+
 	ch->pnote = NULL;
 	return;
     }
