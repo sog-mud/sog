@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.169 1999-04-14 16:56:38 fjoe Exp $
+ * $Id: comm.c,v 1.170 1999-04-15 05:39:32 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1587,10 +1587,6 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	CHAR_DATA *ch;
 	char *pwdnew;
 	int iClass,race,i;
-	int obj_count;
-	int obj_count2;
-	OBJ_DATA *obj;
-	OBJ_DATA *inobj;
 	int nextquest = 0;
 	struct sockaddr_in sock;
 	int size;
@@ -2166,84 +2162,55 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 	case CON_GET_OLD_PASSWORD:
 		write_to_buffer(d, "\n\r", 2);
 
-	if (strcmp(crypt(argument, ch->pcdata->pwd), ch->pcdata->pwd)) {
-	    write_to_buffer(d, "Wrong password.\n\r", 0);
-	    log_printf("Wrong password by %s@%s", ch->name, d->host);
-	    if (ch->endur == 2)
-	    	close_descriptor(d);
-	    else {
-	    	write_to_descriptor(d->descriptor, (char *) echo_off_str, 0);
- 	    	write_to_buffer(d, "Password: ", 0);
-	    	d->connected = CON_GET_OLD_PASSWORD;
-		ch->endur++;
-	    }
-	    return;
-	}
+		if (strcmp(crypt(argument, ch->pcdata->pwd), ch->pcdata->pwd)) {
+			write_to_buffer(d, "Wrong password.\n\r", 0);
+			log_printf("Wrong password by %s@%s",
+				   ch->name, d->host);
+			if (ch->endur == 2)
+				close_descriptor(d);
+			else {
+				write_to_descriptor(d->descriptor,
+						    (char *) echo_off_str, 0);
+				write_to_buffer(d, "Password: ", 0);
+				d->connected = CON_GET_OLD_PASSWORD;
+				ch->endur++;
+			}
+			return;
+		}
  
+		if (ch->pcdata->pwd[0] == '\0') {
+			write_to_buffer(d, "Warning! Null password!\n\r"
+					   "Type 'password null <new password>'"
+					   " to fix.\n\r", 0);
+		}
 
-	if (ch->pcdata->pwd[0] == (int) NULL) {
-	    write_to_buffer(d, "Warning! Null password!\n\r",0);
-	    write_to_buffer(d, "Please report old password with bug.\n\r",0);
-	    write_to_buffer(d, 
-		"Type 'password null <new password>' to fix.\n\r",0);
-	}
+		write_to_descriptor(d->descriptor, (char *) echo_on_str, 0);
 
+		if (check_playing(d, ch->name)
+		||  check_reconnect(d, ch->name, TRUE))
+			return;
 
-	write_to_descriptor(d->descriptor, (char *) echo_on_str, 0);
+		/*
+		 * Workaround against clone cheat --
+		 * Log in once, connect a second time and enter only name,
+		 * drop all and quit with first character, finish login
+		 * with second. This clones the player's inventory.
+		 */
+		name = str_qdup(ch->name);
+		free_char(ch);
+		load_char_obj(d, name);
+		free_string(name);
+		ch = d->character;
 
-	if (check_playing(d, ch->name))
-	    return;
-
-	if (check_reconnect(d, ch->name, TRUE))
-	    return;
-
-	/* Count objects in loaded player file */
-	for (obj = ch->carrying,obj_count = 0; obj != NULL; 
-	     obj = obj->next_content)
-	  obj_count += get_obj_realnumber(obj);
-
-	name = str_qdup(ch->name);
-	free_char(ch);
-	load_char_obj(d, name);
-	free_string(name);
-
-	ch = d->character;
-
-	if (IS_SET(ch->plr_flags, PLR_NEW)) {
-	  write_to_buffer(d,
-			  "Please login again to create a new character.\n\r",
-			  0);
-	  close_descriptor(d);
-	  return;
-	}
+		if (IS_SET(ch->plr_flags, PLR_NEW)) {
+			write_to_buffer(d, "Please login again to create a new "
+					   "character.\n\r", 0);
+			close_descriptor(d);
+			return;
+		}
 	  
-	/* Count objects in refreshed player file */
-	for (obj = ch->carrying,obj_count2 = 0; obj != NULL;
-	     obj = obj->next_content)
-	  obj_count2 += get_obj_realnumber(obj);
-
-
-	log_printf("%s@%s has connected.", ch->name, d->host);
-	d->connected = CON_READ_IMOTD;
-
-	/* This player tried to use the clone cheat -- 
-	 * Log in once, connect a second time and enter only name,
-	     * drop all and quit with first character, finish login with second.
-	     * This clones the player's inventory.
-	     */
-	if (obj_count != obj_count2) {
-	  log_printf("%s@%s tried to use the clone cheat.", ch->name, d->host);
-	  for (obj = ch->carrying; obj != NULL; obj = inobj) {
-	    inobj = obj->next_content;
-	    extract_obj_nocount(obj);
-	  }
-
-	  for (obj_count = 0; obj_count < MAX_STATS; obj_count++)
-	    ch->perm_stat[obj_count]--;
-
-	  save_char_obj(ch, FALSE);
-	  char_puts("The gods frown upon your actions.\n", ch);
-	}
+		log_printf("%s@%s has connected.", ch->name, d->host);
+		d->connected = CON_READ_IMOTD;
 
 		/* FALL THRU */
 
