@@ -17,7 +17,7 @@ treasure AGIT AO
 0 0 0 0 0
 0 0 0 P
 S 'control weather' 100 A
-G female
+g female~
 #2503
 fountain фонтан~
 @eng white marble fountain@rus ~~фонтан~~ из белого мрамора~
@@ -26,7 +26,7 @@ marble~
 drink AGI 0
 -1 -1 'water' 0 0
 0 0 0 P
-G male
+g male~
 #2504
 fire-place камин~
 @eng fire-place@rus камин~
@@ -35,7 +35,7 @@ marble~
 container AG 0
 100 E 0 100 100
 0 0 0 P
-G male
+g male~
 #2505
 arm-chair кресло~
 @eng the soft arm-chair@rus ~~мягкое~~ ~~кресло~~~
@@ -44,7 +44,7 @@ unknown~
 furniture AG 0
 A EIJKN FI DEFG DEFG
 0 0 0 P
-G none
+g none~
 #2506
 table столик~
 @eng a small table@rus столик~
@@ -53,7 +53,7 @@ ebony~
 trash AG 0
 0 0 0 0 0
 0 0 10000 P
-G male
+g male~
 #2507
 ember уголек~
 @eng An ember@rus уголек~
@@ -66,7 +66,7 @@ A
 13 25
 A
 18 3
-G male
+g male~
 #2508
 carpet ковер~
 @eng A carpet@rus ковер~
@@ -75,7 +75,7 @@ wool~
 treasure 0 0
 0 0 0 0 0
 0 0 0 P
-G male
+g male~
 #2509
 torch факел~
 @eng a torch@rus факел~
@@ -84,7 +84,7 @@ unknown~
 light 0 0
 0 0 100 0 0
 0 0 0 P
-G none
+g none~
 #2510
 key small ключик~
 @eng A small key@rus ключик~
@@ -93,7 +93,7 @@ steel~
 key 0 AO
 0 0 0 0 0
 0 10 500 P
-G none
+g none~
 #2511
 key ivory small ключик~
 @eng a small ivory key@rus ~~маленький~~ ~~ключик~~ из слоновой кости~
@@ -102,7 +102,7 @@ ivory~
 key C AO
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #2512
 carpet дорожка~
 @eng a red carpet@rus ~~ковровая~~ ~~дорожка~~~
@@ -111,7 +111,7 @@ wool~
 furniture 0 0
 BD EIJKN EHK 0 0
 0 0 0 P
-G female
+g female~
 #2513
 ring split кольцо~
 @eng a split ring@rus ~~кольцо~~ для ключей~
@@ -120,7 +120,7 @@ unknown~
 container G AO
 10 0 0 0 0
 0 10 100 P
-G none
+g none~
 #2514
 chest сундучок~
 @eng a small chest@rus ~~маленький~~ ~~сундучок~~~
@@ -129,7 +129,7 @@ ebony~
 container G AO
 10 AC 0 100 100
 0 10 500 P
-G male
+g male~
 #2515
 key ключ steel~
 @eng a steel key@rus ~~стальной~~ ~~ключ~~~
@@ -138,7 +138,7 @@ steel~
 key A AO
 0 0 0 0 0
 0 1 10000 P
-G none
+g none~
 #2516
 box коробка~
 @eng a cardboard box@rus ~~картонная~~ ~~коробка~~~
@@ -147,7 +147,7 @@ unknown~
 container 0 0
 100 0 0 0 0
 0 0 0 P
-G male
+g male~
 #2517
 closet шкафчик magic~
 @eng a magic closet@rus ~~магический~~ ~~шкафчик~~~
@@ -156,7 +156,7 @@ magic~
 container G 0
 100 ABCD 2518 0 0
 0 0 0 P
-G male
+g male~
 #2518
 word magic слово~
 @eng the magic word@rus ~~волшебное~~ ~~слово~~~
@@ -165,7 +165,7 @@ magic~
 key G AO
 0 0 0 0 0
 0 10 10000 P
-G none
+g none~
 #2519
 cup life чаша~
 @eng Cup of Life@rus ~~Чаша~~ Жизни~
@@ -174,7 +174,7 @@ gold~
 trash CGT AO
 0 0 0 0 0
 0 0 0 P
-G female
+g female~
 #2520
 bookshelf полка~
 @eng the bookshelf@rus ~~книжная~~ ~~полка~~~
@@ -183,7 +183,7 @@ wood~
 container 0 0
 100 0 0 0 0
 0 0 0 P
-G female
+g female~
 #2521
 scroll свиток~
 @eng an old scroll@rus ~~старинный~~ ~~свиток~~~
@@ -192,7 +192,7 @@ unknown~
 scroll G AO
 0 'reserved' 'reserved' 'reserved' 'reserved'
 0 10 10000 P
-G none
+g none~
 #2522
 book книга~
 @eng an old book@rus ~~старая~~ ~~книга~~~
@@ -201,7 +201,7 @@ unknown~
 scroll G AO
 0 'reserved' 'reserved' 'reserved' 'reserved'
 0 10 10000 P
-G none
+g none~
 #0
 
 #ROOMS

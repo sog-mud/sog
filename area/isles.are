@@ -820,7 +820,7 @@ E
 fruit~
 Have you had your potassium today?
 ~
-G none
+g none~
 #17012
 bananas bunch~
 a bunch of bananas~
@@ -829,7 +829,7 @@ food~
 food 0 A
 AC AC 0 0 0
 0 2 10 P
-G none
+g none~
 #17013
 sign warning~
 a wooden sign~
@@ -846,7 +846,7 @@ sign wooden~
 *       One-Eye      *
 **********************
 ~
-G none
+g none~
 #17014
 mallet wooden~
 a wooden mallet~
@@ -864,7 +864,7 @@ mallet wooden~
 This mallet looks like it was meant for hammering
 pegs, and not for combat.
 ~
-G none
+g none~
 #17015
 robe feather~
 a feather robe~
@@ -877,7 +877,7 @@ E
 robe feather~
 It sure is pretty.
 ~
-G none
+g none~
 #17016
 bottle rum~
 a bottle of rum~
@@ -886,7 +886,7 @@ glass~
 drink 0 A
 6 6 'rum' 0 0
 0 3 30 P
-G none
+g none~
 #17017
 laid~
 LAID!~
@@ -895,7 +895,7 @@ gold~
 money 0 A
 1000 0 0 0 0
 0 3 0 P
-G none
+g none~
 #17018
 sextant~
 a sextant~
@@ -910,7 +910,7 @@ Upon closer examination, you see that the sextant has an inscription
 on the side. It reads 'Recite these words on what you need, and at 
 last I will be freed'
 ~
-G none
+g none~
 #17019
 girdle might~
 the girdle of might~
@@ -933,7 +933,7 @@ There is no wrong, there is no right
 All there is, is triumphant might 
 ------------------------------------
 ~
-G none
+g none~
 #17020
 gauntlets accuracy~
 gauntlets of accuracy~
@@ -949,7 +949,7 @@ arrows arrow gauntlets~
 The arrows are branded in the leather, and align along
 the thumbs.
 ~
-G none
+g none~
 #17021
 key iron~
 an iron key~
@@ -958,7 +958,7 @@ iron~
 key 0 AO
 0 0 0 0 0
 0 1 0 P
-G none
+g none~
 #17022
 pool lava~
 a lava pool~
@@ -971,7 +971,7 @@ E
 lava pool~
 It is so hot your eyes are watering.
 ~
-G none
+g none~
 #17023
 cutlass sword~
 a cutlass~
@@ -984,7 +984,7 @@ A
 18 5
 A
 19 5
-G none
+g none~
 #17024
 eye kracken krackens kracken's~
 the kracken's eye~
@@ -999,7 +999,7 @@ You stare into the eye, and you feel an ancient evil try to
 wrest control of your mind away from you. You win and break
 your gaze.
 ~
-G none
+g none~
 #17025
 armbands volcanoes~
 armbands of the Volcanoes~
@@ -1014,7 +1014,7 @@ E
 fire~
 The armbands are burning brightly.
 ~
-G none
+g none~
 #17026
 chest bronze~
 a huge bronze chest~
@@ -1023,7 +1023,7 @@ bronze~
 container G 0
 200 0 0 100 100
 500 0 0 P
-G none
+g none~
 #17027
 javelin~
 a javelin~
@@ -1034,7 +1034,7 @@ armor 0 AO
 60 3 1000 P
 A
 18 7
-G none
+g none~
 #17028
 cloak looting~
 the cloak of looting~
@@ -1053,7 +1053,7 @@ E
 cloak~
 Yes, you have seen a thief wearing this once before.
 ~
-G none
+g none~
 #17029
 blood ettins ettin ettin's~
 Ettin's blood~
@@ -1062,7 +1062,7 @@ glass~
 potion FG A
 30 'sanctuary' 'stone skin' 'shield' 'armor'
 20 3 4000 P
-G none
+g none~
 #17030
 hoard pirate pirate's~
 the pirate's hoard~
@@ -1071,7 +1071,7 @@ gold~
 money 0 A
 100000 0 0 0 0
 0 30 0 P
-G none
+g none~
 #17031
 pants sharkskin~
 sharkskin pants~
@@ -1091,7 +1091,7 @@ Upon closer examination, you notice a tag on the waistline. It reads
  bewitched these pants to give you great might and valor in combat.
  Wear them well. - Merlin'
 ~
-G none
+g none~
 #17032
 crossbow poison~
 a crossbow of poison~
@@ -1106,7 +1106,7 @@ The crossbow has been lovingly crafted from a fine ebony, and bears
 a strange black metal for the bow itself. The quarrels are also made
 of the same black metal.
 ~
-G none
+g none~
 #17033
 orb nullifier~
 the nullifier orb~
@@ -1120,7 +1120,7 @@ orb nullifier~
 You try to peer closely at the orb, but it is just a vague black shape.
 Holding it in your hand, you can feel its smooth, spherical shape.
 ~
-G none
+g none~
 #17034
 chest padlocked~
 a padlocked chest~
@@ -1134,7 +1134,7 @@ chest~
 Upon close examination, you see no way of opening this chest short of the
 key.
 ~
-G none
+g none~
 #17035
 key metal~
 a metal key~
@@ -1147,7 +1147,7 @@ E
 key metal~
 The key is small, perhaps it might open a padlock.
 ~
-G none
+g none~
 #17036
 waverunner boat~
 an outrigger called 'Waverunner'~
@@ -1156,7 +1156,7 @@ wood~
 boat T 0
 CDEGHIK 0 0 0 0
 20 30 1000 P
-G none
+g none~
 #17037
 lantern watchman's watchman watchamans~
 a watchman's lantern~
@@ -1172,7 +1172,7 @@ lantern~
 You get the feeling that this lantern used to be able to do lots
 of amazing things.
 ~
-G none
+g none~
 #17038
 pearl giant~
 a giant pearl~
@@ -1186,7 +1186,7 @@ pearl giant~
 The pearl is perfectly formed, and is and sprays a rainbow of colors
 off of its shiny surface.
 ~
-G none
+g none~
 #17039
 hammock hemp~
 a hemp hammock~
@@ -1199,7 +1199,7 @@ E
 hemp hammock~
 The hammock has an inviting sag, and it beckons to you.
 ~
-G none
+g none~
 #17040
 doubloons booty~
 doubloons and booty~
@@ -1208,7 +1208,7 @@ gold~
 money 0 A
 100000 0 0 0 0
 0 30 0 P
-G none
+g none~
 #17041
 key golden hawk~
 a golden hawk key~
@@ -1222,7 +1222,7 @@ key golden hawk~
 The key is made entirely of gold, and has the head of a hawk
 on it.
 ~
-G none
+g none~
 #17042
 stone floating~
 a floating stone~
@@ -1235,7 +1235,7 @@ E
 stone floating~
 The stone is of a strange material you have rarely seen.
 ~
-G none
+g none~
 #17043
 robe hawklord hawk lord~
 the vest of the Hawklord~
@@ -1255,7 +1255,7 @@ vest hawk lord hawklord~
 The blue mesh seems to attract metal object on your body.
 In fact, you can attach small throwing items onto it.
 ~
-G none
+g none~
 #17044
 winch ladder~
 a winch ladder~
@@ -1269,7 +1269,7 @@ winch~
 You examine the rope ladder on the winch and estimate it 
 can go down 500'.
 ~
-G none
+g none~
 #17045
 gizzard~
 a gizzard~
@@ -1278,7 +1278,7 @@ food~
 pill 0 A
 35 'heal' '' '' ''
 25 2 0 P
-G none
+g none~
 #17046
 chest iron bound~
 an iron bound chest~
@@ -1292,7 +1292,7 @@ chest iron~
 Engraved on a band in the corner are the words:
 `Secure Chest TM by Beich'
 ~
-G none
+g none~
 #17047
 silver mountain~
 a mountain of silver~
@@ -1305,7 +1305,7 @@ E
 silver mountain~
 The silver coins are from many different mints and eras.
 ~
-G none
+g none~
 #17048
 mug everfull~
 the everfull mug~
@@ -1319,7 +1319,7 @@ mug everfull~
 The ale is a light orange color with a hint of fuggles hops in
 its aroma.
 ~
-G none
+g none~
 #17049
 wings lord vulture's vulture vultures~
 Lord Vulture's wings~
@@ -1339,7 +1339,7 @@ wings~
 Upon closer examination, you see that the wings have a support harness
 which straps to your biceps.
 ~
-G none
+g none~
 #17050
 eye eagle~
 the eye of the eagle~
@@ -1353,7 +1353,7 @@ eye~
 The eye has a fascinating depth to it. The black spot seems to drink in
 the light around it.
 ~
-G none
+g none~
 #17051
 dagger throwing~
 a throwing dagger~
@@ -1370,7 +1370,7 @@ E
 metal dagger blue~
 The blue metal seems to stick to other metal objects.
 ~
-G none
+g none~
 #17052
 grog mug~
 a mug of grog~
@@ -1379,7 +1379,7 @@ unknown~
 potion G AO
 40 'refresh' 'harm' 'remove curse' ''
 30 3 1000 P
-G none
+g none~
 #17053
 cloak fur skin~
 a fur skin cloak~
@@ -1388,7 +1388,7 @@ fur~
 armor 0 AK
 26 26 26 20 0
 80 7 2000 P
-G none
+g none~
 #17054
 vest fur skin~
 a fur skin vest~
@@ -1397,7 +1397,7 @@ fur~
 armor 0 AD
 26 26 26 20 0
 80 5 5000 P
-G none
+g none~
 #17055
 leggings fur skin~
 fur skin leggings~
@@ -1406,7 +1406,7 @@ fur~
 armor 0 AF
 25 27 27 20 0
 80 8 5000 P
-G none
+g none~
 #17056
 buckler spiked~
 a spiked buckler~
@@ -1419,7 +1419,7 @@ A
 17 -10
 A
 19 7
-G none
+g none~
 #17057
 icicle~
 an icicle~
@@ -1428,7 +1428,7 @@ ice~
 wand G AO
 40 5 5 'frost breath' 0
 70 2 1000 P
-G none
+g none~
 #17058
 pool melting~
 the melting pool~
@@ -1437,7 +1437,7 @@ ice~
 fountain 0 0
 1000 1000 'water' 0 0
 0 0 0 P
-G none
+g none~
 #17059
 garrote wire~
 a garrote wire~
@@ -1446,7 +1446,7 @@ metal~
 weapon 0 AN
 whip 10 9 'grep' 0
 80 1 1000 P
-G none
+g none~
 #17060
 stone ghost~
 the ghost stone~
@@ -1455,7 +1455,7 @@ stone~
 wand G AN
 40 5 5 'pass door' 0
 40 1 1000 P
-G none
+g none~
 #17061
 battle axe two handed~
 a mighty two handed battle axe~
@@ -1466,7 +1466,7 @@ axe 11 11 'chop' DEF
 88 45 9000 P
 A
 19 10
-G none
+g none~
 #17062
 armor frost~
 frost armor~
@@ -1492,7 +1492,7 @@ armor frost~
 The armor is made from interlocking bands of ice, which overlap
 in a scale like fashion. The armor is cold to touch.
 ~
-G none
+g none~
 #17063
 Frostbite sword winter~
 "Frostbite" sword of winter~
@@ -1517,7 +1517,7 @@ You run your eyes along the frosty edge of the great blade of ice. Chills
 run through you as you think of the unbearable cold you would feel as
 this slid through your body.
 ~
-G none
+g none~
 #17064
 bag gold~
 a bag of gold~
@@ -1526,7 +1526,7 @@ leather~
 money 0 A
 50000 0 0 0 0
 0 30 0 P
-G none
+g none~
 #17065
 bag silver~
 a bag of silver~
@@ -1535,7 +1535,7 @@ leather~
 money 0 A
 25000 0 0 0 0
 0 30 0 P
-G none
+g none~
 #17066
 bag gems~
 a bag of gems~
@@ -1544,7 +1544,7 @@ leather~
 money 0 A
 75000 0 0 0 0
 0 30 0 P
-G none
+g none~
 #17067
 bag jewelry~
 a bag of jewelry~
@@ -1553,7 +1553,7 @@ leather~
 money 0 A
 100000 0 0 0 0
 0 30 0 P
-G none
+g none~
 #17068
 eye evil~
 the evil eye~
@@ -1562,7 +1562,7 @@ unknown~
 wand EG AO
 45 15 15 'sleep' 0
 40 1 1000 P
-G none
+g none~
 #17069
 map hell's reef~
 a map to Hell's Reef~
@@ -1575,7 +1575,7 @@ E
 map hell's reef~
 >From southpoint, go 4n and 3w. There ye shall find a great treasure.
 ~
-G none
+g none~
 #17070
 bonfire roaring~
 a roaring bonfire~
@@ -1584,7 +1584,7 @@ unknown~
 trash ABQ 0
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #0
 
 #ROOMS

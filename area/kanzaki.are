@@ -55,7 +55,7 @@ before you and quacking loudly at everyone.
 всех и вся.
 ~
 song bird~
-AGHe 0 0 0
+AGHWe 0 0 0
 10 10 10d10+100 1d1+0 2d5+5 'peckb'
 4 4 4 7
 IJ 0 0 C
@@ -74,7 +74,7 @@ to be served anyway.
 видит.
 ~
 song bird~
-AGHe bz 0 0
+AGHWe bz 0 0
 5 5 5d5+30 0d0+0 2d2+3 'peckb'
 7 7 7 7
 J 0 0 C
@@ -168,7 +168,7 @@ as if there weren't all those years behind him.
 ~
 human~
 ABGT DFPbz 1000 0
-32 30 9d60+719 0d0+0 9d6+35 'punch'
+32 30 9d60+719 0d0+0 6d6+20 'punch'
 -12 -12 -12 -10
 AFHKNQX 0 BDHILPQ 0
 stand stand male 1000
@@ -269,6 +269,268 @@ FHIN AB CD 0
 stand stand male 5000
 0 ABCDEF medium unknown
 F for HM
+#47112
+visitor посетитель человек мужчина human man~
+@eng a visitor@rus ~~посетитель~~~
+@eng A middle-aged man is talking to his neighbor.
+@rus Средних лет мужчина разговаривает о чем-то со своим соседом.
+~
+@eng He is wearing working clothes, it looks like
+he came here to rest and talk for a while,
+before going back to the fields.
+@rus На нем рабочая одежда - похоже, он заглянул сюда
+ненадолго и вскоре вновь отправится на поля.
+~
+human~
+ABG 0 300 0
+25 15 5d100+500 0d0+0 5d6+15 'beating'
+-8 -8 -8 -8
+FHINU 0 BLPQ 0
+sit sit none 10000
+0 ABCDEF medium unknown
+F for HM
+#47113
+shopkeeper продавец парень guy salesman~
+@eng the salesman@rus ~~продавец~~~
+@eng A young guy offers you to buy his goods.
+@rus Молодой парень предлагает тебе купить что-нибудь.
+~
+@eng This young man is the blacksmith's son. He is
+built really well for his age - obviously, his
+father often finds him other businesses, besides
+selling the goods in the shop.
+@rus Этот парень - сын кузнеца. Он молод, но отлично сложен
+и силен - видимо, отец частенько находит ему и другую
+работу, помимо торговли здесь.
+~
+human~
+ABGe 0 0 0
+25 25 5d100+1500 0d0+0 5d5+30 'smash'
+-10 -10 -10 -10
+CEFHIJN AB DH 0
+stand stand none 15000
+0 ABCDEF medium unknown
+F for HM
+#47114
+blacksmith man кузнец~
+@eng blacksmith@rus ~~кузнец~~~
+@eng A blacksmith is here, hammering a chunk of iron.
+@rus Кузнец стоит у наковальни, занятый своим делом.
+~
+@eng This man appears very strong and broad in shoulders,
+standing higher than anyone else you have seen in this
+village. Right now he is busy forging another tool,
+and you're hypnotized by the measured swinging of his
+hammer.
+@rus Этот человек необычайно широк в плечах и заметно выше
+остальных жителей деревни. Сейчас он занят изготовле-
+нием очередного инструмента, и сильные, размеренные
+удары молота в его руках о наковальню завораживают тебя.
+~
+human~
+ABGi 0 500 0
+30 25 5d100+1000 0d0+0 6d6+35 'smash'
+-15 -15 -15 -15
+DEFHOZ 0 BHIP 0
+stand stand male 0
+0 ABCDEF large unknown
+F for HM
+#47115
+servant слуга парень~
+@eng a servant boy@rus ~~слуга~~~
+@eng A servant boy hurries past you.
+@rus Юноша торопится выполнить поручение хозяина.
+~
+@eng Obviously, he is a son of some local peasant taken
+into this house as a servant. He looks quick enough
+to carry out his masters' instructions and this job
+must be fine for him.
+@rus Видимо, это один из крестьянских детей, принятый в этот
+дом в качестве прислуги. Он достаточно расторопен, работы 
+тут немного и, похоже, он вполне доволен своим положением.
+~
+human~
+AH V 0 0
+15 5 5d20+400 0d0+0 4d5+5 'punch'
+0 0 0 0
+FRU 0 0 0
+stand stand male 0
+0 ABCDEF medium unknown
+F for HM
+#47116
+servant girl служанка~
+@eng a servant girl@rus ~~служанка~~~
+@eng A servant girl is busy cleaning the house up.
+@rus Девушка из прислуги занята тем, что наводит чистоту.
+~
+@eng She is a daughter of some local villager. Quite young
+and beautiful, she seems happy with her job. Her duties
+mostly consist of cleaning up and carrying out other
+little instructions.
+@rus Это дочка одного из деревенских жителей. Совсем молода
+и вполне симпатична, она выглядит довольной своей ра-
+ботой. В основном ее обязанности заключаются в уборке
+и выполнении мелких поручений хозяев.
+~
+human~
+AH 0 0 0
+15 5 2d50+350 0d0+0 4d4+5 'slap'
+0 0 0 0
+FHRU 0 0 0
+stand stand female 0
+0 ABCDEF medium unknown
+F for HM
+#47117
+cook woman повар женщина~
+@eng the cook@rus ~~повариха~~~
+@eng An elderly woman fusses around the oven, cooking something.
+@rus Немолодая женнщина суетится у очага, готовя пищую
+~
+@eng She has her post for ages already and became almost
+a member of the family. Other servants treat her with
+respect and help whenever she needs it.
+@rus Похоже, она работает здесь уже давно и стала практически
+членом семьи. Другие слуги относятся к ней с уважением и
+охотно помогают, если нужно.
+~
+human~
+ABHe 0 500 0
+20 7 5d25+400 0d0+0 5d5+9 'slap'
+-5 -5 -5 -5
+FH 0 0 0
+stand stand female 0
+0 ABCDEF medium unknown
+F for HM
+#47118
+miyu мию девушка girl~
+@eng Miyu@rus Мию~
+@eng A beautiful girl is sittint on tatamis, thinking of something.
+@rus Красивая девушка сидит на татами, о чем-то задумавшись.
+~
+@eng Her face is trikingly beautiful and radiates genuine
+freshness and fascination of youth. She smiles affably
+as sees you and goes back to her unburdensome concerns.
+You think... that there must be a fiance already..
+@rus Ее лицо поражает своей естественной красотой и девичьей
+свежестью. Увидев тебя, она приветливо улыбается, и воз-
+вращается к своим необременительным заботам. Ты думаешь...
+впрочем, у нее наверняка уже есть жених.
+~
+human~
+AB 0 1000 0
+22 6 2d50+450 0d0+0 5d5+6 'punch'
+-6 -6 -6 -6
+FH 0 BP 0
+stand stand female 5000
+0 ABCDEF medium unknown
+F for HM
+#47119
+man saburo kanzaki мужчина сабуро~
+@eng Saburo@rus Сабуро~
+@eng A finely dressed man glances at you, questioning look on his face.
+@rus Хорошо одетый мужчина вопросительно смотрит на тебя.
+~
+@eng This is the master of this house and village, Saburo. He
+is quite rich but doesn't tend to luxury, paying more at-
+tention to the prosperity of his people. Temple to the east
+from village is built and kept mostly from his funds too.
+@rus Это хозяин дома и всей округи, Сабуро. Он весьма богат,
+но к роскоши не стремится, больше заботясь о благополучии
+своих подданных. Храм к востоку от деревни также поддер-
+живается во многом за его счет.
+~
+human~
+ABTd D 500 0
+35 25 5d100+1200 0d0+0 6d6+25 'punch'
+-15 -15 -15 -15
+EFHKNQ 0 BCDP 0
+stand stand male 20000
+0 ABCDEF medium unknown
+F for HM
+#47120
+mori мори woman женщина~
+@eng Mori@rus Мори~
+@eng A middle-aged woman looks at you, slightly amazed.
+@rus Средних лет женщина удивленно смотрит на тебя.
+~
+@rus На ее лице лежит печать зрелой красоты, а движения исполнены
+степенности. Она давно привыкла и к мужнину богатству, и к
+необходимости подчиняться ему; ни то, ни другое не вызывает
+у нее сильных эмоций... она удивленно смотрит на тебя, вошед-
+шего без приглашения, и в ее взгляде отчетливо читается, что
+никто в этом доме твой поступок не приветствует.
+ 
+~
+human~
+AB 0 500 0
+30 20 5d50+900 0d0+0 5d6+20 'punch'
+-10 -10 -10 -10
+FHN 0 0 0
+stand stand female 15000
+0 ABCDEF medium unknown
+#47121
+boy villager мальчик~
+@eng a village boy@rus ~~деревенский~~ ~~мальчик~~~
+@eng A boy runs around carelessly, glancing at you with mischief.
+@rus Мальчик беззаботно бегает вокруг, озорно поглядывая в твою сторону.
+~
+@eng An usual boy, you catch yourself envying him and his happy
+age.. He got everything he needs : a lot of time and anergy
+to spend this time having fun. Right now he seems to be
+ready to take off towards his new little adventure.
+@rus Обычный мальчишка - ты даже немного завидуешь его счастливому
+возрасту.. У него есть много времени и энергии для того, чтоб
+не потратить это время впустую. Вот и сейчас он сорвется с места
+в очередное маленькое приключение.
+~
+human~
+AG V 600 0
+15 10 2d50+250 0d0+0 4d5+10 'slap'
+-5 -5 -5 -5
+FHIJN 0 0 0
+stand stand male 100
+0 ABCDEF medium unknown
+F for H
+#47122
+girl village девочка~
+@eng a village girl@rus ~~деревенская~~ ~~девчушка~~~
+@eng A small girl stares at you contemplatively, ignoring everything else.
+@rus Маленькая девочка в задумчивости расматривает тебя, забыв обо всем остальном.
+~
+@eng Somewhat shaggy and a little stained with something, she
+nethertheless is pretty.. maybe even due to that. Holding
+her favourite doll in hands, she stares at you dreamily,
+mouth slightly open from amazement.. maybe, she is trying
+to figure out where people like you come from and imagine
+what it is like - to live outside of her village.
+@rus Немного всклокоченная и чем-то перемазанная, она тем
+не менее удивительно симпатична... даже скорее благо-
+даря этому. Сжимая в руках свою любимую куклу, она
+смотрит на тебя, приоткрыв рот от удивления - навер-
+ное думает, откуда же ты пришел, пытаясь представить,
+каково это - жить за пределами деревни.
+~
+human~
+AG 0 700 0
+15 7 2d50+250 0d0+0 4d5+7 'slap'
+-5 -5 -5 -5
+FHJ 0 0 0
+stand stand  50
+0 ABCDEF medium unknown
+F for H
+#47151
+~
+~
+~
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
 #0
 
 #OBJECTS
@@ -285,7 +547,7 @@ safe~
 Ты открываешь дверцу и обнаруживаешь, что сейф пуст!
 А почему, ты думал, он открыт ?
 ~
-G none
+g none~
 #47001
 window~
 @eng the window@rus Окно~
@@ -298,7 +560,7 @@ E
 window~
 За ним ты видишь лишь небо, земля скрыта под облаками.
 ~
-G none
+g none~
 #47002
 armchair cosy~
 @eng A velvet covered armchair@rus Обитое бархатом кресло~
@@ -312,7 +574,7 @@ armchair~
 Оно очень мягкое и широкое - наверное, в нем могло
 бы уместиться несколько человек сразу :o
 ~
-G none
+g none~
 #47003
 tree~
 @eng A small tree@rus Деревце в кадке~
@@ -327,7 +589,7 @@ A small tree grows from the tub. Its vines are
 twisted in a weird dance, but flowers look nice.
 It seems flammable.
 ~
-G none
+g none~
 #47004
 sword enforcement~
 Sword of Enforcement~
@@ -340,7 +602,7 @@ A
 18 15
 A
 19 15
-G none
+g none~
 #47005
 sun~
 @eng {YThe sun{x@rus {YСолнце{x~
@@ -354,7 +616,7 @@ sun~
 Your eyes tear up from sunlight!
 You can't see a thing!
 ~
-G none
+g none~
 #47006
 holy avenger sword~
 {Wthe holy Avenger{x~
@@ -369,7 +631,7 @@ A
 19 250
 A
 18 250
-G none
+g none~
 #47007
 breastplate white blazing~
 @eng {Wblazing white breastplate{x@rus {Wослепительно-белый доспех{x~
@@ -382,7 +644,7 @@ F R 0 0 D
 F A 0 0 H
 A
 1 22
-G male
+g male~
 #47008
 shield faith~
 @eng {Wthe Shield of Faith{x@rus {WЩит Веры{x~
@@ -396,7 +658,7 @@ A
 20 -100
 A
 13 1000
-G male
+g male~
 #47009
 cape paladin white~
 @eng {Wwhite cape of the paladin{x@rus ~~{Wбелая~~ ~~накидка~~ рыцаря{x~
@@ -405,9 +667,11 @@ cloth~
 armor AKLS AK
 0 0 0 0 0
 46 0 0 P
+F I 0 0 Q
+F I 0 0 L
 A
 5 22
-G male
+g male~
 #47010
 blessing~
 @eng {Wa blessing{x@rus {Wблагословление свыше{x~
@@ -429,7 +693,7 @@ A
 4 22
 A
 3 22
-G none
+g none~
 #47011
 amulet purity~
 @eng {Wamulet of purity{x@rus {Wамулет чистоты{x~
@@ -441,7 +705,7 @@ jewelry AKLY AC
 F A 0 0 E
 F A 0 0 C
 F A 0 0 G
-G male
+g male~
 #47012
 barrel large~
 @eng {xBarrel of ale@rus ~~бочка~~ с элем~
@@ -450,7 +714,7 @@ wood~
 fountain Y 0
 0 0 'ale' 0 0
 0 1 1 P
-G none
+g none~
 #47013
 staff посох тысячи душ thousand souls~
 @eng the Staff of Thousand Souls@rus ~~Посох~~ Тысячи Душ~
@@ -463,7 +727,7 @@ A
 19 30
 A
 18 45
-G male
+g male~
 #47018
 garland~
 @eng a garland@rus гирлянда~
@@ -472,7 +736,7 @@ plastic~
 staff ARY AO
 1 10 10 'continual light' 0
 0 0 0 P
-G none
+g none~
 #47019
 petard~
 @eng a petard@rus петарда~
@@ -488,7 +752,7 @@ petard~
 1) Съесть петарду.
 2) ... Ну ты сначала съешь ;)
 ~
-G none
+g none~
 #47020
 vodka glass paladinskaya~
 @eng A glass of "{WSpecial paladin's{x" vodka@rus Стопка "{WОсобой паладинской{x" водки~
@@ -497,7 +761,7 @@ glass~
 potion HIRYZ A
 40 'garble' 'frenzy' 'slow' 'make arrow'
 10 0 0 P
-G none
+g none~
 #47021
 jar banka cucumbers huge~
 @eng Jar of cucumbers@rus Банка с огурцами~
@@ -506,7 +770,7 @@ glass~
 container RY 0
 100000 A 0 1000000 50
 0 0 0 P
-G none
+g none~
 #47022
 cucumber~
 @eng {gsalted cucumber{x@rus {gмалосольный огурчик{x~
@@ -515,7 +779,7 @@ meat~
 food 0 AN
 A A 0 0 0
 0 10 0 P
-G none
+g none~
 #47023
 box petards garlands large~
 @eng a box@rus Картонная коробка~
@@ -531,7 +795,7 @@ label box large etiketka~
      Петарды, гирлянды и другие боеприпасы.
         Веселого Нового Года!
 ~
-G none
+g none~
 #47024
 champautomat fountain champagne~
 @eng Champautomat@rus Шампомат?~
@@ -551,7 +815,7 @@ champautomat fountain champagne~
 NOTE: Отвественности за последствия компания
       не несет - модель-то пробная ;))
 ~
-G none
+g none~
 #47100
 tablet wooden табличка деревянная~
 @eng {xWooden tablet@rus ~~деревянная~~ ~~табличка~~~
@@ -573,7 +837,7 @@ tablet~
 *                                               *
 *************************************************
 ~
-G female
+g female~
 #47101
 well stone колодец~
 @eng Well@rus ~~колодец~~~
@@ -582,16 +846,16 @@ stone~
 fountain RY P
 100000 100000 'water' 0 0
 0 1 1 P
-G male
+g male~
 #47102
-gates temple храмовые врата~
-@eng Temple gates@rus ~~храмовые~~ ~~врата~~~
-@eng Temple gates are here, wide open.@rus Храмовые врата (gates) перед тобой, они открыты.~
+temple храмовые врата gate~
+@eng temple gate@rus ~~храмовые~~ ~~врата~~~
+@eng The temple gate are here, wide open.@rus Храмовые врата (gate) перед тобой, они открыты.~
 stone~
 portal BR P
 0 0 0 47163 0
 0 0 0 P
-G plural
+g plural~
 #47103
 cave mouth dark вход пещера~
 @eng Mouth of a cave@rus ~~вход~~ в пещеру~
@@ -611,7 +875,7 @@ cave~
 @eng Darkness of the cave sharply contrasts with pale grey stone of
 the mountain. It looks haunt, but who knows what is there ?
 ~
-G male
+g male~
 #47104
 crevasse~
 @eng Crevasse@rus ~~расщелина~~~
@@ -636,7 +900,7 @@ life to all nightmares and horrors which you considered long
 forgotten and left in childhood. Fear grips your very soul with
 its icy fingers, making you step back involuntarily.
 ~
-G female
+g female~
 #47105
 hole~
 @eng Hole@rus ~~дыра~~ в камне~
@@ -661,7 +925,7 @@ stench of death and listening to the screams of damned souls,
 souls of those slain by the demon and doomed to suffer, until
 someone comes and buries their bones.
 ~
-G female
+g female~
 #47106
 door wooden house деревянная дверь~
 @eng Wooden door@rus ~~деревянная~~ ~~дверь~~~
@@ -670,7 +934,7 @@ wood~
 portal Y 0
 0 0 0 47199 0
 0 1 1 P
-G female
+g female~
 #47107
 river water~
 @eng River@rus ~~река~~~
@@ -693,7 +957,7 @@ are gone away. Sometimes a large fish swims up, and,
 swallowed a bug, dives back into the deep. You wonder
 what can be down there..
 ~
-G female
+g female~
 #47108
 cave mouth underwater вход пещера~
 @eng Cave mouth@rus ~~вход~~ в пещеру~
@@ -702,7 +966,7 @@ stone~
 portal CY 0
 0 0 0 47219 0
 0 1 1 P
-G male
+g male~
 #47109
 anvil iron huge чугунная наковальня~
 @eng a huge anvil@rus ~~чугунная~~ ~~наковальня~~~
@@ -711,10 +975,10 @@ iron~
 furniture BY 0
 A FHJKPQ EHN BEF BEF
 0 1000 1 P
-G female
+g female~
 #47110
 barrel water~
-@eng Barrel of water@rus Бочка (barrel) с водой стоит в углу.~
+@eng Barrel of water@rus ~~бочка~~ с водой~
 @eng A big barrel of water is here.@rus Бочка с водой для ковки стоит здесь.~
 wood~
 fountain Y 0
@@ -730,7 +994,7 @@ barrel~
 @eng The water inside it is not that clear, I wouldn't drink it.
 Probably it is used to cool chunks..
 ~
-G female
+g female~
 #47111
 table small~
 @eng Small table@rus ~~маленький~~ ~~столик~~~
@@ -749,7 +1013,7 @@ table~
 @eng There is a paper lying on the table, it looks like unfinished letter..
 You attempt to read it but have no clue what do these hyeroglyphs mean.
 ~
-G male
+g male~
 #47112
 tatami~
 @eng Tatami@rus ~~татами~~~
@@ -768,7 +1032,7 @@ tatami~
 @eng It looks soft, you barely prevent yourself from just sitting on it,
 but remember: that would not be polite.
 ~
-G none
+g none~
 #47113
 altar~
 @eng Altar@rus ~~алтарь~~~
@@ -787,7 +1051,7 @@ altar~
 @eng There is a small statuette on it, and lit candlesticks on both sides. 
 They fill the air with undescriptably wonderful aroma.  
 ~
-G male
+g male~
 #47114
 tatamis татами~
 @eng tatamis@rus ~~татами~~~
@@ -796,7 +1060,7 @@ studded leather~
 furniture Y 0
 AB INOPQSUVWXYa EH CFG CFG
 0 1 1 P
-G none
+g none~
 #47115
 bed coverlet pillow постель подушка покрывало циновки~
 @eng Bed@rus ~~постель~~~
@@ -805,7 +1069,7 @@ wood~
 furniture Y 0
 A GJOQRST HK CFG CFG
 0 1 1 P
-G female
+g female~
 #47116
 mirror large~
 @eng Mirror@rus ~~зеркало~~~
@@ -825,7 +1089,7 @@ mirror~
 @eng Who's that pretty, sexy.. oh, it's you!
 You smooth your hair and like yourself even more.
 ~
-G none
+g none~
 #47117
 vase flowers ваза цветы~
 @eng Vase with flowers@rus ~~ваза~~ с цветами~
@@ -834,7 +1098,7 @@ glass~
 container Y 0
 1000 0 0 1000 100
 0 1 1 P
-G female
+g female~
 #47118
 bouquet flowers~
 @eng A bouquet of flowers@rus ~~букет~~ цветов~
@@ -852,16 +1116,16 @@ flowers~
 @eng {xThere are {Rscarlet{x, {Yyellow{x, {Wwhite{x and {Mmagenta{x
 flowers. An explosion of color!
 ~
-G male
+g male~
 #47119
 chest сундук~
 @eng chest@rus ~~сундук~~~
-@eng Wooden chest with clothes is here.@rus Сундук (chest) для одежды стоит тут.~
+@eng A long wooden chest is here.@rus Большой деревянный сундук (chest) стоит здесь.~
 wood~
-container 0 0
-10000 AC 0 10000 100
-0 1 1 P
-G male
+container Y 0
+10000 ACD 47149 10000 100
+30 1 1 P
+g male~
 #47120
 sign~
 @eng sign@rus ~~табличка~~~
@@ -890,7 +1154,7 @@ sign~
 #                                #
 ##################################
 ~
-G female
+g female~
 #47121
 bench скамейка~
 @eng bench@rus ~~скамейка~~~
@@ -899,7 +1163,7 @@ wood~
 furniture 0 0
 AC HJKMPTUX EH CFG CFG
 0 1 1 P
-G female
+g female~
 #47122
 table~
 @eng Table@rus ~~столик~~~
@@ -919,7 +1183,7 @@ table~
 @eng There are many scratches on its surface, some of
 them form words.. but hell, you can't read them.
 ~
-G male
+g male~
 #47123
 plant leaves~
 @eng plant@rus ~~растение~~~
@@ -938,7 +1202,7 @@ plant~
 @eng The leaves are wide, there may be something hidden
 beneath them.
 ~
-G none
+g none~
 #47124
 fruits food плоды~
 @eng some fruits@rus ~~плоды~~~
@@ -947,7 +1211,7 @@ plant~
 food 0 A
 AC AC 0 0 0
 0 50 0 P
-G plural
+g plural~
 #47125
 bench скамья~
 @eng wooden bench@rus ~~деревянная~~ ~~скамья~~~
@@ -956,7 +1220,7 @@ wood~
 furniture 0 0
 AC GJOQRST EH BEF BEF
 0 1 1 P
-G female
+g female~
 #47126
 table wooden стол деревянный~
 @eng table@rus ~~стол~~~
@@ -965,7 +1229,7 @@ wood~
 furniture 0 0
 0 0 N 0 0
 0 1 1 P
-G male
+g male~
 #47127
 bodhi tree дерево бодхи~
 @eng {gbodhi tree{x@rus ~~{gдерево~~-бодхи{x~
@@ -974,7 +1238,7 @@ wood~
 furniture 0 0
 0 0 0 0 0
 0 1 1 P
-G none
+g none~
 #47128
 hot spring горячий источник вода water яма~
 @eng a pool of hot water@rus ~~горячий~~ ~~источник~~~
@@ -983,7 +1247,7 @@ water~
 fountain RZ 0
 -1 -1 'water' 135137728 0
 0 100000 0 P
-G male
+g male~
 #47129
 мертвая змея dead snake coil кольцо~
 @eng a dead snake@rus ~~мертвая~~ ~~змея~~~
@@ -996,7 +1260,7 @@ A
 19 2
 A
 18 4
-G female
+g female~
 #47130
 пояс belt~
 @eng a worn belt@rus ~~поношенный~~ ~~пояс~~~
@@ -1015,7 +1279,7 @@ A
 20 -2
 A
 18 2
-G male
+g male~
 #47131
 штаны pants short короткие~
 @eng short pants@rus ~~короткие~~ ~~штаны~~~
@@ -1030,7 +1294,7 @@ A
 17 -15
 A
 14 30
-G plural
+g plural~
 #47132
 pile feathers кучка перьев~
 @eng a small pile of feathers@rus ~~кучка~~ ~~перьев~~~
@@ -1039,7 +1303,7 @@ unknown~
 trash QVa A
 0 0 0 0 0
 0 2 0 P
-G female
+g female~
 #47133
 hat шляпа соломенная straw~
 @eng a straw hat@rus ~~соломенная~~ ~~шляпа~~~
@@ -1062,7 +1326,7 @@ A
 12 25
 A
 4 2
-G female
+g female~
 #47134
 бамбуковый шест bamboo pole~
 @eng a long bamboo pole@rus ~~длинный~~ ~~бамбуковый~~ ~~шест~~~
@@ -1079,7 +1343,7 @@ A
 18 5
 A
 17 -20
-G male
+g male~
 #47135
 рубашка shirt выцветшая worn поношенная~
 @eng a worn shirt@rus ~~выцветшая~~ ~~рубашка~~~
@@ -1090,7 +1354,7 @@ clothing 0 AD
 20 4 250 P
 A
 5 1
-G female
+g female~
 #47136
 hide woolly ape шерсть шкура обезьянья~
 @eng a woolly hide of the ape@rus ~~обезьянья~~ ~~шкура~~~
@@ -1100,11 +1364,208 @@ armor Q AK
 9 9 9 9 0
 24 7 0 P
 A
+31 40
+A
 23 -7
 A
 13 25
-F R 0 0 I
-G female
+g female~
+#47137
+hoe мотыга~
+@eng a fine sturdy hoe@rus ~~добротная~~ ~~мотыга~~~
+@eng A finely made hoe lies on the ground.@rus Хорошо сработанная мотыга(hoe) лежит на земле.~
+wood~
+weapon 0 AN
+polearm 4 7 'stab' F
+15 15 2000 P
+A
+1 1
+g female~
+#47138
+shovel лопата~
+@eng a long-shafted shovel@rus ~~лопата~~ с длинным черенком~
+@eng A fine shovel with a long shaft is stuck into the ground.@rus Острая лопата с длинным черенком воткнута в землю.~
+wood~
+weapon 0 AN
+exotic 4 7 'slice' DF
+15 15 2000 P
+g female~
+#47139
+bucket ведро~
+@eng a wooden bucket@rus ~~деревянное~~ ~~ведро~~~
+@eng A light wooden bucket is here.@rus Легкое деревянное ведро стоит тут.~
+wood~
+container Y AO
+300 0 0 100 0
+0 10 2500 P
+g none~
+#47140
+forge горн кузнечный~
+@eng the forge@rus ~~кузнечный~~ ~~горн~~~
+@eng The forge is roaring and radiating heat here.@rus Горн ревет и пышет жаром, освещая комнату красным.~
+stone~
+furniture ABY 0
+A HJKMPTUX FIP CDJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz CDJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz
+25 100000 0 P
+g male~
+#47141
+pincers клещи~
+@eng the blacksmith pincers@rus ~~кузнечные~~ ~~клещи~~~
+@eng Large blacksmith pincers are leaned against the wall.@rus Большие кузнечные клещи прислонены к стене.~
+iron~
+weapon 0 AN
+exotic 6 7 'bite' EF
+20 20 1000 P
+A
+2 -2
+A
+18 -3
+g plural~
+#47142
+chunk iron кусок железа~
+@eng a chunk of iron@rus ~~кусок~~ ~~железа~~~
+@eng A chunk of iron lies here.@rus Кусок железа, предназначенный для ковки, лежит тут.~
+iron~
+trash 0 AO
+0 0 0 0 0
+0 20 0 P
+g male~
+#47143
+hammer blacksmith молот кузнечный~
+@eng a blacksmith's hammer@rus ~~кузнечный~~ ~~молот~~~
+@eng A large blacksmith's hammer lies here.@rus Большой кузнечный молот лежит на земле.~
+iron~
+weapon B AN
+mace 13 3 'crush' 0
+27 400 2500 P
+A
+1 2
+A
+5 1
+A
+18 2
+A
+19 5
+g male~
+#47144
+sake drink сакэ hot горячий cup чашка~
+@eng a cup ot hot sake@rus ~~чашечка~~ горячего сакэ~
+@eng A cup of hot sake is standing on the table.@rus Чашка, наполненная горячим сакэ, стоит на столике.~
+porcelain~
+drink 0 AO
+5 5 'local specialty' 0 0
+18 5 1000 P
+g female~
+#47145
+rice bread рисовый хлеб ломоть piece~
+@eng a piece of rice bread@rus ~~ломоть~~ рисового хлеба~
+@eng A piece of fresh rice bread awakens your appetite.@rus Ломоть свежего рисового хлеба пробуждает твой аппетит.~
+bread~
+food 0 AO
+E E 0 0 0
+0 2 70 P
+g male~
+#47146
+oven очаг~
+@eng an oven@rus ~~очаг~~~
+@eng Something is being cooked in the oven, spreading a pleasant smell.@rus Что-то готовится на очаге, распространяя приятные запахи.~
+clay~
+furniture BRY 0
+0 0 0 0 0
+0 1000000 0 P
+g male~
+#47147
+towel полотенце~
+@eng a towel@rus ~~полотенце~~~
+@eng A clean towel lies here.@rus Чистое полотенце лежит здесь.~
+unknown~
+clothing 0 AI
+0 0 0 0 0
+10 6 100 P
+g none~
+#47148
+kimono fine silken dress~
+@eng a fine kimono@rus ~~красивое~~ кимоно~
+@eng A women's kimono made from excellent silk lies folded here.@rus Женское кимоно из отличного шелка аккуратно сложено здесь.~
+silk~
+clothing 0 AD
+0 0 0 0 0
+22 4 10000 P
+A
+9 -10
+A
+6 3
+g none~
+#47149
+key ключ~
+@eng a small key@rus ~~маленький~~ ~~ключ~~~
+@eng A small steel key lies here, lost by someone.@rus Небольшой стальной ключ лежит здесь, кем-то потерянный.~
+steel~
+key 0 AO
+0 0 0 0 0
+30 1 0 P
+g male~
+#47150
+armor suit ornate splintmail доспех пластинчатый изящный~
+@eng a suit of ornate splintmail armor@rus пластинчатый доспех отличной работы~
+@eng An ornate splintmail armor lies here, shining.@rus Изящный пластинчатый доспех сияет на солнце.~
+mithril~
+armor I AD
+12 12 12 10 0
+30 75 30000 P
+A
+13 15
+A
+20 -5
+A
+2 2
+A
+17 -15
+g none~
+#47151
+kimono платье кимоно dress elegant элегантное~
+@eng a beutiful kimono of colour silk@rus ~~красивое~~ кимоно из цветного шелка~
+@eng An elegant silken kimono, painted with birds and something else, lies here.@rus Элегантное шелковое кимоно, украшенное изображениями птиц и чего-то еще, лежит здесь.~
+silk~
+clothing I AD
+0 0 0 0 0
+30 4 20000 P
+g none~
+#47152
+chest сундук~
+@eng a chest@rus ~~сундук~~ для одежды~
+@eng A medium-sized chest is standing near the wall.@rus Средних размеров сундук стоит у стены.~
+hardwood~
+container Y 0
+10000000 ACD 47153 100000000 0
+30 1000000 10000 P
+g male~
+#47153
+key ключ~
+@eng a small key@rus ~~маленький~~ ~~ключ~~~
+@eng A small steel key is lying on the ground.@rus Маленький стальной ключ валяется на земле.~
+steel~
+key 0 AO
+0 0 0 0 0
+30 2 0 P
+g male~
+#47154
+hairpin sai заколка саи~
+@eng a sharp hairpin@rus ~~острая~~ ~~заколка~~ для волос~
+@eng A short hairpin with honed edge gleams here.@rus Небольшая заколка для волос с отточенным острием поблескивает здесь.~
+steel~
+weapon N AN
+dagger 4 9 'thrust' D
+25 4 15000 P
+#47155
+doll кукла деревянная wooden~
+@eng a wooden doll@rus ~~деревянная~~ ~~кукла~~~
+@eng A simple wooden doll with some kind of expression on its "face" lies forogtten here.@rus Простая деревянная кукла с неким подобием выражения на "лице" забыта тут.~
+wood~
+trash 0 AO
+0 0 0 0 0
+10 10 50 P
+g female~
 #47217
 river water~
 @eng River@rus ~~река~~~
@@ -1127,7 +1588,7 @@ are gone away. Sometimes a large fish swims up, and,
 swallowed a bug, dives back into the deep. You wonder
 what can be down there..
 ~
-G female
+g female~
 #0
 
 #ROOMS
@@ -1342,7 +1803,7 @@ drink.
 чашечек для сакэ, улыбающийся старичок позади всегда готов их наполнить.
 Местные завсегдатаи что-то оживленно обсуждают за столиком.
 ~
-0 0 inside
+0 D inside
 D2
 ~
 ~
@@ -1359,7 +1820,7 @@ hind the door, you consider the forge is there.
 чивый хозяин прилаживает очередное свое произведение среди остальных.
 Судя по звукам, исходящим из-за двери, за ней находится кузница.
 ~
-0 0 inside
+0 D inside
 D0
 ~
 ~
@@ -1543,7 +2004,7 @@ D0
 Z 0 47115
 S
 #47117
-@eng Before the old Kanzaki's house@rus Перед домон старика Канзаки~
+@eng Before the old Kanzaki's house@rus Перед домом старика Канзаки~
 @eng A beautiful house is right before you. It is noticably larger than the
 others and its court is very clear. Servants scurry past you from time to
 time.
@@ -1762,7 +2223,7 @@ the anvil leave an impression of some strange dance.
 Звон металла наполняет воздух, а размеренные движения человека за наковаль-
 ней создают впечатление какого-то странного танца.
 ~
-0 0 inside
+0 D inside
 D0
 @eng The door leads back to the shop.
 @rus Эта дверь ведет обратно в лавку.
@@ -3567,9 +4028,11 @@ D0
 ~
 Z 0 47199
 D1
+@eng This door leads to the meditations and prayers room.
+@rus Эта дверь ведет в комнату для медитаций и молитв.
 ~
 ~
-Z 0 47201
+ABZ 0 47201
 D2
 ~
 ~
@@ -3595,7 +4058,7 @@ inhale and reach for the God.
 D3
 ~
 ~
-Z 0 47200
+ABZ 0 47200
 S
 #47202
 @eng Small study@rus Небольшой кабинет~
@@ -3614,10 +4077,10 @@ ABZ 0 47200
 S
 #47203
 @eng Hallway@rus Коридор~
-@eng The hallway continues into the house. You can see large room to the west,
-which looks like some kind of dining hall.
-@rus Коридор продолжается дальше. На западе ты видишь большую комнату, похоже,
-это гостиная.             
+@eng The hallway continues into the house. You see a large room to the
+right which looks like dining hall.
+@rus Коридор продолжается дальше. направо от себя ты видишь большую
+комнату, судя по всему, предназначенную для трапез.
 ~
 0 D inside
 D0
@@ -3652,10 +4115,10 @@ ABZ 0 47206
 S
 #47205
 @eng Hallway@rus Коридор~
-@eng The hallway continues into the house. There is a closed door to the east,
-marking private chambers.
-@rus Коридор продолжается дальше. На восток ты видишь закрытую дверь, очевидно,
-за ней находятся чьи-то покои.   
+@eng The hallway continues further into the house. There is a closed door
+to the left, leading to some private chambers.
+@rus Коридор продолжается дальше. По левую руку ты видишь закрытую
+дверь, за которой находятся чьи-то покои.
 ~
 0 D inside
 D0
@@ -3999,7 +4462,9 @@ D 0 47171 0 1	* Statue of Buddha: door to the north: closed
 D 0 47171 1 2	* Statue of Buddha: door to the east: closed and locked
 D 0 47172 2 1	* Secret passage: door to the south: closed
 D 0 47176 3 2	* The temple treasury: door to the west: closed and locked
+D 0 47200 1 1	* Hallway: door to the east: closed
 D 0 47200 3 1	* Hallway: door to the west: closed
+D 0 47201 3 1	* Meditation room: door to the west: closed
 D 0 47202 1 1	* Small study: door to the east: closed
 D 0 47204 3 1	* Dining room: door to the west: closed
 D 0 47205 1 1	* Hallway: door to the east: closed
@@ -4026,6 +4491,13 @@ O 0 47120 0 47106	* sign (Village pub)
 O 0 47121 0 47106	* bench (Village pub)
 O 0 47122 0 47106	* Table (Village pub)
 M 0 47111 1 47106 1	* Saki (Village pub)
+M 0 47112 2 47106 2	* a visitor (Village pub)
+G 0 47144 0		*	a cup ot hot sake
+G 0 47145 0		*	a piece of rice bread
+M 0 47113 1 47107 1	* the salesman (The village shop)
+G 0 47137 0		*	a fine sturdy hoe
+G 0 47138 0		*	a long-shafted shovel
+G 0 47139 0		*	a wooden bucket
 M 0 47100 2 47108 1	* a duck (The village road)
 G 0 47132 0		*	a small pile of feathers
 M 0 47101 4 47108 2	* a small duck (The village road)
@@ -4037,9 +4509,14 @@ P 0 47124 0 47123 1	* plant: some fruits
 O 0 47106 0 47117	* Wooden door (Before the old Kanzaki's house)
 O 0 47125 0 47126	* wooden bench (Temple guards' barracks)
 O 0 47126 0 47126	* table (Temple guards' barracks)
-O 0 47102 0 47128	* Temple gates (The temple courtyard)
+O 0 47102 0 47128	* temple gate (The temple courtyard)
 O 0 47109 0 47129	* a huge anvil (The forge)
 O 0 47110 0 47129	* Barrel of water (The forge)
+O 0 47140 0 47129	* the forge (The forge)
+M 0 47114 1 47129 1	* blacksmith (The forge)
+E 0 47143 0 16		*	a blacksmith's hammer: wielded
+G 0 47142 0		*	a chunk of iron
+O 0 47141 0 47129	* the blacksmith pincers (The forge)
 M 0 47103 5 47139 1	* a grasshopper (The meadows)
 M 0 47103 5 47141 1	* a grasshopper (The meadows)
 M 0 47104 3 47141 1	* a bird (The meadows)
@@ -4056,15 +4533,38 @@ O 0 47127 0 47175	* {gbodhi tree{x (The sacred garden)
 O 0 47103 0 47188	* Mouth of a cave (The mountain)
 O 0 47104 0 47197	* Crevasse (Deeper into the cave)
 O 0 47105 0 47198	* Hole (Stone trap inside the mountain)
+M 0 47115 2 47200 1	* a servant boy (Hallway)
+M 0 47116 3 47200 1	* a servant girl (Hallway)
 O 0 47113 0 47201	* Altar (Meditation room)
 O 0 47114 0 47201	* tatamis (Meditation room)
 O 0 47111 0 47202	* Small table (Small study)
 O 0 47112 0 47202	* Tatami (Small study)
+M 0 47116 3 47204 1	* a servant girl (Dining room)
+M 0 47115 2 47205 1	* a servant boy (Hallway)
+O 0 47146 0 47206	* an oven (Kitchen)
+M 0 47117 1 47206 1	* the cook (Kitchen)
+E 0 47147 0 10		*	a towel: on the arms
 O 0 47115 0 47207	* Bed (Guest chamber)
+M 0 47116 3 47208 1	* a servant girl (End of the hallway)
 O 0 47116 0 47209	* Mirror (Miyu's room)
 O 0 47117 0 47209	* Vase with flowers (Miyu's room)
 P 0 47118 0 47117 1	* Vase with flowers: A bouquet of flowers
+M 0 47118 1 47209 1	* Miyu (Miyu's room)
+E 0 47148 0 5		*	a fine kimono: on the body
+O 0 47115 0 47209	* Bed (Miyu's room)
 O 0 47119 0 47210	* chest (Saburo Kanzaki's room)
+M 0 47119 1 47210 1	* Saburo (Saburo Kanzaki's room)
+G 0 47149 0		*	a small key
+P 0 47150 0 47119 1	* chest: a suit of ornate splintmail armor
+O 0 47115 0 47210	* Bed (Saburo Kanzaki's room)
+O 0 47115 0 47211	* Bed (Mori's room)
+M 0 47120 1 47211 1	* Mori (Mori's room)
+E 0 47151 0 5		*	a beutiful kimono of colour silk: on the body
+O 0 47152 0 47211	* a chest (Mori's room)
+G 0 47153 0		*	a small key
+P 0 47151 0 47152 1	* a chest: a beutiful kimono of colour silk
+P 0 47154 0 47152 1	* a chest: a sharp hairpin
+P 0 47154 0 47152 1	* a chest: a sharp hairpin
 M 0 47105 1 47212 1	* apprentice (A small opening)
 E 0 47130 0 13		*	a worn belt: around the waist
 E 0 47131 0 7		*	short pants: on the legs
@@ -4086,11 +4586,18 @@ O 0 47217 0 47216	* River (Shore of the river)
 O 0 47108 0 47218	* Cave mouth (In the river)
 S
 
+#SHOPS
+47111 0 0 0 0 0 100 100 8 20
+47113 0 0 0 0 0 150 50 6 20
+0
+
 #OLIMITS
 O 47013 1	* the Staff of Thousand Souls
 O 47133 7	* a straw hat
 O 47134 5	* a long bamboo pole
 O 47136 5	* a woolly hide of the ape
+O 47143 10	* a blacksmith's hammer
+O 47150 10	* a suit of ornate splintmail armor
 S
 
 #MOBPROGS

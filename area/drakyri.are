@@ -1483,7 +1483,7 @@ spray in the light.  The narrow face and chiseled cheekbones appear
 elven, but twin wings rise from the shoulderblades, sculpted feathers
 cascading over the sorceress' back like a cloak.
 ~
-G none
+g none~
 #11801
 black marble key~
 a black marble key~
@@ -1492,7 +1492,7 @@ stone~
 key 0 A
 0 0 0 0 0
 1 10 0 P
-G none
+g none~
 #11802
 tentacled key black stone~
 a tentacled key~
@@ -1501,7 +1501,7 @@ stone~
 key B A
 0 0 0 0 0
 1 10 0 P
-G none
+g none~
 #11803
 lapis lazuli statue~
 the lapis statue~
@@ -1517,7 +1517,7 @@ The carved form depicts a kneeling drakyri dressed long flowing robes.
 His hands are cupped before him, as if in supplication.  Nestled between
 the hands is a carved bowl filled with cloudy white liquid.
 ~
-G none
+g none~
 #11804
 pool water mirror~
 a pool of water~
@@ -1534,7 +1534,7 @@ to your own and seems to smile mysteriously up at you.  The water
 ripples and clears, leaving only your reflection.. or perhaps the vision
 was just your imagination?  The water sparkles in the light.
 ~
-G none
+g none~
 #11805
 guardian guardian's key silver~
 the guardian's key~
@@ -1543,7 +1543,7 @@ silver~
 key A A
 0 0 0 0 0
 1 0 0 P
-G none
+g none~
 #11806
 counter black stone~
 a black counter~
@@ -1566,7 +1566,7 @@ You know me !
 Type list to list items.
 Type buy to buy something.
 ~
-G none
+g none~
 #11807
 shimmering curtain light~
 a shimmering curtain~
@@ -1579,7 +1579,7 @@ E
 shimmering curtain light~
 Peering through the curtain, you see a grove of trees.
 ~
-G none
+g none~
 #11808
 table stone~
 a large stone table~
@@ -1594,7 +1594,7 @@ Engraved across the center of the table are the words:
 
                D'lan Treviki Drakyri Laerkai
 ~
-G none
+g none~
 #11809
 mithril ((+*+)) torque deriki~
 a mithril ((+*+)) torque~
@@ -1617,7 +1617,7 @@ An inscription along the edge reads:
 
                Sh'evale Deriki Lechandre Deia
 ~
-G none
+g none~
 #11810
 shimmering blue robe~
 a shimmering blue robe~
@@ -1636,7 +1636,7 @@ An inscription along the edge reads:
 
                Sh'evale Deriki Lechandre Deia
 ~
-G none
+g none~
 #11811
 magic flame~
 a magic flame~
@@ -1649,7 +1649,7 @@ A
 19 2
 A
 12 45
-G none
+g none~
 #11812
 engraved ((+*+)) ring deriki~
 an engraved ((+*+)) ring~
@@ -1672,7 +1672,7 @@ An inscription along the inside of the band reads:
 
                She'vale Deriki Noriek Deiayan
 ~
-G none
+g none~
 #11813
 ((+*+)) crest deriki~
 a ((+*+)) crest~
@@ -1697,7 +1697,7 @@ An inscription along the inside of the band reads:
 
                She'vale Deriki Noriek Deiayan
 ~
-G none
+g none~
 #11814
 mithril ((+*+)) bracelet deriki~
 a ((+*+)) bracelet~
@@ -1710,7 +1710,7 @@ A
 12 40
 A
 19 3
-G none
+g none~
 #11815
 ((+*+)) chain belt deriki~
 a ((+*+)) chain belt~
@@ -1725,7 +1725,7 @@ A
 19 4
 A
 5 -2
-G none
+g none~
 #11816
 ((+*+)) shoes deriki~
 a pair of ((+*+)) shoes~
@@ -1744,7 +1744,7 @@ A
 2 1
 A
 18 -2
-G none
+g none~
 #11817
 ((+*+)) armbands arm bands deriki~
 some ((+*+)) armbands~
@@ -1761,7 +1761,7 @@ A
 12 35
 A
 6 -1
-G none
+g none~
 #11818
 glittering ((+*+)) earring deriki~
 a glittering ((+*+)) earring~
@@ -1780,7 +1780,7 @@ A
 13 20
 A
 1 1
-G none
+g none~
 #11819
 glowing ((+*+)) sphere deriki~
 a glowing ((+*+)) sphere~
@@ -1797,7 +1797,7 @@ A
 12 50
 A
 9 -5
-G none
+g none~
 #11820
 ((+*+)) tunic deriki~
 a ((+*+)) tunic~
@@ -1814,7 +1814,7 @@ A
 13 20
 A
 20 -5
-G none
+g none~
 #11821
 owl eyes feather~
 Owl eyes~
@@ -1831,7 +1831,7 @@ A
 18 3
 A
 4 2
-G none
+g none~
 #11822
 staff guarding mithril~
 a staff of guarding~
@@ -1842,7 +1842,7 @@ staff B AO
 35 30 10100 P
 A
 17 -20
-G none
+g none~
 #11823
 gleaming ((-*-)) circlet treniste~
 a gleaming ((-*-)) circlet~
@@ -1859,7 +1859,7 @@ A
 18 4
 A
 19 4
-G none
+g none~
 #11824
 ((-*-)) set chain armor treniste~
 a set of ((-*-)) chain armor~
@@ -1874,7 +1874,7 @@ A
 1 1
 A
 13 10
-G none
+g none~
 #11825
 white ((-*-)) belt treniste~
 a white ((-*-)) belt~
@@ -1891,7 +1891,7 @@ A
 13 25
 A
 19 4
-G none
+g none~
 #11826
 pair ((-*-)) gauntlets treniste~
 a pair of ((-*-)) gauntlets~
@@ -1908,7 +1908,7 @@ A
 4 -1
 A
 13 37
-G none
+g none~
 #11827
 pair ((-*-)) leggings treniste~
 a pair of ((-*-)) leggings~
@@ -1925,7 +1925,7 @@ A
 13 25
 A
 1 1
-G none
+g none~
 #11828
 white ((-*-)) visor treniste~
 a white ((-*-)) visor~
@@ -1942,7 +1942,7 @@ A
 4 1
 A
 2 1
-G none
+g none~
 #11829
 golden ((-*-)) bracer treniste~
 a golden ((-*-)) bracer~
@@ -1959,7 +1959,7 @@ A
 13 35
 A
 19 4
-G none
+g none~
 #11830
 embroidered ((-*-)) cape treniste~
 an embroidered ((-*-)) cape~
@@ -1980,7 +1980,7 @@ A
 3 1
 A
 6 -1
-G none
+g none~
 #11831
 ancient tome~
 an ancient tome~
@@ -1991,7 +1991,7 @@ staff BFG AO
 30 50 10000 P
 A
 3 4
-G none
+g none~
 #11832
 ornate mask~
 an ornate mask~
@@ -2008,7 +2008,7 @@ A
 8 1
 A
 9 5
-G none
+g none~
 #11833
 ((-*-)) sleeves pair golden treniste~
 some ((-*-)) sleeves~
@@ -2025,7 +2025,7 @@ A
 2 1
 A
 13 25
-G none
+g none~
 #11834
 gleaming white sword~
 a gleaming white sword~
@@ -2038,7 +2038,7 @@ A
 18 5
 A
 19 5
-G none
+g none~
 #11835
 gleaming white shield~
 a gleaming white shield~
@@ -2055,7 +2055,7 @@ A
 2 3
 A
 1 3
-G none
+g none~
 #11836
 deep indigo pill~
 a deep indigo pill~
@@ -2064,7 +2064,7 @@ food~
 pill 0 A
 65 'protection evil' 'bless' '' ''
 55 10 850 P
-G none
+g none~
 #11837
 jet black ->*<- helm reykaris~
 a jet black  ->*<-  helm~
@@ -2081,7 +2081,7 @@ A
 13 30
 A
 1 2
-G none
+g none~
 #11838
 taloned gloves~
 a pair of taloned gloves~
@@ -2098,7 +2098,7 @@ A
 6 1
 A
 12 100
-G none
+g none~
 #11839
 ->*<- breast plate reykaris~
 a  ->*<-  breast plate~
@@ -2115,7 +2115,7 @@ A
 13 35
 A
 19 4
-G none
+g none~
 #11840
 dark ->*<- orb reykaris~
 a dark  ->*<-  orb~
@@ -2132,7 +2132,7 @@ A
 19 3
 A
 3 1
-G none
+g none~
 #11841
 ->*<- legplates leg plates reykaris~
 some  ->*<-  legplates~
@@ -2149,7 +2149,7 @@ A
 2 1
 A
 1 1
-G none
+g none~
 #11842
 carved ->*<- ring reykaris~
 a carved  ->*<-  ring~
@@ -2166,7 +2166,7 @@ A
 13 30
 A
 3 1
-G none
+g none~
 #11843
 cloak nightmares black~
 a cloak of nightmares~
@@ -2189,7 +2189,7 @@ A
 2 3
 A
 9 3
-G none
+g none~
 #11844
 ebony ->*<- bracer reykaris~
 an ebony  ->*<-  bracer~
@@ -2204,7 +2204,7 @@ A
 4 3
 A
 3 3
-G none
+g none~
 #11845
 dark ->*<- necklace reykaris~
 a dark  ->*<-  necklace~
@@ -2223,7 +2223,7 @@ A
 9 2
 A
 6 2
-G none
+g none~
 #11846
 humanoid skull~
 a humanoid skull~
@@ -2240,7 +2240,7 @@ A
 1 2
 A
 12 40
-G none
+g none~
 #11847
 pair obsidian ->*<- boots reykaris~
 a pair of  ->*<-  boots~
@@ -2255,7 +2255,7 @@ A
 13 25
 A
 2 2
-G none
+g none~
 #11848
 tempered silver throwing dagger~
 a tempered throwing dagger~
@@ -2268,7 +2268,7 @@ A
 19 10
 A
 18 10
-G none
+g none~
 #11849
 ->*<- sleeves obsidian reykaris~
 some  ->*<-  sleeves~
@@ -2285,7 +2285,7 @@ A
 3 2
 A
 1 2
-G none
+g none~
 #11850
 black collar runes runed leather~
 a black runed collar~
@@ -2313,7 +2313,7 @@ runes~
 The runes are in no language that you recognize.  As you gaze at them,
 they shimmer, and you feel the urge to wear this collar..
 ~
-G none
+g none~
 #11851
 demon's wings demon black~
 demon's wings~
@@ -2338,7 +2338,7 @@ A
 1 2
 A
 9 5
-G none
+g none~
 #11852
 onyx -=+)> earring myrxes~
 an onyx -=+)> earring~
@@ -2361,7 +2361,7 @@ Below the Myrxes crest is the inscription:
 
                    Myr'vale Myxes Jaena Deia
 ~
-G none
+g none~
 #11853
 dark -=+)> gloves myrxes~
 some dark -=+)> gloves~
@@ -2378,7 +2378,7 @@ A
 2 1
 A
 1 1
-G none
+g none~
 #11854
 sharpened stiletto sharp~
 a sharpened stiletto~
@@ -2391,7 +2391,7 @@ A
 19 7
 A
 18 7
-G none
+g none~
 #11855
 invisible flame~
 an invisible flame~
@@ -2406,7 +2406,7 @@ A
 19 3
 A
 12 30
-G none
+g none~
 #11856
 pair -=+)> sleeves myrxes~
 a pair of -=+)> sleeves~
@@ -2423,7 +2423,7 @@ A
 3 1
 A
 2 2
-G none
+g none~
 #11857
 engraved platinum ][+][ ring xaek~
 an engraved platinum ][+][ ring~
@@ -2440,7 +2440,7 @@ A
 2 1
 A
 1 2
-G none
+g none~
 #11858
 -=+)> shroud shadows myrxes~
 a -=+)> shroud~
@@ -2455,7 +2455,7 @@ A
 18 3
 A
 13 25
-G none
+g none~
 #11859
 black slim -=+)> bracer myrxes~
 a slim -=+)> bracer~
@@ -2472,7 +2472,7 @@ A
 17 -10
 A
 2 2
-G none
+g none~
 #11860
 shadowy -=+)> neckchain neck chain myrxes~
 a shadowy -=+)> neckchain~
@@ -2489,7 +2489,7 @@ A
 12 20
 A
 1 1
-G none
+g none~
 #11861
 black -=+)> leggings leather pair myrxes~
 a pair of black -=+)> leggings~
@@ -2506,7 +2506,7 @@ A
 18 3
 A
 2 2
-G none
+g none~
 #11862
 silent -=+)> boots myrxes~
 silent -=+)> boots~
@@ -2521,7 +2521,7 @@ A
 18 3
 A
 19 2
-G none
+g none~
 #11863
 hair ring panther black~
 a ring of the panther~
@@ -2538,7 +2538,7 @@ A
 18 3
 A
 12 30
-G none
+g none~
 #11864
 black -=+)> belt myrxes~
 a black -=+)> belt~
@@ -2555,7 +2555,7 @@ A
 2 3
 A
 1 3
-G none
+g none~
 #11865
 ring lynx~
 a ring of the lynx~
@@ -2572,7 +2572,7 @@ A
 18 2
 A
 13 25
-G none
+g none~
 #11866
 night hawk talons~
 night hawk talons~
@@ -2589,7 +2589,7 @@ A
 1 1
 A
 19 3
-G none
+g none~
 #11867
 hunter's hunters hunter arrow mithril~
 a hunter's arrow~
@@ -2602,7 +2602,7 @@ A
 19 5
 A
 18 5
-G none
+g none~
 #11868
 set ][+][ platemail plate mail xaek~
 a set of ][+][ platemail~
@@ -2615,7 +2615,7 @@ A
 19 3
 A
 18 5
-G none
+g none~
 #11869
 bracer power~
 a bracer of power~
@@ -2634,7 +2634,7 @@ A
 2 2
 A
 6 1
-G none
+g none~
 #11870
 ][+][ shield xaek~
 a ][+][ shield~
@@ -2649,7 +2649,7 @@ A
 1 1
 A
 5 2
-G none
+g none~
 #11871
 grey ][+][ legplates leg plates xaek~
 some grey ][+][ legplates~
@@ -2666,7 +2666,7 @@ A
 5 1
 A
 1 1
-G none
+g none~
 #11872
 ][+][ helm xaek~
 a ][+][ helm~
@@ -2683,7 +2683,7 @@ A
 13 30
 A
 5 1
-G none
+g none~
 #11873
 engraved ][+][ crest xaek~
 an engraved ][+][ crest~
@@ -2698,7 +2698,7 @@ A
 13 20
 A
 1 2
-G none
+g none~
 #11874
 ][+][ armplates arm plates xaek~
 strong ][+][ armplates~
@@ -2715,7 +2715,7 @@ A
 13 20
 A
 5 1
-G none
+g none~
 #11875
 balanced adamantite longsword long sword~
 a finely balance adamantite longsword~
@@ -2728,7 +2728,7 @@ A
 18 5
 A
 19 5
-G none
+g none~
 #11876
 silver carven -(+)- signet ring noriva~
 a carven -(+)- signet ring~
@@ -2745,7 +2745,7 @@ A
 4 2
 A
 3 2
-G none
+g none~
 #11877
 niobium -(+)- circlet noriva~
 a niobium -(+)- circlet~
@@ -2760,7 +2760,7 @@ A
 18 3
 A
 12 30
-G none
+g none~
 #11878
 light shimmering -(+)- sphere noriva~
 a shimmering -(+)- sphere~
@@ -2777,7 +2777,7 @@ A
 12 20
 A
 13 20
-G none
+g none~
 #11879
 inlaid silver -(+)- bracelet noriva~
 an inlaid silver -(+)- bracelet~
@@ -2794,7 +2794,7 @@ A
 18 5
 A
 4 1
-G none
+g none~
 #11880
 -(+)- girth noriva~
 a beautiful -(+)- girth~
@@ -2811,7 +2811,7 @@ A
 13 20
 A
 1 1
-G none
+g none~
 #11881
 pair -(+)- sleeves noriva~
 a pair of -(+)- sleeves~
@@ -2826,7 +2826,7 @@ A
 13 25
 A
 5 1
-G none
+g none~
 #11882
 pair -(+)- gloves noriva~
 some finely crafted -(+)- gloves~
@@ -2843,7 +2843,7 @@ A
 12 35
 A
 5 1
-G none
+g none~
 #11883
 filligree -(+)- necklace noriva~
 a filligree -(+)- necklace~
@@ -2858,7 +2858,7 @@ A
 4 2
 A
 3 2
-G none
+g none~
 #11884
 tooled -(+)- boots noriva~
 some tooled -(+)- boots~
@@ -2875,22 +2875,24 @@ A
 12 20
 A
 5 2
-G none
+g none~
 #11885
 laerkai fury rage~
 laerkai fury~
 A feeling of rage pulses here.~
 flame~
 armor AI AQ
-29 29 29 26 0
-89 0 50000 P
+14 14 14 13 0
+45 0 50000 P
 A
-3 6
+19 5
 A
-12 250
+20 -5
 A
-19 6
-G none
+3 3
+A
+12 150
+g none~
 #11886
 laerkai justice shield~
 laerkai justice~
@@ -2898,103 +2900,104 @@ A finely crafted shield is here.~
 mithril~
 armor AI AJ
 29 29 29 26 0
-89 50 50000 P
+45 50 50000 P
 A
-5 6
+20 -10
 A
-13 110
+5 3
 A
 17 -25
 A
-20 -15
-G none
+13 50
+g none~
 #11887
 laerkai pain~
 laerkai pain~
 A wave of pain slams into you!~
 nothingness~
 armor BI AH
-40 40 39 26 0
-89 0 50000 P
+15 15 15 13 0
+45 0 50000 P
 A
-1 4
+13 50
 A
 6 1
 A
-13 100
+1 2
 A
-18 10
+18 5
 A
-19 20
-G none
+19 8
+g none~
 #11888
 shadows laerkai stealth~
 laerkai stealth~
 The shadows are deep here.~
 shadow~
 armor CI AG
-29 29 28 26 0
-89 0 50000 P
+14 14 14 13 0
+45 0 50000 P
 A
-2 6
+2 3
 A
-12 100
+12 50
 A
-18 20
+18 10
 F A 0 0 P
-G none
+g none~
 #11889
 laerkai might platemail plate mail~
 laerkai might~
 A set of powerful looking platemail is here, humming.~
 mithril~
 armor BI AD
-28 28 30 26 0
-89 100 50000 P
+20 20 20 15 0
+45 100 50000 P
 A
-1 6
+19 7
 A
-12 250
+12 100
 A
-19 10
-G none
+1 3
+g none~
 #11890
 laerkai life health aura~
 laerkai life~
 An aura of health permeates the room.~
 etherealness~
 armor AI AC
-29 29 30 26 0
-89 0 50000 P
+14 14 14 13 0
+45 0 50000 P
+F A 0 0 c
 A
-5 6
+18 5
 A
-13 125
+5 3
 A
-18 15
-G none
+13 50
+g none~
 #11891
 laerkai power presense~
 laerkai power~
 A presense of tremendous power is here.~
 nothingness~
 armor BI AM
-40 40 40 26 0
-89 0 55000 P
+20 20 20 13 0
+45 0 55000 P
 A
-1 4
+18 7
 A
-2 4
+19 7
+A
+12 100
+A
+13 100
+A
+1 2
+A
+2 2
 A
 6 1
-A
-12 300
-A
-13 300
-A
-18 20
-A
-19 20
 F A 0 0 V
 E
 laerkai power presense~
@@ -3010,19 +3013,19 @@ skull:
 
 	       D'lan Treviki Drakyri Laerkai
 ~
-G none
+g none~
 #11892
 honed shortsword zedraikis~
 a honed shortsword 'Zedraikis'~
 A finely honed shortsword gleams wickedly.~
 mithril~
 weapon BCI AN
-sword 12 10 'pierce' ADH
-89 250 55000 P
+sword 8 7 'pierce' ADH
+45 250 55000 P
 A
-18 20
+19 10
 A
-19 20
+18 10
 E
 honed shortsword zedraikis~
 A wickedly sharp silvery blue blade gleams above a black wrapped leather
@@ -3033,7 +3036,7 @@ hilt.  An inscription in the face of the blade reads:
 	      With the fury of fire
               And Zedraikis' wrath!
 ~
-G none
+g none~
 #11893
 flame balance silver~
 flame of balance~
@@ -3041,32 +3044,32 @@ A shimmering silver flame hovers here.~
 flame~
 light AFIJK A
 0 0 -1 0 0
-89 0 55000 P
+45 0 55000 P
 A
-1 2
+6 1
 A
-2 2
+5 1
 A
-3 2
+4 1
 A
-4 2
+2 1
 A
-5 2
+3 1
 A
-6 2
+1 1
 A
-12 275
+18 5
 A
-13 275
+19 5
 A
-18 12
+12 100
 A
-19 12
+13 100
 E
 flame balance silver~
 The flame flickers blindingly, and you are forced to look away.
 ~
-G none
+g none~
 #11894
 drakyri arm guards pair silvery~
 drakyri arm guards~
@@ -3081,7 +3084,7 @@ A
 2 1
 A
 1 1
-G none
+g none~
 #11895
 drakyri girth silvery~
 a drakyri girth~
@@ -3096,7 +3099,7 @@ A
 12 20
 A
 3 1
-G none
+g none~
 #11896
 drakyri wrist guard~
 a drakyri wrist guard~
@@ -3113,7 +3116,7 @@ A
 13 15
 A
 5 1
-G none
+g none~
 #11897
 drakyri dagger mithril~
 a drakyri dagger~
@@ -3128,7 +3131,7 @@ A
 19 3
 A
 2 1
-G none
+g none~
 #11898
 green greenish energy pill~
 an energy pill~
@@ -3137,7 +3140,7 @@ food~
 pill B A
 65 'haste' 'enhanced armor' '' ''
 55 10 500 P
-G none
+g none~
 #11899
 warp pill~
 a warp pill~
@@ -3146,7 +3149,7 @@ food~
 pill B A
 65 'teleport' 'teleport' 'heal' 'invisibility'
 55 10 300 P
-G none
+g none~
 #0
 
 #ROOMS
@@ -6076,9 +6079,14 @@ O 11858 5	* a -=+)> shroud
 O 11864 15	* a black -=+)> belt
 O 11869 2	* a bracer of power
 O 11879 8	* an inlaid silver -(+)- bracelet
+O 11885 2	* laerkai fury
+O 11886 2	* laerkai justice
 O 11887 2	* laerkai pain
-O 11888 5	* laerkai stealth
+O 11888 2	* laerkai stealth
+O 11889 2	* laerkai might
+O 11890 2	* laerkai life
 O 11891 2	* laerkai power
+O 11892 3	* a honed shortsword 'Zedraikis'
 O 11893 2	* flame of balance
 S
 

@@ -568,7 +568,7 @@ E
 ancients~
 This huge sword is very old, and very very big and sharp.
 ~
-G none
+g none~
 #25001
 pile silk~
 a pile of blue silk~
@@ -583,7 +583,7 @@ E
 dark blue~
 This cloak is dark blue, and looks like very effective armor
 ~
-G none
+g none~
 #25002
 silver sleeves~
 a pair of silver sleeves~
@@ -598,7 +598,7 @@ E
 silver sleeves~
 These sleeves seem to have a sort of magical aura...
 ~
-G none
+g none~
 #25003
 belt~
 a Rune Covered Belt~
@@ -611,7 +611,7 @@ E
 rune covered belt~
 Upon closer inspection of the belt you find strange magical symbols...
 ~
-G none
+g none~
 #25004
 helm dragons~
 a Helm of the Dragons~
@@ -629,7 +629,7 @@ helm dragons~
 The metal is like nothing you have ever seen, perhaps this helm is of the
 gods...
 ~
-G none
+g none~
 #25005
 rune breast plate~
 a Rune Covered Breast Plate~
@@ -645,7 +645,7 @@ rune breast plate~
 The breast plate is of no metal you have ever seen, strange markings 
 cover the plate.
 ~
-G none
+g none~
 #25006
 pair silver boot boots~
 a Pair of Silver Boots~
@@ -658,7 +658,7 @@ E
 pair silver boots~
 They are made of pure silver.... they radiate a strong sense of magic.
 ~
-G none
+g none~
 #25007
 silver shield~
 silver Shield~
@@ -673,7 +673,7 @@ silver shield~
 The shield is made of a silvery substance.. It is like nothing you have
 ever seen.
 ~
-G none
+g none~
 #25008
 black silver cloak~
 a Black and Silver Cloak~
@@ -687,7 +687,7 @@ black silver cloak~
 It is of a fine, black material that is as dark as night......
 Silver runes and symbols are carefully inscribed on the back of the cloak.
 ~
-G none
+g none~
 #25009
 metallic leg plates~
 a Pair of Metallic Leg Plates~
@@ -696,7 +696,7 @@ steel~
 armor EGL AF
 9 9 9 1 0
 25 3500 0 G
-G none
+g none~
 #25010
 pair jeweled gauntlets~
 a Pair of Jeweled Gauntlets~
@@ -713,7 +713,7 @@ E
 gauntlets~
 Looks very useful in combat.  They are made of fine chain mail.
 ~
-G none
+g none~
 #25011
 pitch black cloak~
 a Pitch-Black Cloak~
@@ -722,7 +722,7 @@ energy~
 armor GHLM AK
 12 11 10 2 0
 35 60 26620 G
-G none
+g none~
 #25012
 flaming bracelet~
 a Flaming Bracelet~
@@ -739,7 +739,7 @@ E
 flaming bracelet~
 It had several large diamonds placed on it... it burns fiercely!
 ~
-G none
+g none~
 #25013
 black onyx ring~
 a Black Onyx Ring~
@@ -752,7 +752,7 @@ A
 17 -10
 A
 18 4
-G none
+g none~
 #25014
 shadowshiv~
 the Shadowshiv~
@@ -765,7 +765,7 @@ A
 18 -1
 A
 19 4
-G none
+g none~
 #25015
 two handed sword flaming~
 a Flaming Two-Handed Sword~
@@ -779,7 +779,7 @@ A
 18 3
 A
 19 12
-G none
+g none~
 #25016
 silver trident~
 a Silver Trident~
@@ -792,7 +792,7 @@ A
 18 2
 A
 19 2
-G none
+g none~
 #25017
 sword sharpness~
 sword of Sharpness~
@@ -805,7 +805,7 @@ A
 18 2
 A
 19 5
-G none
+g none~
 #25018
 crystal ring~
 a Crystal Ring~
@@ -816,7 +816,7 @@ treasure AGL AB
 22 100 5000 G
 A
 12 25
-G none
+g none~
 #25019
 jeweled dagger~
 a Jeweled Dagger~
@@ -825,7 +825,7 @@ steel~
 weapon GLM AN
 dagger 6 7 'stab' 0
 37 70 22342 G
-G none
+g none~
 #25020
 jewel encrusted helmet~
 a Jewel Encrusted Helmet~
@@ -834,7 +834,7 @@ silver~
 armor GJLNO AE
 12 12 12 2 0
 37 170 23679 G
-G none
+g none~
 #25021
 small medallion~
 a Small Medallion~
@@ -845,7 +845,7 @@ armor AGLP AC
 41 20 18999 G
 A
 12 50
-G none
+g none~
 #25022
 ivory bracelet~
 an Ivory Bracelet~
@@ -857,7 +857,7 @@ armor GL AM
 F R 0 0 D
 F A 0 0 KT
 F A 0 0 Z
-G none
+g none~
 #25023
 green cape~
 a Bright Green Cape~
@@ -868,7 +868,7 @@ armor GL AC
 33 120 10404 G
 A
 13 10
-G none
+g none~
 #25024
 fire blade~
 the fire blade~
@@ -877,7 +877,7 @@ flame~
 weapon AGL AN
 sword 5 5 'blast' A
 25 400 13780 G
-G none
+g none~
 #25025
 glaive~
 glaive~
@@ -890,7 +890,7 @@ E
 glaive~
 You see nothing special.
 ~
-G none
+g none~
 #25026
 soul amulet~
 the Soul Amulet~
@@ -899,7 +899,7 @@ quartz~
 armor GL AC
 11 11 11 3 0
 36 30 16400 G
-G none
+g none~
 #25027
 circlet concentration~
 the Silver Circlet of Concentration~
@@ -914,7 +914,7 @@ E
 silver~
 A small inscription says "I hated it when i lost concentration in battle"
 ~
-G none
+g none~
 #25028
 portal~
 portal~
@@ -923,7 +923,7 @@ energy~
 portal ABG 0
 ABCDIJKN 0 A 3054 0
 0 0 0 G
-G none
+g none~
 #25050
 runed key~
 a Huge Runed Key~
@@ -932,7 +932,7 @@ stone~
 key 0 AO
 0 0 0 0 0
 1 0 0 G
-G none
+g none~
 #25051
 runed key~
 a Runed Key~
@@ -945,7 +945,7 @@ E
 runed key~
 You see nothing special.
 ~
-G none
+g none~
 #25052
 runed key~
 a Runed Key~
@@ -958,7 +958,7 @@ E
 runed key~
 You see nothing special.
 ~
-G none
+g none~
 #25053
 runed key~
 a Runed Key~
@@ -971,7 +971,7 @@ E
 runed key~
 You see nothing special.
 ~
-G none
+g none~
 #25054
 runed key~
 a Runed Key~
@@ -984,7 +984,7 @@ E
 runed key~
 You see nothing special.
 ~
-G none
+g none~
 #25056
 crystal key~
 a Crystal Key~
@@ -997,7 +997,7 @@ E
 crystal key~
 You see nothing special.
 ~
-G none
+g none~
 #25057
 silvery key~
 a silvery key~
@@ -1010,7 +1010,7 @@ E
 silvery key~
 You see nothing special.
 ~
-G none
+g none~
 #25058
 emerald key~
 an emerald key~
@@ -1023,7 +1023,7 @@ E
 emerald key~
 You see nothing special.
 ~
-G none
+g none~
 #25059
 diamond key~
 a diamond key~
@@ -1032,7 +1032,7 @@ diamond~
 key 0 AO
 0 0 0 0 0
 1 0 0 G
-G none
+g none~
 #25060
 breast plate~
 The Silver Breast Plate~
@@ -1043,7 +1043,7 @@ armor GJL AD
 48 150 19394 G
 A
 17 -20
-G none
+g none~
 #25061
 helm~
 the Silver Helm~
@@ -1054,7 +1054,7 @@ armor GJL AE
 48 280 21450 G
 A
 17 -25
-G none
+g none~
 #25062
 pair boot boots~
 a Pair of Runed Covered Boots~
@@ -1063,7 +1063,7 @@ leather~
 armor GLO AG
 12 12 12 2 0
 27 120 19560 G
-G none
+g none~
 #25080
 girth hero heroism~
 the Girth of Real Heroism~
@@ -1072,7 +1072,7 @@ mithril~
 armor AGIOY AL
 12 12 12 9 2
 51 300 100000 G
-G none
+g none~
 #25081
 ring hero heroism~
 the Ring of Real Heroism~
@@ -1081,7 +1081,7 @@ energy~
 armor AGIOY AB
 12 12 12 9 1
 51 300 100000 G
-G none
+g none~
 #25082
 weapon hero heroism~
 the Real Hero' Weapon~
@@ -1090,7 +1090,7 @@ steel~
 weapon AGIOY AN
 exotic 10 11 'slash' D
 51 300 100000 G
-G none
+g none~
 #0
 
 #ROOMS

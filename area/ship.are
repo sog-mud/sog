@@ -32,7 +32,7 @@ unknown~
 drink 0 A
 1000 1000 'orange juice' 0 0
 1 1 1 P
-G none
+g none~
 #10602
 пушка gun~
 @eng gun@rus пушка~
@@ -41,7 +41,7 @@ steel~
 wand CHRTUYa AO
 70 1 1 'fireball' 0
 45 3000 1000 P
-G none
+g none~
 #10603
 штурвал~
 @rus штурвал~
@@ -54,7 +54,7 @@ E
 штурвал~
 @rus Большой темного дерева штурвал с бронзовоми рукоятками.  
 ~
-G none
+g none~
 #0
 
 #ROOMS

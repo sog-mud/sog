@@ -176,7 +176,7 @@ iron~
 weapon B AN
 mace 6 7 'pound' 0
 40 25 1000 P
-G none
+g none~
 #29351
 glowing skull~
 a Flaming Skull~
@@ -197,7 +197,7 @@ A
 19 2
 A
 3 2
-G none
+g none~
 #29352
 wand golden~
 a golden wand~
@@ -206,7 +206,7 @@ gold~
 wand 0 AO
 50 10 10 'shield' 0
 50 3 500 P
-G none
+g none~
 #29353
 staff crystal~
 a crystal staff~
@@ -215,7 +215,7 @@ stone~
 staff G AO
 70 5 5 'heal' 0
 60 10 800 P
-G none
+g none~
 #29354
 garnet ring~
 a Garnet Ring~
@@ -232,7 +232,7 @@ A
 3 2
 A
 18 2
-G none
+g none~
 #29355
 bracer night~
 the Bracer of the Night~
@@ -247,7 +247,7 @@ A
 19 2
 A
 5 1
-G none
+g none~
 #29356
 amulet night~
 the Amulet of the Night~
@@ -264,7 +264,7 @@ A
 3 1
 A
 4 1
-G none
+g none~
 #29357
 ancient longsword sword~
 an Ancient Longsword~
@@ -277,7 +277,7 @@ A
 19 3
 A
 18 3
-G none
+g none~
 #29358
 black scale dragon~
 a black dragon scale~
@@ -296,7 +296,7 @@ A
 1 2
 A
 3 -2
-G none
+g none~
 #29359
 hell sword wraith~
 the Hell's Wraith~
@@ -317,7 +317,7 @@ A
 4 -1
 A
 3 -1
-G none
+g none~
 #29360
 robes sorceror~
 sorceror's robes~
@@ -330,7 +330,7 @@ A
 3 3
 A
 12 150
-G none
+g none~
 #29361
 infinity scroll~
 the Infinity Scroll~
@@ -355,7 +355,7 @@ A
 13 50
 A
 12 50
-G none
+g none~
 #29362
 silvery potion~
 a silvery potion~
@@ -364,7 +364,7 @@ glass~
 potion AG AO
 40 'invisibility' 'detect invis' 'detect magic' ''
 40 2 1000 P
-G none
+g none~
 #29363
 key golden~
 a golden key~
@@ -373,7 +373,7 @@ gold~
 key 0 A
 0 0 0 0 0
 40 1 0 P
-G none
+g none~
 #29364
 boots water walking waterwalking~
 boots of waterwalking~
@@ -384,7 +384,7 @@ boat G AG
 20 5 1000 P
 A
 2 1
-G none
+g none~
 #29365
 thieve's tunic~
 a Thieve's Tunic~
@@ -397,7 +397,7 @@ A
 18 3
 A
 2 3
-G none
+g none~
 #29366
 paper blank~
 a blank piece of paper~
@@ -406,7 +406,7 @@ paper~
 gem 0 AO
 0 0 0 0 AB
 35 1 2000 P
-G none
+g none~
 #29367
 chair wooden~
 @eng a large wooden chair@rus большое деревянное кресло~
@@ -415,7 +415,7 @@ wood~
 furniture 0 0
 0 0 D 0 0
 30 50 0 P
-G none
+g none~
 #29368
 table dining~
 a huge dining table~
@@ -424,7 +424,7 @@ wood~
 furniture 0 0
 0 0 0 0 0
 30 100 0 P
-G none
+g none~
 #29369
 book shelf bookshelf~
 an old wooden bookshelf~
@@ -433,7 +433,7 @@ wood~
 container 0 0
 10 0 0 0 75
 40 200 0 P
-G none
+g none~
 #29370
 desk mahogany~
 a large mahogany desk~
@@ -442,7 +442,7 @@ wood~
 container 0 0
 999 0 22001 499 75
 40 150 0 P
-G none
+g none~
 #29371
 closet~
 a closet carved into the wall~
@@ -451,7 +451,7 @@ stone~
 container 0 0
 999 0 29363 499 75
 40 999 0 P
-G none
+g none~
 #29372
 grimoire~
 a powerful grimoire~
@@ -460,7 +460,7 @@ leather~
 container AG 0
 100 0 0 50 75
 40 50 0 P
-G none
+g none~
 #29373
 cross obsidian~
 @eng a large obsidian cross@rus огромный обсидиановый крест~
@@ -492,7 +492,7 @@ mobs.  However, as this area is the only way to get to a few others, the
 mobs do NOT detect invis, so as long as you are invis you should be able to
 get where you want to go, Alive.  ===> RYZEN <=== 
 ~
-G male
+g male~
 #0
 
 #ROOMS

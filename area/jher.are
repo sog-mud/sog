@@ -279,7 +279,7 @@ unknown~
 money A A
 180 0 0 0 0
 18 0 180 P
-G none
+g none~
 #32701
 bone key~
 a key made of bone~
@@ -288,7 +288,7 @@ unknown~
 key 0 AO
 0 0 0 0 0
 0 1 0 P
-G none
+g none~
 #32702
 breeding formula~
 breeding formula~
@@ -297,7 +297,7 @@ unknown~
 potion G A
 35 'giant strength' 'heal' 'heal' ''
 0 0 0 P
-G none
+g none~
 #32703
 curved dagger jher's~
 jher's curved dagger~
@@ -316,7 +316,7 @@ A
 4 2
 A
 1 -1
-G none
+g none~
 #32704
 breeding formula~
 breeding formula~
@@ -325,7 +325,7 @@ unknown~
 potion G A
 35 'armor' 'heal' 'create food' ''
 0 0 0 P
-G none
+g none~
 #32705
 breeding formula~
 breeding formula~
@@ -338,7 +338,7 @@ A
 19 5
 A
 13 25
-G none
+g none~
 #32706
 beorn's fury~
 beorn's fury~
@@ -351,7 +351,7 @@ A
 18 5
 A
 19 8
-G none
+g none~
 #32707
 key~
 large brass key~
@@ -360,7 +360,7 @@ unknown~
 key 0 AO
 0 0 0 0 0
 0 1 0 P
-G none
+g none~
 #32708
 throne~
 the throne~
@@ -369,7 +369,7 @@ unknown~
 furniture A 0
 0 0 0 0 0
 51 5 510 P
-G none
+g none~
 #32709
 key jewel topaz~
 a key made of topaz~
@@ -378,7 +378,7 @@ unknown~
 key AH A
 0 0 0 0 0
 53 5 530 P
-G none
+g none~
 #32710
 carved ebony figurine~
 a carved ebony figurine~
@@ -387,7 +387,7 @@ unknown~
 key F A
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #32711
 dusty golden trunk chest~
 the golden chest~
@@ -396,7 +396,7 @@ unknown~
 container G 0
 100 ABCD 9910 0 0
 35 5 350 P
-G none
+g none~
 #32712
 diamond bracelet~
 a diamond bracelet~
@@ -407,7 +407,7 @@ armor AFG AM
 37 5 370 P
 A
 12 50
-G none
+g none~
 #32713
 broken scroll~
 a broken scroll~
@@ -416,7 +416,7 @@ unknown~
 scroll B A
 50 'heal' 'word of recall' 'refresh' ''
 0 5 0 P
-G none
+g none~
 #32714
 glowing zapath necklace~
 a glowing zapath necklace~
@@ -429,7 +429,7 @@ A
 14 100
 A
 19 4
-G none
+g none~
 #32715
 gold pill coin~
 a gold coin~
@@ -438,7 +438,7 @@ unknown~
 pill A A
 0 'detect invis' '' '' ''
 35 5 350 P
-G none
+g none~
 #0
 
 #ROOMS

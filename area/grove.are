@@ -183,7 +183,7 @@ E
 closet~
 It is large, yet gracefully made, obviously of Scandinavian design.
 ~
-G none
+g none~
 #8902
 jar~
 a spice jar~
@@ -192,7 +192,7 @@ glass~
 container 0 A
 5 AC 0 5 100
 0 10 0 P
-G none
+g none~
 #8903
 powder black~
 some black powder~
@@ -209,7 +209,7 @@ powder~
       *      *       *
     *        *         *
 ~
-G none
+g none~
 #8904
 kernel kernels~
 some small yellow kernels~
@@ -222,7 +222,7 @@ E
 kernel kernels~
 Look fairly dull...
 ~
-G none
+g none~
 #8905
 paper wad~
 a crumpled wad of paper~
@@ -265,7 +265,7 @@ o    .                                                                o
 o    .                                                                o
 o                                                                     o
 ~
-G none
+g none~
 #8910
 staff wooden~
 a wooden staff~
@@ -278,7 +278,7 @@ E
 staff wooden~
 This oaken staff is very hefty but balanced.
 ~
-G none
+g none~
 #8911
 robe brown cloth~
 a brown robe~
@@ -293,7 +293,7 @@ E
 robe brown cloth~
 This robe is rough, but appears quite durable.
 ~
-G none
+g none~
 #8913
 bluish herbs~
 some bluish herbs~
@@ -302,7 +302,7 @@ plant~
 pill 0 A
 15 '' '' 'bless' ''
 1 10 270 P
-G none
+g none~
 #8914
 purplish herbs~
 some purplish herbs~
@@ -311,7 +311,7 @@ plant~
 pill 0 A
 15 '' '' 'cure light' ''
 0 10 250 P
-G none
+g none~
 #8915
 blackish herbs~
 some blackish herbs~
@@ -320,7 +320,7 @@ plant~
 pill 0 A
 5 '' '' 'blindness' ''
 0 10 178 P
-G none
+g none~
 #8916
 grayish herbs~
 some grayish herbs~
@@ -329,7 +329,7 @@ plant~
 pill 0 A
 5 '' 'giant strength' 'poison' ''
 5 10 360 P
-G none
+g none~
 #8917
 reddish herbs~
 some reddish herbs~
@@ -338,7 +338,7 @@ plant~
 pill 0 A
 15 '' '' 'detect magic' ''
 0 10 250 P
-G none
+g none~
 #8918
 orangish herbs~
 some orangish herbs~
@@ -347,7 +347,7 @@ plant~
 pill 0 A
 5 '' '' 'cure light' ''
 0 10 150 P
-G none
+g none~
 #8919
 pinkish herbs~
 some pinkish herbs~
@@ -356,7 +356,7 @@ unknown~
 pill 0 A
 5 '' 'cure poison' 'poison' ''
 6 10 430 P
-G none
+g none~
 #0
 
 #ROOMS

@@ -358,7 +358,7 @@ E
 hammer sledge grey~
 This massive hammer is incredibly hard, heavy, and utterly grey and featureless.
 ~
-G none
+g none~
 #7701
 scroll violet~
 a violet scroll~
@@ -371,7 +371,7 @@ E
 scroll violet~
 The scroll is written on soft violet parchment that has a pleasing smell to it.
 ~
-G none
+g none~
 #7702
 tablet scroll black~
 a black etched tablet~
@@ -385,7 +385,7 @@ tablet scroll black~
 The tablet is an unreflective black rectangular piece of stone, with strange
 writings etched deep into its surface.
 ~
-G none
+g none~
 #7703
 scroll githyanki~
 a scroll with githyanki writings on it~
@@ -398,7 +398,7 @@ E
 scroll githyanki~
 The scroll has writings on it that you cannot comprehend.
 ~
-G none
+g none~
 #7704
 amulet demon~
 a small demon's amulet~
@@ -420,7 +420,7 @@ victims, and other things too horrible to describe.
 Stenciled in the center is an unpronounceable name which it would behoove you
 not to utter aloud.
 ~
-G none
+g none~
 #7705
 talisman devilish~
 a devilish talisman~
@@ -439,7 +439,7 @@ near it.
 
 Engraved in the center is one word.  Merely reading the word induces fright.
 ~
-G none
+g none~
 #7706
 knife silvery~
 a silvery knife~
@@ -458,7 +458,7 @@ The knife is forged from a strange silvery metal the likes of which you have
 never seen in your own world.  It is incredibly sharp and hard, yet feels almost
 fluid to the touch.
 ~
-G none
+g none~
 #7707
 dagger silvery~
 a silvery dagger~
@@ -477,7 +477,7 @@ The dagger is forged from a strange silvery metal the likes of which you have
 never seen in your own world.  It is incredibly sharp and hard, yet feels almost
 fluid to the touch.
 ~
-G none
+g none~
 #7708
 sword thin~
 an extremely sharp and thin sword~
@@ -498,7 +498,7 @@ The sword is forged from a strange silvery metal.  It barely measures an inch
 across at its widest point, yet it is totally inflexible and razor-sharp.  It
 could probably cut through stone.
 ~
-G none
+g none~
 #7709
 sword thin two two-handed~
 a thin two-handed sword~
@@ -517,7 +517,7 @@ The sword is forged from a strange silvery metal.  It barely measures two inches
 across at its widest point, yet it is totally inflexible and razor sharp.  It
 could probably cut through stone.
 ~
-G none
+g none~
 #7710
 sword silvery two-handed~
 a silvery sword~
@@ -536,7 +536,7 @@ The sword is forged from a strange silvery metal the likes of which you have
 never seen in your own world.  It is incredibly sharp and hard, yet feels almost
 fluid to the touch.
 ~
-G none
+g none~
 #7711
 flail barbed iron~
 an iron barbed flail~
@@ -555,7 +555,7 @@ This hideous weapon has claimed many lives.  You can tell from the bloodstains
 dried into the iron and from the residue of flesh that hangs from the many
 barbs on it.
 ~
-G none
+g none~
 #7712
 sword gith two-handed~
 the unholy sword of the githyanki~
@@ -581,7 +581,7 @@ evil presence reaching out to consume your soul.
 
 Maybe picking it up wasn't such a good idea.
 ~
-G none
+g none~
 #7713
 stone flame~
 a brightly flaming stone~
@@ -599,7 +599,7 @@ stone flame~
 This stone burns with an flame that emits great heat, yet it can be held with
 ease.  The flame creates a light that allows you to see for miles.
 ~
-G none
+g none~
 #7714
 powder astral~
 some astral powder~
@@ -612,7 +612,7 @@ E
 powder astral~
 You see the residue of the astral plane.
 ~
-G none
+g none~
 #7715
 vest splint~
 a splint mail vest~
@@ -626,7 +626,7 @@ vest splint~
 This splint mail has been expertly and ornately fashioned from the highest
 quality of steels.
 ~
-G none
+g none~
 #7716
 skirt splint~
 a splint mail skirt~
@@ -640,7 +640,7 @@ skirt splint~
 This splint mail has been expertly and ornately fashioned from the highest
 quality of steels.
 ~
-G none
+g none~
 #7717
 sleeves splint~
 a pair of splint mail sleeves~
@@ -654,7 +654,7 @@ sleeves splint~
 This splint mail has been expertly and ornately fashioned from the highest
 quality of steels.
 ~
-G none
+g none~
 #7718
 gauntlets ornate~
 a pair of ornately designed gauntlets~
@@ -674,7 +674,7 @@ gauntlets ornate~
 These gauntlets have been expertly and ornately fashioned from the highest
 quality of steels.
 ~
-G none
+g none~
 #7719
 vest cracked leather~
 a decaying vest made from cracked leather~
@@ -692,7 +692,7 @@ vest cracked leather~
 The ancient vest is barely intact.  All of the leather has cracked and dried
 to a husk.  It is covered with stains, burns, scorch marks, and blood.
 ~
-G none
+g none~
 #7720
 potion violet~
 a violet potion~
@@ -705,7 +705,7 @@ E
 potion violet~
 The violet fluid inside shifts and swirls.
 ~
-G none
+g none~
 #7721
 potion vial murky~
 a vial of murky fluid~
@@ -718,7 +718,7 @@ E
 potion vial murky~
 The murky liquid inside this vial looks a lot like sewer water.
 ~
-G none
+g none~
 #7722
 potion silvery~
 a silvery-colored potion~
@@ -731,7 +731,7 @@ E
 potion silvery~
 The octagonal vial contains a silvery-colored liquid that shimmers in the light.
 ~
-G none
+g none~
 #7723
 mint chocolate~
 a tasty-looking chocolate mint~
@@ -745,7 +745,7 @@ mint chocolate~
 This mint is made from the finest of chocolates, surrounding a cool peppermint
 interior that must be savored, not swallowed.
 ~
-G none
+g none~
 #7724
 pentagram~
 a black pentagram~
@@ -759,7 +759,7 @@ pentagram~
 The pentagram is a small circular hoop that surrounds a five-pointed star.
 Inscribed on its exterior loop are markings in an alien tongue.
 ~
-G none
+g none~
 #7725
 pouch rotting~
 a rotting pouch~
@@ -772,7 +772,7 @@ E
 pouch rotting~
 You think you see glints of metal through the holes...
 ~
-G none
+g none~
 #0
 
 #ROOMS

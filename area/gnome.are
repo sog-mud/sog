@@ -386,7 +386,7 @@ wood~
 key 0 A
 B 0 0 0 0
 0 10 0 P
-G none
+g none~
 #1501
 key dirty~
 a dirty key~
@@ -395,7 +395,7 @@ wood~
 key 0 A
 B 0 0 0 0
 0 10 0 P
-G none
+g none~
 #1502
 toy boomerang~
 a toy boomerang~
@@ -404,7 +404,7 @@ wood~
 weapon 0 AN
 exotic 2 4 'pound' K
 5 50 730 P
-G none
+g none~
 #1503
 staff gnarled~
 a gnarled staff~
@@ -413,7 +413,7 @@ ebony~
 weapon 0 AN
 exotic 1 9 'pound' 0
 5 150 730 P
-G none
+g none~
 #1504
 sword gnome~
 a gnome sword~
@@ -422,7 +422,7 @@ iron~
 weapon 0 AN
 sword 3 3 'slash' 0
 7 150 610 P
-G none
+g none~
 #1505
 shield studded~
 a studded shield~
@@ -431,7 +431,7 @@ wood~
 armor 0 AJ
 4 4 4 1 0
 5 100 750 P
-G none
+g none~
 #1506
 potion bloody~
 a bloody potion~
@@ -440,7 +440,7 @@ glass~
 potion 0 A
 15 'cure blindness' 'cure critical' 'giant strength' ''
 7 220 480 P
-G none
+g none~
 #1507
 cloak bloody~
 a bloody cloak~
@@ -449,7 +449,7 @@ cloth~
 armor G AC
 4 4 4 0 0
 5 150 480 P
-G none
+g none~
 #1508
 ring bat~
 a bat ring~
@@ -460,7 +460,7 @@ jewelry G AB
 10 20 270 P
 A
 14 15
-G none
+g none~
 #1509
 necklace bead~
 a bead necklace~
@@ -471,7 +471,7 @@ jewelry 0 AC
 5 80 220 P
 A
 18 1
-G none
+g none~
 #1510
 sword electrum~
 an electrum sword~
@@ -480,7 +480,7 @@ steel~
 weapon AG AN
 sword 4 4 'slash' 0
 12 200 930 P
-G none
+g none~
 #1511
 basket wicker~
 a wicker basket~
@@ -489,7 +489,7 @@ wood~
 container 0 A
 90 0 0 20 100
 0 50 0 P
-G none
+g none~
 #1512
 peanuts~
 some peanuts~
@@ -498,7 +498,7 @@ food~
 food 0 A
 E E 0 0 0
 0 90 0 P
-G none
+g none~
 #1513
 grain~
 some grain~
@@ -507,7 +507,7 @@ unknown~
 food 0 A
 ABCD ABCD 0 0 0
 0 80 0 P
-G none
+g none~
 #1514
 skiff~
 a skiff~
@@ -516,7 +516,7 @@ wood~
 boat 0 A
 0 0 0 0 0
 0 240 0 P
-G none
+g none~
 #1515
 boots gnome~
 a pair of gnome boots~
@@ -527,7 +527,7 @@ armor 0 AG
 7 120 610 P
 A
 14 10
-G none
+g none~
 #1516
 coins~
 a pile of coins~
@@ -536,7 +536,7 @@ silver~
 money 0 A
 100 0 0 0 0
 0 10 0 P
-G none
+g none~
 #1517
 coins~
 a pile of coins~
@@ -545,7 +545,7 @@ silver~
 money 0 A
 500 0 0 0 0
 0 10 0 P
-G none
+g none~
 #1519
 shield stone~
 a stone shield~
@@ -556,7 +556,7 @@ armor 0 AJ
 16 350 3700 P
 A
 1 2
-G none
+g none~
 #1520
 mail heavy banded~
 heavy banded mail~
@@ -565,7 +565,7 @@ iron~
 armor 0 AD
 6 6 6 0 0
 15 300 2100 P
-G none
+g none~
 #1521
 club large two-handed~
 a large club~
@@ -576,7 +576,7 @@ mace 1 12 'pound' F
 6 220 460 P
 A
 18 -1
-G none
+g none~
 #1522
 banana~
 a banana~
@@ -585,7 +585,7 @@ food~
 food 0 A
 BC BC 0 0 0
 0 50 0 P
-G none
+g none~
 #1523
 life potion~
 a potion of life healing~
@@ -594,7 +594,7 @@ clay~
 potion H A
 32 'cure poison' 'bless' '' ''
 6 10 630 P
-G none
+g none~
 #1524
 club wooden~
 a wooden club~
@@ -605,7 +605,7 @@ mace 2 3 'pound' 0
 3 100 220 P
 A
 18 -1
-G none
+g none~
 #0
 
 #ROOMS

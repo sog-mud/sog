@@ -271,7 +271,7 @@ unknown~
 armor 0 AK
 20 20 20 10 0
 60 5 200 P
-G none
+g none~
 #30801
 master robe habit~
 a master's habit~
@@ -282,7 +282,7 @@ armor 0 AK
 61 5 36600 P
 A
 12 60
-G none
+g none~
 #30802
 necromancer robes~
 necromancer's robes~
@@ -295,7 +295,7 @@ A
 3 4
 A
 12 50
-G none
+g none~
 #30803
 dagger~
 a mithril dagger~
@@ -308,7 +308,7 @@ A
 18 12
 A
 19 12
-G none
+g none~
 #30804
 altar~
 a bloodstained altar~
@@ -317,7 +317,7 @@ unknown~
 furniture 0 0
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #30805
 abbot ring~
 the abbot's ring~
@@ -332,7 +332,7 @@ A
 18 6
 A
 19 6
-G none
+g none~
 #30806
 abbot robes~
 the abbot's robes~
@@ -345,7 +345,7 @@ A
 13 60
 A
 23 -6
-G none
+g none~
 #30807
 bracers might~
 bracers of might~
@@ -360,7 +360,7 @@ A
 18 2
 A
 19 6
-G none
+g none~
 #30808
 sword elven~
 an elven longsword~
@@ -373,7 +373,7 @@ A
 2 4
 A
 18 12
-G none
+g none~
 #30809
 suit elven chainmail~
 a suit of elven chainmail~
@@ -384,7 +384,7 @@ armor AG AD
 63 5 25000 P
 A
 17 -30
-G none
+g none~
 #30810
 shield~
 a rune-covered shield~
@@ -397,7 +397,7 @@ A
 5 5
 A
 17 -30
-G none
+g none~
 #30811
 tattered cloak~
 a tattered cloak~
@@ -406,7 +406,7 @@ unknown~
 armor 0 AC
 20 20 20 20 0
 63 1 1000 P
-G none
+g none~
 #30812
 scythe~
 a scythe~
@@ -419,7 +419,7 @@ A
 19 7
 A
 18 7
-G none
+g none~
 #30813
 manacles~
 a pair of manacles~
@@ -430,7 +430,7 @@ armor M AI
 55 15 0 P
 A
 2 -4
-G none
+g none~
 #30814
 pick~
 a mining pick~
@@ -439,7 +439,7 @@ unknown~
 weapon 0 AN
 axe 6 9 'pierce' 0
 60 5 0 P
-G none
+g none~
 #30815
 whip~
 a whip~
@@ -448,7 +448,7 @@ unknown~
 weapon 0 AN
 whip 7 9 'whip' 0
 61 10 7000 P
-G none
+g none~
 #30816
 iron key~
 an iron key~
@@ -457,7 +457,7 @@ iron~
 key 0 AO
 0 0 0 0 0
 0 1 0 P
-G none
+g none~
 #30817
 silver key~
 a silver key~
@@ -466,7 +466,7 @@ silver~
 key 0 AO
 0 0 0 0 0
 0 1 0 P
-G none
+g none~
 #30818
 gold key~
 a gold key~
@@ -475,7 +475,7 @@ unknown~
 key 0 AO
 0 0 0 0 0
 0 1 0 P
-G none
+g none~
 #30819
 chest key~
 a chest key~
@@ -484,7 +484,7 @@ unknown~
 key 0 AO
 0 0 0 0 0
 0 1 0 P
-G none
+g none~
 #30820
 chest~
 an iron chest~
@@ -493,7 +493,7 @@ iron~
 container 0 0
 1500 0 30819 50 100
 0 0 0 P
-G none
+g none~
 #30821
 suit unholy armor~
 a suit of unholy armor~
@@ -520,7 +520,7 @@ A
 23 -3
 A
 24 -3
-G none
+g none~
 #30822
 sack~
 a sack~
@@ -529,7 +529,7 @@ unknown~
 container 0 AO
 25 0 0 5 100
 60 1 0 P
-G none
+g none~
 #30823
 gold~
 some gold~
@@ -538,7 +538,7 @@ unknown~
 money 0 A
 25000 0 0 0 0
 0 10 25000 P
-G none
+g none~
 #30824
 bellows~
 a bellows~
@@ -547,7 +547,7 @@ unknown~
 furniture 0 0
 0 0 0 0 0
 0 4 0 P
-G none
+g none~
 #30825
 green amulet~
 a bright green amulet~
@@ -560,7 +560,7 @@ E
 amulet~
 It has "DRAGON CLAN" scribed upon it.
 ~
-G none
+g none~
 #30826
 portal~
 a glowing green portal~
@@ -569,7 +569,7 @@ unknown~
 portal A 0
 0 0 A 30827 0
 0 0 0 P
-G none
+g none~
 #30827
 portal~
 a glowing green portal~
@@ -578,7 +578,7 @@ unknown~
 portal A 0
 0 0 A 30825 0
 0 0 0 P
-G none
+g none~
 #30828
 portal~
 a glowing red portal~
@@ -587,7 +587,7 @@ unknown~
 portal A 0
 0 0 A 30839 0
 0 0 0 P
-G none
+g none~
 #30829
 sack~
 a sack~
@@ -596,7 +596,7 @@ unknown~
 container 0 AO
 15 0 0 10 100
 1 1 0 P
-G none
+g none~
 #30830
 lantern~
 a lantern~
@@ -605,7 +605,7 @@ unknown~
 light 0 AO
 0 0 100 0 0
 1 1 0 P
-G none
+g none~
 #30831
 chest~
 a small chest~
@@ -614,7 +614,7 @@ unknown~
 container 0 A
 50 0 0 20 100
 5 5 0 P
-G none
+g none~
 #30832
 wineskin~
 a wineskin~
@@ -623,7 +623,7 @@ unknown~
 drink 0 AO
 5 5 'red wine' 0 0
 0 2 0 P
-G none
+g none~
 #30833
 waterskin~
 a waterskin~
@@ -632,7 +632,7 @@ unknown~
 drink 0 AO
 5 5 'water' 0 0
 0 2 0 P
-G none
+g none~
 #30834
 iron rations~
 some iron rations~
@@ -641,7 +641,7 @@ unknown~
 food 0 AO
 DE DE 0 0 0
 0 2 20 P
-G none
+g none~
 #30835
 backpack~
 a backpack~
@@ -650,7 +650,7 @@ unknown~
 container 0 AD
 25 0 0 10 100
 0 3 0 P
-G none
+g none~
 #30836
 hand axe~
 a hand axe~
@@ -659,7 +659,7 @@ unknown~
 weapon 0 AN
 axe 6 8 'chop' 0
 59 5 2500 P
-G none
+g none~
 #30837
 throwing axe~
 a throwing axe~
@@ -668,7 +668,7 @@ unknown~
 weapon 0 AN
 axe 8 9 'chop' K
 60 5 2500 P
-G none
+g none~
 #30838
 bo stick~
 a bo stick~
@@ -677,7 +677,7 @@ unknown~
 weapon 0 AN
 mace 6 8 'pound' 0
 61 5 1500 P
-G none
+g none~
 #30839
 jo stick~
 a jo stick~
@@ -686,7 +686,7 @@ unknown~
 weapon 0 AN
 mace 6 8 'pound' 0
 61 5 1500 P
-G none
+g none~
 #30840
 quarterstaff~
 a quarterstaff~
@@ -695,7 +695,7 @@ unknown~
 weapon 0 AN
 staff 6 8 'crush' 0
 59 5 2500 P
-G none
+g none~
 #30841
 crossbow~
 a crossbow~
@@ -704,7 +704,7 @@ unknown~
 weapon 0 AN
 bow 6 8 'pierce' 0
 59 10 2350 P
-G none
+g none~
 #30842
 quiver~
 a quiver~
@@ -713,7 +713,7 @@ unknown~
 portal 0 AD
 BEF 0 0 0 0
 3 100 0 P
-G none
+g none~
 #30843
 shield~
 a white shield~
@@ -732,7 +732,7 @@ A
 23 -3
 A
 24 -3
-G none
+g none~
 #30844
 surcoat~
 a white surcoat~
@@ -747,7 +747,7 @@ A
 18 5
 A
 19 5
-G none
+g none~
 #30845
 throne~
 a throne~
@@ -760,7 +760,7 @@ E
 throne~
 You think you can see a secret door beneath it...
 ~
-G none
+g none~
 #30846
 skeleton~
 a skeleton~
@@ -776,7 +776,7 @@ This skeleton appears to be humanoid...
 E
 .trigo_dooropen~
 down~
-G none
+g none~
 #30847
 sarcophagus~
 a massive sarcophagus~
@@ -785,7 +785,7 @@ unknown~
 container 0 0
 15000 0 0 0 0
 0 15000 0 P
-G none
+g none~
 #30848
 red amulet~
 a glowing red amulet~
@@ -794,7 +794,7 @@ unknown~
 key 0 AC
 0 0 0 0 0
 0 1 0 P
-G none
+g none~
 #30849
 portal~
 a glowing red portal~
@@ -803,7 +803,7 @@ unknown~
 portal A 0
 0 0 A 30827 0
 0 0 0 P
-G none
+g none~
 #30850
 desk~
 a small desk~
@@ -812,7 +812,7 @@ unknown~
 furniture 0 0
 0 0 0 0 0
 0 100 0 P
-G none
+g none~
 #30851
 letter~
 a partially-drafted letter~
@@ -830,7 +830,7 @@ of our presence, and are seeking to stop us! Oh but when we call upon the
 power of the DRAGON, how they will suffer! If only the Demon Lord could offer
 us more -"
 ~
-G none
+g none~
 #30852
 book~
 a book on ritual sacrifice~
@@ -845,7 +845,7 @@ A
 4 -3
 A
 12 -50
-G none
+g none~
 #30853
 portal~
 a glowing blue portal~
@@ -854,7 +854,7 @@ unknown~
 portal A 0
 0 0 A 30883 0
 0 0 0 P
-G none
+g none~
 #30854
 portal~
 a glowing blue portal~
@@ -863,7 +863,7 @@ unknown~
 portal A 0
 0 0 A 30839 0
 0 0 0 P
-G none
+g none~
 #30855
 portal~
 a glowing black portal~
@@ -872,7 +872,7 @@ unknown~
 portal A 0
 0 0 A 30819 0
 0 0 0 P
-G none
+g none~
 #30856
 bath~
 a bath~
@@ -881,7 +881,7 @@ unknown~
 fountain 0 0
 10 10 'water' 0 0
 0 30800 0 P
-G none
+g none~
 #30857
 blue amulet~
 a blue amulet~
@@ -890,7 +890,7 @@ unknown~
 key 0 AC
 0 0 0 0 0
 0 1 0 P
-G none
+g none~
 #0
 
 #ROOMS

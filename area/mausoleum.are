@@ -206,7 +206,7 @@ wood~
 key EH A
 0 0 0 0 0
 15 0 100 P
-G none
+g none~
 #4601
 frostbrand sword~
 a Frostbrand sword~
@@ -219,7 +219,7 @@ A
 19 1
 A
 18 1
-G none
+g none~
 #4602
 symbol unholy~
 an unholy symbol of Lloth~
@@ -238,7 +238,7 @@ A
 12 50
 A
 14 30
-G none
+g none~
 #4603
 corpse~
 a smelly humanoid corpse~
@@ -247,7 +247,7 @@ flesh~
 container 0 0
 0 0 0 0 0
 1 100 0 A
-G none
+g none~
 #4604
 darkened boots~
 a pair of darkened boots~
@@ -268,7 +268,7 @@ A
 17 -4
 A
 13 40
-G none
+g none~
 #4605
 darkened helm helmet~
 a darkened helmet~
@@ -289,7 +289,7 @@ A
 17 -4
 A
 13 40
-G none
+g none~
 #4606
 darkened leggings~
 a pair of darkened leggings~
@@ -314,7 +314,7 @@ Upon closer examination of these leggings, you realize they are of
 extraordinary craftsmanship, and are very light for their huge size.
 Only a great warrior may wear them with little fear of death.
 ~
-G none
+g none~
 #4607
 signet ring~
 the Arkham signet ring~
@@ -333,7 +333,7 @@ A
 17 -11
 A
 13 21
-G none
+g none~
 #4608
 darkened shield~
 a darkened shield~
@@ -352,7 +352,7 @@ A
 5 -2
 A
 1 -3
-G none
+g none~
 #4609
 guardian sword~
 a guardian sword~
@@ -367,7 +367,7 @@ A
 18 2
 A
 17 -10
-G none
+g none~
 #4610
 potion healing~
 a potion of healing~
@@ -376,7 +376,7 @@ glass~
 potion A A
 30 'acid blast' 'blindness' 'plague' ''
 5 0 15000 P
-G none
+g none~
 #4611
 staff wrath~
 a staff of wrath~
@@ -385,7 +385,7 @@ wood~
 staff A AO
 20 5 5 'colour spray' 0
 5 0 2000 P
-G none
+g none~
 #4612
 cloak death~
 the Cloak of Death~
@@ -404,7 +404,7 @@ A
 3 3
 A
 2 -3
-G none
+g none~
 #4613
 scroll yellow parchment~
 an ancient yellow parchment~
@@ -413,7 +413,7 @@ paper~
 scroll EHMPT AO
 50 'acid blast' '' '' ''
 50 0 100000 P
-G none
+g none~
 #4614
 copper ring fortitide~
 a ring of fortitude~
@@ -437,7 +437,7 @@ copper ring~
 An inscription is engraved inside the ring, stating 'accursed be the
 one not worthy of the true powers you behold'...
 ~
-G none
+g none~
 #4615
 corpse~
 a corpse of an elfin wizard~
@@ -446,7 +446,7 @@ flesh~
 container 0 0
 0 0 0 0 0
 30 100 0 P
-G none
+g none~
 #4616
 flail pestilance~
 the flail of Pestilance~
@@ -459,7 +459,7 @@ A
 19 3
 A
 13 10
-G none
+g none~
 #4617
 poncho~
 a rat-eaten poncho~
@@ -478,7 +478,7 @@ A
 5 -5
 A
 1 -3
-G none
+g none~
 #4618
 corpse~
 a half-eaten corpse~
@@ -487,7 +487,7 @@ flesh~
 container 0 0
 0 0 0 0 0
 30 100 0 P
-G none
+g none~
 #4619
 emerald potion~
 an emerald potion~
@@ -496,7 +496,7 @@ glass~
 potion AHM AO
 30 'armor' 'curse' 'dispel evil' ''
 5 0 0 P
-G none
+g none~
 #4620
 corpse~
 a peaceful corpse~
@@ -505,7 +505,7 @@ flesh~
 container 0 0
 0 0 0 0 0
 30 100 0 P
-G none
+g none~
 #4621
 ulrician belt~
 an ulrician belt~
@@ -520,7 +520,7 @@ A
 13 7
 A
 2 2
-G none
+g none~
 #4622
 shadow dagger litrahth~
 the Shadow Dagger~
@@ -538,7 +538,7 @@ shadow dagger~
 Wear the dagger and speak the magic words, 'Litrahth Ezandor' to open
 the portal to the spirit realms...
 ~
-G none
+g none~
 #4623
 shadow dagger~
 the Shadow Dagger~
@@ -560,7 +560,7 @@ shadow dagger~
 Wear the dagger and speak the magic words, 'Litrahth Ezandor' to open
 the portal to the spirit realms...
 ~
-G none
+g none~
 #4624
 claw dracolich~
 the Claw of great Dracolich~
@@ -577,7 +577,7 @@ A
 12 -50
 A
 5 -2
-G none
+g none~
 #4625
 coffin~
 a coffin~
@@ -586,7 +586,7 @@ wood~
 container 0 0
 1000 0 0 0 0
 1 100 0 P
-G none
+g none~
 #4626
 sceptre chaos~
 the flaming sceptre of Chaos~
@@ -605,7 +605,7 @@ A
 12 10
 A
 2 1
-G none
+g none~
 #4627
 libram gainful conjuration~
 the Libram of Gainful Conjuration~
@@ -614,7 +614,7 @@ parchment~
 container ABCEPT AO
 100 0 0 500 0
 50 15 40000 P
-G none
+g none~
 #4628
 potion protection divine~
 a potion of divine protection~
@@ -623,7 +623,7 @@ glass~
 potion A AO
 30 'harm' 'plague' 'poison' 'chill touch'
 50 15 40000 P
-G none
+g none~
 #4629
 cloak wizardry~
 the cloak of wizardry~
@@ -640,7 +640,7 @@ A
 4 2
 A
 3 3
-G none
+g none~
 #4630
 scroll overkill~
 a scroll of ultimate overkill~
@@ -649,7 +649,7 @@ parchment~
 scroll T A
 50 'lightning breath' 'acid blast' 'harm' ''
 38 1 1500 P
-G none
+g none~
 #4631
 scroll truimph~
 a scroll of truimph~
@@ -658,7 +658,7 @@ parchment~
 scroll AT A
 43 'giant strength' 'cure serious' 'bless' ''
 34 1 1500 P
-G none
+g none~
 #4632
 scroll feasting~
 a scroll of feasting~
@@ -667,7 +667,7 @@ parchment~
 scroll AT A
 35 'infravision' 'armor' 'colour spray' ''
 20 1 1500 P
-G none
+g none~
 #4633
 scroll redecoration~
 a scroll of room-redecoration~
@@ -676,7 +676,7 @@ parchment~
 scroll AT A
 38 'cause serious' 'energy drain' 'demonfire' ''
 45 1 1500 P
-G none
+g none~
 #4634
 scroll protection~
 a scroll of protection~
@@ -685,7 +685,7 @@ parchment~
 scroll AT A
 50 'armor' 'stone skin' 'pass door' ''
 40 1 1500 P
-G none
+g none~
 #4635
 scroll invulnerability~
 a scroll of invulnerability~
@@ -694,7 +694,7 @@ parchment~
 scroll AT A
 34 'armor' 'teleport' '' ''
 12 1 1500 P
-G none
+g none~
 #4636
 scroll wolverine~
 a scroll of the Wolverine~
@@ -703,7 +703,7 @@ parchment~
 scroll AT A
 38 'frenzy' 'shield' '' ''
 20 1 1500 P
-G none
+g none~
 #4637
 scroll lifebane~
 a scroll of lifebane~
@@ -712,7 +712,7 @@ parchment~
 scroll AT A
 40 'energy drain' 'energy drain' '' ''
 33 1 1500 P
-G none
+g none~
 #4638
 scroll destruction~
 a scroll of destruction~
@@ -721,7 +721,7 @@ parchment~
 scroll AT A
 42 'fireball' 'demonfire' '' ''
 29 1 1500 P
-G none
+g none~
 #4639
 scroll chaos~
 a scroll of chaos~
@@ -730,7 +730,7 @@ parchment~
 scroll AT A
 50 'teleport' 'teleport' 'sleep' 'curse'
 10 1 1500 P
-G none
+g none~
 #4640
 potion healing bvumpertan~
 a potion of healing~
@@ -739,7 +739,7 @@ glass~
 potion A AO
 35 '' 'acid blast' 'plague' ''
 5 0 15000 P
-G none
+g none~
 #4641
 potion life~
 a potion of life~
@@ -748,7 +748,7 @@ glass~
 potion A AO
 27 'cause critical' 'cause light' 'cure serious' ''
 5 0 1000 P
-G none
+g none~
 #0
 
 #ROOMS
@@ -1620,6 +1620,8 @@ P 0 4641 0 4625 1	* a coffin: a potion of life
 S
 
 #OLIMITS
+O 4604 6	* a pair of darkened boots
+O 4606 6	* a pair of darkened leggings
 O 4609 3	* a guardian sword
 O 4622 4	* the Shadow Dagger
 S

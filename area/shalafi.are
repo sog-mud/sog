@@ -115,7 +115,7 @@ ivory~
 container AORY P
 10 ABCD 95302 15 100
 60 1 20 P
-G none
+g none~
 #95301
 orb источник~
 @eng Orb of Magic@rus ~~источник~~ магии~
@@ -124,7 +124,7 @@ ebony~
 treasure AGRe A
 0 0 0 0 0
 0 1 100000 P
-G male
+g male~
 #95302
 key ключ~
 @eng a spider shaped key@rus ключ в форме паука~
@@ -133,7 +133,7 @@ steel~
 key ORYf AOP
 0 0 0 0 0
 0 4 0 P
-G male
+g male~
 #95303
 portal white портал object~
 @eng Magical White Portal@rus ~~белый~~ ~~магический~~ ~~портал~~~
@@ -142,7 +142,7 @@ energy~
 portal AO 0
 0 0 D 9209 0
 0 0 0 P
-G none
+g none~
 #95304
 portal black портал object~
 @eng Magical Black Portal@rus ~~черный~~ ~~магический~~ ~~портал~~~
@@ -151,7 +151,7 @@ energy~
 portal AO 0
 0 0 E 0 0
 0 0 0 P
-G none
+g none~
 #95305
 sofa софа~
 @eng sofa of meditation@rus ~~софа~~ для медитации~
@@ -160,7 +160,7 @@ unknown~
 furniture GRT P
 BD 0 EHK DGH DGH
 0 0 0 P
-G none
+g none~
 #95306
 talisman талисман~
 @eng {CMagic talisman{x@rus ~~{CМагический{x~~ ~~{Cталисман{x~~~
@@ -169,7 +169,7 @@ magic~
 jewelry AGIMTYZ AS
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #0
 
 #ROOMS

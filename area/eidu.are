@@ -76,7 +76,7 @@ A
 18 300
 A
 19 300
-G none
+g none~
 #44001
 mat~
 @eng mat@rus Циновка~
@@ -85,7 +85,7 @@ straw~
 furniture R 0
 A EIJKN EH 0 0
 0 0 0 P
-G none
+g none~
 #44002
 low table~
 @eng low table@rus низенький столик~
@@ -98,7 +98,7 @@ E
 table~
 На столике стоят фарфоровые чашки и чайник. Похоже что здесь кто-то собирался попить чаю.
 ~
-G none
+g none~
 #44003
 life of Eidu~
 @eng Life@rus Жизнь Eidu~
@@ -116,7 +116,7 @@ A
 12 20000
 A
 13 20000
-G none
+g none~
 #44004
 Statue of Eidu~
 @eng Статуя главного самурая~
@@ -125,7 +125,7 @@ marble~
 fountain R 0
 0 0 'water' 0 0
 0 0 0 P
-G none
+g none~
 #44005
 axe bloody amputation~
 {RBloody Axe of Amputation{x~
@@ -134,7 +134,7 @@ steel~
 weapon 0 AN
 axe 9 9 'chop' DEI
 40 0 0 P
-G none
+g none~
 #44006
 hammer great sleep~
 {yGreat Hammer of Sleep{x~
@@ -143,7 +143,7 @@ wood~
 wand 0 AO
 300 1000000 1000000 'terangreal' 0
 40 0 0 P
-G none
+g none~
 #44007
 kit fighter's first aid~
 {Wfighter's {Rfirst aid {Wkit{x~
@@ -160,7 +160,7 @@ A
 18 150
 A
 19 150
-G none
+g none~
 #44009
 bottle vodka absolut~
 bottle of Absolut~
@@ -169,7 +169,7 @@ glass~
 drink 0 AS
 100 100 'vodka' 0 0
 0 0 0 P
-G none
+g none~
 #44010
 ring black skull~
 @eng ring with little black skull@rus кольцо с маленьким черным черепом~
@@ -184,7 +184,7 @@ A
 18 4
 A
 19 4
-G none
+g none~
 #44011
 rivulet~
 {rrivulet{x~
@@ -198,7 +198,7 @@ rivulet~
 Ручеек весело несет свои красные воды дальше на восток. Попробуй-ка его 
 понюхать.
 ~
-G none
+g none~
 #44012
 statue~
 the statue of Eidu~
@@ -211,7 +211,7 @@ E
 statue~
 Under construction
 ~
-G none
+g none~
 #44013
 great ring jafar power~
 ring of jafar power~
@@ -224,7 +224,7 @@ A
 20 -15
 A
 19 5
-G none
+g none~
 #44014
 ring constricting~
 {rconstricting ring{x~
@@ -234,7 +234,7 @@ jewelry CMY AB
 0 0 0 0 0
 96 0 0 P
 F A 0 0 L
-G none
+g none~
 #44015
 пиво мартовское beer~
 "Мартовское"~
@@ -243,7 +243,7 @@ glass~
 drink 0 AO
 1000000 1000000 'beer' 0 0
 0 0 0 P
-G none
+g none~
 #0
 
 #ROOMS

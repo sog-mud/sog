@@ -523,7 +523,7 @@ light G A
 5 80 550 P
 A
 4 1
-G none
+g none~
 #1101
 sting~
 sting~
@@ -534,7 +534,7 @@ dagger 2 7 'bite' 0
 17 10 3500 P
 A
 2 2
-G none
+g none~
 #1102
 sign~
 a sign~
@@ -555,7 +555,7 @@ town.
 					Peacekeeper of the Shire
 
 ~
-G none
+g none~
 #1103
 pipeweed bread~
 a pipeweed bread~
@@ -564,7 +564,7 @@ food~
 food 0 A
 BCDE DE 0 0 0
 0 10 15 P
-G none
+g none~
 #1104
 silvery cloak~
 a silvery cloak~
@@ -575,7 +575,7 @@ armor GK AK
 15 30 1320 P
 A
 20 -1
-G none
+g none~
 #1105
 one ring~
 the One Ring~
@@ -587,7 +587,7 @@ jewelry G AB
 F A 0 0 B
 A
 1 -1
-G none
+g none~
 #1106
 elven spear~
 an elven spear~
@@ -598,7 +598,7 @@ spear 3 7 'thrust' K
 16 50 500 P
 A
 18 2
-G none
+g none~
 #1107
 mithril axe~
 a mithril axe~
@@ -609,7 +609,7 @@ axe 3 8 'chop' 0
 17 120 1440 P
 A
 19 3
-G none
+g none~
 #1108
 thain girth~
 the thain girth~
@@ -620,7 +620,7 @@ armor 0 AL
 17 40 3600 P
 A
 4 2
-G none
+g none~
 #1109
 tiny dagger~
 a tiny dagger~
@@ -629,7 +629,7 @@ steel~
 weapon 0 AN
 dagger 1 6 'pierce' 0
 1 30 230 P
-G none
+g none~
 #1110
 egg~
 an egg~
@@ -638,7 +638,7 @@ food~
 food 0 A
 CD CD 0 0 0
 0 10 2 P
-G none
+g none~
 #1111
 bag~
 a bag~
@@ -647,7 +647,7 @@ cloth~
 container 0 A
 50 0 0 5 100
 0 10 11 P
-G none
+g none~
 #1112
 lantern~
 a lantern~
@@ -656,7 +656,7 @@ brass~
 light 0 A
 0 0 200 0 0
 0 40 60 P
-G none
+g none~
 #1113
 bardiche~
 a bardiche~
@@ -667,7 +667,7 @@ polearm 3 10 'cleave' F
 21 100 1810 P
 A
 18 4
-G none
+g none~
 #1114
 flail~
 a flail~
@@ -676,7 +676,7 @@ iron~
 weapon 0 AN
 flail 2 4 'smash' 0
 5 80 390 P
-G none
+g none~
 #1115
 wooden bardiche~
 a wooden bardiche~
@@ -687,7 +687,7 @@ polearm 2 3 'pound' F
 3 100 980 P
 A
 18 4
-G none
+g none~
 #1116
 dagger shiriff~
 a shiriff's dagger~
@@ -700,7 +700,7 @@ A
 19 1
 A
 18 1
-G none
+g none~
 #1117
 club heavy~
 the Thain's club~
@@ -709,7 +709,7 @@ wood~
 weapon 0 AN
 mace 2 9 'pound' 0
 12 30 620 P
-G none
+g none~
 #0
 
 #ROOMS

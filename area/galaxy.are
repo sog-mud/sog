@@ -502,7 +502,7 @@ leather~
 weapon AB AN
 whip 2 7 'whip' 0
 10 90 390 P
-G none
+g none~
 #9302
 arm hercules~
 the Titanic Arm plates of Hercules~
@@ -517,7 +517,7 @@ E
 arm~
 These mighty armors have been worn by this immortal, since the ancient time.
 ~
-G none
+g none~
 #9304
 belt orion~
 the Titanic Belt of Orion~
@@ -533,7 +533,7 @@ belt~
 You can immediately see that it belongs to Orion, from the three stars
 engraved on it.
 ~
-G none
+g none~
 #9305
 skull draco~
 an ugly skull of Draco~
@@ -542,7 +542,7 @@ bone~
 staff BGH AO
 15 5 5 'call lightning' 0
 14 200 4300 P
-G none
+g none~
 #9306
 fleece aries~
 the Titanic Fleece of Aries~
@@ -557,7 +557,7 @@ E
 fleece~
 From a look it resembles the Golden Fleece that exists in the Greek myths.
 ~
-G none
+g none~
 #9307
 hoof taurus~
 the Titanic Hoof of Taurus~
@@ -574,7 +574,7 @@ E
 hoof~
 It is with these hooves that Taurus can stand against Orion's attacks.
 ~
-G none
+g none~
 #9308
 mask gemini~
 the Titanic Mask of Gemini~
@@ -592,7 +592,7 @@ mask~
 You notice the mask has got two faces, one smiling and the other crying.
 You don't know which way you should wear it.
 ~
-G none
+g none~
 #9309
 shell cancer~
 the Titanic Shell of Cancer~
@@ -608,7 +608,7 @@ shell~
 A shell which is dented in the middle, resulting from the Hercules' mighty
 pound when the Crab was still an enemy of Hercules in ancient times.
 ~
-G none
+g none~
 #9310
 skin leo~
 the Titanic Skin of Leo~
@@ -621,7 +621,7 @@ E
 skin~
 A skin made of metal, which was worn by Hercules during his Ten Labours.
 ~
-G none
+g none~
 #9311
 bracelet virgo~
 the Titanic Bracelet of Virgo~
@@ -636,7 +636,7 @@ E
 bracelet~
 A bracelet of purity and youth, only worn by selected virgins.
 ~
-G none
+g none~
 #9312
 scale libra~
 the Titanic Scale of Libra~
@@ -653,7 +653,7 @@ E
 scale~
 It is a shield of justice, used in the ancient battle against injustice.
 ~
-G none
+g none~
 #9313
 scale libra~
 the Titanic Scale of Libra~
@@ -670,7 +670,7 @@ E
 scale~
 It is a shield of injustice, it picks on the innocent.
 ~
-G none
+g none~
 #9314
 sting scorpio~
 the Sting of Scorpio~
@@ -687,7 +687,7 @@ E
 sting~
 This dreadful weapon put a lot of mortals to death before Scorpio was banished.
 ~
-G none
+g none~
 #9315
 arrow sagittarius~
 the Arrow of Sagittarius~
@@ -700,7 +700,7 @@ E
 arrow~
 It's an arrow of lightning; it will never miss any target.
 ~
-G none
+g none~
 #9316
 bow sagittarius~
 the Titanic Bow of Sagittarius~
@@ -717,7 +717,7 @@ E
 bow~
 The gigantic bow used by the Archer; it is a very powerful weapon.
 ~
-G none
+g none~
 #9317
 horns capricon~
 the Titanic Horns of Capricorn~
@@ -735,7 +735,7 @@ horn~
 These strange horns are the work of gods, shaped to fit on hands.
 They look powerful indeed.
 ~
-G none
+g none~
 #9318
 vessel aquarius~
 the Ancient Vessel of Aquarius~
@@ -749,7 +749,7 @@ vessel~
 This vessel has been carried by the Water Bearer ever since she came to the
 Zodiac.
 ~
-G none
+g none~
 #9319
 tail pisces~
 the Titanic Tail of Pisces~
@@ -767,7 +767,7 @@ tail~
 This tail can actually be worn by mortals somehow as leggings ... another
 work of the gods.
 ~
-G none
+g none~
 #9320
 ring dignity~
 the Ring of Dignity~
@@ -785,7 +785,7 @@ ring~
 This ring belongs to Cassiopeia, queen of the Universe.
 Mortals, do not touch!
 ~
-G none
+g none~
 #9321
 sceptre might~
 the Sceptre of Might~
@@ -802,7 +802,7 @@ E
 sceptre~
 You'd better give it back, or the king of the Universe will punish you.
 ~
-G none
+g none~
 #9322
 ring universe~
 the ring of the universe~
@@ -819,7 +819,7 @@ E
 ring~
 It conceals the power of the universe.
 ~
-G none
+g none~
 #9323
 great dipper~
 the Great Dipper of the Skies~
@@ -832,7 +832,7 @@ A
 19 3
 A
 18 2
-G none
+g none~
 #9324
 spring shoot~
 a spring shoot~
@@ -841,7 +841,7 @@ wood~
 key AB A
 0 0 0 0 0
 0 20 0 P
-G none
+g none~
 #9325
 summer flower~
 a summer flower~
@@ -850,7 +850,7 @@ flower~
 key AB A
 0 0 0 0 0
 0 20 0 P
-G none
+g none~
 #9326
 autumn leaf~
 an autumn leaf~
@@ -859,7 +859,7 @@ plant~
 key AB A
 0 0 0 0 0
 0 20 0 P
-G none
+g none~
 #9327
 winter branch~
 a winter branch~
@@ -868,7 +868,7 @@ wood~
 key AB A
 0 0 0 0 0
 0 20 0 P
-G none
+g none~
 #9328
 chains andromeda~
 chains of Andromeda~
@@ -881,7 +881,7 @@ E
 chains~
 They certainly look important!
 ~
-G none
+g none~
 #0
 
 #ROOMS

@@ -90,7 +90,7 @@ unknown~
 wand CGHMY AO
 91 5 5 'web' 0
 80 100 1000 P
-G none
+g none~
 #33301
 tooth~
 @eng a tooth of piranha@rus зуб пираньи~
@@ -99,7 +99,7 @@ unknown~
 weapon FH AN
 spear 10 11 'pierce' DHK
 75 150 1000 P
-G none
+g none~
 #33302
 wings moth~
 @eng a pair of moth wings@rus крылья мотылька~
@@ -116,7 +116,7 @@ A
 12 300
 A
 2 5
-G none
+g none~
 #33303
 pole fishing~
 @eng a fishing pole@rus удочка~
@@ -125,7 +125,7 @@ wood~
 weapon 0 AN
 mace 11 10 'pound' 0
 75 50 324 P
-G none
+g none~
 #33304
 boots worn~
 @eng a pair of worn boots@rus рваные ботинки~
@@ -156,7 +156,7 @@ A
 22 -2
 A
 21 -2
-G none
+g none~
 #0
 
 #ROOMS

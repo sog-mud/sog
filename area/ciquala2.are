@@ -323,7 +323,7 @@ A
 1 2
 A
 5 2
-G none
+g none~
 #13401
 ciquala's robe~
 Ciquala's robe~
@@ -338,7 +338,7 @@ A
 17 -15
 A
 2 2
-G none
+g none~
 #13402
 Ciquala's staff~
 ciquala's staff~
@@ -353,7 +353,7 @@ A
 3 3
 A
 4 -2
-G none
+g none~
 #13403
 crate~
 crate~
@@ -362,7 +362,7 @@ iron~
 furniture 0 A
 B EGHIJK NO CFG CFG
 0 0 0 P
-G none
+g none~
 #13404
 key~
 a key~
@@ -371,7 +371,7 @@ iron~
 key 0 A
 0 0 0 0 0
 1 0 0 P
-G none
+g none~
 #13405
 key~
 a iron key~
@@ -380,7 +380,7 @@ iron~
 key 0 A
 0 0 0 0 0
 1 0 0 P
-G none
+g none~
 #13406
 key large~
 a large key~
@@ -389,7 +389,7 @@ iron~
 key 0 A
 0 0 0 0 0
 1 0 0 P
-G none
+g none~
 #13407
 blue potion~
 a blue potion~
@@ -398,7 +398,7 @@ glass~
 potion H A
 38 'acid blast' 'acute vision' 'detect hidden' 'detect invis'
 20 20 3200 P
-G none
+g none~
 #13408
 emerald vial~
 an emerald vial~
@@ -407,7 +407,7 @@ glass~
 potion 0 A
 25 'heal' 'heal' 'blindness' ''
 20 20 3350 P
-G none
+g none~
 #13410
 testube clear~
 a clear testube~
@@ -416,7 +416,7 @@ glass~
 potion H A
 38 'burning hands' 'colour spray' 'protection evil' 'giant strength'
 20 20 3300 P
-G none
+g none~
 #13411
 vial green~
 a green vial~
@@ -425,7 +425,7 @@ glass~
 potion 0 A
 28 'create spring' 'energy drain' 'poison' 'armor'
 20 20 2300 P
-G none
+g none~
 #13412
 gold liquid vial~
 a vial with gold liquid~
@@ -434,7 +434,7 @@ glass~
 potion 0 A
 30 'weaken' 'poison' 'teleport' 'curse'
 20 20 4300 P
-G none
+g none~
 #13413
 milky liquid vial~
 a vial with milky liquid~
@@ -443,7 +443,7 @@ glass~
 potion 0 A
 30 'heal' 'pass door' 'teleport' 'sanctuary'
 20 20 4400 P
-G none
+g none~
 #13414
 black potion~
 a black potion~
@@ -452,7 +452,7 @@ glass~
 potion 0 A
 30 'shield' 'infravision' 'cause critical' 'protection good'
 20 20 4900 P
-G none
+g none~
 #13415
 beaker yellow~
 a beaker with yellow liquid~
@@ -461,7 +461,7 @@ glass~
 potion 0 A
 30 'harm' 'poison' 'weaken' 'sleep'
 20 20 3400 P
-G none
+g none~
 #13416
 iron maiden~
 an iron maiden~
@@ -478,7 +478,7 @@ A
 1 -5
 A
 2 -1
-G none
+g none~
 #13417
 torturer's whip~
 the torturer's whip~
@@ -493,7 +493,7 @@ A
 19 10
 A
 17 -20
-G none
+g none~
 #13418
 treasure coins gold~
 a humongous pile of gold~
@@ -502,7 +502,7 @@ gold~
 money 0 A
 10000 0 0 0 0
 0 0 0 P
-G none
+g none~
 #13419
 gems pile~
 a pile of gems~
@@ -511,7 +511,7 @@ iron~
 money A A
 20000 0 0 0 0
 0 0 0 P
-G none
+g none~
 #13420
 crate~
 crate~
@@ -520,7 +520,7 @@ iron~
 furniture 0 A
 B EGHIJK NO CFG CFG
 0 0 0 P
-G none
+g none~
 #13421
 crate~
 crate~
@@ -529,7 +529,7 @@ iron~
 furniture 0 A
 B EGHIJK NO CFG CFG
 0 0 0 P
-G none
+g none~
 #13422
 crate~
 crate~
@@ -538,7 +538,7 @@ iron~
 furniture 0 A
 B EGHIJK NO CFG CFG
 0 0 0 P
-G none
+g none~
 #13423
 crate~
 crate~
@@ -547,7 +547,7 @@ iron~
 furniture 0 A
 B EGHIJK NO CFG CFG
 0 0 0 P
-G none
+g none~
 #13424
 fizzing bottle~
 a fizzing bottle~
@@ -556,7 +556,7 @@ glass~
 potion 0 A
 28 'word of recall' 'sleep' 'poison' ''
 20 20 1000 P
-G none
+g none~
 #13425
 grey potion~
 a grey potion~
@@ -565,7 +565,7 @@ glass~
 potion 0 A
 30 'energy drain' 'energy drain' 'create food' 'create spring'
 20 20 1000 P
-G none
+g none~
 #0
 
 #ROOMS

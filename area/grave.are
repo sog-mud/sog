@@ -112,7 +112,7 @@ candlestick~
 It is a rather old-looking three-armed candlestick made from pewter.  Its
 candles are a yellowish white colour.
 ~
-G none
+g none~
 #3601
 brandy bottle~
 a brandy bottle~
@@ -127,7 +127,7 @@ The bottle is a special 'Dragon Blood' brandy bottle.  Its neck is shaped
 like a small dragon's head.  Bottles like these are often worth a small
 amount money, even when empty.
 ~
-G none
+g none~
 #3602
 brandy bottle~
 a brandy bottle~
@@ -142,7 +142,7 @@ The bottle is a special 'Dragon Blood' brandy bottle.  Its neck is shaped
 like a small dragon's head.  Bottles like these are often worth some money,
 even when empty.
 ~
-G none
+g none~
 #3603
 wheelbarrow~
 a wheelbarrow~
@@ -156,7 +156,7 @@ wheelbarrow~
 It is a heavy wheelbarrow made from solid oaken planks that have been painted
 a dark, green colour.
 ~
-G none
+g none~
 #3604
 shovel~
 a shovel~
@@ -169,7 +169,7 @@ E
 shovel~
 It is a large metal shovel with a solid wooden handle.
 ~
-G none
+g none~
 #3605
 rake~
 a rake~
@@ -182,7 +182,7 @@ E
 rake~
 It is a large metal rake with a solid wooden handle.
 ~
-G none
+g none~
 #3610
 skeleton~
 a dusty skeleton~
@@ -197,7 +197,7 @@ The dusty bones are almost brown.  It must have been buried for a very long
 time.
 A dusty skeleton is in an excellent condition.
 ~
-G none
+g none~
 #3611
 amethyst gem~
 a amethyst~
@@ -210,7 +210,7 @@ E
 amethyst~
 It has a very deep purple colour.
 ~
-G none
+g none~
 #3612
 pendant silver~
 a silver pendant~
@@ -227,7 +227,7 @@ E
 pendant silver~
 It resembles Thor's hammer and appears to be made of solid silver.
 ~
-G none
+g none~
 #3613
 dagger silver~
 a silver dagger~
@@ -243,7 +243,7 @@ dagger silver~
 It has a long, sharp blade that is made entirely from silver.  A small rune
 has been engraved on the blade next to the hilt.
 ~
-G none
+g none~
 #0
 
 #ROOMS

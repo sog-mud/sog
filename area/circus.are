@@ -564,7 +564,7 @@ paper~
 key 0 A
 A 0 0 0 0
 1 0 7 P
-G none
+g none~
 #4401
 candy~
 cotton candy~
@@ -573,7 +573,7 @@ unknown~
 pill 0 A
 1 'refresh' 'refresh' '' ''
 4 1 64 P
-G none
+g none~
 #4402
 key hairy~
 a hairy key~
@@ -582,7 +582,7 @@ unknown~
 key 0 AO
 0 0 0 0 0
 1 1 4 P
-G none
+g none~
 #4403
 key~
 a huge key~
@@ -591,7 +591,7 @@ unknown~
 key 0 AO
 0 0 0 0 0
 4 1 60 P
-G none
+g none~
 #4404
 key small~
 a small key~
@@ -600,7 +600,7 @@ unknown~
 key 0 AO
 0 0 0 0 0
 1 1 5 P
-G none
+g none~
 #4405
 key shimmering~
 a shimmering key~
@@ -609,7 +609,7 @@ unknown~
 key 0 AO
 0 0 0 0 0
 1 1 5 P
-G none
+g none~
 #4406
 key slender~
 a slender key~
@@ -618,7 +618,7 @@ unknown~
 key 0 AO
 0 0 0 0 0
 1 1 4 P
-G none
+g none~
 #4407
 bracers strongman~
 the strongman's bracers~
@@ -631,7 +631,7 @@ A
 1 1
 A
 5 1
-G none
+g none~
 #4408
 sword small~
 a small, thin sword~
@@ -644,7 +644,7 @@ A
 18 3
 A
 17 8
-G none
+g none~
 #4409
 staff translucent~
 a pointy translucent staff~
@@ -655,7 +655,7 @@ staff 3 4 'pound' 0
 5 0 144 P
 A
 18 2
-G none
+g none~
 #4410
 sword bastard~
 the sword swallower's sword~
@@ -666,7 +666,7 @@ sword 2 3 'slice' 0
 1 0 10 P
 A
 18 1
-G none
+g none~
 #4411
 purse~
 the midget's purse~
@@ -675,7 +675,7 @@ unknown~
 container 0 AO
 30 0 0 5 50
 1 1 16 P
-G none
+g none~
 #4412
 bunch coins~
 a bunch of coins~
@@ -684,7 +684,7 @@ unknown~
 money 0 A
 700 0 0 0 0
 1 1 16 P
-G none
+g none~
 #4413
 razor~
 a razor~
@@ -697,7 +697,7 @@ A
 19 2
 A
 17 6
-G none
+g none~
 #4414
 barbell~
 a barbell~
@@ -706,7 +706,7 @@ unknown~
 furniture 0 AO
 A CDFI EHK BCEH CFG
 5 120 0 P
-G none
+g none~
 #4415
 sign записка~
 @eng a letter@rus записка~
@@ -723,7 +723,7 @@ Another example of how your government cares for you.
 
                - Captain of the Watch
 ~
-G none
+g none~
 #4416
 knife~
 a sharp knife~
@@ -734,7 +734,7 @@ dagger 2 3 'stab' D
 2 1 12 P
 A
 18 2
-G none
+g none~
 #4417
 blindfold~
 a blindfold~
@@ -747,7 +747,7 @@ A
 18 -10
 A
 14 -50
-G none
+g none~
 #4418
 whip~
 a whip~
@@ -760,7 +760,7 @@ A
 18 5
 A
 4 -1
-G none
+g none~
 #4419
 pole~
 tightrope walker's pole~
@@ -771,7 +771,7 @@ furniture A AO
 6 1 175 P
 A
 2 2
-G none
+g none~
 #4420
 clown shoes~
 big clown shoes~
@@ -784,7 +784,7 @@ A
 14 -20
 A
 2 -1
-G none
+g none~
 #4421
 tophat hat~
 a tophat~
@@ -797,7 +797,7 @@ A
 12 10
 A
 17 4
-G none
+g none~
 #4422
 chest~
 a chest~
@@ -806,7 +806,7 @@ unknown~
 container 0 0
 100 ACD 4402 100 100
 1 0 0 P
-G none
+g none~
 #4423
 chest~
 a chest~
@@ -815,7 +815,7 @@ unknown~
 container 0 0
 100 ACD 4405 100 100
 1 0 0 P
-G none
+g none~
 #4424
 chest~
 a chest~
@@ -824,7 +824,7 @@ unknown~
 container 0 0
 100 ACD 4403 100 100
 1 0 0 P
-G none
+g none~
 #4425
 chest~
 a chest~
@@ -833,7 +833,7 @@ unknown~
 container 0 0
 100 ACD 4404 100 100
 1 0 0 P
-G none
+g none~
 #4426
 chest~
 another chest~
@@ -842,7 +842,7 @@ unknown~
 container 0 0
 100 ACD 4406 100 100
 1 0 0 P
-G none
+g none~
 #4427
 slip paper~
 a paper~
@@ -851,7 +851,7 @@ unknown~
 key 0 A
 0 0 0 0 0
 5 1 100 P
-G none
+g none~
 #4428
 safe~
 a combination safe~
@@ -866,7 +866,7 @@ painting~
 Behind the painting you find a safe!  It has a combination lock.  You can 
 probably never guess the combination.
 ~
-G none
+g none~
 #4429
 note~
 @eng a note@rus табличка~
@@ -879,7 +879,7 @@ E
 sign~
 The sign says:     type BUY TICKET to buy a ticket for the Big Top.
 ~
-G none
+g none~
 #4430
 bucket~
 a bucket~
@@ -888,7 +888,7 @@ unknown~
 container 0 AO
 15 0 0 15 100
 2 1 16 P
-G none
+g none~
 #4431
 drugged food~
 drugged food~
@@ -897,7 +897,7 @@ unknown~
 pill 0 A
 34 'sleep' 'weaken' 'poison' ''
 2 1 8 P
-G none
+g none~
 #4432
 pizza food~
 a slice of Tombstone Sausage and Pepperoni pizza~
@@ -906,7 +906,7 @@ unknown~
 food 0 A
 CFG ACEG 0 0 0
 3 1 27 P
-G none
+g none~
 #4433
 steak food~
 a juicy steak~
@@ -915,7 +915,7 @@ unknown~
 food 0 A
 CFG CFG 0 0 0
 4 1 48 P
-G none
+g none~
 #4434
 bigmac food~
 a delicious BigMac~
@@ -924,7 +924,7 @@ unknown~
 food 0 A
 CFG ACEG 0 0 0
 3 1 27 P
-G none
+g none~
 #4435
 coke can~
 a can of Coke~
@@ -933,7 +933,7 @@ unknown~
 drink 0 A
 100 96 'coke' 0 0
 4 1 8 P
-G none
+g none~
 #4436
 key~
 the key to the lion's cage~
@@ -942,7 +942,7 @@ unknown~
 key 0 A
 0 0 0 0 0
 1 1 10 P
-G none
+g none~
 #4437
 bunch coins~
 a bunch of coins~
@@ -951,7 +951,7 @@ unknown~
 money 0 A
 50 0 0 0 0
 1 0 16 P
-G none
+g none~
 #4438
 bunch coins~
 a bunch of coins~
@@ -960,7 +960,7 @@ unknown~
 money 0 A
 100 0 0 0 0
 1 0 4 P
-G none
+g none~
 #4439
 nose red~
 a red clown nose~
@@ -973,7 +973,7 @@ A
 3 -2
 A
 4 -1
-G none
+g none~
 #4440
 chest~
 a chest~
@@ -982,7 +982,7 @@ unknown~
 container 0 0
 100 ACD 4441 100 100
 4 4 0 P
-G none
+g none~
 #4441
 key~
 a key~
@@ -991,7 +991,7 @@ unknown~
 key 0 A
 0 0 0 0 0
 6 1 120 P
-G none
+g none~
 #4442
 clear potion~
 a clear potion~
@@ -1000,7 +1000,7 @@ unknown~
 potion GH AO
 29 'fly' 'remove curse' 'continual light' ''
 3 3 48 P
-G none
+g none~
 #4443
 roast pheasant food~
 a roast~
@@ -1009,7 +1009,7 @@ unknown~
 food 0 A
 CFG EG 0 0 0
 4 1 0 P
-G none
+g none~
 #4444
 turkey food~
 a slice of turkey~
@@ -1018,7 +1018,7 @@ unknown~
 food 0 A
 CFG EG 0 0 0
 3 1 0 P
-G none
+g none~
 #4445
 stuffing food~
 homemade stuffing~
@@ -1027,7 +1027,7 @@ unknown~
 food 0 A
 CFG CFG 0 0 0
 3 1 0 P
-G none
+g none~
 #4446
 cherry pie food~
 a slice of cherry pie~
@@ -1036,7 +1036,7 @@ unknown~
 food 0 A
 CFG BEF 0 0 0
 4 1 0 P
-G none
+g none~
 #4447
 wineskin~
 a wineskin~
@@ -1045,7 +1045,7 @@ unknown~
 drink 0 A
 30 30 'rose wine' 0 0
 2 1 0 P
-G none
+g none~
 #4448
 scalpel~
 a scalpel~
@@ -1058,7 +1058,7 @@ A
 18 -2
 A
 19 6
-G none
+g none~
 #4449
 refrigerator frig fridge~
 Binky's refrigerator~
@@ -1067,7 +1067,7 @@ unknown~
 container BG B
 999 AC 0 999 100
 3 24 0 P
-G none
+g none~
 #4450
 carving knife~
 a carving knife~
@@ -1080,7 +1080,7 @@ A
 18 3
 A
 19 3
-G none
+g none~
 #0
 
 #ROOMS

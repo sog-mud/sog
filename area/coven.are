@@ -290,7 +290,7 @@ You look at the runes. A warm glow fills you and you hear an inner
 voice speaking to you. It says ' Go s, 2w, 2s, and 4e from the white 
 temple. Use me on the eastern brush and stop the coven!'
 ~
-G none
+g none~
 #29121
 shovel stout sturdy~
 a stout sturdy shovel~
@@ -299,7 +299,7 @@ wood~
 key 0 AO
 0 0 0 0 0
 5 30 500 P
-G none
+g none~
 #29122
 creek swift swiftly flowing~
 a swiftly flowing creek~
@@ -308,7 +308,7 @@ marble~
 fountain 0 0
 1000000 1000000 'water' 0 0
 0 0 0 P
-G none
+g none~
 #29123
 pilsner beer~
 a nice cold, wimpy pilsner~
@@ -317,7 +317,7 @@ glass~
 drink 0 AO
 1 1 'beer' 0 0
 1 5 25 P
-G none
+g none~
 #29124
 dunkel beer~
 a nice cold manly dunkel~
@@ -326,7 +326,7 @@ glass~
 drink 0 AO
 1 1 'beer' 0 0
 1 10 30 P
-G none
+g none~
 #29125
 grub plate local~
 a plate of the local grub~
@@ -335,7 +335,7 @@ food~
 food 0 AO
 CD CD 0 0 0
 3 20 30 P
-G none
+g none~
 #29126
 key room~
 a room key~
@@ -344,7 +344,7 @@ tin~
 key 0 AO
 0 0 0 0 0
 5 25 500 P
-G none
+g none~
 #29127
 amulet flaming~
 the flaming amulet~
@@ -353,7 +353,7 @@ flame~
 key 0 AC
 0 0 0 0 0
 20 20 1000 P
-G none
+g none~
 #29128
 root warlock~
 a warlock root~
@@ -362,7 +362,7 @@ bamboo~
 furniture 0 AO
 B CDFI AEIL DEFG DEFG
 0 0 0 P
-G none
+g none~
 #29129
 axe woodsmans~
 a woodsman's axe~
@@ -371,7 +371,7 @@ steel~
 weapon 0 AN
 axe 5 6 'slice' 0
 28 100 2500 P
-G none
+g none~
 #29130
 cloak woodsmans~
 a woodsman's cloak~
@@ -382,7 +382,7 @@ armor 0 AD
 28 80 1500 P
 A
 17 -10
-G none
+g none~
 #29131
 cross white marble~
 a white marble cross~
@@ -391,7 +391,7 @@ marble~
 staff AIKL AO
 35 3 3 'sanctuary' 0
 30 100 15000 P
-G none
+g none~
 #29132
 robe ink black~
 an ink black robe~
@@ -404,7 +404,7 @@ A
 4 -2
 A
 12 30
-G none
+g none~
 #29133
 band black~
 a black rune band~
@@ -424,7 +424,7 @@ trying to consume you! Your sight is filled with a fire and flames of
 souls in terrible torment. Gradually the flames diminish, leaving only a 
 green after image of a pentagram.
 ~
-G none
+g none~
 #29134
 rod black~
 a black rune covered rod~
@@ -440,7 +440,7 @@ trying to consume you! Your sight is filled with a fire and flames of
 souls in terrible torment. Gradually the flames diminish, leaving only a 
 green after image of a pentagram.
 ~
-G none
+g none~
 #29135
 ring fire~
 a ring of fire~
@@ -455,7 +455,7 @@ A
 24 -3
 A
 12 10
-G none
+g none~
 #29136
 pick~
 a pick~
@@ -464,7 +464,7 @@ metal~
 weapon 0 AN
 dagger 3 6 'stab' 0
 15 80 2476 P
-G none
+g none~
 #29137
 horseshoe shoe~
 a horseshoe~
@@ -474,7 +474,7 @@ iron~
 trash 0 AO
 0 0 0 0 0
 5 30 2500 P
-G none
+g none~
 #29138
 rope~
 fifty feet of rope~
@@ -483,7 +483,7 @@ wool~
 trash 0 AO
 0 0 0 0 0
 6 100 1500 P
-G none
+g none~
 #29139
 potion invisibility~
 a potion of invisibility~
@@ -492,7 +492,7 @@ glass~
 potion 0 AN
 30 'invisibility' 'detect invis' '' ''
 28 10 3000 P
-G none
+g none~
 #0
 
 #ROOMS

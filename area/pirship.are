@@ -37,7 +37,7 @@ oak~
 furniture GRT 0
 A 0 FIL DGH DGH
 0 0 0 P
-G male
+g male~
 #701
 table стол~
 @eng table@rus стол~
@@ -46,7 +46,7 @@ oak~
 furniture RT 0
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #702
 bottle rum бутылка рома~
 @eng Rum bottle@rus ~~бутылка~~ рома~
@@ -55,7 +55,7 @@ glass~
 drink GRT 0
 -1 -1 'rum' 0 0
 0 0 0 P
-G female
+g female~
 #703
 rod rage жезл гнева~
 @eng Rod Of Rage@rus Жезл Гнева~
@@ -74,7 +74,7 @@ A
 19 10000000
 A
 18 10000000
-G male
+g male~
 #0
 
 #ROOMS

@@ -190,7 +190,7 @@ A
 19 2
 A
 18 1
-G none
+g none~
 #5101
 longsword noble~
 a noble's longsword~
@@ -203,7 +203,7 @@ A
 19 3
 A
 18 2
-G none
+g none~
 #5102
 whip snake two-headed~
 a snake headed whip~
@@ -216,7 +216,7 @@ A
 19 3
 A
 18 3
-G none
+g none~
 #5103
 whip snake three-headed~
 a snake headed whip~
@@ -229,7 +229,7 @@ A
 19 3
 A
 18 3
-G none
+g none~
 #5104
 whip snake four-headed~
 a snake headed whip~
@@ -242,7 +242,7 @@ A
 19 3
 A
 18 3
-G none
+g none~
 #5105
 longsword black~
 a black longsword~
@@ -255,7 +255,7 @@ A
 19 3
 A
 18 3
-G none
+g none~
 #5106
 whip snake five-headed~
 a snake headed whip~
@@ -268,7 +268,7 @@ A
 3 -1
 A
 1 -1
-G none
+g none~
 #5107
 whip snake six-headed~
 a snake headed whip~
@@ -281,7 +281,7 @@ A
 3 -2
 A
 1 -2
-G none
+g none~
 #5108
 bracer iron~
 an iron bracer~
@@ -290,7 +290,7 @@ iron~
 armor AG AM
 4 7 7 2 0
 15 30 1150 P
-G none
+g none~
 #5109
 gauntlets iron~
 a pair of gauntlets~
@@ -301,7 +301,7 @@ armor A AH
 17 20 3600 P
 A
 1 2
-G none
+g none~
 #5110
 wand blue silver~
 a silvery blue wand~
@@ -310,7 +310,7 @@ silver~
 wand G AO
 10 3 3 'lightning bolt' 0
 9 10 1550 P
-G none
+g none~
 #5111
 helmet helm~
 a small helmet~
@@ -321,7 +321,7 @@ armor G AE
 16 50 3300 P
 A
 3 2
-G none
+g none~
 #5112
 ring ruby~
 a small ruby ring~
@@ -332,7 +332,7 @@ jewelry G AB
 25 10 980 P
 A
 13 25
-G none
+g none~
 #5113
 dagger sacrificial~
 a spider shaped dagger~
@@ -345,7 +345,7 @@ A
 19 5
 A
 18 3
-G none
+g none~
 #5114
 hat green~
 a small bright green hat~
@@ -356,7 +356,7 @@ armor H AE
 12 10 1180 P
 A
 17 -2
-G none
+g none~
 #5115
 whip snake skin~
 two Snake Headed whip~
@@ -369,7 +369,7 @@ A
 19 7
 A
 18 5
-G none
+g none~
 #0
 
 #ROOMS

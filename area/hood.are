@@ -175,7 +175,7 @@ leather~
 armor 0 AD
 3 5 4 0 0
 5 20 970 A
-G none
+g none~
 #2102
 ogre jacket~
 an Ogre gang jacket~
@@ -184,7 +184,7 @@ leather~
 armor 0 AD
 5 4 3 0 0
 5 20 970 A
-G none
+g none~
 #2103
 chain~
 a hefty length of chain~
@@ -197,7 +197,7 @@ A
 17 -2
 A
 18 1
-G none
+g none~
 #2104
 metal cover shield~
 a metal shield~
@@ -206,7 +206,7 @@ steel~
 armor 0 AJ
 3 3 3 1 0
 3 80 500 A
-G none
+g none~
 #2105
 spray paint can~
 a spray paint can~
@@ -215,7 +215,7 @@ aluminum~
 wand B AO
 11 2 2 'colour spray' 0
 12 10 2200 G
-G none
+g none~
 #2106
 stiletto~
 a stiletto~
@@ -228,7 +228,7 @@ A
 18 4
 A
 17 2
-G none
+g none~
 #2107
 spiked heel boots~
 spiked heeled boots~
@@ -241,7 +241,7 @@ A
 2 -1
 A
 19 1
-G none
+g none~
 #2108
 mirror~
 a mirror~
@@ -250,7 +250,7 @@ glass~
 wand AG AO
 20 10 10 'blindness' 0
 8 10 1910 P
-G none
+g none~
 #2109
 gloves~
 comfortable leather gloves~
@@ -261,7 +261,7 @@ armor 0 AH
 7 20 1010 G
 A
 1 1
-G none
+g none~
 #2110
 patrol club~
 a patrol club~
@@ -274,7 +274,7 @@ A
 18 3
 A
 14 5
-G none
+g none~
 #2111
 signet ring~
 a troll signet ring~
@@ -287,7 +287,7 @@ A
 17 -2
 A
 1 1
-G none
+g none~
 #2112
 knuckles brass~
 brass knuckles~
@@ -298,7 +298,7 @@ armor 0 AH
 5 10 300 A
 A
 18 1
-G none
+g none~
 #2113
 pipe lead length~
 a lead pipe~
@@ -311,7 +311,7 @@ A
 18 -1
 A
 19 1
-G none
+g none~
 #2114
 troll jacket studded~
 a studded Troll gang jacket~
@@ -320,7 +320,7 @@ leather~
 armor 0 AD
 4 6 5 0 0
 10 30 1470 G
-G none
+g none~
 #2115
 ogre jacket studded~
 a studded Ogre gang jacket~
@@ -329,7 +329,7 @@ leather~
 armor 0 AD
 6 5 4 0 0
 10 30 1470 P
-G none
+g none~
 #2116
 whistle steel police~
 a police whistle~
@@ -338,7 +338,7 @@ steel~
 clothing 0 AC
 0 0 0 0 0
 0 2 100 G
-G none
+g none~
 #2117
 pants black leather~
 a pair of black leather pants~
@@ -351,7 +351,7 @@ E
 pants black leather~
 They're worn, but they look suprisingly tough.
 ~
-G none
+g none~
 #2118
 switchblade knife~
 a switchblade~
@@ -362,7 +362,7 @@ dagger 1 12 'stab' 0
 9 5 760 G
 A
 18 2
-G none
+g none~
 #2119
 bottle broken~
 a broken bottle~
@@ -377,7 +377,7 @@ E
 bottle broken~
 It appears to be a broken wine bottle, but what do you know about brewing?
 ~
-G none
+g none~
 #0
 
 #ROOMS

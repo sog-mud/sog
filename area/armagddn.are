@@ -701,7 +701,7 @@ adamantite~
 key BGS AO
 0 0 0 0 0
 0 10 0 P
-G none
+g none~
 #14002
 breastplate iron~
 An iron breastplate~
@@ -714,7 +714,7 @@ A
 19 15
 A
 17 -25
-G none
+g none~
 #14003
 sting locust~
 A locust stinger~
@@ -725,7 +725,7 @@ dagger 6 20 'pierce' GH
 91 6 4500 G
 A
 18 10
-G none
+g none~
 #14004
 chain binding~
 The chain of binding~
@@ -744,7 +744,7 @@ A
 1 -10
 A
 14 -400
-G none
+g none~
 #14005
 cup babylon~
 The golden cup of Babylon~
@@ -758,7 +758,7 @@ blood cup babylon~
 You look inside the cup and find it filled with
 the blood of saints.
 ~
-G none
+g none~
 #14006
 girdle golden~
 A golden girdle~
@@ -773,7 +773,7 @@ A
 19 7
 A
 18 5
-G none
+g none~
 #14007
 sickle golden~
 A golden sickle~
@@ -786,7 +786,7 @@ A
 19 5
 A
 18 5
-G none
+g none~
 #14008
 saints prayers~
 The prayers of saints~
@@ -795,7 +795,7 @@ glass~
 potion BI AO
 80 'bless' 'faerie fog' 'flamestrike' ''
 80 2 9000 P
-G none
+g none~
 #14009
 censer~
 A censer~
@@ -804,7 +804,7 @@ bronze~
 wand AG AO
 100 3 3 'fireball' 0
 85 25 6700 P
-G none
+g none~
 #14010
 crown white conquerer~
 The white crown of the conquerer~
@@ -821,7 +821,7 @@ A
 12 50
 A
 13 50
-G none
+g none~
 #14011
 bow white conquerer~
 The white bow of the conquerer~
@@ -834,7 +834,7 @@ A
 19 5
 A
 18 10
-G none
+g none~
 #14012
 breastplate fire~
 A breastplate of fire~
@@ -847,7 +847,7 @@ A
 19 7
 A
 17 -10
-G none
+g none~
 #14013
 sword war~
 The sword of war~
@@ -860,7 +860,7 @@ A
 19 10
 A
 18 10
-G none
+g none~
 #14014
 breastplate jacinth~
 A breastplate of jacinth~
@@ -873,7 +873,7 @@ A
 12 100
 A
 17 -25
-G none
+g none~
 #14015
 breastplate brimstone~
 A breastplate of brimstone~
@@ -886,7 +886,7 @@ A
 24 -15
 A
 17 -25
-G none
+g none~
 #14016
 balances pair~
 A pair of engraved balances~
@@ -902,7 +902,7 @@ A measure of wheat for a penny, and three
 measures of barley for a penny; and see
 thou hurt not the oil and the wine.
 ~
-G none
+g none~
 #14017
 cloak death deaths death's~
 Death's cloak~
@@ -911,7 +911,7 @@ mithril~
 armor CEFGQ AK
 30 30 30 10 0
 85 10 14000 P
-G none
+g none~
 #14018
 scythe reaper grim~
 The scythe of the Grim reaper~
@@ -924,7 +924,7 @@ A
 19 10
 A
 18 10
-G none
+g none~
 #14019
 lance holy archangel Michael~
 The holy lance of archangel Michael~
@@ -937,7 +937,7 @@ A
 19 10
 A
 18 10
-G none
+g none~
 #14020
 mark beast~
 The mark of the beast~
@@ -956,7 +956,7 @@ E
 mark~
 The mark bears the number of his name: 666.
 ~
-G none
+g none~
 #14021
 wings eagles~
 The wings of eagles~
@@ -971,7 +971,7 @@ A
 14 100
 A
 17 -15
-G none
+g none~
 #14022
 crown stars twelve~
 A crown with twelve stars~
@@ -984,7 +984,7 @@ A
 4 4
 A
 3 3
-G none
+g none~
 #14023
 clothing sun~
 Clothing of the sun~
@@ -1001,7 +1001,7 @@ A
 2 5
 A
 5 5
-G none
+g none~
 #14024
 clothing sun~
 Clothing of the sun~
@@ -1016,7 +1016,7 @@ A
 23 -10
 A
 2 5
-G none
+g none~
 #14025
 moon~
 The moon under your feet~
@@ -1025,7 +1025,7 @@ unknown~
 armor AIK AG
 30 30 30 10 0
 89 10 19000 P
-G none
+g none~
 #14026
 manna hidden~
 Hidden manna~
@@ -1036,7 +1036,7 @@ armor AFKLQS AB
 91 15 25000 P
 A
 12 200
-G none
+g none~
 #14027
 rod iron~
 A rod of iron~
@@ -1045,7 +1045,7 @@ iron~
 wand GIKLS AO
 120 10 10 'cure blindness' 0
 80 100 25000 P
-G none
+g none~
 #14028
 raiment white~
 White raiment~
@@ -1054,7 +1054,7 @@ unknown~
 armor AGIKLS AC
 30 30 30 10 0
 91 10 25000 P
-G none
+g none~
 #14029
 stone white~
 A white stone~
@@ -1070,7 +1070,7 @@ stone white~
 The stone says:
 KING OF KINGS, AND LORD OF LORDS
 ~
-G none
+g none~
 #14030
 sword mouth sharp two edged~
 The sharp, two-edged sword of the mouth~
@@ -1079,7 +1079,7 @@ adamantite~
 weapon IKLM AN
 sword 3 43 'slash' DF
 91 30 25000 P
-G none
+g none~
 #14031
 robe white~
 A white robe~
@@ -1090,7 +1090,7 @@ armor IKLS AK
 70 10 5000 P
 A
 17 -10
-G none
+g none~
 #14032
 seal~
 A seal~
@@ -1101,7 +1101,7 @@ armor IKLS AE
 70 0 5000 P
 A
 18 -1
-G none
+g none~
 #14033
 star morning~
 The morning star~
@@ -1110,7 +1110,7 @@ unknown~
 container A 0
 150 0 0 150 100
 10 10 10000 P
-G none
+g none~
 #14034
 blood puddle~
 A puddle of blood~
@@ -1119,7 +1119,7 @@ unknown~
 drink 0 0
 150 150 'blood' 0 0
 10 10 0 P
-G none
+g none~
 #14035
 blood fountain~
 A fountain of blood~
@@ -1128,7 +1128,7 @@ unknown~
 fountain 0 0
 9999 9999 'blood' 0 0
 10 10 0 P
-G none
+g none~
 #14036
 throne emerald rainbow~
 An emerald throne~
@@ -1142,7 +1142,7 @@ throne emerald rainbow~
 The throne flashes lightnings, and peals of thunder roll
 from it.
 ~
-G none
+g none~
 #14037
 thrones four twenty~
 Four and twenty thrones~
@@ -1155,7 +1155,7 @@ E
 thrones four twenty~
 The thrones are made of gold and have a holy aura.
 ~
-G none
+g none~
 #14039
 scroll seven seals broken~
 A scroll of seven broken seals~
@@ -1170,7 +1170,7 @@ You carefully look at the writing on the scroll. It reads:
 
 THOSE MORTALS ARE IN DEEP BLOOD LAKE NOW
 ~
-G none
+g none~
 #14040
 book~
 The book of life~
@@ -1183,7 +1183,7 @@ E
 life~
 I bet mortals will drive themselves crazy about this one.
 ~
-G none
+g none~
 #14041
 bowl golden incense~
 A golden bowl of incense~
@@ -1192,7 +1192,7 @@ unknown~
 staff IQW AO
 100 3 3 'enchant weapon' 0
 75 10 10000 P
-G none
+g none~
 #14042
 no name~
 ~
@@ -1201,7 +1201,7 @@ unknown~
 trash 0 0
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #0
 
 #ROOMS

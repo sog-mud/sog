@@ -914,7 +914,7 @@ wood~
 armor G AE
 5 6 5 3 0
 22 3 30 P
-G female
+g female~
 #12001
 nectar нектар~
 @eng A drop of nectar@rus ~~капелька~~ нектара~
@@ -923,7 +923,7 @@ cloth~
 potion Q A
 25 'refresh' 'cure critical' 'cure poison' 'cure blindness'
 22 1 0 P
-G male
+g male~
 #12002
 trident трезубец~
 @eng A silver trident@rus ~~серебряный~~ ~~трезубец~~~
@@ -932,7 +932,7 @@ silver~
 weapon AG AN
 spear 6 6 'pierce' K
 28 30 800 P
-G male
+g male~
 #12003
 opal bracelet браслет~
 @eng an opal bracelet@rus ~~опаловый~~ ~~браслет~~~
@@ -943,7 +943,7 @@ armor AG AM
 30 5 400 P
 A
 19 3
-G male
+g male~
 #12004
 gown gossamer платье~
 @eng A light gossamer gown@rus ~~газовое~~ ~~платье~~~
@@ -956,7 +956,7 @@ A
 14 50
 A
 2 2
-G none
+g none~
 #12005
 sword slender меч клинок~
 @eng A small slender sword@rus ~~маленький~~ ~~тонкий~~ ~~клинок~~~
@@ -967,7 +967,7 @@ sword 4 9 'slash' 0
 32 10 800 P
 A
 18 3
-G male
+g male~
 #12006
 boots grey ботинки~
 @eng A pair of grey boots@rus ~~пара~~ ~~серых~~ ~~ботинок~~~
@@ -980,7 +980,7 @@ A
 2 2
 A
 14 110
-G plural
+g plural~
 #12007
 bow pixie лук~
 @eng A pixie bow@rus ~~эльфийский~~ ~~лук~~~
@@ -991,7 +991,7 @@ wand ABC AO
 30 2 1000 P
 A
 20 1
-G male
+g male~
 #12008
 kris blade wavy~
 @eng A dull kris blade@rus ~~кривой~~ ~~нож~~ с тупым лезвием~
@@ -1002,7 +1002,7 @@ dagger 4 10 'pierce' D
 40 9 30 W
 A
 19 4
-G male
+g male~
 #12009
 blade jagged кинжал~
 @eng A jagged blade@rus ~~зазубренный~~ ~~кинжал~~~
@@ -1019,7 +1019,7 @@ A
 4 -2
 A
 1 2
-G male
+g male~
 #12010
 cap red кепка~
 @eng A red cap@rus ~~красная~~ ~~кепка~~~
@@ -1032,7 +1032,7 @@ A
 19 3
 A
 3 -3
-G female
+g female~
 #12011
 club дубинка дубина~
 @eng A blood stained club@rus ~~дубинка~~, ~~испачканная~~ кровью~
@@ -1045,7 +1045,7 @@ A
 19 7
 A
 12 -50
-G female
+g female~
 #12012
 book книга tales~
 @eng A book of Tales@rus ~~книга~~ сказок~
@@ -1058,7 +1058,7 @@ A
 14 100
 A
 4 3
-G female
+g female~
 #12013
 khopesh~
 A gleaming khopesh~
@@ -1067,7 +1067,7 @@ unknown~
 weapon G AN
 sword 8 7 'slash' 0
 56 30 1200 P
-G none
+g none~
 #12014
 helmet unfinished шлем~
 @eng An unfinished helmet@rus ~~незаконченный~~ ~~шлем~~~
@@ -1076,7 +1076,7 @@ unknown~
 armor G AEO
 14 14 12 12 0
 51 15 800 G
-G none
+g none~
 #12015
 boots unfinished ботинки~
 @eng An unfinished pair of boots@rus ~~незаконченные~~ ~~ботинки~~~
@@ -1090,7 +1090,7 @@ A
 5 4
 A
 2 4
-G none
+g none~
 #12016
 stitching needle~
 A stitching needle~
@@ -1099,7 +1099,7 @@ iron~
 weapon AG AN
 dagger 6 9 'pierce' 0
 51 1 200 P
-G none
+g none~
 #12017
 apron leather передник~
 @eng A scorched leather apron@rus ~~кожаный~~ ~~передник~~~
@@ -1110,7 +1110,7 @@ armor 0 AK
 51 20 100 A
 A
 13 30
-G male
+g male~
 #12018
 pan pipes свирель~
 @eng Pan pipes@rus ~~свирель~~~
@@ -1119,7 +1119,7 @@ wood~
 wand G AO
 50 20 20 'charm person' 0
 60 3 400 P
-G female
+g female~
 #12019
 flagon графин~
 @eng A flagon of dark ale@rus ~~графин~~ темного эля~
@@ -1132,7 +1132,7 @@ A
 18 -2
 A
 5 3
-G male
+g male~
 #12020
 cap jester колпак~
 @eng A jester's cap@rus ~~шутовской~~ ~~колпак~~~
@@ -1147,7 +1147,7 @@ A
 2 1
 A
 3 -3
-G male
+g male~
 #12021
 axe unfinished секира~
 @eng An unfinished axe@rus ~~незаконченная~~ ~~секира~~~
@@ -1162,7 +1162,7 @@ A
 18 -1
 A
 1 1
-G none
+g none~
 #12022
 ember уголек~
 @eng A fiery ember@rus ~~пылающий~~ ~~уголек~~~
@@ -1173,7 +1173,7 @@ light A A
 50 1 0 G
 A
 1 4
-G none
+g none~
 #12023
 coals pile куча уголь~
 @eng A pile of coals@rus ~~куча~~ угля~
@@ -1182,7 +1182,7 @@ stone~
 container A 0
 100 0 0 50 100
 100 1 0 P
-G none
+g none~
 #12024
 forge горн~
 @eng A HUGE stone forge@rus ~~Огромный~~ ~~кузнечный~~ ~~горн~~~
@@ -1191,7 +1191,7 @@ stone~
 container 0 0
 100 0 0 50 100
 100 1 0 W
-G none
+g none~
 #12025
 sword меч dark~
 @eng A crude, dark sword@rus ~~недоделанный~~ ~~темный~~ ~~меч~~~
@@ -1216,7 +1216,7 @@ A
 20 -2
 A
 12 -50
-G none
+g none~
 #12026
 fountain фонтан~
 @eng A beautiful crystal fountain@rus ~~прекрасный~~ ~~кристальный~~ ~~фонтан~~~
@@ -1232,7 +1232,7 @@ thousand different facets inviting you to watch as much as it does to drink.
 @rus Фонтанчик кристальной воды, в обрамлении кристаллов отражает солнечный 
 свет, образуя тысячи бликов.
 ~
-G none
+g none~
 #12027
 bucket ведро~
 @eng A wooden bucket@rus ~~деревянное~~ ~~ведро~~~
@@ -1248,7 +1248,7 @@ quench your thirst.
 @rus Вода в ведре выглядит достаточно грязной. Думаю, пить ее не стоит, а то 
 последствий не оберешься.
 ~
-G none
+g none~
 #12028
 pool slime лужа~
 @eng slime pool@rus ~~лужа~~ грязи~
@@ -1257,7 +1257,7 @@ unknown~
 container 0 0
 100 0 0 50 100
 1 0 0 A
-G female
+g female~
 #12029
 slime bit кусок~
 @eng A bit of slime@rus ~~кусок~~ грязи~
@@ -1266,7 +1266,7 @@ unknown~
 pill A A
 30 'know alignment' 'armor' '' ''
 28 2 0 G
-G male
+g male~
 #12030
 bookshelf полка~
 @eng A large oak bookshelf@rus ~~книжная~~ ~~полка~~~
@@ -1275,7 +1275,7 @@ unknown~
 container 0 0
 100 0 12065 50 100
 0 0 0 P
-G female
+g female~
 #12031
 manuscript манускрипт~
 @eng An ancient manuscript@rus ~~старинный~~ ~~манускрипт~~~
@@ -1303,7 +1303,7 @@ their existence.  The change is one of internal alliance and a once
 honest and loving Seelie fae can become a dishonest and distrusting one 
 by changing courts.
 ~
-G male
+g male~
 #12032
 manuscript~
 An ancient manuscript~
@@ -1328,7 +1328,7 @@ change of roles since the last cycle of fae existence. Why the Fool is
 exempt from these yearly changes is a mystery that only he may know and 
 as is his nature he isn't telling.
 ~
-G none
+g none~
 #12033
 jester stick~
 A jester's stick~
@@ -1337,7 +1337,7 @@ unknown~
 staff BI AO
 60 20 20 'faerie fog' 0
 58 7 1200 G
-G none
+g none~
 #12034
 jester stick~
 A jester's stick~
@@ -1346,7 +1346,7 @@ unknown~
 staff BI AO
 60 20 20 'blindness' 0
 58 7 1200 G
-G none
+g none~
 #12035
 jester stick~
 A jester's stick~
@@ -1355,7 +1355,7 @@ unknown~
 staff BI AO
 60 20 20 'teleport' 0
 58 7 1200 G
-G none
+g none~
 #12036
 white marble mace~
 A white  mace~
@@ -1372,7 +1372,7 @@ A
 1 2
 A
 19 7
-G none
+g none~
 #12037
 spiked club~
 A twisted spiked club~
@@ -1389,7 +1389,7 @@ A
 1 2
 A
 19 7
-G none
+g none~
 #12038
 ice shield~
 An ice shield~
@@ -1402,7 +1402,7 @@ A
 17 -10
 A
 24 -7
-G none
+g none~
 #12039
 oath ring~
 An oath ring~
@@ -1415,7 +1415,7 @@ A
 13 40
 A
 17 -5
-G none
+g none~
 #12040
 noble cape~
 A noble's cape~
@@ -1424,7 +1424,7 @@ unknown~
 armor G AC
 22 22 22 16 0
 72 5 1200 P
-G none
+g none~
 #12041
 noble sword~
 A sidhe broadsword~
@@ -1433,7 +1433,7 @@ unknown~
 weapon G AN
 sword 10 8 'slash' 0
 72 5 1200 P
-G none
+g none~
 #12042
 noble breastplate~
 A sidhe breastplate~
@@ -1444,7 +1444,7 @@ armor G AD
 72 9 1200 P
 A
 4 2
-G none
+g none~
 #12043
 sidhe armguards~
 A pair of sidhe armguards~
@@ -1455,7 +1455,7 @@ armor G AI
 68 6 1100 P
 A
 1 1
-G none
+g none~
 #12044
 sidhe greaves~
 A pair of sidhe greaves~
@@ -1466,7 +1466,7 @@ armor G AF
 68 6 800 P
 A
 14 50
-G none
+g none~
 #12045
 sidhe braceers~
 An engraved sidhe bracer~
@@ -1479,7 +1479,7 @@ A
 19 5
 A
 18 5
-G none
+g none~
 #12046
 noble circlet~
 A noble's circlet~
@@ -1494,7 +1494,7 @@ A
 4 4
 A
 5 5
-G none
+g none~
 #12047
 noble rapier~
 A noble's rapier~
@@ -1507,7 +1507,7 @@ A
 18 5
 A
 19 5
-G none
+g none~
 #12048
 heart night~
 The heart of Night~
@@ -1526,7 +1526,7 @@ A
 13 50
 A
 12 50
-G none
+g none~
 #12049
 night blood~
 night's blood~
@@ -1535,7 +1535,7 @@ unknown~
 potion G AO
 80 'pass door' 'sanctuary' '' ''
 82 3 3000 P
-G none
+g none~
 #12050
 stag horned helmet~
 A stag horned helmet~
@@ -1546,7 +1546,7 @@ armor G AE
 86 11 2800 P
 A
 18 6
-G none
+g none~
 #12051
 silver torc~
 A silver torc~
@@ -1557,7 +1557,7 @@ armor G AC
 86 11 2900 P
 A
 4 3
-G none
+g none~
 #12052
 poetry~
 poetry~
@@ -1566,7 +1566,7 @@ unknown~
 scroll G A
 80 'enchant weapon' 'enchant weapon' 'enchant weapon' ''
 78 2 5000 P
-G none
+g none~
 #12053
 robe~
 A poet's robe~
@@ -1577,7 +1577,7 @@ armor G AK
 78 7 2000 P
 A
 3 4
-G none
+g none~
 #12054
 gown~
 An embroidered gown~
@@ -1588,7 +1588,7 @@ armor G AK
 84 8 2000 P
 A
 12 100
-G none
+g none~
 #12055
 locket~
 A summer locket~
@@ -1603,7 +1603,7 @@ A
 3 2
 A
 19 4
-G none
+g none~
 #12056
 golden torc~
 A golden torc~
@@ -1618,7 +1618,7 @@ A
 5 2
 A
 4 2
-G none
+g none~
 #12057
 cloak shadows~
 The cloak of shadows~
@@ -1629,7 +1629,7 @@ armor CG AC
 84 2 3000 P
 A
 2 3
-G none
+g none~
 #12058
 bag tricks~
 A bag of tricks~
@@ -1638,7 +1638,7 @@ unknown~
 container G AO
 1000 0 0 500 100
 82 2 0 P
-G none
+g none~
 #12059
 orange~
 An orange~
@@ -1647,7 +1647,7 @@ unknown~
 pill 0 A
 82 'curse' 'sleep' 'blindness' 'poison'
 83 1 0 P
-G none
+g none~
 #12060
 pebble~
 A small pebble~
@@ -1660,7 +1660,7 @@ A
 9 50
 A
 6 1
-G none
+g none~
 #12061
 slime bit~
 A bit of slime~
@@ -1669,7 +1669,7 @@ unknown~
 boat A A
 BCDE 0 0 DEGJ 0
 28 2 0 G
-G none
+g none~
 #12062
 bed~
 An unmade bed~
@@ -1678,7 +1678,7 @@ unknown~
 container 0 0
 100 0 0 50 72
 0 0 0 P
-G none
+g none~
 #12063
 bed~
 A well made bed~
@@ -1687,7 +1687,7 @@ unknown~
 container 0 0
 100 0 0 50 72
 0 0 0 P
-G none
+g none~
 #12064
 scroll armor~
 A scroll of armor making~
@@ -1696,7 +1696,7 @@ unknown~
 scroll FG A
 60 'armor' 'shield' 'stone skin' 'bless'
 55 3 1000 P
-G none
+g none~
 #12065
 oak key~
 A small oak key~
@@ -1705,7 +1705,7 @@ unknown~
 key B A
 0 0 0 0 0
 55 1 0 P
-G none
+g none~
 #12066
 page~
 A page of glowing script~
@@ -1714,7 +1714,7 @@ unknown~
 scroll AG A
 50 'word of recall' '' '' ''
 55 4 10000 P
-G none
+g none~
 #12067
 black key~
 A small Black key~
@@ -1723,7 +1723,7 @@ unknown~
 key CF A
 0 0 0 0 0
 55 1 0 W
-G none
+g none~
 #12068
 glowing dust~
 Some glowing dust~
@@ -1732,7 +1732,7 @@ unknown~
 pill G A
 90 'dispel evil' 'create spring' 'armor' ''
 82 1 0 P
-G none
+g none~
 #12069
 crested shield~
 A crested shield~
@@ -1743,7 +1743,7 @@ armor G AJ
 74 13 1200 P
 A
 17 -10
-G none
+g none~
 #0
 
 #ROOMS

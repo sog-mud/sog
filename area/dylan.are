@@ -131,7 +131,7 @@ A
 A
 2 2
 F A 0 0 T
-G none
+g none~
 #9102
 bronze bracer~
 A carved bronze bracer~
@@ -140,7 +140,7 @@ bronze~
 armor 0 AM
 3 6 6 2 0
 10 200 820 P
-G none
+g none~
 #9103
 ornate brooch~
 an ornate brooch~
@@ -153,7 +153,7 @@ A
 4 1
 A
 3 1
-G none
+g none~
 #9104
 magenta potion~
 magenta potion~
@@ -162,7 +162,7 @@ glass~
 potion J AO
 8 'armor' 'cure light' 'poison' ''
 3 20 320 P
-G none
+g none~
 #9105
 ancient parchment~
 an ancient illustrated parchment~
@@ -171,7 +171,7 @@ vellum~
 scroll AH AO
 5 'blindness' 'curse' 'poison' ''
 12 50 1330 P
-G none
+g none~
 #0
 
 #ROOMS

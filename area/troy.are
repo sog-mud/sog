@@ -727,7 +727,7 @@ A
 18 2
 A
 19 2
-G none
+g none~
 #29501
 spear~
 a long throwing spear~
@@ -738,7 +738,7 @@ warp_stone 0 ANO
 25 10 250 P
 A
 18 4
-G none
+g none~
 #29502
 ox hide shield~
 an ox hide shield~
@@ -749,7 +749,7 @@ armor 0 AJ
 25 5 250 P
 A
 17 -10
-G none
+g none~
 #29503
 boar tusk helm~
 a boar tusk helm~
@@ -762,7 +762,7 @@ A
 5 2
 A
 13 15
-G none
+g none~
 #29504
 leather jerkin~
 a leather jerkin~
@@ -771,7 +771,7 @@ unknown~
 armor 0 AD
 8 8 8 0 0
 25 7 250 P
-G none
+g none~
 #29505
 bronze breastplate~
 a bronze breastplate~
@@ -786,7 +786,7 @@ A
 2 -1
 A
 17 -10
-G none
+g none~
 #29506
 goblet wine~
 a goblet of watered wine~
@@ -795,7 +795,7 @@ unknown~
 drink 0 AO
 5 4 'red wine' 0 0
 30 5 300 P
-G none
+g none~
 #29507
 board game~
 a board game~
@@ -806,7 +806,7 @@ trash 0 AO
 30 5 300 P
 A
 4 2
-G none
+g none~
 #29508
 achilles breastplate~
 achilles' breastplate~
@@ -819,7 +819,7 @@ A
 5 3
 A
 17 -16
-G none
+g none~
 #29509
 achilles greaves~
 achilles' greaves~
@@ -832,7 +832,7 @@ A
 2 3
 A
 14 60
-G none
+g none~
 #29510
 achilles helm~
 achilles' helm~
@@ -845,7 +845,7 @@ A
 4 3
 A
 12 50
-G none
+g none~
 #29511
 achilles' sword~
 achilles' sword~
@@ -858,7 +858,7 @@ A
 18 8
 A
 19 8
-G none
+g none~
 #29512
 bronze sword~
 a bronze sword~
@@ -871,7 +871,7 @@ A
 18 -2
 A
 19 2
-G none
+g none~
 #29513
 bronze dagger~
 a bronze dagger~
@@ -880,7 +880,7 @@ unknown~
 weapon 0 AN
 dagger 5 5 'pierce' 0
 20 3 200 P
-G none
+g none~
 #29514
 bronze shield~
 a bronze shield~
@@ -891,7 +891,7 @@ armor 0 AJ
 28 8 280 P
 A
 17 -13
-G none
+g none~
 #29515
 achilles' shield~
 achilles' shield~
@@ -902,7 +902,7 @@ armor AG AJ
 45 5 450 P
 A
 17 -15
-G none
+g none~
 #29516
 sandals~
 a pair of sandals~
@@ -911,7 +911,7 @@ unknown~
 armor 0 AG
 8 8 8 0 0
 28 3 280 P
-G none
+g none~
 #29517
 stone axe~
 a stone axe~
@@ -920,7 +920,7 @@ unknown~
 weapon 0 AN
 axe 5 6 'crush' 0
 25 15 250 P
-G none
+g none~
 #29518
 banner~
 a banner~
@@ -929,7 +929,7 @@ unknown~
 trash 0 AO
 0 0 0 0 0
 28 10 280 P
-G none
+g none~
 #29519
 bronze helm~
 a bronze helm~
@@ -942,7 +942,7 @@ A
 5 2
 A
 17 -11
-G none
+g none~
 #29520
 cot~
 a cot~
@@ -951,7 +951,7 @@ unknown~
 furniture 0 A
 0 0 0 0 0
 30 25 300 P
-G none
+g none~
 #0
 
 #ROOMS

@@ -240,7 +240,7 @@ A
 19 5
 A
 1 5
-G none
+g none~
 #22001
 bone key carved~
 a carved bone key~
@@ -249,7 +249,7 @@ stone~
 key 0 A
 0 0 0 0 0
 40 1 25 P
-G none
+g none~
 #22002
 leggings speed~
 leggings of speed~
@@ -262,7 +262,7 @@ A
 14 100
 A
 2 2
-G none
+g none~
 #22003
 armor ornate plate~
 an ornate breast plate~
@@ -275,7 +275,7 @@ A
 19 1
 A
 18 1
-G none
+g none~
 #22004
 ring magic~
 ring of magic~
@@ -288,7 +288,7 @@ A
 12 50
 A
 3 2
-G none
+g none~
 #22005
 sheath wrist~
 a concealable wrist sheath~
@@ -305,7 +305,7 @@ A
 19 4
 A
 18 4
-G none
+g none~
 #22006
 spinagon spear~
 a Spinagon's spear~
@@ -318,7 +318,7 @@ A
 19 6
 A
 18 2
-G none
+g none~
 #22007
 rulership rod~
 the Rod of Rulership~
@@ -333,7 +333,7 @@ A
 13 100
 A
 19 7
-G none
+g none~
 #22008
 collar bloody~
 a bloody collar~
@@ -348,7 +348,7 @@ A
 19 4
 A
 13 10
-G none
+g none~
 #22010
 vial holy water~
 a vial of holy water~
@@ -357,7 +357,7 @@ glass~
 potion I AO
 35 'bless' 'heal' '' ''
 30 1 600 P
-G none
+g none~
 #22011
 sword silver longsword long~
 a silver longsword~
@@ -372,7 +372,7 @@ A
 19 3
 A
 4 1
-G none
+g none~
 #0
 
 #ROOMS

@@ -417,7 +417,7 @@ armor FGK AD
 35 500 8400 P
 A
 1 1
-G none
+g none~
 #901
 hammer thunder bolt thunderbolt~
 the Thunder Bolt~
@@ -432,7 +432,7 @@ A
 19 5
 A
 4 -1
-G none
+g none~
 #902
 helmet winged~
 a Winged Helmet~
@@ -443,7 +443,7 @@ armor FGK AE
 35 50 7300 P
 A
 2 2
-G none
+g none~
 #903
 spear ares~
 the spear of Ares~
@@ -458,7 +458,7 @@ A
 6 1
 A
 18 4
-G none
+g none~
 #904
 sandals winged~
 a pair of winged sandals~
@@ -468,7 +468,7 @@ armor FGK AG
 8 8 8 4 0
 25 50 2200 P
 F A 0 0 T
-G none
+g none~
 #905
 staff ivory~
 an ivory staff~
@@ -477,7 +477,7 @@ ivory~
 staff FGK AO
 30 3 3 'sanctuary' 0
 15 80 5800 P
-G none
+g none~
 #906
 trident poseidon~
 poseidon's Trident~
@@ -488,7 +488,7 @@ spear 7 7 'pierce' FK
 47 160 5700 P
 A
 4 2
-G none
+g none~
 #907
 bow silver~
 a silver bow~
@@ -501,7 +501,7 @@ A
 19 1
 A
 18 1
-G none
+g none~
 #908
 gauntlets flaming~
 flaming gauntlets~
@@ -512,7 +512,7 @@ armor G AH
 27 60 2900 P
 A
 13 25
-G none
+g none~
 #909
 vial potion ambrosia~
 ambrosia~
@@ -521,7 +521,7 @@ glass~
 potion FGK A
 30 'dispel evil' 'heal' '' ''
 11 10 1130 P
-G none
+g none~
 #910
 necklace glowing~
 a glowing necklace~
@@ -532,7 +532,7 @@ jewelry FGK AC
 25 20 980 P
 A
 12 25
-G none
+g none~
 #911
 ring sapphire~
 a sapphire ring~
@@ -545,7 +545,7 @@ A
 19 3
 A
 4 2
-G none
+g none~
 #912
 shield glowing~
 a brightly glowing shield~
@@ -556,7 +556,7 @@ armor FGK AJ
 30 200 5300 P
 A
 4 1
-G none
+g none~
 #913
 axe notched~
 a notched axe~
@@ -565,7 +565,7 @@ iron~
 weapon FGK AN
 axe 4 10 'slice' 0
 35 120 3600 P
-G none
+g none~
 #914
 grapes~
 a bunch of grapes~
@@ -574,7 +574,7 @@ food~
 food 0 A
 DE DE 0 0 0
 0 10 100 P
-G none
+g none~
 #915
 fan~
 a fan made of peacock feathers~
@@ -583,7 +583,7 @@ fur~
 trash 0 A
 0 0 0 0 0
 0 10 0 P
-G none
+g none~
 #916
 lute~
 a lute~
@@ -592,7 +592,7 @@ unknown~
 trash 0 A
 0 0 0 0 0
 0 10 0 P
-G none
+g none~
 #917
 nugget gold~
 a gold nugget~
@@ -601,7 +601,7 @@ gold~
 treasure 0 A
 0 0 0 0 0
 0 50 5000 P
-G none
+g none~
 #918
 apple~
 an apple~
@@ -610,7 +610,7 @@ food~
 pill 0 A
 24 '' '' 'cure light' ''
 0 10 340 P
-G none
+g none~
 #919
 pear~
 a pear~
@@ -619,7 +619,7 @@ food~
 pill 0 A
 24 '' '' 'cure poison' ''
 6 10 530 P
-G none
+g none~
 #920
 orange~
 a orange~
@@ -628,7 +628,7 @@ food~
 pill 0 A
 24 '' '' 'armor' ''
 0 10 340 P
-G none
+g none~
 #921
 kiwi~
 a kiwi~
@@ -637,7 +637,7 @@ food~
 pill 0 A
 24 '' '' 'cure poison' ''
 6 10 530 P
-G none
+g none~
 #922
 amulet~
 the Amulet of Ra~
@@ -648,7 +648,7 @@ jewelry FGK AC
 40 10 4900 P
 A
 12 50
-G none
+g none~
 #923
 sun sword~
 the Sword of the Sun~
@@ -663,7 +663,7 @@ A
 18 6
 A
 6 3
-G none
+g none~
 #924
 robe blue~
 a blue robe~
@@ -674,7 +674,7 @@ armor FGK AK
 17 100 1960 P
 A
 13 15
-G none
+g none~
 #925
 hat~
 a wide brimmed hat~
@@ -683,7 +683,7 @@ cloth~
 armor FGK AE
 4 4 4 3 0
 5 50 580 P
-G none
+g none~
 #926
 nectar~
 nectar~
@@ -692,7 +692,7 @@ glass~
 potion 0 A
 12 'sanctuary' 'giant strength' 'armor' ''
 12 10 810 P
-G none
+g none~
 #927
 key cell~
 a Cell key~
@@ -701,7 +701,7 @@ ivory~
 key 0 A
 0 0 0 0 0
 0 10 0 P
-G none
+g none~
 #928
 map olympus secret~
 a secret map of Olympus~
@@ -756,7 +756,7 @@ map olympus secret~
                             /
                       Mountain
 ~
-G none
+g none~
 #930
 arrow silver~
 a silver arrow~
@@ -769,7 +769,7 @@ A
 19 1
 A
 18 1
-G none
+g none~
 #0
 
 #ROOMS

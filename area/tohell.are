@@ -1099,7 +1099,7 @@ A
 18 3
 A
 2 1
-G none
+g none~
 #10402
 black leather whip~
 a black leather whip~
@@ -1110,7 +1110,7 @@ whip 6 6 'whip' 0
 35 70 2100 P
 A
 18 2
-G none
+g none~
 #10403
 hickey maker~
 a hickey maker~
@@ -1125,7 +1125,7 @@ A
 13 40
 A
 12 60
-G none
+g none~
 #10404
 sword farslayer two-handed~
 a black-hilted sword called "Farslayer"~
@@ -1154,7 +1154,7 @@ Upon the blade is engraved a poem:
                       Yet he will in the end no triumph see.
 
 ~
-G none
+g none~
 #10405
 angel's skull~
 the angel's skull~
@@ -1167,7 +1167,7 @@ A
 2 2
 A
 12 50
-G none
+g none~
 #10406
 rotting flesh~
 some rotting flesh~
@@ -1176,7 +1176,7 @@ unknown~
 armor 0 AD
 8 8 8 0 0
 25 30 3900 P
-G none
+g none~
 #10407
 sword vorpal blade two-handed~
 the Vorpal Blade~
@@ -1187,7 +1187,7 @@ sword 4 9 'slice' EF
 33 60 4800 P
 A
 19 5
-G none
+g none~
 #10408
 flaming claw~
 a flaming claw~
@@ -1202,7 +1202,7 @@ A
 18 2
 A
 1 1
-G none
+g none~
 #10409
 demonskin~
 a demonskin~
@@ -1217,7 +1217,7 @@ A
 2 1
 A
 1 1
-G none
+g none~
 #10410
 demon teeth~
 demon teeth~
@@ -1228,7 +1228,7 @@ exotic 7 5 'bite' 0
 36 10 7600 P
 A
 18 5
-G none
+g none~
 #10411
 burning flesh~
 some burning flesh~
@@ -1237,7 +1237,7 @@ unknown~
 armor 0 AI
 12 11 11 10 0
 35 50 10000 P
-G none
+g none~
 #10412
 rivet gun~
 a rivet gun~
@@ -1246,7 +1246,7 @@ unknown~
 staff 0 AO
 46 10 10 'general purpose' 0
 17 70 100000 P
-G none
+g none~
 #10413
 circular saw~
 a circular saw~
@@ -1259,7 +1259,7 @@ A
 18 6
 A
 17 -4
-G none
+g none~
 #10414
 box matches~
 a box of matches~
@@ -1268,7 +1268,7 @@ unknown~
 staff A AO
 48 10 10 'sleep' 0
 9 20 15000 P
-G none
+g none~
 #10415
 bloody black talon~
 a bloody black talon~
@@ -1283,7 +1283,7 @@ A
 18 4
 A
 19 3
-G none
+g none~
 #10416
 jar of blood~
 jar of blood~
@@ -1292,7 +1292,7 @@ unknown~
 potion 0 A
 50 'teleport' 'remove curse' 'refresh' ''
 11 10 5170 P
-G none
+g none~
 #10417
 hell hound teeth~
 hell hound teeth~
@@ -1305,7 +1305,7 @@ A
 2 2
 A
 18 3
-G none
+g none~
 #10418
 icy bottle~
 an icy bottle~
@@ -1314,7 +1314,7 @@ unknown~
 potion 0 A
 47 '' 'create spring' 'faerie fog' ''
 8 10 2970 P
-G none
+g none~
 #10419
 ice spear two-handed~
 an ice spear~
@@ -1323,7 +1323,7 @@ unknown~
 weapon 0 AN
 spear 6 8 'frbite' BFK
 48 50 1330 P
-G none
+g none~
 #10420
 large meat hook two-handed~
 a large meat hook~
@@ -1334,7 +1334,7 @@ polearm 9 5 'frbite' BF
 47 30 2400 P
 A
 19 2
-G none
+g none~
 #10421
 meat~
 some meat~
@@ -1343,7 +1343,7 @@ unknown~
 food 0 A
 BCDE BCDE 0 0 0
 0 20 20 P
-G none
+g none~
 #10422
 blueprint~
 the blueprint~
@@ -1352,7 +1352,7 @@ unknown~
 food 0 AO
 ABCDE ABCDE 0 0 0
 0 10 100 P
-G none
+g none~
 #10423
 electric eraser~
 an electric eraser~
@@ -1365,7 +1365,7 @@ A
 19 4
 A
 3 -1
-G none
+g none~
 #10424
 spectacles~
 spectacles~
@@ -1378,7 +1378,7 @@ A
 4 2
 A
 3 2
-G none
+g none~
 #10425
 unholy symbol~
 an unholy symbol~
@@ -1387,7 +1387,7 @@ unknown~
 wand 0 AO
 53 10 10 'cure poison' 0
 12 20 5300 P
-G none
+g none~
 #10426
 unholy robes pile cloth~
 unholy robes~
@@ -1398,7 +1398,7 @@ armor EJ AK
 47 40 18300 P
 A
 12 125
-G none
+g none~
 #10427
 sharp teeth lawyer~
 the sharp teeth of a lawyer~
@@ -1411,7 +1411,7 @@ A
 3 1
 A
 2 1
-G none
+g none~
 #10428
 golden ring~
 a golden ring~
@@ -1424,7 +1424,7 @@ A
 18 2
 A
 12 30
-G none
+g none~
 #10429
 engagement ring~
 an engagement ring~
@@ -1439,7 +1439,7 @@ A
 18 1
 A
 4 -1
-G none
+g none~
 #10430
 prenuptual agreement~
 a prenuptual agreement~
@@ -1448,7 +1448,7 @@ unknown~
 scroll 0 A
 51 'cure blindness' 'detect evil' 'shield' ''
 11 10 2400 P
-G none
+g none~
 #10431
 ionic torque wrench~
 an ionic torque wrench~
@@ -1461,7 +1461,7 @@ A
 19 5
 A
 13 40
-G none
+g none~
 #10432
 figurine horse~
 a figurine of a horse~
@@ -1472,7 +1472,7 @@ treasure AG AO
 45 30 11800 P
 A
 14 75
-G none
+g none~
 #10433
 figurine winged horse pegasus~
 a figurine of a winged horse~
@@ -1481,7 +1481,7 @@ unknown~
 wand AG AO
 54 50 50 'summon' 0
 19 30 16600 P
-G none
+g none~
 #10434
 figurine dark horse nightmare~
 a figurine of a nightmare~
@@ -1490,7 +1490,7 @@ unknown~
 wand AG AO
 54 50 50 'teleport' 0
 19 30 18900 P
-G none
+g none~
 #10435
 figurine black dragon~
 a figurine of a black dragon~
@@ -1499,7 +1499,7 @@ unknown~
 wand AG AO
 54 10 10 'weaken' 0
 10 30 3900 P
-G none
+g none~
 #10436
 figurine red dragon~
 a figurine of a red dragon~
@@ -1508,7 +1508,7 @@ unknown~
 wand AG AO
 54 10 10 'mass invis' 0
 18 30 11000 P
-G none
+g none~
 #10437
 figurine white dragon~
 a figurine of a white dragon~
@@ -1517,7 +1517,7 @@ unknown~
 wand AG AO
 35 10 10 'acid blast' 0
 33 30 57600 P
-G none
+g none~
 #10438
 figurine green dragon~
 a figurine of a green dragon~
@@ -1526,7 +1526,7 @@ unknown~
 wand AG AO
 44 5 5 'gas breath' 0
 41 30 87800 P
-G none
+g none~
 #10439
 figurine blue dragon~
 a figurine of a blue dragon~
@@ -1535,7 +1535,7 @@ unknown~
 wand AG AO
 54 10 10 'faerie fire' 0
 4 30 1840 P
-G none
+g none~
 #10440
 geiger counter~
 a geiger counter~
@@ -1546,7 +1546,7 @@ wand A AO
 16 20 8500 P
 A
 5 1
-G none
+g none~
 #10441
 photon displacement matrix~
 a photon-displacement matrix~
@@ -1561,7 +1561,7 @@ A
 18 4
 A
 12 -20
-G none
+g none~
 #10442
 black jumpsuit~
 a black jumpsuit~
@@ -1572,7 +1572,7 @@ armor A AD
 50 40 13700 P
 A
 18 5
-G none
+g none~
 #10443
 antacid pill~
 an antacid pill~
@@ -1581,7 +1581,7 @@ unknown~
 pill 0 A
 54 'pass door' 'refresh' '' ''
 14 10 1520 P
-G none
+g none~
 #10444
 manes claws~
 a manes' claws~
@@ -1592,7 +1592,7 @@ dagger 2 16 'claw' 0
 32 40 2900 P
 A
 19 5
-G none
+g none~
 #10445
 welding torch~
 a welding torch~
@@ -1605,7 +1605,7 @@ A
 19 4
 A
 17 -7
-G none
+g none~
 #10446
 blond wig~
 a blond wig~
@@ -1618,7 +1618,7 @@ A
 19 4
 A
 3 -1
-G none
+g none~
 #10447
 yellow jumpsuit nuclear symbol~
 a yellow jumpsuit~
@@ -1631,7 +1631,7 @@ A
 20 -4
 A
 12 50
-G none
+g none~
 #10448
 cleaver~
 a cleaver~
@@ -1644,7 +1644,7 @@ A
 19 3
 A
 18 2
-G none
+g none~
 #10449
 fire opal gem~
 a precious fire opal~
@@ -1659,7 +1659,7 @@ The fire opal is a nicely-polished round gem, with orange, gold, and red
 mixed together like the heart of flame.  You can almost feel the hellfire
 from whence it came.
 ~
-G none
+g none~
 #10450
 hellstone hell stone~
 a hellstone~
@@ -1674,7 +1674,7 @@ The hellstones are mined from the deepest pits of Hell at the cost of the
 blood, sweat, and pain of hundreds of damned souls.  You feel vaguely ill
 as you gaze into its lustrous black heart.
 ~
-G none
+g none~
 #0
 
 #ROOMS

@@ -2094,7 +2094,7 @@ A
 1 1
 A
 13 1
-G none
+g none~
 #16002
 blood eye~
 Blood shot eye~
@@ -2103,7 +2103,7 @@ wood~
 wand A AO
 22 2 2 'flamestrike' 0
 15 3 0 P
-G none
+g none~
 #16003
 eye slime~
 Slime of the enforcing eye~
@@ -2112,7 +2112,7 @@ glass~
 potion G A
 23 'detect invis' 'heal' 'detect magic' ''
 10 1 1000 P
-G none
+g none~
 #16004
 eye justice~
 A huge eye of justice~
@@ -2121,7 +2121,7 @@ wood~
 staff A AO
 20 2 2 'lightning bolt' 0
 20 3 10000 P
-G none
+g none~
 #16005
 eye stalk beholder~
 Beholder's eyestalk~
@@ -2130,7 +2130,7 @@ wood~
 staff A AO
 20 2 2 'energy drain' 0
 15 3 1500 P
-G none
+g none~
 #16006
 gnome mace~
 Glinting gnome mace~
@@ -2145,7 +2145,7 @@ A
 18 1
 A
 19 5
-G none
+g none~
 #16007
 drow sword darkness~
 Sword of darkness~
@@ -2160,7 +2160,7 @@ A
 18 3
 A
 19 3
-G none
+g none~
 #16008
 grey helm~
 Dark grey helm~
@@ -2173,7 +2173,7 @@ A
 1 1
 A
 19 2
-G none
+g none~
 #16009
 sleeves knowledge~
 Sleeves of knowledge~
@@ -2186,7 +2186,7 @@ A
 3 2
 A
 12 15
-G none
+g none~
 #16010
 blood stone~
 A piece of polished blood stone~
@@ -2195,7 +2195,7 @@ stone~
 treasure C A
 0 0 0 0 0
 1 0 0 P
-G none
+g none~
 #16011
 breast plate~
 Breast plate of strength~
@@ -2212,7 +2212,7 @@ A
 18 5
 A
 19 7
-G none
+g none~
 #16012
 holy symbol xevior~
 A shining holy symbol of Xevior~
@@ -2223,7 +2223,7 @@ armor HIJ AO
 43 3 1100 P
 A
 4 2
-G none
+g none~
 #16013
 leather pants~
 Ripped leather pants~
@@ -2232,7 +2232,7 @@ leather~
 armor C AF
 5 5 5 0 0
 16 3 0 P
-G none
+g none~
 #16014
 purple worm scale~
 Small purple worm scale~
@@ -2245,7 +2245,7 @@ A
 13 25
 A
 18 4
-G none
+g none~
 #16015
 huge purple worm scale~
 Huge purple worm scale~
@@ -2260,7 +2260,7 @@ A
 13 15
 A
 19 4
-G none
+g none~
 #16016
 gauntlet eye~
 Gauntlets of the eye~
@@ -2273,7 +2273,7 @@ A
 13 30
 A
 18 4
-G none
+g none~
 #16017
 helm eye~
 Helm of the eye~
@@ -2292,7 +2292,7 @@ A
 17 -5
 A
 24 -2
-G none
+g none~
 #16018
 pin~
 A very sharp large pin~
@@ -2309,7 +2309,7 @@ A
 18 2
 A
 19 2
-G none
+g none~
 #16019
 muck branch~
 Very muddy branch~
@@ -2324,7 +2324,7 @@ A
 18 -5
 A
 19 2
-G none
+g none~
 #16020
 dart~
 A small deadly dart~
@@ -2339,7 +2339,7 @@ A
 3 1
 A
 18 2
-G none
+g none~
 #16021
 wand~
 A black wand inlaid with gold symbols~
@@ -2348,7 +2348,7 @@ wood~
 wand B AO
 30 10 10 'faerie fog' 0
 20 2 1000 P
-G none
+g none~
 #16022
 girth~
 Girth of protection~
@@ -2361,7 +2361,7 @@ A
 13 20
 A
 17 -10
-G none
+g none~
 #16023
 eyes~
 Dull eyes~
@@ -2372,7 +2372,7 @@ armor ABHM AE
 38 1 100 P
 A
 4 -3
-G none
+g none~
 #16024
 iron sword~
 An Iron Sword~
@@ -2389,7 +2389,7 @@ A
 18 2
 A
 19 4
-G none
+g none~
 #16025
 stone mace~
 A Huge Stone Mace~
@@ -2404,7 +2404,7 @@ A
 18 2
 A
 19 5
-G none
+g none~
 #16026
 shield~
 Black Shield of Protection~
@@ -2415,7 +2415,7 @@ armor BIM AJ
 42 4 100 P
 A
 17 -15
-G none
+g none~
 #16027
 stone~
 A small black stone~
@@ -2434,7 +2434,7 @@ A
 18 -5
 A
 19 -5
-G none
+g none~
 #16028
 horn~
 Demon Horn~
@@ -2449,7 +2449,7 @@ A
 18 1
 A
 19 4
-G none
+g none~
 #16029
 translucent robe~
 Translucent Robe~
@@ -2462,7 +2462,7 @@ A
 5 1
 A
 13 10
-G none
+g none~
 #16030
 belt~
 Belt of pleasure~
@@ -2473,7 +2473,7 @@ armor I AL
 11 1 0 P
 A
 2 1
-G none
+g none~
 #16031
 noble ring~
 Ring of nobility~
@@ -2488,7 +2488,7 @@ A
 13 5
 A
 19 1
-G none
+g none~
 #16032
 gold teeth~
 Gold Teeth~
@@ -2501,7 +2501,7 @@ A
 1 -1
 A
 19 2
-G none
+g none~
 #16033
 broken bottle~
 A broken bottle~
@@ -2514,7 +2514,7 @@ A
 2 -1
 A
 19 2
-G none
+g none~
 #16034
 dusty boots~
 A pair of dusty boots~
@@ -2529,7 +2529,7 @@ A
 14 -50
 A
 19 -3
-G none
+g none~
 #16035
 gnome hat~
 A gnome hat~
@@ -2542,7 +2542,7 @@ A
 2 2
 A
 18 3
-G none
+g none~
 #16036
 boots of flying~
 Boots of flying~
@@ -2555,7 +2555,7 @@ A
 14 200
 A
 2 4
-G none
+g none~
 #16037
 bracer strength~
 Bracer of strength~
@@ -2568,7 +2568,7 @@ A
 1 4
 A
 19 3
-G none
+g none~
 #16038
 slaver whip~
 Slaver's Whip~
@@ -2585,7 +2585,7 @@ A
 18 -4
 A
 19 5
-G none
+g none~
 #16039
 manacles~
 A pair of manacles~
@@ -2600,7 +2600,7 @@ A
 5 -3
 A
 13 -25
-G none
+g none~
 #16040
 cloak~
 A mage cloak~
@@ -2611,7 +2611,7 @@ armor A AC
 28 2 600 P
 A
 12 25
-G none
+g none~
 #16041
 jagged long sword~
 A jagged long sword~
@@ -2624,7 +2624,7 @@ A
 17 -10
 A
 18 4
-G none
+g none~
 #16042
 ebony dagger~
 An ebony dagger~
@@ -2639,7 +2639,7 @@ A
 18 3
 A
 19 3
-G none
+g none~
 #16043
 glowing sphere~
 A glowing sphere~
@@ -2650,7 +2650,7 @@ light A AO
 3 0 0 P
 A
 12 20
-G none
+g none~
 #16044
 blue bracer~
 A midnight blue bracer~
@@ -2661,7 +2661,7 @@ armor B AM
 16 3 1900 P
 A
 2 1
-G none
+g none~
 #16045
 ebony morning star~
 An ebony morning star~
@@ -2676,7 +2676,7 @@ A
 18 2
 A
 19 4
-G none
+g none~
 #16046
 drow chainmail~
 Black drow chainmail~
@@ -2689,7 +2689,7 @@ A
 2 1
 A
 13 4
-G none
+g none~
 #16047
 drow sword~
 A drow sword~
@@ -2702,7 +2702,7 @@ A
 18 1
 A
 19 1
-G none
+g none~
 #16048
 drow dagger~
 A drow dagger~
@@ -2715,7 +2715,7 @@ A
 18 2
 A
 19 1
-G none
+g none~
 #16049
 drow mace~
 A drow mace~
@@ -2728,7 +2728,7 @@ A
 18 1
 A
 19 2
-G none
+g none~
 #16050
 duergar breastplate~
 Duergar breastplate~
@@ -2739,7 +2739,7 @@ armor G AD
 12 4 1180 P
 A
 17 -5
-G none
+g none~
 #16051
 duergar helm~
 A duergar helm~
@@ -2750,7 +2750,7 @@ armor G AE
 6 2 420 P
 A
 17 -3
-G none
+g none~
 #16052
 duergar shield~
 A duergar shield~
@@ -2761,7 +2761,7 @@ armor G AJ
 6 3 420 P
 A
 17 -2
-G none
+g none~
 #16053
 duergar leggings~
 Duergar leggings~
@@ -2772,7 +2772,7 @@ armor G AF
 12 4 1800 P
 A
 17 -2
-G none
+g none~
 #16054
 duergar bracer~
 A duergar bracer~
@@ -2783,7 +2783,7 @@ armor G AM
 11 3 1800 P
 A
 17 -2
-G none
+g none~
 #16055
 brown mushroom~
 A brown mushroom~
@@ -2792,7 +2792,7 @@ food~
 food I A
 CD CD 0 0 0
 1 2 0 P
-G none
+g none~
 #16056
 large mushroom~
 A large mushroom~
@@ -2801,7 +2801,7 @@ food~
 food I A
 ADE ADE 0 0 0
 1 5 0 P
-G none
+g none~
 #16057
 moss red мох красный~
 @eng Red moss@rus красный мох~
@@ -2810,7 +2810,7 @@ food~
 pill I A
 12 'cure critical' 'cure critical' 'giant strength' ''
 5 2 100 P
-G male
+g male~
 #16058
 root dirty грязный корень~
 @eng a dirty root@rus грязный корень~
@@ -2819,7 +2819,7 @@ food~
 pill I A
 15 'armor' 'shield' 'stone skin' ''
 5 1 100 P
-G male
+g male~
 #16059
 scroll reveal~
 Scroll of reveal~
@@ -2828,7 +2828,7 @@ vellum~
 scroll 0 A
 15 'faerie fog' '' '' ''
 5 1 0 P
-G none
+g none~
 #16060
 hand shocking grasp~
 Hand of shocking grasp~
@@ -2837,7 +2837,7 @@ wood~
 wand A AO
 55 4 4 'identify' 0
 20 2 100 P
-G none
+g none~
 #16061
 potion detection зелье обнаружения~
 @eng Potion of detection@rus зелье обнаружения~
@@ -2846,7 +2846,7 @@ glass~
 potion 0 A
 15 'detect invis' 'detect magic' 'detect evil' ''
 10 2 100 P
-G none
+g none~
 #16062
 svirfneblin leggings~
 Svirfneblin leggings~
@@ -2859,7 +2859,7 @@ A
 1 1
 A
 17 -5
-G none
+g none~
 #16063
 necklace nobility~
 Necklace of nobility~
@@ -2878,7 +2878,7 @@ A
 5 1
 A
 17 -4
-G none
+g none~
 #16064
 broadsword vision~
 A broadsword named 'Vision'~
@@ -2895,7 +2895,7 @@ A
 18 2
 A
 19 2
-G none
+g none~
 #16065
 thieve's patch~
 Thieve's patch~
@@ -2908,7 +2908,7 @@ A
 2 2
 A
 18 5
-G none
+g none~
 #16066
 thieve's gloves~
 Thieve's gloves~
@@ -2921,7 +2921,7 @@ A
 2 2
 A
 18 3
-G none
+g none~
 #16067
 gold chain~
 A gold chain~
@@ -2942,7 +2942,7 @@ A
 23 -1
 A
 24 -2
-G none
+g none~
 #16068
 lucky dice~
 Lucky dice~
@@ -2965,7 +2965,7 @@ A
 23 -2
 A
 24 -1
-G none
+g none~
 #16069
 dark cloak~
 A dark cloak~
@@ -2980,7 +2980,7 @@ A
 17 -4
 A
 18 3
-G none
+g none~
 #16070
 golden earring~
 Golden earring~
@@ -2995,7 +2995,7 @@ A
 3 1
 A
 13 10
-G none
+g none~
 #16071
 jewelled dagger~
 A jewelled dagger~
@@ -3012,7 +3012,7 @@ A
 18 8
 A
 19 2
-G none
+g none~
 #16072
 hand~
 A hand grasping an orb~
@@ -3025,7 +3025,7 @@ A
 12 50
 A
 19 1
-G none
+g none~
 #16073
 robe~
 A long flowing robe~
@@ -3038,7 +3038,7 @@ A
 12 50
 A
 3 2
-G none
+g none~
 #16074
 blade of poison~
 A blade of poison~
@@ -3051,7 +3051,7 @@ A
 18 1
 A
 19 3
-G none
+g none~
 #16075
 assassin's sleeves~
 Assassin's sleeves~
@@ -3064,7 +3064,7 @@ A
 18 1
 A
 19 2
-G none
+g none~
 #16076
 skull tattoo~
 Skull tattoo~
@@ -3077,7 +3077,7 @@ A
 13 5
 A
 19 2
-G none
+g none~
 #16077
 choke wire~
 A choke wire~
@@ -3090,7 +3090,7 @@ A
 18 -5
 A
 19 4
-G none
+g none~
 #16078
 assassin's mask~
 An assassin's mask~
@@ -3105,7 +3105,7 @@ A
 5 -1
 A
 13 20
-G none
+g none~
 #16079
 flaming dagger tattoo~
 Flaming dagger tattoo~
@@ -3116,7 +3116,7 @@ armor G AM
 29 1 10 P
 A
 19 2
-G none
+g none~
 #16080
 wyvern tattoo~
 Wyvern tattoo~
@@ -3129,7 +3129,7 @@ A
 18 1
 A
 19 2
-G none
+g none~
 #16081
 dragon tattoo~
 Dragon tattoo~
@@ -3142,7 +3142,7 @@ A
 18 5
 A
 19 5
-G none
+g none~
 #16082
 diamond helm~
 A diamond helm~
@@ -3155,7 +3155,7 @@ A
 13 25
 A
 19 3
-G none
+g none~
 #16083
 keeper's shield~
 The keeper's shield~
@@ -3174,7 +3174,7 @@ A
 21 -2
 A
 23 -2
-G none
+g none~
 #16084
 clan ring~
 A demon clan signet ring~
@@ -3189,7 +3189,7 @@ A
 13 15
 A
 18 1
-G none
+g none~
 #16085
 demon bracer~
 Demon bracer~
@@ -3200,7 +3200,7 @@ armor ABEG AM
 21 3 500 P
 A
 12 15
-G none
+g none~
 #16086
 demon blade~
 A demon blade~
@@ -3215,7 +3215,7 @@ A
 18 3
 A
 19 3
-G none
+g none~
 #16087
 gem gate~
 Gem of gate~
@@ -3224,7 +3224,7 @@ wood~
 wand BEG AO
 35 5 5 'bless' 0
 25 3 100 P
-G none
+g none~
 #16088
 demon plate~
 Demon Plate~
@@ -3237,7 +3237,7 @@ A
 17 -5
 A
 19 2
-G none
+g none~
 #16089
 demon fire~
 Demon fire~
@@ -3250,7 +3250,7 @@ A
 17 -15
 A
 19 6
-G none
+g none~
 #16090
 fire gem~
 A fire gem~
@@ -3259,7 +3259,7 @@ flame~
 wand AG AO
 35 5 5 'fireball' 0
 30 3 1000 P
-G none
+g none~
 #16091
 stealth~
 Statue of the a God~
@@ -3268,7 +3268,7 @@ wood~
 container 0 0
 1000 C 0 0 0
 1 0 0 P
-G none
+g none~
 #16092
 brains~
 brains of the god~
@@ -3277,7 +3277,7 @@ unknown~
 money A A
 0 0 0 0 0
 1 1 1000 P
-G none
+g none~
 #16093
 gold pile merchants золото купца~
 @eng merchant's gold@rus купеческое золото~
@@ -3286,7 +3286,7 @@ gold~
 money 0 A
 0 0 0 0 0
 1 1 10000 P
-G none
+g none~
 #16094
 gold pile~
 not so rich merchant gold~
@@ -3295,7 +3295,7 @@ gold~
 money 0 A
 0 0 0 0 0
 1 1 1000 P
-G none
+g none~
 #0
 
 #ROOMS
@@ -16363,9 +16363,12 @@ S
 
 #OLIMITS
 O 16011 1	* Breast plate of strength
+O 16015 10	* Huge purple worm scale
 O 16016 9	* Gauntlets of the eye
 O 16036 2	* Boots of flying
 O 16081 1	* Dragon tattoo
+O 16082 9	* A diamond helm
+O 16083 4	* The keeper's shield
 O 16089 1	* Demon fire
 S
 

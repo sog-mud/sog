@@ -149,7 +149,7 @@ A
 1 2
 A
 19 1
-G none
+g none~
 #5201
 helm mithril~
 a mithril helm~
@@ -160,7 +160,7 @@ armor GK AE
 27 100 3400 P
 A
 18 2
-G none
+g none~
 #5202
 gauntlets mithril~
 a pair of mithril gauntlets~
@@ -173,7 +173,7 @@ A
 19 1
 A
 18 1
-G none
+g none~
 #5203
 sleeves mithril~
 some mithril sleeves~
@@ -186,7 +186,7 @@ A
 19 1
 A
 18 1
-G none
+g none~
 #5204
 boots mithril~
 a pair of mithril boots~
@@ -199,7 +199,7 @@ A
 2 1
 A
 18 1
-G none
+g none~
 #5205
 leggings mithril~
 a set of mithril leggings~
@@ -212,7 +212,7 @@ A
 2 1
 A
 18 1
-G none
+g none~
 #5206
 girth mithril~
 a mithril girth~
@@ -223,7 +223,7 @@ armor GK AL
 26 60 5200 P
 A
 5 2
-G none
+g none~
 #5207
 breast plate iron~
 a battered iron breast plate~
@@ -234,7 +234,7 @@ armor 0 AD
 4 450 9100 P
 A
 18 -6
-G none
+g none~
 #5208
 shield iron~
 a sturdy iron shield~
@@ -248,7 +248,7 @@ A
 A
 20 -2
 F I 0 0 B
-G none
+g none~
 #5210
 potion black~
 a black potion~
@@ -257,7 +257,7 @@ glass~
 potion FG A
 16 'blindness' 'sanctuary' 'giant strength' ''
 11 50 880 P
-G none
+g none~
 #5211
 potion orange~
 an orange potion~
@@ -266,7 +266,7 @@ glass~
 potion FG A
 20 'detect hidden' '' '' ''
 4 100 400 P
-G none
+g none~
 #5214
 ball quartz~
 a smooth quartz ball~
@@ -275,7 +275,7 @@ quartz~
 light G AO
 0 0 72 0 0
 0 300 50 P
-G none
+g none~
 #5215
 scroll tattered~
 a tattered scroll~
@@ -284,7 +284,7 @@ vellum~
 scroll G A
 24 'enchant weapon' '' '' ''
 8 150 1280 P
-G none
+g none~
 #5216
 scroll bound~
 a bound scroll~
@@ -293,7 +293,7 @@ vellum~
 scroll G A
 15 'detect evil' 'detect invis' 'detect magic' ''
 0 150 500 P
-G none
+g none~
 #5217
 flute silver~
 a silver flute~
@@ -304,7 +304,7 @@ staff AG AO
 9 10 3300 P
 A
 2 -2
-G none
+g none~
 #5218
 talisman demon~
 a demon-faced talisman~
@@ -317,7 +317,7 @@ A
 2 -8
 A
 1 -10
-G none
+g none~
 #5219
 venison chunk~
 a chunk of venison~
@@ -326,7 +326,7 @@ food~
 food 0 A
 DE DE 0 0 0
 0 200 0 P
-G none
+g none~
 #5220
 fountain water~
 a large cracked fountain~
@@ -335,7 +335,7 @@ unknown~
 fountain 0 0
 10 10 'water' 1 0
 0 0 0 P
-G none
+g none~
 #5221
 two-handed two sword~
 a two-handed sword~
@@ -348,7 +348,7 @@ A
 19 3
 A
 18 2
-G none
+g none~
 #5222
 robe black silk~
 a black silk robe~
@@ -359,7 +359,7 @@ armor 0 AK
 5 60 410 P
 A
 12 10
-G none
+g none~
 #5223
 cloak green~
 a dark green cloak~
@@ -370,7 +370,7 @@ armor GJ AC
 20 120 1600 P
 A
 13 5
-G none
+g none~
 #5224
 seal ebony~
 an engraved ebony seal~
@@ -379,7 +379,7 @@ ebony~
 key 0 A
 BCDE 0 0 0 0
 0 20 0 P
-G none
+g none~
 #5225
 desk curved~
 the desk~
@@ -388,7 +388,7 @@ wood~
 container 0 0
 100 ACD 5224 100 100
 0 0 0 P
-G none
+g none~
 #5226
 seal ivory~
 an engraved ivory seal~
@@ -397,7 +397,7 @@ ivory~
 key 0 A
 ABCDE 0 0 0 0
 0 20 0 P
-G none
+g none~
 #5227
 cabinet glass~
 the glass cabinet~
@@ -406,7 +406,7 @@ glass~
 container 0 0
 500 ACD 5226 100 100
 0 0 0 P
-G none
+g none~
 #5228
 arm rotted~
 a rotten arm~
@@ -415,7 +415,7 @@ flesh~
 food 0 A
 BEF BEF 0 A 0
 0 200 0 P
-G none
+g none~
 #5230
 stone pale blue~
 a pale blue stone~
@@ -426,7 +426,7 @@ gem G AQ
 5 10 550 P
 A
 1 1
-G none
+g none~
 #5231
 stone scarlet blue~
 a scarlet and blue stone~
@@ -437,7 +437,7 @@ gem G AQ
 5 10 550 P
 A
 3 1
-G none
+g none~
 #5232
 stone blue incandescent~
 an incandescent blue stone~
@@ -448,7 +448,7 @@ gem G AQ
 5 10 550 P
 A
 4 1
-G none
+g none~
 #5233
 stone red deep~
 a deep red stone~
@@ -459,7 +459,7 @@ gem G AQ
 5 10 550 P
 A
 2 1
-G none
+g none~
 #5234
 stone pink~
 a pink stone~
@@ -470,7 +470,7 @@ gem G AQ
 5 10 550 P
 A
 5 1
-G none
+g none~
 #5235
 stone pearly white~
 a pearly white stone~
@@ -481,7 +481,7 @@ gem G AQ
 5 10 11 P
 A
 13 1
-G none
+g none~
 #5237
 stone lavender green~
 a lavender and green stone~
@@ -492,7 +492,7 @@ gem G AQ
 0 10 150 P
 A
 20 -1
-G none
+g none~
 #5239
 stone grey dull~
 a dull grey stone~
@@ -501,7 +501,7 @@ stone~
 gem 0 A
 0 0 0 0 0
 0 10 10 P
-G none
+g none~
 #5241
 stone pink green~
 a pink and green stone~
@@ -512,7 +512,7 @@ gem G AQ
 0 10 500 P
 A
 18 -5
-G none
+g none~
 #5243
 stone clear~
 a clear stone~
@@ -523,7 +523,7 @@ gem G AQ
 0 10 100 P
 A
 17 3
-G none
+g none~
 #5250
 mandolin~
 a mandolin~
@@ -532,7 +532,7 @@ wood~
 staff G AO
 13 3 3 'cure critical' 0
 9 100 2500 P
-G none
+g none~
 #5251
 harp golden~
 a golden harp~
@@ -543,7 +543,7 @@ staff G AO
 7 500 2700 P
 A
 2 -2
-G none
+g none~
 #5252
 long dagger slim~
 a long slim dagger~
@@ -556,7 +556,7 @@ A
 19 2
 A
 18 1
-G none
+g none~
 #5253
 water fall waterfall~
 Waterfall~
@@ -565,7 +565,7 @@ water~
 portal AO 0
 0 0 B 95400 0
 0 0 0 P
-G none
+g none~
 #0
 
 #ROOMS

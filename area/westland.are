@@ -697,7 +697,7 @@ the use of killing. This truly is a strong weapon.
 @rus Довольно крупная дубинка, усеянная острыми шипами. Сразу чувствуется, что
 это орудие убийства.
 ~
-G none
+g none~
 #10002
 necklace ожерелье bone~
 @eng the Bone Woman's necklace@rus ~~костяное~~ ~~ожерелье~~~
@@ -719,7 +719,7 @@ neck. It must be very powerful since the kill took awhile.
 @rus Магическое ожерелье, сделанное из невзрачных с виду косточек каких-то 
 животных. Но за его внешней невзрачностью многое скрывается.
 ~
-G none
+g none~
 #10003
 teeth зубы gripper~
 @eng some grippers teeth@rus ~~острые~~ ~~кривые~~ ~~зубы~~~
@@ -732,7 +732,7 @@ A
 19 6
 A
 1 3
-G none
+g none~
 #10004
 jug beer кувшин~
 @eng a jug of beer@rus ~~кувшин~~ эля~
@@ -741,7 +741,7 @@ glass~
 drink BC A
 20 20 'beer' 0 0
 1 1 1 P
-G none
+g none~
 #10005
 boots black ботинки thief~
 @eng a pair of black boots@rus ~~пара~~ кожаных черных ботинок~
@@ -756,7 +756,7 @@ A
 12 30
 A
 1 2
-G none
+g none~
 #10006
 glove warden gloves рукавицы boundary~
 @eng boundary warden gloves@rus ~~рукавицы~~ стража границы~
@@ -771,7 +771,7 @@ A
 18 8
 A
 1 2
-G none
+g none~
 #10007
 boot warden boots ботинки boundary~
 @eng boundary warden boots@rus ~~ботинки~~ стража границы~
@@ -786,7 +786,7 @@ A
 19 6
 A
 18 5
-G none
+g none~
 #10008
 sleeves warden нарукавники boundary~
 @eng boundary warden sleeves@rus ~~нарукавники~~ стража границы~
@@ -801,7 +801,7 @@ A
 2 2
 A
 1 2
-G none
+g none~
 #10009
 shield warden щит boundary~
 @eng boundary warden's shield@rus ~~щит~~ стража границы~
@@ -814,7 +814,7 @@ A
 13 40
 A
 17 -9
-G none
+g none~
 #10010
 tunic warden плащ boundary~
 @eng boundary warden's tunic@rus ~~плащ~~ стража границы~
@@ -825,7 +825,7 @@ armor BC AK
 60 10 9898 P
 A
 17 -21
-G none
+g none~
 #10011
 helmet warden шлем boundary~
 @eng a boundary warden's helmet@rus ~~шлем~~ стража границы~
@@ -838,7 +838,7 @@ A
 23 -5
 A
 1 2
-G none
+g none~
 #10012
 ring warden кольцо boundary~
 @eng a boundary warden's ring@rus ~~кольцо~~ стража границы~
@@ -849,7 +849,7 @@ treasure BC AB
 60 10 9898 P
 A
 13 75
-G none
+g none~
 #10013
 legging warden leggings штаны boundary~
 @eng boundary warden leggins@rus ~~штаны~~ стража границы~
@@ -862,7 +862,7 @@ A
 21 -1
 A
 14 30
-G none
+g none~
 #10014
 robe dark плащ~
 @eng a dark robe@rus ~~темный~~ ~~плащ~~~
@@ -875,7 +875,7 @@ A
 13 25
 A
 12 50
-G none
+g none~
 #10015
 collar heart hound ошейник~
 @eng a heart hound collar@rus ~~ошейник~~ гончей~
@@ -890,7 +890,7 @@ A
 13 50
 A
 12 50
-G none
+g none~
 #10016
 pouch magical leather мешочек~
 @eng a magical leather pouch@rus ~~маленький~~ ~~магический~~ ~~мешочек~~~
@@ -899,7 +899,7 @@ leather~
 container BC A
 700 A 0 350 72
 70 50 1000 P
-G none
+g none~
 #10017
 cookie пирожок~
 @eng a BIG cookie!@rus ~~вкусный~~ ~~пирожок~~~
@@ -908,7 +908,7 @@ unknown~
 food B A
 DF 0 0 0 0
 8 10 0 P
-G none
+g none~
 #10018
 cake кусок пирог~
 @eng a BIG piece of cake!@rus ~~кусок~~ пирога~
@@ -917,7 +917,7 @@ unknown~
 food B A
 BD 0 0 0 0
 1 10 0 P
-G none
+g none~
 #10019
 sword warden меч boundary~
 @eng a boundary warden's sword@rus ~~меч~~ стража границы~
@@ -934,7 +934,7 @@ E
 boundary sword warden~
 This is a boundary warden sword that is made just for their use.
 ~
-G none
+g none~
 #10020
 flail warden кистень boundary~
 @eng a boundary warden's flail@rus ~~кистень~~ стража границы~
@@ -947,7 +947,7 @@ A
 19 3
 A
 18 4
-G none
+g none~
 #10021
 mace warden палица стража границы boundary~
 @eng a boundary warden's mace@rus ~~палица~~ стража границы~
@@ -960,7 +960,7 @@ A
 18 2
 A
 18 3
-G none
+g none~
 #10022
 dagger warden кинжал boundary~
 @eng a boundary warden's dagger@rus ~~кинжал~~ стража границы~
@@ -973,7 +973,7 @@ A
 19 3
 A
 18 3
-G none
+g none~
 #10023
 agiel weapon эйджил~
 @eng a mord-sith agiel@rus эйджил~
@@ -990,7 +990,7 @@ A
 13 20
 A
 12 20
-G none
+g none~
 #10024
 bracer power браслет~
 @eng the bracer of power@rus ~~магический~~ ~~браслет~~ Рала~
@@ -1007,7 +1007,7 @@ A
 13 50
 A
 12 50
-G none
+g none~
 #10025
 westland sign знак указатель вывеска вестландия~
 @eng a sign@rus ~~небольшой~~ ~~знак~~~
@@ -1089,7 +1089,7 @@ west land westland sign вестландия знак~
 ****************************************************************
  
 ~
-G none
+g none~
 #10026
 sign dhara d'hara дхара д'хара~
 @eng a little sign@rus ~~небольшой~~ ~~указатель~~~
@@ -1181,7 +1181,7 @@ D'Hara.  This is Darken Rahl's home land.
 Дворец -- резиденция великого Магистра Рала.
 
 ~
-G none
+g none~
 #0
 
 #ROOMS

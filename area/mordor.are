@@ -126,7 +126,7 @@ exotic 6 5 'slash' 0
 20 30 1500 P
 A
 19 3
-G none
+g none~
 #30002
 shield orc'ish щит орк~
 @eng orc'ish shield@rus ~~щит~~ орка~
@@ -141,7 +141,7 @@ A
 13 25
 A
 19 4
-G none
+g none~
 #30003
 case шкаф~
 @eng Case@rus ~~Шкаф~~~
@@ -150,7 +150,7 @@ wood~
 container 0 0
 100 AB 0 10 100
 0 0 0 P
-G none
+g none~
 #30004
 capitan helm шлем капитана~
 @eng Dark Capitan Helm@rus ~~Шлем~~ Капитана Орков~
@@ -165,7 +165,7 @@ A
 17 -10
 A
 13 25
-G none
+g none~
 #30005
 orc chainmail capitan кольчуга капитана орков~
 @eng Orc'ish chainmail@rus ~~кольчуга~~ орков~
@@ -180,7 +180,7 @@ A
 19 1
 A
 18 3
-G none
+g none~
 #30006
 robe orcish роба орков~
 @eng Silk orc'ish robe@rus ~~Шелковая~~ ~~орчья~~ ~~роба~~~
@@ -197,7 +197,7 @@ A
 13 10
 A
 19 1
-G none
+g none~
 #30007
 capitan key капитан ключ~
 @eng steel key@rus ~~стальной~~ ~~ключ~~~
@@ -206,7 +206,7 @@ steel~
 key U AO
 0 0 0 0 0
 30 2 10 P
-G male
+g male~
 #30008
 mithril chainmail~
 mithril chainmail~
@@ -219,7 +219,7 @@ A
 13 5
 A
 19 2
-G none
+g none~
 #30009
 spellbook orc книга орков~
 @eng shaman spellbook@rus книга шамана~
@@ -232,7 +232,7 @@ A
 13 25
 S 'sleep' 75 A
 S 'curse' 75 A
-G none
+g none~
 #30010
 black candle черная свеча~
 @eng black candle@rus черная свеча~
@@ -244,7 +244,7 @@ light AJL AO
 S 'meditation' 75 A
 A
 19 2
-G none
+g none~
 #30011
 shaman girdle пояс шамана~
 @eng shaman girdle@rus пояс шамана~
@@ -259,7 +259,7 @@ A
 12 50
 A
 20 -5
-G none
+g none~
 #30012
 small necklace маленькое ожерелье bone костяное~
 @eng bone necklace@rus костяное ожерелье~
@@ -272,7 +272,7 @@ A
 17 -3
 A
 13 15
-G none
+g none~
 #30013
 heavy stone club тяжелая каменная дубина~
 @eng heavy stone club@rus тяжелая каменная дубина~
@@ -286,7 +286,7 @@ A
 19 5
 A
 1 5
-G none
+g none~
 #30098
 svetilka~
 svetilka~
@@ -312,7 +312,7 @@ F A 0 0 F
 F A 0 0 D
 F A 0 0 G
 F A 0 0 C
-G none
+g none~
 #30099
 fountain~
 fountain~
@@ -321,7 +321,7 @@ unknown~
 fountain 0 0
 -1 -1 'root beer' 0 0
 0 0 0 P
-G none
+g none~
 #0
 
 #ROOMS

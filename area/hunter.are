@@ -83,7 +83,7 @@ gold~
 container CEORY P
 10 ABCD 95702 15 100
 60 1 20 P
-G none
+g none~
 #95701
 tattoo golden золотая татуировка~
 @eng the golden tattoo@rus ~~золотая~~ ~~татуировка~~~
@@ -92,7 +92,7 @@ gold~
 treasure CEORTe AO
 0 0 0 0 0
 0 1 10000 P
-G none
+g none~
 #95702
 bone gray кость~
 @eng a gray bone@rus ~~серая~~ ~~кость~~~
@@ -101,7 +101,7 @@ bone~
 key CEORYf AOP
 0 0 0 0 0
 0 4 0 P
-G none
+g none~
 #95703
 tattoo~
 {Rbrand of the outlaw{x~
@@ -110,7 +110,7 @@ unknown~
 jewelry AMTZ AS
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #0
 
 #ROOMS

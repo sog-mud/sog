@@ -271,7 +271,7 @@ A
 2 1
 A
 19 3
-G none
+g none~
 #8302
 horned helmet~
 a dark horned helmet~
@@ -287,7 +287,7 @@ A
 E
 horns horn~
 These horns appear to be made of adamantite.~
-G none
+g none~
 #8303
 chain mail chainmail~
 a suit of chainmail~
@@ -296,7 +296,7 @@ iron~
 armor J AD
 5 8 7 0 0
 20 200 2700 P
-G none
+g none~
 #8306
 scythe~
 a huge, wicked-looking scythe~
@@ -309,7 +309,7 @@ A
 19 3
 A
 18 3
-G none
+g none~
 #8307
 green potion~
 a murky green potion~
@@ -321,7 +321,7 @@ potion AB A
 E
 potion~
 It looks really disgusting and doesn't smell very nice either.~
-G none
+g none~
 #8308
 claymore rusty sword~
 a rusty claymore~
@@ -330,7 +330,7 @@ iron~
 weapon 0 AN
 sword 4 8 'cleave' F
 28 100 3000 P
-G none
+g none~
 #0
 
 #ROOMS

@@ -763,7 +763,7 @@ collar ошейник~
 @eng Beautiful collar.
 @rus Cимпатичный ошейничек.
 ~
-G male
+g male~
 #5301
 breast plate iron кираса~
 @eng a beautiful iron breast plate@rus ~~красивая~~ ~~железная~~ ~~кираса~~~
@@ -774,7 +774,7 @@ armor 0 AD
 20 450 3200 P
 A
 18 1
-G female
+g female~
 #5302
 staff serpentine жезл~
 @eng a green serpentine staff@rus ~~зеленый~~ ~~извилистый~~ ~~жезл~~~
@@ -783,7 +783,7 @@ oak~
 staff FG AO
 20 2 2 'earthquake' 0
 7 120 2000 P
-G male
+g male~
 #5303
 cloak green плащ~
 @eng a dark green cloak@rus ~~темно-зеленый~~ ~~плащ~~~
@@ -794,7 +794,7 @@ armor G AC
 20 120 1600 P
 A
 13 5
-G male
+g male~
 #5304
 scroll magic свиток~
 @eng a scroll of enchantment@rus ~~волшебный~~ ~~свиток~~~
@@ -803,7 +803,7 @@ vellum~
 scroll G A
 30 'enchant weapon' '' '' ''
 8 150 1420 P
-G male
+g male~
 #5305
 scroll bound переплетенный манускрипт~
 @eng a bound scroll@rus ~~манускрипт~~ в переплете~
@@ -812,7 +812,7 @@ vellum~
 scroll G A
 30 'detect evil' 'detect invis' 'detect magic' ''
 0 150 800 P
-G male
+g male~
 #5306
 fountain фонтан~
 @eng a large beautiful fountain@rus ~~большой~~ ~~красивый~~ ~~фонтан~~~
@@ -830,7 +830,7 @@ an exterior fountain is reserved just for drinking.
 блестит под падающими на его мокрую поверхность солнечными лучами. Под водой 
 плавают рыбки, а весь внешний вид фонтана говорит что и него пить можно.
 ~
-G male
+g male~
 #5307
 desk конторка~
 @eng the curved desk@rus ~~изогнутая~~ ~~конторка~~~
@@ -847,7 +847,7 @@ surface makes you dream of being in a pool swimming among mermaids.
 белизна поверхности стола вызывает у тебя грезы... как приятно плескаться в
 бассейне среди русалок... м-да.
 ~
-G female
+g female~
 #5308
 cabinet шкаф~
 @eng the glass cabinet@rus ~~стеклянный~~ ~~шкаф~~~
@@ -864,7 +864,7 @@ would last longer than the cabinet itself.
 @rus Шкаф отделан дубом и красным деревом, причем выглядит он просто превосходно. Дерево
 покрыто настолько крепким лаком, что кажется, что он продержится дольше, чем сам шкаф.
 ~
-G male
+g male~
 #5309
 mandolin мандолина~
 @eng a mandolin@rus ~~мандолина~~~
@@ -873,7 +873,7 @@ wood~
 staff G AO
 18 5 5 'cure critical' 0
 10 200 2800 P
-G female
+g female~
 #5310
 harp golden золотая арфа~
 @eng a golden harp@rus ~~золотая~~ ~~арфа~~~
@@ -884,7 +884,7 @@ staff G AO
 7 1000 3200 P
 A
 2 -2
-G female
+g female~
 #5311
 flute silver серебряная флейта~
 @eng a silver flute@rus ~~серебряная~~ ~~флейта~~~
@@ -895,7 +895,7 @@ staff AG AO
 9 60 3900 P
 A
 2 -2
-G female
+g female~
 #5312
 potion green зеленое снадобье~
 @eng a green potion@rus ~~зеленое~~ ~~снадобье~~~
@@ -904,7 +904,7 @@ glass~
 potion 0 A
 20 'gas breath' '' '' ''
 25 50 3000 P
-G none
+g none~
 #5313
 bluish herbs голубоватая травка~
 @eng some bluish herbs@rus ~~немного голубоватой травки~~~
@@ -913,7 +913,7 @@ unknown~
 pill 0 A
 15 '' '' 'bless' ''
 1 10 270 P
-G female
+g female~
 #5314
 purplish herbs багрянистая травка~
 some purplish herbs~
@@ -922,7 +922,7 @@ unknown~
 pill 0 A
 15 '' '' 'detect evil' ''
 0 10 250 P
-G female
+g female~
 #5315
 grayish herbs сероватая травка~
 @eng some grayish herbs@rus ~~немного сероватой травки~~~
@@ -931,7 +931,7 @@ unknown~
 pill 0 A
 5 '' 'giant strength' 'poison' ''
 5 10 360 P
-G female
+g female~
 #5316
 orangish herbs оранжевая травка~
 @eng some orangish herbs@rus ~~немного оранжевой травки~~~
@@ -940,7 +940,7 @@ plant~
 pill 0 A
 5 '' '' 'cure light' ''
 0 10 150 P
-G female
+g female~
 #5317
 sword меч~
 @eng an imperial sword@rus ~~имперский~~ ~~меч~~~
@@ -960,7 +960,7 @@ Hlodvig (c).
 @rus Ты видишь меч, изготовленный с огромным мастерством. На его лезвии выгравировано:
 Hlodvig (c).
 ~
-G male
+g male~
 #5318
 mace булава~
 @eng an imperial mace@rus ~~имперская~~ ~~булава~~~
@@ -980,7 +980,7 @@ Hlodvig (c).
 @rus Ты видишь булаву, изготовленную с огромным мастерством. На ее рукояти выгравировано:
 Hlodvig (c).
 ~
-G female
+g female~
 #5319
 chest plate нагрудная пластина~
 @eng an imperial chest plate@rus ~~имперская~~ ~~нагрудная~~ ~~пластина~~~
@@ -996,7 +996,7 @@ Hlodvig (c).
 @rus Ты видишь нагрудную пластину, сделанную с огромным мастерством. На ней выгравировано:
 Hlodvig (c).
 ~
-G female
+g female~
 #5320
 shield щит~
 @eng an imperial shield@rus ~~имперский~~ ~~щит~~~
@@ -1012,7 +1012,7 @@ Hlodvig (c).
 @rus Ты видишь щит, сделанный с огромным мастерством. На нем выгравировано:
 Hlodvig (c).
 ~
-G male
+g male~
 #5321
 cloak плащ~
 @eng an imperial cloak@rus ~~имперский~~ ~~плащ~~~
@@ -1028,7 +1028,7 @@ Hlodvig (c).
 @rus Ты видишь плащ, сшитый с огромным мастерством. На нем вышито:
 Hlodvig (c).
 ~
-G male
+g male~
 #5322
 helm шлем~
 @eng an imperial helm@rus ~~имперский~~ ~~шлем~~~
@@ -1044,7 +1044,7 @@ Hlodvig (c).
 @rus Ты видишь шлем, сделанный с огромным мастерством. На нем выгравировано:
 Hlodvig (c).
 ~
-G male
+g male~
 #5323
 plate leggings пластинчатые гамаши~
 @eng a pair of imperial plate leggings@rus ~~пара~~ ~~имперских~~ ~~пластинчатых~~ ~~гамаш~~~
@@ -1060,7 +1060,7 @@ Hlodvig (c).
 @rus Ты видишь пластинчатые гамаши, сделанные с огромным мастерством. На них выгравировано:
 Hlodvig (c).
 ~
-G plural
+g plural~
 #5324
 plate boots пластинчатые сапоги~
 @eng a pair of imperial plate boots@rus ~~пара~~ ~~имперских~~ ~~пластинчатых~~ ~~сапог~~~
@@ -1076,7 +1076,7 @@ Hlodvig (c).
 @rus Ты видишь пластинчатые сапоги, сделанные с огромным мастерством. На них выгравировано:
 Hlodvig (c).
 ~
-G plural
+g plural~
 #5325
 plate gloves пластинчатые перчатки~
 @eng a pair of imperial plate gloves@rus ~~пара~~ ~~имперских~~ ~~пластинчатых~~ ~~перчаток~~~
@@ -1093,7 +1093,7 @@ Hlodvig (c).
 выгравировано:
 Hlodvig (c).
 ~
-G plural
+g plural~
 #5326
 plate sleeves пластинчатые наручи~
 @eng a pair of imperial plate sleeves@rus ~~пара~~ ~~имперских~~ ~~пластинчатых~~ ~~наручей~~~
@@ -1110,7 +1110,7 @@ Hlodvig (c).
 выгравировано:
 Hlodvig (c).
 ~
-G plural
+g plural~
 #5327
 cape накидка~
 @eng an imperial cape@rus ~~имперская~~ ~~накидка~~~
@@ -1126,7 +1126,7 @@ Hlodvig (c).
 @rus Ты видишь накидку, сшитую с огромным мастерством. На ней вышито:
 Hlodvig (c).
 ~
-G female
+g female~
 #5328
 belt портупея~
 @eng an imperial belt@rus ~~имперская~~ ~~портупея~~~
@@ -1142,7 +1142,7 @@ Hlodvig (c).
 @rus Ты видишь портупею, изготовленную с огромным мастерством. На ней выбито:
 Hlodvig (c).
 ~
-G female
+g female~
 #5329
 metal bracer металлический браслет~
 @eng an imperial metal bracer@rus ~~имперский~~ ~~металлический~~ ~~нарукавник~~~
@@ -1159,7 +1159,7 @@ Hlodvig (c).
 выбито:
 Hlodvig (c).
 ~
-G male
+g male~
 #5330
 ring signet кольцо печатка~
 @eng an imperial city guard signet ring@rus ~~имперское~~ ~~кольцо~~ стражника с печатью~
@@ -1172,7 +1172,7 @@ A
 20 -1
 A
 17 -4
-G none
+g none~
 #5331
 imperial banner имперское знамя~
 @eng an imperial war banner@rus ~~имперское~~ ~~боевое~~ ~~знамя~~~
@@ -1190,7 +1190,7 @@ banner~
 @eng This is the official Merc war banner to see you through the darkest realm!
 @rus Это казенное боевое знамя поможет найти тебя в самом темном царстве!
 ~
-G none
+g none~
 #5332
 two-handed two sword двуручный меч~
 @eng a two-handed sword@rus ~~двуручный~~ ~~меч~~~
@@ -1203,7 +1203,7 @@ A
 19 4
 A
 18 2
-G male
+g male~
 #5333
 map old midgaard карта старого мидгаарда~
 @eng a map of the old Midgaard@rus ~~карта~~ старого Мидгаарда~
@@ -1254,7 +1254,22 @@ map old~
                             имперской стражой
 *****************************************************************************
 ~
-G female
+g female~
+#5340
+quest blade меч~
+@eng quest's sword@rus ~~меч~~ Квестора~
+@eng Questor's sword lies upon the ground, waiting for its owner.@rus Меч (sword) Квестора лежит на земле в ожидании хозяина.~
+adamantite~
+weapon BI AN
+sword 10 7 'cleave' EF
+31 450 5600 P
+E
+scimitar blade~
+It is quite heavy.  The blade is made of some metal that you can't even
+spell.  The edge of the blade looks as if it could cut through anything
+or anyone.
+~
+g none~
 #5343
 stone clear прозрачный камень~
 @eng a clear stone@rus ~~прозрачный~~ ~~камень~~~
@@ -1265,7 +1280,7 @@ gem G AQ
 0 10 100 P
 A
 17 3
-G male
+g male~
 #0
 
 #ROOMS

@@ -161,7 +161,7 @@ A
 19 10
 A
 3 -1
-G none
+g none~
 #30233
 hit joint~
 a Hit from the Joint~
@@ -170,7 +170,7 @@ unknown~
 potion A A
 40 'heal' 'invisibility' 'sanctuary' ''
 25 1 2000 P
-G none
+g none~
 #30234
 brownie weed~
 a Brownie~
@@ -179,7 +179,7 @@ unknown~
 pill A A
 30 'armor' 'fly' 'infravision' ''
 25 1 2000 P
-G none
+g none~
 #30235
 badge dea~
 a Badge~
@@ -190,7 +190,7 @@ armor G AO
 50 2 1300 P
 A
 1 2
-G none
+g none~
 #30236
 bowl~
 a Bowl~
@@ -205,7 +205,7 @@ A
 19 10
 A
 12 35
-G none
+g none~
 #30237
 joint everburning~
 an Everburning Joint~
@@ -218,7 +218,7 @@ A
 12 25
 A
 2 2
-G none
+g none~
 #30238
 plate wings~
 a plate of Buffalo Wings~
@@ -227,7 +227,7 @@ unknown~
 food 0 A
 DE DE 0 0 0
 0 5 10 P
-G none
+g none~
 #0
 
 #ROOMS

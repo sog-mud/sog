@@ -35,7 +35,7 @@ iron~
 key C AO
 0 0 0 0 0
 10 3 10 P
-G male
+g male~
 #12401
 bone club~
 @eng a bone club@rus дубина из кости~
@@ -48,7 +48,7 @@ A
 18 -2
 A
 19 3
-G none
+g none~
 #0
 
 #ROOMS

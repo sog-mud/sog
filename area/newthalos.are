@@ -1396,7 +1396,7 @@ iron~
 key 0 A
 A 0 0 0 0
 0 30 0 P
-G none
+g none~
 #9501
 city key~
 the Key to the City of New Thalos~
@@ -1405,7 +1405,7 @@ iron~
 key 0 ACO
 A 0 0 0 0
 0 30 0 P
-G none
+g none~
 #9503
 morning star morningstar~
 a morningstar~
@@ -1414,7 +1414,7 @@ wood~
 weapon 0 AN
 flail 3 6 'blast' 0
 10 50 620 P
-G none
+g none~
 #9504
 awl pike awl-pike~
 an awl-pike~
@@ -1423,7 +1423,7 @@ iron~
 weapon 0 AN
 spear 1 10 'pierce' K
 6 30 108 P
-G none
+g none~
 #9505
 bardiche~
 a bardiche~
@@ -1432,7 +1432,7 @@ steel~
 weapon 0 AN
 polearm 2 6 'cleave' F
 8 40 270 P
-G none
+g none~
 #9506
 bec corbin~
 a bec de corbine~
@@ -1441,7 +1441,7 @@ steel~
 weapon 0 AN
 polearm 1 8 'pierce' F
 2 30 148 P
-G none
+g none~
 #9507
 bill guisarme~
 a bill-guisarme~
@@ -1450,7 +1450,7 @@ iron~
 weapon 0 AN
 polearm 1 8 'slash' F
 2 30 148 P
-G none
+g none~
 #9508
 fauchard~
 a fauchard~
@@ -1459,7 +1459,7 @@ mithril~
 weapon 0 AN
 polearm 1 8 'slash' F
 2 30 148 P
-G none
+g none~
 #9509
 glaive~
 a glaive~
@@ -1468,7 +1468,7 @@ iron~
 weapon 0 AN
 polearm 1 10 'chop' F
 4 30 192 P
-G none
+g none~
 #9510
 guisarme~
 a guisarme~
@@ -1477,7 +1477,7 @@ steel~
 weapon 0 AN
 polearm 2 4 'slash' F
 3 40 169 P
-G none
+g none~
 #9511
 sickle~
 a sickle~
@@ -1486,7 +1486,7 @@ steel~
 weapon 0 AN
 sword 1 4 'slash' 0
 0 10 210 P
-G none
+g none~
 #9512
 bastard two sword~
 a two-handed bastard sword~
@@ -1495,7 +1495,7 @@ iron~
 weapon 0 AN
 sword 3 5 'cleave' F
 13 160 1190 P
-G none
+g none~
 #9513
 scimitar~
 a scimitar~
@@ -1504,7 +1504,7 @@ iron~
 weapon 0 AN
 sword 1 9 'slash' 0
 5 100 490 P
-G none
+g none~
 #9514
 rapier~
 a rapier~
@@ -1513,7 +1513,7 @@ steel~
 weapon 0 AN
 sword 3 4 'slash' 0
 11 100 850 P
-G none
+g none~
 #9515
 banded mail suit~
 a suit of banded mail~
@@ -1522,7 +1522,7 @@ iron~
 armor 0 AD
 7 7 7 0 0
 20 250 2900 P
-G none
+g none~
 #9516
 brigandine suit~
 a suit of brigandine~
@@ -1531,7 +1531,7 @@ steel~
 armor 0 AD
 7 7 7 0 0
 20 200 2900 P
-G none
+g none~
 #9517
 field plate suit~
 a suit of field plate~
@@ -1540,7 +1540,7 @@ iron~
 armor FGIKL AD
 8 8 8 0 0
 25 280 3900 P
-G none
+g none~
 #9518
 ringmail ring mail suit~
 a suit of ringmail~
@@ -1551,7 +1551,7 @@ armor 0 AD
 0 360 176 P
 A
 12 -20
-G none
+g none~
 #9519
 splintmail splint mail suit~
 a suit of splintmail~
@@ -1562,7 +1562,7 @@ armor 0 AD
 8 450 1280 P
 A
 12 -10
-G none
+g none~
 #9520
 wooden shield~
 a wooden shield~
@@ -1571,7 +1571,7 @@ wood~
 armor 0 AJ
 2 2 2 0 0
 0 40 250 P
-G none
+g none~
 #9521
 splinted shield~
 a splinted shield~
@@ -1580,7 +1580,7 @@ steel~
 armor 0 AJ
 4 4 4 0 0
 5 180 710 P
-G none
+g none~
 #9522
 buckler shield~
 a buckler~
@@ -1589,7 +1589,7 @@ wood~
 armor 0 AJ
 1 1 1 0 0
 0 60 108 P
-G none
+g none~
 #9523
 jacket leather~
 a leather jacket~
@@ -1598,7 +1598,7 @@ leather~
 armor 0 AD
 1 1 1 0 0
 0 60 144 P
-G none
+g none~
 #9524
 sleeves leather~
 a pair of leather sleeves~
@@ -1607,7 +1607,7 @@ leather~
 armor 0 AI
 1 1 1 0 0
 0 20 72 P
-G none
+g none~
 #9525
 cap leather~
 a leather cap~
@@ -1616,7 +1616,7 @@ leather~
 armor 0 AE
 1 1 1 0 0
 0 20 72 P
-G none
+g none~
 #9526
 leather pants~
 a pair of leather pants~
@@ -1625,7 +1625,7 @@ leather~
 armor 0 AF
 1 1 1 0 0
 0 20 72 P
-G none
+g none~
 #9527
 leather gloves~
 a pair of leather gloves~
@@ -1634,7 +1634,7 @@ leather~
 armor 0 AH
 1 1 1 0 0
 0 20 72 P
-G none
+g none~
 #9528
 padded leather boots~
 a pair of padded leather boots~
@@ -1643,7 +1643,7 @@ leather~
 armor 0 AG
 1 1 1 0 0
 0 20 72 P
-G none
+g none~
 #9529
 studded leather jacket~
 a studded leather jacket~
@@ -1652,7 +1652,7 @@ leather~
 armor 0 AD
 2 2 2 0 0
 0 100 340 P
-G none
+g none~
 #9530
 studded leather sleeves~
 a pair of studded leather sleeves~
@@ -1661,7 +1661,7 @@ leather~
 armor 0 AI
 2 2 2 0 0
 0 30 168 P
-G none
+g none~
 #9531
 studded leather pants~
 a pair of studded leather pants~
@@ -1670,7 +1670,7 @@ leather~
 armor 0 AF
 2 2 2 0 0
 0 30 168 P
-G none
+g none~
 #9532
 studded leather gloves~
 a pair of studded leather gloves~
@@ -1679,7 +1679,7 @@ leather~
 armor 0 AH
 2 2 2 0 0
 0 30 168 P
-G none
+g none~
 #9533
 leather shield~
 a leather shield~
@@ -1688,7 +1688,7 @@ leather~
 armor 0 AJ
 2 2 2 0 0
 0 50 250 P
-G none
+g none~
 #9534
 sack~
 a sack~
@@ -1697,7 +1697,7 @@ cloth~
 container 0 AO
 50 0 0 5 100
 0 10 12 P
-G none
+g none~
 #9535
 oil lamp oillamp~
 an oil lamp~
@@ -1706,7 +1706,7 @@ glass~
 light 0 A
 0 0 100 0 0
 0 10 50 P
-G none
+g none~
 #9536
 backpack back pack~
 a backpack~
@@ -1715,7 +1715,7 @@ cloth~
 container 0 AK
 100 A 0 10 100
 0 40 50 P
-G none
+g none~
 #9537
 basket~
 a basket~
@@ -1724,7 +1724,7 @@ wood~
 container 0 A
 50 0 0 5 100
 0 40 8 P
-G none
+g none~
 #9538
 belt pouch~
 a belt pouch~
@@ -1733,7 +1733,7 @@ cloth~
 container 0 AL
 25 0 0 2 100
 0 10 27 P
-G none
+g none~
 #9539
 candle~
 a candle~
@@ -1742,7 +1742,7 @@ wax~
 light 0 AO
 0 0 50 0 0
 0 10 4 P
-G none
+g none~
 #9540
 cheese~
 a hunk of cheese~
@@ -1751,7 +1751,7 @@ food~
 food 0 A
 AC AC 0 0 0
 0 10 4 P
-G none
+g none~
 #9541
 bread~
 a bread~
@@ -1760,7 +1760,7 @@ food~
 food 0 A
 AC AB 0 0 0
 0 10 6 P
-G none
+g none~
 #9542
 dry rations~
 some dry rations~
@@ -1769,7 +1769,7 @@ food~
 food 0 A
 ABCD CE 0 0 0
 0 20 24 P
-G none
+g none~
 #9543
 iron rations~
 some iron rations~
@@ -1778,7 +1778,7 @@ food~
 food 0 A
 BE BCDE 0 0 0
 0 10 50 P
-G none
+g none~
 #9545
 nuts~
 some nuts~
@@ -1787,7 +1787,7 @@ food~
 food 0 A
 A A 0 0 0
 0 10 3 P
-G none
+g none~
 #9546
 belt~
 a belt~
@@ -1796,7 +1796,7 @@ silk~
 clothing 0 AM
 0 0 0 0 0
 0 20 8 P
-G none
+g none~
 #9547
 hiking boots~
 a pair of hiking boots~
@@ -1805,7 +1805,7 @@ cloth~
 clothing 0 AG
 0 0 0 0 0
 0 30 12 P
-G none
+g none~
 #9548
 fur cloak~
 a fur cloak~
@@ -1814,7 +1814,7 @@ fur~
 clothing 0 AK
 0 0 0 0 0
 0 20 200 P
-G none
+g none~
 #9549
 girdle~
 a girdle~
@@ -1823,7 +1823,7 @@ cloth~
 clothing 0 AL
 0 0 0 0 0
 0 10 12 P
-G none
+g none~
 #9550
 hose~
 a pair of hose~
@@ -1832,7 +1832,7 @@ leather~
 clothing 0 AF
 0 0 0 0 0
 0 10 8 P
-G none
+g none~
 #9551
 common robe~
 a common robe~
@@ -1841,7 +1841,7 @@ wool~
 clothing 0 AD
 0 0 0 0 0
 0 20 36 P
-G none
+g none~
 #9552
 embroidered robe~
 an embroidered robe~
@@ -1850,7 +1850,7 @@ cloth~
 clothing 0 ADK
 0 0 0 0 0
 0 20 200 P
-G none
+g none~
 #9553
 sandles~
 a pair of sandles~
@@ -1859,7 +1859,7 @@ leather~
 clothing 0 AG
 0 0 0 0 0
 0 10 20 P
-G none
+g none~
 #9554
 sash~
 a sash~
@@ -1868,7 +1868,7 @@ cloth~
 clothing 0 AL
 0 0 0 0 0
 0 10 8 P
-G none
+g none~
 #9555
 silk jacket~
 a silk jacket~
@@ -1877,7 +1877,7 @@ silk~
 clothing 0 AK
 0 0 0 0 0
 0 10 320 P
-G none
+g none~
 #9556
 egg~
 an egg~
@@ -1886,7 +1886,7 @@ food~
 food 0 A
 B B 0 0 0
 0 10 4 P
-G none
+g none~
 #9557
 carrot~
 a carrot~
@@ -1895,7 +1895,7 @@ plant~
 food 0 A
 AB AB 0 0 0
 0 10 6 P
-G none
+g none~
 #9558
 tomato~
 a tomato~
@@ -1904,7 +1904,7 @@ plant~
 food 0 A
 B B 0 0 0
 0 10 12 P
-G none
+g none~
 #9559
 fig~
 a fig~
@@ -1913,7 +1913,7 @@ food~
 food 0 A
 B A 0 0 0
 0 10 3 P
-G none
+g none~
 #9560
 dates~
 some dates~
@@ -1922,7 +1922,7 @@ food~
 food 0 A
 B B 0 0 0
 0 10 6 P
-G none
+g none~
 #9561
 leg lamb~
 a leg of lamb~
@@ -1931,7 +1931,7 @@ meat~
 food 0 A
 BD CD 0 0 0
 0 20 10 P
-G none
+g none~
 #9562
 side beef~
 a side of beef~
@@ -1940,7 +1940,7 @@ meat~
 food 0 A
 ABCD ABCD 0 0 0
 0 50 20 P
-G none
+g none~
 #9563
 whole chicken~
 a whole chicken~
@@ -1949,7 +1949,7 @@ meat~
 food 0 A
 CD CD 0 0 0
 0 30 12 P
-G none
+g none~
 #9564
 herring salted~
 a salted herring~
@@ -1958,7 +1958,7 @@ food~
 food 0 A
 D D 0 0 0
 0 10 8 P
-G none
+g none~
 #9565
 mussel~
 a mussel~
@@ -1967,7 +1967,7 @@ meat~
 food 0 A
 C C 0 0 0
 0 10 4 P
-G none
+g none~
 #9567
 liquor glass blue oasis~
 a glass of blue oasis~
@@ -1976,7 +1976,7 @@ glass~
 drink 0 A
 2 2 'whisky' 0 0
 0 10 10 P
-G none
+g none~
 #9568
 wine glass~
 a glass of wine~
@@ -1985,7 +1985,7 @@ glass~
 drink 0 A
 6 6 'red wine' 0 0
 0 10 13 P
-G none
+g none~
 #9569
 bottle grog~
 a bottle of grog~
@@ -1994,7 +1994,7 @@ glass~
 drink 0 A
 16 16 'ale' 0 0
 0 10 8 P
-G none
+g none~
 #9570
 glowing vial blue~
 a glowing blue vial~
@@ -2003,7 +2003,7 @@ glass~
 potion AG AO
 12 'sleep' '' '' ''
 1 10 270 P
-G none
+g none~
 #9571
 potion green~
 a deep-green potion~
@@ -2012,7 +2012,7 @@ glass~
 potion G AO
 10 'stone skin' 'blindness' '' ''
 12 10 950 P
-G none
+g none~
 #9572
 potion crystal clear~
 a crystal clear potion~
@@ -2021,7 +2021,7 @@ glass~
 potion G AO
 10 'detect invis' '' '' ''
 0 10 200 P
-G none
+g none~
 #9573
 white potion~
 an off white potion~
@@ -2030,7 +2030,7 @@ glass~
 potion G AO
 21 'haste' '' '' ''
 11 10 820 P
-G none
+g none~
 #9574
 potion dark blue~
 a dark blue potion~
@@ -2039,7 +2039,7 @@ glass~
 potion G AO
 10 'detect evil' 'refresh' '' ''
 0 10 200 P
-G none
+g none~
 #9575
 beer bottle scorpion flaming~
 a flaming scorpion~
@@ -2048,7 +2048,7 @@ glass~
 drink 0 A
 16 16 'beer' 0 0
 0 10 6 P
-G none
+g none~
 #9576
 barrel beer~
 a barrel of beer~
@@ -2057,7 +2057,7 @@ wood~
 drink 0 A
 150 150 'beer' 0 0
 0 80 120 P
-G none
+g none~
 #9577
 whisky shot~
 a shot~
@@ -2066,7 +2066,7 @@ glass~
 drink 0 A
 2 2 'whisky' 0 0
 0 10 12 P
-G none
+g none~
 #9578
 scroll recall~
 a scroll of recall~
@@ -2075,7 +2075,7 @@ vellum~
 scroll G AO
 12 'word of recall' '' '' ''
 17 40 3000 P
-G none
+g none~
 #9579
 wand call lightning~
 a grey-silver wand~
@@ -2088,7 +2088,7 @@ E
 wand~
 You see a small engraved storm cloud at the base of this wand.
 ~
-G none
+g none~
 #9580
 wand detect invis grey silver~
 a wand of glinting yellow~
@@ -2101,7 +2101,7 @@ E
 wand~
 You see a shape slowly fading into exsistance at the base of this wand.
 ~
-G none
+g none~
 #9581
 wand armor oak~
 a wand of oak~
@@ -2110,7 +2110,7 @@ oak~
 wand G AO
 5 10 10 'armor' 0
 3 10 410 P
-G none
+g none~
 #9582
 wand pink~
 a pink wand~
@@ -2119,7 +2119,7 @@ wood~
 wand G AO
 3 3 3 'faerie fire' 0
 2 10 250 P
-G none
+g none~
 #9583
 sewing shears~
 a pair of sewing shears~
@@ -2128,7 +2128,7 @@ steel~
 weapon 0 AN
 dagger 2 4 'chop' 0
 5 20 360 P
-G none
+g none~
 #9584
 meat cleaver~
 a meat cleaver~
@@ -2137,7 +2137,7 @@ iron~
 weapon KL AN
 dagger 1 5 'cleave' 0
 0 50 190 P
-G none
+g none~
 #9585
 fountain pen~
 a fountain pen~
@@ -2150,7 +2150,7 @@ E
 fountain pen~
 Well, then pen IS mightier than the sword...
 ~
-G none
+g none~
 #9586
 sledge hammer~
 a sledge hammer~
@@ -2159,7 +2159,7 @@ iron~
 weapon 0 AN
 mace 2 7 'smash' F
 10 240 660 P
-G none
+g none~
 #9587
 horse shoe~
 a horse shoe~
@@ -2170,7 +2170,7 @@ armor BG ACO
 5 20 300 P
 A
 18 1
-G none
+g none~
 #9588
 saddle~
 a saddle~
@@ -2179,7 +2179,7 @@ wood~
 furniture 0 A
 0 0 0 0 0
 0 40 600 P
-G none
+g none~
 #9589
 crop riding~
 a riding crop~
@@ -2188,7 +2188,7 @@ leather~
 weapon 0 AN
 whip 1 4 'whip' 0
 0 10 105 P
-G none
+g none~
 #9590
 chessboard~
 a chessboard~
@@ -2197,7 +2197,7 @@ wood~
 weapon 0 AN
 exotic 1 5 'thwack' 0
 0 100 380 P
-G none
+g none~
 #9591
 sesame seed~
 a sesame seed~
@@ -2206,7 +2206,7 @@ food~
 key 0 AO
 0 0 0 0 0
 0 30 1 P
-G none
+g none~
 #9592
 something~
 something~
@@ -2215,7 +2215,7 @@ unknown~
 weapon 0 AN
 exotic 3 5 'drain' 0
 7 0 920 P
-G none
+g none~
 #9593
 key~
 the jail key~
@@ -2224,7 +2224,7 @@ brass~
 key 0 AO
 0 0 0 0 0
 0 30 0 P
-G none
+g none~
 #9594
 key~
 the dungeon key~
@@ -2233,7 +2233,7 @@ bronze~
 key 0 AO
 0 0 0 0 0
 0 30 0 P
-G none
+g none~
 #9595
 shirt tie dye~
 a tie-dye shirt~
@@ -2242,7 +2242,7 @@ cloth~
 armor G AD
 7 7 7 0 0
 20 10 2900 P
-G none
+g none~
 #9596
 bugle boy jeans~
 a pair of Bugle Boy jeans~
@@ -2251,7 +2251,7 @@ cloth~
 armor G AF
 5 5 5 0 0
 10 10 730 P
-G none
+g none~
 #9597
 sneakers reeboks reebok pumps~
 a pair of Reebok Pumps~
@@ -2264,7 +2264,7 @@ A
 14 10
 A
 2 1
-G none
+g none~
 #9598
 daemon claw~
 the Daemon Claw~
@@ -2275,7 +2275,7 @@ exotic 3 7 'claw' 0
 14 200 1520 P
 A
 18 -2
-G none
+g none~
 #9599
 wolverine claw~
 the wolverine claw~
@@ -2284,7 +2284,7 @@ bone~
 weapon B AN
 exotic 3 7 'claw' 0
 15 200 1680 P
-G none
+g none~
 #9600
 halberd~
 the halberd~
@@ -2297,7 +2297,7 @@ A
 19 3
 A
 18 2
-G none
+g none~
 #9601
 fountain water~
 a fountain~
@@ -2306,7 +2306,7 @@ stone~
 fountain G 0
 100000 100000 'water' 0 0
 0 0 0 P
-G none
+g none~
 #9602
 pearl~
 a beautiful white pearl~
@@ -2320,7 +2320,7 @@ pearl~
 It's a nicely-formed pearl, should be worth a fair amount at the jewellers.
 You look around to see if there are any others nearby.
 ~
-G none
+g none~
 #0
 
 #ROOMS

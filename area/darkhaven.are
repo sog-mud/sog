@@ -33,7 +33,7 @@ platinum~
 furniture 0 0
 A EIJKN E EIJKN EIJKN
 666 10000000 666666666 P
-G male
+g male~
 #12201
 sword truth~
 @eng {WSword of Truth.@rus {WМеч Истины~
@@ -48,7 +48,7 @@ F V 26 1 M
 S 'sword' 20 B
 S 'mastering sword' 20 A
 F A 8 1 K
-G none
+g none~
 #12202
 staff magi~
 {CStaff {Yof {Bthe {RMagi{x~
@@ -68,7 +68,7 @@ A
 26 1
 F A 12 20 N
 F A 8 2 E
-G none
+g none~
 #12203
 magic amulet death laerkai~
 laerkai death~
@@ -100,7 +100,7 @@ F A 0 0 X
 F A 0 0 M
 F A 0 0 A
 F A 0 0 K
-G none
+g none~
 #12204
 warhammer~
 {RGreat {WWarHammer {cof {CC{Yh{Wa{Mo{Gs{x~
@@ -140,7 +140,7 @@ F A 26 10 V
 F A 26 10 H
 A
 8 666
-G none
+g none~
 #0
 
 #ROOMS

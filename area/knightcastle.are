@@ -177,7 +177,7 @@ gold~
 key RYf AOP
 0 0 0 0 0
 0 4 0 P
-G male
+g male~
 #95201
 altar алтарь~
 @eng the altar@rus ~~алтарь~~~
@@ -186,7 +186,7 @@ gold~
 container RY P
 10 ABCD 95200 15 100
 60 1 20 P
-G male
+g male~
 #95202
 medal honor медаль large~
 @eng Large medal of honor@rus ~~Большая~~ ~~медаль~~ Чести~
@@ -195,7 +195,7 @@ gold~
 treasure ORe AO
 0 0 0 0 0
 0 1 100000 P
-G female
+g female~
 #95203
 table стол round~
 @eng Round Table@rus ~~Круглый~~ ~~Стол~~~
@@ -204,7 +204,7 @@ wood~
 furniture 0 0
 ABCD FHJKPQ DGN CDFI CDFI
 0 15000 0 P
-G male
+g male~
 #95204
 statue статуя~
 @eng statue of King Arthur@rus ~~Статуя~~ Короля Артура~
@@ -213,7 +213,7 @@ unknown~
 furniture AB 0
 BD EIJKN A 0 0
 50 50000 0 P
-G female
+g female~
 #95205
 fountain knight~
 @eng fountain@rus фонтан~
@@ -230,7 +230,7 @@ of beastly looking invader a spring of sweet mead belches forth.
 звероподобного Захватчика бьет ключом сладкий мед. Утоли свой голод и
 жажду, добрый путник.
 ~
-G male
+g male~
 #95209
 holy lance~
 {WHoly blessed Lance{x~
@@ -245,7 +245,7 @@ A
 19 20
 A
 18 20
-G none
+g none~
 #95210
 aura majesty ореол~
 @eng Aura of {BMajesty{x@rus ~~Ореол~~ {w{GВеличия{g~
@@ -254,7 +254,7 @@ unknown~
 jewelry AIMTYZ AS
 0 0 0 0 0
 0 0 0 P
-G male
+g male~
 #0
 
 #ROOMS

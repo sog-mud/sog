@@ -617,7 +617,7 @@ A
 23 -10
 A
 24 -10
-G male
+g male~
 #8101
 hand vecna рука~
 @eng the Hand of Vecna@rus ~~рука~~ Векны~
@@ -638,7 +638,7 @@ A
 19 3
 A
 24 -3
-G female
+g female~
 #8102
 eye vecna глаз~
 @eng the Eye of Vecna@rus ~~глаз~~ Векны~
@@ -653,7 +653,7 @@ A
 4 3
 A
 12 50
-G male
+g male~
 #8103
 sword kas меч~
 @eng the Sword of Kas@rus ~~меч~~ Каса~
@@ -668,7 +668,7 @@ A
 18 5
 A
 19 5
-G none
+g none~
 #8104
 circlet диадема~
 @eng a circlet@rus диадема~
@@ -681,7 +681,7 @@ A
 3 -3
 A
 4 -3
-G female
+g female~
 #8105
 treasure hoard сокровище~
 @eng a treasure hoard@rus сокровище~
@@ -690,7 +690,7 @@ gem~
 container 0 AO
 400 0 0 50 50
 1 150 0 P
-G none
+g none~
 #8106
 chest~
 @eng a chest@rus сундук~
@@ -699,7 +699,7 @@ steel~
 container 0 A
 150 0 0 20 100
 48 100 0 P
-G male
+g male~
 #8107
 robes flesh накидка~
 @eng robes of Flesh@rus ~~накидка~~, сделанная из кожи~
@@ -712,7 +712,7 @@ A
 12 150
 A
 13 25
-G female
+g female~
 #8108
 rod bone жезл~
 @eng a Rod of Bone@rus ~~костяной~~ ~~жезл~~~
@@ -729,7 +729,7 @@ A
 18 4
 A
 19 4
-G male
+g male~
 #8109
 pile bones куча~
 @eng a pile of bones@rus ~~куча~~ костей~
@@ -738,7 +738,7 @@ silver~
 trash 0 A
 0 0 0 0 0
 1 50 0 P
-G female
+g female~
 #8110
 gem power кристал~
 @eng a Power Gem@rus ~~кристал~~ ~
@@ -749,7 +749,7 @@ staff AG AO
 45 10 40000 P
 A
 12 50
-G male
+g male~
 #8111
 cloak black плащ~
 @eng a black cloak@rus ~~черный~~ ~~плащ~~~
@@ -758,7 +758,7 @@ unknown~
 armor 0 AK
 17 17 17 11 0
 51 10 0 P
-G none
+g none~
 #8112
 sword dark меч~
 @eng (Diabolical) a Dark Sword@rus ~~проклятый~~ ~~темный~~ ~~меч~~~
@@ -777,7 +777,7 @@ A
 18 2
 A
 19 4
-G male
+g male~
 #8113
 armor dark~
 @eng a Suit of Dark Armor@rus ~~темные~~ ~~доспехи~~~
@@ -792,7 +792,7 @@ A
 18 4
 A
 19 7
-G plural
+g plural~
 #8114
 helm dark шлем~
 @eng a Dark Helm@rus ~~темный~~ ~~шлем~~~
@@ -805,7 +805,7 @@ A
 3 -3
 A
 4 -3
-G male
+g male~
 #8115
 jar кувшин~
 @eng a jar@rus кувшин~
@@ -814,7 +814,7 @@ glass~
 container 0 AO
 25 0 0 10 100
 48 10 0 P
-G male
+g male~
 #8116
 poison яд~
 @eng some poison@rus яд~
@@ -823,7 +823,7 @@ food~
 food 0 A
 A 0 0 A 0
 1 0 0 P
-G male
+g male~
 #8117
 symbol unholy символ~
 @eng an Unholy Symbol@rus ~~оскверненный~~ ~~символ~~~
@@ -834,7 +834,7 @@ light EJ A
 48 5 500 P
 A
 2 3
-G male
+g male~
 #8118
 symbol holy символ~
 @eng a holy Symbol@rus ~~священный~~ ~~символ~~~
@@ -845,7 +845,7 @@ light AK A
 48 5 500 P
 A
 5 3
-G male
+g male~
 #8119
 corpse останки~
 @eng a corpse@rus ~~останки~~ путешественника~
@@ -854,7 +854,7 @@ meat~
 npc_corpse 0 0
 0 0 0 0 0
 0 75 0 P
-G plural
+g plural~
 #8120
 key black ключ~
 @eng a key@rus ключ~
@@ -863,7 +863,7 @@ iron~
 key B AO
 B 0 0 0 0
 0 5 0 P
-G female
+g female~
 #8121
 jar blood кувшин~
 @eng a jar of human blood@rus ~~кувшин~~, наполненный кровью~
@@ -872,7 +872,7 @@ glass~
 potion BEJ AO
 60 'poison' 'weaken' 'curse' ''
 45 10 300 P
-G male
+g male~
 #0
 
 #ROOMS

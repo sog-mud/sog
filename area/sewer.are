@@ -388,7 +388,7 @@ A
 18 1
 A
 17 -1
-G none
+g none~
 #7200
 rod devil~
 the devil rod~
@@ -406,7 +406,7 @@ devil rod~
 This is indeed a mysterious rod.  It is dark black at the base but has four
 very sharp purple tentacles at the end.
 ~
-G none
+g none~
 #7201
 mace large~
 the large mace~
@@ -422,7 +422,7 @@ large mace~
 The mace is pretty large with a weight of 10 lbs.  The head is actually four
 purple tentacles tied together.
 ~
-G none
+g none~
 #7202
 mace small~
 the small mace~
@@ -438,7 +438,7 @@ small mace~
 This weapon doesn't look like it does a lot of damage, but then you never know.
 It consists of a black handle and a purple head.
 ~
-G none
+g none~
 #7203
 cloak purple~
 a purple cloak~
@@ -449,7 +449,7 @@ armor G AC
 15 200 1250 P
 A
 20 -1
-G none
+g none~
 #7204
 potion neon blue~
 an neon blue potion~
@@ -458,7 +458,7 @@ glass~
 potion G A
 14 'cure critical' 'invisibility' 'word of recall' ''
 17 40 1490 P
-G none
+g none~
 #7205
 key black~
 a black key~
@@ -467,7 +467,7 @@ onyx~
 key 0 A
 0 0 0 0 0
 0 20 0 P
-G none
+g none~
 #7206
 skull white~
 a strange white skull~
@@ -487,7 +487,7 @@ white skull~
 The skull has two small horns in the forehead. You notice some writing on
 the inside.
 ~
-G none
+g none~
 #7208
 stick small light~
 a small stick~
@@ -505,7 +505,7 @@ small stick~
 The small stick does not look interesting at all.  But just as you are going
 to throw it away you notice some small letters.
 ~
-G none
+g none~
 #7209
 boots muddy~
 a pair of muddy boots~
@@ -519,7 +519,7 @@ A
 E
 The boots are muddy and they look well worn, but also very comfortable.~
 ~
-G none
+g none~
 #7210
 treasure coins~
 a huge treasure~
@@ -532,7 +532,7 @@ E
 treasure~
 This looks like a whole lot of coins.
 ~
-G none
+g none~
 #7211
 sword short~
 a short sword~
@@ -543,7 +543,7 @@ sword 2 4 'pierce' 0
 5 40 540 P
 A
 18 1
-G none
+g none~
 #7216
 claw red redclaw~
 a red dragon claw~
@@ -560,7 +560,7 @@ E
 claw red redclaw~
 This big claw looks like a part of a dragon.
 ~
-G none
+g none~
 #7217
 plate breast silvery~
 a silvery breast plate~
@@ -576,7 +576,7 @@ plate breast silvery~
 On the breast plate you notice a relief of large rose. The metal seems to be 
 some kind of silver or platinum.
 ~
-G none
+g none~
 #7218
 plates leg silvery~
 some silvery leg plates~
@@ -591,7 +591,7 @@ E
 leg plates silvery~
 They seem to be made from silver or platinum.  You see the outline of a rose.
 ~
-G none
+g none~
 #7219
 gloves silvery~
 a pair of silvery gloves~
@@ -608,7 +608,7 @@ E
 gloves silvery~
 The gloves are made of silver threads.
 ~
-G none
+g none~
 #7220
 helmet silvery~
 a silvery helmet~
@@ -624,7 +624,7 @@ helmet silvery~
 The helmet is made from platinum or silver and has a white fur brush attached
 on the top.
 ~
-G none
+g none~
 #7221
 shield~
 the shield of the rose~
@@ -640,7 +640,7 @@ shield~
 On the shield you see a clear and perfect painting of a dark red rose on a white
 background. You also notice the inscription :'Pax Est Sanctuum'.
 ~
-G none
+g none~
 #7222
 boots silvery~
 a pair of silvery boots~
@@ -655,7 +655,7 @@ E
 boots silvery~
 The boots are made from a silvery metal.
 ~
-G none
+g none~
 #7223
 plates arm silvery~
 some silvery arm plates~
@@ -670,7 +670,7 @@ E
 plates arm silvery~
 They seem to be made from silver or platinum. You see the outline of a rose.
 ~
-G none
+g none~
 #7224
 cloak white~
 a white cloak~
@@ -686,7 +686,7 @@ cloak white~
 This is a very fine made cloak from an unknown material, in a bright white
 color.
 ~
-G none
+g none~
 #7298
 treasure coins~
 a huge treasure~
@@ -699,7 +699,7 @@ E
 treasure~
 Looks like a LOT of coins.
 ~
-G none
+g none~
 #7299
 sword short~
 a short sword~
@@ -712,7 +712,7 @@ E
 short sword~
 This is a very nice little weapon.
 ~
-G none
+g none~
 #7300
 backpack pack back~
 a backpack~
@@ -721,7 +721,7 @@ cloth~
 container 0 AK
 60 AC 0 6 100
 0 20 100 P
-G none
+g none~
 #7301
 beltpouch pouch~
 a large beltpouch~
@@ -730,7 +730,7 @@ cloth~
 container 0 AL
 5 AC 0 1 100
 0 10 20 P
-G none
+g none~
 #7303
 orb dragonorb~
 the Red DragonOrb~
@@ -743,7 +743,7 @@ A
 4 2
 A
 3 2
-G none
+g none~
 #7304
 red torso~
 a red dragon torso~
@@ -756,7 +756,7 @@ A
 19 2
 A
 2 -1
-G none
+g none~
 #7305
 leggings red~
 red dragonscale leggings~
@@ -769,7 +769,7 @@ A
 19 2
 A
 2 -1
-G none
+g none~
 #7306
 claws dragonclaws red~
 a pair of red dragon claws~
@@ -780,7 +780,7 @@ AD 0 0 0 0
 20 40 1150 P
 A
 19 2
-G none
+g none~
 #7307
 skull dragonhelm red~
 a red dragonhelm~
@@ -795,7 +795,7 @@ A
 19 2
 A
 2 -1
-G none
+g none~
 #7308
 shield red~
 the red dragon shield~
@@ -806,7 +806,7 @@ armor GJ AJ
 35 220 6900 P
 A
 19 2
-G none
+g none~
 #7309
 greaves red~
 a pair of a red dragon's rear claws~
@@ -819,7 +819,7 @@ A
 2 -1
 A
 19 2
-G none
+g none~
 #7310
 arm guards red~
 red dragon arm guards~
@@ -832,7 +832,7 @@ A
 2 -1
 A
 19 2
-G none
+g none~
 #0
 
 #ROOMS

@@ -56,6 +56,200 @@ ABVei DHN 0 0
 EFHJ ABU 0 E
 stand stand male 10000
 AV ABCDF small unknown
+#22454
+bloody beast~
+bloody beast~
+A red-skinned beast growls on you.
+~
+You see a tiny red-skinned beast look like thing from the Hell.It have 
+nearly six 'feets' ,screaming with strange voice but not prepare attack
+you.Probably in his language that scream is 'Greatings'.
+~
+pig~
+AW 0 500 0
+11 0 2d8+105 1d1+99 1d3+3 'bite'
+1 10 1 0
+0 0 H INS
+stand stand none 50
+HM 0 tiny unknown
+#22455
+bloody beast~
+bloody beast~
+A red-skinned beast growls on you.
+~
+You see a tiny red-skinned beast look like thing from the Hell.It have 
+nearly six 'feets' ,screaming with strange voice but not prepare attack
+you.Probably in his language that scream is 'Greatings'.
+~
+pig~
+AW 0 500 0
+13 0 2d7+103 1d1+99 1d5+3 'bite'
+1 10 1 0
+F 0 H INS
+stand stand none 50
+HM 0 tiny unknown
+#22456
+guard small~
+small guard~
+A small forest guard stand here , watching carefully.
+~
+Before you stand small human wearing green armor.He protect trees and
+animals from forest destroers.He nods you and say:"Welcome to the Forest
+of Nowhere brave adventurer.You find here peace and safety."
+~
+human~
+AGW DJ 500 0
+18 0 2d10+400 1d1+99 5d5+5 'slash'
+-2 -2 -2 2
+0 0 0 0
+stand stand male 100
+0 ABCDF small unknown
+#22457
+guard small~
+small guard~
+A small forest guard stand here , watching carefully.
+~
+Before you stand small human wearing green armor.He protect trees and
+animals from forest destroers.He nods you and say:"Welcome to the Forest
+of Nowhere brave adventurer.You find here peace and safety."
+~
+human~
+AGW DJ 500 0
+19 6 2d10+400 1d1+99 5d5+5 'pierce'
+-2 -2 -2 2
+K 0 0 0
+stand stand male 100
+0 ABCDF small unknown
+#22458
+icky thing white~
+white Icky Thing~
+A small icky thing moons on you.
+~
+It is a sort of pile of slime one legs  with rudimentary intelligence with evil cunning.
+That strange creature hugers for you food.It moving chaotically and moons
+on intruders.Its smell is very strong and voice of its moons are very unlike.
+~
+unique~
+AGW DJ -500 0
+18 6 2d10+400 1d1+99 5d5+5 'scratch'
+-2 -2 -2 2
+0 0 I NS
+stand stand none 0
+AHMV A small unknown
+#22459
+icky thing blubbering~
+blubbering Icky Thing~
+A small icky thing moons on you.
+~
+It is a sort of pile of slime one legs  with rudimentary intelligence with evil cunning.
+That strange creature hugers for you food.It moving chaotically and moons
+on intruders.Its smell is very strong and voice of its moons are very unlike.
+~
+unique~
+AGW DJ -500 0
+19 6 2d11+410 1d1+99 5d5+5 'slime'
+-2 -2 -2 2
+F 0 I NS
+stand stand none 0
+AHMV A small unknown
+#22460
+guard medium~
+medium guard~
+A medium forest guard stand here,guarding.
+~
+Before you stand medium-sized human wearing green armor.He guard forest and
+hus native creatures and punish enemies of this forest.
+He nods you and say :"Welcome to the Forest of Nowhere brave adventurer".
+~
+human~
+AGW DJ 500 0
+27 8 2d15+750 1d1+99 5d5+10 'crush'
+-6 -5 -6 -5
+FK 0 IN M
+stand stand male 150
+0 ABCDF medium unknown
+#22461
+guard medium~
+medium guard~
+A medium forest guard stand here,guarding.
+~
+Before you stand medium-sized human wearing green armor.He guard forest and
+hus native creatures and punish enemies of this forest.
+He nods you and say :"Welcome to the Forest of Nowhere brave adventurer".
+~
+human~
+ACGW DJ 500 0
+29 10 2d15+900 1d1+99 5d5+10 'cleave'
+-6 -5 -6 -5
+FJK 0 IN M
+stand stand male 150
+0 ABCDF medium unknown
+#22462
+clear naga~
+Clear naga~
+A strange clear naga flyig here , dances in the air.
+~
+A wraithly snakelike form with the torso of beautiful woman,the most 
+powerful of it's kind.On its back you can seel a wings and his eyes have hyp
+nothical power.It dance in the air and sing strange songs try to hypnotize you.
+~
+unique~
+AGW DJTU -500 0
+26 6 2d18+700 1d1+99 5d5+7 'drain'
+-6 -2 -6 -7
+FK 0 IM S
+stand stand female 0
+AHMV AC small unknown
+#22463
+naga spirit~
+spirit naga~
+A strange clear naga flyig here , dances in the air.
+~
+A wraithly snakelike form with the torso of beautiful woman,the most 
+powerful of it's kind.On its back you can seel a wings and his eyes have hyp
+nothical power.It dance in the air and sing strange songs try hypnotize you.
+ 
+Around this dance shadows and spirits of his slayed enemy.
+~
+unique~
+AGW DJTU -500 0
+29 6 2d10+900 1d1+99 5d6+11 'wrath'
+-10 -10 -10 -10
+FJKO 0 IM S
+stand stand female 0
+AHMV AC medium unknown
+#22464
+naga spirit queen~
+Queen of Nagas~
+A mighty naga flying here ,prepare for battle.
+~
+A wraithly snakelike form with the torso of beautiful woman,the most 
+powerful of it's kind.On its back you can seel a wings and his eyes have hyp
+nothical power.It dance in the air and sing strange songs try hypnotize you.
+Around this dance shadows and spirits of his slayed enemy.
+On its head you can see a crown maded form strange metal.And it hisses
+strange and ancient chants,prepare for battle with intruders.
+~
+unique~
+AGRTW BDFJNPTUVcu -500 0
+32 6 2d10+1500 1d1+99 5d5+20 'wrath'
+-10 -10 -10 -10
+ACDEFJK AB CIKMP 0
+stand stand female 1000
+AMX AC large unknown
+#22470
+~
+~
+~
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 ''
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
 #0
 
 #OBJECTS
@@ -67,7 +261,7 @@ plant~
 pill 0 A
 20 'water breathing' '' '' ''
 10 1 500 P
-G none
+g none~
 #22452
 staff green~
 green staff~
@@ -81,16 +275,16 @@ staff~
 You see a large green staff incrusted by fresh leaves.You can read runes 
 on staff :"Satisfy Hunger".
 ~
-G none
+g none~
 #22453
 spring water~
 a magical spring~
 A spring is here,filled by cold water.~
 quartz~
 fountain GOR 0
-0 0 'water' 135138384 0
+0 0 'water' 135141152 0
 0 0 0 P
-G female
+g female~
 #22454
 sing plaque~
 a small sign~
@@ -101,9 +295,13 @@ trash OR 0
 0 0 0 P
 E
 credits~
-This area designed for 5 and upper players.Most mobiles are 
-friendly.
-        Lucer.
+This aread created and buielded by Lucer.
+Most part of mobiles are friendly.
+Area welcomed players from 5 and upper levels.
+You can find some exp and eq for you.
+So you can find food,drink and some miscellanious stuff for U.
+                   Happy Mudding!
+                            Lucer.
 ~
 E
 sign~
@@ -113,7 +311,7 @@ And in our forest you can't find aggressive creatures.
 But beware a deep tunnel under forest.
                      Signed Tellias,Ranger Guard of FoN.
 ~
-G none
+g none~
 #22455
 staff wooden training~
 wooden training staff~
@@ -132,7 +330,7 @@ E
 staff~
 You see a small wooden staff maded form fresh wood.
 ~
-G none
+g none~
 #22456
 mace wood training~
 wooden training mace~
@@ -147,7 +345,7 @@ A
 19 1
 A
 18 1
-G none
+g none~
 #22457
 flail wooden training~
 wooden training flail~
@@ -158,7 +356,7 @@ flail 9 2 'thwack' 0
 5 2 0 P
 A
 13 15
-G none
+g none~
 #22458
 leather training whip~
 leather training whip~
@@ -171,7 +369,7 @@ A
 12 20
 A
 19 3
-G none
+g none~
 #22459
 wooden training polearm~
 wooden training polearm~
@@ -186,7 +384,7 @@ A
 19 3
 A
 18 3
-G none
+g none~
 #22460
 wooden training sword~
 wooden training sword~
@@ -199,7 +397,7 @@ A
 17 -5
 A
 19 3
-G none
+g none~
 #22461
 wooden trainig dagger~
 wooden training dagger~
@@ -212,7 +410,7 @@ A
 18 1
 A
 19 1
-G none
+g none~
 #22462
 mushroom food cooked~
 cooked mushroom~
@@ -221,7 +419,7 @@ flesh~
 food 0 AO
 BCDE ADE 0 0 0
 1 1 2 P
-G none
+g none~
 #22463
 necklace strenght power~
 Necklace of Power~
@@ -232,10 +430,10 @@ armor A AC
 5 1 0 P
 A
 1 1
-G none
+g none~
 #22464
-necklace intelligence smart~
-Necklace of Smart~
+necklace intelligence magi~
+Necklace of Magi~
 A small copper necklace lies in dust.~
 copper~
 armor A AC
@@ -243,7 +441,7 @@ armor A AC
 5 1 0 P
 A
 3 1
-G none
+g none~
 #22465
 necklace wisdom~
 Necklace of Wisdom~
@@ -254,7 +452,7 @@ armor A AC
 5 1 0 P
 A
 4 2
-G none
+g none~
 #22466
 necklace speed~
 Necklace of Speed~
@@ -265,7 +463,7 @@ armor A AC
 5 1 0 P
 A
 2 1
-G none
+g none~
 #22467
 necklace life~
 Necklace of Life~
@@ -276,7 +474,7 @@ armor A AC
 5 1 0 P
 A
 5 1
-G none
+g none~
 #22468
 necklace beauty~
 Necklace of Beauty~
@@ -287,7 +485,124 @@ armor A AC
 5 1 0 P
 A
 6 1
-G none
+g none~
+#22469
+bloody orb~
+bloody orb~
+A orb maded from blood lies here ,waiting his master.~
+flesh~
+armor CYb AO
+4 2 3 7 0
+5 1 0 P
+A
+5 1
+A
+1 1
+A
+13 12
+A
+17 -5
+A
+19 2
+A
+18 2
+g none~
+#22470
+slime mold~
+slime mold~
+A pile of slime lies here,waiting to be eaten.~
+flesh~
+food 0 A
+BD AC 0 0 0
+1 2 0 P
+g none~
+#22471
+ring wildreness~
+ring of wildreness~
+A small ring maded from skin lies here.~
+bearskin~
+armor 0 AB
+-10 0 -3 0 0
+16 2 100 P
+A
+13 15
+A
+19 1
+A
+18 1
+A
+20 -5
+g none~
+#22472
+claw serpent~
+claw of serpents~
+A claw of ancient serpent lies in the dust.~
+bone~
+armor ACI AI
+12 12 13 16 0
+25 5 1000 P
+A
+19 3
+A
+18 3
+A
+13 20
+A
+20 -12
+E
+runes~
+Runes says :"Its make for blood and honor.But only that can wear it which spirit is strong..."
+~
+E
+claw~
+You see on ancient serpents claws.It claws is encrusted by some strange metals
+and you sense aura of magic surronds him.Its linke old things but you see 
+that it can't be broken.In one place you can see runes.
+~
+g none~
+#22473
+leaf blade~
+leaf blade~
+A large leaf of unknown tree lies in the grass.~
+wood~
+weapon GK AN
+sword 9 4 'wrath' DH
+28 4 0 P
+A
+5 2
+A
+20 -5
+A
+19 4
+A
+18 3
+E
+leaf~
+You see a large lead of unknown tree.IIt's material is very strong and it has sharp edge.
+In the edge you can see a strange poisonus-smell liqud and
+think that you don't like to touch it.
+~
+g none~
+#22474
+leggings tail skin~
+Naga's tail~
+Tail's skin of naga lies on the floor.~
+skin~
+armor 0 AF
+8 8 15 3 0
+28 1 0 P
+A
+19 3
+A
+2 -1
+A
+20 -10
+E
+skin~
+The skin on tail is very strong and you sense magical fluid ,
+from it.This skin have grey color and small scales.
+~
+g none~
 #0
 
 #ROOMS
@@ -329,6 +644,10 @@ D3
 ~
 ~
 Z 0 22456
+D5
+~
+~
+Z 0 22462
 S
 #22453
 Camp-In-The-Forest~
@@ -342,6 +661,7 @@ D0
 ~
 ~
 Z 0 22452
+M 125 H 125
 S
 #22454
 In the Forest of Nowhere~
@@ -360,6 +680,10 @@ D3
 ~
 ~
 Z 0 22455
+D5
+~
+~
+Z 0 22461
 S
 #22455
 In the Forest of Nowhere~
@@ -370,6 +694,10 @@ and many small creatures living under you boots.In far south west you can
 see a high mountain.And nearly you can see a hole leading down.
 ~
 0 0 forest
+D0
+~
+~
+Z 0 22502
 D1
 ~
 ~
@@ -382,6 +710,10 @@ D3
 ~
 ~
 Z 0 22457
+D5
+~
+~
+Z 0 22463
 S
 #22456
 In the Forest of Nowhere~
@@ -389,7 +721,7 @@ You standing in the great Forest of Nowhere.You surrounded a lots of trees.
 If you looks up you can see a sun, surrounded by multi-colored 
 rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
 and many small creatures living under you boots.In far south west you can
-see a high mountain.And nearly you can see a hole leading down.
+see a high mountain. And nearly you can see a hole leading down.
 ~
 0 0 forest
 D0
@@ -404,6 +736,10 @@ D3
 ~
 ~
 Z 0 22458
+D5
+~
+~
+Z 0 22464
 S
 #22457
 In the Forest of Nowhere~
@@ -426,6 +762,10 @@ D3
 ~
 ~
 Z 0 22459
+D5
+~
+~
+Z 0 22465
 S
 #22458
 In the Forest of Nowhere~
@@ -448,6 +788,10 @@ D3
 ~
 ~
 Z 0 22460
+D5
+~
+~
+Z 0 22466
 S
 #22459
 In the Forest of Nowhere~
@@ -458,6 +802,10 @@ and many small creatures living under you boots.In far south west you can
 see a high mountain.And nearly you can see a hole leading down.
 ~
 0 0 forest
+D0
+~
+~
+Z 0 22506
 D1
 ~
 ~
@@ -466,6 +814,14 @@ D2
 ~
 ~
 Z 0 22460
+D3
+~
+~
+Z 0 22469
+D5
+~
+~
+Z 0 22467
 S
 #22460
 In the Forest of Nowhere~
@@ -484,8 +840,1537 @@ D1
 ~
 ~
 Z 0 22458
+D3
+~
+~
+Z 0 22470
+D5
+~
+~
+Z 0 22468
+S
+#22461
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D2
+~
+~
+Z 0 22462
+D3
+~
+~
+Z 0 22463
+D4
+~
+~
+Z 0 22454
+S
+#22462
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D0
+~
+~
+Z 0 22461
+D3
+~
+~
+Z 0 22464
+D4
+~
+~
+Z 0 22452
+S
+#22463
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D1
+~
+~
+Z 0 22461
+D2
+~
+~
+Z 0 22464
+D3
+~
+~
+Z 0 22465
+D4
+~
+~
+Z 0 22455
+S
+#22464
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D0
+~
+~
+Z 0 22463
+D1
+~
+~
+Z 0 22462
+D3
+~
+~
+Z 0 22466
+D4
+~
+~
+Z 0 22456
+S
+#22465
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D1
+~
+~
+Z 0 22463
+D2
+~
+~
+Z 0 22466
+D3
+~
+~
+Z 0 22467
+D4
+~
+~
+Z 0 22457
+S
+#22466
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D0
+~
+~
+Z 0 22465
+D1
+~
+~
+Z 0 22464
+D3
+~
+~
+Z 0 22468
+D4
+~
+~
+Z 0 22458
+S
+#22467
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D1
+~
+~
+Z 0 22465
+D2
+~
+~
+Z 0 22468
+D3
+~
+~
+Z 0 22477
+D4
+~
+~
+Z 0 22459
+S
+#22468
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D0
+~
+~
+Z 0 22467
+D1
+~
+~
+Z 0 22466
+D3
+~
+~
+Z 0 22478
+D4
+~
+~
+Z 0 22460
+S
+#22469
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22459
+D2
+~
+~
+Z 0 22470
+D3
+~
+~
+Z 0 22471
+D5
+~
+~
+Z 0 22477
+S
+#22470
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22469
+D1
+~
+~
+Z 0 22460
+D3
+~
+~
+Z 0 22472
+D5
+~
+~
+Z 0 22478
+S
+#22471
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22517
+D1
+~
+~
+Z 0 22469
+D2
+~
+~
+Z 0 22472
+D3
+~
+~
+Z 0 22473
+D5
+~
+~
+Z 0 22479
+S
+#22472
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22471
+D1
+~
+~
+Z 0 22470
+D3
+~
+~
+Z 0 22474
+D5
+~
+~
+Z 0 22480
+S
+#22473
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22471
+D2
+~
+~
+Z 0 22474
+D3
+~
+~
+Z 0 22475
+D5
+~
+~
+Z 0 22481
+S
+#22474
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22473
+D1
+~
+~
+Z 0 22472
+D3
+~
+~
+Z 0 22476
+D5
+~
+~
+Z 0 22482
+S
+#22475
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22516
+D1
+~
+~
+Z 0 22473
+D2
+~
+~
+Z 0 22476
+D3
+~
+~
+Z 0 22495
+D5
+~
+~
+Z 0 22483
+S
+#22476
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22475
+D1
+~
+~
+Z 0 22474
+D3
+~
+~
+Z 0 22494
+D5
+~
+~
+Z 0 22484
+S
+#22477
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D1
+~
+~
+Z 0 22467
+D2
+~
+~
+Z 0 22478
+D3
+~
+~
+Z 0 22479
+D4
+~
+~
+Z 0 22469
+S
+#22478
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D0
+~
+~
+Z 0 22477
+D1
+~
+~
+Z 0 22468
+D3
+~
+~
+Z 0 22480
+D4
+~
+~
+Z 0 22470
+S
+#22479
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D1
+~
+~
+Z 0 22477
+D2
+~
+~
+Z 0 22480
+D3
+~
+~
+Z 0 22481
+D4
+~
+~
+Z 0 22471
+S
+#22480
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D0
+~
+~
+Z 0 22479
+D1
+~
+~
+Z 0 22478
+D3
+~
+~
+Z 0 22482
+D4
+~
+~
+Z 0 22472
+S
+#22481
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D1
+~
+~
+Z 0 22479
+D2
+~
+~
+Z 0 22482
+D3
+~
+~
+Z 0 22483
+D4
+~
+~
+Z 0 22473
+S
+#22482
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D0
+~
+~
+Z 0 22481
+D1
+~
+~
+Z 0 22480
+D3
+~
+~
+Z 0 22484
+D4
+~
+~
+Z 0 22474
+S
+#22483
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D1
+~
+~
+Z 0 22481
+D2
+~
+~
+Z 0 22484
+D3
+~
+~
+Z 0 22487
+D4
+~
+~
+Z 0 22475
+S
+#22484
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D0
+~
+~
+Z 0 22483
+D1
+~
+~
+Z 0 22482
+D3
+~
+~
+Z 0 22486
+D4
+~
+~
+Z 0 22476
+S
+#22485
+A room of Queen~
+You standing in small burnt room.But in the walls you can see strange and
+beautiful picktures,you don't see a danger but sense it.You look around
+and see in one dark corner strange figure surrounded by darkness.
+You think you enter in the unlike situation ...
+~
+0 ANX inside
+S
+#22486
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D0
+~
+~
+Z 0 22487
+D1
+~
+~
+Z 0 22484
+D3
+~
+~
+Z 0 22488
+D4
+~
+~
+Z 0 22494
+S
+#22487
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D1
+~
+~
+Z 0 22483
+D2
+~
+~
+Z 0 22486
+D3
+~
+~
+Z 0 22489
+D4
+~
+~
+Z 0 22495
+S
+#22488
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D0
+~
+~
+Z 0 22489
+D1
+~
+~
+Z 0 22486
+D3
+~
+~
+Z 0 22490
+D4
+~
+~
+Z 0 22496
+S
+#22489
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D1
+~
+~
+Z 0 22487
+D2
+~
+~
+Z 0 22488
+D3
+~
+~
+Z 0 22491
+D4
+~
+~
+Z 0 22497
+S
+#22490
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D0
+~
+~
+Z 0 22491
+D1
+~
+~
+Z 0 22488
+D3
+~
+~
+Z 0 22492
+D4
+~
+~
+Z 0 22498
+S
+#22491
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D1
+~
+~
+Z 0 22489
+D2
+~
+~
+Z 0 22490
+D3
+~
+~
+Z 0 22493
+D4
+~
+~
+Z 0 22499
+S
+#22492
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D0
+~
+~
+Z 0 22493
+D1
+~
+~
+Z 0 22490
+D4
+~
+~
+Z 0 22500
+S
+#22493
+In the dark tunnel under forest~
+You standing in the small tunnel under forest.You sense strange smell and
+see around you many strange creatures,living in the darkness.But you see
+a hole nearly up and from this hole you see sun and part of forest.
+Upper for you grows some strange things , probably it are roots of forest trees.
+In the floor of tunnel you see lot of sorts of mushrooms and molds.
+~
+0 0 inside
+D1
+~
+~
+Z 0 22491
+D2
+~
+~
+Z 0 22492
+D4
+~
+~
+Z 0 22501
+S
+#22494
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22495
+D1
+~
+~
+Z 0 22476
+D3
+~
+~
+Z 0 22496
+D5
+~
+~
+Z 0 22486
+S
+#22495
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22475
+D2
+~
+~
+Z 0 22494
+D3
+~
+~
+Z 0 22497
+D5
+~
+~
+Z 0 22487
+S
+#22496
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22497
+D1
+~
+~
+Z 0 22494
+D3
+~
+~
+Z 0 22498
+D5
+~
+~
+Z 0 22488
+S
+#22497
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22495
+D2
+~
+~
+Z 0 22496
+D3
+~
+~
+Z 0 22499
+D5
+~
+~
+Z 0 22489
+S
+#22498
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22499
+D1
+~
+~
+Z 0 22496
+D3
+~
+~
+Z 0 22500
+D5
+~
+~
+Z 0 22490
+S
+#22499
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22497
+D2
+~
+~
+Z 0 22498
+D3
+~
+~
+Z 0 22501
+D5
+~
+~
+Z 0 22491
+S
+#22500
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22501
+D1
+~
+~
+Z 0 22498
+D5
+~
+~
+Z 0 22492
+S
+#22501
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.And nearly you can see a hole leading down.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22527
+D1
+~
+~
+Z 0 22499
+D2
+~
+~
+Z 0 22500
+D5
+~
+~
+Z 0 22493
+S
+#22502
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22503
+D2
+~
+~
+Z 0 22455
+S
+#22503
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D2
+~
+~
+Z 0 22502
+D3
+~
+~
+Z 0 22504
+S
+#22504
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22503
+D3
+~
+~
+Z 0 22505
+S
+#22505
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22507
+D1
+~
+~
+Z 0 22504
+D2
+~
+~
+Z 0 22506
+D3
+~
+~
+Z 0 22519
+S
+#22506
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22505
+D2
+~
+~
+Z 0 22459
+S
+#22507
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22508
+D2
+~
+~
+Z 0 22505
+S
+#22508
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22509
+D2
+~
+~
+Z 0 22507
+D3
+~
+~
+Z 0 22510
+S
+#22509
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D3
+~
+~
+Z 0 22508
+S
+#22510
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22508
+D3
+~
+~
+Z 0 22511
+S
+#22511
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22510
+D3
+~
+~
+Z 0 22512
+S
+#22512
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22511
+D3
+~
+~
+Z 0 22513
+S
+#22513
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22512
+D2
+~
+~
+Z 0 22514
+S
+#22514
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22513
+D2
+~
+~
+Z 0 22515
+D3
+~
+~
+Z 0 22520
+S
+#22515
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22514
+D2
+~
+~
+Z 0 22516
+S
+#22516
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22515
+D2
+~
+~
+Z 0 22475
+S
+#22517
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22518
+D2
+~
+~
+Z 0 22471
+S
+#22518
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22519
+D2
+~
+~
+Z 0 22517
+S
+#22519
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22505
+D3
+~
+~
+Z 0 22518
+S
+#22520
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22514
+D3
+~
+~
+Z 0 22521
+S
+#22521
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22522
+D1
+~
+~
+Z 0 22520
+D3
+~
+~
+Z 0 22523
+S
+#22522
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D2
+~
+~
+Z 0 22521
+S
+#22523
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22521
+D2
+~
+~
+Z 0 22525
+D3
+~
+~
+Z 0 22524
+S
+#22524
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22523
+S
+#22525
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22523
+D2
+~
+~
+Z 0 22526
+S
+#22526
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D0
+~
+~
+Z 0 22525
+D3
+~
+~
+Z 0 22527
+S
+#22527
+In the Forest of Nowhere~
+You standing in the great Forest of Nowhere.You surrounded a lots of trees.
+If you looks up you can see a sun, surrounded by multi-colored 
+rainbow in the blue-blue sky.If you looks down you can see a fresh grass,
+and many small creatures living under you boots.In far south west you can
+see a high mountain.
+~
+0 0 forest
+D1
+~
+~
+Z 0 22526
+D2
+~
+~
+Z 0 22501
 S
 #0
+
+#SPECIALS
+M 22464 spec_breath_gas	* Queen of Nagas
+S
 
 #RESETS
 O 0 22454 0 22451	* a small sign (Entrance into Forest)
@@ -502,14 +2387,14 @@ M 0 22451 8 22454 1	* tiny guard (In the Forest of Nowhere)
 E 0 22455 0 16		*	wooden training staff: wielded
 M 0 22452 8 22454 1	* tiny guard (In the Forest of Nowhere)
 E 0 22466 0 3		*	Necklace of Speed: around the neck (1)
-M 0 22451 1 22455 1	* tiny guard (In the Forest of Nowhere)
+M 0 22451 8 22455 1	* tiny guard (In the Forest of Nowhere)
 E 0 22460 0 16		*	wooden training sword: wielded
 M 0 22452 8 22455 1	* tiny guard (In the Forest of Nowhere)
 E 0 22463 0 3		*	Necklace of Power: around the neck (1)
 M 0 22451 8 22456 1	* tiny guard (In the Forest of Nowhere)
 E 0 22461 0 16		*	wooden training dagger: wielded
 M 0 22452 8 22456 1	* tiny guard (In the Forest of Nowhere)
-E 0 22464 0 3		*	Necklace of Smart: around the neck (1)
+E 0 22464 0 3		*	Necklace of Magi: around the neck (1)
 M 0 22451 8 22457 1	* tiny guard (In the Forest of Nowhere)
 E 0 22457 0 16		*	wooden training flail: wielded
 M 0 22452 8 22457 1	* tiny guard (In the Forest of Nowhere)
@@ -519,14 +2404,122 @@ E 0 22458 0 16		*	leather training whip: wielded
 M 0 22452 8 22458 1	* tiny guard (In the Forest of Nowhere)
 E 0 22468 0 3		*	Necklace of Beauty: around the neck (1)
 M 0 22451 8 22459 1	* tiny guard (In the Forest of Nowhere)
-E 0 22459 0 16		*	wooden training polearm: wielded
+E 0 22471 0 1		*	ring of wildreness: on the left finger
 M 0 22452 8 22459 1	* tiny guard (In the Forest of Nowhere)
 M 0 22451 8 22460 1	* tiny guard (In the Forest of Nowhere)
 M 0 22452 8 22460 1	* tiny guard (In the Forest of Nowhere)
+M 0 22454 8 22461 1	* bloody beast (In the dark tunnel under forest)
+M 0 22455 8 22461 1	* bloody beast (In the dark tunnel under forest)
+E 0 22469 0 17		*	bloody orb: held in the hands
+M 0 22454 8 22462 1	* bloody beast (In the dark tunnel under forest)
+M 0 22455 8 22462 1	* bloody beast (In the dark tunnel under forest)
+E 0 22469 0 17		*	bloody orb: held in the hands
+M 0 22454 8 22463 1	* bloody beast (In the dark tunnel under forest)
+M 0 22455 8 22463 1	* bloody beast (In the dark tunnel under forest)
+E 0 22469 0 17		*	bloody orb: held in the hands
+M 0 22454 8 22464 1	* bloody beast (In the dark tunnel under forest)
+M 0 22455 8 22464 1	* bloody beast (In the dark tunnel under forest)
+E 0 22469 0 17		*	bloody orb: held in the hands
+M 0 22454 8 22465 1	* bloody beast (In the dark tunnel under forest)
+M 0 22455 8 22465 1	* bloody beast (In the dark tunnel under forest)
+E 0 22469 0 17		*	bloody orb: held in the hands
+M 0 22454 8 22466 1	* bloody beast (In the dark tunnel under forest)
+M 0 22455 8 22466 1	* bloody beast (In the dark tunnel under forest)
+E 0 22469 0 17		*	bloody orb: held in the hands
+M 0 22454 8 22467 1	* bloody beast (In the dark tunnel under forest)
+M 0 22455 8 22467 1	* bloody beast (In the dark tunnel under forest)
+E 0 22469 0 17		*	bloody orb: held in the hands
+M 0 22454 8 22468 1	* bloody beast (In the dark tunnel under forest)
+M 0 22455 8 22468 1	* bloody beast (In the dark tunnel under forest)
+E 0 22469 0 17		*	bloody orb: held in the hands
+M 0 22456 8 22469 1	* small guard (In the Forest of Nowhere)
+M 0 22457 8 22469 1	* small guard (In the Forest of Nowhere)
+E 0 22471 0 1		*	ring of wildreness: on the left finger
+M 0 22456 8 22470 1	* small guard (In the Forest of Nowhere)
+M 0 22457 8 22470 1	* small guard (In the Forest of Nowhere)
+E 0 22471 0 1		*	ring of wildreness: on the left finger
+M 0 22456 8 22471 1	* small guard (In the Forest of Nowhere)
+M 0 22457 8 22471 1	* small guard (In the Forest of Nowhere)
+M 0 22456 8 22472 1	* small guard (In the Forest of Nowhere)
+M 0 22457 8 22472 1	* small guard (In the Forest of Nowhere)
+M 0 22456 8 22473 1	* small guard (In the Forest of Nowhere)
+M 0 22457 8 22473 1	* small guard (In the Forest of Nowhere)
+M 0 22456 8 22474 1	* small guard (In the Forest of Nowhere)
+M 0 22457 8 22474 1	* small guard (In the Forest of Nowhere)
+M 0 22456 8 22475 1	* small guard (In the Forest of Nowhere)
+M 0 22457 8 22475 1	* small guard (In the Forest of Nowhere)
+M 0 22456 8 22476 1	* small guard (In the Forest of Nowhere)
+M 0 22457 8 22476 1	* small guard (In the Forest of Nowhere)
+M 0 22458 8 22477 1	* white Icky Thing (In the dark tunnel under forest)
+G 0 22470 0		*	slime mold
+M 0 22459 8 22477 1	* blubbering Icky Thing (In the dark tunnel under forest)
+M 0 22458 8 22478 1	* white Icky Thing (In the dark tunnel under forest)
+G 0 22470 0		*	slime mold
+M 0 22459 8 22478 1	* blubbering Icky Thing (In the dark tunnel under forest)
+M 0 22458 8 22479 1	* white Icky Thing (In the dark tunnel under forest)
+G 0 22470 0		*	slime mold
+M 0 22459 8 22479 1	* blubbering Icky Thing (In the dark tunnel under forest)
+M 0 22458 8 22480 1	* white Icky Thing (In the dark tunnel under forest)
+G 0 22470 0		*	slime mold
+M 0 22459 8 22480 1	* blubbering Icky Thing (In the dark tunnel under forest)
+M 0 22458 8 22481 1	* white Icky Thing (In the dark tunnel under forest)
+G 0 22470 0		*	slime mold
+M 0 22459 8 22481 1	* blubbering Icky Thing (In the dark tunnel under forest)
+M 0 22458 8 22482 1	* white Icky Thing (In the dark tunnel under forest)
+G 0 22470 0		*	slime mold
+M 0 22459 8 22482 1	* blubbering Icky Thing (In the dark tunnel under forest)
+M 0 22458 8 22483 1	* white Icky Thing (In the dark tunnel under forest)
+G 0 22470 0		*	slime mold
+M 0 22459 8 22483 1	* blubbering Icky Thing (In the dark tunnel under forest)
+M 0 22458 8 22484 1	* white Icky Thing (In the dark tunnel under forest)
+G 0 22470 0		*	slime mold
+M 0 22459 8 22484 1	* blubbering Icky Thing (In the dark tunnel under forest)
+M 0 22464 1 22485 1	* Queen of Nagas (A room of Queen)
+E 0 22472 0 10		*	claw of serpents: on the arms
+M 0 22462 8 22486 1	* Clear naga (In the dark tunnel under forest)
+M 0 22463 8 22486 1	* spirit naga (In the dark tunnel under forest)
+M 0 22462 8 22487 1	* Clear naga (In the dark tunnel under forest)
+M 0 22463 8 22487 1	* spirit naga (In the dark tunnel under forest)
+M 0 22462 8 22488 1	* Clear naga (In the dark tunnel under forest)
+M 0 22463 8 22488 1	* spirit naga (In the dark tunnel under forest)
+M 0 22462 8 22489 1	* Clear naga (In the dark tunnel under forest)
+M 0 22463 8 22489 1	* spirit naga (In the dark tunnel under forest)
+M 0 22462 8 22490 1	* Clear naga (In the dark tunnel under forest)
+M 0 22463 8 22490 1	* spirit naga (In the dark tunnel under forest)
+M 0 22462 8 22491 1	* Clear naga (In the dark tunnel under forest)
+M 0 22463 8 22491 1	* spirit naga (In the dark tunnel under forest)
+E 0 22474 0 7		*	Naga's tail: on the legs
+M 0 22462 8 22492 1	* Clear naga (In the dark tunnel under forest)
+M 0 22463 8 22492 1	* spirit naga (In the dark tunnel under forest)
+E 0 22474 0 7		*	Naga's tail: on the legs
+M 0 22462 8 22493 1	* Clear naga (In the dark tunnel under forest)
+M 0 22463 8 22493 1	* spirit naga (In the dark tunnel under forest)
+M 0 22460 8 22494 1	* medium guard (In the Forest of Nowhere)
+M 0 22461 8 22494 1	* medium guard (In the Forest of Nowhere)
+M 0 22460 8 22495 1	* medium guard (In the Forest of Nowhere)
+M 0 22461 8 22495 1	* medium guard (In the Forest of Nowhere)
+M 0 22460 8 22496 1	* medium guard (In the Forest of Nowhere)
+M 0 22461 8 22496 1	* medium guard (In the Forest of Nowhere)
+M 0 22460 8 22497 1	* medium guard (In the Forest of Nowhere)
+M 0 22461 8 22497 1	* medium guard (In the Forest of Nowhere)
+E 0 22473 0 16		*	leaf blade: wielded
+M 0 22460 8 22498 1	* medium guard (In the Forest of Nowhere)
+M 0 22461 8 22498 1	* medium guard (In the Forest of Nowhere)
+M 0 22460 8 22499 1	* medium guard (In the Forest of Nowhere)
+M 0 22461 8 22499 1	* medium guard (In the Forest of Nowhere)
+M 0 22460 8 22500 1	* medium guard (In the Forest of Nowhere)
+M 0 22461 8 22500 1	* medium guard (In the Forest of Nowhere)
+E 0 22473 0 16		*	leaf blade: wielded
+M 0 22460 8 22501 1	* medium guard (In the Forest of Nowhere)
+M 0 22461 8 22501 1	* medium guard (In the Forest of Nowhere)
 S
 
 #SHOPS
 22453 4 26 19 0 0 120 70 0 23
 0
+
+#OLIMITS
+O 22472 2	* claw of serpents
+S
 
 #$

@@ -95,7 +95,7 @@ A
 20 -200
 A
 18 200
-G none
+g none~
 #34402
 abysmality~
 {Babysmality{w~
@@ -104,7 +104,7 @@ kender's skin~
 drink RYa AP
 -1 -1 'cranberry juice' 0 0
 1 10 -1 P
-G female
+g female~
 #34404
 spring crystal~
 @eng {WSpring with crystal and clear water{w@rus {WРодник с кристально-чистой водой{w~
@@ -113,7 +113,7 @@ unknown~
 fountain AIORTY P
 -1 -1 'water' 0 0
 1 0 0 P
-G none
+g none~
 #34405
 trunk fallen tree~
 @eng fallen tree@rus ~~ствол~~ упавшего дерева~
@@ -122,7 +122,7 @@ wood~
 furniture AIORSTYZa P
 BD ABCDEFGHIJKLMNOPQRSTUVWXYZabcde AEHKN EHI EHI
 1 0 0 P
-G none
+g none~
 #34406
 food~
 @eng {rHot and tasty bite of roasted meat{w@rus {rВкусный и горЯчий шашлык из свежей баранины{w~
@@ -131,7 +131,7 @@ meat~
 food SY A
 CE CE 0 0 0
 1 1 1 P
-G none
+g none~
 #34407
 glass vodka~
 @eng {WHeeled glass filled with {BKosoruloFF{W vodka{w@rus {WГраненый стакан водовки {BКосорылоФФ{w~
@@ -140,7 +140,7 @@ glass~
 drink IU AO
 1 1 'vodka' 0 0
 1 0 1 P
-G none
+g none~
 #34408
 hero helm oleg~
 {WThe Real Hero helm of Oleg{x~
@@ -155,7 +155,7 @@ A
 18 15
 A
 19 15
-G none
+g none~
 #34409
 ring portal~
 @eng {Wring of repatriation{w@rus {Wk0льц0 b0зbpaщeHuЯ дomоu{x~
@@ -164,7 +164,7 @@ unknown~
 portal ARTYa ABP
 A A AB 34400 0
 96 1 2147483647 P
-G none
+g none~
 #34410
 karmael statue piss~
 @eng Pissed Karmael@rus {YСтатуя писающего Кармаеля стоит здесь!{\{Y    Он одет в форму штандартенфюрера СС фон{\{Y    Штирлица, глаза дико выпучены!  Он рад!{x~
@@ -173,7 +173,7 @@ marble~
 fountain RTYa AP
 -1 -1 'salt water' 0 0
 1 20000 2147483647 P
-G none
+g none~
 #34411
 wand жезл~
 @eng small wooden wand@rus ~~маленький~~ ~~деревянный~~ ~~жезл~~~
@@ -182,7 +182,7 @@ wood~
 wand CF AO
 100 1 1 'improved identify' 0
 10 1 5000 P
-G none
+g none~
 #34450
 claws когти~
 @eng tiger's claws@rus ~~когти~~ тигра~
@@ -195,7 +195,7 @@ S 'grip' 75 A
 S 'master hand' 50 A
 S 'hand block' 75 A
 S 'disarm' 75 A
-G plural
+g plural~
 #34451
 book справочник энциклопедия old~
 @eng An old book@rus "~~Энциклопедия~~ юных сурков"~
@@ -207,7 +207,7 @@ treasure Ah AO
 S 'locate object' 75 A
 S 'identify' 100 A
 S 'lore' 100 A
-G none
+g none~
 #34452
 staff necromancy посох rod~
 @eng Rod of Necromancy@rus ~~Посох~~ некромансера~
@@ -224,7 +224,7 @@ S 'draining touch' 100 A
 S 'mana drain' 100 A
 S 'control undead' 50 A
 S 'bone dragon' 80 A
-G male
+g male~
 #0
 
 #ROOMS

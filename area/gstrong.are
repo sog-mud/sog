@@ -203,7 +203,7 @@ bone~
 armor 0 AD
 3 4 4 0 0
 10 100 849 G
-G none
+g none~
 #29002
 jerkin goblin scale mail~
 a goblin scale mail jerkin~
@@ -212,7 +212,7 @@ bone~
 armor 0 AD
 3 4 4 0 0
 9 90 530 G
-G none
+g none~
 #29003
 skirt goblin scale mail~
 a goblin long scale mail skirt~
@@ -221,7 +221,7 @@ bone~
 armor 0 AF
 3 5 4 0 0
 11 120 500 G
-G none
+g none~
 #29004
 sleeves goblin scale mail~
 a pair of goblin scale mail sleeves~
@@ -230,7 +230,7 @@ bone~
 armor 0 AI
 3 4 4 0 0
 8 60 400 G
-G none
+g none~
 #29005
 shirt goblin chain mail~
 a goblin chain mail shirt~
@@ -239,7 +239,7 @@ steel~
 armor 0 AD
 5 4 5 0 0
 12 180 800 G
-G none
+g none~
 #29006
 skirt goblin chain mail~
 a goblin long chain mail skirt~
@@ -248,7 +248,7 @@ steel~
 armor 0 AF
 5 4 5 0 0
 12 100 800 G
-G none
+g none~
 #29007
 gauntlets goblin chain mail~
 a pair of goblin chain mail gauntlets~
@@ -257,7 +257,7 @@ steel~
 armor 0 AH
 5 4 5 0 0
 10 40 700 P
-G none
+g none~
 #29008
 sleeves goblin chain mail~
 a pair of goblin chain mail sleeves~
@@ -266,7 +266,7 @@ steel~
 armor 0 AI
 5 4 5 0 0
 10 80 390 P
-G none
+g none~
 #29009
 crown king goblin~
 the Great Crown of the Goblin King~
@@ -277,7 +277,7 @@ armor G AE
 16 100 2000 P
 A
 13 21
-G none
+g none~
 #29010
 grumm axe~
 the Great War Axe of Grumm~
@@ -290,7 +290,7 @@ A
 18 3
 A
 19 4
-G none
+g none~
 #29011
 helmet goblin horned dark~
 a dark goblin horned helmet~
@@ -303,7 +303,7 @@ A
 3 -1
 A
 19 1
-G none
+g none~
 #29012
 arm guards granite~
 a pair of carved granite armguards.~
@@ -318,7 +318,7 @@ E
 arm guards armguards granite~
 These heavy armguards have been carved from the rock of these caverns.
 ~
-G none
+g none~
 #29013
 cape green filthy~
 a filthy green cape~
@@ -338,7 +338,7 @@ Filthy green cape.~
 You see a cape ridden with filth and vermin. You're not going to WEAR it are
 you?
 ~
-G none
+g none~
 #29014
 dagger shard stone~
 a stone shard~
@@ -355,7 +355,7 @@ E
 A stone shard~
 Looks like it would make a good weapon.
 ~
-G none
+g none~
 #29015
 sword goblin short~
 a goblin's shortsword~
@@ -366,7 +366,7 @@ sword 4 4 'slash' D
 12 50 900 G
 A
 19 1
-G none
+g none~
 #29016
 potion frothing black~
 a frothing black potion~
@@ -379,7 +379,7 @@ E
 frothing black potion~
 It's moving. You can see little bugs and other chunks floating in it.
 ~
-G none
+g none~
 #29017
 sword long two two-hand two-handed~
 a long two-handed sword~
@@ -396,7 +396,7 @@ A
 4 -2
 A
 5 -2
-G none
+g none~
 #29018
 key shaman goblin~
 the goblin shaman's key~
@@ -405,7 +405,7 @@ iron~
 key 0 AN
 0 0 0 0 0
 5 10 0 G
-G none
+g none~
 #29019
 key king goblin~
 the goblin king's key~
@@ -414,7 +414,7 @@ iron~
 key 0 AN
 0 0 0 0 0
 5 10 0 G
-G none
+g none~
 #29020
 key mage goblin~
 the goblin mage's key~
@@ -423,7 +423,7 @@ iron~
 key 0 AN
 0 0 0 0 0
 5 10 0 G
-G none
+g none~
 #29021
 key dungeon goblin~
 the goblin dungeon key~
@@ -432,7 +432,7 @@ iron~
 key 0 AN
 0 0 0 0 0
 5 10 0 G
-G none
+g none~
 #29022
 rock big большая скала~
 @eng a big rock@rus ~~большая~~ ~~скала~~~
@@ -453,7 +453,7 @@ A
 20 -2
 A
 17 -2
-G female
+g female~
 #29023
 ring britta~
 Britta's Ring~
@@ -466,7 +466,7 @@ A
 12 21
 A
 3 2
-G none
+g none~
 #29024
 Bookcase~
 Bookcase~
@@ -480,7 +480,7 @@ Bookcase~
 Its a rather large wooden bookcase. There are many books in it, but they
 are all written in GOBLIN!
 ~
-G none
+g none~
 #29025
 Desk~
 A large mahogany desk~
@@ -493,7 +493,7 @@ E
 Desk~
 This is a beautiful desk.
 ~
-G none
+g none~
 #29026
 Throne~
 King Grumm's Throne~
@@ -508,7 +508,7 @@ This throne must have been left behind by the dwarves. It's inlaid with
 many fine gems and precious metals. Unfortunately, the largest of these have
 long since been scavenged.
 ~
-G none
+g none~
 #29027
 table~
 a large mahogany feast table~
@@ -522,7 +522,7 @@ table~
 This is by far the finest table you have ever seen. It stretches clear into
 the north end of the Great Hall.
 ~
-G none
+g none~
 #29028
 table~
 A large mahogany feast table~
@@ -536,7 +536,7 @@ table~
 This is by far the finest table you have ever seen. It stretches clear into
 the south end of the Great Hall.
 ~
-G none
+g none~
 #29029
 gold~
 a small pile of gold~
@@ -545,7 +545,7 @@ gold~
 money 0 A
 0 75 0 0 0
 0 0 0 P
-G none
+g none~
 #29030
 mace heavy iron~
 a heavy iron mace~
@@ -554,7 +554,7 @@ iron~
 weapon 0 AN
 mace 4 5 'pound' 0
 11 150 790 G
-G none
+g none~
 #0
 
 #ROOMS

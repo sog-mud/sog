@@ -47,7 +47,7 @@ unknown~
 furniture C 0
 0 0 0 0 0
 0 1 1 P
-G none
+g none~
 #95801
 armchair~
 armchair~
@@ -56,7 +56,7 @@ unknown~
 furniture C A
 A 0 FI DGH DGH
 92 1 1 P
-G none
+g none~
 #0
 
 #ROOMS

@@ -185,7 +185,7 @@ F A 18 100000 a
 F I 0 0 H
 F A 2 15 V
 F A 0 0 A
-G male
+g male~
 #18701
 ring power кольцо силы~
 @eng ring of power@rus Кольцо силы~
@@ -205,7 +205,7 @@ F A 4 100 O
 F A 3 100 N
 F A 1 100 P
 F A 0 0 U
-G none
+g none~
 #18702
 troll skin кожа троля~
 @eng tanned troll skin@rus дубленая кожа троля~
@@ -219,7 +219,7 @@ A
 A
 13 100
 F A 0 0 c
-G female
+g female~
 #18703
 potion healing~
 @eng potion of healing@rus ~~лечебное~~ ~~снадобье~~~
@@ -228,7 +228,7 @@ glass~
 potion ABGIN A
 100 'restoring light' 'disperse' 'teleport' 'terangreal'
 50 0 20000 P
-G none
+g none~
 #18704
 pill~
 pill~
@@ -237,7 +237,7 @@ unknown~
 pill 0 0
 2147483647 'cure critical' 'cure critical' 'cure critical' 'cure critical'
 0 0 10 P
-G male
+g male~
 #18705
 pill~
 pill~
@@ -246,7 +246,7 @@ unknown~
 pill 0 A
 91 'sanctuary' 'haste' 'bless' 'protection evil'
 0 0 100 P
-G male
+g male~
 #18706
 stake silver~
 silver stake~
@@ -257,7 +257,7 @@ exotic 6 7 'sting' DI
 40 245 16230 P
 A
 18 8
-G male
+g male~
 #18708
 dagger knight~
 knight's dagger of burning~
@@ -270,7 +270,7 @@ A
 19 7
 A
 18 10
-G male
+g male~
 #18710
 fountain фонтан~
 @eng town fountain@rus ~~городской~~ ~~фонтан~~~
@@ -279,7 +279,7 @@ marble~
 fountain A A
 2147483647 2147483647 'beer' 0 0
 0 1000000 0 P
-G male
+g male~
 #18711
 altar алтарь~
 ~
@@ -288,7 +288,7 @@ silver~
 portal AY 0
 0 0 0 0 0
 0 1000000000 0 P
-G male
+g male~
 #18712
 axe large deadly~
 deadly axe of might~
@@ -301,7 +301,7 @@ A
 19 8
 A
 1 5
-G male
+g male~
 #18713
 club дубинка log~
 club~
@@ -310,7 +310,7 @@ wood~
 weapon 0 AN
 mace 7 3 'pound' 0
 15 10 1000 P
-G female
+g female~
 #18714
 axe~
 axe~
@@ -319,7 +319,7 @@ unknown~
 weapon 0 AN
 axe 6 3 'claw' 0
 5 50 1000 P
-G male
+g male~
 #18715
 glass vodka~
 @eng glass of vodka@rus ~~Стопарик~~ ~~водки~~~
@@ -328,7 +328,7 @@ glass~
 drink 0 A
 1 1 'vodka' 0 0
 0 10 10000 P
-G male
+g male~
 #18716
 sword~
 sword~
@@ -337,7 +337,7 @@ unknown~
 weapon 0 AN
 sword 3 6 'slash' 0
 5 20 1000 P
-G male
+g male~
 #18717
 nail rusty~
 rusty nail~
@@ -346,7 +346,7 @@ iron~
 weapon 0 AN
 whip 2 9 'scratch' 0
 3 0 900 P
-G male
+g male~
 #18718
 skin strong fox~
 strong skin of fox~
@@ -361,7 +361,7 @@ A
 20 -1
 A
 19 1
-G female
+g female~
 #18719
 dagger ice~
 ice dagger~
@@ -370,7 +370,7 @@ ice~
 weapon 0 AN
 dagger 5 7 'chill' B
 20 0 25678 P
-G male
+g male~
 #18720
 mace flaming~
 flaming mace~
@@ -379,7 +379,7 @@ flame~
 weapon AB AN
 mace 7 5 'flame' AD
 25 0 32536 P
-G male
+g male~
 #18721
 slime~
 slime~
@@ -392,7 +392,7 @@ A
 18 5
 A
 19 7
-G female
+g female~
 #18722
 blackjade head~
 Blackjade's head~
@@ -409,7 +409,7 @@ A
 19 20
 A
 18 20
-G female
+g female~
 #18750
 thron трон~
 @eng Orrin's throne@rus ~~Золотой~~ ~~трон~~ ~~Орина~~~
@@ -418,7 +418,7 @@ unknown~
 furniture A 0
 A JLOPRTUXYZbcd HK JLOPRTUXYZbcd JLOPRTUXYZbcd
 0 0 0 P
-G male
+g male~
 #18751
 portal~
 @eng portal@rus ~~портал~~~
@@ -427,7 +427,7 @@ unknown~
 portal B 0
 0 I A 3001 0
 0 2147483647 0 P
-G male
+g male~
 #18781
 clanmark~
 I'm not a {Dfilthy{x magician!~
@@ -436,7 +436,7 @@ flesh~
 fountain CEY AS
 2147483647 2147483647 'red wine' 0 0
 92 0 0 P
-G male
+g male~
 #18787
 poncho~
 a poncho from the carcass of Seneschal~
@@ -457,7 +457,7 @@ A
 6 1
 A
 13 35
-G none
+g none~
 #18799
 light holy pillar свет~
 @eng holy light@rus ~~божественный~~ ~~свет~~~
@@ -477,7 +477,7 @@ F A 0 0 t
 F A 0 0 l
 F A 0 0 D
 F A 0 0 F
-G male
+g male~
 #0
 
 #ROOMS

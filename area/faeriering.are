@@ -192,7 +192,7 @@ Revealed to all, and to me
 Пакля, шпакля, рвакля...
 Розы, морозы..
 ~
-G male
+g male~
 #29102
 ball light twinkle twinkling мерцающий шар~
 @eng a *twinkling* ball of light@rus ~~мерцающий~~ ~~шар~~~
@@ -209,7 +209,7 @@ A
 18 1
 A
 19 1
-G male
+g male~
 #29103
 belt sprite поясок rainbow радуга~
 @eng a sprite belt@rus ~~поясок~~ спрайта~
@@ -220,7 +220,7 @@ armor FM AL
 11 1 500 P
 A
 24 -3
-G female
+g female~
 #29104
 bracer brownie браслет~
 @eng a brownie bracer@rus ~~браслет~~ брауни~
@@ -233,7 +233,7 @@ A
 2 1
 A
 13 8
-G male
+g male~
 #29105
 vial moonlight bottled пузырек~
 @eng a vial of bottled moonlight@rus ~~пузырек~~, полный лунного света~
@@ -242,7 +242,7 @@ glass~
 potion AG AO
 15 'fly' 'cure poison' 'cure critical' ''
 12 1 700 P
-G male
+g male~
 #29106
 robe gossamer плащ~
 @eng a gossamer robe@rus ~~плащ~~ из тончайшего газа~
@@ -255,7 +255,7 @@ A
 12 10
 A
 24 -2
-G male
+g male~
 #29107
 moonbeam луч~
 @eng a moonbeam@rus ~~лунный~~ ~~луч~~~
@@ -268,7 +268,7 @@ A
 18 2
 A
 19 2
-G male
+g male~
 #29108
 wine goblet faerie бокал вино~
 @eng a goblet of faerie wine@rus ~~бокал~~ вина фейри~
@@ -277,7 +277,7 @@ glass~
 potion G A
 10 'cure blindness' 'invisibility' '' ''
 10 1 100 P
-G male
+g male~
 #29109
 britches dirty штаны~
 @eng a pair of dirty britches@rus ~~грязные~~ ~~штаны~~~
@@ -294,7 +294,7 @@ A
 19 1
 A
 23 -1
-G plural
+g plural~
 #29110
 key sparkling ключ сверкающий~
 @eng a sparkling key@rus ~~сверкающий~~ ~~ключ~~~
@@ -303,7 +303,7 @@ silver~
 key BG AO
 0 0 0 0 0
 13 1 130 P
-G male
+g male~
 #29111
 cloak dirty плащ~
 @eng a dirty cloak@rus ~~грязный~~ ~~плащ~~~
@@ -316,7 +316,7 @@ A
 2 1
 A
 1 1
-G male
+g male~
 #29112
 wand blue diamond жезл~
 @eng a blue diamond wand@rus ~~жезл~~ из голубого алмаза~
@@ -330,7 +330,7 @@ diamond blue~
 @eng They're magically delicious!
 @rus Просто прелесть.
 ~
-G male
+g male~
 #29113
 gold золото деньги~
 @eng whoooooopie! Gold!@rus Деньги!!!~
@@ -339,7 +339,7 @@ gold~
 money A AO
 500 0 0 0 0
 0 13 130 P
-G plural
+g plural~
 #29114
 food finger пирожок~
 @eng delicious finger food@rus ~~вкусный~~ ~~пирожок~~~
@@ -348,7 +348,7 @@ flesh~
 food 0 AN
 DE DE 0 0 0
 0 1 5 P
-G male
+g male~
 #0
 
 #ROOMS

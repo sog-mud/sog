@@ -300,7 +300,7 @@ A
 17 -2
 A
 4 2
-G none
+g none~
 #6304
 visor black knight's~
 a black knight's visor~
@@ -313,7 +313,7 @@ A
 5 2
 A
 1 1
-G none
+g none~
 #6308
 coins silver gold~
 a big pile of coins~
@@ -322,7 +322,7 @@ silver~
 money 0 A
 500 20 0 0 0
 0 0 0 P
-G none
+g none~
 #6309
 potion blue~
 a blue potion~
@@ -335,7 +335,7 @@ E
 potion blue~
 It has a nice sky blue colour and a smell like peppermint.
 ~
-G none
+g none~
 #0
 
 #ROOMS

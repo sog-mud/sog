@@ -275,7 +275,7 @@ Gold~
 armor CG AEP
 1000 1000 1000 1000 0
 94 1 1 P
-G none
+g none~
 #38002
 armchair~
 @eng armchair@rus {yудобном кресле{x~
@@ -284,7 +284,7 @@ wood~
 furniture G 0
 A DFGHIJ FIL CEFGHI CEFGHI
 92 1 1 P
-G none
+g none~
 #38003
 fountain~
 @eng fountain@rus фонтан.~
@@ -293,7 +293,7 @@ marble~
 fountain G 0
 1000 1000 'vodka' 0 0
 92 1 1 P
-G none
+g none~
 #38004
 table~
 @eng table@rus письменный стол~
@@ -302,7 +302,7 @@ wood~
 furniture G 0
 0 EIJKN NO 0 0
 92 1 1 P
-G none
+g none~
 #38005
 Setepios Sword~
 @eng weapon@rus тыкалка~
@@ -327,7 +327,7 @@ A
 3 10
 A
 1 10
-G none
+g none~
 #38006
 safira armor~
 @eng Safiras Armor@rus Латы Сафиры~
@@ -344,7 +344,7 @@ A
 18 6
 A
 19 6
-G none
+g none~
 #38007
 robe~
 @eng Dragons skin@rus Длинный плащ из кожи золотого дракона~
@@ -361,7 +361,7 @@ A
 12 30000
 A
 13 30000
-G none
+g none~
 #38008
 girdle~
 @eng Dragon belt@rus Пояс из кожи Дракона~
@@ -370,7 +370,7 @@ spirit~
 armor CG AL
 0 0 0 0 0
 92 1 1 P
-G none
+g none~
 #38009
 vis card висит~
 @eng card of Setepios@rus Карточка Setepiosa~
@@ -379,7 +379,7 @@ unknown~
 trash NR A
 0 0 0 0 0
 0 1 1 P
-G none
+g none~
 #38010
 godlen chain sun~
 {YGolden Chain of Sun{x~
@@ -394,7 +394,7 @@ A
 19 6
 A
 18 5
-G none
+g none~
 #38011
 dagger safira~
 Sword of Safira~
@@ -407,7 +407,7 @@ A
 19 4
 A
 18 7
-G none
+g none~
 #38012
 eye diamond unicorn~
 Diamond eye of Unicorn~
@@ -416,7 +416,7 @@ unknown~
 treasure RT A
 0 0 0 0 0
 110 10 100 P
-G none
+g none~
 #38013
 weapon~
 @eng Sword of Justice@rus Меч Правосудия~
@@ -443,7 +443,7 @@ A
 1 15
 A
 17 -9999
-G none
+g none~
 #38014
 armchair~
 armchair~
@@ -452,7 +452,7 @@ unknown~
 furniture C A
 A 0 FI DFGHIJ DFGHIJ
 10 1 1 P
-G none
+g none~
 #38015
 ring~
 Ring of Stars.~
@@ -465,7 +465,7 @@ S 'enchant weapon' 10000 A
 S 'enchant weapon' 1000 A
 A
 14 28000
-G none
+g none~
 #38016
 book~
 @eng Book of Time@rus Летопись~
@@ -474,7 +474,7 @@ paper~
 treasure CHIMZ AO
 0 0 0 0 0
 110 1 1 P
-G none
+g none~
 #38017
 blessed shield gods~
 Blessed Shield of Gods~
@@ -487,7 +487,7 @@ A
 19 10
 A
 18 10
-G none
+g none~
 #38018
 blessed helm of honor~
 {YBlessed {WHelm {xof Honor~
@@ -512,7 +512,7 @@ A
 1 1
 A
 4 1
-G none
+g none~
 #38019
 blessed ring of life~
 {RBlessed Ring of Life{x~
@@ -533,7 +533,7 @@ A
 19 10
 A
 13 100
-G none
+g none~
 #38020
 blessed belt of truth~
 {YBlessed Belt of Truth{x~
@@ -546,7 +546,7 @@ A
 5 5
 A
 19 5
-G none
+g none~
 #38021
 divine sword of andromeda~
 {MDivine Sword of Andromeda{x~
@@ -559,7 +559,7 @@ A
 18 6
 A
 19 6
-G none
+g none~
 #38022
 blessed ball of holyfire~
 {Y*{C*{M* {WBlessed Ball of HolyFire {M*{C*{Y*{x~
@@ -576,7 +576,7 @@ A
 12 50
 A
 13 50
-G none
+g none~
 #38023
 fishing rod~
 fishing rod~
@@ -589,7 +589,7 @@ A
 19 5
 A
 13 50
-G none
+g none~
 #38024
 necklace bone ожерелье~
 @eng bone necklace@rus ~~ожерелье~~ из зубов дракона~
@@ -620,7 +620,7 @@ A
 18 10
 A
 20 -10
-G none
+g none~
 #38025
 ring of heavens~
 {MRing of Heavens{x~
@@ -641,7 +641,7 @@ A
 12 30
 A
 13 30
-G none
+g none~
 #38026
 first divine power helm~
 Helm of Divine Power~
@@ -664,7 +664,7 @@ A
 2 1
 A
 1 1
-G none
+g none~
 #38027
 proba~
 1~
@@ -675,7 +675,7 @@ armor 0 AO
 0 1 1 P
 A
 8 8
-G none
+g none~
 #38028
 first power dragon skull~
 Dragons Skull~
@@ -692,7 +692,7 @@ A
 12 500
 A
 13 500
-G none
+g none~
 #38029
 sword of honor~
 Sword of Honor~
@@ -709,7 +709,7 @@ A
 12 50
 A
 13 70
-G male
+g male~
 #38030
 kelsons helm of love~
 Kelsons Helm of Love~
@@ -722,7 +722,7 @@ A
 18 10
 A
 19 10
-G none
+g none~
 #38031
 terminators helm of power~
 Terminators Helm of Power~
@@ -735,7 +735,7 @@ A
 1 10
 A
 19 20
-G none
+g none~
 #38032
 flaming shield of earth~
 {YFlaming Shield of Earth{x~
@@ -754,7 +754,7 @@ A
 1 2
 A
 5 5
-G none
+g none~
 #38033
 diamond ring~
 {W[{Y*{G(+){Y*{W]{x diamond ring of life.~
@@ -767,7 +767,7 @@ A
 13 234
 A
 13 500
-G none
+g none~
 #38095
 {rБольшой пионерский БАРАБАН{w dark glass~
 dark glass~
@@ -776,7 +776,7 @@ wood~
 treasure GT A
 0 0 0 0 0
 92 1 100000 P
-G none
+g none~
 #38100
 ring of eros~
 {YRing Of Eros{x~
@@ -785,7 +785,7 @@ gold~
 treasure HIRTa AB
 0 0 0 0 0
 1 1 9000000 P
-G none
+g none~
 #38101
 helm of enki~
 {YHelm of Enki{x~
@@ -794,7 +794,7 @@ unknown~
 treasure HIa AE
 0 0 0 0 0
 0 1 9000000 P
-G none
+g none~
 #38102
 shield of seth~
 {YShield of Seth{x~
@@ -803,7 +803,7 @@ divinity~
 trash CGHRTa AJ
 0 0 0 0 0
 1 1 9000000 P
-G none
+g none~
 #38103
 sword of venus~
 {YSword of Venus{x~
@@ -812,7 +812,7 @@ unknown~
 treasure HIRTa AN
 0 0 0 0 0
 0 1 9000000 P
-G none
+g none~
 #38104
 flame of hera~
 {YFlame of Hera{x~
@@ -821,7 +821,7 @@ unknown~
 light IRTa A
 0 0 1 0 0
 1 1 9000000 P
-G none
+g none~
 #38105
 boots of goktengri~
 {YBoots Of Goktengri{x~
@@ -830,7 +830,7 @@ unknown~
 trash IRTa AG
 0 0 0 0 0
 0 1 9000000 P
-G none
+g none~
 #38106
 ring of ares~
 {YRing Of Ares{x~
@@ -839,7 +839,7 @@ unknown~
 treasure IRTa AB
 0 0 0 0 0
 0 1 9000000 P
-G none
+g none~
 #38107
 robe of teshub~
 {YRobe Of Teshub{x~
@@ -848,7 +848,7 @@ unknown~
 treasure IRTa AK
 0 0 0 0 0
 0 1 9000000 P
-G none
+g none~
 #38108
 quest mace of stars~
 Mace of Stars~
@@ -862,7 +862,7 @@ A
 13 20
 A
 1 5
-G none
+g none~
 #38109
 book of healing~
 Book of Healing~
@@ -873,7 +873,7 @@ treasure RT AO
 35 1 1 P
 S 'cure light' 20 A
 S 'heal' 45 A
-G none
+g none~
 #38110
 true hero healing ring~
 {W({R+{W){x ring oh healing.~
@@ -895,7 +895,7 @@ A
 A
 12 -500
 S 'heal' 100 A
-G none
+g none~
 #38200
 bartable~
 @eng long wooden table@rus длинный деревынный стол~
@@ -904,7 +904,7 @@ wood~
 furniture 0 0
 BD EIJKN KN CFG CFG
 0 100000 0 P
-G none
+g none~
 #38201
 armchair~
 @eng {Wstrange armchair.{x@rus {Wстранное кресло.{x~
@@ -913,7 +913,7 @@ unknown~
 furniture R 0
 A 0 D 0 0
 0 1 1 P
-G none
+g none~
 #38202
 poisoned pill~
 Strange pill.~
@@ -922,7 +922,7 @@ unknown~
 pill 0 A
 11 'poison' 'plague' 'blindness' 'weaken'
 20 1 1 P
-G none
+g none~
 #38500
 spiked skullsmasher ebony kris~
 the ebony kris~
@@ -937,7 +937,7 @@ A
 19 40
 A
 18 20
-G none
+g none~
 #38501
 winged boots~
 Demon's skin~
@@ -954,7 +954,7 @@ A
 12 500
 A
 13 500
-G none
+g none~
 #38502
 transfer leticia 3001~
 ~
@@ -963,7 +963,7 @@ unknown~
 trash 0 0
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #38503
 winged boots of setepios~
 {WWinged Boots Of Setepios -*(//{x~
@@ -974,7 +974,7 @@ armor CI AG
 94 1 1 P
 A
 8 8
-G male
+g male~
 #38600
 alona chair~
 @eng wonderful chair.@rus удобный стульчик~
@@ -983,7 +983,7 @@ unknown~
 furniture AR A
 A 0 EH DGH DGH
 30 1 1 P
-G female
+g female~
 #38601
 bench~
 @eng bench@rus лавке.~
@@ -992,7 +992,7 @@ unknown~
 furniture 0 0
 BD 0 EH 0 0
 0 0 0 P
-G none
+g none~
 #38602
 star of justice~
 @eng {Y***{W Power of Justice{Y ***{x@rus {Y***{W Сила Правосудия{Y ***{x~
@@ -1023,7 +1023,7 @@ A
 12 250
 A
 13 200
-G none
+g none~
 #38603
 diamond ring power~
 Diamond Ring of Power~
@@ -1033,7 +1033,7 @@ armor T AB
 0 0 0 0 0
 35 1 1 P
 S 'bash' 30 A
-G none
+g none~
 #38604
 slon слон elephant candy~
 @eng elephant@rus слоник~
@@ -1042,7 +1042,7 @@ unknown~
 food A A
 CE CE 0 0 0
 0 1 100000 P
-G none
+g none~
 #38605
 salfita ring~
 {y={Y={R[{W*{R]{Y={y={x Salfita ring~
@@ -1056,7 +1056,7 @@ A
 A
 13 30
 S 'rescue' 100 A
-G none
+g none~
 #38606
 ring water of~
 {B==={x ring of Water~
@@ -1073,7 +1073,7 @@ A
 12 10
 A
 13 10
-G none
+g none~
 #38607
 cloak vivien red dragon gold~
 @eng {YGolden Leather Cloak{x@rus {YПлащ из кожи золотого Дракона.{x~
@@ -1088,7 +1088,7 @@ A
 12 30000
 A
 13 30000
-G female
+g female~
 #0
 
 #ROOMS

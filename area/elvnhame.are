@@ -901,7 +901,7 @@ This fountain was formed of a single huge piece of quartz.
 An aura of goodness surrounds it. The water is clear and
 clean.
 ~
-G none
+g none~
 #40102
 fountain water magic lapis~
 The Fountain of Magic~
@@ -917,7 +917,7 @@ lazuli. In the center of the fountain pool is a lapis
 statue of Xyza, Goddess Source of All Magic, dual streams 
 of clear water shooting from her outstretched hands.
 ~
-G none
+g none~
 #40103
 fountain blood darkness shadow gore~
 the Fountain of Gore~
@@ -933,7 +933,7 @@ and its content is not water but blood, the blood of innocents
 sacrificed to the evil gods. Around the outside of the pool
 are carvings of demons torturing babies.
 ~
-G none
+g none~
 #40104
 pit donation~
 the donation pit~
@@ -948,7 +948,7 @@ The donation pit in the Temple of Light receives articles
 given for the use of those less fortunate, in hopes that
 they will see the Light and follow the path of goodness.
 ~
-G none
+g none~
 #40105
 pit donation~
 the donation pit~
@@ -964,7 +964,7 @@ those less fortunate, in hopes that they will turn to
 the ways of magic, tolerating all regardless of paths 
 followed.
 ~
-G none
+g none~
 #40106
 pit donation~
 the donation pit~
@@ -978,7 +978,7 @@ pit donation~
 The donation pit receives articles given for sacrifice
 to the gods of darkness and evil.
 ~
-G none
+g none~
 #40107
 vest uniform~
 City Guard vest~
@@ -987,7 +987,7 @@ cloth~
 armor 0 AD
 -4 -4 -4 0 0
 6 50 75 P
-G none
+g none~
 #40108
 trousers uniform~
 City Guard trousers~
@@ -996,7 +996,7 @@ cloth~
 armor 0 AF
 -4 -4 -4 0 0
 6 60 80 P
-G none
+g none~
 #40109
 helmet helm~
 City Guard helmet~
@@ -1005,7 +1005,7 @@ steel~
 armor 0 AE
 -4 -4 -4 0 0
 6 100 100 P
-G none
+g none~
 #40110
 standard boots~
 City Guard boots~
@@ -1014,7 +1014,7 @@ leather~
 armor 0 AG
 -4 -4 -4 0 0
 6 110 100 P
-G none
+g none~
 #40111
 standard armguards~
 City Guard armguards~
@@ -1023,7 +1023,7 @@ cloth~
 armor 0 AI
 -4 -4 -4 0 0
 6 80 90 P
-G none
+g none~
 #40112
 plain ring cityguard~
 City Guard Ring~
@@ -1036,7 +1036,7 @@ A
 2 1
 A
 4 1
-G none
+g none~
 #40113
 standard shield~
 City Guard shield~
@@ -1045,7 +1045,7 @@ steel~
 armor 0 AJ
 -4 -4 -4 -4 2
 6 120 400 P
-G none
+g none~
 #40114
 citysword blade~
 City Guard sword~
@@ -1064,7 +1064,7 @@ While it doesn't look like anything special, this
 sword has a sharp blade and might yet be worth
 something to someone if wielded.
 ~
-G none
+g none~
 #40115
 shillelagh stick~
 City Guard shillelagh~
@@ -1082,7 +1082,7 @@ shillelagh stick club~
 It's a little worn in places where its former owner
 smashed the hard heads of some criminals in town.
 ~
-G none
+g none~
 #40116
 standard chain mail chainmail~
 City Guard chainmail~
@@ -1093,7 +1093,7 @@ armor G AD
 8 140 300 P
 A
 1 1
-G none
+g none~
 #40117
 dashing cape~
 a dashing City Guard cape~
@@ -1112,7 +1112,7 @@ There is something about this cape... You've seen them
 before, on certain City Guardsmen... They always look
 so dashing in them...
 ~
-G none
+g none~
 #40118
 lieutenant sword~
 City Guard Lieutenant Sword~
@@ -1125,7 +1125,7 @@ A
 18 3
 A
 19 2
-G none
+g none~
 #40119
 lieutenant helmet helm~
 City Guard Lieutenant Helmet~
@@ -1136,7 +1136,7 @@ armor G AE
 8 130 2000 P
 A
 20 -5
-G none
+g none~
 #40120
 captain helmet helm~
 City Guard Captain's Helmet~
@@ -1147,7 +1147,7 @@ armor G AE
 10 140 2600 P
 A
 3 1
-G none
+g none~
 #40121
 captain jacket~
 City Guard Captain's Jacket~
@@ -1162,7 +1162,7 @@ A
 4 1
 A
 5 1
-G none
+g none~
 #40122
 captain cape blue~
 blue City Guard Captain's Cape~
@@ -1173,7 +1173,7 @@ armor G AK
 10 120 2300 P
 A
 1 1
-G none
+g none~
 #40123
 captain gloves blue~
 City Guard Captain's blue gloves~
@@ -1184,7 +1184,7 @@ armor G AH
 10 20 1000 P
 A
 2 1
-G none
+g none~
 #40124
 golden scimitar captain~
 City Guard Captain's Golden Scimitar~
@@ -1197,7 +1197,7 @@ A
 18 4
 A
 19 3
-G none
+g none~
 #40125
 captain boots~
 City Guard Captain's Boots~
@@ -1210,7 +1210,7 @@ A
 13 10
 A
 14 25
-G none
+g none~
 #40126
 captain striped trousers~
 City Guard Captain's Striped Trousers~
@@ -1225,7 +1225,7 @@ A
 13 10
 A
 20 -5
-G none
+g none~
 #40127
 mug beer~
 a foaming mug of beer~
@@ -1234,7 +1234,7 @@ glass~
 drink N A
 64 64 'beer' 0 0
 5 40 25 P
-G none
+g none~
 #40128
 flagon ale~
 a flagon of ale~
@@ -1243,7 +1243,7 @@ brass~
 drink N A
 64 64 'ale' 0 0
 10 90 35 P
-G none
+g none~
 #40129
 carafe elvish wine~
 a carafe of fine elvish wine~
@@ -1252,7 +1252,7 @@ glass~
 drink N A
 64 64 'elvish wine' 0 0
 15 120 90 P
-G none
+g none~
 #40130
 goblet icewine~
 a chilled goblet of icewine~
@@ -1261,7 +1261,7 @@ silver~
 drink N A
 64 64 'icewine' 0 0
 20 110 110 P
-G none
+g none~
 #40131
 signet-ring ring~
 the Mayor's Signet-Ring~
@@ -1282,7 +1282,7 @@ This silver ring looks flawless, close examination of
 the gems reveals that each gem, if not flawless, is 
 nearly so.
 ~
-G none
+g none~
 #40132
 tuxedo suit~
 a tuxedo~
@@ -1304,7 +1304,7 @@ and lends a certain debonair attitude to its wearer. It is
 said that clothes maketh the man. Wear this and see how true
 that old saying is.
 ~
-G none
+g none~
 #40133
 canteen water~
 a canteen of water~
@@ -1313,7 +1313,7 @@ metal~
 drink N A
 64 64 'water' 0 0
 0 40 30 P
-G none
+g none~
 #40134
 large sack~
 a large canvas sack~
@@ -1322,7 +1322,7 @@ canvas~
 container N A
 300 0 0 15 75
 2 20 60 P
-G none
+g none~
 #40135
 backpack leather~
 a leather backpack~
@@ -1331,7 +1331,7 @@ leather~
 container N AD
 700 0 0 25 100
 10 60 120 P
-G none
+g none~
 #40136
 sleeping bag sleepingbag~
 a sleeping bag~
@@ -1358,7 +1358,7 @@ It says,
             lamps, torches, campfires, and 
             fire-breathing dragons.
 ~
-G none
+g none~
 #40137
 bacon slice~
 a slice of bacon~
@@ -1367,7 +1367,7 @@ food~
 food N A
 AC AC 0 0 0
 0 10 20 P
-G none
+g none~
 #40138
 link sausage~
 a link of sausage~
@@ -1376,7 +1376,7 @@ food~
 food N A
 D AC 0 0 0
 0 10 35 P
-G none
+g none~
 #40139
 spicy nuggets chicken~
 some spicy chicken nuggets~
@@ -1385,7 +1385,7 @@ food~
 food N A
 BD D 0 0 0
 5 30 75 P
-G none
+g none~
 #40140
 pork ribs~
 some port ribs~
@@ -1394,7 +1394,7 @@ food~
 food N A
 ACD ABD 0 0 0
 8 30 75 P
-G none
+g none~
 #40141
 barbecue brisket beef~
 some strips of barbecue brisket~
@@ -1403,7 +1403,7 @@ food~
 food N A
 ABCD ACD 0 0 0
 10 40 75 P
-G none
+g none~
 #40142
 veal tenders~
 a plateful of veal tenders~
@@ -1412,7 +1412,7 @@ food~
 food N A
 CE AE 0 0 0
 15 40 99 P
-G none
+g none~
 #40143
 chainmail vest~
 a chainmail vest~
@@ -1421,7 +1421,7 @@ steel~
 armor N AD
 -4 -4 -4 -4 2
 5 150 290 P
-G none
+g none~
 #40144
 scale mail jacket~
 a scale mail jacket~
@@ -1430,7 +1430,7 @@ steel~
 armor N AD
 -5 -5 -5 -5 2
 6 160 350 P
-G none
+g none~
 #40145
 chainmail skirt~
 a chainmail skirt~
@@ -1439,7 +1439,7 @@ steel~
 armor N AF
 -5 -5 -5 -5 2
 6 140 330 P
-G none
+g none~
 #40146
 chainmail leggings~
 a pair of chainmail leggings~
@@ -1448,7 +1448,7 @@ steel~
 armor N AF
 -5 -5 -5 -5 2
 6 160 375 P
-G none
+g none~
 #40147
 steel-toed steel boots~
 a pair of steel-toed boots~
@@ -1457,7 +1457,7 @@ steel~
 armor N AG
 -5 -5 -5 -4 1
 6 110 340 P
-G none
+g none~
 #40148
 steel reinforced gloves~
 a pair of steel-reinforced gloves~
@@ -1466,7 +1466,7 @@ steel~
 armor N AH
 -3 -3 -3 -3 1
 5 80 250 P
-G none
+g none~
 #40149
 platemail jacket~
 a jacket of platemail~
@@ -1475,7 +1475,7 @@ steel~
 armor N AD
 -7 -7 -7 -4 2
 8 180 500 P
-G none
+g none~
 #40150
 steel bracers~
 a pair of plain steel bracers~
@@ -1484,7 +1484,7 @@ steel~
 armor N AM
 -2 -2 -2 -2 0
 3 40 50 P
-G none
+g none~
 #40151
 ruby~
 a sparkling ruby~
@@ -1495,7 +1495,7 @@ gem GN AO
 10 10 1000 P
 A
 2 2
-G none
+g none~
 #40152
 emerald~
 an emerald~
@@ -1506,7 +1506,7 @@ gem GN AO
 14 10 1000 P
 A
 3 2
-G none
+g none~
 #40153
 sapphire~
 a sapphire~
@@ -1519,7 +1519,7 @@ A
 4 1
 A
 12 20
-G none
+g none~
 #40154
 diamond~
 a diamond~
@@ -1532,7 +1532,7 @@ A
 1 2
 A
 5 2
-G none
+g none~
 #40155
 diamond ring~
 a diamond engagement ring~
@@ -1543,7 +1543,7 @@ jewelry N AB
 30 10 4000 P
 A
 7 1
-G none
+g none~
 #40156
 golden bracelet gold~
 a golden bracelet~
@@ -1552,7 +1552,7 @@ gold~
 jewelry N AM
 0 0 0 0 0
 15 30 1200 P
-G none
+g none~
 #40157
 silver bracer~
 a silver bracer~
@@ -1561,7 +1561,7 @@ silver~
 jewelry N AB
 0 0 0 0 0
 13 20 110 P
-G none
+g none~
 #40158
 topaz collar~
 a topaz-encrusted collar~
@@ -1574,7 +1574,7 @@ A
 3 3
 A
 12 25
-G none
+g none~
 #40159
 dagger~
 a dagger~
@@ -1583,7 +1583,7 @@ steel~
 weapon N AN
 dagger 2 6 'slice' 0
 3 30 60 P
-G none
+g none~
 #40160
 knife sharp~
 a sharp knife~
@@ -1592,7 +1592,7 @@ iron~
 weapon N AN
 dagger 3 6 'slash' 0
 4 40 90 P
-G none
+g none~
 #40161
 short sword~
 a short sword~
@@ -1601,7 +1601,7 @@ steel~
 weapon N AN
 sword 8 4 'bite' 0
 20 50 130 P
-G none
+g none~
 #40162
 long sword longsword~
 a longsword~
@@ -1610,7 +1610,7 @@ iron~
 weapon N AN
 sword 3 8 'grep' 0
 9 90 250 P
-G none
+g none~
 #40163
 small axe~
 a small axe~
@@ -1619,7 +1619,7 @@ steel~
 weapon N AN
 axe 3 9 'cleave' 0
 13 110 320 P
-G none
+g none~
 #40164
 mace small~
 a small mace~
@@ -1628,7 +1628,7 @@ steel~
 weapon N AN
 mace 3 4 'crush' 0
 8 100 280 P
-G none
+g none~
 #40165
 flail~
 a flail~
@@ -1637,7 +1637,7 @@ steel~
 weapon N AN
 flail 3 5 'none' 0
 9 90 240 P
-G none
+g none~
 #40166
 whip leather~
 a leather whip~
@@ -1646,7 +1646,7 @@ leather~
 weapon N AN
 whip 4 4 'whip' 0
 9 80 244 P
-G none
+g none~
 #40167
 staff sturdy~
 a sturdy staff~
@@ -1655,7 +1655,7 @@ wood~
 weapon N AN
 staff 4 4 'thwack' 0
 11 120 300 P
-G none
+g none~
 #0
 
 #ROOMS

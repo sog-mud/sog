@@ -37,7 +37,7 @@ spying on the guards and making sure they are loyal to the Lord.
 ~
 giant~
 ACHS DFHPU 0 0
-45 -2 1d1+3299 1d1+100 5d6+11 'pound'
+40 -2 1d1+3099 1d1+100 5d6+1 'pound'
 -10 -15 -7 -5
 CDEFHJKN 0 0 0
 stand stand male 0
@@ -54,7 +54,7 @@ your blood.
 ~
 giant~
 ABFGT DFGOu -1000 0
-60 -1 1d1+5000 1d1+100 10d10+25 'crush'
+55 -1 1d1+4899 1d1+100 9d9+25 'crush'
 -20 -20 -20 -5
 AFIJKNRVX 0 0 0
 stand stand male 200
@@ -75,14 +75,14 @@ and control to level anyone who challenges her.
 ~
 giant~
 ABFGT V 0 0
-55 0 1d1+9199 1d1+100 10d4+26 'slash'
+50 0 1d1+8999 1d1+100 9d3+26 'slash'
 -11 -11 -11 -6
 ACDEFIJK 0 0 0
 stand stand female 0
 0 0 giant unknown
 #13004
 giant cleric Iupsil гигант священник иупсил~
-Iupsil, the Master Cleric~
+@eng Iupsil, the Master Cleric@rus ~~Иупсил~~, ~~главный~~ ~~церковник~~~
 Uttering a prayer, the Master Cleric turns to you with a smile.
 ~
 This giants seems to be at peace with his surroundings. Praying to his god
@@ -92,7 +92,7 @@ him seem like someone who you WOULDN'T want as an enemy)
 ~
 giant~
 ABCGHQT DFHTU 0 0
-55 0 1d1+6599 1d1+100 5d5+22 'blast'
+50 0 1d1+6499 1d1+100 4d4+20 'blast'
 -15 -15 -15 -10
 DEK AB 0 0
 stand stand male 2000
@@ -262,7 +262,7 @@ A
 1 2
 A
 13 10
-G male
+g male~
 #13001
 dagger thiulor кинжал тиулора~
 @eng the Barbed Dagger of Thiulor@rus ~~ядовитый~~ ~~кинжал~~ Тиулора~
@@ -276,7 +276,7 @@ A
 18 3
 A
 19 3
-G male
+g male~
 #13002
 cloak stealth плащ скрытности~
 @eng the cloak of stealth@rus ~~плащ~~ скрытности~
@@ -286,7 +286,7 @@ armor T AK
 1 1 1 1 0
 45 30 8000 P
 F A 0 0 P
-G male
+g male~
 #13003
 mask spy маска шпиона~
 @eng a Spy Mask@rus ~~шпионская~~ ~~маска~~~
@@ -297,7 +297,7 @@ armor ABGT AE
 45 50 8000 P
 F A 0 0 D
 F A 0 0 F
-G female
+g female~
 #13004
 banner знамя~
 @eng the Banner of the Castle of Giants@rus ~~знамя~~ Замка Гигантов~
@@ -310,7 +310,7 @@ A
 1 3
 A
 13 50
-G none
+g none~
 #13005
 ring glory кольцо славы~
 @eng the Ring of Glory@rus ~~Кольцо~~ славы~
@@ -329,7 +329,7 @@ A
 17 -10
 A
 24 -4
-G none
+g none~
 #13006
 huge broadsword огромный широкий меч~
 @eng the huge broadsword of Destruction@rus ~~огромный~~ ~~широкий~~ ~~Меч~~ Разрушения~
@@ -344,7 +344,7 @@ A
 18 1
 A
 19 6
-G male
+g male~
 #13007
 small spiked ring небольшое шипастое колечко~
 @eng a small spiked ring@rus ~~небольшое~~ ~~шипастое~~ ~~колечко~~~
@@ -357,7 +357,7 @@ A
 19 4
 A
 2 -1
-G none
+g none~
 #13008
 spiked adamantite platemail шипастая адамантитовая пластинчатая кольчуга~
 @eng a suit of spiked adamantite platemail@rus ~~кольчужный~~ ~~набор~~ из адамантита с шипами~
@@ -372,7 +372,7 @@ A
 2 -3
 A
 20 -10
-G male
+g male~
 #13009
 spiked adamantite helm шипастый адамантитовый шлем~
 @eng a spiked adamantite battle helm@rus ~~боевой~~ ~~шипастый~~ ~~адамантитовый~~ ~~шлем~~~
@@ -389,7 +389,7 @@ A
 2 -2
 A
 20 -5
-G male
+g male~
 #13010
 spiked adamantite leggings шипастые адамантитовые гамаши~
 @eng some spiked adamantite battle leggings@rus ~~боевые~~ ~~шипастые~~ ~~адамантитовые~~ ~~гамаши~~~
@@ -404,7 +404,7 @@ A
 2 -2
 A
 20 -5
-G plural
+g plural~
 #13011
 spiked adamantite boots шипастые адамантитовые сапоги~
 @eng spiked adamantite battle boots@rus ~~боевые~~ ~~шипастые~~ ~~адамантитовые~~ ~~сапоги~~~
@@ -420,7 +420,7 @@ A
 2 -2
 A
 20 -5
-G plural
+g plural~
 #13012
 robe халат~
 @eng Robe of the Healer@rus ~~халат~~ ~~лекаря~~~
@@ -438,7 +438,7 @@ A
 4 3
 A
 12 75
-G male
+g male~
 #13013
 hammer power молот силы~
 @eng the Hammer of Power@rus ~~Молот~~ ~~Силы~~~
@@ -451,7 +451,7 @@ A
 1 4
 A
 12 50
-G male
+g male~
 #13014
 ring signet кольцо с печаткой~
 @eng the Captain's Signet Ring@rus ~~капитанское~~ ~~кольцо~~ с печаткой~
@@ -466,7 +466,7 @@ A
 19 1
 A
 13 10
-G none
+g none~
 #13015
 fine copper chainmail~
 a suit of fine copper chainmail~
@@ -481,7 +481,7 @@ A
 19 4
 A
 13 15
-G none
+g none~
 #13016
 fine copper helmet~
 a fine copper helmet~
@@ -497,7 +497,7 @@ A
 19 2
 A
 13 20
-G none
+g none~
 #13017
 fine copper leggings~
 a set of fine copper leggings~
@@ -512,7 +512,7 @@ A
 18 3
 A
 13 15
-G none
+g none~
 #13018
 fine copper boots~
 a pair of fine copper boots~
@@ -528,7 +528,7 @@ A
 19 3
 A
 13 15
-G none
+g none~
 #13019
 badge order~
 the Badge of Order~
@@ -546,7 +546,7 @@ A
 12 15
 A
 18 3
-G none
+g none~
 #13020
 gold treasure~
 vast treasure of gold~
@@ -555,7 +555,7 @@ gold~
 money 0 A
 0 10000 0 0 0
 0 0 0 P
-G none
+g none~
 #13021
 bracelet copper~
 a fine copper bracelet~
@@ -572,7 +572,7 @@ A
 19 3
 A
 2 1
-G none
+g none~
 #13022
 gloves bloody skin~
 some bloody gloves of elven skin~
@@ -588,7 +588,7 @@ A
 19 3
 A
 2 3
-G none
+g none~
 #13023
 skin giant~
 Skin of the Giant Lord~
@@ -603,7 +603,7 @@ A
 19 3
 A
 13 100
-G none
+g none~
 #13024
 fur cloak~
 fine fur cloak~
@@ -623,7 +623,7 @@ A
 13 20
 A
 17 -10
-G none
+g none~
 #13025
 spiked adamantite sleeves~
 some spiked adamantite sleeves~
@@ -638,7 +638,7 @@ A
 19 5
 A
 20 -10
-G none
+g none~
 #13026
 ring black torturer~
 a ring of the torturer~
@@ -653,7 +653,7 @@ A
 19 2
 A
 13 30
-G none
+g none~
 #0
 
 #ROOMS
@@ -750,11 +750,15 @@ Z 0 13002
 S
 #13004
 @eng Foyer of the Castle@rus Фойе Замка~
-The foyer of this castle is rather large compared to other foyers you have
+@eng The foyer of this castle is rather large compared to other foyers you have
 seen before. The Lord of the Giants here obviously has gold to spare, as he 
 has collected rare art pieces and placed them around the room. Two hallways
 join here from the east and west and the gates of the castle are to the 
 south.
+@rus Фойе этого замка просто огромно по сравнению со всеми фойе, которые ты видел
+до сих пор. Судя по тем редчайшим скульптурам и картинам, которых в комнате
+очень много, сокровищница замка просто забита золотом. На север и восток идут
+два широких корридора, а на юге находятся ворота замка.
 ~
 0 D city
 D1

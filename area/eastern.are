@@ -261,7 +261,7 @@ silver~
 weapon J AN
 axe 1 9 'pierce' 0
 5 30 320 P
-G none
+g none~
 #5001
 banded mail~
 a glowing suit of banded mail~
@@ -274,7 +274,7 @@ A
 17 -4
 A
 2 2
-G none
+g none~
 #5002
 halberd~
 the halberd~
@@ -287,7 +287,7 @@ A
 19 3
 A
 18 2
-G none
+g none~
 #5003
 amulet~
 the amulet~
@@ -298,7 +298,7 @@ jewelry G AC
 5 20 550 P
 A
 5 1
-G none
+g none~
 #5005
 bone~
 a large leg bone~
@@ -307,7 +307,7 @@ bone~
 weapon 0 AN
 mace 1 4 'pound' 0
 0 50 140 P
-G none
+g none~
 #5006
 cactus~
 a small cactus cup~
@@ -316,7 +316,7 @@ plant~
 drink 0 A
 5 5 'water' 0 0
 0 60 5 P
-G none
+g none~
 #5007
 basket~
 a small wicker basket~
@@ -325,7 +325,7 @@ leather~
 container 0 A
 100 AC 0 10 100
 0 20 20 P
-G none
+g none~
 #5008
 basket~
 a small wicker basket~
@@ -334,7 +334,7 @@ leather~
 container 0 A
 100 AC 0 10 100
 0 20 20 P
-G none
+g none~
 #5009
 basket~
 a small wicker basket~
@@ -343,7 +343,7 @@ wood~
 container 0 A
 100 AC 0 10 100
 0 20 20 P
-G none
+g none~
 #5010
 basket~
 a small wicker basket~
@@ -352,7 +352,7 @@ wood~
 container 0 0
 100 AC 0 0 100
 0 0 0 P
-G none
+g none~
 #5011
 rope~
 a coil of rope~
@@ -361,7 +361,7 @@ linen~
 furniture 0 A
 0 0 0 0 0
 0 120 20 P
-G none
+g none~
 #5012
 stakes~
 a bunch of stakes~
@@ -370,7 +370,7 @@ wood~
 furniture 0 A
 0 0 0 0 0
 0 60 20 P
-G none
+g none~
 #5013
 map~
 an old, tattered map~
@@ -379,7 +379,7 @@ paper~
 furniture 0 A
 0 0 0 0 0
 0 10 5 P
-G none
+g none~
 #5014
 turban~
 a thick padded turban~
@@ -390,7 +390,7 @@ clothing GH AE
 0 10 10 P
 A
 17 1
-G none
+g none~
 #5015
 coins~
 a great pile of treasure~
@@ -399,7 +399,7 @@ silver~
 money 0 A
 427 12 0 0 0
 0 0 0 P
-G none
+g none~
 #5016
 sabre~
 a long, curved sabre~
@@ -412,7 +412,7 @@ A
 18 3
 A
 19 1
-G none
+g none~
 #5017
 scimitar~
 a curved scimitar~
@@ -425,7 +425,7 @@ A
 18 2
 A
 19 1
-G none
+g none~
 #5018
 cutlass~
 a long, pointed cutlass~
@@ -434,7 +434,7 @@ adamantite~
 weapon L AN
 sword 3 6 'slash' 0
 12 50 930 P
-G none
+g none~
 #5019
 potion pink~
 a pink potion~
@@ -443,7 +443,7 @@ clay~
 potion P A
 25 'heal' 'remove curse' '' ''
 13 60 1220 P
-G none
+g none~
 #5020
 wand platinum~
 a platinum wand~
@@ -452,7 +452,7 @@ platinum~
 wand B AO
 30 10 10 'magic missile' 0
 2 80 990 P
-G none
+g none~
 #5021
 bow energy strange~
 a strange energy bow~
@@ -461,7 +461,7 @@ unknown~
 weapon ABGI AN
 bow 5 5 'blast' 0
 21 200 2600 P
-G none
+g none~
 #5022
 scroll encrypted~
 an encrypted scroll~
@@ -470,7 +470,7 @@ vellum~
 scroll 0 A
 22 'cure blindness' 'remove curse' 'cure poison' ''
 11 70 1730 P
-G none
+g none~
 #5023
 chest~
 an iron bound chest~
@@ -479,7 +479,7 @@ iron~
 container 0 0
 200 ACD 5024 200 100
 0 0 0 P
-G none
+g none~
 #5024
 key golden~
 a golden key~
@@ -488,7 +488,7 @@ gold~
 key 0 A
 BD 0 0 0 0
 0 10 0 P
-G none
+g none~
 #5025
 bracelet copper~
 a copper bracelet~
@@ -501,7 +501,7 @@ A
 19 3
 A
 13 15
-G none
+g none~
 #5026
 gem ruby~
 a large ruby~
@@ -510,7 +510,7 @@ ruby~
 gem G AO
 CE 0 0 0 0
 0 1 5000 P
-G none
+g none~
 #5027
 gem diamond glittering~
 a glittering diamond~
@@ -519,7 +519,7 @@ diamond~
 gem G AO
 ACE 0 0 0 0
 0 1 6000 P
-G none
+g none~
 #5028
 gem sapphire~
 a brilliant sapphire~
@@ -528,7 +528,7 @@ sapphire~
 gem G AO
 BCE 0 0 0 0
 0 1 2000 P
-G none
+g none~
 #5029
 gem lapis~
 a deep blue lapis lazuli~
@@ -537,7 +537,7 @@ gem~
 gem G AO
 DE 0 0 0 0
 0 1 800 P
-G none
+g none~
 #5030
 jewel tiger~
 the tiger jewel~
@@ -548,7 +548,7 @@ gem I AO
 5 1 550 P
 A
 2 1
-G none
+g none~
 #5031
 jewel red-eyed~
 the red-eyed jewel~
@@ -559,7 +559,7 @@ gem 0 AO
 15 1 2600 P
 A
 3 2
-G none
+g none~
 #5032
 gem emerald~
 a fiery green emerald~
@@ -568,7 +568,7 @@ gem~
 warp_stone T AO
 ABCE 0 0 0 0
 0 1 4000 P
-G none
+g none~
 #0
 
 #ROOMS

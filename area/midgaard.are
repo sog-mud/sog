@@ -1345,7 +1345,7 @@ wood~
 drink 0 A
 300 300 'beer' 0 0
 0 160 75 P
-G male
+g male~
 #3001
 bottle beer бутылка~
 @eng a bottle of beer@rus ~~бутылка~~ пива~
@@ -1354,7 +1354,7 @@ glass~
 drink 0 A
 16 16 'beer' 0 0
 0 10 5 P
-G female
+g female~
 #3002
 bottle ale бутыль~
 @eng a bottle of ale@rus ~~бутыль~~ эля~
@@ -1363,7 +1363,7 @@ glass~
 drink 0 A
 16 16 'ale' 0 0
 0 20 6 P
-G female
+g female~
 #3003
 bottle firebreather~
 a bottle of firebreather~
@@ -1372,7 +1372,7 @@ glass~
 drink 0 A
 12 12 'firebreather' 0 0
 0 10 25 P
-G none
+g none~
 #3004
 bottle local бутылка~
 @eng a bottle of local specialty@rus ~~бутылка~~ напитка дядюшки Джо~
@@ -1381,22 +1381,22 @@ glass~
 drink 0 A
 12 12 'local specialty' 0 0
 0 10 11 P
-G none
+g none~
 #3005
-quest blade меч~
+sword quest меч квестора~
 @eng quest's sword@rus ~~меч~~ Квестора~
 @eng Questor's sword lies upon the ground, waiting for its owner.@rus Меч (sword) Квестора лежит на земле в ожидании хозяина.~
 adamantite~
 weapon BI AN
-sword 10 7 'cleave' EF
-62 450 5600 P
+sword 10 6 'cleave' EF
+45 450 5600 P
 E
 scimitar blade~
 It is quite heavy.  The blade is made of some metal that you can't even
 spell.  The edge of the blade looks as if it could cut through anything
 or anyone.
 ~
-G male
+g male~
 #3006
 stone~
 A Clan Stone~
@@ -1405,7 +1405,7 @@ adamantite~
 food 0 A
 ACDF ACDF 0 0 0
 0 20 0 P
-G none
+g none~
 #3009
 pie pot big пирог~
 @eng a big pot pie@rus ~~большой~~ ~~пирог~~~
@@ -1414,7 +1414,7 @@ food~
 food 0 A
 CE DF 0 0 0
 0 20 22 P
-G male
+g male~
 #3010
 pit яма~
 @eng the donation pit@rus ~~яма~~ для жертвоприношений~
@@ -1427,7 +1427,7 @@ E
 pit~
 This is where you put money and items to help Doz expand this shrine, 
 ~
-G female
+g female~
 #3011
 bread хлеб краюха~
 @eng bread@rus ~~краюха~~ хлеба~
@@ -1436,7 +1436,7 @@ food~
 food 0 A
 BE CD 0 0 0
 0 10 9 P
-G female
+g female~
 #3012
 roll cinnamon рулет~
 @eng a cinnamon roll@rus ~~рулет~~ с корицей~
@@ -1445,7 +1445,7 @@ food~
 food 0 A
 C D 0 0 0
 0 10 16 P
-G male
+g male~
 #3013
 cookies печенье~
 @eng a batch of Sara's cookies@rus ~~коробка~~ печенья~
@@ -1454,7 +1454,7 @@ food~
 food 0 A
 D BD 0 0 0
 0 10 11 P
-G female
+g female~
 #3014
 danish blueberry пирожное~
 @eng a blueberry danish@rus ~~пирожное~~ с голубикой~
@@ -1463,7 +1463,7 @@ food~
 food 0 A
 D BC 0 0 0
 0 10 5 P
-G none
+g none~
 #3020
 dagger кинжал~
 @eng a dagger@rus кинжал~
@@ -1472,7 +1472,7 @@ steel~
 weapon 0 AN
 dagger 1 4 'stab' 0
 0 10 157 G
-G none
+g none~
 #3021
 sword small меч~
 @eng a small sword@rus ~~короткий~~ ~~меч~~~
@@ -1481,7 +1481,7 @@ steel~
 weapon 0 AN
 sword 1 5 'slice' 0
 0 30 250 G
-G male
+g male~
 #3022
 sword long меч~
 @eng a long sword@rus ~~длинный~~ ~~меч~~~
@@ -1490,7 +1490,7 @@ steel~
 weapon 0 AN
 sword 2 5 'slash' 0
 7 50 610 G
-G male
+g male~
 #3023
 club дубина~
 @eng a club@rus дубина~
@@ -1501,7 +1501,7 @@ mace 1 7 'pound' 0
 3 30 220 G
 A
 18 -1
-G female
+g female~
 #3024
 mace heavy палица~
 @eng a mace@rus палица~
@@ -1512,7 +1512,7 @@ mace 2 4 'pound' 0
 6 100 390 G
 A
 19 1
-G female
+g female~
 #3025
 axe hand топорик~
 @eng a hand axe@rus топорик~
@@ -1521,7 +1521,7 @@ iron~
 weapon 0 AN
 axe 1 6 'chop' 0
 1 50 310 G
-G male
+g male~
 #3026
 axe battle топор~
 @eng a battle axe@rus ~~боевой~~ ~~топор~~~
@@ -1530,7 +1530,7 @@ steel~
 weapon 0 AN
 axe 2 5 'chop' F
 5 90 650 G
-G none
+g none~
 #3027
 spear копье~
 @eng a spear@rus копье~
@@ -1539,7 +1539,7 @@ steel~
 weapon 0 AN
 spear 1 8 'pierce' K
 4 50 84 G
-G none
+g none~
 #3028
 staff посох~
 @eng a wooden staff@rus ~~деревянный~~ ~~посох~~~
@@ -1550,7 +1550,7 @@ staff 1 8 'pound' F
 9 40 580 G
 A
 17 -2
-G male
+g male~
 #3029
 flail цеп~
 @eng a flail@rus цеп~
@@ -1561,7 +1561,7 @@ flail 1 7 'pound' 0
 1 50 77 G
 A
 17 1
-G male
+g male~
 #3030
 torch факел~
 @eng a torch@rus факел~
@@ -1570,7 +1570,7 @@ wood~
 light 0 A
 0 0 50 0 0
 0 30 4 G
-G male
+g male~
 #3031
 lantern фонарь~
 @eng a hooded brass lantern@rus ~~латунный~~ ~~фонарь~~~
@@ -1589,7 +1589,7 @@ E
 letters~
 They say, "Use 'hold lantern' to activate."
 ~
-G male
+g male~
 #3032
 bag мешок~
 @eng a bag@rus мешок~
@@ -1598,7 +1598,7 @@ leather~
 container 0 A
 50 0 0 5 100
 0 10 9 G
-G male
+g male~
 #3033
 box коробка~
 @eng a box@rus коробка~
@@ -1607,7 +1607,7 @@ wood~
 container 0 A
 10 A 0 5 100
 0 10 30 G
-G female
+g female~
 #3039
 scroll cancellation свиток~
 @eng a scrool of cancellation@rus ~~свиток~~ очищения~
@@ -1621,7 +1621,7 @@ scroll~
 @eng Use this scroll to remove magical curses.
 @rus Каждый свиток помещен в кожаную трубку, защищающию его от сырости.
 ~
-G male
+g male~
 #3040
 scroll identify свиток идентификации~
 @eng a scroll of identify@rus ~~свиток~~ познания~
@@ -1640,7 +1640,7 @@ The scroll has a magic formula drawn upon it:
       ?
       *
 ~
-G male
+g male~
 #3041
 potion return зелье возвращения~
 @eng a swirling potion of return@rus ~~зелье~~ возвращения~
@@ -1653,7 +1653,7 @@ E
 potion return~
 The potion has a small label 'Returning'.
 ~
-G none
+g none~
 #3042
 scroll recall свиток возвращения~
 @eng a scroll of recall@rus ~~свиток~~ возвращения~
@@ -1666,7 +1666,7 @@ E
 scroll~
 The scroll has written a formula of 'Word of Recall' upon it.
 ~
-G male
+g male~
 #3043
 ring protection кольцо защиты~
 @eng a ring of protection@rus кольцо защиты~
@@ -1683,7 +1683,7 @@ E
 ring~
 It's a silver ring set with a gleaming moonstone.
 ~
-G none
+g none~
 #3044
 wand magic missile missiles жезл магических ракет~
 @eng a wand of magic missiles@rus ~~жезл~~ магических ракет~
@@ -1696,7 +1696,7 @@ E
 wand~
 It has a little note that says 'point this end at target'.
 ~
-G male
+g male~
 #3045
 jacket scale mail~
 a scale mail jacket~
@@ -1705,7 +1705,7 @@ steel~
 armor 0 AD
 3 4 4 0 2
 5 160 850 G
-G none
+g none~
 #3046
 bronze breast plate~
 a bronze breast plate~
@@ -1714,7 +1714,7 @@ bronze~
 armor 0 AD
 6 5 7 0 5
 15 200 2100 G
-G none
+g none~
 #3047
 bronze breast plate~
 a special bronze breast plate~
@@ -1723,7 +1723,7 @@ bronze~
 armor 0 AD
 6 5 7 0 5
 15 200 2100 G
-G none
+g none~
 #3050
 raft плот~
 @eng a raft@rus плот~
@@ -1736,7 +1736,7 @@ E
 raft~
 The raft looks very primitive.
 ~
-G male
+g male~
 #3051
 canoe челнок~
 @eng a canoe@rus челнок~
@@ -1749,7 +1749,7 @@ E
 canoe~
 The canoe is fairly light.
 ~
-G male
+g male~
 #3052
 bracer strong leather браслет~
 @eng a leather bracer@rus ~~кожаный~~ ~~браслет~~~
@@ -1758,7 +1758,7 @@ leather~
 armor 0 AM
 0 2 2 0 0
 0 10 112 G
-G male
+g male~
 #3053
 belt leather пояс~
 @eng a leather belt@rus ~~кожаный~~ ~~пояс~~~
@@ -1767,7 +1767,7 @@ leather~
 armor 0 AL
 1 2 2 0 0
 0 10 136 G
-G male
+g male~
 #3054
 girdle leather~
 a leather girdle~
@@ -1776,7 +1776,7 @@ leather~
 armor 0 AL
 1 3 3 0 1
 0 20 220 G
-G none
+g none~
 #3060
 jerkin leather~
 a leather jerkin~
@@ -1785,7 +1785,7 @@ leather~
 armor 0 AD
 1 2 2 0 0
 0 50 270 G
-G none
+g none~
 #3061
 cap leather~
 a leather cap~
@@ -1794,7 +1794,7 @@ leather~
 armor 0 AE
 1 2 2 0 0
 0 10 136 G
-G none
+g none~
 #3062
 pants leather~
 a pair of leather pants~
@@ -1803,7 +1803,7 @@ leather~
 armor 0 AF
 1 2 2 0 0
 0 50 136 G
-G none
+g none~
 #3063
 boots leather~
 a pair of leather boots~
@@ -1812,7 +1812,7 @@ leather~
 armor 0 AG
 1 2 2 0 0
 0 30 136 G
-G none
+g none~
 #3064
 gloves leather~
 a pair of leather gloves~
@@ -1821,7 +1821,7 @@ leather~
 armor 0 AH
 1 2 2 0 0
 0 10 136 G
-G none
+g none~
 #3065
 sleeves leather~
 a pair of leather sleeves~
@@ -1830,7 +1830,7 @@ leather~
 armor 0 AI
 1 2 2 0 0
 0 30 136 G
-G none
+g none~
 #3066
 jerkin hard leather куртка~
 @eng a hard leather jerkin@rus ~~прочная~~ ~~кожаная~~ ~~куртка~~~
@@ -1839,7 +1839,7 @@ leather~
 armor 0 AD
 1 3 3 0 1
 0 80 430 G
-G female
+g female~
 #3067
 cap hard leather~
 a hard leather cap~
@@ -1848,7 +1848,7 @@ leather~
 armor 0 AE
 1 3 3 0 0
 0 20 220 G
-G none
+g none~
 #3068
 pants hard leather~
 a pair of hard leather pants~
@@ -1857,7 +1857,7 @@ leather~
 armor 0 AF
 1 3 3 0 1
 0 70 220 G
-G none
+g none~
 #3069
 boots hard leather~
 a pair of hard leather boots~
@@ -1866,7 +1866,7 @@ leather~
 armor 0 AG
 1 3 3 0 1
 0 40 220 G
-G none
+g none~
 #3070
 gloves hard leather~
 a pair of hard leather gloves~
@@ -1875,7 +1875,7 @@ leather~
 armor 0 AH
 1 3 3 0 1
 0 10 220 G
-G none
+g none~
 #3071
 sleeves hard leather~
 a pair of hard leather sleeves~
@@ -1884,7 +1884,7 @@ leather~
 armor 0 AI
 1 3 3 0 1
 0 40 220 G
-G none
+g none~
 #3072
 jerkin scale mail~
 a scale mail jerkin~
@@ -1893,7 +1893,7 @@ steel~
 armor 0 AD
 3 4 4 0 2
 5 140 850 P
-G none
+g none~
 #3073
 coif scale mail~
 a scale mail coif~
@@ -1902,7 +1902,7 @@ steel~
 armor 0 AE
 3 4 4 0 1
 5 40 420 P
-G none
+g none~
 #3074
 skirt scale mail~
 a long scale mail skirt~
@@ -1911,7 +1911,7 @@ steel~
 armor 0 AF
 3 4 4 0 2
 5 80 420 P
-G none
+g none~
 #3075
 boots reinforced~
 a pair of reinforced boots~
@@ -1920,7 +1920,7 @@ leather~
 armor 0 AG
 3 4 4 0 2
 5 40 420 P
-G none
+g none~
 #3076
 gloves reinforced~
 a pair of reinforced gloves~
@@ -1929,7 +1929,7 @@ leather~
 armor 0 AH
 3 4 4 0 2
 5 20 420 P
-G none
+g none~
 #3077
 sleeves scale mail~
 a pair of scale mail sleeves~
@@ -1938,7 +1938,7 @@ steel~
 armor 0 AI
 3 4 4 0 2
 5 60 420 P
-G none
+g none~
 #3080
 potion heal healing~
 a potion of healing~
@@ -1947,7 +1947,7 @@ glass~
 potion G AO
 20 'heal' '' '' ''
 11 10 800 P
-G none
+g none~
 #3081
 potion sanct sanctuary~
 a potion of sanctuary~
@@ -1956,7 +1956,7 @@ glass~
 potion G AO
 20 'sanctuary' '' '' ''
 11 10 800 P
-G none
+g none~
 #3082
 potion divine~
 a potion of divine protection~
@@ -1965,7 +1965,7 @@ crystal~
 potion ABGI AO
 35 'protection evil' 'stone skin' 'enhanced armor' ''
 16 10 1800 P
-G none
+g none~
 #3083
 potion cure light~
 a potion of cure light wounds~
@@ -1974,7 +1974,7 @@ glass~
 potion G AO
 5 'cure light' '' '' ''
 0 10 150 P
-G none
+g none~
 #3084
 potion cure serious~
 a potion of cure serious wounds~
@@ -1983,7 +1983,7 @@ glass~
 potion G AO
 10 'cure serious' '' '' ''
 1 10 220 P
-G none
+g none~
 #3085
 potion cure critical critic~
 a potion of cure critical wounds~
@@ -1992,7 +1992,7 @@ glass~
 potion G AO
 15 'cure critical' '' '' ''
 5 10 390 P
-G none
+g none~
 #3086
 potion antidote bottle~
 a bottle of antidote~
@@ -2001,7 +2001,7 @@ clay~
 potion G AO
 14 'cure poison' 'cure light' 'cure disease' ''
 8 10 550 P
-G none
+g none~
 #3087
 potion cure blindness~
 a potion of cure blindness~
@@ -2010,7 +2010,7 @@ glass~
 potion G AO
 13 'cure blindness' '' '' ''
 0 10 230 P
-G none
+g none~
 #3088
 vial holy water~
 a vial of holy water~
@@ -2019,7 +2019,7 @@ crystal~
 potion AGI AO
 20 'bless' 'protection evil' 'remove curse' ''
 10 10 720 P
-G none
+g none~
 #3089
 potion armor~
 a potion of armor~
@@ -2028,7 +2028,7 @@ glass~
 potion G AO
 10 'armor' '' '' ''
 0 10 200 P
-G none
+g none~
 #3090
 potion negation~
 a potion of negation~
@@ -2037,7 +2037,7 @@ glass~
 potion BG AO
 35 'cancellation' '' '' ''
 9 10 830 P
-G none
+g none~
 #3091
 potion fly flying~
 a potion of flying~
@@ -2046,7 +2046,7 @@ glass~
 potion G AO
 9 'fly' '' '' ''
 3 10 250 P
-G none
+g none~
 #3092
 potion true sight~
 a potion of true sight~
@@ -2055,7 +2055,7 @@ glass~
 potion G AO
 10 'detect invis' 'detect magic' 'detect evil' 'detect good'
 4 10 2290 P
-G none
+g none~
 #3093
 arrow wooden деревянная стрела~
 @eng a wooden arrow@rus ~~деревянная~~ ~~стрела~~~
@@ -2068,7 +2068,7 @@ A
 18 1
 A
 19 1
-G none
+g none~
 #3094
 arrow silver стрела~
 @eng a silver-headed arrow@rus ~~стрела~~ с серебряным наконечником~
@@ -2081,7 +2081,7 @@ A
 18 2
 A
 19 2
-G female
+g female~
 #3095
 arrow golden стрела~
 @eng a golden-headed arrow@rus ~~стрела~~ с золотым наконечником~
@@ -2094,7 +2094,7 @@ A
 18 3
 A
 19 3
-G female
+g female~
 #3096
 arrow adamantite стрела~
 @eng an adamantite-headed arrow@rus ~~стрела~~ с адамантитовым наконечником~
@@ -2107,7 +2107,7 @@ A
 18 4
 A
 19 4
-G female
+g female~
 #3097
 shield small metal щит~
 @eng a small metal shield@rus ~~маленький~~ ~~металлический~~ ~~щит~~~
@@ -2116,7 +2116,7 @@ steel~
 armor 0 AJ
 4 4 4 1 2
 5 60 750 P
-G male
+g male~
 #3100
 tea чашка cup~
 @eng a cup of tea@rus ~~чашка~~ чая~
@@ -2129,7 +2129,7 @@ E
 cup~
 It is a small simple cup.
 ~
-G female
+g female~
 #3101
 coffee чашка cup~
 @eng a cup of coffee@rus ~~чашка~~ кофе~
@@ -2142,7 +2142,7 @@ E
 cup~
 It is a small simple cup.
 ~
-G female
+g female~
 #3102
 water чашка cup~
 @eng a cup of water@rus ~~чашка~~ воды~
@@ -2155,7 +2155,7 @@ E
 cup~
 It is a large simple cup.
 ~
-G female
+g female~
 #3105
 bracer bronze~
 a bronze bracer~
@@ -2164,7 +2164,7 @@ bronze~
 armor 0 AM
 3 6 6 0 3
 10 30 760 G
-G none
+g none~
 #3106
 bracer iron~
 an iron bracer~
@@ -2173,7 +2173,7 @@ iron~
 armor 0 AM
 3 7 7 0 3
 15 40 1020 G
-G none
+g none~
 #3110
 shirt chain mail~
 a chain mail shirt~
@@ -2182,7 +2182,7 @@ steel~
 armor 0 AD
 5 4 5 0 3
 10 180 1320 P
-G none
+g none~
 #3111
 coif chain mail~
 a chain mail coif~
@@ -2191,7 +2191,7 @@ steel~
 armor 0 AE
 5 4 5 0 2
 10 50 660 P
-G none
+g none~
 #3112
 skirt chain mail~
 a long chain mail skirt~
@@ -2200,7 +2200,7 @@ steel~
 armor 0 AF
 5 4 5 0 3
 10 100 660 P
-G none
+g none~
 #3113
 boots ironbound~
 a pair of iron-bound boots~
@@ -2209,7 +2209,7 @@ iron~
 armor 0 AG
 5 4 5 0 3
 10 60 660 P
-G none
+g none~
 #3114
 gauntlets chain mail~
 a pair of chain mail gauntlets~
@@ -2218,7 +2218,7 @@ steel~
 armor 0 AH
 5 4 5 0 3
 10 40 660 P
-G none
+g none~
 #3115
 sleeves chain mail~
 a pair of chain mail sleeves~
@@ -2227,7 +2227,7 @@ steel~
 armor 0 AI
 5 4 5 0 3
 10 80 660 P
-G none
+g none~
 #3116
 shield large metal щит~
 @eng a large metal shield@rus ~~большой~~ ~~металлический~~ ~~щит~~~
@@ -2236,7 +2236,7 @@ steel~
 armor 0 AJ
 5 5 5 2 4
 10 140 1190 P
-G male
+g male~
 #3117
 shield small wooden щит~
 @eng a small wooden shield@rus ~~маленький~~ ~~деревянный~~ ~~щит~~~
@@ -2245,7 +2245,7 @@ wood~
 armor 0 AJ
 4 3 2 1 1
 3 40 510 P
-G male
+g male~
 #3118
 anvil наковальня~
 @eng an anvil@rus наковальня~
@@ -2255,7 +2255,7 @@ furniture BRY 0
 A EIJKN A BCEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz 0
 0 0 0 P
 S 'smithing' 75 A
-G female
+g female~
 #3119
 duck утка~
 @eng a duck@rus ~~утка~~ в яблоках~
@@ -2264,7 +2264,7 @@ food~
 food 0 A
 CE DF 0 0 0
 0 40 100 P
-G female
+g female~
 #3120
 key iron~
 a key~
@@ -2277,7 +2277,7 @@ E
 key iron~
 The iron key is not special.
 ~
-G none
+g none~
 #3121
 key rusty ключ~
 @eng a key@rus ключ~
@@ -2291,7 +2291,7 @@ key rusty~
 @eng The key is a fairly large rusty key.  You notice some fresh dirt on it.
 @rus Это довольно большой ключ. Ты замечаешь свежую грязь на нем.
 ~
-G male
+g male~
 #3122
 key wooden~
 a key~
@@ -2304,7 +2304,7 @@ E
 key wooden~
 The wooden key is not special.
 ~
-G none
+g none~
 #3123
 key brass ключ~
 @eng a key@rus ключ~
@@ -2318,7 +2318,7 @@ key brass~
 @eng The brass key is small and looks like it fits a very complicated lock.
 @rus Латунный ключ невелик, но, похоже, открывает очень сложный замок!
 ~
-G male
+g male~
 #3124
 sword long меч~
 @eng a long sword@rus ~~длинный~~ ~~меч~~~
@@ -2335,7 +2335,7 @@ A
 A
 12 20
 ~
-G male
+g male~
 #3129
 hand cuffs~
 a pair of hand cuffs~
@@ -2344,7 +2344,7 @@ iron~
 trash 0 AO
 0 0 0 0 0
 0 40 0 A
-G none
+g none~
 #3130
 desk drawer стол~
 @eng the desk@rus стол~
@@ -2363,7 +2363,7 @@ drawer~
 @eng You notice a keyhole in the drawer.
 @rus Ты видишь отверстие для ключа.
 ~
-G male
+g male~
 #3131
 safe сейф~
 @eng the safe@rus сейф~
@@ -2377,7 +2377,7 @@ safe~
 @eng The safe is very heavy.
 @rus Тяжелый сейф.
 ~
-G male
+g male~
 #3132
 silver coins монеты~
 @eng the silver coins@rus ~~серебряные~~ ~~монеты~~~
@@ -2390,7 +2390,7 @@ E
 silver~
 Looks like at least a thousand coins.
 ~
-G plural
+g plural~
 #3133
 city key~
 the City Key~
@@ -2405,7 +2405,7 @@ It is probably the biggest key you have seen in your life. It is made from
 polished gold and has various patterns on it along with the Midgaard Coat of
 Arms.
 ~
-G none
+g none~
 #3134
 bench скамейка скамья~
 @eng the Bench@rus скамейка~
@@ -2420,7 +2420,7 @@ It is a quite heavy but very comfortable bench.  It is placed with its front
 towards the river so you can sit and watch the river and the houses on the
 other side.
 ~
-G female
+g female~
 #3135
 fountain water фонтан~
 @eng a fountain@rus фонтан~
@@ -2434,7 +2434,7 @@ fountain~
 @eng It is very nice.  Made from fine white marble.
 @rus Замечательный фонтан! Сделан из лучшего белого мрамора.
 ~
-G male
+g male~
 #3136
 coins~
 a small pile of coins~
@@ -2443,7 +2443,7 @@ silver~
 money 0 A
 20 0 0 0 0
 0 0 0 P
-G none
+g none~
 #3137
 key steel~
 a steel key~
@@ -2456,7 +2456,7 @@ E
 key steel~
 A key of this size must fit a very strong lock.
 ~
-G none
+g none~
 #3138
 skin water buffalo бурдюк~
 @eng a buffalo water skin@rus ~~бурдюк~~ из кожи буйвола~
@@ -2465,7 +2465,7 @@ leather~
 drink 0 A
 64 64 'water' 0 0
 0 40 24 G
-G male
+g male~
 #3139
 letter resignation заявление~
 @eng the receptionist's letter of resignation@rus ~~заявление~~ об уходе администратора~
@@ -2497,7 +2497,7 @@ letter resignation~
  
       Диана администратор.
 ~
-G none
+g none~
 #3140
 notice liquidation bank объявление~
 @eng the bank's notice of liquidation@rus ~~банковское~~ ~~объявление~~ о закрытии~
@@ -2519,7 +2519,7 @@ The letter is written in a reserved and dignified Spencer hand.
 
     Midgaard City Bank
 ~
-G none
+g none~
 #3150
 coffee cup cinnamon~
 a cup of cinnamon coffee~
@@ -2532,7 +2532,7 @@ E
 coffee~
 It's a nice flavorful blend, just right for late-night mudding sessions.
 ~
-G none
+g none~
 #3151
 soup bowl~
 a bowl of chicken noodle soup~
@@ -2545,7 +2545,7 @@ E
 soup~
 This looks like just the thing for a cold!
 ~
-G none
+g none~
 #3152
 bowl beef stew~
 a bowl of beef stew~
@@ -2559,7 +2559,7 @@ stew bowl~
 This is Kate's special stew, guaranteed to keep hunger pangs away for many
 hours.  Care for a bite?
 ~
-G none
+g none~
 #3153
 biscuit~
 a biscuit~
@@ -2572,7 +2572,7 @@ E
 biscuit~
 A nice, soft biscuit with just enough butter.  Better buy two.
 ~
-G none
+g none~
 #3154
 beer bottle killian irish red~
 a bottle of George Killian's Irish Red~
@@ -2586,7 +2586,7 @@ beer bottle~
 It's a fine beer for serious drinkers, complete with the famous horse head
 logo.  Worth every penny.
 ~
-G none
+g none~
 #3161
 key white~
 a white key~
@@ -2595,7 +2595,7 @@ ivory~
 key 0 AO
 0 0 0 0 0
 0 10 0 G
-G none
+g none~
 #3162
 map midgaard~
 a map of the city of Midgaard~
@@ -2654,7 +2654,7 @@ Haon-Dor   |     Guild           .                 Guild        |
         Southern              Southern                       Southern     Sorrow
         Midgaard              Midgaard                       Midgaard
 ~
-G none
+g none~
 #3163
 map thera~
 a map of Thera~
@@ -2699,7 +2699,7 @@ to scale, some of the directions were changed to make everything fit.  This
 map shows the GENERAL location of an area with respect to the other areas.
 Type "areas" for a complete list with suggested levels and the authors.
 ~
-G none
+g none~
 #3164
 map southern midgaard~
 a map of southern Midgaard~
@@ -2754,7 +2754,7 @@ Concourse-----------Concourse------Inside-----Concourse----------------Concourse
                                  (Goblins)
 
 ~
-G none
+g none~
 #3165
 map dwarven kingdom dwarf~
 a map of the Dwarven Kingdom~
@@ -2803,7 +2803,7 @@ Bakery    of Shop                       Barracks              Path
  
 *key required
 ~
-G none
+g none~
 #3166
 map moria first~
 a map of the first level of Moria~
@@ -2846,7 +2846,7 @@ in the depths of Moria itself.                                |           |
                                                     |
                                                Dwarf Forest
 ~
-G none
+g none~
 #3167
 map new thalos~
 a map of New Thalos ~
@@ -2911,7 +2911,7 @@ Warrior's                  Bread   Medina  Igor's  Leather  |           Smuggler
                                    South
                                    Gate
 ~
-G none
+g none~
 #3168
 map olympus~
 a map of Olympus~
@@ -2958,7 +2958,7 @@ map olympus~
                             /
                       Mountain
 ~
-G none
+g none~
 #3169
 map graveyard~
 Map of graveyard~
@@ -3011,7 +3011,7 @@ graveyard~
                   Tomb                    Tomb
  
 ~
-G none
+g none~
 #3170
 map smurfville~
 Map of the Smurf village~
@@ -3080,7 +3080,7 @@ smurfville~
                         Path
  
 ~
-G none
+g none~
 #3171
 map emerald forest~
 Map of the Emerald Forest~
@@ -3121,7 +3121,7 @@ O oooo         The Map of Emerald Forest
                                \\--===\\\\\\\
  
 ~
-G none
+g none~
 #3172
 map midennir~
 Map of Miden'nir~
@@ -3178,7 +3178,7 @@ A Dead End-On the Trail of
                                                      (to Goblin Stronghold)
  
 ~
-G none
+g none~
 #3200
 juke box music~
 the juke~
@@ -3187,7 +3187,7 @@ glass~
 jukebox 0 0
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #3237
 pit~
 the donation pit~
@@ -3196,7 +3196,7 @@ unknown~
 container O 0
 10000 0 0 1000 100
 0 0 0 P
-G none
+g none~
 #3238
 skin water buffalo~
 a buffalo water skin~
@@ -3205,7 +3205,7 @@ leather~
 drink 0 A
 64 64 'water' 0 0
 0 40 3 G
-G none
+g none~
 #3240
 scroll identify свиток~
 @eng a scroll of identify@rus ~~свиток~~ познания~
@@ -3224,7 +3224,7 @@ The scroll has a magic formula drawn upon it:
       ?
       *
 ~
-G none
+g none~
 #3241
 potion yellow~
 a yellow potion of see invisible~
@@ -3237,7 +3237,7 @@ E
 potion yellow~
 The potion has a small label 'Detect The Invisible'.
 ~
-G none
+g none~
 #3242
 scroll recall~
 a scroll of recall~
@@ -3250,7 +3250,7 @@ E
 scroll~
 The scroll has written a formula of 'Word of Recall' upon it.
 ~
-G none
+g none~
 #3280
 potion heal healing~
 a potion of healing~
@@ -3259,7 +3259,7 @@ glass~
 potion G AO
 20 'heal' '' '' ''
 11 10 800 P
-G none
+g none~
 #3281
 potion sanct sanctuary~
 a potion of sanctuary~
@@ -3268,7 +3268,7 @@ glass~
 potion G AO
 20 'sanctuary' '' '' ''
 11 10 800 P
-G none
+g none~
 #3282
 potion divine~
 a potion of divine protection~
@@ -3277,7 +3277,7 @@ crystal~
 potion ABGI AO
 35 'protection evil' 'stone skin' 'enhanced armor' 'shield'
 16 10 1800 P
-G none
+g none~
 #3283
 potion cure light~
 a potion of cure light wounds~
@@ -3286,7 +3286,7 @@ glass~
 potion G AO
 5 'cure light' '' '' ''
 0 10 150 P
-G none
+g none~
 #3284
 potion cure serious~
 a potion of cure serious wounds~
@@ -3295,7 +3295,7 @@ glass~
 potion G AO
 10 'cure serious' '' '' ''
 1 10 220 P
-G none
+g none~
 #3285
 potion cure critical critic~
 a potion of cure critical wounds~
@@ -3304,7 +3304,7 @@ glass~
 potion G AO
 15 'cure critical' '' '' ''
 5 10 390 P
-G none
+g none~
 #3286
 potion antidote bottle~
 a bottle of antidote~
@@ -3313,7 +3313,7 @@ clay~
 potion G AO
 14 'cure poison' 'cure light' 'cure disease' ''
 8 10 550 P
-G none
+g none~
 #3287
 potion cure blindness~
 a potion of cure blindness~
@@ -3322,7 +3322,7 @@ glass~
 potion G AO
 13 'cure blindness' '' '' ''
 0 10 230 P
-G none
+g none~
 #3288
 vial holy water~
 a vial of holy water~
@@ -3331,7 +3331,7 @@ crystal~
 potion AGI AO
 20 'bless' 'protection evil' 'remove curse' ''
 10 10 720 P
-G none
+g none~
 #3289
 potion armor~
 a potion of armor~
@@ -3340,7 +3340,7 @@ glass~
 potion G AO
 10 'armor' '' '' ''
 0 10 200 P
-G none
+g none~
 #3290
 potion negation~
 a potion of negation~
@@ -3349,7 +3349,7 @@ glass~
 potion BG AO
 35 'cancellation' '' '' ''
 9 10 830 P
-G none
+g none~
 #3291
 potion fly flying~
 a potion of flying~
@@ -3358,7 +3358,7 @@ glass~
 potion G AO
 9 'fly' '' '' ''
 3 10 250 P
-G none
+g none~
 #3292
 potion true sight~
 a potion of true sight~
@@ -3367,7 +3367,7 @@ glass~
 potion G AO
 10 'detect invis' 'detect magic' 'detect good' 'detect evil'
 4 10 2290 P
-G none
+g none~
 #3349
 long sword меч~
 @eng a glowing long sword@rus ~~сверкающий~~ ~~длинный~~ ~~меч~~~
@@ -3384,7 +3384,7 @@ E
 long sword~
 It looks exceptionally sharp and well-balanced. Maybe you should keep it.
 ~
-G none
+g none~
 #3350
 sword standard merc меч~
 @eng a standard issue sword@rus ~~форменный~~ ~~меч~~~
@@ -3400,7 +3400,7 @@ sword~
 You see a sword of great craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
-G male
+g male~
 #3351
 dagger standard merc кинжал~
 @eng a standard issue dagger@rus ~~форменный~~ ~~кинжал~~~
@@ -3418,7 +3418,7 @@ dagger~
 You see a dagger of great craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
-G male
+g male~
 #3352
 mace standard merc палица~
 @eng a standard issue mace@rus ~~форменная~~ ~~палица~~~
@@ -3436,7 +3436,7 @@ mace~
 You see a mace of great craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
-G female
+g female~
 #3353
 vest standard merc жилет~
 @eng a standard issue vest@rus ~~форменный~~ ~~жилет~~~
@@ -3450,7 +3450,7 @@ vest~
 You see a vest of great craftsmanship.  Stamped on the side is:
 Merc Industries
 ~
-G male
+g male~
 #3354
 shield standard merc щит~
 @eng a standard issue shield@rus ~~форменный~~ ~~щит~~~
@@ -3464,7 +3464,7 @@ shield~
 You see a shield of great craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
-G male
+g male~
 #3355
 cloak standard merc плащ~
 @eng a standard issue cloak@rus ~~форменный~~ ~~плащ~~~
@@ -3478,7 +3478,7 @@ cloak~
 You see a cloak of great craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
-G male
+g male~
 #3356
 helmet standard merc шлем~
 @eng a standard issue helmet@rus ~~форменный~~ ~~шлем~~~
@@ -3492,7 +3492,7 @@ helmet~
 You see a helmet of great craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
-G male
+g male~
 #3357
 leggings standard merc гамаши~
 @eng a pair of standard issue leggings@rus ~~форменные~~ ~~гамаши~~~
@@ -3506,7 +3506,7 @@ leggings~
 You see leggings of great craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
-G plural
+g plural~
 #3358
 boots standard merc ботинки~
 @eng a pair of standard issue boots@rus ~~форменные~~ ~~ботинки~~~
@@ -3520,7 +3520,7 @@ boots~
 You see boots of great craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
-G plural
+g plural~
 #3359
 gloves standard merc перчатки стандартные~
 @eng a pair of standard issue gloves@rus ~~форменные~~ ~~перчатки~~~
@@ -3534,7 +3534,7 @@ gloves~
 You see gloves of great craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
-G plural
+g plural~
 #3360
 sleeves standard merc нарукавники~
 @eng a pair of standard issue sleeves@rus ~~форменные~~ ~~нарукавники~~~
@@ -3548,7 +3548,7 @@ sleeves~
 You see sleeves of great craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
-G male
+g male~
 #3361
 cape standard merc плащ~
 @eng a standard issue cape@rus ~~форменный~~ ~~плащ~~~
@@ -3562,7 +3562,7 @@ cape~
 You see a cape of great craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
-G male
+g male~
 #3362
 belt standard merc пояс~
 @eng a standard issue belt@rus ~~форменный~~ ~~пояс~~~
@@ -3576,7 +3576,7 @@ belt standard merc~
 You see a bronze belt of great craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
-G male
+g male~
 #3363
 bracer standard merc браслет~
 @eng a standard issue bracer@rus ~~форменный~~ ~~браслет~~~
@@ -3590,7 +3590,7 @@ bracer~
 You see a bracer of great craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
-G male
+g male~
 #3364
 ring signet кольцо~
 @eng a city guard signet ring@rus ~~кольцо~~ с печаткой~
@@ -3603,7 +3603,7 @@ A
 17 -4
 A
 20 -1
-G none
+g none~
 #3365
 banner war merc знамя~
 @eng a war banner@rus ~~военное~~ ~~знамя~~~
@@ -3620,7 +3620,7 @@ E
 banner~
 This is the official Merc war banner to see you through the darkest realm!
 ~
-G none
+g none~
 #3371
 ring diamond wedding~
 a diamond wedding ring~
@@ -3636,7 +3636,7 @@ ring diamond wedding~
 A slender gold band set with a marquise-cut four carat blue-white solitaire.
 Inscribed on the inside of the band is: 'Your loving husband, House'.
 ~
-G none
+g none~
 #3372
 band gold wedding~
 a gold wedding band~
@@ -3651,7 +3651,7 @@ E
 band gold wedding~
 A wide, plain circle of gold inscribed: 'Your loving wife, Vanya'.
 ~
-G none
+g none~
 #3373
 pearl жемчужина~
 @eng a small pearl@rus жемчужина~
@@ -3660,7 +3660,7 @@ pearl~
 gem W AO
 0 0 0 0 0
 0 1 1000 P
-G female
+g female~
 #3374
 garnet gem гранат~
 @eng a garnet@rus гранат~
@@ -3669,7 +3669,7 @@ gem~
 gem W AO
 0 0 0 0 0
 0 1 500 P
-G male
+g male~
 #3375
 emerald gem изумруд~
 @eng an emerald@rus изумруд~
@@ -3678,7 +3678,7 @@ gem~
 gem W AO
 0 0 0 0 0
 0 1 5000 P
-G male
+g male~
 #3376
 ruby gem рубин~
 @eng a ruby@rus рубин~
@@ -3687,7 +3687,7 @@ gem~
 gem W AO
 0 0 0 0 0
 0 1 6000 P
-G male
+g male~
 #3377
 diamond gem бриллиант~
 @eng a diamond@rus бриллиант~
@@ -3696,7 +3696,7 @@ gem~
 gem W AO
 0 0 0 0 0
 0 1 10000 P
-G male
+g male~
 #3378
 opal опал~
 @eng an opal@rus опал~
@@ -3705,7 +3705,7 @@ gem~
 gem W AO
 0 0 0 0 0
 0 1 2000 P
-G male
+g male~
 #3379
 key gate gatekey ключ мидграард мидгаард~
 @eng the gate key@rus ~~ключ~~ от ворот~
@@ -3714,7 +3714,7 @@ silver~
 key OY 0
 0 0 0 0 0
 1 1 10000 P
-G male
+g male~
 #3380
 beef jerky beefjerky кусок~
 @eng some beef jerky@rus ~~кусок~~ говядины~
@@ -3723,7 +3723,7 @@ food~
 food 0 A
 CE DF 0 0 0
 0 15 100 P
-G none
+g none~
 #3381
 chicken wholechicken цыпленок~
 @eng a whole chicken@rus цыпленок~
@@ -3732,7 +3732,7 @@ food~
 food 0 A
 BE CD 0 0 0
 0 11 87 P
-G male
+g male~
 #3382
 map titan~
 a map of the valley of Titans~
@@ -3786,7 +3786,7 @@ Shop---Western-Road---Square---------Boulevard
                    White House                      & - fountain    by Kajko
 *****************************************************************************
 ~
-G none
+g none~
 #3383
 map thera~
 a map of West Thera~
@@ -3832,7 +3832,7 @@ to make everything fit.  This map shows the GENERAL location of an area with
 respect to the other areas. Type "areas" for a complete list with suggested 
 levels and the authors. 
 ~
-G none
+g none~
 #3384
 map thera~
 a map of East Thera~
@@ -3879,7 +3879,7 @@ to make everything fit.  This map shows the GENERAL location of an area
 with respect to the other areas.Type "areas" for a complete list with 
 suggested levels and the authors.
 ~
-G none
+g none~
 #3385
 map newbie~
 a newbie map for East Thera~
@@ -3916,7 +3916,7 @@ map newbie~
 	MSM : Market Square in Midgaard.
 	CSM : The Center of Market Square in New Thalos
 ~
-G none
+g none~
 #3386
 map newbie~
 a newbie map for West Thera~
@@ -3945,7 +3945,7 @@ map newbie~
 
 	MSM : Market Square of Midgaard.
 ~
-G none
+g none~
 #3387
 map green~
 a green map~
@@ -3993,7 +3993,7 @@ from MSM :>>>> 4e 3n 2w 5n w 3n d 7n.......
 
 MSM : Market Square of the Midgaard.
 ~
-G none
+g none~
 #3388
 map yellow~
 a yellow map~
@@ -4034,7 +4034,7 @@ from MSM :>>>> 13w 2n 2e d 5n u 2w n 2w d 2s d...
 
 MSM : Market Square of the Midgaard.
 ~
-G none
+g none~
 #3389
 map red~
 a red map~
@@ -4078,7 +4078,7 @@ from MSM :>>>> 34e n 4e 2s 3e n e n 5e s 2e....
 
 MSM : Market Square of the Midgaard.
 ~
-G none
+g none~
 #3390
 map blue~
 a blue map~
@@ -4116,7 +4116,7 @@ from MSM :>>>>  8e 2n 2e u...
 
 MSM : Market Square of the Midgaard.
 ~
-G none
+g none~
 #3391
 map white~
 a white map~
@@ -4160,7 +4160,7 @@ from MSM :>>>> 34e n 3e.....
 
 MSM : Market Square of the Midgaard.
 ~
-G none
+g none~
 #3392
 map cyan~
 a cyan map~
@@ -4198,7 +4198,7 @@ from MSM :>>>> 6e 4s 2e n...
 
 MSM : Market Square of the Midgaard.
 ~
-G none
+g none~
 #3393
 map black~
 a black map~
@@ -4236,7 +4236,7 @@ from MSM :>>>> 3e 8s 2w 2s 2e 2s e...
 
 MSM : Market Square of the Midgaard.
 ~
-G none
+g none~
 #3394
 old book~
 an old book about known limited items, Fascicle I~
@@ -4451,7 +4451,7 @@ Note that: Most of the informations are based on legends and tales,
 therefore there can be some mistaken points and ofcourse there can be many
 limited items which we don't know yet....................................
 ~
-G none
+g none~
 #3395
 old book~
 an old book about known limited items, Fascicle II~
@@ -4593,7 +4593,7 @@ In this book you would find some short informations about the limited
 armor items of the Shades of Gray (based on affections). For further
 information, try read page1, read page2, read page3, read page4, etc.
 ~
-G none
+g none~
 #3396
 old book~
 an old book~
@@ -4623,7 +4623,7 @@ that paladin in the south and up of the Midgaard.
 eg, say kassandra
     say sebat
 ~
-G none
+g none~
 #3397
 quiver колчан~
 @eng quiver@rus колчан~
@@ -4632,7 +4632,7 @@ leather~
 container 0 AK
 50 F 0 20 100
 1 10 9 G
-G male
+g male~
 #3398
 map canyon elemental~
 a map of elemental canyon~
@@ -4687,7 +4687,7 @@ Chamber--Gardens--Pathway  Floor--Floor---Floor--River
                                        To the          Cave----Cave----Chamber  
                                      Mountain Path                              
 ~
-G none
+g none~
 #3399
 map underdark under dark~
 map of Underdark~
@@ -4793,7 +4793,7 @@ Note: Not all doors and passes shown at this map - try to find them!
                                                                Exit
  
 ~
-G none
+g none~
 #0
 
 #ROOMS

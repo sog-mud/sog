@@ -61,7 +61,7 @@ marble~
 key ORYf AOP
 0 0 0 0 0
 0 4 0 P
-G none
+g none~
 #95501
 altar~
 @eng the altar@rus алтарь~
@@ -70,7 +70,7 @@ gold~
 container ORY P
 10 ABCD 95500 15 100
 60 1 20 P
-G none
+g none~
 #95502
 essence chaos~
 @eng item of chaos@rus сущность хаоса~
@@ -79,7 +79,7 @@ gold~
 treasure ORe AO
 0 0 0 0 0
 0 1 100000 P
-G none
+g none~
 #95503
 chaos blade~
 a chaos blade~
@@ -88,7 +88,7 @@ gold~
 weapon AIPTW AN
 dagger 6 6 'pierce' D
 20 200 0 P
-G none
+g none~
 #95504
 earing gleaming~
 Gleaming {Rm{Gu{Yl{bt{Mi{Cc{Wo{Rl{Go{Yr{x earring~
@@ -97,7 +97,7 @@ unknown~
 jewelry AMTYZ AS
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #0
 
 #ROOMS

@@ -392,7 +392,7 @@ A
 18 1
 A
 4 -3
-G none
+g none~
 #23002
 key blackened~
 a blood-stained key~
@@ -401,7 +401,7 @@ unknown~
 key 0 A
 0 0 0 0 0
 43 1 430 P
-G none
+g none~
 #23003
 key heavy iron~
 a heavy iron key~
@@ -410,7 +410,7 @@ unknown~
 key 0 A
 0 0 0 0 0
 43 1 430 P
-G none
+g none~
 #23004
 key smooth~
 an often used key~
@@ -419,7 +419,7 @@ unknown~
 key 0 A
 0 0 0 0 0
 43 1 430 P
-G none
+g none~
 #23005
 key blackened~
 a blood-stained key~
@@ -428,7 +428,7 @@ unknown~
 key 0 A
 0 0 0 0 0
 43 1 430 P
-G none
+g none~
 #23006
 key heavy iron~
 a heavy iron key~
@@ -437,7 +437,7 @@ unknown~
 key 0 A
 0 0 0 0 0
 43 1 430 P
-G none
+g none~
 #23007
 key smooth~
 an often used key~
@@ -446,7 +446,7 @@ unknown~
 key 0 A
 0 0 0 0 0
 43 1 430 P
-G none
+g none~
 #23008
 black sword blade~
 a black sword~
@@ -461,7 +461,7 @@ A
 19 4
 A
 18 2
-G none
+g none~
 #23009
 cloak unmoving black~
 an unmoving black cloak~
@@ -474,7 +474,7 @@ A
 19 3
 A
 17 -5
-G none
+g none~
 #23010
 overlapping black plates snake~
 snake-like overlapping black plates~
@@ -489,7 +489,7 @@ A
 19 3
 A
 2 2
-G none
+g none~
 #23011
 sword fine~
 a finely crafted sword~
@@ -500,7 +500,7 @@ sword 5 9 'slice' 0
 40 12 400 P
 A
 18 6
-G none
+g none~
 #23012
 cloak shift shifting colors~
 a cloak of shifting colors~
@@ -515,7 +515,7 @@ A
 19 3
 A
 17 -5
-G none
+g none~
 #23013
 key platinum~
 a shiny platinum key~
@@ -524,7 +524,7 @@ unknown~
 key 0 AO
 0 0 0 0 0
 45 1 450 P
-G none
+g none~
 #23014
 key golden~
 a shiny golden key~
@@ -533,7 +533,7 @@ unknown~
 key 0 AO
 0 0 0 0 0
 50 1 500 P
-G none
+g none~
 #23015
 great golden chest~
 a great golden chest~
@@ -542,7 +542,7 @@ unknown~
 container AG 0
 2000 0 2416 100 100
 0 0 0 P
-G none
+g none~
 #23016
 key lord~
 the lord's key~
@@ -551,7 +551,7 @@ unknown~
 key 0 AO
 0 0 0 0 0
 0 1 0 P
-G none
+g none~
 #23017
 great golden chest~
 a great golden chest~
@@ -560,7 +560,7 @@ unknown~
 container AG 0
 2000 0 2418 100 100
 0 5000 0 P
-G none
+g none~
 #23018
 key lord~
 the lord's key~
@@ -569,7 +569,7 @@ unknown~
 key 0 AO
 0 0 0 0 0
 0 1 0 P
-G none
+g none~
 #23019
 angreal small figurine~
 a small figurine~
@@ -584,16 +584,16 @@ A
 17 -15
 A
 12 50
-G none
+g none~
 #23020
 heron marked blade sword~
 a Heron marked blade~
 The blade of a swordmaster lies at your feet.~
 iron~
 weapon GIM AN
-sword 10 8 'slash' DE
+sword 10 7 'slash' DE
 60 12 600 P
-G none
+g none~
 #23021
 malkierian battle helm crane~
 a helm stylized into a golden crane~
@@ -608,7 +608,7 @@ A
 19 4
 A
 18 4
-G none
+g none~
 #23022
 suit battle armor~
 a suit of Malkerian battle armor~
@@ -623,7 +623,7 @@ A
 19 4
 A
 18 2
-G none
+g none~
 #23023
 cuendillar heartstone dagger~
 a heartstone dagger~
@@ -632,7 +632,7 @@ unknown~
 weapon GM AN
 dagger 10 7 'pierce' D
 60 10 600 P
-G none
+g none~
 #23024
 lord sceptre~
 a Lord's sceptre~
@@ -647,7 +647,7 @@ A
 18 3
 A
 3 3
-G none
+g none~
 #23025
 ward strange~
 a strange ward~
@@ -656,7 +656,7 @@ unknown~
 key 0 A
 0 0 0 0 0
 33 1 330 P
-G none
+g none~
 #23026
 spring~
 the spring~
@@ -665,7 +665,7 @@ marble~
 fountain G 0
 50 50 'water' 0 0
 0 0 0 P
-G none
+g none~
 #23027
 banner banners~
 the small alcove~
@@ -678,7 +678,7 @@ E
 banner banners~
 One of the banners cover a small alcove.
 ~
-G none
+g none~
 #23028
 staff cheetah~
 an engraved staff~
@@ -687,7 +687,7 @@ unknown~
 staff 0 AO
 40 8 8 'sanctuary' 0
 43 5 430 P
-G none
+g none~
 #23029
 muck~
 encased in the lakes muck~
@@ -700,7 +700,7 @@ E
 mck~
 The entire lakes bottom is thick black muck.
 ~
-G none
+g none~
 #23030
 skeleton~
 a skeleton~
@@ -713,7 +713,7 @@ E
 skeleton~
 A skeleton lies here.
 ~
-G none
+g none~
 #23031
 skeleton~
 a skeleton~
@@ -726,7 +726,7 @@ E
 skeleton~
 A skeleton lies here.
 ~
-G none
+g none~
 #23032
 a'dam~
 an A'dam~
@@ -737,7 +737,7 @@ wand 0 AO
 40 4 400 P
 A
 19 3
-G none
+g none~
 #23033
 panelled plain dress~
 a plain dress pannelled with lightning bolts~
@@ -752,7 +752,7 @@ A
 19 2
 A
 4 2
-G none
+g none~
 #23034
 smile seductive~
 a seductive smile~
@@ -767,7 +767,7 @@ A
 19 3
 A
 12 30
-G none
+g none~
 #23035
 wicked knife~
 a wicked-looking knife~
@@ -780,7 +780,7 @@ A
 19 3
 A
 18 3
-G none
+g none~
 #23036
 fox medallion~
 a foxheaded medallion~
@@ -795,7 +795,7 @@ A
 17 -10
 A
 2 2
-G none
+g none~
 #0
 
 #ROOMS
@@ -6037,12 +6037,14 @@ E 0 23012 0 12		*	a cloak of shifting colors: about the shoulders
 S
 
 #OLIMITS
-O 23020 1	* a Heron marked blade
+O 23019 10	* a small figurine
+O 23020 10	* a Heron marked blade
 O 23021 6	* a helm stylized into a golden crane
 O 23022 10	* a suit of Malkerian battle armor
 O 23023 1	* a heartstone dagger
 O 23033 5	* a plain dress pannelled with lightning bolts
 O 23035 5	* a wicked-looking knife
+O 23036 5	* a foxheaded medallion
 S
 
 #$

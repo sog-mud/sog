@@ -318,7 +318,7 @@ A
 19 2
 A
 2 -1
-G plural
+g plural~
 #24301
 bracer браслет стальной centaur steel~
 @eng a steel centaur bracer@rus ~~стальной~~ ~~браслет~~~
@@ -331,7 +331,7 @@ A
 19 2
 A
 2 -1
-G male
+g male~
 #24302
 helm шлем~
 @eng a centaur helm@rus ~~шлем~~ кентавра~
@@ -340,7 +340,7 @@ steel~
 armor 0 AE
 7 7 7 10 0
 30 10 8000 P
-G male
+g male~
 #24303
 plate armor centaur доспехи~
 @eng a suit of centaur plate@rus ~~доспехи~~ кентавра~
@@ -353,7 +353,7 @@ A
 19 2
 A
 2 -1
-G plural
+g plural~
 #24305
 spear копье steel~
 @eng a steel-tipped spear@rus ~~острое~~ ~~копье~~~
@@ -371,7 +371,7 @@ br~
 @rus l
 "
 ~
-G none
+g none~
 #24306
 circlet centaur hair клочок~
 @eng a circlet of braided centaur hair@rus ~~повязка~~ для волос~
@@ -388,7 +388,7 @@ A
 19 3
 A
 13 50
-G female
+g female~
 #24308
 sword меч black bastard~
 @eng a blackened bastard sword@rus ~~черный~~ ~~острый~~ ~~меч~~~
@@ -401,7 +401,7 @@ A
 18 8
 A
 19 8
-G male
+g male~
 #24309
 fist earth перчатка~
 @eng Fist of the Earth@rus ~~Перчатка~~ Земли~
@@ -414,7 +414,7 @@ A
 18 5
 A
 19 5
-G female
+g female~
 #24312
 bark ebon ebonwood кора~
 @eng a casing of ebonwood bark@rus ~~древесная~~ ~~кора~~~
@@ -429,7 +429,7 @@ A
 19 3
 A
 13 35
-G female
+g female~
 #0
 
 #ROOMS

@@ -258,7 +258,7 @@ spit gun~
 A standard weapon in Mega-City One.  It uses general
 purpose ammunition.
 ~
-G none
+g none~
 #8001
 knee pads~
 @eng a set of knee pads@rus наколенники~
@@ -272,7 +272,7 @@ knee pads~
 It is a set of Grak Brothers knee pads.  They are currently
 popular with the juve and punk gangs.
 ~
-G none
+g none~
 #8002
 stooky gland~
 @eng a stooky gland@rus железа~
@@ -285,7 +285,7 @@ E
 stooky gland~
 Stooky glands are known for the restorative properties.
 ~
-G none
+g none~
 #8003
 lawgiver~
 @eng a lawgiver@rus законотворец~
@@ -299,7 +299,7 @@ lawgiver gun~
 The standard weapon for the city's Judges.  It uses general
 high explosive ammunition.
 ~
-G none
+g none~
 #8004
 safe~
 @eng the magnetically shielded safe@rus магнетически-защищённый сейф~
@@ -313,7 +313,7 @@ safe~
 This safe looks like not even a Sov-Cit Nuke could open it.
 You better find the code box.
 ~
-G none
+g none~
 #8005
 code box~
 @eng a code box@rus кодовая коробка~
@@ -326,7 +326,7 @@ E
 code box~
 The box looks like some kind of access device.
 ~
-G none
+g none~
 #8006
 bashball bat two-handed~
 @eng a bashball bat@rus бита~
@@ -342,7 +342,7 @@ bashball bat~
 This is the same type of bat used by the little spuggers
 to play bashball.
 ~
-G none
+g none~
 #8007
 vibroblade~
 @eng the vibroblade@rus вибронож~
@@ -364,7 +364,7 @@ vibroblade~
 Obviously of alien manufacture, this blade enhances fighting
 and survival skills.
 ~
-G none
+g none~
 #8008
 vacuum cleaner two-handed~
 @eng a Hoover vacuum cleaner@rus пылесос "Хувер"~
@@ -378,7 +378,7 @@ vacuum cleaner~
 This vacuum looks well built and will last you many years of
 cleaning pleasure.
 ~
-G none
+g none~
 #8009
 knife~
 @eng a knife@rus нож~
@@ -391,7 +391,7 @@ E
 knife~
 It is a knife. 'Nuff said. (Marvel joke).
 ~
-G none
+g none~
 #8010
 wet noodle~
 @eng a wet noodle@rus лапшина~
@@ -406,7 +406,7 @@ E
 noodle~
 It looks like a noodle freshly made at the Olive Garden.
 ~
-G none
+g none~
 #8011
 judge club~
 @eng a Judge's club@rus дубина судьи~
@@ -422,7 +422,7 @@ judge club~
 It is a standard Justice Hall issue club.  Many a Perp's
 head has been bashed with this baby.
 ~
-G none
+g none~
 #8012
 vault key~
 @eng a vault key@rus ключ от погреба~
@@ -435,7 +435,7 @@ E
 vault key~
 The key looks like it could be useful.
 ~
-G none
+g none~
 #8013
 key card~
 @eng a key card@rus ключ-карточка~
@@ -448,7 +448,7 @@ E
 key card~
 It looks like it fits a slot somewhere.
 ~
-G none
+g none~
 #8014
 judge club~
 @eng a Judge's club@rus дубина судьи~
@@ -464,7 +464,7 @@ judge club~
 It is a head judge Justice Hall issue club.  Many a Perp's
 head has been bashed with this baby.
 ~
-G none
+g none~
 #8015
 club electric shock~
 @eng a shock club@rus шоковая дубинка~
@@ -473,7 +473,7 @@ steel~
 weapon A AN
 mace 4 5 'shock' 0
 15 30 750 P
-G none
+g none~
 #8016
 stunner police stick~
 @eng a police stun stick@rus Полицейская дубинка~
@@ -482,7 +482,7 @@ wood~
 weapon 0 AN
 mace 3 9 'pound' G
 23 20 1160 P
-G none
+g none~
 #0
 
 #ROOMS

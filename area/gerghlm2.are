@@ -865,7 +865,7 @@ food~
 food 0 A
 CE CE 0 0 0
 1 1 2 P
-G none
+g none~
 #7501
 apple pie~
 an apple pie~
@@ -874,7 +874,7 @@ food~
 food 0 A
 DF DF 0 0 0
 1 4 10 P
-G none
+g none~
 #7502
 beet~
 a beet~
@@ -883,7 +883,7 @@ food~
 food 0 A
 BEF BEF 0 A 0
 1 4 40 P
-G none
+g none~
 #7503
 carrot~
 a carrot~
@@ -892,7 +892,7 @@ food~
 food 0 A
 CE CE 0 0 0
 1 4 10 P
-G none
+g none~
 #7504
 beer bottle~
 a bottle of beer~
@@ -901,7 +901,7 @@ glass~
 drink 0 A
 2 2 'beer' 0 0
 1 10 100 P
-G none
+g none~
 #7505
 magic water pitcher~
 a magic water pitcher~
@@ -910,7 +910,7 @@ glass~
 drink 0 A
 25 25 'water' 0 0
 0 5 100 P
-G none
+g none~
 #7507
 strengthening herbs red bunch~
 a bunch of red herbs~
@@ -919,7 +919,7 @@ food~
 pill 0 A
 2 'giant strength' 'refresh' 'haste' ''
 1 15 855 P
-G none
+g none~
 #7508
 healing herb green bunch~
 a bunch of green herbs~
@@ -928,7 +928,7 @@ food~
 pill 0 A
 1 'cure critical' 'remove curse' 'cure poison' 'cure disease'
 1 20 437 P
-G none
+g none~
 #7509
 strange herbs green bunch~
 a bunch of herbs~
@@ -937,7 +937,7 @@ food~
 pill 0 A
 1 'detect hidden' 'detect invis' 'infravision' ''
 1 10 494 P
-G none
+g none~
 #7511
 corpse guppy~
 corpse of a guppy~
@@ -946,7 +946,7 @@ food~
 food 0 A
 C C 0 0 0
 1 10 0 P
-G none
+g none~
 #7512
 corpse goldfish~
 corpse of a goldfish~
@@ -955,7 +955,7 @@ food~
 food 0 A
 AC AC 0 0 0
 1 10 0 P
-G none
+g none~
 #7513
 lute~
 a lute~
@@ -974,7 +974,7 @@ On the side it has words that say:
 
                                 Lute of power.
 ~
-G none
+g none~
 #7514
 harp~
 a harp~
@@ -992,7 +992,7 @@ harp~
 On the side it says:
                                 Harp of safety.
 ~
-G none
+g none~
 #7515
 umbrella~
 an umbrella~
@@ -1001,7 +1001,7 @@ wood~
 weapon CK AN
 exotic 3 4 'bite' 0
 7 50 5000 P
-G none
+g none~
 #7516
 stick~
 a stick~
@@ -1010,7 +1010,7 @@ wood~
 weapon 0 AN
 mace 2 5 'pound' 0
 4 50 300 P
-G none
+g none~
 #7517
 bag marbles~
 a bag of marbles~
@@ -1025,7 +1025,7 @@ On the side is says:
 
                        Angel Enterprises Ltd.
 ~
-G none
+g none~
 #7518
 doll~
 a doll~
@@ -1034,7 +1034,7 @@ cloth~
 trash 0 AO
 0 0 0 0 0
 4 30 150 P
-G none
+g none~
 #7519
 vest junior guard~
 a junior guard vest~
@@ -1050,7 +1050,7 @@ junior guard vest~
 On the side it says:
                                 Angel Enterprises Ltd.
 ~
-G none
+g none~
 #7520
 shield junior guard~
 a junior guard shield~
@@ -1066,7 +1066,7 @@ junior guard shield~
 On the side it says:
                                 Angel Enterprises Ltd.
 ~
-G none
+g none~
 #7521
 lantern junior guard~
 a junior guard lantern~
@@ -1075,7 +1075,7 @@ bronze~
 light 0 A
 0 0 -1 0 0
 0 20 10 P
-G none
+g none~
 #7522
 cudgel junior guard~
 a junior guard cudgel~
@@ -1084,7 +1084,7 @@ iron~
 weapon 0 AN
 exotic 5 4 'crush' 0
 14 50 2560 P
-G none
+g none~
 #7523
 sharp fingernail nail finger~
 a sharp fingernail~
@@ -1093,7 +1093,7 @@ iron~
 weapon 0 AN
 exotic 2 7 'stab' 0
 10 10 901 P
-G none
+g none~
 #7524
 gerighelm guard ring~
 Gerighelm guard ring~
@@ -1104,7 +1104,7 @@ treasure 0 AB
 15 10 2640 P
 A
 19 1
-G none
+g none~
 #7525
 helmet guard gerighelm~
 a Gerighelm guard helmet~
@@ -1113,7 +1113,7 @@ bronze~
 armor 0 AE
 3 3 3 0 2
 17 20 10 P
-G none
+g none~
 #7526
 sleeves guard gerighelm~
 a pair of Gerighelm guard sleeves~
@@ -1122,7 +1122,7 @@ bronze~
 armor 0 AI
 6 6 6 0 2
 17 40 2295 P
-G none
+g none~
 #7527
 leggings guard gerighelm~
 a pair of Gerighelm guard leggings~
@@ -1131,7 +1131,7 @@ bronze~
 armor 0 AF
 6 6 6 0 2
 16 50 2448 P
-G none
+g none~
 #7528
 shield guard gerighelm~
 a Gerighelm shield~
@@ -1140,7 +1140,7 @@ bronze~
 armor 0 AJ
 6 6 6 0 2
 16 60 2400 P
-G none
+g none~
 #7529
 vest guard gerighelm~
 a Gerighelm vest~
@@ -1149,7 +1149,7 @@ bronze~
 armor 0 AD
 6 6 6 0 2
 16 70 2720 P
-G none
+g none~
 #7530
 cape guard gerighelm~
 a Gerighelm guard cape~
@@ -1158,7 +1158,7 @@ cloth~
 armor 0 AK
 6 6 6 0 2
 16 50 2560 P
-G none
+g none~
 #7531
 cloak guard gerighelm~
 a Gerighelm cloak~
@@ -1173,7 +1173,7 @@ A
 5 3
 A
 17 -10
-G none
+g none~
 #7532
 gloves guard gerighelm~
 a pair of Gerighelm gloves~
@@ -1182,7 +1182,7 @@ bronze~
 armor 0 AH
 6 6 6 0 2
 16 30 2448 P
-G none
+g none~
 #7533
 belt guard gerighelm~
 a Gerighelm belt~
@@ -1191,7 +1191,7 @@ bronze~
 armor 0 AL
 6 6 6 0 2
 16 20 2400 P
-G none
+g none~
 #7534
 bracer guard gerighelm~
 a Gerighelm bracer~
@@ -1200,7 +1200,7 @@ bronze~
 armor 0 AM
 6 6 6 0 2
 16 20 2560 P
-G none
+g none~
 #7535
 sword guard gerighelm~
 a Gerighelm sword~
@@ -1209,7 +1209,7 @@ bronze~
 weapon 0 AN
 sword 5 4 'slash' 0
 15 80 2400 P
-G none
+g none~
 #7536
 boots guard gerighelm~
 a pair of Gerighelm boots~
@@ -1218,7 +1218,7 @@ bronze~
 armor 0 AG
 6 6 6 0 2
 16 50 3060 P
-G none
+g none~
 #7537
 helm defenders~
 a defenders helm~
@@ -1227,7 +1227,7 @@ gold~
 armor 0 AE
 6 6 6 0 2
 20 40 3800 P
-G none
+g none~
 #7538
 sword defenders~
 a defenders sword~
@@ -1236,7 +1236,7 @@ iron~
 weapon 0 AN
 sword 5 5 'slash' 0
 20 80 4400 P
-G none
+g none~
 #7539
 ring palace guard~
 a palace guard ring~
@@ -1247,7 +1247,7 @@ treasure A AB
 22 1 5082 P
 A
 19 1
-G none
+g none~
 #7540
 helmet palace guard~
 a palace guard helmet~
@@ -1256,7 +1256,7 @@ steel~
 armor A AE
 7 7 7 0 2
 22 30 3780 P
-G none
+g none~
 #7541
 sleeves palace guard~
 a pair of palace guard sleeves~
@@ -1265,7 +1265,7 @@ steel~
 armor A AI
 7 7 7 0 2
 22 50 5082 P
-G none
+g none~
 #7542
 leggings palace guard~
 a pair of palace guard leggings~
@@ -1274,7 +1274,7 @@ steel~
 armor A AF
 7 7 7 0 2
 22 60 4851 P
-G none
+g none~
 #7543
 shield palace guard~
 a palace guard shield~
@@ -1283,7 +1283,7 @@ steel~
 armor A AJ
 7 7 7 0 2
 22 50 5082 P
-G none
+g none~
 #7544
 vest palace guard~
 a palace guard vest~
@@ -1292,7 +1292,7 @@ steel~
 armor A AD
 7 7 7 0 2
 22 60 4840 P
-G none
+g none~
 #7545
 cape palace guard~
 a palace guard cape~
@@ -1301,7 +1301,7 @@ steel~
 armor A AK
 7 7 7 0 2
 22 40 4620 P
-G none
+g none~
 #7546
 cloak palace guard~
 a palace guard cloak~
@@ -1316,7 +1316,7 @@ A
 17 -10
 A
 1 2
-G none
+g none~
 #7547
 gloves palace guard~
 a pair of palace guard gloves~
@@ -1325,7 +1325,7 @@ steel~
 armor A AH
 7 7 7 0 2
 22 40 4400 P
-G none
+g none~
 #7548
 belt palace guard~
 a palace guard belt~
@@ -1334,7 +1334,7 @@ steel~
 armor A AL
 7 7 7 0 2
 22 60 4620 P
-G none
+g none~
 #7549
 bracer palace guard~
 a palace guard bracer~
@@ -1343,7 +1343,7 @@ steel~
 armor A AM
 7 7 7 0 2
 22 30 4410 P
-G none
+g none~
 #7550
 sword palace guard~
 a palace guard's sword~
@@ -1360,7 +1360,7 @@ The runes say:
 
 What does that mean?
 ~
-G none
+g none~
 #7551
 cooks cook hat~
 the cooks hat~
@@ -1369,7 +1369,7 @@ cloth~
 clothing H AE
 0 0 0 0 0
 20 10 4200 P
-G none
+g none~
 #7552
 silver staff~
 a silver staff~
@@ -1378,7 +1378,7 @@ wood~
 staff 0 AO
 40 20 20 'lightning bolt' 0
 20 40 4840 P
-G none
+g none~
 #7553
 dagger stabbing~
 the dagger of stabbing~
@@ -1391,7 +1391,7 @@ A
 2 3
 A
 18 10
-G none
+g none~
 #7554
 holy word holyword~
 a holyword~
@@ -1406,7 +1406,7 @@ A
 19 10
 A
 5 -2
-G none
+g none~
 #7555
 mace~
 a mace~
@@ -1419,7 +1419,7 @@ A
 2 1
 A
 1 3
-G none
+g none~
 #7556
 sword thunder~
 the sword of thunder~
@@ -1432,7 +1432,7 @@ A
 1 5
 A
 19 2
-G none
+g none~
 #7557
 vest titans titan~
 the vest of the titans~
@@ -1445,7 +1445,7 @@ A
 18 4
 A
 1 3
-G none
+g none~
 #7558
 hoe destruction~
 the hoe of destruction~
@@ -1456,7 +1456,7 @@ exotic 5 6 'blast' 0
 21 80 5175 P
 A
 18 10
-G none
+g none~
 #7559
 gardeners gloves~
 the gardeners gloves~
@@ -1469,7 +1469,7 @@ A
 2 2
 A
 1 2
-G none
+g none~
 #7560
 cutlass~
 a cutlass~
@@ -1478,7 +1478,7 @@ steel~
 weapon 0 AN
 sword 5 6 'pierce' 0
 22 80 6000 P
-G none
+g none~
 #7561
 uniform~
 a uniform~
@@ -1489,7 +1489,7 @@ armor G AD
 22 60 6000 P
 A
 17 -15
-G none
+g none~
 #7562
 saber~
 a saber~
@@ -1500,7 +1500,7 @@ sword 5 6 'slash' 0
 22 80 7000 P
 A
 18 10
-G none
+g none~
 #7563
 two-handed two handed~
 a two-handed sword~
@@ -1519,7 +1519,7 @@ A
 18 5
 A
 19 5
-G none
+g none~
 #7564
 dukes duke helm~
 the Dukes Helm~
@@ -1530,7 +1530,7 @@ armor G AE
 28 50 9920 P
 A
 17 -25
-G none
+g none~
 #7565
 duchesses tiara~
 the Duchesses Tiara~
@@ -1543,7 +1543,7 @@ A
 20 5
 A
 12 100
-G none
+g none~
 #7566
 wedding ring~
 a wedding ring~
@@ -1556,7 +1556,7 @@ A
 13 20
 A
 20 4
-G none
+g none~
 #7567
 wedding ring~
 a wedding ring~
@@ -1569,7 +1569,7 @@ A
 13 20
 A
 20 4
-G none
+g none~
 #7596
 strange herbs green bunch~
 a bunch of herbs~
@@ -1578,7 +1578,7 @@ food~
 pill G A
 1 'detect magic' 'fly' 'word of recall' 'pass door'
 1 1 469 P
-G none
+g none~
 #7597
 magic bottle air~
 The Magic bottle of Air~
@@ -1593,7 +1593,7 @@ It has written on the side:
 
 Garunteed to provide fresh breathing air underwater, till it doesn't...
 ~
-G none
+g none~
 #7600
 marbles marble green~
 a green marble~
@@ -1602,7 +1602,7 @@ marble~
 wand A AO
 20 1 1 'fireball' 0
 20 1 2560 P
-G none
+g none~
 #7601
 marble marbles blue~
 a blue marble~
@@ -1611,7 +1611,7 @@ marble~
 wand A AO
 20 1 1 'heal' 0
 20 1 2560 P
-G none
+g none~
 #7602
 marble marbles yellow~
 a yellow marble~
@@ -1620,7 +1620,7 @@ marble~
 wand A AO
 49 1 1 'gas breath' 0
 20 1 2100 P
-G none
+g none~
 #7650
 sleeves defenders~
 a defenders sleeves~
@@ -1629,7 +1629,7 @@ gold~
 armor 0 AI
 6 6 6 0 2
 18 60 4000 P
-G none
+g none~
 #7651
 leggings defenders~
 a defenders leggings~
@@ -1638,7 +1638,7 @@ silver~
 armor 0 AF
 6 6 6 0 2
 18 70 4180 P
-G none
+g none~
 #7652
 shield defenders~
 a defenders shield~
@@ -1647,7 +1647,7 @@ silver~
 armor 0 AJ
 6 6 6 0 2
 18 80 3610 P
-G none
+g none~
 #7653
 ring defender~
 a defenders ring~
@@ -1658,7 +1658,7 @@ armor G AB
 18 10 3610 P
 A
 13 20
-G none
+g none~
 #7654
 vest defender~
 a defenders vest~
@@ -1667,7 +1667,7 @@ silver~
 armor 0 AD
 5 5 5 -1 2
 18 60 3600 P
-G none
+g none~
 #7655
 cape defender~
 a defenders cape~
@@ -1676,7 +1676,7 @@ gold~
 armor 0 AK
 6 6 6 0 2
 18 80 3800 P
-G none
+g none~
 #7656
 cloak defender~
 a defenders cloak~
@@ -1685,7 +1685,7 @@ silver~
 armor 0 AC
 6 6 6 0 2
 18 60 3240 P
-G none
+g none~
 #7657
 gloves defender~
 a defenders gloves~
@@ -1694,7 +1694,7 @@ gold~
 armor 0 AH
 6 6 6 0 2
 18 70 4000 P
-G none
+g none~
 #7658
 belt defender~
 a defenders belt~
@@ -1703,7 +1703,7 @@ gold~
 armor 0 AL
 6 6 6 0 2
 18 70 3420 P
-G none
+g none~
 #7659
 bracer defender~
 a defenders bracer~
@@ -1712,7 +1712,7 @@ silver~
 armor 0 AM
 6 6 6 0 2
 18 30 3800 P
-G none
+g none~
 #7660
 boots defender~
 a defenders pair of boots~
@@ -1721,7 +1721,7 @@ silver~
 armor 0 AG
 6 6 6 0 2
 18 50 3420 P
-G none
+g none~
 #7661
 boots palace guard~
 a palace guards boots~
@@ -1730,7 +1730,7 @@ steel~
 armor A AG
 3 3 3 0 2
 18 50 10 P
-G none
+g none~
 #7699
 scythe~
 the Death's Scythe~
@@ -1739,7 +1739,7 @@ mithril~
 weapon G AN
 polearm 10 8 'smash' DEF
 60 200 50000 P
-G none
+g none~
 #0
 
 #ROOMS

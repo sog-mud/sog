@@ -593,7 +593,7 @@ handaxe hand axe~
 You see a finely made axe.  Iron, with a nice wooden shaft, this axe can
 withstand years of use.
 ~
-G none
+g none~
 #601
 meat cleaver~
 a meat cleaver~
@@ -608,7 +608,7 @@ E
 meat cleaver~
 This meat cleaver is made of good steel.
 ~
-G none
+g none~
 #602
 side meat beef~
 a side of beef~
@@ -617,7 +617,7 @@ meat~
 food 0 A
 DE DE 0 0 0
 0 100 50 P
-G none
+g none~
 #603
 side meat pork~
 a side of pork~
@@ -626,7 +626,7 @@ meat~
 food 0 A
 ABCE ABCE 0 0 0
 0 100 42 P
-G none
+g none~
 #604
 side meat horse~
 a side of horse~
@@ -635,7 +635,7 @@ meat~
 food 0 A
 BCDE BCDE 0 0 0
 0 120 21 P
-G none
+g none~
 #605
 meat chicken~
 a defeathered chicken~
@@ -644,7 +644,7 @@ meat~
 food 0 A
 E E 0 0 0
 0 50 10 P
-G none
+g none~
 #606
 emerald ring~
 an emerald ring~
@@ -653,7 +653,7 @@ amethyst~
 jewelry G AB
 0 0 0 0 0
 0 10 1000 P
-G none
+g none~
 #607
 glass trinket~
 a glass trinket~
@@ -664,7 +664,7 @@ gem 0 AO
 0 10 150 P
 A
 20 -1
-G none
+g none~
 #608
 golden necklace~
 a golden necklace~
@@ -675,7 +675,7 @@ jewelry 0 AC
 0 20 500 P
 A
 4 -1
-G none
+g none~
 #609
 cabbage~
 a head of cabbage~
@@ -684,7 +684,7 @@ food~
 food 0 A
 CD CD 0 0 0
 0 20 2 P
-G none
+g none~
 #610
 lettuce~
 a head of lettuce~
@@ -693,7 +693,7 @@ plant~
 food 0 A
 CD CD 0 0 0
 0 20 2 P
-G none
+g none~
 #611
 milk bottle~
 a bottle of milk~
@@ -702,7 +702,7 @@ glass~
 drink 0 A
 20 20 'milk' 0 0
 0 50 3 P
-G none
+g none~
 #612
 apple~
 an apple~
@@ -711,7 +711,7 @@ food~
 food 0 A
 D D 0 0 0
 0 10 1 P
-G none
+g none~
 #613
 corn~
 an ear of corn~
@@ -720,7 +720,7 @@ food~
 food 0 A
 D D 0 0 0
 0 10 3 P
-G none
+g none~
 #614
 hay pile~
 a pile of hay~
@@ -729,7 +729,7 @@ wood~
 trash 0 A
 0 0 0 0 0
 0 200 0 P
-G none
+g none~
 #615
 pitchfork fork~
 a pitchfork~
@@ -738,7 +738,7 @@ iron~
 weapon 0 AN
 spear 3 3 'stab' K
 7 100 122 P
-G none
+g none~
 #616
 vest~
 a leather vest~
@@ -747,7 +747,7 @@ leather~
 armor 0 AD
 1 2 2 0 0
 0 100 270 P
-G none
+g none~
 #617
 sleeves~
 some leather sleeves~
@@ -756,7 +756,7 @@ leather~
 armor 0 AI
 1 2 2 0 0
 0 50 136 P
-G none
+g none~
 #618
 leggings~
 some leather leggings~
@@ -765,7 +765,7 @@ leather~
 armor 0 AF
 1 2 2 0 0
 0 50 136 P
-G none
+g none~
 #619
 boots~
 some leather boots~
@@ -774,7 +774,7 @@ leather~
 armor 0 AG
 1 2 2 0 0
 0 50 136 P
-G none
+g none~
 #620
 signet ring~
 an Ofcol signet ring~
@@ -789,7 +789,7 @@ A
 13 5
 A
 20 -1
-G none
+g none~
 #621
 plate brass~
 brass plate~
@@ -802,7 +802,7 @@ A
 13 10
 A
 20 -1
-G none
+g none~
 #622
 helm brass~
 a brass helm~
@@ -815,7 +815,7 @@ A
 13 5
 A
 20 -1
-G none
+g none~
 #623
 leggings brass~
 brass leggings~
@@ -828,7 +828,7 @@ A
 13 5
 A
 20 -1
-G none
+g none~
 #624
 boots brass~
 brass boots~
@@ -841,7 +841,7 @@ A
 13 5
 A
 20 -1
-G none
+g none~
 #625
 gauntlets brass~
 brass gauntlets~
@@ -854,7 +854,7 @@ A
 13 5
 A
 20 -1
-G none
+g none~
 #626
 sleeves brass~
 brass sleeves~
@@ -867,7 +867,7 @@ A
 13 5
 A
 20 -1
-G none
+g none~
 #627
 shield brass~
 a brass shield~
@@ -880,7 +880,7 @@ A
 13 5
 A
 20 -1
-G none
+g none~
 #628
 girth brass~
 a brass girth~
@@ -893,7 +893,7 @@ A
 13 5
 A
 20 -1
-G none
+g none~
 #629
 bracer brass~
 a brass bracer~
@@ -906,7 +906,7 @@ A
 13 5
 A
 20 -1
-G none
+g none~
 #630
 claymore sword~
 a claymore~
@@ -919,7 +919,7 @@ A
 19 4
 A
 18 -2
-G none
+g none~
 #631
 plate silver~
 silver plate~
@@ -932,7 +932,7 @@ A
 1 1
 A
 12 10
-G none
+g none~
 #632
 helm silver~
 a silver helm~
@@ -945,7 +945,7 @@ A
 2 1
 A
 12 5
-G none
+g none~
 #633
 leggings silver~
 silver leggings~
@@ -958,7 +958,7 @@ A
 3 1
 A
 12 5
-G none
+g none~
 #634
 boots silver~
 silver boots~
@@ -971,7 +971,7 @@ A
 4 1
 A
 12 5
-G none
+g none~
 #635
 gauntlets silver~
 silver gauntlets~
@@ -984,7 +984,7 @@ A
 5 1
 A
 12 5
-G none
+g none~
 #636
 sleeves silver~
 silver sleeves~
@@ -997,7 +997,7 @@ A
 18 1
 A
 12 5
-G none
+g none~
 #637
 shield silver~
 the silver shield~
@@ -1010,7 +1010,7 @@ A
 17 -3
 A
 12 5
-G none
+g none~
 #638
 girth silver~
 the silver girth~
@@ -1023,7 +1023,7 @@ A
 19 1
 A
 12 5
-G none
+g none~
 #639
 plate platinum~
 platinum plate~
@@ -1038,7 +1038,7 @@ A
 5 2
 A
 13 15
-G none
+g none~
 #640
 helmet platinum~
 the platinum helmet~
@@ -1053,7 +1053,7 @@ A
 12 20
 A
 4 2
-G none
+g none~
 #641
 leggings platinum~
 platinum leggings~
@@ -1068,7 +1068,7 @@ A
 13 15
 A
 2 2
-G none
+g none~
 #642
 boots platinum~
 platinum boots~
@@ -1083,7 +1083,7 @@ A
 19 2
 A
 13 15
-G none
+g none~
 #643
 gauntlets platinum~
 platinum gauntlets~
@@ -1098,7 +1098,7 @@ A
 19 2
 A
 13 15
-G none
+g none~
 #644
 sleeves platinum~
 platinum sleeves~
@@ -1113,7 +1113,7 @@ A
 13 15
 A
 1 2
-G none
+g none~
 #645
 shield spiked platinum~
 the platinum spiked shield~
@@ -1126,7 +1126,7 @@ A
 13 15
 A
 19 2
-G none
+g none~
 #646
 girth platinum~
 the platinum girth~
@@ -1141,7 +1141,7 @@ A
 13 15
 A
 20 -5
-G none
+g none~
 #647
 avenger holy sword~
 the holy Avenger~
@@ -1154,7 +1154,7 @@ A
 19 6
 A
 18 1
-G none
+g none~
 #648
 whiskey shot~
 a shot of whiskey~
@@ -1163,7 +1163,7 @@ glass~
 drink 0 A
 2 2 'whisky' 0 0
 0 10 12 P
-G none
+g none~
 #649
 ale quart~
 a quart of ale~
@@ -1172,7 +1172,7 @@ clay~
 drink 0 A
 32 32 'ale' 0 0
 0 20 10 P
-G none
+g none~
 #650
 port brew quart~
 a quart of port brew~
@@ -1181,7 +1181,7 @@ clay~
 drink 0 A
 32 32 'dark ale' 0 0
 0 20 18 P
-G none
+g none~
 #651
 key citadel~
 the citadel key~
@@ -1190,7 +1190,7 @@ iron~
 key 0 A
 0 0 0 0 0
 0 10 0 P
-G none
+g none~
 #652
 symbol holy~
 the Holy Symbol of Bahamut~
@@ -1205,7 +1205,7 @@ A
 12 10
 A
 17 -3
-G none
+g none~
 #653
 ranseur polearm~
 a ranseur~
@@ -1218,7 +1218,7 @@ A
 19 -1
 A
 18 3
-G none
+g none~
 #654
 torso dragonscale golden~
 a golden dragonscale torso~
@@ -1231,7 +1231,7 @@ A
 18 2
 A
 17 -5
-G none
+g none~
 #655
 dragonhelm golden~
 a golden dragonhelm~
@@ -1244,7 +1244,7 @@ A
 18 1
 A
 17 -3
-G none
+g none~
 #656
 leggings golden~
 golden dragonscale leggings~
@@ -1257,7 +1257,7 @@ A
 18 1
 A
 17 -3
-G none
+g none~
 #657
 boots golden~
 golden dragonscale boots~
@@ -1270,7 +1270,7 @@ A
 18 1
 A
 17 -3
-G none
+g none~
 #658
 gauntlets golden~
 golden dragonscale gauntlets~
@@ -1283,7 +1283,7 @@ A
 18 1
 A
 17 -3
-G none
+g none~
 #659
 sleeves golden~
 golden dragonscale sleeves~
@@ -1296,7 +1296,7 @@ A
 18 1
 A
 17 -3
-G none
+g none~
 #660
 shield golden~
 a golden dragonscale shield~
@@ -1309,7 +1309,7 @@ A
 18 1
 A
 17 -3
-G none
+g none~
 #661
 girth golden~
 a golden dragonscale girth~
@@ -1322,7 +1322,7 @@ A
 18 1
 A
 17 -3
-G none
+g none~
 #662
 claw golden~
 the golden claw~
@@ -1333,7 +1333,7 @@ exotic 3 9 'claw' 0
 21 100 2600 P
 A
 19 2
-G none
+g none~
 #663
 orb dragonorb~
 the Gold Dragon Orb~
@@ -1346,7 +1346,7 @@ A
 4 2
 A
 3 1
-G none
+g none~
 #664
 robe golden~
 a golden robe~
@@ -1357,7 +1357,7 @@ armor GK AK
 17 100 3800 P
 A
 3 2
-G none
+g none~
 #665
 house key~
 a house key~
@@ -1366,7 +1366,7 @@ silver~
 key 0 A
 0 0 0 0 0
 0 10 0 P
-G none
+g none~
 #666
 broom~
 a broom~
@@ -1379,7 +1379,7 @@ A
 19 -3
 A
 18 3
-G none
+g none~
 #667
 chest~
 a chest~
@@ -1388,7 +1388,7 @@ wood~
 container 0 A
 100 0 0 10 100
 0 100 100 P
-G none
+g none~
 #668
 claw golden~
 the Golden Claw~
@@ -1399,7 +1399,7 @@ exotic 4 10 'claw' 0
 39 200 7200 P
 A
 19 5
-G none
+g none~
 #669
 claw golden~
 the golden claw~
@@ -1410,7 +1410,7 @@ exotic 3 11 'claw' 0
 28 150 4100 P
 A
 19 3
-G none
+g none~
 #670
 pit~
 the donation pit~
@@ -1423,7 +1423,7 @@ E
 pit~
 This is where you put money and items to help Doz expand this shrine,
 ~
-G none
+g none~
 #671
 fountain~
 fountain~
@@ -1432,7 +1432,7 @@ unknown~
 fountain ABG P
 0 0 'water' 0 0
 0 0 0 P
-G none
+g none~
 #0
 
 #ROOMS

@@ -1142,7 +1142,7 @@ A
 18 6
 A
 19 6
-G male
+g male~
 #36301
 tomahawk axe томагавк~
 @eng tomahawk@rus томагавк~
@@ -1155,7 +1155,7 @@ A
 18 11
 A
 19 15
-G male
+g male~
 #36302
 necklace tooth ожерелье~
 @eng tooth necklace@rus {D~~ожерелье~~ из клыков {x~
@@ -1172,7 +1172,7 @@ A
 18 3
 A
 19 7
-G none
+g none~
 #36303
 skirt palm юбка~
 @eng short palm skirt@rus {G~~короткая~~ ~~юбка~~ из пальмовых листьев{z~
@@ -1191,7 +1191,7 @@ A
 18 7
 A
 19 7
-G female
+g female~
 #36304
 bracer charisma feathery браслет~
 @eng bracer of charisma@rus {B~~браслет~~ удачи {z~
@@ -1208,7 +1208,7 @@ A
 18 7
 A
 19 7
-G male
+g male~
 #36305
 shield ebony щит~
 @eng ebony shield@rus {D~~щит~~ из черного дерева {z~
@@ -1227,7 +1227,7 @@ A
 18 8
 A
 19 8
-G male
+g male~
 #36306
 lion шкура skin~
 @eng leo skin@rus {Y~~львиная~~ ~~шкура~~ {z~
@@ -1248,7 +1248,7 @@ A
 19 8
 A
 24 -5
-G female
+g female~
 #36307
 stick reet spear bamboo копье~
 @eng reet stick@rus {W-{R-{W-{R-{W-{R-{W-{R-{W-{R-{W-{R-{W-{R-{W-{R-{\{g~~бамбуковая~~ ~~палочка~~{x~
@@ -1261,7 +1261,7 @@ A
 18 10
 A
 19 10
-G female
+g female~
 #36308
 casque black helm шлем~
 @eng black casque@rus {D~~черный~~ ~~шлем~~ {z~
@@ -1274,7 +1274,7 @@ A
 18 8
 A
 19 8
-G male
+g male~
 #36309
 platemail black scale кольчуга~
 @eng black scale platemail@rus {D~~черная~~ ~~кольчуга~~ {x~
@@ -1291,7 +1291,7 @@ A
 19 12
 A
 24 -5
-G female
+g female~
 #36310
 gauntlets black dragon перчатки~
 @eng black dragon gauntlets@rus {D~~перчатки~~ из кожи черного дракона {z~
@@ -1304,7 +1304,7 @@ A
 18 7
 A
 19 7
-G plural
+g plural~
 #36311
 leg black dragon plates поножи~
 @eng black dragon leg plates@rus {D~~поножи~~ из черной драконьей кожи {z~
@@ -1319,7 +1319,7 @@ A
 18 7
 A
 19 7
-G plural
+g plural~
 #36312
 bow short~
 @eng short bow@rus {y~~короткий~~ ~~лук~~ {z~
@@ -1332,7 +1332,7 @@ A
 18 5
 A
 19 5
-G male
+g male~
 #36313
 boots black scale dragon сапоги~
 @eng black dragon boots@rus {D~~черные~~ ~~сапоги~~ {z~
@@ -1347,7 +1347,7 @@ A
 18 8
 A
 19 8
-G plural
+g plural~
 #36314
 pot ink girth чернильница~
 @eng ink-pot@rus {D~~чернильница~~ {z~
@@ -1358,7 +1358,7 @@ drink AGIY AL
 25 0 1000 P
 A
 4 10
-G female
+g female~
 #36315
 apple яблоко~
 @eng apple@rus {y~~яблоко~~ {z~
@@ -1371,7 +1371,7 @@ E
 paper~
 part one
 ~
-G none
+g none~
 #36316
 cookie пирожок~
 @eng cookie@rus {y~~пирожок~~ {z~
@@ -1384,7 +1384,7 @@ E
 paper~
 part two
 ~
-G male
+g male~
 #36317
 bookmark leather long закладка~
 @eng bookmark@rus {y~~закладка~~ {z~
@@ -1403,7 +1403,7 @@ A
 19 15
 A
 24 -2
-G female
+g female~
 #36318
 mist накидка cloak illusory~
 @eng illusory cloak@rus {b~~призрачная~~ ~~накидка~~ {z~
@@ -1428,7 +1428,7 @@ A
 19 20
 A
 24 -15
-G female
+g female~
 #36319
 sword long illusory mist меч~
 @eng illusory longsword@rus {w~~призрачный~~ ~~меч~~ {z~
@@ -1445,7 +1445,7 @@ A
 18 25
 A
 19 25
-G male
+g male~
 #36320
 arrow silver~
 @eng silver arrow@rus {w~~серебрянная~~ ~~стрела~~ {z~
@@ -1458,7 +1458,7 @@ A
 18 20
 A
 19 20
-G none
+g none~
 #36321
 ring bowman кольцо~
 @eng bowman's ring@rus {D~~кольцо~~ лучника {z~
@@ -1475,7 +1475,7 @@ A
 18 10
 A
 19 7
-G none
+g none~
 #36322
 hat green red шляпа~
 @eng green hat@rus {G~~зеленая~~ ~~шляпа~~ {z~
@@ -1490,7 +1490,7 @@ A
 18 10
 A
 19 7
-G female
+g female~
 #36323
 vest green куртка~
 @eng green vest@rus {G~~зеленая~~ ~~куртка~~ {z~
@@ -1511,7 +1511,7 @@ A
 19 7
 A
 24 -1
-G none
+g none~
 #36324
 leggings leather штаны~
 @eng leather leggings@rus {y~~кожаные~~ ~~штаны~~ {z~
@@ -1532,7 +1532,7 @@ A
 18 10
 A
 19 7
-G plural
+g plural~
 #36325
 boots leather thin ботинки~
 @eng thin leather boots@rus {y~~ботинки~~ из тонкой кожи {z~
@@ -1553,7 +1553,7 @@ A
 19 7
 A
 24 -1
-G plural
+g plural~
 #36326
 bow long лук~
 @eng longbow@rus {y~~длинный~~ ~~лук~~ {z~
@@ -1564,7 +1564,7 @@ bow 6 20 'blast' 0
 94 30 14000 P
 A
 18 8
-G male
+g male~
 #36327
 headband head band повязка~
 @eng headband@rus {M~~головная~~ ~~повязка~~ {z~
@@ -1589,7 +1589,7 @@ A
 19 6
 A
 24 -2
-G female
+g female~
 #36328
 snake пояс~
 @eng snake belt@rus {g~~змеиный~~ ~~пояс~~ {z~
@@ -1608,7 +1608,7 @@ A
 18 8
 A
 19 6
-G male
+g male~
 #36329
 scalp штаны leggings~
 @eng scalp leggings@rus {y~~штаны~~, ~~украшенные~~ скальпами {z~
@@ -1627,7 +1627,7 @@ A
 18 11
 A
 19 6
-G plural
+g plural~
 #36330
 boots soft мокасины moccasins~
 @eng some moccasins@rus {yмокасины {z~
@@ -1647,7 +1647,7 @@ A
 18 8
 A
 19 8
-G plural
+g plural~
 #36331
 spiritus vini~
 {c spiritus vini {x~
@@ -1664,7 +1664,7 @@ A
 18 -5
 A
 19 10
-G none
+g none~
 #36332
 waistcoat dirty плащ~
 @eng dirty waistcoat@rus {W~~пыльный~~ ~~плащ~~ {z~
@@ -1679,7 +1679,7 @@ A
 19 8
 A
 24 -2
-G male
+g male~
 #36333
 belt shoulder перевязь~
 @eng shoulder belt@rus {Mперевязь {z~
@@ -1698,7 +1698,7 @@ A
 18 8
 A
 19 8
-G female
+g female~
 #36334
 sword veteran old меч~
 @eng old veteran's sword@rus {w~~старый~~ ~~ветеранский~~ ~~меч~~ {z~
@@ -1711,7 +1711,7 @@ A
 18 15
 A
 19 15
-G male
+g male~
 #36335
 flask crumpled фляжка~
 @eng crumpled flask@rus {w~~помятая~~ ~~фляжка~~ {z~
@@ -1720,7 +1720,7 @@ tin~
 drink GIY AO
 500 500 'ale' 0 0
 75 10 3450 P
-G female
+g female~
 #36336
 glasses sun очки~
 @eng some sun-glasses@rus {m~~солнечные~~ ~~очки~~ {z~
@@ -1735,7 +1735,7 @@ A
 19 1
 A
 24 -2
-G plural
+g plural~
 #36337
 match спичка~
 @eng a match@rus {y~~спичка~~ {z~
@@ -1744,7 +1744,7 @@ wood~
 wand U AO
 10 1 1 'fireball' 0
 1 0 1 P
-G female
+g female~
 #36338
 match box коробок~
 @eng a match box@rus {y~~спичечный~~ ~~коробок~~ {z~
@@ -1753,7 +1753,7 @@ wood~
 container 0 AO
 60 E 0 2 100
 1 60 10 P
-G male
+g male~
 #36339
 wig strange парик~
 @eng a wig@rus {y~~парик~~ {z~
@@ -1766,7 +1766,7 @@ A
 4 -3
 A
 12 100
-G male
+g male~
 #36340
 hat cowboy dusty шляпа~
 @eng cowboy's hat@rus {D~~ковбойская~~ ~~шляпа~~ {z~
@@ -1787,7 +1787,7 @@ A
 18 5
 A
 19 5
-G female
+g female~
 #36341
 staff strength посох~
 @eng staff of strength@rus {B~~посох~~ Силы {x~
@@ -1798,7 +1798,7 @@ staff A AO
 81 30 4500 P
 A
 18 2
-G male
+g male~
 #36342
 suit festival костюм~
 @eng festival suit@rus {C~~фестивальный~~ ~~костюм~~ {x~
@@ -1811,7 +1811,7 @@ A
 6 3
 A
 18 1
-G male
+g male~
 #36343
 toy boy key ключ~
 @eng boy's toy@rus {R~~детская~~ {C~~игрушка~~  {x~
@@ -1820,7 +1820,7 @@ hardwood~
 key A A
 0 0 0 0 0
 0 0 0 P
-G female
+g female~
 #36344
 grand prize medal медаль~
 @eng Grand Prize@rus {Y({M(){Y) Гран При {x~
@@ -1853,7 +1853,7 @@ A
 19 15
 A
 24 -10
-G female
+g female~
 #36345
 robe dark grey~
 @eng dark gray robe@rus {D~~темно-серая~~ ~~одежка~~ {x~
@@ -1870,7 +1870,7 @@ A
 14 -100
 A
 18 5
-G female
+g female~
 #36346
 sleeves accuracy нарукавники~
 @eng sleeves of accuracy@rus {Dнарукавники {x~
@@ -1885,7 +1885,7 @@ A
 12 40
 A
 18 5
-G plural
+g plural~
 #36347
 pen goose~
 @eng goose pen@rus {W~~гусиное~~ ~~перо~~ {x~
@@ -1900,7 +1900,7 @@ A
 12 10
 A
 18 15
-G none
+g none~
 #36348
 scroll dispatch witch hunt свиток~
 @eng witch-hunt dispatch@rus {Dдонос {x~
@@ -1909,7 +1909,7 @@ kid leather~
 scroll ABGITU AO
 35 'cancellation' 'curse' 'dispel evil' 'dispel magic'
 25 0 0 P
-G male
+g male~
 #36349
 scroll rescript witch hunt распоряжение~
 @eng witch-hunt rescript@rus {D~~распоряжение~~ об охоте на ведьм {x~
@@ -1918,7 +1918,7 @@ kid leather~
 scroll ABGUY AO
 90 'dispel magic' 'dispel evil' 'cancellation' 'weaken'
 75 0 0 P
-G none
+g none~
 #36350
 ring tournament кольцо~
 @eng tournament ring@rus {y~~турнирное~~ ~~кольцо~~ {x~
@@ -1935,7 +1935,7 @@ E
 inscription~
 Made by Agrael.
 ~
-G none
+g none~
 #36351
 scarf tournament шарф~
 @eng tournament scarf@rus {G~~турнирный~~ ~~шарф~~ {x~
@@ -1952,7 +1952,7 @@ E
 inscription~
 Made by Agrael.
 ~
-G male
+g male~
 #36352
 helm tournament шлем~
 @eng tournament helm@rus {w~~турнирный~~ ~~шлем~~ {x~
@@ -1963,7 +1963,7 @@ armor 0 AE
 50 35 2300 P
 A
 19 4
-G male
+g male~
 #36353
 plate breast tournament нагрудник~
 @eng tournament breast plate@rus {R~~турнирный~~ ~~нагрудник~~ {x~
@@ -1980,7 +1980,7 @@ E
 carvings~
 Made by Agrael.
 ~
-G male
+g male~
 #36354
 leg tournament plates поножи~
 @eng tournament leg plates@rus {M~~турнирные~~ ~~поножи~~ {x~
@@ -1993,7 +1993,7 @@ A
 5 1
 A
 19 2
-G plural
+g plural~
 #36355
 boots plated tournament сапоги~
 @eng tournament plated boots@rus {D~~турнирные~~ ~~сапоги~~ {x~
@@ -2004,7 +2004,7 @@ armor 0 AG
 50 23 2300 P
 A
 19 2
-G plural
+g plural~
 #36356
 arm plate tournament наручи~
 @eng tournament arm plates@rus {m~~турнирные~~ ~~наручи~~ {x~
@@ -2015,7 +2015,7 @@ armor 0 AI
 50 23 2300 P
 A
 19 3
-G plural
+g plural~
 #36357
 shield tournament щит~
 @eng tournament shield@rus {D~~турнирный~~ ~~щит~~ {x~
@@ -2026,7 +2026,7 @@ armor 0 AJ
 50 40 1200 P
 A
 5 3
-G male
+g male~
 #36358
 cloak tournament накидка~
 @eng tournament cloak@rus {b~~турнирная~~ ~~накидка~~ {x~
@@ -2041,7 +2041,7 @@ E
 inscription~
 Made by Agrael.
 ~
-G female
+g female~
 #36359
 gauntlets tournament латные рукавицы~
 @eng tournament gauntlets@rus {w~~турнирные~~ ~~латные~~ ~~рукавицы~~ {x~
@@ -2052,7 +2052,7 @@ armor 0 AH
 50 30 10356 P
 A
 19 3
-G plural
+g plural~
 #36360
 tournament sword меч~
 @eng tournament sword@rus {w~~турнирный~~ ~~меч~~ {x~
@@ -2061,7 +2061,7 @@ iron~
 weapon 0 AN
 sword 7 7 'slash' 0
 50 100 10000 P
-G male
+g male~
 #36361
 statue mayor статуя~
 @eng Mayor's statue@rus {w~~статуя~~ Мэра {x~
@@ -2070,7 +2070,7 @@ bronze~
 jewelry RY A
 0 0 0 0 0
 50 3000 500000 P
-G female
+g female~
 #36362
 mace tournament булава~
 @eng tournament mace@rus {D~~турнирная~~ ~~булава~~ {x~
@@ -2079,7 +2079,7 @@ iron~
 weapon 0 AN
 mace 10 5 'crush' 0
 50 90 23450 P
-G female
+g female~
 #36363
 statue статуя~
 @eng statue@rus {Yстатуя {x~
@@ -2088,7 +2088,7 @@ bronze~
 jewelry RY A
 0 0 0 0 0
 50 3000 500000 P
-G female
+g female~
 #36364
 battle pill пилюля~
 @eng battle pill@rus {M~~боевая~~ ~~пилюля~~ {x~
@@ -2097,7 +2097,7 @@ food~
 pill 0 AO
 95 'armor' 'stone skin' 'shield' 'enhanced armor'
 75 0 2500 P
-G female
+g female~
 #36365
 pill magic пилюля~
 @eng magic pill@rus {Y~~магическая~~ ~~пилюля~~ {x~
@@ -2106,7 +2106,7 @@ food~
 pill 0 AO
 95 'haste' 'frenzy' 'giant strength' 'bless'
 75 0 2450 P
-G female
+g female~
 #36366
 star morning tournament моргенштерн~
 @eng tournament morningstar@rus {w~~турнирный~~ ~~моргенштерн~~ {x~
@@ -2115,7 +2115,7 @@ iron~
 weapon A AN
 flail 16 3 'crush' 0
 50 100 23980 P
-G male
+g male~
 #36367
 fountain marble water фонтан~
 @eng marble fountain@rus {M~~мраморный~~ ~~фонтан~~ {x~
@@ -2124,7 +2124,7 @@ marble~
 fountain ABRY 0
 10000 10000 'water' 0 0
 0 20000 0 P
-G male
+g male~
 #36368
 plate кираса guard breast~
 @eng guard breast plate@rus {w~~кираса~~ стражника {x~
@@ -2135,7 +2135,7 @@ armor 0 AD
 25 50 2000 P
 A
 19 2
-G female
+g female~
 #36369
 shield guard щит~
 @eng guard shield@rus {w~~щит~~ стражника {x~
@@ -2148,7 +2148,7 @@ A
 5 2
 A
 17 -10
-G male
+g male~
 #36370
 cape guard накидка~
 @eng guard cape@rus {w~~накидка~~ стражника {x~
@@ -2159,7 +2159,7 @@ armor 0 AK
 25 10 2387 P
 A
 18 3
-G female
+g female~
 #36371
 sword guard меч~
 @eng guard sword@rus {w~~меч~~ стражника {x~
@@ -2168,7 +2168,7 @@ steel~
 weapon A AN
 sword 6 6 'pierce' 0
 25 50 500 P
-G male
+g male~
 #36372
 axe tournament топор~
 @eng tournament axe@rus {D~~турнирый~~ ~~топор~~ {x~
@@ -2177,7 +2177,7 @@ iron~
 weapon 0 AN
 axe 6 9 'chop' 0
 50 50 2500 P
-G male
+g male~
 #36373
 gloves hedgehog рукавицы~
 @eng hedgehog's gloves@rus {D~~ежовые~~ ~~рукавицы~~ {x~
@@ -2194,7 +2194,7 @@ A
 19 1
 A
 24 -1
-G plural
+g plural~
 #36374
 some stilts ходули~
 @eng some stilts@rus {yходули {x~
@@ -2207,7 +2207,7 @@ A
 14 300
 A
 18 -3
-G plural
+g plural~
 #36375
 safe сейф~
 @eng safe@rus {Dсейф {x~
@@ -2216,7 +2216,7 @@ steel~
 container ABRTY 0
 300 ABCD 36343 300 100
 0 10000 0 P
-G male
+g male~
 #36376
 key room ключ~
 @eng room key@rus {Y~~ключ~~ от комнаты {x~
@@ -2225,7 +2225,7 @@ iron~
 key 0 AO
 0 0 0 0 0
 0 0 0 P
-G male
+g male~
 #36377
 bureau конторка~
 @eng bureau@rus {Yконторка {x~
@@ -2234,7 +2234,7 @@ hardwood~
 container R AO
 100 ABCD 36378 10 100
 0 10000 0 P
-G female
+g female~
 #36378
 bureau key ключ~
 @eng bureau key@rus {w~~ключ~~ от конторки {x~
@@ -2243,7 +2243,7 @@ silver~
 key 0 AO
 0 0 0 0 0
 0 0 0 P
-G male
+g male~
 #36379
 oak дуб~
 @eng oak@rus {wВековой дуб (oak) растет в чаще, излучая серебристое сияние. {x~
@@ -2252,7 +2252,7 @@ hardwood~
 container R 0
 20000 0 0 10 100
 0 10000 0 P
-G male
+g male~
 #36380
 key secret ключ~
 @eng secret key@rus {D~~секретный~~ ~~ключ~~ {x~
@@ -2261,7 +2261,7 @@ adamantite~
 key FTU AO
 0 0 0 0 0
 0 0 0 P
-G male
+g male~
 #36381
 cell secret тайник~
 @eng secret cell@rus {wтайник {x~
@@ -2270,7 +2270,7 @@ steel~
 container ABFGRTY 0
 100 ABCD 36380 100 100
 0 10000 0 P
-G male
+g male~
 #36382
 shield paladin щит~
 @eng Holy shield of Paladins@rus {w~~Священный~~ ~~щит~~ Паладина {x~
@@ -2279,7 +2279,7 @@ titanium~
 armor IKLR AJ
 30 30 30 30 0
 50 100 34500 P
-G male
+g male~
 #36383
 lance paladin пика~
 @eng Holy lance of Paladin@rus {w~~Священная~~ ~~пика~~ Паладина {x~
@@ -2288,7 +2288,7 @@ titanium~
 weapon IKLR AN
 lance 11 5 'charge' 0
 50 100 56700 P
-G female
+g female~
 #36384
 hole dark нора~
 @eng hole@rus {Dнора {x~
@@ -2297,7 +2297,7 @@ ebony~
 portal RY 0
 0 EMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz A 36348 0
 0 1000 0 P
-G female
+g female~
 #36385
 book shelf полка~
 @eng bookshelf@rus {y~~книжная~~ ~~полка~~ {x~
@@ -2306,7 +2306,7 @@ wood~
 container ARTY AO
 100 E -1 100 100
 0 10000 0 P
-G female
+g female~
 #36386
 book iluvatar one книга~
 @eng Book of Iluvatar@rus {Y~~книга~~ ~~Илуватара~~ {x~
@@ -2328,7 +2328,7 @@ book~
 правом выносить окончательное решение. В мире известен
 как покровитель Ruler'ов.
 ~
-G female
+g female~
 #36387
 book книга nergal~
 @eng Book of Nergal@rus {D~~книга~~ Нергала {x~
@@ -2351,7 +2351,7 @@ book~
 пишите. Ваши идеи будут рассмотрены, и, если их признают
 достойными, воплощены в жизнь.
 ~
-G female
+g female~
 #36388
 book diablo книга~
 @eng Book of Diablo@rus {D~~книга~~ Дьябло {x~
@@ -2374,7 +2374,7 @@ book~
 ордена Шалафи он занимается всеми вопросами, связанными с кланами.
 А также занимается созданием различных загадок для смертных.
 ~
-G female
+g female~
 #36389
 book hedin книга~
 @eng Book of Hedin@rus {Y~~книга~~ Хедина {x~
@@ -2392,7 +2392,7 @@ book~
 в жизнь этого мира, но Его слово по-прежнему весомо, и 
 сбрасывать Его со счетов не рекомендуется.
 ~
-G female
+g female~
 #36390
 book phobos книга~
 @eng Book of Phobos@rus {R~~книга~~ Фобоса {x~
@@ -2407,7 +2407,7 @@ E
 book~
 @rus Он настолько таинственен и скрытен, что о нем никто ничего не знает. 
 ~
-G female
+g female~
 #36391
 book книга rondor~
 @eng Book of Rondor@rus {Y~~книга~~ Рондора {x~
@@ -2422,7 +2422,7 @@ E
 book~
 @rus Он настолько таинственен и скрытен, что о нем никто ничего не знает. 
 ~
-G female
+g female~
 #36392
 book eidu книга~
 @eng Book of Eidu@rus {Y~~книга~~ Эйду {x~
@@ -2450,7 +2450,7 @@ E
 bok~
 @rus Набери "look book".
 ~
-G female
+g female~
 #36393
 book marewell книга~
 @eng Book of Marewell@rus {Y~~книга~~ Маревелла {x~
@@ -2474,7 +2474,7 @@ book~
 хотите внести свою лепту в это нелегкое дело, знайте - обращаться к
 Маревеллу.
 ~
-G female
+g female~
 #36394
 duncan book~
 @eng Book of Dunkan@rus {Y~~книга Дункана {x~
@@ -2483,7 +2483,7 @@ kid leather~
 treasure ARY A
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #36395
 book leon книга~
 @eng Book of Leon@rus {Y~~книга~~ Леона {x~
@@ -2499,7 +2499,7 @@ book~
 @rus Жестокость, жажда денег и крови -- вот составляющие его характера.
 Недаром он является покровителем клана наемных убийц -- Hunters.
 ~
-G female
+g female~
 #36396
 book arwen книга~
 @eng Book of Arwen@rus {G~~книга~~ Арвен {x~
@@ -2520,7 +2520,7 @@ book~
 на русский язык. Если у Вас есть какие-то пожелания или вопросы,
 связанные с этим, обращайтесь. Вас всегда рады выслушать.
 ~
-G female
+g female~
 #36397
 book arborn книга~
 @eng Book of Arborn@rus {Y~~книга~~ Арборна {x~
@@ -2540,7 +2540,7 @@ book~
 покровителем клана Knights и одним из тех, кто занимается
 переводом в этом мире.
 ~
-G female
+g female~
 #36398
 book jullyroger~
 @eng Book of JullyRoger@rus {Y~~книга~~ Веселого Роджера {x~
@@ -2559,7 +2559,7 @@ book~
 Искусства, он состоит в ордене Шалафи. Занимается переводом,
 а также донесением до непонятливых воли богов.
 ~
-G female
+g female~
 #36399
 book gelios~
 @eng Book of Gelios@rus {r~~книга~~ Гелиоса {x~
@@ -2568,7 +2568,7 @@ kid leather~
 treasure ARY AO
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #36400
 book shamash книга~
 @eng Book of Shamash@rus {Y~~книга~~ Шамаша {x~
@@ -2589,7 +2589,7 @@ book~
 быстро менять свои взгляды и решения. Как Вы сами можете догадаться,
 принадлежит клану Chaos.
 ~
-G female
+g female~
 #36401
 book orrin книга~
 @eng Book of Orrin@rus {Y~~книга~~ Оррина {x~
@@ -2600,7 +2600,7 @@ treasure ARY A
 0 0 0 P
 A
 24 -1
-G female
+g female~
 #36402
 book immortal~
 book of immortal~
@@ -2609,7 +2609,7 @@ unknown~
 treasure 0 A
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #36403
 book immortal~
 book of immortal~
@@ -2618,7 +2618,7 @@ unknown~
 treasure 0 A
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #36404
 book immortal~
 book of immortal~
@@ -2627,7 +2627,7 @@ unknown~
 treasure 0 A
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #36405
 book immortal~
 book of immortal~
@@ -2636,7 +2636,7 @@ unknown~
 treasure 0 A
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #36406
 book immortal~
 book of immortal~
@@ -2645,7 +2645,7 @@ unknown~
 treasure 0 A
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #36407
 book immortal~
 book of immortal~
@@ -2654,7 +2654,7 @@ unknown~
 treasure 0 A
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #36408
 club monk дубинка~
 @eng Monk's club@rus {Y~~дубинка~~ Монаха {x~
@@ -2663,7 +2663,7 @@ wood~
 weapon GI AN
 mace 8 13 'crush' K
 75 100 0 P
-G female
+g female~
 #36409
 barrel huge ale бочка~
 @eng barrel of ale@rus {Y~~бочка~~ эля {x~
@@ -2672,7 +2672,7 @@ wood~
 drink B A
 1000 1000 'ale' 0 0
 0 500 4500 P
-G female
+g female~
 #36410
 gap щель~
 @eng gap@rus {Dщель {x~
@@ -2681,7 +2681,7 @@ wood~
 portal Y 0
 0 EMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz A 36352 0
 0 10000 0 P
-G female
+g female~
 #36411
 cape white накидка~
 @eng white cape@rus {w~~белая~~ ~~накидка~~ {x~
@@ -2698,7 +2698,7 @@ A
 12 150
 A
 24 -10
-G female
+g female~
 #36412
 cape grey накидка~
 @eng grey cape@rus ~~серая~~ ~~накидка~~~
@@ -2715,7 +2715,7 @@ A
 12 150
 A
 24 -10
-G female
+g female~
 #36413
 cape dark накидка~
 @eng dark cape@rus {D~~черная~~ ~~накидка~~ {x~
@@ -2732,7 +2732,7 @@ A
 12 150
 A
 24 -10
-G female
+g female~
 #36414
 mask clown маска~
 @eng clown mask@rus {M~~маска~~ клоуна {x~
@@ -2753,7 +2753,7 @@ A
 13 10
 A
 18 5
-G female
+g female~
 #36415
 ball crystall quartz шар~
 @eng quartz crystall@rus {R({r({Y({G({C({b(){C){G){Y){r){R) {w~~кварцевый~~ ~~шар~~ {x~
@@ -2776,7 +2776,7 @@ A
 18 10
 A
 19 5
-G male
+g male~
 #36416
 heal пилюля pill~
 @eng healing pill@rus {w~~пилюля~~ отдохновения {x~
@@ -2785,7 +2785,7 @@ food~
 pill ABG AO
 90 'heal' 'refresh' 'heal' 'refresh'
 70 5 5500 P
-G female
+g female~
 #36417
 pill energize пилюля~
 @eng an energize pill@rus {D~~освежающая~~ ~~пилюля~~ {x~
@@ -2796,7 +2796,7 @@ pill ABGM AO
 75 0 25000 P
 A
 12 200
-G female
+g female~
 #36418
 pill great пилюля~
 @eng great battle pill@rus {C~~большая~~ ~~боевая~~ ~~пилюля~~ {x~
@@ -2805,7 +2805,7 @@ gut~
 pill 0 AO
 20 'blindness' 'weaken' 'poison' 'calm'
 10 0 1000 P
-G female
+g female~
 #36419
 pill debugging~
 strange pill~
@@ -2814,7 +2814,7 @@ unknown~
 pill 0 A
 80 'detect hidden' 'detect invis' 'pass door' 'fly'
 0 0 0 P
-G none
+g none~
 #36420
 portrait grandfather портрет~
 @eng portrait@rus {Yпортрет {x~
@@ -2823,7 +2823,7 @@ canvas~
 portal ARY 0
 0 EMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz A 36358 0
 0 10000 0 P
-G male
+g male~
 #36421
 mirror wall зеркало~
 @eng mirror@rus {cзеркало {x~
@@ -2832,7 +2832,7 @@ glass~
 portal RY P
 0 EMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz A 36357 0
 0 10000 0 P
-G none
+g none~
 #36422
 flask blood фляжка~
 @eng flask of blood@rus {R~~фляжка~~ крови {x~
@@ -2841,7 +2841,7 @@ glass~
 drink E AO
 10 10 'blood' 0 0
 10 10 1000 P
-G female
+g female~
 #36423
 arrow titanium стрела~
 @eng titanium-headed arrow@rus {Y~~стрела~~ с титановым наконечником {x~
@@ -2850,7 +2850,7 @@ wood~
 weapon 0 AO
 arrow 12 12 'pierce' K
 82 10 1500 P
-G female
+g female~
 #36424
 staff green cold посох~
 @eng green staff@rus {G~~зеленый~~ ~~посох~~ {x~
@@ -2859,7 +2859,7 @@ wood~
 staff B AO
 20 10 10 'protection cold' 0
 10 100 100 P
-G male
+g male~
 #36425
 staff broom метла~
 @eng witch's broom@rus {D~~ведьмина~~ ~~метла~~ {x~
@@ -2868,7 +2868,7 @@ wood~
 staff B AO
 10 10 10 'fly' 0
 10 50 2500 P
-G female
+g female~
 #36426
 ring holy silver кольцо~
 @eng holy ring@rus {w~~святое~~ ~~кольцо~~ {x~
@@ -2881,7 +2881,7 @@ A
 24 -2
 A
 18 2
-G none
+g none~
 #36427
 amulet holy silver амулет~
 @eng holy amulet@rus {w~~святой~~ ~~амулет~~ {x~
@@ -2894,7 +2894,7 @@ A
 24 -3
 A
 18 3
-G male
+g male~
 #36428
 helm iron шлем~
 @eng iron helm@rus {r~~железный~~ ~~шлем~~ {x~
@@ -2903,7 +2903,7 @@ iron~
 armor 0 AE
 18 18 18 17 0
 25 40 4500 P
-G male
+g male~
 #36429
 mace iron heavy палица~
 @eng heavy iron mace@rus {r~~тяжелая~~ ~~железная~~ ~~палица~~ {x~
@@ -2912,7 +2912,7 @@ iron~
 weapon 0 AN
 mace 8 8 'crush' 0
 60 100 16700 P
-G female
+g female~
 #36430
 eye dragon глаз~
 @eng eye of the dragon@rus {c({R.{c) {C~~глаз~~ дракона {x~
@@ -2922,7 +2922,7 @@ trash GU AO
 0 0 0 0 0
 10 5 1000 P
 S 'farsight' 30 A
-G male
+g male~
 #36431
 toad tongue язык~
 @eng toad tongue@rus {M~~жабий~~ ~~язык~~ {x~
@@ -2932,7 +2932,7 @@ trash GU AO
 0 0 0 0 0
 10 5 1000 P
 S 'ventriloquate' 30 A
-G male
+g male~
 #36432
 dried bat мышь~
 @eng dried bat@rus {G~~сушеная~~ ~~летучая~~ ~~мышь~~ {x~
@@ -2942,7 +2942,7 @@ trash GU AO
 0 0 0 0 0
 10 5 1000 P
 S 'control weather' 50 A
-G female
+g female~
 #36433
 sword katana samurai катана~
 @eng katana@rus {wкатана {x~
@@ -2951,7 +2951,7 @@ steel~
 weapon AHM AN
 sword 5 10 'slash' DE
 50 100 30000 P
-G female
+g female~
 #36434
 kimono кимоно~
 @eng kimono@rus {w кимоно {x~
@@ -2962,7 +2962,7 @@ armor I AD
 50 20 20000 P
 A
 24 -10
-G none
+g none~
 #36435
 coins кучка~
 @eng some coins@rus {Y()))~~несколько~~ ~~монет~~ {x~
@@ -2971,7 +2971,7 @@ unknown~
 money A A
 5000 1000 0 0 0
 1 0 0 P
-G plural
+g plural~
 #36436
 map town карта~
 @eng map of the Festival Town@rus {w~~карта~~ Города Фестивалей {x~
@@ -3110,7 +3110,7 @@ map~
 E
 paper~
 ~
-G female
+g female~
 #36437
 entrance дверь door~
 @eng entrance to the tower@rus {D~~вход~~ в башню {x~
@@ -3119,7 +3119,7 @@ unknown~
 portal 0 0
 0 0 0 4900 0
 0 0 0 P
-G none
+g none~
 #36438
 robe brown ряса~
 @eng brown robe@rus {Rряса {x~
@@ -3134,7 +3134,7 @@ A
 24 -15
 A
 6 2
-G female
+g female~
 #36439
 shackles foot iron band chain pair кандалы~
 @eng A pair of heavy iron foot shackles@rus Тяжелые железные кандалы~
@@ -3154,7 +3154,7 @@ A
 14 250
 A
 2 8
-G none
+g none~
 #0
 
 #ROOMS

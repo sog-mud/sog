@@ -76,7 +76,7 @@ statuette статуэтка~
 E
 statuette~
 ~
-G female
+g female~
 #33402
 fountain фонтан~
 @eng Gray marble fountain@rus Фонтан из серого мрамора~
@@ -92,7 +92,7 @@ fountain фонтан~
 всякого труда можешь из него попить. Наверное, его создатели думали о 
 таком применении их детища.
 ~
-G male
+g male~
 #33403
 sign вывеска табличка~
 @eng sign@rus табличка~
@@ -107,7 +107,7 @@ sign табличка~
             Муниципальный Банк города Тиферет.
                     Добро пожаловать.
 ~
-G female
+g female~
 #33404
 statuette salamander статуэтка саламандра figurine~
 @eng The Figurine of Salamander@rus Статуэтка Саламандры~
@@ -121,7 +121,7 @@ figurine statuette salamander статуэтка саламандра~
 @rus Фигурка ящерицы, выточенная из настоящего целого рубина. Она должно
 быть стоит целое состояние. И не боятся они ее так держать...
 ~
-G female
+g female~
 #33405
 statuette статуэтка undine ундина figurine~
 @eng figurine of the undine@rus ~~статуэтка~~ ундины~
@@ -135,7 +135,7 @@ statuette undine figurine статуэтка ундина~
 @rus Эта статуэтка выточена из сапфира. Очень красивая. Прозрачная голубизна 
 этого камня отражает всю внутреннюю суть существа, выполненного из него.
 ~
-G female
+g female~
 #33406
 statueete figurine sylph статуэтка фигурка сильфида~
 @eng Figurine of The Silver Sylph@rus ~~Статуэтка~~ Серебряной Сильфиды~
@@ -150,7 +150,7 @@ statuette fugurine sylph статуэтка фигурка сильфида~
 заклинанием, потому что на металле совершенно незаметно какого-либо
 воздействия на него природных стихий.
 ~
-G female
+g female~
 #33407
 figurine teranim статуэтка фирурка тераним statuette~
 @eng figurine of the teranim@rus ~~фигурка~~ теранима~
@@ -166,7 +166,7 @@ figurine statuette teranim статуэтка фигурка тераним~
 неизвестным тебе веществом, которое заставляет ее переливаться под лучами
 солнца.
 ~
-G female
+g female~
 #33408
 sign вывеска~
 @eng large sign@rus ~~огромная~~ ~~вывеска~~~
@@ -182,7 +182,7 @@ sign вывеска~
 с позолоченным рогом. Снизу большими буквами написано:
                   Таверна 'Распутный Единорог'
 ~
-G none
+g none~
 #33409
 key ключ~
 @eng small silver key@rus ~~маленький~~ ~~серебряный~~ ~~ключ~~~
@@ -191,7 +191,7 @@ silver~
 key A AO
 0 0 0 0 0
 0 0 0 P
-G male
+g male~
 #33410
 scrool свиток~
 @eng magic scrool@rus ~~магический~~ ~~свиток~~~
@@ -200,7 +200,7 @@ paper~
 trash G AO
 0 0 0 0 0
 0 0 0 P
-G male
+g male~
 #33411
 sign вывеска~
 @eng sign@rus вывеска~
@@ -213,7 +213,7 @@ E
 sign вывеска~
 @rus Добро пожаловать в 'Лесное Царство'.
 ~
-G female
+g female~
 #33412
 shelf полка~
 @eng a shelf@rus полка~
@@ -222,7 +222,7 @@ wood~
 container 0 0
 10 AE 0 1000 1000
 0 0 0 P
-G female
+g female~
 #33413
 rose scarlet роза~
 @eng a scarlet rose@rus ~~алая~~ ~~роза~~~
@@ -235,7 +235,7 @@ E
 rose~
 @rus Прекрасный цветок с яркой окраской.
 ~
-G female
+g female~
 #33414
 bouquet violet букет~
 @eng a bouquet of dame's violet@rus ~~букет~~ ночных фиалок~
@@ -248,7 +248,7 @@ E
 bouquet~
 @rus Небольшой, но очень изящный и привлекательный букетик.
 ~
-G male
+g male~
 #33415
 lily лилия~
 @eng a white lily@rus ~~белая~~ ~~лилия~~~
@@ -257,7 +257,7 @@ unknown~
 treasure A AO
 0 0 0 0 0
 1 1 90 P
-G female
+g female~
 #33416
 rose white роза~
 @eng a white rose@rus ~~белая~~ ~~роза~~~
@@ -270,7 +270,7 @@ E
 rose~
 @rus Нежный цветок на длинном колючем стебле.
 ~
-G female
+g female~
 #33417
 bouquet rose букет роз~
 @eng a bouquet of the roses@rus ~~букет~~ роз~
@@ -285,7 +285,7 @@ bouquet~
 Здесь есть алые, розовые, красные, черные и белые цветки. Все на длинных
 стеблях с нежными зелеными листьями.
 ~
-G male
+g male~
 #33418
 pink гвоздика~
 ~
@@ -294,7 +294,7 @@ unknown~
 trash 0 0
 0 0 0 0 0
 0 0 0 P
-G female
+g female~
 #0
 
 #ROOMS

@@ -140,7 +140,7 @@ bone~
 container CERY P
 10 ABCD 95602 15 100
 60 2 20 P
-G none
+g none~
 #95601
 globe sphere~
 @eng the nothing globe@rus ~~шар~~ пустоты~
@@ -149,7 +149,7 @@ unknown~
 treasure CEORTe AO
 0 0 0 0 0
 0 2 10000 P
-G none
+g none~
 #95602
 jaw~
 @eng darkish jaw of a skull@rus ~~челюсть~~~
@@ -158,7 +158,7 @@ bone~
 key CEORYf AOP
 0 0 0 0 0
 0 2 0 P
-G female
+g female~
 #95603
 white object portal~
 @eng white portal@rus ~~белый~~ ~~портал~~~
@@ -167,7 +167,7 @@ energy~
 portal 0 0
 0 0 B 95600 0
 0 0 0 P
-G male
+g male~
 #95604
 dark object portal~
 @eng dark portal@rus ~~черный портал~~~
@@ -176,7 +176,7 @@ energy~
 portal A 0
 0 0 E 0 0
 0 0 0 P
-G male
+g male~
 #95605
 green object portal~
 @eng green portal@rus ~~зеленый~~ ~~портал~~~
@@ -185,7 +185,7 @@ energy~
 portal A 0
 0 0 B 3124 0
 0 0 0 P
-G male
+g male~
 #95606
 shadow~
 @eng shadow@rus ~~тень~~~
@@ -194,7 +194,7 @@ shadow~
 furniture CER P
 ACD 0 IL DGH DGH
 0 0 0 P
-G female
+g female~
 #95607
 fountain blood~
 @eng bloody fountain@rus ~~фонтан~~~
@@ -203,7 +203,7 @@ stone~
 fountain BJ P
 0 0 'blood' 0 0
 0 0 0 P
-G male
+g male~
 #95608
 mark знак~
 @eng {DMark of the {RBeast{x@rus {DЗнак {RЗверя{x~
@@ -212,7 +212,7 @@ darkness~
 jewelry AMTYZ AS
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #0
 
 #ROOMS

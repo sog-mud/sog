@@ -348,7 +348,7 @@ water~
 fountain 0 0
 0 0 'cranberry juice' 0 0
 0 0 0 P
-G none
+g none~
 #110001
 0 starf~
 @eng 0@rus 0~
@@ -357,7 +357,7 @@ wood~
 armor GJPTUa O
 0 0 0 0 0
 55 50 100000 P
-G none
+g none~
 #110002
 pbel~
 @eng power belt@rus power belt~
@@ -371,7 +371,7 @@ S 'summon' 100 A
 F R 8 10 F
 F R 18 50 G
 F R 19 50 D
-G none
+g none~
 #110004
 jukebox~
 Osyas djukaboks~
@@ -380,7 +380,7 @@ unknown~
 jukebox 0 AR
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #110157
 dark frock~
 @eng dark blind frock@rus Темное глухое платье~
@@ -389,7 +389,7 @@ cloth~
 armor 0 AD
 10 10 10 10 0
 50 5 50 P
-G none
+g none~
 #110158
 caftan~
 @eng long-skirted blue caftan@rus Долгополый синий кафтан~
@@ -400,7 +400,7 @@ armor P AD
 50 20 50 P
 A
 20 -10
-G none
+g none~
 #110159
 trousers~
 @eng Baggy trousers@rus Мешковатые штаны~
@@ -411,7 +411,7 @@ armor 0 AF
 50 10 50 P
 A
 2 -2
-G none
+g none~
 #110160
 bed wooden кровать~
 @eng wooden bed@rus ~~деревянная~~ ~~кровать~~~
@@ -420,7 +420,7 @@ wood~
 furniture O 0
 B 0 HK BEF BEF
 0 0 0 P
-G none
+g none~
 #110161
 stone portal~
 @eng portal stone@rus портальный камень~
@@ -429,7 +429,7 @@ stone~
 portal OR 0
 0 0 E 110244 0
 0 0 0 P
-G none
+g none~
 #110162
 stone portal~
 @eng portal stone@rus портальный камень~
@@ -438,7 +438,7 @@ stone~
 portal OR 0
 0 0 A 110000 0
 0 0 0 P
-G none
+g none~
 #110163
 stone portal~
 @eng Portal stone@rus Портальный камень~
@@ -447,7 +447,7 @@ stone~
 portal OR 0
 0 A E 23114 0
 0 0 0 P
-G none
+g none~
 #110164
 diadem silver~
 @eng Glowing silver diadem@rus Светящаяся серебрянная диадема~
@@ -459,7 +459,7 @@ light AGY AE
 F R 6 5 B
 F R 4 5 O
 F I 12 200 P
-G none
+g none~
 #110165
 White dress~
 @eng {WWhite dress with silver sewing{x@rus {WБелое платье  с серебрянным шитьем{x~
@@ -472,7 +472,7 @@ A
 6 5
 F A 3 10 P
 F I 24 -100 E
-G none
+g none~
 #110166
 brand unholy~
 @eng {Dthe Brand of Shai'tan{x@rus {DКлеймо Шайи'тана{x~
@@ -491,7 +491,7 @@ A
 12 1000
 F R 3 5 M
 F V 17 -200 N
-G none
+g none~
 #110167
 swordbreaker~
 @eng Swordbreaker@rus Мечелом~
@@ -500,7 +500,7 @@ iron~
 weapon 0 AN
 exotic 8 12 'cleave' 0
 55 200 50000 P
-G none
+g none~
 #110168
 bonnet hat~
 @eng Bonnet@rus Шляпка~
@@ -509,7 +509,7 @@ unknown~
 armor 0 AEN
 40 40 40 40 0
 40 20 1000 P
-G none
+g none~
 #110169
 bamboo pole~
 @eng Bamboo's battle pole@rus Бамбуковый боевой шест~
@@ -518,7 +518,7 @@ bamboo~
 weapon B AN
 polearm 6 15 'pound' F
 40 5 100 P
-G none
+g none~
 #110170
 stiletto~
 @eng Stiletto@rus Стилет~
@@ -527,7 +527,7 @@ steel~
 weapon 0 AN
 dagger 5 12 'pierce' D
 40 50 1500 P
-G none
+g none~
 #110171
 stiletto~
 @eng Stiletto@rus Стилет~
@@ -536,7 +536,7 @@ steel~
 weapon JL AN
 dagger 10 12 'pierce' D
 40 50 1500 P
-G none
+g none~
 #110172
 banner флаг~
 @eng banner with sign cityguards of Tear@rus флаг со знаком Тирской городской стражи~
@@ -545,7 +545,7 @@ unknown~
 light 0 A
 0 0 100 0 0
 40 10 100 P
-G none
+g none~
 #110173
 key ключ~
 @eng key of Tears Gate@rus ключ от тирских ворот~
@@ -554,7 +554,7 @@ gold~
 key 0 AO
 0 0 0 0 0
 0 200 0 P
-G none
+g none~
 #110174
 ring sign кольцо~
 @eng sign of Tears Head@rus знак старшины Тира~
@@ -566,7 +566,7 @@ armor A AB
 A
 24 -20
 F R 0 0 E
-G male
+g male~
 #110175
 sword fear меч~
 @eng sword called 'Fear of Illian'@rus ~~меч~~ 'Страх Иллиана'~
@@ -577,7 +577,7 @@ sword 8 12 'pound' DF
 50 1000 10000 P
 A
 13 -500
-G male
+g male~
 #110176
 oblom~
 ~
@@ -586,7 +586,7 @@ unknown~
 npc_corpse 0 A
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #110177
 east~
 ~
@@ -595,7 +595,7 @@ unknown~
 npc_corpse 0 A
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #110178
 north~
 ~
@@ -604,7 +604,7 @@ unknown~
 npc_corpse 0 A
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #110179
 south~
 ~
@@ -613,7 +613,7 @@ unknown~
 npc_corpse 0 A
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #110180
 west~
 ~
@@ -622,7 +622,7 @@ unknown~
 npc_corpse 0 A
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #110181
 halberd~
 @eng Large halberd@rus Большая алебарда~
@@ -633,7 +633,7 @@ polearm 5 11 'chop' F
 45 200 250 P
 A
 19 10
-G none
+g none~
 #110182
 jackboots сапоги высокие~
 @eng jackboots@rus высокие сапоги~
@@ -644,7 +644,7 @@ armor 0 AG
 45 30 20 P
 A
 2 3
-G none
+g none~
 #110183
 trousers штаны~
 @eng tight trousers@rus облегающие штаны~
@@ -655,7 +655,7 @@ clothing 0 AF
 40 50 100 P
 A
 2 2
-G none
+g none~
 #110184
 helm шлем~
 @eng round helm@rus круглый шлем~
@@ -666,7 +666,7 @@ armor I AE
 40 200 500 P
 A
 18 3
-G male
+g male~
 #110185
 uniform мундир~
 @eng red and white colored uniform@rus красно-белый мундир~
@@ -676,7 +676,7 @@ clothing 0 AK
 0 0 0 0 0
 40 10 500 P
 F R 0 0 B
-G male
+g male~
 #110186
 cuirass кираса~
 @eng cuirass@rus кираса~
@@ -685,7 +685,7 @@ steel~
 armor 0 AD
 25 25 25 10 0
 45 900 1200 P
-G female
+g female~
 #110187
 lantern фонарь путешественника~
 @eng travellers lantern@rus фонарь путешественника~
@@ -694,7 +694,7 @@ bronze~
 light A A
 0 0 100 0 0
 35 90 700 P
-G male
+g male~
 #110188
 hat шляпа~
 @eng hat with bright feather@rus ~~шляпа~~ с цветным пером~
@@ -704,7 +704,7 @@ armor 0 AE
 2 5 5 15 0
 40 5 100 P
 F A 20 -10 D
-G female
+g female~
 #110189
 mail кольчуга~
 @eng chain mail@rus кольчуга~
@@ -713,7 +713,7 @@ steel~
 armor 0 AD
 10 2 15 2 0
 40 100 1000 P
-G none
+g none~
 #110190
 sword-sting меч-жало~
 @eng sword-sting@rus меч-жало~
@@ -724,7 +724,7 @@ sword 6 12 'pierce' 0
 40 50 10000 P
 A
 19 4
-G male
+g male~
 #110191
 boots сапоги~
 @eng leather boots@rus кожаные сапоги~
@@ -733,7 +733,7 @@ leather~
 armor 0 AG
 10 10 10 10 0
 30 10 200 P
-G none
+g none~
 #110192
 cloak плащ~
 @eng dusty cloak@rus пыльный плащ~
@@ -744,7 +744,7 @@ clothing 0 AK
 10 10 100 P
 A
 17 -100
-G male
+g male~
 #110193
 knife~
 @eng knife@rus нож~
@@ -753,7 +753,7 @@ iron~
 weapon 0 AN
 dagger 5 7 'pierce' 0
 35 20 700 P
-G male
+g male~
 #110194
 net сеть рыбацкая~
 @eng fishermans net@rus ~~рыбацкая~~ ~~сеть~~~
@@ -762,7 +762,7 @@ hempen~
 wand B AO
 55 15 15 'web' 0
 35 20 500 P
-G none
+g none~
 #110195
 sandals сандалии деревянные~
 @eng wooden sandals@rus деревянные сандалии~
@@ -775,7 +775,7 @@ A
 26 1
 A
 14 -50
-G none
+g none~
 #110196
 mattock мотыга~
 @eng mattock@rus мотыга~
@@ -784,7 +784,7 @@ iron~
 weapon 0 AN
 exotic 5 8 'chop' E
 30 80 100 P
-G female
+g female~
 #110197
 sash кушак~
 @eng red sash@rus красный кушак~
@@ -793,7 +793,7 @@ cloth~
 clothing 0 AKL
 0 0 0 0 0
 35 10 35 P
-G male
+g male~
 #110198
 trousers шаровары~
 @eng wide trousers@rus шаровары~
@@ -802,7 +802,7 @@ cloth~
 clothing 0 AF
 0 0 0 0 0
 35 20 35 P
-G none
+g none~
 #110199
 Panama панама~
 @eng straw panama@rus ~~соломенная~~ ~~панама~~~
@@ -811,7 +811,7 @@ straw~
 armor 0 AE
 0 0 0 100 0
 30 2 5 P
-G female
+g female~
 #110200
 kalandor heartstone dagger~
 @eng kalandor, heartstone dagger@rus ~~каландор~~, меч твердыни Тира~
@@ -827,7 +827,7 @@ A
 S 'mastering spell' 100 A
 A
 8 16
-G male
+g male~
 #0
 
 #ROOMS

@@ -786,7 +786,7 @@ A
 23 -1
 A
 24 -1
-G none
+g none~
 #14701
 krothgar sword~
 the sword of Lord Krothgar~
@@ -801,7 +801,7 @@ A
 18 10
 A
 19 10
-G none
+g none~
 #14702
 krothgar shield~
 the shield of Lord Krothgar~
@@ -816,7 +816,7 @@ A
 23 -3
 A
 24 -3
-G none
+g none~
 #14703
 krothgar helm~
 the cursed helm of Lord Krothgar~
@@ -829,7 +829,7 @@ A
 3 -5
 A
 4 -5
-G none
+g none~
 #14704
 two handed sword~
 a two-handed sword~
@@ -846,7 +846,7 @@ A
 18 6
 A
 19 6
-G none
+g none~
 #14705
 burnt helm~
 a burnt helm~
@@ -863,7 +863,7 @@ A
 14 20
 A
 17 -10
-G none
+g none~
 #14706
 iron fist~
 the iron fist~
@@ -878,7 +878,7 @@ A
 17 10
 A
 19 8
-G none
+g none~
 #14707
 barbed flail~
 a demon's barbed flail~
@@ -891,7 +891,7 @@ A
 18 6
 A
 19 6
-G none
+g none~
 #14708
 flaming spear~
 a flaming spear~
@@ -902,7 +902,7 @@ furniture ABEGJQ AO
 20 5 0 P
 A
 18 4
-G none
+g none~
 #14709
 staff power~
 a staff of power~
@@ -917,7 +917,7 @@ A
 4 2
 A
 17 -20
-G none
+g none~
 #14710
 robes archmage~
 robes of the archmage~
@@ -928,7 +928,7 @@ armor AG AK
 54 5 1000 P
 A
 12 50
-G none
+g none~
 #14711
 vial dust~
 a vial of magic dust~
@@ -937,7 +937,7 @@ glass~
 potion AG AO
 54 'heal' 'heal' 'heal' 'heal'
 20 3 20000 P
-G none
+g none~
 #14712
 dagger~
 a sacrifical dagger~
@@ -946,7 +946,7 @@ steel~
 weapon EJ AN
 dagger 5 11 'pierce' 0
 54 5 1000 P
-G none
+g none~
 #14713
 robes~
 the high priest's robes~
@@ -957,7 +957,7 @@ armor EJ AK
 54 5 5000 P
 A
 4 4
-G none
+g none~
 #14714
 mask~
 the high priest's death mask~
@@ -970,7 +970,7 @@ A
 5 3
 A
 13 20
-G none
+g none~
 #14715
 spiked plate mail~
 a suit of spiked plate mail~
@@ -981,7 +981,7 @@ armor BEJ AD
 50 20 2000 P
 A
 17 -15
-G none
+g none~
 #14716
 morning star~
 a huge morning star~
@@ -994,7 +994,7 @@ A
 18 -5
 A
 19 10
-G none
+g none~
 #14717
 helm~
 a dark helm~
@@ -1003,7 +1003,7 @@ steel~
 armor BEJ AE
 16 17 17 8 0
 50 5 2000 P
-G none
+g none~
 #14718
 dagger~
 a sacrifical dagger~
@@ -1012,7 +1012,7 @@ steel~
 weapon EJ AN
 dagger 4 10 'pierce' 0
 40 5 2000 P
-G none
+g none~
 #14719
 robes~
 the priest's robes~
@@ -1021,7 +1021,7 @@ cloth~
 armor EJ AK
 13 13 13 6 0
 40 5 1000 P
-G none
+g none~
 #14720
 mask~
 the priest's death mask~
@@ -1030,7 +1030,7 @@ cloth~
 armor EJ AE
 13 13 13 6 0
 40 3 1000 P
-G none
+g none~
 #14721
 mage robes~
 the mage's robes~
@@ -1039,7 +1039,7 @@ cloth~
 armor 0 AK
 15 15 14 7 0
 45 1 1000 P
-G none
+g none~
 #14722
 wand~
 a magic wand~
@@ -1048,7 +1048,7 @@ unknown~
 wand AG AO
 45 9 9 'cure critical' 0
 25 4 4000 P
-G none
+g none~
 #14723
 elixir chemicals~
 an elixir of noxious chemicals~
@@ -1057,7 +1057,7 @@ glass~
 potion B AO
 45 'poison' 'weaken' 'acid blast' ''
 40 4 0 P
-G none
+g none~
 #14724
 dragon scale~
 a dragon scale~
@@ -1070,7 +1070,7 @@ A
 17 -18
 A
 23 -5
-G none
+g none~
 #14725
 tooth~
 a dragon tooth~
@@ -1083,7 +1083,7 @@ A
 18 5
 A
 19 5
-G none
+g none~
 #14726
 claw~
 dragon claws~
@@ -1098,7 +1098,7 @@ A
 18 4
 A
 19 4
-G none
+g none~
 #14727
 hide~
 a dragon hide~
@@ -1115,7 +1115,7 @@ A
 23 -2
 A
 24 -2
-G none
+g none~
 #14728
 brazier~
 a bronze brazier~
@@ -1124,7 +1124,7 @@ bronze~
 staff G AO
 53 1 1 'summon' 0
 40 4 3000 P
-G none
+g none~
 #14729
 flask~
 an empty flask~
@@ -1133,7 +1133,7 @@ unknown~
 container 0 AO
 1 0 0 0 100
 1 500 0 P
-G none
+g none~
 #14730
 manacles~
 a pair of manacles~
@@ -1146,7 +1146,7 @@ A
 2 -3
 A
 17 10
-G none
+g none~
 #14731
 robes~
 an illithid's robes~
@@ -1157,7 +1157,7 @@ armor G AK
 50 1 3000 P
 A
 12 25
-G none
+g none~
 #14732
 gem~
 a gem~
@@ -1174,7 +1174,7 @@ A
 12 20
 A
 17 -10
-G none
+g none~
 #14733
 chest~
 a chest~
@@ -1183,7 +1183,7 @@ steel~
 container 0 0
 10000 A 0 0 0
 1 0 0 P
-G none
+g none~
 #14734
 treasure~
 a great treasure~
@@ -1192,7 +1192,7 @@ gold~
 money A A
 0 0 0 0 0
 0 100 50000 P
-G none
+g none~
 #14735
 bed~
 a luxurious bed~
@@ -1201,7 +1201,7 @@ silver~
 furniture 0 0
 0 0 0 0 0
 1 0 0 P
-G none
+g none~
 #14736
 silk~
 some expensive silk~
@@ -1210,7 +1210,7 @@ silver~
 treasure 0 AK
 0 0 0 0 0
 10 1 15000 P
-G none
+g none~
 #14737
 stone~
 a stone~
@@ -1219,7 +1219,7 @@ stone~
 staff G AO
 53 1 1 'summon' 0
 45 5 0 P
-G none
+g none~
 #14738
 bowl~
 a bowl~
@@ -1228,7 +1228,7 @@ unknown~
 staff G AO
 53 1 1 'summon' 0
 45 5 0 P
-G none
+g none~
 #14739
 censer~
 a censer~
@@ -1237,7 +1237,7 @@ unknown~
 staff G AO
 53 1 1 'summon' 0
 45 5 0 P
-G none
+g none~
 #14740
 spiked collar~
 a spiked collar~
@@ -1248,7 +1248,7 @@ armor EM AC
 42 5 1000 P
 A
 19 4
-G none
+g none~
 #14741
 sword~
 a giant sword~
@@ -1259,7 +1259,7 @@ sword 4 11 'crush' 0
 45 25 2000 P
 A
 19 4
-G none
+g none~
 #14742
 rock~
 a throwing rock~
@@ -1272,7 +1272,7 @@ A
 18 -4
 A
 19 4
-G none
+g none~
 #14743
 club~
 a wooden club~
@@ -1281,7 +1281,7 @@ wood~
 weapon 0 AN
 mace 4 11 'pound' 0
 45 5 2000 P
-G none
+g none~
 #14744
 collar~
 a slave collar~
@@ -1298,7 +1298,7 @@ A
 13 -10
 A
 17 10
-G none
+g none~
 #14745
 glaive~
 a glaive~
@@ -1311,7 +1311,7 @@ A
 18 3
 A
 19 3
-G none
+g none~
 #14746
 potion~
 a magical potion~
@@ -1320,7 +1320,7 @@ glass~
 potion G AO
 49 'armor' 'bless' 'shield' ''
 30 3 3000 P
-G none
+g none~
 #14747
 pole arm~
 a pole arm~
@@ -1333,7 +1333,7 @@ A
 18 -2
 A
 19 6
-G none
+g none~
 #14748
 chainmail~
 a suit of black chainmail~
@@ -1346,7 +1346,7 @@ A
 2 -2
 A
 17 -20
-G none
+g none~
 #14749
 black sword~
 the black sword~
@@ -1357,7 +1357,7 @@ sword 5 11 'slash' 0
 53 5 3000 P
 A
 18 8
-G none
+g none~
 #14750
 blue sword~
 the blue sword~
@@ -1368,7 +1368,7 @@ sword 5 11 'slash' 0
 53 5 0 P
 A
 19 8
-G none
+g none~
 #14751
 black robes~
 black robes~
@@ -1381,7 +1381,7 @@ E
 robes~
 They look extraordinarily unencumbering.
 ~
-G none
+g none~
 #14752
 vial poison~
 a vial of poison~
@@ -1394,7 +1394,7 @@ E
 vial poison~
 It looks very deadly.
 ~
-G none
+g none~
 #14753
 drow cloak~
 a drow cloak~
@@ -1411,7 +1411,7 @@ A
 23 -1
 A
 24 -1
-G none
+g none~
 #14754
 drow boots~
 a pair of drow boots~
@@ -1426,7 +1426,7 @@ A
 14 50
 A
 17 -5
-G none
+g none~
 #14755
 drow chain chainmail~
 a suit of drow chainmail~
@@ -1441,7 +1441,7 @@ A
 13 10
 A
 17 -10
-G none
+g none~
 #14756
 tentacle whip~
 a greater tentacle whip~
@@ -1454,7 +1454,7 @@ A
 18 4
 A
 19 6
-G none
+g none~
 #14757
 tiara~
 a tiara~
@@ -1469,7 +1469,7 @@ A
 4 2
 A
 12 25
-G none
+g none~
 #14758
 key~
 a door key~
@@ -1478,7 +1478,7 @@ iron~
 key 0 AO
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #0
 
 #ROOMS

@@ -999,7 +999,7 @@ gold~
 key 0 AO
 0 0 0 0 0
 0 1 0 P
-G none
+g none~
 #31001
 key~
 a bronze key~
@@ -1008,7 +1008,7 @@ bronze~
 key 0 AO
 0 0 0 0 0
 0 1 0 P
-G none
+g none~
 #31002
 barrel beer~
 a Barrel of Argh's beer~
@@ -1017,7 +1017,7 @@ metal~
 drink 0 A
 30 30 'beer' 0 0
 0 60 300 P
-G none
+g none~
 #31003
 bottle beer~
 a bottle of Yaegar (TM) beer~
@@ -1026,7 +1026,7 @@ glass~
 drink 0 A
 4 4 'beer' 0 0
 0 10 20 P
-G none
+g none~
 #31004
 bottle ale~
 a Bottle of Marius (TM) ale~
@@ -1035,7 +1035,7 @@ glass~
 drink 0 A
 5 5 'ale' 0 0
 0 10 10 P
-G none
+g none~
 #31005
 bottle firebreather~
 a Bottle of Rainman firebreather~
@@ -1044,7 +1044,7 @@ glass~
 drink 0 A
 8 8 'firebreather' 0 0
 0 10 50 P
-G none
+g none~
 #31006
 bottle local~
 a bottle of local specialty~
@@ -1053,7 +1053,7 @@ glass~
 drink 0 A
 8 8 'local specialty' 0 0
 0 10 20 P
-G none
+g none~
 #31007
 torch~
 a torch~
@@ -1062,7 +1062,7 @@ wood~
 light 0 AO
 0 0 24 0 0
 0 1 10 P
-G none
+g none~
 #31008
 lantern~
 a hooded brass lantern~
@@ -1081,7 +1081,7 @@ It is a large and robust but somewhat battered oil lantern made from brass,
 equipped with a handle to make it handy and a hood to protect its flame.
 Some letters have been scratched on its bottom.
 ~
-G none
+g none~
 #31009
 scroll identify~
 a scroll of identify~
@@ -1090,7 +1090,7 @@ vellum~
 scroll G A
 12 'identify' '' '' ''
 0 1 2000 P
-G none
+g none~
 #31010
 potion yellow~
 a yellow potion of see invisible~
@@ -1103,7 +1103,7 @@ E
 potion yellow~
 The potion has a small label 'Detect The Invisible'.
 ~
-G none
+g none~
 #31011
 skin water buffalo~
 a buffalo water skin~
@@ -1112,7 +1112,7 @@ leather~
 drink 0 A
 25 25 'water' 0 0
 0 5 30 P
-G none
+g none~
 #31012
 jug water~
 a jug of water~
@@ -1121,7 +1121,7 @@ glass~
 drink A A
 60 60 'water' 0 0
 0 85 20 P
-G none
+g none~
 #31013
 club~
 a heavy lead-sheathed club~
@@ -1134,7 +1134,7 @@ A
 19 3
 A
 18 -2
-G none
+g none~
 #31014
 mace~
 a Sturdy Mace~
@@ -1147,7 +1147,7 @@ A
 19 1
 A
 18 1
-G none
+g none~
 #31015
 dagger~
 a Dagger~
@@ -1160,7 +1160,7 @@ A
 19 -2
 A
 18 4
-G none
+g none~
 #31016
 scimitar~
 a Wickedly-Curved Scimitar~
@@ -1173,7 +1173,7 @@ A
 19 2
 A
 18 2
-G none
+g none~
 #31017
 boots~
 a pair of tough leather boots~
@@ -1186,7 +1186,7 @@ A
 5 1
 A
 17 -5
-G none
+g none~
 #31018
 belt~
 a narrow leather belt~
@@ -1199,7 +1199,7 @@ A
 23 -2
 A
 2 1
-G none
+g none~
 #31019
 kamikaze headband~
 a kamikaze headband~
@@ -1210,7 +1210,7 @@ armor 0 AE
 15 5 3000 P
 A
 18 2
-G none
+g none~
 #31020
 scarf~
 a WWI Aviator's Scarf~
@@ -1223,7 +1223,7 @@ A
 19 1
 A
 18 1
-G none
+g none~
 #31021
 fountain~
 a city fountain~
@@ -1232,7 +1232,7 @@ marble~
 fountain 0 0
 0 0 'water' 0 0
 0 0 0 P
-G none
+g none~
 #31022
 ring~
 a gold ring~
@@ -1243,7 +1243,7 @@ armor A AB
 0 1 10 P
 A
 14 20
-G none
+g none~
 #31023
 cake ~
 a sweet cake~
@@ -1252,7 +1252,7 @@ food~
 food 0 A
 C C 0 0 0
 0 1 3 P
-G none
+g none~
 #31024
 roll~
 a roll~
@@ -1261,7 +1261,7 @@ food~
 food 0 A
 AC AC 0 0 0
 0 1 1 P
-G none
+g none~
 #31025
 sandwich~
 a sandwich~
@@ -1270,7 +1270,7 @@ food~
 food 0 A
 AC AC 0 0 0
 0 1 3 P
-G none
+g none~
 #31026
 loaf bread~
 a HUGE loaf of bread~
@@ -1279,7 +1279,7 @@ food~
 food 0 A
 DE DE 0 0 0
 0 3 3 P
-G none
+g none~
 #31027
 coffee cup mug java~
 a cup of coffee~
@@ -1288,7 +1288,7 @@ porcelain~
 drink 0 AO
 1 1 'coffee' 0 0
 0 1 2 P
-G none
+g none~
 #31028
 potion~
 a psychedelic potion~
@@ -1297,7 +1297,7 @@ glass~
 potion ABG A
 10 'detect magic' 'bless' '' ''
 4 2 400 P
-G none
+g none~
 #31029
 guillotine~
 a nasty guillotine~
@@ -1306,7 +1306,7 @@ unknown~
 container 0 0
 100 A 0 0 100
 0 0 0 P
-G none
+g none~
 #31030
 mask~
 a Headsman's Black Face Mask~
@@ -1317,7 +1317,7 @@ armor 0 AE
 58 75 0 P
 A
 13 50
-G none
+g none~
 #31031
 sword longsword~
 the Castellan's Longsword~
@@ -1334,7 +1334,7 @@ A
 18 8
 A
 17 -15
-G none
+g none~
 #31032
 sap~
 a sap~
@@ -1343,7 +1343,7 @@ unknown~
 weapon 0 AN
 mace 3 3 'pound' 0
 3 15 200 P
-G none
+g none~
 #31033
 sword longsword~
 an Ornate Longsword~
@@ -1356,7 +1356,7 @@ A
 19 4
 A
 18 4
-G none
+g none~
 #31034
 breastplate plate~
 an Ornate Breastplate~
@@ -1369,7 +1369,7 @@ A
 17 -15
 A
 5 2
-G none
+g none~
 #31035
 bracer~
 an Ornate Bracer~
@@ -1382,7 +1382,7 @@ A
 18 2
 A
 2 2
-G none
+g none~
 #31036
 cloak~
 a black cloak with gold trim~
@@ -1395,7 +1395,7 @@ A
 17 -15
 A
 12 25
-G none
+g none~
 #31037
 helm~
 an Ornate Helm~
@@ -1410,7 +1410,7 @@ A
 4 1
 A
 3 1
-G none
+g none~
 #31038
 shield~
 an Ornate Shield~
@@ -1425,7 +1425,7 @@ A
 23 -2
 A
 17 -20
-G none
+g none~
 #31039
 spear~
 a Throwing Spear~
@@ -1438,7 +1438,7 @@ A
 19 3
 A
 18 3
-G none
+g none~
 #31040
 scroll~
 a blank scroll~
@@ -1447,7 +1447,7 @@ vellum~
 scroll 0 AO
 20 'armor' 'shield' '' ''
 10 1 3000 P
-G none
+g none~
 #31041
 potion~
 a shimmering potion~
@@ -1456,7 +1456,7 @@ glass~
 potion G AO
 5 'fly' 'invisibility' 'infravision' ''
 1 1 800 P
-G none
+g none~
 #31042
 sticker~
 a bright red sticker that reads "DORK"~
@@ -1474,7 +1474,7 @@ sticker~
 The wearer of this item has been officially marked by the deity Yaegar as 
 a genuine bona fide irredeemable DORK.
 ~
-G none
+g none~
 #31043
 tent~
 a sturdy canvas tent~
@@ -1483,7 +1483,7 @@ unknown~
 container S A
 10 0 0 0 100
 0 25 1000 P
-G none
+g none~
 #31044
 rowboat~
 a sturdy wooden rowboat~
@@ -1492,7 +1492,7 @@ wood~
 container ST A
 1000 0 0 0 100
 0 50 50 P
-G none
+g none~
 #31045
 battered fried fish~
 a piece of battered fried fish~
@@ -1501,7 +1501,7 @@ unknown~
 food 0 A
 C C 0 0 0
 0 1 1 P
-G none
+g none~
 #31046
 pile steaming chips~
 a pile of steaming chips~
@@ -1510,7 +1510,7 @@ unknown~
 food 0 A
 BC BC 0 0 0
 0 1 3 P
-G none
+g none~
 #31047
 chips salt sauce~
 chips with salt and sauce~
@@ -1519,7 +1519,7 @@ unknown~
 food 0 A
 ABC ABC 0 0 0
 0 1 3 P
-G none
+g none~
 #31048
 black pudding~
 a black pudding~
@@ -1528,7 +1528,7 @@ unknown~
 food 0 A
 C C 0 0 0
 0 1 3 P
-G none
+g none~
 #31049
 white pudding~
 a white pudding~
@@ -1537,7 +1537,7 @@ unknown~
 food 0 A
 C C 0 0 0
 0 1 3 P
-G none
+g none~
 #31050
 pizza~
 a piece of pizza~
@@ -1546,7 +1546,7 @@ unknown~
 food 0 A
 AC AC 0 0 0
 0 1 3 P
-G none
+g none~
 #31051
 lard~
 a lump of lard~
@@ -1555,7 +1555,7 @@ unknown~
 food 0 A
 A A 0 0 0
 0 1 3 P
-G none
+g none~
 #31052
 potato scallop~
 a potato scallop~
@@ -1564,7 +1564,7 @@ unknown~
 food 0 A
 B B 0 0 0
 0 1 3 P
-G none
+g none~
 #31053
 curry sauce~
 some curry sauce~
@@ -1573,7 +1573,7 @@ unknown~
 food 0 A
 A A 0 0 0
 0 1 3 P
-G none
+g none~
 #31054
 chicken kiev~
 chicken kiev~
@@ -1582,7 +1582,7 @@ unknown~
 food 0 A
 C C 0 0 0
 0 1 3 P
-G none
+g none~
 #31055
 crumbed drumstick~
 a crumbed drumstick~
@@ -1591,7 +1591,7 @@ unknown~
 food 0 A
 C C 0 0 0
 0 1 3 P
-G none
+g none~
 #31056
 battered sav~
 a battered sav~
@@ -1600,7 +1600,7 @@ unknown~
 food 0 A
 B B 0 0 0
 0 1 3 P
-G none
+g none~
 #31057
 kabana~
 a kabana~
@@ -1609,7 +1609,7 @@ unknown~
 food 0 A
 AB AB 0 0 0
 0 1 3 P
-G none
+g none~
 #31058
 fish cake~
 a fish cake~
@@ -1618,7 +1618,7 @@ unknown~
 food 0 A
 B B 0 0 0
 0 1 3 P
-G none
+g none~
 #31059
 haggis~
 it's... HAGGIS~
@@ -1631,7 +1631,7 @@ E
 haggis~
 You DO know what's in haggis, don't you?
 ~
-G none
+g none~
 #31060
 tea~
 Tetley's tea~
@@ -1640,7 +1640,7 @@ unknown~
 drink 0 AO
 1 1 'tea' 0 0
 0 1 3 P
-G none
+g none~
 #31061
 coffee~
 Kenco coffee~
@@ -1649,7 +1649,7 @@ unknown~
 drink 0 AO
 1 1 'coffee' 0 0
 0 1 3 P
-G none
+g none~
 #31062
 shandy~
 a shandy~
@@ -1658,7 +1658,7 @@ unknown~
 drink 0 AO
 1 1 'water' 0 0
 0 1 3 P
-G none
+g none~
 #31063
 irn bru~
 Barr's Irn Bru~
@@ -1667,7 +1667,7 @@ unknown~
 drink B AO
 2 2 'whisky' 0 0
 0 1 3 P
-G none
+g none~
 #31064
 chocolate milk~
 a chocolate milk~
@@ -1676,7 +1676,7 @@ unknown~
 drink 0 AO
 2 2 'milk' 0 0
 0 1 3 P
-G none
+g none~
 #31065
 strawberry milk~
 a strawberry milk~
@@ -1685,7 +1685,7 @@ unknown~
 drink 0 AO
 2 2 'milk' 0 0
 0 1 3 P
-G none
+g none~
 #31066
 caramel milk~
 a caramel milk~
@@ -1694,7 +1694,7 @@ unknown~
 drink 0 AO
 2 2 'milk' 0 0
 0 1 1 P
-G none
+g none~
 #31067
 sticky bun~
 a sticky bun~
@@ -1703,7 +1703,7 @@ unknown~
 food 0 A
 A A 0 0 0
 0 1 3 P
-G none
+g none~
 #31068
 fruit scone~
 a fruit scone~
@@ -1712,7 +1712,7 @@ unknown~
 food 0 A
 A A 0 0 0
 0 1 3 P
-G none
+g none~
 #31069
 spamburger~
 a spamburger~
@@ -1721,7 +1721,7 @@ unknown~
 food 0 A
 C C 0 0 A
 0 1 3 P
-G none
+g none~
 #31070
 steak burger~
 a steak burger~
@@ -1730,7 +1730,7 @@ unknown~
 food 0 A
 BC BC 0 0 0
 0 1 6 P
-G none
+g none~
 #31071
 hamburger~
 a hamburger~
@@ -1739,7 +1739,7 @@ unknown~
 food 0 A
 AC AC 0 0 0
 0 1 5 P
-G none
+g none~
 #31072
 ploughman's sandwich~
 a ploughman's sandwich~
@@ -1748,7 +1748,7 @@ unknown~
 food 0 A
 C C 0 0 0
 0 1 4 P
-G none
+g none~
 #31073
 cheese onion sandwich~
 a cheese and onion sandwich~
@@ -1757,7 +1757,7 @@ unknown~
 food B A
 C C 0 0 0
 0 1 4 P
-G none
+g none~
 #31074
 chicken tikka sandwich~
 a chicken tikka sandwich~
@@ -1766,7 +1766,7 @@ unknown~
 food 0 A
 AC AC 0 0 0
 0 1 5 P
-G none
+g none~
 #31075
 baked potato cheese coleslaw~
 a baked potato with cheese and coleslaw~
@@ -1775,7 +1775,7 @@ unknown~
 food 0 A
 BC BC 0 0 0
 0 1 3 P
-G none
+g none~
 #31076
 baked potato chicken curry~
 a baked potato with chicken curry~
@@ -1784,7 +1784,7 @@ unknown~
 food 0 A
 BC BC 0 0 0
 0 1 6 P
-G none
+g none~
 #31077
 bacon eggs~
 bacon and eggs~
@@ -1793,7 +1793,7 @@ unknown~
 food 0 A
 ABC ABC 0 0 0
 0 2 9 P
-G none
+g none~
 #31078
 steak eggs chips~
 steak eggs and chips~
@@ -1802,7 +1802,7 @@ unknown~
 food 0 A
 D D 0 0 0
 0 2 9 P
-G none
+g none~
 #31079
 spam eggs~
 spam and eggs~
@@ -1811,7 +1811,7 @@ unknown~
 food 0 A
 ABC ABC 0 0 0
 0 3 9 P
-G none
+g none~
 #31080
 bacon spam eggs~
 bacon, spam and eggs~
@@ -1820,7 +1820,7 @@ unknown~
 food 0 A
 D D 0 0 0
 0 3 7 P
-G none
+g none~
 #31081
 poison powder~
 some black poison powder~
@@ -1829,7 +1829,7 @@ unknown~
 trash E A
 0 0 0 0 0
 0 0 0 P
-G none
+g none~
 #31082
 portal past~
 a portal to the past~
@@ -1838,7 +1838,7 @@ unknown~
 jewelry 0 0
 CEIJKMN 0 0 0 0
 0 0 0 P
-G none
+g none~
 #31083
 portal future~
 a portal to the future~
@@ -1847,7 +1847,7 @@ unknown~
 jewelry 0 0
 DEFGIJKMN 0 0 0 0
 0 0 0 P
-G none
+g none~
 #31084
 portal surreal~
 a portal to the surreal~
@@ -1856,7 +1856,7 @@ unknown~
 jewelry 0 0
 CDEGHIJKMN 0 0 0 0
 0 0 0 P
-G none
+g none~
 #31085
 key portal~
 a key to the portal chambers~
@@ -1865,7 +1865,7 @@ unknown~
 key AB AO
 0 0 0 0 0
 0 1 200 P
-G none
+g none~
 #31086
 tome political history~
 a Tome of Political History~
@@ -2080,7 +2080,7 @@ The major staes of each race are listed in the relevant chapters. Type read
 Human, Kender, Elf, Dwarf, Illithid, Dryad, Avian and Darkling  to read the
 organisation of the relevant races.
 ~
-G none
+g none~
 #31087
 tome social history~
 a Tome of Social History~
@@ -2274,7 +2274,7 @@ This tome attempts to give, in a brief outline, the social structure of
 the many races of Anon. For more information on the relevant races, type
 read Elf, Dwarf, Human, Kender, Avian, Illithid, Dryad or Darkling.
 ~
-G none
+g none~
 #31088
 book history~
 a History book~
@@ -2548,7 +2548,7 @@ primary sources by Xanafax and compiled here for the dilettante to peruse
 and learn a little about their fellow Anonians. For further information,
 try read elf, read human, etc.
 ~
-G none
+g none~
 #31089
 geography text~
 a Geography text~
@@ -2658,7 +2658,7 @@ unfortunately torn out, so you'll have to go by the text descriptions. The
 book is divided into four chapters- NORTH, SOUTH, EAST and WEST. For more
 information, try read north, read south etc.
 ~
-G none
+g none~
 #31090
 book compendium~
 Xanafax's Compendium of Heroes~
@@ -2895,7 +2895,7 @@ famous Adventurers. To see if someone you know has an entry, try READ
 <character name>, i.e, read lenny or read yaegar, though neither are as
 yet in here.
 ~
-G none
+g none~
 #31091
 a gold piece~
 a gold piece~
@@ -2904,7 +2904,7 @@ unknown~
 money 0 A
 1 0 0 0 0
 0 1 1 P
-G none
+g none~
 #31092
 gem~
 a small gem~
@@ -2920,7 +2920,7 @@ gem~
 This gem is worth next to nothing on the open market, but is prized by
 the merchant Pharlas because of the extra intelligence it grants whoever
 holds it.~
-G none
+g none~
 #0
 
 #ROOMS

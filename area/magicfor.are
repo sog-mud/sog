@@ -711,7 +711,7 @@ brass~
 light 0 A
 0 0 500 0 0
 0 30 60 P
-G none
+g none~
 #1802
 camper's canteen~
 a camper's canteen~
@@ -720,7 +720,7 @@ steel~
 drink 0 A
 120 120 'water' 0 0
 0 20 75 P
-G none
+g none~
 #1803
 back backpack pack~
 a ranger's backpack~
@@ -729,7 +729,7 @@ canvas~
 container 0 AD
 400 0 0 20 100
 1 50 75 P
-G none
+g none~
 #1804
 first aid kit~
 a first aid kit~
@@ -743,7 +743,7 @@ box~
 The below the red cross on the white box is a label that says,
               "Brandish to Heal Wounds"
 ~
-G none
+g none~
 #1805
 wafer~
 a wafer~
@@ -752,7 +752,7 @@ food~
 food 0 A
 BCDE ADE 0 0 0
 1 10 2 P
-G none
+g none~
 #1806
 ivory unicorn sword~
 an ivory unicorn sword~
@@ -770,7 +770,7 @@ ivory~
 It is unicorn ivory, you can tell from the shape, one time a part of a
 unicorn. The hilt is of ivory, too, as is the handle.
 ~
-G none
+g none~
 #1807
 swing~
 a rope swing~
@@ -779,7 +779,7 @@ wood~
 furniture 0 0
 AB CDEGHIK BEHKN CFG CFG
 0 0 0 P
-G none
+g none~
 #1808
 ivory mace two~
 an ivory mace~
@@ -797,7 +797,7 @@ ivory~
 It is unicorn ivory, you can tell from the shape of the handle, one time
 a part of a unicorn.
 ~
-G none
+g none~
 #1809
 red belt~
 a red belt~
@@ -817,7 +817,7 @@ embroidery golden gold~
 The delicate embroidery on the belt is in the shape of familiar symbols:
 stars, moons, suns.
 ~
-G none
+g none~
 #1810
 orange robe~
 an orange robe~
@@ -837,7 +837,7 @@ robe~
 The robe is embroidered in brown thread. The pictures are of various
 types of leaves. Oak leaves figure the most.
 ~
-G none
+g none~
 #1811
 golden eye dagger~
 a golden eye dagger~
@@ -849,7 +849,7 @@ dagger 7 7 'thrust' B
 S 'parry' 30 A
 A
 17 -4
-G none
+g none~
 #1812
 witch ring~
 Ring of the Witch~
@@ -866,7 +866,7 @@ A
 17 -5
 A
 20 -3
-G none
+g none~
 #1813
 blue amulet~
 a blue amulet~
@@ -879,7 +879,7 @@ A
 17 -5
 A
 20 -6
-G none
+g none~
 #1814
 indigo robe~
 an indigo robe~
@@ -896,7 +896,7 @@ A
 19 3
 A
 20 -3
-G none
+g none~
 #1815
 violet robe~
 a violet robe~
@@ -925,7 +925,7 @@ The robe is ripped in such a way that when worn, the wearer's left leg is
 exposed up to the hip, and if the wearer is wearing panties, you can see
 them, and what color they are.
 ~
-G none
+g none~
 #1816
 oaken staff~
 an oaken staff~
@@ -942,7 +942,7 @@ A
 13 20
 A
 17 -10
-G none
+g none~
 #1817
 orange boots~
 a pair of orange boots~
@@ -960,7 +960,7 @@ A
 17 -10
 A
 20 -5
-G none
+g none~
 #1818
 golden eye sword~
 a golden eye sword~
@@ -977,7 +977,7 @@ A
 18 4
 A
 19 3
-G none
+g none~
 #1819
 green wristband~
 a green wristband~
@@ -998,7 +998,7 @@ A
 18 3
 A
 19 2
-G none
+g none~
 #1820
 blue leather whip~
 a blue-tinted leather whip~
@@ -1021,7 +1021,7 @@ A
 19 2
 A
 20 -3
-G none
+g none~
 #1821
 indigo tunic~
 an indigo tunic~
@@ -1040,7 +1040,7 @@ A
 18 3
 A
 19 5
-G none
+g none~
 #1822
 tight violet leggings~
 a pair of tight violet leggings~
@@ -1053,7 +1053,7 @@ A
 13 50
 A
 17 -3
-G none
+g none~
 #1823
 one horn one-horned helm~
 a one-horned helm~
@@ -1072,7 +1072,7 @@ A
 19 3
 A
 20 -4
-G none
+g none~
 #1824
 filigree gold golden pendant~
 a golden filigree pendant~
@@ -1085,7 +1085,7 @@ A
 12 10
 A
 19 2
-G none
+g none~
 #1825
 orange tea rose~
 an orange tea rose~
@@ -1094,7 +1094,7 @@ plant~
 trash 0 AO
 0 0 0 0 0
 1 10 50 P
-G none
+g none~
 #1826
 yellow rose~
 a yellow rose~
@@ -1103,7 +1103,7 @@ plant~
 trash 0 AO
 0 0 0 0 0
 1 10 50 P
-G none
+g none~
 #1827
 green ivy rose~
 an ivy green rose~
@@ -1112,7 +1112,7 @@ plant~
 trash 0 AO
 0 0 0 0 0
 1 10 50 P
-G none
+g none~
 #1828
 deep blue rose~
 a deep blue rose~
@@ -1121,7 +1121,7 @@ plant~
 trash 0 AO
 0 0 0 0 0
 1 10 50 P
-G none
+g none~
 #1829
 pink rose~
 a pink rose~
@@ -1130,7 +1130,7 @@ plant~
 trash 0 AO
 0 0 0 0 0
 1 10 50 P
-G none
+g none~
 #1830
 smoky grey rose~
 a smoky grey rose~
@@ -1139,7 +1139,7 @@ plant~
 trash 0 AO
 0 0 0 0 0
 1 10 50 P
-G none
+g none~
 #1831
 small crimson rose~
 a small crimson rose~
@@ -1148,7 +1148,7 @@ plant~
 trash 0 AO
 0 0 0 0 0
 1 10 50 P
-G none
+g none~
 #1832
 trellis climbing rose~
 a trellis climbing rose~
@@ -1157,7 +1157,7 @@ plant~
 trash 0 AO
 0 0 0 0 0
 1 10 50 P
-G none
+g none~
 #1833
 magic silver harp small~
 a silver harp~
@@ -1166,7 +1166,7 @@ silver~
 staff G AO
 35 10 10 'cure critical' 0
 35 60 1200 P
-G none
+g none~
 #1834
 pool water~
 a pool~
@@ -1175,7 +1175,7 @@ stone~
 fountain GOR 0
 100000 100000 'water' 0 0
 0 0 0 P
-G none
+g none~
 #1835
 magic spring~
 a magic spring~
@@ -1184,7 +1184,7 @@ quartz~
 fountain GOR 0
 100000 100000 'water' 0 0
 0 0 0 P
-G none
+g none~
 #1836
 stream water small~
 a small stream~
@@ -1193,7 +1193,7 @@ clay~
 fountain GOR 0
 100000 100000 'water' 0 0
 0 0 0 P
-G none
+g none~
 #1837
 white bean-sized egg~
 a bean-sized white egg~
@@ -1202,7 +1202,7 @@ shell~
 treasure 0 A
 0 0 0 0 0
 3 10 90 P
-G none
+g none~
 #1838
 small moss lichen nest~
 a small moss and lichen nest~
@@ -1211,7 +1211,7 @@ plant~
 container 0 A
 5 0 0 1 100
 3 20 90 P
-G none
+g none~
 #1839
 bush small~
 a small bush~
@@ -1220,7 +1220,7 @@ plant~
 container 0 0
 10 0 0 10 100
 0 300 0 P
-G none
+g none~
 #1840
 butter cup buttercup flower tiny yellow~
 a tiny yellow buttercup~
@@ -1229,7 +1229,7 @@ plant~
 trash 0 A
 0 0 0 0 0
 0 10 5 P
-G none
+g none~
 #1841
 pink flower~
 a pink flower~
@@ -1238,7 +1238,7 @@ plant~
 trash 0 A
 0 0 0 0 0
 0 10 5 P
-G none
+g none~
 #1842
 small well-woven nest~
 a small well-woven nest~
@@ -1247,7 +1247,7 @@ plant~
 container 0 A
 10 0 0 10 100
 0 300 0 P
-G none
+g none~
 #1843
 whitish spotted egg~
 an egg~
@@ -1256,7 +1256,7 @@ shell~
 treasure 0 A
 0 0 0 0 0
 6 10 90 P
-G none
+g none~
 #1844
 violet flower~
 a violet~
@@ -1265,7 +1265,7 @@ plant~
 trash 0 A
 0 0 0 0 0
 0 10 5 P
-G none
+g none~
 #1845
 shrub thick~
 a thick shrub~
@@ -1274,7 +1274,7 @@ plant~
 container 0 0
 10 0 0 10 100
 0 300 0 P
-G none
+g none~
 #1846
 pale green egg~
 a pale green egg~
@@ -1283,7 +1283,7 @@ shell~
 treasure 0 A
 0 0 0 0 0
 5 10 90 P
-G none
+g none~
 #1847
 nest~
 a nest~
@@ -1292,7 +1292,7 @@ plant~
 container 0 A
 10 0 0 10 100
 0 300 0 P
-G none
+g none~
 #1848
 old tree~
 an old tree~
@@ -1301,7 +1301,7 @@ wood~
 container 0 0
 200 0 0 20 100
 0 30000 0 P
-G none
+g none~
 #1849
 nest grass~
 a nest made of grass~
@@ -1310,7 +1310,7 @@ plant~
 container 0 A
 10 0 0 10 100
 0 300 0 P
-G none
+g none~
 #1850
 pale blue egg~
 a pale blue egg~
@@ -1319,7 +1319,7 @@ shell~
 treasure 0 A
 0 0 0 0 0
 5 10 90 P
-G none
+g none~
 #1851
 robe black warlock~
 the Robe of the Warlock~
@@ -1339,7 +1339,7 @@ A
 19 3
 A
 20 -5
-G none
+g none~
 #1852
 huge cooking pot black cauldron~
 a huge black pot~
@@ -1348,7 +1348,7 @@ iron~
 container 0 0
 60 0 0 3 100
 0 0 5000 P
-G none
+g none~
 #1853
 bowl rabbit stew~
 a bowl of rabbit stew~
@@ -1357,7 +1357,7 @@ food~
 food 0 A
 BD D 0 0 0
 5 30 75 P
-G none
+g none~
 #1854
 sink silver faucet~
 a silver faucet~
@@ -1366,7 +1366,7 @@ silver~
 fountain 0 0
 100000 100000 'water' 0 0
 0 0 0 P
-G none
+g none~
 #1855
 old well~
 an old well~
@@ -1375,7 +1375,7 @@ stone~
 fountain 0 0
 100000 100000 'water' 0 0
 0 0 0 P
-G none
+g none~
 #1856
 natural spring~
 a natural spring~
@@ -1384,7 +1384,7 @@ stone~
 fountain 0 0
 100000 100000 'water' 0 0
 0 0 0 P
-G none
+g none~
 #1857
 old altar marble~
 an old altar~
@@ -1393,7 +1393,7 @@ marble~
 container Og 0
 1000 0 0 1000 1000
 0 0 5000 P
-G none
+g none~
 #1858
 gold golden tree~
 a golden tree~
@@ -1402,7 +1402,7 @@ wood~
 container 0 0
 200 0 0 20 100
 0 30000 0 P
-G none
+g none~
 #1859
 camouflage gloves~
 a pair of camouflage gloves~
@@ -1417,7 +1417,7 @@ A
 5 1
 A
 17 -5
-G none
+g none~
 #1860
 camouflage leggings~
 a pair of camouflage leggings~
@@ -1432,7 +1432,7 @@ A
 18 3
 A
 19 3
-G none
+g none~
 #1861
 camouflage jacket~
 a camouflage jacket~
@@ -1447,7 +1447,7 @@ A
 13 10
 A
 17 -3
-G none
+g none~
 #1862
 camouflage boots~
 a pair of camouflage boots~
@@ -1458,7 +1458,7 @@ armor 0 AG
 48 130 15000 P
 A
 14 50
-G none
+g none~
 #1863
 camouflage cap~
 a camouflage cap~
@@ -1471,7 +1471,7 @@ A
 4 2
 A
 13 25
-G none
+g none~
 #1899
 quiver~
 Elven quiver~
@@ -1480,7 +1480,7 @@ leather~
 container KY AK
 100 F 0 100 100
 1 1 200 P
-G none
+g none~
 #0
 
 #ROOMS
