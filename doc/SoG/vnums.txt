@@ -29,11 +29,12 @@
 25 world.are    55 ofcol.are    85 -            115 -             145 dark2.are
 26 world.are    56 aarak2.are   86 -		116 divsouls.are  146 -
 27 world.are    57 firetop2.are 87 pyramid.are  117 divsouls.are  147 mtdoom.are
-28 trollden.are 58 firetop2.are 88 mirkwd2.are  118 drakury.are   148 -
+28 trollden.are 58 firetop2.are 88 mirkwd2.are  118 drakyri.are   148 -
 29 tree.are     59 -            89 grove.are    119 -             149 kender.are
---------------------------------------------------------------------------------150 abrazak.are  152 king2.are   154 dara.are    156 -            158 -
+--------------------------------------------------------------------------------
+150 abrazak.are  152 king2.are   154 dara.are    156 -            158 -
 151 abrazak.are  153 -           155 -           157 warkeep.are  159 -
--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 160 under2.are   162 under2.are  164 under2.are  166 -            168 -
 161 under2.are   163 under2.are  165 -           167 -            169 - 
 --------------------------------------------------------------------------------
