@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.77 1998-10-17 16:55:20 fjoe Exp $
+ * $Id: handler.c,v 1.78 1998-10-21 05:00:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2979,25 +2979,23 @@ void format_obj(BUFFER *output, OBJ_DATA *obj)
 void format_obj_affects(BUFFER *output, AFFECT_DATA *paf, bool duration)
 {
 	for (; paf; paf = paf->next) {
-		if (paf->location != APPLY_NONE && paf->modifier != 0) { 
+		WHERE_DATA *w;
+
+		if (paf->location != APPLY_NONE && paf->modifier) { 
 			buf_printf(output, "Affects %s by %d",
 				   flag_string(apply_flags, paf->location),
 				   paf->modifier);
 			if (duration && paf->duration > -1)
-				buf_printf(output, ", %d hours", paf->duration);
+				buf_printf(output, " for %d hours",
+					   paf->duration);
 			buf_add(output, ".\n\r");
+		}
 
-			if (paf->bitvector) {
-				WHERE_DATA *wd;
-				buf_add(output, "Adds ");
-				if ((wd = where_lookup(paf->where)))
-					buf_printf(output, wd->format,
-						   flag_string(wd->table,
-							paf->bitvector));
-				else
-					buf_add(output, "???");
-				buf_add(output, ".\n\r");
-			}
+		if ((w = where_lookup(paf->where)) && paf->bitvector) {
+			buf_add(output, "Adds ");
+			buf_printf(output, w->format,
+				   flag_string(w->table, paf->bitvector));
+			buf_add(output, ".\n\r");
 		}
 	}
 }

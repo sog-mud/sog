@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.85 1998-10-19 13:21:55 fjoe Exp $
+ * $Id: interp.c,v 1.86 1998-10-21 05:00:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -220,6 +220,7 @@ CMD_DATA cmd_table[] =
     { "autoassist",	do_autoassist,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE },
     { "autoexit",	do_autoexit,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "autogold",	do_autogold,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
+    { "autolook",	do_autolook,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "autoloot",	do_autoloot,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "autosac",	do_autosac,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "autosplit",	do_autosplit,	POS_DEAD,        0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
@@ -465,7 +466,7 @@ CMD_DATA cmd_table[] =
     { "shoot",          do_shoot,       POS_STANDING,    0,  LOG_NORMAL	},
 
     { "find",		do_find,	POS_DEAD,	ML,  LOG_ALWAYS	},
-    { "score",		do_score,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE },
+    { "score",		do_score,	POS_DEAD,	 0,  LOG_NORMAL, CMD_KEEP_HIDE | CMD_CHARMED_OK },
     { "katana",		do_katana, 	POS_STANDING,    0,  LOG_NORMAL	},
     { "control",       	do_control,	POS_STANDING,    0,  LOG_NORMAL	},
     { "ititle",		do_ititle,	POS_DEAD,	IM,  LOG_NORMAL },

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.27 1998-10-17 16:20:11 fjoe Exp $
+ * $Id: interp.h,v 1.28 1998-10-21 05:00:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -69,6 +69,7 @@ DECLARE_DO_FUN(do_autoassist	);
 DECLARE_DO_FUN(do_autoexit	);
 DECLARE_DO_FUN(do_autogold	);
 DECLARE_DO_FUN(do_autolist	);
+DECLARE_DO_FUN(do_autolook	);
 DECLARE_DO_FUN(do_autoloot	);
 DECLARE_DO_FUN(do_autosac	);
 DECLARE_DO_FUN(do_autosplit	);
@@ -192,6 +193,7 @@ DECLARE_DO_FUN(do_lock		);
 DECLARE_DO_FUN(do_log		);
 DECLARE_DO_FUN(do_long		);
 DECLARE_DO_FUN(do_look		);
+DECLARE_DO_FUN(do_look_in	);
 DECLARE_DO_FUN(do_lore		);
 DECLARE_DO_FUN(do_make		);
 DECLARE_DO_FUN(do_memory	);

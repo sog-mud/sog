@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.16 1998-10-14 12:37:13 fjoe Exp $
+ * $Id: tables.c,v 1.17 1998-10-21 05:00:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -108,6 +108,7 @@ FLAG act_flags[] =
 FLAG plr_flags[] =
 {
 	{ "npc",		PLR_NPC,		FALSE	},
+	{ "autolook",		PLR_AUTOLOOK,		FALSE	},
 	{ "autoassist",		PLR_AUTOASSIST,		FALSE	},
 	{ "autoexit",		PLR_AUTOEXIT,		FALSE	},
 	{ "autoloot",		PLR_AUTOLOOT,		FALSE	},
@@ -2046,10 +2047,10 @@ const	struct	liq_type	liq_table	[]	=
 
 WHERE_DATA where_table[] =
 {
-	{ TO_AFFECTS,	"affect",  affect_flags, "{c%s{x affect"	   },
-	{ TO_IMMUNE,	"immune",  imm_flags,	 "immunity to {c%s{x"	   },
-	{ TO_RESIST,	"resist",  res_flags,	 "resistance to {c%s{x"	   },
-	{ TO_VULN,	"vuln",	   vuln_flags,	 "vulnerability to {c%s{x" },
+	{ TO_AFFECTS,	affect_flags,	"'%s' affect"		},
+	{ TO_IMMUNE,	imm_flags,	"immunity to '%s'"	},
+	{ TO_RESIST,	res_flags,	"resistance to '%s'"	},
+	{ TO_VULN,	vuln_flags,	"vulnerability to '%s'"	},
 	{ -1 }
 };
 

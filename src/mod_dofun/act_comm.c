@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.100 1998-10-17 16:20:09 fjoe Exp $
+ * $Id: act_comm.c,v 1.101 1998-10-21 05:00:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1647,26 +1647,21 @@ void do_speak(CHAR_DATA *ch, const char *argument)
 
 void do_noiac(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_SET(ch->comm, COMM_NOIAC)) {
-		REMOVE_BIT(ch->comm, COMM_NOIAC);
+	TOGGLE_BIT(ch->comm, COMM_NOIAC);
+	if (IS_SET(ch->comm, COMM_NOIAC))
+		char_printf(ch, "IACs will not be sent to you anymore "
+				"(will be replaced with '%c').\n\r", IAC_REPL);
+	else 
 		char_puts("Text will be sent to you unmodified.\n\r", ch);
-	}
-	else {
-		SET_BIT(ch->comm, COMM_NOIAC);
-		char_printf(ch, "IACs will not be sent to you anymore (will be replaced with '%c').\n\r", IAC_REPL);
-	}
 }
 
 void do_notelnet(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_SET(ch->comm, COMM_NOTELNET)) {
-		REMOVE_BIT(ch->comm, COMM_NOTELNET);
-		char_puts("Telnet filter is ON.\n\r", ch);
-	}
-	else {
-		SET_BIT(ch->comm, COMM_NOTELNET);
-		char_puts("Telnet filter is OFF.\n\r", ch);
-	}
+	TOGGLE_BIT(ch->comm, COMM_NOTELNET);
+	if (IS_SET(ch->comm, COMM_NOTELNET))
+		char_puts("Telnet parser is OFF.\n\r", ch);
+	else
+		char_puts("Telnet parser is ON.\n\r", ch);
 }
 
 DO_FUN(do_twit)

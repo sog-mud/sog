@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.88 1998-10-17 16:20:11 fjoe Exp $
+ * $Id: fight.c,v 1.89 1998-10-21 05:00:28 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1067,6 +1067,8 @@ void handle_death(CHAR_DATA *ch, CHAR_DATA *victim)
 			gain_condition(ch, COND_BLOODLUST, 3);
 		}
 
+		if (IS_SET(ch->act, PLR_AUTOLOOK))
+			do_look_in(ch, "corpse");
 		if (corpse->contains)
 			/* corpse exists and not empty */
 			if (IS_SET(ch->act, PLR_AUTOLOOT))
@@ -1237,7 +1239,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 	}
 
 	if (show)
-		dam_message(ch, victim, dam, dt, immune ,dam_type);
+		dam_message(ch, victim, dam, dt, immune, dam_type);
 
 	if (dam == 0)
 		return FALSE;
@@ -2196,7 +2198,8 @@ int xp_compute(CHAR_DATA *gch, CHAR_DATA *victim, int total_levels,int members)
 }
 
 
-void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,int dam,int dt,bool immune ,int dam_type)
+void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,
+		 int dam, int dt, bool immune, int dam_type)
 {
 	char buf1[256], buf2[256], buf3[256];
 	const char *vs;
@@ -2204,7 +2207,7 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,int dam,int dt,bool immune ,in
 	const char *attack;
 	char punct;
 
-		 if (dam ==   0) { vs = "miss"; vp = "misses";}
+	     if (dam ==   0) { vs = "miss"; vp = "misses";}
 	else if (dam <=   4) { vs = "{cscratch{x";  vp = "{cscratches{x";}
 	else if (dam <=   8) { vs = "{cgraze{x";    vp = "{cgrazes{x";}
 	else if (dam <=  12) { vs = "{chit{x";      vp = "{chits{x";}

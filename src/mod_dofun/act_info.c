@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.147 1998-10-17 16:20:09 fjoe Exp $
+ * $Id: act_info.c,v 1.148 1998-10-21 05:00:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -772,6 +772,7 @@ void do_wizlist(CHAR_DATA *ch, const char *argument)
    replacements for config */
 #define do_print_sw(ch, swname, sw) \
 		char_printf(ch, "%-16s %s\n\r", swname, sw ? "ON" : "OFF");
+
 void do_autolist(CHAR_DATA *ch, const char *argument)
 {
 	/* lists most player flags */
@@ -784,6 +785,7 @@ void do_autolist(CHAR_DATA *ch, const char *argument)
 	do_print_sw(ch, "autoassist", IS_SET(ch->act, PLR_AUTOASSIST));
 	do_print_sw(ch, "autoexit", IS_SET(ch->act, PLR_AUTOEXIT));
 	do_print_sw(ch, "autogold", IS_SET(ch->act, PLR_AUTOGOLD));
+	do_print_sw(ch, "autolook", IS_SET(ch->act, PLR_AUTOLOOK));
 	do_print_sw(ch, "autoloot", IS_SET(ch->act, PLR_AUTOLOOT));
 	do_print_sw(ch, "autosac", IS_SET(ch->act, PLR_AUTOSAC));
 	do_print_sw(ch, "autosplit", IS_SET(ch->act, PLR_AUTOSPLIT));
@@ -807,157 +809,150 @@ void do_autolist(CHAR_DATA *ch, const char *argument)
 
 void do_autoassist(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_NPC(ch))
-	  return;
+	if (IS_NPC(ch)) {
+		char_puts("Huh?\n\r", ch);
+		return;
+	}
 
-	if (IS_SET(ch->act,PLR_AUTOASSIST)) {
-		char_puts("Autoassist removed.\n\r",ch);
-		REMOVE_BIT(ch->act,PLR_AUTOASSIST);
-	}
-	else {
+	TOGGLE_BIT(ch->act, PLR_AUTOASSIST);
+	if (IS_SET(ch->act, PLR_AUTOASSIST))
 		char_puts("You will now assist when needed.\n\r",ch);
-		SET_BIT(ch->act,PLR_AUTOASSIST);
-	}
+	else
+		char_puts("Autoassist removed.\n\r",ch);
 }
 
 void do_autoexit(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_NPC(ch))
+	if (IS_NPC(ch)) {
+		char_puts("Huh?\n\r", ch);
 		return;
+	}
 
-	if (IS_SET(ch->act,PLR_AUTOEXIT)) {
-		char_puts("Exits will no longer be displayed.\n\r",ch);
-		REMOVE_BIT(ch->act, PLR_AUTOEXIT);
-	}
-	else {
+	TOGGLE_BIT(ch->act, PLR_AUTOEXIT);
+	if (IS_SET(ch->act, PLR_AUTOEXIT))
 		char_puts("Exits will now be displayed.\n\r",ch);
-		SET_BIT(ch->act, PLR_AUTOEXIT);
-	}
+	else 
+		char_puts("Exits will no longer be displayed.\n\r",ch);
 }
 
 void do_autogold(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_NPC(ch))
+	if (IS_NPC(ch)) {
+		char_puts("Huh?\n\r", ch);
 		return;
+	}
 
-	if (IS_SET(ch->act,PLR_AUTOGOLD)) {
-		char_puts("Autogold removed.\n\r",ch);
-		REMOVE_BIT(ch->act,PLR_AUTOGOLD);
-	}
-	else {
+	TOGGLE_BIT(ch->act, PLR_AUTOGOLD);
+	if (IS_SET(ch->act, PLR_AUTOGOLD))
 		char_puts("Automatic gold looting set.\n\r",ch);
-		SET_BIT(ch->act,PLR_AUTOGOLD);
+	else 
+		char_puts("Autogold removed.\n\r",ch);
+}
+
+DO_FUN(do_autolook)
+{
+	if (IS_NPC(ch)) {
+		char_puts("Huh?\n\r", ch);
+		return;
 	}
+
+	TOGGLE_BIT(ch->act, PLR_AUTOLOOK);
+	if (IS_SET(ch->act, PLR_AUTOLOOK))
+		char_puts("Automatic corpse examination set.\n\r", ch);
+	else
+		char_puts("Autolooking removed.\n\r", ch);
 }
 
 void do_autoloot(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_NPC(ch))
+	if (IS_NPC(ch)) {
+		char_puts("Huh?\n\r", ch);
 		return;
+	}
 
-	if (IS_SET(ch->act,PLR_AUTOLOOT)) {
-		char_puts("Autolooting removed.\n\r",ch);
-		REMOVE_BIT(ch->act,PLR_AUTOLOOT);
-	}
-	else {
-		char_puts("Automatic corpse looting set.\n\r",ch);
-		SET_BIT(ch->act,PLR_AUTOLOOT);
-	}
+	TOGGLE_BIT(ch->act, PLR_AUTOLOOT);
+	if (IS_SET(ch->act, PLR_AUTOLOOT))
+		char_puts("Automatic corpse looting set.\n\r", ch);
+	else
+		char_puts("Autolooting removed.\n\r", ch);
 }
 
 void do_autosac(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_NPC(ch))
+	if (IS_NPC(ch)) {
+		char_puts("Huh?\n\r", ch);
 		return;
+	}
 
-	if (IS_SET(ch->act,PLR_AUTOSAC)) {
-		char_puts("Autosacrificing removed.\n\r",ch);
-		REMOVE_BIT(ch->act,PLR_AUTOSAC);
-	}
-	else {
+	TOGGLE_BIT(ch->act, PLR_AUTOSAC);
+	if (IS_SET(ch->act, PLR_AUTOSAC))
 		char_puts("Automatic corpse sacrificing set.\n\r",ch);
-		SET_BIT(ch->act,PLR_AUTOSAC);
-	}
+	else
+		char_puts("Autosacrificing removed.\n\r",ch);
 }
 
 void do_autosplit(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_NPC(ch))
+	if (IS_NPC(ch)) {
+		char_puts("Huh?\n\r", ch);
 		return;
+	}
 
-	if (IS_SET(ch->act,PLR_AUTOSPLIT)) {
-		char_puts("Autosplitting removed.\n\r",ch);
-		REMOVE_BIT(ch->act,PLR_AUTOSPLIT);
-	}
-	else {
+	TOGGLE_BIT(ch->act, PLR_AUTOSPLIT);
+	if (IS_SET(ch->act, PLR_AUTOSPLIT))
 		char_puts("Automatic gold splitting set.\n\r",ch);
-		SET_BIT(ch->act,PLR_AUTOSPLIT);
-	}
+	else
+		char_puts("Autosplitting removed.\n\r",ch);
 }
 
 void do_color(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_NPC(ch))
+	if (IS_NPC(ch)) {
+		char_puts("Huh?\n\r", ch);
 		return;
+	}
 
-	if (IS_SET(ch->act,PLR_COLOR)) {
-		REMOVE_BIT(ch->act,PLR_COLOR);
+	TOGGLE_BIT(ch->act, PLR_COLOR);
+	if (IS_SET(ch->act, PLR_COLOR))
+		char_puts("{BC{Ro{Yl{Co{Gr{x is now {RON{x, Way Cool!\n\r", ch);
+	else
 		char_puts("Color is now OFF, *sigh*\n\r", ch);
-	}
-	else {
-		SET_BIT(ch->act,PLR_COLOR);
-		char_puts("{BC{Ro{Yl{Co{Gr{x is now {RON{x, Way Cool!\n\r",
-			     ch);
-	}
 }
 
 void do_brief(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_SET(ch->comm,COMM_BRIEF)) {
-		char_puts("Full descriptions activated.\n\r",ch);
-		REMOVE_BIT(ch->comm,COMM_BRIEF);
-	}
-	else {
+	TOGGLE_BIT(ch->comm, COMM_BRIEF);
+	if (IS_SET(ch->comm, COMM_BRIEF))
 		char_puts("Short descriptions activated.\n\r",ch);
-		SET_BIT(ch->comm,COMM_BRIEF);
-	}
+	else 
+		char_puts("Full descriptions activated.\n\r",ch);
 }
 
 void do_compact(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_SET(ch->comm,COMM_COMPACT)) {
-		char_puts("Compact mode removed.\n\r",ch);
-		REMOVE_BIT(ch->comm,COMM_COMPACT);
-	}
-	else {
+	TOGGLE_BIT(ch->comm, COMM_COMPACT);
+	if (IS_SET(ch->comm, COMM_COMPACT))
 		char_puts("Compact mode set.\n\r",ch);
-		SET_BIT(ch->comm,COMM_COMPACT);
-	}
+	else
+		char_puts("Compact mode removed.\n\r",ch);
 }
 
 void do_long(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_SET(ch->comm,COMM_LONG)) {
-		char_puts("Long flags mode removed.\n\r",ch);
-		REMOVE_BIT(ch->comm,COMM_LONG);
-	}
-	else {
+	TOGGLE_BIT(ch->comm, COMM_LONG);
+	if (IS_SET(ch->comm, COMM_LONG))
 		char_puts("Long flags mode set.\n\r",ch);
-		SET_BIT(ch->comm,COMM_LONG);
-	}
+	else 
+		char_puts("Long flags mode removed.\n\r",ch);
 }
 
 void do_show(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_SET(ch->comm,COMM_SHOW_AFFECTS)) {
-		char_puts("Affects will no longer be shown in score.\n\r",
-			     ch);
-		REMOVE_BIT(ch->comm,COMM_SHOW_AFFECTS);
-	}
-	else {
+	TOGGLE_BIT(ch->comm, COMM_SHOW_AFFECTS);
+	if (IS_SET(ch->comm,COMM_SHOW_AFFECTS))
 		char_puts("Affects will now be shown in score.\n\r", ch);
-		SET_BIT(ch->comm,COMM_SHOW_AFFECTS);
-	}
+	else
+		char_puts("Affects will no longer be shown in score.\n\r", ch);
 }
 
 void do_prompt(CHAR_DATA *ch, const char *argument)
@@ -965,14 +960,11 @@ void do_prompt(CHAR_DATA *ch, const char *argument)
 	const char *prompt;
 
 	if (argument[0] == '\0') {
-		if (IS_SET(ch->comm,COMM_PROMPT)) {
-			char_puts("You will no longer see prompts.\n\r",ch);
-			REMOVE_BIT(ch->comm,COMM_PROMPT);
-		}
-		else {
+		TOGGLE_BIT(ch->comm, COMM_PROMPT);
+		if (IS_SET(ch->comm, COMM_PROMPT))
 			char_puts("You will now see prompts.\n\r",ch);
-			SET_BIT(ch->comm,COMM_PROMPT);
-		}
+		else
+			char_puts("You will no longer see prompts.\n\r",ch);
 		return;
 	}
 
@@ -988,77 +980,66 @@ void do_prompt(CHAR_DATA *ch, const char *argument)
 
 void do_combine(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_SET(ch->comm,COMM_COMBINE)) {
-		char_puts("Long inventory selected.\n\r",ch);
-		REMOVE_BIT(ch->comm,COMM_COMBINE);
-	}
-	else {
+	TOGGLE_BIT(ch->comm, COMM_COMBINE);
+	if (IS_SET(ch->comm, COMM_COMBINE))
 		char_puts("Combined inventory selected.\n\r",ch);
-		SET_BIT(ch->comm,COMM_COMBINE);
-	}
+	else 
+		char_puts("Long inventory selected.\n\r",ch);
 }
 
 void do_noloot(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_NPC(ch))
+	if (IS_NPC(ch)) {
+		char_puts("Huh?\n\r", ch);
 		return;
+	}
 
-	if (IS_SET(ch->act,PLR_CANLOOT)) {
-		char_puts("Your corpse is now safe from thieves.\n\r",ch);
-		REMOVE_BIT(ch->act,PLR_CANLOOT);
-	}
-	else {
+	TOGGLE_BIT(ch->act, PLR_CANLOOT);
+	if (IS_SET(ch->act, PLR_CANLOOT))
 		char_puts("Your corpse may now be looted.\n\r",ch);
-		SET_BIT(ch->act,PLR_CANLOOT);
-	}
+	else
+		char_puts("Your corpse is now safe from thieves.\n\r",ch);
 }
 
 void do_nofollow(CHAR_DATA *ch, const char *argument)
 {
-	if (IS_NPC(ch))
+	if (IS_NPC(ch)) {
+		char_puts("Huh?\n\r", ch);
 		return;
+	}
 
 	if (IS_AFFECTED(ch, AFF_CHARM))  {
-		char_puts("You don't want to leave "
-			     "your beloved master.\n\r", ch);
+		char_puts("You don't want to leave your beloved master.\n\r", ch);
 		return;
 	}
 
+	TOGGLE_BIT(ch->act, PLR_NOFOLLOW);
 	if (IS_SET(ch->act,PLR_NOFOLLOW)) {
-		char_puts("You now accept followers.\n\r", ch);
-		REMOVE_BIT(ch->act,PLR_NOFOLLOW);
-	}
-	else {
 		char_puts("You no longer accept followers.\n\r", ch);
-		SET_BIT(ch->act,PLR_NOFOLLOW);
 		die_follower(ch);
 	}
+	else
+		char_puts("You now accept followers.\n\r", ch);
 }
 
 void do_nosummon(CHAR_DATA *ch, const char *argument)
 {
 	if (IS_NPC(ch)) {
-		if (IS_SET(ch->imm_flags,IMM_SUMMON)) {
+		TOGGLE_BIT(ch->imm_flags, IMM_SUMMON);
+		if (IS_SET(ch->imm_flags,IMM_SUMMON))
+			char_puts("You are now immune to summoning.\n\r", ch);
+		else
 			char_puts("You are no longer immune "
-				     "to summoning.\n\r", ch);
-			REMOVE_BIT(ch->imm_flags,IMM_SUMMON);
-		}
-		else {
-			char_puts("You are now immune to summoning.\n\r",
-				     ch);
-			SET_BIT(ch->imm_flags,IMM_SUMMON);
-		}
+				  "to summoning.\n\r", ch);
 	}
 	else {
-		if (IS_SET(ch->act,PLR_NOSUMMON)) {
-			char_puts("You may now be summoned by anyone.\n\r", ch);
-			REMOVE_BIT(ch->act,PLR_NOSUMMON);
-		}
-		else {
+		TOGGLE_BIT(ch->act, PLR_NOSUMMON);
+		if (IS_SET(ch->act,PLR_NOSUMMON))
 			char_puts("You may only be summoned by players "
 				  "within your PK range.\n\r", ch);
+		else 
+			char_puts("You may now be summoned by anyone.\n\r", ch);
 			SET_BIT(ch->act,PLR_NOSUMMON);
-		}
 	}
 }
 
@@ -1069,11 +1050,12 @@ DO_FUN(do_nocancel)
 		return;
 	}
 
-	if (IS_SET(ch->act, PLR_NOCANCEL))
-		char_puts("Anyone can cast 'cancellation' on you.\n\r", ch);
-	else
-		char_puts("You do not allow others to cast 'cancellation' on you.\n\r", ch);
 	TOGGLE_BIT(ch->act, PLR_NOCANCEL);
+	if (IS_SET(ch->act, PLR_NOCANCEL))
+		char_puts("You do not allow others to cast 'cancellation' "
+			  "on you.\n\r", ch);
+	else
+		char_puts("Anyone can cast 'cancellation' on you.\n\r", ch);
 }
 
 void do_look_in(CHAR_DATA* ch, const char *argument)

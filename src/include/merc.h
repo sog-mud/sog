@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.103 1998-10-17 16:20:12 fjoe Exp $
+ * $Id: merc.h,v 1.104 1998-10-21 05:00:29 fjoe Exp $
  */
 
 /***************************************************************************
@@ -344,7 +344,6 @@ struct affect_data
 struct where_data
 {
 	sflag_t	where;
-	char *	name;
 	FLAG *	table;
 	char *	format;
 };
@@ -1106,6 +1105,7 @@ enum {
 #define PLR_BOUGHT_PET		(B)
 
 /* RT auto flags */
+#define PLR_AUTOLOOK		(B)
 #define PLR_AUTOASSIST		(C)
 #define PLR_AUTOEXIT		(D)
 #define PLR_AUTOLOOT		(E)

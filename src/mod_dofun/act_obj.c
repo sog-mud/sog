@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.84 1998-10-14 18:10:17 fjoe Exp $
+ * $Id: act_obj.c,v 1.85 1998-10-21 05:00:27 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2902,11 +2902,8 @@ void do_herbs(CHAR_DATA * ch, const char *argument)
 	}
 }
 
-void do_lore(CHAR_DATA * ch, const char *argument)
+void do_lore_raw(CHAR_DATA *ch, OBJ_DATA *obj, BUFFER *output)
 {
-	char		arg1[MAX_INPUT_LENGTH];
-	OBJ_DATA *	obj;
-	AFFECT_DATA *	paf;
 	int		chance;
 	int		percent;
 	int		value0, value1, value2, value3, value4;
@@ -2914,22 +2911,15 @@ void do_lore(CHAR_DATA * ch, const char *argument)
 	int		max_skill;
 	int		sn;
 
-	argument = one_argument(argument, arg1);
-
-	if ((obj = get_obj_carry(ch, arg1)) == NULL) {
-		char_puts("You do not have that object.\n\r", ch);
-		return;
-	}
-
 	if ((sn = sn_lookup("lore")) < 0
 	||  (percent = get_skill(ch, sn)) < 10) {
-		char_puts("The meaning of this object escapes you for the moment.\n\r", ch);
+		buf_add(output, "The meaning of this object escapes you for the moment.\n\r");
 		return;
 	}
 
 	mana = SKILL(sn)->min_mana;
 	if (ch->mana < mana) {
-		char_puts("You don't have enough mana.\n\r", ch);
+		buf_add(output, "You don't have enough mana.\n\r");
 		return;
 	}
 	ch->mana -= mana;
@@ -2939,22 +2929,24 @@ void do_lore(CHAR_DATA * ch, const char *argument)
 	chance = number_percent();
 
 	if (percent < 20) {
-		char_printf(ch, "Object '%s'.\n\r", obj->name);
+		buf_printf(output, "Object '%s'.\n\r", obj->name);
 		check_improve(ch, sn, TRUE, 8);
 		return;
-	} else if (percent < 40) {
-		char_printf(ch,
+	}
+	else if (percent < 40) {
+		buf_printf(output,
 			    "Object '%s'.  Weight is %d, value is %d.\n\r",
 			    obj->name,
 		chance < 60 ? obj->weight : number_range(1, 2 * obj->weight),
 		     chance < 60 ? number_range(1, 2 * obj->cost) : obj->cost
 			);
 		if (str_cmp(obj->material, "oldstyle"))
-			char_printf(ch, "Material is %s.\n\r", obj->material);
+			buf_printf(output, "Material is %s.\n\r", obj->material);
 		check_improve(ch, sn, TRUE, 7);
 		return;
-	} else if (percent < 60) {
-		char_printf(ch,
+	}
+	else if (percent < 60) {
+		buf_printf(output,
 			    "Object '%s' has weight %d.\n\rValue is %d, level is %d.\n\rMaterial is %s.\n\r",
 			    obj->name,
 			    obj->weight,
@@ -2964,8 +2956,9 @@ void do_lore(CHAR_DATA * ch, const char *argument)
 			);
 		check_improve(ch, sn, TRUE, 6);
 		return;
-	} else if (percent < 80) {
-		char_printf(ch,
+	}
+	else if (percent < 80) {
+		buf_printf(output,
 			    "Object '%s' is type %s, extra flags %s.\n\rWeight is %d, value is %d, level is %d.\n\rMaterial is %s.\n\r",
 			    obj->name,
 			    flag_string(item_types, obj->pIndexData->item_type),
@@ -2977,8 +2970,9 @@ void do_lore(CHAR_DATA * ch, const char *argument)
 			);
 		check_improve(ch, sn, TRUE, 5);
 		return;
-	} else if (percent < 85) 
-		char_printf(ch,
+	}
+	else if (percent < 85) 
+		buf_printf(output,
 			    "Object '%s' is type %s, extra flags %s.\n\rWeight is %d, value is %d, level is %d.\n\rMaterial is %s.\n\r",
 			    obj->name,
 			    flag_string(item_types, obj->pIndexData->item_type),
@@ -2986,10 +2980,11 @@ void do_lore(CHAR_DATA * ch, const char *argument)
 			    obj->weight,
 			    obj->cost,
 			    obj->level,
-		str_cmp(obj->material, "oldstyle") ? obj->material : "unknown"
+			    str_cmp(obj->material, "oldstyle") ?
+				obj->material : "unknown"
 			);
 	else
-		char_printf(ch,
+		buf_printf(output,
 			    "Object '%s' is type %s, extra flags %s.\n\rWeight is %d, value is %d, level is %d.\n\rMaterial is %s.\n\r",
 			    obj->name,
 			    flag_string(item_types, obj->pIndexData->item_type),
@@ -2997,7 +2992,8 @@ void do_lore(CHAR_DATA * ch, const char *argument)
 			    obj->weight,
 			    obj->cost,
 			    obj->level,
-		str_cmp(obj->material, "oldstyle") ? obj->material : "unknown"
+			    str_cmp(obj->material, "oldstyle") ?
+				obj->material : "unknown"
 			);
 
 	value0 = obj->value[0];
@@ -3022,7 +3018,8 @@ void do_lore(CHAR_DATA * ch, const char *argument)
 						value3 = number_range(1, (max_skill - 1));
 				}
 			}
-		} else {
+		}
+		else {
 			if (chance > 60) {
 				value1 = number_range(1, (max_skill - 1));
 				if (chance > 80) {
@@ -3033,17 +3030,16 @@ void do_lore(CHAR_DATA * ch, const char *argument)
 			}
 		}
 
-		char_printf(ch, "Level %d spells of:", obj->value[0]);
+		buf_printf(output, "Level %d spells of:", obj->value[0]);
 		if (value1 >= 0)
-			char_printf(ch, " '%s'", skill_name(value1));
+			buf_printf(output, " '%s'", skill_name(value1));
 		if (value2 >= 0)
-			char_printf(ch, " '%s'", skill_name(value2));
+			buf_printf(output, " '%s'", skill_name(value2));
 		if (value3 >= 0)
-			char_printf(ch, " '%s'", skill_name(value3));
+			buf_printf(output, " '%s'", skill_name(value3));
 		if (value4 >= 0)
-			char_printf(ch, " '%s'", skill_name(value4));
-
-		char_puts(".\n\r", ch);
+			buf_printf(output, " '%s'", skill_name(value4));
+		buf_add(output, ".\n\r");
 		break;
 
 	case ITEM_WAND:
@@ -3058,7 +3054,8 @@ void do_lore(CHAR_DATA * ch, const char *argument)
 						value1 = number_range(0, value2);
 				}
 			}
-		} else {
+		}
+		else {
 			if (chance > 60) {
 				value3 = number_range(1, (max_skill - 1));
 				if (chance > 80) {
@@ -3069,12 +3066,12 @@ void do_lore(CHAR_DATA * ch, const char *argument)
 			}
 		}
 
-		char_printf(ch, "Has %d(%d) charges of level %d '%s'.\n\r",
+		buf_printf(output, "Has %d(%d) charges of level %d '%s'.\n\r",
 			    value1, value2, value0, skill_name(value3));
 		break;
 
 	case ITEM_WEAPON:
-		char_puts("Weapon type is ", ch);
+		buf_add(output, "Weapon type is ");
 		if (percent < 85) {
 			value0 = number_range(0, 8);
 			if (chance > 33) {
@@ -3082,7 +3079,8 @@ void do_lore(CHAR_DATA * ch, const char *argument)
 				if (chance > 66)
 					value2 = number_range(1, 2 * obj->value[2]);
 			}
-		} else {
+		}
+		else {
 			if (chance > 50) {
 				value1 = number_range(1, 2 * obj->value[1]);
 				if (chance > 75)
@@ -3090,9 +3088,9 @@ void do_lore(CHAR_DATA * ch, const char *argument)
 			}
 		}
 
-		char_printf(ch, "%s.\n\r", flag_string(weapon_class, value0));
+		buf_printf(output, "%s.\n\r", flag_string(weapon_class, value0));
 
-		char_printf(ch, "Damage is %dd%d (average %d).\n\r",
+		buf_printf(output, "Damage is %dd%d (average %d).\n\r",
 			    value1, value2,
 			    (1 + value2) * value1 / 2);
 		break;
@@ -3110,7 +3108,8 @@ void do_lore(CHAR_DATA * ch, const char *argument)
 					}
 				}
 			}
-		} else {
+		}
+		else {
 			if (chance > 45) {
 				value2 = number_range(0, 2 * obj->value[2]);
 				if (chance > 65) {
@@ -3124,7 +3123,7 @@ void do_lore(CHAR_DATA * ch, const char *argument)
 			}
 		}
 
-		char_printf(ch,
+		buf_printf(output,
 			    "Armor class is %d pierce, %d bash, %d slash, and %d vs. magic.\n\r",
 			    value0, value1, value2, value3);
 		break;
@@ -3136,19 +3135,27 @@ void do_lore(CHAR_DATA * ch, const char *argument)
 	}
 
 	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
-		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
-			if (paf->location != APPLY_NONE && paf->modifier != 0)
-				char_printf(ch, "Affects %s by %d.\n\r",
-					    flag_string(apply_flags,
-							paf->location),
-					    paf->modifier);
-
-	for (paf = obj->affected; paf != NULL; paf = paf->next)
-		if (paf->location != APPLY_NONE && paf->modifier != 0)
-			char_printf(ch, "Affects %s by %d.\n\r",
-				    flag_string(apply_flags, paf->location),
-				    paf->modifier);
+		format_obj_affects(output, obj->pIndexData->affected, TRUE);
+	format_obj_affects(output, obj->affected, TRUE);
 	check_improve(ch, sn, TRUE, 5);
+}
+
+void do_lore(CHAR_DATA *ch, const char *argument)
+{
+	char		arg[MAX_INPUT_LENGTH];
+	BUFFER *	output;
+	OBJ_DATA *	obj;
+
+	argument = one_argument(argument, arg);
+	if ((obj = get_obj_carry(ch, arg)) == NULL) {
+		char_puts("You do not have that object.\n\r", ch);
+		return;
+	}
+
+	output = buf_new(0);
+	do_lore_raw(ch, obj, output);
+	page_to_char(buf_string(output), ch);
+	buf_free(output);
 }
 
 void do_butcher(CHAR_DATA * ch, const char *argument)
