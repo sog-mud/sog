@@ -1,5 +1,5 @@
 /*
- * $Id: recycle.c,v 1.63 1999-09-09 03:34:18 fjoe Exp $
+ * $Id: recycle.c,v 1.64 1999-09-09 03:40:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -283,7 +283,6 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 		ch->pMobIndex = pMobIndex;
 	} else {
 		PC_DATA *pc = PC(ch);
-		RESET_FIGHT_TIME(ch);
 		pc->logon = current_time;
 		pc->version = PFILE_VERSION;
 		pc->buffer = buf_new(-1);
@@ -297,7 +296,7 @@ CHAR_DATA *char_new(MOB_INDEX_DATA *pMobIndex)
 		pc->wanted_by = str_empty;
 		pc->dvdata = dvdata_new();
 	}
-
+	RESET_FIGHT_TIME(ch);
 	return ch;
 }
 
