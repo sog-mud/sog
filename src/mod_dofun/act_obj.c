@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.279 2002-10-31 11:00:47 tatyana Exp $
+ * $Id: act_obj.c,v 1.280 2002-11-22 15:20:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -760,11 +760,6 @@ DO_FUN(do_feed, ch, argument)
 	CHAR_DATA *vch;
 	OBJ_DATA *obj;
 	AFFECT_DATA *paf;
-
-	if (get_skill(ch, "bone dragon") == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
 
 	for (vch = ch->in_room->people; vch; vch = vch->next_in_room) {
 		if (vch->master == ch && IS_NPC(vch)
@@ -1783,14 +1778,9 @@ DO_FUN(do_steal, ch, argument)
 	CHAR_DATA      *victim;
 	OBJ_DATA       *obj;
 	OBJ_DATA       *obj_inve;
-	int             percent;
 	int		chance;
+	int             percent;
 	int		carry_n, carry_w;
-
-	if (!(chance = get_skill(ch, "steal"))) {
-		act_char("Huh?", ch);
-		return;
-	}
 
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	argument = one_argument(argument, arg2, sizeof(arg2));
@@ -1826,8 +1816,7 @@ DO_FUN(do_steal, ch, argument)
 	if (is_safe(ch, victim))
 		return;
 
-	chance -= (LEVEL(ch) - LEVEL(victim)) * 3;
-
+	chance = get_skill(ch, "steal") - (LEVEL(ch) - LEVEL(victim)) * 3;
 	percent = number_percent() +
 		  (IS_AWAKE(victim) ? 10 : -50) +
 		  (!can_see(victim, ch) ? -10 : 0);
@@ -3212,13 +3201,7 @@ DO_FUN(do_second_wield, ch, argument)
 
 DO_FUN(do_enchant, ch, argument)
 {
-	OBJ_DATA *	obj;
-	int		chance;
-
-	if ((chance = get_skill(ch, "enchant sword")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
+	OBJ_DATA *obj;
 
 	if (argument[0] == '\0') {	/* empty */
 		act_char("Wear which weapon to enchant?", ch);
@@ -3246,7 +3229,7 @@ DO_FUN(do_enchant, ch, argument)
 	}
 
 	WAIT_STATE(ch, skill_beats("enchant sword"));
-	if (number_percent() > chance) {
+	if (number_percent() > get_skill(ch, "enchant sword")) {
 		act_char("You lost your concentration.", ch);
 		act("$n tries to enchant $p, but he forgets how for a moment.",
 		    ch, obj, NULL, TO_ROOM);
@@ -3430,11 +3413,6 @@ DO_FUN(do_smithing, ch, argument)
 	OBJ_DATA *hammer;
 	int chance;
 
-	if ((chance = get_skill(ch, "smithing")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
-
 	if (ch->fighting) {
 		act_char("Wait until the fight finishes.", ch);
 		return;
@@ -3467,7 +3445,7 @@ DO_FUN(do_smithing, ch, argument)
 	}
 
 	WAIT_STATE(ch, skill_beats("smithing"));
-	if (number_percent() > chance) {
+	if (number_percent() > (chance = get_skill(ch, "smithing"))) {
 		check_improve(ch, "smithing", FALSE, 8);
 
 		if (pull_obj_trigger(TRIG_OBJ_REPAIR, obj, ch, NULL) > 0
@@ -3984,11 +3962,6 @@ DO_FUN(do_sharpen_weapon, ch, argument)
 	int mana;
 	int pk_range;
 
-	if ((chance = get_skill(ch, "sharpen weapon")) == 0) {
-		act("Huh?", ch, NULL, NULL, TO_CHAR);
-		return;
-	}
-
 	if (argument[0] == '\0') {
 		act("What do you like to sharpen?", ch, NULL, NULL, TO_CHAR);
 		return;
@@ -4038,7 +4011,7 @@ DO_FUN(do_sharpen_weapon, ch, argument)
 
 	WAIT_STATE(ch, skill_beats("sharpen weapon"));
 	ch->mana -= mana;
-	chance = chance * 3 / 5;
+	chance = get_skill(ch, "sharpen weapon") * 3 / 5;
 
 	pk_range = UMAX(4, ch->level / 10 + 2);
 	if (weapon->level > LEVEL(ch) + pk_range) {

@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.216 2002-10-03 15:53:48 tatyana Exp $
+ * $Id: martial_art.c,v 1.217 2002-11-22 15:20:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -521,16 +521,10 @@ DO_FUN(do_flee, ch, argument)
 DO_FUN(do_pound, ch, argument)
 {
 	CHAR_DATA *victim;
-	int chance;
 	OBJ_DATA *weapon;
 	OBJ_DATA *second_weap;
 	bool attack;
 	char arg[MAX_INPUT_LENGTH];
-
-	if (!(chance = get_skill(ch, "pound"))) {
-		act_char("Huh?", ch);
-		return;
-	}
 
 	weapon = get_eq_char(ch, WEAR_WIELD);
 	second_weap = get_eq_char(ch, WEAR_SECOND_WIELD);
@@ -541,7 +535,7 @@ DO_FUN(do_pound, ch, argument)
 	}
 
 	if (!WEAPON_IS(weapon, WEAPON_MACE)
-	&& (!second_weap || !WEAPON_IS(second_weap, WEAPON_MACE))) {
+	&&  (!second_weap || !WEAPON_IS(second_weap, WEAPON_MACE))) {
 		act("You need a mace to do that.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
@@ -554,8 +548,7 @@ DO_FUN(do_pound, ch, argument)
 			act_char("But you aren't fighting anyone!", ch);
 			return;
 		}
-	}
-	else
+	} else
 		victim = get_char_here(ch, arg);
 
 	if (!victim || victim->in_room != ch->in_room) {
@@ -579,7 +572,8 @@ DO_FUN(do_pound, ch, argument)
 
 	attack = (victim != ch->fighting) && (victim->fighting != ch);
 
-	if ((number_percent() > chance) || distance_check(ch, victim)) {
+	if (number_percent() > get_skill(ch, "pound")
+	||  distance_check(ch, victim)) {
 		damage(ch, victim, 0, "pound", DAM_F_SHOW);
 		check_improve(ch, "pound", FALSE, 3);
 	} else {
@@ -605,30 +599,29 @@ DO_FUN(do_entangle, ch, argument)
 	int chance;
 	OBJ_DATA *whip;
 
-	if (!(victim = ch->fighting)) {
+	if ((victim = ch->fighting) == NULL) {
 		act_char("You aren't fighting anyone.", ch);
 		return;
 	}
 
-	if (!(chance = get_skill(ch, "entanglement"))) {
+	if ((chance = get_skill(ch, "entanglement")) == 0) {
 		act("You lack the skill to entangle people with your whip.",
 			ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
-	if ((is_sn_affected(ch, "entanglement"))
-	|| is_sn_affected(victim, "entanglement"))
+	if (is_sn_affected(ch, "entanglement")
+	||  is_sn_affected(victim, "entanglement"))
 		return;
 
-	if (!(whip = get_eq_char(ch, WEAR_SECOND_WIELD))
-	|| !(WEAPON_IS(whip, WEAPON_WHIP) || WEAPON_IS(whip, WEAPON_FLAIL))) {
+	if ((whip = get_eq_char(ch, WEAR_SECOND_WIELD)) == NULL
+	||  !(WEAPON_IS(whip, WEAPON_WHIP) || WEAPON_IS(whip, WEAPON_FLAIL))) {
 		act("You need to wield whip or flail in your off-hand.",
 			ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
 	chance += get_curr_stat(ch, STAT_DEX) - get_curr_stat(victim, STAT_DEX);
-
 	chance = chance * 2 / 3;
 
 	WAIT_STATE(ch, skill_beats("entanglement"));
@@ -667,7 +660,8 @@ static void
 gash_drop(CHAR_DATA *ch, CHAR_DATA *victim, int loc)
 {
 	OBJ_DATA *item;
-	if (!(item = get_eq_char(victim, loc)))
+
+	if ((item = get_eq_char(victim, loc)) == NULL)
 		return;
 
 	if (IS_OBJ_STAT(item, ITEM_NOREMOVE)) {
@@ -701,29 +695,22 @@ DO_FUN(do_gash, ch, argument)
 	bool attack;
 	char arg[MAX_INPUT_LENGTH];
 
-	if (!(chance = get_skill(ch, "gash"))) {
-		act_char("Huh?", ch);
-		return;
-	}
-
 	weapon = get_eq_char(ch, WEAR_WIELD);
 	second_weap = get_eq_char(ch, WEAR_SECOND_WIELD);
-
-	if (!weapon) {
+	if (weapon == NULL) {
 		act("You need to wield a dagger first.",
 		ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
 	if (!WEAPON_IS(weapon, WEAPON_DAGGER)
-	&&(!second_weap || WEAPON_IS(second_weap, WEAPON_DAGGER))) {
+	&&  (!second_weap || WEAPON_IS(second_weap, WEAPON_DAGGER))) {
 		act("You need to wield a dagger first.",
 		ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
 	one_argument(argument, arg, sizeof(arg));
-
 	if (arg[0] == '\0') {
 		if ((victim = ch->fighting) == NULL) {
 			act("But you aren't fighting anyone!",
@@ -740,7 +727,7 @@ DO_FUN(do_gash, ch, argument)
 		return;
 	}
 
-	if (!(victim->fighting)) {
+	if (victim->fighting == NULL) {
 		act("They must be fighting.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
@@ -755,7 +742,8 @@ DO_FUN(do_gash, ch, argument)
 		return;
 
 	if (is_sn_affected(victim, "crippled hands")) {
-		act("$s hands are already crippled.", ch, NULL, victim,TO_CHAR);
+		act("$s hands are already crippled.",
+		    ch, NULL, victim, TO_CHAR);
 		return;
 	}
 
@@ -766,7 +754,7 @@ DO_FUN(do_gash, ch, argument)
 
 	attack = (victim != ch->fighting) && (victim->fighting != ch);
 
-	chance /= 2;
+	chance = get_skill(ch, "gash") / 2;
 	chance += get_curr_stat(ch, STAT_DEX) - get_curr_stat(victim, STAT_DEX);
 	chance += LEVEL(ch) - LEVEL(victim);
 
@@ -850,38 +838,30 @@ DO_FUN(do_cut, ch, argument)
 	bool attack;
 	char arg[MAX_INPUT_LENGTH];
 
-	if (!(chance = get_skill(ch, "cut"))) {
-		act_char("Huh?", ch);
-		return;
-	}
-
 	weapon = get_eq_char(ch, WEAR_WIELD);
 	second_weap = get_eq_char(ch, WEAR_SECOND_WIELD);
-
-	if (!weapon) {
+	if (weapon == NULL) {
 		act("You need a weapon to do that.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
 	if (!WEAPON_IS(weapon, WEAPON_SWORD)
-	&& (!second_weap || !WEAPON_IS(second_weap, WEAPON_SWORD))) {
+	&&  (!second_weap || !WEAPON_IS(second_weap, WEAPON_SWORD))) {
 		act("You need a sword to do that.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
 	one_argument(argument, arg, sizeof(arg));
-
 	if (arg[0] == '\0') {
 		victim = ch->fighting;
 		if (victim == NULL) {
 			act_char("But you aren't fighting anyone!", ch);
 			return;
 		}
-	}
-	else
+	} else
 		victim = get_char_here(ch, arg);
 
-	if (!victim || victim->in_room != ch->in_room) {
+	if (victim == NULL || victim->in_room != ch->in_room) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("They aren't here.", ch);
 		return;
@@ -900,6 +880,7 @@ DO_FUN(do_cut, ch, argument)
 
 	attack = (victim != ch->fighting) && (victim->fighting != ch);
 
+	chance = get_skill(ch, "cut");
 	if (WEAPON_IS(weapon, WEAPON_SWORD)) {
 		if ((number_percent() > chance) || distance_check(ch, victim)) {
 			damage(ch, victim, 0, "cut", DAM_F_SHOW);
@@ -916,9 +897,9 @@ DO_FUN(do_cut, ch, argument)
 	}
 
 	if (IS_EXTRACTED(victim)
-	|| !victim->in_room
-	|| !ch->in_room
-	|| victim->in_room != ch->in_room)
+	||  !victim->in_room
+	||  !ch->in_room
+	||  victim->in_room != ch->in_room)
 		return;
 
 	if (second_weap && WEAPON_IS(second_weap, WEAPON_SWORD)) {
@@ -944,9 +925,6 @@ DO_FUN(do_hunger, ch, argument)
 {
 	AFFECT_DATA *paf;
 
-	if (!get_skill(ch, "hungry rat"))
-		return;
-
 	paf = aff_new(TO_FORMAFFECTS, "hungry rat");
 	paf->level	= LEVEL(ch);
 	paf->duration	= number_fuzzy(ch->level / 8);
@@ -965,44 +943,35 @@ DO_FUN(do_hunger, ch, argument)
 DO_FUN(do_whirl, ch, argument)
 {
 	CHAR_DATA *victim;
-	int chance;
 	OBJ_DATA *weapon;
 	OBJ_DATA *second_weap;
 	bool attack;
 	char arg[MAX_INPUT_LENGTH];
 
-	if (!(chance = get_skill(ch, "whirl"))) {
-		act_char("Huh?", ch);
-		return;
-	}
-
 	weapon = get_eq_char(ch, WEAR_WIELD);
 	second_weap = get_eq_char(ch, WEAR_SECOND_WIELD);
-
-	if (!weapon) {
+	if (weapon == NULL) {
 		act("You need a weapon to do that.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
 	if (!WEAPON_IS(weapon, WEAPON_AXE)
-	&& (!second_weap || !WEAPON_IS(second_weap, WEAPON_AXE))) {
+	&&  (!second_weap || !WEAPON_IS(second_weap, WEAPON_AXE))) {
 		act("You need a axe to do that.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
 	one_argument(argument, arg, sizeof(arg));
-
 	if (arg[0] == '\0') {
 		victim = ch->fighting;
 		if (victim == NULL) {
 			act_char("But you aren't fighting anyone!", ch);
 			return;
 		}
-	}
-	else
+	} else
 		victim = get_char_here(ch, arg);
 
-	if (!victim || victim->in_room != ch->in_room) {
+	if (victim == NULL || victim->in_room != ch->in_room) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("They aren't here.", ch);
 		return;
@@ -1021,7 +990,8 @@ DO_FUN(do_whirl, ch, argument)
 
 	attack = (victim != ch->fighting) && (victim->fighting != ch);
 
-	if ((number_percent() > chance) || distance_check(ch, victim)) {
+	if (number_percent() > get_skill(ch, "whirl")
+	||  distance_check(ch, victim)) {
 		damage(ch, victim, 0, "whirl", DAM_F_SHOW);
 		check_improve(ch, "whirl", FALSE, 3);
 	} else {
@@ -1041,30 +1011,22 @@ DO_FUN(do_feint, ch, argument)
 	int chance;
 	OBJ_DATA *weapon;
 
-
-	if (!(chance = get_skill(ch, "feint"))) {
-		act_char("Huh?", ch);
+	if ((weapon = get_eq_char(ch, WEAR_WIELD)) == NULL
+	||  !WEAPON_IS(weapon, WEAPON_SWORD)) {
+		act("You need to wield a sword.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
-	if (!(weapon = get_eq_char(ch, WEAR_WIELD))
-	|| !WEAPON_IS(weapon, WEAPON_SWORD)) {
-		act("You need to wield a sword.",
-			ch, NULL, NULL, TO_CHAR);
-		return;
-	}
-
-	if (!(victim = ch->fighting)) {
-		act("You aren't fighting anyone.",
-			ch, NULL, NULL, TO_CHAR);
+	if ((victim = ch->fighting) == NULL) {
+		act("You aren't fighting anyone.", ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
 	WAIT_STATE(ch, skill_beats("feint"));
 
+	chance = get_skill(ch, "feint");
 	chance += get_curr_stat(ch, STAT_DEX);
 	chance -= get_curr_stat(victim, STAT_INT);
-
 	chance = chance * 2 / 3;
 
 	if (number_percent() < chance) {
@@ -1226,14 +1188,8 @@ DO_FUN(do_berserk, ch, argument)
 DO_FUN(do_breath, ch, argument)
 {
 	CHAR_DATA *victim;
-	int chance;
 	const char *spell;
 	int mana;
-
-	if ((chance = get_skill(ch, "breath")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
 
 	if ((victim = ch->fighting) == NULL) {
 		act_char("You aren't fighting anyone.", ch);
@@ -1261,7 +1217,7 @@ DO_FUN(do_breath, ch, argument)
 		return;
 	}
 
-	if (number_percent() > chance) {
+	if (number_percent() > get_skill(ch, "breath")) {
 		act_char("You failed.", ch);
 		ch->mana -= mana/2;
 		check_improve(ch, "breath", FALSE, 1);
@@ -2342,20 +2298,13 @@ DO_FUN(do_nerve, ch, argument)
 	CHAR_DATA *victim;
 	char arg[MAX_INPUT_LENGTH];
 	bool attack;
-	int chance;
-
-	one_argument(argument, arg, sizeof(arg));
-
-	if ((chance = get_skill(ch, "nerve")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
 
 	if (MOUNTED(ch)) {
 		act_char("You can't nerve while riding!", ch);
 		return;
 	}
 
+	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] =='\0') {
 		victim = ch->fighting;
 		if (victim == NULL) {
@@ -2384,9 +2333,9 @@ DO_FUN(do_nerve, ch, argument)
 		return;
 
 	if (IS_NPC(ch)
-	||  number_percent() < (chance + LEVEL(ch) - LEVEL(victim) -
-	    get_curr_stat(victim, STAT_CON) + get_curr_stat(ch,STAT_DEX)/2)
-	||  (ch == victim)) {
+	||  number_percent() < (get_skill(ch, "nerve") + LEVEL(ch) - LEVEL(victim) -
+	    get_curr_stat(victim, STAT_CON) + get_curr_stat(ch, STAT_DEX) / 2)
+	||  ch == victim) {
 		AFFECT_DATA *paf;
 
 		paf = aff_new(TO_AFFECTS, "nerve");
@@ -2463,12 +2412,6 @@ DO_FUN(do_tame, ch, argument)
 {
 	CHAR_DATA *victim;
 	char arg[MAX_INPUT_LENGTH];
-	int chance;
-
-	if ((chance = get_skill(ch, "tame")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
 
 	one_argument(argument, arg, sizeof(arg));
 
@@ -2501,15 +2444,14 @@ DO_FUN(do_tame, ch, argument)
 		return;
 	}
 
-	if (number_percent() < chance + 15 + 4*(LEVEL(ch) - LEVEL(victim))) {
+	if (number_percent() < get_skill(ch, "tame") + 15 + 4 * (LEVEL(ch) - LEVEL(victim))) {
 		SET_BIT(victim->affected_by, AFF_CALM);
 		act_char("You calm down.", victim);
 		act("You calm $N down.", ch, NULL, victim, TO_CHAR);
 		act("$n calms $N down.", ch, NULL, victim, TO_NOTVICT);
 		stop_fighting(victim, TRUE);
 		check_improve(ch, "tame", TRUE, 1);
-	}
-	else {
+	} else {
 		act_char("You failed.", ch);
 		act("$n tries to calm down $N but fails.",
 		    ch, NULL, victim, TO_NOTVICT);
@@ -2987,12 +2929,7 @@ DO_FUN(do_blackjack, ch, argument)
 		return;
 	}
 
-	if ((chance = get_skill(ch, "blackjack")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
-
-	if ((victim = get_char_here(ch,argument)) == NULL) {
+	if ((victim = get_char_here(ch, argument)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
 		act_char("You do not see that person here.", ch);
 		return;
@@ -3025,7 +2962,7 @@ DO_FUN(do_blackjack, ch, argument)
 	SET_FIGHT_TIME(victim);
 	SET_FIGHT_TIME(ch);
 
-	chance /= 2;
+	chance = get_skill(ch, "blackjack") / 2;
 	chance += URANGE(0, (get_curr_stat(ch, STAT_DEX)-20)*2, 10);
 	chance += can_see(victim, ch) ? 0 : 5;
 	if (IS_NPC(victim) && victim->pMobIndex->pShop != NULL)
@@ -3130,13 +3067,7 @@ DO_FUN(do_bloodthirst, ch, argument)
 
 DO_FUN(do_toughen, ch, argument)
 {
-	int chance;
 	int mana;
-
-	if ((chance = get_skill(ch, "toughen")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
 
 	if (is_sn_affected(ch, "toughen")) {
 		act_char("You are as resistant as you will get.", ch);
@@ -3150,7 +3081,7 @@ DO_FUN(do_toughen, ch, argument)
 	}
 	WAIT_STATE(ch, skill_beats("toughen"));
 
-	if (number_percent() < chance) {
+	if (number_percent() < get_skill(ch, "toughen")) {
 		AFFECT_DATA *paf;
 
 		paf = aff_new(TO_AFFECTS, "toughen");
@@ -3185,13 +3116,8 @@ DO_FUN(do_trophy, ch, argument)
 	OBJ_DATA *part;
 	char arg[MAX_INPUT_LENGTH];
 	int level;
-	int chance;
 	int mana;
-
-	if ((chance = get_skill(ch, "trophy")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
+	int chance;
 
 	if (is_sn_affected(ch, "trophy")) {
 		act_char("But you've already got one trophy!", ch);
@@ -3215,6 +3141,7 @@ DO_FUN(do_trophy, ch, argument)
 		return;
 	}
 
+	chance = get_skill(ch, "trophy");
 	if (number_percent() < chance * 2 / 3) {
 		act_char("You destroyed it.", ch);
 		extract_obj(part, 0);
@@ -3306,13 +3233,6 @@ DO_FUN(do_trophy, ch, argument)
 
 DO_FUN(do_truesight, ch, argument)
 {
-	int chance;
-
-	if ((chance = get_skill(ch, "truesight")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
-
 	if (is_sn_affected(ch, "truesight")) {
 		act_char("Your eyes are as sharp as they can get.", ch);
 		return;
@@ -3320,7 +3240,7 @@ DO_FUN(do_truesight, ch, argument)
 
 	WAIT_STATE(ch, skill_beats("truesight"));
 
-	if (number_percent() < chance) {
+	if (number_percent() < get_skill(ch, "truesight")) {
 		AFFECT_DATA *paf;
 
 		paf = aff_new(TO_DETECTS, "truesight");
@@ -3344,13 +3264,7 @@ DO_FUN(do_truesight, ch, argument)
 DO_FUN(do_warcry, ch, argument)
 {
 	AFFECT_DATA *paf;
-	int chance;
 	int mana;
-
-	if ((chance = get_skill(ch, "warcry")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
 
 	if (is_sn_affected(ch, "warcry")) {
 		act_char("The fighting zeal is already with you.", ch);
@@ -3364,7 +3278,7 @@ DO_FUN(do_warcry, ch, argument)
 	}
 	WAIT_STATE(ch, skill_beats("warcry"));
 
-	if (number_percent() > chance) {
+	if (number_percent() > get_skill(ch, "warcry")) {
 		act_char("You grunt softly.", ch);
 		act("$n makes some soft grunting noises.",
 		    ch, NULL, NULL, TO_ROOM);
@@ -3396,12 +3310,6 @@ DO_FUN(do_guard, ch, argument)
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
 	CHAR_DATA *guarding;
-	int chance;
-
-	if ((chance = get_skill(ch, "guard")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
 
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
@@ -3630,13 +3538,10 @@ DO_FUN(do_target, ch, argument)
 
 DO_FUN(do_tiger, ch, argument)
 {
-	int chance, hp_percent;
+	int hp_percent;
 	int mana;
+	int chance;
 
-	if ((chance = get_skill(ch, "tiger power")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
 	act("$n calls the power of ten tigers!", ch, NULL, NULL, TO_ROOM);
 
 	if (IS_AFFECTED(ch, AFF_BERSERK) || is_sn_affected(ch, "berserk")
@@ -3667,6 +3572,7 @@ DO_FUN(do_tiger, ch, argument)
 	/* modifiers */
 
 	/* fighting */
+	chance = get_skill(ch, "tiger power");
 	if (ch->position == POS_FIGHTING)
 		chance += 10;
 
@@ -3950,7 +3856,8 @@ DO_FUN(do_tail, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-	int chance, wait;
+	int chance;
+	int wait;
 	int damage_tail;
 	bool attack;
 
@@ -3960,20 +3867,13 @@ DO_FUN(do_tail, ch, argument)
 	}
 
 	one_argument(argument, arg, sizeof(arg));
-
-	if ((chance = get_skill(ch, "tail")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
-
 	if (arg[0] == '\0') {
 		victim = ch->fighting;
 		if (victim == NULL) {
 			act_char("But you aren't fighting anyone!", ch);
 			return;
 		}
-	}
-	else
+	} else
 		victim = get_char_here(ch, arg);
 
 	if (!victim || victim->in_room != ch->in_room) {
@@ -4017,6 +3917,7 @@ DO_FUN(do_tail, ch, argument)
 	/* modifiers */
 
 	/* size  and weight */
+	chance = get_skill(ch, "tail");
 	chance -= get_carry_weight(ch) / 20;
 	chance += get_carry_weight(victim) / 25;
 
@@ -4157,12 +4058,6 @@ DO_FUN(do_concentrate, ch, argument)
 DO_FUN(do_bandage, ch, argument)
 {
 	int heal;
-	int chance;
-
-	if ((chance = get_skill(ch, "bandage")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
 
 	if (IS_AFFECTED(ch, AFF_REGENERATION)) {
 		act_char("You are already using your bandage.", ch);
@@ -4170,7 +4065,7 @@ DO_FUN(do_bandage, ch, argument)
 	}
 
 	WAIT_STATE(ch, skill_beats("bandage"));
-	if (number_percent() < chance) {
+	if (number_percent() < get_skill(ch, "bandage")) {
 		AFFECT_DATA *paf;
 
 		act_char("You place your bandage to your shoulder!", ch);
@@ -4208,12 +4103,6 @@ DO_FUN(do_katana, ch, argument)
 	int mana;
 
 	one_argument(argument, arg, sizeof(arg));
-
-	if ((chance = get_skill(ch, "katana")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
-
 	if (is_sn_affected(ch, "katana")) {
 		act_char("But you've already got one katana!", ch);
 		return;
@@ -4240,6 +4129,7 @@ DO_FUN(do_katana, ch, argument)
 		return;
 	}
 
+	chance = get_skill(ch, "katana");
 	if (number_percent() < chance / 3 * 2) {
 		act_char("You failed and destroyed it.", ch);
 		extract_obj(part, 0);
@@ -4402,13 +4292,7 @@ DO_FUN(do_crush, ch, argument)
 
 DO_FUN(do_sense, ch, argument)
 {
-	int chance;
 	int mana;
-
-	if ((chance = get_skill(ch, "sense life")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
 
 	if (is_sn_affected(ch, "sense life")) {
 		act_char("You can already feel life forms.", ch);
@@ -4420,10 +4304,9 @@ DO_FUN(do_sense, ch, argument)
 		act_char("You cannot seem to concentrate enough.", ch);
 		return;
 	}
-
 	WAIT_STATE(ch, skill_beats("sense life"));
 
-	if (number_percent() < chance) {
+	if (number_percent() < get_skill(ch, "sense life")) {
 		AFFECT_DATA *paf;
 
 		paf = aff_new(TO_DETECTS, "sense life");
@@ -4468,13 +4351,7 @@ poison_smoke_cb(void *vo, va_list ap)
 
 DO_FUN(do_poison_smoke, ch, argument)
 {
-	int chance;
 	int mana;
-
-	if ((chance = get_skill(ch, "poison smoke")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
 
 	mana = skill_mana(ch, "poison smoke");
 	if (ch->mana < mana) {
@@ -4484,7 +4361,7 @@ DO_FUN(do_poison_smoke, ch, argument)
 	ch->mana -= mana;
 	WAIT_STATE(ch, skill_beats("poison smoke"));
 
-	if (number_percent() > chance) {
+	if (number_percent() > get_skill(ch, "poison smoke")) {
 		act_char("You failed.", ch);
 		check_improve(ch, "poison smoke", FALSE, 1);
 		return;
@@ -4517,14 +4394,8 @@ blindness_dust_cb(void *vo, va_list ap)
 DO_FUN(do_blindness_dust, ch, argument)
 {
 	CHAR_DATA *vch;
-	int chance;
 	char arg[MAX_INPUT_LENGTH];
 	int mana;
-
-	if ((chance = get_skill(ch, "blindness dust")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
 
 	mana = skill_mana(ch, "blindness dust");
 	if (ch->mana < mana) {
@@ -4534,14 +4405,13 @@ DO_FUN(do_blindness_dust, ch, argument)
 	ch->mana -= mana;
 	WAIT_STATE(ch, skill_beats("blindness dust"));
 
-	if (number_percent() > chance) {
+	if (number_percent() > get_skill(ch, "blindness dust")) {
 		act_char("You failed.", ch);
 		check_improve(ch, "blindness dust", FALSE, 1);
 		return;
 	}
 
 	one_argument(argument, arg, sizeof(arg));
-
 	if (arg[0] == '\0') {
 		act("A cloud of dust fills the room.", ch, NULL, NULL, TO_ALL);
 		check_improve(ch, "blindness dust", TRUE, 1);
@@ -4668,12 +4538,6 @@ DO_FUN(do_rake, ch, argument)
 	}
 
 	argument = one_argument(argument, arg, sizeof(arg));
-
-	if ((chance = get_skill(ch, "rake")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
-
 	if (arg[0] == '\0') {
 		victim = ch->fighting;
 		if ((victim = ch->fighting) == NULL) {
@@ -4717,6 +4581,7 @@ DO_FUN(do_rake, ch, argument)
 		return;
 
 	/* modifiers */
+	chance = get_skill(ch, "rake");
 
 	/* size  and weight */
 

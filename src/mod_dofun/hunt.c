@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.46 2001-09-13 16:22:04 fjoe Exp $
+ * $Id: hunt.c,v 1.47 2002-11-22 15:20:50 fjoe Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -39,7 +39,6 @@ DO_FUN(do_hunt, ch, argument)
 	CHAR_DATA *victim;
 	int direction, i;
 	bool fArea, ok;
-	int chance;
 	int chance2;
 
 	if (IS_NPC(ch) && ch->hunting) {
@@ -47,11 +46,7 @@ DO_FUN(do_hunt, ch, argument)
 		return;
 	}
 
-	if ((chance = get_skill(ch, "hunt")) == 0)
-		return;
-
 	one_argument(argument, arg, sizeof(arg));
-
 	if (arg[0] == '\0') {
 		act_char("Whom are you trying to hunt?", ch);
 		return;

@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.268 2002-11-20 20:14:54 fjoe Exp $
+ * $Id: act_comm.c,v 1.269 2002-11-22 15:20:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1523,11 +1523,6 @@ DO_FUN(do_wanted, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 	CHAR_DATA *victim;
-
-	if (get_skill(ch, "wanted") == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
 
 	argument = one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {

@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.288 2002-11-21 13:31:25 fjoe Exp $
+ * $Id: act_move.c,v 1.289 2002-11-22 15:20:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -228,13 +228,7 @@ DO_FUN(do_pick, ch, argument)
 	int door;
 	int chance;
 
-	if ((chance = get_skill(ch, "pick lock")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
-
 	one_argument(argument, arg, sizeof(arg));
-
 	if (arg[0] == '\0') {
 		act_char("Pick what?", ch);
 		return;
@@ -258,6 +252,7 @@ DO_FUN(do_pick, ch, argument)
 		}
 	}
 
+	chance = get_skill(ch, "pick lock");
 	if ((obj = get_obj_here(ch, arg)) != NULL) {
 		/* portal stuff */
 		if (obj->item_type == ITEM_PORTAL) {
@@ -885,11 +880,6 @@ DO_FUN(do_sneak, ch, argument)
 {
 	AFFECT_DATA *paf;
 
-	if (get_skill(ch, "stealth") == 0) {
-		act_char("You aren't able to move more silently.", ch);
-		return;
-	}
-
 	if (MOUNTED(ch)) {
 		act_char("You can't sneak while mounted.", ch);
 		return;
@@ -1228,19 +1218,12 @@ DO_FUN(do_track, ch, argument)
 	ROOM_HISTORY_DATA *rh;
 	EXIT_DATA *pexit;
 	int d;
-	int chance;
-
-	if ((chance = get_skill(ch, "track")) == 0) {
-		act_char("There are no train tracks here.", ch);
-		return;
-	}
 
 	WAIT_STATE(ch, skill_beats("track"));
 	act("$n checks the ground for tracks.", ch, NULL, NULL, TO_ROOM);
 
-	if (number_percent() < chance) {
+	if (number_percent() < get_skill(ch, "track")) {
 		/* success */
-
 		for (rh = ch->in_room->history; rh != NULL; rh = rh->next)
 			if (is_name(argument, rh->name)) {
 				check_improve(ch, "track", TRUE, 1);
@@ -1563,13 +1546,7 @@ DO_FUN(do_blink, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
 
-	if (get_skill(ch, "blink") == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
-
 	one_argument(argument, arg, sizeof(arg));
-
 	if (arg[0] =='\0') {
 		if (is_sn_affected(ch, "blink")) {
 			act("You current blink status is now: ON.",
@@ -1614,13 +1591,7 @@ DO_FUN(do_blink, ch, argument)
 
 DO_FUN(do_vanish, ch, argument)
 {
-	int chance;
 	int min_mana;
-
-	if ((chance = get_skill(ch, "vanish")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
 
 	if (ch->mana < (min_mana = skill_mana(ch, "vanish"))) {
 		act_char("You don't have enough power.", ch);
@@ -1629,7 +1600,7 @@ DO_FUN(do_vanish, ch, argument)
 	ch->mana -= min_mana;
 	WAIT_STATE(ch, skill_beats("vanish"));
 
-	if (number_percent() > chance) {
+	if (number_percent() > get_skill(ch, "vanish")) {
 		act_char("You failed.", ch);
 		check_improve(ch, "vanish", FALSE, 1);
 		return;
@@ -2045,8 +2016,7 @@ DO_FUN(do_crecall, ch, argument)
 	CHAR_DATA *pet;
 	AFFECT_DATA *paf;
 
-	if (get_skill(ch, "clan recall") == 0
-	||  (clan = clan_lookup(ch->clan)) == NULL) {
+	if ((clan = clan_lookup(ch->clan)) == NULL) {
 		act_char("Huh?", ch);
 		return;
 	}
@@ -2352,19 +2322,15 @@ static OBJ_DATA *find_arrow(CHAR_DATA *ch)
 
 DO_FUN(do_charge, ch, argument)
 {
-	CHAR_DATA* victim;
-	OBJ_DATA* wield;
-	int chance, direction;
+	CHAR_DATA *victim;
+	OBJ_DATA *wield;
+	int direction;
 	int beats;
+	int chance;
 	EXIT_DATA *pexit;
 	ROOM_INDEX_DATA *to_room;
 
-	char arg1[512], arg2[512];
-
-	if ((chance = get_skill(ch, "charge")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
+	char arg1[MAX_INPUT_LENGTH], arg2[MAX_INPUT_LENGTH];
 
 	argument = one_argument(argument, arg1, sizeof(arg1));
 	one_argument(argument, arg2, sizeof(arg2));
@@ -2413,7 +2379,7 @@ DO_FUN(do_charge, ch, argument)
 		return;
 	}
 
-	chance = chance * get_skill(ch, "riding") / 100;
+	chance = get_skill(ch, "charge") * get_skill(ch, "riding") / 100;
 
 	if (!move_char(ch, direction, MC_F_CHARGE))
 		return;
@@ -2914,11 +2880,6 @@ DO_FUN(do_forest, ch, argument)
 	AFFECT_DATA *paf;
 	bool attack;
 
-	if (!get_skill(ch, "forest fighting")) {
-		act_char("Huh?", ch);
-		return;
-	}
-
 	one_argument(argument, arg, sizeof(arg));
 	if (arg[0] == '\0') {
 		act_char("Usage: forest {{ attack | defence | normal $}", ch);
@@ -2977,11 +2938,6 @@ DO_FUN(do_forest, ch, argument)
 
 DO_FUN(do_breathhold, ch, argument)
 {
-	if (get_skill(ch, "hold breath") == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
-
 	if (is_sn_affected(ch, "water breathing")) {
 		act_char("You already can breath under water.", ch);
 		return;

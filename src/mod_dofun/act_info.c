@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.422 2002-11-21 13:53:26 fjoe Exp $
+ * $Id: act_info.c,v 1.423 2002-11-22 15:20:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -351,7 +351,7 @@ DO_FUN(do_autogold, ch, argument)
 	TOGGLE_BIT(PC(ch)->plr_flags, PLR_AUTOGOLD);
 	if (IS_SET(PC(ch)->plr_flags, PLR_AUTOGOLD))
 		act_char("Automatic gold looting set.", ch);
-	else 
+	else
 		act_char("Autogold removed.", ch);
 }
 
@@ -448,14 +448,12 @@ DO_FUN(do_prompt, ch, argument)
 
 DO_FUN(do_nogive, ch, argument)
 {
-
 	if (IS_NPC(ch)) {
 		act_char("Huh?", ch);
 		return;
 	}
 
 	TOGGLE_BIT(PC(ch)->plr_flags, PLR_NOGIVE);
-
 	if (IS_SET(PC(ch)->plr_flags, PLR_NOGIVE))
 		act_char("You no longer take any given objects.", ch);
 	else
@@ -473,8 +471,7 @@ DO_FUN(do_nofollow, ch, argument)
 	if (IS_SET(PC(ch)->plr_flags,PLR_NOFOLLOW)) {
 		act_char("You no longer accept followers.", ch);
 		die_follower(ch);
-	}
-	else
+	} else
 		act_char("You now accept followers.", ch);
 }
 
@@ -2082,20 +2079,14 @@ DO_FUN(do_hometown, ch, argument)
 
 DO_FUN(do_detect_hidden, ch, argument)
 {
-	AFFECT_DATA	*paf;
-	int		chance;
-
-	if ((chance = get_skill(ch, "detect hide")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
+	AFFECT_DATA *paf;
 
 	if (HAS_DETECT(ch, ID_HIDDEN)) {
 		act_char("You are already as alert as you can be.", ch);
 		return;
 	}
 
-	if (number_percent() > chance) {
+	if (number_percent() > get_skill(ch, "detect hide")) {
 		act_char("You peer intently at the shadows but they are unrevealing.", ch);
 		check_improve(ch, "detect hide", FALSE, 1);
 		return;
@@ -2115,19 +2106,13 @@ DO_FUN(do_detect_hidden, ch, argument)
 DO_FUN(do_awareness, ch, argument)
 {
 	AFFECT_DATA	*paf;
-	int		chance;
-
-	if ((chance = get_skill(ch, "forest awareness")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
 
 	if (is_sn_affected(ch, "forest awareness")) {
 		act_char("You are already as alert as you can be.", ch);
 		return;
 	}
 
-	if (number_percent() > chance) {
+	if (number_percent() > get_skill(ch, "forest awareness")) {
 		act_char("You peer intently at the shadows but they are unrevealing.", ch);
 		check_improve(ch, "forest awareness", FALSE, 1);
 		return;
@@ -2153,13 +2138,7 @@ DO_FUN(do_bear_call, ch, argument)
 	CHAR_DATA *	bear2;
 	AFFECT_DATA	*paf;
 	int		i;
-	int		chance;
 	int		mana;
-
-	if ((chance = get_skill(ch, "bear call")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
 
 	act_char("You call for bears help you.", ch);
 	act("$n shouts a bear call.",ch,NULL,NULL,TO_ROOM);
@@ -2204,7 +2183,7 @@ DO_FUN(do_bear_call, ch, argument)
 	}
 	ch->mana -= mana;
 
-	if (number_percent() > chance) {
+	if (number_percent() > get_skill(ch, "bear call")) {
 		act_char("No bears listen you.", ch);
 		check_improve(ch, "bear call", FALSE, 1);
 		return;
@@ -2872,16 +2851,10 @@ DO_FUN(do_lion_call, ch, argument)
 	CHAR_DATA *	lion2;
 	AFFECT_DATA	*paf;
 	int		i;
-	int		chance;
 	int		mana;
 
-	if ((chance = get_skill(ch, "lion call")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
-
 	act_char("You call for lions help you.", ch);
-	act("$n shouts a lion call.",ch,NULL,NULL,TO_ROOM);
+	act("$n shouts a lion call.", ch, NULL, NULL, TO_ROOM);
 
 	if (is_sn_affected(ch, "lion call")) {
 		act_char("You cannot summon the strength to handle more lions right now.", ch);
@@ -2923,7 +2896,7 @@ DO_FUN(do_lion_call, ch, argument)
 	}
 	ch->mana -= mana;
 
-	if (number_percent() > chance) {
+	if (number_percent() > get_skill(ch, "lion call")) {
 		check_improve(ch, "lion call", FALSE, 1);
 		act_char("No lions hear you.", ch);
 		return;
@@ -3595,13 +3568,7 @@ DO_FUN(do_slook, ch, argument)
 DO_FUN(do_camp, ch, argument)
 {
 	AFFECT_DATA *paf;
-	int chance;
 	int mana;
-
-	if ((chance = get_skill(ch, "camp")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
 
 	if (is_sn_affected(ch, "camp")) {
 		act_char("You don't have enough power to handle more camp areas.", ch);
@@ -3625,7 +3592,7 @@ DO_FUN(do_camp, ch, argument)
 	}
 	ch->mana -= mana;
 
-	if (number_percent() > chance) {
+	if (number_percent() > get_skill(ch, "camp")) {
 		act_char("You failed to make your camp.", ch);
 		check_improve(ch, "camp", FALSE, 4);
 		return;
@@ -3669,7 +3636,6 @@ DO_FUN(do_demand, ch, argument)
 	if (IS_NPC(ch))
 		return;
 
-
 	if (arg1[0] == '\0' || arg2[0] == '\0') {
 		act_char("Demand what from whom?", ch);
 		return;
@@ -3706,8 +3672,7 @@ DO_FUN(do_demand, ch, argument)
 	chance = IS_EVIL(victim) ? 10 : IS_GOOD(victim) ? -5 : 0;
 	chance += (get_curr_stat(ch,STAT_CHA) - 15) * 10;
 	chance += LEVEL(ch) - LEVEL(victim);
-
-	chance = (get_skill(ch, "demand")) * chance / 100;
+	chance = get_skill(ch, "demand") * chance / 100;
 
 	if (number_percent() > chance) {
 		do_say(victim, "I'm not about to give you anything!");
@@ -3776,17 +3741,11 @@ DO_FUN(do_demand, ch, argument)
 DO_FUN(do_control, ch, argument)
 {
 	char arg[MAX_INPUT_LENGTH];
-	CHAR_DATA *victim;
 	int chance;
+	CHAR_DATA *victim;
 	race_t *r;
 
 	argument = one_argument(argument, arg, sizeof(arg));
-
-	if ((chance = get_skill(ch, "control animal")) == 0) {
-		act_char("Huh?", ch);
-		return;
-	}
-
 	if (arg[0] == '\0') {
 		act_char("Charm what?", ch);
 		return;
@@ -3811,6 +3770,7 @@ DO_FUN(do_control, ch, argument)
 
 	WAIT_STATE(ch, skill_beats("control animal"));
 
+	chance = get_skill(ch, "control animal");
 	chance += (get_curr_stat(ch,STAT_CHA) - 20) * 5;
 	chance += (ch->level - victim->level) * 3;
 	chance +=
@@ -4028,17 +3988,10 @@ DO_FUN(do_make, ch, argument)
 		do_make(ch, str_empty);
 }
 
-/*Added by Osya*/
 DO_FUN(do_homepoint, ch, argument)
 {
         AFFECT_DATA *paf;
-        int chance;
         char arg[MAX_INPUT_LENGTH];
-
-        if ((chance = get_skill(ch, "homepoint")) == 0) {
-                act_char("Huh?", ch);
-                return;
-        }
 
         if (is_sn_affected(ch, "homepoint")) {
                 act_char("You fatigue for searching new home.", ch);
@@ -4060,9 +4013,9 @@ DO_FUN(do_homepoint, ch, argument)
                 return;
         }
 
-        ch->mana = 0 ;
+        ch->mana = 0;
 
-        if (number_percent() > chance) {
+        if (number_percent() > get_skill(ch, "homepoint")) {
                 act_char("You failed to make your homepoint.", ch);
                 check_improve(ch, "homepoint", FALSE, 4);
                 return;
