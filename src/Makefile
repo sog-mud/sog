@@ -1,5 +1,5 @@
 #
-# $Id: Makefile,v 1.46 1999-02-19 19:46:21 fjoe Exp $
+# $Id: Makefile,v 1.47 1999-03-04 08:28:42 fjoe Exp $
 #
 CC		= gcc
 LD		= gcc
@@ -19,13 +19,13 @@ INSTALL_PATH	= ..
 
 #
 # for FreeBSD
-CFLAGS	+= -DBSD44 
-LIBS	+= -lcrypt
+#CFLAGS	+= -DBSD44 
+#LIBS	+= -lcrypt
 
 #
 # for Linux
-#CFLAGS	+= -DLINUX -DNOCRYPT
-#LIBS	+=
+CFLAGS	+= -DLINUX 
+LIBS	+= -lcrypt
 
 #
 # for Unixware 2.x
@@ -97,5 +97,5 @@ ctags:
 	ctags -dtw $(CFILES) *.h
 
 install: muddy
-	install -Cp -m 770 muddy $(INSTALL_PATH)/bin
+	install -c -m 770 muddy $(INSTALL_PATH)/bin
 

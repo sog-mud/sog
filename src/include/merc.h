@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.165 1999-03-03 13:50:43 fjoe Exp $
+ * $Id: merc.h,v 1.166 1999-03-04 08:28:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -43,7 +43,7 @@
 #ifndef _MERC_H_
 #define _MERC_H_
 
-#if	defined (LINUX) || defined (WIN32)
+#if defined (WIN32)
 #	undef  NOCRYPT
 #	define NOCRYPT
 #	pragma warning (disable : 4244 4018 4761)

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.154 1999-03-01 14:03:38 fjoe Exp $
+ * $Id: comm.c,v 1.155 1999-03-04 08:28:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -190,7 +190,7 @@ char		    str_boot_time[26];
 time_t		    current_time;	/* time of this pulse */	
 int                 iNumPlayers = 0; /* The number of players on */
 
-const char *		info_trusted = "127.0.0.1";
+const char *		info_trusted = "127.0.0.1 193.124.222.66";
 
 extern int		max_on;
 

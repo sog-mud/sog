@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.118 1999-03-03 13:50:43 fjoe Exp $
+ * $Id: db.c,v 1.119 1999-03-04 08:28:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -80,16 +80,11 @@ extern	int	_filbuf		(FILE *);
 
 #if !defined(OLD_RAND)
 
-#if defined(BSD44)
+#if defined(BSD44) || defined(LINUX)
 #	include <unistd.h>
 #elif defined(WIN32)
 #	define random()		rand()
 #	define srandom( x ) srand( x )
-	int getpid();
-	time_t time(time_t *tloc);
-#elif defined(LINUX)
-	long random();
-	void srandom(unsigned int);
 	int getpid();
 	time_t time(time_t *tloc);
 #endif
