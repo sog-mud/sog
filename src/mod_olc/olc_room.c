@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_room.c,v 1.37 1999-02-23 22:06:50 fjoe Exp $
+ * $Id: olc_room.c,v 1.38 1999-02-24 17:55:25 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -285,7 +285,7 @@ OLC_FUN(roomed_show)
 			int i, length;
 
 			buf_printf(output, "-%-5s to [%5d] Key: [%5d] ",
-				   capitalize(dir_name[door]),
+				   dir_name[door],
 				   pexit->u1.to_room ?
 						pexit->u1.to_room->vnum : 0,
 				   pexit->key);
@@ -344,8 +344,7 @@ OLC_FUN(roomed_list)
 		if ((pRoomIndex = get_room_index(vnum))) {
 			found = TRUE;
 			buf_printf(buffer, "[%5d] %-17.16s",
-				vnum,
-				capitalize(mlstr_cval(pRoomIndex->name, ch)));
+				vnum, mlstr_mval(pRoomIndex->name));
 			if (++col % 3 == 0)
 				buf_add(buffer, "\n");
 		}
@@ -1108,7 +1107,7 @@ void display_resets(CHAR_DATA *ch)
             buf_printf(buf, "M[%5d] %-13.13s in room             R[%5d] %2d-%2d %-15.15s\n",
                        pReset->arg1, mlstr_mval(pMob->short_descr),
 			pReset->arg3, pReset->arg2, pReset->arg4,
-			mlstr_cval(pRoomIndex->name, ch));
+			mlstr_mval(pRoomIndex->name));
 
 	    /*
 	     * Check for pet shop.
@@ -1217,8 +1216,8 @@ void display_resets(CHAR_DATA *ch)
 	    pRoomIndex = get_room_index(pReset->arg1);
 	    buf_printf(buf, "R[%5d] %s door of %-19.19s reset to %s\n",
 		pReset->arg1,
-		capitalize(dir_name[ pReset->arg2 ]),
-		mlstr_cval(pRoomIndex->name, ch),
+		dir_name[pReset->arg2],
+		mlstr_mval(pRoomIndex->name),
 		flag_string(door_resets, pReset->arg3));
 
 	    break;
@@ -1233,7 +1232,7 @@ void display_resets(CHAR_DATA *ch)
 	    }
 
 	    buf_printf(buf, "R[%5d] Exits are randomized in %s\n",
-		pReset->arg1, mlstr_cval(pRoomIndex->name, ch));
+		pReset->arg1, mlstr_mval(pRoomIndex->name));
 
 	    break;
 	}

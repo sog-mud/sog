@@ -1,5 +1,5 @@
 /*
- * $Id: string_edit.c,v 1.30 1999-02-23 22:06:47 fjoe Exp $
+ * $Id: string_edit.c,v 1.31 1999-02-24 17:55:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -161,6 +161,8 @@ void string_add(CHAR_DATA *ch, const char *argument)
 		free_string(*ch->desc->pString);
 		*ch->desc->pString = ch->desc->backup;
 		ch->desc->pString = NULL;
+		if (IS_SET(ch->comm, COMM_QUIET_EDITOR))
+			do_replay(ch, str_empty);
 		return;
 	}
 
@@ -168,6 +170,8 @@ void string_add(CHAR_DATA *ch, const char *argument)
 	||  !str_cmp(arg1+1, "wq")) {
 		free_string(ch->desc->backup);
         	ch->desc->pString = NULL;
+		if (IS_SET(ch->comm, COMM_QUIET_EDITOR))
+			do_replay(ch, str_empty);
         	return;
 	}
 

@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.148 1999-02-23 22:26:11 fjoe Exp $
+ * $Id: comm.c,v 1.149 1999-02-24 17:55:24 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1655,13 +1655,19 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		switch(*argument) {
 		case 'y' : case 'Y':
 			for (d_old = descriptor_list; d_old; d_old = d_next) {
+				CHAR_DATA *rch;
+
 				d_next = d_old->next;
 				if (d_old == d || d_old->character == NULL)
 					continue;
 
-				if (str_cmp(ch->name,d_old->character->name))
+				rch = d_old->original ? d_old->original :
+							d_old->character;
+				if (str_cmp(ch->name, rch->name))
 					continue;
 
+				if (d_old->original)
+					do_return(d_old->character, str_empty);
 				close_descriptor(d_old);
 			}
 
@@ -2121,10 +2127,10 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 
 	write_to_descriptor(d->descriptor, (char *) echo_on_str, 0);
 
-	if (check_reconnect(d, ch->name, TRUE))
+	if (check_playing(d, ch->name))
 	    return;
 
-	if (check_playing(d, ch->name))
+	if (check_reconnect(d, ch->name, TRUE))
 	    return;
 
 	/* Count objects in loaded player file */
@@ -2341,7 +2347,13 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 }
 
 /*
- * Look for link-dead player to reconnect.
+ * look for link-dead player to reconnect.
+ *
+ * when fConn == FALSE then
+ * simple copy password for newly [re]connected character
+ * authentication
+ *
+ * otherwise reconnect attempt is made
  */
 bool check_reconnect(DESCRIPTOR_DATA *d, const char *name, bool fConn)
 {
