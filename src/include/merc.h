@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.162 1999-02-25 14:27:21 fjoe Exp $
+ * $Id: merc.h,v 1.163 1999-02-26 13:26:57 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1807,6 +1807,9 @@ extern	const	struct liq_type		liq_table	[];
 extern		SHOP_DATA	  *	shop_first;
 
 extern		CHAR_DATA	  *	char_list;
+extern		CHAR_DATA	  *	char_list_lastpc;
+#define npc_list (char_list_lastpc ? char_list_lastpc->next : char_list)
+
 extern		DESCRIPTOR_DATA   *	descriptor_list;
 extern		OBJ_DATA	  *	object_list;
 

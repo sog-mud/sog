@@ -1,5 +1,5 @@
 /*
- * $Id: act_comm.c,v 1.150 1999-02-23 22:06:41 fjoe Exp $
+ * $Id: act_comm.c,v 1.151 1999-02-26 13:26:44 fjoe Exp $
  */
 
 /***************************************************************************
@@ -366,11 +366,13 @@ void do_gtell(CHAR_DATA *ch, const char *argument)
 	flags = TO_VICT | ACT_TOBUF | ACT_STRANS | 
 		(IS_NPC(ch) && !IS_AFFECTED(ch, AFF_CHARM) ? ACT_TRANS : 0);
 	for (i = 0, gch = char_list; gch; gch = gch->next) {
-		if (is_same_group(gch, ch) && !is_affected(gch, gsn_deafen)) {
+		if (IS_NPC(gch))
+			break;
+
+		i++;
+		if (is_same_group(gch, ch) && !is_affected(gch, gsn_deafen))
 			act_puts("$n tells the group '{G$t{x'",
 				 ch, argument, gch, flags, POS_DEAD);
-			i++;
-		}
 	}
 
 	if (i > 1 && !is_affected(ch, gsn_deafen))

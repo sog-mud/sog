@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.123 1999-02-25 14:27:16 fjoe Exp $
+ * $Id: handler.c,v 1.124 1999-02-26 13:26:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1822,8 +1822,7 @@ void extract_obj_raw(OBJ_DATA *obj, int flags)
 	if (obj->pIndexData->vnum == OBJ_VNUM_MAGIC_JAR) {
 		 CHAR_DATA *wch;
 		 
-		 for (wch = char_list; wch != NULL ; wch = wch->next) {
-		 	if (IS_NPC(wch)) continue;
+		 for (wch = char_list; wch && !IS_NPC(wch); wch = wch->next) {
 		 	if (is_name(obj->name, wch->name)) {
 				REMOVE_BIT(wch->plr_flags, PLR_NOEXP);
 				char_puts("Now you catch your spirit.\n", wch);
@@ -1946,36 +1945,37 @@ void extract_char_org(CHAR_DATA *ch, bool fPull, bool Count)
 		ch->desc = NULL;
 	}
 
-	for (wch = char_list; wch != NULL; wch = wch->next) {
+	for (wch = char_list; wch; wch = wch->next) {
 		if (wch->reply == ch)
 			wch->reply = NULL;
-		if (ch->mprog_target == wch)
+		if (wch->mprog_target == ch)
 			wch->mprog_target = NULL;
 	}
 
-
-	if (ch == char_list)
+	if (ch == char_list) {
 		char_list = ch->next;
+		if (ch == char_list_lastpc)
+			char_list_lastpc = NULL;
+	}
 	else {
 		CHAR_DATA *prev;
 
-		for (prev = char_list; prev != NULL; prev = prev->next)
-		{
-		    if (prev->next == ch)
-		    {
-			prev->next = ch->next;
-			break;
-		    }
+		for (prev = char_list; prev; prev = prev->next) {
+			if (prev->next == ch)
+				break;
 		}
 
-		if (prev == NULL)
-		{
-		    bug("Extract_char: char not found.", 0);
-		    return;
+		if (!prev) {
+			bug("Extract_char: char not found.", 0);
+			return;
 		}
+
+		prev->next = ch->next;
+		if (ch == char_list_lastpc)
+			char_list_lastpc = prev;
 	}
 
-	if (ch->desc != NULL)
+	if (ch->desc)
 		ch->desc->character = NULL;
 	free_char(ch);
 }
@@ -2080,7 +2080,7 @@ CHAR_DATA *get_char_world(CHAR_DATA *ch, const char *argument)
 		return wch;
 
 	for (wch = char_list; wch; wch = wch->next) {
-		if (wch->in_room == NULL
+		if (!wch->in_room
 		||  wch->in_room == ch->in_room
 		||  !can_see(ch, wch) 
 		||  !is_name(arg, wch->name))

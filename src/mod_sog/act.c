@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act.c,v 1.13 1999-02-23 22:06:49 fjoe Exp $
+ * $Id: act.c,v 1.14 1999-02-26 13:27:01 fjoe Exp $
  */
 
 #include <stdarg.h>
@@ -59,11 +59,11 @@ void act_puts3(const char *format, CHAR_DATA *ch,
 	if ((to = act_args(ch, vch, flags, format)) == NULL)
 		return;
 
-	for(; to ; to = to->next_in_room) {
-		if (act_skip(ch, vch, to, flags, min_pos))
-			continue;
+	for(; to && !act_skip(ch, vch, to, flags, min_pos); to = to->next_in_room) {
 		act_raw(ch, to, arg1, arg2, arg3,
 			GETMSG(format, to->lang), flags);
+		if (IS_SET(flags, TO_CHAR | TO_VICT))
+			break;
 	}
 }
 
@@ -120,10 +120,13 @@ static CHAR_DATA *act_args(CHAR_DATA *ch, CHAR_DATA *vch,
 	if (format == NULL)
 		return NULL;
 
-	if (IS_SET(flags, TO_VICT))
-		ch = vch;
+	if (IS_SET(flags, TO_CHAR))
+		return ch;
 
-	if (ch == NULL || ch->in_room == NULL)
+	if (IS_SET(flags, TO_VICT))
+		return vch;
+
+	if (!ch || !ch->in_room)
 		return NULL;
 
 	return ch->in_room->people;

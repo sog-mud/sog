@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.146 1999-02-23 08:03:14 kostik Exp $
+ * $Id: fight.c,v 1.147 1999-02-26 13:26:51 fjoe Exp $
  */
 
 /***************************************************************************
@@ -161,7 +161,7 @@ void violence_update(void)
 	OBJ_DATA *obj;
 	OBJ_DATA *obj_next;
 
-	for (ch = char_list; ch != NULL; ch = ch_next) {
+	for (ch = char_list; ch; ch = ch_next) {
 		ch_next = ch->next;
 
 		/* decrement the wait */
@@ -2111,19 +2111,18 @@ void raw_kill_org(CHAR_DATA *ch, CHAR_DATA *victim, int part)
 	/*
 	 * Calm down the tracking mobiles
 	 */
-	for (tmp_ch = char_list; tmp_ch != NULL; tmp_ch = tmp_ch_next) {
+	for (tmp_ch = npc_list; tmp_ch; tmp_ch = tmp_ch_next) {
 		tmp_ch_next = tmp_ch->next;
 		if (tmp_ch->last_fought == victim)
 			tmp_ch->last_fought = NULL;
 		remove_mind(tmp_ch, victim->name);
 		if (tmp_ch->target == victim 
-		   && IS_NPC(tmp_ch)
-		   && tmp_ch->pIndexData->vnum == MOB_VNUM_STALKER) {
+		&&  tmp_ch->pIndexData->vnum == MOB_VNUM_STALKER) {
 			doprintf(do_clan, tmp_ch,
 				"%s is dead and I can leave the realm.",
 				PERS(victim, tmp_ch));
 			extract_char(tmp_ch, TRUE);
-		   }
+		}
 	}
 }
 

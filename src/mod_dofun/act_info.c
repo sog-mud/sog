@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.210 1999-02-25 14:27:10 fjoe Exp $
+ * $Id: act_info.c,v 1.211 1999-02-26 13:26:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2042,9 +2042,8 @@ void do_where(CHAR_DATA *ch, const char *argument)
 	}
 	else {
 		found = FALSE;
-		for (victim = char_list;
-		     victim != NULL; victim = victim->next) {
-			if (victim->in_room != NULL
+		for (victim = char_list; victim; victim = victim->next) {
+			if (victim->in_room
 			&&  victim->in_room->area == ch->in_room->area
 			&&  can_see(ch, victim)
 			&&  is_name(arg, victim->name)) {
@@ -2675,8 +2674,8 @@ void do_bear_call(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	for (gch = char_list; gch != NULL; gch = gch->next) {
-		if (IS_NPC(gch) && IS_AFFECTED(gch,AFF_CHARM)
+	for (gch = npc_list; gch; gch = gch->next) {
+		if (IS_AFFECTED(gch, AFF_CHARM)
 		&&  gch->master == ch
 		&&  gch->pIndexData->vnum == MOB_VNUM_BEAR) {
 			char_puts("What's wrong with the bear you've got?",
@@ -3289,12 +3288,11 @@ void do_lion_call(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	for (gch = char_list; gch != NULL; gch = gch->next) {
-		if (IS_NPC(gch) && IS_AFFECTED(gch,AFF_CHARM)
+	for (gch = npc_list; gch; gch = gch->next) {
+		if (IS_AFFECTED(gch,AFF_CHARM)
 		&&  gch->master == ch
-		&& gch->pIndexData->vnum == MOB_VNUM_LION) {
-			char_puts("What's wrong with the lion "
-				     "you've got?",ch);
+		&&  gch->pIndexData->vnum == MOB_VNUM_LION) {
+			char_puts("What's wrong with the lion you've got?", ch);
 			return;
 		}
 	}

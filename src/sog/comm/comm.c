@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.150 1999-02-25 14:27:23 fjoe Exp $
+ * $Id: comm.c,v 1.151 1999-02-26 13:27:00 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2199,6 +2199,8 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		    0);
 		ch->next	= char_list;
 		char_list	= ch;
+		if (!char_list_lastpc)
+			char_list_lastpc = ch;
 		d->connected	= CON_PLAYING;
 		{
 			int count;
@@ -2382,9 +2384,8 @@ bool check_reconnect(DESCRIPTOR_DATA *d, const char *name, bool fConn)
 		}
 	}
 
-	for (ch = char_list; ch != NULL; ch = ch->next) {
-		if (!IS_NPC(ch)
-		&&  (!fConn || ch->desc == NULL)
+	for (ch = char_list; ch && !IS_NPC(ch); ch = ch->next) {
+		if ((!fConn || ch->desc == NULL)
 		&&  !str_cmp(d->character->name, ch->name)) {
 			if (!fConn) {
 				free_string(d->character->pcdata->pwd);

@@ -1,5 +1,5 @@
 /*
- * $Id: special.c,v 1.39 1999-02-25 14:27:22 fjoe Exp $
+ * $Id: special.c,v 1.40 1999-02-26 13:26:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -324,8 +324,8 @@ bool spec_patrolman(CHAR_DATA *ch)
 		act("$n blows on $p, ***WHEEEEEEEEEEEET***",
 		    ch, obj, NULL, TO_ROOM);
 
-		for (vch = char_list; vch != NULL; vch = vch->next) {
-	        	if (vch->in_room == NULL)
+		for (vch = char_list; vch; vch = vch->next) {
+	        	if (!vch->in_room)
 				continue;
 
 			if (vch->in_room != ch->in_room 
@@ -1356,10 +1356,7 @@ bool spec_headlamia(CHAR_DATA *ch)
 
 	case 'T':
 		pos++;
-		for(vch = char_list; vch; vch = vch->next) {
-			if (!IS_NPC(vch))
-				continue;
-
+		for(vch = npc_list; vch; vch = vch->next) {
 			if (vch->pIndexData->vnum == 5201) {
 				if (!vch->fighting && !vch->last_fought) {
 					char_from_room(vch);

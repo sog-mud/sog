@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.131 1999-02-25 14:51:01 fjoe Exp $
+ * $Id: spellfun.c,v 1.132 1999-02-26 13:26:54 fjoe Exp $
  */
 
 /***************************************************************************
@@ -869,7 +869,7 @@ void spell_call_lightning(int sn, int level,CHAR_DATA *ch,void *vo, int target)
 	char_puts("Gods' lightning strikes your foes!\n", ch);
 	act("$n calls lightning to strike $s foes!", ch, NULL, NULL, TO_ROOM);
 
-	for (vch = char_list; vch != NULL; vch = vch_next) {
+	for (vch = char_list; vch; vch = vch_next) {
 		vch_next	= vch->next;
 
 		if (vch->in_room == NULL)
@@ -2313,7 +2313,7 @@ void spell_earthquake(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	char_puts("The earth trembles beneath your feet!\n", ch);
 	act("$n makes the earth tremble and shiver.", ch, NULL, NULL, TO_ROOM);
 
-	for (vch = char_list; vch != NULL; vch = vch_next) {
+	for (vch = char_list; vch; vch = vch_next) {
 		vch_next	= vch->next;
 
 		if (vch->in_room == NULL)

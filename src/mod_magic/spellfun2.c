@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun2.c,v 1.89 1999-02-25 14:27:19 fjoe Exp $
+ * $Id: spellfun2.c,v 1.90 1999-02-26 13:26:56 fjoe Exp $
  */
 
 /***************************************************************************
@@ -276,11 +276,9 @@ void spell_disintegrate(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		equip_char(victim, clanmark, WEAR_CLANMARK);
 	}
 
-	for (tmp_ch = char_list; tmp_ch != NULL; tmp_ch = tmp_ch->next)
+	for (tmp_ch = npc_list; tmp_ch; tmp_ch = tmp_ch->next)
 		if (tmp_ch->last_fought == victim)
 			tmp_ch->last_fought = NULL;
-
-	return;
 }
 
 void spell_bark_skin(int sn, int level, CHAR_DATA *ch, void *vo, int target)
@@ -449,14 +447,14 @@ void spell_demon_summon(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	char_puts("You attempt to summon a demon.\n",ch);
 	act("$n attempts to summon a demon.",ch,NULL,NULL,TO_ROOM);
 
-	for (gch = char_list; gch != NULL; gch = gch->next)
-	{
-	  if (IS_NPC(gch) && IS_AFFECTED(gch,AFF_CHARM) && gch->master == ch &&
-	  gch->pIndexData->vnum == MOB_VNUM_DEMON)
-	{
-	  char_puts("Two demons are more than you can control!\n",ch);
-	  return;
-	}
+	for (gch = npc_list; gch; gch = gch->next) {
+		if (IS_AFFECTED(gch,AFF_CHARM)
+		&&  gch->master == ch
+		&&  gch->pIndexData->vnum == MOB_VNUM_DEMON) {
+			char_puts("Two demons are more than you can control!\n",
+				  ch);
+			return;
+		}
 	}
 
 	demon = create_mob(get_mob_index(MOB_VNUM_DEMON));
@@ -645,13 +643,13 @@ void spell_guard_call(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 
 	do_yell(ch, "Guards! Guards!");
 
-	for (gch = char_list; gch != NULL; gch = gch->next)
-	{
-	  if (IS_NPC(gch) && IS_AFFECTED(gch,AFF_CHARM) && gch->master == ch)
-	{
-	  do_say(gch, "What? I'm not good enough?");
-	  return;
-	}
+	for (gch = npc_list; gch; gch = gch->next) {
+		if (IS_AFFECTED(gch,AFF_CHARM)
+		&&  gch->master == ch
+		&&  gch->pIndexData->vnum == MOB_VNUM_SPECIAL_GUARD) {
+			do_say(gch, "What? I'm not good enough?");
+			return;
+		}
 	}
 
 	guard = create_mob(get_mob_index(MOB_VNUM_SPECIAL_GUARD));
@@ -717,9 +715,8 @@ void spell_nightwalker(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		 ch, NULL, NULL, TO_CHAR, POS_DEAD);
 	act("$n attempts to summon a Nightwalker.", ch, NULL, NULL, TO_ROOM);
 
-	for (gch = char_list; gch; gch = gch->next) {
-		if (IS_NPC(gch)
-		&&  IS_AFFECTED(gch, AFF_CHARM)
+	for (gch = npc_list; gch; gch = gch->next) {
+		if (IS_AFFECTED(gch, AFF_CHARM)
 		&&  gch->master == ch
 		&&  gch->pIndexData->vnum == MOB_VNUM_NIGHTWALKER) {
 			act_puts("Two Nightwalkers are more than "
@@ -1834,9 +1831,8 @@ void spell_squire(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	char_puts("You attempt to summon a squire.\n",ch);
 	act("$n attempts to summon a squire.", ch, NULL, NULL, TO_ROOM);
 
-	for (gch = char_list; gch; gch = gch->next) {
-		if (IS_NPC(gch)
-		&&  IS_AFFECTED(gch, AFF_CHARM)
+	for (gch = npc_list; gch; gch = gch->next) {
+		if (IS_AFFECTED(gch, AFF_CHARM)
 		&&  gch->master == ch
 		&&  gch->pIndexData->vnum == MOB_VNUM_SQUIRE) {
 			char_puts("Two squires are more than you need!\n",ch);
@@ -3548,14 +3544,14 @@ void spell_wolf(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	char_puts("You attempt to summon a wolf.\n",ch);
 	act("$n attempts to summon a wolf.",ch,NULL,NULL,TO_ROOM);
 
-	for (gch = char_list; gch != NULL; gch = gch->next)
-	{
-	  if (IS_NPC(gch) && IS_AFFECTED(gch,AFF_CHARM) && gch->master == ch &&
-	  gch->pIndexData->vnum == MOB_VNUM_WOLF)
-	{
-	  char_puts("Two wolfs are more than you can control!\n",ch);
-	  return;
-	}
+	for (gch = npc_list; gch; gch = gch->next) {
+		if (IS_AFFECTED(gch, AFF_CHARM)
+		&&  gch->master == ch
+		&&  gch->pIndexData->vnum == MOB_VNUM_WOLF) {
+			char_puts("Two wolfs are more than you can control!\n",
+				  ch);
+			return;
+		}
 	}
 
 	demon = create_mob(get_mob_index(MOB_VNUM_WOLF));
@@ -4024,18 +4020,17 @@ void spell_lesser_golem(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	char_puts("You attempt to create a lesser golem.\n",ch);
 	act("$n attempts to create a lesser golem.",ch,NULL,NULL,TO_ROOM);
 
-	for (gch = char_list; gch != NULL; gch = gch->next)
-	{
-	  if (IS_NPC(gch) && IS_AFFECTED(gch,AFF_CHARM) && gch->master == ch &&
-	  (gch->pIndexData->vnum == MOB_VNUM_LESSER_GOLEM))
-	{
-	  i++;
-	  if (i > 2)
-	       {
-	    char_puts("More golems are more than you can control!\n",ch);
-	    return;
-	   }
-	}
+	for (gch = npc_list; gch; gch = gch->next) {
+		if (IS_AFFECTED(gch,AFF_CHARM)
+		&&  gch->master == ch
+		&&  gch->pIndexData->vnum == MOB_VNUM_LESSER_GOLEM) {
+			i++;
+			if (i > 2) {
+				char_puts("More golems are more than you can "
+					  "control!\n",ch);
+				return;
+			}
+		}
 	}
 
 	golem = create_mob(get_mob_index(MOB_VNUM_LESSER_GOLEM));
@@ -4096,18 +4091,17 @@ void spell_stone_golem(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	char_puts("You attempt to create a stone golem.\n",ch);
 	act("$n attempts to create a stone golem.",ch,NULL,NULL,TO_ROOM);
 
-	for (gch = char_list; gch != NULL; gch = gch->next)
-	{
-	  if (IS_NPC(gch) && IS_AFFECTED(gch,AFF_CHARM) && gch->master == ch &&
-	  (gch->pIndexData->vnum == MOB_VNUM_STONE_GOLEM))
-	{
-	  i++;
-	  if (i > 2)
-	       {
-	    char_puts("More golems are more than you can control!\n",ch);
-	    return;
-	   }
-	}
+	for (gch = npc_list; gch; gch = gch->next) {
+		if (IS_AFFECTED(gch, AFF_CHARM)
+		&&  gch->master == ch
+		&&  gch->pIndexData->vnum == MOB_VNUM_STONE_GOLEM) {
+			i++;
+			if (i > 2) {
+				char_puts("More golems are more than you can "
+					  "control!\n",ch);
+				return;
+			}
+		}
 	}
 
 	golem = create_mob(get_mob_index(MOB_VNUM_STONE_GOLEM));
@@ -4168,14 +4162,14 @@ void spell_iron_golem(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	char_puts("You attempt to create an iron golem.\n",ch);
 	act("$n attempts to create an iron golem.",ch,NULL,NULL,TO_ROOM);
 
-	for (gch = char_list; gch != NULL; gch = gch->next)
-	{
-	  if (IS_NPC(gch) && IS_AFFECTED(gch,AFF_CHARM) && gch->master == ch &&
-	  (gch->pIndexData->vnum == MOB_VNUM_IRON_GOLEM))
-	{
-	    char_puts("More golems are more than you can control!\n",ch);
-	    return;
-	}
+	for (gch = npc_list; gch; gch = gch->next) {
+		if (IS_AFFECTED(gch, AFF_CHARM)
+		&&  gch->master == ch
+		&&  gch->pIndexData->vnum == MOB_VNUM_IRON_GOLEM) {
+			char_puts("More golems are more than you "
+				  "can control!\n", ch);
+			return;
+		}
 	}
 
 	golem = create_mob(get_mob_index(MOB_VNUM_IRON_GOLEM));
@@ -4237,18 +4231,17 @@ void spell_adamantite_golem(int sn, int level, CHAR_DATA *ch, void *vo, int targ
 	char_puts("You attempt to create an Adamantite golem.\n",ch);
 	act("$n attempts to create an Adamantite golem.",ch,NULL,NULL,TO_ROOM);
 
-	for (gch = char_list; gch != NULL; gch = gch->next)
-	{
-	  if (IS_NPC(gch) && IS_AFFECTED(gch,AFF_CHARM) && gch->master == ch &&
-	  (gch->pIndexData->vnum == MOB_VNUM_ADAMANTITE_GOLEM))
-	{
-	    char_puts("More golems are more than you can control!\n",ch);
-	    return;
-	}
+	for (gch = npc_list; gch; gch = gch->next) {
+		if (IS_AFFECTED(gch, AFF_CHARM)
+		&&  gch->master == ch
+		&&  gch->pIndexData->vnum == MOB_VNUM_ADAMANTITE_GOLEM) {
+			char_puts("More golems are more than you "
+				  "can control!\n", ch);
+			return;
+		}
 	}
 
 	golem = create_mob(get_mob_index(MOB_VNUM_ADAMANTITE_GOLEM));
-
 
 	for (i = 0; i < MAX_STATS; i ++)
 	   golem->perm_stat[i] = UMIN(25,15 + ch->level/10);
@@ -4804,14 +4797,14 @@ void spell_summon_shadow(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 	char_puts("You attempt to summon a shadow.\n",ch);
 	act("$n attempts to summon a shadow.",ch,NULL,NULL,TO_ROOM);
 
-	for (gch = char_list; gch != NULL; gch = gch->next)
-	{
-	  if (IS_NPC(gch) && IS_AFFECTED(gch,AFF_CHARM) && gch->master == ch &&
-	  gch->pIndexData->vnum == MOB_VNUM_SUM_SHADOW)
-	{
-	  char_puts("Two shadows are more than you can control!\n",ch);
-	  return;
-	}
+	for (gch = npc_list; gch; gch = gch->next) {
+		if (IS_AFFECTED(gch,AFF_CHARM)
+		&&  gch->master == ch
+		&&  gch->pIndexData->vnum == MOB_VNUM_SUM_SHADOW) {
+			char_puts("Two shadows are more than you "
+				  "can control!\n",ch);
+			return;
+		}
 	}
 
 	shadow = create_mob(get_mob_index(MOB_VNUM_SUM_SHADOW));
@@ -4915,9 +4908,10 @@ void spell_mirror(int sn, int level, CHAR_DATA *ch, void *vo, int target)
 		return;
 	}
 
-	for (mirrors = 0, gch = char_list; gch; gch = gch->next)
-		if (IS_NPC(gch) && is_affected(gch, gsn_mirror)
-		&&  is_affected(gch, gsn_doppelganger) && gch->doppel == victim)
+	for (mirrors = 0, gch = npc_list; gch; gch = gch->next)
+		if (is_affected(gch, gsn_mirror)
+		&&  is_affected(gch, gsn_doppelganger)
+		&&  gch->doppel == victim)
 			mirrors++;
 
 	if (mirrors >= level/5) {

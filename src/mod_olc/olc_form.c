@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_form.c,v 1.22 1999-02-23 22:26:12 fjoe Exp $
+ * $Id: olc_form.c,v 1.23 1999-02-26 13:27:03 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -55,20 +55,20 @@ DECLARE_OLC_FUN(formed_formdel	);
 
 OLC_CMD_DATA olc_cmds_form[] =
 {
-	{ "create",		formed_create	},
-	{ "edit",		formed_edit	},
-	{ "touch",		formed_touch	},
-	{ "show",		formed_show	},
-	{ "list",		formed_list	},
+	{ "create",	formed_create	},
+	{ "edit",	formed_edit	},
+	{ "touch",	formed_touch	},
+	{ "show",	formed_show	},
+	{ "list",	formed_list	},
 
-	{ "name",		formed_name	},
-	{ "base",		formed_baselen	},
-	{ "add",		formed_add	},
-	{ "del",		formed_del	},
-	{ "delete_for",		olced_spell_out	},
-	{ "delete_form",	formed_formdel	},
+	{ "name",	formed_name	},
+	{ "base",	formed_baselen	},
+	{ "add",	formed_add	},
+	{ "del",	formed_del	},
+	{ "formdelet",	olced_spell_out	},
+	{ "formdelete",	formed_formdel	},
 
-	{ "commands",		show_commands	},
+	{ "commands",	show_commands	},
 	{ NULL }
 };
 

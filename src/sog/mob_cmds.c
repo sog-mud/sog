@@ -1,5 +1,5 @@
 /*
- * $Id: mob_cmds.c,v 1.29 1999-02-25 14:27:21 fjoe Exp $
+ * $Id: mob_cmds.c,v 1.30 1999-02-26 13:26:58 fjoe Exp $
  */
 
 /***************************************************************************
@@ -801,7 +801,7 @@ void do_mpforce(CHAR_DATA *ch, const char *argument)
         CHAR_DATA *vch;
         CHAR_DATA *vch_next;
 
-	for (vch = char_list; vch != NULL; vch = vch_next)
+	for (vch = char_list; vch; vch = vch_next)
 	{
 	    vch_next = vch->next;
 
@@ -893,10 +893,10 @@ void do_mpvforce(CHAR_DATA *ch, const char *argument)
 
     vnum = atoi(arg);
 
-    for (victim = char_list; victim; victim = victim_next)
+    for (victim = npc_list; victim; victim = victim_next)
     {
 	victim_next = victim->next;
-	if (IS_NPC(victim) && victim->pIndexData->vnum == vnum
+	if (victim->pIndexData->vnum == vnum
 	&&   ch != victim && victim->fighting == NULL)
 	    interpret(victim, argument);
     }

@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.116 1999-02-25 14:27:24 fjoe Exp $
+ * $Id: db.c,v 1.117 1999-02-26 13:27:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -108,6 +108,7 @@ SHOP_DATA *		shop_last;
 NOTE_DATA *		note_free;
 
 CHAR_DATA *		char_list;
+CHAR_DATA *		char_list_lastpc;
 KILL_DATA		kill_table	[MAX_LEVEL];
 NOTE_DATA *		note_list;
 OBJ_DATA *		object_list;
@@ -1117,8 +1118,15 @@ CHAR_DATA *create_mob(MOB_INDEX_DATA *pMobIndex)
 	}  
 
 	/* link the mob to the world list */
-	mob->next		= char_list;
-	char_list		= mob;
+	if (char_list_lastpc) {
+		mob->next = char_list_lastpc->next;
+		char_list_lastpc->next = mob;
+	}
+	else {
+		mob->next = char_list;
+		char_list = mob;
+	}
+
 	pMobIndex->count++;
 	return mob;
 }

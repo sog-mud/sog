@@ -1,5 +1,5 @@
 /*
- * $Id: act_wiz.c,v 1.130 1999-02-25 14:27:14 fjoe Exp $
+ * $Id: act_wiz.c,v 1.131 1999-02-26 13:26:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1701,8 +1701,8 @@ void do_mwhere(CHAR_DATA *ch, const char *argument)
 	}
 
 	buffer = NULL;
-	for (victim = char_list; victim != NULL; victim = victim->next)
-		if (victim->in_room != NULL
+	for (victim = char_list; victim; victim = victim->next)
+		if (victim->in_room
 		&&  is_name(argument, victim->name)) {
 			if (buffer == NULL)
 				buffer = buf_new(-1);
@@ -3055,10 +3055,10 @@ void do_force(CHAR_DATA *ch, const char *argument)
 		    return;
 		}
 
-		for (vch = char_list; vch != NULL; vch = vch_next) {
+		for (vch = char_list; vch && !IS_NPC(vch); vch = vch_next) {
 		    vch_next = vch->next;
 
-		    if (!IS_NPC(vch) && vch->level < ch->level) {
+		    if (vch->level < ch->level) {
 			act_puts("$n forces you to '$t'.",
 				 ch, argument, vch, TO_VICT, POS_DEAD);
 			interpret_raw(vch, argument, TRUE);
@@ -3073,11 +3073,10 @@ void do_force(CHAR_DATA *ch, const char *argument)
 	        return;
 	    }
 	
-	    for (vch = char_list; vch != NULL; vch = vch_next) {
+	    for (vch = char_list; vch && !IS_NPC(vch); vch = vch_next) {
 	        vch_next = vch->next;
 	
-	        if (!IS_NPC(vch) && vch->level < ch->level 
-		    &&	 vch->level < LEVEL_HERO) {
+	        if (vch->level < ch->level && !IS_IMMORTAL(vch)) {
 			act_puts("$n forces you to '$t'.",
 				 ch, argument, vch, TO_VICT, POS_DEAD);
 	            interpret(vch, argument);
@@ -3092,12 +3091,10 @@ void do_force(CHAR_DATA *ch, const char *argument)
 	        return;
 	    }
 	
-	    for (vch = char_list; vch != NULL; vch = vch_next) {
+	    for (vch = char_list; vch && !IS_NPC(vch); vch = vch_next) {
 	        vch_next = vch->next;
 	
-	        if (!IS_NPC(vch) && vch->level < ch->level
-	        &&   vch->level >= LEVEL_HERO)
-	        {
+	        if (vch->level < ch->level && IS_IMMORTAL(vch)) {
 			act_puts("$n forces you to '$t'.",
 				 ch, argument, vch, TO_VICT, POS_DEAD);
 	            interpret(vch, argument);

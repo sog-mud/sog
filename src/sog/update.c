@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.110 1999-02-26 11:56:52 kostik Exp $
+ * $Id: update.c,v 1.111 1999-02-26 13:26:59 fjoe Exp $
  */
 
 /***************************************************************************
@@ -548,13 +548,13 @@ void mobile_update(void)
 	OBJ_DATA *obj;
 
 	/* Examine all mobs. */
-	for (ch = char_list; ch != NULL; ch = ch_next) {
+	for (ch = char_list; ch; ch = ch_next) {
 		bool bust_prompt = FALSE;
 		flag64_t act;
 
 		ch_next = ch->next;
 
-		if (ch->in_room == NULL)
+		if (!ch->in_room)
 			continue;
 
 		if (ch->position == POS_FIGHTING)
@@ -1001,14 +1001,13 @@ void char_update(void)
 
 	ch_quit = NULL; 
 
-
 	/* update save counter */
 	save_number++;
 
 	if (save_number > 29)
-	save_number = 0;
+		save_number = 0;
 
-	for (ch = char_list; ch != NULL; ch = ch_next) {
+	for (ch = char_list; ch; ch = ch_next) {
 		AFFECT_DATA *paf;
 		AFFECT_DATA *paf_next;
 		int chance;
@@ -1325,22 +1324,16 @@ void char_update(void)
 	 * Autosave and autoquit.
 	 * Check that these chars still exist.
 	 */
-
 	if (last_save_time == -1 || current_time - last_save_time > 300) {
 		last_save_time = current_time;
-		for (ch = char_list; ch != NULL; ch = ch_next) {
+		for (ch = char_list; ch && !IS_NPC(ch); ch = ch_next) {
 			ch_next = ch->next;
-			if (!IS_NPC(ch))
-				save_char_obj(ch, FALSE);
+			save_char_obj(ch, FALSE);
 			if (ch == ch_quit || ch->timer > 20)
 				do_quit(ch, str_empty);
 		}
 	}
-
-	return;
 }
-
-
 
 void water_float_update(void)
 {
@@ -1653,8 +1646,12 @@ void aggr_update(void)
 	CHAR_DATA *vch, *vch_next;
 	CHAR_DATA *victim;
 
-	for (wch = char_list; wch != NULL; wch = wch_next) {
+	for (wch = char_list; wch && !IS_NPC(wch); wch = wch_next) {
 		wch_next = wch->next;
+
+		if (!wch->in_room)
+			continue;
+
 		if (IS_AWAKE(wch)
 		&&  IS_AFFECTED(wch, AFF_BLOODTHIRST)
 		&&  wch->fighting == NULL) {
@@ -1665,19 +1662,18 @@ void aggr_update(void)
 				if (wch != vch && can_see(wch,vch)
 				&&  !is_safe_nomessage(wch,vch)) {
 					act_puts("{RMORE BLOOD! MORE BLOOD! MORE BLOOD!!!{x", wch,NULL,NULL,TO_CHAR,POS_RESTING);
-					do_murder(wch,vch->name);
+					do_murder(wch, vch->name);
+					if (JUST_KILLED(wch))
+						continue;
 				}
 			}
 		}
 
 
-		if (IS_NPC(wch)
-		||  wch->level >= LEVEL_IMMORTAL
-		||  wch->in_room == NULL 
-		||  wch->in_room->area->empty)
+		if (wch->level >= LEVEL_IMMORTAL)
 			continue;
 
-		for (ch = wch->in_room->people; ch != NULL; ch = ch_next) {
+		for (ch = wch->in_room->people; ch; ch = ch_next) {
 			int count;
 			flag64_t act;
 
@@ -1837,8 +1833,8 @@ void update_handler(void)
 		check_reboot();
 
 		/* room counting */
-		for (ch = char_list; ch != NULL; ch = ch->next)
-			if (!IS_NPC(ch) && ch->in_room != NULL)
+		for (ch = char_list; ch && !IS_NPC(ch); ch = ch->next)
+			if (ch->in_room)
 				ch->in_room->area->count++;
 	}
 
@@ -2238,12 +2234,11 @@ void track_update(void)
 {   
 	CHAR_DATA *ch, *ch_next;
 
-	for (ch = char_list; ch != NULL; ch = ch_next) {
+	for (ch = npc_list; ch; ch = ch_next) {
 		CHAR_DATA *vch, *vch_next;
 
 		ch_next = ch->next;
-		if (!IS_NPC(ch)
-		||  IS_AFFECTED(ch, AFF_CALM | AFF_CHARM)
+		if (IS_AFFECTED(ch, AFF_CALM | AFF_CHARM)
 	        ||  ch->fighting
 		||  !ch->in_room
 	        ||  !IS_AWAKE(ch) 

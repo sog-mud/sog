@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: quest.c,v 1.99 1999-02-20 16:29:18 fjoe Exp $
+ * $Id: quest.c,v 1.100 1999-02-26 13:26:58 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -217,19 +217,19 @@ void quest_cancel(CHAR_DATA *ch)
 {
 	CHAR_DATA *fch;
 
-	/*
-	 * remove mob->hunter
-	 */
-	for (fch = char_list; fch; fch = fch->next)
-		if (fch->hunter == ch) {
-			fch->hunter = NULL;
-			break;
-		}
-
 	if (IS_NPC(ch)) {
 		bug("quest_cancel: called for NPC", 0);
 		return;
 	}
+
+	/*
+	 * remove mob->hunter
+	 */
+	for (fch = npc_list; fch; fch = fch->next)
+		if (fch->hunter == ch) {
+			fch->hunter = NULL;
+			break;
+		}
 
 	ch->pcdata->questtime = 0;
 	ch->pcdata->questgiver = 0;
@@ -245,11 +245,9 @@ void quest_update(void)
 {
 	CHAR_DATA *ch, *ch_next;
 
-	for (ch = char_list; ch != NULL; ch = ch_next) {
+	for (ch = char_list; ch && !IS_NPC(ch); ch = ch_next) {
 		ch_next = ch->next;
 
-		if (IS_NPC(ch)) 
-			continue;
 		if (ch->pcdata->questtime < 0) {
 			if (++ch->pcdata->questtime == 0) {
 				char_puts("{*You may now quest again.\n", ch);
@@ -514,7 +512,7 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 	 * find MAX_QMOB_COUNT quest mobs and store their vnums in mob_buf
 	 */
 	mob_count = 0;
-	for (victim = char_list; victim; victim = victim->next) {
+	for (victim = npc_list; victim; victim = victim->next) {
 		int diff = victim->level - ch->level;
 
 		if (!IS_NPC(victim)
@@ -536,8 +534,8 @@ static void quest_request(CHAR_DATA *ch, char *arg)
 		     IS_SET(victim->in_room->room_flags,
 			    ROOM_PRIVATE | ROOM_SOLITARY))
 		||  IS_SET(victim->in_room->area->flags,
-			   AREA_HOMETOWN | AREA_UNDER_CONSTRUCTION |
-			   AREA_NOQUEST))
+			   AREA_UNDER_CONSTRUCTION | AREA_NOQUEST |
+			   AREA_HOMETOWN))
 			continue;
 		mobs[mob_count++] = victim;
 		if (mob_count >= MAX_QMOB_COUNT)
