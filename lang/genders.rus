@@ -302,6 +302,14 @@ Form 3 -ли~
 End
 
 #RULE
+Name прижимает~
+BaseLen 7
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
 Name спит~
 BaseLen 2
 Form 1 -ит~
@@ -964,6 +972,14 @@ Form 3 -и~
 End
 
 #RULE
+Name отравлен~
+BaseLen 8
+Form 1 -а~
+Form 2 -о~
+Form 3 -ы~
+End
+
+#RULE
 Name приготовил~
 BaseLen 10
 Form 1 -а~
@@ -1022,6 +1038,14 @@ End
 #RULE
 Name выпускает~
 BaseLen 7
+Form 1 -ет~
+Form 2 -ет~
+Form 3 -ют~
+End
+
+#RULE
+Name посылает~
+BaseLen 6
 Form 1 -ет~
 Form 2 -ет~
 Form 3 -ют~

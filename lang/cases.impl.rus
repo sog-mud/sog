@@ -87,6 +87,16 @@ Form 6 -ое~
 End
 
 #RULE
+Name -шая~
+BaseLen -2
+Form 1 -ей~
+Form 2 -ей~
+Form 3 -ую~
+Form 4 -ей~
+Form 5 -ую~
+End
+
+#RULE
 Name -ое~
 BaseLen -2
 Form 1 -ого~
