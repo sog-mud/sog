@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.420 2004-02-24 09:58:34 fjoe Exp $
+ * $Id: merc.h,v 1.421 2004-02-24 11:07:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -424,7 +424,7 @@ struct descriptor_data
 	char			qbuf		[4 * MAX_INPUT_LENGTH];
 	char			incomm		[MAX_INPUT_LENGTH];
 	char			inlast		[MAX_INPUT_LENGTH];
-	bool			incomm_from_qbuf;
+	bool			incomm_synced;
 	int			repeat;
 	outbuf_t		out_buf;
 	outbuf_t		snoop_buf;

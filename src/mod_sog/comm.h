@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.h,v 1.8 2004-02-24 09:58:35 fjoe Exp $
+ * $Id: comm.h,v 1.9 2004-02-24 11:07:11 fjoe Exp $
  */
 
 #ifndef _COMM_H_
@@ -70,7 +70,5 @@ void handle_info(DESCRIPTOR_DATA *d);
 
 void handle_mudftp(DESCRIPTOR_DATA *d);
 bool mudftp_push(DESCRIPTOR_DATA *d);
-
-#define QBUF_IN_SYNC(d)	((d)->incomm_from_qbuf || (d)->qbuf[0] == '\0')
 
 #endif /* _COMM_H_ */

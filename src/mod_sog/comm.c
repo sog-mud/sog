@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: comm.c,v 1.33 2004-02-24 09:58:35 fjoe Exp $
+ * $Id: comm.c,v 1.34 2004-02-24 11:07:11 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -1074,7 +1074,7 @@ read_from_buffer(DESCRIPTOR_DATA *d)
 	/*
 	 * Hold horses if pending command already.
 	 */
-	d->incomm_from_qbuf = FALSE;
+	d->incomm_synced = FALSE;
 	if (d->incomm[0] != '\0')
 		return;
 
@@ -1095,7 +1095,7 @@ again:
 				/*
 				 * Try again with queued commands buffer
 				 */
-				d->incomm_from_qbuf = TRUE;
+				d->incomm_synced = TRUE;
 				inbuf = d->qbuf;
 				goto again;
 			}
@@ -1300,7 +1300,7 @@ process_output(DESCRIPTOR_DATA *d, bool fPrompt)
 			if (d->pString) {
 				send_to_char("  > ", ch);	// notrans
 				ga = TRUE;
-			} else if (QBUF_IN_SYNC(d)) {
+			} else if (d->incomm_synced) {
 				CHAR_DATA *victim;
 
 				/* battle prompt */

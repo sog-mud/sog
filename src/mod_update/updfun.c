@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.65 2004-02-24 10:41:06 fjoe Exp $
+ * $Id: updfun.c,v 1.66 2004-02-24 11:07:11 fjoe Exp $
  */
 
 #include <stdio.h>
@@ -300,7 +300,7 @@ UPDATE_FOREACH_FUN(mobile_update_foreach, vo)
 	&&  !ch->desc->showstr_point
 	&&  !IS_SET(ch->comm, COMM_NOBUST)
 	&&  IS_SET(ch->comm, COMM_PROMPT)) {
-		ch->desc->incomm_from_qbuf = TRUE;
+		ch->desc->incomm_synced = TRUE;
 		send_to_char(str_empty, ch);
 	}
 
@@ -730,7 +730,7 @@ UPDATE_FOREACH_FUN(char_update_foreach, vo)
 		&&  !ch->desc->showstr_point
 		&&  !IS_SET(ch->comm, COMM_NOBUST)
 		&&  IS_SET(ch->comm, COMM_PROMPT)) {
-			ch->desc->incomm_from_qbuf = TRUE;
+			ch->desc->incomm_synced = TRUE;
 			send_to_char(str_empty, ch);
 		}
 	}
