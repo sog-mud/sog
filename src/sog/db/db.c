@@ -1,5 +1,5 @@
 /*
- * $Id: db.c,v 1.77 1998-10-10 04:37:27 fjoe Exp $
+ * $Id: db.c,v 1.78 1998-10-12 04:57:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -962,7 +962,7 @@ CHAR_DATA *create_mob_org(MOB_INDEX_DATA *pMobIndex, int flags)
 		/* read from prototype */
  		mob->group		= pMobIndex->group;
 		mob->act 		= pMobIndex->act | ACT_NPC;
-		mob->comm		= COMM_NOCHANNELS | COMM_NOSHOUT;
+		mob->comm		= COMM_NOSHOUT | COMM_NOMUSIC;
 		mob->affected_by	= pMobIndex->affected_by;
 		mob->alignment		= pMobIndex->alignment;
 		mob->level		= pMobIndex->level;

@@ -1,5 +1,5 @@
 /*
- * $Id: db_area.c,v 1.11 1998-10-09 13:43:07 fjoe Exp $
+ * $Id: db_area.c,v 1.12 1998-10-12 04:57:15 fjoe Exp $
  */
 
 /***************************************************************************
@@ -62,7 +62,7 @@ DECLARE_DBLOAD_FUN(load_socials);
 DECLARE_DBLOAD_FUN(load_omprogs);
 DECLARE_DBLOAD_FUN(load_olimits);
 DECLARE_DBLOAD_FUN(load_specials);
-DECLARE_DBLOAD_FUN(load_practicer);
+DECLARE_DBLOAD_FUN(load_practicers);
 DECLARE_DBLOAD_FUN(load_resetmsg);
 DECLARE_DBLOAD_FUN(load_aflag);
 
@@ -82,7 +82,7 @@ DBFUN db_load_areas[] = {
 	{ "OMPROGS",		load_omprogs	},
 	{ "OLIMITS",		load_olimits	},
 	{ "SPECIALS",		load_specials	},
-	{ "PRACTICERS",		load_practicer	},
+	{ "PRACTICERS",		load_practicers	},
 	{ "RESETMESSAGE",	load_resetmsg	},
 	{ "FLAG",		load_aflag	},
 	{ NULL }
@@ -207,7 +207,8 @@ DBLOAD_FUN(load_areadata)
 			}
 			break;
 		case 'F':
-			KEY("Flags", pArea->flags, fread_flags(fp));
+			KEY("Flags", pArea->flags,
+			    fread_fstring(area_flags, fp));
 			break;
 		case 'L':
 			if (!str_cmp(word, "LevelRange")) {
@@ -940,17 +941,15 @@ DBLOAD_FUN(load_specials)
 /*
  * Snarf can prac declarations.
  */
-DBLOAD_FUN(load_practicer)
+DBLOAD_FUN(load_practicers)
 {
 	for (; ;) {
 		MOB_INDEX_DATA *pMobIndex;
 		char letter;
-		char *gname;
-		int group;
 
 		switch (letter = fread_letter(fp)) {
 		default:
-			log_printf("load_practicer: letter '%c' not *MS.",
+			log_printf("load_practicers: letter '%c' not *MS.",
 				   letter);
 			exit(1);
 
@@ -962,14 +961,8 @@ DBLOAD_FUN(load_practicer)
 
 		case 'M':
 			pMobIndex = get_mob_index(fread_number(fp));
-			gname = fread_word(fp);
-			if ((group = flag_value(skill_groups, gname)) == 0) {
-				log_printf("load_practicer: 'M': vnum %d: "
-					   "unknown group '%s'",
-					   pMobIndex->vnum, gname);
-				exit(1);
-			}
-			SET_BIT(pMobIndex->practicer, group);
+			SET_BIT(pMobIndex->practicer,
+				fread_fstring(skill_groups, fp));
 			break;
 		}
 
