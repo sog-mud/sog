@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.66 1998-10-10 04:36:25 fjoe Exp $
+ * $Id: save.c,v 1.67 1998-10-11 17:42:06 fjoe Exp $
  */
 
 /***************************************************************************
@@ -529,7 +529,7 @@ void load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 	ch->name = str_dup(capitalize(name));
 	ch->id = get_pc_id();
 	ch->race = race_lookup("human");
-	ch->act = PLR_NOSUMMON;
+	ch->act = PLR_NOSUMMON | PLR_NOCANCEL;
 	ch->comm = COMM_COMBINE | COMM_PROMPT;
 	ch->prompt = str_dup(DEFAULT_PROMPT);
 

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.93 1998-10-11 16:52:45 fjoe Exp $
+ * $Id: merc.h,v 1.94 1998-10-11 17:42:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1119,6 +1119,7 @@ enum {
 #define PLR_CANLOOT		(P)
 #define PLR_NOSUMMON		(Q)
 #define PLR_NOFOLLOW		(R)
+#define PLR_NOCANCEL		(S)
 #define PLR_GHOST		(T)
 
 /* penalty flags */

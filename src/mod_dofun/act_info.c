@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.143 1998-10-11 16:52:43 fjoe Exp $
+ * $Id: act_info.c,v 1.144 1998-10-11 17:42:04 fjoe Exp $
  */
 
 /***************************************************************************
@@ -781,17 +781,18 @@ void do_autolist(CHAR_DATA *ch, const char *argument)
 
 	char_puts("action         status\n\r",ch);
 	char_puts("---------------------\n\r",ch);
-	do_print_sw(ch, "color", IS_SET(ch->act,PLR_COLOR));
-	do_print_sw(ch, "autoassist", IS_SET(ch->act,PLR_AUTOASSIST));
-	do_print_sw(ch, "autoexit", IS_SET(ch->act,PLR_AUTOEXIT));
-	do_print_sw(ch, "autogold", IS_SET(ch->act,PLR_AUTOGOLD));
-	do_print_sw(ch, "autoloot", IS_SET(ch->act,PLR_AUTOLOOT));
-	do_print_sw(ch, "autosac", IS_SET(ch->act,PLR_AUTOSAC));
-	do_print_sw(ch, "autosplit", IS_SET(ch->act,PLR_AUTOSPLIT));
-	do_print_sw(ch, "compact mode", IS_SET(ch->comm,COMM_COMPACT));
-	do_print_sw(ch, "long flags", IS_SET(ch->comm,COMM_LONG));
-	do_print_sw(ch, "prompt", IS_SET(ch->comm,COMM_PROMPT));
-	do_print_sw(ch, "combine items", IS_SET(ch->comm,COMM_COMBINE));
+	do_print_sw(ch, "color", IS_SET(ch->act, PLR_COLOR));
+	do_print_sw(ch, "autoassist", IS_SET(ch->act, PLR_AUTOASSIST));
+	do_print_sw(ch, "autoexit", IS_SET(ch->act, PLR_AUTOEXIT));
+	do_print_sw(ch, "autogold", IS_SET(ch->act, PLR_AUTOGOLD));
+	do_print_sw(ch, "autoloot", IS_SET(ch->act, PLR_AUTOLOOT));
+	do_print_sw(ch, "autosac", IS_SET(ch->act, PLR_AUTOSAC));
+	do_print_sw(ch, "autosplit", IS_SET(ch->act, PLR_AUTOSPLIT));
+	do_print_sw(ch, "compact mode", IS_SET(ch->comm, COMM_COMPACT));
+	do_print_sw(ch, "long flags", IS_SET(ch->comm, COMM_LONG));
+	do_print_sw(ch, "prompt", IS_SET(ch->comm, COMM_PROMPT));
+	do_print_sw(ch, "combine items", IS_SET(ch->comm, COMM_COMBINE));
+	do_print_sw(ch, "nocancel", IS_SET(ch->act, PLR_NOCANCEL));
 
 	if (IS_SET(ch->act, PLR_NOSUMMON))
 		char_puts("You can only be summoned players within "
@@ -1051,16 +1052,29 @@ void do_nosummon(CHAR_DATA *ch, const char *argument)
 	}
 	else {
 		if (IS_SET(ch->act,PLR_NOSUMMON)) {
-			char_puts("You may now be summoned by anyone.\n\r",
-				     ch);
+			char_puts("You may now be summoned by anyone.\n\r", ch);
 			REMOVE_BIT(ch->act,PLR_NOSUMMON);
 		}
 		else {
 			char_puts("You may only be summoned by players "
-				     "within your PK range.\n\r", ch);
+				  "within your PK range.\n\r", ch);
 			SET_BIT(ch->act,PLR_NOSUMMON);
 		}
 	}
+}
+
+DO_FUN(do_nocancel)
+{
+	if (IS_NPC(ch)) {
+		char_puts("Huh?\n\r", ch);
+		return;
+	}
+
+	if (IS_SET(ch->act, PLR_NOCANCEL))
+		char_puts("Anyone can cast 'cancellation' on you.\n\r", ch);
+	else
+		char_puts("You do not allow others to cast 'cancellation' on you.\n\r", ch);
+	TOGGLE_BIT(ch->act, PLR_NOCANCEL);
 }
 
 void do_look_in(CHAR_DATA* ch, const char *argument)

@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.65 1998-10-11 16:52:45 fjoe Exp $
+ * $Id: spellfun.c,v 1.66 1998-10-11 17:42:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -901,10 +901,11 @@ void spell_cancellation(int sn, int level, CHAR_DATA *ch, void *vo,int target)
 
 	level += 2;
 
-	if ((ch->fighting != NULL && is_same_group(ch->fighting, victim))
-	||  (!IS_NPC(ch) && IS_NPC(victim) &&
-		 !(IS_AFFECTED(ch, AFF_CHARM) && ch->master == victim))
-	||  (IS_NPC(ch) && !IS_NPC(victim))) {
+	if ((!IS_NPC(ch) && IS_NPC(victim) &&
+	     (!IS_AFFECTED(ch, AFF_CHARM) || ch->master != victim))
+	||  (IS_NPC(ch) && !IS_NPC(victim))
+	||  (!IS_NPC(victim) && victim != ch &&
+	     IS_SET(victim->act, PLR_NOCANCEL))) {
 		char_puts("You failed, try dispel magic.\n\r",ch);
 		return;
 	}

@@ -1,5 +1,5 @@
 /*
- * $Id: interp.h,v 1.24 1998-10-10 04:36:23 fjoe Exp $
+ * $Id: interp.h,v 1.25 1998-10-11 17:42:05 fjoe Exp $
  */
 
 /***************************************************************************
@@ -239,6 +239,7 @@ DECLARE_DO_FUN(do_nerve		);
 DECLARE_DO_FUN(do_newlock	);
 DECLARE_DO_FUN(do_news		);
 DECLARE_DO_FUN(do_noaffect	);
+DECLARE_DO_FUN(do_nocancel	);
 DECLARE_DO_FUN(do_nochannels	);
 DECLARE_DO_FUN(do_noemote	);
 DECLARE_DO_FUN(do_nofollow	);
