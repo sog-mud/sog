@@ -12,16 +12,16 @@ End
 -1 SOG 'SHADES OF GRAY' MUDDY~
 @eng Shades of Gray is based on Anatolia MUD -- see help anatolia.
                      Original idea, concept and coding:
-        Farmer Joe                   [Iluvatar] (fjoe@@iclub.nsu.ru)
+        fjoe                         [Iluvatar] (fjoe@@iclub.nsu.ru)
 {x        Constantin Svintsoff           [Nergal] (kostik@@iclub.nsu.ru)
         Alexander Morokhovets            [Eros] (efdi@@iclub.nsu.ru)
         Alexey Neyman                  [Arborn] (avn@@org.chem.msu.su)
 
                      Web page design:
         Denis Petrakov                         (den@@oapmg.sscc.ru)
-@rus {DShades of Gray{x составлен на основе MUDа {GAnatolia{x -- смотри {CHELP ANATOLIA{x.
+@@rus @rus {DShades of Gray{x составлен на основе MUDа {GAnatolia{x -- смотри {CHELP ANATOLIA{x.
                  Первоначальная идея, концепция и кодирование:
-        Farmer Joe                   [{cIluvatar{x] ({rfjoe@@iclub.nsu.ru{x)
+        fjoe                         [{cIluvatar{x] ({rfjoe@@iclub.nsu.ru{x)
         Константин Свинцов             [{cNergal{x] ({rkostik@@iclub.nsu.ru{x)
         Александр Мороховец              [{cEros{x] ({refdi@@iclub.nsu.ru{x)
         Алексей Нейман                 [{cArborn{x] ({ravn@@org.chem.msu.su{x)
@@ -42,7 +42,7 @@ End
 Developed at: DIKU -- The Department of Computer Science
                       at the University of Copenhagen.
 
-@rus                 Первоначальная игровая идея, концепция, и дизайн:
+@@rus @rus                 Первоначальная игровая идея, концепция, и дизайн:
   
           Katja Nyboe               [{cSuperwoman{x] ({rkatz@@freja.diku.dk{x)
           Tom Madsen              [{cStormbringer{x] ({rnoop@@freja.diku.dk{x)
@@ -325,7 +325,7 @@ Other {{? sequences are:
 Color is courtesy of Lope from Loping Through The MUD.
 Direct questions to ant@@solace.mh.se or leave at note at Loping
 Through The MUD, current site lttm.westside.net port 23 or 9000
-@rus Ты можешь использовать цвет в своих сообщениях и нотах. Формат таких сообщений
+@@@rus Ты можешь использовать цвет в своих сообщениях и нотах. Формат таких сообщений
 таков: левая фигурная скобка '{{', за которой идет символ цвета. Допустимы
 следующие варианты:
 
