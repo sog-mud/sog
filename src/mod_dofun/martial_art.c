@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.114.2.4 2000-04-18 08:09:49 osya Exp $
+ * $Id: martial_art.c,v 1.114.2.5 2000-04-18 08:34:02 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2928,11 +2928,12 @@ void do_weapon(CHAR_DATA *ch, const char *argument)
 	if (wield->value[0] == WEAPON_SWORD
 	&& IS_WEAPON_STAT(wield, WEAPON_TWO_HANDS))
 		chance /= 1.2;
-	if (wield->value[0] == WEAPON_AXE)
+	if (wield->value[0] == WEAPON_AXE) {
 		if (IS_WEAPON_STAT(wield, WEAPON_TWO_HANDS))
 			chance /= 2;
 		else
 			chance /= 1.2;
+	}
 
 	/* find weapon skills */
 	ch_weapon = get_weapon_skill(ch, get_weapon_sn(axe));
