@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.153 2000-02-19 14:26:58 avn Exp $
+ * $Id: martial_art.c,v 1.154 2000-02-20 10:20:27 avn Exp $
  */
 
 /***************************************************************************
@@ -134,7 +134,7 @@ check_reversal(CHAR_DATA *ch, CHAR_DATA *victim)
 		    		ch, NULL, victim, TO_VICT);
 			act("$N grabs you and throws to the ground.",
 		    		ch, NULL, victim, TO_CHAR);
-			WAIT_STATE(ch, 2 * PULSE_VIOLENCE);
+			WAIT_STATE(ch, 2 * get_pulse("violence"));
 
 			damage(victim, ch, 
 			(LEVEL(victim) + get_curr_stat(victim, STAT_STR)), 
@@ -251,7 +251,7 @@ void do_kill(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	WAIT_STATE(ch, 1 * PULSE_VIOLENCE);
+	WAIT_STATE(ch, 1 * get_pulse("violence"));
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
 		char_puts("They aren't here.\n", ch);
@@ -359,7 +359,7 @@ void do_murder(CHAR_DATA *ch, const char *argument)
 	if (is_safe(ch, victim))
 		return;
 
-	WAIT_STATE(ch, 1 * PULSE_VIOLENCE);
+	WAIT_STATE(ch, 1 * get_pulse("violence"));
 
 	if ((chance = get_skill(ch, "mortal strike"))
 	&&  get_eq_char(ch, WEAR_WIELD)) {
@@ -454,7 +454,7 @@ void do_flee(CHAR_DATA *ch, const char *argument)
 		stop_fighting(ch, TRUE);
 		return;
 	}
-	WAIT_STATE(ch, PULSE_VIOLENCE);
+	WAIT_STATE(ch, get_pulse("violence"));
 	char_puts("PANIC! You couldn't escape!\n", ch);
 }
 
@@ -1148,7 +1148,7 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 	if (number_percent() < chance) {
 		AFFECT_DATA af;
 
-		WAIT_STATE(ch,PULSE_VIOLENCE);
+		WAIT_STATE(ch,get_pulse("violence"));
 		ch->mana -= 50;
 		ch->move /= 2;
 
@@ -1180,7 +1180,7 @@ void do_berserk(CHAR_DATA *ch, const char *argument)
 		INT(af.location)= APPLY_AC;
 		affect_to_char(ch,&af);
 	} else {
-		WAIT_STATE(ch,2 * PULSE_VIOLENCE);
+		WAIT_STATE(ch,2 * get_pulse("violence"));
 		ch->mana -= 25;
 		ch->move /= 2;
 
@@ -1370,7 +1370,7 @@ void do_bash(CHAR_DATA *ch, const char *argument)
 			case 3: wait = 3; break;
 		}
 
-		WAIT_STATE(victim, wait * PULSE_VIOLENCE);
+		WAIT_STATE(victim, wait * get_pulse("violence"));
 		WAIT_STATE(ch, skill_beats("bash"));
 		victim->position = POS_RESTING;
 		damage_bash = (ch->damroll / 2) +
@@ -2434,7 +2434,7 @@ void do_nerve(CHAR_DATA *ch, const char *argument)
 		af.where	= TO_AFFECTS;
 		af.type 	= "nerve";
 		af.level 	= ch->level;
-		af.duration	= LEVEL(ch) * PULSE_VIOLENCE/PULSE_TICK;
+		af.duration	= LEVEL(ch) * get_pulse("violence")/get_pulse("char");
 		INT(af.location)= APPLY_STR;
 		af.modifier	= -3;
 		af.bitvector	= 0;
@@ -2805,7 +2805,7 @@ void do_throw(CHAR_DATA *ch, const char *argument)
 		    ch, NULL, victim, TO_VICT);
 		act("$n throws $N to the ground with stunning force.",
 		    ch, NULL, victim, TO_NOTVICT);
-		WAIT_STATE(victim,2 * PULSE_VIOLENCE);
+		WAIT_STATE(victim,2 * get_pulse("violence"));
 
 		damage(ch, victim, 
 		(LEVEL(ch) + get_curr_stat(ch, STAT_STR)) * free_hands(ch), 
@@ -3158,7 +3158,7 @@ void do_bloodthirst(CHAR_DATA *ch, const char *argument)
 	if (number_percent() < chance) {
 		AFFECT_DATA af;
 
-		WAIT_STATE(ch, PULSE_VIOLENCE);
+		WAIT_STATE(ch, get_pulse("violence"));
 	
 		char_puts("You hunger for blood!\n", ch);
 		act("$n gets a bloodthirsty look in $s eyes.",
@@ -3184,7 +3184,7 @@ void do_bloodthirst(CHAR_DATA *ch, const char *argument)
 		affect_to_char(ch, &af);
 	}
 	else {
-		WAIT_STATE(ch,3 * PULSE_VIOLENCE);
+		WAIT_STATE(ch,3 * get_pulse("violence"));
 		char_puts("You feel bloodthirsty for a moment, but it passes.\n",
 			  ch);
 		check_improve(ch, "bloodthirst", FALSE, 2);
@@ -4164,7 +4164,7 @@ void do_tail(CHAR_DATA *ch, const char *argument)
 		case 3: wait = 3; break;
 		}
 
-		WAIT_STATE(victim, wait * PULSE_VIOLENCE);
+		WAIT_STATE(victim, wait * get_pulse("violence"));
 		WAIT_STATE(ch, skill_beats("tail"));
 		victim->position = POS_RESTING;
 		damage_tail = ch->damroll + 
@@ -4491,7 +4491,7 @@ void do_crush(CHAR_DATA *ch, const char *argument)
 		case 3: wait = 3; break;
 		}
 
-		WAIT_STATE(victim, wait * PULSE_VIOLENCE);
+		WAIT_STATE(victim, wait * get_pulse("violence"));
 		WAIT_STATE(ch, skill_beats("crush"));
 		victim->position = POS_RESTING;
 		damage_crush = (ch->damroll / 2) +
