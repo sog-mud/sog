@@ -1,5 +1,5 @@
 /*
- * $Id: comm.c,v 1.236 2000-11-17 17:14:21 avn Exp $
+ * $Id: comm.c,v 1.237 2000-12-05 09:57:45 avn Exp $
  */
 
 /***************************************************************************
@@ -904,7 +904,7 @@ void close_descriptor(DESCRIPTOR_DATA *dclose, int save_flags)
 			       WIZ_LINKS, 0, 0);
 			dclose->character->desc = NULL;
 		} else 
-			char_free(ch);
+			char_nuke(ch);
 	}
 
 	if (d_next == dclose)
@@ -1988,7 +1988,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		case 'n' : case 'N':
 	 		write_to_buffer(d, "Name: ", 0);
 			if (d->character != NULL) {
-				char_free(d->character);
+				char_nuke(d->character);
 				d->character = NULL;
 			}
 			d->connected = CON_GET_NAME;
@@ -2013,7 +2013,7 @@ void nanny(DESCRIPTOR_DATA *d, const char *argument)
 		case 'n': case 'N':
 			act_puts("Ok, what IS it, then? ",
 				 ch, NULL, NULL, TO_CHAR | ACT_NOLF, POS_DEAD);
-			char_free(d->character);
+			char_nuke(d->character);
 			d->character = NULL;
 			d->connected = CON_GET_NAME;
 			break;
@@ -2501,7 +2501,7 @@ bool check_reconnect(DESCRIPTOR_DATA *d, const char *name, bool fConn)
 				free_string(PC(d->character)->pwd);
 				PC(d->character)->pwd = str_qdup(PC(ch)->pwd);
 			} else {
-				char_free(d->character);
+				char_nuke(d->character);
 				d->character		= ch;
 				ch->desc		= d;
 				PC(ch)->idle_timer	= 0;
