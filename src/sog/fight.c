@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.202 1999-09-24 04:16:05 avn Exp $
+ * $Id: fight.c,v 1.202.2.1 1999-10-22 13:42:53 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1224,7 +1224,7 @@ bool damage(CHAR_DATA *ch, CHAR_DATA *victim,
 					mp_percent_trigger(victim, ch, NULL,
 							   NULL, TRIG_KILL);
 			}
-			if (!IS_NPC(victim) && PC(victim)->idle_timer <= 4)
+			if (IS_NPC(victim) || PC(victim)->idle_timer <= 4)
 				victim->position = POS_FIGHTING;
 		}
 
