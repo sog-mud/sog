@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: trig.c,v 1.20 2001-09-15 19:23:39 fjoe Exp $
+ * $Id: trig.c,v 1.21 2001-09-15 20:20:20 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -226,7 +226,7 @@ trig_set_arg(trig_t *trig, const char *arg)
 	if (!HAS_TEXT_ARG(trig) || IS_NULLSTR(trig->trig_arg))
 		return;
 
-	if (trig_arg[0] == '+')
+	if (trig_arg[0] == '#')
 		trig_arg++;
 
 	/*
