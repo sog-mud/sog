@@ -1,6 +1,9 @@
 /*
- * $Id: mob_greet_wise_oak.mpc,v 1.1 2001-09-14 18:08:02 fjoe Exp $
+ * $Id: mob_greet_wise_oak.mpc,v 1.2 2001-09-15 19:05:32 fjoe Exp $
  */
+
+if (number_percent() < 70)
+	return 0;
 
 if (char_race($N) != "felar")
         return 0;

@@ -1,7 +1,10 @@
 /*
- * $Id: mob_greet_questor.mpc,v 1.2 2001-08-27 16:53:00 fjoe Exp $
+ * $Id: mob_greet_questor.mpc,v 1.3 2001-09-15 19:05:32 fjoe Exp $
  */
 
-if (can_see($n, $N))
+if (number_percent() < 90)
+	return 0;
+
+if (can_see($n, $N) && char_quest_time($N) == 0)
         tell_char($n, $N, "Don't you want a quest?");
 return 0;
