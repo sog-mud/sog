@@ -1,5 +1,5 @@
 #
-# $Id: hosting.txt,v 1.2 2002-01-23 13:08:35 fjoe Exp $
+# $Id: hosting.txt,v 1.3 2002-01-23 14:19:35 fjoe Exp $
 #
 
 Common server setup
@@ -9,6 +9,8 @@ Common server setup
 as password (to prevent logging in).
 
 If you need quotas, group sog must have ~300M quota.
+
+`sog' home should not have rwx permissions for `other'.
 
 2) Create users that have direct access to mud server:
 
@@ -39,6 +41,8 @@ from /usr/local/cvsroot to the location where you placed CVS root.
 
 CVS root should be owned by sog:sog with group write permissions on
 directories (files in CVS root do not have 'w' bit set at all and this is ok).
+
+CVS root should not have rwx permissions for `other'.
 
 If you are using Linux also set group suid bit on directories (FreeBSD
 inherits group ownership for newly created files from directory they
