@@ -434,7 +434,7 @@ crate ящик~
 @eng A crate stands here.@rus Ящик (crate) стоит здесь.~
 iron~
 furniture 0 0 A
-B EGHIJK NO CFG CFG
+2 2000 NO 100 100
 0 0 0 P
 g @rus male~
 #13404
@@ -585,7 +585,7 @@ crate ящик~
 @eng A crate stands here.@rus Ящик (crate) стоит здесь.~
 iron~
 furniture 0 0 A
-B EGHIJK NO CFG CFG
+2 2000 NO 100 100
 0 0 0 P
 g @rus male~
 #13421
@@ -594,7 +594,7 @@ crate ящик~
 @eng A crate stands here.@rus Ящик (crate) стоит здесь.~
 iron~
 furniture 0 0 A
-B EGHIJK NO CFG CFG
+2 2000 NO 100 100
 0 0 0 P
 g @rus male~
 #13422
@@ -603,7 +603,7 @@ crate ящик~
 @eng A crate stands here.@rus Ящик (crate) стоит здесь.~
 iron~
 furniture 0 0 A
-B EGHIJK NO CFG CFG
+2 2000 NO 100 100
 0 0 0 P
 g @rus male~
 #13423
@@ -612,7 +612,7 @@ crate ящик~
 @eng A crate stands here.@rus Ящик (crate) стоит здесь.~
 iron~
 furniture 0 0 A
-B EGHIJK NO CFG CFG
+2 2000 NO 100 100
 0 0 0 P
 g @rus male~
 #13424

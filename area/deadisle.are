@@ -1120,7 +1120,7 @@ a Bonsai tree~
 A tiny tree in a tiny pot sits here.~
 clay~
 furniture GY 0 AO
-A CFG EH CFG CFG
+1 100 EH 100 100
 45 4 30000 P
 a '' to_skills 45 -1 50 'perception' 0
 a '' to_object 45 -1 2 4 0

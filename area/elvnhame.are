@@ -1747,7 +1747,7 @@ a sleeping bag~
 A quilted sleeping bag is here.~
 cloth~
 furniture 0 0 A
-B DFGHIJ HIKL ACDEFG ACDEFG
+2 1000 HIKL 125 125
 16 200 200 P
 E
 sleeping bag sleepingbag~

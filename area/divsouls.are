@@ -2573,7 +2573,7 @@ a pine coffin~
 A long pine coffin rests against one wall.~
 hardwood~
 furniture G 0 0
-B CEFGHI CFILO BCDFG DEFG
+2 500 CFILO 110 120
 0 0 0 P
 E
 pine coffin~
@@ -2602,7 +2602,7 @@ a white altar~
 A white altar stands here, gleaming brightly.~
 bone~
 furniture A 0 0
-B DEFHIJL BEHKN ABEFG ABEFG
+2 3000 BEHKN 115 115
 0 0 0 P
 E
 altar white~
@@ -2616,7 +2616,7 @@ a bloody obsidian altar~
 A bloody black altar stands here.~
 obsidian~
 furniture B 0 0
-B DEFHIJL BEHKN ACEG ACEG
+2 3000 BEHKN 85 85
 0 0 0 P
 E
 bloody black obsidian altar~
@@ -2631,7 +2631,7 @@ a gleaming white throne~
 A gleaming white throne rests in the center of the room.~
 bone~
 furniture A 0 0
-AB CDEGHIK BEHKN CFG CFG
+3 1500 BEHKN 100 100
 0 0 0 P
 E
 gleaming white throne~
@@ -2645,7 +2645,7 @@ a forbidding black throne~
 A dark throne looms here, glowing with an eerie inner light.~
 bone~
 furniture A 0 0
-AB CDEGHIK BEHKN CFG CFG
+3 1500 BEHKN 100 100
 0 0 0 P
 E
 forbidding dark black throne~
@@ -2688,7 +2688,7 @@ a signpost~
 Painted wooden arrows have been nailed into the semblance on a signpost.~
 hardwood~
 furniture A 0 0
-C EGHIJK BEHKN CFG CFG
+4 2000 BEHKN 100 100
 0 0 0 P
 E
 signpost sign post~
@@ -2704,7 +2704,7 @@ a long leather couch~
 A long leather couch rests here, waiting for a patient to examine.~
 soft leather~
 furniture B 0 0
-B EGHIJK BEHKN CFG CFG
+2 2000 BEHKN 100 100
 0 0 0 P
 E
 leather couch~
@@ -2719,7 +2719,7 @@ a neon green throne~
 A gaudy neon green throne rests here, clashing with everything in the room.~
 plastic~
 furniture A 0 0
-B EGHIJK BEHKN CFG CFG
+2 2000 BEHKN 100 100
 0 0 0 P
 g @rus none~
 #11616
@@ -2728,7 +2728,7 @@ a parrot perch~
 A wooden parrot perch mounted on a thick steel base stands here.~
 steel~
 furniture 0 0 0
-AB DEFHIJL EH CFG CFG
+3 3000 EH 100 100
 0 0 0 P
 g @rus none~
 #11617
@@ -3778,7 +3778,7 @@ a blanket of dark owl feathers~
 The soft feathers of a dark bird have been woven together to form a blanket.~
 feathers~
 furniture CG 0 AO
-B EFHK BEHKN ABEFG ABEFG
+2 1200 BEHKN 115 115
 32 70 2500 P
 g @rus none~
 #11697

@@ -1678,7 +1678,7 @@ ship dragon корабль дракон~
 @eng A dragon ship is beached here- where are those Angle raiders?@rus Деревянный корабль со статуей дракона стоит на рейде - не на нем ли приплыли разбойники?~
 wood~
 furniture 0 AC 0
-BD EGIJOP L BCEH BCEH
+10 50000 L 150 150
 29 -15536 290 P
 g @eng none@rus male~
 #17344

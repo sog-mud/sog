@@ -51,7 +51,7 @@ Nobody's coffin~
 A strange black coffin lies here.~
 wood~
 furniture CEJY B A
-CFG CFG L CFG CFG
+100 100 L 100 100
 5 500 5000000 P
 E
 coffin~

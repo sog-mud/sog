@@ -1300,7 +1300,7 @@ throne emerald rainbow rus престол~
 @eng An emerald throne surrounded by a rainbow is here.@rus Изумрудный престол (throne), окруженный радугой.~
 unknown~
 furniture AGKL D 0
-A EIJKN AEHK DGH DGH
+1 10000 AEHK 200 200
 46 500 18000 P
 E
 throne emerald rainbow~

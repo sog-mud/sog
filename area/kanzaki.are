@@ -966,7 +966,7 @@ armchair cosy~
 @eng A cosy armchair stands here, beckoning you to sit.@rus Уютное кресло словно приглашает тебя сесть.~
 velvet~
 furniture 0 B 0
-B GJOQRST FIL BEF BEF
+2 1000000 FIL 50 50
 0 1000000 0 P
 E
 armchair~
@@ -1231,7 +1231,7 @@ anvil iron huge чугунная наковальня~
 @eng A huge anvil made of cast iron is here.@rus Огромная чугунная наковальня (anvil) стоит здесь.~
 iron~
 furniture BY 0 0
-A FHJKPQ EHN BEF BEF
+1 100000 EHN 50 50
 0 1000 1 P
 g @eng neutral@rus female~
 #47110
@@ -1256,7 +1256,7 @@ table small столик маленький~
 @eng Small table with writing accessoires lying on it is here.@rus Низенький столик (table) с письменными принадлежностями стоит тут.~
 wood~
 furniture Y 0 0
-AB GJOQRST EHN ADE ADE
+3 1000000 EHN 25 25
 0 1 0 P
 E
 table столик~
@@ -1272,7 +1272,7 @@ tatami татами~
 @eng A tatami is on the floor before the table.@rus Татами (tatami) лежит на полу перед столиком.~
 cloth~
 furniture Y 0 0
-B INOPQSUVWXYa EH CFG CFG
+2 100000000 EH 100 100
 0 1 1 P
 E
 tatami татами~
@@ -1304,7 +1304,7 @@ tatamis татами~
 @eng Several tatamis lie on the floor before altar.@rus Татами (tatamis) лежат на полу перед алтарем.~
 cloth~
 furniture Y 0 0
-AB INOPQSUVWXYa EH CFG CFG
+3 100000000 EH 100 100
 0 1 1 P
 g @rus neutral~
 #47115
@@ -1313,7 +1313,7 @@ bed coverlet pillow постель подушка покрывало циновки~
 @eng There are small pillow and a coverlet lying on the floor.@rus Маленькая подушка и покрывало лежат на циновках (bed).~
 wood~
 furniture Y 0 0
-A GJOQRST HK CFG CFG
+1 1000000 HK 100 100
 0 1 1 P
 g @eng neutral@rus female~
 #47116
@@ -1398,7 +1398,7 @@ bench скамейка~
 @eng There is a wooden bench against the wall.@rus Деревянная скамейка (bench) стоит у стены.~
 wood~
 furniture 0 0 0
-AC HJKMPTUX EH CFG CFG
+5 10000000 EH 100 100
 0 1 1 P
 g @eng neutral@rus female~
 #47122
@@ -1449,7 +1449,7 @@ bench скамья~
 @eng A wooden bench is here.@rus Деревянная скамья (bench) стоит здесь.~
 wood~
 furniture 0 0 0
-AC GJOQRST EH BEF BEF
+5 1000000 EH 50 50
 0 1 1 P
 g @eng neutral@rus female~
 #47126
@@ -1619,7 +1619,7 @@ forge горн кузнечный~
 @eng The forge is roaring and radiating heat here.@rus Горн (forge) ревет и пышет жаром, освещая комнату красным.~
 stone~
 furniture ABY 0 0
-A HJKMPTUX FIP CDJKLMNOPQRSTUVWXYZabcde CDJKLMNOPQRSTUVWXYZabcde
+1 10000000 FIP 2147483148 2147483148
 25 100000 0 P
 g @eng neutral@rus male~
 #47141

@@ -223,7 +223,7 @@ bed soldier's plank~
 @eng A soldier's plank bed is here.@rus Солдатские нары (bed) стоят здесь.~
 wood~
 furniture IY B 0
-EIJKN ABCDEFGHIJKLMNOPQRSTUVWXYZabcde EHKN DGH DGH
+10000 2147483647 EHKN 200 200
 0 1000000000 0 P
 g @rus none~
 #95405

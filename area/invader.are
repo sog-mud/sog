@@ -286,7 +286,7 @@ shadow~
 @eng Powerful shadow concentrates around the altar.@rus Истекающая силой тень (shadow) сгустилась вокруг алтаря.~
 shadow~
 furniture CE B 0
-ACD 0 IL DGH DGH
+13 0 IL 200 200
 0 0 0 P
 g @rus female~
 #95607

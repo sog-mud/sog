@@ -876,7 +876,7 @@ pillow big подушка~
 @eng The big soft pillow lies here.@rus Большая подушка (pillow) так и манит к себе.~
 unknown~
 furniture A K A
-A CFG EK DFGHIJ DFGHIJ
+1 100 EK 1000 1000
 10 1 10000 P
 g @rus female~
 #39
@@ -1047,7 +1047,7 @@ rug коврик~
 @eng A small magic rug lies here.@rus Небольшой магический коврик (rug).~
 unknown~
 furniture Y BF A
-A EIJKN HK DGH DGH
+1 10000 HK 200 200
 10 10 0 P
 g @rus male~
 #51

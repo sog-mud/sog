@@ -877,7 +877,7 @@ a staw mattress~
 A straw mattress stained with various substances is here.~
 wood~
 furniture 0 0 0
-B EHI FHIKLN CFG CFG
+2 400 FHIKLN 100 100
 0 0 0 P
 E
 mattress~
@@ -935,7 +935,7 @@ a torture rack~
 A torture rack holds a dead Dwarf here.~
 iron~
 furniture 0 0 0
-A CDFI BEHK CFG CFG
+1 300 BEHK 100 100
 0 0 0 P
 E
 rack~
@@ -1641,7 +1641,7 @@ a wooden bench~
 A wooden bench is here. It has a small inscription carved into it.~
 wood~
 furniture A 0 0
-B EHI EHK CFG CFG
+2 400 EHK 100 100
 0 0 0 P
 E
 inscription bench~

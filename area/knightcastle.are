@@ -248,7 +248,7 @@ table стол round~
 @eng Heavy round table stands here, waiting for Knights to feast at.@rus Круглый Стол (table) приглашает присоединиться к угощению.~
 wood~
 furniture 0 0 0
-ABCD FHJKPQ DGN CDFI CDFI
+15 100000 DGN 300 300
 0 15000 0 P
 g @rus male~
 #95204
@@ -257,7 +257,7 @@ statue статуя~
 @eng Huge statue of man riding a horse is in the shade of trees.@rus Большая статуя всадника (statue) скрывается в тени деревьев.~
 unknown~
 furniture AB 0 0
-BD EIJKN A 0 0
+10 10000 A 0 0
 50 50000 0 P
 g @rus female~
 #95205
