@@ -1,16 +1,16 @@
 /*
- * $Id: skills.c,v 1.116 2001-02-12 19:07:20 fjoe Exp $
+ * $Id: skills.c,v 1.117 2001-03-16 12:41:30 cs Exp $
  */
 
 /***************************************************************************
  *     ANATOLIA 2.1 is copyright 1996-1997 Serdar BULUT, Ibrahim CANPUNAR  *
  *     ANATOLIA has been brought to you by ANATOLIA consortium		   *
  *	 Serdar BULUT {Chronos}		bulut@rorqual.cc.metu.edu.tr       *
- *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *	
- *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *	
- *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *	
+ *	 Ibrahim Canpunar  {Asena}	canpunar@rorqual.cc.metu.edu.tr    *
+ *	 Murat BICER  {KIO}		mbicer@rorqual.cc.metu.edu.tr	   *
+ *	 D.Baris ACAR {Powerman}	dbacar@rorqual.cc.metu.edu.tr	   *
  *     By using this code, you have agreed to follow the terms of the      *
- *     ANATOLIA license, in the file Anatolia/anatolia.licence             *	
+ *     ANATOLIA license, in the file Anatolia/anatolia.licence             *
  ***************************************************************************/
 
 /***************************************************************************
@@ -29,7 +29,7 @@
  *  benefitting.  We hope that you share your changes too.  What goes	   *
  *  around, comes around.						   *
  ***************************************************************************/
- 
+
 /***************************************************************************
 *	ROM 2.4 is copyright 1993-1995 Russ Taylor			   *
 *	ROM has been brought to you by the ROM consortium		   *
@@ -79,7 +79,7 @@ int exp_for_level(CHAR_DATA *ch, int level)
  * assumes !IS_NPC(ch)
  */
 int exp_to_level(CHAR_DATA *ch)
-{ 
+{
 	return exp_for_level(ch, ch->level+1) - PC(ch)->exp;
 }
 
@@ -113,7 +113,7 @@ void check_improve(CHAR_DATA *ch, const char *sn, bool success, int multiplier)
 	if (number_range(1, 1000) > chance)
 		return;
 
-/* now that the character has a CHANCE to learn, see if they really have */	
+/* now that the character has a CHANCE to learn, see if they really have */
 
 	if (success) {
 		chance = URANGE(5, spec_sk.max - pc_sk->percent, 95);
@@ -215,7 +215,7 @@ int get_skill(CHAR_DATA *ch, const char *sn)
 	int percent;
 	skill_t *sk;
 
-	if ((sk = skill_lookup(sn)) == NULL) 
+	if ((sk = skill_lookup(sn)) == NULL)
 		return 0;
 
 	if (ch->shapeform) {
@@ -228,7 +228,7 @@ int get_skill(CHAR_DATA *ch, const char *sn)
 					ch->shapeform->index->skill_spec);
 				return 0;
 			}
-			
+
 			if ((sp_sk = spec_skill_lookup(fsp, sn)) != NULL)
 				return sp_sk->adept;
 			}
@@ -241,7 +241,7 @@ int get_skill(CHAR_DATA *ch, const char *sn)
 	if (!IS_NPC(ch)) {
 		pc_skill_t *pc_sk;
 
-		if ((IS_SET(sk->skill_flags, SKILL_CLAN) 
+		if ((IS_SET(sk->skill_flags, SKILL_CLAN)
 		&& !clan_item_ok(ch->clan)))
 			return 0;
 
@@ -250,7 +250,7 @@ int get_skill(CHAR_DATA *ch, const char *sn)
 			percent = 0;
 		else
 			percent = pc_sk->percent;
-	} else 
+	} else
 		percent = get_mob_skill(ch, sk);
 
 	if (ch->daze > 0) {
@@ -293,7 +293,7 @@ int get_weapon_skill(CHAR_DATA *ch, const char *sn)
 		return 3 * ch->level;
 
 	return get_skill(ch, sn);
-} 
+}
 
 /*
  * Utter mystical words for an sn.
@@ -537,6 +537,7 @@ void skill_init(skill_t *sk)
 	sk->min_pos = 0;
 	sk->slot = 0;
 	sk->min_mana = 0;
+	sk->rank = 0;
 	sk->beats = 0;
 	gmlstr_init(&sk->noun_damage);
 	mlstr_init2(&sk->msg_off, str_empty);
@@ -557,6 +558,7 @@ skill_t *skill_cpy(skill_t *dst, const skill_t *src)
 	dst->min_pos = src->min_pos;
 	dst->slot = src->slot;
 	dst->min_mana = src->min_mana;
+	dst->rank = src->rank;
 	dst->beats = src->beats;
 	gmlstr_cpy(&dst->noun_damage, &src->noun_damage);
 	mlstr_cpy(&dst->msg_off, &src->msg_off);
@@ -683,7 +685,7 @@ static size_t mob_skill_count;
 static mob_skill_t mob_skill_tab[] =
 {
 	{ "track",		mob_track		},	// notrans
-	{ "sneak", 		mob_sneak		},	// notrans
+	{ "sneak",		mob_sneak		},	// notrans
 	{ "hide",		mob_hide		},	// notrans
 	{ "pick lock",		mob_pick_lock		},	// notrans
 	{ "backstab",		mob_backstab		},	// notrans
@@ -741,14 +743,43 @@ mob_skill_init(void)
 }
 
 static int
+get_minimum_spell_level(int rank)
+{
+	switch (rank) {
+	default:
+		return 0;
+	case 1:
+		return 1;
+	case 2:
+		return MAX_LEVEL / 10;
+	case 3:
+		return MAX_LEVEL / 8;
+	case 4:
+		return MAX_LEVEL / 3;
+	case 5:
+		return MAX_LEVEL / 2;
+	case 6:
+		return MAX_LEVEL / 3 * 2;
+	case 7:
+		return MAX_LEVEL / 4 * 5;
+	}
+}
+
+static int
 get_mob_skill(CHAR_DATA *ch, skill_t *sk)
 {
 	mob_skill_t *mob_skill;
 	const char *sn;
 
 	if (sk->skill_type == ST_SPELL
-	||  sk->skill_type == ST_PRAYER)
-		return 40 + 2 * ch->level;
+	||  sk->skill_type == ST_PRAYER) {
+		int level_needed = get_minimum_spell_level(sk->rank);
+		if (sk->rank == 0)
+			return 100;
+		return URANGE(0, LEVEL(ch) > level_needed ?
+		    75 + (LEVEL(ch) - level_needed) * 2:
+		    75 - (LEVEL(ch) - level_needed) * 4, 100);
+	}
 
 	if (!mob_skill_count)
 		mob_skill_init();
@@ -825,7 +856,7 @@ MOB_SKILL(mob_spellbane)
 }
 
 MOB_SKILL(mob_dual_wield)
-{	
+{
 	return 100;
 }
 
@@ -869,7 +900,7 @@ MOB_SKILL(mob_hand_to_hand)
 
 MOB_SKILL(mob_trip)
 {
- 	if (IS_SET(mob->pMobIndex->off_flags, OFF_TRIP)) 
+	if (IS_SET(mob->pMobIndex->off_flags, OFF_TRIP))
 		return 10 + 3 * mob->level;
 	return 0;
 }
@@ -919,7 +950,7 @@ MOB_SKILL(mob_berserk)
 
 MOB_SKILL(mob_rescue)
 {
-	return 40 + mob->level; 
+	return 40 + mob->level;
 }
 
 MOB_SKILL(mob_crush)

@@ -1,5 +1,5 @@
 /*
- * $Id: hunt.c,v 1.35 2001-02-11 18:07:21 fjoe Exp $
+ * $Id: hunt.c,v 1.36 2001-03-16 12:41:27 cs Exp $
  */
 
 /* Kak zovut sobaku Gejtsa?
@@ -438,4 +438,4 @@ find_way(CHAR_DATA *ch, ROOM_INDEX_DATA *rstart, ROOM_INDEX_DATA *rend)
 		} else
 			rstart = pExit->to_room.r;
 	}
-}	
+}

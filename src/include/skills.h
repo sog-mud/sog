@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: skills.h,v 1.36 2000-01-31 08:23:44 kostik Exp $
+ * $Id: skills.h,v 1.37 2001-03-16 12:41:26 cs Exp $
  */
 
 #ifndef _SKILLS_H_
@@ -68,9 +68,11 @@ struct skill_t {
 	int		slot;			/* slot for #OBJOLD loading */
 	int		min_mana;		/* min mana used */
 	int		beats;			/* waiting time after use */
+	int		rank;			/* Shows rank of difficulty of
+						 * spell or prayer (0..7) */
 	gmlstr_t	noun_damage;		/* damage message */
 	mlstring	msg_off;		/* wear off message */
-	mlstring 	msg_obj;		/* wear off message for obj */
+	mlstring	msg_obj;		/* wear off message for obj */
 	flag_t		skill_flags;		/* skill flags */
 	const char *	restrict_race;		/* race restrictions */
 	flag_t		group;			/* skill group */

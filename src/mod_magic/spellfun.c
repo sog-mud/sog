@@ -1,5 +1,5 @@
 /*
- * $Id: spellfun.c,v 1.233 2001-03-09 21:33:22 fjoe Exp $
+ * $Id: spellfun.c,v 1.234 2001-03-16 12:41:28 cs Exp $
  */
 
 /***************************************************************************
@@ -1349,7 +1349,7 @@ void spell_haste(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA *victim = (CHAR_DATA *) vo;
 	AFFECT_DATA af;
- 
+
 	if (is_affected(victim, sn)
 	||  IS_AFFECTED(victim,AFF_HASTE)
 	||  (IS_NPC(victim) && IS_SET(victim->pMobIndex->off_flags, OFF_FAST))) {
@@ -1629,7 +1629,7 @@ mass_invis_cb(void *vo, va_list ap)
 		return NULL;
 
 	if (spellbane(gch, ch, 100, dice(2, LEVEL(gch)))) {
-		if (IS_EXTRACTED(ch)) 
+		if (IS_EXTRACTED(ch))
 			return gch;
 		return NULL;
 	}
@@ -1907,7 +1907,7 @@ void spell_shocking_grasp(const char *sn, int level,CHAR_DATA *ch,void *vo)
 	level	= UMIN(level, sizeof(dam_each)/sizeof(dam_each[0]) - 1);
 	level	= UMAX(0, level);
 		if (LEVEL(ch) > 50)
-	dam 	= level / 2 ;
+	dam	= level / 2 ;
 		else
 	dam		= number_range(dam_each[level] / 2, dam_each[level] * 2);
 	if (saves_spell(level, victim,DAM_LIGHTNING))
@@ -3905,10 +3905,10 @@ void spell_matandra(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	af.owner	= NULL;
 	affect_to_char(ch, &af);
 	dam = dice(level, 7);
-	
+
 	damage(ch, victim, dam, sn, DAM_HOLY, DAMF_SHOW);
-}  
-	
+}
+
 void spell_amnesia(const char *sn, int level, CHAR_DATA *ch, void *vo)  
 {
 	int i;
@@ -7512,7 +7512,7 @@ void spell_blur(const char *sn, int level, CHAR_DATA *ch, void *vo)
 
 	af.where	= TO_AFFECTS;
 	af.type		= sn;
-	af.level	= level; 
+	af.level	= level;
 	af.duration	= level / 12 + 2;
 	INT(af.location)= APPLY_NONE;
 	af.modifier	= 0;

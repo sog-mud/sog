@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: olc_skill.c,v 1.20 2000-10-22 17:53:45 fjoe Exp $
+ * $Id: olc_skill.c,v 1.21 2001-03-16 12:41:29 cs Exp $
  */
 
 #include "olc.h"
@@ -53,6 +53,9 @@ DECLARE_OLC_FUN(skilled_group		);
 DECLARE_OLC_FUN(skilled_type		);
 DECLARE_OLC_FUN(skilled_event		);
 DECLARE_OLC_FUN(skilled_delete		);
+DECLARE_OLC_FUN(skilled_rank		);
+
+static DECLARE_VALIDATE_FUN(validate_skill_rank);
 
 olced_strkey_t strkey_skills = { &skills, NULL };
 
@@ -81,6 +84,7 @@ olc_cmd_t olc_cmds_skill[] =
 	{ "group",	skilled_group,	NULL,	skill_groups		},
 	{ "type",	skilled_type,	NULL,	skill_types		},
 	{ "event",	skilled_event, validate_funname, events_classes	},
+	{ "rank",	skilled_rank, validate_skill_rank		},
 	{ "delete_skil",olced_spell_out					},
 	{ "delete_skill",skilled_delete					},
 
@@ -176,6 +180,8 @@ static void *skill_save_cb(void *p, va_list ap)
 	fprintf(fp, "Target %s\n", flag_string(skill_targets, sk->target));
 	if (sk->beats)
 		fprintf(fp, "Beats %d\n", sk->beats);
+	if (sk->rank)
+		fprintf(fp, "Rank %d\n", sk->rank);
 	if (sk->skill_flags)
 		fprintf(fp, "Flags %s~\n", flag_string(skill_flags, sk->skill_flags));
 	if (sk->min_mana)
@@ -251,7 +257,7 @@ OLC_FUN(skilled_show)
 			return FALSE;
 		}
 	}
-	
+
 	buf = buf_new(-1);
 	mlstr_dump(buf, "Name       ", &sk->sk_name.ml, DL_NONE);
 	mlstr_dump(buf, "Gender:    ", &sk->sk_name.gender, DL_NONE);
@@ -272,6 +278,7 @@ OLC_FUN(skilled_show)
 	mlstr_dump(buf, "NounGender ", &sk->noun_damage.gender, DL_NONE);
 	if (sk->slot)
 		buf_printf(buf, BUF_END, "Slot       [%d]\n", sk->slot);
+	buf_printf(buf, BUF_END, "Rank       [%d]\n", sk->rank);
 
 	if (!IS_NULLSTR(sk->fun_name))
 		buf_printf(buf, BUF_END, "SpellFun   [%s]\n", sk->fun_name);
@@ -350,6 +357,28 @@ OLC_FUN(skilled_beats)
 
 	EDIT_SKILL(ch, sk);
 	return olced_number(ch, argument, cmd, &sk->beats);
+}
+
+static VALIDATE_FUN(validate_skill_rank)
+{
+	int val = *(int*) arg;
+
+	if (val < 0 || val > 7) {
+		act_char("SkillEd: skill rank should be in [0..7].", ch);
+		return FALSE;
+	}
+	return TRUE;
+}
+
+OLC_FUN(skilled_rank)
+{
+	skill_t *sk;
+	EDIT_SKILL(ch, sk);
+
+	if (!olced_number(ch, argument, cmd, &sk->rank))
+		return FALSE;
+
+	return TRUE;
 }
 
 OLC_FUN(skilled_noun)

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.24 2001-01-28 11:39:49 cs Exp $
+ * $Id: updfun.c,v 1.25 2001-03-16 12:41:30 cs Exp $
  */
 
 #include <sys/types.h>
@@ -1901,7 +1901,7 @@ find_aggr_cb(void *vo, va_list ap)
 	if (victim == NULL)
 		return NULL;
 
-	victim = check_guard(victim, ch); 
+	victim = check_guard(victim, ch);
 	if (get_skill(ch, "backstab")) {
 		dofun("backstab", ch, victim->name);
 		if (IS_EXTRACTED(victim) || ch->fighting != NULL)

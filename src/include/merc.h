@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.320 2001-02-11 18:07:21 fjoe Exp $
+ * $Id: merc.h,v 1.321 2001-03-16 12:41:26 cs Exp $
  */
 
 /***************************************************************************
@@ -172,7 +172,7 @@ enum {
 #define MAX_LEVEL		50
 
 #define LEVEL_IMP		MAX_LEVEL	/* implementor		*/
-#define LEVEL_CRE 		(MAX_LEVEL - 1)	/* creator		*/
+#define LEVEL_CRE		(MAX_LEVEL - 1)	/* creator		*/
 #define LEVEL_DEI		(MAX_LEVEL - 2)	/* deity		*/
 #define LEVEL_GOD		(MAX_LEVEL - 3)	/* god			*/
 #define LEVEL_AVA		(MAX_LEVEL - 4)	/* avatar		*/
@@ -194,7 +194,7 @@ enum {
  * vnum globals
  * skill/spell specific vnums should not be defined here
  */
-#define MOB_VNUM_SHADOW 		10
+#define MOB_VNUM_SHADOW			10
 #define MOB_VNUM_STALKER		15
 #define MOB_VNUM_COCOON			27
 #define MOB_VNUM_BONE_DRAGON		28
@@ -249,7 +249,7 @@ extern flag_t mud_options;
 #define SUN_DARK		    0
 #define SUN_RISE		    1
 #define SUN_LIGHT		    2
-#define SUN_SET 		    3
+#define SUN_SET			    3
 
 #define SKY_CLOUDLESS		    0
 #define SKY_CLOUDY		    1
@@ -258,18 +258,18 @@ extern flag_t mud_options;
 
 struct time_info_data
 {
-	int 	hour;
-	int 	day;
-	int 	month;
-	int 	year;
+	int	hour;
+	int	day;
+	int	month;
+	int	year;
 };
 
 struct weather_data
 {
-	int 	mmhg;
-	int 	change;
-	int 	sky;
-	int 	sunlight;
+	int	mmhg;
+	int	change;
+	int	sky;
+	int	sunlight;
 };
 
 /*

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: act_magic.c,v 1.32 2001-02-25 12:28:12 fjoe Exp $
+ * $Id: act_magic.c,v 1.33 2001-03-16 12:41:28 cs Exp $
  */
 
 #include <stdio.h>
@@ -77,12 +77,12 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if ((chance = get_skill(ch, "shadow magic")) 
+	if ((chance = get_skill(ch, "shadow magic"))
 	&& !strcmp(arg1, "shadow")) {
 		shadow = TRUE;
 		target_name = one_argument(target_name, arg1, sizeof(arg1));
 		spell = skill_search(arg1);
-		if (spell == NULL 
+		if (spell == NULL
 		|| spell->skill_type != ST_SPELL
 		|| spell->fun == NULL) {
 			act("You have never heard about such a spell.",
@@ -396,6 +396,12 @@ void do_cast(CHAR_DATA *ch, const char *argument)
 		if (!IS_NPC(ch) && get_curr_stat(ch, STAT_INT) > 21)
 			slevel += get_curr_stat(ch,STAT_INT) - 21;
 
+		if (spell->rank &&
+		   spell->rank > (get_curr_stat(ch, STAT_INT) - 12)) {
+			act_char("You aren't intellegent enough to cast this spell.", ch);
+			return;
+		}
+
 		if (slevel < 1)
 			slevel = 1;
 
@@ -519,7 +525,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (is_affected(ch, "garble") || is_affected(ch, "deafen") 
+	if (is_affected(ch, "garble") || is_affected(ch, "deafen")
 	|| (ch->shapeform && IS_SET(ch->shapeform->index->flags, FORM_NOCAST))){
 		act_char("You can't get the right intonations.", ch);
 		return;
@@ -537,7 +543,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 						   arg1, sizeof(arg1));
 			if (ch->wait)
 				ch->wait = 0;
-		} else if (ch->wait) 
+		} else if (ch->wait)
 			return;
 	} else
 		pc_sk = (pc_skill_t*) vstr_search(&PC(ch)->learned, arg1);
@@ -552,7 +558,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 		act_char("You don't know any prayers of that name.", ch);
 		return;
 	}
-	
+
 	if (prayer->skill_type != ST_PRAYER
 	||  prayer->fun == NULL) {
 		act_char("That's not a prayer.", ch);
@@ -618,7 +624,7 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 						WAIT_STATE(ch, prayer->beats);
 						act_puts("You can't cast this spell to $N at this distance.", ch, NULL, victim, TO_CHAR, POS_DEAD);
 						return;
-					}	
+					}
 				}
 			}
 		}
@@ -754,16 +760,23 @@ void do_pray(CHAR_DATA *ch, const char *argument)
 			}
 		}
 	}
-	
+
 	WAIT_STATE(ch, prayer->beats);
 
-	if ((cha = get_curr_stat(ch, STAT_CHA)) < 14) {
+	if ((cha = get_curr_stat(ch, STAT_CHA)) < 12) {
 		act("Your god doesn't wish to help you anymore.",
 			ch, NULL, NULL, TO_CHAR);
 		return;
 	}
 
-	chance -= (cha > 18)? 0 : (18 - cha) * 3;
+	cha -= prayer->rank;
+	chance -= (cha > 15)? 0 : (15 - cha) * 3;
+
+	if (prayer->rank && prayer->rank > get_curr_stat(ch, STAT_WIS) - 12) {
+		act("You aren't wise enough to use such a power.",
+			ch, NULL, NULL, TO_CHAR);
+		return;
+	}
 
 	if (number_percent() > chance) {
 		act_char("Your god doesn't hear you.", ch);

@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: db_skill.c,v 1.26 2001-01-18 22:20:16 fjoe Exp $
+ * $Id: db_skill.c,v 1.27 2001-03-16 12:41:31 cs Exp $
  */
 
 #include <stdio.h>
@@ -135,6 +135,14 @@ DBLOAD_FUN(load_skill)
 			break;
 		case 'O':
 			MLSKEY("ObjWearOff", sk.msg_obj);
+			break;
+		case 'R':
+			KEY("Rank", sk.rank, fread_number(fp));
+			if (sk.rank < 0 || sk.rank > 7) {
+				sk.rank = 0;
+				log(LOG_ERROR,
+				    "load_skill: rank should be beetwen 0..7");
+			}
 			break;
 		case 'S':
 			KEY("Slot", sk.slot, fread_number(fp));

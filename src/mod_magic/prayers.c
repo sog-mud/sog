@@ -1,5 +1,5 @@
 /*
- * $Id: prayers.c,v 1.2 2001-02-11 18:22:31 fjoe Exp $
+ * $Id: prayers.c,v 1.3 2001-03-16 12:41:28 cs Exp $
  */
 
 /***************************************************************************
@@ -573,9 +573,9 @@ group_defense_cb(void *vo, va_list ap)
 	}
 
 	if (is_affected(gch, "shield")) {
-		if (gch == ch) 	
+		if (gch == ch)
 			act_char("You are already shielded.", ch);
-		else 
+		else
 			act("$N is already shielded.", ch, NULL, gch, TO_CHAR);
 	} else {
 		af.type		= "shield";
@@ -1344,9 +1344,9 @@ prayer_holy_hammer(const char *sn, int level, CHAR_DATA *ch, void *vo)
 	hammer->timer = level * 3;
 	INT(hammer->value[2]) = (level / 10) + 1;
 
-	af.where 	= TO_OBJECT;
-	af.type  	= sn;
-	af.level 	= level;
+	af.where	= TO_OBJECT;
+	af.type		= sn;
+	af.level	= level;
 	af.duration	= -1;
 	af.bitvector	= 0;
 	af.modifier	= level/7 +3;
@@ -1369,14 +1369,14 @@ prayer_hold_person(const char *sn, int level, CHAR_DATA *ch, void *vo)
 {
 	CHAR_DATA* victim = (CHAR_DATA*) vo;
 	AFFECT_DATA af;
-	
+
 	if (saves_spell(level + 2, victim, DAM_OTHER)) {
 		act_char("You failed.", ch);
 		act("$n tries to hold you, but fails.", ch, victim, NULL, TO_VICT);
 		return;
 	}
 
-	af.where 	= TO_AFFECTS;
+	af.where	= TO_AFFECTS;
 	af.type		= sn;
 	af.duration	= 1;
 	af.level	= level;

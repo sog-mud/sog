@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.252 2001-02-25 12:28:07 fjoe Exp $
+ * $Id: act_move.c,v 1.253 2001-03-16 12:41:27 cs Exp $
  */
 
 /***************************************************************************
@@ -1986,7 +1986,7 @@ void do_kidnap(CHAR_DATA* ch, const char *argument)
 		return;
 	}
 
-	if (!(ch->in_room)) 
+	if (!(ch->in_room))
 		return;
 
 	if ((victim = get_char_room(ch, arg)) == NULL) {
@@ -2005,31 +2005,31 @@ void do_kidnap(CHAR_DATA* ch, const char *argument)
 		return;
 	}
 
-	if (is_safe(ch, victim)) 
+	if (is_safe(ch, victim))
 		return;
 
-	chance -= get_curr_stat(victim, STAT_WIS) + 
+	chance -= get_curr_stat(victim, STAT_WIS) +
 		  get_curr_stat(victim, STAT_DEX) -
 		  get_curr_stat(ch, STAT_DEX);
-	
+
 	if (ch->mana < (mana = skill_mana(ch, "kidnap"))) {
 		act_char("You don't have enough power.", ch);
 		return;
 	}
 	ch->mana -= mana;
 
-	af.where 	= TO_AFFECTS;
-	af.type 	= "kidnap";
-	af.level 	= ch->level;
-	af.duration 	= 3;
+	af.where	= TO_AFFECTS;
+	af.type		= "kidnap";
+	af.level	= ch->level;
+	af.duration	= 3;
 	INT(af.location)= APPLY_NONE;
-	af.modifier 	= 0;
-	af.bitvector 	= 0;
+	af.modifier	= 0;
+	af.bitvector	= 0;
 	af.owner	= NULL;
 	affect_to_char(ch, &af);
 
 
-	if (IS_SET(ch->in_room->room_flags, ROOM_PEACE | ROOM_SAFE)) 
+	if (IS_SET(ch->in_room->room_flags, ROOM_PEACE | ROOM_SAFE))
 		chance = 0;
 
 	if (IS_SET(ch->in_room->room_flags, ROOM_LAW))
@@ -2039,9 +2039,9 @@ void do_kidnap(CHAR_DATA* ch, const char *argument)
 
 	if (number_percent()<chance) {
 		to_room = get_random_room(ch, NULL);
-		act("You grab $N and take $m away.", 
+		act("You grab $N and take $m away.",
 			ch, NULL, victim, TO_CHAR);
-		act("$n grabs you and takes you away.", 
+		act("$n grabs you and takes you away.",
 			ch, NULL, victim, TO_VICT);
 		act("$n grabs $N and takes $m away.",
 			ch, NULL, victim, TO_NOTVICT);
@@ -2053,7 +2053,7 @@ void do_kidnap(CHAR_DATA* ch, const char *argument)
 		yell(victim, ch, "Help! $lu{$i} just kidnapped me!");
 		multi_hit(victim, ch, NULL);
 	} else {
-		act("You grab $N, but $E escaped.", 
+		act("You grab $N, but $E escaped.",
 			ch, NULL, victim, TO_CHAR);
 		act("$n grabs you, but you manage to break free.",
 			ch, NULL, victim, TO_VICT);
@@ -2064,7 +2064,7 @@ void do_kidnap(CHAR_DATA* ch, const char *argument)
 		multi_hit(victim, ch, NULL);
 	}
 }
-		
+
 
 void do_fade(CHAR_DATA *ch, const char *argument)
 {
@@ -2110,7 +2110,7 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 	if (IS_AFFECTED(ch, AFF_CHARM))  {
 		act_char("You don't want to drain your master.", ch);
 		return;
-	} 
+	}
 
 	if ((victim = get_char_room(ch,argument)) == NULL) {
 		WAIT_STATE(ch, MISSING_TARGET_DELAY);
@@ -2141,14 +2141,14 @@ void do_vtouch(CHAR_DATA *ch, const char *argument)
 	&&  !IS_CLAN_GUARD(victim)
 	&&  !IS_IMMORTAL(victim)) {
 		act_puts("You deadly touch $n's neck and put $m to nightmares.",
-			 victim, NULL, ch, TO_VICT, POS_DEAD); 
+			 victim, NULL, ch, TO_VICT, POS_DEAD);
 		act_puts("$N deadly touches your neck and puts you "
 			 "to nightmares.", victim, NULL, ch, TO_CHAR, POS_DEAD);
 		act("$N deadly touches $n's neck and puts $m to nightmares.",
 		    victim, NULL, ch, TO_NOTVICT);
 
 		check_improve(ch, "vampiric touch", TRUE, 1);
-		
+
 		af.type = "vampiric touch";
 		af.where = TO_AFFECTS;
 		af.level = ch->level;
@@ -2180,8 +2180,8 @@ void do_fly(CHAR_DATA *ch, const char *argument)
 	if (!str_cmp(arg,"up")) {
 		race_t *r;
 
-		if (IS_AFFECTED(ch, AFF_FLYING)) {		       
-			act_char("You are already flying.", ch); 
+		if (IS_AFFECTED(ch, AFF_FLYING)) {
+			act_char("You are already flying.", ch);
 			return;
 		}
 
@@ -2192,7 +2192,7 @@ void do_fly(CHAR_DATA *ch, const char *argument)
 			act_char("You start to fly.", ch);
 		}
 		else {
-			act_char("To fly find potion or wings.", ch); 
+			act_char("To fly find potion or wings.", ch);
 			return;
 		}
 	}
@@ -2201,8 +2201,8 @@ void do_fly(CHAR_DATA *ch, const char *argument)
 			REMOVE_BIT(ch->affected_by, AFF_FLYING);
 			act_char("You slowly touch the ground.", ch);
 		}
-		else {		       
-			act_char("You are already on the ground.", ch); 
+		else {
+			act_char("You are already on the ground.", ch);
 			return;
 		}
 	}
