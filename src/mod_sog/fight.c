@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.174 1999-05-23 14:09:21 fjoe Exp $
+ * $Id: fight.c,v 1.175 1999-05-23 20:21:31 fjoe Exp $
  */
 
 /***************************************************************************
@@ -2510,21 +2510,25 @@ void dam_message(CHAR_DATA *ch, CHAR_DATA *victim,
 		if (ch == victim) {
 			switch (dam_type) {
 			case DAM_HUNGER:
+				vs = vp;
 				msg_notvict = "$n's hunger $u $mself!";
 				msg_char = "Your hunger $u yourself!";
 				break;
 
 			case DAM_THIRST:
+				vs = vp;
 				msg_notvict = "$n's thirst $u $mself!";
 				msg_char = "Your thirst $u yourself!";
 				break;
 
 			case DAM_LIGHT_V:
+				vs = vp;
 				msg_notvict = "The light of room $u $n!";
 				msg_char = "The light of room $u you!";
 				break;
 
 			case DAM_TRAP_ROOM:
+				vs = vp;
 				msg_notvict = "The trap at room $u $n!";
 				msg_char = "The trap at room $u you!";
 				break;
