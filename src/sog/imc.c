@@ -28,7 +28,7 @@
  * along with this program (see the file COPYING); if not, write to the
  * Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
  *
- * $Id: imc.c,v 1.1.2.3 2003-09-19 13:34:12 tatyana Exp $
+ * $Id: imc.c,v 1.1.2.4 2003-09-19 18:45:55 matrim Exp $
  */
 
 #include <stdlib.h>
@@ -102,8 +102,6 @@ int (*imc_recv_chain)( PACKET *p, int bcast );
 int (*imc_recv_hook)( PACKET *p, int bcast );
 void imclog( const char *format, ... ) __attribute__ ( ( format( printf, 1, 2 ) ) );
 void imcbug( const char *format, ... ) __attribute__ ( ( format( printf, 1, 2 ) ) );
-void imc_printf( CHAR_DATA *ch, const char *fmt, ... ) __attribute__ ( ( format( printf, 2, 3 ) ) );
-void imcpager_printf( CHAR_DATA *ch, const char *fmt, ... ) __attribute__ ( ( format( printf, 2, 3 ) ) );
 
 void smash_tilde(const char *str)
 {
@@ -301,13 +299,6 @@ void imcbug( const char *format, ... )
    return;
 }
 
-/* Generic substitute for write_to_buffer since not all codebases seem to have it */
-void imcto_buffer( DESCRIPTOR_DATA *d, const char *txt, int length )
-{
-   write_to_buffer( d, txt, 0 );
-   return;
-}
-
 /*
  * Table is formatted with mud color code first, then ANSI code, then IMC color code.
  * This should make it easier to modify local color codes.
@@ -337,135 +328,31 @@ imccolor_struct imccolor_table[] =
     { "&-", "~", "~~" },
     
 	/* Foreground Standard Colors */
-	{ "&x", "\e[0;0;30m", "~x" }, // Black
-	{ "&r", "\e[0;0;31m", "~r" }, // Dark Red
-	{ "&g", "\e[0;0;32m", "~g" }, // Dark Green
-	{ "&O", "\e[0;0;33m", "~y" }, // Orange/Brown
-	{ "&b", "\e[0;0;34m", "~b" }, // Dark Blue
-	{ "&p", "\e[0;0;35m", "~p" }, // Purple/Magenta
-    { "&p", "\e[0;0;35m", "~m" }, // Duplicated to support duplicate IMC code for color
-	{ "&c", "\e[0;0;36m", "~c" }, // Cyan
-	{ "&w", "\e[0;0;37m", "~w" }, // Grey
-    { "&w", "\e[0;0;37m", "~d" }, // Duplicated to support triplicate IMC code for color
-    { "&w", "\e[0;0;37m", "~!" }, // Triplicated to support IMC reset code for color (defaults to grey)
+	{ "{d", "", "~x" }, // Black
+	{ "{r", "", "~r" }, // Dark Red
+	{ "{g", "", "~g" }, // Dark Green
+	{ "{y", "", "~y" }, // Orange/Brown
+	{ "{b", "", "~b" }, // Dark Blue
+	{ "{m", "", "~p" }, // Purple/Magenta
+	{ "{m", "", "~m" }, // Duplicated to support duplicate IMC code for color
+	{ "{c", "", "~c" }, // Cyan
+	{ "{w", "", "~w" }, // Grey
+	{ "{w", "", "~d" }, // Duplicated to support triplicate IMC code for color
+	{ "{x", "", "~!" }, // Triplicated to support IMC reset code for color (defaults to grey)
 
 	/* Foreground extended colors */
-	{ "&z", "\e[0;1;30m", "~D" }, // Dark Grey
-	{ "&R", "\e[0;1;31m", "~R" }, // Red
-	{ "&G", "\e[0;1;32m", "~G" }, // Green
-	{ "&Y", "\e[0;1;33m", "~Y" }, // Yellow
-	{ "&B", "\e[0;1;34m", "~B" }, // Blue
-	{ "&P", "\e[0;1;35m", "~M" }, // Pink
-	{ "&C", "\e[0;1;36m", "~C" }, // Light Blue
-	{ "&W", "\e[0;1;37m", "~W" }, // White
+	{ "{D", "", "~D" }, // Dark Grey
+	{ "{R", "", "~R" }, // Red
+	{ "{G", "", "~G" }, // Green
+	{ "{Y", "", "~Y" }, // Yellow
+	{ "{B", "", "~B" }, // Blue
+	{ "{M", "", "~M" }, // Pink
+	{ "{C", "", "~C" }, // Light Blue
+	{ "{W", "", "~W" }, // White
 
-    /* There are no IMC2 color codes for anything beyond this point - yet */
-
-	/* Background colors */
-	{ "{x", "\e[40m", "" }, // Black
-	{ "{r", "\e[41m", "" }, // Red
-	{ "{g", "\e[42m", "" }, // Green
-	{ "{O", "\e[43m", "" }, // Orange
-	{ "{B", "\e[44m", "" }, // Blue
-	{ "{p", "\e[45m", "" }, // Purple/Magenta
-	{ "{c", "\e[46m", "" }, // Cyan
-	{ "{w", "\e[47m", "" }, // White
-
-	/* Text Affects */
-	{ "&d", "\e[0m", "" }, // Reset Text to client default color
-	{ "&D", "\e[0m", "" }, // Reset Text to AFKMUD default color 
-	{ "&L", "\e[1m", "" }, // Bolden Text(Brightens it)
-	{ "&u", "\e[4m", "" }, // Underline Text
-	{ "&$", "\e[5m", "" }, // Blink Text
-	{ "&i", "\e[6m", "" }, // Italic Text
-	{ "&v", "\e[7m", "" }, // Reverse Background and Foreground Colors
-
-	/* Blinking foreground standard color */
-	{ "}x", "\e[0;5;30m", "" }, // Black
-	{ "}r", "\e[0;5;31m", "" }, // Dark Red
-	{ "}g", "\e[0;5;32m", "" }, // Dark Green
-	{ "}O", "\e[0;5;33m", "" }, // Orange/Brown
-	{ "}b", "\e[0;5;34m", "" }, // Dark Blue
-	{ "}p", "\e[0;5;35m", "" }, // Magenta/Purple
-	{ "}c", "\e[0;5;36m", "" }, // Cyan
-	{ "}w", "\e[0;5;37m", "" }, // Grey
-	{ "}z", "\e[1;5;30m", "" }, // Dark Grey
-	{ "}R", "\e[1;5;31m", "" }, // Red
-	{ "}G", "\e[1;5;32m", "" }, // Green
-	{ "}Y", "\e[1;5;33m", "" }, // Yellow
-	{ "}B", "\e[1;5;34m", "" }, // Blue
-	{ "}P", "\e[1;5;35m", "" }, // Pink
-	{ "}C", "\e[1;5;36m", "" }, // Light Blue
-	{ "}W", "\e[1;5;37m", "" },  // White
-    {NULL, NULL, NULL}
+	/* There are no IMC2 color codes for anything beyond this point - yet */
+	{NULL, NULL, NULL}
 };
-
-// Translates mud color codes into pure ANSI codes
-char *tagtoansi( const char *txt, CHAR_DATA *ch )
-{
-   int c, x, count = 0;
-   static char tbuf[LSS];
-   char code[3];
-
-   if( !txt || *txt == '\0' )
-	return "";
-
-   tbuf[0] = '\0';
-
-   for( count = 0; count < LSS; count++ )
-   {	
-
-	if( *txt == '\0' )
-	   break;
-
-    for (c=0; c < 3; c++ )
-    {
-        if (*txt == imccolor_table[c].mud[0])
-            break;
-    }
-
-    if ( c == 3)
-    {
-        tbuf[count] = *txt;
-        txt++;
-        continue;
-    }
-
-    code[0] = *txt;
-	txt++;
-		
-	if( *txt == code[0] )
-	{
-	   tbuf[count] = *txt;
-	   txt++;
-	   continue;
-	}
-
-	code[1] = *txt;
-    code[2] = '\0';
-
-    if ( !IS_SET(IMC_PFLAGS(ch), PSET_IMCPCOLOR) )
-    {	
-        for( c = 0; imccolor_table[c].mud != NULL; c++ )
-        {
-            if( imccolor_table[c].mud[0] == code[0] && imccolor_table[c].mud[1] == code[1] )
-            {
-                for( x = 0; imccolor_table[c].ansi[x] != '\0'; x++ )
-                {
-                    tbuf[count] = imccolor_table[c].ansi[x];
-                    count++;
-                }
-                break;
-            }
-        }
-    }
-    count--;
-	txt++;
-   }
-
-   tbuf[count] = '\0';
-   return tbuf;
-}
 
 /* convert from imc color -> mud color */
 char *color_itom( const char *s )
@@ -514,6 +401,8 @@ char *color_itom( const char *s )
    }
 
    *out = 0;
+   strlcat(buf, "{x", IMC_DATA_LENGTH);
+
    return buf;
 }
 
@@ -721,8 +610,6 @@ char *SetFill( const char *argument, int size, const char *filler)
 /* Modified version of Smaug's send_to_char_color function */
 void imc_to_char( const char *txt, CHAR_DATA *ch )
 {
-   char buf[LSS*3];
-
    if( !ch )
    {
 	imcbug( "%s", "imc_to_char: NULL ch!" );
@@ -738,58 +625,21 @@ void imc_to_char( const char *txt, CHAR_DATA *ch )
 	return;
    }
 
-   if ( IS_SET(IMC_PFLAGS(ch), PSET_IMCPCOLOR) )
-       snprintf( buf, (LSS * 3), "%s", tagtoansi( txt, ch ));
-   else /* Default color changed to bright white. Remove the ansi color code in front if it bothers. */
-       snprintf( buf, (LSS * 3), "\e[0;1;37m%s", tagtoansi( txt, ch ));
+   char_puts(txt, ch);
 
-   imcto_buffer( ch->desc, buf, 0 );
-
-   if ( !IS_SET(IMC_PFLAGS(ch), PSET_IMCPCOLOR) )
-       imcto_buffer( ch->desc, "\e[0m", 0 ); /* Reset color to stop bleeding */
    return;
-}
-
-/* Modified version of Smaug's ch_printf_color function */
-void imc_printf( CHAR_DATA *ch, const char *fmt, ... )
-{
-   char buf[LSS*2];
-   va_list args;
- 
-   va_start( args, fmt );
-   vsnprintf( buf, LSS*2, fmt, args );
-   va_end( args );
- 
-   imc_to_char( buf, ch );
 }
 
 /* Generic send_to_pager type function to send to the proper code for each codebase */
 // May be changed later to make it more codebase independent
-void imc_to_pager( const char *txt, CHAR_DATA *ch )
+void imc_to_pager(const char *txt, CHAR_DATA *ch)
 {
-   char buf[LSS*3];
+        BUFFER *output;
 
-   /* Change default string color from grey to bright white */
-   /* Remove the ansi color code in front of the %s if it gets to annoying */
-   snprintf( buf, (LSS * 3), "\e[0;1;37m%s", tagtoansi( txt, ch ));
-
-   page_to_char( buf, ch );
-
-   return;
-}
-
-/* Generic pager_printf type function */
-void imcpager_printf( CHAR_DATA *ch, const char *fmt, ... )
-{
-   char buf[LSS*2];
-   va_list args;
- 
-   va_start( args, fmt );
-   vsnprintf( buf, LSS*2, fmt, args );
-   va_end( args );
-
-   imc_to_pager( buf, ch );
-   return;
+        output = buf_new(-1);
+        buf_add(output, txt);
+        page_to_char(buf_string(output), ch);
+        buf_free(output);
 }
 
 /* free all the keys in "p" */
@@ -1604,20 +1454,20 @@ void receive_oldchannel( imc_char_data *from, int number, const char *argument, 
        chan = 0;
 
        if (!emote)
-           snprintf( buf, IMC_DATA_LENGTH, "~c[~CIMC-Status~c] ~C%s ~cannounces '%s'\n\r", 
+           snprintf( buf, IMC_DATA_LENGTH, "~c[~CIMC-Status~c] ~C%s ~cannounces '%s'\n", 
                    from->name, argument);
        else
-           snprintf( buf, IMC_DATA_LENGTH, "~c[~CIMC-Status~c] ~C%s ~c%s\n\r", from->name, argument );
+           snprintf( buf, IMC_DATA_LENGTH, "~c[~CIMC-Status~c] ~C%s ~c%s\n", from->name, argument );
    }
    else
    {
        chan = 1;
 
        if (!emote)
-           snprintf( buf, IMC_DATA_LENGTH, "~c[~CIMC-Chan-FYI~c] ~C%s ~cannounces '%s'\n\r", 
+           snprintf( buf, IMC_DATA_LENGTH, "~c[~CIMC-Chan-FYI~c] ~C%s ~cannounces '%s'\n", 
                    from->name, argument );
        else
-           snprintf( buf, IMC_DATA_LENGTH, "~c[~CIMC-Chan-FYI~c] ~C%s ~c%s\n\r", from->name, argument );
+           snprintf( buf, IMC_DATA_LENGTH, "~c[~CIMC-Chan-FYI~c] ~C%s ~c%s\n", from->name, argument );
    }
 
    snprintf( str, IMC_DATA_LENGTH, "%s", color_itom(buf));
@@ -1758,7 +1608,7 @@ void imc_recv_imcptell( imc_char_data *from, char *to, const char *argument, int
       IMC_RREPLY(victim) = IMCSTRALLOC( from->name );
    }
 
-   strlcpy( tstring, color_itom("~C%s ~cimcptells you ~c'~W%s~c'\n\r" ), LSS);
+   strlcpy( tstring, color_itom("~C%s ~cimcptells you ~c'~W%s~c'\n" ), LSS);
 
    snprintf( buf, IMC_DATA_LENGTH, tstring,
            from->name, color_itom(argument) );
@@ -1897,7 +1747,7 @@ void update_imchistory( IMC_CHANNEL *channel, const char *message )
       {
          t = time( NULL );
          local = localtime( &t );
-         snprintf( buf, LSS, "~R[%-2.2d/%-2.2d %-2.2d:%-2.2d] ~G%s\n\r",
+         snprintf( buf, LSS, "~R[%-2.2d/%-2.2d %-2.2d:%-2.2d] ~G%s\n",
 		local->tm_mon+1, local->tm_mday, local->tm_hour, local->tm_min, color_mtoi(msg) );
          channel->history[x] = IMCSTRALLOC( color_itom(buf) );
          break;
@@ -1920,7 +1770,7 @@ void update_imchistory( IMC_CHANNEL *channel, const char *message )
 
          t = time( NULL );
          local = localtime( &t );
-         snprintf( buf, LSS, "~R[%-2.2d/%-2.2d %-2.2d:%-2.2d] ~G%s\n\r",
+         snprintf( buf, LSS, "~R[%-2.2d/%-2.2d %-2.2d:%-2.2d] ~G%s\n",
 		local->tm_mon+1, local->tm_mday, local->tm_hour, local->tm_min, color_mtoi(msg) );
 	   IMCSTRFREE( channel->history[x] );
          channel->history[x] = IMCSTRALLOC( color_itom(buf) );
@@ -1955,7 +1805,7 @@ void imc_showchannel( IMC_CHANNEL *c, const char *from, const char *txt, int emo
 	 || !imc_hasname( IMC_CSUBSCRIBED(ch), c->local_name ) )
       continue;
 
-      imc_printf( ch, "%s\n\r", buf );
+      char_printf( ch, "%s\n", buf );
   }
   update_imchistory( c, buf );
 }
@@ -2516,21 +2366,21 @@ const char *imc_list( void )
    REMOTEINFO *p;
    int count = 1;
 
-   snprintf( buf, IMC_DATA_LENGTH, "~WActive muds on IMC:\n\r"
+   snprintf( buf, IMC_DATA_LENGTH, "~WActive muds on IMC:\n"
                 "~c%-15.15s  ~C%-35.35s  ~g%-10.10s  ~G%-10.10s"
-        "\n\r\n\r~c%-15.15s  ~C%-35.35s  ~g%-10.10s  ~G%-10.10s",
+        "\n\n~c%-15.15s  ~C%-35.35s  ~g%-10.10s  ~G%-10.10s",
                 "Name", "IMC Version", "Network", "Hub", 
           imc_siteinfo.name, imc_versionid, imc_siteinfo.netname, this_imcmud->hubname );
 
    for( p = first_rinfo; p; p = p->next, count++ )
    {
       snprintf( buf + strlen(buf), IMC_DATA_LENGTH - strlen(buf), 
-              "\n\r~c%-15.15s  ~C%-35.35s  ~g%-10.10s  ~G%-10.10s",
+              "\n~c%-15.15s  ~C%-35.35s  ~g%-10.10s  ~G%-10.10s",
          p->name, p->version, p->netname, p->expired ? "~Rexpired" : imc_hubinpath(p->path));
    }
 
    snprintf( buf + strlen( buf ), IMC_DATA_LENGTH - strlen(buf),
-           "\n\r~W%d muds on IMC found.\n\r", count );
+           "\n~W%d muds on IMC found.\n", count );
 
    return buf;
 }
@@ -2587,16 +2437,16 @@ const char *imc_getstats( const char *choice )
           secondspast = 1;
 
        snprintf( buf, IMC_DATA_LENGTH,
-                               "~WGeneral IMC Statistics\n\r"
-                               "~cReceived packets   : ~C%ld\n\r"
-                               "~cReceived bytes     : ~C%s (%ld/second)\n\r"
-                               "~cTransmitted packets: ~C%ld\n\r"
-                               "~cTransmitted bytes  : ~C%s (%ld/second)\n\r"
-                               "~cMaximum packet size: ~C%d\n\r"
-                               "~cPending events     : ~C%d\n\r"
-                               "~cSequence drops     : ~C%d\n\r"
-                               "~cDebug              : ~C%s\n\r"
-                               "~cLast IMC Boot      : ~C%s\n\r",
+                               "~WGeneral IMC Statistics\n"
+                               "~cReceived packets   : ~C%ld\n"
+                               "~cReceived bytes     : ~C%s (%ld/second)\n"
+                               "~cTransmitted packets: ~C%ld\n"
+                               "~cTransmitted bytes  : ~C%s (%ld/second)\n"
+                               "~cMaximum packet size: ~C%d\n"
+                               "~cPending events     : ~C%d\n"
+                               "~cSequence drops     : ~C%d\n"
+                               "~cDebug              : ~C%s\n"
+                               "~cLast IMC Boot      : ~C%s\n",
             imc_stats.rx_pkts, comma( imc_stats.rx_bytes), imc_stats.rx_bytes / secondspast,
             imc_stats.tx_pkts, comma( imc_stats.tx_bytes), imc_stats.tx_bytes / secondspast,
             imc_stats.max_pkt, evcount, imc_stats.sequence_drops, imc_debug_on ? "Yes" : "No",
@@ -2608,13 +2458,13 @@ const char *imc_getstats( const char *choice )
    if (!strcasecmp( choice, "general"))
    {
       snprintf( buf, IMC_DATA_LENGTH,
-                              "~WSite Information:\n\r"
-                              "~cName           ~W:~C %s\n\r"
-                              "~cIMC Version    ~W:~C %s\n\r"
-                              "~cAddress        ~W:~C telnet://%s:%d\n\r"
-                              "~cWebpage        ~W:~C http://%s\n\r"
-                              "~cAdmin Email    ~W:~C %s\n\r"
-                              "~cDetails        ~W:~C %s\n\r", 
+                              "~WSite Information:\n"
+                              "~cName           ~W:~C %s\n"
+                              "~cIMC Version    ~W:~C %s\n"
+                              "~cAddress        ~W:~C telnet://%s:%d\n"
+                              "~cWebpage        ~W:~C http://%s\n"
+                              "~cAdmin Email    ~W:~C %s\n"
+                              "~cDetails        ~W:~C %s\n", 
          imc_siteinfo.name, imc_versionid, imc_siteinfo.host, imc_siteinfo.port, imc_siteinfo.www, 
          imc_siteinfo.email, imc_siteinfo.details );
 
@@ -2781,7 +2631,7 @@ void imc_recv_imcpbeep( imc_char_data *from, const char *to )
    }
     
    /* always display the true name here */
-   snprintf( buf, IMC_DATA_LENGTH, color_itom("~c\a%s imcpbeeps you.\n\r"), from->name );
+   snprintf( buf, IMC_DATA_LENGTH, color_itom("~c\a%s imcpbeeps you.\n"), from->name );
 
    imc_to_char( buf, victim );
    return;
@@ -2906,10 +2756,10 @@ void imc_recv_traceroutereply( const char *from, const char *to, const char *pat
    if ( pathto && pathto[0] != '\0' )
        snprintf( outgoing, LSS, "%s->%s", display_route(pathto), from );
 
-   imc_printf( ch, color_itom(  
-           "~WTraceroute Information for %s\n\r"
-           "~cSend Path    ~W:   ~C%s\n\r"
-           "~cReturn Path  ~W:   ~C%s\n\r\n\r"),
+   char_printf( ch, color_itom(  
+           "~WTraceroute Information for %s\n"
+           "~cSend Path    ~W:   ~C%s\n"
+           "~cReturn Path  ~W:   ~C%s\n\n"),
            from, outgoing, incoming );
    return;
 }
@@ -3196,7 +3046,7 @@ void do_imcsend( char *line )
    if ( imc_debug_on )
       imclog(line);
 
-   strlcat( this_imcmud->outbuf, "\n\r", newsize );
+   strlcat( this_imcmud->outbuf, "\n", newsize );
 }
 
 /* read waiting data from descriptor.
@@ -3301,7 +3151,7 @@ void do_imcwrite( void )
 }
 
 /*  try to read a line from the input buffer, NULL if none ready
- *  all lines are \n\r terminated in theory, but take other combinations
+ *  all lines are \n terminated in theory, but take other combinations
  */
 char *imcgetline( char *buffer )
 {
@@ -3836,7 +3686,7 @@ void imcfread_config_file( FILE *fin )
 	}
 
 	if( !fMatch ) 
-	   imcbug( "imcfread_config_file: Bad keyword: %s\n\r", word );
+	   imcbug( "imcfread_config_file: Bad keyword: %s\n", word );
    }
 }
 
@@ -4813,7 +4663,7 @@ void run_imccadmin( CHAR_DATA *ch, const char *argument )
 
    if( !cmd[0] || !chan[0] )
    {
-      imc_to_char( "Syntax: imccadmin <command> <hub:channelname> [<data..>]\n\r", ch );
+      imc_to_char( "Syntax: imccadmin <command> <hub:channelname> [<data..>]\n", ch );
 	return;
    }
 
@@ -4836,7 +4686,7 @@ void run_imccadmin( CHAR_DATA *ch, const char *argument )
    imc_send( &out );
    imc_freedata( &out );
 
-   imc_to_char( "Command sent.\n\r", ch );
+   imc_to_char( "Command sent.\n", ch );
    return;
 }
 
@@ -4855,19 +4705,19 @@ void run_imccsettings( CHAR_DATA *ch, const char *argument )
    if( !channame || channame[0] == '\0' || !field || field[0] == '\0' )
    {
       imc_to_char( color_itom(
-                 "~GSyntax: ~cimccsettings  <channel name> <field> [value]\n\r\n\r"
-                 "~cWhere the field may be one of the following:\n\r"
-                 "~C  localize unlocalize rename permlevel regformat emoteformat socformat\n\r"
-                 "~cAll changes are saved on edit. More information on each field may be obtained\n\r"
-                 "~cby typing a field name without an accompanying value. Type \"~Gimccsettings\n\r"
-                  "<channel name> show~c\" for a display of the current values for a channel.\n\r"
+                 "~GSyntax: ~cimccsettings  <channel name> <field> [value]\n\n"
+                 "~cWhere the field may be one of the following:\n"
+                 "~C  localize unlocalize rename permlevel regformat emoteformat socformat\n"
+                 "~cAll changes are saved on edit. More information on each field may be obtained\n"
+                 "~cby typing a field name without an accompanying value. Type \"~Gimccsettings\n"
+                  "<channel name> show~c\" for a display of the current values for a channel.\n"
                    ), ch);
       return;
    }
 
    if( (channel = imc_findlchannel(channame)) == NULL && (channel = imc_findchannel(channame)) == NULL)
    {
-       imc_to_char( "That channel could not be found.\n\r", ch );
+       imc_to_char( "That channel could not be found.\n", ch );
        return;
    }
 
@@ -4904,18 +4754,18 @@ void run_imccsettings( CHAR_DATA *ch, const char *argument )
        }
        
        snprintf( buf, LSS, 
-               "~WChannel %s:\n\r"
-               "~c  Local name~W: ~C%s\n\r"
-               "~c  Regformat ~W: ~C%s\n\r"
-               "~c  Emformat  ~W: ~C%s\n\r"
-               "~c  Socformat ~W: ~C%s\n\r"
-               "~c  Level     ~W: ~C%d\n\r"
-               "\n\r"
-               "~c  Policy    ~W: ~C%s\n\r"
-               "~c  Owner     ~W: ~C%s\n\r"
-               "~c  Operators ~W: ~C%s\n\r"
-               "~c  Invited   ~W: ~C%s\n\r"
-               "~c  Excluded  ~W: ~C%s\n\r",
+               "~WChannel %s:\n"
+               "~c  Local name~W: ~C%s\n"
+               "~c  Regformat ~W: ~C%s\n"
+               "~c  Emformat  ~W: ~C%s\n"
+               "~c  Socformat ~W: ~C%s\n"
+               "~c  Level     ~W: ~C%d\n"
+               "\n"
+               "~c  Policy    ~W: ~C%s\n"
+               "~c  Owner     ~W: ~C%s\n"
+               "~c  Operators ~W: ~C%s\n"
+               "~c  Invited   ~W: ~C%s\n"
+               "~c  Excluded  ~W: ~C%s\n",
                channel->name, channel->local_name ? channel->local_name : "", 
                channel->regformat ? channel->regformat : "", channel->emoteformat ? channel->emoteformat : "",
                channel->socformat ? channel->socformat : "", channel->perm_level ? channel->perm_level : 0,
@@ -4933,16 +4783,16 @@ void run_imccsettings( CHAR_DATA *ch, const char *argument )
                || (strchr( argument, ' ' )) ) 
        {
            imc_to_char( color_itom(
-                       "~cDescription: ~CLocalize sets the localname to use the channel. It also\n\r"
-                       "~C           ~Ccreates creates defaults for all three format strings.\n\r"
-                       "~cAccepted Values: ~CTakes any string without spaces up to 20 characters.\n\r"
+                       "~cDescription: ~CLocalize sets the localname to use the channel. It also\n"
+                       "~C           ~Ccreates creates defaults for all three format strings.\n"
+                       "~cAccepted Values: ~CTakes any string without spaces up to 20 characters.\n"
                        ), ch);
            return;
        }
 	
        if( local )
        {
-           imc_printf( ch, "Channel %s has already been localized as %s.\n\r", 
+           char_printf( ch, "Channel %s has already been localized as %s.\n", 
                    channel->name, channel->local_name );
            return;
        }
@@ -4966,7 +4816,7 @@ void run_imccsettings( CHAR_DATA *ch, const char *argument )
        snprintf( formatstring, MSS, "~R[~Y%s~R] ~c%%s", channel->local_name );
        channel->socformat = IMCSTRALLOC( color_itom(formatstring) );
 	
-       imc_printf( ch, "Channel %s has now been localized as %s.\n\r", 
+       char_printf( ch, "Channel %s has now been localized as %s.\n", 
                channel->name, channel->local_name );
        imc_save_channels();
        return;
@@ -4977,16 +4827,16 @@ void run_imccsettings( CHAR_DATA *ch, const char *argument )
        if( !argument || argument[0] == '\0' || strcasecmp( argument, "now" ) )
        {
            imc_to_char( color_itom(
-                       "~cDescription: ~CUnlocalize clears the localname, the permission level,\n\r"
-                       "~C             and all three format strings for a channel.\n\r" 
-                       "~cAccepted Values: ~CTakes the value \"now\" to confirm action.\n\r" 
+                       "~cDescription: ~CUnlocalize clears the localname, the permission level,\n"
+                       "~C             and all three format strings for a channel.\n" 
+                       "~cAccepted Values: ~CTakes the value \"now\" to confirm action.\n" 
                        ), ch);
            return;
        }
 	
        if( !local )
        {
-           imc_to_char( "That channel has not been localized.\n\r", ch );
+           imc_to_char( "That channel has not been localized.\n", ch );
            return;
        }
 	
@@ -5001,7 +4851,7 @@ void run_imccsettings( CHAR_DATA *ch, const char *argument )
 
        channel->perm_level = PERM_ADMIN;
 	
-       imc_printf( ch, "Channel %s has been unlocalized successfully.\n\r", 
+       char_printf( ch, "Channel %s has been unlocalized successfully.\n", 
                channel->name);
        imc_save_channels();
        return;
@@ -5013,21 +4863,21 @@ void run_imccsettings( CHAR_DATA *ch, const char *argument )
                || (strchr( argument, ' ' )) ) 
        {
            imc_to_char( color_itom(
-                       "~cDescription: ~CRename modifies the localname for using the channel.\n\r" 
-                       "~cAccepted Values: ~CTakes any string without spaces up to 20 characters.\n\r"
+                       "~cDescription: ~CRename modifies the localname for using the channel.\n" 
+                       "~cAccepted Values: ~CTakes any string without spaces up to 20 characters.\n"
                        ), ch);
            return;
        }
 	
        if( !local )
        {
-           imc_to_char( "That channel has not been localized.\n\r", ch );
+           imc_to_char( "That channel has not been localized.\n", ch );
            return;
        }
 
        if ( imc_findlchannel( argument ))
        {
-           imc_to_char( "That localname already exists.\n\r", ch );
+           imc_to_char( "That localname already exists.\n", ch );
            return;
        }
 	
@@ -5035,7 +4885,7 @@ void run_imccsettings( CHAR_DATA *ch, const char *argument )
            IMCSTRFREE( channel->local_name );
        channel->local_name = IMCSTRALLOC( argument );
 
-       imc_printf( ch, "Channel %s has had its local name successfully changed to %s.\n\r", 
+       char_printf( ch, "Channel %s has had its local name successfully changed to %s.\n", 
                channel->name, channel->local_name);
        imc_save_channels();
        return;
@@ -5048,9 +4898,9 @@ void run_imccsettings( CHAR_DATA *ch, const char *argument )
        if( !argument || argument[0] == '\0' || !is_number(argument))
        {
            imc_to_char( color_itom(
-                       "~cDescription: ~CPermlevel sets the minimum permission level for using a\n\r"
-                       "~C             localized channel.\n\r"
-                       "~cAccepted Values: ~CTakes any integer between 1 and the admin permission level.\n\r"
+                       "~cDescription: ~CPermlevel sets the minimum permission level for using a\n"
+                       "~C             localized channel.\n"
+                       "~cAccepted Values: ~CTakes any integer between 1 and the admin permission level.\n"
                        ), ch);
            return;
        }
@@ -5059,19 +4909,19 @@ void run_imccsettings( CHAR_DATA *ch, const char *argument )
 
        if ( value < 1 || value > PERM_ADMIN )
        {
-           imc_printf( ch, "That value was outside of the range of 1 to %d.\n\r", PERM_ADMIN );
+           char_printf( ch, "That value was outside of the range of 1 to %d.\n", PERM_ADMIN );
            return;
        }
 	
        if( !local )
        {
-           imc_to_char( "That channel has not been localized.\n\r", ch );
+           imc_to_char( "That channel has not been localized.\n", ch );
            return;
        }
 
        channel->perm_level = value;
 
-       imc_printf( ch, "That channel has had its minimum permission level changed to %d.\n\r", value );
+       char_printf( ch, "That channel has had its minimum permission level changed to %d.\n", value );
        imc_save_channels();
        return;
    }
@@ -5081,21 +4931,21 @@ void run_imccsettings( CHAR_DATA *ch, const char *argument )
        if( !argument || argument[0] == '\0' || strlen(argument) > SSS )
        {
            imc_to_char( color_itom(
-                       "~cDescription: ~CRegformat modifies the format string for regular channel use.\n\r" 
-                       "~cAccepted Values: ~CTakes any string up to 256 characters with two %s's.\n\r"
+                       "~cDescription: ~CRegformat modifies the format string for regular channel use.\n" 
+                       "~cAccepted Values: ~CTakes any string up to 256 characters with two %s's.\n"
                        ), ch);
            return;
        }
 
        if( !verify_format( argument, 2 ) )
        {
-           imc_to_char( "The regular format must contain two %s's.\n\r", ch );
+           imc_to_char( "The regular format must contain two %s's.\n", ch );
            return;
        }
 	
        if( !local )
        {
-           imc_to_char( "That channel has not been localized.\n\r", ch );
+           imc_to_char( "That channel has not been localized.\n", ch );
            return;
        }
 	
@@ -5103,7 +4953,7 @@ void run_imccsettings( CHAR_DATA *ch, const char *argument )
            IMCSTRFREE( channel->regformat );
        channel->regformat = IMCSTRALLOC( argument );
 
-       imc_printf( ch, "Channel %s has successfully had its regular format string changed.\n\r", 
+       char_printf( ch, "Channel %s has successfully had its regular format string changed.\n", 
                channel->name );
        imc_save_channels();
        return;
@@ -5114,21 +4964,21 @@ void run_imccsettings( CHAR_DATA *ch, const char *argument )
        if( !argument || argument[0] == '\0' || strlen(argument) > SSS )
        {
            imc_to_char( color_itom(
-                       "~cDescription: ~CEmoteformat modifies the format string for emote channel use.\n\r" 
-                       "~cAccepted Values: ~CTakes any string up to 256 characters with two %s's.\n\r"
+                       "~cDescription: ~CEmoteformat modifies the format string for emote channel use.\n" 
+                       "~cAccepted Values: ~CTakes any string up to 256 characters with two %s's.\n"
                        ), ch);
            return;
        }
 
        if( !verify_format( argument, 2 ) )
        {
-           imc_to_char( "The emote format must contain two %s's.\n\r", ch );
+           imc_to_char( "The emote format must contain two %s's.\n", ch );
            return;
        }
 	
        if( !local )
        {
-           imc_to_char( "That channel has not been localized.\n\r", ch );
+           imc_to_char( "That channel has not been localized.\n", ch );
            return;
        }
 	
@@ -5136,7 +4986,7 @@ void run_imccsettings( CHAR_DATA *ch, const char *argument )
            IMCSTRFREE( channel->emoteformat );
        channel->emoteformat = IMCSTRALLOC( argument );
 
-       imc_printf( ch, "Channel %s has successfully had its emote format string changed.\n\r", 
+       char_printf( ch, "Channel %s has successfully had its emote format string changed.\n", 
                channel->name );
        imc_save_channels();
        return;
@@ -5147,21 +4997,21 @@ void run_imccsettings( CHAR_DATA *ch, const char *argument )
        if( !argument || argument[0] == '\0' || strlen(argument) > SSS )
        {
            imc_to_char( color_itom(
-                       "~cDescription: ~CSocformat modifies the format string for social channel use.\n\r" 
-                       "~cAccepted Values: ~CTakes any string up to 256 characters with one %s.\n\r"
+                       "~cDescription: ~CSocformat modifies the format string for social channel use.\n" 
+                       "~cAccepted Values: ~CTakes any string up to 256 characters with one %s.\n"
                        ), ch);
            return;
        }
 
        if( !verify_format( argument, 1 ) )
        {
-           imc_to_char( "The social format must contain one %s.\n\r", ch );
+           imc_to_char( "The social format must contain one %s.\n", ch );
            return;
        }
 	
        if( !local )
        {
-           imc_to_char( "That channel has not been localized.\n\r", ch );
+           imc_to_char( "That channel has not been localized.\n", ch );
            return;
        }
 	
@@ -5169,7 +5019,7 @@ void run_imccsettings( CHAR_DATA *ch, const char *argument )
            IMCSTRFREE( channel->socformat );
        channel->socformat = IMCSTRALLOC( argument );
 
-       imc_printf( ch, "Channel %s has successfully had its social format string changed.\n\r", 
+       char_printf( ch, "Channel %s has successfully had its social format string changed.\n", 
                channel->name );
        imc_save_channels();
        return;
@@ -5192,7 +5042,7 @@ void run_imcclist( CHAR_DATA *ch, const char *argument )
        allpriv = TRUE;
 
    /* added level to the display for imcclist with no arguments for 2.00 - shogar - /1/26/2000 */
-   snprintf( buf, LSS, "~W%-15s %-15s %-15s %-7s %s\n\r", 
+   snprintf( buf, LSS, "~W%-15s %-15s %-15s %-7s %s\n", 
            "Name", "Local name", "Owner", "Level", "Policy" );
 
    /* for compress policy - shogar - 1/29/2000 */
@@ -5225,7 +5075,7 @@ void run_imcclist( CHAR_DATA *ch, const char *argument )
            }
 
        snprintf( buf+strlen(buf), LSS, 
-               "~c%-15.15s ~C%-*.*s ~g%-15.15s ~G%-7d %s\n\r", c->name, c->local_name ? 15 : 17, 
+               "~c%-15.15s ~C%-*.*s ~g%-15.15s ~G%-7d %s\n", c->name, c->local_name ? 15 : 17, 
                c->local_name ? 15 : 17, c->local_name ? c->local_name : "~R(not local)  ", c->owner,
                c->perm_level ? c->perm_level : 0, polly );
    }
@@ -5235,8 +5085,8 @@ void run_imcclist( CHAR_DATA *ch, const char *argument )
    if (!allpriv)
    {
        imc_to_char( color_itom( 
-                        "\n\r~WType \"~Yimcclist all~W\" to see the entire listing, including private\n\r"
-                            "~Wchannels that you are not invited to.\n\r"), ch );
+                        "\n~WType \"~Yimcclist all~W\" to see the entire listing, including private\n"
+                            "~Wchannels that you are not invited to.\n"), ch );
    }
 
    return;
@@ -5432,32 +5282,32 @@ void run_imcptell( CHAR_DATA *ch, const char *argument )
 
    if( !buf[0] || !strchr(buf, '@') || !argument[0] )
    {
-      imc_to_char( "Who@Where do you want to imcptell?\n\r", ch );
+      imc_to_char( "Who@Where do you want to imcptell?\n", ch );
       return;
    }
 
    if( !function_usable( ch, DENY_IMCPTELL, ALLOW_IMCPTELL, PERM_PLAYER ) )
    {
-      imc_to_char( "You are not authorized to use imcptell.\n\r", ch );
+      imc_to_char( "You are not authorized to use imcptell.\n", ch );
       return;
    }
 
    if( !IS_IMCVISIBLE(ch) )
    {
-      imc_to_char( "You are invisible.\n\r", ch );
+      imc_to_char( "You are invisible.\n", ch );
       return;
    }
 
    if( IS_SET( IMC_PFLAGS(ch), PSET_IMCPTELL ) )
    {
-      imc_to_char( "Enable incoming imcptells first ('imcpsettings +imcptell').\n\r", ch );
+      imc_to_char( "Enable incoming imcptells first ('imcpsettings +imcptell').\n", ch );
       return;
    }
 
    CHECKMUDOF( ch, buf );
    imc_send_tell( chdata, buf, color_mtoi(argument), 0 );
   
-   snprintf( buf1, LSS, color_itom("~cYou imcptell ~C%s ~c'~W%s~c'\n\r"), buf, argument );
+   snprintf( buf1, LSS, color_itom("~cYou imcptell ~C%s ~c'~W%s~c'\n"), buf, argument );
    imc_to_char( buf1, ch );
 
    IMCDISPOSE( chdata );
@@ -5472,13 +5322,13 @@ void run_imcpreply( CHAR_DATA *ch, const char *argument )
 
    if( !IMC_RREPLY(ch) )
    {
-      imc_to_char( "You haven't received an imcptell yet.\n\r", ch );
+      imc_to_char( "You haven't received an imcptell yet.\n", ch );
       return;
    }
 
    if ( !argument || argument[0] == '\0')
    {
-       imc_to_char( "What do you want to imcptell that person?\n\r", ch );
+       imc_to_char( "What do you want to imcptell that person?\n", ch );
        return;
    }
 
@@ -5497,31 +5347,31 @@ void run_imcpbeep( CHAR_DATA *ch, const char *argument )
 
    if( !argument || argument[0] == '\0' || !strchr(argument, '@') )
    {
-      imc_to_char( "Who@Where do you want to imcbeep?\n\r", ch );
+      imc_to_char( "Who@Where do you want to imcbeep?\n", ch );
       return;
    }
 
    if( !function_usable(ch, DENY_IMCPBEEP, ALLOW_IMCPBEEP, PERM_PLAYER) )
    {
-      imc_to_char( "You are not authorized to imcpbeep.\n\r", ch );
+      imc_to_char( "You are not authorized to imcpbeep.\n", ch );
       return;
    }
 
    if( !IS_IMCVISIBLE(ch) )
    {
-      imc_to_char( "You are invisible.\n\r", ch );
+      imc_to_char( "You are invisible.\n", ch );
       return;
    }
 
    if( IS_SET(IMC_PFLAGS(ch), PSET_IMCPBEEP) )
    {
-      imc_to_char( "Enable incoming imcpbeep first ('imcpsettings +imcpbeep').\n\r", ch );
+      imc_to_char( "Enable incoming imcpbeep first ('imcpsettings +imcpbeep').\n", ch );
       return;
    }
 
    CHECKMUDOF( ch, argument );
    imc_send_beep( chdata, argument );
-   snprintf( buf, LSS, color_itom("~cYou imcpbeep ~C%s~c.\n\r"), argument );
+   snprintf( buf, LSS, color_itom("~cYou imcpbeep ~C%s~c.\n"), argument );
    
    imc_to_char( buf, ch );
    
@@ -5537,12 +5387,12 @@ void run_imcpafk( CHAR_DATA *ch, const char *argument )
 
     if ( IS_SET(IMC_PFLAGS(ch), PSET_IMCPAFK) )
     {
-        imc_to_char( "You are no longer imcpafk.\n\r", ch );
+        imc_to_char( "You are no longer imcpafk.\n", ch );
         REMOVE_BIT( IMC_PFLAGS(ch), PSET_IMCPAFK); 
         return;
     }
 
-    imc_to_char( "You are now imcpafk.\n\r", ch );
+    imc_to_char( "You are now imcpafk.\n", ch );
     SET_BIT( IMC_PFLAGS(ch), PSET_IMCPAFK);
     return;
 }
@@ -5555,7 +5405,7 @@ void run_imcplist( CHAR_DATA *ch, const char *argument )
 
    if( !argument || argument[0] == '\0' )
    {
-      imc_to_char( "Which mud do you want to imcplist?\n\r", ch );
+      imc_to_char( "Which mud do you want to imcplist?\n", ch );
       return;
    }
   
@@ -5572,7 +5422,7 @@ void run_imcpfind( CHAR_DATA *ch, const char *argument )
 
    if( !argument || argument[0] == '\0' )
    {
-      imc_to_char( "Who do you want to imcpfind?\n\r", ch );
+      imc_to_char( "Who do you want to imcpfind?\n", ch );
       return;
    }
 
@@ -5589,7 +5439,7 @@ void run_imcpinfo( CHAR_DATA *ch, const char *argument )
 
    if( !argument || argument[0] == '\0' || !strchr(argument, '@') )
    {
-      imc_to_char( "Who@Where do you want to imcpinfo?\n\r", ch );
+      imc_to_char( "Who@Where do you want to imcpinfo?\n", ch );
       return;
    }
 
@@ -5610,7 +5460,7 @@ void run_imcminfo( CHAR_DATA *ch, const char *argument )
 
    if( !arg || arg[0] == '\0' )
    {
-      imc_to_char( "Where do you want to imcminfo?\n\r", ch );
+      imc_to_char( "Where do you want to imcminfo?\n", ch );
       return;
    }
 
@@ -5634,49 +5484,49 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
    if( !argument || argument[0] == '\0' )
    {
        imc_to_char( color_itom(
-                  "~GSyntax: ~cimcmsettings  <field> [value]\n\r\n\r"
-                  "~cWhere the field may be one of the following:\n\r"
-                  "~G--Connection Related Fields --\n\r"
-                  "~C  connected imcname hubname hubaddr hubport clientpwd serverpwd\n\r"
-                  "~C  autoconnect debug netname\n\r"
-                  "~G--Privilege Related Fields --\n\r"
-                  "~C  minplayerlevel minimmlevel minadminlevel\n\r"
-                  "~G--Information Display Related Fields\n\r"
-                  "~C  infoname infohost infoport infoemail infowww infobase infodetails\n\r"
-                  "~G--Miscellaneous Fields\n\r"
-                  "~C  whostyle\n\r"
-                  "~cAll changes are saved on edit. More information on each field may be obtained\n\r"
-                  "~cby typing a field name without an accompanying value. Type \"~Gimcmsettings show~c\"\n\r"
-                  "~cfor a display of the current values for all available fields.\n\r"
+                  "~GSyntax: ~cimcmsettings  <field> [value]\n\n"
+                  "~cWhere the field may be one of the following:\n"
+                  "~G--Connection Related Fields --\n"
+                  "~C  connected imcname hubname hubaddr hubport clientpwd serverpwd\n"
+                  "~C  autoconnect debug netname\n"
+                  "~G--Privilege Related Fields --\n"
+                  "~C  minplayerlevel minimmlevel minadminlevel\n"
+                  "~G--Information Display Related Fields\n"
+                  "~C  infoname infohost infoport infoemail infowww infobase infodetails\n"
+                  "~G--Miscellaneous Fields\n"
+                  "~C  whostyle\n"
+                  "~cAll changes are saved on edit. More information on each field may be obtained\n"
+                  "~cby typing a field name without an accompanying value. Type \"~Gimcmsettings show~c\"\n"
+                  "~cfor a display of the current values for all available fields.\n"
                     ), ch);
        return;
    }
 
    if( !strcasecmp( argument, "show" ) )
    {
-       imc_to_char( color_itom("~WCurrent Values:\n\r"), ch );
-       imc_printf( ch, color_itom("~cMud IMC2 Name  ~W: ~C%s\n\r"), imc_name );
-       imc_printf( ch, color_itom("~cNetwork Name   ~W: ~C%s\n\r"), imc_siteinfo.netname );
-       imc_printf( ch, color_itom("~cConnected      ~W: ~C%s\n\r"), this_imcmud->state == CONN_COMPLETE 
+       imc_to_char( color_itom("~WCurrent Values:\n"), ch );
+       char_printf( ch, color_itom("~cMud IMC2 Name  ~W: ~C%s\n"), imc_name );
+       char_printf( ch, color_itom("~cNetwork Name   ~W: ~C%s\n"), imc_siteinfo.netname );
+       char_printf( ch, color_itom("~cConnected      ~W: ~C%s\n"), this_imcmud->state == CONN_COMPLETE 
                ? "Yes" : "No");
-	   imc_printf( ch, color_itom("~cHubName        ~W: ~C%s\n\r"), this_imcmud->hubname );
-	   imc_printf( ch, color_itom("~cHub Address    ~W: ~C%s\n\r"), this_imcmud->host );
-	   imc_printf( ch, color_itom("~cHub Port       ~W: ~C%d\n\r"), this_imcmud->port );
-	   imc_printf( ch, color_itom("~cClientPwd      ~W: ~C%s\n\r"), this_imcmud->clientpw );
-	   imc_printf( ch, color_itom("~cServerPwd      ~W: ~C%s\n\r"), this_imcmud->serverpw );
-	   imc_printf( ch, color_itom("~cAutoconnect    ~W: ~C%s\n\r"), this_imcmud->autoconnect ? "Yes" : "No");
-	   imc_printf( ch, color_itom("~cDebug          ~W: ~C%s\n\r"), imc_debug_on ? "Yes" : "No" );
-	   imc_printf( ch, color_itom("~cMinPlayerLevel ~W: ~C%d\n\r"), imc_minplayerlevel );
-       imc_printf( ch, color_itom("~cMinImmLevel    ~W: ~C%d\n\r"), imc_minimmlevel );
-	   imc_printf( ch, color_itom("~cAdminlevel     ~W: ~C%d\n\r"), imc_minadminlevel );
-	   imc_printf( ch, color_itom("~cInfoname       ~W: ~C%s\n\r"), imc_siteinfo.name );
-	   imc_printf( ch, color_itom("~cInfohost       ~W: ~C%s\n\r"), imc_siteinfo.host );
-	   imc_printf( ch, color_itom("~cInfoport       ~W: ~C%d\n\r"), imc_siteinfo.port );
-	   imc_printf( ch, color_itom("~cInfoemail      ~W: ~C%s\n\r"), imc_siteinfo.email );
-	   imc_printf( ch, color_itom("~cInfobase       ~W: ~C%s\n\r"), imc_siteinfo.base );
-	   imc_printf( ch, color_itom("~cInfoWWW        ~W: ~C%s\n\r"), imc_siteinfo.www );
-	   imc_printf( ch, color_itom("~cInfoDetails    ~W: ~C%s\n\r"), imc_siteinfo.details );
-       imc_printf( ch, color_itom("~cWhoStyle       ~W: ~C%s\n\r\n\r"), whostylename_table[imc_whostyle] );
+	   char_printf( ch, color_itom("~cHubName        ~W: ~C%s\n"), this_imcmud->hubname );
+	   char_printf( ch, color_itom("~cHub Address    ~W: ~C%s\n"), this_imcmud->host );
+	   char_printf( ch, color_itom("~cHub Port       ~W: ~C%d\n"), this_imcmud->port );
+	   char_printf( ch, color_itom("~cClientPwd      ~W: ~C%s\n"), this_imcmud->clientpw );
+	   char_printf( ch, color_itom("~cServerPwd      ~W: ~C%s\n"), this_imcmud->serverpw );
+	   char_printf( ch, color_itom("~cAutoconnect    ~W: ~C%s\n"), this_imcmud->autoconnect ? "Yes" : "No");
+	   char_printf( ch, color_itom("~cDebug          ~W: ~C%s\n"), imc_debug_on ? "Yes" : "No" );
+	   char_printf( ch, color_itom("~cMinPlayerLevel ~W: ~C%d\n"), imc_minplayerlevel );
+       char_printf( ch, color_itom("~cMinImmLevel    ~W: ~C%d\n"), imc_minimmlevel );
+	   char_printf( ch, color_itom("~cAdminlevel     ~W: ~C%d\n"), imc_minadminlevel );
+	   char_printf( ch, color_itom("~cInfoname       ~W: ~C%s\n"), imc_siteinfo.name );
+	   char_printf( ch, color_itom("~cInfohost       ~W: ~C%s\n"), imc_siteinfo.host );
+	   char_printf( ch, color_itom("~cInfoport       ~W: ~C%d\n"), imc_siteinfo.port );
+	   char_printf( ch, color_itom("~cInfoemail      ~W: ~C%s\n"), imc_siteinfo.email );
+	   char_printf( ch, color_itom("~cInfobase       ~W: ~C%s\n"), imc_siteinfo.base );
+	   char_printf( ch, color_itom("~cInfoWWW        ~W: ~C%s\n"), imc_siteinfo.www );
+	   char_printf( ch, color_itom("~cInfoDetails    ~W: ~C%s\n"), imc_siteinfo.details );
+       char_printf( ch, color_itom("~cWhoStyle       ~W: ~C%s\n\n"), whostylename_table[imc_whostyle] );
 
 	   return;
    }
@@ -5689,10 +5539,10 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
       if( !argument || argument[0] == '\0')
       {
           imc_to_char( color_itom(
-                       "~cDescription: ~CConnected either connects or disconnects the IMC client\n\r"
-                       "             ~Cfrom the hub. Also, it can stop the reconnect process\n\r"
-                       "             ~Cwith \"no\".\n\r"
-                       "~cAccepted Values: ~CTakes the values \"yes\" and \"no\".\n\r" 
+                       "~cDescription: ~CConnected either connects or disconnects the IMC client\n"
+                       "             ~Cfrom the hub. Also, it can stop the reconnect process\n"
+                       "             ~Cwith \"no\".\n"
+                       "~cAccepted Values: ~CTakes the values \"yes\" and \"no\".\n" 
                        ), ch);
           return;
       }
@@ -5701,11 +5551,11 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
       {
           if (this_imcmud->state > CONN_NONE)
           {
-              imc_to_char( "The IMC client is already connected to the hub.\n\r", ch );
+              imc_to_char( "The IMC client is already connected to the hub.\n", ch );
               return;
           }
           
-          imc_to_char( "The IMC client will now connect itself to the hub.\n\r", ch );
+          imc_to_char( "The IMC client will now connect itself to the hub.\n", ch );
           imcwait = 0;
           imc_startup( TRUE );
           return;
@@ -5715,18 +5565,18 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
       {
           if ( imcwait > 0 )
           {
-              imc_to_char( "The IMC client will now stop its reconnect process to the hub.\n\r", ch );
+              imc_to_char( "The IMC client will now stop its reconnect process to the hub.\n", ch );
               imcwait = 0;
               return;
           }
           
           if (this_imcmud->state < CONN_COMPLETE)
           {
-              imc_to_char( "The IMC client is already disconnected from the hub.\n\r", ch );
+              imc_to_char( "The IMC client is already disconnected from the hub.\n", ch );
               return;
           }
 
-          imc_to_char( "The IMC client will now disconnect itself from the hub.\n\r", ch );
+          imc_to_char( "The IMC client will now disconnect itself from the hub.\n", ch );
           imc_shutdown( FALSE );
           return;
       }
@@ -5741,16 +5591,16 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
               || (strchr( argument, ' ' )) ) 
       {
           imc_to_char( color_itom(
-                       "~cDescription: ~CImcname is the name that the IMC2 network will know\n\r"
-                       "             ~Cthis mud as.\n\r" 
-                       "~cAccepted Values: ~CTakes any string without spaces up to 20 characters.\n\r"
+                       "~cDescription: ~CImcname is the name that the IMC2 network will know\n"
+                       "             ~Cthis mud as.\n" 
+                       "~cAccepted Values: ~CTakes any string without spaces up to 20 characters.\n"
                        ), ch);
           return;
       }
 
       if( this_imcmud->state > CONN_NONE )
       {
-          imc_to_char( "Imcname can not be modified while connected.\n\r", ch );
+          imc_to_char( "Imcname can not be modified while connected.\n", ch );
           return;
       }
 	
@@ -5758,7 +5608,7 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
           IMCSTRFREE( imc_name );
 
 	  imc_name = IMCSTRALLOC( argument );
-	  imc_printf( ch, "This mud will now be known to the network as %s\n\r", argument );
+	  char_printf( ch, "This mud will now be known to the network as %s\n", argument );
 	  imc_save_config();
       return;
    }
@@ -5769,15 +5619,15 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
               || (strchr( argument, ' ' )) ) 
       {
           imc_to_char( color_itom(
-                       "~cDescription: ~CHubname sets the name that IMC will call the hub.\n\r"
-                       "~cAccepted Values: ~CTakes any string without spaces up to 20 characters.\n\r"
+                       "~cDescription: ~CHubname sets the name that IMC will call the hub.\n"
+                       "~cAccepted Values: ~CTakes any string without spaces up to 20 characters.\n"
                        ), ch);
           return;
       }
 
       if( this_imcmud->state > CONN_NONE )
       {
-          imc_to_char( "Hubname can not be modified while connected.\n\r", ch );
+          imc_to_char( "Hubname can not be modified while connected.\n", ch );
           return;
       }
 	
@@ -5785,7 +5635,7 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
           IMCSTRFREE( this_imcmud->hubname );
 
 	  this_imcmud->hubname = IMCSTRALLOC( argument );
-	  imc_printf( ch, "The hub will now be known as %s.\n\r", argument );
+	  char_printf( ch, "The hub will now be known as %s.\n", argument );
 	  imc_save_config();
       return;
    }
@@ -5796,16 +5646,16 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
               || (strchr( argument, ' ' )) ) 
       {
           imc_to_char( color_itom(
-                       "~cDescription: ~CHubaddr sets the hostname or ip address that IMC\n\r"
-                       "             ~Cwill use to try to connect to the hub.\n\r"
-                       "~cAccepted Values: ~CTakes any string without spaces up to 256 characters.\n\r"
+                       "~cDescription: ~CHubaddr sets the hostname or ip address that IMC\n"
+                       "             ~Cwill use to try to connect to the hub.\n"
+                       "~cAccepted Values: ~CTakes any string without spaces up to 256 characters.\n"
                        ), ch);
           return;
       }
 
       if( this_imcmud->state > CONN_NONE )
       {
-          imc_to_char( "Hubaddr can not be modified while connected.\n\r", ch );
+          imc_to_char( "Hubaddr can not be modified while connected.\n", ch );
           return;
       }
 	
@@ -5813,7 +5663,7 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
           IMCSTRFREE( this_imcmud->host );
 
 	  this_imcmud->host = IMCSTRALLOC( argument );
-	  imc_printf( ch, "The hub is now located at %s.\n\r", argument );
+	  char_printf( ch, "The hub is now located at %s.\n", argument );
 	  imc_save_config();
       return;
    }
@@ -5825,16 +5675,16 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
       if( !argument || argument[0] == '\0' || !is_number(argument))
       {
           imc_to_char( color_itom(
-                       "~cDescription: ~CHubport sets the port that IMC will try to connect\n\r"
-                       "             ~Cto the hub at.\n\r"
-                       "~cAccepted Values: ~CTakes any integer between 1 and 65,535.\n\r" 
+                       "~cDescription: ~CHubport sets the port that IMC will try to connect\n"
+                       "             ~Cto the hub at.\n"
+                       "~cAccepted Values: ~CTakes any integer between 1 and 65,535.\n" 
                        ), ch);
           return;
       }
 
       if( this_imcmud->state > CONN_NONE )
       {
-          imc_to_char( "Hubport can not be modified while connected.\n\r", ch );
+          imc_to_char( "Hubport can not be modified while connected.\n", ch );
           return;
       }
 
@@ -5842,12 +5692,12 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
 
       if ( value < 1 || value > 65535 )
       {
-          imc_to_char( "That value was outside of the range of 1 to 65,535.\n\r", ch );
+          imc_to_char( "That value was outside of the range of 1 to 65,535.\n", ch );
           return;
       }
 
       this_imcmud->port = value;
-      imc_printf( ch, "The hub is now located on port %d.\n\r", value );
+      char_printf( ch, "The hub is now located on port %d.\n", value );
 	  imc_save_config();
 	  return;
    }
@@ -5858,16 +5708,16 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
               || (strchr( argument, ' ' )) ) 
       {
           imc_to_char( color_itom(
-                       "~cDescription: ~CClientpwd is the password that the IMC client uses to\n\r"
-                       "             ~Cauthenticate itself to the hub.\n\r" 
-                       "~cAccepted Values: ~CTakes any string without spaces up to 20 characters.\n\r"
+                       "~cDescription: ~CClientpwd is the password that the IMC client uses to\n"
+                       "             ~Cauthenticate itself to the hub.\n" 
+                       "~cAccepted Values: ~CTakes any string without spaces up to 20 characters.\n"
                        ), ch);
           return;
       }
 
       if( this_imcmud->state > CONN_NONE )
       {
-          imc_to_char( "Clientpwd can not be modified while connected.\n\r", ch );
+          imc_to_char( "Clientpwd can not be modified while connected.\n", ch );
           return;
       }
 	
@@ -5875,7 +5725,7 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
           IMCSTRFREE( this_imcmud->clientpw );
 
 	  this_imcmud->clientpw = IMCSTRALLOC( argument );
-	  imc_printf( ch, "The client will authenticate itself to the hub with %s.\n\r", argument );
+	  char_printf( ch, "The client will authenticate itself to the hub with %s.\n", argument );
 	  imc_save_config();
       return;
    }
@@ -5886,16 +5736,16 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
               || (strchr( argument, ' ' )) ) 
       {
           imc_to_char( color_itom(
-                       "~cDescription: ~CServerpwd is the password that the IMC hub uses to\n\r"
-                       "             ~Cauthenticate itself to the client.\n\r" 
-                       "~cAccepted Values: ~CTakes any string without spaces up to 20 characters.\n\r"
+                       "~cDescription: ~CServerpwd is the password that the IMC hub uses to\n"
+                       "             ~Cauthenticate itself to the client.\n" 
+                       "~cAccepted Values: ~CTakes any string without spaces up to 20 characters.\n"
                        ), ch);
           return;
       }
 
       if( this_imcmud->state > CONN_NONE )
       {
-          imc_to_char( "Serverpwd can not be modified while connected.\n\r", ch );
+          imc_to_char( "Serverpwd can not be modified while connected.\n", ch );
           return;
       }
 	
@@ -5903,7 +5753,7 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
           IMCSTRFREE( this_imcmud->serverpw );
 
 	  this_imcmud->serverpw = IMCSTRALLOC( argument );
-	  imc_printf( ch, "The hub will authenticate itself to the client with %s.\n\r", argument );
+	  char_printf( ch, "The hub will authenticate itself to the client with %s.\n", argument );
 	  imc_save_config();
       return;
    }
@@ -5913,8 +5763,8 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
       if( !argument || argument[0] == '\0')
       {
           imc_to_char( color_itom(
-                       "~cDescription: ~CAutoconnect sets whether or not IMC will start at mud boot.\n\r"
-                       "~cAccepted Values: ~CTakes the values \"yes\" and \"no\".\n\r" 
+                       "~cDescription: ~CAutoconnect sets whether or not IMC will start at mud boot.\n"
+                       "~cAccepted Values: ~CTakes the values \"yes\" and \"no\".\n" 
                        ), ch);
           return;
       }
@@ -5923,12 +5773,12 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
       {
           if (this_imcmud->autoconnect)
           {
-              imc_to_char( "Autoconnect is already on.\n\r", ch );
+              imc_to_char( "Autoconnect is already on.\n", ch );
               return;
           }
           
           this_imcmud->autoconnect = TRUE;
-          imc_to_char( "Autoconnect is now on.\n\r", ch );
+          imc_to_char( "Autoconnect is now on.\n", ch );
           imc_save_config();
           return;
       }
@@ -5937,12 +5787,12 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
       {
           if (!this_imcmud->autoconnect)
           {
-              imc_to_char( "Autoconnect is already off.\n\r", ch );
+              imc_to_char( "Autoconnect is already off.\n", ch );
               return;
           }
 
           this_imcmud->autoconnect = FALSE;
-          imc_to_char( "Autoconnect is now off.\n\r", ch );
+          imc_to_char( "Autoconnect is now off.\n", ch );
           imc_save_config();
           return;
       }
@@ -5956,9 +5806,9 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
       if( !argument || argument[0] == '\0')
       {
           imc_to_char( color_itom(
-                       "~cDescription: ~CDebug sets whether or not all incoming and outgoing\n\r"
-                       "             ~Cpackets are logged.\n\r"
-                       "~cAccepted Values: ~CTakes the values \"yes\" and \"no\".\n\r" 
+                       "~cDescription: ~CDebug sets whether or not all incoming and outgoing\n"
+                       "             ~Cpackets are logged.\n"
+                       "~cAccepted Values: ~CTakes the values \"yes\" and \"no\".\n" 
                        ), ch);
           return;
       }
@@ -5967,12 +5817,12 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
       {
           if (imc_debug_on)
           {
-              imc_to_char( "Debug is already on.\n\r", ch );
+              imc_to_char( "Debug is already on.\n", ch );
               return;
           }
           
           imc_debug_on = TRUE;
-          imc_to_char( "Debug is now on.\n\r", ch );
+          imc_to_char( "Debug is now on.\n", ch );
           imc_save_config();
           return;
       }
@@ -5981,12 +5831,12 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
       {
           if (!imc_debug_on)
           {
-              imc_to_char( "Debug is already off.\n\r", ch );
+              imc_to_char( "Debug is already off.\n", ch );
               return;
           }
 
           imc_debug_on = FALSE;
-          imc_to_char( "Debug is now off.\n\r", ch );
+          imc_to_char( "Debug is now off.\n", ch );
           imc_save_config();
           return;
       }
@@ -6001,17 +5851,17 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
               || (strchr( argument, ' ' )) ) 
       {
           imc_to_char( color_itom(
-                       "~cDescription: ~CNetname is the name of the IMC2 network that this mud\n\r"
-                       "             ~Cis connected to. The name must be the exact same as the\n\r"
-                       "             ~Chub in order to connect to a IMC2 3.11 Hermes or later hub.\n\r"
-                       "~cAccepted Values: ~CTakes any string without spaces up to 10 characters.\n\r"
+                       "~cDescription: ~CNetname is the name of the IMC2 network that this mud\n"
+                       "             ~Cis connected to. The name must be the exact same as the\n"
+                       "             ~Chub in order to connect to a IMC2 3.11 Hermes or later hub.\n"
+                       "~cAccepted Values: ~CTakes any string without spaces up to 10 characters.\n"
                        ), ch);
           return;
       }
 
       if( this_imcmud->state > CONN_NONE )
       {
-          imc_to_char( "Netname can not be modified while connected.\n\r", ch );
+          imc_to_char( "Netname can not be modified while connected.\n", ch );
           return;
       }
 	
@@ -6019,7 +5869,7 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
           IMCSTRFREE( imc_siteinfo.netname );
 
 	  imc_siteinfo.netname = IMCSTRALLOC( argument );
-	  imc_printf( ch, "The IMC2 network that this mud is connected to will now be known as %s\n\r", 
+	  char_printf( ch, "The IMC2 network that this mud is connected to will now be known as %s\n", 
               argument );
 	  imc_save_config();
       return;
@@ -6032,8 +5882,8 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
       if( !argument || argument[0] == '\0' || !is_number(argument))
       {
           imc_to_char( color_itom(
-                       "~cDescription: ~CMinplayerlevel sets the minimum level for a player to use IMC.\n\r"
-                       "~cAccepted Values: ~CTakes any integer between 1 and the mud's maximum level.\n\r" 
+                       "~cDescription: ~CMinplayerlevel sets the minimum level for a player to use IMC.\n"
+                       "~cAccepted Values: ~CTakes any integer between 1 and the mud's maximum level.\n" 
                        ), ch);
           return;
       }
@@ -6042,12 +5892,12 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
 
       if ( value < 1 || value > IMCMAX_LEVEL )
       {
-          imc_printf( ch, "That value was outside of the range of 1 to %d.\n\r", IMCMAX_LEVEL );
+          char_printf( ch, "That value was outside of the range of 1 to %d.\n", IMCMAX_LEVEL );
           return;
       }
 
       imc_minplayerlevel = value;
-      imc_printf( ch, "The minimum player access level has been set to %d.\n\r", value );
+      char_printf( ch, "The minimum player access level has been set to %d.\n", value );
 	  imc_save_config();
 	  return;
    }
@@ -6059,9 +5909,9 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
       if( !argument || argument[0] == '\0' || !is_number(argument))
       {
           imc_to_char( color_itom(
-                       "~cDescription: ~CMinimmlevel sets the minimum level for someone to have\n\r"
-                       "             ~Cimmortal privileges in IMC.\n\r"
-                       "~cAccepted Values: ~CTakes any integer between 1 and the mud's maximum level.\n\r" 
+                       "~cDescription: ~CMinimmlevel sets the minimum level for someone to have\n"
+                       "             ~Cimmortal privileges in IMC.\n"
+                       "~cAccepted Values: ~CTakes any integer between 1 and the mud's maximum level.\n" 
                        ), ch);
           return;
       }
@@ -6070,12 +5920,12 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
 
       if ( value < 1 || value > IMCMAX_LEVEL )
       {
-          imc_printf( ch, "That value was outside of the range of 1 to %d.\n\r", IMCMAX_LEVEL );
+          char_printf( ch, "That value was outside of the range of 1 to %d.\n", IMCMAX_LEVEL );
           return;
       }
 
       imc_minimmlevel = value;
-      imc_printf( ch, "The minimum immortal privilege level has been set to %d.\n\r", value );
+      char_printf( ch, "The minimum immortal privilege level has been set to %d.\n", value );
 	  imc_save_config();
 	  return;
    }
@@ -6087,9 +5937,9 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
       if( !argument || argument[0] == '\0' || !is_number(argument))
       {
           imc_to_char( color_itom(
-                       "~cDescription: ~CMinadminlevel sets the minimum level for someone to have\n\r"
-                       "             ~Cadministrative privileges.\n\r"
-                       "~cAccepted Values: ~CTakes any integer between 1 and the mud's maximum level.\n\r" 
+                       "~cDescription: ~CMinadminlevel sets the minimum level for someone to have\n"
+                       "             ~Cadministrative privileges.\n"
+                       "~cAccepted Values: ~CTakes any integer between 1 and the mud's maximum level.\n" 
                        ), ch);
           return;
       }
@@ -6098,12 +5948,12 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
 
       if ( value < 1 || value > IMCMAX_LEVEL )
       {
-          imc_printf( ch, "That value was outside of the range of 1 to %d.\n\r", IMCMAX_LEVEL );
+          char_printf( ch, "That value was outside of the range of 1 to %d.\n", IMCMAX_LEVEL );
           return;
       }
 
       imc_minadminlevel = value;
-      imc_printf( ch, "The minimum administrative privilege level has been set to %d.\n\r", value );
+      char_printf( ch, "The minimum administrative privilege level has been set to %d.\n", value );
 	  imc_save_config();
 	  return;
    }
@@ -6113,9 +5963,9 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
       if( !argument || argument[0] == '\0' || strlen(argument) > 35 )
       {
           imc_to_char( color_itom(
-                       "~cDescription: ~CInfoname is what information services such as imcplist\n\r"
-                       "             ~Cand imcminfo will display as this mud's name.\n\r" 
-                       "~cAccepted Values: ~CTakes any string up to 35 characters.\n\r"
+                       "~cDescription: ~CInfoname is what information services such as imcplist\n"
+                       "             ~Cand imcminfo will display as this mud's name.\n" 
+                       "~cAccepted Values: ~CTakes any string up to 35 characters.\n"
                        ), ch);
           return;
       }
@@ -6124,7 +5974,7 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
           IMCSTRFREE( imc_siteinfo.name );
 
 	  imc_siteinfo.name = IMCSTRALLOC( argument );
-	  imc_printf( ch, "This mud will now be displayed as %s.\n\r", argument );
+	  char_printf( ch, "This mud will now be displayed as %s.\n", argument );
 	  imc_save_config();
       return;
    }
@@ -6135,9 +5985,9 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
               || (strchr( argument, ' ' )) ) 
       {
           imc_to_char( color_itom(
-                       "~cDescription: ~CInfohost is what information services such as imcplist\n\r"
-                       "             ~Cand imcminfo will display as this mud's host.\n\r"
-                       "~cAccepted Values: ~CTakes any string without spaces up to 256 characters.\n\r"
+                       "~cDescription: ~CInfohost is what information services such as imcplist\n"
+                       "             ~Cand imcminfo will display as this mud's host.\n"
+                       "~cAccepted Values: ~CTakes any string without spaces up to 256 characters.\n"
                        ), ch);
           return;
       }
@@ -6146,7 +5996,7 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
           IMCSTRFREE( imc_siteinfo.host );
 
 	  imc_siteinfo.host = IMCSTRALLOC( argument );
-	  imc_printf( ch, "This mud will now be displayed as being at %s.\n\r", argument );
+	  char_printf( ch, "This mud will now be displayed as being at %s.\n", argument );
 	  imc_save_config();
       return;
    }
@@ -6158,9 +6008,9 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
       if( !argument || argument[0] == '\0' || !is_number(argument))
       {
           imc_to_char( color_itom(
-                       "~cDescription: ~CInfoport is what information services such as imcplist\n\r"
-                       "             ~Cand imcminfo will display as this mud's port.\n\r"
-                       "~cAccepted Values: ~CTakes any integer between 1 and 65,535.\n\r" 
+                       "~cDescription: ~CInfoport is what information services such as imcplist\n"
+                       "             ~Cand imcminfo will display as this mud's port.\n"
+                       "~cAccepted Values: ~CTakes any integer between 1 and 65,535.\n" 
                        ), ch);
           return;
       }
@@ -6169,12 +6019,12 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
 
       if ( value < 1 || value > 65535 )
       {
-          imc_to_char( "That value was outside of the range of 1 to 65,535.\n\r", ch );
+          imc_to_char( "That value was outside of the range of 1 to 65,535.\n", ch );
           return;
       }
 
       imc_siteinfo.port = value;
-      imc_printf( ch, "This mud will now be displayed as being on port %d.\n\r", value );
+      char_printf( ch, "This mud will now be displayed as being on port %d.\n", value );
 	  imc_save_config();
 	  return;
    }
@@ -6184,9 +6034,9 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
       if( !argument || argument[0] == '\0' || strlen(argument) > SSS + 24 )
       {
           imc_to_char( color_itom(
-                       "~cDescription: ~CInfoemail is what information services such as imcplist\n\r"
-                       "             ~Cand imcminfo will display as this mud's administrative email.\n\r" 
-                       "~cAccepted Values: ~CTakes any string up to 280 characters.\n\r"
+                       "~cDescription: ~CInfoemail is what information services such as imcplist\n"
+                       "             ~Cand imcminfo will display as this mud's administrative email.\n" 
+                       "~cAccepted Values: ~CTakes any string up to 280 characters.\n"
                        ), ch);
           return;
       }
@@ -6195,7 +6045,7 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
           IMCSTRFREE( imc_siteinfo.email );
 
 	  imc_siteinfo.email = IMCSTRALLOC( argument );
-	  imc_printf( ch, "This mud's administrative email will now be displayed as %s.\n\r", argument );
+	  char_printf( ch, "This mud's administrative email will now be displayed as %s.\n", argument );
 	  imc_save_config();
       return;
    }
@@ -6206,9 +6056,9 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
               || (strchr( argument, ' ' )) ) 
       {
           imc_to_char( color_itom(
-                       "~cDescription: ~CInfowww is what information services such as imcplist\n\r"
-                       "             ~Cand imcminfo will display as this mud's web address.\n\r"
-                       "~cAccepted Values: ~CTakes any string without spaces up to 256 characters.\n\r"
+                       "~cDescription: ~CInfowww is what information services such as imcplist\n"
+                       "             ~Cand imcminfo will display as this mud's web address.\n"
+                       "~cAccepted Values: ~CTakes any string without spaces up to 256 characters.\n"
                        ), ch);
           return;
       }
@@ -6217,7 +6067,7 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
           IMCSTRFREE( imc_siteinfo.www );
 
 	  imc_siteinfo.www = IMCSTRALLOC( argument );
-	  imc_printf( ch, "This mud's webpage will now be displayed as being at %s.\n\r", argument );
+	  char_printf( ch, "This mud's webpage will now be displayed as being at %s.\n", argument );
 	  imc_save_config();
       return;
    }
@@ -6229,9 +6079,9 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
       if( !argument || argument[0] == '\0' || strlen(argument) > 20 )
       {
           imc_to_char( color_itom(
-                       "~cDescription: ~CInfoname is what information services such as imcplist\n\r"
-                       "             ~Cand imcminfo will display as this mud's codebase.\n\r" 
-                       "~cAccepted Values: ~CTakes any string up to 20 characters.\n\r"
+                       "~cDescription: ~CInfoname is what information services such as imcplist\n"
+                       "             ~Cand imcminfo will display as this mud's codebase.\n" 
+                       "~cAccepted Values: ~CTakes any string up to 20 characters.\n"
                        ), ch);
           return;
       }
@@ -6240,7 +6090,7 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
           IMCSTRFREE( imc_siteinfo.base );
 
 	  imc_siteinfo.base = IMCSTRALLOC( argument );
-	  imc_printf( ch, "This mud's codebase will now be displayed as %s.\n\r", argument );
+	  char_printf( ch, "This mud's codebase will now be displayed as %s.\n", argument );
 	  imc_save_config();
 
       if( imc_versionid )
@@ -6257,9 +6107,9 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
       if( !argument || argument[0] == '\0' || strlen(argument) > SSS )
       {
           imc_to_char( color_itom(
-                       "~cDescription: ~CInfodetails is what information services such as imcplist\n\r"
-                       "             ~Cand imcminfo will display as the mud's short description.\n\r" 
-                       "~cAccepted Values: ~CTakes any string up to 256 characters.\n\r"
+                       "~cDescription: ~CInfodetails is what information services such as imcplist\n"
+                       "             ~Cand imcminfo will display as the mud's short description.\n" 
+                       "~cAccepted Values: ~CTakes any string up to 256 characters.\n"
                        ), ch);
           return;
       }
@@ -6268,7 +6118,7 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
           IMCSTRFREE( imc_siteinfo.details );
 
 	  imc_siteinfo.details = IMCSTRALLOC( argument );
-	  imc_printf( ch, "This mud's short description will now be \"%s\".\n\r", argument );
+	  char_printf( ch, "This mud's short description will now be \"%s\".\n", argument );
 	  imc_save_config();
       return;
    }
@@ -6280,14 +6130,14 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
       if( !argument || argument[0] == '\0' || strlen(argument) > 25 )
       {
           imc_to_char( color_itom(
-                       "~cDescription: ~CWhostyle sets the color pattern used for your imcplist.\n\r"
-                       "~cAccepted Values: ~CTakes any integer between 0 and the mud's maximum whostyle\n\r" 
-                       "                 ~Cor any string up to 25 characters for the whostyle's name.\n\r"
-                       "~cCurrent WhoStyles:\n\r"
+                       "~cDescription: ~CWhostyle sets the color pattern used for your imcplist.\n"
+                       "~cAccepted Values: ~CTakes any integer between 0 and the mud's maximum whostyle\n" 
+                       "                 ~Cor any string up to 25 characters for the whostyle's name.\n"
+                       "~cCurrent WhoStyles:\n"
                        ), ch);
 
           for ( value = 0; value < MAX_WHOSTYLE; value++)
-              imc_printf( ch, color_itom("~C                 %d - %s\n\r"), value, whostylename_table[value]);
+              char_printf( ch, color_itom("~C                 %d - %s\n"), value, whostylename_table[value]);
 
           return;
       }
@@ -6303,12 +6153,12 @@ void run_imcmsettings( CHAR_DATA *ch, const char *argument )
 
       if ( value < 0 || value >= MAX_WHOSTYLE )
       {
-          imc_printf( ch, "That value was outside of the range of 0 to %d.\n\r", MAX_WHOSTYLE-1 );
+          char_printf( ch, "That value was outside of the range of 0 to %d.\n", MAX_WHOSTYLE-1 );
           return;
       }
 
       imc_whostyle = value;
-      imc_printf( ch, "The color pattern style for your imcplist has been changed to %s.\n\r", 
+      char_printf( ch, "The color pattern style for your imcplist has been changed to %s.\n", 
               whostylename_table[value]);
 	  imc_save_config();
 	  return;
@@ -6329,9 +6179,9 @@ void run_imcmblacklist( CHAR_DATA *ch, const char *argument )
    if( !argument || argument[0] == '\0')
    {
        imc_to_char( color_itom(
-                  "~GSyntax: ~cimcmblacklist list         - ~Clists blacklisted muds\n\r"
-                    "~c        imcmblacklist add <mud>    - ~Cadds a new mud to the blacklist\n\r"
-                    "~c        imcmblacklist remove <mud> - ~Cremoves a mud from the blacklist\n\r" ), ch);
+                  "~GSyntax: ~cimcmblacklist list         - ~Clists blacklisted muds\n"
+                    "~c        imcmblacklist add <mud>    - ~Cadds a new mud to the blacklist\n"
+                    "~c        imcmblacklist remove <mud> - ~Cremoves a mud from the blacklist\n" ), ch);
        return;
    }
 
@@ -6339,14 +6189,14 @@ void run_imcmblacklist( CHAR_DATA *ch, const char *argument )
 
    if( !strcasecmp( arg, "list" ) )
    {
-      imc_to_char( color_itom("~cCurrent Blacklisted Muds:\n\r"), ch );
+      imc_to_char( color_itom("~cCurrent Blacklisted Muds:\n"), ch );
       for( count = 0, entry = first_imc_mudblacklist; entry; entry = entry->next, count++ )
-         imc_printf( ch, color_itom("~C %s\n\r"), entry->name );
+         char_printf( ch, color_itom("~C %s\n"), entry->name );
 
       if( !count )
-         imc_to_char( color_itom("~C None\n\r"), ch );
+         imc_to_char( color_itom("~C None\n"), ch );
       else
-         imc_printf( ch, color_itom("\n\r~c[total of %d blacklisted muds]\n\r"), count );
+         char_printf( ch, color_itom("\n~c[total of %d blacklisted muds]\n"), count );
 
       return;
    }
@@ -6368,7 +6218,7 @@ void run_imcmblacklist( CHAR_DATA *ch, const char *argument )
 
       if (entry)
       {
-          imc_to_char( "That mud is already blacklisted.\n\r", ch);
+          imc_to_char( "That mud is already blacklisted.\n", ch);
           return;
       }
        
@@ -6379,7 +6229,7 @@ void run_imcmblacklist( CHAR_DATA *ch, const char *argument )
 
       imc_saveblacklist( );
 
-      imc_to_char( "That mud will now be blacklisted.\n\r", ch);
+      imc_to_char( "That mud will now be blacklisted.\n", ch);
 	  return;
    }
 
@@ -6391,7 +6241,7 @@ void run_imcmblacklist( CHAR_DATA *ch, const char *argument )
 
       if (!entry)
       {
-          imc_to_char( "Mud not found on blacklist.\n\r", ch );
+          imc_to_char( "Mud not found on blacklist.\n", ch );
           return;
       }
       
@@ -6404,7 +6254,7 @@ void run_imcmblacklist( CHAR_DATA *ch, const char *argument )
 
       imc_saveblacklist();
 
-      imc_to_char ( "Mud removed from blacklist.\n\r", ch);
+      imc_to_char ( "Mud removed from blacklist.\n", ch);
       return;
    }
 
@@ -6419,8 +6269,8 @@ void run_imcmstat( CHAR_DATA *ch, const char *argument )
    if( !argument || argument[0] == '\0') 
    {
       imc_to_char( color_itom(
-                  "~GSyntax: ~cimcmstat general - ~Cdisplays general information on the mud\n\r"
-                    "~c        imcmstat network - ~Cdisplays network statistical information for the mud\n\r"
+                  "~GSyntax: ~cimcmstat general - ~Cdisplays general information on the mud\n"
+                    "~c        imcmstat network - ~Cdisplays network statistical information for the mud\n"
                     ), ch);
        return;
    }
@@ -6451,23 +6301,23 @@ void run_imcpsettings( CHAR_DATA *ch, const char *argument )
    if ( !argument || argument[0] == '\0')
    {
        imc_to_char( color_itom(
-                    "~GSyntax: ~cimcpsettings show   - ~Clists IMC network functions and IMC channels\n\r"
-                    "~c        imcpsettings subscribe +channel - ~Ccreates a subscription to a channel\n\r"
-                    "~c        imcpsettings subscribe -channel - ~Cdeletes a subscription to a channel\n\r"
-                    "~c        imcpsettings blacklist +mud - ~Cadds a mud to the blacklist\n\r"
-                    "~c        imcpsettings blacklist -mud - ~Cremoves a mud from the blacklist\n\r"
-                    "~c        imcpsettings blacklist +person@mud - ~Cadds a player to the blacklist\n\r"
-                    "~c        imcpsettings blacklist -person@mud - ~Cremoves a player from the blacklist\n\r"
-                    "~c        imcpsettings function +nfunction  - ~Cswitches on a network function\n\r"
-                    "~c        imcpsettings function -nfunction  - ~Cswitches off a network function\n\r"
-                    "\n\r~cValid network functions are:\n\r"), ch);
+                    "~GSyntax: ~cimcpsettings show   - ~Clists IMC network functions and IMC channels\n"
+                    "~c        imcpsettings subscribe +channel - ~Ccreates a subscription to a channel\n"
+                    "~c        imcpsettings subscribe -channel - ~Cdeletes a subscription to a channel\n"
+                    "~c        imcpsettings blacklist +mud - ~Cadds a mud to the blacklist\n"
+                    "~c        imcpsettings blacklist -mud - ~Cremoves a mud from the blacklist\n"
+                    "~c        imcpsettings blacklist +person@mud - ~Cadds a player to the blacklist\n"
+                    "~c        imcpsettings blacklist -person@mud - ~Cremoves a player from the blacklist\n"
+                    "~c        imcpsettings function +nfunction  - ~Cswitches on a network function\n"
+                    "~c        imcpsettings function -nfunction  - ~Cswitches off a network function\n"
+                    "\n~cValid network functions are:\n"), ch);
       
        for ( i = 0; i < numfunctions; i++)
-           imc_printf( ch, color_itom("~C \'%s\'"), imc_functions[i].name);
+           char_printf( ch, color_itom("~C \'%s\'"), imc_functions[i].name);
        
        imc_to_char( color_itom(
-            "\n\r~GMultiple settings may be given in one command.\n\r"
-            "There is also the 'all' option to set or unset all available functions.\n\r"), ch);
+            "\n~GMultiple settings may be given in one command.\n"
+            "There is also the 'all' option to set or unset all available functions.\n"), ch);
 
        return;
    }
@@ -6482,7 +6332,7 @@ void run_imcpsettings( CHAR_DATA *ch, const char *argument )
       char sbuf[LSS];
       unsigned char j = 0, k = 0, l = 0;
 
-      imc_to_char( color_itom("~WPlayer Settings:\n\r"), ch);
+      imc_to_char( color_itom("~WPlayer Settings:\n"), ch);
 
       strlcpy( afunc, "~cActive Network Functions:~C", MSS);
       strlcpy( nfunc, "~cNonactive Network Functions:~C", MSS);
@@ -6509,36 +6359,36 @@ void run_imcpsettings( CHAR_DATA *ch, const char *argument )
 
          if ( j >= 4 )
          {
-             strlcpy( dfunc+strlen(dfunc), "\n\r                           ", MSS - strlen(dfunc));
+             strlcpy( dfunc+strlen(dfunc), "\n                           ", MSS - strlen(dfunc));
              j = 0;
          }
 
          if ( k >= 4 )
          {
-             strlcpy( nfunc + strlen(nfunc), "\n\r                            ", MSS - strlen(nfunc));
+             strlcpy( nfunc + strlen(nfunc), "\n                            ", MSS - strlen(nfunc));
              k = 0;
          }
 
          if ( l >= 4 )
          {
-             strlcpy( afunc + strlen(afunc), "\n\r                         ", MSS - strlen(afunc));
+             strlcpy( afunc + strlen(afunc), "\n                         ", MSS - strlen(afunc));
              l = 0;
          }
       }
 
-      snprintf( sbuf, LSS, "%s\n\r%s\n\r%s\n\r", afunc, nfunc, dfunc );
+      snprintf( sbuf, LSS, "%s\n%s\n%s\n", afunc, nfunc, dfunc );
       imc_to_char( color_itom(sbuf), ch );
 
-      imc_printf( ch, color_itom("~cChannel Subscriptions: ~C%s\n\r"),
+      char_printf( ch, color_itom("~cChannel Subscriptions: ~C%s\n"),
               (IMC_CSUBSCRIBED(ch) && IMC_CSUBSCRIBED(ch)[0] != '\0' ? IMC_CSUBSCRIBED(ch) : ""));
 
       imc_to_char( color_itom("~cBlacklisted Muds:~C"), ch );
 
       if ( FIRST_IMCBLACKLIST(ch) != NULL && LAST_IMCBLACKLIST(ch) != NULL )
           for( entry = FIRST_IMCBLACKLIST(ch); entry; entry = entry->next )
-             imc_printf( ch, color_itom("~C %s"), entry->name );
+             char_printf( ch, color_itom("~C %s"), entry->name );
 
-      imc_to_char( "\n\r", ch );
+      imc_to_char( "\n", ch );
 
       return;
    }
@@ -6575,29 +6425,29 @@ void run_imcpsettings( CHAR_DATA *ch, const char *argument )
           {
               if ( toggle )
               {
-                  imc_to_char ( "Channel already subscribed to.\n\r", ch );
+                  imc_to_char ( "Channel already subscribed to.\n", ch );
                   continue;
               }
 
               imc_removename( &IMC_CSUBSCRIBED(ch), arg + 1 );
-              imc_to_char( "No longer subscribed to channel.\n\r", ch );
+              imc_to_char( "No longer subscribed to channel.\n", ch );
           }
           else
           {
               if( !imc_findlchannel( arg + 1 ) )
               {
-                  imc_to_char( "No such channel localized.\n\r", ch );
+                  imc_to_char( "No such channel localized.\n", ch );
               }
               else
               {
                   if ( !toggle )
                   {
-                      imc_to_char ( "Not subscribed to channel.\n\r", ch );
+                      imc_to_char ( "Not subscribed to channel.\n", ch );
                       continue;
                   }
 
                   imc_addname( &IMC_CSUBSCRIBED(ch), arg + 1 );
-                  imc_to_char( "Channel turned on.\n\r", ch );
+                  imc_to_char( "Channel turned on.\n", ch );
               }
           }
 
@@ -6616,9 +6466,9 @@ void run_imcpsettings( CHAR_DATA *ch, const char *argument )
                if ( toggle )
                {
                    if ((strchr( arg+1, '@' )) ) 
-                       imc_to_char( "That person is already on your blacklist.\n\r", ch);
+                       imc_to_char( "That person is already on your blacklist.\n", ch);
                    else
-                       imc_to_char( "That mud is already on your blacklist.\n\r", ch);
+                       imc_to_char( "That mud is already on your blacklist.\n", ch);
                    return;
                }
                
@@ -6630,18 +6480,18 @@ void run_imcpsettings( CHAR_DATA *ch, const char *argument )
                IMCDISPOSE( entry );
 
                if ((strchr( arg+1, '@' )) ) 
-                   imc_to_char( "That person has been removed from your blacklist.\n\r", ch);
+                   imc_to_char( "That person has been removed from your blacklist.\n", ch);
                else
-                   imc_to_char( "That mud has been removed from your blacklist.\n\r", ch);
+                   imc_to_char( "That mud has been removed from your blacklist.\n", ch);
            }
            else
            {
                if ( !toggle )
                {
                    if ((strchr( arg+1, '@' )) ) 
-                       imc_to_char( "That person is not on your blacklist.\n\r", ch);
+                       imc_to_char( "That person is not on your blacklist.\n", ch);
                    else
-                       imc_to_char( "That mud is not on your blacklist.\n\r", ch);
+                       imc_to_char( "That mud is not on your blacklist.\n", ch);
                    return;
                }
 
@@ -6651,9 +6501,9 @@ void run_imcpsettings( CHAR_DATA *ch, const char *argument )
                IMCLINK( entry, FIRST_IMCBLACKLIST(ch), LAST_IMCBLACKLIST(ch), next, prev );
 
                if ((strchr( arg+1, '@' )) ) 
-                   imc_to_char( "That person has been added to your blacklist.\n\r", ch);
+                   imc_to_char( "That person has been added to your blacklist.\n", ch);
                else
-                   imc_to_char( "That mud has been added to your blacklist.\n\r", ch);
+                   imc_to_char( "That mud has been added to your blacklist.\n", ch);
            }
 
            continue;
@@ -6664,7 +6514,7 @@ void run_imcpsettings( CHAR_DATA *ch, const char *argument )
           {
               if( toggle )
               {
-                  imc_to_char( "ALL available IMC network functions are now on.\n\r", ch );
+                  imc_to_char( "ALL available IMC network functions are now on.\n", ch );
             
                   for( i = 0; i < numfunctions; i++ )
                   {
@@ -6676,7 +6526,7 @@ void run_imcpsettings( CHAR_DATA *ch, const char *argument )
               }
               else
               {
-                  imc_to_char( "ALL available IMC network functions are now off.\n\r", ch );
+                  imc_to_char( "ALL available IMC network functions are now off.\n", ch );
             
                   for( i = 0; i < numfunctions; i++ )
                   {
@@ -6702,7 +6552,7 @@ void run_imcpsettings( CHAR_DATA *ch, const char *argument )
          
               if( i == numfunctions )
               {
-                  imc_printf( ch, "You don't have access to an IMC network function called \"%s\".\n\r",
+                  char_printf( ch, "You don't have access to an IMC network function called \"%s\".\n",
                          arg + 1 );
                   continue;
               }
@@ -6710,31 +6560,31 @@ void run_imcpsettings( CHAR_DATA *ch, const char *argument )
 
           if( imc_functions[i].pset_flag == PSET_NOTSUPPORTED)
           {
-              imc_printf( ch, "%s can not have its status changed.\n\r", imc_functions[i].name ); 
+              char_printf( ch, "%s can not have its status changed.\n", imc_functions[i].name ); 
               continue;
           }
 
       
           if( toggle && !IS_SET(IMC_PFLAGS(ch), imc_functions[i].pset_flag) )
           {
-              imc_printf( ch, "%s is already on.\n\r", imc_functions[i].name );
+              char_printf( ch, "%s is already on.\n", imc_functions[i].name );
               continue;
           }
 
           if( !toggle && IS_SET(IMC_PFLAGS(ch), imc_functions[i].pset_flag) )
           {
-              imc_printf( ch, "%s is already off.\n\r", imc_functions[i].name );
+              char_printf( ch, "%s is already off.\n", imc_functions[i].name );
               continue;
           }
 
           if( toggle )
           {
-              imc_printf( ch, "%s is now ON.\n\r", imc_functions[i].name );
+              char_printf( ch, "%s is now ON.\n", imc_functions[i].name );
               REMOVE_BIT( IMC_PFLAGS(ch), imc_functions[i].pset_flag );
           }
           else
           {
-              imc_printf( ch, "%s is now OFF.\n\r", imc_functions[i].name );
+              char_printf( ch, "%s is now OFF.\n", imc_functions[i].name );
               SET_BIT( IMC_PFLAGS(ch), imc_functions[i].pset_flag );
           }
       }
@@ -6759,10 +6609,10 @@ void run_imcpflags( CHAR_DATA *ch, const char *argument )
    if( !arg || arg[0] == '\0' )
    {
       imc_to_char( color_itom(
-               "~GSyntax: ~cimcpflags <char>                     - ~Ccheck flag settings\n\r"
-		       "        ~cimcpflags <char> +<network function> - ~Cset allow flag\n\r"
-		       "        ~cimcpflags <char> -<network function> - ~Cset deny flag\n\r"
-		       "        ~cimcpflags <char> =<network function> - ~Creset allow/deny flag\n\r"), ch );
+               "~GSyntax: ~cimcpflags <char>                     - ~Ccheck flag settings\n"
+		       "        ~cimcpflags <char> +<network function> - ~Cset allow flag\n"
+		       "        ~cimcpflags <char> -<network function> - ~Cset deny flag\n"
+		       "        ~cimcpflags <char> =<network function> - ~Creset allow/deny flag\n"), ch );
       return;
    }
 
@@ -6773,26 +6623,26 @@ void run_imcpflags( CHAR_DATA *ch, const char *argument )
 
    if ( !d )
    {
-      imc_to_char( "They are not here.\n\r", ch );
+      imc_to_char( "They are not here.\n", ch );
       return;
    }
 
    if( get_permlevel(victim) >= get_permlevel(ch) )
    {
-      imc_to_char( "You can't set their privileges.\n\r", ch );
+      imc_to_char( "You can't set their privileges.\n", ch );
       return;
    }
 
    if( !argument || argument[0] == '\0' )
    {
-      imc_printf( ch, "&WAllow/Deny Flags Settings for %s\n\r",
+      char_printf( ch, "&WAllow/Deny Flags Settings for %s\n",
               CH_IMCNAME(victim) );
 
       for( i = 0; i < numfunctions; i++ )
       {
          char funcstring[SSS];
 
-         snprintf( funcstring, SSS, "~c%16s ~W- %s\n\r", imc_functions[i].name, 
+         snprintf( funcstring, SSS, "~c%16s ~W- %s\n", imc_functions[i].name, 
                   IS_SET(IMC_PFLAGS(victim), imc_functions[i].allow_flag) ? "~CAllow Flag~c" :
                   IS_SET(IMC_PFLAGS(victim), imc_functions[i].allow_flag) ? "~CDeny Flag~c" : 
                   "~CNo Flags");
@@ -6823,7 +6673,7 @@ void run_imcpflags( CHAR_DATA *ch, const char *argument )
 
    if( i == numfunctions )
    {
-      imc_to_char( "No such network function.\n\r", ch );
+      imc_to_char( "No such network function.\n", ch );
       return;
    }
 
@@ -6834,68 +6684,68 @@ void run_imcpflags( CHAR_DATA *ch, const char *argument )
 
       if( get_permlevel(victim) < imc_functions[i].minlevel )
       {
-         imc_to_char( "That player is already below this network function's permission level.\n\r", ch );
+         imc_to_char( "That player is already below this network function's permission level.\n", ch );
          return;
       }    
 
       if( imc_functions[i].deny_flag == DENY_NOTSUPPORTED )
       {
-         imc_to_char( "That network function can not be denied.\n\r", ch );
+         imc_to_char( "That network function can not be denied.\n", ch );
          return;
       }
 
       if( IS_SET(IMC_PFLAGS(victim), imc_functions[i].deny_flag) )
       {
-         imc_to_char( "Deny flag already set.\n\r", ch );
+         imc_to_char( "Deny flag already set.\n", ch );
          return;
       }
 
       SET_BIT( IMC_PFLAGS(victim), imc_functions[i].deny_flag );
       REMOVE_BIT( IMC_PFLAGS(victim), imc_functions[i].allow_flag );
-      imc_printf( victim, "The gods have revoked your %s privileges.\n\r", imc_functions[i].name );
-      imc_to_char( "Deny flag set.\n\r", ch );
+      char_printf( victim, "The gods have revoked your %s privileges.\n", imc_functions[i].name );
+      imc_to_char( "Deny flag set.\n", ch );
       return;
 
       case 1: /* set allow flag */
       if( get_permlevel(victim) >= imc_functions[i].minlevel )
       {
-          imc_to_char( "That player is already at or above this network function's permission level.\n\r",ch);
+          imc_to_char( "That player is already at or above this network function's permission level.\n",ch);
           return;
       }
 
       if( IS_SET(IMC_PFLAGS(victim), imc_functions[i].allow_flag) )
       {
-         imc_to_char( "Allow flag already set.\n\r", ch );
+         imc_to_char( "Allow flag already set.\n", ch );
          return;
       }
 
       if( imc_functions[i].allow_flag == ALLOW_NOTSUPPORTED )
       {
-         imc_to_char( "That network function can not be specially allowed.\n\r", ch ); 
+         imc_to_char( "That network function can not be specially allowed.\n", ch ); 
          return;
       }
 
       SET_BIT( IMC_PFLAGS(victim), imc_functions[i].allow_flag );
       REMOVE_BIT( IMC_PFLAGS(victim), imc_functions[i].deny_flag );
-      imc_printf( victim, "The gods have given you %s privileges.\n\r", imc_functions[i].name );
-      imc_to_char( "Allow flag set.\n\r", ch );
+      char_printf( victim, "The gods have given you %s privileges.\n", imc_functions[i].name );
+      imc_to_char( "Allow flag set.\n", ch );
       return;
 
       case 2: /* clears flags */
       if( IS_SET(IMC_PFLAGS(victim), imc_functions[i].allow_flag) )
       {
          REMOVE_BIT( IMC_PFLAGS(victim), imc_functions[i].allow_flag );
-         imc_printf( victim, "The gods have removed your %s privileges.\n\r", imc_functions[i].name );
-         imc_to_char( "Allow flag cleared.\n\r", ch );
+         char_printf( victim, "The gods have removed your %s privileges.\n", imc_functions[i].name );
+         imc_to_char( "Allow flag cleared.\n", ch );
       }
       else if ( IS_SET(IMC_PFLAGS(victim), imc_functions[i].deny_flag) )
       {
          REMOVE_BIT( IMC_PFLAGS(victim), imc_functions[i].deny_flag );
-         imc_printf( victim, "The gods have restored your %s privileges.\n\r", imc_functions[i].name );
-         imc_to_char( "Deny flag cleared.\n\r", ch );
+         char_printf( victim, "The gods have restored your %s privileges.\n", imc_functions[i].name );
+         imc_to_char( "Deny flag cleared.\n", ch );
       }
       else
-          imc_to_char( "No flags to clear.\n\r", ch );
+          imc_to_char( "No flags to clear.\n", ch );
     
       return;
    }
@@ -6911,7 +6761,7 @@ void run_imcmfind( CHAR_DATA *ch, const char *argument )
   
    if( !argument || argument[0] == '\0' )
    {
-      imc_to_char( "Which mud do you want to traceroute?\n\r", ch );
+      imc_to_char( "Which mud do you want to traceroute?\n", ch );
       return;
    }
 
@@ -7172,7 +7022,7 @@ bool imc_channel_handler( CHAR_DATA *ch, const char *command, const char *argume
 
    if( !imc_audible( c, imc_makename( CH_IMCNAME(ch), imc_name ) ) )
    {
-      imc_to_char( "You cannot use that channel.\n\r", ch );
+      imc_to_char( "You cannot use that channel.\n", ch );
       return TRUE;
    }
 
@@ -7180,7 +7030,7 @@ bool imc_channel_handler( CHAR_DATA *ch, const char *command, const char *argume
    {
 	int x;
 
-    imc_printf( ch, color_itom("~cThe last %d %s messages:\n\r"), MAX_IMCHISTORY, c->local_name );
+    char_printf( ch, color_itom("~cThe last %d %s messages:\n"), MAX_IMCHISTORY, c->local_name );
 
 	for( x = 0; x < MAX_IMCHISTORY; x++ )
 	{
@@ -7212,7 +7062,7 @@ bool imc_channel_handler( CHAR_DATA *ch, const char *command, const char *argume
 
       if( !socialname || socialname[0] == '\0' )
       {
-          imc_to_char( "Putting a social there might help.\n\r", ch );
+          imc_to_char( "Putting a social there might help.\n", ch );
           return TRUE;
       }
 
@@ -7235,7 +7085,7 @@ bool imc_channel_handler( CHAR_DATA *ch, const char *command, const char *argume
           {
               if ( !separator )
               {
-                  imc_to_char( "The social target must be in the form of person@mud.\n\r", ch );
+                  imc_to_char( "The social target must be in the form of person@mud.\n", ch );
                   return TRUE;
               }
 
@@ -7253,7 +7103,7 @@ bool imc_channel_handler( CHAR_DATA *ch, const char *command, const char *argume
               || return_imcsocial( socialname, type)[0] == '\0' )
       {
           socialname[0] = toupper(socialname[0]);
-          imc_printf( ch, "%s is either not a social or that part of it is blank.\n\r", socialname );
+          char_printf( ch, "%s is either not a social or that part of it is blank.\n", socialname );
           return TRUE;
       }
 
@@ -7278,7 +7128,7 @@ bool imc_channel_handler( CHAR_DATA *ch, const char *command, const char *argume
    {
 	if( d->character && imc_hasname( IMC_CSUBSCRIBED(d->character), c->local_name )
 	   && get_permlevel(d->character) >= c->perm_level )
-	   imc_printf( d->character, "%s\n\r", mbuf );
+	   char_printf( d->character, "%s\n", mbuf );
    }
    update_imchistory( c, mbuf );
    return TRUE;
