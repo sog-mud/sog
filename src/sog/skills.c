@@ -1,5 +1,5 @@
 /*
- * $Id: skills.c,v 1.11 1998-07-11 20:55:16 fjoe Exp $
+ * $Id: skills.c,v 1.12 1998-07-19 01:02:51 efdi Exp $
  */
 
 /***************************************************************************
@@ -452,10 +452,10 @@ int group_lookup (const char *name)
 void do_glist(CHAR_DATA *ch , const char *argument)
 {
 	char arg[MAX_INPUT_LENGTH];
-	char buf[MAX_STRING_LENGTH];
-	int group,count;
+	int col = 0;
+	int group, count;
 
-	one_argument(argument,arg);
+	one_argument(argument, arg);
 	
 	if (arg[0] == '\0') {
 		send_to_char("Syntax: glist <group>\n\r",ch);
@@ -467,24 +467,19 @@ void do_glist(CHAR_DATA *ch , const char *argument)
 		return;
 	}
 
-	char_printf(ch, "Now listing group %s :\n\r",
-		    skill_groups[group].name);
-	buf[0] = '\0';
-	for(count = 0 ; count < MAX_SKILL; count++)
-	{
-	if ((group == GROUP_NONE && !SKILL_LEVEL_OK(ch,count) && 
-		skill_table[count].group == GROUP_NONE) ||
-		(group != skill_table[count].group) || !SKILL_CLAN_OK(ch,count))
-	 continue;
-	if (buf[0] != '\0')
-	{
-	 sprintf(buf , "%-18s%-18s\n\r", buf,skill_table[count].name);
-	 send_to_char(buf,ch);
-	 buf[0] = '\0';
-	}
-	else sprintf(buf, "%-18s",skill_table[count].name);
-	}
+	char_printf(ch, "Now listing group %s :\n\r", skill_groups[group].name);
 
+	for (count = 0 ; count < MAX_SKILL; count++)
+		if (skill_groups[group].bit == skill_table[count].group) {
+			char_printf(ch, "%c%-18s",
+				    SKILL_OK(ch, count) ? '*' : ' ',
+				    skill_table[count].name);
+			if (col)
+				char_puts("\n\r", ch);
+			col = 1 - col;
+		}
+	if (col)
+		char_puts("\n\r", ch);
 }
 
 void do_slook(CHAR_DATA *ch, const char *argument)
