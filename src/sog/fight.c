@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.18 1998-05-27 18:32:54 efdi Exp $
+ * $Id: fight.c,v 1.19 1998-05-27 20:17:20 efdi Exp $
  */
 
 /***************************************************************************
@@ -273,6 +273,15 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	/* no attacks for stunnies -- just a check */
 	if (ch->position < POS_RESTING)
 		return;
+
+	/* become CRIMINAL in Law rooms */
+	if (!IS_NPC(ch) && !IS_NPC(victim)
+	    && IS_SET(ch->in_room->room_flags, ROOM_LAW)
+	    && !IS_SET(victim->act, PLR_WANTED)
+	    && !IS_SET(ch->act, PLR_WANTED)) {
+		send_to_char("This room is under supervision of the law! Now you're {RCRIMINAL{x!\n\r", ch);
+		SET_BIT(ch->act, PLR_WANTED);		
+	}
 
 	/* ridden's adjustment */
 	if (RIDDEN(victim) && !IS_NPC(victim->mount))

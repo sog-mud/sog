@@ -2,7 +2,7 @@
 #define _MERC_H_
 
 /*
- * $Id: merc.h,v 1.21 1998-05-27 08:47:26 fjoe Exp $
+ * $Id: merc.h,v 1.22 1998-05-27 20:17:20 efdi Exp $
  */
 
 /***************************************************************************
@@ -2108,7 +2108,6 @@ struct	pc_data
     int 		has_killed;
     sh_int		questgiver;	/* quest */
     int 		questpoints;	/* quest */
-    sh_int		questcomplete;	/* quest */
     sh_int		questtime;	/* quest */
     sh_int		questobj;	/* quest */
     sh_int		questmob;	/* quest */

@@ -1,5 +1,5 @@
 /*
- * $Id: act_quest.c,v 1.23 1998-05-27 17:48:52 efdi Exp $
+ * $Id: act_quest.c,v 1.24 1998-05-27 20:17:21 efdi Exp $
  */
 
 /***************************************************************************
@@ -498,8 +498,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 			}
 
 			if (IS_QUESTOR(ch)) {
-				if (ch->pcdata->questmob == -1 
-				    && ch->pcdata->questtime > 0) {
+				if (ch->pcdata->questmob == -1) {
 					int reward = 0, pointreward = 0, 
 					    pracreward = 0, level;
 
@@ -528,8 +527,7 @@ void do_quest(CHAR_DATA *ch, char *argument)
 					ch->pcdata->questpoints += pointreward;
 
 					return;
-				} else if (ch->pcdata->questobj > 0 
-				   && ch->pcdata->questtime > 0) {
+				} else if (ch->pcdata->questobj > 0) {
 					bool obj_found = FALSE;
 
 					for (obj = ch->carrying; obj != NULL;
@@ -580,9 +578,8 @@ if (obj != NULL && obj->pIndexData->vnum == ch->pcdata->questobj && strstr(obj->
 					return;
 				}
 				return;
-			} else if ((ch->pcdata->questmob > 0 
-				    || ch->pcdata->questobj > 0) 
-				    && ch->pcdata->questtime > 0) {
+			} else if (ch->pcdata->questmob > 0 
+				    || ch->pcdata->questobj > 0) {
 					sprintf(buf, msg(QUEST_HAVENT_COMPLETE, ch));
 					do_tell_quest(ch,questman,buf);
 					return;
