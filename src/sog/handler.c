@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.91 1998-12-01 12:44:37 fjoe Exp $
+ * $Id: handler.c,v 1.92 1998-12-09 10:06:39 kostik Exp $
  */
 
 /***************************************************************************
@@ -2449,6 +2449,8 @@ bool can_see(CHAR_DATA *ch, CHAR_DATA *victim)
 	
 	if (!IS_NPC(victim) && !IS_TRUSTED(ch, victim->invis_level))
 		return FALSE;
+
+	if (IS_CLAN_GUARD(ch)) return TRUE;
 
 	if (!IS_TRUSTED(ch, victim->incog_level)
 	&&  ch->in_room != victim->in_room)
