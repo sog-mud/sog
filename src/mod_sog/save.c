@@ -1,5 +1,5 @@
 /*
- * $Id: save.c,v 1.102 1999-02-21 19:19:27 fjoe Exp $
+ * $Id: save.c,v 1.103 1999-02-23 19:32:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -178,6 +178,7 @@ fwrite_char(CHAR_DATA * ch, FILE * fp, bool reboot)
 	fprintf(fp, "#%s\n", IS_NPC(ch) ? "MOB" : "PLAYER");
 
 	fwrite_string(fp, "Name", ch->name);
+	mlstr_fwrite(fp, "ShD", ch->short_descr);
 	fprintf(fp, "Id   %d\n", ch->id);
 	fprintf(fp, "LogO %ld\n", current_time);
 	fprintf(fp, "Vers %d\n", 6);
@@ -566,6 +567,7 @@ void load_char_obj(DESCRIPTOR_DATA * d, const char *name)
 	d->character = ch;
 	ch->desc = d;
 	ch->name = str_dup(capitalize(name));
+	ch->short_descr = mlstr_new(ch->name);
 	ch->id = get_pc_id();
 	ch->race = rn_lookup("human");
 	ch->plr_flags = PLR_NOSUMMON | PLR_NOCANCEL;
@@ -854,9 +856,6 @@ fread_char(CHAR_DATA * ch, FILE * fp)
 				CLAN_DATA *clan;
 				const char **nl = NULL;
 				bool touched = FALSE;
-
-				if (!ch->short_descr)
-					ch->short_descr = mlstr_new(ch->name);
 
 				/*
 				 * adjust hp mana move up  -- here for speed's
