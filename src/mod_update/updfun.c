@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: updfun.c,v 1.5 2000-03-21 13:43:49 fjoe Exp $
+ * $Id: updfun.c,v 1.6 2000-03-27 09:25:10 fjoe Exp $
  */
 
 #include <sys/types.h>
@@ -346,12 +346,6 @@ mobile_update_cb(void *vo, va_list ap)
 			return NULL;
 	}
 
-	if (ch->pMobIndex->pShop != NULL /* give him some gold */
-	||  (ch->gold * 100 + ch->silver) < ch->pMobIndex->wealth) {
-		ch->gold += ch->pMobIndex->wealth * number_range(1, 20) / 5000000;
-		ch->silver += ch->pMobIndex->wealth * number_range(1, 20) / 50000;
-	}
-	 
 /* check triggers (only if mobile still in default position) */
 
 	if (ch->position == ch->pMobIndex->default_pos) {
