@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.193 1999-07-15 12:46:38 kostik Exp $
+ * $Id: fight.c,v 1.194 1999-07-16 05:36:12 kostik Exp $
  */
 
 /***************************************************************************
@@ -419,7 +419,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	chance = get_skill(ch, gsn_second_weapon) / 2;
 
 	if (IS_AFFECTED(ch, AFF_HASTE)) 
-		chance = chance * 2 / 3;
+		chance = chance * 3 / 2;
 
 	if (number_percent() < chance)
 		if (get_eq_char(ch, WEAR_SECOND_WIELD)) {
@@ -432,7 +432,7 @@ void multi_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt)
 	chance = get_skill(ch,gsn_secondary_attack) / 5;
 	
 	if (IS_AFFECTED(ch, AFF_HASTE)) 
-		chance = chance * 2 / 3;
+		chance = chance * 3 / 2;
 
 	if (number_percent() < chance)
 		if (get_eq_char(ch, WEAR_SECOND_WIELD)) {
