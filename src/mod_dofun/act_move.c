@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.10 1998-04-26 17:08:02 efdi Exp $
+ * $Id: act_move.c,v 1.11 1998-04-26 21:29:05 efdi Exp $
  */
 
 /***************************************************************************
@@ -685,17 +685,17 @@ void do_open( CHAR_DATA *ch, char *argument )
 
 	/* 'open object' */
 	if ( obj->item_type != ITEM_CONTAINER)
-	    { send_to_char( "That's not a container.\n\r", ch ); return; }
+	    { send_to_char(msg(MOVE_THATS_NOT_A_CONTAINER, ch), ch); return; }
 	if ( !IS_SET(obj->value[1], CONT_CLOSED) )
-	    { send_to_char( "It's already open.\n\r",      ch ); return; }
+	    { send_to_char(msg(MOVE_ITS_ALREADY_OPEN, ch), ch); return; }
 	if ( !IS_SET(obj->value[1], CONT_CLOSEABLE) )
-	    { send_to_char( "You can't do that.\n\r",      ch ); return; }
+	    { send_to_char(msg(MOVE_YOU_CANT_DO_THAT, ch), ch); return; }
 	if ( IS_SET(obj->value[1], CONT_LOCKED) )
-	    { send_to_char( "It's locked.\n\r",            ch ); return; }
+	    { send_to_char(msg(MOVE_ITS_LOCKED, ch), ch); return; }
 
 	REMOVE_BIT(obj->value[1], CONT_CLOSED);
-	act("You open $p.",ch,obj,NULL,TO_CHAR);
-	act( "$n opens $p.", ch, obj, NULL, TO_ROOM );
+	act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING, MOVE_YOU_OPEN_P);
+	act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_OPENS_P);
 	return;
     }
     if ( ( door = find_door( ch, arg ) ) >= 0 )
@@ -707,13 +707,13 @@ void do_open( CHAR_DATA *ch, char *argument )
 
 	pexit = ch->in_room->exit[door];
 	if ( !IS_SET(pexit->exit_info, EX_CLOSED) )
-	    { send_to_char( "It's already open.\n\r",      ch ); return; }
+	    { send_to_char(msg(MOVE_ITS_ALREADY_OPEN, ch), ch); return; }
 	if (  IS_SET(pexit->exit_info, EX_LOCKED) )
-	    { send_to_char( "It's locked.\n\r",            ch ); return; }
+	    { send_to_char(msg(MOVE_ITS_LOCKED, ch), ch); return; }
 
 	REMOVE_BIT(pexit->exit_info, EX_CLOSED);
-	act( "$n opens the $d.", ch, NULL, pexit->keyword, TO_ROOM );
-	send_to_char( "Ok.\n\r", ch );
+	act_printf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING, MOVE_N_OPENS_THE_D);
+	send_to_char(msg(MOVE_OK, ch), ch);
 
 	/* open the other side */
 	if ( ( to_room   = pexit->u1.to_room            ) != NULL
@@ -724,7 +724,7 @@ void do_open( CHAR_DATA *ch, char *argument )
 
 	    REMOVE_BIT( pexit_rev->exit_info, EX_CLOSED );
 	    for ( rch = to_room->people; rch != NULL; rch = rch->next_in_room )
-		act( "The $d opens.", rch, NULL, pexit_rev->keyword, TO_CHAR );
+		act_printf(ch, NULL, pexit_rev->keyword, TO_CHAR, POS_RESTING, MOVE_THE_D_OPENS);
 	}
 	return;
     }
@@ -743,7 +743,7 @@ void do_close( CHAR_DATA *ch, char *argument )
 
     if ( arg[0] == '\0' )
     {
-	send_to_char( "Close what?\n\r", ch );
+	send_to_char(msg(MOVE_CLOSE_WHAT, ch), ch);
 	return;
     }
 
@@ -758,33 +758,33 @@ void do_close( CHAR_DATA *ch, char *argument )
 	    if (!IS_SET(obj->value[1],EX_ISDOOR)
 	    ||   IS_SET(obj->value[1],EX_NOCLOSE))
 	    {
-		send_to_char("You can't do that.\n\r",ch);
+		send_to_char(msg(MOVE_YOU_CANT_DO_THAT, ch), ch);
 		return;
 	    }
 
 	    if (IS_SET(obj->value[1],EX_CLOSED))
 	    {
-		send_to_char("It's already closed.\n\r",ch);
+		send_to_char(msg(MOVE_ITS_ALREADY_CLOSED, ch), ch);
 		return;
 	    }
 
 	    SET_BIT(obj->value[1],EX_CLOSED);
-	    act("You close $p.",ch,obj,NULL,TO_CHAR);
-	    act("$n closes $p.",ch,obj,NULL,TO_ROOM);
+	    act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING, MOVE_YOU_CLOSE_P);
+	    act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_CLOSES_P);
 	    return;
 	}
 
 	/* 'close object' */
 	if ( obj->item_type != ITEM_CONTAINER )
-	    { send_to_char( "That's not a container.\n\r", ch ); return; }
+	    { send_to_char(msg(MOVE_THATS_NOT_A_CONTAINER, ch), ch); return; }
 	if ( IS_SET(obj->value[1], CONT_CLOSED) )
-	    { send_to_char( "It's already closed.\n\r",    ch ); return; }
+	    { send_to_char(msg(MOVE_ITS_ALREADY_CLOSED, ch), ch); return; }
 	if ( !IS_SET(obj->value[1], CONT_CLOSEABLE) )
-	    { send_to_char( "You can't do that.\n\r",      ch ); return; }
+	    { send_to_char(msg(MOVE_YOU_CANT_DO_THAT, ch), ch); return; }
 
 	SET_BIT(obj->value[1], CONT_CLOSED);
-	act("You close $p.",ch,obj,NULL,TO_CHAR);
-	act( "$n closes $p.", ch, obj, NULL, TO_ROOM );
+	act_printf(ch, obj, NULL, TO_CHAR, POS_RESTING, MOVE_YOU_CLOSE_P);
+	act_printf(ch, obj, NULL, TO_ROOM, POS_RESTING, MOVE_N_CLOSES_P);
 	return;
     }
 
@@ -797,11 +797,11 @@ void do_close( CHAR_DATA *ch, char *argument )
 
 	pexit	= ch->in_room->exit[door];
 	if ( IS_SET(pexit->exit_info, EX_CLOSED) )
-	    { send_to_char( "It's already closed.\n\r",    ch ); return; }
+	    { send_to_char(msg(MOVE_ITS_ALREADY_CLOSED, ch), ch); return; }
 
 	SET_BIT(pexit->exit_info, EX_CLOSED);
-	act( "$n closes the $d.", ch, NULL, pexit->keyword, TO_ROOM );
-	send_to_char( "Ok.\n\r", ch );
+	act_printf(ch, NULL, pexit->keyword, TO_ROOM, POS_RESTING, MOVE_N_CLOSES_THE_D);
+	send_to_char(msg(MOVE_OK, ch), ch);
 
 	/* close the other side */
 	if ( ( to_room   = pexit->u1.to_room            ) != NULL
@@ -812,7 +812,7 @@ void do_close( CHAR_DATA *ch, char *argument )
 
 	    SET_BIT( pexit_rev->exit_info, EX_CLOSED );
 	    for ( rch = to_room->people; rch != NULL; rch = rch->next_in_room )
-		act( "The $d closes.", rch, NULL, pexit_rev->keyword, TO_CHAR );
+		act_printf(rch, NULL, pexit_rev->keyword, TO_CHAR, POS_RESTING, MOVE_THE_D_CLOSES);
 	}
 	return;
     }

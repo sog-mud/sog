@@ -132,6 +132,16 @@ char *strings_engl[] =  {
 /* MOVE_ITS_LOCKED */		"It's locked.\n\r",
 /* MOVE_YOU_OPEN_P */		"You open $p.",
 /* MOVE_N_OPENS_P */		"$n opens $p.",
+/* MOVE_THATS_NOT_A_CONTAINER */"That's not a container.\n\r",
+/* MOVE_N_OPENS_THE_D */	"$n opens the $d.",
+/* MOVE_OK */			"Ok.\n\r",
+/* MOVE_THE_D_OPENS */		"The $d opens.",
+/* MOVE_CLOSE_WHAT */		"Close what?\n\r",
+/* MOVE_ITS_ALREADY_CLOSED */	"It's already closed.\n\r",
+/* MOVE_YOU_CLOSE_P */		"You close $p.",
+/* MOVE_N_CLOSES_P */		"$n closes $p.",
+/* MOVE_N_CLOSES_THE_D */	"$n closes the $d.",
+/* MOVE_THE_D_CLOSES */		"the $d closes.",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yis gushing blood{x.",
