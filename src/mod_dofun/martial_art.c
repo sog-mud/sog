@@ -1,5 +1,5 @@
 /*
- * $Id: martial_art.c,v 1.163 2000-10-04 20:28:45 fjoe Exp $
+ * $Id: martial_art.c,v 1.164 2000-10-05 14:43:10 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1976,7 +1976,7 @@ void do_ambush(CHAR_DATA *ch, const char *argument)
 		return;
 	}
 
-	if (!HAS_INVIS(ch, ID_CAMOUFLAGE) || can_see(victim, ch)) {
+	if (can_see(victim, ch)) {
 		act_char("But they can see you.", ch);
 		return;
 	}
