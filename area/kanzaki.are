@@ -1118,19 +1118,17 @@ You can't see a thing!
 ~
 g none~
 #47006
-holy avenger sword~
-{Wthe holy Avenger{x~
-@eng A silvery longsword shines here blindingly.@rus Длинный серебристый меч ослепительно сияет здесь.~
-silver~
-weapon AKL 0 AN
-sword 25 25 'chop' DEI
-96 0 0 P
+boulder throwing~
+a throwing boulder~
+Here lies a large boulder.~
+stone~
+weapon JL 0 AN
+exotic 8 8 'crush' FK
+46 0 0 P
 A
-6 22
+18 25
 A
-19 250
-A
-18 250
+19 25
 g none~
 #47007
 breastplate white blazing~
@@ -1165,11 +1163,11 @@ A
 13 1000
 g male~
 #47009
-cape paladin white~
-@eng {Wwhite cape of the paladin{x@rus ~~{Wбелая~~ ~~накидка~~ рыцаря{x~
-@eng White cape lies on the ground.@rus Белая накидка, принадлежащая паладину, лежит здесь.~
-cloth~
-armor AKL 0 AK
+shirt wampum~
+a shirt of wampum~
+Here lies a shirt of wampum~
+wampum~
+armor GJL 0 AK
 0 0 0 0 0
 46 0 0 P
 F A 0 0 T
@@ -1179,7 +1177,7 @@ A
 39 100
 A
 5 22
-g male~
+g neutral~
 #47010
 blessing~
 @eng {Wa blessing{x@rus {Wблагословление свыше{x~
@@ -1203,16 +1201,13 @@ A
 3 22
 g none~
 #47011
-amulet purity~
-@eng {Wamulet of purity{x@rus {Wамулет чистоты{x~
-An amulet lies here, reflecting light.~
-silver~
-jewelry AKLY 0 AC
+crest eagle feathers~
+a crest of eagle-feathers~
+Here a crest of eagle feathers.~
+feathers~
+jewelry JLY 0 AE
 0 0 0 0 0
 46 0 0 P
-F d 0 0 L
-F d 0 0 K
-F d 0 0 M
 g male~
 #47012
 barrel large~

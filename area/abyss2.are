@@ -9,18 +9,25 @@ End
 
 #MOBILES
 #25000
-demi lich demi-lich~
-The Demi-Lich~
-The Demi-Lich leaps from his throne as you enter the room, his evil
+demi lich demi-lich полулич лич~
+@eng The Demi-Lich@rus ~~полулич~~~
+@eng The Demi-Lich leaps from his throne as you enter the room, his evil
 eyes fixed dead upon you!
+@rus Полулич (Demi-lich) вскакивает со своего трона, не сводя с тебя горящих глаз.
 ~
-The Demi-Lich is, perhaps, the single most powerful undead creature known
+@eng The Demi-Lich is, perhaps, the single most powerful undead creature known
 to exist.  Greatly resembling a wight or mummy, and being gaunt and skeletal
 in form. It is, nevertheless a being of forboding might. Its eye sockets are 
 black and empty, save for the fierce pinpoints of light which serve as eyes. 
 An aura of cold and darkness radiates from it, which makes it an ominous and 
 fearsome sight. Despite the wasted, rotten flesh it is garbed in the rich 
 clothes of nobility.
+@rus Вполне возможно, что Полулич - самый сильный представитель
+нежити из когда-либо существовавших. С виде напоминая мумию
+или призрака, очень костлявый, он окружен зловещей, холодной
+аурой темной магической силы. Пустые глазницы его черепа ис-
+пускают странное красное сияние, и богатые одежды резко кон-
+трастируют с лохмотьями истлевшей плоти под ними.
 ~
 lich~
 0 0 0 0 0 -1000 0
@@ -30,11 +37,12 @@ lich~
 stand stand male 6700
 0 0 medium unknown
 #25001
-keftab~
-Keftab, the Ancient One~
-Keftab, the Ancient One stands here, calmly searching ceaslessly.
+keftab ancient кефтаб древний~
+@eng Keftab, the Ancient One@rus ~~Кефтаб~~ ~~Древний~~~
+@eng Keftab, the Ancient One stands here, calmly searching ceaslessly.
+@rus Кефтаб Древний (Keftab) беспрестанно что-то ищет с пугающим, нечеловеческим спокойствием.
 ~
-A writhing, quivering mass of horrific, unspeakable flesh-like material, this
+@eng A writhing, quivering mass of horrific, unspeakable flesh-like material, this
 ancient one stares coldly about through its many multifacted eyes, viscious, 
 vile smelling liquid seeps through its flesh in many places, originating from 
 the ghastly, crater like pores which pepper his body. Disgustingly, large 
@@ -42,12 +50,21 @@ portions of its flesh seem to bubble with an alien life of their own.
 The surface of its body, where not oozing, is covered with mottled, grey, 
 mossy protrusions, like some strange malignant blemishes. It emits low, 
 gutteral mewlings from its fange, quivering oriface.
+@rus Колышущаяся масса невообразимо отвратительной плоти, служащая
+телом этому древнему существу, непрерывно содрогается и иногда,
+словно волны пробугают по ее поверхности. Фасетчатые глаза огля-
+дывают тебя безо всяких эмоций и мерзко пахнущая жидкость течет
+из многочисленных пор в его "коже", расположенных между крапча-
+тыми, мшистыми выступами. Временами начинает казаться, что раз-
+ные его части живут сами по себе - столь несогласованны их дви-
+жения. Низкие булькающие звуки исходят из его неровной пасти,
+отличающейся от остальных отверстий лишь наличием зубов.
 ~
-human~
-BCJ 0 0 G AH -1000 0
+unique~
+BCJ 0 0 0 0 -1000 0
 45 0 25d10+2300 449d1+1 8d4+10 'beating'
 -15 -15 -15 4
-CDEFH
+0
 stand stand male 6500
 0 0 medium unknown
 r fire -50
@@ -58,54 +75,65 @@ r negative -50
 r energy -50
 r mental -50
 r sound -50
-r disease -50
-r poison -50
+r disease 100
+r poison 100
 r charm 33
 r harm -50
-r light -50
 #25002
-death crimson~
-A Crimson Death~
-A crimson death materializes from a dense patch of red mist.
+death crimson красная смерть~
+@eng A Crimson Death@rus ~~Красная~~ ~~Смерть~~~
+@eng A crimson death materializes from a dense patch of red mist.
+@rus Красная Смерть (Crimson Death) появляется перед тобой из сгустившегося тумана.
 ~
-Its skeletal form is garbed in a robe of crimson, the blood of its many
+@eng Its skeletal form is garbed in a robe of crimson, the blood of its many
 victims stain the robe. Its skeletal figure resembles that of the angel of
 death. Its eyes glow with a furious fire to kill.
+@rus Скелетообразная фигура облачена в красную робу, испачканную
+кровью множества жертв. Пылающие глаза не выражают ничего,
+кроме желания убивать.
 ~
 human~
 BCFJ 0 JTU 0 AH -1000 0
 36 0 10d10+1400 359d1+1 3d10+11 'punch'
 -12 -12 -12 5
 DEHIJK
-stand stand either 5600
+stand stand neutral 5600
 0 0 medium unknown
+g @eng neutral@rus female~
 r bash 33
 r holy -50
 r energy -50
 r charm 100
 #25003
-mist daemon~
-A Mist Daemon~
-A mist daemon stands here, in a cloud of grey mist.
+demon mist демон тумана~
+@eng A Mist Daemon@rus ~~Демон~~ тумана~
+@eng A mist daemon stands here, in a cloud of grey mist.
+@rus Демон (demon) стоит здесь, окруженный серой дымкой.
 ~
-A large demon like creature hovers abover you, in a cloud of grey mist.
+@eng A large demon like creature hovers abover you, in a cloud of grey mist.
 Its winged form stares down at you in utter hatred.
+@rus Большое демоноподобное создание парит в воздухе перед тобой,
+окруженное туманом, и смотрит на тебя с ненавистью.
 ~
 human~
 BCFJ 0 U 0 H -1000 0
 34 0 10d10+1200 339d1+1 4d7+10 'punch'
 -11 -11 -11 5
 HIK
-stand stand either 10000
+stand stand neutral 10000
 0 0 medium unknown
+g @eng neutral@rus male~
 r charm 100
 #25004
-black slayer~
-a Black Slayer~
-A huge, shadowy figure materializes from the shadows around you.
+black slayer черный убийца~
+@eng a Black Slayer@rus ~~Черный~~ ~~Убийца~~~
+@eng A huge, shadowy figure materializes from the shadows around you.
+@rus Огромная фигура (slayer) возникает прямо из окружающих тебя теней.
 ~
-The black slayer is a shadowy figure, about 7 feet in height. Garbed in
+@eng The black slayer is a shadowy figure, about 7 feet in height. Garbed in
 a heavey, black cloak, in his right hand, he wields a wicked dagger.
+@rus Ростом свыше семи футов, он одет в тяжелый черный плащ
+и сжимает в руке кинжал.
 ~
 human~
 BCFJ 0 0 G AH -1000 0
@@ -128,14 +156,15 @@ r poison 33
 r harm 33
 r light 33
 #25005
-lost soul~
-a Lost Soul~
-A ghostly apparition floats here, staring at you in utter hatred.
+lost soul потерянная душа~
+@eng a Lost Soul@rus ~~потерянная~~ ~~душа~~~
+@eng A ghostly apparition floats here, staring at you in utter hatred.
+@rus Призрак (lost soul) парит в воздухе перд тобой, всем видом выражая ненависть.
 ~
 The lost soul is a ghostly apparition, seeking revenge on the living.
 ~
 human~
-CFJ 0 0 G AH -1000 0
+CFJ 0 U G AH -1000 0
 20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
 FGJK
@@ -158,85 +187,83 @@ r poison 33
 r charm 33
 r harm 33
 #25006
-storm giant~
-a Storm Giant~
-A storm giant stands here, angered by your presence.
+storm giant гигант~
+@eng a Storm Giant@rus ~~гигант~~~
+@eng A storm giant stands here, angered by your presence.
+@rus Разгневанный твоим присутствием гигант (giant) стоит здесь.
 ~
-This huge creature is approximatly 18 feet tall, He grasps a huge bolt
+@eng This huge creature is approximatly 18 feet tall, He grasps a huge bolt
 of lightning it his right hand.... He doesnt look happy to see you.
+@rus Возвышаясь на добрых 6 метров, он сжимает в руке
+молнию и явно не рад встрече.
 ~
-giant~
-BCFJ 0 0 G AH -1000 0
+storm giant~
+0 0 0 0 0 -1000 0
 40 0 15d10+1850 399d1+1 4d8+13 'punch'
 -13 -13 -13 4
-CEIKL
+0
 stand stand male 10000
 0 0 large unknown
-r bash 33
-r pierce 33
-r slash 33
-r fire 0
-r cold 0
-r acid -50
-r holy -50
-r negative -50
-r energy -50
-r sound -50
-r disease -50
-r poison -50
-r charm 33
-r harm -50
-r light -50
 #25007
-white gold manticore~
-a White Gold Manticore~
-A statuesque manticore stands here, crafted entirely of white gold.
+white gold manticore золотая мантикора~
+@eng a White Gold Manticore@rus ~~золотая~~ ~~мантикора~~~
+@eng A statuesque manticore stands here, crafted entirely of white gold.
+@rus Сделанная целиком из белого золота статуя мантикоры (manticore) стоит тут.
 ~
-The statue is beautifully crafted, the whole statue is formed 
+@eng The statue is beautifully crafted, the whole statue is formed 
 entirely of white gold. Its eyes seem to watch your every move.. 
 they almost appear is if they were alive.
+@rus Она сделана целиком из удивительного белого золота.
+Глаза статуи, кажется, следят за каждым твоим движе-
+нием, словно она живая.
 ~
-bear~
-BC 0 H 0 AH 0 25007
+unique~
+0 0 0 0 0 0 25007
 22 0 5d10+400 219d1+1 4d4+6 'punch'
 -5 -5 -5 6
-ACHIKL
+0
 stand stand male 877
 0 0 medium unknown
-r bash 0
-r lightning 33
+g @eng male@rus female~
+r fire 40
+r cold 40
+r lightning 40
 #25008
-flaming efreet~
-an Efreet~
-A huge flaming figure stands here, with a glint of evil in his eyes.
+flaming efreet огненный ифрит~
+@eng an Efreet@rus ~~ифрит~~~
+@eng A huge flaming figure stands here, with a glint of evil in his eyes.
+@rus Огромная огненная фигура (efreet) стоит здесь, недобро поблескивая глазами.
 ~
-The creature is formed entirely of flames. The creature gives off an
+@eng The creature is formed entirely of flames. The creature gives off an
 intense heat.
+@rus Он состоит целиком из огня и ты чувствуешь исходящий от него жар.
 ~
-human~
-BFJ 0 0 0 H -1000 25008
+unique~
+0 0 0 0 0 -1000 25008
 35 0 10d10+1200 349d1+1 4d7+10 'punch'
 -11 -11 -11 7
-CDEFGHIK
+0
 stand stand male 5612
 0 0 medium unknown
-r fire 33
+r fire 100
 r holy -50
 r energy -50
-r poison -50
+r disease 100
+r poison 100
 r charm 100
-r light -50
 #25009
-hydra~
-the Hydra~
-A huge eight headed hydra is sleeping here
+hydra гидра~
+@eng the Hydra@rus ~~гидра~~~
+@eng A huge eight headed hydra is sleeping here
+@rus Огромная восьмиглавая гидра (hydra) спит тут.
 ~
-The huge, scaled creature  has eight heads... each capable of breathing
+@eng The huge, scaled creature  has eight heads... each capable of breathing
 a dangerous stream of fire.
+@rus Огромная чешуйчатая тварь с восемью огнедышащими головами.
 ~
 fox~
 BCFJ 0 0 0 H -1000 0
-36 0 10d10+1400 359d1+1 3d10+11 'punch'
+36 0 10d10+1400 359d1+1 3d10+11 'blast'
 -12 -12 -12 6
 K
 stand stand female 6090
@@ -245,21 +272,25 @@ r energy -50
 r poison -50
 r charm 100
 #25010
-kraken~
-the kraken~
-A large squid-like creature erupts from the waters beneath you!
+kraken кракен~
+@eng the kraken@rus ~~кракен~~~
+@eng A large squid-like creature erupts from the waters beneath you!
+@rus Огромная тварь (kraken) всплывает из пучины.
 ~
-This large creature is a close relative of the squid but a much larger
+@eng This large creature is a close relative of the squid but a much larger
 size. its huge tentacles grasp something... though you can not make out
 what the object is.
+@rus Это чудовище приходится родственником осьминогам и кальмарам, но
+намного превосходит их в размере. Оно что-то сжимает в щупальцах,
+но ты не можешь разглядеть, что именно.
 ~
 water fowl~
 BF 0 0 0 AH -1000 0
-40 0 15d10+1700 399d1+1 4d8+11 'punch'
+40 0 15d10+1700 399d1+1 4d8+11 'slime'
 -13 -13 -13 7
-AB
+A
 stand stand male 4504
-0 0 medium unknown
+0 0 giant unknown
 r lightning 33
 r acid 33
 r holy 33
@@ -273,66 +304,74 @@ r charm 33
 r harm 33
 r light 33
 #25011
-treant tree~
-the Treant~
-A large tree-like creature reaches out for you with its many limbs.
+treant tree дерево~
+@eng the Treant@rus ~~ожившее~~ ~~дерево~~~
+@eng A large tree-like creature reaches out for you with its many limbs.
+@rus Большая древообразная тварь (treant) тянется к тебе множеством конечностей.
 ~
-It is a rather large creature resembling a tree. At the base of the trunk
+@eng It is a rather large creature resembling a tree. At the base of the trunk
 is a large opening that looks very much like a mouth.
+@rus Это было бы еще больше похоже на дерево, если бы не имело
+рта у основания.
 ~
-lizard~
-BCFJ 0 J 0 H -1000 0
+unique~
+0 0 0 0 0 -1000 0
 44 0 25d10+2550 439d1+1 8d4+12 'punch'
 -15 -15 -15 4
-CEF
+0
 stand stand male 5709
 0 0 medium unknown
+g @eng male@rus neutral~
 r bash 33
 r pierce 33
 r slash 33
 r fire -50
+r cold -50
 r lightning -50
 r acid -50
 r holy -50
 r negative -50
 r energy -50
-r mental -50
-r sound -50
-r disease -50
-r poison 0
+r mental 100
+r sound 100
+r disease 100
+r poison 100
 r charm 33
 r harm -50
-r light -50
 #25012
-githyanki~
-a Githyanki~
-A disgusting creature of etheral nature stands here, its body completely
+githyanki гитьянки~
+@eng a Githyanki@rus гитьянки~
+@eng A disgusting creature of etheral nature stands here, its body completely
 wraped in bandages..
+@rus Безобразное и грязное существо (githyanki) стоит здесь, замотанное в лохмотья.
 ~
-This man sized creature has bandages wrapped all about its body. Its eyes
+@eng This man sized creature has bandages wrapped all about its body. Its eyes
 glow with a brilliant red fire, in its right hand he grasps a an extremely
 sharp blade of magical nature.
+@rus Размером с человека, оно с ног до головы замотано какими-то
+бинтами, и его глаза горят красным, а в руке зажат острый и
+явно магический клинок.
 ~
-human~
-BCGH 0 0 G AH -1000 25012
+githyanki~
+BCGH 0 0 0 0 -1000 25012
 26 0 5d10+600 259d1+1 2d10+7 'punch'
 -7 -7 -7 6
-ADEF
+0
 stand stand male 1500
 0 0 medium unknown
-r bash -50
-r pierce -50
-r slash -50
 r negative 33
 r poison 33
 #25013
-kalas~
-Kalas~
-Kalas, the guardian and knight of the castle stands here preparing himself for
+kalas калас~
+@eng Kalas@rus ~~Калас~~~
+@eng Kalas, the guardian and knight of the castle stands here preparing himself for
 battle.
+@rus Калас (Kalas), защитник этого замка готовится к бою.
 ~
-He is a large, muscular man of undead nature. He is clad in rather magical
+@eng He is a large, muscular man of undead nature. He is clad in rather magical
 looking suit of armor, his sword burning fiercly.
+@rus Он высок и мускулист, одет в магические доспехи и меч
+в его руке объят огнем.
 ~
 human~
 BFJ 0 J 0 H -1000 0
@@ -347,19 +386,23 @@ r lightning -50
 r acid -50
 r charm 100
 #25014
-death knight~
-the Death knight~
-The death knight stands here, preparing to do you in.
+death knight рыцарь смерти~
+@eng the Death knight@rus ~~рыцарь~~ смерти~
+@eng The death knight stands here, preparing to do you in.
+@rus Рыцарь смерти (death knight) стоит здесь, собираясь убить тебя.
 ~
-This creature is the result of a powerful mage animating the dead remains
+@eng This creature is the result of a powerful mage animating the dead remains
 of a once mighty warrior. Its eyes are fixed coldly upon you, unsheathing
 its sword, he charges for battle.
+@rus Когда-то могучий воин, теперь он - раб темного мага,
+воскресившего его из мертвых. Не сводя с тебя глаз,
+он обнажает свое оружие и нападает.
 ~
-human~
-BCFJ 0 J 0 H -1000 0
+undead~
+0 0 0 0 0 -1000 0
 38 0 10d10+1600 379d1+1 4d8+13 'punch'
 -13 -13 -13 5
-BCEGK
+0
 stand stand male 6860
 0 0 medium unknown
 r bash 33
@@ -368,16 +411,18 @@ r slash 33
 r fire -50
 r charm 100
 #25015
-Neo Otyugh~
-the Neo-Otyugh~
-A large, disgusting, vile creature stands here, smelling putrid.
+Neo Otyugh отюф~
+@eng the Neo-Otyugh@rus отюф~
+@eng A large, disgusting, vile creature stands here, smelling putrid.
+@rus Огромная мерзкая тварь (otyugh) стоит тут, распространяя запах гнили.
 ~
-This creature is covered with slime like substance, many tentacles protrude
+@eng This creature is covered with slime like substance, many tentacles protrude
 from its disgusting body.
+@rus Оно покрыто какой-то слизью и имеет кучу щупалец.
 ~
 dog~
 BCFJ 0 J 0 H -1000 25015
-46 0 25d10+3250 459d1+1 6d6+16 'punch'
+46 0 25d10+3250 459d1+1 6d6+16 'slime'
 -16 -16 -16 4
 J
 stand stand male 10000
@@ -387,11 +432,14 @@ r acid 33
 r poison 33
 r charm 100
 #25016
-shadow daemon~
-a Shadow Daemon~
-A shadowy figure stands here, looking you over with greed.
+shadow демон теней demon~
+@eng a Shadow Demon@rus ~~демон~~ теней~
+@eng A shadowy figure stands here, looking you over with greed.
+@rus Фигура, сотканная из теней (demon) жадно смотрит на тебя.
 ~
-This creature has almost no form, it looks like some sort of shadow with wings.
+@eng This creature has almost no form, it looks like some sort of shadow with wings.
+@rus Это просто тень с крыльями, которая легко может менять
+свои очертания.
 ~
 human~
 CFJ 0 0 0 AH -1000 0
@@ -407,12 +455,15 @@ r sound -50
 r charm 100
 r light -50
 #25017
-gatekeeper gate keeper~
-the Gatekeeper~
-A huge warrior stands here guarding the portal beyond.
+gatekeeper gate keeper хранитель врат~
+@eng the Gatekeeper@rus ~~хранитель~~ Врат~
+@eng A huge warrior stands here guarding the portal beyond.
+@rus Огромный воин (gatekeeper) охраняет Врата, находящиеся за его спиной.
 ~
-He is a huge man, his strong, muscular body stands about 8 feet tall.
+@eng He is a huge man, his strong, muscular body stands about 8 feet tall.
 He guards the portal beyond him angrily.
+@rus Ростом в восемь футов и мускулистый, он способен помешать
+тебе добраться до портала.
 ~
 human~
 BFGJ 0 J 0 ABH -1000 25036
@@ -439,76 +490,80 @@ r charm 100
 r harm 33
 r light 33
 #25018
-elemental water prince~
-The Water Prince~
-The prince of water elementals flows here
+elemental water prince принц элементалей воды~
+@eng The Water Prince@rus ~~принц~~ водных элементалей~
+@eng The prince of water elementals flows here
+@rus Принц (prince) водных элементалей течет здесь.
 ~
-He looks like a giant wave about to swoop down upon you.
+@eng He looks like a giant wave about to swoop down upon you.
+@rus Огромная волна, кажется, вот-вот поглотит тебя.
 ~
-water fowl~
-B 0 H 0 BH 0 0
+water elemental~
+B 0 0 0 0 0 0
 32 0 10d10+900 319d1+1 6d4+8 'punch'
 -10 -10 -10 5
-AHI
+0
 stand stand male 4500
-0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
+D 0 medium unknown
+F off G
+F for AZ
+F par AD
 #25019
-earth elemental king~
-The Earth King~
-The King of earth elementals stands here.. cower fool!
+earth elemental king король элементалей земли~
+@eng The Earth King@rus ~~король~~ земных элементалей~
+@eng The King of earth elementals stands here.. cower fool!
+@rus Король элементалей земли (king) стоит здесь... преклонись!
 ~
-It looks vaguely man-shaped.
+@eng It looks vaguely man-shaped.
+@rus Он слегка похож на человека.
 ~
-water fowl~
-B 0 H 0 BH 0 0
+earth elemental~
+B 0 0 0 0 0 0
 32 0 10d10+900 319d1+1 6d4+8 'punch'
 -10 -10 -10 5
-AHI
+0
 stand stand male 10000
-0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
+D 0 medium unknown
+F for Z
+F par AD
 #25020
-air elemental lord~
-The Lord of Air~
-A huge tornado is squeezed into this impossibly small space.
+air elemental lord повелитель элементалей воздуха~
+@eng The Lord of Air@rus ~~повелитель~~ элементалей воздуха~
+@eng A huge tornado is squeezed into this impossibly small space.
+@rus Огромный смерч (air) невообразимым образом умещается в таком маленьком пространстве.
 ~
-It looks sentinent.
+@eng It looks sentinent.
+@rus Вполне живой.
 ~
-song bird~
-B 0 0 0 AH 0 0
+air elemental~
+B 0 H 0 0 0 0
 32 0 10d10+900 319d1+1 6d4+8 'punch'
 -10 -10 -10 5
-AI
+0
 stand stand male 4906
-0 0 medium unknown
-r fire 33
-r cold 33
-r lightning 33
-r acid 33
+D 0 medium unknown
+F off G
+F for Z
+F par AD
 #25021
-fire elemental sultan~
-The Sultan of Fire~
-The Sultan of fire Elementals stands before you, you feel crisp.
+fire elemental sultan султан элементалей огня~
+@eng The Sultan of Fire@rus ~~султан~~ огня~
+@eng The Sultan of fire Elementals stands before you, you feel crisp.
+@rus Султан огненных элементалей (sultan) стоит здесь.
 ~
-It looks vaguely man-shaped.
+@eng It looks vaguely man-shaped.
+@rus Он немного похож на человека.
 ~
-dragon~
-B 0 0 0 A 0 0
+fire elemental~
+B 0 0 0 0 0 0
 32 0 10d10+900 319d1+1 6d4+8 'punch'
 -10 -10 -10 5
-AHI
+0
 stand stand male 4111
-0 0 medium unknown
-r cold 0
-r lightning 33
-r acid 33
+D 0 medium unknown
+F off G
+F for Z
+F par AD
 #25022
 king goblin~
 The goblin king~
@@ -580,11 +635,14 @@ B 0 0 0 0 0 0
 stand stand either 11111
 0 0 medium unknown
 #25030
-demon vrock~
-A vrock~
-A Vrock stands here
+demon vrock демон врок~
+@eng A vrock@rus ~~Врок~~~
+@eng A Vrock stands here
+@rus Врок (vrock) стоит тут.
 ~
-It is a vulture/human creature. Extremely ugly, and nasty.
+@eng It is a vulture/human creature. Extremely ugly, and nasty.
+@rus Врок похож одновременно на человека и стервятника.
+Отвратительная и страшная комбинация.
 ~
 human~
 CFJ 0 0 0 ABH -666 25030
@@ -611,11 +669,13 @@ r charm 100
 r harm 33
 r light 33
 #25031
-demon hezrou~
-A hezrou~
-A demon Hezrou stands here.
+demon hezrou демон хезроу~
+@eng A hezrou@rus Хезроу~
+@eng A demon Hezrou stands here.
+@rus Демон-Хезроу стоит тут.
 ~
-Not unlike A large toad/man
+@eng Not unlike A large toad/man
+@rus Гибрид человека и жабы.
 ~
 human~
 CFJ 0 0 0 ABH -666 0
@@ -630,11 +690,13 @@ r mental 33
 r charm 100
 r light 33
 #25032
-demon glabrezu~
-A glabrezu~
-A demon Glabrezu stands here.
+demon glabrezu демон глабрезу~
+@eng A glabrezu@rus Глабрезу~
+@eng A demon Glabrezu stands here.
+@rus Глабрезу стоит тут.
 ~
-I forget what this one looks like.
+@eng I forget what this one looks like.
+@rus Похож на толстого и тупого турка.
 ~
 human~
 CFJ 0 0 0 ABH -666 25032
@@ -645,11 +707,13 @@ stand stand either 490
 0 0 medium unknown
 r charm 100
 #25033
-demon nalfeshnee~
-Nalfeshnee~
-Nalfeshnee stands here
+demon nalfeshnee нэльфешни~
+@eng Nalfeshnee@rus Нэльфешни~
+@eng Nalfeshnee stands here
+@rus Нэльфешни стоит тут.
 ~
-This one is big and mean looking.
+@eng This one is big and mean looking.
+@rus Большой и злой.
 ~
 giant~
 BCFJ 0 0 0 ABH -666 25033
@@ -660,58 +724,52 @@ stand stand either 890
 0 0 medium unknown
 r charm 100
 #25034
-demon marilith~
-Marilith~
-Marilith slithers here
+demon marilith марилит~
+@eng Marilith@rus Марилит~
+@eng Marilith slithers here
+@rus Марилит (Marilith) ползет по полу тут.
 ~
-A woman with 6 arms and a snake's tail
+@eng A woman with 6 arms and a snake's tail
+@rus Шестирукая женщина со змеиным хвостом.
 ~
-elf~
-CFJ 0 0 0 AB -666 25034
+unique~
+0 0 0 0 0 -666 25034
 15 0 3d9+208 149d1+1 2d6+3 'punch'
 -2 -2 -2 7
-A
+0
 stand stand female 450
 0 0 tiny unknown
 r charm 100
 #25035
-demon balor~
-Balor~
-Balor stands here, surrounded by electrical fire
+demon balor балор~
+@eng Balor@rus Балор~
+@eng Balor stands here, surrounded by electrical fire
+@rus Балор (Balor) стоит тут, весь в огне.
 ~
-He is very large, and looks rather deadly
+@eng He is very large, and looks rather deadly
+@rus Большой и злой.
 ~
-dwarf~
-CFJ 0 0 0 AB -666 0
+unique~
+0 0 0 0 0 -666 0
 20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
-I
+0
 stand stand male 899
 0 0 medium unknown
 r bash 33
 r pierce 33
 r slash 33
-r fire -50
-r cold -50
-r lightning -50
-r acid -50
-r holy -50
-r negative -50
-r energy -50
-r mental -50
-r sound -50
-r disease -50
-r poison -50
-r charm 33
-r harm -50
-r light -50
+r fire 100
+r charm 50
 #25036
-gatekeeper gate keeper~
-the Gatekeeper~
-A huge warrior stands here guarding the portal beyond.
+gatekeeper gate keeper хранитель врат~
+@eng the Gatekeeper@rus ~~Хранитель~~ врат~
+@eng A huge warrior stands here guarding the portal beyond.
+@rus Огромный воин (gatekeeper) стоит здесь, охраняя портал позади.
 ~
-He is a huge man, his strong, muscular body stands about 8 feet tall.
+@eng He is a huge man, his strong, muscular body stands about 8 feet tall.
 He guards the portal beyond him angrily.
+@rus Высокий, сильный и злой.
 ~
 human~
 BFGJ 0 J 0 ABH -1000 25017
@@ -1664,7 +1722,7 @@ out exactly what the creature is.
 чья-то голова. Ты пытаешься разглядеть ее, но тут слишком
 темно.
 ~
-0 AN noswim
+0 AN swim
 D0
 ~
 ~
@@ -1694,7 +1752,7 @@ following you. You begin to wonder what lies ahead.
 расстоянии. Такое соседство, да еще на таком расстоянии
 от берега, потихоньку начинает тебя нервировать.
 ~
-0 AN noswim
+0 AN swim
 D1
 ~
 ~
@@ -3152,11 +3210,11 @@ of the horrible creature nearly makes you sick. The creature
 slowly begins to make its way toword you.......
 @rus Необычайная красота этой комнаты ошеломляет тебя, стоит тебе
 войти. Великолепный трон, сделанный целиком из серебра ярко сияет,
-и ты не можешь отвести от него глаз. Ты приходишь в себя, лишь
-заметив какое-то движение в свою сторону. Отвратительная бесфор-
-менная тварь разлеглась на полу между тобой и троном, зловонная
-зеленая жидкость сочится из многочисленных волдырей на ее теле и
-тебя выворачивает наизнанку от запаха.
+и ты не можешь отвести от него глаз. Лишь заметив какое-то движе-
+ние в свою сторону, ты приходишь в себя и замечаешь отвратительную
+бесформенную тварь, разлегшуюся на полу между тобой и троном. Зло-
+вонная зеленая жидкость сочится из многочисленных волдырей на ее
+теле и тебя выворачивает наизнанку от запаха.
 ~
 0 AD inside
 D0
@@ -3165,12 +3223,15 @@ solid iron door~
 Z -1 25092
 S
 #25094
-A Small Alcove~
-Upon entering this small alcove, you get a safe feeling
+@eng A Small Alcove@rus Маленький альков~
+@eng Upon entering this small alcove, you get a safe feeling
 within its walls. The room is clean and several tapestries
 hang upon the wall. The wall to the east appears to be moveable,
 for there are marks on the floor where the wall may have
 scraped it.
+@rus Это место вселяет чувство безопасности с первых же
+шагов. Пол чист, а стены украшены гобеленами. Судя по
+царапинам на полу, восточная стена способна двигаться.
 ~
 0 ADN hills
 D1
@@ -3183,11 +3244,14 @@ D4
 Z -1 25079
 S
 #25095
-A Narrow Tunnel~
-Shifting the wall has revealed a long, narrow tunnel
+@eng A Narrow Tunnel@rus Узкий туннель~
+@eng Shifting the wall has revealed a long, narrow tunnel
 in which you now find yourself. The tunnel is freshly dug
 and appears to extend quite a long way. No doors are visible
 save for the wall you just shifted.
+@rus Сдвинув стену с места, ты обнаруживаешь за ней узенький
+проход. Выкопан он, судя по всему недавно, но продолжает-
+ся достаточно далеко на восток, и конца ему не видно.
 ~
 0 ADN field
 D1
@@ -3200,11 +3264,13 @@ D3
 Z -1 25094
 S
 #25096
-A Narrow Tunnel~
-As you come around a small corner in the tunnel, you see
+@eng A Narrow Tunnel@rus Узкий туннель~
+@eng As you come around a small corner in the tunnel, you see
 a faint light to the south. The southern part of the tunnel
 is lit by a dim light of some kind at the far end of the
 tunnel.
+@rus Здесь туннель поворачивает на юг, и последовав ему,
+ты видишь впереди свет.
 ~
 0 ADN city
 D2
@@ -3217,11 +3283,13 @@ D3
 Z -1 25095
 S
 #25097
-A Narrow Tunnel~
-At this point of the tunnel, the walls get closer together
+@eng A Narrow Tunnel@rus Узкий туннель~
+@eng At this point of the tunnel, the walls get closer together
 and the passage gets very narrow. As you near the southern end
 of the tunnel, the light grows brighter. The only apparent exits
 from the room are north and south.
+@rus Ближе к концу туннеля стены сближаются, делая эти последние
+шаги весьма затруднительными, но яркий свет впереди зовет тебя.
 ~
 0 ADN field
 D0
@@ -3234,10 +3302,13 @@ D2
 Z -1 25098
 S
 #25098
-A Small Portal~
-As you come to the end of the tunnel, you notice the
+@eng A Small Portal@rus Портал~
+@eng As you come to the end of the tunnel, you notice the
 light is coming from a somewhat small portal. The light coming
 from the portal is so intense that it nearly blinds you.
+@rus Как оказалось, туннель не выходит на поверхность - влекший
+тебя свет исходит от небольшого портала, и здесь он настолько
+ярок, что ты вынужден смотреть в сторону, чтобы не ослепнуть.
 ~
 0 ADN field
 D0
@@ -3312,7 +3383,7 @@ M 0 25007 2 25041 1	* a White Gold Manticore (The Castle Drawbridge)
 G 0 25018 0		*	a Crystal Ring
 M 0 25009 1 25046 1	* the Hydra (On the Spiral Staircase)
 E 0 25026 0 3		*	the Soul Amulet: around the neck (1)
-M 0 25016 1 25048 1	* a Shadow Daemon (A Coridoor)
+M 0 25016 1 25048 1	* a Shadow Demon (A Coridoor)
 M 0 25014 2 25050 1	* the Death knight (Castle Throne Room)
 E 0 25005 0 5		*	a Rune Covered Breast Plate: on the body
 E 0 25004 0 6		*	a Helm of the Dragons: over the head
@@ -3345,12 +3416,9 @@ E 0 25022 0 15		*	an Ivory Bracelet: on the right wrist
 M 0 25002 1 25081 1	* A Crimson Death (The Crimson Death's room)
 E 0 25002 0 10		*	a pair of silver sleeves: on the arms
 E 0 25008 0 12		*	a Black and Silver Cloak: about the shoulders
-M 0 25004 5 25082 1	* a Black Slayer (The Sanctuary)
-E 0 25008 0 12		*	a Black and Silver Cloak: about the shoulders
-M 0 25038 1 25082 1	* a Black Slayer (The Sanctuary)
+M 0 25004 5 25082 3	* a Black Slayer (The Sanctuary)
 E 0 25014 0 16		*	the Shadowshiv: wielded
-M 0 25037 1 25082 1	* a Black Slayer (The Sanctuary)
-E 0 25024 0 16		*	the fire blade: wielded
+E 0 25008 0 12		*	a Black and Silver Cloak: about the shoulders
 M 0 25006 6 25084 1	* a Storm Giant (Sanctuary Guard Post)
 E 0 25009 0 7		*	a Pair of Metallic Leg Plates: on the legs
 M 0 25006 6 25084 1	* a Storm Giant (Sanctuary Guard Post)

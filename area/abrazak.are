@@ -322,9 +322,9 @@ mace 2000 2000 'divine' BCDEGHI
 100 0 1000000 P
 g none~
 R
-Order allow_deny
-Allow race("lich") && class("warrior")~
-End
+deny race !race("lich")~
+deny class !class("warrior")~
+end
 #15010
 scythe~
 @eng {DScythe{x@rus {DКоса{x~

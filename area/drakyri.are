@@ -1799,13 +1799,13 @@ armor AI 0 AC
 9 9 10 8 0
 43 30 10000 P
 A
+12 35
+A
 18 2
 A
 19 2
 A
 3 2
-A
-12 45
 E
 mithril ((+*+)) torque deriki~
 An inscription along the edge reads:
@@ -1841,9 +1841,9 @@ light A 0 A
 0 0 -1 0 0
 43 0 10000 P
 A
-19 2
+12 30
 A
-12 45
+19 2
 g none~
 #11812
 engraved ((+*+)) ring deriki~
@@ -2128,9 +2128,9 @@ armor AIKL 0 AE
 8 8 8 7 0
 39 30 9000 P
 A
-13 20
+19 1
 A
-19 2
+13 20
 A
 4 1
 A
@@ -2211,7 +2211,7 @@ armor IKL 0 AI
 8 9 9 7 0
 39 40 10000 P
 A
-13 20
+13 15
 A
 19 2
 A
@@ -2267,11 +2267,11 @@ armor CJL 0 AE
 10 10 10 8 0
 42 40 10000 P
 A
+13 20
+A
 19 4
 A
 18 4
-A
-13 30
 A
 1 2
 g none~
@@ -2301,11 +2301,11 @@ armor EJL 0 AD
 15 15 15 15 0
 42 100 15000 P
 A
+13 35
+A
 2 1
 A
 1 1
-A
-13 35
 A
 19 4
 g none~
@@ -2335,9 +2335,9 @@ armor EJLM 0 AF
 9 9 9 7 0
 82 50 10200 P
 A
-19 3
+19 2
 A
-13 25
+13 15
 A
 2 1
 A
@@ -2352,11 +2352,11 @@ armor EJLM 0 AB
 4 4 4 5 0
 39 10 10000 P
 A
-19 4
+13 15
 A
-18 4
+18 3
 A
-13 30
+19 3
 A
 3 1
 g none~
@@ -2407,9 +2407,9 @@ treasure EL 0 AC
 0 0 0 0 0
 40 20 25000 P
 A
-12 50
+12 30
 A
-13 50
+13 30
 A
 2 3
 A
@@ -2443,9 +2443,9 @@ armor EJL 0 AG
 8 8 7 7 0
 42 30 11000 P
 A
-13 20
+12 15
 A
-12 30
+13 15
 A
 2 2
 g none~
@@ -2488,11 +2488,11 @@ armor BEGHM 0 AC
 9 9 9 7 0
 42 30 5500 P
 A
-13 20
+12 15
+A
+13 15
 A
 19 3
-A
-12 20
 A
 1 1
 A
@@ -2541,11 +2541,11 @@ armor CFI 0 AE
 8 8 8 7 0
 39 10 10000 P
 A
+13 10
+A
 19 3
 A
 12 15
-A
-13 20
 A
 2 2
 E
@@ -2675,11 +2675,11 @@ armor CFI 0 AC
 8 8 8 6 0
 36 20 12000 P
 A
+12 10
+A
+13 10
+A
 19 2
-A
-13 20
-A
-12 20
 A
 1 1
 g none~
@@ -6255,6 +6255,7 @@ S
 #OLIMITS
 O 11812 10	* an engraved ((+*+)) ring
 O 11815 5	* a ((+*+)) chain belt
+O 11820 5	* a ((+*+)) tunic
 O 11822 16	* a staff of guarding
 O 11823 3	* a gleaming ((-*-)) circlet
 O 11825 5	* a white ((-*-)) belt
