@@ -23,7 +23,7 @@
  * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
  * SUCH DAMAGE.
  *
- * $Id: eventfun.c,v 1.51 2004-02-27 19:36:54 tatyana Exp $
+ * $Id: eventfun.c,v 1.52 2004-02-28 19:41:59 tatyana Exp $
  */
 
 #include <sys/time.h>
@@ -58,6 +58,7 @@ DECLARE_EVENT_FUN(event_update_acid_fog);
 DECLARE_EVENT_FUN(event_enter_fog_cloud);
 DECLARE_EVENT_FUN(event_leave_fog_cloud);
 DECLARE_EVENT_FUN(event_timeout_fog_cloud);
+DECLARE_EVENT_FUN(event_timeout_grease);
 
 static void
 show_owner(CHAR_DATA *ch, AFFECT_DATA *af)
@@ -505,4 +506,10 @@ EVENT_FUN(event_leave_fog_cloud, ch, af)
 EVENT_FUN(event_timeout_fog_cloud, ch, af)
 {
 	act("Fog clouds clear away.", ch, NULL, NULL, TO_CHAR);
+}
+
+EVENT_FUN(event_timeout_grease, ch, af)
+{
+	act("The ground in the room isn't so greasy anymore.",
+	    ch, NULL, NULL, TO_CHAR);
 }
