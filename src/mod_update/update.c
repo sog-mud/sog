@@ -1,5 +1,5 @@
 /*
- * $Id: update.c,v 1.157.2.8 2000-03-21 13:52:57 fjoe Exp $
+ * $Id: update.c,v 1.157.2.9 2000-03-23 14:29:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1095,13 +1095,18 @@ void char_update(void)
 		if (!r)
 			continue;
 
+		if (!IS_NPC(ch) && is_affected(ch, gsn_notrack)) {
+			if (ch->position < POS_SLEEPING
+			||  number_percent() > get_skill(ch, gsn_notrack))
+				affect_strip(ch, gsn_notrack);
+		}
+
 		/* reset path find */
 		if (!IS_NPC(ch) && (chance = get_skill(ch, gsn_path_find))) {
 			if (number_percent() < chance) {
 				ch->endur += chance / 2;
 				check_improve(ch, gsn_path_find, TRUE, 8);
-			}
-			else
+			} else
 				check_improve(ch, gsn_path_find, FALSE, 16);
 		}
 		
