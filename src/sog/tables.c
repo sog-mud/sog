@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.13 1998-10-09 15:34:33 fjoe Exp $
+ * $Id: tables.c,v 1.14 1998-10-13 07:38:52 fjoe Exp $
  */
 
 /***************************************************************************
@@ -789,7 +789,6 @@ FLAG apply_types[] =
 	{ "resist",		TO_RESIST,		TRUE	},
 	{ "vuln",		TO_VULN,		TRUE	},
 /*	{ "weapon",		TO_WEAPON,		TRUE	}, */
-	{ "detects",		TO_AFFECTS,		TRUE	},
 	{ NULL }
 };
 
@@ -2044,14 +2043,14 @@ const	struct	liq_type	liq_table	[]	=
 
 WHERE_DATA where_table[] =
 {
-	{ TO_AFFECTS,	"affect",	affect_flags,	"%s affect"	      },
-	{ TO_IMMUNE,	"immune",	imm_flags,	"immunity to %s"      },
-	{ TO_RESIST,	"resist",	res_flags,	"resistance to %s",   },
-	{ TO_VULN,	"vuln",		vuln_flags,	"vulnerability to %s" },
+	{ TO_AFFECTS,	"affect",  affect_flags, "{c%s{x affect"	   },
+	{ TO_IMMUNE,	"immune",  imm_flags,	 "immunity to {c%s{x"	   },
+	{ TO_RESIST,	"resist",  res_flags,	 "resistance to {c%s{x"	   },
+	{ TO_VULN,	"vuln",	   vuln_flags,	 "vulnerability to {c%s{x" },
 	{ -1 }
 };
 
-WHERE_DATA *where_lookup(int where)
+WHERE_DATA *where_lookup(sflag_t where)
 {
 	WHERE_DATA *wd;
 

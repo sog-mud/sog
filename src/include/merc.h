@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.96 1998-10-12 08:47:45 fjoe Exp $
+ * $Id: merc.h,v 1.97 1998-10-13 07:38:50 fjoe Exp $
  */
 
 /***************************************************************************
@@ -323,7 +323,7 @@ struct spec_type
 struct affect_data
 {
 	AFFECT_DATA *	next;
-	int		where;
+	sflag_t		where;
 	int		type;
 	int		level;
 	int		duration;
@@ -342,13 +342,13 @@ struct affect_data
 
 struct where_data
 {
-	int	where;
+	sflag_t	where;
 	char *	name;
 	FLAG *	table;
 	char *	format;
 };
 
-WHERE_DATA *where_lookup(int where);
+WHERE_DATA *where_lookup(sflag_t where);
 
 /* where definitions for room */
 #define TO_ROOM_AFFECTS 0
@@ -1997,6 +1997,8 @@ void wear_obj   (CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace);
 
 bool	check_blind	(CHAR_DATA *ch);
 bool	check_blind_raw	(CHAR_DATA *ch);
+
+void	show_affects(CHAR_DATA *ch, BUFFER *output);
 
 /* interp.c */
 void	interpret	(CHAR_DATA *ch, const char *argument);

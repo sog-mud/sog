@@ -1,5 +1,5 @@
 /*
- * $Id: handler.c,v 1.70 1998-10-12 04:56:38 fjoe Exp $
+ * $Id: handler.c,v 1.71 1998-10-13 07:38:49 fjoe Exp $
  */
 
 /***************************************************************************
@@ -1472,12 +1472,12 @@ void equip_char(CHAR_DATA *ch, OBJ_DATA *obj, int iWear)
 	obj->wear_loc	 = iWear;
 
 	if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
-		for (paf = obj->pIndexData->affected; paf != NULL; paf = paf->next)
-		    if (paf->location != APPLY_SPELL_AFFECT)
-		        affect_modify(ch, paf, TRUE);
-	for (paf = obj->affected; paf != NULL; paf = paf->next)
+		for (paf = obj->pIndexData->affected; paf; paf = paf->next)
+			if (paf->location != APPLY_SPELL_AFFECT)
+				affect_modify(ch, paf, TRUE);
+	for (paf = obj->affected; paf; paf = paf->next)
 		if (paf->location == APPLY_SPELL_AFFECT)
-			affect_to_char (ch, paf);
+			affect_to_char(ch, paf);
 		else
 			affect_modify(ch, paf, TRUE);
 
@@ -3157,5 +3157,97 @@ bool check_blind(CHAR_DATA *ch)
 		char_puts("You can't see a thing!\n\r", ch);
 
 	return can_see;
+}
+
+/*----------------------------------------------------------------------------
+ * show affects stuff
+ */
+
+void show_name(CHAR_DATA *ch, BUFFER *output,
+	       AFFECT_DATA *paf, AFFECT_DATA *paf_last)
+{
+	if (paf_last && paf->type == paf_last->type)
+		if (ch && ch->level < 20)
+			return;
+		else
+			buf_add(output, "                      ");
+	else
+		buf_printf(output, "Spell: {c%-15s{x", skill_name(paf->type));
+}
+
+void show_duration(BUFFER *output, AFFECT_DATA *paf)
+{
+	if (paf->duration == -1 || paf->duration == -2)
+		buf_add(output, "permanently.");
+	else
+		buf_printf(output, "for {c%d{x hours.", paf->duration);
+	buf_add(output, "\n\r");
+}
+
+void show_loc_affect(CHAR_DATA *ch, BUFFER *output,
+		 AFFECT_DATA *paf, AFFECT_DATA **ppaf)
+{
+	if (ch->level < 20) {
+		show_name(ch, output, paf, *ppaf);
+		buf_add(output, "\n\r");
+		*ppaf = paf;
+		return;
+	}
+
+	if (paf->location > 0) {
+		show_name(ch, output, paf, *ppaf);
+		buf_printf(output, ": modifies {c%s{x by {c%d{x ",
+			   flag_string(apply_flags, paf->location),
+			   paf->modifier);
+		show_duration(output, paf);
+		*ppaf = paf;
+	}
+}
+
+void show_bit_affect(BUFFER *output, AFFECT_DATA *paf, AFFECT_DATA **ppaf,
+		     sflag_t where)
+{
+	char buf[MAX_STRING_LENGTH];
+	WHERE_DATA *w;
+
+	if (paf->where != where
+	||  (w = where_lookup(paf->where)) == NULL)
+		return;
+
+	show_name(NULL, output, paf, *ppaf);
+	snprintf(buf, sizeof(buf), ": adds %s ", w->format);
+	buf_printf(output, buf, flag_string(w->table, paf->bitvector));
+	show_duration(output, paf);
+	*ppaf = paf;
+}
+
+void show_obj_affects(CHAR_DATA *ch, BUFFER *output, AFFECT_DATA *paf)
+{
+	AFFECT_DATA *paf_last = NULL;
+
+	for (; paf; paf = paf->next)
+		if (paf->location != APPLY_SPELL_AFFECT)
+			show_bit_affect(output, paf, &paf_last, TO_AFFECTS);
+}
+
+void show_affects(CHAR_DATA *ch, BUFFER *output)
+{
+	OBJ_DATA *obj;
+	AFFECT_DATA *paf, *paf_last = NULL;
+
+	buf_add(output, MSG("You are affected by the following spells:\n\r",
+			    ch->lang));
+	for (paf = ch->affected; paf; paf = paf->next) {
+		show_loc_affect(ch, output, paf, &paf_last);
+		show_bit_affect(output, paf, &paf_last, TO_AFFECTS);
+	}
+
+	for (obj = ch->carrying; obj; obj = obj->next_content)
+		if (obj->wear_loc != WEAR_NONE) {
+			if (!IS_SET(obj->extra_flags, ITEM_ENCHANTED))
+				show_obj_affects(ch, output,
+						 obj->pIndexData->affected);
+			show_obj_affects(ch, output, obj->affected);
+		}
 }
 

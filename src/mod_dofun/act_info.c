@@ -1,5 +1,5 @@
 /*
- * $Id: act_info.c,v 1.144 1998-10-11 17:42:04 fjoe Exp $
+ * $Id: act_info.c,v 1.145 1998-10-13 07:38:47 fjoe Exp $
  */
 
 /***************************************************************************
@@ -109,7 +109,6 @@ void	show_list_to_char	(OBJ_DATA *list, CHAR_DATA *ch,
 void	show_char_to_char_0	(CHAR_DATA *victim, CHAR_DATA *ch);
 void	show_char_to_char_1	(CHAR_DATA *victim, CHAR_DATA *ch);
 void	show_char_to_char	(CHAR_DATA *list, CHAR_DATA *ch);
-void	show_affects		(CHAR_DATA *ch, BUFFER *output);
 
 #define strend(s) (strchr(s, '\0'))
 
@@ -3230,41 +3229,6 @@ void do_oscore(CHAR_DATA *ch, const char *argument)
 		show_affects(ch, output);
 	send_to_char(buf_string(output), ch);
 	buf_free(output);
-}
-
-void show_affects(CHAR_DATA *ch, BUFFER *output)
-{
-	AFFECT_DATA *paf, *paf_last = NULL;
-
-	if (ch->affected == NULL) {
-		buf_add(output, MSG("You are not affected by any spells.\n\r", ch->lang));
-		return;
-	}
-
-	buf_add(output, MSG("You are affected by the following spells:\n\r", ch->lang));
-	for (paf = ch->affected; paf != NULL; paf = paf->next) {
-		if (paf_last != NULL && paf->type == paf_last->type)
-			if (ch->level >= 20)
-				buf_add(output, "                      ");
-			else
-				continue;
-		else
-			buf_printf(output, "Spell: {c%-15s{x",
-				   skill_name(paf->type));
-
-		if (ch->level >= 20) {
-			buf_printf(output, ": modifies {c%s{x by {c%d{x ",
-				   flag_string(apply_flags, paf->location),
-				   paf->modifier);
-			if (paf->duration == -1 || paf->duration == -2)
-				buf_add(output, MSG("permanently.", ch->lang));
-			else
-				buf_printf(output, MSG("for {c%d{x hours.", ch->lang),
-					   paf->duration);
-		}
-		buf_add(output, "\n\r");
-		paf_last = paf;
-	}
 }
 
 void do_affects(CHAR_DATA *ch, const char *argument)

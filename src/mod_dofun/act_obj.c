@@ -1,5 +1,5 @@
 /*
- * $Id: act_obj.c,v 1.81 1998-10-12 04:56:37 fjoe Exp $
+ * $Id: act_obj.c,v 1.82 1998-10-13 07:38:48 fjoe Exp $
  */
 
 /***************************************************************************
@@ -662,58 +662,73 @@ void do_drop(CHAR_DATA * ch, const char *argument)
 
 void do_give(CHAR_DATA * ch, const char *argument)
 {
-	char            arg1[MAX_INPUT_LENGTH];
-	char            arg2[MAX_INPUT_LENGTH];
-	char            buf2[MAX_STRING_LENGTH];
+	char            arg[MAX_INPUT_LENGTH];
 	CHAR_DATA      *victim;
 	OBJ_DATA       *obj;
-	argument = one_argument(argument, arg1);
-	strcpy(buf2, argument);
-	argument = one_argument(argument, arg2);
 
-	if (arg1[0] == '\0' || arg2[0] == '\0') {
+	argument = one_argument(argument, arg);
+	if (arg[0] == '\0') {
 		char_puts("Give what to whom?\n\r", ch);
 		return;
 	}
-	if (is_number(arg1)) {
+
+	if (is_number(arg)) {
 		/* 'give NNNN coins victim' */
 		int             amount;
 		bool            silver;
-		amount = atoi(arg1);
+
+		amount = atoi(arg);
+
+		argument = one_argument(argument, arg);
+		if (arg[0] == '\0') {
+			do_give(ch, str_empty);
+			return;
+		}
+
 		if (amount <= 0
-		    || (str_cmp(arg2, "coins") && str_cmp(arg2, "coin") &&
-			str_cmp(arg2, "gold") && str_cmp(arg2, "silver"))) {
+		||  (str_cmp(arg, "coins") && str_cmp(arg, "coin") &&
+		     str_cmp(arg, "gold") && str_cmp(arg, "silver"))) {
 			char_puts("Sorry, you can't do that.\n\r", ch);
 			return;
 		}
-		silver = str_cmp(arg2, "gold");
 
-		argument = one_argument(argument, arg2);
-		if (arg2[0] == '\0') {
-			char_puts("Give what to whom?\n\r", ch);
+		silver = str_cmp(arg, "gold");
+
+		argument = one_argument(argument, arg);
+		if (!str_cmp(arg, "to"))
+			argument = one_argument(argument, arg);
+		if (arg[0] == '\0') {
+			do_give(ch, str_empty);
 			return;
 		}
-		if ((victim = get_char_room(ch, arg2)) == NULL) {
+
+		if ((victim = get_char_room(ch, arg)) == NULL) {
 			char_puts("They aren't here.\n\r", ch);
 			return;
 		}
-		if ((!silver && ch->gold < amount) || (silver && ch->silver < amount)) {
+
+		if ((!silver && ch->gold < amount)
+		||  (silver && ch->silver < amount)) {
 			char_puts("You haven't got that much.\n\r", ch);
 			return;
 		}
+
 		if (silver) {
 			ch->silver -= amount;
 			victim->silver += amount;
-		} else {
+		}
+		else {
 			ch->gold -= amount;
 			victim->gold += amount;
 		}
 
-		act_printf(ch, NULL, victim, TO_VICT, POS_RESTING,
-		  "$n gives you %d %s.", amount, silver ? "silver" : "gold");
+		act_printf(ch, silver ? "silver" : "gold", victim,
+			   TO_VICT | TRANS_TEXT, POS_RESTING,
+			   "$n gives you %d $t.", amount);
 		act("$n gives $N some coins.", ch, NULL, victim, TO_NOTVICT);
-		act_printf(ch, NULL, victim, TO_CHAR, POS_RESTING,
-		   "You give $N %d %s.", amount, silver ? "silver" : "gold");
+		act_printf(ch, silver ? "silver" : "gold", victim,
+			   TO_CHAR | TRANS_TEXT, POS_RESTING,
+			   "You give $N %d $t.", amount);
 
 		/*
 		 * Bribe trigger
@@ -735,13 +750,13 @@ void do_give(CHAR_DATA * ch, const char *argument)
 				victim->gold += change;
 
 			if (change < 1 && can_see(victim, ch)) {
-				act(
-				    "$n tells you 'I'm sorry, you did not give me enough to change.'"
-				    ,victim, NULL, ch, TO_VICT);
+				act("$n tells you 'I'm sorry, you did not give me enough to change.'",
+				    victim, NULL, ch, TO_VICT);
 				ch->reply = victim;
 				doprintf(do_give, victim, "%d %s %s",
 				amount, silver ? "silver" : "gold", ch->name);
-			} else if (can_see(victim, ch)) {
+			}
+			else if (can_see(victim, ch)) {
 				doprintf(do_give, victim, "%d %s %s",
 				change, silver ? "gold" : "silver", ch->name);
 				if (silver)
@@ -755,8 +770,16 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if ((obj = get_obj_carry(ch, arg1)) == NULL) {
+	if ((obj = get_obj_carry(ch, arg)) == NULL) {
 		char_puts("You do not have that item.\n\r", ch);
+		return;
+	}
+
+	argument = one_argument(argument, arg);
+	if (!str_cmp(arg, "to"))
+		argument = one_argument(argument, arg);
+	if (arg[0] == '\0') {
+		do_give(ch, str_empty);
 		return;
 	}
 
@@ -765,7 +788,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 		return;
 	}
 
-	if ((victim = get_char_room(ch, arg2)) == NULL) {
+	if ((victim = get_char_room(ch, arg)) == NULL) {
 		char_puts("They aren't here.\n\r", ch);
 		return;
 	}
@@ -792,7 +815,7 @@ void do_give(CHAR_DATA * ch, const char *argument)
 	}
 
 	if (IS_SET(obj->pIndexData->extra_flags, ITEM_QUEST)
-	&&  !IS_IMMORTAL(victim)) {
+	&&  (!IS_IMMORTAL(ch) || !IS_IMMORTAL(victim))) {
 		act_puts("Even you are not that silly to give $p to $N.",
 			 ch, obj, victim, TO_CHAR, POS_DEAD);
 		return;
@@ -1632,8 +1655,6 @@ void do_wear(CHAR_DATA * ch, const char *argument)
 		return;
 	} else
 		wear_obj(ch, obj, TRUE);
-
-	return;
 }
 
 void do_remove(CHAR_DATA * ch, const char *argument)
