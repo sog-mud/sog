@@ -1,11 +1,11 @@
 #
-# $Id: hosting.txt,v 1.1 2002-01-23 13:05:43 fjoe Exp $
+# $Id: hosting.txt,v 1.2 2002-01-23 13:08:35 fjoe Exp $
 #
 
 Common server setup
 ===================
 
-1) create user:group `sog:sog' with '*' (for FreeBSD) or 'x' (for Linux)
+1) Create user:group `sog:sog' with '*' (for FreeBSD) or 'x' (for Linux)
 as password (to prevent logging in).
 
 If you need quotas, group sog must have ~300M quota.
@@ -96,12 +96,12 @@ Host cvs-sog
 	Hostname sog.me.ru
 --- cut here ---
 
-2) set CVS_RSH environment variable to ssh (add 'setenv CVS_RSH ssh'
+2) Set CVS_RSH environment variable to ssh (add 'setenv CVS_RSH ssh'
 to your ~/.cshrc if you are using tcsh or 'export CVS_RSH=ssh'
 tou ~/.bashrc if you are using bash). This step is not required if
 you are using FreeBSD 4.x and later because FreeBSD cvs uses ssh by default.
 
-3) create ~/.cvsrc
+3) Create ~/.cvsrc:
 
 Sample .cvsrc:
 --- cut here ---
@@ -111,7 +111,7 @@ diff -u --show-c-function
 update -Pd
 --- cut here ---
 
-4) make sure that on CVS _SERVER_ you have umask set to 002
+4) Make sure that on CVS _SERVER_ host you have umask set to 002
 (command `umask' should say `002', if it says something else
 add 'umask 002' to your ~/.cshrc if you are using tcsh or
 to ~/.bashrc if you are using bash.
