@@ -1,5 +1,5 @@
 /*
- * $Id: fight.c,v 1.153 1999-03-19 07:33:18 fjoe Exp $
+ * $Id: fight.c,v 1.154 1999-03-19 12:34:22 kostik Exp $
  */
 
 /***************************************************************************
@@ -949,7 +949,13 @@ void one_hit(CHAR_DATA *ch, CHAR_DATA *victim, int dt, int loc)
 	if (dt == gsn_ambush)
 		dam *= UMAX(3, LEVEL(ch)/12);
 
-	if ((sk2 = get_skill(ch, gsn_deathblow)) > 1) {
+	if ((sk2 = get_skill(ch, gsn_deathblow)) > 1
+	   && dt != gsn_backstab
+	   && dt != gsn_dual_backstab
+	   && dt != gsn_cleave
+	   && dt != gsn_assassinate
+	   && dt != gsn_ambush
+	   && dt != gsn_vampiric_bite) {
 		if (number_percent() <  (sk2/8)) {
 			act("You deliver a blow of deadly force!",
 			    ch, NULL, NULL, TO_CHAR);
