@@ -1,5 +1,5 @@
 /*
- * $Id: interp.c,v 1.164.2.7 2002-11-21 14:05:23 fjoe Exp $
+ * $Id: interp.c,v 1.164.2.8 2002-11-22 18:00:14 fjoe Exp $
  */
 
 /***************************************************************************
@@ -129,7 +129,7 @@ void interpret_raw(CHAR_DATA *ch, const char *argument, bool is_order)
 	}
 #endif
 
-	if (!isalpha(argument[0]) && !isdigit(argument[0])) {
+	if (!isalpha((unsigned char) argument[0]) && !isdigit(argument[0])) {
 		command[0] = argument[0];
 		command[1] = '\0';
 		argument++;
