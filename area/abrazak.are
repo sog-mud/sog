@@ -106,12 +106,30 @@ stand stand male 0
 хвостом.
 ~
 unique~
-B BFHPQTVZcefglm 1000 0
-50 1000 10d10+500 10d10+500 15d15+500 bite
+ABI BFHPQTVZcefglm 1000 0
+95 1000 10d10+500 10d10+500 15d15+500 bite
 0 0 0 0
-ACDEFGHIJKNO AD 0 0
+ACDEFGHIJKNO ACD 0 0
 stand stand female 50
 G ABCQ medium unknown
+#15016
+старая сосна pine~
+@eng pine@rus ~~старая~~ ~~сосна~~~
+@eng A pine is here.
+@rus Старая сосна (pine) раскинула во все стороны свои ветви.
+~
+@eng A very old tree.
+@rus Старое кряжистое дерево, много повидавшее на своем веку.
+~
+human~
+A 0 0 0
+0 0 0d0+0 0d0+0 0d0+0 none
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 medium unknown
+F for AHMV
+F par ABCDEFGHIJK
 #0
 
 #OBJECTS
@@ -139,7 +157,7 @@ a fountain~
 @eng Fountain is here.@rus Фонтан тут.~
 blood~
 fountain ABCEFI 0
-0 0 'blood' 0 0
+0 0 'vodka' 0 0
 0 0 0 P
 G none
 #15003
@@ -520,6 +538,15 @@ staff EFHMPRTYa AOP
 0 0 0 'reserved' 0
 10 10 0 P
 G none
+#15060
+wand storm~
+the wand of death storm~
+The wand of death storm is here.~
+wood~
+wand CEGJLTYa AOP
+50 10 10 'sand storm' 0
+10 10 0 P
+G none
 #15100
 cheburator~
 @eng a dwarven golden ring~
@@ -608,6 +635,23 @@ S
 ~
 0 CJNX inside
 S
+#15015
+@eng In the forest@rus На лесной поляне~
+@rus Зеленая травка и очаровательнейшие разноцветные цветочки прячутся
+под небольшими зелеными кустами и у корней могучих деревьев. Под
+корнями одной из сосен выбивается из-под земли маленький родничок,
+наполняя воздух вокруг веселым журчанием. Вокруг скачут белки, 
+маленький зайчик притаился за кустом возле родничка.
+~
+0 M forest
+S
+#15016
+@eng In the forest@rus Бельчачье хранилище~
+@rus Огромная сосна с большим дуплом, в котором обитает семья белок. 
+Маленькие бельчата весело играют на траве у ее корней.
+~
+0 0 inside
+S
 #15100
 ~
 ~
@@ -625,13 +669,20 @@ M 0 15002 1 15002 1	* cockroach (Cell)
 M 0 15003 1 15002 1	* a rat (Cell)
 O 0 15006 0 15002	* bed (Cell)
 M 0 15010 1 15010 1	* {DDevil{x ({DThe room of Death{x)
+M 0 15016 1 15015 1	* pine (In the forest)
+M 0 15015 1 15016 1	* gray squirrel (In the forest)
 S
+
+#SHOPS
+15016 0 0 0 0 0 100 100 0 23
+0
 
 #OLIMITS
 O 15004 1	* a BIG barrel of beer for Mabutu
 O 15009 0	* Abrazak's mace
 O 15014 0	* The Mark of the Beast
 O 15042 1	* gabagaba ring
+O 15060 0	* the wand of death storm
 O 15100 1	* a dwarven golden ring
 S
 

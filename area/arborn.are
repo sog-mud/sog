@@ -100,12 +100,12 @@ stand stand male 0
 #36100
 sofa~
 @eng sofa@rus софа~
-@eng Soft sofa invite you to rest...@rus Мягкий диван приглашает отдохнуть...~
+@eng Soft sofa invite you to rest...@rus Мягкий диван (sofa) приглашает отдохнуть...~
 unknown~
 furniture A 0
 B EGIJOP EHK CEFGHI CEFGHI
 0 5000 0 P
-G none
+G female
 #36101
 ring life~
 @eng ring of Life@rus кольцо Жизни~
@@ -245,6 +245,33 @@ A
 A
 18 25
 G none
+#36111
+wand sparkling rod~
+sparkling rod~
+Sparks are falling from tip of a rod that lies here.~
+unknown~
+wand BRTY AOP
+33 40 40 'lightning breath' 0
+10 15 0 P
+G none
+#36112
+pouch~
+@eng Nothing.@rus Ничего.~
+@eng Small invisible pouch merges with its surroundings.@rus Маленький невидимый мешочек (pouch) лежит тут.~
+unknown~
+container HJKLPTY A
+10000 0 0 10000 50
+1 0 0 P
+G none
+#36113
+warm glowing staff~
+warmly glowing staff~
+Mighty staff radiates a warm glow.~
+unknown~
+staff ARTY AOP
+50 40 40 'assist' 0
+10 15 0 P
+G none
 #0
 
 #ROOMS
@@ -257,7 +284,11 @@ You feel completely relaxed...
 Небольшой водопад тихо журчит у стены...
 Вы расслабляетесь ...
 ~
-0 CKNX inside
+0 CKNX forest
+D0
+~
+~
+Z 0 36112
 D1
 ~
 ~
@@ -402,6 +433,18 @@ D0
 ~
 Z 0 36110
 S
+#36112
+Registry Room~
+You're in a round room. Light comes from from everywhere, and you feel
+someone is watching you. A voice booms inside you, "You want to change
+your hometown? Well, let this be."
+~
+0 b inside
+D2
+~
+~
+Z 0 36100
+S
 #0
 
 #RESETS
@@ -411,6 +454,7 @@ M 0 36102 4 36101 4	* training mob (Shooting place)
 M 0 36102 4 36101 4	* training mob (Shooting place)
 M 0 36102 4 36101 4	* training mob (Shooting place)
 M 0 36102 4 36101 4	* training mob (Shooting place)
+G 0 36112 0		*	Nothing.
 M 0 36101 4 36111 4	* TARGET (At the targets)
 M 0 36101 4 36111 4	* TARGET (At the targets)
 M 0 36101 4 36111 4	* TARGET (At the targets)

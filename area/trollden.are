@@ -21,7 +21,7 @@ saliva dripping from the beast's jaw.  The guardian beast snarls again.
 кровь?). Зверь продолжает угрожающе рычать на тебя.
 ~
 dog~
-0 0 -200 0
+A 0 -200 0
 7 0 2d6+85 3d9+100 1d8+1 none
 4 4 4 9
 0 0 0 0
@@ -40,7 +40,7 @@ of yours!!
 кость в надежде погрызть твои.
 ~
 troll~
-BFG P -500 0
+ABFG P -500 0
 6 0 2d7+71 3d9+100 1d7+1 none
 4 4 4 9
 0 0 0 0
@@ -151,18 +151,21 @@ stand stand male 0
 0 0 medium unknown
 #2808
 medium troll~
-the medium troll~
-A troll is wandering around, attending to his duties.
+@eng the medium troll@rus тролль~
+@eng A troll is wandering around, attending to his duties.
+@rus Вокруг тебя бродит тролль (troll), занятый каким-то делом.
 ~
-He is a tall, lean, furry humanoid.
+@eng He is a tall, lean, furry humanoid.
 He notices you, and is satisfied to find what he is looking for.
 He advances toward you.
+@rus Заметив тебя, он, удовлетворенный тем, что наконец нашел, то что искал,
+бросается в атаку.
 ~
-human~
-ACFG JP -500 0
+troll~
+0 P -500 0
 8 0 2d7+96 4d9+100 1d7+2 none
 3 3 3 9
-EFNU 0 0 0
+0 0 0 0
 stand stand male 75
 0 0 medium unknown
 #0

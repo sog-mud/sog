@@ -137,6 +137,15 @@ furniture 0 0
 ABCD FHJKPQ DGN CDFI CDFI
 0 15000 0 P
 G male
+#95204
+statue~
+statue of King Arthur~
+Huge statue of man riding a horse is in the shade of trees.~
+unknown~
+furniture AB 0
+0 0 0 0 0
+50 50000 0 P
+G none
 #95209
 holy lance~
 {WHoly blessed Lance{x~
@@ -166,7 +175,7 @@ the other one is on the west wall.
 D0
 ~
 ~
-DZ -1 95201
+DZ 0 95207
 D2
 ~
 ~
@@ -188,14 +197,14 @@ D1
 ~
 ~
 Z -1 95202
-D2
-~
-~
-DZ -1 95200
 D3
 ~
 ~
 Z -1 95203
+D5
+~
+~
+Z 0 95207
 S
 #95202
 Squire Barracks~
@@ -255,6 +264,22 @@ room is the used for maintainance of horses for Knights.
 ~
 0 CDNX inside
 S
+#95207
+@eng Winter garden@rus Зимний сад~
+You're crossing a small garden. Surrounded by evergreen trees and bushes,
+you hear bird songs and feel that you can stay in this paradise forever. But,
+your duties call you for struggle with the evil ones!
+~
+0 DKX forest
+D2
+~
+~
+DZ 0 95200
+D4
+~
+~
+Z 0 95201
+S
 #0
 
 #RESETS
@@ -268,6 +293,7 @@ M 0 95202 1 95205 1	* the stable keeper (Stables)
 M 0 95203 1 95206 1	* the grey horse (Horse room)
 M 0 95204 1 95206 1	* the white horse (Horse room)
 M 0 95205 1 95206 1	* the great white horse (Horse room)
+O 0 95204 0 95207	* statue of King Arthur (Winter garden)
 S
 
 #SHOPS

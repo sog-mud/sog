@@ -130,6 +130,9 @@ After each three deaths your constitution decreases by one.
 
 Corpses decay after time, but the objects inside corpses fall to the ground.
 
+If your constitution falls below 3, character will not be 
+resurrected in temple.
+  
 ~
 0 EXPERIENCE LEVEL XP~
 Your character advances in power by gaining experience.  You need a set 
@@ -434,7 +437,7 @@ YELL sends a message to all awake players within your area.
 
 Type a channel name by itself to turn it off.
 ~
-0 EMOTE PMOTE POSE SOCIAL~
+0 EMOTE PMOTE POSE~
 Syntax: emote <action>
 Syntax: pose
 
@@ -4143,6 +4146,14 @@ way of Death, Chaos and Terror...
 сторонник добра и уважаешь закон, ты тот, кто нам нужен! Но куда бы ты ни шел
 и что бы ты не делал,  всегда помни:  отныне и навсегда звание твое - Рыцарь, 
 имя тебе - Честь!
+~
+0 'OLC ROOM CLONE'~
+Syntax: clone [all] vnum
+ 
+'clone' command will clone name and description from the specified room.
+if argument "all" is given the also room exd, owner, clan, flags, sector
+type and heal/mana rates are cloned.
+ 
 ~
 -1 $~
 

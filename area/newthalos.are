@@ -536,7 +536,7 @@ stand stand male 45
 0 0 tiny unknown
 F par GHIJK
 #9534
-bodyguard~
+bodyguard rus телохранитель~
 A bodyguard~
 A bodyguard sizes you up.
 ~
@@ -2557,10 +2557,12 @@ D3
 Z -1 9508
 S
 #9506
-The Center of Market Square~
-You are standing on the Center of Market Square, the famous square of
+@eng The Center of Market Square@rus Центр Рыночной Площади~
+@eng You are standing on the Center of Market Square, the famous square of
 New Thalos. A large, peculiar looking statue is standing in the middle
 of the square. The square extends in every direction.
+@rus Ты стоишь в центре Рыночной Площади, самой известной площади Нового Талоса.
+Большая, странного вида статуя  находится в центре площади. Площадь видна во всех направлениях.
 ~
 0 S inside
 E
@@ -2742,11 +2744,13 @@ gate~
 ABZ 9501 9511
 S
 #9514
-The Northwestern Market Square~
-This corner of the market contains some of the most civilized folk in
+@eng The Northwestern Market Square@rus Северо-Западный  угол Рыночной Площади~
+@eng This corner of the market contains some of the most civilized folk in
 New Thalos. To the north lies the humble store of the merchant Ahkeem, his
 weavings known to be the best in the city. West of here is the entrance
 to Bank.
+@rus Этот угол Рыночной площади наиболее цивилизованный в Новом Талосе. На севере отсюда находится
+небольшая лавка портного Акима, известного на весь город своими товарами. На западе вход в Банк города
 ~
 0 S city
 D0
@@ -2944,14 +2948,19 @@ D3
 Z -1 9548
 S
 #9523
-Inside the West Gate of New Thalos~
-Two large stone towers embedded in the wall loom over you. The massive
+@eng Inside the West Gate of New Thalos@rus Внутри Западных Ворот Нового Талоса~
+@eng Two large stone towers embedded in the wall loom over you. The massive
 iron gate, emblazoned with the crest of New Thalos, swings easily on
 four ornately crafted hinges. It is obvious the makers of this city
 spared no expense to protect their home.  Main street heads towards
 the market eastward and the eastern road passes through the Sands of
 Sorrow to your west. To the south lies the entrance of the warrior's guild.
 To the north lies the entrance of the weaponsmaster.
+@rus Две высокие каменные башни, стоящие по разные стороны массивных железных ворот,возвышаются над тобой.
+Ворота в город с изображенными на них гербом нового Талоса, висят на аккуратных,но очень крепких
+петлях. Строители ворот явно преследовали цель укрепления города, а не его украшения.
+На восток тянеться главная улица города. На западе расположились Sands of Sorrow. На юге вход
+в гильдию Воинов, а на севере лежит вход к мастеру-воину, специалисту по оружию.
 ~
 0 S city
 D0
@@ -2973,10 +2982,13 @@ gate~
 ABZ 9501 9669
 S
 #9524
-West Main Street~
-This is the main road traveling though the city. To the south you hear
+@eng West Main Street@rus ЗападнаЯ ГлавнаЯ Улица~
+@eng This is the main road traveling though the city. To the south you hear
 the hammering of the repair shop and to the north is the grassy field
 known as the temple square. Main street continues east and west.
+@rus Это главная улица, тянущаяся через весь город. На юге вы слышите перезвон молотков из
+ремонтного магазина, а на севере виднеется поросшее травой поле известное, как храмовая площадь.
+Главная улица продолжается на восток и на запад.
 ~
 0 S city
 D0
@@ -2997,11 +3009,13 @@ D3
 Z -1 9523
 S
 #9525
-West Main Street~
-A foreman stands stand here watching over two construction workers
+@eng West Main Street@rus ЗападнаЯ ГлавнаЯ Улица~
+@eng A foreman stands stand here watching over two construction workers
 fixing a pothole. The road here branches off north and south into
 two alleys behind the stores of the market. The main street continues
 east and west from here.
+@rus Прораб, контролирующий работу двух рабочих заделывающих яму, стоит тут.
+Выходы на север и юг ведут к алеям. Главная улица продолжается на восток и запад.
 ~
 0 S city
 D0
@@ -3022,11 +3036,14 @@ D3
 Z -1 9524
 S
 #9526
-West Main Street~
-You are strolling on the street between Bank and the general store. To 
+@eng West Main Street@rus ЗападнаЯ ГлавнаЯ Улица~
+@eng You are strolling on the street between Bank and the general store. To 
 the west you hear a roadcrew at work and to the East, the sounds of 
 commerce taking place.  The air is filled with the smell of gold and riches.
 On the wall of the store is a poster.
+@rus Вы бродите по улице между Банком и главным магазином. На западе вы слышите шум дорожных
+работ и на востоке громкую речь торговцев. В воздухе витает запах золота и богатства.
+На стене магазина висит объявление.
 ~
 0 S city
 E
@@ -4643,11 +4660,12 @@ D5
 Z -1 9620
 S
 #9614
-Ahkeem's Stuff~
+@eng Ahkeem's Stuff@rus Лавка Акима~
 @eng You step into a shop swirling with smoke.  Ahkeem seems to have a liking for
 things not of this world...very strange stuff indeed.  There is a large sign on
 the wall.
-@rus "
+@rus Вы вошли в лавку Акима. Похоже Аким питает слабость к странным вещам не из этого мира......
+Да, в самом деле очень странные вещи. На стене вы видите большой знак.
 ~
 0 DEFGS inside
 E

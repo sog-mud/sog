@@ -562,6 +562,7 @@ A
 4 1
 A
 3 1
+G none
 #9202
 breastplate stoney breast plate~
 a stoney breastplate~
@@ -574,6 +575,7 @@ A
 5 1
 A
 2 -2
+G none
 #9203
 dagger fiery~
 a fiery dagger~
@@ -584,6 +586,7 @@ dagger 5 6 pierce A
 29 20 2800 P
 A
 19 4
+G none
 #9204
 cape flame flaming red~
 a flame red cape~
@@ -594,6 +597,7 @@ armor A AC
 30 30 3100 P
 A
 19 1
+G none
 #9205
 boots wind~
 the wind boots~
@@ -604,6 +608,7 @@ armor G AG
 26 10 5200 P
 A
 2 2
+G none
 #9206
 helmet hurricane~
 a hurricane helmet~
@@ -614,6 +619,7 @@ armor B AE
 31 40 3800 P
 A
 20 -2
+G none
 #9207
 sword lightning bolt~
 a sparking lightning sword~
@@ -626,6 +632,7 @@ A
 19 3
 A
 18 -1
+G none
 #9208
 shield electric~
 an electric shield~
@@ -638,6 +645,7 @@ A
 5 1
 A
 1 -1
+G none
 #9209
 girth icy~
 an icy girth~
@@ -648,6 +656,7 @@ armor 0 AL
 31 100 1540 P
 A
 5 -2
+G none
 #9210
 cloak waterfall~
 a waterfall cloak~
@@ -660,6 +669,7 @@ A
 18 -2
 A
 12 25
+G none
 #9211
 amulet elemental~
 an elemental amulet~
@@ -670,6 +680,7 @@ jewelry A AC
 20 10 860 P
 A
 20 -2
+G none
 #9212
 bracelet elemental~
 an elemental bracelet~
@@ -680,6 +691,7 @@ gem 0 AM
 20 40 580 P
 A
 13 20
+G none
 #9213
 armband platinum band~
 a platinum arm band~
@@ -692,6 +704,7 @@ A
 4 -2
 A
 1 1
+G none
 #9214
 legbands platinum bands~
 some platinum leg bands~
@@ -704,6 +717,7 @@ A
 3 -2
 A
 2 1
+G none
 #9215
 wand~
 elemental wand of fire~
@@ -712,6 +726,7 @@ wood~
 wand A AO
 15 3 3 'fireball' 0
 16 70 3900 P
+G none
 #9216
 staff ice~
 an ice staff~
@@ -720,6 +735,7 @@ ice~
 wand A AO
 12 3 3 'frost breath' 0
 25 70 13700 P
+G none
 #9217
 rod earthquake~
 an elemental rod of earthquake~
@@ -728,6 +744,7 @@ ebony~
 wand A AO
 7 3 3 'earthquake' 0
 7 70 1000 P
+G none
 #9218
 wand air wind~
 elemental wand of wind and air~
@@ -736,6 +753,7 @@ wood~
 wand A AO
 11 1 1 'gas breath' 0
 27 70 12600 P
+G none
 #9219
 wand~
 elemental wand of lightning~
@@ -744,6 +762,7 @@ ebony~
 wand A AO
 9 1 1 'lightning bolt' 0
 7 70 1420 P
+G none
 #9220
 stone club two-handed~
 a stone club~
@@ -756,6 +775,7 @@ A
 19 1
 A
 18 -2
+G none
 #9221
 lode load lodestone loadstone stone~
 a lodestone~
@@ -766,6 +786,7 @@ wand 0 AO
 13 20 2800 P
 A
 1 -2
+G none
 #9222
 lava lamp~
 a lava lamp~
@@ -774,6 +795,7 @@ unknown~
 light A A
 0 0 1000 0 0
 0 40 250 P
+G none
 #9223
 energy scroll~
 an energy scroll~
@@ -782,6 +804,7 @@ paper~
 scroll B A
 19 'cure critical' 'refresh' '' ''
 5 10 860 P
+G none
 #9224
 water jug~
 a water jug~
@@ -790,6 +813,7 @@ glass~
 drink 0 A
 150 150 'water' 0 0
 0 20 200 P
+G none
 #9225
 dust~
 magic dust~
@@ -798,6 +822,7 @@ unknown~
 pill 0 A
 20 'detect invis' '' '' ''
 0 10 300 P
+G none
 #9226
 flame lance~
 a flame lance~
@@ -810,6 +835,7 @@ A
 18 3
 A
 13 -20
+G none
 #9227
 icicle dagger ice~
 an icicle~
@@ -822,6 +848,7 @@ A
 1 -1
 A
 19 3
+G none
 #9228
 avalanche~
 the avalanche~
@@ -832,6 +859,7 @@ exotic 1 25 blast 0
 24 160 3000 P
 A
 18 -1
+G none
 #9229
 star morning~
 the morning star~
@@ -844,6 +872,7 @@ A
 17 -6
 A
 20 -4
+G none
 #9230
 shock whip~
 the Shock Whip~
@@ -856,6 +885,7 @@ A
 1 -2
 A
 19 4
+G none
 #9231
 elixir anti~
 anti-cyclops elixir~
@@ -864,6 +894,7 @@ glass~
 potion 0 AO
 15 'invisibility' '' '' ''
 0 10 250 P
+G none
 #0
 
 #ROOMS

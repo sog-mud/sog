@@ -25,7 +25,6 @@
 @eng It's already open.
 @rus Тут уже открыто.
 ~
-@eng  is resting on %s.@rus  отдыхает на %s.~
 @eng the most so far today@rus это максимум на сегодня~
 @eng gold coins@rus золотые монеты~
 @eng You hold $p in your hand.@rus Ты берешь $c3{$p} в руку.~
@@ -82,7 +81,6 @@ Use 'desc edit' to edit your description.
 ~
 @eng $n picks up some trash.@rus $n подбирает мусор.~
 @eng $N looks very disinterested.@rus $N не заинтересован тобой.~
-@eng $N{x is resting on $p.@rus $N{x отдыхает на $c5{$p}.~
 @eng You stop resting.
 @rus Ты прекращаешь отдыхать.
 ~
@@ -115,7 +113,6 @@ Use 'desc edit' to edit your description.
 @rus Ты не можешь толкаться верхом.
 ~
 @eng $n picks the lock on $p.@rus $n подбирает отмычку к $c2{$p}.~
-@eng $n has arrived.@rus $n прибывает.~
 @eng north@rus на север (north)~
 @eng You rest in $p.@rus Ты садишься отдыхать в $c3{$p}.~
 @eng Something prevents you to escape that direction.
@@ -155,6 +152,7 @@ Use 'desc edit' to edit your description.
 @eng $n shoots $p to $T.@rus $n выпускает $c3{$p} $T.~
 @eng $n asks $N for a quest.@rus $n просит задание у $N.~
 @eng lemonade@rus лимонад~
+@eng $N {xis resting at $p.@rus $N {xотдыхает за $c3{$p}.~
 @eng $n's $U $u you.@rus $U $c1{$n} $u тебя.~
 @eng $n sacrifices $p to gods.@rus $n приносит $c3{$p} в жертву богам.~
 @eng $n has created $N!@rus $n $gn{создал} $c3{$N}!~
@@ -214,7 +212,6 @@ Use 'desc edit' to edit your description.
 @eng You can't see anything, you're sleeping!
 @rus Ты сейчас спишь.
 ~
-@eng  is resting in %s.@rus  отдыхает в %s.~
 @eng Drink what?
 @rus Что выпить?
 ~
@@ -608,6 +605,7 @@ You peek at the inventory:
 ~
 @eng $n says '{GDamn me!{x'@rus $n произносит '{GДа чтоб я под землю провалился!{x'~
 @eng $n rests.@rus $n садится отдыхать.~
+@eng $N {xis resting here.@rus $N {xотдыхает здесь.~
 @eng {bhas a few scratches{x.@rus {bимеет несколько царапин{x.~
 @eng coke@rus кока-кола~
 @eng You close $p.@rus Ты закрываешь $p.~
@@ -705,6 +703,7 @@ Get back to questor before your time runs out!
 @eng You wear $p as a shield.@rus Ты берешь $p как щит.~
 @eng ({yInvis{x) @rus ({yНевидимо{x) ~
 @eng $n steps into $p, riding on $N.@rus $n въезжает в $p верхом на $N.~
+@eng $N {xis resting in $p.@rus $N {xотдыхает в $c5{$p}.~
 @eng rum@rus ром~
 @eng You wear $p on your feet.@rus Ты обуваешься в $p.~
 @eng You can't seem to find a place to stand.
@@ -782,7 +781,6 @@ Get back to questor before your time runs out!
 @eng You are too dazed to push anyone.
 @rus Ты слишком удивлен, чтобы толкаться.
 ~
-@eng  is resting at %s.@rus  отдыхает около %s.~
 @eng You give $p to $N.@rus Ты отдаешь $c3{$p} $c2{$N}.~
 @eng Put what in what?
 @rus Положить что во что?
@@ -825,7 +823,6 @@ Get back to questor before your time runs out!
 @eng  is sitting on %s.@rus  сидит на %s.~
 @eng {cstanding{x@rus {cстоишь{x~
 @eng scatter around.~
-@eng You sit at $p@rus Ты садишься около $p~
 @eng Wow. One silver coin.
 @rus Ух ты. Целый серебрянный.
 ~
@@ -912,7 +909,7 @@ Get back to questor before your time runs out!
 @eng $n wears $p about $s waist.@rus $n надевает $p на талию.~
 @eng {csleeping{x@rus {cспишь{x~
 @eng You can't remove $p.@rus Ты не можешь снять $p.~
-@eng $p is not an acceptable sacrifice.@rus $p не может быть принесен в жертву.~
+@eng $p is not an acceptable sacrifice.@rus $p не может быть $gp{принесен} в жертву.~
 @eng $n now uses $p as tattoo of $s religion.@rus $n теперь использует $p, как татуировку своей религии.~
 @eng Players near you:
 @rus Игроки недалеко от тебя:
@@ -949,7 +946,7 @@ Get back to questor before your time runs out!
 @eng You are still fighting!
 @rus Ты сражаешься!
 ~
-@eng $n sits down at $p.@rus $n садится около $p.~
+@eng $n sits down at $p.@rus $n садится за $c3{$p}.~
 @eng $n gives $N some coins.@rus $n дает $c2{$N} несколько монет.~
 @eng $n dismounts from $N.@rus $n спешивается с $N.~
 @eng {r[{RTARGET{r]{x @rus {r[{RЦЕЛЬ{r]{x ~
@@ -1182,7 +1179,7 @@ Get back to questor before your time runs out!
 @rus Боги оценили твой подарок, но примут его позже.
 ~
 @eng You wield $p.@rus Ты вооружаешься $p.~
-@eng You sit down at $p.@rus Ты садишься около $p.~
+@eng You sit down at $p.@rus Ты садишься за $c3{$p}.~
 @eng You aren't currently on a quest.
 @rus У тебя сейчас нет задания.
 ~
@@ -1192,7 +1189,7 @@ Get back to questor before your time runs out!
 @eng They must be sleeping.
 @rus Они должны спать.
 ~
-@eng $n sits at $p.@rus $n садится около $p.~
+@eng $n sits at $p.@rus $n садится за $c3{$p}.@rusoff $n садится за $c3{$p}.~
 @eng $n opens the $d.@rus $n открывает $d.~
 @eng $n butchers $P and creates $j $qj{steaks}.@rus $n $gn{разделал} $c3{$P} и $gn{приготовил} $j $c3{$qj{бифштексов}}.~
 @eng You don't know how to camouflage yourself.
@@ -1288,9 +1285,11 @@ Get back to questor before your time runs out!
 @rus А новостей на сегодня больше нет...
 ~
 @eng <worn about waist>  $t@rus <на талии>             $t~
+@eng $N {xis resting on $p.@rus $N {xотдыхает на $c5{$p}.~
 @eng $N tattoos $n with {W$p{x!@rus $N татуирует на плече $n {W$p{x!~
 @eng I see nothing like that in the $T.@rus В $T не видно ничего похожего.~
 @eng $n stands in $p.@rus $n встает в $p.~
+@eng You sit at $p.@rus Ты садишься за $c3{$p}.~
 @eng You hear someone's death cry.@rus Ты слышишь чей-то предсмертный вопль.~
 @eng $n's head is shattered, and $s brains splash all over you.@rus Голова $c1{$n} разбита, мозги забрызгали все вокруг. Бррр...~
 @eng fragile@rus совсем плохое~
@@ -1313,7 +1312,6 @@ Get back to questor before your time runs out!
 @eng Bash wich door or direction?
 @rus Какую дверь выбить?
 ~
-@eng  is resting here.@rus  отдыхает здесь.~
 @eng {Rmortally wounded{x@rus {Rумираешь{x~
 @eng less than half-@rus меньше, чем наполовину~
 @eng You feel better!
@@ -1380,6 +1378,7 @@ Get back to questor before your time runs out!
 @eng Consider killing whom?
 @rus Сравниться с кем?
 ~
+@eng $N {xis mortally wounded.@rus $N {xсмертельно $gN{ранен}.~
 @eng You sit on $p.@rus Ты садишься на $p.~
 @eng You can't escape while mounted.
 @rus Ты не можешь убегать верхом.
@@ -1421,6 +1420,7 @@ Get back to questor before your time runs out!
 @eng That location is in general area of {W%s{x for {W%s{x.
 @rus Это находится где-то в {W%s{x возле {W%s{x.
 ~
+@eng $i has arrived.@rus $i прибывает.~
 @eng You attempt to move silently.
 @rus Ты пытаешься двигаться бесшумно.
 ~

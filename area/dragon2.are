@@ -3038,7 +3038,6 @@ mob oload 2438
 say What is it? A key? Here, you can have it.
 give xxx $n
 , absently pushes the rug under a chair.
-mob purge $o
 else
 say Huh, who is here?
 , looks around.

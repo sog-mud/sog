@@ -169,10 +169,11 @@ Z -1 95401
 S
 #95401
 @eng The entrance to the Caven of Battlerager@rus Вход в клан Battlerager~
-You see some sort of light coming thru the west, making the inside of
+@eng You see some sort of light coming thru the west, making the inside of
 the caven more noticable. You see lots of weapon and blood tracks on the
 wall. There are several bones on the ground. You notice that the huge man
 looking over you before you moving on.
+@rus С запада в пещеру проникает немного света, который позволяет лучше рассмотреть все вокруг. Вы видите много оружия и следы крови на стенах. На полу лежит множество костей. Проход на запад загораживает возвышающийся над вами огромный богатырь.
 ~
 0 KWX city
 D1
@@ -186,9 +187,10 @@ DZ -1 95402
 S
 #95402
 @eng Inside the Caven@rus В пещере~
-In spite of the low level light, you notice that the caven continues to
+@eng In spite of the low level light, you notice that the caven continues to
 the west. You see lots of bones again on the ground. You observe that
 there seems no way from the west of the caven.
+@rus Пол пещеры покрывают кости. Вам кажется что дальше на запад дороги нет. Однако, злясь на недостаточное количество света, вы помниче что вам следут двигаться именно в этом направлении.
 ~
 0 KWX city
 D1
@@ -203,10 +205,11 @@ Z -1 95403
 S
 #95403
 @eng Deep in the caven@rus Глубоко в пещере~
-You see that there are two openings more in the caven, one to the north
+@eng You see that there are two openings more in the caven, one to the north
 and one to the south. To the north you see a large white throne. To the
 south you see some clothes and weapons left on the ground. It seems that
 the south is something like a donation room.
+@rus Эта пещера имеет два выхода, на север (north) и юг (south). Далеко на севере вы видите большой белый трон. На юге лежит множество оружия. Вам кажется, что на юге находится что-то похожее на комнату для пожертвований.
 ~
 0 KWX city
 D0
@@ -242,11 +245,12 @@ Z -1 95403
 S
 #95405
 @eng Battle Square@rus Площадь для сражений~
-You see lots of bones on the floor. You think that you are very near to
+@eng You see lots of bones on the floor. You think that you are very near to
 the place where martial arts are practiced. There are four openings in
 all directions. To the east you see the continuing of bones on the floor,
 to the north you see the shrine of battleragers, to the west you see the a
 Gordall's weapon house, to the very south you see the donation room.
+@rus На полу лежит множество костей. Вы понимаете, что именно здесь мастера боевых искусств повышают свое мастерство. На востоке (east) вы также видите множество костей, на севере (north) расположена святыня клана Battlerager, на западе (west) - оружейный магазин мастера Гордалла, далеко на юге (south) находится комната для пожертвований.
 ~
 0 KWX city
 D0
@@ -283,10 +287,11 @@ Z -1 95405
 S
 #95407
 @eng Gordall's Weapon House@rus Оружейный магазин Гордалла~
-You see the metals hung up on the wall, shining brilliantly. Most
+@eng You see the metals hung up on the wall, shining brilliantly. Most
 probably they are the materials that Gordall use to produce his weapons.
 And to the higher portion of the wall you see the newly finished weapons,
 daggers, swords and axes.
+@rus На стенах висят куски различных металлов. Эти материалы Гордалл наиболее часто использует для изготовления оружия. Большую часть стены занимают недавно приготовленные кинжалы, мечи и топоры.
 ~
 0 KWX city
 D1

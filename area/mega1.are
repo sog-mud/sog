@@ -10,12 +10,15 @@ End
 #MOBILES
 #8000
 juve~
-a juve~
-A juve is standing here plotting mischief.
+@eng a juve@rus юноша~
+@eng A juve is standing here plotting mischief.
+@rus Юноша (juve) стоит здесь, затевая озорство.
 ~
-He is a tall, thin boy.  He is looking for his gang mates.  He and his
+@eng He is a tall, thin boy.  He is looking for his gang mates.  He and his
 mates have cost city authorities many millions of creds a week in
 vandalism repairs.
+@rus Высокий, худощавый парень озирается по сторонам в поисках своих друзей. Такие как он стоили
+немало денег городским организациям на починку вандализма.
 ~
 human~
 AC 0 -400 0
@@ -26,11 +29,14 @@ stand stand male 0
 0 0 medium unknown
 #8001
 punk~
-a punk~
-A punk is here plotting a crime wave.
+@eng a punk@rus панк (punk)~
+@eng A punk is here plotting a crime wave.
+@rus Панк (punk) стоит здесь здесь, замышляя что-то нехорошее.
 ~
-This punk is from one of the rowdiest, scruffiest, and definitely most
+@eng This punk is from one of the rowdiest, scruffiest, and definitely most
 fashionable of all gangs -- the Grunge Mongers.
+@rus Этот панк состоит в наверное самой громкой, скандальной и фешенебельной преступной
+группировке из всех -- the Grunge Mongers.
 ~
 human~
 ACG J -500 0
@@ -244,8 +250,8 @@ popular with the juve and punk gangs.
 G none
 #8002
 stooky gland~
-a stooky gland~
-There is a stooky gland laying here.~
+@eng a stooky gland@rus железа~
+@eng There is a stooky gland laying here.@rus Железа (gland) лежит здесь.~
 unknown~
 pill 0 A
 20 '' 'cure poison' 'heal' ''
@@ -285,8 +291,8 @@ You better find the code box.
 G none
 #8005
 code box~
-a code box~
-A code box of indeterminate use is here.~
+@eng a code box@rus кодовая коробка~
+@eng A code box of indeterminate use is here.@rus Кодовая коробка (box) неизвестного предназначения лежит здесь.~
 iron~
 key B AO
 0 0 0 0 0
@@ -314,8 +320,8 @@ to play bashball.
 G none
 #8007
 vibroblade~
-@eng the vibroblade@rus вибро-клинок (vibroblade)~
-@eng The vibroblade is here.@rus Вибро-клинок (vibroblade) лежит тут.~
+@eng the vibroblade@rus вибронож~
+@eng The vibroblade is here.@rus Вибронож (blade) лежит здесь.~
 adamantite~
 weapon ABF AN
 dagger 6 5 slash 0
@@ -363,8 +369,8 @@ It is a knife. 'Nuff said. (Marvel joke).
 G none
 #8010
 wet noodle~
-@eng a wet noodle@rus лапша (noodle)~
-@eng A wet noodle is laying here with clam sauce on it.@rus Сырая лапша (noodle) лежит тут, с холодным соусом на ней.~
+@eng a wet noodle@rus лапшина~
+@eng A wet noodle is laying here with clam sauce on it.@rus Сырая лапшина (noodle) лежит здесь, вместе с холодным соусом на ней.~
 iron~
 weapon 0 AN
 whip 1 4 whip 0
@@ -379,7 +385,7 @@ G none
 #8011
 judge club~
 @eng a Judge's club@rus дубина судьи~
-A Judge's club is resting here.~
+@eng A Judge's club is resting here.@rus Дубина судьи (club) лежит здесь.~
 wood~
 weapon 0 AN
 mace 3 7 pound 0
@@ -407,8 +413,8 @@ The key looks like it could be useful.
 G none
 #8013
 key card~
-a key card~
-A key card is laying here.~
+@eng a key card@rus ключ-карточка~
+@eng A key card is laying here.@rus Ключ-карточка (card) лежит здесь.~
 copper~
 key 0 AO
 0 0 0 0 0
@@ -420,8 +426,8 @@ It looks like it fits a slot somewhere.
 G none
 #8014
 judge club~
-a Judge's club~
-A Judge's club is resting here.~
+@eng a Judge's club@rus дубина судьи~
+@eng A Judge's club is resting here.@rus Дубина судьи (club) лежит здесь.~
 wood~
 weapon 0 AN
 mace 3 11 pound 0
@@ -436,8 +442,8 @@ head has been bashed with this baby.
 G none
 #8015
 club electric shock~
-@eng a shock club@rus шоковая дубинка (club)~
-@eng A sparking electric club is here.@rus Искрящаяся электрическая дубинка (club) лежит тут.~
+@eng a shock club@rus шоковая дубинка~
+@eng A sparking electric club is here.@rus Искрящаяся электрическая дубинка (club) лежит здесь.~
 steel~
 weapon A AN
 mace 4 5 shock 0

@@ -9,7 +9,7 @@ End
 
 #MOBILES
 #10001
-gar long tail гар длиннохвостый~
+gar long tail гар~
 @eng a long-tailed gar@rus ~~длиннохвостый~~ ~~гар~~~
 @eng A long-tailed Gar stalks you deep in the woods.
 @rus Длиннохвостый гар (gar) подкрадывается к тебе из-за деревьев.
@@ -30,7 +30,7 @@ BCDEFIKMN AB IJKO HQY
 stand stand male 300
 c L huge unknown
 #10002
-gar long tail гар длиннохвостый~
+gar long tail гар~
 @eng a long-tailed gar@rus ~~длиннохвостый~~ ~~гар~~~
 @eng A long-tailed Gar stalks you deep in the woods.
 @rus Длиннохвостый гар (gar) подкрадывается к тебе из-за деревьев.
@@ -89,7 +89,7 @@ BCEFKO EJL J KM
 stand stand male 300
 0 0 tiny unknown
 #10005
-quad assassin квод наемник~
+assassin квод наемник quad~
 @eng a quad assassin@rus ~~наемник~~ из квода~
 @eng A member of the quad assassins is here.
 @rus Наемник (assasin), один из квода, стоит перед тобой, не давая пройти.
@@ -108,7 +108,7 @@ BCDEFGHIKNUV AH BL J
 stand stand male 300
 0 0 large unknown
 #10006
-quad assassin квод наемник~
+assassin квод наемник quad~
 @eng a quad assassin@rus ~~наемник~~ из квода~
 @eng A member off the quad assassins is here.
 @rus Наемник (assasin), один из квода, стоит перед тобой, не давая пройти.
@@ -127,7 +127,7 @@ BCDEFGHIKNUV AH BL J
 stand stand male 300
 0 0 large unknown
 #10007
-young lady девушка молодая~
+lady девушка молодая young~
 @eng a young lady@rus ~~молодая~~ ~~девушка~~~
 @eng There is a nice young lady picking flowers from her garden.
 @rus Прелестная молодая девушка (lady) гуляет по саду, собирая цветы.
@@ -162,7 +162,7 @@ BCDEFGHIK AI 0 0
 stand stand male 300
 0 0 medium unknown
 #10009
-little boy мальчик маленький~
+boy мальчик маленький little~
 @eng a little boy@rus ~~маленький~~ ~~мальчик~~~
 @eng There is a little boy playing in the sand.
 @rus Маленький мальчик (boy) играется в песке.
@@ -182,7 +182,7 @@ BCDEFGHIK AI 0 0
 stand stand male 300
 0 0 small unknown
 #10010
-heart hound гончая сердца~
+hound гончая сердца heart~
 @eng a heart hound@rus ~~гончая~~ сердца~
 @eng There is a deadly heart hound drooling all over himself.
 @rus Гончая сердца (hound) осматривается вокруг.
@@ -229,7 +229,7 @@ BCDEFGHIKNO A 0 0
 stand stand male 300
 0 0 medium unknown
 #10012
-happy villager селянин счастливый~
+villager селянин счастливый happy~
 @eng a happy villager@rus ~~счастливый~~ ~~селянин~~~
 @eng There is a really happy villager here.
 @rus Селянин (villager) улыбается, глядя в твою сторону.
@@ -270,7 +270,7 @@ KN ABINS BPQR 0
 stand stand female 0
 0 0 medium unknown
 #10014
-boundary warden страж границы~
+warden страж границы boundary~
 @eng a boundary warden@rus ~~страж~~ границы~
 @eng A strong, powerful boundary warden is here.
 @rus Мрачный страж (warden) занят своим нелегким делом.
@@ -333,7 +333,7 @@ BCDEFGHIJKN AB 0 0
 stand stand male 300
 0 0 medium unknown
 #10017
-bone woman женщина эди~
+woman женщина эди bone~
 @eng The Bone Woman@rus Эди~
 @eng A interesting woman is here fooling around with some bones.
 @rus Странная женщина (woman) стоит неподалеку от тебя.
@@ -399,7 +399,7 @@ CDEFIKN IP F JK
 stand stand none 300
 0 0 medium unknown
 #10020
-spirit king призрачный король~
+king призрачный король spirit~
 @eng the spirit king@rus ~~призрачный~~ ~~король~~~
 @eng Here stands the great spirit king, blocking you passage.
 @rus Призрак (spirit) загородил тебе дорогу.
@@ -421,7 +421,7 @@ CDEFIKN IP 0 JK
 stand stand male 300
 0 0 medium unknown
 #10021
-great red dragon дракон красный скарлет scarlet~
+dragon дракон красный скарлет scarlet great red~
 @eng Scarlet@rus Скарлет~
 @eng You see a giant dragon that Darken Rahl uses to fly around.
 @rus Большой красный дракон (dragon) лежит в стороне от дороги.
@@ -460,7 +460,7 @@ CDFIKN IP 0 JK
 stand stand male 300
 0 0 medium unknown
 #10023
-bar tender бармен человечек толстый маленький~
+tender бармен человечек толстый маленький bar~
 @eng the bar tender@rus бармен~
 @eng A fat little bar tender is here serving drinks.
 @rus Толстый маленький человечек (bar tender) суетится вокруг.
@@ -497,7 +497,7 @@ CDEFIKN IP 0 K
 stand stand male 300
 0 0 medium unknown
 #10025
-dark thief воришка маленький~
+thief воришка маленький dark~
 @eng a little thief@rus ~~маленький~~ ~~воришка~~~
 @eng There is a theif looking for something to steal here.
 @rus Воришка (thief) оглядывается вокруг с поисках чего-нибудь, что плохо лежит.
@@ -535,7 +535,7 @@ CDEFIKN IP 0 0
 stand stand male 300
 0 0 small unknown
 #10027
-underworld beast порождение подземного~
+beast порождение подземного underworld~
 @eng an underworld beast@rus ~~порождение~~ подземного мира~
 @eng There is a underworld beast, looking lost here.
 @rus Порождение подземного мира (beast) предстало перед тобой.
@@ -572,7 +572,7 @@ CDEFIKN IJP 0 0
 stand stand none 300
 0 0 small unknown
 #10029
-mord sith морд-сит сит~
+sith морд-сит сит mord~
 @eng Mord-Sith@rus Морд-Сит~
 @eng Here sands the dreadful Mord-Sith waiting to take you as her pet.
 @rus Морд-Сит (Mord-Sith) ждет момента, когда сможет подчинить тебя своей воле.
@@ -612,7 +612,7 @@ BCDEFIKN IP 0 0
 stand stand male 300
 0 0 medium unknown
 #10031
-darken rahl рал даркен~
+rahl рал даркен darken~
 @eng The Evil Darken Rahl@rus ~~Даркен~~ ~~Рал~~~
 @eng Standing before you is your worst nightmare, Darken Rahl.
 @rus Сам Даркен Рал (Rahl) стоит перед тобой.
@@ -676,7 +676,7 @@ stand stand female 300
 
 #OBJECTS
 #10001
-warden mace boundary дубинка стража~
+warden mace boundary дубинка~
 @eng a boundary warden's mace@rus ~~дубинка~~ стража границы~
 @eng A large powerful mace is resting against the wall here.@rus Большая, мрачного вида дубинка (mace) брошена кем-то.~
 unknown~
@@ -700,7 +700,7 @@ the use of killing. This truly is a strong weapon.
 ~
 G none
 #10002
-bone necklace ожерелье костяное~
+bone necklace ожерелье~
 @eng the Bone Woman's necklace@rus ~~костяное~~ ~~ожерелье~~~
 @eng A Beautiful necklace lies here on the ground.@rus Красивое ожерелье (necklace), сделанное из костей, кем-то брошено здесь.~
 stone~
@@ -722,7 +722,7 @@ neck. It must be very powerful since the kill took awhile.
 ~
 G none
 #10003
-gripper teeth зубы острые кривые~
+gripper teeth зубы~
 @eng some grippers teeth@rus ~~острые~~ ~~кривые~~ ~~зубы~~~
 @eng Here are the teeth of the Gripper monster.@rus Острые зубы (teeth), оставшиеся от хватало, валяются тут.~
 stone~
@@ -735,7 +735,7 @@ A
 1 3
 G none
 #10004
-jug beer кувшин эль~
+jug beer кувшин~
 @eng a jug of beer@rus ~~кувшин~~ эля~
 @eng There is a jug of beer on the ground here.@rus Небольшой кувшин (jug) с непонятно чем оставлен кем-то.~
 glass~
@@ -744,7 +744,7 @@ drink BC A
 1 1 1 P
 G none
 #10005
-thief boot boots black пара ботинки черные кожаные~
+thief boot boots black ботинки~
 @eng a pair of black boots@rus ~~пара~~ кожаных черных ботинок~
 @eng A dark pair of boots lie here soaking up the sun.@rus Пара черных ботинок (boots) валяется тут, впитывая солнечный свет.~
 leather~
@@ -759,7 +759,7 @@ A
 1 2
 G none
 #10006
-boundary glove warden gloves рукавицы стража~
+boundary glove warden gloves рукавицы~
 @eng boundary warden gloves@rus ~~рукавицы~~ стража границы~
 @eng A pair of gloves have been left here, waiting too be picked up.@rus Пара черных рукавиц (gloves) забыта своим хозяином.~
 unknown~
@@ -774,7 +774,7 @@ A
 1 2
 G none
 #10007
-boundary boot warden boots ботинки стража~
+boundary boot warden boots ботинки~
 @eng boundary warden boots@rus ~~ботинки~~ стража границы~
 @eng A pair of boots have been left here.@rus Армированные ботинки (boots) оставлены тут за ненадобностью.~
 unknown~
@@ -789,7 +789,7 @@ A
 18 5
 G none
 #10008
-boundary sleeves warden стража нарукавники~
+boundary sleeves warden нарукавники~
 @eng boundary warden sleeves@rus ~~нарукавники~~ стража границы~
 @eng A pair of sleeves have been left resting against a tree.@rus Кожаные нарукавники (sleeves) валяются, брошенные хозяином.~
 unknown~
@@ -804,7 +804,7 @@ A
 1 2
 G none
 #10009
-boundary shield warden щит стража~
+boundary shield warden щит~
 @eng boundary warden's shield@rus ~~щит~~ стража границы~
 @eng A shield made from the finest metal has been left here.@rus Щит (shield), сделанный из превосходной стали, валяется у твоих ног.~
 unknown~
@@ -817,7 +817,7 @@ A
 17 -9
 G none
 #10010
-boundary tunic warden плащ стража~
+boundary tunic warden плащ~
 @eng boundary warden's tunic@rus ~~плащ~~ стража границы~
 @eng A tunic made from good leather has been left here.@rus Плащ (tunic), сделанный из хорошей кожы, оставлен здесь своим хозаином.~
 unknown~
@@ -828,7 +828,7 @@ A
 17 -21
 G none
 #10011
-boundary helmet warden шлем стража~
+boundary helmet warden шлем~
 @eng a boundary warden's helmet@rus ~~шлем~~ стража границы~
 @eng A large helmet has been left by its owner...such a shame.@rus Чей-то шлем (helmet) валяется тут, забытый.~
 unknown~
@@ -841,7 +841,7 @@ A
 1 2
 G none
 #10012
-boundary ring warden кольцо стража~
+boundary ring warden кольцо~
 @eng a boundary warden's ring@rus ~~кольцо~~ стража границы~
 @eng A bright silver ring has been left in the dust.@rus Массивное серебрянное кольцо (ring) кем-то оставлено здесь.~
 unknown~
@@ -852,7 +852,7 @@ A
 13 75
 G none
 #10013
-boundary legging warden leggings штаны стража~
+boundary legging warden leggings штаны~
 @eng boundary warden leggins@rus ~~штаны~~ стража границы~
 @eng A pair of leggings have been left here.@rus Какие-то черные штаны (leggins) оставлены здесь.~
 unknown~
@@ -865,7 +865,7 @@ A
 14 30
 G none
 #10014
-robe dark~
+robe dark плащ~
 @eng a dark robe@rus ~~темный~~ ~~плащ~~~
 @eng A robe has been left in the shade of a tree here.@rus Темный плащ (robe) непонятного цвета валяется около тебя.~
 cloth~
@@ -878,7 +878,7 @@ A
 12 50
 G none
 #10015
-collar heart hound ошейник гончей~
+collar heart hound ошейник~
 @eng a heart hound collar@rus ~~ошейник~~ гончей~
 @eng A collar has been left sitting in the sun in the middle of a field.@rus Странного вида ошейник (collar) блестит под лучами солнца.~
 unknown~
@@ -893,7 +893,7 @@ A
 12 50
 G none
 #10016
-pouch magical leather маленький магический мешочек~
+pouch magical leather мешочек~
 @eng a magical leather pouch@rus ~~маленький~~ ~~магический~~ ~~мешочек~~~
 @eng A pouch has been left here in the mud.@rus Маленький мешочек (pouch) валяется в грязи.~
 leather~
@@ -911,7 +911,7 @@ DF 0 0 0 0
 8 10 0 P
 G none
 #10018
-cake кусок пирога~
+cake кусок пирог~
 @eng a BIG piece of cake!@rus ~~кусок~~ пирога~
 @eng A Big Yummy piece of CAKE has been left here.@rus Большой кусок пирога (cake) почему-то валяется на земле.~
 unknown~
@@ -920,7 +920,7 @@ BD 0 0 0 0
 1 10 0 P
 G none
 #10019
-boundary sword warden меч стража границы~
+boundary sword warden меч~
 @eng a boundary warden's sword@rus ~~меч~~ стража границы~
 @eng A well made sword has been left here.@rus Качественно выкованный меч (sword) почему-то брошен здесь.~
 unknown~
@@ -937,7 +937,7 @@ This is a boundary warden sword that is made just for their use.
 ~
 G none
 #10020
-boundary flail warden стража границы кистень~
+boundary flail warden кистень~
 @eng a boundary warden's flail@rus ~~кистень~~ стража границы~
 @eng A flail has been left here.@rus Мрачного вида оружие (flail) валяется возле тебя.~
 unknown~
@@ -963,7 +963,7 @@ A
 18 3
 G none
 #10022
-boundary dagger warden кинжал стража границы~
+boundary dagger warden кинжал~
 @eng a boundary warden's dagger@rus ~~кинжал~~ стража границы~
 @eng A dagger has been left here.@rus Небольшой, но острый кинжал (dagger) валяется подле тебя.~
 steel~
@@ -976,7 +976,7 @@ A
 18 3
 G none
 #10023
-agiel weapon эйджил оружие~
+agiel weapon эйджил~
 @eng a mord-sith agiel@rus эйджил~
 @eng A magical weapon has been left here.@rus Странное магическое оружие (agiel) оставлено здесь своей хозяйкой.~
 unknown~
@@ -993,7 +993,7 @@ A
 12 20
 G none
 #10024
-bracer power браслет магический рала~
+bracer power браслет~
 @eng the bracer of power@rus ~~магический~~ ~~браслет~~ Рала~
 @eng There is a bracer in the mud here.@rus Браслет (bracer), сделанный из какого-то темного материала, валяется около твоих ног.~
 unknown~
@@ -1207,12 +1207,14 @@ the south.
 ~
 0 0 forest
 D0
-To the thick forest.
+@eng To the thick forest.
+@rus Вековой лес.
 ~
 ~
 Z 0 10002
 D2
-The long dusty trail.
+@eng The long dusty trail.
+@rus Тропа, ведущая непонятно куда.
 ~
 ~
 Z 0 18002
@@ -1233,12 +1235,14 @@ take a closer look.
 ~
 0 0 forest
 D0
-The entrance to the woods.
+@eng The entrance to the woods.
+@rus Под сенью деревьев.
 ~
 ~
 Z 0 10003
 D2
-Back to the woods.
+@eng Back to the woods.
+@rus Тропинка у озера.
 ~
 ~
 Z 0 10001
@@ -1258,12 +1262,14 @@ sure is wonderful.
 ~
 0 0 forest
 D0
-Path down the road.
+@eng Path down the road.
+@rus Лесная дорога.
 ~
 ~
 Z 0 10004
 D2
-Back to the clearing.
+@eng Back to the clearing.
+@rus Лесная просека.
 ~
 ~
 Z 0 10002
@@ -1281,12 +1287,14 @@ north and south.
 ~
 0 0 forest
 D0
-Turn in the road.
+@eng Turn in the road.
+@rus Поворот дороги.
 ~
 ~
 Z 0 10005
 D2
-The road south.
+@eng The road south.
+@rus Под сенью деревьев.
 ~
 ~
 Z 0 10003
@@ -1308,12 +1316,14 @@ back south to the turn in the road.
 ~
 0 0 forest
 D2
-The road south.
+@eng The road south.
+@rus Лесная дорога.
 ~
 ~
 Z 0 10004
 D3
-The path to the mountains.
+@eng The path to the mountains.
+@rus Дорога через возвышенность.
 ~
 ~
 Z 0 10006
@@ -1334,12 +1344,14 @@ could retrun to the east or go up the mountain.
 ~
 0 0 mountain
 D1
-The path to the forest.
+@eng The path to the forest.
+@rus Поворот дороги.
 ~
 ~
 Z 0 10005
 D4
-The trail up the mountain.
+@eng The trail up the mountain.
+@rus На вершине холма.
 ~
 ~
 Z 0 10007
@@ -1362,12 +1374,14 @@ may go north or down.
 ~
 0 0 mountain
 D0
-The path along the cliff.
+@eng The path along the cliff.
+@rus Опушка леса.
 ~
 ~
 Z 0 10008
 D5
-Back down the mountain.
+@eng Back down the mountain.
+@rus Дорога через возвышенность.
 ~
 ~
 Z 0 10006
@@ -1390,12 +1404,14 @@ and rest. You may go down or south.
 ~
 0 0 mountain
 D2
-The southern trail.
+@eng The southern trail.
+@rus На вершине холма.
 ~
 ~
 Z 0 10007
 D5
-The trail into the forest.
+@eng The trail into the forest.
+@rus Тропинка через лес.
 ~
 ~
 Z 0 10009
@@ -1418,12 +1434,14 @@ north to the outskirts of Hartland or up back to the mountain.
 ~
 0 0 forest
 D0
-The out-skirts of Hartland.
+@eng The out-skirts of Hartland.
+@rus Окраины Хартленда.
 ~
 ~
 Z 0 10010
 D4
-The trail up the mountain.
+@eng The trail up the mountain.
+@rus Опушка леса.
 ~
 ~
 Z 0 10008
@@ -1449,12 +1467,14 @@ and south.
 ~
 0 0 forest
 D0
-The town of Hartland.
+@eng The town of Hartland.
+@rus Центр города.
 ~
 ~
 Z 0 10011
 D2
-Back to the woods.
+@eng Back to the woods.
+@rus Тропинка в лесу.
 ~
 ~
 Z 0 10009
@@ -1477,12 +1497,14 @@ paths in the fields or south back to the woods.
 ~
 0 0 city
 D0
-The fields out-side of town.
+@eng The fields out-side of town.
+@rus Сельскохозяйственные поля.
 ~
 ~
 Z 0 10012
 D2
-Back to the out-skirts of Hartland.
+@eng Back to the out-skirts of Hartland.
+@rus Окраины Хартленда.
 ~
 ~
 Z 0 10010
@@ -1504,12 +1526,14 @@ north back to the town you came from.
 ~
 0 0 field
 D0
-The path to the swamp.
+@eng The path to the swamp.
+@rus Тропинка к болоту.
 ~
 ~
 Z 0 10013
 D2
-Back to the town.
+@eng Back to the town.
+@rus Центр города.
 ~
 ~
 Z 0 10011
@@ -1536,12 +1560,14 @@ The trail leads north and back to the city, south.
 ~
 0 0 forest
 D0
-Closer to the Swamp.
+@eng Closer to the Swamp.
+@rus Начало топей.
 ~
 ~
 Z 0 10014
 D2
-Back to the fields.
+@eng Back to the fields.
+@rus Поля Хартленда.
 ~
 ~
 Z 0 10012
@@ -1562,12 +1588,14 @@ to the east and south.
 ~
 0 0 forest
 D1
-Path at the swamp.
+@eng Path at the swamp.
+@rus Дорога через топи.
 ~
 ~
 Z 0 10015
 D2
-Back to the trail.
+@eng Back to the trail.
+@rus Тропинка в сторону города.
 ~
 ~
 Z 0 10013
@@ -1593,12 +1621,14 @@ The exits are back east or west.
 ~
 0 0 forest
 D1
-Over the waters.
+@eng Over the waters.
+@rus Протока.
 ~
 ~
 Z 0 10016
 D3
-Back through the woods.
+@eng Back through the woods.
+@rus Конец болота.
 ~
 ~
 Z 0 10014
@@ -1622,12 +1652,14 @@ to the island or back west.
 ~
 0 0 swim
 D1
-On the island.
+@eng On the island.
+@rus Небольшой островок.
 ~
 ~
 Z 0 10017
 D3
-Back to the path.
+@eng Back to the path.
+@rus Дорога через болота.
 ~
 ~
 Z 0 10015
@@ -1649,12 +1681,14 @@ again.  The exits are to the east, and to the west.
 ~
 0 0 hills
 D1
-Over the waters heading south.
+@eng Over the waters heading south.
+@rus Протока.
 ~
 ~
 Z 0 10018
 D3
-Back on the waters.
+@eng Back on the waters.
+@rus Протока.
 ~
 ~
 Z 0 10016
@@ -1675,12 +1709,14 @@ are east the shore or back west to the island.
 ~
 0 0 swim
 D1
-On The Shore.
+@eng On The Shore.
+@rus Сухая тропа.
 ~
 ~
 Z 0 10019
 D3
-Back to the Island.
+@eng Back to the Island.
+@rus Небольшой островок.
 ~
 ~
 Z 0 10017
@@ -1701,12 +1737,14 @@ to the swamps (north) or continue south.
 ~
 0 0 forest
 D1
-Trail through the woods.
+@eng Trail through the woods.
+@rus Тропинка под деревьями.
 ~
 ~
 Z 0 10020
 D3
-Back on the waters.
+@eng Back on the waters.
+@rus Протока.
 ~
 ~
 Z 0 10018
@@ -1727,12 +1765,14 @@ up ahead.
 ~
 0 0 forest
 D1
-The entrance to the village.
+@eng The entrance to the village.
+@rus Небольшая полузаброшенная деревня.
 ~
 ~
 Z 0 10021
 D3
-Back to the waters.
+@eng Back to the waters.
+@rus Тропинка у воды.
 ~
 ~
 Z 0 10019
@@ -1752,12 +1792,14 @@ of ale. You may go north to the forest or south into the village.
 ~
 0 0 city
 D1
-The Road in the Village.
+@eng The Road in the Village.
+@rus Деревенская улица.
 ~
 ~
 Z 0 10022
 D3
-Back to the Forest.
+@eng Back to the Forest.
+@rus Тропинка через лес.
 ~
 ~
 Z 0 10020
@@ -1778,17 +1820,20 @@ to do. There is a fresh cool breeze floating through the city.
 ~
 0 0 city
 D0
-Entrance to the bar.
+@eng Entrance to the bar.
+@rus Забегаловка.
 ~
 ~
 Z 0 10023
 D1
-Path to the narrows.
+@eng Path to the narrows.
+@rus Дорога к проходу.
 ~
 ~
 Z 0 10024
 D3
-Back to the gates.
+@eng Back to the gates.
+@rus Окраина деревни.
 ~
 ~
 Z 0 10021
@@ -1863,17 +1908,20 @@ a visit with the old Bone Woman.
 ~
 0 0 forest
 D0
-The Bone Womans house.
+@eng The Bone Womans house.
+@rus Дом Эди.
 ~
 ~
 Z 0 10026
 D1
-The path to the Narrows.
+@eng The path to the Narrows.
+@rus Затеряная тропа.
 ~
 ~
 Z 0 10027
 D3
-Back to the forest.
+@eng Back to the forest.
+@rus Мрачного вида лес.
 ~
 ~
 Z 0 10024
@@ -1895,7 +1943,8 @@ as long as you wish.
 ~
 0 0 inside
 D2
-Back to the road.
+@eng Back to the road.
+@rus Тропинка.
 ~
 ~
 Z 0 10025
@@ -2364,6 +2413,7 @@ M 0 10001 2 10009 1	* a long-tailed gar (The trail in the forest)
 M 0 10002 2 10009 1	* a long-tailed gar (The trail in the forest)
 M 0 10004 4 10009 1	* a blood fly (The trail in the forest)
 M 0 10004 4 10009 1	* a blood fly (The trail in the forest)
+M 0 10004 4 10009 4	* a blood fly (The trail in the forest)
 M 0 10015 1 10010 1	* a thief (The out-skirts of Hartland)
 M 0 10011 1 10011 1	* a speaker (The town of Hartland)
 M 0 10012 2 10011 1	* a happy villager (The town of Hartland)

@@ -29,6 +29,16 @@ Form 5 -ом~
 End
 
 #WORD
+Name Сенешаль~
+BaseLen 7
+Form 1 -я~
+Form 2 -ю~
+Form 3 -я~
+Form 4 -ем~
+Form 5 -е~
+End
+
+#WORD
 Name софа~
 BaseLen 3
 Form 1 -ы~
@@ -105,6 +115,16 @@ Form 2 -ой~
 Form 3 -ую~
 Form 4 -ой~
 Form 5 -ой~
+End
+
+#WORD
+Name боевой~
+BaseLen 4
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ой~
+Form 4 -ым~
+Form 5 -ом~
 End
 
 #WORD
@@ -212,6 +232,26 @@ Form 5 -ом~
 End
 
 #WORD
+Name круглый~
+BaseLen 5
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ый~
+Form 4 -ым~
+Form 5 -ом~
+End
+
+#WORD
+Name черный~
+BaseLen 4
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ого~
+Form 4 -ым~
+Form 5 -ом~
+End
+
+#WORD
 Name видимая~
 BaseLen 5
 Form 1 -ой~
@@ -238,6 +278,16 @@ Form 1 -а~
 Form 2 -у~
 Form 3 -а~
 Form 4 -ом~
+Form 5 -е~
+End
+
+#WORD
+Name Богатырь~
+BaseLen 7
+Form 1 -я~
+Form 2 -ю~
+Form 3 -я~
+Form 4 -ем~
 Form 5 -е~
 End
 
@@ -342,6 +392,26 @@ Form 5 -е~
 End
 
 #WORD
+Name черная~
+BaseLen 4
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
+End
+
+#WORD
+Name рыцарь~
+BaseLen 5
+Form 1 -я~
+Form 2 -ю~
+Form 3 -я~
+Form 4 -ем~
+Form 5 -е~
+End
+
+#WORD
 Name пара~
 BaseLen 3
 Form 1 -ы~
@@ -428,6 +498,16 @@ Form 1 -а~
 Form 2 -у~
 Form 3 -а~
 Form 4 -ом~
+Form 5 -е~
+End
+
+#WORD
+Name пешка~
+BaseLen 4
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
 Form 5 -е~
 End
 
@@ -607,6 +687,16 @@ Form 5 -ке~
 End
 
 #WORD
+Name сосна~
+BaseLen 4
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+End
+
+#WORD
 Name отвратительная~
 BaseLen 12
 Form 1 -ой~
@@ -630,6 +720,16 @@ End
 Name скамейка~
 BaseLen 7
 Form 3 -у~
+End
+
+#WORD
+Name белый~
+BaseLen 3
+Form 1 -ого~
+Form 2 -ому~
+Form 3 -ого~
+Form 4 -ым~
+Form 5 -ом~
 End
 
 #WORD
@@ -831,6 +931,16 @@ Form 5 -ых~
 End
 
 #WORD
+Name кольчуга~
+BaseLen 7
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+End
+
+#WORD
 Name ботинки~
 BaseLen 5
 Form 1 -ок~
@@ -897,6 +1007,16 @@ Form 1 -а~
 Form 2 -у~
 Form 3 -а~
 Form 4 -ом~
+Form 5 -е~
+End
+
+#WORD
+Name водка~
+BaseLen 4
+Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
 Form 5 -е~
 End
 
@@ -1148,6 +1268,16 @@ Form 5 -ых~
 End
 
 #WORD
+Name епископ~
+BaseLen 7
+Form 1 -а~
+Form 2 -у~
+Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#WORD
 Name соленая вода~
 Form 3 соленую воду~
 End
@@ -1160,6 +1290,16 @@ Form 2 -ому~
 Form 3 -ого~
 Form 4 -ым~
 Form 5 -ом~
+End
+
+#WORD
+Name старая~
+BaseLen 4
+Form 1 -ой~
+Form 2 -ой~
+Form 3 -ую~
+Form 4 -ой~
+Form 5 -ой~
 End
 
 #WORD
@@ -1182,6 +1322,16 @@ BaseLen 6
 Form 1 -а~
 Form 2 -у~
 Form 3 -а~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#WORD
+Name топор~
+BaseLen 5
+Form 1 -а~
+Form 2 -у~
+Form 3 -~
 Form 4 -ом~
 Form 5 -е~
 End
@@ -1247,6 +1397,15 @@ Form 5 -е~
 End
 
 #WORD
+Name стол~
+BaseLen 4
+Form 1 -а~
+Form 2 -у~
+Form 4 -ом~
+Form 5 -е~
+End
+
+#WORD
 Name тень~
 BaseLen 3
 Form 1 -и~
@@ -1280,6 +1439,15 @@ End
 Name нога~
 BaseLen 3
 Form 1 -и~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+End
+
+#WORD
+Name королев~
+Form 1 -ы~
 Form 2 -е~
 Form 3 -у~
 Form 4 -ой~
@@ -1358,6 +1526,16 @@ Form 5 -е~
 End
 
 #WORD
+Name королева~
+BaseLen 7
+Form 1 -ы~
+Form 2 -е~
+Form 3 -у~
+Form 4 -ой~
+Form 5 -е~
+End
+
+#WORD
 Name лекарь~
 BaseLen 5
 Form 1 -я~
@@ -1365,6 +1543,16 @@ Form 2 -ю~
 Form 3 -я~
 Form 4 -ем~
 Form 6 е~
+End
+
+#WORD
+Name ладья~
+BaseLen 4
+Form 1 -и~
+Form 2 -е~
+Form 3 -ю~
+Form 4 -ей~
+Form 5 -е~
 End
 
 #WORD

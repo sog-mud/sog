@@ -28,6 +28,12 @@ Form 1 -на~
 End
 
 #WORD
+Name принесен~
+BaseLen 8
+Form 1 -а~
+End
+
+#WORD
 Name насчитал~
 BaseLen 8
 Form 1 -а~
@@ -90,6 +96,13 @@ End
 Name успокоился~
 BaseLen 8
 Form 1 -ась~
+End
+
+#WORD
+Name ранен~
+BaseLen 5
+Form 1 -а~
+Form 2 -о~
 End
 
 #WORD

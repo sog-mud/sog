@@ -1,5 +1,6 @@
 #AREADATA
 Name Chessboard of Midgaard~
+Builders arwen~
 VNUMs 4200 4299
 Credits Exxon~
 Security 9
@@ -8,76 +9,94 @@ End
 
 #MOBILES
 #4200
-black pawn~
-the Pawn of the Black Court~
-You see a pawn standing here waiting for orders.
+pawn черная пешка black~
+@eng the Pawn of the Black Court@rus ~~Черная~~ ~~пешка~~~
+@eng You see a pawn standing here waiting for orders.
+@rus Черная пешка (Pawn) стоит здесь, ожидая указаний свыше. 
 ~
-The Black Pawn looks quite like a small knight without his powerful steed.
+@eng The Black Pawn looks quite like a small knight without his powerful steed.
 His armor is shiny and black. He stands ready to give his life for the Crown.
+@rus Черная Пешка выглядит совсем как маленький рыцать, только без его
+боевого коня. Ее черные доспехи блестят и переливаются под солнцем. 
+Этот отважный воин в любой момент готов отдать свою жизнь за своих 
+повелителей.
 ~
 human~
 ACF D -400 4200
 10 0 2d7+121 1d1+99 2d4+1 beating
 1 1 1 8
 EG A 0 0
-stand stand male 60
+stand stand female 60
 B 0 medium unknown
 M bribe 4200 1~
 M random 4200 20~
 #4201
-white pawn~
-the Pawn of the White Court~
-You see a pawn standing here waiting for orders.
+pawn white белая пешка~
+@eng the Pawn of the White Court@rus ~~Белая~~ ~~пешка~~~
+@eng You see a pawn standing here waiting for orders.
+@rus Белая пешка (Pawn) стоит здесь, ожидая указаний свыше.
 ~
-The White Pawn looks quite like a small knight without his powerful steed.
+@eng The White Pawn looks quite like a small knight without his powerful steed.
 His armor is spotless and white. He stands ready to give his life for the 
 Crown.
+@rus Белая пешка выглядит совсем как маленький рыцарь. Все, что ее отличает, это
+отсутствие боевого коня. Ее доспехи белые и на них нет ни единого пятнышка.
+Она в любой момент готова отдать жизнь за своих повелителей.
 ~
 human~
 AC D 400 4201
 10 0 2d7+121 1d1+99 2d4+1 beating
 1 1 1 8
 EG 0 0 0
-stand stand male 55
+stand stand female 55
 0 0 medium unknown
 #4202
-black rook castle~
-the Black Rook~
-In the corner you see a large, black, stone castle on wheels.
+rook castle черная ладья башня black~
+@eng the Black Rook@rus ~~Черная~~ ~~Ладья~~~
+@eng In the corner you see a large, black, stone castle on wheels.
+@rus Ты видишь большую, черную башню (Rook) на колесах.
 ~
-The Black Rook is a very large man-made tomb on wheels.  Just
+@eng The Black Rook is a very large man-made tomb on wheels.  Just
 from the looks of it, it will probably be YOUR tomb.
+@rus Эта башня почему-то очень похожа на какой-то надгробный памятник. Может
+статься, что она окажется твоим надгробным памятником.
 ~
 human~
 AFH 0 -600 0
 27 0 5d10+650 1d1+99 5d4+7 punch
 -8 -8 -8 6
 CEI A 0 0
-stand stand male 480
+stand stand female 480
 0 0 medium unknown
 M random 4200 20~
 #4203
-white rook castle~
-the White Rook~
-In the corner you see a large, white, stone castle on wheels.
+rook castle белая ладья башня white~
+@eng the White Rook@rus ~~Белая~~ ~~Ладья~~~
+@eng In the corner you see a large, white, stone castle on wheels.
+@rus Перед тобой возвышается большая, сделанная из белого камня башня на колесах (Rook).
 ~
-The White Rook is a very large man-made tomb on wheels.  Just
+@eng The White Rook is a very large man-made tomb on wheels.  Just
 from the looks of it, it will probably be YOUR tomb.
+@rus Эта башня почему-то очень похожа на какой-то надгробный памятник. Может
+статься, что она окажется твоим надгробным памятником.
 ~
 human~
 AH D 600 0
 27 0 5d10+650 1d1+99 5d4+7 punch
 -8 -8 -8 6
 CEI 0 0 0
-stand stand male 470
+stand stand female 470
 0 0 medium unknown
 #4204
-black knight~
-the Black Knight~
-Here stands a magnificent knight of the dark realm.
+knight черный рыцарь black~
+@eng the Black Knight@rus ~~Черный~~ ~~Рыцарь~~~
+@eng Here stands a magnificent knight of the dark realm.
+@rus Могучий рыцарь (Knight) темного королевства стоит рядом с тобой.
 ~
-The Black Knight is here, riding his ebony black war horse.  His eyes
+@eng The Black Knight is here, riding his ebony black war horse.  His eyes
 flash behind his visor in vengence.
+@rus Перед тобой на лошади цвета черного дерева восседает могучий всадник с
+горящим взором.
 ~
 human~
 AH 0 -400 0
@@ -88,12 +107,15 @@ stand stand male 266
 0 0 medium unknown
 M random 4200 20~
 #4205
-white knight~
-the White Knight~
-Here stands a magnificent knight of the light realm.
+knight белый рыцарь white~
+@eng the White Knight@rus ~~Белый~~ ~~Рыцарь~~~
+@eng Here stands a magnificent knight of the light realm.
+@rus Перед тобой стоит Белый Рыцарь (Knight) -- защитник светлого королевства.
 ~
-The White Knight is here, riding his ivory white war horse.  His eyes
+@eng The White Knight is here, riding his ivory white war horse.  His eyes
 gleam behind his visor in joy.
+@rus Над тобой возвышается могучий всадник, сидящий на боевом коне цвета слоновой
+кости. В его глазах блестят веселые смешинки, а на лице играет улыбка.
 ~
 human~
 AH 0 400 0
@@ -103,12 +125,15 @@ EF A 0 0
 stand stand male 256
 0 0 medium unknown
 #4206
-black bishop priest~
-the Black Bishop~
-A dark priest stands here.
+bishop priest черный священник епископ black~
+@eng the Black Bishop@rus ~~Черный~~ ~~Епископ~~~
+@eng A dark priest stands here.
+@rus Священник (Bishop) в черной мантии стоит рядом с тобой.
 ~
-The Black Bishop seems willing to help you straight into your grave so
+@eng The Black Bishop seems willing to help you straight into your grave so
 he can bless you properly.
+@rus Человек в черном одеянии с мрачным огнем в глазах. Он с удовольствием
+прочтет заупокойную на твоей могилке.
 ~
 human~
 AH 0 -500 0
@@ -119,12 +144,14 @@ stand stand male 540
 0 0 medium unknown
 M random 4200 20~
 #4207
-white bishop priest~
-the White Bishop~
-A light priest stands here.
+bishop white priest белый епископ священник~
+@eng the White Bishop@rus ~~Белый~~ ~~Епископ~~~
+@eng A light priest stands here.
+@rus Священник (Bishop) в светлой мантии стоит рядом с тобой.
 ~
-The White Bishop seems willing to help you in any possible so that he can
+@eng The White Bishop seems willing to help you in any possible so that he can
 attain a higher spirituality.
+@rus Священник хочет помочь тебе в твоих мирских делах своим советом и молитвой.
 ~
 human~
 A DN 500 0
@@ -134,13 +161,16 @@ CDEF A 0 0
 stand stand male 590
 0 0 medium unknown
 #4208
-black queen~
-the Black Queen~
-The Black Queen stands here.
+queen черная королева black~
+@eng the Black Queen@rus ~~Черная~~ ~~Королева~~~
+@eng The Black Queen stands here.
+@rus Черная Королева (Queen) стоит перед тобой.
 ~
-The Black Queen is a strikingly beautiful woman with pale skin and a mass of
+@eng The Black Queen is a strikingly beautiful woman with pale skin and a mass of
 dark hair that crowns her head like a black cloud.  If looks could kill, you
 would already be dead.
+@rus Поразительно красивая женщина с бледной кожей и массой густых темных волос,
+окружающих ее голову подобно облаку.
 ~
 human~
 ABFH DFu -750 4210
@@ -151,13 +181,17 @@ stand stand female 856
 0 0 medium unknown
 M random 4200 20~
 #4209
-white queen~
-the White Queen~
-The White Queen stands here.
+queen white белая королева~
+@eng the White Queen@rus ~~Белая~~ ~~Королева~~~
+@eng The White Queen stands here.
+@rus Белая Королева (Queen) стоит перед тобой.
 ~
-The White Queen is a stunningly beautiful woman with dark skin and a mass
+@eng The White Queen is a stunningly beautiful woman with dark skin and a mass
 of light hair that frames her head like the sun.  This is surely love at
 first sight for you.
+@rus Прекрасная статная женщина с темной кожей и светлыми волосами, окружающими
+ее лицо светящимся ореолом. Совсем немудрено влюбиться в нее с первого
+взгляда.
 ~
 human~
 ABH DFHN 750 2411
@@ -167,12 +201,15 @@ AFJK 0 0 0
 stand stand female 854
 0 0 medium unknown
 #4210
-black king~
-the Black King~
-The Black King stands here.
+king черный король black~
+@eng the Black King@rus ~~Черный~~ ~~Король~~~
+@eng The Black King stands here.
+@rus Фигура Черного Короля (King) возвышается перед тобой.
 ~
-The Black King is a menacing figure.  You can easily understand why he
+@eng The Black King is a menacing figure.  You can easily understand why he
 is the king and you are not.
+@rus Мрачная, угрожающего вида фигура. При взгляде на него сразу ясно, почему он
+король, а ты -- нет.
 ~
 human~
 ABH DFUu -999 0
@@ -183,12 +220,15 @@ stand stand male 984
 0 0 medium unknown
 M random 4200 21~
 #4211
-white king~
-the White King~
-The White King stands here.
+king white белый король~
+@eng the White King@rus ~~Белый~~ ~~Король~~~
+@eng The White King stands here.
+@rus Перед тобой стоит статный Белый Король (King).
 ~
-The White King is a stately figure.  You can easily understand why he
+@eng The White King is a stately figure.  You can easily understand why he
 is the king and you are not.
+@rus Статная фигура Белого Короля возвышается перед тобой. При взгляде на него
+сразу ясно почему он король, а ты -- нет.
 ~
 human~
 ABH DFHNU 999 0
@@ -198,12 +238,16 @@ BCDEF 0 0 0
 stand stand male 988
 0 0 medium unknown
 #4212
-caliph omar ghost~
-the Ghost of Caliph Omar~
-The Ghost of Caliph Omar is floating here.
+caliph omar ghost призрак омар халиф~
+@eng the Ghost of Caliph Omar@rus ~~призрак~~ халифа Омара~
+@eng The Ghost of Caliph Omar is floating here.
+@rus Призрак халифа Омара (ghost) висит в воздухе перед тобой. 
 ~
-Caliph Omar was person who sanctions chess for islamic people. 
+@eng Caliph Omar was person who sanctions chess for islamic people. 
 His ghost is here small, and looks like made from smoke.
+@rus Халиф Омар был тем человеком, который впервые показал людям игру в шахматы.
+Перед тобой колышится маленькое привидение, прозрачное и как будто сотканное
+из многочисленных искорок.
 ~
 human~
 AHT BDFHPQTUV 0 0
@@ -216,45 +260,45 @@ stand stand male 14999
 
 #OBJECTS
 #4200
-armour black pawn~
-some Black Pawn Armour~
-A pile of black armour is here.~
+armour black pawn кольчуга~
+@eng some black pawn armour@rus ~~кольчуга~~ черной пешки~
+@eng A pile of black armour is here.@rus Кольчуга (armour) из черного металла валяется на земле.~
 steel~
 armor J AD
 5 5 5 0 2
 10 75 600 G
 G none
 #4201
-armour white pawn~
-some White Pawn Armour~
-A pile of white armour is here.~
+armour white pawn кольчуга~
+@eng some white pawn armour@rus ~~кольчуга~~ белой пешки~
+@eng A pile of white armour is here.@rus Кольчуга (armour) из светлого металла валяется у твоих ног.~
 steel~
 armor K AD
 5 5 5 0 2
 10 75 600 G
 G none
 #4202
-axe black pawn~
-a Black Pawn's Axe~
-The axe of a Black Pawn lies here.~
+axe black pawn боевой топор~
+@eng a Black Pawn's Axe@rus ~~боевой~~ ~~топор~~ черной пешки~
+@eng The axe of a Black Pawn lies here.@rus Боевой топор (axe) черной пешки валяется на земле.~
 steel~
 weapon J AN
 axe 2 7 chomp 0
 10 100 750 G
 G none
 #4203
-axe white pawn~
-a White Pawn's Axe~
-The axe of a White Pawn lies here.~
+axe white pawn топор~
+@eng a White Pawn's Axe@rus ~~боевой~~ ~~топор~~ белой пешки~
+@eng The axe of a White Pawn lies here.@rus Боевой топор (axe) белой пешки валяется у твоих ног.~
 steel~
 weapon K AN
 axe 2 7 chomp 0
 10 100 750 G
 G none
 #4204
-armour black rook~
-some Black Rook Armour~
-Some armour made from the remains of a black rook lies heaped on the floor.~
+armour black rook кольчуга~
+@eng some Black Rook Armour@rus ~~кольчуга~~ Черной Ладьи~
+@eng Some armour made from the remains of a black rook lies heaped on the floor.@rus Кольчуга (armour), оставшаяся от Черной Ладьи, грудой железа лежит на полу.~
 stone~
 armor J AD
 8 8 8 0 5
@@ -265,9 +309,9 @@ A
 5 1
 G none
 #4205
-armour white rook~
-some White Rook Armour~
-Some armour made from the remains of a white rook lies heaped on the floor.~
+armour white rook кольчуга~
+@eng some White Rook Armour@rus ~~кольчуга~~ Белой Ладьи~
+@eng Some armour made from the remains of a white rook lies heaped on the floor.@rus Кольчуга (armour), оставшаяся от Белой Ладьи, сверкающей грудой лежит у твоих ног.~
 stone~
 armor K AD
 8 8 8 0 5
@@ -278,9 +322,9 @@ A
 5 1
 G none
 #4206
-lance black knight~
-the Lance of the Black Knight~
-The Lance of the Black Knight lies here, waiting to rust.~
+lance black knight копье~
+@eng the Lance of the Black Knight@rus ~~копье~~ Черного Рыцаря~
+@eng The Lance of the Black Knight lies here, waiting to rust.@rus Копье (lance) Черного Рыцаря валяется на земле, ржавея от бездействия.~
 bronze~
 weapon BJ AN
 lance 5 5 pierce D
@@ -291,9 +335,9 @@ A
 23 5
 G none
 #4207
-lance white knight~
-the Lance of the White Knight~
-The Lance of the White Knight lies here, waiting to rust.~
+lance white knight копье~
+@eng the Lance of the White Knight@rus ~~копье~~ Белого Рыцаря~
+@eng The Lance of the White Knight lies here, waiting to rust.@rus Копье (lance) Белого Рыцаря валяется на земле, ржавея от бездействия.~
 bronze~
 weapon BK AN
 lance 5 5 pierce D
@@ -304,27 +348,27 @@ A
 23 5
 G none
 #4208
-staff black bishop~
-the Staff of the Black Bishop~
-The Black Bishop's Staff is lying here.~
+staff black bishop посох~
+@eng the Staff of the Black Bishop@rus ~~посох~~ Черного Епископа~
+@eng The Black Bishop's Staff is lying here.@rus Посох (staff) черного цвета валяется у твоих ног.~
 wood~
 staff GJL AO
 20 5 5 'energy drain' 0
 23 20 3523 P
 G none
 #4209
-staff white bishop~
-the Staff of the White Bishop~
-The White Bishop's Staff is lying here.~
+staff white bishop посох~
+@eng the Staff of the White Bishop@rus ~~посох~~ Белого Епископа~
+@eng The White Bishop's Staff is lying here.@rus Посох (staff) из светлого дерева валяется здесь.~
 wood~
 staff GKL AO
 20 5 5 'sanctuary' 0
 23 20 3879 P
 G none
 #4210
-crown black queen~
-the Crown of the Black Queen~
-The Crown of the Black Queen lies here, looking neglected.~
+crown black queen корона~
+@eng the Crown of the Black Queen@rus ~~корона~~ черной владычицы~
+@eng The Crown of the Black Queen lies here, looking neglected.@rus Никому ненужная черная корона (crown) лежит на земле.~
 gold~
 armor AGJL AE
 9 9 9 1 1
@@ -335,9 +379,9 @@ A
 4 1
 G none
 #4211
-crown white queen~
-the Crown of the White Queen~
-The Crown of the White Queen lies here, looking neglected.~
+crown white queen корона~
+@eng the Crown of the White Queen@rus ~~корона~~ белой владычицы~
+@eng The Crown of the White Queen lies here, looking neglected.@rus Корона (crown) из светлого металла брошена тут.~
 gold~
 armor AGKL AE
 9 9 9 1 1
@@ -348,9 +392,9 @@ A
 4 1
 G none
 #4212
-sceptre black king~
-the Black King's Sceptre~
-The Sceptre of the Black King lies here, collecting dust.~
+sceptre black king скипетр~
+@eng the Black King's Sceptre@rus ~~скипетр~~ Черного Короля~
+@eng The Sceptre of the Black King lies here, collecting dust.@rus Скипетр (sceptre) Черного Короля валяется в пыли.~
 gold~
 treasure JL AO
 0 0 0 0 0
@@ -361,9 +405,9 @@ A
 18 1
 G none
 #4213
-sceptre white king~
-the White King's Sceptre~
-The Sceptre of the White King lies here, collecting dust.~
+sceptre white king скипетр~
+@eng the White King's Sceptre@rus ~~скипетр~~ Белого Короля~
+@eng The Sceptre of the White King lies here, collecting dust.@rus Скипетр (sceptre) Белого Короля валяется здесь.~
 gold~
 treasure KL AO
 0 0 0 0 0
@@ -374,126 +418,126 @@ A
 18 1
 G none
 #4214
-key black treasury~
-the Key to the Black Treasury~
-There is a sinister black key lying here.~
+key black treasury ключ~
+@eng the Key to the Black Treasury@rus ~~ключ~~ к сокровищнице черной короны~
+@eng There is a sinister black key lying here.@rus Зловещий черный ключ (key) лежит перед тобой.~
 metal~
 key FH AO
 0 0 0 0 0
 6 20 1 G
 G none
 #4215
-key white treasury~
-the Key to the White Treasury~
-There is a bright white key lying here.~
+key white treasury ключ~
+@eng the Key to the White Treasury@rus ~~ключ~~ к сокровищнице белой короны~
+@eng There is a bright white key lying here.@rus Светящийся белый ключ (key) виднеется у самых твоих ног.~
 metal~
 key FH AO
 0 0 0 0 0
 6 20 1 G
 G none
 #4216
-coins gold black royal treasure~
-the Black Royal Treasure~
-There are a LOT of coins here.~
+coins gold black royal treasure монеты золото сокровище~
+@eng the Black Royal Treasure@rus ~~сокровище~~ черного королевского дома~
+@eng There are a LOT of coins here.@rus Большое количество старинных монет (coins) лежит у стены.~
 silver~
 money 0 A
 10000 0 0 0 0
 0 0 0 P
 G none
 #4217
-coins gold white royal treasure~
-the White Royal Treasure~
-There are a LOT of coins here.~
+coins gold white royal treasure сокровище монеты деньги~
+@eng the White Royal Treasure@rus ~~сокровище~~ белого королевского дома~
+@eng There are a LOT of coins here.@rus Большое количество старинных монет (coins) лежит у стены.~
 silver~
 money 0 A
 10000 0 0 0 0
 0 0 0 P
 G none
 #4218
-flail black pawn~
-a Black Pawn's Flail~
-The flail of a Black Pawn lies here.~
+flail black pawn цеп~
+@eng a Black Pawn's Flail@rus ~~цеп~~ черной пешки~
+@eng The flail of a Black Pawn lies here.@rus Цеп (flail), оставленный черной пешкой, лежит на земле.~
 steel~
 weapon J AN
 flail 2 7 blast 0
 10 100 750 G
 G none
 #4219
-flail white pawn~
-a White Pawn's Flail~
-The flail of a White Pawn lies here.~
+flail white pawn цеп~
+@eng a White Pawn's Flail@rus ~~цеп~~ белой пешки~
+@eng The flail of a White Pawn lies here.@rus Цеп (flail), оставленный белой пешкой, лежит на земле.~
 steel~
 weapon K AN
 flail 2 6 blast 0
 10 100 750 G
 G none
 #4220
-whip black pawn~
-a Black Pawn's Whip~
-The whip of a Black Pawn lies here.~
+whip black pawn кнут~
+@eng a Black Pawn's Whip@rus ~~кнут~~ черной пешки~
+@eng The whip of a Black Pawn lies here.@rus Кнут (whip) черной пешки, оставлен зачем-то здесь.~
 steel~
 weapon J AN
 whip 2 7 whip 0
 10 100 750 G
 G none
 #4221
-whip white pawn~
-a White Pawn's Whip~
-The whip of a White Pawn lies here.~
+whip white pawn кнут~
+@eng a White Pawn's Whip@rus ~~кнут~~ белой пешки~
+@eng The whip of a White Pawn lies here.@rus Кнут (whip) белой пешки оставлен здесь непонятно зачем.~
 steel~
 weapon K AN
 whip 2 6 whip 0
 10 100 750 G
 G none
 #4222
-spear black pawn~
-a Black Pawn's Spear~
-The spear of a Black Pawn lies here.~
+spear black pawn копье~
+@eng a Black Pawn's Spear@rus ~~копье~~ черной пешки~
+@eng The spear of a Black Pawn lies here.@rus Копье (spear) черной пешки оставлено здесь.~
 steel~
 weapon J AN
 spear 2 7 thrust 0
 10 100 750 G
 G none
 #4223
-spear white pawn~
-a White Pawn's Spear~
-The spear of a White Pawn lies here.~
+spear white pawn копье~
+@eng a White Pawn's Spear@rus ~~копье~~ белой пешки~
+@eng The spear of a White Pawn lies here.@rus Копье (spear) белой пешки оставлено здесь.~
 steel~
 weapon K AN
 spear 2 7 thrust 0
 10 100 750 G
 G none
 #4224
-halberd black pawn~
-a Black Pawn's Halberd~
-The halberd of a Black Pawn lies here.~
+halberd black pawn алебарда~
+@eng a Black Pawn's Halberd@rus ~~алебарда~~ черной пешки~
+@eng The halberd of a Black Pawn lies here.@rus Мрачная черная алебарда (halberd) лежит, брошенная, здесь.~
 steel~
 weapon J AN
 polearm 2 7 pierce 0
 10 100 750 G
 G none
 #4225
-halberd white pawn~
-a White Pawn's Halberd~
-The halberd of a White Pawn lies here.~
+halberd white pawn алебарда~
+@eng a White Pawn's Halberd@rus ~~алебарда~~ белой пешки~
+@eng The halberd of a White Pawn lies here.@rus Алебарда (halberd) белой пешки валяется здесь, брошенная.~
 steel~
 weapon K AN
 polearm 2 7 pierce 0
 10 100 750 G
 G none
 #4226
-rapier black pawn~
-a Black Pawn's Rapier~
-The rapier of a Black Pawn lies here.~
+rapier black pawn рапира~
+@eng a Black Pawn's Rapier@rus ~~рапира~~ черной пешки~
+@eng The rapier of a Black Pawn lies here.@rus Рапира (rapier) черной пешки валяется на земле.~
 steel~
 weapon J AN
 sword 2 7 pierce 0
 10 100 750 G
 G none
 #4227
-rapier white pawn~
-a White Pawn's Rapier~
-The rapier of a White Pawn lies here.~
+rapier white pawn рапира~
+@eng a White Pawn's Rapier@rus ~~рапира~~ белой пешки~
+@eng The rapier of a White Pawn lies here.@rus Рапира (rapier) белой пешки валяется на земле.~
 steel~
 weapon K AN
 sword 2 7 pierce 0
@@ -518,207 +562,207 @@ dagger 2 7 pierce 0
 10 100 750 G
 G none
 #4230
-crossbow black pawn~
-a Black Pawn's Crossbow~
-The crossbow of a Black Pawn lies here.~
+crossbow black pawn арбалет~
+@eng a Black Pawn's Crossbow@rus ~~арбалет~~ черной пешки~
+@eng The crossbow of a Black Pawn lies here.@rus Арбалет (crossbow) валяется здесь, оставленный черной пешкой.~
 steel~
 weapon J AN
 exotic 2 7 blast 0
 10 100 750 G
 G none
 #4231
-crossbow white pawn~
-a White Pawn's Crossbow~
-The crossbow of a White Pawn lies here.~
+crossbow white pawn арбалет~
+@eng a White Pawn's Crossbow@rus ~~арбалет~~ белой пешки~
+@eng The crossbow of a White Pawn lies here.@rus Арбалет (crossbow) валяется на земле, забытый белой пешкой.~
 steel~
 weapon K AN
 exotic 2 7 blast 0
 10 100 750 G
 G none
 #4232
-shield black pawn~
-a Black Pawn's Shield ~
-You see a Black Pawn's shield here.~
+shield black pawn щит~
+@eng a Black Pawn's Shield @rus ~~щит~~ черной пешки~
+@eng You see a Black Pawn's shield here.@rus На земле валяется щит (shield) черной пешки.~
 steel~
 armor J AJ
 8 7 7 2 2
 10 30 1210 P
 G none
 #4233
-shield white pawn~
-a White Pawn's Shield ~
-You see a White Pawn's shield here.~
+shield white pawn щит~
+@eng a White Pawn's Shield @rus ~~щит~~ белой пешки~
+@eng You see a White Pawn's shield here.@rus На земле валяется щит (shield) белой пешки.~
 steel~
 armor K AJ
 8 7 7 2 2
 10 30 1210 P
 G none
 #4234
-cloak black pawn~
-a Black Pawn's Cloak~
-You see a Black Pawn's cloak here.~
+cloak black pawn платок~
+@eng a Black Pawn's Cloak@rus ~~шейный~~ ~~платок~~ черной пешки~
+@eng You see a Black Pawn's cloak here.@rus У твоих ног валяется черный шейный платок (cloak) пешки.~
 cloth~
 armor J AC
 5 7 7 1 1
 10 40 1510 P
 G none
 #4235
-cloak white pawn~
-a White Pawn's Cloak~
-You see a White Pawn's cloak here.~
+cloak white pawn платок~
+@eng a White Pawn's Cloak@rus ~~шейный~~ ~~платок~~ белой пешки~
+@eng You see a White Pawn's cloak here.@rus У твоих ног валяется белый шейный платок (cloak) пешки.~
 cloth~
 armor K AC
 5 7 7 1 1
 10 40 1510 P
 G none
 #4236
-helmet black pawn~
-a Black Pawn's Helmet~
-You see a Black Pawn's helmet here.~
+helmet black pawn шлем~
+@eng a Black Pawn's Helmet@rus ~~шлем~~ черной пешки~
+@eng You see a Black Pawn's helmet here.@rus Шлем (helmet) черной пешки валяется у твоих ног.~
 leather~
 armor J AE
 6 6 7 1 1
 10 50 1150 P
 G none
 #4237
-helmet white pawn~
-a White Pawn's Helmet~
-You see a White Pawn's helmet here.~
+helmet white pawn шлем~
+@eng a White Pawn's Helmet@rus ~~шлем~~ белой пешки~
+@eng You see a White Pawn's helmet here.@rus На земле валяется шлем (helmet) белой пешки.~
 leather~
 armor K AE
 6 6 7 1 1
 10 50 1150 P
 G none
 #4238
-leggings black pawn~
-a pair of Black Pawn's Leggings~
-You see a pair of Black Pawn's leggings here.~
+leggings black pawn гетры~
+@eng a pair of Black Pawn's Leggings@rus ~~гетры~~ черной пешки~
+@eng You see a pair of Black Pawn's leggings here.@rus Черные гетры (leggings) валяются перед тобой.~
 leather~
 armor J AF
 6 6 6 1 1
 10 30 1350 P
 G none
 #4239
-leggings white pawn~
-a pair of White Pawn's Leggings~
-You see a pair of White Pawn's leggings here.~
+leggings white pawn гетры~
+@eng a pair of White Pawn's Leggings@rus ~~гетры~~ белой пешки~
+@eng You see a pair of White Pawn's leggings here.@rus Белые гетры (leggings) валяются у твоих ног.~
 leather~
 armor K AF
 6 6 6 1 1
 10 30 1350 P
 G none
 #4240
-boots black pawn~
-a pair of Black Pawn's Boots~
-You see a pair of Black Pawn's boots here.~
+boots black pawn ботинки~
+@eng a pair of Black Pawn's Boots@rus ~~ботинки~~ черной пешки~
+@eng You see a pair of Black Pawn's boots here.@rus Пара ботинок (boots) черной пешки валяется здесь.~
 leather~
 armor J AG
 7 6 7 1 1
 10 130 1450 P
 G none
 #4241
-boots white pawn~
-a pair of White Pawn's Boots~
-You see a pair of Black Pawn's boots here.~
+boots white pawn ботинки~
+@eng a pair of White Pawn's Boots@rus ~~ботинки~~ белой пешки~
+@eng You see a pair of Black Pawn's boots here.@rus Пара ботинок (boots) белой пешки валяется на земле.~
 leather~
 armor K AG
 7 6 7 1 1
 10 130 1450 P
 G none
 #4242
-gloves black pawn~
-a pair of Black Pawn's Gloves~
-You see a pair of Black Pawn's Gloves here.~
+gloves black pawn перчатки~
+@eng a pair of Black Pawn's Gloves@rus ~~перчатки~~ черной пешки~
+@eng You see a pair of Black Pawn's Gloves here.@rus Черные перчатки (gloves) лежат у твоих ног.~
 leather~
 armor J AH
 6 6 5 1 1
 10 80 950 P
 G none
 #4243
-gloves white pawn~
-a pair of White Pawn's Gloves~
-You see a pair of White Pawn's Gloves here.~
+gloves white pawn перчатки~
+@eng a pair of White Pawn's Gloves@rus ~~перчатки~~ белой пешки~
+@eng You see a pair of White Pawn's Gloves here.@rus Пара белых перчаток (gloves) лежит на земле.~
 leather~
 armor K AH
 6 6 5 1 1
 10 80 950 P
 G none
 #4244
-sleeves black pawn~
-a pair of Black Pawn's Sleeves~
-You see a pair of Black Pawn's Sleeves here.~
+sleeves black pawn нарукавники~
+@eng a pair of Black Pawn's Sleeves@rus ~~нарукавники~~ черной пешки~
+@eng You see a pair of Black Pawn's Sleeves here.@rus Черные нарукавники (sleeves) лежат здесь.~
 leather~
 armor J AI
 6 5 6 1 1
 10 90 1150 P
 G none
 #4245
-sleeves white pawn~
-a pair of White Pawn's Sleeves~
-You see a pair of White Pawn's Sleeves here.~
+sleeves white pawn нарукавники~
+@eng a pair of White Pawn's Sleeves@rus ~~нарукавники~~ белой пешки~
+@eng You see a pair of White Pawn's Sleeves here.@rus Белые нарукавники (sleeves) лежат здесь.~
 leather~
 armor K AI
 6 5 6 1 1
 10 90 1150 P
 G none
 #4246
-cape black pawn~
-a Black Pawn's Cape~
-You see a Black Pawn's Cape here.~
+cape black pawn накидка~
+@eng a Black Pawn's Cape@rus ~~накидка~~ черной пешки~
+@eng You see a Black Pawn's Cape here.@rus Черная накидка (cape) лежит у твоих ног.~
 cloth~
 armor J AK
 7 5 7 1 1
 10 80 1380 P
 G none
 #4247
-cape white pawn~
-a White Pawn's Cape~
-You see a White Pawn's Cape here.~
+cape white pawn накидка~
+@eng a White Pawn's Cape@rus ~~накидка~~ белой пешки~
+@eng You see a White Pawn's Cape here.@rus Белая накидка (cape) лежит здесь.~
 cloth~
 armor K AK
 7 5 7 1 1
 10 80 1380 P
 G none
 #4248
-belt black pawn~
-a Black Pawn's Belt~
-You see a Black Pawn's Belt here.~
+belt black pawn пояс~
+@eng a Black Pawn's Belt@rus ~~пояс~~ черной пешки~
+@eng You see a Black Pawn's Belt here.@rus Пояс (belt) черной пешки валяется на земле.~
 bronze~
 armor J AL
 4 6 6 1 1
 10 70 990 P
 G none
 #4249
-belt white pawn~
-a White Pawn's Belt~
-You see a White Pawn's Belt here.~
+belt white pawn пояс~
+@eng a White Pawn's Belt@rus ~~пояс~~ белой пешки~
+@eng You see a White Pawn's Belt here.@rus Белый пояс (belt) валяется у твоих ног.~
 bronze~
 armor K AL
 4 6 6 1 1
 10 20 990 P
 G none
 #4250
-bracer black pawn~
-a Black Pawn's Bracer~
-You see a Black Pawn's Bracer here.~
+bracer black pawn браслет~
+@eng a Black Pawn's Bracer@rus ~~браслет~~ черной пешки~
+@eng You see a Black Pawn's Bracer here.@rus Браслет (bracer) из черного металла лежит здесь.~
 bronze~
 armor J AM
 7 5 5 1 0
 10 60 1390 P
 G none
 #4251
-bracer white pawn~
-a White Pawn's Bracer~
-You see a White Pawn's Bracer here.~
+bracer white pawn браслет~
+@eng a White Pawn's Bracer@rus ~~браслет~~ белой пешки~
+@eng You see a White Pawn's Bracer here.@rus Браслет (bracer) из светящегося металла валяется тут.~
 bronze~
 armor K AM
 7 5 5 1 0
 10 60 1390 P
 G none
 #4260
-small chessboard~
-the Magic Chessboard~
-You see small chessboard floating here.~
+small chessboard доска~
+@eng the Magic Chessboard@rus ~~магическая~~ ~~шахматная ~~ ~~доска~~~
+@eng You see small chessboard floating here.@rus Маленькая шахматная доска (chessboard) весит в воздухе.~
 wood~
 armor ABFJK AQ
 17 17 17 33 0
@@ -727,16 +771,16 @@ F
 A 13 95 AT
 G none
 #4261
-shield black pawn~
-a Black Knight's Shield ~
-You see a Black Knight's shield here.~
+shield black pawn щит~
+@eng a Black Knight's Shield @rus ~~щит~~ Черного Рыцаря~
+@eng You see a Black Knight's shield here.@rus Щит (shield), оставленный Черным Рыцарем, лежит на земле.~
 steel~
 armor J AJ
 8 9 9 2 2
 18 90 2210 P
 G none
 #4262
-shield white pawn~
+shield white pawn щит~
 a White Knight's Shield ~
 You see a White Knight's shield here.~
 steel~
@@ -745,162 +789,162 @@ armor K AJ
 18 90 2210 P
 G none
 #4263
-cloak black pawn~
-a Black Knight's Cloak~
-You see a Black Knight's cloak here.~
+cloak black платок knight~
+@eng a Black Knight's Cloak@rus ~~шейный~~ ~~платок~~ Черного Рыцаря~
+@eng You see a Black Knight's cloak here.@rus Черный платок (cloak) Рыцаря валяется тут.~
 cloth~
 armor J AC
 6 8 7 1 1
 18 70 2610 P
 G none
 #4264
-cloak white pawn~
-a White Knight's Cloak~
-You see a White Knight's cloak here.~
+cloak white knight платок~
+@eng a White Knight's Cloak@rus ~~шейный~~ ~~платок~~ Белого Рыцаря~
+@eng You see a White Knight's cloak here.@rus Белый шейный платок (cloak) Рыцаря валяется на земле.~
 cloth~
 armor K AC
 6 8 7 1 1
 18 70 2610 P
 G none
 #4265
-helmet black pawn~
-a Black Knight's Helmet~
-You see a Black Knight's helmet here.~
+helmet black knight шлем~
+@eng a Black Knight's Helmet@rus ~~шлем~~ Ченого Рыцаря~
+@eng You see a Black Knight's helmet here.@rus Черный шлем (helmet) Рыцаря брошен тут.~
 leather~
 armor J AE
 7 7 8 1 1
 18 70 1950 P
 G none
 #4266
-helmet white pawn~
-a White Knight's Helmet~
-You see a White Knight's helmet here.~
+helmet white knight шлем~
+@eng a White Knight's Helmet@rus ~~шлем~~ Белого Рыцаря~
+@eng You see a White Knight's helmet here.@rus Белый шлем (helmet) Рыцаря брошен тут.~
 leather~
 armor K AE
 7 7 8 1 1
 18 70 1950 P
 G none
 #4267
-leggings black pawn~
-a pair of Black Knight's Leggings~
-You see a pair of Black Knight's leggings here.~
+leggings black knight гетры~
+@eng a pair of Black Knight's Leggings@rus ~~гетры~~ Черного Рыцаря~
+@eng You see a pair of Black Knight's leggings here.@rus Черные гетры (leggings) Рыцаря валяются у самых твоих ног.~
 leather~
 armor J AF
 7 7 7 1 1
 18 80 1350 P
 G none
 #4268
-leggings white pawn~
-a pair of White Knight's Leggings~
-You see a pair of White Knight's leggings here.~
+leggings white knight гетры~
+@eng a pair of White Knight's Leggings@rus ~~гетры~~ Белого Рыцаря~
+@eng You see a pair of White Knight's leggings here.@rus Белые гетры (leggings) Рыцаря брошены здесь.~
 leather~
 armor K AF
 7 7 7 1 1
 18 80 1350 P
 G none
 #4269
-boots black pawn~
-a pair of Black Knight's Boots~
-You see a pair of Black Knight's boots here.~
+boots black knight ботинки~
+@eng a pair of Black Knight's Boots@rus ~~ботинки~~ Черного Рыцаря~
+@eng You see a pair of Black Knight's boots here.@rus Ботинки (boots) Черного Рыцаря брошены здесь.~
 leather~
 armor J AG
 8 7 7 1 1
 18 110 2850 P
 G none
 #4270
-boots white pawn~
-a pair of White Knight's Boots~
-You see a pair of Black Knight's boots here.~
+boots white knight ботинки~
+@eng a pair of White Knight's Boots@rus ~~ботинки~~ Белого Рыцаря~
+@eng You see a pair of Black Knight's boots here.@rus Ботинки (boots) Белого Рыцаря брошены тут.~
 leather~
 armor K AG
 8 7 7 1 1
 18 110 2850 P
 G none
 #4271
-gloves black pawn~
-a pair of Black Knight's Gloves~
-You see a pair of Black Knight's Gloves here.~
+gloves black knight перчатки~
+@eng a pair of Black Knight's Gloves@rus ~~перчатки~~ Черного Рыцаря~
+@eng You see a pair of Black Knight's Gloves here.@rus Пара черных перчаток (gloves) валяется у твоих ног.~
 leather~
 armor J AH
 6 7 6 1 1
 18 80 2250 P
 G none
 #4272
-gloves white pawn~
-a pair of White Knight's Gloves~
-You see a pair of White Knight's Gloves here.~
+gloves white knight перчатки~
+@eng a pair of White Knight's Gloves@rus ~~перчатки~~ Белого Рыцаря~
+@eng You see a pair of White Knight's Gloves here.@rus Пара белых перчаток (gloves) валяется у твоих ног.~
 leather~
 armor K AH
 6 7 6 1 1
 18 80 2250 P
 G none
 #4273
-sleeves black pawn~
-a pair of Black Knight's Sleeves~
-You see a pair of Black Knight's Sleeves here.~
+sleeves black knight нарукавники~
+@eng a pair of Black Knight's Sleeves@rus ~~нарукавники~~ Черного Рыцаря~
+@eng You see a pair of Black Knight's Sleeves here.@rus Нарукавники (sleeves) Черного Рыцаря валяются в пыли.~
 leather~
 armor J AI
 7 6 7 1 1
 18 100 2150 P
 G none
 #4274
-sleeves white pawn~
-a pair of White Knight's Sleeves~
-You see a pair of White Knight's Sleeves here.~
+sleeves white knight нарукавники~
+@eng a pair of White Knight's Sleeves@rus ~~нарукавники~~ Белого Рыцаря~
+@eng You see a pair of White Knight's Sleeves here.@rus Белые кожаные нарукавники (sleeves) валябтся в пыли.~
 leather~
 armor K AI
 7 6 7 1 1
 18 100 2150 P
 G none
 #4275
-cape black knight~
-a Black Knight's Cape~
-You see a Black Knight's Cape here.~
+cape black knight накидка~
+@eng a Black Knight's Cape@rus ~~накидка~~ Черного Рыцаря~
+@eng You see a Black Knight's Cape here.@rus Черная накидка (cape) брошена здесь.~
 cloth~
 armor J AK
 7 7 7 1 1
 18 70 1380 P
 G none
 #4276
-cape white knight~
-a White Knight's Cape~
-You see a White Knight's Cape here.~
+cape white knight накидка~
+@eng a White Knight's Cape@rus ~~накидка~~ Белого Рыцаря~
+@eng You see a White Knight's Cape here.@rus Белая накидка (cape) брошена здесь.~
 cloth~
 armor K AK
 7 7 7 1 1
 18 70 1380 P
 G none
 #4277
-belt black pawn~
-a Black Knight's Belt~
-You see a Black Knight's Belt here.~
+belt black knigh пояс~
+@eng a Black Knight's Belt@rus ~~пояс~~ Черного Рыцаря~
+@eng You see a Black Knight's Belt here.@rus Пояс (belt) Черного Рыцаря валяется никому не нужный.~
 bronze~
 armor J AL
 6 6 6 1 1
 18 60 1990 P
 G none
 #4278
-belt white pawn~
-a White Knight's Belt~
-You see a White Knight's Belt here.~
+belt white knight пояс~
+@eng a White Knight's Belt@rus ~~пояс~~ Белого Рыцаря~
+@eng You see a White Knight's Belt here.@rus Пояс (belt) Белого Рыцаря валяется здесь никому не нужный.~
 bronze~
 armor K AL
 6 6 6 1 1
 18 60 1990 P
 G none
 #4279
-bracer black pawn~
-a Black Knight's Bracer~
-You see a Black Knight's Bracer here.~
+bracer black knight браслет~
+@eng a Black Knight's Bracer@rus ~~браслет~~ Черного Рыцаря~
+@eng You see a Black Knight's Bracer here.@rus Черный браслет (bracer) валяется у твоих ног.~
 bronze~
 armor J AM
 7 7 6 1 0
 18 40 2390 P
 G none
 #4280
-bracer white pawn~
-a White Knight's Bracer~
-You see a White Knight's Bracer here.~
+bracer white knight браслет~
+@eng a White Knight's Bracer@rus ~~браслет~~ Белого Рыцаря~
+@eng You see a White Knight's Bracer here.@rus Белый браслет (bracer) брошен здесь.~
 bronze~
 armor K AM
 7 7 6 1 0
@@ -910,12 +954,17 @@ G none
 
 #ROOMS
 #4200
-The Great Chessboard Of Midgaard~
-You stand in the archway of the Chessboard of Midgaard.  The giant
+@eng The Great Chessboard Of Midgaard@rus Большая Шахматная Арена Мидгаарда.~
+@eng You stand in the archway of the Chessboard of Midgaard.  The giant
 wooden gate is rusted open.
    A narrow dirt path leads eastwards into the thick grass and the
 chessboard opens up to the west.
      There is a small (Glowing) (Huming) tablet.
+@rus Ты стоишь под аркой, ведущей на Шахматную Арену Мидгаарда. Гигантские
+деревянные ворота всегда открыты и пройти могут все желающие. Узкая
+тропинка, приведшая тебя сюда, смело устремляется прямиком через ворота
+на Арену.
+  Около ворот прибита небольшая табличка.
 ~
 0 C city
 E
@@ -933,95 +982,116 @@ small tablet~
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ~
 D1
-A dirt path leads away through the great field north of Midgaard.
+@eng A dirt path leads away through the great field north of Midgaard.
+@rus Дома Мидраарда.
 ~
 ~
 Z -1 3043
 D3
-The huge chessboard opens up to the west.
+@eng The huge chessboard opens up to the west.
+@rus Шахматная Арена.
 ~
 ~
 Z -1 4232
 S
 #4201
-A White Square~
-You are standing on a white marble square.  This is usually the home
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.  This is usually the home
 of the Black Queen's Rook.
+@rus Ты стоишь на белой квадратной мраморной площадке. Это место является
+домом для верной Ладьи Черной Королевы.
 ~
 0 0 city
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4202
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4209
 S
 #4202
-A Black Square~
-You are standing on a black marble square.  This is usually the home
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.  This is usually the home
 of the Black Queen's Knight.
+@rus Ты стоишь на черной квадратной мраморной площадке. Это место является домом
+для верного Рыцаря Черной Королевы. 
 ~
 0 0 city
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4203
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4210
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4201
 S
 #4203
-A White Square~
-You are standing on a white marble square.  This is usually the home
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.  This is usually the home
 of the Black Queen's Bishop.
+@rus Ты стоишь на белой квадратной мраморной площадке. Это место является 
+домом для верного Епископа Черной Королевы.
 ~
 0 0 city
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4204
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4211
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4202
 S
 #4204
-A Black Square~
-You are standing on a black marble square.  This is usually the home
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.  This is usually the home
 of the Black Queen.
+@rus Ты стоишь на черной квадратной мраморной площадке. Здесь дом великой
+Черной Королевы.
 ~
 0 0 city
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4205
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4212
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4203
@@ -1031,1491 +1101,1803 @@ marble square~
 ABCFZ 4214 4265
 S
 #4205
-A White Square~
-You are standing on a white marble square.  This is usually the home
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.  This is usually the home
 of the Black King.
+@rus Ты стоишь на белой квадратной мраморной площадке. Здесь дом могущественного
+Черного Короля.
 ~
 0 0 city
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4206
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4213
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4204
 S
 #4206
-A Black Square~
-You are standing on a black marble square.  This is usually the home
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.  This is usually the home
 of the Black King's Bishop.
+@rus Ты стоишь на черной квадратной мраморной площадке. Это место является 
+домом для верного Епископа Черного Короля.
 ~
 0 0 city
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4207
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4214
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4205
 S
 #4207
-A White Square~
-You are standing on a white marble square.  This is usually the home
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.  This is usually the home
 of the Black King's Knight.
+@rus Ты стоишь на белой квадратной мраморной площадке. Это место является домом
+для верного Рыцаря Черного Короля.
 ~
 0 0 city
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4208
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4215
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4206
 S
 #4208
-A Black Square~
-You are standing on a black marble square.  This is usually the home
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.  This is usually the home
 of the Black King's Rook.
+@rus Ты стоишь на черной квадратной мраморной площадке. Это место является
+домом для верной Ладьи Черного Короля.
 ~
 0 0 city
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4216
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4207
 S
 #4209
-A Black Square~
-You are standing on a black marble square.  This is usually the home
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.  This is usually the home
 of one of the Black Queen's Pawns.
+@rus Ты стоишь на черной квадратной мраморной площадке. Это место является
+домом одной из пешек, служащих черной короне.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4201
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4210
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4217
 S
 #4210
-A White Square~
-You are standing on a white marble square.  This is usually the home
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.  This is usually the home
 of one of the Black Queen's Pawns.
+@rus Ты стоишь на белой квадратной мраморной площадке. Это место является 
+домом одной из пешек, служащих черной короне.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4202
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4211
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4218
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4209
 S
 #4211
-A Black Square~
-You are standing on a black marble square.  This is usually the home
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.  This is usually the home
 of one of the Black Queen's Pawns.
+@rus Ты стоишь на черной квадратной мраморной площадке. Это место является
+домом одной из пешек, служащих черной короне.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4203
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4212
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4219
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4210
 S
 #4212
-A White Square~
-You are standing on a white marble square.  This is usually the home
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.  This is usually the home
 of one of the Black Queen's Pawns.
+@rus Ты стоишь на белой квадратной мраморной площадке. Это место является 
+домом одной из пешек, служащих черной короне.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4204
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4213
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4220
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4211
 S
 #4213
-A Black Square~
-You are standing on a black marble square.  This is usually the home
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.  This is usually the home
 of one of the Black King's Pawns.
+@rus Ты стоишь на черной квадратной мраморной площадке. Это место является
+домом одной из пешек, служащих черной короне.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4205
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4214
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4221
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4212
 S
 #4214
-A White Square~
-You are standing on a white marble square.  This is usually the home
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.  This is usually the home
 of one of the Black King's Pawns.
+@rus Ты стоишь на белой квадратной мраморной площадке. Это место является 
+домом одной из пешек, служащих черной короне.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4206
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4215
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4222
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4213
 S
 #4215
-A Black Square~
-You are standing on a black marble square.  This is usually the home
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.  This is usually the home
 of one of the Black King's Pawns.
+@rus Ты стоишь на черной квадратной мраморной площадке. Это место является
+домом одной из пешек, служащих черной короне.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4207
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка. 
 ~
 ~
 Z -1 4216
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка. 
 ~
 ~
 Z -1 4223
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4214
 S
 #4216
-A White Square~
-You are standing on a white marble square.  This is usually the home
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.  This is usually the home
 of one of the Black King's Pawns.
+@rus Ты стоишь на белой квадратной мраморной площадке. Это место является 
+домом одной из пешек, служащих черной короне.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4208
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4224
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4215
 S
 #4217
-A White Square~
-You are standing on a white marble square.
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.
+@rus Ты стоишь на белой квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4209
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4218
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4225
 S
 #4218
-A Black Square~
-You are standing on a black marble square.
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.
+@rus Ты стоишь на черной квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4210
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4219
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4226
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4217
 S
 #4219
-A White Square~
-You are standing on a white marble square.
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.
+@rus Ты стоишь на белой квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4211
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4220
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4227
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4218
 S
 #4220
-A Black Square~
-You are standing on a black marble square.
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.
+@rus Ты стоишь на черной квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4212
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4221
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4228
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4219
 S
 #4221
-A White Square~
-You are standing on a white marble square.
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.
+@rus Ты стоишь на белой квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4213
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4222
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4229
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4220
 S
 #4222
-A Black Square~
-You are standing on a black marble square.
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.
+@rus Ты стоишь на черной квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4214
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4223
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4230
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4221
 S
 #4223
-A White Square~
-You are standing on a white marble square.
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.
+@rus Ты стоишь на белой квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4215
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4224
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4231
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4222
 S
 #4224
-A Black Square~
-You are standing on a black marble square.  You can see a rusty gate
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.  You can see a rusty gate
 to the south.
+@rus Ты стоишь на черной квадратной мраморной площадке. На юге виднеются
+старые покосившиеся ворота.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4216
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4232
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4223
 S
 #4225
-A Black Square~
-You are standing on a black marble square.
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.
+@rus Ты стоишь на черной квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4217
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4226
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4233
 S
 #4226
-A White Square~
-You are standing on a white marble square.
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.
+@rus Ты стоишь на белой квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4218
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4227
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4234
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4225
 S
 #4227
-A Black Square~
-You are standing on a black marble square.
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.
+@rus Ты стоишь на черной квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4219
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4228
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4235
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4226
 S
 #4228
-A White Square~
-You are standing on a white marble square.
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.
+@rus Ты стоишь на белой квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4220
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4229
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4236
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4227
 S
 #4229
-A Black Square~
-You are standing on a black marble square.
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.
+@rus Ты стоишь на черной квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4221
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4230
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4237
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4228
 S
 #4230
-A White Square~
-You are standing on a white marble square.
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.
+@rus Ты стоишь на белой квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4222
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4231
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4238
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4229
 S
 #4231
-A Black Square~
-You are standing on a black marble square.  There is a rusty gate
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.  There is a rusty gate
 a short distance to the east.
+@rus Ты стоишь на черной квадратной мраморной площадке. На востоке от тебя
+виднеются старые покосившиеся ворота.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4223
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4232
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4239
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4230
 S
 #4232
-A White Square~
-You are standing on a white marble square.  There is a large rusty
+@eng A White Square@rus Белая клетка~
+@eng You are standing on a white marble square.  There is a large rusty
 gate to the east.
+@rus Ты стоишь на белой квадратной мраморной площадке. На востоке от тебя 
+находятся старые покосившиеся ворота.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4224
 D1
-The gate to the chessboard is just to the east.
+@eng The gate to the chessboard is just to the east.
+@rus Выход с Шахматной Арены.
 ~
 ~
 Z -1 4200
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4240
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4231
 S
 #4233
-A White Square~
-You are standing on a white marble square.
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.
+@rus Ты стоишь на белой квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4225
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4234
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4241
 S
 #4234
-A Black Square~
-You are standing on a black marble square.
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.
+@rus Ты стоишь на черной квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4226
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4235
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4242
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4233
 S
 #4235
-A White Square~
-You are standing on a white marble square.
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.
+@rus Ты стоишь на белой квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4227
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4236
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4243
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4234
 S
 #4236
-A Black Square~
-You are standing on a black marble square.
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.
+@rus Ты стоишь на черной квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4228
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4237
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4244
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4235
 S
 #4237
-A White Square~
-You are standing on a white marble square.
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.
+@rus Ты стоишь на белой квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4229
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4238
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4245
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4236
 S
 #4238
-A Black Square~
-You are standing on a black marble square.
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.
+@rus Ты стоишь на черной квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4230
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4239
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4246
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4237
 S
 #4239
-A White Square~
-You are standing on a white marble square.
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.
+@rus Ты стоишь на белой квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4231
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4240
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4247
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4238
 S
 #4240
-A Black Square~
-You are standing on a black marble square.  There is a rusty gate
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.  There is a rusty gate
 to the north.
+@rus Ты стоишь на черной квадратной мраморной площадке. На севере виднеются
+старые покосившиеся ворота.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4232
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4248
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4239
 S
 #4241
-A Black Square~
-You are standing on a black marble square.
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.
+@rus Ты стоишь на черной квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая клетка.
 ~
 ~
 Z -1 4233
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая клетка.
 ~
 ~
 Z -1 4242
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая клетка.
 ~
 ~
 Z -1 4249
 S
 #4242
-A White Square~
-You are standing on a white marble square.
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.
+@rus Ты стоишь на белой квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4234
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4243
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4250
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4241
 S
 #4243
-A Black Square~
-You are standing on a black marble square.
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.
+@rus Ты стоишь на черной квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4235
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4244
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4251
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4242
 S
 #4244
-A White Square~
-You are standing on a white marble square.
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.
+@rus Ты стоишь на белой квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4236
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4245
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4252
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4243
 S
 #4245
-A Black Square~
-You are standing on a black marble square.
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.
+@rus Ты стоишь на черной квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4237
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4246
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4253
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4244
 S
 #4246
-A White Square~
-You are standing on a white marble square.
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.
+@rus Ты стоишь на белой квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4238
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4247
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4254
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4245
 S
 #4247
-A Black Square~
-You are standing on a black marble square.
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.
+@rus Ты стоишь на черной квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4239
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4248
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4255
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4246
 S
 #4248
-A White Square~
-You are standing on a white marble square.
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.
+@rus Ты стоишь на белой квадратной мраморной площадке.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4240
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4256
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4247
 S
 #4249
-A White Square~
-You are standing on a white marble square.  This is usually the home
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.  This is usually the home
 of one of the White Queen's Pawns.
+@rus Ты стоишь на белой квадратной мраморной площадке. Это место является 
+домом одной из пешек, служащих белому королевскому дому.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4241
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4250
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4257
 S
 #4250
-A Black Square~
-You are standing on a black marble square.  This is usually the home
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.  This is usually the home
 of one of the White Queen's Pawns.
+@rus Ты стоишь на черной квадратной мраморной площадке. Это место является
+домом одной из пешек, служащих белому королевскому дому.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4242
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4251
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4258
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4249
 S
 #4251
-A White Square~
-You are standing on a white marble square.  This is usually the home
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.  This is usually the home
 of one of the White Queen's Pawns.
+@rus Ты стоишь на белой квадратной мраморной площадке. Это место является 
+домом одной из пешек, служащих белому королевскому дому.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4243
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4252
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4259
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4250
 S
 #4252
-A Black Square~
-You are standing on a black marble square.  This is usually the home
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.  This is usually the home
 of one of the White Queen's Pawns.
+@rus Ты стоишь на черной квадратной мраморной площадке. Это место является
+домом одной из пешек, служащих белому королевскому дому.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4244
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4253
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4260
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4251
 S
 #4253
-A White Square~
-You are standing on a white marble square.  This is usually the home
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.  This is usually the home
 of one of the White King's Pawns.
+@rus Ты стоишь на белой квадратной мраморной площадке. Это место является 
+домом одной из пешек, служащих белому королевскому дому.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4245
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4254
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4261
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4252
 S
 #4254
-A Black Square~
-You are standing on a black marble square.  This is usually the home
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.  This is usually the home
 of one of the White King's Pawns.
+@rus Ты стоишь на черной квадратной мраморной площадке. Это место является
+домом одной из пешек, служащих белому королевскому дому.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4246
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4255
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4262
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4253
 S
 #4255
-A White Square~
-You are standing on a white marble square.  This is usually the home
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.  This is usually the home
 of one of the White King's Pawns.
+@rus Ты стоишь на белой квадратной мраморной площадке. Это место является 
+домом одной из пешек, служащих белому королевскому дому.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4247
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4256
 D2
-A black square lies to the south.
+@eng A black square lies to the south.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4263
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4254
 S
 #4256
-A Black Square~
-You are standing on a black marble square.  This is usually the home
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.  This is usually the home
 of one of the White King's Pawns.
+@rus Ты стоишь на черной квадратной мраморной площадке. Это место является
+домом одной из пешек, служащих белому королевскому дому.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4248
 D2
-A white square lies to the south.
+@eng A white square lies to the south.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4264
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4255
 S
 #4257
-A Black Square~
-You are standing on a black marble square.  This is usually the home
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.  This is usually the home
 of the White Queen's Rook.
+@rus Ты стоишь на черной квадратной мраморной площадке. Это место является
+домом для любимой Ладьи Белой Королевы.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4249
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4258
 S
 #4258
-A White Square~
-You are standing on a white marble square.  This is usually the home
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.  This is usually the home
 of the White Queen's Knight.
+@rus Ты стоишь на белой квадратной мраморной площадке. Это место является
+домом для верного Рыцаря Белой Королевы.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4250
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4259
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4257
 S
 #4259
-A Black Square~
-You are standing on a black marble square.  This is usually the home
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.  This is usually the home
 of the White Queen's Bishop.
+@rus Ты стоишь на черной квадратной мраморной площадке. Это место является
+домом для верного Епископа Белой Королевы.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4251
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4260
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4258
 S
 #4260
-A White Square~
-You are standing on a white marble square.  This is usually the home
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.  This is usually the home
 of the White Queen.
+@rus Ты стоишь на белой квадратной мраморной площадке. Это место является
+домом для прекрасной Белой Королевы.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4252
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4261
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4259
 D5
 ~
-marble square~
+marble~
 ABCFZ 4215 4266
 S
 #4261
-A Black Square~
-You are standing on a black marble square.  This is usually the home
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.  This is usually the home
 of the White King.
+@rus Ты стоишь на черной квадратной мраморной площадке. Здесь дом самого
+Белого Короля.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4253
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4262
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4260
 S
 #4262
-A White Square~
-You are standing on a white marble square.  This is usually the home
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.  This is usually the home
 of the White King's Bishop.
+@rus Ты стоишь на белой квадратной мраморной площадке. Это место является
+домом для верного Епископа Белого Короля.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4254
 D1
-A black square lies to the east.
+@eng A black square lies to the east.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4263
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4261
 S
 #4263
-A Black Square~
-You are standing on a black marble square.  This is usually the home
+@eng A Black Square@rus Черная Клетка~
+@eng You are standing on a black marble square.  This is usually the home
 of the White King's Knight.
+@rus Ты стоишь на черной квадратной мраморной площадке. Это место является
+домом для верного Рыцаря Белого Короля.
 ~
 0 0 city
 D0
-A white square lies to the north.
+@eng A white square lies to the north.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4255
 D1
-A white square lies to the east.
+@eng A white square lies to the east.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4264
 D3
-A white square lies to the west.
+@eng A white square lies to the west.
+@rus Белая Клетка.
 ~
 ~
 Z -1 4262
 S
 #4264
-A White Square~
-You are standing on a white marble square.  This is usually the home
+@eng A White Square@rus Белая Клетка~
+@eng You are standing on a white marble square.  This is usually the home
 of the White King's Rook.
+@rus Ты стоишь на белой квадратной мраморной площадке. Это место является
+домом для верной Ладьи Белого Короля.
 ~
 0 0 city
 D0
-A black square lies to the north.
+@eng A black square lies to the north.
+@rus Черня Клетка.
 ~
 ~
 Z -1 4256
 D3
-A black square lies to the west.
+@eng A black square lies to the west.
+@rus Черная Клетка.
 ~
 ~
 Z -1 4263
 S
 #4265
-The Black Treasury~
-You are standing in the treasury of the Black Court.  Hopefully no one
+@eng The Black Treasury@rus Сокровищница черной короны~
+@eng You are standing in the treasury of the Black Court.  Hopefully no one
 has looted the Crown's treasure.
+@rus Ты находишься в сокровищнице черной короны. Хочется верить, что никому
+не взбредет в голову украсть великие богатства, собранные здесь.
 ~
 0 ADJ inside
 D4
-A small staircase rises above you.
+@eng A small staircase rises above you.
+@rus Маленькая лестница, ведущая наверх.
 ~
 marble square~
 ABCFZ 4214 4204
 S
 #4266
-The White Treasury~
-You are standing in the treasury of the White Court.  Hopefully no one 
+@eng The White Treasury@rus Сокровищница белой короны~
+@eng You are standing in the treasury of the White Court.  Hopefully no one 
 has looted the Crown's treasure.
+@rus Ты находишься в сокровищнице белой короны. Хочется верить, что никому
+не взбредет в голову украсть собранные здесь великие богатства.
 ~
 0 ADJ inside
 D4
-A small staircase rises above you.
+@eng A small staircase rises above you.
+@rus Небольшая лестница, ведущая наверх.
 ~
 marble square~
 ABCFZ 4215 4260
@@ -2567,7 +2949,7 @@ E 0 4279 0 15		*	a Black Knight's Bracer: on the right wrist
 M 0 4202 2 4208 1	* the Black Rook (A Black Square)
 E 0 4204 0 5		*	some Black Rook Armour: on the body
 M 0 4200 8 4209 1	* the Pawn of the Black Court (A Black Square)
-E 0 4200 0 5		*	some Black Pawn Armour: on the body
+E 0 4200 0 5		*	some black pawn armour: on the body
 E 0 4202 0 16		*	a Black Pawn's Axe: wielded
 E 0 4232 0 11		*	a Black Pawn's Shield : as a shield
 E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck (1)
@@ -2581,7 +2963,7 @@ E 0 4248 0 13		*	a Black Pawn's Belt: around the waist
 E 0 4250 0 14		*	a Black Pawn's Bracer: on the left wrist
 E 0 4250 0 15		*	a Black Pawn's Bracer: on the right wrist
 M 0 4200 8 4210 1	* the Pawn of the Black Court (A White Square)
-E 0 4200 0 5		*	some Black Pawn Armour: on the body
+E 0 4200 0 5		*	some black pawn armour: on the body
 E 0 4230 0 16		*	a Black Pawn's Crossbow: wielded
 E 0 4232 0 11		*	a Black Pawn's Shield : as a shield
 E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck (1)
@@ -2595,7 +2977,7 @@ E 0 4248 0 13		*	a Black Pawn's Belt: around the waist
 E 0 4250 0 14		*	a Black Pawn's Bracer: on the left wrist
 E 0 4250 0 15		*	a Black Pawn's Bracer: on the right wrist
 M 0 4200 8 4211 1	* the Pawn of the Black Court (A Black Square)
-E 0 4200 0 5		*	some Black Pawn Armour: on the body
+E 0 4200 0 5		*	some black pawn armour: on the body
 E 0 4218 0 16		*	a Black Pawn's Flail: wielded
 E 0 4232 0 11		*	a Black Pawn's Shield : as a shield
 E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck (1)
@@ -2609,7 +2991,7 @@ E 0 4248 0 13		*	a Black Pawn's Belt: around the waist
 E 0 4250 0 14		*	a Black Pawn's Bracer: on the left wrist
 E 0 4250 0 15		*	a Black Pawn's Bracer: on the right wrist
 M 0 4200 8 4212 1	* the Pawn of the Black Court (A White Square)
-E 0 4200 0 5		*	some Black Pawn Armour: on the body
+E 0 4200 0 5		*	some black pawn armour: on the body
 E 0 4226 0 16		*	a Black Pawn's Rapier: wielded
 E 0 4232 0 11		*	a Black Pawn's Shield : as a shield
 E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck (1)
@@ -2623,7 +3005,7 @@ E 0 4248 0 13		*	a Black Pawn's Belt: around the waist
 E 0 4250 0 14		*	a Black Pawn's Bracer: on the left wrist
 E 0 4250 0 15		*	a Black Pawn's Bracer: on the right wrist
 M 0 4200 8 4213 1	* the Pawn of the Black Court (A Black Square)
-E 0 4200 0 5		*	some Black Pawn Armour: on the body
+E 0 4200 0 5		*	some black pawn armour: on the body
 E 0 4220 0 16		*	a Black Pawn's Whip: wielded
 E 0 4232 0 11		*	a Black Pawn's Shield : as a shield
 E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck (1)
@@ -2637,7 +3019,7 @@ E 0 4248 0 13		*	a Black Pawn's Belt: around the waist
 E 0 4250 0 14		*	a Black Pawn's Bracer: on the left wrist
 E 0 4250 0 15		*	a Black Pawn's Bracer: on the right wrist
 M 0 4200 8 4214 1	* the Pawn of the Black Court (A White Square)
-E 0 4200 0 5		*	some Black Pawn Armour: on the body
+E 0 4200 0 5		*	some black pawn armour: on the body
 E 0 4228 0 16		*	a Black Pawn's Kris: wielded
 E 0 4232 0 11		*	a Black Pawn's Shield : as a shield
 E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck (1)
@@ -2651,7 +3033,7 @@ E 0 4248 0 13		*	a Black Pawn's Belt: around the waist
 E 0 4250 0 14		*	a Black Pawn's Bracer: on the left wrist
 E 0 4250 0 15		*	a Black Pawn's Bracer: on the right wrist
 M 0 4200 8 4215 1	* the Pawn of the Black Court (A Black Square)
-E 0 4200 0 5		*	some Black Pawn Armour: on the body
+E 0 4200 0 5		*	some black pawn armour: on the body
 E 0 4222 0 16		*	a Black Pawn's Spear: wielded
 E 0 4232 0 11		*	a Black Pawn's Shield : as a shield
 E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck (1)
@@ -2665,7 +3047,7 @@ E 0 4248 0 13		*	a Black Pawn's Belt: around the waist
 E 0 4250 0 14		*	a Black Pawn's Bracer: on the left wrist
 E 0 4250 0 15		*	a Black Pawn's Bracer: on the right wrist
 M 0 4200 8 4216 1	* the Pawn of the Black Court (A White Square)
-E 0 4200 0 5		*	some Black Pawn Armour: on the body
+E 0 4200 0 5		*	some black pawn armour: on the body
 E 0 4224 0 16		*	a Black Pawn's Halberd: wielded
 E 0 4232 0 11		*	a Black Pawn's Shield : as a shield
 E 0 4234 0 3		*	a Black Pawn's Cloak: around the neck (1)
@@ -2681,7 +3063,7 @@ E 0 4250 0 15		*	a Black Pawn's Bracer: on the right wrist
 M 0 4212 1 4233 1	* the Ghost of Caliph Omar (A White Square)
 E 0 4260 0 18		*	the Magic Chessboard: floating nearby
 M 0 4201 8 4249 1	* the Pawn of the White Court (A White Square)
-E 0 4201 0 5		*	some White Pawn Armour: on the body
+E 0 4201 0 5		*	some white pawn armour: on the body
 E 0 4203 0 16		*	a White Pawn's Axe: wielded
 E 0 4233 0 11		*	a White Pawn's Shield : as a shield
 E 0 4235 0 3		*	a White Pawn's Cloak: around the neck (1)
@@ -2695,7 +3077,7 @@ E 0 4249 0 13		*	a White Pawn's Belt: around the waist
 E 0 4251 0 14		*	a White Pawn's Bracer: on the left wrist
 E 0 4251 0 15		*	a White Pawn's Bracer: on the right wrist
 M 0 4201 8 4250 1	* the Pawn of the White Court (A Black Square)
-E 0 4201 0 5		*	some White Pawn Armour: on the body
+E 0 4201 0 5		*	some white pawn armour: on the body
 E 0 4231 0 16		*	a White Pawn's Crossbow: wielded
 E 0 4233 0 11		*	a White Pawn's Shield : as a shield
 E 0 4235 0 3		*	a White Pawn's Cloak: around the neck (1)
@@ -2709,7 +3091,7 @@ E 0 4249 0 13		*	a White Pawn's Belt: around the waist
 E 0 4251 0 14		*	a White Pawn's Bracer: on the left wrist
 E 0 4251 0 15		*	a White Pawn's Bracer: on the right wrist
 M 0 4201 8 4251 1	* the Pawn of the White Court (A White Square)
-E 0 4201 0 5		*	some White Pawn Armour: on the body
+E 0 4201 0 5		*	some white pawn armour: on the body
 E 0 4227 0 16		*	a White Pawn's Rapier: wielded
 E 0 4233 0 11		*	a White Pawn's Shield : as a shield
 E 0 4235 0 3		*	a White Pawn's Cloak: around the neck (1)
@@ -2723,7 +3105,7 @@ E 0 4249 0 13		*	a White Pawn's Belt: around the waist
 E 0 4251 0 14		*	a White Pawn's Bracer: on the left wrist
 E 0 4251 0 15		*	a White Pawn's Bracer: on the right wrist
 M 0 4201 8 4252 1	* the Pawn of the White Court (A Black Square)
-E 0 4201 0 5		*	some White Pawn Armour: on the body
+E 0 4201 0 5		*	some white pawn armour: on the body
 E 0 4219 0 16		*	a White Pawn's Flail: wielded
 E 0 4233 0 11		*	a White Pawn's Shield : as a shield
 E 0 4235 0 3		*	a White Pawn's Cloak: around the neck (1)
@@ -2737,7 +3119,7 @@ E 0 4249 0 13		*	a White Pawn's Belt: around the waist
 E 0 4251 0 14		*	a White Pawn's Bracer: on the left wrist
 E 0 4251 0 15		*	a White Pawn's Bracer: on the right wrist
 M 0 4201 8 4253 1	* the Pawn of the White Court (A White Square)
-E 0 4201 0 5		*	some White Pawn Armour: on the body
+E 0 4201 0 5		*	some white pawn armour: on the body
 E 0 4221 0 16		*	a White Pawn's Whip: wielded
 E 0 4233 0 11		*	a White Pawn's Shield : as a shield
 E 0 4235 0 3		*	a White Pawn's Cloak: around the neck (1)
@@ -2751,7 +3133,7 @@ E 0 4249 0 13		*	a White Pawn's Belt: around the waist
 E 0 4251 0 14		*	a White Pawn's Bracer: on the left wrist
 E 0 4251 0 15		*	a White Pawn's Bracer: on the right wrist
 M 0 4201 8 4254 1	* the Pawn of the White Court (A Black Square)
-E 0 4201 0 5		*	some White Pawn Armour: on the body
+E 0 4201 0 5		*	some white pawn armour: on the body
 E 0 4229 0 16		*	a White Pawn's Kris: wielded
 E 0 4233 0 11		*	a White Pawn's Shield : as a shield
 E 0 4235 0 3		*	a White Pawn's Cloak: around the neck (1)
@@ -2765,7 +3147,7 @@ E 0 4249 0 13		*	a White Pawn's Belt: around the waist
 E 0 4251 0 14		*	a White Pawn's Bracer: on the left wrist
 E 0 4251 0 15		*	a White Pawn's Bracer: on the right wrist
 M 0 4201 8 4255 1	* the Pawn of the White Court (A White Square)
-E 0 4201 0 5		*	some White Pawn Armour: on the body
+E 0 4201 0 5		*	some white pawn armour: on the body
 E 0 4223 0 16		*	a White Pawn's Spear: wielded
 E 0 4233 0 11		*	a White Pawn's Shield : as a shield
 E 0 4235 0 3		*	a White Pawn's Cloak: around the neck (1)
@@ -2779,7 +3161,7 @@ E 0 4249 0 13		*	a White Pawn's Belt: around the waist
 E 0 4251 0 14		*	a White Pawn's Bracer: on the left wrist
 E 0 4251 0 15		*	a White Pawn's Bracer: on the right wrist
 M 0 4201 8 4256 1	* the Pawn of the White Court (A Black Square)
-E 0 4201 0 5		*	some White Pawn Armour: on the body
+E 0 4201 0 5		*	some white pawn armour: on the body
 E 0 4225 0 16		*	a White Pawn's Halberd: wielded
 E 0 4233 0 11		*	a White Pawn's Shield : as a shield
 E 0 4235 0 3		*	a White Pawn's Cloak: around the neck (1)

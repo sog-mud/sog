@@ -3902,7 +3902,7 @@ while others are tending to injured woodland animals.  The Guildmaster's
 cabin lies to the north, while several smaller cabins lie to the south.
 A fair-sized lodge sits beneath a Redwood tree to your east.
 ~
-0 AWXYZ forest
+0 AWX forest
 D0
 The Guildmaster's cabin lies to the north.
 ~
@@ -3932,7 +3932,7 @@ low branches across the roof of the cabin and any number of small forest
 animals race along the length of the porch.  Elesar of the Woods is here,
 instructing a young woodkeeper.
 ~
-0 DWXYZ inside
+0 DWX inside
 D2
 The Wood-Keepers' Outpost is to the south.
 ~
@@ -3947,7 +3947,7 @@ are neatly stacked on shelves or stored in closets.  A parchment tacked
 on a wall lists the supplies which you may purchase from Smokey, the
 Ranger Bear who runs the supply store.
 ~
-0 DWXYZ inside
+0 DWX inside
 E
 sign parchment~
 Buy   - Buy an Item. *brrrrrrr*
@@ -5453,7 +5453,7 @@ furnished.  There are four beds in the cabin, where the woodkeepers of
 the Forest may rest after their patrols.  There is a small chest by the
 foot of the bed.
 ~
-0 DWXYZ inside
+0 DWX inside
 D0
 The Wood-Keepers' Outpost is to the north.
 ~

@@ -1464,6 +1464,15 @@ A
 A
 13 25
 G none
+#1899
+quiver~
+Elven quiver~
+Bright colored quiver lies here.~
+leather~
+container KY AK
+100 F 0 100 100
+1 1 200 P
+G none
 #0
 
 #ROOMS
@@ -3636,6 +3645,7 @@ G 0 1801 0		*	a ranger's lamp
 G 0 1802 0		*	a camper's canteen
 G 0 1803 0		*	a ranger's backpack
 G 0 1804 0		*	a first aid kit
+G 0 1899 0		*	Elven quiver
 M 0 1828 1 1891 1	* the ranger guildmaster (Ranger Training Room)
 E 0 1860 0 7		*	a pair of camouflage leggings: on the legs
 E 0 1861 0 5		*	a camouflage jacket: on the body

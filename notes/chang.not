@@ -1426,3 +1426,18 @@ up to 20 level, numeric values after 20 level)
  
 {WIluvatar{x, Eru, the One
 ~
+Sender  Iluvatar~
+Date    Sun Feb 28 22:31:09 1999~
+Stamp   920219469
+To      all~
+Subject tinyfugue~
+Text
+hi, there!
+ 
+IAC GA mode (see 'telnet GA' in 'toggle' command) fixed.
+(very useful for tinyfugue users)
+'toggle notelnet' fixed so tinyfugue users should not have any problems
+when connecting
+ 
+{WIluvatar{x, Eru, the One
+~

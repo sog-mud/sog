@@ -42,8 +42,8 @@ stand stand male 25
 #OBJECTS
 #1001
 rose~
-a %s rose~
-A %s rose is lying on the ground.~
+a red rose~
+A res rose is lying on the ground.~
 flower~
 treasure 0 AE
 BC 0 0 0 0
@@ -52,6 +52,7 @@ E
 rose~
 It's a beautiful %s rose, with a soft and romantic fragrance.
 ~
+G none
 #0
 
 #ROOMS

@@ -9,9 +9,10 @@ End
 
 #MOBILES
 #95700
-keeper guardian hunter~
-the guardian~
-The guardian of Hunter Palace is here, serving his cabal.
+guardian keeper hunter~
+@eng the guardian@rus страж~
+@eng The guardian of Hunter Palace is here, serving his cabal.
+@rus Страж (guardian) дворца охотников стоит здесь, ораняя клан от вторжения.
 ~
 After joining so many safaris, the guardian know implements what he
 learned as guarding this palace for very very much amounts of gold. 
@@ -24,9 +25,10 @@ CEFKNU AB 0 S
 stand stand male 5000
 0 0 medium unknown
 #95701
-neutral cleric cabal hunter~
-the cleric~
-The true neutral cleric is healing his brothers.
+cleric neutral cabal hunter~
+@eng the cleric@rus лекарь~
+@eng The true neutral cleric is healing his brothers.
+@rus Настоящий нейтральный лекарь (cleric) лечит здесь своих братьев.
 ~
 After paying much, this wise cleric delivers his spells to hunters in
 order that hunters can serve Anatolia. Remember that if you lost your
@@ -41,9 +43,10 @@ stand stand male 1000
 0 0 medium unknown
 C Hunter~
 #95702
-keeper guardian hunter~
-the guardian~
-The guardian of Hunter Palace is here, serving his cabal.
+guardian keeper hunter~
+@eng the guardian@rus страж~
+@eng The guardian of Hunter Palace is here, serving his cabal.
+@rus Страж (guardian) дворца охотников стоит здесь, ораняя клан от вторжения.
 ~
 After joining so many safaris, the guardian know implements what he
 learned as guarding this palace for very very much amounts of gold. 
@@ -80,10 +83,10 @@ treasure CEORTe AO
 0 1 10000 P
 G none
 #95702
-gray bone~
-a gray bone~
-An ancient animal's bone is left on the floor here.
-~
+bone gray~
+@eng a gray bone@rus серая кость~
+@eng An ancient animal's bone is left on the floor here.
+@rus Древняя кость (bone) лежит на полу.~
 bone~
 key CEORYf A
 0 0 0 0 0
@@ -93,40 +96,43 @@ G none
 
 #ROOMS
 #95700
-The Well~
-You are standing near a shiny gold well blocked by a big boulder on
+@eng The Well@rus Колодец~
+@eng You are standing near a shiny gold well blocked by a big boulder on
 the well mouth. A golden aura fills your body.
+@rus Вы стоите возле золотого колодца, зев в который загораживает огромный валун. Золотая аура наполняет ваше тело.
 ~
 0 ACDK inside
 D2
 ~
 ~
 Z 0 9783
-D4
+D5
 ~
-enterance~
-ABGZ -1 95701
+~
+ABGZ 0 95701
 S
 #95701
-Bottom of the Well~
-This place is dimly lit by a flickering torch from a doorway leading north.
+@eng Bottom of the Well@rus На дне колодца~
+@eng This place is dimly lit by a flickering torch from a doorway leading north.
 The guardians are  keeping the hunters from enemies.
+@rus Через открытую северную дверь в комнату проникает немного света от мерцающего факела. Стражы охраняют охотников от вторжения врагов.
 ~
 0 ACDK inside
 D0
 ~
 ~
 DZ -1 95702
-D5
+D4
 ~
-enterance~
-ABGZ -1 95700
+~
+ABGZ 0 95700
 S
 #95702
-Golden chambers~
-You are inside well lit chamber, with golden plates on the walls. 
+@eng Golden chambers@rus Золотые палаты~
+@eng You are inside well lit chamber, with golden plates on the walls. 
 All three corridors connecting this hall, proves how easy hunters can
 find their way.
+@rus Вы стоите внутри палаты, стены которой отделаны золотыми плитами. Все три коридора соединяются с этой палатой, доказывая что охотники легко могут найти нужный путь.
 ~
 0 ADK inside
 D0
@@ -147,9 +153,10 @@ D3
 Z -1 95702
 S
 #95703
-Main chambers of Hunt~
-The room is lit by many shiny gold pieces surrounding the room. On the
+@eng Main chambers of Hunt@rus Главные палаты охотников~
+@eng The room is lit by many shiny gold pieces surrounding the room. On the
 north wall is a large skin sheet with blood script on it.
+@rus Вся комната наполнена блестящими золотыми монетами, которые освещают ее. На северной стене висит кожаная табличка с кровавой надписью.
 ~
 0 ADK inside
 D2
@@ -165,8 +172,8 @@ M 95700 spec_cast_seneschal	* the guardian
 S
 
 #RESETS
-D 0 95700 4 1	* The Well: door to the up: closed
-D 0 95701 5 1	* Bottom of the Well: door to the down: closed
+D 0 95700 5 1	* The Well: door to the down: closed
+D 0 95701 4 1	* Bottom of the Well: door to the up: closed
 M 0 95700 1 95701 1	* the guardian (Bottom of the Well)
 M 0 95702 1 95701 1	* the guardian (Bottom of the Well)
 E 0 95702 0 17		*	a gray bone: held in the hands
