@@ -1,5 +1,5 @@
 /*
- * $Id: act_move.c,v 1.23 1998-04-29 04:40:06 efdi Exp $
+ * $Id: act_move.c,v 1.24 1998-04-29 05:29:11 efdi Exp $
  */
 
 /***************************************************************************
@@ -1959,7 +1959,6 @@ void do_visible( CHAR_DATA *ch, char *argument )
 
 void do_recall( CHAR_DATA *ch, char *argument )
 {
-    char buf[MAX_STRING_LENGTH];
     CHAR_DATA *victim;
     ROOM_INDEX_DATA *location;
     int point;
@@ -1974,21 +1973,20 @@ void do_recall( CHAR_DATA *ch, char *argument )
 
     if (IS_NPC(ch) && !IS_SET(ch->act,ACT_PET))
     {
-	send_to_char("Only players can recall.\n\r",ch);
+	send_to_char(msg(MOVE_ONLY_PLAYERS_RECALL,  ch), ch);
 	return;
     }
 
     if (ch->level >= 11 && !IS_IMMORTAL(ch) )
       {
-	sprintf(buf, "Recall is for only levels below 10.\n\r");
-	send_to_char(buf,ch);
+	send_to_char(msg(MOVE_RECALL_FOR_BELOW_10, ch), ch);
 	return;
       }
 
     if (ch->desc != NULL && current_time - ch->last_fight_time
 	< FIGHT_DELAY_TIME)
       {
-	send_to_char("You are too pumped to pray now.\n\r",ch);
+	send_to_char(msg(MOVE_TOO_PUMPED_TO_PRAY, ch), ch);
 	return;
       }
 
@@ -1997,11 +1995,12 @@ void do_recall( CHAR_DATA *ch, char *argument )
 	point =	hometown_table[number_range(0, 4)].recall[number_range(0,2)];
       }
 
-    act( "$n prays for transportation!", ch, 0, 0, TO_ROOM );
+    act_printf(ch, 0, 0, TO_ROOM, POS_RESTING,
+		MOVE_N_PRAYS_FOR_TRANSPORTATION);
     
     if ( ( location = get_room_index(point ) )== NULL )
     {
-	send_to_char( "You are completely lost.\n\r", ch );
+	send_to_char(msg(MOVE_YOU_ARE_COMPLETELY_LOST, ch), ch);
 	return;
     }
 
@@ -2012,13 +2011,13 @@ void do_recall( CHAR_DATA *ch, char *argument )
     ||   IS_AFFECTED(ch, AFF_CURSE) 
     ||   IS_RAFFECTED(ch->in_room, AFF_ROOM_CURSE) )
     {
-	send_to_char( "The gods have forsaken you.\n\r", ch );
+	send_to_char(msg(MOVE_GODS_FORSAKEN_YOU, ch), ch);
 	return;
     }
 
     if ( ( victim = ch->fighting ) != NULL )
     {
-	send_to_char( "You are still fighting!\n\r", ch );
+	send_to_char(msg(MOVE_YOU_ARE_STILL_FIGHTING, ch), ch);
 
 	if (IS_NPC(ch))
 	    skill = 40 + ch->level;
@@ -2029,24 +2028,24 @@ void do_recall( CHAR_DATA *ch, char *argument )
 	{
 	    check_improve(ch,gsn_recall,FALSE,6);
 	    WAIT_STATE( ch, 4 );
-	    sprintf( buf, "You failed!.\n\r");
-	    send_to_char( buf, ch );
+	    send_to_char(msg(MOVE_YOU_FAILED, ch), ch);
 	    return;
 	}
 
 	lose = 25;
 	gain_exp( ch, 0 - lose );
 	check_improve(ch,gsn_recall,TRUE,4);
-	sprintf( buf, "You recall from combat!  You lose %d exps.\n\r", lose );
-	send_to_char( buf, ch );
+	char_printf(ch, msg(MOVE_RECALL_FROM_COMBAT, ch), lose);
 	stop_fighting( ch, TRUE ); 
     }
 
     ch->move /= 2;
-    act( "$n disappears.", ch, NULL, NULL, TO_ROOM );
+    act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+			MOVE_N_DISAPPEARS);
     char_from_room( ch );
     char_to_room( ch, location );
-    act( "$n appears in the room.", ch, NULL, NULL, TO_ROOM );
+    act_printf(ch, NULL, NULL, TO_ROOM, POS_RESTING,
+			MOVE_N_APPEARS_IN_THE_ROOM);
     do_look( ch, "auto" );
     
     if (ch->pet != NULL)

@@ -261,7 +261,17 @@ char *strings_rus[MSG_MAX_NUM] = {
 /* MOVE_YOU_ATTEMPT_TO_CAMOUFLAGE */"Ты пытаешься замаскироваться.\n\r", 
 /* MOVE_YOU_FADE_INTO_EXIST */	"Ты становишься видимым.\n\r",
 /* MOVE_N_FADES_INTO_EXIST */	"Здесь появился $n.\n\r",
-/* MOVE_YOU_TRAMPLE_AROUND_LOUDLY */"Теперь ты опят топаешь как слон.\n\r",
+/* MOVE_YOU_TRAMPLE_AROUND_LOUDLY */"Теперь ты опять топаешь как слон.\n\r",
+/* MOVE_ONLY_PLAYERS_RECALL */	"Только игроки могут делать реколл.\n\r",
+/* MOVE_RECALL_FOR_BELOW_10 */	"Реколл только для тех, кто меньше 10 левела.\n\r",
+/* MOVE_TOO_PUMPED_TO_PRAY */	"Ты слишком возбужден для того чтобы молиться.\n\r",
+/* MOVE_N_PRAYS_FOR_TRANSPORTATION */"$n молит о возвращении домой!",
+/* MOVE_YOU_ARE_COMPLETELY_LOST */"Ты окончательно потерялся.\n\r",
+/* MOVE_GODS_FORSAKEN_YOU  */	"Боги покинули тебя.\n\r",
+/* MOVE_YOU_ARE_STILL_FIGHTING */"Ты сражаешься!\n\r",
+/* MOVE_RECALL_FROM_COMBAT */	"Боги вернули тебя домой из битвы! Ты теряешь %d очков опыта.\n\r",
+/* MOVE_N_DISAPPEARS */		"$n исчез.",
+/* MOVE_N_APPEARS_IN_THE_ROOM */"Здесь появился $n.",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yсерьезно ранено{x.",

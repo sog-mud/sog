@@ -262,6 +262,16 @@ char *strings_engl[MSG_MAX_NUM] =  {
 /* MOVE_YOU_FADE_INTO_EXIST */	"You fade into existence.\n\r",
 /* MOVE_N_FADES_INTO_EXIST */	"$n fades into existence.\n\r",
 /* MOVE_YOU_TRAMPLE_AROUND_LOUDLY */"You trample around loudly again.\n\r",
+/* MOVE_ONLY_PLAYERS_RECALL */	"Only players can recall.\n\r",
+/* MOVE_RECALL_FOR_BELOW_10 */	"Recall is for only levels below 10.\n\r",
+/* MOVE_TOO_PUMPED_TO_PRAY */	"You are too pumped to pray now.\n\r",
+/* MOVE_N_PRAYS_FOR_TRANSPORTATION */"$n prays for transportation!",
+/* MOVE_YOU_ARE_COMPLETELY_LOST */"You are completely lost.\n\r",
+/* MOVE_GODS_FORSAKEN_YOU  */	"The gods have forsaken you.\n\r",
+/* MOVE_YOU_ARE_STILL_FIGHTING */"You are still fighting!\n\r",
+/* MOVE_RECALL_FROM_COMBAT */	"You recall from combat! You lose %d exps.\n\r",
+/* MOVE_N_DISAPPEARS */		"$n disappears.",
+/* MOVE_N_APPEARS_IN_THE_ROOM */"$n appears in the room.",
 
 /*	Here start sex-dependent messages */
 /* INFO_IS_GUSHING_BLOOD */	"{Yis gushing blood{x.",
