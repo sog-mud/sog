@@ -2,8 +2,8 @@
 Name Confederacy~
 Filename confederacy.clan~
 Recall 33002
-MsgPrays @eng $n says '{GDamn me!{x'@rus $n произносит: '{GДа чтоб я под землю провалился!{x'~
-MsgVanishes @eng $n falls underground screaming 'AAAAAAAAAAAAAAAARGHHHH!'@rus $n с треском проваливается под землю!~
+MsgPrays $n says '{GDamn me!{x'~
+MsgVanishes @eng $n falls underground screaming 'AAAAAAAAAAAAAAAARGHHHH!'~
 Flags hidden~
 Skill 'thumbling' 15
 Skill 'mortal strike' 63
