@@ -1,5 +1,5 @@
 /*
- * $Id: affects.c,v 1.77 2001-12-03 22:28:39 fjoe Exp $
+ * $Id: affects.c,v 1.78 2002-08-30 09:01:58 avn Exp $
  */
 
 /***************************************************************************
@@ -455,6 +455,7 @@ affect_remove(CHAR_DATA *ch, AFFECT_DATA *paf)
 		}
 	}
 
+	check_one_event(ch, paf, EVENT_CHAR_AFF_REMOVE);
 	aff_free(paf);
 	affect_check(ch, where, vector);
 }

@@ -1,5 +1,5 @@
 /*
- * $Id: merc.h,v 1.392 2002-03-21 15:47:31 fjoe Exp $
+ * $Id: merc.h,v 1.393 2002-08-30 09:01:54 avn Exp $
  */
 
 /***************************************************************************
@@ -2217,16 +2217,17 @@ extern avltree_info_t c_info_effects;
 #define ST_ALL		(ST_SKILL | ST_SPELL | ST_PRAYER)
 
 /*
- * EVENTs for room affects
+ * EVENTs for affects
  */
 enum {
-	EVENT_ROOM_ENTER,
-	EVENT_ROOM_LEAVE,
-	EVENT_ROOM_UPDATE,
-	EVENT_ROOM_TIMEOUT,
-	EVENT_CHAR_UPDATE,
-	EVENT_CHAR_UPDFAST,
-	EVENT_CHAR_TIMEOUT,
+	EVENT_ROOM_ENTER,	/* victim enters the room */
+	EVENT_ROOM_LEAVE,	/* victim leaves the room */
+	EVENT_ROOM_UPDATE,	/* room tick */
+	EVENT_ROOM_TIMEOUT,	/* room affect duration expired */
+	EVENT_CHAR_UPDATE,	/* char tick */
+	EVENT_CHAR_UPDFAST,	/* char small tick */
+	EVENT_CHAR_TIMEOUT,	/* char affect duration expired */
+	EVENT_CHAR_AFF_REMOVE	/* affect being removed (including timeout) */
 };
 
 typedef struct skill_t skill_t;

@@ -1,5 +1,5 @@
 /*
- * $Id: tables.c,v 1.189 2002-03-20 20:15:20 fjoe Exp $
+ * $Id: tables.c,v 1.190 2002-08-30 09:02:00 avn Exp $
  */
 
 /***************************************************************************
@@ -1263,6 +1263,7 @@ flaginfo_t events_classes[] =
 	{ "update_char",	EVENT_CHAR_UPDATE,		TRUE	},
 	{ "update_fast_char",	EVENT_CHAR_UPDFAST,		TRUE	},
 	{ "timeout_char",	EVENT_CHAR_TIMEOUT,		TRUE	},
+	{ "aff_remove_char",	EVENT_CHAR_AFF_REMOVE,		TRUE	},
 	{ NULL, 0, FALSE }
 };
 
