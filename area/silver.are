@@ -1,4 +1,5 @@
 #AREADATA
+Ver 4
 Name SilverDale~
 VNUMs 4500 4599
 Credits Anon~
@@ -10,382 +11,349 @@ End
 #4501
 mob wolf~
 the Timberwolf~
-A hungry timberwolf is here, looking for food.
-~
+A hungry timberwolf is here, looking for food.~
 It looks like it would be more at home in a forest. I wonder why it left.
 ~
 wolf~
-AFGH 0 0 4501
-8 0 2d7+96 79d1+1 1d7+2 claw
+FGHJ 0 0 0 0 0 4501
+8 0 2d7+96 79d1+1 1d7+2 'claw'
 3 3 3 9
-K A 0 0
+K
 stand stand male 0
 0 0 medium unknown
 #4502
 mob white wolf~
 the Huge White Wolf~
-A huge white wolf is here, looking for food.
-~
+A huge white wolf is here, looking for food.~
 It looks like it would be more at home in a forest. I wonder why it left.
 ~
 wolf~
-AFG 0 0 4501
-12 0 2d10+150 119d1+1 1d10+3 claw
+FGJ 0 0 0 0 0 4501
+12 0 2d10+150 119d1+1 1d10+3 'claw'
 0 0 0 8
-K A 0 0
+K
 stand stand male 0
 0 0 medium unknown
 #4503
 mob shadow wolf~
 the Huge Shadow Wolf~
-A huge wolf shadow is here, it howls eerily as it hunts for life force.
-~
+A huge wolf shadow is here, it howls eerily as it hunts for life force.~
 Although faintly transparent, its probably solid enough to rip your throat
 out. Its obviously very evil, and very nasty. I hope you have friends.
 ~
 wolf~
-AFG T -1000 0
-12 0 2d10+150 119d1+1 1d10+3 claw
+FGJ 0 T 0 0 -1000 0
+12 0 2d10+150 119d1+1 1d10+3 'claw'
 0 0 0 8
-K A 0 XY
+K
 stand stand male 0
 0 0 medium unknown
 #4504
 mob vampire shaman orc~
 the Vampire Orc-Shaman~
-An Orc-Shaman is here, he has very well developed canines and pale coloration
-~
+An Orc-Shaman is here, he has very well developed canines and pale coloration~
 Unless your mother raised a moron, you're quite sure this is a vampire...
 I hope you have a wooden stake handy...
 ~
 orc~
-ABCF BD -1000 0
-20 0 3d9+333 199d1+1 2d8+5 punch
+BCFJ 0 0 A A -1000 0
+20 0 3d9+333 199d1+1 2d8+5 'punch'
 -4 -4 -4 7
-0 A 0 XY
+0
 stand stand male 1000
 FIK 0 medium unknown
+r bash 5
+r pierce 5
+r slash 5
+r poison 15
+r negative 15
+r holy -15
+r disease 15
+r light -15
 #4505
 mob bodyguard orc~
 the Orc Bodyguard~
-A large orc bodyguard is here, eyeing you suspiciously.
-~
+A large orc bodyguard is here, eyeing you suspiciously.~
 Looks pretty tough, as orcs go...
 ~
 orc~
-ABCF 0 -750 0
-12 0 2d10+150 119d1+1 1d10+3 punch
+BCFJ 0 0 0 0 -750 0
+12 0 2d10+150 119d1+1 1d10+3 'punch'
 0 0 0 8
-CEFHIK A 0 0
+CEFHIK
 stand stand male 300
 0 0 medium unknown
+r bash 5
+r pierce 5
+r slash 5
+r poison 15
+r negative 15
+r holy -15
+r disease 15
+r light -15
 #4506
 mob vampire mayor~
 the Vampire Mayor~
-The mayor is here grinning evily, His eyes are red and glowing.
-~
+The mayor is here grinning evily, His eyes are red and glowing.~
 Unless your mother raised a moron, you're quite sure this is a vampire...
 I hope you have a wooden stake handy...
 ~
 human~
-ABCF D -1000 0
-19 0 3d9+308 189d1+1 2d7+5 punch
+BCFJ 0 0 0 A -1000 0
+19 0 3d9+308 189d1+1 2d7+5 'punch'
 -4 -4 -4 7
-EIJ A 0 XY
+EIJ
 stand stand male 1200
 0 0 medium unknown
 #4507
 mob shadow wolf~
 the Enormous Shadow Wolf~
-An Enormous shadow wolf is here, it growls eerily.
-~
+An Enormous shadow wolf is here, it growls eerily.~
 Although you can see right though it, it still seems quite dangerous...
 perhaps thats because its the size of a large horse...
 ~
 wolf~
-ABCF D -1000 0
-12 0 2d10+150 119d1+1 1d10+3 claw
+BCFJ 0 0 0 A -1000 0
+12 0 2d10+150 119d1+1 1d10+3 'claw'
 0 0 0 8
-K A 0 XY
+K
 stand stand male 0
 0 0 medium unknown
 #4508
 mob vampire mistress~
 a vampire mistress~
-A provocatively dressed woman is here, her eyes glow red in the darkness.
-~
+A provocatively dressed woman is here, her eyes glow red in the darkness.~
 Unless your mother raised a moron, you're quite sure this is a vampire...
 I hope you have a wooden stake handy...
 ~
 human~
-ABCF BD -1000 0
-23 0 5d10+450 229d1+1 3d6+6 punch
+BCFJ 0 0 A A -1000 0
+23 0 5d10+450 229d1+1 3d6+6 'punch'
 -6 -6 -6 6
-FHK A 0 XY
+FHK
 stand stand male 2600
 0 0 medium unknown
 #4509
 mob rat~
 the giant rat~
-A giant rat is here, it rushes at you with mindless hunger.
-~
+A giant rat is here, it rushes at you with mindless hunger.~
 It looks much like any other rat except that its about 3 feet long.
 ~
 bat~
-ACF D -200 0
-5 0 2d6+60 49d1+1 1d6+1 scratch
+CFJ 0 0 0 A -200 0
+5 0 2d6+60 49d1+1 1d6+1 'scratch'
 5 5 5 9
-0 A 0 XY
+0
 stand stand male 0
 0 0 medium unknown
+r light -50
 #4510
 mob vampire nosferatu~
 Nosferatu~
-Nosferatu snarls with rage, and prepares to cast a spell.
-~
+Nosferatu snarls with rage, and prepares to cast a spell.~
 Unless your mother raised a moron, you're quite sure this is a vampire...
 I hope you have a wooden stake handy... In fact I hope you have an army
 handy... (Nosferatu is not to be trifled with)
 ~
 human~
-ABCF BDu -1000 0
-30 0 6d12+853 299d1+1 4d6+8 punch
+BCFJ 0 J A A -1000 0
+30 0 6d12+853 299d1+1 4d6+8 'punch'
 -9 -9 -9 6
-E A 0 XY
+E
 stand stand either 5000
 0 0 medium unknown
 #0
 
 #OBJECTS
 #4501
-obj shadow blade~
+shadow blade~
 a shadowblade~
 A faintly transparent blade forged of shadow lies here.~
 air~
-weapon GJ AN
-sword 4 4 slash 0
+weapon GJ 0 AN
+sword 4 4 'slash' 0
 12 40 800 P
-A
-18 3
-A
-19 3
-G none
+a '' to_object 12 -1 3 18 0
+a '' to_object 12 -1 3 19 0
 #4502
-obj shadow spear~
+shadow spear~
 a shadowspear~
 A faintly transparent spear forged of shadow lies here.~
 air~
-weapon GJ AN
-spear 5 5 pierce K
+weapon GJ 0 AN
+spear 5 5 'pierce' K
 22 200 3800 P
-A
-18 5
-A
-19 2
-G none
+a '' to_object 22 -1 5 18 0
+a '' to_object 22 -1 2 19 0
 #4503
-obj shadow axe~
+shadow axe~
 a shadowaxe~
 A faintly transparent axe forged of shadow lies here.~
 air~
-weapon GJ AN
-axe 5 5 chomp 0
+weapon GJ 0 AN
+axe 5 5 'chomp' 0
 22 200 3800 P
-A
-18 1
-A
-19 5
-G none
+a '' to_object 22 -1 1 18 0
+a '' to_object 22 -1 5 19 0
 #4504
-obj bracer shadow~
+bracer shadow~
 shadowbracer~
 A faintly transparent bracer has been dropped here~
 air~
-armor GJ AM
+armor GJ 0 AM
 7 8 7 1 2
 22 300 4800 P
-A
-24 1
-G none
+a '' to_object 22 -1 1 24 0
 #4505
-obj gauntlets shadow~
+gauntlets shadow~
 shadowgauntlets~
 A faintly transparent pair of gauntlets has been dropped here~
 air~
-armor GJ AH
+armor GJ 0 AH
 5 5 6 1 2
-12 3500 700 P
-A
-1 1
-G none
+12 10 700 P
+a '' to_object 12 -1 1 1 0
 #4506
-obj orb stone~
+orb stone~
 a mageorb~
 A small stone lies on the ground~
 stone~
-armor G AQ
+armor G 0 AQ
 7 7 7 1 0
 19 400 1200 G
-A
-3 2
-A
-1 -2
-G none
+a '' to_object 19 -1 2 3 0
+a '' to_object 19 -1 -2 1 0
 #4507
-obj orb stone~
+orb stone~
 a priestorb~
 A small stone lies on the ground~
 stone~
-armor G AQ
+armor G 0 AQ
 7 7 8 1 0
 22 400 5200 G
-A
-4 2
-A
-2 -2
-G none
+a '' to_object 22 -1 2 4 0
+a '' to_object 22 -1 -2 2 0
 #4508
-obj shadow mail~
+shadow mail~
 shadowmail~
 A faintly transparent mail shirt lies on the ground.~
 air~
-armor GJ AD
+armor GJ 0 AD
 9 9 9 1 4
 29 300 6500 P
-A
-5 1
-G none
+a '' to_object 29 -1 1 5 0
 #4509
-obj silver ingot~
+silver ingot~
 a large silver ingot~
 A large bar of silver lies here.~
 silver~
-treasure 0 AO
+treasure 0 0 AO
 0 0 0 0 0
 0 350 5000 P
-G none
 #4510
-obj mold forge~
+mold forge~
 a large forge~
 A large forge, complete with a mold, stands in the corner, 
 connected to the furnace.~
-~
-container AG 0
+unknown~
+container AG 0 0
 200 0 0 0 0
 200 5000 0 P
-G none
 #4511
-obj silver dagger~
+silver dagger~
 a silver dagger~
 A sharp looking silver dagger lies on the ground.~
 silver~
-weapon 0 AN
-dagger 5 5 pierce D
+weapon 0 0 AN
+dagger 5 5 'pierce' D
 20 10 8200 P
-A
-18 1
-A
-19 1
-G none
+a '' to_object 20 -1 1 18 0
+a '' to_object 20 -1 1 19 0
 #4512
-obj sword silver~
+sword silver~
 a silver shortsword~
 A sharp looking silver shortsword lies on the ground.~
 silver~
-weapon 0 AN
-sword 5 5 slash D
+weapon 0 0 AN
+sword 5 5 'slash' D
 20 1500 7300 P
-A
-18 1
-A
-19 1
-G none
+a '' to_object 20 -1 1 18 0
+a '' to_object 20 -1 1 19 0
 #4513
-obj sword silver~
+sword silver~
 a silver longsword~
 A sharp looking silver longsword lies on the ground.~
 silver~
-weapon AG AN
-sword 5 5 slash D
+weapon AG 0 AN
+sword 5 5 'slash' D
 20 200 6900 P
-A
-18 1
-A
-19 1
-G none
+a '' to_object 20 -1 1 18 0
+a '' to_object 20 -1 1 19 0
 #4514
-obj wood stake~
+wood stake~
 a wooden stake~
 A crude sharpened wooden stake has been carelessly left here.~
 wood~
-weapon 0 AN
-staff 1 6 pound 0
+weapon 0 0 AN
+staff 1 6 'pound' 0
 2 100 20 P
-G none
 #4515
-obj keg~
+keg~
 a wooden keg~
 A large iron-bound wooden keg stands here.~
 wood~
-drink 0 AO
+drink 0 0 AO
 60 60 'dark ale' 0 0
 25 1000 200 P
-G none
 #4516
-obj rope~
+rope~
 a coiled length of rope~
 A mound of rope lies discarded on the floor.~
-~
-furniture 0 AO
+unknown~
+furniture 0 0 AO
 0 0 0 0 0
 5 100 20 P
-G none
 #4517
-obj grapple~
+grapple~
 a grapple~
 A grapple is stuck in the ground here.~
-~
-furniture 0 AO
+unknown~
+furniture 0 0 AO
 0 0 0 0 0
 5 100 20 P
-G none
 #4518
-obj grapple~
+grapple~
 a grapple with rope attached~
 A grapple is stuck in the ground here, attached is some rope hanging over
 the edge of the cliff.~
-~
-furniture 0 0
+unknown~
+furniture 0 0 0
 0 0 0 0 0
 5 100 20 P
-G none
 #4519
-obj key silverdale~
+key silverdale~
 the key to SilverDale~
 A key is here, half-hidden in the dirt.~
 stone~
-key 0 AO
+key 0 0 AO
 0 0 0 0 0
 0 100 0 P
-G none
 #4520
 key small~
 a big key~
 A big key lies here.~
 metal~
-key G AO
+key G 0 AO
 0 0 0 0 0
 30 300 0 G
-G none
 #4521
 chest wooden~
 a large wooden chest~
 A large wooden chest stands here in a corner.~
 wood~
-container 0 A
+container 0 0 A
 400 ACD 4520 100 100
 50 1200 17389 G
-G none
 #0
 
 #ROOMS
@@ -410,8 +378,12 @@ small tablet~
 D0
 ~
 ~
+~
+~
 AFZ -1 4501
 D5
+~
+~
 ~
 ~
 Z 0 4018
@@ -432,8 +404,12 @@ This sturdily constructed arch bears an inscription, 'The Mines of Moria
 D0
 ~
 ~
+~
+~
 AFZ 0 4502
 D2
+~
+~
 ~
 ~
 AFZ 0 4500
@@ -449,9 +425,13 @@ far below, you can see the back door to Moria.
 D2
 ~
 ~
+~
+~
 AFZ 0 4501
 D3
 The road continues to climb through the largest mountains in the world.
+~
+~
 ~
 ~
 AFZ 0 4503
@@ -468,9 +448,13 @@ D0
 The road continues its climb, up ahead you can see patches of snow.
 ~
 ~
+~
+~
 AFZ 0 4504
 D1
 The road descends, zig-zagging down a large mountain.
+~
+~
 ~
 ~
 AFZ 0 4502
@@ -486,8 +470,12 @@ D0
 The road continues its climb, up ahead you can make some tracks.
 ~
 ~
+~
+~
 AFZ 0 4505
 D2
+~
+~
 ~
 ~
 AFZ 0 4503
@@ -504,9 +492,13 @@ D2
 The road descends towards the distant hills of Moria.
 ~
 ~
+~
+~
 AFZ 0 4504
 D3
 The road climbs above the snowline in the highest mountains in the world.
+~
+~
 ~
 ~
 AFZ 0 4506
@@ -523,9 +515,13 @@ D0
 Up ahead something lies half buried in the snow.
 ~
 ~
+~
+~
 AFZ 0 4507
 D1
 The road descends below the snowline, heading towards Moria.
+~
+~
 ~
 ~
 AFZ 0 4505
@@ -542,8 +538,12 @@ hole right where his heart should be.
 D0
 ~
 ~
+~
+~
 AFZ 0 4508
 D2
+~
+~
 ~
 ~
 AFZ 0 4506
@@ -558,9 +558,13 @@ mountain.
 D1
 ~
 ~
+~
+~
 AFZ 0 4509
 D2
 The road leads through a mountain pass.
+~
+~
 ~
 ~
 AFZ 0 4507
@@ -575,8 +579,12 @@ leads north and west.
 D0
 ~
 ~
+~
+~
 AFZ 0 4510
 D3
+~
+~
 ~
 ~
 AFZ 0 4508
@@ -593,8 +601,12 @@ D1
 It looks as though a battle took place in this direction
 ~
 ~
+~
+~
 AFZ 0 4511
 D2
+~
+~
 ~
 ~
 AFZ 0 4509
@@ -609,8 +621,12 @@ around lie the marks of booted feet and the pawprints of animals.
 D0
 ~
 ~
+~
+~
 AFZ 0 4512
 D3
+~
+~
 ~
 ~
 AFZ 0 4510
@@ -635,9 +651,13 @@ D0
 Part of the road seems to have broken off and fallen down the cliff.
 ~
 village~
+the village~
+~
 AFZ 0 4513
 D2
 It looks as though a fight took place up ahead
+~
+~
 ~
 ~
 AFZ 0 4511
@@ -655,13 +675,19 @@ D0
 Up ahead, the road curves to the west towards a village.
 ~
 ~
+~
+~
 AFZ 0 4514
 D2
+~
+~
 ~
 ~
 AFZ 0 4512
 D3
 A three hundred foot drop if its an inch, jumping would be bad...
+~
+~
 ~
 ~
 AFZ 0 4516
@@ -678,14 +704,20 @@ D0
 The path continues climbing towards the Roof-Of-The-World.
 ~
 ~
+~
+~
 AFZ 0 4515
 D1
 The road continues towards a small village.
 ~
 ~
+~
+~
 AFZ 0 4517
 D2
 Up ahead, you can see that part of the road has slid down the mountain.
+~
+~
 ~
 ~
 AFZ 0 4513
@@ -704,6 +736,8 @@ D2
 Ahead there is a bend in the road.
 ~
 ~
+~
+~
 AFZ 0 4514
 S
 #4516
@@ -714,6 +748,8 @@ horse team and the driver.
 ~
 0 0 mountain
 D1
+~
+~
 ~
 ~
 AFZ 0 4513
@@ -729,8 +765,12 @@ D1
 Ahead you can see a small village.
 ~
 ~
+~
+~
 AFZ 0 4518
 D3
+~
+~
 ~
 ~
 AFZ 0 4514
@@ -747,8 +787,12 @@ D1
 Ahead you can see the gate to a small village.
 ~
 ~
+~
+~
 AFZ 0 4519
 D3
+~
+~
 ~
 ~
 AFZ 0 4517
@@ -765,8 +809,12 @@ D1
 Ahead you can see the villages inn.
 ~
 ~
+~
+~
 ABCFZ 4519 4520
 D3
+~
+~
 ~
 ~
 AFZ 0 4518
@@ -783,9 +831,13 @@ D0
 To the north the road turns east.
 ~
 ~
+~
+~
 AFZ 0 4530
 D1
 The entrance to the villages inn.
+~
+~
 ~
 ~
 AFZ 0 4521
@@ -793,8 +845,12 @@ D2
 To the south the road turns east.
 ~
 ~
+~
+~
 AFZ 0 4524
 D3
+~
+~
 ~
 ~
 ABCFZ 4519 4519
@@ -807,6 +863,8 @@ tried to convert the place into a fortified bunker. The exit is to the west.
 ~
 0 D inside
 D3
+~
+~
 ~
 ~
 AFZ 0 4520
@@ -823,6 +881,8 @@ council.
 D1
 ~
 ~
+~
+~
 AFZ 0 4523
 S
 #4523
@@ -837,8 +897,12 @@ D0
 To the north the road turns west.
 ~
 ~
+~
+~
 AFZ 0 4533
 D1
+~
+~
 ~
 ~
 ABCFZ 4519 4536
@@ -846,8 +910,12 @@ D2
 To the south the road turns west.
 ~
 ~
+~
+~
 AFZ 0 4527
 D3
+~
+~
 ~
 ~
 AFZ 0 4522
@@ -864,9 +932,13 @@ D0
 To the north the road passes the west gate and the entrance to the inn.
 ~
 ~
+~
+~
 AFZ 0 4520
 D1
 The road passes by an outfitters shop.
+~
+~
 ~
 ~
 AFZ 0 4525
@@ -882,14 +954,20 @@ D1
 The road passes by an assayers office.
 ~
 ~
+~
+~
 AFZ 0 4526
 D2
 A small outfitters shop.
 ~
 ~
+~
+~
 AFZ 0 4528
 D3
 The road curves to the north.
+~
+~
 ~
 ~
 AFZ 0 4524
@@ -905,14 +983,20 @@ D1
 The road curves north.
 ~
 ~
+~
+~
 AFZ 0 4527
 D2
 A small assayers office.
 ~
 ~
+~
+~
 AFZ 0 4529
 D3
 The road passes by a small outfitters shop.
+~
+~
 ~
 ~
 AFZ 0 4525
@@ -929,9 +1013,13 @@ D0
 To the north the road passes the east gate and the entrance to the hall.
 ~
 ~
+~
+~
 AFZ 0 4523
 D3
 The road passes by an assayers office.
+~
+~
 ~
 ~
 AFZ 0 4526
@@ -946,6 +1034,8 @@ both mining and mountain climbing equipment.
 D0
 ~
 ~
+~
+~
 AFZ 0 4525
 S
 #4529
@@ -957,6 +1047,8 @@ see the smelter used to refine the ore.
 ~
 0 D inside
 D0
+~
+~
 ~
 ~
 AFZ 0 4526
@@ -973,9 +1065,13 @@ D1
 The road passes by a smithy.
 ~
 ~
+~
+~
 AFZ 0 4531
 D2
 To the south the road passes the west gate and the entrance to the inn.
+~
+~
 ~
 ~
 AFZ 0 4520
@@ -991,14 +1087,20 @@ D0
 A small smithy.
 ~
 ~
+~
+~
 AFZ 0 4534
 D1
 The road passes by the miners barracks.
 ~
 ~
+~
+~
 AFZ 0 4532
 D3
 The road curves to the south up ahead.
+~
+~
 ~
 ~
 AFZ 0 4530
@@ -1014,14 +1116,20 @@ D0
 Is that the wind? You think you hear something growling inside.
 ~
 ~
+~
+~
 AFZ 0 4535
 D1
 The road curves south.
 ~
 ~
+~
+~
 AFZ 0 4533
 D3
 The road passes by a small smithy.
+~
+~
 ~
 ~
 AFZ 0 4531
@@ -1038,9 +1146,13 @@ D2
 To the south the road passes the east gate and the entrance to the hall.
 ~
 ~
+~
+~
 AFZ 0 4523
 D3
 The road passes by the miners barracks.
+~
+~
 ~
 ~
 AFZ 0 4532
@@ -1056,6 +1168,8 @@ their weapons weren't up to the task.
 D2
 ~
 ~
+~
+~
 AFZ 0 4531
 S
 #4535
@@ -1066,6 +1180,8 @@ down without a fight.
 ~
 0 D inside
 D2
+~
+~
 ~
 ~
 AFZ 0 4532
@@ -1086,9 +1202,13 @@ odd black trees promise to make the passage a painful one. Beyond the forest
 you can see a sinister watch tower overlooking a mountain pass.
 ~
 ~
+~
+~
 AFZ 0 4537
 D3
 Past the gate you can see the town hall.
+~
+~
 ~
 ~
 ABCFZ 4519 4523
@@ -1104,17 +1224,25 @@ is going to require crashing (painfully) through a wall of thorns.
 D0
 ~
 ~
+~
+~
 AFZ 0 4558
 D1
+~
+~
 ~
 ~
 AFZ 0 4538
 D2
 ~
 ~
+~
+~
 AFZ 0 4543
 D3
 AT LAST! the way out!
+~
+~
 ~
 ~
 AFZ 0 4536
@@ -1130,12 +1258,18 @@ is going to require crashing (painfully) through a wall of thorns.
 D0
 ~
 ~
+~
+~
 AFZ 0 4559
 D1
 ~
 ~
+~
+~
 AFZ 0 4539
 D3
+~
+~
 ~
 ~
 AFZ 0 4537
@@ -1151,6 +1285,8 @@ is going to require crashing (painfully) through a wall of thorns.
 D3
 ~
 ~
+~
+~
 AFZ 0 4538
 S
 #4540
@@ -1164,8 +1300,12 @@ is going to require crashing (painfully) through a wall of thorns.
 D0
 ~
 ~
+~
+~
 AFZ 0 4561
 D2
+~
+~
 ~
 ~
 AFZ 0 4546
@@ -1181,8 +1321,12 @@ is going to require crashing (painfully) through a wall of thorns.
 D1
 ~
 ~
+~
+~
 AFZ 0 4542
 D2
+~
+~
 ~
 ~
 AFZ 0 4547
@@ -1198,8 +1342,12 @@ gate entering the tower to the east, I sure hope you have the key.
 D1
 ~
 ~
+~
+~
 ABCFZ 4519 4573
 D3
+~
+~
 ~
 ~
 AFZ 0 4541
@@ -1215,12 +1363,18 @@ is going to require crashing (painfully) through a wall of thorns.
 D0
 ~
 ~
+~
+~
 AFZ 0 4537
 D1
 ~
 ~
+~
+~
 AFZ 0 4544
 D2
+~
+~
 ~
 ~
 AFZ 0 4548
@@ -1236,6 +1390,8 @@ is going to require crashing (painfully) through a wall of thorns.
 D3
 ~
 ~
+~
+~
 AFZ 0 4543
 S
 #4545
@@ -1249,8 +1405,12 @@ is going to require crashing (painfully) through a wall of thorns.
 D1
 ~
 ~
+~
+~
 AFZ 0 4546
 D2
+~
+~
 ~
 ~
 AFZ 0 4550
@@ -1266,12 +1426,18 @@ is going to require crashing (painfully) through a wall of thorns.
 D0
 ~
 ~
+~
+~
 AFZ 0 4540
 D2
 ~
 ~
+~
+~
 AFZ 0 4551
 D3
+~
+~
 ~
 ~
 AFZ 0 4545
@@ -1287,8 +1453,12 @@ is going to require crashing (painfully) through a wall of thorns.
 D0
 ~
 ~
+~
+~
 AFZ 0 4541
 D2
+~
+~
 ~
 ~
 AFZ 0 4552
@@ -1304,12 +1474,18 @@ is going to require crashing (painfully) through a wall of thorns.
 D0
 ~
 ~
+~
+~
 AFZ 0 4543
 D1
 ~
 ~
+~
+~
 AFZ 0 4549
 D2
+~
+~
 ~
 ~
 AFZ 0 4553
@@ -1325,8 +1501,12 @@ is going to require crashing (painfully) through a wall of thorns.
 D2
 ~
 ~
+~
+~
 AFZ 0 4554
 D3
+~
+~
 ~
 ~
 AFZ 0 4548
@@ -1342,8 +1522,12 @@ is going to require crashing (painfully) through a wall of thorns.
 D0
 ~
 ~
+~
+~
 AFZ 0 4545
 D2
+~
+~
 ~
 ~
 AFZ 0 4555
@@ -1359,6 +1543,8 @@ is going to require crashing (painfully) through a wall of thorns.
 D0
 ~
 ~
+~
+~
 AFZ 0 4546
 S
 #4552
@@ -1372,8 +1558,12 @@ is going to require crashing (painfully) through a wall of thorns.
 D0
 ~
 ~
+~
+~
 AFZ 0 4547
 D2
+~
+~
 ~
 ~
 AFZ 0 4557
@@ -1389,12 +1579,18 @@ is going to require crashing (painfully) through a wall of thorns.
 D0
 ~
 ~
+~
+~
 AFZ 0 4548
 D2
 ~
 ~
+~
+~
 AFZ 0 4572
 D3
+~
+~
 ~
 ~
 AFZ 0 4572
@@ -1410,6 +1606,8 @@ is going to require crashing (painfully) through a wall of thorns.
 D0
 ~
 ~
+~
+~
 AFZ 0 4549
 S
 #4555
@@ -1423,8 +1621,12 @@ is going to require crashing (painfully) through a wall of thorns.
 D0
 ~
 ~
+~
+~
 AFZ 0 4550
 D1
+~
+~
 ~
 ~
 AFZ 0 4556
@@ -1440,8 +1642,12 @@ is going to require crashing (painfully) through a wall of thorns.
 D1
 ~
 ~
+~
+~
 AFZ 0 4557
 D3
+~
+~
 ~
 ~
 AFZ 0 4555
@@ -1457,16 +1663,24 @@ is going to require crashing (painfully) through a wall of thorns.
 D0
 ~
 ~
+~
+~
 AFZ 0 4552
 D1
+~
+~
 ~
 ~
 AFZ 0 4568
 D2
 ~
 ~
+~
+~
 AFZ 0 4568
 D3
+~
+~
 ~
 ~
 AFZ 0 4556
@@ -1482,8 +1696,12 @@ is going to require crashing (painfully) through a wall of thorns.
 D0
 ~
 ~
+~
+~
 AFZ 0 4563
 D2
+~
+~
 ~
 ~
 AFZ 0 4537
@@ -1499,6 +1717,8 @@ is going to require crashing (painfully) through a wall of thorns.
 D2
 ~
 ~
+~
+~
 AFZ 0 4538
 S
 #4560
@@ -1512,8 +1732,12 @@ is going to require crashing (painfully) through a wall of thorns.
 D0
 ~
 ~
+~
+~
 AFZ 0 4565
 D1
+~
+~
 ~
 ~
 AFZ 0 4561
@@ -1529,8 +1753,12 @@ is going to require crashing (painfully) through a wall of thorns.
 D2
 ~
 ~
+~
+~
 AFZ 0 4540
 D3
+~
+~
 ~
 ~
 AFZ 0 4560
@@ -1546,6 +1774,8 @@ is going to require crashing (painfully) through a wall of thorns.
 D0
 ~
 ~
+~
+~
 AFZ 0 4567
 S
 #4563
@@ -1559,12 +1789,18 @@ is going to require crashing (painfully) through a wall of thorns.
 D0
 ~
 ~
+~
+~
 AFZ 0 4568
 D1
 ~
 ~
+~
+~
 AFZ 0 4564
 D2
+~
+~
 ~
 ~
 AFZ 0 4558
@@ -1580,6 +1816,8 @@ is going to require crashing (painfully) through a wall of thorns.
 D3
 ~
 ~
+~
+~
 AFZ 0 4563
 S
 #4565
@@ -1593,12 +1831,18 @@ is going to require crashing (painfully) through a wall of thorns.
 D0
 ~
 ~
+~
+~
 AFZ 0 4570
 D1
 ~
 ~
+~
+~
 AFZ 0 4566
 D2
+~
+~
 ~
 ~
 AFZ 0 4560
@@ -1614,8 +1858,12 @@ is going to require crashing (painfully) through a wall of thorns.
 D1
 ~
 ~
+~
+~
 AFZ 0 4567
 D3
+~
+~
 ~
 ~
 AFZ 0 4565
@@ -1631,12 +1879,18 @@ is going to require crashing (painfully) through a wall of thorns.
 D0
 ~
 ~
+~
+~
 AFZ 0 4572
 D2
 ~
 ~
+~
+~
 AFZ 0 4562
 D3
+~
+~
 ~
 ~
 AFZ 0 4566
@@ -1652,16 +1906,24 @@ is going to require crashing (painfully) through a wall of thorns.
 D0
 ~
 ~
+~
+~
 AFZ 0 4557
 D1
+~
+~
 ~
 ~
 AFZ 0 4569
 D2
 ~
 ~
+~
+~
 AFZ 0 4563
 D3
+~
+~
 ~
 ~
 AFZ 0 4557
@@ -1677,8 +1939,12 @@ is going to require crashing (painfully) through a wall of thorns.
 D1
 ~
 ~
+~
+~
 AFZ 0 4570
 D3
+~
+~
 ~
 ~
 AFZ 0 4568
@@ -1694,12 +1960,18 @@ is going to require crashing (painfully) through a wall of thorns.
 D1
 ~
 ~
+~
+~
 AFZ 0 4571
 D2
 ~
 ~
+~
+~
 AFZ 0 4565
 D3
+~
+~
 ~
 ~
 AFZ 0 4569
@@ -1715,6 +1987,8 @@ is going to require crashing (painfully) through a wall of thorns.
 D3
 ~
 ~
+~
+~
 AFZ 0 4570
 S
 #4572
@@ -1728,12 +2002,18 @@ is going to require crashing (painfully) through a wall of thorns.
 D0
 ~
 ~
+~
+~
 AFZ 0 4553
 D1
 ~
 ~
+~
+~
 AFZ 0 4553
 D2
+~
+~
 ~
 ~
 AFZ 0 4567
@@ -1749,12 +2029,18 @@ Darkness clings to everything, leaving you with an uneasy feeling.
 D1
 ~
 ~
+~
+~
 AFZ 0 4574
 D2
 ~
 ~
+~
+~
 AFZ 0 4577
 D3
+~
+~
 ~
 ~
 ABCFZ 4519 4542
@@ -1769,8 +2055,12 @@ Darkness clings to everything, leaving you with an uneasy feeling.
 D1
 ~
 ~
+~
+~
 AFZ 0 4575
 D3
+~
+~
 ~
 ~
 AFZ 0 4573
@@ -1787,16 +2077,24 @@ clings to everything, leaving you with an uneasy feeling.
 D0
 ~
 ~
+~
+~
 AFZ 0 4582
 D1
+~
+~
 ~
 ~
 AFZ 0 4576
 D2
 ~
 ~
+~
+~
 AFZ 0 4579
 D3
+~
+~
 ~
 ~
 AFZ 0 4574
@@ -1812,6 +2110,8 @@ an area there...)
 D3
 ~
 ~
+~
+~
 AFZ 0 4575
 S
 #4577
@@ -1822,6 +2122,8 @@ animals, all completely drained of blood.
 ~
 0 AD inside
 D0
+~
+~
 ~
 ~
 AFZ 0 4573
@@ -1836,6 +2138,8 @@ corpses... obviously the missing villagers. The only exit is to the east.
 D1
 ~
 ~
+~
+~
 AFZ 0 4579
 S
 #4579
@@ -1848,8 +2152,12 @@ cold-room. Darkness clings to everything, leaving you with an uneasy feeling.
 D0
 ~
 ~
+~
+~
 AFZ 0 4575
 D3
+~
+~
 ~
 ~
 AFZ 0 4578
@@ -1865,8 +2173,12 @@ everything, leaving you with an uneasy feeling.
 D1
 ~
 ~
+~
+~
 AFZ 0 4581
 D4
+~
+~
 ~
 ~
 AFZ 0 4583
@@ -1882,8 +2194,12 @@ an uneasy feeling.
 D1
 ~
 ~
+~
+~
 AFZ 0 4582
 D3
+~
+~
 ~
 ~
 AFZ 0 4580
@@ -1900,8 +2216,12 @@ clings to everything, leaving you with an uneasy feeling.
 D2
 ~
 ~
+~
+~
 AFZ 0 4575
 D3
+~
+~
 ~
 ~
 AFZ 0 4581
@@ -1917,8 +2237,12 @@ an uneasy feeling.
 D1
 ~
 ~
+~
+~
 AFZ 0 4584
 D5
+~
+~
 ~
 ~
 AFZ 0 4580
@@ -1934,8 +2258,12 @@ chamber. To the west you can see a stairway leading down to the main floor.
 D2
 ~
 ~
+~
+~
 AFZ 0 4585
 D3
+~
+~
 ~
 ~
 AFZ 0 4583
@@ -1952,8 +2280,12 @@ everything, leaving you with an uneasy feeling.
 D0
 ~
 ~
+~
+~
 AFZ 0 4584
 D3
+~
+~
 ~
 ~
 AFZ 0 4586
@@ -1967,6 +2299,8 @@ you with an uneasy feeling.
 ~
 0 AD inside
 D1
+~
+~
 ~
 ~
 AFZ 0 4585
@@ -1988,6 +2322,8 @@ are intended to be spellcasters."
 D1
 ~
 ~
+~
+~
 AFZ 0 4586
 S
 #0
@@ -2000,57 +2336,51 @@ M 4510 spec_cast_undead	* Nosferatu
 S
 
 #RESETS
-D 0 4519 1 2	* Outside the West Gate: door to the east: closed and locked
-D 0 4520 3 2	* By the West Gate: door to the west: closed and locked
-D 0 4523 1 2	* By the East Gate: door to the east: closed and locked
-D 0 4536 3 2	* Outside the East Gate: door to the west: closed and locked
-D 0 4542 1 2	* West of the Watch Tower: door to the east: closed and locked
-D 0 4573 3 2	* Entranceway to the Watch Tower: door to the west: closed and locked
 M 0 4501 8 4503 1	* the Timberwolf (Muddy Road in the Mountains)
 M 0 4501 8 4506 1	* the Timberwolf (Road across the Roof-Of-The-World)
 M 0 4501 8 4507 1	* the Timberwolf (Mountain Pass)
 M 0 4501 8 4510 1	* the Timberwolf (Icy Bend in the Road)
 M 0 4501 8 4514 1	* the Timberwolf (Bend in the Road.)
 M 0 4502 4 4516 1	* the Huge White Wolf (Base of the Cliff)
-E 0 4501 0 16		*	a shadowblade: wielded
-E 0 4505 0 9		*	shadowgauntlets: on the hands
-G 0 4519 0		*	the key to SilverDale
+E 0 4501 0 16		*	the Huge White Wolf<wielded>: a shadowblade
+E 0 4505 0 9		*	the Huge White Wolf<on the hands>: shadowgauntlets
+G 0 4519 0		*	the Huge White Wolf: the key to SilverDale
 O 0 4514 0 4516	* a wooden stake (Base of the Cliff)
 O 0 4514 0 4516	* a wooden stake (Base of the Cliff)
 O 0 4514 0 4516	* a wooden stake (Base of the Cliff)
 O 0 4514 0 4516	* a wooden stake (Base of the Cliff)
 M 0 4501 8 4518 1	* the Timberwolf (Approaching the Village Gate)
 M 0 4502 4 4518 1	* the Huge White Wolf (Approaching the Village Gate)
-E 0 4501 0 16		*	a shadowblade: wielded
-E 0 4505 0 9		*	shadowgauntlets: on the hands
-G 0 4519 0		*	the key to SilverDale
+E 0 4501 0 16		*	the Huge White Wolf<wielded>: a shadowblade
+E 0 4505 0 9		*	the Huge White Wolf<on the hands>: shadowgauntlets
+G 0 4519 0		*	the Huge White Wolf: the key to SilverDale
 O 0 4515 0 4521	* a wooden keg (The Village Inn)
 O 0 4516 0 4521	* a coiled length of rope (The Village Inn)
 M 0 4502 4 4525 1	* the Huge White Wolf (A dirt road)
-E 0 4501 0 16		*	a shadowblade: wielded
-E 0 4505 0 9		*	shadowgauntlets: on the hands
+E 0 4501 0 16		*	the Huge White Wolf<wielded>: a shadowblade
+E 0 4505 0 9		*	the Huge White Wolf<on the hands>: shadowgauntlets
 M 0 4501 8 4527 1	* the Timberwolf (A dirt road)
 O 0 4517 0 4528	* a grapple (The Outfitters Shop)
 O 0 4521 0 4529	* a large wooden chest (The Assayers Office)
-P 0 4509 99 4521 5	* a large wooden chest: a large silver ingot
-P 0 4509 99 4521 5	* a large wooden chest: a large silver ingot
-P 0 4509 99 4521 5	* a large wooden chest: a large silver ingot
-P 0 4509 99 4521 5	* a large wooden chest: a large silver ingot
-P 0 4509 99 4521 5	* a large wooden chest: a large silver ingot
-P 0 4511 99 4521 1	* a large wooden chest: a silver dagger
-P 0 4512 99 4521 1	* a large wooden chest: a silver shortsword
-P 0 4513 99 4521 1	* a large wooden chest: a silver longsword
+P 0 4509 99 0 5	* a large wooden chest: a large silver ingot
+P 0 4509 99 0 5	* a large wooden chest: a large silver ingot
+P 0 4509 99 0 5	* a large wooden chest: a large silver ingot
+P 0 4509 99 0 5	* a large wooden chest: a large silver ingot
+P 0 4509 99 0 5	* a large wooden chest: a large silver ingot
+P 0 4511 99 0 1	* a large wooden chest: a silver dagger
+P 0 4512 99 0 1	* a large wooden chest: a silver shortsword
+P 0 4513 99 0 1	* a large wooden chest: a silver longsword
 M 0 4501 8 4530 1	* the Timberwolf (A dirt road)
 M 0 4502 4 4533 1	* the Huge White Wolf (A dirt road)
 M 0 4504 6 4534 1	* the Vampire Orc-Shaman (The Smithy)
-E 0 4506 0 18		*	a mageorb: floating nearby
+E 0 4506 0 18		*	the Vampire Orc-Shaman<floating nearby>: a mageorb
 M 0 4505 2 4534 2	* the Orc Bodyguard (The Smithy)
 M 0 4505 2 4534 2	* the Orc Bodyguard (The Smithy)
 O 0 4510 0 4534	* a large forge (The Smithy)
 M 0 4502 1 4535 1	* the Huge White Wolf (The Miners Barracks)
-E 0 4501 0 16		*	a shadowblade: wielded
-E 0 4505 0 9		*	shadowgauntlets: on the hands
-G 0 4519 0		*	the key to SilverDale
+E 0 4501 0 16		*	the Huge White Wolf<wielded>: a shadowblade
+E 0 4505 0 9		*	the Huge White Wolf<on the hands>: shadowgauntlets
+G 0 4519 0		*	the Huge White Wolf: the key to SilverDale
 M 0 4502 1 4535 1	* the Huge White Wolf (The Miners Barracks)
 M 0 4503 13 4537 1	* the Huge Shadow Wolf (Inside the Black Forest)
 M 0 4503 13 4540 1	* the Huge Shadow Wolf (Inside the Black Forest)
@@ -2080,18 +2410,18 @@ M 0 4509 10 4584 10	* the giant rat (Reception Area)
 M 0 4509 10 4584 10	* the giant rat (Reception Area)
 M 0 4509 10 4584 10	* the giant rat (Reception Area)
 M 0 4508 2 4585 2	* a vampire mistress (Audience Chamber)
-E 0 4502 0 16		*	a shadowspear: wielded
-E 0 4504 0 15		*	shadowbracer: on the right wrist
-E 0 4504 0 14		*	shadowbracer: on the left wrist
-E 0 4507 0 18		*	a priestorb: floating nearby
+E 0 4502 0 16		*	a vampire mistress<wielded>: a shadowspear
+E 0 4504 0 15		*	a vampire mistress<on the right wrist>: shadowbracer
+E 0 4504 0 14		*	a vampire mistress<on the left wrist>: shadowbracer
+E 0 4507 0 18		*	a vampire mistress<floating nearby>: a priestorb
 M 0 4508 2 4585 2	* a vampire mistress (Audience Chamber)
-E 0 4503 0 16		*	a shadowaxe: wielded
-E 0 4504 0 15		*	shadowbracer: on the right wrist
-E 0 4504 0 14		*	shadowbracer: on the left wrist
-E 0 4507 0 18		*	a priestorb: floating nearby
+E 0 4503 0 16		*	a vampire mistress<wielded>: a shadowaxe
+E 0 4504 0 15		*	a vampire mistress<on the right wrist>: shadowbracer
+E 0 4504 0 14		*	a vampire mistress<on the left wrist>: shadowbracer
+E 0 4507 0 18		*	a vampire mistress<floating nearby>: a priestorb
 M 0 4510 1 4586 1	* Nosferatu (The Bedroom)
-E 0 4508 0 5		*	shadowmail: on the body
-E 0 4520 0 17		*	a big key: held in the hands
+E 0 4508 0 5		*	Nosferatu<on the body>: shadowmail
+E 0 4520 0 17		*	Nosferatu<held in the hands>: a big key
 S
 
 #$

@@ -36,7 +36,7 @@ r light 33
 r harm 33
 r charm 33
 r sound 33
-a 'water breathing' unknown 25 -1 0 0 0
+a 'water breathing' to_affects 25 -1 0 0 0
 #12302
 Suretin~
 Suretin~
@@ -52,7 +52,7 @@ Q 0 0 0 0 1000 0
 EFK
 stand stand male 1000
 0 0 medium unknown
-a 'water breathing' unknown 35 -1 0 0 0
+a 'water breathing' to_affects 35 -1 0 0 0
 #12303
 Sucker fish~
 a sucker fish~
@@ -69,7 +69,7 @@ CG 0 0 0 0 0 0
 0
 stand stand none 1000
 0 0 medium unknown
-a 'water breathing' unknown 10 -1 0 0 0
+a 'water breathing' to_affects 10 -1 0 0 0
 #12309
 Antharian citizen~
 an Antharian citizen~
@@ -87,7 +87,7 @@ G 0 0 0 0 0 0
 0
 stand stand male 1000
 0 0 medium unknown
-a 'water breathing' unknown 15 -1 0 0 0
+a 'water breathing' to_affects 15 -1 0 0 0
 #12310
 Antharian citizen~
 an Antharian citizen~
@@ -105,7 +105,7 @@ G 0 0 0 0 0 0
 0
 stand stand female 1000
 0 0 medium unknown
-a 'water breathing' unknown 16 -1 0 0 0
+a 'water breathing' to_affects 16 -1 0 0 0
 #12314
 Antharian child~
 an Antharian child~
@@ -121,7 +121,7 @@ G 0 0 0 0 0 0
 0
 stand stand male 1000
 0 0 medium unknown
-a 'water breathing' unknown 9 -1 0 0 0
+a 'water breathing' to_affects 9 -1 0 0 0
 #12315
 Antharian child~
 an Antharian child~
@@ -137,7 +137,7 @@ human~
 0
 stand stand female 1000
 0 0 medium unknown
-a 'water breathing' unknown 9 -1 0 0 0
+a 'water breathing' to_affects 9 -1 0 0 0
 #12318
 Antharian Knight~
 an Antharian Knight~
@@ -154,7 +154,7 @@ human~
 CDEFIJK
 stand stand male 1000
 0 0 medium unknown
-a 'water breathing' unknown 42 -1 0 0 0
+a 'water breathing' to_affects 42 -1 0 0 0
 #12323
 High Guard~
 High Guard of Antharia~
@@ -170,7 +170,7 @@ G 0 0 0 A 250 0
 CDEFIJK
 stand stand male 1000
 0 0 medium unknown
-a 'water breathing' unknown 32 -1 0 0 0
+a 'water breathing' to_affects 32 -1 0 0 0
 #12340
 Zaertses~
 Zaertses~
@@ -188,7 +188,7 @@ Be 0 0 0 0 400 0
 CEFIJK
 stand stand male 1000
 0 0 medium unknown
-a 'water breathing' unknown 70 -1 0 0 0
+a 'water breathing' to_affects 70 -1 0 0 0
 #12341
 Irghum~
 Irghum~
@@ -204,7 +204,7 @@ Be 0 0 0 0 500 0
 CDEFIJK
 stand stand male 1000
 0 0 medium unknown
-a 'water breathing' unknown 70 -1 0 0 0
+a 'water breathing' to_affects 70 -1 0 0 0
 #12344
 Ertuvia~
 Ertuvia~
@@ -221,7 +221,7 @@ BT 0 0 0 0 800 0
 CDEFIK
 stand stand male 1000
 0 0 medium unknown
-a 'water breathing' unknown 32 -1 0 0 0
+a 'water breathing' to_affects 32 -1 0 0 0
 #12345
 Heaustf~
 Heaustf~
@@ -238,7 +238,7 @@ BTe 0 0 0 0 500 0
 CDEFIJK
 stand stand male 1000
 0 0 medium unknown
-a 'water breathing' unknown 70 -1 0 0 0
+a 'water breathing' to_affects 70 -1 0 0 0
 #12348
 Cyrtpea~
 Cyrtpea~
@@ -255,7 +255,7 @@ BUe 0 N 0 0 400 0
 CDEFIJK
 stand stand female 1000
 0 0 medium unknown
-a 'water breathing' unknown 65 -1 0 0 0
+a 'water breathing' to_affects 65 -1 0 0 0
 #12360
 Human Representative~
 a human representative~
@@ -270,7 +270,7 @@ B 0 0 0 0 0 0
 CEFIJ
 stand stand female 1000
 0 0 medium unknown
-a 'water breathing' unknown 40 -1 0 0 0
+a 'water breathing' to_affects 40 -1 0 0 0
 #12361
 Druidic Representative~
 a druidic representative~
@@ -285,7 +285,7 @@ B 0 0 0 0 0 0
 CEFIJK
 stand stand male 1000
 0 0 medium unknown
-a 'water breathing' unknown 40 -1 0 0 0
+a 'water breathing' to_affects 40 -1 0 0 0
 #12362
 Kender Representative~
 a kender representative~
@@ -300,7 +300,7 @@ BO 0 0 0 0 0 0
 CEFIJK
 stand stand female 1000
 0 0 medium unknown
-a 'water breathing' unknown 40 -1 0 0 0
+a 'water breathing' to_affects 40 -1 0 0 0
 #12363
 Antharian Representative~
 an antharian representative~
@@ -316,7 +316,7 @@ B 0 0 0 0 0 0
 CEFIJKQ
 stand stand male 1000
 0 0 medium unknown
-a 'water breathing' unknown 40 -1 0 0 0
+a 'water breathing' to_affects 40 -1 0 0 0
 #12364
 Elven Representative~
 an elven representative~
@@ -333,7 +333,7 @@ stand stand female 1000
 0 0 medium unknown
 r negative 10
 r charm -33
-a 'water breathing' unknown 40 -1 0 0 0
+a 'water breathing' to_affects 40 -1 0 0 0
 #12365
 Dwarven Representative~
 a dwarven representative~
@@ -351,7 +351,7 @@ stand stand male 1000
 r bash -7
 r poison -25
 r disease -25
-a 'water breathing' unknown 40 -1 0 0 0
+a 'water breathing' to_affects 40 -1 0 0 0
 #12370
 illithid Representative~
 an illithid representative~
@@ -366,7 +366,7 @@ B 0 0 0 0 0 0
 CEFIJK
 stand stand female 1000
 0 0 medium unknown
-a 'water breathing' unknown 40 -1 0 0 0
+a 'water breathing' to_affects 40 -1 0 0 0
 #12371
 avian Representative~
 an avian representative~
@@ -381,7 +381,7 @@ BY 0 0 0 0 0 0
 CEFIJK
 stand stand female 1000
 0 0 medium unknown
-a 'water breathing' unknown 40 -1 0 0 0
+a 'water breathing' to_affects 40 -1 0 0 0
 #0
 
 #OBJECTS
