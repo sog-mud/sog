@@ -3,7 +3,7 @@ use strict;
 require "../makeutil.pl";
 
 if ($#ARGV < 3) {
-	print STDERR "Syntax: makedep.pl <mod_name> <depfile> <cdefile> <modules>...\n";
+	print STDERR "Syntax: makedep.pl <mod_name> <depfile> <cdepfile> <modules>...\n";
 	exit(1);
 }
 
