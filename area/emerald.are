@@ -5272,8 +5272,8 @@ D3
 Z 0 274
 S
 #276
-Woodkeeper's Clearing~
-The path ends in a medium sized clearing. A small wooden sign states
+@eng Woodkeeper's Clearing@rus Поляна лесника~
+@eng The path ends in a medium sized clearing. A small wooden sign states
 quite dogmatically "WoodKeeper's Clearing. Forest haters not welcomed.
 Orcs, Bugbears and Goblins keep out!". A number of elves and humans
 dressed in a mixture of green and brown stand around here engaging in
@@ -5282,11 +5282,18 @@ apparently there are rangers from distant woodlands still trying to
 make it for the meeting. A pile of scrolls sit on a small table,
 probably pamphlets to be distributed to the arriving participants of
 the meeting.
+@rus Путь заканчивается на поляне не слишком большой, но хорошо освещенной. Неболь-
+шая деревянная табличка привлекает твое внимание. Подойдя, ты читаешь : "Это
+поляна только для тех, кто любит лес. Оркам и Гоблинам вход строго воспрещен."
+Несколько людей и эльфов, одетых в зелено-коричневой гамме, стоят и весело бе-
+седуют между собой. Встреча хранителей леса еще не началась, видимо все ждут
+представителей из дальних стран, торопящихся на встречу. Стопка бумаги (scroll)
+лежит на столе, вероятно, ее раздадут приехавшим.
 ~
 0 A forest
 E
 map scroll scrolls pamphlets~
-*-*
+@eng *-*
 
            O oooo         The Map of Emerald Forest
            (    )                as pawed by
@@ -5317,48 +5324,88 @@ map scroll scrolls pamphlets~
                               \  Bonanza   \
                                \\--===\\\\\\\
 
+@rus *-*
+ 
+           O oooo         Карта Изумрудного леса
+           (    )        нарисовал собственнолапно
+            \   |    Смоки, Ренджер-медведь в отставке
+             (  )
+                                                                  С
+                /---                             =-\ 
+               |    --/==========\                  \            /^\ 
+                \--- < Клеверякино>          /------\\            |
+                      \          /        _/         \           -|-
+    /-----\            \\      /         |            \           |
+    /      \             \- /--|        /              \\ 
+    /       \             /           /                  \ 
+    /        /          /           /                     \\ 
+   -/ Ведьмин  --------|-----------|---\                    \\ 
+  //         -         |                \         /=====>     \ 
+  -    Лес   |         |                 \--------< Мой |      \\\\\\\\ 
+   |         |         |                          \ Дом |
+   /\\-|-\\--|\        |                           \====>
+  |    |       \       |
+  |  Мертвые   //      |    И З У М Р У Д Н Ы Й
+  |         ///        |
+  | Болота /           |                  Л Е С
+  \       /-          ---
+   -\\---/             |        /---\\ 
+                       |      //      \\\ 
+                        \-----/ Фестиваль\ 
+                             \            \ 
+                               \\--===\\\\\\\ 
 ~
 D0
-A wood-path lies ahead.
+@eng A wood-path lies ahead.
+@rus Лесная тропинка вьется между деревьями.
 ~
 ~
 Z 0 275
 D1
-Some green vines lies to the east.
+@eng Some green vines lies to the east.
+@rus Зеленая лоза почти перегораживает тропинку.
 ~
 ~
 Z 0 277
 S
 #277
-The Green Vines~
-Thick green vines form an impossible barrier to the south.. There is
+@eng The Green Vines@rus Стена из лиан~
+@eng Thick green vines form an impossible barrier to the south.. There is
 no reason to doubt that these vines possess the same ability to
 block even the most determined machete-armed lumber-dwarf then all
 the others. What does seem a bit strange, however, are faint footsteps
 leading up to the vines and abruptly stopping. Could they merely be
 tracks from an age past, now lost to the world and found only in time
 and memory?
+@rus Толстые зеленые лианы преграждают путь на юг. Нет сомнения, они остановят даже
+самого настойчивого дварфа, вооруженного мачете. Но как ни странно, ты заме-
+чаешь следы, идущие к этой зеленой стене и внезапно обрывающиеся. Откуда они?
+То ли это следы прошлых эпох, ушедших навсегда и сохранившихся лишь в памяти
+старожилов?
 ~
 0 A forest
 D0
-You see a grove in the forest.
+@eng You see a grove in the forest.
+@rus Ты видишь залитую солнцем рощицу.
 ~
 ~
 Z 0 278
 D1
-The border of the forest lies east.
+@eng The border of the forest lies east.
+@rus Край леса на востоке приглашает войти.
 ~
 ~
 Z 0 279
 D3
-You see a clearing.
+@eng You see a clearing.
+@rus Громкий веселый разговор слышен с поляны на западе.
 ~
 ~
 Z 0 276
 S
 #278
-The Silent Grove~
-You've managed to wander into a small silent grove in the forest.
+@eng The Silent Grove@rus Тихая роща~
+@eng You've managed to wander into a small silent grove in the forest.
 For some strange reason most of the forest noises seem to have
 disappeared, though you can feel the rustle of the leaves beneath
 your feet as you walk. The silence isn't really eerie, however, but
@@ -5367,57 +5414,78 @@ fashion on the ground, much the way seating chairs would be arranged
 should the speaker be in the middle of a circle. It's almost as though
 a little tribe of beavers just had a river-dam guild meeting and have
 left for lunch.
+@rus Ты забрел в небольшую тихую рощицу. Странно, звуки, веселыми трелями разносив-
+шиеся по всему лесу звучат глухо и наконец совсем затихают тут. Все, что ты
+слышишь, это шуршание прошлогодней листвы под твоими ногами. Но что еще более
+странно, эта почти абсолютная тишина не настораживает, а скорее настраивает на
+размышления. Небольшие камни выложены в форме круга, как будто кресла вокруг
+оратора. Как будто тут было бурное собрание, и вдруг все ушли...
 ~
 0 A forest
 D2
-You see thick green vines in the yonder.
+@eng You see thick green vines in the yonder.
+@rus Тропинка упирается в стену из лиан.
 ~
 ~
 Z 0 277
 S
 #279
-The Southern border~
-You are skirting the southern border of the Emerald Forest. A sheer
+@eng The Southern border@rus Южная граница леса~
+@eng You are skirting the southern border of the Emerald Forest. A sheer
 mountain face blocks any further exploring to the south and east,
 while the forest streches on to the north and to the west. A fallen
 log lies here, softing morning due and rain spray clinging to it's
 sparkling bark. No rotting scent seems to come from it as most
 logs would emit.
+@rus Вы идете по южной границе Изумрудного леса. Отвесный склон горы не дает идти
+дальше на юг или восток. Изумрудный лес весело шелестит листвой на севере и
+западе. Ствол упавшего дерева блестит от росы и недавнего дождя. Как ни
+странно, не чувствуется запах гнили. Что это - магия эльфов?
 ~
 0 A forest
 D0
-You see nothing special there.
+@eng You see nothing special there.
+@rus Ничего особенного. Лес как лес.
 ~
 ~
 Z 0 280
 D3
-You see thick green vines in the yonder.
+@eng You see thick green vines in the yonder.
+@rus Непроходимая зеленая стена тянется по левую руку от тропинки.
 ~
 ~
 Z 0 277
 S
 #280
-The Wood Area~
-The trail leading south from here starts sloping downward into a
+@eng The Wood Area@rus Перелесок~
+@eng The trail leading south from here starts sloping downward into a
 richer wood area. The undisturbed nature of the flora suggests that
 this is a rarely travelled part of the forest even by it's own
 standards. A small mouse-deer runs across the trail, followed by
 a lazy looking lynx. To the north you can just make out a clearing
 through the trees, and there seems to be movement.
+@rus Тропинка, идущая на юг отсюда, понемногу набирает уклон. Первозданная расти-
+тельность заполняет это место, по которому редко ступает нога человека. Малень-
+кая полевка не торопясь, бежит по тропинке, за ней обманчиво ленивой походкой
+неслышно крадется рысь. На север виден просвет, похоже, что там есть поляна. Ты
+замечаешь почти заросшую тропку, ведущую туда.
 ~
 0 A forest
 D0
-You see nothing special there.
+@eng You see nothing special there.
+@rus Ничего особенного. Лес как лес.
 ~
 ~
 Z 0 281
 D1
-A clearing is to the east.
+@eng A clearing is to the east.
+@rus Вдалеке на востоке виден просвет.
 ~
 ~
 Z 0 282
 D2
-You see the southern border of the forest.
+@eng You see the southern border of the forest.
+@rus Недалеко южная граница леса.
 ~
 ~
 Z 0 279

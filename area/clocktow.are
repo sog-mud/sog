@@ -1,0 +1,2779 @@
+#AREADATA
+Name Clock Tower~
+Builders agrael kami~
+VNUMs 4900 4999
+Credits Agrael~
+Security 9
+LevelRange 1 30
+Flags closed noquest~
+End
+
+#MOBILES
+#4900
+bell~
+The Bell~
+The Bell hangs here making some grunting noises.
+~
+As you look at the Bell, you feel blinded by it's
+shining. Big and tall, it sounds very impressively
+and you mearly able to stay close to it.
+~
+unique~
+AGTY HV 0 0
+30 0 10d61+400 30d10+100 5d6+18 pound
+-30 -30 -30 -10
+CEFJK HKLTX 0 N
+stand stand male 3000
+AZc D large unknown
+#4901
+mechanic watch maker~
+Mechanic~
+A watch-maker works here, repairing something.
+~
+Mechanic is clad in grey oiled robe. With a wise look
+in his eyes he stares deep into the clock-work and
+seemingly does not pay any attention at you.
+~
+human~
+AGQ FH 0 0
+30 0 10d60+450 30d10+100 5d6+15 punch
+-30 -30 -30 -20
+EFIKNV P N 0
+stand stand male 1000
+0 0 medium unknown
+#4902
+watchman clock tower~
+Watchman~
+The clock-tower watchman sits here, resting.
+~
+Just a watchman. He looks rather tired and asleep.
+Probably he did not paid enough and so aloows you
+to enter the Clock Tower.
+~
+human~
+AGQ DFHNV 0 0
+28 0 10d70+430 28d10+100 6d5+20 crush
+-40 -30 -30 -20
+CDEFHIJKNc BP HIKLMOPRS J
+stand stand male 5000
+0 0 medium unknown
+#4903
+pendulum~
+Pendulum~
+The Pendulum looms from one wall to another.
+~
+You see a strange massive ball on a stick. It moves
+with a strong regularity in order not to leave the
+City without explicit time.
+~
+unique~
+AGTY DFHTV 0 0
+25 0 10d40+300 25d10+100 4d6+12 pound
+-25 -25 -25 -20
+CEFHK 0 CD N
+stand stand male 3456
+AZc B large unknown
+#4904
+hand long big~
+Long Hand~
+A Long Hand shows you right time.
+~
+A big long arrow points at the edge of the clock face.
+~
+unique~
+AGTW TV 0 0
+30 0 10d60+420 30d100+100 5d6+15 charge
+-40 -30 -10 -10
+CDEFHIKNT 0 0 0
+stand stand male 2430
+AZc B medium unknown
+#4905
+hand short small~
+Short Hand~
+A Short Hand shows you right time.
+~
+A small short arrow points at the edge of the clock face.
+~
+unique~
+AGTW TV 0 0
+25 0 10d40+250 25d10+100 5d5+14 charge
+-30 -20 -10 -10
+CEFHIKNT 0 0 0
+stand stand male 2340
+AZc B medium unknown
+#4906
+weatercock weather cock~
+Wearthercock~
+A wearthercock shows the direction that wind blows.
+~
+You see a cock made of brass. It rotates about the
+top of the spire each time the wind blows.
+~
+unique~
+ABGR DT 0 0
+20 0 5d40+200 20d10+100 4d5+10 peck
+-10 -10 -10 -10
+0 M KOX 0
+stand stand male 0
+AW ABCDEF medium unknown
+#4907
+chimney sweep~
+Chimney-sweep~
+A chimney-sweep sits at the tile singing for his
+girl-friend.
+~
+Clad all in black, he seems anyway to be a very good
+and kind. He sings son about his lovely friend. He
+scatters some bread bits around him for pigeons.
+~
+human~
+AGHT HNPT 1000 0
+15 0 5d30+160 15d10+100 3d5+8 punch
+-15 -15 -15 -10
+EFHIJKV N 0 M
+sit sit male 230
+0 0 medium unknown
+#4908
+one clock~
+One o'clock~
+One o'clock stands here on a clock face.
+~
+You see a strong warrior with the number <1> engraved
+on his armour.
+~
+unique~
+ABGH TV 0 0
+2 0 1d3+15 2d10+100 1d2+1 punch
+-2 -3 -2 -1
+CEFKd 0 0 0
+stand stand male 120
+AM ABCDEF medium unknown
+#4909
+two clock~
+Two o'clock~
+Two o'clock stands here on a clock face.
+~
+You see a strong warrior with the number <2> engraved
+on his armour.
+~
+unique~
+ABGH TV 0 0
+4 0 1d12+33 4d10+100 1d3+3 punch
+-4 -5 -4 -2
+CEFKd 0 0 0
+stand stand male 120
+AM ABCDEF medium unknown
+#4910
+three clock~
+Three o'clock~
+Three o'clock stands here on a clock face.
+~
+You see a strong warrior with the number <3> engraved
+on his armour.
+~
+unique~
+ABGH TV 0 0
+6 0 2d10+50 6d10+100 2d3+4 punch
+-6 -7 -6 -4
+CEFKd 0 0 0
+stand stand male 130
+AM ABCDEF medium unknown
+#4911
+four clock~
+Four o'clock~
+Four o'clock stands here on a clock face.
+~
+You see a strong warrior with the number <4> engraved
+on his armour.
+~
+unique~
+ABGH TV 0 0
+8 0 3d18+75 8d10+100 2d5+4 punch
+-8 -9 -8 -5
+CEFKd 0 0 0
+stand stand male 150
+AM ABCDEF medium unknown
+#4912
+five clock~
+Five o'clock~
+Five o'clock stands here on a clock face.
+~
+You see a strong warrior with the number <5> engraved
+on his armour.
+~
+unique~
+AGH TV 0 0
+10 0 3d23+95 10d10+100 2d5+5 punch
+-10 -13 -12 -7
+CEFKd 0 0 0
+stand stand male 220
+AM ABCDEF medium unknown
+#4913
+six clock~
+Six o'clock~
+Six o'clock stands here on a clock face.
+~
+You see a strong warrior with the number <6> engraved
+on his armour.
+~
+unique~
+ABGH TV 0 0
+12 0 4d20+115 12d10+100 3d5+6 punch
+-12 -13 -12 -8
+CEFKd 0 0 0
+stand stand male 620
+AM ABCDEF medium unknown
+#4914
+seven clock~
+Seven o'clock~
+Seven o'clock stands here on a clock face.
+~
+You see a strong warrior with the number <7> engraved
+on his armour.
+~
+unique~
+ABGH TV 0 0
+14 0 5d25+140 14d10+100 3d5+7 punch
+-14 -16 -12 -10
+CEFKd 0 0 0
+stand stand male 520
+AM ABCDEF medium unknown
+#4915
+eight clock~
+Eight o'clock~
+Eight o'clock stands here on a clock face.
+~
+You see a strong warrior with the number <8> engraved
+on his armour.
+~
+unique~
+ABGH TV 0 0
+16 0 5d33+180 16d10+100 4d5+8 punch
+-16 -18 -16 -12
+CEFKd 0 0 0
+stand stand male 1120
+AM ABCDEF medium unknown
+#4916
+nine clock~
+Nine o'clock~
+Nine o'clock stands here on a clock face.
+~
+You see a strong warrior with the number <9> engraved
+on his armour.
+~
+unique~
+ABGH TV 0 0
+18 0 5d40+200 18d10+100 4d5+9 punch
+-18 -23 -20 -15
+CEFKd 0 0 0
+stand stand male 920
+AM ABCDEF medium unknown
+#4917
+ten clock~
+Ten o'clock~
+Ten o'clock stands here on a clock face.
+~
+You see a strong warrior with the number <10> engraved
+on his armour.
+~
+unique~
+ABGH TV 0 0
+20 0 5d50+230 20d10+100 5d4+10 punch
+-20 -23 -20 -18
+CEFKd 0 0 0
+stand stand male 1020
+AM ABCDEF medium unknown
+#4918
+eleven clock~
+Eleven o'clock~
+Eleven o'clock stands here on a clock face.
+~
+You see a strong warrior with the number <11> engraved
+on his armour.
+~
+unique~
+ABGH TV 0 0
+22 0 6d50+270 22d10+100 4d6+12 punch
+-22 -23 -22 -19
+CEFKd 0 0 0
+stand stand male 1020
+AM ABCDEF medium unknown
+#4919
+twelve clock~
+Twelve o'clock~
+Twelve o'clock stands here on a clock face.
+~
+You see a strong warrior with the number <12> engraved
+on his armour.
+~
+unique~
+ABGH TV 0 0
+24 0 10d40+300 24d10+100 5d5+14 punch
+-25 -30 -24 -21
+CEFKd 0 0 0
+stand stand male 1200
+AM ABCDEF medium unknown
+#4920
+large gear~
+Large gear~
+Large gear is here moving slowly.
+~
+You see a round piece of metal spinning connected
+with the others.
+~
+unique~
+AGTY d 0 0
+20 0 5d50+250 20d10+100 5d5+15 scratch
+-20 -40 -20 -10
+CEId 0 0 0
+stand stand male 0
+AM ADEF large unknown
+#4921
+medium gear~
+Medium gear~
+Medium gear is here.
+~
+You see a round piece of metal spinning connected
+with the others.
+
+~
+unique~
+AGTY 0 0 0
+15 0 5d30+160 15d10+100 3d5+8 scratch
+-15 -30 -15 -10
+EFIKd 0 0 0
+stand stand male 0
+AM ABCDEF medium unknown
+#4922
+small gear~
+Small gear~
+Small gear is here moving quickly.
+~
+You see a round piece of metal spinning connected
+with the others.
+
+~
+unique~
+AGTY 0 0 0
+10 0 3d22+96 10d10+100 2d5+5 scratch
+-10 -20 -10 -6
+FHIKd 0 0 0
+stand stand male 0
+AM ABCDEF small unknown
+#4923
+tiny gear~
+Tiny gear~
+Tiny gear moves here very fast.
+~
+You see a round piece of metal spinning connected
+with the others.
+
+~
+unique~
+AGHTY V 0 0
+5 0 1d17+42 5d10+100 2d3+2 scratch
+-5 -10 -5 -2
+FHIJKNd 0 0 0
+stand stand male 0
+AM ABCDEF tiny unknown
+#4924
+pigeon tower~
+tower pigeon~
+A pigeon is here searching for food.
+~
+A beautiful pigeon walks on the roof, cooing and
+pecking bits of bread scattered by the chimney-
+sweep.
+~
+unique~
+ACGHQW DFNPTV 1000 0
+12 0 3d25+100 12d10+100 2d5+6 peck
+-10 -10 -10 -10
+DFHIJd N 0 0
+stand stand male 230
+AW ABCDEF small unknown
+#4925
+ghost terrifying~
+terrifying ghost~
+A strange figure looks like a ghost.
+~
+~
+ghost~
+AR B 0 0
+10 0 10d10+100 10d10+100 3d6+5 wrath
+0 0 0 0
+H 0 0 0
+stand stand none 0
+0 0 medium unknown
+#4926
+bat angry~
+angry bat~
+A very angry bat is flying here.
+~
+~
+bat~
+AFT D -1000 0
+5 0 5d10+70 10d10+100 3d3+6 cleave
+0 0 0 0
+0 0 0 0
+stand stand none 0
+0 0 small unknown
+#4927
+rat wimpy~
+wimpy rat~
+A big rat looks at you.
+~
+~
+bat~
+AFT F -1000 0
+8 0 10d10+100 0d0+0 5d2+5 bite
+0 0 0 0
+Q 0 0 0
+stand stand female 0
+0 0 small unknown
+F aff T
+#4928
+spider small~
+small spider~
+A small spider is trying to get out from you.
+~
+~
+centipede~
+AHR 0 0 0
+4 0 10d5+30 10d10+100 1d3+3 bite
+0 0 0 0
+0 0 0 0
+stand stand male 0
+0 0 tiny unknown
+#4929
+spider huge~
+HUGE spider~
+A huge spider attacks you!
+~
+~
+centipede~
+AHR 0 -1000 0
+6 0 5d15+40 10d10+100 3d3+3 bite
+0 0 0 0
+0 0 0 0
+stand stand male 0
+0 0 small unknown
+#4930
+hand long big~
+Long Hand~
+A Long Hand shows you right time.
+~
+A big long arrow points at the edge of the clock face.
+~
+unique~
+AGTW TV 0 0
+30 0 10d60+420 30d100+100 5d6+15 charge
+-40 -30 -10 -10
+CDEFHIKNT 0 0 0
+stand stand male 2430
+AZc B medium unknown
+#4931
+hand short small~
+Short Hand~
+A Short Hand shows you right time.
+~
+A small short arrow points at the edge of the clock face.
+~
+unique~
+AGTW TV 0 0
+25 0 10d40+250 25d10+100 5d5+14 charge
+-30 -20 -10 -10
+CEFHIKNT 0 0 0
+stand stand male 2340
+AZc B medium unknown
+#4932
+hand long big~
+Long Hand~
+A Long Hand shows you right time.
+~
+A big long arrow points at the edge of the clock face.
+~
+unique~
+AGTW TV 0 0
+30 0 10d60+420 30d100+100 5d6+15 charge
+-40 -30 -10 -10
+CDEFHIKNT 0 0 0
+stand stand male 2430
+AZc B medium unknown
+#4933
+hand short small~
+Short Hand~
+A Short Hand shows you right time.
+~
+A small short arrow points at the edge of the clock face.
+~
+unique~
+AGTW TV 0 0
+25 0 10d40+250 25d10+100 5d5+14 charge
+-30 -20 -10 -10
+CEFHIKNT 0 0 0
+stand stand male 2340
+AZc B medium unknown
+#4934
+hand long big~
+Long Hand~
+A Long Hand shows you right time.
+~
+A big long arrow points at the edge of the clock face.
+~
+unique~
+AGTW TV 0 0
+30 0 10d60+420 30d100+100 5d6+15 charge
+-40 -30 -10 -10
+CDEFHIKNT 0 0 0
+stand stand male 2430
+AZc B medium unknown
+#4935
+hand short small~
+Short Hand~
+A Short Hand shows you right time.
+~
+A small short arrow points at the edge of the clock face.
+~
+unique~
+AGTW TV 0 0
+25 0 10d40+250 25d10+100 5d5+14 charge
+-30 -20 -10 -10
+CEFHIKNT 0 0 0
+stand stand male 2340
+AZc B medium unknown
+#0
+
+#OBJECTS
+#4900
+plate bell breast~
+bell breast plate~
+A Bell lies here forgotten.~
+bronze~
+armor BRY AD
+10 10 10 5 0
+30 100 100000 P
+A
+1 1
+A
+5 2
+A
+17 -50
+A
+18 5
+A
+19 5
+A
+24 -5
+G none
+#4901
+robe mechanic~
+robe of mechanic~
+An old oiled robe lies here.~
+silk~
+armor 0 AD
+15 15 15 10 0
+30 20 0 A
+A
+2 -1
+A
+4 3
+G none
+#4902
+standart set instrument~
+standart set of instruments~
+A set of instruments lies here forgotten.~
+iron~
+weapon BR AN
+exotic 6 6 cleave G
+30 100 5000 P
+A
+14 -100
+A
+18 3
+A
+19 3
+G none
+#4903
+cabinet~
+cabinet~
+An ivory cabinet stands here.~
+ivory~
+container CRY 0
+100 ABC 4904 100 100
+0 0 0 P
+G none
+#4904
+key ivory~
+ivory key~
+An ivory key is tied to the gold chain.~
+ivory~
+key CFU AO
+0 0 0 0 0
+30 0 0 P
+G none
+#4905
+key bronze~
+bronze clock key~
+A key made with bronze waits to be used.~
+bronze~
+armor AY AO
+0 0 0 0 0
+20 50 100000 G
+A
+4 3
+A
+12 50
+A
+13 50
+A
+17 -50
+A
+18 5
+A
+19 5
+A
+24 -5
+G none
+#4906
+black hat top~
+black top hat of a chimney-sweep~
+A strange-looking black hat sits here.~
+silk~
+armor GK AE
+10 10 10 8 0
+15 40 1000 P
+A
+3 -1
+A
+4 -1
+A
+12 20
+A
+24 -3
+G none
+#4907
+black vest chimney~
+black vest of a chimney-sweep~
+A black vest lies here.~
+silk~
+armor GK AD
+10 10 10 8 0
+15 30 1000 P
+A
+1 -1
+A
+2 2
+A
+5 -1
+A
+13 20
+G none
+#4908
+black leggins chimney~
+black leggings of a chimney-sweep~
+Leather leggings lie here.~
+soft leather~
+armor GKMZ AF
+10 10 10 8 0
+15 20 1000 P
+A
+5 1
+A
+14 50
+A
+17 -5
+A
+19 2
+G none
+#4909
+black broom chimney~
+black chimney broom~
+A chimney broom lies here.~
+wire~
+staff 0 AO
+25 10 10 'faerie fog' 0
+15 10 1500 P
+G none
+#4910
+hand short~
+short hand~
+A short arrow lies here neglected.~
+copper~
+weapon AH AN
+spear 6 5 pierce DK
+25 50 4500 P
+G none
+#4911
+hand long~
+long hand~
+A long arrow lies here neglected.~
+copper~
+weapon 0 AN
+spear 6 6 pierce DK
+30 50 5600 P
+G none
+#4912
+wing bat~
+bat's wing~
+A piece of leather lies here shaped like a wing.~
+soft leather~
+armor BHLM AM
+3 3 3 2 0
+5 10 0 P
+A
+18 1
+G none
+#4913
+web spider~
+spider's web~
+A web hangs here between the walls.~
+elastic~
+armor MU AK
+3 3 3 2 0
+5 0 0 P
+A
+13 5
+A
+14 -10
+A
+24 3
+G none
+#4914
+skull pigeon~
+pigeon skull~
+A skull of a small bird lies here.~
+horn~
+armor 0 AE
+5 5 5 5 0
+10 10 0 P
+A
+1 -1
+A
+2 -1
+A
+3 -1
+A
+4 -1
+A
+5 -1
+A
+12 10
+A
+13 10
+A
+14 10
+A
+17 -10
+A
+18 2
+G none
+#4915
+talon rat~
+rat's talon~
+A pile of talons is scattered on the dirt.~
+horn~
+armor IU AB
+3 3 3 2 0
+5 5 0 P
+A
+18 -1
+A
+19 1
+G none
+#4916
+breast plate glowing~
+"3" glowing breast plate~
+A pile of armor with the number "3" engraved on it lies here.~
+brass~
+armor A AD
+4 4 4 2 0
+3 40 1500 P
+G none
+#4917
+plate glowing leg~
+"3" glowin leg plates~
+A pile of armor with the number "3" engraved on it lies here.~
+brass~
+armor A AF
+4 4 4 2 0
+3 40 1500 P
+G plural
+#4918
+breast plate glowing~
+"3" glowing breast plate~
+A pile of armor with the number "3" engraved on it lies here.~
+brass~
+armor A AD
+4 4 4 2 0
+3 40 1500 P
+G none
+#4919
+breast plate glowing~
+"3" glowing breast plate~
+A pile of armor with the number "3" engraved on it lies here.~
+brass~
+armor A AD
+4 4 4 2 0
+3 40 1500 P
+G none
+#4920
+breast plate glowing~
+"3" glowing breast plate~
+A pile of armor with the number "3" engraved on it lies here.~
+brass~
+armor A AD
+4 4 4 2 0
+3 40 1500 P
+G none
+#4921
+breast plate glowing~
+"3" glowing breast plate~
+A pile of armor with the number "3" engraved on it lies here.~
+brass~
+armor A AD
+4 4 4 2 0
+3 40 1500 P
+G none
+#0
+
+#ROOMS
+#4900
+@eng Entrance to the Tower@rus Вход в Башню~
+@eng You have entered the Clock Tower - the one of the
+very amazing things in the World! West you can see
+a small room, a spiral staircase leads up. Outdoors
+you hear sounds of the square.
+@rus Ты входишь в Часовую Башню - одно из величайших
+чудес Света! На западе ты видишь небольшую комнату,
+наверх ведет спиральная лестница. Снаружи доносятся
+звуки города.
+~
+0 0 inside
+D0
+~
+~
+Z 0 4999
+D3
+~
+~
+Z -1 15000
+D4
+~
+~
+Z -1 4994
+S
+#4901
+@eng At One o'clock@rus Один Час~
+@eng You have reached a number One on a clock face.
+A number One that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Один на циферблате башенных часов.
+Цифра Один, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D1
+~
+~
+Z -1 4902
+S
+#4902
+@eng At Two o'clock@rus Два Часа~
+@eng You have reached a number Two on a clock face.
+A number Two that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Два на циферблате башенных часов.
+Цифра Два, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D5
+~
+~
+Z -1 4903
+S
+#4903
+@eng At Three o'clock@rus Три Часа~
+@eng You have reached a number Three on a clock face.
+A number Three that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Три на циферблате башенных часов.
+Цифра Три, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D5
+~
+~
+Z -1 4904
+S
+#4904
+@eng At Four o'clock@rus Четыре Часа~
+@eng You have reached a number Four on a clock face.
+A number Four that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Четыре на циферблате башенных часов.
+Цифра Четыре, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D5
+~
+~
+Z -1 4905
+S
+#4905
+@eng At Five o'clock@rus Пять Часов~
+@eng You have reached a number Five on a clock face.
+A number Five that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Пять на циферблате башенных часов.
+Цифра Пять, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D3
+~
+~
+Z -1 4906
+S
+#4906
+@eng At Six o'clock@rus Шесть Часов~
+@eng You have reached a number Six on a clock face.
+A number Six that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Шесть на циферблате башенных часов.
+Цифра Шесть, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D3
+~
+~
+Z -1 4907
+S
+#4907
+@eng At Seven o'clock@rus Семь Часов~
+@eng You have reached a number Seven on a clock face.
+A number Seven that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Семь на циферблате башенных часов.
+Цифра Семь, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D3
+~
+~
+Z -1 4908
+S
+#4908
+@eng At Eight o'clock@rus Восемь Часов~
+@eng You have reached a number Eight on a clock face.
+A number Eight that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Восемь на циферблате башенных часов.
+Цифра Восемь, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D4
+~
+~
+Z -1 4909
+S
+#4909
+@eng At Nine o'clock@rus Девять Часов~
+@eng You have reached a number Nine on a clock face.
+A number Nine that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Девять на циферблате башенных часов.
+Цифра Девять, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D4
+~
+~
+Z -1 4910
+S
+#4910
+@eng At Ten o'clock@rus Десять Часоы~
+@eng You have reached a number Ten on a clock face.
+A number Ten that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Десять на циферблате башенных часов.
+Цифра Десять, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D4
+~
+~
+Z -1 4911
+S
+#4911
+@eng At Eleven o'clock@rus Одиннадцать Часов~
+@eng You have reached a number Eleven on a clock face.
+A number Eleven that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Одиннадцать на циферблате башенных часов.
+Цифра Одиннадцать, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D1
+~
+~
+Z -1 4912
+S
+#4912
+@eng At Twelve o'clock@rus Двенадцать Часов~
+@eng You have reached a number Twelve on a clock face.
+A number Twelve that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Двенадцать на циферблате башенных часов.
+Цифра Двенадцать, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D1
+~
+~
+Z -1 4901
+D5
+~
+~
+Z -1 4949
+S
+#4913
+@eng At One o'clock@rus Один Час~
+@eng You have reached a number One on a clock face.
+A number One that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Один на циферблате башенных часов.
+Цифра Один, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D2
+~
+~
+Z -1 4914
+S
+#4914
+@eng At Two o'clock@rus Два Часа~
+@eng You have reached a number Two on a clock face.
+A number Two that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Два на циферблате башенных часов.
+Цифра Два, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D5
+~
+~
+Z -1 4915
+S
+#4915
+@eng At Three o'clock@rus Три Часа~
+@eng You have reached a number Three on a clock face.
+A number Three that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Три на циферблате башенных часов.
+Цифра Три, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D5
+~
+~
+Z -1 4916
+S
+#4916
+@eng At Four o'clock@rus Четыре Часа~
+@eng You have reached a number Four on a clock face.
+A number Four that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Четыре на циферблате башенных часов.
+Цифра Четыре, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D5
+~
+~
+Z -1 4917
+S
+#4917
+@eng At Five o'clock@rus Пять Часов~
+@eng You have reached a number Five on a clock face.
+A number Five that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Пять на циферблате башенных часов.
+Цифра Пять, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D0
+~
+~
+Z -1 4918
+S
+#4918
+@eng At Six o'clock@rus Шесть Часов~
+@eng You have reached a number Six on a clock face.
+A number Six that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Шесть на циферблате башенных часов.
+Цифра Шесть, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D0
+~
+~
+Z -1 4919
+S
+#4919
+@eng At Seven o'clock@rus Семь Часов~
+@eng You have reached a number Seven on a clock face.
+A number Seven that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Семь на циферблате башенных часов.
+Цифра Семь, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D0
+~
+~
+Z -1 4920
+S
+#4920
+@eng At Eight o'clock@rus Восемь Часов~
+@eng You have reached a number Eight on a clock face.
+A number Eight that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Восемь на циферблате башенных часов.
+Цифра Восемь, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D4
+~
+~
+Z -1 4921
+S
+#4921
+@eng At Nine o'clock@rus Девять Часов~
+@eng You have reached a number Nine on a clock face.
+A number Nine that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Девять на циферблате башенных часов.
+Цифра Девять, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D4
+~
+~
+Z -1 4922
+S
+#4922
+@eng At Ten o'clock@rus Десять Часоы~
+@eng You have reached a number Ten on a clock face.
+A number Ten that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Десять на циферблате башенных часов.
+Цифра Десять, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D4
+~
+~
+Z -1 4923
+S
+#4923
+@eng At Eleven o'clock@rus Одиннадцать Часов~
+@eng You have reached a number Eleven on a clock face.
+A number Eleven that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Одиннадцать на циферблате башенных часов.
+Цифра Одиннадцать, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D2
+~
+~
+Z -1 4924
+S
+#4924
+@eng At Twelve o'clock@rus Двенадцать Часов~
+@eng You have reached a number Twelve on a clock face.
+A number Twelve that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Двенадцать на циферблате башенных часов.
+Цифра Двенадцать, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D2
+~
+~
+Z -1 4913
+D5
+~
+~
+Z -1 4950
+S
+#4925
+@eng At One o'clock@rus Один Час~
+@eng You have reached a number One on a clock face.
+A number One that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Один на циферблате башенных часов.
+Цифра Один, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D3
+~
+~
+Z -1 4926
+S
+#4926
+@eng At Two o'clock@rus Два Часа~
+@eng You have reached a number Two on a clock face.
+A number Two that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Два на циферблате башенных часов.
+Цифра Два, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D5
+~
+~
+Z -1 4927
+S
+#4927
+@eng At Three o'clock@rus Три Часа~
+@eng You have reached a number Three on a clock face.
+A number Three that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Три на циферблате башенных часов.
+Цифра Три, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D5
+~
+~
+Z -1 4928
+S
+#4928
+@eng At Four o'clock@rus Четыре Часа~
+@eng You have reached a number Four on a clock face.
+A number Four that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Четыре на циферблате башенных часов.
+Цифра Четыре, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D5
+~
+~
+Z -1 4929
+S
+#4929
+@eng At Five o'clock@rus Пять Часов~
+@eng You have reached a number Five on a clock face.
+A number Five that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Пять на циферблате башенных часов.
+Цифра Пять, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D1
+~
+~
+Z -1 4930
+S
+#4930
+@eng At Six o'clock@rus Шесть Часов~
+@eng You have reached a number Six on a clock face.
+A number Six that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Шесть на циферблате башенных часов.
+Цифра Шесть, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D1
+~
+~
+Z -1 4931
+S
+#4931
+@eng At Seven o'clock@rus Семь Часов~
+@eng You have reached a number Seven on a clock face.
+A number Seven that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Семь на циферблате башенных часов.
+Цифра Семь, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D1
+~
+~
+Z -1 4932
+S
+#4932
+@eng At Eight o'clock@rus Восемь Часов~
+@eng You have reached a number Eight on a clock face.
+A number Eight that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Восемь на циферблате башенных часов.
+Цифра Восемь, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D4
+~
+~
+Z -1 4933
+S
+#4933
+@eng At Nine o'clock@rus Девять Часов~
+@eng You have reached a number Nine on a clock face.
+A number Nine that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Девять на циферблате башенных часов.
+Цифра Девять, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D4
+~
+~
+Z -1 4934
+S
+#4934
+@eng At Ten o'clock@rus Десять Часоы~
+@eng You have reached a number Ten on a clock face.
+A number Ten that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Десять на циферблате башенных часов.
+Цифра Десять, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D4
+~
+~
+Z -1 4935
+S
+#4935
+@eng At Eleven o'clock@rus Одиннадцать Часов~
+@eng You have reached a number Eleven on a clock face.
+A number Eleven that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Одиннадцать на циферблате башенных часов.
+Цифра Одиннадцать, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D3
+~
+~
+Z -1 4936
+S
+#4936
+@eng At Twelve o'clock@rus Двенадцать Часов~
+@eng You have reached a number Twelve on a clock face.
+A number Twelve that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Двенадцать на циферблате башенных часов.
+Цифра Двенадцать, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D3
+~
+~
+Z -1 4925
+D5
+~
+~
+Z -1 4951
+S
+#4937
+@eng At One o'clock@rus Один Час~
+@eng You have reached a number One on a clock face.
+A number One that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Один на циферблате башенных часов.
+Цифра Один, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D0
+~
+~
+Z -1 4938
+S
+#4938
+@eng At Two o'clock@rus Два Часа~
+@eng You have reached a number Two on a clock face.
+A number Two that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Два на циферблате башенных часов.
+Цифра Два, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D5
+~
+~
+Z -1 4939
+S
+#4939
+@eng At Three o'clock@rus Три Часа~
+@eng You have reached a number Three on a clock face.
+A number Three that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Три на циферблате башенных часов.
+Цифра Три, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D5
+~
+~
+Z -1 4940
+S
+#4940
+@eng At Four o'clock@rus Четыре Часа~
+@eng You have reached a number Four on a clock face.
+A number Four that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Четыре на циферблате башенных часов.
+Цифра Четыре, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D5
+~
+~
+Z -1 4941
+S
+#4941
+@eng At Five o'clock@rus Пять Часов~
+@eng You have reached a number Five on a clock face.
+A number Five that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Пять на циферблате башенных часов.
+Цифра Пять, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D2
+~
+~
+Z -1 4942
+S
+#4942
+@eng At Six o'clock@rus Шесть Часов~
+@eng You have reached a number Six on a clock face.
+A number Six that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Шесть на циферблате башенных часов.
+Цифра Шесть, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D2
+~
+~
+Z -1 4943
+S
+#4943
+@eng At Seven o'clock@rus Семь Часов~
+@eng You have reached a number Seven on a clock face.
+A number Seven that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Семь на циферблате башенных часов.
+Цифра Семь, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D2
+~
+~
+Z -1 4944
+S
+#4944
+@eng At Eight o'clock@rus Восемь Часов~
+@eng You have reached a number Eight on a clock face.
+A number Eight that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Восемь на циферблате башенных часов.
+Цифра Восемь, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D4
+~
+~
+Z -1 4945
+S
+#4945
+@eng At Nine o'clock@rus Девять Часов~
+@eng You have reached a number Nine on a clock face.
+A number Nine that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Девять на циферблате башенных часов.
+Цифра Девять, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D4
+~
+~
+Z -1 4946
+S
+#4946
+@eng At Ten o'clock@rus Десять Часоы~
+@eng You have reached a number Ten on a clock face.
+A number Ten that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Десять на циферблате башенных часов.
+Цифра Десять, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D4
+~
+~
+Z -1 4947
+S
+#4947
+@eng At Eleven o'clock@rus Одиннадцать Часов~
+@eng You have reached a number Eleven on a clock face.
+A number Eleven that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Одиннадцать на циферблате башенных часов.
+Цифра Одиннадцать, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D0
+~
+~
+Z -1 4948
+S
+#4948
+@eng At Twelve o'clock@rus Двенадцать Часов~
+@eng You have reached a number Twelve on a clock face.
+A number Twelve that you see gleems in the sunshine.
+You cannot go back, so keep moving!
+@rus Ты добрался до цифры Двенадцать на циферблате башенных часов.
+Цифра Двенадцать, которую ты видишь перед собой, вся сверкает
+в лучах солнца. Ты не можешь вернуться назад, так что
+двигайся дальше!
+~
+0 0 air
+D0
+~
+~
+Z -1 4937
+D5
+~
+~
+Z -1 4952
+S
+#4949
+@eng South Face@rus Южный циферблат~
+@eng Huh... At last, you went out from that incredible pile
+of gears, blocks, levers and you cannot even think what's
+more! You find yourself at the clock face. Gleeming
+figures stand at the edge of the face. Two hands: short
+and long, points at these figures.
+@rus Ффух... Наконец-то тебе удалось выбраться из этого
+невероятного хитросплетения шестеренок, блоков
+и рычагов. Ты обнаруживаешь, что оказался на циферблате.
+Сверкающие фигуры стоят по краю циферблата. Две стрелки:
+большая и маленькая указывают на эти фигуры.
+~
+0 0 air
+D0
+~
+~
+Z -1 4975
+D5
+~
+~
+Z -1 4906
+S
+#4950
+@eng West Face@rus Западный циферблат~
+@eng Huh... At last, you went out from that incredible pile
+of gears, blocks, levers and you cannot even think what's
+more! You find yourself at the clock face. Gleeming
+figures stand at the edge of the face. Two hands: short
+and long, points at these figures.
+@rus Ффух... Наконец-то тебе удалось выбраться из этого
+невероятного хитросплетения шестеренок, блоков
+и рычагов. Ты обнаруживаешь, что оказался на циферблате.
+Сверкающие фигуры стоят по краю циферблата. Две стрелки:
+большая и маленькая указывают на эти фигуры.
+~
+0 0 air
+D1
+~
+~
+Z -1 4965
+D5
+~
+~
+Z -1 4918
+S
+#4951
+@eng North Face@rus Северный циферблат~
+@eng Huh... At last, you went out from that incredible pile
+of gears, blocks, levers and you cannot even think what's
+more! You find yourself at the clock face. Gleeming
+figures stand at the edge of the face. Two hands: short
+and long, points at these figures.
+@rus Ффух... Наконец-то тебе удалось выбраться из этого
+невероятного хитросплетения шестеренок, блоков
+и рычагов. Ты обнаруживаешь, что оказался на циферблате.
+Сверкающие фигуры стоят по краю циферблата. Две стрелки:
+большая и маленькая указывают на эти фигуры.
+~
+0 0 air
+D2
+~
+~
+Z -1 4957
+D5
+~
+~
+Z -1 4930
+S
+#4952
+@eng East Face@rus Восточный циферблат~
+@eng Huh... At last, you went out from that incredible pile
+of gears, blocks, levers and you cannot even think what's
+more! You find yourself at the clock face. Gleeming
+figures stand at the edge of the face. Two hands: short
+and long, points at these figures.
+@rus Ффух... Наконец-то тебе удалось выбраться из этого
+невероятного хитросплетения шестеренок, блоков
+и рычагов. Ты обнаруживаешь, что оказался на циферблате.
+Сверкающие фигуры стоят по краю циферблата. Две стрелки:
+большая и маленькая указывают на эти фигуры.
+~
+0 0 air
+D3
+~
+~
+Z -1 4967
+D5
+~
+~
+Z -1 4942
+S
+#4953
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D1
+~
+~
+Z -1 4954
+D2
+~
+~
+Z -1 4962
+S
+#4954
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D1
+~
+~
+Z -1 4955
+D3
+~
+~
+Z -1 4953
+S
+#4955
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D2
+~
+~
+Z -1 4964
+D3
+~
+~
+Z -1 4954
+S
+#4956
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D1
+~
+~
+Z -1 4957
+D4
+~
+~
+Z -1 4959
+S
+#4957
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D0
+~
+~
+Z -1 4951
+D1
+~
+~
+Z -1 4958
+D3
+~
+~
+Z -1 4956
+S
+#4958
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D2
+~
+~
+Z -1 4967
+D3
+~
+~
+Z -1 4957
+S
+#4959
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D2
+~
+~
+Z -1 4968
+D5
+~
+~
+Z -1 4956
+S
+#4960
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D1
+~
+~
+Z -1 4961
+D2
+~
+~
+Z -1 4969
+S
+#4961
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D2
+~
+~
+Z -1 4970
+D3
+~
+~
+Z -1 4960
+S
+#4962
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D0
+~
+~
+Z -1 4953
+D1
+~
+~
+Z -1 4963
+S
+#4963
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D3
+~
+~
+Z -1 4962
+D5
+~
+~
+Z -1 4993
+S
+#4964
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D0
+~
+~
+Z -1 4955
+D2
+~
+~
+Z -1 4973
+S
+#4965
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D1
+~
+~
+Z -1 4966
+D2
+~
+~
+Z -1 4974
+D3
+~
+~
+Z -1 4950
+S
+#4966
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D2
+~
+~
+Z -1 4975
+D3
+~
+~
+Z -1 4965
+S
+#4967
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D0
+~
+~
+Z -1 4958
+D1
+~
+~
+Z -1 4952
+D2
+~
+~
+Z -1 4976
+S
+#4968
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D0
+~
+~
+Z -1 4959
+D1
+~
+~
+Z -1 4969
+S
+#4969
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D0
+~
+~
+Z -1 4960
+D3
+~
+~
+Z -1 4968
+S
+#4970
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D0
+~
+~
+Z -1 4961
+D2
+~
+~
+Z -1 4979
+S
+#4971
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D1
+~
+~
+Z -1 4972
+D4
+~
+~
+Z -1 4974
+S
+#4972
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D1
+~
+~
+Z -1 4973
+D3
+~
+~
+Z -1 4971
+S
+#4973
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D0
+~
+~
+Z -1 4964
+D3
+~
+~
+Z -1 4972
+S
+#4974
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D0
+~
+~
+Z -1 4965
+D5
+~
+~
+Z -1 4971
+S
+#4975
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D0
+~
+~
+Z -1 4966
+D1
+~
+~
+Z -1 4976
+D2
+~
+~
+Z -1 4949
+S
+#4976
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D0
+~
+~
+Z -1 4967
+D3
+~
+~
+Z -1 4975
+S
+#4977
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D1
+~
+~
+Z -1 4978
+D4
+~
+~
+Z -1 4980
+S
+#4978
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D1
+~
+~
+Z -1 4979
+D3
+~
+~
+Z -1 4977
+S
+#4979
+@eng Clock-Work@rus Часовой механизм~
+@eng You are inside an entangled mechanism. Big and small
+gears are moving all around you. Inmostly you see
+glowing light and hear some grunting noises. You hear
+as a pendulum knocks with a strong regularity.
+@rus Ты находишься внутри запутанного механизма. Большие
+и маленькие сверкающие шестеренки крутятся вокруг тебя.
+Где-то глубоко внутри ты замечаешь блеск и слышишь какие-
+то звуки. Ты слышишь, как маятник стучит с завораживающей
+периодичностью.
+~
+0 AD inside
+D0
+~
+~
+Z -1 4970
+D3
+~
+~
+Z -1 4978
+S
+#4980
+@eng Attic@rus Чердак~
+@eng You come into the dark dusty attic, filled with bats
+and poisoned spiders! Spiders web barges in your eyes
+and nose. You want acquisitively to run away from here!
+@rus Ты поднялся в темный, пыльный чердак! Вокруг кишмя
+кишат летучие мыши и ядовитые пауки. Паутина лезет тебе
+в нос и глаза, и ты хочешь побыстрее убраться отсюда.
+~
+0 ACD inside
+D0
+~
+~
+Z 0 4981
+D1
+~
+~
+Z 0 4983
+D4
+~
+~
+Z -1 4984
+D5
+~
+~
+Z -1 4977
+S
+#4981
+@eng Attic@rus Чердак~
+@eng You come into the dark dusty attic, filled with bats
+and poisoned spiders! Spiders web barges in your eyes
+and nose. You want acquisitively to run away from here!
+@rus Ты поднялся в темный, пыльный чердак! Вокруг кишмя
+кишат летучие мыши и ядовитые пауки. Паутина лезет тебе
+в нос и глаза, и ты хочешь побыстрее убраться отсюда.
+~
+0 AD inside
+D1
+~
+~
+Z 0 4982
+D2
+~
+~
+Z 0 4980
+D4
+~
+~
+Z -1 4984
+S
+#4982
+@eng Attic@rus Чердак~
+@eng You come into the dark dusty attic, filled with bats
+and poisoned spiders! Spiders web barges in your eyes
+and nose. You want acquisitively to run away from here!
+@rus Ты поднялся в темный, пыльный чердак! Вокруг кишмя
+кишат летучие мыши и ядовитые пауки. Паутина лезет тебе
+в нос и глаза, и ты хочешь побыстрее убраться отсюда.
+~
+0 AD inside
+D2
+~
+~
+Z 0 4983
+D3
+~
+~
+Z 0 4981
+D4
+~
+~
+Z -1 4984
+S
+#4983
+@eng Attic@rus Чердак~
+@eng You come into the dark dusty attic, filled with bats
+and poisoned spiders! Spiders web barges in your eyes
+and nose. You want acquisitively to run away from here!
+@rus Ты поднялся в темный, пыльный чердак! Вокруг кишмя
+кишат летучие мыши и ядовитые пауки. Паутина лезет тебе
+в нос и глаза, и ты хочешь побыстрее убраться отсюда.
+~
+0 AD inside
+D0
+~
+~
+Z 0 4982
+D3
+~
+~
+Z 0 4980
+D4
+~
+~
+Z -1 4984
+S
+#4984
+@eng Garret@rus Комната под крышей~
+@eng It seems that you have run away from those bats
+and spiders. But who is hidden in the corner?
+@rus Кажется, тебе удалось сбежать от злых пауков и
+летучих мышей... Но кто это прячется там, в углу?
+~
+0 ACD inside
+D4
+~
+~
+ABZ -1 4985
+S
+#4985
+@eng Center of the Roof@rus На крыше~
+@eng You are in the center of the nice tiled roof. Looking
+around, you see a whole town. Small clouds are on
+the sky, the weather is fine and you feel yourself
+asleep.
+@rus Ты находишься в ценре крыши, красиво выложенной
+черепицей. Вокруг ты видишь весь город. По небу
+проплывают небольшие облака, погода прекрасна,
+и тебя необоримо тянет в сон.
+~
+0 0 city
+D0
+~
+~
+Z -1 4986
+D1
+~
+~
+Z -1 4987
+D2
+~
+~
+Z -1 4988
+D3
+~
+~
+Z -1 4989
+D4
+~
+~
+Z -1 4990
+D5
+~
+~
+ABZ -1 4984
+S
+#4986
+@eng Tiled Roof@rus На краю крыши~
+@eng You step on the edge of the roof. Tower pigeons
+wonders about you, curring and gurgling. Far down
+you see a town square, where the Tower build on.
+And when the wind blows, it seems that you can fly!
+@rus Ты ступаешь по самому краю крыши. Голуби ходят
+вокруг, воркуя. Далеко внизу ты видишь городскую
+площадь, на которой стоит Башня. А когда дует
+ветер, кажется, еще чуть-чуть, и ты полетишь!
+~
+0 0 city
+D2
+~
+~
+Z -1 4985
+S
+#4987
+@eng Tiled Roof@rus На краю крыши~
+@eng You step on the edge of the roof. Tower pigeons
+wonders about you, curring and gurgling. Far down
+you see a town square, where the Tower build on.
+And when the wind blows, it seems that you can fly!
+@rus Ты ступаешь по самому краю крыши. Голуби ходят
+вокруг, воркуя. Далеко внизу ты видишь городскую
+площадь, на которой стоит Башня. А когда дует
+ветер, кажется, еще чуть-чуть, и ты полетишь!
+~
+0 0 city
+D3
+~
+~
+Z -1 4985
+S
+#4988
+@eng Tiled Roof@rus На краю крыши~
+@eng You step on the edge of the roof. Tower pigeons
+wonders about you, curring and gurgling. Far down
+you see a town square, where the Tower build on.
+And when the wind blows, it seems that you can fly!
+@rus Ты ступаешь по самому краю крыши. Голуби ходят
+вокруг, воркуя. Далеко внизу ты видишь городскую
+площадь, на которой стоит Башня. А когда дует
+ветер, кажется, еще чуть-чуть, и ты полетишь!
+~
+0 0 city
+D0
+~
+~
+Z -1 4985
+S
+#4989
+@eng Tiled Roof@rus На краю крыши~
+@eng You step on the edge of the roof. Tower pigeons
+wonders about you, curring and gurgling. Far down
+you see a town square, where the Tower build on.
+And when the wind blows, it seems that you can fly!
+@rus Ты ступаешь по самому краю крыши. Голуби ходят
+вокруг, воркуя. Далеко внизу ты видишь городскую
+площадь, на которой стоит Башня. А когда дует
+ветер, кажется, еще чуть-чуть, и ты полетишь!
+~
+0 0 city
+D1
+~
+~
+Z -1 4985
+S
+#4990
+@eng By the bottom of the Spire@rus У основания Шпиля~
+@eng You stand by the bottom of the tower spire. You
+wonder, if it is worth climbing atop the spire or
+not? Better think...
+@rus Ты стоишь у основания шпиля и думаешь, стоит ли
+на него лезть или лучше воздержаться? Лучше подумай...
+~
+0 0 city
+D4
+~
+~
+Z -1 4991
+D5
+~
+~
+Z -1 4985
+S
+#4991
+@eng The Spire@rus Шпиль~
+@eng You are clambering up the spire. The spire swings while
+the wind blows, and you are going to regret that you cannot
+fly... Up ahead you see a strange figure rotating above the
+spire.
+@rus Ты карабкаешься по шпилю. Шпиль раскачивается с
+каждым новым порывом ветра, и ты уже начинаешь
+жалеть, что не умеешь летать... Наверху ты видишь
+странный предмет, крутящийся над шпилем.
+~
+0 C city
+D4
+~
+~
+Z -1 4992
+D5
+~
+~
+Z -1 4990
+S
+#4992
+Atop the Spire~
+@eng So, you have reached a highest point of the tower.
+Again you can look all around and enjoy the picture
+of a whole countryside.
+@rus Итак, ты достиг высочайшей точки башни и по-новому
+можешь оглядеть окрестности и насладиться вовсю видами,
+открывающимися тебе.
+~
+0 0 city
+D5
+~
+~
+Z -1 4991
+S
+#4993
+@eng Atop the Staircase@rus Площадка наверху лестницы~
+@eng At last, you are atop the staircase! Lookind down
+you amuse how can you have done it. Up you hear some
+strange sounds - scratches and squeaks, as someone
+wambles about.
+@rus Наконец-то! Ты одолел-таки эту лестницу. Оглянувшись,
+ты удивляешься, как тебе удалось это сделать! Наверху
+ты слышишь странные звуки - скрипы и лязги, как будто
+кто-то большой ворочается с боку на бок.
+~
+0 ACD inside
+D4
+~
+~
+Z -1 4963
+D5
+~
+~
+Z -1 4998
+S
+#4994
+@eng Spiral Staircase@rus Спиральная лестница~
+@eng You climb up on the spiral staircase. Iron stairs
+squeak as you step on them. Old bricks around you
+make you to think about Eternity. Some of them moss-
+grown and you can barely see small creaturs.
+@rus Ты взбираешься по спиральной лестнице. Железные
+ступени скрипят при каждом твоем шаге. Старые кирпичи
+вокруг навевают мысли о Вечном. Некоторые из них поросли
+мхом, и ты едва различаешь небольших тварей вокруг себя.
+~
+0 AD inside
+D4
+~
+~
+Z -1 4995
+D5
+~
+~
+Z -1 4900
+S
+#4995
+@eng Spiral Staircase@rus Спиральная лестница~
+@eng You climb up on the spiral staircase. Iron stairs
+squeak as you step on them. Old bricks around you
+make you to think about Eternity. Some of them moss-
+grown and you can barely see small creaturs.
+@rus Ты взбираешься по спиральной лестнице. Железные
+ступени скрипят при каждом твоем шаге. Старые кирпичи
+вокруг навевают мысли о Вечном. Некоторые из них поросли
+мхом, и ты едва различаешь небольших тварей вокруг себя.
+~
+0 AD inside
+D4
+~
+~
+Z -1 4996
+D5
+~
+~
+Z -1 4994
+S
+#4996
+@eng Spiral Staircase@rus Спиральная лестница~
+@eng You climb up on the spiral staircase. Iron stairs
+squeak as you step on them. Old bricks around you
+make you to think about Eternity. Some of them moss-
+grown and you can barely see small creaturs.
+@rus Ты взбираешься по спиральной лестнице. Железные
+ступени скрипят при каждом твоем шаге. Старые кирпичи
+вокруг навевают мысли о Вечном. Некоторые из них поросли
+мхом, и ты едва различаешь небольших тварей вокруг себя.
+~
+0 AD inside
+D4
+~
+~
+Z -1 4997
+D5
+~
+~
+Z -1 4995
+S
+#4997
+@eng Spiral Staircase@rus Спиральная лестница~
+@eng You climb up on the spiral staircase. Iron stairs
+squeak as you step on them. Old bricks around you
+make you to think about Eternity. Some of them moss-
+grown and you can barely see small creaturs.
+@rus Ты взбираешься по спиральной лестнице. Железные
+ступени скрипят при каждом твоем шаге. Старые кирпичи
+вокруг навевают мысли о Вечном. Некоторые из них поросли
+мхом, и ты едва различаешь небольших тварей вокруг себя.
+~
+0 AD inside
+D4
+~
+~
+Z -1 4998
+D5
+~
+~
+Z -1 4996
+S
+#4998
+@eng Spiral Staircase@rus Спиральная лестница~
+@eng You climb up on the spiral staircase. Iron stairs
+squeak as you step on them. Old bricks around you
+make you to think about Eternity. Some of them moss-
+grown and you can barely see small creaturs.
+@rus Ты взбираешься по спиральной лестнице. Железные
+ступени скрипят при каждом твоем шаге. Старые кирпичи
+вокруг навевают мысли о Вечном. Некоторые из них поросли
+мхом, и ты едва различаешь небольших тварей вокруг себя.
+~
+0 AD inside
+D4
+~
+~
+Z -1 4993
+D5
+~
+~
+Z -1 4997
+S
+#4999
+@eng Watchman's Shelter@rus Каморка Смотрителя~
+@eng You are in a small room. Looking around, you see
+a table with a simple chair near it. A wooden
+cabinet stands by the corner. A small tablet is nailed
+to the wall.
+@rus Ты находишься в маленькой полутемной комнате.
+Оглядываясь вокруг, ты замечаешь стол и стул
+подле него. В углу стоит небольшая конторка.
+Маленькая табличка (tablet) прибита к стене.
+~
+0 0 inside
+E
+tablet~
+Agrael build this Tower in June, 1999.
+~
+D2
+~
+~
+Z 0 4900
+S
+#0
+
+#SPECIALS
+M 4928 spec_poison	* small spider
+M 4929 spec_poison	* HUGE spider
+S
+
+#RESETS
+D 0 4984 4 1	* Garret: door to the up: closed
+D 0 4985 5 1	* Center of the Roof: door to the down: closed
+S
+
+#$

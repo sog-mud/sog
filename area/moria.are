@@ -1,6 +1,5 @@
 #AREADATA
 Name Moria~
-Builders kelson~
 VNUMs 3900 4199
 Credits Alfa~
 Security 9
@@ -100,7 +99,7 @@ This tall warrior has more scars than even you!
 He's surely a strong, brainless fighter.  Like you.
 ~
 human~
-ABCFT J -300 0
+ABC J -300 0
 12 3 10d12+120 1d1+149 1d8+4 punch
 1 -1 2 5
 CIQR 0 0 0
@@ -659,10 +658,8 @@ a war axe~
 A razor-sharp war axe rests on the ground.~
 steel~
 weapon G AN
-axe 3 2 chop 0
+axe 3 4 chop D
 12 70 930 P
-A
-19 1
 E
 axe~
 It has an edge sharp enough to cut a passing thought. A good find, this.

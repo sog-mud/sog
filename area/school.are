@@ -389,7 +389,7 @@ mace булава~
 @eng You see a mace of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 @rus Ты видишь искусно смастеренную, но дешевую булаву. На рукояти ты видишь
-выгравированные буквы: "Мерктяжмаш".
+выгравированные буквы: "мастерская Мерка".
 ~
 G female
 #3701
@@ -403,9 +403,11 @@ dagger 1 4 pierce 0
 A
 18 1
 E
-dagger~
-You see a dagger of great but cheap craftsmanship.  Imprinted on the side is:
+dagger кинжал~
+@eng You see a dagger of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
+@rus Ты видишь искусно выкованный, но дешевый кинжал. На его рукояти
+видны выгравированные буквы -- "мастерская Мерка".
 ~
 G male
 #3702
@@ -420,8 +422,10 @@ A
 18 1
 E
 sword~
-You see a sword of great but cheap craftsmanship.  Imprinted on the side is:
+@eng You see a sword of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
+@rus Ты видишь искусно выкованный, но дешевый меч. На его рукояти видны
+выгравированные буквы -- "мастерская Мерка".
 ~
 G male
 #3703
@@ -433,25 +437,29 @@ armor U AD
 1 1 1 0 0
 0 50 144 P
 E
-vest~
-You see a vest of great but cheap craftsmanship.  Stamped on the side is:
+vest жилет~
+@eng You see a vest of great but cheap craftsmanship.  Stamped on the side is:
 Merc Industries
+@rus Ты видишь жилет из дешевой ткани, но достаточно хорошо сшитый. На
+внутренней стороне вышиты буквы -- "мастерская Мерка".
 ~
 G male
 #3704
-shield sub merc~
-a sub issue shield~
-You see a sub issue shield here.~
+shield sub merc щит~
+@eng a sub issue shield@rus ~~учебный~~ ~~щит~~~
+@eng You see a sub issue shield here.@rus Учебный щит (shield) оставлен здесь.~
 wood~
 armor U AJ
 1 1 1 0 0
 0 30 108 P
 E
-shield~
-You see a shield of great but cheap craftsmanship.  Imprinted on the side is:
+shield щит~
+@eng You see a shield of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
+@rus Ты видишь хорошо сделанный, но дешевый щит. С внутренней стороны
+на нем выгровированны слова -- "мастерская Мерка".
 ~
-G none
+G male
 #3705
 cloak sub merc~
 a sub issue cloak~
@@ -465,7 +473,7 @@ cloak~
 You see a cloak of great but cheap craftsmanship.  Imprinted on the side is:
 Merc Industries
 ~
-G none
+G male
 #3706
 helmet sub merc~
 a sub issue helmet~

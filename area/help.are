@@ -1686,11 +1686,16 @@ WIS and CON both to 18 before practising or training anything else.
  
 ~
 92 'WIZ ADVANCE' ADVANCE~
-Syntax: advance <character> <level>
+@eng Syntax: {cadvance{x <character> <level>
 
 ADVANCE sets a character's level to the specified value.  It is the
 only way to create new immortal characters within the game.  ADVANCE
 may also be used to demote characters.
+@rus Синтаксис: {cadvance{x <персонаж> <уровень>
+ 
+ADVANCE устанавливает уровень персонажа. Это единственный способ создания
+нового бессмертного персонажа в игре. ADVANCE также можно использовать и для
+понижения уровня персонажа.
 ~
 0 TRUST~
 Syntax: trust {{ group | clan | all | none }
@@ -1837,17 +1842,48 @@ put in the room.  Mobiles are always put into the same room as the god.
 тивном случае. Монстры всегда помещаются в комнату, в которой ты стоишь.
 ~
 92 'WIZ SET' SET~
-Syntax: set mob   <mobile> <field> <value>
-	set obj   <object> <field> <value>
-	set room  <number> <field> <value>
-	set skill <char>   <name>  <rating>
-	set skill <char>   all     <rating>
-
-The set command is used to change the numerical values of the various data
-structures. Type set <class> without an argument to see a listing of options.
-Set skill all (pc's only) will set all the character's skills to the value
-given.  Use string to change the strings on an object or mobile.
-(see also string, stat)
+@eng Syntax: {cset mob{x   <mobile> <field> <value>
+Syntax: {cset obj{x   <object> <field> <value>
+Syntax: {cset room{x  <vnum>   <field> <value>
+Syntax: {cset skill{x <char>   <name>  <value>
+Syntax: {cset skill{x <name>    {call{x    <value>
+ 
+SET command is used to change numerical values of the various data structures.
+SET SKILL changes skill 'learned' percentage. SET SKILL ALL sets all character
+skills to given value. The following fields can be used with SET MOB, SET OBJ
+and SET ROOM:
+ 
+For {cSET MOB{x:
+str int wis dex con cha sex class level race gold hp mana move practice align
+train thirst drunk full hometown ethos noghost clan trouble security questp
+questt relig bloodlust desire
+ 
+For {cSET OBJ{x:
+value0 value1 value2 value3 value4 owner level cost timer
+ 
+For {cSET ROOM{x:
+flags sector
+@rus Синтаксис: {cset mob{x   <персонаж или монстр> <поле> <значение>
+Синтаксис: {cset obj{x   <обьект> <поле> <значение>
+Синтаксис: {cset room{x  <номер> <поле> <значение>
+Синтаксис: {cset skill{x <номер> <поле> <значение>
+Синтаксис: {cset skill{x <персонаж> {call{x <значение>
+ 
+Команда SET используется для установки значений полей в различных структурах.
+SET SKILL устанавливает процент владения тем или иным умением. SET SKILL ALL
+делает то же для всех умений, доступных персонажу. Командами SET MOB, SET OBJ
+и SET ROOM можно устанавливать следующие поля:
+ 
+Для {cSET MOB{x:
+str int wis dex con cha sex class level race gold hp mana move practice align
+train thirst drunk full hometown ethos noghost clan trouble security questp
+questt relig bloodlust desire
+ 
+Для {cSET OBJ{x:
+value0 value1 value2 value3 value4 owner level cost timer
+ 
+Для {cSET ROOM{x:
+flags sector
 ~
 92 'WIZ STRING' STRING~
 Syntax: string obj <field> <string>
@@ -4270,10 +4306,10 @@ Syntax: asave clans                 - save changed clans
 Syntax: asave msgdb                 - save msgdb
 Syntax: asave socials               - save socials
 Syntax: asave langs                 - save langs 
-Syntax: asave rules                 - save expl/impl rules
+Syntax: asave implicit              - save implicit rules
+Syntax: asave explicit              - save explicit rules
  
 Please note that 'asave world/changed' will save only authorized areas.
- 
 ~
 0 'OLC INTRO'~
 OLC (On-Line Creation) allows to create/edit misc objects on-line.
@@ -4721,24 +4757,39 @@ Syntax: plist [member | second | leader] [name]
 'plist xxx' will show current clan xxx list.
  
 ~
-0 'WIZ CHQUEST' CHQUEST~
-Syntax: chquest status
-Syntax: chquest restart
-Syntax: chquest start vnum
-Syntax: chquest stop vnum
-Syntax: chquest add vnum
-Syntax: chquest delete vnum
+92 'WIZ CHQUEST' CHQUEST~
+@eng Syntax: {cchquest status{x
+Syntax: {cchquest restart{x
+Syntax: {cchquest start{x <vnum>
+Syntax: {cchquest stop{x <vnum>
+Syntax: {cchquest add{x <vnum>
+Syntax: {cchquest delete{x <vnum>
  
-'chquest status' shows the status of challenge quests.
-'chquest restart' restarts all the challenge quests which are not running.
-'chquest start' starts challenge quest with obj vnum 'vnum'.
-'chquest stop' stops challenge quest with obj vnum 'vnum'.
-'chquest add' adds obj vnum to list of available quest items.
-All the objects with extra flags 'chquest' are added to this list
-automagically at the boot stage.
-'chquest del' stops challenge quest with obj vnum 'vnum' and deletes
-it from list of available quest items.
+CHQUEST STATUS shows the status of challenge quests.
+CHQUEST RESTART restarts all the challenge quests which are not running.
+CHQUEST START starts challenge quest for the object with given vnum.
+CHQUEST STOP stops challenge quest for the object with given vnum.
+CHQUEST ADD adds object with given vnum to the list of available quest items.
+CHQUEST DELETE removes object from challenge quest rewards list.
  
+All objects with 'chquest' extra flag are added to the list automatically at
+the boot stage.
+@rus Синтаксис: {cchquest status{x
+Синтаксис: {cchquest restart{x
+Синтаксис: {cchquest start{x <vnum>
+Синтаксис: {cchquest stop{x <vnum>
+Синтаксис: {cchquest add{x <vnum>
+Синтаксис: {cchquest delete{x <vnum>
+ 
+CHQUEST STATUS показывает текущее состояние спец. квестов.
+CHQUEST RESTART запускает сначала все неактивные в данный момент квесты.
+CHQUEST START запускает квест для обьекта с указанным номером.
+CHQUEST STOP останавливает квест для обьекта с указанным номером.
+CHQUEST ADD добавляет обьект с указанным номером в список квестов.
+CHQUEST DELETE удаляет обьект из этого списка.
+ 
+Все обьекты с флагом 'chquest' автоматически добавляются в список во время
+загрузки.
 ~
 -1 WIZLIST~
 .       __________         ***********************          __________
@@ -5184,24 +5235,34 @@ Language command is used to switch native language.
 Use 'language help' to list supported languages.
 ~
 92 'WIZ BAN' BAN~
-Syntax: ban add num action class mask
-Syntax: ban delete num
+@eng Syntax: {cban add{x <num> {callow{x <who> <mask>
+Syntax: {cban add{x <num> {cdeny{x <who> <mask>
+Syntax: {cban delete{x <num>
  
-'ban add' command will add ban with number 'num'.
-'action' is one {{ "allow", "deny" }
-'class' is one of {{ "all", "players", "newbies" }
-'mask' must be specified in form 'player@@host'. IP addresses
-can be used as well as symbolic host names. Shell patterns
-('*', '?' etc.) can be used.
+BAN ADD defines a rule for banning hosts. <who> option can be {call{x,
+{cplayers{x or {cnewbies{x. <mask> is specified in form player@@host.
+IP adresses can be used as well as symbolic host names. Wildcard can be used
+in mask
  
-'ban delete' command simply delete rule with number 'num'
-from ban list.
-
-E.g.:
-ban add 100 allow newbies *@@iclub.nsu.ru
-ban add 65535 deny newbies *
+BAN DELETE will delete rule with given number.
  
-This will allow newbies only from iclub.nsu.ru.
+E.g., to ban all newbies from everywhere save for iclub.nsu.ru, enter:
+   {cban add 100 allow newbies *@@iclub.nsu.ru{x
+   {cban add 200 deny newbies *{x
+@rus Синтаксис: {cban add{x <номер> {cdeny{x <кого> <маска>
+Синтаксис: {cban add{x <номер> {callow{x <кого> <маска>
+Синтаксис: {cban delete{x <номер>
+ 
+Команда BAN служит для задания правил пропуска игроков в игру. Выбрать тип
+ограничения входа можно при помощи опции <кого> - допустимы значения {call{x,
+{cplayers{x и {newbies{x. Маска задается как игрок@@сервер. Для указания сервера
+можно использовать как IP-адреса, так и символьные имена.
+ 
+BAN DELETE удаляет правило с указанным номером.
+ 
+Например, чтобы рарешить вход новых игроков только с iclub.nsu.ru, надо ввести:
+   {cban add 100 allow newbies *@@iclub.nsu.ru
+   ban add 200 deny newbies *{x
 ~
 -1 WANDS STAVES SCROLLS~
 Magical items require training to use properly.  If your character lacks the
@@ -5830,6 +5891,32 @@ SNOOP нужен для слежения за персонажем, при этом все что вводит или получает на
 экран указанный персонаж, выводится тебе. Ты можешь следить за несколькими
 игроками одновременно. Попытайтесь уважать чужую частную жизнь.
 SNOOP SELF отменяет все слежение.
+~
+92 'WIZ RATING' RATING~
+@eng Syntax: {crating{x
+ 
+This command show you a list of most dangerous head-hunters of this realm.
+@rus Синтаксис: {crating{x
+ 
+Эта команда показывает список самых отьявленных головорезов этого мира.
+~
+92 'WIZ DUMP' DUMP~
+@eng Syntax: {cdump{x
+ 
+DUMP saves detailed memory structures analisys on disk.
+@rus Синтаксис: {cdump{x
+ 
+Команда DUMP сбрасывает на диск анализ структур памяти.
+~
+92 'WIZ RENAME' RENAME~
+@eng Syntax: {crename{x <char> <new name>
+ 
+This command is used to change character's name. It correctly handles clans,
+object ownership etc.
+@rus Синтаксис: {crename{x <персонаж> <новое имя>
+ 
+Эта команда служит для смены имени персонажа. Она корректно обрабатывает
+состояние в клане, владение именными обьектами и т.д.
 ~
 -1 $~
 

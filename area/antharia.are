@@ -1,6 +1,6 @@
 #AREADATA
 Name Antharia~
-VNUMs 12300 12400
+VNUMs 12300 12399
 Credits Amadeus~
 Security 9
 LevelRange 9 42
@@ -799,7 +799,7 @@ before play" is the motto that Antharians live by.
 surface..you're amazed at how easy it is to notice the sun at this
 depth.  More Antharian magic, you think.
 ~
-0 0 unknown
+0 0 city
 D0
 The entrance street continues.
 ~
@@ -825,7 +825,7 @@ gods.
     The street continues north from here to the Temple, or south back
 to the Sea.
 ~
-0 0 unknown
+0 0 city
 D0
 The Temple of Anthar
 ~
@@ -849,7 +849,7 @@ you can return to the Sea by going south.  There is also a Magical
 sign posted here, put up by the councils of Antharia after the initial
 contact with Anon.
 ~
-0 0 unknown
+0 0 city
 E
 Sign~
 **ATTENTION NON-ANTHARIANS**
@@ -888,7 +888,7 @@ residents visible, their houses hugging the road just like any other
 city of this size.  Although old, they are well kept and in good
 condition.
 ~
-0 0 unknown
+0 0 city
 D0
 Temple Circle.
 ~
@@ -917,7 +917,7 @@ feel that if you could just get inside, you could aquire some of that
 power.  
     The road continues to the north and south.
 ~
-0 0 unknown
+0 0 city
 D0
 Temple Circle.
 ~
@@ -939,7 +939,7 @@ in their accuracy.  You wonder, did the wizards help in this
 accomplishment, or were the Antharian masons of that time incredibly
 good?  Maybe the secret lies within the temple....
 ~
-0 0 unknown
+0 0 city
 D2
 Temple Circle.
 ~
@@ -964,7 +964,7 @@ assume that this bridge once spanned a river or something of that
 nature; however, now this bridge spannes a channel filled with the
 same water that you are now breathing.
 ~
-0 0 unknown
+0 0 city
 D0
 Kaer's Bridge.
 ~
@@ -991,7 +991,7 @@ almost perfect in its accuracy.  You wonder, did the wizards help in
 this accomplishment, or were the Antharian masons of that time
 incredibly good?  Maybe the secret lies within the temple...
 ~
-0 0 unknown
+0 0 city
 D1
 Temple circle.
 ~
@@ -1013,7 +1013,7 @@ mounted on the top of the temple, it is even more impressive.  The
 temple seems to be a focus of tremendous power, you fell that if you
 could just get inside, you could aquire some of that power.
 ~
-0 0 unknown
+0 0 city
 D0
 Temple circle.
 ~
@@ -1035,7 +1035,7 @@ residents visible, their houses hugging the road just like any other
 city of this size.  Although old, they are well kept and in good
 condition.
 ~
-0 0 unknown
+0 0 city
 D0
 Temple Circle.
 ~
@@ -1059,7 +1059,7 @@ Just south of here is a building, simple and rustic -- with a sign
 hanging on it stating: Zaertses House of Relics.
       The street continues east and west.
 ~
-0 0 unknown
+0 0 city
 D1
 Main street of Antharia.
 ~
@@ -1080,7 +1080,7 @@ S
 Main Street of Antharia~
 Here the street makes a sharp turn to the north and east.
 ~
-0 0 unknown
+0 0 city
 D0
 Main street of Antharia
 ~
@@ -1096,7 +1096,7 @@ S
 Main Street of Antharia~
 The main street of Antharia continues north and south.
 ~
-0 0 unknown
+0 0 city
 D0
 Main street of Antharia.
 ~
@@ -1119,7 +1119,7 @@ places.
 by your presence.  Looking at you in curiosity, they almost look as
 though they might talk to you.
 ~
-0 0 unknown
+0 0 city
 D0
 East intersection
 ~
@@ -1138,7 +1138,7 @@ go north, south, east or west.  This seems to be a very busy section
 of town.
      There is a small street sign posted here.
 ~
-0 0 unknown
+0 0 city
 E
 sign~
 Ertuvia the weaponsmith........East
@@ -1178,7 +1178,7 @@ Antharians are passing by continually, possibly on their way to see
 Heaustf, or maybe to visit the Temple of Anthar.  Walking on Center
 street leaves you no doubt that this is really a major city.
 ~
-0 0 unknown
+0 0 city
 D1
 Center street.
 ~
@@ -1202,7 +1202,7 @@ associated with weaponsmiths, there is only the sound of talking
 coming from the building.
     There is a small street sign here.
 ~
-0 0 unknown
+0 0 city
 E
 sign~
 Ertuvia the weaponsmith........north
@@ -1247,7 +1247,7 @@ building is part of the ruins of grand Antharia.
     This bridge is used heavily, as it connects the Temple Circle to
 Center street.
 ~
-0 0 unknown
+0 0 city
 D0
 Center street.
 ~
@@ -1270,7 +1270,7 @@ leaves you know doubt that this is really a bustling city.
 case with Ertuvia, there is no sound of metal upon metal coming from
 the building..just the sound of Antharian voices.
 ~
-0 0 unknown
+0 0 city
 D0
 Heaustf's armory.
 ~
@@ -1301,7 +1301,7 @@ paintings to their individual houses.  As generations pass, this
 artwork gets more and more impressive.  Antharians are very proud of
 their heritage.
 ~
-0 0 unknown
+0 0 city
 D0
 Main street of Antharia.
 ~
@@ -1318,7 +1318,7 @@ Main Road of Antharia~
 Here the road makes a sharp turn to the east and south.  This
 seems to be a less traveled section of the city.
 ~
-0 0 unknown
+0 0 city
 D1
 Main road of Antharia.
 ~
@@ -1347,7 +1347,7 @@ ruins.  He is known to tell stories sometimes; however, he is usually
 very quiet about the things that he has seen.  What wanders await us
 in the ruins of grand Antharia?
 ~
-0 0 unknown
+0 0 city
 D1
 The main street of Antharia.
 ~
@@ -1372,7 +1372,7 @@ Zaertses owns a copy of this key, and it's secret is guarded with
 incredible zeal.  One day it is hoped that anyone can apply for
 admission into the ruins, but not now.
 ~
-0 0 unknown
+0 0 city
 D1
 Main road of Antharia.
 ~
@@ -1402,7 +1402,7 @@ in the ruins of grand Antharia?
     To the south you see the shop of the Sorceress Cyrtpea.  The
 building seems to radiate with power.
 ~
-0 0 unknown
+0 0 city
 D1
 Small intersection.
 ~
@@ -1424,7 +1424,7 @@ Small Intersection~
 Here the main bends to the west, with a less traveled road going to
 the east.  There is a small sign here.
 ~
-0 0 unknown
+0 0 city
 E
 sign~
 **The Great Antharian Zoo  ----------------------------->>>
@@ -1451,7 +1451,7 @@ A New Road~
 This road seems to be recently built, leading from the Main street
 to some location to the east.
 ~
-0 0 unknown
+0 0 city
 D1
 Zoo gate.
 ~
@@ -1479,7 +1479,7 @@ currently opened to non-Antharians.  Hopefully, the other races can
 convince the Antharians to allow other races to explore and
 investigate the zoo.
 ~
-0 0 unknown
+0 0 city
 D3
 a new road.
 ~
@@ -1500,7 +1500,7 @@ paintings to their individual houses.  As generations pass, this
 artwork gets more and more impressive.  Antharians are very proud of
 their heritage.
 ~
-0 0 unknown
+0 0 city
 D0
 Main street of Antharia.
 ~
@@ -1518,7 +1518,7 @@ This is the east intersection of the city of Antharia.  The road
 continues to the north and south, and Center Street goes to the west.
     There is a road sign posted here.
 ~
-0 0 unknown
+0 0 city
 E
 sign~
 Cyrtpea the Sorceress........North
@@ -1548,7 +1548,7 @@ Main Street of Antharia~
 Leaving the wonderful smell of the eatery, the road continues
 north.  Just ahead you can see a big intersection.
 ~
-0 0 unknown
+0 0 city
 D0
 Main street of Antharia.
 ~
@@ -1570,7 +1570,7 @@ looks VERY good.
    The main road continues to the north and south, if you ever want to
 leave.
 ~
-0 0 unknown
+0 0 city
 D0
 Main road of Antharia.
 ~
@@ -1596,7 +1596,7 @@ west towards the Temple of Anthar.
 are smelling.  Your mouth waters as you smell an aroma of fine
 Antharian food coming from the north.
 ~
-0 0 unknown
+0 0 city
 D0
 MAin road of Antharia.
 ~
@@ -1619,7 +1619,7 @@ content with their lives underwater, showing no signs of resentment
 that their once great empire was completely forgotton on the surface.
     The road continues from here to the west and to the east.
 ~
-0 0 unknown
+0 0 city
 D1
 Main road of Antharia
 ~
@@ -1643,7 +1643,7 @@ many) he sells, and the most valuble objects are displayed in a museum
 Antharians are convinced is located in the heart of the Temple of
 Anthar.
 ~
-0 0 unknown
+0 0 city
 D0
 Main street of Antharia.
 ~
@@ -1660,7 +1660,7 @@ around, it is obvious that Irghum is not hurting for business.  It is
 said that every Antharian visits Irghum at least once a month, and on
 special occasions.  Antharians love their food and love Irghum.
 ~
-0 D unknown
+0 D city
 D3
 Main street of Antharia.
 ~
@@ -1676,7 +1676,7 @@ the walls, of every shape and form.  There are also certain weapons
 that are obviously of Antharian origin.  You wonder what exactly those
 weapons are, and what kind of price Ertuvia will charge you for them.
 ~
-0 0 unknown
+0 0 city
 D2
 Center street.
 ~
@@ -1692,7 +1692,7 @@ society, being the maker of this armor.  His shop does not look like
 an regular armory would -- dirty, smelly, or dark.  Rather, it is
 clean, with Heaustf running the shop like a king running his kingdom.
 ~
-0 0 unknown
+0 0 city
 D2
 Center street.
 ~
@@ -1712,7 +1712,7 @@ once knew.
 touching you -- a non Antharian.  Cyrtpea sits at her desk, looking at
 books that you are sure hold the secrets of the world.
 ~
-0 0 unknown
+0 0 city
 D0
 Main road of Antharia
 ~
@@ -1727,7 +1727,7 @@ meeting between Antharia and the rest of the overwater world.
    The street continues to the west, and goes back to the West
 intersection directly to the east.
 ~
-0 0 unknown
+0 0 city
 D1
 West intersection.
 ~
@@ -1747,7 +1747,7 @@ can answer any questions and help you with diplomatic problems.
    Just to the north is the Human guild.  The street continues to the
 east and west. The Illithid guild lies to the south.
 ~
-0 0 unknown
+0 0 city
 D0
 Human guild.
 ~
@@ -1777,7 +1777,7 @@ can answer any questions and help you with diplomatic problems.
     The Dwarven guild is just south.  Guild street goes east and west.
 The Avian guild is due north of here.
 ~
-0 0 unknown
+0 0 city
 D0
 Avian Guild.
 ~
@@ -1807,7 +1807,7 @@ questions, and help you with any diplomatic problems.
     The Druid guild is to the north, while the Elven guild is to the
 south.  Guild street runs east and west.
 ~
-0 0 unknown
+0 0 city
 D0
 Druid guild.
 ~
@@ -1837,7 +1837,7 @@ answer any questions, and help you with any diplomatic problems.
    The Kender guild is to the north, while the Antharian guild is to
 the south.  Guild street runs towards the east.
 ~
-0 0 unknown
+0 0 city
 D0
 Kender guild.
 ~
@@ -1861,7 +1861,7 @@ The representative from the human race is standing here willing to
 help any of her fellow humans here in Antharia.
    The exit door to the south leads back to guild street.
 ~
-0 0 unknown
+0 0 city
 D2
 Guild street.
 ~
@@ -1875,7 +1875,7 @@ The representative from the Druids is standing here willing to help
 any of his fellow druids here in Antharia.
    The exit directly to the south leads to Guild street.
 ~
-0 0 unknown
+0 0 city
 D2
 Guild street.
 ~
@@ -1907,7 +1907,7 @@ important in the diplomatic relationship between Antharia and the
 other races of the world.
    The exit directly to the north leads back to guild street.
 ~
-0 0 unknown
+0 0 city
 D0
 Guild street.
 ~
@@ -1921,7 +1921,7 @@ guild.  The representative from the Elves is standing here willing to
 help any of her fellow elves here in Antharia.
     The exit directly to the north leads back to Guild street.
 ~
-0 0 unknown
+0 0 city
 D0
 Guild street.
 ~

@@ -360,7 +360,7 @@ spear копье steel~
 @eng A superbly crafted steel spear lies on the floor.@rus Копье (spear) с острым стальным наконечником брошено тут.~
 steel~
 weapon KMY AN
-spear 13 4 pierce D
+spear 13 4 pierce DK
 40 140 12000 P
 A
 18 5

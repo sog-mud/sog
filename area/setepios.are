@@ -3,7 +3,7 @@ Name Setepios~
 VNUMs 38000 38999
 Credits Setepios~
 Security 1
-LevelRange 0 0
+LevelRange 1 100
 Flags closed noquest~
 End
 
@@ -67,16 +67,16 @@ ACEFHIJKO BJKOPQU 0 0
 stand stand female 10000
 0 0 medium unknown
 #38004
-mavtar muvatar~
-Muvatar~
-Muvatar is hiding here.
+mavtar tikashu~
+Tikashu~
+Tikashu is here.
 ~
 ~
-centaur~
-ABCGQRST DFHJTVc 0 0
+human~
+0 0 0 0
 50 200 1d1+10000 1d1+5000 10d10+250 cleave
 40 40 40 30
-H BU 0 0
+0 0 0 0
 stand stand male 100000
 0 0 medium unknown
 #38005
@@ -1007,6 +1007,16 @@ unknown~
 treasure ACGMRSTZa AO
 0 0 0 0 0
 54 1 1 P
+G none
+#38603
+diamond ring power~
+Diamond Ring of Power~
+strange ring lies here.~
+unknown~
+armor T AB
+0 0 0 0 0
+35 1 1 P
+S 'bash' 30 A
 G none
 #0
 

@@ -1258,12 +1258,16 @@ D3
 Z 0 4406
 S
 #4409
-The Tent of the Bearded Lady~
-This tent consists of chairs for you to rest in, and a rickety wooden
+@eng The Tent of the Bearded Lady@rus Палатка Бородачки~
+@eng This tent consists of chairs for you to rest in, and a rickety wooden
 stage up front.  You hear the stage creak as you enter, and you understand
 why when you see who is standing on it.  She is bearded all right.  And big.
 Very big.  Colossally huge.  You don't seem to have any problem finding a seat.
 The place is deserted of spectators.
+@rus В этой комнате стоит стул для посетителей, а перед ним небольшая сцена из
+дерева. Вы услышали скрип сцены и сразу поняли почему, когда заметили
+кто на ней ! Она с бородой. С большой. Просто с громадной ! Вроде ты уселся
+без затруднений. Посетителей много и увех челюсть ниже подбородка.
 ~
 0 D inside
 D1
@@ -1282,7 +1286,7 @@ D3
 Z 0 4408
 S
 #4410
-The Tent of the Illusionist~
+@eng The Tent of the Illusionist@rus Шатер Фокусника~
 This tent is darkened at first.  Then it gradually lightens, although
 you do not see the source of the light.  You do hear a loud breathing sound
 though.  You think it may be coming from right behind you.  You think this 
@@ -1379,11 +1383,15 @@ You see the Sword Swallower's Tent.
 Z 0 4412
 S
 #4414
-The Path to the Big Top~
-This way to the Big Top is lined with people.  They seem to be having 
+@eng The Path to the Big Top@rus Дорога к Шапито~
+@eng This way to the Big Top is lined with people.  They seem to be having 
 a good time.  Everyone that is, except the people waiting in line for the 
 Big Top.  They seem annoyed at you as you push your way past them.  To the
 east and west you see games booths.  
+@rus Эта дорога ведет в Шапито, тут полно людей и прочей живности. Кажется они
+не плохо проводят время. Все ждут свой очереди и едят поп-корн. Им не
+нравиться, что ты расталкиваешь их и ведешь себя бесцеремонно. На востоке и
+западе виднеются игровые палатки.
 ~
 0 0 city
 D0
@@ -1397,10 +1405,13 @@ You see the Entrance to the Big Top.
 Z 0 4415
 S
 #4415
-The Entrance to the Big Top.~
-You've finally made it to the front of the line!  The entrance to the
+@eng The Entrance to the Big Top.@rus Вход в Шапито~
+@eng You've finally made it to the front of the line!  The entrance to the
 Big Top is in front of you.  You see a slot where you insert your ticket, to
 unlock the magic of The Circus that lies inside.
+@rus Тебе удалось пробиться через очередь и вот ты у входа ! Вход в Шапито 
+напротив тебя. Ты видишь волшебный замок шатра, но открыть его можно только
+билетом, а ты купил ?
 ~
 0 0 city
 D0
